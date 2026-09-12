@@ -15,13 +15,14 @@ Jede Iteration ist nach **Bereichen** aufgeschlüsselt: Programmierung (Kern), P
 Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu beginnen — noch ohne sichtbaren Lernfortschritt für Nutzer:innen.
 
 **Programmierung (Kern)**
-- [ ] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
-- [ ] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR)
-- [ ] PostgreSQL-Instanz (z. B. Neon/Supabase) für den Kern anlegen, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, ggf. `pgcrypto` für `gen_random_uuid()`), Drizzle/Prisma-Migrationsverwaltung einrichten
-- [ ] Generisches Content-Datenmodell migrieren: `KURS`, `FACHGEBIET`, `THEMA`, `CONTENT_ITEM`, `CONTENT_ITEM_VERSION`, `ANSWER_OPTION` (inkl. `side`-Feld für Zuordnungs-Paare), `TAG`, `CONTENT_ITEM_TAG`, `USER_COURSE` (F-09, F-13)
-- [ ] `REPORT`/`BLOCK`-Datenmodell (F-68) direkt mit den übrigen Migrationen anlegen, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
-- [ ] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies, Rollenmodell (`learner`, `parent`, `content_editor`, `admin`)
-- [ ] tRPC-Router-Grundstruktur für die Kern-API
+- [x] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
+- [x] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR) — Lint/Typecheck/Test/Build laufen jetzt tatsächlich gegen echten Code statt gegen TODO-Platzhalter
+- [x] Drizzle-Migrationsverwaltung einrichten, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, `pgcrypto` für `gen_random_uuid()`) — erste Migration `0000_enable_extensions.sql`; lokale Postgres/Redis-Instanz über `docker-compose.yml` im Repo-Root (siehe Architekturplanung Abschnitt 13)
+- [ ] Verwaltete PostgreSQL-Cloud-Instanz (z. B. Neon/Supabase) für Staging/Produktion tatsächlich anlegen — Kontoerstellung/Vertragsabschluss, kein Code-Task; die Migrationen selbst sind bereits lauffähig vorbereitet
+- [x] Generisches Content-Datenmodell migriert: `kurs`, `fachgebiet`, `thema`, `content_item`, `content_item_version`, `answer_option` (inkl. `side`-Feld für Zuordnungs-Paare), `tag`, `content_item_tag`, `user_course` (F-09, F-13) — siehe `apps/api/src/db/schema.ts` + `apps/api/drizzle/0001_*.sql`
+- [x] `report`/`block`-Datenmodell (F-68) direkt mit den übrigen Migrationen angelegt, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
+- [x] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies nach dem Lucia-Pattern, Rollenmodell — `user.role` (`learner`/`content_editor`/`admin`) plus eigener `parent`-Account-Typ mit eigener Session (siehe Architekturplanung Abschnitt 13); inkl. lauffähiger `register`/`login`/`logout`/`me`-Endpunkte (nimmt das Iteration-1-Item "Registrierung/Login inkl. Altersabfrage" unten vorweg)
+- [x] tRPC-Router-Grundstruktur für die Kern-API (`health`, `auth`; weitere Module folgen modulweise)
 
 **Content**
 - [ ] Zwischenformat für Content-Erstellung festlegen (z. B. Markdown-Dateien mit definiertem Frontmatter oder eine Tabellenvorlage) — unabhängig vom Entwicklungsstand des Redaktionssystems (F-11/F-17)
@@ -37,14 +38,14 @@ Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu be
 - [ ] Hosting-Accounts für Frontend (Vercel/Cloudflare Pages) und Kern-Backend (Railway/Render/Fly.io) anlegen
 
 **Testing**
-- [ ] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres)
+- [x] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres) — `apps/api/test/db.integration.test.ts` läuft Migrationen gegen einen echten, per Testcontainers gestarteten Postgres-Container; benötigt lokal einen laufenden Docker-Daemon
 
 ## Iteration 1 — Erster vertikaler Slice: Fachwirt-Pilot, HB3 (erstes Thema)
 
 Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Content zu einem ersten Thema aus HB3 lernen — Karteikarten und Quiz funktionieren Ende-zu-Ende.
 
 **Programmierung (Kern)**
-- [ ] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe)
+- [x] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe) — bereits mit dem Auth-Grundgerüst in Iteration 0 umgesetzt (`apps/api/src/trpc/routers/auth.ts`)
 - [ ] Konto-Selbstlöschung (F-06) implementieren: Eigenes Konto inkl. kaskadierender Daten vollständig löschen können — die technische Grundlage (Löschverhalten je Tabelle) steht bereits im Datenmodell; nötig, sobald echte personenbezogene Daten entstehen, unabhängig vom (später hinzukommenden) Payment-Service
 - [ ] Karteikarten-Modus (F-20) mit FSRS-Algorithmus (`ts-fsrs`, `USER_PROGRESS`-Felder `difficulty`/`stability`/`state`)
 - [ ] Quiz-Modus (F-21) mit Sofort-Feedback

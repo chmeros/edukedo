@@ -8,32 +8,38 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 
 ```
 /apps
-  /web        → React-PWA-Frontend (noch nicht aufgesetzt)
-  /api        → Kern-Backend (Fastify/NestJS, noch nicht aufgesetzt)
+  /web        → React-PWA-Frontend (noch nicht aufgesetzt, ab Iteration 1)
+  /api        → Kern-Backend (Fastify + tRPC) — Auth-Grundgerüst und Datenmodell stehen
   /payment    → Eigenständiger Payment-Service (erst ab Iteration 6)
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern
 /docs         → Projektziel, Anforderungskatalog, Architekturplanung, Entwicklungsplan
+docker-compose.yml → lokale Postgres/Redis-Instanzen für die Entwicklung
 ```
 
-## Setup (geplant, siehe Entwicklungsplan Iteration 0)
+## Setup
 
-Dieses Repository enthält aktuell nur das Grundgerüst (Monorepo-Konfiguration, Ordnerstruktur, Planungsdokumente). Der eigentliche Code für Iteration 0 (Monorepo-Tooling, CI, Datenbank-Migrationen, Auth-Grundgerüst, tRPC-Router) ist laut `docs/Entwicklungsplan.md` noch zu bauen.
-
-Vorgesehener Stack (siehe `docs/Architekturplanung.md` Abschnitt 2 für die vollständige Begründung):
-
-- **Paketmanager/Monorepo:** pnpm Workspaces + Turborepo
-- **Frontend:** React + TypeScript + Vite
-- **Backend:** Node.js + TypeScript (Fastify oder NestJS), tRPC
-- **Datenbank:** PostgreSQL (Kern und Payment getrennt), Drizzle oder Prisma als ORM
-- **Sonstiges:** Redis + BullMQ (Kern↔Payment-Event-Queue, erst ab Iteration 6), Argon2id für Passwort-Hashing, `ts-fsrs` für Spaced Repetition
-
-Sobald `pnpm-workspace.yaml`/`turbo.json` mit echten Paketen befüllt sind:
+Stack im Detail: siehe `docs/Architekturplanung.md` Abschnitt 2 und 13 (Kern-Backend: Fastify, ORM: Drizzle, Auth: Eigenbau nach dem Lucia-Pattern).
 
 ```bash
 pnpm install
-pnpm dev
+cp .env.example .env   # DATABASE_URL/SESSION_SECRET anpassen
+docker compose up -d   # lokale Postgres+Redis-Instanzen
+pnpm db:migrate         # Kern-Migrationen ausführen (Extensions, Schema)
+pnpm dev                # startet apps/api (Fastify) im Watch-Modus
 ```
+
+Weitere nützliche Befehle:
+
+```bash
+pnpm lint        # ESLint über alle Packages
+pnpm typecheck   # tsc --noEmit über alle Packages
+pnpm test        # Vitest (inkl. Testcontainers-Integrationstests, benötigt laufenden Docker-Daemon)
+pnpm build       # Produktions-Build
+pnpm db:generate # neue Drizzle-Migration aus apps/api/src/db/schema.ts generieren
+```
+
+Der Stand entspricht dem aktuellen Fortschritt aus `docs/Entwicklungsplan.md`, Iteration 0: Monorepo-Tooling, CI, Kern-Datenmodell (Drizzle-Migrationen), Auth-Grundgerüst und tRPC-Router-Grundstruktur stehen. Eine verwaltete Postgres-Cloud-Instanz (Neon/Supabase) für Staging/Produktion sowie `apps/web` (PWA-Frontend) folgen in den nächsten Schritten.
 
 ## Lizenz / Status
 
