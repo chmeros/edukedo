@@ -1,0 +1,12 @@
+{
+  "name": "@edukedo/api",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "echo \"TODO: Fastify/NestJS-Server + tRPC-Router aufsetzen (Entwicklungsplan Iteration 0)\" && exit 0",
+    "build": "echo \"TODO\" && exit 0",
+    "lint": "echo \"TODO\" && exit 0",
+    "typecheck": "echo \"TODO\" && exit 0",
+    "test": "echo \"TODO\" && exit 0"
+  }
+}

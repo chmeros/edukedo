@@ -1,0 +1,17 @@
+{
+  "name": "edukedo",
+  "private": true,
+  "version": "0.0.0",
+  "description": "edukedo – Lernplattform für Prüfungsvorbereitung & Wissenserwerb",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck"
+  }
+}
