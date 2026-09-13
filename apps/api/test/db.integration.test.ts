@@ -1,5 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
-import { sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import { Pool } from "pg";
@@ -88,5 +88,111 @@ describe("Kern-Migrationen", () => {
         expiresAt: new Date(Date.now() + 1000 * 60),
       }),
     ).rejects.toThrow();
+  });
+
+  it("kaskadiert das Löschen eines Kontos (F-06) exakt gemäß Abschnitt 4.4", async () => {
+    const [kursRow] = await db
+      .insert(schema.kurs)
+      .values({ slug: "test-kurs-loeschung", type: "fachwirt", title: "Test-Kurs Löschung" })
+      .returning();
+    const [fachgebietRow] = await db
+      .insert(schema.fachgebiet)
+      .values({ kursId: kursRow!.id, code: "HB1", title: "Test-Fachgebiet" })
+      .returning();
+    const [themaRow] = await db
+      .insert(schema.thema)
+      .values({ fachgebietId: fachgebietRow!.id, title: "Test-Thema" })
+      .returning();
+    const [contentItemRow] = await db
+      .insert(schema.contentItem)
+      .values({ themaId: themaRow!.id, type: "karteikarte", prompt: "Frage?" })
+      .returning();
+
+    const [userToDelete] = await db
+      .insert(schema.user)
+      .values({ email: "wird-geloescht@example.com", passwordHash: "hash", isMinor: false })
+      .returning();
+    const [otherUser] = await db
+      .insert(schema.user)
+      .values({ email: "andere-person@example.com", passwordHash: "hash", isMinor: false })
+      .returning();
+
+    await db.insert(schema.userCourse).values({ userId: userToDelete!.id, kursId: kursRow!.id });
+    await db.insert(schema.userProgress).values({
+      userId: userToDelete!.id,
+      contentItemId: contentItemRow!.id,
+      difficulty: 5,
+      stability: 1,
+      state: "new",
+      dueAt: new Date(),
+    });
+    await db.insert(schema.session).values({
+      id: "test-session-fuer-loeschung",
+      userId: userToDelete!.id,
+      expiresAt: new Date(Date.now() + 1000 * 60 * 60),
+    });
+    // userToDelete meldet otherUser: reporter_user_id soll nach Löschung auf null gesetzt
+    // werden, die Meldung selbst aber erhalten bleiben (Moderationshistorie).
+    const [reportByDeletedUser] = await db
+      .insert(schema.report)
+      .values({
+        reporterUserId: userToDelete!.id,
+        reportedUserId: otherUser!.id,
+        kursId: kursRow!.id,
+        reason: "Test-Meldung von der zu löschenden Person",
+      })
+      .returning();
+    // otherUser meldet userToDelete: diese Meldung soll mit userToDelete kaskadierend
+    // gelöscht werden (reported_user_id ON DELETE CASCADE).
+    await db.insert(schema.report).values({
+      reporterUserId: otherUser!.id,
+      reportedUserId: userToDelete!.id,
+      kursId: kursRow!.id,
+      reason: "Test-Meldung über die zu löschende Person",
+    });
+    await db.insert(schema.block).values({
+      userId: userToDelete!.id,
+      blockedUserId: otherUser!.id,
+      kursId: kursRow!.id,
+    });
+
+    await db.delete(schema.user).where(eq(schema.user.id, userToDelete!.id));
+
+    const remainingUserCourse = await db
+      .select()
+      .from(schema.userCourse)
+      .where(eq(schema.userCourse.userId, userToDelete!.id));
+    expect(remainingUserCourse).toHaveLength(0);
+
+    const remainingProgress = await db
+      .select()
+      .from(schema.userProgress)
+      .where(eq(schema.userProgress.userId, userToDelete!.id));
+    expect(remainingProgress).toHaveLength(0);
+
+    const remainingSession = await db
+      .select()
+      .from(schema.session)
+      .where(eq(schema.session.id, "test-session-fuer-loeschung"));
+    expect(remainingSession).toHaveLength(0);
+
+    const remainingBlock = await db
+      .select()
+      .from(schema.block)
+      .where(eq(schema.block.userId, userToDelete!.id));
+    expect(remainingBlock).toHaveLength(0);
+
+    const reportAsReported = await db
+      .select()
+      .from(schema.report)
+      .where(eq(schema.report.reportedUserId, userToDelete!.id));
+    expect(reportAsReported).toHaveLength(0);
+
+    const [reportAsReporter] = await db
+      .select()
+      .from(schema.report)
+      .where(eq(schema.report.id, reportByDeletedUser!.id));
+    expect(reportAsReporter).toBeDefined();
+    expect(reportAsReporter!.reporterUserId).toBeNull();
   });
 });

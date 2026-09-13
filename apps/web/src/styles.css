@@ -389,3 +389,64 @@ hr {
   padding-left: 1rem;
   border-left: 2px solid #e7e5e4;
 }
+
+.danger-link {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.5rem 0 0;
+}
+
+.delete-account {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.delete-account-warning {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #7f1d1d;
+}
+
+.delete-account input {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #d6d3d1;
+  border-radius: 4px;
+  font-size: 0.9375rem;
+}
+
+.delete-account-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.delete-account-actions button.danger {
+  background: #b91c1c;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-account-actions button.danger:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.delete-account-actions button:not(.danger) {
+  background: white;
+  border: 1px solid #d6d3d1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

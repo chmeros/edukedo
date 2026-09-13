@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
 import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
@@ -33,6 +34,7 @@ export function App() {
         <button type="button" onClick={() => logout.mutate()} disabled={logout.isPending}>
           Logout
         </button>
+        <DeleteAccount />
         <hr />
         <div className="tabs">
           <button

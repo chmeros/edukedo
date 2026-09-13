@@ -6,6 +6,7 @@ React + TypeScript + Vite Frontend (siehe Architekturplanung Abschnitt 2, 3, 5).
 
 - **Minimales Grundgerüst:** Vite + React + TypeScript, tRPC-Client (`@trpc/react-query` + TanStack Query v4) typsicher gegen `@edukedo/api` verdrahtet (`src/trpc.ts`).
 - **Auth-Seite:** Register-/Login-Formular gegen die bestehenden `auth.register`/`auth.login`/`auth.logout`/`auth.me`-Endpunkte (`src/App.tsx`) — noch ohne Styling-Bibliothek (Tailwind/shadcn) oder PWA-Infrastruktur.
+- **Konto-Selbstlöschung (F-06):** `src/DeleteAccount.tsx` — Bestätigungsdialog mit Passworteingabe, ruft `auth.deleteAccount`.
 - **Karteikarten-Modus (F-20):** `src/Flashcards.tsx` — Kursbeitritt (minimal, siehe Architekturplanung Abschnitt 13), fällige Karten anzeigen, Antwort aufdecken, Selbsteinschätzung (nicht gewusst/unsicher/gewusst) an `progress.submitReview` melden.
 - **Quiz-Modus (F-21, alle drei Formate):** `src/Quiz.tsx` — Multiple Choice (Option wählen), Zuordnung (Paare per Klick bilden), Lückentext (Inline-Eingabefelder); Server prüft und liefert Feedback, Abschluss-Score über alle Formate hinweg.
 - **Fortschrittsanzeige (F-30):** `src/Progress.tsx` — Fortschrittsbalken je Fachgebiet und (eingerückt) je Thema, mit Prozent "beherrscht" und Bruchzahl.

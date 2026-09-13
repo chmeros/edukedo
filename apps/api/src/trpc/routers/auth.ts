@@ -1,4 +1,4 @@
-import { loginInputSchema, registerInputSchema } from "@edukedo/shared";
+import { deleteAccountInputSchema, loginInputSchema, registerInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { calculateIsMinor } from "../../auth/age";
@@ -71,6 +71,25 @@ export const authRouter = router({
         await invalidateSession(ctx.db, unsigned.value);
       }
     }
+    ctx.res.clearCookie(SESSION_COOKIE_NAME, { path: "/" });
+    return { success: true };
+  }),
+
+  /**
+   * F-06: Konto-Selbstlöschung. Verlangt eine erneute Passworteingabe als Bestätigung für
+   * diese unumkehrbare Aktion. Das eigentliche kaskadierende Löschen (user_course,
+   * user_progress, exam_session/exam_answer, session, parent_child_link, block, ...) über-
+   * nimmt vollständig die Datenbank über die in Abschnitt 4.3/4.4 festgelegten
+   * ON DELETE CASCADE/SET NULL-Regeln — ein einzelnes DELETE auf "user" genügt.
+   */
+  deleteAccount: protectedProcedure.input(deleteAccountInputSchema).mutation(async ({ ctx, input }) => {
+    const passwordMatches = await verifyPassword(ctx.currentUser.passwordHash, input.password);
+    if (!passwordMatches) {
+      throw new TRPCError({ code: "UNAUTHORIZED", message: "Passwort ist falsch." });
+    }
+
+    await ctx.db.delete(user).where(eq(user.id, ctx.currentUser.id));
+
     ctx.res.clearCookie(SESSION_COOKIE_NAME, { path: "/" });
     return { success: true };
   }),

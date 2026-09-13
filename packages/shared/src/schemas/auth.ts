@@ -24,3 +24,13 @@ export const loginInputSchema = z.object({
   password: passwordSchema,
 });
 export type LoginInput = z.infer<typeof loginInputSchema>;
+
+/**
+ * F-06: Konto-Selbstlöschung. Verlangt das aktuelle Passwort als Bestätigung für eine
+ * unumkehrbare Aktion — bewusst ohne passwordSchema-Policy (min. 8 Zeichen etc.), da hier
+ * nur das BESTEHENDE Passwort geprüft wird, nicht ein neues nach aktueller Policy erzeugt.
+ */
+export const deleteAccountInputSchema = z.object({
+  password: z.string().min(1),
+});
+export type DeleteAccountInput = z.infer<typeof deleteAccountInputSchema>;
