@@ -67,8 +67,8 @@ Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Conte
 Ziel: Der vollständige Eltern-Consent-Flow und das Eltern-Dashboard stehen produktiv, **bevor** irgendein Kurs mit überwiegend minderjähriger Zielgruppe live geht. Diese Iteration wurde beim Entwickler-Review bewusst vor die Mathe-Kurs-Aktivierung (jetzt Iteration 3) gezogen.
 
 **Programmierung (Kern)**
-- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus
-- [ ] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ
+- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus — **Kernmechanismus umgesetzt und live verifiziert:** Registrierung unter 16-Jähriger fragt E-Mail eines Elternteils ab, legt `parent`/`parent_child_link`("pending")/`consent_token` an und versendet (aktuell nur simuliert, siehe `apps/api/src/email/sender.ts`) den Bestätigungslink; Login bleibt bis zur Bestätigung gesperrt (`auth.login`), die Bestätigungsseite (`/consent/confirm`) setzt `consent_status` auf "confirmed". **Noch offen:** automatische Erinnerungsmails (`reminder_sent_count` existiert im Schema, aber kein Scheduler/Cron), kontoloser Vorschau-Modus
+- [ ] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ — `parent`/`parent_child_link`-Zeilen werden bereits angelegt (siehe oben), aber Eltern haben noch keinen echten Login (Platzhalter-Passwort-Hash, siehe Architekturplanung Abschnitt 13) — folgt zusammen mit dem Eltern-Dashboard
 - [ ] Eltern-Dashboard-Grundgerüst (F-90): Einwilligungsstatus einsehen, Widerruf
 - [ ] Kindgerechte Datenschutz-Kurzfassung (F-53) im Frontend einbinden
 

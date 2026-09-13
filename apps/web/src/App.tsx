@@ -1,3 +1,4 @@
+import { requiresParentalConsent } from "@edukedo/shared";
 import { useState } from "react";
 import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
@@ -8,7 +9,16 @@ import { trpc } from "./trpc";
 export function App() {
   const utils = trpc.useUtils();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
-  const register = trpc.auth.register.useMutation({ onSuccess: () => utils.auth.me.invalidate() });
+  const register = trpc.auth.register.useMutation({
+    onSuccess: (result) => {
+      // F-08: Bei einer unter 16-jährigen Person wurde bewusst keine Session angelegt
+      // (Konto bleibt gesperrt, bis ein Elternteil bestätigt) — dann nichts invalidieren,
+      // die Komponente zeigt stattdessen den Hinweis unten anhand von register.data an.
+      if (result.status === "active") {
+        utils.auth.me.invalidate();
+      }
+    },
+  });
   const login = trpc.auth.login.useMutation({ onSuccess: () => utils.auth.me.invalidate() });
   // reset() statt nur invalidate(): TanStack Query behält bei einem fehlschlagenden
   // Refetch (hier: me -> 401 nach dem Logout) den zuletzt erfolgreichen `data`-Wert bei,
@@ -19,7 +29,10 @@ export function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
+  const [parentEmail, setParentEmail] = useState("");
   const [learningMode, setLearningMode] = useState<"flashcards" | "quiz" | "progress">("flashcards");
+
+  const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
   if (me.data) {
     return (
@@ -66,6 +79,30 @@ export function App() {
     );
   }
 
+  if (register.data?.status === "pending_parental_consent") {
+    return (
+      <main>
+        <h1>edukedo</h1>
+        <p>
+          Registrierung erfolgreich! Das Konto von <strong>{register.data.email}</strong> ist noch gesperrt.
+        </p>
+        <p>
+          Da die Person unter 16 Jahre alt ist, muss ein Elternteil die Einwilligung per E-Mail
+          bestätigen, bevor ein Login möglich ist (Art. 8 DSGVO).
+        </p>
+        {register.data.devConfirmUrl && (
+          <p className="dev-hint">
+            🔧 Nur zu Entwicklungszwecken (noch kein echter E-Mail-Versand angebunden):{" "}
+            <a href={register.data.devConfirmUrl}>Bestätigungslink öffnen</a>
+          </p>
+        )}
+        <button type="button" onClick={() => register.reset()}>
+          Zurück zum Login
+        </button>
+      </main>
+    );
+  }
+
   const activeMutation = mode === "login" ? login : register;
 
   return (
@@ -87,7 +124,12 @@ export function App() {
         onSubmit={(event) => {
           event.preventDefault();
           if (mode === "register") {
-            register.mutate({ email, password, birthDate: new Date(birthDate) });
+            register.mutate({
+              email,
+              password,
+              birthDate: new Date(birthDate),
+              parentEmail: needsParentEmail ? parentEmail : undefined,
+            });
           } else {
             login.mutate({ email, password });
           }
@@ -119,6 +161,17 @@ export function App() {
               type="date"
               value={birthDate}
               onChange={(event) => setBirthDate(event.target.value)}
+              required
+            />
+          </label>
+        )}
+        {needsParentEmail && (
+          <label>
+            E-Mail eines Elternteils
+            <input
+              type="email"
+              value={parentEmail}
+              onChange={(event) => setParentEmail(event.target.value)}
               required
             />
           </label>

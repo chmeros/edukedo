@@ -9,8 +9,9 @@ Kern-Backend (Node.js + TypeScript, Fastify, tRPC) — Auth, Consent, Content, S
 - **Karteikarten-Modus (F-20):** FSRS-Scheduler (`src/fsrs/scheduler.ts`, Bibliothek `ts-fsrs`) plus Router `courses` (Kursliste/-beitritt), `content` (fällige Karteikarten), `progress` (Selbsteinschätzung → FSRS-Update). Siehe Architekturplanung Abschnitt 13 für die Grade-Abbildung.
 - **Quiz-Modus (F-21, alle drei Formate):** Router `quiz` — `quizItems` liefert Multiple-Choice-/Zuordnungs-/Lückentext-Fragen jeweils ohne Lösung, `submitAnswer`/`submitMatching`/`submitBlanks` prüfen serverseitig und geben Feedback zurück. Siehe Architekturplanung Abschnitt 13.
 - **Fortschrittsanzeige (F-30):** `progress.overview` — Prozent "beherrscht" (FSRS-Zustand `review`) je Fachgebiet und Thema, aktuell nur für Karteikarten. Siehe Architekturplanung Abschnitt 13.
-- **tRPC-Router-Grundstruktur:** `src/trpc/router.ts` (`health`, `auth`, `courses`, `content`, `progress`, `quiz`; weitere Module folgen modulweise).
-- **Noch offen:** Consent-/Eltern-Flow (Iteration 2), Admin-Content-Router, Sozial-Modul (Phase 4).
+- **Eltern-Consent-Flow (F-08, Kernmechanismus):** `auth.register` legt bei unter 16-Jährigen statt einer Session einen `parent`/`parent_child_link`("pending")/`consent_token`-Datensatz an und verschickt (aktuell nur simuliert, `src/email/sender.ts`) einen Bestätigungslink; `consent.confirm` (`publicProcedure`, kein Login) bestätigt ihn; `auth.login` prüft die Einwilligungspflicht dynamisch bei jedem Login neu und sperrt bis zur Bestätigung. Siehe Architekturplanung Abschnitt 13.
+- **tRPC-Router-Grundstruktur:** `src/trpc/router.ts` (`health`, `auth`, `courses`, `content`, `progress`, `quiz`, `consent`; weitere Module folgen modulweise).
+- **Noch offen:** automatische Erinnerungsmails und kontoloser Vorschau-Modus (F-08), echter Eltern-Login/Eltern-Dashboard (F-90), Admin-Content-Router, Sozial-Modul (Phase 4).
 
 ## Entwicklung
 

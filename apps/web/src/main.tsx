@@ -3,6 +3,7 @@ import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
+import { ConsentConfirm } from "./ConsentConfirm";
 import "./styles.css";
 import { trpc } from "./trpc";
 
@@ -21,10 +22,14 @@ function Root() {
     }),
   );
 
+  // Kein eigener Router im Projekt — für die eine öffentliche Zielseite des
+  // Consent-Bestätigungslinks (F-08) genügt eine einfache Pfad-Weiche.
+  const isConsentConfirmPage = window.location.pathname === "/consent/confirm";
+
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        {isConsentConfirmPage ? <ConsentConfirm /> : <App />}
       </QueryClientProvider>
     </trpc.Provider>
   );

@@ -1,7 +1,7 @@
-import { createHash, randomBytes } from "node:crypto";
 import { eq } from "drizzle-orm";
 import type { Database } from "../db/client";
 import { session } from "../db/schema";
+import { generateToken, hashToken } from "./token";
 
 export const SESSION_COOKIE_NAME = "edukedo_session";
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 30; // 30 Tage
@@ -11,13 +11,6 @@ const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 30; // 30 Tage
  * Nur der SHA-256-Hash des Session-Tokens landet in der DB, der Klartext-Token nur im
  * signierten httpOnly-Cookie — analog zu consent_token.token_hash.
  */
-function hashToken(token: string): string {
-  return createHash("sha256").update(token).digest("hex");
-}
-
-function generateToken(): string {
-  return randomBytes(32).toString("base64url");
-}
 
 export type SessionPrincipal = { userId: string; parentId?: undefined } | { parentId: string; userId?: undefined };
 

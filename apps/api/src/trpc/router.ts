@@ -1,4 +1,5 @@
 import { authRouter } from "./routers/auth";
+import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { healthRouter } from "./routers/health";
@@ -7,13 +8,14 @@ import { quizRouter } from "./routers/quiz";
 import { router } from "./trpc";
 
 /**
- * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module (consent,
- * admin/content, exam-sessions, reports, blocks) kommen in späteren Iterationen als
+ * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module
+ * (admin/content, exam-sessions, reports, blocks) kommen in späteren Iterationen als
  * eigene Sub-Router hinzu.
  */
 export const appRouter = router({
   health: healthRouter,
   auth: authRouter,
+  consent: consentRouter,
   courses: coursesRouter,
   content: contentRouter,
   progress: progressRouter,

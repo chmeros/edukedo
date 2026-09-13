@@ -1,11 +1,12 @@
-import { deleteAccountInputSchema, loginInputSchema, registerInputSchema } from "@edukedo/shared";
+import { deleteAccountInputSchema, loginInputSchema, registerInputSchema, requiresParentalConsent } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { calculateIsMinor } from "../../auth/age";
+import { initiateParentalConsent } from "../../auth/consent";
 import { hashPassword, verifyPassword } from "../../auth/password";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession } from "../../auth/session";
 import { env } from "../../env";
-import { user } from "../../db/schema";
+import { parentChildLink, user } from "../../db/schema";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
 
 function setSessionCookie(res: import("fastify").FastifyReply, token: string, expiresAt: Date) {
@@ -43,10 +44,45 @@ export const authRouter = router({
       throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
     }
 
+    // F-08: Unter 16-Jährige bekommen noch keine Session — das Konto bleibt gesperrt, bis
+    // ein Elternteil über den E-Mail-Link bestätigt (siehe auth.login weiter unten).
+    if (requiresParentalConsent(input.birthDate)) {
+      // registerInputSchema erzwingt parentEmail per .refine, wenn das nötig ist — die
+      // Prüfung hier bleibt trotzdem bestehen, statt sich blind auf den Typ zu verlassen.
+      if (!input.parentEmail) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Für Nutzer:innen unter 16 Jahren ist die E-Mail-Adresse eines Elternteils erforderlich.",
+        });
+      }
+
+      const { confirmUrl } = await initiateParentalConsent(ctx.db, {
+        parentEmail: input.parentEmail,
+        childUserId: created.id,
+        childEmail: created.email,
+      });
+
+      return {
+        status: "pending_parental_consent" as const,
+        id: created.id,
+        email: created.email,
+        // Nur außerhalb von production offengelegt — es gibt noch keinen echten
+        // E-Mail-Versand (siehe apps/api/src/email/sender.ts), daher wird der
+        // Bestätigungslink hier direkt für die manuelle Weiterverwendung zurückgegeben.
+        devConfirmUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
+      };
+    }
+
     const { token, expiresAt } = await createSession(ctx.db, { userId: created.id });
     setSessionCookie(ctx.res, token, expiresAt);
 
-    return { id: created.id, email: created.email, role: created.role, isMinor: created.isMinor };
+    return {
+      status: "active" as const,
+      id: created.id,
+      email: created.email,
+      role: created.role,
+      isMinor: created.isMinor,
+    };
   }),
 
   login: publicProcedure.input(loginInputSchema).mutation(async ({ ctx, input }) => {
@@ -55,6 +91,24 @@ export const authRouter = router({
 
     if (!found || !passwordMatches) {
       throw new TRPCError({ code: "UNAUTHORIZED", message: "E-Mail oder Passwort ist falsch." });
+    }
+
+    // F-08: Konto bleibt gesperrt, bis ein Elternteil die Einwilligung bestätigt hat — auf
+    // Basis des AKTUELLEN Alters geprüft (nicht bei Registrierung eingefroren), damit die
+    // Pflicht automatisch entfällt, sobald die Person 16 wird (Art. 8 DSGVO).
+    if (found.birthDate && requiresParentalConsent(new Date(found.birthDate))) {
+      const [link] = await ctx.db
+        .select()
+        .from(parentChildLink)
+        .where(eq(parentChildLink.userId, found.id))
+        .limit(1);
+
+      if (!link || link.consentStatus !== "confirmed") {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "Dieses Konto wartet noch auf die Bestätigung durch ein Elternteil.",
+        });
+      }
     }
 
     const { token, expiresAt } = await createSession(ctx.db, { userId: found.id });

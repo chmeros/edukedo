@@ -5,6 +5,8 @@ const envSchema = z.object({
   SESSION_SECRET: z.string().min(32, "SESSION_SECRET muss mindestens 32 Zeichen lang sein"),
   PORT: z.coerce.number().int().positive().default(3001),
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+  // F-08: Basis-URL des Frontends, um Bestätigungslinks in Consent-E-Mails zu bilden.
+  WEB_BASE_URL: z.string().url().default("http://localhost:5173"),
 });
 
 export const env = envSchema.parse(process.env);

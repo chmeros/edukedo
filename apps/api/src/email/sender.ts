@@ -1,0 +1,20 @@
+/**
+ * Platzhalter-E-Mail-Versand: Es ist noch kein transaktionaler E-Mail-Anbieter gewählt/
+ * eingerichtet (echte Kontoerstellung bei einem Anbieter ist keine Aufgabe, die als Agent
+ * übernommen werden kann/sollte — siehe Architekturplanung Abschnitt 13). Dieses Modul
+ * loggt E-Mails stattdessen auf die Konsole, damit der restliche Consent-Flow (F-08)
+ * bereits vollständig durchspielbar ist. Absichtlich als schmale, austauschbare Funktion
+ * gehalten: Sobald ein Anbieter feststeht, genügt es, den Rumpf dieser einen Funktion zu
+ * ersetzen — der Rest des Consent-Flows bleibt unverändert.
+ */
+export function sendConsentEmail(params: { to: string; confirmUrl: string; childEmail: string }): void {
+  console.log(
+    [
+      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
+      `An: ${params.to}`,
+      `Betreff: Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
+      `Bestätigungslink: ${params.confirmUrl}`,
+      "---------------------------------------------------------------------------",
+    ].join("\n"),
+  );
+}

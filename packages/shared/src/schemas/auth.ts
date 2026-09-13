@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { requiresParentalConsent } from "../age";
 
 /**
  * Rollen innerhalb der "user"-Tabelle (learner, content_editor, admin).
@@ -12,11 +13,22 @@ export type UserRole = z.infer<typeof userRoleSchema>;
 export const emailSchema = z.string().email().max(320);
 export const passwordSchema = z.string().min(8).max(200);
 
-export const registerInputSchema = z.object({
-  email: emailSchema,
-  password: passwordSchema,
-  birthDate: z.coerce.date(),
-});
+/**
+ * F-08: Für unter 16-Jährige ist die E-Mail-Adresse eines Elternteils Pflicht (per
+ * .refine geprüft, da erst zur Laufzeit aus birthDate feststeht, ob sie nötig ist) —
+ * dieselbe Prüfung läuft im Frontend (Feld bedingt einblenden) wie im Backend.
+ */
+export const registerInputSchema = z
+  .object({
+    email: emailSchema,
+    password: passwordSchema,
+    birthDate: z.coerce.date(),
+    parentEmail: emailSchema.optional(),
+  })
+  .refine((data) => !requiresParentalConsent(data.birthDate) || !!data.parentEmail, {
+    message: "Für Nutzer:innen unter 16 Jahren ist die E-Mail-Adresse eines Elternteils erforderlich.",
+    path: ["parentEmail"],
+  });
 export type RegisterInput = z.infer<typeof registerInputSchema>;
 
 export const loginInputSchema = z.object({
