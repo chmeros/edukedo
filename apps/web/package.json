@@ -2,11 +2,27 @@
   "name": "@edukedo/web",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "echo \"TODO: Vite dev server aufsetzen (Entwicklungsplan Iteration 0)\" && exit 0",
-    "build": "echo \"TODO\" && exit 0",
-    "lint": "echo \"TODO\" && exit 0",
-    "typecheck": "echo \"TODO\" && exit 0",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"TODO\" && exit 0"
+  },
+  "dependencies": {
+    "@edukedo/shared": "workspace:*",
+    "@tanstack/react-query": "^4.36.1",
+    "@trpc/client": "^10.45.2",
+    "@trpc/react-query": "^10.45.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@edukedo/api": "workspace:*",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.2"
   }
 }

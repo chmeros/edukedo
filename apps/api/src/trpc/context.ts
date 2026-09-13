@@ -1,3 +1,4 @@
+import type {} from "@fastify/cookie"; // Ambient Typ-Erweiterung von FastifyRequest/-Reply (req.cookies, req.unsignCookie, res.setCookie, ...)
 import type { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify";
 import { eq } from "drizzle-orm";
 import { SESSION_COOKIE_NAME, validateSessionToken } from "../auth/session";

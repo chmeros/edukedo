@@ -8,7 +8,7 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 
 ```
 /apps
-  /web        → React-PWA-Frontend (noch nicht aufgesetzt, ab Iteration 1)
+  /web        → React-Frontend — minimales Grundgerüst mit Auth-Seite steht, PWA folgt in Iteration 1
   /api        → Kern-Backend (Fastify + tRPC) — Auth-Grundgerüst und Datenmodell stehen
   /payment    → Eigenständiger Payment-Service (erst ab Iteration 6)
 /packages
@@ -26,7 +26,8 @@ pnpm install
 cp .env.example .env   # DATABASE_URL/SESSION_SECRET anpassen
 docker compose up -d   # lokale Postgres+Redis-Instanzen
 pnpm db:migrate         # Kern-Migrationen ausführen (Extensions, Schema)
-pnpm dev                # startet apps/api (Fastify) im Watch-Modus
+pnpm --filter @edukedo/api dev   # Backend auf Port 3001
+pnpm --filter @edukedo/web dev   # Frontend auf Port 5173 (proxied /api an Port 3001)
 ```
 
 Weitere nützliche Befehle:
@@ -39,7 +40,7 @@ pnpm build       # Produktions-Build
 pnpm db:generate # neue Drizzle-Migration aus apps/api/src/db/schema.ts generieren
 ```
 
-Der Stand entspricht dem aktuellen Fortschritt aus `docs/Entwicklungsplan.md`, Iteration 0: Monorepo-Tooling, CI, Kern-Datenmodell (Drizzle-Migrationen), Auth-Grundgerüst und tRPC-Router-Grundstruktur stehen. Eine verwaltete Postgres-Cloud-Instanz (Neon/Supabase) für Staging/Produktion sowie `apps/web` (PWA-Frontend) folgen in den nächsten Schritten.
+Der Stand entspricht dem aktuellen Fortschritt aus `docs/Entwicklungsplan.md`, Iteration 0: Monorepo-Tooling, CI, Kern-Datenmodell (Drizzle-Migrationen), Auth-Grundgerüst und tRPC-Router-Grundstruktur stehen; `apps/web` hat ein minimales, typsicher an die Auth-API angebundenes Grundgerüst. Eine verwaltete Postgres-Cloud-Instanz (Neon/Supabase) für Staging/Produktion sowie das PWA-Grundgerüst (Iteration 1) folgen in den nächsten Schritten.
 
 ## Lizenz / Status
 
