@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Flashcards } from "./Flashcards";
 import { trpc } from "./trpc";
 
 export function App() {
@@ -29,6 +30,8 @@ export function App() {
         <button type="button" onClick={() => logout.mutate()} disabled={logout.isPending}>
           Logout
         </button>
+        <hr />
+        <Flashcards />
       </main>
     );
   }

@@ -6,7 +6,7 @@ body {
 }
 
 main {
-  max-width: 360px;
+  max-width: 420px;
   margin: 4rem auto;
   padding: 2rem;
   background: white;
@@ -77,4 +77,103 @@ button[type="submit"]:disabled {
 .error {
   color: #b91c1c;
   font-size: 0.875rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e7e5e4;
+  margin: 1.5rem 0;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d6d3d1;
+  border-radius: 4px;
+}
+
+.course-list button {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background: #1c1917;
+  color: white;
+  cursor: pointer;
+}
+
+.flashcard-count {
+  font-size: 0.875rem;
+  color: #78716c;
+  margin-top: 0;
+}
+
+.flashcard-face {
+  padding: 1.5rem 1rem;
+  border: 1px solid #d6d3d1;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  text-align: center;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcard-back {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.flashcard > button {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d6d3d1;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.flashcard-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.flashcard-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.rating-again {
+  background: #b91c1c;
+}
+
+.rating-hard {
+  background: #b45309;
+}
+
+.rating-good {
+  background: #15803d;
 }
