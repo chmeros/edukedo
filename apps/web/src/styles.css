@@ -338,3 +338,54 @@ hr {
   border-color: #b91c1c;
   background: #fef2f2;
 }
+
+.progress-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.progress-fachgebiet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.progress-header--thema {
+  font-weight: 400;
+  color: #57534e;
+  font-size: 0.875rem;
+}
+
+.progress-bar {
+  height: 0.6rem;
+  background: #e7e5e4;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar--thema {
+  height: 0.4rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #15803d;
+  border-radius: 999px;
+}
+
+.progress-themen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e7e5e4;
+}

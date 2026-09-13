@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Flashcards } from "./Flashcards";
+import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
 import { trpc } from "./trpc";
 
@@ -17,7 +18,7 @@ export function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
-  const [learningMode, setLearningMode] = useState<"flashcards" | "quiz">("flashcards");
+  const [learningMode, setLearningMode] = useState<"flashcards" | "quiz" | "progress">("flashcards");
 
   if (me.data) {
     return (
@@ -48,8 +49,17 @@ export function App() {
           >
             Quiz
           </button>
+          <button
+            type="button"
+            className={learningMode === "progress" ? "active" : ""}
+            onClick={() => setLearningMode("progress")}
+          >
+            Fortschritt
+          </button>
         </div>
-        {learningMode === "flashcards" ? <Flashcards /> : <Quiz />}
+        {learningMode === "flashcards" && <Flashcards />}
+        {learningMode === "quiz" && <Quiz />}
+        {learningMode === "progress" && <Progress />}
       </main>
     );
   }
