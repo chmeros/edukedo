@@ -536,6 +536,12 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 - **Minimaler Kurs-Beitritt (`courses.list`/`courses.enroll`) vorgezogen:** Der Karteikarten-Modus setzt eine Kurseinschreibung (`user_course`, F-09) voraus. Statt die vollständige Kursauswahl-/Wechsel-UI aus Iteration 3 vorwegzunehmen, gibt es nur einen einfachen „Beitreten"-Button je veröffentlichtem Kurs — bewusst minimal, kein Ersatz für die dortige Aufgabe.
 - **Technischer Platzhalter-Content statt echtem Fachwirt-/Mathematik-Content:** `apps/api/src/db/seed.ts` legt einen klar als Demo gekennzeichneten Kurs mit generischen Allgemeinwissens-Karteikarten an, um den Karteikarten-Modus durchspielen zu können — bewusst keine Vorwegnahme der separaten Content-Erstellungsaufgabe (Entwicklungsplan Iteration 0/1, „Content").
 
+### Entschieden am 13.09.2026 (Umsetzung Iteration 1, Quiz-Modus, Multiple-Choice-Teil)
+
+- **`quiz.quizItems` liefert `answer_option` bewusst ohne `is_correct`:** Andernfalls ließe sich die richtige Antwort im Browser-Devtools-Netzwerktab vor dem Beantworten auslesen. Die Prüfung erfolgt ausschließlich serverseitig in `quiz.submitAnswer`, das erst dabei `is_correct`/die korrekte Options-ID nachschlägt und zurückgibt (siehe `apps/api/src/trpc/routers/quiz.ts`).
+- **Quiz-Antworten schreiben (noch) nicht in `user_progress`:** F-21 (Sofort-Feedback) ist von F-20 (Spaced-Repetition-Fälligkeit) unabhängig; eine Verknüpfung (z. B. falsch beantwortete Fragen automatisch in ein Wiederholungsset übernehmen) ist explizit F-26 und damit eine spätere, eigene Aufgabe.
+- **Umfang dieser Umsetzung: nur Multiple Choice (`quiz_mc`).** F-21 nennt zusätzlich Zuordnung und Lückentext — beide nutzen bereits bestehende Schema-Teile (`answer_option.side` bzw. `content_item.payload`, siehe Abschnitt 4.3) und folgen als eigene, spätere Erweiterung von Router und Frontend-Komponente.
+
 ### Weiterhin offen
 
 1. Genaue Wahl der Message-Queue-Technologie im Detail — BullMQ auf Redis ist die aktuelle Empfehlung (konsistent mit dem ohnehin für Sessions/Rate-Limiting vorgesehenen Redis), eine abschließende Festlegung (vs. z. B. eines Cloud-Messaging-Diensts) kann bei Bedarf noch erfolgen.

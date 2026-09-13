@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Flashcards } from "./Flashcards";
+import { Quiz } from "./Quiz";
 import { trpc } from "./trpc";
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
+  const [learningMode, setLearningMode] = useState<"flashcards" | "quiz">("flashcards");
 
   if (me.data) {
     return (
@@ -31,7 +33,23 @@ export function App() {
           Logout
         </button>
         <hr />
-        <Flashcards />
+        <div className="tabs">
+          <button
+            type="button"
+            className={learningMode === "flashcards" ? "active" : ""}
+            onClick={() => setLearningMode("flashcards")}
+          >
+            Karteikarten
+          </button>
+          <button
+            type="button"
+            className={learningMode === "quiz" ? "active" : ""}
+            onClick={() => setLearningMode("quiz")}
+          >
+            Quiz
+          </button>
+        </div>
+        {learningMode === "flashcards" ? <Flashcards /> : <Quiz />}
       </main>
     );
   }

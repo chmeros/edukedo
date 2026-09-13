@@ -3,6 +3,7 @@ import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { healthRouter } from "./routers/health";
 import { progressRouter } from "./routers/progress";
+import { quizRouter } from "./routers/quiz";
 import { router } from "./trpc";
 
 /**
@@ -16,6 +17,7 @@ export const appRouter = router({
   courses: coursesRouter,
   content: contentRouter,
   progress: progressRouter,
+  quiz: quizRouter,
 });
 
 export type AppRouter = typeof appRouter;
