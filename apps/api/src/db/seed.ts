@@ -65,6 +65,38 @@ const DEMO_QUIZ_QUESTIONS: {
   },
 ];
 
+const DEMO_MATCHING_PAIRS: { left: string; right: string }[] = [
+  { left: "Deutschland", right: "Berlin" },
+  { left: "Frankreich", right: "Paris" },
+  { left: "Italien", right: "Rom" },
+  { left: "Spanien", right: "Madrid" },
+];
+
+const DEMO_BLANKS_QUESTIONS: {
+  prompt: string;
+  textWithBlanks: string;
+  blanks: { id: string; accepted: string[] }[];
+}[] = [
+  {
+    prompt: "Fülle die Lücke.",
+    textWithBlanks: "Die Hauptstadt von Deutschland ist ___.",
+    blanks: [{ id: "1", accepted: ["Berlin"] }],
+  },
+  {
+    prompt: "Fülle die Lücke.",
+    textWithBlanks: "Wasser besteht aus Wasserstoff und ___.",
+    blanks: [{ id: "1", accepted: ["Sauerstoff"] }],
+  },
+  {
+    prompt: "Fülle die Lücken.",
+    textWithBlanks: "Die Hauptstadt von ___ ist ___.",
+    blanks: [
+      { id: "1", accepted: ["Frankreich"] },
+      { id: "2", accepted: ["Paris"] },
+    ],
+  },
+];
+
 async function ensureKurs() {
   const [existing] = await db.select().from(kurs).where(eq(kurs.slug, "demo-karteikarten")).limit(1);
   if (existing) return existing;
@@ -184,12 +216,84 @@ async function seedQuiz(fachgebietId: string) {
   console.log(`${DEMO_QUIZ_QUESTIONS.length} Demo-Quiz-Fragen angelegt.`);
 }
 
+async function seedMatching(fachgebietId: string) {
+  const { thema: matchingThema, alreadyExisted } = await ensureThema(fachgebietId, "Demo-Quiz (Zuordnung)");
+  if (alreadyExisted) {
+    console.log("Demo-Zuordnungs-Frage existiert bereits, überspringe.");
+    return;
+  }
+
+  const [item] = await db
+    .insert(contentItem)
+    .values({
+      themaId: matchingThema.id,
+      type: "zuordnung",
+      prompt: "Ordne die Hauptstädte den Ländern zu.",
+    })
+    .returning();
+  if (!item) throw new Error("Demo-Zuordnungs-Frage konnte nicht angelegt werden.");
+
+  await db.insert(contentItemVersion).values({
+    contentItemId: item.id,
+    versionNumber: 1,
+    prompt: item.prompt,
+    explanation: null,
+    payload: {},
+  });
+
+  // Zwei Zeilen je Paar mit demselben group_key, unterschiedlichem side — siehe
+  // Architekturplanung Abschnitt 4.3/4.4.
+  await db.insert(answerOption).values(
+    DEMO_MATCHING_PAIRS.flatMap((pair, index) => [
+      { contentItemId: item.id, groupKey: String(index), side: "links", text: pair.left, sortOrder: index },
+      { contentItemId: item.id, groupKey: String(index), side: "rechts", text: pair.right, sortOrder: index },
+    ]),
+  );
+
+  console.log(`1 Demo-Zuordnungs-Frage mit ${DEMO_MATCHING_PAIRS.length} Paaren angelegt.`);
+}
+
+async function seedBlanks(fachgebietId: string) {
+  const { thema: blanksThema, alreadyExisted } = await ensureThema(fachgebietId, "Demo-Quiz (Lückentext)");
+  if (alreadyExisted) {
+    console.log("Demo-Lückentext-Fragen existieren bereits, überspringe.");
+    return;
+  }
+
+  for (const question of DEMO_BLANKS_QUESTIONS) {
+    const payload = { text_with_blanks: question.textWithBlanks, blanks: question.blanks };
+
+    const [item] = await db
+      .insert(contentItem)
+      .values({
+        themaId: blanksThema.id,
+        type: "luecken",
+        prompt: question.prompt,
+        payload,
+      })
+      .returning();
+    if (!item) throw new Error("Demo-Lückentext-Frage konnte nicht angelegt werden.");
+
+    await db.insert(contentItemVersion).values({
+      contentItemId: item.id,
+      versionNumber: 1,
+      prompt: item.prompt,
+      explanation: null,
+      payload,
+    });
+  }
+
+  console.log(`${DEMO_BLANKS_QUESTIONS.length} Demo-Lückentext-Fragen angelegt.`);
+}
+
 async function main() {
   const demoKurs = await ensureKurs();
   const demoFachgebiet = await ensureFachgebiet(demoKurs.id);
 
   await seedFlashcards(demoFachgebiet.id);
   await seedQuiz(demoFachgebiet.id);
+  await seedMatching(demoFachgebiet.id);
+  await seedBlanks(demoFachgebiet.id);
 
   await pool.end();
 }
