@@ -7,7 +7,7 @@ import { consentToken, parent, parentChildLink } from "../db/schema";
 import { hashPassword } from "./password";
 import { generateToken, hashToken } from "./token";
 
-const CONSENT_TOKEN_DURATION_MS = 1000 * 60 * 60 * 24 * 7; // 7 Tage
+export const CONSENT_TOKEN_DURATION_MS = 1000 * 60 * 60 * 24 * 7; // 7 Tage
 
 /**
  * F-08: Legt bei Registrierung einer Person unter 16 Jahren den Eltern-Consent-Prozess an

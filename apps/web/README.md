@@ -17,7 +17,7 @@ React + TypeScript + Vite Frontend (siehe Architekturplanung Abschnitt 2, 3, 5).
 - **Kindgerechte Datenschutz-Kurzfassung (F-53):** `src/DatenschutzKinder.tsx`, statische Seite unter `/datenschutz-kinder`, verlinkt aus Registrierungsformular, Sperrhinweis und Eltern-Dashboard. Bewusst als ungeprüfter Entwurf gekennzeichnet, da die vollständige juristische Fassung (F-51) im Projekt noch nicht existiert, siehe Architekturplanung Abschnitt 13.
 - **Kontoloser Vorschau-Modus (F-08):** `src/Vorschau.tsx`, Route `/vorschau` (kein Login) — 5 zufällige Demo-Fragen aus allen veröffentlichten Kursen, verlinkt vom Sperrhinweis nach Registrierung einer/eines Minderjährigen. Nutzt dieselben Schritt-Komponenten wie `Quiz.tsx` (`src/QuizSteps.tsx`), nur gegen die öffentlichen `preview.*`-Endpunkte statt `quiz.*`.
 - **Dev-Proxy:** `vite.config.ts` leitet `/api` an `http://localhost:3001` (apps/api) weiter, damit Session-Cookies im Dev-Modus ohne CORS-Klimmzüge funktionieren.
-- **Noch offen:** automatische Erinnerungsmails (F-08), granulare Kind-Berechtigungen im Eltern-Dashboard (F-90, setzt Gamification F-66 voraus), vollständige juristische Datenschutzerklärung/Impressum/AGB (F-51), Tailwind/shadcn.
+- **Noch offen:** granulare Kind-Berechtigungen im Eltern-Dashboard (F-90, setzt Gamification F-66 voraus), vollständige juristische Datenschutzerklärung/Impressum/AGB (F-51), Tailwind/shadcn.
 
 ## Entwicklung
 

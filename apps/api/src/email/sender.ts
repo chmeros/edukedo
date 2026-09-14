@@ -18,3 +18,23 @@ export function sendConsentEmail(params: { to: string; confirmUrl: string; child
     ].join("\n"),
   );
 }
+
+/**
+ * F-08: Erinnerung an ein Elternteil, das den ursprünglichen Bestätigungslink noch nicht
+ * angeklickt hat (siehe apps/api/src/db/send-consent-reminders.ts). Der ursprüngliche Link
+ * lässt sich nicht erneut verschicken (nur der Hash des Tokens wird gespeichert) — die
+ * Erinnerung enthält deshalb einen neuen, frisch generierten Bestätigungslink.
+ */
+export function sendConsentReminderEmail(
+  params: { to: string; confirmUrl: string; childEmail: string; reminderNumber: number },
+): void {
+  console.log(
+    [
+      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
+      `An: ${params.to}`,
+      `Betreff: Erinnerung (${params.reminderNumber}) — Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
+      `Bestätigungslink: ${params.confirmUrl}`,
+      "---------------------------------------------------------------------------",
+    ].join("\n"),
+  );
+}

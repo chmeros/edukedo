@@ -15,7 +15,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
     "db:seed": "tsx src/db/seed.ts",
-    "db:import-content": "tsx src/db/import-content.ts"
+    "db:import-content": "tsx src/db/import-content.ts",
+    "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts"
   },
   "dependencies": {
     "@edukedo/shared": "workspace:*",

@@ -14,8 +14,9 @@ Kern-Backend (Node.js + TypeScript, Fastify, tRPC) — Auth, Consent, Content, S
 - **Eltern-Dashboard-Grundgerüst (F-90):** Router `parent` — `parent.login`/`parent.logout`/`parent.me` (eigener Session-Typ, `session.parent_id`), `parent.setInitialPassword` (löst den Platzhalter-Passwort-Hash einmalig ab, siehe `parent.password_set`), `parent.revokeConsent` (setzt `consent_status = "revoked"`, sperrt den Kind-Login sofort). Siehe Architekturplanung Abschnitt 13.
 - **HB3-Content-Import (Fachwirt-Pilot):** `src/db/import-content.ts` liest das Content-Zwischenformat aus `content/` (Repo-Root) ein und importiert Theorie/Karteikarten/Quiz aller vier HB3-Themen — löst den technischen Platzhalter-Content aus `db:seed` für diesen Kurs ab. Reine Parsing-Logik in `src/db/content-parser.ts` (unit-testbar ohne DB, siehe `content-parser.test.ts`). `fallaufgaben.md`/`fachgespraech.md` werden bewusst nicht importiert (siehe Architekturplanung Abschnitt 13).
 - **Kontoloser Vorschau-Modus (F-08):** Router `preview` (`publicProcedure`, kein Login, kein Datenbank-Schreibzugriff) — `preview.items` liefert 5 zufällige Demo-Fragen aus allen veröffentlichten Kursen, `preview.submitAnswer`/`submitMatching`/`submitBlanks`/`submitKurzantwort` prüfen serverseitig. Teilt sich die Formungs-/Prüflogik mit dem geschützten `quiz`-Router über `src/quiz-logic.ts`, siehe Architekturplanung Abschnitt 13.
+- **Automatische Erinnerungsmails (F-08):** `src/db/send-consent-reminders.ts` — eigenständiges Wartungsskript (kein Scheduler/BullMQ, das ist erst ab Iteration 6 vorgesehen), gedacht für periodischen externen Aufruf. Verschickt bei unbestätigten `consent_token`-Zeilen alle 2 Tage (max. 3-mal) eine Erinnerung mit neu generiertem Bestätigungslink, berücksichtigt einen zwischenzeitlichen Widerruf. Entscheidungslogik in `src/consent-reminder-logic.ts` (unit-testbar ohne DB). Siehe Architekturplanung Abschnitt 13.
 - **tRPC-Router-Grundstruktur:** `src/trpc/router.ts` (`health`, `auth`, `courses`, `content`, `progress`, `quiz`, `consent`, `parent`, `preview`; weitere Module folgen modulweise).
-- **Noch offen:** automatische Erinnerungsmails (F-08), granulare Kind-Berechtigungen im Eltern-Dashboard (F-90, setzt Gamification F-66 voraus), Admin-Content-Router, Sozial-Modul (Phase 4).
+- **Noch offen:** granulare Kind-Berechtigungen im Eltern-Dashboard (F-90, setzt Gamification F-66 voraus), Admin-Content-Router, Sozial-Modul (Phase 4).
 
 ## Entwicklung
 
@@ -25,5 +26,6 @@ docker compose up -d   # im Repo-Root: startet lokale Postgres+Redis-Instanzen
 pnpm db:migrate
 pnpm db:seed            # legt einen Demo-Kurs mit Platzhalter-Karteikarten und -Quizfragen an (kein echter Content)
 pnpm db:import-content  # importiert den echten HB3-Content aus content/ (Repo-Root)
+pnpm db:send-consent-reminders  # F-08: verschickt fällige Erinnerungsmails (für periodischen externen Aufruf gedacht, z. B. Cron)
 pnpm dev
 ```
