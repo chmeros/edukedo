@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { ConsentConfirm } from "./ConsentConfirm";
+import { DatenschutzKinder } from "./DatenschutzKinder";
 import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
@@ -23,9 +24,9 @@ function Root() {
     }),
   );
 
-  // Kein eigener Router im Projekt — für die öffentliche Zielseite des
-  // Consent-Bestätigungslinks (F-08) und das Eltern-Dashboard (F-90) genügt eine
-  // einfache Pfad-Weiche.
+  // Kein eigener Router im Projekt — für die öffentlichen Zielseiten des
+  // Consent-Bestätigungslinks (F-08), das Eltern-Dashboard (F-90) und die kindgerechte
+  // Datenschutz-Kurzfassung (F-53) genügt eine einfache Pfad-Weiche.
   const pathname = window.location.pathname;
 
   return (
@@ -35,6 +36,8 @@ function Root() {
           <ConsentConfirm />
         ) : pathname === "/parent" ? (
           <ParentDashboard />
+        ) : pathname === "/datenschutz-kinder" ? (
+          <DatenschutzKinder />
         ) : (
           <App />
         )}

@@ -156,6 +156,10 @@ export function ParentDashboard() {
           </li>
         ))}
       </ul>
+      <hr />
+      <p>
+        <a href="/datenschutz-kinder">Datenschutz-Kurzfassung für Kinder ansehen</a>
+      </p>
     </main>
   );
 }

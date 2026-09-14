@@ -96,6 +96,9 @@ export function App() {
             <a href={register.data.devConfirmUrl}>Bestätigungslink öffnen</a>
           </p>
         )}
+        <p>
+          <a href="/datenschutz-kinder">Was passiert mit meinen Daten? (kindgerecht erklärt)</a>
+        </p>
         <button type="button" onClick={() => register.reset()}>
           Zurück zum Login
         </button>
@@ -175,6 +178,11 @@ export function App() {
               required
             />
           </label>
+        )}
+        {needsParentEmail && (
+          <p>
+            <a href="/datenschutz-kinder">Was passiert mit meinen Daten? (kindgerecht erklärt)</a>
+          </p>
         )}
         <button type="submit" disabled={activeMutation.isPending}>
           {mode === "login" ? "Einloggen" : "Registrieren"}
