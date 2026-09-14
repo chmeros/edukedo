@@ -1,6 +1,8 @@
 import {
+  kurzantwortPayloadSchema,
   lueckenPayloadSchema,
   submitBlanksInputSchema,
+  submitKurzantwortInputSchema,
   submitMatchingInputSchema,
   submitQuizAnswerInputSchema,
 } from "@edukedo/shared";
@@ -35,7 +37,12 @@ export const quizRouter = router({
         userCourse,
         and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
       )
-      .where(and(inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken"]), eq(contentItem.isActive, true)))
+      .where(
+        and(
+          inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
+          eq(contentItem.isActive, true),
+        ),
+      )
       .orderBy(sql`random()`)
       .limit(20);
 
@@ -43,7 +50,9 @@ export const quizRouter = router({
       return [];
     }
 
-    const optionItemIds = items.filter((item) => item.type !== "luecken").map((item) => item.id);
+    const optionItemIds = items
+      .filter((item) => item.type === "quiz_mc" || item.type === "zuordnung")
+      .map((item) => item.id);
     const options = optionItemIds.length
       ? await ctx.db
           .select()
@@ -81,14 +90,18 @@ export const quizRouter = router({
         };
       }
 
-      const payload = lueckenPayloadSchema.parse(item.payload);
-      return {
-        id: item.id,
-        type: "luecken" as const,
-        prompt: item.prompt,
-        textWithBlanks: payload.text_with_blanks,
-        blankIds: payload.blanks.map((blank) => blank.id),
-      };
+      if (item.type === "luecken") {
+        const payload = lueckenPayloadSchema.parse(item.payload);
+        return {
+          id: item.id,
+          type: "luecken" as const,
+          prompt: item.prompt,
+          textWithBlanks: payload.text_with_blanks,
+          blankIds: payload.blanks.map((blank) => blank.id),
+        };
+      }
+
+      return { id: item.id, type: "kurzantwort" as const, prompt: item.prompt };
     });
   }),
 
@@ -175,5 +188,29 @@ export const quizRouter = router({
     }
 
     return { results, correctAnswers, correctCount, total: payload.blanks.length };
+  }),
+
+  submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
+    const [item] = await ctx.db
+      .select()
+      .from(contentItem)
+      .where(eq(contentItem.id, input.contentItemId))
+      .limit(1);
+
+    if (!item) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
+    }
+
+    const payload = kurzantwortPayloadSchema.parse(item.payload);
+    const given = input.answer.trim().toLowerCase();
+
+    const isCorrect = payload.accepted_answers.some((accepted) => {
+      const normalizedAccepted = accepted.trim().toLowerCase();
+      return payload.match_mode === "contains"
+        ? given.includes(normalizedAccepted)
+        : normalizedAccepted === given;
+    });
+
+    return { isCorrect, correctAnswer: payload.accepted_answers[0] ?? "", explanation: item.explanation };
   }),
 });

@@ -32,3 +32,13 @@ export const submitBlanksInputSchema = z.object({
   answers: z.record(z.string(), z.string()),
 });
 export type SubmitBlanksInput = z.infer<typeof submitBlanksInputSchema>;
+
+/**
+ * F-21 (Kurzantwort-Teil): freier Text als Antwort. Prüfung (exact/contains, case-insensitive
+ * nach Trim, siehe payload.match_mode) erfolgt ausschließlich serverseitig.
+ */
+export const submitKurzantwortInputSchema = z.object({
+  contentItemId: z.string().uuid(),
+  answer: z.string(),
+});
+export type SubmitKurzantwortInput = z.infer<typeof submitKurzantwortInputSchema>;

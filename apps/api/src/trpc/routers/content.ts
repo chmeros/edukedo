@@ -1,4 +1,5 @@
-import { and, eq, isNull, lte, or, sql } from "drizzle-orm";
+import { theoriePayloadSchema } from "@edukedo/shared";
+import { and, asc, eq, isNull, lte, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
@@ -42,5 +43,36 @@ export const contentRouter = router({
       .limit(20);
 
     return rows.map((row) => ({ id: row.id, prompt: row.prompt, explanation: row.explanation }));
+  }),
+
+  /**
+   * Theorie-Abschnitte (Fließtext je Thema) über die eingeschriebenen Kurse — gruppiert nach
+   * Fachgebiet, sortiert nach fachgebiet.sort_order/thema.sort_order. Es gibt je Thema
+   * höchstens einen Theorie-content_item (siehe apps/api/src/db/import-content.ts).
+   */
+  theorySections: protectedProcedure.query(async ({ ctx }) => {
+    const rows = await ctx.db
+      .select({
+        contentItemId: contentItem.id,
+        payload: contentItem.payload,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+      )
+      .where(and(eq(contentItem.type, "theorie"), eq(contentItem.isActive, true)))
+      .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder));
+
+    return rows.map((row) => ({
+      id: row.contentItemId,
+      fachgebietTitle: row.fachgebietTitle,
+      themaTitle: row.themaTitle,
+      bodyMarkdown: theoriePayloadSchema.parse(row.payload).body_markdown,
+    }));
   }),
 });

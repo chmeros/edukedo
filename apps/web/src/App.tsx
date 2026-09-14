@@ -4,6 +4,7 @@ import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
 import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
+import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 
 export function App() {
@@ -30,7 +31,9 @@ export function App() {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
   const [parentEmail, setParentEmail] = useState("");
-  const [learningMode, setLearningMode] = useState<"flashcards" | "quiz" | "progress">("flashcards");
+  const [learningMode, setLearningMode] = useState<"theorie" | "flashcards" | "quiz" | "progress">(
+    "flashcards",
+  );
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
@@ -50,6 +53,13 @@ export function App() {
         <DeleteAccount />
         <hr />
         <div className="tabs">
+          <button
+            type="button"
+            className={learningMode === "theorie" ? "active" : ""}
+            onClick={() => setLearningMode("theorie")}
+          >
+            Theorie
+          </button>
           <button
             type="button"
             className={learningMode === "flashcards" ? "active" : ""}
@@ -72,6 +82,7 @@ export function App() {
             Fortschritt
           </button>
         </div>
+        {learningMode === "theorie" && <Theorie />}
         {learningMode === "flashcards" && <Flashcards />}
         {learningMode === "quiz" && <Quiz />}
         {learningMode === "progress" && <Progress />}

@@ -58,6 +58,9 @@ export function Quiz() {
       {current.type === "luecken" && (
         <BlanksStep key={current.id} item={current} isLast={isLast} onAnswered={handleAnswered} onNext={next} />
       )}
+      {current.type === "kurzantwort" && (
+        <KurzantwortStep key={current.id} item={current} isLast={isLast} onAnswered={handleAnswered} onNext={next} />
+      )}
     </section>
   );
 }
@@ -337,6 +340,61 @@ function BlanksStep({ item, isLast, onAnswered, onNext }: StepProps<BlanksItem>)
         </>
       ) : (
         <button type="button" onClick={checkAnswer} disabled={!allFilled || submitBlanks.isPending}>
+          Antwort prüfen
+        </button>
+      )}
+    </>
+  );
+}
+
+interface KurzantwortItem {
+  id: string;
+  prompt: string;
+}
+
+function KurzantwortStep({ item, isLast, onAnswered, onNext }: StepProps<KurzantwortItem>) {
+  const submitKurzantwort = trpc.quiz.submitKurzantwort.useMutation();
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState<{
+    isCorrect: boolean;
+    correctAnswer: string;
+    explanation: string | null;
+  } | null>(null);
+
+  function checkAnswer() {
+    submitKurzantwort.mutate(
+      { contentItemId: item.id, answer },
+      {
+        onSuccess: (result) => {
+          setFeedback(result);
+          onAnswered(result.isCorrect);
+        },
+      },
+    );
+  }
+
+  return (
+    <>
+      <div className="quiz-prompt">{item.prompt}</div>
+      <input
+        type="text"
+        className={feedback ? (feedback.isCorrect ? "blank-input correct" : "blank-input incorrect") : "blank-input"}
+        value={answer}
+        disabled={feedback !== null}
+        onChange={(event) => setAnswer(event.target.value)}
+      />
+      {feedback ? (
+        <>
+          <p className={feedback.isCorrect ? "quiz-feedback correct" : "quiz-feedback incorrect"}>
+            {feedback.isCorrect ? "Richtig!" : `Leider falsch. Richtige Lösung: ${feedback.correctAnswer}`}
+            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+          </p>
+          <button type="button" onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button type="button" onClick={checkAnswer} disabled={!answer.trim() || submitKurzantwort.isPending}>
           Antwort prüfen
         </button>
       )}

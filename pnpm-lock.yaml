@@ -34,7 +34,7 @@ importers:
         version: 8.70.0(eslint@9.39.5)(typescript@5.9.3)
       vitest:
         specifier: ^2.0.5
-        version: 2.1.9(@types/node@20.19.43)
+        version: 2.1.9(@types/node@20.19.43)(terser@5.51.2)
 
   apps/api:
     dependencies:
@@ -5365,7 +5365,7 @@ snapshots:
       chai: 5.3.3
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.9(vite@5.4.21(@types/node@20.19.43))':
+  '@vitest/mocker@2.1.9(vite@5.4.21(@types/node@20.19.43)(terser@5.51.2))':
     dependencies:
       '@vitest/spy': 2.1.9
       estree-walker: 3.0.3
@@ -7447,7 +7447,7 @@ snapshots:
 
   uuid@10.0.0: {}
 
-  vite-node@2.1.9(@types/node@20.19.43):
+  vite-node@2.1.9(@types/node@20.19.43)(terser@5.51.2):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
@@ -7486,10 +7486,10 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.51.2
 
-  vitest@2.1.9(@types/node@20.19.43):
+  vitest@2.1.9(@types/node@20.19.43)(terser@5.51.2):
     dependencies:
       '@vitest/expect': 2.1.9
-      '@vitest/mocker': 2.1.9(vite@5.4.21(@types/node@20.19.43))
+      '@vitest/mocker': 2.1.9(vite@5.4.21(@types/node@20.19.43)(terser@5.51.2))
       '@vitest/pretty-format': 2.1.9
       '@vitest/runner': 2.1.9
       '@vitest/snapshot': 2.1.9
@@ -7506,7 +7506,7 @@ snapshots:
       tinypool: 1.1.1
       tinyrainbow: 1.2.0
       vite: 5.4.21(@types/node@20.19.43)(terser@5.51.2)
-      vite-node: 2.1.9(@types/node@20.19.43)
+      vite-node: 2.1.9(@types/node@20.19.43)(terser@5.51.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.19.43
