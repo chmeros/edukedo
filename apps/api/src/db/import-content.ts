@@ -23,23 +23,51 @@ import {
  * Key:Value-Zeilenparser für die bekannten Frontmatter-Felder ist robuster als ein YAML-Parser,
  * der daran scheitern würde. Siehe Architekturplanung Abschnitt 13.
  *
- * Bewusst nicht importiert: fallaufgaben.md (F-23) und fachgespraech.md (F-25) — beide
- * Features existieren im Code noch nicht (siehe Entwicklungsplan, Phase 2/3), ein Import
- * ohne jede Verwendung wäre nur ungenutzter DB-Ballast. Nachziehen, sobald diese Features
- * gebaut werden.
+ * Bewusst nicht importiert: fallaufgaben.md/uebungsaufgaben.md (F-23) und fachgespraech.md
+ * (F-25) — beide Features existieren im Code noch nicht (siehe Entwicklungsplan, Phase 2/3),
+ * ein Import ohne jede Verwendung wäre nur ungenutzter DB-Ballast. Nachziehen, sobald diese
+ * Features gebaut werden.
  */
 const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
-const SKIP_FILES = new Set(["fallaufgaben.md", "fachgespraech.md"]);
+const SKIP_FILES = new Set(["fallaufgaben.md", "fachgespraech.md", "uebungsaufgaben.md"]);
+
+interface KursMeta {
+  title: string;
+  type: string;
+  isPublished: boolean;
+  metadata: Record<string, unknown>;
+}
 
 /**
- * Menschenlesbarer Kurstitel je kurs_slug — das Frontmatter-Format (siehe content/README.md)
- * sieht dafür bewusst kein eigenes Feld vor (jede Thema-Datei kennt nur ihr eigenes
- * Fachgebiet/Thema, nicht den Gesamtkurs-Titel). Unbekannte Slugs fallen auf den Slug selbst
- * zurück, statt den Import abzubrechen.
+ * Kursmetadaten je kurs_slug — das Frontmatter-Format (siehe content/README.md) sieht dafür
+ * bewusst kein eigenes Feld vor (jede Thema-Datei kennt nur ihr eigenes Fachgebiet/Thema,
+ * nicht den Gesamtkurs). Unbekannte Slugs fallen auf einen sicheren Default zurück
+ * (`isPublished: false`) statt den Import abzubrechen — ein neuer Kurs soll nie unbeabsichtigt
+ * sofort live gehen.
+ *
+ * mathematik-9: bewusst `isPublished: false` (Entwicklungsplan Iteration 3, "zunächst mit
+ * is_published = false") — der Schulfach-Kurs darf laut Architekturplanung erst live gehen,
+ * nachdem das Redaktionsteam den ersten Themenblock als fertig eingestuft hat, nicht
+ * automatisch mit dem Import. Das Veröffentlichen bleibt ein bewusster, separater Schritt.
  */
-const KURS_TITLES: Record<string, string> = {
-  "fachwirt-buero-projektorganisation": "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
+const KURS_META: Record<string, KursMeta> = {
+  "fachwirt-buero-projektorganisation": {
+    title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: {},
+  },
+  "mathematik-9": {
+    title: "Mathematik, Klasse 9 (bundeslandneutral)",
+    type: "schulfach",
+    isPublished: false,
+    metadata: { klassenstufe: 9, bundesland_ansatz: "bundeslandneutral" },
+  },
 };
+
+function kursMetaFor(slug: string): KursMeta {
+  return KURS_META[slug] ?? { title: slug, type: slug, isPublished: false, metadata: {} };
+}
 
 async function ensureTagIds(tagNames: string[]): Promise<Map<string, string>> {
   const uniqueNames = [...new Set(tagNames)];
@@ -57,9 +85,11 @@ async function ensureTagIds(tagNames: string[]): Promise<Map<string, string>> {
   return ids;
 }
 
-async function importThemaFile(filePath: string, sortOrder: number) {
+async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number) {
   const raw = await readFile(filePath, "utf8");
   const { frontmatter, body } = splitFrontmatter(raw);
+
+  const meta = kursMetaFor(frontmatter.kurs_slug!);
 
   const [existingKurs] = await db.select().from(kurs).where(eq(kurs.slug, frontmatter.kurs_slug!)).limit(1);
   const kursRow =
@@ -69,17 +99,23 @@ async function importThemaFile(filePath: string, sortOrder: number) {
         .insert(kurs)
         .values({
           slug: frontmatter.kurs_slug!,
-          type: "fachwirt",
-          title: KURS_TITLES[frontmatter.kurs_slug!] ?? frontmatter.kurs_slug!,
-          isPublished: true,
+          type: meta.type,
+          title: meta.title,
+          // isPublished nur beim Erstanlegen aus KURS_META übernehmen — siehe unten, warum ein
+          // Re-Import das niemals überschreiben darf.
+          isPublished: meta.isPublished,
+          metadata: meta.metadata,
         })
         .returning()
     )[0];
   if (!kursRow) throw new Error(`Kurs "${frontmatter.kurs_slug}" konnte nicht angelegt werden.`);
 
-  const wantedKursTitle = KURS_TITLES[frontmatter.kurs_slug!] ?? frontmatter.kurs_slug!;
-  if (kursRow.title !== wantedKursTitle) {
-    await db.update(kurs).set({ title: wantedKursTitle }).where(eq(kurs.id, kursRow.id));
+  // Titel/Typ/Metadata bei jedem Lauf synchronisieren, is_published bewusst NICHT: Ein Kurs
+  // könnte inzwischen manuell veröffentlicht worden sein (siehe Entwicklungsplan Iteration 3,
+  // "Nach Fertigstellung ... is_published = true setzen") — ein erneuter Import darf das
+  // niemals unbeabsichtigt wieder zurücksetzen.
+  if (kursRow.title !== meta.title || kursRow.type !== meta.type) {
+    await db.update(kurs).set({ title: meta.title, type: meta.type, metadata: meta.metadata }).where(eq(kurs.id, kursRow.id));
   }
 
   const [existingFachgebiet] = await db
@@ -96,10 +132,18 @@ async function importThemaFile(filePath: string, sortOrder: number) {
           kursId: kursRow.id,
           code: frontmatter.fachgebiet_code!,
           title: frontmatter.fachgebiet_title!,
+          sortOrder: fachgebietSortOrder,
         })
         .returning()
     )[0];
   if (!fachgebietRow) throw new Error(`Fachgebiet "${frontmatter.fachgebiet_code}" konnte nicht angelegt werden.`);
+
+  // sortOrder bei jedem Lauf synchronisieren: ohne explizites Feld bleiben mehrere Fachgebiete
+  // desselben Kurses sonst bei sortOrder = 0 (Spalten-Default) und die Anzeige-Reihenfolge hängt
+  // vom Zufall der jeweiligen SQL-Join-Reihenfolge ab (sichtbar erst bei >1 Fachgebiet je Kurs).
+  if (fachgebietRow.sortOrder !== fachgebietSortOrder) {
+    await db.update(fachgebiet).set({ sortOrder: fachgebietSortOrder }).where(eq(fachgebiet.id, fachgebietRow.id));
+  }
 
   const themaTitle = `${frontmatter.thema_code} — ${frontmatter.thema_title}`;
   const [existingThema] = await db
@@ -297,13 +341,14 @@ async function main() {
     const kursPath = path.join(CONTENT_DIR, kursDir.name);
     const fachgebietDirs = await readdir(kursPath, { withFileTypes: true });
 
-    for (const fachgebietDir of fachgebietDirs) {
-      if (!fachgebietDir.isDirectory()) continue;
+    const sortedFachgebietDirs = fachgebietDirs.filter((entry) => entry.isDirectory()).sort((a, b) => a.name.localeCompare(b.name));
+
+    for (const [fachgebietIndex, fachgebietDir] of sortedFachgebietDirs.entries()) {
       const fachgebietPath = path.join(kursPath, fachgebietDir.name);
       const files = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md") && !SKIP_FILES.has(file)).sort();
 
       for (const [index, file] of files.entries()) {
-        await importThemaFile(path.join(fachgebietPath, file), (index + 1) * 10);
+        await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);
       }
     }
   }
