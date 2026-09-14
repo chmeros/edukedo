@@ -4,21 +4,10 @@ import { eq } from "drizzle-orm";
 import { calculateIsMinor } from "../../auth/age";
 import { initiateParentalConsent } from "../../auth/consent";
 import { hashPassword, verifyPassword } from "../../auth/password";
-import { SESSION_COOKIE_NAME, createSession, invalidateSession } from "../../auth/session";
+import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { env } from "../../env";
 import { parentChildLink, user } from "../../db/schema";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
-
-function setSessionCookie(res: import("fastify").FastifyReply, token: string, expiresAt: Date) {
-  res.setCookie(SESSION_COOKIE_NAME, token, {
-    path: "/",
-    httpOnly: true,
-    secure: env.NODE_ENV === "production",
-    sameSite: "lax",
-    signed: true,
-    expires: expiresAt,
-  });
-}
 
 export const authRouter = router({
   register: publicProcedure.input(registerInputSchema).mutation(async ({ ctx, input }) => {
@@ -102,6 +91,13 @@ export const authRouter = router({
         .from(parentChildLink)
         .where(eq(parentChildLink.userId, found.id))
         .limit(1);
+
+      if (link?.consentStatus === "revoked") {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "Die Einwilligung für dieses Konto wurde von einem Elternteil widerrufen.",
+        });
+      }
 
       if (!link || link.consentStatus !== "confirmed") {
         throw new TRPCError({

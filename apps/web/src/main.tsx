@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { ConsentConfirm } from "./ConsentConfirm";
+import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
 
@@ -22,14 +23,21 @@ function Root() {
     }),
   );
 
-  // Kein eigener Router im Projekt — für die eine öffentliche Zielseite des
-  // Consent-Bestätigungslinks (F-08) genügt eine einfache Pfad-Weiche.
-  const isConsentConfirmPage = window.location.pathname === "/consent/confirm";
+  // Kein eigener Router im Projekt — für die öffentliche Zielseite des
+  // Consent-Bestätigungslinks (F-08) und das Eltern-Dashboard (F-90) genügt eine
+  // einfache Pfad-Weiche.
+  const pathname = window.location.pathname;
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        {isConsentConfirmPage ? <ConsentConfirm /> : <App />}
+        {pathname === "/consent/confirm" ? (
+          <ConsentConfirm />
+        ) : pathname === "/parent" ? (
+          <ParentDashboard />
+        ) : (
+          <App />
+        )}
       </QueryClientProvider>
     </trpc.Provider>
   );

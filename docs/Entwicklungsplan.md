@@ -17,13 +17,14 @@ Jede Iteration ist nach **Bereichen** aufgeschlüsselt: Programmierung (Kern), P
 Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu beginnen — noch ohne sichtbaren Lernfortschritt für Nutzer:innen.
 
 **Programmierung (Kern)**
-- [ ] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
-- [ ] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR)
-- [ ] PostgreSQL-Instanz (z. B. Neon/Supabase) für den Kern anlegen, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, ggf. `pgcrypto` für `gen_random_uuid()`), Drizzle/Prisma-Migrationsverwaltung einrichten
-- [ ] Generisches Content-Datenmodell migrieren: `KURS`, `FACHGEBIET`, `THEMA`, `CONTENT_ITEM`, `CONTENT_ITEM_VERSION`, `ANSWER_OPTION` (inkl. `side`-Feld für Zuordnungs-Paare), `TAG`, `CONTENT_ITEM_TAG`, `USER_COURSE` (F-09, F-13)
-- [ ] `REPORT`/`BLOCK`-Datenmodell (F-68) direkt mit den übrigen Migrationen anlegen, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
-- [ ] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies, Rollenmodell (`learner`, `parent`, `content_editor`, `admin`)
-- [ ] tRPC-Router-Grundstruktur für die Kern-API
+- [x] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
+- [x] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR) — Lint/Typecheck/Test/Build laufen jetzt tatsächlich gegen echten Code statt gegen TODO-Platzhalter
+- [x] Drizzle-Migrationsverwaltung einrichten, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, `pgcrypto` für `gen_random_uuid()`) — erste Migration `0000_enable_extensions.sql`; lokale Postgres/Redis-Instanz über `docker-compose.yml` im Repo-Root (siehe Architekturplanung Abschnitt 13)
+- [ ] Verwaltete PostgreSQL-Cloud-Instanz (z. B. Neon/Supabase) für Staging/Produktion tatsächlich anlegen — Kontoerstellung/Vertragsabschluss, kein Code-Task; die Migrationen selbst sind bereits lauffähig vorbereitet
+- [x] Generisches Content-Datenmodell migriert: `kurs`, `fachgebiet`, `thema`, `content_item`, `content_item_version`, `answer_option` (inkl. `side`-Feld für Zuordnungs-Paare), `tag`, `content_item_tag`, `user_course` (F-09, F-13) — siehe `apps/api/src/db/schema.ts` + `apps/api/drizzle/0001_*.sql`
+- [x] `report`/`block`-Datenmodell (F-68) direkt mit den übrigen Migrationen angelegt, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
+- [x] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies nach dem Lucia-Pattern, Rollenmodell — `user.role` (`learner`/`content_editor`/`admin`) plus eigener `parent`-Account-Typ mit eigener Session (siehe Architekturplanung Abschnitt 13); inkl. lauffähiger `register`/`login`/`logout`/`me`-Endpunkte (nimmt das Iteration-1-Item "Registrierung/Login inkl. Altersabfrage" unten vorweg)
+- [x] tRPC-Router-Grundstruktur für die Kern-API (`health`, `auth`; weitere Module folgen modulweise)
 
 **Content**
 - [ ] Zwischenformat für Content-Erstellung festlegen (z. B. Markdown-Dateien mit definiertem Frontmatter oder eine Tabellenvorlage) — unabhängig vom Entwicklungsstand des Redaktionssystems (F-11/F-17)
@@ -39,19 +40,19 @@ Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu be
 - [ ] Hosting-Accounts für Frontend (Vercel/Cloudflare Pages) und Kern-Backend (Railway/Render/Fly.io) anlegen
 
 **Testing**
-- [ ] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres)
+- [x] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres) — `apps/api/test/db.integration.test.ts` läuft Migrationen gegen einen echten, per Testcontainers gestarteten Postgres-Container; benötigt lokal einen laufenden Docker-Daemon
 
 ## Iteration 1 — Erster vertikaler Slice: Fachwirt-Pilot, HB3 (erstes Thema)
 
 Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Content zu einem ersten Thema aus HB3 lernen — Karteikarten und Quiz funktionieren Ende-zu-Ende.
 
 **Programmierung (Kern)**
-- [ ] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe)
-- [ ] Konto-Selbstlöschung (F-06) implementieren: Eigenes Konto inkl. kaskadierender Daten vollständig löschen können — die technische Grundlage (Löschverhalten je Tabelle) steht bereits im Datenmodell; nötig, sobald echte personenbezogene Daten entstehen, unabhängig vom (später hinzukommenden) Payment-Service
-- [ ] Karteikarten-Modus (F-20) mit FSRS-Algorithmus (`ts-fsrs`, `USER_PROGRESS`-Felder `difficulty`/`stability`/`state`)
-- [ ] Quiz-Modus (F-21) mit Sofort-Feedback
-- [ ] Einfache Fortschrittsanzeige je Thema (F-30)
-- [ ] PWA-Grundgerüst (F-40, F-41): Service Worker, installierbar
+- [x] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe) — bereits mit dem Auth-Grundgerüst in Iteration 0 umgesetzt (`apps/api/src/trpc/routers/auth.ts`)
+- [x] Konto-Selbstlöschung (F-06) implementieren: Eigenes Konto inkl. kaskadierender Daten vollständig löschen können — `auth.deleteAccount` (Passwort-Bestätigung, dann ein einzelnes `DELETE FROM user`, den Rest übernehmen die bereits im Datenmodell festgelegten `ON DELETE CASCADE`/`SET NULL`-Regeln) plus Frontend-Bestätigungsdialog (`apps/web/src/DeleteAccount.tsx`). Per Testcontainers-Integrationstest und live gegen echtes Postgres verifiziert (inkl. Kurs-/Fortschritts-/Session-Daten sowie des asymmetrischen `report`-Löschverhaltens)
+- [x] Karteikarten-Modus (F-20) mit FSRS-Algorithmus (`ts-fsrs`, `USER_PROGRESS`-Felder `difficulty`/`stability`/`state`) — Backend (`apps/api/src/fsrs/scheduler.ts`, Router `content`/`progress`) und Frontend (`apps/web/src/Flashcards.tsx`) Ende-zu-Ende gegen echtes Postgres verifiziert; läuft aktuell nur mit technischem Platzhalter-Content (`db:seed`), nicht mit echtem HB3-Content (bleibt separate Content-Aufgabe). Dafür minimal auch `courses.list`/`courses.enroll` (F-09) ergänzt, da der Karteikarten-Modus eine Kurseinschreibung voraussetzt — die vollständige Kursauswahl-UI folgt trotzdem erst in Iteration 3
+- [x] Quiz-Modus (F-21) mit Sofort-Feedback — alle drei Formate (Multiple Choice, Zuordnung, Lückentext) umgesetzt (Backend `apps/api/src/trpc/routers/quiz.ts`, Frontend `apps/web/src/Quiz.tsx`) und Ende-zu-Ende gegen echtes Postgres verifiziert; richtige Antwort/Zuordnung/Lösung wird jeweils serverseitig erst bei der Auswertung offengelegt, nie beim Laden der Fragen
+- [x] Einfache Fortschrittsanzeige je Fachgebiet und Thema (F-30) — Backend (`progress.overview`) und Frontend (`apps/web/src/Progress.tsx`) umgesetzt und gegen echtes Postgres verifiziert; "beherrscht" = FSRS-Zustand `review` (siehe Architekturplanung Abschnitt 13). Umfasst aktuell nur Karteikarten, da nur der Karteikarten-Modus `user_progress` schreibt
+- [x] PWA-Grundgerüst (F-40, F-41): Service Worker, installierbar — `vite-plugin-pwa` (App-Shell-Precaching + Web-App-Manifest), Layout gegen 375px-Mobile-Breakpoint live verifiziert. Volle Offline-Synchronisierung (F-42, IndexedDB-Warteschlange) ist bewusst nicht Teil dieses Schritts. Platzhalter-Icons (kein echtes Branding vorhanden), siehe Architekturplanung Abschnitt 13
 
 **Content**
 - [ ] Erstes Thema/Lernfeld aus HB3 vollständig erstellen: Theorie-Zusammenfassung, Karteikarten, Übungsfragen (im Zwischenformat aus Iteration 0)
@@ -68,9 +69,9 @@ Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Conte
 Ziel: Der vollständige Eltern-Consent-Flow und das Eltern-Dashboard stehen produktiv, **bevor** irgendein Kurs mit überwiegend minderjähriger Zielgruppe live geht. Diese Iteration wurde beim Entwickler-Review bewusst vor die Mathe-Kurs-Aktivierung (jetzt Iteration 3) gezogen.
 
 **Programmierung (Kern)**
-- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus
-- [ ] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ
-- [ ] Eltern-Dashboard-Grundgerüst (F-90): Einwilligungsstatus einsehen, Widerruf
+- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus — **Kernmechanismus umgesetzt und live verifiziert:** Registrierung unter 16-Jähriger fragt E-Mail eines Elternteils ab, legt `parent`/`parent_child_link`("pending")/`consent_token` an und versendet (aktuell nur simuliert, siehe `apps/api/src/email/sender.ts`) den Bestätigungslink; Login bleibt bis zur Bestätigung gesperrt (`auth.login`), die Bestätigungsseite (`/consent/confirm`) setzt `consent_status` auf "confirmed". **Noch offen:** automatische Erinnerungsmails (`reminder_sent_count` existiert im Schema, aber kein Scheduler/Cron), kontoloser Vorschau-Modus
+- [x] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ — Eltern haben jetzt einen echten Login: nach Bestätigung des Consent-Links wird automatisch eine Parent-Session angelegt (`consent.confirm`), das Eltern-Dashboard fordert dann einmalig das Setzen eines eigenen Passworts an (`parent.setInitialPassword`, löst den Platzhalter-Hash ab, siehe neue Spalte `parent.password_set`, Architekturplanung Abschnitt 13); danach regulärer Login über `parent.login`
+- [x] Eltern-Dashboard-Grundgerüst (F-90): Einwilligungsstatus einsehen, Widerruf — `parent.me` (Liste verknüpfter Kinder mit Einwilligungsstatus) und `parent.revokeConsent` (setzt `consent_status = "revoked"`, sperrt den Kind-Login sofort über die bestehende Prüfung in `auth.login`) umgesetzt und live gegen echtes Postgres verifiziert, inkl. Frontend (`apps/web/src/ParentDashboard.tsx`, Route `/parent`). Bewusst als Sperre statt Hard-Delete umgesetzt (siehe Architekturplanung Abschnitt 13). **Noch offen:** Einblick in einzelne Kind-Berechtigungen wie F-66 (Gamification existiert noch nicht, siehe Iteration 6)
 - [ ] Kindgerechte Datenschutz-Kurzfassung (F-53) im Frontend einbinden
 
 **Recht & Compliance**
@@ -172,4 +173,3 @@ Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Au
 - Schulzentrierter Einwilligungsweg / schulische IT-Anforderungen — erst falls Schulen aktiv als Kanal hinzukommen
 - JMStV-Jugendschutzbeauftragte:r-Pflicht — erst wenn Nutzerzahlen/Reichweite absehbar sind
 - Konkrete Infrastruktur für das selbst gehostete KI-Modell — wird laut Architekturplanung erst kurz vor Iteration 6 festgelegt
-</content>

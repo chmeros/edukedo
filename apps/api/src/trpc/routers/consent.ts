@@ -1,8 +1,9 @@
 import { confirmConsentInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
+import { createSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
-import { consentToken, parentChildLink } from "../../db/schema";
+import { consentToken, parent, parentChildLink } from "../../db/schema";
 import { publicProcedure, router } from "../trpc";
 
 export const consentRouter = router({
@@ -33,15 +34,26 @@ export const consentRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Bestätigungslink ist ungültig." });
     }
 
-    if (linkRow.consentStatus === "confirmed") {
-      return { status: "already_confirmed" as const };
-    }
-
     if (linkRow.consentStatus === "revoked") {
       throw new TRPCError({
         code: "BAD_REQUEST",
         message: "Die Einwilligung wurde bereits widerrufen. Bitte wende dich an den Support.",
       });
+    }
+
+    const [parentRow] = await ctx.db.select().from(parent).where(eq(parent.id, linkRow.parentId)).limit(1);
+    if (!parentRow) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Bestätigungslink ist ungültig." });
+    }
+
+    if (linkRow.consentStatus === "confirmed") {
+      // F-90: Auch beim erneuten Öffnen eines bereits benutzten Bestätigungslinks bekommt
+      // das Elternteil eine Session — bequemer Einstieg ins Eltern-Dashboard, ohne dass der
+      // Link dafür ein zweites Mal "gültig" sein müsste (die Einwilligung selbst ändert sich
+      // dadurch nicht).
+      const { token, expiresAt } = await createSession(ctx.db, { parentId: parentRow.id });
+      setSessionCookie(ctx.res, token, expiresAt);
+      return { status: "already_confirmed" as const, passwordSet: parentRow.passwordSet };
     }
 
     if (tokenRow.expiresAt.getTime() < Date.now()) {
@@ -58,6 +70,9 @@ export const consentRouter = router({
       .where(eq(parentChildLink.id, linkRow.id));
     await ctx.db.update(consentToken).set({ usedAt: now }).where(eq(consentToken.id, tokenRow.id));
 
-    return { status: "confirmed" as const };
+    const { token, expiresAt } = await createSession(ctx.db, { parentId: parentRow.id });
+    setSessionCookie(ctx.res, token, expiresAt);
+
+    return { status: "confirmed" as const, passwordSet: parentRow.passwordSet };
   }),
 });

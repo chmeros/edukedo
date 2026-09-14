@@ -30,6 +30,11 @@ export function ConsentConfirm() {
       {token && confirm.data?.status === "already_confirmed" && (
         <p>Diese Einwilligung wurde bereits bestätigt.</p>
       )}
+      {token && confirm.data && (
+        <p>
+          <a href="/parent">Weiter zum Eltern-Dashboard</a>
+        </p>
+      )}
     </main>
   );
 }

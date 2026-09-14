@@ -306,10 +306,18 @@ export const examAnswer = pgTable(
 // Eltern-/Jugendschutz (F-08, F-90) — Abschnitt 4.3
 // ---------------------------------------------------------------------------
 
+/**
+ * "parent.password_set" (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe
+ * Abschnitt 13): Ein neu angelegter Elternteil erhält beim ersten Consent-Vorgang nur einen
+ * zufälligen, nirgends bekannten Platzhalter-Hash (siehe auth/consent.ts) — diese Spalte
+ * unterscheidet das explizit von einem tatsächlich selbst gesetzten Passwort, ohne den
+ * Platzhalter-Hash selbst danach untersuchen zu müssen.
+ */
 export const parent = pgTable("parent", {
   id: uuid("id").primaryKey().defaultRandom(),
   email: citext("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
+  passwordSet: boolean("password_set").notNull().default(false),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

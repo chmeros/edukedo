@@ -1,10 +1,27 @@
 import { eq } from "drizzle-orm";
 import type { Database } from "../db/client";
 import { session } from "../db/schema";
+import { env } from "../env";
 import { generateToken, hashToken } from "./token";
 
 export const SESSION_COOKIE_NAME = "edukedo_session";
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 30; // 30 Tage
+
+/**
+ * Gemeinsam für "user"- und "parent"-Sessions (siehe SessionPrincipal) — vorher lokal
+ * in trpc/routers/auth.ts definiert, jetzt hierher verschoben, weil auch consent.ts (F-90,
+ * Auto-Login nach Bestätigung des Eltern-Consent-Links) das Cookie setzen muss.
+ */
+export function setSessionCookie(res: import("fastify").FastifyReply, token: string, expiresAt: Date) {
+  res.setCookie(SESSION_COOKIE_NAME, token, {
+    path: "/",
+    httpOnly: true,
+    secure: env.NODE_ENV === "production",
+    sameSite: "lax",
+    signed: true,
+    expires: expiresAt,
+  });
+}
 
 /**
  * Lucia-Pattern (Architekturplanung Abschnitt 2, siehe auch Abschnitt 13 "session"):

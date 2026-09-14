@@ -1,0 +1,1 @@
+ALTER TABLE "parent" ADD COLUMN "password_set" boolean DEFAULT false NOT NULL;
