@@ -4,6 +4,7 @@ import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { healthRouter } from "./routers/health";
 import { parentRouter } from "./routers/parent";
+import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
 import { quizRouter } from "./routers/quiz";
 import { router } from "./trpc";
@@ -18,6 +19,7 @@ export const appRouter = router({
   auth: authRouter,
   consent: consentRouter,
   parent: parentRouter,
+  preview: previewRouter,
   courses: coursesRouter,
   content: contentRouter,
   progress: progressRouter,

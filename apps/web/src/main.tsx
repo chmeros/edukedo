@@ -8,6 +8,7 @@ import { DatenschutzKinder } from "./DatenschutzKinder";
 import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
+import { Vorschau } from "./Vorschau";
 
 function Root() {
   const [queryClient] = useState(() => new QueryClient());
@@ -25,8 +26,9 @@ function Root() {
   );
 
   // Kein eigener Router im Projekt — für die öffentlichen Zielseiten des
-  // Consent-Bestätigungslinks (F-08), das Eltern-Dashboard (F-90) und die kindgerechte
-  // Datenschutz-Kurzfassung (F-53) genügt eine einfache Pfad-Weiche.
+  // Consent-Bestätigungslinks (F-08), das Eltern-Dashboard (F-90), die kindgerechte
+  // Datenschutz-Kurzfassung (F-53) und den kontolosen Vorschau-Modus (F-08) genügt eine
+  // einfache Pfad-Weiche.
   const pathname = window.location.pathname;
 
   return (
@@ -38,6 +40,8 @@ function Root() {
           <ParentDashboard />
         ) : pathname === "/datenschutz-kinder" ? (
           <DatenschutzKinder />
+        ) : pathname === "/vorschau" ? (
+          <Vorschau />
         ) : (
           <App />
         )}

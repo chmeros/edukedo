@@ -1,6 +1,4 @@
 import {
-  kurzantwortPayloadSchema,
-  lueckenPayloadSchema,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
@@ -8,24 +6,18 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
+import { checkBlanks, checkKurzantwort, checkMatching, checkMcAnswer, shapeQuizItem } from "../../quiz-logic";
 import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
-function shuffle<T>(items: T[]): T[] {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j]!, copy[i]!];
-  }
-  return copy;
-}
-
 export const quizRouter = router({
   /**
-   * F-21: Fragen aller drei Formate (Multiple Choice, Zuordnung, Lückentext) über die
-   * eingeschriebenen Kurse — jeweils OHNE die richtige Antwort/Zuordnung/Lösung, die erst
-   * bei submitAnswer/submitMatching/submitBlanks serverseitig geprüft wird (siehe
-   * Architekturplanung Abschnitt 13).
+   * F-21: Fragen aller vier Formate (Multiple Choice, Zuordnung, Lückentext, Kurzantwort)
+   * über die eingeschriebenen Kurse — jeweils OHNE die richtige Antwort/Zuordnung/Lösung,
+   * die erst bei submitAnswer/submitMatching/submitBlanks/submitKurzantwort serverseitig
+   * geprüft wird (siehe Architekturplanung Abschnitt 13). Formung/Prüfung teilt sich die
+   * Implementierung mit dem kontolosen Vorschau-Modus (trpc/routers/preview.ts, F-08) über
+   * quiz-logic.ts — nur die Quelle der content_item-Zeilen unterscheidet sich.
    */
   quizItems: protectedProcedure.query(async ({ ctx }) => {
     const items = await ctx.db
@@ -61,48 +53,7 @@ export const quizRouter = router({
           .orderBy(asc(answerOption.sortOrder))
       : [];
 
-    return items.map((item) => {
-      if (item.type === "quiz_mc") {
-        return {
-          id: item.id,
-          type: "quiz_mc" as const,
-          prompt: item.prompt,
-          options: options
-            .filter((option) => option.contentItemId === item.id)
-            .map((option) => ({ id: option.id, text: option.text })),
-        };
-      }
-
-      if (item.type === "zuordnung") {
-        const itemOptions = options.filter((option) => option.contentItemId === item.id);
-        return {
-          id: item.id,
-          type: "zuordnung" as const,
-          prompt: item.prompt,
-          left: shuffle(
-            itemOptions.filter((option) => option.side === "links").map((option) => ({ id: option.id, text: option.text })),
-          ),
-          right: shuffle(
-            itemOptions
-              .filter((option) => option.side === "rechts")
-              .map((option) => ({ id: option.id, text: option.text })),
-          ),
-        };
-      }
-
-      if (item.type === "luecken") {
-        const payload = lueckenPayloadSchema.parse(item.payload);
-        return {
-          id: item.id,
-          type: "luecken" as const,
-          prompt: item.prompt,
-          textWithBlanks: payload.text_with_blanks,
-          blankIds: payload.blanks.map((blank) => blank.id),
-        };
-      }
-
-      return { id: item.id, type: "kurzantwort" as const, prompt: item.prompt };
-    });
+    return items.map((item) => shapeQuizItem(item, options));
   }),
 
   submitAnswer: protectedProcedure.input(submitQuizAnswerInputSchema).mutation(async ({ ctx, input }) => {
@@ -111,12 +62,7 @@ export const quizRouter = router({
       .from(answerOption)
       .where(eq(answerOption.contentItemId, input.contentItemId));
 
-    const selected = options.find((option) => option.id === input.selectedOptionId);
-    const correct = options.find((option) => option.isCorrect);
-
-    if (!selected || !correct) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Frage oder Antwortoption nicht gefunden." });
-    }
+    const { isCorrect, correctOptionId } = checkMcAnswer(options, input.selectedOptionId);
 
     const [item] = await ctx.db
       .select()
@@ -124,11 +70,7 @@ export const quizRouter = router({
       .where(eq(contentItem.id, input.contentItemId))
       .limit(1);
 
-    return {
-      isCorrect: selected.isCorrect,
-      correctOptionId: correct.id,
-      explanation: item?.explanation ?? null,
-    };
+    return { isCorrect, correctOptionId, explanation: item?.explanation ?? null };
   }),
 
   submitMatching: protectedProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {
@@ -137,27 +79,10 @@ export const quizRouter = router({
       .from(answerOption)
       .where(eq(answerOption.contentItemId, input.contentItemId));
 
-    if (options.length === 0) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
-    }
-
-    const leftOptions = options.filter((option) => option.side === "links");
-    const correctMap: Record<string, string> = {};
-    for (const left of leftOptions) {
-      const partner = options.find((option) => option.side === "rechts" && option.groupKey === left.groupKey);
-      if (partner) {
-        correctMap[left.id] = partner.id;
-      }
-    }
-
-    let correctCount = 0;
-    for (const pair of input.pairs) {
-      if (correctMap[pair.leftOptionId] === pair.rightOptionId) {
-        correctCount += 1;
-      }
-    }
-
-    return { correctMap, correctCount, total: leftOptions.length };
+    return checkMatching(
+      options,
+      input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
+    );
   }),
 
   submitBlanks: protectedProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
@@ -171,23 +96,7 @@ export const quizRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
     }
 
-    const payload = lueckenPayloadSchema.parse(item.payload);
-
-    const results: Record<string, boolean> = {};
-    const correctAnswers: Record<string, string> = {};
-    let correctCount = 0;
-
-    for (const blank of payload.blanks) {
-      const given = (input.answers[blank.id] ?? "").trim().toLowerCase();
-      const isCorrect = blank.accepted.some((accepted) => accepted.trim().toLowerCase() === given);
-      results[blank.id] = isCorrect;
-      correctAnswers[blank.id] = blank.accepted[0] ?? "";
-      if (isCorrect) {
-        correctCount += 1;
-      }
-    }
-
-    return { results, correctAnswers, correctCount, total: payload.blanks.length };
+    return checkBlanks(item.payload, input.answers);
   }),
 
   submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
@@ -201,16 +110,7 @@ export const quizRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
     }
 
-    const payload = kurzantwortPayloadSchema.parse(item.payload);
-    const given = input.answer.trim().toLowerCase();
-
-    const isCorrect = payload.accepted_answers.some((accepted) => {
-      const normalizedAccepted = accepted.trim().toLowerCase();
-      return payload.match_mode === "contains"
-        ? given.includes(normalizedAccepted)
-        : normalizedAccepted === given;
-    });
-
-    return { isCorrect, correctAnswer: payload.accepted_answers[0] ?? "", explanation: item.explanation };
+    const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
+    return { isCorrect, correctAnswer, explanation: item.explanation };
   }),
 });

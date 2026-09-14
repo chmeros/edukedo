@@ -110,6 +110,10 @@ export function App() {
         <p>
           <a href="/datenschutz-kinder">Was passiert mit meinen Daten? (kindgerecht erklärt)</a>
         </p>
+        <p>
+          Du musst nicht warten: <a href="/vorschau">Schon jetzt unverbindlich ein paar Fragen ausprobieren</a>{" "}
+          — ohne Konto, ohne dass dabei etwas gespeichert wird.
+        </p>
         <button type="button" onClick={() => register.reset()}>
           Zurück zum Login
         </button>
