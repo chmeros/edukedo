@@ -60,7 +60,7 @@ Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Conte
 - [x] Erstes Thema/Lernfeld aus HB3 vollständig erstellen: Theorie-Zusammenfassung, Karteikarten, Übungsfragen (im Zwischenformat aus Iteration 0) — Thema 3.1 sowie gleich alle vier Themen von HB3 (3.1–3.4) im Content-Zwischenformat erstellt (`content/fachwirt-buero-projektorganisation/hb3/`) und per neuem Bulk-Import-Skript (`apps/api/src/db/import-content.ts`) in die Datenbank übernommen — löst den technischen Platzhalter-Content aus `db:seed` für diesen Kurs ab. Siehe Architekturplanung Abschnitt 13
 
 **Testing**
-- [ ] Unit-Tests für die Spaced-Repetition-Logik (FSRS-Integration)
+- [x] Unit-Tests für die Spaced-Repetition-Logik (FSRS-Integration) — `apps/api/src/fsrs/scheduler.test.ts`, bereits mit der ursprünglichen FSRS-Implementierung entstanden, hier nur die Checkbox nachgezogen
 - [ ] End-to-End-Test: Registrierung → Karteikarten-Session → Quiz
 
 **Nutzer:innen-Feedback**
@@ -84,7 +84,7 @@ Ziel: Der vollständige Eltern-Consent-Flow und das Eltern-Dashboard stehen prod
 
 **Testing**
 - [ ] End-to-End-Test des kompletten Eltern-Consent-Flows (Registrierung Minderjährige:r → Eltern-Mail → Bestätigung → Freischaltung → Widerruf)
-- [ ] Backend-Tests für `REPORT`/`BLOCK` (Datenmodell existiert bereits seit Iteration 0, auch ohne UI testbar)
+- [x] Backend-Tests für `REPORT`/`BLOCK` (Datenmodell existiert bereits seit Iteration 0, auch ohne UI testbar) — sechs neue Testcontainers-Integrationstests in `apps/api/test/db.integration.test.ts`: Standard-`status` "offen", mehrfache Meldungen derselben Person ohne Unique-Constraint erlaubt, `report`/`block`-Kaskade beim Löschen des Kurses, Unique-Constraint gegen doppelte Blockierung, Kaskade beim Löschen der blockierten Person (`block.blocked_user_id`) — ergänzt die bereits bestehende Abdeckung der asymmetrischen `report`-Löschung im Rahmen von F-06
 
 ## Iteration 3 — Mehrfach-Kurs aktivieren, Mathe-Kurs live schalten
 

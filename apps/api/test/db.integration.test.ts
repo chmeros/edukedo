@@ -195,4 +195,95 @@ describe("Kern-Migrationen", () => {
     expect(reportAsReporter).toBeDefined();
     expect(reportAsReporter!.reporterUserId).toBeNull();
   });
+
+  /**
+   * F-68: Datenmodell existiert bereits seit Iteration 0, auch ohne UI testbar (Backend-
+   * Router/Moderationsoberfläche folgen laut Entwicklungsplan erst Phase 4). Die
+   * asymmetrische Löschung über einen Nutzer-Löschvorgang (F-06) ist bereits oben
+   * abgedeckt — hier zusätzlich: Constraints und das Löschverhalten über kurs_id sowie
+   * block.blocked_user_id, die dort nicht mitgetestet werden.
+   */
+  describe("REPORT/BLOCK (F-68)", () => {
+    async function seedKursMitZweiUsern(slug: string) {
+      const [kursRow] = await db
+        .insert(schema.kurs)
+        .values({ slug, type: "fachwirt", title: slug })
+        .returning();
+      const [reporter] = await db
+        .insert(schema.user)
+        .values({ email: `${slug}-reporter@example.com`, passwordHash: "hash", isMinor: false })
+        .returning();
+      const [reported] = await db
+        .insert(schema.user)
+        .values({ email: `${slug}-reported@example.com`, passwordHash: "hash", isMinor: false })
+        .returning();
+      return { kurs: kursRow!, reporter: reporter!, reported: reported! };
+    }
+
+    it("setzt den Standard-status 'offen' bei einer neuen Meldung", async () => {
+      const { kurs, reporter, reported } = await seedKursMitZweiUsern("report-default-status");
+
+      const [reportRow] = await db
+        .insert(schema.report)
+        .values({ reporterUserId: reporter.id, reportedUserId: reported.id, kursId: kurs.id, reason: "Test" })
+        .returning();
+
+      expect(reportRow!.status).toBe("offen");
+    });
+
+    it("erlaubt mehrere Meldungen derselben Person gegen dieselbe andere Person (kein Unique-Constraint)", async () => {
+      const { kurs, reporter, reported } = await seedKursMitZweiUsern("report-duplikate-erlaubt");
+
+      await db
+        .insert(schema.report)
+        .values({ reporterUserId: reporter.id, reportedUserId: reported.id, kursId: kurs.id, reason: "Erste Meldung" });
+      await db
+        .insert(schema.report)
+        .values({ reporterUserId: reporter.id, reportedUserId: reported.id, kursId: kurs.id, reason: "Zweite Meldung" });
+
+      const reports = await db.select().from(schema.report).where(eq(schema.report.reportedUserId, reported.id));
+      expect(reports).toHaveLength(2);
+    });
+
+    it("kaskadiert Meldungen beim Löschen des Kurses (report.kurs_id)", async () => {
+      const { kurs, reporter, reported } = await seedKursMitZweiUsern("report-kurs-loeschung");
+      await db
+        .insert(schema.report)
+        .values({ reporterUserId: reporter.id, reportedUserId: reported.id, kursId: kurs.id, reason: "Test" });
+
+      await db.delete(schema.kurs).where(eq(schema.kurs.id, kurs.id));
+
+      const remaining = await db.select().from(schema.report).where(eq(schema.report.kursId, kurs.id));
+      expect(remaining).toHaveLength(0);
+    });
+
+    it("verhindert eine doppelte Blockierung derselben Person im selben Kurs (unique-Constraint)", async () => {
+      const { kurs, reporter: blocker, reported: blocked } = await seedKursMitZweiUsern("block-unique");
+      await db.insert(schema.block).values({ userId: blocker.id, blockedUserId: blocked.id, kursId: kurs.id });
+
+      await expect(
+        db.insert(schema.block).values({ userId: blocker.id, blockedUserId: blocked.id, kursId: kurs.id }),
+      ).rejects.toThrow();
+    });
+
+    it("kaskadiert eine Blockierung, wenn die blockierte Person gelöscht wird (block.blocked_user_id)", async () => {
+      const { kurs, reporter: blocker, reported: blocked } = await seedKursMitZweiUsern("block-blocked-user-loeschung");
+      await db.insert(schema.block).values({ userId: blocker.id, blockedUserId: blocked.id, kursId: kurs.id });
+
+      await db.delete(schema.user).where(eq(schema.user.id, blocked.id));
+
+      const remaining = await db.select().from(schema.block).where(eq(schema.block.blockedUserId, blocked.id));
+      expect(remaining).toHaveLength(0);
+    });
+
+    it("kaskadiert Blockierungen beim Löschen des Kurses (block.kurs_id)", async () => {
+      const { kurs, reporter: blocker, reported: blocked } = await seedKursMitZweiUsern("block-kurs-loeschung");
+      await db.insert(schema.block).values({ userId: blocker.id, blockedUserId: blocked.id, kursId: kurs.id });
+
+      await db.delete(schema.kurs).where(eq(schema.kurs.id, kurs.id));
+
+      const remaining = await db.select().from(schema.block).where(eq(schema.block.kursId, kurs.id));
+      expect(remaining).toHaveLength(0);
+    });
+  });
 });
