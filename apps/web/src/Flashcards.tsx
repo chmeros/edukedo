@@ -2,51 +2,15 @@ import { useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
 import { trpc } from "./trpc";
 
-export function Flashcards() {
+export function Flashcards({ kursId }: { kursId: string }) {
   const utils = trpc.useUtils();
-  const courses = trpc.courses.list.useQuery();
-  const hasJoinedCourse = courses.data?.some((course) => course.joined) ?? false;
-
-  const dueCards = trpc.content.dueCards.useQuery(undefined, { enabled: hasJoinedCourse });
-
-  const enroll = trpc.courses.enroll.useMutation({
-    onSuccess: () => {
-      utils.courses.list.invalidate();
-      utils.content.dueCards.invalidate();
-    },
-  });
+  const dueCards = trpc.content.dueCards.useQuery({ kursId });
 
   const submitReview = trpc.progress.submitReview.useMutation({
     onSuccess: () => utils.content.dueCards.invalidate(),
   });
 
   const [revealed, setRevealed] = useState(false);
-
-  if (courses.isLoading) {
-    return <p>Lädt…</p>;
-  }
-
-  if (!hasJoinedCourse) {
-    return (
-      <section>
-        <h2>Verfügbare Kurse</h2>
-        <ul className="course-list">
-          {courses.data?.map((course) => (
-            <li key={course.id}>
-              <span>{course.title}</span>
-              <button
-                type="button"
-                onClick={() => enroll.mutate({ kursId: course.id })}
-                disabled={enroll.isPending}
-              >
-                Beitreten
-              </button>
-            </li>
-          ))}
-        </ul>
-      </section>
-    );
-  }
 
   if (dueCards.isLoading) {
     return <p>Lädt…</p>;

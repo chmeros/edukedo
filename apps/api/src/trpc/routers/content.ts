@@ -1,15 +1,16 @@
-import { theoriePayloadSchema } from "@edukedo/shared";
+import { activeKursInputSchema, theoriePayloadSchema } from "@edukedo/shared";
 import { and, asc, eq, isNull, lte, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 export const contentRouter = router({
   /**
-   * Fällige Karteikarten (F-20) über alle Kurse, in denen der/die Lernende eingeschrieben
-   * ist: neue Karten (kein user_progress-Datensatz) zuerst, danach nach Fälligkeit
-   * (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
+   * Fällige Karteikarten (F-20) im ausgewählten Kurs (F-09: Mehrfach-Kursbelegung aktiv
+   * genutzt, siehe Architekturplanung Abschnitt 13 — vorher über alle eingeschriebenen
+   * Kurse hinweg aggregiert): neue Karten (kein user_progress-Datensatz) zuerst, danach nach
+   * Fälligkeit (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
    */
-  dueCards: protectedProcedure.query(async ({ ctx }) => {
+  dueCards: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const now = new Date();
 
     const rows = await ctx.db
@@ -24,7 +25,11 @@ export const contentRouter = router({
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
       .innerJoin(
         userCourse,
-        and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
       )
       .leftJoin(
         userProgress,
@@ -46,11 +51,11 @@ export const contentRouter = router({
   }),
 
   /**
-   * Theorie-Abschnitte (Fließtext je Thema) über die eingeschriebenen Kurse — gruppiert nach
+   * Theorie-Abschnitte (Fließtext je Thema) im ausgewählten Kurs — gruppiert nach
    * Fachgebiet, sortiert nach fachgebiet.sort_order/thema.sort_order. Es gibt je Thema
    * höchstens einen Theorie-content_item (siehe apps/api/src/db/import-content.ts).
    */
-  theorySections: protectedProcedure.query(async ({ ctx }) => {
+  theorySections: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const rows = await ctx.db
       .select({
         contentItemId: contentItem.id,
@@ -63,7 +68,11 @@ export const contentRouter = router({
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
       .innerJoin(
         userCourse,
-        and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
       )
       .where(and(eq(contentItem.type, "theorie"), eq(contentItem.isActive, true)))
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder));

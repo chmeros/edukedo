@@ -1,7 +1,7 @@
 import { trpc } from "./trpc";
 
-export function Progress() {
-  const overview = trpc.progress.overview.useQuery();
+export function Progress({ kursId }: { kursId: string }) {
+  const overview = trpc.progress.overview.useQuery({ kursId });
 
   if (overview.isLoading) {
     return <p>Lädt…</p>;
@@ -10,7 +10,7 @@ export function Progress() {
   const fachgebiete = overview.data ?? [];
 
   if (fachgebiete.length === 0) {
-    return <p>Noch keine Karteikarten-Fortschrittsdaten. Tritt einem Kurs bei und lerne ein paar Karteikarten.</p>;
+    return <p>Noch keine Karteikarten-Fortschrittsdaten für diesen Kurs. Lerne ein paar Karteikarten.</p>;
   }
 
   return (

@@ -39,6 +39,24 @@ h1 {
   border-color: #1c1917;
 }
 
+.course-switcher {
+  margin-bottom: 1rem;
+}
+
+.course-switcher-available {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.course-switcher-available summary {
+  cursor: pointer;
+  color: #57534e;
+}
+
+.course-switcher-available .course-list {
+  margin-top: 0.5rem;
+}
+
 form {
   display: flex;
   flex-direction: column;

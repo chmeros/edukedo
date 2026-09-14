@@ -1,4 +1,5 @@
 import {
+  activeKursInputSchema,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
@@ -12,14 +13,16 @@ import { protectedProcedure, router } from "../trpc";
 
 export const quizRouter = router({
   /**
-   * F-21: Fragen aller vier Formate (Multiple Choice, Zuordnung, Lückentext, Kurzantwort)
-   * über die eingeschriebenen Kurse — jeweils OHNE die richtige Antwort/Zuordnung/Lösung,
-   * die erst bei submitAnswer/submitMatching/submitBlanks/submitKurzantwort serverseitig
-   * geprüft wird (siehe Architekturplanung Abschnitt 13). Formung/Prüfung teilt sich die
-   * Implementierung mit dem kontolosen Vorschau-Modus (trpc/routers/preview.ts, F-08) über
-   * quiz-logic.ts — nur die Quelle der content_item-Zeilen unterscheidet sich.
+   * F-21: Fragen aller vier Formate (Multiple Choice, Zuordnung, Lückentext, Kurzantwort) im
+   * ausgewählten Kurs (F-09: Mehrfach-Kursbelegung aktiv genutzt, siehe Architekturplanung
+   * Abschnitt 13 — vorher über alle eingeschriebenen Kurse hinweg aggregiert) — jeweils OHNE
+   * die richtige Antwort/Zuordnung/Lösung, die erst bei
+   * submitAnswer/submitMatching/submitBlanks/submitKurzantwort serverseitig geprüft wird
+   * (siehe Architekturplanung Abschnitt 13). Formung/Prüfung teilt sich die Implementierung
+   * mit dem kontolosen Vorschau-Modus (trpc/routers/preview.ts, F-08) über quiz-logic.ts —
+   * nur die Quelle der content_item-Zeilen unterscheidet sich.
    */
-  quizItems: protectedProcedure.query(async ({ ctx }) => {
+  quizItems: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const items = await ctx.db
       .select({ id: contentItem.id, type: contentItem.type, prompt: contentItem.prompt, payload: contentItem.payload })
       .from(contentItem)
@@ -27,7 +30,11 @@ export const quizRouter = router({
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
       .innerJoin(
         userCourse,
-        and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
       )
       .where(
         and(

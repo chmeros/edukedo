@@ -24,8 +24,8 @@ function renderMarkdown(bodyMarkdown: string) {
   });
 }
 
-export function Theorie() {
-  const sections = trpc.content.theorySections.useQuery();
+export function Theorie({ kursId }: { kursId: string }) {
+  const sections = trpc.content.theorySections.useQuery({ kursId });
   const [activeId, setActiveId] = useState<string | null>(null);
 
   if (sections.isLoading) {

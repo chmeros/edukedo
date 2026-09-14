@@ -91,7 +91,7 @@ Ziel: Der vollständige Eltern-Consent-Flow und das Eltern-Dashboard stehen prod
 Ziel: Der zweite Kurs (Mathematik) existiert mit einem ersten Themenblock und wird jetzt — abgesichert durch den in Iteration 2 fertiggestellten Consent-Flow — für echte Nutzer:innen veröffentlicht; ein Nutzerkonto kann beide Kurse gleichzeitig belegen.
 
 **Programmierung (Kern)**
-- [ ] Mehrfach-Kursbelegung (F-09) aktiv nutzen: Kursauswahl/-wechsel im Frontend, je Kurs getrennter Fortschritt
+- [x] Mehrfach-Kursbelegung (F-09) aktiv nutzen: Kursauswahl/-wechsel im Frontend, je Kurs getrennter Fortschritt — neue Komponente `apps/web/src/CourseSwitcher.tsx` (eingeschriebene Kurse als Auswahl-Tabs, weitere veröffentlichte Kurse zum Beitreten). `content.dueCards`/`content.theorySections`/`quiz.quizItems`/`progress.overview` nehmen jetzt eine `kursId` entgegen und filtern darauf, statt wie zuvor über alle eingeschriebenen Kurse hinweg zu aggregieren (gemeinsames Schema `activeKursInputSchema`, siehe Architekturplanung Abschnitt 13). Live gegen echtes Postgres mit zwei parallel belegten Kursen verifiziert: Kurswechsel zeigt sofort die richtigen Karteikarten/Quiz-Fragen/Theorie-Themen, `user_progress`-Einträge bleiben eindeutig dem jeweiligen Kurs zugeordnet.
 - [ ] Zweiten Kurstyp (Mathematik) im generischen Modell anlegen (`KURS.type = "schulfach"`, `KURS.metadata` mit Klassenstufe/Bundesland-Ansatz, siehe F-13), zunächst mit `is_published = false`
 - [ ] Bulk-Import-Grundfunktion (F-17) bauen, die das Content-Zwischenformat einliest — löst das manuelle Iteration-0-Provisorium ab
 - [ ] Admin-/Redaktionsbereich (F-11) in einer ersten, einfachen Version

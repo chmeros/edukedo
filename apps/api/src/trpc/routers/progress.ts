@@ -1,4 +1,4 @@
-import { submitReviewInputSchema } from "@edukedo/shared";
+import { activeKursInputSchema, submitReviewInputSchema } from "@edukedo/shared";
 import { and, eq } from "drizzle-orm";
 import { initialProgressState, scheduleReview } from "../../fsrs/scheduler";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
@@ -6,13 +6,15 @@ import { protectedProcedure, router } from "../trpc";
 
 export const progressRouter = router({
   /**
-   * F-30: Fortschrittsanzeige je Fachgebiet und Thema. "beherrscht" = user_progress.state
+   * F-30: Fortschrittsanzeige je Fachgebiet und Thema im ausgewählten Kurs (F-09:
+   * Mehrfach-Kursbelegung aktiv genutzt, siehe Architekturplanung Abschnitt 13 — vorher über
+   * alle eingeschriebenen Kurse hinweg aggregiert). "beherrscht" = user_progress.state
    * "review" (FSRS-Karte hat die anfängliche Lernphase verlassen und ist im
    * Langzeit-Wiederholungsplan) — siehe Architekturplanung Abschnitt 13 für die Begründung.
    * Umfasst aktuell nur Karteikarten (type "karteikarte"), da nur der Karteikarten-Modus
    * user_progress schreibt (F-21-Quizantworten tun das bewusst noch nicht, siehe F-26).
    */
-  overview: protectedProcedure.query(async ({ ctx }) => {
+  overview: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const rows = await ctx.db
       .select({
         contentItemId: contentItem.id,
@@ -29,7 +31,11 @@ export const progressRouter = router({
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
       .innerJoin(
         userCourse,
-        and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
       )
       .leftJoin(
         userProgress,

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
-export function Quiz() {
-  const quizItems = trpc.quiz.quizItems.useQuery();
+export function Quiz({ kursId }: { kursId: string }) {
+  const quizItems = trpc.quiz.quizItems.useQuery({ kursId });
   const submitAnswer = trpc.quiz.submitAnswer.useMutation();
   const submitMatching = trpc.quiz.submitMatching.useMutation();
   const submitBlanks = trpc.quiz.submitBlanks.useMutation();

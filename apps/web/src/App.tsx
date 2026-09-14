@@ -1,5 +1,6 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useState } from "react";
+import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
 import { Progress } from "./Progress";
@@ -10,6 +11,7 @@ import { trpc } from "./trpc";
 export function App() {
   const utils = trpc.useUtils();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
+  const courses = trpc.courses.list.useQuery(undefined, { enabled: !!me.data });
   const register = trpc.auth.register.useMutation({
     onSuccess: (result) => {
       // F-08: Bei einer unter 16-jährigen Person wurde bewusst keine Session angelegt
@@ -34,10 +36,23 @@ export function App() {
   const [learningMode, setLearningMode] = useState<"theorie" | "flashcards" | "quiz" | "progress">(
     "flashcards",
   );
+  // F-09: Mehrfach-Kursbelegung aktiv genutzt — der ausgewählte Kurs filtert alle Lernmodi
+  // (siehe Architekturplanung Abschnitt 13). selectedKursId ist nur der zuletzt per Klick
+  // gewählte Kurs; joinedCourses.some(...) fängt den Fall ab, dass er (noch) nicht (mehr)
+  // zu den eingeschriebenen Kursen gehört (initial null, oder nach einer Konto-Löschung o.
+  // Ä.) und fällt dann auf den ersten eingeschriebenen Kurs zurück, statt einen ungültigen
+  // Zustand zu zeigen.
+  const [selectedKursId, setSelectedKursId] = useState<string | null>(null);
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
   if (me.data) {
+    const joinedCourses = courses.data?.filter((course) => course.joined) ?? [];
+    const activeKursId =
+      selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
+        ? selectedKursId
+        : joinedCourses[0]?.id ?? null;
+
     return (
       <main>
         <h1>edukedo</h1>
@@ -52,40 +67,50 @@ export function App() {
         </button>
         <DeleteAccount />
         <hr />
-        <div className="tabs">
-          <button
-            type="button"
-            className={learningMode === "theorie" ? "active" : ""}
-            onClick={() => setLearningMode("theorie")}
-          >
-            Theorie
-          </button>
-          <button
-            type="button"
-            className={learningMode === "flashcards" ? "active" : ""}
-            onClick={() => setLearningMode("flashcards")}
-          >
-            Karteikarten
-          </button>
-          <button
-            type="button"
-            className={learningMode === "quiz" ? "active" : ""}
-            onClick={() => setLearningMode("quiz")}
-          >
-            Quiz
-          </button>
-          <button
-            type="button"
-            className={learningMode === "progress" ? "active" : ""}
-            onClick={() => setLearningMode("progress")}
-          >
-            Fortschritt
-          </button>
-        </div>
-        {learningMode === "theorie" && <Theorie />}
-        {learningMode === "flashcards" && <Flashcards />}
-        {learningMode === "quiz" && <Quiz />}
-        {learningMode === "progress" && <Progress />}
+        <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
+        {activeKursId ? (
+          <>
+            <div className="tabs">
+              <button
+                type="button"
+                className={learningMode === "theorie" ? "active" : ""}
+                onClick={() => setLearningMode("theorie")}
+              >
+                Theorie
+              </button>
+              <button
+                type="button"
+                className={learningMode === "flashcards" ? "active" : ""}
+                onClick={() => setLearningMode("flashcards")}
+              >
+                Karteikarten
+              </button>
+              <button
+                type="button"
+                className={learningMode === "quiz" ? "active" : ""}
+                onClick={() => setLearningMode("quiz")}
+              >
+                Quiz
+              </button>
+              <button
+                type="button"
+                className={learningMode === "progress" ? "active" : ""}
+                onClick={() => setLearningMode("progress")}
+              >
+                Fortschritt
+              </button>
+            </div>
+            {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit lokaler
+                Interaktionszustand (Quiz-Fortschritt, aufgedeckte Karteikarte, ...) nicht
+                vom vorherigen Kurs übernommen wird. */}
+            {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
+            {learningMode === "flashcards" && <Flashcards key={activeKursId} kursId={activeKursId} />}
+            {learningMode === "quiz" && <Quiz key={activeKursId} kursId={activeKursId} />}
+            {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
+          </>
+        ) : (
+          <p>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</p>
+        )}
       </main>
     );
   }
