@@ -1,7 +1,9 @@
 # Entwicklungsplan: edukedo
 
-Stand: 12.09.2026 · Grundlage: Anforderungskatalog Version 0.19 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.6 (insbesondere „Nächste Schritte")
+Stand: 14.09.2026 · Grundlage: Anforderungskatalog Version 0.20 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
 
+> **Aktualisierung 14.09.2026:** Business-Lizenzen & Sponsoring (F-91–F-94, siehe Anforderungskatalog Abschnitt 5.12 und Architekturplanung Abschnitt 4.5/13) als neue Aufgaben in **Iteration 6** ergänzt — passend zur dortigen Phase-4-Einordnung. Bewusst unter „Programmierung (Kern)" statt „Programmierung (Payment)" einsortiert, weil die Lizenz laut Architekturentscheidung keine Premium-Freischaltung auslöst und deshalb ohne Anbindung an den separaten Payment-Service auskommt — diese Aufgaben sind unabhängig von den übrigen Iteration-6-Payment-Aufgaben umsetzbar. Ergänzend: ein Recht-&-Compliance-Task zu Unternehmens-AGB sowie zwei Testing-Tasks zur Zugriffssperre bei aggregierter Statistik.
+>
 > **Aktualisierung 12.09.2026 (Entwickler-Review):** Vier Anpassungen gegenüber der ersten Fassung: (1) **Iteration 2 und 3 wurden dependency-bewusst neu geschnitten** — der Eltern-Consent-Flow (F-08/F-90) steht jetzt bewusst *vor* der Live-Schaltung des Mathe-Kurses, weil die Architekturplanung genau das verlangt (Consent-Infrastruktur muss stehen, bevor ein überwiegend von Minderjährigen genutzter Kurs veröffentlicht wird). (2) Das **`REPORT`/`BLOCK`-Datenmodell wandert von Iteration 3 nach Iteration 0**, weil es ohnehin nur Schema ohne UI ist und laut Architekturplanung in dieselbe erste Migrations-Charge gehört. (3) **Konto-Selbstlöschung (F-06)** ist jetzt ein expliziter Task in Iteration 1, statt implizit „irgendwann" mitzulaufen — ab dieser Iteration entstehen echte personenbezogene Daten. (4) Iteration 0 berücksichtigt jetzt auch **`CONTENT_ITEM_VERSION`, `TAG`/`CONTENT_ITEM_TAG`** sowie die dafür nötigen Postgres-Extensions, passend zum inzwischen vertieften Datenmodell (Architekturplanung Version 0.5/0.6).
 
 ## Grundprinzip
@@ -15,14 +17,13 @@ Jede Iteration ist nach **Bereichen** aufgeschlüsselt: Programmierung (Kern), P
 Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu beginnen — noch ohne sichtbaren Lernfortschritt für Nutzer:innen.
 
 **Programmierung (Kern)**
-- [x] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
-- [x] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR) — Lint/Typecheck/Test/Build laufen jetzt tatsächlich gegen echten Code statt gegen TODO-Platzhalter
-- [x] Drizzle-Migrationsverwaltung einrichten, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, `pgcrypto` für `gen_random_uuid()`) — erste Migration `0000_enable_extensions.sql`; lokale Postgres/Redis-Instanz über `docker-compose.yml` im Repo-Root (siehe Architekturplanung Abschnitt 13)
-- [ ] Verwaltete PostgreSQL-Cloud-Instanz (z. B. Neon/Supabase) für Staging/Produktion tatsächlich anlegen — Kontoerstellung/Vertragsabschluss, kein Code-Task; die Migrationen selbst sind bereits lauffähig vorbereitet
-- [x] Generisches Content-Datenmodell migriert: `kurs`, `fachgebiet`, `thema`, `content_item`, `content_item_version`, `answer_option` (inkl. `side`-Feld für Zuordnungs-Paare), `tag`, `content_item_tag`, `user_course` (F-09, F-13) — siehe `apps/api/src/db/schema.ts` + `apps/api/drizzle/0001_*.sql`
-- [x] `report`/`block`-Datenmodell (F-68) direkt mit den übrigen Migrationen angelegt, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
-- [x] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies nach dem Lucia-Pattern, Rollenmodell — `user.role` (`learner`/`content_editor`/`admin`) plus eigener `parent`-Account-Typ mit eigener Session (siehe Architekturplanung Abschnitt 13); inkl. lauffähiger `register`/`login`/`logout`/`me`-Endpunkte (nimmt das Iteration-1-Item "Registrierung/Login inkl. Altersabfrage" unten vorweg)
-- [x] tRPC-Router-Grundstruktur für die Kern-API (`health`, `auth`; weitere Module folgen modulweise)
+- [ ] Monorepo aufsetzen (pnpm Workspaces + Turborepo), Grundstruktur `/apps/web`, `/apps/api`, `/packages/shared` anlegen
+- [ ] CI-Grundgerüst (GitHub Actions: Lint, Typecheck, Tests, Build bei PR)
+- [ ] PostgreSQL-Instanz (z. B. Neon/Supabase) für den Kern anlegen, benötigte Extensions aktivieren (`citext` für `"user".email`/`parent.email`, ggf. `pgcrypto` für `gen_random_uuid()`), Drizzle/Prisma-Migrationsverwaltung einrichten
+- [ ] Generisches Content-Datenmodell migrieren: `KURS`, `FACHGEBIET`, `THEMA`, `CONTENT_ITEM`, `CONTENT_ITEM_VERSION`, `ANSWER_OPTION` (inkl. `side`-Feld für Zuordnungs-Paare), `TAG`, `CONTENT_ITEM_TAG`, `USER_COURSE` (F-09, F-13)
+- [ ] `REPORT`/`BLOCK`-Datenmodell (F-68) direkt mit den übrigen Migrationen anlegen, auch ohne UI (vorgezogen aus der ursprünglich späteren Jugendschutz-Iteration, siehe Architekturplanung Abschnitt 4.4)
+- [ ] Auth-Grundgerüst (Eigenbau): Argon2id-Hashing, Sessions/Cookies, Rollenmodell (`learner`, `parent`, `content_editor`, `admin`)
+- [ ] tRPC-Router-Grundstruktur für die Kern-API
 
 **Content**
 - [ ] Zwischenformat für Content-Erstellung festlegen (z. B. Markdown-Dateien mit definiertem Frontmatter oder eine Tabellenvorlage) — unabhängig vom Entwicklungsstand des Redaktionssystems (F-11/F-17)
@@ -38,19 +39,19 @@ Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu be
 - [ ] Hosting-Accounts für Frontend (Vercel/Cloudflare Pages) und Kern-Backend (Railway/Render/Fly.io) anlegen
 
 **Testing**
-- [x] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres) — `apps/api/test/db.integration.test.ts` läuft Migrationen gegen einen echten, per Testcontainers gestarteten Postgres-Container; benötigt lokal einen laufenden Docker-Daemon
+- [ ] Testinfrastruktur aufsetzen (Vitest, Testcontainers für Postgres)
 
 ## Iteration 1 — Erster vertikaler Slice: Fachwirt-Pilot, HB3 (erstes Thema)
 
 Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Content zu einem ersten Thema aus HB3 lernen — Karteikarten und Quiz funktionieren Ende-zu-Ende.
 
 **Programmierung (Kern)**
-- [x] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe) — bereits mit dem Auth-Grundgerüst in Iteration 0 umgesetzt (`apps/api/src/trpc/routers/auth.ts`)
-- [x] Konto-Selbstlöschung (F-06) implementieren: Eigenes Konto inkl. kaskadierender Daten vollständig löschen können — `auth.deleteAccount` (Passwort-Bestätigung, dann ein einzelnes `DELETE FROM user`, den Rest übernehmen die bereits im Datenmodell festgelegten `ON DELETE CASCADE`/`SET NULL`-Regeln) plus Frontend-Bestätigungsdialog (`apps/web/src/DeleteAccount.tsx`). Per Testcontainers-Integrationstest und live gegen echtes Postgres verifiziert (inkl. Kurs-/Fortschritts-/Session-Daten sowie des asymmetrischen `report`-Löschverhaltens)
-- [x] Karteikarten-Modus (F-20) mit FSRS-Algorithmus (`ts-fsrs`, `USER_PROGRESS`-Felder `difficulty`/`stability`/`state`) — Backend (`apps/api/src/fsrs/scheduler.ts`, Router `content`/`progress`) und Frontend (`apps/web/src/Flashcards.tsx`) Ende-zu-Ende gegen echtes Postgres verifiziert; läuft aktuell nur mit technischem Platzhalter-Content (`db:seed`), nicht mit echtem HB3-Content (bleibt separate Content-Aufgabe). Dafür minimal auch `courses.list`/`courses.enroll` (F-09) ergänzt, da der Karteikarten-Modus eine Kurseinschreibung voraussetzt — die vollständige Kursauswahl-UI folgt trotzdem erst in Iteration 3
-- [x] Quiz-Modus (F-21) mit Sofort-Feedback — alle drei Formate (Multiple Choice, Zuordnung, Lückentext) umgesetzt (Backend `apps/api/src/trpc/routers/quiz.ts`, Frontend `apps/web/src/Quiz.tsx`) und Ende-zu-Ende gegen echtes Postgres verifiziert; richtige Antwort/Zuordnung/Lösung wird jeweils serverseitig erst bei der Auswertung offengelegt, nie beim Laden der Fragen
-- [x] Einfache Fortschrittsanzeige je Fachgebiet und Thema (F-30) — Backend (`progress.overview`) und Frontend (`apps/web/src/Progress.tsx`) umgesetzt und gegen echtes Postgres verifiziert; "beherrscht" = FSRS-Zustand `review` (siehe Architekturplanung Abschnitt 13). Umfasst aktuell nur Karteikarten, da nur der Karteikarten-Modus `user_progress` schreibt
-- [x] PWA-Grundgerüst (F-40, F-41): Service Worker, installierbar — `vite-plugin-pwa` (App-Shell-Precaching + Web-App-Manifest), Layout gegen 375px-Mobile-Breakpoint live verifiziert. Volle Offline-Synchronisierung (F-42, IndexedDB-Warteschlange) ist bewusst nicht Teil dieses Schritts. Platzhalter-Icons (kein echtes Branding vorhanden), siehe Architekturplanung Abschnitt 13
+- [ ] Registrierung/Login inkl. Altersabfrage (F-01, F-02); `USER.birth_date`/`is_minor` werden gesetzt, volle Jugendschutz-Durchsetzung (F-08) ist hier noch nicht nötig (Fachwirt-Pilot = erwachsene Zielgruppe)
+- [ ] Konto-Selbstlöschung (F-06) implementieren: Eigenes Konto inkl. kaskadierender Daten vollständig löschen können — die technische Grundlage (Löschverhalten je Tabelle) steht bereits im Datenmodell; nötig, sobald echte personenbezogene Daten entstehen, unabhängig vom (später hinzukommenden) Payment-Service
+- [ ] Karteikarten-Modus (F-20) mit FSRS-Algorithmus (`ts-fsrs`, `USER_PROGRESS`-Felder `difficulty`/`stability`/`state`)
+- [ ] Quiz-Modus (F-21) mit Sofort-Feedback
+- [ ] Einfache Fortschrittsanzeige je Thema (F-30)
+- [ ] PWA-Grundgerüst (F-40, F-41): Service Worker, installierbar
 
 **Content**
 - [ ] Erstes Thema/Lernfeld aus HB3 vollständig erstellen: Theorie-Zusammenfassung, Karteikarten, Übungsfragen (im Zwischenformat aus Iteration 0)
@@ -67,8 +68,8 @@ Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Conte
 Ziel: Der vollständige Eltern-Consent-Flow und das Eltern-Dashboard stehen produktiv, **bevor** irgendein Kurs mit überwiegend minderjähriger Zielgruppe live geht. Diese Iteration wurde beim Entwickler-Review bewusst vor die Mathe-Kurs-Aktivierung (jetzt Iteration 3) gezogen.
 
 **Programmierung (Kern)**
-- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus — **Kernmechanismus umgesetzt und live verifiziert:** Registrierung unter 16-Jähriger fragt E-Mail eines Elternteils ab, legt `parent`/`parent_child_link`("pending")/`consent_token` an und versendet (aktuell nur simuliert, siehe `apps/api/src/email/sender.ts`) den Bestätigungslink; Login bleibt bis zur Bestätigung gesperrt (`auth.login`), die Bestätigungsseite (`/consent/confirm`) setzt `consent_status` auf "confirmed". **Noch offen:** automatische Erinnerungsmails (`reminder_sent_count` existiert im Schema, aber kein Scheduler/Cron), kontoloser Vorschau-Modus
-- [ ] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ — `parent`/`parent_child_link`-Zeilen werden bereits angelegt (siehe oben), aber Eltern haben noch keinen echten Login (Platzhalter-Passwort-Hash, siehe Architekturplanung Abschnitt 13) — folgt zusammen mit dem Eltern-Dashboard
+- [ ] Vollständiger Eltern-Consent-Flow (F-08): E-Mail-Bestätigung, `CONSENT_TOKEN`, automatische Erinnerungen, kontoloser Vorschau-Modus
+- [ ] `PARENT`, `PARENT_CHILD_LINK` als eigener Account-Typ
 - [ ] Eltern-Dashboard-Grundgerüst (F-90): Einwilligungsstatus einsehen, Widerruf
 - [ ] Kindgerechte Datenschutz-Kurzfassung (F-53) im Frontend einbinden
 
@@ -132,7 +133,7 @@ Ziel: Das Kernlernangebot ist funktional vollständig für beide Kurse, bevor in
 **Testing**
 - [ ] Manuelle Barrierefreiheits-Stichprobe (Screenreader)
 
-## Iteration 6 — Validierungs-Gate bestanden: Social, Gamification, KI, Payment (entspricht Phase 4)
+## Iteration 6 — Validierungs-Gate bestanden: Social, Gamification, KI, Payment, Business-Lizenzen (entspricht Phase 4)
 
 Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwändigeren, bislang zurückgestellten Funktionen gebaut.
 
@@ -142,6 +143,11 @@ Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwänd
 - [ ] Nicht-soziale Gamification (F-67)
 - [ ] Kohorten-/Dozenten-Funktion (F-07, F-64, F-65)
 - [ ] KI-gestützte Bewertung & Aufgabengenerierung (F-70–F-72), inkl. BullMQ/Redis-Warteschlange
+- [ ] **Business-Lizenzen & Sponsoring (F-91–F-94, ergänzt 14.09.2026, siehe Architekturplanung Abschnitt 4.5/13):** `company_account` als eigener Account-Typ/Login (Rolle `company_admin`, analog zu `parent`) inkl. Lizenzkontingent-Verwaltung (`seat_limit`, `billing_status`); `company_invite_code` zur Lizenzvergabe (analog F-63); `user_company_membership` zur Branding-/Statistik-Zuordnung (1:1 je Nutzer:in)
+- [ ] Visuelles Unternehmens-Branding (F-92): Logo/Farbschema/Begrüßungstext auf Basis von `company_account`, rein präsentationsseitig — kein separater Content
+- [ ] Aggregierte Unternehmens-Statistik (F-93) als eigener `/company/*`-Endpunkt, technisch ohne Möglichkeit einer Einzel-Nutzer-Auswertung (Beschäftigtendatenschutz, § 26 BDSG — siehe Anforderungskatalog Abschnitt 7, Architekturplanung Abschnitt 8)
+- [ ] Sponsoring-Markenplatzierung (F-94): `sponsor`-Tabelle, statische Anzeige-Komponente ohne Tracking/Personalisierung, admin-gepflegt; für den Schulfach-Kurs zusätzlich gegen N-01/N-13 prüfen (keine Interaktivität/Call-to-Action)
+- [ ] Einfaches Admin-Werkzeug, um `company_account.billing_status`/`seat_limit` nach manuellem Zahlungseingang freizuschalten (kein automatisierter Checkout, siehe Architekturplanung Abschnitt 13)
 
 **Programmierung (Payment)**
 - [ ] Payment-Service als eigenständiges App-Paket aufsetzen (eigene DB, eigenes Deployment)
@@ -151,10 +157,13 @@ Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwänd
 **Recht & Compliance**
 - [ ] Vertragspartner-AGB gegenüber Minderjährigen prüfen (Zahlungsdienstleister, Managed-API-Anbieter)
 - [ ] Zahlungsdienstleister auswählen und Vertrag abschließen (setzt die in Iteration 0 angemeldete Rechtsform voraus)
+- [ ] **Einfache Unternehmens-AGB/Nutzungsbedingungen für Business-Lizenzen erstellen (ergänzt 14.09.2026):** Regelt Rechnungsstellung, Laufzeit/Kündigung des Kontingents sowie den Hinweis, dass der zugrunde liegende Lerncontent unabhängig davon weiterhin frei zugänglich bleibt (siehe Anforderungskatalog Abschnitt 5.12) — unabhängig von der B2C-AGB-Prüfung oben
 
 **Testing**
 - [ ] Kontrakttests Kern ↔ Payment
 - [ ] Event-/Queue-Tests (Idempotenz, Verhalten bei Ausfall)
+- [ ] **Zugriffskontroll-Tests für `/company/*`-Statistik-Endpunkte (ergänzt 14.09.2026):** Verifizieren, dass mit `company_admin`-Berechtigung unter keinen Umständen Einzel-Nutzer-Datensätze abrufbar sind — nur aggregierte Werte
+- [ ] **Test der Lizenzkontingent-Grenzen (ergänzt 14.09.2026):** Einladungscode lässt sich nicht über `seat_limit` hinaus einlösen; Branding erscheint nur für Mitglieder des jeweiligen `company_account`
 
 ## Offene, bewusst nicht terminierte Themen
 
@@ -163,3 +172,4 @@ Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Au
 - Schulzentrierter Einwilligungsweg / schulische IT-Anforderungen — erst falls Schulen aktiv als Kanal hinzukommen
 - JMStV-Jugendschutzbeauftragte:r-Pflicht — erst wenn Nutzerzahlen/Reichweite absehbar sind
 - Konkrete Infrastruktur für das selbst gehostete KI-Modell — wird laut Architekturplanung erst kurz vor Iteration 6 festgelegt
+</content>

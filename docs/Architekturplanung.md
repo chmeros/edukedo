@@ -1,7 +1,11 @@
 # Architekturplanung: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb
 
-Version 0.6 · Stand 12.09.2026 · Entwurf zur Abstimmung
+Version 0.8 · Stand 14.09.2026 · Entwurf zur Abstimmung
 
+> **Update (Version 0.8):** Architektonische Umsetzung der im Anforderungskatalog (Version 0.20, Abschnitt 5.12) neu ergänzten Business-Lizenzen & Sponsoring (F-91–F-94). Zentrale Entscheidung: Die Lizenz koppelt bewusst **nicht** an Premium-Funktionen (F-80/F-81) — ihr einziger Mehrwert ist visuelles Branding (F-92) und aggregierte Statistik (F-93), damit die Investitionshürde für Unternehmen so klein wie möglich bleibt. Dadurch bleibt das Feature **vollständig im Kern-Backend** und benötigt **keine Anbindung an den isolierten Payment-Service** (siehe Abschnitt 1, 8) — ein bewusster Unterschied zum bestehenden B2C-Premium-Modell. Die Abrechnung selbst (geringer, meist pauschaler Betrag) läuft manuell über Rechnung/Überweisung außerhalb des Systems; ein Admin schaltet das Lizenzkontingent danach frei (siehe Abschnitt 4.5, 7, 13). Neu im Datenmodell (Phase-4-Erweiterung, siehe Abschnitt 4.5): `company_account` als eigener Account-Typ analog zu `parent`, `company_invite_code` zur Lizenzvergabe, `user_company_membership` zur Branding-/Statistik-Zuordnung sowie eine vom Lizenzmodell bewusst getrennte `sponsor`-Tabelle für F-94. Entsprechend ergänzt: Abschnitt 3 (Rolle `company_admin`), Abschnitt 7 (neue `/company/*`-Endpunkte, Zugriffskontrolle für aggregierte Statistik), Abschnitt 13 (neue Entscheidungen vom 14.09.2026).
+>
+> **Update (Version 0.7):** Ergänzung eines Plattform-Hinweises zur Offline-/PWA-Strategie: iOS/Safari weicht in zwei Punkten von Android/Chrome ab — (1) die PWA-Installation läuft ausschließlich manuell über das Safari-Teilen-Menü, es gibt keinen automatischen Installations-Prompt; (2) Safaris Speicherbereinigung (Intelligent Tracking Prevention) kann lokal zwischengespeicherte Daten — inklusive der für den Offline-Modus (F-42) heruntergeladenen Lerninhalte — nach einer gewissen Zeit ohne Nutzung löschen. Da „auch offline zuverlässig verfügbar" ein Kernversprechen von edukedo ist, wird dies als expliziter Test- und Beobachtungspunkt in Abschnitt 5 und Abschnitt 10 aufgenommen, mit einer möglichen Re-Sync-/Warnmechanik als Mitigation; noch keine abschließende architektonische Entscheidung, siehe Abschnitt 13.
+>
 > **Update (Version 0.6):** Ergebnis eines Entwickler-Reviews von Architekturplanung und Entwicklungsplan. Vier konkrete Schärfungen am Datenmodell/Konzept: (1) **`exam_answer`** referenziert jetzt `content_item_version_id` statt `content_item_id` — analog zum Duell (F-61) zeigt eine Prüfungsauswertung damit immer exakt den Wortlaut, der tatsächlich gestellt wurde, auch wenn der Content-Editor die Frage später korrigiert. Voraussetzung dafür: **`content_item_version`** wird ab sofort ausdrücklich bereits bei der *Erstellung* eines `content_item` angelegt (Version 1), nicht erst bei der ersten Bearbeitung. (2) **`answer_option`** erhält ein neues `side`-Feld (nur für `zuordnung`), das explizit macht, welcher der beiden Paar-Partner die „linke" bzw. „rechte" Seite ist — vorher trug nur `group_key` die Paar-Zugehörigkeit, ohne die Seite festzulegen. (3) Klargestellt: Die Selbstlöschung des eigenen Kontos (F-06) ist unabhängig vom Payment-Service bereits ab den ersten echten Nutzerkonten nötig, nicht erst mit Phase 4 (siehe Abschnitt 8). (4) Redaktionelle Klarstellung zu `report`/`block`: Diese gehören bewusst in dieselbe erste Migrations-Charge wie das übrige Phase-1-Schema (siehe Abschnitt 4.4, „Nächste Schritte").
 >
 > **Update (Version 0.5):** Abschnitt 4 (Datenmodell) grundlegend vertieft — von einer knappen ERD-Skizze zu einem soliden, flexiblen Schema mit tatsächlicher SQL-Schreibweise, expliziten Constraints/Indizes und dokumentiertem Löschverhalten je Tabelle. Wichtigste neue Elemente (alle am 12.09.2026 entschieden): **`content_item_version`** führt eine echte Versionshistorie statt einer reinen Versionsnummer ein (Grundlage für exakte Duell-Snapshots in Phase 4); **`content_item.payload`** (JSONB, typspezifisch) ergänzt die bisher nur für Multiple-Choice passende `answer_option`-Tabelle um Lückentext, Kurzantwort und Fallaufgaben, ohne für jeden Fragetyp eine eigene Tabelle zu benötigen; ein neues, kursübergreifendes **`tag`/`content_item_tag`**-System ergänzt die hierarchische Einordnung um freies Verschlagworten (F-13/F-14); `kurs.locale` bereitet F-52 vor, ohne jetzt schon eine Übersetzungstabelle zu bauen; fehlende Unique-Constraints (u. a. keine doppelte Kursbelegung, genau ein Fortschritts-Datensatz je Content-Item) wurden ergänzt; das kaskadierende Löschverhalten für F-06 ist jetzt je Tabelle explizit festgelegt statt nur allgemein beschrieben.
@@ -26,18 +30,18 @@ Basiert auf dem Anforderungskatalog Version 0.19 (siehe separates Dokument, insb
 
 | Bereich | Empfehlung | Begründung |
 |---|---|---|
-| Frontend | React + TypeScript, Vite als Build-Tool | Größtes Ökosystem, gute PWA-Unterstützung, gut geeignet für interaktive Quiz-/Karteikarten-UI sowie für die neuen rollenbasierten Ansichten (learner, parent, content_editor, admin) |
+| Frontend | React + TypeScript, Vite als Build-Tool | Größtes Ökosystem, gute PWA-Unterstützung, gut geeignet für interaktive Quiz-/Karteikarten-UI sowie für die rollenbasierten Ansichten (learner, parent, content_editor, admin, **company_admin**, ergänzt 14.09.2026) |
 | Styling/UI | Tailwind CSS + shadcn/ui-Komponenten | Schnelles, konsistentes UI ohne viel Custom-CSS |
 | State/Data-Fetching | TanStack Query | Sauberes Caching und Sync von Server-Daten, wichtig für Offline/Sync-Logik |
 | PWA/Offline | Vite PWA Plugin (Workbox) + IndexedDB (über Dexie.js) | Service-Worker-Caching für Assets, IndexedDB für Offline-Lernstand-Queue |
-| Kern-Backend | **Node.js + TypeScript, Fastify** (entschieden am 12.09.2026, siehe Abschnitt 13) | Eine Sprache im gesamten Stack senkt Kontextwechsel-Kosten für eine Einzelperson; Fastify hat einen offiziellen tRPC-Adapter und weniger Boilerplate als NestJS für eine Einzelperson |
-| Auth | **Eigenbau, im Kern-Backend, nach dem Lucia-Pattern** (entschieden am 12.09.2026, siehe Abschnitt 13) | Volle Kontrolle über Altersabfrage, Eltern-Verknüpfung (F-08) und einen eigenen Eltern-Account-Typ (F-90) — Managed-Auth-Anbieter (Supabase Auth/Clerk) unterstützen diese Eltern-Kind-Beziehung nicht nativ. Argon2id-Hashing plus signierte, httpOnly-Session-Cookies nach dem Lucia-Pattern (Sessions-Tabelle mit gehashtem Token, siehe Abschnitt 13) — Lucia selbst ist als Bibliothek inzwischen archiviert/deprecated, daher wird nur das Pattern übernommen, nicht die Bibliothek als Dependency eingebunden |
+| Kern-Backend | Node.js + TypeScript, Framework: Fastify oder NestJS | Eine Sprache im gesamten Stack senkt Kontextwechsel-Kosten für eine Einzelperson |
+| Auth | **Eigenbau, im Kern-Backend** (entschieden am 12.09.2026) | Volle Kontrolle über Altersabfrage, Eltern-Verknüpfung (F-08) und einen eigenen Eltern-Account-Typ (F-90) — Managed-Auth-Anbieter (Supabase Auth/Clerk) unterstützen diese Eltern-Kind-Beziehung nicht nativ. Argon2id-Hashing plus signierte, httpOnly-Session-Cookies (ggf. mit einer schlanken Bibliothek wie Lucia als Ausgangspunkt) reichen für den Umfang aus. Für den Solo-Zeitplan empfiehlt sich, Session-/Hashing-Mechanik so weit wie möglich der gewählten Bibliothek zu überlassen und nur die Eltern-Kind-Verknüpfung darüber zu bauen, statt auch Bewährtes wie Cookie-Handling neu zu implementieren |
 | Payment-Service | **Eigener Service, eigene Datenbank, eigenes Deployment** (entschieden am 12.09.2026) | Vollständige Isolation von Zahlungsdaten gegenüber dem Kernsystem (siehe Abschnitt 8); kommuniziert mit dem Kern-Backend nur über eine schmale, versionierte REST-API |
 | API-Stil (Kern) | **tRPC** (entschieden am 12.09.2026) | Spart Boilerplate bei TS-Frontend+Backend im selben Monorepo; native Apps/Drittanbieter-Clients sind laut Anforderungskatalog ohnehin out of scope (Abschnitt 8) |
 | API-Stil (Kern ↔ Payment) | REST/HTTPS für synchrone Statusabfragen, **plus Event-/Message-Queue** für asynchrone Statusänderungen (entschieden am 12.09.2026); Zahlungsdienstleister → Payment-Service weiterhin per Webhook | Zwei getrennte Services kommunizieren über einen stabilen, sprachunabhängigen Vertrag statt über TS-spezifische RPC-Mechanismen; die Queue liefert Statusänderungen (z. B. Premium-Freischaltung) ohne Polling an den Kern |
 | Datenbank (Kern) | PostgreSQL (verwaltet, z. B. Neon oder Supabase) | Relational passt gut zu den strukturierten Beziehungen des generischen Content-Modells (Kurs → Fachgebiet → Thema → Content-Item → Fortschritt) |
 | Datenbank (Payment) | Eigene PostgreSQL-Instanz (separates Neon-/Supabase-Projekt oder eigener Anbieter) | Physische statt nur logischer Trennung — konsistent mit der Entscheidung für einen vollständig separaten Service |
-| ORM | **Drizzle ORM** (für den Kern entschieden am 12.09.2026, siehe Abschnitt 13; für Payment weiterhin unabhängig wählbar) | Typsichere Queries, SQL-nahe Migrationsverwaltung, die sich direkt am bereits als reinem SQL-DDL dokumentierten Schema (Abschnitt 4.3) orientiert; Kern und Payment teilen sich bewusst keine ORM-Modelle |
+| ORM | Drizzle ORM oder Prisma, je Service unabhängig wählbar | Typsichere Queries, Migrationsverwaltung; Kern und Payment teilen sich bewusst keine ORM-Modelle |
 | Caching/Sessions | Redis (optional, erst bei Bedarf) | Session-Storage, Rate-Limiting (u. a. für Login und Einladungscodes, F-63); für MVP ggf. verzichtbar |
 | Message-Queue (Kern ↔ Payment) | **BullMQ auf Redis** (empfohlen, konsistent mit dem ohnehin vorgesehenen Redis) | Kein zusätzlicher Infrastruktur-Anbieter nötig; deckt den entschiedenen Bedarf an asynchronen Statusänderungen ab. Alternative (z. B. ein Cloud-Messaging-Dienst wie SNS/SQS) bleibt möglich, falls Redis aus anderen Gründen entfällt |
 | Objekt-/Medienspeicher | S3-kompatibel (z. B. Cloudflare R2) | Für Bilder/Diagramme in Lerninhalten |
@@ -54,7 +58,7 @@ Basiert auf dem Anforderungskatalog Version 0.19 (siehe separates Dokument, insb
 ```mermaid
 flowchart LR
     subgraph Client["Client (Browser / PWA)"]
-        UI["React SPA\n(Rollen: learner, parent,\ncontent_editor, admin)"]
+        UI["React SPA\n(Rollen: learner, parent,\ncontent_editor, admin, company_admin)"]
         SW["Service Worker\n(Cache + Offline-Queue)"]
         IDB["IndexedDB\n(lokaler Lernstand)"]
     end
@@ -70,6 +74,7 @@ flowchart LR
         SyncSvc["Sync-/Progress-Service"]
         ContentSvc["Content-/Admin-Service"]
         SocialSvc["Sozial-Modul\n(Freundeskreis, Melden/Blockieren)"]
+        CompanySvc["Business-Modul\n(Lizenzen, Branding,\naggreg. Statistik, Sponsoring)"]
     end
 
     subgraph CoreData["Kern-Datenhaltung"]
@@ -107,11 +112,13 @@ flowchart LR
     API --> SyncSvc
     API --> ContentSvc
     API --> SocialSvc
+    API --> CompanySvc
     AuthSvc --> PG
     ConsentSvc --> PG
     SyncSvc --> PG
     ContentSvc --> PG
     SocialSvc --> PG
+    CompanySvc --> PG
     API --> Redis
     ContentSvc --> S3
     API -- "Abo-Status abfragen (REST, synchron)" --> PaySvc
@@ -121,7 +128,7 @@ flowchart LR
     ContentSvc -- "Bewertungs-/Generierungs-Jobs" --> AISelf
 ```
 
-Der Kern-Backend-„Monolith" bleibt intern modular (Auth, Consent, Content, Sync/Progress, Sozial als getrennte Module/Ordner), damit einzelne Teile bei Bedarf später als eigene Services herausgelöst werden können. Payment ist die eine bewusste Ausnahme von diesem Monolith-Prinzip (siehe Abschnitt 1, 8): Frontend und Nutzer:innen interagieren dort, wo möglich, direkt mit dem gehosteten Checkout des Zahlungsdienstleisters, damit möglichst wenig Zahlungsdaten überhaupt die eigene Infrastruktur berühren (siehe F-81). **Kern und Payment-Service kommunizieren über zwei Kanäle (entschieden am 12.09.2026):** synchrone REST-Statusabfragen für den unmittelbaren Bedarf (z. B. beim Login prüfen, ob Premium aktiv ist) und eine Event-/Message-Queue für asynchrone Statusänderungen (z. B. eine neue Zahlung schaltet Premium frei, ohne dass der Kern dafür pollen müsste) sowie für die umgekehrte Richtung (der Kern meldet eine Konto-Löschung nach F-06 an den Payment-Service, damit dieser seine eigenen Daten ebenfalls bereinigt).
+Der Kern-Backend-„Monolith" bleibt intern modular (Auth, Consent, Content, Sync/Progress, Sozial, **Business (Lizenzen/Branding/Sponsoring, ergänzt 14.09.2026)** als getrennte Module/Ordner), damit einzelne Teile bei Bedarf später als eigene Services herausgelöst werden können. Das neue Business-Modul (F-91–F-94) ist bewusst ein gewöhnliches Kern-Modul wie die übrigen — **kein** Anschluss an den separaten Payment-Service, weil die Lizenz keine Premium-Freischaltung auslöst (siehe Update Version 0.8, Abschnitt 13). Payment ist die eine bewusste Ausnahme von diesem Monolith-Prinzip (siehe Abschnitt 1, 8): Frontend und Nutzer:innen interagieren dort, wo möglich, direkt mit dem gehosteten Checkout des Zahlungsdienstleisters, damit möglichst wenig Zahlungsdaten überhaupt die eigene Infrastruktur berühren (siehe F-81). **Kern und Payment-Service kommunizieren über zwei Kanäle (entschieden am 12.09.2026):** synchrone REST-Statusabfragen für den unmittelbaren Bedarf (z. B. beim Login prüfen, ob Premium aktiv ist) und eine Event-/Message-Queue für asynchrone Statusänderungen (z. B. eine neue Zahlung schaltet Premium frei, ohne dass der Kern dafür pollen müsste) sowie für die umgekehrte Richtung (der Kern meldet eine Konto-Löschung nach F-06 an den Payment-Service, damit dieser seine eigenen Daten ebenfalls bereinigt).
 
 ## 4. Datenmodell (Kernentitäten, Stand Phase 1)
 
@@ -423,6 +430,60 @@ block (
 
 Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion (F-07, F-64, F-65) gebaut werden, kommen u. a. folgende Tabellen hinzu: `friend_circle_link` (kursbezogen, F-63), `invite_code` (F-63, mit Ablaufdatum/Rate-Limiting), `duel`/`duel_answer` (F-61 — referenziert dank `content_item_version` jetzt sauber eine konkrete Content-Fassung statt nur einer Versionsnummer, analog zu `exam_answer`), `highscore_entry` (F-60), `achievement` (F-67) sowie `cohort`/`cohort_member` (F-64/F-65). `report` und `block` existieren dann bereits und müssen nur noch mit der neuen UI verdrahtet werden.
 
+**Business-Lizenzen & Sponsoring (F-91–F-94, ergänzt 14.09.2026)** — ebenfalls Phase 4 (siehe Anforderungskatalog Abschnitt 9), architektonisch aber bewusst unabhängig vom Payment-Service (siehe Update Version 0.8):
+
+```sql
+-- Eigener Account-Typ analog zu "parent" (F-91) — eigenes Login, nicht Teil des "user"-Rollenmodells.
+company_account (
+  id                 uuid primary key default gen_random_uuid(),
+  name               text not null,
+  contact_email      citext not null unique,
+  password_hash      text not null,
+  seat_limit         int not null default 0,        -- Größe des erworbenen Lizenzkontingents
+  billing_status     text not null default 'pending', -- "pending" | "active" | "expired" -- manuell durch Admin gepflegt, siehe 4.1-Hinweis unten
+  branding_logo_url  text,                            -- F-92: rein visuelles Branding
+  branding_color     text,
+  branding_headline  text,                            -- z.B. "Ermöglicht durch <Unternehmen>"
+  created_at         timestamptz not null default now()
+);
+
+-- Lizenzvergabe per Einladungscode (F-91), analog zum invite_code-Konzept für Freundeskreise (F-63).
+company_invite_code (
+  id                 uuid primary key default gen_random_uuid(),
+  company_account_id uuid not null references company_account(id) on delete cascade,
+  code               text not null unique,
+  expires_at         timestamptz,
+  created_at         timestamptz not null default now()
+);
+
+-- Verknüpft eine Nutzerin/einen Nutzer mit genau einem Unternehmen (Branding-/Statistik-Zugehörigkeit).
+-- Bewusst 1:1 (unique auf user_id) statt n:m, um Branding-Anzeige eindeutig zu halten.
+user_company_membership (
+  id                 uuid primary key default gen_random_uuid(),
+  user_id            uuid not null references "user"(id) on delete cascade,
+  company_account_id uuid not null references company_account(id) on delete cascade,
+  joined_at          timestamptz not null default now(),
+  unique (user_id)
+);
+create index on user_company_membership (company_account_id);  -- für Sitzplatz-Auslastung (belegt/frei, F-91) und aggregierte Statistik (F-93)
+
+-- Sponsoring (F-94) ist bewusst vom Lizenzmodell getrennt: reine, statische Markenplatzierung ohne
+-- Nutzer-Verknüpfung/Tracking (kompatibel mit N-01/N-13 auch im Schulfach-Kurs, siehe Anforderungskatalog 5.12).
+sponsor (
+  id               uuid primary key default gen_random_uuid(),
+  name             text not null,
+  logo_url         text,
+  attribution_text text not null,          -- z.B. "Ermöglicht durch Unterstützung von XY"
+  kurs_id          uuid references kurs(id) on delete cascade,  -- null = plattformweite Platzierung
+  is_active        boolean not null default true,
+  starts_at        timestamptz,
+  ends_at          timestamptz,
+  created_at       timestamptz not null default now()
+);
+```
+
+Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigene persistente Tabelle geführt, sondern als Query-Ebene über `user_company_membership` (join auf `user_progress`/`exam_session`, gefiltert auf `company_account_id`, ausschließlich aggregiert zurückgegeben — Durchschnittswerte, Prozentanteile). Die entscheidende Absicherung liegt auf API-Ebene (siehe Abschnitt 7): Der `/company/*`-Endpunkt für Statistik darf technisch keine Einzel-Datensätze je Nutzer:in zurückgeben können, aus Beschäftigtendatenschutz-Gründen (§ 26 BDSG, siehe Anforderungskatalog Abschnitt 7). **Löschverhalten:** Löscht sich ein `user`, kaskadiert `user_company_membership` automatisch mit (F-06 bleibt uneingeschränkt gültig, unabhängig vom Unternehmens-Status); löscht sich ein `company_account`, verlieren betroffene Nutzer:innen nur ihre Branding-/Statistik-Zuordnung, nicht ihr eigenes Konto oder ihren Lernfortschritt. **Abrechnung:** `company_account.billing_status` wird manuell von einem Admin gepflegt (Rechnung/Überweisung außerhalb des Systems, siehe Update Version 0.8) — bewusst kein eigenes Rechnungs-/Buchungsmodell, da das Volumen zu Beginn gering und die Abwicklung nicht automatisiert vorgesehen ist.
+
 ## 5. Offline-/PWA-Strategie
 
 1. **App-Shell & Assets:** Service Worker cached das UI-Bundle beim ersten Besuch (Workbox „precache").
@@ -431,6 +492,7 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 4. **Sync bei Wiederverbindung:** Ein Sync-Service im Kern-Backend nimmt die gepufferten Ereignisse entgegen, wendet sie serverseitig auf `USER_PROGRESS` an und löst Konflikte nach „last write wins" pro Content-Item.
 5. **Statusanzeige:** Die UI zeigt sichtbar an, ob gerade offline gearbeitet wird und ob noch nicht synchronisierte Änderungen bestehen.
 6. **Ausdrücklich ausgenommen:** Die sozialen Features (Highscore, Duelle, Lernpartner-Vermittlung, Melden/Blockieren) setzen wie entschieden (F-42) eine Online-Verbindung voraus und werden nicht offline gepuffert.
+7. **Plattform-Einschränkung iOS/Safari (ergänzt 13.09.2026, noch offener Prüfpunkt):** Anders als Android/Chrome bietet Safari keinen automatischen Installations-Prompt für die PWA — Nutzer:innen müssen die App manuell über „Zum Home-Bildschirm hinzufügen" im Teilen-Menü installieren, was in der Onboarding-Kommunikation berücksichtigt werden sollte. Gravierender: Safaris Speicherbereinigung (Intelligent Tracking Prevention) kann Service-Worker-Cache und IndexedDB-Daten — also genau die für den Offline-Modus vorab geladenen Lerninhalte — löschen, wenn die App über einen gewissen Zeitraum nicht geöffnet wurde. Das muss vor dem Launch auf echten iOS-Geräten verifiziert werden (siehe Abschnitt 10); als Mitigation kommt ein automatischer Re-Sync-Hinweis beim nächsten Online-Öffnen in Frage, falls zwischenzeitlich Inhalte entfernt wurden, statt dass Nutzer:innen unbemerkt mit einer leeren Offline-Kopie dastehen.
 
 ## 6. Spaced-Repetition-Algorithmus
 
@@ -438,9 +500,9 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 
 ## 7. API-Design-Grundsätze
 
-- **Kern-API:** Klare Trennung nach Modulen: `/auth/*`, `/consent/*` (Eltern-Einwilligungs-Flow, F-08), `/parent/*` (Eltern-Dashboard, F-90), `/courses/*`, `/content/*` (lesend, für Lernende), `/admin/content/*` (schreibend, nur Redaktion/Admin-Rolle), `/progress/*`, `/exam-sessions/*`, `/reports/*` und `/blocks/*` (F-68, Backend ab Phase 1 vorhanden, UI erst Phase 4).
+- **Kern-API:** Klare Trennung nach Modulen: `/auth/*`, `/consent/*` (Eltern-Einwilligungs-Flow, F-08), `/parent/*` (Eltern-Dashboard, F-90), `/courses/*`, `/content/*` (lesend, für Lernende), `/admin/content/*` (schreibend, nur Redaktion/Admin-Rolle), `/progress/*`, `/exam-sessions/*`, `/reports/*` und `/blocks/*` (F-68, Backend ab Phase 1 vorhanden, UI erst Phase 4), sowie neu (Phase 4, ergänzt 14.09.2026) `/company/*` (F-91–F-94: eigenes Login/Session für `company_admin`, Lizenzkontingent-Übersicht inkl. Einladungscodes, Branding-Einstellungen, **ausschließlich aggregierte** Statistik-Endpunkte — bewusst kein Endpunkt, der Einzel-Nutzer-Datensätze je Unternehmen zurückgeben kann, siehe Abschnitt 4.5, 8) und `/sponsors/*` (F-94, lesend für alle Clients, schreibend nur Admin-Rolle).
 - Konsequente Eingabevalidierung mit Zod-Schemas, die zwischen Frontend und Kern-Backend geteilt werden (Monorepo-Vorteil) — **bewusst nicht** mit dem Payment-Service geteilt, um dessen Isolation nicht über gemeinsame Typen/Verträge aufzuweichen.
-- Autorisierung rollenbasiert: `learner`, `parent`, `content_editor`, `admin` (später ergänzt um `dozent`, siehe F-07).
+- Autorisierung rollenbasiert: `learner`, `parent`, `content_editor`, `admin`, **`company_admin`** (F-91, ergänzt 14.09.2026 — eigener, von `parent` unabhängiger Account-Typ, siehe Abschnitt 4.5) (später ergänzt um `dozent`, siehe F-07).
 - Versionierung der API von Anfang an einplanen (`/api/v1/...`).
 - **Payment-API (separater Service):** Eigene, schmale REST-Schnittstelle, die dem Kern-Backend nur das Nötigste preisgibt (z. B. „ist Nutzer:in X aktuell Premium, bis wann"), plus ein Webhook-Endpunkt für Ereignisse des Zahlungsdienstleisters. Wo immer möglich, interagiert das Frontend direkt mit dem gehosteten Checkout des Zahlungsdienstleisters statt über eine eigene API, um Zahlungsdaten aus der eigenen Infrastruktur herauszuhalten (F-81).
 
@@ -456,6 +518,7 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 - **Vorschau-Modus (F-08):** Technisch bewusst ohne Personenbezug umgesetzt — zustandslos aus dem öffentlichen Content-Bestand bedient, kein Datenbank-Schreibzugriff, keine Cookies/IDs, die eine spätere Zuordnung ermöglichen würden.
 - **Lösch- und Auskunftsprozess (F-06):** Account-Löschung → kaskadierendes Löschen aller personenbezogenen Daten inkl. `USER_PROGRESS`, `EXAM_SESSION`, `USER_COURSE`, `PARENT_CHILD_LINK` technisch vorbereiten. **Klarstellung (Version 0.6):** Die Selbstlöschung des eigenen Kontos ist eine Grundfunktion, die unabhängig vom Payment-Service benötigt wird, sobald überhaupt reale Nutzerkonten existieren — sie darf nicht erst mit der Payment-Service-Anbindung (Phase 4) kommen, auch wenn die Event-basierte Benachrichtigung des Payment-Service über gelöschte Konten (siehe Abschnitt 3) naturgemäß erst greift, sobald dieser existiert.
 - **Event-/Message-Queue Kern ↔ Payment (entschieden am 12.09.2026):** Events werden mit eindeutiger ID versehen und idempotent verarbeitet (ein doppelt zugestelltes `subscription.updated`-Event darf nicht doppelt Premium verlängern); beide Seiten protokollieren verarbeitete Event-IDs, um Wiederholungen sicher zu erkennen.
+- **Beschäftigtendatenschutz bei Business-Lizenzen (F-91–F-94, ergänzt 14.09.2026):** Der `company_admin`-Zugang (Abschnitt 4.5, 7) darf technisch keine personenbezogene Einzeleinsicht in Lern-/Prüfungsleistungen erhalten — nur aggregierte Kennzahlen über `user_company_membership`. Diese Grenze wird auf API-Ebene erzwungen (kein Endpunkt liefert Einzeldatensätze mit `company_admin`-Berechtigung), nicht nur durch UI-Verzicht, konsistent mit § 26 BDSG (siehe Anforderungskatalog Abschnitt 7).
 - **Offener Punkt, keine architektonische Konsequenz bisher:** Ob der Jugendmedienschutz-Staatsvertrag (JMStV) eine Pflicht zur Benennung einer/eines Jugendschutzbeauftragten auslöst, ist laut Anforderungskatalog (Abschnitt 7, 10) noch offen und getrennt von der DSGVO-Prüfung zu klären. Architektonisch ist dafür bereits vorgesorgt: Das Report/Block-Datenmodell (Abschnitt 4) existiert unabhängig vom Ausgang dieser Prüfung.
 
 ## 9. Deployment & CI/CD
@@ -477,6 +540,7 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 | Event-/Queue-Tests Kern ↔ Payment | Vitest + Test-Redis-Instanz | Idempotenz-Verhalten bei doppelt zugestellten Events (z. B. `subscription.updated`), Verhalten bei Queue-Ausfall |
 | End-to-End | Playwright | Kernflows: Registrierung, Karteikarten-Session, Quiz, Offline→Online-Sync, **sowie neu:** Eltern-Consent-Flow (Registrierung Minderjährige:r → Eltern-Mail → Bestätigungslink → Kontoaktivierung → Widerruf über Eltern-Dashboard) |
 | Backend-Tests Report/Block | Vitest + Testcontainers | Bereits ab Phase 1 testbar, auch ohne zugehörige UI (F-68) |
+| Offline-/PWA-Verhalten auf iOS (ergänzt 13.09.2026) | Manuelle Prüfung auf echten iOS-Geräten (kein Simulator, da PWA-Installations- und Speicherverhalten dort abweicht) | Installationsablauf über das Safari-Teilen-Menü; Persistenz von Service-Worker-Cache/IndexedDB nach mehrtägiger Nichtnutzung (Safari ITP, siehe Abschnitt 5) |
 | Manuelle Prüfung | — | Barrierefreiheit (Screenreader-Stichprobe), Content-Korrektheit |
 
 ## 11. Repository-/Projektstruktur (Vorschlag)
@@ -502,6 +566,14 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 14.09.2026
+
+- **Business-Lizenz (F-91) koppelt nicht an Premium (F-80/F-81):** Ihr einziger Mehrwert ist Branding (F-92) + aggregierte Statistik (F-93) — bewusste Entscheidung, um die Investitionshürde für Unternehmen möglichst klein zu halten (Kernidee: Reputationsgewinn statt Feature-Kauf). Konsequenz: Das Business-Modul bleibt vollständig im Kern-Backend, **keine** Anbindung an den isolierten Payment-Service oder die Kern↔Payment-Event-Queue nötig — deutlich weniger Aufwand als eine B2B-Erweiterung des bestehenden Checkout-Flows.
+- **Abrechnung manuell statt Self-Service-Checkout:** Das Lizenzkontingent wird gegen einen geringen, meist pauschalen Betrag außerhalb des Systems (Rechnung/Überweisung) abgerechnet; ein Admin setzt `company_account.billing_status` und `seat_limit` danach manuell (siehe Abschnitt 4.5). Passt zum erwarteten geringen B2B-Volumen zu Beginn und vermeidet ein eigenes Rechnungs-/Buchungsmodul für einen bewusst kleinen Kanal.
+- **`company_account` als eigener Account-Typ analog zu `parent`:** Eigenes Login, eigene Rolle `company_admin`, statt einer Erweiterung des bestehenden `user`-Rollenmodells — konsistent mit dem bereits etablierten Muster für Eltern-Accounts (F-90). `user_company_membership` ist bewusst 1:1 (ein Unternehmen je Nutzer:in), um Branding-Anzeige eindeutig zu halten.
+- **Sponsoring (F-94) bewusst getrennt vom Lizenzmodell:** Eigene `sponsor`-Tabelle ohne Nutzer-Verknüpfung — rein statische Markenplatzierung ohne Tracking/Personalisierung, damit die Anforderung auch im Schulfach-Kurs (Minderjährige, N-01/N-13) unverändert erfüllbar bleibt, ohne dort Business-Lizenzen (F-91–F-93) einzuführen.
+- **Aggregierte Statistik (F-93) als Query-Ebene statt eigener Tabelle:** Keine zusätzliche Persistenz — stattdessen eine aggregierende Abfrage über `user_progress`/`exam_session`, mit expliziter API-seitiger Sperre gegen Einzel-Nutzer-Auswertungen (siehe Abschnitt 7, 8), aus Beschäftigtendatenschutz-Gründen.
+
 ### Entschieden am 12.09.2026
 
 - ~~Managed Auth (z. B. Supabase Auth) vs. Eigenbau~~ — **Eigenbau**, siehe Abschnitt 1, 2.
@@ -520,63 +592,11 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 - **Konto-Selbstlöschung (F-06) unabhängig vom Payment-Service:** klargestellt, dass diese Grundfunktion bereits ab den ersten echten Nutzerkonten benötigt wird, siehe Abschnitt 8. Im Entwicklungsplan entsprechend auf Iteration 1 vorgezogen.
 - **Reihenfolge Consent-Flow vs. Mathe-Kurs-Live-Gang:** Ergebnis des Entwickler-Reviews: Der vollständige Eltern-Consent-Flow (F-08/F-90) muss produktiv stehen, **bevor** der Mathe-Kurs für echte Nutzer:innen veröffentlicht wird (`kurs.is_published = true`). Der Entwicklungsplan wurde entsprechend umsortiert (siehe dortige Iteration 2/3).
 
-### Entschieden am 12.09.2026 (Umsetzung Iteration 0)
-
-- ~~Drizzle vs. Prisma (ORM Kern-Backend)~~ — **Drizzle**, siehe Abschnitt 2. SQL-nahe Migrationsverwaltung passt direkt zum bereits als reinem SQL-DDL dokumentierten Schema (Abschnitt 4.3); kein Codegen-Schritt nötig.
-- ~~Fastify vs. NestJS (Kern-Backend-Framework)~~ — **Fastify**, siehe Abschnitt 2. Offizieller tRPC-Adapter, weniger Boilerplate für die Solo-Entwicklung.
-- ~~Volles Auth-Eigenbau vs. Aufbau auf einer Session-Bibliothek~~ — **Nach dem Lucia-Pattern implementiert, ohne die Bibliothek selbst als Dependency** (Lucia ist inzwischen archiviert/deprecated), siehe Abschnitt 2. Argon2id-Hashing plus eine eigene `session`-Tabelle, deren `id`-Spalte nur den SHA-256-Hash des Session-Tokens trägt (Klartext-Token nur im signierten httpOnly-Cookie) — analog zum bereits bestehenden `consent_token.token_hash`-Muster.
-- **Neue Tabelle `session` (nicht im ursprünglichen Schema aus Abschnitt 4.3):** Grundlage des Session-/Cookie-Auth. Trägt `user_id` ODER `parent_id` (nie beide, nie keines — per `CHECK (num_nonnulls(user_id, parent_id) = 1)`), weil `user` und `parent` bewusst getrennte Konto-Tabellen sind (Abschnitt 4.4) und sich beide Konto-Typen einloggen können.
-- **Neue Spalte `user.role` (nicht im ursprünglichen Schema aus Abschnitt 4.3):** Abschnitt 7 verlangt rollenbasierte Autorisierung (`learner`, `parent`, `content_editor`, `admin`), das Schema in Abschnitt 4.3 hatte dafür aber kein Feld vorgesehen. `role text not null default 'learner'` mit `CHECK (role in ('learner', 'content_editor', 'admin'))` auf der `user`-Tabelle schließt diese Lücke. **`parent` ist bewusst kein möglicher Wert dieser Spalte**, sondern bleibt der bereits bestehende eigene Account-Typ (eigene Tabelle `parent`) — eine Parent-Session hat `session.parent_id` gesetzt statt `session.user_id`.
-- **Lokale Entwicklungsdatenbank:** `docker-compose.yml` im Repo-Root startet Postgres 16 + Redis 7 lokal (siehe Abschnitt 9). Die tatsächliche verwaltete Cloud-Instanz (Neon/Supabase) für Staging/Produktion ist davon unabhängig und noch offen (Konto-/Vertragsabschluss, siehe Entwicklungsplan Iteration 0, Organisatorisches).
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 1, Karteikarten-Modus)
-
-- **Abbildung der Selbsteinschätzung (F-20: „gewusst"/„unsicher"/„nicht gewusst") auf FSRS-Grades:** `ts-fsrs` kennt vier Stufen (Again/Hard/Good/Easy). Da die UI bewusst nur drei Buttons anbietet (Anforderungskatalog F-20), bleibt „Easy" ungenutzt: `nicht_gewusst → Again`, `unsicher → Hard`, `gewusst → Good` (siehe `apps/api/src/fsrs/scheduler.ts`). Ein gängiges Vorgehen bei Lern-Apps ohne eigenes „trivial leicht"-Feedback.
-- **`elapsed_days`/`scheduled_days` aus dem ts-fsrs-`Card`-Typ werden nicht persistiert:** Die Bibliothek berechnet beide bei jedem `next()`-Aufruf aus `due`/`last_review`/`now` neu — das bereits in Abschnitt 4.3 festgelegte `user_progress`-Schema (ohne diese beiden Felder) war also bereits richtig dimensioniert.
-- **Minimaler Kurs-Beitritt (`courses.list`/`courses.enroll`) vorgezogen:** Der Karteikarten-Modus setzt eine Kurseinschreibung (`user_course`, F-09) voraus. Statt die vollständige Kursauswahl-/Wechsel-UI aus Iteration 3 vorwegzunehmen, gibt es nur einen einfachen „Beitreten"-Button je veröffentlichtem Kurs — bewusst minimal, kein Ersatz für die dortige Aufgabe.
-- **Technischer Platzhalter-Content statt echtem Fachwirt-/Mathematik-Content:** `apps/api/src/db/seed.ts` legt einen klar als Demo gekennzeichneten Kurs mit generischen Allgemeinwissens-Karteikarten an, um den Karteikarten-Modus durchspielen zu können — bewusst keine Vorwegnahme der separaten Content-Erstellungsaufgabe (Entwicklungsplan Iteration 0/1, „Content").
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 1, Quiz-Modus)
-
-- **`quiz.quizItems` liefert nie die Lösung mit — für alle drei Formate:** Bei `quiz_mc` fehlt `is_correct`, bei `zuordnung` liefert der Server links/rechts unabhängig gemischt ohne `group_key` (die Zuordnung selbst wäre sonst aus den IDs ablesbar), bei `luecken` fehlt `payload.blanks[].accepted`. Die jeweilige Prüfung (`submitAnswer`/`submitMatching`/`submitBlanks`) erfolgt ausschließlich serverseitig (siehe `apps/api/src/trpc/routers/quiz.ts`) — sonst ließe sich die Lösung im Browser-Devtools-Netzwerktab vor dem Beantworten auslesen.
-- **Quiz-Antworten schreiben (noch) nicht in `user_progress`:** F-21 (Sofort-Feedback) ist von F-20 (Spaced-Repetition-Fälligkeit) unabhängig; eine Verknüpfung (z. B. falsch beantwortete Fragen automatisch in ein Wiederholungsset übernehmen) ist explizit F-26 und damit eine spätere, eigene Aufgabe.
-- **Zuordnung — Antwortformat als Paar-Liste statt fester Struktur:** Das Frontend reicht die vom Lernenden gebildeten Paare (`{leftOptionId, rightOptionId}[]`) ein, statt z. B. ein Array in fester Reihenfolge zu erwarten — robuster gegenüber unvollständig/in beliebiger Reihenfolge gebildeten Paaren. Bewertung: pro eingereichtem Paar wird verglichen, ob `group_key` von linker und rechter Option übereinstimmt.
-- **Lückentext — Vergleich case-insensitive nach Trim, keine Mehrfachschreibweisen nötig:** `submitBlanks` vergleicht `answer.trim().toLowerCase()` gegen `blank.accepted[].trim().toLowerCase()`, sodass z. B. „Berlin“/„berlin“ beide als richtig zählen, ohne dass der Content jede Schreibvariante einzeln in `accepted` auflisten muss.
-- **Ein Quiz-Item gilt in der Gesamt-Score-Anzeige nur als „richtig“, wenn alle Teile richtig sind:** Bei Zuordnung/Lückentext mit mehreren Paaren/Lücken zählt der Abschluss-Score („X von Y richtig“) ein Item nur dann als Treffer, wenn `correctCount === total` — konsistent mit der binären gewusst/nicht-gewusst-Bewertung bei Multiple Choice und Karteikarten, statt Teilpunkte zu vergeben.
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 1, Fortschrittsanzeige F-30)
-
-- **Definition von „beherrscht" (F-30): `user_progress.state = 'review'`.** F-30 verlangt eine Prozentanzeige „beherrscht", legt aber nicht fest, wie das aus den FSRS-Feldern abzuleiten ist. `review` bedeutet, dass eine Karteikarte die anfängliche (Re-)Lernphase verlassen hat und im FSRS-Langzeit-Wiederholungsplan steckt — ein Rückfall (`relearning`) gilt bewusst nicht mehr als „beherrscht", auch wenn die Karte vorher schon einmal `review` erreicht hatte, weil das der intuitiven Bedeutung von „gerade nicht mehr sicher gewusst" entspricht. Siehe `apps/api/src/trpc/routers/progress.ts` (`overview`).
-- **Scope aktuell nur Karteikarten (`type = 'karteikarte'`):** Nur der Karteikarten-Modus schreibt `user_progress` (siehe Quiz-Entscheidung oben). Fachgebiete/Themen, die ausschließlich Quiz-Content enthalten, tauchen in der Fortschrittsanzeige aktuell gar nicht auf, statt fälschlich mit 0 % geführt zu werden — konsistenter, als Content ohne jede Fortschritts-Tracking-Möglichkeit einzubeziehen.
-- **Aggregation applikationsseitig statt per SQL GROUP BY:** Die Fachgebiet-/Thema-Hierarchie mit verschachtelten Prozentwerten wird nach einer flachen Abfrage in JavaScript aggregiert (Map über Fachgebiet-/Thema-ID) — bei den hier relevanten Datenmengen (Fachgebiete/Themen/Karteikarten pro Kurs) unproblematisch und deutlich lesbarer als eine verschachtelte SQL-Aggregation.
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 1, Konto-Selbstlöschung F-06)
-
-- **Erneute Passworteingabe als Bestätigung, nicht in F-06 explizit gefordert, aber bewusst ergänzt:** Eine unumkehrbare, kaskadierend datenvernichtende Aktion verdient eine stärkere Bestätigung als einen einzelnen Klick. Der Endpunkt `auth.deleteAccount` verlangt daher das aktuelle Passwort, geprüft wie beim Login über `verifyPassword` gegen den bestehenden `password_hash` — kein neues Passwort, keine zusätzliche Policy-Prüfung (siehe `deleteAccountInputSchema`).
-- **Löschung selbst ist ein einzelnes `DELETE FROM "user"`, keine anwendungsseitige Kaskadenlogik:** Die in Abschnitt 4.3/4.4 bereits festgelegten `ON DELETE CASCADE`/`SET NULL`-Fremdschlüsselregeln erledigen das kaskadierende Aufräumen (user_course, user_progress, exam_session/exam_answer, session, parent_child_link als Kind, block, report.reported_user_id kaskadiert, report.reporter_user_id auf null) vollständig auf Datenbankebene — die Sorgfalt beim ursprünglichen Schema-Entwurf zahlt sich hier aus. Per Testcontainers-Integrationstest gegen echtes Postgres verifiziert (`apps/api/test/db.integration.test.ts`).
-- **Session-Cookie wird explizit gelöscht, nicht nur die DB-Zeile:** Die aktuelle Session des Kontos wird durch die Kaskade ohnehin aus der `session`-Tabelle entfernt, aber das httpOnly-Cookie im Browser bliebe ohne `clearCookie`-Aufruf bestehen (zeigt dann nur noch auf eine nicht mehr existierende Session) — analog zum bestehenden `auth.logout`.
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 1, PWA-Grundgerüst F-40/F-41)
-
-- **`vite-plugin-pwa` statt manuell verwaltetem Workbox-Setup:** Generiert Web-App-Manifest und Service-Worker-Precaching (App-Shell) automatisch aus der Vite-Build-Konfiguration (siehe Abschnitt 2, „Vite PWA Plugin (Workbox)"). `registerType: "autoUpdate"` reicht für dieses Grundgerüst; eine eigene "Update verfügbar"-UI ist kein Bestandteil von F-40/F-41 und bleibt offen.
-- **Scope bewusst nur F-40/F-41, nicht F-42:** Nur App-Shell-Precaching + Installierbarkeit. Die volle Offline-Synchronisierung (Content-Vorabladung in IndexedDB, Offline-Antwort-Warteschlange, Sync-Service, siehe Abschnitt 5, Punkte 2–5) bleibt eine eigene, spätere Aufgabe — das PWA-Grundgerüst allein macht Karteikarten/Quiz noch nicht offline nutzbar.
-- **Platzhalter-App-Icons, kein echtes Branding:** `apps/web/public/icons/icon-{180,192,512}.png` sind einfache, per Skript erzeugte Icons (dunkler Hintergrund, heller Kreis mit maskable-tauglichem Sicherheitsabstand) — konsistent mit dem bereits an anderer Stelle verwendeten Muster „technischer Platzhalter statt echtem Ergebnis", bis echtes Branding existiert.
-- **`preview.proxy` ergänzt, analog zu `server.proxy`:** Vite übernimmt die Proxy-Konfiguration für `vite dev` nicht automatisch für `vite preview` (Prod-Build lokal testen); ohne die Ergänzung wäre der Prod-Build nicht sinnvoll gegen das Backend zu testen gewesen.
-- **Service-Worker-Aktivierung in der Browser-Sandbox dieser Session nicht live vorführbar:** `navigator.serviceWorker.register()` schlägt in der hier verwendeten Browser-Vorschau-Sandbox generisch fehl ("An unknown error occurred when fetching the script") — reproduzierbar auch mit einer trivialen, nachweislich korrekt ausgelieferten Test-Datei, also eine Umgebungseinschränkung dieser Sandbox und kein Konfigurationsfehler. Manifest und generiertes `sw.js` wurden stattdessen direkt geprüft (gültiges JSON, korrekte Icons/Theme-Farbe, `sw.js` per `fetch()` erreichbar, 7 vorab gecachte Einträge laut Build-Log). Eine echte Installierbarkeitsprüfung (Chrome-Lighthouse-Audit oder „Zum Startbildschirm hinzufügen") sollte einmal in einem normalen Browser nachgeholt werden.
-
-### Entschieden am 13.09.2026 (Umsetzung Iteration 2, Eltern-Consent-Flow F-08/F-90)
-
-- **Zwei unterschiedliche Altersschwellen bewusst nicht zusammengeführt:** `user.is_minor` (< 18 Jahre, bereits aus Iteration 0, u. a. für den Profiling-Ausschluss N-01) und die neue, niedrigere Schwelle für die Einwilligungspflicht nach Art. 8 DSGVO (< 16 Jahre) sind zwei fachlich unterschiedliche Konzepte und bleiben deshalb als zwei getrennte Funktionen erhalten: `calculateIsMinor` (`apps/api/src/auth/age.ts`, unverändert) und `requiresParentalConsent` (neu, `packages/shared/src/age.ts`). Eine gemeinsame Funktion mit Parameter hätte den fachlichen Unterschied im Code verschleiert.
-- **Einwilligungspflicht wird bei jedem Login neu berechnet, nicht bei der Registrierung eingefroren:** `auth.login` ruft `requiresParentalConsent` erneut mit dem aktuellen Datum auf (nicht nur `auth.register`). Grund: Ein zum Registrierungszeitpunkt 15-jähriges Konto würde sonst nach dem 16. Geburtstag weiterhin fälschlich als einwilligungspflichtig behandelt (unschädlich, aber unnötig) bzw. umgekehrt bliebe eine zwischenzeitliche Umgehung unentdeckt, wenn nur einmalig zum Registrierungszeitpunkt geprüft würde. Die Berechnung aus dem gespeicherten `birth_date` ist ohnehin jederzeit deterministisch neu ableitbar, es gibt also keinen Grund, einen Snapshot zu speichern.
-- **Neues `parent`-Konto beim ersten Consent-Vorgang: Platzhalter-Passwort-Hash statt Nullable-Spalte:** `parent.password_hash` ist laut Abschnitt 4.3 `NOT NULL`, ein Elternteil hat aber zu diesem Zeitpunkt noch kein eigenes Passwort gesetzt (Eltern-Login/F-90 ist noch nicht umgesetzt). Statt die Spalte nullable zu machen, wird ein kryptographisch zufälliger, nirgends gespeicherter Wert gehasht und abgelegt — das Konto existiert damit bereits (für `parent_child_link`), ist aber bis zum tatsächlichen Passwort-Setzen (Teil des noch offenen Eltern-Dashboards) für niemanden einloggbar. `parent`-Zeilen werden per Find-or-Create über die E-Mail-Adresse wiederverwendet, falls dieselbe Person bereits ein weiteres Kind-Konto verknüpft hat.
-- **E-Mail-Versand aktuell nur ein Platzhalter (`apps/api/src/email/sender.ts`, reines `console.log`):** Analog zur bereits dokumentierten Entscheidung, die Wahl der Cloud-Datenbank offen zu lassen, wurde hier bewusst kein echter Transactional-E-Mail-Anbieter (z. B. Resend, Postmark) unilateral festgelegt. Der Bestätigungslink wird im Dev-Betrieb zusätzlich direkt im Registrierungs-Response (`devConfirmUrl`, nur wenn `NODE_ENV !== "production"`) an das Frontend zurückgegeben, damit der Flow ohne echten Mailversand durchspielbar bleibt.
-- **Bestätigungsseite (`/consent/confirm?token=...`) bewusst ohne Login und ohne eigenen Router:** Das Elternteil hat kein edukedo-Konto mit Session und soll keines anlegen müssen, nur um eine Einwilligung zu bestätigen — der tRPC-Endpunkt `consent.confirm` ist deshalb `publicProcedure`, gesichert allein durch den unraten­baren Token (gehasht abgelegt, analog zum Session-Token-Muster). Da es sich um die einzige öffentliche Seite im gesamten Frontend handelt, wurde dafür keine Router-Bibliothek eingeführt, sondern eine einfache Weiche auf `window.location.pathname` in `apps/web/src/main.tsx` ergänzt (siehe bereits bestehende Entscheidung „kein eigener Router" in Abschnitt 11).
-- **Scope bewusst nur der Kernmechanismus, nicht das vollständige F-08/F-90:** Automatische Erinnerungsmails für unbestätigte Tokens (`consent_token.reminder_sent_count` existiert im Schema, wird aber noch nicht befüllt), der kontolose Vorschau-Modus für wartende Minderjährige, ein echter Eltern-Login mit Passwort-Setzen sowie das Eltern-Dashboard (Einwilligungsstatus einsehen, Widerruf) bleiben eigene, spätere Aufgaben (siehe Entwicklungsplan Iteration 2). Wichtig ist laut Entwicklungsplan nur, dass dieser Kernmechanismus produktiv steht, **bevor** der Mathe-Kurs live geht — nicht, dass bereits alle Ausbaustufen von F-08/F-90 fertig sind.
-
 ### Weiterhin offen
 
 1. Genaue Wahl der Message-Queue-Technologie im Detail — BullMQ auf Redis ist die aktuelle Empfehlung (konsistent mit dem ohnehin für Sessions/Rate-Limiting vorgesehenen Redis), eine abschließende Festlegung (vs. z. B. eines Cloud-Messaging-Diensts) kann bei Bedarf noch erfolgen.
 2. Genaue technische Ausgestaltung der Idempotenz-/Fehlerbehandlung der Event-Queue (Retry-Strategie, Dead-Letter-Handling) — bei Implementierung von Abschnitt 3/8 zu spezifizieren.
+3. **iOS/Safari-Speicherbereinigung und Offline-Persistenz (ergänzt 13.09.2026):** Ob und wie stark Safaris Intelligent Tracking Prevention die für den Offline-Modus (F-42) zwischengespeicherten Lerninhalte in der Praxis beeinträchtigt, ist noch nicht auf echten Geräten verifiziert (siehe Abschnitt 5, 10). Je nach Testergebnis kann eine Re-Sync-/Warnmechanik nötig werden — konkrete Ausgestaltung folgt nach dem Test.
 
 ## Nächste Schritte
 
@@ -586,3 +606,4 @@ Sobald die sozialen Features (F-60–F-65) sowie die Kohorten-/Dozenten-Funktion
 4. Consent-/Eltern-Flow (F-08/F-90) inkl. `consent_token`-Tabelle und Erinnerungsmails umsetzen — **vor** Live-Gang (`is_published = true`) des Schulfach-Kurses.
 5. Payment-Service als eigenständigen Bauplan festlegen (Repo-Struktur, DB-Schema-Entwurf) inkl. BullMQ/Redis-Anbindung für die Event-Queue zum Kern; ein produktives Deployment kann bis kurz vor der Phase-4-Aktivierung von F-81 warten.
 6. Ersten vertikalen Slice umsetzen: Login (inkl. Altersabfrage) → Fachwirt-Pilot mit HB3 als erstem Fachgebiet → Karteikarten → Fortschrittsanzeige; parallel dazu einen minimalen Schulfach-Kurs-Datensatz anlegen (unveröffentlicht), sobald das konkrete Fach/die Klassenstufe feststehen (siehe Anforderungskatalog Abschnitt 10).
+</content>
