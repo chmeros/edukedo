@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
+import { FlipCard } from "./FlipCard";
 import { trpc } from "./trpc";
 
 export function Flashcards({ kursId }: { kursId: string }) {
@@ -31,13 +32,25 @@ export function Flashcards({ kursId }: { kursId: string }) {
   return (
     <section className="flashcard">
       <p className="flashcard-count">{cards.length} Karte(n) fällig</p>
-      <div className="flashcard-face">{current.prompt}</div>
-      {revealed && current.explanation && <div className="flashcard-back">{current.explanation}</div>}
-      {!revealed ? (
-        <button type="button" onClick={() => setRevealed(true)}>
-          Antwort zeigen
-        </button>
-      ) : (
+      <FlipCard
+        flipped={revealed}
+        onToggle={() => setRevealed((current) => !current)}
+        front={
+          <>
+            <span className="flip-kicker">Karteikarte</span>
+            <p className="flip-q">{current.prompt}</p>
+            <span className="flip-hint">Antippen zum Umdrehen</span>
+          </>
+        }
+        back={
+          <>
+            <span className="flip-kicker">Antwort</span>
+            <p className="flip-a">{current.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
+            <span className="flip-hint">Bewerte unten, wie es lief</span>
+          </>
+        }
+      />
+      {revealed && (
         <div className="flashcard-actions">
           <button type="button" className="rating-again" onClick={() => review("nicht_gewusst")}>
             Nicht gewusst

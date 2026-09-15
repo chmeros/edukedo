@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
+import { LandingPage } from "./LandingPage";
 import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
 import { Theorie } from "./Theorie";
@@ -43,6 +44,10 @@ export function App() {
   // Ä.) und fällt dann auf den ersten eingeschriebenen Kurs zurück, statt einen ungültigen
   // Zustand zu zeigen.
   const [selectedKursId, setSelectedKursId] = useState<string | null>(null);
+  // Design-Entwurf (design/01-landing-und-app-vorschau.html, siehe design/README.md): eine
+  // öffentliche Startseite vor dem Login/Registrierungsformular, bewusst als lokaler Zustand
+  // statt einer eigenen Route (kein Router im Projekt) — die CTAs wechseln nur die Ansicht.
+  const [showAuth, setShowAuth] = useState(false);
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
@@ -62,7 +67,7 @@ export function App() {
           Rolle: {me.data.role}
           {me.data.isMinor ? " · minderjährig" : ""}
         </p>
-        <button type="button" onClick={() => logout.mutate()} disabled={logout.isPending}>
+        <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
           Logout
         </button>
         <DeleteAccount />
@@ -113,6 +118,10 @@ export function App() {
         )}
       </main>
     );
+  }
+
+  if (!showAuth && !register.data) {
+    return <LandingPage onStart={() => setShowAuth(true)} onLogin={() => setShowAuth(true)} />;
   }
 
   if (register.data?.status === "pending_parental_consent") {
@@ -229,6 +238,11 @@ export function App() {
         </button>
       </form>
       {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
+      <p>
+        <button type="button" className="danger-link" style={{ color: "var(--ink-soft)" }} onClick={() => setShowAuth(false)}>
+          ← Zurück zur Startseite
+        </button>
+      </p>
     </main>
   );
 }
