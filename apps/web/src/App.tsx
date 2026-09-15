@@ -12,6 +12,11 @@ import { Quiz } from "./Quiz";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 
+const ROLE_LABELS: Record<string, string> = {
+  learner: "Lernende:r",
+  admin: "Admin",
+};
+
 export function App() {
   const utils = trpc.useUtils();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
@@ -68,7 +73,8 @@ export function App() {
           <div className="user-header">
             <p className="who">
               Eingeloggt als <b>{me.data.email}</b>
-              {me.data.isMinor ? " · minderjährig" : ""} · <span className="role-pill">Rolle: {me.data.role}</span>
+              {me.data.isMinor ? " · minderjährig" : ""} ·{" "}
+              <span className="role-pill">{ROLE_LABELS[me.data.role] ?? me.data.role}</span>
             </p>
             <div className="user-actions">
               <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
@@ -134,7 +140,10 @@ export function App() {
               {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
             </>
           ) : (
-            <p style={{ color: "var(--ink-soft)" }}>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</p>
+            <div className="alert alert-info">
+              <InfoIcon />
+              <div>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</div>
+            </div>
           )}
         </div>
       </div>

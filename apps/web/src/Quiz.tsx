@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SuccessIcon } from "./Icons";
+import { InfoIcon, SuccessIcon } from "./Icons";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
@@ -30,7 +30,12 @@ export function Quiz({ kursId }: { kursId: string }) {
   const items = quizItems.data ?? [];
 
   if (items.length === 0) {
-    return <p>Keine Quiz-Fragen verfügbar.</p>;
+    return (
+      <div className="alert alert-info">
+        <InfoIcon />
+        <div>Keine Quiz-Fragen verfügbar.</div>
+      </div>
+    );
   }
 
   if (index >= items.length) {

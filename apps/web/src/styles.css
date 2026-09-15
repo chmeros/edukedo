@@ -530,6 +530,10 @@ hr {
   justify-content: center;
   min-height: 78px;
   cursor: pointer;
+  /* Ohne Obergrenze füllt genau ein belegter Kurs die ganze (auf großen Screens jetzt 960px
+     breite) .course-tiles-Zeile als durchgängige Fläche und wirkt eher wie ein großer
+     Call-to-Action-Button als wie ein Kurs-Status/-Auswahlschalter. */
+  max-width: 300px;
 }
 
 .course-tile.is-active {

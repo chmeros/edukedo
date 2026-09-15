@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
 import { FlipCard } from "./FlipCard";
+import { SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 export function Flashcards({ kursId }: { kursId: string }) {
@@ -21,7 +22,12 @@ export function Flashcards({ kursId }: { kursId: string }) {
   const current = cards[0];
 
   if (!current) {
-    return <p>Keine Karten fällig 🎉</p>;
+    return (
+      <div className="alert alert-success">
+        <SuccessIcon />
+        <div>Keine Karten fällig 🎉</div>
+      </div>
+    );
   }
 
   function review(result: ReviewResult) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 /**
@@ -35,7 +36,12 @@ export function Theorie({ kursId }: { kursId: string }) {
   const items = sections.data ?? [];
 
   if (items.length === 0) {
-    return <p>Keine Theorie-Inhalte verfügbar.</p>;
+    return (
+      <div className="alert alert-info">
+        <InfoIcon />
+        <div>Keine Theorie-Inhalte verfügbar.</div>
+      </div>
+    );
   }
 
   const active = items.find((item) => item.id === activeId) ?? items[0]!;

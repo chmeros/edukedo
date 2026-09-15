@@ -32,6 +32,11 @@ export const coursesRouter = router({
       .filter(
         (row) => row.joinedAt !== null || matchesKursZielgruppe(kursZielgruppe(row.metadata), ctx.currentUser.isMinor),
       )
+      // Ohne ORDER BY liefert Postgres keine garantierte Reihenfolge — in der Praxis meist
+      // Einfügereihenfolge, wodurch der zuerst per db:seed angelegte Demo-Kurs vor den echten
+      // Kursen erschien. Demo-Kurse (type "demo") bewusst ans Ende sortiert, echte Kurse
+      // untereinander in der bisherigen (Einfüge-)Reihenfolge belassen.
+      .sort((a, b) => Number(a.type === "demo") - Number(b.type === "demo"))
       .map((row) => ({
         id: row.id,
         slug: row.slug,

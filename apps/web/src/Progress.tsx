@@ -1,3 +1,4 @@
+import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 export function Progress({ kursId }: { kursId: string }) {
@@ -10,7 +11,12 @@ export function Progress({ kursId }: { kursId: string }) {
   const fachgebiete = overview.data ?? [];
 
   if (fachgebiete.length === 0) {
-    return <p>Noch keine Karteikarten-Fortschrittsdaten für diesen Kurs. Lerne ein paar Karteikarten.</p>;
+    return (
+      <div className="alert alert-info">
+        <InfoIcon />
+        <div>Noch keine Karteikarten-Fortschrittsdaten für diesen Kurs. Lerne ein paar Karteikarten.</div>
+      </div>
+    );
   }
 
   return (
