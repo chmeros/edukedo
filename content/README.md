@@ -15,9 +15,25 @@ content/
       3.4-moderation.md
       fallaufgaben.md           ← themenübergreifende Situationsaufgaben (F-23)
       fachgespraech.md          ← Fachgesprächsfragen-Sammlung (F-25)
+  mathematik-9/
+    algebra-funktionen/
+      alg1-quadratwurzeln.md
+      alg2-potenzen.md
+      alg3-quadratische-funktionen.md
+      uebungsaufgaben.md        ← gemischte Übungsaufgaben über ALG1-3 (Klassenarbeits-Format)
+    geometrie/
+      geo1-pythagoras.md
+      geo2-trigonometrie.md
+      geo3-strahlensaetze.md
+      uebungsaufgaben.md
+    stochastik/
+      sto1-wahrscheinlichkeitsrechnung.md
+      uebungsaufgaben.md
 ```
 
-Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganisation/`, künftig z. B. `mathematik-9/`), darin ein Ordner je Fachgebiet/Handlungsbereich (`hb3/`), darin eine Datei je Thema. Das spiegelt die Hierarchie Kurs → Fachgebiet → Thema aus dem Datenmodell. Der Ordnername ist bewusst so spezifisch wie der `kurs_slug` gewählt (nicht nur `fachwirt/`), da laut Anforderungskatalog Abschnitt 9 künftig weitere, andersartige Fachwirt-Qualifikationen als eigene Kurse hinzukommen können — ein generisches `fachwirt/` würde dann kollidieren.
+Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganisation/`, `mathematik-9/`), darin ein Ordner je Fachgebiet (`hb3/`, bzw. bei Mathematik `algebra-funktionen/`, `geometrie/`, `stochastik/`), darin eine Datei je Thema. Das spiegelt die Hierarchie Kurs → Fachgebiet → Thema aus dem Datenmodell. Der Ordnername ist bewusst so spezifisch wie der `kurs_slug` gewählt (nicht nur `fachwirt/`), da laut Anforderungskatalog Abschnitt 9 künftig weitere, andersartige Fachwirt-Qualifikationen als eigene Kurse hinzukommen können — ein generisches `fachwirt/` würde dann kollidieren. Bei Mathematik gibt es keine offiziellen Fachgebiets-/Themen-Nummern wie die Handlungsbereiche beim Fachwirt; die Codes (`ALG1`–`ALG3`, `GEO1`–`GEO3`, `STO1`) sind eine eigene, sprechende Benennung.
+
+**Zum Umfang des Mathematik-Kurses (Stand 14.09.2026):** Der Anforderungskatalog (Abschnitt 9) sieht als Validierungs-Gate eigentlich vor, den Schulfach-Kurs zunächst mit nur einem vollständig ausgearbeiteten Fachgebiet/Themenblock zu starten. Auf ausdrücklichen Wunsch wurde hiervon abgewichen und der Content für alle drei Themenblöcke (Algebra & Funktionen, Geometrie, Stochastik) auf einmal erstellt — siehe Anforderungskatalog Abschnitt 9/10 für die entsprechende Entscheidungsnotiz. Das *technische* Validierungs-Gate (`kurs.is_published` bleibt zunächst `false`, gestaffelter Live-Gang je nach KPI-Signal) ist davon unberührt: Nur weil der Content vorab existiert, muss er nicht sofort für echte Nutzer:innen live geschaltet werden.
 
 ## Aufbau einer Thema-Datei
 
@@ -34,6 +50,8 @@ quelle: "DIHK-Rahmenplan „Geprüfter Fachwirt für Büro- und Projektorganisat
 rechtsstand: "14.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 ```
+
+Bei Mathematik entfällt das Konzept „Handlungsbereich"; `fachgebiet_code` ist dort z. B. `ALG` (Algebra & Funktionen), `GEO` (Geometrie) oder `STO` (Stochastik), `thema_code` z. B. `ALG1`, `quelle` verweist auf die KMK-Bildungsstandards statt auf einen DIHK-Rahmenplan.
 
 ### Abschnitt „## Theorie"
 
@@ -97,9 +115,12 @@ Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
 `schwierigkeit: schwer`
 ```
 
-## Fallaufgaben (`fallaufgaben.md`)
+## Fallaufgaben / Übungsaufgaben-Sammlungen (`fallaufgaben.md` bzw. `uebungsaufgaben.md`)
 
-Themenübergreifende Situationsaufgaben (`type: fallaufgabe`), je mit betrieblicher Fallbeschreibung und mehreren Teilaufgaben (`payload.parts`):
+Mehrschrittige Aufgaben, die mehrere Themen desselben Fachgebiets kombinieren (`type: fallaufgabe`), je mit einer Ausgangssituation/Aufgabenstellung und mehreren Teilaufgaben (`payload.parts`). Der Dateiname unterscheidet sich je Kurstyp, das Format ist identisch:
+
+- Beim Fachwirt-Piloten: `fallaufgaben.md`, mit betrieblicher Fallbeschreibung, wie es der schriftlichen IHK-Prüfung entspricht.
+- Bei Mathematik (und künftigen Schulfach-Kursen): `uebungsaufgaben.md`, im Format klassenarbeitsähnlicher Mischaufgaben statt betrieblicher Situationen — inhaltlich passender für diesen Kurstyp, technisch aber derselbe `content_item.type = "fallaufgabe"`.
 
 ```markdown
 #### F-HB3-01 · Fallaufgabe
@@ -109,10 +130,18 @@ Themenübergreifende Situationsaufgaben (`type: fallaufgabe`), je mit betrieblic
 **Musterlösungshinweise:** ...
 ```
 
+```markdown
+#### U-ALG-01 · Übungsaufgabe
+**Aufgabenstellung:** ...
+**Teilaufgabe 1 (X Punkte):** ...
+**Teilaufgabe 2 (X Punkte):** ...
+**Lösungsweg:** ...
+```
+
 ## Fachgesprächsfragen (`fachgespraech.md`)
 
-Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import.
+Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
 ## Rechtlicher Hinweis
 
-Sämtliche Inhalte sind frei formuliert und aus öffentlich zugänglichem Fachwissen erstellt, orientiert an der Gliederung des offiziellen DIHK-Rahmenplans — keine 1:1-Übernahme von Prüfungsaufgaben, Musterlösungen oder Lehrbuchtexten (siehe Anforderungskatalog Abschnitt 7). Rechtliche Aussagen (Arbeits-/Ausbildungsrecht) sind bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden.
+Sämtliche Inhalte sind frei formuliert und aus öffentlich zugänglichem Fachwissen erstellt — keine 1:1-Übernahme von Prüfungsaufgaben, Musterlösungen oder Lehrbuchtexten (siehe Anforderungskatalog Abschnitt 7). Für den Fachwirt-Piloten orientiert sich die Gliederung am offiziellen DIHK-Rahmenplan; rechtliche Aussagen (Arbeits-/Ausbildungsrecht) sind bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden. Für den Mathematik-Kurs orientiert sich die Gliederung an den KMK-Bildungsstandards (Fassung 2022) und einem punktuellen Abgleich mit einem Landeslehrplan (Bayern, Klasse 9); der Themenkatalog gilt weiterhin als vorläufig und sollte vor Veröffentlichung mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegengeprüft werden (siehe Anforderungskatalog Abschnitt 9/10).

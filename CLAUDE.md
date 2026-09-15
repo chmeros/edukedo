@@ -31,6 +31,7 @@ Die vollständige Planung liegt in `docs/` und ist die Quelle der Wahrheit für 
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern (Frontend+API) — bewusst nicht mit /payment geteilt
 /docs         → die vier Planungsdokumente (siehe oben)
+/design       → statische HTML/CSS-Mockups als visuelle Referenz für apps/web (Farben, Typografie, Layout) — kein Implementierungscode, siehe design/README.md
 ```
 
 Details und Begründung in Architekturplanung Abschnitt 11.
@@ -44,3 +45,4 @@ Der aktuelle Stand befindet sich noch am Anfang von **Iteration 0** (Grundgerüs
 - Bei jeder Design-Entscheidung, die von den Planungsdokumenten abweicht oder sie konkretisiert (z. B. eine Detailfrage, die dort offen gelassen wurde), sollte das in `docs/Architekturplanung.md` Abschnitt 13 ("Architekturentscheidungen") nachgetragen werden, damit die Dokumentation nicht vom tatsächlichen Code abdriftet.
 - Datenbank-Migrationen sollten dem SQL-Schema in `docs/Architekturplanung.md` Abschnitt 4.3 möglichst direkt folgen (Tabellen-/Spaltennamen, Constraints, Lösch-Verhalten) — dort steht auch die Begründung für jede Design-Entscheidung (Abschnitt 4.1, 4.4).
 - Kern und Payment sind bewusst vollständig getrennt (eigene Datenbank, eigene Secrets, eigene Deploy-Pipeline) — niemals eine gemeinsame DB-Verbindung oder gemeinsame ORM-Modelle zwischen `/apps/api` und `/apps/payment` einführen.
+- `/design` enthält statische HTML-Mockups (aktuell: `01-landing-und-app-vorschau.html`) als visuelle Referenz für den Aufbau von `apps/web` — beim Umsetzen des React-Frontends als Vorlage für Layout/Farben/Typografie heranziehen, nicht 1:1 als Code übernehmen (React + Vite, nicht Vanilla-HTML).

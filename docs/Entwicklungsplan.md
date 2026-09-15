@@ -1,7 +1,9 @@
 # Entwicklungsplan: edukedo
 
-Stand: 14.09.2026 · Grundlage: Anforderungskatalog Version 0.20 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
+Stand: 14.09.2026 · Grundlage: Anforderungskatalog Version 0.22 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
 
+> **Aktualisierung 14.09.2026 (Mathe-Content vorab erstellt):** Der Lerncontent für den Mathematik-Kurs (Klasse 9) wurde bereits jetzt vollständig für alle drei Themenblöcke erstellt (Algebra & Funktionen, Geometrie, Stochastik — siehe Anforderungskatalog Abschnitt 4, 9), nicht erst gestaffelt wie in Iteration 3/5 unten vorgesehen. Die **Programmier-Reihenfolge und das Validierungs-Gate selbst ändern sich dadurch nicht** — Iteration 3 aktiviert weiterhin nur den Mathe-Kurs mit `is_published = false → true`, Iteration 4/5 prüfen weiterhin anhand echter KPIs, ob sich der Ausbau lohnt. Der Unterschied: Wenn das Gate positiv ausfällt, liegt der Content für den weiteren Ausbau (Iteration 5) bereits vollständig vor, statt erst dann erstellt werden zu müssen. Die zugehörigen Content-Tasks in Iteration 0, 3 und 5 sind unten entsprechend als bereits erledigt bzw. angepasst markiert. Zusätzlich wurde die in Iteration 0 vorgesehene Gegenprüfung des Themenkatalogs mit echtem Schulbuchmaterial **nicht** vorgezogen durchgeführt — der Katalog bleibt vorläufig (siehe Anforderungskatalog Abschnitt 4, 7).
+>
 > **Aktualisierung 14.09.2026:** Business-Lizenzen & Sponsoring (F-91–F-94, siehe Anforderungskatalog Abschnitt 5.12 und Architekturplanung Abschnitt 4.5/13) als neue Aufgaben in **Iteration 6** ergänzt — passend zur dortigen Phase-4-Einordnung. Bewusst unter „Programmierung (Kern)" statt „Programmierung (Payment)" einsortiert, weil die Lizenz laut Architekturentscheidung keine Premium-Freischaltung auslöst und deshalb ohne Anbindung an den separaten Payment-Service auskommt — diese Aufgaben sind unabhängig von den übrigen Iteration-6-Payment-Aufgaben umsetzbar. Ergänzend: ein Recht-&-Compliance-Task zu Unternehmens-AGB sowie zwei Testing-Tasks zur Zugriffssperre bei aggregierter Statistik.
 >
 > **Aktualisierung 12.09.2026 (Entwickler-Review):** Vier Anpassungen gegenüber der ersten Fassung: (1) **Iteration 2 und 3 wurden dependency-bewusst neu geschnitten** — der Eltern-Consent-Flow (F-08/F-90) steht jetzt bewusst *vor* der Live-Schaltung des Mathe-Kurses, weil die Architekturplanung genau das verlangt (Consent-Infrastruktur muss stehen, bevor ein überwiegend von Minderjährigen genutzter Kurs veröffentlicht wird). (2) Das **`REPORT`/`BLOCK`-Datenmodell wandert von Iteration 3 nach Iteration 0**, weil es ohnehin nur Schema ohne UI ist und laut Architekturplanung in dieselbe erste Migrations-Charge gehört. (3) **Konto-Selbstlöschung (F-06)** ist jetzt ein expliziter Task in Iteration 1, statt implizit „irgendwann" mitzulaufen — ab dieser Iteration entstehen echte personenbezogene Daten. (4) Iteration 0 berücksichtigt jetzt auch **`CONTENT_ITEM_VERSION`, `TAG`/`CONTENT_ITEM_TAG`** sowie die dafür nötigen Postgres-Extensions, passend zum inzwischen vertieften Datenmodell (Architekturplanung Version 0.5/0.6).
@@ -27,9 +29,9 @@ Ziel: Alles ist bereit, um mit dem ersten inhaltlichen Slice (Iteration 1) zu be
 - [x] tRPC-Router-Grundstruktur für die Kern-API (`health`, `auth`; weitere Module folgen modulweise)
 
 **Content**
-- [ ] Zwischenformat für Content-Erstellung festlegen (z. B. Markdown-Dateien mit definiertem Frontmatter oder eine Tabellenvorlage) — unabhängig vom Entwicklungsstand des Redaktionssystems (F-11/F-17)
-- [ ] Eigene Wissensquellen für HB3 (Führen/Verwalten/Ausbilden) sichten und mit Abschnitt 7 (Urheberrecht: frei formuliert, keine 1:1-Übernahme) abgleichen
-- [ ] Mathematik-Themenkatalog (Abschnitt 4) mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegenprüfen, bevor der erste Mathe-Themenblock entsteht
+- [x] Zwischenformat für Content-Erstellung festlegen (z. B. Markdown-Dateien mit definiertem Frontmatter oder eine Tabellenvorlage) — unabhängig vom Entwicklungsstand des Redaktionssystems (F-11/F-17). **Erledigt 14.09.2026**, siehe `content/README.md` im Repo.
+- [x] Eigene Wissensquellen für HB3 (Führen/Verwalten/Ausbilden) sichten und mit Abschnitt 7 (Urheberrecht: frei formuliert, keine 1:1-Übernahme) abgleichen. **Erledigt 14.09.2026** auf Basis des vom Nutzer bereitgestellten DIHK-Rahmenplans, siehe Anforderungskatalog Abschnitt 4.
+- [ ] Mathematik-Themenkatalog (Abschnitt 4) mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegenprüfen. **Hinweis (14.09.2026):** Diese Gegenprüfung wurde bewusst **nicht** vor der Content-Erstellung durchgeführt — der Mathe-Content (siehe unten, Iteration 3/5) entstand auf Basis des unverifizierten, vorläufigen Katalogs. Diese Aufgabe bleibt offen und sollte vor Veröffentlichung des Kurses für echte Lernende nachgeholt werden.
 
 **Recht & Compliance**
 - [ ] Kleingewerbe anmelden (Einzelunternehmen), Steuernummer/ladungsfähige Anschrift für spätere Impressumspflicht (F-51) einholen
@@ -95,10 +97,10 @@ Ziel: Der zweite Kurs (Mathematik) existiert mit einem ersten Themenblock und wi
 - [x] Zweiten Kurstyp (Mathematik) im generischen Modell anlegen (`KURS.type = "schulfach"`, `KURS.metadata` mit Klassenstufe/Bundesland-Ansatz, siehe F-13), zunächst mit `is_published = false` — vollständiger Mathematik-9-Content (`content/mathematik-9/`, 3 Fachgebiete/7 Themen/217 Content-Items) über das bestehende, dafür generalisierte `apps/api/src/db/import-content.ts` importiert (`KURS_META`-Tabelle je Kurs-Slug, siehe Architekturplanung Abschnitt 13). Live gegen echtes Postgres verifiziert: Import korrekt (`type='schulfach'`, `metadata={klassenstufe:9,...}`), unveröffentlichter Kurs bleibt im Frontend komplett unsichtbar (kein Tab, kein Beitreten), nach temporärem `is_published=true` funktionieren Karteikarten/Theorie/Quiz/Fortschritt über den vollen Pfad, danach wieder auf `is_published=false` zurückgesetzt (Veröffentlichung erst nach Abschluss von Content/Admin-Bereich gemäß Zeile darunter). Dabei einen latenten Anzeige-Bug gefunden und behoben, der beim Fachwirt-Kurs (nur 1 Fachgebiet) nie auffiel: `fachgebiet.sort_order` wurde beim Import nie gesetzt (Spalten-Default 0 für alle Fachgebiete), wodurch Theorie- und Fortschritt-Ansicht bei mehreren Fachgebieten unterschiedliche, zufällige Reihenfolgen zeigten — siehe Architekturplanung Abschnitt 13.
 - [ ] Bulk-Import-Grundfunktion (F-17) bauen, die das Content-Zwischenformat einliest — löst das manuelle Iteration-0-Provisorium ab
 - [ ] Admin-/Redaktionsbereich (F-11) in einer ersten, einfachen Version
-- [ ] Nach Fertigstellung des ersten Mathe-Themenblocks: `KURS.is_published = true` setzen (erst jetzt zulässig, da der Consent-Flow aus Iteration 2 produktiv steht)
+- [ ] Nach Fertigstellung des ersten Mathe-Themenblocks: `KURS.is_published = true` setzen (erst jetzt zulässig, da der Consent-Flow aus Iteration 2 produktiv steht) — der Content für alle drei Themenblöcke liegt bereits vor (siehe unten), diese Aufgabe bleibt aber bewusst an die Programmierung/den Bulk-Import gekoppelt, nicht an den Content-Stand
 
 **Content**
-- [ ] Erstes Mathe-Fachgebiet/Themenblock erstellen (z. B. Quadratische Funktionen, siehe Themenkatalog Abschnitt 4)
+- [x] Erstes Mathe-Fachgebiet/Themenblock erstellen (z. B. Quadratische Funktionen, siehe Themenkatalog Abschnitt 4). **Erledigt 14.09.2026 — und zwar für alle drei Themenblöcke auf einmal** (Algebra & Funktionen, Geometrie, Stochastik), abweichend vom Validierungs-Gate (siehe Anforderungskatalog Abschnitt 9, 10 sowie Iteration-5-Hinweis unten). Siehe `content/mathematik-9/` im Repo.
 
 **Testing**
 - [ ] Tests für Bulk-Import (Datenintegrität, Versionierung F-12)
@@ -115,7 +117,7 @@ Ziel: Der Fachwirt-Pilot hat zwei vollständige Handlungsbereiche, die Content-E
 
 **Nutzer:innen-Feedback**
 - [ ] Erste KPI-Auswertung (Abschnitt 11: aktive Nutzer:innen, Abschlussquote) für beide Kurse
-- [ ] Validierungs-Gate für den Mathe-Kurs prüfen (Abschnitt 9): lohnt sich weiterer Ausbau über den ersten Themenblock hinaus?
+- [ ] Validierungs-Gate für den Mathe-Kurs prüfen (Abschnitt 9): lohnt sich weiterer *Ausbau* (Programmierung/Redaktion) über den ersten live geschalteten Themenblock hinaus? **Hinweis (14.09.2026):** Der Content für alle drei Themenblöcke liegt bereits vor (siehe Iteration 3); dieses Gate entscheidet damit nicht mehr über weitere Content-*Erstellung*, sondern darüber, ob/wann die bereits vorhandenen weiteren Themenblöcke programmierseitig ausgerollt (Bulk-Import, `is_published`) und beworben werden.
 
 ## Iteration 5 — Ausbau der Kernlernerfahrung (entspricht Phase 2/3 im Anforderungskatalog)
 
@@ -131,7 +133,7 @@ Ziel: Das Kernlernangebot ist funktional vollständig für beide Kurse, bevor in
 - [ ] Barrierefreiheit gemäß WCAG 2.1 AA prüfen/nachziehen (F-44)
 
 **Content**
-- [ ] Weitere Handlungsbereiche (HB2, HB4) bzw. weitere Mathe-Themenblöcke, je nach KPI-Signal aus Iteration 4
+- [ ] Weitere Handlungsbereiche (HB2, HB4) erstellen, je nach KPI-Signal aus Iteration 4. **Hinweis (14.09.2026):** Der „weitere Mathe-Themenblöcke"-Teil dieser Aufgabe entfällt — Geometrie und Stochastik liegen bereits seit Iteration 3 vollständig vor (siehe dort); hier verbleibt nur noch deren programmierseitiger Ausbau/Rollout (siehe Iteration 4) sowie eine Gegenprüfung mit Schulbuchmaterial (siehe Iteration 0), kein weiterer Content-Erstellungsaufwand.
 
 **Testing**
 - [ ] Manuelle Barrierefreiheits-Stichprobe (Screenreader)

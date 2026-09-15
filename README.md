@@ -14,6 +14,7 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern
 /docs         → Projektziel, Anforderungskatalog, Architekturplanung, Entwicklungsplan
+/design       → statische HTML-Mockups als visuelle Referenz für apps/web
 docker-compose.yml → lokale Postgres/Redis-Instanzen für die Entwicklung
 ```
 

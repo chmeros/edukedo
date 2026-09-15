@@ -1,0 +1,719 @@
+<title>edukedo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --ink:#17212B;
+    --ink-soft:#4C5C62;
+    --ink-faint:#7C8A87;
+    --paper:#F8FAF6;
+    --surface:#EBF1E9;
+    --surface-2:#E0EBE1;
+    --card:#FFFFFF;
+    --sprout:#178F5E;
+    --sprout-deep:#0E6E48;
+    --sprout-tint:#DCF0E4;
+    --coral:#FF6B4C;
+    --coral-deep:#E0502F;
+    --sun:#FFC23C;
+    --line:rgba(23,33,43,0.12);
+    --line-strong:rgba(23,33,43,0.22);
+    --shadow: 0 1px 2px rgba(23,33,43,0.06), 0 10px 30px -12px rgba(23,33,43,0.18);
+
+    --font-display:'Fredoka', ui-rounded, 'Segoe UI', sans-serif;
+    --font-body:'Manrope', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+
+    --fs-xs:0.8125rem;
+    --fs-sm:0.9375rem;
+    --fs-base:1.0625rem;
+    --fs-md:1.1875rem;
+    --fs-lg:1.5rem;
+    --fs-xl:2rem;
+    --fs-2xl:2.75rem;
+    --fs-3xl:clamp(2.6rem, 4.6vw + 1rem, 4.4rem);
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EAF3EC;
+      --ink-soft:#AEC2B7;
+      --ink-faint:#7E938A;
+      --paper:#0D1512;
+      --surface:#131E19;
+      --surface-2:#182620;
+      --card:#16221D;
+      --sprout:#3FCB8B;
+      --sprout-deep:#7CE6AF;
+      --sprout-tint:#173327;
+      --coral:#FF8B6E;
+      --coral-deep:#FFA98F;
+      --sun:#FFD166;
+      --line:rgba(234,243,236,0.14);
+      --line-strong:rgba(234,243,236,0.26);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 20px 40px -20px rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EAF3EC;
+    --ink-soft:#AEC2B7;
+    --ink-faint:#7E938A;
+    --paper:#0D1512;
+    --surface:#131E19;
+    --surface-2:#182620;
+    --card:#16221D;
+    --sprout:#3FCB8B;
+    --sprout-deep:#7CE6AF;
+    --sprout-tint:#173327;
+    --coral:#FF8B6E;
+    --coral-deep:#FFA98F;
+    --sun:#FFD166;
+    --line:rgba(234,243,236,0.14);
+    --line-strong:rgba(234,243,236,0.26);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 20px 40px -20px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:var(--fs-base);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:0;
+  }
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    line-height:1.12;
+    text-wrap:balance;
+    margin:0;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{max-width:100%;}
+  .wrap{
+    max-width:1160px;
+    margin-inline:auto;
+    padding-inline:clamp(18px, 4vw, 40px);
+  }
+  ::selection{background:var(--sun);color:var(--ink);}
+  :focus-visible{outline:2.5px solid var(--sprout);outline-offset:3px;border-radius:4px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top, 0px);z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:14px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:9px;
+    font-family:var(--font-display);font-weight:700;font-size:1.3rem;
+    letter-spacing:-0.01em;
+    text-decoration:none;color:var(--ink);
+  }
+  .logo-mark{
+    width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(145deg, var(--sprout), var(--sprout-deep));
+    display:grid;place-items:center;flex:none;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);
+  }
+  .logo-mark svg{width:16px;height:16px;}
+  .nav-links{
+    display:flex;align-items:center;gap:28px;
+    font-size:var(--fs-sm);font-weight:600;
+  }
+  .nav-links a{text-decoration:none;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+  @media (max-width:720px){
+    .nav-links{display:none;}
+  }
+
+  .btn{
+    font-family:var(--font-body);font-weight:700;font-size:var(--fs-sm);
+    padding:11px 20px;border-radius:12px;border:1.5px solid transparent;
+    cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 6px 16px -6px color-mix(in srgb, var(--coral) 70%, transparent);}
+  .btn-primary:hover{background:var(--coral-deep);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong);}
+  .btn-ghost:hover{border-color:var(--ink-faint);}
+  .btn-sm{padding:8px 14px;font-size:var(--fs-xs);border-radius:10px;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding-block:clamp(48px,7vw,88px) clamp(40px,6vw,64px);}
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(28px,5vw,64px);
+    align-items:center;
+  }
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    font-family:var(--font-mono);font-size:var(--fs-xs);font-weight:600;
+    color:var(--sprout-deep);letter-spacing:0.09em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--sprout-tint);padding:6px 12px;border-radius:100px;
+  }
+  .hero h1{font-size:var(--fs-3xl);margin-top:18px;letter-spacing:-0.015em;}
+  .hero h1 .hl{color:var(--sprout-deep);}
+  .hero-sub{
+    margin-top:18px;font-size:var(--fs-md);color:var(--ink-soft);max-width:46ch;
+  }
+  .hero-ctas{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+
+  .stat-strip{
+    display:flex;gap:clamp(18px,4vw,36px);margin-top:38px;flex-wrap:wrap;
+  }
+  .stat{padding-right:clamp(18px,4vw,36px);border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;padding-right:0;}
+  .stat b{display:block;font-family:var(--font-display);font-size:var(--fs-lg);font-variant-numeric:tabular-nums;}
+  .stat span{font-size:var(--fs-xs);color:var(--ink-faint);}
+
+  /* ---------- Flip card (shared motif) ---------- */
+  .flip-scene{perspective:1400px;}
+  .flip-card{
+    position:relative;width:100%;aspect-ratio:4/3;
+    transform-style:preserve-3d;
+    transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    cursor:pointer;
+  }
+  .flip-card.is-flipped{transform:rotateY(180deg);}
+  .flip-face{
+    position:absolute;inset:0;backface-visibility:hidden;
+    border-radius:22px;border:1.5px solid var(--line-strong);
+    padding:clamp(20px,3vw,30px);
+    display:flex;flex-direction:column;
+    box-shadow:var(--shadow);
+  }
+  .flip-front{background:var(--card);}
+  .flip-back{background:var(--sprout);color:#fff;transform:rotateY(180deg);border-color:transparent;}
+  .flip-kicker{
+    font-family:var(--font-mono);font-size:0.75rem;font-weight:600;
+    letter-spacing:0.07em;text-transform:uppercase;opacity:0.7;
+  }
+  .flip-q{font-family:var(--font-display);font-size:var(--fs-lg);margin-top:auto;padding-block:14px;}
+  .flip-hint{
+    margin-top:auto;font-size:var(--fs-xs);color:var(--ink-faint);
+    display:flex;align-items:center;gap:6px;
+  }
+  .flip-back .flip-hint{color:rgba(255,255,255,0.75);}
+  .flip-a{font-family:var(--font-body);font-weight:700;font-size:var(--fs-md);margin-top:auto;padding-block:14px;}
+
+  .hero-visual{position:relative;}
+  .badge-floating{
+    position:absolute;top:-14px;right:6%;
+    background:var(--sun);color:#3A2A00;
+    font-family:var(--font-mono);font-weight:700;font-size:var(--fs-xs);
+    padding:7px 13px;border-radius:100px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:6px;z-index:2;
+    transform:rotate(-4deg);
+  }
+
+  /* ---------- Mission strip ---------- */
+  .mission{
+    background:var(--surface);
+    border-block:1px solid var(--line);
+    padding-block:36px;
+  }
+  .mission-row{
+    display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  }
+  .mission p{font-size:var(--fs-md);max-width:62ch;color:var(--ink);font-weight:500;}
+  .mission p b{color:var(--sprout-deep);}
+
+  /* ---------- Section heading ---------- */
+  .section{padding-block:clamp(56px,7vw,96px);}
+  .section-head{max-width:56ch;margin-bottom:clamp(32px,4vw,48px);}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:var(--fs-2xl);letter-spacing:-0.01em;}
+  .section-head p{margin-top:12px;color:var(--ink-soft);font-size:var(--fs-md);}
+
+  /* ---------- Courses ---------- */
+  .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media (max-width:760px){ .course-grid{grid-template-columns:1fr;} }
+  .course-card{
+    background:var(--card);border:1.5px solid var(--line);border-radius:22px;
+    padding:clamp(22px,3vw,30px);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .course-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .course-icon{
+    width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex:none;
+  }
+  .course-icon svg{width:24px;height:24px;}
+  .course-card.c-fw .course-icon{background:color-mix(in srgb, var(--coral) 16%, var(--card));color:var(--coral-deep);}
+  .course-card.c-mt .course-icon{background:color-mix(in srgb, var(--sprout) 16%, var(--card));color:var(--sprout-deep);}
+  .course-tag{
+    font-family:var(--font-mono);font-size:0.7rem;font-weight:600;letter-spacing:0.06em;
+    color:var(--ink-faint);text-transform:uppercase;
+  }
+  .course-card h3{font-size:var(--fs-lg);margin-top:4px;}
+  .course-desc{color:var(--ink-soft);font-size:var(--fs-sm);}
+  .topic-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+  .topic-pill{
+    font-size:var(--fs-xs);font-weight:600;padding:6px 12px;border-radius:100px;
+    background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);
+  }
+  .course-foot{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:auto;padding-top:14px;border-top:1px dashed var(--line-strong);
+  }
+  .course-foot a{
+    font-weight:700;font-size:var(--fs-sm);text-decoration:none;color:var(--sprout-deep);
+    display:flex;align-items:center;gap:6px;
+  }
+  .course-meta{font-size:var(--fs-xs);color:var(--ink-faint);}
+
+  /* ---------- Method / trail ---------- */
+  .trail{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;
+  }
+  @media (max-width:760px){ .trail{grid-template-columns:1fr;} }
+  .trail::before{
+    content:"";position:absolute;top:23px;left:8%;right:8%;height:0;
+    border-top:2.5px dashed var(--line-strong);z-index:0;
+  }
+  @media (max-width:760px){
+    .trail::before{left:23px;right:auto;top:8%;bottom:8%;width:0;height:auto;border-top:none;border-left:2.5px dashed var(--line-strong);}
+  }
+  .trail-step{position:relative;z-index:1;padding:4px 18px 0 0;}
+  @media (max-width:760px){ .trail-step{padding:0 0 32px 48px;} }
+  .trail-num{
+    width:46px;height:46px;border-radius:50%;background:var(--card);
+    border:2.5px solid var(--sprout);color:var(--sprout-deep);
+    font-family:var(--font-display);font-weight:700;font-size:var(--fs-md);
+    display:grid;place-items:center;margin-bottom:16px;
+  }
+  @media (max-width:760px){ .trail-num{position:absolute;left:0;top:0;margin-bottom:0;} }
+  .trail-step h3{font-size:var(--fs-md);}
+  .trail-step p{margin-top:8px;color:var(--ink-soft);font-size:var(--fs-sm);}
+
+  /* ---------- App preview (Act 2) ---------- */
+  .app-section{background:var(--surface);border-block:1px solid var(--line);}
+  .browser-frame{
+    background:var(--card);border-radius:20px;border:1.5px solid var(--line);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .browser-bar{
+    display:flex;align-items:center;gap:16px;padding:12px 18px;
+    background:var(--surface-2);border-bottom:1px solid var(--line);
+  }
+  .traffic{display:flex;gap:7px;flex:none;}
+  .traffic span{width:11px;height:11px;border-radius:50%;background:var(--line-strong);}
+  .browser-url{
+    flex:1;background:var(--card);border:1px solid var(--line);border-radius:100px;
+    padding:6px 14px;font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faint);
+    max-width:280px;
+  }
+  .app-body{padding:clamp(16px,3vw,28px);}
+  .app-grid{display:grid;grid-template-columns:220px 1fr 260px;gap:20px;}
+  @media (max-width:920px){ .app-grid{grid-template-columns:1fr;} }
+
+  .app-panel{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:18px;display:flex;flex-direction:column;gap:14px;
+  }
+  .app-panel h4{
+    font-family:var(--font-display);font-size:var(--fs-sm);font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .course-pill{
+    display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;
+    background:var(--card);border:1px solid var(--line);
+  }
+  .course-pill.active{border-color:var(--sprout);background:var(--sprout-tint);}
+  .ring{width:38px;height:38px;flex:none;}
+  .pill-name{font-size:var(--fs-xs);font-weight:700;}
+  .pill-sub{font-size:0.7rem;color:var(--ink-faint);}
+
+  .streak-card{
+    display:flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg, color-mix(in srgb, var(--sun) 30%, var(--card)), var(--card));
+    border-radius:14px;padding:14px;border:1px solid var(--line);
+  }
+  .streak-num{font-family:var(--font-display);font-size:1.6rem;font-variant-numeric:tabular-nums;}
+  .streak-label{font-size:0.72rem;color:var(--ink-faint);}
+
+  .due-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;
+  }
+  .due-card .flip-scene{aspect-ratio:auto;}
+  .due-card .flip-card{aspect-ratio:5/3;}
+  .due-count{
+    font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--sprout-deep);
+    background:var(--sprout-tint);padding:4px 10px;border-radius:100px;font-weight:600;
+  }
+
+  .quiz-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;}
+  .quiz-q{font-family:var(--font-display);font-weight:600;font-size:var(--fs-sm);margin-bottom:12px;}
+  .quiz-opt{
+    width:100%;text-align:left;padding:10px 12px;border-radius:10px;
+    border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+    font-family:var(--font-body);font-size:var(--fs-sm);font-weight:600;
+    margin-bottom:8px;cursor:pointer;display:block;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .quiz-opt:hover{border-color:var(--ink-faint);}
+  .quiz-opt.correct{border-color:var(--sprout);background:var(--sprout-tint);color:var(--sprout-deep);}
+  .quiz-opt.wrong{border-color:var(--coral);background:color-mix(in srgb, var(--coral) 12%, var(--card));color:var(--coral-deep);}
+  .quiz-feedback{font-size:var(--fs-xs);color:var(--ink-faint);min-height:1.2em;margin-top:4px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding-block:48px;border-top:1px solid var(--line);}
+  .foot-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+  .foot-mission{max-width:44ch;color:var(--ink-soft);font-size:var(--fs-sm);}
+  .foot-links{display:flex;gap:32px;flex-wrap:wrap;}
+  .foot-col h5{
+    font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:10px;font-weight:600;
+  }
+  .foot-col a{display:block;font-size:var(--fs-sm);color:var(--ink-soft);text-decoration:none;margin-bottom:8px;}
+  .foot-col a:hover{color:var(--ink);}
+  .foot-bottom{
+    margin-top:36px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-size:var(--fs-xs);color:var(--ink-faint);
+  }
+</style>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="logo" href="#top">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff"/><path d="M6.5 10v4.2c0 1.6 2.46 3.3 5.5 3.3s5.5-1.7 5.5-3.3V10" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      edukedo
+    </a>
+    <nav class="nav-links">
+      <a href="#courses">Kurse</a>
+      <a href="#method">So funktioniert's</a>
+      <a href="#app">Lern-App</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm" href="#">Anmelden</a>
+      <a class="btn btn-primary btn-sm" href="#courses">Kostenlos starten</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="currentColor" opacity=".25"/><circle cx="6" cy="6" r="2" fill="currentColor"/></svg>
+          Kostenloser Zugang zu Wissen
+        </span>
+        <h1>Lernen, das sich merkt,<br>wann du es <span class="hl">wieder vergisst.</span></h1>
+        <p class="hero-sub">edukedo bringt dich mit Karteikarten und Quiz nach dem FSRS-Wiederholungsalgorithmus sicher durch Prüfungen &mdash; von der IHK-Fortbildung bis zur Klassenarbeit. Ohne Bezahlschranke für den Lerninhalt.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#courses">Kostenlos loslernen</a>
+          <a class="btn btn-ghost" href="#method">Wie das funktioniert</a>
+        </div>
+        <div class="stat-strip">
+          <div class="stat"><b>100&nbsp;%</b><span>kostenloser Lerninhalt</span></div>
+          <div class="stat"><b>2</b><span>Pilotkurse am Start</span></div>
+          <div class="stat"><b>FSRS</b><span>Wiederholung im richtigen Moment</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <span class="badge-floating">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2c1.5 4 5 5.5 5 10a5 5 0 0 1-10 0c0-1.6.7-2.7 1.5-3.8.3 1 1 1.6 1.7 1.6-.3-2.3.6-4.4 1.8-7.8Z" fill="#3A2A00"/></svg>
+          5 Tage in Folge gelernt
+        </span>
+        <div class="flip-scene">
+          <div class="flip-card" id="hero-flip">
+            <div class="flip-face flip-front">
+              <span class="flip-kicker">Karteikarte &middot; Algebra &amp; Funktionen</span>
+              <p class="flip-q">D&nbsp;=&nbsp;b²&nbsp;&minus;&nbsp;4ac &mdash; wofür steht das?</p>
+              <span class="flip-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 6l7 6-7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Antippen zum Umdrehen
+              </span>
+            </div>
+            <div class="flip-face flip-back">
+              <span class="flip-kicker" style="color:#fff;opacity:.85;">Antwort</span>
+              <p class="flip-a">Die Diskriminante: Sie verrät, wie viele Lösungen eine quadratische Gleichung hat.</p>
+              <span class="flip-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 6l7 6-7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Wieder umdrehen
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MISSION STRIP ================= -->
+  <section class="mission">
+    <div class="wrap mission-row">
+      <p>Möglichst breiter, <b>kostenfreier Zugang zu Wissen</b> ist unser eigentlicher Zweck &mdash; nicht nur ein Mittel, um Nutzer:innen für später zu gewinnen.</p>
+      <a class="btn btn-ghost btn-sm" href="#">Mehr zur Mission</a>
+    </div>
+  </section>
+
+  <!-- ================= COURSES ================= -->
+  <section class="section" id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Zwei Piloten, ein Prinzip</span>
+        <h2>Für Aufstiegsprüfung und Klassenarbeit gleichermaßen</h2>
+        <p>Gleiche Lernmechanik, zwei ganz unterschiedliche Zielgruppen &mdash; das generische Kursmodell von edukedo trägt beide.</p>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card c-fw">
+          <div class="course-top">
+            <div>
+              <span class="course-tag">IHK-Fortbildungsprüfung</span>
+              <h3>Fachwirt für Büro- und Projektorganisation</h3>
+            </div>
+            <span class="course-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V9l8-5 8 5v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="course-desc">Handlungsbereich „Personal führen und entwickeln“ &mdash; frei formulierter Lernstoff, keine 1:1-Übernahme aus Lehrgangsmaterial.</p>
+          <div class="topic-list">
+            <span class="topic-pill">Personalwirtschaft</span>
+            <span class="topic-pill">Ausbildung</span>
+            <span class="topic-pill">Konfliktmanagement</span>
+            <span class="topic-pill">Moderation</span>
+          </div>
+          <div class="course-foot">
+            <a href="#">Kurs ansehen
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <span class="course-meta">für Erwachsene</span>
+          </div>
+        </article>
+
+        <article class="course-card c-mt">
+          <div class="course-top">
+            <div>
+              <span class="course-tag">Schulfach &middot; Klasse 9</span>
+              <h3>Mathematik, bundeslandneutral</h3>
+            </div>
+            <span class="course-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.8"/><path d="M9 4v16M4 9h16" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+          </div>
+          <p class="course-desc">Drei Themenblöcke nach den KMK-Bildungsstandards &mdash; für Klassenarbeiten und echtes Verständnis.</p>
+          <div class="topic-list">
+            <span class="topic-pill">Quadratische Funktionen</span>
+            <span class="topic-pill">Satz des Pythagoras</span>
+            <span class="topic-pill">Trigonometrie</span>
+            <span class="topic-pill">Wahrscheinlichkeit</span>
+          </div>
+          <div class="course-foot">
+            <a href="#">Kurs ansehen
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <span class="course-meta">mit Eltern-Einwilligung</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METHOD / TRAIL ================= -->
+  <section class="section" id="method">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Die Methode</span>
+        <h2>Dein Gehirn vergisst planmäßig &mdash; wir holen dich rechtzeitig ab</h2>
+        <p>Der FSRS-Algorithmus verschiebt jede Karteikarte genau dann wieder vor dich, wenn du kurz davor bist, sie zu vergessen.</p>
+      </div>
+      <div class="trail">
+        <div class="trail-step">
+          <div class="trail-num">1</div>
+          <h3>Lernen</h3>
+          <p>Theorie in eigenen Worten, dann direkt in Karteikarten und Quiz üben &mdash; kein langes Lehrbuch-Kapitel vorweg.</p>
+        </div>
+        <div class="trail-step">
+          <div class="trail-num">2</div>
+          <h3>Bewerten</h3>
+          <p>Du schätzt nach jeder Karte kurz ein, wie schwer sie dir fiel &mdash; daraus berechnet FSRS dein nächstes Intervall.</p>
+        </div>
+        <div class="trail-step">
+          <div class="trail-num">3</div>
+          <h3>Behalten</h3>
+          <p>Karten kommen genau rechtzeitig zurück &mdash; seltener, sobald sie sitzen, häufiger, solange sie wackeln.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP PREVIEW (Act 2) ================= -->
+  <section class="section app-section" id="app">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ein Blick in die App</span>
+        <h2>So sieht dein Lerntag aus, sobald du eingeloggt bist</h2>
+        <p>Beide Kurse, ein Zugang &mdash; du wechselst frei zwischen Fachwirt-Vorbereitung und Mathe, dein Fortschritt bleibt getrennt gespeichert.</p>
+      </div>
+
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="traffic"><span></span><span></span><span></span></div>
+          <div class="browser-url">edukedo.com/lernen</div>
+        </div>
+        <div class="app-body">
+          <div class="app-grid">
+
+            <!-- left: course switcher -->
+            <div class="app-panel">
+              <h4>Meine Kurse</h4>
+              <div class="course-pill active">
+                <svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--line)" stroke-width="4"/><circle cx="20" cy="20" r="16" fill="none" stroke="var(--sprout)" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="42" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-size="10" font-family="JetBrains Mono" fill="var(--ink)">58%</text></svg>
+                <div>
+                  <div class="pill-name">Mathematik 9</div>
+                  <div class="pill-sub">Algebra &amp; Funktionen</div>
+                </div>
+              </div>
+              <div class="course-pill">
+                <svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--line)" stroke-width="4"/><circle cx="20" cy="20" r="16" fill="none" stroke="var(--coral)" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="76" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-size="10" font-family="JetBrains Mono" fill="var(--ink)">24%</text></svg>
+                <div>
+                  <div class="pill-name">Fachwirt</div>
+                  <div class="pill-sub">HB3 &middot; Personal</div>
+                </div>
+              </div>
+              <div class="streak-card">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2c1.5 4 5 5.5 5 10a5 5 0 0 1-10 0c0-1.6.7-2.7 1.5-3.8.3 1 1 1.6 1.7 1.6-.3-2.3.6-4.4 1.8-7.8Z" fill="var(--coral)"/></svg>
+                <div>
+                  <div class="streak-num">5</div>
+                  <div class="streak-label">Tage Streak</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- middle: due flashcards -->
+            <div class="app-panel">
+              <h4>Heute fällig <span class="due-count">12 Karten</span></h4>
+              <div class="due-card">
+                <div class="flip-scene">
+                  <div class="flip-card" id="app-flip">
+                    <div class="flip-face flip-front">
+                      <span class="flip-kicker">Geometrie &middot; Pythagoras</span>
+                      <p class="flip-q">Ein Dreieck hat die Katheten 6&nbsp;cm und 8&nbsp;cm. Wie lang ist die Hypotenuse?</p>
+                      <span class="flip-hint">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 6l7 6-7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Antippen zum Umdrehen
+                      </span>
+                    </div>
+                    <div class="flip-face flip-back">
+                      <span class="flip-kicker" style="color:#fff;opacity:.85;">Antwort</span>
+                      <p class="flip-a">10 cm &mdash; da √(6² + 8²) = √100 = 10.</p>
+                      <span class="flip-hint">Leicht? Mittel? Schwer? &mdash; bewerte, dann geht's weiter.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- right: quiz sample -->
+            <div class="app-panel">
+              <h4>Quiz-Check</h4>
+              <div class="quiz-card">
+                <p class="quiz-q">Was ist √72 in vereinfachter Form?</p>
+                <button class="quiz-opt" data-correct="false">8√3</button>
+                <button class="quiz-opt" data-correct="true">6√2</button>
+                <button class="quiz-opt" data-correct="false">2√18</button>
+                <button class="quiz-opt" data-correct="false">36√2</button>
+                <p class="quiz-feedback" id="quiz-feedback"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:12px;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff"/></svg>
+          </span>
+          edukedo
+        </a>
+        <p class="foot-mission">Ein Ort für Prüfungsvorbereitung und Wissenserwerb &mdash; unabhängig von einer einzelnen Prüfung oder Zielgruppe. Reichweite und Nutzung stehen bei uns vor Umsatz.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Kurse</h5>
+          <a href="#courses">Fachwirt Büro &amp; Projekt</a>
+          <a href="#courses">Mathematik 9</a>
+        </div>
+        <div class="foot-col">
+          <h5>Produkt</h5>
+          <a href="#method">Spaced Repetition</a>
+          <a href="#app">Lern-App</a>
+        </div>
+        <div class="foot-col">
+          <h5>Rechtliches</h5>
+          <a href="#">Datenschutz</a>
+          <a href="#">Impressum</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; edukedo &mdash; kostenloser Zugang zu Wissen.</span>
+      <span>Entwurf &middot; erstes responsives Layout</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    document.querySelectorAll('.flip-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        card.classList.toggle('is-flipped');
+      });
+    });
+
+    var opts = document.querySelectorAll('.quiz-opt');
+    var feedback = document.getElementById('quiz-feedback');
+    var answered = false;
+    opts.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        if(answered) return;
+        answered = true;
+        opts.forEach(function(o){
+          if(o.dataset.correct === 'true'){ o.classList.add('correct'); }
+          else if(o === opt){ o.classList.add('wrong'); }
+        });
+        feedback.textContent = opt.dataset.correct === 'true'
+          ? 'Richtig! √72 = √(36 · 2) = 6√2.'
+          : 'Nicht ganz &mdash; richtig ist 6√2, da √72 = √(36 · 2).';
+      });
+    });
+  })();
+</script>
