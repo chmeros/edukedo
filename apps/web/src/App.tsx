@@ -134,7 +134,20 @@ export function App() {
   }
 
   if (!showAuth && !register.data) {
-    return <LandingPage onStart={() => setShowAuth(true)} onLogin={() => setShowAuth(true)} />;
+    return (
+      <LandingPage
+        onStart={() => {
+          // "Kostenlos starten"/"Kurs ansehen" usw. sind Registrierungs-CTAs — sollen direkt auf
+          // dem Registrieren-Tab landen, nicht auf dem für Neu-Besucher:innen falschen Login-Tab.
+          setMode("register");
+          setShowAuth(true);
+        }}
+        onLogin={() => {
+          setMode("login");
+          setShowAuth(true);
+        }}
+      />
+    );
   }
 
   if (register.data?.status === "pending_parental_consent") {

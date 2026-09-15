@@ -178,7 +178,9 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
               <div className="course-top">
                 <div>
                   <span className="course-tag">Schulfach · Klasse 9</span>
-                  <h3>Mathematik, bundeslandneutral</h3>
+                  <h3>
+                    Mathematik, bundeslandneutral <span className="badge-soon">Bald verfügbar</span>
+                  </h3>
                 </div>
                 <span className="course-icon">
                   <svg viewBox="0 0 24 24" fill="none">
@@ -198,10 +200,11 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
                 <span className="topic-pill">Wahrscheinlichkeit</span>
               </div>
               <div className="course-foot">
-                <button type="button" className="course-foot-link" onClick={onStart}>
-                  Kurs ansehen →
-                </button>
-                <span className="course-meta">mit Eltern-Einwilligung</span>
+                {/* Kurs ist inhaltlich fertig, aber noch nicht veröffentlicht (kurs.is_published =
+                    false, siehe Architekturplanung Abschnitt 4.1/13) — bewusst kein anklickbarer
+                    "Kurs ansehen"-Link mehr, der einen sofortigen Zugang suggerieren würde. */}
+                <span className="course-meta">Registrierung schon möglich, Inhalte folgen in Kürze</span>
+                <span className="course-meta">mit&nbsp;Eltern-Einwilligung</span>
               </div>
             </article>
           </div>
