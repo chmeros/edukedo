@@ -103,7 +103,7 @@ Ziel: Der zweite Kurs (Mathematik) existiert mit einem ersten Themenblock und wi
 - [x] Erstes Mathe-Fachgebiet/Themenblock erstellen (z. B. Quadratische Funktionen, siehe Themenkatalog Abschnitt 4). **Erledigt 14.09.2026 — und zwar für alle drei Themenblöcke auf einmal** (Algebra & Funktionen, Geometrie, Stochastik), abweichend vom Validierungs-Gate (siehe Anforderungskatalog Abschnitt 9, 10 sowie Iteration-5-Hinweis unten). Siehe `content/mathematik-9/` im Repo.
 
 **Testing**
-- [ ] Tests für Bulk-Import (Datenintegrität, Versionierung F-12)
+- [x] Tests für Bulk-Import (Datenintegrität, Versionierung F-12) — neuer Testcontainers-Integrationstest `apps/api/test/import-content.integration.test.ts` gegen den echten Content aus `content/` (Repo-Root), nicht gegen synthetische Fixtures: prüft, dass je Content-Item genau eine `content_item_version` mit `version_number = 1` entsteht, dass ein erneuter Import den Content vollständig ersetzt statt verwaiste Versionen anzusammeln, dass `is_published` bei einem Re-Import nie überschrieben wird, und (Regressionstest) dass `fachgebiet.sort_order` weiterhin korrekt aus der Verzeichnisreihenfolge abgeleitet wird. Siehe Architekturplanung Abschnitt 13.
 
 ## Iteration 4 — Zweites Fachwirt-Handlungsgebiet (HB1) & Redaktions-Effizienz
 
