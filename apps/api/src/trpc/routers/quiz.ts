@@ -10,6 +10,7 @@ import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import { checkBlanks, checkKurzantwort, checkMatching, checkMcAnswer, shapeQuizItem } from "../../quiz-logic";
 import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+import { recordQuizAttempt } from "./progress";
 
 export const quizRouter = router({
   /**
@@ -20,7 +21,10 @@ export const quizRouter = router({
    * submitAnswer/submitMatching/submitBlanks/submitKurzantwort serverseitig geprüft wird
    * (siehe Architekturplanung Abschnitt 13). Formung/Prüfung teilt sich die Implementierung
    * mit dem kontolosen Vorschau-Modus (trpc/routers/preview.ts, F-08) über quiz-logic.ts —
-   * nur die Quelle der content_item-Zeilen unterscheidet sich.
+   * nur die Quelle der content_item-Zeilen unterscheidet sich. Die vier submit*-Mutationen
+   * unten schreiben das Ergebnis zusätzlich über `recordQuizAttempt` (F-26, siehe
+   * trpc/routers/progress.ts) in `user_progress` — bewusst NICHT in `preview.ts`, der ohne
+   * jeden Datenbank-Schreibzugriff bleibt.
    */
   quizItems: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const items = await ctx.db
@@ -77,6 +81,8 @@ export const quizRouter = router({
       .where(eq(contentItem.id, input.contentItemId))
       .limit(1);
 
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+
     return { isCorrect, correctOptionId, explanation: item?.explanation ?? null };
   }),
 
@@ -86,10 +92,14 @@ export const quizRouter = router({
       .from(answerOption)
       .where(eq(answerOption.contentItemId, input.contentItemId));
 
-    return checkMatching(
+    const result = checkMatching(
       options,
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+
+    return result;
   }),
 
   submitBlanks: protectedProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
@@ -103,7 +113,11 @@ export const quizRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
     }
 
-    return checkBlanks(item.payload, input.answers);
+    const result = checkBlanks(item.payload, input.answers);
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+
+    return result;
   }),
 
   submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
@@ -118,6 +132,9 @@ export const quizRouter = router({
     }
 
     const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+
     return { isCorrect, correctAnswer, explanation: item.explanation };
   }),
 });

@@ -3,11 +3,16 @@ import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from ".
 import { trpc } from "./trpc";
 
 export function Quiz({ kursId }: { kursId: string }) {
+  const utils = trpc.useUtils();
+  // F-26: Quiz-Antworten fließen jetzt in die Fortschrittsanzeige ein (siehe
+  // Architekturplanung Abschnitt 13) — nach jeder Antwort invalidieren, damit der
+  // Fortschritt-Tab nicht auf einem veralteten Zwischenstand hängen bleibt.
+  const invalidateProgress = () => utils.progress.overview.invalidate();
   const quizItems = trpc.quiz.quizItems.useQuery({ kursId });
-  const submitAnswer = trpc.quiz.submitAnswer.useMutation();
-  const submitMatching = trpc.quiz.submitMatching.useMutation();
-  const submitBlanks = trpc.quiz.submitBlanks.useMutation();
-  const submitKurzantwort = trpc.quiz.submitKurzantwort.useMutation();
+  const submitAnswer = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
+  const submitMatching = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
+  const submitBlanks = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
+  const submitKurzantwort = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
   const [index, setIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
 

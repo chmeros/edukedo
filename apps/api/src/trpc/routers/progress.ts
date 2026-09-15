@@ -1,18 +1,60 @@
 import { activeKursInputSchema, submitReviewInputSchema } from "@edukedo/shared";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { initialProgressState, scheduleReview } from "../../fsrs/scheduler";
+import type { Database } from "../../db/client";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+
+/**
+ * F-26: Quiz-Ergebnisse fließen jetzt ebenfalls in `user_progress`/die Fortschrittsanzeige
+ * ein (siehe `overview` unten und Architekturplanung Abschnitt 13) — aufgerufen aus den vier
+ * `quiz.submit*`-Mutationen, NICHT aus dem kontolosen Vorschau-Modus (`preview.ts`), der
+ * bewusst ohne jeden Datenbank-Schreibzugriff bleibt (F-08).
+ *
+ * Quiz-Items haben kein FSRS-Wiederholungsintervall wie Karteikarten — "beherrscht" bedeutet
+ * hier schlicht "die letzte Antwort war richtig", nicht "die Karte hat die Lernphase
+ * verlassen". `difficulty`/`stability`/`dueAt` sind für Quiz-Zeilen bewusst neutrale
+ * Platzhalter: `content.dueCards` (Karteikarten-Fälligkeit) filtert ohnehin strikt auf
+ * `content_item.type = "karteikarte"` und liest diese Felder für Quiz-Zeilen nie.
+ */
+export async function recordQuizAttempt(
+  db: Database,
+  userId: string,
+  contentItemId: string,
+  isCorrect: boolean,
+): Promise<void> {
+  const now = new Date();
+  const state = isCorrect ? "review" : "learning";
+
+  await db
+    .insert(userProgress)
+    .values({
+      userId,
+      contentItemId,
+      difficulty: 0,
+      stability: 0,
+      state,
+      dueAt: now,
+      lastReviewedAt: now,
+      reps: 0,
+      lapses: 0,
+    })
+    .onConflictDoUpdate({
+      target: [userProgress.userId, userProgress.contentItemId],
+      set: { state, lastReviewedAt: now },
+    });
+}
 
 export const progressRouter = router({
   /**
    * F-30: Fortschrittsanzeige je Fachgebiet und Thema im ausgewählten Kurs (F-09:
    * Mehrfach-Kursbelegung aktiv genutzt, siehe Architekturplanung Abschnitt 13 — vorher über
    * alle eingeschriebenen Kurse hinweg aggregiert). "beherrscht" = user_progress.state
-   * "review" (FSRS-Karte hat die anfängliche Lernphase verlassen und ist im
-   * Langzeit-Wiederholungsplan) — siehe Architekturplanung Abschnitt 13 für die Begründung.
-   * Umfasst aktuell nur Karteikarten (type "karteikarte"), da nur der Karteikarten-Modus
-   * user_progress schreibt (F-21-Quizantworten tun das bewusst noch nicht, siehe F-26).
+   * "review" — bei Karteikarten (FSRS-Karte hat die anfängliche Lernphase verlassen und ist
+   * im Langzeit-Wiederholungsplan) wie bei Quiz-Fragen (die letzte Antwort war richtig, siehe
+   * F-26/`recordQuizAttempt` oben) einheitlich dasselbe Feld, siehe Architekturplanung
+   * Abschnitt 13. Theorie-Inhalte bleiben bewusst außen vor, da sie keinen
+   * Beherrschungs-Zustand haben.
    */
   overview: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const rows = await ctx.db
@@ -41,7 +83,12 @@ export const progressRouter = router({
         userProgress,
         and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
       )
-      .where(and(eq(contentItem.type, "karteikarte"), eq(contentItem.isActive, true)));
+      .where(
+        and(
+          inArray(contentItem.type, ["karteikarte", "quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
+          eq(contentItem.isActive, true),
+        ),
+      );
 
     type ThemaAgg = { id: string; title: string; sortOrder: number; total: number; mastered: number };
     type FachgebietAgg = {
