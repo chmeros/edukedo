@@ -122,7 +122,15 @@ export function App() {
                   vom vorherigen Kurs übernommen wird. */}
               {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
               {learningMode === "flashcards" && <Flashcards key={activeKursId} kursId={activeKursId} />}
-              {learningMode === "quiz" && <Quiz key={activeKursId} kursId={activeKursId} />}
+              {/* Quiz bleibt anders als die übrigen drei Tabs immer im DOM (nur per hidden
+                  ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet zu werden — sonst
+                  würde quiz.quizItems bei jeder Rückkehr zum Quiz-Tab eine neue, zufällig
+                  gemischte 20er-Runde laden und den bisherigen Durchgang (Frage X von 20)
+                  verwerfen. Der key={activeKursId} sorgt weiterhin dafür, dass ein Kurswechsel
+                  die Runde bewusst zurücksetzt. */}
+              <div hidden={learningMode !== "quiz"}>
+                <Quiz key={activeKursId} kursId={activeKursId} />
+              </div>
               {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
             </>
           ) : (

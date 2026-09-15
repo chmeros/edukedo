@@ -9,7 +9,13 @@ export function Quiz({ kursId }: { kursId: string }) {
   // Architekturplanung Abschnitt 13) — nach jeder Antwort invalidieren, damit der
   // Fortschritt-Tab nicht auf einem veralteten Zwischenstand hängen bleibt.
   const invalidateProgress = () => utils.progress.overview.invalidate();
-  const quizItems = trpc.quiz.quizItems.useQuery({ kursId });
+  // staleTime: Infinity — quiz.quizItems liefert die 20 Fragen in zufälliger Reihenfolge (siehe
+  // apps/api/src/trpc/routers/quiz.ts); ein automatischer Hintergrund-Refetch (z. B. TanStack
+  // Querys refetchOnWindowFocus) würde sonst mitten in einer Runde eine neu gemischte Liste
+  // laden, während der lokale `index` unverändert bleibt — die angezeigte Frage würde nicht mehr
+  // zur Fragenzahl passen. Die Komponente bleibt jetzt ohnehin über den Tab-Wechsel hinweg
+  // gemountet (siehe App.tsx), ein Re-Fetch ist hier also nie erwünscht.
+  const quizItems = trpc.quiz.quizItems.useQuery({ kursId }, { staleTime: Infinity });
   const submitAnswer = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMatching = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
   const submitBlanks = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
