@@ -63,7 +63,7 @@ Ziel: Eine Person kann sich registrieren und mit echtem, selbst erstelltem Conte
 
 **Testing**
 - [x] Unit-Tests für die Spaced-Repetition-Logik (FSRS-Integration) — `apps/api/src/fsrs/scheduler.test.ts`, bereits mit der ursprünglichen FSRS-Implementierung entstanden, hier nur die Checkbox nachgezogen
-- [ ] End-to-End-Test: Registrierung → Karteikarten-Session → Quiz
+- [x] End-to-End-Test: Registrierung → Karteikarten-Session → Quiz — `apps/api/test/core-learning-flow.integration.test.ts`, über die echte HTTP-Schicht (Fastify `app.inject()`, siehe `src/app.ts`, aus `index.ts` herausgezogen) gegen eine echte Testcontainers-Postgres-Instanz. Deckt ab: Registrierung (Erwachsene:r, direkte Session), Kursbeitritt, fällige Karteikarten laden + Selbsteinschätzung, Multiple-Choice-Quiz richtig beantworten (korrekte Option aus der DB gelesen statt im Content geraten) inkl. Fortschritt-Anstieg, Logout, sowie die Zugriffssperre ganz ohne Session-Cookie. Bewusst keine neue Browser-E2E-Infrastruktur (Playwright o. Ä.) — passt zum bereits festgelegten Vitest/Testcontainers-Testkonzept.
 
 **Nutzer:innen-Feedback**
 - [ ] Ersten kleinen Kreis Fachwirt-Kandidat:innen informell ansprechen und um Feedback zu diesem ersten Slice bitten

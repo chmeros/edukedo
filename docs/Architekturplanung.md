@@ -566,6 +566,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 15.09.2026 (End-to-End-Test der Kernlernstrecke)
+
+- **`app.ts` als eigene, wiederverwendbare `buildApp()`-Funktion aus `index.ts` herausgezogen:** `index.ts` registrierte Plugins und rief `.listen()` bisher als unbedingten Top-Level-Code auf — für einen Test ohne echten Netzwerk-Port musste die Fastify-Instanz separat aufbaubar sein. `index.ts` bleibt danach ein dünner Einstiegspunkt (`buildApp()` aufrufen, dann `.listen()`), analog zum bereits an anderer Stelle etablierten Muster "wiederverwendbare Kernfunktion exportieren, Seiteneffekt-Einstiegspunkt dünn halten" (siehe Eintrag zum Bulk-Import-Trigger).
+- **`app.inject()` statt eines echten Netzwerk-Sockets oder einer neuen Browser-E2E-Bibliothek:** Fastify's eingebautes `inject()` durchläuft den vollständigen Stack (Routing, das `@fastify/cookie`-Plugin mit echter Signierung/Prüfung, tRPC-Adapter, alle Middleware) ohne einen Port zu öffnen — ausreichend "End-to-End" für die Kernlernstrecke, ohne Playwright/Cypress als komplett neue Testinfrastruktur einzuführen (das bereits in Iteration 0 festgelegte Testkonzept sieht nur Vitest/Testcontainers vor).
+- **Die richtige Quiz-Antwort wird im Test aus der Datenbank gelesen, nicht im Content erraten:** `quiz.quizItems` liefert die Lösung bewusst nie mit (siehe Eintrag zum Quiz-Modus) — ein Test, der eine konkrete Antwort aus dem Content-Text hart codiert, wäre bei jeder inhaltlichen Content-Änderung zerbrechlich. Der Test liest stattdessen direkt `answer_option.is_correct` für das geladene Item.
+- **Fortschritts-Assertion als Differenz (`masteredAfter === masteredBefore + 1`) statt eines festen Zahlenwerts:** Da derselbe Testcontainer den vollständigen echten Content importiert (Fachwirt + Mathematik-9, wie beim Bulk-Import-Test), variieren absolute Gesamtzahlen mit jeder Content-Änderung — die Differenz vor/nach der Antwort bleibt unabhängig davon aussagekräftig.
+
 ### Entschieden am 15.09.2026 (Quiz-Ergebnisse in der Fortschrittsanzeige, F-26)
 
 - **`user_progress` wiederverwendet statt einer eigenen Quiz-Fortschrittstabelle:** Ein separates Schema nur für "hat diese Quiz-Frage zuletzt richtig beantwortet" hätte `progress.overview` gezwungen, zwei unterschiedliche Tabellen zusammenzuführen. Da `state` bereits ein reiner Text ist (kein FSRS-spezifischer Enum-Constraint), passt eine einfachere Semantik problemlos in dieselbe Spalte: `"review"` = beherrscht, `"learning"` = noch nicht — unabhängig davon, ob die Zeile von einer FSRS-Karteikarte oder einer Quiz-Antwort stammt.
