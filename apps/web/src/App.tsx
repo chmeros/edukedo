@@ -1,5 +1,6 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useState } from "react";
+import { AdminPanel } from "./AdminPanel";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
@@ -72,6 +73,7 @@ export function App() {
         </button>
         <DeleteAccount />
         <hr />
+        {me.data.role === "admin" && <AdminPanel />}
         <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
         {activeKursId ? (
           <>

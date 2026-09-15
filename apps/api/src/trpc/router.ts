@@ -1,3 +1,4 @@
+import { adminRouter } from "./routers/admin";
 import { authRouter } from "./routers/auth";
 import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
@@ -11,8 +12,9 @@ import { router } from "./trpc";
 
 /**
  * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module
- * (admin/content, exam-sessions, reports, blocks) kommen in späteren Iterationen als
- * eigene Sub-Router hinzu.
+ * (exam-sessions, reports, blocks) kommen in späteren Iterationen als eigene Sub-Router
+ * hinzu. `admin` deckt F-11 bisher nur in der ersten, einfachen Ausbaustufe ab
+ * (Kurs-Veröffentlichung) — die eigentliche Content-Pflege (Fragen/Karteikarten) folgt später.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -24,6 +26,7 @@ export const appRouter = router({
   content: contentRouter,
   progress: progressRouter,
   quiz: quizRouter,
+  admin: adminRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -297,6 +297,16 @@ hr {
   cursor: pointer;
 }
 
+.course-list button.unpublish {
+  background: var(--coral-deep);
+}
+
+.admin-panel {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line-strong);
+}
+
 .flashcard-count {
   font-size: var(--fs-xs);
   color: var(--ink-faint);
