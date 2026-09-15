@@ -17,3 +17,7 @@ Erster Layout-Entwurf (15.09.2026): öffentliche Landing Page + Vorschau der ein
 **Wiederkehrende Interaktionsidee**: Karteikarten als Flip-Card (Vorderseite Frage, Rückseite Antwort, per Klick/Tap umdrehen) — sowohl im Hero-Bereich der Landing Page als auch im App-Vorschau-Bereich, um das Kernprodukt (FSRS-Spaced-Repetition-Karteikarten) durchgängig erkennbar zu machen.
 
 Beim Aufbau von `apps/web` (Entwicklungsplan Iteration 0/1) dient diese Datei als visuelle Vorlage — Farben/Schriften als Design-Tokens übernehmen, Komponentenstruktur (Karteikarte, Kurs-Karte, Fortschritts-Ring, Quiz-Option) als React-Komponenten neu bauen statt HTML zu kopieren.
+
+## screenshots/
+
+Funktionelle Bestandsaufnahme der tatsächlich umgesetzten `apps/web`-App (Stand 15.09.2026), automatisiert per Playwright gegen den lokalen Dev-Server erzeugt — durchnummeriert von der öffentlichen Landing Page über den kompletten Eltern-Consent-Flow, Admin-Bereich und alle vier Quiz-Formate bis zu Mobile- und Dark-Mode-Ansichten (siehe Dateinamen). Dient dem Design als funktionelle Vorlage: zeigt jeden Bildschirm/Zustand, den die App bereits abdeckt, bevor er gestalterisch überarbeitet wird — kein Implementierungscode, nur Referenzbilder.
