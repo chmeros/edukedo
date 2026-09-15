@@ -566,6 +566,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 15.09.2026 (End-to-End-Test des Eltern-Consent-Flows)
+
+- **Denselben `app.inject()`-Ansatz wie beim Kernlernstrecke-Test wiederverwendet, keine eigene Infrastruktur nur für diesen Flow:** Auch der Consent-Flow braucht echte, signierte Session-Cookies (einmal für das Kind, einmal für das Elternteil) — `app.inject()` liefert das bereits, ein zweiter, andersartiger Testaufbau wäre unnötig.
+- **Reihenfolge der `consent.confirm`-Zustände bewusst genutzt statt nur den Erfolgsfall zu testen:** Der Router prüft `"revoked"` VOR `"confirmed"` (siehe `consent.ts`) — der Test bestätigt deshalb gezielt zwei unterschiedliche Fehlerpfade für denselben Token je nach Zeitpunkt: vor der Bestätigung eine `FORBIDDEN`-Sperre auf `auth.login` ("wartet noch auf Bestätigung"), nach einem Widerruf dagegen ein `BAD_REQUEST` direkt auf `consent.confirm` selbst ("wurde bereits widerrufen") — beide Male derselbe Bestätigungslink, aber ein bewusst unterschiedlicher Fehler je nach `parent_child_link.consent_status`.
+- **Das erneute Öffnen des bereits benutzten Bestätigungslinks (`"already_confirmed"`) explizit mitgetestet:** Dieser Zweig wurde beim ursprünglichen Bauen des Eltern-Dashboards (siehe Eintrag unten) bewusst für einen bequemen Wiedereinstieg ergänzt — ohne einen dedizierten Test hätte eine künftige Änderung ihn leicht unbemerkt wieder brechen können, da er sich nur bei einem bereits bestätigten Link zeigt.
+
 ### Entschieden am 15.09.2026 (End-to-End-Test der Kernlernstrecke)
 
 - **`app.ts` als eigene, wiederverwendbare `buildApp()`-Funktion aus `index.ts` herausgezogen:** `index.ts` registrierte Plugins und rief `.listen()` bisher als unbedingten Top-Level-Code auf — für einen Test ohne echten Netzwerk-Port musste die Fastify-Instanz separat aufbaubar sein. `index.ts` bleibt danach ein dünner Einstiegspunkt (`buildApp()` aufrufen, dann `.listen()`), analog zum bereits an anderer Stelle etablierten Muster "wiederverwendbare Kernfunktion exportieren, Seiteneffekt-Einstiegspunkt dünn halten" (siehe Eintrag zum Bulk-Import-Trigger).

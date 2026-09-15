@@ -1,0 +1,201 @@
+import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+import type { FastifyInstance } from "fastify";
+import { Pool } from "pg";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import * as schema from "../src/db/schema";
+
+/**
+ * End-to-End-Test des kompletten Eltern-Consent-Flows (Entwicklungsplan Iteration 2,
+ * Testing): Registrierung Minderjährige:r → Eltern-Mail → Bestätigung → Freischaltung →
+ * Widerruf. Über die echte HTTP-Schicht (Fastify `app.inject()`, siehe
+ * `core-learning-flow.integration.test.ts` für die Begründung dieses Ansatzes statt einer
+ * neuen Browser-E2E-Bibliothek) gegen eine echte Testcontainers-Postgres-Instanz.
+ *
+ * Wie bei den anderen Integrationstests müssen die Umgebungsvariablen VOR dem dynamischen
+ * Import von `app.ts`/`db/client.ts` gesetzt werden, da deren Singletons beim ersten Import
+ * fest auf `process.env` verdrahtet werden.
+ */
+describe("End-to-End: Eltern-Consent-Flow", () => {
+  let container: StartedPostgreSqlContainer;
+  let pool: Pool;
+  let db: NodePgDatabase<typeof schema>;
+  let app: FastifyInstance;
+  let appPool: typeof import("../src/db/client").pool;
+
+  const childEmail = "kind@example.com";
+  const childPassword = "kindPasswort123!";
+  const parentEmail = "eltern@example.com";
+  const parentPassword = "elternPasswort123!";
+
+  let confirmToken: string;
+  let parentSessionCookie: string;
+  let linkId: string;
+
+  beforeAll(async () => {
+    container = await new PostgreSqlContainer("postgres:16-alpine").start();
+    process.env.DATABASE_URL = container.getConnectionUri();
+    process.env.SESSION_SECRET = "e2e-consent-test-secret-mindestens-32-zeichen";
+
+    pool = new Pool({ connectionString: container.getConnectionUri() });
+    db = drizzle(pool, { schema });
+    await migrate(db, { migrationsFolder: "./drizzle" });
+
+    const appModule = await import("../src/app");
+    app = await appModule.buildApp();
+    ({ pool: appPool } = await import("../src/db/client"));
+  }, 120_000);
+
+  afterAll(async () => {
+    await app?.close();
+    await appPool?.end();
+    await pool?.end();
+    await container?.stop();
+  });
+
+  function extractSessionCookie(setCookieHeader: string | string[] | undefined): string {
+    const raw = Array.isArray(setCookieHeader) ? setCookieHeader[0] : setCookieHeader;
+    expect(raw).toBeTruthy();
+    return raw!.split(";")[0]!;
+  }
+
+  it(
+    "registriert eine minderjährige Person: Konto bleibt ohne Session gesperrt",
+    async () => {
+      const registerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        // 2014 macht die Person zum Testzeitpunkt (2026) ~12 Jahre alt, deutlich unter der
+        // Einwilligungsschwelle von 16 Jahren (Art. 8 DSGVO, siehe requiresParentalConsent).
+        payload: { email: childEmail, password: childPassword, birthDate: "2014-01-01", parentEmail },
+      });
+
+      expect(registerResponse.statusCode).toBe(200);
+      const body = registerResponse.json().result.data;
+      expect(body.status).toBe("pending_parental_consent");
+      expect(body.devConfirmUrl).toBeTruthy();
+      expect(registerResponse.headers["set-cookie"]).toBeUndefined();
+
+      confirmToken = new URL(body.devConfirmUrl as string).searchParams.get("token")!;
+      expect(confirmToken).toBeTruthy();
+
+      const loginResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.login",
+        payload: { email: childEmail, password: childPassword },
+      });
+      expect(loginResponse.statusCode).toBe(403);
+    },
+    30_000,
+  );
+
+  it(
+    "Elternteil bestätigt den Link und bekommt automatisch eine Session (auch beim erneuten Öffnen)",
+    async () => {
+      const confirmResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/consent.confirm",
+        payload: { token: confirmToken },
+      });
+      expect(confirmResponse.statusCode).toBe(200);
+      const confirmData = confirmResponse.json().result.data;
+      expect(confirmData.status).toBe("confirmed");
+      expect(confirmData.passwordSet).toBe(false);
+      parentSessionCookie = extractSessionCookie(confirmResponse.headers["set-cookie"]);
+
+      // Erneutes Öffnen desselben (bereits benutzten) Links: bequemer Wiedereinstieg statt
+      // eines Fehlers (siehe Architekturplanung Abschnitt 13) — die Einwilligung selbst
+      // bleibt dabei unverändert "confirmed", kein zweites Mal gezählt.
+      const reopenResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/consent.confirm",
+        payload: { token: confirmToken },
+      });
+      expect(reopenResponse.statusCode).toBe(200);
+      expect(reopenResponse.json().result.data.status).toBe("already_confirmed");
+      expect(reopenResponse.headers["set-cookie"]).toBeTruthy();
+    },
+    30_000,
+  );
+
+  it("das Kind kann sich jetzt einloggen", async () => {
+    const loginResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.login",
+      payload: { email: childEmail, password: childPassword },
+    });
+    expect(loginResponse.statusCode).toBe(200);
+    expect(loginResponse.json().result.data.email).toBe(childEmail);
+  });
+
+  it(
+    "Elternteil setzt das erste Passwort und sieht das Kind mit bestätigtem Status im Dashboard",
+    async () => {
+      const setPasswordResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/parent.setInitialPassword",
+        headers: { cookie: parentSessionCookie },
+        payload: { password: parentPassword },
+      });
+      expect(setPasswordResponse.statusCode).toBe(200);
+      expect(setPasswordResponse.json().result.data.success).toBe(true);
+
+      const meResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/parent.me",
+        headers: { cookie: parentSessionCookie },
+      });
+      const meData = meResponse.json().result.data;
+      expect(meData.passwordSet).toBe(true);
+      expect(meData.children).toHaveLength(1);
+      expect(meData.children[0].childEmail).toBe(childEmail);
+      expect(meData.children[0].consentStatus).toBe("confirmed");
+      linkId = meData.children[0].linkId;
+    },
+    30_000,
+  );
+
+  it("Elternteil kann sich mit dem neu gesetzten Passwort unabhängig neu einloggen", async () => {
+    const loginResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/parent.login",
+      payload: { email: parentEmail, password: parentPassword },
+    });
+    expect(loginResponse.statusCode).toBe(200);
+    expect(loginResponse.json().result.data.email).toBe(parentEmail);
+  });
+
+  it(
+    "Widerruf sperrt das Kind sofort — auch ein erneuter Klick auf den Bestätigungslink wird danach abgelehnt",
+    async () => {
+      const revokeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/parent.revokeConsent",
+        headers: { cookie: parentSessionCookie },
+        payload: { linkId },
+      });
+      expect(revokeResponse.statusCode).toBe(200);
+      expect(revokeResponse.json().result.data.success).toBe(true);
+
+      const loginResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.login",
+        payload: { email: childEmail, password: childPassword },
+      });
+      expect(loginResponse.statusCode).toBe(403);
+      expect(loginResponse.json().error.message).toContain("widerrufen");
+
+      // Der ursprüngliche Bestätigungslink darf nach einem Widerruf nicht mehr "helfen" —
+      // bewusst ein anderer Fehlerpfad (BAD_REQUEST) als die Pending-Sperre oben (FORBIDDEN).
+      const confirmAfterRevokeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/consent.confirm",
+        payload: { token: confirmToken },
+      });
+      expect(confirmAfterRevokeResponse.statusCode).toBe(400);
+      expect(confirmAfterRevokeResponse.json().error.message).toContain("widerrufen");
+    },
+    30_000,
+  );
+});
