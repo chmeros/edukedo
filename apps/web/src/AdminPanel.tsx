@@ -2,9 +2,9 @@ import { trpc } from "./trpc";
 
 /**
  * F-11: Admin-/Redaktionsbereich, erste einfache Version — nur für `role === "admin"`
- * gerendert (siehe App.tsx). Löst den bisherigen Weg ab, `kurs.is_published` ausschließlich
- * per direktem SQL-Zugriff zu setzen. Fragen-/Karteikarten-Pflege und der Bulk-Import-
- * Trigger (F-17) sind spätere Ausbauschritte.
+ * gerendert (siehe App.tsx). Löst den bisherigen Weg ab, `kurs.is_published` und den
+ * Content-Import ausschließlich per direktem SQL-/CLI-Zugriff auszuführen. Die eigentliche
+ * Fragen-/Karteikarten-Pflege (CMS-Teil von F-11) bleibt ein späterer Ausbauschritt.
  */
 export function AdminPanel() {
   const utils = trpc.useUtils();
@@ -13,6 +13,15 @@ export function AdminPanel() {
     onSuccess: () => {
       utils.admin.courses.invalidate();
       utils.courses.list.invalidate();
+    },
+  });
+  const triggerImport = trpc.admin.triggerImport.useMutation({
+    onSuccess: () => {
+      utils.courses.list.invalidate();
+      utils.content.theorySections.invalidate();
+      utils.content.dueCards.invalidate();
+      utils.quiz.quizItems.invalidate();
+      utils.progress.overview.invalidate();
     },
   });
 
@@ -40,6 +49,19 @@ export function AdminPanel() {
           </li>
         ))}
       </ul>
+      <p className="dev-hint">
+        Liest `content/` (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
+        vollständig. `is_published` bleibt dabei unangetastet.
+      </p>
+      <button type="button" onClick={() => triggerImport.mutate()} disabled={triggerImport.isPending}>
+        {triggerImport.isPending ? "Import läuft…" : "Content neu importieren"}
+      </button>
+      {triggerImport.data && (
+        <p className="quiz-feedback correct">
+          {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items importiert.
+        </p>
+      )}
+      {triggerImport.error && <p className="error">{triggerImport.error.message}</p>}
     </section>
   );
 }

@@ -43,6 +43,10 @@ export function DatenschutzKinder() {
         <strong>Fragen?</strong> Ein Elternteil kann sich jederzeit an uns wenden, wenn etwas unklar
         ist.
       </p>
+      <p className="dev-hint">
+        🔧 Konkrete Kontaktmöglichkeit folgt noch — die geschäftliche E-Mail-Adresse ist laut
+        Entwicklungsplan (Iteration 0, Organisatorisches) noch nicht eingerichtet.
+      </p>
       <p>
         <a href="/">Zurück zum Login</a>
       </p>

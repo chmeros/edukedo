@@ -566,6 +566,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 15.09.2026 (Bulk-Import-Trigger F-17)
+
+- **Bestehende CLI-Logik exportiert statt eines separaten Import-Mechanismus für den Admin-Bereich:** `import-content.ts` enthielt bisher nur ein unbedingt beim Modul-Laden ausführendes Skript (`main().catch(...)` am Dateiende) — ein einfacher `import` dieser Datei aus `admin.ts` hätte beim Server-Start sofort einen vollen Content-Import ausgelöst und danach den gemeinsamen DB-Pool (`pool.end()`) geschlossen. Die Kernlogik wurde als `importAllContent()` exportiert (ohne `pool.end()`), der CLI-Einstiegspunkt läuft jetzt nur noch hinter einer Guard (`import.meta.url === pathToFileURL(process.argv[1]).href`) — dem Standard-Idiom für "läuft diese ESM-Datei gerade direkt oder wurde sie nur importiert". `pnpm db:import-content` bleibt dadurch unverändert nutzbar.
+- **`admin.triggerImport` nutzt denselben, bereits im Server laufenden `db`-Client** (über `ctx.db`, identisch mit dem in `import-content.ts` importierten Singleton aus `db/client.ts`) statt einer eigenen Verbindung — ein Admin-Trigger braucht keinen zusätzlichen Pool, die Anfrage läuft im selben Prozess.
+- **Fehler während des Imports werden zu `TRPCError({code: "INTERNAL_SERVER_ERROR"})`, nicht zu `process.exit`:** Der CLI-Pfad darf bei einem Fehler den Prozess beenden (eigener, kurzlebiger Aufruf), ein Server-Endpunkt darf das nicht — ein fehlgeschlagener Import soll die laufende API nicht mit herunterfahren. Die Fehlermeldung wird 1:1 als `message` durchgereicht, damit das Admin-Panel den tatsächlichen Grund anzeigen kann.
+
 ### Entschieden am 15.09.2026 (Admin-/Redaktionsbereich F-11, erste Version)
 
 - **Scope bewusst nur Kurs-Veröffentlichung, nicht die volle CMS-artige Content-Pflege:** F-11 beschreibt einen Admin-/Redaktionsbereich zur Pflege von Fragen, Karteikarten und Theorietexten — das wäre ein deutlich größerer Baustein (Formulare je Content-Typ, Versionierung, o. Ä.). Direkt aus einer Stakeholder-Review hervorgegangen: Jede Kurs-Veröffentlichung lief bis dahin ausschließlich über direkten SQL-Zugriff, was den Nutzer für jede operative Änderung von einer Entwickler-Session abhängig machte. Dieser konkrete, sofort spürbare Engpass wird zuerst behoben; Fragen-/Karteikarten-Pflege und ein Bulk-Import-Trigger (F-17) bleiben spätere Ausbauschritte.

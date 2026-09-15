@@ -1,6 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
 import { db, pool } from "./client";
 import { extractSection, parseKarteikarten, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
@@ -91,7 +91,7 @@ async function ensureTagIds(tagNames: string[]): Promise<Map<string, string>> {
   return ids;
 }
 
-async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number) {
+async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number): Promise<number> {
   const raw = await readFile(filePath, "utf8");
   const { frontmatter, body } = splitFrontmatter(raw);
 
@@ -345,10 +345,24 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   }
 
   console.log(`${path.basename(filePath)}: ${created} Content-Items importiert (Thema "${themaTitle}").`);
+  return created;
 }
 
-async function main() {
+export interface ImportSummary {
+  filesProcessed: number;
+  itemsImported: number;
+}
+
+/**
+ * Exportierte Kernlogik statt nur eines CLI-Skripts (F-17, Bulk-Import-Trigger im Admin-
+ * Bereich, siehe trpc/routers/admin.ts) — bewusst ohne `pool.end()` hier drin, da ein
+ * Server-Aufruf den gemeinsamen DB-Pool des laufenden Prozesses sonst mit schließen würde.
+ */
+export async function importAllContent(): Promise<ImportSummary> {
   const kursDirs = await readdir(CONTENT_DIR, { withFileTypes: true });
+  let filesProcessed = 0;
+  let itemsImported = 0;
+
   for (const kursDir of kursDirs) {
     if (!kursDir.isDirectory()) continue;
     const kursPath = path.join(CONTENT_DIR, kursDir.name);
@@ -361,15 +375,29 @@ async function main() {
       const files = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md") && !SKIP_FILES.has(file)).sort();
 
       for (const [index, file] of files.entries()) {
-        await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);
+        itemsImported += await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);
+        filesProcessed += 1;
       }
     }
   }
 
-  await pool.end();
+  return { filesProcessed, itemsImported };
 }
 
-main().catch((error) => {
-  console.error("Content-Import fehlgeschlagen:", error);
-  process.exit(1);
-});
+/**
+ * CLI-Einstiegspunkt (`pnpm db:import-content`) — läuft nur, wenn diese Datei direkt
+ * ausgeführt wird, nicht beim bloßen Import als Modul. Ohne diese Guard würde admin.ts durch
+ * den Import allein sofort einen vollen Content-Import auslösen und danach den gemeinsamen
+ * DB-Pool des Servers schließen.
+ */
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  importAllContent()
+    .then((summary) => {
+      console.log(`Import abgeschlossen: ${summary.filesProcessed} Dateien, ${summary.itemsImported} Content-Items.`);
+      return pool.end();
+    })
+    .catch((error: unknown) => {
+      console.error("Content-Import fehlgeschlagen:", error);
+      process.exit(1);
+    });
+}

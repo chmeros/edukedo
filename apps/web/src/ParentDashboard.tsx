@@ -50,6 +50,11 @@ function SetInitialPasswordForm() {
     onSuccess: () => utils.parent.me.invalidate(),
   });
   const [password, setPasswordValue] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
+  // Kein Passwort-Reset für Eltern-Konten vorgesehen (siehe Architekturplanung Abschnitt 13) —
+  // ein Tippfehler beim einmaligen Setzen würde sonst ohne Wiederholungsfeld unbemerkt
+  // ins Aussperren führen. Rein clientseitige Prüfung, kein neues Feld im Backend nötig.
+  const passwordsMatch = password.length > 0 && password === passwordRepeat;
 
   return (
     <form
@@ -69,7 +74,18 @@ function SetInitialPasswordForm() {
           required
         />
       </label>
-      <button type="submit" disabled={setPassword.isPending}>
+      <label>
+        Passwort wiederholen
+        <input
+          type="password"
+          value={passwordRepeat}
+          onChange={(event) => setPasswordRepeat(event.target.value)}
+          minLength={8}
+          required
+        />
+      </label>
+      {passwordRepeat.length > 0 && !passwordsMatch && <p className="error">Die Passwörter stimmen nicht überein.</p>}
+      <button type="submit" disabled={!passwordsMatch || setPassword.isPending}>
         Passwort setzen
       </button>
       {setPassword.error && <p className="error">{setPassword.error.message}</p>}
