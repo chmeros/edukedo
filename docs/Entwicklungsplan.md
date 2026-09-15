@@ -111,7 +111,7 @@ Ziel: Der zweite Kurs (Mathematik) existiert mit einem ersten Themenblock und wi
 Ziel: Der Fachwirt-Pilot hat zwei vollständige Handlungsbereiche, die Content-Erstellung ist durch bessere Werkzeuge spürbar schneller.
 
 **Programmierung (Kern)**
-- [ ] Effizienzfunktionen im Redaktionssystem ausbauen (F-17): Vorlagen für Fragetypen, verbesserter Bulk-Export
+- [x] Effizienzfunktionen im Redaktionssystem ausbauen (F-17): Vorlagen für Fragetypen, verbesserter Bulk-Export. **Erledigt 15.09.2026:** Zwei neue CLI-Werkzeuge in `apps/api/src/db/` — `content:scaffold` (Unterbefehle `new-thema`/`add-item`) erzeugt leere, korrekt formatierte Grundgerüste für neue Thema-Dateien bzw. einzelne Fragetyp-Blöcke (IDs automatisch aus vorhandenen Blöcken derselben Datei fortlaufend nummeriert), `db:export-content` schreibt den DB-Content zurück ins Zwischenformat (Gegenstück zu `db:import-content`, gitignored nach `content-export/`, siehe Architekturplanung Abschnitt 13 für die bewussten Einschränkungen). Reine Serialisierungs-Logik (`content-serializer.ts`) unit-getestet inkl. Round-Trip-Tests (serialisieren → mit dem bestehenden Parser wieder einlesen); live gegen die echte Datenbank verifiziert (Export aller 355 Content-Items, danach ein komplett neu erzeugtes Test-Thema mit allen fünf Fragetypen erfolgreich über den echten `db:import-content`-Pfad importiert, anschließend rückstandsfrei wieder entfernt).
 
 **Content**
 - [ ] HB1 (Entscheidungsprozesse/Organisationsstrukturen) vollständig erstellen

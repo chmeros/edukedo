@@ -142,6 +142,14 @@ Mehrschrittige Aufgaben, die mehrere Themen desselben Fachgebiets kombinieren (`
 
 Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
+## Redaktions-Werkzeuge (F-17)
+
+Zwei kleine CLI-Werkzeuge in `apps/api/src/db/` nehmen das fehleranfällige manuelle Abtippen der oben beschriebenen Syntax ab:
+
+- **`pnpm --filter @edukedo/api content:scaffold -- new-thema <kurs_slug> <fachgebiet_code> <thema_code> <ziel-datei>`** legt eine neue Thema-Datei mit korrektem Frontmatter (Titel/Quelle als `"TODO"`-Platzhalter zum direkten Ausfüllen) und leeren Theorie-/Karteikarten-/Quiz-Abschnitten an.
+- **`pnpm --filter @edukedo/api content:scaffold -- add-item <datei> <typ>`** (`typ` ∈ `karteikarte`, `quiz_mc`, `zuordnung`, `luecken`, `kurzantwort`) hängt an eine bestehende Thema-Datei einen leeren Platzhalter-Block des gewählten Typs an — die nächste freie ID (`K-...`/`Q-...`) wird automatisch aus den bereits vorhandenen Blöcken der Datei ermittelt.
+- **`pnpm --filter @edukedo/api db:export-content`** schreibt den aktuellen Datenbank-Content zurück ins Zwischenformat, nach `content-export/` im Repo-Root (gitignored). Gegenstück zu `db:import-content`, gedacht als Backup/Diff-Grundlage bzw. um ein neues Thema auf Basis eines bestehenden zu starten — **kein** Ersatz für die Dateien hier in `content/`: `content_item` speichert weder die ursprünglichen `K-`/`Q-`-IDs noch `quelle`/`rechtsstand`, ein Export erzeugt daher frisch nummerierte IDs und Platzhalter für diese beiden Felder.
+
 ## Rechtlicher Hinweis
 
 Sämtliche Inhalte sind frei formuliert und aus öffentlich zugänglichem Fachwissen erstellt — keine 1:1-Übernahme von Prüfungsaufgaben, Musterlösungen oder Lehrbuchtexten (siehe Anforderungskatalog Abschnitt 7). Für den Fachwirt-Piloten orientiert sich die Gliederung am offiziellen DIHK-Rahmenplan; rechtliche Aussagen (Arbeits-/Ausbildungsrecht) sind bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden. Für den Mathematik-Kurs orientiert sich die Gliederung an den KMK-Bildungsstandards (Fassung 2022) und einem punktuellen Abgleich mit einem Landeslehrplan (Bayern, Klasse 9); der Themenkatalog gilt weiterhin als vorläufig und sollte vor Veröffentlichung mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegengeprüft werden (siehe Anforderungskatalog Abschnitt 9/10).

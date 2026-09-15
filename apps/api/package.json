@@ -16,6 +16,8 @@
     "db:migrate": "tsx src/db/migrate.ts",
     "db:seed": "tsx src/db/seed.ts",
     "db:import-content": "tsx src/db/import-content.ts",
+    "db:export-content": "tsx src/db/export-content.ts",
+    "content:scaffold": "tsx src/db/scaffold-content.ts",
     "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts"
   },
   "dependencies": {

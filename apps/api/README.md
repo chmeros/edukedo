@@ -23,6 +23,7 @@ Kern-Backend (Node.js + TypeScript, Fastify, tRPC) — Auth, Consent, Content, S
 - **tRPC-Router-Grundstruktur:** `src/trpc/router.ts` (`health`, `auth`, `courses`, `content`, `progress`, `quiz`, `consent`, `parent`, `preview`, `admin`; weitere Module folgen modulweise). Die Fastify-Instanz wird über `src/app.ts` (`buildApp()`) aufgebaut, `src/index.ts` ist nur noch ein dünner Einstiegspunkt — ermöglicht den End-to-End-Test unten über `app.inject()` ohne echten Netzwerk-Port.
 - **End-to-End-Test der Kernlernstrecke:** `test/core-learning-flow.integration.test.ts` — Registrierung → Kursbeitritt → Karteikarten-Session → Quiz über die echte HTTP-Schicht (inkl. signierter Session-Cookies) gegen echtes Postgres. Siehe Architekturplanung Abschnitt 13.
 - **End-to-End-Test des Eltern-Consent-Flows:** `test/consent-flow.integration.test.ts` — Registrierung Minderjährige:r → Sperre → Eltern-Bestätigung (inkl. Auto-Login und dem "already_confirmed"-Wiedereinstieg) → Freischaltung → Eltern-Passwort/-Dashboard → Widerruf → erneute Sperre, inkl. der beiden unterschiedlichen Fehlerpfade (Pending-Sperre vs. Widerruf) für denselben Bestätigungslink. Siehe Architekturplanung Abschnitt 13.
+- **Redaktions-Effizienzfunktionen (F-17):** `src/db/scaffold-content.ts` (`content:scaffold new-thema`/`add-item`) erzeugt leere, korrekt formatierte Grundgerüste für neue Thema-Dateien bzw. einzelne Fragetyp-Blöcke im Content-Zwischenformat, IDs automatisch fortlaufend aus vorhandenen Blöcken derselben Datei ermittelt. `src/db/export-content.ts` (`db:export-content`) schreibt den DB-Content zurück ins Zwischenformat nach `content-export/` (gitignored) — Gegenstück zu `db:import-content`, bewusst kein Ersatz für die Originaldateien (siehe Architekturplanung Abschnitt 13 für die Einschränkungen). Serialisierungs-Logik in `src/db/content-serializer.ts` (unit-testbar ohne DB, inkl. Round-Trip-Tests mit dem bestehenden Parser).
 - **Noch offen:** granulare Kind-Berechtigungen im Eltern-Dashboard (F-90, setzt Gamification F-66 voraus), Admin-Content-Router, Sozial-Modul (Phase 4).
 
 ## Entwicklung
@@ -33,6 +34,9 @@ docker compose up -d   # im Repo-Root: startet lokale Postgres+Redis-Instanzen
 pnpm db:migrate
 pnpm db:seed            # legt einen Demo-Kurs mit Platzhalter-Karteikarten und -Quizfragen an (kein echter Content)
 pnpm db:import-content  # importiert den echten Content (Fachwirt HB3 + Mathematik-9) aus content/ (Repo-Root)
+pnpm db:export-content  # F-17: schreibt den DB-Content zurück ins Zwischenformat nach content-export/ (Backup/Diff, kein Ersatz für content/)
+pnpm content:scaffold -- new-thema <kurs_slug> <fachgebiet_code> <thema_code> <ziel-datei>  # F-17: neue Thema-Datei-Vorlage
+pnpm content:scaffold -- add-item <datei> <karteikarte|quiz_mc|zuordnung|luecken|kurzantwort>  # F-17: Fragetyp-Vorlage anhängen
 pnpm db:send-consent-reminders  # F-08: verschickt fällige Erinnerungsmails (für periodischen externen Aufruf gedacht, z. B. Cron)
 pnpm dev
 ```

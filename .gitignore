@@ -9,3 +9,6 @@ build/
 .env.local
 .DS_Store
 coverage/
+# Generierter Bulk-Export (F-17, apps/api/src/db/export-content.ts) — kein Ersatz für die
+# von Hand gepflegten Quelldateien unter content/, siehe dortige README.
+content-export/
