@@ -1,9 +1,11 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useState } from "react";
 import { AdminPanel } from "./AdminPanel";
+import { BrandLink } from "./BrandLink";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
+import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
 import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
@@ -60,65 +62,74 @@ export function App() {
         : joinedCourses[0]?.id ?? null;
 
     return (
-      <main>
-        <h1>edukedo</h1>
-        <p>
-          Eingeloggt als <strong>{me.data.email}</strong>
-          <br />
-          Rolle: {me.data.role}
-          {me.data.isMinor ? " · minderjährig" : ""}
-        </p>
-        <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
-          Logout
-        </button>
-        <DeleteAccount />
-        <hr />
-        {me.data.role === "admin" && <AdminPanel />}
-        <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
-        {activeKursId ? (
-          <>
-            <div className="tabs">
-              <button
-                type="button"
-                className={learningMode === "theorie" ? "active" : ""}
-                onClick={() => setLearningMode("theorie")}
-              >
-                Theorie
+      <div className="shell">
+        <div className="card">
+          <BrandLink />
+          <div className="user-header">
+            <p className="who">
+              Eingeloggt als <b>{me.data.email}</b>
+              {me.data.isMinor ? " · minderjährig" : ""} · <span className="role-pill">Rolle: {me.data.role}</span>
+            </p>
+            <div className="user-actions">
+              <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
+                Logout
               </button>
-              <button
-                type="button"
-                className={learningMode === "flashcards" ? "active" : ""}
-                onClick={() => setLearningMode("flashcards")}
-              >
-                Karteikarten
-              </button>
-              <button
-                type="button"
-                className={learningMode === "quiz" ? "active" : ""}
-                onClick={() => setLearningMode("quiz")}
-              >
-                Quiz
-              </button>
-              <button
-                type="button"
-                className={learningMode === "progress" ? "active" : ""}
-                onClick={() => setLearningMode("progress")}
-              >
-                Fortschritt
-              </button>
+              <DeleteAccount />
             </div>
-            {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit lokaler
-                Interaktionszustand (Quiz-Fortschritt, aufgedeckte Karteikarte, ...) nicht
-                vom vorherigen Kurs übernommen wird. */}
-            {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
-            {learningMode === "flashcards" && <Flashcards key={activeKursId} kursId={activeKursId} />}
-            {learningMode === "quiz" && <Quiz key={activeKursId} kursId={activeKursId} />}
-            {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
-          </>
-        ) : (
-          <p>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</p>
-        )}
-      </main>
+          </div>
+          <hr />
+          {me.data.role === "admin" && (
+            <>
+              <AdminPanel />
+              <hr />
+            </>
+          )}
+          <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
+          {activeKursId ? (
+            <>
+              <div className="tab-nav">
+                <button
+                  type="button"
+                  className={learningMode === "theorie" ? "is-active" : ""}
+                  onClick={() => setLearningMode("theorie")}
+                >
+                  Theorie
+                </button>
+                <button
+                  type="button"
+                  className={learningMode === "flashcards" ? "is-active" : ""}
+                  onClick={() => setLearningMode("flashcards")}
+                >
+                  Karteikarten
+                </button>
+                <button
+                  type="button"
+                  className={learningMode === "quiz" ? "is-active" : ""}
+                  onClick={() => setLearningMode("quiz")}
+                >
+                  Quiz
+                </button>
+                <button
+                  type="button"
+                  className={learningMode === "progress" ? "is-active" : ""}
+                  onClick={() => setLearningMode("progress")}
+                >
+                  Fortschritt
+                </button>
+              </div>
+              {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit lokaler
+                  Interaktionszustand (Quiz-Fortschritt, aufgedeckte Karteikarte, ...) nicht
+                  vom vorherigen Kurs übernommen wird. */}
+              {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
+              {learningMode === "flashcards" && <Flashcards key={activeKursId} kursId={activeKursId} />}
+              {learningMode === "quiz" && <Quiz key={activeKursId} kursId={activeKursId} />}
+              {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
+            </>
+          ) : (
+            <p style={{ color: "var(--ink-soft)" }}>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</p>
+          )}
+        </div>
+      </div>
     );
   }
 
@@ -128,123 +139,158 @@ export function App() {
 
   if (register.data?.status === "pending_parental_consent") {
     return (
-      <main>
-        <h1>edukedo</h1>
-        <p>
-          Registrierung erfolgreich! Das Konto von <strong>{register.data.email}</strong> ist noch gesperrt.
-        </p>
-        <p>
-          Da die Person unter 16 Jahre alt ist, muss ein Elternteil die Einwilligung per E-Mail
-          bestätigen, bevor ein Login möglich ist (Art. 8 DSGVO).
-        </p>
-        {register.data.devConfirmUrl && (
-          <p className="dev-hint">
-            🔧 Nur zu Entwicklungszwecken (noch kein echter E-Mail-Versand angebunden):{" "}
-            <a href={register.data.devConfirmUrl}>Bestätigungslink öffnen</a>
+      <div className="shell shell--narrow">
+        <div className="card">
+          <BrandLink />
+          <p>
+            Registrierung erfolgreich! Das Konto von <b>{register.data.email}</b> ist noch gesperrt.
           </p>
-        )}
-        <p>
-          <a href="/datenschutz-kinder">Was passiert mit meinen Daten? (kindgerecht erklärt)</a>
-        </p>
-        <p>
-          Du musst nicht warten: <a href="/vorschau">Schon jetzt unverbindlich ein paar Fragen ausprobieren</a>{" "}
-          — ohne Konto, ohne dass dabei etwas gespeichert wird.
-        </p>
-        <button type="button" onClick={() => register.reset()}>
-          Zurück zum Login
-        </button>
-      </main>
+          <p>
+            Da die Person unter 16 Jahre alt ist, muss ein Elternteil die Einwilligung per E-Mail
+            bestätigen, bevor ein Login möglich ist (Art. 8 DSGVO).
+          </p>
+          {register.data.devConfirmUrl && (
+            <div className="alert alert-info">
+              <InfoIcon />
+              <div>
+                Nur zu Entwicklungszwecken (noch kein echter E-Mail-Versand angebunden):{" "}
+                <a className="link" href={register.data.devConfirmUrl}>
+                  Bestätigungslink öffnen
+                </a>
+              </div>
+            </div>
+          )}
+          <a className="link" href="/datenschutz-kinder">
+            Was passiert mit meinen Daten? (kindgerecht erklärt)
+          </a>
+          <p>
+            Du musst nicht warten:{" "}
+            <a className="link" href="/vorschau">
+              Schon jetzt unverbindlich ein paar Fragen ausprobieren
+            </a>{" "}
+            — ohne Konto, ohne dass dabei etwas gespeichert wird.
+          </p>
+          <button type="button" className="btn btn-ghost" onClick={() => register.reset()}>
+            Zurück zum Login
+          </button>
+        </div>
+      </div>
     );
   }
 
   const activeMutation = mode === "login" ? login : register;
 
   return (
-    <main>
-      <h1>edukedo</h1>
-      <div className="tabs">
-        <button type="button" className={mode === "login" ? "active" : ""} onClick={() => setMode("login")}>
-          Login
-        </button>
-        <button
-          type="button"
-          className={mode === "register" ? "active" : ""}
-          onClick={() => setMode("register")}
+    <div className="shell shell--narrow">
+      <div className="card">
+        <BrandLink />
+        <div className="segmented">
+          <button type="button" className={mode === "login" ? "is-active" : ""} onClick={() => setMode("login")}>
+            Login
+          </button>
+          <button
+            type="button"
+            className={mode === "register" ? "is-active" : ""}
+            onClick={() => setMode("register")}
+          >
+            Registrieren
+          </button>
+        </div>
+        <form
+          className="stack"
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (mode === "register") {
+              register.mutate({
+                email,
+                password,
+                birthDate: new Date(birthDate),
+                parentEmail: needsParentEmail ? parentEmail : undefined,
+              });
+            } else {
+              login.mutate({ email, password });
+            }
+          }}
         >
-          Registrieren
-        </button>
-      </div>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (mode === "register") {
-            register.mutate({
-              email,
-              password,
-              birthDate: new Date(birthDate),
-              parentEmail: needsParentEmail ? parentEmail : undefined,
-            });
-          } else {
-            login.mutate({ email, password });
-          }
-        }}
-      >
-        <label>
-          E-Mail
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Passwort
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            minLength={8}
-            required
-          />
-        </label>
-        {mode === "register" && (
-          <label>
-            Geburtsdatum
+          <div className="field">
+            <label htmlFor="auth-email">E-Mail</label>
             <input
-              type="date"
-              value={birthDate}
-              onChange={(event) => setBirthDate(event.target.value)}
-              required
-            />
-          </label>
-        )}
-        {needsParentEmail && (
-          <label>
-            E-Mail eines Elternteils
-            <input
+              className="input"
+              id="auth-email"
               type="email"
-              value={parentEmail}
-              onChange={(event) => setParentEmail(event.target.value)}
+              placeholder="du@beispiel.de"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               required
             />
-          </label>
-        )}
-        {needsParentEmail && (
-          <p>
-            <a href="/datenschutz-kinder">Was passiert mit meinen Daten? (kindgerecht erklärt)</a>
-          </p>
-        )}
-        <button type="submit" disabled={activeMutation.isPending}>
-          {mode === "login" ? "Einloggen" : "Registrieren"}
-        </button>
-      </form>
-      {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
-      <p>
-        <button type="button" className="danger-link" style={{ color: "var(--ink-soft)" }} onClick={() => setShowAuth(false)}>
+          </div>
+          <div className="field">
+            <label htmlFor="auth-pw">Passwort</label>
+            <input
+              className="input"
+              id="auth-pw"
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              minLength={8}
+              required
+            />
+          </div>
+          {mode === "register" && (
+            <div className="field">
+              <label htmlFor="auth-bday">Geburtsdatum</label>
+              <input
+                className={needsParentEmail ? "input is-correct" : "input"}
+                id="auth-bday"
+                type="date"
+                value={birthDate}
+                onChange={(event) => setBirthDate(event.target.value)}
+                required
+              />
+              {!needsParentEmail && (
+                <span className="field-hint">
+                  Damit wir bei unter 16-Jährigen automatisch die Eltern-Einwilligung einholen.
+                </span>
+              )}
+            </div>
+          )}
+          {needsParentEmail && (
+            <div className="alert alert-info">
+              <InfoIcon />
+              <div>
+                Du bist unter 16 — ein Elternteil muss die Einwilligung per E-Mail bestätigen, bevor du dich
+                einloggen kannst (Art. 8 DSGVO).
+              </div>
+            </div>
+          )}
+          {needsParentEmail && (
+            <div className="field">
+              <label htmlFor="auth-parent-email">E-Mail eines Elternteils</label>
+              <input
+                className="input"
+                id="auth-parent-email"
+                type="email"
+                placeholder="elternteil@beispiel.de"
+                value={parentEmail}
+                onChange={(event) => setParentEmail(event.target.value)}
+                required
+              />
+            </div>
+          )}
+          {needsParentEmail && (
+            <a className="link" href="/datenschutz-kinder">
+              Was passiert mit meinen Daten? (kindgerecht erklärt)
+            </a>
+          )}
+          <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending}>
+            {mode === "login" ? "Einloggen" : "Registrieren"}
+          </button>
+        </form>
+        {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
+        <button type="button" className="link-muted-btn" onClick={() => setShowAuth(false)}>
           ← Zurück zur Startseite
         </button>
-      </p>
-    </main>
+      </div>
+    </div>
   );
 }

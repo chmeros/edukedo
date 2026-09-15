@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>edukedo — Dark Mode: Karteikarte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+  <p class="phone-note">Dark-Mode fest gesetzt (<code>data-theme="dark"</code>) — dieselben Tokens wie im Rest des Systems, nicht nur die Landing Page.</p>
+  <div class="shell">
+    <div class="card">
+      <a class="brand" href="01-landing-und-app-vorschau.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff"/><path d="M6.5 10v4.2c0 1.6 2.46 3.3 5.5 3.3s5.5-1.7 5.5-3.3V10" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        edukedo
+      </a>
+
+      <div class="user-header">
+        <p class="who">Eingeloggt als <b>screenshot-learner-1789477856644@edukedo.de</b> · <span class="role-pill">Rolle: learner</span></p>
+        <div class="user-actions">
+          <button class="btn btn-ghost btn-sm" type="button">Logout</button>
+          <button class="link-danger" style="background:none;border:none;cursor:pointer;font:inherit;">Konto löschen</button>
+        </div>
+      </div>
+      <hr class="divider">
+
+      <div class="course-tiles">
+        <button class="course-tile is-active" type="button">Demo-Kurs (Platzhalter-Content)</button>
+        <button class="course-tile" type="button">Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)</button>
+      </div>
+      <button class="disclosure" type="button">▸ Weiteren Kurs beitreten</button>
+
+      <div class="tab-nav">
+        <button type="button">Theorie</button>
+        <button class="is-active" type="button">Karteikarten</button>
+        <button type="button">Quiz</button>
+        <button type="button">Fortschritt</button>
+      </div>
+
+      <span class="due-count"><b>6</b> Karte(n) fällig</span>
+
+      <div class="flip-scene">
+        <div class="flip-card">
+          <div class="flip-face flip-front">
+            <span class="flip-kicker">Karteikarte</span>
+            <p class="flip-q">Wie viele Bundesländer hat Deutschland?</p>
+            <span class="flip-hint">Antippen zum Umdrehen</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="flip-kicker" style="color:#0D1512;">Antwort</span>
+            <p class="flip-a" style="color:#0D1512;">16.</p>
+            <span class="flip-hint" style="color:rgba(13,21,18,0.7);">Bewerte unten, wie es lief</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rate-row">
+        <button class="again" type="button">Nochmal</button>
+        <button class="hard" type="button">Schwer</button>
+        <button class="good" type="button">Gut</button>
+        <button class="easy" type="button">Leicht</button>
+      </div>
+    </div>
+  </div>
+  <script src="system.js"></script>
+</body>
+</html>

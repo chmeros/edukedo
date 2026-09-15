@@ -29,14 +29,14 @@ export function CourseSwitcher({
   const available = courses.data?.filter((course) => !course.joined) ?? [];
 
   return (
-    <div className="course-switcher">
+    <>
       {joined.length > 0 && (
-        <div className="tabs">
+        <div className="course-tiles">
           {joined.map((course) => (
             <button
               key={course.id}
               type="button"
-              className={course.id === activeKursId ? "active" : ""}
+              className={course.id === activeKursId ? "course-tile is-active" : "course-tile"}
               onClick={() => onActiveKursChange(course.id)}
             >
               {course.title}
@@ -45,24 +45,25 @@ export function CourseSwitcher({
         </div>
       )}
       {available.length > 0 && (
-        <details className="course-switcher-available" open={joined.length === 0}>
-          <summary>{joined.length > 0 ? "Weiteren Kurs beitreten" : "Verfügbare Kurse"}</summary>
-          <ul className="course-list">
+        <details open={joined.length === 0}>
+          <summary className="disclosure">{joined.length > 0 ? "Weiteren Kurs beitreten" : "Verfügbare Kurse"}</summary>
+          <div className="stack" style={{ marginTop: 10 }}>
             {available.map((course) => (
-              <li key={course.id}>
-                <span>{course.title}</span>
+              <div key={course.id} className="join-row">
+                <div className="meta">{course.title}</div>
                 <button
                   type="button"
+                  className="btn btn-secondary btn-sm"
                   onClick={() => enroll.mutate({ kursId: course.id })}
                   disabled={enroll.isPending}
                 >
                   Beitreten
                 </button>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </details>
       )}
-    </div>
+    </>
   );
 }

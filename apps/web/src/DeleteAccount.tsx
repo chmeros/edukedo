@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { DangerIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 export function DeleteAccount() {
@@ -11,7 +12,7 @@ export function DeleteAccount() {
 
   if (!confirming) {
     return (
-      <button type="button" className="danger-link" onClick={() => setConfirming(true)}>
+      <button type="button" className="link-danger-btn" onClick={() => setConfirming(true)}>
         Konto löschen
       </button>
     );
@@ -19,38 +20,43 @@ export function DeleteAccount() {
 
   return (
     <form
-      className="delete-account"
+      className="alert alert-danger"
       onSubmit={(event) => {
         event.preventDefault();
         deleteAccount.mutate({ password });
       }}
     >
-      <p className="delete-account-warning">
-        Dein Konto und alle zugehörigen Daten (Fortschritt, Kursbelegungen, ...) werden unwiderruflich
-        gelöscht. Bitte bestätige mit deinem Passwort.
-      </p>
-      <input
-        type="password"
-        placeholder="Passwort"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-        required
-      />
-      <div className="delete-account-actions">
-        <button type="submit" className="danger" disabled={!password || deleteAccount.isPending}>
-          Konto endgültig löschen
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setConfirming(false);
-            setPassword("");
-          }}
-        >
-          Abbrechen
-        </button>
+      <DangerIcon />
+      <div>
+        Dein Konto und alle zugehörigen Daten (Fortschritt, Kursbelegungen, …) werden unwiderruflich gelöscht.
+        Bitte bestätige mit deinem Passwort.
+        <div className="field" style={{ marginTop: 12 }}>
+          <input
+            className="input"
+            type="password"
+            placeholder="Passwort"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
+          />
+        </div>
+        <div className="alert-actions">
+          <button type="submit" className="btn btn-danger btn-sm" disabled={!password || deleteAccount.isPending}>
+            Konto endgültig löschen
+          </button>
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            onClick={() => {
+              setConfirming(false);
+              setPassword("");
+            }}
+          >
+            Abbrechen
+          </button>
+        </div>
+        {deleteAccount.error && <p className="error">{deleteAccount.error.message}</p>}
       </div>
-      {deleteAccount.error && <p className="error">{deleteAccount.error.message}</p>}
     </form>
   );
 }

@@ -59,19 +59,19 @@ export function MultipleChoiceStep({
   }
 
   return (
-    <>
-      <div className="quiz-prompt">{item.prompt}</div>
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
       <div className="quiz-options">
         {item.options.map((option) => {
-          let className = "quiz-option";
+          let className = "quiz-opt";
           if (feedback) {
             if (option.id === feedback.correctOptionId) {
-              className += " correct";
+              className += " is-correct";
             } else if (option.id === selectedOptionId) {
-              className += " incorrect";
+              className += " is-wrong";
             }
           } else if (option.id === selectedOptionId) {
-            className += " selected";
+            className += " is-selected";
           }
 
           return (
@@ -89,20 +89,26 @@ export function MultipleChoiceStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback correct" : "quiz-feedback incorrect"}>
+          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
-          <button type="button" onClick={onNext}>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
         </>
       ) : (
-        <button type="button" onClick={checkAnswer} disabled={!selectedOptionId || submit.isPending}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!selectedOptionId || submit.isPending}
+        >
           Antwort prüfen
         </button>
       )}
-    </>
+    </div>
   );
 }
 
@@ -168,14 +174,14 @@ export function MatchingStep({
   }
 
   return (
-    <>
-      <div className="quiz-prompt">{item.prompt}</div>
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
       {pairs.length > 0 && (
-        <div className="matching-pairs">
+        <div className="match-pairs">
           {pairs.map((pair) => {
-            let className = "matching-pair";
+            let className = "match-pair";
             if (feedback) {
-              className += feedback.correctMap[pair.leftId] === pair.rightId ? " correct" : " incorrect";
+              className += feedback.correctMap[pair.leftId] === pair.rightId ? " is-correct" : " is-wrong";
             }
             return (
               <button
@@ -192,25 +198,25 @@ export function MatchingStep({
         </div>
       )}
       {!feedback && (remainingLeft.length > 0 || remainingRight.length > 0) && (
-        <div className="matching-columns">
-          <div className="matching-column">
+        <div className="match-grid">
+          <div className="match-column">
             {remainingLeft.map((option) => (
               <button
                 key={option.id}
                 type="button"
-                className={option.id === selectedLeftId ? "matching-item selected" : "matching-item"}
+                className={option.id === selectedLeftId ? "match-item is-selected" : "match-item"}
                 onClick={() => setSelectedLeftId(option.id)}
               >
                 {option.text}
               </button>
             ))}
           </div>
-          <div className="matching-column">
+          <div className="match-column">
             {remainingRight.map((option) => (
               <button
                 key={option.id}
                 type="button"
-                className="matching-item"
+                className="match-item"
                 disabled={!selectedLeftId}
                 onClick={() => pickRight(option.id)}
               >
@@ -222,19 +228,25 @@ export function MatchingStep({
       )}
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback correct" : "quiz-feedback incorrect"}>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Zuordnungen richtig.
           </p>
-          <button type="button" onClick={onNext}>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
         </>
       ) : (
-        <button type="button" onClick={checkAnswer} disabled={pairs.length !== item.left.length || submit.isPending}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={pairs.length !== item.left.length || submit.isPending}
+        >
           Antwort prüfen
         </button>
       )}
-    </>
+    </div>
   );
 }
 
@@ -280,8 +292,8 @@ export function BlanksStep({
   }
 
   return (
-    <>
-      <div className="quiz-prompt blanks-prompt">
+    <div className="stack">
+      <div className="quiz-question prose">
         {parts.map((part, partIndex) => {
           const blankId = item.blankIds[partIndex];
           return (
@@ -291,7 +303,7 @@ export function BlanksStep({
                 <input
                   type="text"
                   className={
-                    feedback ? (feedback.results[blankId] ? "blank-input correct" : "blank-input incorrect") : "blank-input"
+                    feedback ? (feedback.results[blankId] ? "quiz-blank is-correct" : "quiz-blank is-wrong") : "quiz-blank"
                   }
                   value={answers[blankId] ?? ""}
                   disabled={feedback !== null}
@@ -304,7 +316,7 @@ export function BlanksStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback correct" : "quiz-feedback incorrect"}>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Lücken richtig.
             {feedback.correctCount < feedback.total && (
               <>
@@ -313,16 +325,22 @@ export function BlanksStep({
               </>
             )}
           </p>
-          <button type="button" onClick={onNext}>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
         </>
       ) : (
-        <button type="button" onClick={checkAnswer} disabled={!allFilled || submit.isPending}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!allFilled || submit.isPending}
+        >
           Antwort prüfen
         </button>
       )}
-    </>
+    </div>
   );
 }
 
@@ -362,30 +380,43 @@ export function KurzantwortStep({
   }
 
   return (
-    <>
-      <div className="quiz-prompt">{item.prompt}</div>
-      <input
-        type="text"
-        className={feedback ? (feedback.isCorrect ? "blank-input correct" : "blank-input incorrect") : "blank-input"}
-        value={answer}
-        disabled={feedback !== null}
-        onChange={(event) => setAnswer(event.target.value)}
-      />
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <div className="field">
+        <input
+          className={feedback ? (feedback.isCorrect ? "input is-correct" : "input is-wrong") : "input"}
+          type="text"
+          placeholder="Antwort"
+          value={answer}
+          disabled={feedback !== null}
+          onChange={(event) => setAnswer(event.target.value)}
+        />
+      </div>
       {feedback ? (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback correct" : "quiz-feedback incorrect"}>
-            {feedback.isCorrect ? "Richtig!" : `Leider falsch. Richtige Lösung: ${feedback.correctAnswer}`}
+          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.isCorrect ? "Richtig!" : (
+              <>
+                Leider falsch. Richtige Lösung: <b>{feedback.correctAnswer}</b>
+              </>
+            )}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
-          <button type="button" onClick={onNext}>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
         </>
       ) : (
-        <button type="button" onClick={checkAnswer} disabled={!answer.trim() || submit.isPending}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!answer.trim() || submit.isPending}
+        >
           Antwort prüfen
         </button>
       )}
-    </>
+    </div>
   );
 }

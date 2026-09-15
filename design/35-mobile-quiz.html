@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>edukedo — Mobile: Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+  <p class="phone-note">Mobile-Ansicht (390px) — Zuordnungs-Spalten bleiben zweispaltig bis 460px, darunter stapeln sie sich einspaltig, damit Begriffe nicht gequetscht werden.</p>
+  <div class="phone-frame">
+    <div class="shell">
+      <div class="card">
+        <a class="brand" href="01-landing-und-app-vorschau.html">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff"/><path d="M6.5 10v4.2c0 1.6 2.46 3.3 5.5 3.3s5.5-1.7 5.5-3.3V10" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          edukedo
+        </a>
+
+        <div class="user-header">
+          <p class="who">Eingeloggt als <b>screenshot-mobile-1789477856644@edukedo.de</b> · <span class="role-pill">Rolle: learner</span></p>
+          <div class="user-actions">
+            <button class="btn btn-ghost btn-sm" type="button">Logout</button>
+            <button class="link-danger" style="background:none;border:none;cursor:pointer;font:inherit;">Konto löschen</button>
+          </div>
+        </div>
+        <hr class="divider">
+
+        <div class="course-tiles" style="grid-template-columns:1fr;">
+          <button class="course-tile is-active" type="button">Demo-Kurs (Platzhalter-Content)</button>
+        </div>
+        <button class="disclosure" type="button">▸ Weiteren Kurs beitreten</button>
+
+        <div class="tab-nav">
+          <button type="button">Theorie</button>
+          <button type="button">Karteikarten</button>
+          <button class="is-active" type="button">Quiz</button>
+          <button type="button">Fortschritt</button>
+        </div>
+
+        <span class="quiz-progress">Frage 1 von 8</span>
+        <div class="quiz-question" style="margin-bottom:0;">Ordne die Hauptstädte den Ländern zu.</div>
+
+        <div class="match-grid" data-quiz="match">
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button class="match-item" type="button">Spanien</button>
+            <button class="match-item" type="button">Deutschland</button>
+            <button class="match-item" type="button">Frankreich</button>
+            <button class="match-item" type="button">Italien</button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button class="match-item" type="button" style="color:var(--ink-faint);">Rom</button>
+            <button class="match-item" type="button" style="color:var(--ink-faint);">Paris</button>
+            <button class="match-item" type="button" style="color:var(--ink-faint);">Berlin</button>
+            <button class="match-item" type="button" style="color:var(--ink-faint);">Madrid</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="button" style="align-self:flex-start;">Antwort prüfen</button>
+      </div>
+    </div>
+  </div>
+  <script src="system.js"></script>
+</body>
+</html>

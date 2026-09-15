@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>edukedo — Content-Import erfolgreich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="system.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="card">
+      <a class="brand" href="01-landing-und-app-vorschau.html">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff"/><path d="M6.5 10v4.2c0 1.6 2.46 3.3 5.5 3.3s5.5-1.7 5.5-3.3V10" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        edukedo
+      </a>
+
+      <div class="user-header">
+        <p class="who">Eingeloggt als <b>screenshot-admin-1789477856345@edukedo.de</b> · <span class="role-pill">Rolle: admin</span></p>
+        <div class="user-actions">
+          <button class="btn btn-ghost btn-sm" type="button">Logout</button>
+          <button class="link-danger" style="background:none;border:none;cursor:pointer;font:inherit;">Konto löschen</button>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h2 style="font-size:var(--fs-lg);">Admin: Kurse verwalten</h2>
+
+      <div class="admin-row">
+        <div class="meta">Demo-Kurs (Platzhalter-Content)<span>demo</span></div>
+        <button class="btn btn-danger btn-sm" type="button">Zurückziehen</button>
+      </div>
+      <div class="admin-row">
+        <div class="meta">Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)<span>fachwirt</span></div>
+        <button class="btn btn-danger btn-sm" type="button">Zurückziehen</button>
+      </div>
+      <div class="admin-row">
+        <div class="meta">Mathematik, Klasse 9 (bundeslandneutral)<span>schulfach</span></div>
+        <button class="btn btn-danger btn-sm" type="button">Zurückziehen</button>
+      </div>
+
+      <div class="alert alert-info">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>Liest <code>content/</code> (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content vollständig. <code>is_published</code> bleibt dabei unangetastet.</div>
+      </div>
+
+      <button class="btn btn-ghost" type="button" style="align-self:flex-start;">Content neu importieren</button>
+
+      <div class="alert alert-success">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><b>11 Dateien, 341 Content-Items importiert.</b></div>
+      </div>
+
+      <hr class="divider">
+      <button class="disclosure" type="button">▾ Verfügbare Kurse</button>
+      <div class="join-row">
+        <div class="meta">Demo-Kurs (Platzhalter-Content)</div>
+        <button class="btn btn-secondary btn-sm" type="button">Beitreten</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

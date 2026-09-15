@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { InfoIcon } from "./Icons";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
@@ -18,13 +19,15 @@ export function Vorschau() {
 
   if (previewItems.isLoading) {
     return (
-      <main>
-        <h1>edukedo — Vorschau</h1>
-        <p>Lädt…</p>
-        <p>
-          <a href="/">Zurück zum Login</a>
-        </p>
-      </main>
+      <div className="shell shell--narrow">
+        <div className="card">
+          <h1 style={{ fontSize: "var(--fs-lg)" }}>edukedo — Vorschau</h1>
+          <p>Lädt…</p>
+          <a className="link" href="/">
+            Zurück zum Login
+          </a>
+        </div>
+      </div>
     );
   }
 
@@ -32,32 +35,39 @@ export function Vorschau() {
 
   if (items.length === 0) {
     return (
-      <main>
-        <h1>edukedo — Vorschau</h1>
-        <p>Aktuell sind keine Vorschau-Fragen verfügbar.</p>
-        <p>
-          <a href="/">Zurück zum Login</a>
-        </p>
-      </main>
+      <div className="shell shell--narrow">
+        <div className="card">
+          <h1 style={{ fontSize: "var(--fs-lg)" }}>edukedo — Vorschau</h1>
+          <p>Aktuell sind keine Vorschau-Fragen verfügbar.</p>
+          <a className="link" href="/">
+            Zurück zum Login
+          </a>
+        </div>
+      </div>
     );
   }
 
   if (index >= items.length) {
     return (
-      <main>
-        <h1>edukedo — Vorschau</h1>
-        <p>
-          Vorschau abgeschlossen 🎉 — {correctCount} von {items.length} richtig
-        </p>
-        <p className="dev-hint">
-          Das war nur ein kleiner Ausblick ohne eigenes Konto — dein Fortschritt wurde dabei
-          nicht gespeichert. Sobald ein Elternteil die Einwilligung bestätigt hat, kannst du
-          mit deinem eigenen Konto richtig loslegen.
-        </p>
-        <p>
-          <a href="/">Zurück zum Login</a>
-        </p>
-      </main>
+      <div className="shell shell--narrow">
+        <div className="card">
+          <h1 style={{ fontSize: "var(--fs-lg)" }}>edukedo — Vorschau</h1>
+          <p>
+            Vorschau abgeschlossen 🎉 — {correctCount} von {items.length} richtig
+          </p>
+          <div className="alert alert-info">
+            <InfoIcon />
+            <div>
+              Das war nur ein kleiner Ausblick ohne eigenes Konto — dein Fortschritt wurde dabei nicht
+              gespeichert. Sobald ein Elternteil die Einwilligung bestätigt hat, kannst du mit deinem eigenen
+              Konto richtig loslegen.
+            </div>
+          </div>
+          <a className="link" href="/">
+            Zurück zum Login
+          </a>
+        </div>
+      </div>
     );
   }
 
@@ -75,16 +85,16 @@ export function Vorschau() {
   }
 
   return (
-    <main>
-      <h1>edukedo — Vorschau</h1>
-      <p className="dev-hint">
-        Unverbindliche Vorschau ohne eigenes Konto — dein Fortschritt wird hier nicht
-        gespeichert.
-      </p>
-      <section className="quiz">
-        <p className="quiz-count">
+    <div className="shell shell--narrow">
+      <div className="card">
+        <h1 style={{ fontSize: "var(--fs-lg)" }}>edukedo — Vorschau</h1>
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Unverbindliche Vorschau ohne eigenes Konto — dein Fortschritt wird hier nicht gespeichert.</div>
+        </div>
+        <span className="quiz-progress">
           Frage {index + 1} von {items.length}
-        </p>
+        </span>
         {current.type === "quiz_mc" && (
           <MultipleChoiceStep
             key={current.id}
@@ -125,10 +135,10 @@ export function Vorschau() {
             submit={submitKurzantwort}
           />
         )}
-      </section>
-      <p>
-        <a href="/">Zurück zum Login</a>
-      </p>
-    </main>
+        <a className="link" href="/">
+          Zurück zum Login
+        </a>
+      </div>
+    </div>
   );
 }

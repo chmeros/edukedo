@@ -30,8 +30,10 @@ export function Flashcards({ kursId }: { kursId: string }) {
   }
 
   return (
-    <section className="flashcard">
-      <p className="flashcard-count">{cards.length} Karte(n) fällig</p>
+    <div className="stack">
+      <span className="due-count">
+        <b>{cards.length}</b> Karte(n) fällig
+      </span>
       <FlipCard
         flipped={revealed}
         onToggle={() => setRevealed((current) => !current)}
@@ -44,25 +46,27 @@ export function Flashcards({ kursId }: { kursId: string }) {
         }
         back={
           <>
-            <span className="flip-kicker">Antwort</span>
+            <span className="flip-kicker" style={{ color: "#fff" }}>
+              Antwort
+            </span>
             <p className="flip-a">{current.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
             <span className="flip-hint">Bewerte unten, wie es lief</span>
           </>
         }
       />
       {revealed && (
-        <div className="flashcard-actions">
-          <button type="button" className="rating-again" onClick={() => review("nicht_gewusst")}>
-            Nicht gewusst
+        <div className="rate-row">
+          <button type="button" className="again" onClick={() => review("nicht_gewusst")}>
+            Nochmal
           </button>
-          <button type="button" className="rating-hard" onClick={() => review("unsicher")}>
-            Unsicher
+          <button type="button" className="hard" onClick={() => review("unsicher")}>
+            Schwer
           </button>
-          <button type="button" className="rating-good" onClick={() => review("gewusst")}>
-            Gewusst
+          <button type="button" className="good" onClick={() => review("gewusst")}>
+            Gut
           </button>
         </div>
       )}
-    </section>
+    </div>
   );
 }

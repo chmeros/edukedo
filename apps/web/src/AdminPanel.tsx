@@ -1,3 +1,4 @@
+import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 /**
@@ -30,38 +31,52 @@ export function AdminPanel() {
   }
 
   return (
-    <section className="admin-panel">
-      <h2>Admin: Kurse verwalten</h2>
-      <ul className="course-list">
-        {(courses.data ?? []).map((course) => (
-          <li key={course.id}>
-            <span>
-              {course.title} <span className="course-meta">({course.type})</span>
-            </span>
-            <button
-              type="button"
-              className={course.isPublished ? "unpublish" : ""}
-              onClick={() => setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished })}
-              disabled={setPublished.isPending}
-            >
-              {course.isPublished ? "Zurückziehen" : "Veröffentlichen"}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <p className="dev-hint">
-        Liest `content/` (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
-        vollständig. `is_published` bleibt dabei unangetastet.
-      </p>
-      <button type="button" onClick={() => triggerImport.mutate()} disabled={triggerImport.isPending}>
+    <div className="stack">
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Kurse verwalten</h2>
+      {(courses.data ?? []).map((course) => (
+        <div key={course.id} className="admin-row">
+          <div className="meta">
+            {course.title}
+            <span>{course.type}</span>
+          </div>
+          <button
+            type="button"
+            className={course.isPublished ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
+            onClick={() => setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished })}
+            disabled={setPublished.isPending}
+          >
+            {course.isPublished ? "Zurückziehen" : "Veröffentlichen"}
+          </button>
+        </div>
+      ))}
+      <div className="alert alert-info">
+        <InfoIcon />
+        <div>
+          Liest <code>content/</code> (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
+          vollständig. <code>is_published</code> bleibt dabei unangetastet.
+        </div>
+      </div>
+      <button
+        type="button"
+        className="btn btn-ghost"
+        style={{ alignSelf: "flex-start" }}
+        onClick={() => triggerImport.mutate()}
+        disabled={triggerImport.isPending}
+      >
         {triggerImport.isPending ? "Import läuft…" : "Content neu importieren"}
       </button>
       {triggerImport.data && (
-        <p className="quiz-feedback correct">
-          {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items importiert.
-        </p>
+        <div className="alert alert-success">
+          <SuccessIcon />
+          <div>
+            <b>
+              {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items
+              importiert.
+            </b>
+          </div>
+        </div>
       )}
       {triggerImport.error && <p className="error">{triggerImport.error.message}</p>}
-    </section>
+    </div>
   );
 }

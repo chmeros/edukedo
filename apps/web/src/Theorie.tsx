@@ -41,25 +41,24 @@ export function Theorie({ kursId }: { kursId: string }) {
   const active = items.find((item) => item.id === activeId) ?? items[0]!;
 
   return (
-    <div className="theorie">
-      <ul className="theorie-toc">
+    <>
+      <div className="theory-nav">
         {items.map((item) => (
-          <li key={item.id}>
-            <button
-              type="button"
-              className={item.id === active.id ? "theorie-toc-item active" : "theorie-toc-item"}
-              onClick={() => setActiveId(item.id)}
-            >
-              {item.themaTitle}
-            </button>
-          </li>
+          <button
+            key={item.id}
+            type="button"
+            className={item.id === active.id ? "is-active" : ""}
+            onClick={() => setActiveId(item.id)}
+          >
+            {item.themaTitle}
+          </button>
         ))}
-      </ul>
-      <article className="theorie-content">
-        <p className="theorie-fachgebiet">{active.fachgebietTitle}</p>
-        <h2>{active.themaTitle}</h2>
+      </div>
+      <article className="theory-content">
+        <span className="kicker">{active.fachgebietTitle}</span>
+        <h3>{active.themaTitle}</h3>
         {renderMarkdown(active.bodyMarkdown)}
       </article>
-    </div>
+    </>
   );
 }

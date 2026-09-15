@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SuccessIcon } from "./Icons";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
@@ -28,9 +29,12 @@ export function Quiz({ kursId }: { kursId: string }) {
 
   if (index >= items.length) {
     return (
-      <p>
-        Quiz abgeschlossen 🎉 — {correctCount} von {items.length} richtig
-      </p>
+      <div className="alert alert-success">
+        <SuccessIcon />
+        <div>
+          Quiz abgeschlossen 🎉 — {correctCount} von {items.length} richtig
+        </div>
+      </div>
     );
   }
 
@@ -48,10 +52,10 @@ export function Quiz({ kursId }: { kursId: string }) {
   }
 
   return (
-    <section className="quiz">
-      <p className="quiz-count">
+    <div className="stack">
+      <span className="quiz-progress">
         Frage {index + 1} von {items.length}
-      </p>
+      </span>
       {current.type === "quiz_mc" && (
         <MultipleChoiceStep
           key={current.id}
@@ -92,6 +96,6 @@ export function Quiz({ kursId }: { kursId: string }) {
           submit={submitKurzantwort}
         />
       )}
-    </section>
+    </div>
   );
 }
