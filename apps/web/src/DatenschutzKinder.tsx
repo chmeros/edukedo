@@ -43,6 +43,9 @@ export function DatenschutzKinder() {
         <strong>Fragen?</strong> Ein Elternteil kann sich jederzeit an uns wenden, wenn etwas unklar
         ist.
       </p>
+      <p>
+        <a href="/">Zurück zum Login</a>
+      </p>
     </main>
   );
 }

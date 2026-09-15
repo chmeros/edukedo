@@ -3,6 +3,7 @@ body {
   font-family: system-ui, sans-serif;
   background: #f5f5f4;
   color: #1c1917;
+  overflow-x: hidden;
 }
 
 main {
@@ -37,6 +38,22 @@ h1 {
   background: #1c1917;
   color: white;
   border-color: #1c1917;
+}
+
+/* Schmale Viewports (siehe N-01, mobile Nutzung): Statt die Tab-Beschriftungen
+   gleichmäßig zusammenzudrücken (dabei geriet z. B. der dritte Kurs-Tab der
+   CourseSwitcher außerhalb des Viewports und war nicht mehr erreichbar), wird die
+   Tab-Leiste hier zu einem horizontal wischbaren Streifen mit unverkürzten Labels. */
+@media (max-width: 480px) {
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
 
 .course-switcher {

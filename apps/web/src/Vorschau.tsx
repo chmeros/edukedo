@@ -21,6 +21,9 @@ export function Vorschau() {
       <main>
         <h1>edukedo — Vorschau</h1>
         <p>Lädt…</p>
+        <p>
+          <a href="/">Zurück zum Login</a>
+        </p>
       </main>
     );
   }
@@ -32,6 +35,9 @@ export function Vorschau() {
       <main>
         <h1>edukedo — Vorschau</h1>
         <p>Aktuell sind keine Vorschau-Fragen verfügbar.</p>
+        <p>
+          <a href="/">Zurück zum Login</a>
+        </p>
       </main>
     );
   }
@@ -47,6 +53,9 @@ export function Vorschau() {
           Das war nur ein kleiner Ausblick ohne eigenes Konto — dein Fortschritt wurde dabei
           nicht gespeichert. Sobald ein Elternteil die Einwilligung bestätigt hat, kannst du
           mit deinem eigenen Konto richtig loslegen.
+        </p>
+        <p>
+          <a href="/">Zurück zum Login</a>
         </p>
       </main>
     );
@@ -117,6 +126,9 @@ export function Vorschau() {
           />
         )}
       </section>
+      <p>
+        <a href="/">Zurück zum Login</a>
+      </p>
     </main>
   );
 }
