@@ -49,13 +49,19 @@ interface KursMeta {
  * is_published = false") — der Schulfach-Kurs darf laut Architekturplanung erst live gehen,
  * nachdem das Redaktionsteam den ersten Themenblock als fertig eingestuft hat, nicht
  * automatisch mit dem Import. Das Veröffentlichen bleibt ein bewusster, separater Schritt.
+ *
+ * metadata.zielgruppe (F-13, siehe course-audience.ts und Architekturplanung Abschnitt 13):
+ * Der Fachwirt-Kurs richtet sich fachlich an Berufstätige (AGG, BetrVG, Personalführung) und
+ * ist daher für Minderjährige ausgeblendet. Mathematik-9 bleibt bewusst ohne dieses Feld
+ * ("alle") — ein Erwachsener, der Schulstoff auffrischen möchte, ist kein Schutzproblem in die
+ * andere Richtung, nur der Fachwirt-Kurs für Minderjährige war der beobachtete Missstand.
  */
 const KURS_META: Record<string, KursMeta> = {
   "fachwirt-buero-projektorganisation": {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
     type: "fachwirt",
     isPublished: true,
-    metadata: {},
+    metadata: { zielgruppe: "erwachsene" },
   },
   "mathematik-9": {
     title: "Mathematik, Klasse 9 (bundeslandneutral)",
@@ -113,8 +119,15 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   // Titel/Typ/Metadata bei jedem Lauf synchronisieren, is_published bewusst NICHT: Ein Kurs
   // könnte inzwischen manuell veröffentlicht worden sein (siehe Entwicklungsplan Iteration 3,
   // "Nach Fertigstellung ... is_published = true setzen") — ein erneuter Import darf das
-  // niemals unbeabsichtigt wieder zurücksetzen.
-  if (kursRow.title !== meta.title || kursRow.type !== meta.type) {
+  // niemals unbeabsichtigt wieder zurücksetzen. Metadata wird per JSON-Vergleich einbezogen
+  // (nicht nur title/type), sonst würde z. B. eine nachträglich in KURS_META ergänzte
+  // metadata.zielgruppe (siehe course-audience.ts) bei einem bereits existierenden Kurs beim
+  // Re-Import stillschweigend ignoriert.
+  if (
+    kursRow.title !== meta.title ||
+    kursRow.type !== meta.type ||
+    JSON.stringify(kursRow.metadata) !== JSON.stringify(meta.metadata)
+  ) {
     await db.update(kurs).set({ title: meta.title, type: meta.type, metadata: meta.metadata }).where(eq(kurs.id, kursRow.id));
   }
 
