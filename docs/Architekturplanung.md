@@ -566,6 +566,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 15.09.2026 (Mathe-Kurs veröffentlicht, Iteration 3 abgeschlossen)
+
+- **`mathematik-9.is_published` explizit per Nutzer-Entscheidung auf `true` gesetzt, ohne die in Iteration 0 offen gebliebene Schulbuch-Gegenprüfung des Themenkatalogs abzuwarten.** Diese Gegenprüfung war dort ausdrücklich als "sollte vor Veröffentlichung nachgeholt werden" markiert — die Veröffentlichung wurde bewusst trotzdem vorgezogen, auf ausdrücklichen Wunsch nach vorheriger Nennung dieses Trade-offs. Die Gegenprüfung bleibt als offener Punkt in Iteration 0 bestehen und sollte zeitnah nachgeholt werden, um etwaige inhaltliche Abweichungen vom KMK-Themenkatalog zu erkennen, solange der Kurs noch wenige echte Nutzer:innen hat.
+- **Über den bestehenden Admin-Mechanismus (`admin.setPublished`) veröffentlicht, nicht per direktem SQL-Update:** Dieselbe Gelegenheit genutzt, um den kompletten Weg (Zielgruppen-Filter F-13, Katalog-Sichtbarkeit, Beitritt, Karteikarten/Theorie mit echtem Content, `fachgebiet.sort_order`) für den Mathe-Kurs noch einmal end-to-end mit einem frischen Lernkonto zu verifizieren, statt nur ein Datenbankfeld blind umzuschalten.
+- **Betrifft nur die lokale, per `docker-compose.yml` verwaltete Dev-Datenbank dieses Repos** (persistiert über ein benanntes Volume, übersteht `docker compose down`/`up`) — es existiert noch keine verwaltete Cloud-Postgres-Instanz für Staging/Produktion (siehe offener Punkt in Iteration 0). Der `is_published`-Stand muss beim späteren Aufsetzen einer echten Produktionsdatenbank erneut gesetzt werden.
+
 ### Entschieden am 15.09.2026 (UX-Review-Nachfassung: vier Punkte niedriger Priorität)
 
 - **`courses.list` liefert jetzt eine explizite, stabile Reihenfolge:** Ohne `ORDER BY` überließ die Query Postgres die Zeilenreihenfolge (in der Praxis meist Einfügereihenfolge) — der zuerst per `db:seed` angelegte Demo-Kurs erschien dadurch vor den echten, später importierten Kursen, sowohl in "Verfügbare Kurse" als auch in den `course-tiles` nach dem Beitritt. Fix: `.sort((a, b) => Number(a.type === "demo") - Number(b.type === "demo"))` nach dem Filtern — Kurse vom Typ `"demo"` sortieren ans Ende, echte Kurse behalten ihre bisherige Reihenfolge untereinander.
