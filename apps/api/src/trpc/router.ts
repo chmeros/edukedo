@@ -5,6 +5,7 @@ import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
 import { healthRouter } from "./routers/health";
+import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
 import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
@@ -18,7 +19,8 @@ import { router } from "./trpc";
  * der ersten, einfachen Ausbaustufe ab (Kurs-Veröffentlichung) — die eigentliche Content-Pflege
  * (Fragen/Karteikarten) folgt später. `exam` (F-23, seit 16.09.2026) nutzt die hierfür bereits
  * vorbereiteten `exam_session`/`exam_answer`-Tabellen. `presentation` (F-24, seit 16.09.2026)
- * speichert den Gliederungs-/Checklisten-Entwurf des Präsentationstrainers.
+ * speichert den Gliederungs-/Checklisten-Entwurf des Präsentationstrainers. `offline` (F-42,
+ * seit 16.09.2026) liefert den Content-Download für die lokale IndexedDB-Kopie.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -33,6 +35,7 @@ export const appRouter = router({
   exam: examRouter,
   presentation: presentationRouter,
   admin: adminRouter,
+  offline: offlineRouter,
 });
 
 export type AppRouter = typeof appRouter;

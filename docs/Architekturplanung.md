@@ -567,16 +567,24 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
-### Entschieden am 16.09.2026 (F-42 Offline-Modus, Architekturansatz + erste zwei Bausteine)
+### Entschieden am 16.09.2026 (F-42 Offline-Modus, Architekturansatz + erste drei Bausteine)
 
-Mit dem Nutzer abgestimmter Gesamtansatz (sechs Bausteine, in dieser Reihenfolge umzusetzen — Baustein 1+2 bereits erledigt, siehe Entwicklungsplan Iteration 5):
+Mit dem Nutzer abgestimmter Gesamtansatz (sechs Bausteine, in dieser Reihenfolge umzusetzen — Baustein 1–3 bereits erledigt, siehe Entwicklungsplan Iteration 5):
 
 1. **Gemeinsamer FSRS-Scheduler:** `apps/api/src/fsrs/scheduler.ts` nach `@edukedo/shared` verschoben (reine, deterministische Funktionen ohne DB-Zugriff, siehe Doc-Kommentar dort) — Client und Server nutzen künftig exakt denselben Code, statt den Algorithmus zweimal zu pflegen. Offline berechnet der Client den nächsten FSRS-Zustand selbst; der Server wendet beim Sync denselben Code auf die nachgespielten Ereignisse an.
 2. **Lokaler Speicher (Dexie.js/IndexedDB):** `apps/web/src/offlineDb.ts`, zwei Tabellen — `content` (offline verfügbar gemachte Karteikarten/Quiz-Items) und `queue` (noch nicht synchronisierte Lern-Ereignisse, mit Client-UUID + Zeitstempel).
-3. **"Für offline verfügbar machen"-Aktion** je Kurs (noch nicht umgesetzt).
+3. **"Für offline verfügbar machen"-Aktion je Kurs:** neuer Endpunkt `offline.downloadKurs` (`apps/api/src/trpc/routers/offline.ts`) plus Button im "Fortschritt"-Tab (`apps/web/src/OfflineDownload.tsx`, per `utils.offline.downloadKurs.fetch` statt `useQuery` — ein einmaliger, klick-ausgelöster Abruf statt einer dauerhaft gehaltenen Anfrage). Details siehe unten.
 4. **Offline-Antwortpfad** in `Flashcards.tsx`/`Quiz.tsx` bei `!navigator.onLine` (noch nicht umgesetzt).
 5. **Sync-Endpunkt**, der die Ereignis-Warteschlange nachspielt (noch nicht umgesetzt, siehe Punkt 4 in Abschnitt 5).
 6. **Online/Offline-Status-UI** (noch nicht umgesetzt).
+
+**Baustein 3 im Detail:**
+
+- **Liefert ALLE aktiven Karteikarten-/Quiz-Items des Kurses statt nur fälliger Karten (`content.dueCards`) bzw. einer zufälligen 20er-Auswahl (`quiz.quizItems`).** Eine feste 20er-Auswahl wäre nach deren Bearbeitung erschöpft, und Fälligkeiten verschieben sich auch ohne Serverkontakt weiter — die Offline-Kopie muss über die gesamte (potenziell mehrtägige) Downloadphase hinweg nutzbar bleiben, nicht nur für die Fragen, die zum Download-Zeitpunkt gerade fällig/ausgewählt waren.
+- **Tags/Antwortoptionen/`user_progress` werden gebündelt pro Kurs statt pro Item abgefragt** (`inArray` über alle Item-IDs, analog zum bereits bestehenden Muster in `export-content.ts`), um kein N+1-Abfragemuster bei einem Kurs mit hunderten Items einzuführen.
+- **Nie geübte Karteikarten bekommen `initialProgressState(now)` als Startzustand** (dieselbe Funktion, die auch `progress.submitReview` beim allerersten Review verwendet) statt `null` — Baustein 4 kann dadurch für jede heruntergeladene Karteikarte direkt `scheduleReview` aufrufen, ohne vorher unterscheiden zu müssen, ob schon einmal serverseitig geübt wurde.
+- **Ein erneuter Download überschreibt (`bulkPut`) bestehende Einträge anhand ihrer `content_item.id`** statt sie zu duplizieren — Wiederholtes Klicken auf "Für offline verfügbar machen" ist damit ungefährlich und aktualisiert nur den Stand.
+- **Date-Rekonstruktion auf dem Client:** Die tRPC-Route nutzt keinen superjson-Transformer (siehe `trpc.ts`), `dueAt`/`lastReviewedAt` kommen also als ISO-Strings an. `OfflineDownload.tsx` wandelt sie explizit zurück in echte `Date`-Objekte, bevor sie in `offlineDb.content` geschrieben werden — sonst würde `scheduleReview` (Baustein 4) mit Strings statt Dates rechnen.
 
 Zwei Entscheidungen dabei explizit mit dem Nutzer abgestimmt, da sie von bestehenden, bewussten Festlegungen abweichen bzw. sie präzisieren:
 
@@ -584,7 +592,7 @@ Zwei Entscheidungen dabei explizit mit dem Nutzer abgestimmt, da sie von bestehe
 - **Ereignis-Replay statt "last write wins" bei der FSRS-Konfliktauflösung (Nutzer-Entscheidung), siehe Änderung an Abschnitt 5 Punkt 4 oben.** Der ursprüngliche Plan hätte bei Mehrgeräte-Nutzung (Karte offline auf Gerät A UND zwischenzeitlich online auf Gerät B gelernt) eine ganze Lernwiederholung stillschweigend verwerfen können, da FSRS-Zustand das Ergebnis einer Sequenz von Bewertungen ist, kein unabhängiger Einzelwert. Die `offlineQueue`/spätere Sync-Logik speichert daher einzelne Ereignisse mit Zeitstempel statt nur den Endzustand.
 - **`apps/api/package.json` verliert die direkte `ts-fsrs`-Abhängigkeit** (zieht sie jetzt transitiv über `@edukedo/shared`), `packages/shared/package.json` bekommt sie neu.
 
-Live verifiziert: `pnpm --filter @edukedo/shared test` (die fünf bestehenden Scheduler-Tests laufen jetzt dort unverändert durch), `pnpm --filter @edukedo/api test` (97 Tests weiterhin grün, der verschobene Import in `progress.ts` bricht nichts), Dexie öffnet die Datenbank im Browser tatsächlich und ein Schreib-/Lese-Roundtrip über beide Tabellen funktioniert, `pnpm --filter @edukedo/web build` bündelt Dexie und den verschobenen FSRS-Code ohne Fehler.
+Live verifiziert: `pnpm --filter @edukedo/shared test` (die fünf bestehenden Scheduler-Tests laufen jetzt dort unverändert durch), `pnpm --filter @edukedo/api test` (97 Tests weiterhin grün, der verschobene Import in `progress.ts` bricht nichts), Dexie öffnet die Datenbank im Browser tatsächlich und ein Schreib-/Lese-Roundtrip über beide Tabellen funktioniert, `pnpm --filter @edukedo/web build` bündelt Dexie und den verschobenen FSRS-Code ohne Fehler. Für Baustein 3 zusätzlich: Download beim Fachwirt-Kurs liefert 387 Items (224 Karteikarten, 72 Multiple-Choice, 35 Kurzantwort, 32 Lückentext, 24 Zuordnung), Stichproben aller fünf Typen in `offlineDb.content` per direkter IndexedDB-Inspektion geprüft (inkl. Lösung bei allen vier Quiz-Formaten und `initialProgressState` bei einer nie geübten Karteikarte), ein erneuter Download bleibt bei 387 Einträgen statt zu duplizieren.
 
 ### Entschieden am 16.09.2026 (F-44 Barrierefreiheit, punktueller Durchgang über wiederverwendete Bausteine)
 
