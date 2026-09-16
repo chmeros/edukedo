@@ -219,6 +219,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           prompt: card.prompt,
           explanation: card.explanation,
           difficulty: card.difficulty,
+          bloom: card.bloom,
         })
         .returning();
       if (!item) throw new Error("Karteikarte konnte nicht angelegt werden.");
@@ -254,6 +255,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
             prompt: parsed.prompt,
             explanation: parsed.explanation,
             difficulty: parsed.difficulty,
+            bloom: parsed.bloom,
           })
           .returning();
         if (!item) throw new Error("Multiple-Choice-Frage konnte nicht angelegt werden.");
@@ -281,6 +283,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
             prompt: parsed.prompt,
             explanation: parsed.explanation,
             difficulty: parsed.difficulty,
+            bloom: parsed.bloom,
           })
           .returning();
         if (!item) throw new Error("Zuordnungs-Frage konnte nicht angelegt werden.");
@@ -307,6 +310,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
             prompt: parsed.prompt,
             explanation: parsed.explanation,
             difficulty: parsed.difficulty,
+            bloom: parsed.bloom,
             payload,
           })
           .returning();
@@ -328,6 +332,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
             prompt: parsed.prompt,
             explanation: parsed.explanation,
             difficulty: parsed.difficulty,
+            bloom: parsed.bloom,
             payload,
           })
           .returning();

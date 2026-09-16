@@ -18,6 +18,16 @@ export const contentItemDifficultySchema = z.enum(["leicht", "mittel", "schwer"]
 export type ContentItemDifficulty = z.infer<typeof contentItemDifficultySchema>;
 
 /**
+ * content_item.bloom — kognitive Anforderungsstufe nach der Bloom'schen Taxonomie
+ * (Anderson/Krathwohl-Revision), zusätzlich zur (subjektiveren) contentItemDifficultySchema.
+ * Ab HB1/HB2/HB4 verbindlich im Content-Zwischenformat (siehe content/README.md), für
+ * älteren Content (HB3, Mathematik-9, Demo) bewusst optional/null statt eines irreführenden
+ * Default-Werts (siehe Architekturplanung Abschnitt 13).
+ */
+export const contentItemBloomSchema = z.enum(["erinnern", "verstehen", "anwenden", "analysieren", "bewerten", "erschaffen"]);
+export type ContentItemBloom = z.infer<typeof contentItemBloomSchema>;
+
+/**
  * payload je content_item.type (Architekturplanung Abschnitt 4.3, Payload-Tabelle).
  * theorie/karteikarte/quiz_mc/zuordnung nutzen prompt/explanation bzw. answer_option;
  * ihr payload bleibt ein leeres Objekt.

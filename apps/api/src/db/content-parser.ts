@@ -59,6 +59,18 @@ export function extractDifficulty(block: string): "leicht" | "mittel" | "schwer"
   return (match?.[1] as "leicht" | "mittel" | "schwer" | undefined) ?? "mittel";
 }
 
+export type Bloom = "erinnern" | "verstehen" | "anwenden" | "analysieren" | "bewerten" | "erschaffen";
+
+/**
+ * `bloom` ist ab HB1/HB2/HB4 verbindlich (siehe content/README.md), älterer Content (HB3,
+ * Mathematik-9, Demo) kennt das Tag nicht — bewusst `null` statt eines Default-Werts wie bei
+ * extractDifficulty, siehe Architekturplanung Abschnitt 13.
+ */
+export function extractBloom(block: string): Bloom | null {
+  const match = /`bloom:\s*(erinnern|verstehen|anwenden|analysieren|bewerten|erschaffen)`/.exec(block);
+  return (match?.[1] as Bloom | undefined) ?? null;
+}
+
 export function extractTags(block: string): string[] {
   const match = /`tags:\s*([^`]+)`/.exec(block);
   if (!match) return [];
@@ -72,6 +84,7 @@ export interface ParsedKarteikarte {
   prompt: string;
   explanation: string;
   difficulty: "leicht" | "mittel" | "schwer";
+  bloom: Bloom | null;
   tags: string[];
 }
 
@@ -80,6 +93,7 @@ export function parseKarteikarten(sectionBody: string): ParsedKarteikarte[] {
     prompt: extractField(block, "Frage") ?? "",
     explanation: extractField(block, "Antwort") ?? "",
     difficulty: extractDifficulty(block),
+    bloom: extractBloom(block),
     tags: extractTags(block),
   }));
 }
@@ -90,6 +104,7 @@ export type ParsedQuizItem =
       prompt: string;
       explanation: string;
       difficulty: string;
+      bloom: Bloom | null;
       options: { text: string; isCorrect: boolean }[];
     }
   | {
@@ -97,6 +112,7 @@ export type ParsedQuizItem =
       prompt: string;
       explanation: string;
       difficulty: string;
+      bloom: Bloom | null;
       pairs: { left: string; right: string }[];
     }
   | {
@@ -104,15 +120,24 @@ export type ParsedQuizItem =
       prompt: string;
       explanation: string;
       difficulty: string;
+      bloom: Bloom | null;
       textWithBlanks: string;
       blanks: { id: string; accepted: string[] }[];
     }
-  | { type: "kurzantwort"; prompt: string; explanation: string; difficulty: string; acceptedAnswers: string[] };
+  | {
+      type: "kurzantwort";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      acceptedAnswers: string[];
+    };
 
 export function parseQuizBlock(block: string): ParsedQuizItem | null {
   const headerMatch = /^#### .+? · (.+)$/m.exec(block);
   const kind = headerMatch?.[1]!.trim();
   const difficulty = extractDifficulty(block);
+  const bloom = extractBloom(block);
   const explanation = extractField(block, "Erklärung") ?? "";
 
   if (kind === "Multiple Choice") {
@@ -121,7 +146,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
       text: match[2]!.trim(),
       isCorrect: match[1] === "x",
     }));
-    return { type: "quiz_mc", prompt, explanation, difficulty, options };
+    return { type: "quiz_mc", prompt, explanation, difficulty, bloom, options };
   }
 
   if (kind === "Zuordnung") {
@@ -130,7 +155,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
       left: match[1]!.trim(),
       right: match[2]!.trim(),
     }));
-    return { type: "zuordnung", prompt, explanation, difficulty, pairs };
+    return { type: "zuordnung", prompt, explanation, difficulty, bloom, pairs };
   }
 
   if (kind === "Lückentext") {
@@ -142,7 +167,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
       blanks.push({ id: String(blankIndex), accepted: [word.trim()] });
       return "___";
     });
-    return { type: "luecken", prompt: text, explanation, difficulty, textWithBlanks, blanks };
+    return { type: "luecken", prompt: text, explanation, difficulty, bloom, textWithBlanks, blanks };
   }
 
   if (kind === "Kurzantwort") {
@@ -152,7 +177,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
       .split(";")
       .map((entry) => entry.trim())
       .filter(Boolean);
-    return { type: "kurzantwort", prompt, explanation, difficulty, acceptedAnswers };
+    return { type: "kurzantwort", prompt, explanation, difficulty, bloom, acceptedAnswers };
   }
 
   console.warn(`Unbekannter Quiz-Fragetyp "${kind}" übersprungen.`);

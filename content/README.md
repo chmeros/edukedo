@@ -8,6 +8,21 @@ Dieses Verzeichnis enthält Lerninhalte im **Zwischenformat** (Markdown mit stru
 content/
   README.md                              ← diese Datei
   fachwirt-buero-projektorganisation/
+    hb1/
+      1.1-informationsmanagement.md
+      1.2-prozess-qualitaetsmanagement.md
+      1.3-projektmanagement.md
+      1.4-zeit-selbstmanagement.md
+      fallaufgaben.md
+      fachgespraech.md
+    hb2/
+      2.1-kundenprojekte.md
+      2.2-zielgruppen-marktanalyse.md
+      2.3-werbemittel.md
+      2.4-veranstaltungsmanagement.md
+      2.5-kundenkommunikation-beschwerdemanagement.md
+      fallaufgaben.md
+      fachgespraech.md
     hb3/
       3.1-personalwirtschaft.md
       3.2-ausbildung.md
@@ -15,6 +30,13 @@ content/
       3.4-moderation.md
       fallaufgaben.md           ← themenübergreifende Situationsaufgaben (F-23)
       fachgespraech.md          ← Fachgesprächsfragen-Sammlung (F-25)
+    hb4/
+      4.1-kennzahlen-controlling.md
+      4.2-einkauf-beschaffung.md
+      4.3-it-anwendungen.md
+      4.4-wissensmanagement.md
+      fallaufgaben.md
+      fachgespraech.md
   mathematik-9/
     algebra-funktionen/
       alg1-quadratwurzeln.md
@@ -32,6 +54,8 @@ content/
 ```
 
 Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganisation/`, `mathematik-9/`), darin ein Ordner je Fachgebiet (`hb3/`, bzw. bei Mathematik `algebra-funktionen/`, `geometrie/`, `stochastik/`), darin eine Datei je Thema. Das spiegelt die Hierarchie Kurs → Fachgebiet → Thema aus dem Datenmodell. Der Ordnername ist bewusst so spezifisch wie der `kurs_slug` gewählt (nicht nur `fachwirt/`), da laut Anforderungskatalog Abschnitt 9 künftig weitere, andersartige Fachwirt-Qualifikationen als eigene Kurse hinzukommen können — ein generisches `fachwirt/` würde dann kollidieren. Bei Mathematik gibt es keine offiziellen Fachgebiets-/Themen-Nummern wie die Handlungsbereiche beim Fachwirt; die Codes (`ALG1`–`ALG3`, `GEO1`–`GEO3`, `STO1`) sind eine eigene, sprechende Benennung.
+
+**Zum Umfang des Fachwirt-Kurses (Stand 15.09.2026):** Alle vier Handlungsbereiche der IHK-Prüfungsstruktur (HB1–HB4, siehe Anforderungskatalog Abschnitt 2/4) sind inzwischen vollständig ausgearbeitet: HB3 zuerst (Pflichtbestandteil der mündlichen Prüfung), anschließend auf ausdrücklichen Wunsch HB1, HB2 und HB4 in einem Zug statt gestaffelt nach KPI-Signal — analog zur bereits zuvor beim Mathematik-Kurs getroffenen Entscheidung, den vollständigen Content unabhängig vom technischen Rollout-Gate vorab zu erstellen (siehe Anforderungskatalog Abschnitt 9/10). Die Themenlisten für HB1, HB2 und HB4 wurden dabei — wie zuvor bei HB3 — anhand des offiziellen DIHK-Rahmenplans verifiziert, nicht mehr nur als vorläufiger Vorschlag übernommen.
 
 **Zum Umfang des Mathematik-Kurses (Stand 14.09.2026):** Der Anforderungskatalog (Abschnitt 9) sieht als Validierungs-Gate eigentlich vor, den Schulfach-Kurs zunächst mit nur einem vollständig ausgearbeiteten Fachgebiet/Themenblock zu starten. Auf ausdrücklichen Wunsch wurde hiervon abgewichen und der Content für alle drei Themenblöcke (Algebra & Funktionen, Geometrie, Stochastik) auf einmal erstellt — siehe Anforderungskatalog Abschnitt 9/10 für die entsprechende Entscheidungsnotiz. Das *technische* Validierungs-Gate (`kurs.is_published` bleibt zunächst `false`, gestaffelter Live-Gang je nach KPI-Signal) ist davon unberührt: Nur weil der Content vorab existiert, muss er nicht sofort für echte Nutzer:innen live geschaltet werden.
 
@@ -65,14 +89,27 @@ Jede Karteikarte ein `####`-Block mit stabiler ID, Frage/Antwort und einer Metad
 #### K-3.1-01
 **Frage:** ...
 **Antwort:** ...
-`tags: personalplanung, agg` · `schwierigkeit: leicht`
+`tags: personalplanung, agg` · `schwierigkeit: leicht` · `bloom: erinnern`
 ```
 
 → `content_item.type = "karteikarte"`, `prompt` = Frage, `explanation` = Antwort, `difficulty` = Schwierigkeit, Tags → `tag`/`content_item_tag`.
 
+**Bloom-Tag (`bloom: <stufe>`, entschieden 15.09.2026, ab HB1/HB2/HB4 verbindlich):** Zusätzlich zur `schwierigkeit` (subjektive Lernenden-Einschätzung: leicht/mittel/schwer) klassifiziert `bloom` die kognitive Anforderungsstufe nach der **Bloom'schen Taxonomie** (Anderson/Krathwohl-Revision), unabhängig von der DIHK-eigenen zweistufigen Anwendungstaxonomie (Verstehen/Anwenden, siehe Rahmenplan-Vorwort „Taxonomie der Lernziele" — die bestimmt weiterhin, welches Verb je Qualifikationsinhalt in der Theorie behandelt wird, ersetzt aber nicht das feinere Bloom-Raster auf Ebene der einzelnen Karteikarte/Frage). Zulässige Werte, aufsteigend:
+
+- `erinnern` — Begriffe/Fakten wiedergeben (z. B. „Was ist …?", Definitionen)
+- `verstehen` — Zusammenhänge in eigenen Worten erklären, einordnen
+- `anwenden` — Gelerntes auf einen neuen, aber ähnlichen Fall übertragen
+- `analysieren` — Sachverhalte in Bestandteile zerlegen, Ursache/Wirkung unterscheiden
+- `bewerten` — Alternativen anhand von Kriterien gegeneinander abwägen, begründet urteilen
+- `erschaffen` — aus Einzelteilen etwas Neues konzipieren (z. B. ein Konzept/einen Plan entwerfen)
+
+Karteikarten liegen meist bei `erinnern`/`verstehen` (Wiederholung ist ihr Zweck); Quiz-Fragen und insbesondere Fallaufgaben-Teilaufgaben decken bewusst auch die höheren Stufen ab, damit nicht nur Faktenwissen, sondern auch Transferfähigkeit trainiert wird — passend zur Handlungsorientierung der IHK-Prüfung (vgl. Rahmenplan-Vorwort).
+
 ### Abschnitt „## Quiz"
 
 Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
+
+Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben) in derselben Metadatenzeile.
 
 **Multiple Choice** (`type: quiz_mc`) — genau eine oder mehrere Optionen mit `[x]` markiert:
 ```markdown
@@ -83,7 +120,7 @@ Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
 - [ ] Option C
 - [ ] Option D
 **Erklärung:** ...
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: verstehen`
 ```
 
 **Zuordnung** (`type: zuordnung`) — Paare durch `↔` getrennt:
@@ -93,7 +130,7 @@ Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
 - Begriff A ↔ Beschreibung A
 - Begriff B ↔ Beschreibung B
 **Erklärung:** ...
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: verstehen`
 ```
 → jede Zeile wird beim Import zu zwei `answer_option`-Zeilen mit gemeinsamem `group_key` und `side = "links"`/`"rechts"`.
 
@@ -102,7 +139,7 @@ Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
 #### Q-3.1-08 · Lückentext
 **Text:** Die ___Personalbedarfsplanung___ ermittelt, wie viele Mitarbeitende mit welcher Qualifikation zu welchem Zeitpunkt benötigt werden.
 **Erklärung:** ...
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 ```
 → `payload.blanks` mit dem markierten Begriff als `accepted`-Wert.
 
@@ -112,7 +149,7 @@ Vier Fragetypen, je mit eigenem, eindeutig parsbarem Muster:
 **Frage:** ...
 **Akzeptierte Antworten:** Begriff A; Begriff B
 **Erklärung:** ...
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: analysieren`
 ```
 
 ## Fallaufgaben / Übungsaufgaben-Sammlungen (`fallaufgaben.md` bzw. `uebungsaufgaben.md`)
@@ -125,10 +162,12 @@ Mehrschrittige Aufgaben, die mehrere Themen desselben Fachgebiets kombinieren (`
 ```markdown
 #### F-HB3-01 · Fallaufgabe
 **Ausgangssituation:** ...
-**Teilaufgabe 1 (X Punkte):** ...
-**Teilaufgabe 2 (X Punkte):** ...
+**Teilaufgabe 1 (X Punkte, bloom: analysieren):** ...
+**Teilaufgabe 2 (X Punkte, bloom: bewerten):** ...
 **Musterlösungshinweise:** ...
 ```
+
+Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben der Punktzahl (statt in einer separaten Metadatenzeile), da jede Teilaufgabe einzeln eingestuft wird — Fallaufgaben liegen als mehrschrittige Transferaufgaben meist bei `anwenden` bis `erschaffen`.
 
 ```markdown
 #### U-ALG-01 · Übungsaufgabe

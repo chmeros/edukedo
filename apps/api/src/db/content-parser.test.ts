@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  extractBloom,
   extractSection,
   parseKarteikarten,
   parseQuizBlock,
@@ -72,6 +73,29 @@ describe("splitFrontmatter", () => {
     expect(frontmatter.thema_code).toBe("3.1");
     expect(frontmatter.thema_title).toBe("Personalplanung, -beschaffung, -betreuung und -entwicklung");
   });
+
+  it("ignoriert eine mehrzeilige YAML-Liste (z. B. qualifikationsinhalte, ab HB1/HB2/HB4) statt daran zu scheitern", () => {
+    const withList = `---
+kurs_slug: fachwirt-buero-projektorganisation
+fachgebiet_code: HB1
+thema_code: "1.1"
+qualifikationsinhalte:
+  - "1.1.1 Informationsfluss strukturieren"
+  - "1.1.2 Art und Güte bewerten"
+---
+
+## Theorie
+
+Text.
+`;
+    const { frontmatter } = splitFrontmatter(withList);
+    // qualifikationsinhalte bleibt bewusst rein dokumentarisch im Frontmatter und wird nicht in
+    // der Datenbank persistiert (siehe Architekturplanung Abschnitt 13) — der einfache
+    // Zeilen-Parser liest hier nur den (leeren) Key, die Listenelemente werden ignoriert, ohne
+    // die übrigen Felder zu stören.
+    expect(frontmatter.kurs_slug).toBe("fachwirt-buero-projektorganisation");
+    expect(frontmatter.thema_code).toBe("1.1");
+  });
 });
 
 describe("extractSection", () => {
@@ -95,7 +119,7 @@ describe("extractSection", () => {
 });
 
 describe("parseKarteikarten", () => {
-  it("parst Frage, Antwort, Schwierigkeit und Tags", () => {
+  it("parst Frage, Antwort, Schwierigkeit und Tags; bloom fehlt bei HB3 (wie im Original) und wird null statt eines Defaults", () => {
     const { body } = splitFrontmatter(SAMPLE_FILE);
     const karteikarten = parseKarteikarten(extractSection(body, "Karteikarten")!);
     expect(karteikarten).toHaveLength(1);
@@ -103,8 +127,32 @@ describe("parseKarteikarten", () => {
       prompt: "Was ist Personalbedarf?",
       explanation: "Die benötigte Personalausstattung.",
       difficulty: "leicht",
+      bloom: null,
       tags: ["personalplanung", "agg"],
     });
+  });
+
+  it("parst das seit HB1/HB2/HB4 verbindliche bloom-Tag", () => {
+    const block = [
+      "#### K-1.1-01",
+      "**Frage:** X",
+      "**Antwort:** Y",
+      "`tags: informationsfluss` · `schwierigkeit: leicht` · `bloom: erinnern`",
+    ].join("\n");
+    const [parsed] = parseKarteikarten(block);
+    expect(parsed?.bloom).toBe("erinnern");
+  });
+});
+
+describe("extractBloom", () => {
+  it("erkennt alle sechs Stufen der Bloom'schen Taxonomie", () => {
+    for (const stufe of ["erinnern", "verstehen", "anwenden", "analysieren", "bewerten", "erschaffen"] as const) {
+      expect(extractBloom(`\`bloom: ${stufe}\``)).toBe(stufe);
+    }
+  });
+
+  it("gibt null zurück, wenn kein bloom-Tag vorhanden ist (statt eines Default-Werts)", () => {
+    expect(extractBloom("`schwierigkeit: mittel`")).toBeNull();
   });
 });
 

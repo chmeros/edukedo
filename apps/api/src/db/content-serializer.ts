@@ -10,7 +10,10 @@
  * existiert nur in der Quelldatei und wird beim Import verworfen. Exportierte IDs sind daher
  * frisch durchnummeriert (nach `created_at` als Näherung an die ursprüngliche Reihenfolge),
  * nicht zwingend die exakten Original-IDs. `quelle`/`rechtsstand` aus dem Frontmatter werden
- * ebenfalls nicht in der Datenbank gespeichert und erscheinen im Export nur als Platzhalter.
+ * ebenfalls nicht in der Datenbank gespeichert und erscheinen im Export nur als Platzhalter —
+ * ebenso `qualifikationsinhalte` (siehe content/README.md), das bewusst rein dokumentarisch im
+ * Frontmatter bleibt und nirgends in der Datenbank persistiert wird (siehe Architekturplanung
+ * Abschnitt 13), taucht im Export daher gar nicht erst auf.
  */
 
 export interface FrontmatterFields {
@@ -47,16 +50,26 @@ export function splitThemaTitle(combined: string): { code: string; title: string
   return { code: combined.slice(0, separatorIndex), title: combined.slice(separatorIndex + 3) };
 }
 
+/** Baut die abschließende Metadatenzeile (`schwierigkeit`, optional `bloom`) — bloom fehlt bei
+ * älterem Content (HB3, Mathematik-9, Demo), der nie danach klassifiziert wurde, siehe bloom
+ * in content-parser.ts. */
+function serializeMetaLine(difficulty: string, bloom: string | null): string {
+  const parts = [`\`schwierigkeit: ${difficulty}\``];
+  if (bloom) parts.push(`\`bloom: ${bloom}\``);
+  return parts.join(" · ");
+}
+
 export function serializeKarteikarte(
   id: string,
   prompt: string,
   explanation: string,
   difficulty: string,
+  bloom: string | null,
   tags: string[],
 ): string {
   const metaParts: string[] = [];
   if (tags.length > 0) metaParts.push(`\`tags: ${tags.join(", ")}\``);
-  metaParts.push(`\`schwierigkeit: ${difficulty}\``);
+  metaParts.push(serializeMetaLine(difficulty, bloom));
   return [`#### ${id}`, `**Frage:** ${prompt}`, `**Antwort:** ${explanation}`, metaParts.join(" · ")].join("\n");
 }
 
@@ -65,6 +78,7 @@ export function serializeQuizMc(
   prompt: string,
   explanation: string,
   difficulty: string,
+  bloom: string | null,
   options: { text: string; isCorrect: boolean }[],
 ): string {
   return [
@@ -72,7 +86,7 @@ export function serializeQuizMc(
     `**Frage:** ${prompt}`,
     ...options.map((option) => `- [${option.isCorrect ? "x" : " "}] ${option.text}`),
     `**Erklärung:** ${explanation}`,
-    `\`schwierigkeit: ${difficulty}\``,
+    serializeMetaLine(difficulty, bloom),
   ].join("\n");
 }
 
@@ -81,6 +95,7 @@ export function serializeZuordnung(
   prompt: string,
   explanation: string,
   difficulty: string,
+  bloom: string | null,
   pairs: { left: string; right: string }[],
 ): string {
   return [
@@ -88,7 +103,7 @@ export function serializeZuordnung(
     `**Anweisung:** ${prompt}`,
     ...pairs.map((pair) => `- ${pair.left} ↔ ${pair.right}`),
     `**Erklärung:** ${explanation}`,
-    `\`schwierigkeit: ${difficulty}\``,
+    serializeMetaLine(difficulty, bloom),
   ].join("\n");
 }
 
@@ -98,6 +113,7 @@ export function serializeLuecken(
   id: string,
   explanation: string,
   difficulty: string,
+  bloom: string | null,
   textWithBlanks: string,
   blanks: { accepted: string[] }[],
 ): string {
@@ -107,7 +123,7 @@ export function serializeLuecken(
     blankIndex += 1;
     return `___${word}___`;
   });
-  return [`#### ${id} · Lückentext`, `**Text:** ${text}`, `**Erklärung:** ${explanation}`, `\`schwierigkeit: ${difficulty}\``].join(
+  return [`#### ${id} · Lückentext`, `**Text:** ${text}`, `**Erklärung:** ${explanation}`, serializeMetaLine(difficulty, bloom)].join(
     "\n",
   );
 }
@@ -117,6 +133,7 @@ export function serializeKurzantwort(
   prompt: string,
   explanation: string,
   difficulty: string,
+  bloom: string | null,
   acceptedAnswers: string[],
 ): string {
   return [
@@ -124,7 +141,7 @@ export function serializeKurzantwort(
     `**Frage:** ${prompt}`,
     `**Akzeptierte Antworten:** ${acceptedAnswers.join("; ")}`,
     `**Erklärung:** ${explanation}`,
-    `\`schwierigkeit: ${difficulty}\``,
+    serializeMetaLine(difficulty, bloom),
   ].join("\n");
 }
 

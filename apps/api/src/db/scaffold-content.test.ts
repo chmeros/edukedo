@@ -97,6 +97,14 @@ describe("insertItemBlock", () => {
       expect(updated).toMatch(/#### Q-X-01 · /);
     }
   });
+
+  it("gibt das seit HB1/HB2/HB4 verbindliche bloom-Tag bereits im Platzhalter vor", () => {
+    const base = ["---", "thema_code: \"X\"", "---", ""].join("\n");
+    for (const type of ["karteikarte", "quiz_mc", "zuordnung", "luecken", "kurzantwort"] as const) {
+      const { updated } = insertItemBlock(base, type, "X");
+      expect(updated).toContain("`bloom: verstehen`");
+    }
+  });
 });
 
 describe("newThemaContent", () => {

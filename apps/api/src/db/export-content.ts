@@ -87,7 +87,14 @@ export async function exportAllContent(): Promise<ExportSummary> {
               .innerJoin(tag, eq(tag.id, contentItemTag.tagId))
               .where(eq(contentItemTag.contentItemId, item.id));
             karteikartenBlocks.push(
-              serializeKarteikarte(id, item.prompt, item.explanation ?? "", item.difficulty, tagRows.map((row) => row.name)),
+              serializeKarteikarte(
+                id,
+                item.prompt,
+                item.explanation ?? "",
+                item.difficulty,
+                item.bloom,
+                tagRows.map((row) => row.name),
+              ),
             );
             itemsExported += 1;
             continue;
@@ -109,6 +116,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
                   item.prompt,
                   item.explanation ?? "",
                   item.difficulty,
+                  item.bloom,
                   options.map((option) => ({ text: option.text, isCorrect: option.isCorrect })),
                 ),
               );
@@ -129,16 +137,30 @@ export async function exportAllContent(): Promise<ExportSummary> {
               const pairs = [...pairsByGroup.values()].filter(
                 (pair): pair is { left: string; right: string } => !!pair.left && !!pair.right,
               );
-              quizBlocks.push(serializeZuordnung(id, item.prompt, item.explanation ?? "", item.difficulty, pairs));
+              quizBlocks.push(serializeZuordnung(id, item.prompt, item.explanation ?? "", item.difficulty, item.bloom, pairs));
             } else if (item.type === "luecken") {
               const payload = lueckenPayloadSchema.parse(item.payload);
               quizBlocks.push(
-                serializeLuecken(id, item.explanation ?? "", item.difficulty, payload.text_with_blanks, payload.blanks),
+                serializeLuecken(
+                  id,
+                  item.explanation ?? "",
+                  item.difficulty,
+                  item.bloom,
+                  payload.text_with_blanks,
+                  payload.blanks,
+                ),
               );
             } else {
               const payload = kurzantwortPayloadSchema.parse(item.payload);
               quizBlocks.push(
-                serializeKurzantwort(id, item.prompt, item.explanation ?? "", item.difficulty, payload.accepted_answers),
+                serializeKurzantwort(
+                  id,
+                  item.prompt,
+                  item.explanation ?? "",
+                  item.difficulty,
+                  item.bloom,
+                  payload.accepted_answers,
+                ),
               );
             }
             itemsExported += 1;

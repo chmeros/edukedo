@@ -28,8 +28,13 @@ export function isItemType(value: string): value is ItemType {
   return (ITEM_TYPES as readonly string[]).includes(value);
 }
 
+// Bloom-Tag im Platzhalter mitgegeben statt weggelassen: seit HB1/HB2/HB4 verbindlich (siehe
+// content/README.md) — "verstehen" als neutraler Mittelwert zum direkten Überschreiben, nicht
+// als inhaltlich geprüfte Einstufung.
+const META_LINE_PLACEHOLDER = "`schwierigkeit: mittel` · `bloom: verstehen`";
+
 function karteikartePlaceholder(id: string): string {
-  return [`#### ${id}`, "**Frage:** TODO", "**Antwort:** TODO", "`schwierigkeit: mittel`"].join("\n");
+  return [`#### ${id}`, "**Frage:** TODO", "**Antwort:** TODO", META_LINE_PLACEHOLDER].join("\n");
 }
 
 function quizMcPlaceholder(id: string): string {
@@ -41,7 +46,7 @@ function quizMcPlaceholder(id: string): string {
     "- [ ] TODO",
     "- [ ] TODO",
     "**Erklärung:** TODO",
-    "`schwierigkeit: mittel`",
+    META_LINE_PLACEHOLDER,
   ].join("\n");
 }
 
@@ -52,12 +57,12 @@ function zuordnungPlaceholder(id: string): string {
     "- TODO ↔ TODO",
     "- TODO ↔ TODO",
     "**Erklärung:** TODO",
-    "`schwierigkeit: mittel`",
+    META_LINE_PLACEHOLDER,
   ].join("\n");
 }
 
 function lueckenPlaceholder(id: string): string {
-  return [`#### ${id} · Lückentext`, "**Text:** TODO ___Lückenwort___ TODO.", "**Erklärung:** TODO", "`schwierigkeit: mittel`"].join(
+  return [`#### ${id} · Lückentext`, "**Text:** TODO ___Lückenwort___ TODO.", "**Erklärung:** TODO", META_LINE_PLACEHOLDER].join(
     "\n",
   );
 }
@@ -68,7 +73,7 @@ function kurzantwortPlaceholder(id: string): string {
     "**Frage:** TODO",
     "**Akzeptierte Antworten:** TODO; TODO",
     "**Erklärung:** TODO",
-    "`schwierigkeit: mittel`",
+    META_LINE_PLACEHOLDER,
   ].join("\n");
 }
 

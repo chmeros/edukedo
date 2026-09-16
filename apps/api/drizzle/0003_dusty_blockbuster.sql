@@ -1,0 +1,2 @@
+ALTER TABLE "content_item" ADD COLUMN "bloom" text;--> statement-breakpoint
+ALTER TABLE "content_item" ADD CONSTRAINT "content_item_bloom_check" CHECK ("content_item"."bloom" is null or "content_item"."bloom" in ('erinnern', 'verstehen', 'anwenden', 'analysieren', 'bewerten', 'erschaffen'));

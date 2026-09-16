@@ -167,6 +167,12 @@ export const contentItem = pgTable(
     explanation: text("explanation"),
     payload: jsonb("payload").notNull().default({}),
     difficulty: text("difficulty").notNull().default("mittel"),
+    // "bloom" (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13):
+    // kognitive Anforderungsstufe nach der Bloom'schen Taxonomie, ab HB1/HB2/HB4 verbindlich
+    // im Content-Zwischenformat (siehe content/README.md) — bewusst nullable statt mit
+    // Default, da älterer Content (HB3, Mathematik-9, Demo) nie danach klassifiziert wurde;
+    // ein Default-Wert würde dafür fälschlich eine tatsächlich erfolgte Einstufung vortäuschen.
+    bloom: text("bloom"),
     isPremium: boolean("is_premium").notNull().default(false),
     isActive: boolean("is_active").notNull().default(true),
     currentVersion: integer("current_version").notNull().default(1),
@@ -178,6 +184,10 @@ export const contentItem = pgTable(
     index("content_item_thema_id_active_idx")
       .on(table.themaId)
       .where(sql`${table.isActive}`),
+    check(
+      "content_item_bloom_check",
+      sql`${table.bloom} is null or ${table.bloom} in ('erinnern', 'verstehen', 'anwenden', 'analysieren', 'bewerten', 'erschaffen')`,
+    ),
   ],
 );
 

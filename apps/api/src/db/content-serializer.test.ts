@@ -24,34 +24,47 @@ describe("splitThemaTitle", () => {
 });
 
 describe("Round-Trip serialize -> parse", () => {
-  it("Karteikarte: serialisierter Block parst zu denselben Feldern", () => {
-    const block = serializeKarteikarte("K-3.1-01", "Was ist Personalbedarf?", "Die benötigte Personalausstattung.", "leicht", [
-      "personalplanung",
-      "agg",
-    ]);
+  it("Karteikarte: serialisierter Block parst zu denselben Feldern (ohne bloom, wie HB3/Mathematik-9)", () => {
+    const block = serializeKarteikarte(
+      "K-3.1-01",
+      "Was ist Personalbedarf?",
+      "Die benötigte Personalausstattung.",
+      "leicht",
+      null,
+      ["personalplanung", "agg"],
+    );
+    expect(block).not.toContain("bloom:");
     const [parsed] = parseKarteikarten(block);
     expect(parsed).toEqual({
       prompt: "Was ist Personalbedarf?",
       explanation: "Die benötigte Personalausstattung.",
       difficulty: "leicht",
+      bloom: null,
       tags: ["personalplanung", "agg"],
     });
   });
 
+  it("Karteikarte mit bloom (wie ab HB1/HB2/HB4 verbindlich): serialisierter Block parst zum selben Wert", () => {
+    const block = serializeKarteikarte("K-1.1-01", "Frage", "Antwort", "leicht", "erinnern", []);
+    expect(block).toContain("`bloom: erinnern`");
+    const [parsed] = parseKarteikarten(block);
+    expect(parsed?.bloom).toBe("erinnern");
+  });
+
   it("Karteikarte ohne Tags: kein leeres `tags: `-Segment im Output", () => {
-    const block = serializeKarteikarte("K-3.1-02", "Frage", "Antwort", "mittel", []);
+    const block = serializeKarteikarte("K-3.1-02", "Frage", "Antwort", "mittel", null, []);
     expect(block).not.toContain("tags:");
     const [parsed] = parseKarteikarten(block);
     expect(parsed?.tags).toEqual([]);
   });
 
-  it("Multiple Choice: serialisierter Block parst zu denselben Optionen", () => {
-    const block = serializeQuizMc("Q-3.1-01", "Welche Aussage trifft zu?", "Weil das so ist.", "mittel", [
+  it("Multiple Choice: serialisierter Block parst zu denselben Optionen und demselben bloom-Wert", () => {
+    const block = serializeQuizMc("Q-3.1-01", "Welche Aussage trifft zu?", "Weil das so ist.", "mittel", "verstehen", [
       { text: "Falsche Option", isCorrect: false },
       { text: "Richtige Option", isCorrect: true },
     ]);
     const parsed = parseQuizBlock(block);
-    expect(parsed).toMatchObject({ type: "quiz_mc", prompt: "Welche Aussage trifft zu?", difficulty: "mittel" });
+    expect(parsed).toMatchObject({ type: "quiz_mc", prompt: "Welche Aussage trifft zu?", difficulty: "mittel", bloom: "verstehen" });
     if (parsed?.type === "quiz_mc") {
       expect(parsed.options).toEqual([
         { text: "Falsche Option", isCorrect: false },
@@ -61,12 +74,12 @@ describe("Round-Trip serialize -> parse", () => {
   });
 
   it("Zuordnung: serialisierter Block parst zu denselben Paaren", () => {
-    const block = serializeZuordnung("Q-3.1-02", "Ordne zu.", "Erklärung dazu.", "leicht", [
+    const block = serializeZuordnung("Q-3.1-02", "Ordne zu.", "Erklärung dazu.", "leicht", null, [
       { left: "Begriff A", right: "Beschreibung A" },
       { left: "Begriff B", right: "Beschreibung B" },
     ]);
     const parsed = parseQuizBlock(block);
-    expect(parsed).toMatchObject({ type: "zuordnung" });
+    expect(parsed).toMatchObject({ type: "zuordnung", bloom: null });
     if (parsed?.type === "zuordnung") {
       expect(parsed.pairs).toEqual([
         { left: "Begriff A", right: "Beschreibung A" },
@@ -80,11 +93,12 @@ describe("Round-Trip serialize -> parse", () => {
       "Q-3.1-03",
       "Grundformel.",
       "leicht",
+      "erinnern",
       "Die Differenz zwischen ___ und ___ zeigt den Handlungsbedarf.",
       [{ accepted: ["Bestand"] }, { accepted: ["Bedarf"] }],
     );
     const parsed = parseQuizBlock(block);
-    expect(parsed).toMatchObject({ type: "luecken" });
+    expect(parsed).toMatchObject({ type: "luecken", bloom: "erinnern" });
     if (parsed?.type === "luecken") {
       expect(parsed.textWithBlanks).toBe("Die Differenz zwischen ___ und ___ zeigt den Handlungsbedarf.");
       expect(parsed.blanks).toEqual([
@@ -95,12 +109,12 @@ describe("Round-Trip serialize -> parse", () => {
   });
 
   it("Kurzantwort: serialisierter Block parst zu denselben akzeptierten Antworten", () => {
-    const block = serializeKurzantwort("Q-3.1-04", "Wie heißt das Gesetz?", "Regelt die Nachweispflicht.", "mittel", [
+    const block = serializeKurzantwort("Q-3.1-04", "Wie heißt das Gesetz?", "Regelt die Nachweispflicht.", "mittel", "analysieren", [
       "Nachweisgesetz",
       "NachwG",
     ]);
     const parsed = parseQuizBlock(block);
-    expect(parsed).toMatchObject({ type: "kurzantwort" });
+    expect(parsed).toMatchObject({ type: "kurzantwort", bloom: "analysieren" });
     if (parsed?.type === "kurzantwort") {
       expect(parsed.acceptedAnswers).toEqual(["Nachweisgesetz", "NachwG"]);
     }
@@ -109,8 +123,8 @@ describe("Round-Trip serialize -> parse", () => {
 
 describe("serializeThemaFile", () => {
   it("erzeugt eine Datei, aus der sich Theorie/Karteikarten/Quiz wieder sauber extrahieren lassen", () => {
-    const karteikartenBlock = serializeKarteikarte("K-3.1-01", "Frage", "Antwort", "leicht", []);
-    const quizBlock = serializeQuizMc("Q-3.1-01", "Quiz-Frage", "Erklärung", "mittel", [{ text: "Option", isCorrect: true }]);
+    const karteikartenBlock = serializeKarteikarte("K-3.1-01", "Frage", "Antwort", "leicht", null, []);
+    const quizBlock = serializeQuizMc("Q-3.1-01", "Quiz-Frage", "Erklärung", "mittel", null, [{ text: "Option", isCorrect: true }]);
     const fileContent = serializeThemaFile(
       {
         kursSlug: "fachwirt-buero-projektorganisation",
