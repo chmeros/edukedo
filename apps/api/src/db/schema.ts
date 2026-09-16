@@ -312,13 +312,19 @@ export const learningEvent = pgTable(
      * über den Sync nachgespielten Ereignissen gesetzt — dient als Idempotenz-Schlüssel, falls
      * ein Sync-Versuch abbricht und wiederholt wird (siehe Architekturplanung Abschnitt 13).
      * Mehrere NULL-Werte sind unter UNIQUE in Postgres zulässig, normale Online-Ereignisse
-     * bleiben also unberührt.
+     * bleiben also unberührt. Bewusst NICHT spaltenweit eindeutig (Code-Review-Fund, siehe
+     * Architekturplanung Abschnitt 13): eine global eindeutige Spalte auf einem rein
+     * client-generierten Wert hätte bei einer Kollision zwischen zwei verschiedenen Nutzer:innen
+     * (Zufall oder ein manipulierter Request) die Antwort der/des zweiten stillschweigend
+     * verworfen — der zusammengesetzte Unique-Index unten scoped die Eindeutigkeit auf die
+     * jeweilige Nutzer:in.
      */
-    clientEventId: uuid("client_event_id").unique(),
+    clientEventId: uuid("client_event_id"),
   },
   (table) => [
     index("learning_event_user_id_occurred_at_idx").on(table.userId, table.occurredAt),
     index("learning_event_content_item_id_idx").on(table.contentItemId),
+    uniqueIndex("learning_event_user_id_client_event_id_key").on(table.userId, table.clientEventId),
   ],
 );
 

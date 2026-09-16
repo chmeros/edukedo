@@ -79,9 +79,18 @@ export function Flashcards({
     } else {
       // Entfernt die bewertete Karte direkt aus der lokalen Liste, statt (wie online) eine
       // Server-Query zu invalidieren — es gibt offline keine Query, die neu laden könnte.
-      void reviewOfflineCard(current as OfflineContentItem, result).then(() => {
-        setOfflineCards((existing) => (existing ?? []).filter((card) => card.id !== current!.id));
-      });
+      // Code-Review-Fund, nachgezogen: ohne .catch() wäre ein Schreibfehler (z. B. IndexedDB-
+      // Kontingent überschritten) eine unbehandelte Promise-Ablehnung gewesen — die Karte bleibt
+      // in diesem Fall bewusst in der fälligen Liste stehen (setOfflineCards läuft nur bei
+      // Erfolg), ein erneutes Bewerten versucht es erneut, statt die Bewertung unbemerkt zu
+      // verlieren.
+      reviewOfflineCard(current as OfflineContentItem, result)
+        .then(() => {
+          setOfflineCards((existing) => (existing ?? []).filter((card) => card.id !== current!.id));
+        })
+        .catch((error: unknown) => {
+          console.error("Offline-Karteikarten-Bewertung konnte nicht gespeichert werden:", error);
+        });
     }
     setRevealed(false);
   }

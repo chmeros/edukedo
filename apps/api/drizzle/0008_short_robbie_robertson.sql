@@ -1,0 +1,2 @@
+ALTER TABLE "learning_event" DROP CONSTRAINT "learning_event_client_event_id_unique";--> statement-breakpoint
+CREATE UNIQUE INDEX "learning_event_user_id_client_event_id_key" ON "learning_event" USING btree ("user_id","client_event_id");

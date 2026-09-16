@@ -57,6 +57,13 @@
       "when": 1789585646267,
       "tag": "0007_narrow_sugar_man",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1789588309268,
+      "tag": "0008_short_robbie_robertson",
+      "breakpoints": true
     }
   ]
 }

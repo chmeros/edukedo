@@ -67,8 +67,16 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
         const item = findItem(input.contentItemId);
         if (!item) return;
         const { isCorrect, correctOptionId } = checkMcAnswer(item.options, input.selectedOptionId);
-        void pushQueueEvent(item.id, { kind: "quiz_mc", selectedOptionId: input.selectedOptionId });
-        opts.onSuccess({ isCorrect, correctOptionId, explanation: item.explanation });
+        pushQueueEvent(item.id, { kind: "quiz_mc", selectedOptionId: input.selectedOptionId })
+          .then(() => opts.onSuccess({ isCorrect, correctOptionId, explanation: item.explanation }))
+          .catch((error: unknown) => {
+            // Code-Review-Fund, nachgezogen: onSuccess feuerte vorher synchron, unabhängig
+            // vom (unbehandelten) Ergebnis des Warteschlangen-Schreibzugriffs — bei einem
+            // Fehler (z. B. IndexedDB-Kontingent überschritten) meldete die UI fälschlich
+            // Erfolg, obwohl die Antwort nie in offline.syncQueue ankommen würde. onSuccess
+            // bleibt jetzt aus, ein erneuter Klick auf "Antwort prüfen" versucht es erneut.
+            console.error("Offline-Quiz-Antwort (quiz_mc) konnte nicht gespeichert werden:", error);
+          });
       },
     },
     submitMatching: {
@@ -80,8 +88,11 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
         const item = findItem(input.contentItemId);
         if (!item) return;
         const result = checkMatching(item.options, input.pairs);
-        void pushQueueEvent(item.id, { kind: "zuordnung", pairs: input.pairs });
-        opts.onSuccess(result);
+        pushQueueEvent(item.id, { kind: "zuordnung", pairs: input.pairs })
+          .then(() => opts.onSuccess(result))
+          .catch((error: unknown) => {
+            console.error("Offline-Quiz-Antwort (zuordnung) konnte nicht gespeichert werden:", error);
+          });
       },
     },
     submitBlanks: {
@@ -100,8 +111,11 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
         const item = findItem(input.contentItemId);
         if (!item) return;
         const result = checkBlanks(item.payload, input.answers);
-        void pushQueueEvent(item.id, { kind: "luecken", answers: input.answers });
-        opts.onSuccess(result);
+        pushQueueEvent(item.id, { kind: "luecken", answers: input.answers })
+          .then(() => opts.onSuccess(result))
+          .catch((error: unknown) => {
+            console.error("Offline-Quiz-Antwort (luecken) konnte nicht gespeichert werden:", error);
+          });
       },
     },
     submitKurzantwort: {
@@ -113,8 +127,11 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
         const item = findItem(input.contentItemId);
         if (!item) return;
         const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
-        void pushQueueEvent(item.id, { kind: "kurzantwort", answer: input.answer });
-        opts.onSuccess({ isCorrect, correctAnswer, explanation: item.explanation });
+        pushQueueEvent(item.id, { kind: "kurzantwort", answer: input.answer })
+          .then(() => opts.onSuccess({ isCorrect, correctAnswer, explanation: item.explanation }))
+          .catch((error: unknown) => {
+            console.error("Offline-Quiz-Antwort (kurzantwort) konnte nicht gespeichert werden:", error);
+          });
       },
     },
   };

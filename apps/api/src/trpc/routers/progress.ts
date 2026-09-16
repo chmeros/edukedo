@@ -50,35 +50,54 @@ export async function recordQuizAttempt(
   occurredAt: Date = new Date(),
   clientEventId?: string,
 ): Promise<void> {
-  const [insertedEvent] = await db
-    .insert(learningEvent)
-    .values({ userId, contentItemId, isCorrect, occurredAt, clientEventId: clientEventId ?? null })
-    .onConflictDoNothing({ target: learningEvent.clientEventId })
-    .returning({ id: learningEvent.id });
+  // Code-Review-Fund, nachgezogen: die beiden Schreibzugriffe (learningEvent/userProgress)
+  // liefen vorher unverbunden nacheinander — bei einem Verbindungsabbruch zwischen beiden
+  // konnte eine learningEvent-Zeile ohne zugehöriges userProgress-Update übrig bleiben. Beide
+  // jetzt in einer Transaktion, damit entweder beide oder keine der beiden Änderungen greift.
+  await db.transaction(async (tx) => {
+    const [insertedEvent] = await tx
+      .insert(learningEvent)
+      .values({ userId, contentItemId, isCorrect, occurredAt, clientEventId: clientEventId ?? null })
+      .onConflictDoNothing({ target: [learningEvent.userId, learningEvent.clientEventId] })
+      .returning({ id: learningEvent.id });
 
-  if (clientEventId && !insertedEvent) {
-    // Bereits bei einem früheren Sync-Versuch verarbeitet — user_progress nicht erneut ändern.
-    return;
-  }
+    if (clientEventId && !insertedEvent) {
+      // Bereits bei einem früheren Sync-Versuch verarbeitet — user_progress nicht erneut ändern.
+      return;
+    }
 
-  const state = isCorrect ? "review" : "learning";
-  await db
-    .insert(userProgress)
-    .values({
-      userId,
-      contentItemId,
-      difficulty: 0,
-      stability: 0,
-      state,
-      dueAt: occurredAt,
-      lastReviewedAt: occurredAt,
-      reps: 0,
-      lapses: 0,
-    })
-    .onConflictDoUpdate({
-      target: [userProgress.userId, userProgress.contentItemId],
-      set: { state, lastReviewedAt: occurredAt },
-    });
+    // Code-Review-Fund, nachgezogen: ein offline erfasstes Ereignis kann beim Sync später
+    // eintreffen als ein zwischenzeitlich auf einem anderen Gerät erfasstes neueres Ergebnis
+    // desselben Items — das Ereignis bleibt oben als Verlauf erhalten (F-31/F-32), darf aber
+    // den bereits neueren user_progress-Stand nicht mit einem älteren überschreiben.
+    const [existing] = await tx
+      .select({ lastReviewedAt: userProgress.lastReviewedAt })
+      .from(userProgress)
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+      .limit(1);
+    if (existing?.lastReviewedAt && occurredAt <= existing.lastReviewedAt) {
+      return;
+    }
+
+    const state = isCorrect ? "review" : "learning";
+    await tx
+      .insert(userProgress)
+      .values({
+        userId,
+        contentItemId,
+        difficulty: 0,
+        stability: 0,
+        state,
+        dueAt: occurredAt,
+        lastReviewedAt: occurredAt,
+        reps: 0,
+        lapses: 0,
+      })
+      .onConflictDoUpdate({
+        target: [userProgress.userId, userProgress.contentItemId],
+        set: { state, lastReviewedAt: occurredAt },
+      });
+  });
 }
 
 /**
@@ -97,59 +116,60 @@ export async function applyReview(
   now: Date,
   clientEventId?: string,
 ): Promise<{ dueAt: Date }> {
-  const [existing] = await db
-    .select()
-    .from(userProgress)
-    .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
-    .limit(1);
+  // Code-Review-Fund, nachgezogen: siehe recordQuizAttempt oben — dieselbe Transaktion, damit
+  // die learningEvent-Zeile nie ohne das zugehörige user_progress-Update übrig bleiben kann.
+  return db.transaction(async (tx) => {
+    const [existing] = await tx
+      .select()
+      .from(userProgress)
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+      .limit(1);
 
-  const current = existing
-    ? {
-        difficulty: existing.difficulty,
-        stability: existing.stability,
-        state: existing.state,
-        dueAt: existing.dueAt,
-        lastReviewedAt: existing.lastReviewedAt,
-        reps: existing.reps,
-        lapses: existing.lapses,
-      }
-    : initialProgressState(now);
+    const [insertedEvent] = await tx
+      .insert(learningEvent)
+      .values({
+        userId,
+        contentItemId,
+        isCorrect: result !== "nicht_gewusst",
+        occurredAt: now,
+        clientEventId: clientEventId ?? null,
+      })
+      .onConflictDoNothing({ target: [learningEvent.userId, learningEvent.clientEventId] })
+      .returning({ id: learningEvent.id });
 
-  const next = scheduleReview(current, result, now);
+    if (clientEventId && !insertedEvent) {
+      return { dueAt: existing?.dueAt ?? now };
+    }
 
-  const [insertedEvent] = await db
-    .insert(learningEvent)
-    .values({
-      userId,
-      contentItemId,
-      isCorrect: result !== "nicht_gewusst",
-      occurredAt: now,
-      clientEventId: clientEventId ?? null,
-    })
-    .onConflictDoNothing({ target: learningEvent.clientEventId })
-    .returning({ id: learningEvent.id });
+    // Code-Review-Fund, nachgezogen: ein offline erfasstes Review kann beim Sync später
+    // eintreffen als ein zwischenzeitlich auf einem anderen Gerät bereits verarbeitetes
+    // neueres Review derselben Karte — das Ereignis bleibt oben als Verlauf erhalten, darf den
+    // bereits fortgeschritteneren FSRS-Zustand aber nicht mit einer aus seiner Sicht
+    // rückwirkenden Berechnung überschreiben (scheduleReview würde mit einer negativen
+    // verstrichenen Zeit rechnen, siehe Architekturplanung Abschnitt 13).
+    if (existing?.lastReviewedAt && now <= existing.lastReviewedAt) {
+      return { dueAt: existing.dueAt };
+    }
 
-  if (clientEventId && !insertedEvent) {
-    return { dueAt: existing?.dueAt ?? next.dueAt };
-  }
+    const current = existing
+      ? {
+          difficulty: existing.difficulty,
+          stability: existing.stability,
+          state: existing.state,
+          dueAt: existing.dueAt,
+          lastReviewedAt: existing.lastReviewedAt,
+          reps: existing.reps,
+          lapses: existing.lapses,
+        }
+      : initialProgressState(now);
 
-  await db
-    .insert(userProgress)
-    .values({
-      userId,
-      contentItemId,
-      difficulty: next.difficulty,
-      stability: next.stability,
-      state: next.state,
-      dueAt: next.dueAt,
-      lastReviewedAt: next.lastReviewedAt,
-      lastResult: result,
-      reps: next.reps,
-      lapses: next.lapses,
-    })
-    .onConflictDoUpdate({
-      target: [userProgress.userId, userProgress.contentItemId],
-      set: {
+    const next = scheduleReview(current, result, now);
+
+    await tx
+      .insert(userProgress)
+      .values({
+        userId,
+        contentItemId,
         difficulty: next.difficulty,
         stability: next.stability,
         state: next.state,
@@ -158,10 +178,23 @@ export async function applyReview(
         lastResult: result,
         reps: next.reps,
         lapses: next.lapses,
-      },
-    });
+      })
+      .onConflictDoUpdate({
+        target: [userProgress.userId, userProgress.contentItemId],
+        set: {
+          difficulty: next.difficulty,
+          stability: next.stability,
+          state: next.state,
+          dueAt: next.dueAt,
+          lastReviewedAt: next.lastReviewedAt,
+          lastResult: result,
+          reps: next.reps,
+          lapses: next.lapses,
+        },
+      });
 
-  return { dueAt: next.dueAt };
+    return { dueAt: next.dueAt };
+  });
 }
 
 /**

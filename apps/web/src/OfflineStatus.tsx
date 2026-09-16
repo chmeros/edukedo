@@ -45,13 +45,15 @@ export function OfflineStatus() {
 
   // Bleibt nach einem Sync-Versuch übrig, wenn einzelne Ereignisse serverseitig abgelehnt wurden
   // (siehe offline.syncQueue, Baustein 5) oder der Request selbst fehlschlug — beides soll
-  // sichtbar bleiben, statt stillschweigend in der lokalen Warteschlange zu verharren.
-  if (syncState === "error" || pendingCount > 0) {
+  // sichtbar bleiben, statt stillschweigend in der lokalen Warteschlange zu verharren. Code-
+  // Review-Fund, nachgezogen: `syncState === "error"` war hier redundant neben `pendingCount >
+  // 0` — syncOfflineQueue setzt "error" ausschließlich, wenn der Request wirft, und ein
+  // werfender Request löscht nie Einträge aus der Warteschlange, `pendingCount` ist also in
+  // jedem erreichbaren Fehlerfall bereits > 0.
+  if (pendingCount > 0) {
     return (
       <span className="offline-status offline-status--error" role="status">
-        {pendingCount > 0
-          ? `${pendingCount} Ereignis${pendingCount === 1 ? "" : "se"} nicht synchronisiert`
-          : "Synchronisierung fehlgeschlagen"}
+        {`${pendingCount} Ereignis${pendingCount === 1 ? "" : "se"} nicht synchronisiert`}
       </span>
     );
   }

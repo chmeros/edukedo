@@ -9,6 +9,7 @@ import {
   syncQueueInputSchema,
 } from "@edukedo/shared";
 import { and, asc, eq, inArray } from "drizzle-orm";
+import { ZodError } from "zod";
 import { answerOption, contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 import { applyReview, recordQuizAttempt } from "./progress";
@@ -139,6 +140,26 @@ export const offlineRouter = router({
   syncQueue: protectedProcedure.input(syncQueueInputSchema).mutation(async ({ ctx, input }) => {
     const entries = [...input.entries].sort((a, b) => a.occurredAt.getTime() - b.occurredAt.getTime());
 
+    // Code-Review-Fund, nachgezogen: vorher gab es für "review"-Ereignisse (Karteikarten) gar
+    // keine Existenz-/Aktiv-Prüfung vor `applyReview` — ein zwischenzeitlich hart gelöschtes
+    // content_item (z. B. durch einen Content-Re-Import, siehe import-content.ts) löste dort
+    // einen rohen Fremdschlüssel-Fehler aus, der NICHT von der QuizItemNotFoundError/ZodError-
+    // Behandlung unten abgefangen wurde und den gesamten restlichen Batch dauerhaft blockierte
+    // (derselbe Eintrag steht nach dem Sortieren immer wieder an derselben Stelle). Ebenso
+    // fehlte für alle Ereignistypen ein `isActive`-Filter, obwohl `downloadKurs` oben nur aktive
+    // Items ausliefert — ein zwischenzeitlich deaktiviertes (nicht gelöschtes) Item wurde bisher
+    // stillschweigend akzeptiert statt wie dokumentiert übersprungen zu werden. Eine einzige,
+    // vorab gebündelte Prüfung auf "existiert UND aktiv" für ALLE Ereignistypen behebt beides an
+    // der Wurzel, statt es je Ereignistyp einzeln nachzuziehen.
+    const allItemIds = [...new Set(entries.map((e) => e.contentItemId))];
+    const activeItemRows = allItemIds.length
+      ? await ctx.db
+          .select({ id: contentItem.id })
+          .from(contentItem)
+          .where(and(inArray(contentItem.id, allItemIds), eq(contentItem.isActive, true)))
+      : [];
+    const activeItemIds = new Set(activeItemRows.map((row) => row.id));
+
     const optionItemIds = [
       ...new Set(
         entries.filter((e) => e.event.kind === "quiz_mc" || e.event.kind === "zuordnung").map((e) => e.contentItemId),
@@ -176,6 +197,9 @@ export const offlineRouter = router({
     // Reihenfolge muss also eingehalten werden (siehe Docstring oben).
     for (const entry of entries) {
       try {
+        if (!activeItemIds.has(entry.contentItemId)) {
+          throw new QuizItemNotFoundError("Content-Item nicht gefunden oder deaktiviert.");
+        }
         if (entry.event.kind === "review") {
           await applyReview(ctx.db, ctx.currentUser.id, entry.contentItemId, entry.event.result, entry.occurredAt, entry.id);
         } else if (entry.event.kind === "quiz_mc") {
@@ -211,7 +235,7 @@ export const offlineRouter = router({
         // strukturiert, seit sie heruntergeladen wurde (QuizItemNotFoundError bzw. ein
         // Zod-Parse-Fehler in check*) — dieser einzelne Eintrag bleibt unsynchronisiert, statt
         // den gesamten Batch abzubrechen; alle anderen Einträge werden trotzdem übernommen.
-        if (!(error instanceof QuizItemNotFoundError) && !(error instanceof Error && error.name === "ZodError")) {
+        if (!(error instanceof QuizItemNotFoundError) && !(error instanceof ZodError)) {
           throw error;
         }
       }
