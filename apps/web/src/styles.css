@@ -478,12 +478,12 @@ hr {
   gap: 10px;
 }
 
-.user-header .who {
+.who {
   font-size: var(--fs-sm);
   color: var(--ink-soft);
 }
 
-.user-header .who b {
+.who b {
   color: var(--ink);
   font-weight: 700;
 }
@@ -1222,6 +1222,79 @@ details[open] > summary.disclosure::before {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* ---------- Header-Dropdowns (Kursauswahl/Nutzer-Menü) ---------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-menu {
+  position: relative;
+}
+
+.header-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  cursor: pointer;
+}
+
+.header-menu-trigger-label {
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .header-menu-trigger-label {
+    max-width: 12ch;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-menu-trigger {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .header-menu-trigger-label {
+    max-width: 7ch;
+  }
+}
+
+.header-menu-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  min-width: 280px;
+  max-width: min(90vw, 360px);
+  max-height: 70vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow);
 }
 
 .eyebrow {

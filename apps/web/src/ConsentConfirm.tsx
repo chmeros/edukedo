@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
-import { BrandLink } from "./BrandLink";
+import { GuestHeaderActions } from "./GuestHeaderActions";
+import { Header } from "./Header";
 import { SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
+
+/** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
+function goHome() {
+  window.location.href = "/";
+}
 
 /**
  * F-08: Zielseite des E-Mail-Bestätigungslinks — bewusst ohne Login (siehe
@@ -21,30 +27,32 @@ export function ConsentConfirm() {
   }, [token]);
 
   return (
-    <div className="shell shell--narrow">
-      <div className="card">
-        <BrandLink />
-        {!token && <p className="error">Kein Bestätigungs-Token in der URL gefunden.</p>}
-        {token && confirm.isPending && <p>Einwilligung wird bestätigt…</p>}
-        {token && confirm.error && <p className="error">{confirm.error.message}</p>}
-        {token && confirm.data?.status === "confirmed" && (
-          <div className="alert alert-success">
-            <SuccessIcon />
-            <div>Vielen Dank! Die Einwilligung wurde bestätigt — das Konto ist jetzt freigeschaltet.</div>
-          </div>
-        )}
-        {token && confirm.data?.status === "already_confirmed" && (
-          <div className="alert alert-success">
-            <SuccessIcon />
-            <div>Diese Einwilligung wurde bereits bestätigt.</div>
-          </div>
-        )}
-        {token && confirm.data && (
-          <a className="link" href="/parent">
-            Weiter zum Eltern-Dashboard
-          </a>
-        )}
+    <>
+      <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
+      <div className="shell shell--narrow">
+        <div className="card">
+          {!token && <p className="error">Kein Bestätigungs-Token in der URL gefunden.</p>}
+          {token && confirm.isPending && <p>Einwilligung wird bestätigt…</p>}
+          {token && confirm.error && <p className="error">{confirm.error.message}</p>}
+          {token && confirm.data?.status === "confirmed" && (
+            <div className="alert alert-success">
+              <SuccessIcon />
+              <div>Vielen Dank! Die Einwilligung wurde bestätigt — das Konto ist jetzt freigeschaltet.</div>
+            </div>
+          )}
+          {token && confirm.data?.status === "already_confirmed" && (
+            <div className="alert alert-success">
+              <SuccessIcon />
+              <div>Diese Einwilligung wurde bereits bestätigt.</div>
+            </div>
+          )}
+          {token && confirm.data && (
+            <a className="link" href="/parent">
+              Weiter zum Eltern-Dashboard
+            </a>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

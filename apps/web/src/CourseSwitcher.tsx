@@ -1,9 +1,14 @@
+import { useRef, useState } from "react";
 import { trpc } from "./trpc";
+import { useClickOutside } from "./useClickOutside";
 
 /**
- * F-09: Mehrfach-Kursbelegung aktiv genutzt — zeigt die eingeschriebenen Kurse als
- * Auswahl (der ausgewählte Kurs filtert Theorie/Karteikarten/Quiz/Fortschritt, siehe
- * App.tsx) sowie weitere veröffentlichte, noch nicht belegte Kurse zum Beitreten.
+ * F-09: Mehrfach-Kursbelegung aktiv genutzt — zeigt die eingeschriebenen Kurse zur Auswahl
+ * (der ausgewählte Kurs filtert Theorie/Karteikarten/Quiz/Fortschritt, siehe App.tsx) sowie
+ * weitere veröffentlichte, noch nicht belegte Kurse zum Beitreten. Jetzt als Header-Dropdown
+ * statt großer Kacheln im Hauptbereich (Layout-Vereinheitlichung, siehe Architekturplanung
+ * Abschnitt 13, Entscheidung vom 16.09.2026) — Kursauswahl ist eine wiederkehrende
+ * Navigationsentscheidung, keine Lerninhalt-Fläche.
  */
 export function CourseSwitcher({
   activeKursId,
@@ -20,50 +25,62 @@ export function CourseSwitcher({
       onActiveKursChange(variables.kursId);
     },
   });
-
-  if (courses.isLoading) {
-    return <p>Lädt…</p>;
-  }
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  useClickOutside(menuRef, () => setOpen(false), open);
 
   const joined = courses.data?.filter((course) => course.joined) ?? [];
   const available = courses.data?.filter((course) => !course.joined) ?? [];
+  const activeCourse = joined.find((course) => course.id === activeKursId);
 
   return (
-    <>
-      {joined.length > 0 && (
-        <div className="course-tiles">
-          {joined.map((course) => (
-            <button
-              key={course.id}
-              type="button"
-              className={course.id === activeKursId ? "course-tile is-active" : "course-tile"}
-              onClick={() => onActiveKursChange(course.id)}
-            >
-              {course.title}
-            </button>
-          ))}
+    <div className="header-menu" ref={menuRef}>
+      <button type="button" className="header-menu-trigger" onClick={() => setOpen((value) => !value)}>
+        <span className="header-menu-trigger-label">{activeCourse?.title ?? "Kurs wählen"}</span>
+        <span aria-hidden="true">{open ? "▾" : "▸"}</span>
+      </button>
+      {open && (
+        <div className="header-menu-panel">
+          {courses.isLoading && <p>Lädt…</p>}
+          {joined.length > 0 && (
+            <div className="course-tiles">
+              {joined.map((course) => (
+                <button
+                  key={course.id}
+                  type="button"
+                  className={course.id === activeKursId ? "course-tile is-active" : "course-tile"}
+                  onClick={() => {
+                    onActiveKursChange(course.id);
+                    setOpen(false);
+                  }}
+                >
+                  {course.title}
+                </button>
+              ))}
+            </div>
+          )}
+          {available.length > 0 && (
+            <details open={joined.length === 0}>
+              <summary className="disclosure">{joined.length > 0 ? "Weiteren Kurs beitreten" : "Verfügbare Kurse"}</summary>
+              <div className="stack" style={{ marginTop: 10 }}>
+                {available.map((course) => (
+                  <div key={course.id} className="join-row">
+                    <div className="meta">{course.title}</div>
+                    <button
+                      type="button"
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => enroll.mutate({ kursId: course.id })}
+                      disabled={enroll.isPending}
+                    >
+                      Beitreten
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
         </div>
       )}
-      {available.length > 0 && (
-        <details open={joined.length === 0}>
-          <summary className="disclosure">{joined.length > 0 ? "Weiteren Kurs beitreten" : "Verfügbare Kurse"}</summary>
-          <div className="stack" style={{ marginTop: 10 }}>
-            {available.map((course) => (
-              <div key={course.id} className="join-row">
-                <div className="meta">{course.title}</div>
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  onClick={() => enroll.mutate({ kursId: course.id })}
-                  disabled={enroll.isPending}
-                >
-                  Beitreten
-                </button>
-              </div>
-            ))}
-          </div>
-        </details>
-      )}
-    </>
+    </div>
   );
 }

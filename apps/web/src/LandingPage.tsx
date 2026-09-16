@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FlipCard } from "./FlipCard";
+import { GuestHeaderActions } from "./GuestHeaderActions";
+import { Header } from "./Header";
 
 /**
  * Öffentliche Startseite für nicht eingeloggte Besucher:innen (design/01-landing-und-app-
@@ -15,32 +17,7 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
 
   return (
     <div className="landing">
-      <header className="landing-nav">
-        <div className="landing-wrap landing-nav-row">
-          <button type="button" className="logo" onClick={onLogin}>
-            <span className="logo-mark">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" fill="#fff" />
-                <path
-                  d="M6.5 10v4.2c0 1.6 2.46 3.3 5.5 3.3s5.5-1.7 5.5-3.3V10"
-                  stroke="#fff"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            edukedo
-          </button>
-          <div className="landing-nav-actions">
-            <button type="button" className="btn btn-ghost btn-sm" onClick={onLogin}>
-              Anmelden
-            </button>
-            <button type="button" className="btn btn-primary btn-sm" onClick={onStart}>
-              Kostenlos starten
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header right={<GuestHeaderActions onLogin={onLogin} onStart={onStart} />} />
 
       <main className="landing-wrap">
         <section className="hero">

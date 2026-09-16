@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BrandLink } from "./BrandLink";
 import { DangerIcon } from "./Icons";
+import { Header } from "./Header";
 import { trpc } from "./trpc";
 
 const CONSENT_STATUS_LABELS: Record<string, string> = {
@@ -140,58 +140,64 @@ export function ParentDashboard() {
 
   if (!me.data) {
     return (
-      <div className="shell shell--narrow">
-        <div className="card">
-          <BrandLink label="edukedo — Eltern-Dashboard" />
-          {me.isLoading ? <p>Lädt…</p> : <LoginForm />}
+      <>
+        <Header />
+        <div className="shell shell--narrow">
+          <div className="card">
+            <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
+            {me.isLoading ? <p>Lädt…</p> : <LoginForm />}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   if (!me.data.passwordSet) {
     return (
-      <div className="shell shell--narrow">
-        <div className="card">
-          <BrandLink label="edukedo — Eltern-Dashboard" />
-          <SetInitialPasswordForm />
+      <>
+        <Header right={<span className="who">{me.data.email}</span>} />
+        <div className="shell shell--narrow">
+          <div className="card">
+            <SetInitialPasswordForm />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="shell shell--narrow">
-      <div className="card">
-        <BrandLink label="edukedo — Eltern-Dashboard" />
-        <div className="user-header">
-          <p className="who">
-            Eingeloggt als <b>{me.data.email}</b>
-          </p>
-          <div className="user-actions">
+    <>
+      <Header
+        right={
+          <>
+            <span className="who">{me.data.email}</span>
             <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
               Logout
             </button>
-          </div>
-        </div>
-        <hr />
-        {me.data.children.length === 0 && <p>Es sind noch keine Kinder-Konten verknüpft.</p>}
-        {me.data.children.map((child) => (
-          <div key={child.linkId} className="stack">
-            <div className="admin-row">
-              <div className="meta">
-                {child.childEmail}
-                <span>{CONSENT_STATUS_LABELS[child.consentStatus] ?? child.consentStatus}</span>
+          </>
+        }
+      />
+      <div className="shell shell--narrow">
+        <div className="card">
+          <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
+          {me.data.children.length === 0 && <p>Es sind noch keine Kinder-Konten verknüpft.</p>}
+          {me.data.children.map((child) => (
+            <div key={child.linkId} className="stack">
+              <div className="admin-row">
+                <div className="meta">
+                  {child.childEmail}
+                  <span>{CONSENT_STATUS_LABELS[child.consentStatus] ?? child.consentStatus}</span>
+                </div>
               </div>
+              {child.consentStatus === "confirmed" && <RevokeConsentButton linkId={child.linkId} />}
             </div>
-            {child.consentStatus === "confirmed" && <RevokeConsentButton linkId={child.linkId} />}
-          </div>
-        ))}
-        <hr />
-        <a className="link" href="/datenschutz-kinder">
-          Datenschutz-Kurzfassung für Kinder ansehen
-        </a>
+          ))}
+          <hr />
+          <a className="link" href="/datenschutz-kinder">
+            Datenschutz-Kurzfassung für Kinder ansehen
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

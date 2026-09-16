@@ -1,10 +1,10 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
-import { BrandLink } from "./BrandLink";
 import { CourseSwitcher } from "./CourseSwitcher";
-import { DeleteAccount } from "./DeleteAccount";
 import { Flashcards } from "./Flashcards";
+import { GuestHeaderActions } from "./GuestHeaderActions";
+import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
 import { Progress } from "./Progress";
@@ -13,11 +13,7 @@ import { Quiz } from "./Quiz";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
-
-const ROLE_LABELS: Record<string, string> = {
-  learner: "Lernende:r",
-  admin: "Admin",
-};
+import { UserMenu } from "./UserMenu";
 
 export function App() {
   const utils = trpc.useUtils();
@@ -61,8 +57,27 @@ export function App() {
   // öffentliche Startseite vor dem Login/Registrierungsformular, bewusst als lokaler Zustand
   // statt einer eigenen Route (kein Router im Projekt) — die CTAs wechseln nur die Ansicht.
   const [showAuth, setShowAuth] = useState(false);
+  // F-11: Admin-Bereich als eigene Ansicht statt eines Inline-Anhängsels über der Kursliste
+  // (Layout-Vereinheitlichung, siehe Architekturplanung Abschnitt 13, Entscheidung vom
+  // 16.09.2026) — umgeschaltet über UserMenu, nicht über die Lern-Tab-Leiste, da es
+  // konzeptionell zur Rolle gehört, nicht zu den Lerninhalten.
+  const [view, setView] = useState<"app" | "admin">("app");
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
+
+  // Header-Aktionen für alle nicht eingeloggten Zustände (Landing, Sperrhinweis,
+  // Login/Registrierung) — an einer Stelle definiert statt in jedem Zweig einzeln, siehe
+  // GuestHeaderActions.
+  function goToLogin() {
+    if (register.data) register.reset();
+    setMode("login");
+    setShowAuth(true);
+  }
+  function goToRegister() {
+    if (register.data) register.reset();
+    setMode("register");
+    setShowAuth(true);
+  }
 
   // Vor jedem bedingten return berechnet/aufgerufen (Rules of Hooks) — activeKursId lässt
   // sich unabhängig vom `me.data`-Zweig unten aus bereits vorhandenen Werten ableiten.
@@ -88,306 +103,309 @@ export function App() {
   );
 
   if (me.data) {
+    const isAdmin = me.data.role === "admin";
     return (
-      <div className="shell">
-        <div className="card">
-          <BrandLink />
-          <div className="user-header">
-            <p className="who">
-              Eingeloggt als <b>{me.data.email}</b>
-              {me.data.isMinor ? " · minderjährig" : ""} ·{" "}
-              <span className="role-pill">{ROLE_LABELS[me.data.role] ?? me.data.role}</span>
-            </p>
-            <div className="user-actions">
-              <button type="button" className="btn btn-ghost btn-sm" onClick={() => logout.mutate()} disabled={logout.isPending}>
-                Logout
-              </button>
-              <DeleteAccount />
+      <>
+        <Header
+          right={
+            <div className="header-actions">
+              {view === "app" && <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />}
+              <UserMenu
+                email={me.data.email}
+                role={me.data.role}
+                isMinor={me.data.isMinor}
+                onLogout={() => logout.mutate()}
+                logoutPending={logout.isPending}
+                isAdmin={isAdmin}
+                view={view}
+                onViewChange={setView}
+              />
             </div>
-          </div>
-          <hr />
-          {me.data.role === "admin" && (
-            <>
+          }
+        />
+        <main className="shell">
+          {view === "admin" && isAdmin ? (
+            <div className="card">
               <AdminPanel />
-              <hr />
-            </>
-          )}
-          <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
-          {activeKursId && suggestions.data && suggestions.data.length > 0 && (
-            <div className="suggestion-row">
-              {suggestions.data.map((suggestion, position) => (
-                <button
-                  key={suggestion.themaId}
-                  type="button"
-                  className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
-                  onClick={() => {
-                    setActiveThema({ id: suggestion.themaId, title: suggestion.title });
-                    setLearningMode(suggestion.mode);
-                  }}
-                >
-                  <span className="suggestion-title">{suggestion.title}</span>
-                  <span className="suggestion-reason">
-                    {suggestion.dueCount > 0
-                      ? `${suggestion.dueCount} Karte(n) fällig${suggestion.overdueDays > 0 ? `, ${suggestion.overdueDays} Tag(e) überfällig` : ""}`
-                      : `${suggestion.weakPercent} % Trefferquote`}
-                  </span>
-                </button>
-              ))}
             </div>
-          )}
-          {activeKursId ? (
-            <>
-              <div className="tab-nav">
-                <button
-                  type="button"
-                  className={learningMode === "theorie" ? "is-active" : ""}
-                  onClick={() => setLearningMode("theorie")}
-                >
-                  Theorie
-                </button>
-                <button
-                  type="button"
-                  className={learningMode === "flashcards" ? "is-active" : ""}
-                  onClick={() => setLearningMode("flashcards")}
-                >
-                  Karteikarten
-                </button>
-                <button
-                  type="button"
-                  className={learningMode === "quiz" ? "is-active" : ""}
-                  onClick={() => setLearningMode("quiz")}
-                >
-                  Quiz
-                </button>
-                <button
-                  type="button"
-                  className={learningMode === "exam" ? "is-active" : ""}
-                  onClick={() => setLearningMode("exam")}
-                >
-                  Prüfung
-                </button>
-                <button
-                  type="button"
-                  className={learningMode === "progress" ? "is-active" : ""}
-                  onClick={() => setLearningMode("progress")}
-                >
-                  Fortschritt
-                </button>
-              </div>
-              {/* key={activeKursId}-„-“-activeThema?.id: erzwingt einen Remount bei Kurswechsel
-                  UND beim Setzen/Aufheben eines F-27-Themenfilters, damit lokaler
-                  Interaktionszustand (Quiz-Fortschritt, aufgedeckte Karteikarte, ...) nicht
-                  vom vorherigen Kurs/Filter übernommen wird. */}
-              {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
-              {learningMode === "flashcards" && (
-                <Flashcards
-                  key={`${activeKursId}-${activeThema?.id ?? "all"}`}
-                  kursId={activeKursId}
-                  themaId={activeThema?.id}
-                  themaTitle={activeThema?.title}
-                  onClearThema={() => setActiveThema(null)}
-                />
-              )}
-              {/* Quiz bleibt anders als die übrigen drei Tabs immer im DOM (nur per hidden
-                  ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet zu werden — sonst
-                  würde quiz.quizItems bei jeder Rückkehr zum Quiz-Tab eine neue, zufällig
-                  gemischte 20er-Runde laden und den bisherigen Durchgang (Frage X von 20)
-                  verwerfen. Der key sorgt weiterhin dafür, dass ein Kurswechsel oder das
-                  Setzen/Aufheben eines F-27-Themenfilters die Runde bewusst zurücksetzt. */}
-              <div hidden={learningMode !== "quiz"}>
-                <Quiz
-                  key={`${activeKursId}-${activeThema?.id ?? "all"}`}
-                  kursId={activeKursId}
-                  themaId={activeThema?.id}
-                  themaTitle={activeThema?.title}
-                  onClearThema={() => setActiveThema(null)}
-                />
-              </div>
-              {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
-              {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
-            </>
           ) : (
-            <div className="alert alert-info">
-              <InfoIcon />
-              <div>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</div>
-            </div>
+            <>
+              {activeKursId && suggestions.data && suggestions.data.length > 0 && (
+                <div className="suggestion-row">
+                  {suggestions.data.map((suggestion, position) => (
+                    <button
+                      key={suggestion.themaId}
+                      type="button"
+                      className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
+                      onClick={() => {
+                        setActiveThema({ id: suggestion.themaId, title: suggestion.title });
+                        setLearningMode(suggestion.mode);
+                      }}
+                    >
+                      <span className="suggestion-title">{suggestion.title}</span>
+                      <span className="suggestion-reason">
+                        {suggestion.dueCount > 0
+                          ? `${suggestion.dueCount} Karte(n) fällig${suggestion.overdueDays > 0 ? `, ${suggestion.overdueDays} Tag(e) überfällig` : ""}`
+                          : `${suggestion.weakPercent} % Trefferquote`}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+              {activeKursId ? (
+                <>
+                  <div className="tab-nav">
+                    <button
+                      type="button"
+                      className={learningMode === "theorie" ? "is-active" : ""}
+                      onClick={() => setLearningMode("theorie")}
+                    >
+                      Theorie
+                    </button>
+                    <button
+                      type="button"
+                      className={learningMode === "flashcards" ? "is-active" : ""}
+                      onClick={() => setLearningMode("flashcards")}
+                    >
+                      Karteikarten
+                    </button>
+                    <button
+                      type="button"
+                      className={learningMode === "quiz" ? "is-active" : ""}
+                      onClick={() => setLearningMode("quiz")}
+                    >
+                      Quiz
+                    </button>
+                    <button
+                      type="button"
+                      className={learningMode === "exam" ? "is-active" : ""}
+                      onClick={() => setLearningMode("exam")}
+                    >
+                      Prüfung
+                    </button>
+                    <button
+                      type="button"
+                      className={learningMode === "progress" ? "is-active" : ""}
+                      onClick={() => setLearningMode("progress")}
+                    >
+                      Fortschritt
+                    </button>
+                  </div>
+                  <div className="card">
+                    {/* key={activeKursId}-„-“-activeThema?.id: erzwingt einen Remount bei
+                        Kurswechsel UND beim Setzen/Aufheben eines F-27-Themenfilters, damit
+                        lokaler Interaktionszustand (Quiz-Fortschritt, aufgedeckte
+                        Karteikarte, ...) nicht vom vorherigen Kurs/Filter übernommen wird. */}
+                    {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
+                    {learningMode === "flashcards" && (
+                      <Flashcards
+                        key={`${activeKursId}-${activeThema?.id ?? "all"}`}
+                        kursId={activeKursId}
+                        themaId={activeThema?.id}
+                        themaTitle={activeThema?.title}
+                        onClearThema={() => setActiveThema(null)}
+                      />
+                    )}
+                    {/* Quiz bleibt anders als die übrigen drei Tabs immer im DOM (nur per
+                        hidden ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet zu
+                        werden — sonst würde quiz.quizItems bei jeder Rückkehr zum Quiz-Tab
+                        eine neue, zufällig gemischte 20er-Runde laden und den bisherigen
+                        Durchgang (Frage X von 20) verwerfen. Der key sorgt weiterhin dafür,
+                        dass ein Kurswechsel oder das Setzen/Aufheben eines
+                        F-27-Themenfilters die Runde bewusst zurücksetzt. */}
+                    <div hidden={learningMode !== "quiz"}>
+                      <Quiz
+                        key={`${activeKursId}-${activeThema?.id ?? "all"}`}
+                        kursId={activeKursId}
+                        themaId={activeThema?.id}
+                        themaTitle={activeThema?.title}
+                        onClearThema={() => setActiveThema(null)}
+                      />
+                    </div>
+                    {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
+                    {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
+                  </div>
+                </>
+              ) : (
+                <div className="alert alert-info">
+                  <InfoIcon />
+                  <div>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</div>
+                </div>
+              )}
+            </>
           )}
-        </div>
-      </div>
+        </main>
+      </>
     );
   }
 
   if (!showAuth && !register.data) {
     return (
       <LandingPage
-        onStart={() => {
-          // "Kostenlos starten"/"Kurs ansehen" usw. sind Registrierungs-CTAs — sollen direkt auf
-          // dem Registrieren-Tab landen, nicht auf dem für Neu-Besucher:innen falschen Login-Tab.
-          setMode("register");
-          setShowAuth(true);
-        }}
-        onLogin={() => {
-          setMode("login");
-          setShowAuth(true);
-        }}
+        onStart={goToRegister}
+        onLogin={goToLogin}
       />
     );
   }
 
   if (register.data?.status === "pending_parental_consent") {
     return (
-      <div className="shell shell--narrow">
-        <div className="card">
-          <BrandLink />
-          <p>
-            Registrierung erfolgreich! Das Konto von <b>{register.data.email}</b> ist noch gesperrt.
-          </p>
-          <p>
-            Da die Person unter 16 Jahre alt ist, muss ein Elternteil die Einwilligung per E-Mail
-            bestätigen, bevor ein Login möglich ist (Art. 8 DSGVO).
-          </p>
-          {register.data.devConfirmUrl && (
-            <div className="alert alert-info">
-              <InfoIcon />
-              <div>
-                Nur zu Entwicklungszwecken (noch kein echter E-Mail-Versand angebunden):{" "}
-                <a className="link" href={register.data.devConfirmUrl}>
-                  Bestätigungslink öffnen
-                </a>
+      <>
+        <Header right={<GuestHeaderActions onLogin={goToLogin} onStart={goToRegister} />} />
+        <div className="shell shell--narrow">
+          <div className="card">
+            <p>
+              Registrierung erfolgreich! Das Konto von <b>{register.data.email}</b> ist noch gesperrt.
+            </p>
+            <p>
+              Da die Person unter 16 Jahre alt ist, muss ein Elternteil die Einwilligung per E-Mail
+              bestätigen, bevor ein Login möglich ist (Art. 8 DSGVO).
+            </p>
+            {register.data.devConfirmUrl && (
+              <div className="alert alert-info">
+                <InfoIcon />
+                <div>
+                  Nur zu Entwicklungszwecken (noch kein echter E-Mail-Versand angebunden):{" "}
+                  <a className="link" href={register.data.devConfirmUrl}>
+                    Bestätigungslink öffnen
+                  </a>
+                </div>
               </div>
-            </div>
-          )}
-          <a className="link" href="/datenschutz-kinder">
-            Was passiert mit meinen Daten? (kindgerecht erklärt)
-          </a>
-          <p>
-            Du musst nicht warten:{" "}
-            <a className="link" href="/vorschau">
-              Schon jetzt unverbindlich ein paar Fragen ausprobieren
-            </a>{" "}
-            — ohne Konto, ohne dass dabei etwas gespeichert wird.
-          </p>
-          <button type="button" className="btn btn-ghost" onClick={() => register.reset()}>
-            Zurück zum Login
-          </button>
+            )}
+            <a className="link" href="/datenschutz-kinder">
+              Was passiert mit meinen Daten? (kindgerecht erklärt)
+            </a>
+            <p>
+              Du musst nicht warten:{" "}
+              <a className="link" href="/vorschau">
+                Schon jetzt unverbindlich ein paar Fragen ausprobieren
+              </a>{" "}
+              — ohne Konto, ohne dass dabei etwas gespeichert wird.
+            </p>
+            <button type="button" className="btn btn-ghost" onClick={() => register.reset()}>
+              Zurück zum Login
+            </button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   const activeMutation = mode === "login" ? login : register;
 
   return (
-    <div className="shell shell--narrow">
-      <div className="card">
-        <BrandLink />
-        <div className="segmented">
-          <button type="button" className={mode === "login" ? "is-active" : ""} onClick={() => setMode("login")}>
-            Login
-          </button>
-          <button
-            type="button"
-            className={mode === "register" ? "is-active" : ""}
-            onClick={() => setMode("register")}
+    <>
+      <Header right={<GuestHeaderActions onLogin={goToLogin} onStart={goToRegister} />} />
+      <div className="shell shell--narrow">
+        <div className="card">
+          <div className="segmented">
+            <button type="button" className={mode === "login" ? "is-active" : ""} onClick={() => setMode("login")}>
+              Login
+            </button>
+            <button
+              type="button"
+              className={mode === "register" ? "is-active" : ""}
+              onClick={() => setMode("register")}
+            >
+              Registrieren
+            </button>
+          </div>
+          <form
+            className="stack"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (mode === "register") {
+                register.mutate({
+                  email,
+                  password,
+                  birthDate: new Date(birthDate),
+                  parentEmail: needsParentEmail ? parentEmail : undefined,
+                });
+              } else {
+                login.mutate({ email, password });
+              }
+            }}
           >
-            Registrieren
-          </button>
-        </div>
-        <form
-          className="stack"
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (mode === "register") {
-              register.mutate({
-                email,
-                password,
-                birthDate: new Date(birthDate),
-                parentEmail: needsParentEmail ? parentEmail : undefined,
-              });
-            } else {
-              login.mutate({ email, password });
-            }
-          }}
-        >
-          <div className="field">
-            <label htmlFor="auth-email">E-Mail</label>
-            <input
-              className="input"
-              id="auth-email"
-              type="email"
-              placeholder="du@beispiel.de"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-          </div>
-          <div className="field">
-            <label htmlFor="auth-pw">Passwort</label>
-            <input
-              className="input"
-              id="auth-pw"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              minLength={8}
-              required
-            />
-          </div>
-          {mode === "register" && (
             <div className="field">
-              <label htmlFor="auth-bday">Geburtsdatum</label>
-              <input
-                className={needsParentEmail ? "input is-correct" : "input"}
-                id="auth-bday"
-                type="date"
-                value={birthDate}
-                onChange={(event) => setBirthDate(event.target.value)}
-                required
-              />
-              {!needsParentEmail && (
-                <span className="field-hint">
-                  Damit wir bei unter 16-Jährigen automatisch die Eltern-Einwilligung einholen.
-                </span>
-              )}
-            </div>
-          )}
-          {needsParentEmail && (
-            <div className="alert alert-info">
-              <InfoIcon />
-              <div>
-                Du bist unter 16 — ein Elternteil muss die Einwilligung per E-Mail bestätigen, bevor du dich
-                einloggen kannst (Art. 8 DSGVO).
-              </div>
-            </div>
-          )}
-          {needsParentEmail && (
-            <div className="field">
-              <label htmlFor="auth-parent-email">E-Mail eines Elternteils</label>
+              <label htmlFor="auth-email">E-Mail</label>
               <input
                 className="input"
-                id="auth-parent-email"
+                id="auth-email"
                 type="email"
-                placeholder="elternteil@beispiel.de"
-                value={parentEmail}
-                onChange={(event) => setParentEmail(event.target.value)}
+                placeholder="du@beispiel.de"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 required
               />
             </div>
-          )}
-          {needsParentEmail && (
-            <a className="link" href="/datenschutz-kinder">
-              Was passiert mit meinen Daten? (kindgerecht erklärt)
-            </a>
-          )}
-          <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending}>
-            {mode === "login" ? "Einloggen" : "Registrieren"}
+            <div className="field">
+              <label htmlFor="auth-pw">Passwort</label>
+              <input
+                className="input"
+                id="auth-pw"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                minLength={8}
+                required
+              />
+            </div>
+            {mode === "register" && (
+              <div className="field">
+                <label htmlFor="auth-bday">Geburtsdatum</label>
+                <input
+                  className={needsParentEmail ? "input is-correct" : "input"}
+                  id="auth-bday"
+                  type="date"
+                  value={birthDate}
+                  onChange={(event) => setBirthDate(event.target.value)}
+                  required
+                />
+                {!needsParentEmail && (
+                  <span className="field-hint">
+                    Damit wir bei unter 16-Jährigen automatisch die Eltern-Einwilligung einholen.
+                  </span>
+                )}
+              </div>
+            )}
+            {needsParentEmail && (
+              <div className="alert alert-info">
+                <InfoIcon />
+                <div>
+                  Du bist unter 16 — ein Elternteil muss die Einwilligung per E-Mail bestätigen, bevor du dich
+                  einloggen kannst (Art. 8 DSGVO).
+                </div>
+              </div>
+            )}
+            {needsParentEmail && (
+              <div className="field">
+                <label htmlFor="auth-parent-email">E-Mail eines Elternteils</label>
+                <input
+                  className="input"
+                  id="auth-parent-email"
+                  type="email"
+                  placeholder="elternteil@beispiel.de"
+                  value={parentEmail}
+                  onChange={(event) => setParentEmail(event.target.value)}
+                  required
+                />
+              </div>
+            )}
+            {needsParentEmail && (
+              <a className="link" href="/datenschutz-kinder">
+                Was passiert mit meinen Daten? (kindgerecht erklärt)
+              </a>
+            )}
+            <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending}>
+              {mode === "login" ? "Einloggen" : "Registrieren"}
+            </button>
+          </form>
+          {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
+          <button type="button" className="link-muted-btn" onClick={() => setShowAuth(false)}>
+            ← Zurück zur Startseite
           </button>
-        </form>
-        {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
-        <button type="button" className="link-muted-btn" onClick={() => setShowAuth(false)}>
-          ← Zurück zur Startseite
-        </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
