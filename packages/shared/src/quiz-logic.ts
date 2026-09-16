@@ -1,13 +1,24 @@
-import { kurzantwortPayloadSchema, lueckenPayloadSchema } from "@edukedo/shared";
-import { TRPCError } from "@trpc/server";
+import { kurzantwortPayloadSchema, lueckenPayloadSchema } from "./schemas/content-item";
 
 /**
- * Reine Formungs-/Prüflogik für Quiz-Items (F-21), gemeinsam genutzt von
- * trpc/routers/quiz.ts (eingeschriebene Kurse, F-21) und trpc/routers/preview.ts
- * (kontoloser Vorschau-Modus, F-08) — beide zeigen dieselben vier Fragetypen ohne
- * Lösung an und prüfen serverseitig identisch, nur die Quelle der content_item-Zeilen
- * unterscheidet sich (eingeschriebene Kurse vs. veröffentlichte Kurse ohne Account-Bezug).
+ * Reine Formungs-/Prüflogik für Quiz-Items (F-21) — ursprünglich nur in apps/api geteilt
+ * zwischen trpc/routers/quiz.ts (eingeschriebene Kurse) und trpc/routers/preview.ts
+ * (kontoloser Vorschau-Modus, F-08), seit F-42 (Baustein 4) nach @edukedo/shared verschoben,
+ * damit auch der Web-Client Quiz-Antworten offline exakt gleich prüfen kann (siehe
+ * apps/web/src/offlineQuiz.ts und Architekturplanung Abschnitt 13 für die Nutzer-Entscheidung,
+ * dass offline heruntergeladene Inhalte die Lösung enthalten). Beide Backend-Router zeigen den
+ * Lernenden dieselben vier Fragetypen ohne Lösung an und prüfen serverseitig identisch, nur die
+ * Quelle der content_item-Zeilen unterscheidet sich (eingeschriebene Kurse vs. veröffentlichte
+ * Kurse ohne Account-Bezug).
+ *
+ * `checkMcAnswer`/`checkMatching` warfen hier ursprünglich `TRPCError` — durch die einfache
+ * `QuizItemNotFoundError` ersetzt, damit dieses Modul kein Server-Framework in den
+ * Browser-Bundle zieht. Ändert das Verhalten nur im praktisch nie erreichten Fall eines
+ * manipulierten Requests (falsche/fremde Options-ID): Die Backend-Router liefern dafür jetzt
+ * INTERNAL_SERVER_ERROR statt NOT_FOUND, da tRPC einen nicht als TRPCError erkannten Fehler
+ * generisch abbildet.
  */
+export class QuizItemNotFoundError extends Error {}
 
 export function shuffle<T>(items: T[]): T[] {
   const copy = [...items];
@@ -95,7 +106,7 @@ export function checkMcAnswer(options: RawAnswerOption[], selectedOptionId: stri
   const correct = options.find((option) => option.isCorrect);
 
   if (!selected || !correct) {
-    throw new TRPCError({ code: "NOT_FOUND", message: "Frage oder Antwortoption nicht gefunden." });
+    throw new QuizItemNotFoundError("Frage oder Antwortoption nicht gefunden.");
   }
 
   return { isCorrect: selected.isCorrect, correctOptionId: correct.id };
@@ -103,7 +114,7 @@ export function checkMcAnswer(options: RawAnswerOption[], selectedOptionId: stri
 
 export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId: string; rightOptionId: string }[]) {
   if (options.length === 0) {
-    throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
+    throw new QuizItemNotFoundError("Frage nicht gefunden.");
   }
 
   const leftOptions = options.filter((option) => option.side === "links");

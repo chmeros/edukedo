@@ -99,6 +99,7 @@ export const offlineRouter = router({
           payload: row.payload,
           options: (optionsByItem.get(row.id) ?? []).map((option) => ({
             id: option.id,
+            contentItemId: option.contentItemId,
             text: option.text,
             isCorrect: option.isCorrect,
             side: option.side as "links" | "rechts" | null,

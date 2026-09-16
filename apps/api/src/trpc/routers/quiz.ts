@@ -1,4 +1,9 @@
 import {
+  checkBlanks,
+  checkKurzantwort,
+  checkMatching,
+  checkMcAnswer,
+  shapeQuizItem,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
@@ -7,7 +12,6 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
-import { checkBlanks, checkKurzantwort, checkMatching, checkMcAnswer, shapeQuizItem } from "../../quiz-logic";
 import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 import { recordQuizAttempt } from "./progress";

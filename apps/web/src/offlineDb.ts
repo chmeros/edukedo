@@ -19,10 +19,13 @@ import type { FsrsProgressState, ReviewResult } from "@edukedo/shared";
 
 export type OfflineContentType = "karteikarte" | "quiz_mc" | "zuordnung" | "luecken" | "kurzantwort";
 
-/** Deckungsgleich mit `RawAnswerOption` in apps/api/src/quiz-logic.ts — nur bei
+/** Deckungsgleich mit `RawAnswerOption` in `@edukedo/shared` (`quiz-logic.ts`) — bewusst
+ * inklusive `contentItemId`, damit ein Array von Optionen direkt an `checkMcAnswer`/
+ * `checkMatching`/`shapeQuizItem` durchgereicht werden kann (siehe offlineQuiz.ts). Nur bei
  * type "quiz_mc"/"zuordnung" gesetzt, sonst ein leeres Array. */
 export interface OfflineAnswerOption {
   id: string;
+  contentItemId: string;
   text: string;
   isCorrect: boolean;
   side: "links" | "rechts" | null;

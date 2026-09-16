@@ -1,0 +1,121 @@
+import { checkBlanks, checkKurzantwort, checkMatching, checkMcAnswer, shapeQuizItem, shuffle } from "@edukedo/shared";
+import type { ShapedQuizItem } from "@edukedo/shared";
+import { offlineDb, type OfflineContentItem, type OfflineQueueEventPayload } from "./offlineDb";
+
+const QUIZ_TYPES = ["quiz_mc", "zuordnung", "luecken", "kurzantwort"] as const;
+// Spiegelt quiz.quizItems (random + limit(20), siehe apps/api/src/trpc/routers/quiz.ts) —
+// dieselbe Rundengröße offline, nur lokal aus dem heruntergeladenen Bestand gezogen statt per
+// SQL, da eine feste 20er-Auswahl aus dem vollen, für F-42 heruntergeladenen Pool sonst nach
+// deren Bearbeitung erschöpft wäre.
+const QUIZ_ROUND_SIZE = 20;
+
+export interface OfflineQuizRound {
+  /** Für die Anzeige — Lösung entfernt (`shapeQuizItem`), wie bei quiz.quizItems. */
+  shaped: ShapedQuizItem[];
+  /** Für die lokale Prüfung — inklusive Lösung, wie von `offline.downloadKurs` geliefert. */
+  raw: OfflineContentItem[];
+}
+
+/**
+ * F-42 Baustein 4: liest den lokal heruntergeladenen Quiz-Bestand (siehe OfflineDownload.tsx)
+ * für einen Kurs (optional auf ein Thema gefiltert, F-27) und wählt daraus eine zufällige Runde.
+ */
+export async function loadOfflineQuizRound(
+  kursId: string,
+  themaId: string | undefined,
+): Promise<OfflineQuizRound> {
+  const all = await offlineDb.content.where("kursId").equals(kursId).toArray();
+  const filtered = all.filter(
+    (item) => (QUIZ_TYPES as readonly string[]).includes(item.type) && (!themaId || item.themaId === themaId),
+  );
+  const raw = shuffle(filtered).slice(0, QUIZ_ROUND_SIZE);
+  const shaped = raw.map((item) => shapeQuizItem(item, item.options));
+  return { shaped, raw };
+}
+
+function pushQueueEvent(contentItemId: string, event: OfflineQueueEventPayload) {
+  return offlineDb.queue.put({
+    id: crypto.randomUUID(),
+    contentItemId,
+    event,
+    occurredAt: Date.now(),
+    synced: false,
+  });
+}
+
+/**
+ * Baut die vier submit*-"Mutationen" für den Offline-Fall — dieselbe `MutationLike`-Schnittstelle
+ * (siehe QuizSteps.tsx) wie die echten tRPC-Mutationen von Quiz.tsx, aber lokal anhand der
+ * (inklusive Lösung heruntergeladenen) `raw`-Items ausgewertet statt per Serveraufruf. Jede
+ * Auswertung reiht zusätzlich ein Sync-Ereignis in `offlineDb.queue` ein (Baustein 5 spielt sie
+ * später nach).
+ */
+export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
+  function findItem(id: string) {
+    return raw.find((item) => item.id === id);
+  }
+
+  return {
+    submitAnswer: {
+      isPending: false,
+      mutate(
+        input: { contentItemId: string; selectedOptionId: string },
+        opts: {
+          onSuccess: (result: { isCorrect: boolean; correctOptionId: string; explanation: string | null }) => void;
+        },
+      ) {
+        const item = findItem(input.contentItemId);
+        if (!item) return;
+        const { isCorrect, correctOptionId } = checkMcAnswer(item.options, input.selectedOptionId);
+        void pushQueueEvent(item.id, { kind: "quiz_mc", selectedOptionId: input.selectedOptionId });
+        opts.onSuccess({ isCorrect, correctOptionId, explanation: item.explanation });
+      },
+    },
+    submitMatching: {
+      isPending: false,
+      mutate(
+        input: { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
+        opts: { onSuccess: (result: { correctMap: Record<string, string>; correctCount: number; total: number }) => void },
+      ) {
+        const item = findItem(input.contentItemId);
+        if (!item) return;
+        const result = checkMatching(item.options, input.pairs);
+        void pushQueueEvent(item.id, { kind: "zuordnung", pairs: input.pairs });
+        opts.onSuccess(result);
+      },
+    },
+    submitBlanks: {
+      isPending: false,
+      mutate(
+        input: { contentItemId: string; answers: Record<string, string> },
+        opts: {
+          onSuccess: (result: {
+            results: Record<string, boolean>;
+            correctAnswers: Record<string, string>;
+            correctCount: number;
+            total: number;
+          }) => void;
+        },
+      ) {
+        const item = findItem(input.contentItemId);
+        if (!item) return;
+        const result = checkBlanks(item.payload, input.answers);
+        void pushQueueEvent(item.id, { kind: "luecken", answers: input.answers });
+        opts.onSuccess(result);
+      },
+    },
+    submitKurzantwort: {
+      isPending: false,
+      mutate(
+        input: { contentItemId: string; answer: string },
+        opts: { onSuccess: (result: { isCorrect: boolean; correctAnswer: string; explanation: string | null }) => void },
+      ) {
+        const item = findItem(input.contentItemId);
+        if (!item) return;
+        const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
+        void pushQueueEvent(item.id, { kind: "kurzantwort", answer: input.answer });
+        opts.onSuccess({ isCorrect, correctAnswer, explanation: item.explanation });
+      },
+    },
+  };
+}

@@ -1,4 +1,9 @@
 import {
+  checkBlanks,
+  checkKurzantwort,
+  checkMatching,
+  checkMcAnswer,
+  shapeQuizItem,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
@@ -8,7 +13,6 @@ import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import type { Database } from "../../db/client";
 import { answerOption, contentItem, fachgebiet, kurs, thema } from "../../db/schema";
-import { checkBlanks, checkKurzantwort, checkMatching, checkMcAnswer, shapeQuizItem } from "../../quiz-logic";
 import { publicProcedure, router } from "../trpc";
 
 const PREVIEW_ITEM_LIMIT = 5;

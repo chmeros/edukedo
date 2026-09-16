@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { OfflineQuizRound } from "./offlineQuiz";
+import { createOfflineQuizMutations, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
+import { useOnlineStatus } from "./useOnlineStatus";
 
 export function Quiz({
   kursId,
@@ -15,10 +18,12 @@ export function Quiz({
   themaTitle?: string;
   onClearThema?: () => void;
 }) {
+  const online = useOnlineStatus();
   const utils = trpc.useUtils();
   // F-26: Quiz-Antworten fließen jetzt in die Fortschrittsanzeige ein (siehe
   // Architekturplanung Abschnitt 13) — nach jeder Antwort invalidieren, damit der
-  // Fortschritt-Tab nicht auf einem veralteten Zwischenstand hängen bleibt.
+  // Fortschritt-Tab nicht auf einem veralteten Zwischenstand hängen bleibt. Offline gibt es
+  // nichts zu invalidieren (kein Serverkontakt) — der Fortschritt zieht dann erst beim Sync nach.
   const invalidateProgress = () => {
     utils.progress.overview.invalidate();
     // F-27: Ergebnis kann die nächste Runde Vorschläge verändern.
@@ -30,19 +35,50 @@ export function Quiz({
   // laden, während der lokale `index` unverändert bleibt — die angezeigte Frage würde nicht mehr
   // zur Fragenzahl passen. Die Komponente bleibt jetzt ohnehin über den Tab-Wechsel hinweg
   // gemountet (siehe App.tsx), ein Re-Fetch ist hier also nie erwünscht.
-  const quizItems = trpc.quiz.quizItems.useQuery({ kursId, themaId }, { staleTime: Infinity });
-  const submitAnswer = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
-  const submitMatching = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
-  const submitBlanks = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
-  const submitKurzantwort = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
+  const quizItemsQuery = trpc.quiz.quizItems.useQuery({ kursId, themaId }, { staleTime: Infinity, enabled: online });
+  const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
+  const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
+  const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
+  const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
+
+  // F-42 Baustein 4: offline kommt die Runde (inkl. Lösung für die lokale Prüfung) aus der
+  // IndexedDB-Kopie statt von quiz.quizItems — einmalig pro Kurs/Thema/Online-Wechsel geladen,
+  // analog zum offline-Zweig in Flashcards.tsx.
+  const [offlineRound, setOfflineRound] = useState<OfflineQuizRound | null>(null);
+  useEffect(() => {
+    if (online) {
+      setOfflineRound(null);
+      return;
+    }
+    let cancelled = false;
+    loadOfflineQuizRound(kursId, themaId).then((round) => {
+      if (!cancelled) setOfflineRound(round);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [online, kursId, themaId]);
+
   const [index, setIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
+  // Ein Verbindungswechsel mitten in einer Runde ersetzt die komplette Fragenliste (Server- vs.
+  // IndexedDB-Quelle) — index/correctCount müssten sonst nicht mehr zur neuen Liste passen.
+  useEffect(() => {
+    setIndex(0);
+    setCorrectCount(0);
+  }, [online]);
 
-  if (quizItems.isLoading) {
+  if (online ? quizItemsQuery.isLoading : offlineRound === null) {
     return <p>Lädt…</p>;
   }
 
-  const items = quizItems.data ?? [];
+  const items = online ? quizItemsQuery.data ?? [] : offlineRound!.shaped;
+  const offlineMutations = online ? null : createOfflineQuizMutations(offlineRound!.raw);
+  const submitAnswer = online ? submitAnswerMutation : offlineMutations!.submitAnswer;
+  const submitMatching = online ? submitMatchingMutation : offlineMutations!.submitMatching;
+  const submitBlanks = online ? submitBlanksMutation : offlineMutations!.submitBlanks;
+  const submitKurzantwort = online ? submitKurzantwortMutation : offlineMutations!.submitKurzantwort;
+
   const filterBadge = themaId && themaTitle && onClearThema && (
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
