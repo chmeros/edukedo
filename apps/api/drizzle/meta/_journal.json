@@ -50,6 +50,13 @@
       "when": 1789558959323,
       "tag": "0006_soft_mandrill",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1789585646267,
+      "tag": "0007_narrow_sugar_man",
+      "breakpoints": true
     }
   ]
 }

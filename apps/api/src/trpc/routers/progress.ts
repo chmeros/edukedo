@@ -4,6 +4,7 @@ import {
   scheduleReview,
   sessionIdInputSchema,
   submitReviewInputSchema,
+  type ReviewResult,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, gte, inArray, isNull, lte } from "drizzle-orm";
@@ -33,15 +34,34 @@ import { protectedProcedure, router } from "../trpc";
  * Platzhalter: `content.dueCards` (Karteikarten-Fälligkeit) filtert ohnehin strikt auf
  * `content_item.type = "karteikarte"` und liest diese Felder für Quiz-Zeilen nie.
  */
+/**
+ * `occurredAt`/`clientEventId` sind für F-42 Baustein 5 (Sync-Endpunkt, siehe
+ * trpc/routers/offline.ts) da: ein offline beantwortetes Quiz-Item wird mit seinem
+ * tatsächlichen (client-seitigen) Zeitstempel statt der Sync-Ankunftszeit verbucht, und
+ * `clientEventId` dient als Idempotenz-Schlüssel, falls ein Sync-Versuch wiederholt wird
+ * (siehe learningEvent.clientEventId in db/schema.ts). Bei normalen Online-Aufrufen aus
+ * quiz.ts bleiben beide auf ihrem Default (jetzt, kein Idempotenz-Schlüssel nötig).
+ */
 export async function recordQuizAttempt(
   db: Database,
   userId: string,
   contentItemId: string,
   isCorrect: boolean,
+  occurredAt: Date = new Date(),
+  clientEventId?: string,
 ): Promise<void> {
-  const now = new Date();
-  const state = isCorrect ? "review" : "learning";
+  const [insertedEvent] = await db
+    .insert(learningEvent)
+    .values({ userId, contentItemId, isCorrect, occurredAt, clientEventId: clientEventId ?? null })
+    .onConflictDoNothing({ target: learningEvent.clientEventId })
+    .returning({ id: learningEvent.id });
 
+  if (clientEventId && !insertedEvent) {
+    // Bereits bei einem früheren Sync-Versuch verarbeitet — user_progress nicht erneut ändern.
+    return;
+  }
+
+  const state = isCorrect ? "review" : "learning";
   await db
     .insert(userProgress)
     .values({
@@ -50,17 +70,98 @@ export async function recordQuizAttempt(
       difficulty: 0,
       stability: 0,
       state,
-      dueAt: now,
-      lastReviewedAt: now,
+      dueAt: occurredAt,
+      lastReviewedAt: occurredAt,
       reps: 0,
       lapses: 0,
     })
     .onConflictDoUpdate({
       target: [userProgress.userId, userProgress.contentItemId],
-      set: { state, lastReviewedAt: now },
+      set: { state, lastReviewedAt: occurredAt },
+    });
+}
+
+/**
+ * Kern von `submitReview` unten, zusätzlich von F-42 Baustein 5 (Sync-Endpunkt,
+ * trpc/routers/offline.ts) für offline erzeugte Karteikarten-Bewertungen genutzt — mit dem
+ * tatsächlichen Bewertungszeitpunkt statt der Sync-Ankunftszeit als `now`, da FSRS das
+ * nächste Intervall aus der seit der letzten Bewertung verstrichenen Zeit berechnet.
+ * `clientEventId` schützt wie bei `recordQuizAttempt` vor doppelter Anwendung bei einem
+ * wiederholten Sync-Versuch.
+ */
+export async function applyReview(
+  db: Database,
+  userId: string,
+  contentItemId: string,
+  result: ReviewResult,
+  now: Date,
+  clientEventId?: string,
+): Promise<{ dueAt: Date }> {
+  const [existing] = await db
+    .select()
+    .from(userProgress)
+    .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+    .limit(1);
+
+  const current = existing
+    ? {
+        difficulty: existing.difficulty,
+        stability: existing.stability,
+        state: existing.state,
+        dueAt: existing.dueAt,
+        lastReviewedAt: existing.lastReviewedAt,
+        reps: existing.reps,
+        lapses: existing.lapses,
+      }
+    : initialProgressState(now);
+
+  const next = scheduleReview(current, result, now);
+
+  const [insertedEvent] = await db
+    .insert(learningEvent)
+    .values({
+      userId,
+      contentItemId,
+      isCorrect: result !== "nicht_gewusst",
+      occurredAt: now,
+      clientEventId: clientEventId ?? null,
+    })
+    .onConflictDoNothing({ target: learningEvent.clientEventId })
+    .returning({ id: learningEvent.id });
+
+  if (clientEventId && !insertedEvent) {
+    return { dueAt: existing?.dueAt ?? next.dueAt };
+  }
+
+  await db
+    .insert(userProgress)
+    .values({
+      userId,
+      contentItemId,
+      difficulty: next.difficulty,
+      stability: next.stability,
+      state: next.state,
+      dueAt: next.dueAt,
+      lastReviewedAt: next.lastReviewedAt,
+      lastResult: result,
+      reps: next.reps,
+      lapses: next.lapses,
+    })
+    .onConflictDoUpdate({
+      target: [userProgress.userId, userProgress.contentItemId],
+      set: {
+        difficulty: next.difficulty,
+        stability: next.stability,
+        state: next.state,
+        dueAt: next.dueAt,
+        lastReviewedAt: next.lastReviewedAt,
+        lastResult: result,
+        reps: next.reps,
+        lapses: next.lapses,
+      },
     });
 
-  await db.insert(learningEvent).values({ userId, contentItemId, isCorrect, occurredAt: now });
+  return { dueAt: next.dueAt };
 }
 
 /**
@@ -353,70 +454,7 @@ export const progressRouter = router({
   }),
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
-    const now = new Date();
-
-    const [existing] = await ctx.db
-      .select()
-      .from(userProgress)
-      .where(
-        and(eq(userProgress.userId, ctx.currentUser.id), eq(userProgress.contentItemId, input.contentItemId)),
-      )
-      .limit(1);
-
-    const current = existing
-      ? {
-          difficulty: existing.difficulty,
-          stability: existing.stability,
-          state: existing.state,
-          dueAt: existing.dueAt,
-          lastReviewedAt: existing.lastReviewedAt,
-          reps: existing.reps,
-          lapses: existing.lapses,
-        }
-      : initialProgressState(now);
-
-    const next = scheduleReview(current, input.result, now);
-
-    await ctx.db
-      .insert(userProgress)
-      .values({
-        userId: ctx.currentUser.id,
-        contentItemId: input.contentItemId,
-        difficulty: next.difficulty,
-        stability: next.stability,
-        state: next.state,
-        dueAt: next.dueAt,
-        lastReviewedAt: next.lastReviewedAt,
-        lastResult: input.result,
-        reps: next.reps,
-        lapses: next.lapses,
-      })
-      .onConflictDoUpdate({
-        target: [userProgress.userId, userProgress.contentItemId],
-        set: {
-          difficulty: next.difficulty,
-          stability: next.stability,
-          state: next.state,
-          dueAt: next.dueAt,
-          lastReviewedAt: next.lastReviewedAt,
-          lastResult: input.result,
-          reps: next.reps,
-          lapses: next.lapses,
-        },
-      });
-
-    // F-31/F-32: siehe learningEvent in db/schema.ts — "richtig" heißt bei Karteikarten wie
-    // bei den lapses oben "kein Again/nicht_gewusst", nicht dasselbe wie "state === review"
-    // (das würde erst den Abschluss der FSRS-Lernphase widerspiegeln, nicht die aktuelle
-    // Selbsteinschätzung).
-    await ctx.db.insert(learningEvent).values({
-      userId: ctx.currentUser.id,
-      contentItemId: input.contentItemId,
-      isCorrect: input.result !== "nicht_gewusst",
-      occurredAt: now,
-    });
-
-    return { dueAt: next.dueAt };
+    return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
   /**

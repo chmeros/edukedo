@@ -307,6 +307,14 @@ export const learningEvent = pgTable(
       .references(() => contentItem.id, { onDelete: "cascade" }),
     isCorrect: boolean("is_correct").notNull(),
     occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull().defaultNow(),
+    /**
+     * F-42 Baustein 5 (Sync-Endpunkt): client-generierte UUID aus offlineDb.queue, nur bei
+     * über den Sync nachgespielten Ereignissen gesetzt — dient als Idempotenz-Schlüssel, falls
+     * ein Sync-Versuch abbricht und wiederholt wird (siehe Architekturplanung Abschnitt 13).
+     * Mehrere NULL-Werte sind unter UNIQUE in Postgres zulässig, normale Online-Ereignisse
+     * bleiben also unberührt.
+     */
+    clientEventId: uuid("client_event_id").unique(),
   },
   (table) => [
     index("learning_event_user_id_occurred_at_idx").on(table.userId, table.occurredAt),

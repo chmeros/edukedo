@@ -1,7 +1,17 @@
-import { activeKursInputSchema, initialProgressState } from "@edukedo/shared";
+import {
+  activeKursInputSchema,
+  checkBlanks,
+  checkKurzantwort,
+  checkMatching,
+  checkMcAnswer,
+  initialProgressState,
+  QuizItemNotFoundError,
+  syncQueueInputSchema,
+} from "@edukedo/shared";
 import { and, asc, eq, inArray } from "drizzle-orm";
 import { answerOption, contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+import { applyReview, recordQuizAttempt } from "./progress";
 
 const OFFLINE_CONTENT_TYPES = ["karteikarte", "quiz_mc", "zuordnung", "luecken", "kurzantwort"] as const;
 
@@ -109,5 +119,104 @@ export const offlineRouter = router({
         };
       }),
     };
+  }),
+
+  /**
+   * F-42 Baustein 5 (Sync-Endpunkt): spielt die lokal gepufferten Ereignisse aus
+   * apps/web/src/offlineDb.ts (`queue`-Tabelle) chronologisch (`occurredAt`) über dieselben
+   * Prüf-/Fortschritts-Pfade wie die Online-Mutationen nach (applyReview für Karteikarten,
+   * recordQuizAttempt + die vier check*-Funktionen für Quiz) — bewusstes Ereignis-Replay statt
+   * "Last Write Wins", damit bei Mehrgeräte-Nutzung keine zwischenzeitliche Wiederholung
+   * verloren geht (siehe Architekturplanung Abschnitt 13). Jeder Eintrag trägt seine
+   * client-generierte `id` als Idempotenz-Schlüssel (learningEvent.clientEventId), falls ein
+   * Sync-Versuch abbricht und wiederholt wird.
+   *
+   * Antwortoptionen (quiz_mc/zuordnung) und Payloads (luecken/kurzantwort) werden vorab
+   * gebündelt geladen (wie downloadKurs oben) statt je Eintrag einzeln nachzuladen — ein
+   * Kurs-Sync bezieht sich typischerweise auf eine überschaubare Anzahl unterschiedlicher
+   * content_item-Zeilen, auch wenn die Warteschlange selbst länger sein kann.
+   */
+  syncQueue: protectedProcedure.input(syncQueueInputSchema).mutation(async ({ ctx, input }) => {
+    const entries = [...input.entries].sort((a, b) => a.occurredAt.getTime() - b.occurredAt.getTime());
+
+    const optionItemIds = [
+      ...new Set(
+        entries.filter((e) => e.event.kind === "quiz_mc" || e.event.kind === "zuordnung").map((e) => e.contentItemId),
+      ),
+    ];
+    const payloadItemIds = [
+      ...new Set(
+        entries.filter((e) => e.event.kind === "luecken" || e.event.kind === "kurzantwort").map((e) => e.contentItemId),
+      ),
+    ];
+
+    const [optionRows, payloadRows] = await Promise.all([
+      optionItemIds.length
+        ? ctx.db.select().from(answerOption).where(inArray(answerOption.contentItemId, optionItemIds))
+        : Promise.resolve([]),
+      payloadItemIds.length
+        ? ctx.db.select({ id: contentItem.id, payload: contentItem.payload }).from(contentItem).where(
+            inArray(contentItem.id, payloadItemIds),
+          )
+        : Promise.resolve([]),
+    ]);
+
+    const optionsByItem = new Map<string, typeof optionRows>();
+    for (const option of optionRows) {
+      const list = optionsByItem.get(option.contentItemId) ?? [];
+      list.push(option);
+      optionsByItem.set(option.contentItemId, list);
+    }
+    const payloadByItem = new Map(payloadRows.map((row) => [row.id, row.payload] as const));
+
+    const syncedIds: string[] = [];
+
+    // Bewusst sequenziell statt Promise.all: Karteikarten-Bewertungen bauen über applyReview
+    // auf dem jeweils zuletzt geschriebenen user_progress-Zustand auf, die chronologische
+    // Reihenfolge muss also eingehalten werden (siehe Docstring oben).
+    for (const entry of entries) {
+      try {
+        if (entry.event.kind === "review") {
+          await applyReview(ctx.db, ctx.currentUser.id, entry.contentItemId, entry.event.result, entry.occurredAt, entry.id);
+        } else if (entry.event.kind === "quiz_mc") {
+          const { isCorrect } = checkMcAnswer(optionsByItem.get(entry.contentItemId) ?? [], entry.event.selectedOptionId);
+          await recordQuizAttempt(ctx.db, ctx.currentUser.id, entry.contentItemId, isCorrect, entry.occurredAt, entry.id);
+        } else if (entry.event.kind === "zuordnung") {
+          const result = checkMatching(optionsByItem.get(entry.contentItemId) ?? [], entry.event.pairs);
+          await recordQuizAttempt(
+            ctx.db,
+            ctx.currentUser.id,
+            entry.contentItemId,
+            result.correctCount === result.total,
+            entry.occurredAt,
+            entry.id,
+          );
+        } else if (entry.event.kind === "luecken") {
+          const result = checkBlanks(payloadByItem.get(entry.contentItemId), entry.event.answers);
+          await recordQuizAttempt(
+            ctx.db,
+            ctx.currentUser.id,
+            entry.contentItemId,
+            result.correctCount === result.total,
+            entry.occurredAt,
+            entry.id,
+          );
+        } else {
+          const { isCorrect } = checkKurzantwort(payloadByItem.get(entry.contentItemId), entry.event.answer);
+          await recordQuizAttempt(ctx.db, ctx.currentUser.id, entry.contentItemId, isCorrect, entry.occurredAt, entry.id);
+        }
+        syncedIds.push(entry.id);
+      } catch (error) {
+        // Frage wurde serverseitig deaktiviert/entfernt oder ihr Payload ist inzwischen anders
+        // strukturiert, seit sie heruntergeladen wurde (QuizItemNotFoundError bzw. ein
+        // Zod-Parse-Fehler in check*) — dieser einzelne Eintrag bleibt unsynchronisiert, statt
+        // den gesamten Batch abzubrechen; alle anderen Einträge werden trotzdem übernommen.
+        if (!(error instanceof QuizItemNotFoundError) && !(error instanceof Error && error.name === "ZodError")) {
+          throw error;
+        }
+      }
+    }
+
+    return { syncedIds };
   }),
 });
