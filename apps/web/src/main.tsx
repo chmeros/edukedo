@@ -3,6 +3,8 @@ import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
+import { CompanyDashboard } from "./CompanyDashboard";
+import { CompanySetup } from "./CompanySetup";
 import { ConsentConfirm } from "./ConsentConfirm";
 import { DatenschutzKinder } from "./DatenschutzKinder";
 import { ParentDashboard } from "./ParentDashboard";
@@ -27,8 +29,8 @@ function Root() {
 
   // Kein eigener Router im Projekt — für die öffentlichen Zielseiten des
   // Consent-Bestätigungslinks (F-08), das Eltern-Dashboard (F-90), die kindgerechte
-  // Datenschutz-Kurzfassung (F-53) und den kontolosen Vorschau-Modus (F-08) genügt eine
-  // einfache Pfad-Weiche.
+  // Datenschutz-Kurzfassung (F-53), den kontolosen Vorschau-Modus (F-08) und seit F-91 das
+  // Unternehmens-Dashboard samt Setup-Link-Zielseite genügt eine einfache Pfad-Weiche.
   const pathname = window.location.pathname;
 
   return (
@@ -42,6 +44,10 @@ function Root() {
           <DatenschutzKinder />
         ) : pathname === "/vorschau" ? (
           <Vorschau />
+        ) : pathname === "/company/setup" ? (
+          <CompanySetup />
+        ) : pathname === "/company" ? (
+          <CompanyDashboard />
         ) : (
           <App />
         )}

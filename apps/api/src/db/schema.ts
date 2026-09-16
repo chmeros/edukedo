@@ -134,8 +134,10 @@ export const userCourse = pgTable(
  * "session" (neu, nicht im ursprünglichen SQL-DDL enthalten): Grundlage des Lucia-Pattern-Auth
  * (Abschnitt 2). "id" speichert nur den SHA-256-Hash des Session-Tokens, nie den Klartext-Token
  * selbst (analog zu consent_token.token_hash) — der Klartext-Token existiert nur im httpOnly-Cookie.
- * Trägt user_id ODER parent_id, weil "user" und "parent" bewusst getrennte Konto-Tabellen sind
- * (Abschnitt 4.4) und beide Konto-Typen sich einloggen können. Siehe Abschnitt 13.
+ * Trägt user_id ODER parent_id ODER company_account_id, weil "user"/"parent"/"company_account"
+ * bewusst getrennte Konto-Tabellen sind (Abschnitt 4.4) und alle drei Konto-Typen sich einloggen
+ * können. `company_account_id` seit F-91 (Business-Lizenzen, Baustein 1, siehe Abschnitt 13).
+ * Siehe Abschnitt 13.
  */
 export const session = pgTable(
   "session",
@@ -143,15 +145,17 @@ export const session = pgTable(
     id: text("id").primaryKey(),
     userId: uuid("user_id").references(() => user.id, { onDelete: "cascade" }),
     parentId: uuid("parent_id").references(() => parent.id, { onDelete: "cascade" }),
+    companyAccountId: uuid("company_account_id").references(() => companyAccount.id, { onDelete: "cascade" }),
     expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [
     index("session_user_id_idx").on(table.userId),
     index("session_parent_id_idx").on(table.parentId),
+    index("session_company_account_id_idx").on(table.companyAccountId),
     check(
       "session_exactly_one_principal_check",
-      sql`num_nonnulls(${table.userId}, ${table.parentId}) = 1`,
+      sql`num_nonnulls(${table.userId}, ${table.parentId}, ${table.companyAccountId}) = 1`,
     ),
   ],
 );
@@ -469,6 +473,64 @@ export const consentToken = pgTable(
     reminderSentCount: integer("reminder_sent_count").notNull().default(0),
   },
   (table) => [index("consent_token_expires_at_idx").on(table.expiresAt)],
+);
+
+// ---------------------------------------------------------------------------
+// Business-Lizenzen & Sponsoring (F-91–F-94, Baustein 1: Datenmodell + Auth-Grundgerüst,
+// ergänzt 16.09.2026) — Architekturplanung Abschnitt 4.5/13.
+// ---------------------------------------------------------------------------
+
+/**
+ * Eigener Account-Typ analog zu "parent" (F-91) — eigenes Login, nicht Teil des
+ * "user"-Rollenmodells (siehe Abschnitt 13, "user.role"). `password_set` folgt demselben
+ * Platzhalter-Muster wie `parent.password_set`: Ein Admin legt das Konto an (siehe
+ * `admin.createCompanyAccount`), der nirgends bekannte Platzhalter-Hash lässt sich nicht
+ * erraten — nur der per E-Mail verschickte Setup-Link (`company_setup_token`) verschafft eine
+ * erste Session, aus der heraus `company.setInitialPassword` ein echtes Passwort setzt.
+ * `seat_limit`/`billing_status` sind hier (nicht in einer separaten Tabelle) untergebracht, da
+ * beide Felder 1:1 am Konto hängen und von genau einer Stelle (Admin, siehe Abschnitt 13)
+ * gepflegt werden. `branding_*` bleibt bis Baustein 3 (F-92) ungenutzt.
+ */
+export const companyAccount = pgTable(
+  "company_account",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: text("name").notNull(),
+    contactEmail: citext("contact_email").notNull().unique(),
+    passwordHash: text("password_hash").notNull(),
+    passwordSet: boolean("password_set").notNull().default(false),
+    seatLimit: integer("seat_limit").notNull().default(0),
+    billingStatus: text("billing_status").notNull().default("pending"),
+    brandingLogoUrl: text("branding_logo_url"),
+    brandingColor: text("branding_color"),
+    brandingHeadline: text("branding_headline"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    check(
+      "company_account_billing_status_check",
+      sql`${table.billingStatus} in ('pending', 'active', 'expired')`,
+    ),
+  ],
+);
+
+/**
+ * Einmal-Link, der ein neu von einem Admin angelegtes Unternehmens-Konto erstmals mit einer
+ * Session versorgt (analog zu `consent_token`, aber ohne die dort nötige Einwilligungs-
+ * Zustandsmaschine — hier gibt es nur "noch kein Passwort gesetzt" vs. "Passwort gesetzt").
+ */
+export const companySetupToken = pgTable(
+  "company_setup_token",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    companyAccountId: uuid("company_account_id")
+      .notNull()
+      .references(() => companyAccount.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    usedAt: timestamp("used_at", { withTimezone: true }),
+  },
+  (table) => [index("company_setup_token_expires_at_idx").on(table.expiresAt)],
 );
 
 // ---------------------------------------------------------------------------

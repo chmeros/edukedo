@@ -1,8 +1,11 @@
+import { adminCreateCompanyAccountInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
+import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
-import { kurs } from "../../db/schema";
+import { companyAccount, kurs } from "../../db/schema";
+import { env } from "../../env";
 import { roleProcedure, router } from "../trpc";
 
 /**
@@ -49,4 +52,57 @@ export const adminRouter = router({
       });
     }
   }),
+
+  /**
+   * F-91: Business-Lizenzen, Baustein 1. Liste aller Unternehmens-Konten für den
+   * Admin-Bereich — noch ohne Sitzplatz-Auslastung (belegte/freie Plätze, erst Baustein 2,
+   * sobald user_company_membership existiert).
+   */
+  companyAccounts: roleProcedure("admin").query(async ({ ctx }) => {
+    return ctx.db
+      .select({
+        id: companyAccount.id,
+        name: companyAccount.name,
+        contactEmail: companyAccount.contactEmail,
+        seatLimit: companyAccount.seatLimit,
+        billingStatus: companyAccount.billingStatus,
+        passwordSet: companyAccount.passwordSet,
+        createdAt: companyAccount.createdAt,
+      })
+      .from(companyAccount)
+      .orderBy(companyAccount.name);
+  }),
+
+  /**
+   * F-91: Legt ein neues Unternehmens-Konto an — bewusst kein Self-Service-Signup, die
+   * Abrechnung (Sitzplatz-Kontingent, Rechnung/Überweisung) läuft manuell außerhalb des
+   * Systems, ein Admin richtet das Konto erst danach ein (siehe Architekturplanung
+   * Abschnitt 4.5/13). `billing_status` bleibt bewusst beim Default "pending" — das
+   * Freischalt-Werkzeug dafür ist ein eigener, späterer Baustein.
+   */
+  createCompanyAccount: roleProcedure("admin")
+    .input(adminCreateCompanyAccountInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [existing] = await ctx.db
+        .select()
+        .from(companyAccount)
+        .where(eq(companyAccount.contactEmail, input.contactEmail))
+        .limit(1);
+      if (existing) {
+        throw new TRPCError({
+          code: "CONFLICT",
+          message: "Diese Kontakt-E-Mail ist bereits einem Unternehmens-Konto zugeordnet.",
+        });
+      }
+
+      const { id, setupUrl } = await createCompanyAccount(ctx.db, input);
+
+      return {
+        id,
+        // Nur außerhalb von production offengelegt — es gibt noch keinen echten
+        // E-Mail-Versand (siehe apps/api/src/email/sender.ts), daher wird der Setup-Link
+        // hier direkt für die manuelle Weiterverwendung zurückgegeben (siehe auth.register).
+        devSetupUrl: env.NODE_ENV === "production" ? undefined : setupUrl,
+      };
+    }),
 });

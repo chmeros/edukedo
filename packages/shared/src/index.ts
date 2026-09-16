@@ -4,6 +4,7 @@ export * from "./quiz-logic";
 export * from "./schemas/content-item";
 export * from "./schemas/auth";
 export * from "./schemas/course";
+export * from "./schemas/company";
 export * from "./schemas/consent";
 export * from "./schemas/exam";
 export * from "./schemas/offline-sync";

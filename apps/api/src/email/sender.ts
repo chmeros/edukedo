@@ -38,3 +38,19 @@ export function sendConsentReminderEmail(
     ].join("\n"),
   );
 }
+
+/**
+ * F-91: Setup-Link für ein neu von einem Admin angelegtes Unternehmens-Konto (siehe
+ * apps/api/src/auth/company-setup.ts).
+ */
+export function sendCompanySetupEmail(params: { to: string; setupUrl: string; companyName: string }): void {
+  console.log(
+    [
+      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
+      `An: ${params.to}`,
+      `Betreff: Unternehmens-Konto für ${params.companyName} bei edukedo einrichten`,
+      `Setup-Link: ${params.setupUrl}`,
+      "---------------------------------------------------------------------------",
+    ].join("\n"),
+  );
+}

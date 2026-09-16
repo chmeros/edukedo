@@ -32,6 +32,20 @@ const requireParent = middleware(({ ctx, next }) => {
 
 export const protectedParentProcedure = t.procedure.use(requireParent);
 
+/**
+ * F-91: Business-Lizenzen. Eigene Middleware analog zu requireParent — "company_account" ist
+ * ebenfalls ein eigener Account-Typ mit eigener Session-Variante (session.company_account_id,
+ * siehe Architekturplanung Abschnitt 13), nicht Teil des "user"-Rollenmodells.
+ */
+const requireCompanyAdmin = middleware(({ ctx, next }) => {
+  if (!ctx.currentCompanyAdmin) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  return next({ ctx: { ...ctx, currentCompanyAdmin: ctx.currentCompanyAdmin } });
+});
+
+export const protectedCompanyAdminProcedure = t.procedure.use(requireCompanyAdmin);
+
 export function roleProcedure(...allowed: UserRole[]) {
   return protectedProcedure.use(({ ctx, next }) => {
     if (!hasRole(ctx.currentUser.role as UserRole, allowed)) {

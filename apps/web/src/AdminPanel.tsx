@@ -1,6 +1,82 @@
+import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
+
+const BILLING_STATUS_LABELS: Record<string, string> = {
+  pending: "Ausstehend",
+  active: "Aktiv",
+  expired: "Abgelaufen",
+};
+
+/**
+ * F-91: Business-Lizenzen, Baustein 1 — Admin legt ein neues Unternehmens-Konto an (bewusst
+ * kein Self-Service-Signup, siehe apps/api/src/auth/company-setup.ts). Zeigt den Setup-Link
+ * nach dem Anlegen direkt an (analog zu devConfirmUrl beim Eltern-Consent-Flow, siehe
+ * App.tsx), solange kein echter E-Mail-Anbieter angebunden ist.
+ */
+function CreateCompanyAccountForm() {
+  const utils = trpc.useUtils();
+  const create = trpc.admin.createCompanyAccount.useMutation({
+    onSuccess: () => utils.admin.companyAccounts.invalidate(),
+  });
+  const [name, setName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [seatLimit, setSeatLimit] = useState("10");
+
+  return (
+    <form
+      className="stack"
+      onSubmit={(event) => {
+        event.preventDefault();
+        create.mutate({ name, contactEmail, seatLimit: Number(seatLimit) });
+      }}
+    >
+      <div className="field">
+        <label htmlFor="cac-name">Firmenname</label>
+        <input className="input" id="cac-name" value={name} onChange={(event) => setName(event.target.value)} required />
+      </div>
+      <div className="field">
+        <label htmlFor="cac-email">Kontakt-E-Mail</label>
+        <input
+          className="input"
+          id="cac-email"
+          type="email"
+          value={contactEmail}
+          onChange={(event) => setContactEmail(event.target.value)}
+          required
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="cac-seats">Sitzplatz-Kontingent</label>
+        <input
+          className="input"
+          id="cac-seats"
+          type="number"
+          min={1}
+          value={seatLimit}
+          onChange={(event) => setSeatLimit(event.target.value)}
+          required
+        />
+      </div>
+      <button type="submit" className="btn btn-primary" style={{ alignSelf: "flex-start" }} disabled={create.isPending}>
+        Unternehmens-Konto anlegen
+      </button>
+      {create.error && <ErrorMessage>{create.error.message}</ErrorMessage>}
+      {create.data?.devSetupUrl && (
+        <div className="alert alert-success">
+          <SuccessIcon />
+          <div>
+            Konto angelegt. Setup-Link (nur sichtbar, solange kein echter E-Mail-Versand angebunden ist):{" "}
+            <a className="link" href={create.data.devSetupUrl}>
+              {create.data.devSetupUrl}
+            </a>
+          </div>
+        </div>
+      )}
+    </form>
+  );
+}
 
 /**
  * F-11: Admin-/Redaktionsbereich, erste einfache Version — nur für `role === "admin"`
@@ -11,6 +87,7 @@ import { trpc } from "./trpc";
 export function AdminPanel() {
   const utils = trpc.useUtils();
   const courses = trpc.admin.courses.useQuery();
+  const companyAccounts = trpc.admin.companyAccounts.useQuery();
   const setPublished = trpc.admin.setPublished.useMutation({
     onSuccess: () => {
       utils.admin.courses.invalidate();
@@ -78,6 +155,24 @@ export function AdminPanel() {
         </div>
       )}
       {triggerImport.error && <ErrorMessage>{triggerImport.error.message}</ErrorMessage>}
+
+      <hr />
+
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Unternehmens-Konten (F-91)</h2>
+      {(companyAccounts.data ?? []).map((company) => (
+        <div key={company.id} className="admin-row">
+          <div className="meta">
+            {company.name}
+            <span>
+              {company.contactEmail} · {company.seatLimit} Plätze ·{" "}
+              {BILLING_STATUS_LABELS[company.billingStatus] ?? company.billingStatus} ·{" "}
+              {company.passwordSet ? "eingerichtet" : "Setup ausstehend"}
+            </span>
+          </div>
+        </div>
+      ))}
+      {companyAccounts.data?.length === 0 && <p className="field-hint">Noch keine Unternehmens-Konten angelegt.</p>}
+      <CreateCompanyAccountForm />
     </div>
   );
 }
