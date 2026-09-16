@@ -4,11 +4,11 @@ import { AdminPanel } from "./AdminPanel";
 import { BrandLink } from "./BrandLink";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
-import { Exam } from "./Exam";
 import { Flashcards } from "./Flashcards";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
 import { Progress } from "./Progress";
+import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { Quiz } from "./Quiz";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
@@ -203,7 +203,7 @@ export function App() {
                   onClearThema={() => setActiveThema(null)}
                 />
               </div>
-              {learningMode === "exam" && <Exam key={activeKursId} kursId={activeKursId} />}
+              {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
               {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
             </>
           ) : (

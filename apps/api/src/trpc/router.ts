@@ -6,6 +6,7 @@ import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
 import { healthRouter } from "./routers/health";
 import { parentRouter } from "./routers/parent";
+import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
 import { quizRouter } from "./routers/quiz";
@@ -16,7 +17,8 @@ import { router } from "./trpc";
  * kommen in späteren Iterationen als eigene Sub-Router hinzu. `admin` deckt F-11 bisher nur in
  * der ersten, einfachen Ausbaustufe ab (Kurs-Veröffentlichung) — die eigentliche Content-Pflege
  * (Fragen/Karteikarten) folgt später. `exam` (F-23, seit 16.09.2026) nutzt die hierfür bereits
- * vorbereiteten `exam_session`/`exam_answer`-Tabellen.
+ * vorbereiteten `exam_session`/`exam_answer`-Tabellen. `presentation` (F-24, seit 16.09.2026)
+ * speichert den Gliederungs-/Checklisten-Entwurf des Präsentationstrainers.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -29,6 +31,7 @@ export const appRouter = router({
   progress: progressRouter,
   quiz: quizRouter,
   exam: examRouter,
+  presentation: presentationRouter,
   admin: adminRouter,
 });
 

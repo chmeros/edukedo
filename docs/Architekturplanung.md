@@ -566,6 +566,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 16.09.2026 (F-24 Präsentationstrainer)
+
+- **Genau ein Entwurf je (Nutzer:in, Kurs), nicht mehrere/versioniert:** F-24 verlangt kein Verlaufsprotokoll wie F-31/F-32 — ein Upsert auf `(user_id, kurs_id)` reicht, analog zum bereits bestehenden `user_progress`-Muster ("genau ein Fortschritts-Datensatz je Content-Item").
+- **Gliederung relational (drei feste Textspalten `outline_einleitung`/`outline_hauptteil`/`outline_schluss`), Checkliste als JSONB-Map:** Die drei Gliederungsabschnitte sind eine stabile, im Anforderungskatalog vorgegebene Struktur — passend zur allgemeinen Modellierungsregel aus Abschnitt 4.1 ("wo die Struktur stabil ist, bleibt das Modell relational"). Die Checklisten-Punkte selbst sind dagegen reine Frontend-Definition (`apps/web/src/Praesentationstrainer.tsx`) und könnten sich künftig ändern, ohne dass das eine Migration rechtfertigen sollte — daher ein freies String→Boolean-Mapping statt einer eigenen Zeile je Punkt.
+- **F-23 und F-24 im selben "Prüfung"-Tab gebündelt statt als zwei Top-Level-Tabs** (`Pruefungsvorbereitung.tsx` mit Segmented-Toggle "Schriftliche Prüfung"/"Präsentation") — beide gehören konzeptionell zur Prüfungsvorbereitung, ein sechster Top-Level-Tab hätte die ohnehin schon auf fünf gewachsene Tab-Leiste weiter überladen.
+- **Beide Kind-Komponenten bleiben beim Umschalten immer gemountet (nur per `hidden` ausgeblendet), analog zum bereits bestehenden Quiz-Tab-Muster:** `Exam.tsx` hält Sitzungs-ID, aktuelle Fallaufgabe und Antwortentwürfe nur im lokalen React-State, nicht serverseitig abrufbar — ein Unmount beim Wechsel zur Präsentation hätte eine laufende Prüfungssitzung ersatzlos verworfen.
+- **Timer als frei weiterlaufende Stoppuhr, nicht als Countdown mit Zwangsende:** Analog zur Entscheidung bei F-23 (Zeitbegrenzung rein clientseitig) — Ziel ist das Einüben der eigenen Redezeit, die Stoppuhr zählt über die 10-Minuten-Grenze hinaus weiter und markiert sie nur farblich, damit beim Üben sichtbar bleibt, um wie viel eine Überziehung ausfällt, statt bei Erreichen einfach anzuhalten.
+- Live gegen echte Postgres-Instanz verifiziert: Entwurf (Gliederung + Checkliste) gespeichert und nach vollständigem Seiten-Reload korrekt aus der Datenbank wiederhergestellt; Timer-Start/Pause/Zurücksetzen geprüft; Wechsel zwischen den beiden Sub-Tabs verliert keinen Zustand in keine der beiden Richtungen.
+
 ### Entschieden am 16.09.2026 (F-23 Prüfungssimulation, Content-Typ `fallaufgabe` erstmals importiert)
 
 - **`fallaufgaben.md`/`uebungsaufgaben.md` erstmals importiert** — beide lagen laut `content/README.md` bereits vollständig im Zwischenformat vor (`content_item.type = "fallaufgabe"` war seit Version 0.5 im Schema und in `@edukedo/shared` als `fallaufgabePayloadSchema` bereits vorbereitet), wurden aber bewusst übersprungen, solange das Feature nicht existierte (siehe bisheriger Kommentar in `import-content.ts`). `fachgespraech.md` bleibt weiterhin ausgeschlossen, da F-25 noch nicht gebaut ist.

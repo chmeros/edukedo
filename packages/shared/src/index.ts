@@ -5,5 +5,6 @@ export * from "./schemas/course";
 export * from "./schemas/consent";
 export * from "./schemas/exam";
 export * from "./schemas/parent";
+export * from "./schemas/presentation";
 export * from "./schemas/progress";
 export * from "./schemas/quiz";

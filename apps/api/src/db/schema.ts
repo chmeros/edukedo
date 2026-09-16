@@ -370,6 +370,38 @@ export const examAnswer = pgTable(
 );
 
 // ---------------------------------------------------------------------------
+// Präsentationstrainer (F-24) — Ergänzung, nicht im ursprünglichen SQL-DDL enthalten,
+// siehe Abschnitt 13.
+// ---------------------------------------------------------------------------
+
+/**
+ * Genau ein Entwurf je (Nutzer:in, Kurs) — die drei Gliederungsabschnitte sind eine stabile,
+ * bekannte Struktur (relational als eigene Spalten, analog zur generellen Modellierungs-
+ * regel aus Abschnitt 4.1), die Checkliste dagegen bewusst als JSONB-Map (Item-Key →
+ * abgehakt), da sich die Menge der Checklisten-Punkte künftig ändern könnte, ohne dafür eine
+ * Migration zu benötigen — die Punkte selbst sind rein im Frontend definiert
+ * (apps/web/src/Praesentationstrainer.tsx), nicht in der Datenbank.
+ */
+export const presentationDraft = pgTable(
+  "presentation_draft",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    outlineEinleitung: text("outline_einleitung").notNull().default(""),
+    outlineHauptteil: text("outline_hauptteil").notNull().default(""),
+    outlineSchluss: text("outline_schluss").notNull().default(""),
+    checklist: jsonb("checklist").notNull().default({}),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("presentation_draft_user_id_kurs_id_key").on(table.userId, table.kursId)],
+);
+
+// ---------------------------------------------------------------------------
 // Eltern-/Jugendschutz (F-08, F-90) — Abschnitt 4.3
 // ---------------------------------------------------------------------------
 

@@ -1682,3 +1682,20 @@ details[open] > summary.disclosure::before {
 .exam-self-assessment {
   max-width: 220px;
 }
+
+/* ---------- Präsentationstrainer (F-24) ---------- */
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--sprout);
+}
