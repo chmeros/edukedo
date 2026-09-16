@@ -1,7 +1,12 @@
-import { activeKursInputSchema, sessionIdInputSchema, submitReviewInputSchema } from "@edukedo/shared";
+import {
+  activeKursInputSchema,
+  initialProgressState,
+  scheduleReview,
+  sessionIdInputSchema,
+  submitReviewInputSchema,
+} from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, gte, inArray, isNull, lte } from "drizzle-orm";
-import { initialProgressState, scheduleReview } from "../../fsrs/scheduler";
 import { calculateEinzelterminPacing } from "../../pacing";
 import type { Database } from "../../db/client";
 import {

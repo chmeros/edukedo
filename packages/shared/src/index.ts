@@ -1,4 +1,5 @@
 export * from "./age";
+export * from "./fsrs/scheduler";
 export * from "./schemas/content-item";
 export * from "./schemas/auth";
 export * from "./schemas/course";

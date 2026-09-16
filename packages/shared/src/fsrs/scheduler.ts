@@ -1,6 +1,15 @@
-import type { ReviewResult } from "@edukedo/shared";
+import type { ReviewResult } from "../schemas/progress";
 import { type Card, Rating, State, createEmptyCard, fsrs } from "ts-fsrs";
 
+/**
+ * F-42 (Offline-Modus): von apps/api nach @edukedo/shared verschoben, damit sowohl Server als
+ * auch Web-Client denselben Scheduler nutzen — offline berechnet der Client den nächsten
+ * FSRS-Zustand einer Karteikarte selbst (kein Serverkontakt nötig), der Server wendet exakt
+ * denselben Code beim Sync erneut an, wenn die gepufferten Lern-Ereignisse nachgespielt
+ * werden (siehe Architekturplanung Abschnitt 5/13). Reine, deterministische Funktionen ohne
+ * DB-/Netzwerkzugriff — bereits vorher unit-testbar (siehe scheduler.test.ts), das bleibt hier
+ * unverändert so.
+ */
 const scheduler = fsrs();
 
 /**
