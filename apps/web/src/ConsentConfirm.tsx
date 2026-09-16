@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "./ErrorMessage";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { SuccessIcon } from "./Icons";
@@ -29,11 +30,11 @@ export function ConsentConfirm() {
   return (
     <>
       <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-      <div className="shell shell--narrow">
+      <main id="main-content" className="shell shell--narrow">
         <div className="card">
-          {!token && <p className="error">Kein Bestätigungs-Token in der URL gefunden.</p>}
+          {!token && <ErrorMessage>Kein Bestätigungs-Token in der URL gefunden.</ErrorMessage>}
           {token && confirm.isPending && <p>Einwilligung wird bestätigt…</p>}
-          {token && confirm.error && <p className="error">{confirm.error.message}</p>}
+          {token && confirm.error && <ErrorMessage>{confirm.error.message}</ErrorMessage>}
           {token && confirm.data?.status === "confirmed" && (
             <div className="alert alert-success">
               <SuccessIcon />
@@ -52,7 +53,7 @@ export function ConsentConfirm() {
             </a>
           )}
         </div>
-      </div>
+      </main>
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
@@ -76,7 +77,7 @@ export function AdminPanel() {
           </div>
         </div>
       )}
-      {triggerImport.error && <p className="error">{triggerImport.error.message}</p>}
+      {triggerImport.error && <ErrorMessage>{triggerImport.error.message}</ErrorMessage>}
     </div>
   );
 }

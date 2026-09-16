@@ -19,7 +19,7 @@ export function DatenschutzKinder() {
   return (
     <>
       <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-      <div className="shell shell--narrow">
+      <main id="main-content" className="shell shell--narrow">
         <div className="card">
           <div className="alert alert-info">
             <InfoIcon />
@@ -61,7 +61,7 @@ export function DatenschutzKinder() {
             ← Zurück zur Registrierung
           </a>
         </div>
-      </div>
+      </main>
     </>
   );
 }

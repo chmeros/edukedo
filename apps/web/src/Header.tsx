@@ -12,11 +12,20 @@ import { BrandLink } from "./BrandLink";
  */
 export function Header({ right }: { right?: ReactNode }) {
   return (
-    <header className="landing-nav">
-      <div className="landing-wrap landing-nav-row">
-        <BrandLink />
-        {right && <div className="landing-nav-actions">{right}</div>}
-      </div>
-    </header>
+    <>
+      {/* F-44: Sprungmarke zum Hauptinhalt — nur bei Tastaturfokus sichtbar (.skip-link in
+          styles.css), damit Tastatur-/Screenreader-Nutzende nicht bei jedem Seitenaufruf
+          zuerst durch den kompletten Header tabben müssen, um zum eigentlichen Inhalt zu
+          kommen. Zielt auf `#main-content`, das jede Seite auf ihrem `<main>` trägt. */}
+      <a href="#main-content" className="skip-link">
+        Zum Hauptinhalt springen
+      </a>
+      <header className="landing-nav">
+        <div className="landing-wrap landing-nav-row">
+          <BrandLink />
+          {right && <div className="landing-nav-actions">{right}</div>}
+        </div>
+      </header>
+    </>
   );
 }

@@ -19,7 +19,7 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
     <div className="landing">
       <Header right={<GuestHeaderActions onLogin={onLogin} onStart={onStart} />} />
 
-      <main className="landing-wrap">
+      <main id="main-content" className="landing-wrap">
         <section className="hero">
           <div className="hero-grid">
             <div>

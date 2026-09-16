@@ -1,7 +1,8 @@
 import { requiresParentalConsent } from "@edukedo/shared";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
 import { CourseSwitcher } from "./CourseSwitcher";
+import { ErrorMessage } from "./ErrorMessage";
 import { Flashcards } from "./Flashcards";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
@@ -10,10 +11,26 @@ import { LandingPage } from "./LandingPage";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { Quiz } from "./Quiz";
+import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
+
+type LearningMode = "theorie" | "flashcards" | "quiz" | "exam" | "progress";
+
+const LEARNING_MODE_TABS: { id: LearningMode; label: string }[] = [
+  { id: "theorie", label: "Theorie" },
+  { id: "flashcards", label: "Karteikarten" },
+  { id: "quiz", label: "Quiz" },
+  { id: "exam", label: "Prüfung" },
+  { id: "progress", label: "Fortschritt" },
+];
+
+const AUTH_MODE_TABS: { id: "login" | "register"; label: string }[] = [
+  { id: "login", label: "Login" },
+  { id: "register", label: "Registrieren" },
+];
 
 export function App() {
   const utils = trpc.useUtils();
@@ -40,9 +57,11 @@ export function App() {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
   const [parentEmail, setParentEmail] = useState("");
-  const [learningMode, setLearningMode] = useState<"theorie" | "flashcards" | "quiz" | "exam" | "progress">(
-    "flashcards",
-  );
+  const [learningMode, setLearningMode] = useState<LearningMode>("flashcards");
+  // F-44: "roving tabindex" fürs ARIA-Tablist-Muster unten — nur der aktive Tab ist per
+  // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
+  const learningModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const authModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   // F-09: Mehrfach-Kursbelegung aktiv genutzt — der ausgewählte Kurs filtert alle Lernmodi
   // (siehe Architekturplanung Abschnitt 13). selectedKursId ist nur der zuletzt per Klick
   // gewählte Kurs; joinedCourses.some(...) fängt den Fall ab, dass er (noch) nicht (mehr)
@@ -127,7 +146,7 @@ export function App() {
             </div>
           }
         />
-        <main className="shell">
+        <main id="main-content" className="shell">
           {view === "admin" && isAdmin ? (
             <div className="card">
               <AdminPanel />
@@ -158,44 +177,37 @@ export function App() {
               )}
               {activeKursId ? (
                 <>
-                  <div className="tab-nav">
-                    <button
-                      type="button"
-                      className={learningMode === "theorie" ? "is-active" : ""}
-                      onClick={() => setLearningMode("theorie")}
-                    >
-                      Theorie
-                    </button>
-                    <button
-                      type="button"
-                      className={learningMode === "flashcards" ? "is-active" : ""}
-                      onClick={() => setLearningMode("flashcards")}
-                    >
-                      Karteikarten
-                    </button>
-                    <button
-                      type="button"
-                      className={learningMode === "quiz" ? "is-active" : ""}
-                      onClick={() => setLearningMode("quiz")}
-                    >
-                      Quiz
-                    </button>
-                    <button
-                      type="button"
-                      className={learningMode === "exam" ? "is-active" : ""}
-                      onClick={() => setLearningMode("exam")}
-                    >
-                      Prüfung
-                    </button>
-                    <button
-                      type="button"
-                      className={learningMode === "progress" ? "is-active" : ""}
-                      onClick={() => setLearningMode("progress")}
-                    >
-                      Fortschritt
-                    </button>
+                  <div className="tab-nav" role="tablist" aria-label="Lernmodus">
+                    {LEARNING_MODE_TABS.map((tab, index) => (
+                      <button
+                        key={tab.id}
+                        ref={(el) => {
+                          learningModeTabRefs.current[index] = el;
+                        }}
+                        type="button"
+                        role="tab"
+                        id={`tab-${tab.id}`}
+                        aria-selected={learningMode === tab.id}
+                        aria-controls={`panel-${tab.id}`}
+                        tabIndex={learningMode === tab.id ? 0 : -1}
+                        className={learningMode === tab.id ? "is-active" : ""}
+                        onClick={() => setLearningMode(tab.id)}
+                        onKeyDown={(event) =>
+                          handleTabListKeyDown(event, index, LEARNING_MODE_TABS.length, learningModeTabRefs, (next) =>
+                            setLearningMode(LEARNING_MODE_TABS[next]!.id),
+                          )
+                        }
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
                   </div>
-                  <div className="card">
+                  <div
+                    className="card"
+                    role="tabpanel"
+                    id={`panel-${learningMode}`}
+                    aria-labelledby={`tab-${learningMode}`}
+                  >
                     {/* key={activeKursId}-„-“-activeThema?.id: erzwingt einen Remount bei
                         Kurswechsel UND beim Setzen/Aufheben eines F-27-Themenfilters, damit
                         lokaler Interaktionszustand (Quiz-Fortschritt, aufgedeckte
@@ -260,7 +272,7 @@ export function App() {
     return (
       <>
         <Header right={<GuestHeaderActions onLogin={goToLogin} onStart={goToRegister} />} />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             <p>
               Registrierung erfolgreich! Das Konto von <b>{register.data.email}</b> ist noch gesperrt.
@@ -294,7 +306,7 @@ export function App() {
               Zurück zum Login
             </button>
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -304,21 +316,37 @@ export function App() {
   return (
     <>
       <Header right={<GuestHeaderActions onLogin={goToLogin} onStart={goToRegister} />} />
-      <div className="shell shell--narrow">
+      <main id="main-content" className="shell shell--narrow">
         <div className="card">
-          <div className="segmented">
-            <button type="button" className={mode === "login" ? "is-active" : ""} onClick={() => setMode("login")}>
-              Login
-            </button>
-            <button
-              type="button"
-              className={mode === "register" ? "is-active" : ""}
-              onClick={() => setMode("register")}
-            >
-              Registrieren
-            </button>
+          <div className="segmented" role="tablist" aria-label="Login oder Registrieren">
+            {AUTH_MODE_TABS.map((tab, index) => (
+              <button
+                key={tab.id}
+                ref={(el) => {
+                  authModeTabRefs.current[index] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`tab-auth-${tab.id}`}
+                aria-selected={mode === tab.id}
+                aria-controls="panel-auth"
+                tabIndex={mode === tab.id ? 0 : -1}
+                className={mode === tab.id ? "is-active" : ""}
+                onClick={() => setMode(tab.id)}
+                onKeyDown={(event) =>
+                  handleTabListKeyDown(event, index, AUTH_MODE_TABS.length, authModeTabRefs, (next) =>
+                    setMode(AUTH_MODE_TABS[next]!.id),
+                  )
+                }
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
           <form
+            role="tabpanel"
+            id="panel-auth"
+            aria-labelledby={`tab-auth-${mode}`}
             className="stack"
             onSubmit={(event) => {
               event.preventDefault();
@@ -408,12 +436,12 @@ export function App() {
               {mode === "login" ? "Einloggen" : "Registrieren"}
             </button>
           </form>
-          {activeMutation.error && <p className="error">{activeMutation.error.message}</p>}
+          {activeMutation.error && <ErrorMessage>{activeMutation.error.message}</ErrorMessage>}
           <button type="button" className="link-muted-btn" onClick={() => setShowAuth(false)}>
             ← Zurück zur Startseite
           </button>
         </div>
-      </div>
+      </main>
     </>
   );
 }

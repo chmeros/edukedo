@@ -26,6 +26,19 @@
   --line-strong: rgba(23, 33, 43, 0.22);
   --shadow: 0 1px 2px rgba(23, 33, 43, 0.06), 0 10px 30px -12px rgba(23, 33, 43, 0.18);
 
+  /* F-44: dedizierte Fülltöne für Flächen mit weißem Text (Buttons, aktive Tabs/Kacheln,
+     Karteikarten-Rückseite) — coral/sprout/danger selbst bleiben unverändert (breite
+     Wiederverwendung als Text-/Rahmenfarbe, z. B. .link/.link-danger), erreichen mit weißem
+     Text aber nur 2,8–4,4:1 (unter WCAG-AA 4,5:1 für normalen Text). Bewusst dieselben Werte
+     in Light UND Dark Mode (unten in den @media/[data-theme]-Blöcken NICHT redefiniert): Eine
+     Fläche mit weißem Text braucht unabhängig vom Farbschema denselben Mindestkontrast,
+     anders als die Text-Rollen von coral/sprout/danger, die zwischen den Themes bewusst die
+     Helligkeit tauschen (dunkel auf hellem Grund vs. hell auf dunklem Grund). */
+  --coral-fill: #e62800;
+  --coral-fill-hover: #be2100;
+  --sprout-fill: #168759;
+  --danger-fill: #d5423a;
+
   --font-display: "Fredoka", ui-rounded, "Segoe UI", sans-serif;
   --font-body: "Manrope", -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -144,6 +157,31 @@ a {
   border-radius: 4px;
 }
 
+/* F-44: Sprungmarke zum Hauptinhalt (siehe Header.tsx) — per `position: absolute` +
+   negativem `top` aus dem sichtbaren Bereich verschoben statt `display: none`/`visibility:
+   hidden`, damit sie bei Tastaturfokus (`:focus`) durch simples Zurücksetzen von `top`
+   sichtbar werden kann; `display:none` ließe sich dagegen nicht animiert/fokussierbar
+   wieder einblenden. */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 12px;
+  z-index: 100;
+  background: var(--sprout-deep);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 10px 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -240,8 +278,8 @@ a {
 }
 
 .segmented button.is-active {
-  background: var(--sprout);
-  border-color: var(--sprout);
+  background: var(--sprout-fill);
+  border-color: var(--sprout-fill);
   color: #fff;
 }
 
@@ -329,17 +367,17 @@ a {
 }
 
 .btn-primary {
-  background: var(--coral);
+  background: var(--coral-fill);
   color: #fff;
   box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--coral) 70%, transparent);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--coral-deep);
+  background: var(--coral-fill-hover);
 }
 
 .btn-secondary {
-  background: var(--sprout);
+  background: var(--sprout-fill);
   color: #fff;
 }
 
@@ -358,7 +396,7 @@ a {
 }
 
 .btn-danger {
-  background: var(--danger);
+  background: var(--danger-fill);
   color: #fff;
 }
 
@@ -537,8 +575,8 @@ hr {
 }
 
 .course-tile.is-active {
-  background: var(--sprout);
-  border-color: var(--sprout);
+  background: var(--sprout-fill);
+  border-color: var(--sprout-fill);
   color: #fff;
 }
 
@@ -677,8 +715,8 @@ details[open] > summary.disclosure::before {
 }
 
 .tab-nav button.is-active {
-  background: var(--sprout);
-  border-color: var(--sprout);
+  background: var(--sprout-fill);
+  border-color: var(--sprout-fill);
   color: #fff;
 }
 
@@ -703,8 +741,8 @@ details[open] > summary.disclosure::before {
 }
 
 .theory-nav button.is-active {
-  background: var(--sprout);
-  border-color: var(--sprout);
+  background: var(--sprout-fill);
+  border-color: var(--sprout-fill);
   color: #fff;
 }
 
@@ -789,7 +827,7 @@ details[open] > summary.disclosure::before {
 }
 
 .flip-back {
-  background: var(--sprout);
+  background: var(--sprout-fill);
   color: #fff;
   transform: rotateY(180deg);
   border-color: transparent;

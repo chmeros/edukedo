@@ -28,7 +28,7 @@ export function Vorschau() {
     return (
       <>
         <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             <h1 style={{ fontSize: "var(--fs-lg)" }}>Vorschau</h1>
             <p>Lädt…</p>
@@ -36,7 +36,7 @@ export function Vorschau() {
               Zurück zum Login
             </a>
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -47,7 +47,7 @@ export function Vorschau() {
     return (
       <>
         <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             <h1 style={{ fontSize: "var(--fs-lg)" }}>Vorschau</h1>
             <p>Aktuell sind keine Vorschau-Fragen verfügbar.</p>
@@ -55,7 +55,7 @@ export function Vorschau() {
               Zurück zum Login
             </a>
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -64,7 +64,7 @@ export function Vorschau() {
     return (
       <>
         <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             <h1 style={{ fontSize: "var(--fs-lg)" }}>Vorschau</h1>
             <p>
@@ -82,7 +82,7 @@ export function Vorschau() {
               Zurück zum Login
             </a>
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -103,7 +103,7 @@ export function Vorschau() {
   return (
     <>
       <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
-      <div className="shell shell--narrow">
+      <main id="main-content" className="shell shell--narrow">
         <div className="card">
           <h1 style={{ fontSize: "var(--fs-lg)" }}>Vorschau</h1>
           <div className="alert alert-info">
@@ -157,7 +157,7 @@ export function Vorschau() {
             Zurück zum Login
           </a>
         </div>
-      </div>
+      </main>
     </>
   );
 }

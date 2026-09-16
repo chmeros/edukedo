@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
@@ -100,7 +101,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
             Speichern
           </button>
         </form>
-        {setTarget.error && <p className="error">{setTarget.error.message}</p>}
+        {setTarget.error && <ErrorMessage>{setTarget.error.message}</ErrorMessage>}
       </div>
     );
   }
@@ -201,7 +202,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
         <button type="submit" className="btn btn-ghost" disabled={setTarget.isPending}>
           Speichern
         </button>
-        {setTarget.error && <p className="error">{setTarget.error.message}</p>}
+        {setTarget.error && <ErrorMessage>{setTarget.error.message}</ErrorMessage>}
       </form>
     </div>
   );

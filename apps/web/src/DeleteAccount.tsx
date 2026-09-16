@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon } from "./Icons";
 import { trpc } from "./trpc";
 
@@ -55,7 +56,7 @@ export function DeleteAccount() {
             Abbrechen
           </button>
         </div>
-        {deleteAccount.error && <p className="error">{deleteAccount.error.message}</p>}
+        {deleteAccount.error && <ErrorMessage>{deleteAccount.error.message}</ErrorMessage>}
       </div>
     </form>
   );

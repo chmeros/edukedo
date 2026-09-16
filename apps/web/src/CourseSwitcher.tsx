@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { trpc } from "./trpc";
-import { useClickOutside } from "./useClickOutside";
+import { useDismissableMenu } from "./useDismissableMenu";
 
 /**
  * F-09: Mehrfach-Kursbelegung aktiv genutzt — zeigt die eingeschriebenen Kurse zur Auswahl
@@ -27,7 +27,8 @@ export function CourseSwitcher({
   });
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  useClickOutside(menuRef, () => setOpen(false), open);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  useDismissableMenu(menuRef, triggerRef, open, () => setOpen(false));
 
   const joined = courses.data?.filter((course) => course.joined) ?? [];
   const available = courses.data?.filter((course) => !course.joined) ?? [];
@@ -35,7 +36,14 @@ export function CourseSwitcher({
 
   return (
     <div className="header-menu" ref={menuRef}>
-      <button type="button" className="header-menu-trigger" onClick={() => setOpen((value) => !value)}>
+      <button
+        type="button"
+        ref={triggerRef}
+        className="header-menu-trigger"
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+      >
         <span className="header-menu-trigger-label">{activeCourse?.title ?? "Kurs wählen"}</span>
         <span aria-hidden="true">{open ? "▾" : "▸"}</span>
       </button>

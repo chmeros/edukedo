@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { DangerIcon } from "./Icons";
+import { ErrorMessage } from "./ErrorMessage";
 import { Header } from "./Header";
+import { DangerIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 const CONSENT_STATUS_LABELS: Record<string, string> = {
@@ -36,7 +37,7 @@ function RevokeConsentButton({ linkId }: { linkId: string }) {
             Abbrechen
           </button>
         </div>
-        {revoke.error && <p className="error">{revoke.error.message}</p>}
+        {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
       </div>
     </div>
   );
@@ -87,11 +88,13 @@ function SetInitialPasswordForm() {
           required
         />
       </div>
-      {passwordRepeat.length > 0 && !passwordsMatch && <p className="error">Die Passwörter stimmen nicht überein.</p>}
+      {passwordRepeat.length > 0 && !passwordsMatch && (
+        <ErrorMessage>Die Passwörter stimmen nicht überein.</ErrorMessage>
+      )}
       <button type="submit" className="btn btn-primary btn-block" disabled={!passwordsMatch || setPassword.isPending}>
         Passwort setzen
       </button>
-      {setPassword.error && <p className="error">{setPassword.error.message}</p>}
+      {setPassword.error && <ErrorMessage>{setPassword.error.message}</ErrorMessage>}
     </form>
   );
 }
@@ -128,7 +131,7 @@ function LoginForm() {
       <button type="submit" className="btn btn-primary btn-block" disabled={login.isPending}>
         Einloggen
       </button>
-      {login.error && <p className="error">{login.error.message}</p>}
+      {login.error && <ErrorMessage>{login.error.message}</ErrorMessage>}
     </form>
   );
 }
@@ -142,12 +145,12 @@ export function ParentDashboard() {
     return (
       <>
         <Header />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
             {me.isLoading ? <p>Lädt…</p> : <LoginForm />}
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -156,7 +159,7 @@ export function ParentDashboard() {
     return (
       <>
         <Header right={<span className="who">{me.data.email}</span>} />
-        <div className="shell shell--narrow">
+        <main id="main-content" className="shell shell--narrow">
           <div className="card">
             {/* Code-Review-Fund, nachgezogen: dieser Zweig hatte im Zuge der
                 Header-Vereinheitlichung als einziger der drei ParentDashboard-Zustände keine
@@ -166,7 +169,7 @@ export function ParentDashboard() {
             <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
             <SetInitialPasswordForm />
           </div>
-        </div>
+        </main>
       </>
     );
   }
@@ -183,7 +186,7 @@ export function ParentDashboard() {
           </>
         }
       />
-      <div className="shell shell--narrow">
+      <main id="main-content" className="shell shell--narrow">
         <div className="card">
           <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
           {me.data.children.length === 0 && <p>Es sind noch keine Kinder-Konten verknüpft.</p>}
@@ -203,7 +206,7 @@ export function ParentDashboard() {
             Datenschutz-Kurzfassung für Kinder ansehen
           </a>
         </div>
-      </div>
+      </main>
     </>
   );
 }

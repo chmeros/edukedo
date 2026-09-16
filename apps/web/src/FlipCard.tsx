@@ -25,6 +25,7 @@ export function FlipCard({
         onClick={onToggle}
         role="button"
         tabIndex={0}
+        aria-pressed={flipped}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -32,8 +33,16 @@ export function FlipCard({
           }
         }}
       >
-        <div className="flip-face flip-front">{front}</div>
-        <div className="flip-face flip-back">{back}</div>
+        {/* Beide Seiten liegen unabhängig vom Umdreh-Zustand immer im DOM (siehe 3D-Flip
+            oben in styles.css) — `backface-visibility: hidden` blendet die Rückseite nur
+            visuell aus, ein Screenreader würde ohne `aria-hidden` sonst Frage- UND
+            Antworttext gleichzeitig vorlesen, egal welche Seite gerade sichtbar ist (F-44). */}
+        <div className="flip-face flip-front" aria-hidden={flipped}>
+          {front}
+        </div>
+        <div className="flip-face flip-back" aria-hidden={!flipped}>
+          {back}
+        </div>
       </div>
     </div>
   );

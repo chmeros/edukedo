@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Exam } from "./Exam";
 import { Fachgespraechstrainer } from "./Fachgespraechstrainer";
 import { Praesentationstrainer } from "./Praesentationstrainer";
+import { handleTabListKeyDown } from "./tabListKeyboardNav";
+
+const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech"; label: string }[] = [
+  { id: "schriftlich", label: "Schriftliche Prüfung" },
+  { id: "praesentation", label: "Präsentation" },
+  { id: "fachgespraech", label: "Fachgespräch" },
+];
 
 /**
  * Bündelt F-23 (Schriftliche Prüfung), F-24 (Präsentationstrainer) und F-25 (Fachgesprächs-
@@ -14,39 +21,55 @@ import { Praesentationstrainer } from "./Praesentationstrainer";
  */
 export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
   const [mode, setMode] = useState<"schriftlich" | "praesentation" | "fachgespraech">("schriftlich");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   return (
     <div className="stack">
-      <div className="segmented">
-        <button
-          type="button"
-          className={mode === "schriftlich" ? "is-active" : ""}
-          onClick={() => setMode("schriftlich")}
-        >
-          Schriftliche Prüfung
-        </button>
-        <button
-          type="button"
-          className={mode === "praesentation" ? "is-active" : ""}
-          onClick={() => setMode("praesentation")}
-        >
-          Präsentation
-        </button>
-        <button
-          type="button"
-          className={mode === "fachgespraech" ? "is-active" : ""}
-          onClick={() => setMode("fachgespraech")}
-        >
-          Fachgespräch
-        </button>
+      <div className="segmented" role="tablist" aria-label="Prüfungsvorbereitung">
+        {MODE_TABS.map((tab, index) => (
+          <button
+            key={tab.id}
+            ref={(el) => {
+              tabRefs.current[index] = el;
+            }}
+            type="button"
+            role="tab"
+            id={`tab-pruefung-${tab.id}`}
+            aria-selected={mode === tab.id}
+            aria-controls={`panel-pruefung-${tab.id}`}
+            tabIndex={mode === tab.id ? 0 : -1}
+            className={mode === tab.id ? "is-active" : ""}
+            onClick={() => setMode(tab.id)}
+            onKeyDown={(event) =>
+              handleTabListKeyDown(event, index, MODE_TABS.length, tabRefs, (next) => setMode(MODE_TABS[next]!.id))
+            }
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-      <div hidden={mode !== "schriftlich"}>
+      <div
+        hidden={mode !== "schriftlich"}
+        role="tabpanel"
+        id="panel-pruefung-schriftlich"
+        aria-labelledby="tab-pruefung-schriftlich"
+      >
         <Exam kursId={kursId} />
       </div>
-      <div hidden={mode !== "praesentation"}>
+      <div
+        hidden={mode !== "praesentation"}
+        role="tabpanel"
+        id="panel-pruefung-praesentation"
+        aria-labelledby="tab-pruefung-praesentation"
+      >
         <Praesentationstrainer kursId={kursId} />
       </div>
-      <div hidden={mode !== "fachgespraech"}>
+      <div
+        hidden={mode !== "fachgespraech"}
+        role="tabpanel"
+        id="panel-pruefung-fachgespraech"
+        aria-labelledby="tab-pruefung-fachgespraech"
+      >
         <Fachgespraechstrainer kursId={kursId} />
       </div>
     </div>
