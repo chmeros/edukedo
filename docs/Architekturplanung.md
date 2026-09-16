@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 16.09.2026 (Integrationstest für `offline.syncQueue`)
+
+- **Anlass:** Der vollumfängliche Codereview über F-42 (siehe unten) deckte mehrere subtile Zustands-/Timing-Fehler auf, die vorher nur durch manuelle Live-Verifikation gegen eine echte Docker-Postgres-Instanz gefunden wurden — ohne automatisierten Test hätten künftige Änderungen an `progress.ts`/`offline.ts` dieselben Fehler unbemerkt wieder einführen können.
+- **Neue `apps/api/test/offline-sync.integration.test.ts`**, nach demselben Muster wie `core-learning-flow.integration.test.ts`/`consent-flow.integration.test.ts` (Testcontainers-Postgres, `app.inject()` über die echte HTTP-Schicht statt eines Unit-Tests der Router-Funktion isoliert) — die Idempotenz-/Staleness-/Batch-Isolation-Logik hängt eng an der echten Datenbank-Constraint (`onConflictDoNothing`) zusammen, ein reiner In-Memory-Mock hätte genau die Fehler nicht gefangen, die hier abgesichert werden sollen.
+- **Deckt exakt die vier beim Codereview gefundenen Randfälle ab** (siehe Findings unten): Idempotenz bei wiederholtem Sync (kein doppeltes `reps`, nur eine `learning_event`-Zeile), Staleness-Guard (ein älteres Ereignis nach einem bereits neueren Online-Review lässt `user_progress` unverändert, wird aber weiterhin protokolliert), Batch-Isolation (ein nicht existierendes UND ein deaktiviertes Content-Item im selben Batch brechen den Sync nicht ab), Idempotenz-Skopierung pro Nutzer:in (dieselbe client-generierte Eintrags-ID für zwei unterschiedliche Konten wird unabhängig verarbeitet).
+- Live gegen echte Postgres-Instanz (Testcontainers) verifiziert: `pnpm --filter @edukedo/api test` — 5 neue Tests, insgesamt weiterhin 102 grün.
+
 ### Entschieden am 16.09.2026 (Vollumfänglicher Codereview über F-42 Offline-Modus, 10 Findings behoben)
 
 - **Anlass:** Auf ausdrücklichen Wunsch ein vollständiger Codereview (`/code-review`, hoher Aufwand: 8 Finder-Blickwinkel × bis zu 6 Kandidaten, 1-Stimmen-Verifikation) über den gesamten F-42-Diff (alle sechs Bausteine, `235d925..HEAD`). Alle 8 korrektheitsrelevanten Findings wurden einzeln von einem zweiten Agenten gegen den tatsächlichen Code verifiziert (alle CONFIRMED), bevor sie behoben wurden.
