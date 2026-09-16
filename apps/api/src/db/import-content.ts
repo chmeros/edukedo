@@ -3,7 +3,14 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
 import { db, pool } from "./client";
-import { extractSection, parseKarteikarten, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
+import {
+  extractSection,
+  parseFallaufgabe,
+  parseKarteikarten,
+  parseQuizBlock,
+  splitBlocks,
+  splitFrontmatter,
+} from "./content-parser";
 import {
   answerOption,
   contentItem,
@@ -23,13 +30,13 @@ import {
  * Key:Value-Zeilenparser für die bekannten Frontmatter-Felder ist robuster als ein YAML-Parser,
  * der daran scheitern würde. Siehe Architekturplanung Abschnitt 13.
  *
- * Bewusst nicht importiert: fallaufgaben.md/uebungsaufgaben.md (F-23) und fachgespraech.md
- * (F-25) — beide Features existieren im Code noch nicht (siehe Entwicklungsplan, Phase 2/3),
- * ein Import ohne jede Verwendung wäre nur ungenutzter DB-Ballast. Nachziehen, sobald diese
- * Features gebaut werden.
+ * Bewusst weiterhin nicht importiert: fachgespraech.md (F-25) — das Feature existiert im Code
+ * noch nicht, ein Import ohne jede Verwendung wäre nur ungenutzter DB-Ballast. fallaufgaben.md/
+ * uebungsaufgaben.md (F-23) werden seit dem 16.09.2026 importiert (siehe unten und
+ * Architekturplanung Abschnitt 13).
  */
 const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
-const SKIP_FILES = new Set(["fallaufgaben.md", "fachgespraech.md", "uebungsaufgaben.md"]);
+const SKIP_FILES = new Set(["fachgespraech.md"]);
 
 interface KursMeta {
   title: string;
@@ -185,6 +192,9 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   const theorieBody = extractSection(body, "Theorie");
   const karteikartenBody = extractSection(body, "Karteikarten");
   const quizBody = extractSection(body, "Quiz");
+  // F-23: "Fallaufgaben" beim Fachwirt-Piloten, "Übungsaufgaben" bei Mathematik/Schulfach —
+  // dieselbe Struktur, derselbe content_item.type, siehe content/README.md.
+  const fallaufgabenBody = extractSection(body, "Fallaufgaben") ?? extractSection(body, "Übungsaufgaben");
 
   let created = 0;
 
@@ -345,6 +355,40 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           payload,
         });
       }
+      created += 1;
+    }
+  }
+
+  if (fallaufgabenBody) {
+    // Führender Absatz vor dem ersten "#### "-Block (Einleitungstext, siehe fallaufgaben.md/
+    // uebungsaufgaben.md) ist kein eigener Aufgaben-Block — splitBlocks liefert ihn trotzdem
+    // als erstes Element, wenn die Sektion nicht direkt mit "#### " beginnt.
+    for (const block of splitBlocks(fallaufgabenBody).filter((entry) => entry.startsWith("#### "))) {
+      const parsed = parseFallaufgabe(block);
+      const payload = {
+        parts: parsed.parts.map((part) => ({ prompt: part.prompt, points: part.points, bloom: part.bloom })),
+      };
+      const [item] = await db
+        .insert(contentItem)
+        .values({
+          themaId: themaRow.id,
+          type: "fallaufgabe",
+          prompt: parsed.prompt,
+          explanation: parsed.explanation,
+          // bloom bleibt am content_item selbst null: Fallaufgaben stufen jede Teilaufgabe
+          // einzeln ein (payload.parts[].bloom), keine einzelne Stufe für die ganze Aufgabe.
+          bloom: null,
+          payload,
+        })
+        .returning();
+      if (!item) throw new Error("Fallaufgabe konnte nicht angelegt werden.");
+      await db.insert(contentItemVersion).values({
+        contentItemId: item.id,
+        versionNumber: 1,
+        prompt: item.prompt,
+        explanation: item.explanation,
+        payload,
+      });
       created += 1;
     }
   }

@@ -644,11 +644,17 @@ details[open] > summary.disclosure::before {
   align-self: auto;
 }
 
-/* ---------- Tab nav (Theorie/Karteikarten/Quiz/Fortschritt) ---------- */
+/* ---------- Tab nav (Theorie/Karteikarten/Quiz/Prüfung/Fortschritt) ---------- */
 .tab-nav {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .tab-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 420px) {
@@ -1628,4 +1634,51 @@ details[open] > summary.disclosure::before {
   gap: 8px;
   font-size: var(--fs-xs);
   color: var(--ink-faint);
+}
+
+/* ---------- Prüfungssimulation (F-23) ---------- */
+.exam-timer {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.exam-timer.is-expired {
+  background: var(--danger-tint);
+  color: var(--danger-deep);
+}
+
+.exam-situation {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.exam-part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.exam-part-prompt {
+  margin: 0;
+}
+
+.exam-answer-textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.exam-self-assessment {
+  max-width: 220px;
 }

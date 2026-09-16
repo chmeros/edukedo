@@ -4,6 +4,7 @@ import { AdminPanel } from "./AdminPanel";
 import { BrandLink } from "./BrandLink";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { DeleteAccount } from "./DeleteAccount";
+import { Exam } from "./Exam";
 import { Flashcards } from "./Flashcards";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
@@ -43,7 +44,7 @@ export function App() {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
   const [parentEmail, setParentEmail] = useState("");
-  const [learningMode, setLearningMode] = useState<"theorie" | "flashcards" | "quiz" | "progress">(
+  const [learningMode, setLearningMode] = useState<"theorie" | "flashcards" | "quiz" | "exam" | "progress">(
     "flashcards",
   );
   // F-09: Mehrfach-Kursbelegung aktiv genutzt — der ausgewählte Kurs filtert alle Lernmodi
@@ -70,7 +71,10 @@ export function App() {
     selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
       ? selectedKursId
       : joinedCourses[0]?.id ?? null;
-  useLearningSessionTracker(learningMode === "flashcards" || learningMode === "quiz", activeKursId);
+  useLearningSessionTracker(
+    learningMode === "flashcards" || learningMode === "quiz" || learningMode === "exam",
+    activeKursId,
+  );
 
   // F-27: ein Themenfilter aus einem vorherigen Kurs darf nicht in einen anderen
   // durchsickern (z. B. nach Kurswechsel über den CourseSwitcher).
@@ -157,6 +161,13 @@ export function App() {
                 </button>
                 <button
                   type="button"
+                  className={learningMode === "exam" ? "is-active" : ""}
+                  onClick={() => setLearningMode("exam")}
+                >
+                  Prüfung
+                </button>
+                <button
+                  type="button"
                   className={learningMode === "progress" ? "is-active" : ""}
                   onClick={() => setLearningMode("progress")}
                 >
@@ -192,6 +203,7 @@ export function App() {
                   onClearThema={() => setActiveThema(null)}
                 />
               </div>
+              {learningMode === "exam" && <Exam key={activeKursId} kursId={activeKursId} />}
               {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
             </>
           ) : (

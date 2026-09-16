@@ -183,3 +183,50 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
   console.warn(`Unbekannter Quiz-Fragetyp "${kind}" übersprungen.`);
   return null;
 }
+
+/**
+ * Erfasst alles ab dem Label bis zum Ende des Blocks (bzw. bis zu einem abschließenden
+ * "---"-Trenner) statt nur der ersten Zeile wie extractField — Musterlösungshinweise sind bei
+ * Fachwirt-Fallaufgaben eine einzelne Zeile, bei Mathematik-Übungsaufgaben dagegen eine
+ * mehrzeilige Aufzählung (siehe content/README.md und die realen uebungsaufgaben.md-Dateien).
+ * Nur für Felder geeignet, die als LETZTES im Block stehen (hier: Musterlösungshinweise).
+ */
+function extractFieldToEnd(block: string, label: string): string | null {
+  const match = new RegExp(`\\*\\*${label}:\\*\\*\\s*([\\s\\S]*?)\\s*(?:\\n---\\s*$|$)`).exec(block);
+  return match ? match[1]!.trim() : null;
+}
+
+export interface ParsedFallaufgabePart {
+  prompt: string;
+  points: number;
+  bloom: Bloom | null;
+}
+
+export interface ParsedFallaufgabe {
+  prompt: string;
+  parts: ParsedFallaufgabePart[];
+  explanation: string;
+}
+
+/**
+ * Fallaufgaben (Fachwirt, `fallaufgaben.md`) und Übungsaufgaben (Mathematik/Schulfach,
+ * `uebungsaufgaben.md`) teilen sich dasselbe Format und denselben `content_item.type =
+ * "fallaufgabe"` (siehe content/README.md) — nur die Feldbezeichnungen für die Ausgangslage
+ * unterscheiden sich ("Ausgangssituation" vs. "Aufgabenstellung"), daher der Fallback.
+ */
+export function parseFallaufgabe(block: string): ParsedFallaufgabe {
+  const prompt = extractField(block, "Ausgangssituation") ?? extractField(block, "Aufgabenstellung") ?? "";
+  const explanation = extractFieldToEnd(block, "Musterlösungshinweise") ?? extractFieldToEnd(block, "Lösungsweg") ?? "";
+
+  const parts = [
+    ...block.matchAll(
+      /\*\*Teilaufgabe \d+ \((\d+) Punkte(?:,\s*bloom:\s*(erinnern|verstehen|anwenden|analysieren|bewerten|erschaffen))?\):\*\*\s*(.+)/g,
+    ),
+  ].map((match) => ({
+    points: Number(match[1]),
+    bloom: (match[2] as Bloom | undefined) ?? null,
+    prompt: match[3]!.trim(),
+  }));
+
+  return { prompt, parts, explanation };
+}

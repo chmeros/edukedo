@@ -3,6 +3,7 @@ import { authRouter } from "./routers/auth";
 import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
+import { examRouter } from "./routers/exam";
 import { healthRouter } from "./routers/health";
 import { parentRouter } from "./routers/parent";
 import { previewRouter } from "./routers/preview";
@@ -11,10 +12,11 @@ import { quizRouter } from "./routers/quiz";
 import { router } from "./trpc";
 
 /**
- * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module
- * (exam-sessions, reports, blocks) kommen in späteren Iterationen als eigene Sub-Router
- * hinzu. `admin` deckt F-11 bisher nur in der ersten, einfachen Ausbaustufe ab
- * (Kurs-Veröffentlichung) — die eigentliche Content-Pflege (Fragen/Karteikarten) folgt später.
+ * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module (reports, blocks)
+ * kommen in späteren Iterationen als eigene Sub-Router hinzu. `admin` deckt F-11 bisher nur in
+ * der ersten, einfachen Ausbaustufe ab (Kurs-Veröffentlichung) — die eigentliche Content-Pflege
+ * (Fragen/Karteikarten) folgt später. `exam` (F-23, seit 16.09.2026) nutzt die hierfür bereits
+ * vorbereiteten `exam_session`/`exam_answer`-Tabellen.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -26,6 +28,7 @@ export const appRouter = router({
   content: contentRouter,
   progress: progressRouter,
   quiz: quizRouter,
+  exam: examRouter,
   admin: adminRouter,
 });
 

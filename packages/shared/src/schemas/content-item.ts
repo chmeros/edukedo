@@ -52,9 +52,17 @@ export const kurzantwortPayloadSchema = z.object({
   match_mode: z.enum(["exact", "contains"]),
 });
 
+/**
+ * bloom je Teilaufgabe statt am content_item selbst (siehe content_item.bloom in schema.ts):
+ * eine Fallaufgabe kombiniert mehrere Teilaufgaben, die typischerweise unterschiedliche
+ * kognitive Anforderungsstufen abdecken (siehe content/README.md) — eine einzelne Stufe je
+ * ganzer Fallaufgabe würde das nicht abbilden können. Optional, da nur bei Fachwirt-
+ * Fallaufgaben verbindlich, nicht bei Mathematik-Übungsaufgaben (siehe content/README.md).
+ */
 export const fallaufgabePartSchema = z.object({
   prompt: z.string(),
   points: z.number().positive(),
+  bloom: contentItemBloomSchema.nullable().optional(),
 });
 
 export const fallaufgabePayloadSchema = z.object({

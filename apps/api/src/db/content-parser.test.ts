@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   extractBloom,
   extractSection,
+  parseFallaufgabe,
   parseKarteikarten,
   parseQuizBlock,
   splitBlocks,
@@ -205,5 +206,58 @@ describe("parseQuizBlock", () => {
     if (parsed?.type === "kurzantwort") {
       expect(parsed.acceptedAnswers).toEqual(["Nachweisgesetz", "NachwG"]);
     }
+  });
+});
+
+describe("parseFallaufgabe (F-23)", () => {
+  const FALLAUFGABEN_SECTION = `Einleitender Absatz vor dem ersten Block, kein eigener Aufgaben-Block.
+
+---
+
+#### F-HB3-01 · Fallaufgabe
+**Ausgangssituation:** Ein Team klagt über unklare Zuständigkeiten.
+**Teilaufgabe 1 (5 Punkte, bloom: analysieren):** Analysieren Sie die Ursache.
+**Teilaufgabe 2 (5 Punkte, bloom: bewerten):** Bewerten Sie zwei Lösungsansätze.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf fehlende Meldewege eingehen. Teilaufgabe 2 sollte Vor-/Nachteile abwägen.
+
+---
+
+#### U-ALG-01 · Übungsaufgabe
+**Aufgabenstellung:** Ein Rechteck hat den Umfang 20 m.
+**Teilaufgabe 1 (4 Punkte):** Stelle die Flächenfunktion auf.
+**Teilaufgabe 2 (6 Punkte):** Bestimme das Maximum.
+**Musterlösungshinweise:**
+- T1: A(x) = ...
+- T2: Maximum bei x = 5.
+`;
+
+  // "startsWith('#### ')"-Filter spiegelt die Verwendung in import-content.ts wider, wo der
+  // führende Absatz vor dem ersten Aufgaben-Block genauso herausgefiltert wird.
+  const blocks = splitBlocks(FALLAUFGABEN_SECTION).filter((block) => block.startsWith("#### "));
+
+  it("parst eine einzeilige Musterlösungshinweise-Zeile mit bloom je Teilaufgabe (Fachwirt-Fallaufgabe)", () => {
+    const parsed = parseFallaufgabe(blocks[0]!);
+    expect(parsed.prompt).toBe("Ein Team klagt über unklare Zuständigkeiten.");
+    expect(parsed.parts).toEqual([
+      { points: 5, bloom: "analysieren", prompt: "Analysieren Sie die Ursache." },
+      { points: 5, bloom: "bewerten", prompt: "Bewerten Sie zwei Lösungsansätze." },
+    ]);
+    expect(parsed.explanation).toBe(
+      "Teilaufgabe 1 sollte auf fehlende Meldewege eingehen. Teilaufgabe 2 sollte Vor-/Nachteile abwägen.",
+    );
+  });
+
+  it("parst eine mehrzeilige Musterlösungshinweise-Aufzählung ohne bloom je Teilaufgabe (Mathe-Übungsaufgabe)", () => {
+    const parsed = parseFallaufgabe(blocks[1]!);
+    expect(parsed.prompt).toBe("Ein Rechteck hat den Umfang 20 m.");
+    expect(parsed.parts).toEqual([
+      { points: 4, bloom: null, prompt: "Stelle die Flächenfunktion auf." },
+      { points: 6, bloom: null, prompt: "Bestimme das Maximum." },
+    ]);
+    expect(parsed.explanation).toBe("- T1: A(x) = ...\n- T2: Maximum bei x = 5.");
+  });
+
+  it("filtert den einleitenden Absatz vor dem ersten Aufgaben-Block heraus", () => {
+    expect(blocks).toHaveLength(2);
   });
 });
