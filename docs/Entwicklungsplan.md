@@ -129,7 +129,7 @@ Ziel: Das Kernlernangebot ist funktional vollständig für beide Kurse, bevor in
 - [ ] Offline-Modus für individuelle Lernmodi (F-42)
 - [ ] „Weiter lernen"-Einstieg (F-27)
 - [ ] Präsentations-/Fachgesprächs-Trainer (F-24/F-25)
-- [ ] Lernstatistiken, Schwachstellenanalyse (F-31/F-32)
+- [x] Lernstatistiken, Schwachstellenanalyse (F-31/F-32). **Erledigt 16.09.2026:** Neue Tabellen `learning_event` (append-only Ereignis-Log je beantworteter Frage, Karteikarte wie Quiz) und `learning_session` (explizites Start/Heartbeat/Ende-Tracking, siehe `apps/web/src/useLearningSession.ts`) ergänzt, Migration `0004_wealthy_mastermind.sql`. Grund für die neuen Tabellen: `user_progress` speichert nur den aktuellen FSRS-Zustand, keine Historie — insbesondere Quiz-Antworten hinterließen dort bislang gar keine auswertbare Spur (siehe Architekturplanung Abschnitt 13). Neue `progress.stats`-Abfrage liefert Trefferquote/Anzahl/Zeitverlauf/Schwachstellen, dargestellt im bestehenden "Fortschritt"-Tab (`Progress.tsx`) statt eines eigenen Tabs. Live gegen echte Postgres-Instanz verifiziert (Registrierung, Karteikarten- und Quiz-Antworten, Tab-Wechsel und simulierter Sichtbarkeitswechsel lösen Start/Ende der Lernsitzung korrekt aus, Statistik- und Schwachstellen-Anzeige geprüft). Siehe Architekturplanung Abschnitt 13.
 - [ ] Restzeit-/Lernpensum-Anzeige inkl. beider Zielmodi (F-35)
 - [ ] Barrierefreiheit gemäß WCAG 2.1 AA prüfen/nachziehen (F-44)
 

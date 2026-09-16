@@ -13,3 +13,11 @@ export const submitReviewInputSchema = z.object({
   result: reviewResultSchema,
 });
 export type SubmitReviewInput = z.infer<typeof submitReviewInputSchema>;
+
+/**
+ * F-31 Lernzeit-Tracking (explizites Start/Heartbeat/Ende, siehe
+ * apps/web/src/useLearningSession.ts und Architekturplanung Abschnitt 13): pingSession/
+ * endSession beziehen sich per sessionId auf eine zuvor mit startSession angelegte Sitzung.
+ */
+export const sessionIdInputSchema = z.object({ sessionId: z.string().uuid() });
+export type SessionIdInput = z.infer<typeof sessionIdInputSchema>;

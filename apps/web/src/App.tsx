@@ -11,6 +11,7 @@ import { Progress } from "./Progress";
 import { Quiz } from "./Quiz";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
+import { useLearningSessionTracker } from "./useLearningSession";
 
 const ROLE_LABELS: Record<string, string> = {
   learner: "Lernende:r",
@@ -59,13 +60,16 @@ export function App() {
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
-  if (me.data) {
-    const joinedCourses = courses.data?.filter((course) => course.joined) ?? [];
-    const activeKursId =
-      selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
-        ? selectedKursId
-        : joinedCourses[0]?.id ?? null;
+  // Vor jedem bedingten return berechnet/aufgerufen (Rules of Hooks) — activeKursId lässt
+  // sich unabhängig vom `me.data`-Zweig unten aus bereits vorhandenen Werten ableiten.
+  const joinedCourses = courses.data?.filter((course) => course.joined) ?? [];
+  const activeKursId =
+    selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
+      ? selectedKursId
+      : joinedCourses[0]?.id ?? null;
+  useLearningSessionTracker(learningMode === "flashcards" || learningMode === "quiz", activeKursId);
 
+  if (me.data) {
     return (
       <div className="shell">
         <div className="card">

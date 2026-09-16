@@ -277,6 +277,63 @@ export const userProgress = pgTable(
   ],
 );
 
+// ---------------------------------------------------------------------------
+// Lernstatistiken (F-31/F-32) — Ergänzung, nicht im ursprünglichen SQL-DDL enthalten,
+// siehe Abschnitt 13.
+// ---------------------------------------------------------------------------
+
+/**
+ * Append-only Ereignis-Log je beantworteter Frage (Karteikarte oder Quiz) — anders als
+ * user_progress (nur der aktuelle FSRS-/Beherrschungs-Zustand) hier bewusst ein Verlauf,
+ * weil F-31 ("Trefferquote im Zeitverlauf") und F-32 (Schwachstellenanalyse je Thema) sonst
+ * nicht berechenbar wären — insbesondere für Quiz-Antworten, die in user_progress keinerlei
+ * Historie hinterlassen (reps/lapses bleiben dort für Quiz-Zeilen konstant 0, siehe
+ * recordQuizAttempt in trpc/routers/progress.ts). Siehe Architekturplanung Abschnitt 13.
+ */
+export const learningEvent = pgTable(
+  "learning_event",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    contentItemId: uuid("content_item_id")
+      .notNull()
+      .references(() => contentItem.id, { onDelete: "cascade" }),
+    isCorrect: boolean("is_correct").notNull(),
+    occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("learning_event_user_id_occurred_at_idx").on(table.userId, table.occurredAt),
+    index("learning_event_content_item_id_idx").on(table.contentItemId),
+  ],
+);
+
+/**
+ * Explizite Lernsitzung (F-31 "Lernzeit") per Start/Heartbeat/Ende vom Frontend gemeldet
+ * (siehe apps/web/src/useLearningSession.ts), statt aus Ereignis-Zeitstempeln geschätzt —
+ * siehe Architekturplanung Abschnitt 13. last_ping_at dient als konservativer Ersatz für
+ * ended_at, falls kein expliziter Endpunkt mehr ankommt (z. B. Absturz/Verbindungsabbruch):
+ * Die Sitzungsdauer wird dann nur bis zum letzten bekannten Heartbeat statt bis zur
+ * tatsächlichen Beendigung gezählt — zählt im Zweifel also zu wenig statt zu viel Lernzeit.
+ */
+export const learningSession = pgTable(
+  "learning_session",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
+    lastPingAt: timestamp("last_ping_at", { withTimezone: true }).notNull().defaultNow(),
+    endedAt: timestamp("ended_at", { withTimezone: true }),
+  },
+  (table) => [index("learning_session_user_id_kurs_id_idx").on(table.userId, table.kursId)],
+);
+
 export const examSession = pgTable(
   "exam_session",
   {

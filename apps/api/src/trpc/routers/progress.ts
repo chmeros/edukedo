@@ -1,8 +1,17 @@
-import { activeKursInputSchema, submitReviewInputSchema } from "@edukedo/shared";
-import { and, eq, inArray } from "drizzle-orm";
+import { activeKursInputSchema, sessionIdInputSchema, submitReviewInputSchema } from "@edukedo/shared";
+import { TRPCError } from "@trpc/server";
+import { and, eq, inArray, isNull } from "drizzle-orm";
 import { initialProgressState, scheduleReview } from "../../fsrs/scheduler";
 import type { Database } from "../../db/client";
-import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
+import {
+  contentItem,
+  fachgebiet,
+  learningEvent,
+  learningSession,
+  thema,
+  userCourse,
+  userProgress,
+} from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 /**
@@ -43,6 +52,8 @@ export async function recordQuizAttempt(
       target: [userProgress.userId, userProgress.contentItemId],
       set: { state, lastReviewedAt: now },
     });
+
+  await db.insert(learningEvent).values({ userId, contentItemId, isCorrect, occurredAt: now });
 }
 
 export const progressRouter = router({
@@ -206,6 +217,161 @@ export const progressRouter = router({
         },
       });
 
+    // F-31/F-32: siehe learningEvent in db/schema.ts — "richtig" heißt bei Karteikarten wie
+    // bei den lapses oben "kein Again/nicht_gewusst", nicht dasselbe wie "state === review"
+    // (das würde erst den Abschluss der FSRS-Lernphase widerspiegeln, nicht die aktuelle
+    // Selbsteinschätzung).
+    await ctx.db.insert(learningEvent).values({
+      userId: ctx.currentUser.id,
+      contentItemId: input.contentItemId,
+      isCorrect: input.result !== "nicht_gewusst",
+      occurredAt: now,
+    });
+
     return { dueAt: next.dueAt };
+  }),
+
+  /**
+   * F-31 Lernzeit: startet eine neue Lernsitzung (siehe learningSession in db/schema.ts und
+   * apps/web/src/useLearningSession.ts). Wird vom Frontend aufgerufen, sobald der
+   * Karteikarten- oder Quiz-Tab sichtbar aktiv wird.
+   */
+  startSession: protectedProcedure.input(activeKursInputSchema).mutation(async ({ ctx, input }) => {
+    const now = new Date();
+    const [created] = await ctx.db
+      .insert(learningSession)
+      .values({ userId: ctx.currentUser.id, kursId: input.kursId, startedAt: now, lastPingAt: now })
+      .returning({ id: learningSession.id });
+
+    return { sessionId: created!.id };
+  }),
+
+  /**
+   * F-31 Lernzeit: Heartbeat alle paar Sekunden, solange die Sitzung aktiv bleibt — siehe
+   * learningSession.lastPingAt in db/schema.ts für die Begründung (konservativer Ersatz für
+   * ended_at bei Absturz/Verbindungsabbruch).
+   */
+  pingSession: protectedProcedure.input(sessionIdInputSchema).mutation(async ({ ctx, input }) => {
+    const [updated] = await ctx.db
+      .update(learningSession)
+      .set({ lastPingAt: new Date() })
+      .where(
+        and(
+          eq(learningSession.id, input.sessionId),
+          eq(learningSession.userId, ctx.currentUser.id),
+          isNull(learningSession.endedAt),
+        ),
+      )
+      .returning({ id: learningSession.id });
+
+    if (!updated) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Lernsitzung nicht gefunden oder bereits beendet." });
+    }
+  }),
+
+  endSession: protectedProcedure.input(sessionIdInputSchema).mutation(async ({ ctx, input }) => {
+    const now = new Date();
+    await ctx.db
+      .update(learningSession)
+      .set({ endedAt: now, lastPingAt: now })
+      .where(
+        and(
+          eq(learningSession.id, input.sessionId),
+          eq(learningSession.userId, ctx.currentUser.id),
+          isNull(learningSession.endedAt),
+        ),
+      );
+  }),
+
+  /**
+   * F-31/F-32: Lernstatistik + Schwachstellenanalyse für den ausgewählten Kurs. Aggregiert wie
+   * `overview` oben bewusst in TypeScript nach einer einzelnen SQL-Abfrage je Datenquelle,
+   * statt mehrerer GROUP-BY-Abfragen — Datenmenge je Nutzer:in ist klein genug, siehe
+   * Architekturplanung Abschnitt 13.
+   */
+  stats: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const events = await ctx.db
+      .select({
+        occurredAt: learningEvent.occurredAt,
+        isCorrect: learningEvent.isCorrect,
+        themaId: thema.id,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(learningEvent)
+      .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .where(and(eq(learningEvent.userId, ctx.currentUser.id), eq(fachgebiet.kursId, input.kursId)));
+
+    const totalAnswered = events.length;
+    const correctCount = events.filter((event) => event.isCorrect).length;
+    const hitRatePercent = totalAnswered === 0 ? 0 : Math.round((correctCount / totalAnswered) * 100);
+
+    const byDay = new Map<string, { total: number; correct: number }>();
+    for (const event of events) {
+      const day = event.occurredAt.toISOString().slice(0, 10);
+      const entry = byDay.get(day) ?? { total: 0, correct: 0 };
+      entry.total += 1;
+      if (event.isCorrect) entry.correct += 1;
+      byDay.set(day, entry);
+    }
+    const dailyHitRate = [...byDay.entries()]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([date, { total, correct }]) => ({
+        date,
+        total,
+        correct,
+        percent: Math.round((correct / total) * 100),
+      }));
+
+    const byThema = new Map<string, { title: string; fachgebietTitle: string; total: number; correct: number }>();
+    for (const event of events) {
+      const entry = byThema.get(event.themaId) ?? {
+        title: event.themaTitle,
+        fachgebietTitle: event.fachgebietTitle,
+        total: 0,
+        correct: 0,
+      };
+      entry.total += 1;
+      if (event.isCorrect) entry.correct += 1;
+      byThema.set(event.themaId, entry);
+    }
+    const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
+    const weakThemen = [...byThema.entries()]
+      .map(([id, entry]) => ({
+        id,
+        title: entry.title,
+        fachgebietTitle: entry.fachgebietTitle,
+        total: entry.total,
+        correct: entry.correct,
+        percent: Math.round((entry.correct / entry.total) * 100),
+      }))
+      .filter((entry) => entry.total >= MIN_ATTEMPTS_FOR_WEAK_SPOT)
+      .sort((a, b) => a.percent - b.percent)
+      .slice(0, 5);
+
+    const sessions = await ctx.db
+      .select({
+        startedAt: learningSession.startedAt,
+        lastPingAt: learningSession.lastPingAt,
+        endedAt: learningSession.endedAt,
+      })
+      .from(learningSession)
+      .where(and(eq(learningSession.userId, ctx.currentUser.id), eq(learningSession.kursId, input.kursId)));
+
+    const learningMs = sessions.reduce((sum, session) => {
+      const end = session.endedAt ?? session.lastPingAt;
+      return sum + Math.max(0, end.getTime() - session.startedAt.getTime());
+    }, 0);
+
+    return {
+      totalAnswered,
+      correctCount,
+      hitRatePercent,
+      learningMinutes: Math.round(learningMs / 60_000),
+      dailyHitRate,
+      weakThemen,
+    };
   }),
 });

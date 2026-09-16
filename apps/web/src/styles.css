@@ -1049,6 +1049,54 @@ details[open] > summary.disclosure::before {
   height: 10px;
 }
 
+/* ---------- Lernstatistik/Schwachstellenanalyse (F-31/F-32) ---------- */
+.stat-section {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.stat-heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  margin: 0;
+}
+
+.stat-subheading {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stat-tile {
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+}
+
+.stat-label {
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+}
+
+.progress-block.is-weak .progress-bar > span {
+  background: var(--sun);
+}
+
 /* ---------- Landing Page (öffentliche Startseite für nicht eingeloggte Besucher:innen) ---------- */
 .landing {
   max-width: none;
