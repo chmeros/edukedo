@@ -1,21 +1,36 @@
 import { useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
+import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 
-export function Quiz({ kursId }: { kursId: string }) {
+export function Quiz({
+  kursId,
+  themaId,
+  themaTitle,
+  onClearThema,
+}: {
+  kursId: string;
+  themaId?: string;
+  themaTitle?: string;
+  onClearThema?: () => void;
+}) {
   const utils = trpc.useUtils();
   // F-26: Quiz-Antworten fließen jetzt in die Fortschrittsanzeige ein (siehe
   // Architekturplanung Abschnitt 13) — nach jeder Antwort invalidieren, damit der
   // Fortschritt-Tab nicht auf einem veralteten Zwischenstand hängen bleibt.
-  const invalidateProgress = () => utils.progress.overview.invalidate();
+  const invalidateProgress = () => {
+    utils.progress.overview.invalidate();
+    // F-27: Ergebnis kann die nächste Runde Vorschläge verändern.
+    utils.progress.suggestions.invalidate();
+  };
   // staleTime: Infinity — quiz.quizItems liefert die 20 Fragen in zufälliger Reihenfolge (siehe
   // apps/api/src/trpc/routers/quiz.ts); ein automatischer Hintergrund-Refetch (z. B. TanStack
   // Querys refetchOnWindowFocus) würde sonst mitten in einer Runde eine neu gemischte Liste
   // laden, während der lokale `index` unverändert bleibt — die angezeigte Frage würde nicht mehr
   // zur Fragenzahl passen. Die Komponente bleibt jetzt ohnehin über den Tab-Wechsel hinweg
   // gemountet (siehe App.tsx), ein Re-Fetch ist hier also nie erwünscht.
-  const quizItems = trpc.quiz.quizItems.useQuery({ kursId }, { staleTime: Infinity });
+  const quizItems = trpc.quiz.quizItems.useQuery({ kursId, themaId }, { staleTime: Infinity });
   const submitAnswer = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMatching = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
   const submitBlanks = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
@@ -28,22 +43,31 @@ export function Quiz({ kursId }: { kursId: string }) {
   }
 
   const items = quizItems.data ?? [];
+  const filterBadge = themaId && themaTitle && onClearThema && (
+    <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
+  );
 
   if (items.length === 0) {
     return (
-      <div className="alert alert-info">
-        <InfoIcon />
-        <div>Keine Quiz-Fragen verfügbar.</div>
+      <div className="stack">
+        {filterBadge}
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Keine Quiz-Fragen verfügbar.</div>
+        </div>
       </div>
     );
   }
 
   if (index >= items.length) {
     return (
-      <div className="alert alert-success">
-        <SuccessIcon />
-        <div>
-          Quiz abgeschlossen 🎉 — {correctCount} von {items.length} richtig
+      <div className="stack">
+        {filterBadge}
+        <div className="alert alert-success">
+          <SuccessIcon />
+          <div>
+            Quiz abgeschlossen 🎉 — {correctCount} von {items.length} richtig
+          </div>
         </div>
       </div>
     );
@@ -64,6 +88,7 @@ export function Quiz({ kursId }: { kursId: string }) {
 
   return (
     <div className="stack">
+      {filterBadge}
       <span className="quiz-progress">
         Frage {index + 1} von {items.length}
       </span>

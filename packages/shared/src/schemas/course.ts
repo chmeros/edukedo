@@ -7,3 +7,16 @@ import { z } from "zod";
  */
 export const activeKursInputSchema = z.object({ kursId: z.string().uuid() });
 export type ActiveKursInput = z.infer<typeof activeKursInputSchema>;
+
+/**
+ * F-27 "Weiter lernen"-Einstieg: optionaler Thema-Filter für `content.dueCards`/
+ * `quiz.quizItems` — ein Klick auf einen Vorschlag lernt gezielt nur dieses Thema statt
+ * wie sonst quer über den ganzen Kurs, siehe Architekturplanung Abschnitt 13. Ohne
+ * `themaId` unverändertes Verhalten (kursweite Auswahl), rückwärtskompatibel zu
+ * `activeKursInputSchema`.
+ */
+export const themaFilterableKursInputSchema = z.object({
+  kursId: z.string().uuid(),
+  themaId: z.string().uuid().optional(),
+});
+export type ThemaFilterableKursInput = z.infer<typeof themaFilterableKursInputSchema>;

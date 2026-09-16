@@ -165,7 +165,13 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         url: `/api/v1/trpc/progress.overview?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
         headers: { cookie: sessionCookie },
       });
-      const masteredBefore = (overviewBefore.json().result.data as { mastered: number }[])[0]!.mastered;
+      // Summe über ALLE Fachgebiete statt nur [0]: mcItem wird zufällig aus dem gesamten Kurs
+      // gezogen (siehe quiz.quizItems, `orderBy(sql\`random()\`)`) und gehört damit nicht
+      // zuverlässig zum ersten, nach sort_order sortierten Fachgebiet — ein Vergleich nur bei
+      // Index 0 wäre unabhängig von dieser Änderung hier bereits ein flakiger Test gewesen.
+      const sumMastered = (data: { mastered: number }[]) =>
+        data.reduce((sum, fachgebiet) => sum + fachgebiet.mastered, 0);
+      const masteredBefore = sumMastered(overviewBefore.json().result.data as { mastered: number }[]);
 
       const submitResponse = await app.inject({
         method: "POST",
@@ -181,7 +187,7 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         url: `/api/v1/trpc/progress.overview?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
         headers: { cookie: sessionCookie },
       });
-      const masteredAfter = (overviewAfter.json().result.data as { mastered: number }[])[0]!.mastered;
+      const masteredAfter = sumMastered(overviewAfter.json().result.data as { mastered: number }[]);
 
       expect(masteredAfter).toBe(masteredBefore + 1);
     },

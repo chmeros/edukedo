@@ -593,6 +593,57 @@ details[open] > summary.disclosure::before {
   font-family: var(--font-mono);
 }
 
+/* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
+.suggestion-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestion-chip {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.suggestion-chip.is-primary {
+  border-color: var(--sprout);
+  background: var(--sprout-tint);
+}
+
+.suggestion-title {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+
+.suggestion-reason {
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+}
+
+.thema-filter-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: var(--fs-xs);
+}
+
+.thema-filter-badge .link-muted-btn {
+  align-self: auto;
+}
+
 /* ---------- Tab nav (Theorie/Karteikarten/Quiz/Fortschritt) ---------- */
 .tab-nav {
   display: grid;

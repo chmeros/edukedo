@@ -1,5 +1,5 @@
 import { requiresParentalConsent } from "@edukedo/shared";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
 import { BrandLink } from "./BrandLink";
 import { CourseSwitcher } from "./CourseSwitcher";
@@ -53,6 +53,9 @@ export function App() {
   // Ä.) und fällt dann auf den ersten eingeschriebenen Kurs zurück, statt einen ungültigen
   // Zustand zu zeigen.
   const [selectedKursId, setSelectedKursId] = useState<string | null>(null);
+  // F-27 "Weiter lernen"-Einstieg: nach Klick auf einen Vorschlag lernen Karteikarten/Quiz
+  // gezielt nur dieses Thema (siehe ThemaFilterBadge). null = kursweite Auswahl wie bisher.
+  const [activeThema, setActiveThema] = useState<{ id: string; title: string } | null>(null);
   // Design-Entwurf (design/01-landing-und-app-vorschau.html, siehe design/README.md): eine
   // öffentliche Startseite vor dem Login/Registrierungsformular, bewusst als lokaler Zustand
   // statt einer eigenen Route (kein Router im Projekt) — die CTAs wechseln nur die Ansicht.
@@ -68,6 +71,17 @@ export function App() {
       ? selectedKursId
       : joinedCourses[0]?.id ?? null;
   useLearningSessionTracker(learningMode === "flashcards" || learningMode === "quiz", activeKursId);
+
+  // F-27: ein Themenfilter aus einem vorherigen Kurs darf nicht in einen anderen
+  // durchsickern (z. B. nach Kurswechsel über den CourseSwitcher).
+  useEffect(() => {
+    setActiveThema(null);
+  }, [activeKursId]);
+
+  const suggestions = trpc.progress.suggestions.useQuery(
+    { kursId: activeKursId ?? "" },
+    { enabled: !!activeKursId },
+  );
 
   if (me.data) {
     return (
@@ -95,6 +109,28 @@ export function App() {
             </>
           )}
           <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />
+          {activeKursId && suggestions.data && suggestions.data.length > 0 && (
+            <div className="suggestion-row">
+              {suggestions.data.map((suggestion, position) => (
+                <button
+                  key={suggestion.themaId}
+                  type="button"
+                  className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
+                  onClick={() => {
+                    setActiveThema({ id: suggestion.themaId, title: suggestion.title });
+                    setLearningMode(suggestion.mode);
+                  }}
+                >
+                  <span className="suggestion-title">{suggestion.title}</span>
+                  <span className="suggestion-reason">
+                    {suggestion.dueCount > 0
+                      ? `${suggestion.dueCount} Karte(n) fällig${suggestion.overdueDays > 0 ? `, ${suggestion.overdueDays} Tag(e) überfällig` : ""}`
+                      : `${suggestion.weakPercent} % Trefferquote`}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
           {activeKursId ? (
             <>
               <div className="tab-nav">
@@ -127,19 +163,34 @@ export function App() {
                   Fortschritt
                 </button>
               </div>
-              {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit lokaler
+              {/* key={activeKursId}-„-“-activeThema?.id: erzwingt einen Remount bei Kurswechsel
+                  UND beim Setzen/Aufheben eines F-27-Themenfilters, damit lokaler
                   Interaktionszustand (Quiz-Fortschritt, aufgedeckte Karteikarte, ...) nicht
-                  vom vorherigen Kurs übernommen wird. */}
+                  vom vorherigen Kurs/Filter übernommen wird. */}
               {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
-              {learningMode === "flashcards" && <Flashcards key={activeKursId} kursId={activeKursId} />}
+              {learningMode === "flashcards" && (
+                <Flashcards
+                  key={`${activeKursId}-${activeThema?.id ?? "all"}`}
+                  kursId={activeKursId}
+                  themaId={activeThema?.id}
+                  themaTitle={activeThema?.title}
+                  onClearThema={() => setActiveThema(null)}
+                />
+              )}
               {/* Quiz bleibt anders als die übrigen drei Tabs immer im DOM (nur per hidden
                   ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet zu werden — sonst
                   würde quiz.quizItems bei jeder Rückkehr zum Quiz-Tab eine neue, zufällig
                   gemischte 20er-Runde laden und den bisherigen Durchgang (Frage X von 20)
-                  verwerfen. Der key={activeKursId} sorgt weiterhin dafür, dass ein Kurswechsel
-                  die Runde bewusst zurücksetzt. */}
+                  verwerfen. Der key sorgt weiterhin dafür, dass ein Kurswechsel oder das
+                  Setzen/Aufheben eines F-27-Themenfilters die Runde bewusst zurücksetzt. */}
               <div hidden={learningMode !== "quiz"}>
-                <Quiz key={activeKursId} kursId={activeKursId} />
+                <Quiz
+                  key={`${activeKursId}-${activeThema?.id ?? "all"}`}
+                  kursId={activeKursId}
+                  themaId={activeThema?.id}
+                  themaTitle={activeThema?.title}
+                  onClearThema={() => setActiveThema(null)}
+                />
               </div>
               {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
             </>

@@ -2,14 +2,30 @@ import { useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
 import { FlipCard } from "./FlipCard";
 import { SuccessIcon } from "./Icons";
+import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 
-export function Flashcards({ kursId }: { kursId: string }) {
+export function Flashcards({
+  kursId,
+  themaId,
+  themaTitle,
+  onClearThema,
+}: {
+  kursId: string;
+  themaId?: string;
+  themaTitle?: string;
+  onClearThema?: () => void;
+}) {
   const utils = trpc.useUtils();
-  const dueCards = trpc.content.dueCards.useQuery({ kursId });
+  const dueCards = trpc.content.dueCards.useQuery({ kursId, themaId });
 
   const submitReview = trpc.progress.submitReview.useMutation({
-    onSuccess: () => utils.content.dueCards.invalidate(),
+    onSuccess: () => {
+      utils.content.dueCards.invalidate();
+      // F-27: Ergebnis kann die nächste Runde Vorschläge verändern (z. B. Thema jetzt
+      // nicht mehr überfällig).
+      utils.progress.suggestions.invalidate();
+    },
   });
 
   const [revealed, setRevealed] = useState(false);
@@ -23,9 +39,14 @@ export function Flashcards({ kursId }: { kursId: string }) {
 
   if (!current) {
     return (
-      <div className="alert alert-success">
-        <SuccessIcon />
-        <div>Keine Karten fällig 🎉</div>
+      <div className="stack">
+        {themaId && themaTitle && onClearThema && (
+          <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
+        )}
+        <div className="alert alert-success">
+          <SuccessIcon />
+          <div>Keine Karten fällig 🎉</div>
+        </div>
       </div>
     );
   }
@@ -37,6 +58,7 @@ export function Flashcards({ kursId }: { kursId: string }) {
 
   return (
     <div className="stack">
+      {themaId && themaTitle && onClearThema && <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />}
       <span className="due-count">
         <b>{cards.length}</b> Karte(n) fällig
       </span>

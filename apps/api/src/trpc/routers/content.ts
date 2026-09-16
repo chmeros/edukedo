@@ -1,4 +1,4 @@
-import { activeKursInputSchema, theoriePayloadSchema } from "@edukedo/shared";
+import { activeKursInputSchema, theoriePayloadSchema, themaFilterableKursInputSchema } from "@edukedo/shared";
 import { and, asc, eq, isNull, lte, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
@@ -10,8 +10,18 @@ export const contentRouter = router({
    * Kurse hinweg aggregiert): neue Karten (kein user_progress-Datensatz) zuerst, danach nach
    * Fälligkeit (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
    */
-  dueCards: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+  dueCards: protectedProcedure.input(themaFilterableKursInputSchema).query(async ({ ctx, input }) => {
     const now = new Date();
+
+    const conditions = [
+      eq(contentItem.type, "karteikarte"),
+      eq(contentItem.isActive, true),
+      or(isNull(userProgress.dueAt), lte(userProgress.dueAt, now)),
+    ];
+    // F-27: optionaler Thema-Filter — siehe themaFilterableKursInputSchema.
+    if (input.themaId) {
+      conditions.push(eq(thema.id, input.themaId));
+    }
 
     const rows = await ctx.db
       .select({
@@ -35,13 +45,7 @@ export const contentRouter = router({
         userProgress,
         and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
       )
-      .where(
-        and(
-          eq(contentItem.type, "karteikarte"),
-          eq(contentItem.isActive, true),
-          or(isNull(userProgress.dueAt), lte(userProgress.dueAt, now)),
-        ),
-      )
+      .where(and(...conditions))
       // NULLS FIRST: neue, noch nie geübte Karten (kein user_progress-Datensatz) vor
       // bereits fälligen Wiederholungen — Postgres sortiert NULL bei ASC sonst zuletzt.
       .orderBy(sql`${userProgress.dueAt} asc nulls first`)

@@ -1,9 +1,9 @@
 import {
-  activeKursInputSchema,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
   submitQuizAnswerInputSchema,
+  themaFilterableKursInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
@@ -26,7 +26,16 @@ export const quizRouter = router({
    * trpc/routers/progress.ts) in `user_progress` — bewusst NICHT in `preview.ts`, der ohne
    * jeden Datenbank-Schreibzugriff bleibt.
    */
-  quizItems: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+  quizItems: protectedProcedure.input(themaFilterableKursInputSchema).query(async ({ ctx, input }) => {
+    const conditions = [
+      inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
+      eq(contentItem.isActive, true),
+    ];
+    // F-27: optionaler Thema-Filter — siehe themaFilterableKursInputSchema.
+    if (input.themaId) {
+      conditions.push(eq(thema.id, input.themaId));
+    }
+
     const items = await ctx.db
       .select({ id: contentItem.id, type: contentItem.type, prompt: contentItem.prompt, payload: contentItem.payload })
       .from(contentItem)
@@ -40,12 +49,7 @@ export const quizRouter = router({
           eq(userCourse.kursId, input.kursId),
         ),
       )
-      .where(
-        and(
-          inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
-          eq(contentItem.isActive, true),
-        ),
-      )
+      .where(and(...conditions))
       .orderBy(sql`random()`)
       .limit(20);
 
