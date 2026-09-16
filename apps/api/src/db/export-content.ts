@@ -1,9 +1,17 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { kurzantwortPayloadSchema, lueckenPayloadSchema, theoriePayloadSchema } from "@edukedo/shared";
-import { asc, eq } from "drizzle-orm";
 import {
+  fachgespraechFragePayloadSchema,
+  fallaufgabePayloadSchema,
+  kurzantwortPayloadSchema,
+  lueckenPayloadSchema,
+  theoriePayloadSchema,
+} from "@edukedo/shared";
+import { asc, eq, inArray } from "drizzle-orm";
+import {
+  serializeFachgespraechThema,
+  serializeFallaufgabe,
   serializeKarteikarte,
   serializeKurzantwort,
   serializeLuecken,
@@ -65,11 +73,49 @@ export async function exportAllContent(): Promise<ExportSummary> {
           .where(eq(contentItem.themaId, themaRow.id))
           .orderBy(asc(contentItem.createdAt), asc(contentItem.id));
 
+        // Code-Review-Fund, nachgezogen: Tags/Antwortoptionen für alle Items dieses Themas in
+        // je einer Abfrage vorab laden statt (wie ursprünglich) je Item eine eigene Abfrage —
+        // bei einem Thema mit z. B. 20 Quiz-Items waren das vorher 20 zusätzliche Roundtrips.
+        const itemIds = items.map((item) => item.id);
+        const tagRowsPromise: Promise<{ contentItemId: string; name: string }[]> =
+          itemIds.length === 0
+            ? Promise.resolve([])
+            : db
+                .select({ contentItemId: contentItemTag.contentItemId, name: tag.name })
+                .from(contentItemTag)
+                .innerJoin(tag, eq(tag.id, contentItemTag.tagId))
+                .where(inArray(contentItemTag.contentItemId, itemIds));
+        const answerOptionRowsPromise: Promise<(typeof answerOption.$inferSelect)[]> =
+          itemIds.length === 0
+            ? Promise.resolve([])
+            : db
+                .select()
+                .from(answerOption)
+                .where(inArray(answerOption.contentItemId, itemIds))
+                .orderBy(asc(answerOption.contentItemId), asc(answerOption.sortOrder));
+        const [tagRows, answerOptionRows] = await Promise.all([tagRowsPromise, answerOptionRowsPromise]);
+
+        const tagsByItem = new Map<string, string[]>();
+        for (const row of tagRows) {
+          const list = tagsByItem.get(row.contentItemId) ?? [];
+          list.push(row.name);
+          tagsByItem.set(row.contentItemId, list);
+        }
+        const answerOptionsByItem = new Map<string, (typeof answerOptionRows)[number][]>();
+        for (const row of answerOptionRows) {
+          const list = answerOptionsByItem.get(row.contentItemId) ?? [];
+          list.push(row);
+          answerOptionsByItem.set(row.contentItemId, list);
+        }
+
         let theorieBody: string | null = null;
         const karteikartenBlocks: string[] = [];
         const quizBlocks: string[] = [];
+        const fallaufgabeBlocks: string[] = [];
+        const fragenByThema = new Map<string, string[]>();
         let karteikarteCounter = 0;
         let quizCounter = 0;
+        let fallaufgabeCounter = 0;
 
         for (const item of items) {
           if (item.type === "theorie") {
@@ -81,11 +127,6 @@ export async function exportAllContent(): Promise<ExportSummary> {
           if (item.type === "karteikarte") {
             karteikarteCounter += 1;
             const id = `K-${themaCode}-${String(karteikarteCounter).padStart(2, "0")}`;
-            const tagRows = await db
-              .select({ name: tag.name })
-              .from(contentItemTag)
-              .innerJoin(tag, eq(tag.id, contentItemTag.tagId))
-              .where(eq(contentItemTag.contentItemId, item.id));
             karteikartenBlocks.push(
               serializeKarteikarte(
                 id,
@@ -93,7 +134,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
                 item.explanation ?? "",
                 item.difficulty,
                 item.bloom,
-                tagRows.map((row) => row.name),
+                tagsByItem.get(item.id) ?? [],
               ),
             );
             itemsExported += 1;
@@ -105,11 +146,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
             const id = `Q-${themaCode}-${String(quizCounter).padStart(2, "0")}`;
 
             if (item.type === "quiz_mc") {
-              const options = await db
-                .select()
-                .from(answerOption)
-                .where(eq(answerOption.contentItemId, item.id))
-                .orderBy(asc(answerOption.sortOrder));
+              const options = answerOptionsByItem.get(item.id) ?? [];
               quizBlocks.push(
                 serializeQuizMc(
                   id,
@@ -121,11 +158,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
                 ),
               );
             } else if (item.type === "zuordnung") {
-              const rows = await db
-                .select()
-                .from(answerOption)
-                .where(eq(answerOption.contentItemId, item.id))
-                .orderBy(asc(answerOption.sortOrder));
+              const rows = answerOptionsByItem.get(item.id) ?? [];
               const pairsByGroup = new Map<string, { left?: string; right?: string }>();
               for (const row of rows) {
                 const key = row.groupKey ?? "";
@@ -167,10 +200,32 @@ export async function exportAllContent(): Promise<ExportSummary> {
             continue;
           }
 
-          // z. B. "fallaufgabe" — wird von import-content.ts bislang nie angelegt (siehe dort),
-          // hier nur defensiv, damit ein künftiger neuer Typ den Export nicht hart abbrechen lässt.
+          if (item.type === "fallaufgabe") {
+            fallaufgabeCounter += 1;
+            const id = `F-${themaCode}-${String(fallaufgabeCounter).padStart(2, "0")}`;
+            const payload = fallaufgabePayloadSchema.parse(item.payload);
+            fallaufgabeBlocks.push(serializeFallaufgabe(id, item.prompt, payload.parts, item.explanation ?? ""));
+            itemsExported += 1;
+            continue;
+          }
+
+          if (item.type === "fachgespraech_frage") {
+            const payload = fachgespraechFragePayloadSchema.parse(item.payload);
+            const fragen = fragenByThema.get(payload.themaTitel) ?? [];
+            fragen.push(item.prompt);
+            fragenByThema.set(payload.themaTitel, fragen);
+            itemsExported += 1;
+            continue;
+          }
+
+          // Neuer, hier noch nicht abgebildeter Content-Typ — defensiv, damit der Export nicht
+          // hart abbricht.
           console.warn(`Unbekannter/nicht unterstützter Content-Typ "${item.type}" übersprungen (Item ${item.id}).`);
         }
+
+        const fachgespraechBlocks = [...fragenByThema.entries()].map(([themaTitel, fragen]) =>
+          serializeFachgespraechThema(themaTitel, fragen),
+        );
 
         const fileContent = serializeThemaFile(
           {
@@ -183,6 +238,8 @@ export async function exportAllContent(): Promise<ExportSummary> {
           theorieBody,
           karteikartenBlocks,
           quizBlocks,
+          fallaufgabeBlocks,
+          fachgespraechBlocks,
         );
 
         const outDir = path.join(EXPORT_DIR, kursRow.slug, fachgebietRow.code);

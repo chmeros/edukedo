@@ -86,8 +86,12 @@ export function App() {
     selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
       ? selectedKursId
       : joinedCourses[0]?.id ?? null;
+  // Code-Review-Fund, nachgezogen: view === "app" gehört mit in die Bedingung, sonst lief
+  // der Tracker unbemerkt weiter, wenn eine Admin-Person vom Lernmodus in die Verwaltung
+  // wechselt (learningMode bleibt dabei unverändert) — die Zeit im Admin-Bereich wäre
+  // fälschlich als "Lernzeit" (F-31) gezählt worden.
   useLearningSessionTracker(
-    learningMode === "flashcards" || learningMode === "quiz" || learningMode === "exam",
+    view === "app" && (learningMode === "flashcards" || learningMode === "quiz" || learningMode === "exam"),
     activeKursId,
   );
 
@@ -229,7 +233,11 @@ export function App() {
               ) : (
                 <div className="alert alert-info">
                   <InfoIcon />
-                  <div>Tritt einem Kurs bei, um mit dem Lernen zu beginnen.</div>
+                  {/* Code-Review-Fund, nachgezogen: Seit die Kursauswahl in ein Header-Dropdown
+                      gewandert ist (Layout-Vereinheitlichung), gab es hier keinen Hinweis mehr
+                      darauf, WO "Kurs beitreten" jetzt zu finden ist — die Liste war vorher
+                      direkt an dieser Stelle automatisch aufgeklappt sichtbar. */}
+                  <div>Wähle oben rechts im Kurs-Menü einen Kurs, um mit dem Lernen zu beginnen.</div>
                 </div>
               )}
             </>

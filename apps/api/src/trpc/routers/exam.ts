@@ -1,7 +1,16 @@
 import { fallaufgabePayloadSchema, finishExamInputSchema, startExamInputSchema, submitExamAnswerInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, sql } from "drizzle-orm";
-import { contentItem, contentItemVersion, examAnswer, examSession, fachgebiet, thema, userCourse } from "../../db/schema";
+import {
+  contentItem,
+  contentItemVersion,
+  examAnswer,
+  examSession,
+  fachgebiet,
+  learningEvent,
+  thema,
+  userCourse,
+} from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 const EXAM_MODE = "schriftliche_pruefung";
@@ -77,8 +86,23 @@ export const examRouter = router({
    * sind freie Situationsaufgaben ohne automatisch prüfbare Antwort. Ein erneuter Aufruf für
    * dieselbe Fallaufgabe derselben Sitzung ersetzt die vorherige Einschätzung, statt sie
    * zusätzlich zu zählen (z. B. bei Zurück-Navigation).
+   *
+   * Prüft zuerst, dass `sessionId` der aufrufenden Person gehört (Code-Review-Fund,
+   * nachgezogen): ohne diese Prüfung könnte jede eingeloggte Person eine `examAnswer`-Zeile
+   * in eine fremde Prüfungssitzung schreiben, da sonst nichts außer der Existenz des
+   * Content-Items geprüft wird — anders als bei `finish` unten, das von Anfang an nach
+   * `examSession.userId` filtert.
    */
   submitAnswer: protectedProcedure.input(submitExamAnswerInputSchema).mutation(async ({ ctx, input }) => {
+    const [session] = await ctx.db
+      .select()
+      .from(examSession)
+      .where(and(eq(examSession.id, input.sessionId), eq(examSession.userId, ctx.currentUser.id)))
+      .limit(1);
+    if (!session) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Prüfungssitzung nicht gefunden." });
+    }
+
     const [item] = await ctx.db
       .select()
       .from(contentItem)
@@ -119,6 +143,22 @@ export const examRouter = router({
     });
 
     const maxPoints = parts.reduce((sum, part) => sum + part.points, 0);
+
+    // Code-Review-Fund, nachgezogen: ohne diesen Eintrag blieb Prüfungs-Übung für F-31
+    // (Trefferquote/Anzahl) und F-32/F-27 (Schwachstellen) komplett unsichtbar, da nur
+    // recordQuizAttempt/submitReview (siehe progress.ts) in learning_event schrieben.
+    // Fallaufgaben haben keine einzelne "richtig/falsch"-Antwort wie Quiz/Karteikarten,
+    // daher als Näherung: mehrheitlich erreichte Punktzahl (>= 50 %) zählt als "richtig" —
+    // bewusst dieselbe großzügige Grundhaltung wie bei Karteikarten, wo schon "unsicher"
+    // (nicht nur "gewusst") als nicht-falsch zählt, siehe submitReview unten.
+    if (maxPoints > 0) {
+      await ctx.db.insert(learningEvent).values({
+        userId: ctx.currentUser.id,
+        contentItemId: item.id,
+        isCorrect: totalPoints / maxPoints >= 0.5,
+      });
+    }
+
     return { totalPoints, maxPoints };
   }),
 

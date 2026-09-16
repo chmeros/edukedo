@@ -237,8 +237,22 @@ export function parseFachgespraechFragen(sectionBody: string): ParsedFachgesprae
   });
 }
 
+/**
+ * Wie extractField, aber erfasst bis zur nächsten `**Feld:**`-Zeile statt nur der ersten
+ * Zeile (Code-Review-Fund, nachgezogen): "Ausgangssituation"/"Aufgabenstellung" sind meist
+ * längere Fließtext-Absätze statt der kurzen Ein-Zeiler, für die extractField ursprünglich
+ * gedacht war — ein harter Zeilenumbruch mitten im Absatz hätte den Rest sonst still
+ * abgeschnitten. Nur für Felder geeignet, denen im Block direkt eine weitere `**...**`-Zeile
+ * folgt (hier: Ausgangssituation/Aufgabenstellung, gefolgt von der ersten Teilaufgabe).
+ */
+function extractFieldUntilNextLabel(block: string, label: string): string | null {
+  const match = new RegExp(`\\*\\*${label}:\\*\\*\\s*([\\s\\S]*?)(?=\\n\\*\\*|$)`).exec(block);
+  return match ? match[1]!.trim() : null;
+}
+
 export function parseFallaufgabe(block: string): ParsedFallaufgabe {
-  const prompt = extractField(block, "Ausgangssituation") ?? extractField(block, "Aufgabenstellung") ?? "";
+  const prompt =
+    extractFieldUntilNextLabel(block, "Ausgangssituation") ?? extractFieldUntilNextLabel(block, "Aufgabenstellung") ?? "";
   const explanation = extractFieldToEnd(block, "Musterlösungshinweise") ?? extractFieldToEnd(block, "Lösungsweg") ?? "";
 
   const parts = [

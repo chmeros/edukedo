@@ -158,6 +158,12 @@ export function ParentDashboard() {
         <Header right={<span className="who">{me.data.email}</span>} />
         <div className="shell shell--narrow">
           <div className="card">
+            {/* Code-Review-Fund, nachgezogen: dieser Zweig hatte im Zuge der
+                Header-Vereinheitlichung als einziger der drei ParentDashboard-Zustände keine
+                Überschrift mehr — die alte <BrandLink label="edukedo — Eltern-Dashboard" />
+                wurde entfernt, aber hier (anders als in den beiden anderen Zweigen) keine
+                Ersatzüberschrift ergänzt. */}
+            <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
             <SetInitialPasswordForm />
           </div>
         </div>

@@ -1,6 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { extractSection, parseKarteikarten, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import {
+  extractSection,
+  parseFachgespraechFragen,
+  parseFallaufgabe,
+  parseKarteikarten,
+  parseQuizBlock,
+  splitBlocks,
+  splitFrontmatter,
+} from "./content-parser";
+import {
+  serializeFachgespraechThema,
+  serializeFallaufgabe,
   serializeKarteikarte,
   serializeKurzantwort,
   serializeLuecken,
@@ -119,6 +129,36 @@ describe("Round-Trip serialize -> parse", () => {
       expect(parsed.acceptedAnswers).toEqual(["Nachweisgesetz", "NachwG"]);
     }
   });
+  it("Fallaufgabe: serialisierter Block parst zu denselben Teilaufgaben und derselben Musterlösung", () => {
+    const block = serializeFallaufgabe(
+      "F-HB1-01",
+      "Die Bemus AG plant die Einführung einer neuen Kundenverwaltungssoftware.",
+      [
+        { prompt: "Analysieren Sie die Ursachen der Verzögerung.", points: 5, bloom: "analysieren" },
+        { prompt: "Schlagen Sie zwei Maßnahmen vor.", points: 5, bloom: null },
+      ],
+      "Teilaufgabe 1 sollte auf fehlende Meldewege eingehen.",
+    );
+    const parsed = parseFallaufgabe(block);
+    expect(parsed.prompt).toBe("Die Bemus AG plant die Einführung einer neuen Kundenverwaltungssoftware.");
+    expect(parsed.explanation).toBe("Teilaufgabe 1 sollte auf fehlende Meldewege eingehen.");
+    expect(parsed.parts).toEqual([
+      { prompt: "Analysieren Sie die Ursachen der Verzögerung.", points: 5, bloom: "analysieren" },
+      { prompt: "Schlagen Sie zwei Maßnahmen vor.", points: 5, bloom: null },
+    ]);
+  });
+
+  it("Fachgesprächsfrage: serialisierter Themenblock parst zu denselben Fragen unter demselben Thema", () => {
+    const block = serializeFachgespraechThema("1.1 Informationsmanagement für Entscheidungsprozesse", [
+      "Wie würden Sie den Informationsfluss neu strukturieren?",
+      "Woran erkennen Sie relevante Informationen?",
+    ]);
+    const parsed = parseFachgespraechFragen(block);
+    expect(parsed).toEqual([
+      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Wie würden Sie den Informationsfluss neu strukturieren?" },
+      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Woran erkennen Sie relevante Informationen?" },
+    ]);
+  });
 });
 
 describe("serializeThemaFile", () => {
@@ -150,6 +190,31 @@ describe("serializeThemaFile", () => {
 
     const quiz = extractSection(body, "Quiz");
     expect(splitBlocks(quiz!)).toHaveLength(1);
+  });
+
+  it("fügt Fallaufgaben- und Fachgesprächsfragen-Abschnitte hinzu, wenn welche vorhanden sind", () => {
+    const fallaufgabeBlock = serializeFallaufgabe("F-HB1-01", "Ausgangssituation.", [{ prompt: "Teilaufgabe.", points: 5, bloom: null }], "Hinweis.");
+    const fachgespraechBlock = serializeFachgespraechThema("1.1 Thema", ["Frage 1?"]);
+    const fileContent = serializeThemaFile(
+      {
+        kursSlug: "fachwirt-buero-projektorganisation",
+        fachgebietCode: "HB1",
+        fachgebietTitle: "Koordinieren von Entscheidungsprozessen",
+        themaCode: "HB1-fallaufgaben",
+        themaTitle: "Themenübergreifende Situationsaufgaben (F-23)",
+      },
+      null,
+      [],
+      [],
+      [fallaufgabeBlock],
+      [fachgespraechBlock],
+    );
+
+    const body = splitFrontmatter(fileContent).body;
+    const fallaufgaben = extractSection(body, "Fallaufgaben");
+    expect(splitBlocks(fallaufgaben!)).toHaveLength(1);
+    const fachgespraech = extractSection(body, "Fachgesprächsfragen");
+    expect(fachgespraech).toContain("### 1.1 Thema");
   });
 
   it("lässt leere Abschnitte (keine Karteikarten/Quiz-Items) einfach weg, statt eine leere Überschrift zu erzeugen", () => {

@@ -56,6 +56,54 @@ export async function recordQuizAttempt(
   await db.insert(learningEvent).values({ userId, contentItemId, isCorrect, occurredAt: now });
 }
 
+/**
+ * F-32: Mindestanzahl Antworten, ab der eine Trefferquote je Thema überhaupt aussagekräftig
+ * ist — an einer Stelle definiert statt (wie ursprünglich) in `stats` und `suggestions`
+ * unabhängig doppelt, siehe Code-Review-Fund unten.
+ */
+const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
+
+/**
+ * F-31/F-32/F-27: `learning_event`, über Thema/Fachgebiet hinweg verjoint — von `stats` (F-31)
+ * und `suggestions` (F-27) gemeinsam genutzt, statt (wie ursprünglich) je Prozedur eine
+ * eigene, identische Kopie dieser Abfrage samt Aggregations-Map zu pflegen (Code-Review-Fund,
+ * nachgezogen). `occurredAt` wird nur von `stats` für den Tages-Verlauf gebraucht, aber
+ * mitzuladen kostet nichts und hält die Funktion für beide Aufrufer nutzbar.
+ */
+async function fetchLearningEventsByThema(db: Database, userId: string, kursId: string) {
+  return db
+    .select({
+      occurredAt: learningEvent.occurredAt,
+      isCorrect: learningEvent.isCorrect,
+      themaId: thema.id,
+      themaTitle: thema.title,
+      fachgebietTitle: fachgebiet.title,
+    })
+    .from(learningEvent)
+    .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
+    .innerJoin(thema, eq(thema.id, contentItem.themaId))
+    .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+    .where(and(eq(learningEvent.userId, userId), eq(fachgebiet.kursId, kursId)));
+}
+
+/** Gruppiert das Ergebnis von `fetchLearningEventsByThema` nach Thema — ebenfalls gemeinsam
+ * genutzt von `stats` und `suggestions` (siehe dort). */
+function aggregateEventsByThema(events: Awaited<ReturnType<typeof fetchLearningEventsByThema>>) {
+  const byThema = new Map<string, { title: string; fachgebietTitle: string; total: number; correct: number }>();
+  for (const event of events) {
+    const entry = byThema.get(event.themaId) ?? {
+      title: event.themaTitle,
+      fachgebietTitle: event.fachgebietTitle,
+      total: 0,
+      correct: 0,
+    };
+    entry.total += 1;
+    if (event.isCorrect) entry.correct += 1;
+    byThema.set(event.themaId, entry);
+  }
+  return byThema;
+}
+
 export const progressRouter = router({
   /**
    * F-30: Fortschrittsanzeige je Fachgebiet und Thema im ausgewählten Kurs (F-09:
@@ -290,19 +338,20 @@ export const progressRouter = router({
    * Architekturplanung Abschnitt 13.
    */
   stats: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
-    const events = await ctx.db
-      .select({
-        occurredAt: learningEvent.occurredAt,
-        isCorrect: learningEvent.isCorrect,
-        themaId: thema.id,
-        themaTitle: thema.title,
-        fachgebietTitle: fachgebiet.title,
-      })
-      .from(learningEvent)
-      .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
-      .innerJoin(thema, eq(thema.id, contentItem.themaId))
-      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
-      .where(and(eq(learningEvent.userId, ctx.currentUser.id), eq(fachgebiet.kursId, input.kursId)));
+    // Code-Review-Fund, nachgezogen: `events` und `sessions` sind voneinander unabhängig
+    // (verschiedene Tabellen, keine Datenabhängigkeit) und liefen vorher nacheinander statt
+    // parallel — Promise.all spart einen kompletten DB-Roundtrip Wartezeit.
+    const [events, sessions] = await Promise.all([
+      fetchLearningEventsByThema(ctx.db, ctx.currentUser.id, input.kursId),
+      ctx.db
+        .select({
+          startedAt: learningSession.startedAt,
+          lastPingAt: learningSession.lastPingAt,
+          endedAt: learningSession.endedAt,
+        })
+        .from(learningSession)
+        .where(and(eq(learningSession.userId, ctx.currentUser.id), eq(learningSession.kursId, input.kursId))),
+    ]);
 
     const totalAnswered = events.length;
     const correctCount = events.filter((event) => event.isCorrect).length;
@@ -325,19 +374,7 @@ export const progressRouter = router({
         percent: Math.round((correct / total) * 100),
       }));
 
-    const byThema = new Map<string, { title: string; fachgebietTitle: string; total: number; correct: number }>();
-    for (const event of events) {
-      const entry = byThema.get(event.themaId) ?? {
-        title: event.themaTitle,
-        fachgebietTitle: event.fachgebietTitle,
-        total: 0,
-        correct: 0,
-      };
-      entry.total += 1;
-      if (event.isCorrect) entry.correct += 1;
-      byThema.set(event.themaId, entry);
-    }
-    const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
+    const byThema = aggregateEventsByThema(events);
     const weakThemen = [...byThema.entries()]
       .map(([id, entry]) => ({
         id,
@@ -350,15 +387,6 @@ export const progressRouter = router({
       .filter((entry) => entry.total >= MIN_ATTEMPTS_FOR_WEAK_SPOT)
       .sort((a, b) => a.percent - b.percent)
       .slice(0, 5);
-
-    const sessions = await ctx.db
-      .select({
-        startedAt: learningSession.startedAt,
-        lastPingAt: learningSession.lastPingAt,
-        endedAt: learningSession.endedAt,
-      })
-      .from(learningSession)
-      .where(and(eq(learningSession.userId, ctx.currentUser.id), eq(learningSession.kursId, input.kursId)));
 
     const learningMs = sessions.reduce((sum, session) => {
       const end = session.endedAt ?? session.lastPingAt;
@@ -386,33 +414,36 @@ export const progressRouter = router({
    */
   suggestions: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const now = new Date();
-    const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
 
-    const overdueRows = await ctx.db
-      .select({
-        themaId: thema.id,
-        themaTitle: thema.title,
-        fachgebietTitle: fachgebiet.title,
-        dueAt: userProgress.dueAt,
-      })
-      .from(contentItem)
-      .innerJoin(thema, eq(thema.id, contentItem.themaId))
-      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
-      .innerJoin(
-        userCourse,
-        and(
-          eq(userCourse.kursId, fachgebiet.kursId),
-          eq(userCourse.userId, ctx.currentUser.id),
-          eq(userCourse.kursId, input.kursId),
-        ),
-      )
-      .innerJoin(
-        userProgress,
-        and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
-      )
-      .where(
-        and(eq(contentItem.type, "karteikarte"), eq(contentItem.isActive, true), lte(userProgress.dueAt, now)),
-      );
+    // Code-Review-Fund, nachgezogen: `overdueRows` (fällige Karten) und `eventRows`
+    // (Trefferquote) sind unabhängige Abfragen über verschiedene Tabellen und liefen vorher
+    // nacheinander statt parallel.
+    const [overdueRows, eventRows] = await Promise.all([
+      ctx.db
+        .select({
+          themaId: thema.id,
+          themaTitle: thema.title,
+          fachgebietTitle: fachgebiet.title,
+          dueAt: userProgress.dueAt,
+        })
+        .from(contentItem)
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .innerJoin(
+          userCourse,
+          and(
+            eq(userCourse.kursId, fachgebiet.kursId),
+            eq(userCourse.userId, ctx.currentUser.id),
+            eq(userCourse.kursId, input.kursId),
+          ),
+        )
+        .innerJoin(
+          userProgress,
+          and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
+        )
+        .where(and(eq(contentItem.type, "karteikarte"), eq(contentItem.isActive, true), lte(userProgress.dueAt, now))),
+      fetchLearningEventsByThema(ctx.db, ctx.currentUser.id, input.kursId),
+    ]);
 
     const byThemaOverdue = new Map<
       string,
@@ -431,32 +462,7 @@ export const progressRouter = router({
       byThemaOverdue.set(row.themaId, entry);
     }
 
-    // Dieselbe Aggregation wie `stats` oben, nur zusätzlich nach Thema statt insgesamt.
-    const eventRows = await ctx.db
-      .select({
-        themaId: thema.id,
-        themaTitle: thema.title,
-        fachgebietTitle: fachgebiet.title,
-        isCorrect: learningEvent.isCorrect,
-      })
-      .from(learningEvent)
-      .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
-      .innerJoin(thema, eq(thema.id, contentItem.themaId))
-      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
-      .where(and(eq(learningEvent.userId, ctx.currentUser.id), eq(fachgebiet.kursId, input.kursId)));
-
-    const byThemaWeak = new Map<string, { title: string; fachgebietTitle: string; total: number; correct: number }>();
-    for (const row of eventRows) {
-      const entry = byThemaWeak.get(row.themaId) ?? {
-        title: row.themaTitle,
-        fachgebietTitle: row.fachgebietTitle,
-        total: 0,
-        correct: 0,
-      };
-      entry.total += 1;
-      if (row.isCorrect) entry.correct += 1;
-      byThemaWeak.set(row.themaId, entry);
-    }
+    const byThemaWeak = aggregateEventsByThema(eventRows);
 
     const themaIds = new Set([...byThemaOverdue.keys(), ...byThemaWeak.keys()]);
     const candidates = [...themaIds]

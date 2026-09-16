@@ -145,11 +145,47 @@ export function serializeKurzantwort(
   ].join("\n");
 }
 
+/**
+ * F-23 (Code-Review-Fund, nachgezogen): `parseFallaufgabe` erwartet die "Themenbezug"-Zeile
+ * nicht — sie wird beim Import verworfen (siehe content-parser.ts) und taucht daher im Export
+ * konsequenterweise auch nicht wieder auf, ebenso wie `quelle`/`rechtsstand` oben.
+ */
+export function serializeFallaufgabe(
+  id: string,
+  prompt: string,
+  parts: { prompt: string; points: number; bloom?: string | null }[],
+  explanation: string,
+): string {
+  const partLines = parts.map((part, index) => {
+    const bloomSuffix = part.bloom ? `, bloom: ${part.bloom}` : "";
+    return `**Teilaufgabe ${index + 1} (${part.points} Punkte${bloomSuffix}):** ${part.prompt}`;
+  });
+  return [
+    `#### ${id} · Fallaufgabe`,
+    `**Ausgangssituation:** ${prompt}`,
+    "",
+    partLines.join("\n\n"),
+    "",
+    `**Musterlösungshinweise:** ${explanation}`,
+  ].join("\n");
+}
+
+/**
+ * F-25 (Code-Review-Fund, nachgezogen): eine `### <Thema>`-Unterüberschrift mit den zugehörigen
+ * Fragen als Aufzählung — anders als die anderen Content-Typen hat `fachgespraech_frage` keinen
+ * eigenen `#### `-Block je Item, siehe parseFachgespraechFragen in content-parser.ts.
+ */
+export function serializeFachgespraechThema(themaTitel: string, fragen: string[]): string {
+  return [`### ${themaTitel}`, "", ...fragen.map((frage) => `- ${frage}`)].join("\n");
+}
+
 export function serializeThemaFile(
   frontmatter: FrontmatterFields,
   theorieBody: string | null,
   karteikartenBlocks: string[],
   quizBlocks: string[],
+  fallaufgabeBlocks: string[] = [],
+  fachgespraechBlocks: string[] = [],
 ): string {
   const parts = [
     serializeFrontmatter(frontmatter),
@@ -165,6 +201,12 @@ export function serializeThemaFile(
   }
   if (quizBlocks.length > 0) {
     parts.push("## Quiz", "", quizBlocks.join("\n\n"), "");
+  }
+  if (fallaufgabeBlocks.length > 0) {
+    parts.push("## Fallaufgaben", "", fallaufgabeBlocks.join("\n\n"), "");
+  }
+  if (fachgespraechBlocks.length > 0) {
+    parts.push("## Fachgesprächsfragen", "", fachgespraechBlocks.join("\n\n"), "");
   }
   return parts.join("\n");
 }
