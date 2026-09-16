@@ -8,7 +8,7 @@ import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
-import { syncOfflineQueue } from "./offlineSync";
+import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { Quiz } from "./Quiz";
@@ -16,7 +16,6 @@ import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
-import { useOnlineStatus } from "./useOnlineStatus";
 import { UserMenu } from "./UserMenu";
 
 type LearningMode = "theorie" | "flashcards" | "quiz" | "exam" | "progress";
@@ -122,27 +121,6 @@ export function App() {
     setActiveThema(null);
   }, [activeKursId]);
 
-  // F-42 Baustein 5: sobald wieder online (Verbindungswechsel oder App-Start bereits online),
-  // lokal gepufferte Offline-Ereignisse hochsynchronisieren. Bei erfolgreichem Sync betroffene
-  // Abfragen invalidieren, damit Fortschritt/Fälligkeiten die nachgespielten Ereignisse
-  // widerspiegeln — nur bei count > 0, um bei jedem trivialen Online-Flackern unnötige Refetches
-  // zu vermeiden.
-  const online = useOnlineStatus();
-  useEffect(() => {
-    if (!online || !me.data) return;
-    syncOfflineQueue(utils)
-      .then((count) => {
-        if (count > 0) {
-          utils.progress.invalidate();
-          utils.content.invalidate();
-        }
-      })
-      .catch(() => {
-        // Bewusst stillschweigend: der nächste Online-Wechsel versucht den Sync erneut, die
-        // Warteschlange bleibt bis dahin unverändert lokal erhalten.
-      });
-  }, [online, me.data, utils]);
-
   const suggestions = trpc.progress.suggestions.useQuery(
     { kursId: activeKursId ?? "" },
     { enabled: !!activeKursId },
@@ -155,6 +133,7 @@ export function App() {
         <Header
           right={
             <div className="header-actions">
+              <OfflineStatus />
               {view === "app" && <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />}
               <UserMenu
                 email={me.data.email}

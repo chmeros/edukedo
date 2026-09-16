@@ -682,6 +682,31 @@ details[open] > summary.disclosure::before {
   align-self: auto;
 }
 
+/* F-42 Baustein 6: Online/Offline-Sync-Status im Header, siehe OfflineStatus.tsx. */
+.offline-status {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.offline-status--offline,
+.offline-status--syncing {
+  background: var(--sun-tint);
+  color: var(--ink-soft);
+}
+
+.offline-status--error {
+  background: var(--danger-tint);
+  color: var(--danger-deep);
+}
+
+.offline-status--synced {
+  background: var(--sprout-tint);
+  color: var(--sprout-deep);
+}
+
 /* ---------- Tab nav (Theorie/Karteikarten/Quiz/Prüfung/Fortschritt) ---------- */
 .tab-nav {
   display: grid;
