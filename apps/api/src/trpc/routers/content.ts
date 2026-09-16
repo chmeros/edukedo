@@ -1,4 +1,9 @@
-import { activeKursInputSchema, theoriePayloadSchema, themaFilterableKursInputSchema } from "@edukedo/shared";
+import {
+  activeKursInputSchema,
+  fachgespraechFragePayloadSchema,
+  theoriePayloadSchema,
+  themaFilterableKursInputSchema,
+} from "@edukedo/shared";
 import { and, asc, eq, isNull, lte, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
@@ -86,6 +91,37 @@ export const contentRouter = router({
       fachgebietTitle: row.fachgebietTitle,
       themaTitle: row.themaTitle,
       bodyMarkdown: theoriePayloadSchema.parse(row.payload).body_markdown,
+    }));
+  }),
+
+  /**
+   * F-25 Fachgesprächs-Trainer: zufällige Auswahl von Übungsfragen über den ganzen Kurs
+   * hinweg (mehrere Handlungsbereiche, analog zu F-23) — reiner Fragen-Pool ohne
+   * Scoring/Sitzung, daher keine eigene Mutation zum Beantworten nötig. Nur beim Fachwirt-
+   * Piloten relevant (siehe content/README.md); andere Kurse liefern einfach eine leere Liste.
+   */
+  fachgespraechFragen: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const rows = await ctx.db
+      .select({ id: contentItem.id, prompt: contentItem.prompt, payload: contentItem.payload })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .where(and(eq(contentItem.type, "fachgespraech_frage"), eq(contentItem.isActive, true)))
+      .orderBy(sql`random()`)
+      .limit(20);
+
+    return rows.map((row) => ({
+      id: row.id,
+      frage: row.prompt,
+      themaTitel: fachgespraechFragePayloadSchema.parse(row.payload).themaTitel,
     }));
   }),
 });

@@ -5,6 +5,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import { db, pool } from "./client";
 import {
   extractSection,
+  parseFachgespraechFragen,
   parseFallaufgabe,
   parseKarteikarten,
   parseQuizBlock,
@@ -30,13 +31,11 @@ import {
  * Key:Value-Zeilenparser für die bekannten Frontmatter-Felder ist robuster als ein YAML-Parser,
  * der daran scheitern würde. Siehe Architekturplanung Abschnitt 13.
  *
- * Bewusst weiterhin nicht importiert: fachgespraech.md (F-25) — das Feature existiert im Code
- * noch nicht, ein Import ohne jede Verwendung wäre nur ungenutzter DB-Ballast. fallaufgaben.md/
- * uebungsaufgaben.md (F-23) werden seit dem 16.09.2026 importiert (siehe unten und
- * Architekturplanung Abschnitt 13).
+ * fallaufgaben.md/uebungsaufgaben.md (F-23) und fachgespraech.md (F-25) werden seit dem
+ * 16.09.2026 importiert (siehe unten und Architekturplanung Abschnitt 13) — beide lagen vorher
+ * bewusst ungenutzt, solange die zugehörigen Features im Code noch nicht existierten.
  */
 const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
-const SKIP_FILES = new Set(["fachgespraech.md"]);
 
 interface KursMeta {
   title: string;
@@ -195,6 +194,9 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   // F-23: "Fallaufgaben" beim Fachwirt-Piloten, "Übungsaufgaben" bei Mathematik/Schulfach —
   // dieselbe Struktur, derselbe content_item.type, siehe content/README.md.
   const fallaufgabenBody = extractSection(body, "Fallaufgaben") ?? extractSection(body, "Übungsaufgaben");
+  // F-25: nur beim Fachwirt-Piloten relevant (siehe content/README.md), daher bei anderen
+  // Kurstypen (Mathematik-9, Demo) einfach nicht vorhanden.
+  const fachgespraechBody = extractSection(body, "Fachgesprächsfragen");
 
   let created = 0;
 
@@ -393,6 +395,30 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
     }
   }
 
+  if (fachgespraechBody) {
+    for (const { themaTitel, frage } of parseFachgespraechFragen(fachgespraechBody)) {
+      const payload = { themaTitel };
+      const [item] = await db
+        .insert(contentItem)
+        .values({
+          themaId: themaRow.id,
+          type: "fachgespraech_frage",
+          prompt: frage,
+          payload,
+        })
+        .returning();
+      if (!item) throw new Error("Fachgesprächsfrage konnte nicht angelegt werden.");
+      await db.insert(contentItemVersion).values({
+        contentItemId: item.id,
+        versionNumber: 1,
+        prompt: item.prompt,
+        explanation: null,
+        payload,
+      });
+      created += 1;
+    }
+  }
+
   console.log(`${path.basename(filePath)}: ${created} Content-Items importiert (Thema "${themaTitle}").`);
   return created;
 }
@@ -421,7 +447,7 @@ export async function importAllContent(): Promise<ImportSummary> {
 
     for (const [fachgebietIndex, fachgebietDir] of sortedFachgebietDirs.entries()) {
       const fachgebietPath = path.join(kursPath, fachgebietDir.name);
-      const files = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md") && !SKIP_FILES.has(file)).sort();
+      const files = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md")).sort();
 
       for (const [index, file] of files.entries()) {
         itemsImported += await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   extractBloom,
   extractSection,
+  parseFachgespraechFragen,
   parseFallaufgabe,
   parseKarteikarten,
   parseQuizBlock,
@@ -259,5 +260,42 @@ describe("parseFallaufgabe (F-23)", () => {
 
   it("filtert den einleitenden Absatz vor dem ersten Aufgaben-Block heraus", () => {
     expect(blocks).toHaveLength(2);
+  });
+});
+
+describe("parseFachgespraechFragen (F-25)", () => {
+  const FACHGESPRAECH_SECTION = `Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25).
+
+### 3.1 Personalplanung, -beschaffung, -betreuung und -entwicklung
+
+- Wie würden Sie vorgehen, um den Personalbedarf zu ermitteln?
+- Welche Vor- und Nachteile sehen Sie bei interner vs. externer Personalbeschaffung?
+
+### 3.2 Ausbildung planen, organisieren, durchführen und kontrollieren
+
+- Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung?
+`;
+
+  it("gruppiert Fragen nach der jeweiligen Thema-Überschrift", () => {
+    const fragen = parseFachgespraechFragen(FACHGESPRAECH_SECTION);
+    expect(fragen).toEqual([
+      {
+        themaTitel: "3.1 Personalplanung, -beschaffung, -betreuung und -entwicklung",
+        frage: "Wie würden Sie vorgehen, um den Personalbedarf zu ermitteln?",
+      },
+      {
+        themaTitel: "3.1 Personalplanung, -beschaffung, -betreuung und -entwicklung",
+        frage: "Welche Vor- und Nachteile sehen Sie bei interner vs. externer Personalbeschaffung?",
+      },
+      {
+        themaTitel: "3.2 Ausbildung planen, organisieren, durchführen und kontrollieren",
+        frage: "Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung?",
+      },
+    ]);
+  });
+
+  it("ignoriert den einleitenden Absatz vor der ersten Thema-Überschrift", () => {
+    const fragen = parseFachgespraechFragen("Nur ein Einleitungssatz ohne jede Überschrift.");
+    expect(fragen).toEqual([]);
   });
 });

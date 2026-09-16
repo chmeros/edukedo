@@ -214,6 +214,29 @@ export interface ParsedFallaufgabe {
  * "fallaufgabe"` (siehe content/README.md) — nur die Feldbezeichnungen für die Ausgangslage
  * unterscheiden sich ("Ausgangssituation" vs. "Aufgabenstellung"), daher der Fallback.
  */
+export interface ParsedFachgespraechFrage {
+  themaTitel: string;
+  frage: string;
+}
+
+/**
+ * F-25: `fachgespraech.md` ist flacher als das Fallaufgaben-Format — keine `#### `-Blöcke,
+ * sondern `### <Thema>`-Überschriften mit je einer einfachen Aufzählung von Fragen darunter
+ * (siehe content/README.md). `themaTitel` dient nur der Anzeige von Kontext im Trainer, es
+ * wird bewusst keine eigene `thema`-Zeile je Gliederungspunkt angelegt (siehe
+ * Architekturplanung Abschnitt 13) — alle Fragen einer Datei landen unter dem einen,
+ * synthetischen Thema aus dem Frontmatter (analog zu Fallaufgaben).
+ */
+export function parseFachgespraechFragen(sectionBody: string): ParsedFachgespraechFrage[] {
+  const chunks = sectionBody.split(/\n(?=### )/).filter((chunk) => chunk.startsWith("### "));
+
+  return chunks.flatMap((chunk) => {
+    const themaTitel = /^### (.+)$/m.exec(chunk)?.[1]!.trim() ?? "";
+    const fragen = [...chunk.matchAll(/^- (.+)$/gm)].map((match) => match[1]!.trim());
+    return fragen.map((frage) => ({ themaTitel, frage }));
+  });
+}
+
 export function parseFallaufgabe(block: string): ParsedFallaufgabe {
   const prompt = extractField(block, "Ausgangssituation") ?? extractField(block, "Aufgabenstellung") ?? "";
   const explanation = extractFieldToEnd(block, "Musterlösungshinweise") ?? extractFieldToEnd(block, "Lösungsweg") ?? "";

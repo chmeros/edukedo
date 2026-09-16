@@ -11,6 +11,7 @@ export const contentItemTypeSchema = z.enum([
   "luecken",
   "kurzantwort",
   "fallaufgabe",
+  "fachgespraech_frage",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -69,6 +70,17 @@ export const fallaufgabePayloadSchema = z.object({
   parts: z.array(fallaufgabePartSchema).min(1),
 });
 
+/**
+ * F-25 Fachgesprächs-Trainer: reiner Fragen-Pool ohne automatisch prüfbare Antwort und ohne
+ * Punkte (anders als F-23-Fallaufgaben) — freies mündliches Beantworten. `themaTitel` ist der
+ * ursprüngliche Gliederungspunkt aus `fachgespraech.md` (z. B. "3.1 Personalplanung, ..."),
+ * rein zur Anzeige von Kontext neben der Frage, keine eigene `thema`-Zeile (siehe
+ * Architekturplanung Abschnitt 13).
+ */
+export const fachgespraechFragePayloadSchema = z.object({
+  themaTitel: z.string(),
+});
+
 export const emptyPayloadSchema = z.object({}).strict();
 
 /**
@@ -83,6 +95,7 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("luecken"), payload: lueckenPayloadSchema }),
   z.object({ type: z.literal("kurzantwort"), payload: kurzantwortPayloadSchema }),
   z.object({ type: z.literal("fallaufgabe"), payload: fallaufgabePayloadSchema }),
+  z.object({ type: z.literal("fachgespraech_frage"), payload: fachgespraechFragePayloadSchema }),
 ]);
 export type ContentItemPayload = z.infer<typeof contentItemPayloadSchema>;
 
