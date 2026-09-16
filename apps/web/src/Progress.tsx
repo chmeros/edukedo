@@ -1,5 +1,6 @@
 import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
+import { Zielplanung } from "./Zielplanung";
 
 function formatLernzeit(minutes: number): string {
   if (minutes < 1) {
@@ -37,6 +38,8 @@ export function Progress({ kursId }: { kursId: string }) {
 
   return (
     <>
+      <Zielplanung kursId={kursId} />
+
       {fachgebiete.map((fachgebiet) => (
         <div key={fachgebiet.id} className="stack">
           <div className="progress-block is-total">

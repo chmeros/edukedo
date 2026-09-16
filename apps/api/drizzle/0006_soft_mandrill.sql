@@ -1,0 +1,1 @@
+ALTER TABLE "user_course" ADD COLUMN "weekly_goal_items" integer;

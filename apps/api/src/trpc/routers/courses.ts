@@ -1,9 +1,17 @@
+import { setCourseTargetInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
 import { kurs, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+
+/** Drizzles `date`-Spalten sind im String-Modus (siehe schema.ts) — Konvertierung analog zu
+ * `birthDate` in auth.ts, damit "YYYY-MM-DD" statt einer vollen ISO-Timestamp-Zeichenkette
+ * gespeichert wird. */
+function toDateOnlyString(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
 
 export const coursesRouter = router({
   /**
@@ -22,7 +30,11 @@ export const coursesRouter = router({
         title: kurs.title,
         type: kurs.type,
         metadata: kurs.metadata,
+        targetMode: kurs.targetMode,
         joinedAt: userCourse.joinedAt,
+        targetDate: userCourse.targetDate,
+        planStartDate: userCourse.planStartDate,
+        weeklyGoalItems: userCourse.weeklyGoalItems,
       })
       .from(kurs)
       .leftJoin(userCourse, and(eq(userCourse.kursId, kurs.id), eq(userCourse.userId, ctx.currentUser.id)))
@@ -43,6 +55,12 @@ export const coursesRouter = router({
         title: row.title,
         type: row.type,
         joined: row.joinedAt !== null,
+        // F-35: nur für bereits belegte Kurse aussagekräftig — die Vorbelegungs-Felder bleiben
+        // bei row.joinedAt === null (Kurs zum Beitreten, noch nicht eigener) einfach null.
+        targetMode: row.targetMode,
+        targetDate: row.targetDate,
+        planStartDate: row.planStartDate,
+        weeklyGoalItems: row.weeklyGoalItems,
       }));
   }),
 
@@ -68,6 +86,50 @@ export const coursesRouter = router({
       .insert(userCourse)
       .values({ userId: ctx.currentUser.id, kursId: input.kursId })
       .onConflictDoNothing();
+
+    return { success: true };
+  }),
+
+  /**
+   * F-35/F-04: Setzt die persönliche Zielplanung (Zieltermin/Plan-Start bei "einzeltermin",
+   * Wochenziel bei "wochenziel", siehe kurs.targetMode) für einen bereits belegten Kurs.
+   * `undefined` lässt ein Feld unverändert, `null` löscht es explizit wieder (z. B. um vom
+   * Countdown zurück in den ungeplanten Zustand zu wechseln) — daher `undefined` als
+   * Sentinel-Wert je Feld statt eines pauschalen "alles überschreiben".
+   */
+  setTarget: protectedProcedure.input(setCourseTargetInputSchema).mutation(async ({ ctx, input }) => {
+    const [enrollment] = await ctx.db
+      .select({ id: userCourse.id, targetDate: userCourse.targetDate, planStartDate: userCourse.planStartDate })
+      .from(userCourse)
+      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+      .limit(1);
+    if (!enrollment) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht belegt." });
+    }
+
+    const updates: Partial<typeof userCourse.$inferInsert> = {};
+    if (input.targetDate !== undefined) {
+      updates.targetDate = input.targetDate ? toDateOnlyString(input.targetDate) : null;
+    }
+    if (input.planStartDate !== undefined) {
+      updates.planStartDate = input.planStartDate ? toDateOnlyString(input.planStartDate) : null;
+    }
+    if (input.weeklyGoalItems !== undefined) {
+      updates.weeklyGoalItems = input.weeklyGoalItems;
+    }
+
+    // Nach Anwendung der Änderungen gültige Kombination sicherstellen — geprüft anhand der
+    // resultierenden Werte (nicht nur der übergebenen), da targetDate/planStartDate auch in
+    // getrennten Aufrufen gesetzt werden können.
+    const finalTargetDate = "targetDate" in updates ? updates.targetDate : enrollment.targetDate;
+    const finalPlanStartDate = "planStartDate" in updates ? updates.planStartDate : enrollment.planStartDate;
+    if (finalTargetDate && finalPlanStartDate && finalTargetDate <= finalPlanStartDate) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Der Zieltermin muss nach dem Plan-Startdatum liegen." });
+    }
+
+    if (Object.keys(updates).length > 0) {
+      await ctx.db.update(userCourse).set(updates).where(eq(userCourse.id, enrollment.id));
+    }
 
     return { success: true };
   }),

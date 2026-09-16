@@ -120,6 +120,11 @@ export const userCourse = pgTable(
       .references(() => kurs.id, { onDelete: "cascade" }),
     targetDate: date("target_date"),
     planStartDate: date("plan_start_date"),
+    // F-35 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten): nur im Zielmodus
+    // "wochenziel" genutzt (siehe kurs.targetMode) — die persönliche, wiederkehrende
+    // Wochenlast, gegen die progress.pacing die zuletzt beantworteten Lerneinheiten misst.
+    // Für "einzeltermin"-Kurse bleibt die Spalte null, siehe Architekturplanung Abschnitt 13.
+    weeklyGoalItems: integer("weekly_goal_items"),
     joinedAt: timestamp("joined_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [uniqueIndex("user_course_user_id_kurs_id_key").on(table.userId, table.kursId)],

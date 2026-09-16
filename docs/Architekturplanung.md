@@ -302,12 +302,13 @@ content_item_tag (
 
 -- n:m Nutzerkonto <-> Kurs (F-09), von Anfang an eigene Verknüpfungstabelle
 user_course (
-  id               uuid primary key default gen_random_uuid(),
-  user_id          uuid not null references "user"(id) on delete cascade,
-  kurs_id          uuid not null references kurs(id) on delete cascade,
-  target_date      date,
-  plan_start_date  date,
-  joined_at        timestamptz not null default now(),
+  id                 uuid primary key default gen_random_uuid(),
+  user_id            uuid not null references "user"(id) on delete cascade,
+  kurs_id            uuid not null references kurs(id) on delete cascade,
+  target_date        date,
+  plan_start_date    date,
+  weekly_goal_items  int,       -- nur bei target_mode 'wochenziel' genutzt (F-35)
+  joined_at          timestamptz not null default now(),
   unique (user_id, kurs_id)   -- verhindert Doppel-Belegung desselben Kurses
 );
 ```
@@ -565,6 +566,20 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 - **KI-Unterstützung (F-70–F-72):** Erfordert ein eigenes Warteschlangen-Subsystem für die asynchrone Bewertung (F-70) — kann dieselbe BullMQ/Redis-Infrastruktur nutzen, die bereits für die Kern↔Payment-Kommunikation aufgebaut wird — sowie eine Fallback-Logik auf die Managed API bei Überlastung des selbst gehosteten Modells (F-72). Konkrete Infrastruktur für das selbst gehostete Modell wird bewusst erst kurz vor Phase 4 festgelegt (entschieden am 12.09.2026, siehe Abschnitt 13), da sich die Hosting-Landschaft für KI-Modelle schnell ändert.
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
+
+### Entschieden am 16.09.2026 (F-35 Restzeit-/Lernpensum-Anzeige)
+
+- **"Lerneinheit" auf Thema-Ebene operationalisiert:** Der Anforderungskatalog nennt die Content-Hierarchie eigentlich Kurs → Fachgebiet → Thema → Lerneinheit (Abschnitt 4), spricht bei F-35 aber im selben Satz sowohl von "verbleibenden Lerneinheiten" in der Formel als auch von "wie viele Themen pro Woche" in der resultierenden Empfehlung. Da Fortschritt/Beherrschung in diesem Projekt ohnehin nur auf Thema- und Fachgebiets-Ebene aggregiert wird (siehe `progress.overview`, F-30) und dort bereits eine klare "abgeschlossen"-Definition existiert (alle Karteikarten-/Quiz-Items eines Themas "beherrscht", state `review`), zählt ein Thema hier als eine "Lerneinheit". Ein Thema gilt als abgeschlossen, sobald es vollständig beherrscht ist.
+- **Zwei Zielmodi teilen sich einen Endpunkt (`progress.pacing`), unterscheiden sich aber vollständig in der Berechnung:** "einzeltermin" (Countdown zu `user_course.target_date`) und "wochenziel" (wiederkehrendes Pensum ohne Stichtag) liefern je nach `kurs.targetMode` unterschiedlich geformte Antworten (discriminated union über `mode`) statt eines gemeinsamen, mit optionalen Feldern aufgeblähten Schemas — beide Modi haben inhaltlich nichts miteinander zu tun, ein gemeinsames Schema hätte nur beim jeweils anderen Modus ungenutzte Felder erzeugt.
+- **Formel für "einzeltermin" bewusst in eine reine Funktion ausgelagert** (`apps/api/src/pacing.ts`, `calculateEinzelterminPacing`), analog zu `fsrs/scheduler.ts` und `content-parser.ts` — unit-testbar ohne laufende Datenbank (`pacing.test.ts`), da die Formel mehrere nicht-triviale Fallunterscheidungen hat (fertig, Termin verstrichen, im Plan, im Rückstand).
+- **"Rückstand" heißt: das aktuell nötige Wochenpensum (verbleibende Themen ÷ verbleibende Wochen) ist höher als das ursprünglich ab `plan_start_date` geplante (Gesamt-Themen ÷ Gesamt-Wochen).** Eine naive Neuberechnung allein (ohne Vergleich mit dem Ursprungsplan) hätte bei plangemäßem Fortschritt denselben Wert ergeben wie zu Beginn — der Vergleich mit dem Ursprungspensum ist notwendig, um einen echten Rückstand von normalem, plangemäßem Fortschreiten der Zeit zu unterscheiden. `plan_start_date` fällt auf `user_course.joined_at` zurück, wenn nicht explizit gesetzt.
+- **Bei bereits abgeschlossenem Zieltermin (`isOverdue`) wird keine Wochenempfehlung mehr angezeigt** (`recommendedPerWeek: null`) statt einer rechnerisch aufgeblähten Zahl (die Formel würde durch die untere Wochen-Klammerung von 1/7 einen unrealistisch hohen Wert liefern) — eine eigene, klar formulierte Warnung ("Zieltermin bereits erreicht, aber noch X Themen offen") ersetzt die Zahl in diesem Zustand.
+- **Zielmodus "wochenziel" zählt die reine Übungsmenge (`learning_event`-Zeilen der letzten rollierenden 7 Tage, richtig wie falsch beantwortet) statt abgeschlossener Themen:** Ohne festen Termin gibt es keinen sinnvollen Bezugspunkt, WANN ein Thema "diese Woche" abgeschlossen wurde, ohne einen bislang nicht vorhandenen Thema-Abschluss-Zeitstempel einzuführen — ein rollierendes 7-Tage-Fenster über die ohnehin vorhandene `learning_event`-Tabelle (F-31/F-32) passt außerdem besser zum "kontinuierlichen Pensum ohne festen Stichtag"-Charakter dieses Modus als eine Kalenderwoche (Montag–Sonntag).
+- **Neue Spalte `user_course.weekly_goal_items`** (nullable Integer) ergänzt, nur im Zielmodus "wochenziel" genutzt — Migration `0006_soft_mandrill.sql`.
+- **Die im Anforderungskatalog vorgesehene "X von Y Handlungsbereichen verfügbar"-Anzeige bei unvollständigem Rahmenlehrplan wurde bewusst NICHT gebaut:** Beide aktuellen Kurse (Fachwirt-Pilot, Mathematik-9) sind bereits vollständig befüllt (siehe Iteration 4 des Entwicklungsplans), und es gibt aktuell keine gespeicherte "geplante Gesamtzahl" jenseits des tatsächlich importierten Contents, gegen die man den aktuellen Stand abgleichen könnte. Nachziehen, sobald ein Kurs erneut mit unvollständigem Content startet (z. B. über ein neues `kurs.metadata`-Feld mit der geplanten Gesamtzahl an Fachgebieten/Themen).
+- **`courses.setTarget` nutzt `undefined` als "Feld unverändert lassen" und `null` als "Feld explizit löschen"** statt eines pauschalen Überschreibens aller drei Zielfelder (`targetDate`/`planStartDate`/`weeklyGoalItems`) bei jedem Aufruf — die Wochenziel-Eingabe im Frontend soll z. B. nicht versehentlich einen bereits gesetzten Zieltermin löschen, wenn beide Formulare unabhängig voneinander bedient werden.
+- **Validierung `targetDate > planStartDate`** direkt in `courses.setTarget` anhand der resultierenden (nicht nur der übergebenen) Werte, da beide Felder auch in getrennten Aufrufen gesetzt werden können.
+- Live gegen echte Postgres-Instanz verifiziert: Zieltermin setzen (Rückstands-Warnung bei Plan-Start in der Vergangenheit ohne Fortschritt, korrekt berechnete Wochenempfehlung), Zieltermin in der Vergangenheit (Overdue-Zustand statt Wochenempfehlung), Wochenziel setzen und Fortschrittsbalken nach einer Karteikarten-Antwort korrekt auf 1/10 steigend (Mathematik-9 testweise auf `target_mode = 'wochenziel'` und `is_published = true` gesetzt, danach beides zurückgesetzt).
 
 ### Entschieden am 16.09.2026 (Vollumfänglicher Codereview nach dem 4-Augen-Prinzip, 10 Findings behoben)
 

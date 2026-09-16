@@ -20,3 +20,19 @@ export const themaFilterableKursInputSchema = z.object({
   themaId: z.string().uuid().optional(),
 });
 export type ThemaFilterableKursInput = z.infer<typeof themaFilterableKursInputSchema>;
+
+/**
+ * F-35: Setzt die persönliche Zielplanung für einen belegten Kurs. Welche Felder tatsächlich
+ * greifen, hängt vom Zielmodus des Kurses ab (kurs.targetMode, siehe Architekturplanung
+ * Abschnitt 13) — `targetDate`/`planStartDate` nur bei "einzeltermin", `weeklyGoalItems` nur
+ * bei "wochenziel". Alle drei bleiben hier bewusst optional/nullable statt modusabhängig
+ * verpflichtend: Das Frontend zeigt ohnehin nur die zum Kursmodus passenden Felder an, eine
+ * serverseitige Modus-Prüfung hätte nur denselben Fall nochmal abgedeckt.
+ */
+export const setCourseTargetInputSchema = z.object({
+  kursId: z.string().uuid(),
+  targetDate: z.coerce.date().nullable().optional(),
+  planStartDate: z.coerce.date().nullable().optional(),
+  weeklyGoalItems: z.number().int().positive().nullable().optional(),
+});
+export type SetCourseTargetInput = z.infer<typeof setCourseTargetInputSchema>;

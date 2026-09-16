@@ -1,11 +1,13 @@
 import { activeKursInputSchema, sessionIdInputSchema, submitReviewInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq, inArray, isNull, lte } from "drizzle-orm";
+import { and, eq, gte, inArray, isNull, lte } from "drizzle-orm";
 import { initialProgressState, scheduleReview } from "../../fsrs/scheduler";
+import { calculateEinzelterminPacing } from "../../pacing";
 import type { Database } from "../../db/client";
 import {
   contentItem,
   fachgebiet,
+  kurs,
   learningEvent,
   learningSession,
   thema,
@@ -210,6 +212,139 @@ export const progressRouter = router({
             percent: percent(th.mastered, th.total),
           })),
       }));
+  }),
+
+  /**
+   * F-35: Restzeit-/Lernpensum-Anzeige. "Lerneinheit" wird hier auf Thema-Ebene
+   * operationalisiert — der Anforderungskatalog spricht im selben Satz sowohl von
+   * "Lerneinheiten" in der Formel als auch von "wie viele Themen pro Woche" in der
+   * resultierenden Empfehlung; ein Thema gilt als abgeschlossen, sobald alle seine
+   * Karteikarten-/Quiz-Items "beherrscht" sind (state "review", dieselbe Definition wie in
+   * `overview` oben). Die im Anforderungskatalog vorgesehene "X von Y Handlungsbereichen
+   * verfügbar"-Anzeige bei unvollständigem Rahmenlehrplan wird hier bewusst NICHT gebaut: Beide
+   * aktuellen Kurse sind bereits vollständig befüllt (siehe Entwicklungsplan Iteration 4), und
+   * es gibt aktuell keine gespeicherte "geplante Gesamtzahl" jenseits des tatsächlich
+   * importierten Contents. Nachziehen, sobald ein Kurs erneut mit unvollständigem Content
+   * startet, siehe Architekturplanung Abschnitt 13.
+   */
+  pacing: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const [course] = await ctx.db
+      .select({ targetMode: kurs.targetMode })
+      .from(kurs)
+      .where(eq(kurs.id, input.kursId))
+      .limit(1);
+    if (!course) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht gefunden." });
+    }
+
+    const [enrollment] = await ctx.db
+      .select({
+        targetDate: userCourse.targetDate,
+        planStartDate: userCourse.planStartDate,
+        weeklyGoalItems: userCourse.weeklyGoalItems,
+        joinedAt: userCourse.joinedAt,
+      })
+      .from(userCourse)
+      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+      .limit(1);
+    if (!enrollment) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht belegt." });
+    }
+
+    const rows = await ctx.db
+      .select({ themaId: thema.id, state: userProgress.state })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .leftJoin(
+        userProgress,
+        and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
+      )
+      .where(
+        and(
+          inArray(contentItem.type, ["karteikarte", "quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
+          eq(contentItem.isActive, true),
+        ),
+      );
+
+    const byThema = new Map<string, { total: number; mastered: number }>();
+    for (const row of rows) {
+      const entry = byThema.get(row.themaId) ?? { total: 0, mastered: 0 };
+      entry.total += 1;
+      if (row.state === "review") entry.mastered += 1;
+      byThema.set(row.themaId, entry);
+    }
+    const totalThemen = byThema.size;
+    const completedThemen = [...byThema.values()].filter((t) => t.mastered === t.total).length;
+    const remainingThemen = totalThemen - completedThemen;
+
+    if (course.targetMode === "wochenziel") {
+      // Rollierendes 7-Tage-Fenster statt Kalenderwoche (Montag–Sonntag): passend zum
+      // "kontinuierliches Pensum ohne festen Stichtag"-Charakter dieses Modus, siehe
+      // Anforderungskatalog F-35. Gezählt wird die reine Übungsmenge (alle learning_event-
+      // Zeilen, richtig wie falsch beantwortet) statt abgeschlossener Themen — ohne festen
+      // Termin gibt es keinen sinnvollen Bezugspunkt, WANN ein Thema "diese Woche" fertig
+      // wurde, ohne eine bislang nicht vorhandene Thema-Abschluss-Zeitstempel einzuführen.
+      const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+      const recentEvents = await ctx.db
+        .select({ id: learningEvent.id })
+        .from(learningEvent)
+        .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .where(
+          and(
+            eq(learningEvent.userId, ctx.currentUser.id),
+            eq(fachgebiet.kursId, input.kursId),
+            gte(learningEvent.occurredAt, weekAgo),
+          ),
+        );
+
+      return {
+        mode: "wochenziel" as const,
+        weeklyGoalItems: enrollment.weeklyGoalItems,
+        itemsThisWeek: recentEvents.length,
+        totalThemen,
+        completedThemen,
+      };
+    }
+
+    if (!enrollment.targetDate) {
+      return {
+        mode: "einzeltermin" as const,
+        targetDate: null,
+        planStartDate: enrollment.planStartDate,
+        totalThemen,
+        completedThemen,
+        remainingThemen,
+      };
+    }
+
+    const pacing = calculateEinzelterminPacing({
+      totalThemen,
+      remainingThemen,
+      targetDate: new Date(enrollment.targetDate),
+      planStartDate: new Date(enrollment.planStartDate ?? enrollment.joinedAt),
+      now: new Date(),
+    });
+
+    return {
+      mode: "einzeltermin" as const,
+      targetDate: enrollment.targetDate,
+      planStartDate: enrollment.planStartDate,
+      totalThemen,
+      completedThemen,
+      remainingThemen,
+      ...pacing,
+    };
   }),
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
