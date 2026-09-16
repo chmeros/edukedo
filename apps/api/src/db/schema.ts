@@ -533,6 +533,53 @@ export const companySetupToken = pgTable(
   (table) => [index("company_setup_token_expires_at_idx").on(table.expiresAt)],
 );
 
+/**
+ * F-91 Baustein 2: Lizenzvergabe per Einladungscode (analog zum invite_code-Konzept für
+ * Freundeskreise, F-63 — dort noch nicht gebaut). Anders als bei F-63 bewusst OHNE
+ * verpflichtende Befristung (`expires_at` nullable): Ein Unternehmens-Code ist ein
+ * fortlaufendes Einschreibungsmittel für neue Mitarbeitende, kein sicherheitskritischer
+ * Sozial-Invite — die eigentliche Kapazitätsgrenze ist `company_account.seat_limit`, nicht
+ * eine Code-Gültigkeitsdauer. Mehrere Codes je Unternehmen erlaubt (z. B. je Abteilung).
+ */
+export const companyInviteCode = pgTable(
+  "company_invite_code",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    companyAccountId: uuid("company_account_id")
+      .notNull()
+      .references(() => companyAccount.id, { onDelete: "cascade" }),
+    code: text("code").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [index("company_invite_code_company_account_id_idx").on(table.companyAccountId)],
+);
+
+/**
+ * Verknüpft eine Nutzerin/einen Nutzer mit genau einem Unternehmen (Branding-/Statistik-
+ * Zugehörigkeit, F-92/F-93) — bewusst 1:1 (unique auf user_id) statt n:m, um Branding-Anzeige
+ * eindeutig zu halten (siehe Architekturplanung Abschnitt 4.5/13). Trägt bewusst KEINEN Verweis
+ * auf den eingelösten `company_invite_code` — welcher konkrete Code benutzt wurde, ist für
+ * Branding/Statistik irrelevant und ein Code kann durch mehrere Personen eingelöst werden.
+ */
+export const userCompanyMembership = pgTable(
+  "user_company_membership",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    companyAccountId: uuid("company_account_id")
+      .notNull()
+      .references(() => companyAccount.id, { onDelete: "cascade" }),
+    joinedAt: timestamp("joined_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("user_company_membership_user_id_key").on(table.userId),
+    index("user_company_membership_company_account_id_idx").on(table.companyAccountId),
+  ],
+);
+
 // ---------------------------------------------------------------------------
 // Melden/Blockieren (F-68, Datenmodell seit Phase 1, UI erst Phase 4) — Abschnitt 4.3
 // ---------------------------------------------------------------------------

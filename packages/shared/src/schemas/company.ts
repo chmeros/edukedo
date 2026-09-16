@@ -38,3 +38,32 @@ export const adminCreateCompanyAccountInputSchema = z.object({
   seatLimit: z.number().int().min(1).max(100_000),
 });
 export type AdminCreateCompanyAccountInput = z.infer<typeof adminCreateCompanyAccountInputSchema>;
+
+/**
+ * F-91 Baustein 2: Lizenzvergabe per Einladungscode. `expiresAt` ist bewusst optional (siehe
+ * company_invite_code in db/schema.ts) — anders als bei F-63 keine Pflicht-Befristung.
+ */
+export const createCompanyInviteCodeInputSchema = z.object({
+  expiresAt: z.coerce.date().optional(),
+});
+export type CreateCompanyInviteCodeInput = z.infer<typeof createCompanyInviteCodeInputSchema>;
+
+export const companyInviteCodeIdInputSchema = z.object({
+  codeId: z.string().uuid(),
+});
+export type CompanyInviteCodeIdInput = z.infer<typeof companyInviteCodeIdInputSchema>;
+
+export const companyMembershipIdInputSchema = z.object({
+  membershipId: z.string().uuid(),
+});
+export type CompanyMembershipIdInput = z.infer<typeof companyMembershipIdInputSchema>;
+
+/**
+ * Von der Lernperson selbst aufgerufen (protectedProcedure, nicht protectedCompanyAdminProcedure)
+ * — Groß-/Kleinschreibung ist egal, siehe company.ts (Normalisierung auf Großbuchstaben, wie
+ * der Code auch generiert wird).
+ */
+export const redeemCompanyInviteCodeInputSchema = z.object({
+  code: z.string().min(1).max(32),
+});
+export type RedeemCompanyInviteCodeInput = z.infer<typeof redeemCompanyInviteCodeInputSchema>;

@@ -65,6 +65,99 @@ function SetInitialPasswordForm() {
   );
 }
 
+/**
+ * F-91 Baustein 2: Codes bewusst mehrfach erstellbar (z. B. je Abteilung) — kein Sonderfall
+ * "es gibt schon einen Code, ersetze ihn". Ohne Ablaufdatum-Eingabefeld: F-91 verlangt anders
+ * als F-63 keine Pflicht-Befristung, das Sitzplatz-Kontingent ist die eigentliche Grenze
+ * (siehe apps/api/src/db/schema.ts, company_invite_code).
+ */
+function InviteCodesSection() {
+  const utils = trpc.useUtils();
+  const codes = trpc.company.inviteCodes.useQuery();
+  const create = trpc.company.createInviteCode.useMutation({
+    onSuccess: () => utils.company.inviteCodes.invalidate(),
+  });
+  const revoke = trpc.company.revokeInviteCode.useMutation({
+    onSuccess: () => utils.company.inviteCodes.invalidate(),
+  });
+
+  return (
+    <div className="stack">
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Einladungscodes</h2>
+      {(codes.data ?? []).map((code) => (
+        <div key={code.id} className="admin-row">
+          <div className="meta">
+            <code>{code.code}</code>
+            <span>
+              {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
+            </span>
+          </div>
+          <button
+            type="button"
+            className="btn btn-danger btn-sm"
+            onClick={() => revoke.mutate({ codeId: code.id })}
+            disabled={revoke.isPending}
+          >
+            Widerrufen
+          </button>
+        </div>
+      ))}
+      {codes.data?.length === 0 && <p className="field-hint">Noch kein Einladungscode erstellt.</p>}
+      <button
+        type="button"
+        className="btn btn-secondary"
+        style={{ alignSelf: "flex-start" }}
+        onClick={() => create.mutate({})}
+        disabled={create.isPending}
+      >
+        Neuen Einladungscode erstellen
+      </button>
+      {create.error && <ErrorMessage>{create.error.message}</ErrorMessage>}
+      {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
+    </div>
+  );
+}
+
+/**
+ * F-91: "sieht Anzahl belegter/freier Plätze ... kann Lizenzen entziehen" (Anforderungskatalog
+ * Abschnitt 5.12) — bewusst nur E-Mail + Beitrittsdatum, kein Lernfortschritt (siehe
+ * company.members in trpc/routers/company.ts, Beschäftigtendatenschutz).
+ */
+function MembersSection() {
+  const utils = trpc.useUtils();
+  const members = trpc.company.members.useQuery();
+  const revoke = trpc.company.revokeMembership.useMutation({
+    onSuccess: () => {
+      utils.company.members.invalidate();
+      utils.company.me.invalidate();
+    },
+  });
+
+  return (
+    <div className="stack">
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Teilnehmende</h2>
+      {(members.data ?? []).map((member) => (
+        <div key={member.membershipId} className="admin-row">
+          <div className="meta">
+            {member.email}
+            <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
+          </div>
+          <button
+            type="button"
+            className="btn btn-danger btn-sm"
+            onClick={() => revoke.mutate({ membershipId: member.membershipId })}
+            disabled={revoke.isPending}
+          >
+            Lizenz entziehen
+          </button>
+        </div>
+      ))}
+      {members.data?.length === 0 && <p className="field-hint">Noch keine Teilnehmenden beigetreten.</p>}
+      {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
+    </div>
+  );
+}
+
 function LoginForm() {
   const utils = trpc.useUtils();
   const login = trpc.company.login.useMutation({ onSuccess: () => utils.company.me.invalidate() });
@@ -103,10 +196,9 @@ function LoginForm() {
 }
 
 /**
- * F-91: Business-Lizenzen, Baustein 1 (Auth-Grundgerüst) — bewusst analog zu
- * ParentDashboard.tsx aufgebaut. Lizenzvergabe per Einladungscode (Sitzplatz-Übersicht),
- * Branding-Einstellungen und aggregierte Statistik (F-91 fortgesetzt, F-92, F-93) sind eigene,
- * spätere Bausteine — hier vorerst nur die Kontodaten selbst.
+ * F-91: Business-Lizenzen — Auth-Grundgerüst (Baustein 1) plus Einladungscodes/Mitgliedschaft
+ * (Baustein 2), bewusst analog zu ParentDashboard.tsx aufgebaut. Branding-Einstellungen und
+ * aggregierte Statistik (F-92, F-93) sind eigene, spätere Bausteine.
  */
 export function CompanyDashboard() {
   const utils = trpc.useUtils();
@@ -159,7 +251,9 @@ export function CompanyDashboard() {
           <div className="admin-row">
             <div className="meta">
               Sitzplatz-Kontingent
-              <span>{me.data.seatLimit}</span>
+              <span>
+                {me.data.seatsUsed} von {me.data.seatLimit} belegt
+              </span>
             </div>
           </div>
           <div className="admin-row">
@@ -168,11 +262,14 @@ export function CompanyDashboard() {
               <span>{BILLING_STATUS_LABELS[me.data.billingStatus] ?? me.data.billingStatus}</span>
             </div>
           </div>
-          <p className="field-hint">
-            Einladungscodes für Teilnehmende, Branding-Einstellungen und Nutzungsstatistiken folgen in
-            weiteren Ausbaustufen.
-          </p>
         </div>
+        <div className="card">
+          <InviteCodesSection />
+        </div>
+        <div className="card">
+          <MembersSection />
+        </div>
+        <p className="field-hint">Branding-Einstellungen und Nutzungsstatistiken folgen in weiteren Ausbaustufen.</p>
       </main>
     </>
   );

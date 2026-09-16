@@ -1,5 +1,6 @@
 import { InfoIcon } from "./Icons";
 import { OfflineDownload } from "./OfflineDownload";
+import { RedeemCompanyCode } from "./RedeemCompanyCode";
 import { trpc } from "./trpc";
 import { Zielplanung } from "./Zielplanung";
 
@@ -41,6 +42,7 @@ export function Progress({ kursId }: { kursId: string }) {
     <>
       <Zielplanung kursId={kursId} />
       <OfflineDownload kursId={kursId} />
+      <RedeemCompanyCode />
 
       {fachgebiete.map((fachgebiet) => (
         <div key={fachgebiet.id} className="stack">
