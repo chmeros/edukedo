@@ -567,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit: Theorie-Sidebar gruppiert, sticky, Scroll-Bug behoben)
+
+- **Anlass:** Zweiter Befund aus dem Design-Audit (siehe vorheriger Eintrag): die Theorie-Sidebar war eine flache Liste mit bis zu 16 Einträgen, deren volle Satz-Titel je 4–5 Zeilen einnahmen, ohne Gliederung und ohne unabhängiges Scrollen — verbunden mit einem echten Bug (Themenwechsel scrollte den Inhalt nicht zurück nach oben).
+- **Gruppierung nach Handlungsbereich (Fachgebiet) rein clientseitig, ohne neue fachgebietId vom Server:** `content.theorySections` liefert die Liste bereits nach `fachgebiet.sortOrder`/`thema.sortOrder` sortiert (siehe `content.ts`) — ein einfaches Zusammenfassen aufeinanderfolgender Einträge mit gleichem `fachgebietTitle` in `Theorie.tsx` reicht für die Gruppierung, ohne API oder Schema anzufassen.
+- **Nav-Titel per CSS `-webkit-line-clamp: 2` gekürzt statt eines neuen Kurztitel-Felds im Datenmodell:** Der volle Satz-Titel bleibt vollständig erhalten (Tooltip via `title`-Attribut, vollständig sichtbar in der Content-Überschrift) — eine Schema-Änderung (`thema.short_title` o. Ä.) hätte eine Migration plus Nachpflege für alle ~20 bestehenden Themen beider Kurse erfordert, für einen rein darstellerischen Zweck.
+- **`.theory-nav` ab 780px `position: sticky` mit eigenem `overflow-y: auto`/`max-height`:** bleibt neben dem Inhalt sichtbar und scrollt bei Bedarf unabhängig von ihm — vorher musste man bei einem langen Thema zum Wechseln erst wieder zum Seitenanfang zurückscrollen. `top: 84px` orientiert sich an der Höhe des global sticky `.landing-nav`-Headers (`Header.tsx`).
+- **Bug behoben: Themenwechsel setzt jetzt `window.scrollTo({ top: 0, behavior: "smooth" })`.** Ohne diesen Reset blieb die Scroll-Position beim Klick auf ein anderes Thema unverändert — bei einem bereits weit heruntergescrollten Thema zeigte der Inhalt dann nur das Ende des NEUEN Themas, ohne erkennbar zu machen, dass sich überhaupt etwas geändert hatte. Live reproduziert und nach dem Fix verifiziert.
+- Live verifiziert (Desktop, Mobile 375×812, Dark Mode): Gruppierung sichtbar, zweizeilige Titel korrekt geklemmt (per `getBoundingClientRect` nachgemessen: 68px Button-Höhe bei 129px vollem Inhalt, kein Überlappen benachbarter Buttons), Sidebar bleibt beim Scrollen sichtbar und scrollt eigenständig durch alle 16 Themen, Themenwechsel scrollt den Inhalt zuverlässig zurück zum Anfang. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit: Fortschritt-Tab in Sub-Tabs unterteilt)
 
 - **Anlass:** Auf Nutzeranfrage wurde das laufende Redesign aus vier kritischen Perspektiven (Design, Product Owner, Usability, Marke/Vision) durchleuchtet. Größter Einzelbefund: Der Fortschritt-Tab war zu einer einzigen, sehr langen Seite gewachsen (3 Einstellungs-Widgets + 4 Social-/Gamification-Bereiche + volle Fachgebiets-Baumstruktur + Lernstatistik), ohne Inhaltsverzeichnis oder Gliederung — praktisch endloses Scrollen.

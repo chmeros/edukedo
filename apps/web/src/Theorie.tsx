@@ -46,6 +46,30 @@ export function Theorie({ kursId }: { kursId: string }) {
 
   const active = items.find((item) => item.id === activeId) ?? items[0]!;
 
+  // Redesign-Audit 17.09.2026: nach Handlungsbereich (Fachgebiet) gruppiert statt einer flachen
+  // Liste — `items` kommt vom Server bereits nach fachgebiet.sortOrder/thema.sortOrder sortiert
+  // (siehe content.ts), ein einfaches Zusammenfassen aufeinanderfolgender gleicher
+  // `fachgebietTitle`-Werte reicht daher aus, ohne eine zusätzliche fachgebietId vom Server zu
+  // benötigen.
+  const groups: { fachgebietTitle: string; items: typeof items }[] = [];
+  for (const item of items) {
+    const currentGroup = groups[groups.length - 1];
+    if (currentGroup && currentGroup.fachgebietTitle === item.fachgebietTitle) {
+      currentGroup.items.push(item);
+    } else {
+      groups.push({ fachgebietTitle: item.fachgebietTitle, items: [item] });
+    }
+  }
+
+  function selectTopic(id: string) {
+    setActiveId(id);
+    // Bug-Fix (Redesign-Audit 17.09.2026): ohne diesen Reset blieb die Scroll-Position beim
+    // Themenwechsel unverändert — bei einem längeren, bereits weit gescrollten Thema sah man
+    // nach dem Klick nur das Ende des NEUEN Themas und nicht, dass sich überhaupt etwas
+    // geändert hat.
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     // Redesign 17.09.2026: eigener Grid-Wrapper statt zweier lose nebeneinanderstehender
     // Geschwister-Elemente — nutzt die seit der Verbreiterung von .shell verfügbare Breite für
@@ -53,15 +77,21 @@ export function Theorie({ kursId }: { kursId: string }) {
     // einspaltige Reihenfolge zurück (siehe .theory-layout in styles.css).
     <div className="theory-layout">
       <div className="theory-nav">
-        {items.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            className={item.id === active.id ? "is-active" : ""}
-            onClick={() => setActiveId(item.id)}
-          >
-            {item.themaTitle}
-          </button>
+        {groups.map((group) => (
+          <div key={group.fachgebietTitle} className="theory-nav-group">
+            <span className="stat-subheading">{group.fachgebietTitle}</span>
+            {group.items.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                title={item.themaTitle}
+                className={item.id === active.id ? "is-active" : ""}
+                onClick={() => selectTopic(item.id)}
+              >
+                {item.themaTitle}
+              </button>
+            ))}
+          </div>
         ))}
       </div>
       <article className="theory-content">

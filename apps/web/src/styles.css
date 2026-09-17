@@ -853,7 +853,27 @@ details[open] > summary.disclosure::before {
 .theory-nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 18px;
+}
+
+/* Redesign-Audit 17.09.2026: die Sidebar bleibt ab der Desktop-Breite (siehe .theory-layout
+   oben) beim Scrollen sichtbar und scrollt bei Bedarf unabhängig vom Inhalt — vorher musste man
+   zum Themenwechsel erst wieder zum Seitenanfang zurückscrollen, sobald der Inhalt eines
+   längeren Themas den Viewport überragte. `top` entspricht der Höhe des global sticky
+   `.landing-nav`-Headers (siehe Header.tsx) plus etwas Luft. */
+@media (min-width: 780px) {
+  .theory-nav {
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
+  }
+}
+
+.theory-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .theory-nav button {
@@ -867,6 +887,13 @@ details[open] > summary.disclosure::before {
   font-weight: 600;
   font-size: var(--fs-sm);
   cursor: pointer;
+  /* Volle Themen-Titel sind oft ganze Sätze (siehe content/README.md) — auf zwei Zeilen
+     begrenzt statt bis zu 4–5 Zeilen pro Eintrag, damit die Liste scannbar bleibt. Der volle
+     Titel bleibt über das title-Attribut (Tooltip) sowie in der Inhalts-Überschrift erhalten. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .theory-nav button.is-active {
