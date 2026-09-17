@@ -12,6 +12,7 @@ import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
 import { quizRouter } from "./routers/quiz";
+import { sponsorRouter } from "./routers/sponsor";
 import { router } from "./trpc";
 
 /**
@@ -22,7 +23,9 @@ import { router } from "./trpc";
  * vorbereiteten `exam_session`/`exam_answer`-Tabellen. `presentation` (F-24, seit 16.09.2026)
  * speichert den Gliederungs-/Checklisten-Entwurf des Präsentationstrainers. `offline` (F-42,
  * seit 16.09.2026) liefert den Content-Download für die lokale IndexedDB-Kopie. `company`
- * (F-91, seit 16.09.2026) ist das Business-Lizenzen-Auth-Grundgerüst (Baustein 1).
+ * (F-91, seit 16.09.2026) ist das Business-Lizenzen-Auth-Grundgerüst (Baustein 1). `sponsor`
+ * (F-94, seit 17.09.2026) ist der öffentliche, lesende Sponsoring-Endpunkt (Baustein 5) —
+ * schreibend über `admin.*`.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -39,6 +42,7 @@ export const appRouter = router({
   presentation: presentationRouter,
   admin: adminRouter,
   offline: offlineRouter,
+  sponsor: sponsorRouter,
 });
 
 export type AppRouter = typeof appRouter;

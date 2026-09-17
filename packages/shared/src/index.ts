@@ -12,3 +12,4 @@ export * from "./schemas/parent";
 export * from "./schemas/presentation";
 export * from "./schemas/progress";
 export * from "./schemas/quiz";
+export * from "./schemas/sponsor";

@@ -13,6 +13,7 @@ import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { Quiz } from "./Quiz";
+import { SponsorBanner } from "./SponsorBanner";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
@@ -157,6 +158,7 @@ export function App() {
           ) : (
             <>
               <CompanyBranding />
+              <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (
                 <div className="suggestion-row">
                   {suggestions.data.map((suggestion, position) => (

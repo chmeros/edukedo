@@ -580,6 +580,31 @@ export const userCompanyMembership = pgTable(
   ],
 );
 
+/**
+ * F-91 Baustein 5 (F-94): Sponsoring bewusst vom Lizenzmodell getrennt — keine
+ * Nutzer-Verknüpfung, keine Session/kein eigener Account-Typ, admin-gepflegt (redaktionelle
+ * Unabhängigkeit, siehe F-11/F-16). `kursId = null` bedeutet plattformweite Platzierung (z. B.
+ * auf der Startseite), ein gesetzter Wert beschränkt die Sponsor-Erwähnung auf einen einzelnen
+ * Kurs. `startsAt`/`endsAt` sind beide nullable und unabhängig voneinander optional — ein
+ * Sponsoring ohne Enddatum läuft bis zum manuellen Deaktivieren (`isActive = false`) weiter.
+ * Siehe Architekturplanung Abschnitt 4.5/13.
+ */
+export const sponsor = pgTable(
+  "sponsor",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: text("name").notNull(),
+    logoUrl: text("logo_url"),
+    attributionText: text("attribution_text").notNull(),
+    kursId: uuid("kurs_id").references(() => kurs.id, { onDelete: "cascade" }),
+    isActive: boolean("is_active").notNull().default(true),
+    startsAt: timestamp("starts_at", { withTimezone: true }),
+    endsAt: timestamp("ends_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [index("sponsor_kurs_id_idx").on(table.kursId)],
+);
+
 // ---------------------------------------------------------------------------
 // Melden/Blockieren (F-68, Datenmodell seit Phase 1, UI erst Phase 4) — Abschnitt 4.3
 // ---------------------------------------------------------------------------

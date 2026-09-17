@@ -567,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (F-91 Business-Lizenzen, Baustein 5: Sponsoring, F-94)
+
+- **`sponsor` exakt nach der Skizze aus Abschnitt 4.5 umgesetzt**, ohne Abweichung: keine Nutzer-Verknüpfung, `kurs_id` nullable (= plattformweite Platzierung), `is_active` statt Hard-Delete, `starts_at`/`ends_at` beide unabhängig voneinander optional.
+- **`sponsor.list` als `publicProcedure`, nicht `protectedProcedure`:** Architekturplanung Abschnitt 7 verlangt explizit "lesend für alle Clients" — Sponsoring ist eine öffentlich sichtbare Markenplatzierung auf frei verfügbarem Content, kein kontobezogenes Feature (anders als das Branding-Banner aus Baustein 3, das nur für zugeordnete Unternehmens-Mitglieder sichtbar ist).
+- **Deaktivieren statt Löschen (`admin.setSponsorActive`), analog zu `admin.setPublished` für Kurse:** Ein Hard-Delete würde eine vereinbarte Sponsoring-Laufzeit unwiderruflich beenden; die Admin-Liste zeigt bewusst den rohen `is_active`-Zustand, unabhängig davon, ob ein Sponsoring gerade wegen `starts_at`/`ends_at` ohnehin unsichtbar ist — beide Zustände (roh vs. aktuell sichtbar) sind unterschiedliche Fragen und sollen im Admin-Bereich nicht miteinander verschmolzen werden.
+- **Kein Sitzplatz-/Lizenzbezug:** Sponsoring ist bewusst NICHT über `company_account` einbuchbar — ein Sponsor braucht keine eigene Session, kein Login, keine Mitgliederliste. Das hält die Trennung zum Lizenzmodell (F-91) sauber, die der Anforderungskatalog explizit fordert (kein exklusiver, unternehmensgebundener Content).
+- **`SponsorBanner.tsx` bewusst ohne jede Interaktivität** (kein Klick-Handler, kein Link, keine Personalisierung) — einzige technische Absicherung für die N-01/N-13-Anforderung ("rein statischer Hinweis ohne Tracking/Call-to-Action" auch im Schulfach-Kurs), da die Komponente unverändert für alle Kurse (auch Mathematik, Klasse 9) verwendet wird, statt einer eigenen, eingeschränkteren Variante für den Minderjährigen-Kurs.
+- Live gegen echte Postgres-Instanz verifiziert: ein plattformweiter Sponsor erscheint auch ohne gewählten Kurs; ein kursspezifischer Sponsor erscheint zusätzlich nur im zugeordneten Kurs, in einem anderen Kurs korrekt nicht; ein Sponsoring mit `starts_at` in der Zukunft bzw. `ends_at` in der Vergangenheit wird korrekt ausgeblendet; Deaktivieren im Admin-Bereich entfernt das Banner nach Reload sofort.
+
 ### Entschieden am 17.09.2026 (F-91 Business-Lizenzen, Baustein 4: aggregierte Statistik, F-93)
 
 - **Reine SQL-Aggregation (`count`/`count distinct` über Joins) statt Laden von Einzeldatensätzen und Aggregieren in TypeScript** (anders als das bestehende Muster in `progress.ts`, siehe oben): `company.stats` gibt dadurch strukturell niemals eine Zeile zurück, aus der sich eine Einzelperson herauslesen ließe — die Absicherung liegt nicht nur in der Anwendungslogik, sondern bereits in der Form der Abfrage selbst. Passt zur besonderen Sensibilität dieses Endpunkts (Beschäftigtendatenschutz, § 26 BDSG).

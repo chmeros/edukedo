@@ -1,10 +1,10 @@
-import { adminCreateCompanyAccountInputSchema } from "@edukedo/shared";
+import { adminCreateCompanyAccountInputSchema, createSponsorInputSchema, setSponsorActiveInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
-import { companyAccount, kurs } from "../../db/schema";
+import { companyAccount, kurs, sponsor } from "../../db/schema";
 import { env } from "../../env";
 import { roleProcedure, router } from "../trpc";
 
@@ -104,5 +104,65 @@ export const adminRouter = router({
         // hier direkt für die manuelle Weiterverwendung zurückgegeben (siehe auth.register).
         devSetupUrl: env.NODE_ENV === "production" ? undefined : setupUrl,
       };
+    }),
+
+  /**
+   * F-91 Baustein 5 (F-94): Liste aller Sponsorings (auch inaktive/außerhalb ihres Zeitfensters)
+   * — anders als der öffentliche `sponsor.list`-Endpunkt, der nur aktuell sichtbare liefert.
+   */
+  sponsors: roleProcedure("admin").query(async ({ ctx }) => {
+    return ctx.db
+      .select({
+        id: sponsor.id,
+        name: sponsor.name,
+        logoUrl: sponsor.logoUrl,
+        attributionText: sponsor.attributionText,
+        kursId: sponsor.kursId,
+        isActive: sponsor.isActive,
+        startsAt: sponsor.startsAt,
+        endsAt: sponsor.endsAt,
+      })
+      .from(sponsor)
+      .orderBy(sponsor.createdAt);
+  }),
+
+  /**
+   * F-91 Baustein 5 (F-94): Legt ein Sponsoring an — admin-gepflegt, kein Self-Service durch das
+   * sponsernde Unternehmen (redaktionelle Unabhängigkeit, siehe F-11/F-16). Ein leerer String bei
+   * `logoUrl` wird auf `null` normalisiert (kaputtes `<img src="">` vermeiden, analog zu
+   * `company.updateBranding`).
+   */
+  createSponsor: roleProcedure("admin")
+    .input(createSponsorInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [created] = await ctx.db
+        .insert(sponsor)
+        .values({
+          name: input.name,
+          logoUrl: input.logoUrl || null,
+          attributionText: input.attributionText,
+          kursId: input.kursId ?? null,
+          startsAt: input.startsAt ?? null,
+          endsAt: input.endsAt ?? null,
+        })
+        .returning({ id: sponsor.id });
+
+      if (!created) {
+        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+      }
+
+      return { id: created.id };
+    }),
+
+  /**
+   * F-91 Baustein 5 (F-94): Deaktivieren/Reaktivieren statt Löschen — analog zu
+   * `admin.setPublished` für Kurse. Ein Hard-Delete würde eine bereits vereinbarte
+   * Sponsoring-Laufzeit stillschweigend beenden, statt sie kontrolliert auszublenden.
+   */
+  setSponsorActive: roleProcedure("admin")
+    .input(setSponsorActiveInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db.update(sponsor).set({ isActive: input.isActive }).where(eq(sponsor.id, input.sponsorId));
+      return { success: true };
     }),
 });

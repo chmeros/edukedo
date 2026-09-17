@@ -79,6 +79,81 @@ function CreateCompanyAccountForm() {
 }
 
 /**
+ * F-91 Baustein 5 (F-94): Sponsoring — admin-gepflegt, bewusst kein Self-Service durch das
+ * sponsernde Unternehmen (redaktionelle Unabhängigkeit, siehe F-11/F-16). `courses` wird von
+ * `AdminPanel` durchgereicht, damit hier keine zweite, redundante Kurs-Abfrage nötig ist.
+ */
+function CreateSponsorForm({ courses }: { courses: { id: string; title: string }[] }) {
+  const utils = trpc.useUtils();
+  const create = trpc.admin.createSponsor.useMutation({
+    onSuccess: () => {
+      utils.admin.sponsors.invalidate();
+      setName("");
+      setLogoUrl("");
+      setAttributionText("");
+      setKursId("");
+    },
+  });
+  const [name, setName] = useState("");
+  const [logoUrl, setLogoUrl] = useState("");
+  const [attributionText, setAttributionText] = useState("");
+  const [kursId, setKursId] = useState("");
+
+  return (
+    <form
+      className="stack"
+      onSubmit={(event) => {
+        event.preventDefault();
+        create.mutate({ name, logoUrl, attributionText, kursId: kursId || undefined });
+      }}
+    >
+      <div className="field">
+        <label htmlFor="sp-name">Name des Sponsors</label>
+        <input className="input" id="sp-name" value={name} onChange={(event) => setName(event.target.value)} required />
+      </div>
+      <div className="field">
+        <label htmlFor="sp-logo">Logo-URL (optional)</label>
+        <input
+          className="input"
+          id="sp-logo"
+          type="url"
+          value={logoUrl}
+          onChange={(event) => setLogoUrl(event.target.value)}
+          placeholder="https://…"
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="sp-text">Hinweistext</label>
+        <input
+          className="input"
+          id="sp-text"
+          value={attributionText}
+          onChange={(event) => setAttributionText(event.target.value)}
+          placeholder="z. B. Ermöglicht durch Unterstützung von XY"
+          maxLength={200}
+          required
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="sp-kurs">Platzierung</label>
+        <select className="input" id="sp-kurs" value={kursId} onChange={(event) => setKursId(event.target.value)}>
+          <option value="">Plattformweit (alle Kurse)</option>
+          {courses.map((course) => (
+            <option key={course.id} value={course.id}>
+              {course.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <button type="submit" className="btn btn-primary" style={{ alignSelf: "flex-start" }} disabled={create.isPending}>
+        Sponsoring anlegen
+      </button>
+      {create.error && <ErrorMessage>{create.error.message}</ErrorMessage>}
+    </form>
+  );
+}
+
+/**
  * F-11: Admin-/Redaktionsbereich, erste einfache Version — nur für `role === "admin"`
  * gerendert (siehe App.tsx). Löst den bisherigen Weg ab, `kurs.is_published` und den
  * Content-Import ausschließlich per direktem SQL-/CLI-Zugriff auszuführen. Die eigentliche
@@ -88,10 +163,17 @@ export function AdminPanel() {
   const utils = trpc.useUtils();
   const courses = trpc.admin.courses.useQuery();
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
+  const sponsors = trpc.admin.sponsors.useQuery();
   const setPublished = trpc.admin.setPublished.useMutation({
     onSuccess: () => {
       utils.admin.courses.invalidate();
       utils.courses.list.invalidate();
+    },
+  });
+  const setSponsorActive = trpc.admin.setSponsorActive.useMutation({
+    onSuccess: () => {
+      utils.admin.sponsors.invalidate();
+      utils.sponsor.list.invalidate();
     },
   });
   const triggerImport = trpc.admin.triggerImport.useMutation({
@@ -173,6 +255,33 @@ export function AdminPanel() {
       ))}
       {companyAccounts.data?.length === 0 && <p className="field-hint">Noch keine Unternehmens-Konten angelegt.</p>}
       <CreateCompanyAccountForm />
+
+      <hr />
+
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Sponsoring (F-94)</h2>
+      {(sponsors.data ?? []).map((entry) => (
+        <div key={entry.id} className="admin-row">
+          <div className="meta">
+            {entry.name}
+            <span>
+              {entry.attributionText} ·{" "}
+              {entry.kursId
+                ? (courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"
+                : "Plattformweit"}
+            </span>
+          </div>
+          <button
+            type="button"
+            className={entry.isActive ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
+            onClick={() => setSponsorActive.mutate({ sponsorId: entry.id, isActive: !entry.isActive })}
+            disabled={setSponsorActive.isPending}
+          >
+            {entry.isActive ? "Deaktivieren" : "Aktivieren"}
+          </button>
+        </div>
+      ))}
+      {sponsors.data?.length === 0 && <p className="field-hint">Noch kein Sponsoring angelegt.</p>}
+      <CreateSponsorForm courses={courses.data ?? []} />
     </div>
   );
 }
