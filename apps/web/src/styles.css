@@ -802,15 +802,21 @@ details[open] > summary.disclosure::before {
   gap: 8px;
 }
 
+/* Redesign-Audit 17.09.2026: die bisherige 3er-/2er-Grid-Stufung brach 5 Tabs auf schmalen
+   Bildschirmen in ein unausgeglichenes 2-2-1-Raster um (letzter Tab allein, linksbündig in der
+   letzten Zeile) — ein horizontal scrollbarer Einzeiler ist das gängigere Mobile-Muster für
+   eine ungerade Tab-Anzahl, die nicht mehr nebeneinander passt, und vermeidet den Umbruch
+   vollständig. */
 @media (max-width: 640px) {
   .tab-nav {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
-}
 
-@media (max-width: 420px) {
-  .tab-nav {
-    grid-template-columns: repeat(2, 1fr);
+  .tab-nav button {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 }
 

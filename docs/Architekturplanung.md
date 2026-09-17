@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit: mobile Lernmodus-Tableiste als Einzeiler)
+
+- **Anlass:** Dritter Befund aus dem Design-Audit. `.tab-nav` (Theorie/Karteikarten/Quiz/Prüfung/Fortschritt) stufte bei schmalen Bildschirmen über CSS Grid von 5 auf 3 auf 2 Spalten herunter — bei 5 Tabs und 2 Spalten ergab das ein unausgeglichenes 2-2-1-Raster, in dem "Fortschritt" allein und linksbündig in einer eigenen letzten Zeile hing.
+- **Horizontal scrollbarer Einzeiler (`display:flex; overflow-x:auto`) ab 640px statt einer weiteren, noch kleinteiligeren Grid-Stufe:** Eine ungerade Tab-Anzahl lässt sich nicht umbruchfrei in ein gleichmäßiges Spalten-Raster pressen; ein horizontal scrollbarer Streifen ist das auf mobilen Plattformen etablierte Muster für eine Tab-Menge, die nicht mehr nebeneinanderpasst (statt eines Umbruchs), und wurde bewusst ohne zusätzliche Scroll-Indikatoren (z. B. Fade-Verlauf am Rand) umgesetzt — die letzten sichtbaren Buchstaben des nächsten, teils abgeschnittenen Tabs am Bildschirmrand sind bereits ein ausreichendes visuelles Signal für "hier geht es weiter", wie in vergleichbaren mobilen Tableisten üblich.
+- **Der `.segmented`-Sub-Tab-Stil (Prüfung/Fortschritt-Untertabs) blieb bewusst unangetastet:** Dort sind es nur 2–3 Einträge mit kürzeren Labels, die schon bei 375px problemlos nebeneinanderpassen (im Audit selbst verifiziert) — das Problem betraf ausschließlich die 5-elementige Haupt-Lernmodus-Leiste.
+- Live verifiziert (375×812 Mobile, 700px Zwischenbreite, Desktop, Dark Mode): kein Umbruch mehr, alle 5 Tabs per horizontalem Scroll erreichbar und anklickbar, ab ca. 700px passen alle 5 Tabs ohnehin ohne Scrollen nebeneinander. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit: Theorie-Sidebar gruppiert, sticky, Scroll-Bug behoben)
 
 - **Anlass:** Zweiter Befund aus dem Design-Audit (siehe vorheriger Eintrag): die Theorie-Sidebar war eine flache Liste mit bis zu 16 Einträgen, deren volle Satz-Titel je 4–5 Zeilen einnahmen, ohne Gliederung und ohne unabhängiges Scrollen — verbunden mit einem echten Bug (Themenwechsel scrollte den Inhalt nicht zurück nach oben).
