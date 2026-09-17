@@ -6,6 +6,7 @@ import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
+import { gamificationRouter } from "./routers/gamification";
 import { healthRouter } from "./routers/health";
 import { highscoreRouter } from "./routers/highscore";
 import { lernpartnerRouter } from "./routers/lernpartner";
@@ -36,6 +37,8 @@ import { router } from "./trpc";
  * `highscore` (F-60, seit 17.09.2026) ist die opt-in Highscore-Liste je Kurs, beschränkt auf den
  * eigenen Freundeskreis. `lernpartner` (F-62, seit 17.09.2026) zeigt Prüfungstermin-/
  * Handlungsbereich-Übereinstimmungen innerhalb des Freundeskreises, ohne eigenen Chat.
+ * `gamification` (F-67, seit 17.09.2026) sind Achievements/Bestwerte ohne jeden Fremdkontakt,
+ * kursübergreifend statt kursskopiert.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -57,6 +60,7 @@ export const appRouter = router({
   report: reportRouter,
   highscore: highscoreRouter,
   lernpartner: lernpartnerRouter,
+  gamification: gamificationRouter,
 });
 
 export type AppRouter = typeof appRouter;

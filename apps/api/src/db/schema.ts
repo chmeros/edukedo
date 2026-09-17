@@ -728,3 +728,31 @@ export const friendCircleLink = pgTable(
     check("friend_circle_link_user_order_check", sql`${table.userIdA} < ${table.userIdB}`),
   ],
 );
+
+// ---------------------------------------------------------------------------
+// Nicht-soziale Gamification (F-67) — Abschnitt 4.5 (Phase-4-Erweiterung)
+// ---------------------------------------------------------------------------
+
+/**
+ * F-67: Individuelle Achievements/Abzeichen, bewusst ohne jeden Fremdkontakt — anders als
+ * `friend_circle_link`/`highscore`/`lernpartner` KEINE `kurs_id`, da ein Achievement die gesamte
+ * Lernreise einer Person über alle belegten Kurse hinweg würdigt (F-09: Mehrfach-Kursbelegung),
+ * nicht eine einzelne Kurs-Mitgliedschaft. Der Achievement-Katalog selbst (Titel, Beschreibung,
+ * Freischalt-Kriterium) ist bewusst als Server-Konstante geführt (`achievements/catalog.ts`),
+ * nicht in einer eigenen DB-Tabelle — er ändert sich nur mit einem Code-Deployment, nicht zur
+ * Laufzeit. Diese Tabelle speichert ausschließlich, WANN eine Person ein Kriterium erstmals
+ * erfüllt hat (unveränderlich ab dem ersten Erreichen), damit ein späterer Rückgang (z. B. nach
+ * einer Konto-Bereinigung) ein einmal verdientes Abzeichen nicht wieder entzieht.
+ */
+export const achievement = pgTable(
+  "achievement",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    achievementKey: text("achievement_key").notNull(),
+    earnedAt: timestamp("earned_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("achievement_user_id_achievement_key_key").on(table.userId, table.achievementKey)],
+);

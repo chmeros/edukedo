@@ -1,3 +1,4 @@
+import { Achievements } from "./Achievements";
 import { FriendCircle } from "./FriendCircle";
 import { Highscore } from "./Highscore";
 import { InfoIcon } from "./Icons";
@@ -49,6 +50,7 @@ export function Progress({ kursId, isMinor }: { kursId: string; isMinor: boolean
       <FriendCircle kursId={kursId} />
       <Highscore kursId={kursId} isMinor={isMinor} />
       <Lernpartner kursId={kursId} fachgebiete={fachgebiete.map((entry) => ({ id: entry.id, title: entry.title }))} />
+      <Achievements />
 
       {fachgebiete.map((fachgebiet) => (
         <div key={fachgebiet.id} className="stack">
