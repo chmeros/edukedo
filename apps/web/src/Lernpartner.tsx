@@ -1,0 +1,65 @@
+import { trpc } from "./trpc";
+
+/**
+ * F-62: Lernpartner-Vermittlung — zeigt nur Übereinstimmungen (Prüfungstermin und/oder
+ * Handlungsbereich) innerhalb des Freundeskreises an; bewusst kein Anfrage-/Bestätigungs-Workflow
+ * und kein Chat — der Kontakt läuft über die im Freundeskreis bereits sichtbare E-Mail-Adresse
+ * (siehe FriendCircle.tsx). `fachgebiete` wird von `Progress.tsx` durchgereicht (bereits über
+ * `progress.overview` geladen), damit hier keine zweite, redundante Abfrage nötig ist.
+ */
+export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebiete: { id: string; title: string }[] }) {
+  const utils = trpc.useUtils();
+  const matches = trpc.lernpartner.matches.useQuery({ kursId });
+  const setFachgebiet = trpc.lernpartner.setFachgebiet.useMutation({
+    onSuccess: () => utils.lernpartner.matches.invalidate({ kursId }),
+  });
+
+  return (
+    <div className="stack">
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Lernpartner-Vermittlung</h2>
+      <p className="field-hint">
+        Zeigt Übereinstimmungen bei Prüfungstermin und Handlungsbereich innerhalb deines Freundeskreises — ohne
+        eigenen Chat, meldet euch per E-Mail.
+      </p>
+
+      <div className="field">
+        <label htmlFor="lernpartner-fachgebiet">Bevorzugter Handlungsbereich (optional)</label>
+        <select
+          className="input"
+          id="lernpartner-fachgebiet"
+          onChange={(event) => setFachgebiet.mutate({ kursId, fachgebietId: event.target.value || null })}
+          disabled={setFachgebiet.isPending}
+        >
+          <option value="">Keine Präferenz</option>
+          {fachgebiete.map((fachgebiet) => (
+            <option key={fachgebiet.id} value={fachgebiet.id}>
+              {fachgebiet.title}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="stack">
+        {(matches.data ?? []).map((entry) => (
+          <div key={entry.friendUserId} className="admin-row">
+            <div className="meta">
+              {entry.friendEmail}
+              <span>
+                {entry.targetDate ? `Zieltermin ${new Date(entry.targetDate).toLocaleDateString("de-DE")}` : "Kein Zieltermin"}
+                {entry.fachgebietTitle ? ` · ${entry.fachgebietTitle}` : ""}
+              </span>
+            </div>
+            {entry.matchScore > 0 && (
+              <span className="stat-label">
+                {entry.matchesTargetDate && "Ähnlicher Zieltermin"}
+                {entry.matchesTargetDate && entry.matchesFachgebiet && " · "}
+                {entry.matchesFachgebiet && "Gleicher Handlungsbereich"}
+              </span>
+            )}
+          </div>
+        ))}
+        {matches.data?.length === 0 && <p className="field-hint">Noch keine Freunde in diesem Kurs.</p>}
+      </div>
+    </div>
+  );
+}

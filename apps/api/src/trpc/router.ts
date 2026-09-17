@@ -8,6 +8,7 @@ import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
 import { healthRouter } from "./routers/health";
 import { highscoreRouter } from "./routers/highscore";
+import { lernpartnerRouter } from "./routers/lernpartner";
 import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
 import { presentationRouter } from "./routers/presentation";
@@ -33,7 +34,8 @@ import { router } from "./trpc";
  * `report` (F-68, seit 17.09.2026) ist Melden/Blockieren, aktuell nur innerhalb des
  * Freundeskreises erreichbar; die Moderationsansicht offener Meldungen liegt unter `admin.*`.
  * `highscore` (F-60, seit 17.09.2026) ist die opt-in Highscore-Liste je Kurs, beschränkt auf den
- * eigenen Freundeskreis.
+ * eigenen Freundeskreis. `lernpartner` (F-62, seit 17.09.2026) zeigt Prüfungstermin-/
+ * Handlungsbereich-Übereinstimmungen innerhalb des Freundeskreises, ohne eigenen Chat.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -54,6 +56,7 @@ export const appRouter = router({
   sponsor: sponsorRouter,
   report: reportRouter,
   highscore: highscoreRouter,
+  lernpartner: lernpartnerRouter,
 });
 
 export type AppRouter = typeof appRouter;

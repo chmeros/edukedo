@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (F-62 Lernpartner-Vermittlung — Iteration 6, Social-Cluster)
+
+- **Rein anzeigend, kein Anfrage-/Bestätigungs-Workflow:** Der Anforderungskatalog verlangt ausdrücklich "ohne offenes Forum/Chat" — die App zeigt nur, WER innerhalb des Freundeskreises zum eigenen Zieltermin/Handlungsbereich passt, der eigentliche Kontakt läuft über die im Freundeskreis (F-63) bereits sichtbare E-Mail-Adresse. Ein zusätzlicher In-App-Anfrage-Mechanismus (z. B. "Partnerschaft anfragen/bestätigen") wäre über die Anforderung hinausgegangen und hätte den ausdrücklichen Chat-Ausschluss unterlaufen.
+- **`lernpartner_fachgebiet_id` als optionale Spalte auf `user_course`, analog zu `highscore_opt_in`/`weekly_goal_items`:** Ein einzelnes, pro Kurs-Mitgliedschaft skopiertes Präferenz-Feld ohne eigene Historie — passt zum bereits etablierten Muster für ähnlich einfache, kursbezogene Nutzer-Einstellungen. `onDelete: "set null"` statt "cascade": Verschwindet ein Fachgebiet (Content-Umbau), verliert die Person nur ihre Präferenz, nicht die gesamte Kurs-Mitgliedschaft.
+- **Zieltermin-Übereinstimmung als ±30-Tage-Fenster, kein exakter Vorgabewert im Anforderungskatalog:** Bewusst grob gewählt (jemand, der "im selben Zeitraum" die Prüfung ablegt, ist ein guter Lernpartner-Kandidat) statt eine exakte Tagesübereinstimmung zu fordern, die kaum je einträfe — mit dem Nutzer als Empfehlung abgestimmt, analog zum rollierenden Zeitfenster bei F-60.
+- **Wiederverwendung der bereits über `progress.overview` geladenen Fachgebiets-Liste im Frontend** (`Lernpartner.tsx` erhält `fachgebiete` als Prop von `Progress.tsx`) statt eines eigenen `lernpartner.fachgebiete`-Endpunkts — vermeidet eine zweite, redundante Abfrage für dieselben Daten.
+- Live gegen echte Postgres-Instanz und über die UI verifiziert: Drei Testkonten mit unterschiedlichen Zielterminen/Handlungsbereich-Präferenzen (ein enger Zieltermin + gleicher Handlungsbereich, ein entfernter Zieltermin + anderer Handlungsbereich) ergaben exakt die erwartete Sortierung — die vollständige Übereinstimmung zuerst, keine Übereinstimmung zuletzt; ein Handlungsbereich aus einem ANDEREN Kurs wird beim Setzen der Präferenz korrekt mit `BAD_REQUEST` abgelehnt.
+
 ### Entschieden am 17.09.2026 (F-60 Highscore-/Punkteliste — Iteration 6, Social-Cluster)
 
 - **Punktestand = Anzahl richtig beantworteter Fragen, nicht Trefferquote:** Eine reine Zählung braucht keine Mindest-Fragenumfangs-Schwelle, um Ausreißer zu vermeiden (eine Person mit 1 von 1 richtiger Antwort würde bei einer Prozent-Metrik fälschlich ganz oben stehen) — mit dem Nutzer abgestimmt.

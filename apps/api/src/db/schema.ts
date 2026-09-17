@@ -132,6 +132,14 @@ export const userCourse = pgTable(
     // Tabelle, weil es ein einzelnes, pro Kurs-Mitgliedschaft skopiertes Flag ist, keine eigene
     // Entität mit Historie.
     highscoreOptIn: boolean("highscore_opt_in").notNull().default(false),
+    // F-62 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten): Bevorzugter Handlungsbereich
+    // für die Lernpartner-Vermittlung — nullable, da eine Präferenz optional ist (F-62 verlangt
+    // "Prüfungstermin UND/ODER Handlungsbereich" als Abgleichsbasis, nicht beides zwingend).
+    // `onDelete: "set null"` statt "cascade": Verschwindet ein Fachgebiet, verliert die Person
+    // nur ihre Präferenz, nicht die gesamte Kurs-Mitgliedschaft.
+    lernpartnerFachgebietId: uuid("lernpartner_fachgebiet_id").references(() => fachgebiet.id, {
+      onDelete: "set null",
+    }),
   },
   (table) => [uniqueIndex("user_course_user_id_kurs_id_key").on(table.userId, table.kursId)],
 );

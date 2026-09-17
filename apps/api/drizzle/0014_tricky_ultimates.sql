@@ -1,0 +1,2 @@
+ALTER TABLE "user_course" ADD COLUMN "lernpartner_fachgebiet_id" uuid;--> statement-breakpoint
+ALTER TABLE "user_course" ADD CONSTRAINT "user_course_lernpartner_fachgebiet_id_fachgebiet_id_fk" FOREIGN KEY ("lernpartner_fachgebiet_id") REFERENCES "public"."fachgebiet"("id") ON DELETE set null ON UPDATE no action;
