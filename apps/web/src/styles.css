@@ -941,12 +941,39 @@ details[open] > summary.disclosure::before {
 }
 
 .flip-scene {
+  position: relative;
   perspective: 1400px;
   /* Verhindert, dass die Karte bei der neuen 960px-Shell-Breite (aspect-ratio 4/3) auf eine
      unhandlich große Fläche aufgeblasen wird. */
   max-width: 640px;
   margin-inline: auto;
   width: 100%;
+}
+
+/* Karteikasten-Stapel (Design-Vorschlag, 17.09.2026): zwei leicht rotierte, angedeutete Karten
+   hinter der eigentlichen Frage/Antwort-Karte — zeigt beiläufig "es sind noch mehr Karten im
+   Stapel", statt die Karte rein dekorativ einzufärben. Bewusst als eigene, unrotierte
+   Geschwister-Ebenen von .flip-card (nicht Teil von dessen 3D-Flip), damit der Stapel beim
+   Umdrehen der obersten Karte unbewegt stehen bleibt — genau wie bei echten Karteikarten. Nur
+   von Flashcards.tsx genutzt (siehe FlipCard.tsx `stacked`-Prop), wenn tatsächlich mehr als eine
+   Karte fällig ist; die Landing-Page-Beispielkarte (nur eine einzelne Demo-Karte, kein echter
+   Stapel) bleibt bewusst unverändert. */
+.flip-stack {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  z-index: -1;
+}
+
+.flip-stack-1 {
+  background: var(--sprout-tint);
+  transform: rotate(-3deg);
+}
+
+.flip-stack-2 {
+  background: var(--sun-tint);
+  transform: rotate(4deg);
 }
 
 .flip-card {

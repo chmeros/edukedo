@@ -104,6 +104,7 @@ export function Flashcards({
       <FlipCard
         flipped={revealed}
         onToggle={() => setRevealed((current) => !current)}
+        stacked={cards.length > 1}
         front={
           <>
             <span className="flip-kicker">Karteikarte</span>

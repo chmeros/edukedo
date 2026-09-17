@@ -6,20 +6,34 @@ import type { ReactNode } from "react";
  * Kernprodukt (FSRS-Spaced-Repetition-Karteikarten) auch auf der Landing Page wiedererkennbar.
  * Gesteuert (flipped/onToggle) statt intern verwaltet, damit Flashcards.tsx den Zustand beim
  * Wechsel zur nächsten Karte zurücksetzen kann.
+ *
+ * `stacked` (Design-Vorschlag, 17.09.2026): blendet zwei angedeutete Karten hinter der
+ * eigentlichen Karte ein (siehe .flip-stack in styles.css) — visualisiert beiläufig, dass noch
+ * weitere Karten im Stapel warten, statt die Karte rein dekorativ einzufärben. Bewusst optional
+ * (Standard `false`): die Landing-Page-Beispielkarte zeigt nur eine einzelne Demo-Karte, kein
+ * echter Stapel, und soll das nicht vortäuschen.
  */
 export function FlipCard({
   flipped,
   onToggle,
   front,
   back,
+  stacked = false,
 }: {
   flipped: boolean;
   onToggle: () => void;
   front: ReactNode;
   back: ReactNode;
+  stacked?: boolean;
 }) {
   return (
     <div className="flip-scene">
+      {stacked && (
+        <>
+          <div className="flip-stack flip-stack-2" aria-hidden="true" />
+          <div className="flip-stack flip-stack-1" aria-hidden="true" />
+        </>
+      )}
       <div
         className={flipped ? "flip-card is-flipped" : "flip-card"}
         onClick={onToggle}

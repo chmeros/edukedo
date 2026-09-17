@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Design-Vorschlag: Karteikasten-Stapel-Optik für Flashcards.tsx)
+
+- **Anlass:** Nutzer empfand die Karteikarten-Frageseite als "farbarm". Erster Entwurf (reine Verlaufs-/Tint-Hintergründe hinter dem Fragetext) wurde als einfallslos zurückgewiesen — auf Nachfrage als "professioneller Designer" vier eigenständige Konzepte mit erkennbarer Idee statt bloßer Farbfläche vorgeschlagen (Karteikasten-Stapel, umgeknickte Papier-Ecke, Konfetti-Cluster, Fachgebiet-Wasserzeichen), mit Empfehlung für den Stapel. Vom Nutzer bestätigt.
+- **Zwei angedeutete, leicht rotierte Karten hinter der eigentlichen Frage-/Antwortkarte** (`.flip-stack`/`.flip-stack-1`/`.flip-stack-2` in `styles.css`, neuer `stacked`-Prop auf `FlipCard.tsx`) — zeigt beiläufig "es sind noch mehr Karten im Stapel" (echte Information, kein reiner Schmuck) statt die Karte selbst einzufärben; die Frage bleibt auf reinem `--card`-Weiß maximal lesbar. Nutzt die bereits vorhandenen `--sprout-tint`/`--sun-tint`-Tokens (keine neuen Farbwerte), die bereits automatisch dark-mode-tauglich sind.
+- **Stapel-Ebenen bewusst als Geschwister von `.flip-card`, nicht Teil von dessen 3D-Flip:** Bleiben beim Umdrehen der obersten Karte unbewegt stehen — genau wie bei einem echten Kartenstapel, bei dem nur die oberste Karte gewendet wird.
+- **`stacked` ist ein optionaler Prop (Standard `false`), nur `Flashcards.tsx` setzt ihn** (`stacked={cards.length > 1}` — kein Stapel, wenn tatsächlich nur noch eine Karte fällig ist, das wäre irreführend). Die Landing-Page-Beispielkarte (`LandingPage.tsx`) bleibt bewusst unverändert — eine einzelne Demo-Karte ohne echten Stapel dahinter sollte keinen vortäuschen.
+- Live verifiziert (Desktop, Mobile 375×812, Dark Mode, Flip-Interaktion): Stapel sichtbar und korrekt rotiert bei >1 fälliger Karte, bleibt beim Flip zur Antwortseite unbewegt stehen, Landing Page unverändert, Farben in Dark Mode passend angepasst. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Bug-Fix: Skip-Link dauerhaft sichtbarer grüner Rand)
 
 - **Anlass:** Nutzer bemerkte eine grüne Struktur oben links im Header auf praktisch jeder Seite. Ursache: `.skip-link` ("Zum Hauptinhalt springen", F-44) sollte per `top: -40px` komplett außerhalb des sichtbaren Bereichs liegen, bis der Link per Tab-Taste fokussiert wird — die tatsächliche Elementhöhe lag durch die globale `line-height: 1.55` (siehe `body` in `:root`) aber bei ~43px statt der angenommenen 40px, wodurch dauerhaft ca. 3px des grün abgerundeten unteren Rands sichtbar blieben.
