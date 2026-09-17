@@ -245,7 +245,9 @@ export function App() {
                       />
                     </div>
                     {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
-                    {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
+                    {learningMode === "progress" && (
+                      <Progress key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
+                    )}
                   </div>
                 </>
               ) : (

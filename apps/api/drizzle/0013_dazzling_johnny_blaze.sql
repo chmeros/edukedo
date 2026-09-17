@@ -1,0 +1,1 @@
+ALTER TABLE "user_course" ADD COLUMN "highscore_opt_in" boolean DEFAULT false NOT NULL;

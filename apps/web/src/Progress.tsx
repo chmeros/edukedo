@@ -1,4 +1,5 @@
 import { FriendCircle } from "./FriendCircle";
+import { Highscore } from "./Highscore";
 import { InfoIcon } from "./Icons";
 import { OfflineDownload } from "./OfflineDownload";
 import { RedeemCompanyCode } from "./RedeemCompanyCode";
@@ -17,7 +18,7 @@ function formatLernzeit(minutes: number): string {
   return `${hours} Std. ${rest} Min.`;
 }
 
-export function Progress({ kursId }: { kursId: string }) {
+export function Progress({ kursId, isMinor }: { kursId: string; isMinor: boolean }) {
   const overview = trpc.progress.overview.useQuery({ kursId });
   // F-31/F-32: eigene Abfrage statt Teil von `overview` — andere Datenquelle (learning_event/
   // learning_session statt user_progress) und unabhängig ladend/leer, siehe
@@ -45,6 +46,7 @@ export function Progress({ kursId }: { kursId: string }) {
       <OfflineDownload kursId={kursId} />
       <RedeemCompanyCode />
       <FriendCircle kursId={kursId} />
+      <Highscore kursId={kursId} isMinor={isMinor} />
 
       {fachgebiete.map((fachgebiet) => (
         <div key={fachgebiet.id} className="stack">

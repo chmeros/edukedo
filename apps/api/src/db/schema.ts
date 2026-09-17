@@ -126,6 +126,12 @@ export const userCourse = pgTable(
     // Für "einzeltermin"-Kurse bleibt die Spalte null, siehe Architekturplanung Abschnitt 13.
     weeklyGoalItems: integer("weekly_goal_items"),
     joinedAt: timestamp("joined_at", { withTimezone: true }).notNull().defaultNow(),
+    // F-60 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten): Opt-in für die
+    // Highscore-Liste, je Kurs getrennt (analog zu weeklyGoalItems) — standardmäßig false, siehe
+    // Anforderungskatalog ("standardmäßig deaktiviert"). Sitzt bewusst hier statt in einer eigenen
+    // Tabelle, weil es ein einzelnes, pro Kurs-Mitgliedschaft skopiertes Flag ist, keine eigene
+    // Entität mit Historie.
+    highscoreOptIn: boolean("highscore_opt_in").notNull().default(false),
   },
   (table) => [uniqueIndex("user_course_user_id_kurs_id_key").on(table.userId, table.kursId)],
 );

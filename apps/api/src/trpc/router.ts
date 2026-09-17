@@ -7,6 +7,7 @@ import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
 import { healthRouter } from "./routers/health";
+import { highscoreRouter } from "./routers/highscore";
 import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
 import { presentationRouter } from "./routers/presentation";
@@ -31,6 +32,8 @@ import { router } from "./trpc";
  * Freundschaftssystem-Grundgerüst, Basis für die späteren Highscore/Duelle/Lernpartner-Bausteine.
  * `report` (F-68, seit 17.09.2026) ist Melden/Blockieren, aktuell nur innerhalb des
  * Freundeskreises erreichbar; die Moderationsansicht offener Meldungen liegt unter `admin.*`.
+ * `highscore` (F-60, seit 17.09.2026) ist die opt-in Highscore-Liste je Kurs, beschränkt auf den
+ * eigenen Freundeskreis.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -50,6 +53,7 @@ export const appRouter = router({
   offline: offlineRouter,
   sponsor: sponsorRouter,
   report: reportRouter,
+  highscore: highscoreRouter,
 });
 
 export type AppRouter = typeof appRouter;
