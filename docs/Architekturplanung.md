@@ -567,6 +567,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Bug-Fix: Skip-Link dauerhaft sichtbarer grüner Rand)
+
+- **Anlass:** Nutzer bemerkte eine grüne Struktur oben links im Header auf praktisch jeder Seite. Ursache: `.skip-link` ("Zum Hauptinhalt springen", F-44) sollte per `top: -40px` komplett außerhalb des sichtbaren Bereichs liegen, bis der Link per Tab-Taste fokussiert wird — die tatsächliche Elementhöhe lag durch die globale `line-height: 1.55` (siehe `body` in `:root`) aber bei ~43px statt der angenommenen 40px, wodurch dauerhaft ca. 3px des grün abgerundeten unteren Rands sichtbar blieben.
+- **`top: -40px` durch `transform: translateY(-100%)` ersetzt:** Versetzt das Element immer um exakt seine eigene, aktuell berechnete Höhe nach oben, unabhängig von Schriftgröße/Padding — kein manuell nachzuführender Pixelwert mehr, der bei künftigen Typografie-Änderungen erneut auseinanderlaufen könnte.
+- Per `getBoundingClientRect()` verifiziert: vorher `bottom: 3.25px` (sichtbarer Rest), nachher `bottom: 0px` (vollständig verborgen). Tab-Fokus zeigt den Link weiterhin korrekt vollständig an (live per Tastatur-Fokus geprüft). Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit Befund #10: vertikale Zentrierung bei Karteikarten/Quiz/Prüfung-Setup)
 
 - **Anlass:** Letzter Befund aus dem Design-Audit — eine einzelne Karteikarte/Quizfrage/Prüfungs-Auswahl blieb in `.content-narrow` auf breiten Bildschirmen oben in der (seit Phase 1 auf 1160px verbreiterten) `.shell` "liegen", darunter blieb viel ungenutzte Fläche. Konnte als bewusster Fokus gelesen werden, wirkte in der Praxis aber eher leer als komponiert.

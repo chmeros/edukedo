@@ -164,7 +164,7 @@ a {
    wieder einblenden. */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 12px;
   z-index: 100;
   background: var(--sprout-deep);
@@ -175,11 +175,18 @@ a {
   font-weight: 700;
   font-size: var(--fs-sm);
   text-decoration: none;
-  transition: top 0.15s ease;
+  /* Bug-Fund 17.09.2026: ein fester "top: -40px" ging von einer Elementhöhe von 40px aus, die
+     tatsächliche Höhe (Padding + globale line-height:1.55 aus body) lag aber bei ~43px — ein
+     paar Pixel des grün abgerundeten unteren Randes blieben dadurch dauerhaft im Header
+     sichtbar, statt komplett verborgen zu sein, bis der Link per Tab-Taste fokussiert wird.
+     translateY(-100%) versetzt stattdessen um exakt die eigene (jeweils aktuelle) Höhe nach
+     oben, unabhängig von Schriftgröße/Padding — kein manuell nachzuführender Pixelwert mehr. */
+  transform: translateY(-100%);
+  transition: transform 0.15s ease;
 }
 
 .skip-link:focus {
-  top: 0;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
