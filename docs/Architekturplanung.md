@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit: Bug-Fix — falsches "✓ Synchronisiert" ohne echten Sync)
+
+- **Anlass:** Fünfter, kleinster Befund aus dem Design-Audit: Ein "✓ Synchronisiert"-Badge blitzte im Header bei praktisch jedem Login/Reload kurz auf, obwohl die lokale Offline-Warteschlange leer war und nichts zu synchronisieren gab — ein irreführendes Signal.
+- **Ursache in `useOfflineSync.ts` gefunden:** Der `useEffect` löste bei jedem Wechsel zu `online` (auch beim ersten Mounten, wenn ohnehin schon online) `syncOfflineQueue` aus und setzte danach UNBEDINGT `setState("synced")` — unabhängig davon, ob `syncOfflineQueue` tatsächlich Einträge synchronisiert hatte (`count > 0`) oder die Warteschlange von vornherein leer war (`count === 0`, der weit überwiegende Normalfall).
+- **Fix:** `setState("synced")` nur noch im `count > 0`-Zweig (zusammen mit den bereits dort vorhandenen `utils.progress.invalidate()`/`utils.content.invalidate()`-Aufrufen), sonst `setState("idle")`. `OfflineStatus.tsx` selbst musste nicht geändert werden — sie blendet "✓ Synchronisiert" ohnehin korrekt nur bei `syncState === "synced"` ein, das fehlerhafte Signal kam ausschließlich aus dem Hook.
+- Live verifiziert: mehrere Seiten-Reloads bei leerer Warteschlange zeigen jetzt korrekt kein "✓ Synchronisiert" mehr. Der positive Fall (tatsächlicher Sync nach Offline-Nutzung) bleibt unverändert, da dessen Code-Pfad (`count > 0`) nicht angefasst wurde. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit: drei kleinere visuelle Inkonsistenzen behoben)
 
 - **Anlass:** Vierter, gebündelter Befund aus dem Design-Audit — drei kleine, aber wiederkehrende visuelle Unstimmigkeiten im Freundeskreis-Widget und bei den Fortschrittsbalken.

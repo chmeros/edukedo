@@ -20,11 +20,17 @@ export function useOfflineSync(): OfflineSyncState {
     setState("syncing");
     syncOfflineQueue(utils)
       .then((count) => {
+        // Redesign-Audit 17.09.2026 (Bug-Fund): vorher wurde unbedingt "synced" gesetzt, auch
+        // wenn die Warteschlange leer war (der Normalfall bei jedem Login/Reload ohne Offline-
+        // Nutzung) — OfflineStatus.tsx blendete dadurch bei praktisch jedem Seitenaufruf kurz
+        // ein irreführendes "✓ Synchronisiert" ein, obwohl gar nichts zu synchronisieren war.
         if (count > 0) {
           utils.progress.invalidate();
           utils.content.invalidate();
+          setState("synced");
+        } else {
+          setState("idle");
         }
-        setState("synced");
       })
       .catch(() => {
         setState("error");
