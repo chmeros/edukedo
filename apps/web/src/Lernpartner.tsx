@@ -15,12 +15,14 @@ export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebie
   });
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Lernpartner-Vermittlung</h2>
-      <p className="field-hint">
-        Zeigt Übereinstimmungen bei Prüfungstermin und Handlungsbereich innerhalb deines Freundeskreises — ohne
-        eigenen Chat, meldet euch per E-Mail.
-      </p>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Lernpartner-Vermittlung</h2>
+        <p>
+          Zeigt Übereinstimmungen bei Prüfungstermin und Handlungsbereich innerhalb deines Freundeskreises — ohne
+          eigenen Chat, meldet euch per E-Mail.
+        </p>
+      </div>
 
       <div className="field">
         <label htmlFor="lernpartner-fachgebiet">Bevorzugter Handlungsbereich (optional)</label>
@@ -39,9 +41,9 @@ export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebie
         </select>
       </div>
 
-      <div className="stack">
+      <div className="list">
         {(matches.data ?? []).map((entry) => (
-          <div key={entry.friendUserId} className="admin-row">
+          <div key={entry.friendUserId} className="list-row">
             <div className="meta">
               {entry.friendEmail}
               <span>
@@ -58,8 +60,8 @@ export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebie
             )}
           </div>
         ))}
-        {matches.data?.length === 0 && <p className="field-hint">Noch keine Freunde in diesem Kurs.</p>}
       </div>
+      {matches.data?.length === 0 && <p className="field-hint">Noch keine Freunde in diesem Kurs.</p>}
     </div>
   );
 }

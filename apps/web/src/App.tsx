@@ -209,7 +209,14 @@ export function App() {
                     ))}
                   </div>
                   <div
-                    className="card"
+                    // Redesign 17.09.2026 (siehe Architekturplanung Abschnitt 13): löst die
+                    // bisherige, alle Lernmodi umschließende .card ab — Theorie/Fortschritt
+                    // nutzen jetzt die volle .shell-Breite, Karteikarten/Quiz/Prüfung bleiben
+                    // über .content-narrow bewusst schmal (ein einzelnes Frage-/Antwort-Element
+                    // wirkt auf voller Breite verloren statt fokussiert).
+                    className={
+                      learningMode === "theorie" || learningMode === "progress" ? undefined : "content-narrow"
+                    }
                     role="tabpanel"
                     id={`panel-${learningMode}`}
                     aria-labelledby={`tab-${learningMode}`}

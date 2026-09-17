@@ -48,6 +48,7 @@ export function OfflineDownload({ kursId }: { kursId: string }) {
 
   return (
     <div className="stack">
+      <span className="stat-subheading">Offline-Modus</span>
       <button type="button" className="btn btn-ghost btn-sm" onClick={download} disabled={status === "downloading"}>
         {status === "downloading" ? "Wird geladen…" : "Für offline verfügbar machen"}
       </button>

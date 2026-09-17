@@ -27,9 +27,11 @@ export function Achievements() {
   }, []);
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Achievements &amp; Bestwerte</h2>
-      <p className="field-hint">Deine persönliche Lernreise über alle belegten Kurse hinweg — ohne Fremdkontakt.</p>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Achievements &amp; Bestwerte</h2>
+        <p>Deine persönliche Lernreise über alle belegten Kurse hinweg — ohne Fremdkontakt.</p>
+      </div>
 
       {checkAndAward.data && checkAndAward.data.newlyEarnedKeys.length > 0 && (
         <div className="alert alert-success">
@@ -64,9 +66,9 @@ export function Achievements() {
         </div>
       </div>
 
-      <div className="stack">
+      <div className="list">
         {(achievements.data ?? []).map((entry) => (
-          <div key={entry.key} className="admin-row" style={entry.earnedAt ? undefined : { opacity: 0.6 }}>
+          <div key={entry.key} className="list-row" style={entry.earnedAt ? undefined : { opacity: 0.6 }}>
             <div className="meta">
               {entry.title}
               <span>

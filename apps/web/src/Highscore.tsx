@@ -21,12 +21,14 @@ export function Highscore({ kursId, isMinor }: { kursId: string; isMinor: boolea
   });
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Highscore</h2>
-      <p className="field-hint">
-        Nur für diesen Kurs, beschränkt auf deinen Freundeskreis — Punktestand aus richtig beantworteten Fragen der
-        letzten 7 Tage.
-      </p>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Highscore</h2>
+        <p>
+          Nur für diesen Kurs, beschränkt auf deinen Freundeskreis — Punktestand aus richtig beantworteten Fragen
+          der letzten 7 Tage.
+        </p>
+      </div>
 
       {isMinor ? (
         <p className="field-hint">
@@ -46,19 +48,19 @@ export function Highscore({ kursId, isMinor }: { kursId: string; isMinor: boolea
       )}
       {setOptIn.error && <ErrorMessage>{setOptIn.error.message}</ErrorMessage>}
 
-      <div className="stack">
+      <div className="list">
         {(leaderboard.data ?? []).map((entry, index) => (
-          <div key={entry.userId} className="admin-row">
+          <div key={entry.userId} className="list-row">
             <div className="meta">
               {index + 1}. {entry.isSelf ? "Du" : entry.email}
               <span>{entry.points} Punkt(e)</span>
             </div>
           </div>
         ))}
-        {leaderboard.data?.length === 0 && (
-          <p className="field-hint">Noch niemand in deinem Freundeskreis nimmt teil.</p>
-        )}
       </div>
+      {leaderboard.data?.length === 0 && (
+        <p className="field-hint">Noch niemand in deinem Freundeskreis nimmt teil.</p>
+      )}
     </div>
   );
 }

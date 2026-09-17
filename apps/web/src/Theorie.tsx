@@ -47,7 +47,11 @@ export function Theorie({ kursId }: { kursId: string }) {
   const active = items.find((item) => item.id === activeId) ?? items[0]!;
 
   return (
-    <>
+    // Redesign 17.09.2026: eigener Grid-Wrapper statt zweier lose nebeneinanderstehender
+    // Geschwister-Elemente — nutzt die seit der Verbreiterung von .shell verfügbare Breite für
+    // eine Themen-Navigation neben dem Inhalt (Desktop), fällt unter der Breakpoint auf eine
+    // einspaltige Reihenfolge zurück (siehe .theory-layout in styles.css).
+    <div className="theory-layout">
       <div className="theory-nav">
         {items.map((item) => (
           <button
@@ -65,6 +69,6 @@ export function Theorie({ kursId }: { kursId: string }) {
         <h3>{active.themaTitle}</h3>
         {renderMarkdown(active.bodyMarkdown)}
       </article>
-    </>
+    </div>
   );
 }

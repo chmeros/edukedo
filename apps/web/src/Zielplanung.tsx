@@ -58,7 +58,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
     const percent = weeklyGoalItems ? Math.min(100, Math.round((itemsThisWeek / weeklyGoalItems) * 100)) : 0;
 
     return (
-      <div className="stack stat-section">
+      <div className="stack">
         <h3 className="stat-heading">Dein Wochenziel</h3>
         {weeklyGoalItems ? (
           <div className="progress-block">
@@ -109,7 +109,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
   const data = pacing.data;
 
   return (
-    <div className="stack stat-section">
+    <div className="stack">
       <h3 className="stat-heading">Restzeit & Lernpensum</h3>
 
       {data.targetDate === null && (

@@ -21,9 +21,12 @@ export function RedeemCompanyCode() {
 
   if (redeem.data) {
     return (
-      <div className="alert alert-success">
-        <SuccessIcon />
-        <div>Du bist jetzt Teil der Unternehmens-Lizenz von {redeem.data.companyName}.</div>
+      <div className="stack">
+        <span className="stat-subheading">Unternehmenscode</span>
+        <div className="alert alert-success">
+          <SuccessIcon />
+          <div>Du bist jetzt Teil der Unternehmens-Lizenz von {redeem.data.companyName}.</div>
+        </div>
       </div>
     );
   }
@@ -36,6 +39,7 @@ export function RedeemCompanyCode() {
         redeem.mutate({ code });
       }}
     >
+      <span className="stat-subheading">Unternehmenscode</span>
       <div className="field">
         <label htmlFor="redeem-company-code">Einladungscode eines Unternehmens einlösen</label>
         <input

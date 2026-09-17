@@ -190,12 +190,14 @@ a {
 }
 
 /* ---------- Shell / Card (Grundgerüst für Auth- und App-Bildschirme, siehe design/system.css) ---------- */
-/* 960px bewusst nur für den eingeloggten App-Bereich (Theorie/Karteikarten/Quiz/Fortschritt/
-   Admin, siehe App.tsx) — die Landing Page nutzt bis zu 1160px (.landing-wrap), Formulare
-   bleiben über .shell--narrow bei 460px. Vorher waren beide bei 640px, was auf großen Screens
-   zu einem harten Bruch zwischen der breiten Landing Page und einer winzigen App-Karte führte. */
+/* Redesign 17.09.2026 (siehe Architekturplanung Abschnitt 13): .shell auf dieselbe Breite wie
+   .landing-wrap (1160px) gehoben, damit sich die eingeloggte Lern-App nicht mehr als enge,
+   zentrierte Karte von der vollbreiten Landing Page absetzt, sondern als deren direkte
+   Fortsetzung wirkt. Betrifft ausschließlich den eingeloggten Lernbereich (App.tsx, kein
+   `--narrow`-Modifier) — alle Auth-/Formular-Bildschirme nutzen weiterhin explizit
+   `.shell--narrow` (460px) und sind von dieser Verbreiterung unberührt. */
 .shell {
-  max-width: 960px;
+  max-width: 1160px;
   margin-inline: auto;
   padding: clamp(20px, 5vw, 56px) 16px;
   display: flex;
@@ -205,6 +207,92 @@ a {
 
 .shell--narrow {
   max-width: 460px;
+}
+
+/* Für Lerninhalte, die bewusst NICHT die volle Breite ausnutzen sollen (Karteikarte, Quiz-Frage,
+   Prüfungssimulation) — ein einzelnes Frage-/Antwort-Element wirkt auf 1160px verloren und
+   schwerer erfassbar als in einer schmaleren, mittig sitzenden Spalte. Theorie und Fortschritt
+   (mit mehreren Spalten/Listen) nutzen dagegen bewusst die volle `.shell`-Breite. */
+.content-narrow {
+  max-width: 640px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* ---------- Panel-Sections (Redesign 17.09.2026) ---------- */
+/* Löst den bisherigen Ansatz ab, jeden Abschnitt (Freundeskreis, Highscore, Fortschritt je
+   Fachgebiet, …) in eine eigene .card zu packen — stattdessen hängen die Abschnitte direkt in
+   der vollbreiten .shell und trennen sich nur durch eine dünne Linie plus vertikalen Abstand
+   voneinander, analog zu .stat-section (siehe unten), jetzt aber als generische Klasse für
+   jeden Seitenabschnitt nutzbar, nicht nur die Lernstatistik. */
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-block: clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--line);
+}
+
+.panel-section:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.panel-section-head h2 {
+  font-size: var(--fs-lg);
+}
+
+.panel-section-head p {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Listen (Redesign 17.09.2026, löst .admin-row für neue Listen ab) ---------- */
+/* Schlichte Zeilen mit Trennlinie statt einzeln umrandeter Boxen — deutlich weniger visuelles
+   Rauschen bei längeren Listen (Einladungscodes, Freunde, Mitglieder, Meldungen, …).
+   .admin-row/.join-row bleiben für Bereiche bestehen, die in dieser Umbauphase noch nicht
+   angefasst wurden (Admin-Panel, Unternehmens-/Eltern-Dashboard, siehe Architekturplanung
+   Abschnitt 13). */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.list-row:last-child {
+  border-bottom: none;
+}
+
+.list-row .meta {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.list-row .meta span {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.list-row .meta span.is-mono {
+  font-family: var(--font-mono);
+}
+
+.list-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
 }
 
 .card {
@@ -746,6 +834,22 @@ details[open] > summary.disclosure::before {
 }
 
 /* ---------- Theorie ---------- */
+/* Redesign 17.09.2026: Themen-Navigation neben dem Inhalt statt darüber, sobald genug Breite
+   verfügbar ist (seit der Verbreiterung von .shell auf 1160px, siehe oben) — darunter bleibt
+   die bisherige einspaltige Reihenfolge (Navigation zuerst) erhalten. */
+.theory-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 780px) {
+  .theory-layout {
+    grid-template-columns: 260px 1fr;
+  }
+}
+
 .theory-nav {
   display: flex;
   flex-direction: column;
@@ -1123,6 +1227,43 @@ details[open] > summary.disclosure::before {
 }
 
 /* ---------- Fortschritt ---------- */
+/* Redesign 17.09.2026: nutzt die verbreiterte .shell (siehe oben) für ein 2-spaltiges Raster der
+   Fachgebiete auf breiten Bildschirmen, statt einer einzigen, auf großen Screens sehr lang
+   werdenden vertikalen Liste. */
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 860px) {
+  .progress-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Redesign 17.09.2026 (Nachfrage): kompakte, kontobezogene Einstellungs-Widgets (Zielplanung,
+   Offline-Download, Unternehmenscode-Einlösung) sollen auf breiten Bildschirmen nicht die volle
+   Breite verschenken, obwohl ihr Inhalt viel schmaler ist. Anders als .progress-grid (fester
+   1-auf-2-Spalten-Breakpoint) füllt auto-fit/minmax die verfügbare Breite dynamisch mit so vielen
+   Spalten wie Platz vorhanden ist, ganz ohne JavaScript oder festen Breakpoint. .widget nutzt zur
+   Abgrenzung im Mehrspalten-Raster dieselbe dezent getönte Fläche wie .stat-tile (--surface),
+   bewusst ohne Rahmen/Schatten wie beim früheren .card.*/
+.widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: clamp(16px, 2.5vw, 22px);
+}
+
 .progress-block {
   display: flex;
   flex-direction: column;
@@ -1834,4 +1975,72 @@ details[open] > summary.disclosure::before {
   height: 18px;
   flex: none;
   accent-color: var(--sprout);
+}
+
+/* ---------- Modal (Redesign 17.09.2026, siehe Modal.tsx) ---------- */
+/* Bewusst getrennt vom Dropdown-Muster in .header-menu-panel (position: absolute, kein Backdrop,
+   kein Scroll-Lock) — ein Modal unterbricht den restlichen Seiteninhalt, ein Dropdown ergänzt
+   ihn nur lokal. Für Formulare/destruktive Bestätigungen (Melden, Blockieren, Konto löschen), Kern
+   Lerninhalte bleiben vollseitig. */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 33, 43, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 200;
+}
+
+:root[data-theme="dark"] .modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .modal-backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.modal-panel {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: clamp(22px, 4vw, 32px);
+  width: 100%;
+  max-width: 460px;
+  max-height: min(85vh, 720px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-head h2 {
+  font-size: var(--fs-md);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin: -4px -4px 0 0;
+  color: var(--ink-faint);
+  cursor: pointer;
+  border-radius: 8px;
+  flex: none;
+}
+
+.modal-close:hover {
+  color: var(--ink);
+  background: var(--surface);
 }
