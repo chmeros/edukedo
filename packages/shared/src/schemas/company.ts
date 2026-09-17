@@ -39,6 +39,23 @@ export const adminCreateCompanyAccountInputSchema = z.object({
 });
 export type AdminCreateCompanyAccountInput = z.infer<typeof adminCreateCompanyAccountInputSchema>;
 
+export const companyBillingStatusSchema = z.enum(["pending", "active", "expired"]);
+export type CompanyBillingStatus = z.infer<typeof companyBillingStatusSchema>;
+
+/**
+ * F-91 Baustein 6: Freischalt-Werkzeug nach manuellem Zahlungseingang (Rechnung/Überweisung
+ * außerhalb des Systems, siehe Architekturplanung Abschnitt 4.5/13) — kein automatisierter
+ * Checkout. `seatLimit` bewusst ab 0 statt ab 1 (anders als bei der Kontoanlage): Ein Admin muss
+ * ein Kontingent auch vorübergehend auf 0 setzen können (z. B. bei ausstehender Zahlung), ohne
+ * das Konto selbst zu löschen.
+ */
+export const adminUpdateCompanyBillingInputSchema = z.object({
+  companyAccountId: z.string().uuid(),
+  billingStatus: companyBillingStatusSchema,
+  seatLimit: z.number().int().min(0).max(100_000),
+});
+export type AdminUpdateCompanyBillingInput = z.infer<typeof adminUpdateCompanyBillingInputSchema>;
+
 /**
  * F-91 Baustein 2: Lizenzvergabe per Einladungscode. `expiresAt` ist bewusst optional (siehe
  * company_invite_code in db/schema.ts) — anders als bei F-63 keine Pflicht-Befristung.

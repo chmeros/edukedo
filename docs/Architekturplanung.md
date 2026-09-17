@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (F-91 Business-Lizenzen, Baustein 6: Admin-Freischalt-Werkzeug für die Abrechnung — F-91–F-94 damit vollständig umgesetzt)
+
+- **EIN Endpunkt (`admin.updateCompanyBilling`) für `billing_status` UND `seat_limit` statt zwei getrennter Mutationen:** Beide Felder werden in der Praxis stets gemeinsam nach demselben manuellen Zahlungseingang aktualisiert (Rechnung/Überweisung außerhalb des Systems, siehe Abschnitt 4.5) — eine künstliche Aufteilung in zwei Aufrufe hätte nur unnötige Zwischenzustände erzeugt (z. B. `billing_status = active` mit noch altem `seat_limit`).
+- **`seat_limit` hier ab 0 statt ab 1 zulässig** (anders als bei `admin.createCompanyAccount`): Ein Admin muss ein Kontingent auch vorübergehend auf 0 setzen können (z. B. bei ausstehender Anschlusszahlung), ohne das Unternehmens-Konto selbst löschen zu müssen — ein neu ANGELEGTES Konto ergibt dagegen ohne jedes Kontingent keinen Sinn.
+- **Keine serverseitige Sperre gegen ein `seat_limit` unterhalb der aktuellen `seatsUsed`-Zahl:** Konsistent mit der bereits in Baustein 2 getroffenen Entscheidung, das Kontingent bewusst nur bei NEUEN Einlösungen zu prüfen (`redeemInviteCode`), nicht retroaktiv gegen bestehende Mitgliedschaften durchzusetzen — eine Kontingent-Reduzierung sperrt damit nur künftige Einlösungen, entzieht aber niemandem stillschweigend eine bereits bestehende Lizenz.
+- **Kein `useEffect`-Reset der Formularfelder bei jedem Company-Listen-Refetch** (`CompanyBillingForm` in `AdminPanel.tsx`): Initialisiert den lokalen State bewusst nur beim ersten Rendern aus den Server-Daten — sonst würde eine gerade eingetippte, noch nicht abgeschickte Änderung durch das Neuladen der Liste nach dem Bearbeiten einer ANDEREN Unternehmens-Zeile stillschweigend verworfen.
+- Live gegen echte Postgres-Instanz verifiziert: Statusänderung auf "Aktiv" und Kontingent-Erhöhung auf 25 landen sofort in der Admin-Liste und im `company.me`-Abruf der betroffenen Unternehmens-Session selbst; eine unbekannte Konto-ID liefert `NOT_FOUND`; eine Company-Session kann `admin.updateCompanyBilling` selbst nicht aufrufen (`UNAUTHORIZED`).
+
 ### Entschieden am 17.09.2026 (F-91 Business-Lizenzen, Baustein 5: Sponsoring, F-94)
 
 - **`sponsor` exakt nach der Skizze aus Abschnitt 4.5 umgesetzt**, ohne Abweichung: keine Nutzer-Verknüpfung, `kurs_id` nullable (= plattformweite Platzierung), `is_active` statt Hard-Delete, `starts_at`/`ends_at` beide unabhängig voneinander optional.

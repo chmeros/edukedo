@@ -79,6 +79,62 @@ function CreateCompanyAccountForm() {
 }
 
 /**
+ * F-91 Baustein 6: Freischalt-Werkzeug nach manuellem Zahlungseingang (Rechnung/Überweisung
+ * außerhalb des Systems) — EIN Formular für beide Felder (`billingStatus`/`seatLimit`), da sie
+ * in der Praxis gemeinsam nach demselben Zahlungseingang aktualisiert werden. Initialisiert
+ * bewusst nur beim ersten Rendern aus den Server-Daten (kein `useEffect`-Reset bei jedem
+ * Refetch) — sonst würde eine noch nicht abgeschickte Änderung durch das Neuladen nach einer
+ * ANDEREN Unternehmens-Zeile stillschweigend verworfen.
+ */
+function CompanyBillingForm({ company }: { company: { id: string; billingStatus: string; seatLimit: number } }) {
+  const utils = trpc.useUtils();
+  const update = trpc.admin.updateCompanyBilling.useMutation({
+    onSuccess: () => utils.admin.companyAccounts.invalidate(),
+  });
+  const [billingStatus, setBillingStatus] = useState(company.billingStatus);
+  const [seatLimit, setSeatLimit] = useState(String(company.seatLimit));
+
+  return (
+    <form
+      style={{ display: "flex", gap: 8, alignItems: "center" }}
+      onSubmit={(event) => {
+        event.preventDefault();
+        update.mutate({
+          companyAccountId: company.id,
+          billingStatus: billingStatus as "pending" | "active" | "expired",
+          seatLimit: Number(seatLimit),
+        });
+      }}
+    >
+      <select
+        className="input"
+        aria-label={`Abrechnungsstatus für ${company.id}`}
+        value={billingStatus}
+        onChange={(event) => setBillingStatus(event.target.value)}
+      >
+        <option value="pending">Ausstehend</option>
+        <option value="active">Aktiv</option>
+        <option value="expired">Abgelaufen</option>
+      </select>
+      <input
+        className="input"
+        style={{ width: 80 }}
+        type="number"
+        min={0}
+        aria-label={`Sitzplatz-Kontingent für ${company.id}`}
+        value={seatLimit}
+        onChange={(event) => setSeatLimit(event.target.value)}
+        required
+      />
+      <button type="submit" className="btn btn-secondary btn-sm" disabled={update.isPending}>
+        Speichern
+      </button>
+      {update.error && <ErrorMessage>{update.error.message}</ErrorMessage>}
+    </form>
+  );
+}
+
+/**
  * F-91 Baustein 5 (F-94): Sponsoring — admin-gepflegt, bewusst kein Self-Service durch das
  * sponsernde Unternehmen (redaktionelle Unabhängigkeit, siehe F-11/F-16). `courses` wird von
  * `AdminPanel` durchgereicht, damit hier keine zweite, redundante Kurs-Abfrage nötig ist.
@@ -251,6 +307,7 @@ export function AdminPanel() {
               {company.passwordSet ? "eingerichtet" : "Setup ausstehend"}
             </span>
           </div>
+          <CompanyBillingForm company={company} />
         </div>
       ))}
       {companyAccounts.data?.length === 0 && <p className="field-hint">Noch keine Unternehmens-Konten angelegt.</p>}

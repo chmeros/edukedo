@@ -1,4 +1,9 @@
-import { adminCreateCompanyAccountInputSchema, createSponsorInputSchema, setSponsorActiveInputSchema } from "@edukedo/shared";
+import {
+  adminCreateCompanyAccountInputSchema,
+  adminUpdateCompanyBillingInputSchema,
+  createSponsorInputSchema,
+  setSponsorActiveInputSchema,
+} from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
@@ -104,6 +109,29 @@ export const adminRouter = router({
         // hier direkt für die manuelle Weiterverwendung zurückgegeben (siehe auth.register).
         devSetupUrl: env.NODE_ENV === "production" ? undefined : setupUrl,
       };
+    }),
+
+  /**
+   * F-91 Baustein 6: Freischalt-Werkzeug nach manuellem Zahlungseingang (Rechnung/Überweisung
+   * außerhalb des Systems) — kein automatisierter Checkout, kein Anschluss an den separaten
+   * Payment-Service (siehe Architekturplanung Abschnitt 4.5/13). Bewusst EIN Endpunkt für beide
+   * Felder statt zwei getrennter: `billing_status` und `seat_limit` werden in der Praxis
+   * gemeinsam nach demselben Zahlungseingang aktualisiert, nie unabhängig voneinander.
+   */
+  updateCompanyBilling: roleProcedure("admin")
+    .input(adminUpdateCompanyBillingInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [updated] = await ctx.db
+        .update(companyAccount)
+        .set({ billingStatus: input.billingStatus, seatLimit: input.seatLimit })
+        .where(eq(companyAccount.id, input.companyAccountId))
+        .returning({ id: companyAccount.id });
+
+      if (!updated) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Unternehmens-Konto wurde nicht gefunden." });
+      }
+
+      return { success: true };
     }),
 
   /**
