@@ -27,7 +27,7 @@ export function FlipCard({
   stacked?: boolean;
 }) {
   return (
-    <div className="flip-scene">
+    <div className={stacked ? "flip-scene has-stack" : "flip-scene"}>
       {stacked && (
         <>
           <div className="flip-stack flip-stack-2" aria-hidden="true" />

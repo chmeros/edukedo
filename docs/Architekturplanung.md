@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Bug-Fixes: Karteikasten-Stapel zu nah an Nachbarelementen, Theorie-Nav-Text angeschnitten)
+
+- **Anlass:** Nutzer bemerkte live im Browser zwei Anschluss-Bugs an bereits umgesetzten Änderungen desselben Tages.
+- **Karteikasten-Stapel (`.flip-stack`) rückte dem "X Karte(n) fällig"-Text darüber und den Bewertungs-Buttons darunter zu nah auf:** Die rotierten Stapel-Ebenen ragen an den Ecken über die eigentliche Kartenbox hinaus (Effekt der Rotation) — nur durch den generischen 14px-`.stack`-Gap von den Nachbarelementen getrennt, reichte das nicht. Neue Klasse `.flip-scene.has-stack` (`margin-block: 20px`) reserviert zusätzlichen Vertikalabstand — von `FlipCard.tsx` nur gesetzt, wenn `stacked` aktiv ist, damit die unveränderte Landing-Page-Demokarte (kein Stapel) keinen zusätzlichen Abstand bekommt. Per `getBoundingClientRect()` verifiziert: durchgängig ~12px Abstand oberhalb/unterhalb des Stapels statt vorher nahezu null.
+- **Theorie-Sidebar-Einträge (`.theory-nav button`, zweizeiliger `-webkit-line-clamp`) schnitten die zweite Zeile am unteren Rand leicht an:** `line-height` war zuvor implizit `normal` — `-webkit-line-clamp` reserviert die Boxhöhe dann nicht immer exakt für die volle Zeilenzahl. Ein expliziter Wert (`line-height: 1.35`) macht die Höhenberechnung deterministisch. Per `getBoundingClientRect()`/`getComputedStyle()` verifiziert: Boxhöhe (67px) entspricht jetzt exakt 2 vollen Zeilen (20.25px × 2) plus Padding, kein Anschnitt mehr.
+- Live verifiziert (Desktop, Mobile 375×812, Dark Mode): beide Fixes bestätigt, Landing-Page-Demokarte nachweislich unverändert (`className="flip-scene"`, `marginBlock: 0px`, kein `.flip-stack` im DOM). Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Design-Vorschlag: Karteikasten-Stapel-Optik für Flashcards.tsx)
 
 - **Anlass:** Nutzer empfand die Karteikarten-Frageseite als "farbarm". Erster Entwurf (reine Verlaufs-/Tint-Hintergründe hinter dem Fragetext) wurde als einfallslos zurückgewiesen — auf Nachfrage als "professioneller Designer" vier eigenständige Konzepte mit erkennbarer Idee statt bloßer Farbfläche vorgeschlagen (Karteikasten-Stapel, umgeknickte Papier-Ecke, Konfetti-Cluster, Fachgebiet-Wasserzeichen), mit Empfehlung für den Stapel. Vom Nutzer bestätigt.
