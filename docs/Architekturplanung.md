@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit: drei kleinere visuelle Inkonsistenzen behoben)
+
+- **Anlass:** Vierter, gebündelter Befund aus dem Design-Audit — drei kleine, aber wiederkehrende visuelle Unstimmigkeiten im Freundeskreis-Widget und bei den Fortschrittsbalken.
+- **"Neuen Einladungscode erstellen" von `.btn-secondary` (volltonig, ohne Größenmodifikator) auf `.btn-ghost.btn-sm` heruntergestuft:** Im Vergleich mit allen anderen "Aktion auslösen"-Buttons in denselben und benachbarten Widgets (`FriendCircle.tsx`s eigenes "Code einlösen", `OfflineDownload.tsx`, `RedeemCompanyCode.tsx`) war dieser Button der einzige Ausreißer mit voller Prominenz, obwohl Erstellen und Einlösen eines Codes vergleichbar häufige, vergleichbar folgenlose (über "Widerrufen" reversible) Aktionen sind. `.btn-secondary` bleibt für tatsächlich abschließende Formular-Submits reserviert (z. B. "Meldung absenden"), wie im übrigen Projekt bereits üblich.
+- **Neue `stat-subheading` vor dem "Einladungscode einlösen"-Formular ergänzt:** War der einzige Unterbereich im Freundeskreis-Widget ohne eigene Überschrift und dadurch optisch nicht als eigener Abschnitt neben "Meine Einladungscodes"/"Meine Freunde"/"Meine Blockierungen" erkennbar.
+- **`.progress-bar`-Hintergrund von `--surface` auf `--surface-2` geändert:** `--surface` war gegen `--paper` (Seitenhintergrund) zu kontrastarm — eine 0-%-Leiste war praktisch unsichtbar, "0 % begonnen" ließ sich nicht von "kein Balken vorhanden" unterscheiden. `--surface-2` ist ein im Tokensystem bereits vorhandener, kräftigerer Ton (siehe `:root`), der vor diesem Fix ungenutzt war — kein neuer Farbwert nötig.
+- Live verifiziert (Desktop, Dark Mode): beide Buttons jetzt gleichgewichtig, neue Unterüberschrift sichtbar, 0-%-Balken in beiden Farbschemata klar als Leiste erkennbar. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit: mobile Lernmodus-Tableiste als Einzeiler)
 
 - **Anlass:** Dritter Befund aus dem Design-Audit. `.tab-nav` (Theorie/Karteikarten/Quiz/Prüfung/Fortschritt) stufte bei schmalen Bildschirmen über CSS Grid von 5 auf 3 auf 2 Spalten herunter — bei 5 Tabs und 2 Spalten ergab das ein unausgeglichenes 2-2-1-Raster, in dem "Fortschritt" allein und linksbündig in einer eigenen letzten Zeile hing.

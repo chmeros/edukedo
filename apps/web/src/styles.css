@@ -1324,7 +1324,12 @@ details[open] > summary.disclosure::before {
 .progress-bar {
   height: 8px;
   border-radius: 100px;
-  background: var(--surface);
+  /* Redesign-Audit 17.09.2026: --surface war gegen --paper (Seitenhintergrund) zu kontrastarm —
+     eine 0-%-Leiste war dadurch praktisch unsichtbar, "0 % begonnen" ließ sich nicht von "kein
+     Balken vorhanden" unterscheiden. --surface-2 (ein im Tokensystem bereits vorhandener,
+     kräftigerer Ton, siehe :root oben) war bisher ungenutzt und behebt das ohne einen neuen
+     Farbwert einzuführen. */
+  background: var(--surface-2);
   overflow: hidden;
 }
 

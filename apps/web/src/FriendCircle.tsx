@@ -180,9 +180,15 @@ export function FriendCircle({ kursId }: { kursId: string }) {
           ))}
         </div>
         {inviteCodes.data?.length === 0 && <p className="field-hint">Noch kein Einladungscode erstellt.</p>}
+        {/* Redesign-Audit 17.09.2026: vorher .btn-secondary (volltonig, ohne Größenmodifikator)
+            — deutlich prominenter als das vergleichbar wichtige "Code einlösen" darunter
+            (.btn-ghost.btn-sm) und als die analogen Auslöse-Buttons in den benachbarten
+            Einstellungs-Widgets (OfflineDownload.tsx/RedeemCompanyCode.tsx). Beide Aktionen sind
+            gleich häufig und gleich folgenlos (reversibel über "Widerrufen"), verdienen daher
+            dasselbe Gewicht. */}
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-ghost btn-sm"
           style={{ alignSelf: "flex-start" }}
           onClick={() => createCode.mutate({ kursId })}
           disabled={createCode.isPending}
@@ -201,6 +207,10 @@ export function FriendCircle({ kursId }: { kursId: string }) {
           setCode("");
         }}
       >
+        {/* Redesign-Audit 17.09.2026: eigene stat-subheading ergänzt — vorher war dies der
+            einzige Unterbereich ohne eine, wodurch er optisch nicht als eigener Abschnitt neben
+            "Meine Einladungscodes"/"Meine Freunde"/"Meine Blockierungen" erkennbar war. */}
+        <span className="stat-subheading">Code einlösen</span>
         <div className="field">
           <label htmlFor="redeem-friend-code">Einladungscode einlösen</label>
           <input
