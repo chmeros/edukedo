@@ -273,10 +273,25 @@ a {
   gap: 12px;
   padding-block: 14px;
   border-bottom: 1px solid var(--line);
+  /* Redesign-Audit 17.09.2026 (Befund #4): .list-row kann jetzt auch als <button> gerendert
+     werden (siehe CourseSwitcher.tsx, löst .course-tile/.join-row ab) — diese Zeile hebt die
+     <button>-UA-Stile auf. Für die bestehende <div>-Verwendung sind es wirkungslose No-ops, da
+     ein <div> ohnehin keinen Rahmen/Hintergrund/eigene Schrift von Haus aus mitbringt. */
+  width: 100%;
+  background: none;
+  border-inline: none;
+  border-top: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
 }
 
 .list-row:last-child {
   border-bottom: none;
+}
+
+.list-row.is-active {
+  color: var(--sprout-deep);
 }
 
 .list-row .meta {
@@ -641,39 +656,8 @@ hr {
   flex-wrap: wrap;
 }
 
-/* ---------- Course tiles / Beitreten- / Admin-Zeilen ---------- */
-.course-tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-}
-
-.course-tile {
-  border-radius: 14px;
-  border: 1.5px solid var(--line);
-  background: var(--card);
-  padding: 16px 14px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: var(--fs-sm);
-  text-align: center;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 78px;
-  cursor: pointer;
-  /* Ohne Obergrenze füllt genau ein belegter Kurs die ganze (auf großen Screens jetzt 960px
-     breite) .course-tiles-Zeile als durchgängige Fläche und wirkt eher wie ein großer
-     Call-to-Action-Button als wie ein Kurs-Status/-Auswahlschalter. */
-  max-width: 300px;
-}
-
-.course-tile.is-active {
-  background: var(--sprout-fill);
-  border-color: var(--sprout-fill);
-  color: #fff;
-}
+/* .course-tiles/.course-tile entfernt (Redesign-Audit Befund #4, 17.09.2026) — kein Verwender
+   mehr, siehe .list-row.is-active und Architekturplanung Abschnitt 13. */
 
 summary.disclosure {
   list-style: none;
@@ -696,31 +680,9 @@ details[open] > summary.disclosure::before {
   content: "▾ ";
 }
 
-/* .admin-row entfernt (Redesign Phase 2, 17.09.2026) — kein Verwender mehr, siehe
-   Architekturplanung Abschnitt 13. .join-row bleibt für den Kurs-Dropdown im Header
-   (CourseSwitcher.tsx) bestehen. */
-.join-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border: 1.5px solid var(--line);
-  border-radius: 14px;
-  background: var(--card);
-}
-
-.join-row .meta {
-  font-size: var(--fs-sm);
-  font-weight: 600;
-}
-
-.join-row .meta span {
-  display: block;
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  color: var(--ink-faint);
-}
+/* .admin-row und .join-row entfernt (Redesign-Audit Befund #4, 17.09.2026) — kein Verwender
+   mehr, siehe Architekturplanung Abschnitt 13. CourseSwitcher.tsx nutzt jetzt .list-row wie
+   der Rest der App. */
 
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
 .suggestion-row {

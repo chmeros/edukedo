@@ -567,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit Befund #4: Listenelement-Stile im Kurs-Dropdown vereinheitlicht)
+
+- **Anlass:** Letzter offener struktureller Befund aus dem Design-Audit — mindestens drei koexistierende Listenelement-Stile (`.admin-row`, `.list-row`, `.course-tile`/`.join-row`). Nach Phase 2 war nur noch `CourseSwitcher.tsx` (Kurs-Dropdown im Header) übrig: belegte Kurse als umrandete `.course-tile`-Kacheln in einem Grid, noch nicht belegte Kurse als umrandete `.join-row`-Zeilen — beide eine dritte, eigene Optik neben `.list-row`.
+- **Beide Listen auf `.list-row` umgestellt, keine neue Klasse eingeführt.** Da `.header-menu-panel` (das Dropdown selbst) bereits eine eigene umrandete Fläche mit Schatten ist (wie `.modal-panel`), brauchen die Einträge darin keine eigene Box mehr — schlichte Trennlinien passen better zum bereits vorhandenen äußeren Rahmen, als verschachtelte Boxen-in-der-Box zu erzeugen.
+- **`.list-row` erweitert, um sowohl als `<div>` als auch als `<button>` zu funktionieren** (neue, rein additive Reset-Eigenschaften wie `background:none`/`border-inline:none`/`text-align:left`/`font:inherit` — für die bestehende `<div>`-Verwendung wirkungslose No-ops, da ein `<div>` diese Werte ohnehin schon hat). Ermöglicht, dass ein belegter Kurs — wie zuvor bei `.course-tile` — als GANZE Zeile klickbar ist (statt nur ein Meta-Text mit separatem Auslöse-Button), ohne eine zweite Listenelement-Variante zu benötigen.
+- **Neue `.list-row.is-active`-Regel (Textfarbe `--sprout-deep` statt gefüllter Fläche) plus Häkchen-Symbol** markiert den aktuell gewählten Kurs — ersetzt die vorherige volltonig grün gefüllte `.course-tile.is-active`-Kachel. Passt zur bereits etablierten Zurückhaltung bei Flächenfarben in Listen (nur `--surface`/`--surface-2` für Statistik-Kacheln, keine Vollton-Flächen in Listenzeilen).
+- **`.course-tiles`/`.course-tile`/`.join-row` vollständig aus dem CSS entfernt** (kein Verwender mehr) — zusammen mit dem bereits in Phase 2 entfernten `.admin-row` ist `.list-row` jetzt die einzige Listenelement-Klasse im gesamten Frontend.
+- Live verifiziert (Desktop, Mobile 375×812, Dark Mode): belegte Kurse als klickbare `.list-row`-Buttons mit grünem Häkchen beim aktiven Kurs, "Weiteren Kurs beitreten" mit `.list-row` + "Beitreten"-Button, Kurswechsel per Klick und per "Beitreten" beide funktional bestätigt (Inhalt/Fälligkeitszahl aktualisiert sich korrekt). Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign Phase 2: Admin-Panel, Eltern-Dashboard, Unternehmens-Dashboard)
 
 - **Anlass:** Befund #9 aus dem Design-Audit — der Kontrast zwischen dem neu gestalteten Fortschritt-Tab (Phase 1) und den bis dahin unangetasteten `.card`/`.admin-row`-Bereichen war im direkten Vergleich stärker als ursprünglich erwartet. Auf Nutzer-Entscheidung wurde Phase 2 (ursprünglich bewusst zurückgestellt, siehe frühere Einträge) daraufhin komplett vorgezogen — Admin-Panel, Eltern-Dashboard und Unternehmens-Dashboard in einem Zug.

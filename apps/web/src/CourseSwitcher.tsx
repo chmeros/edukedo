@@ -50,19 +50,27 @@ export function CourseSwitcher({
       {open && (
         <div className="header-menu-panel">
           {courses.isLoading && <p>Lädt…</p>}
+          {/* Redesign-Audit 17.09.2026 (Befund #4): .course-tile/.join-row lösten sich ab —
+              beide waren umrandete "Box"-Varianten, die neben .list-row (Trennlinien-Zeile,
+              seit Phase 1/2 überall sonst in der App verwendet) eine dritte, eigene
+              Listenelement-Sprache bildeten. Beide Listen nutzen jetzt .list-row; die belegten
+              Kurse sind jetzt selbst <button>-Zeilen (der ganze Eintrag ist klickbar wie
+              vorher die ganze Kachel), der aktive Kurs wird über .list-row.is-active
+              (Textfarbe statt gefüllter Fläche) plus ein Häkchen markiert. */}
           {joined.length > 0 && (
-            <div className="course-tiles">
+            <div className="list">
               {joined.map((course) => (
                 <button
                   key={course.id}
                   type="button"
-                  className={course.id === activeKursId ? "course-tile is-active" : "course-tile"}
+                  className={course.id === activeKursId ? "list-row is-active" : "list-row"}
                   onClick={() => {
                     onActiveKursChange(course.id);
                     setOpen(false);
                   }}
                 >
-                  {course.title}
+                  <div className="meta">{course.title}</div>
+                  {course.id === activeKursId && <span aria-hidden="true">✓</span>}
                 </button>
               ))}
             </div>
@@ -70,9 +78,9 @@ export function CourseSwitcher({
           {available.length > 0 && (
             <details open={joined.length === 0}>
               <summary className="disclosure">{joined.length > 0 ? "Weiteren Kurs beitreten" : "Verfügbare Kurse"}</summary>
-              <div className="stack" style={{ marginTop: 10 }}>
+              <div className="list" style={{ marginTop: 10 }}>
                 {available.map((course) => (
-                  <div key={course.id} className="join-row">
+                  <div key={course.id} className="list-row">
                     <div className="meta">{course.title}</div>
                     <button
                       type="button"
