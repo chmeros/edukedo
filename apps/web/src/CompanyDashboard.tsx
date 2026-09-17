@@ -158,6 +158,88 @@ function MembersSection() {
   );
 }
 
+/**
+ * F-91 Baustein 3 (F-92): Formular für Logo-URL/Farbe/Begrüßungstext, mit Live-Vorschau in
+ * derselben Aufmachung wie das spätere CompanyBranding.tsx-Banner in der Lern-App — damit ein
+ * Unternehmen sofort sieht, wie die Angaben bei den Lernenden ankommen, statt erst nach dem
+ * Speichern zu prüfen. Kein Datei-Upload (siehe packages/shared/src/schemas/company.ts) — es
+ * wird die URL eines bereits extern gehosteten Logos eingetragen.
+ */
+function BrandingSection({
+  brandingLogoUrl,
+  brandingColor,
+  brandingHeadline,
+}: {
+  brandingLogoUrl: string | null;
+  brandingColor: string | null;
+  brandingHeadline: string | null;
+}) {
+  const utils = trpc.useUtils();
+  const update = trpc.company.updateBranding.useMutation({
+    onSuccess: () => utils.company.me.invalidate(),
+  });
+  const [logoUrl, setLogoUrl] = useState(brandingLogoUrl ?? "");
+  const [color, setColor] = useState(brandingColor ?? "");
+  const [headline, setHeadline] = useState(brandingHeadline ?? "");
+
+  return (
+    <form
+      className="stack"
+      onSubmit={(event) => {
+        event.preventDefault();
+        update.mutate({ logoUrl, color, headline });
+      }}
+    >
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Branding</h2>
+      <p className="field-hint">
+        Wird als Banner in der App der Lernenden angezeigt, die deinem Unternehmen zugeordnet sind.
+      </p>
+      <div className="field">
+        <label htmlFor="cd-branding-logo">Logo-URL</label>
+        <input
+          className="input"
+          id="cd-branding-logo"
+          type="url"
+          value={logoUrl}
+          onChange={(event) => setLogoUrl(event.target.value)}
+          placeholder="https://…"
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="cd-branding-color">Farbe</label>
+        <input
+          className="input"
+          id="cd-branding-color"
+          type="color"
+          value={/^#[0-9a-fA-F]{6}$/.test(color) ? color : "#1c1c1c"}
+          onChange={(event) => setColor(event.target.value)}
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="cd-branding-headline">Begrüßungstext</label>
+        <input
+          className="input"
+          id="cd-branding-headline"
+          value={headline}
+          onChange={(event) => setHeadline(event.target.value)}
+          placeholder="z. B. Ermöglicht durch Musterfirma GmbH"
+          maxLength={200}
+        />
+      </div>
+      {(logoUrl || color || headline) && (
+        <div className="alert alert-info" style={color ? { borderColor: color, color } : undefined}>
+          {logoUrl && <img src={logoUrl} alt="" style={{ height: 32, width: "auto" }} />}
+          <div>{headline || "Vorschau des Begrüßungstexts"}</div>
+        </div>
+      )}
+      <button type="submit" className="btn btn-primary btn-block" disabled={update.isPending}>
+        Branding speichern
+      </button>
+      {update.error && <ErrorMessage>{update.error.message}</ErrorMessage>}
+    </form>
+  );
+}
+
 function LoginForm() {
   const utils = trpc.useUtils();
   const login = trpc.company.login.useMutation({ onSuccess: () => utils.company.me.invalidate() });
@@ -269,7 +351,14 @@ export function CompanyDashboard() {
         <div className="card">
           <MembersSection />
         </div>
-        <p className="field-hint">Branding-Einstellungen und Nutzungsstatistiken folgen in weiteren Ausbaustufen.</p>
+        <div className="card">
+          <BrandingSection
+            brandingLogoUrl={me.data.brandingLogoUrl}
+            brandingColor={me.data.brandingColor}
+            brandingHeadline={me.data.brandingHeadline}
+          />
+        </div>
+        <p className="field-hint">Aggregierte Nutzungsstatistiken folgen in einer weiteren Ausbaustufe.</p>
       </main>
     </>
   );

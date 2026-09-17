@@ -6,6 +6,7 @@ import {
   confirmCompanySetupInputSchema,
   createCompanyInviteCodeInputSchema,
   redeemCompanyInviteCodeInputSchema,
+  updateCompanyBrandingInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, count, eq } from "drizzle-orm";
@@ -149,8 +150,32 @@ export const companyRouter = router({
       seatLimit: ctx.currentCompanyAdmin.seatLimit,
       seatsUsed: seatsUsedRow?.value ?? 0,
       billingStatus: ctx.currentCompanyAdmin.billingStatus,
+      brandingLogoUrl: ctx.currentCompanyAdmin.brandingLogoUrl,
+      brandingColor: ctx.currentCompanyAdmin.brandingColor,
+      brandingHeadline: ctx.currentCompanyAdmin.brandingHeadline,
     };
   }),
+
+  /**
+   * F-91 Baustein 3 (F-92): Rein visuelles Branding, siehe company_account.branding_* in
+   * db/schema.ts. Ein leerer String löscht das jeweilige Feld (null) statt ihn als leeren
+   * String zu speichern — konsistent mit der nullable-Spalte und der Anzeige-Logik in
+   * `myBranding`/CompanyBranding.tsx (leerer String würde z. B. ein kaputtes <img src=""> ergeben).
+   */
+  updateBranding: protectedCompanyAdminProcedure
+    .input(updateCompanyBrandingInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(companyAccount)
+        .set({
+          brandingLogoUrl: input.logoUrl || null,
+          brandingColor: input.color || null,
+          brandingHeadline: input.headline || null,
+        })
+        .where(eq(companyAccount.id, ctx.currentCompanyAdmin.id));
+
+      return { success: true };
+    }),
 
   /**
    * F-91 Baustein 2: Codes bewusst mehrfach anlegbar (z. B. je Abteilung) statt auf einen
@@ -310,5 +335,27 @@ export const companyRouter = router({
     });
 
     return { companyName: companyRow.name };
+  }),
+
+  /**
+   * F-91 Baustein 3 (F-92): Liefert das Branding des Unternehmens, dem die aktuelle Lernperson
+   * zugeordnet ist (`null`, wenn keine Mitgliedschaft besteht) — von CompanyBranding.tsx als
+   * Banner in der Lern-App angezeigt. Bewusst `protectedProcedure` (nicht CompanyAdmin): Diese
+   * Abfrage richtet sich an die Lernperson selbst, nicht an das Unternehmens-Konto.
+   */
+  myBranding: protectedProcedure.query(async ({ ctx }) => {
+    const [row] = await ctx.db
+      .select({
+        companyName: companyAccount.name,
+        logoUrl: companyAccount.brandingLogoUrl,
+        color: companyAccount.brandingColor,
+        headline: companyAccount.brandingHeadline,
+      })
+      .from(userCompanyMembership)
+      .innerJoin(companyAccount, eq(companyAccount.id, userCompanyMembership.companyAccountId))
+      .where(eq(userCompanyMembership.userId, ctx.currentUser.id))
+      .limit(1);
+
+    return row ?? null;
   }),
 });

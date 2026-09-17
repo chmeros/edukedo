@@ -7,11 +7,16 @@ import { trpc } from "./trpc";
  * F-91 Baustein 2: Lernperson löst einen Einladungscode ihres Unternehmens ein
  * (`company.redeemInviteCode`) — im "Fortschritt"-Tab neben Zielplanung/Offline-Download
  * platziert, da es sich (wie diese) um eine kontobezogene, nicht lernmodus-spezifische
- * Einstellung handelt. Zeigt bewusst keinen dauerhaften "Du bist Mitglied"-Status an — das ist
- * Aufgabe des Brandings (F-92, eigener, späterer Baustein), hier nur die Einlöse-Aktion selbst.
+ * Einstellung handelt. Zeigt bewusst keinen dauerhaften "Du bist Mitglied"-Status an — das
+ * übernimmt das Branding-Banner (F-92, siehe CompanyBranding.tsx), hier nur die Einlöse-Aktion
+ * selbst. Invalidiert `company.myBranding`, damit dieses Banner sofort erscheint, ohne dass die
+ * Lernperson die Seite neu laden muss.
  */
 export function RedeemCompanyCode() {
-  const redeem = trpc.company.redeemInviteCode.useMutation();
+  const utils = trpc.useUtils();
+  const redeem = trpc.company.redeemInviteCode.useMutation({
+    onSuccess: () => utils.company.myBranding.invalidate(),
+  });
   const [code, setCode] = useState("");
 
   if (redeem.data) {

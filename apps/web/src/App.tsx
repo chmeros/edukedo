@@ -1,6 +1,7 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useEffect, useRef, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
+import { CompanyBranding } from "./CompanyBranding";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { ErrorMessage } from "./ErrorMessage";
 import { Flashcards } from "./Flashcards";
@@ -155,6 +156,7 @@ export function App() {
             </div>
           ) : (
             <>
+              <CompanyBranding />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (
                 <div className="suggestion-row">
                   {suggestions.data.map((suggestion, position) => (

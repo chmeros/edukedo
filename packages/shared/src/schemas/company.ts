@@ -67,3 +67,18 @@ export const redeemCompanyInviteCodeInputSchema = z.object({
   code: z.string().min(1).max(32),
 });
 export type RedeemCompanyInviteCodeInput = z.infer<typeof redeemCompanyInviteCodeInputSchema>;
+
+/**
+ * F-91 Baustein 3 (F-92): Rein visuelles Branding, siehe company_account.branding_* in
+ * db/schema.ts. Alle drei Felder bewusst leer setzbar (leerer String statt Pflichtfeld), damit
+ * ein Unternehmen z. B. nur die Farbe ohne Logo pflegen kann; ein leerer String wird beim
+ * Speichern auf `null` normalisiert (siehe trpc/routers/company.ts). Kein Datei-Upload — die
+ * Plattform hat noch keine Objektspeicher-Anbindung (siehe Architekturplanung Abschnitt 4.3),
+ * ein Unternehmen verlinkt stattdessen ein bereits extern gehostetes Logo.
+ */
+export const updateCompanyBrandingInputSchema = z.object({
+  logoUrl: z.union([z.string().url().max(2000), z.literal("")]),
+  color: z.union([z.string().regex(/^#[0-9a-fA-F]{6}$/), z.literal("")]),
+  headline: z.string().max(200),
+});
+export type UpdateCompanyBrandingInput = z.infer<typeof updateCompanyBrandingInputSchema>;
