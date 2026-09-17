@@ -240,6 +240,55 @@ function BrandingSection({
   );
 }
 
+/**
+ * F-91 Baustein 4 (F-93): Aggregierte, anonymisierte Statistik — analog zum "Deine
+ * Lernstatistik"-Vokabular in Progress.tsx (stat-section/stat-row/stat-tile). Unterhalb der
+ * Mindestgröße (siehe MIN_COHORT_SIZE_FOR_STATS in trpc/routers/company.ts) liefert
+ * `company.stats` bewusst `null` statt einer irreführend präzisen Kennzahl — das Unternehmen
+ * bekommt dann einen erklärenden Hinweis statt leerer/falscher Werte.
+ */
+function StatsSection() {
+  const stats = trpc.company.stats.useQuery();
+
+  if (!stats.data) {
+    return null;
+  }
+
+  if (stats.data.activeSharePercent === null) {
+    return (
+      <div className="stack">
+        <h2 style={{ fontSize: "var(--fs-lg)" }}>Nutzungsstatistik</h2>
+        <p className="field-hint">
+          Aggregierte Statistiken sind erst ab {stats.data.minCohortSize} Mitgliedschaften verfügbar (aktuell{" "}
+          {stats.data.totalMembers}) — bei weniger Mitgliedschaften wäre eine "aggregierte" Kennzahl faktisch eine
+          personenbezogene Einzelauswertung.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="stack stat-section">
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Nutzungsstatistik</h2>
+      <p className="field-hint">Ausschließlich aggregierte Werte über alle Mitgliedschaften — keine Einzelauswertung.</p>
+      <div className="stat-row">
+        <div className="stat-tile">
+          <span className="stat-value">{stats.data.activeSharePercent} %</span>
+          <span className="stat-label">Aktive Lizenzen (30 Tage)</span>
+        </div>
+        <div className="stat-tile">
+          <span className="stat-value">{stats.data.avgAccuracyPercent ?? "–"} %</span>
+          <span className="stat-label">Ø Trefferquote</span>
+        </div>
+        <div className="stat-tile">
+          <span className="stat-value">{stats.data.avgProgressPercent ?? "–"} %</span>
+          <span className="stat-label">Ø Fortschritt</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LoginForm() {
   const utils = trpc.useUtils();
   const login = trpc.company.login.useMutation({ onSuccess: () => utils.company.me.invalidate() });
@@ -358,7 +407,9 @@ export function CompanyDashboard() {
             brandingHeadline={me.data.brandingHeadline}
           />
         </div>
-        <p className="field-hint">Aggregierte Nutzungsstatistiken folgen in einer weiteren Ausbaustufe.</p>
+        <div className="card">
+          <StatsSection />
+        </div>
       </main>
     </>
   );

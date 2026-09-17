@@ -9,13 +9,35 @@ import {
   updateCompanyBrandingInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, count, eq } from "drizzle-orm";
+import { and, count, eq, gte, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
 import { hashPassword, verifyPassword } from "../../auth/password";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
-import { companyAccount, companyInviteCode, companySetupToken, user, userCompanyMembership } from "../../db/schema";
+import {
+  companyAccount,
+  companyInviteCode,
+  companySetupToken,
+  learningEvent,
+  user,
+  userCompanyMembership,
+  userProgress,
+} from "../../db/schema";
 import { protectedCompanyAdminProcedure, protectedProcedure, publicProcedure, router } from "../trpc";
+
+/**
+ * F-91 Baustein 4 (F-93): Mindestanzahl an Mitgliedschaften, bevor aggregierte Statistiken
+ * angezeigt werden. Ohne diese Grenze wäre eine "aggregierte" Kennzahl bei sehr wenigen
+ * Mitgliedern faktisch eine personenbezogene Einzelauswertung — bei genau einer Mitgliedschaft
+ * entspricht die Ø-Trefferquote exakt der Trefferquote dieser einen Person, was dem
+ * Beschäftigtendatenschutz-Zweck von F-93 (§ 26 BDSG, siehe Anforderungskatalog Abschnitt 7/8)
+ * zuwiderliefe. 5 ist ein in der Praxis gängiger Mindestwert für "Zellengrößen" bei aggregierten
+ * Personendaten.
+ */
+const MIN_COHORT_SIZE_FOR_STATS = 5;
+
+/** F-91 Baustein 4 (F-93): Zeitfenster, innerhalb dessen eine Mitgliedschaft als "aktiv" zählt. */
+const ACTIVE_WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
 
 /**
  * F-91: Business-Lizenzen, Baustein 1 (Auth-Grundgerüst) — bewusst analog zu
@@ -153,6 +175,79 @@ export const companyRouter = router({
       brandingLogoUrl: ctx.currentCompanyAdmin.brandingLogoUrl,
       brandingColor: ctx.currentCompanyAdmin.brandingColor,
       brandingHeadline: ctx.currentCompanyAdmin.brandingHeadline,
+    };
+  }),
+
+  /**
+   * F-91 Baustein 4 (F-93): Aggregierte, anonymisierte Fortschritts-/Nutzungsstatistik — siehe
+   * MIN_COHORT_SIZE_FOR_STATS oben zur Begründung der Mindestgröße. Bewusst als reine
+   * SQL-Aggregation (count/count distinct über Joins) statt Laden von Einzeldatensätzen und
+   * Aggregieren in TypeScript: Der Endpunkt gibt dadurch strukturell niemals Zeilen zurück, aus
+   * denen sich eine Einzelperson herauslesen ließe (siehe Architekturplanung Abschnitt 4.5/7/8).
+   * Alle drei Kennzahlen laufen unabhängig voneinander und werden daher parallel abgefragt.
+   */
+  stats: protectedCompanyAdminProcedure.query(async ({ ctx }) => {
+    const companyAccountId = ctx.currentCompanyAdmin.id;
+
+    const [totalRow] = await ctx.db
+      .select({ value: count() })
+      .from(userCompanyMembership)
+      .where(eq(userCompanyMembership.companyAccountId, companyAccountId));
+    const totalMembers = totalRow?.value ?? 0;
+
+    if (totalMembers < MIN_COHORT_SIZE_FOR_STATS) {
+      return {
+        totalMembers,
+        minCohortSize: MIN_COHORT_SIZE_FOR_STATS,
+        activeSharePercent: null,
+        avgAccuracyPercent: null,
+        avgProgressPercent: null,
+      };
+    }
+
+    const activeSince = new Date(Date.now() - ACTIVE_WINDOW_MS);
+
+    const [[activeRow], [totalEventsRow], [correctEventsRow], [totalProgressRow], [masteredProgressRow]] =
+      await Promise.all([
+        ctx.db
+          .select({ value: sql<number>`count(distinct ${learningEvent.userId})::int` })
+          .from(learningEvent)
+          .innerJoin(userCompanyMembership, eq(userCompanyMembership.userId, learningEvent.userId))
+          .where(
+            and(eq(userCompanyMembership.companyAccountId, companyAccountId), gte(learningEvent.occurredAt, activeSince)),
+          ),
+        ctx.db
+          .select({ value: count() })
+          .from(learningEvent)
+          .innerJoin(userCompanyMembership, eq(userCompanyMembership.userId, learningEvent.userId))
+          .where(eq(userCompanyMembership.companyAccountId, companyAccountId)),
+        ctx.db
+          .select({ value: count() })
+          .from(learningEvent)
+          .innerJoin(userCompanyMembership, eq(userCompanyMembership.userId, learningEvent.userId))
+          .where(and(eq(userCompanyMembership.companyAccountId, companyAccountId), eq(learningEvent.isCorrect, true))),
+        ctx.db
+          .select({ value: count() })
+          .from(userProgress)
+          .innerJoin(userCompanyMembership, eq(userCompanyMembership.userId, userProgress.userId))
+          .where(eq(userCompanyMembership.companyAccountId, companyAccountId)),
+        ctx.db
+          .select({ value: count() })
+          .from(userProgress)
+          .innerJoin(userCompanyMembership, eq(userCompanyMembership.userId, userProgress.userId))
+          .where(and(eq(userCompanyMembership.companyAccountId, companyAccountId), eq(userProgress.state, "review"))),
+      ]);
+
+    const totalEvents = totalEventsRow?.value ?? 0;
+    const totalProgress = totalProgressRow?.value ?? 0;
+
+    return {
+      totalMembers,
+      minCohortSize: MIN_COHORT_SIZE_FOR_STATS,
+      activeSharePercent: Math.round(((activeRow?.value ?? 0) / totalMembers) * 100),
+      avgAccuracyPercent: totalEvents > 0 ? Math.round(((correctEventsRow?.value ?? 0) / totalEvents) * 100) : null,
+      avgProgressPercent:
+        totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
     };
   }),
 
