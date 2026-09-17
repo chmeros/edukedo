@@ -1,3 +1,4 @@
+import { FriendCircle } from "./FriendCircle";
 import { InfoIcon } from "./Icons";
 import { OfflineDownload } from "./OfflineDownload";
 import { RedeemCompanyCode } from "./RedeemCompanyCode";
@@ -43,6 +44,7 @@ export function Progress({ kursId }: { kursId: string }) {
       <Zielplanung kursId={kursId} />
       <OfflineDownload kursId={kursId} />
       <RedeemCompanyCode />
+      <FriendCircle kursId={kursId} />
 
       {fachgebiete.map((fachgebiet) => (
         <div key={fachgebiet.id} className="stack">

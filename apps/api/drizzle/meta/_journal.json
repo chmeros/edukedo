@@ -85,6 +85,13 @@
       "when": 1789643641393,
       "tag": "0011_broad_blazing_skull",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1789649452294,
+      "tag": "0012_familiar_loners",
+      "breakpoints": true
     }
   ]
 }

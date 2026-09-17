@@ -5,6 +5,7 @@ import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
 import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
+import { friendRouter } from "./routers/friend";
 import { healthRouter } from "./routers/health";
 import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
@@ -25,7 +26,8 @@ import { router } from "./trpc";
  * seit 16.09.2026) liefert den Content-Download für die lokale IndexedDB-Kopie. `company`
  * (F-91, seit 16.09.2026) ist das Business-Lizenzen-Auth-Grundgerüst (Baustein 1). `sponsor`
  * (F-94, seit 17.09.2026) ist der öffentliche, lesende Sponsoring-Endpunkt (Baustein 5) —
- * schreibend über `admin.*`.
+ * schreibend über `admin.*`. `friend` (F-63, seit 17.09.2026) ist das Einladungs-/
+ * Freundschaftssystem-Grundgerüst, Basis für die späteren Highscore/Duelle/Lernpartner-Bausteine.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -39,6 +41,7 @@ export const appRouter = router({
   progress: progressRouter,
   quiz: quizRouter,
   exam: examRouter,
+  friend: friendRouter,
   presentation: presentationRouter,
   admin: adminRouter,
   offline: offlineRouter,

@@ -644,3 +644,73 @@ export const block = pgTable(
     ),
   ],
 );
+
+// ---------------------------------------------------------------------------
+// Einladungs-/Freundschaftssystem (F-63) — Abschnitt 4.5 (Phase-4-Erweiterung)
+// ---------------------------------------------------------------------------
+
+/**
+ * F-63: Einladungscode/-link, mit dem eine Person ihren (kursbezogenen) Freundeskreis aufbaut.
+ * Anders als `company_invite_code` (F-91, dort bewusst OHNE Pflicht-Befristung) hier `expires_at`
+ * bewusst `notNull()` — der Anforderungskatalog verlangt für F-63 ausdrücklich eine zeitliche
+ * Befristung (z. B. 7 Tage), da ein Sozial-Invite anders als ein Business-Lizenzcode ein
+ * sicherheitsrelevantes Ziel ist (unbefugter Fremdkontakt). Mehrfach durch verschiedene Personen
+ * einlösbar (kein Einmal-Ticket) — der Code ist ein teilbarer Link, keine personalisierte
+ * Einladung an eine bestimmte E-Mail-Adresse, analog zum company_invite_code-Muster.
+ */
+export const inviteCode = pgTable(
+  "invite_code",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    code: text("code").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("invite_code_user_id_kurs_id_idx").on(table.userId, table.kursId),
+    index("invite_code_expires_at_idx").on(table.expiresAt),
+  ],
+);
+
+/**
+ * F-63: Freundschaft als EINE symmetrische Zeile statt zweier gerichteter Zeilen — kanonisch
+ * sortiert (`user_id_a < user_id_b`, per CHECK erzwungen), damit weder Duplikate noch eine
+ * "wer hat wen eingeladen"-Mehrdeutigkeit entstehen können. Bewusst `kurs_id`-gebunden (nicht
+ * kontenweit global), weil laut Anforderungskatalog der Freundeskreis bei Mehrfach-Kursbelegung
+ * (F-09) je Kurs getrennt ist — dieselben zwei Personen können in Kurs A befreundet sein und in
+ * Kurs B (noch) nicht. Bildet die Grundlage für Highscore (F-60), Duelle (F-61) und
+ * Lernpartner-Vermittlung (F-62, jeweils eigene, spätere Bausteine). Die automatische Ergänzung
+ * um Kohorten-Mitgliedschaften (F-65) ist noch nicht Teil dieses Grundgerüsts, da Kohorten
+ * (F-64/F-65) selbst noch nicht existieren.
+ */
+export const friendCircleLink = pgTable(
+  "friend_circle_link",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    userIdA: uuid("user_id_a")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    userIdB: uuid("user_id_b")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("friend_circle_link_kurs_id_user_id_a_user_id_b_key").on(
+      table.kursId,
+      table.userIdA,
+      table.userIdB,
+    ),
+    index("friend_circle_link_user_id_b_idx").on(table.userIdB),
+    check("friend_circle_link_user_order_check", sql`${table.userIdA} < ${table.userIdB}`),
+  ],
+);
