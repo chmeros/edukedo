@@ -2,14 +2,16 @@ import {
   adminCreateCompanyAccountInputSchema,
   adminUpdateCompanyBillingInputSchema,
   createSponsorInputSchema,
+  resolveReportInputSchema,
   setSponsorActiveInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
+import { alias } from "drizzle-orm/pg-core";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
-import { companyAccount, kurs, sponsor } from "../../db/schema";
+import { companyAccount, kurs, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
 import { roleProcedure, router } from "../trpc";
 
@@ -193,4 +195,45 @@ export const adminRouter = router({
       await ctx.db.update(sponsor).set({ isActive: input.isActive }).where(eq(sponsor.id, input.sponsorId));
       return { success: true };
     }),
+
+  /**
+   * F-68: Moderationsansicht für offene Meldungen (`report.status = 'offen'`) — ohne diese
+   * Ansicht würde eine Meldung ins Leere laufen, sobald F-68 eine Möglichkeit zum Melden bietet.
+   * `reporterUser`/`reportedUser` als Alias-Selbst-Join auf `user`, da beide Spalten auf dieselbe
+   * Tabelle verweisen.
+   */
+  reports: roleProcedure("admin").query(async ({ ctx }) => {
+    const reporterUser = alias(user, "reporter_user");
+    const reportedUser = alias(user, "reported_user");
+
+    return ctx.db
+      .select({
+        id: report.id,
+        reporterEmail: reporterUser.email,
+        reportedEmail: reportedUser.email,
+        kursId: report.kursId,
+        reason: report.reason,
+        status: report.status,
+        createdAt: report.createdAt,
+      })
+      .from(report)
+      .leftJoin(reporterUser, eq(reporterUser.id, report.reporterUserId))
+      .leftJoin(reportedUser, eq(reportedUser.id, report.reportedUserId))
+      .where(eq(report.status, "offen"))
+      .orderBy(report.createdAt);
+  }),
+
+  resolveReport: roleProcedure("admin").input(resolveReportInputSchema).mutation(async ({ ctx, input }) => {
+    const [updated] = await ctx.db
+      .update(report)
+      .set({ status: "geschlossen" })
+      .where(eq(report.id, input.reportId))
+      .returning({ id: report.id });
+
+    if (!updated) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Diese Meldung wurde nicht gefunden." });
+    }
+
+    return { success: true };
+  }),
 });

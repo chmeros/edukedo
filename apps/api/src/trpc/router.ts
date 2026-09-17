@@ -13,6 +13,7 @@ import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
 import { quizRouter } from "./routers/quiz";
+import { reportRouter } from "./routers/report";
 import { sponsorRouter } from "./routers/sponsor";
 import { router } from "./trpc";
 
@@ -28,6 +29,8 @@ import { router } from "./trpc";
  * (F-94, seit 17.09.2026) ist der öffentliche, lesende Sponsoring-Endpunkt (Baustein 5) —
  * schreibend über `admin.*`. `friend` (F-63, seit 17.09.2026) ist das Einladungs-/
  * Freundschaftssystem-Grundgerüst, Basis für die späteren Highscore/Duelle/Lernpartner-Bausteine.
+ * `report` (F-68, seit 17.09.2026) ist Melden/Blockieren, aktuell nur innerhalb des
+ * Freundeskreises erreichbar; die Moderationsansicht offener Meldungen liegt unter `admin.*`.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -46,6 +49,7 @@ export const appRouter = router({
   admin: adminRouter,
   offline: offlineRouter,
   sponsor: sponsorRouter,
+  report: reportRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -194,7 +194,12 @@ export const friendRouter = router({
 
     return rows.map((row) => {
       const friendUserId = row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA;
-      return { id: row.id, friendEmail: emailByUserId.get(friendUserId) ?? "unbekannt", createdAt: row.createdAt };
+      return {
+        id: row.id,
+        friendUserId,
+        friendEmail: emailByUserId.get(friendUserId) ?? "unbekannt",
+        createdAt: row.createdAt,
+      };
     });
   }),
 });

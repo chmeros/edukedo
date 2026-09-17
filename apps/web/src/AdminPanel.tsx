@@ -220,6 +220,7 @@ export function AdminPanel() {
   const courses = trpc.admin.courses.useQuery();
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
   const sponsors = trpc.admin.sponsors.useQuery();
+  const reports = trpc.admin.reports.useQuery();
   const setPublished = trpc.admin.setPublished.useMutation({
     onSuccess: () => {
       utils.admin.courses.invalidate();
@@ -231,6 +232,9 @@ export function AdminPanel() {
       utils.admin.sponsors.invalidate();
       utils.sponsor.list.invalidate();
     },
+  });
+  const resolveReport = trpc.admin.resolveReport.useMutation({
+    onSuccess: () => utils.admin.reports.invalidate(),
   });
   const triggerImport = trpc.admin.triggerImport.useMutation({
     onSuccess: () => {
@@ -339,6 +343,31 @@ export function AdminPanel() {
       ))}
       {sponsors.data?.length === 0 && <p className="field-hint">Noch kein Sponsoring angelegt.</p>}
       <CreateSponsorForm courses={courses.data ?? []} />
+
+      <hr />
+
+      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Meldungen (F-68)</h2>
+      {(reports.data ?? []).map((entry) => (
+        <div key={entry.id} className="admin-row">
+          <div className="meta">
+            {entry.reporterEmail ?? "unbekannt"} meldet {entry.reportedEmail ?? "unbekannt"}
+            <span>
+              {entry.reason} · {(courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"} ·{" "}
+              {new Date(entry.createdAt).toLocaleDateString("de-DE")}
+            </span>
+          </div>
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={() => resolveReport.mutate({ reportId: entry.id })}
+            disabled={resolveReport.isPending}
+          >
+            Schließen
+          </button>
+        </div>
+      ))}
+      {reports.data?.length === 0 && <p className="field-hint">Keine offenen Meldungen.</p>}
+      {resolveReport.error && <ErrorMessage>{resolveReport.error.message}</ErrorMessage>}
     </div>
   );
 }
