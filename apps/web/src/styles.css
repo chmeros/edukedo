@@ -219,6 +219,25 @@ a {
   width: 100%;
 }
 
+/* Redesign-Audit 17.09.2026 (Befund #10): eine einzelne Karteikarte/Quizfrage/Prüfungs-Auswahl
+   blieb auf breiten Bildschirmen oben in der (seit Phase 1 verbreiterten) .shell "liegen" —
+   darunter blieb sehr viel ungenutzte Fläche, was leer statt bewusst fokussiert wirkte.
+   Vertikale Zentrierung innerhalb der ungefähr verfügbaren Viewport-Höhe statt zusätzlichen
+   Inhalts daneben (mit dem Nutzer abgestimmt) — der Inhalt bleibt schmal/fokussiert, wirkt aber
+   komponiert statt an den oberen Rand gepinnt. Degradiert automatisch zu normalem
+   Top-Alignment, sobald der Inhalt (z. B. der textlastige Präsentationstrainer)
+   min-height selbst übersteigt — dann bleibt für "center" schlicht kein Platz mehr übrig. Nur
+   ab 860px aktiv: auf schmalen/mobilen Bildschirmen ist der verfügbare Platz ohnehin knapp,
+   dort bleibt das gewohnte Top-Alignment die bessere Wahl. */
+@media (min-width: 860px) {
+  .content-narrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+  }
+}
+
 /* ---------- Panel-Sections (Redesign 17.09.2026) ---------- */
 /* Löst den bisherigen Ansatz ab, jeden Abschnitt (Freundeskreis, Highscore, Fortschritt je
    Fachgebiet, …) in eine eigene .card zu packen — stattdessen hängen die Abschnitte direkt in

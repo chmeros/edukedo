@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 17.09.2026 (Redesign-Audit Befund #10: vertikale Zentrierung bei Karteikarten/Quiz/Prüfung-Setup)
+
+- **Anlass:** Letzter Befund aus dem Design-Audit — eine einzelne Karteikarte/Quizfrage/Prüfungs-Auswahl blieb in `.content-narrow` auf breiten Bildschirmen oben in der (seit Phase 1 auf 1160px verbreiterten) `.shell` "liegen", darunter blieb viel ungenutzte Fläche. Konnte als bewusster Fokus gelesen werden, wirkte in der Praxis aber eher leer als komponiert.
+- **Drei Optionen mit dem Nutzer abgestimmt:** vertikal zentrieren (gewählt), zusätzlicher Inhalt in einer Seitenspalte (deutlich größerer Eingriff, eigene Konzeption nötig), oder unverändert lassen. Vertikale Zentrierung gewählt, da sie das Problem direkt löst, ohne neuen Inhalt/neue Fragen an den Content-Umfang zu erzeugen, und der Fokus-Gedanke (schmale Spalte) erhalten bleibt.
+- **`.content-narrow` wird ab 860px zu einem Flex-Container mit `justify-content: center` und `min-height: 60vh`:** Degradiert automatisch zu normalem Top-Alignment, sobald der eigentliche Inhalt `min-height` übersteigt (z. B. der textlastige Präsentationstrainer mit drei Textfeldern + Checkliste + Timer) — Flexbox verteilt "center"-Freiraum nur, wenn welcher übrig ist; bei zu großem Inhalt bleibt keiner übrig, das Verhalten entspricht dann exakt dem bisherigen. Bewusst nur ab 860px aktiv: Auf schmalen/mobilen Bildschirmen ist der verfügbare Platz ohnehin knapp, dort bleibt gewohntes Top-Alignment die bessere Wahl.
+- Live verifiziert (1400×1000 Desktop, Dark Mode, Mobile 375×812): Karteikarten/Quiz/"Schriftliche Prüfung" (kurzer Inhalt) jetzt sichtbar vertikal zentriert statt oben klebend; "Präsentation"-Unterreiter (langer Inhalt) bleibt unverändert oben ausgerichtet, keine Überlappung/kein Abschneiden; Mobile-Ansicht unverändert Top-aligned. Vollständige Testsuite (102 Tests) weiterhin grün.
+
 ### Entschieden am 17.09.2026 (Redesign-Audit Befund #4: Listenelement-Stile im Kurs-Dropdown vereinheitlicht)
 
 - **Anlass:** Letzter offener struktureller Befund aus dem Design-Audit — mindestens drei koexistierende Listenelement-Stile (`.admin-row`, `.list-row`, `.course-tile`/`.join-row`). Nach Phase 2 war nur noch `CourseSwitcher.tsx` (Kurs-Dropdown im Header) übrig: belegte Kurse als umrandete `.course-tile`-Kacheln in einem Grid, noch nicht belegte Kurse als umrandete `.join-row`-Zeilen — beide eine dritte, eigene Optik neben `.list-row`.
