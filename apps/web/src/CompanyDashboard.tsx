@@ -82,30 +82,34 @@ function InviteCodesSection() {
   });
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Einladungscodes</h2>
-      {(codes.data ?? []).map((code) => (
-        <div key={code.id} className="admin-row">
-          <div className="meta">
-            <code>{code.code}</code>
-            <span>
-              {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
-            </span>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Einladungscodes</h2>
+      </div>
+      <div className="list">
+        {(codes.data ?? []).map((code) => (
+          <div key={code.id} className="list-row">
+            <div className="meta">
+              <code>{code.code}</code>
+              <span>
+                {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
+              </span>
+            </div>
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={() => revoke.mutate({ codeId: code.id })}
+              disabled={revoke.isPending}
+            >
+              Widerrufen
+            </button>
           </div>
-          <button
-            type="button"
-            className="btn btn-danger btn-sm"
-            onClick={() => revoke.mutate({ codeId: code.id })}
-            disabled={revoke.isPending}
-          >
-            Widerrufen
-          </button>
-        </div>
-      ))}
+        ))}
+      </div>
       {codes.data?.length === 0 && <p className="field-hint">Noch kein Einladungscode erstellt.</p>}
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-ghost btn-sm"
         style={{ alignSelf: "flex-start" }}
         onClick={() => create.mutate({})}
         disabled={create.isPending}
@@ -134,24 +138,28 @@ function MembersSection() {
   });
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Teilnehmende</h2>
-      {(members.data ?? []).map((member) => (
-        <div key={member.membershipId} className="admin-row">
-          <div className="meta">
-            {member.email}
-            <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Teilnehmende</h2>
+      </div>
+      <div className="list">
+        {(members.data ?? []).map((member) => (
+          <div key={member.membershipId} className="list-row">
+            <div className="meta">
+              {member.email}
+              <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
+            </div>
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={() => revoke.mutate({ membershipId: member.membershipId })}
+              disabled={revoke.isPending}
+            >
+              Lizenz entziehen
+            </button>
           </div>
-          <button
-            type="button"
-            className="btn btn-danger btn-sm"
-            onClick={() => revoke.mutate({ membershipId: member.membershipId })}
-            disabled={revoke.isPending}
-          >
-            Lizenz entziehen
-          </button>
-        </div>
-      ))}
+        ))}
+      </div>
       {members.data?.length === 0 && <p className="field-hint">Noch keine Teilnehmenden beigetreten.</p>}
       {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
     </div>
@@ -184,16 +192,16 @@ function BrandingSection({
 
   return (
     <form
-      className="stack"
+      className="panel-section"
       onSubmit={(event) => {
         event.preventDefault();
         update.mutate({ logoUrl, color, headline });
       }}
     >
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Branding</h2>
-      <p className="field-hint">
-        Wird als Banner in der App der Lernenden angezeigt, die deinem Unternehmen zugeordnet sind.
-      </p>
+      <div className="panel-section-head">
+        <h2>Branding</h2>
+        <p>Wird als Banner in der App der Lernenden angezeigt, die deinem Unternehmen zugeordnet sind.</p>
+      </div>
       <div className="field">
         <label htmlFor="cd-branding-logo">Logo-URL</label>
         <input
@@ -256,8 +264,10 @@ function StatsSection() {
 
   if (stats.data.activeSharePercent === null) {
     return (
-      <div className="stack">
-        <h2 style={{ fontSize: "var(--fs-lg)" }}>Nutzungsstatistik</h2>
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Nutzungsstatistik</h2>
+        </div>
         <p className="field-hint">
           Aggregierte Statistiken sind erst ab {stats.data.minCohortSize} Mitgliedschaften verfügbar (aktuell{" "}
           {stats.data.totalMembers}) — bei weniger Mitgliedschaften wäre eine "aggregierte" Kennzahl faktisch eine
@@ -268,9 +278,11 @@ function StatsSection() {
   }
 
   return (
-    <div className="stack stat-section">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Nutzungsstatistik</h2>
-      <p className="field-hint">Ausschließlich aggregierte Werte über alle Mitgliedschaften — keine Einzelauswertung.</p>
+    <div className="panel-section">
+      <div className="panel-section-head">
+        <h2>Nutzungsstatistik</h2>
+        <p>Ausschließlich aggregierte Werte über alle Mitgliedschaften — keine Einzelauswertung.</p>
+      </div>
       <div className="stat-row">
         <div className="stat-tile">
           <span className="stat-value">{stats.data.activeSharePercent} %</span>
@@ -376,40 +388,30 @@ export function CompanyDashboard() {
           </>
         }
       />
-      <main id="main-content" className="shell shell--narrow">
-        <div className="card">
-          <h1 style={{ fontSize: "var(--fs-lg)" }}>{me.data.name}</h1>
-          <div className="admin-row">
-            <div className="meta">
-              Sitzplatz-Kontingent
-              <span>
-                {me.data.seatsUsed} von {me.data.seatLimit} belegt
+      <main id="main-content" className="shell">
+        <h1 style={{ fontSize: "var(--fs-lg)" }}>{me.data.name}</h1>
+        <div className="panel-section">
+          <div className="stat-row">
+            <div className="stat-tile">
+              <span className="stat-value">
+                {me.data.seatsUsed} / {me.data.seatLimit}
               </span>
+              <span className="stat-label">Sitzplatz-Kontingent belegt</span>
+            </div>
+            <div className="stat-tile">
+              <span className="stat-value">{BILLING_STATUS_LABELS[me.data.billingStatus] ?? me.data.billingStatus}</span>
+              <span className="stat-label">Abrechnungsstatus</span>
             </div>
           </div>
-          <div className="admin-row">
-            <div className="meta">
-              Abrechnungsstatus
-              <span>{BILLING_STATUS_LABELS[me.data.billingStatus] ?? me.data.billingStatus}</span>
-            </div>
-          </div>
         </div>
-        <div className="card">
-          <InviteCodesSection />
-        </div>
-        <div className="card">
-          <MembersSection />
-        </div>
-        <div className="card">
-          <BrandingSection
-            brandingLogoUrl={me.data.brandingLogoUrl}
-            brandingColor={me.data.brandingColor}
-            brandingHeadline={me.data.brandingHeadline}
-          />
-        </div>
-        <div className="card">
-          <StatsSection />
-        </div>
+        <InviteCodesSection />
+        <MembersSection />
+        <BrandingSection
+          brandingLogoUrl={me.data.brandingLogoUrl}
+          brandingColor={me.data.brandingColor}
+          brandingHeadline={me.data.brandingHeadline}
+        />
+        <StatsSection />
       </main>
     </>
   );

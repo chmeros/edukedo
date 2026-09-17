@@ -248,12 +248,13 @@ a {
   font-size: var(--fs-sm);
 }
 
-/* ---------- Listen (Redesign 17.09.2026, löst .admin-row für neue Listen ab) ---------- */
+/* ---------- Listen (Redesign 17.09.2026, löst .admin-row ab) ---------- */
 /* Schlichte Zeilen mit Trennlinie statt einzeln umrandeter Boxen — deutlich weniger visuelles
-   Rauschen bei längeren Listen (Einladungscodes, Freunde, Mitglieder, Meldungen, …).
-   .admin-row/.join-row bleiben für Bereiche bestehen, die in dieser Umbauphase noch nicht
-   angefasst wurden (Admin-Panel, Unternehmens-/Eltern-Dashboard, siehe Architekturplanung
-   Abschnitt 13). */
+   Rauschen bei längeren Listen (Einladungscodes, Freunde, Mitglieder, Meldungen, …). Seit
+   Redesign Phase 2 (17.09.2026) auch in Admin-Panel/Eltern-/Unternehmens-Dashboard verwendet;
+   .admin-row selbst wurde daraufhin entfernt (kein Verwender mehr). .join-row bleibt für den
+   Kurs-Dropdown im Header bestehen (CourseSwitcher.tsx, noch nicht angefasst, siehe
+   Architekturplanung Abschnitt 13). */
 .list {
   display: flex;
   flex-direction: column;
@@ -262,6 +263,12 @@ a {
 .list-row {
   display: flex;
   align-items: center;
+  /* Redesign-Audit 17.09.2026 (Phase 2): flex-wrap ergänzt — vorbestehendes Problem, jetzt beim
+     Übertragen von .admin-row auf .list-row im Admin-Panel bemerkt: eine mehrteilige
+     Zeilen-Aktion (z. B. Status-Auswahl + Zahleneingabe + Speichern-Button in
+     CompanyBillingForm) lief auf schmalen Bildschirmen aus dem Viewport, weil weder die Zeile
+     noch .list-row-actions selbst umbrechen konnten.  */
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
   padding-block: 14px;
@@ -689,8 +696,10 @@ details[open] > summary.disclosure::before {
   content: "▾ ";
 }
 
-.join-row,
-.admin-row {
+/* .admin-row entfernt (Redesign Phase 2, 17.09.2026) — kein Verwender mehr, siehe
+   Architekturplanung Abschnitt 13. .join-row bleibt für den Kurs-Dropdown im Header
+   (CourseSwitcher.tsx) bestehen. */
+.join-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -701,22 +710,16 @@ details[open] > summary.disclosure::before {
   background: var(--card);
 }
 
-.join-row .meta,
-.admin-row .meta {
+.join-row .meta {
   font-size: var(--fs-sm);
   font-weight: 600;
 }
 
-.join-row .meta span,
-.admin-row .meta span {
+.join-row .meta span {
   display: block;
   font-size: var(--fs-xs);
   font-weight: 500;
   color: var(--ink-faint);
-}
-
-.admin-row .meta span {
-  font-family: var(--font-mono);
 }
 
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */

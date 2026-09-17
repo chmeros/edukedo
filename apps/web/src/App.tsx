@@ -152,9 +152,7 @@ export function App() {
         />
         <main id="main-content" className="shell">
           {view === "admin" && isAdmin ? (
-            <div className="card">
-              <AdminPanel />
-            </div>
+            <AdminPanel />
           ) : (
             <>
               <CompanyBranding />

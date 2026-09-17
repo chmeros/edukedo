@@ -187,25 +187,31 @@ export function ParentDashboard() {
         }
       />
       <main id="main-content" className="shell shell--narrow">
-        <div className="card">
-          <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
+        <h1 style={{ fontSize: "var(--fs-lg)" }}>Eltern-Dashboard</h1>
+        <div className="panel-section">
           {me.data.children.length === 0 && <p>Es sind noch keine Kinder-Konten verknüpft.</p>}
-          {me.data.children.map((child) => (
-            <div key={child.linkId} className="stack">
-              <div className="admin-row">
-                <div className="meta">
-                  {child.childEmail}
-                  <span>{CONSENT_STATUS_LABELS[child.consentStatus] ?? child.consentStatus}</span>
+          <div className="list">
+            {me.data.children.map((child) => (
+              // Eigener .stack-Wrapper je Kind statt der RevokeConsentButton direkt als
+              // Flex-Kind in .list-row: der Button klappt bei Bestätigung zu einer vollbreiten
+              // .alert-Box auf (Text + zwei Buttons) — als Kind einer align-items:center-Zeile
+              // neben dem meta-Text würde diese Box zusammengequetscht statt darunter zu
+              // erscheinen.
+              <div key={child.linkId} className="stack">
+                <div className="list-row">
+                  <div className="meta">
+                    {child.childEmail}
+                    <span>{CONSENT_STATUS_LABELS[child.consentStatus] ?? child.consentStatus}</span>
+                  </div>
                 </div>
+                {child.consentStatus === "confirmed" && <RevokeConsentButton linkId={child.linkId} />}
               </div>
-              {child.consentStatus === "confirmed" && <RevokeConsentButton linkId={child.linkId} />}
-            </div>
-          ))}
-          <hr />
-          <a className="link" href="/datenschutz-kinder">
-            Datenschutz-Kurzfassung für Kinder ansehen
-          </a>
+            ))}
+          </div>
         </div>
+        <a className="link" href="/datenschutz-kinder">
+          Datenschutz-Kurzfassung für Kinder ansehen
+        </a>
       </main>
     </>
   );

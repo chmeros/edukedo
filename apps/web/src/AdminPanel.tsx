@@ -96,7 +96,7 @@ function CompanyBillingForm({ company }: { company: { id: string; billingStatus:
 
   return (
     <form
-      style={{ display: "flex", gap: 8, alignItems: "center" }}
+      className="list-row-actions"
       onSubmit={(event) => {
         event.preventDefault();
         update.mutate({
@@ -251,123 +251,142 @@ export function AdminPanel() {
   }
 
   return (
-    <div className="stack">
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Kurse verwalten</h2>
-      {(courses.data ?? []).map((course) => (
-        <div key={course.id} className="admin-row">
-          <div className="meta">
-            {course.title}
-            <span>{course.type}</span>
-          </div>
-          <button
-            type="button"
-            className={course.isPublished ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
-            onClick={() => setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished })}
-            disabled={setPublished.isPending}
-          >
-            {course.isPublished ? "Zurückziehen" : "Veröffentlichen"}
-          </button>
+    <>
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Admin: Kurse verwalten</h2>
         </div>
-      ))}
-      <div className="alert alert-info">
-        <InfoIcon />
-        <div>
-          Liest <code>content/</code> (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
-          vollständig. <code>is_published</code> bleibt dabei unangetastet.
+        <div className="list">
+          {(courses.data ?? []).map((course) => (
+            <div key={course.id} className="list-row">
+              <div className="meta">
+                {course.title}
+                <span>{course.type}</span>
+              </div>
+              <button
+                type="button"
+                className={course.isPublished ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
+                onClick={() => setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished })}
+                disabled={setPublished.isPending}
+              >
+                {course.isPublished ? "Zurückziehen" : "Veröffentlichen"}
+              </button>
+            </div>
+          ))}
         </div>
-      </div>
-      <button
-        type="button"
-        className="btn btn-ghost"
-        style={{ alignSelf: "flex-start" }}
-        onClick={() => triggerImport.mutate()}
-        disabled={triggerImport.isPending}
-      >
-        {triggerImport.isPending ? "Import läuft…" : "Content neu importieren"}
-      </button>
-      {triggerImport.data && (
-        <div className="alert alert-success">
-          <SuccessIcon />
+        <div className="alert alert-info">
+          <InfoIcon />
           <div>
-            <b>
-              {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items
-              importiert.
-            </b>
+            Liest <code>content/</code> (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
+            vollständig. <code>is_published</code> bleibt dabei unangetastet.
           </div>
         </div>
-      )}
-      {triggerImport.error && <ErrorMessage>{triggerImport.error.message}</ErrorMessage>}
-
-      <hr />
-
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Unternehmens-Konten (F-91)</h2>
-      {(companyAccounts.data ?? []).map((company) => (
-        <div key={company.id} className="admin-row">
-          <div className="meta">
-            {company.name}
-            <span>
-              {company.contactEmail} · {company.seatLimit} Plätze ·{" "}
-              {BILLING_STATUS_LABELS[company.billingStatus] ?? company.billingStatus} ·{" "}
-              {company.passwordSet ? "eingerichtet" : "Setup ausstehend"}
-            </span>
+        <button
+          type="button"
+          className="btn btn-ghost btn-sm"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => triggerImport.mutate()}
+          disabled={triggerImport.isPending}
+        >
+          {triggerImport.isPending ? "Import läuft…" : "Content neu importieren"}
+        </button>
+        {triggerImport.data && (
+          <div className="alert alert-success">
+            <SuccessIcon />
+            <div>
+              <b>
+                {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items
+                importiert.
+              </b>
+            </div>
           </div>
-          <CompanyBillingForm company={company} />
+        )}
+        {triggerImport.error && <ErrorMessage>{triggerImport.error.message}</ErrorMessage>}
+      </div>
+
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Admin: Unternehmens-Konten (F-91)</h2>
         </div>
-      ))}
-      {companyAccounts.data?.length === 0 && <p className="field-hint">Noch keine Unternehmens-Konten angelegt.</p>}
-      <CreateCompanyAccountForm />
-
-      <hr />
-
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Sponsoring (F-94)</h2>
-      {(sponsors.data ?? []).map((entry) => (
-        <div key={entry.id} className="admin-row">
-          <div className="meta">
-            {entry.name}
-            <span>
-              {entry.attributionText} ·{" "}
-              {entry.kursId
-                ? (courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"
-                : "Plattformweit"}
-            </span>
-          </div>
-          <button
-            type="button"
-            className={entry.isActive ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
-            onClick={() => setSponsorActive.mutate({ sponsorId: entry.id, isActive: !entry.isActive })}
-            disabled={setSponsorActive.isPending}
-          >
-            {entry.isActive ? "Deaktivieren" : "Aktivieren"}
-          </button>
+        <div className="list">
+          {(companyAccounts.data ?? []).map((company) => (
+            <div key={company.id} className="list-row">
+              <div className="meta">
+                {company.name}
+                <span>
+                  {company.contactEmail} · {company.seatLimit} Plätze ·{" "}
+                  {BILLING_STATUS_LABELS[company.billingStatus] ?? company.billingStatus} ·{" "}
+                  {company.passwordSet ? "eingerichtet" : "Setup ausstehend"}
+                </span>
+              </div>
+              <CompanyBillingForm company={company} />
+            </div>
+          ))}
         </div>
-      ))}
-      {sponsors.data?.length === 0 && <p className="field-hint">Noch kein Sponsoring angelegt.</p>}
-      <CreateSponsorForm courses={courses.data ?? []} />
+        {companyAccounts.data?.length === 0 && <p className="field-hint">Noch keine Unternehmens-Konten angelegt.</p>}
+        <CreateCompanyAccountForm />
+      </div>
 
-      <hr />
-
-      <h2 style={{ fontSize: "var(--fs-lg)" }}>Admin: Meldungen (F-68)</h2>
-      {(reports.data ?? []).map((entry) => (
-        <div key={entry.id} className="admin-row">
-          <div className="meta">
-            {entry.reporterEmail ?? "unbekannt"} meldet {entry.reportedEmail ?? "unbekannt"}
-            <span>
-              {entry.reason} · {(courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"} ·{" "}
-              {new Date(entry.createdAt).toLocaleDateString("de-DE")}
-            </span>
-          </div>
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm"
-            onClick={() => resolveReport.mutate({ reportId: entry.id })}
-            disabled={resolveReport.isPending}
-          >
-            Schließen
-          </button>
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Admin: Sponsoring (F-94)</h2>
         </div>
-      ))}
-      {reports.data?.length === 0 && <p className="field-hint">Keine offenen Meldungen.</p>}
-      {resolveReport.error && <ErrorMessage>{resolveReport.error.message}</ErrorMessage>}
-    </div>
+        <div className="list">
+          {(sponsors.data ?? []).map((entry) => (
+            <div key={entry.id} className="list-row">
+              <div className="meta">
+                {entry.name}
+                <span>
+                  {entry.attributionText} ·{" "}
+                  {entry.kursId
+                    ? (courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"
+                    : "Plattformweit"}
+                </span>
+              </div>
+              <button
+                type="button"
+                className={entry.isActive ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
+                onClick={() => setSponsorActive.mutate({ sponsorId: entry.id, isActive: !entry.isActive })}
+                disabled={setSponsorActive.isPending}
+              >
+                {entry.isActive ? "Deaktivieren" : "Aktivieren"}
+              </button>
+            </div>
+          ))}
+        </div>
+        {sponsors.data?.length === 0 && <p className="field-hint">Noch kein Sponsoring angelegt.</p>}
+        <CreateSponsorForm courses={courses.data ?? []} />
+      </div>
+
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Admin: Meldungen (F-68)</h2>
+        </div>
+        <div className="list">
+          {(reports.data ?? []).map((entry) => (
+            <div key={entry.id} className="list-row">
+              <div className="meta">
+                {entry.reporterEmail ?? "unbekannt"} meldet {entry.reportedEmail ?? "unbekannt"}
+                <span>
+                  {entry.reason} ·{" "}
+                  {(courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"} ·{" "}
+                  {new Date(entry.createdAt).toLocaleDateString("de-DE")}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm"
+                onClick={() => resolveReport.mutate({ reportId: entry.id })}
+                disabled={resolveReport.isPending}
+              >
+                Schließen
+              </button>
+            </div>
+          ))}
+        </div>
+        {reports.data?.length === 0 && <p className="field-hint">Keine offenen Meldungen.</p>}
+        {resolveReport.error && <ErrorMessage>{resolveReport.error.message}</ErrorMessage>}
+      </div>
+    </>
   );
 }
