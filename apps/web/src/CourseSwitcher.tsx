@@ -4,7 +4,7 @@ import { useDismissableMenu } from "./useDismissableMenu";
 
 /**
  * F-09: Mehrfach-Kursbelegung aktiv genutzt — zeigt die eingeschriebenen Kurse zur Auswahl
- * (der ausgewählte Kurs filtert Theorie/Karteikarten/Quiz/Fortschritt, siehe App.tsx) sowie
+ * (der ausgewählte Kurs filtert Lernen/Prüfung/Fortschritt, siehe App.tsx) sowie
  * weitere veröffentlichte, noch nicht belegte Kurse zum Beitreten. Jetzt als Header-Dropdown
  * statt großer Kacheln im Hauptbereich (Layout-Vereinheitlichung, siehe Architekturplanung
  * Abschnitt 13, Entscheidung vom 16.09.2026) — Kursauswahl ist eine wiederkehrende

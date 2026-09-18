@@ -46,3 +46,19 @@ export const deleteAccountInputSchema = z.object({
   password: z.string().min(1),
 });
 export type DeleteAccountInput = z.infer<typeof deleteAccountInputSchema>;
+
+/**
+ * F-104: Präferenz für den vereinheitlichten "Lernen"-Tab — zwei unabhängige Schalter statt
+ * einer dritten "Beides"-Option (siehe Architekturplanung Abschnitt 13). .refine erzwingt
+ * "mindestens eine Option muss aktiv bleiben" bereits am Eingang, nicht erst per DB-Constraint.
+ */
+export const setLearningModePreferenceInputSchema = z
+  .object({
+    flashcardsEnabled: z.boolean(),
+    quizEnabled: z.boolean(),
+  })
+  .refine((data) => data.flashcardsEnabled || data.quizEnabled, {
+    message: "Mindestens ein Lernmodus muss aktiv bleiben.",
+    path: ["quizEnabled"],
+  });
+export type SetLearningModePreferenceInput = z.infer<typeof setLearningModePreferenceInputSchema>;

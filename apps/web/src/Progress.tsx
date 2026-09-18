@@ -3,6 +3,7 @@ import { Achievements } from "./Achievements";
 import { FriendCircle } from "./FriendCircle";
 import { Highscore } from "./Highscore";
 import { InfoIcon } from "./Icons";
+import { LearningModeSettings } from "./LearningModeSettings";
 import { Lernpartner } from "./Lernpartner";
 import { OfflineDownload } from "./OfflineDownload";
 import { RedeemCompanyCode } from "./RedeemCompanyCode";
@@ -203,6 +204,9 @@ export function Progress({ kursId, isMinor }: { kursId: string; isMinor: boolean
         aria-labelledby="tab-fortschritt-einstellungen"
       >
         <div className="panel-section widget-grid">
+          <div className="widget">
+            <LearningModeSettings />
+          </div>
           <div className="widget">
             <Zielplanung kursId={kursId} />
           </div>

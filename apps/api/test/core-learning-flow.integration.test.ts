@@ -195,6 +195,49 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-104: setzt die Lernmodus-Präferenz, lehnt aber die Kombination 'beide aus' ab",
+    async () => {
+      const meBefore = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      const dataBefore = meBefore.json().result.data;
+      expect(dataBefore.learnFlashcardsEnabled).toBe(true);
+      expect(dataBefore.learnQuizEnabled).toBe(true);
+      expect(dataBefore.learningModePreferenceSet).toBe(false);
+
+      const invalidResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.setLearningModePreference",
+        headers: { cookie: sessionCookie },
+        payload: { flashcardsEnabled: false, quizEnabled: false },
+      });
+      expect(invalidResponse.statusCode).toBe(400);
+
+      const validResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.setLearningModePreference",
+        headers: { cookie: sessionCookie },
+        payload: { flashcardsEnabled: true, quizEnabled: false },
+      });
+      expect(validResponse.statusCode).toBe(200);
+      expect(validResponse.json().result.data.success).toBe(true);
+
+      const meAfter = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      const dataAfter = meAfter.json().result.data;
+      expect(dataAfter.learnFlashcardsEnabled).toBe(true);
+      expect(dataAfter.learnQuizEnabled).toBe(false);
+      expect(dataAfter.learningModePreferenceSet).toBe(true);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

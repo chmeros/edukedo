@@ -1,4 +1,10 @@
-import { deleteAccountInputSchema, loginInputSchema, registerInputSchema, requiresParentalConsent } from "@edukedo/shared";
+import {
+  deleteAccountInputSchema,
+  loginInputSchema,
+  registerInputSchema,
+  requiresParentalConsent,
+  setLearningModePreferenceInputSchema,
+} from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { calculateIsMinor } from "../../auth/age";
@@ -149,5 +155,30 @@ export const authRouter = router({
     email: ctx.currentUser.email,
     role: ctx.currentUser.role,
     isMinor: ctx.currentUser.isMinor,
+    learnFlashcardsEnabled: ctx.currentUser.learnFlashcardsEnabled,
+    learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
+    learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
   })),
+
+  /**
+   * F-104: Setzt die Präferenz für den vereinheitlichten "Lernen"-Tab — sowohl für die
+   * Erstbesuch-Abfrage (Karteikarte/Quiz/Beides) als auch für spätere Änderungen über die
+   * Einstellungen (aktuell im Fortschritt-Tab, siehe F-107 für die spätere Verlagerung ins
+   * Header-Benutzermenü). learningModePreferenceSet wird dabei immer auf true gesetzt, auch
+   * wenn die Erstbesuch-Abfrage mit den Default-Werten beantwortet wurde — sonst würde die
+   * Abfrage bei jedem weiteren Besuch erneut erscheinen.
+   */
+  setLearningModePreference: protectedProcedure
+    .input(setLearningModePreferenceInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(user)
+        .set({
+          learnFlashcardsEnabled: input.flashcardsEnabled,
+          learnQuizEnabled: input.quizEnabled,
+          learningModePreferenceSet: true,
+        })
+        .where(eq(user.id, ctx.currentUser.id));
+      return { success: true };
+    }),
 });

@@ -4,29 +4,30 @@ import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { ErrorMessage } from "./ErrorMessage";
-import { Flashcards } from "./Flashcards";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
+import { Lernen } from "./Lernen";
 import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
-import { Quiz } from "./Quiz";
 import { SponsorBanner } from "./SponsorBanner";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
-import { Theorie } from "./Theorie";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
 
-type LearningMode = "theorie" | "flashcards" | "quiz" | "exam" | "progress";
+// F-103: Der bisherige eigenständige Tab "Theorie" entfällt vorerst vollständig (Nutzer-
+// Entscheidung 18.09.2026) — content.theorySections bleibt im Backend unverändert bestehen,
+// nur ohne aktuellen Zugriffsweg im eingeloggten Bereich. F-104: "Karteikarten"/"Quiz"
+// verschmelzen zum Tab "Lernen". F-105: neuer, vorerst leerer Platzhalter-Tab "Instrumente".
+type LearningMode = "lernen" | "exam" | "instrumente" | "progress";
 
 const LEARNING_MODE_TABS: { id: LearningMode; label: string }[] = [
-  { id: "theorie", label: "Theorie" },
-  { id: "flashcards", label: "Karteikarten" },
-  { id: "quiz", label: "Quiz" },
+  { id: "lernen", label: "Lernen" },
   { id: "exam", label: "Prüfung" },
+  { id: "instrumente", label: "Instrumente" },
   { id: "progress", label: "Fortschritt" },
 ];
 
@@ -60,7 +61,7 @@ export function App() {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
   const [parentEmail, setParentEmail] = useState("");
-  const [learningMode, setLearningMode] = useState<LearningMode>("flashcards");
+  const [learningMode, setLearningMode] = useState<LearningMode>("lernen");
   // F-44: "roving tabindex" fürs ARIA-Tablist-Muster unten — nur der aktive Tab ist per
   // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
   const learningModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -113,7 +114,7 @@ export function App() {
   // wechselt (learningMode bleibt dabei unverändert) — die Zeit im Admin-Bereich wäre
   // fälschlich als "Lernzeit" (F-31) gezählt worden.
   useLearningSessionTracker(
-    view === "app" && (learningMode === "flashcards" || learningMode === "quiz" || learningMode === "exam"),
+    view === "app" && (learningMode === "lernen" || learningMode === "exam"),
     activeKursId,
   );
 
@@ -166,7 +167,10 @@ export function App() {
                       className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
                       onClick={() => {
                         setActiveThema({ id: suggestion.themaId, title: suggestion.title });
-                        setLearningMode(suggestion.mode);
+                        // F-104: nur noch ein Lernmodus-Tab — welcher Modus (Karteikarte/Quiz)
+                        // den Rückstand verursacht, steckt weiterhin in der Begründung unten,
+                        // steuert aber keinen Tab-Wechsel mehr (siehe Lernen.tsx).
+                        setLearningMode("lernen");
                       }}
                     >
                       <span className="suggestion-title">{suggestion.title}</span>
@@ -212,44 +216,38 @@ export function App() {
                     // nutzen jetzt die volle .shell-Breite, Karteikarten/Quiz/Prüfung bleiben
                     // über .content-narrow bewusst schmal (ein einzelnes Frage-/Antwort-Element
                     // wirkt auf voller Breite verloren statt fokussiert).
-                    className={
-                      learningMode === "theorie" || learningMode === "progress" ? undefined : "content-narrow"
-                    }
+                    className={learningMode === "progress" ? undefined : "content-narrow"}
                     role="tabpanel"
                     id={`panel-${learningMode}`}
                     aria-labelledby={`tab-${learningMode}`}
                   >
-                    {/* key={activeKursId}-„-“-activeThema?.id: erzwingt einen Remount bei
-                        Kurswechsel UND beim Setzen/Aufheben eines F-27-Themenfilters, damit
-                        lokaler Interaktionszustand (Quiz-Fortschritt, aufgedeckte
-                        Karteikarte, ...) nicht vom vorherigen Kurs/Filter übernommen wird. */}
-                    {learningMode === "theorie" && <Theorie key={activeKursId} kursId={activeKursId} />}
-                    {learningMode === "flashcards" && (
-                      <Flashcards
-                        key={`${activeKursId}-${activeThema?.id ?? "all"}`}
-                        kursId={activeKursId}
-                        themaId={activeThema?.id}
-                        themaTitle={activeThema?.title}
-                        onClearThema={() => setActiveThema(null)}
-                      />
-                    )}
-                    {/* Quiz bleibt anders als die übrigen drei Tabs immer im DOM (nur per
-                        hidden ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet zu
-                        werden — sonst würde quiz.quizItems bei jeder Rückkehr zum Quiz-Tab
-                        eine neue, zufällig gemischte 20er-Runde laden und den bisherigen
-                        Durchgang (Frage X von 20) verwerfen. Der key sorgt weiterhin dafür,
-                        dass ein Kurswechsel oder das Setzen/Aufheben eines
+                    {/* Lernen bleibt wie vorher Quiz anders als die übrigen Tabs immer im DOM
+                        (nur per hidden ausgeblendet), statt bei jedem Tab-Wechsel neu gemountet
+                        zu werden — sonst würde ein laufender Quiz-/Mischmodus-Durchgang
+                        (Frage X von Y) beim Zurückwechseln verworfen. Der key sorgt weiterhin
+                        dafür, dass ein Kurswechsel oder das Setzen/Aufheben eines
                         F-27-Themenfilters die Runde bewusst zurücksetzt. */}
-                    <div hidden={learningMode !== "quiz"}>
-                      <Quiz
+                    <div hidden={learningMode !== "lernen"}>
+                      <Lernen
                         key={`${activeKursId}-${activeThema?.id ?? "all"}`}
                         kursId={activeKursId}
                         themaId={activeThema?.id}
                         themaTitle={activeThema?.title}
                         onClearThema={() => setActiveThema(null)}
+                        flashcardsEnabled={me.data.learnFlashcardsEnabled}
+                        quizEnabled={me.data.learnQuizEnabled}
+                        preferenceSet={me.data.learningModePreferenceSet}
                       />
                     </div>
+                    {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit
+                        lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}
                     {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
+                    {learningMode === "instrumente" && (
+                      <div className="alert alert-info">
+                        <InfoIcon />
+                        <div>Hier entstehen künftig weitere Lern-Werkzeuge (F-105).</div>
+                      </div>
+                    )}
                     {learningMode === "progress" && (
                       <Progress key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
                     )}

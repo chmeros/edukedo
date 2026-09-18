@@ -100,11 +100,24 @@ export const user = pgTable(
     birthDate: date("birth_date"),
     isMinor: boolean("is_minor").notNull(),
     emailVerifiedAt: timestamp("email_verified_at", { withTimezone: true }),
+    // F-104 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): Präferenz
+    // für den vereinheitlichten "Lernen"-Tab — zwei unabhängige Schalter statt einer dritten
+    // "Beides"-Spalte, da sich "Beides" widerspruchsfrei aus "beide an" ergibt. Default (true,
+    // true) entspricht "Beides", bis eine Person die Erstbesuch-Abfrage beantwortet.
+    learnFlashcardsEnabled: boolean("learn_flashcards_enabled").notNull().default(true),
+    learnQuizEnabled: boolean("learn_quiz_enabled").notNull().default(true),
+    // Unterscheidet "Default nie angefasst" (Erstbesuch-Abfrage noch zu zeigen) von einer
+    // bewussten Entscheidung für exakt die Default-Kombination.
+    learningModePreferenceSet: boolean("learning_mode_preference_set").notNull().default(false),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [
     check("user_role_check", sql`${table.role} in ('learner', 'content_editor', 'admin')`),
+    check(
+      "user_learning_mode_at_least_one_check",
+      sql`${table.learnFlashcardsEnabled} or ${table.learnQuizEnabled}`,
+    ),
   ],
 );
 
