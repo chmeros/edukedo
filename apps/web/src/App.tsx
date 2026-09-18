@@ -2,6 +2,7 @@ import { requiresParentalConsent } from "@edukedo/shared";
 import { useEffect, useRef, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
+import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { ErrorMessage } from "./ErrorMessage";
 import { GuestHeaderActions } from "./GuestHeaderActions";
@@ -83,8 +84,11 @@ export function App() {
   // F-11: Admin-Bereich als eigene Ansicht statt eines Inline-Anhängsels über der Kursliste
   // (Layout-Vereinheitlichung, siehe Architekturplanung Abschnitt 13, Entscheidung vom
   // 16.09.2026) — umgeschaltet über UserMenu, nicht über die Lern-Tab-Leiste, da es
-  // konzeptionell zur Rolle gehört, nicht zu den Lerninhalten.
-  const [view, setView] = useState<"app" | "admin">("app");
+  // konzeptionell zur Rolle gehört, nicht zu den Lerninhalten. F-100/F-101 (18.09.2026): "courses"
+  // ersetzt das bisherige Inline-Dropdown durch eine eigene Ansicht (`CourseSelection.tsx`) —
+  // wird sowohl explizit über den Header-Link als auch implizit erzwungen, solange kein aktiver
+  // Kurs existiert (siehe showCourseSelection unten).
+  const [view, setView] = useState<"app" | "admin" | "courses">("app");
 
   const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
 
@@ -109,6 +113,12 @@ export function App() {
     selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
       ? selectedKursId
       : joinedCourses[0]?.id ?? null;
+  // F-101: verbindliche Lernbereichsauswahl — sobald courses.list geladen ist und keine
+  // Belegung existiert, ersetzt die Kursauswahl den Lernbereich zwangsweise (canDismiss=false
+  // in CourseSelection.tsx), statt nur einen Hinweis anzuzeigen. `courses.data !== undefined`
+  // verhindert ein kurzes Aufblitzen während des ersten Ladens (activeKursId ist dann ebenfalls
+  // noch null, aber noch nicht aussagekräftig).
+  const showCourseSelection = view === "courses" || (view === "app" && courses.data !== undefined && !activeKursId);
   // Code-Review-Fund, nachgezogen: view === "app" gehört mit in die Bedingung, sonst lief
   // der Tracker unbemerkt weiter, wenn eine Admin-Person vom Lernmodus in die Verwaltung
   // wechselt (learningMode bleibt dabei unverändert) — die Zeit im Admin-Bereich wäre
@@ -137,7 +147,13 @@ export function App() {
           right={
             <div className="header-actions">
               <OfflineStatus />
-              {view === "app" && <CourseSwitcher activeKursId={activeKursId} onActiveKursChange={setSelectedKursId} />}
+              {view === "app" && (
+                <CourseSwitcher
+                  activeKursId={activeKursId}
+                  onActiveKursChange={setSelectedKursId}
+                  onOpenCourseSelection={() => setView("courses")}
+                />
+              )}
               <UserMenu
                 email={me.data.email}
                 role={me.data.role}
@@ -154,6 +170,15 @@ export function App() {
         <main id="main-content" className="shell">
           {view === "admin" && isAdmin ? (
             <AdminPanel />
+          ) : showCourseSelection ? (
+            <CourseSelection
+              onSelected={(kursId) => {
+                setSelectedKursId(kursId);
+                setView("app");
+              }}
+              canDismiss={activeKursId !== null}
+              onDismiss={() => setView("app")}
+            />
           ) : (
             <>
               <CompanyBranding />
@@ -183,6 +208,9 @@ export function App() {
                   ))}
                 </div>
               )}
+              {/* activeKursId ist hier nur während des allerersten Ladens von courses.list
+                  noch null (showCourseSelection fängt den eingeschwungenen "kein Kurs
+                  belegt"-Zustand bereits oben ab, siehe F-101) */}
               {activeKursId ? (
                 <>
                   <div className="tab-nav" role="tablist" aria-label="Lernmodus">
@@ -254,14 +282,7 @@ export function App() {
                   </div>
                 </>
               ) : (
-                <div className="alert alert-info">
-                  <InfoIcon />
-                  {/* Code-Review-Fund, nachgezogen: Seit die Kursauswahl in ein Header-Dropdown
-                      gewandert ist (Layout-Vereinheitlichung), gab es hier keinen Hinweis mehr
-                      darauf, WO "Kurs beitreten" jetzt zu finden ist — die Liste war vorher
-                      direkt an dieser Stelle automatisch aufgeklappt sichtbar. */}
-                  <div>Wähle oben rechts im Kurs-Menü einen Kurs, um mit dem Lernen zu beginnen.</div>
-                </div>
+                <p>Lädt…</p>
               )}
             </>
           )}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { kursZielgruppe, matchesKursZielgruppe } from "./course-audience";
+import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "./course-audience";
 
 describe("kursZielgruppe", () => {
   it("liest ein gesetztes zielgruppe-Feld aus den Metadaten", () => {
@@ -32,5 +32,27 @@ describe("matchesKursZielgruppe", () => {
     expect(matchesKursZielgruppe("erwachsene", false)).toBe(true);
     expect(matchesKursZielgruppe("minderjaehrige", false)).toBe(false);
     expect(matchesKursZielgruppe("alle", false)).toBe(true);
+  });
+});
+
+describe("kursKategorie", () => {
+  it("liest ein gesetztes kategorie-Feld aus den Metadaten", () => {
+    expect(kursKategorie({ kategorie: "erwachsenenbildung" })).toBe("erwachsenenbildung");
+    expect(kursKategorie({ kategorie: "schule" })).toBe("schule");
+  });
+
+  it("fällt auf \"unbekannt\" zurück, wenn das Feld fehlt oder unerwartet ist", () => {
+    expect(kursKategorie({})).toBe("unbekannt");
+    expect(kursKategorie({ kategorie: "sonstiges" })).toBe("unbekannt");
+    expect(kursKategorie(null)).toBe("unbekannt");
+    expect(kursKategorie(undefined)).toBe("unbekannt");
+  });
+});
+
+describe("isEnrollmentExclusive", () => {
+  it("ist nur für Erwachsenenbildungskurse exklusiv (F-102)", () => {
+    expect(isEnrollmentExclusive("erwachsenenbildung")).toBe(true);
+    expect(isEnrollmentExclusive("schule")).toBe(false);
+    expect(isEnrollmentExclusive("unbekannt")).toBe(false);
   });
 });

@@ -61,19 +61,24 @@ interface KursMeta {
  * ist daher für Minderjährige ausgeblendet. Mathematik-9 bleibt bewusst ohne dieses Feld
  * ("alle") — ein Erwachsener, der Schulstoff auffrischen möchte, ist kein Schutzproblem in die
  * andere Richtung, nur der Fachwirt-Kurs für Minderjährige war der beobachtete Missstand.
+ *
+ * metadata.kategorie (F-102, siehe course-audience.ts): steuert die Belegungs-Exklusivität aus
+ * F-102 — nur Kurse der Kategorie "erwachsenenbildung" (aktuell: der Fachwirt-Pilot) beschränken
+ * F-09 auf de facto eine aktive Belegung gleichzeitig. Mathematik-9 trägt "schule" (unverändert
+ * mehrfach belegbar); der technische Demo-Kurs bleibt bewusst unkategorisiert.
  */
 const KURS_META: Record<string, KursMeta> = {
   "fachwirt-buero-projektorganisation": {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
     type: "fachwirt",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene" },
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
   "mathematik-9": {
     title: "Mathematik, Klasse 9 (bundeslandneutral)",
     type: "schulfach",
     isPublished: false,
-    metadata: { klassenstufe: 9, bundesland_ansatz: "bundeslandneutral" },
+    metadata: { klassenstufe: 9, bundesland_ansatz: "bundeslandneutral", kategorie: "schule" },
   },
 };
 

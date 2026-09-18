@@ -29,6 +29,20 @@ export type ThemaFilterableKursInput = z.infer<typeof themaFilterableKursInputSc
  * verpflichtend: Das Frontend zeigt ohnehin nur die zum Kursmodus passenden Felder an, eine
  * serverseitige Modus-Prüfung hätte nur denselben Fall nochmal abgedeckt.
  */
+/**
+ * F-102: `leaveKursId` ist nur nötig, wenn der Zielkurs exklusivitätspflichtig ist (Kategorie
+ * "erwachsenenbildung", siehe course-audience.ts) UND bereits eine andere aktive Belegung
+ * derselben Kategorie besteht — das Frontend kennt diesen Konflikt bereits aus `courses.list`
+ * und holt vorher eine Bestätigung ein (integrierter Wechsel-Flow statt zwei getrennter
+ * Schritte, Nutzer-Entscheidung 18.09.2026), `courses.enroll` prüft den Konflikt aber
+ * zusätzlich serverseitig, statt sich allein auf das Frontend zu verlassen.
+ */
+export const enrollInputSchema = z.object({
+  kursId: z.string().uuid(),
+  leaveKursId: z.string().uuid().optional(),
+});
+export type EnrollInput = z.infer<typeof enrollInputSchema>;
+
 export const setCourseTargetInputSchema = z.object({
   kursId: z.string().uuid(),
   targetDate: z.coerce.date().nullable().optional(),

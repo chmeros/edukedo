@@ -30,7 +30,7 @@ export function UserMenu({
   onLogout: () => void;
   logoutPending: boolean;
   isAdmin: boolean;
-  view: "app" | "admin";
+  view: "app" | "admin" | "courses";
   onViewChange: (view: "app" | "admin") => void;
 }) {
   const [open, setOpen] = useState(false);
