@@ -482,6 +482,23 @@ export function App() {
                 Was passiert mit meinen Daten? (kindgerecht erklärt)
               </a>
             )}
+            {mode === "register" && (
+              // F-51: Hinweis auf AGB/Datenschutzerklärung bei jeder Registrierung, nicht nur
+              // bei Minderjährigen (der /datenschutz-kinder-Link oben bleibt zusätzlich, gezielt
+              // für diese Zielgruppe) — bewusst als Hinweistext statt einer Pflicht-Checkbox, um
+              // den Registrierungs-Flow nicht zusätzlich zu verkomplizieren.
+              <span className="field-hint">
+                Mit der Registrierung akzeptierst du die{" "}
+                <a className="link" href="/agb">
+                  AGB
+                </a>{" "}
+                und die{" "}
+                <a className="link" href="/datenschutz">
+                  Datenschutzerklärung
+                </a>
+                .
+              </span>
+            )}
             <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending}>
               {mode === "login" ? "Einloggen" : "Registrieren"}
             </button>

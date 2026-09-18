@@ -247,6 +247,17 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
           </div>
           <div className="foot-bottom">
             <span>© edukedo — kostenloser Zugang zu Wissen.</span>
+            <nav className="foot-links" aria-label="Rechtliches">
+              <a className="link-muted" href="/impressum">
+                Impressum
+              </a>
+              <a className="link-muted" href="/datenschutz">
+                Datenschutz
+              </a>
+              <a className="link-muted" href="/agb">
+                AGB
+              </a>
+            </nav>
           </div>
         </div>
       </footer>

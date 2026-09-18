@@ -1989,6 +1989,15 @@ details[open] > summary.disclosure::before {
   color: var(--ink-faint);
 }
 
+/* F-51: Rechtliche Pflichtseiten im Footer — eigene Klasse statt .header-actions (dort
+   speziell für den eingeloggten Header gedacht), da .foot-bottom bereits sein eigenes
+   flex/gap-Layout mitbringt. */
+.foot-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 /* ---------- Prüfungssimulation (F-23) ---------- */
 .exam-timer {
   align-self: flex-start;
