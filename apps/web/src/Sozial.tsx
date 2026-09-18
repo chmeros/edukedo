@@ -1,0 +1,26 @@
+import { FriendCircle } from "./FriendCircle";
+import { Highscore } from "./Highscore";
+import { Lernpartner } from "./Lernpartner";
+import { trpc } from "./trpc";
+
+/**
+ * F-107: Eigenständiger Haupt-Tab "Sozial" — löst den bisherigen, mit "Erfolge" kombinierten
+ * Unter-Tab "Sozial & Erfolge" im Fortschritt-Tab ab (siehe Architekturplanung Abschnitt 13).
+ * Bündelt die Freundeskreis-/Gamification-Features mit Fremdkontakt (F-60/F-62/F-63); die
+ * fremdkontaktfreien Achievements (F-67) sind seither ein eigener Tab "Erfolge"
+ * (`Achievements.tsx`, direkt in App.tsx). `fachgebiete` kam bisher von `Progress.tsx`
+ * (bereits über `progress.overview` geladen) — jetzt eine eigene, schlanke Abfrage hier, da
+ * "Sozial" unabhängig von "Fortschritt" aufrufbar ist.
+ */
+export function Sozial({ kursId, isMinor }: { kursId: string; isMinor: boolean }) {
+  const overview = trpc.progress.overview.useQuery({ kursId });
+  const fachgebiete = (overview.data ?? []).map((entry) => ({ id: entry.id, title: entry.title }));
+
+  return (
+    <div className="stack">
+      <FriendCircle kursId={kursId} />
+      <Highscore kursId={kursId} isMinor={isMinor} />
+      <Lernpartner kursId={kursId} fachgebiete={fachgebiete} />
+    </div>
+  );
+}

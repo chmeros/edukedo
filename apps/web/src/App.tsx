@@ -1,5 +1,6 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useEffect, useRef, useState } from "react";
+import { Achievements } from "./Achievements";
 import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
@@ -14,6 +15,7 @@ import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { SponsorBanner } from "./SponsorBanner";
+import { Sozial } from "./Sozial";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
@@ -23,12 +25,16 @@ import { UserMenu } from "./UserMenu";
 // Entscheidung 18.09.2026) — content.theorySections bleibt im Backend unverändert bestehen,
 // nur ohne aktuellen Zugriffsweg im eingeloggten Bereich. F-104: "Karteikarten"/"Quiz"
 // verschmelzen zum Tab "Lernen". F-105: neuer, vorerst leerer Platzhalter-Tab "Instrumente".
-type LearningMode = "lernen" | "exam" | "instrumente" | "progress";
+// F-107: "Sozial" und "Erfolge" wandern vom bisherigen Fortschritt-Unter-Tab auf die
+// Haupt-Tab-Ebene; "Einstellungen" wandert ins Header-Benutzermenü (SettingsModal.tsx).
+type LearningMode = "lernen" | "exam" | "instrumente" | "sozial" | "erfolge" | "progress";
 
 const LEARNING_MODE_TABS: { id: LearningMode; label: string }[] = [
   { id: "lernen", label: "Lernen" },
   { id: "exam", label: "Prüfung" },
   { id: "instrumente", label: "Instrumente" },
+  { id: "sozial", label: "Sozial" },
+  { id: "erfolge", label: "Erfolge" },
   { id: "progress", label: "Fortschritt" },
 ];
 
@@ -163,6 +169,7 @@ export function App() {
                 isAdmin={isAdmin}
                 view={view}
                 onViewChange={setView}
+                activeKursId={activeKursId}
               />
             </div>
           }
@@ -213,7 +220,12 @@ export function App() {
                   belegt"-Zustand bereits oben ab, siehe F-101) */}
               {activeKursId ? (
                 <>
-                  <div className="tab-nav" role="tablist" aria-label="Lernmodus">
+                  <div
+                    className="tab-nav"
+                    role="tablist"
+                    aria-label="Lernmodus"
+                    style={{ gridTemplateColumns: `repeat(${LEARNING_MODE_TABS.length}, 1fr)` }}
+                  >
                     {LEARNING_MODE_TABS.map((tab, index) => (
                       <button
                         key={tab.id}
@@ -244,7 +256,11 @@ export function App() {
                     // nutzen jetzt die volle .shell-Breite, Karteikarten/Quiz/Prüfung bleiben
                     // über .content-narrow bewusst schmal (ein einzelnes Frage-/Antwort-Element
                     // wirkt auf voller Breite verloren statt fokussiert).
-                    className={learningMode === "progress" ? undefined : "content-narrow"}
+                    className={
+                      learningMode === "progress" || learningMode === "sozial" || learningMode === "erfolge"
+                        ? undefined
+                        : "content-narrow"
+                    }
                     role="tabpanel"
                     id={`panel-${learningMode}`}
                     aria-labelledby={`tab-${learningMode}`}
@@ -276,9 +292,11 @@ export function App() {
                         <div>Hier entstehen künftig weitere Lern-Werkzeuge (F-105).</div>
                       </div>
                     )}
-                    {learningMode === "progress" && (
-                      <Progress key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
+                    {learningMode === "sozial" && (
+                      <Sozial key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
                     )}
+                    {learningMode === "erfolge" && <Achievements />}
+                    {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
                   </div>
                 </>
               ) : (

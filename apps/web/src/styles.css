@@ -786,10 +786,14 @@ details[open] > summary.disclosure::before {
   color: var(--sprout-deep);
 }
 
-/* ---------- Tab nav (Theorie/Karteikarten/Quiz/Prüfung/Fortschritt) ---------- */
+/* ---------- Tab nav (Lernen/Prüfung/Instrumente/Sozial/Erfolge/Fortschritt) ---------- */
+/* F-107-Bug-Fix (18.09.2026): der zuvor fest auf 5 Spalten codierte Grid ging von genau 5 Tabs
+   aus (siehe App.tsx-LEARNING_MODE_TABS zur Entstehungszeit dieser Regel) — mit 6 Tabs (F-107:
+   neue "Sozial"/"Erfolge"-Tabs) brach der letzte Tab in eine eigene, nur 1/5 breite Zeile um.
+   Die Spaltenzahl kommt jetzt per Inline-Style aus App.tsx (LEARNING_MODE_TABS.length), damit
+   sie nie wieder von der tatsächlichen Tab-Anzahl abweichen kann. */
 .tab-nav {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   gap: 8px;
 }
 

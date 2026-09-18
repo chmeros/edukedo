@@ -3,8 +3,8 @@ import { trpc } from "./trpc";
 /**
  * F-104: Einstellungen für den vereinheitlichten "Lernen"-Tab — zwei unabhängige Checkboxen
  * statt einer dritten "Beides"-Option (siehe Architekturplanung Abschnitt 13, Entscheidung
- * 18.09.2026). Aktuell im Fortschritt-Tab ("Einstellungen"), F-107 verlagert das später ins
- * Header-Benutzermenü.
+ * 18.09.2026). Seit F-107 im Einstellungen-Modal des Header-Benutzermenüs (SettingsModal.tsx),
+ * zuvor im Fortschritt-Unter-Tab "Einstellungen".
  */
 export function LearningModeSettings() {
   const utils = trpc.useUtils();

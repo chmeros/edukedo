@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { DeleteAccount } from "./DeleteAccount";
+import { SettingsModal } from "./SettingsModal";
 import { useDismissableMenu } from "./useDismissableMenu";
 
 const ROLE_LABELS: Record<string, string> = {
@@ -23,6 +24,7 @@ export function UserMenu({
   isAdmin,
   view,
   onViewChange,
+  activeKursId,
 }: {
   email: string;
   role: string;
@@ -32,6 +34,7 @@ export function UserMenu({
   isAdmin: boolean;
   view: "app" | "admin" | "courses";
   onViewChange: (view: "app" | "admin") => void;
+  activeKursId: string | null;
 }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -57,6 +60,14 @@ export function UserMenu({
             Eingeloggt als <b>{email}</b>
             {isMinor ? " · minderjährig" : ""} · <span className="role-pill">{ROLE_LABELS[role] ?? role}</span>
           </p>
+          {/* F-107: löst den bisherigen Unter-Tab "Einstellungen" im Fortschritt-Tab ab.
+              Bewusst OHNE das Dropdown beim Öffnen zu schließen (anders als bei "Verwaltung
+              öffnen"/"Logout" unten) — SettingsModal.tsx lebt innerhalb dieses `{open && ...}`-
+              Blocks; ein `setOpen(false)` hier würde den gesamten Block samt der gerade erst
+              geöffneten SettingsModal-Instanz (und ihrem lokalen `open`-State) sofort wieder
+              entmounten, bevor das Modal sichtbar würde. Das Modal-Backdrop verdeckt das
+              Dropdown ohnehin vollständig. */}
+          <SettingsModal kursId={activeKursId} />
           {isAdmin && (
             <button
               type="button"

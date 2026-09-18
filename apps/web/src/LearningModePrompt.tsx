@@ -4,8 +4,8 @@ import { trpc } from "./trpc";
 /**
  * F-104: Erstbesuch-Abfrage für den vereinheitlichten "Lernen"-Tab — erscheint, solange
  * `learningModePreferenceSet` noch nie gesetzt wurde (siehe App.tsx/Lernen.tsx). Eine spätere
- * Änderung der Präferenz läuft über die bestehenden Checkboxen im Fortschritt-Tab
- * ("Einstellungen", siehe Progress.tsx) — F-107 verlagert diese später ins Header-Benutzermenü.
+ * Änderung der Präferenz läuft über die Checkboxen im Einstellungen-Modal des
+ * Header-Benutzermenüs (siehe SettingsModal.tsx, F-107).
  */
 export function LearningModePrompt({ onClose }: { onClose: () => void }) {
   const utils = trpc.useUtils();
@@ -23,9 +23,7 @@ export function LearningModePrompt({ onClose }: { onClose: () => void }) {
   return (
     <Modal title="Wie möchtest du lernen?" onClose={onClose}>
       <div className="stack">
-        <p>
-          Du kannst das jederzeit in den Einstellungen (Fortschritt-Tab) ändern.
-        </p>
+        <p>Du kannst das jederzeit in den Einstellungen (Menü oben rechts) ändern.</p>
         <div className="stack">
           <button
             type="button"
