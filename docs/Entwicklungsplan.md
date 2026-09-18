@@ -1,7 +1,9 @@
 # Entwicklungsplan: edukedo
 
-Stand: 14.09.2026 · Grundlage: Anforderungskatalog Version 0.22 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
+Stand: 18.09.2026 · Grundlage: Anforderungskatalog Version 0.24 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
 
+> **Aktualisierung 18.09.2026:** Neue Anforderungsgruppe „Navigation, Kursauswahl & In-App-Struktur" (F-100–F-107, Anforderungskatalog Abschnitt 5.13) als neue **Iteration 7** ergänzt. Anders als die bisherigen Iterationen ist das kein neuer, additiver Funktionsbereich, sondern ein Umbau bereits bestehender, produktiver UI (Header-Dropdown, Theorie-Tab, Quiz-/Karteikarten-Tabs, Fortschritt-Tab-Struktur, Mehrfach-Kursbelegung) — deshalb bewusst als eigene Iteration statt rückwirkender Änderung an den bereits als erledigt markierten Aufgaben in Iteration 1/3/5, um deren historischen Umsetzungsstand nicht zu verfälschen. Zwei der acht Anforderungen hängen von noch offenen Namensentscheidungen ab (siehe Anforderungskatalog Abschnitt 10, offene Punkte 4/5) und werden entsprechend markiert.
+>
 > **Aktualisierung 14.09.2026 (Mathe-Content vorab erstellt):** Der Lerncontent für den Mathematik-Kurs (Klasse 9) wurde bereits jetzt vollständig für alle drei Themenblöcke erstellt (Algebra & Funktionen, Geometrie, Stochastik — siehe Anforderungskatalog Abschnitt 4, 9), nicht erst gestaffelt wie in Iteration 3/5 unten vorgesehen. Die **Programmier-Reihenfolge und das Validierungs-Gate selbst ändern sich dadurch nicht** — Iteration 3 aktiviert weiterhin nur den Mathe-Kurs mit `is_published = false → true`, Iteration 4/5 prüfen weiterhin anhand echter KPIs, ob sich der Ausbau lohnt. Der Unterschied: Wenn das Gate positiv ausfällt, liegt der Content für den weiteren Ausbau (Iteration 5) bereits vollständig vor, statt erst dann erstellt werden zu müssen. Die zugehörigen Content-Tasks in Iteration 0, 3 und 5 sind unten entsprechend als bereits erledigt bzw. angepasst markiert. Zusätzlich wurde die in Iteration 0 vorgesehene Gegenprüfung des Themenkatalogs mit echtem Schulbuchmaterial **nicht** vorgezogen durchgeführt — der Katalog bleibt vorläufig (siehe Anforderungskatalog Abschnitt 4, 7).
 >
 > **Aktualisierung 14.09.2026:** Business-Lizenzen & Sponsoring (F-91–F-94, siehe Anforderungskatalog Abschnitt 5.12 und Architekturplanung Abschnitt 4.5/13) als neue Aufgaben in **Iteration 6** ergänzt — passend zur dortigen Phase-4-Einordnung. Bewusst unter „Programmierung (Kern)" statt „Programmierung (Payment)" einsortiert, weil die Lizenz laut Architekturentscheidung keine Premium-Freischaltung auslöst und deshalb ohne Anbindung an den separaten Payment-Service auskommt — diese Aufgaben sind unabhängig von den übrigen Iteration-6-Payment-Aufgaben umsetzbar. Ergänzend: ein Recht-&-Compliance-Task zu Unternehmens-AGB sowie zwei Testing-Tasks zur Zugriffssperre bei aggregierter Statistik.
@@ -172,6 +174,29 @@ Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwänd
 - [ ] Event-/Queue-Tests (Idempotenz, Verhalten bei Ausfall)
 - [ ] **Zugriffskontroll-Tests für `/company/*`-Statistik-Endpunkte (ergänzt 14.09.2026):** Verifizieren, dass mit `company_admin`-Berechtigung unter keinen Umständen Einzel-Nutzer-Datensätze abrufbar sind — nur aggregierte Werte
 - [ ] **Test der Lizenzkontingent-Grenzen (ergänzt 14.09.2026):** Einladungscode lässt sich nicht über `seat_limit` hinaus einlösen; Branding erscheint nur für Mitglieder des jeweiligen `company_account`
+
+## Iteration 7 — Navigation & Informationsarchitektur-Überarbeitung (F-100–F-107)
+
+Ziel: Die Navigation im eingeloggten Bereich trägt eine perspektivisch deutlich größere Kurs-/Content-Menge, statt nur für die aktuellen zwei Pilotkurse zu funktionieren; Lernmodus- und Fortschritt-Bereich sind aufgeräumter strukturiert. Anders als die bisherigen Iterationen kein additiver Funktionsbereich, sondern ein Umbau bereits produktiver UI — betrifft primär `apps/web/src/App.tsx`, `Header.tsx`, `CourseSwitcher.tsx`, `Theorie.tsx`, `Quiz.tsx`/`Flashcards.tsx`, `Progress.tsx`, `UserMenu.tsx` sowie `apps/api/src/trpc/routers/courses.ts`.
+
+**Programmierung (Kern)**
+- [ ] Dedizierte Kursauswahl-/Katalogseite (F-100) mit Suche/Filter/Kategorien; Header-Dropdown (`CourseSwitcher.tsx`) zeigt danach nur noch die aktuell belegten Kurse plus einen Link zu dieser Seite, nicht mehr den vollständigen Katalog
+- [ ] Verbindliche Lernbereichsauswahl vor Content-Zugriff (F-101): sowohl direkt nach der Registrierung als auch bei jeder weiteren Kursanmeldung über die neue Auswahlseite (F-100) — kein Zugriff auf Lerninhalte ohne mindestens eine getroffene Auswahl
+- [ ] Kurskategorie als neues Feld im generischen `kurs.metadata`-JSON (z. B. `kategorie: "erwachsenenbildung" | "schule"`, siehe Anforderungskatalog Abschnitt 4/13) einführen und für die bestehenden Kurse befüllen (Fachwirt-Pilot: `erwachsenenbildung`; Mathematik-9 und Demo-Kurs: `schule` bzw. unkategorisiert)
+- [ ] Belegungs-Exklusivität für Erwachsenenbildungs-/Weiterbildungskurse (F-102, schränkt F-09 ein): `courses.enroll` lehnt eine zweite gleichzeitige aktive Belegung eines Kurses dieser Kategorie ab (bzw. bietet einen expliziten Wechsel-Flow „bestehende Belegung verlassen und neue beginnen" an — genaue Durchsetzung noch mit dem Nutzer abzustimmen); Schulkurse bleiben von der Einschränkung unberührt
+- [ ] Tab „Theorie" aus der Haupt-Navigation entfernen (F-103); `content.theorySections`-Endpunkt und zugehöriger Content bleiben unverändert im Datenmodell erhalten, da der künftige Zugriffsweg noch offen ist (siehe Anforderungskatalog Abschnitt 10, offener Punkt 5) — **vor Umsetzung mit dem Nutzer klären**, ob Theorie-Inhalte bis zur endgültigen Entscheidung ersatzlos unsichtbar werden dürfen oder übergangsweise anders verlinkt werden sollen
+- [ ] Vereinheitlichter Lernmodus-Tab (F-104): `Quiz.tsx` und `Flashcards.tsx` unter einem gemeinsamen Tab zusammenführen; Abfrage beim Erstbesuch eines Lerncontents (Karteikarte/Quiz/Beides) plus drei unabhängige Checkbox-Einstellungen (mind. eine aktiv) — Name des Tabs noch offen (siehe Anforderungskatalog Abschnitt 10, offener Punkt 4), **vor Umsetzung mit dem Nutzer klären**
+- [ ] Neuer, zunächst leerer Platzhalter-Tab „Instrumente" (F-105) in der Haupt-Navigation
+- [ ] Tab „Prüfung" unverändert übernehmen (F-106) — keine funktionale Änderung, nur Position in der ggf. neu sortierten Tab-Leiste prüfen
+- [ ] Restrukturierung des Tabs „Fortschritt" (F-107): Unter-Tab „Einstellungen" wandert ins Header-Benutzermenü (`UserMenu.tsx`, als Modal); Unter-Tabs „Sozial" und „Erfolge" werden zu eigenständigen Haupt-Tabs auf einer Ebene mit den übrigen; Unter-Tab „Übersicht" entfällt, sein Inhalt erscheint direkt beim Anklicken von „Fortschritt"
+
+**Content**
+- [ ] Rückwirkende Ergänzung des `bloom`-Metadatenfelds bei HB3 (Fachwirt-Pilot) und allen drei Themenblöcken des Mathematik-Kurses (siehe Anforderungskatalog Abschnitt 4/10, offener Punkt 3) — bislang nur bei HB1/HB2/HB4 vorhanden
+
+**Testing**
+- [ ] End-to-End-Test der neuen Kursauswahl-Pflicht (F-101): Registrierung ohne Kursauswahl bleibt ohne Content-Zugriff, Auswahl schaltet frei
+- [ ] Test der Belegungs-Exklusivität (F-102): zweite Anmeldung zu einem weiteren Erwachsenenbildungskurs bei bestehender aktiver Belegung wird abgelehnt/erfordert expliziten Wechsel; Mehrfachbelegung bei Schulkursen bleibt unverändert möglich
+- [ ] Test des vereinheitlichten Lernmodus-Tabs (F-104): alle drei Checkbox-Kombinationen (nur Karteikarte, nur Quiz, beides), letzte verbleibende Option lässt sich nicht deaktivieren
 
 ## Offene, bewusst nicht terminierte Themen
 
