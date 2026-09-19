@@ -4,16 +4,23 @@ import {
   registerInputSchema,
   requiresParentalConsent,
   setLearningModePreferenceInputSchema,
+  verifyEmailInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { calculateIsMinor } from "../../auth/age";
 import { initiateParentalConsent } from "../../auth/consent";
+import { initiateEmailVerification } from "../../auth/email-verification";
 import { hashPassword, verifyPassword } from "../../auth/password";
+import { checkRateLimit } from "../../auth/rate-limit";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
+import { hashToken } from "../../auth/token";
 import { env } from "../../env";
-import { parentChildLink, user } from "../../db/schema";
+import { emailVerificationToken, parentChildLink, user } from "../../db/schema";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
+
+const RESEND_VERIFICATION_RATE_LIMIT_MAX_ATTEMPTS = 3;
+const RESEND_VERIFICATION_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 60; // 1 Stunde
 
 export const authRouter = router({
   register: publicProcedure.input(registerInputSchema).mutation(async ({ ctx, input }) => {
@@ -71,12 +78,19 @@ export const authRouter = router({
     const { token, expiresAt } = await createSession(ctx.db, { userId: created.id });
     setSessionCookie(ctx.res, token, expiresAt);
 
+    // F-01: E-Mail-Verifizierung nur für volljährige Konten — die Session wird trotzdem
+    // sofort vergeben (weiches Gate, siehe Architekturplanung Abschnitt 13), unbestätigte
+    // Konten sind lediglich im Header per Hinweis-Banner sichtbar.
+    const { confirmUrl } = await initiateEmailVerification(ctx.db, { userId: created.id, email: created.email });
+
     return {
       status: "active" as const,
       id: created.id,
       email: created.email,
       role: created.role,
       isMinor: created.isMinor,
+      // Nur außerhalb von production offengelegt, siehe devConfirmUrl oben bei F-08.
+      devVerifyEmailUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
     };
   }),
 
@@ -155,10 +169,85 @@ export const authRouter = router({
     email: ctx.currentUser.email,
     role: ctx.currentUser.role,
     isMinor: ctx.currentUser.isMinor,
+    emailVerified: ctx.currentUser.emailVerifiedAt !== null,
     learnFlashcardsEnabled: ctx.currentUser.learnFlashcardsEnabled,
     learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
   })),
+
+  /**
+   * F-01: Bestätigung durch Klick auf den E-Mail-Verifizierungslink — bewusst public
+   * (analog zu consent.confirm), da der Link auch auf einem Gerät ohne bestehende Session
+   * geöffnet werden kann. Der Token selbst ist der einzige Nachweis.
+   */
+  verifyEmail: publicProcedure.input(verifyEmailInputSchema).mutation(async ({ ctx, input }) => {
+    const tokenHash = hashToken(input.token);
+    const [tokenRow] = await ctx.db
+      .select()
+      .from(emailVerificationToken)
+      .where(eq(emailVerificationToken.tokenHash, tokenHash))
+      .limit(1);
+
+    if (!tokenRow) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Bestätigungslink ist ungültig." });
+    }
+
+    const [userRow] = await ctx.db.select().from(user).where(eq(user.id, tokenRow.userId)).limit(1);
+    if (!userRow) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Bestätigungslink ist ungültig." });
+    }
+
+    if (userRow.emailVerifiedAt) {
+      return { status: "already_verified" as const };
+    }
+
+    if (tokenRow.expiresAt.getTime() < Date.now()) {
+      throw new TRPCError({
+        code: "BAD_REQUEST",
+        message: "Dieser Bestätigungslink ist abgelaufen. Fordere über die Einstellungen einen neuen an.",
+      });
+    }
+
+    const now = new Date();
+    await ctx.db.update(user).set({ emailVerifiedAt: now }).where(eq(user.id, userRow.id));
+    await ctx.db.update(emailVerificationToken).set({ usedAt: now }).where(eq(emailVerificationToken.id, tokenRow.id));
+
+    return { status: "verified" as const };
+  }),
+
+  /**
+   * F-01: Erneuter Versand der Verifizierungsmail (z. B. nach Ablauf des ursprünglichen
+   * Links) — rate-limitiert analog zu friend.redeemInviteCode (F-63), da diese Mutation
+   * sonst zum Spammen der eigenen/einer fremden E-Mail-Adresse missbraucht werden könnte.
+   */
+  resendVerificationEmail: protectedProcedure.mutation(async ({ ctx }) => {
+    if (ctx.currentUser.emailVerifiedAt) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Diese E-Mail-Adresse ist bereits bestätigt." });
+    }
+
+    if (
+      !checkRateLimit(
+        `resend-verification:${ctx.currentUser.id}`,
+        RESEND_VERIFICATION_RATE_LIMIT_MAX_ATTEMPTS,
+        RESEND_VERIFICATION_RATE_LIMIT_WINDOW_MS,
+      )
+    ) {
+      throw new TRPCError({
+        code: "TOO_MANY_REQUESTS",
+        message: "Zu viele Versuche. Bitte warte etwas, bevor du es erneut versuchst.",
+      });
+    }
+
+    const { confirmUrl } = await initiateEmailVerification(ctx.db, {
+      userId: ctx.currentUser.id,
+      email: ctx.currentUser.email,
+    });
+
+    return {
+      success: true,
+      devVerifyEmailUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
+    };
+  }),
 
   /**
    * F-104: Setzt die Präferenz für den vereinheitlichten "Lernen"-Tab — sowohl für die

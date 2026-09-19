@@ -5,6 +5,7 @@ import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
+import { EmailVerificationBanner } from "./EmailVerificationBanner";
 import { ErrorMessage } from "./ErrorMessage";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
@@ -176,6 +177,7 @@ export function App() {
           }
         />
         <main id="main-content" className="shell">
+          <EmailVerificationBanner />
           {view === "admin" && isAdmin ? (
             <AdminPanel />
           ) : showCourseSelection ? (

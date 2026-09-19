@@ -127,6 +127,13 @@
       "when": 1789830640232,
       "tag": "0017_lethal_stepford_cuckoos",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1789835101909,
+      "tag": "0018_slim_blob",
+      "breakpoints": true
     }
   ]
 }

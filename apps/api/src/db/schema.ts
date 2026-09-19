@@ -187,6 +187,26 @@ export const session = pgTable(
   ],
 );
 
+/**
+ * F-01 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13):
+ * Bestätigungstoken für die E-Mail-Verifizierung — dasselbe Muster wie consent_token
+ * (nur der Hash wird gespeichert), aber an "user" statt "parent_child_link" gebunden. Nur für
+ * volljährige Konten relevant (siehe Abschnitt 13) — minderjährige Konten verschicken keine.
+ */
+export const emailVerificationToken = pgTable(
+  "email_verification_token",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    usedAt: timestamp("used_at", { withTimezone: true }),
+  },
+  (table) => [index("email_verification_token_expires_at_idx").on(table.expiresAt)],
+);
+
 // ---------------------------------------------------------------------------
 // Content-Items — relational, wo stabil, JSONB, wo variabel — Abschnitt 4.3
 // ---------------------------------------------------------------------------

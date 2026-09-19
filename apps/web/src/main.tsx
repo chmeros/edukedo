@@ -13,6 +13,7 @@ import { Impressum } from "./Impressum";
 import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
+import { VerifyEmail } from "./VerifyEmail";
 import { Vorschau } from "./Vorschau";
 
 function Root() {
@@ -42,6 +43,8 @@ function Root() {
       <QueryClientProvider client={queryClient}>
         {pathname === "/consent/confirm" ? (
           <ConsentConfirm />
+        ) : pathname === "/verify-email" ? (
+          <VerifyEmail />
         ) : pathname === "/parent" ? (
           <ParentDashboard />
         ) : pathname === "/datenschutz-kinder" ? (

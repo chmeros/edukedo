@@ -85,6 +85,9 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       expect(response.statusCode).toBe(200);
       const body = response.json();
       expect(body.result.data.status).toBe("active");
+      // F-01: Session wird trotzdem sofort vergeben (weiches Gate), aber ein
+      // Verifizierungslink wird im Hintergrund bereits verschickt.
+      expect(body.result.data.devVerifyEmailUrl).toBeTruthy();
 
       sessionCookie = extractSessionCookie(response.headers["set-cookie"]);
     },
@@ -323,6 +326,65 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       });
       expect(specialCharsResponse.statusCode).toBe(200);
       expect(specialCharsResponse.json().result.data).toEqual([]);
+    },
+    30_000,
+  );
+
+  it(
+    "F-01: bestätigt die E-Mail-Adresse per Verifizierungslink, lehnt einen ungültigen Token ab",
+    async () => {
+      const meBefore = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meBefore.json().result.data.emailVerified).toBe(false);
+
+      const invalidTokenResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.verifyEmail",
+        payload: { token: "nicht-existierender-token" },
+      });
+      expect(invalidTokenResponse.statusCode).toBe(404);
+
+      // resendVerificationEmail statt des ursprünglichen Registrierungs-Tokens (dieser wurde
+      // in der ersten Testfall registriert, ohne devVerifyEmailUrl dort zu erfassen) — liefert
+      // denselben Effekt: einen frischen, gültigen Bestätigungslink.
+      const resendResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.resendVerificationEmail",
+        headers: { cookie: sessionCookie },
+        payload: {},
+      });
+      expect(resendResponse.statusCode).toBe(200);
+      const devUrl = resendResponse.json().result.data.devVerifyEmailUrl as string;
+      expect(devUrl).toBeTruthy();
+      const token = new URL(devUrl).searchParams.get("token");
+      expect(token).toBeTruthy();
+
+      const verifyResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.verifyEmail",
+        payload: { token },
+      });
+      expect(verifyResponse.statusCode).toBe(200);
+      expect(verifyResponse.json().result.data.status).toBe("verified");
+
+      const meAfter = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meAfter.json().result.data.emailVerified).toBe(true);
+
+      // Ein erneuter Versand nach bereits erfolgter Bestätigung ist sinnlos und wird abgelehnt.
+      const resendAfterVerifiedResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.resendVerificationEmail",
+        headers: { cookie: sessionCookie },
+        payload: {},
+      });
+      expect(resendAfterVerifiedResponse.statusCode).toBe(400);
     },
     30_000,
   );

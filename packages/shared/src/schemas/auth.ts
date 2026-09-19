@@ -37,6 +37,12 @@ export const loginInputSchema = z.object({
 });
 export type LoginInput = z.infer<typeof loginInputSchema>;
 
+/** F-01: Bestätigung durch Klick auf den E-Mail-Verifizierungslink, siehe consent.confirm. */
+export const verifyEmailInputSchema = z.object({
+  token: z.string().min(1),
+});
+export type VerifyEmailInput = z.infer<typeof verifyEmailInputSchema>;
+
 /**
  * F-06: Konto-Selbstlöschung. Verlangt das aktuelle Passwort als Bestätigung für eine
  * unumkehrbare Aktion — bewusst ohne passwordSchema-Policy (min. 8 Zeichen etc.), da hier

@@ -40,6 +40,22 @@ export function sendConsentReminderEmail(
 }
 
 /**
+ * F-01: E-Mail-Verifizierung bei Registrierung eines volljährigen Kontos (siehe
+ * apps/api/src/auth/email-verification.ts) — dasselbe Platzhalter-Verfahren wie bei F-08.
+ */
+export function sendEmailVerificationEmail(params: { to: string; confirmUrl: string }): void {
+  console.log(
+    [
+      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
+      `An: ${params.to}`,
+      "Betreff: Bitte bestätige deine E-Mail-Adresse bei edukedo",
+      `Bestätigungslink: ${params.confirmUrl}`,
+      "---------------------------------------------------------------------------",
+    ].join("\n"),
+  );
+}
+
+/**
  * F-91: Setup-Link für ein neu von einem Admin angelegtes Unternehmens-Konto (siehe
  * apps/api/src/auth/company-setup.ts).
  */
