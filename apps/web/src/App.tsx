@@ -16,6 +16,7 @@ import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { SponsorBanner } from "./SponsorBanner";
 import { Sozial } from "./Sozial";
+import { Suche } from "./Suche";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
@@ -257,7 +258,12 @@ export function App() {
                     // über .content-narrow bewusst schmal (ein einzelnes Frage-/Antwort-Element
                     // wirkt auf voller Breite verloren statt fokussiert).
                     className={
-                      learningMode === "progress" || learningMode === "sozial" || learningMode === "erfolge"
+                      // F-14: "instrumente" zeigt seit der Suche list-row-Ergebnisse (volle
+                      // Breite wie Sozial/Fortschritt), keine einzelne Frage/Karte mehr.
+                      learningMode === "progress" ||
+                      learningMode === "sozial" ||
+                      learningMode === "erfolge" ||
+                      learningMode === "instrumente"
                         ? undefined
                         : "content-narrow"
                     }
@@ -287,10 +293,14 @@ export function App() {
                         lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}
                     {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
                     {learningMode === "instrumente" && (
-                      <div className="alert alert-info">
-                        <InfoIcon />
-                        <div>Hier entstehen künftig weitere Lern-Werkzeuge (F-105).</div>
-                      </div>
+                      <Suche
+                        key={activeKursId}
+                        kursId={activeKursId}
+                        onGoToThema={(themaId, themaTitle) => {
+                          setActiveThema({ id: themaId, title: themaTitle });
+                          setLearningMode("lernen");
+                        }}
+                      />
                     )}
                     {learningMode === "sozial" && (
                       <Sozial key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />

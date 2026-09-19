@@ -19,6 +19,18 @@ export const contentItemDifficultySchema = z.enum(["leicht", "mittel", "schwer"]
 export type ContentItemDifficulty = z.infer<typeof contentItemDifficultySchema>;
 
 /**
+ * F-14: Volltextsuche über alle Lerninhalte eines Kurses — bewusst mindestens 2 Zeichen
+ * (verhindert eine ILIKE '%x%'-Suche über Tausende Content-Items bei jedem Tastenanschlag)
+ * und höchstens 200 (Schutz vor übergroßen Suchbegriffen), siehe course-audience-nahe
+ * content.search in apps/api/src/trpc/routers/content.ts.
+ */
+export const searchContentInputSchema = z.object({
+  kursId: z.string().uuid(),
+  query: z.string().min(2).max(200),
+});
+export type SearchContentInput = z.infer<typeof searchContentInputSchema>;
+
+/**
  * content_item.bloom — kognitive Anforderungsstufe nach der Bloom'schen Taxonomie
  * (Anderson/Krathwohl-Revision), zusätzlich zur (subjektiveren) contentItemDifficultySchema.
  * Ab HB1/HB2/HB4 verbindlich im Content-Zwischenformat (siehe content/README.md), für

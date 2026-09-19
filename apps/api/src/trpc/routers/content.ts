@@ -1,12 +1,20 @@
 import {
   activeKursInputSchema,
   fachgespraechFragePayloadSchema,
+  searchContentInputSchema,
   theoriePayloadSchema,
   themaFilterableKursInputSchema,
 } from "@edukedo/shared";
-import { and, asc, eq, isNull, lte, or, sql } from "drizzle-orm";
+import { and, asc, eq, ilike, isNull, lte, ne, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+
+/** ILIKE behandelt "%"/"_" als Wildcards und "\" als Escape-Zeichen — ohne Escaping würde ein
+ * Suchbegriff wie "50%" jedes beliebige Zeichen an dieser Stelle treffen statt eines wörtlichen
+ * Prozentzeichens. */
+function escapeLikePattern(value: string): string {
+  return value.replace(/[\\%_]/g, (char) => `\\${char}`);
+}
 
 export const contentRouter = router({
   /**
@@ -123,5 +131,51 @@ export const contentRouter = router({
       frage: row.prompt,
       themaTitel: fachgespraechFragePayloadSchema.parse(row.payload).themaTitel,
     }));
+  }),
+
+  /**
+   * F-14: Volltextsuche über alle Lerninhalte eines Kurses — sucht in `prompt` (bei jedem
+   * Content-Typ die eigentliche Fragestellung) sowie `explanation`, wo vorhanden. Bewusst
+   * OHNE `type = "theorie"`: Der Theorie-Tab ist seit F-103 ohne Zugriffsweg im eingeloggten
+   * Bereich, ein Suchtreffer dorthin liefe ins Leere. Ergebnisse verlinken über die Thema-ID
+   * in den "Lernen"-Tab (bestehender F-27-Themenfilter, siehe App.tsx) statt einer neuen
+   * "einzelnes Content-Item anzeigen"-Ansicht — weder `content.dueCards` (nur fällige Karten)
+   * noch `quiz.quizItems` (zufällige 20er-Runde) unterstützen das gezielte Ansteuern eines
+   * einzelnen Items, siehe Architekturplanung Abschnitt 13.
+   */
+  search: protectedProcedure.input(searchContentInputSchema).query(async ({ ctx, input }) => {
+    const pattern = `%${escapeLikePattern(input.query)}%`;
+
+    const rows = await ctx.db
+      .select({
+        id: contentItem.id,
+        type: contentItem.type,
+        prompt: contentItem.prompt,
+        themaId: thema.id,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .where(
+        and(
+          ne(contentItem.type, "theorie"),
+          eq(contentItem.isActive, true),
+          or(ilike(contentItem.prompt, pattern), ilike(contentItem.explanation, pattern)),
+        ),
+      )
+      .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder))
+      .limit(30);
+
+    return rows;
   }),
 });

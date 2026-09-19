@@ -269,6 +269,65 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-14: durchsucht Lerninhalte per Volltextsuche und liefert Themenkontext für den Sprung in 'Lernen'",
+    async () => {
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const dueCards = dueCardsResponse.json().result.data as { id: string; prompt: string }[];
+      const target = dueCards[0]!;
+      // Ein zusammenhängendes Wortfragment aus der Mitte des echten Prompts statt eines
+      // erfundenen Suchbegriffs, damit der Test unabhängig vom konkreten Content-Wortlaut bleibt.
+      const word = target.prompt.match(/[A-Za-zÀ-ÖØ-öø-ÿ]{6,}/)?.[0];
+      expect(word).toBeTruthy();
+
+      const searchResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.search?input=${encodeURIComponent(JSON.stringify({ kursId, query: word }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(searchResponse.statusCode).toBe(200);
+      const results = searchResponse.json().result.data as {
+        id: string;
+        type: string;
+        themaId: string;
+        themaTitle: string;
+      }[];
+      expect(results.some((hit) => hit.id === target.id)).toBe(true);
+      expect(results.every((hit) => hit.type !== "theorie")).toBe(true);
+      expect(results[0]!.themaTitle).toBeTruthy();
+
+      const tooShortResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.search?input=${encodeURIComponent(JSON.stringify({ kursId, query: "a" }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(tooShortResponse.statusCode).toBe(400);
+
+      const noHitsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.search?input=${encodeURIComponent(JSON.stringify({ kursId, query: "xyzxyzxyzxyz-kein-treffer" }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(noHitsResponse.statusCode).toBe(200);
+      expect(noHitsResponse.json().result.data).toEqual([]);
+
+      // "%"/"_" sind ILIKE-Wildcards — ohne Escaping könnte diese Anfrage abstürzen oder
+      // fälschlich (fast) alles treffen, statt wörtlich nach "50% Rabatt_test" zu suchen.
+      const specialCharsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.search?input=${encodeURIComponent(JSON.stringify({ kursId, query: "50% Rabatt_test" }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(specialCharsResponse.statusCode).toBe(200);
+      expect(specialCharsResponse.json().result.data).toEqual([]);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({
