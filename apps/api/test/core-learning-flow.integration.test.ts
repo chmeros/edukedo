@@ -390,6 +390,39 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "N-02: sperrt den Login für ein Konto nach zu vielen Fehlversuchen, unabhängig vom korrekten Passwort",
+    async () => {
+      const email = "ratelimit-e2e@example.com";
+      const registerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email, password: "korrektesPasswort123!", birthDate: "1995-01-01" },
+      });
+      expect(registerResponse.statusCode).toBe(200);
+
+      for (let attempt = 0; attempt < 10; attempt += 1) {
+        const response = await app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/auth.login",
+          payload: { email, password: "falschesPasswort" },
+        });
+        expect(response.statusCode).toBe(401);
+      }
+
+      // Der 11. Versuch ist blockiert — auch mit dem KORREKTEN Passwort, da das Rate-Limit
+      // je E-Mail-Adresse gilt (Kontoschutz vor Brute-Force), nicht erst nach der
+      // Passwortprüfung greift.
+      const blockedResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.login",
+        payload: { email, password: "korrektesPasswort123!" },
+      });
+      expect(blockedResponse.statusCode).toBe(429);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

@@ -22,6 +22,12 @@ import { protectedProcedure, publicProcedure, router } from "../trpc";
 const RESEND_VERIFICATION_RATE_LIMIT_MAX_ATTEMPTS = 3;
 const RESEND_VERIFICATION_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 60; // 1 Stunde
 
+// N-02: "Rate-Limiting bei Login" — analog zu friend.redeemInviteCode (F-63), aber nach
+// E-Mail-Adresse statt Nutzer-ID geschlüsselt, da vor einem erfolgreichen Login noch keine
+// Session/kein currentUser existiert.
+const LOGIN_RATE_LIMIT_MAX_ATTEMPTS = 10;
+const LOGIN_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 15; // 15 Minuten
+
 export const authRouter = router({
   register: publicProcedure.input(registerInputSchema).mutation(async ({ ctx, input }) => {
     const [existing] = await ctx.db.select().from(user).where(eq(user.email, input.email)).limit(1);
@@ -95,6 +101,14 @@ export const authRouter = router({
   }),
 
   login: publicProcedure.input(loginInputSchema).mutation(async ({ ctx, input }) => {
+    const normalizedEmail = input.email.trim().toLowerCase();
+    if (!checkRateLimit(`login:${normalizedEmail}`, LOGIN_RATE_LIMIT_MAX_ATTEMPTS, LOGIN_RATE_LIMIT_WINDOW_MS)) {
+      throw new TRPCError({
+        code: "TOO_MANY_REQUESTS",
+        message: "Zu viele Login-Versuche für dieses Konto. Bitte warte einige Minuten, bevor du es erneut versuchst.",
+      });
+    }
+
     const [found] = await ctx.db.select().from(user).where(eq(user.email, input.email)).limit(1);
     const passwordMatches = found ? await verifyPassword(found.passwordHash, input.password) : false;
 
