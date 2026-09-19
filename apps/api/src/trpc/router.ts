@@ -1,4 +1,5 @@
 import { adminRouter } from "./routers/admin";
+import { adminContentRouter } from "./routers/adminContent";
 import { authRouter } from "./routers/auth";
 import { companyRouter } from "./routers/company";
 import { consentRouter } from "./routers/consent";
@@ -23,9 +24,11 @@ import { router } from "./trpc";
 
 /**
  * Kern-API-Grundstruktur (Architekturplanung Abschnitt 7): weitere Module (reports, blocks)
- * kommen in späteren Iterationen als eigene Sub-Router hinzu. `admin` deckt F-11 bisher nur in
- * der ersten, einfachen Ausbaustufe ab (Kurs-Veröffentlichung) — die eigentliche Content-Pflege
- * (Fragen/Karteikarten) folgt später. `exam` (F-23, seit 16.09.2026) nutzt die hierfür bereits
+ * kommen in späteren Iterationen als eigene Sub-Router hinzu. `admin` deckt F-11s erste,
+ * einfache Ausbaustufe ab (Kurs-Veröffentlichung, Moderationsansichten); `adminContent`
+ * (F-11, seit 19.09.2026) ist der eigentliche CMS-Teil — Pflege und Neuanlage einzelner
+ * Content-Items, in einem eigenen Router statt in `admin.ts` (bereits umfangreich). `exam`
+ * (F-23, seit 16.09.2026) nutzt die hierfür bereits
  * vorbereiteten `exam_session`/`exam_answer`-Tabellen. `presentation` (F-24, seit 16.09.2026)
  * speichert den Gliederungs-/Checklisten-Entwurf des Präsentationstrainers. `offline` (F-42,
  * seit 16.09.2026) liefert den Content-Download für die lokale IndexedDB-Kopie. `company`
@@ -59,6 +62,7 @@ export const appRouter = router({
   friend: friendRouter,
   presentation: presentationRouter,
   admin: adminRouter,
+  adminContent: adminContentRouter,
   offline: offlineRouter,
   sponsor: sponsorRouter,
   report: reportRouter,

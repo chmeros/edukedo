@@ -1,6 +1,7 @@
 export * from "./age";
 export * from "./fsrs/scheduler";
 export * from "./quiz-logic";
+export * from "./schemas/admin-content";
 export * from "./schemas/content-item";
 export * from "./schemas/content-report";
 export * from "./schemas/auth";

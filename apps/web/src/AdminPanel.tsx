@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AdminContentEditor } from "./AdminContentEditor";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
@@ -210,13 +211,15 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
 }
 
 /**
- * F-11: Admin-/Redaktionsbereich, erste einfache Version — nur für `role === "admin"`
- * gerendert (siehe App.tsx). Löst den bisherigen Weg ab, `kurs.is_published` und den
- * Content-Import ausschließlich per direktem SQL-/CLI-Zugriff auszuführen. Die eigentliche
- * Fragen-/Karteikarten-Pflege (CMS-Teil von F-11) bleibt ein späterer Ausbauschritt.
+ * F-11: Admin-/Redaktionsbereich — nur für `role === "admin"` gerendert (siehe App.tsx). Löst
+ * den bisherigen Weg ab, `kurs.is_published` und den Content-Import ausschließlich per direktem
+ * SQL-/CLI-Zugriff auszuführen. Der eigentliche CMS-Teil (Pflege/Neuanlage einzelner
+ * Fragen/Karteikarten/Theorietexte) lebt in der eigenständigen `AdminContentEditor.tsx`
+ * (`adminContent.*`-Router, siehe Architekturplanung Abschnitt 13) — ergänzt am 19.09.2026.
  */
 export function AdminPanel() {
   const utils = trpc.useUtils();
+  const [focusContentItemId, setFocusContentItemId] = useState<string | null>(null);
   const courses = trpc.admin.courses.useQuery();
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
   const sponsors = trpc.admin.sponsors.useQuery();
@@ -407,20 +410,31 @@ export function AdminPanel() {
                   {new Date(entry.createdAt).toLocaleDateString("de-DE")}
                 </span>
               </div>
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                onClick={() => resolveContentReport.mutate({ contentReportId: entry.id })}
-                disabled={resolveContentReport.isPending}
-              >
-                Schließen
-              </button>
+              <div className="list-row-actions">
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => setFocusContentItemId(entry.contentItemId)}>
+                  In Redaktion bearbeiten
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => resolveContentReport.mutate({ contentReportId: entry.id })}
+                  disabled={resolveContentReport.isPending}
+                >
+                  Schließen
+                </button>
+              </div>
             </div>
           ))}
         </div>
         {contentReports.data?.length === 0 && <p className="field-hint">Keine offenen Fehlermeldungen.</p>}
         {resolveContentReport.error && <ErrorMessage>{resolveContentReport.error.message}</ErrorMessage>}
       </div>
+
+      <AdminContentEditor
+        courses={courses.data ?? []}
+        focusContentItemId={focusContentItemId}
+        onFocusHandled={() => setFocusContentItemId(null)}
+      />
     </>
   );
 }

@@ -133,6 +133,24 @@ export type ParsedQuizItem =
       acceptedAnswers: string[];
     };
 
+/**
+ * Wandelt einen Lückentext-Quelltext mit inline `___Stichwort___`-Markierungen (dasselbe
+ * Autoren-Format wie im Content-Zwischenformat, siehe content/README.md) in `text_with_blanks`
+ * (die Platzhalter bleiben als bloßes `___` stehen) plus die zugehörige `blanks`-Liste um —
+ * auch vom F-11-Admin-Redaktionsbereich genutzt (`adminContent.ts`), damit dort dieselbe
+ * vertraute Schreibweise statt einer abstrakten Blanks-Array-Eingabe funktioniert.
+ */
+export function parseLueckentext(text: string): { textWithBlanks: string; blanks: { id: string; accepted: string[] }[] } {
+  let blankIndex = 0;
+  const blanks: { id: string; accepted: string[] }[] = [];
+  const textWithBlanks = text.replace(/___(.+?)___/g, (_match, word: string) => {
+    blankIndex += 1;
+    blanks.push({ id: String(blankIndex), accepted: [word.trim()] });
+    return "___";
+  });
+  return { textWithBlanks, blanks };
+}
+
 export function parseQuizBlock(block: string): ParsedQuizItem | null {
   const headerMatch = /^#### .+? · (.+)$/m.exec(block);
   const kind = headerMatch?.[1]!.trim();
@@ -160,13 +178,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
 
   if (kind === "Lückentext") {
     const text = extractField(block, "Text") ?? "";
-    let blankIndex = 0;
-    const blanks: { id: string; accepted: string[] }[] = [];
-    const textWithBlanks = text.replace(/___(.+?)___/g, (_match, word: string) => {
-      blankIndex += 1;
-      blanks.push({ id: String(blankIndex), accepted: [word.trim()] });
-      return "___";
-    });
+    const { textWithBlanks, blanks } = parseLueckentext(text);
     return { type: "luecken", prompt: text, explanation, difficulty, bloom, textWithBlanks, blanks };
   }
 

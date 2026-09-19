@@ -12,7 +12,7 @@ import { protectedProcedure, router } from "../trpc";
 /** ILIKE behandelt "%"/"_" als Wildcards und "\" als Escape-Zeichen — ohne Escaping würde ein
  * Suchbegriff wie "50%" jedes beliebige Zeichen an dieser Stelle treffen statt eines wörtlichen
  * Prozentzeichens. */
-function escapeLikePattern(value: string): string {
+export function escapeLikePattern(value: string): string {
   return value.replace(/[\\%_]/g, (char) => `\\${char}`);
 }
 

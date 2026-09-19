@@ -108,7 +108,16 @@ export function serializeZuordnung(
 }
 
 /** blanks: nur der erste `accepted`-Eintrag wird zurückgeschrieben — das Dateiformat kennt je
- * Lücke ohnehin nur ein Stichwort (siehe parseQuizBlock in content-parser.ts). */
+ * Lücke ohnehin nur ein Stichwort (siehe parseLueckentext in content-parser.ts). */
+export function renderLueckentextSource(textWithBlanks: string, blanks: { accepted: string[] }[]): string {
+  let blankIndex = 0;
+  return textWithBlanks.replace(/___/g, () => {
+    const word = blanks[blankIndex]?.accepted[0] ?? "";
+    blankIndex += 1;
+    return `___${word}___`;
+  });
+}
+
 export function serializeLuecken(
   id: string,
   explanation: string,
@@ -117,12 +126,7 @@ export function serializeLuecken(
   textWithBlanks: string,
   blanks: { accepted: string[] }[],
 ): string {
-  let blankIndex = 0;
-  const text = textWithBlanks.replace(/___/g, () => {
-    const word = blanks[blankIndex]?.accepted[0] ?? "";
-    blankIndex += 1;
-    return `___${word}___`;
-  });
+  const text = renderLueckentextSource(textWithBlanks, blanks);
   return [`#### ${id} · Lückentext`, `**Text:** ${text}`, `**Erklärung:** ${explanation}`, serializeMetaLine(difficulty, bloom)].join(
     "\n",
   );

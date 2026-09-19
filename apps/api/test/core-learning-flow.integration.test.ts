@@ -423,6 +423,128 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-11: legt per Admin-Redaktion ein Content-Item an, bearbeitet und deaktiviert es wieder",
+    async () => {
+      // Eigener Admin-Testnutzer statt der Haupt-Session (e2e@example.com bleibt "learner").
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f11@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      expect(themaTreeResponse.statusCode).toBe(200);
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "quiz_mc",
+          themaId,
+          prompt: "F-11-Testfrage: Wie viel ist 2+2?",
+          explanation: "Grundrechenart.",
+          options: [
+            { text: "3", isCorrect: false },
+            { text: "4", isCorrect: true },
+          ],
+          difficulty: "leicht",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const contentItemId = createResponse.json().result.data.id as string;
+
+      // Ohne Admin-Rolle (hier: die reguläre e2e-Lernenden-Session) abgelehnt.
+      const forbiddenResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(forbiddenResponse.statusCode).toBe(403);
+
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      expect(getResponse.statusCode).toBe(200);
+      const detail = getResponse.json().result.data as { options: unknown; currentVersion: number };
+      expect(detail.options).toEqual([
+        { text: "3", isCorrect: false },
+        { text: "4", isCorrect: true },
+      ]);
+      expect(detail.currentVersion).toBe(1);
+
+      const updateResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.update",
+        headers: { cookie: adminCookie },
+        payload: {
+          contentItemId,
+          type: "quiz_mc",
+          themaId,
+          prompt: "F-11-Testfrage (korrigiert): Wie viel ist 2+2?",
+          explanation: "Grundrechenart.",
+          options: [
+            { text: "3", isCorrect: false },
+            { text: "4", isCorrect: true },
+            { text: "5", isCorrect: false },
+          ],
+          difficulty: "leicht",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+          changeNote: "Distraktor ergänzt",
+        },
+      });
+      expect(updateResponse.statusCode).toBe(200);
+
+      const getAfterUpdateResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detailAfterUpdate = getAfterUpdateResponse.json().result.data as {
+        currentVersion: number;
+        options: unknown[];
+        prompt: string;
+      };
+      expect(detailAfterUpdate.currentVersion).toBe(2);
+      expect(detailAfterUpdate.options).toHaveLength(3);
+      expect(detailAfterUpdate.prompt).toBe("F-11-Testfrage (korrigiert): Wie viel ist 2+2?");
+
+      const setInactiveResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.setActive",
+        headers: { cookie: adminCookie },
+        payload: { contentItemId, isActive: false },
+      });
+      expect(setInactiveResponse.statusCode).toBe(200);
+
+      const listResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.list?input=${encodeURIComponent(JSON.stringify({ kursId, search: "F-11-Testfrage" }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const list = listResponse.json().result.data as { id: string; isActive: boolean }[];
+      expect(list.find((row) => row.id === contentItemId)?.isActive).toBe(false);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({
