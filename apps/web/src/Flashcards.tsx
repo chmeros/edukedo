@@ -4,6 +4,7 @@ import { FlipCard } from "./FlipCard";
 import { SuccessIcon } from "./Icons";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineContentItem } from "./offlineDb";
+import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -135,6 +136,9 @@ export function Flashcards({
           </button>
         </div>
       )}
+      <div style={{ textAlign: "center" }}>
+        <ReportContentButton contentItemId={current.id} />
+      </div>
     </div>
   );
 }

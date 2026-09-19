@@ -8,6 +8,7 @@ import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, loadOfflineQuizRound } from "./offlineQuiz";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
+import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -221,6 +222,9 @@ export function MixedLearning({
               </button>
             </div>
           )}
+          <div style={{ textAlign: "center" }}>
+            <ReportContentButton contentItemId={current.card.id} />
+          </div>
         </>
       )}
       {current.kind === "quiz" && current.item.type === "quiz_mc" && (
@@ -231,6 +235,7 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitAnswer}
+          canReport
         />
       )}
       {current.kind === "quiz" && current.item.type === "zuordnung" && (
@@ -241,6 +246,7 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitMatching}
+          canReport
         />
       )}
       {current.kind === "quiz" && current.item.type === "luecken" && (
@@ -251,6 +257,7 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitBlanks}
+          canReport
         />
       )}
       {current.kind === "quiz" && current.item.type === "kurzantwort" && (
@@ -261,6 +268,7 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitKurzantwort}
+          canReport
         />
       )}
     </div>

@@ -673,6 +673,32 @@ export const block = pgTable(
 );
 
 // ---------------------------------------------------------------------------
+// Feedback-Funktion für fehlerhafte Lerninhalte (F-50) — neu, 19.09.2026
+// ---------------------------------------------------------------------------
+
+/**
+ * F-50 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): bewusst eine
+ * eigene Tabelle statt Wiederverwendung von `report` oben — `report` ist strukturell an F-68
+ * gebunden (meldet eine ANDERE PERSON, `reported_user_id` NOT NULL, immer an einen Kurs
+ * gebunden), hier wird dagegen ein CONTENT-ITEM gemeldet, unabhängig vom Freundeskreis und ohne
+ * Kurs-Bezug (der Kurs ergibt sich transitiv über `content_item_id`). Gleiches asymmetrisches
+ * Lösch-Verhalten wie bei `report`: `reporter_user_id` bewusst `ON DELETE SET NULL` (die Meldung
+ * bleibt für die redaktionelle Nacharbeit auch nach einer Konto-Löschung des Melders erhalten),
+ * `content_item_id` `ON DELETE CASCADE` (eine Meldung zu einem gelöschten Content-Item ist
+ * gegenstandslos).
+ */
+export const contentReport = pgTable("content_report", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  contentItemId: uuid("content_item_id")
+    .notNull()
+    .references(() => contentItem.id, { onDelete: "cascade" }),
+  reporterUserId: uuid("reporter_user_id").references(() => user.id, { onDelete: "set null" }),
+  reason: text("reason").notNull(),
+  status: text("status").notNull().default("offen"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+// ---------------------------------------------------------------------------
 // Einladungs-/Freundschaftssystem (F-63) — Abschnitt 4.5 (Phase-4-Erweiterung)
 // ---------------------------------------------------------------------------
 

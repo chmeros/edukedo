@@ -3,6 +3,7 @@ import { authRouter } from "./routers/auth";
 import { companyRouter } from "./routers/company";
 import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
+import { contentFeedbackRouter } from "./routers/contentFeedback";
 import { coursesRouter } from "./routers/courses";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
@@ -38,7 +39,9 @@ import { router } from "./trpc";
  * eigenen Freundeskreis. `lernpartner` (F-62, seit 17.09.2026) zeigt Prüfungstermin-/
  * Handlungsbereich-Übereinstimmungen innerhalb des Freundeskreises, ohne eigenen Chat.
  * `gamification` (F-67, seit 17.09.2026) sind Achievements/Bestwerte ohne jeden Fremdkontakt,
- * kursübergreifend statt kursskopiert.
+ * kursübergreifend statt kursskopiert. `contentFeedback` (F-50, seit 19.09.2026) ist die
+ * Feedback-Funktion für fehlerhafte Lerninhalte — die Moderationsansicht liegt analog zu F-68
+ * unter `admin.*`.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -49,6 +52,7 @@ export const appRouter = router({
   preview: previewRouter,
   courses: coursesRouter,
   content: contentRouter,
+  contentFeedback: contentFeedbackRouter,
   progress: progressRouter,
   quiz: quizRouter,
   exam: examRouter,

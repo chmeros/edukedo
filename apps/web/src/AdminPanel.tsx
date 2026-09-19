@@ -221,6 +221,7 @@ export function AdminPanel() {
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
   const sponsors = trpc.admin.sponsors.useQuery();
   const reports = trpc.admin.reports.useQuery();
+  const contentReports = trpc.admin.contentReports.useQuery();
   const setPublished = trpc.admin.setPublished.useMutation({
     onSuccess: () => {
       utils.admin.courses.invalidate();
@@ -235,6 +236,9 @@ export function AdminPanel() {
   });
   const resolveReport = trpc.admin.resolveReport.useMutation({
     onSuccess: () => utils.admin.reports.invalidate(),
+  });
+  const resolveContentReport = trpc.admin.resolveContentReport.useMutation({
+    onSuccess: () => utils.admin.contentReports.invalidate(),
   });
   const triggerImport = trpc.admin.triggerImport.useMutation({
     onSuccess: () => {
@@ -386,6 +390,36 @@ export function AdminPanel() {
         </div>
         {reports.data?.length === 0 && <p className="field-hint">Keine offenen Meldungen.</p>}
         {resolveReport.error && <ErrorMessage>{resolveReport.error.message}</ErrorMessage>}
+      </div>
+
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Admin: Fehlermeldungen zu Lerninhalten (F-50)</h2>
+        </div>
+        <div className="list">
+          {(contentReports.data ?? []).map((entry) => (
+            <div key={entry.id} className="list-row">
+              <div className="meta">
+                {entry.contentItemType}: „{entry.contentItemPrompt.slice(0, 80)}
+                {entry.contentItemPrompt.length > 80 ? "…" : ""}"
+                <span>
+                  {entry.reason} · gemeldet von {entry.reporterEmail ?? "unbekannt"} ·{" "}
+                  {new Date(entry.createdAt).toLocaleDateString("de-DE")}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm"
+                onClick={() => resolveContentReport.mutate({ contentReportId: entry.id })}
+                disabled={resolveContentReport.isPending}
+              >
+                Schließen
+              </button>
+            </div>
+          ))}
+        </div>
+        {contentReports.data?.length === 0 && <p className="field-hint">Keine offenen Fehlermeldungen.</p>}
+        {resolveContentReport.error && <ErrorMessage>{resolveContentReport.error.message}</ErrorMessage>}
       </div>
     </>
   );

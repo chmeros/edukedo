@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { ReportContentButton } from "./ReportContentButton";
 
 /**
  * Die vier Fragetyp-Komponenten (F-21) — gemeinsam genutzt von Quiz.tsx (eingeschriebene
- * Kurse) und Vorschau.tsx (kontoloser Vorschau-Modus, F-08). Beide zeigen exakt dieselbe UI,
- * nur die zugrunde liegenden tRPC-Mutationen unterscheiden sich (quiz.* vs. preview.*, siehe
- * apps/api/src/quiz-logic.ts) — deshalb werden sie hier als Props durchgereicht statt intern
- * fest auf einen bestimmten Router verdrahtet zu sein.
+ * Kurse), MixedLearning.tsx (F-104-Mischmodus) und Vorschau.tsx (kontoloser Vorschau-Modus,
+ * F-08). Beide zeigen exakt dieselbe UI, nur die zugrunde liegenden tRPC-Mutationen unterscheiden
+ * sich (quiz.* vs. preview.*, siehe apps/api/src/quiz-logic.ts) — deshalb werden sie hier als
+ * Props durchgereicht statt intern fest auf einen bestimmten Router verdrahtet zu sein.
  */
 
 interface MutationLike<TInput, TOutput> {
@@ -19,6 +20,11 @@ interface StepProps<TItem, TInput, TOutput> {
   onAnswered: (isCorrect: boolean) => void;
   onNext: () => void;
   submit: MutationLike<TInput, TOutput>;
+  // F-50: Standardmäßig AUS statt AN — Vorschau.tsx (F-08, kontoloser Modus ohne jeden
+  // Datenbank-Schreibzugriff) nutzt dieselben vier Komponenten, dort würde der Button auf eine
+  // protectedProcedure treffen und mit UNAUTHORIZED fehlschlagen. Nur Quiz.tsx/MixedLearning.tsx
+  // (eingeschriebene, eingeloggte Nutzer:innen) setzen `canReport`.
+  canReport?: boolean;
 }
 
 export interface McItem {
@@ -33,6 +39,7 @@ export function MultipleChoiceStep({
   onAnswered,
   onNext,
   submit,
+  canReport,
 }: StepProps<McItem, { contentItemId: string; selectedOptionId: string }, {
   isCorrect: boolean;
   correctOptionId: string;
@@ -108,6 +115,11 @@ export function MultipleChoiceStep({
           Antwort prüfen
         </button>
       )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
     </div>
   );
 }
@@ -125,6 +137,7 @@ export function MatchingStep({
   onAnswered,
   onNext,
   submit,
+  canReport,
 }: StepProps<
   MatchingItem,
   { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
@@ -246,6 +259,11 @@ export function MatchingStep({
           Antwort prüfen
         </button>
       )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
     </div>
   );
 }
@@ -263,6 +281,7 @@ export function BlanksStep({
   onAnswered,
   onNext,
   submit,
+  canReport,
 }: StepProps<
   BlanksItem,
   { contentItemId: string; answers: Record<string, string> },
@@ -340,6 +359,11 @@ export function BlanksStep({
           Antwort prüfen
         </button>
       )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
     </div>
   );
 }
@@ -355,6 +379,7 @@ export function KurzantwortStep({
   onAnswered,
   onNext,
   submit,
+  canReport,
 }: StepProps<
   KurzantwortItem,
   { contentItemId: string; answer: string },
@@ -416,6 +441,11 @@ export function KurzantwortStep({
         >
           Antwort prüfen
         </button>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
       )}
     </div>
   );

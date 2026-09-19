@@ -2,6 +2,7 @@ import {
   adminCreateCompanyAccountInputSchema,
   adminUpdateCompanyBillingInputSchema,
   createSponsorInputSchema,
+  resolveContentReportInputSchema,
   resolveReportInputSchema,
   setSponsorActiveInputSchema,
 } from "@edukedo/shared";
@@ -11,7 +12,7 @@ import { eq } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
-import { companyAccount, kurs, report, sponsor, user } from "../../db/schema";
+import { companyAccount, contentItem, contentReport, kurs, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
 import { roleProcedure, router } from "../trpc";
 
@@ -236,4 +237,46 @@ export const adminRouter = router({
 
     return { success: true };
   }),
+
+  /**
+   * F-50: Moderationsansicht für offene Content-Fehlermeldungen — analog zu `reports` oben
+   * (F-68), aber mit Content-Item-Kontext (Prompt/Typ) statt eines zweiten Nutzerkontos, damit
+   * die Redaktion den gemeldeten Lerninhalt ohne zusätzliche Suche wiederfindet.
+   */
+  contentReports: roleProcedure("admin").query(async ({ ctx }) => {
+    const reporterUser = alias(user, "content_reporter_user");
+
+    return ctx.db
+      .select({
+        id: contentReport.id,
+        reporterEmail: reporterUser.email,
+        reason: contentReport.reason,
+        status: contentReport.status,
+        createdAt: contentReport.createdAt,
+        contentItemId: contentReport.contentItemId,
+        contentItemPrompt: contentItem.prompt,
+        contentItemType: contentItem.type,
+      })
+      .from(contentReport)
+      .innerJoin(contentItem, eq(contentItem.id, contentReport.contentItemId))
+      .leftJoin(reporterUser, eq(reporterUser.id, contentReport.reporterUserId))
+      .where(eq(contentReport.status, "offen"))
+      .orderBy(contentReport.createdAt);
+  }),
+
+  resolveContentReport: roleProcedure("admin")
+    .input(resolveContentReportInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [updated] = await ctx.db
+        .update(contentReport)
+        .set({ status: "geschlossen" })
+        .where(eq(contentReport.id, input.contentReportId))
+        .returning({ id: contentReport.id });
+
+      if (!updated) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Diese Meldung wurde nicht gefunden." });
+      }
+
+      return { success: true };
+    }),
 });

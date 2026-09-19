@@ -238,6 +238,37 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-50: meldet einen fehlerhaften Lerninhalt, lehnt aber eine unbekannte Content-Item-ID ab",
+    async () => {
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const dueCards = dueCardsResponse.json().result.data as { id: string }[];
+      expect(dueCards.length).toBeGreaterThan(0);
+
+      const unknownResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/contentFeedback.report",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: "00000000-0000-0000-0000-000000000000", reason: "Testfehler" },
+      });
+      expect(unknownResponse.statusCode).toBe(404);
+
+      const reportResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/contentFeedback.report",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: dueCards[0]!.id, reason: "Antwort ist fachlich falsch" },
+      });
+      expect(reportResponse.statusCode).toBe(200);
+      expect(reportResponse.json().result.data.success).toBe(true);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

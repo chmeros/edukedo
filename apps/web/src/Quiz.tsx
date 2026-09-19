@@ -136,6 +136,7 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitAnswer}
+          canReport
         />
       )}
       {current.type === "zuordnung" && (
@@ -146,6 +147,7 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitMatching}
+          canReport
         />
       )}
       {current.type === "luecken" && (
@@ -156,6 +158,7 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitBlanks}
+          canReport
         />
       )}
       {current.type === "kurzantwort" && (
@@ -166,6 +169,7 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitKurzantwort}
+          canReport
         />
       )}
     </div>

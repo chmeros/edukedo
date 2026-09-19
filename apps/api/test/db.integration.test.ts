@@ -286,4 +286,94 @@ describe("Kern-Migrationen", () => {
       expect(remaining).toHaveLength(0);
     });
   });
+
+  /**
+   * F-50: Feedback-Funktion für fehlerhafte Lerninhalte — bewusst eine eigene Tabelle statt
+   * Wiederverwendung von `report` (F-68), siehe db/schema.ts. Dasselbe asymmetrische
+   * Lösch-Verhalten wie bei `report` oben (reporter_user_id SET NULL, hier zusätzlich
+   * content_item_id CASCADE statt kurs_id CASCADE), hier eigenständig getestet statt im großen
+   * F-06-Löschtest mitzuführen.
+   */
+  describe("CONTENT_REPORT (F-50)", () => {
+    async function seedContentItemMitUser(slug: string) {
+      const [kursRow] = await db.insert(schema.kurs).values({ slug, type: "fachwirt", title: slug }).returning();
+      const [fachgebietRow] = await db
+        .insert(schema.fachgebiet)
+        .values({ kursId: kursRow!.id, code: "HB1", title: "Test-Fachgebiet" })
+        .returning();
+      const [themaRow] = await db
+        .insert(schema.thema)
+        .values({ fachgebietId: fachgebietRow!.id, title: "Test-Thema" })
+        .returning();
+      const [contentItemRow] = await db
+        .insert(schema.contentItem)
+        .values({ themaId: themaRow!.id, type: "karteikarte", prompt: "Frage?" })
+        .returning();
+      const [reporter] = await db
+        .insert(schema.user)
+        .values({ email: `${slug}-reporter@example.com`, passwordHash: "hash", isMinor: false })
+        .returning();
+      return { contentItem: contentItemRow!, reporter: reporter! };
+    }
+
+    it("setzt den Standard-status 'offen' bei einer neuen Meldung", async () => {
+      const { contentItem, reporter } = await seedContentItemMitUser("content-report-default-status");
+
+      const [reportRow] = await db
+        .insert(schema.contentReport)
+        .values({ contentItemId: contentItem.id, reporterUserId: reporter.id, reason: "Test" })
+        .returning();
+
+      expect(reportRow!.status).toBe("offen");
+    });
+
+    it("erlaubt mehrere Meldungen desselben Content-Items (kein Unique-Constraint)", async () => {
+      const { contentItem, reporter } = await seedContentItemMitUser("content-report-duplikate-erlaubt");
+
+      await db
+        .insert(schema.contentReport)
+        .values({ contentItemId: contentItem.id, reporterUserId: reporter.id, reason: "Erste Meldung" });
+      await db
+        .insert(schema.contentReport)
+        .values({ contentItemId: contentItem.id, reporterUserId: reporter.id, reason: "Zweite Meldung" });
+
+      const reports = await db
+        .select()
+        .from(schema.contentReport)
+        .where(eq(schema.contentReport.contentItemId, contentItem.id));
+      expect(reports).toHaveLength(2);
+    });
+
+    it("kaskadiert Meldungen beim Löschen des Content-Items (content_report.content_item_id)", async () => {
+      const { contentItem, reporter } = await seedContentItemMitUser("content-report-item-loeschung");
+      await db
+        .insert(schema.contentReport)
+        .values({ contentItemId: contentItem.id, reporterUserId: reporter.id, reason: "Test" });
+
+      await db.delete(schema.contentItem).where(eq(schema.contentItem.id, contentItem.id));
+
+      const remaining = await db
+        .select()
+        .from(schema.contentReport)
+        .where(eq(schema.contentReport.contentItemId, contentItem.id));
+      expect(remaining).toHaveLength(0);
+    });
+
+    it("setzt reporter_user_id auf null statt die Meldung zu löschen, wenn die meldende Person ihr Konto löscht", async () => {
+      const { contentItem, reporter } = await seedContentItemMitUser("content-report-reporter-loeschung");
+      const [reportRow] = await db
+        .insert(schema.contentReport)
+        .values({ contentItemId: contentItem.id, reporterUserId: reporter.id, reason: "Test" })
+        .returning();
+
+      await db.delete(schema.user).where(eq(schema.user.id, reporter.id));
+
+      const [remaining] = await db
+        .select()
+        .from(schema.contentReport)
+        .where(eq(schema.contentReport.id, reportRow!.id));
+      expect(remaining).toBeDefined();
+      expect(remaining!.reporterUserId).toBeNull();
+    });
+  });
 });

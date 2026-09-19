@@ -2,6 +2,7 @@ export * from "./age";
 export * from "./fsrs/scheduler";
 export * from "./quiz-logic";
 export * from "./schemas/content-item";
+export * from "./schemas/content-report";
 export * from "./schemas/auth";
 export * from "./schemas/course";
 export * from "./schemas/company";
