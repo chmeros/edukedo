@@ -54,3 +54,14 @@ export const submitKurzantwortInputSchema = z.object({
   answer: z.string(),
 });
 export type SubmitKurzantwortInput = z.infer<typeof submitKurzantwortInputSchema>;
+
+/**
+ * F-114 (SWOT/BSC/Ansoff-Teil): eingereichte Zonen-Platzierung je Begriff (answer_option-ID →
+ * Zonen-Schlüssel, siehe QUADRANT_MODELS in quiz-logic.ts). Welche Zone tatsächlich richtig
+ * ist (answer_option.group_key), wird ebenfalls erst hier serverseitig geprüft.
+ */
+export const submitQuadrantInputSchema = z.object({
+  contentItemId: z.string().uuid(),
+  placements: z.array(z.object({ optionId: z.string().uuid(), zoneKey: z.string() })).min(1),
+});
+export type SubmitQuadrantInput = z.infer<typeof submitQuadrantInputSchema>;

@@ -1,3 +1,5 @@
+import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSensors } from "@dnd-kit/core";
+import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
 import { ReportContentButton } from "./ReportContentButton";
 
@@ -375,6 +377,186 @@ export function MatchingStep({
           style={{ alignSelf: "flex-start" }}
           onClick={checkAnswer}
           disabled={pairs.length !== item.left.length || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung): SWOT-Matrix/Balanced
+ * Scorecard/Ansoff-Matrix — dieselbe "Begriffe der richtigen Gruppe zuordnen"-Idee wie
+ * MatchingStep, aber N feste Zonen (`item.zones`) statt zwei Spalten, und per echtem
+ * Drag-and-Drop statt Klick-Klick bedient (Nutzer-Entscheidung 21.09.2026, siehe
+ * Architekturplanung Abschnitt 13 für die Begründung — insbesondere @dnd-kit/core statt einer
+ * selbst gebauten Pointer-Events-Lösung, wegen zuverlässiger Touch-Unterstützung).
+ * `POOL_ID` ist eine eigene, "virtuelle" Droppable-Zone für noch nicht zugeordnete Begriffe —
+ * kein Zonen-Schlüssel des Modells, daher der führende Unterstrich zur Abgrenzung.
+ */
+const QUADRANT_POOL_ID = "_pool";
+
+export interface QuadrantItem {
+  id: string;
+  prompt: string;
+  zones: { key: string; label: string }[];
+  terms: { id: string; text: string }[];
+}
+
+function DraggableTerm({
+  id,
+  text,
+  disabled,
+  state,
+}: {
+  id: string;
+  text: string;
+  disabled: boolean;
+  state?: "correct" | "wrong";
+}) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id, disabled });
+  let className = "quadrant-term";
+  if (state === "correct") className += " is-correct";
+  if (state === "wrong") className += " is-wrong";
+  if (isDragging) className += " is-dragging";
+
+  return (
+    <button
+      ref={setNodeRef}
+      type="button"
+      className={className}
+      disabled={disabled}
+      style={transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined}
+      {...listeners}
+      {...attributes}
+    >
+      {text}
+    </button>
+  );
+}
+
+function DroppableZone({
+  id,
+  label,
+  className,
+  children,
+}: {
+  id: string;
+  label?: string;
+  className: string;
+  children: React.ReactNode;
+}) {
+  const { setNodeRef, isOver } = useDroppable({ id });
+  return (
+    <div ref={setNodeRef} className={isOver ? `${className} is-over` : className}>
+      {label && <span className="quadrant-zone-label">{label}</span>}
+      <div className="quadrant-zone-terms">{children}</div>
+    </div>
+  );
+}
+
+export function QuadrantStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<
+  QuadrantItem,
+  { contentItemId: string; placements: { optionId: string; zoneKey: string }[] },
+  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number }
+>) {
+  const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
+    Object.fromEntries(item.terms.map((term) => [term.id, null])),
+  );
+  const [feedback, setFeedback] = useState<{
+    results: Record<string, boolean>;
+    correctZones: Record<string, string>;
+    correctCount: number;
+    total: number;
+    motivation: string;
+  } | null>(null);
+  // distance-Schwelle verhindert, dass ein einfacher Tap/Klick (z. B. um den Begriff nur
+  // anzusehen) bereits als Drag-Start gewertet wird — auf Touch wie Maus gleichermaßen relevant.
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    const termId = String(event.active.id);
+    const targetId = event.over ? String(event.over.id) : QUADRANT_POOL_ID;
+    setPlacements((current) => ({ ...current, [termId]: targetId === QUADRANT_POOL_ID ? null : targetId }));
+  }
+
+  const allPlaced = item.terms.every((term) => placements[term.id] !== null);
+
+  function checkAnswer() {
+    submit.mutate(
+      {
+        contentItemId: item.id,
+        placements: item.terms.map((term) => ({ optionId: term.id, zoneKey: placements[term.id]! })),
+      },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
+          onAnswered(result.correctCount === result.total);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <DroppableZone id={QUADRANT_POOL_ID} className="quadrant-pool">
+          {item.terms
+            .filter((term) => !placements[term.id])
+            .map((term) => (
+              <DraggableTerm key={term.id} id={term.id} text={term.text} disabled={feedback !== null} />
+            ))}
+        </DroppableZone>
+        <div className="quadrant-grid">
+          {item.zones.map((zone) => (
+            <DroppableZone key={zone.key} id={zone.key} label={zone.label} className="quadrant-zone">
+              {item.terms
+                .filter((term) => placements[term.id] === zone.key)
+                .map((term) => (
+                  <DraggableTerm
+                    key={term.id}
+                    id={term.id}
+                    text={term.text}
+                    disabled={feedback !== null}
+                    state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
+                  />
+                ))}
+            </DroppableZone>
+          ))}
+        </div>
+      </DndContext>
+      {feedback ? (
+        <>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!allPlaced || submit.isPending}
         >
           Antwort prüfen
         </button>

@@ -57,6 +57,53 @@ export interface RawAnswerOption {
 export const MC_LIKE_QUIZ_TYPES = ["quiz_mc", "wahr_falsch", "entweder_oder", "was_passt_nicht"] as const;
 export type McLikeQuizType = (typeof MC_LIKE_QUIZ_TYPES)[number];
 
+/**
+ * F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung, Nutzer-Entscheidung
+ * 21.09.2026, siehe Architekturplanung Abschnitt 13): "Interaktive Diagramme und Modelle" —
+ * technisch eine visuelle Variante der bestehenden Zuordnungsfrage, aber mit N festen Zonen
+ * (hier: 4) statt einer festen Zwei-Spalten-Struktur. SWOT-Matrix, Balanced Scorecard und
+ * Ansoff-Matrix teilen sich dieselbe "N feste Zonen, Begriffe hineinziehen"-Mechanik — nur die
+ * Zonen-Beschriftungen unterscheiden sich, daher EIN gemeinsamer QUADRANT_QUIZ_TYPES-Typ statt
+ * dreier fast identischer Kopien (analog zu MC_LIKE_QUIZ_TYPES bei F-113). Die Zonen sind
+ * bewusst FEST im Code hinterlegt (nicht content-autorierbar) — ein SWOT-Feld hat immer genau
+ * die vier Zonen Stärken/Schwächen/Chancen/Risiken, das ist Teil der fachlichen Modell-
+ * Definition, keine je-Frage-variable Eigenschaft. `answer_option.group_key` trägt hier den
+ * Zonen-Schlüssel des jeweiligen Begriffs (Wiederverwendung desselben Feldes, das bei
+ * "zuordnung" die Paar-ID trägt) statt einer neuen Spalte.
+ */
+export const QUADRANT_MODELS = {
+  swot: {
+    label: "SWOT-Matrix",
+    zones: [
+      { key: "staerken", label: "Stärken" },
+      { key: "schwaechen", label: "Schwächen" },
+      { key: "chancen", label: "Chancen" },
+      { key: "risiken", label: "Risiken" },
+    ],
+  },
+  bsc: {
+    label: "Balanced Scorecard",
+    zones: [
+      { key: "finanzen", label: "Finanzen" },
+      { key: "kunden", label: "Kunden" },
+      { key: "prozesse", label: "Interne Prozesse" },
+      { key: "lernen_entwicklung", label: "Lernen & Entwicklung" },
+    ],
+  },
+  ansoff: {
+    label: "Ansoff-Matrix",
+    zones: [
+      { key: "marktdurchdringung", label: "Marktdurchdringung" },
+      { key: "marktentwicklung", label: "Marktentwicklung" },
+      { key: "produktentwicklung", label: "Produktentwicklung" },
+      { key: "diversifikation", label: "Diversifikation" },
+    ],
+  },
+} as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
+
+export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];
+export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
+
 export type ShapedQuizItem =
   | { id: string; type: McLikeQuizType; prompt: string; options: { id: string; text: string }[] }
   | {
@@ -67,7 +114,14 @@ export type ShapedQuizItem =
       right: { id: string; text: string }[];
     }
   | { id: string; type: "luecken"; prompt: string; textWithBlanks: string; blankIds: string[] }
-  | { id: string; type: "kurzantwort"; prompt: string };
+  | { id: string; type: "kurzantwort"; prompt: string }
+  | {
+      id: string;
+      type: QuadrantQuizType;
+      prompt: string;
+      zones: { key: string; label: string }[];
+      terms: { id: string; text: string }[];
+    };
 
 /** Formt eine rohe content_item-Zeile (+ zugehörige answer_option-Zeilen) in die
  * öffentliche, lösungsfreie Darstellung — nie die richtige Antwort/Zuordnung/Lösung
@@ -110,6 +164,21 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
     };
   }
 
+  if ((QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type)) {
+    const quadrantType = item.type as QuadrantQuizType;
+    return {
+      id: item.id,
+      type: quadrantType,
+      prompt: item.prompt,
+      zones: [...QUADRANT_MODELS[quadrantType].zones],
+      terms: shuffle(
+        options
+          .filter((option) => option.contentItemId === item.id)
+          .map((option) => ({ id: option.id, text: option.text })),
+      ),
+    };
+  }
+
   return { id: item.id, type: "kurzantwort", prompt: item.prompt };
 }
 
@@ -146,6 +215,38 @@ export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId:
   }
 
   return { correctMap, correctCount, total: leftOptions.length };
+}
+
+/**
+ * F-114: prüft eine Zonen-Zuordnung (SWOT/BSC/Ansoff) — dieselbe Struktur wie checkMatching
+ * (options.group_key trägt hier die richtige Zone statt einer Paar-ID), aber N Zonen statt
+ * exakt zwei Seiten. Ein Begriff ohne Platzierung (nicht in `placements` enthalten) zählt als
+ * falsch, nicht als übersprungen — das Frontend lässt "Antwort prüfen" ohnehin erst zu, wenn
+ * alle Begriffe platziert sind (siehe QuizSteps.tsx QuadrantStep).
+ */
+export function checkQuadrantAnswer(options: RawAnswerOption[], placements: { optionId: string; zoneKey: string }[]) {
+  if (options.length === 0) {
+    throw new QuizItemNotFoundError("Frage nicht gefunden.");
+  }
+
+  const correctZones: Record<string, string> = {};
+  for (const option of options) {
+    if (option.groupKey) {
+      correctZones[option.id] = option.groupKey;
+    }
+  }
+
+  const results: Record<string, boolean> = {};
+  let correctCount = 0;
+  for (const placement of placements) {
+    const isCorrect = correctZones[placement.optionId] === placement.zoneKey;
+    results[placement.optionId] = isCorrect;
+    if (isCorrect) {
+      correctCount += 1;
+    }
+  }
+
+  return { results, correctZones, correctCount, total: options.length };
 }
 
 export function checkBlanks(payload: unknown, answers: Record<string, string>) {

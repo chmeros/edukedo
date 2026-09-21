@@ -3,7 +3,7 @@ import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -44,6 +44,7 @@ export function Quiz({
   );
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
+  const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
   const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
 
@@ -198,6 +199,20 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitMatching}
+          canReport
+        />
+      )}
+      {/* F-114: bewusst nur online (siehe Architekturplanung Abschnitt 13) — offline kommt diese
+          Frage über offlineRound gar nicht erst vor, `submitQuadrantMutation` wird hier also nur
+          erreicht, wenn `online` ohnehin true ist. */}
+      {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff") && (
+        <QuadrantStep
+          key={current.id}
+          item={current}
+          isLast={isLast}
+          onAnswered={handleAnswered}
+          onNext={next}
+          submit={submitQuadrantMutation}
           canReport
         />
       )}

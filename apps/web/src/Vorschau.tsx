@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
 /** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
@@ -19,6 +19,7 @@ export function Vorschau() {
   const previewItems = trpc.preview.items.useQuery();
   const submitAnswer = trpc.preview.submitAnswer.useMutation();
   const submitMatching = trpc.preview.submitMatching.useMutation();
+  const submitQuadrant = trpc.preview.submitQuadrant.useMutation();
   const submitBlanks = trpc.preview.submitBlanks.useMutation();
   const submitKurzantwort = trpc.preview.submitKurzantwort.useMutation();
   const [index, setIndex] = useState(0);
@@ -143,6 +144,16 @@ export function Vorschau() {
               onAnswered={handleAnswered}
               onNext={next}
               submit={submitMatching}
+            />
+          )}
+          {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff") && (
+            <QuadrantStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitQuadrant}
             />
           )}
           {current.type === "luecken" && (

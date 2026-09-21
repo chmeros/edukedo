@@ -1,4 +1,4 @@
-import type { AdminContentItemForm } from "@edukedo/shared";
+import { QUADRANT_MODELS, type AdminContentItemForm } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
@@ -13,6 +13,10 @@ const TYPE_LABELS: Record<string, string> = {
   entweder_oder: "Quiz · Entweder-Oder",
   was_passt_nicht: "Quiz · Was passt nicht dazu",
   zuordnung: "Quiz · Zuordnung",
+  // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
+  swot: "Quiz · SWOT-Matrix",
+  bsc: "Quiz · Balanced Scorecard",
+  ansoff: "Quiz · Ansoff-Matrix",
   luecken: "Quiz · Lückentext",
   kurzantwort: "Quiz · Kurzantwort",
   fallaufgabe: "Fallaufgabe",
@@ -78,6 +82,18 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
           { left: "", right: "" },
           { left: "", right: "" },
         ],
+        ...common,
+      };
+    // F-114: je ein leerer Begriff pro Zone als Starthilfe — ein SWOT-Feld hat z. B. immer
+    // genau die vier festen Zonen aus QUADRANT_MODELS (siehe Architekturplanung Abschnitt 13).
+    case "swot":
+    case "bsc":
+    case "ansoff":
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        terms: QUADRANT_MODELS[type].zones.map((zone) => ({ text: "", zoneKey: zone.key })),
         ...common,
       };
     case "luecken":
@@ -348,6 +364,68 @@ function ContentItemForm({
                 onClick={() => setField("pairs", [...form.pairs, { left: "", right: "" }])}
               >
                 Paar hinzufügen
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* F-114: SWOT-Matrix/Balanced Scorecard/Ansoff-Matrix — Begriffe der jeweils festen Zone
+          des gewählten Modells zuordnen (QUADRANT_MODELS, siehe Architekturplanung Abschnitt 13).
+          Die Zonen selbst sind nicht editierbar, nur welcher Begriff zu welcher Zone gehört. */}
+      {(form.type === "swot" || form.type === "bsc" || form.type === "ansoff") && (
+        <div className="field">
+          <label>Begriffe ({QUADRANT_MODELS[form.type].zones.map((zone) => zone.label).join(" / ")})</label>
+          <div className="stack">
+            {form.terms.map((term, index) => (
+              <div key={index} className="list-row-actions">
+                <input
+                  className="input"
+                  value={term.text}
+                  placeholder={`Begriff ${index + 1}`}
+                  onChange={(event) => {
+                    const next = [...form.terms];
+                    next[index] = { ...next[index]!, text: event.target.value };
+                    setField("terms", next);
+                  }}
+                  required
+                />
+                <select
+                  className="input"
+                  value={term.zoneKey}
+                  onChange={(event) => {
+                    const next = [...form.terms];
+                    next[index] = { ...next[index]!, zoneKey: event.target.value };
+                    setField("terms", next);
+                  }}
+                >
+                  {QUADRANT_MODELS[form.type].zones.map((zone) => (
+                    <option key={zone.key} value={zone.key}>
+                      {zone.label}
+                    </option>
+                  ))}
+                </select>
+                {form.terms.length > 4 && (
+                  <button
+                    type="button"
+                    className="btn btn-ghost btn-sm"
+                    onClick={() => setField("terms", form.terms.filter((_, i) => i !== index))}
+                  >
+                    Entfernen
+                  </button>
+                )}
+              </div>
+            ))}
+            {form.terms.length < 20 && (
+              <button
+                type="button"
+                className="btn btn-ghost btn-sm"
+                style={{ alignSelf: "flex-start" }}
+                onClick={() =>
+                  setField("terms", [...form.terms, { text: "", zoneKey: QUADRANT_MODELS[form.type].zones[0]!.key }])
+                }
+              >
+                Begriff hinzufügen
               </button>
             )}
           </div>

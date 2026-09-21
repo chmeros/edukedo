@@ -1060,6 +1060,148 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-114: SWOT-Matrix ist über Admin-Redaktion anlegbar, liefert feste Zonen ohne Lösung und wertet eine Zonen-Zuordnung korrekt (teilweise) aus",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f114@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "swot",
+          themaId,
+          prompt: "F-114-Testfrage: Ordne die Begriffe der SWOT-Matrix zu.",
+          explanation: "Testerklärung",
+          terms: [
+            { text: "Starke Marke", zoneKey: "staerken" },
+            { text: "Veraltete IT", zoneKey: "schwaechen" },
+            { text: "Neuer Markt", zoneKey: "chancen" },
+            { text: "Neuer Wettbewerber", zoneKey: "risiken" },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const swotId = createResponse.json().result.data.id as string;
+
+      // Eine ungültige Zone wird bereits am Formular-Schema abgelehnt (siehe admin-content.ts).
+      const invalidZoneResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "swot",
+          themaId,
+          prompt: "Ungültige Zone",
+          explanation: null,
+          terms: [
+            { text: "A", zoneKey: "staerken" },
+            { text: "B", zoneKey: "schwaechen" },
+            { text: "C", zoneKey: "chancen" },
+            { text: "D", zoneKey: "does-not-exist" },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(invalidZoneResponse.statusCode).toBe(400);
+
+      // quiz.quizItems (Lernenden-Sicht) liefert die festen Zonen-Labels, aber nie group_key/
+      // isCorrect der Begriffe.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        zones?: { key: string; label: string }[];
+        terms?: { id: string; text: string }[];
+      }[];
+      const swotItem = quizItems.find((item) => item.id === swotId)!;
+      expect(swotItem.type).toBe("swot");
+      expect(swotItem.zones).toEqual([
+        { key: "staerken", label: "Stärken" },
+        { key: "schwaechen", label: "Schwächen" },
+        { key: "chancen", label: "Chancen" },
+        { key: "risiken", label: "Risiken" },
+      ]);
+      expect(swotItem.terms).toHaveLength(4);
+      expect(swotItem.terms!.some((term) => "zoneKey" in term || "isCorrect" in term)).toBe(false);
+
+      // Drei richtig, einer bewusst falsch platziert ("Veraltete IT" gehört zu "schwaechen",
+      // hier absichtlich als "chancen" eingereicht).
+      const byText = (text: string) => swotItem.terms!.find((term) => term.text === text)!;
+      const submitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitQuadrant",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: swotId,
+          placements: [
+            { optionId: byText("Starke Marke").id, zoneKey: "staerken" },
+            { optionId: byText("Veraltete IT").id, zoneKey: "chancen" },
+            { optionId: byText("Neuer Markt").id, zoneKey: "chancen" },
+            { optionId: byText("Neuer Wettbewerber").id, zoneKey: "risiken" },
+          ],
+        },
+      });
+      expect(submitResponse.statusCode).toBe(200);
+      const result = submitResponse.json().result.data as {
+        results: Record<string, boolean>;
+        correctZones: Record<string, string>;
+        correctCount: number;
+        total: number;
+      };
+      expect(result.correctCount).toBe(3);
+      expect(result.total).toBe(4);
+      expect(result.results[byText("Veraltete IT").id]).toBe(false);
+      expect(result.results[byText("Starke Marke").id]).toBe(true);
+      expect(result.correctZones[byText("Veraltete IT").id]).toBe("schwaechen");
+
+      // adminContent.get reshaped die Begriffe inkl. ihrer richtigen Zone für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: swotId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as { type: string; terms: { text: string; zoneKey: string }[] };
+      expect(detail.type).toBe("swot");
+      expect(detail.terms).toEqual(
+        expect.arrayContaining([
+          { text: "Starke Marke", zoneKey: "staerken" },
+          { text: "Veraltete IT", zoneKey: "schwaechen" },
+          { text: "Neuer Markt", zoneKey: "chancen" },
+          { text: "Neuer Wettbewerber", zoneKey: "risiken" },
+        ]),
+      );
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

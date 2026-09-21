@@ -3,11 +3,14 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkQuadrantAnswer,
   MC_LIKE_QUIZ_TYPES,
+  QUADRANT_QUIZ_TYPES,
   shapeQuizItem,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
+  submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
@@ -39,9 +42,16 @@ export const previewRouter = router({
       .innerJoin(kurs, eq(kurs.id, fachgebiet.kursId))
       .where(
         and(
-          // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind
-          // strukturell identisch zu quiz_mc, siehe quiz-logic.ts.
-          inArray(contentItem.type, [...MC_LIKE_QUIZ_TYPES, "zuordnung", "luecken", "kurzantwort"]),
+          // F-113: MC_LIKE_QUIZ_TYPES sind strukturell identisch zu quiz_mc. F-114:
+          // QUADRANT_QUIZ_TYPES sind eine visuelle Zuordnungs-Variante mit N Zonen. Siehe
+          // quiz-logic.ts.
+          inArray(contentItem.type, [
+            ...MC_LIKE_QUIZ_TYPES,
+            "zuordnung",
+            ...QUADRANT_QUIZ_TYPES,
+            "luecken",
+            "kurzantwort",
+          ]),
           eq(contentItem.isActive, true),
           eq(kurs.isPublished, true),
         ),
@@ -54,7 +64,12 @@ export const previewRouter = router({
     }
 
     const optionItemIds = items
-      .filter((item) => (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) || item.type === "zuordnung")
+      .filter(
+        (item) =>
+          (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
+          item.type === "zuordnung" ||
+          (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
+      )
       .map((item) => item.id);
     const options = optionItemIds.length
       ? await ctx.db.select().from(answerOption).where(inArray(answerOption.contentItemId, optionItemIds))
@@ -90,6 +105,16 @@ export const previewRouter = router({
       options,
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
+  }),
+
+  submitQuadrant: publicProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {
+    await findPublishedItem(ctx.db, input.contentItemId);
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    return checkQuadrantAnswer(options, input.placements);
   }),
 
   submitBlanks: publicProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {

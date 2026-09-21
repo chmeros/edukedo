@@ -10,6 +10,10 @@ const TYPE_LABELS: Record<string, string> = {
   entweder_oder: "Quiz · Entweder-Oder",
   was_passt_nicht: "Quiz · Was passt nicht dazu",
   zuordnung: "Quiz · Zuordnung",
+  // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
+  swot: "Quiz · SWOT-Matrix",
+  bsc: "Quiz · Balanced Scorecard",
+  ansoff: "Quiz · Ansoff-Matrix",
   luecken: "Quiz · Lückentext",
   kurzantwort: "Quiz · Kurzantwort",
   fallaufgabe: "Fallaufgabe",

@@ -3,6 +3,7 @@ import {
   exerciseSetIdInputSchema,
   initialProgressState,
   MC_LIKE_QUIZ_TYPES,
+  QUADRANT_QUIZ_TYPES,
   scheduleReview,
   sessionIdInputSchema,
   startExerciseSetInputSchema,
@@ -425,9 +426,16 @@ export const progressRouter = router({
       )
       .where(
         and(
-          // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind
-          // strukturell identisch zu quiz_mc, siehe quiz-logic.ts.
-          inArray(contentItem.type, ["karteikarte", ...MC_LIKE_QUIZ_TYPES, "zuordnung", "luecken", "kurzantwort"]),
+          // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
+          // quiz_mc bzw. zuordnung, siehe quiz-logic.ts.
+          inArray(contentItem.type, [
+            "karteikarte",
+            ...MC_LIKE_QUIZ_TYPES,
+            "zuordnung",
+            ...QUADRANT_QUIZ_TYPES,
+            "luecken",
+            "kurzantwort",
+          ]),
           eq(contentItem.isActive, true),
         ),
       );
@@ -551,9 +559,16 @@ export const progressRouter = router({
       )
       .where(
         and(
-          // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind
-          // strukturell identisch zu quiz_mc, siehe quiz-logic.ts.
-          inArray(contentItem.type, ["karteikarte", ...MC_LIKE_QUIZ_TYPES, "zuordnung", "luecken", "kurzantwort"]),
+          // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
+          // quiz_mc bzw. zuordnung, siehe quiz-logic.ts.
+          inArray(contentItem.type, [
+            "karteikarte",
+            ...MC_LIKE_QUIZ_TYPES,
+            "zuordnung",
+            ...QUADRANT_QUIZ_TYPES,
+            "luecken",
+            "kurzantwort",
+          ]),
           eq(contentItem.isActive, true),
         ),
       );

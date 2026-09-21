@@ -3,12 +3,15 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkQuadrantAnswer,
   MC_LIKE_QUIZ_TYPES,
+  QUADRANT_QUIZ_TYPES,
   quizItemsInputSchema,
   shapeQuizItem,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
+  submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
@@ -36,8 +39,15 @@ export const quizRouter = router({
   quizItems: protectedProcedure.input(quizItemsInputSchema).query(async ({ ctx, input }) => {
     const conditions = [
       // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind strukturell
-      // identisch zu quiz_mc, siehe quiz-logic.ts.
-      inArray(contentItem.type, [...MC_LIKE_QUIZ_TYPES, "zuordnung", "luecken", "kurzantwort"]),
+      // identisch zu quiz_mc. F-114: QUADRANT_QUIZ_TYPES (swot/bsc/ansoff) sind eine visuelle
+      // Zuordnungs-Variante mit N Zonen statt zwei Spalten. Siehe quiz-logic.ts.
+      inArray(contentItem.type, [
+        ...MC_LIKE_QUIZ_TYPES,
+        "zuordnung",
+        ...QUADRANT_QUIZ_TYPES,
+        "luecken",
+        "kurzantwort",
+      ]),
       eq(contentItem.isActive, true),
     ];
     // F-27: optionaler Thema-Filter — siehe quizItemsInputSchema.
@@ -68,7 +78,12 @@ export const quizRouter = router({
     }
 
     const optionItemIds = items
-      .filter((item) => (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) || item.type === "zuordnung")
+      .filter(
+        (item) =>
+          (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
+          item.type === "zuordnung" ||
+          (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
+      )
       .map((item) => item.id);
     const options = optionItemIds.length
       ? await ctx.db
@@ -110,6 +125,21 @@ export const quizRouter = router({
       options,
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+
+    return result;
+  }),
+
+  /** F-114: SWOT/BSC/Ansoff-Zonen-Zuordnung auswerten — dieselbe answer_option-Grundlage wie
+   * submitMatching, aber N Zonen statt exakt zwei Seiten (siehe checkQuadrantAnswer). */
+  submitQuadrant: protectedProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    const result = checkQuadrantAnswer(options, input.placements);
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
 

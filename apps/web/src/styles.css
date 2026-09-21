@@ -1328,6 +1328,100 @@ details[open] > summary.disclosure::before {
   cursor: default;
 }
 
+/* F-114: SWOT-Matrix/Balanced Scorecard/Ansoff-Matrix — Drag-and-Drop-Zuordnung (QuizSteps.tsx
+   QuadrantStep, @dnd-kit/core). ".quadrant-pool" hält noch nicht zugeordnete Begriffe, das
+   2x2-Raster darunter die vier festen Zonen des jeweiligen Modells (siehe Architekturplanung
+   Abschnitt 13). Bewusst dieselben is-correct/is-wrong-Farbtokens wie .match-pair (F-21). */
+.quadrant-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px;
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+}
+
+.quadrant-pool.is-over {
+  border-color: var(--ink-faint);
+  background: var(--surface);
+}
+
+.quadrant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 460px) {
+  .quadrant-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quadrant-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 96px;
+  padding: 10px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.quadrant-zone.is-over {
+  border-color: var(--sprout);
+  background: var(--sprout-tint);
+}
+
+.quadrant-zone-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.quadrant-zone-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quadrant-term {
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: grab;
+  touch-action: none;
+}
+
+.quadrant-term.is-dragging {
+  opacity: 0.6;
+  cursor: grabbing;
+}
+
+.quadrant-term.is-correct {
+  border-color: var(--sprout);
+  background: var(--sprout-tint);
+  color: var(--sprout-deep);
+}
+
+.quadrant-term.is-wrong {
+  border-color: var(--danger);
+  background: var(--danger-tint);
+  color: var(--danger-deep);
+}
+
+.quadrant-term:disabled {
+  cursor: default;
+}
+
 /* ---------- Fortschritt ---------- */
 /* Redesign 17.09.2026: nutzt die verbreiterte .shell (siehe oben) für ein 2-spaltiges Raster der
    Fachgebiete auf breiten Bildschirmen, statt einer einzigen, auf großen Screens sehr lang

@@ -74,6 +74,23 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
           { text: pair.right, isCorrect: false, groupKey: String(index), side: "rechts", sortOrder: index },
         ]),
       };
+    // F-114: swot/bsc/ansoff sind eine visuelle Zuordnungs-Variante — dieselbe answer_option-
+    // Tabelle wie "zuordnung", aber `groupKey` trägt hier den (festen) Zonen-Schlüssel des
+    // Begriffs statt einer Paar-ID, und `side` bleibt ungesetzt (nur zwei Spalten kennen Seiten).
+    case "swot":
+    case "bsc":
+    case "ansoff":
+      return {
+        prompt: input.prompt,
+        explanation: input.explanation ?? null,
+        payload: {},
+        answerOptions: input.terms.map((term, index) => ({
+          text: term.text,
+          isCorrect: false,
+          groupKey: term.zoneKey,
+          sortOrder: index,
+        })),
+      };
     case "luecken": {
       const { textWithBlanks, blanks } = parseLueckentext(input.lueckentextSource);
       if (blanks.length === 0) {
@@ -217,6 +234,22 @@ export const adminContentRouter = router({
         byGroup.set(key, entry);
       }
       return { type: "zuordnung" as const, ...common, prompt: item.prompt, explanation: item.explanation, pairs: [...byGroup.values()] };
+    }
+
+    // F-114: swot/bsc/ansoff laden genau wie zuordnung, aber flach als terms (kein Paar-Konzept).
+    if (item.type === "swot" || item.type === "bsc" || item.type === "ansoff") {
+      const rows = await ctx.db
+        .select()
+        .from(answerOption)
+        .where(eq(answerOption.contentItemId, item.id))
+        .orderBy(asc(answerOption.sortOrder));
+      return {
+        type: item.type,
+        ...common,
+        prompt: item.prompt,
+        explanation: item.explanation,
+        terms: rows.map((row) => ({ text: row.text, zoneKey: row.groupKey ?? "" })),
+      };
     }
 
     if (item.type === "theorie") {

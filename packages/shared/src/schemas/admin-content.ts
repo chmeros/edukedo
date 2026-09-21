@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { contentItemBloomSchema, contentItemDifficultySchema, contentItemTypeSchema } from "./content-item";
+import { QUADRANT_MODELS } from "../quiz-logic";
 
 /**
  * F-11: Admin-/Redaktionsbereich — Pflege (und seit der Nutzer-Entscheidung vom 19.09.2026
@@ -32,6 +33,10 @@ const promptSchema = z.string().min(1).max(2000);
 const explanationSchema = z.string().max(4000).nullable().optional();
 const answerOptionFormSchema = z.object({ text: z.string().min(1).max(500), isCorrect: z.boolean() });
 const zuordnungPairFormSchema = z.object({ left: z.string().min(1).max(300), right: z.string().min(1).max(300) });
+// F-114: `zoneKey` referenziert einen der festen Zonen-Schlüssel aus QUADRANT_MODELS (siehe
+// quiz-logic.ts) — hier bewusst nur als String validiert, die Zugehörigkeit zum richtigen
+// Modell prüft das .refine() unten (dort ist der `type`-Zweig bereits bekannt).
+const quadrantTermFormSchema = z.object({ text: z.string().min(1).max(300), zoneKey: z.string().min(1) });
 const fallaufgabePartFormSchema = z.object({
   prompt: z.string().min(1).max(2000),
   points: z.number().positive(),
@@ -95,6 +100,32 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     pairs: z.array(zuordnungPairFormSchema).min(2).max(10),
     ...commonFormFields,
   }),
+  // F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung): SWOT-Matrix, Balanced
+  // Scorecard und Ansoff-Matrix — dieselbe "Begriffe den festen Zonen zuordnen"-Formularstruktur,
+  // nur die im Frontend angezeigten Zonen-Beschriftungen unterscheiden sich (siehe
+  // QUADRANT_MODELS in quiz-logic.ts). Mindestens 4 Begriffe (einer je Zone), Obergrenze 20 wie
+  // bei den anderen Formaten mit variabler Elementanzahl.
+  z.object({
+    type: z.literal("swot"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("bsc"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("ansoff"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
   z.object({
     type: z.literal("luecken"),
     // Kein eigenes `prompt`-Feld: content_item.prompt entspricht bei Lückentext-Items exakt
@@ -133,15 +164,25 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
 // .refine() erst NACH dem discriminatedUnion angehängt statt auf dem einzelnen quiz_mc-Zweig:
 // z.discriminatedUnion() verlangt für jeden Zweig ein reines ZodObject, kein ZodEffects (das
 // Ergebnis von .refine()) — siehe Zod-Typfehler, wenn man es direkt am Zweig versucht.
-export const adminContentItemFormSchema = adminContentItemFormUnion.refine(
-  (data) =>
-    (data.type !== "quiz_mc" &&
-      data.type !== "wahr_falsch" &&
-      data.type !== "entweder_oder" &&
-      data.type !== "was_passt_nicht") ||
-    data.options.filter((option) => option.isCorrect).length === 1,
-  { message: "Genau eine Antwortoption muss als richtig markiert sein.", path: ["options"] },
-);
+export const adminContentItemFormSchema = adminContentItemFormUnion
+  .refine(
+    (data) =>
+      (data.type !== "quiz_mc" &&
+        data.type !== "wahr_falsch" &&
+        data.type !== "entweder_oder" &&
+        data.type !== "was_passt_nicht") ||
+      data.options.filter((option) => option.isCorrect).length === 1,
+    { message: "Genau eine Antwortoption muss als richtig markiert sein.", path: ["options"] },
+  )
+  // F-114: jeder Begriff muss einer tatsächlich existierenden Zone des gewählten Modells
+  // zugeordnet sein — verhindert einen "verwaisten" Begriff mit einem Tippfehler-Zonen-Schlüssel,
+  // der beim Lernen nie als richtig auswertbar wäre.
+  .refine(
+    (data) =>
+      (data.type !== "swot" && data.type !== "bsc" && data.type !== "ansoff") ||
+      data.terms.every((term) => QUADRANT_MODELS[data.type as "swot" | "bsc" | "ansoff"].zones.some((zone) => zone.key === term.zoneKey)),
+    { message: "Jeder Begriff muss einer gültigen Zone dieses Modells zugeordnet sein.", path: ["terms"] },
+  );
 export type AdminContentItemForm = z.infer<typeof adminContentItemFormUnion>;
 
 export const adminCreateContentItemInputSchema = adminContentItemFormSchema;

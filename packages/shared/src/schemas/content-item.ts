@@ -17,6 +17,11 @@ export const contentItemTypeSchema = z.enum([
   "wahr_falsch",
   "entweder_oder",
   "was_passt_nicht",
+  // F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung): visuelle Zuordnungs-
+  // Variante mit N festen Zonen statt zwei Spalten — siehe QUADRANT_QUIZ_TYPES in quiz-logic.ts.
+  "swot",
+  "bsc",
+  "ansoff",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -112,6 +117,9 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("entweder_oder"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("was_passt_nicht"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("zuordnung"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("swot"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("bsc"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("luecken"), payload: lueckenPayloadSchema }),
   z.object({ type: z.literal("kurzantwort"), payload: kurzantwortPayloadSchema }),
   z.object({ type: z.literal("fallaufgabe"), payload: fallaufgabePayloadSchema }),
