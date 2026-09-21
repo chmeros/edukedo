@@ -70,6 +70,8 @@ export function App() {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("2000-01-01");
   const [parentEmail, setParentEmail] = useState("");
+  // F-108: rein optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg.
+  const [displayName, setDisplayName] = useState("");
   const [learningMode, setLearningMode] = useState<LearningMode>("lernen");
   // F-44: "roving tabindex" fürs ARIA-Tablist-Muster unten — nur der aktive Tab ist per
   // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
@@ -191,11 +193,21 @@ export function App() {
             />
           ) : (
             <>
+              {/* F-108: namentliche Begrüßung (falls ein Anzeigename gesetzt ist, siehe
+                  SettingsModal.tsx) statt nur der bisherigen, unpersönlichen Vorschlagsliste. */}
+              <p className="welcome-greeting">
+                {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
+              </p>
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (
-                <div className="suggestion-row">
-                  {suggestions.data.map((suggestion, position) => (
+                <>
+                  {/* F-108: "Weiter, wo du aufgehört hast" statt nur einer neutralen
+                      Vorschlagsliste — auf Themen-Ebene (Nutzer-Entscheidung 21.09.2026), der
+                      oberste Vorschlag (is-primary) bleibt unverändert derselbe wie in F-27. */}
+                  <span className="field-hint">Weiter, wo du aufgehört hast:</span>
+                  <div className="suggestion-row">
+                    {suggestions.data.map((suggestion, position) => (
                     <button
                       key={suggestion.themaId}
                       type="button"
@@ -215,8 +227,9 @@ export function App() {
                           : `${suggestion.weakPercent} % Trefferquote`}
                       </span>
                     </button>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                </>
               )}
               {/* activeKursId ist hier nur während des allerersten Ladens von courses.list
                   noch null (showCourseSelection fängt den eingeschwungenen "kein Kurs
@@ -418,12 +431,28 @@ export function App() {
                   password,
                   birthDate: new Date(birthDate),
                   parentEmail: needsParentEmail ? parentEmail : undefined,
+                  displayName: displayName.trim() ? displayName.trim() : undefined,
                 });
               } else {
                 login.mutate({ email, password });
               }
             }}
           >
+            {mode === "register" && (
+              <div className="field">
+                <label htmlFor="auth-displayname">Anzeigename (optional)</label>
+                <input
+                  className="input"
+                  id="auth-displayname"
+                  type="text"
+                  placeholder="z. B. Franzi"
+                  maxLength={100}
+                  value={displayName}
+                  onChange={(event) => setDisplayName(event.target.value)}
+                />
+                <span className="field-hint">Für eine persönliche Begrüßung beim Wiedereinstieg — jederzeit änderbar.</span>
+              </div>
+            )}
             <div className="field">
               <label htmlFor="auth-email">E-Mail</label>
               <input

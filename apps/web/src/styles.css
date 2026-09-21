@@ -710,6 +710,13 @@ details[open] > summary.disclosure::before {
    mehr, siehe Architekturplanung Abschnitt 13. CourseSwitcher.tsx nutzt jetzt .list-row wie
    der Rest der App. */
 
+/* ---------- Namentliche Begrüßung (F-108) ---------- */
+.welcome-greeting {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
 .suggestion-row {
   display: flex;

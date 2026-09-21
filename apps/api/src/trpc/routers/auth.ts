@@ -4,6 +4,7 @@ import {
   registerInputSchema,
   requiresParentalConsent,
   setLearningModePreferenceInputSchema,
+  updateDisplayNameInputSchema,
   verifyEmailInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
@@ -45,6 +46,7 @@ export const authRouter = router({
         passwordHash,
         birthDate: input.birthDate.toISOString().slice(0, 10),
         isMinor,
+        displayName: input.displayName ?? null,
       })
       .returning();
 
@@ -184,10 +186,23 @@ export const authRouter = router({
     role: ctx.currentUser.role,
     isMinor: ctx.currentUser.isMinor,
     emailVerified: ctx.currentUser.emailVerifiedAt !== null,
+    displayName: ctx.currentUser.displayName,
     learnFlashcardsEnabled: ctx.currentUser.learnFlashcardsEnabled,
     learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
   })),
+
+  /**
+   * F-108: Anzeigename nachträglich ändern (Einstellungen) — ein leerer String (nach Trim)
+   * löscht ihn wieder auf `null`.
+   */
+  updateDisplayName: protectedProcedure.input(updateDisplayNameInputSchema).mutation(async ({ ctx, input }) => {
+    await ctx.db
+      .update(user)
+      .set({ displayName: input.displayName || null })
+      .where(eq(user.id, ctx.currentUser.id));
+    return { success: true };
+  }),
 
   /**
    * F-01: Bestätigung durch Klick auf den E-Mail-Verifizierungslink — bewusst public

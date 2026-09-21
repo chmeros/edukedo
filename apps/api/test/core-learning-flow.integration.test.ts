@@ -435,6 +435,70 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-108: registriert optional mit Anzeigename, erlaubt nachträgliches Ändern/Löschen",
+    async () => {
+      // e2e@example.com (Haupt-Testnutzer) wurde ganz am Anfang OHNE Anzeigename registriert.
+      const meBefore = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meBefore.json().result.data.displayName).toBeNull();
+
+      const setResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.updateDisplayName",
+        headers: { cookie: sessionCookie },
+        payload: { displayName: "  Franzi  " },
+      });
+      expect(setResponse.statusCode).toBe(200);
+
+      const meAfterSet = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      // Getrimmt gespeichert (siehe displayNameSchema/updateDisplayNameInputSchema).
+      expect(meAfterSet.json().result.data.displayName).toBe("Franzi");
+
+      const clearResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.updateDisplayName",
+        headers: { cookie: sessionCookie },
+        payload: { displayName: "   " },
+      });
+      expect(clearResponse.statusCode).toBe(200);
+
+      const meAfterClear = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meAfterClear.json().result.data.displayName).toBeNull();
+
+      // Registrierung MIT Anzeigename setzt ihn direkt von Anfang an.
+      const registerWithNameResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: {
+          email: "f108@example.com",
+          password: "f108Passwort123!",
+          birthDate: "1995-01-01",
+          displayName: "Alex",
+        },
+      });
+      const cookieWithName = extractSessionCookie(registerWithNameResponse.headers["set-cookie"]);
+      const meWithName = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: cookieWithName },
+      });
+      expect(meWithName.json().result.data.displayName).toBe("Alex");
+    },
+    30_000,
+  );
+
+  it(
     "N-02: sperrt den Login für ein Konto nach zu vielen Fehlversuchen, unabhängig vom korrekten Passwort",
     async () => {
       const email = "ratelimit-e2e@example.com";

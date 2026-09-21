@@ -12,6 +12,11 @@ export type UserRole = z.infer<typeof userRoleSchema>;
 
 export const emailSchema = z.string().email().max(320);
 export const passwordSchema = z.string().min(8).max(200);
+/**
+ * F-108: rein optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg — kein
+ * Pflichtfeld, siehe Architekturplanung Abschnitt 13.
+ */
+export const displayNameSchema = z.string().trim().min(1).max(100);
 
 /**
  * F-08: Für unter 16-Jährige ist die E-Mail-Adresse eines Elternteils Pflicht (per
@@ -24,6 +29,7 @@ export const registerInputSchema = z
     password: passwordSchema,
     birthDate: z.coerce.date(),
     parentEmail: emailSchema.optional(),
+    displayName: displayNameSchema.optional(),
   })
   .refine((data) => !requiresParentalConsent(data.birthDate) || !!data.parentEmail, {
     message: "Für Nutzer:innen unter 16 Jahren ist die E-Mail-Adresse eines Elternteils erforderlich.",
@@ -68,3 +74,13 @@ export const setLearningModePreferenceInputSchema = z
     path: ["quizEnabled"],
   });
 export type SetLearningModePreferenceInput = z.infer<typeof setLearningModePreferenceInputSchema>;
+
+/**
+ * F-108: Anzeigename nachträglich ändern (Einstellungen) — ein leerer String löscht ihn
+ * wieder auf `null` (zurück zur neutralen Begrüßung), analog zum etablierten Muster bei
+ * `company.updateBranding`/`createSponsor` (leerer String statt eines eigenen Lösch-Flags).
+ */
+export const updateDisplayNameInputSchema = z.object({
+  displayName: z.string().trim().max(100),
+});
+export type UpdateDisplayNameInput = z.infer<typeof updateDisplayNameInputSchema>;

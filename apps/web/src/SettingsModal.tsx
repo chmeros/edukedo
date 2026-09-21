@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { DisplayNameSettings } from "./DisplayNameSettings";
 import { InfoIcon } from "./Icons";
 import { LearningModeSettings } from "./LearningModeSettings";
 import { Modal } from "./Modal";
@@ -25,6 +26,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
       {open && (
         <Modal title="Einstellungen" onClose={() => setOpen(false)}>
           <div className="widget-grid">
+            <div className="widget">
+              <DisplayNameSettings />
+            </div>
             <div className="widget">
               <LearningModeSettings />
             </div>

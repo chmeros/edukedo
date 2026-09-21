@@ -100,6 +100,10 @@ export const user = pgTable(
     birthDate: date("birth_date"),
     isMinor: boolean("is_minor").notNull(),
     emailVerifiedAt: timestamp("email_verified_at", { withTimezone: true }),
+    // F-108 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): rein
+    // optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg — bewusst kein
+    // Pflichtfeld (Registrierung bleibt minimal), `null` löst den neutralen Begrüßungstext aus.
+    displayName: text("display_name"),
     // F-104 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): Präferenz
     // für den vereinheitlichten "Lernen"-Tab — zwei unabhängige Schalter statt einer dritten
     // "Beides"-Spalte, da sich "Beides" widerspruchsfrei aus "beide an" ergibt. Default (true,
