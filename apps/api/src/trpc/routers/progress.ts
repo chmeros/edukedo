@@ -7,10 +7,11 @@ import {
   startExerciseSetInputSchema,
   submitReviewInputSchema,
   toggleDifficultyFlagInputSchema,
+  type FsrsProgressState,
   type ReviewResult,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq, gte, inArray, isNull, lte } from "drizzle-orm";
+import { and, desc, eq, gte, inArray, isNull, lte } from "drizzle-orm";
 import { calculateEinzelterminPacing } from "../../pacing";
 import type { Database } from "../../db/client";
 import {
@@ -168,6 +169,11 @@ export async function applyReview(
       : initialProgressState(now);
 
     const next = scheduleReview(current, result, now);
+    // F-111: Zustand VOR dieser Bewertung als Snapshot festhalten — Basis für ein "echtes
+    // Rückgängig", falls die Person ihre Einschätzung gleich danach ändert (siehe
+    // applyChangeReview unten). Wird bei jeder regulären Bewertung überschrieben, ist also
+    // immer der Zustand vor der jeweils LETZTEN Bewertung, nicht die volle Historie.
+    const previousSnapshot = serializeProgressSnapshot(current, existing?.lastResult ?? null);
 
     await tx
       .insert(userProgress)
@@ -182,6 +188,7 @@ export async function applyReview(
         lastResult: result,
         reps: next.reps,
         lapses: next.lapses,
+        previousSnapshot,
       })
       .onConflictDoUpdate({
         target: [userProgress.userId, userProgress.contentItemId],
@@ -194,8 +201,136 @@ export async function applyReview(
           lastResult: result,
           reps: next.reps,
           lapses: next.lapses,
+          previousSnapshot,
         },
       });
+
+    return { dueAt: next.dueAt };
+  });
+}
+
+/**
+ * F-111: Serialisiert einen FSRS-Zustand für `user_progress.previous_snapshot` — Date-Felder
+ * werden dabei explizit auf ISO-Strings abgebildet, da `Date`-Werte in einer JSONB-Spalte
+ * sonst zwar beim Schreiben (via JSON.stringify) automatisch, aber beim Zurücklesen NICHT
+ * automatisch wieder zu `Date`-Objekten würden (parseProgressSnapshot macht das explizit
+ * rückgängig).
+ */
+function serializeProgressSnapshot(state: FsrsProgressState, lastResult: string | null) {
+  return {
+    difficulty: state.difficulty,
+    stability: state.stability,
+    state: state.state,
+    dueAt: state.dueAt.toISOString(),
+    lastReviewedAt: state.lastReviewedAt ? state.lastReviewedAt.toISOString() : null,
+    reps: state.reps,
+    lapses: state.lapses,
+    lastResult,
+  };
+}
+
+function parseProgressSnapshot(raw: unknown): FsrsProgressState & { lastResult: string | null } {
+  const value = raw as ReturnType<typeof serializeProgressSnapshot>;
+  return {
+    difficulty: value.difficulty,
+    stability: value.stability,
+    state: value.state,
+    dueAt: new Date(value.dueAt),
+    lastReviewedAt: value.lastReviewedAt ? new Date(value.lastReviewedAt) : null,
+    reps: value.reps,
+    lapses: value.lapses,
+    lastResult: value.lastResult,
+  };
+}
+
+/**
+ * F-111: Ändert eine bereits abgegebene Selbsteinschätzung nachträglich — "echtes Rückgängig"
+ * (Nutzer-Entscheidung 21.09.2026, siehe Architekturplanung Abschnitt 13): rechnet IMMER vom
+ * in `previous_snapshot` festgehaltenen Zustand VOR der letzten Bewertung neu, statt auf dem
+ * bereits durch die letzte Bewertung veränderten Zustand weiterzurechnen. `previous_snapshot`
+ * bleibt dabei unverändert "gepinnt" — mehrfaches Ändern in Folge bleibt dadurch idempotent
+ * (immer derselbe Ausgangspunkt) statt bei jedem Aufruf weiter zu driften. Korrigiert außerdem
+ * den zuletzt erfassten `learning_event`-Eintrag statt einen neuen anzuhängen, damit F-31/F-32
+ * (Trefferquote/Schwachstellenanalyse) nicht durch die ursprünglich falsche Bewertung verfälscht
+ * bleiben. Nur online (F-110-Vorbild) — kein Offline-/Sync-Pfad.
+ */
+export async function applyChangeReview(
+  db: Database,
+  userId: string,
+  contentItemId: string,
+  result: ReviewResult,
+  now: Date,
+): Promise<{ dueAt: Date }> {
+  return db.transaction(async (tx) => {
+    const [existing] = await tx
+      .select()
+      .from(userProgress)
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+      .limit(1);
+
+    // Fällt defensiv auf eine reguläre Bewertung zurück, falls (entgegen der eigentlich
+    // vorausgesetzten UI-Führung über die F-110-Zurück-Navigation) noch nie bewertet wurde.
+    const baseline = existing?.previousSnapshot
+      ? parseProgressSnapshot(existing.previousSnapshot)
+      : existing
+        ? {
+            difficulty: existing.difficulty,
+            stability: existing.stability,
+            state: existing.state,
+            dueAt: existing.dueAt,
+            lastReviewedAt: existing.lastReviewedAt,
+            reps: existing.reps,
+            lapses: existing.lapses,
+            lastResult: existing.lastResult,
+          }
+        : { ...initialProgressState(now), lastResult: null };
+
+    const next = scheduleReview(baseline, result, now);
+    const previousSnapshot = serializeProgressSnapshot(baseline, baseline.lastResult);
+
+    await tx
+      .insert(userProgress)
+      .values({
+        userId,
+        contentItemId,
+        difficulty: next.difficulty,
+        stability: next.stability,
+        state: next.state,
+        dueAt: next.dueAt,
+        lastReviewedAt: next.lastReviewedAt,
+        lastResult: result,
+        reps: next.reps,
+        lapses: next.lapses,
+        previousSnapshot,
+      })
+      .onConflictDoUpdate({
+        target: [userProgress.userId, userProgress.contentItemId],
+        set: {
+          difficulty: next.difficulty,
+          stability: next.stability,
+          state: next.state,
+          dueAt: next.dueAt,
+          lastReviewedAt: next.lastReviewedAt,
+          lastResult: result,
+          reps: next.reps,
+          lapses: next.lapses,
+          previousSnapshot,
+        },
+      });
+
+    const [lastEvent] = await tx
+      .select({ id: learningEvent.id })
+      .from(learningEvent)
+      .where(and(eq(learningEvent.userId, userId), eq(learningEvent.contentItemId, contentItemId)))
+      .orderBy(desc(learningEvent.occurredAt))
+      .limit(1);
+
+    const isCorrect = result !== "nicht_gewusst";
+    if (lastEvent) {
+      await tx.update(learningEvent).set({ isCorrect }).where(eq(learningEvent.id, lastEvent.id));
+    } else {
+      await tx.insert(learningEvent).values({ userId, contentItemId, isCorrect, occurredAt: now });
+    }
 
     return { dueAt: next.dueAt };
   });
@@ -492,6 +627,15 @@ export const progressRouter = router({
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
     return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
+  }),
+
+  /**
+   * F-111: Ändert die zuletzt abgegebene Selbsteinschätzung — gleiches Input-Schema wie
+   * submitReview (Karte + neue Einschätzung), siehe applyChangeReview für die "echtes
+   * Rückgängig"-Logik.
+   */
+  changeReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
+    return applyChangeReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
   /**

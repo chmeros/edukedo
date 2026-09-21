@@ -245,20 +245,24 @@ export function MixedLearning({
                   Antwort
                 </span>
                 <p className="flip-a">{current.card.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
-                <span className="flip-hint">Bewerte unten, wie es lief</span>
+                {/* F-111: gleiche Formulierung/Beschriftung wie Flashcards.tsx (Einfach/Mittel/
+                    Schwer statt Gut/Schwer/Nochmal) — nachträgliches Ändern bleibt hier bewusst
+                    außen vor, da der Mischmodus (anders als F-110s "Nur Karteikarten") keine
+                    Zurück-Navigation zu bereits bewerteten Karten kennt. */}
+                <span className="flip-hint">Wie schwierig war diese Karteikarte für dich?</span>
               </>
             }
           />
           {revealed && (
             <div className="rate-row">
               <button type="button" className="again" onClick={() => reviewCard("nicht_gewusst")}>
-                Nochmal
-              </button>
-              <button type="button" className="hard" onClick={() => reviewCard("unsicher")}>
                 Schwer
               </button>
+              <button type="button" className="hard" onClick={() => reviewCard("unsicher")}>
+                Mittel
+              </button>
               <button type="button" className="good" onClick={() => reviewCard("gewusst")}>
-                Gut
+                Einfach
               </button>
             </div>
           )}

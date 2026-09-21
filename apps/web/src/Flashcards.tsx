@@ -23,6 +23,17 @@ import { useOnlineStatus } from "./useOnlineStatus";
  *    FSRS-Selbsteinschätzung, plus "Nur schwierige Karten"-Filter.
  * Alle vier bewusst nur online — der Offline-Pfad (F-42) bleibt unverändert bei der
  * bisherigen, einfachen "nächste fällige Karte"-Logik, analog zur Offline-Ausnahme bei N-08.
+ *
+ * F-111: Überarbeitete Selbsteinschätzung (Nutzer-Feedback vom 18.09.2026, erweitert F-20).
+ * Frage/Beschriftungen konkretisiert ("Wie schwierig war diese Karteikarte für dich?",
+ * Einfach/Mittel/Schwer statt Gut/Schwer/Nochmal — dieselben drei FSRS-Grade, nur umbenannt).
+ * Die "jederzeit erneut aufrufen, unabhängig vom FSRS-Zeitpunkt"-Anforderung ist bereits durch
+ * F-110s Zurück-Navigation/Karten-Auswahl abgedeckt, keine weitere Arbeit nötig. Neu ist nur
+ * das nachträgliche ÄNDERN einer bereits abgegebenen Einschätzung: `ratedThisSession` merkt
+ * sich lokal, welche Karten in DIESER Runde schon bewertet wurden — für sie ruft `review()`
+ * `progress.changeReview` statt `progress.submitReview` auf ("echtes Rückgängig" auf
+ * Server-Seite, siehe Architekturplanung Abschnitt 13), erreichbar über die F-110-Zurück-
+ * Navigation. Bewusst nur online, wie der Rest von F-110.
  */
 export function Flashcards({
   kursId,
@@ -66,14 +77,15 @@ export function Flashcards({
     enabled: online,
   });
 
-  const submitReview = trpc.progress.submitReview.useMutation({
-    onSuccess: () => {
-      // F-27: Ergebnis kann die nächste Runde Vorschläge verändern (z. B. Thema jetzt
-      // nicht mehr überfällig).
-      utils.progress.suggestions.invalidate();
-      utils.progress.overview.invalidate();
-    },
-  });
+  const invalidateAfterReview = () => {
+    // F-27: Ergebnis kann die nächste Runde Vorschläge verändern (z. B. Thema jetzt
+    // nicht mehr überfällig).
+    utils.progress.suggestions.invalidate();
+    utils.progress.overview.invalidate();
+  };
+  const submitReview = trpc.progress.submitReview.useMutation({ onSuccess: invalidateAfterReview });
+  // F-111: für eine bereits in dieser Runde bewertete Karte (siehe `ratedThisSession` unten).
+  const changeReview = trpc.progress.changeReview.useMutation({ onSuccess: invalidateAfterReview });
 
   const toggleFlag = trpc.progress.toggleDifficultyFlag.useMutation({
     onSuccess: (result, variables) => {
@@ -108,11 +120,15 @@ export function Flashcards({
 
   const [revealed, setRevealed] = useState(startWithAnswer);
   const [index, setIndex] = useState(0);
+  // F-111: welche Karten in DIESER Runde schon bewertet wurden — steuert, ob `review()`
+  // unten submitReview (erste Bewertung) oder changeReview (nachträgliche Änderung) aufruft.
+  const [ratedThisSession, setRatedThisSession] = useState<Set<string>>(new Set());
   // Ein Verbindungswechsel oder eine neue Auswahl (Karten-IDs/Nur-schwierig-Filter) ersetzt
   // die komplette Liste — der Index müsste sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
     setIndex(0);
     setRevealed(startWithAnswer);
+    setRatedThisSession(new Set());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [online, selectedCardIds, onlyFlagged]);
 
@@ -199,9 +215,16 @@ export function Flashcards({
   // verfügbar (siehe oben), offline bleibt das Flag also immer false.
   const currentFlagged = "flaggedAsDifficult" in current && current.flaggedAsDifficult;
 
+  const alreadyRated = ratedThisSession.has(current.id);
+
   function review(result: ReviewResult) {
     if (online) {
-      submitReview.mutate({ contentItemId: current!.id, result });
+      if (alreadyRated) {
+        changeReview.mutate({ contentItemId: current!.id, result });
+      } else {
+        submitReview.mutate({ contentItemId: current!.id, result });
+        setRatedThisSession((existing) => new Set(existing).add(current!.id));
+      }
     } else {
       // Entfernt die bewertete Karte direkt aus der lokalen Liste, statt (wie online) eine
       // Server-Query zu invalidieren — es gibt offline keine Query, die neu laden könnte.
@@ -252,6 +275,12 @@ export function Flashcards({
                 await dueCardsQuery.refetch();
                 setIndex(0);
                 setRevealed(startWithAnswer);
+                // F-111: eine neu geladene Karte, die zufällig dieselbe ID wie eine in einer
+                // früheren Runde dieser Sitzung bewertete Karte hat (z. B. wieder fällig
+                // geworden), soll als GENUINE neue Bewertung zählen, nicht als "Ändern" der
+                // alten — sonst würde changeReview fälschlich auf den längst überholten
+                // previous_snapshot-Ausgangszustand zurückgreifen.
+                setRatedThisSession(new Set());
               }}
             >
               Weitere Karten laden
@@ -286,20 +315,22 @@ export function Flashcards({
               Antwort
             </span>
             <p className="flip-a">{current.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
-            <span className="flip-hint">Bewerte unten, wie es lief</span>
+            <span className="flip-hint">
+              {alreadyRated ? "Einschätzung ändern?" : "Wie schwierig war diese Karteikarte für dich?"}
+            </span>
           </>
         }
       />
       {revealed && (
         <div className="rate-row">
           <button type="button" className="again" onClick={() => review("nicht_gewusst")}>
-            Nochmal
-          </button>
-          <button type="button" className="hard" onClick={() => review("unsicher")}>
             Schwer
           </button>
+          <button type="button" className="hard" onClick={() => review("unsicher")}>
+            Mittel
+          </button>
           <button type="button" className="good" onClick={() => review("gewusst")}>
-            Gut
+            Einfach
           </button>
         </div>
       )}

@@ -835,6 +835,108 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-111: changeReview rechnet vom Zustand VOR der letzten Bewertung neu (kein Doppel-Review) und korrigiert den zuletzt erfassten learning_event statt einen zweiten anzuhängen",
+    async () => {
+      // Eigener, frischer Testnutzer statt der Haupt-Session — die Card-ID darf hier noch
+      // keinerlei Bewertungshistorie dieses Nutzers haben, damit reps/difficulty/stability
+      // eindeutig nachvollziehbar bleiben.
+      const registerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "f111@example.com", password: "f111Passwort123!", birthDate: "1995-01-01" },
+      });
+      const f111Cookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
+      const f111UserId = registerResponse.json().result.data.id as string;
+
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/courses.enroll",
+        headers: { cookie: f111Cookie },
+        payload: { kursId },
+      });
+
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: f111Cookie },
+      });
+      const cardId = (dueCardsResponse.json().result.data as { id: string }[])[0]!.id;
+
+      async function loadUserProgress() {
+        const [row] = await db
+          .select()
+          .from(schema.userProgress)
+          .where(and(eq(schema.userProgress.userId, f111UserId), eq(schema.userProgress.contentItemId, cardId)));
+        return row!;
+      }
+      async function countLearningEvents() {
+        return db
+          .select()
+          .from(schema.learningEvent)
+          .where(and(eq(schema.learningEvent.userId, f111UserId), eq(schema.learningEvent.contentItemId, cardId)));
+      }
+
+      const firstReviewResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: f111Cookie },
+        payload: { contentItemId: cardId, result: "nicht_gewusst" },
+      });
+      expect(firstReviewResponse.statusCode).toBe(200);
+
+      const afterFirst = await loadUserProgress();
+      expect(afterFirst.reps).toBe(1);
+      expect(afterFirst.lastResult).toBe("nicht_gewusst");
+      expect(afterFirst.previousSnapshot).toBeTruthy();
+      expect(await countLearningEvents()).toHaveLength(1);
+
+      // Ändern zu "gewusst": rechnet vom Zustand VOR der ersten Bewertung (previous_snapshot)
+      // neu, statt auf dem bereits durch "nicht_gewusst" veränderten Zustand weiterzurechnen —
+      // reps bleibt bei 1, nicht 2 (ein reines zweites submitReview hätte reps auf 2 erhöht).
+      const changeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.changeReview",
+        headers: { cookie: f111Cookie },
+        payload: { contentItemId: cardId, result: "gewusst" },
+      });
+      expect(changeResponse.statusCode).toBe(200);
+
+      const afterChange = await loadUserProgress();
+      expect(afterChange.reps).toBe(1);
+      expect(afterChange.lastResult).toBe("gewusst");
+      // "gewusst" ab dem Ursprungszustand ergibt andere difficulty/stability als "nicht_gewusst"
+      // ab demselben Ursprungszustand — beweist, dass NICHT auf afterFirst aufgebaut wurde.
+      expect(afterChange.difficulty).not.toBeCloseTo(afterFirst.difficulty, 5);
+      expect(afterChange.stability).not.toBeCloseTo(afterFirst.stability, 5);
+
+      // Der ursprüngliche learning_event-Eintrag wurde korrigiert (isCorrect: true), nicht um
+      // einen zweiten ergänzt — sonst würde F-31/F-32 die ursprünglich falsche Antwort weiter
+      // mitzählen, obwohl sie nachträglich korrigiert wurde.
+      const eventsAfterChange = await countLearningEvents();
+      expect(eventsAfterChange).toHaveLength(1);
+      expect(eventsAfterChange[0]!.isCorrect).toBe(true);
+
+      // Erneutes Ändern bleibt "gepinnt" auf denselben Ursprungszustand (kein Drift über
+      // mehrere Änderungen hinweg): wieder "nicht_gewusst" ergibt exakt dieselbe
+      // difficulty/stability wie die allererste Bewertung.
+      const secondChangeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.changeReview",
+        headers: { cookie: f111Cookie },
+        payload: { contentItemId: cardId, result: "nicht_gewusst" },
+      });
+      expect(secondChangeResponse.statusCode).toBe(200);
+
+      const afterSecondChange = await loadUserProgress();
+      expect(afterSecondChange.reps).toBe(1);
+      expect(afterSecondChange.difficulty).toBeCloseTo(afterFirst.difficulty, 5);
+      expect(afterSecondChange.stability).toBeCloseTo(afterFirst.stability, 5);
+      expect(await countLearningEvents()).toHaveLength(1);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

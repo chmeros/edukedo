@@ -337,6 +337,12 @@ export const userProgress = pgTable(
     // additive, manuelle "schwierig"-Markierung — bewusst unabhängig von difficulty/stability/
     // due_at, beeinflusst den FSRS-Ablauf nicht (Nutzer-Entscheidung 21.09.2026).
     flaggedAsDifficult: boolean("flagged_as_difficult").notNull().default(false),
+    // F-111 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): Snapshot
+    // des FSRS-Zustands VOR der jeweils letzten Bewertung (difficulty/stability/state/dueAt/
+    // lastReviewedAt/reps/lapses/lastResult als JSON) — Basis für "echtes Rückgängig" bei einer
+    // nachträglichen Änderung der Selbsteinschätzung (Nutzer-Entscheidung 21.09.2026). `null`
+    // solange eine Karte noch nie bewertet wurde.
+    previousSnapshot: jsonb("previous_snapshot"),
   },
   (table) => [
     uniqueIndex("user_progress_user_id_content_item_id_key").on(table.userId, table.contentItemId),
