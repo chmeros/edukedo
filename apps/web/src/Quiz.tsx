@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import type { OfflineQuizRound } from "./offlineQuiz";
-import { createOfflineQuizMutations, loadOfflineQuizRound } from "./offlineQuiz";
+import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
+import { QuizCountControl } from "./QuizCountControl";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
@@ -35,7 +36,12 @@ export function Quiz({
   // laden, während der lokale `index` unverändert bleibt — die angezeigte Frage würde nicht mehr
   // zur Fragenzahl passen. Die Komponente bleibt jetzt ohnehin über den Tab-Wechsel hinweg
   // gemountet (siehe App.tsx), ein Re-Fetch ist hier also nie erwünscht.
-  const quizItemsQuery = trpc.quiz.quizItems.useQuery({ kursId, themaId }, { staleTime: Infinity, enabled: online });
+  // F-22: frei wählbare Rundengröße statt fest 20 — siehe QuizCountControl.
+  const [questionCount, setQuestionCount] = useState(DEFAULT_QUIZ_ROUND_SIZE);
+  const quizItemsQuery = trpc.quiz.quizItems.useQuery(
+    { kursId, themaId, count: questionCount },
+    { staleTime: Infinity, enabled: online },
+  );
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
@@ -51,22 +57,22 @@ export function Quiz({
       return;
     }
     let cancelled = false;
-    loadOfflineQuizRound(kursId, themaId).then((round) => {
+    loadOfflineQuizRound(kursId, themaId, questionCount).then((round) => {
       if (!cancelled) setOfflineRound(round);
     });
     return () => {
       cancelled = true;
     };
-  }, [online, kursId, themaId]);
+  }, [online, kursId, themaId, questionCount]);
 
   const [index, setIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
-  // Ein Verbindungswechsel mitten in einer Runde ersetzt die komplette Fragenliste (Server- vs.
-  // IndexedDB-Quelle) — index/correctCount müssten sonst nicht mehr zur neuen Liste passen.
+  // Ein Verbindungswechsel oder eine geänderte Rundengröße (F-22) ersetzt die komplette
+  // Fragenliste — index/correctCount müssten sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
     setIndex(0);
     setCorrectCount(0);
-  }, [online]);
+  }, [online, questionCount]);
 
   if (online ? quizItemsQuery.isLoading : offlineRound === null) {
     return <p>Lädt…</p>;
@@ -82,6 +88,7 @@ export function Quiz({
   const filterBadge = themaId && themaTitle && onClearThema && (
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
+  const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} />;
 
   if (items.length === 0) {
     return (
@@ -91,6 +98,7 @@ export function Quiz({
           <InfoIcon />
           <div>Keine Quiz-Fragen verfügbar.</div>
         </div>
+        {countControl}
       </div>
     );
   }
@@ -105,6 +113,7 @@ export function Quiz({
             Quiz abgeschlossen 🎉 — {correctCount} von {items.length} richtig
           </div>
         </div>
+        {countControl}
       </div>
     );
   }
@@ -128,6 +137,7 @@ export function Quiz({
       <span className="quiz-progress">
         Frage {index + 1} von {items.length}
       </span>
+      {countControl}
       {current.type === "quiz_mc" && (
         <MultipleChoiceStep
           key={current.id}

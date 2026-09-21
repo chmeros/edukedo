@@ -198,6 +198,51 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-22: liefert ein Übungsset mit frei wählbarer Fragenzahl, lehnt eine Zahl außerhalb 1–50 ab",
+    async () => {
+      const defaultResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(defaultResponse.statusCode).toBe(200);
+      // Unverändertes Verhalten ohne explizite Angabe: weiterhin 20 (siehe quizItemsInputSchema).
+      expect((defaultResponse.json().result.data as unknown[]).length).toBe(20);
+
+      const smallResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, count: 5 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(smallResponse.statusCode).toBe(200);
+      expect((smallResponse.json().result.data as unknown[]).length).toBe(5);
+
+      const maxResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(maxResponse.statusCode).toBe(200);
+      expect((maxResponse.json().result.data as unknown[]).length).toBe(50);
+
+      const tooLargeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, count: 51 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(tooLargeResponse.statusCode).toBe(400);
+
+      const zeroResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, count: 0 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(zeroResponse.statusCode).toBe(400);
+    },
+    30_000,
+  );
+
+  it(
     "F-104: setzt die Lernmodus-Präferenz, lehnt aber die Kombination 'beide aus' ab",
     async () => {
       const meBefore = await app.inject({

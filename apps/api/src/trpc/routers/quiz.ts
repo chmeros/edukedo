@@ -3,12 +3,12 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  quizItemsInputSchema,
   shapeQuizItem,
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
   submitQuizAnswerInputSchema,
-  themaFilterableKursInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
@@ -29,13 +29,15 @@ export const quizRouter = router({
    * unten schreiben das Ergebnis zusätzlich über `recordQuizAttempt` (F-26, siehe
    * trpc/routers/progress.ts) in `user_progress` — bewusst NICHT in `preview.ts`, der ohne
    * jeden Datenbank-Schreibzugriff bleibt.
+   * F-22: `count` (siehe quizItemsInputSchema) steuert die Rundengröße — vorher fest 20, jetzt
+   * frei wählbar (1–50), Default weiterhin 20 für unverändertes Verhalten ohne Angabe.
    */
-  quizItems: protectedProcedure.input(themaFilterableKursInputSchema).query(async ({ ctx, input }) => {
+  quizItems: protectedProcedure.input(quizItemsInputSchema).query(async ({ ctx, input }) => {
     const conditions = [
       inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
       eq(contentItem.isActive, true),
     ];
-    // F-27: optionaler Thema-Filter — siehe themaFilterableKursInputSchema.
+    // F-27: optionaler Thema-Filter — siehe quizItemsInputSchema.
     if (input.themaId) {
       conditions.push(eq(thema.id, input.themaId));
     }
@@ -55,7 +57,8 @@ export const quizRouter = router({
       )
       .where(and(...conditions))
       .orderBy(sql`random()`)
-      .limit(20);
+      // F-22: frei wählbare Anzahl (siehe quizItemsInputSchema) statt fest verdrahteter 20.
+      .limit(input.count);
 
     if (items.length === 0) {
       return [];

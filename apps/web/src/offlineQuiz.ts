@@ -3,11 +3,11 @@ import type { ShapedQuizItem } from "@edukedo/shared";
 import { offlineDb, type OfflineContentItem, type OfflineQueueEventPayload } from "./offlineDb";
 
 const QUIZ_TYPES = ["quiz_mc", "zuordnung", "luecken", "kurzantwort"] as const;
-// Spiegelt quiz.quizItems (random + limit(20), siehe apps/api/src/trpc/routers/quiz.ts) —
-// dieselbe Rundengröße offline, nur lokal aus dem heruntergeladenen Bestand gezogen statt per
-// SQL, da eine feste 20er-Auswahl aus dem vollen, für F-42 heruntergeladenen Pool sonst nach
-// deren Bearbeitung erschöpft wäre.
-const QUIZ_ROUND_SIZE = 20;
+// Spiegelt quiz.quizItems (random + limit(count), siehe apps/api/src/trpc/routers/quiz.ts) —
+// dieselbe, seit F-22 frei wählbare Rundengröße offline, nur lokal aus dem heruntergeladenen
+// Bestand gezogen statt per SQL, da eine feste Auswahl aus dem vollen, für F-42 heruntergeladenen
+// Pool sonst nach deren Bearbeitung erschöpft wäre.
+export const DEFAULT_QUIZ_ROUND_SIZE = 20;
 
 export interface OfflineQuizRound {
   /** Für die Anzeige — Lösung entfernt (`shapeQuizItem`), wie bei quiz.quizItems. */
@@ -19,16 +19,18 @@ export interface OfflineQuizRound {
 /**
  * F-42 Baustein 4: liest den lokal heruntergeladenen Quiz-Bestand (siehe OfflineDownload.tsx)
  * für einen Kurs (optional auf ein Thema gefiltert, F-27) und wählt daraus eine zufällige Runde.
+ * F-22: `count` steuert die Rundengröße, analog zu quiz.quizItems — Default DEFAULT_QUIZ_ROUND_SIZE.
  */
 export async function loadOfflineQuizRound(
   kursId: string,
   themaId: string | undefined,
+  count: number = DEFAULT_QUIZ_ROUND_SIZE,
 ): Promise<OfflineQuizRound> {
   const all = await offlineDb.content.where("kursId").equals(kursId).toArray();
   const filtered = all.filter(
     (item) => (QUIZ_TYPES as readonly string[]).includes(item.type) && (!themaId || item.themaId === themaId),
   );
-  const raw = shuffle(filtered).slice(0, QUIZ_ROUND_SIZE);
+  const raw = shuffle(filtered).slice(0, count);
   const shaped = raw.map((item) => shapeQuizItem(item, item.options));
   return { shaped, raw };
 }

@@ -6,7 +6,8 @@ import { SuccessIcon } from "./Icons";
 import type { OfflineContentItem } from "./offlineDb";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizRound } from "./offlineQuiz";
-import { createOfflineQuizMutations, loadOfflineQuizRound } from "./offlineQuiz";
+import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
+import { QuizCountControl } from "./QuizCountControl";
 import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
 import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
@@ -42,11 +43,17 @@ export function MixedLearning({
   const online = useOnlineStatus();
   const utils = trpc.useUtils();
 
+  // F-22: frei wählbare Anzahl Quiz-Fragen im Mix — die Karteikarten-Seite bleibt unverändert
+  // FSRS-gesteuert ("alle fälligen"), siehe QuizCountControl.
+  const [questionCount, setQuestionCount] = useState(DEFAULT_QUIZ_ROUND_SIZE);
   const dueCardsQuery = trpc.content.dueCards.useQuery(
     { kursId, themaId },
     { enabled: online, staleTime: Infinity },
   );
-  const quizItemsQuery = trpc.quiz.quizItems.useQuery({ kursId, themaId }, { enabled: online, staleTime: Infinity });
+  const quizItemsQuery = trpc.quiz.quizItems.useQuery(
+    { kursId, themaId, count: questionCount },
+    { enabled: online, staleTime: Infinity },
+  );
 
   const invalidateProgress = () => {
     utils.content.dueCards.invalidate();
@@ -68,7 +75,7 @@ export function MixedLearning({
       return;
     }
     let cancelled = false;
-    Promise.all([loadOfflineDueCards(kursId, themaId), loadOfflineQuizRound(kursId, themaId)]).then(
+    Promise.all([loadOfflineDueCards(kursId, themaId), loadOfflineQuizRound(kursId, themaId, questionCount)]).then(
       ([cards, round]) => {
         if (!cancelled) {
           setOfflineCards(cards);
@@ -79,18 +86,19 @@ export function MixedLearning({
     return () => {
       cancelled = true;
     };
-  }, [online, kursId, themaId]);
+  }, [online, kursId, themaId, questionCount]);
 
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [answeredQuizCount, setAnsweredQuizCount] = useState(0);
+  // Ein Verbindungswechsel oder eine geänderte Quiz-Anzahl (F-22) ersetzt die komplette Runde.
   useEffect(() => {
     setIndex(0);
     setRevealed(false);
     setCorrectCount(0);
     setAnsweredQuizCount(0);
-  }, [online, kursId, themaId]);
+  }, [online, kursId, themaId, questionCount]);
 
   const loading = online
     ? dueCardsQuery.isLoading || quizItemsQuery.isLoading
@@ -125,6 +133,7 @@ export function MixedLearning({
   const filterBadge = themaId && themaTitle && onClearThema && (
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
+  const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} />;
 
   if (queue.length === 0) {
     return (
@@ -134,6 +143,7 @@ export function MixedLearning({
           <SuccessIcon />
           <div>Keine Karten oder Fragen fällig 🎉</div>
         </div>
+        {countControl}
       </div>
     );
   }
@@ -149,6 +159,7 @@ export function MixedLearning({
             {answeredQuizCount > 0 && ` — ${correctCount} von ${answeredQuizCount} Quiz-Fragen richtig`}
           </div>
         </div>
+        {countControl}
       </div>
     );
   }
@@ -187,6 +198,7 @@ export function MixedLearning({
       <span className="quiz-progress">
         {index + 1} von {queue.length}
       </span>
+      {countControl}
       {current.kind === "karteikarte" && (
         <>
           <FlipCard

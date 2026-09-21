@@ -1,6 +1,18 @@
 import { z } from "zod";
 
 /**
+ * F-22: Themenbezogenes Übungsset mit frei wählbarer Fragenzahl — `count` steuert, wie viele
+ * Fragen quiz.quizItems lädt (Default 20, bisher fest verdrahtet, siehe Architekturplanung
+ * Abschnitt 13). Obergrenze 50 als praktikable Rundengröße, keine unbegrenzte Anzahl.
+ */
+export const quizItemsInputSchema = z.object({
+  kursId: z.string().uuid(),
+  themaId: z.string().uuid().optional(),
+  count: z.number().int().min(1).max(50).default(20),
+});
+export type QuizItemsInput = z.infer<typeof quizItemsInputSchema>;
+
+/**
  * F-21 (Multiple-Choice-Teil): Antwort auf eine quiz_mc-Frage einreichen. Die richtige
  * Antwort wird bewusst NICHT beim Laden der Fragen mitgeschickt (siehe quiz.ts-Router),
  * sondern erst hier serverseitig geprüft — sonst könnte man sie im Devtools-Netzwerktab lesen.
