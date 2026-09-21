@@ -1,8 +1,10 @@
 import {
   activeKursInputSchema,
+  exerciseSetIdInputSchema,
   initialProgressState,
   scheduleReview,
   sessionIdInputSchema,
+  startExerciseSetInputSchema,
   submitReviewInputSchema,
   type ReviewResult,
 } from "@edukedo/shared";
@@ -12,6 +14,7 @@ import { calculateEinzelterminPacing } from "../../pacing";
 import type { Database } from "../../db/client";
 import {
   contentItem,
+  exerciseSet,
   fachgebiet,
   kurs,
   learningEvent,
@@ -540,6 +543,47 @@ export const progressRouter = router({
           isNull(learningSession.endedAt),
         ),
       );
+  }),
+
+  /**
+   * N-08: Startet ein neues Übungsset (Quiz- oder Mischmodus-Runde, siehe
+   * apps/web/src/Quiz.tsx/MixedLearning.tsx) — Grundlage der "Abschlussquote von
+   * Übungssets"-KPI (Anforderungskatalog Abschnitt 11).
+   */
+  startExerciseSet: protectedProcedure.input(startExerciseSetInputSchema).mutation(async ({ ctx, input }) => {
+    const [created] = await ctx.db
+      .insert(exerciseSet)
+      .values({
+        userId: ctx.currentUser.id,
+        kursId: input.kursId,
+        themaId: input.themaId ?? null,
+        mode: input.mode,
+        totalItems: input.totalItems,
+      })
+      .returning({ id: exerciseSet.id });
+
+    return { exerciseSetId: created!.id };
+  }),
+
+  /**
+   * N-08: Markiert ein Übungsset als vollständig durchlaufen. Idempotent (nur die erste
+   * completeExerciseSet-Meldung je Set zählt, siehe `isNull(exerciseSet.completedAt)`) und
+   * bewusst ohne Fehler bei unbekannter/fremder/bereits abgeschlossener ID — ein verpasster
+   * oder doppelter Aufruf soll das eigentliche Lernen nie blockieren (siehe Client-seitiges
+   * Best-effort-Verhalten analog zu startSession/pingSession/endSession oben).
+   */
+  completeExerciseSet: protectedProcedure.input(exerciseSetIdInputSchema).mutation(async ({ ctx, input }) => {
+    await ctx.db
+      .update(exerciseSet)
+      .set({ completedAt: new Date() })
+      .where(
+        and(
+          eq(exerciseSet.id, input.exerciseSetId),
+          eq(exerciseSet.userId, ctx.currentUser.id),
+          isNull(exerciseSet.completedAt),
+        ),
+      );
+    return { success: true };
   }),
 
   /**

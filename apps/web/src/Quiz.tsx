@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -46,6 +46,25 @@ export function Quiz({
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
   const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
+
+  // N-08: Übungsset-Tracking für die "Abschlussquote"-KPI (Anforderungskatalog Abschnitt 11) —
+  // bewusst nur online, siehe exercise_set in apps/api/src/db/schema.ts. Startet neu, sobald
+  // quiz.quizItems tatsächlich Daten für die aktuelle Runde liefert (staleTime: Infinity, siehe
+  // oben — feuert also genau einmal je Kurs/Thema/Rundengröße, nicht bei jedem Render).
+  const startExerciseSet = trpc.progress.startExerciseSet.useMutation();
+  const completeExerciseSet = trpc.progress.completeExerciseSet.useMutation();
+  const exerciseSetIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!online || !quizItemsQuery.data || quizItemsQuery.data.length === 0) {
+      return;
+    }
+    exerciseSetIdRef.current = null;
+    startExerciseSet.mutate(
+      { kursId, themaId, mode: "quiz", totalItems: quizItemsQuery.data.length },
+      { onSuccess: (result) => (exerciseSetIdRef.current = result.exerciseSetId) },
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, kursId, themaId, questionCount, quizItemsQuery.data]);
 
   // F-42 Baustein 4: offline kommt die Runde (inkl. Lösung für die lokale Prüfung) aus der
   // IndexedDB-Kopie statt von quiz.quizItems — einmalig pro Kurs/Thema/Online-Wechsel geladen,
@@ -128,7 +147,16 @@ export function Quiz({
   }
 
   function next() {
-    setIndex((i) => i + 1);
+    setIndex((i) => {
+      const nextIndex = i + 1;
+      // N-08: Übungsset abgeschlossen, sobald die letzte Frage beantwortet wurde.
+      if (nextIndex >= items.length && exerciseSetIdRef.current) {
+        const exerciseSetId = exerciseSetIdRef.current;
+        exerciseSetIdRef.current = null;
+        completeExerciseSet.mutate({ exerciseSetId });
+      }
+      return nextIndex;
+    });
   }
 
   return (

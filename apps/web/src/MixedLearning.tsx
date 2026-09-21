@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
 import { shuffle } from "@edukedo/shared";
 import { FlipCard } from "./FlipCard";
@@ -120,6 +120,25 @@ export function MixedLearning({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, online, dueCardsQuery.data, quizItemsQuery.data, offlineCards, offlineRound]);
 
+  // N-08: Übungsset-Tracking für die "Abschlussquote"-KPI (Anforderungskatalog Abschnitt 11) —
+  // bewusst nur online, siehe exercise_set in apps/api/src/db/schema.ts. `mode: "mixed"` zählt
+  // die GESAMTE gemischte Runde (Karteikarten + Quiz) als ein Übungsset, nicht nur den
+  // Quiz-Anteil — aus Sicht der Lernenden ist es eine einzige, durchgängige Runde.
+  const startExerciseSet = trpc.progress.startExerciseSet.useMutation();
+  const completeExerciseSet = trpc.progress.completeExerciseSet.useMutation();
+  const exerciseSetIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!online || loading || queue.length === 0) {
+      return;
+    }
+    exerciseSetIdRef.current = null;
+    startExerciseSet.mutate(
+      { kursId, themaId, mode: "mixed", totalItems: queue.length },
+      { onSuccess: (result) => (exerciseSetIdRef.current = result.exerciseSetId) },
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, kursId, themaId, queue]);
+
   const offlineQuizMutations = online || !offlineRound ? null : createOfflineQuizMutations(offlineRound.raw);
   const submitAnswer = online ? submitAnswerMutation : offlineQuizMutations!.submitAnswer;
   const submitMatching = online ? submitMatchingMutation : offlineQuizMutations!.submitMatching;
@@ -168,7 +187,16 @@ export function MixedLearning({
   const isLast = index + 1 >= queue.length;
 
   function next() {
-    setIndex((i) => i + 1);
+    setIndex((i) => {
+      const nextIndex = i + 1;
+      // N-08: Übungsset abgeschlossen, sobald das letzte Element (Karte oder Frage) erledigt ist.
+      if (nextIndex >= queue.length && exerciseSetIdRef.current) {
+        const exerciseSetId = exerciseSetIdRef.current;
+        exerciseSetIdRef.current = null;
+        completeExerciseSet.mutate({ exerciseSetId });
+      }
+      return nextIndex;
+    });
     setRevealed(false);
   }
 

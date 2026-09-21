@@ -220,6 +220,7 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
 export function AdminPanel() {
   const utils = trpc.useUtils();
   const [focusContentItemId, setFocusContentItemId] = useState<string | null>(null);
+  const kpis = trpc.admin.kpis.useQuery();
   const courses = trpc.admin.courses.useQuery();
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
   const sponsors = trpc.admin.sponsors.useQuery();
@@ -259,6 +260,31 @@ export function AdminPanel() {
 
   return (
     <>
+      {kpis.data && (
+        <div className="panel-section">
+          <div className="panel-section-head">
+            <h2>Admin: KPIs (N-08)</h2>
+            <p>Kern-Kennzahlen laut Anforderungskatalog Abschnitt 11.</p>
+          </div>
+          <div className="stat-row">
+            <div className="stat-tile">
+              <span className="stat-value">{kpis.data.activeUsersWeekly}</span>
+              <span className="stat-label">Aktive Nutzer:innen (7 Tage)</span>
+            </div>
+            <div className="stat-tile">
+              <span className="stat-value">
+                {kpis.data.exerciseSetCompletionRate !== null
+                  ? `${Math.round(kpis.data.exerciseSetCompletionRate * 100)} %`
+                  : "–"}
+              </span>
+              <span className="stat-label">
+                Abschlussquote Übungssets ({kpis.data.exerciseSetsCompleted}/{kpis.data.exerciseSetsStarted}, 30 Tage)
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="panel-section">
         <div className="panel-section-head">
           <h2>Admin: Kurse verwalten</h2>

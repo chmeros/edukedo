@@ -8,13 +8,16 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { eq } from "drizzle-orm";
+import { eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
-import { companyAccount, contentItem, contentReport, kurs, report, sponsor, user } from "../../db/schema";
+import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
 import { roleProcedure, router } from "../trpc";
+
+const ACTIVE_USERS_WINDOW_MS = 1000 * 60 * 60 * 24 * 7; // 7 Tage (WAU, siehe Anforderungskatalog Abschnitt 11)
+const EXERCISE_SET_WINDOW_MS = 1000 * 60 * 60 * 24 * 30; // 30 Tage
 
 /**
  * F-11: Admin-/Redaktionsbereich, erste einfache Version — bewusst zunächst nur
@@ -279,4 +282,37 @@ export const adminRouter = router({
 
       return { success: true };
     }),
+
+  /**
+   * N-08: Kern-KPIs laut Anforderungskatalog Abschnitt 11 — aktive Nutzer:innen (WAU, aus
+   * `learning_event`, da nur echte Lernaktivität zählt) und die Abschlussquote von Übungssets
+   * (aus `exercise_set`, siehe F-22/Architekturplanung Abschnitt 13). Beide Fenster bewusst
+   * fix (7 bzw. 30 Tage) statt konfigurierbar — ein Dashboard mit Zeitraum-Auswahl wäre für
+   * eine erste MVP-Kennzahl über das Ziel hinausgeschossen.
+   */
+  kpis: roleProcedure("admin").query(async ({ ctx }) => {
+    const activeUsersSince = new Date(Date.now() - ACTIVE_USERS_WINDOW_MS);
+    const exerciseSetsSince = new Date(Date.now() - EXERCISE_SET_WINDOW_MS);
+
+    const [[activeUsersRow], exerciseSets] = await Promise.all([
+      ctx.db
+        .select({ count: sql<number>`count(distinct ${learningEvent.userId})` })
+        .from(learningEvent)
+        .where(gte(learningEvent.occurredAt, activeUsersSince)),
+      ctx.db
+        .select({ completedAt: exerciseSet.completedAt })
+        .from(exerciseSet)
+        .where(gte(exerciseSet.startedAt, exerciseSetsSince)),
+    ]);
+
+    const exerciseSetsStarted = exerciseSets.length;
+    const exerciseSetsCompleted = exerciseSets.filter((row) => row.completedAt !== null).length;
+
+    return {
+      activeUsersWeekly: Number(activeUsersRow?.count ?? 0),
+      exerciseSetsStarted,
+      exerciseSetsCompleted,
+      exerciseSetCompletionRate: exerciseSetsStarted > 0 ? exerciseSetsCompleted / exerciseSetsStarted : null,
+    };
+  }),
 });

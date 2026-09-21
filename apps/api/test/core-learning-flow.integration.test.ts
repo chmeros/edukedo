@@ -590,6 +590,77 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "N-08: erfasst Start/Abschluss von Übungssets und liefert sie über admin.kpis aggregiert",
+    async () => {
+      // Ein begonnenes, aber NICHT abgeschlossenes Übungsset (Quiz-Modus, F-22).
+      const startedResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.startExerciseSet",
+        headers: { cookie: sessionCookie },
+        payload: { kursId, mode: "quiz", totalItems: 5 },
+      });
+      expect(startedResponse.statusCode).toBe(200);
+      expect(startedResponse.json().result.data.exerciseSetId).toBeTruthy();
+
+      // Ein zweites Übungsset (Mischmodus), das vollständig durchlaufen wird.
+      const toCompleteResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.startExerciseSet",
+        headers: { cookie: sessionCookie },
+        payload: { kursId, mode: "mixed", totalItems: 3 },
+      });
+      const exerciseSetId = toCompleteResponse.json().result.data.exerciseSetId as string;
+
+      const completeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.completeExerciseSet",
+        headers: { cookie: sessionCookie },
+        payload: { exerciseSetId },
+      });
+      expect(completeResponse.statusCode).toBe(200);
+
+      // Ein zweiter Abschluss-Aufruf ist idempotent und liefert weiterhin Erfolg.
+      const completeAgainResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.completeExerciseSet",
+        headers: { cookie: sessionCookie },
+        payload: { exerciseSetId },
+      });
+      expect(completeAgainResponse.statusCode).toBe(200);
+
+      // Admin-Session (eigener Testnutzer, analog zum F-11-Test oben).
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-n08@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const kpisResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/admin.kpis",
+        headers: { cookie: adminCookie },
+      });
+      expect(kpisResponse.statusCode).toBe(200);
+      const kpis = kpisResponse.json().result.data as {
+        activeUsersWeekly: number;
+        exerciseSetsStarted: number;
+        exerciseSetsCompleted: number;
+        exerciseSetCompletionRate: number | null;
+      };
+      // Nur dieser Test legt exercise_set-Zeilen an — exakte Werte möglich. activeUsersWeekly
+      // ist dagegen bereits durch frühere Tests (Karteikarten-/Quiz-Antworten) mind. 1.
+      expect(kpis.activeUsersWeekly).toBeGreaterThanOrEqual(1);
+      expect(kpis.exerciseSetsStarted).toBe(2);
+      expect(kpis.exerciseSetsCompleted).toBe(1);
+      expect(kpis.exerciseSetCompletionRate).toBe(0.5);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

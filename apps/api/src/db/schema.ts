@@ -404,6 +404,38 @@ export const learningSession = pgTable(
   (table) => [index("learning_session_user_id_kurs_id_idx").on(table.userId, table.kursId)],
 );
 
+/**
+ * N-08: Start/Abschluss eines Übungssets (Quiz- oder Mischmodus-Runde, siehe F-22) — Grundlage
+ * für die in Abschnitt 11 definierte KPI "Abschlussquote von Übungssets". Bewusst als eigene
+ * Tabelle statt Ableitung aus `learning_event`: Ein Event-Log allein kennt keine "Rundengröße"
+ * und könnte daher nie unterscheiden, ob eine Runde vollständig durchlaufen oder nach der
+ * ersten Frage abgebrochen wurde. Nur online erfasst (kein Offline-Sync-Baustein wie F-42) —
+ * ein offline begonnenes/abgeschlossenes Übungsset fließt aktuell nicht in die KPI ein, siehe
+ * apps/web/src/Quiz.tsx/MixedLearning.tsx. Reine Karteikarten-Sitzungen (F-20, endlos bis zum
+ * Abbruch, keine feste Zielgröße) zählen bewusst nicht als "Übungsset" im Sinne dieser KPI.
+ */
+export const exerciseSet = pgTable(
+  "exercise_set",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    themaId: uuid("thema_id").references(() => thema.id, { onDelete: "set null" }),
+    mode: text("mode").notNull(),
+    totalItems: integer("total_items").notNull(),
+    startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+  },
+  (table) => [
+    index("exercise_set_user_id_started_at_idx").on(table.userId, table.startedAt),
+    check("exercise_set_mode_check", sql`${table.mode} in ('quiz', 'mixed')`),
+  ],
+);
+
 export const examSession = pgTable(
   "exam_session",
   {

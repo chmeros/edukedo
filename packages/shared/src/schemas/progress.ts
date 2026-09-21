@@ -21,3 +21,22 @@ export type SubmitReviewInput = z.infer<typeof submitReviewInputSchema>;
  */
 export const sessionIdInputSchema = z.object({ sessionId: z.string().uuid() });
 export type SessionIdInput = z.infer<typeof sessionIdInputSchema>;
+
+/**
+ * N-08: Start/Abschluss eines Übungssets (Quiz- oder Mischmodus-Runde, F-22) für die
+ * "Abschlussquote von Übungssets"-KPI (Anforderungskatalog Abschnitt 11) — siehe exercise_set
+ * in apps/api/src/db/schema.ts.
+ */
+export const exerciseSetModeSchema = z.enum(["quiz", "mixed"]);
+export type ExerciseSetMode = z.infer<typeof exerciseSetModeSchema>;
+
+export const startExerciseSetInputSchema = z.object({
+  kursId: z.string().uuid(),
+  themaId: z.string().uuid().optional(),
+  mode: exerciseSetModeSchema,
+  totalItems: z.number().int().positive(),
+});
+export type StartExerciseSetInput = z.infer<typeof startExerciseSetInputSchema>;
+
+export const exerciseSetIdInputSchema = z.object({ exerciseSetId: z.string().uuid() });
+export type ExerciseSetIdInput = z.infer<typeof exerciseSetIdInputSchema>;

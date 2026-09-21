@@ -1,4 +1,5 @@
 import cookie from "@fastify/cookie";
+import type { TRPCError } from "@trpc/server";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import Fastify from "fastify";
 import { env } from "./env";
@@ -18,7 +19,20 @@ export async function buildApp() {
 
   await app.register(fastifyTRPCPlugin, {
     prefix: "/api/v1/trpc",
-    trpcOptions: { router: appRouter, createContext },
+    trpcOptions: {
+      router: appRouter,
+      createContext,
+      // N-08: Basis-Fehler-Logging — bewusst nur INTERNAL_SERVER_ERROR (echte, unerwartete
+      // Bugs), nicht die weit häufigeren erwarteten 4xx-Antworten (falsches Passwort, fehlende
+      // Berechtigung, Validierungsfehler o. Ä.), sonst würde routinemäßiges Nutzerverhalten das
+      // Fehler-Log dominieren und echte Fehler darin untergehen. Bewusst ohne `input` im Log —
+      // das könnte bei auth.login/auth.register Klartext-Passwörter enthalten.
+      onError({ path, error }: { path?: string; error: TRPCError }) {
+        if (error.code === "INTERNAL_SERVER_ERROR") {
+          app.log.error({ path, message: error.message }, "Unerwarteter tRPC-Fehler");
+        }
+      },
+    },
   });
 
   app.get("/health", async () => ({ status: "ok" }));
