@@ -1,11 +1,12 @@
 import {
   activeKursInputSchema,
+  dueCardsInputSchema,
   fachgespraechFragePayloadSchema,
   searchContentInputSchema,
   theoriePayloadSchema,
-  themaFilterableKursInputSchema,
+  themaCardsInputSchema,
 } from "@edukedo/shared";
-import { and, asc, eq, ilike, isNull, lte, ne, or, sql } from "drizzle-orm";
+import { and, asc, eq, ilike, inArray, isNull, lte, ne, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
@@ -22,15 +23,24 @@ export const contentRouter = router({
    * genutzt, siehe Architekturplanung Abschnitt 13 — vorher über alle eingeschriebenen
    * Kurse hinweg aggregiert): neue Karten (kein user_progress-Datensatz) zuerst, danach nach
    * Fälligkeit (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
+   *
+   * F-110: `contentItemIds` (gezielte Auswahl einzelner Karten, siehe `content.themaFlashcards`)
+   * und `onlyFlagged` (nur als "schwierig" markierte Karten) ersetzen jeweils die reguläre
+   * Fälligkeitsfilterung — beide sollen Karten unabhängig vom FSRS-Fälligkeitszeitpunkt liefern.
+   * Schließen sich gegenseitig aus (Frontend zeigt immer nur einen der beiden Auswahlmodi
+   * gleichzeitig an); bei gemeinsamer Angabe hat `contentItemIds` Vorrang.
    */
-  dueCards: protectedProcedure.input(themaFilterableKursInputSchema).query(async ({ ctx, input }) => {
+  dueCards: protectedProcedure.input(dueCardsInputSchema).query(async ({ ctx, input }) => {
     const now = new Date();
 
-    const conditions = [
-      eq(contentItem.type, "karteikarte"),
-      eq(contentItem.isActive, true),
-      or(isNull(userProgress.dueAt), lte(userProgress.dueAt, now)),
-    ];
+    const conditions = [eq(contentItem.type, "karteikarte"), eq(contentItem.isActive, true)];
+    if (input.contentItemIds) {
+      conditions.push(inArray(contentItem.id, input.contentItemIds));
+    } else if (input.onlyFlagged) {
+      conditions.push(eq(userProgress.flaggedAsDifficult, true));
+    } else {
+      conditions.push(or(isNull(userProgress.dueAt), lte(userProgress.dueAt, now))!);
+    }
     // F-27: optionaler Thema-Filter — siehe themaFilterableKursInputSchema.
     if (input.themaId) {
       conditions.push(eq(thema.id, input.themaId));
@@ -42,6 +52,7 @@ export const contentRouter = router({
         prompt: contentItem.prompt,
         explanation: contentItem.explanation,
         dueAt: userProgress.dueAt,
+        flaggedAsDifficult: userProgress.flaggedAsDifficult,
       })
       .from(contentItem)
       .innerJoin(thema, eq(thema.id, contentItem.themaId))
@@ -62,9 +73,56 @@ export const contentRouter = router({
       // NULLS FIRST: neue, noch nie geübte Karten (kein user_progress-Datensatz) vor
       // bereits fälligen Wiederholungen — Postgres sortiert NULL bei ASC sonst zuletzt.
       .orderBy(sql`${userProgress.dueAt} asc nulls first`)
-      .limit(20);
+      // F-110: bei expliziter Auswahl (contentItemIds) darf die Auswahl nicht stillschweigend
+      // auf 20 Karten gekürzt werden — sie ist bereits durch die Auswahl selbst begrenzt.
+      .limit(input.contentItemIds ? input.contentItemIds.length : 20);
 
-    return rows.map((row) => ({ id: row.id, prompt: row.prompt, explanation: row.explanation }));
+    return rows.map((row) => ({
+      id: row.id,
+      prompt: row.prompt,
+      explanation: row.explanation,
+      flaggedAsDifficult: row.flaggedAsDifficult ?? false,
+    }));
+  }),
+
+  /**
+   * F-110: Alle Karteikarten eines einzelnen Themas (nicht nur die fälligen) für die gezielte
+   * Auswahl einzelner Karten — Basis der Checkliste im Frontend (`content.dueCards` mit
+   * `contentItemIds` lädt anschließend genau die dort ausgewählten).
+   */
+  themaFlashcards: protectedProcedure.input(themaCardsInputSchema).query(async ({ ctx, input }) => {
+    const rows = await ctx.db
+      .select({
+        id: contentItem.id,
+        prompt: contentItem.prompt,
+        dueAt: userProgress.dueAt,
+        flaggedAsDifficult: userProgress.flaggedAsDifficult,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .leftJoin(
+        userProgress,
+        and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
+      )
+      .where(and(eq(contentItem.type, "karteikarte"), eq(contentItem.isActive, true), eq(thema.id, input.themaId)))
+      .orderBy(asc(contentItem.createdAt));
+
+    const now = new Date();
+    return rows.map((row) => ({
+      id: row.id,
+      prompt: row.prompt,
+      due: row.dueAt === null || row.dueAt <= now,
+      flaggedAsDifficult: row.flaggedAsDifficult ?? false,
+    }));
   }),
 
   /**

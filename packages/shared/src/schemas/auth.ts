@@ -84,3 +84,13 @@ export const updateDisplayNameInputSchema = z.object({
   displayName: z.string().trim().max(100),
 });
 export type UpdateDisplayNameInput = z.infer<typeof updateDisplayNameInputSchema>;
+
+/**
+ * F-110: Präferenz, ob eine Karteikarte zuerst mit der Frage- oder der Antwortseite angezeigt
+ * wird — analog zu `setLearningModePreferenceInputSchema` als eigene Einstellung, dauerhaft
+ * je Person statt nur je Sitzung (siehe Architekturplanung Abschnitt 13).
+ */
+export const setFlashcardStartSideInputSchema = z.object({
+  startWithAnswer: z.boolean(),
+});
+export type SetFlashcardStartSideInput = z.infer<typeof setFlashcardStartSideInputSchema>;

@@ -38,3 +38,20 @@ export function DangerIcon() {
     </svg>
   );
 }
+
+/**
+ * F-110: "schwierig"-Markierung von Karteikarten — `filled` unterscheidet den bereits
+ * markierten (gefüllter Stern) vom unmarkierten Zustand (nur Umriss).
+ */
+export function StarIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} aria-hidden="true">
+      <path
+        d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2-4.5-4.4 6.2-.9L12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

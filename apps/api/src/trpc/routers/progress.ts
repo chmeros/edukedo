@@ -6,6 +6,7 @@ import {
   sessionIdInputSchema,
   startExerciseSetInputSchema,
   submitReviewInputSchema,
+  toggleDifficultyFlagInputSchema,
   type ReviewResult,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
@@ -492,6 +493,46 @@ export const progressRouter = router({
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
     return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
+
+  /**
+   * F-110: Manuelle "schwierig"-Markierung umschalten — rein additiv, ändert nie
+   * difficulty/stability/due_at (Nutzer-Entscheidung 21.09.2026, siehe Architekturplanung
+   * Abschnitt 13). Existiert für diese Karte noch kein user_progress-Datensatz (z. B. eine
+   * noch nie geübte Karte), wird einer im FSRS-Ausgangszustand angelegt — derselbe Zustand,
+   * den auch die erste reguläre Bewertung (applyReview) als Basis verwenden würde.
+   */
+  toggleDifficultyFlag: protectedProcedure
+    .input(toggleDifficultyFlagInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [existing] = await ctx.db
+        .select({ flaggedAsDifficult: userProgress.flaggedAsDifficult })
+        .from(userProgress)
+        .where(
+          and(eq(userProgress.userId, ctx.currentUser.id), eq(userProgress.contentItemId, input.contentItemId)),
+        )
+        .limit(1);
+
+      const nextFlagged = !(existing?.flaggedAsDifficult ?? false);
+      const initial = initialProgressState(new Date());
+
+      await ctx.db
+        .insert(userProgress)
+        .values({
+          userId: ctx.currentUser.id,
+          contentItemId: input.contentItemId,
+          difficulty: initial.difficulty,
+          stability: initial.stability,
+          state: initial.state,
+          dueAt: initial.dueAt,
+          flaggedAsDifficult: nextFlagged,
+        })
+        .onConflictDoUpdate({
+          target: [userProgress.userId, userProgress.contentItemId],
+          set: { flaggedAsDifficult: nextFlagged },
+        });
+
+      return { flagged: nextFlagged };
+    }),
 
   /**
    * F-31 Lernzeit: startet eine neue Lernsitzung (siehe learningSession in db/schema.ts und

@@ -15,6 +15,16 @@ export const submitReviewInputSchema = z.object({
 export type SubmitReviewInput = z.infer<typeof submitReviewInputSchema>;
 
 /**
+ * F-110: Manuelle "schwierig"-Markierung — bewusst unabhängig vom FSRS-Zustand (Nutzer-
+ * Entscheidung 21.09.2026, siehe Architekturplanung Abschnitt 13): rein additives Flag, das
+ * weder difficulty/stability/due_at noch die reguläre Selbsteinschätzung (F-20) beeinflusst.
+ */
+export const toggleDifficultyFlagInputSchema = z.object({
+  contentItemId: z.string().uuid(),
+});
+export type ToggleDifficultyFlagInput = z.infer<typeof toggleDifficultyFlagInputSchema>;
+
+/**
  * F-31 Lernzeit-Tracking (explizites Start/Heartbeat/Ende, siehe
  * apps/web/src/useLearningSession.ts und Architekturplanung Abschnitt 13): pingSession/
  * endSession beziehen sich per sessionId auf eine zuvor mit startSession angelegte Sitzung.

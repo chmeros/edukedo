@@ -148,6 +148,13 @@
       "when": 1789994543686,
       "tag": "0020_dusty_crusher_hogan",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1789996237691,
+      "tag": "0021_married_gauntlet",
+      "breakpoints": true
     }
   ]
 }

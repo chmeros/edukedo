@@ -1,0 +1,2 @@
+ALTER TABLE "user" ADD COLUMN "flashcard_start_with_answer" boolean DEFAULT false NOT NULL;--> statement-breakpoint
+ALTER TABLE "user_progress" ADD COLUMN "flagged_as_difficult" boolean DEFAULT false NOT NULL;

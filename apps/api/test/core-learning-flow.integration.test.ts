@@ -725,6 +725,116 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-110: schwierig-Markierung ist additiv zu FSRS, Karten-Auswahl/Nur-schwierig filtern content.dueCards unabhängig von der Fälligkeit",
+    async () => {
+      const overviewResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/progress.overview?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const overview = overviewResponse.json().result.data as { themen: { id: string }[] }[];
+      const themaId = overview.flatMap((fachgebiet) => fachgebiet.themen)[0]!.id;
+
+      const themaFlashcardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.themaFlashcards?input=${encodeURIComponent(JSON.stringify({ kursId, themaId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(themaFlashcardsResponse.statusCode).toBe(200);
+      const themaCards = themaFlashcardsResponse.json().result.data as {
+        id: string;
+        flaggedAsDifficult: boolean;
+      }[];
+      expect(themaCards.length).toBeGreaterThan(0);
+      const [cardA, cardB] = themaCards;
+      expect(cardA!.flaggedAsDifficult).toBe(false);
+
+      // Markieren wirkt sofort auf content.dueCards mit onlyFlagged — unabhängig vom
+      // FSRS-Fälligkeitszeitpunkt (siehe unten: bleibt auch nach einem "gewusst"-Review
+      // abrufbar, der die reguläre Fälligkeit in die Zukunft verschiebt).
+      const flagResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.toggleDifficultyFlag",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: cardA!.id },
+      });
+      expect(flagResponse.statusCode).toBe(200);
+      expect(flagResponse.json().result.data.flagged).toBe(true);
+
+      const onlyFlaggedResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId, onlyFlagged: true }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const onlyFlagged = onlyFlaggedResponse.json().result.data as { id: string; flaggedAsDifficult: boolean }[];
+      expect(onlyFlagged.map((card) => card.id)).toContain(cardA!.id);
+      expect(onlyFlagged.every((card) => card.flaggedAsDifficult)).toBe(true);
+
+      // Die Karte "gewusst" bewerten schiebt ihre FSRS-Fälligkeit in die Zukunft — sie
+      // verschwindet danach aus der regulären fälligen Auswahl, bleibt aber über eine explizite
+      // contentItemIds-Auswahl weiterhin gezielt abrufbar (Kern der F-110-Anforderung).
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: cardA!.id, result: "gewusst" },
+      });
+
+      const regularDueResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId, themaId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const regularDue = regularDueResponse.json().result.data as { id: string }[];
+      expect(regularDue.map((card) => card.id)).not.toContain(cardA!.id);
+
+      const selectedResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(
+          JSON.stringify({ kursId, contentItemIds: [cardA!.id, cardB!.id] }),
+        )}`,
+        headers: { cookie: sessionCookie },
+      });
+      const selected = selectedResponse.json().result.data as { id: string }[];
+      expect(selected.map((card) => card.id).sort()).toEqual([cardA!.id, cardB!.id].sort());
+
+      // Erneutes Umschalten hebt die Markierung wieder auf — rein additiv, submitReview oben
+      // hat difficulty/stability/due_at verändert, das Flag aber unberührt gelassen.
+      const unflagResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.toggleDifficultyFlag",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: cardA!.id },
+      });
+      expect(unflagResponse.json().result.data.flagged).toBe(false);
+
+      // F-110: dauerhafte Präferenz, ob eine Karteikarte zuerst mit Antwortseite gezeigt wird.
+      const meBeforeStartSide = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meBeforeStartSide.json().result.data.flashcardStartWithAnswer).toBe(false);
+
+      const setStartSideResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.setFlashcardStartSide",
+        headers: { cookie: sessionCookie },
+        payload: { startWithAnswer: true },
+      });
+      expect(setStartSideResponse.statusCode).toBe(200);
+
+      const meAfterStartSide = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect(meAfterStartSide.json().result.data.flashcardStartWithAnswer).toBe(true);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

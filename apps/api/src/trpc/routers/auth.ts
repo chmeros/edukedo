@@ -3,6 +3,7 @@ import {
   loginInputSchema,
   registerInputSchema,
   requiresParentalConsent,
+  setFlashcardStartSideInputSchema,
   setLearningModePreferenceInputSchema,
   updateDisplayNameInputSchema,
   verifyEmailInputSchema,
@@ -190,6 +191,7 @@ export const authRouter = router({
     learnFlashcardsEnabled: ctx.currentUser.learnFlashcardsEnabled,
     learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
+    flashcardStartWithAnswer: ctx.currentUser.flashcardStartWithAnswer,
   })),
 
   /**
@@ -296,6 +298,20 @@ export const authRouter = router({
           learnQuizEnabled: input.quizEnabled,
           learningModePreferenceSet: true,
         })
+        .where(eq(user.id, ctx.currentUser.id));
+      return { success: true };
+    }),
+
+  /**
+   * F-110: Präferenz, ob eine Karteikarte zuerst mit Frage- oder Antwortseite gezeigt wird —
+   * dauerhaft je Person, analog zu setLearningModePreference.
+   */
+  setFlashcardStartSide: protectedProcedure
+    .input(setFlashcardStartSideInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(user)
+        .set({ flashcardStartWithAnswer: input.startWithAnswer })
         .where(eq(user.id, ctx.currentUser.id));
       return { success: true };
     }),

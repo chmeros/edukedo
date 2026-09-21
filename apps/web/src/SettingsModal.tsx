@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DisplayNameSettings } from "./DisplayNameSettings";
+import { FlashcardStartSideSettings } from "./FlashcardStartSideSettings";
 import { InfoIcon } from "./Icons";
 import { LearningModeSettings } from "./LearningModeSettings";
 import { Modal } from "./Modal";
@@ -31,6 +32,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
             </div>
             <div className="widget">
               <LearningModeSettings />
+            </div>
+            <div className="widget">
+              <FlashcardStartSideSettings />
             </div>
             {kursId ? (
               <>

@@ -113,6 +113,9 @@ export const user = pgTable(
     // Unterscheidet "Default nie angefasst" (Erstbesuch-Abfrage noch zu zeigen) von einer
     // bewussten Entscheidung für exakt die Default-Kombination.
     learningModePreferenceSet: boolean("learning_mode_preference_set").notNull().default(false),
+    // F-110 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): dauerhafte
+    // Präferenz, ob eine Karteikarte zuerst mit Frage- oder Antwortseite angezeigt wird.
+    flashcardStartWithAnswer: boolean("flashcard_start_with_answer").notNull().default(false),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
@@ -330,6 +333,10 @@ export const userProgress = pgTable(
     lastResult: text("last_result"),
     reps: integer("reps").notNull().default(0),
     lapses: integer("lapses").notNull().default(0),
+    // F-110 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): rein
+    // additive, manuelle "schwierig"-Markierung — bewusst unabhängig von difficulty/stability/
+    // due_at, beeinflusst den FSRS-Ablauf nicht (Nutzer-Entscheidung 21.09.2026).
+    flaggedAsDifficult: boolean("flagged_as_difficult").notNull().default(false),
   },
   (table) => [
     uniqueIndex("user_progress_user_id_content_item_id_key").on(table.userId, table.contentItemId),

@@ -22,6 +22,33 @@ export const themaFilterableKursInputSchema = z.object({
 export type ThemaFilterableKursInput = z.infer<typeof themaFilterableKursInputSchema>;
 
 /**
+ * F-110: Alle Karteikarten eines einzelnen Themas auflisten (nicht nur die fälligen) — Basis
+ * für die Auswahl einzelner Karten (siehe `dueCardsInputSchema`/`content.themaFlashcards`,
+ * Architekturplanung Abschnitt 13). Bewusst mit Pflicht-`themaId` statt der optionalen aus
+ * `themaFilterableKursInputSchema` — die Auswahl setzt immer einen bereits über den
+ * F-27-Filter gewählten Themenkontext voraus, ein kursweiter Karten-Browser wäre bei
+ * mehreren hundert Karten (siehe Fachwirt-Pilot) unübersichtlich.
+ */
+export const themaCardsInputSchema = z.object({
+  kursId: z.string().uuid(),
+  themaId: z.string().uuid(),
+});
+export type ThemaCardsInput = z.infer<typeof themaCardsInputSchema>;
+
+/**
+ * F-110: Erweiterte Karteikarten-Auswahl. `contentItemIds` (gezielte Auswahl einzelner Karten)
+ * und `onlyFlagged` (nur als "schwierig" markierte Karten) schließen sich gegenseitig aus und
+ * überschreiben beide die reguläre Fälligkeitsfilterung von `content.dueCards` — explizit
+ * ausgewählte bzw. markierte Karten sollen unabhängig vom FSRS-Fälligkeitszeitpunkt abrufbar
+ * sein (Anforderungskatalog F-110, Architekturplanung Abschnitt 13).
+ */
+export const dueCardsInputSchema = themaFilterableKursInputSchema.extend({
+  contentItemIds: z.array(z.string().uuid()).min(1).optional(),
+  onlyFlagged: z.boolean().optional(),
+});
+export type DueCardsInput = z.infer<typeof dueCardsInputSchema>;
+
+/**
  * F-35: Setzt die persönliche Zielplanung für einen belegten Kurs. Welche Felder tatsächlich
  * greifen, hängt vom Zielmodus des Kurses ab (kurs.targetMode, siehe Architekturplanung
  * Abschnitt 13) — `targetDate`/`planStartDate` nur bei "einzeltermin", `weeklyGoalItems` nur
