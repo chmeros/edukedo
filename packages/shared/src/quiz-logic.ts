@@ -45,8 +45,20 @@ export interface RawAnswerOption {
   isCorrect: boolean;
 }
 
+/**
+ * F-113 (Nutzer-Feedback vom 18.09.2026, erweitert F-21): "wahr_falsch"/"entweder_oder"/
+ * "was_passt_nicht" sind strukturell identisch zu "quiz_mc" (N Options, genau eine richtig,
+ * dieselbe answer_option-Tabelle) — EIN gemeinsamer Union-Zweig und eine gemeinsame
+ * shapeQuizItem-Bedingung statt drei fast identischer Kopien, siehe Architekturplanung
+ * Abschnitt 13. Unterschiedlich ist nur die Content-Autoren-Formularführung (AdminContentEditor)
+ * und die Lernenden-UI (QuizSteps.tsx: MultipleChoiceStep für quiz_mc/was_passt_nicht,
+ * TwoChoiceStep für wahr_falsch/entweder_oder) — beides oberhalb dieser Schicht.
+ */
+export const MC_LIKE_QUIZ_TYPES = ["quiz_mc", "wahr_falsch", "entweder_oder", "was_passt_nicht"] as const;
+export type McLikeQuizType = (typeof MC_LIKE_QUIZ_TYPES)[number];
+
 export type ShapedQuizItem =
-  | { id: string; type: "quiz_mc"; prompt: string; options: { id: string; text: string }[] }
+  | { id: string; type: McLikeQuizType; prompt: string; options: { id: string; text: string }[] }
   | {
       id: string;
       type: "zuordnung";
@@ -61,10 +73,10 @@ export type ShapedQuizItem =
  * öffentliche, lösungsfreie Darstellung — nie die richtige Antwort/Zuordnung/Lösung
  * mitschicken (siehe Architekturplanung Abschnitt 13). */
 export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): ShapedQuizItem {
-  if (item.type === "quiz_mc") {
+  if ((MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type)) {
     return {
       id: item.id,
-      type: "quiz_mc",
+      type: item.type as McLikeQuizType,
       prompt: item.prompt,
       options: options
         .filter((option) => option.contentItemId === item.id)

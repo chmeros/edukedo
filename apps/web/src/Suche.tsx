@@ -5,6 +5,10 @@ import { trpc } from "./trpc";
 const TYPE_LABELS: Record<string, string> = {
   karteikarte: "Karteikarte",
   quiz_mc: "Quiz · Multiple Choice",
+  // F-113: strukturell identisch zu Multiple Choice (siehe Architekturplanung Abschnitt 13).
+  wahr_falsch: "Quiz · Wahr/Falsch",
+  entweder_oder: "Quiz · Entweder-Oder",
+  was_passt_nicht: "Quiz · Was passt nicht dazu",
   zuordnung: "Quiz · Zuordnung",
   luecken: "Quiz · Lückentext",
   kurzantwort: "Quiz · Kurzantwort",

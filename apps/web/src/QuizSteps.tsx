@@ -150,6 +150,98 @@ export function MultipleChoiceStep({
   );
 }
 
+/**
+ * F-113 (Nutzer-Feedback vom 18.09.2026, erweitert F-21): "Wahr/Falsch" und "Entweder-Oder" —
+ * beide strukturell identisch zu Multiple Choice (`item`/`submit`/Grading exakt wie
+ * MultipleChoiceStep, siehe quiz-logic.ts), aber bewusst als eigene, visuell unterscheidbare
+ * Komponente statt Wiederverwendung von MultipleChoiceStep: zwei große, nebeneinander stehende
+ * Antwortflächen (`.quiz-two-choice`) statt der vertikalen Options-Liste, damit sich die binäre
+ * Entscheidung (wahr/falsch bzw. das eine oder das andere) auch optisch von einer regulären,
+ * potenziell längeren Multiple-Choice-Liste abhebt. "Was passt nicht dazu" (vier Begriffe, einer
+ * ist der Ausreißer) ist dagegen mechanisch identisch zu einer regulären MC-Liste und nutzt
+ * deshalb MultipleChoiceStep unverändert weiter (siehe Quiz.tsx/MixedLearning.tsx/Vorschau.tsx).
+ */
+export function TwoChoiceStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<McItem, { contentItemId: string; selectedOptionId: string }, {
+  isCorrect: boolean;
+  correctOptionId: string;
+  explanation: string | null;
+}>) {
+  const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<{
+    isCorrect: boolean;
+    correctOptionId: string;
+    explanation: string | null;
+    motivation: string;
+  } | null>(null);
+
+  function checkAnswer(optionId: string) {
+    setSelectedOptionId(optionId);
+    submit.mutate(
+      { contentItemId: item.id, selectedOptionId: optionId },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.isCorrect) });
+          onAnswered(result.isCorrect);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <div className="quiz-two-choice">
+        {item.options.map((option) => {
+          let className = "quiz-opt";
+          if (feedback) {
+            if (option.id === feedback.correctOptionId) {
+              className += " is-correct";
+            } else if (option.id === selectedOptionId) {
+              className += " is-wrong";
+            }
+          }
+
+          return (
+            <button
+              key={option.id}
+              type="button"
+              className={className}
+              disabled={feedback !== null || submit.isPending}
+              onClick={() => checkAnswer(option.id)}
+            >
+              {option.text}
+            </button>
+          );
+        })}
+      </div>
+      {feedback && (
+        <>
+          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
+            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export interface MatchingItem {
   id: string;
   prompt: string;

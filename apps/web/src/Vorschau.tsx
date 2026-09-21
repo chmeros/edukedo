@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
 /** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
@@ -113,8 +113,20 @@ export function Vorschau() {
           <span className="quiz-progress">
             Frage {index + 1} von {items.length}
           </span>
-          {current.type === "quiz_mc" && (
+          {/* F-113: was_passt_nicht mechanisch identisch zu quiz_mc (siehe QuizSteps.tsx),
+              wahr_falsch/entweder_oder nutzen die eigene TwoChoiceStep-Darstellung. */}
+          {(current.type === "quiz_mc" || current.type === "was_passt_nicht") && (
             <MultipleChoiceStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitAnswer}
+            />
+          )}
+          {(current.type === "wahr_falsch" || current.type === "entweder_oder") && (
+            <TwoChoiceStep
               key={current.id}
               item={current}
               isLast={isLast}

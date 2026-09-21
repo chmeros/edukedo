@@ -47,7 +47,13 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
       return { prompt: input.prompt, explanation: null, payload: { body_markdown: input.bodyMarkdown, images: [] } };
     case "karteikarte":
       return { prompt: input.prompt, explanation: input.explanation ?? null, payload: {} };
+    // F-113: wahr_falsch/entweder_oder/was_passt_nicht sind strukturell identisch zu quiz_mc
+    // (answer_option-basiert, genau eine Option richtig), siehe Architekturplanung Abschnitt 13
+    // — derselbe Formular-Aufbau (options-Array), daher ein gemeinsamer Case-Block.
     case "quiz_mc":
+    case "wahr_falsch":
+    case "entweder_oder":
+    case "was_passt_nicht":
       return {
         prompt: input.prompt,
         explanation: input.explanation ?? null,
@@ -175,14 +181,20 @@ export const adminContentRouter = router({
       updatedAt: item.updatedAt,
     };
 
-    if (item.type === "quiz_mc") {
+    // F-113: wahr_falsch/entweder_oder/was_passt_nicht laden/formen genau wie quiz_mc.
+    if (
+      item.type === "quiz_mc" ||
+      item.type === "wahr_falsch" ||
+      item.type === "entweder_oder" ||
+      item.type === "was_passt_nicht"
+    ) {
       const options = await ctx.db
         .select()
         .from(answerOption)
         .where(eq(answerOption.contentItemId, item.id))
         .orderBy(asc(answerOption.sortOrder));
       return {
-        type: "quiz_mc" as const,
+        type: item.type,
         ...common,
         prompt: item.prompt,
         explanation: item.explanation,

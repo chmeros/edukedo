@@ -937,6 +937,129 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-113: Wahr/Falsch, Entweder-Oder und Was-passt-nicht-dazu sind über Admin-Redaktion anlegbar, im Quiz spielbar und korrekt auswertbar",
+    async () => {
+      // Eigener Admin-Testnutzer, analog zum F-11-Test oben.
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f113@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      async function createItem(type: string, options: { text: string; isCorrect: boolean }[]) {
+        const response = await app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/adminContent.create",
+          headers: { cookie: adminCookie },
+          payload: {
+            type,
+            themaId,
+            prompt: `F-113-Testfrage (${type})`,
+            explanation: "Testerklärung",
+            options,
+            difficulty: "mittel",
+            bloom: null,
+            isPremium: false,
+            isActive: true,
+          },
+        });
+        expect(response.statusCode).toBe(200);
+        return response.json().result.data.id as string;
+      }
+
+      const wahrFalschId = await createItem("wahr_falsch", [
+        { text: "Wahr", isCorrect: true },
+        { text: "Falsch", isCorrect: false },
+      ]);
+      const entwederOderId = await createItem("entweder_oder", [
+        { text: "intern", isCorrect: false },
+        { text: "extern", isCorrect: true },
+      ]);
+      const wasPasstNichtId = await createItem("was_passt_nicht", [
+        { text: "Apfel", isCorrect: false },
+        { text: "Birne", isCorrect: false },
+        { text: "Schraubenzieher", isCorrect: true },
+        { text: "Kirsche", isCorrect: false },
+      ]);
+
+      // quiz.quizItems (Lernenden-Sicht) liefert die neuen Typen ohne die richtige Antwort.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(quizItemsResponse.statusCode).toBe(200);
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        options?: { id: string; text: string }[];
+      }[];
+
+      const wahrFalschItem = quizItems.find((item) => item.id === wahrFalschId);
+      expect(wahrFalschItem?.type).toBe("wahr_falsch");
+      expect(wahrFalschItem?.options).toHaveLength(2);
+      expect(wahrFalschItem?.options?.some((option) => "isCorrect" in option)).toBe(false);
+
+      const entwederOderItem = quizItems.find((item) => item.id === entwederOderId);
+      expect(entwederOderItem?.type).toBe("entweder_oder");
+      expect(entwederOderItem?.options).toHaveLength(2);
+
+      const wasPasstNichtItem = quizItems.find((item) => item.id === wasPasstNichtId);
+      expect(wasPasstNichtItem?.type).toBe("was_passt_nicht");
+      expect(wasPasstNichtItem?.options).toHaveLength(4);
+
+      // submitAnswer wertet alle drei über denselben generischen Pfad korrekt aus (checkMcAnswer,
+      // siehe quiz-logic.ts — keine Sonderbehandlung je Typ nötig).
+      const correctWahrOption = wahrFalschItem!.options!.find((option) => option.text === "Wahr")!;
+      const wahrFalschAnswer = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: wahrFalschId, selectedOptionId: correctWahrOption.id },
+      });
+      expect(wahrFalschAnswer.json().result.data.isCorrect).toBe(true);
+
+      const wrongEntwederOption = entwederOderItem!.options!.find((option) => option.text === "intern")!;
+      const entwederOderAnswer = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: entwederOderId, selectedOptionId: wrongEntwederOption.id },
+      });
+      expect(entwederOderAnswer.json().result.data.isCorrect).toBe(false);
+      expect(entwederOderAnswer.json().result.data.correctOptionId).not.toBe(wrongEntwederOption.id);
+
+      // adminContent.get reshaped die drei neuen Typen zurück in die Formularform inkl. isCorrect
+      // (nur für die Redaktion sichtbar, nie über quiz.quizItems).
+      const getWasPasstNichtResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: wasPasstNichtId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const wasPasstNichtDetail = getWasPasstNichtResponse.json().result.data as {
+        type: string;
+        options: { text: string; isCorrect: boolean }[];
+      };
+      expect(wasPasstNichtDetail.type).toBe("was_passt_nicht");
+      expect(wasPasstNichtDetail.options.filter((option) => option.isCorrect)).toEqual([
+        { text: "Schraubenzieher", isCorrect: true },
+      ]);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

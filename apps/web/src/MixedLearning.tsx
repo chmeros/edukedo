@@ -8,7 +8,7 @@ import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
 import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
@@ -271,7 +271,9 @@ export function MixedLearning({
           </div>
         </>
       )}
-      {current.kind === "quiz" && current.item.type === "quiz_mc" && (
+      {/* F-113: was_passt_nicht mechanisch identisch zu quiz_mc (siehe QuizSteps.tsx),
+          wahr_falsch/entweder_oder nutzen die eigene TwoChoiceStep-Darstellung. */}
+      {current.kind === "quiz" && (current.item.type === "quiz_mc" || current.item.type === "was_passt_nicht") && (
         <MultipleChoiceStep
           key={current.item.id}
           item={current.item}
@@ -282,6 +284,18 @@ export function MixedLearning({
           canReport
         />
       )}
+      {current.kind === "quiz" &&
+        (current.item.type === "wahr_falsch" || current.item.type === "entweder_oder") && (
+          <TwoChoiceStep
+            key={current.item.id}
+            item={current.item}
+            isLast={isLast}
+            onAnswered={handleQuizAnswered}
+            onNext={next}
+            submit={submitAnswer}
+            canReport
+          />
+        )}
       {current.kind === "quiz" && current.item.type === "zuordnung" && (
         <MatchingStep
           key={current.item.id}

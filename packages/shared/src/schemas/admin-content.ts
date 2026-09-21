@@ -62,6 +62,32 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     options: z.array(answerOptionFormSchema).min(2).max(10),
     ...commonFormFields,
   }),
+  // F-113 (Nutzer-Feedback vom 18.09.2026, erweitert F-21): strukturell identisch zu "quiz_mc"
+  // (answer_option-basiert, genau eine Option richtig) — siehe Architekturplanung Abschnitt 13.
+  // "wahr_falsch"/"entweder_oder" bewusst auf genau 2 Optionen festgelegt (Frontend sperrt bei
+  // "wahr_falsch" zusätzlich die Option-Texte auf "Wahr"/"Falsch"), "was_passt_nicht" bleibt wie
+  // "quiz_mc" flexibel (2–10), da die Anzahl "verwandter Begriffe" je Frage variieren kann.
+  z.object({
+    type: z.literal("wahr_falsch"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    options: z.array(answerOptionFormSchema).length(2),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("entweder_oder"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    options: z.array(answerOptionFormSchema).length(2),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("was_passt_nicht"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    options: z.array(answerOptionFormSchema).min(2).max(10),
+    ...commonFormFields,
+  }),
   z.object({
     type: z.literal("zuordnung"),
     prompt: promptSchema,
@@ -108,7 +134,12 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
 // z.discriminatedUnion() verlangt für jeden Zweig ein reines ZodObject, kein ZodEffects (das
 // Ergebnis von .refine()) — siehe Zod-Typfehler, wenn man es direkt am Zweig versucht.
 export const adminContentItemFormSchema = adminContentItemFormUnion.refine(
-  (data) => data.type !== "quiz_mc" || data.options.filter((option) => option.isCorrect).length === 1,
+  (data) =>
+    (data.type !== "quiz_mc" &&
+      data.type !== "wahr_falsch" &&
+      data.type !== "entweder_oder" &&
+      data.type !== "was_passt_nicht") ||
+    data.options.filter((option) => option.isCorrect).length === 1,
   { message: "Genau eine Antwortoption muss als richtig markiert sein.", path: ["options"] },
 );
 export type AdminContentItemForm = z.infer<typeof adminContentItemFormUnion>;

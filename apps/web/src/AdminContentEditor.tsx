@@ -8,6 +8,10 @@ const TYPE_LABELS: Record<string, string> = {
   theorie: "Theorie",
   karteikarte: "Karteikarte",
   quiz_mc: "Quiz · Multiple Choice",
+  // F-113: strukturell identisch zu Multiple Choice (siehe Architekturplanung Abschnitt 13).
+  wahr_falsch: "Quiz · Wahr/Falsch",
+  entweder_oder: "Quiz · Entweder-Oder",
+  was_passt_nicht: "Quiz · Was passt nicht dazu",
   zuordnung: "Quiz · Zuordnung",
   luecken: "Quiz · Lückentext",
   kurzantwort: "Quiz · Kurzantwort",
@@ -27,6 +31,7 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
     case "karteikarte":
       return { type, prompt: "", explanation: "", ...common };
     case "quiz_mc":
+    case "was_passt_nicht":
       return {
         type,
         prompt: "",
@@ -34,6 +39,33 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
         options: [
           { text: "", isCorrect: true },
           { text: "", isCorrect: false },
+        ],
+        ...common,
+      };
+    case "entweder_oder":
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        // Bewusst fest bei genau 2 Optionen (siehe adminContentItemFormUnion), anders als
+        // quiz_mc/was_passt_nicht kann hier nicht "Option hinzufügen" geklickt werden.
+        options: [
+          { text: "", isCorrect: true },
+          { text: "", isCorrect: false },
+        ],
+        ...common,
+      };
+    case "wahr_falsch":
+      // F-113: Die zwei Antwortmöglichkeiten sind bei diesem Typ immer "Wahr"/"Falsch" (der
+      // Prompt selbst ist die zu beurteilende Aussage) — Texte deshalb schon hier fest
+      // vorgegeben, im Formular unten schreibgeschützt (siehe Architekturplanung Abschnitt 13).
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        options: [
+          { text: "Wahr", isCorrect: true },
+          { text: "Falsch", isCorrect: false },
         ],
         ...common,
       };
@@ -135,7 +167,9 @@ function ContentItemForm({
                 ? "Anweisung"
                 : form.type === "fachgespraech_frage" || form.type === "fallaufgabe"
                   ? "Übergeordnete Frage/Situation"
-                  : "Frage"}
+                  : form.type === "wahr_falsch"
+                    ? "Aussage"
+                    : "Frage"}
           </label>
           <textarea
             className="input"
@@ -176,9 +210,12 @@ function ContentItemForm({
         </div>
       )}
 
-      {form.type === "quiz_mc" && (
+      {/* F-113: was_passt_nicht ist im Formular identisch zu quiz_mc (freie Optionstexte,
+          2–10, genau eine richtig — bei was_passt_nicht ist "richtig" hier "der Ausreißer"),
+          siehe Architekturplanung Abschnitt 13. */}
+      {(form.type === "quiz_mc" || form.type === "was_passt_nicht") && (
         <div className="field">
-          <label>Antwortoptionen (genau eine richtig)</label>
+          <label>{form.type === "was_passt_nicht" ? "Begriffe (genau einer passt nicht dazu)" : "Antwortoptionen (genau eine richtig)"}</label>
           <div className="stack">
             {form.options.map((option, index) => (
               <div key={index} className="list-row-actions">
@@ -200,7 +237,7 @@ function ContentItemForm({
                     checked={option.isCorrect}
                     onChange={() => setField("options", form.options.map((o, i) => ({ ...o, isCorrect: i === index })))}
                   />
-                  richtig
+                  {form.type === "was_passt_nicht" ? "passt nicht dazu" : "richtig"}
                 </label>
                 {form.options.length > 2 && (
                   <button
@@ -223,6 +260,42 @@ function ContentItemForm({
                 Option hinzufügen
               </button>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* F-113: entweder_oder/wahr_falsch sind bewusst fest bei genau 2 Optionen (siehe
+          adminContentItemFormUnion) — kein Hinzufügen/Entfernen. Bei wahr_falsch sind die
+          Texte zusätzlich schreibgeschützt (immer "Wahr"/"Falsch", siehe defaultFormForType). */}
+      {(form.type === "entweder_oder" || form.type === "wahr_falsch") && (
+        <div className="field">
+          <label>{form.type === "wahr_falsch" ? "Welche Einschätzung ist richtig?" : "Die zwei Antwortmöglichkeiten (genau eine richtig)"}</label>
+          <div className="stack">
+            {form.options.map((option, index) => (
+              <div key={index} className="list-row-actions">
+                <input
+                  className="input"
+                  value={option.text}
+                  placeholder={`Option ${index + 1}`}
+                  disabled={form.type === "wahr_falsch"}
+                  onChange={(event) => {
+                    const next = [...form.options];
+                    next[index] = { ...next[index]!, text: event.target.value };
+                    setField("options", next);
+                  }}
+                  required
+                />
+                <label className="field-hint" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <input
+                    type="radio"
+                    name="ce-correct-option"
+                    checked={option.isCorrect}
+                    onChange={() => setField("options", form.options.map((o, i) => ({ ...o, isCorrect: i === index })))}
+                  />
+                  richtig
+                </label>
+              </div>
+            ))}
           </div>
         </div>
       )}

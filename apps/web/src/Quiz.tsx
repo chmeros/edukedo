@@ -3,7 +3,7 @@ import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -166,8 +166,21 @@ export function Quiz({
         Frage {index + 1} von {items.length}
       </span>
       {countControl}
-      {current.type === "quiz_mc" && (
+      {/* F-113: was_passt_nicht mechanisch identisch zu quiz_mc (siehe QuizSteps.tsx),
+          wahr_falsch/entweder_oder nutzen die eigene TwoChoiceStep-Darstellung. */}
+      {(current.type === "quiz_mc" || current.type === "was_passt_nicht") && (
         <MultipleChoiceStep
+          key={current.id}
+          item={current}
+          isLast={isLast}
+          onAnswered={handleAnswered}
+          onNext={next}
+          submit={submitAnswer}
+          canReport
+        />
+      )}
+      {(current.type === "wahr_falsch" || current.type === "entweder_oder") && (
+        <TwoChoiceStep
           key={current.id}
           item={current}
           isLast={isLast}

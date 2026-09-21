@@ -1173,6 +1173,30 @@ details[open] > summary.disclosure::before {
   gap: 10px;
 }
 
+/* F-113: Wahr/Falsch, Entweder-Oder — zwei große, nebeneinander stehende Antwortflächen statt
+   der vertikalen .quiz-options-Liste, damit sich diese beiden Fragetypen optisch als eigene,
+   binäre Entscheidung von der regulären Multiple-Choice-Liste abheben (siehe QuizSteps.tsx
+   TwoChoiceStep und Architekturplanung Abschnitt 13). Nutzt weiterhin .quiz-opt je Button für
+   dieselben is-selected/is-correct/is-wrong-Zustände.
+   @media unten: bricht auf schmalen Bildschirmen wieder auf eine Spalte um. */
+.quiz-two-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quiz-two-choice .quiz-opt {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: var(--fs-md);
+}
+
+@media (max-width: 460px) {
+  .quiz-two-choice {
+    grid-template-columns: 1fr;
+  }
+}
+
 .quiz-opt {
   width: 100%;
   text-align: left;

@@ -3,6 +3,7 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  MC_LIKE_QUIZ_TYPES,
   quizItemsInputSchema,
   shapeQuizItem,
   submitBlanksInputSchema,
@@ -34,7 +35,9 @@ export const quizRouter = router({
    */
   quizItems: protectedProcedure.input(quizItemsInputSchema).query(async ({ ctx, input }) => {
     const conditions = [
-      inArray(contentItem.type, ["quiz_mc", "zuordnung", "luecken", "kurzantwort"]),
+      // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind strukturell
+      // identisch zu quiz_mc, siehe quiz-logic.ts.
+      inArray(contentItem.type, [...MC_LIKE_QUIZ_TYPES, "zuordnung", "luecken", "kurzantwort"]),
       eq(contentItem.isActive, true),
     ];
     // F-27: optionaler Thema-Filter — siehe quizItemsInputSchema.
@@ -65,7 +68,7 @@ export const quizRouter = router({
     }
 
     const optionItemIds = items
-      .filter((item) => item.type === "quiz_mc" || item.type === "zuordnung")
+      .filter((item) => (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) || item.type === "zuordnung")
       .map((item) => item.id);
     const options = optionItemIds.length
       ? await ctx.db
