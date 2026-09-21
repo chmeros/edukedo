@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 21.09.2026 (F-109: Modul-/Fachgebiets-Übersicht)
+
+- **Anlass:** Aus dem Nutzer-Feedback vom 18.09.2026 (Version 0.25 des Anforderungskatalogs) — eine eigene, explizite Navigationsebene über alle Fachgebiete/Themen eines Kurses mit Fortschritt je Modul, einem Standort-Hinweis und der Möglichkeit, gezielt zu wechseln, ergänzend zur bestehenden, impliziten Fachgebiets-Gliederung (F-30).
+- **Bestehende "Fortschritt je Fachgebiet"-Ansicht erweitert statt einer neuen, redundanten zweiten Übersicht (z. B. im Instrumente-Tab):** `progress.overview` (Abschnitt 4) lieferte bereits exakt die von F-109 verlangte Struktur (Fachgebiet → Thema, je mit Fortschritt in Prozent) — es fehlte ausschließlich die "explizite Navigationsebene" (Klickbarkeit) sowie der "Standort-Hinweis". Kein neuer Backend-Endpunkt, keine Schemaänderung.
+- **Thema-Blöcke klickbar, Fachgebiets-Summenblock nicht:** Jeder einzelne Themen-Fortschrittsblock in `Progress.tsx` ist jetzt ein `<button>`, der `onGoToThema(themaId, themaTitle)` auslöst — denselben F-27-Themenfilter-Mechanismus (`activeThema`/`setLearningMode("lernen")`), der bereits bei F-14-Suchergebnissen und F-50-Admin-Sprüngen wiederverwendet wird. Der darüberliegende Fachgebiets-Summenblock (`is-total`) bleibt bewusst ein reiner `<div>` ohne Klickverhalten — der F-27-Filter kennt nur Themen-, keine Fachgebiets-Granularität, und diese neue Filterdimension einzuführen wäre für F-109 nicht erforderlich gewesen.
+- **"Standort-Hinweis" als Hervorhebung des aktuell aktiven F-27-Filters, kein neues "aktuelles Modul"-Konzept:** `activeThemaId` wird von `App.tsx` durchgereicht (`activeThema?.id`, derselbe State wie beim Such-Sprung) und hebt in `Progress.tsx` das entsprechende Thema optisch hervor (`--sprout-deep`-Farbe auf Titel und Fortschrittsbalken, Zusatzlabel "· aktuell ausgewählt"). Es gibt in der Datenlage kein eigenständiges "aktuelles Modul" jenseits dieses Filterzustands — ihn wiederzuverwenden vermeidet ein zweites, konkurrierendes Konzept von "wo bin ich gerade".
+- Live verifiziert (Desktop, Mobile 375×812, Dark Mode): Klick auf einen Themen-Block im Fortschritt-Tab wechselt korrekt in den "Lernen"-Tab gefiltert auf dieses Thema ("Gefiltert: …"-Badge); zurück im Fortschritt-Tab zeigt genau dieses Thema die Hervorhebung samt "· aktuell ausgewählt". `tsc --noEmit` in `shared`/`api`/`web` fehlerfrei, vollständige Testsuite (133 Tests) grün — rein frontend-seitige, keine Backend-Änderung.
+
 ### Entschieden am 21.09.2026 (F-108: Personalisierter Wiedereinstieg)
 
 - **Anlass:** Aus dem Nutzer-Feedback vom 18.09.2026 (Version 0.25 des Anforderungskatalogs) — der Wiedereinstieg auf der Startseite sollte um eine namentliche Begrüßung sowie einen direkten "Weiter, wo du aufgehört hast"-Einstieg ergänzt werden, erweitert F-27.

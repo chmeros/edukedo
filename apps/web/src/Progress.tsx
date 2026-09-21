@@ -18,8 +18,22 @@ function formatLernzeit(minutes: number): string {
  * Architekturplanung Abschnitt 13) — "Sozial"/"Erfolge" sind jetzt eigenständige Haupt-Tabs
  * (`Sozial.tsx`, `Achievements.tsx`, siehe App.tsx), "Einstellungen" ist ins
  * Header-Benutzermenü gewandert (`SettingsModal.tsx`).
+ * F-109 (Nutzer-Feedback vom 18.09.2026): Die "Fortschritt je Fachgebiet"-Anzeige unten war
+ * bereits genau die von F-109 verlangte Modul-/Fachgebiets-Übersicht mit Fortschritt je
+ * Modul — ihr fehlte nur die "explizite Navigationsebene". Statt einer separaten, redundanten
+ * zweiten Übersicht (z. B. im Instrumente-Tab) wird deshalb DIESE Ansicht um Klickbarkeit
+ * (`onGoToThema`, derselbe F-27-Themenfilter wie bei F-14/F-50) sowie einen "Standort-Hinweis"
+ * (`activeThemaId`, hebt das aktuell gefilterte Thema optisch hervor) ergänzt.
  */
-export function Progress({ kursId }: { kursId: string }) {
+export function Progress({
+  kursId,
+  activeThemaId,
+  onGoToThema,
+}: {
+  kursId: string;
+  activeThemaId?: string;
+  onGoToThema: (themaId: string, themaTitle: string) => void;
+}) {
   const overview = trpc.progress.overview.useQuery({ kursId });
   // F-31/F-32: eigene Abfrage statt Teil von `overview` — andere Datenquelle (learning_event/
   // learning_session statt user_progress) und unabhängig ladend/leer, siehe
@@ -46,6 +60,7 @@ export function Progress({ kursId }: { kursId: string }) {
       <div className="panel-section">
         <div className="panel-section-head">
           <h2>Fortschritt je Fachgebiet</h2>
+          <p>Auf ein Thema klicken, um gezielt dort weiterzulernen.</p>
         </div>
         <div className="progress-grid">
           {fachgebiete.map((fachgebiet) => (
@@ -62,9 +77,17 @@ export function Progress({ kursId }: { kursId: string }) {
                 </div>
               </div>
               {fachgebiet.themen.map((thema) => (
-                <div key={thema.id} className="progress-block">
+                <button
+                  key={thema.id}
+                  type="button"
+                  className={thema.id === activeThemaId ? "progress-block is-active" : "progress-block"}
+                  onClick={() => onGoToThema(thema.id, thema.title)}
+                >
                   <div className="progress-head">
-                    <b>{thema.title}</b>
+                    <b>
+                      {thema.title}
+                      {thema.id === activeThemaId ? " · aktuell ausgewählt" : ""}
+                    </b>
                     <span>
                       {thema.percent} % ({thema.mastered}/{thema.total})
                     </span>
@@ -72,7 +95,7 @@ export function Progress({ kursId }: { kursId: string }) {
                   <div className="progress-bar">
                     <span style={{ width: `${thema.percent}%` }} />
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           ))}

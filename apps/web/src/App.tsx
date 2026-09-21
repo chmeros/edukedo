@@ -321,7 +321,17 @@ export function App() {
                       <Sozial key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
                     )}
                     {learningMode === "erfolge" && <Achievements />}
-                    {learningMode === "progress" && <Progress key={activeKursId} kursId={activeKursId} />}
+                    {learningMode === "progress" && (
+                      <Progress
+                        key={activeKursId}
+                        kursId={activeKursId}
+                        activeThemaId={activeThema?.id}
+                        onGoToThema={(themaId, themaTitle) => {
+                          setActiveThema({ id: themaId, title: themaTitle });
+                          setLearningMode("lernen");
+                        }}
+                      />
+                    )}
                   </div>
                 </>
               ) : (

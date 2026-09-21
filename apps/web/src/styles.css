@@ -1393,6 +1393,32 @@ details[open] > summary.disclosure::before {
   height: 10px;
 }
 
+/* F-109: Themen-Fortschrittsblöcke als eigene, explizite Navigationsebene — klickbar statt
+   nur anzeigend, springt in den "Lernen"-Tab gefiltert auf dieses Thema (derselbe
+   F-27-Themenfilter wie bei F-14/F-50). */
+button.progress-block {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button.progress-block:hover .progress-head b {
+  text-decoration: underline;
+}
+
+/* "Standort-Hinweis": markiert das Thema, auf das der F-27-Filter gerade aktiv gesetzt ist. */
+.progress-block.is-active .progress-head b {
+  color: var(--sprout-deep);
+}
+
+.progress-block.is-active .progress-bar > span {
+  background: var(--sprout-deep);
+}
+
 /* ---------- Lernstatistik/Schwachstellenanalyse (F-31/F-32) ---------- */
 .stat-section {
   padding-top: 8px;
