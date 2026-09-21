@@ -9,6 +9,30 @@ import { ReportContentButton } from "./ReportContentButton";
  * Props durchgereicht statt intern fest auf einen bestimmten Router verdrahtet zu sein.
  */
 
+/**
+ * F-112 (Nutzer-Feedback vom 18.09.2026, erweitert F-21): kurze, motivierende Zusatzformulierung
+ * neben dem bestehenden Sofort-Feedback — bewusst OHNE Sofort-Retry an derselben Frage und OHNE
+ * Änderung, wann die Lösung gezeigt wird (Nutzer-Entscheidung 21.09.2026, siehe Architekturplanung
+ * Abschnitt 13): die Lösung erscheint weiterhin sofort, Wiederholung falscher Antworten bleibt
+ * Sache des bestehenden F-26-Wiederholungssets. Mehrere Formulierungen je Ergebnis (zufällig
+ * gewählt, einmal pro Antwort in `onSuccess` fixiert statt bei jedem Re-Render neu) statt einer
+ * einzigen festen Phrase — soll einer gewissen Demotivierung durch immer dieselbe Rückmeldung bei
+ * wiederholt falschen Antworten vorbeugen (dritte offene Frage aus dem Anforderungskatalog).
+ * Bewusst milde formuliert bei falscher Antwort (kein "Falsch!" ohne Kontext).
+ */
+const CORRECT_MOTIVATIONS = ["Super gemacht!", "Klasse, weiter so!", "Stark getroffen!", "Perfekt!"];
+const WRONG_MOTIVATIONS = [
+  "Nicht aufgeben, das schaffst du!",
+  "Kein Problem, weiter geht's!",
+  "Kopf hoch — beim nächsten Mal klappt's!",
+  "Halb so wild, du lernst gerade dazu!",
+];
+
+function pickMotivation(isCorrect: boolean): string {
+  const pool = isCorrect ? CORRECT_MOTIVATIONS : WRONG_MOTIVATIONS;
+  return pool[Math.floor(Math.random() * pool.length)]!;
+}
+
 interface MutationLike<TInput, TOutput> {
   mutate: (input: TInput, opts: { onSuccess: (result: TOutput) => void }) => void;
   isPending: boolean;
@@ -50,6 +74,7 @@ export function MultipleChoiceStep({
     isCorrect: boolean;
     correctOptionId: string;
     explanation: string | null;
+    motivation: string;
   } | null>(null);
 
   function checkAnswer() {
@@ -58,7 +83,7 @@ export function MultipleChoiceStep({
       { contentItemId: item.id, selectedOptionId },
       {
         onSuccess: (result) => {
-          setFeedback(result);
+          setFeedback({ ...result, motivation: pickMotivation(result.isCorrect) });
           onAnswered(result.isCorrect);
         },
       },
@@ -100,6 +125,7 @@ export function MultipleChoiceStep({
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
+          <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
@@ -149,6 +175,7 @@ export function MatchingStep({
     correctMap: Record<string, string>;
     correctCount: number;
     total: number;
+    motivation: string;
   } | null>(null);
 
   const pairedLeftIds = new Set(pairs.map((pair) => pair.leftId));
@@ -179,7 +206,7 @@ export function MatchingStep({
       },
       {
         onSuccess: (result) => {
-          setFeedback(result);
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
           onAnswered(result.correctCount === result.total);
         },
       },
@@ -244,6 +271,7 @@ export function MatchingStep({
           <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Zuordnungen richtig.
           </p>
+          <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
@@ -293,6 +321,7 @@ export function BlanksStep({
     correctAnswers: Record<string, string>;
     correctCount: number;
     total: number;
+    motivation: string;
   } | null>(null);
 
   const parts = item.textWithBlanks.split("___");
@@ -303,7 +332,7 @@ export function BlanksStep({
       { contentItemId: item.id, answers },
       {
         onSuccess: (result) => {
-          setFeedback(result);
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
           onAnswered(result.correctCount === result.total);
         },
       },
@@ -344,6 +373,7 @@ export function BlanksStep({
               </>
             )}
           </p>
+          <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
@@ -390,6 +420,7 @@ export function KurzantwortStep({
     isCorrect: boolean;
     correctAnswer: string;
     explanation: string | null;
+    motivation: string;
   } | null>(null);
 
   function checkAnswer() {
@@ -397,7 +428,7 @@ export function KurzantwortStep({
       { contentItemId: item.id, answer },
       {
         onSuccess: (result) => {
-          setFeedback(result);
+          setFeedback({ ...result, motivation: pickMotivation(result.isCorrect) });
           onAnswered(result.isCorrect);
         },
       },
@@ -427,6 +458,7 @@ export function KurzantwortStep({
             )}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
+          <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
