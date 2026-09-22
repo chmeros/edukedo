@@ -30,7 +30,7 @@ Basiert auf dem Anforderungskatalog Version 0.19 (siehe separates Dokument, insb
 
 | Bereich | Empfehlung | Begründung |
 |---|---|---|
-| Frontend | React + TypeScript, Vite als Build-Tool | Größtes Ökosystem, gute PWA-Unterstützung, gut geeignet für interaktive Quiz-/Karteikarten-UI sowie für die rollenbasierten Ansichten (learner, parent, content_editor, admin, **company_admin**, ergänzt 14.09.2026) |
+| Frontend | React + TypeScript, Vite als Build-Tool | Größtes Ökosystem, gute PWA-Unterstützung, gut geeignet für interaktive Quiz-/Karteikarten-UI sowie für die rollenbasierten Ansichten (learner, parent, admin, **company_admin**, ergänzt 14.09.2026; `content_editor` mit F-117 am 22.09.2026 wieder entfernt) |
 | Styling/UI | Tailwind CSS + shadcn/ui-Komponenten | Schnelles, konsistentes UI ohne viel Custom-CSS |
 | State/Data-Fetching | TanStack Query | Sauberes Caching und Sync von Server-Daten, wichtig für Offline/Sync-Logik |
 | PWA/Offline | Vite PWA Plugin (Workbox) + IndexedDB (über Dexie.js) | Service-Worker-Caching für Assets, IndexedDB für Offline-Lernstand-Queue |
@@ -58,7 +58,7 @@ Basiert auf dem Anforderungskatalog Version 0.19 (siehe separates Dokument, insb
 ```mermaid
 flowchart LR
     subgraph Client["Client (Browser / PWA)"]
-        UI["React SPA\n(Rollen: learner, parent,\ncontent_editor, admin, company_admin)"]
+        UI["React SPA\n(Rollen: learner, parent,\nadmin, company_admin)"]
         SW["Service Worker\n(Cache + Offline-Queue)"]
         IDB["IndexedDB\n(lokaler Lernstand)"]
     end
@@ -503,7 +503,7 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 - **Kern-API:** Klare Trennung nach Modulen: `/auth/*`, `/consent/*` (Eltern-Einwilligungs-Flow, F-08), `/parent/*` (Eltern-Dashboard, F-90), `/courses/*`, `/content/*` (lesend, für Lernende), `/admin/content/*` (schreibend, nur Redaktion/Admin-Rolle), `/progress/*`, `/exam-sessions/*`, `/reports/*` und `/blocks/*` (F-68, Backend ab Phase 1 vorhanden, UI erst Phase 4), sowie neu (Phase 4, ergänzt 14.09.2026) `/company/*` (F-91–F-94: eigenes Login/Session für `company_admin`, Lizenzkontingent-Übersicht inkl. Einladungscodes, Branding-Einstellungen, **ausschließlich aggregierte** Statistik-Endpunkte — bewusst kein Endpunkt, der Einzel-Nutzer-Datensätze je Unternehmen zurückgeben kann, siehe Abschnitt 4.5, 8) und `/sponsors/*` (F-94, lesend für alle Clients, schreibend nur Admin-Rolle).
 - Konsequente Eingabevalidierung mit Zod-Schemas, die zwischen Frontend und Kern-Backend geteilt werden (Monorepo-Vorteil) — **bewusst nicht** mit dem Payment-Service geteilt, um dessen Isolation nicht über gemeinsame Typen/Verträge aufzuweichen.
-- Autorisierung rollenbasiert: `learner`, `parent`, `content_editor`, `admin`, **`company_admin`** (F-91, ergänzt 14.09.2026 — eigener, von `parent` unabhängiger Account-Typ, siehe Abschnitt 4.5) (später ergänzt um `dozent`, siehe F-07).
+- Autorisierung rollenbasiert: `learner`, `parent`, `admin`, **`company_admin`** (F-91, ergänzt 14.09.2026 — eigener, von `parent` unabhängiger Account-Typ, siehe Abschnitt 4.5) (später ergänzt um `dozent`, siehe F-07). `content_editor` war ursprünglich als dritte `user`-Rolle vorgesehen, wurde aber nie vergeben und mit F-117 (22.09.2026) wieder entfernt, siehe Abschnitt 13.
 - Versionierung der API von Anfang an einplanen (`/api/v1/...`).
 - **Payment-API (separater Service):** Eigene, schmale REST-Schnittstelle, die dem Kern-Backend nur das Nötigste preisgibt (z. B. „ist Nutzer:in X aktuell Premium, bis wann"), plus ein Webhook-Endpunkt für Ereignisse des Zahlungsdienstleisters. Wo immer möglich, interagiert das Frontend direkt mit dem gehosteten Checkout des Zahlungsdienstleisters statt über eine eigene API, um Zahlungsdaten aus der eigenen Infrastruktur herauszuhalten (F-81).
 
@@ -548,7 +548,7 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ```
 /apps
-  /web        → React-PWA-Frontend (Rollen: learner, parent, content_editor, admin)
+  /web        → React-PWA-Frontend (Rollen: learner, parent, admin)
   /api        → Kern-Backend (Fastify/NestJS) — Auth, Consent, Content, Sync, Sozial
   /payment    → Eigenständiger Payment-Service, eigenes Deployment, eigene DB-Verbindung
 /packages
@@ -566,6 +566,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 - **KI-Unterstützung (F-70–F-72):** Erfordert ein eigenes Warteschlangen-Subsystem für die asynchrone Bewertung (F-70) — kann dieselbe BullMQ/Redis-Infrastruktur nutzen, die bereits für die Kern↔Payment-Kommunikation aufgebaut wird — sowie eine Fallback-Logik auf die Managed API bei Überlastung des selbst gehosteten Modells (F-72). Konkrete Infrastruktur für das selbst gehostete Modell wird bewusst erst kurz vor Phase 4 festgelegt (entschieden am 12.09.2026, siehe Abschnitt 13), da sich die Hosting-Landschaft für KI-Modelle schnell ändert.
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
+
+### Entschieden am 22.09.2026 (F-117: Rollenmodell geprüft und vereinfacht)
+
+- **Anlass:** Aus dem Nutzer-Feedback vom 18.09.2026 (Version 0.25 des Anforderungskatalogs) — Rückmeldung, dass die Anzahl unterschiedlicher Rollen/Zugänge (`learner`/`content_editor`/`admin` sowie die eigenständigen Account-Typen Eltern-Zugang F-90 und Unternehmens-Zugang F-91) zu unübersichtlich wirkt. Der Anforderungskatalog verlangte vor einer Konsolidierung explizit zu klären, ob sich die Rückmeldung auf produktiv sichtbare Nutzerrollen oder auf interne Test-/Redaktionsrollen bezieht, und welche Rollen tatsächlich unterschiedliche Berechtigungen benötigen.
+- **Code-Audit vor der Rückfrage:** Ein Durchgang durch `apps/api/src/trpc/routers/*` zeigte, dass `content_editor` zwar im `user.role`-CHECK-Constraint (schema.ts) und im Zod-Schema (`userRoleSchema`) deklariert war, aber nirgends vergeben oder geprüft wurde — jeder `roleProcedure(...)`-Aufruf im gesamten Backend (Admin-Content-Redaktion, Kurs-Veröffentlichung, Unternehmens-Konten, Sponsoring, Meldungs-Moderation) verlangt ausschließlich `"admin"`. `apps/web/src/App.tsx` berechnet `isAdmin` ebenfalls nur gegen `"admin"`. `content_editor` war damit ein reiner Karteileichen-Wert ohne jede eigene Berechtigung.
+- **Interpretation nach Rückfrage: die Rückmeldung bezieht sich vermutlich auf interne Test-/Redaktionsrollen, nicht auf für Endnutzer:innen sichtbare Verwirrung (Nutzer-Entscheidung):** `session` erzwingt bereits per DB-Constraint (`num_nonnulls(user_id, parent_id, company_account_id) = 1`), dass ein Login exakt einem Konto-Typ angehört; Eltern- (`/parent`) und Unternehmens-Zugang (`/company`) sind eigene Routen, die eine reguläre Lernperson im normalen Betrieb nie zu Gesicht bekommt (nur über Consent-/Setup-Links erreichbar) — die Verwirrung entsteht eher beim Wechseln zwischen Test-Accounts oder beim Lesen der Dokumentation, in der alle Rollen/Typen nebeneinander aufgelistet sind.
+- **Konsolidierung nach Rückfrage: `content_editor` entfernt, Parent-/Company-Zugang unverändert belassen:** Da `content_editor` nachweislich keine eigene Berechtigung hatte, ist seine Entfernung eine reine Vereinfachung ohne Verhaltensänderung. Parent- und Company-Zugang bleiben bestehen, da beide im Audit nachweislich eigene, tatsächlich genutzte Berechtigungen haben (Eltern verwalten Einwilligungen für verknüpfte Kinder, Unternehmens-Admins verwalten Branding/Lizenzen/Einladungscodes ihrer Organisation) und architektonisch bereits sauber getrennt sind (eigene Tabellen, eigene Session-Typen).
+- **Umsetzung:** `user_role_check`-CHECK-Constraint (schema.ts) sowie `userRoleSchema` (`@edukedo/shared`) auf `learner`/`admin` reduziert; neue Migration `0023_black_zarda.sql` (`ALTER TABLE user DROP/ADD CONSTRAINT`). Da der Wert nie vergeben wurde, betrifft die Migration keine bestehenden Datensätze — verifiziert durch einen Testeinfügeversuch mit `role = 'content_editor'` gegen die migrierte Dev-Datenbank, der wie erwartet an der Constraint scheitert. `apps/api/src/auth/roles.test.ts` entsprechend angepasst.
+- Live verifiziert: Registrierung (Default-Rolle `learner`) sowie Promotion auf `role = 'admin'` funktionieren nach der Migration unverändert, Admin-Bereich lädt korrekt. `tsc --noEmit` in `shared`/`api`/`web` fehlerfrei, vollständige Testsuite (139 Tests) grün.
 
 ### Entschieden am 22.09.2026 (F-115: Wortauswahl-Lückentext)
 

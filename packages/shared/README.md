@@ -7,7 +7,7 @@ Geteilte Zod-Schemas, TypeScript-Typen und (seit F-42) reine, DB-freie Business-
 ## Stand
 
 - `src/schemas/content-item.ts`: `content_item.type`/`payload`-Validierung je Typ (Architekturplanung Abschnitt 4.3, Payload-Tabelle) als diskriminierte Zod-Union.
-- `src/schemas/auth.ts`: Rollen (`learner`/`content_editor`/`admin`, siehe Architekturplanung Abschnitt 13) sowie Register-/Login-Input-Schemas.
+- `src/schemas/auth.ts`: Rollen (`learner`/`admin`, siehe Architekturplanung Abschnitt 13 — F-117 entfernte den nie genutzten dritten Wert `content_editor`) sowie Register-/Login-Input-Schemas.
 - `src/fsrs/scheduler.ts` (F-20, von `apps/api` hierher verschoben für F-42 Offline-Modus): reiner FSRS-Scheduler (`initialProgressState`/`scheduleReview`, Bibliothek `ts-fsrs`) ohne DB-/Netzwerkzugriff — Client und Server nutzen denselben Code, damit eine Karteikarte offline ohne Serverkontakt korrekt weitergeplant werden kann. Siehe Architekturplanung Abschnitt 13.
 - `src/quiz-logic.ts` (F-21, ebenfalls von `apps/api` hierher verschoben für F-42): reine Formungs-/Prüflogik für die vier Quiz-Formate (`shapeQuizItem`, `checkMcAnswer`/`checkMatching`/`checkBlanks`/`checkKurzantwort`) — Client (offline) und Server prüfen Antworten damit identisch. Wirft eine eigene `QuizItemNotFoundError` statt `TRPCError`, damit dieses Modul kein Server-Framework in den Browser-Bundle zieht. Siehe Architekturplanung Abschnitt 13.
 - `src/schemas/offline-sync.ts` (F-42 Baustein 5): Zod-Validierung für `offline.syncQueue` — spiegelt `OfflineQueueEventPayload` aus `apps/web/src/offlineDb.ts` als diskriminierte Union (`offlineQueueEventSchema`), damit Client und Server exakt dieselbe Form der Warteschlangen-Ereignisse erwarten. Siehe Architekturplanung Abschnitt 13.

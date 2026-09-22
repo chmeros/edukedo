@@ -2,12 +2,14 @@ import { z } from "zod";
 import { requiresParentalConsent } from "../age";
 
 /**
- * Rollen innerhalb der "user"-Tabelle (learner, content_editor, admin).
+ * Rollen innerhalb der "user"-Tabelle (learner, admin) — der ursprünglich dritte Wert
+ * "content_editor" wurde mit F-117 entfernt (nie vergeben, schaltete keine eigene Berechtigung
+ * frei, siehe Architekturplanung Abschnitt 13).
  * "parent" ist bewusst KEINE Rolle hier, sondern ein eigener Account-Typ mit eigener
  * Tabelle (siehe Architekturplanung Abschnitt 4.3/13, Entscheidung "user.role") —
  * ein Parent-Login erzeugt eine Session mit parent_id statt user_id.
  */
-export const userRoleSchema = z.enum(["learner", "content_editor", "admin"]);
+export const userRoleSchema = z.enum(["learner", "admin"]);
 export type UserRole = z.infer<typeof userRoleSchema>;
 
 export const emailSchema = z.string().email().max(320);

@@ -86,9 +86,14 @@ export const thema = pgTable(
 
 /**
  * "user.role" (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten): Abschnitt 7 verlangt
- * rollenbasierte Autorisierung (learner, parent, content_editor, admin), aber Abschnitt 4.3
- * hatte kein Feld dafür vorgesehen. "parent" bleibt bewusst kein Wert hier, sondern der eigene
- * Account-Typ "parent" (eigene Tabelle) — siehe Abschnitt 13 für die Begründung.
+ * rollenbasierte Autorisierung, aber Abschnitt 4.3 hatte kein Feld dafür vorgesehen. "parent"
+ * bleibt bewusst kein Wert hier, sondern der eigene Account-Typ "parent" (eigene Tabelle) —
+ * siehe Abschnitt 13 für die Begründung.
+ *
+ * F-117 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Architekturplanung
+ * Abschnitt 13): der ursprünglich dritte Rollenwert "content_editor" wurde entfernt — er wurde nie
+ * vergeben und schaltete nirgends eine eigene Berechtigung frei (jeder `roleProcedure`-Aufruf im
+ * gesamten Backend verlangt ausschließlich "admin"). Nur noch "learner"/"admin".
  */
 export const user = pgTable(
   "user",
@@ -120,7 +125,7 @@ export const user = pgTable(
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [
-    check("user_role_check", sql`${table.role} in ('learner', 'content_editor', 'admin')`),
+    check("user_role_check", sql`${table.role} in ('learner', 'admin')`),
     check(
       "user_learning_mode_at_least_one_check",
       sql`${table.learnFlashcardsEnabled} or ${table.learnQuizEnabled}`,
