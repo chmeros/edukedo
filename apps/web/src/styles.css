@@ -776,6 +776,23 @@ details[open] > summary.disclosure::before {
   font-weight: 700;
 }
 
+/* F-33: Lernserie-Badge, steht vor .mascot-credits im selben Widget-Slot — trägt deshalb selbst
+   das `margin-left: auto` (schiebt beide Badges gemeinsam an den rechten Rand), .mascot-credits'
+   eigenes bleibt wirkungslos, sobald kein Freiraum mehr übrig ist, aber unverändert für den Fall,
+   dass der Creditstand einmal ohne Lernserie-Badge (currentStreakDays === 0) allein steht. */
+.mascot-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sprout-tint);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
 .suggestion-row {
   display: flex;

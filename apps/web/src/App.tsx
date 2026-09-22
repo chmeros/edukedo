@@ -19,6 +19,7 @@ import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
 import { SponsorBanner } from "./SponsorBanner";
 import { Sozial } from "./Sozial";
+import { StreakReminderBanner } from "./StreakReminderBanner";
 import { Suche } from "./Suche";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { trpc } from "./trpc";
@@ -201,6 +202,9 @@ export function App() {
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
               <PunktehamsterWidget />
+              {/* F-33: dezente Erinnerung, siehe Architekturplanung Abschnitt 13 — bewusst erst
+                  in der eigentlichen Lernansicht (nicht bei Kursauswahl/Admin). */}
+              <StreakReminderBanner />
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (

@@ -1,5 +1,10 @@
 import { and, count, desc, eq, isNotNull } from "drizzle-orm";
-import { ACHIEVEMENT_DEFINITIONS, longestConsecutiveDayStreak } from "../../achievements/catalog";
+import {
+  ACHIEVEMENT_DEFINITIONS,
+  currentStreakDays,
+  daysSinceLastActive,
+  longestConsecutiveDayStreak,
+} from "../../achievements/catalog";
 import { achievement, examSession, learningEvent } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
@@ -144,6 +149,28 @@ export const gamificationRouter = router({
       threshold: MASCOT_FOOD_THRESHOLD,
       rewardsEarned: Math.floor(food / MASCOT_FOOD_THRESHOLD),
       progressInCurrentPortion: food % MASCOT_FOOD_THRESHOLD,
+    };
+  }),
+
+  /**
+   * F-33 (Anforderungskatalog Abschnitt 5.4, Kann-Priorität, siehe Architekturplanung
+   * Abschnitt 13): aktuelle Lernserie ("noch aktiv" statt des historischen Bestwerts in
+   * `myPersonalBests.longestStreakDays`) sowie die Tage seit der letzten Lernaktivität — Basis
+   * für die dezente Erinnerung (`StreakReminderBanner.tsx`). Dieselbe `learning_event`-Grundlage
+   * wie die übrigen F-67-Kennzahlen, hier zusätzlich mit `currentStreakDays`/`daysSinceLastActive`
+   * ausgewertet (siehe achievements/catalog.ts).
+   */
+  streakStatus: protectedProcedure.query(async ({ ctx }) => {
+    const dayRows = await ctx.db
+      .select({ occurredAt: learningEvent.occurredAt })
+      .from(learningEvent)
+      .where(eq(learningEvent.userId, ctx.currentUser.id));
+    const dateStrings = dayRows.map((row) => row.occurredAt.toISOString().slice(0, 10));
+    const today = new Date();
+
+    return {
+      currentStreakDays: currentStreakDays(dateStrings, today),
+      daysSinceLastActive: daysSinceLastActive(dateStrings, today),
     };
   }),
 });

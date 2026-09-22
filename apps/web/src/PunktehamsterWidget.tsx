@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { CreditIcon, HamsterIcon } from "./Icons";
+import { CreditIcon, HamsterIcon, StreakIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 /**
@@ -23,10 +23,17 @@ import { trpc } from "./trpc";
  * aber NICHT an `mascotEnabled` gekoppelt (eine reine Bastelfigur-Präferenz sollte die Sicht auf
  * die echte Lernwährung nicht mit ausblenden), daher der eigene, von `mascotEnabled` unabhängige
  * Zweig unten.
+ *
+ * F-33 (Anforderungskatalog Abschnitt 5.4, Kann-Priorität, siehe Architekturplanung Abschnitt 13):
+ * die Lernserie (`gamification.streakStatus`) teilt sich denselben Slot wie der Creditstand,
+ * ebenfalls unabhängig von `mascotEnabled` — bewusst "dezent" (Anforderungskatalog-Wortlaut):
+ * nur ein kleines Badge, kein eigenes Banner, und komplett ausgeblendet bei einer Serie von 0
+ * statt eine demotivierende "0 Tage"-Anzeige zu zeigen.
  */
 export function PunktehamsterWidget() {
   const me = trpc.auth.me.useQuery();
   const status = trpc.gamification.mascotStatus.useQuery(undefined, { enabled: me.data?.mascotEnabled === true });
+  const streak = trpc.gamification.streakStatus.useQuery();
   const previousRewardsEarned = useRef<number | null>(null);
   const [celebrating, setCelebrating] = useState(false);
 
@@ -54,10 +61,17 @@ export function PunktehamsterWidget() {
       {me.data.credits}
     </span>
   );
+  const streakBadge = streak.data && streak.data.currentStreakDays > 0 && (
+    <span className="mascot-streak" title="Aktuelle Lernserie">
+      <StreakIcon />
+      {streak.data.currentStreakDays}
+    </span>
+  );
 
   if (!me.data.mascotEnabled) {
     return (
       <div className="mascot-widget">
+        {streakBadge}
         {creditBadge}
         <span className="mascot-label">Credits</span>
       </div>
@@ -81,6 +95,7 @@ export function PunktehamsterWidget() {
           ? "Dein Punktehamster hat sich vollgefressen! 🎉"
           : `${status.data.progressInCurrentPortion}/${status.data.threshold} bis zur nächsten Belohnung`}
       </span>
+      {streakBadge}
       {creditBadge}
     </div>
   );

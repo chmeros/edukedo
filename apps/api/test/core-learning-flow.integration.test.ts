@@ -2100,6 +2100,127 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-33: Lernserie zählt erst nach dem ersten richtig-egal-Antwortversuch, bleibt bei einer Lücke auf den lückenlosen Tagen und die Tage seit der letzten Aktivität wachsen mit einer zurückdatierten Lernaktivität",
+    async () => {
+      const registerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "streak-f33@example.com", password: "streakPasswort123!", birthDate: "1990-01-01" },
+      });
+      const streakCookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/courses.enroll",
+        headers: { cookie: streakCookie },
+        payload: { kursId },
+      });
+
+      // Noch nie gelernt — weder Serie noch "Tage seit der letzten Aktivität".
+      const initialStatus = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.streakStatus",
+        headers: { cookie: streakCookie },
+      });
+      const initial = initialStatus.json().result.data as { currentStreakDays: number; daysSinceLastActive: number | null };
+      expect(initial.currentStreakDays).toBe(0);
+      expect(initial.daysSinceLastActive).toBeNull();
+
+      // Eine einzelne, heute beantwortete Frage (unabhängig davon, ob richtig oder falsch —
+      // dieselbe learning_event-Grundlage wie F-31/F-32) startet die Serie bei 1.
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: streakCookie },
+      });
+      const contentItemId = (dueCardsResponse.json().result.data as { id: string }[])[0]!.id;
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: streakCookie },
+        payload: { contentItemId, result: "gewusst" },
+      });
+
+      const afterTodayStatus = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.streakStatus",
+        headers: { cookie: streakCookie },
+      });
+      const afterToday = afterTodayStatus.json().result.data as { currentStreakDays: number; daysSinceLastActive: number };
+      expect(afterToday.currentStreakDays).toBe(1);
+      expect(afterToday.daysSinceLastActive).toBe(0);
+
+      // Eine zusätzliche, drei Tage zurückdatierte Lernaktivität (direkt in der DB angelegt — kein
+      // Endpunkt erlaubt das Einreichen einer Antwort in der Vergangenheit) verändert die AKTUELLE
+      // Serie nicht (die Lücke dazwischen bleibt bestehen), zählt aber weiterhin als "irgendwann
+      // gelernt" und ändert daher auch nichts an "Tage seit der letzten Aktivität" (heute bleibt
+      // der jüngste Tag).
+      const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+      await db.insert(schema.learningEvent).values({
+        userId: (await db.select({ id: schema.user.id }).from(schema.user).where(eq(schema.user.email, "streak-f33@example.com")))[0]!.id,
+        contentItemId,
+        isCorrect: true,
+        occurredAt: threeDaysAgo,
+      });
+      const afterBackdatedStatus = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.streakStatus",
+        headers: { cookie: streakCookie },
+      });
+      const afterBackdated = afterBackdatedStatus.json().result.data as {
+        currentStreakDays: number;
+        daysSinceLastActive: number;
+      };
+      expect(afterBackdated.currentStreakDays).toBe(1);
+      expect(afterBackdated.daysSinceLastActive).toBe(0);
+    },
+    30_000,
+  );
+
+  it(
+    "F-33: eine ausschließlich mehrere Tage zurückliegende Lernaktivität liefert eine gerissene aktuelle Serie und die korrekte Anzahl an Tagen seit der letzten Aktivität (Grundlage der dezenten Erinnerung)",
+    async () => {
+      const registerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "streak-f33-alt@example.com", password: "streakPasswort123!", birthDate: "1990-01-01" },
+      });
+      const oldUserId = registerResponse.json().result.data.id as string;
+      const streakCookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/courses.enroll",
+        headers: { cookie: streakCookie },
+        payload: { kursId },
+      });
+
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: streakCookie },
+      });
+      const contentItemId = (dueCardsResponse.json().result.data as { id: string }[])[0]!.id;
+
+      const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+      await db.insert(schema.learningEvent).values({
+        userId: oldUserId,
+        contentItemId,
+        isCorrect: true,
+        occurredAt: threeDaysAgo,
+      });
+
+      const statusResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.streakStatus",
+        headers: { cookie: streakCookie },
+      });
+      const status = statusResponse.json().result.data as { currentStreakDays: number; daysSinceLastActive: number };
+      expect(status.currentStreakDays).toBe(0);
+      expect(status.daysSinceLastActive).toBe(3);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

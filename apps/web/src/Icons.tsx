@@ -89,3 +89,17 @@ export function CreditIcon() {
     </svg>
   );
 }
+
+/** F-33: Lernserie (PunktehamsterWidget.tsx) — einfache Flamme, rein dekorativ. */
+export function StreakIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 3c1 2.5-.5 3.7-1.6 4.9C9.2 9.1 8 10.6 8 12.8A4 4 0 0 0 16 13c0-1.3-.5-2.1-1-2.8-.2 1-.8 1.6-1.4 1.6.6-2 .1-3.3-1-4.3-.3 1-1 1.6-1.6 1.6C11.4 6.8 11.6 5 12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

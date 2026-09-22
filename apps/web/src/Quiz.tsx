@@ -44,6 +44,9 @@ export function Quiz({
     // F-119: eine (erstmalig) richtig beantwortete Frage kann den Creditstand erhöht haben —
     // credits lebt auf auth.me, siehe PunktehamsterWidget.tsx.
     utils.auth.me.invalidate();
+    // F-33: jede Antwort (unabhängig von richtig/falsch) kann die aktuelle Lernserie
+    // begonnen/verlängert haben.
+    utils.gamification.streakStatus.invalidate();
   };
   // staleTime: Infinity — quiz.quizItems liefert die 20 Fragen in zufälliger Reihenfolge (siehe
   // apps/api/src/trpc/routers/quiz.ts); ein automatischer Hintergrund-Refetch (z. B. TanStack
