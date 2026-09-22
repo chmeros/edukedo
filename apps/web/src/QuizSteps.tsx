@@ -688,6 +688,155 @@ export function QuadrantStep({
   );
 }
 
+/**
+ * F-113 Teil 2 (Sortieren, Nutzer-Feedback vom 18.09.2026, erweitert F-21): vier vorgegebene
+ * Elemente per Drag-and-Drop in die richtige Reihenfolge bringen — mechanisch analog zu
+ * QuadrantStep (Pool + feste Zielfelder), nur sind die "Zonen" hier vier nummerierte Positionen
+ * statt fachlicher Zonen-Namen. Wiederverwendet dieselben DraggableTerm/DroppableZone-Bausteine
+ * sowie dieselben `.quadrant-*`-CSS-Klassen (2×2-Raster, bricht auf schmalen Bildschirmen auf
+ * eine Spalte um) — keine neue CSS nötig.
+ */
+const SORTIEREN_POOL_ID = "_pool";
+const SORTIEREN_POSITIONS = [0, 1, 2, 3];
+
+export interface SortierenItem {
+  id: string;
+  prompt: string;
+  items: { id: string; text: string }[];
+}
+
+export function SortierenStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<
+  SortierenItem,
+  { contentItemId: string; orderedOptionIds: string[] },
+  { results: Record<string, boolean>; correctOrder: string[]; correctCount: number; total: number }
+>) {
+  // Element-ID → Positions-Index (0–3), oder null = noch im Pool — analog zu QuadrantSteps
+  // `placements`, nur ist der Zielwert hier ein Positions-Index statt eines Zonen-Schlüssels.
+  const [placements, setPlacements] = useState<Record<string, number | null>>(() =>
+    Object.fromEntries(item.items.map((element) => [element.id, null])),
+  );
+  const [feedback, setFeedback] = useState<{
+    results: Record<string, boolean>;
+    correctOrder: string[];
+    correctCount: number;
+    total: number;
+    motivation: string;
+  } | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    const elementId = String(event.active.id);
+    const targetId = event.over ? String(event.over.id) : SORTIEREN_POOL_ID;
+    if (targetId === SORTIEREN_POOL_ID) {
+      setPlacements((current) => ({ ...current, [elementId]: null }));
+      return;
+    }
+    const targetPosition = Number(targetId);
+    // Jede Position fasst nur ein Element — ein bereits dort platziertes Element wandert
+    // zurück in den Pool (wie bei BlanksSelectionStep/QuadrantStep).
+    setPlacements((current) => {
+      const next = { ...current };
+      for (const [id, position] of Object.entries(next)) {
+        if (position === targetPosition) next[id] = null;
+      }
+      next[elementId] = targetPosition;
+      return next;
+    });
+  }
+
+  const allPlaced = item.items.every((element) => placements[element.id] !== null);
+
+  function checkAnswer() {
+    const orderedOptionIds = SORTIEREN_POSITIONS.map(
+      (position) => item.items.find((element) => placements[element.id] === position)!.id,
+    );
+    submit.mutate(
+      { contentItemId: item.id, orderedOptionIds },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
+          onAnswered(result.correctCount === result.total);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <DroppableZone id={SORTIEREN_POOL_ID} className="quadrant-pool">
+          {item.items
+            .filter((element) => placements[element.id] === null)
+            .map((element) => (
+              <DraggableTerm key={element.id} id={element.id} text={element.text} disabled={feedback !== null} />
+            ))}
+        </DroppableZone>
+        <div className="quadrant-grid">
+          {SORTIEREN_POSITIONS.map((position) => {
+            const placedElement = item.items.find((element) => placements[element.id] === position);
+            return (
+              <DroppableZone key={position} id={String(position)} label={`${position + 1}.`} className="quadrant-zone">
+                {placedElement && (
+                  <DraggableTerm
+                    id={placedElement.id}
+                    text={placedElement.text}
+                    disabled={feedback !== null}
+                    state={feedback ? (feedback.results[placedElement.id] ? "correct" : "wrong") : undefined}
+                  />
+                )}
+              </DroppableZone>
+            );
+          })}
+        </div>
+      </DndContext>
+      {feedback ? (
+        <>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.correctCount} von {feedback.total} Positionen richtig.
+            {feedback.correctCount < feedback.total && (
+              <>
+                {" "}
+                Richtige Reihenfolge:{" "}
+                {feedback.correctOrder
+                  .map((id) => item.items.find((element) => element.id === id)?.text)
+                  .join(", ")}
+              </>
+            )}
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!allPlaced || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export interface BlanksItem {
   id: string;
   prompt: string;

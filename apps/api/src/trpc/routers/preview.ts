@@ -5,6 +5,7 @@ import {
   checkMcAnswer,
   checkMcMultiAnswer,
   checkQuadrantAnswer,
+  checkSortierenAnswer,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
   shapeQuizItem,
@@ -14,6 +15,7 @@ import {
   submitMcMultiInputSchema,
   submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
+  submitSortierenInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
@@ -52,6 +54,7 @@ export const previewRouter = router({
             ...MC_LIKE_QUIZ_TYPES,
             "quiz_mc_multi",
             "zuordnung",
+            "sortieren",
             ...QUADRANT_QUIZ_TYPES,
             "luecken",
             "luecken_auswahl",
@@ -74,6 +77,7 @@ export const previewRouter = router({
           item.type === "quiz_mc_multi" ||
           (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
           item.type === "zuordnung" ||
+          item.type === "sortieren" ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
       )
       .map((item) => item.id);
@@ -122,6 +126,16 @@ export const previewRouter = router({
       options,
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
+  }),
+
+  submitSortieren: publicProcedure.input(submitSortierenInputSchema).mutation(async ({ ctx, input }) => {
+    await findPublishedItem(ctx.db, input.contentItemId);
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    return checkSortierenAnswer(options, input.orderedOptionIds);
   }),
 
   submitQuadrant: publicProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {

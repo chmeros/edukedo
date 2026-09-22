@@ -15,6 +15,8 @@ const TYPE_LABELS: Record<string, string> = {
   // F-116: Mehrfachauswahl — eine, zwei, drei oder alle vier Optionen können richtig sein.
   quiz_mc_multi: "Quiz · Mehrfachauswahl",
   zuordnung: "Quiz · Zuordnung",
+  // F-113 Teil 2: vier vorgegebene Elemente per Drag-and-Drop in die richtige Reihenfolge bringen.
+  sortieren: "Quiz · Sortieren",
   // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
   swot: "Quiz · SWOT-Matrix",
   bsc: "Quiz · Balanced Scorecard",
@@ -87,6 +89,15 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
           { left: "", right: "" },
           { left: "", right: "" },
         ],
+        ...common,
+      };
+    // F-113 Teil 2: vier leere Elemente, die Redaktion trägt sie in der richtigen Reihenfolge ein.
+    case "sortieren":
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        items: [{ text: "" }, { text: "" }, { text: "" }, { text: "" }],
         ...common,
       };
     // F-114: je ein leerer Begriff pro Zone als Starthilfe — ein SWOT-Feld hat z. B. immer
@@ -436,6 +447,36 @@ function ContentItemForm({
               </button>
             )}
           </div>
+        </div>
+      )}
+
+      {/* F-113 Teil 2 (Sortieren): die Eingabe-Reihenfolge IST die richtige Reihenfolge — kein
+          separates Positions-Feld, kein Hinzufügen/Entfernen (fest auf genau 4 Elemente, siehe
+          Anforderungskatalog "vier vorgegebene Elemente"). */}
+      {form.type === "sortieren" && (
+        <div className="field">
+          <label>Elemente in der richtigen Reihenfolge</label>
+          <div className="stack">
+            {form.items.map((sortierenItem, index) => (
+              <div key={index} className="list-row-actions">
+                <span aria-hidden="true">{index + 1}.</span>
+                <input
+                  className="input"
+                  value={sortierenItem.text}
+                  placeholder={`Element ${index + 1}`}
+                  onChange={(event) => {
+                    const next = [...form.items];
+                    next[index] = { text: event.target.value };
+                    setField("items", next);
+                  }}
+                  required
+                />
+              </div>
+            ))}
+          </div>
+          <p className="field-hint">
+            Die Reihenfolge dieser vier Felder ist die richtige Reihenfolge — Lernende sehen die Elemente gemischt.
+          </p>
         </div>
       )}
 

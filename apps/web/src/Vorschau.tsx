@@ -10,6 +10,7 @@ import {
   McMultiStep,
   MultipleChoiceStep,
   QuadrantStep,
+  SortierenStep,
   TwoChoiceStep,
 } from "./QuizSteps";
 import { trpc } from "./trpc";
@@ -29,6 +30,7 @@ export function Vorschau() {
   const submitAnswer = trpc.preview.submitAnswer.useMutation();
   const submitMcMulti = trpc.preview.submitMcMulti.useMutation();
   const submitMatching = trpc.preview.submitMatching.useMutation();
+  const submitSortieren = trpc.preview.submitSortieren.useMutation();
   const submitQuadrant = trpc.preview.submitQuadrant.useMutation();
   const submitBlanks = trpc.preview.submitBlanks.useMutation();
   const submitKurzantwort = trpc.preview.submitKurzantwort.useMutation();
@@ -164,6 +166,16 @@ export function Vorschau() {
               onAnswered={handleAnswered}
               onNext={next}
               submit={submitMatching}
+            />
+          )}
+          {current.type === "sortieren" && (
+            <SortierenStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitSortieren}
             />
           )}
           {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff") && (

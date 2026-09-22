@@ -115,6 +115,11 @@ export const offlineRouter = router({
             isCorrect: option.isCorrect,
             side: option.side as "links" | "rechts" | null,
             groupKey: option.groupKey,
+            // F-113 Teil 2: RawAnswerOption (quiz-logic.ts, @edukedo/shared) verlangt seither
+            // sortOrder für alle Typen — für die hier offline unterstützten Typen (quiz_mc,
+            // zuordnung) bleibt der Wert ungenutzt (nur bei "sortieren" bewusst nicht offline
+            // verfügbar, siehe OFFLINE_CONTENT_TYPES).
+            sortOrder: option.sortOrder,
           })),
           progress,
         };

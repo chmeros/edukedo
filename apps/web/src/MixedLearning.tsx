@@ -16,6 +16,7 @@ import {
   McMultiStep,
   MultipleChoiceStep,
   QuadrantStep,
+  SortierenStep,
   TwoChoiceStep,
 } from "./QuizSteps";
 import { ReportContentButton } from "./ReportContentButton";
@@ -79,6 +80,7 @@ export function MixedLearning({
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMcMultiMutation = trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress });
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
+  const submitSortierenMutation = trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress });
   const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
   const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
@@ -333,6 +335,18 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitMatching}
+          canReport
+        />
+      )}
+      {/* F-113 Teil 2: bewusst nur online, wie F-114/F-115/F-116. */}
+      {current.kind === "quiz" && current.item.type === "sortieren" && (
+        <SortierenStep
+          key={current.item.id}
+          item={current.item}
+          isLast={isLast}
+          onAnswered={handleQuizAnswered}
+          onNext={next}
+          submit={submitSortierenMutation}
           canReport
         />
       )}

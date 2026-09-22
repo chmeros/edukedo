@@ -30,6 +30,10 @@ export interface OfflineAnswerOption {
   isCorrect: boolean;
   side: "links" | "rechts" | null;
   groupKey: string | null;
+  // F-113 Teil 2: RawAnswerOption (@edukedo/shared) verlangt seither sortOrder für alle Typen —
+  // für die hier offline unterstützten Typen bleibt der Wert ungenutzt ("sortieren" selbst ist
+  // bewusst nicht offline verfügbar).
+  sortOrder: number;
 }
 
 export interface OfflineContentItem {

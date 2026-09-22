@@ -5,6 +5,7 @@ import {
   checkMcAnswer,
   checkMcMultiAnswer,
   checkQuadrantAnswer,
+  checkSortierenAnswer,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
   quizItemsInputSchema,
@@ -15,6 +16,7 @@ import {
   submitMcMultiInputSchema,
   submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
+  submitSortierenInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
@@ -50,6 +52,7 @@ export const quizRouter = router({
         ...MC_LIKE_QUIZ_TYPES,
         "quiz_mc_multi",
         "zuordnung",
+        "sortieren",
         ...QUADRANT_QUIZ_TYPES,
         "luecken",
         "luecken_auswahl",
@@ -90,6 +93,7 @@ export const quizRouter = router({
           item.type === "quiz_mc_multi" ||
           (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
           item.type === "zuordnung" ||
+          item.type === "sortieren" ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
       )
       .map((item) => item.id);
@@ -154,6 +158,21 @@ export const quizRouter = router({
       options,
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+
+    return result;
+  }),
+
+  /** F-113 Teil 2: Sortieren-Reihenfolge auswerten — dieselbe answer_option-Grundlage wie
+   * submitMatching, aber eine positionsweise Prüfung gegen `sortOrder` (siehe checkSortierenAnswer). */
+  submitSortieren: protectedProcedure.input(submitSortierenInputSchema).mutation(async ({ ctx, input }) => {
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    const result = checkSortierenAnswer(options, input.orderedOptionIds);
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
 

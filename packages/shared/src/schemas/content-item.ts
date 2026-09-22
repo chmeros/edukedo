@@ -33,6 +33,11 @@ export const contentItemTypeSchema = z.enum([
   // dieselbe Bewertung wie "luecken", nur mit einem Wortpool (inkl. Distraktoren) statt freier
   // Texteingabe. Siehe lueckenAuswahlPayloadSchema.
   "luecken_auswahl",
+  // F-113 Teil 2 (Sortieren, Nutzer-Feedback vom 18.09.2026, erweitert F-21): vier vorgegebene
+  // Elemente per Drag-and-Drop in die richtige Reihenfolge bringen — dieselbe answer_option-
+  // Tabelle wie "zuordnung", `sort_order` trägt hier die richtige Position statt nur einer
+  // Anzeige-Reihenfolge, siehe checkSortierenAnswer in quiz-logic.ts.
+  "sortieren",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -145,6 +150,7 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("entweder_oder"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("was_passt_nicht"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("zuordnung"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("sortieren"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("swot"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("bsc"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),

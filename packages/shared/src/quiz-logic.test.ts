@@ -4,6 +4,7 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkSortierenAnswer,
   QuizItemNotFoundError,
   type RawAnswerOption,
   shapeQuizItem,
@@ -11,8 +12,8 @@ import {
 
 function mcOptions(): RawAnswerOption[] {
   return [
-    { id: "opt-a", contentItemId: "item-1", text: "Falsch A", side: null, groupKey: null, isCorrect: false },
-    { id: "opt-b", contentItemId: "item-1", text: "Richtig", side: null, groupKey: null, isCorrect: true },
+    { id: "opt-a", contentItemId: "item-1", text: "Falsch A", side: null, groupKey: null, isCorrect: false, sortOrder: 0 },
+    { id: "opt-b", contentItemId: "item-1", text: "Richtig", side: null, groupKey: null, isCorrect: true, sortOrder: 1 },
   ];
 }
 
@@ -33,10 +34,10 @@ describe("checkMcAnswer", () => {
 describe("checkMatching", () => {
   function options(): RawAnswerOption[] {
     return [
-      { id: "l1", contentItemId: "item-1", text: "Links 1", side: "links", groupKey: "g1", isCorrect: false },
-      { id: "l2", contentItemId: "item-1", text: "Links 2", side: "links", groupKey: "g2", isCorrect: false },
-      { id: "r1", contentItemId: "item-1", text: "Rechts 1", side: "rechts", groupKey: "g1", isCorrect: false },
-      { id: "r2", contentItemId: "item-1", text: "Rechts 2", side: "rechts", groupKey: "g2", isCorrect: false },
+      { id: "l1", contentItemId: "item-1", text: "Links 1", side: "links", groupKey: "g1", isCorrect: false, sortOrder: 0 },
+      { id: "l2", contentItemId: "item-1", text: "Links 2", side: "links", groupKey: "g2", isCorrect: false, sortOrder: 1 },
+      { id: "r1", contentItemId: "item-1", text: "Rechts 1", side: "rechts", groupKey: "g1", isCorrect: false, sortOrder: 0 },
+      { id: "r2", contentItemId: "item-1", text: "Rechts 2", side: "rechts", groupKey: "g2", isCorrect: false, sortOrder: 1 },
     ];
   }
 
@@ -90,6 +91,39 @@ describe("checkKurzantwort", () => {
   it("prüft im Modus 'contains' auf Teilübereinstimmung", () => {
     const payload = { accepted_answers: ["Nachweisgesetz"], match_mode: "contains" as const };
     expect(checkKurzantwort(payload, "Das Nachweisgesetz regelt das.").isCorrect).toBe(true);
+  });
+});
+
+describe("checkSortierenAnswer", () => {
+  function options(): RawAnswerOption[] {
+    return [
+      { id: "a", contentItemId: "item-1", text: "Planung", side: null, groupKey: null, isCorrect: false, sortOrder: 0 },
+      { id: "b", contentItemId: "item-1", text: "Durchführung", side: null, groupKey: null, isCorrect: false, sortOrder: 1 },
+      { id: "c", contentItemId: "item-1", text: "Kontrolle", side: null, groupKey: null, isCorrect: false, sortOrder: 2 },
+      { id: "d", contentItemId: "item-1", text: "Abschluss", side: null, groupKey: null, isCorrect: false, sortOrder: 3 },
+    ];
+  }
+
+  it("erkennt die exakt richtige Reihenfolge", () => {
+    const result = checkSortierenAnswer(options(), ["a", "b", "c", "d"]);
+    expect(result).toEqual({
+      results: { a: true, b: true, c: true, d: true },
+      correctOrder: ["a", "b", "c", "d"],
+      correctCount: 4,
+      total: 4,
+    });
+  });
+
+  it("zählt nur die Positionen richtig, die tatsächlich übereinstimmen", () => {
+    // a und d bleiben richtig, b/c sind vertauscht.
+    const result = checkSortierenAnswer(options(), ["a", "c", "b", "d"]);
+    expect(result.results).toEqual({ a: true, c: false, b: false, d: true });
+    expect(result.correctCount).toBe(2);
+    expect(result.total).toBe(4);
+  });
+
+  it("wirft QuizItemNotFoundError, wenn keine Optionen vorhanden sind", () => {
+    expect(() => checkSortierenAnswer([], [])).toThrow(QuizItemNotFoundError);
   });
 });
 

@@ -11,6 +11,7 @@ import {
   McMultiStep,
   MultipleChoiceStep,
   QuadrantStep,
+  SortierenStep,
   TwoChoiceStep,
 } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
@@ -59,6 +60,7 @@ export function Quiz({
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
   const submitMcMultiMutation = trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress });
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
+  const submitSortierenMutation = trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress });
   const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
   const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
@@ -227,6 +229,19 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitMatching}
+          canReport
+        />
+      )}
+      {/* F-113 Teil 2: bewusst nur online, wie F-114/F-115/F-116 (siehe Architekturplanung
+          Abschnitt 13). */}
+      {current.type === "sortieren" && (
+        <SortierenStep
+          key={current.id}
+          item={current}
+          isLast={isLast}
+          onAnswered={handleAnswered}
+          onNext={next}
+          submit={submitSortierenMutation}
           canReport
         />
       )}

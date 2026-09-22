@@ -33,6 +33,10 @@ const promptSchema = z.string().min(1).max(2000);
 const explanationSchema = z.string().max(4000).nullable().optional();
 const answerOptionFormSchema = z.object({ text: z.string().min(1).max(500), isCorrect: z.boolean() });
 const zuordnungPairFormSchema = z.object({ left: z.string().min(1).max(300), right: z.string().min(1).max(300) });
+// F-113 Teil 2 (Sortieren): die EINGABE-Reihenfolge im Formular IST die richtige Reihenfolge —
+// kein separates Positions-Feld, die Redaktion trägt die vier Elemente schlicht in der korrekten
+// Abfolge ein (siehe adminContent.ts, prepareContent: sortOrder = Array-Index).
+const sortierenItemFormSchema = z.object({ text: z.string().min(1).max(300) });
 // F-114: `zoneKey` referenziert einen der festen Zonen-Schlüssel aus QUADRANT_MODELS (siehe
 // quiz-logic.ts) — hier bewusst nur als String validiert, die Zugehörigkeit zum richtigen
 // Modell prüft das .refine() unten (dort ist der `type`-Zweig bereits bekannt).
@@ -109,6 +113,16 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     prompt: promptSchema,
     explanation: explanationSchema,
     pairs: z.array(zuordnungPairFormSchema).min(2).max(10),
+    ...commonFormFields,
+  }),
+  // F-113 Teil 2 (Nutzer-Feedback vom 18.09.2026, erweitert F-21): "Sortieren" — bewusst fest auf
+  // genau 4 Elemente begrenzt (Anforderungskatalog: "vier vorgegebene Elemente"), wie bei
+  // wahr_falsch/entweder_oder kein Hinzufügen/Entfernen im Formular.
+  z.object({
+    type: z.literal("sortieren"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    items: z.array(sortierenItemFormSchema).length(4),
     ...commonFormFields,
   }),
   // F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung): SWOT-Matrix, Balanced

@@ -1685,6 +1685,158 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-113 Teil 2: Sortieren ist über Admin-Redaktion anlegbar (fest 4 Elemente), liefert die Elemente gemischt ohne Lösung und wertet eine teilweise richtige Reihenfolge positionsweise aus",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f113teil2@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      // Nur 3 statt 4 Elemente — am Formular-Schema abgelehnt (Anforderungskatalog: "vier
+      // vorgegebene Elemente").
+      const tooFewItemsResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "sortieren",
+          themaId,
+          prompt: "F-113-Teil-2-Testfrage: Ungültig (nur 3 Elemente)",
+          explanation: null,
+          items: [{ text: "A" }, { text: "B" }, { text: "C" }],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(tooFewItemsResponse.statusCode).toBe(400);
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "sortieren",
+          themaId,
+          prompt: "F-113-Teil-2-Testfrage: Bringe die Prozessphasen in die richtige Reihenfolge.",
+          explanation: "Testerklärung",
+          items: [{ text: "Planung" }, { text: "Durchführung" }, { text: "Kontrolle" }, { text: "Abschluss" }],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const sortierenId = createResponse.json().result.data.id as string;
+
+      // quiz.quizItems (Lernenden-Sicht) liefert die vier Elemente gemischt, ohne jeden Hinweis
+      // auf die richtige Reihenfolge.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        items?: { id: string; text: string }[];
+      }[];
+      const sortierenItem = quizItems.find((candidate) => candidate.id === sortierenId)!;
+      expect(sortierenItem.type).toBe("sortieren");
+      expect(sortierenItem.items).toHaveLength(4);
+      expect(sortierenItem.items!.map((element) => element.text).sort()).toEqual(
+        ["Abschluss", "Durchführung", "Kontrolle", "Planung"].sort(),
+      );
+
+      const byText = (text: string) => sortierenItem.items!.find((element) => element.text === text)!;
+
+      // Exakt richtige Reihenfolge.
+      const correctSubmitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitSortieren",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: sortierenId,
+          orderedOptionIds: [
+            byText("Planung").id,
+            byText("Durchführung").id,
+            byText("Kontrolle").id,
+            byText("Abschluss").id,
+          ],
+        },
+      });
+      expect(correctSubmitResponse.statusCode).toBe(200);
+      const correctResult = correctSubmitResponse.json().result.data as {
+        results: Record<string, boolean>;
+        correctOrder: string[];
+        correctCount: number;
+        total: number;
+      };
+      expect(correctResult.correctCount).toBe(4);
+      expect(correctResult.total).toBe(4);
+      expect(correctResult.correctOrder).toEqual([
+        byText("Planung").id,
+        byText("Durchführung").id,
+        byText("Kontrolle").id,
+        byText("Abschluss").id,
+      ]);
+
+      // "Durchführung" und "Kontrolle" vertauscht — Planung/Abschluss bleiben an ihrer
+      // richtigen Position, die beiden mittleren zählen als falsch.
+      const partialSubmitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitSortieren",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: sortierenId,
+          orderedOptionIds: [
+            byText("Planung").id,
+            byText("Kontrolle").id,
+            byText("Durchführung").id,
+            byText("Abschluss").id,
+          ],
+        },
+      });
+      const partialResult = partialSubmitResponse.json().result.data as {
+        results: Record<string, boolean>;
+        correctCount: number;
+        total: number;
+      };
+      expect(partialResult.correctCount).toBe(2);
+      expect(partialResult.results[byText("Planung").id]).toBe(true);
+      expect(partialResult.results[byText("Abschluss").id]).toBe(true);
+      expect(partialResult.results[byText("Kontrolle").id]).toBe(false);
+      expect(partialResult.results[byText("Durchführung").id]).toBe(false);
+
+      // adminContent.get reshaped die Elemente in der ursprünglich eingegebenen (richtigen)
+      // Reihenfolge für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: sortierenId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as { type: string; items: { text: string }[] };
+      expect(detail.type).toBe("sortieren");
+      expect(detail.items.map((element) => element.text)).toEqual(["Planung", "Durchführung", "Kontrolle", "Abschluss"]);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

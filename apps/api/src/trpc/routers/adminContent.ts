@@ -77,6 +77,20 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
           { text: pair.right, isCorrect: false, groupKey: String(index), side: "rechts", sortOrder: index },
         ]),
       };
+    // F-113 Teil 2 (Sortieren): die Formular-Eingabereihenfolge IST die richtige Reihenfolge —
+    // `sortOrder` trägt hier (anders als bei quiz_mc/zuordnung, wo er rein kosmetisch ist) die
+    // tatsächlich zu prüfende Position, siehe checkSortierenAnswer in quiz-logic.ts.
+    case "sortieren":
+      return {
+        prompt: input.prompt,
+        explanation: input.explanation ?? null,
+        payload: {},
+        answerOptions: input.items.map((sortierenItem, index) => ({
+          text: sortierenItem.text,
+          isCorrect: false,
+          sortOrder: index,
+        })),
+      };
     // F-114: swot/bsc/ansoff sind eine visuelle Zuordnungs-Variante — dieselbe answer_option-
     // Tabelle wie "zuordnung", aber `groupKey` trägt hier den (festen) Zonen-Schlüssel des
     // Begriffs statt einer Paar-ID, und `side` bleibt ungesetzt (nur zwei Spalten kennen Seiten).
@@ -255,6 +269,24 @@ export const adminContentRouter = router({
         byGroup.set(key, entry);
       }
       return { type: "zuordnung" as const, ...common, prompt: item.prompt, explanation: item.explanation, pairs: [...byGroup.values()] };
+    }
+
+    // F-113 Teil 2: Sortieren lädt nach sortOrder (bereits die richtige Reihenfolge, siehe
+    // prepareContent) — die Array-Reihenfolge im Formular ist selbst die Kodierung, kein
+    // separates Positions-Feld nötig.
+    if (item.type === "sortieren") {
+      const rows = await ctx.db
+        .select()
+        .from(answerOption)
+        .where(eq(answerOption.contentItemId, item.id))
+        .orderBy(asc(answerOption.sortOrder));
+      return {
+        type: "sortieren" as const,
+        ...common,
+        prompt: item.prompt,
+        explanation: item.explanation,
+        items: rows.map((row) => ({ text: row.text })),
+      };
     }
 
     // F-114: swot/bsc/ansoff laden genau wie zuordnung, aber flach als terms (kein Paar-Konzept).

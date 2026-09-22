@@ -43,6 +43,10 @@ export interface RawAnswerOption {
   side: string | null;
   groupKey: string | null;
   isCorrect: boolean;
+  // F-113 Teil 2 (Sortieren): trägt hier die RICHTIGE Position (0-basiert) statt nur einer
+  // Anzeige-Reihenfolge — Wiederverwendung derselben Spalte, die bei anderen Typen (quiz_mc,
+  // zuordnung, …) rein kosmetisch ist, siehe checkSortierenAnswer unten.
+  sortOrder: number;
 }
 
 /**
@@ -149,7 +153,8 @@ export type ShapedQuizItem =
       prompt: string;
       zones: { key: string; label: string }[];
       terms: { id: string; text: string }[];
-    };
+    }
+  | { id: string; type: "sortieren"; prompt: string; items: { id: string; text: string }[] };
 
 /** Formt eine rohe content_item-Zeile (+ zugehörige answer_option-Zeilen) in die
  * öffentliche, lösungsfreie Darstellung — nie die richtige Antwort/Zuordnung/Lösung
@@ -180,6 +185,23 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
       ),
       right: shuffle(
         itemOptions.filter((option) => option.side === "rechts").map((option) => ({ id: option.id, text: option.text })),
+      ),
+    };
+  }
+
+  // F-113 Teil 2 (Sortieren, Nutzer-Feedback vom 18.09.2026, erweitert F-21): dieselbe
+  // answer_option-Tabelle wie "zuordnung", `sort_order` trägt hier aber die RICHTIGE Position
+  // statt nur einer Anzeige-Reihenfolge — deshalb hier gemischt ausgegeben (shuffle), sonst
+  // würde die Lade-Reihenfolge selbst schon die Lösung verraten.
+  if (item.type === "sortieren") {
+    return {
+      id: item.id,
+      type: "sortieren",
+      prompt: item.prompt,
+      items: shuffle(
+        options
+          .filter((option) => option.contentItemId === item.id)
+          .map((option) => ({ id: option.id, text: option.text })),
       ),
     };
   }
@@ -261,6 +283,30 @@ export function checkMcMultiAnswer(options: RawAnswerOption[], selectedOptionIds
     selectedSet.size === correctSet.size && [...selectedSet].every((id) => correctSet.has(id));
 
   return { isCorrect, correctOptionIds };
+}
+
+/**
+ * F-113 Teil 2 (Sortieren): prüft eine eingereichte Reihenfolge (Options-IDs in der von der
+ * lernenden Person gewählten Abfolge) gegen `option.sortOrder` als die tatsächlich richtige
+ * Position. Positionsweise ausgewertet (nicht "irgendwo richtig platziert") — ein Element an
+ * der falschen Stelle zählt als falsch, auch wenn es später noch einmal vorkäme (kommt bei
+ * eindeutigen Elementen ohnehin nicht vor).
+ */
+export function checkSortierenAnswer(options: RawAnswerOption[], orderedOptionIds: string[]) {
+  if (options.length === 0) {
+    throw new QuizItemNotFoundError("Frage nicht gefunden.");
+  }
+
+  const correctOrder = [...options].sort((a, b) => a.sortOrder - b.sortOrder).map((option) => option.id);
+  const results: Record<string, boolean> = {};
+  let correctCount = 0;
+  orderedOptionIds.forEach((optionId, index) => {
+    const isCorrect = correctOrder[index] === optionId;
+    results[optionId] = isCorrect;
+    if (isCorrect) correctCount += 1;
+  });
+
+  return { results, correctOrder, correctCount, total: correctOrder.length };
 }
 
 export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId: string; rightOptionId: string }[]) {

@@ -37,6 +37,18 @@ export const submitMatchingInputSchema = z.object({
 export type SubmitMatchingInput = z.infer<typeof submitMatchingInputSchema>;
 
 /**
+ * F-113 Teil 2 (Sortieren-Teil): eingereichte Reihenfolge als Options-IDs in der von der
+ * lernenden Person gewählten Abfolge — welche Position tatsächlich richtig ist
+ * (answer_option.sort_order), wird erst hier serverseitig geprüft. Fest auf genau 4 Elemente
+ * begrenzt (Anforderungskatalog: "vier vorgegebene Elemente").
+ */
+export const submitSortierenInputSchema = z.object({
+  contentItemId: z.string().uuid(),
+  orderedOptionIds: z.array(z.string().uuid()).length(4),
+});
+export type SubmitSortierenInput = z.infer<typeof submitSortierenInputSchema>;
+
+/**
  * F-21 (Lückentext-Teil): eingegebene Antworten je Lücken-ID (content_item.payload.blanks[].id).
  */
 export const submitBlanksInputSchema = z.object({
