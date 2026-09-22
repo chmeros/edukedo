@@ -6,6 +6,7 @@ import {
   checkMcMultiAnswer,
   checkQuadrantAnswer,
   checkSortierenAnswer,
+  GANTT_QUIZ_TYPE,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
   quizItemsInputSchema,
@@ -54,6 +55,7 @@ export const quizRouter = router({
         "zuordnung",
         "sortieren",
         ...QUADRANT_QUIZ_TYPES,
+        GANTT_QUIZ_TYPE,
         "luecken",
         "luecken_auswahl",
         "kurzantwort",
@@ -94,6 +96,7 @@ export const quizRouter = router({
           (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
           item.type === "zuordnung" ||
           item.type === "sortieren" ||
+          item.type === GANTT_QUIZ_TYPE ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
       )
       .map((item) => item.id);

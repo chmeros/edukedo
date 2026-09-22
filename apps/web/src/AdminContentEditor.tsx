@@ -21,6 +21,9 @@ const TYPE_LABELS: Record<string, string> = {
   swot: "Quiz · SWOT-Matrix",
   bsc: "Quiz · Balanced Scorecard",
   ansoff: "Quiz · Ansoff-Matrix",
+  // F-114 Teil 2: wie swot/bsc/ansoff, aber die Zeitabschnitte sind content-autoriert statt fest
+  // im Code (siehe Architekturplanung Abschnitt 13).
+  gantt: "Quiz · Gantt-Diagramm",
   luecken: "Quiz · Lückentext",
   // F-115: Alternative Bedienform — Wörter per Drag-and-Drop aus einem Pool statt Freitext.
   luecken_auswahl: "Quiz · Lückentext (Wortauswahl)",
@@ -110,6 +113,22 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
         prompt: "",
         explanation: "",
         terms: QUADRANT_MODELS[type].zones.map((zone) => ({ text: "", zoneKey: zone.key })),
+        ...common,
+      };
+    // F-114 Teil 2: zwei leere Zeitabschnitte als Starthilfe, je zwei leere Begriffe pro
+    // Abschnitt (Mindestanzahl 4 Begriffe, siehe adminContentItemFormUnion).
+    case "gantt":
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        periods: ["Phase 1", "Phase 2"],
+        terms: [
+          { text: "", periodIndex: 0 },
+          { text: "", periodIndex: 0 },
+          { text: "", periodIndex: 1 },
+          { text: "", periodIndex: 1 },
+        ],
         ...common,
       };
     case "luecken":
@@ -540,6 +559,119 @@ function ContentItemForm({
             )}
           </div>
         </div>
+      )}
+
+      {/* F-114 Teil 2 (Gantt-Diagramm, siehe Architekturplanung Abschnitt 13): wie swot/bsc/ansoff,
+          aber die Zeitabschnitte sind hier selbst Teil des Formulars statt fest im Code — beim
+          Entfernen eines Abschnitts werden referenzierende Begriffe auf den ersten verbleibenden
+          Abschnitt zurückgesetzt statt eine ungültige Referenz zu behalten. */}
+      {form.type === "gantt" && (
+        <>
+          <div className="field">
+            <label>Zeitabschnitte</label>
+            <div className="stack">
+              {form.periods.map((period, index) => (
+                <div key={index} className="list-row-actions">
+                  <input
+                    className="input"
+                    value={period}
+                    placeholder={`Zeitabschnitt ${index + 1}, z. B. „Woche 1–2"`}
+                    onChange={(event) => {
+                      const next = [...form.periods];
+                      next[index] = event.target.value;
+                      setField("periods", next);
+                    }}
+                    required
+                  />
+                  {form.periods.length > 2 && (
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      onClick={() => {
+                        const nextPeriods = form.periods.filter((_, i) => i !== index);
+                        const nextTerms = form.terms.map((term) =>
+                          term.periodIndex === index
+                            ? { ...term, periodIndex: 0 }
+                            : term.periodIndex > index
+                              ? { ...term, periodIndex: term.periodIndex - 1 }
+                              : term,
+                        );
+                        setField("periods", nextPeriods);
+                        setField("terms", nextTerms);
+                      }}
+                    >
+                      Entfernen
+                    </button>
+                  )}
+                </div>
+              ))}
+              {form.periods.length < 6 && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                  onClick={() => setField("periods", [...form.periods, ""])}
+                >
+                  Zeitabschnitt hinzufügen
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="field">
+            <label>Begriffe (je einem Zeitabschnitt zugeordnet)</label>
+            <div className="stack">
+              {form.terms.map((term, index) => (
+                <div key={index} className="list-row-actions">
+                  <input
+                    className="input"
+                    value={term.text}
+                    placeholder={`Begriff ${index + 1}`}
+                    onChange={(event) => {
+                      const next = [...form.terms];
+                      next[index] = { ...next[index]!, text: event.target.value };
+                      setField("terms", next);
+                    }}
+                    required
+                  />
+                  <select
+                    className="input"
+                    value={term.periodIndex}
+                    onChange={(event) => {
+                      const next = [...form.terms];
+                      next[index] = { ...next[index]!, periodIndex: Number(event.target.value) };
+                      setField("terms", next);
+                    }}
+                  >
+                    {form.periods.map((period, periodIndex) => (
+                      <option key={periodIndex} value={periodIndex}>
+                        {period || `Zeitabschnitt ${periodIndex + 1}`}
+                      </option>
+                    ))}
+                  </select>
+                  {form.terms.length > 4 && (
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      onClick={() => setField("terms", form.terms.filter((_, i) => i !== index))}
+                    >
+                      Entfernen
+                    </button>
+                  )}
+                </div>
+              ))}
+              {form.terms.length < 20 && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                  onClick={() => setField("terms", [...form.terms, { text: "", periodIndex: 0 }])}
+                >
+                  Begriff hinzufügen
+                </button>
+              )}
+            </div>
+          </div>
+        </>
       )}
 
       {form.type === "luecken" && (

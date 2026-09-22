@@ -247,8 +247,10 @@ export function Quiz({
       )}
       {/* F-114: bewusst nur online (siehe Architekturplanung Abschnitt 13) — offline kommt diese
           Frage über offlineRound gar nicht erst vor, `submitQuadrantMutation` wird hier also nur
-          erreicht, wenn `online` ohnehin true ist. */}
-      {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff") && (
+          erreicht, wenn `online` ohnehin true ist. F-114 Teil 2: "gantt" nutzt denselben
+          QuadrantStep/submitQuadrantMutation unverändert mit — die Komponente ist bereits generisch
+          über item.zones/item.terms. */}
+      {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff" || current.type === "gantt") && (
         <QuadrantStep
           key={current.id}
           item={current}

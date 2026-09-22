@@ -178,7 +178,11 @@ export function Vorschau() {
               submit={submitSortieren}
             />
           )}
-          {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff") && (
+          {/* F-114 Teil 2: "gantt" nutzt denselben QuadrantStep unverändert mit. */}
+          {(current.type === "swot" ||
+            current.type === "bsc" ||
+            current.type === "ansoff" ||
+            current.type === "gantt") && (
             <QuadrantStep
               key={current.id}
               item={current}

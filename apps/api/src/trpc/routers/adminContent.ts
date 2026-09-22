@@ -7,6 +7,7 @@ import {
   adminUpdateContentItemInputSchema,
   fachgespraechFragePayloadSchema,
   fallaufgabePayloadSchema,
+  ganttPayloadSchema,
   kurzantwortPayloadSchema,
   lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
@@ -108,6 +109,25 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
           sortOrder: index,
         })),
       };
+    // F-114 Teil 2 (Gantt-Diagramm): wie swot/bsc/ansoff, aber die Zonen (hier: Zeitabschnitte)
+    // kommen aus dem Formular selbst statt aus QUADRANT_MODELS — deshalb NICHT payload: {},
+    // sondern die generierten Schlüssel+Beschriftungen im payload abgelegt (ganttPayloadSchema).
+    // `periodIndex` referenziert `input.periods` per Array-Index, `groupKey` trägt den daraus
+    // generierten Schlüssel (analog zu term.zoneKey bei den anderen drei Modellen).
+    case "gantt": {
+      const periods = input.periods.map((label, index) => ({ key: `p${index}`, label }));
+      return {
+        prompt: input.prompt,
+        explanation: input.explanation ?? null,
+        payload: { periods },
+        answerOptions: input.terms.map((term, index) => ({
+          text: term.text,
+          isCorrect: false,
+          groupKey: periods[term.periodIndex]!.key,
+          sortOrder: index,
+        })),
+      };
+    }
     case "luecken": {
       const { textWithBlanks, blanks } = parseLueckentext(input.lueckentextSource);
       if (blanks.length === 0) {
@@ -302,6 +322,29 @@ export const adminContentRouter = router({
         prompt: item.prompt,
         explanation: item.explanation,
         terms: rows.map((row) => ({ text: row.text, zoneKey: row.groupKey ?? "" })),
+      };
+    }
+
+    // F-114 Teil 2 (Gantt-Diagramm): wie swot/bsc/ansoff, aber die Zonen-Beschriftungen kommen
+    // aus dem payload statt aus QUADRANT_MODELS — `periodIndex` wird hier aus `group_key` zurück
+    // auf den Array-Index in `payload.periods` aufgelöst (Umkehrung von prepareContent oben).
+    if (item.type === "gantt") {
+      const payload = ganttPayloadSchema.parse(item.payload);
+      const rows = await ctx.db
+        .select()
+        .from(answerOption)
+        .where(eq(answerOption.contentItemId, item.id))
+        .orderBy(asc(answerOption.sortOrder));
+      return {
+        type: "gantt" as const,
+        ...common,
+        prompt: item.prompt,
+        explanation: item.explanation,
+        periods: payload.periods.map((period) => period.label),
+        terms: rows.map((row) => ({
+          text: row.text,
+          periodIndex: Math.max(0, payload.periods.findIndex((period) => period.key === row.groupKey)),
+        })),
       };
     }
 

@@ -1837,6 +1837,156 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-114 Teil 2: Gantt-Diagramm ist über Admin-Redaktion mit content-autorierten Zeitabschnitten anlegbar, liefert diese ohne Lösung und wird über den bestehenden submitQuadrant-Endpunkt korrekt (teilweise) ausgewertet",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f114teil2@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      // Ein Begriff referenziert einen nicht existierenden Zeitabschnitt (Index 2 bei nur 2
+      // Zeitabschnitten) — am Formular-Schema abgelehnt (siehe admin-content.ts).
+      const invalidPeriodResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "gantt",
+          themaId,
+          prompt: "Ungültiger Zeitabschnitt",
+          explanation: null,
+          periods: ["Planung", "Umsetzung"],
+          terms: [
+            { text: "A", periodIndex: 0 },
+            { text: "B", periodIndex: 0 },
+            { text: "C", periodIndex: 1 },
+            { text: "D", periodIndex: 2 },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(invalidPeriodResponse.statusCode).toBe(400);
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "gantt",
+          themaId,
+          prompt: "F-114-Teil-2-Testfrage: Ordne die Aufgaben den Projektphasen zu.",
+          explanation: "Testerklärung",
+          periods: ["Planung", "Umsetzung", "Abschluss"],
+          terms: [
+            { text: "Bedarfsanalyse", periodIndex: 0 },
+            { text: "Zeitplan erstellen", periodIndex: 0 },
+            { text: "Programmierung", periodIndex: 1 },
+            { text: "Abnahme", periodIndex: 2 },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const ganttId = createResponse.json().result.data.id as string;
+
+      // quiz.quizItems (Lernenden-Sicht) liefert die content-autorierten Zeitabschnitte als
+      // Zonen-Labels, aber nie group_key/isCorrect der Begriffe — dieselbe Form wie bei
+      // swot/bsc/ansoff (siehe checkQuadrantAnswer-Doku in quiz-logic.ts).
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        zones?: { key: string; label: string }[];
+        terms?: { id: string; text: string }[];
+      }[];
+      const ganttItem = quizItems.find((item) => item.id === ganttId)!;
+      expect(ganttItem.type).toBe("gantt");
+      expect(ganttItem.zones!.map((zone) => zone.label)).toEqual(["Planung", "Umsetzung", "Abschluss"]);
+      expect(ganttItem.terms).toHaveLength(4);
+      expect(ganttItem.terms!.some((term) => "zoneKey" in term || "isCorrect" in term)).toBe(false);
+
+      const planungKey = ganttItem.zones!.find((zone) => zone.label === "Planung")!.key;
+      const umsetzungKey = ganttItem.zones!.find((zone) => zone.label === "Umsetzung")!.key;
+      const abschlussKey = ganttItem.zones!.find((zone) => zone.label === "Abschluss")!.key;
+      const byText = (text: string) => ganttItem.terms!.find((term) => term.text === text)!;
+
+      // "Programmierung" gehört zu "Umsetzung", hier absichtlich als "Abschluss" eingereicht —
+      // dieselbe checkQuadrantAnswer-Auswertung wie bei swot/bsc/ansoff, unverändert wiederverwendet.
+      const submitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitQuadrant",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: ganttId,
+          placements: [
+            { optionId: byText("Bedarfsanalyse").id, zoneKey: planungKey },
+            { optionId: byText("Zeitplan erstellen").id, zoneKey: planungKey },
+            { optionId: byText("Programmierung").id, zoneKey: abschlussKey },
+            { optionId: byText("Abnahme").id, zoneKey: abschlussKey },
+          ],
+        },
+      });
+      expect(submitResponse.statusCode).toBe(200);
+      const result = submitResponse.json().result.data as {
+        results: Record<string, boolean>;
+        correctZones: Record<string, string>;
+        correctCount: number;
+        total: number;
+      };
+      expect(result.correctCount).toBe(3);
+      expect(result.total).toBe(4);
+      expect(result.results[byText("Programmierung").id]).toBe(false);
+      expect(result.correctZones[byText("Programmierung").id]).toBe(umsetzungKey);
+
+      // adminContent.get reshaped die Zeitabschnitte (Labels) und Begriffe (inkl. periodIndex,
+      // aus group_key zurückaufgelöst) für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: ganttId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as {
+        type: string;
+        periods: string[];
+        terms: { text: string; periodIndex: number }[];
+      };
+      expect(detail.type).toBe("gantt");
+      expect(detail.periods).toEqual(["Planung", "Umsetzung", "Abschluss"]);
+      expect(detail.terms).toEqual(
+        expect.arrayContaining([
+          { text: "Bedarfsanalyse", periodIndex: 0 },
+          { text: "Zeitplan erstellen", periodIndex: 0 },
+          { text: "Programmierung", periodIndex: 1 },
+          { text: "Abnahme", periodIndex: 2 },
+        ]),
+      );
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

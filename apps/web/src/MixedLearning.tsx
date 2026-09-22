@@ -351,9 +351,13 @@ export function MixedLearning({
         />
       )}
       {/* F-114: bewusst nur online, siehe Architekturplanung Abschnitt 13 — offline kommt diese
-          Frage über offlineRound gar nicht erst vor. */}
+          Frage über offlineRound gar nicht erst vor. F-114 Teil 2: "gantt" nutzt denselben
+          QuadrantStep/submitQuadrantMutation unverändert mit. */}
       {current.kind === "quiz" &&
-        (current.item.type === "swot" || current.item.type === "bsc" || current.item.type === "ansoff") && (
+        (current.item.type === "swot" ||
+          current.item.type === "bsc" ||
+          current.item.type === "ansoff" ||
+          current.item.type === "gantt") && (
           <QuadrantStep
             key={current.item.id}
             item={current.item}

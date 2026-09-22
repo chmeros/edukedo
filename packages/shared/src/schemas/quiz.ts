@@ -81,7 +81,10 @@ export type SubmitMcMultiInput = z.infer<typeof submitMcMultiInputSchema>;
 /**
  * F-114 (SWOT/BSC/Ansoff-Teil): eingereichte Zonen-Platzierung je Begriff (answer_option-ID →
  * Zonen-Schlüssel, siehe QUADRANT_MODELS in quiz-logic.ts). Welche Zone tatsächlich richtig
- * ist (answer_option.group_key), wird ebenfalls erst hier serverseitig geprüft.
+ * ist (answer_option.group_key), wird ebenfalls erst hier serverseitig geprüft. F-114 Teil 2
+ * (Gantt-Diagramm): bewusst UNVERÄNDERT wiederverwendet — `zoneKey` ist bereits ein freier
+ * String, unabhängig davon, ob er aus QUADRANT_MODELS oder einem content-autorierten payload
+ * stammt.
  */
 export const submitQuadrantInputSchema = z.object({
   contentItemId: z.string().uuid(),

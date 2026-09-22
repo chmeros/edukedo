@@ -1,4 +1,9 @@
-import { kurzantwortPayloadSchema, lueckenAuswahlPayloadSchema, lueckenPayloadSchema } from "./schemas/content-item";
+import {
+  ganttPayloadSchema,
+  kurzantwortPayloadSchema,
+  lueckenAuswahlPayloadSchema,
+  lueckenPayloadSchema,
+} from "./schemas/content-item";
 
 /**
  * Reine Formungs-/Prüflogik für Quiz-Items (F-21) — ursprünglich nur in apps/api geteilt
@@ -109,6 +114,17 @@ export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof
 export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
 
 /**
+ * F-114 Teil 2 (Gantt-Diagramm, Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung, siehe
+ * Architekturplanung Abschnitt 13): derselbe "Begriffe in feste Zonen ziehen"-Mechanik wie
+ * QUADRANT_QUIZ_TYPES — bewusst NICHT als vierter Eintrag in QUADRANT_MODELS, weil die Zonen
+ * dort fest im Code stehen (ein SWOT-Feld hat immer dieselben vier Zonen), während die
+ * Zeitabschnitte eines Gantt-Diagramms projektspezifisch und daher content-autoriert sind
+ * (`ganttPayloadSchema`, content-item.ts). `checkQuadrantAnswer` (unten) ist bereits vollständig
+ * generisch über `groupKey`/`zoneKey` und wird für "gantt" UNVERÄNDERT wiederverwendet.
+ */
+export const GANTT_QUIZ_TYPE = "gantt" as const;
+
+/**
  * F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice, Nutzer-Entscheidung
  * 22.09.2026, siehe Architekturplanung Abschnitt 13): Mehrfachauswahl — strukturell dieselbe
  * answer_option-Grundlage wie MC_LIKE_QUIZ_TYPES (N Options, hier aber 1–N davon `isCorrect`
@@ -149,7 +165,7 @@ export type ShapedQuizItem =
   | { id: string; type: "kurzantwort"; prompt: string }
   | {
       id: string;
-      type: QuadrantQuizType;
+      type: QuadrantQuizType | typeof GANTT_QUIZ_TYPE;
       prompt: string;
       zones: { key: string; label: string }[];
       terms: { id: string; text: string }[];
@@ -249,6 +265,23 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
     };
   }
 
+  // F-114 Teil 2 (Gantt-Diagramm): wie die QUADRANT_QUIZ_TYPES-Zweig oben, aber die Zonen
+  // (hier: Zeitabschnitte) kommen aus dem content-autorierten payload statt aus QUADRANT_MODELS.
+  if (item.type === GANTT_QUIZ_TYPE) {
+    const payload = ganttPayloadSchema.parse(item.payload);
+    return {
+      id: item.id,
+      type: GANTT_QUIZ_TYPE,
+      prompt: item.prompt,
+      zones: payload.periods,
+      terms: shuffle(
+        options
+          .filter((option) => option.contentItemId === item.id)
+          .map((option) => ({ id: option.id, text: option.text })),
+      ),
+    };
+  }
+
   return { id: item.id, type: "kurzantwort", prompt: item.prompt };
 }
 
@@ -338,7 +371,10 @@ export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId:
  * (options.group_key trägt hier die richtige Zone statt einer Paar-ID), aber N Zonen statt
  * exakt zwei Seiten. Ein Begriff ohne Platzierung (nicht in `placements` enthalten) zählt als
  * falsch, nicht als übersprungen — das Frontend lässt "Antwort prüfen" ohnehin erst zu, wenn
- * alle Begriffe platziert sind (siehe QuizSteps.tsx QuadrantStep).
+ * alle Begriffe platziert sind (siehe QuizSteps.tsx QuadrantStep). F-114 Teil 2 (Gantt-Diagramm):
+ * bewusst UNVERÄNDERT für "gantt" wiederverwendet — die Funktion kennt keine konkreten
+ * Zonen-Schlüssel, ob diese aus QUADRANT_MODELS oder einem content-autorierten payload stammen,
+ * ist ihr gleichgültig.
  */
 export function checkQuadrantAnswer(options: RawAnswerOption[], placements: { optionId: string; zoneKey: string }[]) {
   if (options.length === 0) {

@@ -1,6 +1,7 @@
 import {
   activeKursInputSchema,
   exerciseSetIdInputSchema,
+  GANTT_QUIZ_TYPE,
   initialProgressState,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
@@ -492,6 +493,7 @@ export const progressRouter = router({
             "zuordnung",
             "sortieren",
             ...QUADRANT_QUIZ_TYPES,
+            GANTT_QUIZ_TYPE,
             "luecken",
             "luecken_auswahl",
             "kurzantwort",
@@ -629,6 +631,7 @@ export const progressRouter = router({
             "zuordnung",
             "sortieren",
             ...QUADRANT_QUIZ_TYPES,
+            GANTT_QUIZ_TYPE,
             "luecken",
             "luecken_auswahl",
             "kurzantwort",

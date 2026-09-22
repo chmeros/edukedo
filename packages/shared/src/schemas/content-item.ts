@@ -38,6 +38,14 @@ export const contentItemTypeSchema = z.enum([
   // Tabelle wie "zuordnung", `sort_order` trägt hier die richtige Position statt nur einer
   // Anzeige-Reihenfolge, siehe checkSortierenAnswer in quiz-logic.ts.
   "sortieren",
+  // F-114 Teil 2 (Gantt-Diagramm, Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung):
+  // vierter im Anforderungskatalog genannter Modell-Typ, technisch dieselbe "Begriffe in feste
+  // Zonen ziehen"-Mechanik wie swot/bsc/ansoff (siehe QUADRANT_MODELS-Doku in quiz-logic.ts),
+  // bewusst NICHT Teil von QUADRANT_QUIZ_TYPES: die Zeitabschnitte eines Gantt-Diagramms sind
+  // projektspezifisch statt eines universellen, fest im Code hinterlegten Modells — deshalb
+  // eigener Typ mit content-autorierten Zonen im payload (ganttPayloadSchema), statt in
+  // QUADRANT_MODELS.
+  "gantt",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -103,6 +111,18 @@ export const lueckenAuswahlPayloadSchema = z.object({
   distractors: z.array(z.string().min(1)).min(1),
 });
 
+/**
+ * F-114 Teil 2 (Gantt-Diagramm): anders als bei swot/bsc/ansoff (Zonen fest in QUADRANT_MODELS,
+ * quiz-logic.ts) sind die Zeitabschnitte eines Gantt-Diagramms projektspezifisch und daher
+ * content-autoriert — `periods` entspricht strukturell den `zones` eines Quadrant-Modells
+ * (Schlüssel + Beschriftung), nur je Content-Item statt global im Code definiert. Mindestens 2,
+ * höchstens 6 Zeitabschnitte (Layout-Grenze wie bei `zonesTermFormSchema`/`.quadrant-grid`, kein
+ * horizontales Zeitleisten-Layout nötig — dasselbe zweispaltige Zonen-Raster aus F-114 Teil 1
+ * generalisiert bereits korrekt auf eine beliebige Zonenzahl, siehe Architekturplanung Abschnitt 13).
+ */
+export const ganttPeriodSchema = z.object({ key: z.string(), label: z.string() });
+export const ganttPayloadSchema = z.object({ periods: z.array(ganttPeriodSchema).min(2).max(6) });
+
 export const kurzantwortPayloadSchema = z.object({
   accepted_answers: z.array(z.string()).min(1),
   match_mode: z.enum(["exact", "contains"]),
@@ -151,6 +171,7 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("was_passt_nicht"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("zuordnung"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("sortieren"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("gantt"), payload: ganttPayloadSchema }),
   z.object({ type: z.literal("swot"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("bsc"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),

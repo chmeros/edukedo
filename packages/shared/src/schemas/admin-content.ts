@@ -41,6 +41,11 @@ const sortierenItemFormSchema = z.object({ text: z.string().min(1).max(300) });
 // quiz-logic.ts) — hier bewusst nur als String validiert, die Zugehörigkeit zum richtigen
 // Modell prüft das .refine() unten (dort ist der `type`-Zweig bereits bekannt).
 const quadrantTermFormSchema = z.object({ text: z.string().min(1).max(300), zoneKey: z.string().min(1) });
+// F-114 Teil 2 (Gantt-Diagramm): `periodIndex` referenziert einen Eintrag des `periods`-Arrays
+// desselben Formulars per Index statt eines Schlüssel-Strings — die Zeitabschnitte sind hier
+// (anders als bei swot/bsc/ansoff) selbst Teil des Formulars, nicht fest im Code hinterlegt,
+// ein Index ist daher einfacher zu validieren als ein erst noch zu erzeugender Schlüssel-String.
+const ganttTermFormSchema = z.object({ text: z.string().min(1).max(300), periodIndex: z.number().int().min(0) });
 const fallaufgabePartFormSchema = z.object({
   prompt: z.string().min(1).max(2000),
   points: z.number().positive(),
@@ -151,6 +156,18 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     terms: z.array(quadrantTermFormSchema).min(4).max(20),
     ...commonFormFields,
   }),
+  // F-114 Teil 2 (Gantt-Diagramm, Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung, siehe
+  // Architekturplanung Abschnitt 13): wie swot/bsc/ansoff, aber die Zeitabschnitte selbst sind
+  // Teil des Formulars (`periods`) statt fest im Code — 2–6 Abschnitte, analog zur Zonenzahl der
+  // anderen Modelle. Begriffe (`terms`) referenzieren einen Abschnitt per Index.
+  z.object({
+    type: z.literal("gantt"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    periods: z.array(z.string().min(1).max(100)).min(2).max(6),
+    terms: z.array(ganttTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
   z.object({
     type: z.literal("luecken"),
     // Kein eigenes `prompt`-Feld: content_item.prompt entspricht bei Lückentext-Items exakt
@@ -226,6 +243,12 @@ export const adminContentItemFormSchema = adminContentItemFormUnion
       (data.type !== "swot" && data.type !== "bsc" && data.type !== "ansoff") ||
       data.terms.every((term) => QUADRANT_MODELS[data.type as "swot" | "bsc" | "ansoff"].zones.some((zone) => zone.key === term.zoneKey)),
     { message: "Jeder Begriff muss einer gültigen Zone dieses Modells zugeordnet sein.", path: ["terms"] },
+  )
+  // F-114 Teil 2: jeder Begriff muss einen tatsächlich vorhandenen Zeitabschnitt referenzieren —
+  // analog zum swot/bsc/ansoff-Refine oben, hier per Index statt Schlüssel-String geprüft.
+  .refine(
+    (data) => data.type !== "gantt" || data.terms.every((term) => term.periodIndex < data.periods.length),
+    { message: "Jeder Begriff muss einem vorhandenen Zeitabschnitt zugeordnet sein.", path: ["terms"] },
   );
 export type AdminContentItemForm = z.infer<typeof adminContentItemFormUnion>;
 
