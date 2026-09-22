@@ -790,6 +790,170 @@ export function BlanksStep({
   );
 }
 
+/**
+ * F-115 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Lückentext, Nutzer-Entscheidung
+ * 22.09.2026, siehe Architekturplanung Abschnitt 13): Wortauswahl-Lückentext — mechanisch wie
+ * BlanksStep (derselbe `submitBlanks`-Endpunkt, dieselbe `answers: Record<blankId,string>`-Form),
+ * aber per echtem Drag-and-Drop aus einem Wortpool statt Freitext-Eingabe. Wiederverwendet die
+ * DraggableTerm/DroppableZone-Bausteine aus QuadrantStep (F-114) für den Wortpool — nur die
+ * Lücken selbst brauchen eine neue, INLINE im Fließtext sitzende Droppable-Zone
+ * (`DroppableBlankSlot`), da `DroppableZone` als Block gedacht ist.
+ */
+const BLANKS_POOL_ID = "_pool";
+
+function DroppableBlankSlot({ id, children }: { id: string; children: React.ReactNode }) {
+  const { setNodeRef, isOver } = useDroppable({ id });
+  return (
+    <span ref={setNodeRef} className={isOver ? "quiz-blank-slot is-over" : "quiz-blank-slot"}>
+      {children}
+    </span>
+  );
+}
+
+export interface BlanksSelectionItem {
+  id: string;
+  prompt: string;
+  textWithBlanks: string;
+  blankIds: string[];
+  words: { id: string; text: string }[];
+}
+
+export function BlanksSelectionStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<
+  BlanksSelectionItem,
+  { contentItemId: string; answers: Record<string, string> },
+  { results: Record<string, boolean>; correctAnswers: Record<string, string>; correctCount: number; total: number }
+>) {
+  // Pool-Wort-ID → Lücken-ID (oder null = noch im Pool) — analog zu QuadrantSteps `placements`.
+  const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
+    Object.fromEntries(item.words.map((word) => [word.id, null])),
+  );
+  const [feedback, setFeedback] = useState<{
+    results: Record<string, boolean>;
+    correctAnswers: Record<string, string>;
+    correctCount: number;
+    total: number;
+    motivation: string;
+  } | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    const wordId = String(event.active.id);
+    const targetId = event.over ? String(event.over.id) : BLANKS_POOL_ID;
+    if (targetId === BLANKS_POOL_ID) {
+      setPlacements((current) => ({ ...current, [wordId]: null }));
+      return;
+    }
+    // Jede Lücke fasst nur ein Wort — ein bereits dort platziertes Wort wandert zurück in den
+    // Pool, statt dass zwei Wörter derselben Lücke zugeordnet werden könnten.
+    setPlacements((current) => {
+      const next = { ...current };
+      for (const [id, blankId] of Object.entries(next)) {
+        if (blankId === targetId) next[id] = null;
+      }
+      next[wordId] = targetId;
+      return next;
+    });
+  }
+
+  const parts = item.textWithBlanks.split("___");
+  const allFilled = item.blankIds.every((blankId) => Object.values(placements).includes(blankId));
+
+  function checkAnswer() {
+    const answers = Object.fromEntries(
+      item.blankIds.map((blankId) => {
+        const word = item.words.find((candidate) => placements[candidate.id] === blankId);
+        return [blankId, word?.text ?? ""];
+      }),
+    );
+    submit.mutate(
+      { contentItemId: item.id, answers },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
+          onAnswered(result.correctCount === result.total);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <div className="quiz-question prose">
+          {parts.map((part, partIndex) => {
+            const blankId = item.blankIds[partIndex];
+            const word = blankId ? item.words.find((candidate) => placements[candidate.id] === blankId) : undefined;
+            return (
+              <span key={partIndex}>
+                {part}
+                {blankId && (
+                  <DroppableBlankSlot id={blankId}>
+                    {word && (
+                      <DraggableTerm
+                        id={word.id}
+                        text={word.text}
+                        disabled={feedback !== null}
+                        state={feedback ? (feedback.results[blankId] ? "correct" : "wrong") : undefined}
+                      />
+                    )}
+                  </DroppableBlankSlot>
+                )}
+              </span>
+            );
+          })}
+        </div>
+        <DroppableZone id={BLANKS_POOL_ID} className="quadrant-pool">
+          {item.words
+            .filter((word) => !placements[word.id])
+            .map((word) => (
+              <DraggableTerm key={word.id} id={word.id} text={word.text} disabled={feedback !== null} />
+            ))}
+        </DroppableZone>
+      </DndContext>
+      {feedback ? (
+        <>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.correctCount} von {feedback.total} Lücken richtig.
+            {feedback.correctCount < feedback.total && (
+              <>
+                {" "}
+                Richtige Lösung: {item.blankIds.map((id) => feedback.correctAnswers[id]).join(", ")}
+              </>
+            )}
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!allFilled || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export interface KurzantwortItem {
   id: string;
   prompt: string;

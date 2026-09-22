@@ -16,6 +16,7 @@ const TYPE_LABELS: Record<string, string> = {
   bsc: "Quiz · Balanced Scorecard",
   ansoff: "Quiz · Ansoff-Matrix",
   luecken: "Quiz · Lückentext",
+  luecken_auswahl: "Quiz · Lückentext (Wortauswahl)",
   kurzantwort: "Quiz · Kurzantwort",
   fallaufgabe: "Fallaufgabe",
   fachgespraech_frage: "Fachgesprächsfrage",

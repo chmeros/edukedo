@@ -1,4 +1,4 @@
-import { QUADRANT_MODELS, type AdminContentItemForm } from "@edukedo/shared";
+import { LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, type AdminContentItemForm } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
@@ -20,6 +20,8 @@ const TYPE_LABELS: Record<string, string> = {
   bsc: "Quiz · Balanced Scorecard",
   ansoff: "Quiz · Ansoff-Matrix",
   luecken: "Quiz · Lückentext",
+  // F-115: Alternative Bedienform — Wörter per Drag-and-Drop aus einem Pool statt Freitext.
+  luecken_auswahl: "Quiz · Lückentext (Wortauswahl)",
   kurzantwort: "Quiz · Kurzantwort",
   fallaufgabe: "Fallaufgabe",
   fachgespraech_frage: "Fachgesprächsfrage",
@@ -101,6 +103,14 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
       };
     case "luecken":
       return { type, explanation: "", lueckentextSource: "", ...common };
+    case "luecken_auswahl":
+      return {
+        type,
+        explanation: "",
+        lueckentextSource: "",
+        distractors: Array.from({ length: LUECKEN_AUSWAHL_MIN_DISTRACTORS }, () => ""),
+        ...common,
+      };
     case "kurzantwort":
       return { type, prompt: "", explanation: "", acceptedAnswers: [""], matchMode: "exact", ...common };
     case "fallaufgabe":
@@ -177,7 +187,7 @@ function ContentItemForm({
         <ThemaSelect value={form.themaId} onChange={(id) => setField("themaId", id)} themaTree={themaTree} />
       </div>
 
-      {form.type !== "luecken" && (
+      {form.type !== "luecken" && form.type !== "luecken_auswahl" && (
         <div className="field">
           <label htmlFor="ce-prompt">
             {form.type === "theorie"
@@ -505,6 +515,65 @@ function ContentItemForm({
           />
           <p className="field-hint">Lücken mit dreifachem Unterstrich markieren: ___Stichwort___.</p>
         </div>
+      )}
+
+      {/* F-115: dasselbe lueckentextSource-Autorenformat wie "luecken", zusätzlich die
+          Distraktoren (Begriffe ohne passende Lücke) für den Wortpool. */}
+      {form.type === "luecken_auswahl" && (
+        <>
+          <div className="field">
+            <label htmlFor="ce-luecken-auswahl">Lückentext</label>
+            <textarea
+              className="input"
+              id="ce-luecken-auswahl"
+              rows={4}
+              value={form.lueckentextSource}
+              onChange={(event) => setField("lueckentextSource", event.target.value)}
+              placeholder="Die Differenz zwischen ___Soll___ und ___Ist___ zeigt den Handlungsbedarf."
+              required
+            />
+            <p className="field-hint">Lücken mit dreifachem Unterstrich markieren: ___Stichwort___.</p>
+          </div>
+          <div className="field">
+            <label>Zusätzliche Begriffe ohne passende Lücke (Distraktoren, mindestens {LUECKEN_AUSWAHL_MIN_DISTRACTORS})</label>
+            <div className="stack">
+              {form.distractors.map((distractor, index) => (
+                <div key={index} className="list-row-actions">
+                  <input
+                    className="input"
+                    value={distractor}
+                    placeholder={`Begriff ${index + 1}`}
+                    onChange={(event) => {
+                      const next = [...form.distractors];
+                      next[index] = event.target.value;
+                      setField("distractors", next);
+                    }}
+                    required
+                  />
+                  {form.distractors.length > LUECKEN_AUSWAHL_MIN_DISTRACTORS && (
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      onClick={() => setField("distractors", form.distractors.filter((_, i) => i !== index))}
+                    >
+                      Entfernen
+                    </button>
+                  )}
+                </div>
+              ))}
+              {form.distractors.length < 15 && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                  onClick={() => setField("distractors", [...form.distractors, ""])}
+                >
+                  Begriff hinzufügen
+                </button>
+              )}
+            </div>
+          </div>
+        </>
       )}
 
       {form.type === "kurzantwort" && (

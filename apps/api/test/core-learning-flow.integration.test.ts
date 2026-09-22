@@ -1336,6 +1336,124 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-115: Wortauswahl-Lückentext ist über Admin-Redaktion anlegbar (mit Distraktoren-Mindestanzahl), liefert einen Wortpool ohne Lösung und wird über den bestehenden submitBlanks-Endpunkt wie ein regulärer Lückentext ausgewertet",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f115@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      // Nur 1 Distraktor — am Formular-Schema abgelehnt (LUECKEN_AUSWAHL_MIN_DISTRACTORS = 2,
+      // siehe admin-content.ts).
+      const tooFewDistractorsResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "luecken_auswahl",
+          themaId,
+          explanation: null,
+          lueckentextSource: "Die Differenz zwischen ___Soll___ und ___Ist___ zeigt den Handlungsbedarf.",
+          distractors: ["Trend"],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(tooFewDistractorsResponse.statusCode).toBe(400);
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "luecken_auswahl",
+          themaId,
+          explanation: "Testerklärung",
+          lueckentextSource: "Die Differenz zwischen ___Soll___ und ___Ist___ zeigt den Handlungsbedarf.",
+          distractors: ["Trend", "Quote"],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const lueckenAuswahlId = createResponse.json().result.data.id as string;
+
+      // quiz.quizItems (Lernenden-Sicht) liefert einen gemischten Wortpool (2 Lücken + 2
+      // Distraktoren = 4 Wörter) ohne jeden Hinweis, welche Wörter zu welcher Lücke gehören.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        textWithBlanks?: string;
+        blankIds?: string[];
+        words?: { id: string; text: string }[];
+      }[];
+      const lueckenAuswahlItem = quizItems.find((item) => item.id === lueckenAuswahlId)!;
+      expect(lueckenAuswahlItem.type).toBe("luecken_auswahl");
+      expect(lueckenAuswahlItem.blankIds).toHaveLength(2);
+      expect(lueckenAuswahlItem.words).toHaveLength(4);
+      expect(lueckenAuswahlItem.words!.map((word) => word.text).sort()).toEqual(["Ist", "Quote", "Soll", "Trend"]);
+
+      // Bewertung läuft über den unveränderten, generischen submitBlanks-Endpunkt (kein eigener
+      // F-115-Endpunkt nötig, siehe Architekturplanung Abschnitt 13) — dieselbe
+      // answers: Record<blankId, string>-Form wie bei einem regulären Lückentext.
+      const [firstBlankId, secondBlankId] = lueckenAuswahlItem.blankIds!;
+      const correctSubmitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitBlanks",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: lueckenAuswahlId, answers: { [firstBlankId!]: "Soll", [secondBlankId!]: "Ist" } },
+      });
+      expect(correctSubmitResponse.statusCode).toBe(200);
+      const correctResult = correctSubmitResponse.json().result.data as { correctCount: number; total: number };
+      expect(correctResult.correctCount).toBe(2);
+      expect(correctResult.total).toBe(2);
+
+      // Ein Distraktor statt des richtigen Wortes in eine Lücke gezogen — zählt als falsch.
+      const wrongSubmitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitBlanks",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: lueckenAuswahlId, answers: { [firstBlankId!]: "Trend", [secondBlankId!]: "Ist" } },
+      });
+      const wrongResult = wrongSubmitResponse.json().result.data as { correctCount: number; total: number };
+      expect(wrongResult.correctCount).toBe(1);
+
+      // adminContent.get reshaped den Lückentext-Quelltext sowie die Distraktoren für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: lueckenAuswahlId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as { type: string; lueckentextSource: string; distractors: string[] };
+      expect(detail.type).toBe("luecken_auswahl");
+      expect(detail.lueckentextSource).toBe("Die Differenz zwischen ___Soll___ und ___Ist___ zeigt den Handlungsbedarf.");
+      expect(detail.distractors).toEqual(["Trend", "Quote"]);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

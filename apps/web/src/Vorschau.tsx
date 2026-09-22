@@ -2,7 +2,16 @@ import { useState } from "react";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
-import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
+import {
+  BlanksSelectionStep,
+  BlanksStep,
+  KurzantwortStep,
+  MatchingStep,
+  McMultiStep,
+  MultipleChoiceStep,
+  QuadrantStep,
+  TwoChoiceStep,
+} from "./QuizSteps";
 import { trpc } from "./trpc";
 
 /** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
@@ -169,6 +178,16 @@ export function Vorschau() {
           )}
           {current.type === "luecken" && (
             <BlanksStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitBlanks}
+            />
+          )}
+          {current.type === "luecken_auswahl" && (
+            <BlanksSelectionStep
               key={current.id}
               item={current}
               isLast={isLast}

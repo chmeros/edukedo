@@ -3,7 +3,16 @@ import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
+import {
+  BlanksSelectionStep,
+  BlanksStep,
+  KurzantwortStep,
+  MatchingStep,
+  McMultiStep,
+  MultipleChoiceStep,
+  QuadrantStep,
+  TwoChoiceStep,
+} from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -238,6 +247,20 @@ export function Quiz({
           onAnswered={handleAnswered}
           onNext={next}
           submit={submitBlanks}
+          canReport
+        />
+      )}
+      {/* F-115: bewusst nur online, wie F-114/F-116 (siehe Architekturplanung Abschnitt 13) —
+          submitBlanksMutation statt der online/offline-geswitchten submitBlanks, da diese Frage
+          im Offline-Pfad gar nicht erst vorkommt. */}
+      {current.type === "luecken_auswahl" && (
+        <BlanksSelectionStep
+          key={current.id}
+          item={current}
+          isLast={isLast}
+          onAnswered={handleAnswered}
+          onNext={next}
+          submit={submitBlanksMutation}
           canReport
         />
       )}

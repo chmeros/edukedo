@@ -1,4 +1,4 @@
-import { kurzantwortPayloadSchema, lueckenPayloadSchema } from "./schemas/content-item";
+import { kurzantwortPayloadSchema, lueckenAuswahlPayloadSchema, lueckenPayloadSchema } from "./schemas/content-item";
 
 /**
  * Reine Formungs-/Prüflogik für Quiz-Items (F-21) — ursprünglich nur in apps/api geteilt
@@ -113,6 +113,16 @@ export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
  * (checkMcMultiAnswer, Alles-oder-nichts über ein Set von IDs) und die Formular-/UI-Führung
  * grundsätzlich anders sind als bei "genau eine Option richtig".
  */
+/**
+ * F-115 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Lückentext, Nutzer-Entscheidung
+ * 22.09.2026, siehe Architekturplanung Abschnitt 13): Mindestanzahl an Distraktoren (Begriffen
+ * ohne passende Lücke) im Wortpool eines Wortauswahl-Lückentexts — verhindert triviales
+ * Ausschluss-Raten bei der letzten offenen Lücke. Als benannte Konstante statt einer verstreuten
+ * Magic Number, da sowohl das Admin-Formular-Schema (admin-content.ts) als auch diese Doku
+ * darauf verweisen.
+ */
+export const LUECKEN_AUSWAHL_MIN_DISTRACTORS = 2;
+
 export type ShapedQuizItem =
   | { id: string; type: McLikeQuizType; prompt: string; options: { id: string; text: string }[] }
   | { id: string; type: "quiz_mc_multi"; prompt: string; options: { id: string; text: string }[] }
@@ -124,6 +134,14 @@ export type ShapedQuizItem =
       right: { id: string; text: string }[];
     }
   | { id: string; type: "luecken"; prompt: string; textWithBlanks: string; blankIds: string[] }
+  | {
+      id: string;
+      type: "luecken_auswahl";
+      prompt: string;
+      textWithBlanks: string;
+      blankIds: string[];
+      words: { id: string; text: string }[];
+    }
   | { id: string; type: "kurzantwort"; prompt: string }
   | {
       id: string;
@@ -174,6 +192,23 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
       prompt: item.prompt,
       textWithBlanks: payload.text_with_blanks,
       blankIds: payload.blanks.map((blank) => blank.id),
+    };
+  }
+
+  // F-115: wie "luecken", zusätzlich ein gemischter Wortpool aus den (einzigen) richtigen
+  // Begriffen je Lücke (`blank.accepted[0]`) und den Distraktoren. Die Pool-IDs sind bewusst
+  // fortlaufend synthetisch (w0, w1, …) statt z. B. der Lücken-ID selbst — sonst würde die ID
+  // eines Wortes bereits verraten, zu welcher Lücke es gehört.
+  if (item.type === "luecken_auswahl") {
+    const payload = lueckenAuswahlPayloadSchema.parse(item.payload);
+    const wordTexts = shuffle([...payload.blanks.map((blank) => blank.accepted[0]!), ...payload.distractors]);
+    return {
+      id: item.id,
+      type: "luecken_auswahl",
+      prompt: item.prompt,
+      textWithBlanks: payload.text_with_blanks,
+      blankIds: payload.blanks.map((blank) => blank.id),
+      words: wordTexts.map((text, index) => ({ id: `w${index}`, text })),
     };
   }
 

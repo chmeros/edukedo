@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { contentItemBloomSchema, contentItemDifficultySchema, contentItemTypeSchema } from "./content-item";
-import { QUADRANT_MODELS } from "../quiz-logic";
+import { LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS } from "../quiz-logic";
 
 /**
  * F-11: Admin-/Redaktionsbereich — Pflege (und seit der Nutzer-Entscheidung vom 19.09.2026
@@ -146,6 +146,19 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     explanation: explanationSchema,
     // Inline-Autorenformat statt eines fertigen blanks-Arrays, siehe Moduldoku oben.
     lueckentextSource: z.string().min(1),
+    ...commonFormFields,
+  }),
+  // F-115 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Lückentext, Nutzer-Entscheidung
+  // 22.09.2026, siehe Architekturplanung Abschnitt 13): Wortauswahl-Lückentext — dasselbe
+  // `lueckentextSource`-Autorenformat wie "luecken", zusätzlich eine Liste zusätzlicher
+  // (falscher) Begriffe für den Wortpool. Mindestanzahl direkt am Array erzwungen statt per
+  // separatem `.refine()` — LUECKEN_AUSWAHL_MIN_DISTRACTORS ist eine feste, von der Lückenzahl
+  // unabhängige Untergrenze (Nutzer-Entscheidung), keine content-abhängige Bedingung.
+  z.object({
+    type: z.literal("luecken_auswahl"),
+    explanation: explanationSchema,
+    lueckentextSource: z.string().min(1),
+    distractors: z.array(z.string().min(1).max(200)).min(LUECKEN_AUSWAHL_MIN_DISTRACTORS).max(15),
     ...commonFormFields,
   }),
   z.object({

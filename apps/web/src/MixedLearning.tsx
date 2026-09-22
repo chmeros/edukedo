@@ -8,7 +8,16 @@ import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
+import {
+  BlanksSelectionStep,
+  BlanksStep,
+  KurzantwortStep,
+  MatchingStep,
+  McMultiStep,
+  MultipleChoiceStep,
+  QuadrantStep,
+  TwoChoiceStep,
+} from "./QuizSteps";
 import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
@@ -343,6 +352,18 @@ export function MixedLearning({
           onAnswered={handleQuizAnswered}
           onNext={next}
           submit={submitBlanks}
+          canReport
+        />
+      )}
+      {/* F-115: bewusst nur online, wie F-114/F-116. */}
+      {current.kind === "quiz" && current.item.type === "luecken_auswahl" && (
+        <BlanksSelectionStep
+          key={current.item.id}
+          item={current.item}
+          isLast={isLast}
+          onAnswered={handleQuizAnswered}
+          onNext={next}
+          submit={submitBlanksMutation}
           canReport
         />
       )}

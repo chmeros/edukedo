@@ -29,6 +29,10 @@ export const contentItemTypeSchema = z.enum([
   // vorhandene Multiple-Choice-Inhalte bleiben unverändert einfachauswahl-basiert") — siehe
   // checkMcMultiAnswer in quiz-logic.ts.
   "quiz_mc_multi",
+  // F-115 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Lückentext): Wortauswahl-Lückentext —
+  // dieselbe Bewertung wie "luecken", nur mit einem Wortpool (inkl. Distraktoren) statt freier
+  // Texteingabe. Siehe lueckenAuswahlPayloadSchema.
+  "luecken_auswahl",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -75,6 +79,23 @@ export const lueckenBlankSchema = z.object({
 export const lueckenPayloadSchema = z.object({
   text_with_blanks: z.string(),
   blanks: z.array(lueckenBlankSchema).min(1),
+});
+
+/**
+ * F-115 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Lückentext): Wortauswahl-Lückentext —
+ * dieselbe `text_with_blanks`/`blanks`-Struktur wie beim regulären Lückentext (freie
+ * Texteingabe), zusätzlich eine feste Liste von `distractors` — Begriffe, die im Wortpool
+ * angeboten, aber in keine Lücke gehören (siehe `LUECKEN_AUSWAHL_MIN_DISTRACTORS` in
+ * quiz-logic.ts für die Mindestanzahl). Bewusst KEIN eigenes `checkLueckenAuswahlAnswer` nötig:
+ * `checkBlanks`/`lueckenPayloadSchema.parse` ignorieren das zusätzliche `distractors`-Feld
+ * automatisch (Zod strippt unbekannte Felder im Default-Modus), die Bewertung ist exakt
+ * dieselbe wie beim regulären Lückentext — nur die Lernenden-UI unterscheidet sich (Wörter aus
+ * einem Pool ziehen statt frei tippen, siehe QuizSteps.tsx BlanksSelectionStep).
+ */
+export const lueckenAuswahlPayloadSchema = z.object({
+  text_with_blanks: z.string(),
+  blanks: z.array(lueckenBlankSchema).min(1),
+  distractors: z.array(z.string().min(1)).min(1),
 });
 
 export const kurzantwortPayloadSchema = z.object({
@@ -129,6 +150,7 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("quiz_mc_multi"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("luecken"), payload: lueckenPayloadSchema }),
+  z.object({ type: z.literal("luecken_auswahl"), payload: lueckenAuswahlPayloadSchema }),
   z.object({ type: z.literal("kurzantwort"), payload: kurzantwortPayloadSchema }),
   z.object({ type: z.literal("fallaufgabe"), payload: fallaufgabePayloadSchema }),
   z.object({ type: z.literal("fachgespraech_frage"), payload: fachgespraechFragePayloadSchema }),

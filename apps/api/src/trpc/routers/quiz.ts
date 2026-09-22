@@ -43,13 +43,16 @@ export const quizRouter = router({
       // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind strukturell
       // identisch zu quiz_mc. F-114: QUADRANT_QUIZ_TYPES (swot/bsc/ansoff) sind eine visuelle
       // Zuordnungs-Variante mit N Zonen statt zwei Spalten. F-116: quiz_mc_multi lädt genauso
-      // Optionen wie MC_LIKE_QUIZ_TYPES, wird aber anders bewertet. Siehe quiz-logic.ts.
+      // Optionen wie MC_LIKE_QUIZ_TYPES, wird aber anders bewertet. F-115: luecken_auswahl wird
+      // genau wie "luecken" bewertet (submitBlanks/checkBlanks unverändert), nur mit Wortpool
+      // statt Freitext. Siehe quiz-logic.ts.
       inArray(contentItem.type, [
         ...MC_LIKE_QUIZ_TYPES,
         "quiz_mc_multi",
         "zuordnung",
         ...QUADRANT_QUIZ_TYPES,
         "luecken",
+        "luecken_auswahl",
         "kurzantwort",
       ]),
       eq(contentItem.isActive, true),

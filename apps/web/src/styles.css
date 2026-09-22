@@ -1167,6 +1167,33 @@ details[open] > summary.disclosure::before {
   color: var(--danger-deep);
 }
 
+/* F-115: Wortauswahl-Lückentext (BlanksSelectionStep) — dieselbe inline Lücken-Position wie
+   .quiz-blank, aber als Drop-Ziel statt eines <input>. Enthält im gefüllten Zustand einen
+   .quadrant-term-Chip (derselbe Drag-Baustein wie bei QuadrantStep/F-114), im leeren Zustand
+   nur den gestrichelten Rahmen. */
+.quiz-blank-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  min-height: 1.8em;
+  margin: 0 2px;
+  padding: 2px;
+  border: 1.5px dashed var(--line);
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+.quiz-blank-slot.is-over {
+  border-color: var(--ink-faint);
+  background: var(--surface);
+}
+
+.quiz-blank-slot .quadrant-term {
+  padding: 3px 10px;
+  font-size: 0.9em;
+}
+
 .quiz-options {
   display: flex;
   flex-direction: column;

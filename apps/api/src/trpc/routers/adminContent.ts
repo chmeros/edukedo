@@ -8,6 +8,7 @@ import {
   fachgespraechFragePayloadSchema,
   fallaufgabePayloadSchema,
   kurzantwortPayloadSchema,
+  lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
   theoriePayloadSchema,
   type AdminContentItemForm,
@@ -107,6 +108,22 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
         prompt: input.lueckentextSource,
         explanation: input.explanation ?? null,
         payload: { text_with_blanks: textWithBlanks, blanks },
+      };
+    }
+    // F-115: wie "luecken" — dasselbe inline-Autorenformat, zusätzlich die frei eingegebenen
+    // Distraktoren unverändert ins payload übernommen (keine eigene Parsing-Logik nötig).
+    case "luecken_auswahl": {
+      const { textWithBlanks, blanks } = parseLueckentext(input.lueckentextSource);
+      if (blanks.length === 0) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Mindestens eine Lücke im Format ___Stichwort___ ist erforderlich.",
+        });
+      }
+      return {
+        prompt: input.lueckentextSource,
+        explanation: input.explanation ?? null,
+        payload: { text_with_blanks: textWithBlanks, blanks, distractors: input.distractors },
       };
     }
     case "kurzantwort":
@@ -268,6 +285,17 @@ export const adminContentRouter = router({
         ...common,
         explanation: item.explanation,
         lueckentextSource: renderLueckentextSource(payload.text_with_blanks, payload.blanks),
+      };
+    }
+
+    if (item.type === "luecken_auswahl") {
+      const payload = lueckenAuswahlPayloadSchema.parse(item.payload);
+      return {
+        type: "luecken_auswahl" as const,
+        ...common,
+        explanation: item.explanation,
+        lueckentextSource: renderLueckentextSource(payload.text_with_blanks, payload.blanks),
+        distractors: payload.distractors,
       };
     }
 
