@@ -3,11 +3,6 @@ import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
-function formatWochen(weeks: number): string {
-  const rounded = Math.round(weeks * 10) / 10;
-  return rounded === 1 ? "1 Woche" : `${rounded} Wochen`;
-}
-
 function formatThemen(count: number): string {
   return count === 1 ? "1 Thema" : `${count} Themen`;
 }

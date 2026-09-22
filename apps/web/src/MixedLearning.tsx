@@ -139,7 +139,6 @@ export function MixedLearning({
     }));
     const quizItems: MixedItem[] = quizRaw.map((item) => ({ kind: "quiz", item }));
     return shuffle([...flashItems, ...quizItems]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, online, dueCardsQuery.data, quizItemsQuery.data, offlineCards, offlineRound]);
 
   // N-08: Übungsset-Tracking für die "Abschlussquote"-KPI (Anforderungskatalog Abschnitt 11) —

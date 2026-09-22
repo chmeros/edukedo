@@ -26,6 +26,7 @@ export function VerifyEmail() {
     }
     // token wird per useState-Initializer einmalig aus der URL gelesen und ändert sich
     // danach nie mehr — der Effect läuft also faktisch nur beim ersten Rendern.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (
