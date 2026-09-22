@@ -183,6 +183,13 @@
       "when": 1790070945664,
       "tag": "0025_red_shiver_man",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1790074883698,
+      "tag": "0026_clean_silver_centurion",
+      "breakpoints": true
     }
   ]
 }

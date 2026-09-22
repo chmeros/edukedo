@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { ContentActions } from "./ContentActions";
 import { InfoIcon, SuccessIcon } from "./Icons";
-import { ReportContentButton } from "./ReportContentButton";
 import { trpc } from "./trpc";
 
 /**
@@ -66,9 +66,7 @@ export function Fachgespraechstrainer({ kursId }: { kursId: string }) {
       <button type="button" className="btn btn-primary" onClick={() => setIndex((i) => i + 1)}>
         {index + 1 < items.length ? "Nächste Frage" : "Runde abschließen"}
       </button>
-      <div style={{ textAlign: "center" }}>
-        <ReportContentButton contentItemId={current.id} />
-      </div>
+      <ContentActions contentItemId={current.id} />
     </div>
   );
 }

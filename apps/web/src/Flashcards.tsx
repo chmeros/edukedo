@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
+import { ContentActions } from "./ContentActions";
 import { FlashcardSelection } from "./FlashcardSelection";
 import { FlipCard } from "./FlipCard";
 import { InfoIcon, StarIcon, SuccessIcon } from "./Icons";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineContentItem } from "./offlineDb";
-import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -368,9 +368,7 @@ export function Flashcards({
           </button>
         )}
       </div>
-      <div style={{ textAlign: "center" }}>
-        <ReportContentButton contentItemId={current.id} />
-      </div>
+      <ContentActions contentItemId={current.id} />
       {showPicker && themaId && themaTitle && (
         <FlashcardSelection
           kursId={kursId}

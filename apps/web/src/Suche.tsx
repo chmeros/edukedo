@@ -2,7 +2,9 @@ import { useState } from "react";
 import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
 
-const TYPE_LABELS: Record<string, string> = {
+// Exportiert, da MeineNotizen.tsx (F-15) dieselbe Zuordnung für ihre eigene Trefferliste braucht
+// — Notizen können prinzipiell an jedem Content-Typ hängen, den auch die Suche durchsucht.
+export const TYPE_LABELS: Record<string, string> = {
   karteikarte: "Karteikarte",
   quiz_mc: "Quiz · Multiple Choice",
   // F-113: strukturell identisch zu Multiple Choice (siehe Architekturplanung Abschnitt 13).

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { ContentActions } from "./ContentActions";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
-import { ReportContentButton } from "./ReportContentButton";
 import { trpc } from "./trpc";
 
 type ExamItem = {
@@ -54,9 +54,7 @@ function ExamFallaufgabeStep({
         <span className="flip-kicker">Ausgangssituation</span>
         <p>{item.prompt}</p>
       </div>
-      <div style={{ textAlign: "center" }}>
-        <ReportContentButton contentItemId={item.id} />
-      </div>
+      <ContentActions contentItemId={item.id} />
       {item.parts.map((part, index) => (
         <div key={index} className="exam-part">
           <p className="exam-part-prompt">

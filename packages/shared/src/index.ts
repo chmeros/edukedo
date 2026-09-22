@@ -12,6 +12,7 @@ export * from "./schemas/exam";
 export * from "./schemas/friend";
 export * from "./schemas/highscore";
 export * from "./schemas/lernpartner";
+export * from "./schemas/note";
 export * from "./schemas/offline-sync";
 export * from "./schemas/parent";
 export * from "./schemas/presentation";

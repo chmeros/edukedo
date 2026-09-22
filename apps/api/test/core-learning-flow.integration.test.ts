@@ -1987,6 +1987,119 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-15: eigene Notiz zu einer Lerneinheit anlegen, ändern, per Leertext löschen und explizit löschen; Übersicht listet nur eigene, nicht-leere Notizen des Kurses",
+    async () => {
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const dueCards = dueCardsResponse.json().result.data as { id: string }[];
+      expect(dueCards.length).toBeGreaterThan(0);
+      const contentItemId = dueCards[0]!.id;
+
+      // Noch keine Notiz vorhanden.
+      const initialGet = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(initialGet.json().result.data).toBeNull();
+
+      // Anlegen.
+      const saveResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/notes.save",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, noteText: "Eigene Eselsbrücke" },
+      });
+      expect(saveResponse.statusCode).toBe(200);
+      expect(saveResponse.json().result.data.noteText).toBe("Eigene Eselsbrücke");
+
+      // Ändern (Upsert, keine zweite Zeile für dasselbe (userId, contentItemId)).
+      const updateResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/notes.save",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, noteText: "Aktualisierte Notiz" },
+      });
+      expect(updateResponse.json().result.data.noteText).toBe("Aktualisierte Notiz");
+      const afterUpdateGet = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(afterUpdateGet.json().result.data).toBe("Aktualisierte Notiz");
+
+      // "Meine Notizen" listet die Notiz mit Thema-/Fachgebiets-Kontext.
+      const listResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.list?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const notes = listResponse.json().result.data as {
+        contentItemId: string;
+        noteText: string;
+        themaId: string;
+        themaTitle: string;
+        fachgebietTitle: string;
+      }[];
+      const listed = notes.find((note) => note.contentItemId === contentItemId);
+      expect(listed?.noteText).toBe("Aktualisierte Notiz");
+      expect(listed?.themaId).toBeTruthy();
+      expect(listed?.themaTitle).toBeTruthy();
+      expect(listed?.fachgebietTitle).toBeTruthy();
+
+      // Ein nach dem Trimmen leerer Text löscht die Notiz statt eine leere Zeile zu speichern.
+      const clearResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/notes.save",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, noteText: "   " },
+      });
+      expect(clearResponse.json().result.data.noteText).toBeNull();
+      const afterClearGet = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(afterClearGet.json().result.data).toBeNull();
+      const listAfterClear = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.list?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(
+        (listAfterClear.json().result.data as { contentItemId: string }[]).some(
+          (note) => note.contentItemId === contentItemId,
+        ),
+      ).toBe(false);
+
+      // Erneut anlegen, dann explizit löschen (statt über einen Leertext).
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/notes.save",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, noteText: "Wird gleich wieder gelöscht" },
+      });
+      const deleteResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/notes.delete",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId },
+      });
+      expect(deleteResponse.statusCode).toBe(200);
+      const afterDeleteGet = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/notes.get?input=${encodeURIComponent(JSON.stringify({ contentItemId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      expect(afterDeleteGet.json().result.data).toBeNull();
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

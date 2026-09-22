@@ -372,6 +372,30 @@ export const userProgress = pgTable(
 );
 
 // ---------------------------------------------------------------------------
+// Eigene Notizen zu Lerneinheiten (F-15) — Ergänzung, nicht im ursprünglichen SQL-DDL
+// enthalten, siehe Abschnitt 13. Eigenständige Tabelle statt einer Erweiterung von
+// user_progress: eine Notiz ist unabhängig vom FSRS-/Quiz-Fortschritt eines Items und soll auch
+// zu Content-Typen ohne user_progress-Zeile (z. B. Fallaufgaben, Fachgesprächsfragen) möglich
+// sein. Genau eine Notiz je (user_id, content_item_id) — dieselbe Composite-Unique-Konvention
+// wie bei user_progress.
+// ---------------------------------------------------------------------------
+export const userNote = pgTable(
+  "user_note",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    contentItemId: uuid("content_item_id")
+      .notNull()
+      .references(() => contentItem.id, { onDelete: "cascade" }),
+    noteText: text("note_text").notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("user_note_user_id_content_item_id_key").on(table.userId, table.contentItemId)],
+);
+
+// ---------------------------------------------------------------------------
 // Lernstatistiken (F-31/F-32) — Ergänzung, nicht im ursprünglichen SQL-DDL enthalten,
 // siehe Abschnitt 13.
 // ---------------------------------------------------------------------------

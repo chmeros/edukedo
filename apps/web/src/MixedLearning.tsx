@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
 import { shuffle } from "@edukedo/shared";
+import { ContentActions } from "./ContentActions";
 import { FlipCard } from "./FlipCard";
 import { SuccessIcon } from "./Icons";
 import type { OfflineContentItem } from "./offlineDb";
@@ -19,7 +20,6 @@ import {
   SortierenStep,
   TwoChoiceStep,
 } from "./QuizSteps";
-import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -285,9 +285,7 @@ export function MixedLearning({
               </button>
             </div>
           )}
-          <div style={{ textAlign: "center" }}>
-            <ReportContentButton contentItemId={current.card.id} />
-          </div>
+          <ContentActions contentItemId={current.card.id} />
         </>
       )}
       {/* F-113: was_passt_nicht mechanisch identisch zu quiz_mc (siehe QuizSteps.tsx),

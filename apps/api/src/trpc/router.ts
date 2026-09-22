@@ -12,6 +12,7 @@ import { gamificationRouter } from "./routers/gamification";
 import { healthRouter } from "./routers/health";
 import { highscoreRouter } from "./routers/highscore";
 import { lernpartnerRouter } from "./routers/lernpartner";
+import { notesRouter } from "./routers/notes";
 import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
 import { presentationRouter } from "./routers/presentation";
@@ -44,7 +45,8 @@ import { router } from "./trpc";
  * `gamification` (F-67, seit 17.09.2026) sind Achievements/Bestwerte ohne jeden Fremdkontakt,
  * kursübergreifend statt kursskopiert. `contentFeedback` (F-50, seit 19.09.2026) ist die
  * Feedback-Funktion für fehlerhafte Lerninhalte — die Moderationsansicht liegt analog zu F-68
- * unter `admin.*`.
+ * unter `admin.*`. `notes` (F-15, seit 22.09.2026) sind eigene, freie Notizen zu Lerneinheiten,
+ * unabhängig vom FSRS-/Quiz-Fortschritt.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -56,6 +58,7 @@ export const appRouter = router({
   courses: coursesRouter,
   content: contentRouter,
   contentFeedback: contentFeedbackRouter,
+  notes: notesRouter,
   progress: progressRouter,
   quiz: quizRouter,
   exam: examRouter,

@@ -12,6 +12,7 @@ import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
+import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
@@ -310,14 +311,26 @@ export function App() {
                         lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}
                     {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
                     {learningMode === "instrumente" && (
-                      <Suche
-                        key={activeKursId}
-                        kursId={activeKursId}
-                        onGoToThema={(themaId, themaTitle) => {
-                          setActiveThema({ id: themaId, title: themaTitle });
-                          setLearningMode("lernen");
-                        }}
-                      />
+                      <>
+                        <Suche
+                          key={activeKursId}
+                          kursId={activeKursId}
+                          onGoToThema={(themaId, themaTitle) => {
+                            setActiveThema({ id: themaId, title: themaTitle });
+                            setLearningMode("lernen");
+                          }}
+                        />
+                        {/* F-15: eigene Notizen, zweiter echter Inhalt dieses Tabs neben der
+                            Suche (F-14) — siehe Architekturplanung Abschnitt 13. */}
+                        <MeineNotizen
+                          key={activeKursId}
+                          kursId={activeKursId}
+                          onGoToThema={(themaId, themaTitle) => {
+                            setActiveThema({ id: themaId, title: themaTitle });
+                            setLearningMode("lernen");
+                          }}
+                        />
+                      </>
                     )}
                     {learningMode === "sozial" && (
                       <Sozial key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />

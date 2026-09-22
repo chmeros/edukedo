@@ -1,7 +1,7 @@
 import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSensors } from "@dnd-kit/core";
 import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
-import { ReportContentButton } from "./ReportContentButton";
+import { ContentActions } from "./ContentActions";
 
 /**
  * Die vier Fragetyp-Komponenten (F-21) — gemeinsam genutzt von Quiz.tsx (eingeschriebene
@@ -46,10 +46,11 @@ interface StepProps<TItem, TInput, TOutput> {
   onAnswered: (isCorrect: boolean) => void;
   onNext: () => void;
   submit: MutationLike<TInput, TOutput>;
-  // F-50: Standardmäßig AUS statt AN — Vorschau.tsx (F-08, kontoloser Modus ohne jeden
-  // Datenbank-Schreibzugriff) nutzt dieselben vier Komponenten, dort würde der Button auf eine
-  // protectedProcedure treffen und mit UNAUTHORIZED fehlschlagen. Nur Quiz.tsx/MixedLearning.tsx
-  // (eingeschriebene, eingeloggte Nutzer:innen) setzen `canReport`.
+  // F-50/F-15: Standardmäßig AUS statt AN — Vorschau.tsx (F-08, kontoloser Modus ohne jeden
+  // Datenbank-Schreibzugriff) nutzt dieselben vier Komponenten, dort würden die beiden Buttons in
+  // `ContentActions` (Fehler melden, eigene Notiz) auf eine protectedProcedure treffen und mit
+  // UNAUTHORIZED fehlschlagen. Nur Quiz.tsx/MixedLearning.tsx (eingeschriebene, eingeloggte
+  // Nutzer:innen) setzen `canReport`.
   canReport?: boolean;
 }
 
@@ -143,11 +144,7 @@ export function MultipleChoiceStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -235,11 +232,7 @@ export function TwoChoiceStep({
           </button>
         </>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -353,11 +346,7 @@ export function McMultiStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -499,11 +488,7 @@ export function MatchingStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -679,11 +664,7 @@ export function QuadrantStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -828,11 +809,7 @@ export function SortierenStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -930,11 +907,7 @@ export function BlanksStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -1094,11 +1067,7 @@ export function BlanksSelectionStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
@@ -1179,11 +1148,7 @@ export function KurzantwortStep({
           Antwort prüfen
         </button>
       )}
-      {canReport && (
-        <div style={{ textAlign: "center" }}>
-          <ReportContentButton contentItemId={item.id} />
-        </div>
-      )}
+      {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
 }
