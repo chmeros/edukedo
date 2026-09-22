@@ -45,33 +45,53 @@ function pushQueueEvent(contentItemId: string, event: OfflineQueueEventPayload) 
   });
 }
 
+/** Eine Zeile je offline-"Mutation" — Schlüssel des von `createOfflineQuizMutations` gebauten
+ * Objekts, siehe dort. */
+export type OfflineQuizMutationKey = "submitAnswer" | "submitMatching" | "submitBlanks" | "submitKurzantwort";
+
+const OFFLINE_SAVE_FAILED_MESSAGE = "Antwort konnte lokal nicht gespeichert werden. Bitte versuche es erneut.";
+
 /**
  * Baut die vier submit*-"Mutationen" für den Offline-Fall — dieselbe `MutationLike`-Schnittstelle
  * (siehe QuizSteps.tsx) wie die echten tRPC-Mutationen von Quiz.tsx, aber lokal anhand der
  * (inklusive Lösung heruntergeladenen) `raw`-Items ausgewertet statt per Serveraufruf. Jede
  * Auswertung reiht zusätzlich ein Sync-Ereignis in `offlineDb.queue` ein (Baustein 5 spielt sie
  * später nach).
+ *
+ * Code-Review-Fund, nachgezogen (22.09.2026, siehe Architekturplanung Abschnitt 13): bewusst eine
+ * einfache Funktion statt eines Hooks — Quiz.tsx/MixedLearning.tsx rufen sie abhängig von
+ * `online` bedingt auf (`online ? null : createOfflineQuizMutations(...)`), was für einen Hook
+ * gegen die Rules of Hooks verstieße. Der reaktive Fehlerzustand lebt deshalb NICHT hier (ein
+ * fehlgeschlagenes `pushQueueEvent` ließ `onSuccess` bereits vorher bewusst aus, siehe
+ * `.catch(...)` unten), sondern im aufrufenden Component-`useState` — `errors`/`setError` werden
+ * hier nur durchgereicht, damit `error` in der `MutationLike`-Schnittstelle jetzt tatsächlich
+ * reaktiv ist statt fest auf `null`.
  */
-export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
+export function createOfflineQuizMutations(
+  raw: OfflineContentItem[],
+  errors: Partial<Record<OfflineQuizMutationKey, string>>,
+  setError: (key: OfflineQuizMutationKey, message: string | null) => void,
+) {
   function findItem(id: string) {
     return raw.find((item) => item.id === id);
   }
 
-  // `error: null` (statt eines echten reaktiven Fehlerzustands) genügt hier: ein
-  // fehlgeschlagenes `pushQueueEvent` unten lässt `onSuccess` bewusst aus (siehe Kommentar
-  // dort) — dieselbe Nicht-Reaktion wie zuvor, jetzt nur zusätzlich kompatibel zur
-  // `MutationLike`-Schnittstelle (QuizSteps.tsx), die seit dem Code-Review vom 22.09.2026 ein
-  // `error`-Feld erwartet.
+  function errorFor(key: OfflineQuizMutationKey): { message: string } | null {
+    const message = errors[key];
+    return message ? { message } : null;
+  }
+
   return {
     submitAnswer: {
       isPending: false,
-      error: null,
+      error: errorFor("submitAnswer"),
       mutate(
         input: { contentItemId: string; selectedOptionId: string },
         opts: {
           onSuccess: (result: { isCorrect: boolean; correctOptionId: string; explanation: string | null }) => void;
         },
       ) {
+        setError("submitAnswer", null);
         const item = findItem(input.contentItemId);
         if (!item) return;
         const { isCorrect, correctOptionId } = checkMcAnswer(item.options, input.selectedOptionId);
@@ -84,16 +104,18 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
             // Erfolg, obwohl die Antwort nie in offline.syncQueue ankommen würde. onSuccess
             // bleibt jetzt aus, ein erneuter Klick auf "Antwort prüfen" versucht es erneut.
             console.error("Offline-Quiz-Antwort (quiz_mc) konnte nicht gespeichert werden:", error);
+            setError("submitAnswer", OFFLINE_SAVE_FAILED_MESSAGE);
           });
       },
     },
     submitMatching: {
       isPending: false,
-      error: null,
+      error: errorFor("submitMatching"),
       mutate(
         input: { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
         opts: { onSuccess: (result: { correctMap: Record<string, string>; correctCount: number; total: number }) => void },
       ) {
+        setError("submitMatching", null);
         const item = findItem(input.contentItemId);
         if (!item) return;
         const result = checkMatching(item.options, input.pairs);
@@ -101,12 +123,13 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
           .then(() => opts.onSuccess(result))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (zuordnung) konnte nicht gespeichert werden:", error);
+            setError("submitMatching", OFFLINE_SAVE_FAILED_MESSAGE);
           });
       },
     },
     submitBlanks: {
       isPending: false,
-      error: null,
+      error: errorFor("submitBlanks"),
       mutate(
         input: { contentItemId: string; answers: Record<string, string> },
         opts: {
@@ -118,6 +141,7 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
           }) => void;
         },
       ) {
+        setError("submitBlanks", null);
         const item = findItem(input.contentItemId);
         if (!item) return;
         const result = checkBlanks(item.payload, input.answers);
@@ -125,16 +149,18 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
           .then(() => opts.onSuccess(result))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (luecken) konnte nicht gespeichert werden:", error);
+            setError("submitBlanks", OFFLINE_SAVE_FAILED_MESSAGE);
           });
       },
     },
     submitKurzantwort: {
       isPending: false,
-      error: null,
+      error: errorFor("submitKurzantwort"),
       mutate(
         input: { contentItemId: string; answer: string },
         opts: { onSuccess: (result: { isCorrect: boolean; correctAnswer: string; explanation: string | null }) => void },
       ) {
+        setError("submitKurzantwort", null);
         const item = findItem(input.contentItemId);
         if (!item) return;
         const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
@@ -142,6 +168,7 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
           .then(() => opts.onSuccess({ isCorrect, correctAnswer, explanation: item.explanation }))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (kurzantwort) konnte nicht gespeichert werden:", error);
+            setError("submitKurzantwort", OFFLINE_SAVE_FAILED_MESSAGE);
           });
       },
     },

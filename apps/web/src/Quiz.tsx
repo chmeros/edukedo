@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { OfflineQuizRound } from "./offlineQuiz";
+import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { QuizCountControl } from "./QuizCountControl";
@@ -91,6 +91,12 @@ export function Quiz({
   // IndexedDB-Kopie statt von quiz.quizItems — einmalig pro Kurs/Thema/Online-Wechsel geladen,
   // analog zum offline-Zweig in Flashcards.tsx.
   const [offlineRound, setOfflineRound] = useState<OfflineQuizRound | null>(null);
+  // Code-Review-Fund, nachgezogen (22.09.2026, siehe Architekturplanung Abschnitt 13):
+  // reaktiver Fehlerzustand für die vier Offline-"Mutationen" (createOfflineQuizMutations ist
+  // bewusst kein Hook, siehe dort) — lebt hier statt in offlineQuiz.ts, damit die bedingte
+  // Aufrufstelle unten (`online ? null : createOfflineQuizMutations(...)`) nicht gegen die
+  // Rules of Hooks verstößt.
+  const [offlineErrors, setOfflineErrors] = useState<Partial<Record<OfflineQuizMutationKey, string>>>({});
   useEffect(() => {
     if (online) {
       setOfflineRound(null);
@@ -119,7 +125,11 @@ export function Quiz({
   }
 
   const items = online ? quizItemsQuery.data ?? [] : offlineRound!.shaped;
-  const offlineMutations = online ? null : createOfflineQuizMutations(offlineRound!.raw);
+  const offlineMutations = online
+    ? null
+    : createOfflineQuizMutations(offlineRound!.raw, offlineErrors, (key, message) =>
+        setOfflineErrors((current) => ({ ...current, [key]: message })),
+      );
   const submitAnswer = online ? submitAnswerMutation : offlineMutations!.submitAnswer;
   const submitMatching = online ? submitMatchingMutation : offlineMutations!.submitMatching;
   const submitBlanks = online ? submitBlanksMutation : offlineMutations!.submitBlanks;

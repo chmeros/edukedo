@@ -6,7 +6,7 @@ import { FlipCard } from "./FlipCard";
 import { SuccessIcon } from "./Icons";
 import type { OfflineContentItem } from "./offlineDb";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
-import type { OfflineQuizRound } from "./offlineQuiz";
+import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { QuizCountControl } from "./QuizCountControl";
 import {
@@ -90,6 +90,12 @@ export function MixedLearning({
 
   const [offlineCards, setOfflineCards] = useState<OfflineContentItem[] | null>(null);
   const [offlineRound, setOfflineRound] = useState<OfflineQuizRound | null>(null);
+  // Code-Review-Fund, nachgezogen (22.09.2026, siehe Architekturplanung Abschnitt 13):
+  // reaktiver Fehlerzustand für die vier Offline-"Mutationen" (createOfflineQuizMutations ist
+  // bewusst kein Hook, siehe dort) — lebt hier statt in offlineQuiz.ts, damit die bedingte
+  // Aufrufstelle unten (`online || !offlineRound ? null : createOfflineQuizMutations(...)`)
+  // nicht gegen die Rules of Hooks verstößt.
+  const [offlineErrors, setOfflineErrors] = useState<Partial<Record<OfflineQuizMutationKey, string>>>({});
   useEffect(() => {
     if (online) {
       setOfflineCards(null);
@@ -160,7 +166,12 @@ export function MixedLearning({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [online, kursId, themaId, queue]);
 
-  const offlineQuizMutations = online || !offlineRound ? null : createOfflineQuizMutations(offlineRound.raw);
+  const offlineQuizMutations =
+    online || !offlineRound
+      ? null
+      : createOfflineQuizMutations(offlineRound.raw, offlineErrors, (key, message) =>
+          setOfflineErrors((current) => ({ ...current, [key]: message })),
+        );
   const submitAnswer = online ? submitAnswerMutation : offlineQuizMutations!.submitAnswer;
   const submitMatching = online ? submitMatchingMutation : offlineQuizMutations!.submitMatching;
   const submitBlanks = online ? submitBlanksMutation : offlineQuizMutations!.submitBlanks;
