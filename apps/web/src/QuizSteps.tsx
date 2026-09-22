@@ -2,6 +2,7 @@ import { DndContext, PointerSensor, useDraggable, useDroppable, useSensor, useSe
 import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
 import { ContentActions } from "./ContentActions";
+import { ErrorMessage } from "./ErrorMessage";
 
 /**
  * Die vier Fragetyp-Komponenten (F-21) — gemeinsam genutzt von Quiz.tsx (eingeschriebene
@@ -38,6 +39,14 @@ function pickMotivation(isCorrect: boolean): string {
 interface MutationLike<TInput, TOutput> {
   mutate: (input: TInput, opts: { onSuccess: (result: TOutput) => void }) => void;
   isPending: boolean;
+  // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): keine der neun
+  // Fragetyp-Komponenten zeigte bisher eine Fehlermeldung, wenn `submit.mutate` fehlschlug
+  // (Netzwerkfehler, abgelaufene Session) — der Button wurde nach `isPending` einfach wieder
+  // aktiv, ohne jeden Hinweis, dass die Antwort nicht gespeichert wurde. `error` ist bei jeder
+  // echten tRPC-`useMutation()` bereits vorhanden (siehe Quiz.tsx/MixedLearning.tsx/
+  // Vorschau.tsx, die `submit` als vollständiges Mutation-Objekt durchreichen), hier bewusst
+  // nur auf die tatsächlich genutzte `message` verengt.
+  error: { message: string } | null;
 }
 
 interface StepProps<TItem, TInput, TOutput> {
@@ -144,6 +153,7 @@ export function MultipleChoiceStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -232,6 +242,7 @@ export function TwoChoiceStep({
           </button>
         </>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -346,6 +357,7 @@ export function McMultiStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -488,6 +500,7 @@ export function MatchingStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -664,6 +677,7 @@ export function QuadrantStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -809,6 +823,7 @@ export function SortierenStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -907,6 +922,7 @@ export function BlanksStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -1067,6 +1083,7 @@ export function BlanksSelectionStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );
@@ -1148,6 +1165,7 @@ export function KurzantwortStep({
           Antwort prüfen
         </button>
       )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}
     </div>
   );

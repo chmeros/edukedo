@@ -57,9 +57,15 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
     return raw.find((item) => item.id === id);
   }
 
+  // `error: null` (statt eines echten reaktiven Fehlerzustands) genügt hier: ein
+  // fehlgeschlagenes `pushQueueEvent` unten lässt `onSuccess` bewusst aus (siehe Kommentar
+  // dort) — dieselbe Nicht-Reaktion wie zuvor, jetzt nur zusätzlich kompatibel zur
+  // `MutationLike`-Schnittstelle (QuizSteps.tsx), die seit dem Code-Review vom 22.09.2026 ein
+  // `error`-Feld erwartet.
   return {
     submitAnswer: {
       isPending: false,
+      error: null,
       mutate(
         input: { contentItemId: string; selectedOptionId: string },
         opts: {
@@ -83,6 +89,7 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
     },
     submitMatching: {
       isPending: false,
+      error: null,
       mutate(
         input: { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
         opts: { onSuccess: (result: { correctMap: Record<string, string>; correctCount: number; total: number }) => void },
@@ -99,6 +106,7 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
     },
     submitBlanks: {
       isPending: false,
+      error: null,
       mutate(
         input: { contentItemId: string; answers: Record<string, string> },
         opts: {
@@ -122,6 +130,7 @@ export function createOfflineQuizMutations(raw: OfflineContentItem[]) {
     },
     submitKurzantwort: {
       isPending: false,
+      error: null,
       mutate(
         input: { contentItemId: string; answer: string },
         opts: { onSuccess: (result: { isCorrect: boolean; correctAnswer: string; explanation: string | null }) => void },
