@@ -1,7 +1,8 @@
 import { InfoIcon } from "./Icons";
+import { ProgressExportButton } from "./ProgressExport";
 import { trpc } from "./trpc";
 
-function formatLernzeit(minutes: number): string {
+export function formatLernzeit(minutes: number): string {
   if (minutes < 1) {
     return "< 1 Min.";
   }
@@ -27,10 +28,14 @@ function formatLernzeit(minutes: number): string {
  */
 export function Progress({
   kursId,
+  kursTitle,
+  userLabel,
   activeThemaId,
   onGoToThema,
 }: {
   kursId: string;
+  kursTitle: string;
+  userLabel: string;
   activeThemaId?: string;
   onGoToThema: (themaId: string, themaTitle: string) => void;
 }) {
@@ -57,6 +62,11 @@ export function Progress({
 
   return (
     <div className="stack">
+      {/* F-34: exportiert genau die unten sichtbaren Daten (Fachgebiet-/Themen-Fortschritt +
+          Lernstatistik), siehe ProgressExport.tsx. */}
+      <div style={{ alignSelf: "flex-start" }}>
+        <ProgressExportButton kursTitle={kursTitle} userLabel={userLabel} overview={fachgebiete} stats={stats.data} />
+      </div>
       <div className="panel-section">
         <div className="panel-section-head">
           <h2>Fortschritt je Fachgebiet</h2>

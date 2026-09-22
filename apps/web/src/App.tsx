@@ -126,6 +126,10 @@ export function App() {
     selectedKursId && joinedCourses.some((course) => course.id === selectedKursId)
       ? selectedKursId
       : joinedCourses[0]?.id ?? null;
+  // F-34: bereits vorhandene Daten wiederverwendet statt eines erneuten courses.list-Aufrufs in
+  // ProgressExportButton — der wäre rein redundant, courses.list ist hier schon geladen (siehe
+  // Architekturplanung Abschnitt 13 für einen dabei entdeckten, von F-34 unabhängigen 404-Fund).
+  const activeKursTitle = joinedCourses.find((course) => course.id === activeKursId)?.title ?? "";
   // F-101: verbindliche Lernbereichsauswahl — sobald courses.list geladen ist und keine
   // Belegung existiert, ersetzt die Kursauswahl den Lernbereich zwangsweise (canDismiss=false
   // in CourseSelection.tsx), statt nur einen Hinweis anzuzeigen. `courses.data !== undefined`
@@ -344,6 +348,8 @@ export function App() {
                       <Progress
                         key={activeKursId}
                         kursId={activeKursId}
+                        kursTitle={activeKursTitle}
+                        userLabel={me.data.displayName ?? me.data.email}
                         activeThemaId={activeThema?.id}
                         onGoToThema={(themaId, themaTitle) => {
                           setActiveThema({ id: themaId, title: themaTitle });

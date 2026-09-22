@@ -2383,3 +2383,63 @@ button.progress-block:hover .progress-head b {
   color: var(--ink);
   background: var(--surface);
 }
+
+/* ---------- F-34: Lernfortschritt-Export als PDF (ProgressExport.tsx) ---------- */
+/* Der Report wird per Portal direkt unter <body> gerendert, normalerweise unsichtbar — nur unter
+   @media print sichtbar, wobei die gesamte restliche (interaktive, tab-basierte) App-Oberfläche
+   ausgeblendet wird, statt zu versuchen, nur Teile davon druckfähig zu machen. Bewusst reines
+   Schwarz-Weiß-taugliches Markup (Überschriften/Listen mit Rahmen statt Hintergrundfarbe wie
+   .stat-tile/.progress-bar) — Farbverläufe würden im Druck/PDF ohne Farbe zu ununterscheidbaren
+   grauen Flächen verschwimmen. */
+.progress-print-report {
+  display: none;
+}
+
+@media print {
+  #root {
+    display: none;
+  }
+
+  .progress-print-report {
+    display: block;
+    color: #000;
+    font-family: var(--font-body);
+  }
+
+  .progress-print-report h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .progress-print-report h2 {
+    font-size: 15px;
+    margin: 20px 0 8px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+  }
+
+  .progress-print-report h3 {
+    font-size: 13px;
+    margin: 12px 0 4px;
+  }
+
+  .progress-print-report .progress-print-meta {
+    color: #444;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .progress-print-report .progress-print-fachgebiet {
+    break-inside: avoid;
+  }
+
+  .progress-print-report ul {
+    margin: 0 0 8px;
+    padding-left: 20px;
+  }
+
+  .progress-print-report li {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
