@@ -22,6 +22,13 @@ export const contentItemTypeSchema = z.enum([
   "swot",
   "bsc",
   "ansoff",
+  // F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice): Mehrfachauswahl —
+  // eine, zwei, drei oder alle vier Antwortoptionen können richtig sein, statt wie bei "quiz_mc"
+  // genau eine. Bewusst ein EIGENER Typ statt eines Flags auf "quiz_mc" (siehe Anforderungskatalog
+  // F-116: "die Umstellung betrifft nur neu als Mehrfachauswahl gekennzeichnete Fragen, bereits
+  // vorhandene Multiple-Choice-Inhalte bleiben unverändert einfachauswahl-basiert") — siehe
+  // checkMcMultiAnswer in quiz-logic.ts.
+  "quiz_mc_multi",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -120,6 +127,7 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("swot"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("bsc"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("quiz_mc_multi"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("luecken"), payload: lueckenPayloadSchema }),
   z.object({ type: z.literal("kurzantwort"), payload: kurzantwortPayloadSchema }),
   z.object({ type: z.literal("fallaufgabe"), payload: fallaufgabePayloadSchema }),

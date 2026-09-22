@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
 import { trpc } from "./trpc";
 
 /** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
@@ -18,6 +18,7 @@ function goHome() {
 export function Vorschau() {
   const previewItems = trpc.preview.items.useQuery();
   const submitAnswer = trpc.preview.submitAnswer.useMutation();
+  const submitMcMulti = trpc.preview.submitMcMulti.useMutation();
   const submitMatching = trpc.preview.submitMatching.useMutation();
   const submitQuadrant = trpc.preview.submitQuadrant.useMutation();
   const submitBlanks = trpc.preview.submitBlanks.useMutation();
@@ -134,6 +135,16 @@ export function Vorschau() {
               onAnswered={handleAnswered}
               onNext={next}
               submit={submitAnswer}
+            />
+          )}
+          {current.type === "quiz_mc_multi" && (
+            <McMultiStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitMcMulti}
             />
           )}
           {current.type === "zuordnung" && (

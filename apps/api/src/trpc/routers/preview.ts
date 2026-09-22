@@ -3,6 +3,7 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkMcMultiAnswer,
   checkQuadrantAnswer,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
@@ -10,6 +11,7 @@ import {
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
+  submitMcMultiInputSchema,
   submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
 } from "@edukedo/shared";
@@ -43,10 +45,11 @@ export const previewRouter = router({
       .where(
         and(
           // F-113: MC_LIKE_QUIZ_TYPES sind strukturell identisch zu quiz_mc. F-114:
-          // QUADRANT_QUIZ_TYPES sind eine visuelle Zuordnungs-Variante mit N Zonen. Siehe
-          // quiz-logic.ts.
+          // QUADRANT_QUIZ_TYPES sind eine visuelle Zuordnungs-Variante mit N Zonen. F-116:
+          // quiz_mc_multi lädt genauso Optionen wie MC_LIKE_QUIZ_TYPES. Siehe quiz-logic.ts.
           inArray(contentItem.type, [
             ...MC_LIKE_QUIZ_TYPES,
+            "quiz_mc_multi",
             "zuordnung",
             ...QUADRANT_QUIZ_TYPES,
             "luecken",
@@ -66,6 +69,7 @@ export const previewRouter = router({
     const optionItemIds = items
       .filter(
         (item) =>
+          item.type === "quiz_mc_multi" ||
           (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
           item.type === "zuordnung" ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
@@ -92,6 +96,17 @@ export const previewRouter = router({
 
     const { isCorrect, correctOptionId } = checkMcAnswer(options, input.selectedOptionId);
     return { isCorrect, correctOptionId, explanation: item.explanation };
+  }),
+
+  submitMcMulti: publicProcedure.input(submitMcMultiInputSchema).mutation(async ({ ctx, input }) => {
+    const item = await findPublishedItem(ctx.db, input.contentItemId);
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    const { isCorrect, correctOptionIds } = checkMcMultiAnswer(options, input.selectedOptionIds);
+    return { isCorrect, correctOptionIds, explanation: item.explanation };
   }),
 
   submitMatching: publicProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {

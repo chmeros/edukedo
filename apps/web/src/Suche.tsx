@@ -9,6 +9,7 @@ const TYPE_LABELS: Record<string, string> = {
   wahr_falsch: "Quiz · Wahr/Falsch",
   entweder_oder: "Quiz · Entweder-Oder",
   was_passt_nicht: "Quiz · Was passt nicht dazu",
+  quiz_mc_multi: "Quiz · Mehrfachauswahl",
   zuordnung: "Quiz · Zuordnung",
   // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
   swot: "Quiz · SWOT-Matrix",

@@ -49,11 +49,13 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
       return { prompt: input.prompt, explanation: input.explanation ?? null, payload: {} };
     // F-113: wahr_falsch/entweder_oder/was_passt_nicht sind strukturell identisch zu quiz_mc
     // (answer_option-basiert, genau eine Option richtig), siehe Architekturplanung Abschnitt 13
-    // — derselbe Formular-Aufbau (options-Array), daher ein gemeinsamer Case-Block.
+    // — derselbe Formular-Aufbau (options-Array), daher ein gemeinsamer Case-Block. F-116:
+    // quiz_mc_multi nutzt denselben Formular-Aufbau, nur mit 1–N statt genau einer isCorrect.
     case "quiz_mc":
     case "wahr_falsch":
     case "entweder_oder":
     case "was_passt_nicht":
+    case "quiz_mc_multi":
       return {
         prompt: input.prompt,
         explanation: input.explanation ?? null,
@@ -198,12 +200,14 @@ export const adminContentRouter = router({
       updatedAt: item.updatedAt,
     };
 
-    // F-113: wahr_falsch/entweder_oder/was_passt_nicht laden/formen genau wie quiz_mc.
+    // F-113: wahr_falsch/entweder_oder/was_passt_nicht laden/formen genau wie quiz_mc. F-116:
+    // quiz_mc_multi ebenso (Formular unterscheidet sich nur in der Mindestanzahl `isCorrect`).
     if (
       item.type === "quiz_mc" ||
       item.type === "wahr_falsch" ||
       item.type === "entweder_oder" ||
-      item.type === "was_passt_nicht"
+      item.type === "was_passt_nicht" ||
+      item.type === "quiz_mc_multi"
     ) {
       const options = await ctx.db
         .select()

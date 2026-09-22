@@ -427,10 +427,12 @@ export const progressRouter = router({
       .where(
         and(
           // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
-          // quiz_mc bzw. zuordnung, siehe quiz-logic.ts.
+          // quiz_mc bzw. zuordnung. F-116: quiz_mc_multi ist die Mehrfachauswahl-Variante von
+          // quiz_mc. Siehe quiz-logic.ts.
           inArray(contentItem.type, [
             "karteikarte",
             ...MC_LIKE_QUIZ_TYPES,
+            "quiz_mc_multi",
             "zuordnung",
             ...QUADRANT_QUIZ_TYPES,
             "luecken",
@@ -560,10 +562,12 @@ export const progressRouter = router({
       .where(
         and(
           // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
-          // quiz_mc bzw. zuordnung, siehe quiz-logic.ts.
+          // quiz_mc bzw. zuordnung. F-116: quiz_mc_multi ist die Mehrfachauswahl-Variante von
+          // quiz_mc. Siehe quiz-logic.ts.
           inArray(contentItem.type, [
             "karteikarte",
             ...MC_LIKE_QUIZ_TYPES,
+            "quiz_mc_multi",
             "zuordnung",
             ...QUADRANT_QUIZ_TYPES,
             "luecken",

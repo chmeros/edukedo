@@ -8,7 +8,7 @@ import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { QuizCountControl } from "./QuizCountControl";
-import { BlanksStep, KurzantwortStep, MatchingStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, MultipleChoiceStep, QuadrantStep, TwoChoiceStep } from "./QuizSteps";
 import { ReportContentButton } from "./ReportContentButton";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
@@ -62,6 +62,7 @@ export function MixedLearning({
   };
   const submitReviewMutation = trpc.progress.submitReview.useMutation({ onSuccess: invalidateProgress });
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
+  const submitMcMultiMutation = trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress });
   const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
   const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
   const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
@@ -297,6 +298,18 @@ export function MixedLearning({
             canReport
           />
         )}
+      {/* F-116: bewusst nur online, siehe Architekturplanung Abschnitt 13 (analog F-114). */}
+      {current.kind === "quiz" && current.item.type === "quiz_mc_multi" && (
+        <McMultiStep
+          key={current.item.id}
+          item={current.item}
+          isLast={isLast}
+          onAnswered={handleQuizAnswered}
+          onNext={next}
+          submit={submitMcMultiMutation}
+          canReport
+        />
+      )}
       {current.kind === "quiz" && current.item.type === "zuordnung" && (
         <MatchingStep
           key={current.item.id}

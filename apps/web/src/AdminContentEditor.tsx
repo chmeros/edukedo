@@ -12,6 +12,8 @@ const TYPE_LABELS: Record<string, string> = {
   wahr_falsch: "Quiz · Wahr/Falsch",
   entweder_oder: "Quiz · Entweder-Oder",
   was_passt_nicht: "Quiz · Was passt nicht dazu",
+  // F-116: Mehrfachauswahl — eine, zwei, drei oder alle vier Optionen können richtig sein.
+  quiz_mc_multi: "Quiz · Mehrfachauswahl",
   zuordnung: "Quiz · Zuordnung",
   // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
   swot: "Quiz · SWOT-Matrix",
@@ -36,6 +38,7 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
       return { type, prompt: "", explanation: "", ...common };
     case "quiz_mc":
     case "was_passt_nicht":
+    case "quiz_mc_multi":
       return {
         type,
         prompt: "",
@@ -254,6 +257,62 @@ function ContentItemForm({
                     onChange={() => setField("options", form.options.map((o, i) => ({ ...o, isCorrect: i === index })))}
                   />
                   {form.type === "was_passt_nicht" ? "passt nicht dazu" : "richtig"}
+                </label>
+                {form.options.length > 2 && (
+                  <button
+                    type="button"
+                    className="btn btn-ghost btn-sm"
+                    onClick={() => setField("options", form.options.filter((_, i) => i !== index))}
+                  >
+                    Entfernen
+                  </button>
+                )}
+              </div>
+            ))}
+            {form.options.length < 10 && (
+              <button
+                type="button"
+                className="btn btn-ghost btn-sm"
+                style={{ alignSelf: "flex-start" }}
+                onClick={() => setField("options", [...form.options, { text: "", isCorrect: false }])}
+              >
+                Option hinzufügen
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* F-116: Mehrfachauswahl — Checkboxen statt Radio-Buttons, da hier mehr als eine Option
+          richtig sein darf (mindestens eine, siehe adminContentItemFormSchema). */}
+      {form.type === "quiz_mc_multi" && (
+        <div className="field">
+          <label>Antwortoptionen (mindestens eine richtig)</label>
+          <div className="stack">
+            {form.options.map((option, index) => (
+              <div key={index} className="list-row-actions">
+                <input
+                  className="input"
+                  value={option.text}
+                  placeholder={`Option ${index + 1}`}
+                  onChange={(event) => {
+                    const next = [...form.options];
+                    next[index] = { ...next[index]!, text: event.target.value };
+                    setField("options", next);
+                  }}
+                  required
+                />
+                <label className="field-hint" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <input
+                    type="checkbox"
+                    checked={option.isCorrect}
+                    onChange={(event) => {
+                      const next = [...form.options];
+                      next[index] = { ...next[index]!, isCorrect: event.target.checked };
+                      setField("options", next);
+                    }}
+                  />
+                  richtig
                 </label>
                 {form.options.length > 2 && (
                   <button

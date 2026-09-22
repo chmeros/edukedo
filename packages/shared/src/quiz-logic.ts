@@ -104,8 +104,18 @@ export const QUADRANT_MODELS = {
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];
 export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
 
+/**
+ * F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice, Nutzer-Entscheidung
+ * 22.09.2026, siehe Architekturplanung Abschnitt 13): Mehrfachauswahl — strukturell dieselbe
+ * answer_option-Grundlage wie MC_LIKE_QUIZ_TYPES (N Options, hier aber 1–N davon `isCorrect`
+ * statt genau einer), daher beim Formen/Laden gemeinsam mit MC_LIKE_QUIZ_TYPES behandelt (siehe
+ * shapeQuizItem unten). Bewusst NICHT Teil von MC_LIKE_QUIZ_TYPES selbst, da die Bewertung
+ * (checkMcMultiAnswer, Alles-oder-nichts über ein Set von IDs) und die Formular-/UI-Führung
+ * grundsätzlich anders sind als bei "genau eine Option richtig".
+ */
 export type ShapedQuizItem =
   | { id: string; type: McLikeQuizType; prompt: string; options: { id: string; text: string }[] }
+  | { id: string; type: "quiz_mc_multi"; prompt: string; options: { id: string; text: string }[] }
   | {
       id: string;
       type: "zuordnung";
@@ -127,10 +137,13 @@ export type ShapedQuizItem =
  * öffentliche, lösungsfreie Darstellung — nie die richtige Antwort/Zuordnung/Lösung
  * mitschicken (siehe Architekturplanung Abschnitt 13). */
 export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): ShapedQuizItem {
-  if ((MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type)) {
+  // F-116: quiz_mc_multi formt sich identisch zu den MC_LIKE_QUIZ_TYPES (dieselben Options ohne
+  // isCorrect) — nur die spätere Bewertung (checkMcMultiAnswer) und die Lernenden-UI (Checkboxen
+  // statt Radio-Buttons, siehe QuizSteps.tsx McMultiStep) unterscheiden sich.
+  if (item.type === "quiz_mc_multi" || (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type)) {
     return {
       id: item.id,
-      type: item.type as McLikeQuizType,
+      type: item.type as McLikeQuizType | "quiz_mc_multi",
       prompt: item.prompt,
       options: options
         .filter((option) => option.contentItemId === item.id)
@@ -191,6 +204,28 @@ export function checkMcAnswer(options: RawAnswerOption[], selectedOptionId: stri
   }
 
   return { isCorrect: selected.isCorrect, correctOptionId: correct.id };
+}
+
+/**
+ * F-116: prüft eine Mehrfachauswahl-Antwort — anders als checkMcAnswer (genau eine
+ * Options-ID) hier ein Set von Options-IDs. Alles-oder-nichts-Bewertung (Nutzer-Entscheidung
+ * 22.09.2026, siehe Architekturplanung Abschnitt 13): nur eine exakt mit den als `isCorrect`
+ * markierten Optionen deckungsgleiche Auswahl (alle richtigen angekreuzt, keine falschen) zählt
+ * als richtig — konsistent mit dem binären richtig/falsch-Bewertungsmodell, das Streaks,
+ * Fortschrittsquote (F-30) und das motivierende Feedback (F-112) bereits durchgängig nutzen.
+ */
+export function checkMcMultiAnswer(options: RawAnswerOption[], selectedOptionIds: string[]) {
+  if (options.length === 0) {
+    throw new QuizItemNotFoundError("Frage nicht gefunden.");
+  }
+
+  const correctOptionIds = options.filter((option) => option.isCorrect).map((option) => option.id);
+  const correctSet = new Set(correctOptionIds);
+  const selectedSet = new Set(selectedOptionIds);
+  const isCorrect =
+    selectedSet.size === correctSet.size && [...selectedSet].every((id) => correctSet.has(id));
+
+  return { isCorrect, correctOptionIds };
 }
 
 export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId: string; rightOptionId: string }[]) {

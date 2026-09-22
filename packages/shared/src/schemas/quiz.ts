@@ -56,6 +56,17 @@ export const submitKurzantwortInputSchema = z.object({
 export type SubmitKurzantwortInput = z.infer<typeof submitKurzantwortInputSchema>;
 
 /**
+ * F-116 (Mehrfachauswahl-Teil): eingereichte Auswahl als Set von Options-IDs statt einer
+ * einzelnen `selectedOptionId` (siehe submitQuizAnswerInputSchema) — welche Optionen tatsächlich
+ * `isCorrect` sind, wird auch hier erst serverseitig geprüft (checkMcMultiAnswer).
+ */
+export const submitMcMultiInputSchema = z.object({
+  contentItemId: z.string().uuid(),
+  selectedOptionIds: z.array(z.string().uuid()).min(1),
+});
+export type SubmitMcMultiInput = z.infer<typeof submitMcMultiInputSchema>;
+
+/**
  * F-114 (SWOT/BSC/Ansoff-Teil): eingereichte Zonen-Platzierung je Begriff (answer_option-ID →
  * Zonen-Schlüssel, siehe QUADRANT_MODELS in quiz-logic.ts). Welche Zone tatsächlich richtig
  * ist (answer_option.group_key), wird ebenfalls erst hier serverseitig geprüft.

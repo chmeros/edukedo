@@ -1202,6 +1202,140 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-116: Mehrfachauswahl ist über Admin-Redaktion anlegbar, verlangt mindestens eine richtige Option und wertet nur eine exakt deckungsgleiche Auswahl als richtig (Alles-oder-nichts)",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f116@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      // Keine Option als richtig markiert — am Formular-Schema abgelehnt (siehe admin-content.ts).
+      const noCorrectResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "quiz_mc_multi",
+          themaId,
+          prompt: "Ungültig: keine Option richtig",
+          explanation: null,
+          options: [
+            { text: "A", isCorrect: false },
+            { text: "B", isCorrect: false },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(noCorrectResponse.statusCode).toBe(400);
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "quiz_mc_multi",
+          themaId,
+          prompt: "F-116-Testfrage: Welche Optionen sind richtig?",
+          explanation: "Testerklärung",
+          options: [
+            { text: "Richtig 1", isCorrect: true },
+            { text: "Richtig 2", isCorrect: true },
+            { text: "Falsch 1", isCorrect: false },
+            { text: "Falsch 2", isCorrect: false },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const mcMultiId = createResponse.json().result.data.id as string;
+
+      // quiz.quizItems (Lernenden-Sicht) liefert die Optionen nie mit isCorrect.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        options?: { id: string; text: string }[];
+      }[];
+      const mcMultiItem = quizItems.find((item) => item.id === mcMultiId)!;
+      expect(mcMultiItem.type).toBe("quiz_mc_multi");
+      expect(mcMultiItem.options).toHaveLength(4);
+      expect(mcMultiItem.options!.some((option) => "isCorrect" in option)).toBe(false);
+
+      const byText = (text: string) => mcMultiItem.options!.find((option) => option.text === text)!;
+
+      // Nur eine der beiden richtigen Optionen ausgewählt — Alles-oder-nichts, also falsch.
+      const partialResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitMcMulti",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: mcMultiId, selectedOptionIds: [byText("Richtig 1").id] },
+      });
+      expect(partialResponse.statusCode).toBe(200);
+      const partialResult = partialResponse.json().result.data as { isCorrect: boolean; correctOptionIds: string[] };
+      expect(partialResult.isCorrect).toBe(false);
+      expect(partialResult.correctOptionIds.sort()).toEqual([byText("Richtig 1").id, byText("Richtig 2").id].sort());
+
+      // Beide richtigen Optionen ausgewählt, keine falsche — korrekt.
+      const exactResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitMcMulti",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: mcMultiId, selectedOptionIds: [byText("Richtig 2").id, byText("Richtig 1").id] },
+      });
+      expect(exactResponse.statusCode).toBe(200);
+      expect(exactResponse.json().result.data.isCorrect).toBe(true);
+
+      // Beide richtigen plus eine falsche Option — ebenfalls falsch (Alles-oder-nichts).
+      const tooManyResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitMcMulti",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: mcMultiId,
+          selectedOptionIds: [byText("Richtig 1").id, byText("Richtig 2").id, byText("Falsch 1").id],
+        },
+      });
+      expect(tooManyResponse.json().result.data.isCorrect).toBe(false);
+
+      // adminContent.get reshaped die Optionen inkl. isCorrect für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: mcMultiId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as { type: string; options: { text: string; isCorrect: boolean }[] };
+      expect(detail.type).toBe("quiz_mc_multi");
+      expect(detail.options.filter((option) => option.isCorrect).map((option) => option.text).sort()).toEqual([
+        "Richtig 1",
+        "Richtig 2",
+      ]);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

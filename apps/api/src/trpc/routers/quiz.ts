@@ -3,6 +3,7 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkMcMultiAnswer,
   checkQuadrantAnswer,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
@@ -11,6 +12,7 @@ import {
   submitBlanksInputSchema,
   submitKurzantwortInputSchema,
   submitMatchingInputSchema,
+  submitMcMultiInputSchema,
   submitQuadrantInputSchema,
   submitQuizAnswerInputSchema,
 } from "@edukedo/shared";
@@ -40,9 +42,11 @@ export const quizRouter = router({
     const conditions = [
       // F-113: MC_LIKE_QUIZ_TYPES (wahr_falsch/entweder_oder/was_passt_nicht) sind strukturell
       // identisch zu quiz_mc. F-114: QUADRANT_QUIZ_TYPES (swot/bsc/ansoff) sind eine visuelle
-      // Zuordnungs-Variante mit N Zonen statt zwei Spalten. Siehe quiz-logic.ts.
+      // Zuordnungs-Variante mit N Zonen statt zwei Spalten. F-116: quiz_mc_multi lädt genauso
+      // Optionen wie MC_LIKE_QUIZ_TYPES, wird aber anders bewertet. Siehe quiz-logic.ts.
       inArray(contentItem.type, [
         ...MC_LIKE_QUIZ_TYPES,
+        "quiz_mc_multi",
         "zuordnung",
         ...QUADRANT_QUIZ_TYPES,
         "luecken",
@@ -80,6 +84,7 @@ export const quizRouter = router({
     const optionItemIds = items
       .filter(
         (item) =>
+          item.type === "quiz_mc_multi" ||
           (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type) ||
           item.type === "zuordnung" ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
@@ -113,6 +118,27 @@ export const quizRouter = router({
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
 
     return { isCorrect, correctOptionId, explanation: item?.explanation ?? null };
+  }),
+
+  /** F-116: Mehrfachauswahl auswerten — dieselbe answer_option-Grundlage wie submitAnswer, aber
+   * ein Set von Options-IDs statt einer einzelnen (siehe checkMcMultiAnswer). */
+  submitMcMulti: protectedProcedure.input(submitMcMultiInputSchema).mutation(async ({ ctx, input }) => {
+    const options = await ctx.db
+      .select()
+      .from(answerOption)
+      .where(eq(answerOption.contentItemId, input.contentItemId));
+
+    const { isCorrect, correctOptionIds } = checkMcMultiAnswer(options, input.selectedOptionIds);
+
+    const [item] = await ctx.db
+      .select()
+      .from(contentItem)
+      .where(eq(contentItem.id, input.contentItemId))
+      .limit(1);
+
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+
+    return { isCorrect, correctOptionIds, explanation: item?.explanation ?? null };
   }),
 
   submitMatching: protectedProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {

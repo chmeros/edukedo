@@ -93,6 +93,17 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     options: z.array(answerOptionFormSchema).min(2).max(10),
     ...commonFormFields,
   }),
+  // F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice, Nutzer-Entscheidung
+  // 22.09.2026, siehe Architekturplanung Abschnitt 13): Mehrfachauswahl — formal identisch zu
+  // "quiz_mc" (options-Array, answerOptionFormSchema), nur die Mindestanzahl markierter Optionen
+  // unterscheidet sich (mindestens eine statt genau eine, siehe .refine() unten).
+  z.object({
+    type: z.literal("quiz_mc_multi"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    options: z.array(answerOptionFormSchema).min(2).max(10),
+    ...commonFormFields,
+  }),
   z.object({
     type: z.literal("zuordnung"),
     prompt: promptSchema,
@@ -174,6 +185,12 @@ export const adminContentItemFormSchema = adminContentItemFormUnion
       data.options.filter((option) => option.isCorrect).length === 1,
     { message: "Genau eine Antwortoption muss als richtig markiert sein.", path: ["options"] },
   )
+  // F-116: bei Mehrfachauswahl reicht "mindestens eine" (statt "genau eine") — alle vier dürfen
+  // auch richtig sein, siehe Anforderungskatalog F-116.
+  .refine((data) => data.type !== "quiz_mc_multi" || data.options.some((option) => option.isCorrect), {
+    message: "Mindestens eine Antwortoption muss als richtig markiert sein.",
+    path: ["options"],
+  })
   // F-114: jeder Begriff muss einer tatsächlich existierenden Zone des gewählten Modells
   // zugeordnet sein — verhindert einen "verwaisten" Begriff mit einem Tippfehler-Zonen-Schlüssel,
   // der beim Lernen nie als richtig auswertbar wäre.

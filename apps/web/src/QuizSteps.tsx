@@ -244,6 +244,124 @@ export function TwoChoiceStep({
   );
 }
 
+export interface McMultiItem {
+  id: string;
+  prompt: string;
+  options: { id: string; text: string }[];
+}
+
+/**
+ * F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice, Nutzer-Entscheidung
+ * 22.09.2026, siehe Architekturplanung Abschnitt 13): Mehrfachauswahl — mechanisch wie
+ * MultipleChoiceStep (dieselben `.quiz-opt`-Kacheln), aber togglebare Auswahl (Klick an-/abwählen)
+ * statt einer einzelnen Auswahl, und ein fester Hinweistext, damit für Lernende erkennbar ist,
+ * dass hier mehrere Antworten richtig sein können (Anforderungskatalog F-116). Bewertung
+ * Alles-oder-nichts (checkMcMultiAnswer in quiz-logic.ts): "Richtig" nur bei exakt der
+ * angekreuzten Menge, `correctOptionIds` markiert nach Prüfung zusätzlich fehlende Optionen als
+ * "richtig, aber nicht ausgewählt".
+ */
+export function McMultiStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<
+  McMultiItem,
+  { contentItemId: string; selectedOptionIds: string[] },
+  { isCorrect: boolean; correctOptionIds: string[]; explanation: string | null }
+>) {
+  const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
+  const [feedback, setFeedback] = useState<{
+    isCorrect: boolean;
+    correctOptionIds: string[];
+    explanation: string | null;
+    motivation: string;
+  } | null>(null);
+
+  function toggleOption(optionId: string) {
+    setSelectedOptionIds((current) =>
+      current.includes(optionId) ? current.filter((id) => id !== optionId) : [...current, optionId],
+    );
+  }
+
+  function checkAnswer() {
+    if (selectedOptionIds.length === 0) return;
+    submit.mutate(
+      { contentItemId: item.id, selectedOptionIds },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.isCorrect) });
+          onAnswered(result.isCorrect);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <p className="field-hint">Mehrere Antworten können richtig sein.</p>
+      <div className="quiz-options">
+        {item.options.map((option) => {
+          const isSelected = selectedOptionIds.includes(option.id);
+          let className = "quiz-opt";
+          if (feedback) {
+            if (feedback.correctOptionIds.includes(option.id)) {
+              className += " is-correct";
+            } else if (isSelected) {
+              className += " is-wrong";
+            }
+          } else if (isSelected) {
+            className += " is-selected";
+          }
+
+          return (
+            <button
+              key={option.id}
+              type="button"
+              className={className}
+              disabled={feedback !== null}
+              onClick={() => toggleOption(option.id)}
+            >
+              {isSelected ? "☑ " : "☐ "}
+              {option.text}
+            </button>
+          );
+        })}
+      </div>
+      {feedback ? (
+        <>
+          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
+            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={selectedOptionIds.length === 0 || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
+      )}
+      {canReport && (
+        <div style={{ textAlign: "center" }}>
+          <ReportContentButton contentItemId={item.id} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export interface MatchingItem {
   id: string;
   prompt: string;
