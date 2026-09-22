@@ -23,6 +23,15 @@ function Root() {
       links: [
         httpBatchLink({
           url: "/api/v1/trpc",
+          // `maxURLLength`: ohne diese Grenze batcht tRPC beliebig viele gleichzeitig
+          // gefeuerte Queries (z. B. beim App-Start: courses.list, auth.me,
+          // gamification.mascotStatus/streakStatus, company.myBranding, sponsor.list) in EINEN
+          // Request mit kommagetrennten Prozedur-Namen im Pfad — das überschritt live bereits ab
+          // ca. 104 Zeichen Fastifys Routen-Parameter-Limit (`maxParamLength`, siehe app.ts) und
+          // lieferte einen 404 statt einer Antwort. Mit `maxURLLength` teilt tRPC einen zu langen
+          // Batch stattdessen proaktiv in mehrere Requests auf, bevor irgendein serverseitiges
+          // Limit erreicht wird — bewusst derselbe Wert wie `maxParamLength` in app.ts.
+          maxURLLength: 2000,
           fetch(url, options) {
             return fetch(url, { ...options, credentials: "include" });
           },

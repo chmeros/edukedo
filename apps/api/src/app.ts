@@ -13,7 +13,16 @@ import { appRouter } from "./trpc/router";
  * kann, ohne einen echten Netzwerk-Port zu öffnen.
  */
 export async function buildApp() {
-  const app = Fastify({ logger: true });
+  // maxParamLength: Fastifys Router (find-my-way) begrenzt eine einzelne Routen-Parameter-Länge
+  // standardmäßig auf 100 Zeichen — der tRPC-Fastify-Adapter registriert seine Routen als
+  // `/trpc/:path`, wobei `:path` bei einem gebatchten Request die kommagetrennten Prozedur-Namen
+  // trägt (siehe httpBatchLink, main.tsx). Schon fünf bis sechs gleichzeitig beim App-Start
+  // feuernde Queries (courses.list, auth.me, gamification.mascotStatus/streakStatus,
+  // company.myBranding, sponsor.list) überschreiten dieses Limit knapp und lieferten dadurch live
+  // einen 404 statt einer echten Antwort — kein Body-/Header-Limit, sondern reines Router-Matching
+  // (siehe Architekturplanung Abschnitt 13). 2000 ist derselbe Wert wie `maxURLLength` auf dem
+  // Client (main.tsx) — beide Seiten bewusst synchron gehalten.
+  const app = Fastify({ logger: true, maxParamLength: 2000 });
 
   await app.register(cookie, { secret: env.SESSION_SECRET });
 
