@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ContentActions } from "./ContentActions";
+import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
@@ -31,12 +32,14 @@ function ExamFallaufgabeStep({
   total,
   onSubmit,
   isSubmitting,
+  error,
 }: {
   item: ExamItem;
   position: number;
   total: number;
   onSubmit: (parts: { answerText: string; selfAssessedPoints: number }[]) => void;
   isSubmitting: boolean;
+  error: string | null;
 }) {
   const [revealed, setRevealed] = useState(false);
   const [answers, setAnswers] = useState(() => item.parts.map(() => ""));
@@ -113,6 +116,7 @@ function ExamFallaufgabeStep({
           >
             {position + 1 < total ? "Weiter zur nächsten Fallaufgabe" : "Prüfung abschließen"}
           </button>
+          {error && <ErrorMessage>{error}</ErrorMessage>}
         </>
       )}
     </div>
@@ -220,6 +224,13 @@ export function Exam({ kursId }: { kursId: string }) {
           total={items.length}
           onSubmit={handleItemSubmit}
           isSubmitting={submitAnswer.isPending || finishExam.isPending}
+          // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): weder
+          // submitAnswer noch finishExam zeigten bisher eine Fehlermeldung — der Button wurde
+          // nach einem Fehlschlag (Netzwerkfehler, abgelaufene Session) stillschweigend wieder
+          // aktiv. Beide Fehler landen hier zusammen: finishExam schlägt nur bei der letzten
+          // Fallaufgabe zu (nach einem bereits erfolgreichen submitAnswer), daher können beide
+          // nie gleichzeitig gesetzt sein.
+          error={submitAnswer.error?.message ?? finishExam.error?.message ?? null}
         />
       </div>
     );
