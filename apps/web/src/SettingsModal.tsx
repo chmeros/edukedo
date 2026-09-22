@@ -6,6 +6,7 @@ import { LearningModeSettings } from "./LearningModeSettings";
 import { MascotSettings } from "./MascotSettings";
 import { Modal } from "./Modal";
 import { OfflineDownload } from "./OfflineDownload";
+import { PushNotificationSettings } from "./PushNotificationSettings";
 import { RedeemCompanyCode } from "./RedeemCompanyCode";
 import { Zielplanung } from "./Zielplanung";
 
@@ -39,6 +40,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
             </div>
             <div className="widget">
               <MascotSettings />
+            </div>
+            <div className="widget">
+              <PushNotificationSettings />
             </div>
             {kursId ? (
               <>

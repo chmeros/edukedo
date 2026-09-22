@@ -8,9 +8,19 @@ export default defineConfig({
     // F-40/F-41 (PWA-Grundgerüst): App-Shell-Precaching + Manifest, damit die App
     // installierbar ist. Volle Offline-Synchronisierung (F-42, IndexedDB-Warteschlange,
     // siehe Architekturplanung Abschnitt 5) ist bewusst NICHT Teil dieses Schritts.
+    //
+    // F-43 (Nutzer-Entscheidung 22.09.2026, siehe Architekturplanung Abschnitt 13): von der
+    // automatisch generierten `generateSW`-Strategie (Standard) auf `injectManifest`
+    // umgestellt — echte Web-Push-Benachrichtigungen brauchen einen eigenen `push`-Event-
+    // Handler (siehe src/sw.ts), den es in einem auto-generierten Service Worker nicht geben
+    // kann. `injectManifest` übernimmt weiterhin automatisch das App-Shell-Precaching
+    // (`self.__WB_MANIFEST` in sw.ts) — die bisherige F-40/F-41-Funktionalität bleibt erhalten.
     VitePWA({
+      strategies: "injectManifest",
+      srcDir: "src",
+      filename: "sw.ts",
       registerType: "autoUpdate",
-      devOptions: { enabled: true },
+      devOptions: { enabled: true, type: "module" },
       manifest: {
         name: "edukedo",
         short_name: "edukedo",

@@ -18,6 +18,7 @@ import { parentRouter } from "./routers/parent";
 import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
+import { pushRouter } from "./routers/push";
 import { quizRouter } from "./routers/quiz";
 import { reportRouter } from "./routers/report";
 import { sponsorRouter } from "./routers/sponsor";
@@ -46,7 +47,9 @@ import { router } from "./trpc";
  * kursübergreifend statt kursskopiert. `contentFeedback` (F-50, seit 19.09.2026) ist die
  * Feedback-Funktion für fehlerhafte Lerninhalte — die Moderationsansicht liegt analog zu F-68
  * unter `admin.*`. `notes` (F-15, seit 22.09.2026) sind eigene, freie Notizen zu Lerneinheiten,
- * unabhängig vom FSRS-/Quiz-Fortschritt.
+ * unabhängig vom FSRS-/Quiz-Fortschritt. `push` (F-43, Nutzer-Entscheidung 22.09.2026, seit
+ * 22.09.2026) verwaltet Web-Push-Subscriptions für Lernerinnerungen, opt-in — der Versand
+ * selbst läuft über db/send-learning-reminders.ts.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -72,6 +75,7 @@ export const appRouter = router({
   highscore: highscoreRouter,
   lernpartner: lernpartnerRouter,
   gamification: gamificationRouter,
+  push: pushRouter,
 });
 
 export type AppRouter = typeof appRouter;

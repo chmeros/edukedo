@@ -29,6 +29,8 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
     container = await new PostgreSqlContainer("postgres:16-alpine").start();
     process.env.DATABASE_URL = container.getConnectionUri();
     process.env.SESSION_SECRET = "integrationstest-secret-mindestens-32-zeichen-lang";
+    process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
+    process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
     db = drizzle(pool, { schema });

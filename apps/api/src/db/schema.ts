@@ -137,6 +137,12 @@ export const user = pgTable(
     // learning_event-Historie), Menge gestaffelt nach content_item.difficulty. Kein Verbrauchsweg
     // existiert bisher (F-120, noch offen — siehe Anforderungskatalog Abschnitt 10, Punkt 5).
     credits: integer("credits").notNull().default(0),
+    // F-43 (Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13): wann zuletzt eine
+    // Web-Push-Lernerinnerung verschickt wurde — verhindert, dass send-learning-reminders.ts
+    // bei jedem (externen, periodischen) Aufruf erneut erinnert, solange dieselbe Lernpause
+    // andauert. `null` = noch nie erinnert. Bewusst auf `user` statt auf `push_subscription`
+    // (unten), da die Erinnerung dem KONTO gilt, nicht einem einzelnen Gerät.
+    lastReminderSentAt: timestamp("last_reminder_sent_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
@@ -909,3 +915,29 @@ export const achievement = pgTable(
   },
   (table) => [uniqueIndex("achievement_user_id_achievement_key_key").on(table.userId, table.achievementKey)],
 );
+
+// ---------------------------------------------------------------------------
+// Web-Push-Benachrichtigungen (F-43) — Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13
+// ---------------------------------------------------------------------------
+
+/**
+ * F-43 (Anforderungskatalog Abschnitt 5.4, Kann-Priorität: "Push-/Web-Benachrichtigungen für
+ * Lernerinnerungen (opt-in)"): eine Zeile je abonniertem Browser/Gerät — eine Web-Push-
+ * Subscription (`endpoint`/`keys.p256dh`/`keys.auth`) ist pro Browser-Installation eindeutig,
+ * ein Konto kann mehrere gleichzeitig haben (Handy + Laptop). Bewusst KEIN zusätzliches
+ * `push_enabled`-Flag auf `user` — ob mindestens eine Zeile existiert, IST der Opt-in-Zustand
+ * (Abmelden löscht die Zeile statt ein Flag umzuschalten); das erspart eine zweite Quelle der
+ * Wahrheit, die vom tatsächlichen Abo-Zustand des Browsers auseinanderlaufen könnte.
+ */
+export const pushSubscription = pgTable("push_subscription", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  // Global eindeutig (vom Push-Dienst des Browser-Herstellers vergeben), nicht nur je Nutzer —
+  // deckt zugleich den Fall ab, dass sich derselbe Browser erneut anmeldet.
+  endpoint: text("endpoint").notNull().unique(),
+  p256dh: text("p256dh").notNull(),
+  auth: text("auth").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});

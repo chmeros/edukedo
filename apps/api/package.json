@@ -18,7 +18,8 @@
     "db:import-content": "tsx src/db/import-content.ts",
     "db:export-content": "tsx src/db/export-content.ts",
     "content:scaffold": "tsx src/db/scaffold-content.ts",
-    "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts"
+    "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts",
+    "db:send-learning-reminders": "tsx src/db/send-learning-reminders.ts"
   },
   "dependencies": {
     "@edukedo/shared": "workspace:*",
@@ -28,10 +29,12 @@
     "drizzle-orm": "^0.36.4",
     "fastify": "^4.28.1",
     "pg": "^8.12.0",
+    "web-push": "^3.6.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@testcontainers/postgresql": "^10.13.1",
-    "@types/pg": "^8.11.6"
+    "@types/pg": "^8.11.6",
+    "@types/web-push": "^3.6.4"
   }
 }

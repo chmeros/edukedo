@@ -6,5 +6,8 @@
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  // F-43: sw.ts läuft unter "webworker"-statt "dom"-Lib (siehe tsconfig.sw.json) — beide
+  // schließen sich gegenseitig aus, deshalb hier ausgeschlossen.
+  "exclude": ["src/sw.ts"]
 }
