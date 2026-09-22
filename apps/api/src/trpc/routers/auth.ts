@@ -257,6 +257,19 @@ export const authRouter = router({
    * sonst zum Spammen der eigenen/einer fremden E-Mail-Adresse missbraucht werden könnte.
    */
   resendVerificationEmail: protectedProcedure.mutation(async ({ ctx }) => {
+    // Usability-/Aufsichts-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13):
+    // Minderjährige Konten bekommen laut F-01 bewusst NIE eine eigene Verifizierungsmail (siehe
+    // register oben, initiateEmailVerification wird dort nur im volljährigen Zweig aufgerufen)
+    // — sie haben mit F-08 bereits einen bestätigten Eltern-E-Mail-Kanal. Ohne diese Prüfung
+    // konnte ein minderjähriges Konto trotzdem eine eigene Verifizierung anstoßen und sich damit
+    // selbst am dokumentierten Eltern-Aufsichtskonzept vorbei bestätigen.
+    if (ctx.currentUser.isMinor) {
+      throw new TRPCError({
+        code: "BAD_REQUEST",
+        message: "Für Konten unter 16 Jahren gibt es keine eigene E-Mail-Verifizierung.",
+      });
+    }
+
     if (ctx.currentUser.emailVerifiedAt) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Diese E-Mail-Adresse ist bereits bestätigt." });
     }

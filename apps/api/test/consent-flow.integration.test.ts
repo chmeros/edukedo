@@ -121,6 +121,8 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     30_000,
   );
 
+  let childSessionCookie: string;
+
   it("das Kind kann sich jetzt einloggen", async () => {
     const loginResponse = await app.inject({
       method: "POST",
@@ -129,6 +131,32 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     });
     expect(loginResponse.statusCode).toBe(200);
     expect(loginResponse.json().result.data.email).toBe(childEmail);
+    childSessionCookie = extractSessionCookie(loginResponse.headers["set-cookie"]);
+  });
+
+  /**
+   * Usability-/Aufsichts-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13):
+   * ein minderjähriges Konto bekommt laut F-01 bewusst NIE eine eigene Verifizierungsmail (der
+   * F-08-Eltern-Kanal übernimmt diese Rolle) — auth.resendVerificationEmail lehnte das bislang
+   * nicht ab, wodurch ein Kind sich selbst am Eltern-Aufsichtskonzept vorbei bestätigen konnte.
+   */
+  it("auth.resendVerificationEmail lehnt ein minderjähriges Konto ab, statt eine eigene Verifizierung anzustoßen", async () => {
+    const meResponse = await app.inject({
+      method: "GET",
+      url: "/api/v1/trpc/auth.me",
+      headers: { cookie: childSessionCookie },
+    });
+    const meData = meResponse.json().result.data;
+    expect(meData.isMinor).toBe(true);
+    expect(meData.emailVerified).toBe(false);
+
+    const resendResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.resendVerificationEmail",
+      headers: { cookie: childSessionCookie },
+      payload: {},
+    });
+    expect(resendResponse.statusCode).toBe(400);
   });
 
   it(

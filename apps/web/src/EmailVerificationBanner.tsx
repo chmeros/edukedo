@@ -6,12 +6,17 @@ import { trpc } from "./trpc";
  * Abschnitt 13) — blockiert die Nutzung nicht, erinnert aber dauerhaft sichtbar, bis die
  * E-Mail-Adresse bestätigt ist. Fragt auth.me selbst ab statt es als Prop durchgereicht zu
  * bekommen (bereits gecacht, kein zusätzlicher Request), analog zu Sozial.tsx.
+ *
+ * Usability-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): Minderjährige
+ * Konten bekommen laut F-01 bewusst NIE eine eigene Verifizierungsmail (siehe auth.ts,
+ * register) — ohne die `isMinor`-Prüfung unten blieb dieser Banner für jedes minderjährige
+ * Konto dauerhaft sichtbar und verwies auf einen nie verschickten Link.
  */
 export function EmailVerificationBanner() {
   const me = trpc.auth.me.useQuery();
   const resend = trpc.auth.resendVerificationEmail.useMutation();
 
-  if (!me.data || me.data.emailVerified) {
+  if (!me.data || me.data.isMinor || me.data.emailVerified) {
     return null;
   }
 
