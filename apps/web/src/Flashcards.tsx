@@ -82,6 +82,15 @@ export function Flashcards({
     // nicht mehr überfällig).
     utils.progress.suggestions.invalidate();
     utils.progress.overview.invalidate();
+    // F-118: eine Karteikarten-Bewertung kann den Punktehamster-Füllstand erhöht haben — bisher
+    // nur in MixedLearning.tsx nachgezogen, hier fehlte es (Live-Bug: Widget blieb im reinen
+    // Karteikarten-Modus bis zum nächsten Reload auf dem alten Stand).
+    utils.gamification.mascotStatus.invalidate();
+    // F-119: eine (erstmalig) richtig beantwortete Bewertung kann den Creditstand erhöht haben —
+    // credits lebt auf auth.me, siehe PunktehamsterWidget.tsx.
+    utils.auth.me.invalidate();
+    // F-33: eine Karteikarten-Bewertung kann die aktuelle Lernserie begonnen/verlängert haben.
+    utils.gamification.streakStatus.invalidate();
   };
   const submitReview = trpc.progress.submitReview.useMutation({ onSuccess: invalidateAfterReview });
   // F-111: für eine bereits in dieser Runde bewertete Karte (siehe `ratedThisSession` unten).
