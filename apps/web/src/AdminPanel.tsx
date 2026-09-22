@@ -251,6 +251,13 @@ export function AdminPanel() {
       utils.content.dueCards.invalidate();
       utils.quiz.quizItems.invalidate();
       utils.progress.overview.invalidate();
+      // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): der Import
+      // "ersetzt je Thema den vorhandenen Content vollständig" (siehe Hinweistext unten) —
+      // AdminContentEditor.tsx ist im selben Panel gerendert und lädt seine eigenen
+      // adminContent.list/themaTree-Queries, die vorher nicht mit invalidiert wurden. Ohne das
+      // konnte "Bearbeiten" auf eine bereits ersetzte, nicht mehr existierende Zeile zeigen.
+      utils.adminContent.list.invalidate();
+      utils.adminContent.themaTree.invalidate();
     },
   });
 

@@ -987,7 +987,26 @@ export function AdminContentEditor({
     { contentItemId: editing?.mode === "edit" ? editing.contentItemId : "" },
     { enabled: editing?.mode === "edit" },
   );
-  const setActive = trpc.adminContent.setActive.useMutation({ onSuccess: () => utils.adminContent.list.invalidate() });
+
+  /**
+   * Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): create/update/
+   * setActive invalidierten bisher nur `adminContent.list` — anders als der benachbarte
+   * `triggerImport` (AdminPanel.tsx), der bei genau derselben Art von Änderung (Content-Items
+   * werden ersetzt/geändert) konsequent auch die Lern-seitigen Queries mit invalidiert. Eine
+   * einzelne Bearbeitung/Deaktivierung ist dieselbe Änderungskategorie wie ein Bulk-Import, nur
+   * kleiner — ohne diese Invalidierung sahen Quiz-/Karteikarten-/Theorie-Listen eine soeben
+   * bearbeitete oder deaktivierte Frage weiterhin im alten Zustand, bis irgendetwas anderes
+   * zufällig neu lud.
+   */
+  function invalidateContentCaches() {
+    utils.adminContent.list.invalidate();
+    utils.content.theorySections.invalidate();
+    utils.content.dueCards.invalidate();
+    utils.quiz.quizItems.invalidate();
+    utils.progress.overview.invalidate();
+  }
+
+  const setActive = trpc.adminContent.setActive.useMutation({ onSuccess: invalidateContentCaches });
 
   useEffect(() => {
     if (focusContentItemId) {
@@ -1007,7 +1026,7 @@ export function AdminContentEditor({
     setEditing(null);
   }
   function saved() {
-    utils.adminContent.list.invalidate();
+    invalidateContentCaches();
     setEditing(null);
   }
 

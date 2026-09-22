@@ -27,6 +27,14 @@ export function useOfflineSync(): OfflineSyncState {
         if (count > 0) {
           utils.progress.invalidate();
           utils.content.invalidate();
+          // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): ein offline
+          // synchronisierter Batch läuft serverseitig über dieselben applyReview/
+          // recordQuizAttempt-Pfade wie die Online-Mutationen (siehe offline.syncQueue) — die
+          // dort ausgelösten Änderungen an Maskottchen-Futter/Credits/Lernserie blieben bisher
+          // unsichtbar, bis irgendetwas anderes zufällig neu lud.
+          utils.gamification.mascotStatus.invalidate();
+          utils.gamification.streakStatus.invalidate();
+          utils.auth.me.invalidate();
           setState("synced");
         } else {
           setState("idle");

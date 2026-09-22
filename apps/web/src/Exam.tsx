@@ -120,6 +120,7 @@ function ExamFallaufgabeStep({
 }
 
 export function Exam({ kursId }: { kursId: string }) {
+  const utils = trpc.useUtils();
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [items, setItems] = useState<ExamItem[]>([]);
@@ -137,7 +138,19 @@ export function Exam({ kursId }: { kursId: string }) {
       setResult(null);
     },
   });
-  const submitAnswer = trpc.exam.submitAnswer.useMutation();
+  // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): exam.submitAnswer
+  // schreibt bei einer mehrheitlich erreichten Punktzahl eine learning_event-Zeile (siehe
+  // exam.ts) — genau wie quiz.submit*/progress.submitReview muss das die Lernserie und den
+  // Fortschritt/die "Weiter lernen"-Vorschläge mit aktualisieren, sonst bleiben
+  // StreakReminderBanner/Progress.tsx bis zum nächsten Reload auf dem alten Stand. Mascot-Food/
+  // Credits bleiben bewusst unberührt — Fallaufgaben laufen nicht über recordQuizAttempt.
+  const submitAnswer = trpc.exam.submitAnswer.useMutation({
+    onSuccess: () => {
+      utils.gamification.streakStatus.invalidate();
+      utils.progress.overview.invalidate({ kursId });
+      utils.progress.suggestions.invalidate({ kursId });
+    },
+  });
   const finishExam = trpc.exam.finish.useMutation({
     onSuccess: (data) => setResult(data),
   });

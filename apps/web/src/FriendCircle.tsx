@@ -26,6 +26,11 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
       setOpenModal(null);
       utils.friend.friends.invalidate({ kursId });
       utils.report.blockedUsers.invalidate({ kursId });
+      // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): Highscore.tsx
+      // ist "beschränkt auf deinen Freundeskreis" und wird auf derselben Sozial-Seite gerendert
+      // — die geblockte Person verschwindet serverseitig sofort aus der Bestenliste, blieb
+      // dort bisher aber bis zum nächsten Reload sichtbar.
+      utils.highscore.leaderboard.invalidate({ kursId });
     },
   });
 
@@ -145,7 +150,14 @@ export function FriendCircle({ kursId }: { kursId: string }) {
     onSuccess: () => utils.friend.inviteCodes.invalidate({ kursId }),
   });
   const redeem = trpc.friend.redeemInviteCode.useMutation({
-    onSuccess: () => utils.friend.friends.invalidate({ kursId }),
+    onSuccess: () => {
+      utils.friend.friends.invalidate({ kursId });
+      // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): die neue
+      // Freundschaft kann die eigene Bestenliste sofort um eine Zeile erweitern (siehe
+      // Highscore.tsx, "beschränkt auf deinen Freundeskreis"), blieb dort bisher aber bis zum
+      // nächsten Reload unsichtbar.
+      utils.highscore.leaderboard.invalidate({ kursId });
+    },
   });
   const unblock = trpc.report.unblockUser.useMutation({
     onSuccess: () => utils.report.blockedUsers.invalidate({ kursId }),
