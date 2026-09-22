@@ -61,6 +61,34 @@ import { protectedProcedure, router } from "../trpc";
  */
 const CREDIT_AMOUNTS_BY_DIFFICULTY: Record<string, number> = { leicht: 1, mittel: 2, schwer: 3 };
 
+/**
+ * Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): alle
+ * fortschrittschreibenden Mutationen (quiz.submit*, progress.submitReview/changeReview/
+ * toggleDifficultyFlag) nahmen bisher eine client-gelieferte `contentItemId` entgegen, OHNE zu
+ * prüfen, ob die aufrufende Person überhaupt im zugehörigen Kurs eingeschrieben ist — anders als
+ * quiz.quizItems/content.dueCards/offline.downloadKurs, die konsequent über `userCourse` joinen.
+ * Jede eingeloggte Person konnte dadurch mit einer beliebigen (z. B. erratenen oder aus einem
+ * nicht belegten/noch unveröffentlichten Kurs stammenden) `contentItemId` Antworten einreichen,
+ * sich die Lösung anzeigen lassen und Credits/Achievements farmen. Dieser Helfer schließt die
+ * Lücke an einer Stelle statt an sieben+ einzelnen Aufrufstellen — `NOT_FOUND` statt `FORBIDDEN`,
+ * damit nicht verraten wird, ob eine ID überhaupt existiert (analog zum bereits bestehenden
+ * Verhalten in submitBlanks/submitKurzantwort).
+ */
+export async function assertContentItemAccessible(db: Database, userId: string, contentItemId: string): Promise<void> {
+  const [row] = await db
+    .select({ id: contentItem.id })
+    .from(contentItem)
+    .innerJoin(thema, eq(thema.id, contentItem.themaId))
+    .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+    .innerJoin(userCourse, and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, userId)))
+    .where(and(eq(contentItem.id, contentItemId), eq(contentItem.isActive, true)))
+    .limit(1);
+
+  if (!row) {
+    throw new TRPCError({ code: "NOT_FOUND", message: "Frage nicht gefunden." });
+  }
+}
+
 export async function recordQuizAttempt(
   db: Database,
   userId: string,
@@ -713,6 +741,7 @@ export const progressRouter = router({
   }),
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
     return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
@@ -722,6 +751,7 @@ export const progressRouter = router({
    * Rückgängig"-Logik.
    */
   changeReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
     return applyChangeReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
@@ -735,6 +765,8 @@ export const progressRouter = router({
   toggleDifficultyFlag: protectedProcedure
     .input(toggleDifficultyFlagInputSchema)
     .mutation(async ({ ctx, input }) => {
+      await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
       const [existing] = await ctx.db
         .select({ flaggedAsDifficult: userProgress.flaggedAsDifficult })
         .from(userProgress)

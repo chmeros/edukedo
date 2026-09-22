@@ -90,7 +90,22 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
       payload: { email, password: "offlineSyncTest123!", birthDate: "1995-01-01" },
     });
     expect(response.statusCode).toBe(200);
-    return extractSessionCookie(response.headers["set-cookie"]);
+    const cookie = extractSessionCookie(response.headers["set-cookie"]);
+
+    // Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13):
+    // offline.syncQueue verlangt seither wie quiz.submit*/progress.submitReview eine Belegung
+    // des zugehörigen Kurses (assertContentItemAccessible-Äquivalent, siehe offline.ts) — ohne
+    // diesen Beitritt würden alle folgenden syncQueue-Aufrufe in diesem Test jetzt korrekt mit
+    // "nicht synchronisiert" statt "synchronisiert" antworten.
+    const enrollResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/courses.enroll",
+      headers: { cookie },
+      payload: { kursId },
+    });
+    expect(enrollResponse.statusCode).toBe(200);
+
+    return cookie;
   }
 
   async function syncQueue(

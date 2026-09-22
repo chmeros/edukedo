@@ -23,7 +23,7 @@ import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
-import { recordQuizAttempt } from "./progress";
+import { assertContentItemAccessible, recordQuizAttempt } from "./progress";
 
 export const quizRouter = router({
   /**
@@ -112,6 +112,8 @@ export const quizRouter = router({
   }),
 
   submitAnswer: protectedProcedure.input(submitQuizAnswerInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -133,6 +135,8 @@ export const quizRouter = router({
   /** F-116: Mehrfachauswahl auswerten — dieselbe answer_option-Grundlage wie submitAnswer, aber
    * ein Set von Options-IDs statt einer einzelnen (siehe checkMcMultiAnswer). */
   submitMcMulti: protectedProcedure.input(submitMcMultiInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -152,6 +156,8 @@ export const quizRouter = router({
   }),
 
   submitMatching: protectedProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -170,6 +176,8 @@ export const quizRouter = router({
   /** F-113 Teil 2: Sortieren-Reihenfolge auswerten — dieselbe answer_option-Grundlage wie
    * submitMatching, aber eine positionsweise Prüfung gegen `sortOrder` (siehe checkSortierenAnswer). */
   submitSortieren: protectedProcedure.input(submitSortierenInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -185,6 +193,8 @@ export const quizRouter = router({
   /** F-114: SWOT/BSC/Ansoff-Zonen-Zuordnung auswerten — dieselbe answer_option-Grundlage wie
    * submitMatching, aber N Zonen statt exakt zwei Seiten (siehe checkQuadrantAnswer). */
   submitQuadrant: protectedProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -198,6 +208,8 @@ export const quizRouter = router({
   }),
 
   submitBlanks: protectedProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const [item] = await ctx.db
       .select()
       .from(contentItem)
@@ -216,6 +228,8 @@ export const quizRouter = router({
   }),
 
   submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+
     const [item] = await ctx.db
       .select()
       .from(contentItem)

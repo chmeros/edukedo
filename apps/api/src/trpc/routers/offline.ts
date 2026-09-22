@@ -154,16 +154,29 @@ export const offlineRouter = router({
     // fehlte für alle Ereignistypen ein `isActive`-Filter, obwohl `downloadKurs` oben nur aktive
     // Items ausliefert — ein zwischenzeitlich deaktiviertes (nicht gelöschtes) Item wurde bisher
     // stillschweigend akzeptiert statt wie dokumentiert übersprungen zu werden. Eine einzige,
-    // vorab gebündelte Prüfung auf "existiert UND aktiv" für ALLE Ereignistypen behebt beides an
-    // der Wurzel, statt es je Ereignistyp einzeln nachzuziehen.
+    // vorab gebündelte Prüfung auf "existiert, aktiv UND im belegten Kurs" für ALLE Ereignistypen
+    // behebt beides an der Wurzel, statt es je Ereignistyp einzeln nachzuziehen.
+    //
+    // Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): die
+    // Kurs-Zugehörigkeit fehlte hier komplett — dieselbe Lücke wie bei quiz.submit*/
+    // progress.submitReview (siehe assertContentItemAccessible, progress.ts). Der Join über
+    // userCourse unten schließt sie auch für den Offline-Sync-Pfad; ein nicht zugehöriger Eintrag
+    // wird wie ein deaktiviertes Item als QuizItemNotFoundError übersprungen (siehe catch unten),
+    // statt den gesamten Batch abzubrechen.
     const allItemIds = [...new Set(entries.map((e) => e.contentItemId))];
-    const activeItemRows = allItemIds.length
+    const accessibleItemRows = allItemIds.length
       ? await ctx.db
           .select({ id: contentItem.id })
           .from(contentItem)
+          .innerJoin(thema, eq(thema.id, contentItem.themaId))
+          .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+          .innerJoin(
+            userCourse,
+            and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)),
+          )
           .where(and(inArray(contentItem.id, allItemIds), eq(contentItem.isActive, true)))
       : [];
-    const activeItemIds = new Set(activeItemRows.map((row) => row.id));
+    const activeItemIds = new Set(accessibleItemRows.map((row) => row.id));
 
     const optionItemIds = [
       ...new Set(

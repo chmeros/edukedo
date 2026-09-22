@@ -4,6 +4,7 @@ import {
   checkKurzantwort,
   checkMatching,
   checkMcAnswer,
+  checkQuadrantAnswer,
   checkSortierenAnswer,
   QuizItemNotFoundError,
   type RawAnswerOption,
@@ -60,6 +61,33 @@ describe("checkMatching", () => {
 
   it("wirft QuizItemNotFoundError, wenn keine Optionen vorhanden sind", () => {
     expect(() => checkMatching([], [])).toThrow(QuizItemNotFoundError);
+  });
+
+  /**
+   * Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): ohne
+   * Deduplizierung ließ sich ein einzelnes bekanntes Paar beliebig oft einreichen und so
+   * correctCount === total erreichen, ohne die übrigen Paare zu kennen.
+   */
+  it("zählt ein mehrfach eingereichtes Paar nur einmal, statt die fehlenden Paare zu verschleiern", () => {
+    const result = checkMatching(options(), [
+      { leftOptionId: "l1", rightOptionId: "r1" },
+      { leftOptionId: "l1", rightOptionId: "r1" },
+      { leftOptionId: "l1", rightOptionId: "r1" },
+      { leftOptionId: "l1", rightOptionId: "r1" },
+    ]);
+    expect(result.correctCount).toBe(1);
+    expect(result.total).toBe(2);
+  });
+
+  it("zählt eine wiederholte falsche Zuordnung ebenfalls nur einmal", () => {
+    const result = checkMatching(options(), [
+      { leftOptionId: "l1", rightOptionId: "r2" },
+      { leftOptionId: "l1", rightOptionId: "r1" },
+    ]);
+    // Die erste Einreichung von l1 zählt (falsch, r2 statt r1) — die zweite, obwohl diesmal
+    // korrekt, wird als Duplikat verworfen, damit ein Ausprobieren mehrerer Antworten für
+    // dasselbe Paar im selben Request keinen Vorteil bringt.
+    expect(result.correctCount).toBe(0);
   });
 });
 
@@ -124,6 +152,45 @@ describe("checkSortierenAnswer", () => {
 
   it("wirft QuizItemNotFoundError, wenn keine Optionen vorhanden sind", () => {
     expect(() => checkSortierenAnswer([], [])).toThrow(QuizItemNotFoundError);
+  });
+});
+
+describe("checkQuadrantAnswer", () => {
+  function options(): RawAnswerOption[] {
+    return [
+      { id: "s1", contentItemId: "item-1", text: "Stärke 1", side: null, groupKey: "staerken", isCorrect: false, sortOrder: 0 },
+      { id: "s2", contentItemId: "item-1", text: "Stärke 2", side: null, groupKey: "staerken", isCorrect: false, sortOrder: 1 },
+      { id: "w1", contentItemId: "item-1", text: "Schwäche 1", side: null, groupKey: "schwaechen", isCorrect: false, sortOrder: 2 },
+    ];
+  }
+
+  it("erkennt eine vollständig richtige Zuordnung", () => {
+    const result = checkQuadrantAnswer(options(), [
+      { optionId: "s1", zoneKey: "staerken" },
+      { optionId: "s2", zoneKey: "staerken" },
+      { optionId: "w1", zoneKey: "schwaechen" },
+    ]);
+    expect(result.correctCount).toBe(3);
+    expect(result.total).toBe(3);
+  });
+
+  it("wirft QuizItemNotFoundError, wenn keine Optionen vorhanden sind", () => {
+    expect(() => checkQuadrantAnswer([], [])).toThrow(QuizItemNotFoundError);
+  });
+
+  /**
+   * Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): ohne
+   * Deduplizierung ließ sich ein einzelner bekannter Begriff beliebig oft einreichen und so
+   * correctCount === total erreichen, ohne die übrigen Begriffe je platziert zu haben.
+   */
+  it("zählt einen mehrfach eingereichten Begriff nur einmal, statt die fehlende Platzierung anderer Begriffe zu verschleiern", () => {
+    const result = checkQuadrantAnswer(options(), [
+      { optionId: "s1", zoneKey: "staerken" },
+      { optionId: "s1", zoneKey: "staerken" },
+      { optionId: "s1", zoneKey: "staerken" },
+    ]);
+    expect(result.correctCount).toBe(1);
+    expect(result.total).toBe(3);
   });
 });
 

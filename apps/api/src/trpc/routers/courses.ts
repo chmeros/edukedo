@@ -2,7 +2,7 @@ import { activeKursInputSchema, enrollInputSchema, setCourseTargetInputSchema } 
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
-import { kurs, userCourse } from "../../db/schema";
+import { kurs, user, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 /** Drizzles `date`-Spalten sind im String-Modus (siehe schema.ts) — Konvertierung analog zu
@@ -72,60 +72,69 @@ export const coursesRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht gefunden." });
     }
 
-    const [existingEnrollment] = await ctx.db
-      .select()
-      .from(userCourse)
-      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
-      .limit(1);
-
-    // Nur neue Beitritte prüfen (siehe list oben) — ein erneuter enroll-Aufruf für einen bereits
-    // laufenden Kurs bleibt ein no-op statt fälschlich zu blockieren.
-    if (existingEnrollment) {
-      return { success: true };
-    }
-
     if (!matchesKursZielgruppe(kursZielgruppe(course.metadata), ctx.currentUser.isMinor)) {
       throw new TRPCError({ code: "FORBIDDEN", message: "Dieser Kurs ist für deine Altersgruppe nicht vorgesehen." });
     }
 
-    // F-102: Für Kurse der Kategorie "erwachsenenbildung" ist zu einem Zeitpunkt nur eine
-    // aktive Belegung vorgesehen — das Frontend kennt einen Konflikt bereits aus courses.list
-    // und holt vorab eine Bestätigung ein (siehe Architekturplanung Abschnitt 13, integrierter
-    // Wechsel-Flow statt zwei getrennter Schritte), diese Prüfung hier ist die serverseitige
-    // Durchsetzung, falls das Frontend den Konflikt aus irgendeinem Grund nicht kennt.
-    if (isEnrollmentExclusive(kursKategorie(course.metadata))) {
-      const enrollments = await ctx.db
-        .select({ kursId: userCourse.kursId, metadata: kurs.metadata, title: kurs.title })
-        .from(userCourse)
-        .innerJoin(kurs, eq(kurs.id, userCourse.kursId))
-        .where(eq(userCourse.userId, ctx.currentUser.id));
-      const conflict = enrollments.find((row) => isEnrollmentExclusive(kursKategorie(row.metadata)));
+    // Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): die
+    // gesamte Prüfung (bestehende Belegung? F-102-Konflikt?) lief bisher als ungeschützter
+    // Check-then-Act — zwei gleichzeitige enroll-Aufrufe derselben Person (Doppelklick, zwei
+    // Tabs) konnten beide denselben "kein Konflikt"-Zustand lesen, bevor die jeweils andere
+    // Transaktion committet, und so z. B. in zwei sich eigentlich ausschließenden
+    // Erwachsenenbildungskursen gleichzeitig landen. Ein DB-Constraint dafür ist nicht ohne
+    // Weiteres möglich (die Kategorie steckt in kurs.metadata, nicht in einer Spalte auf
+    // user_course) — stattdessen sperrt `for("update")` die eigene user-Zeile für die Dauer der
+    // Transaktion: das serialisiert exakt die Operationen, die die Race Condition betraf
+    // (Mitgliedschaftsänderungen DERSELBEN Person), ohne andere Personen auszubremsen.
+    return ctx.db.transaction(async (tx) => {
+      await tx.select({ id: user.id }).from(user).where(eq(user.id, ctx.currentUser.id)).for("update");
 
-      if (conflict) {
-        if (input.leaveKursId !== conflict.kursId) {
-          throw new TRPCError({
-            code: "CONFLICT",
-            message: `Du bist bereits in "${conflict.title}" eingeschrieben — Weiterbildungskurse erlauben nur eine aktive Belegung gleichzeitig.`,
-          });
-        }
-        // Atomarer Wechsel: alte Belegung verlassen und neue in derselben Transaktion anlegen,
-        // damit nie ein Zwischenzustand ohne jede Belegung dieser Kategorie sichtbar wird.
-        await ctx.db.transaction(async (tx) => {
+      const [existingEnrollment] = await tx
+        .select()
+        .from(userCourse)
+        .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+        .limit(1);
+
+      // Nur neue Beitritte prüfen (siehe list oben) — ein erneuter enroll-Aufruf für einen
+      // bereits laufenden Kurs bleibt ein no-op statt fälschlich zu blockieren.
+      if (existingEnrollment) {
+        return { success: true };
+      }
+
+      // F-102: Für Kurse der Kategorie "erwachsenenbildung" ist zu einem Zeitpunkt nur eine
+      // aktive Belegung vorgesehen — das Frontend kennt einen Konflikt bereits aus courses.list
+      // und holt vorab eine Bestätigung ein (siehe Architekturplanung Abschnitt 13, integrierter
+      // Wechsel-Flow statt zwei getrennter Schritte), diese Prüfung hier ist die serverseitige
+      // Durchsetzung, falls das Frontend den Konflikt aus irgendeinem Grund nicht kennt.
+      if (isEnrollmentExclusive(kursKategorie(course.metadata))) {
+        const enrollments = await tx
+          .select({ kursId: userCourse.kursId, metadata: kurs.metadata, title: kurs.title })
+          .from(userCourse)
+          .innerJoin(kurs, eq(kurs.id, userCourse.kursId))
+          .where(eq(userCourse.userId, ctx.currentUser.id));
+        const conflict = enrollments.find((row) => isEnrollmentExclusive(kursKategorie(row.metadata)));
+
+        if (conflict) {
+          if (input.leaveKursId !== conflict.kursId) {
+            throw new TRPCError({
+              code: "CONFLICT",
+              message: `Du bist bereits in "${conflict.title}" eingeschrieben — Weiterbildungskurse erlauben nur eine aktive Belegung gleichzeitig.`,
+            });
+          }
+          // Atomarer Wechsel: alte Belegung verlassen und neue in derselben Transaktion anlegen,
+          // damit nie ein Zwischenzustand ohne jede Belegung dieser Kategorie sichtbar wird.
           await tx
             .delete(userCourse)
             .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, conflict.kursId)));
           await tx.insert(userCourse).values({ userId: ctx.currentUser.id, kursId: input.kursId });
-        });
-        return { success: true };
+          return { success: true };
+        }
       }
-    }
 
-    await ctx.db
-      .insert(userCourse)
-      .values({ userId: ctx.currentUser.id, kursId: input.kursId })
-      .onConflictDoNothing();
+      await tx.insert(userCourse).values({ userId: ctx.currentUser.id, kursId: input.kursId }).onConflictDoNothing();
 
-    return { success: true };
+      return { success: true };
+    });
   }),
 
   /**

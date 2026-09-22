@@ -199,6 +199,86 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
     30_000,
   );
 
+  /**
+   * Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13):
+   * quiz.submit* / progress.submitReview/changeReview/toggleDifficultyFlag prüften bislang nicht,
+   * ob die aufrufende Person überhaupt im zugehörigen Kurs eingeschrieben ist — jede eingeloggte
+   * Person konnte mit einer beliebigen contentItemId (auch aus einem nicht belegten Kurs)
+   * Fortschritt schreiben und sich die Lösung anzeigen lassen. `assertContentItemAccessible`
+   * (progress.ts) schließt diese Lücke — hier gegen ein zweites, NICHT eingeschriebenes Konto
+   * verifiziert.
+   */
+  it(
+    "lehnt quiz.submitAnswer/progress.submitReview/toggleDifficultyFlag für ein nicht eingeschriebenes Konto ab",
+    async () => {
+      const dueCardsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const dueCards = dueCardsResponse.json().result.data as { id: string }[];
+      expect(dueCards.length).toBeGreaterThan(0);
+      const karteikarteId = dueCards[0]!.id;
+
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as { id: string; type: string }[];
+      const mcItem = quizItems.find((item) => item.type === "quiz_mc");
+      expect(mcItem).toBeTruthy();
+      const [someOption] = await db
+        .select()
+        .from(schema.answerOption)
+        .where(eq(schema.answerOption.contentItemId, mcItem!.id))
+        .limit(1);
+      expect(someOption).toBeTruthy();
+
+      const outsiderResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "not-enrolled@example.com", password: "notEnrolledPasswort123!", birthDate: "1995-01-01" },
+      });
+      expect(outsiderResponse.statusCode).toBe(200);
+      const outsiderCookie = extractSessionCookie(outsiderResponse.headers["set-cookie"]);
+
+      const submitAnswerResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: outsiderCookie },
+        payload: { contentItemId: mcItem!.id, selectedOptionId: someOption!.id },
+      });
+      expect(submitAnswerResponse.statusCode).toBe(404);
+
+      const submitReviewResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: outsiderCookie },
+        payload: { contentItemId: karteikarteId, result: "gewusst" },
+      });
+      expect(submitReviewResponse.statusCode).toBe(404);
+
+      const toggleFlagResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.toggleDifficultyFlag",
+        headers: { cookie: outsiderCookie },
+        payload: { contentItemId: karteikarteId },
+      });
+      expect(toggleFlagResponse.statusCode).toBe(404);
+
+      // Zur Kontrolle: dasselbe Item bleibt für das eingeschriebene Konto weiterhin nutzbar.
+      const enrolledStillWorks = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.toggleDifficultyFlag",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: karteikarteId },
+      });
+      expect(enrolledStillWorks.statusCode).toBe(200);
+    },
+    30_000,
+  );
+
   it(
     "F-22: liefert ein Übungsset mit frei wählbarer Fragenzahl, lehnt eine Zahl außerhalb 1–50 ab",
     async () => {

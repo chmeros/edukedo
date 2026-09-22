@@ -348,6 +348,10 @@ export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId:
   }
 
   const leftOptions = options.filter((option) => option.side === "links");
+  if (leftOptions.length === 0) {
+    throw new QuizItemNotFoundError("Frage nicht gefunden.");
+  }
+
   const correctMap: Record<string, string> = {};
   for (const left of leftOptions) {
     const partner = options.find((option) => option.side === "rechts" && option.groupKey === left.groupKey);
@@ -356,8 +360,19 @@ export function checkMatching(options: RawAnswerOption[], pairs: { leftOptionId:
     }
   }
 
+  // Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): ohne
+  // Deduplizierung nach leftOptionId ließ sich ein einzelnes bekanntes Paar beliebig oft
+  // einreichen (z. B. bei vier Paaren viermal dasselbe) und erreichte so correctCount === total,
+  // obwohl die übrigen Paare nie beantwortet wurden — zählte fälschlich als vollständig richtig
+  // (inkl. Credits/Mastery). Jede leftOptionId zählt jetzt höchstens einmal, unabhängig davon,
+  // wie oft sie im eingereichten Array vorkommt.
+  const countedLeftIds = new Set<string>();
   let correctCount = 0;
   for (const pair of pairs) {
+    if (countedLeftIds.has(pair.leftOptionId)) {
+      continue;
+    }
+    countedLeftIds.add(pair.leftOptionId);
     if (correctMap[pair.leftOptionId] === pair.rightOptionId) {
       correctCount += 1;
     }
@@ -388,9 +403,18 @@ export function checkQuadrantAnswer(options: RawAnswerOption[], placements: { op
     }
   }
 
+  // Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): analog zu
+  // checkMatching oben — ohne Deduplizierung nach optionId ließ sich ein einzelner bekannter
+  // Begriff beliebig oft einreichen und so correctCount === total erreichen, ohne die übrigen
+  // Begriffe je platziert zu haben. Jede optionId zählt jetzt höchstens einmal.
   const results: Record<string, boolean> = {};
+  const countedOptionIds = new Set<string>();
   let correctCount = 0;
   for (const placement of placements) {
+    if (countedOptionIds.has(placement.optionId)) {
+      continue;
+    }
+    countedOptionIds.add(placement.optionId);
     const isCorrect = correctZones[placement.optionId] === placement.zoneKey;
     results[placement.optionId] = isCorrect;
     if (isCorrect) {

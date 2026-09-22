@@ -170,4 +170,52 @@ describe("F-102: Belegungs-Exklusivität für Erwachsenenbildungskurse", () => {
     });
     expect(secondAttempt.statusCode).toBe(404);
   });
+
+  /**
+   * Sicherheits-Fund (Code-Review 22.09.2026, siehe Architekturplanung Abschnitt 13): die
+   * F-102-Exklusivitätsprüfung war bislang ein ungeschützter Check-then-Act — zwei gleichzeitige
+   * enroll-Aufrufe derselben Person konnten beide denselben "kein Konflikt"-Zustand lesen, bevor
+   * die jeweils andere Transaktion committet, und so in zwei sich eigentlich ausschließenden
+   * Kursen gleichzeitig landen. `for("update")` auf der eigenen user-Zeile serialisiert das jetzt:
+   * von zwei parallelen Beitritten zu Weiterbildung A und B (ohne leaveKursId) darf genau einer
+   * durchgehen, der andere muss den regulären 409-Konflikt sehen.
+   */
+  it("erlaubt bei zwei gleichzeitigen Beitritten zu exklusiven Kursen nur genau einen", async () => {
+    const raceResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.register",
+      payload: { email: "f102-race@example.com", password: "f102RacePasswort123!", birthDate: "1990-01-01" },
+    });
+    expect(raceResponse.statusCode).toBe(200);
+    const raceCookie = extractSessionCookie(raceResponse.headers["set-cookie"]);
+
+    const [resultA, resultB] = await Promise.all([
+      app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/courses.enroll",
+        headers: { cookie: raceCookie },
+        payload: { kursId: kursA },
+      }),
+      app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/courses.enroll",
+        headers: { cookie: raceCookie },
+        payload: { kursId: kursB },
+      }),
+    ]);
+
+    const statusCodes = [resultA.statusCode, resultB.statusCode].sort();
+    expect(statusCodes).toEqual([200, 409]);
+
+    const listResponse = await app.inject({
+      method: "GET",
+      url: "/api/v1/trpc/courses.list",
+      headers: { cookie: raceCookie },
+    });
+    const courses = listResponse.json().result.data as { id: string; joined: boolean }[];
+    const joinedExclusiveCount = [kursA, kursB].filter(
+      (id) => courses.find((course) => course.id === id)?.joined,
+    ).length;
+    expect(joinedExclusiveCount).toBe(1);
+  });
 });
