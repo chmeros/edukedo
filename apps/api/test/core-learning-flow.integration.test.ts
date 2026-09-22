@@ -1576,6 +1576,115 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-119: Credits werden nach Schwierigkeitsgrad gestaffelt vergeben, nur beim ERSTEN richtigen Beantworten eines Items (Anti-Farming), nie bei falschen Antworten",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f119@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      async function createMcItem(prompt: string, difficulty: "leicht" | "mittel" | "schwer") {
+        const createResponse = await app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/adminContent.create",
+          headers: { cookie: adminCookie },
+          payload: {
+            type: "quiz_mc",
+            themaId,
+            prompt,
+            explanation: null,
+            options: [
+              { text: "richtig", isCorrect: true },
+              { text: "falsch", isCorrect: false },
+            ],
+            difficulty,
+            bloom: null,
+            isPremium: false,
+            isActive: true,
+          },
+        });
+        const contentItemId = createResponse.json().result.data.id as string;
+        const quizItemsResponse = await app.inject({
+          method: "GET",
+          url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+          headers: { cookie: sessionCookie },
+        });
+        const item = (quizItemsResponse.json().result.data as { id: string; options?: { id: string; text: string }[] }[]).find(
+          (candidate) => candidate.id === contentItemId,
+        )!;
+        return {
+          contentItemId,
+          correctOptionId: item.options!.find((option) => option.text === "richtig")!.id,
+          wrongOptionId: item.options!.find((option) => option.text === "falsch")!.id,
+        };
+      }
+
+      async function getCredits() {
+        const meResponse = await app.inject({
+          method: "GET",
+          url: "/api/v1/trpc/auth.me",
+          headers: { cookie: sessionCookie },
+        });
+        return (meResponse.json().result.data as { credits: number }).credits;
+      }
+
+      const schwer = await createMcItem("F-119-Testfrage (schwer)", "schwer");
+      const creditsBefore = await getCredits();
+
+      // Falsche Antwort — keine Credits.
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: schwer.contentItemId, selectedOptionId: schwer.wrongOptionId },
+      });
+      expect(await getCredits()).toBe(creditsBefore);
+
+      // Erste richtige Antwort — 3 Credits (schwer).
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: schwer.contentItemId, selectedOptionId: schwer.correctOptionId },
+      });
+      expect(await getCredits()).toBe(creditsBefore + 3);
+
+      // Zweite richtige Antwort auf DIESELBE Frage (Wiederholung) — keine weiteren Credits
+      // (Anti-Farming, Nutzer-Entscheidung 22.09.2026).
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: schwer.contentItemId, selectedOptionId: schwer.correctOptionId },
+      });
+      expect(await getCredits()).toBe(creditsBefore + 3);
+
+      // Ein neues, leichtes Item — 1 Credit bei der ersten richtigen Antwort.
+      const leicht = await createMcItem("F-119-Testfrage (leicht)", "leicht");
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: leicht.contentItemId, selectedOptionId: leicht.correctOptionId },
+      });
+      expect(await getCredits()).toBe(creditsBefore + 3 + 1);
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

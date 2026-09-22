@@ -722,6 +722,7 @@ details[open] > summary.disclosure::before {
    einer Schwelle (dieselben --sprout-Farbtoken wie überall sonst bei "richtig"/Erfolg). */
 .mascot-widget {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
@@ -757,6 +758,22 @@ details[open] > summary.disclosure::before {
 .mascot-label {
   font-size: var(--fs-sm);
   font-weight: 600;
+}
+
+/* F-119: Creditstand-Badge, im selben Widget-Slot wie der Punktehamster (siehe
+   PunktehamsterWidget.tsx) — `margin-left: auto` schiebt ihn an den rechten Rand, wenn Platz
+   vorhanden ist, bricht dank .mascot-widget's flex-wrap auf schmalen Bildschirmen sauber um. */
+.mascot-credits {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sun-tint);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
 }
 
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */

@@ -40,6 +40,9 @@ export function Quiz({
     utils.progress.suggestions.invalidate();
     // F-118: eine richtige Antwort kann den Punktehamster-Füllstand erhöht haben.
     utils.gamification.mascotStatus.invalidate();
+    // F-119: eine (erstmalig) richtig beantwortete Frage kann den Creditstand erhöht haben —
+    // credits lebt auf auth.me, siehe PunktehamsterWidget.tsx.
+    utils.auth.me.invalidate();
   };
   // staleTime: Infinity — quiz.quizItems liefert die 20 Fragen in zufälliger Reihenfolge (siehe
   // apps/api/src/trpc/routers/quiz.ts); ein automatischer Hintergrund-Refetch (z. B. TanStack

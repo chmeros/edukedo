@@ -123,14 +123,20 @@ export const user = pgTable(
     flashcardStartWithAnswer: boolean("flashcard_start_with_answer").notNull().default(false),
     // F-118 (Nutzer-Feedback vom 18.09.2026, erweitert F-67, siehe Abschnitt 13): "Punktehamster" —
     // wächst monoton mit jeder richtig beantworteten Quiz-Frage (recordQuizAttempt, progress.ts),
-    // sinkt nie bei falschen Antworten. Bewusst kein Reset/Verbrauch, da das zugehörige
-    // Creditsystem (F-119) noch nicht existiert — die Lernenden-UI zeigt `mascotFood % Schwelle`
-    // als Füllstand. Karteikarten (F-20, subjektive Selbsteinschätzung statt geprüfter Antwort)
+    // sinkt nie bei falschen Antworten. Bewusst rein visuell/motivierend und UNABHÄNGIG von
+    // `credits` (F-119) — kein Reset/Verbrauch, jede richtige Antwort zählt erneut, auch
+    // Wiederholungen. Karteikarten (F-20, subjektive Selbsteinschätzung statt geprüfter Antwort)
     // zählen bewusst nicht mit, nur echte Quiz-Antworten.
     mascotFood: integer("mascot_food").notNull().default(0),
     // Abschalt-Option (Nutzer-Entscheidung 22.09.2026) — Default an, damit der Effekt ohne
     // Erstbesuch-Abfrage sofort wirkt (wie bei den übrigen opt-out-Präferenzen dieses Projekts).
     mascotEnabled: boolean("mascot_enabled").notNull().default(true),
+    // F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13):
+    // echte, ausgebbare Lernwährung — anders als `mascotFood` NUR beim ERSTEN richtigen
+    // Beantworten eines Content-Items vergeben (Anti-Farming, recordQuizAttempt prüft die
+    // learning_event-Historie), Menge gestaffelt nach content_item.difficulty. Kein Verbrauchsweg
+    // existiert bisher (F-120, noch offen — siehe Anforderungskatalog Abschnitt 10, Punkt 5).
+    credits: integer("credits").notNull().default(0),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },

@@ -71,6 +71,9 @@ export function MixedLearning({
     // F-118: eine richtige Quiz-Antwort kann den Punktehamster-Füllstand erhöht haben (bei
     // einer Karteikarten-Bewertung unverändert — harmloses, unnötiges Re-Fetch).
     utils.gamification.mascotStatus.invalidate();
+    // F-119: eine (erstmalig) richtig beantwortete Quiz-Frage kann den Creditstand erhöht
+    // haben — credits lebt auf auth.me, siehe PunktehamsterWidget.tsx.
+    utils.auth.me.invalidate();
   };
   const submitReviewMutation = trpc.progress.submitReview.useMutation({ onSuccess: invalidateProgress });
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });

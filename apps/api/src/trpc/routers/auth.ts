@@ -194,6 +194,9 @@ export const authRouter = router({
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
     flashcardStartWithAnswer: ctx.currentUser.flashcardStartWithAnswer,
     mascotEnabled: ctx.currentUser.mascotEnabled,
+    // F-119: Creditstand soll "jederzeit einsehbar" sein — einfache Feldabfrage genügt, keine
+    // Berechnung nötig (anders als gamification.mascotStatus mit seiner Schwellenwert-Ableitung).
+    credits: ctx.currentUser.credits,
   })),
 
   /**

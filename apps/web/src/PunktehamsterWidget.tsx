@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { HamsterIcon } from "./Icons";
+import { CreditIcon, HamsterIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 /**
@@ -16,6 +16,13 @@ import { trpc } from "./trpc";
  * erhöht hat, kann nur hier im Vergleich zum zuletzt gerenderten Wert festgestellt werden — es
  * gibt bewusst keinen serverseitigen "Push"/Websocket, die Erkennung passiert beim nächsten
  * Re-Fetch nach einer richtigen Antwort (siehe invalidateProgress in Quiz.tsx/MixedLearning.tsx).
+ *
+ * F-119 (Nutzer-Feedback vom 18.09.2026, siehe Architekturplanung Abschnitt 13): der Creditstand
+ * ("jederzeit einsehbar") teilt sich bewusst diesen einen, ohnehin durchgängig sichtbaren
+ * Widget-Slot statt eines zweiten, separaten Banners — anders als das Maskottchen selbst ist er
+ * aber NICHT an `mascotEnabled` gekoppelt (eine reine Bastelfigur-Präferenz sollte die Sicht auf
+ * die echte Lernwährung nicht mit ausblenden), daher der eigene, von `mascotEnabled` unabhängige
+ * Zweig unten.
  */
 export function PunktehamsterWidget() {
   const me = trpc.auth.me.useQuery();
@@ -37,7 +44,27 @@ export function PunktehamsterWidget() {
     }
   }, [status.data]);
 
-  if (!me.data?.mascotEnabled || !status.data) {
+  if (!me.data) {
+    return null;
+  }
+
+  const creditBadge = (
+    <span className="mascot-credits">
+      <CreditIcon />
+      {me.data.credits}
+    </span>
+  );
+
+  if (!me.data.mascotEnabled) {
+    return (
+      <div className="mascot-widget">
+        {creditBadge}
+        <span className="mascot-label">Credits</span>
+      </div>
+    );
+  }
+
+  if (!status.data) {
     return null;
   }
 
@@ -54,6 +81,7 @@ export function PunktehamsterWidget() {
           ? "Dein Punktehamster hat sich vollgefressen! 🎉"
           : `${status.data.progressInCurrentPortion}/${status.data.threshold} bis zur nächsten Belohnung`}
       </span>
+      {creditBadge}
     </div>
   );
 }

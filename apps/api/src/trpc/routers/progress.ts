@@ -50,6 +50,16 @@ import { protectedProcedure, router } from "../trpc";
  * (siehe learningEvent.clientEventId in db/schema.ts). Bei normalen Online-Aufrufen aus
  * quiz.ts bleiben beide auf ihrem Default (jetzt, kein Idempotenz-Schlüssel nötig).
  */
+/**
+ * F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Architekturplanung
+ * Abschnitt 13): Credit-Menge je richtiger Antwort, gestaffelt nach content_item.difficulty —
+ * direkte Antwort auf die im Anforderungskatalog offen gelassene Frage "Menge an Credits je
+ * Schwierigkeitsgrad". `mittel` als Fallback für den theoretischen Fall eines unerwarteten
+ * Difficulty-Werts (die Spalte selbst ist nicht per DB-CHECK auf die drei bekannten Werte
+ * beschränkt, siehe content_item.difficulty in diesem Modul).
+ */
+const CREDIT_AMOUNTS_BY_DIFFICULTY: Record<string, number> = { leicht: 1, mittel: 2, schwer: 3 };
+
 export async function recordQuizAttempt(
   db: Database,
   userId: string,
@@ -63,6 +73,28 @@ export async function recordQuizAttempt(
   // konnte eine learningEvent-Zeile ohne zugehöriges userProgress-Update übrig bleiben. Beide
   // jetzt in einer Transaktion, damit entweder beide oder keine der beiden Änderungen greift.
   await db.transaction(async (tx) => {
+    // F-119: Anti-Farming (Nutzer-Entscheidung 22.09.2026) — MUSS vor dem Insert unten geprüft
+    // werden, sonst fände die Abfrage das gerade erst eingefügte Ereignis selbst und hielte
+    // jede Antwort für die "erste". Nur die tatsächlich erste jemals richtig beantwortete
+    // Instanz dieses Items bringt Credits; jede spätere Wiederholung (z. B. im
+    // F-26-Wiederholungsset) bringt keine weiteren — verhindert gezielt unbegrenztes
+    // Credit-Sammeln durch Wiederholen bereits bekannter Fragen.
+    let isFirstCorrectAnswerEver = false;
+    if (isCorrect) {
+      const [existingCorrectEvent] = await tx
+        .select({ id: learningEvent.id })
+        .from(learningEvent)
+        .where(
+          and(
+            eq(learningEvent.userId, userId),
+            eq(learningEvent.contentItemId, contentItemId),
+            eq(learningEvent.isCorrect, true),
+          ),
+        )
+        .limit(1);
+      isFirstCorrectAnswerEver = !existingCorrectEvent;
+    }
+
     const [insertedEvent] = await tx
       .insert(learningEvent)
       .values({ userId, contentItemId, isCorrect, occurredAt, clientEventId: clientEventId ?? null })
@@ -80,8 +112,21 @@ export async function recordQuizAttempt(
     // quiz.submit*-Mutationen verankert, damit auch offline beantwortete und später
     // synchronisierte Quiz-Antworten (trpc/routers/offline.ts) mitzählen, ohne diese Logik zu
     // duplizieren. Sinkt nie bei falschen Antworten (isCorrect === false → kein Update).
+    // Bewusst UNABHÄNGIG von `credits` (F-119) — rein visuell, zählt auch Wiederholungen.
     if (isCorrect) {
       await tx.update(user).set({ mascotFood: sql`${user.mascotFood} + 1` }).where(eq(user.id, userId));
+    }
+
+    // F-119: Credits nur bei der ersten jemals richtig beantworteten Instanz dieses Items
+    // (siehe isFirstCorrectAnswerEver oben) — Menge nach content_item.difficulty gestaffelt.
+    if (isCorrect && isFirstCorrectAnswerEver) {
+      const [item] = await tx
+        .select({ difficulty: contentItem.difficulty })
+        .from(contentItem)
+        .where(eq(contentItem.id, contentItemId))
+        .limit(1);
+      const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[item?.difficulty ?? "mittel"] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
+      await tx.update(user).set({ credits: sql`${user.credits} + ${amount}` }).where(eq(user.id, userId));
     }
 
     // Code-Review-Fund, nachgezogen: ein offline erfasstes Ereignis kann beim Sync später
