@@ -8,6 +8,16 @@ import { protectedProcedure, router } from "../trpc";
 const MIN_ANSWERS_FOR_BEST_DAY_HIT_RATE = 3;
 
 /**
+ * F-118 (Nutzer-Feedback vom 18.09.2026, erweitert F-67, siehe Architekturplanung Abschnitt 13):
+ * "Portionsgröße" des Punktehamsters — nach wie vielen richtig beantworteten Quiz-Fragen gilt
+ * eine "Belohnung" (aktuell rein visuell/motivierend, siehe mascotStatus unten) als erreicht.
+ * Bewusst ein Platzhalterwert, bis F-119 (Creditsystem) die tatsächliche Menge je Antwort
+ * festlegt — `user.mascot_food` selbst wächst unverändert monoton weiter, unabhängig von dieser
+ * Konstante, damit eine spätere Änderung des Schwellenwerts keine Migration erfordert.
+ */
+const MASCOT_FOOD_THRESHOLD = 10;
+
+/**
  * F-67: Nicht-soziale Gamification — Achievements/Abzeichen und persönliche Bestwerte, bewusst
  * ohne jeden Fremdkontakt und ohne Kurs-Skopierung (siehe db/schema.ts, `achievement`,
  * Architekturplanung Abschnitt 13). Alle Kennzahlen laufen über `learning_event`/`exam_session`
@@ -118,6 +128,22 @@ export const gamificationRouter = router({
       mostAnsweredInOneDay,
       longestStreakDays: longestConsecutiveDayStreak([...byDay.keys()]),
       bestExamScore: bestExamRow?.score ?? null,
+    };
+  }),
+
+  /**
+   * F-118: "Punktehamster"-Füllstand. `food` wächst monoton (siehe `recordQuizAttempt`,
+   * progress.ts) — `rewardsEarned`/`progressInCurrentPortion` sind rein clientseitig relevante
+   * Ableitungen (`Math.floor`/Modulo), hier zentral berechnet, damit das Frontend den
+   * Schwellenwert nicht dupliziert und bei einer künftigen Änderung nicht angepasst werden muss.
+   */
+  mascotStatus: protectedProcedure.query(async ({ ctx }) => {
+    const food = ctx.currentUser.mascotFood;
+    return {
+      food,
+      threshold: MASCOT_FOOD_THRESHOLD,
+      rewardsEarned: Math.floor(food / MASCOT_FOOD_THRESHOLD),
+      progressInCurrentPortion: food % MASCOT_FOOD_THRESHOLD,
     };
   }),
 });

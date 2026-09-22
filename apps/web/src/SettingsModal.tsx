@@ -3,6 +3,7 @@ import { DisplayNameSettings } from "./DisplayNameSettings";
 import { FlashcardStartSideSettings } from "./FlashcardStartSideSettings";
 import { InfoIcon } from "./Icons";
 import { LearningModeSettings } from "./LearningModeSettings";
+import { MascotSettings } from "./MascotSettings";
 import { Modal } from "./Modal";
 import { OfflineDownload } from "./OfflineDownload";
 import { RedeemCompanyCode } from "./RedeemCompanyCode";
@@ -35,6 +36,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
             </div>
             <div className="widget">
               <FlashcardStartSideSettings />
+            </div>
+            <div className="widget">
+              <MascotSettings />
             </div>
             {kursId ? (
               <>

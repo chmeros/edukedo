@@ -15,6 +15,7 @@ import { Lernen } from "./Lernen";
 import { OfflineStatus } from "./OfflineStatus";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
+import { PunktehamsterWidget } from "./PunktehamsterWidget";
 import { SponsorBanner } from "./SponsorBanner";
 import { Sozial } from "./Sozial";
 import { Suche } from "./Suche";
@@ -198,6 +199,7 @@ export function App() {
               <p className="welcome-greeting">
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
+              <PunktehamsterWidget />
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (

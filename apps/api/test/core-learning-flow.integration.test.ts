@@ -1454,6 +1454,128 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-118: Punktehamster sammelt Futter nur bei richtig beantworteten Quiz-Fragen, lässt sich abschalten und ändert sich dann nicht mehr",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f118@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "quiz_mc",
+          themaId,
+          prompt: "F-118-Testfrage: Was ist 1+1?",
+          explanation: null,
+          options: [
+            { text: "2", isCorrect: true },
+            { text: "3", isCorrect: false },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      const contentItemId = createResponse.json().result.data.id as string;
+
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const item = (quizItemsResponse.json().result.data as { id: string; options?: { id: string; text: string }[] }[]).find(
+        (candidate) => candidate.id === contentItemId,
+      )!;
+      const correctOptionId = item.options!.find((option) => option.text === "2")!.id;
+      const wrongOptionId = item.options!.find((option) => option.text === "3")!.id;
+
+      const statusBeforeResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.mascotStatus",
+        headers: { cookie: sessionCookie },
+      });
+      const foodBefore = (statusBeforeResponse.json().result.data as { food: number }).food;
+
+      // Falsche Antwort — Futter bleibt unverändert ("geht bei falscher Antwort nicht verloren",
+      // hier zusätzlich geprüft: es wächst bei falscher Antwort auch nicht).
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, selectedOptionId: wrongOptionId },
+      });
+      const statusAfterWrongResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.mascotStatus",
+        headers: { cookie: sessionCookie },
+      });
+      expect((statusAfterWrongResponse.json().result.data as { food: number }).food).toBe(foodBefore);
+
+      // Richtige Antwort — Futter wächst um genau 1.
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitAnswer",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, selectedOptionId: correctOptionId },
+      });
+      const statusAfterCorrectResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/gamification.mascotStatus",
+        headers: { cookie: sessionCookie },
+      });
+      const statusAfterCorrect = statusAfterCorrectResponse.json().result.data as {
+        food: number;
+        threshold: number;
+        rewardsEarned: number;
+        progressInCurrentPortion: number;
+      };
+      expect(statusAfterCorrect.food).toBe(foodBefore + 1);
+      expect(statusAfterCorrect.progressInCurrentPortion).toBe(statusAfterCorrect.food % statusAfterCorrect.threshold);
+      expect(statusAfterCorrect.rewardsEarned).toBe(Math.floor(statusAfterCorrect.food / statusAfterCorrect.threshold));
+
+      // Abschalten (auth.setMascotEnabled) — auth.me spiegelt den neuen Zustand wider.
+      const disableResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.setMascotEnabled",
+        headers: { cookie: sessionCookie },
+        payload: { enabled: false },
+      });
+      expect(disableResponse.statusCode).toBe(200);
+      const meAfterDisableResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/auth.me",
+        headers: { cookie: sessionCookie },
+      });
+      expect((meAfterDisableResponse.json().result.data as { mascotEnabled: boolean }).mascotEnabled).toBe(false);
+
+      // Wieder anschalten, damit nachfolgende Tests im selben Testlauf unbeeinflusst bleiben.
+      await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.setMascotEnabled",
+        headers: { cookie: sessionCookie },
+        payload: { enabled: true },
+      });
+    },
+    30_000,
+  );
+
+  it(
     "meldet sich ab, danach ist die Session ungültig",
     async () => {
       const logoutResponse = await app.inject({

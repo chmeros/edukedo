@@ -55,3 +55,27 @@ export function StarIcon({ filled }: { filled: boolean }) {
     </svg>
   );
 }
+
+/**
+ * F-118: "Punktehamster" — einfaches, rein dekoratives Maskottchen-Gesicht (Ohren, Backen,
+ * Augen, Nase), siehe PunktehamsterWidget.tsx. Größe konfigurierbar (`size`), da dieselbe
+ * Ikone sowohl im kompakten Header-nahen Widget als auch größer im Einstellungen-Modal
+ * auftaucht.
+ */
+export function HamsterIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="7" cy="6" r="2.4" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="17" cy="6" r="2.4" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M12 6c-4.4 0-7.5 3.3-7.5 7.2 0 2 .9 3.2 2.3 3.6.5-1 1.3-1.6 2.2-1.6.6 0 1.1.2 1.5.6.4-.3 1-.5 1.5-.5s1.1.2 1.5.5c.4-.4.9-.6 1.5-.6.9 0 1.7.6 2.2 1.6 1.4-.4 2.3-1.6 2.3-3.6C19.5 9.3 16.4 6 12 6Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <circle cx="9.5" cy="11.5" r="1" fill="currentColor" />
+      <circle cx="14.5" cy="11.5" r="1" fill="currentColor" />
+      <circle cx="12" cy="14" r="0.9" fill="currentColor" />
+    </svg>
+  );
+}

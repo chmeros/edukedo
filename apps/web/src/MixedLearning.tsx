@@ -68,6 +68,9 @@ export function MixedLearning({
     utils.content.dueCards.invalidate();
     utils.progress.overview.invalidate();
     utils.progress.suggestions.invalidate();
+    // F-118: eine richtige Quiz-Antwort kann den Punktehamster-Füllstand erhöht haben (bei
+    // einer Karteikarten-Bewertung unverändert — harmloses, unnötiges Re-Fetch).
+    utils.gamification.mascotStatus.invalidate();
   };
   const submitReviewMutation = trpc.progress.submitReview.useMutation({ onSuccess: invalidateProgress });
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });

@@ -717,6 +717,48 @@ details[open] > summary.disclosure::before {
   margin: 0 0 4px;
 }
 
+/* F-118 "Punktehamster" — durchgängig sichtbares, kompaktes Widget (PunktehamsterWidget.tsx),
+   direkt unterhalb der Begrüßung. `.is-celebrating` markiert den kurzen Moment nach Erreichen
+   einer Schwelle (dieselben --sprout-Farbtoken wie überall sonst bei "richtig"/Erfolg). */
+.mascot-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  margin-bottom: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.mascot-widget.is-celebrating {
+  border-color: var(--sprout);
+  background: var(--sprout-tint);
+  color: var(--sprout-deep);
+}
+
+.mascot-fill-track {
+  flex: 1 1 120px;
+  max-width: 160px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.mascot-fill-bar {
+  height: 100%;
+  background: var(--sprout);
+  transition: width 0.3s;
+}
+
+.mascot-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
 .suggestion-row {
   display: flex;

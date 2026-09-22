@@ -13,7 +13,7 @@ import {
   type ReviewResult,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, desc, eq, gte, inArray, isNull, lte } from "drizzle-orm";
+import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { calculateEinzelterminPacing } from "../../pacing";
 import type { Database } from "../../db/client";
 import {
@@ -24,6 +24,7 @@ import {
   learningEvent,
   learningSession,
   thema,
+  user,
   userCourse,
   userProgress,
 } from "../../db/schema";
@@ -71,6 +72,16 @@ export async function recordQuizAttempt(
     if (clientEventId && !insertedEvent) {
       // Bereits bei einem früheren Sync-Versuch verarbeitet — user_progress nicht erneut ändern.
       return;
+    }
+
+    // F-118: "Punktehamster" — wächst mit JEDER neu erfassten richtigen Antwort, unabhängig
+    // davon, ob der user_progress-Stand unten wegen eines bereits neueren Ereignisses
+    // übersprungen wird (siehe nächster Block). Bewusst hier statt in den einzelnen
+    // quiz.submit*-Mutationen verankert, damit auch offline beantwortete und später
+    // synchronisierte Quiz-Antworten (trpc/routers/offline.ts) mitzählen, ohne diese Logik zu
+    // duplizieren. Sinkt nie bei falschen Antworten (isCorrect === false → kein Update).
+    if (isCorrect) {
+      await tx.update(user).set({ mascotFood: sql`${user.mascotFood} + 1` }).where(eq(user.id, userId));
     }
 
     // Code-Review-Fund, nachgezogen: ein offline erfasstes Ereignis kann beim Sync später

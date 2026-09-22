@@ -38,6 +38,8 @@ export function Quiz({
     utils.progress.overview.invalidate();
     // F-27: Ergebnis kann die nächste Runde Vorschläge verändern.
     utils.progress.suggestions.invalidate();
+    // F-118: eine richtige Antwort kann den Punktehamster-Füllstand erhöht haben.
+    utils.gamification.mascotStatus.invalidate();
   };
   // staleTime: Infinity — quiz.quizItems liefert die 20 Fragen in zufälliger Reihenfolge (siehe
   // apps/api/src/trpc/routers/quiz.ts); ein automatischer Hintergrund-Refetch (z. B. TanStack

@@ -5,6 +5,7 @@ import {
   requiresParentalConsent,
   setFlashcardStartSideInputSchema,
   setLearningModePreferenceInputSchema,
+  setMascotEnabledInputSchema,
   updateDisplayNameInputSchema,
   verifyEmailInputSchema,
 } from "@edukedo/shared";
@@ -192,6 +193,7 @@ export const authRouter = router({
     learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
     flashcardStartWithAnswer: ctx.currentUser.flashcardStartWithAnswer,
+    mascotEnabled: ctx.currentUser.mascotEnabled,
   })),
 
   /**
@@ -315,4 +317,10 @@ export const authRouter = router({
         .where(eq(user.id, ctx.currentUser.id));
       return { success: true };
     }),
+
+  /** F-118: "Punktehamster" dauerhaft an-/abschalten — analog zu setFlashcardStartSide. */
+  setMascotEnabled: protectedProcedure.input(setMascotEnabledInputSchema).mutation(async ({ ctx, input }) => {
+    await ctx.db.update(user).set({ mascotEnabled: input.enabled }).where(eq(user.id, ctx.currentUser.id));
+    return { success: true };
+  }),
 });

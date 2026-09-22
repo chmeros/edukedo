@@ -121,6 +121,16 @@ export const user = pgTable(
     // F-110 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): dauerhafte
     // Präferenz, ob eine Karteikarte zuerst mit Frage- oder Antwortseite angezeigt wird.
     flashcardStartWithAnswer: boolean("flashcard_start_with_answer").notNull().default(false),
+    // F-118 (Nutzer-Feedback vom 18.09.2026, erweitert F-67, siehe Abschnitt 13): "Punktehamster" —
+    // wächst monoton mit jeder richtig beantworteten Quiz-Frage (recordQuizAttempt, progress.ts),
+    // sinkt nie bei falschen Antworten. Bewusst kein Reset/Verbrauch, da das zugehörige
+    // Creditsystem (F-119) noch nicht existiert — die Lernenden-UI zeigt `mascotFood % Schwelle`
+    // als Füllstand. Karteikarten (F-20, subjektive Selbsteinschätzung statt geprüfter Antwort)
+    // zählen bewusst nicht mit, nur echte Quiz-Antworten.
+    mascotFood: integer("mascot_food").notNull().default(0),
+    // Abschalt-Option (Nutzer-Entscheidung 22.09.2026) — Default an, damit der Effekt ohne
+    // Erstbesuch-Abfrage sofort wirkt (wie bei den übrigen opt-out-Präferenzen dieses Projekts).
+    mascotEnabled: boolean("mascot_enabled").notNull().default(true),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },

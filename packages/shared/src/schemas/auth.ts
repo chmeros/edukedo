@@ -96,3 +96,12 @@ export const setFlashcardStartSideInputSchema = z.object({
   startWithAnswer: z.boolean(),
 });
 export type SetFlashcardStartSideInput = z.infer<typeof setFlashcardStartSideInputSchema>;
+
+/**
+ * F-118 (Nutzer-Entscheidung 22.09.2026, siehe Architekturplanung Abschnitt 13): der
+ * "Punktehamster" lässt sich dauerhaft abschalten — analog zu `setFlashcardStartSideInputSchema`.
+ */
+export const setMascotEnabledInputSchema = z.object({
+  enabled: z.boolean(),
+});
+export type SetMascotEnabledInput = z.infer<typeof setMascotEnabledInputSchema>;
