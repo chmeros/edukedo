@@ -4,6 +4,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
 import { db, pool } from "./client";
 import {
+  type Bloom,
   extractSection,
   parseFachgespraechFragen,
   parseFallaufgabe,
@@ -100,6 +101,41 @@ async function ensureTagIds(tagNames: string[]): Promise<Map<string, string>> {
     ids.set(name, created.id);
   }
   return ids;
+}
+
+/**
+ * Gemeinsamer Insert-Helfer für die F-113/F-114/F-115/F-116-Fragetypen (10 Stück, siehe
+ * content-parser.ts) — alle folgen demselben Muster wie die länger bestehenden
+ * quiz_mc/zuordnung-Zweige unten (contentItem + contentItemVersion + optionale
+ * answer_option-Zeilen), nur mit unterschiedlichem payload/answerOptions-Aufbau je Typ. Die
+ * älteren, bereits produktiv laufenden Zweige (quiz_mc/zuordnung/luecken/kurzantwort) bleiben
+ * bewusst unangetastet, um kein Regressionsrisiko in bereits getesteten Code einzubringen.
+ */
+async function insertQuizContentItem(
+  themaId: string,
+  type: string,
+  prompt: string,
+  explanation: string,
+  difficulty: string,
+  bloom: Bloom | null,
+  payload: Record<string, unknown>,
+  answerOptions?: { text: string; isCorrect: boolean; groupKey?: string; sortOrder: number }[],
+): Promise<void> {
+  const [item] = await db
+    .insert(contentItem)
+    .values({ themaId, type, prompt, explanation, difficulty, bloom, payload })
+    .returning();
+  if (!item) throw new Error(`Content-Item vom Typ "${type}" konnte nicht angelegt werden.`);
+  await db.insert(contentItemVersion).values({
+    contentItemId: item.id,
+    versionNumber: 1,
+    prompt: item.prompt,
+    explanation: item.explanation,
+    payload,
+  });
+  if (answerOptions && answerOptions.length > 0) {
+    await db.insert(answerOption).values(answerOptions.map((option) => ({ contentItemId: item.id, ...option })));
+  }
 }
 
 async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number): Promise<number> {
@@ -263,7 +299,83 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
       const parsed = parseQuizBlock(block);
       if (!parsed) continue;
 
-      if (parsed.type === "quiz_mc") {
+      if (
+        parsed.type === "wahr_falsch" ||
+        parsed.type === "entweder_oder" ||
+        parsed.type === "was_passt_nicht" ||
+        parsed.type === "quiz_mc_multi"
+      ) {
+        // F-113/F-116: strukturell identisch zu Multiple Choice (options-Array), siehe
+        // prepareContent in adminContent.ts für dieselbe Zuordnung — hier bewusst dupliziert
+        // statt importiert, um db/ frei von trpc/routers/-Abhängigkeiten zu halten (siehe
+        // Moduldoku oben: content-parser.ts ist bewusst ohne DB-/Router-Kopplung ausgelagert).
+        await insertQuizContentItem(
+          themaRow.id,
+          parsed.type,
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          {},
+          parsed.options.map((option, index) => ({ text: option.text, isCorrect: option.isCorrect, sortOrder: index })),
+        );
+      } else if (parsed.type === "sortieren") {
+        // F-113 Teil 2: sortOrder trägt hier die tatsächlich zu prüfende Position (die
+        // Eingabereihenfolge selbst), nicht nur eine kosmetische Anzeige-Reihenfolge.
+        await insertQuizContentItem(
+          themaRow.id,
+          "sortieren",
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          {},
+          parsed.items.map((sortierenItem, index) => ({ text: sortierenItem.text, isCorrect: false, sortOrder: index })),
+        );
+      } else if (parsed.type === "swot" || parsed.type === "bsc" || parsed.type === "ansoff") {
+        // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
+        // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.
+        await insertQuizContentItem(
+          themaRow.id,
+          parsed.type,
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          {},
+          parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: term.zoneKey, sortOrder: index })),
+        );
+      } else if (parsed.type === "gantt") {
+        // F-114 Teil 2: Zeitabschnitte sind content-autoriert statt fest im Code (siehe
+        // ganttPayloadSchema) — generierte Schlüssel (p0, p1, …) analog zu adminContent.ts.
+        const periods = parsed.periods.map((label, index) => ({ key: `p${index}`, label }));
+        await insertQuizContentItem(
+          themaRow.id,
+          "gantt",
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          { periods },
+          parsed.terms.map((term, index) => ({
+            text: term.text,
+            isCorrect: false,
+            groupKey: periods[term.periodIndex]!.key,
+            sortOrder: index,
+          })),
+        );
+      } else if (parsed.type === "luecken_auswahl") {
+        // F-115: wie "luecken" unten, zusätzlich die frei eingegebenen Distraktoren im payload.
+        await insertQuizContentItem(
+          themaRow.id,
+          "luecken_auswahl",
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          { text_with_blanks: parsed.textWithBlanks, blanks: parsed.blanks, distractors: parsed.distractors },
+        );
+      } else if (parsed.type === "quiz_mc") {
         const [item] = await db
           .insert(contentItem)
           .values({
@@ -339,7 +451,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           explanation: item.explanation,
           payload,
         });
-      } else {
+      } else if (parsed.type === "kurzantwort") {
         const payload = { accepted_answers: parsed.acceptedAnswers, match_mode: "exact" as const };
         const [item] = await db
           .insert(contentItem)

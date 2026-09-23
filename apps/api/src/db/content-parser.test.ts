@@ -208,6 +208,234 @@ describe("parseQuizBlock", () => {
       expect(parsed.acceptedAnswers).toEqual(["Nachweisgesetz", "NachwG"]);
     }
   });
+
+  // F-113/F-114/F-115/F-116: die 10 neuen Fragetypen (Nutzer-Feedback vom 23.09.2026), bisher
+  // nur über den Admin-Redaktionsbereich anlegbar — hier erstmals auch im Bulk-Import-Parser
+  // (siehe content/README.md-Ergänzung für die Syntax).
+  it("parst Wahr/Falsch-Blöcke mit dem Feldlabel 'Aussage' statt 'Frage'", () => {
+    const block = [
+      "#### Q-3.1-05 · Wahr/Falsch",
+      "**Aussage:** Ein Projekt ist eine dauerhaft wiederkehrende Routineaufgabe.",
+      "- [ ] Wahr",
+      "- [x] Falsch",
+      "**Erklärung:** Ein Projekt ist per Definition zeitlich begrenzt.",
+      "`schwierigkeit: leicht` · `bloom: verstehen`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed).toMatchObject({ type: "wahr_falsch", prompt: "Ein Projekt ist eine dauerhaft wiederkehrende Routineaufgabe." });
+    if (parsed?.type === "wahr_falsch") {
+      expect(parsed.options).toEqual([
+        { text: "Wahr", isCorrect: false },
+        { text: "Falsch", isCorrect: true },
+      ]);
+    }
+  });
+
+  it("parst Entweder-Oder-Blöcke", () => {
+    const block = [
+      "#### Q-3.1-06 · Entweder-Oder",
+      "**Frage:** Ist eine neue gesetzliche Regelung ein interner oder externer Einflussfaktor?",
+      "- [ ] Intern",
+      "- [x] Extern",
+      "**Erklärung:** Gesetzliche Vorgaben entstehen außerhalb des Unternehmens.",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("entweder_oder");
+    if (parsed?.type === "entweder_oder") {
+      expect(parsed.options).toEqual([
+        { text: "Intern", isCorrect: false },
+        { text: "Extern", isCorrect: true },
+      ]);
+    }
+  });
+
+  it("parst 'Was passt nicht dazu'-Blöcke", () => {
+    const block = [
+      "#### Q-3.1-07 · Was passt nicht dazu",
+      "**Frage:** Welcher Begriff gehört nicht zu den vier Perspektiven der Balanced Scorecard?",
+      "- [ ] Finanzperspektive",
+      "- [ ] Kundenperspektive",
+      "- [x] Wettbewerbsperspektive",
+      "- [ ] Prozessperspektive",
+      "**Erklärung:** Die vierte Perspektive ist Lernen & Entwicklung, nicht Wettbewerb.",
+      "`schwierigkeit: schwer`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("was_passt_nicht");
+    if (parsed?.type === "was_passt_nicht") {
+      expect(parsed.options.filter((option) => option.isCorrect)).toEqual([{ text: "Wettbewerbsperspektive", isCorrect: true }]);
+    }
+  });
+
+  it("parst Mehrfachauswahl-Blöcke mit mehreren richtigen Optionen", () => {
+    const block = [
+      "#### Q-3.1-08 · Mehrfachauswahl",
+      "**Frage:** Welche der folgenden Aussagen zum Projektmanagement sind richtig?",
+      "- [x] Ein Projekt ist zeitlich begrenzt.",
+      "- [x] Ein Projekt verfolgt ein definiertes Ziel.",
+      "- [ ] Ein Projekt wiederholt sich routinemäßig.",
+      "**Erklärung:** Zeitliche Begrenzung und ein definiertes Ziel sind Kernmerkmale.",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("quiz_mc_multi");
+    if (parsed?.type === "quiz_mc_multi") {
+      expect(parsed.options.filter((option) => option.isCorrect)).toHaveLength(2);
+    }
+  });
+
+  it("parst Sortieren-Blöcke — die Eingabereihenfolge der nummerierten Liste ist die richtige Reihenfolge", () => {
+    const block = [
+      "#### Q-3.1-09 · Sortieren",
+      "**Anweisung:** Bringe die Projektphasen in die richtige Reihenfolge.",
+      "1. Initiierung",
+      "2. Planung",
+      "3. Durchführung",
+      "4. Abschluss",
+      "**Erklärung:** Klassischer Projektlebenszyklus.",
+      "`schwierigkeit: leicht`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("sortieren");
+    if (parsed?.type === "sortieren") {
+      expect(parsed.items).toEqual([
+        { text: "Initiierung" },
+        { text: "Planung" },
+        { text: "Durchführung" },
+        { text: "Abschluss" },
+      ]);
+    }
+  });
+
+  it("parst SWOT-Matrix-Blöcke und bildet die deutschen Zonen-Beschriftungen auf die festen internen Zonen-Schlüssel ab", () => {
+    const block = [
+      "#### Q-2.2-01 · SWOT-Matrix",
+      "**Anweisung:** Ordne die Begriffe den passenden Feldern der SWOT-Matrix zu.",
+      "- Erfahrenes Team → Stärken",
+      "- Hohe Fluktuation → Schwächen",
+      "- Neuer Markt → Chancen",
+      "- Neuer Wettbewerber → Risiken",
+      "**Erklärung:** Interne Faktoren (Stärken/Schwächen) vs. externe Faktoren (Chancen/Risiken).",
+      "`schwierigkeit: mittel` · `bloom: analysieren`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("swot");
+    if (parsed?.type === "swot") {
+      expect(parsed.terms).toEqual([
+        { text: "Erfahrenes Team", zoneKey: "staerken" },
+        { text: "Hohe Fluktuation", zoneKey: "schwaechen" },
+        { text: "Neuer Markt", zoneKey: "chancen" },
+        { text: "Neuer Wettbewerber", zoneKey: "risiken" },
+      ]);
+    }
+  });
+
+  it("wirft bei einer unbekannten Zonen-Beschriftung statt eine ungültige Zuordnung stillschweigend zu erzeugen", () => {
+    const block = [
+      "#### Q-2.2-02 · SWOT-Matrix",
+      "**Anweisung:** ...",
+      "- Begriff → Unbekannte Zone",
+      "**Erklärung:** ...",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    expect(() => parseQuizBlock(block)).toThrow(/Unbekannte Zonen-Beschriftung/);
+  });
+
+  it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
+    const bscBlock = [
+      "#### Q-4.1-01 · Balanced Scorecard",
+      "**Anweisung:** Ordne die Kennzahlen den vier Perspektiven zu.",
+      "- Umsatzwachstum → Finanzen",
+      "- Kundenzufriedenheit → Kunden",
+      "- Durchlaufzeit → Interne Prozesse",
+      "- Weiterbildungsquote → Lernen & Entwicklung",
+      "**Erklärung:** Die vier klassischen BSC-Perspektiven.",
+      "`schwierigkeit: schwer`",
+    ].join("\n");
+    const bscParsed = parseQuizBlock(bscBlock);
+    expect(bscParsed?.type).toBe("bsc");
+    if (bscParsed?.type === "bsc") {
+      expect(bscParsed.terms.map((term) => term.zoneKey)).toEqual(["finanzen", "kunden", "prozesse", "lernen_entwicklung"]);
+    }
+
+    const ansoffBlock = [
+      "#### Q-2.2-03 · Ansoff-Matrix",
+      "**Anweisung:** Ordne die Strategien den passenden Feldern zu.",
+      "- Mehr Werbung für bestehendes Produkt im bestehenden Markt → Marktdurchdringung",
+      "- Bestehendes Produkt in neuem Land → Marktentwicklung",
+      "- Neue Produktvariante für bestehende Kundschaft → Produktentwicklung",
+      "- Neues Produkt in neuem Markt → Diversifikation",
+      "**Erklärung:** Die vier Ansoff-Wachstumsstrategien.",
+      "`schwierigkeit: schwer`",
+    ].join("\n");
+    const ansoffParsed = parseQuizBlock(ansoffBlock);
+    expect(ansoffParsed?.type).toBe("ansoff");
+    if (ansoffParsed?.type === "ansoff") {
+      expect(ansoffParsed.terms.map((term) => term.zoneKey)).toEqual([
+        "marktdurchdringung",
+        "marktentwicklung",
+        "produktentwicklung",
+        "diversifikation",
+      ]);
+    }
+  });
+
+  it("parst Gantt-Diagramm-Blöcke mit content-autorierten Zeitabschnitten (kein fester Zonen-Katalog)", () => {
+    const block = [
+      "#### Q-1.3-01 · Gantt-Diagramm",
+      "**Anweisung:** Ordne die Arbeitspakete den passenden Zeitabschnitten zu.",
+      "**Zeitabschnitte:** Planung; Entwicklung; Testphase; Markteinführung",
+      "- Anforderungsanalyse → Planung",
+      "- Prototyp erstellen → Entwicklung",
+      "- Fehlerbehebung → Testphase",
+      "- Rollout → Markteinführung",
+      "**Erklärung:** Klassischer Produktentwicklungs-Zeitplan.",
+      "`schwierigkeit: mittel` · `bloom: anwenden`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("gantt");
+    if (parsed?.type === "gantt") {
+      expect(parsed.periods).toEqual(["Planung", "Entwicklung", "Testphase", "Markteinführung"]);
+      expect(parsed.terms).toEqual([
+        { text: "Anforderungsanalyse", periodIndex: 0 },
+        { text: "Prototyp erstellen", periodIndex: 1 },
+        { text: "Fehlerbehebung", periodIndex: 2 },
+        { text: "Rollout", periodIndex: 3 },
+      ]);
+    }
+  });
+
+  it("wirft bei einem unbekannten Zeitabschnitt statt eine ungültige Zuordnung stillschweigend zu erzeugen", () => {
+    const block = [
+      "#### Q-1.3-02 · Gantt-Diagramm",
+      "**Anweisung:** ...",
+      "**Zeitabschnitte:** Planung; Umsetzung",
+      "- Begriff → Unbekannter Abschnitt",
+      "**Erklärung:** ...",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    expect(() => parseQuizBlock(block)).toThrow(/Unbekannter Zeitabschnitt/);
+  });
+
+  it("parst Lückentext-mit-Wortauswahl-Blöcke inkl. zusätzlicher, nicht benötigter Begriffe", () => {
+    const block = [
+      "#### Q-1.1-01 · Lückentext (Wortauswahl)",
+      "**Text:** Ein ___Projekt___ ist ein zeitlich begrenztes Vorhaben. Die Planung übernimmt die ___Projektleitung___.",
+      "**Zusätzliche Begriffe:** Routineaufgabe; Umsatz; Hierarchie",
+      "**Erklärung:** Grundbegriffe des Projektmanagements.",
+      "`schwierigkeit: leicht` · `bloom: erinnern`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("luecken_auswahl");
+    if (parsed?.type === "luecken_auswahl") {
+      expect(parsed.blanks).toEqual([
+        { id: "1", accepted: ["Projekt"] },
+        { id: "2", accepted: ["Projektleitung"] },
+      ]);
+      expect(parsed.distractors).toEqual(["Routineaufgabe", "Umsatz", "Hierarchie"]);
+    }
+  });
 });
 
 describe("parseFallaufgabe (F-23)", () => {

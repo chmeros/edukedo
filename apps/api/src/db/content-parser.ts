@@ -100,7 +100,7 @@ export function parseKarteikarten(sectionBody: string): ParsedKarteikarte[] {
 
 export type ParsedQuizItem =
   | {
-      type: "quiz_mc";
+      type: "quiz_mc" | "wahr_falsch" | "entweder_oder" | "was_passt_nicht" | "quiz_mc_multi";
       prompt: string;
       explanation: string;
       difficulty: string;
@@ -116,6 +116,31 @@ export type ParsedQuizItem =
       pairs: { left: string; right: string }[];
     }
   | {
+      type: "sortieren";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      items: { text: string }[];
+    }
+  | {
+      type: "swot" | "bsc" | "ansoff";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      terms: { text: string; zoneKey: string }[];
+    }
+  | {
+      type: "gantt";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      periods: string[];
+      terms: { text: string; periodIndex: number }[];
+    }
+  | {
       type: "luecken";
       prompt: string;
       explanation: string;
@@ -125,6 +150,16 @@ export type ParsedQuizItem =
       blanks: { id: string; accepted: string[] }[];
     }
   | {
+      type: "luecken_auswahl";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      textWithBlanks: string;
+      blanks: { id: string; accepted: string[] }[];
+      distractors: string[];
+    }
+  | {
       type: "kurzantwort";
       prompt: string;
       explanation: string;
@@ -132,6 +167,25 @@ export type ParsedQuizItem =
       bloom: Bloom | null;
       acceptedAnswers: string[];
     };
+
+/** F-114: Anzeige-Beschriftung → fester Zonen-Schlüssel je Modell (siehe QUADRANT_MODELS,
+ * packages/shared/src/quiz-logic.ts) — das Content-Zwischenformat verwendet die deutschen
+ * Beschriftungen, dieselben, die auch im Frontend angezeigt werden, statt der internen Keys. */
+const QUADRANT_ZONE_LABELS: Record<"swot" | "bsc" | "ansoff", Record<string, string>> = {
+  swot: { Stärken: "staerken", Schwächen: "schwaechen", Chancen: "chancen", Risiken: "risiken" },
+  bsc: {
+    Finanzen: "finanzen",
+    Kunden: "kunden",
+    "Interne Prozesse": "prozesse",
+    "Lernen & Entwicklung": "lernen_entwicklung",
+  },
+  ansoff: {
+    Marktdurchdringung: "marktdurchdringung",
+    Marktentwicklung: "marktentwicklung",
+    Produktentwicklung: "produktentwicklung",
+    Diversifikation: "diversifikation",
+  },
+};
 
 /**
  * Wandelt einen Lückentext-Quelltext mit inline `___Stichwort___`-Markierungen (dasselbe
@@ -176,10 +230,93 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
     return { type: "zuordnung", prompt, explanation, difficulty, bloom, pairs };
   }
 
+  // F-113: wahr_falsch/entweder_oder/was_passt_nicht/quiz_mc_multi (F-116) sind strukturell
+  // identisch zu Multiple Choice (options-Array mit [x]-Markierung), siehe prepareContent in
+  // adminContent.ts — hier daher derselbe Options-Parser wie oben bei "Multiple Choice", nur
+  // mit eigenem Feldlabel für wahr_falsch ("Aussage" statt "Frage", da dort eine Behauptung
+  // bewertet wird, keine Frage gestellt wird).
+  if (kind === "Wahr/Falsch" || kind === "Entweder-Oder" || kind === "Was passt nicht dazu" || kind === "Mehrfachauswahl") {
+    const prompt = extractField(block, kind === "Wahr/Falsch" ? "Aussage" : "Frage") ?? "";
+    const options = [...block.matchAll(/^- \[( |x)\]\s*(.+)$/gm)].map((match) => ({
+      text: match[2]!.trim(),
+      isCorrect: match[1] === "x",
+    }));
+    const typeByKind = {
+      "Wahr/Falsch": "wahr_falsch",
+      "Entweder-Oder": "entweder_oder",
+      "Was passt nicht dazu": "was_passt_nicht",
+      Mehrfachauswahl: "quiz_mc_multi",
+    } as const;
+    return { type: typeByKind[kind], prompt, explanation, difficulty, bloom, options };
+  }
+
+  // F-113 Teil 2: die Eingabereihenfolge der nummerierten Liste IST die richtige Reihenfolge
+  // (siehe content/README.md-Ergänzung) — fest auf 4 Elemente begrenzt, analog zum
+  // Admin-Formular (sortierenItemFormSchema, admin-content.ts).
+  if (kind === "Sortieren") {
+    const prompt = extractField(block, "Anweisung") ?? "";
+    const items = [...block.matchAll(/^\d+\.\s*(.+)$/gm)].map((match) => ({ text: match[1]!.trim() }));
+    return { type: "sortieren", prompt, explanation, difficulty, bloom, items };
+  }
+
+  // F-114: SWOT/BSC/Ansoff — Begriff und Zonen-Beschriftung durch "→" getrennt, die
+  // Beschriftung wird über QUADRANT_ZONE_LABELS auf den festen internen Zonen-Schlüssel
+  // abgebildet (siehe QUADRANT_MODELS, quiz-logic.ts).
+  if (kind === "SWOT-Matrix" || kind === "Balanced Scorecard" || kind === "Ansoff-Matrix") {
+    const modelByKind = { "SWOT-Matrix": "swot", "Balanced Scorecard": "bsc", "Ansoff-Matrix": "ansoff" } as const;
+    const model = modelByKind[kind];
+    const prompt = extractField(block, "Anweisung") ?? "";
+    const terms = [...block.matchAll(/^- (.+?) → (.+)$/gm)].map((match) => {
+      const text = match[1]!.trim();
+      const zoneLabel = match[2]!.trim();
+      const zoneKey = QUADRANT_ZONE_LABELS[model][zoneLabel];
+      if (!zoneKey) {
+        throw new Error(`Unbekannte Zonen-Beschriftung "${zoneLabel}" für ${kind} im Block "${text}".`);
+      }
+      return { text, zoneKey };
+    });
+    return { type: model, prompt, explanation, difficulty, bloom, terms };
+  }
+
+  // F-114 Teil 2 (Gantt-Diagramm): Zeitabschnitte sind, anders als bei SWOT/BSC/Ansoff, nicht
+  // fest im Code hinterlegt, sondern content-autoriert (siehe ganttPayloadSchema) — daher eine
+  // eigene, semikolon-getrennte "Zeitabschnitte"-Zeile statt einer festen Beschriftungsliste.
+  if (kind === "Gantt-Diagramm") {
+    const prompt = extractField(block, "Anweisung") ?? "";
+    const periodsRaw = extractField(block, "Zeitabschnitte") ?? "";
+    const periods = periodsRaw
+      .split(";")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+    const terms = [...block.matchAll(/^- (.+?) → (.+)$/gm)].map((match) => {
+      const text = match[1]!.trim();
+      const periodLabel = match[2]!.trim();
+      const periodIndex = periods.indexOf(periodLabel);
+      if (periodIndex === -1) {
+        throw new Error(`Unbekannter Zeitabschnitt "${periodLabel}" für Gantt-Diagramm im Block "${text}".`);
+      }
+      return { text, periodIndex };
+    });
+    return { type: "gantt", prompt, explanation, difficulty, bloom, periods, terms };
+  }
+
   if (kind === "Lückentext") {
     const text = extractField(block, "Text") ?? "";
     const { textWithBlanks, blanks } = parseLueckentext(text);
     return { type: "luecken", prompt: text, explanation, difficulty, bloom, textWithBlanks, blanks };
+  }
+
+  // F-115: dasselbe inline-Autorenformat wie "Lückentext" (___Stichwort___), zusätzlich eine
+  // semikolon-getrennte Liste zusätzlicher, nicht benötigter Begriffe für den Wortpool.
+  if (kind === "Lückentext (Wortauswahl)") {
+    const text = extractField(block, "Text") ?? "";
+    const { textWithBlanks, blanks } = parseLueckentext(text);
+    const distractorsRaw = extractField(block, "Zusätzliche Begriffe") ?? "";
+    const distractors = distractorsRaw
+      .split(";")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+    return { type: "luecken_auswahl", prompt: text, explanation, difficulty, bloom, textWithBlanks, blanks, distractors };
   }
 
   if (kind === "Kurzantwort") {

@@ -152,6 +152,104 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
 `schwierigkeit: schwer` · `bloom: analysieren`
 ```
 
+**Zehn weitere Fragetypen (F-113/F-114/F-115/F-116, Nutzer-Feedback vom 18.09.2026, im Bulk-Import-Parser ergänzt am 23.09.2026):** Bis 23.09.2026 waren diese zehn Typen ausschließlich über den Admin-Redaktionsbereich (Einzelanlage) authorierbar — ohne echten Content im Bulk-Import-Format blieben sie in den realen Kursen unsichtbar (siehe Anforderungskatalog Abschnitt 5.3). Alle zehn tragen wie oben das `schwierigkeit`/`bloom`-Metadatenzeilenformat.
+
+**Wahr/Falsch** (`type: wahr_falsch`) — wie Multiple Choice, aber das Feldlabel heißt `**Aussage:**` statt `**Frage:**` (es wird eine Behauptung bewertet, keine Frage gestellt), und die beiden Optionen sind stets „Wahr"/„Falsch":
+```markdown
+#### Q-3.1-12 · Wahr/Falsch
+**Aussage:** Ein Projekt ist eine dauerhaft wiederkehrende Routineaufgabe.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** ...
+`schwierigkeit: leicht` · `bloom: verstehen`
+```
+
+**Entweder-Oder** (`type: entweder_oder`) — wie Multiple Choice, aber genau zwei Optionen:
+```markdown
+#### Q-3.1-13 · Entweder-Oder
+**Frage:** ...
+- [ ] Option A
+- [x] Option B
+**Erklärung:** ...
+`schwierigkeit: mittel`
+```
+
+**Was passt nicht dazu** (`type: was_passt_nicht`) — wie Multiple Choice; die mit `[x]` markierte Option ist der eine nicht dazugehörige Begriff:
+```markdown
+#### Q-3.1-14 · Was passt nicht dazu
+**Frage:** ...
+- [ ] Begriff A
+- [ ] Begriff B
+- [x] Begriff C
+- [ ] Begriff D
+**Erklärung:** ...
+`schwierigkeit: mittel` · `bloom: analysieren`
+```
+
+**Mehrfachauswahl** (`type: quiz_mc_multi`) — wie Multiple Choice, aber eine, zwei, drei oder alle Optionen können mit `[x]` markiert sein:
+```markdown
+#### Q-3.1-15 · Mehrfachauswahl
+**Frage:** ...
+- [x] Option A
+- [x] Option B
+- [ ] Option C
+**Erklärung:** ...
+`schwierigkeit: schwer`
+```
+
+**Sortieren** (`type: sortieren`) — genau vier Elemente als nummerierte Liste; die Eingabereihenfolge IST die richtige Reihenfolge:
+```markdown
+#### Q-3.1-16 · Sortieren
+**Anweisung:** Bringe die folgenden Schritte in die richtige Reihenfolge.
+1. Erster Schritt
+2. Zweiter Schritt
+3. Dritter Schritt
+4. Vierter Schritt
+**Erklärung:** ...
+`schwierigkeit: mittel` · `bloom: anwenden`
+```
+
+**SWOT-Matrix / Balanced Scorecard / Ansoff-Matrix** (`type: swot`/`bsc`/`ansoff`) — Begriffe werden per `→` einer der vier festen Zonen des jeweiligen Modells zugeordnet (Beschriftung, nicht der interne Schlüssel):
+- SWOT: Stärken, Schwächen, Chancen, Risiken
+- Balanced Scorecard: Finanzen, Kunden, Interne Prozesse, Lernen & Entwicklung
+- Ansoff-Matrix: Marktdurchdringung, Marktentwicklung, Produktentwicklung, Diversifikation
+```markdown
+#### Q-2.2-01 · SWOT-Matrix
+**Anweisung:** Ordne die Begriffe den passenden Feldern der SWOT-Matrix zu.
+- Erfahrenes Team → Stärken
+- Hohe Fluktuation → Schwächen
+- Neuer Markt → Chancen
+- Neuer Wettbewerber → Risiken
+**Erklärung:** ...
+`schwierigkeit: mittel` · `bloom: analysieren`
+```
+Eine unbekannte Zonen-Beschriftung lässt den Import mit einer Fehlermeldung abbrechen, statt eine ungültige Zuordnung stillschweigend zu erzeugen (Tippfehler-Schutz).
+
+**Gantt-Diagramm** (`type: gantt`) — wie die drei Modelle oben, aber die Zeitabschnitte sind nicht fest vorgegeben, sondern selbst content-autoriert (eigene, semikolon-getrennte `**Zeitabschnitte:**`-Zeile):
+```markdown
+#### Q-1.3-01 · Gantt-Diagramm
+**Anweisung:** Ordne die Arbeitspakete den passenden Zeitabschnitten zu.
+**Zeitabschnitte:** Planung; Entwicklung; Testphase; Markteinführung
+- Anforderungsanalyse → Planung
+- Prototyp erstellen → Entwicklung
+- Fehlerbehebung → Testphase
+- Rollout → Markteinführung
+**Erklärung:** ...
+`schwierigkeit: mittel` · `bloom: anwenden`
+```
+Ein Begriff, dessen Zeitabschnitt nicht in der `**Zeitabschnitte:**`-Zeile vorkommt, lässt den Import ebenfalls mit einer Fehlermeldung abbrechen.
+
+**Lückentext (Wortauswahl)** (`type: luecken_auswahl`) — dasselbe `___Stichwort___`-Format wie Lückentext, zusätzlich eine `**Zusätzliche Begriffe:**`-Zeile mit nicht benötigten Begriffen für den Wortpool (bewusst mehr Begriffe als Lücken, siehe Anforderungskatalog F-115):
+```markdown
+#### Q-1.1-01 · Lückentext (Wortauswahl)
+**Text:** Ein ___Projekt___ ist ein zeitlich begrenztes Vorhaben.
+**Zusätzliche Begriffe:** Routineaufgabe; Umsatz; Hierarchie
+**Erklärung:** ...
+`schwierigkeit: leicht` · `bloom: erinnern`
+```
+
+**Bekannte Einschränkung:** `db:export-content` (F-17, siehe unten) unterstützt bisher nur die ursprünglichen sechs Typen zurück ins Zwischenformat — Items dieser zehn neuen Typen werden beim Export mit einer Warnung übersprungen, statt fehlerhaft exportiert zu werden. Das betrifft nur das Backup-/Diff-Werkzeug, nicht den eigentlichen Bulk-Import (die hier beschriebene, maßgebliche Richtung `content/` → Datenbank).
+
 ## Fallaufgaben / Übungsaufgaben-Sammlungen (`fallaufgaben.md` bzw. `uebungsaufgaben.md`)
 
 Mehrschrittige Aufgaben, die mehrere Themen desselben Fachgebiets kombinieren (`type: fallaufgabe`), je mit einer Ausgangssituation/Aufgabenstellung und mehreren Teilaufgaben (`payload.parts`). Der Dateiname unterscheidet sich je Kurstyp, das Format ist identisch:
