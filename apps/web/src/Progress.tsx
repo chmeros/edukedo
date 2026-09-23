@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { InfoIcon } from "./Icons";
 import { ProgressExportButton } from "./ProgressExport";
 import { trpc } from "./trpc";
@@ -14,6 +15,81 @@ export function formatLernzeit(minutes: number): string {
   return `${hours} Std. ${rest} Min.`;
 }
 
+type FachgebietOverview = {
+  id: string;
+  title: string;
+  percent: number;
+  mastered: number;
+  total: number;
+  themen: { id: string; title: string; percent: number; mastered: number; total: number }[];
+};
+
+/**
+ * F-126 (Nutzer-Feedback vom 23.09.2026, erweitert F-30): Ein Fachgebiet zeigt zunächst nur
+ * seine kumulierte Fortschrittsanzeige — die zugehörigen Themen werden erst nach Aufklappen
+ * sichtbar, statt wie bisher immer alle Fachgebiete samt aller Themen gleichzeitig anzuzeigen.
+ * Standardmäßig eingeklappt, AUSSER das Fachgebiet enthält das aktuell gefilterte Thema
+ * (`activeThemaId`, siehe F-109-Standort-Hinweis) — sonst würde die bestehende
+ * "aktuell ausgewählt"-Hervorhebung hinter einem eingeklappten Fachgebiet verschwinden.
+ */
+function FachgebietProgressBlock({
+  fachgebiet,
+  activeThemaId,
+  onGoToThema,
+}: {
+  fachgebiet: FachgebietOverview;
+  activeThemaId?: string;
+  onGoToThema: (themaId: string, themaTitle: string) => void;
+}) {
+  const containsActiveThema = fachgebiet.themen.some((thema) => thema.id === activeThemaId);
+  const [expanded, setExpanded] = useState(containsActiveThema);
+
+  return (
+    <div className="stack">
+      <button
+        type="button"
+        className="progress-block is-total progress-block-toggle"
+        onClick={() => setExpanded((current) => !current)}
+        aria-expanded={expanded}
+      >
+        <div className="progress-head">
+          <b>
+            {expanded ? "▾" : "▸"} {fachgebiet.title}
+          </b>
+          <span>
+            {fachgebiet.percent} % ({fachgebiet.mastered}/{fachgebiet.total})
+          </span>
+        </div>
+        <div className="progress-bar">
+          <span style={{ width: `${fachgebiet.percent}%` }} />
+        </div>
+      </button>
+      {expanded &&
+        fachgebiet.themen.map((thema) => (
+          <button
+            key={thema.id}
+            type="button"
+            className={thema.id === activeThemaId ? "progress-block is-active" : "progress-block"}
+            onClick={() => onGoToThema(thema.id, thema.title)}
+          >
+            <div className="progress-head">
+              <b>
+                {thema.title}
+                {thema.id === activeThemaId ? " · aktuell ausgewählt" : ""}
+              </b>
+              <span>
+                {thema.percent} % ({thema.mastered}/{thema.total})
+              </span>
+            </div>
+            <div className="progress-bar">
+              <span style={{ width: `${thema.percent}%` }} />
+            </div>
+          </button>
+        ))}
+    </div>
+  );
+}
+
 /**
  * F-107: Zeigt nur noch die bisherige "Übersicht" direkt an, ohne Unter-Tab-Leiste (siehe
  * Architekturplanung Abschnitt 13) — "Sozial"/"Erfolge" sind jetzt eigenständige Haupt-Tabs
@@ -25,6 +101,9 @@ export function formatLernzeit(minutes: number): string {
  * zweiten Übersicht (z. B. im Instrumente-Tab) wird deshalb DIESE Ansicht um Klickbarkeit
  * (`onGoToThema`, derselbe F-27-Themenfilter wie bei F-14/F-50) sowie einen "Standort-Hinweis"
  * (`activeThemaId`, hebt das aktuell gefilterte Thema optisch hervor) ergänzt.
+ * F-126 (Nutzer-Feedback vom 23.09.2026): Jedes Fachgebiet ist jetzt einzeln auf-/zuklappbar
+ * (siehe FachgebietProgressBlock oben) statt alle Themen aller Fachgebiete gleichzeitig zu
+ * zeigen.
  */
 export function Progress({
   kursId,
@@ -70,44 +149,16 @@ export function Progress({
       <div className="panel-section">
         <div className="panel-section-head">
           <h2>Fortschritt je Fachgebiet</h2>
-          <p>Auf ein Thema klicken, um gezielt dort weiterzulernen.</p>
+          <p>Auf ein Fachgebiet klicken, um die Themen auf-/zuzuklappen; auf ein Thema klicken, um gezielt dort weiterzulernen.</p>
         </div>
         <div className="progress-grid">
           {fachgebiete.map((fachgebiet) => (
-            <div key={fachgebiet.id} className="stack">
-              <div className="progress-block is-total">
-                <div className="progress-head">
-                  <b>{fachgebiet.title}</b>
-                  <span>
-                    {fachgebiet.percent} % ({fachgebiet.mastered}/{fachgebiet.total})
-                  </span>
-                </div>
-                <div className="progress-bar">
-                  <span style={{ width: `${fachgebiet.percent}%` }} />
-                </div>
-              </div>
-              {fachgebiet.themen.map((thema) => (
-                <button
-                  key={thema.id}
-                  type="button"
-                  className={thema.id === activeThemaId ? "progress-block is-active" : "progress-block"}
-                  onClick={() => onGoToThema(thema.id, thema.title)}
-                >
-                  <div className="progress-head">
-                    <b>
-                      {thema.title}
-                      {thema.id === activeThemaId ? " · aktuell ausgewählt" : ""}
-                    </b>
-                    <span>
-                      {thema.percent} % ({thema.mastered}/{thema.total})
-                    </span>
-                  </div>
-                  <div className="progress-bar">
-                    <span style={{ width: `${thema.percent}%` }} />
-                  </div>
-                </button>
-              ))}
-            </div>
+            <FachgebietProgressBlock
+              key={fachgebiet.id}
+              fachgebiet={fachgebiet}
+              activeThemaId={activeThemaId}
+              onGoToThema={onGoToThema}
+            />
           ))}
         </div>
       </div>

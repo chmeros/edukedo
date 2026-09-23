@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 23.09.2026 (F-126: Fortschritt-Tab je Fachgebiet auf-/zuklappbar statt alles gleichzeitig)
+
+- **Anlass:** Zweiter der fünf noch offenen Punkte aus der ToDo-Liste vom 23.09.2026, einzeln nacheinander umgesetzt.
+- **Neue lokale Komponente `FachgebietProgressBlock`** (`apps/web/src/Progress.tsx`) statt der bisherigen Inline-`.map()`: Jedes Fachgebiet trägt jetzt seinen eigenen `expanded`-Zustand (`useState`, analog zum bereits etablierten `CohortRow`-Muster in `Kohorte.tsx`) — die Kopfzeile (kumulierte Prozentanzeige) ist immer sichtbar, die Themen-Liste erscheint erst nach Klick auf die Kopfzeile (▸/▾-Indikator).
+- **Standardmäßig eingeklappt, mit EINER Ausnahme:** Enthält ein Fachgebiet das aktuell per F-109-Standort-Hinweis aktive Thema (`activeThemaId`), startet es aufgeklappt — sonst würde die bestehende "aktuell ausgewählt"-Hervorhebung hinter einem eingeklappten Fachgebiet verschwinden, sobald man vom "Lernen"-Tab zurück zu "Fortschritt" wechselt.
+- **Keine neue CSS-Infrastruktur nötig:** Die Fachgebiet-Kopfzeile nutzt weiterhin `button.progress-block`/`.is-total` unverändert (bereits vorhandene Klick-/Hover-Stile aus F-109) — nur eine neue, kleine `.progress-block-toggle:hover`-Regel ergänzt, damit sich der Hover einer aufklappenden Kopfzeile optisch von einer navigierenden Themen-Zeile unterscheidet.
+- Live verifiziert (echter Browser, Fachwirt-Kurs mit vier Fachgebieten): alle vier Fachgebiete starten eingeklappt, Aufklappen zeigt genau die vier Themen des angeklickten Fachgebiets, die übrigen drei bleiben eingeklappt; nach einem Themen-Klick (Sprung in den "Lernen"-Tab) und Rückkehr zu "Fortschritt" ist automatisch nur das Fachgebiet mit dem aktiven Thema aufgeklappt. `tsc --noEmit`/`eslint` in `web` fehlerfrei.
+
 ### Entschieden am 23.09.2026 (F-121: Zuordnungsfrage von Klick-Klick auf Drag-and-Drop umgestellt)
 
 - **Anlass:** Erster von fünf noch offenen Punkten aus der ToDo-Liste vom 23.09.2026, einzeln nacheinander umgesetzt (Nutzer-Entscheidung 23.09.2026, statt wie bei F-70–F-72 alles in einem Zug).

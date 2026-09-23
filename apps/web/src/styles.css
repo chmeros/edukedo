@@ -1650,6 +1650,13 @@ details[open] > summary.disclosure::before {
   height: 10px;
 }
 
+/* F-126: die Fachgebiet-Kopfzeile klappt die Themen auf/zu, statt (wie die Themen-Zeilen
+   darunter) direkt ins Lernen zu springen — eigener Hover statt der Themen-Unterstreichung
+   (button.progress-block:hover), damit der Unterschied im Klick-Ziel optisch spürbar ist. */
+.progress-block-toggle:hover {
+  background: var(--surface-2);
+}
+
 /* F-109: Themen-Fortschrittsblöcke als eigene, explizite Navigationsebene — klickbar statt
    nur anzeigend, springt in den "Lernen"-Tab gefiltert auf dieses Thema (derselbe
    F-27-Themenfilter wie bei F-14/F-50). */
