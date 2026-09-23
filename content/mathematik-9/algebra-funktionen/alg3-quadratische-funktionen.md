@@ -203,7 +203,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 
 #### Q-ALG3-10 · Kurzantwort
 **Frage:** Löse x² − 16 = 0.
-**Akzeptierte Antworten:** x=4 und x=-4; 4 und -4; x1=4, x2=-4
+**Akzeptierte Antworten:** x=4 und x=-4; x=-4 und x=4; 4 und -4; -4 und 4; x1=4, x2=-4
 **Erklärung:** x² = 16, also x = 4 oder x = −4.
 `schwierigkeit: leicht`
 
@@ -215,6 +215,6 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 
 #### Q-ALG3-12 · Kurzantwort
 **Frage:** Eine Wurfparabel wird durch h(t) = −5t² + 20t beschrieben (h = Höhe, t = Zeit). Zu welchen Zeitpunkten ist die Höhe 0?
-**Akzeptierte Antworten:** t=0 und t=4; 0 und 4; t1=0, t2=4
+**Akzeptierte Antworten:** t=0 und t=4; t=4 und t=0; 0 und 4; 4 und 0; t1=0, t2=4
 **Erklärung:** −5t² + 20t = 0 → −5t(t − 4) = 0 → t = 0 oder t = 4.
 `schwierigkeit: schwer`
