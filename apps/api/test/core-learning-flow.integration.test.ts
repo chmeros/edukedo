@@ -2330,4 +2330,67 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
     });
     expect(response.statusCode).toBe(401);
   });
+
+  it(
+    "F-08: liefert im Vorschau-Modus Demo-Fragen ganz ohne Konto/Session",
+    async () => {
+      const itemsResponse = await app.inject({ method: "GET", url: "/api/v1/trpc/preview.items" });
+      expect(itemsResponse.statusCode).toBe(200);
+      const items = itemsResponse.json().result.data as { id: string; type: string }[];
+      expect(items.length).toBeGreaterThan(0);
+      expect(items.length).toBeLessThanOrEqual(5);
+    },
+    30_000,
+  );
+
+  /**
+   * Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): preview.ts war bis
+   * dahin ein unauthentifiziertes, unbegrenztes Antwort-Orakel — jede der sieben submit*-
+   * Prozeduren konnte beliebig oft aufgerufen werden, um sich ohne Konto einen vollständigen
+   * Lösungsschlüssel zu erarbeiten. Der Item-Content für diesen Test kommt bewusst direkt aus
+   * der DB statt über preview.items selbst, da preview.items nur eine zufällige 5er-Stichprobe
+   * liefert und ein "quiz_mc"-Item darin nicht zuverlässig enthalten wäre (und `sessionCookie`
+   * an dieser Stelle im Testlauf bereits durch den Logout-Test oben invalidiert ist) — die
+   * aufgerufenen preview.submit*-Prozeduren selbst bleiben dabei komplett ohne Session-Cookie.
+   */
+  it(
+    "Code-Review-Fund: begrenzt preview.submit* gemeinsam pro IP, unabhängig vom Aufgabentyp",
+    async () => {
+      const [mcItem] = await db
+        .select({ id: schema.contentItem.id })
+        .from(schema.contentItem)
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .where(and(eq(schema.fachgebiet.kursId, kursId), eq(schema.contentItem.type, "quiz_mc")))
+        .limit(1);
+      expect(mcItem).toBeTruthy();
+
+      const [anyOption] = await db
+        .select()
+        .from(schema.answerOption)
+        .where(eq(schema.answerOption.contentItemId, mcItem!.id))
+        .limit(1);
+      expect(anyOption).toBeTruthy();
+
+      for (let attempt = 0; attempt < 30; attempt += 1) {
+        const response = await app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/preview.submitAnswer",
+          payload: { contentItemId: mcItem!.id, selectedOptionId: anyOption!.id },
+        });
+        expect(response.statusCode).toBe(200);
+      }
+
+      // Derselbe Zähler gilt gemeinsam für alle sieben submit*-Prozeduren (findPublishedItem in
+      // preview.ts) — der 31. Aufruf ist blockiert, obwohl er eine ANDERE Prozedur trifft, damit
+      // ein Verteilen der Aufrufe auf mehrere Aufgabentypen das Limit nicht umgeht.
+      const blockedResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/preview.submitMcMulti",
+        payload: { contentItemId: mcItem!.id, selectedOptionIds: [anyOption!.id] },
+      });
+      expect(blockedResponse.statusCode).toBe(429);
+    },
+    30_000,
+  );
 });

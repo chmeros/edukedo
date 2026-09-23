@@ -20,11 +20,38 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
+import { checkRateLimit } from "../../auth/rate-limit";
 import type { Database } from "../../db/client";
 import { answerOption, contentItem, fachgebiet, kurs, thema } from "../../db/schema";
 import { publicProcedure, router } from "../trpc";
 
 const PREVIEW_ITEM_LIMIT = 5;
+
+/**
+ * Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): dieser ganze Router ist
+ * bewusst kontolos (publicProcedure, siehe oben) — genau das machte ihn ohne eigene Begrenzung zu
+ * einem unauthentifizierten Antwort-Orakel: ein Skript konnte `items` beliebig oft aufrufen, um
+ * Content-Item-IDs quer über den gesamten veröffentlichten Katalog zu sammeln, und anschließend
+ * jede der submit*-Prozeduren beliebig oft aufrufen, um sich so einen vollständigen
+ * Lösungsschlüssel zu erarbeiten — ohne Konto, ohne erkennbaren Nutzer, ohne Kosten. Begrenzung
+ * nach IP (`ctx.req.ip`) statt nach Konto, da hier keines existiert — dieselbe
+ * In-Memory-Implementierung wie beim Login/Freundeskreis-Code (siehe auth/rate-limit.ts). Ein
+ * gemeinsamer Schlüssel für alle sieben submit*-Prozeduren (statt je einer eigenen), damit ein
+ * Umgehen der Grenze durch Verteilen der Aufrufe auf mehrere Aufgabentypen nicht möglich ist.
+ */
+const PREVIEW_ITEMS_RATE_LIMIT_MAX_ATTEMPTS = 20;
+const PREVIEW_ITEMS_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10; // 10 Minuten
+const PREVIEW_SUBMIT_RATE_LIMIT_MAX_ATTEMPTS = 30;
+const PREVIEW_SUBMIT_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10; // 10 Minuten
+
+function assertPreviewRateLimit(ip: string, bucket: "items" | "submit", maxAttempts: number, windowMs: number): void {
+  if (!checkRateLimit(`preview-${bucket}:${ip}`, maxAttempts, windowMs)) {
+    throw new TRPCError({
+      code: "TOO_MANY_REQUESTS",
+      message: "Zu viele Anfragen an den Vorschau-Modus. Bitte versuch es in ein paar Minuten erneut.",
+    });
+  }
+}
 
 /**
  * F-08: Kontoloser Vorschau-Modus — "einige Demo-Fragen ohne Speicherung von Fortschritt
@@ -39,6 +66,8 @@ const PREVIEW_ITEM_LIMIT = 5;
  */
 export const previewRouter = router({
   items: publicProcedure.query(async ({ ctx }) => {
+    assertPreviewRateLimit(ctx.req.ip, "items", PREVIEW_ITEMS_RATE_LIMIT_MAX_ATTEMPTS, PREVIEW_ITEMS_RATE_LIMIT_WINDOW_MS);
+
     const items = await ctx.db
       .select({ id: contentItem.id, type: contentItem.type, prompt: contentItem.prompt, payload: contentItem.payload })
       .from(contentItem)
@@ -97,7 +126,7 @@ export const previewRouter = router({
    * Nachweis hier ist die content_item_id selbst, ohne jede Account-/Session-Prüfung.
    */
   submitAnswer: publicProcedure.input(submitQuizAnswerInputSchema).mutation(async ({ ctx, input }) => {
-    const item = await findPublishedItem(ctx.db, input.contentItemId);
+    const item = await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -108,7 +137,7 @@ export const previewRouter = router({
   }),
 
   submitMcMulti: publicProcedure.input(submitMcMultiInputSchema).mutation(async ({ ctx, input }) => {
-    const item = await findPublishedItem(ctx.db, input.contentItemId);
+    const item = await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -119,7 +148,7 @@ export const previewRouter = router({
   }),
 
   submitMatching: publicProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {
-    await findPublishedItem(ctx.db, input.contentItemId);
+    await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -132,7 +161,7 @@ export const previewRouter = router({
   }),
 
   submitSortieren: publicProcedure.input(submitSortierenInputSchema).mutation(async ({ ctx, input }) => {
-    await findPublishedItem(ctx.db, input.contentItemId);
+    await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -142,7 +171,7 @@ export const previewRouter = router({
   }),
 
   submitQuadrant: publicProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {
-    await findPublishedItem(ctx.db, input.contentItemId);
+    await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const options = await ctx.db
       .select()
       .from(answerOption)
@@ -152,18 +181,20 @@ export const previewRouter = router({
   }),
 
   submitBlanks: publicProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
-    const item = await findPublishedItem(ctx.db, input.contentItemId);
+    const item = await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     return checkBlanks(item.payload, input.answers);
   }),
 
   submitKurzantwort: publicProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
-    const item = await findPublishedItem(ctx.db, input.contentItemId);
+    const item = await findPublishedItem(ctx.db, ctx.req.ip, input.contentItemId);
     const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
     return { isCorrect, correctAnswer, explanation: item.explanation };
   }),
 });
 
-async function findPublishedItem(db: Database, contentItemId: string) {
+async function findPublishedItem(db: Database, ip: string, contentItemId: string) {
+  assertPreviewRateLimit(ip, "submit", PREVIEW_SUBMIT_RATE_LIMIT_MAX_ATTEMPTS, PREVIEW_SUBMIT_RATE_LIMIT_WINDOW_MS);
+
   const [item] = await db
     .select({ id: contentItem.id, payload: contentItem.payload, explanation: contentItem.explanation })
     .from(contentItem)
