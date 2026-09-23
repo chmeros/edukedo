@@ -370,6 +370,16 @@ export interface MatchingItem {
   right: { id: string; text: string }[];
 }
 
+/**
+ * F-121 (Nutzer-Feedback vom 23.09.2026, erweitert F-21): von Klick-Klick auf echtes
+ * Ziehen-und-Ablegen umgestellt, konsistent mit QuadrantStep/SortierenStep (F-114/F-113 Teil 2)
+ * — wiederverwendet dieselben DraggableTerm/DroppableZone-Bausteine und `.quadrant-*`-CSS-
+ * Klassen, keine neue CSS nötig. Die linke Spalte bildet die festen Zielfelder (analog zu den
+ * Zonen bei QuadrantStep), die rechte Spalte die aus dem Pool zu ziehenden Begriffe — Auswertung
+ * (`checkMatching`) und `pairs`-Eingabeform bleiben unverändert.
+ */
+const MATCHING_POOL_ID = "_pool";
+
 export function MatchingStep({
   item,
   isLast,
@@ -382,41 +392,47 @@ export function MatchingStep({
   { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
   { correctMap: Record<string, string>; correctCount: number; total: number }
 >) {
-  const [selectedLeftId, setSelectedLeftId] = useState<string | null>(null);
-  const [pairs, setPairs] = useState<{ leftId: string; rightId: string }[]>([]);
+  // rechte Options-ID → linke Options-ID, oder null = noch im Pool — analog zu QuadrantSteps
+  // `placements`, nur ist der Zielwert hier eine linke Options-ID statt eines Zonen-Schlüssels.
+  const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
+    Object.fromEntries(item.right.map((option) => [option.id, null])),
+  );
   const [feedback, setFeedback] = useState<{
     correctMap: Record<string, string>;
     correctCount: number;
     total: number;
     motivation: string;
   } | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  const pairedLeftIds = new Set(pairs.map((pair) => pair.leftId));
-  const pairedRightIds = new Set(pairs.map((pair) => pair.rightId));
-  const remainingLeft = item.left.filter((option) => !pairedLeftIds.has(option.id));
-  const remainingRight = item.right.filter((option) => !pairedRightIds.has(option.id));
-
-  function textFor(id: string, side: "left" | "right") {
-    return (side === "left" ? item.left : item.right).find((option) => option.id === id)?.text ?? "?";
-  }
-
-  function pickRight(rightId: string) {
-    if (!selectedLeftId || feedback) return;
-    setPairs((current) => [...current, { leftId: selectedLeftId, rightId }]);
-    setSelectedLeftId(null);
-  }
-
-  function removePair(leftId: string) {
+  function handleDragEnd(event: DragEndEvent) {
     if (feedback) return;
-    setPairs((current) => current.filter((pair) => pair.leftId !== leftId));
+    const rightId = String(event.active.id);
+    const targetId = event.over ? String(event.over.id) : MATCHING_POOL_ID;
+    if (targetId === MATCHING_POOL_ID) {
+      setPlacements((current) => ({ ...current, [rightId]: null }));
+      return;
+    }
+    // Jedes linke Feld fasst nur einen Begriff — ein bereits dort platzierter Begriff wandert
+    // zurück in den Pool (wie bei QuadrantStep/SortierenStep).
+    setPlacements((current) => {
+      const next = { ...current };
+      for (const [id, leftId] of Object.entries(next)) {
+        if (leftId === targetId) next[id] = null;
+      }
+      next[rightId] = targetId;
+      return next;
+    });
   }
+
+  const allPlaced = item.right.every((option) => placements[option.id] !== null);
 
   function checkAnswer() {
+    const pairs = item.right
+      .filter((option) => placements[option.id] !== null)
+      .map((option) => ({ leftOptionId: placements[option.id]!, rightOptionId: option.id }));
     submit.mutate(
-      {
-        contentItemId: item.id,
-        pairs: pairs.map((pair) => ({ leftOptionId: pair.leftId, rightOptionId: pair.rightId })),
-      },
+      { contentItemId: item.id, pairs },
       {
         onSuccess: (result) => {
           setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
@@ -429,56 +445,34 @@ export function MatchingStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
-      {pairs.length > 0 && (
-        <div className="match-pairs">
-          {pairs.map((pair) => {
-            let className = "match-pair";
-            if (feedback) {
-              className += feedback.correctMap[pair.leftId] === pair.rightId ? " is-correct" : " is-wrong";
-            }
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <DroppableZone id={MATCHING_POOL_ID} className="quadrant-pool">
+          {item.right
+            .filter((option) => placements[option.id] === null)
+            .map((option) => (
+              <DraggableTerm key={option.id} id={option.id} text={option.text} disabled={feedback !== null} />
+            ))}
+        </DroppableZone>
+        <div className="quadrant-grid">
+          {item.left.map((leftOption) => {
+            const placedRight = item.right.find((option) => placements[option.id] === leftOption.id);
             return (
-              <button
-                key={pair.leftId}
-                type="button"
-                className={className}
-                disabled={feedback !== null}
-                onClick={() => removePair(pair.leftId)}
-              >
-                {textFor(pair.leftId, "left")} ↔ {textFor(pair.rightId, "right")}
-              </button>
+              <DroppableZone key={leftOption.id} id={leftOption.id} label={leftOption.text} className="quadrant-zone">
+                {placedRight && (
+                  <DraggableTerm
+                    id={placedRight.id}
+                    text={placedRight.text}
+                    disabled={feedback !== null}
+                    state={
+                      feedback ? (feedback.correctMap[leftOption.id] === placedRight.id ? "correct" : "wrong") : undefined
+                    }
+                  />
+                )}
+              </DroppableZone>
             );
           })}
         </div>
-      )}
-      {!feedback && (remainingLeft.length > 0 || remainingRight.length > 0) && (
-        <div className="match-grid">
-          <div className="match-column">
-            {remainingLeft.map((option) => (
-              <button
-                key={option.id}
-                type="button"
-                className={option.id === selectedLeftId ? "match-item is-selected" : "match-item"}
-                onClick={() => setSelectedLeftId(option.id)}
-              >
-                {option.text}
-              </button>
-            ))}
-          </div>
-          <div className="match-column">
-            {remainingRight.map((option) => (
-              <button
-                key={option.id}
-                type="button"
-                className="match-item"
-                disabled={!selectedLeftId}
-                onClick={() => pickRight(option.id)}
-              >
-                {option.text}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      </DndContext>
       {feedback ? (
         <>
           <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
@@ -495,7 +489,7 @@ export function MatchingStep({
           className="btn btn-primary"
           style={{ alignSelf: "flex-start" }}
           onClick={checkAnswer}
-          disabled={pairs.length !== item.left.length || submit.isPending}
+          disabled={!allPlaced || submit.isPending}
         >
           Antwort prüfen
         </button>

@@ -135,8 +135,14 @@ export function MixedLearning({
   // Einmalig gemischt, solange dieselben Daten geladen bleiben (staleTime: Infinity online,
   // nur einmal pro Online-Wechsel offline) — ein Reshuffle mitten in der Runde würde `index`
   // auf ein anderes Element als zuletzt angezeigt zeigen lassen.
-  const queue = useMemo<MixedItem[]>(() => {
-    if (loading) return [];
+  // F-124 (Nutzer-Feedback vom 23.09.2026): "Anzahl anpassen" wirkte für Lernende wie die
+  // gesamte Rundengröße, steuert aber nur `quizCount` — die Anzahl der fälligen Karteikarten
+  // (`cardCount`) kommt unverändert aus content.dueCards/loadOfflineDueCards dazu ("alle
+  // fälligen", FSRS-gesteuert, siehe Moduldoku oben). Beide Zähler getrennt aus der Queue
+  // herausgerechnet (statt eines separaten State), damit sie garantiert zur tatsächlich
+  // angezeigten Runde passen, auch während des Ladens/Offline-Wechsels.
+  const { queue, cardCount, quizCount } = useMemo<{ queue: MixedItem[]; cardCount: number; quizCount: number }>(() => {
+    if (loading) return { queue: [], cardCount: 0, quizCount: 0 };
     const cards = online ? dueCardsQuery.data ?? [] : offlineCards!;
     const quizRaw = online ? quizItemsQuery.data ?? [] : offlineRound!.shaped;
     const flashItems: MixedItem[] = cards.map((card) => ({
@@ -144,7 +150,7 @@ export function MixedLearning({
       card: { id: card.id, prompt: card.prompt, explanation: card.explanation },
     }));
     const quizItems: MixedItem[] = quizRaw.map((item) => ({ kind: "quiz", item }));
-    return shuffle([...flashItems, ...quizItems]);
+    return { queue: shuffle([...flashItems, ...quizItems]), cardCount: cards.length, quizCount: quizRaw.length };
   }, [loading, online, dueCardsQuery.data, quizItemsQuery.data, offlineCards, offlineRound]);
 
   // N-08: Übungsset-Tracking für die "Abschlussquote"-KPI (Anforderungskatalog Abschnitt 11) —
@@ -184,7 +190,9 @@ export function MixedLearning({
   const filterBadge = themaId && themaTitle && onClearThema && (
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
-  const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} />;
+  // F-124: "Quiz-Fragen im Mix" statt nur "Fragen" — macht explizit, dass diese Auswahl nicht
+  // die gesamte Rundengröße steuert (die fälligen Karteikarten kommen unabhängig davon dazu).
+  const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} label="Quiz-Fragen im Mix" />;
 
   if (queue.length === 0) {
     return (
@@ -256,7 +264,7 @@ export function MixedLearning({
     <div className="stack">
       {filterBadge}
       <span className="quiz-progress">
-        {index + 1} von {queue.length}
+        {index + 1} von {queue.length} ({cardCount} Karteikarten + {quizCount} Quiz-Fragen)
       </span>
       {countControl}
       {current.kind === "karteikarte" && (
