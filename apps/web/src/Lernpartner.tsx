@@ -1,3 +1,4 @@
+import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
 /**
@@ -6,8 +7,24 @@ import { trpc } from "./trpc";
  * und kein Chat — der Kontakt läuft über die im Freundeskreis bereits sichtbare E-Mail-Adresse
  * (siehe FriendCircle.tsx). `fachgebiete` wird von `Progress.tsx` durchgereicht (bereits über
  * `progress.overview` geladen), damit hier keine zweite, redundante Abfrage nötig ist.
+ *
+ * Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): `isMinor`/
+ * `gamificationEnabled` fehlten hier bisher komplett — die Präferenzauswahl war für
+ * Minderjährige uneingeschränkt sichtbar, obwohl F-66 sie ausdrücklich mit Highscore (F-60)
+ * gleichstellt. Analog zu Highscore.tsx geblendet (Hinweistext statt eines deaktivierten
+ * Auswahlfelds, siehe dort für die Begründung).
  */
-export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebiete: { id: string; title: string }[] }) {
+export function Lernpartner({
+  kursId,
+  fachgebiete,
+  isMinor,
+  gamificationEnabled,
+}: {
+  kursId: string;
+  fachgebiete: { id: string; title: string }[];
+  isMinor: boolean;
+  gamificationEnabled: boolean;
+}) {
   const utils = trpc.useUtils();
   const matches = trpc.lernpartner.matches.useQuery({ kursId });
   const setFachgebiet = trpc.lernpartner.setFachgebiet.useMutation({
@@ -24,22 +41,30 @@ export function Lernpartner({ kursId, fachgebiete }: { kursId: string; fachgebie
         </p>
       </div>
 
-      <div className="field">
-        <label htmlFor="lernpartner-fachgebiet">Bevorzugter Handlungsbereich (optional)</label>
-        <select
-          className="input"
-          id="lernpartner-fachgebiet"
-          onChange={(event) => setFachgebiet.mutate({ kursId, fachgebietId: event.target.value || null })}
-          disabled={setFachgebiet.isPending}
-        >
-          <option value="">Keine Präferenz</option>
-          {fachgebiete.map((fachgebiet) => (
-            <option key={fachgebiet.id} value={fachgebiet.id}>
-              {fachgebiet.title}
-            </option>
-          ))}
-        </select>
-      </div>
+      {isMinor && !gamificationEnabled ? (
+        <p className="field-hint">
+          Für minderjährige Nutzer:innen ist die Lernpartner-Vermittlung ohne gesonderte Einwilligung der
+          Erziehungsberechtigten deaktiviert.
+        </p>
+      ) : (
+        <div className="field">
+          <label htmlFor="lernpartner-fachgebiet">Bevorzugter Handlungsbereich (optional)</label>
+          <select
+            className="input"
+            id="lernpartner-fachgebiet"
+            onChange={(event) => setFachgebiet.mutate({ kursId, fachgebietId: event.target.value || null })}
+            disabled={setFachgebiet.isPending}
+          >
+            <option value="">Keine Präferenz</option>
+            {fachgebiete.map((fachgebiet) => (
+              <option key={fachgebiet.id} value={fachgebiet.id}>
+                {fachgebiet.title}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      {setFachgebiet.error && <ErrorMessage>{setFachgebiet.error.message}</ErrorMessage>}
 
       <div className="list">
         {(matches.data ?? []).map((entry) => (

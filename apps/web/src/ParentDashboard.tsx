@@ -43,6 +43,35 @@ function RevokeConsentButton({ linkId }: { linkId: string }) {
   );
 }
 
+/**
+ * F-90/F-66: erste und bisher einzige granulare Berechtigung — schaltet
+ * `user.gamification_enabled` des Kindes um (Highscore/F-60 + Lernpartner-Vermittlung/F-62,
+ * siehe apps/api/src/trpc/routers/parent.ts). Bewusst kein Bestätigungsdialog wie bei
+ * `RevokeConsentButton`: reversibel mit einem weiteren Klick, kein Kontoverlust wie beim
+ * Widerruf der Einwilligung selbst.
+ */
+function GamificationPermissionToggle({ linkId, enabled }: { linkId: string; enabled: boolean }) {
+  const utils = trpc.useUtils();
+  const setEnabled = trpc.parent.setChildGamificationEnabled.useMutation({
+    onSuccess: () => utils.parent.me.invalidate(),
+  });
+
+  return (
+    <div className="stack">
+      <label className="field" style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+        <input
+          type="checkbox"
+          checked={enabled}
+          disabled={setEnabled.isPending}
+          onChange={(event) => setEnabled.mutate({ linkId, enabled: event.target.checked })}
+        />
+        Gamification-Funktionen freigeben (Highscore, Lernpartner-Vermittlung)
+      </label>
+      {setEnabled.error && <ErrorMessage>{setEnabled.error.message}</ErrorMessage>}
+    </div>
+  );
+}
+
 function SetInitialPasswordForm() {
   const utils = trpc.useUtils();
   const setPassword = trpc.parent.setInitialPassword.useMutation({
@@ -204,7 +233,12 @@ export function ParentDashboard() {
                     <span>{CONSENT_STATUS_LABELS[child.consentStatus] ?? child.consentStatus}</span>
                   </div>
                 </div>
-                {child.consentStatus === "confirmed" && <RevokeConsentButton linkId={child.linkId} />}
+                {child.consentStatus === "confirmed" && (
+                  <>
+                    <GamificationPermissionToggle linkId={child.linkId} enabled={child.gamificationEnabled} />
+                    <RevokeConsentButton linkId={child.linkId} />
+                  </>
+                )}
               </div>
             ))}
           </div>

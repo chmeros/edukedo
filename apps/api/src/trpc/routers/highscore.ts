@@ -18,13 +18,11 @@ const HIGHSCORE_WINDOW_MS = 1000 * 60 * 60 * 24 * 7;
 export const highscoreRouter = router({
   /**
    * F-66: Standardmäßig deaktiviert für Minderjährige, Aktivierung nur mit gesonderter
-   * Einwilligung der Erziehungsberechtigten über das Eltern-Dashboard — das granulare
-   * Berechtigungs-Werkzeug dafür existiert im Eltern-Dashboard (F-90) noch nicht (siehe
-   * apps/web/README.md, "Noch offen"). Bis dahin lehnt dieser Endpunkt ein Opt-in durch eine
-   * minderjährige Person selbst kategorisch ab, statt die Einwilligungsprüfung zu simulieren.
+   * Einwilligung der Erziehungsberechtigten über das Eltern-Dashboard (F-90,
+   * `user.gamification_enabled`, geschrieben von `parent.setChildGamificationEnabled`).
    */
   setOptIn: protectedProcedure.input(highscoreOptInInputSchema).mutation(async ({ ctx, input }) => {
-    if (input.optIn && ctx.currentUser.isMinor) {
+    if (input.optIn && ctx.currentUser.isMinor && !ctx.currentUser.gamificationEnabled) {
       throw new TRPCError({
         code: "FORBIDDEN",
         message: "Für minderjährige Nutzer:innen ist die Highscore-Liste ohne gesonderte Einwilligung der Erziehungsberechtigten deaktiviert.",

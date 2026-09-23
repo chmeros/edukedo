@@ -1,0 +1,1 @@
+ALTER TABLE "user" ADD COLUMN "gamification_enabled" boolean DEFAULT false NOT NULL;

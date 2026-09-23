@@ -3,13 +3,22 @@ import { trpc } from "./trpc";
 
 /**
  * F-60: Highscore-/Punkteliste — opt-in, je Kurs getrennt, beschränkt auf den eigenen
- * Freundeskreis (F-63). `isMinor` blendet den Opt-in-Schalter durch einen Hinweistext statt
- * eines deaktivierten Kontrollkästchens aus — F-66 verlangt für Minderjährige eine gesonderte
- * Einwilligung der Erziehungsberechtigten über das Eltern-Dashboard, die es dort noch nicht gibt
- * (siehe trpc/routers/highscore.ts), ein deaktiviertes Kontrollkästchen würde fälschlich
- * suggerieren, die Funktion ließe sich hier grundsätzlich einschalten.
+ * Freundeskreis (F-63). `isMinor && !gamificationEnabled` blendet den Opt-in-Schalter durch
+ * einen Hinweistext statt eines deaktivierten Kontrollkästchens aus — F-66 verlangt für
+ * Minderjährige eine gesonderte Einwilligung der Erziehungsberechtigten über das
+ * Eltern-Dashboard (F-90, `gamificationEnabled` kommt aus `auth.me`, siehe trpc/routers/
+ * highscore.ts); ein deaktiviertes Kontrollkästchen würde fälschlich suggerieren, die Funktion
+ * ließe sich hier grundsätzlich einschalten.
  */
-export function Highscore({ kursId, isMinor }: { kursId: string; isMinor: boolean }) {
+export function Highscore({
+  kursId,
+  isMinor,
+  gamificationEnabled,
+}: {
+  kursId: string;
+  isMinor: boolean;
+  gamificationEnabled: boolean;
+}) {
   const utils = trpc.useUtils();
   const myOptIn = trpc.highscore.myOptIn.useQuery({ kursId });
   const leaderboard = trpc.highscore.leaderboard.useQuery({ kursId });
@@ -30,7 +39,7 @@ export function Highscore({ kursId, isMinor }: { kursId: string; isMinor: boolea
         </p>
       </div>
 
-      {isMinor ? (
+      {isMinor && !gamificationEnabled ? (
         <p className="field-hint">
           Für minderjährige Nutzer:innen ist die Highscore-Liste ohne gesonderte Einwilligung der
           Erziehungsberechtigten deaktiviert.

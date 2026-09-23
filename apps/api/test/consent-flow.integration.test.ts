@@ -1,4 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import { eq } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
@@ -32,6 +33,8 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
   let confirmToken: string;
   let parentSessionCookie: string;
   let linkId: string;
+  let testKursId: string;
+  let testFachgebietId: string;
 
   beforeAll(async () => {
     container = await new PostgreSqlContainer("postgres:16-alpine").start();
@@ -196,6 +199,96 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     expect(loginResponse.json().result.data.email).toBe(parentEmail);
   });
 
+  /**
+   * F-90/F-66 (Code-Review-Fund vom 22.09.2026, umgesetzt am 23.09.2026, siehe
+   * Architekturplanung Abschnitt 13): granulare Berechtigung — vor der Freigabe sind
+   * Highscore (F-60) und Lernpartner-Vermittlung (F-62) für das Kind blockiert, danach
+   * funktionieren beide. Direkte DB-Inserts für Kurs/Fachgebiet statt des vollen
+   * Bulk-Imports (siehe import-content.integration.test.ts) — dieser Test braucht nur
+   * minimale, valide Fremdschlüssel-Ziele, keinen echten Content.
+   */
+  it(
+    "blockiert Highscore-Opt-in und Lernpartner-Präferenz für das Kind ohne elterliche Gamification-Freigabe",
+    async () => {
+      const [childRow] = await db.select({ id: schema.user.id }).from(schema.user).where(eq(schema.user.email, childEmail));
+      const [kursRow] = await db
+        .insert(schema.kurs)
+        .values({ slug: "test-gamification-consent", type: "test", title: "Test-Kurs (Gamification-Consent)" })
+        .returning({ id: schema.kurs.id });
+      await db.insert(schema.userCourse).values({ userId: childRow!.id, kursId: kursRow!.id });
+      const [fachgebietRow] = await db
+        .insert(schema.fachgebiet)
+        .values({ kursId: kursRow!.id, code: "TG1", title: "Test-Fachgebiet" })
+        .returning({ id: schema.fachgebiet.id });
+      testKursId = kursRow!.id;
+      testFachgebietId = fachgebietRow!.id;
+
+      const blockedOptInResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/highscore.setOptIn",
+        headers: { cookie: childSessionCookie },
+        payload: { kursId: testKursId, optIn: true },
+      });
+      expect(blockedOptInResponse.statusCode).toBe(403);
+
+      const blockedFachgebietResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/lernpartner.setFachgebiet",
+        headers: { cookie: childSessionCookie },
+        payload: { kursId: testKursId, fachgebietId: testFachgebietId },
+      });
+      expect(blockedFachgebietResponse.statusCode).toBe(403);
+
+      // "Keine Präferenz" (null) bleibt auch ohne Freigabe erlaubt — es schaltet nichts ein.
+      const neutralFachgebietResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/lernpartner.setFachgebiet",
+        headers: { cookie: childSessionCookie },
+        payload: { kursId: testKursId, fachgebietId: null },
+      });
+      expect(neutralFachgebietResponse.statusCode).toBe(200);
+    },
+    30_000,
+  );
+
+  it(
+    "Elternteil erteilt die Gamification-Freigabe — danach funktionieren Highscore-Opt-in und Lernpartner-Präferenz",
+    async () => {
+      const grantResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/parent.setChildGamificationEnabled",
+        headers: { cookie: parentSessionCookie },
+        payload: { linkId, enabled: true },
+      });
+      expect(grantResponse.statusCode).toBe(200);
+      expect(grantResponse.json().result.data.success).toBe(true);
+
+      const meResponse = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/parent.me",
+        headers: { cookie: parentSessionCookie },
+      });
+      expect(meResponse.json().result.data.children[0].gamificationEnabled).toBe(true);
+
+      const optInResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/highscore.setOptIn",
+        headers: { cookie: childSessionCookie },
+        payload: { kursId: testKursId, optIn: true },
+      });
+      expect(optInResponse.statusCode).toBe(200);
+
+      const fachgebietResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/lernpartner.setFachgebiet",
+        headers: { cookie: childSessionCookie },
+        payload: { kursId: testKursId, fachgebietId: testFachgebietId },
+      });
+      expect(fachgebietResponse.statusCode).toBe(200);
+    },
+    30_000,
+  );
+
   it(
     "Widerruf sperrt das Kind sofort — auch ein erneuter Klick auf den Bestätigungslink wird danach abgelehnt",
     async () => {
@@ -225,6 +318,17 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
       });
       expect(confirmAfterRevokeResponse.statusCode).toBe(400);
       expect(confirmAfterRevokeResponse.json().error.message).toContain("widerrufen");
+
+      // F-90/F-66: eine widerrufene Verknüpfung lässt sich nicht mehr als Grundlage für die
+      // Gamification-Freigabe nutzen — es gibt serverseitig gar keine aktive Sperre mehr,
+      // die sich sinnvoll lockern ließe (siehe parent.ts, setChildGamificationEnabled).
+      const grantAfterRevokeResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/parent.setChildGamificationEnabled",
+        headers: { cookie: parentSessionCookie },
+        payload: { linkId, enabled: true },
+      });
+      expect(grantAfterRevokeResponse.statusCode).toBe(400);
     },
     30_000,
   );

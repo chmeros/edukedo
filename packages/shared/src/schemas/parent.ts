@@ -25,3 +25,11 @@ export const parentRevokeConsentInputSchema = z.object({
   linkId: z.string().uuid(),
 });
 export type ParentRevokeConsentInput = z.infer<typeof parentRevokeConsentInputSchema>;
+
+/** F-90/F-66: Freigabe der Fremdkontakt-Gamification-Funktionen (Highscore F-60,
+ * Lernpartner-Vermittlung F-62) für ein verknüpftes Kind — siehe trpc/routers/parent.ts. */
+export const parentSetChildGamificationEnabledInputSchema = z.object({
+  linkId: z.string().uuid(),
+  enabled: z.boolean(),
+});
+export type ParentSetChildGamificationEnabledInput = z.infer<typeof parentSetChildGamificationEnabledInputSchema>;

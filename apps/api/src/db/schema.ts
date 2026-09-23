@@ -131,6 +131,14 @@ export const user = pgTable(
     // Abschalt-Option (Nutzer-Entscheidung 22.09.2026) — Default an, damit der Effekt ohne
     // Erstbesuch-Abfrage sofort wirkt (wie bei den übrigen opt-out-Präferenzen dieses Projekts).
     mascotEnabled: boolean("mascot_enabled").notNull().default(true),
+    // F-90/F-66 (Nutzer-Entscheidung 23.09.2026, siehe Abschnitt 13): Freigabe der
+    // "Fremdkontakt"-Gamification-Funktionen (Highscore F-60, Lernpartner-Vermittlung F-62 —
+    // Duelle F-61 existiert noch nicht) für ein minderjähriges Konto. Default false (F-66:
+    // "standardmäßig deaktiviert"). Bei volljährigen Konten ungenutzt, da dort ohnehin keine
+    // Sperre greift. Wird AUSSCHLIESSLICH über parent.setChildGamificationEnabled geschrieben
+    // (siehe trpc/routers/parent.ts) — die betroffene Person selbst kann diese Spalte nicht
+    // setzen, anders als z. B. mascotEnabled.
+    gamificationEnabled: boolean("gamification_enabled").notNull().default(false),
     // F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13):
     // echte, ausgebbare Lernwährung — anders als `mascotFood` NUR beim ERSTEN richtigen
     // Beantworten eines Content-Items vergeben (Anti-Farming, recordQuizAttempt prüft die

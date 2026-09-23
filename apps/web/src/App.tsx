@@ -376,7 +376,12 @@ export function App() {
                       </>
                     )}
                     {learningMode === "sozial" && (
-                      <Sozial key={activeKursId} kursId={activeKursId} isMinor={me.data.isMinor} />
+                      <Sozial
+                        key={activeKursId}
+                        kursId={activeKursId}
+                        isMinor={me.data.isMinor}
+                        gamificationEnabled={me.data.gamificationEnabled}
+                      />
                     )}
                     {learningMode === "erfolge" && <Achievements />}
                     {learningMode === "progress" && (

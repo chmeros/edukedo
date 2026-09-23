@@ -12,15 +12,23 @@ import { trpc } from "./trpc";
  * (bereits über `progress.overview` geladen) — jetzt eine eigene, schlanke Abfrage hier, da
  * "Sozial" unabhängig von "Fortschritt" aufrufbar ist.
  */
-export function Sozial({ kursId, isMinor }: { kursId: string; isMinor: boolean }) {
+export function Sozial({
+  kursId,
+  isMinor,
+  gamificationEnabled,
+}: {
+  kursId: string;
+  isMinor: boolean;
+  gamificationEnabled: boolean;
+}) {
   const overview = trpc.progress.overview.useQuery({ kursId });
   const fachgebiete = (overview.data ?? []).map((entry) => ({ id: entry.id, title: entry.title }));
 
   return (
     <div className="stack">
       <FriendCircle kursId={kursId} />
-      <Highscore kursId={kursId} isMinor={isMinor} />
-      <Lernpartner kursId={kursId} fachgebiete={fachgebiete} />
+      <Highscore kursId={kursId} isMinor={isMinor} gamificationEnabled={gamificationEnabled} />
+      <Lernpartner kursId={kursId} fachgebiete={fachgebiete} isMinor={isMinor} gamificationEnabled={gamificationEnabled} />
     </div>
   );
 }

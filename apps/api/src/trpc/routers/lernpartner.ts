@@ -16,7 +16,23 @@ const TARGET_DATE_MATCH_WINDOW_MS = 1000 * 60 * 60 * 24 * 30;
  * Freundeskreis bereits sichtbare E-Mail-Adresse.
  */
 export const lernpartnerRouter = router({
+  /**
+   * Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): F-66 listet die
+   * Lernpartner-Vermittlung ausdrücklich neben Highscore (F-60) als für Minderjährige
+   * zustimmungspflichtige Fremdkontakt-Funktion — diese Prüfung fehlte hier bisher komplett
+   * (anders als bei `highscore.setOptIn`). Analog zu dort: nur die "einschaltende" Richtung
+   * (ein tatsächliches Handlungsbereich-Präferenz setzen) ist betroffen, `null` ("keine
+   * Präferenz") bleibt immer erlaubt.
+   */
   setFachgebiet: protectedProcedure.input(setLernpartnerFachgebietInputSchema).mutation(async ({ ctx, input }) => {
+    if (input.fachgebietId && ctx.currentUser.isMinor && !ctx.currentUser.gamificationEnabled) {
+      throw new TRPCError({
+        code: "FORBIDDEN",
+        message:
+          "Für minderjährige Nutzer:innen ist die Lernpartner-Vermittlung ohne gesonderte Einwilligung der Erziehungsberechtigten deaktiviert.",
+      });
+    }
+
     if (input.fachgebietId) {
       const [fachgebietRow] = await ctx.db
         .select()

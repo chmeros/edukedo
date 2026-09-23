@@ -197,6 +197,10 @@ export const authRouter = router({
     // F-119: Creditstand soll "jederzeit einsehbar" sein — einfache Feldabfrage genügt, keine
     // Berechnung nötig (anders als gamification.mascotStatus mit seiner Schwellenwert-Ableitung).
     credits: ctx.currentUser.credits,
+    // F-90/F-66: steuert, ob Highscore.tsx/Lernpartner.tsx einer minderjährigen Person den
+    // echten Opt-in statt eines Hinweistexts zeigen (siehe dort) — nur vom Eltern-Dashboard
+    // gesetzt, hier rein lesend.
+    gamificationEnabled: ctx.currentUser.gamificationEnabled,
   })),
 
   /**
