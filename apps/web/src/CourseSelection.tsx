@@ -93,24 +93,31 @@ export function CourseSelection({
           <span className="stat-subheading">Deine Kurse</span>
           <div className="list">
             {joined.map((course) => (
-              <div key={course.id} className="list-row">
-                <div className="meta">
-                  {course.title}
-                  <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
+              // .stack-Wrapper wie in ParentDashboard.tsx: die Fehlermeldung soll unter der Zeile
+              // erscheinen, nicht als drittes Flex-Kind neben .meta/.header-actions gequetscht werden.
+              <div key={course.id} className="stack">
+                <div className="list-row">
+                  <div className="meta">
+                    {course.title}
+                    <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
+                  </div>
+                  <div className="header-actions">
+                    <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
+                      Auswählen
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      disabled={leave.isPending && leave.variables?.kursId === course.id}
+                      onClick={() => leave.mutate({ kursId: course.id })}
+                    >
+                      Verlassen
+                    </button>
+                  </div>
                 </div>
-                <div className="header-actions">
-                  <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
-                    Auswählen
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-ghost btn-sm"
-                    disabled={leave.isPending}
-                    onClick={() => leave.mutate({ kursId: course.id })}
-                  >
-                    Verlassen
-                  </button>
-                </div>
+                {leave.error && leave.variables?.kursId === course.id && (
+                  <ErrorMessage>{leave.error.message}</ErrorMessage>
+                )}
               </div>
             ))}
           </div>
@@ -144,26 +151,31 @@ export function CourseSelection({
         {available.length === 0 && <p className="field-hint">Keine passenden Kurse gefunden.</p>}
         <div className="list">
           {available.map((course) => (
-            <div key={course.id} className="list-row">
-              <div className="meta">
-                {course.title}
-                <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
+            // .stack-Wrapper wie oben bei "Deine Kurse" — Fehlermeldung landet unter statt neben der Zeile.
+            <div key={course.id} className="stack">
+              <div className="list-row">
+                <div className="meta">
+                  {course.title}
+                  <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  disabled={enroll.isPending && enroll.variables?.kursId === course.id}
+                  onClick={() => handleJoin(course)}
+                >
+                  Beitreten
+                </button>
               </div>
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                disabled={enroll.isPending}
-                onClick={() => handleJoin(course)}
-              >
-                Beitreten
-              </button>
+              {/* Ein Fehlschlag über den Wechsel-Dialog (pendingSwitch) wird dort im Modal gezeigt,
+                  nicht hier — sonst wäre die Meldung hinter dem geöffneten Modal verdeckt. */}
+              {enroll.error && !pendingSwitch && enroll.variables?.kursId === course.id && (
+                <ErrorMessage>{enroll.error.message}</ErrorMessage>
+              )}
             </div>
           ))}
         </div>
       </div>
-
-      {enroll.error && <ErrorMessage>{enroll.error.message}</ErrorMessage>}
-      {leave.error && <ErrorMessage>{leave.error.message}</ErrorMessage>}
 
       {canDismiss && onDismiss && (
         <button type="button" className="link-muted-btn" onClick={onDismiss}>
@@ -194,6 +206,7 @@ export function CourseSelection({
                 Wechseln
               </button>
             </div>
+            {enroll.error && <ErrorMessage>{enroll.error.message}</ErrorMessage>}
           </div>
         </Modal>
       )}

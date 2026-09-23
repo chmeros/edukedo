@@ -88,21 +88,26 @@ function InviteCodesSection() {
       </div>
       <div className="list">
         {(codes.data ?? []).map((code) => (
-          <div key={code.id} className="list-row">
-            <div className="meta">
-              <code>{code.code}</code>
-              <span>
-                {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
-              </span>
+          // .stack-Wrapper wie in CourseSelection.tsx/ParentDashboard.tsx: die Fehlermeldung soll
+          // unter der Zeile erscheinen, nicht als drittes Flex-Kind neben .meta/dem Button gequetscht.
+          <div key={code.id} className="stack">
+            <div className="list-row">
+              <div className="meta">
+                <code>{code.code}</code>
+                <span>
+                  {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-danger btn-sm"
+                onClick={() => revoke.mutate({ codeId: code.id })}
+                disabled={revoke.isPending && revoke.variables?.codeId === code.id}
+              >
+                Widerrufen
+              </button>
             </div>
-            <button
-              type="button"
-              className="btn btn-danger btn-sm"
-              onClick={() => revoke.mutate({ codeId: code.id })}
-              disabled={revoke.isPending}
-            >
-              Widerrufen
-            </button>
+            {revoke.error && revoke.variables?.codeId === code.id && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
           </div>
         ))}
       </div>
@@ -117,7 +122,6 @@ function InviteCodesSection() {
         Neuen Einladungscode erstellen
       </button>
       {create.error && <ErrorMessage>{create.error.message}</ErrorMessage>}
-      {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
     </div>
   );
 }
@@ -144,24 +148,29 @@ function MembersSection() {
       </div>
       <div className="list">
         {(members.data ?? []).map((member) => (
-          <div key={member.membershipId} className="list-row">
-            <div className="meta">
-              {member.email}
-              <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
+          // .stack-Wrapper wie in InviteCodesSection oben — Fehlermeldung landet unter statt neben der Zeile.
+          <div key={member.membershipId} className="stack">
+            <div className="list-row">
+              <div className="meta">
+                {member.email}
+                <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
+              </div>
+              <button
+                type="button"
+                className="btn btn-danger btn-sm"
+                onClick={() => revoke.mutate({ membershipId: member.membershipId })}
+                disabled={revoke.isPending && revoke.variables?.membershipId === member.membershipId}
+              >
+                Lizenz entziehen
+              </button>
             </div>
-            <button
-              type="button"
-              className="btn btn-danger btn-sm"
-              onClick={() => revoke.mutate({ membershipId: member.membershipId })}
-              disabled={revoke.isPending}
-            >
-              Lizenz entziehen
-            </button>
+            {revoke.error && revoke.variables?.membershipId === member.membershipId && (
+              <ErrorMessage>{revoke.error.message}</ErrorMessage>
+            )}
           </div>
         ))}
       </div>
       {members.data?.length === 0 && <p className="field-hint">Noch keine Teilnehmenden beigetreten.</p>}
-      {revoke.error && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
     </div>
   );
 }
