@@ -211,6 +211,13 @@
       "when": 1790150189987,
       "tag": "0029_vengeful_bedlam",
       "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1790154790076,
+      "tag": "0030_bouncy_jack_power",
+      "breakpoints": true
     }
   ]
 }

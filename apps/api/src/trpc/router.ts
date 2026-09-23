@@ -1,6 +1,7 @@
 import { adminRouter } from "./routers/admin";
 import { adminContentRouter } from "./routers/adminContent";
 import { authRouter } from "./routers/auth";
+import { cohortRouter } from "./routers/cohort";
 import { companyRouter } from "./routers/company";
 import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
@@ -53,7 +54,9 @@ import { router } from "./trpc";
  * unter `admin.*`. `notes` (F-15, seit 22.09.2026) sind eigene, freie Notizen zu Lerneinheiten,
  * unabhängig vom FSRS-/Quiz-Fortschritt. `push` (F-43, Nutzer-Entscheidung 22.09.2026, seit
  * 22.09.2026) verwaltet Web-Push-Subscriptions für Lernerinnerungen, opt-in — der Versand
- * selbst läuft über db/send-learning-reminders.ts.
+ * selbst läuft über db/send-learning-reminders.ts. `cohort` (F-07/F-64/F-65, seit 23.09.2026)
+ * sind Lehrgangsgruppen — Dozent:in-Sein ist Eigentümerschaft über `dozent_user_id`, kein
+ * eigener `user.role`-Wert; Beitritt verbindet automatisch mit dem Freundeskreis (F-65).
  */
 export const appRouter = router({
   health: healthRouter,
@@ -81,6 +84,7 @@ export const appRouter = router({
   duell: duellRouter,
   gamification: gamificationRouter,
   push: pushRouter,
+  cohort: cohortRouter,
 });
 
 export type AppRouter = typeof appRouter;

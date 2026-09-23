@@ -1014,6 +1014,69 @@ export const duellAnswer = pgTable(
   (table) => [uniqueIndex("duell_answer_duell_question_id_user_id_key").on(table.duellQuestionId, table.userId)],
 );
 
+/**
+ * F-64/F-65 (Nutzer-Entscheidung 23.09.2026, siehe Abschnitt 13): Lehrgangsgruppe (Kohorte), je
+ * Kurs angelegt (F-64: "Lehrgangsgruppen (Kohorten) sind je Kurs angelegt"). Bewusst KEIN neuer
+ * `user.role`-Wert für die Dozenten-Rolle (F-07), obwohl Architekturplanung Abschnitt 7
+ * ursprünglich genau das vorsah — "Dozent:in sein" ist inhärent JE KOHORTE (dieselbe Person kann
+ * Dozent:in dieser Kohorte und ganz normale Lernperson in einem anderen Kurs sein), ein
+ * platform­weiter Rollenwert würde diese Granularität nicht abbilden und wäre weitgehend
+ * redundant, da die eigentliche Autorisierung ohnehin je Kohorte geprüft werden muss (siehe
+ * F-117, Abschnitt 13 — bereits einmal ein nie sauber genutzter Rollenwert entfernt). Stattdessen
+ * einfache Eigentümerschaft über `dozent_user_id` (verweist auf dieselbe `user`-Tabelle, kein
+ * eigener Account-Typ wie bei `parent`/`company_account`) — Autorisierung je Anfrage über
+ * `cohort.dozent_user_id = ctx.currentUser.id`, analog zu `company.stats`s
+ * `ctx.currentCompanyAdmin.id`-Prüfung, nur ohne zusätzliche Session-Spalte/Middleware.
+ * Selbstbedienung statt Admin-Anlage (anders als `company_account`, das an eine
+ * Abrechnungsfreischaltung hängt) — eine Kohorte ist eine rein organisatorische, unbezahlte
+ * Struktur ohne Freischalt-Bedarf; jede eingeschriebene Person kann eine Kohorte für ihren Kurs
+ * anlegen und wird dabei automatisch deren Dozent:in.
+ */
+export const cohort = pgTable(
+  "cohort",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    dozentUserId: uuid("dozent_user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    name: text("name").notNull(),
+    // Einzelner, ersetzbarer Code statt einer eigenen Mehrfach-Code-Tabelle wie bei
+    // `invite_code`/`company_invite_code` — eine Kohorte braucht typischerweise nur EINEN
+    // Beitritts-Link, den die Dozent:in an ihre Gruppe weitergibt; `regenerateJoinCode` deckt den
+    // seltenen Fall eines kompromittierten/nicht mehr gewünschten Codes ab.
+    joinCode: text("join_code").notNull().unique(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [index("cohort_dozent_user_id_idx").on(table.dozentUserId)],
+);
+
+/**
+ * F-65: "Mitglieder einer Lehrgangsgruppe werden automatisch in den kursbezogenen Freundeskreis
+ * (F-63) der anderen Gruppenmitglieder aufgenommen" — beim Beitritt (`cohort.join`) werden
+ * `friend_circle_link`-Zeilen mit allen bereits vorhandenen Mitgliedern angelegt (siehe
+ * trpc/routers/cohort.ts), diese Tabelle hält nur die Kohorten-Zugehörigkeit selbst.
+ * Dozent:in-Konto bewusst NICHT automatisch Mitglied (analog zu `company_admin`, der/die auch
+ * nicht in den eigenen `company.stats` mitgezählt wird) — die aggregierten Kennzahlen sollen die
+ * Lerngruppe abbilden, nicht die Dozent:in selbst.
+ */
+export const cohortMember = pgTable(
+  "cohort_member",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    cohortId: uuid("cohort_id")
+      .notNull()
+      .references(() => cohort.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    joinedAt: timestamp("joined_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("cohort_member_cohort_id_user_id_key").on(table.cohortId, table.userId)],
+);
+
 // ---------------------------------------------------------------------------
 // Nicht-soziale Gamification (F-67) — Abschnitt 4.5 (Phase-4-Erweiterung)
 // ---------------------------------------------------------------------------

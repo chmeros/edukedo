@@ -5,6 +5,7 @@ export * from "./schemas/admin-content";
 export * from "./schemas/content-item";
 export * from "./schemas/content-report";
 export * from "./schemas/auth";
+export * from "./schemas/cohort";
 export * from "./schemas/course";
 export * from "./schemas/company";
 export * from "./schemas/consent";
