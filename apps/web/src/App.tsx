@@ -80,6 +80,24 @@ export function App() {
   // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
   const learningModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const authModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  // Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): auf schmalen
+  // Bildschirmen ist .tab-nav horizontal scrollbar (siehe styles.css, @media max-width: 640px)
+  // — bisher ohne jede sichtbare Andeutung, dass "Erfolge"/"Fortschritt" außerhalb des
+  // sichtbaren Bereichs liegen (nur der native, auf vielen Mobilgeräten unauffällige/
+  // eingeblendete Scrollbalken). `tabNavScroll` steuert zwei Fade-Overlays (unten im JSX),
+  // die per CSS-Übergang ein-/ausblenden, je nachdem ob noch in die jeweilige Richtung
+  // gescrollt werden kann — bleiben auf breiten Bildschirmen ohne Overflow beide inaktiv.
+  const tabNavRef = useRef<HTMLDivElement | null>(null);
+  const [tabNavScroll, setTabNavScroll] = useState({ canScrollLeft: false, canScrollRight: false });
+
+  function updateTabNavScroll() {
+    const el = tabNavRef.current;
+    if (!el) return;
+    setTabNavScroll({
+      canScrollLeft: el.scrollLeft > 1,
+      canScrollRight: el.scrollLeft + el.clientWidth < el.scrollWidth - 1,
+    });
+  }
   // F-09: Mehrfach-Kursbelegung aktiv genutzt — der ausgewählte Kurs filtert alle Lernmodi
   // (siehe Architekturplanung Abschnitt 13). selectedKursId ist nur der zuletzt per Klick
   // gewählte Kurs; joinedCourses.some(...) fängt den Fall ab, dass er (noch) nicht (mehr)
@@ -149,6 +167,17 @@ export function App() {
   // durchsickern (z. B. nach Kurswechsel über den CourseSwitcher).
   useEffect(() => {
     setActiveThema(null);
+  }, [activeKursId]);
+
+  // Code-Review-Fund (23.09.2026): Anfangszustand der Fade-Overlays setzen, sobald .tab-nav
+  // gemountet wird (activeKursId wechselt von null zu einer Kurs-ID), und bei einer
+  // Bildschirmdrehung/Fenstergrößenänderung neu berechnen — ein Scroll-Event allein reicht
+  // nicht, da .tab-nav direkt nach dem Mounten ggf. noch nie gescrollt wurde.
+  useEffect(() => {
+    if (!activeKursId) return;
+    updateTabNavScroll();
+    window.addEventListener("resize", updateTabNavScroll);
+    return () => window.removeEventListener("resize", updateTabNavScroll);
   }, [activeKursId]);
 
   const suggestions = trpc.progress.suggestions.useQuery(
@@ -247,35 +276,41 @@ export function App() {
                   belegt"-Zustand bereits oben ab, siehe F-101) */}
               {activeKursId ? (
                 <>
-                  <div
-                    className="tab-nav"
-                    role="tablist"
-                    aria-label="Lernmodus"
-                    style={{ gridTemplateColumns: `repeat(${LEARNING_MODE_TABS.length}, 1fr)` }}
-                  >
-                    {LEARNING_MODE_TABS.map((tab, index) => (
-                      <button
-                        key={tab.id}
-                        ref={(el) => {
-                          learningModeTabRefs.current[index] = el;
-                        }}
-                        type="button"
-                        role="tab"
-                        id={`tab-${tab.id}`}
-                        aria-selected={learningMode === tab.id}
-                        aria-controls={`panel-${tab.id}`}
-                        tabIndex={learningMode === tab.id ? 0 : -1}
-                        className={learningMode === tab.id ? "is-active" : ""}
-                        onClick={() => setLearningMode(tab.id)}
-                        onKeyDown={(event) =>
-                          handleTabListKeyDown(event, index, LEARNING_MODE_TABS.length, learningModeTabRefs, (next) =>
-                            setLearningMode(LEARNING_MODE_TABS[next]!.id),
-                          )
-                        }
-                      >
-                        {tab.label}
-                      </button>
-                    ))}
+                  <div className="tab-nav-wrap">
+                    <div
+                      ref={tabNavRef}
+                      className="tab-nav"
+                      role="tablist"
+                      aria-label="Lernmodus"
+                      style={{ gridTemplateColumns: `repeat(${LEARNING_MODE_TABS.length}, 1fr)` }}
+                      onScroll={updateTabNavScroll}
+                    >
+                      {LEARNING_MODE_TABS.map((tab, index) => (
+                        <button
+                          key={tab.id}
+                          ref={(el) => {
+                            learningModeTabRefs.current[index] = el;
+                          }}
+                          type="button"
+                          role="tab"
+                          id={`tab-${tab.id}`}
+                          aria-selected={learningMode === tab.id}
+                          aria-controls={`panel-${tab.id}`}
+                          tabIndex={learningMode === tab.id ? 0 : -1}
+                          className={learningMode === tab.id ? "is-active" : ""}
+                          onClick={() => setLearningMode(tab.id)}
+                          onKeyDown={(event) =>
+                            handleTabListKeyDown(event, index, LEARNING_MODE_TABS.length, learningModeTabRefs, (next) =>
+                              setLearningMode(LEARNING_MODE_TABS[next]!.id),
+                            )
+                          }
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </div>
+                    <div className={`tab-nav-fade tab-nav-fade--left${tabNavScroll.canScrollLeft ? " is-visible" : ""}`} aria-hidden="true" />
+                    <div className={`tab-nav-fade tab-nav-fade--right${tabNavScroll.canScrollRight ? " is-visible" : ""}`} aria-hidden="true" />
                   </div>
                   <div
                     // Redesign 17.09.2026 (siehe Architekturplanung Abschnitt 13): löst die

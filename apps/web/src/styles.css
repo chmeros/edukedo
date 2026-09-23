@@ -898,6 +898,42 @@ details[open] > summary.disclosure::before {
   }
 }
 
+/* Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): der native
+   Scrollbalken von .tab-nav auf schmalen Bildschirmen war die einzige Andeutung, dass
+   "Erfolge"/"Fortschritt" außerhalb des sichtbaren Bereichs liegen — auf vielen Mobilgeräten
+   unauffällig oder erst beim aktiven Scrollen sichtbar. Zwei per JS (App.tsx, `tabNavScroll`)
+   ein-/ausgeblendete Fade-Overlays an den Rändern deuten jetzt zusätzlich an, dass noch mehr
+   Tabs folgen, und blenden den letzten sichtbaren Tab dabei bewusst leicht an ("Edge Peek").
+   Auf breiten Bildschirmen ohne Overflow bleiben beide dank canScrollLeft/canScrollRight = false
+   unsichtbar. */
+.tab-nav-wrap {
+  position: relative;
+}
+
+.tab-nav-fade {
+  position: absolute;
+  top: 0;
+  bottom: 2px;
+  width: 32px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.tab-nav-fade.is-visible {
+  opacity: 1;
+}
+
+.tab-nav-fade--left {
+  left: 0;
+  background: linear-gradient(to right, var(--paper), transparent);
+}
+
+.tab-nav-fade--right {
+  right: 0;
+  background: linear-gradient(to left, var(--paper), transparent);
+}
+
 .tab-nav button {
   text-align: center;
   padding: 10px 8px;
