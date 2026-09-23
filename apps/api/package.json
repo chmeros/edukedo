@@ -19,7 +19,8 @@
     "db:export-content": "tsx src/db/export-content.ts",
     "content:scaffold": "tsx src/db/scaffold-content.ts",
     "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts",
-    "db:send-learning-reminders": "tsx src/db/send-learning-reminders.ts"
+    "db:send-learning-reminders": "tsx src/db/send-learning-reminders.ts",
+    "db:send-duell-reminders": "tsx src/db/send-duell-reminders.ts"
   },
   "dependencies": {
     "@edukedo/shared": "workspace:*",

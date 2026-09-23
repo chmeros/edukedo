@@ -6,6 +6,7 @@ import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
 import { contentFeedbackRouter } from "./routers/contentFeedback";
 import { coursesRouter } from "./routers/courses";
+import { duellRouter } from "./routers/duell";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
 import { gamificationRouter } from "./routers/gamification";
@@ -42,7 +43,10 @@ import { router } from "./trpc";
  * Freundeskreises erreichbar; die Moderationsansicht offener Meldungen liegt unter `admin.*`.
  * `highscore` (F-60, seit 17.09.2026) ist die opt-in Highscore-Liste je Kurs, beschränkt auf den
  * eigenen Freundeskreis. `lernpartner` (F-62, seit 17.09.2026) zeigt Prüfungstermin-/
- * Handlungsbereich-Übereinstimmungen innerhalb des Freundeskreises, ohne eigenen Chat.
+ * Handlungsbereich-Übereinstimmungen innerhalb des Freundeskreises, ohne eigenen Chat. `duell`
+ * (F-61, seit 23.09.2026) sind asynchrone 1:1-Wissensduelle innerhalb des Freundeskreises,
+ * letzter der drei von F-66 gemeinsam genannten Fremdkontakt-Funktionen — der Erinnerungs-/
+ * Ablauf-Versand selbst läuft über db/send-duell-reminders.ts.
  * `gamification` (F-67, seit 17.09.2026) sind Achievements/Bestwerte ohne jeden Fremdkontakt,
  * kursübergreifend statt kursskopiert. `contentFeedback` (F-50, seit 19.09.2026) ist die
  * Feedback-Funktion für fehlerhafte Lerninhalte — die Moderationsansicht liegt analog zu F-68
@@ -74,6 +78,7 @@ export const appRouter = router({
   report: reportRouter,
   highscore: highscoreRouter,
   lernpartner: lernpartnerRouter,
+  duell: duellRouter,
   gamification: gamificationRouter,
   push: pushRouter,
 });

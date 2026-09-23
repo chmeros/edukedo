@@ -8,6 +8,7 @@ export * from "./schemas/auth";
 export * from "./schemas/course";
 export * from "./schemas/company";
 export * from "./schemas/consent";
+export * from "./schemas/duell";
 export * from "./schemas/exam";
 export * from "./schemas/friend";
 export * from "./schemas/highscore";

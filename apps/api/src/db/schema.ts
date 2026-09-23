@@ -896,6 +896,124 @@ export const friendCircleLink = pgTable(
   ],
 );
 
+/**
+ * F-61 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13): Asynchrone
+ * 1:1-Wissensduelle innerhalb des Freundeskreises (F-63) je Kurs. Bewusst als EINE Zeile mit
+ * gedoppelten "challenger"/"opponent"-Spalten statt einer separaten Teilnehmenden-Tabelle — die
+ * Rollenzahl ist mit genau zwei fest (kein variabler Teilnehmendenkreis wie bei
+ * `friend_circle_link`), eine zweite Tabelle wäre hier nur ein unnötiger Join für die häufigste
+ * Abfrage ("zeig mir den Status dieses Duells"). Kein separater "annehmen/ablehnen"-Schritt: der
+ * Anforderungskatalog beschreibt nur den Ablauf ab dem eingefrorenen Fragenpool, nicht eine
+ * Bestätigung davor — beide Seiten können unabhängig voneinander jederzeit ihren eigenen
+ * Durchgang spielen ("asynchron"), ein nie beantwortetes Duell läuft nach 7 Tagen einfach ab.
+ * `startedAt` markiert die erste Antwort (nicht `created_at`), damit die Zeit als
+ * Sekundärkriterium tatsächliche Bearbeitungszeit misst statt der (bei asynchronem Spiel
+ * beliebigen) Kalenderzeit bis zum Beginn.
+ */
+export const duell = pgTable(
+  "duell",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    challengerUserId: uuid("challenger_user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    opponentUserId: uuid("opponent_user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    status: text("status").notNull().default("offen"),
+    questionCount: integer("question_count").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    // F-61: "läuft automatisch nach 7 Tagen ab" — bei Erstellung fest berechnet statt einer
+    // Ableitung aus createdAt bei jeder Abfrage, damit eine spätere Änderung der Fristdauer
+    // bereits laufende Duelle nicht rückwirkend verändert.
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    // Erinnerung "kurz vor Ablauf" (siehe F-43) — verhindert einen doppelten Versand bei
+    // wiederholten Skriptläufen, analog zu user.last_reminder_sent_at.
+    reminderSentAt: timestamp("reminder_sent_at", { withTimezone: true }),
+    challengerStartedAt: timestamp("challenger_started_at", { withTimezone: true }),
+    challengerFinishedAt: timestamp("challenger_finished_at", { withTimezone: true }),
+    challengerCorrectCount: integer("challenger_correct_count"),
+    // F-61: "individuell konfigurierbar ..., Standardeinstellung: nur Gesamtergebnis" — je
+    // Person ein eigener Schalter, ob die GEGENSEITE die eigenen Einzelfragen-Ergebnisse sehen
+    // darf (nicht umgekehrt "ob ich die der Gegenseite sehen will" — das ergibt sich stattdessen
+    // aus dem Schalter der jeweils ANDEREN Person, siehe duell.ts `get`).
+    challengerRevealDetails: boolean("challenger_reveal_details").notNull().default(false),
+    opponentStartedAt: timestamp("opponent_started_at", { withTimezone: true }),
+    opponentFinishedAt: timestamp("opponent_finished_at", { withTimezone: true }),
+    opponentCorrectCount: integer("opponent_correct_count"),
+    opponentRevealDetails: boolean("opponent_reveal_details").notNull().default(false),
+  },
+  (table) => [
+    index("duell_challenger_user_id_kurs_id_idx").on(table.challengerUserId, table.kursId),
+    index("duell_opponent_user_id_kurs_id_idx").on(table.opponentUserId, table.kursId),
+    index("duell_status_expires_at_idx").on(table.status, table.expiresAt),
+    check("duell_status_check", sql`${table.status} in ('offen', 'abgeschlossen', 'abgelaufen')`),
+    check("duell_distinct_participants_check", sql`${table.challengerUserId} <> ${table.opponentUserId}`),
+  ],
+);
+
+/**
+ * F-61: der beim Duell-Start eingefrorene Fragenpool — EINE Zeile je Frage, geteilt von beiden
+ * Duellpartner:innen (nicht je Person dupliziert, da der Pool laut Anforderungskatalog für
+ * beide Seiten identisch ist). `contentItemVersionId` (nicht `contentItemId`) ist der
+ * eigentliche Fairness-Anker (F-12/F-61: "Frage-IDs inkl. Content-Version") — spätere
+ * Content-Änderungen an genau diesem Item wirken sich damit nicht mehr auf ein laufendes/
+ * abgeschlossenes Duell aus, analog zu `exam_answer.content_item_version_id`.
+ * `contentItemId` zusätzlich (denormalisiert) gespeichert, damit `duell.submitAnswer` eine
+ * eingereichte Antwort ohne Umweg über `content_item_version` der richtigen Frage zuordnen kann
+ * (Frontend sendet `contentItemId`, wie schon bei quiz.submitAnswer/preview.submitAnswer).
+ */
+export const duellQuestion = pgTable(
+  "duell_question",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    duellId: uuid("duell_id")
+      .notNull()
+      .references(() => duell.id, { onDelete: "cascade" }),
+    contentItemId: uuid("content_item_id")
+      .notNull()
+      .references(() => contentItem.id, { onDelete: "restrict" }),
+    contentItemVersionId: uuid("content_item_version_id")
+      .notNull()
+      .references(() => contentItemVersion.id, { onDelete: "restrict" }),
+    sortOrder: integer("sort_order").notNull(),
+  },
+  (table) => [
+    uniqueIndex("duell_question_duell_id_content_item_id_key").on(table.duellId, table.contentItemId),
+    index("duell_question_duell_id_sort_order_idx").on(table.duellId, table.sortOrder),
+  ],
+);
+
+/**
+ * F-61: eine eingereichte Antwort einer der beiden Duellpartner:innen auf eine `duell_question`
+ * — je Person höchstens eine Zeile je Frage (siehe unique Index), Bewertung wiederverwendet
+ * `checkMcAnswer` (quiz-logic.ts) genau wie quiz.submitAnswer/preview.submitAnswer. Fragenpool
+ * bewusst auf `MC_LIKE_QUIZ_TYPES` beschränkt (siehe trpc/routers/duell.ts) — eine einzelne,
+ * gewählte Options-ID genügt damit für alle Duell-Fragen, keine typspezifischen
+ * `given_answer`-JSONB-Varianten wie bei `exam_answer` nötig.
+ */
+export const duellAnswer = pgTable(
+  "duell_answer",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    duellQuestionId: uuid("duell_question_id")
+      .notNull()
+      .references(() => duellQuestion.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    selectedOptionId: uuid("selected_option_id")
+      .notNull()
+      .references(() => answerOption.id, { onDelete: "restrict" }),
+    isCorrect: boolean("is_correct").notNull(),
+    answeredAt: timestamp("answered_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("duell_answer_duell_question_id_user_id_key").on(table.duellQuestionId, table.userId)],
+);
+
 // ---------------------------------------------------------------------------
 // Nicht-soziale Gamification (F-67) — Abschnitt 4.5 (Phase-4-Erweiterung)
 // ---------------------------------------------------------------------------
