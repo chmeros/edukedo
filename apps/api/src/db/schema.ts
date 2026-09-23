@@ -139,6 +139,16 @@ export const user = pgTable(
     // (siehe trpc/routers/parent.ts) — die betroffene Person selbst kann diese Spalte nicht
     // setzen, anders als z. B. mascotEnabled.
     gamificationEnabled: boolean("gamification_enabled").notNull().default(false),
+    // F-70/F-71/F-80 (Nutzer-Entscheidung 23.09.2026, siehe Abschnitt 13): F-70/F-71 sind laut
+    // Anforderungskatalog "dauerhaft kostenpflichtige" Premium-Funktionen (ein Freischalt-Flag
+    // je Funktion, F-80) — der eigentliche Payment-Service existiert noch nicht (Iteration 6,
+    // weiterhin nur Platzhalter), daher vorerst ein admin-vergebbares Flag statt einer echten
+    // Abo-Prüfung (siehe admin.setAiFeatureFlags). `aiGenerationEnabled` ist trotz
+    // `roleProcedure("admin")`-Gate auf `ai.generateContentItem` ein EIGENES Flag (nicht implizit
+    // durch die Admin-Rolle freigeschaltet) — Rolle und "darf echte KI-Kosten auslösen" sind zwei
+    // unabhängige Berechtigungen, ein Admin-Konto muss nicht automatisch KI-Zugriff haben.
+    aiGradingEnabled: boolean("ai_grading_enabled").notNull().default(false),
+    aiGenerationEnabled: boolean("ai_generation_enabled").notNull().default(false),
     // F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13):
     // echte, ausgebbare Lernwährung — anders als `mascotFood` NUR beim ERSTEN richtigen
     // Beantworten eines Content-Items vergeben (Anti-Farming, recordQuizAttempt prüft die
@@ -545,6 +555,40 @@ export const examAnswer = pgTable(
     points: real("points"),
   },
   (table) => [index("exam_answer_exam_session_id_idx").on(table.examSessionId)],
+);
+
+/**
+ * F-70 (Nutzer-Entscheidung 23.09.2026, siehe Abschnitt 13): asynchrone KI-Bewertungs-Anfrage
+ * für eine bereits eingereichte Fallaufgaben-Abgabe (`exam_answer`) — "Die Bewertung läuft
+ * asynchron (Job-Queue): Nutzer:innen reichen die Abgabe ein, können währenddessen weiterlernen
+ * und werden benachrichtigt (siehe F-43), sobald das Ergebnis vorliegt". `exam_answer_id`
+ * bewusst `onDelete: cascade` — reicht eine Person dieselbe Fallaufgabe erneut ein, ersetzt
+ * `exam.submitAnswer` die vorhandene `exam_answer`-Zeile per Delete+Insert (siehe dort), ein
+ * daran hängender Job für die alte Abgabe wird damit automatisch mit entsorgt statt verwaist
+ * stehen zu bleiben. `user_id` zusätzlich zur über `exam_answer` erreichbaren Kette gespeichert,
+ * da der asynchrone Worker (queue/ai-grading-queue.ts) direkt wissen muss, wen er per Web Push
+ * benachrichtigen soll, ohne über drei Tabellen zurückzujoinen.
+ */
+export const aiGradingJob = pgTable(
+  "ai_grading_job",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    examAnswerId: uuid("exam_answer_id")
+      .notNull()
+      .references(() => examAnswer.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    status: text("status").notNull().default("queued"),
+    resultText: text("result_text"),
+    errorMessage: text("error_message"),
+    requestedAt: timestamp("requested_at", { withTimezone: true }).notNull().defaultNow(),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+  },
+  (table) => [
+    index("ai_grading_job_exam_answer_id_idx").on(table.examAnswerId),
+    check("ai_grading_job_status_check", sql`${table.status} in ('queued', 'processing', 'completed', 'failed')`),
+  ],
 );
 
 // ---------------------------------------------------------------------------

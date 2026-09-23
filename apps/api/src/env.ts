@@ -15,6 +15,11 @@ const envSchema = z.object({
   VAPID_PUBLIC_KEY: z.string().min(1, "VAPID_PUBLIC_KEY fehlt (siehe README, mit web-push generieren)"),
   VAPID_PRIVATE_KEY: z.string().min(1, "VAPID_PRIVATE_KEY fehlt (siehe README, mit web-push generieren)"),
   VAPID_SUBJECT: z.string().min(1).default("mailto:dev@edukedo.example"),
+  // F-70/F-72: BullMQ-Job-Queue für die asynchrone KI-Bewertung — dieselbe, bereits seit
+  // Iteration 0 per docker-compose.yml lokal laufende Redis-Instanz, ursprünglich für die
+  // Kern↔Payment-Ereignis-Queue vorgesehen (siehe Architekturplanung Abschnitt 1/12), hier als
+  // erste tatsächliche BullMQ-Nutzung. Default passt zum docker-compose.yml-Port (6379).
+  REDIS_URL: z.string().url().default("redis://localhost:6379"),
 });
 
 export const env = envSchema.parse(process.env);

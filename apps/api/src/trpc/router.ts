@@ -1,5 +1,6 @@
 import { adminRouter } from "./routers/admin";
 import { adminContentRouter } from "./routers/adminContent";
+import { aiRouter } from "./routers/ai";
 import { authRouter } from "./routers/auth";
 import { cohortRouter } from "./routers/cohort";
 import { companyRouter } from "./routers/company";
@@ -57,6 +58,9 @@ import { router } from "./trpc";
  * selbst läuft über db/send-learning-reminders.ts. `cohort` (F-07/F-64/F-65, seit 23.09.2026)
  * sind Lehrgangsgruppen — Dozent:in-Sein ist Eigentümerschaft über `dozent_user_id`, kein
  * eigener `user.role`-Wert; Beitritt verbindet automatisch mit dem Freundeskreis (F-65).
+ * `ai` (F-70/F-71/F-72, seit 23.09.2026) ist KI-gestützte Bewertung (asynchron, Job-Queue) und
+ * Aufgabengenerierung (synchron, bewusst nur `quiz_mc`) — beide hinter admin-vergebbaren Flags
+ * (F-80), da der eigentliche Payment-Service (F-81) noch nicht existiert.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -85,6 +89,7 @@ export const appRouter = router({
   gamification: gamificationRouter,
   push: pushRouter,
   cohort: cohortRouter,
+  ai: aiRouter,
 });
 
 export type AppRouter = typeof appRouter;

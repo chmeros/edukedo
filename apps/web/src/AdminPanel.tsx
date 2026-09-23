@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AdminContentEditor } from "./AdminContentEditor";
+import { AiAdminTools } from "./AiAdminTools";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
@@ -220,6 +221,7 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
 export function AdminPanel() {
   const utils = trpc.useUtils();
   const [focusContentItemId, setFocusContentItemId] = useState<string | null>(null);
+  const me = trpc.auth.me.useQuery();
   const kpis = trpc.admin.kpis.useQuery();
   const courses = trpc.admin.courses.useQuery();
   const companyAccounts = trpc.admin.companyAccounts.useQuery();
@@ -468,6 +470,8 @@ export function AdminPanel() {
         focusContentItemId={focusContentItemId}
         onFocusHandled={() => setFocusContentItemId(null)}
       />
+
+      <AiAdminTools courses={courses.data ?? []} generationEnabled={me.data?.aiGenerationEnabled ?? false} />
     </>
   );
 }

@@ -4,6 +4,68 @@ import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
+const AI_GRADING_STATUS_LABELS: Record<string, string> = {
+  queued: "In der Warteschlange…",
+  processing: "Wird bewertet…",
+  completed: "Bewertung vorliegend",
+  failed: "Bewertung fehlgeschlagen",
+};
+
+/**
+ * F-70 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13): KI-Bewertung
+ * für eine bereits eingereichte Fallaufgabe — bewusst kein Dauer-Polling, sondern ein manuelles
+ * "Status aktualisieren" (analog zum einfachen erneuten Laden bei Highscore/Duell/Lernpartner),
+ * da der Bewertungsjob asynchron im Hintergrund läuft und die Person währenddessen weiterlernen
+ * kann (siehe F-43-Benachrichtigung in ai/process-grading-job.ts).
+ */
+function AiGradingRow({ sessionId, contentItemId, aiGradingEnabled }: { sessionId: string; contentItemId: string; aiGradingEnabled: boolean }) {
+  const result = trpc.ai.myGradingResult.useQuery({ sessionId, contentItemId }, { enabled: aiGradingEnabled });
+  const requestGrading = trpc.ai.requestGrading.useMutation({
+    onSuccess: () => result.refetch(),
+  });
+
+  if (!aiGradingEnabled) {
+    return null;
+  }
+
+  const status = result.data?.status;
+
+  return (
+    <div className="stack">
+      {(!status || status === "failed") && (
+        <button
+          type="button"
+          className="btn btn-ghost btn-sm"
+          style={{ alignSelf: "flex-start" }}
+          disabled={requestGrading.isPending}
+          onClick={() => requestGrading.mutate({ sessionId, contentItemId })}
+        >
+          KI-Bewertung anfordern
+        </button>
+      )}
+      {requestGrading.error && <ErrorMessage>{requestGrading.error.message}</ErrorMessage>}
+      {status && status !== "completed" && status !== "failed" && (
+        <div className="list-row-actions">
+          <span className="field-hint">{AI_GRADING_STATUS_LABELS[status] ?? status}</span>
+          <button type="button" className="btn btn-ghost btn-sm" onClick={() => result.refetch()} disabled={result.isFetching}>
+            Status aktualisieren
+          </button>
+        </div>
+      )}
+      {status === "failed" && result.data?.errorMessage && <ErrorMessage>{result.data.errorMessage}</ErrorMessage>}
+      {status === "completed" && result.data?.resultText && (
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>
+            <b>KI-Bewertung (unverbindliche Lernhilfe, kein Anspruch auf offizielle Korrektheit):</b>{" "}
+            {result.data.resultText}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 type ExamItem = {
   id: string;
   prompt: string;
@@ -125,6 +187,7 @@ function ExamFallaufgabeStep({
 
 export function Exam({ kursId }: { kursId: string }) {
   const utils = trpc.useUtils();
+  const me = trpc.auth.me.useQuery();
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [items, setItems] = useState<ExamItem[]>([]);
@@ -198,6 +261,17 @@ export function Exam({ kursId }: { kursId: string }) {
             Prüfung abgeschlossen — {result.achievedPoints} von {result.maxPoints} Punkten ({result.score} %)
           </div>
         </div>
+        {me.data?.aiGradingEnabled && sessionId && (
+          <div className="stack">
+            <h3>KI-Bewertung deiner Fallaufgaben (F-70)</h3>
+            {items.map((item) => (
+              <div key={item.id} className="exam-part">
+                <p className="exam-part-prompt">{item.prompt.slice(0, 120)}{item.prompt.length > 120 ? "…" : ""}</p>
+                <AiGradingRow sessionId={sessionId} contentItemId={item.id} aiGradingEnabled={true} />
+              </div>
+            ))}
+          </div>
+        )}
         <button type="button" className="btn btn-primary" onClick={reset}>
           Neue Prüfung starten
         </button>

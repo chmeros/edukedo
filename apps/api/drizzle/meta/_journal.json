@@ -218,6 +218,13 @@
       "when": 1790154790076,
       "tag": "0030_bouncy_jack_power",
       "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1790157619939,
+      "tag": "0031_quiet_johnny_blaze",
+      "breakpoints": true
     }
   ]
 }

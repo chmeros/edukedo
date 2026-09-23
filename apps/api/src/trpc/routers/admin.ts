@@ -1,5 +1,7 @@
 import {
   adminCreateCompanyAccountInputSchema,
+  adminFindUserByEmailInputSchema,
+  adminSetAiFeatureFlagsInputSchema,
   adminUpdateCompanyBillingInputSchema,
   createSponsorInputSchema,
   resolveContentReportInputSchema,
@@ -315,4 +317,52 @@ export const adminRouter = router({
       exerciseSetCompletionRate: exerciseSetsStarted > 0 ? exerciseSetsCompleted / exerciseSetsStarted : null,
     };
   }),
+
+  /**
+   * F-70/F-71/F-80: Vorstufe zu `setAiFeatureFlags` — die Admin-Oberfläche sucht ein Konto per
+   * E-Mail statt aus einer Liste auszuwählen, da es (anders als bei Unternehmens-Konten) keine
+   * bereits vorhandene Übersicht über alle Nutzer:innen gibt.
+   */
+  findUserByEmail: roleProcedure("admin")
+    .input(adminFindUserByEmailInputSchema)
+    .query(async ({ ctx, input }) => {
+      const [found] = await ctx.db
+        .select({
+          id: user.id,
+          email: user.email,
+          aiGradingEnabled: user.aiGradingEnabled,
+          aiGenerationEnabled: user.aiGenerationEnabled,
+        })
+        .from(user)
+        .where(eq(user.email, input.email))
+        .limit(1);
+
+      if (!found) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Kein Konto mit dieser E-Mail-Adresse gefunden." });
+      }
+
+      return found;
+    }),
+
+  /**
+   * F-70/F-71/F-80 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13):
+   * admin-vergebbare Freischaltung der KI-Funktionen, solange der eigentliche Payment-Service
+   * (F-81) noch nicht existiert — analog zu `updateCompanyBilling` oben ein einzelner Endpunkt
+   * für beide Flags statt zwei getrennter.
+   */
+  setAiFeatureFlags: roleProcedure("admin")
+    .input(adminSetAiFeatureFlagsInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [updated] = await ctx.db
+        .update(user)
+        .set({ aiGradingEnabled: input.aiGradingEnabled, aiGenerationEnabled: input.aiGenerationEnabled })
+        .where(eq(user.id, input.userId))
+        .returning({ id: user.id });
+
+      if (!updated) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Konto wurde nicht gefunden." });
+      }
+
+      return { success: true };
+    }),
 });

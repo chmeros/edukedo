@@ -201,6 +201,10 @@ export const authRouter = router({
     // echten Opt-in statt eines Hinweistexts zeigen (siehe dort) — nur vom Eltern-Dashboard
     // gesetzt, hier rein lesend.
     gamificationEnabled: ctx.currentUser.gamificationEnabled,
+    // F-70/F-71/F-80: steuert, ob Exam.tsx die KI-Bewertung anbietet bzw. das Admin-Panel die
+    // KI-Aufgabengenerierung — nur vom Admin-Werkzeug (admin.setAiFeatureFlags) gesetzt.
+    aiGradingEnabled: ctx.currentUser.aiGradingEnabled,
+    aiGenerationEnabled: ctx.currentUser.aiGenerationEnabled,
   })),
 
   /**
