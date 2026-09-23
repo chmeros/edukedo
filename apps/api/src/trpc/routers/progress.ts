@@ -1,4 +1,5 @@
 import {
+  abortRoundInputSchema,
   activeKursInputSchema,
   exerciseSetIdInputSchema,
   GANTT_QUIZ_TYPE,
@@ -420,6 +421,122 @@ export async function applyChangeReview(
     }
 
     return { dueAt: next.dueAt };
+  });
+}
+
+/**
+ * F-125 (Nutzer-Feedback vom 23.09.2026, Nutzer-Entscheidung 23.09.2026, siehe
+ * Architekturplanung Abschnitt 13): verwirft rückwirkend die Wirkung EINER Antwort einer
+ * abgebrochenen Runde, ohne dafür neue Schema-Felder zu benötigen — alles Nötige lässt sich aus
+ * der bereits vorhandenen `learning_event`-Historie bzw. `user_progress.previous_snapshot`
+ * (F-111) rekonstruieren:
+ * - Karteikarten: `previous_snapshot` hält exakt den FSRS-Zustand vor der letzten Bewertung
+ *   fest (siehe applyReview oben) — Wiederherstellung ist ein einfaches Zurückschreiben.
+ * - Quiz-Items: `user_progress.state` ist rein aus "war die letzte Antwort richtig?" abgeleitet,
+ *   keine eigene Historie nötig — nach dem Löschen des Ereignisses wird aus dem NEUEN letzten
+ *   verbliebenen Ereignis neu berechnet (bzw. die Zeile ganz entfernt, falls keins mehr existiert).
+ * - Punktehamster/Credits (F-118/F-119): dieselbe "war das die erste jemals richtige Antwort
+ *   dieses Items?"-Prüfung wie beim Vergeben in recordQuizAttempt, nur rückwärts — nach dem
+ *   Löschen bleibt kein korrektes Ereignis mehr übrig, wenn (und nur wenn) das gelöschte
+ *   Ereignis tatsächlich die Credit-Vergabe ausgelöst hatte.
+ */
+async function abortRoundItem(db: Database, userId: string, contentItemId: string, since: Date): Promise<void> {
+  await db.transaction(async (tx) => {
+    const [event] = await tx
+      .select()
+      .from(learningEvent)
+      .where(
+        and(
+          eq(learningEvent.userId, userId),
+          eq(learningEvent.contentItemId, contentItemId),
+          gte(learningEvent.occurredAt, since),
+        ),
+      )
+      .orderBy(desc(learningEvent.occurredAt))
+      .limit(1);
+    if (!event) {
+      // Dieses Item wurde in der abgebrochenen Runde gar nicht beantwortet — nichts zu tun.
+      return;
+    }
+
+    await tx.delete(learningEvent).where(eq(learningEvent.id, event.id));
+
+    const [item] = await tx
+      .select({ type: contentItem.type, difficulty: contentItem.difficulty })
+      .from(contentItem)
+      .where(eq(contentItem.id, contentItemId))
+      .limit(1);
+    if (!item) return;
+
+    if (item.type === "karteikarte") {
+      const [existing] = await tx
+        .select({ previousSnapshot: userProgress.previousSnapshot })
+        .from(userProgress)
+        .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+        .limit(1);
+      if (existing?.previousSnapshot) {
+        const baseline = parseProgressSnapshot(existing.previousSnapshot);
+        await tx
+          .update(userProgress)
+          .set({
+            difficulty: baseline.difficulty,
+            stability: baseline.stability,
+            state: baseline.state,
+            dueAt: baseline.dueAt,
+            lastReviewedAt: baseline.lastReviewedAt,
+            reps: baseline.reps,
+            lapses: baseline.lapses,
+            lastResult: baseline.lastResult,
+            previousSnapshot: null,
+          })
+          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+      }
+    } else {
+      const [priorEvent] = await tx
+        .select()
+        .from(learningEvent)
+        .where(and(eq(learningEvent.userId, userId), eq(learningEvent.contentItemId, contentItemId)))
+        .orderBy(desc(learningEvent.occurredAt))
+        .limit(1);
+      if (priorEvent) {
+        await tx
+          .update(userProgress)
+          .set({ state: priorEvent.isCorrect ? "review" : "learning", lastReviewedAt: priorEvent.occurredAt })
+          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+      } else {
+        await tx
+          .delete(userProgress)
+          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+      }
+    }
+
+    if (event.isCorrect) {
+      // F-118: nur Quiz-Antworten füttern den Punktehamster (siehe recordQuizAttempt oben).
+      if (item.type !== "karteikarte") {
+        await tx
+          .update(user)
+          .set({ mascotFood: sql`greatest(${user.mascotFood} - 1, 0)` })
+          .where(eq(user.id, userId));
+      }
+      const [stillCorrect] = await tx
+        .select({ id: learningEvent.id })
+        .from(learningEvent)
+        .where(
+          and(
+            eq(learningEvent.userId, userId),
+            eq(learningEvent.contentItemId, contentItemId),
+            eq(learningEvent.isCorrect, true),
+          ),
+        )
+        .limit(1);
+      if (!stillCorrect) {
+        const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[item.difficulty] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
+        await tx
+          .update(user)
+          .set({ credits: sql`greatest(${user.credits} - ${amount}, 0)` })
+          .where(eq(user.id, userId));
+      }
+    }
   });
 }
 
@@ -887,6 +1004,26 @@ export const progressRouter = router({
           isNull(exerciseSet.completedAt),
         ),
       );
+    return { success: true };
+  }),
+
+  /**
+   * F-125: Lernrunde ohne Wertung abbrechen (Karteikarten und/oder Quiz, siehe
+   * Flashcards.tsx/Quiz.tsx/MixedLearning.tsx) — verwirft rückwirkend alle in dieser Runde
+   * bereits gegebenen Antworten (siehe abortRoundItem oben für die Begründung je Datenquelle).
+   * Ein zugehöriges exercise_set (N-08, nur bei Quiz.tsx/MixedLearning.tsx vorhanden) wird
+   * vollständig gelöscht statt als "unvollständig" stehen zu lassen — ein abgebrochenes Set
+   * soll die "Abschlussquote"-KPI nicht verzerren.
+   */
+  abortRound: protectedProcedure.input(abortRoundInputSchema).mutation(async ({ ctx, input }) => {
+    for (const contentItemId of input.contentItemIds) {
+      await abortRoundItem(ctx.db, ctx.currentUser.id, contentItemId, input.since);
+    }
+    if (input.exerciseSetId) {
+      await ctx.db
+        .delete(exerciseSet)
+        .where(and(eq(exerciseSet.id, input.exerciseSetId), eq(exerciseSet.userId, ctx.currentUser.id)));
+    }
     return { success: true };
   }),
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
+import { AbortRoundButton } from "./AbortRoundButton";
 import { ContentActions } from "./ContentActions";
 import { FlashcardSelection } from "./FlashcardSelection";
 import { FlipCard } from "./FlipCard";
@@ -132,12 +133,17 @@ export function Flashcards({
   // F-111: welche Karten in DIESER Runde schon bewertet wurden — steuert, ob `review()`
   // unten submitReview (erste Bewertung) oder changeReview (nachträgliche Änderung) aufruft.
   const [ratedThisSession, setRatedThisSession] = useState<Set<string>>(new Set());
+  // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Bewertung dieser Runde zuzurechnen ist.
+  const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
+  const [aborted, setAborted] = useState(false);
   // Ein Verbindungswechsel oder eine neue Auswahl (Karten-IDs/Nur-schwierig-Filter) ersetzt
   // die komplette Liste — der Index müsste sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
     setIndex(0);
     setRevealed(startWithAnswer);
     setRatedThisSession(new Set());
+    setRoundStartedAt(new Date());
+    setAborted(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [online, selectedCardIds, onlyFlagged]);
 
@@ -177,6 +183,35 @@ export function Flashcards({
       )}
     </div>
   );
+
+  // F-125: siehe Quiz.tsx — zurück zum Rundenstart nach einem Abbruch.
+  if (aborted) {
+    return (
+      <div className="stack">
+        {filterBadge}
+        {selectionControls}
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Runde abgebrochen — nichts wurde gewertet.</div>
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => {
+            setIndex(0);
+            setRevealed(startWithAnswer);
+            setRatedThisSession(new Set());
+            setRoundStartedAt(new Date());
+            setAborted(false);
+            dueCardsQuery.refetch();
+          }}
+        >
+          Neue Runde starten
+        </button>
+      </div>
+    );
+  }
 
   if (cards.length === 0) {
     return (
@@ -307,6 +342,13 @@ export function Flashcards({
       <span className="due-count">
         <b>{index + 1}</b> von {cards.length} Karte(n)
       </span>
+      {online && (
+        <AbortRoundButton
+          contentItemIds={cards.map((card) => card.id)}
+          since={roundStartedAt}
+          onAborted={() => setAborted(true)}
+        />
+      )}
       <FlipCard
         flipped={revealed}
         onToggle={() => setRevealed((current) => !current)}

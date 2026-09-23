@@ -50,3 +50,22 @@ export type StartExerciseSetInput = z.infer<typeof startExerciseSetInputSchema>;
 
 export const exerciseSetIdInputSchema = z.object({ exerciseSetId: z.string().uuid() });
 export type ExerciseSetIdInput = z.infer<typeof exerciseSetIdInputSchema>;
+
+/**
+ * F-125 (Nutzer-Feedback vom 23.09.2026, erweitert F-21/F-30, Nutzer-Entscheidung 23.09.2026):
+ * Lernrunde jederzeit ohne Wertung abbrechen — anders als einfaches Wegnavigieren (bei dem
+ * bereits gegebene Antworten unverändert gewertet bleiben) verwirft ein Abbruch rückwirkend
+ * alle in DIESER Runde bereits gegebenen Antworten. `contentItemIds` ist die vollständige,
+ * client-seitig ohnehin bereits bekannte Liste der Runden-Items (nicht nur der beantworteten —
+ * ein noch unbeantwortetes Item hat serverseitig einfach nichts zum Verwerfen). `since` grenzt
+ * auf Ereignisse dieser Runde ein, damit eine ältere Antwort desselben Items aus einer früheren
+ * Runde nicht versehentlich mit verworfen wird (siehe abortRoundItem, apps/api/src/trpc/
+ * routers/progress.ts). `exerciseSetId` optional, da Flashcards.tsx (reiner Karteikarten-Modus)
+ * — anders als Quiz.tsx/MixedLearning.tsx — kein exercise_set anlegt.
+ */
+export const abortRoundInputSchema = z.object({
+  contentItemIds: z.array(z.string().uuid()).min(1),
+  since: z.coerce.date(),
+  exerciseSetId: z.string().uuid().optional(),
+});
+export type AbortRoundInput = z.infer<typeof abortRoundInputSchema>;

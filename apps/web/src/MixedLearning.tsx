@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
 import { shuffle } from "@edukedo/shared";
+import { AbortRoundButton } from "./AbortRoundButton";
 import { ContentActions } from "./ContentActions";
 import { FlipCard } from "./FlipCard";
-import { SuccessIcon } from "./Icons";
+import { InfoIcon, SuccessIcon } from "./Icons";
 import type { OfflineContentItem } from "./offlineDb";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
@@ -120,12 +121,17 @@ export function MixedLearning({
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [answeredQuizCount, setAnsweredQuizCount] = useState(0);
+  // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Antwort dieser Runde zuzurechnen ist.
+  const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
+  const [aborted, setAborted] = useState(false);
   // Ein Verbindungswechsel oder eine geänderte Quiz-Anzahl (F-22) ersetzt die komplette Runde.
   useEffect(() => {
     setIndex(0);
     setRevealed(false);
     setCorrectCount(0);
     setAnsweredQuizCount(0);
+    setRoundStartedAt(new Date());
+    setAborted(false);
   }, [online, kursId, themaId, questionCount]);
 
   const loading = online
@@ -193,6 +199,36 @@ export function MixedLearning({
   // F-124: "Quiz-Fragen im Mix" statt nur "Fragen" — macht explizit, dass diese Auswahl nicht
   // die gesamte Rundengröße steuert (die fälligen Karteikarten kommen unabhängig davon dazu).
   const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} label="Quiz-Fragen im Mix" />;
+
+  // F-125: siehe Quiz.tsx — zurück zum Rundenstart nach einem Abbruch.
+  if (aborted) {
+    return (
+      <div className="stack">
+        {filterBadge}
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Runde abgebrochen — nichts wurde gewertet.</div>
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => {
+            setIndex(0);
+            setRevealed(false);
+            setCorrectCount(0);
+            setAnsweredQuizCount(0);
+            setRoundStartedAt(new Date());
+            setAborted(false);
+            dueCardsQuery.refetch();
+            quizItemsQuery.refetch();
+          }}
+        >
+          Neue Runde starten
+        </button>
+      </div>
+    );
+  }
 
   if (queue.length === 0) {
     return (
@@ -267,6 +303,14 @@ export function MixedLearning({
         {index + 1} von {queue.length} ({cardCount} Karteikarten + {quizCount} Quiz-Fragen)
       </span>
       {countControl}
+      {online && (
+        <AbortRoundButton
+          contentItemIds={queue.map((entry) => (entry.kind === "karteikarte" ? entry.card.id : entry.item.id))}
+          since={roundStartedAt}
+          exerciseSetId={exerciseSetIdRef.current}
+          onAborted={() => setAborted(true)}
+        />
+      )}
       {current.kind === "karteikarte" && (
         <>
           <FlipCard

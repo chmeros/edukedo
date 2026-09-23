@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
+import { AbortRoundButton } from "./AbortRoundButton";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { QuizCountControl } from "./QuizCountControl";
 import {
@@ -113,11 +114,18 @@ export function Quiz({
 
   const [index, setIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
+  // F-125: Zeitpunkt, ab dem eine Antwort dieser Runde zuzurechnen ist — siehe
+  // AbortRoundButton/progress.abortRound (grenzt eine ältere Antwort desselben Items aus einer
+  // früheren Runde von der aktuellen ab).
+  const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
+  const [aborted, setAborted] = useState(false);
   // Ein Verbindungswechsel oder eine geänderte Rundengröße (F-22) ersetzt die komplette
   // Fragenliste — index/correctCount müssten sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
     setIndex(0);
     setCorrectCount(0);
+    setRoundStartedAt(new Date());
+    setAborted(false);
   }, [online, questionCount]);
 
   if (online ? quizItemsQuery.isLoading : offlineRound === null) {
@@ -139,6 +147,35 @@ export function Quiz({
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
   const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} />;
+
+  // F-125: nach einem Abbruch zurück zum Rundenstart, statt einfach an derselben Stelle
+  // weiterzumachen — die soeben verworfenen Antworten dürfen nicht erneut als "diese Runde"
+  // gelten, falls direkt danach erneut abgebrochen würde.
+  if (aborted) {
+    return (
+      <div className="stack">
+        {filterBadge}
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Runde abgebrochen — nichts wurde gewertet.</div>
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => {
+            setIndex(0);
+            setCorrectCount(0);
+            setRoundStartedAt(new Date());
+            setAborted(false);
+            quizItemsQuery.refetch();
+          }}
+        >
+          Neue Runde starten
+        </button>
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -197,6 +234,14 @@ export function Quiz({
         Frage {index + 1} von {items.length}
       </span>
       {countControl}
+      {online && (
+        <AbortRoundButton
+          contentItemIds={items.map((item) => item.id)}
+          since={roundStartedAt}
+          exerciseSetId={exerciseSetIdRef.current}
+          onAborted={() => setAborted(true)}
+        />
+      )}
       {/* F-113: was_passt_nicht mechanisch identisch zu quiz_mc (siehe QuizSteps.tsx),
           wahr_falsch/entweder_oder nutzen die eigene TwoChoiceStep-Darstellung. */}
       {(current.type === "quiz_mc" || current.type === "was_passt_nicht") && (
