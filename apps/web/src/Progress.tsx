@@ -183,28 +183,52 @@ export function Progress({
             </div>
           </div>
 
+          {/* F-127 (Nutzer-Feedback vom 23.09.2026, erweitert F-31/F-32, siehe Architekturplanung
+              Abschnitt 13): beide Auswertungen nutzten bisher dieselbe Balkenoptik
+              (.progress-block, nur die Farbe unterschied sich) und standen ohne erklärenden Text
+              direkt untereinander — leicht als EINE zusammenhängende Zeitreihe misszuverstehen,
+              obwohl es zwei unabhängige Kennzahlen mit unterschiedlicher Gruppierung sind (je
+              Kalendertag vs. je Thema). Erklärender Hinweistext hier, plus eine strukturell
+              andere Darstellung für die Trefferquote (vertikales Balkendiagramm entlang einer
+              Datums-Achse, siehe .stat-timeline-* unten) statt derselben horizontalen
+              Balken-Liste wie bei den Schwachstellen. */}
+          {(stats.data.dailyHitRate.length > 0 || stats.data.weakThemen.length > 0) && (
+            <p className="field-hint">
+              Die beiden folgenden Auswertungen sind zwei unabhängige Kennzahlen, keine zusammenhängende
+              Zeitreihe: links die Trefferquote je Kalendertag, darunter die Schwachstellen je Thema.
+            </p>
+          )}
+
           {stats.data.dailyHitRate.length > 0 && (
             <div className="stack">
-              <span className="stat-subheading">Trefferquote im Zeitverlauf</span>
-              {stats.data.dailyHitRate.map((day) => (
-                <div key={day.date} className="progress-block">
-                  <div className="progress-head">
-                    <b>{day.date}</b>
-                    <span>
-                      {day.percent} % ({day.correct}/{day.total})
+              <span className="stat-subheading">Trefferquote im Zeitverlauf — je Kalendertag</span>
+              <div className="stat-timeline">
+                {stats.data.dailyHitRate.map((day) => (
+                  <div
+                    key={day.date}
+                    className="stat-timeline-col"
+                    title={`${new Date(day.date).toLocaleDateString("de-DE")}: ${day.percent} % (${day.correct}/${day.total})`}
+                  >
+                    <span className="stat-timeline-value">{day.percent} %</span>
+                    <div className="stat-timeline-track">
+                      <span className="stat-timeline-bar" style={{ height: `${day.percent}%` }} />
+                    </div>
+                    <span className="stat-timeline-date">
+                      {new Date(day.date).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" })}
                     </span>
                   </div>
-                  <div className="progress-bar">
-                    <span style={{ width: `${day.percent}%` }} />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
 
           {stats.data.weakThemen.length > 0 && (
             <div className="stack">
-              <span className="stat-subheading">Schwachstellen — hier lohnt sich Wiederholen</span>
+              <span className="stat-subheading">Schwachstellen — hier lohnt sich Wiederholen, je Thema</span>
+              <p className="field-hint">
+                Die {stats.data.weakThemen.length} Themen mit der niedrigsten Trefferquote (mindestens 3
+                beantwortete Fragen), unabhängig davon, an welchem Tag gelernt wurde.
+              </p>
               {stats.data.weakThemen.map((thema) => (
                 <div key={thema.id} className="progress-block is-weak">
                   <div className="progress-head">

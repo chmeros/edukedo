@@ -1768,6 +1768,62 @@ button.progress-block:hover .progress-head b {
   background: var(--sun);
 }
 
+/* F-127 (Nutzer-Feedback vom 23.09.2026, erweitert F-31/F-32, siehe Architekturplanung
+   Abschnitt 13): "Trefferquote im Zeitverlauf" bewusst als vertikales
+   Balkendiagramm entlang einer Datums-Achse statt derselben horizontalen Balken-Liste wie
+   ".progress-block.is-weak" (Schwachstellen) — die strukturell andere Optik macht auf den
+   ersten Blick erkennbar, dass es sich um eine andere Art Kennzahl handelt (Zeitverlauf statt
+   Rangliste), nicht nur eine andere Farbe. Horizontal scrollbar (kein Limit auf die Anzahl der
+   Tage in der API, siehe progress.ts stats-Query), fester Spaltenabstand statt Umbruch, damit
+   die Datums-Reihenfolge nicht durch einen Zeilenumbruch verzerrt wird. */
+.stat-timeline {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.stat-timeline-col {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 34px;
+}
+
+.stat-timeline-value {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.stat-timeline-track {
+  display: flex;
+  align-items: flex-end;
+  width: 16px;
+  height: 72px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.stat-timeline-bar {
+  display: block;
+  width: 100%;
+  min-height: 3px;
+  background: var(--sprout);
+  border-radius: 100px;
+}
+
+.stat-timeline-date {
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
 /* ---------- Landing Page (öffentliche Startseite für nicht eingeloggte Besucher:innen) ---------- */
 .landing {
   max-width: none;
