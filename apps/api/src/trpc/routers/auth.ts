@@ -20,6 +20,7 @@ import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie
 import { hashToken } from "../../auth/token";
 import { env } from "../../env";
 import { emailVerificationToken, parentChildLink, user } from "../../db/schema";
+import { publishUserDeleted } from "../../queue/payment-queue";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
 
 const RESEND_VERIFICATION_RATE_LIMIT_MAX_ATTEMPTS = 3;
@@ -177,6 +178,11 @@ export const authRouter = router({
     }
 
     await ctx.db.delete(user).where(eq(user.id, ctx.currentUser.id));
+    // Payment-Service-Grundgerüst (Iteration 6, siehe Abschnitt 13): meldet die Löschung an
+    // apps/payment, damit dessen eigene Subscription-/Rechnungsdaten ebenfalls bereinigt werden
+    // (F-06 unabhängig vom Payment-Service nutzbar, siehe Architekturplanung Abschnitt 4.1/8 —
+    // diese Publikation ist rein additiv und blockiert die Löschung selbst nicht).
+    await publishUserDeleted(ctx.currentUser.id);
 
     ctx.res.clearCookie(SESSION_COOKIE_NAME, { path: "/" });
     return { success: true };
@@ -208,6 +214,9 @@ export const authRouter = router({
     // F-129/F-130: steuert, ob Instrumente.tsx den geführten Lernpfad (statt eines
     // Freischalt-Hinweises) anbietet — nur vom Admin-Werkzeug gesetzt, siehe instrumentLernpfad.ts.
     instrumentLernpfadeEnabled: ctx.currentUser.instrumentLernpfadeEnabled,
+    // Payment-Service-Grundgerüst: abgeleitet aus dem per Event-Queue aktualisierten
+    // premium_until-Cache, nicht dem Rohwert selbst — das Frontend braucht hier nur ja/nein.
+    isPremiumActive: ctx.currentUser.premiumUntil !== null && ctx.currentUser.premiumUntil.getTime() > Date.now(),
   })),
 
   /**

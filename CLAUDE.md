@@ -27,7 +27,7 @@ Die vollständige Planung liegt in `docs/` und ist die Quelle der Wahrheit für 
 /apps
   /web        → React-PWA-Frontend
   /api        → Kern-Backend (Fastify/NestJS) — Auth, Consent, Content, Sync, Sozial
-  /payment    → Eigenständiger Payment-Service (erst ab Iteration 6, aktuell nur Platzhalter)
+  /payment    → Eigenständiger Payment-Service (Iteration 6; Grundgerüst inkl. Event-Queue seit 24.09.2026 vorhanden, siehe apps/payment/README.md — Abo-/Kaufverwaltung F-81/F-82 noch offen)
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern (Frontend+API) — bewusst nicht mit /payment geteilt
 /docs         → die vier Planungsdokumente (siehe oben)

@@ -1,5 +1,23 @@
-# @edukedo/payment (Platzhalter)
+# @edukedo/payment
 
-Eigenständiger Payment-Service mit eigener Datenbank und eigenem Deployment (siehe Architekturplanung Abschnitt 1, 3, 8).
+Eigenständiger Payment-Service (Node.js + TypeScript, Fastify, eigene PostgreSQL-Instanz, eigenes Deployment) — siehe Architekturplanung Abschnitt 1, 2, 3, 8.
 
-**Bewusst leer bis Iteration 6** (siehe Entwicklungsplan): Erst wenn das Validierungs-Gate nach Iteration 5 positiv ausfällt, wird dieser Service tatsächlich aufgesetzt — eigene Datenbank, eigenes Deployment, eigene Secrets, niemals eine gemeinsame DB-Verbindung mit `/apps/api`.
+## Stand
+
+- **Grundgerüst (Iteration 6, Baustein 1, 24.09.2026):** Eigenes App-Paket mit eigener Datenbank (`edukedo_payment`, docker-compose-Service `postgres_payment`, Port 5433) und eigenem `.env`/Secrets — niemals eine gemeinsame DB-Verbindung oder gemeinsames ORM-Modell mit `apps/api` (siehe CLAUDE.md/Architekturplanung Abschnitt 2). Zwei Tabellen: `subscription` (ein Abo je `user_id`, KEIN Fremdschlüssel auf die Kern-`user`-Tabelle — physisch getrennte Datenbank, referenzielle Integrität dorthin ist strukturell unmöglich) und `invoice` (kaskadiert über `subscription_id`). Zahlungsdaten selbst (Kartennummern o. Ä.) werden hier nie gespeichert (N-11).
+- **Schmale REST-API statt tRPC**, bewusst ohne `@edukedo/shared`-Abhängigkeit (Architekturplanung Abschnitt 7: "Isolation nicht über gemeinsame Typen/Verträge aufweichen"). Jede Route außer `/health` verlangt den Header `x-kern-service-token` als einfaches Dienst-zu-Dienst-Shared-Secret. Endpunkte: `GET /health`, `GET /subscriptions/:userId`, `POST /checkout-sessions` (`{userId}`), `POST /subscriptions/:userId/cancel`.
+- **Platzhalter-Zahlungsdienstleister** (`src/payment-provider.ts`, `placeholderPaymentProvider`) — analog zu `apps/api/src/ai/placeholder-provider.ts` (F-72): austauschbare `PaymentProvider`-Schnittstelle, aktuell einzige Implementierung simuliert eine sofort erfolgreiche Zahlung ohne echten Redirect/Webhook, klar als Entwickler-Platzhalter erkennbar (`placeholder-checkout.invalid`-URL). Ein echter PSP (noch nicht ausgewählt, siehe Entwicklungsplan Iteration 6 "Recht & Compliance") tauscht später ausschließlich diese Datei aus.
+- **Event-/Message-Queue Kern ↔ Payment (BullMQ auf der gemeinsam genutzten Redis-Instanz):** Payment publiziert `subscription.updated` (`queue/subscription-updated-queue.ts`) bei jedem Checkout/jeder Kündigung; der Kern konsumiert das und pflegt einen lokalen `user.premium_until`-Cache (siehe apps/api/README.md). Umgekehrt konsumiert Payment `user.deleted` (`queue/user-deleted-worker.ts`), publiziert vom Kern bei einer F-06-Kontolöschung, und löscht die zugehörige Subscription (kaskadiert Rechnungen). Beide Ereignisse tragen einen ABSOLUTEN Zustand (nicht relativ/inkrementell) — eine doppelt zugestellte Nachricht (BullMQ garantiert nur "at-least-once") setzt denselben Wert erneut bzw. löscht 0 Zeilen ein zweites Mal, beides von Natur aus idempotent. Deshalb bewusst KEINE zusätzliche Dedupe-Tabelle für verarbeitete Event-IDs, obwohl Architekturplanung Abschnitt 8 allgemein "Events werden idempotent verarbeitet" fordert — hier über die Datenmodellierung statt über eine separate Tabelle gelöst.
+- **Ereignis-Vertrag bewusst dupliziert statt geteilt** (`src/queue/events.ts` hier, `apps/api/src/queue/payment-events.ts` im Kern) — dieselbe Isolations-Begründung wie beim Verzicht auf `@edukedo/shared`. Ein Kontrakttest (`apps/api/test/payment-queue-contract.test.ts`) sichert ab, dass Queue-Namen/Payload-Form synchron bleiben.
+- **Cancel = sofortige Deaktivierung statt Zugriff bis zum Periodenende** (bewusste v1-Vereinfachung) — vermeidet einen zusätzlichen zeitgesteuerten Job, der Abos exakt zum Periodenende nachträglich deaktivieren müsste. Kann bei Bedarf (z. B. sobald ein echter PSP das selbst per Webhook meldet) später ergänzt werden.
+- **Noch offen (Baustein 2):** Abo-/Kaufverwaltung (F-81) und Statusübersicht im Nutzerprofil (F-82) auf Kern-/Frontend-Seite (Checkout anstoßen, Status/Rechnungen anzeigen, Kündigen) — dieser Baustein liefert nur die Infrastruktur, mit der das gebaut werden kann. Produktives Deployment kann laut Architekturplanung "Nächste Schritte" bis kurz vor der tatsächlichen Phase-4-Aktivierung von F-81 warten.
+
+## Entwicklung
+
+```bash
+docker compose up -d postgres_payment redis   # aus dem Repo-Root
+pnpm --filter @edukedo/payment db:migrate
+pnpm --filter @edukedo/payment dev
+```
+
+Erwartet eine lokale `.env` (siehe `.env.example` im Repo-Root) mit `PAYMENT_DATABASE_URL`, `KERN_SERVICE_TOKEN` (muss mit dem Wert übereinstimmen, den der Kern beim REST-Aufruf sendet), `REDIS_URL`.

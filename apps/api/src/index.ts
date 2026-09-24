@@ -1,6 +1,7 @@
 import { buildApp } from "./app";
 import { env } from "./env";
 import { startAiGradingWorker } from "./queue/ai-grading-queue";
+import { startSubscriptionUpdatedWorker } from "./queue/payment-queue";
 
 const app = await buildApp();
 
@@ -9,6 +10,9 @@ const app = await buildApp();
 // Architekturplanung Abschnitt 1), ein separater Worker-Prozess wäre hier unnötiger
 // Infrastruktur-Aufwand für den aktuellen Umfang.
 startAiGradingWorker();
+// Payment-Service-Grundgerüst: konsumiert die von apps/payment publizierten
+// subscription.updated-Ereignisse, siehe queue/payment-queue.ts.
+startSubscriptionUpdatedWorker();
 
 app
   .listen({ port: env.PORT, host: "0.0.0.0" })

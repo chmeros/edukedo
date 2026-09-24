@@ -185,9 +185,9 @@ Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwänd
 - [x] Einfaches Admin-Werkzeug, um `company_account.billing_status`/`seat_limit` nach manuellem Zahlungseingang freizuschalten (kein automatisierter Checkout, siehe Architekturplanung Abschnitt 13)
 
 **Programmierung (Payment)**
-- [ ] Payment-Service als eigenständiges App-Paket aufsetzen (eigene DB, eigenes Deployment)
-- [ ] Event-/Message-Queue Kern ↔ Payment (BullMQ auf Redis) — inkl. Anbindung der bereits bestehenden Konto-Selbstlöschung (F-06) aus Iteration 1, damit gelöschte Konten auch im Payment-Service bereinigt werden
-- [ ] Abo-/Kaufverwaltung (F-81), Statusübersicht im Nutzerprofil (F-82)
+- [x] Payment-Service als eigenständiges App-Paket aufsetzen (eigene DB, eigenes Deployment). **Erledigt 24.09.2026 (Baustein 1 von 2):** `apps/payment`, eigene PostgreSQL-Instanz (`postgres_payment`, Port 5433), Schema `subscription`/`invoice`, schmale REST-API, Platzhalter-Zahlungsdienstleister. Produktives Deployment bleibt bewusst zurückgestellt (siehe Architekturplanung Abschnitt 13/"Nächste Schritte"). Siehe Architekturplanung Abschnitt 13.
+- [x] Event-/Message-Queue Kern ↔ Payment (BullMQ auf Redis) — inkl. Anbindung der bereits bestehenden Konto-Selbstlöschung (F-06) aus Iteration 1, damit gelöschte Konten auch im Payment-Service bereinigt werden. **Erledigt 24.09.2026 (Baustein 1 von 2):** `user.deleted` (Kern→Payment) und `subscription.updated` (Payment→Kern) über je eine eigene BullMQ-Queue, absoluter statt relativer Ereigniszustand macht eine zusätzliche Dedupe-Tabelle für Idempotenz unnötig. Live end-to-end verifiziert (Checkout → `auth.me.isPremiumActive` → Kontolöschung → Payment-Bereinigung). Siehe Architekturplanung Abschnitt 13.
+- [ ] Abo-/Kaufverwaltung (F-81), Statusübersicht im Nutzerprofil (F-82) — Baustein 2, auf der jetzt vorhandenen Infrastruktur aufbauend (Checkout/Kündigung im Frontend anstoßen, Rechnungen/Status anzeigen)
 
 **Recht & Compliance**
 - [ ] Vertragspartner-AGB gegenüber Minderjährigen prüfen (Zahlungsdienstleister, Managed-API-Anbieter)
@@ -195,8 +195,8 @@ Ziel: Erst nach positivem Signal aus den KPIs (Abschnitt 11) werden die aufwänd
 - [ ] **Einfache Unternehmens-AGB/Nutzungsbedingungen für Business-Lizenzen erstellen (ergänzt 14.09.2026):** Regelt Rechnungsstellung, Laufzeit/Kündigung des Kontingents sowie den Hinweis, dass der zugrunde liegende Lerncontent unabhängig davon weiterhin frei zugänglich bleibt (siehe Anforderungskatalog Abschnitt 5.12) — unabhängig von der B2C-AGB-Prüfung oben
 
 **Testing**
-- [ ] Kontrakttests Kern ↔ Payment
-- [ ] Event-/Queue-Tests (Idempotenz, Verhalten bei Ausfall)
+- [x] Kontrakttests Kern ↔ Payment. **Erledigt 24.09.2026:** `apps/api/test/payment-queue-contract.test.ts` vergleicht die beiden bewusst duplizierten Event-Vertragsdateien gegeneinander. Siehe Architekturplanung Abschnitt 13.
+- [ ] Event-/Queue-Tests (Idempotenz, Verhalten bei Ausfall). **Idempotenz erledigt 24.09.2026** (doppelte Zustellung von `subscription.updated`/`user.deleted` in beiden Paketen getestet, siehe Architekturplanung Abschnitt 13) — **"Verhalten bei Ausfall" (Redis/Payment-Service nicht erreichbar) bleibt offen**, da Baustein 1 noch keinen synchronen Kern→Payment-REST-Aufruf enthält, der dafür einen Fallback bräuchte (kommt mit Baustein 2, F-81/F-82).
 - [ ] **Zugriffskontroll-Tests für `/company/*`-Statistik-Endpunkte (ergänzt 14.09.2026):** Verifizieren, dass mit `company_admin`-Berechtigung unter keinen Umständen Einzel-Nutzer-Datensätze abrufbar sind — nur aggregierte Werte
 - [ ] **Test der Lizenzkontingent-Grenzen (ergänzt 14.09.2026):** Einladungscode lässt sich nicht über `seat_limit` hinaus einlösen; Branding erscheint nur für Mitglieder des jeweiligen `company_account`
 

@@ -163,6 +163,13 @@ export const user = pgTable(
     // learning_event-Historie), Menge gestaffelt nach content_item.difficulty. Kein Verbrauchsweg
     // existiert bisher (F-120, noch offen — siehe Anforderungskatalog Abschnitt 10, Punkt 5).
     credits: integer("credits").notNull().default(0),
+    // Payment-Service-Grundgerüst (Iteration 6, siehe Abschnitt 13): lokaler Cache des von
+    // apps/payment per Event-Queue gemeldeten Abo-Status (`subscription.updated`) — vermeidet
+    // einen synchronen REST-Aufruf bei jedem Request, der prüfen will, ob Premium aktiv ist
+    // (Architekturplanung Abschnitt 3: "beim Login prüfen, ob Premium aktiv ist"). `null` = kein
+    // aktives Abo. Ein doppelt zugestelltes Event überschreibt denselben absoluten Wert erneut —
+    // von Natur aus idempotent, siehe apps/payment/src/queue/events.ts.
+    premiumUntil: timestamp("premium_until", { withTimezone: true }),
     // F-43 (Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13): wann zuletzt eine
     // Web-Push-Lernerinnerung verschickt wurde — verhindert, dass send-learning-reminders.ts
     // bei jedem (externen, periodischen) Aufruf erneut erinnert, solange dieselbe Lernpause

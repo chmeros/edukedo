@@ -10,7 +10,7 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 /apps
   /web        → React-Frontend — minimales Grundgerüst mit Auth-Seite steht, PWA folgt in Iteration 1
   /api        → Kern-Backend (Fastify + tRPC) — Auth-Grundgerüst und Datenmodell stehen
-  /payment    → Eigenständiger Payment-Service (erst ab Iteration 6)
+  /payment    → Eigenständiger Payment-Service (Iteration 6) — Grundgerüst inkl. Event-Queue steht, siehe apps/payment/README.md
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern
 /docs         → Projektziel, Anforderungskatalog, Architekturplanung, Entwicklungsplan
