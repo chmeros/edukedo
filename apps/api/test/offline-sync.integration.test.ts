@@ -38,6 +38,7 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
     process.env.SESSION_SECRET = "e2e-offline-sync-test-secret-mindestens-32-zeichen";
     process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
     process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
+    process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
     db = drizzle(pool, { schema });

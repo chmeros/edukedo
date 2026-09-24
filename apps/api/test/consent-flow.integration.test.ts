@@ -42,6 +42,7 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     process.env.SESSION_SECRET = "e2e-consent-test-secret-mindestens-32-zeichen";
     process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
     process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
+    process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
     db = drizzle(pool, { schema });

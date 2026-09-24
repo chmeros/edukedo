@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AboStatus } from "./AboStatus";
 import { DisplayNameSettings } from "./DisplayNameSettings";
 import { FlashcardStartSideSettings } from "./FlashcardStartSideSettings";
 import { InfoIcon } from "./Icons";
@@ -63,6 +64,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
             )}
             <div className="widget">
               <RedeemCompanyCode />
+            </div>
+            <div className="widget">
+              <AboStatus />
             </div>
           </div>
         </Modal>

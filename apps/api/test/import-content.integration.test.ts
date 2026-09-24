@@ -31,6 +31,7 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
     process.env.SESSION_SECRET = "integrationstest-secret-mindestens-32-zeichen-lang";
     process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
     process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
+    process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
     db = drizzle(pool, { schema });

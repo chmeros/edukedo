@@ -19,6 +19,7 @@ import { lernpartnerRouter } from "./routers/lernpartner";
 import { notesRouter } from "./routers/notes";
 import { offlineRouter } from "./routers/offline";
 import { parentRouter } from "./routers/parent";
+import { paymentRouter } from "./routers/payment";
 import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
@@ -61,7 +62,9 @@ import { router } from "./trpc";
  * eigener `user.role`-Wert; Beitritt verbindet automatisch mit dem Freundeskreis (F-65).
  * `ai` (F-70/F-71/F-72, seit 23.09.2026) ist KI-gestützte Bewertung (asynchron, Job-Queue) und
  * Aufgabengenerierung (synchron, bewusst nur `quiz_mc`) — beide hinter admin-vergebbaren Flags
- * (F-80), da der eigentliche Payment-Service (F-81) noch nicht existiert.
+ * (F-80), da der eigentliche Payment-Service (F-81) noch nicht existiert. `payment` (F-81/F-82,
+ * seit 24.09.2026) ist die Abo-/Kaufverwaltung und Statusübersicht, aufbauend auf dem separaten
+ * Payment-Service (`apps/payment`) über dessen schmale REST-API.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -92,6 +95,7 @@ export const appRouter = router({
   cohort: cohortRouter,
   ai: aiRouter,
   instrumentLernpfad: instrumentLernpfadRouter,
+  payment: paymentRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -1,5 +1,5 @@
 import Fastify, { type FastifyInstance } from "fastify";
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "./db/client";
 import { invoice, subscription } from "./db/schema";
@@ -39,6 +39,23 @@ export async function buildApp(paymentProvider: PaymentProvider = placeholderPay
       status: row.status,
       premiumUntil: row.status === "active" ? row.currentPeriodEnd.toISOString() : null,
     });
+  });
+
+  // F-82 ("u. a. Rechnungen") — eigener, schlanker Endpunkt statt die Rechnungen an
+  // /subscriptions/:userId anzuhängen, analog zur Trennung eines echten PSPs zwischen Abo- und
+  // Rechnungs-Ressourcen.
+  app.get("/subscriptions/:userId/invoices", async (request, reply) => {
+    const { userId } = userIdParamsSchema.parse(request.params);
+    const [subscriptionRow] = await db.select().from(subscription).where(eq(subscription.userId, userId));
+    if (!subscriptionRow) {
+      return reply.send([]);
+    }
+    const rows = await db
+      .select({ amountCents: invoice.amountCents, currency: invoice.currency, status: invoice.status, issuedAt: invoice.issuedAt })
+      .from(invoice)
+      .where(eq(invoice.subscriptionId, subscriptionRow.id))
+      .orderBy(desc(invoice.issuedAt));
+    return reply.send(rows.map((row) => ({ ...row, issuedAt: row.issuedAt.toISOString() })));
   });
 
   app.post("/checkout-sessions", async (request, reply) => {

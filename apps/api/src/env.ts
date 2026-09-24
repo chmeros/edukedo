@@ -20,6 +20,11 @@ const envSchema = z.object({
   // Kern↔Payment-Ereignis-Queue vorgesehen (siehe Architekturplanung Abschnitt 1/12), hier als
   // erste tatsächliche BullMQ-Nutzung. Default passt zum docker-compose.yml-Port (6379).
   REDIS_URL: z.string().url().default("redis://localhost:6379"),
+  // F-81/F-82 (Payment-Baustein 2): Basis-URL der schmalen Payment-REST-API sowie dasselbe
+  // Shared Secret, das apps/payment als KERN_SERVICE_TOKEN erwartet (siehe apps/payment/README.md)
+  // — muss auf beiden Seiten identisch gesetzt sein, sonst lehnt Payment jeden Aufruf mit 401 ab.
+  PAYMENT_SERVICE_URL: z.string().url().default("http://localhost:3002"),
+  PAYMENT_SERVICE_TOKEN: z.string().min(16, "PAYMENT_SERVICE_TOKEN muss mindestens 16 Zeichen lang sein"),
 });
 
 export const env = envSchema.parse(process.env);
