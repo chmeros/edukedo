@@ -14,6 +14,7 @@ import { friendRouter } from "./routers/friend";
 import { gamificationRouter } from "./routers/gamification";
 import { healthRouter } from "./routers/health";
 import { highscoreRouter } from "./routers/highscore";
+import { instrumentLernpfadRouter } from "./routers/instrumentLernpfad";
 import { lernpartnerRouter } from "./routers/lernpartner";
 import { notesRouter } from "./routers/notes";
 import { offlineRouter } from "./routers/offline";
@@ -90,6 +91,7 @@ export const appRouter = router({
   push: pushRouter,
   cohort: cohortRouter,
   ai: aiRouter,
+  instrumentLernpfad: instrumentLernpfadRouter,
 });
 
 export type AppRouter = typeof appRouter;

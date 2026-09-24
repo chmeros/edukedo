@@ -1,5 +1,6 @@
 export * from "./age";
 export * from "./fsrs/scheduler";
+export * from "./instrument-lernpfad-logic";
 export * from "./quiz-logic";
 export * from "./schemas/admin-content";
 export * from "./schemas/ai";
@@ -14,6 +15,7 @@ export * from "./schemas/duell";
 export * from "./schemas/exam";
 export * from "./schemas/friend";
 export * from "./schemas/highscore";
+export * from "./schemas/instrument-lernpfad";
 export * from "./schemas/lernpartner";
 export * from "./schemas/note";
 export * from "./schemas/offline-sync";

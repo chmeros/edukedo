@@ -1824,6 +1824,34 @@ button.progress-block:hover .progress-head b {
   white-space: nowrap;
 }
 
+/* F-129 (Instrumenten-Lernpfad, Nutzer-Vorgabe vom 24.09.2026): durchgehend sichtbarer
+   narrativer Rahmen (Fallbeispiel + Vision) oberhalb der Stationen, siehe InstrumentLernpfad.tsx. */
+.lernpfad-narrative {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.lernpfad-vision {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* Zielkontext oberhalb einer Maßnahmen-Wahl-Runde (Station 5). */
+.lernpfad-context {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+/* Options-individuelles Feedback (F-129) unterhalb eines .quiz-opt — anders als die bestehenden
+   MC-Typen (ein gemeinsames explanation-Feld) trägt hier jede Option ihren eigenen Text. */
+.lernpfad-option-feedback {
+  display: block;
+  margin-top: 4px;
+}
+
 /* ---------- Landing Page (öffentliche Startseite für nicht eingeloggte Besucher:innen) ---------- */
 .landing {
   max-width: none;

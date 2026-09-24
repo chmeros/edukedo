@@ -205,6 +205,9 @@ export const authRouter = router({
     // KI-Aufgabengenerierung — nur vom Admin-Werkzeug (admin.setAiFeatureFlags) gesetzt.
     aiGradingEnabled: ctx.currentUser.aiGradingEnabled,
     aiGenerationEnabled: ctx.currentUser.aiGenerationEnabled,
+    // F-129/F-130: steuert, ob Instrumente.tsx den geführten Lernpfad (statt eines
+    // Freischalt-Hinweises) anbietet — nur vom Admin-Werkzeug gesetzt, siehe instrumentLernpfad.ts.
+    instrumentLernpfadeEnabled: ctx.currentUser.instrumentLernpfadeEnabled,
   })),
 
   /**

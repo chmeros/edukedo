@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { trpc } from "./trpc";
 
 /**
@@ -60,12 +62,29 @@ const INSTRUMENT_CATALOG = [
 
 export function Instrumente({
   kursId,
+  instrumentLernpfadeEnabled,
   onGoToThema,
 }: {
   kursId: string;
+  instrumentLernpfadeEnabled: boolean;
   onGoToThema: (themaId: string, themaTitle: string) => void;
 }) {
   const instruments = trpc.content.instruments.useQuery({ kursId });
+  // F-129/F-130/F-131: welche Instrumente zusätzlich einen geführten Lernpfad haben — unabhängig
+  // von `content.instruments` oben (Lernpfad und einzelne Quiz-Frage sind unabhängige Konzepte,
+  // siehe F-105-Abgrenzung im Anforderungskatalog).
+  const lernpfade = trpc.instrumentLernpfad.available.useQuery({ kursId });
+  const [activeLernpfad, setActiveLernpfad] = useState<string | null>(null);
+
+  if (activeLernpfad) {
+    return (
+      <InstrumentLernpfad
+        kursId={kursId}
+        instrumentType={activeLernpfad}
+        onClose={() => setActiveLernpfad(null)}
+      />
+    );
+  }
 
   return (
     <div className="panel-section">
@@ -74,28 +93,40 @@ export function Instrumente({
       </div>
       <p className="field-hint">
         Je Instrument erst ein Wissenstest per Quiz, danach die praktische Anwendung am Instrument selbst — beides
-        findet sich im jeweils verlinkten Thema.
+        findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
+        mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Premium, siehe unten).
       </p>
       <div className="list" style={{ marginTop: 10 }}>
         {INSTRUMENT_CATALOG.map((instrument) => {
           const target = instruments.data?.[instrument.type];
+          const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
           return (
             <div key={instrument.type} className="list-row">
               <div className="meta">
                 {instrument.label}
                 <span>{instrument.description}</span>
               </div>
-              {target ? (
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  onClick={() => onGoToThema(target.themaId, target.themaTitle)}
-                >
-                  Zu diesem Instrument lernen
-                </button>
-              ) : (
-                <span className="field-hint">In diesem Kurs noch nicht verfügbar</span>
-              )}
+              <div className="list-row-actions">
+                {target ? (
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => onGoToThema(target.themaId, target.themaTitle)}
+                  >
+                    Zu diesem Instrument lernen
+                  </button>
+                ) : (
+                  <span className="field-hint">In diesem Kurs noch nicht verfügbar</span>
+                )}
+                {lernpfad &&
+                  (instrumentLernpfadeEnabled ? (
+                    <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
+                      Geführten Lernpfad starten
+                    </button>
+                  ) : (
+                    <span className="field-hint">Geführter Lernpfad: Premium, noch nicht freigeschaltet</span>
+                  ))}
+              </div>
             </div>
           );
         })}

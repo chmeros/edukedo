@@ -149,6 +149,14 @@ export const user = pgTable(
     // unabhängige Berechtigungen, ein Admin-Konto muss nicht automatisch KI-Zugriff haben.
     aiGradingEnabled: boolean("ai_grading_enabled").notNull().default(false),
     aiGenerationEnabled: boolean("ai_generation_enabled").notNull().default(false),
+    // F-129/F-130 (Nutzer-Vorgabe vom 24.09.2026, siehe Abschnitt 13): Instrumenten-Lernpfade sind
+    // laut Anforderungskatalog kostenpflichtiger "erweiterter Content-Umfang" (F-80) — derselbe
+    // admin-vergebbare Freischalt-Flag-Ansatz wie bei aiGradingEnabled/aiGenerationEnabled oben,
+    // solange der eigentliche Payment-Service (F-81) noch nicht existiert. Bewusst EIN einziges,
+    // pauschales Flag für ALLE Instrumenten-Lernpfade zusammen (Auflösung des in F-130 offen
+    // gelassenen "Zu klären": pro Pfad/Instrument vs. pauschal) statt eines Flags je Lernpfad-Zeile
+    // — konsistent mit F-80s "kein generisches Premium-Flag auf jedem einzelnen Content-Item".
+    instrumentLernpfadeEnabled: boolean("instrument_lernpfade_enabled").notNull().default(false),
     // F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13):
     // echte, ausgebbare Lernwährung — anders als `mascotFood` NUR beim ERSTEN richtigen
     // Beantworten eines Content-Items vergeben (Anti-Farming, recordQuizAttempt prüft die
@@ -1174,3 +1182,66 @@ export const pushSubscription = pgTable("push_subscription", {
   auth: text("auth").notNull(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+// ---------------------------------------------------------------------------
+// Instrumenten-Lernpfad (F-129/F-130/F-131) — Nutzer-Vorgabe vom 24.09.2026, siehe Abschnitt 13
+// ---------------------------------------------------------------------------
+
+/**
+ * F-129: ein geführter, mehrstufiger Lernpfad je Instrument (z. B. Balanced Scorecard) und Kurs —
+ * bewusst EINE Zeile je Kurs+Instrument-Kombination mit dem GESAMTEN Pfad (Narrativ + sieben
+ * Stationen) als JSONB-Payload, keine relationale Zerlegung in content_item/answer_option (siehe
+ * packages/shared/src/schemas/instrument-lernpfad.ts für die ausführliche Begründung). Die
+ * Payload-Struktur wird ausschließlich auf Anwendungsebene validiert (Zod), analog zu
+ * content_item.payload (Architekturplanung Abschnitt 4.1) — die DB erzwingt sie bewusst nicht.
+ */
+export const instrumentLernpfad = pgTable(
+  "instrument_lernpfad",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    // Kein FK auf einen bestehenden content_item.type-Wert — Instrumente wie "bsc" existieren
+    // sowohl als eigener Fragetyp (F-114) als auch potenziell als Lernpfad; beide Konzepte bleiben
+    // bewusst unabhängig voneinander (siehe F-105-Abgrenzung im Anforderungskatalog).
+    instrumentType: text("instrument_type").notNull(),
+    title: text("title").notNull(),
+    isActive: boolean("is_active").notNull().default(true),
+    payload: jsonb("payload").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("instrument_lernpfad_kurs_id_instrument_type_key").on(table.kursId, table.instrumentType)],
+);
+
+/**
+ * F-129 (Abschluss-Selbsteinschätzung): "getrennt vom eigentlichen Pfad-Ergebnis gespeichert...
+ * unbewertet" — eigene, sehr schlanke Tabelle statt Wiederverwendung von `learning_event`
+ * (das ist an `content_item`/`is_correct` gebunden und fachlich für GEWERTETE Antworten gedacht,
+ * siehe Architekturplanung Abschnitt 4.4). Ein Upsert je (user, lernpfad) — ein erneuter Durchlauf
+ * ersetzt die vorherige Einschätzung, statt eine Historie aufzubauen (für "Vorher/Nachher-
+ * Vergleich bei einem späteren Durchlauf", siehe Pflege-Referenz-Content, reicht der jeweils
+ * letzte Wert; eine Verlaufsanzeige ist nicht Teil dieser ersten Umsetzung).
+ */
+export const instrumentLernpfadSelbsteinschaetzung = pgTable(
+  "instrument_lernpfad_selbsteinschaetzung",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    instrumentLernpfadId: uuid("instrument_lernpfad_id")
+      .notNull()
+      .references(() => instrumentLernpfad.id, { onDelete: "cascade" }),
+    rating: integer("rating").notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("instrument_lernpfad_selbsteinschaetzung_user_id_lernpfad_id_key").on(
+      table.userId,
+      table.instrumentLernpfadId,
+    ),
+    check("instrument_lernpfad_selbsteinschaetzung_rating_check", sql`${table.rating} between 0 and 10`),
+  ],
+);

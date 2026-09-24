@@ -519,7 +519,10 @@ export interface QuadrantItem {
   terms: { id: string; text: string }[];
 }
 
-function DraggableTerm({
+// Exportiert (F-129): InstrumentLernpfad.tsx nutzt diese beiden Bausteine unverändert wieder, statt
+// eine zweite Drag-and-Drop-Implementierung zu pflegen — konsistent mit der F-129-Architektur-
+// Entscheidung "Wiederverwendung wo möglich", siehe Anforderungskatalog.
+export function DraggableTerm({
   id,
   text,
   disabled,
@@ -551,7 +554,7 @@ function DraggableTerm({
   );
 }
 
-function DroppableZone({
+export function DroppableZone({
   id,
   label,
   className,

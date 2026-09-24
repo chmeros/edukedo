@@ -2,6 +2,7 @@ import {
   adminCreateCompanyAccountInputSchema,
   adminFindUserByEmailInputSchema,
   adminSetAiFeatureFlagsInputSchema,
+  adminSetInstrumentLernpfadeEnabledInputSchema,
   adminUpdateCompanyBillingInputSchema,
   createSponsorInputSchema,
   resolveContentReportInputSchema,
@@ -332,6 +333,10 @@ export const adminRouter = router({
           email: user.email,
           aiGradingEnabled: user.aiGradingEnabled,
           aiGenerationEnabled: user.aiGenerationEnabled,
+          // F-129/F-130: dieselbe Konto-Suche wird auch von InstrumentLernpfadAdminTools.tsx
+          // genutzt (siehe dort) — Feld hier mit ergänzt statt eines zweiten, fast identischen
+          // Suchendpunkts.
+          instrumentLernpfadeEnabled: user.instrumentLernpfadeEnabled,
         })
         .from(user)
         .where(eq(user.email, input.email))
@@ -356,6 +361,27 @@ export const adminRouter = router({
       const [updated] = await ctx.db
         .update(user)
         .set({ aiGradingEnabled: input.aiGradingEnabled, aiGenerationEnabled: input.aiGenerationEnabled })
+        .where(eq(user.id, input.userId))
+        .returning({ id: user.id });
+
+      if (!updated) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Konto wurde nicht gefunden." });
+      }
+
+      return { success: true };
+    }),
+
+  /**
+   * F-129/F-130 (Nutzer-Vorgabe vom 24.09.2026, siehe Abschnitt 13): admin-vergebbare
+   * Freischaltung der Instrumenten-Lernpfade — dieselbe Übergangslösung wie `setAiFeatureFlags`
+   * oben, solange der eigentliche Payment-Service (F-81) noch nicht existiert.
+   */
+  setInstrumentLernpfadeEnabled: roleProcedure("admin")
+    .input(adminSetInstrumentLernpfadeEnabledInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      const [updated] = await ctx.db
+        .update(user)
+        .set({ instrumentLernpfadeEnabled: input.instrumentLernpfadeEnabled })
         .where(eq(user.id, input.userId))
         .returning({ id: user.id });
 

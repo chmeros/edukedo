@@ -15,6 +15,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
     "db:seed": "tsx src/db/seed.ts",
+    "db:seed-instrument-lernpfad": "tsx src/db/seed-instrument-lernpfad.ts",
     "db:import-content": "tsx src/db/import-content.ts",
     "db:export-content": "tsx src/db/export-content.ts",
     "content:scaffold": "tsx src/db/scaffold-content.ts",
