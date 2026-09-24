@@ -5,6 +5,7 @@ import { InfoIcon } from "./Icons";
 import {
   BlanksSelectionStep,
   BlanksStep,
+  HierarchieStep,
   KurzantwortStep,
   MatchingStep,
   McMultiStep,
@@ -178,12 +179,28 @@ export function Vorschau() {
               submit={submitSortieren}
             />
           )}
-          {/* F-114 Teil 2: "gantt" nutzt denselben QuadrantStep unverändert mit. */}
+          {/* F-114 Teil 2: "gantt" nutzt denselben QuadrantStep unverändert mit. F-105
+              (ToDo-Punkt 6): eisenhower/pdca/risiko ebenso. */}
           {(current.type === "swot" ||
             current.type === "bsc" ||
             current.type === "ansoff" ||
+            current.type === "eisenhower" ||
+            current.type === "pdca" ||
+            current.type === "risiko" ||
             current.type === "gantt") && (
             <QuadrantStep
+              key={current.id}
+              item={current}
+              isLast={isLast}
+              onAnswered={handleAnswered}
+              onNext={next}
+              submit={submitQuadrant}
+            />
+          )}
+          {/* F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — eigene Baum-Darstellung,
+              nutzt aber dieselbe submitQuadrant-Mutation wie QuadrantStep. */}
+          {current.type === "hierarchie" && (
+            <HierarchieStep
               key={current.id}
               item={current}
               isLast={isLast}

@@ -124,7 +124,7 @@ export type ParsedQuizItem =
       items: { text: string }[];
     }
   | {
-      type: "swot" | "bsc" | "ansoff";
+      type: "swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko";
       prompt: string;
       explanation: string;
       difficulty: string;
@@ -139,6 +139,16 @@ export type ParsedQuizItem =
       bloom: Bloom | null;
       periods: string[];
       terms: { text: string; periodIndex: number }[];
+    }
+  | {
+      type: "hierarchie";
+      prompt: string;
+      explanation: string;
+      difficulty: string;
+      bloom: Bloom | null;
+      root: string;
+      nodes: { label: string; parentIndex: number | null }[];
+      terms: { text: string; nodeIndex: number }[];
     }
   | {
       type: "luecken";
@@ -171,7 +181,7 @@ export type ParsedQuizItem =
 /** F-114: Anzeige-Beschriftung → fester Zonen-Schlüssel je Modell (siehe QUADRANT_MODELS,
  * packages/shared/src/quiz-logic.ts) — das Content-Zwischenformat verwendet die deutschen
  * Beschriftungen, dieselben, die auch im Frontend angezeigt werden, statt der internen Keys. */
-const QUADRANT_ZONE_LABELS: Record<"swot" | "bsc" | "ansoff", Record<string, string>> = {
+const QUADRANT_ZONE_LABELS: Record<"swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko", Record<string, string>> = {
   swot: { Stärken: "staerken", Schwächen: "schwaechen", Chancen: "chancen", Risiken: "risiken" },
   bsc: {
     Finanzen: "finanzen",
@@ -184,6 +194,21 @@ const QUADRANT_ZONE_LABELS: Record<"swot" | "bsc" | "ansoff", Record<string, str
     Marktentwicklung: "marktentwicklung",
     Produktentwicklung: "produktentwicklung",
     Diversifikation: "diversifikation",
+  },
+  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+  // dieselbe Beschriftung → Schlüssel-Abbildung wie oben, siehe QUADRANT_MODELS in quiz-logic.ts.
+  eisenhower: {
+    "Sofort erledigen": "sofort",
+    Terminieren: "terminieren",
+    Delegieren: "delegieren",
+    Streichen: "streichen",
+  },
+  pdca: { Plan: "plan", Do: "do", Check: "check", Act: "act" },
+  risiko: {
+    Vermeiden: "vermeiden",
+    Absichern: "absichern",
+    Beobachten: "beobachten",
+    Akzeptieren: "akzeptieren",
   },
 };
 
@@ -262,8 +287,25 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
   // F-114: SWOT/BSC/Ansoff — Begriff und Zonen-Beschriftung durch "→" getrennt, die
   // Beschriftung wird über QUADRANT_ZONE_LABELS auf den festen internen Zonen-Schlüssel
   // abgebildet (siehe QUADRANT_MODELS, quiz-logic.ts).
-  if (kind === "SWOT-Matrix" || kind === "Balanced Scorecard" || kind === "Ansoff-Matrix") {
-    const modelByKind = { "SWOT-Matrix": "swot", "Balanced Scorecard": "bsc", "Ansoff-Matrix": "ansoff" } as const;
+  if (
+    kind === "SWOT-Matrix" ||
+    kind === "Balanced Scorecard" ||
+    kind === "Ansoff-Matrix" ||
+    kind === "Eisenhower-Matrix" ||
+    kind === "PDCA-Zyklus" ||
+    kind === "Risikomatrix"
+  ) {
+    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+    // dieselbe Struktur wie SWOT/BSC/Ansoff, drei weitere Modelle mit fest im Code hinterlegten
+    // Zonen (QUADRANT_ZONE_LABELS oben).
+    const modelByKind = {
+      "SWOT-Matrix": "swot",
+      "Balanced Scorecard": "bsc",
+      "Ansoff-Matrix": "ansoff",
+      "Eisenhower-Matrix": "eisenhower",
+      "PDCA-Zyklus": "pdca",
+      Risikomatrix: "risiko",
+    } as const;
     const model = modelByKind[kind];
     const prompt = extractField(block, "Anweisung") ?? "";
     const terms = [...block.matchAll(/^- (.+?) → (.+)$/gm)].map((match) => {
@@ -298,6 +340,42 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
       return { text, periodIndex };
     });
     return { type: "gantt", prompt, explanation, difficulty, bloom, periods, terms };
+  }
+
+  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-Darstellung",
+  // siehe Architekturplanung Abschnitt 13): Projektstrukturplan/Organigramm. Wie Gantt sind die
+  // Zonen ("Knoten") content-autoriert; anders als Gantt bilden sie zusätzlich einen echten Baum
+  // — jede `- Label (unter: ÜbergeordnetesLabel)`-Zeile referenziert entweder das feste `Wurzel`-
+  // Label oder ein WEITER OBEN im Block bereits definiertes Knoten-Label (verhindert Zyklen/
+  // Vorwärtsreferenzen strukturell). Begriffe verwenden dasselbe `→`-Format wie bei den übrigen
+  // Zonen-Typen, hier gegen ein Knoten-Label statt eines Zonen-Schlüssels aufgelöst.
+  if (kind === "Hierarchie") {
+    const prompt = extractField(block, "Anweisung") ?? "";
+    const root = extractField(block, "Wurzel") ?? "";
+    const nodeLabels: string[] = [];
+    const nodes = [...block.matchAll(/^- (.+?) \(unter: (.+?)\)$/gm)].map((match) => {
+      const label = match[1]!.trim();
+      const parentLabel = match[2]!.trim();
+      let parentIndex: number | null = null;
+      if (parentLabel !== "Wurzel") {
+        parentIndex = nodeLabels.indexOf(parentLabel);
+        if (parentIndex === -1) {
+          throw new Error(`Unbekannte übergeordnete Ebene "${parentLabel}" für Hierarchie im Block "${label}".`);
+        }
+      }
+      nodeLabels.push(label);
+      return { label, parentIndex };
+    });
+    const terms = [...block.matchAll(/^- (.+?) → (.+)$/gm)].map((match) => {
+      const text = match[1]!.trim();
+      const nodeLabel = match[2]!.trim();
+      const nodeIndex = nodeLabels.indexOf(nodeLabel);
+      if (nodeIndex === -1) {
+        throw new Error(`Unbekannte Ebene "${nodeLabel}" für Hierarchie im Block "${text}".`);
+      }
+      return { text, nodeIndex };
+    });
+    return { type: "hierarchie", prompt, explanation, difficulty, bloom, root, nodes, terms };
   }
 
   if (kind === "Lückentext") {

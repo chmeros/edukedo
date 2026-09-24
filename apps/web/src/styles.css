@@ -1561,6 +1561,43 @@ details[open] > summary.disclosure::before {
   cursor: default;
 }
 
+/* F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-Darstellung",
+   siehe Architekturplanung Abschnitt 13): QuizSteps.tsx HierarchieStep — dieselben
+   Drop-Zonen/Begriffe wie .quadrant-zone/.quadrant-term (F-114), aber als eingerückter Baum
+   statt eines flachen Rasters. Bewusst eine simple Einrückung mit Führungslinie (wie eine
+   Ordner-/Dateibaum-Ansicht) statt echter Verbindungslinien zwischen Kästen — robust gegenüber
+   beliebiger Baumbreite/-tiefe, ohne fragile Positionsberechnung. */
+.hierarchie-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hierarchie-root {
+  align-self: flex-start;
+  padding: 8px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+.hierarchie-node {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hierarchie-children {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 14px;
+  padding-left: 16px;
+  border-left: 1.5px dashed var(--line);
+}
+
 /* ---------- Fortschritt ---------- */
 /* Redesign 17.09.2026: nutzt die verbreiterte .shell (siehe oben) für ein 2-spaltiges Raster der
    Fachgebiete auf breiten Bildschirmen, statt einer einzigen, auf großen Screens sehr lang

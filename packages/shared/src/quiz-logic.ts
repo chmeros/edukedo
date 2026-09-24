@@ -1,5 +1,6 @@
 import {
   ganttPayloadSchema,
+  hierarchiePayloadSchema,
   kurzantwortPayloadSchema,
   lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
@@ -108,6 +109,40 @@ export const QUADRANT_MODELS = {
       { key: "diversifikation", label: "Diversifikation" },
     ],
   },
+  // F-105 (ToDo-Punkt 6 vom 23.09.2026, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+  // Abschnitt 13): drei weitere Instrumente mit derselben "N feste Zonen, Begriffe hineinziehen"-
+  // Mechanik wie swot/bsc/ansoff — reine Datenerweiterung, kein neuer Code nötig (Shape-/Prüf-/
+  // UI-Logik ist bereits vollständig generisch über QUADRANT_MODELS).
+  eisenhower: {
+    label: "Eisenhower-Matrix",
+    zones: [
+      { key: "sofort", label: "Dringend & wichtig — sofort erledigen" },
+      { key: "terminieren", label: "Nicht dringend & wichtig — terminieren" },
+      { key: "delegieren", label: "Dringend & unwichtig — delegieren" },
+      { key: "streichen", label: "Nicht dringend & unwichtig — streichen" },
+    ],
+  },
+  pdca: {
+    label: "PDCA-Zyklus",
+    zones: [
+      { key: "plan", label: "Plan" },
+      { key: "do", label: "Do" },
+      { key: "check", label: "Check" },
+      { key: "act", label: "Act" },
+    ],
+  },
+  // Vereinfacht auf 2×2 (statt der üblichen 3×3 mit "mittel"-Stufe), damit sich die Risikomatrix
+  // in dieselbe feste 4-Zonen-Mechanik einfügt wie die übrigen QUADRANT_MODELS — bewusste
+  // Vereinfachung für eine Lernübung, keine vollständige Risikobewertungsmethodik.
+  risiko: {
+    label: "Risikomatrix",
+    zones: [
+      { key: "vermeiden", label: "Hohe Wahrscheinlichkeit & hohe Auswirkung — vermeiden" },
+      { key: "absichern", label: "Niedrige Wahrscheinlichkeit & hohe Auswirkung — absichern" },
+      { key: "beobachten", label: "Hohe Wahrscheinlichkeit & niedrige Auswirkung — beobachten" },
+      { key: "akzeptieren", label: "Niedrige Wahrscheinlichkeit & niedrige Auswirkung — akzeptieren" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];
@@ -123,6 +158,17 @@ export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
  * generisch über `groupKey`/`zoneKey` und wird für "gantt" UNVERÄNDERT wiederverwendet.
  */
 export const GANTT_QUIZ_TYPE = "gantt" as const;
+
+/**
+ * F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-Darstellung",
+ * siehe Architekturplanung Abschnitt 13): Projektstrukturplan/Organigramm. Wie GANTT_QUIZ_TYPE
+ * sind die Zonen hier content-autoriert statt fest im Code (hierarchiePayloadSchema) — anders als
+ * bei Gantt bilden sie aber einen echten Baum (jeder Knoten kennt seinen optionalen übergeordneten
+ * Knoten, siehe hierarchieNodeSchema) statt einer flachen Liste. `checkQuadrantAnswer` bleibt
+ * dennoch UNVERÄNDERT wiederverwendbar: die Prüfung kennt nur "Begriff X → Zonen-Schlüssel Y",
+ * nicht die Baumstruktur selbst — die ist reines Rendering (siehe QuizSteps.tsx HierarchieStep).
+ */
+export const HIERARCHIE_QUIZ_TYPE = "hierarchie" as const;
 
 /**
  * F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice, Nutzer-Entscheidung
@@ -168,6 +214,14 @@ export type ShapedQuizItem =
       type: QuadrantQuizType | typeof GANTT_QUIZ_TYPE;
       prompt: string;
       zones: { key: string; label: string }[];
+      terms: { id: string; text: string }[];
+    }
+  | {
+      id: string;
+      type: typeof HIERARCHIE_QUIZ_TYPE;
+      prompt: string;
+      root: string;
+      zones: { key: string; label: string; parentKey: string | null }[];
       terms: { id: string; text: string }[];
     }
   | { id: string; type: "sortieren"; prompt: string; items: { id: string; text: string }[] };
@@ -274,6 +328,25 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
       type: GANTT_QUIZ_TYPE,
       prompt: item.prompt,
       zones: payload.periods,
+      terms: shuffle(
+        options
+          .filter((option) => option.contentItemId === item.id)
+          .map((option) => ({ id: option.id, text: option.text })),
+      ),
+    };
+  }
+
+  // F-105 (ToDo-Punkt 6): wie GANTT_QUIZ_TYPE oben, aber zusätzlich `root` und je Zone ein
+  // `parentKey` — beide kommen unverändert aus dem content-autorierten payload, das Formen
+  // selbst unterscheidet sich nicht von den übrigen Zonen-Typen (Begriffe gemischt ausgeben).
+  if (item.type === HIERARCHIE_QUIZ_TYPE) {
+    const payload = hierarchiePayloadSchema.parse(item.payload);
+    return {
+      id: item.id,
+      type: HIERARCHIE_QUIZ_TYPE,
+      prompt: item.prompt,
+      root: payload.root,
+      zones: payload.nodes,
       terms: shuffle(
         options
           .filter((option) => option.contentItemId === item.id)

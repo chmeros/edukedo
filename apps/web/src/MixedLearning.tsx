@@ -13,6 +13,7 @@ import { QuizCountControl } from "./QuizCountControl";
 import {
   BlanksSelectionStep,
   BlanksStep,
+  HierarchieStep,
   KurzantwortStep,
   MatchingStep,
   McMultiStep,
@@ -415,11 +416,15 @@ export function MixedLearning({
       )}
       {/* F-114: bewusst nur online, siehe Architekturplanung Abschnitt 13 — offline kommt diese
           Frage über offlineRound gar nicht erst vor. F-114 Teil 2: "gantt" nutzt denselben
-          QuadrantStep/submitQuadrantMutation unverändert mit. */}
+          QuadrantStep/submitQuadrantMutation unverändert mit. F-105 (ToDo-Punkt 6):
+          eisenhower/pdca/risiko ebenso. */}
       {current.kind === "quiz" &&
         (current.item.type === "swot" ||
           current.item.type === "bsc" ||
           current.item.type === "ansoff" ||
+          current.item.type === "eisenhower" ||
+          current.item.type === "pdca" ||
+          current.item.type === "risiko" ||
           current.item.type === "gantt") && (
           <QuadrantStep
             key={current.item.id}
@@ -431,6 +436,19 @@ export function MixedLearning({
             canReport
           />
         )}
+      {/* F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — eigene Baum-Darstellung, nutzt
+          aber dieselbe submitQuadrantMutation wie QuadrantStep. */}
+      {current.kind === "quiz" && current.item.type === "hierarchie" && (
+        <HierarchieStep
+          key={current.item.id}
+          item={current.item}
+          isLast={isLast}
+          onAnswered={handleQuizAnswered}
+          onNext={next}
+          submit={submitQuadrantMutation}
+          canReport
+        />
+      )}
       {current.kind === "quiz" && current.item.type === "luecken" && (
         <BlanksStep
           key={current.item.id}

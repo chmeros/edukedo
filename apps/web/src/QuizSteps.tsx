@@ -678,6 +678,184 @@ export function QuadrantStep({
 }
 
 /**
+ * F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-Darstellung"
+ * statt einer vereinfachten flachen Ebenen-Zuordnung, siehe Architekturplanung Abschnitt 13):
+ * Projektstrukturplan/Organigramm. Wiederverwendet DraggableTerm/DroppableZone/DndContext sowie
+ * dieselben `.quadrant-zone`/`.quadrant-term`-CSS-Klassen von QuadrantStep — die einzige
+ * strukturelle Neuerung ist das Layout: statt eines flachen Rasters wird `item.zones` (jede Zone
+ * kennt ihr optionales `parentKey`) rekursiv als eingerückter Baum unter der festen Wurzel
+ * (`item.root`) gerendert (`.hierarchie-children`, siehe styles.css). Die Prüfung selbst ist
+ * IDENTISCH zu QuadrantStep — `checkQuadrantAnswer` kennt nur "Begriff → Zonen-Schlüssel", nicht
+ * die Baumstruktur, submit.mutate reicht daher genau dasselbe `placements`-Shape durch.
+ */
+const HIERARCHIE_POOL_ID = "_pool";
+
+export interface HierarchieItem {
+  id: string;
+  prompt: string;
+  root: string;
+  zones: { key: string; label: string; parentKey: string | null }[];
+  terms: { id: string; text: string }[];
+}
+
+function HierarchieBranch({
+  zone,
+  childrenByParent,
+  item,
+  placements,
+  feedback,
+}: {
+  zone: { key: string; label: string; parentKey: string | null };
+  childrenByParent: Map<string | null, { key: string; label: string; parentKey: string | null }[]>;
+  item: HierarchieItem;
+  placements: Record<string, string | null>;
+  feedback: { results: Record<string, boolean> } | null;
+}) {
+  const children = childrenByParent.get(zone.key) ?? [];
+  return (
+    <div className="hierarchie-node">
+      <DroppableZone id={zone.key} label={zone.label} className="quadrant-zone">
+        {item.terms
+          .filter((term) => placements[term.id] === zone.key)
+          .map((term) => (
+            <DraggableTerm
+              key={term.id}
+              id={term.id}
+              text={term.text}
+              disabled={feedback !== null}
+              state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
+            />
+          ))}
+      </DroppableZone>
+      {children.length > 0 && (
+        <div className="hierarchie-children">
+          {children.map((child) => (
+            <HierarchieBranch
+              key={child.key}
+              zone={child}
+              childrenByParent={childrenByParent}
+              item={item}
+              placements={placements}
+              feedback={feedback}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function HierarchieStep({
+  item,
+  isLast,
+  onAnswered,
+  onNext,
+  submit,
+  canReport,
+}: StepProps<
+  HierarchieItem,
+  { contentItemId: string; placements: { optionId: string; zoneKey: string }[] },
+  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number }
+>) {
+  const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
+    Object.fromEntries(item.terms.map((term) => [term.id, null])),
+  );
+  const [feedback, setFeedback] = useState<{
+    results: Record<string, boolean>;
+    correctZones: Record<string, string>;
+    correctCount: number;
+    total: number;
+    motivation: string;
+  } | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
+
+  const childrenByParent = new Map<string | null, typeof item.zones>();
+  for (const zone of item.zones) {
+    const siblings = childrenByParent.get(zone.parentKey) ?? [];
+    siblings.push(zone);
+    childrenByParent.set(zone.parentKey, siblings);
+  }
+  const topLevelZones = childrenByParent.get(null) ?? [];
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    const termId = String(event.active.id);
+    const targetId = event.over ? String(event.over.id) : HIERARCHIE_POOL_ID;
+    setPlacements((current) => ({ ...current, [termId]: targetId === HIERARCHIE_POOL_ID ? null : targetId }));
+  }
+
+  const allPlaced = item.terms.every((term) => placements[term.id] !== null);
+
+  function checkAnswer() {
+    submit.mutate(
+      {
+        contentItemId: item.id,
+        placements: item.terms.map((term) => ({ optionId: term.id, zoneKey: placements[term.id]! })),
+      },
+      {
+        onSuccess: (result) => {
+          setFeedback({ ...result, motivation: pickMotivation(result.correctCount === result.total) });
+          onAnswered(result.correctCount === result.total);
+        },
+      },
+    );
+  }
+
+  return (
+    <div className="stack">
+      <div className="quiz-question">{item.prompt}</div>
+      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+        <DroppableZone id={HIERARCHIE_POOL_ID} className="quadrant-pool">
+          {item.terms
+            .filter((term) => !placements[term.id])
+            .map((term) => (
+              <DraggableTerm key={term.id} id={term.id} text={term.text} disabled={feedback !== null} />
+            ))}
+        </DroppableZone>
+        <div className="hierarchie-tree">
+          <div className="hierarchie-root">{item.root}</div>
+          <div className="hierarchie-children">
+            {topLevelZones.map((zone) => (
+              <HierarchieBranch
+                key={zone.key}
+                zone={zone}
+                childrenByParent={childrenByParent}
+                item={item}
+                placements={placements}
+                feedback={feedback}
+              />
+            ))}
+          </div>
+        </div>
+      </DndContext>
+      {feedback ? (
+        <>
+          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+            {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
+          </p>
+          <p className="field-hint">{feedback.motivation}</p>
+          <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
+            {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!allPlaced || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
+      )}
+      {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
+      {canReport && <ContentActions contentItemId={item.id} />}
+    </div>
+  );
+}
+
+/**
  * F-113 Teil 2 (Sortieren, Nutzer-Feedback vom 18.09.2026, erweitert F-21): vier vorgegebene
  * Elemente per Drag-and-Drop in die richtige Reihenfolge bringen — mechanisch analog zu
  * QuadrantStep (Pool + feste Zielfelder), nur sind die "Zonen" hier vier nummerierte Positionen

@@ -2,6 +2,9 @@ import {
   activeKursInputSchema,
   dueCardsInputSchema,
   fachgespraechFragePayloadSchema,
+  GANTT_QUIZ_TYPE,
+  HIERARCHIE_QUIZ_TYPE,
+  QUADRANT_QUIZ_TYPES,
   searchContentInputSchema,
   theoriePayloadSchema,
   themaCardsInputSchema,
@@ -16,6 +19,12 @@ import { protectedProcedure, router } from "../trpc";
 export function escapeLikePattern(value: string): string {
   return value.replace(/[\\%_]/g, (char) => `\\${char}`);
 }
+
+// F-105 (ToDo-Punkt 6 vom 23.09.2026, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+// Abschnitt 13): alle Content-Typen, die ein "Instrument" im Werkzeugkasten-Katalog
+// (Instrumente.tsx) repräsentieren — dieselbe Typliste, die auch quiz.ts/preview.ts/progress.ts
+// für die Zonen-Zuordnungsfragen verwenden (QUADRANT_QUIZ_TYPES + Gantt + Hierarchie).
+const INSTRUMENT_TYPES = [...QUADRANT_QUIZ_TYPES, GANTT_QUIZ_TYPE, HIERARCHIE_QUIZ_TYPE];
 
 export const contentRouter = router({
   /**
@@ -235,5 +244,44 @@ export const contentRouter = router({
       .limit(30);
 
     return rows;
+  }),
+
+  /**
+   * F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+   * kursspezifischer Werkzeugkasten-Katalog im Tab "Instrumente" — je Instrument-Typ das
+   * früheste Thema mit mindestens einem aktiven Content-Item dieses Typs im gewählten Kurs.
+   * Bestimmt, ob und wohin "Zu diesem Instrument lernen" springt (bestehender F-27-Themenfilter,
+   * siehe App.tsx). Ein Instrument ganz ohne Content in diesem Kurs bleibt im (statischen)
+   * Frontend-Katalog sichtbar, aber ohne Sprungziel — der Mathe-Kurs und der Fachwirt-Kurs haben
+   * naturgemäß unterschiedliche Instrumente mit Content hinterlegt.
+   */
+  instruments: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const rows = await ctx.db
+      .select({
+        type: contentItem.type,
+        themaId: thema.id,
+        themaTitle: thema.title,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .where(and(inArray(contentItem.type, INSTRUMENT_TYPES), eq(contentItem.isActive, true)))
+      .orderBy(asc(contentItem.createdAt));
+
+    const byType: Record<string, { themaId: string; themaTitle: string }> = {};
+    for (const row of rows) {
+      if (!byType[row.type]) {
+        byType[row.type] = { themaId: row.themaId, themaTitle: row.themaTitle };
+      }
+    }
+    return byType;
   }),
 });

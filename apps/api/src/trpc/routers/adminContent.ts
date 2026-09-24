@@ -8,6 +8,7 @@ import {
   fachgespraechFragePayloadSchema,
   fallaufgabePayloadSchema,
   ganttPayloadSchema,
+  hierarchiePayloadSchema,
   kurzantwortPayloadSchema,
   lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
@@ -95,9 +96,14 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
     // F-114: swot/bsc/ansoff sind eine visuelle Zuordnungs-Variante — dieselbe answer_option-
     // Tabelle wie "zuordnung", aber `groupKey` trägt hier den (festen) Zonen-Schlüssel des
     // Begriffs statt einer Paar-ID, und `side` bleibt ungesetzt (nur zwei Spalten kennen Seiten).
+    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+    // eisenhower/pdca/risiko teilen sich denselben Formular-Aufbau wie swot/bsc/ansoff.
     case "swot":
     case "bsc":
     case "ansoff":
+    case "eisenhower":
+    case "pdca":
+    case "risiko":
       return {
         prompt: input.prompt,
         explanation: input.explanation ?? null,
@@ -109,6 +115,27 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
           sortOrder: index,
         })),
       };
+    // F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — wie gantt (Zonen content-autoriert),
+    // aber die Zonen bilden hier zusätzlich einen Baum (`parentKey`). `parentIndex` referenziert
+    // `input.nodes` per Array-Index (analog zu `term.periodIndex` bei Gantt).
+    case "hierarchie": {
+      const nodes = input.nodes.map((node, index) => ({
+        key: `n${index}`,
+        label: node.label,
+        parentKey: node.parentIndex === null ? null : `n${node.parentIndex}`,
+      }));
+      return {
+        prompt: input.prompt,
+        explanation: input.explanation ?? null,
+        payload: { root: input.root, nodes },
+        answerOptions: input.terms.map((term, index) => ({
+          text: term.text,
+          isCorrect: false,
+          groupKey: nodes[term.nodeIndex]!.key,
+          sortOrder: index,
+        })),
+      };
+    }
     // F-114 Teil 2 (Gantt-Diagramm): wie swot/bsc/ansoff, aber die Zonen (hier: Zeitabschnitte)
     // kommen aus dem Formular selbst statt aus QUADRANT_MODELS — deshalb NICHT payload: {},
     // sondern die generierten Schlüssel+Beschriftungen im payload abgelegt (ganttPayloadSchema).
@@ -310,7 +337,15 @@ export const adminContentRouter = router({
     }
 
     // F-114: swot/bsc/ansoff laden genau wie zuordnung, aber flach als terms (kein Paar-Konzept).
-    if (item.type === "swot" || item.type === "bsc" || item.type === "ansoff") {
+    // F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko laden identisch dazu.
+    if (
+      item.type === "swot" ||
+      item.type === "bsc" ||
+      item.type === "ansoff" ||
+      item.type === "eisenhower" ||
+      item.type === "pdca" ||
+      item.type === "risiko"
+    ) {
       const rows = await ctx.db
         .select()
         .from(answerOption)
@@ -322,6 +357,33 @@ export const adminContentRouter = router({
         prompt: item.prompt,
         explanation: item.explanation,
         terms: rows.map((row) => ({ text: row.text, zoneKey: row.groupKey ?? "" })),
+      };
+    }
+
+    // F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — wie gantt (Zonen-Beschriftungen aus
+    // dem payload), zusätzlich wird `parentKey` zurück auf einen `parentIndex` im Formular
+    // aufgelöst (Umkehrung von prepareContent oben).
+    if (item.type === "hierarchie") {
+      const payload = hierarchiePayloadSchema.parse(item.payload);
+      const rows = await ctx.db
+        .select()
+        .from(answerOption)
+        .where(eq(answerOption.contentItemId, item.id))
+        .orderBy(asc(answerOption.sortOrder));
+      return {
+        type: "hierarchie" as const,
+        ...common,
+        prompt: item.prompt,
+        explanation: item.explanation,
+        root: payload.root,
+        nodes: payload.nodes.map((node) => ({
+          label: node.label,
+          parentIndex: node.parentKey === null ? null : payload.nodes.findIndex((candidate) => candidate.key === node.parentKey),
+        })),
+        terms: rows.map((row) => ({
+          text: row.text,
+          nodeIndex: Math.max(0, payload.nodes.findIndex((node) => node.key === row.groupKey)),
+        })),
       };
     }
 

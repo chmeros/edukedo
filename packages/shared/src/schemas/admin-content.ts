@@ -46,6 +46,17 @@ const quadrantTermFormSchema = z.object({ text: z.string().min(1).max(300), zone
 // (anders als bei swot/bsc/ansoff) selbst Teil des Formulars, nicht fest im Code hinterlegt,
 // ein Index ist daher einfacher zu validieren als ein erst noch zu erzeugender Schlüssel-String.
 const ganttTermFormSchema = z.object({ text: z.string().min(1).max(300), periodIndex: z.number().int().min(0) });
+// F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+// Projektstrukturplan/Organigramm — Knoten referenzieren ihren übergeordneten Knoten per Index
+// auf einen FRÜHEREN Eintrag desselben `nodes`-Arrays (analog zu `periodIndex` bei Gantt), `null`
+// heißt "direkt unter der Wurzel". Die "nur frühere Einträge"-Regel (siehe .refine() unten)
+// macht einen Zyklus in der Formular-Eingabe strukturell unmöglich, ohne eine eigene
+// Zyklen-Erkennung zu benötigen.
+const hierarchieNodeFormSchema = z.object({
+  label: z.string().min(1).max(150),
+  parentIndex: z.number().int().min(0).nullable(),
+});
+const hierarchieTermFormSchema = z.object({ text: z.string().min(1).max(300), nodeIndex: z.number().int().min(0) });
 const fallaufgabePartFormSchema = z.object({
   prompt: z.string().min(1).max(2000),
   points: z.number().positive(),
@@ -156,6 +167,41 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     terms: z.array(quadrantTermFormSchema).min(4).max(20),
     ...commonFormFields,
   }),
+  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+  // dieselbe Formularstruktur wie swot/bsc/ansoff — reine Erweiterung um drei weitere Modelle.
+  z.object({
+    type: z.literal("eisenhower"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("pdca"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("risiko"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  // F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — `nodes` bilden den Baum (Label +
+  // optionaler Index auf einen früheren Knoten als Elternteil), `terms` referenzieren einen
+  // Knoten per Index (analog zu `periodIndex` bei Gantt).
+  z.object({
+    type: z.literal("hierarchie"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    root: z.string().min(1).max(150),
+    nodes: z.array(hierarchieNodeFormSchema).min(2).max(12),
+    terms: z.array(hierarchieTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
   // F-114 Teil 2 (Gantt-Diagramm, Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung, siehe
   // Architekturplanung Abschnitt 13): wie swot/bsc/ansoff, aber die Zeitabschnitte selbst sind
   // Teil des Formulars (`periods`) statt fest im Code — 2–6 Abschnitte, analog zur Zonenzahl der
@@ -240,8 +286,17 @@ export const adminContentItemFormSchema = adminContentItemFormUnion
   // der beim Lernen nie als richtig auswertbar wäre.
   .refine(
     (data) =>
-      (data.type !== "swot" && data.type !== "bsc" && data.type !== "ansoff") ||
-      data.terms.every((term) => QUADRANT_MODELS[data.type as "swot" | "bsc" | "ansoff"].zones.some((zone) => zone.key === term.zoneKey)),
+      (data.type !== "swot" &&
+        data.type !== "bsc" &&
+        data.type !== "ansoff" &&
+        data.type !== "eisenhower" &&
+        data.type !== "pdca" &&
+        data.type !== "risiko") ||
+      data.terms.every((term) =>
+        QUADRANT_MODELS[data.type as "swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko"].zones.some(
+          (zone) => zone.key === term.zoneKey,
+        ),
+      ),
     { message: "Jeder Begriff muss einer gültigen Zone dieses Modells zugeordnet sein.", path: ["terms"] },
   )
   // F-114 Teil 2: jeder Begriff muss einen tatsächlich vorhandenen Zeitabschnitt referenzieren —
@@ -249,6 +304,19 @@ export const adminContentItemFormSchema = adminContentItemFormUnion
   .refine(
     (data) => data.type !== "gantt" || data.terms.every((term) => term.periodIndex < data.periods.length),
     { message: "Jeder Begriff muss einem vorhandenen Zeitabschnitt zugeordnet sein.", path: ["terms"] },
+  )
+  // F-105 (ToDo-Punkt 6): jeder Knoten darf nur einen FRÜHEREN Knoten desselben Arrays als
+  // Elternteil referenzieren (verhindert Zyklen strukturell, siehe hierarchieNodeFormSchema-Doku)
+  // — und jeder Begriff muss einen tatsächlich vorhandenen Knoten referenzieren.
+  .refine(
+    (data) =>
+      data.type !== "hierarchie" ||
+      data.nodes.every((node, index) => node.parentIndex === null || node.parentIndex < index),
+    { message: "Ein Knoten kann nur einem bereits weiter oben eingetragenen Knoten untergeordnet werden.", path: ["nodes"] },
+  )
+  .refine(
+    (data) => data.type !== "hierarchie" || data.terms.every((term) => term.nodeIndex < data.nodes.length),
+    { message: "Jeder Begriff muss einem vorhandenen Knoten zugeordnet sein.", path: ["terms"] },
   );
 export type AdminContentItemForm = z.infer<typeof adminContentItemFormUnion>;
 

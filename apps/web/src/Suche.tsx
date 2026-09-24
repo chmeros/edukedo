@@ -18,6 +18,11 @@ export const TYPE_LABELS: Record<string, string> = {
   swot: "Quiz · SWOT-Matrix",
   bsc: "Quiz · Balanced Scorecard",
   ansoff: "Quiz · Ansoff-Matrix",
+  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13).
+  eisenhower: "Quiz · Eisenhower-Matrix",
+  pdca: "Quiz · PDCA-Zyklus",
+  risiko: "Quiz · Risikomatrix",
+  hierarchie: "Quiz · Projektstrukturplan/Organigramm",
   gantt: "Quiz · Gantt-Diagramm",
   luecken: "Quiz · Lückentext",
   luecken_auswahl: "Quiz · Lückentext (Wortauswahl)",

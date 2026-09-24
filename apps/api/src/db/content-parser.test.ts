@@ -418,6 +418,68 @@ describe("parseQuizBlock", () => {
     expect(() => parseQuizBlock(block)).toThrow(/Unbekannter Zeitabschnitt/);
   });
 
+  it("parst Hierarchie-Blöcke (Projektstrukturplan/Organigramm) als echten, mehrstufigen Baum", () => {
+    const block = [
+      "#### Q-1.3-20 · Hierarchie",
+      "**Anweisung:** Ordne die Positionen der Projektorganisation in die richtige Hierarchie ein.",
+      "**Wurzel:** Projektleitung",
+      "- Teilprojekt A (unter: Wurzel)",
+      "- Teilprojekt B (unter: Wurzel)",
+      "- Arbeitspaket A1 (unter: Teilprojekt A)",
+      "- Anforderungsanalyse → Arbeitspaket A1",
+      "- Budgetplanung → Teilprojekt B",
+      "- Ressourcenplanung → Teilprojekt B",
+      "- Konzept erstellen → Teilprojekt A",
+      "**Erklärung:** Ein Projektstrukturplan gliedert ein Projekt in Teilprojekte und Arbeitspakete.",
+      "`schwierigkeit: mittel` · `bloom: anwenden`",
+    ].join("\n");
+    const parsed = parseQuizBlock(block);
+    expect(parsed?.type).toBe("hierarchie");
+    if (parsed?.type === "hierarchie") {
+      expect(parsed.root).toBe("Projektleitung");
+      expect(parsed.nodes).toEqual([
+        { label: "Teilprojekt A", parentIndex: null },
+        { label: "Teilprojekt B", parentIndex: null },
+        // Zwei Ebenen tief: "Arbeitspaket A1" referenziert "Teilprojekt A" (Index 0), nicht die
+        // Wurzel — der Fall, den eine flache Zonen-Zuordnung nicht abbilden könnte.
+        { label: "Arbeitspaket A1", parentIndex: 0 },
+      ]);
+      expect(parsed.terms).toEqual([
+        { text: "Anforderungsanalyse", nodeIndex: 2 },
+        { text: "Budgetplanung", nodeIndex: 1 },
+        { text: "Ressourcenplanung", nodeIndex: 1 },
+        { text: "Konzept erstellen", nodeIndex: 0 },
+      ]);
+    }
+  });
+
+  it("wirft bei einer unbekannten übergeordneten Ebene statt eine ungültige Baumstruktur stillschweigend zu erzeugen", () => {
+    const block = [
+      "#### Q-1.3-21 · Hierarchie",
+      "**Anweisung:** ...",
+      "**Wurzel:** Projektleitung",
+      "- Teilprojekt A (unter: Wurzel)",
+      "- Arbeitspaket X1 (unter: Nicht existierendes Teilprojekt)",
+      "- Begriff → Teilprojekt A",
+      "**Erklärung:** ...",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    expect(() => parseQuizBlock(block)).toThrow(/Unbekannte übergeordnete Ebene/);
+  });
+
+  it("wirft bei einem Begriff mit unbekannter Ebene statt eine ungültige Zuordnung stillschweigend zu erzeugen", () => {
+    const block = [
+      "#### Q-1.3-22 · Hierarchie",
+      "**Anweisung:** ...",
+      "**Wurzel:** Projektleitung",
+      "- Teilprojekt A (unter: Wurzel)",
+      "- Begriff → Unbekannte Ebene",
+      "**Erklärung:** ...",
+      "`schwierigkeit: mittel`",
+    ].join("\n");
+    expect(() => parseQuizBlock(block)).toThrow(/Unbekannte Ebene/);
+  });
+
   it("parst Lückentext-mit-Wortauswahl-Blöcke inkl. zusätzlicher, nicht benötigter Begriffe", () => {
     const block = [
       "#### Q-1.1-01 · Lückentext (Wortauswahl)",

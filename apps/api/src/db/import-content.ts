@@ -332,7 +332,17 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           {},
           parsed.items.map((sortierenItem, index) => ({ text: sortierenItem.text, isCorrect: false, sortOrder: index })),
         );
-      } else if (parsed.type === "swot" || parsed.type === "bsc" || parsed.type === "ansoff") {
+      } else if (
+        parsed.type === "swot" ||
+        parsed.type === "bsc" ||
+        parsed.type === "ansoff" ||
+        // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+        // Abschnitt 13): eisenhower/pdca/risiko teilen sich denselben Insert-Zweig wie swot/bsc/
+        // ansoff.
+        parsed.type === "eisenhower" ||
+        parsed.type === "pdca" ||
+        parsed.type === "risiko"
+      ) {
         // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
         // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.
         await insertQuizContentItem(
@@ -344,6 +354,30 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           parsed.bloom,
           {},
           parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: term.zoneKey, sortOrder: index })),
+        );
+      } else if (parsed.type === "hierarchie") {
+        // F-105 (ToDo-Punkt 6): wie gantt unten (content-autorierte Zonen, generierte Schlüssel
+        // n0, n1, …), zusätzlich `parentKey` je Knoten für die Baumstruktur (siehe
+        // hierarchiePayloadSchema).
+        const nodes = parsed.nodes.map((node, index) => ({
+          key: `n${index}`,
+          label: node.label,
+          parentKey: node.parentIndex === null ? null : `n${node.parentIndex}`,
+        }));
+        await insertQuizContentItem(
+          themaRow.id,
+          "hierarchie",
+          parsed.prompt,
+          parsed.explanation,
+          parsed.difficulty,
+          parsed.bloom,
+          { root: parsed.root, nodes },
+          parsed.terms.map((term, index) => ({
+            text: term.text,
+            isCorrect: false,
+            groupKey: nodes[term.nodeIndex]!.key,
+            sortOrder: index,
+          })),
         );
       } else if (parsed.type === "gantt") {
         // F-114 Teil 2: Zeitabschnitte sind content-autoriert statt fest im Code (siehe

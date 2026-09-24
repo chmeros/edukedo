@@ -21,6 +21,13 @@ const TYPE_LABELS: Record<string, string> = {
   swot: "Quiz · SWOT-Matrix",
   bsc: "Quiz · Balanced Scorecard",
   ansoff: "Quiz · Ansoff-Matrix",
+  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+  // dieselbe Mechanik wie swot/bsc/ansoff, drei weitere Modelle mit festen Zonen.
+  eisenhower: "Quiz · Eisenhower-Matrix",
+  pdca: "Quiz · PDCA-Zyklus",
+  risiko: "Quiz · Risikomatrix",
+  // F-105 (ToDo-Punkt 6): echte Baum-/Hierarchie-Darstellung statt fester Zonen.
+  hierarchie: "Quiz · Projektstrukturplan/Organigramm",
   // F-114 Teil 2: wie swot/bsc/ansoff, aber die Zeitabschnitte sind content-autoriert statt fest
   // im Code (siehe Architekturplanung Abschnitt 13).
   gantt: "Quiz · Gantt-Diagramm",
@@ -105,14 +112,39 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
       };
     // F-114: je ein leerer Begriff pro Zone als Starthilfe — ein SWOT-Feld hat z. B. immer
     // genau die vier festen Zonen aus QUADRANT_MODELS (siehe Architekturplanung Abschnitt 13).
+    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
+    // eisenhower/pdca/risiko teilen sich denselben Starthilfe-Aufbau wie swot/bsc/ansoff.
     case "swot":
     case "bsc":
     case "ansoff":
+    case "eisenhower":
+    case "pdca":
+    case "risiko":
       return {
         type,
         prompt: "",
         explanation: "",
         terms: QUADRANT_MODELS[type].zones.map((zone) => ({ text: "", zoneKey: zone.key })),
+        ...common,
+      };
+    // F-105 (ToDo-Punkt 6): zwei leere Ebenen direkt unter der Wurzel als Starthilfe, je zwei
+    // leere Begriffe pro Ebene (Mindestanzahl 4 Begriffe, wie bei den übrigen Zonen-Typen).
+    case "hierarchie":
+      return {
+        type,
+        prompt: "",
+        explanation: "",
+        root: "",
+        nodes: [
+          { label: "", parentIndex: null },
+          { label: "", parentIndex: null },
+        ],
+        terms: [
+          { text: "", nodeIndex: 0 },
+          { text: "", nodeIndex: 0 },
+          { text: "", nodeIndex: 1 },
+          { text: "", nodeIndex: 1 },
+        ],
         ...common,
       };
     // F-114 Teil 2: zwei leere Zeitabschnitte als Starthilfe, je zwei leere Begriffe pro
@@ -501,8 +533,14 @@ function ContentItemForm({
 
       {/* F-114: SWOT-Matrix/Balanced Scorecard/Ansoff-Matrix — Begriffe der jeweils festen Zone
           des gewählten Modells zuordnen (QUADRANT_MODELS, siehe Architekturplanung Abschnitt 13).
-          Die Zonen selbst sind nicht editierbar, nur welcher Begriff zu welcher Zone gehört. */}
-      {(form.type === "swot" || form.type === "bsc" || form.type === "ansoff") && (
+          Die Zonen selbst sind nicht editierbar, nur welcher Begriff zu welcher Zone gehört.
+          F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko nutzen dasselbe Formular. */}
+      {(form.type === "swot" ||
+        form.type === "bsc" ||
+        form.type === "ansoff" ||
+        form.type === "eisenhower" ||
+        form.type === "pdca" ||
+        form.type === "risiko") && (
         <div className="field">
           <label>Begriffe ({QUADRANT_MODELS[form.type].zones.map((zone) => zone.label).join(" / ")})</label>
           <div className="stack">
@@ -559,6 +597,163 @@ function ContentItemForm({
             )}
           </div>
         </div>
+      )}
+
+      {/* F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-
+          Darstellung", siehe Architekturplanung Abschnitt 13): Projektstrukturplan/Organigramm.
+          Jede Ebene kann nur einer bereits WEITER OBEN in dieser Liste eingetragenen Ebene (oder
+          der Wurzel) untergeordnet werden — die "Übergeordnet"-Auswahl listet deshalb bewusst nur
+          `form.nodes.slice(0, index)`, das macht eine ungültige Referenz/einen Zyklus in der
+          Formular-Eingabe strukturell unmöglich (siehe .refine() in admin-content.ts). */}
+      {form.type === "hierarchie" && (
+        <>
+          <div className="field">
+            <label htmlFor="ce-hierarchie-root">Wurzel</label>
+            <input
+              className="input"
+              id="ce-hierarchie-root"
+              value={form.root}
+              placeholder="z. B. Projektleitung"
+              onChange={(event) => setField("root", event.target.value)}
+              required
+            />
+          </div>
+          <div className="field">
+            <label>Ebenen</label>
+            <div className="stack">
+              {form.nodes.map((node, index) => (
+                <div key={index} className="list-row-actions">
+                  <input
+                    className="input"
+                    value={node.label}
+                    placeholder={`Ebene ${index + 1}`}
+                    onChange={(event) => {
+                      const next = [...form.nodes];
+                      next[index] = { ...next[index]!, label: event.target.value };
+                      setField("nodes", next);
+                    }}
+                    required
+                  />
+                  <select
+                    className="input"
+                    value={node.parentIndex === null ? "root" : node.parentIndex}
+                    onChange={(event) => {
+                      const next = [...form.nodes];
+                      next[index] = {
+                        ...next[index]!,
+                        parentIndex: event.target.value === "root" ? null : Number(event.target.value),
+                      };
+                      setField("nodes", next);
+                    }}
+                  >
+                    <option value="root">Wurzel ({form.root || "…"})</option>
+                    {form.nodes.slice(0, index).map((parentCandidate, parentIndex) => (
+                      <option key={parentIndex} value={parentIndex}>
+                        {parentCandidate.label || `Ebene ${parentIndex + 1}`}
+                      </option>
+                    ))}
+                  </select>
+                  {form.nodes.length > 2 && (
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      onClick={() => {
+                        // Knoten, die den entfernten Knoten als Elternteil hatten, hängen danach
+                        // direkt unter der Wurzel (kein kaskadierendes Löschen ganzer Teilbäume).
+                        const nextNodes = form.nodes
+                          .filter((_, i) => i !== index)
+                          .map((n) => ({
+                            ...n,
+                            parentIndex:
+                              n.parentIndex === null || n.parentIndex === index
+                                ? null
+                                : n.parentIndex > index
+                                  ? n.parentIndex - 1
+                                  : n.parentIndex,
+                          }));
+                        const nextTerms = form.terms.map((term) =>
+                          term.nodeIndex === index
+                            ? { ...term, nodeIndex: 0 }
+                            : term.nodeIndex > index
+                              ? { ...term, nodeIndex: term.nodeIndex - 1 }
+                              : term,
+                        );
+                        setField("nodes", nextNodes);
+                        setField("terms", nextTerms);
+                      }}
+                    >
+                      Entfernen
+                    </button>
+                  )}
+                </div>
+              ))}
+              {form.nodes.length < 12 && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                  onClick={() => setField("nodes", [...form.nodes, { label: "", parentIndex: null }])}
+                >
+                  Ebene hinzufügen
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="field">
+            <label>Begriffe (je einer Ebene zugeordnet)</label>
+            <div className="stack">
+              {form.terms.map((term, index) => (
+                <div key={index} className="list-row-actions">
+                  <input
+                    className="input"
+                    value={term.text}
+                    placeholder={`Begriff ${index + 1}`}
+                    onChange={(event) => {
+                      const next = [...form.terms];
+                      next[index] = { ...next[index]!, text: event.target.value };
+                      setField("terms", next);
+                    }}
+                    required
+                  />
+                  <select
+                    className="input"
+                    value={term.nodeIndex}
+                    onChange={(event) => {
+                      const next = [...form.terms];
+                      next[index] = { ...next[index]!, nodeIndex: Number(event.target.value) };
+                      setField("terms", next);
+                    }}
+                  >
+                    {form.nodes.map((node, nodeIndex) => (
+                      <option key={nodeIndex} value={nodeIndex}>
+                        {node.label || `Ebene ${nodeIndex + 1}`}
+                      </option>
+                    ))}
+                  </select>
+                  {form.terms.length > 4 && (
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      onClick={() => setField("terms", form.terms.filter((_, i) => i !== index))}
+                    >
+                      Entfernen
+                    </button>
+                  )}
+                </div>
+              ))}
+              {form.terms.length < 20 && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                  onClick={() => setField("terms", [...form.terms, { text: "", nodeIndex: 0 }])}
+                >
+                  Begriff hinzufügen
+                </button>
+              )}
+            </div>
+          </div>
+        </>
       )}
 
       {/* F-114 Teil 2 (Gantt-Diagramm, siehe Architekturplanung Abschnitt 13): wie swot/bsc/ansoff,

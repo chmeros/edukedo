@@ -22,6 +22,15 @@ export const contentItemTypeSchema = z.enum([
   "swot",
   "bsc",
   "ansoff",
+  // F-105 (ToDo-Punkt 6 vom 23.09.2026, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+  // Abschnitt 13): drei weitere Modelle mit fest im Code hinterlegten Zonen, technisch
+  // deckungsgleich zu swot/bsc/ansoff (siehe QUADRANT_MODELS in quiz-logic.ts) — Eisenhower-
+  // Matrix (Dringlichkeit × Wichtigkeit), PDCA-Zyklus (vier Phasen), Risikomatrix (vereinfacht
+  // auf Eintrittswahrscheinlichkeit × Auswirkung, je 2 statt 3 Stufen, damit sie sich in dieselbe
+  // 2×2-Mechanik einfügt).
+  "eisenhower",
+  "pdca",
+  "risiko",
   // F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice): Mehrfachauswahl —
   // eine, zwei, drei oder alle vier Antwortoptionen können richtig sein, statt wie bei "quiz_mc"
   // genau eine. Bewusst ein EIGENER Typ statt eines Flags auf "quiz_mc" (siehe Anforderungskatalog
@@ -46,6 +55,13 @@ export const contentItemTypeSchema = z.enum([
   // eigener Typ mit content-autorierten Zonen im payload (ganttPayloadSchema), statt in
   // QUADRANT_MODELS.
   "gantt",
+  // F-105 (ToDo-Punkt 6 vom 23.09.2026, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+  // Abschnitt 13): Projektstrukturplan/Organigramm — anders als eisenhower/pdca/risiko KEINE
+  // flache Zonen-Zuordnung, sondern eine echte, content-autorierte Baumstruktur (Wurzel + Knoten
+  // mit optionalem übergeordneten Knoten, siehe hierarchiePayloadSchema). Begriffe werden wie bei
+  // "gantt" den (hier: baumförmigen) Zonen zugeordnet — checkQuadrantAnswer in quiz-logic.ts wird
+  // dafür UNVERÄNDERT wiederverwendet, nur die Zonen-Herkunft/-Darstellung unterscheidet sich.
+  "hierarchie",
 ]);
 export type ContentItemType = z.infer<typeof contentItemTypeSchema>;
 
@@ -123,6 +139,25 @@ export const lueckenAuswahlPayloadSchema = z.object({
 export const ganttPeriodSchema = z.object({ key: z.string(), label: z.string() });
 export const ganttPayloadSchema = z.object({ periods: z.array(ganttPeriodSchema).min(2).max(6) });
 
+/**
+ * F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026 — "echte Baum-/Hierarchie-Darstellung"
+ * statt einer vereinfachten flachen Ebenen-Zuordnung, siehe Architekturplanung Abschnitt 13):
+ * `root` ist die feste Wurzel (z. B. "Projektleitung"), `nodes` bilden einen echten Baum —
+ * `parentKey: null` heißt "direkt unter der Wurzel", ansonsten verweist `parentKey` auf
+ * `key` eines anderen Knotens. Begriffe (answer_option) tragen wie bei den QUADRANT_MODELS/
+ * "gantt" den Ziel-Knoten-Schlüssel in `group_key` — die Baumtiefe selbst ist dadurch beliebig,
+ * begrenzt nur durch die Knotenzahl (2–12, wie bei anderen content-autorierten Zonen-Modellen).
+ */
+export const hierarchieNodeSchema = z.object({
+  key: z.string(),
+  label: z.string(),
+  parentKey: z.string().nullable(),
+});
+export const hierarchiePayloadSchema = z.object({
+  root: z.string().min(1).max(150),
+  nodes: z.array(hierarchieNodeSchema).min(2).max(12),
+});
+
 export const kurzantwortPayloadSchema = z.object({
   accepted_answers: z.array(z.string()).min(1),
   match_mode: z.enum(["exact", "contains"]),
@@ -175,6 +210,10 @@ export const contentItemPayloadSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("swot"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("bsc"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("ansoff"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("eisenhower"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("pdca"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("risiko"), payload: emptyPayloadSchema }),
+  z.object({ type: z.literal("hierarchie"), payload: hierarchiePayloadSchema }),
   z.object({ type: z.literal("quiz_mc_multi"), payload: emptyPayloadSchema }),
   z.object({ type: z.literal("luecken"), payload: lueckenPayloadSchema }),
   z.object({ type: z.literal("luecken_auswahl"), payload: lueckenAuswahlPayloadSchema }),

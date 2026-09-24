@@ -2069,6 +2069,184 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm ist über Admin-Redaktion als echter Baum anlegbar, liefert Wurzel/Knoten ohne Lösung und wird über den bestehenden submitQuadrant-Endpunkt korrekt (teilweise) ausgewertet",
+    async () => {
+      const adminRegisterResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-f105@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      const adminUserId = adminRegisterResponse.json().result.data.id as string;
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminUserId));
+      const adminCookie = extractSessionCookie(adminRegisterResponse.headers["set-cookie"]);
+
+      const themaTreeResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.themaTree?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const themaTree = themaTreeResponse.json().result.data as { id: string; themen: { id: string }[] }[];
+      const themaId = themaTree[0]!.themen[0]!.id;
+
+      // Ein Knoten referenziert sich selbst als übergeordneten Knoten (parentIndex === eigener
+      // Index) — am Formular-Schema abgelehnt (siehe admin-content.ts, .refine()).
+      const cyclicResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "hierarchie",
+          themaId,
+          prompt: "Ungültiger Baum",
+          explanation: null,
+          root: "Projektleitung",
+          nodes: [
+            { label: "Teilprojekt A", parentIndex: null },
+            { label: "Zirkulärer Knoten", parentIndex: 1 },
+          ],
+          terms: [
+            { text: "A", nodeIndex: 0 },
+            { text: "B", nodeIndex: 0 },
+            { text: "C", nodeIndex: 1 },
+            { text: "D", nodeIndex: 1 },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(cyclicResponse.statusCode).toBe(400);
+
+      const createResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/adminContent.create",
+        headers: { cookie: adminCookie },
+        payload: {
+          type: "hierarchie",
+          themaId,
+          prompt: "F-105-Testfrage: Ordne die Arbeitspakete/Positionen in die richtige Hierarchie ein.",
+          explanation: "Testerklärung",
+          root: "Projektleitung",
+          nodes: [
+            { label: "Teilprojekt A", parentIndex: null },
+            { label: "Teilprojekt B", parentIndex: null },
+            // Zwei Ebenen tief: "Arbeitspaket A1" hängt unter "Teilprojekt A" (Index 0), nicht
+            // direkt unter der Wurzel — genau der Fall, den eine flache Zonen-Zuordnung nicht
+            // abbilden könnte (Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
+            // Abschnitt 13).
+            { label: "Arbeitspaket A1", parentIndex: 0 },
+          ],
+          terms: [
+            { text: "Anforderungsanalyse", nodeIndex: 2 },
+            { text: "Konzept erstellen", nodeIndex: 0 },
+            { text: "Budgetplanung", nodeIndex: 1 },
+            { text: "Ressourcenplanung", nodeIndex: 1 },
+          ],
+          difficulty: "mittel",
+          bloom: null,
+          isPremium: false,
+          isActive: true,
+        },
+      });
+      expect(createResponse.statusCode).toBe(200);
+      const hierarchieId = createResponse.json().result.data.id as string;
+
+      // quiz.quizItems (Lernenden-Sicht) liefert Wurzel + Knoten (inkl. parentKey für die
+      // Baum-Darstellung, siehe QuizSteps.tsx HierarchieStep), aber nie group_key/isCorrect der
+      // Begriffe — dieselbe Form wie bei swot/bsc/ansoff/gantt.
+      const quizItemsResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, themaId, count: 50 }))}`,
+        headers: { cookie: sessionCookie },
+      });
+      const quizItems = quizItemsResponse.json().result.data as {
+        id: string;
+        type: string;
+        root?: string;
+        zones?: { key: string; label: string; parentKey: string | null }[];
+        terms?: { id: string; text: string }[];
+      }[];
+      const hierarchieItem = quizItems.find((item) => item.id === hierarchieId)!;
+      expect(hierarchieItem.type).toBe("hierarchie");
+      expect(hierarchieItem.root).toBe("Projektleitung");
+      expect(hierarchieItem.terms).toHaveLength(4);
+      expect(hierarchieItem.terms!.some((term) => "zoneKey" in term || "isCorrect" in term)).toBe(false);
+
+      const teilprojektAKey = hierarchieItem.zones!.find((zone) => zone.label === "Teilprojekt A")!.key;
+      const teilprojektBKey = hierarchieItem.zones!.find((zone) => zone.label === "Teilprojekt B")!.key;
+      const arbeitspaketA1 = hierarchieItem.zones!.find((zone) => zone.label === "Arbeitspaket A1")!;
+      expect(hierarchieItem.zones!.find((zone) => zone.key === teilprojektAKey)!.parentKey).toBeNull();
+      expect(hierarchieItem.zones!.find((zone) => zone.key === teilprojektBKey)!.parentKey).toBeNull();
+      // "Arbeitspaket A1" hängt am zur Laufzeit generierten Schlüssel von "Teilprojekt A", nicht
+      // an einem im Formular selbst gewählten String — bestätigt, dass parentIndex → parentKey
+      // korrekt aufgelöst wurde (prepareContent in adminContent.ts).
+      expect(arbeitspaketA1.parentKey).toBe(teilprojektAKey);
+
+      const byText = (text: string) => hierarchieItem.terms!.find((term) => term.text === text)!;
+
+      // "Anforderungsanalyse" gehört zu "Arbeitspaket A1", hier absichtlich direkt unter
+      // "Teilprojekt A" eingereicht — dieselbe checkQuadrantAnswer-Auswertung wie bei den
+      // flachen Zonen-Typen, unverändert wiederverwendet.
+      const submitResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/quiz.submitQuadrant",
+        headers: { cookie: sessionCookie },
+        payload: {
+          contentItemId: hierarchieId,
+          placements: [
+            { optionId: byText("Anforderungsanalyse").id, zoneKey: teilprojektAKey },
+            { optionId: byText("Konzept erstellen").id, zoneKey: teilprojektAKey },
+            { optionId: byText("Budgetplanung").id, zoneKey: teilprojektBKey },
+            { optionId: byText("Ressourcenplanung").id, zoneKey: teilprojektBKey },
+          ],
+        },
+      });
+      expect(submitResponse.statusCode).toBe(200);
+      const result = submitResponse.json().result.data as {
+        results: Record<string, boolean>;
+        correctZones: Record<string, string>;
+        correctCount: number;
+        total: number;
+      };
+      expect(result.correctCount).toBe(3);
+      expect(result.total).toBe(4);
+      expect(result.results[byText("Anforderungsanalyse").id]).toBe(false);
+      expect(result.correctZones[byText("Anforderungsanalyse").id]).toBe(arbeitspaketA1.key);
+
+      // adminContent.get reshaped Wurzel/Knoten (inkl. parentIndex, aus parentKey
+      // zurückaufgelöst) und Begriffe (inkl. nodeIndex) für die Redaktion.
+      const getResponse = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.get?input=${encodeURIComponent(JSON.stringify({ contentItemId: hierarchieId }))}`,
+        headers: { cookie: adminCookie },
+      });
+      const detail = getResponse.json().result.data as {
+        type: string;
+        root: string;
+        nodes: { label: string; parentIndex: number | null }[];
+        terms: { text: string; nodeIndex: number }[];
+      };
+      expect(detail.type).toBe("hierarchie");
+      expect(detail.root).toBe("Projektleitung");
+      expect(detail.nodes).toEqual([
+        { label: "Teilprojekt A", parentIndex: null },
+        { label: "Teilprojekt B", parentIndex: null },
+        { label: "Arbeitspaket A1", parentIndex: 0 },
+      ]);
+      expect(detail.terms).toEqual(
+        expect.arrayContaining([
+          { text: "Anforderungsanalyse", nodeIndex: 2 },
+          { text: "Konzept erstellen", nodeIndex: 0 },
+          { text: "Budgetplanung", nodeIndex: 1 },
+          { text: "Ressourcenplanung", nodeIndex: 1 },
+        ]),
+      );
+    },
+    30_000,
+  );
+
+  it(
     "F-15: eigene Notiz zu einer Lerneinheit anlegen, ändern, per Leertext löschen und explizit löschen; Übersicht listet nur eigene, nicht-leere Notizen des Kurses",
     async () => {
       const dueCardsResponse = await app.inject({

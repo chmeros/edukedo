@@ -209,10 +209,13 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
 `schwierigkeit: mittel` · `bloom: anwenden`
 ```
 
-**SWOT-Matrix / Balanced Scorecard / Ansoff-Matrix** (`type: swot`/`bsc`/`ansoff`) — Begriffe werden per `→` einer der vier festen Zonen des jeweiligen Modells zugeordnet (Beschriftung, nicht der interne Schlüssel):
+**SWOT-Matrix / Balanced Scorecard / Ansoff-Matrix / Eisenhower-Matrix / PDCA-Zyklus / Risikomatrix** (`type: swot`/`bsc`/`ansoff`/`eisenhower`/`pdca`/`risiko`, die drei letzten seit F-105/ToDo-Punkt 6 vom 24.09.2026) — Begriffe werden per `→` einer der vier festen Zonen des jeweiligen Modells zugeordnet (Beschriftung, nicht der interne Schlüssel):
 - SWOT: Stärken, Schwächen, Chancen, Risiken
 - Balanced Scorecard: Finanzen, Kunden, Interne Prozesse, Lernen & Entwicklung
 - Ansoff-Matrix: Marktdurchdringung, Marktentwicklung, Produktentwicklung, Diversifikation
+- Eisenhower-Matrix: Sofort erledigen, Terminieren, Delegieren, Streichen
+- PDCA-Zyklus: Plan, Do, Check, Act
+- Risikomatrix: Vermeiden, Absichern, Beobachten, Akzeptieren (vereinfacht auf 2×2 statt der üblichen 3×3, siehe Architekturplanung Abschnitt 13)
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix
 **Anweisung:** Ordne die Begriffe den passenden Feldern der SWOT-Matrix zu.
@@ -238,6 +241,22 @@ Eine unbekannte Zonen-Beschriftung lässt den Import mit einer Fehlermeldung abb
 `schwierigkeit: mittel` · `bloom: anwenden`
 ```
 Ein Begriff, dessen Zeitabschnitt nicht in der `**Zeitabschnitte:**`-Zeile vorkommt, lässt den Import ebenfalls mit einer Fehlermeldung abbrechen.
+
+**Hierarchie** (`type: hierarchie`, seit F-105/ToDo-Punkt 6 vom 24.09.2026, Nutzer-Entscheidung "echte Baum-/Hierarchie-Darstellung" statt einer vereinfachten flachen Ebenen-Zuordnung, siehe Architekturplanung Abschnitt 13) — Projektstrukturplan/Organigramm: eine feste `**Wurzel:**`-Zeile, danach beliebig viele `- Ebene (unter: ÜbergeordneteEbene)`-Zeilen (bilden einen echten, beliebig tiefen Baum — `unter: Wurzel` heißt "direkt unter der Wurzel", ansonsten muss die übergeordnete Ebene WEITER OBEN im selben Block bereits als eigene Zeile stehen), zuletzt die Begriffe wie bei den übrigen Zonen-Typen per `→`:
+```markdown
+#### Q-1.3-19 · Hierarchie
+**Anweisung:** Ordne die Arbeitspakete in den passenden Projektstrukturplan ein.
+**Wurzel:** Projektleitung
+- Teilprojekt Konzeption (unter: Wurzel)
+- Teilprojekt Umsetzung (unter: Wurzel)
+- Arbeitspaket Anforderungsanalyse (unter: Teilprojekt Konzeption)
+- Anforderungen mit dem Auftraggeber abstimmen → Arbeitspaket Anforderungsanalyse
+- Grobkonzept erstellen → Teilprojekt Konzeption
+- Entwicklung/Umsetzung durchführen → Teilprojekt Umsetzung
+**Erklärung:** ...
+`schwierigkeit: schwer` · `bloom: anwenden`
+```
+Eine unbekannte übergeordnete Ebene oder ein Begriff mit unbekannter Ebene lassen den Import mit einer Fehlermeldung abbrechen (derselbe Tippfehler-Schutz wie bei den übrigen Zonen-Typen).
 
 **Lückentext (Wortauswahl)** (`type: luecken_auswahl`) — dasselbe `___Stichwort___`-Format wie Lückentext, zusätzlich eine `**Zusätzliche Begriffe:**`-Zeile mit nicht benötigten Begriffen für den Wortpool (bewusst mehr Begriffe als Lücken, siehe Anforderungskatalog F-115):
 ```markdown

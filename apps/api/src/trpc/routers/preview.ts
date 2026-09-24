@@ -7,6 +7,7 @@ import {
   checkQuadrantAnswer,
   checkSortierenAnswer,
   GANTT_QUIZ_TYPE,
+  HIERARCHIE_QUIZ_TYPE,
   MC_LIKE_QUIZ_TYPES,
   QUADRANT_QUIZ_TYPES,
   shapeQuizItem,
@@ -87,6 +88,7 @@ export const previewRouter = router({
             "sortieren",
             ...QUADRANT_QUIZ_TYPES,
             GANTT_QUIZ_TYPE,
+            HIERARCHIE_QUIZ_TYPE,
             "luecken",
             "luecken_auswahl",
             "kurzantwort",
@@ -110,6 +112,7 @@ export const previewRouter = router({
           item.type === "zuordnung" ||
           item.type === "sortieren" ||
           item.type === GANTT_QUIZ_TYPE ||
+          item.type === HIERARCHIE_QUIZ_TYPE ||
           (QUADRANT_QUIZ_TYPES as readonly string[]).includes(item.type),
       )
       .map((item) => item.id);

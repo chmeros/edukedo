@@ -10,6 +10,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
+import { Instrumente } from "./Instrumente";
 import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
 import { MeineNotizen } from "./MeineNotizen";
@@ -355,6 +356,18 @@ export function App() {
                     {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
                     {learningMode === "instrumente" && (
                       <>
+                        {/* F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe
+                            Architekturplanung Abschnitt 13): kursspezifischer Werkzeugkasten-
+                            Katalog als neuer primärer Inhalt dieses Tabs — Suche (F-14) und
+                            eigene Notizen (F-15) bleiben zusätzlich darunter bestehen. */}
+                        <Instrumente
+                          key={activeKursId}
+                          kursId={activeKursId}
+                          onGoToThema={(themaId, themaTitle) => {
+                            setActiveThema({ id: themaId, title: themaTitle });
+                            setLearningMode("lernen");
+                          }}
+                        />
                         <Suche
                           key={activeKursId}
                           kursId={activeKursId}

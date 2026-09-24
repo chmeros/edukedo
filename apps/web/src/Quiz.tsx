@@ -7,6 +7,7 @@ import { QuizCountControl } from "./QuizCountControl";
 import {
   BlanksSelectionStep,
   BlanksStep,
+  HierarchieStep,
   KurzantwortStep,
   MatchingStep,
   McMultiStep,
@@ -307,9 +308,29 @@ export function Quiz({
           Frage über offlineRound gar nicht erst vor, `submitQuadrantMutation` wird hier also nur
           erreicht, wenn `online` ohnehin true ist. F-114 Teil 2: "gantt" nutzt denselben
           QuadrantStep/submitQuadrantMutation unverändert mit — die Komponente ist bereits generisch
-          über item.zones/item.terms. */}
-      {(current.type === "swot" || current.type === "bsc" || current.type === "ansoff" || current.type === "gantt") && (
+          über item.zones/item.terms. F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko ebenso. */}
+      {(current.type === "swot" ||
+        current.type === "bsc" ||
+        current.type === "ansoff" ||
+        current.type === "eisenhower" ||
+        current.type === "pdca" ||
+        current.type === "risiko" ||
+        current.type === "gantt") && (
         <QuadrantStep
+          key={current.id}
+          item={current}
+          isLast={isLast}
+          onAnswered={handleAnswered}
+          onNext={next}
+          submit={submitQuadrantMutation}
+          canReport
+        />
+      )}
+      {/* F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — eigene Baum-Darstellung
+          (HierarchieStep), nutzt aber dieselbe submitQuadrantMutation wie QuadrantStep (die
+          Prüfung/das submit-Input-Shape sind identisch, siehe checkQuadrantAnswer). */}
+      {current.type === "hierarchie" && (
+        <HierarchieStep
           key={current.id}
           item={current}
           isLast={isLast}
