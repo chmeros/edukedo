@@ -51,9 +51,15 @@ content/
     stochastik/
       sto1-wahrscheinlichkeitsrechnung.md
       uebungsaufgaben.md
+  instrumenten-lernpfade/          ← Referenz-Content für F-129/F-130/F-131, siehe eigenes README
+    README.md
+    user-story-bsc-allgemein-alle-fachwirte.docx
+    user-story-bsc-pflegeeinrichtung-fachwirt-gesundheit-soziales.docx
 ```
 
 Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganisation/`, `mathematik-9/`), darin ein Ordner je Fachgebiet (`hb3/`, bzw. bei Mathematik `algebra-funktionen/`, `geometrie/`, `stochastik/`), darin eine Datei je Thema. Das spiegelt die Hierarchie Kurs → Fachgebiet → Thema aus dem Datenmodell. Der Ordnername ist bewusst so spezifisch wie der `kurs_slug` gewählt (nicht nur `fachwirt/`), da laut Anforderungskatalog Abschnitt 9 künftig weitere, andersartige Fachwirt-Qualifikationen als eigene Kurse hinzukommen können — ein generisches `fachwirt/` würde dann kollidieren. Bei Mathematik gibt es keine offiziellen Fachgebiets-/Themen-Nummern wie die Handlungsbereiche beim Fachwirt; die Codes (`ALG1`–`ALG3`, `GEO1`–`GEO3`, `STO1`) sind eine eigene, sprechende Benennung.
+
+**Sonderfall `instrumenten-lernpfade/` (ergänzt 24.09.2026):** Kein Kurs-Ordner im obigen Sinn, sondern Referenz-/Entwurfs-Content für das in Anforderungskatalog F-129/F-130/F-131 beschriebene, noch nicht implementierte Konzept des Instrumenten-Lernpfads — folgt bewusst nicht diesem Zwischenformat und wird vom Bulk-Import nicht gelesen, siehe eigenes README dort.
 
 **Zum Umfang des Fachwirt-Kurses (Stand 15.09.2026):** Alle vier Handlungsbereiche der IHK-Prüfungsstruktur (HB1–HB4, siehe Anforderungskatalog Abschnitt 2/4) sind inzwischen vollständig ausgearbeitet: HB3 zuerst (Pflichtbestandteil der mündlichen Prüfung), anschließend auf ausdrücklichen Wunsch HB1, HB2 und HB4 in einem Zug statt gestaffelt nach KPI-Signal — analog zur bereits zuvor beim Mathematik-Kurs getroffenen Entscheidung, den vollständigen Content unabhängig vom technischen Rollout-Gate vorab zu erstellen (siehe Anforderungskatalog Abschnitt 9/10). Die Themenlisten für HB1, HB2 und HB4 wurden dabei — wie zuvor bei HB3 — anhand des offiziellen DIHK-Rahmenplans verifiziert, nicht mehr nur als vorläufiger Vorschlag übernommen.
 
