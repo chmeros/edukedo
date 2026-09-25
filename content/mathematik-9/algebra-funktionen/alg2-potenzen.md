@@ -44,92 +44,92 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 #### K-ALG2-01
 **Frage:** Was bedeuten Basis und Exponent in aⁿ?
 **Antwort:** a ist die Basis, n der Exponent; für natürliche n > 0 bedeutet aⁿ, dass a n-mal mit sich selbst multipliziert wird.
-`tags: grundbegriffe` · `schwierigkeit: leicht`
+`tags: grundbegriffe` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG2-02
 **Frage:** Was gilt für a⁰ (a ≠ 0)?
 **Antwort:** a⁰ = 1.
-`tags: exponent-null` · `schwierigkeit: leicht`
+`tags: exponent-null` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG2-03
 **Frage:** Wie ist a⁻ⁿ definiert?
 **Antwort:** a⁻ⁿ = 1/aⁿ (a ≠ 0) — ein negativer Exponent verschiebt die Potenz in den Nenner.
-`tags: negative-exponenten` · `schwierigkeit: mittel`
+`tags: negative-exponenten` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG2-04
 **Frage:** Wie lautet das Potenzgesetz für aᵐ · aⁿ?
 **Antwort:** aᵐ · aⁿ = aᵐ⁺ⁿ (gleiche Basis: Exponenten addieren).
-`tags: potenzgesetze` · `schwierigkeit: mittel`
+`tags: potenzgesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG2-05
 **Frage:** Wie lautet das Potenzgesetz für aᵐ / aⁿ?
 **Antwort:** aᵐ / aⁿ = aᵐ⁻ⁿ (gleiche Basis: Exponenten subtrahieren).
-`tags: potenzgesetze` · `schwierigkeit: mittel`
+`tags: potenzgesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG2-06
 **Frage:** Wie lautet das Potenzgesetz für (aᵐ)ⁿ?
 **Antwort:** (aᵐ)ⁿ = aᵐ·ⁿ (Potenz einer Potenz: Exponenten multiplizieren).
-`tags: potenzgesetze` · `schwierigkeit: mittel`
+`tags: potenzgesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG2-07
 **Frage:** Wie lautet das Potenzgesetz für (a · b)ⁿ?
 **Antwort:** (a · b)ⁿ = aⁿ · bⁿ.
-`tags: potenzgesetze` · `schwierigkeit: mittel`
+`tags: potenzgesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG2-08
 **Frage:** Darf man aᵐ + aⁿ zu einer Potenz zusammenfassen?
 **Antwort:** Im Allgemeinen nein — die Potenzgesetze gelten für Produkte/Quotienten gleicher Basis, nicht für Summen.
-`tags: fehlerquellen` · `schwierigkeit: mittel`
+`tags: fehlerquellen` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-ALG2-09
 **Frage:** Wie hängen Wurzeln und Potenzen mit gebrochenem Exponenten zusammen?
 **Antwort:** Die n-te Wurzel aus a lässt sich als a^(1/n) schreiben, z. B. √a = a^(1/2).
-`tags: wurzeln-potenzen` · `schwierigkeit: schwer`
+`tags: wurzeln-potenzen` · `schwierigkeit: schwer` · `bloom: verstehen`
 
 #### K-ALG2-10
 **Frage:** Was ist eine Potenzfunktion?
 **Antwort:** Eine Funktion der Form f(x) = xⁿ mit festem Exponenten n.
-`tags: potenzfunktionen` · `schwierigkeit: leicht`
+`tags: potenzfunktionen` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG2-11
 **Frage:** Wie verläuft der Graph von f(x) = x² grundsätzlich?
 **Antwort:** Achsensymmetrisch zur y-Achse, alle Funktionswerte ≥ 0, fällt für x < 0, steigt für x > 0.
-`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel`
+`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG2-12
 **Frage:** Wie verläuft der Graph von f(x) = x³ grundsätzlich?
 **Antwort:** Punktsymmetrisch zum Ursprung, auf ganz ℝ streng monoton steigend.
-`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel`
+`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG2-13
 **Frage:** Woran erkennt man an der Formel f(x) = xⁿ, ob der Graph achsen- oder punktsymmetrisch ist?
 **Antwort:** Bei geradem n ist der Graph achsensymmetrisch zur y-Achse, bei ungeradem n punktsymmetrisch zum Ursprung.
-`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel`
+`tags: potenzfunktionen, symmetrie` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG2-14
 **Frage:** Berechne 2⁻³.
 **Antwort:** 2⁻³ = 1/2³ = 1/8.
-`tags: rechenbeispiel` · `schwierigkeit: mittel`
+`tags: rechenbeispiel` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG2-15
 **Frage:** Vereinfache 3⁴ · 3².
 **Antwort:** 3⁴ · 3² = 3⁶ = 729.
-`tags: rechenbeispiel` · `schwierigkeit: mittel`
+`tags: rechenbeispiel` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG2-16
 **Frage:** Vereinfache (2³)².
 **Antwort:** (2³)² = 2⁶ = 64.
-`tags: rechenbeispiel` · `schwierigkeit: mittel`
+`tags: rechenbeispiel` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG2-17
 **Frage:** Wie verändert sich der Funktionswert von f(x) = x², wenn man x verdoppelt?
 **Antwort:** Er vervierfacht sich, da (2x)² = 4x².
-`tags: potenzfunktionen` · `schwierigkeit: schwer`
+`tags: potenzfunktionen` · `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### K-ALG2-18
 **Frage:** Ist x⁻² für x = 0 definiert?
 **Antwort:** Nein, da x⁻² = 1/x² und Division durch 0 nicht definiert ist.
-`tags: definitionsbereich` · `schwierigkeit: mittel`
+`tags: definitionsbereich` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 ## Quiz
 
@@ -140,7 +140,7 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - [ ] 5
 - [ ] nicht definiert
 **Erklärung:** Für a ≠ 0 gilt a⁰ = 1.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG2-02 · Multiple Choice
 **Frage:** Wie lässt sich 4⁻² schreiben?
@@ -149,7 +149,7 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - [x] 1/16
 - [ ] 1/8
 **Erklärung:** 4⁻² = 1/4² = 1/16.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG2-03 · Multiple Choice
 **Frage:** Was ergibt 2³ · 2⁴?
@@ -158,7 +158,7 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - [ ] 2¹²
 - [ ] 2¹
 **Erklärung:** Gleiche Basis: Exponenten addieren, 2³·2⁴ = 2⁷ = 128.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-ALG2-04 · Multiple Choice
 **Frage:** Welche Aussage zum Graphen von f(x) = x⁴ ist richtig?
@@ -167,7 +167,7 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - [ ] Er hat negative Funktionswerte.
 - [ ] Er ist eine Gerade.
 **Erklärung:** 4 ist gerade, daher achsensymmetrisch zur y-Achse und alle Funktionswerte ≥ 0.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-ALG2-05 · Zuordnung
 **Anweisung:** Ordne jedes Potenzgesetz seiner symbolischen Form zu.
@@ -176,7 +176,7 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - Potenz einer Potenz ↔ (aᵐ)ⁿ = aᵐ·ⁿ
 - Potenz eines Produkts ↔ (a·b)ⁿ = aⁿ·bⁿ
 **Erklärung:** Die vier grundlegenden Potenzgesetze.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG2-06 · Zuordnung
 **Anweisung:** Ordne den Exponenten n der jeweiligen Symmetrie-Eigenschaft von f(x) = xⁿ zu.
@@ -185,37 +185,37 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 - n = 4 ↔ achsensymmetrisch zur y-Achse
 - n = 5 ↔ punktsymmetrisch zum Ursprung
 **Erklärung:** Gerade Exponenten → Achsensymmetrie, ungerade Exponenten → Punktsymmetrie.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-ALG2-07 · Lückentext
 **Text:** Für a ≠ 0 gilt a⁻ⁿ = ___1/aⁿ___.
 **Erklärung:** Definition des negativen Exponenten.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG2-08 · Lückentext
 **Text:** Die Wurzel √a lässt sich auch als Potenz ___a^(1/2)___ schreiben.
 **Erklärung:** Zusammenhang zwischen Wurzeln und gebrochenen Exponenten.
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: erinnern`
 
 #### Q-ALG2-09 · Lückentext
 **Text:** Der Graph von f(x) = x³ ist punktsymmetrisch zum ___Ursprung___.
 **Erklärung:** Typisches Merkmal von Potenzfunktionen mit ungeradem Exponenten.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG2-10 · Kurzantwort
 **Frage:** Berechne 3⁻² als Bruch.
 **Akzeptierte Antworten:** 1/9; 1/9.
 **Erklärung:** 3⁻² = 1/3² = 1/9.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG2-11 · Kurzantwort
 **Frage:** Vereinfache (2⁵)² zu einer einzelnen Zweierpotenz.
 **Akzeptierte Antworten:** 2^10; 2¹⁰; 2 hoch 10
 **Erklärung:** (2⁵)² = 2^(5·2) = 2¹⁰.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG2-12 · Kurzantwort
 **Frage:** Ist der Graph von f(x) = x⁵ achsen- oder punktsymmetrisch? Begründe kurz mit dem Exponenten.
 **Akzeptierte Antworten:** punktsymmetrisch, da 5 ungerade ist; punktsymmetrisch zum Ursprung, ungerader Exponent
 **Erklärung:** Ungerade Exponenten führen zu Punktsymmetrie zum Ursprung.
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: verstehen`

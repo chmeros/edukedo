@@ -18,13 +18,13 @@ Da das Fachgebiet Stochastik in diesem Themenkatalog aus nur einem Thema (STO1) 
 
 **Aufgabenstellung:** Ein Glücksrad ist in drei Felder eingeteilt: Rot (Wahrscheinlichkeit 0,5), Blau (0,3) und Grün (0,2). Das Rad wird zweimal gedreht.
 
-**Teilaufgabe 1 (5 Punkte):** Beschreibe das zugehörige Baumdiagramm für die zwei Drehungen und berechne die Wahrscheinlichkeit, dass beide Male Rot erscheint.
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Beschreibe das zugehörige Baumdiagramm für die zwei Drehungen und berechne die Wahrscheinlichkeit, dass beide Male Rot erscheint.
 
-**Teilaufgabe 2 (5 Punkte):** Berechne über das Gegenereignis die Wahrscheinlichkeit, dass mindestens einmal Grün erscheint.
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechne über das Gegenereignis die Wahrscheinlichkeit, dass mindestens einmal Grün erscheint.
 
-**Teilaufgabe 3 (5 Punkte):** Berechne die Wahrscheinlichkeit, dass genau eine der beiden Drehungen Blau ergibt.
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Berechne die Wahrscheinlichkeit, dass genau eine der beiden Drehungen Blau ergibt.
 
-**Teilaufgabe 4 (5 Punkte):** Handelt es sich bei diesem Glücksrad um ein Laplace-Experiment? Begründe kurz.
+**Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Handelt es sich bei diesem Glücksrad um ein Laplace-Experiment? Begründe kurz.
 
 **Musterlösungshinweise:**
 - T1: Zwei Verzweigungsebenen mit je drei Ästen (Rot/Blau/Grün); P(Rot,Rot) = 0,5 · 0,5 = 0,25.
@@ -38,13 +38,13 @@ Da das Fachgebiet Stochastik in diesem Themenkatalog aus nur einem Thema (STO1) 
 
 **Aufgabenstellung:** Eine Urne enthält 5 rote und 3 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen.
 
-**Teilaufgabe 1 (5 Punkte):** Berechne die Wahrscheinlichkeit, dass beide gezogenen Kugeln rot sind.
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechne die Wahrscheinlichkeit, dass beide gezogenen Kugeln rot sind.
 
-**Teilaufgabe 2 (5 Punkte):** Berechne die Wahrscheinlichkeit, dass zuerst eine blaue und dann eine rote Kugel gezogen wird.
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechne die Wahrscheinlichkeit, dass zuerst eine blaue und dann eine rote Kugel gezogen wird.
 
-**Teilaufgabe 3 (5 Punkte):** Stelle die vier möglichen Ergebniskombinationen (rot-rot, rot-blau, blau-rot, blau-blau) mit ihren Wahrscheinlichkeiten in einer Vierfeldertafel dar (1. Ziehung als Zeilen, 2. Ziehung als Spalten).
+**Teilaufgabe 3 (5 Punkte, bloom: erschaffen):** Stelle die vier möglichen Ergebniskombinationen (rot-rot, rot-blau, blau-rot, blau-blau) mit ihren Wahrscheinlichkeiten in einer Vierfeldertafel dar (1. Ziehung als Zeilen, 2. Ziehung als Spalten).
 
-**Teilaufgabe 4 (5 Punkte):** Vergleiche P(beide rot) aus Teilaufgabe 1 mit dem Ergebnis, das sich ergäbe, wenn stattdessen mit Zurücklegen gezogen würde. Erkläre den Unterschied.
+**Teilaufgabe 4 (5 Punkte, bloom: analysieren):** Vergleiche P(beide rot) aus Teilaufgabe 1 mit dem Ergebnis, das sich ergäbe, wenn stattdessen mit Zurücklegen gezogen würde. Erkläre den Unterschied.
 
 **Musterlösungshinweise:**
 - T1: P(rot, rot) = (5/8) · (4/7) = 20/56 = 5/14 ≈ 0,357.
@@ -58,13 +58,13 @@ Da das Fachgebiet Stochastik in diesem Themenkatalog aus nur einem Thema (STO1) 
 
 **Aufgabenstellung:** In einer Klasse mit 30 Schüler:innen (16 Mädchen, 14 Jungen) wurde gefragt, ob Mathematik das Lieblingsfach ist. 10 der Mädchen und 6 der Jungen gaben Mathematik als Lieblingsfach an.
 
-**Teilaufgabe 1 (5 Punkte):** Erstelle eine vollständige Vierfeldertafel (Geschlecht × Lieblingsfach Mathe ja/nein) mit allen Randsummen.
+**Teilaufgabe 1 (5 Punkte, bloom: erschaffen):** Erstelle eine vollständige Vierfeldertafel (Geschlecht × Lieblingsfach Mathe ja/nein) mit allen Randsummen.
 
-**Teilaufgabe 2 (5 Punkte):** Wie hoch ist der Anteil der Schüler:innen, die Mathe als Lieblingsfach angeben, an der gesamten Klasse?
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Wie hoch ist der Anteil der Schüler:innen, die Mathe als Lieblingsfach angeben, an der gesamten Klasse?
 
-**Teilaufgabe 3 (5 Punkte):** Wie hoch ist der Anteil der Mädchen unter allen, die Mathe als Lieblingsfach angeben?
+**Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Wie hoch ist der Anteil der Mädchen unter allen, die Mathe als Lieblingsfach angeben?
 
-**Teilaufgabe 4 (5 Punkte):** Eine Person aus der Klasse wird zufällig ausgewählt. Wie hoch ist die Wahrscheinlichkeit, dass diese Person Mathe NICHT als Lieblingsfach angibt (Gegenereignis)?
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Eine Person aus der Klasse wird zufällig ausgewählt. Wie hoch ist die Wahrscheinlichkeit, dass diese Person Mathe NICHT als Lieblingsfach angibt (Gegenereignis)?
 
 **Musterlösungshinweise:**
 - T1: Mädchen: Mathe ja 10, Mathe nein 6, Summe 16. Jungen: Mathe ja 6, Mathe nein 8, Summe 14. Spaltensummen: Mathe ja 16, Mathe nein 14, Gesamt 30.

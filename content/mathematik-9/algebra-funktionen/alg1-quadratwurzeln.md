@@ -37,92 +37,92 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 #### K-ALG1-01
 **Frage:** Wie ist die Quadratwurzel √a einer nichtnegativen Zahl a definiert?
 **Antwort:** Als die nichtnegative Zahl, die quadriert wieder a ergibt: (√a)² = a, √a ≥ 0.
-`tags: quadratwurzel, definition` · `schwierigkeit: leicht`
+`tags: quadratwurzel, definition` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG1-02
 **Frage:** Was ist der Radikand?
 **Antwort:** Die Zahl bzw. der Term unter dem Wurzelzeichen.
-`tags: begriffe` · `schwierigkeit: leicht`
+`tags: begriffe` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG1-03
 **Frage:** Warum ist √2 keine rationale Zahl?
 **Antwort:** Es lässt sich zeigen (Widerspruchsbeweis), dass sich √2 nicht als Bruch zweier ganzer Zahlen darstellen lässt — die Dezimaldarstellung bricht nie ab und wiederholt sich nie periodisch.
-`tags: irrationale-zahlen` · `schwierigkeit: mittel`
+`tags: irrationale-zahlen` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-ALG1-04
 **Frage:** Was ist eine irrationale Zahl?
 **Antwort:** Eine reelle Zahl, die sich nicht als Bruch zweier ganzer Zahlen darstellen lässt; ihre Dezimaldarstellung ist unendlich und nicht periodisch.
-`tags: begriffe` · `schwierigkeit: leicht`
+`tags: begriffe` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG1-05
 **Frage:** Was ist die Menge der reellen Zahlen ℝ?
 **Antwort:** Die Vereinigung aller rationalen und irrationalen Zahlen; sie füllt den Zahlenstrahl lückenlos aus.
-`tags: zahlenmengen` · `schwierigkeit: leicht`
+`tags: zahlenmengen` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG1-06
 **Frage:** Wie lautet die Produktregel für Wurzeln?
 **Antwort:** √(a · b) = √a · √b für a, b ≥ 0.
-`tags: rechengesetze` · `schwierigkeit: mittel`
+`tags: rechengesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG1-07
 **Frage:** Wie lautet die Quotientenregel für Wurzeln?
 **Antwort:** √(a / b) = √a / √b für a ≥ 0, b > 0.
-`tags: rechengesetze` · `schwierigkeit: mittel`
+`tags: rechengesetze` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG1-08
 **Frage:** Gilt √(a + b) = √a + √b?
 **Antwort:** Nein, im Allgemeinen nicht. Beispiel: √(9+16) = √25 = 5, aber √9 + √16 = 3 + 4 = 7.
-`tags: rechengesetze, fehlerquellen` · `schwierigkeit: mittel`
+`tags: rechengesetze, fehlerquellen` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-ALG1-09
 **Frage:** Was bedeutet „teilweises Wurzelziehen" am Beispiel √50?
 **Antwort:** Den Radikanden in ein Produkt aus möglichst großer Quadratzahl und Rest zerlegen: √50 = √(25·2) = 5√2.
-`tags: vereinfachen` · `schwierigkeit: mittel`
+`tags: vereinfachen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG1-10
 **Frage:** Wie macht man den Nenner von 1/√3 rational?
 **Antwort:** Erweitern mit √3: 1/√3 = √3/3.
-`tags: nenner-rational-machen` · `schwierigkeit: mittel`
+`tags: nenner-rational-machen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG1-11
 **Frage:** Was ist eine Quadratzahl? Nenne die ersten fünf.
 **Antwort:** Das Ergebnis des Quadrierens einer natürlichen Zahl: 1, 4, 9, 16, 25.
-`tags: quadratzahlen` · `schwierigkeit: leicht`
+`tags: quadratzahlen` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG1-12
 **Frage:** Zwischen welchen ganzen Zahlen liegt √50, und wie findet man das ohne Taschenrechner heraus?
 **Antwort:** Zwischen 7 und 8, da 7² = 49 und 8² = 64 und 49 < 50 < 64.
-`tags: abschaetzen` · `schwierigkeit: mittel`
+`tags: abschaetzen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG1-13
 **Frage:** Was ist der Definitionsbereich der Funktion f(x) = √x?
 **Antwort:** x ≥ 0, da negative Radikanden im Reellen nicht definiert sind.
-`tags: definitionsbereich` · `schwierigkeit: mittel`
+`tags: definitionsbereich` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG1-14
 **Frage:** Vereinfache √72.
 **Antwort:** √72 = √(36·2) = 6√2.
-`tags: vereinfachen` · `schwierigkeit: mittel`
+`tags: vereinfachen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG1-15
 **Frage:** Wie löst man die Gleichung √x = 5, und was ist dabei zu beachten?
 **Antwort:** Beide Seiten quadrieren: x = 25. Anschließend Probe machen, da Quadrieren Scheinlösungen erzeugen kann.
-`tags: wurzelgleichungen` · `schwierigkeit: schwer`
+`tags: wurzelgleichungen` · `schwierigkeit: schwer` · `bloom: anwenden`
 
 #### K-ALG1-16
 **Frage:** Warum kann Quadrieren bei Wurzelgleichungen Scheinlösungen erzeugen?
 **Antwort:** Weil Quadrieren nicht umkehrbar eindeutig ist — auch negative Zahlen ergeben quadriert dasselbe Ergebnis wie ihre positiven Gegenstücke, sodass zusätzliche, ungültige Lösungen entstehen können.
-`tags: wurzelgleichungen, fehlerquellen` · `schwierigkeit: schwer`
+`tags: wurzelgleichungen, fehlerquellen` · `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### K-ALG1-17
 **Frage:** Ordne √2, 1,5 und √3 der Größe nach.
 **Antwort:** √2 ≈ 1,41 < 1,5 < √3 ≈ 1,73, also √2 < 1,5 < √3.
-`tags: ordnen` · `schwierigkeit: mittel`
+`tags: ordnen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG1-18
 **Frage:** Woran erkennt man an der Dezimaldarstellung, ob eine Zahl rational oder irrational ist?
 **Antwort:** Rationale Zahlen haben eine endliche oder periodische Dezimaldarstellung, irrationale Zahlen eine unendliche, nicht-periodische.
-`tags: zahlenmengen` · `schwierigkeit: mittel`
+`tags: zahlenmengen` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 ## Quiz
 
@@ -133,7 +133,7 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - [x] √7
 - [ ] 2/3
 **Erklärung:** √16 = 4 ist rational, 0,75 und 2/3 sind Brüche. √7 lässt sich nicht als Bruch ganzer Zahlen darstellen.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-ALG1-02 · Multiple Choice
 **Frage:** Was gilt für nichtnegative a, b bezüglich √(a · b)?
@@ -142,7 +142,7 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - [ ] √(a·b) = a · √b
 - [ ] √(a·b) = √a − √b
 **Erklärung:** Das ist die Produktregel für Wurzeln.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG1-03 · Multiple Choice
 **Frage:** Welche vereinfachte Form hat √48?
@@ -151,7 +151,7 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - [ ] 2√12
 - [ ] 16√3
 **Erklärung:** √48 = √(16·3) = 4√3.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG1-04 · Multiple Choice
 **Frage:** Zwischen welchen beiden ganzen Zahlen liegt √70?
@@ -160,7 +160,7 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - [ ] 9 und 10
 - [ ] 6 und 7
 **Erklärung:** 8² = 64 und 9² = 81, und 64 < 70 < 81.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG1-05 · Zuordnung
 **Anweisung:** Ordne die Begriffe den passenden Definitionen zu.
@@ -169,7 +169,7 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - Quadratzahl ↔ Ergebnis des Quadrierens einer natürlichen Zahl
 - Radikand ↔ Zahl bzw. Term unter dem Wurzelzeichen
 **Erklärung:** Grundbegriffe rund um Quadratwurzeln.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG1-06 · Zuordnung
 **Anweisung:** Ordne jeden Wurzelterm seiner vereinfachten Form zu.
@@ -178,37 +178,37 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 - √75 ↔ 5√3
 - √8 ↔ 2√2
 **Erklärung:** Jeweils die größte Quadratzahl aus dem Radikanden herausziehen.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG1-07 · Lückentext
 **Text:** Die Zahl ___√2___ ist irrational, da sie sich nicht als Bruch zweier ganzer Zahlen darstellen lässt.
 **Erklärung:** Klassisches Beispiel für eine irrationale Zahl.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG1-08 · Lückentext
 **Text:** Für nichtnegative Zahlen a und b gilt die Produktregel √(a · b) = ___√a · √b___.
 **Erklärung:** Grundregel zum Vereinfachen von Wurzeltermen.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG1-09 · Lückentext
 **Text:** Um den Nenner des Bruchs 1/√5 rational zu machen, erweitert man mit ___√5___.
 **Erklärung:** Erweitern mit der im Nenner stehenden Wurzel macht den Nenner rational.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG1-10 · Kurzantwort
 **Frage:** Berechne √144.
 **Akzeptierte Antworten:** 12
 **Erklärung:** 12 · 12 = 144.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-ALG1-11 · Kurzantwort
 **Frage:** Vereinfache √200 so weit wie möglich.
 **Akzeptierte Antworten:** 10√2; 10 √2; 10*√2; 10 Wurzel 2
 **Erklärung:** √200 = √(100·2) = 10√2.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG1-12 · Kurzantwort
 **Frage:** Nenne eine irrationale Zahl, die zwischen 3 und 4 liegt.
 **Akzeptierte Antworten:** √10; √11; √12; √13; √14; √15
 **Erklärung:** Alle Wurzeln aus Nicht-Quadratzahlen zwischen 9 und 16 liegen zwischen 3 und 4.
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: analysieren`

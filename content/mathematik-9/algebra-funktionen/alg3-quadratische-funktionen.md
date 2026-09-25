@@ -44,92 +44,92 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 #### K-ALG3-01
 **Frage:** Wie lautet die Normalform einer quadratischen Funktion?
 **Antwort:** f(x) = ax² + bx + c (a ≠ 0).
-`tags: normalform` · `schwierigkeit: leicht`
+`tags: normalform` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG3-02
 **Frage:** Wie lautet die Scheitelpunktform einer quadratischen Funktion?
 **Antwort:** f(x) = a(x − d)² + e, mit Scheitelpunkt S(d | e).
-`tags: scheitelpunktform` · `schwierigkeit: leicht`
+`tags: scheitelpunktform` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG3-03
 **Frage:** Was liest man aus der Scheitelpunktform direkt ab?
 **Antwort:** Den Scheitelpunkt S(d | e), also Maximum oder Minimum der Parabel.
-`tags: scheitelpunktform` · `schwierigkeit: leicht`
+`tags: scheitelpunktform` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG3-04
 **Frage:** Was bewirkt der Faktor a in beiden Formen?
 **Antwort:** Er bestimmt die Öffnungsrichtung (a > 0: nach oben, a < 0: nach unten) und wie schmal/breit die Parabel im Vergleich zu x² ist.
-`tags: streckfaktor` · `schwierigkeit: mittel`
+`tags: streckfaktor` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG3-05
 **Frage:** Wie kommt man von der Normalform zur Scheitelpunktform?
 **Antwort:** Durch quadratische Ergänzung: den Term so umformen, dass ein vollständiges Quadrat entsteht.
-`tags: quadratische-ergaenzung` · `schwierigkeit: schwer`
+`tags: quadratische-ergaenzung` · `schwierigkeit: schwer` · `bloom: verstehen`
 
 #### K-ALG3-06
 **Frage:** Wie kommt man von der Scheitelpunktform zur Normalform?
 **Antwort:** Klammer ausmultiplizieren und zusammenfassen.
-`tags: umformen` · `schwierigkeit: mittel`
+`tags: umformen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG3-07
 **Frage:** Was sind die Nullstellen einer quadratischen Funktion, geometrisch betrachtet?
 **Antwort:** Die Schnittpunkte der Parabel mit der x-Achse, also die x-Werte mit f(x) = 0.
-`tags: nullstellen` · `schwierigkeit: leicht`
+`tags: nullstellen` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-ALG3-08
 **Frage:** Wie lautet die Lösungsformel für ax² + bx + c = 0?
 **Antwort:** x = (−b ± √(b² − 4ac)) / (2a).
-`tags: loesungsformel` · `schwierigkeit: mittel`
+`tags: loesungsformel` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG3-09
 **Frage:** Was ist die Diskriminante?
 **Antwort:** Der Term b² − 4ac unter der Wurzel in der Lösungsformel.
-`tags: diskriminante` · `schwierigkeit: mittel`
+`tags: diskriminante` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG3-10
 **Frage:** Wie viele Lösungen hat die Gleichung, wenn die Diskriminante positiv ist?
 **Antwort:** Genau zwei verschiedene reelle Lösungen.
-`tags: diskriminante` · `schwierigkeit: mittel`
+`tags: diskriminante` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG3-11
 **Frage:** Wie viele Lösungen hat die Gleichung, wenn die Diskriminante null ist?
 **Antwort:** Genau eine (doppelte) Lösung — die Parabel berührt die x-Achse im Scheitelpunkt.
-`tags: diskriminante` · `schwierigkeit: mittel`
+`tags: diskriminante` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG3-12
 **Frage:** Wie viele Lösungen hat die Gleichung, wenn die Diskriminante negativ ist?
 **Antwort:** Keine reelle Lösung — die Parabel schneidet die x-Achse nicht.
-`tags: diskriminante` · `schwierigkeit: mittel`
+`tags: diskriminante` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-ALG3-13
 **Frage:** Wofür ist der Scheitelpunkt bei Anwendungsaufgaben nützlich?
 **Antwort:** Er liefert direkt das Maximum oder Minimum, z. B. die größtmögliche Fläche oder die maximale Höhe einer Wurfparabel.
-`tags: anwendungen` · `schwierigkeit: mittel`
+`tags: anwendungen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-ALG3-14
 **Frage:** Bestimme den Scheitelpunkt von f(x) = (x − 3)² + 2.
 **Antwort:** S(3 | 2).
-`tags: rechenbeispiel` · `schwierigkeit: leicht`
+`tags: rechenbeispiel` · `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### K-ALG3-15
 **Frage:** Löse x² − 9 = 0.
 **Antwort:** x² = 9, also x = 3 oder x = −3.
-`tags: rechenbeispiel` · `schwierigkeit: mittel`
+`tags: rechenbeispiel` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-ALG3-16
 **Frage:** Löse x² + 4x + 4 = 0.
 **Antwort:** (x + 2)² = 0, also x = −2 (doppelte Lösung), da die Diskriminante 4² − 4·1·4 = 0 ist.
-`tags: rechenbeispiel` · `schwierigkeit: schwer`
+`tags: rechenbeispiel` · `schwierigkeit: schwer` · `bloom: anwenden`
 
 #### K-ALG3-17
 **Frage:** Hat die Gleichung x² + x + 1 = 0 reelle Lösungen? Begründe kurz.
 **Antwort:** Nein: Diskriminante = 1² − 4·1·1 = −3 < 0, also keine reelle Lösung.
-`tags: rechenbeispiel, diskriminante` · `schwierigkeit: schwer`
+`tags: rechenbeispiel, diskriminante` · `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### K-ALG3-18
 **Frage:** Was bedeutet es, wenn eine quadratische Gleichung im Sachkontext (z. B. Wurfparabel) keine reelle Lösung hat?
 **Antwort:** Das gesuchte Ereignis (z. B. „Gegenstand erreicht Höhe 0") tritt im modellierten Bereich nicht ein — die Situation, nach der gefragt wird, kommt so nicht vor.
-`tags: anwendungen, interpretation` · `schwierigkeit: schwer`
+`tags: anwendungen, interpretation` · `schwierigkeit: schwer` · `bloom: analysieren`
 
 ## Quiz
 
@@ -140,7 +140,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - [ ] S(−2 | 5)
 - [ ] S(2 | 5)
 **Erklärung:** In a(x − d)² + e steht d mit umgekehrtem Vorzeichen im Term, hier also d = −2.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG3-02 · Multiple Choice
 **Frage:** Welche Aussage über a in f(x) = a(x − d)² + e ist richtig?
@@ -149,7 +149,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - [ ] a hat keinen Einfluss auf den Graphen.
 - [ ] a ist immer gleich 1.
 **Erklärung:** a > 0 öffnet nach oben, a < 0 nach unten; je größer |a|, desto schmaler die Parabel.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-ALG3-03 · Multiple Choice
 **Frage:** Wie viele Nullstellen hat eine quadratische Funktion mit Diskriminante = 0?
@@ -158,7 +158,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - [ ] Zwei
 - [ ] Unendlich viele
 **Erklärung:** Bei Diskriminante 0 berührt die Parabel die x-Achse genau im Scheitelpunkt.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG3-04 · Multiple Choice
 **Frage:** Was ergibt die Diskriminante von x² − 5x + 6 = 0?
@@ -167,7 +167,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - [x] 1
 - [ ] 0
 **Erklärung:** b² − 4ac = (−5)² − 4·1·6 = 25 − 24 = 1.
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: anwenden`
 
 #### Q-ALG3-05 · Zuordnung
 **Anweisung:** Ordne die Diskriminante ihrer Bedeutung für die Anzahl der Lösungen zu.
@@ -175,7 +175,7 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - Diskriminante = 0 ↔ genau eine (doppelte) Lösung
 - Diskriminante < 0 ↔ keine reelle Lösung
 **Erklärung:** Zusammenhang zwischen Vorzeichen der Diskriminante und Lösungsanzahl.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG3-06 · Zuordnung
 **Anweisung:** Ordne die Begriffe ihrer Beschreibung zu.
@@ -184,37 +184,37 @@ Der Scheitelpunkt liefert direkt das Maximum oder Minimum einer quadratischen Fu
 - Diskriminante ↔ Term unter der Wurzel in der Lösungsformel
 - Normalform ↔ Darstellung als ax² + bx + c
 **Erklärung:** Grundbegriffe rund um quadratische Funktionen.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG3-07 · Lückentext
 **Text:** In der Scheitelpunktform f(x) = a(x − d)² + e liegt der Scheitelpunkt bei S(___d | e___).
 **Erklärung:** Die Koordinaten des Scheitelpunkts lassen sich direkt ablesen.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG3-08 · Lückentext
 **Text:** Die Lösungsformel für ax² + bx + c = 0 lautet x = ___(−b ± √(b² − 4ac)) / (2a)___.
 **Erklärung:** Auch „Mitternachtsformel" genannt.
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-ALG3-09 · Lückentext
 **Text:** Der Term b² − 4ac unter der Wurzel heißt ___Diskriminante___.
 **Erklärung:** Sie entscheidet über die Anzahl der Lösungen.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG3-10 · Kurzantwort
 **Frage:** Löse x² − 16 = 0.
 **Akzeptierte Antworten:** x=4 und x=-4; x=-4 und x=4; 4 und -4; -4 und 4; x1=4, x2=-4
 **Erklärung:** x² = 16, also x = 4 oder x = −4.
-`schwierigkeit: leicht`
+`schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-ALG3-11 · Kurzantwort
 **Frage:** Bestimme den Scheitelpunkt von f(x) = 2(x − 1)² + 3.
 **Akzeptierte Antworten:** S(1|3); (1,3); (1;3); 1 und 3
 **Erklärung:** Scheitelpunkt direkt aus der Scheitelpunktform ablesbar: S(1 | 3).
-`schwierigkeit: mittel`
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-ALG3-12 · Kurzantwort
 **Frage:** Eine Wurfparabel wird durch h(t) = −5t² + 20t beschrieben (h = Höhe, t = Zeit). Zu welchen Zeitpunkten ist die Höhe 0?
 **Akzeptierte Antworten:** t=0 und t=4; t=4 und t=0; 0 und 4; 4 und 0; t1=0, t2=4
 **Erklärung:** −5t² + 20t = 0 → −5t(t − 4) = 0 → t = 0 oder t = 4.
-`schwierigkeit: schwer`
+`schwierigkeit: schwer` · `bloom: anwenden`

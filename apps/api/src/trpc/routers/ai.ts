@@ -5,9 +5,14 @@ import { aiProvider } from "../../ai";
 import { isPremiumActive } from "../../auth/premium-status";
 import { env } from "../../env";
 import { aiGradingQueue } from "../../queue/ai-grading-queue";
+import { withTimeout } from "../../queue/with-timeout";
 import { aiGradingJob, answerOption, contentItem, contentItemVersion, examAnswer, examSession, fachgebiet, thema } from "../../db/schema";
 import { protectedProcedure, roleProcedure, router } from "../trpc";
 import { prepareContent } from "./adminContent";
+
+/** N-10-Code-Review-Fund (25.09.2026, siehe queue/with-timeout.ts): ein Redis-Ausfall darf
+ * `requestGrading` nicht unbegrenzt hängen lassen. */
+const QUEUE_ADD_TIMEOUT_MS = 3000;
 
 /**
  * F-70/F-71: KI-gestützte Bewertung offener Fallaufgaben-Abgaben (asynchron, siehe
@@ -95,7 +100,22 @@ export const aiRouter = router({
       throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "KI-Bewertung konnte nicht angefragt werden." });
     }
 
-    await aiGradingQueue.add("grade", { jobRowId: jobRow.id });
+    try {
+      await withTimeout(
+        aiGradingQueue.add("grade", { jobRowId: jobRow.id }),
+        QUEUE_ADD_TIMEOUT_MS,
+        "Die Warteschlange für KI-Bewertungen ist gerade nicht erreichbar.",
+      );
+    } catch (error) {
+      // Der bereits angelegte Job-Datensatz würde sonst als Karteileiche für immer auf
+      // "queued" stehen bleiben, ohne je verarbeitet zu werden — lieber sofort ein klarer
+      // Fehler zum erneuten Versuch als ein stiller Datensatz ohne Fortschritt.
+      await ctx.db.delete(aiGradingJob).where(eq(aiGradingJob.id, jobRow.id));
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: error instanceof Error ? error.message : "KI-Bewertung konnte nicht angefragt werden.",
+      });
+    }
 
     return { jobId: jobRow.id };
   }),

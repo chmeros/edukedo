@@ -10,6 +10,10 @@ import {
   type SubscriptionUpdatedEvent,
   type UserDeletedEvent,
 } from "./payment-events";
+import { withTimeout } from "./with-timeout";
+
+/** N-10-Code-Review-Fund (25.09.2026, siehe queue/with-timeout.ts). */
+const QUEUE_ADD_TIMEOUT_MS = 3000;
 
 /** F-06/Payment-Service-Grundgerüst: der Kern meldet eine Konto-Löschung an apps/payment, damit
  * dessen eigene Subscription-/Rechnungsdaten ebenfalls bereinigt werden (Architekturplanung
@@ -19,8 +23,16 @@ export const userDeletedQueue = new Queue<UserDeletedEvent>(USER_DELETED_QUEUE_N
   defaultJobOptions: { removeOnComplete: true, removeOnFail: true },
 });
 
+/** Rein additiv (Kontolöschung selbst ist zu diesem Zeitpunkt bereits erledigt) — ein Redis-
+ * Ausfall darf `auth.deleteAccount` daher nicht scheitern lassen, nur die Payment-seitige
+ * Bereinigung bleibt dann bis zum nächsten erfolgreichen Versuch aus (kein Retry-Mechanismus
+ * dafür, siehe Architekturplanung Abschnitt 13 — bewusste v1-Einschränkung). */
 export async function publishUserDeleted(userId: string): Promise<void> {
-  await userDeletedQueue.add("user.deleted", { userId });
+  try {
+    await withTimeout(userDeletedQueue.add("user.deleted", { userId }), QUEUE_ADD_TIMEOUT_MS, "Redis nicht erreichbar.");
+  } catch (error) {
+    console.error(`user.deleted-Ereignis für ${userId} konnte nicht publiziert werden:`, error);
+  }
 }
 
 /** Aktualisiert den lokalen Abo-Cache (`user.premium_until`) — getrennt vom dünnen
