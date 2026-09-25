@@ -38,7 +38,7 @@ Details und Begründung in Architekturplanung Abschnitt 11.
 
 ## Woran gerade gearbeitet wird
 
-Der aktuelle Stand befindet sich noch am Anfang von **Iteration 0** (Grundgerüst & Vorbereitung) aus `docs/Entwicklungsplan.md`. Die konkrete, abzuhakende Aufgabenliste für diese und alle folgenden Iterationen steht in diesem Dokument — dort nachsehen, was als Nächstes ansteht, und erledigte Punkte dort mit `- [x]` abhaken.
+Der Stand ist deutlich weiter als der Name "Iteration 0" vermuten lässt (dieser Abschnitt wurde seit Projektbeginn nicht mehr aktualisiert) — nahezu alle Programmierung(Kern)/(Payment)-Punkte aller Iterationen 0–7 sind erledigt, inklusive Payment-Service (F-81/F-82) und der ersten echten lokalen KI-Anbindung (F-72/F-128, Ollama). Die konkrete, abzuhakende Aufgabenliste steht in `docs/Entwicklungsplan.md` — dort nachsehen, was laut den `- [ ]`-Einträgen als Nächstes ansteht (Stand 25.09.2026: überwiegend nicht-technische Punkte wie Zahlungsdienstleister-Auswahl, AGB-Prüfung, sowie kleinere Content-/Testing-Nachträge), und erledigte Punkte dort mit `- [x]` abhaken.
 
 ## Hinweise für die Arbeit in diesem Repo
 

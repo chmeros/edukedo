@@ -203,9 +203,3 @@ export const lernpfadSubmitSelbsteinschaetzungInputSchema = z.object({
   lernpfadId: z.string().uuid(),
   rating: z.number().int().min(0).max(10),
 });
-
-export const adminSetInstrumentLernpfadeEnabledInputSchema = z.object({
-  userId: z.string().uuid(),
-  instrumentLernpfadeEnabled: z.boolean(),
-});
-export type AdminSetInstrumentLernpfadeEnabledInput = z.infer<typeof adminSetInstrumentLernpfadeEnabledInputSchema>;

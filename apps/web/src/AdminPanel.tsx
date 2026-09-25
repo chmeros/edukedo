@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { AdminContentEditor } from "./AdminContentEditor";
 import { AiAdminTools } from "./AiAdminTools";
-import { InstrumentLernpfadAdminTools } from "./InstrumentLernpfadAdminTools";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
@@ -473,8 +472,6 @@ export function AdminPanel() {
       />
 
       <AiAdminTools courses={courses.data ?? []} generationEnabled={me.data?.aiGenerationEnabled ?? false} />
-
-      <InstrumentLernpfadAdminTools />
     </>
   );
 }

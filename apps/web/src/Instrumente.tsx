@@ -94,7 +94,7 @@ export function Instrumente({
       <p className="field-hint">
         Je Instrument erst ein Wissenstest per Quiz, danach die praktische Anwendung am Instrument selbst — beides
         findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
-        mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Premium, siehe unten).
+        mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
       </p>
       <div className="list" style={{ marginTop: 10 }}>
         {INSTRUMENT_CATALOG.map((instrument) => {
@@ -124,7 +124,7 @@ export function Instrumente({
                       Geführten Lernpfad starten
                     </button>
                   ) : (
-                    <span className="field-hint">Geführter Lernpfad: Premium, noch nicht freigeschaltet</span>
+                    <span className="field-hint">Geführter Lernpfad: Fortgeschritten-Funktion, noch nicht freigeschaltet</span>
                   ))}
               </div>
             </div>

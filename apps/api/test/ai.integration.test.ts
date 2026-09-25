@@ -123,7 +123,7 @@ describe("F-70/F-71: KI-Bewertung & Aufgabengenerierung", () => {
   });
 
   it(
-    "verweigert eine KI-Bewertungsanfrage ohne Freischaltung (F-80)",
+    "verweigert eine KI-Bewertungsanfrage ohne aktives Abo (F-80)",
     async () => {
       const { sessionId, contentItemId } = await startExamAndGetItem(learnerCookie);
       const response = await app.inject({
@@ -142,7 +142,7 @@ describe("F-70/F-71: KI-Bewertung & Aufgabengenerierung", () => {
     async () => {
       await db
         .update(schema.user)
-        .set({ aiGradingEnabled: true })
+        .set({ premiumUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) })
         .where(eq(schema.user.email, "test-ai-learner@example.com"));
 
       const { sessionId, contentItemId } = await startExamAndGetItem(learnerCookie);

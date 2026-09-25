@@ -139,24 +139,17 @@ export const user = pgTable(
     // (siehe trpc/routers/parent.ts) — die betroffene Person selbst kann diese Spalte nicht
     // setzen, anders als z. B. mascotEnabled.
     gamificationEnabled: boolean("gamification_enabled").notNull().default(false),
-    // F-70/F-71/F-80 (Nutzer-Entscheidung 23.09.2026, siehe Abschnitt 13): F-70/F-71 sind laut
-    // Anforderungskatalog "dauerhaft kostenpflichtige" Premium-Funktionen (ein Freischalt-Flag
-    // je Funktion, F-80) — der eigentliche Payment-Service existiert noch nicht (Iteration 6,
-    // weiterhin nur Platzhalter), daher vorerst ein admin-vergebbares Flag statt einer echten
-    // Abo-Prüfung (siehe admin.setAiFeatureFlags). `aiGenerationEnabled` ist trotz
-    // `roleProcedure("admin")`-Gate auf `ai.generateContentItem` ein EIGENES Flag (nicht implizit
-    // durch die Admin-Rolle freigeschaltet) — Rolle und "darf echte KI-Kosten auslösen" sind zwei
-    // unabhängige Berechtigungen, ein Admin-Konto muss nicht automatisch KI-Zugriff haben.
-    aiGradingEnabled: boolean("ai_grading_enabled").notNull().default(false),
+    // F-70/F-80 (Nutzer-Vorgabe 25.09.2026, siehe Abschnitt 13): F-70 (KI-Bewertung) ist laut
+    // Anforderungskatalog eine "dauerhaft kostenpflichtige" Funktion — seit der Umstellung auf
+    // den echten Payment-Service NICHT mehr über ein eigenes admin-vergebbares Flag gesteuert,
+    // sondern über den allgemeinen Abo-Status (`premiumUntil` unten, siehe `isPremiumActive` in
+    // `auth/premium-status.ts`). Das vormalige `ai_grading_enabled`-Flag (Interimslösung vom
+    // 23.09.2026, admin.setAiFeatureFlags) entfällt damit vollständig.
+    // `aiGenerationEnabled` (F-71) bleibt bewusst EIGENES, weiterhin admin-only vergebenes Flag
+    // (nicht implizit durch die Admin-Rolle freigeschaltet, kein Abo-Bezug) — F-71 läuft laut
+    // Nutzer-Vorgabe vom 25.09.2026 vorerst extern (separates GPT-Werkzeug) statt über die
+    // Plattform, die Freischaltung bleibt aber bestehen für eine spätere Reaktivierung.
     aiGenerationEnabled: boolean("ai_generation_enabled").notNull().default(false),
-    // F-129/F-130 (Nutzer-Vorgabe vom 24.09.2026, siehe Abschnitt 13): Instrumenten-Lernpfade sind
-    // laut Anforderungskatalog kostenpflichtiger "erweiterter Content-Umfang" (F-80) — derselbe
-    // admin-vergebbare Freischalt-Flag-Ansatz wie bei aiGradingEnabled/aiGenerationEnabled oben,
-    // solange der eigentliche Payment-Service (F-81) noch nicht existiert. Bewusst EIN einziges,
-    // pauschales Flag für ALLE Instrumenten-Lernpfade zusammen (Auflösung des in F-130 offen
-    // gelassenen "Zu klären": pro Pfad/Instrument vs. pauschal) statt eines Flags je Lernpfad-Zeile
-    // — konsistent mit F-80s "kein generisches Premium-Flag auf jedem einzelnen Content-Item".
-    instrumentLernpfadeEnabled: boolean("instrument_lernpfade_enabled").notNull().default(false),
     // F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13):
     // echte, ausgebbare Lernwährung — anders als `mascotFood` NUR beim ERSTEN richtigen
     // Beantworten eines Content-Items vergeben (Anti-Farming, recordQuizAttempt prüft die
@@ -168,7 +161,10 @@ export const user = pgTable(
     // einen synchronen REST-Aufruf bei jedem Request, der prüfen will, ob Premium aktiv ist
     // (Architekturplanung Abschnitt 3: "beim Login prüfen, ob Premium aktiv ist"). `null` = kein
     // aktives Abo. Ein doppelt zugestelltes Event überschreibt denselben absoluten Wert erneut —
-    // von Natur aus idempotent, siehe apps/payment/src/queue/events.ts.
+    // von Natur aus idempotent, siehe apps/payment/src/queue/events.ts. Seit 25.09.2026 (Nutzer-
+    // Vorgabe, siehe Abschnitt 13) zusätzlich die alleinige Quelle für die Freischaltung von F-70
+    // (KI-Bewertung) und F-129 (Instrumenten-Lernpfade) — siehe `auth/premium-status.ts` — statt
+    // der vormaligen, hier gelöschten separaten Admin-Flags je Funktion.
     premiumUntil: timestamp("premium_until", { withTimezone: true }),
     // F-43 (Nutzer-Entscheidung 22.09.2026, siehe Abschnitt 13): wann zuletzt eine
     // Web-Push-Lernerinnerung verschickt wurde — verhindert, dass send-learning-reminders.ts

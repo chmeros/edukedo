@@ -2,7 +2,6 @@ import {
   adminCreateCompanyAccountInputSchema,
   adminFindUserByEmailInputSchema,
   adminSetAiFeatureFlagsInputSchema,
-  adminSetInstrumentLernpfadeEnabledInputSchema,
   adminUpdateCompanyBillingInputSchema,
   createSponsorInputSchema,
   resolveContentReportInputSchema,
@@ -331,12 +330,7 @@ export const adminRouter = router({
         .select({
           id: user.id,
           email: user.email,
-          aiGradingEnabled: user.aiGradingEnabled,
           aiGenerationEnabled: user.aiGenerationEnabled,
-          // F-129/F-130: dieselbe Konto-Suche wird auch von InstrumentLernpfadAdminTools.tsx
-          // genutzt (siehe dort) — Feld hier mit ergänzt statt eines zweiten, fast identischen
-          // Suchendpunkts.
-          instrumentLernpfadeEnabled: user.instrumentLernpfadeEnabled,
         })
         .from(user)
         .where(eq(user.email, input.email))
@@ -350,38 +344,18 @@ export const adminRouter = router({
     }),
 
   /**
-   * F-70/F-71/F-80 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13):
-   * admin-vergebbare Freischaltung der KI-Funktionen, solange der eigentliche Payment-Service
-   * (F-81) noch nicht existiert — analog zu `updateCompanyBilling` oben ein einzelner Endpunkt
-   * für beide Flags statt zwei getrennter.
+   * F-71/F-80 (Nutzer-Entscheidung 23.09.2026, seit 25.09.2026 einziges verbleibendes
+   * KI-Freischalt-Flag, siehe Architekturplanung Abschnitt 13): F-70 (KI-Bewertung) und F-129
+   * (Instrumenten-Lernpfade) laufen inzwischen über den echten Abo-Status (`payment`-Router)
+   * statt über ein Admin-Flag — nur F-71 (Aufgabengenerierung, läuft laut Nutzer-Vorgabe vom
+   * 25.09.2026 vorerst extern) bleibt admin-vergebbar.
    */
-  setAiFeatureFlags: roleProcedure("admin")
+  setAiGenerationEnabled: roleProcedure("admin")
     .input(adminSetAiFeatureFlagsInputSchema)
     .mutation(async ({ ctx, input }) => {
       const [updated] = await ctx.db
         .update(user)
-        .set({ aiGradingEnabled: input.aiGradingEnabled, aiGenerationEnabled: input.aiGenerationEnabled })
-        .where(eq(user.id, input.userId))
-        .returning({ id: user.id });
-
-      if (!updated) {
-        throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Konto wurde nicht gefunden." });
-      }
-
-      return { success: true };
-    }),
-
-  /**
-   * F-129/F-130 (Nutzer-Vorgabe vom 24.09.2026, siehe Abschnitt 13): admin-vergebbare
-   * Freischaltung der Instrumenten-Lernpfade — dieselbe Übergangslösung wie `setAiFeatureFlags`
-   * oben, solange der eigentliche Payment-Service (F-81) noch nicht existiert.
-   */
-  setInstrumentLernpfadeEnabled: roleProcedure("admin")
-    .input(adminSetInstrumentLernpfadeEnabledInputSchema)
-    .mutation(async ({ ctx, input }) => {
-      const [updated] = await ctx.db
-        .update(user)
-        .set({ instrumentLernpfadeEnabled: input.instrumentLernpfadeEnabled })
+        .set({ aiGenerationEnabled: input.aiGenerationEnabled })
         .where(eq(user.id, input.userId))
         .returning({ id: user.id });
 

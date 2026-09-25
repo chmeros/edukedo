@@ -10,6 +10,10 @@ import { trpc } from "./trpc";
  * kein echter Checkout-Redirect. `payment.status.live === false` bedeutet, dass der
  * Payment-Service gerade nicht erreichbar war (N-10) — angezeigter Stand ist dann der zuletzt
  * per Event-Queue aktualisierte Cache, kein Live-Wert.
+ *
+ * Nutzer-facing bewusst "Fortgeschritten" statt "Premium" genannt (Nutzer-Vorgabe 25.09.2026) —
+ * betrifft nur die Textausgabe hier, technische Feldnamen (`isPremiumActive`/`premiumUntil`)
+ * bleiben unverändert, siehe Architekturplanung Abschnitt 13.
  */
 export function AboStatus() {
   const utils = trpc.useUtils();
@@ -37,11 +41,12 @@ export function AboStatus() {
   return (
     <div className="stack">
       <span className="stat-subheading">Abo</span>
+      <span className="field-hint">Schaltet die Fortgeschritten-Funktionen frei: KI-Bewertung deiner Fallaufgaben (F-70) und geführte Instrumenten-Lernpfade (F-129).</span>
       {!status.data.live && (
         <span className="field-hint">Zahlungsdienst gerade nicht erreichbar — zuletzt bekannter Stand:</span>
       )}
       {status.data.isPremiumActive ? (
-        <p>Premium aktiv bis {new Date(status.data.premiumUntil!).toLocaleDateString("de-DE")}.</p>
+        <p>Fortgeschritten-Status aktiv bis {new Date(status.data.premiumUntil!).toLocaleDateString("de-DE")}.</p>
       ) : (
         <p>Kein aktives Abo.</p>
       )}

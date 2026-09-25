@@ -261,7 +261,7 @@ export function Exam({ kursId }: { kursId: string }) {
             Prüfung abgeschlossen — {result.achievedPoints} von {result.maxPoints} Punkten ({result.score} %)
           </div>
         </div>
-        {me.data?.aiGradingEnabled && sessionId && (
+        {me.data?.isPremiumActive && sessionId && (
           <div className="stack">
             <h3>KI-Bewertung deiner Fallaufgaben (F-70)</h3>
             {items.map((item) => (

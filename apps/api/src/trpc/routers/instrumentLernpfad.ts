@@ -20,6 +20,7 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
+import { isPremiumActive } from "../../auth/premium-status";
 import type { Database } from "../../db/client";
 import { instrumentLernpfad, instrumentLernpfadSelbsteinschaetzung, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
@@ -29,10 +30,12 @@ import { protectedProcedure, router } from "../trpc";
  * instrument-lernpfad.ts für die vollständige Konzept-Dokumentation und Architekturplanung
  * Abschnitt 13 für die technischen Entscheidungen): Instrumenten-Lernpfad — geführter,
  * mehrstufiger Lern-/Übungsdurchgang je Instrument, kostenpflichtiger erweiterter Content-Umfang
- * (F-130, `user.instrument_lernpfade_enabled`). `get` liefert IMMER nur die lösungsfreie
- * Anzeigeform (nie `isCorrect`/`feedback`/`zoneKey` vorab), jeder `submit*`-Aufruf prüft genau
- * EIN einzelnes Element gegen das serverseitig geladene Payload und gibt nur dessen Ergebnis
- * zurück — siehe Moduldoku in instrument-lernpfad-logic.ts zum "Sofort"-Interaktionsmuster.
+ * (F-130). Seit 25.09.2026 (Nutzer-Vorgabe, siehe Abschnitt 13) über den echten Abo-Status
+ * freigeschaltet (`isPremiumActive`, siehe `auth/premium-status.ts`), nicht mehr über das
+ * vormalige separate `user.instrument_lernpfade_enabled`-Admin-Flag. `get` liefert IMMER nur die
+ * lösungsfreie Anzeigeform (nie `isCorrect`/`feedback`/`zoneKey` vorab), jeder `submit*`-Aufruf
+ * prüft genau EIN einzelnes Element gegen das serverseitig geladene Payload und gibt nur dessen
+ * Ergebnis zurück — siehe Moduldoku in instrument-lernpfad-logic.ts zum "Sofort"-Interaktionsmuster.
  */
 
 async function loadLernpfadForUser(db: Database, userId: string, lernpfadId: string) {
@@ -63,8 +66,8 @@ async function loadLernpfadForUser(db: Database, userId: string, lernpfadId: str
   return { ...row, payload: instrumentLernpfadPayloadSchema.parse(row.payload) };
 }
 
-function requireLernpfadeEnabled(instrumentLernpfadeEnabled: boolean) {
-  if (!instrumentLernpfadeEnabled) {
+function requireLernpfadeEnabled(premiumUntil: Date | null) {
+  if (!isPremiumActive(premiumUntil)) {
     throw new TRPCError({
       code: "FORBIDDEN",
       message: "Instrumenten-Lernpfade sind für dein Konto nicht freigeschaltet.",
@@ -88,7 +91,7 @@ export const instrumentLernpfadRouter = router({
   }),
 
   get: protectedProcedure.input(lernpfadInputSchema).query(async ({ ctx, input }) => {
-    requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+    requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
 
     const [row] = await ctx.db
       .select({
@@ -177,7 +180,7 @@ export const instrumentLernpfadRouter = router({
   }),
 
   submitWissensfrage: protectedProcedure.input(lernpfadSubmitWissensfrageInputSchema).mutation(async ({ ctx, input }) => {
-    requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+    requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
     const { payload } = await loadLernpfadForUser(ctx.db, ctx.currentUser.id, input.lernpfadId);
     const question = payload[input.station].questions[input.questionIndex];
     if (!question) {
@@ -187,7 +190,7 @@ export const instrumentLernpfadRouter = router({
   }),
 
   submitPoolItem: protectedProcedure.input(lernpfadSubmitPoolItemInputSchema).mutation(async ({ ctx, input }) => {
-    requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+    requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
     const { payload } = await loadLernpfadForUser(ctx.db, ctx.currentUser.id, input.lernpfadId);
     const round = payload[input.station].rounds[input.roundIndex];
     if (!round) {
@@ -197,7 +200,7 @@ export const instrumentLernpfadRouter = router({
   }),
 
   submitZoneItem: protectedProcedure.input(lernpfadSubmitZoneItemInputSchema).mutation(async ({ ctx, input }) => {
-    requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+    requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
     const { payload } = await loadLernpfadForUser(ctx.db, ctx.currentUser.id, input.lernpfadId);
     if (input.station === "zieleZuordnen") {
       const station = payload.zieleZuordnen;
@@ -207,7 +210,7 @@ export const instrumentLernpfadRouter = router({
   }),
 
   submitSortieren: protectedProcedure.input(lernpfadSubmitSortierenInputSchema).mutation(async ({ ctx, input }) => {
-    requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+    requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
     const { payload } = await loadLernpfadForUser(ctx.db, ctx.currentUser.id, input.lernpfadId);
     const task = payload.wirkungsketten.tasks[input.taskIndex];
     if (!task) {
@@ -222,7 +225,7 @@ export const instrumentLernpfadRouter = router({
   submitSelbsteinschaetzung: protectedProcedure
     .input(lernpfadSubmitSelbsteinschaetzungInputSchema)
     .mutation(async ({ ctx, input }) => {
-      requireLernpfadeEnabled(ctx.currentUser.instrumentLernpfadeEnabled);
+      requireLernpfadeEnabled(ctx.currentUser.premiumUntil);
       await loadLernpfadForUser(ctx.db, ctx.currentUser.id, input.lernpfadId);
 
       await ctx.db

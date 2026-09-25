@@ -2,6 +2,8 @@ import { aiGradingRequestInputSchema, generateMcQuestionInputSchema, type AdminC
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, inArray } from "drizzle-orm";
 import { aiProvider } from "../../ai";
+import { isPremiumActive } from "../../auth/premium-status";
+import { env } from "../../env";
 import { aiGradingQueue } from "../../queue/ai-grading-queue";
 import { aiGradingJob, answerOption, contentItem, contentItemVersion, examAnswer, examSession, fachgebiet, thema } from "../../db/schema";
 import { protectedProcedure, roleProcedure, router } from "../trpc";
@@ -10,17 +12,27 @@ import { prepareContent } from "./adminContent";
 /**
  * F-70/F-71: KI-gestützte Bewertung offener Fallaufgaben-Abgaben (asynchron, siehe
  * queue/ai-grading-queue.ts) und KI-gestützte Aufgabengenerierung (synchron, bewusst nur
- * `quiz_mc` — siehe Architekturplanung Abschnitt 13). Beide hinter admin-vergebbaren
- * Freischalt-Flags (F-80, `user.ai_grading_enabled`/`ai_generation_enabled` — siehe
- * admin.setAiFeatureFlags), da der eigentliche Payment-Service (F-81) noch nicht existiert.
+ * `quiz_mc` — siehe Architekturplanung Abschnitt 13). F-70 ist seit 25.09.2026 (Nutzer-Vorgabe,
+ * siehe Abschnitt 13) über den echten Abo-Status freigeschaltet (`isPremiumActive`, siehe
+ * `auth/premium-status.ts`), nicht mehr über ein separates Admin-Flag. F-71 bleibt weiterhin
+ * hinter dem eigenständigen `user.ai_generation_enabled`-Admin-Flag (F-80,
+ * admin.setAiGenerationEnabled) — F-71 läuft laut Nutzer-Vorgabe vom 25.09.2026 vorerst extern.
  */
 export const aiRouter = router({
+  /** F-72/F-128: welcher Anbieter aktuell aktiv ist — rein informativ fürs Admin-Panel, damit
+   * dessen Hinweistext nicht mehr pauschal "Entwicklungs-Platzhalter" behauptet, sobald ein
+   * echter Anbieter (Ollama) konfiguriert ist. */
+  providerInfo: roleProcedure("admin").query(() => ({
+    provider: env.AI_PROVIDER,
+    model: env.AI_PROVIDER === "ollama" ? env.OLLAMA_MODEL : null,
+  })),
+
   /**
    * Setzt voraus, dass die Fallaufgabe bereits über exam.submitAnswer eingereicht wurde — die
    * KI bewertet eine bestehende Abgabe, keinen neuen, separat übermittelten Text.
    */
   requestGrading: protectedProcedure.input(aiGradingRequestInputSchema).mutation(async ({ ctx, input }) => {
-    if (!ctx.currentUser.aiGradingEnabled) {
+    if (!isPremiumActive(ctx.currentUser.premiumUntil)) {
       throw new TRPCError({
         code: "FORBIDDEN",
         message: "Die KI-gestützte Bewertung ist für dein Konto nicht freigeschaltet.",

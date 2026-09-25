@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import { isPremiumActive } from "../../auth/premium-status";
 import { user } from "../../db/schema";
 import {
   cancelSubscription as cancelRemoteSubscription,
@@ -11,16 +12,10 @@ import { protectedProcedure, router } from "../trpc";
 /**
  * F-81/F-82 (Payment-Baustein 2, siehe Architekturplanung Abschnitt 13): Abo-/Kaufverwaltung und
  * Statusübersicht im Nutzerprofil, aufbauend auf dem Payment-Service-Grundgerüst (Baustein 1).
- * Bewusst UNABHÄNGIG von den bestehenden admin-vergebbaren Freischalt-Flags
- * (`aiGradingEnabled`/`aiGenerationEnabled`/`instrumentLernpfadeEnabled`) — dieser Router liefert
- * die reine Selbstbedienungs-Oberfläche für den Abo-Status; ob/wie ein echtes Abo künftig diese
- * Flags ablöst, ist eine spätere, eigene Entscheidung.
+ * Seit 25.09.2026 (Nutzer-Vorgabe, siehe Abschnitt 13) die alleinige Quelle für die Freischaltung
+ * von F-70 (KI-Bewertung) und F-129 (Instrumenten-Lernpfade) — die vormaligen separaten
+ * admin-vergebbaren Freischalt-Flags je Funktion entfallen, siehe `auth/premium-status.ts`.
  */
-
-function isActiveNow(premiumUntil: Date | null): boolean {
-  return premiumUntil !== null && premiumUntil.getTime() > Date.now();
-}
-
 export const paymentRouter = router({
   /**
    * N-10 ("ein Ausfall darf den Kernbetrieb nicht beeinträchtigen"): bei einem nicht
@@ -37,10 +32,10 @@ export const paymentRouter = router({
       if (premiumUntil?.getTime() !== ctx.currentUser.premiumUntil?.getTime()) {
         await ctx.db.update(user).set({ premiumUntil }).where(eq(user.id, ctx.currentUser.id));
       }
-      return { isPremiumActive: isActiveNow(premiumUntil), premiumUntil: premiumUntil?.toISOString() ?? null, live: true };
+      return { isPremiumActive: isPremiumActive(premiumUntil), premiumUntil: premiumUntil?.toISOString() ?? null, live: true };
     } catch {
       const cached = ctx.currentUser.premiumUntil;
-      return { isPremiumActive: isActiveNow(cached), premiumUntil: cached?.toISOString() ?? null, live: false };
+      return { isPremiumActive: isPremiumActive(cached), premiumUntil: cached?.toISOString() ?? null, live: false };
     }
   }),
 

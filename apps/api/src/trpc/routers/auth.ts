@@ -15,6 +15,7 @@ import { calculateIsMinor } from "../../auth/age";
 import { initiateParentalConsent } from "../../auth/consent";
 import { initiateEmailVerification } from "../../auth/email-verification";
 import { hashPassword, verifyPassword } from "../../auth/password";
+import { isPremiumActive } from "../../auth/premium-status";
 import { checkRateLimit } from "../../auth/rate-limit";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
@@ -207,16 +208,15 @@ export const authRouter = router({
     // echten Opt-in statt eines Hinweistexts zeigen (siehe dort) — nur vom Eltern-Dashboard
     // gesetzt, hier rein lesend.
     gamificationEnabled: ctx.currentUser.gamificationEnabled,
-    // F-70/F-71/F-80: steuert, ob Exam.tsx die KI-Bewertung anbietet bzw. das Admin-Panel die
-    // KI-Aufgabengenerierung — nur vom Admin-Werkzeug (admin.setAiFeatureFlags) gesetzt.
-    aiGradingEnabled: ctx.currentUser.aiGradingEnabled,
+    // F-71/F-80: steuert, ob das Admin-Panel die KI-Aufgabengenerierung anbietet — nur vom
+    // Admin-Werkzeug (admin.setAiGenerationEnabled) gesetzt. Bewusst als einziges verbleibendes
+    // Admin-Flag (F-71 läuft laut Nutzer-Vorgabe vom 25.09.2026 vorerst extern, siehe schema.ts).
     aiGenerationEnabled: ctx.currentUser.aiGenerationEnabled,
-    // F-129/F-130: steuert, ob Instrumente.tsx den geführten Lernpfad (statt eines
-    // Freischalt-Hinweises) anbietet — nur vom Admin-Werkzeug gesetzt, siehe instrumentLernpfad.ts.
-    instrumentLernpfadeEnabled: ctx.currentUser.instrumentLernpfadeEnabled,
-    // Payment-Service-Grundgerüst: abgeleitet aus dem per Event-Queue aktualisierten
-    // premium_until-Cache, nicht dem Rohwert selbst — das Frontend braucht hier nur ja/nein.
-    isPremiumActive: ctx.currentUser.premiumUntil !== null && ctx.currentUser.premiumUntil.getTime() > Date.now(),
+    // F-70/F-129 (Nutzer-Vorgabe 25.09.2026, siehe Abschnitt 13): steuert sowohl Exam.tsx' KI-
+    // Bewertung als auch Instrumente.tsx' geführten Lernpfad — abgeleitet aus dem per Event-Queue
+    // aktualisierten premium_until-Cache statt separater Admin-Flags, das Frontend braucht hier
+    // nur ja/nein. Siehe auth/premium-status.ts.
+    isPremiumActive: isPremiumActive(ctx.currentUser.premiumUntil),
   })),
 
   /**

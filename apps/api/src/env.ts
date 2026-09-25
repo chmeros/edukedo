@@ -25,6 +25,14 @@ const envSchema = z.object({
   // — muss auf beiden Seiten identisch gesetzt sein, sonst lehnt Payment jeden Aufruf mit 401 ab.
   PAYMENT_SERVICE_URL: z.string().url().default("http://localhost:3002"),
   PAYMENT_SERVICE_TOKEN: z.string().min(16, "PAYMENT_SERVICE_TOKEN muss mindestens 16 Zeichen lang sein"),
+  // F-72/F-128 (Nutzer-Entscheidung 25.09.2026, siehe Architekturplanung Abschnitt 13): erste
+  // echte KI-Anbindung — lokal über Ollama, OpenAI-kompatible HTTP-Schnittstelle, statt eines
+  // In-Process-Bindings oder Sidecar-Diensts. Default bleibt bewusst "placeholder", damit
+  // bestehende Deployments/Tests ohne laufendes Ollama unverändert funktionieren — "ollama" ist
+  // ein expliziter Opt-in.
+  AI_PROVIDER: z.enum(["placeholder", "ollama"]).default("placeholder"),
+  OLLAMA_BASE_URL: z.string().url().default("http://localhost:11434"),
+  OLLAMA_MODEL: z.string().default("qwen2.5:14b-instruct-q4_K_M"),
 });
 
 export const env = envSchema.parse(process.env);

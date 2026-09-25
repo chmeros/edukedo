@@ -1,10 +1,13 @@
 import { z } from "zod";
 
 /**
- * F-70/F-71/F-72: KI-gestützte Bewertung (Fallaufgaben, F-23) und Aufgabengenerierung. Siehe
- * apps/api/src/trpc/routers/ai.ts für die Freischalt-Prüfung (F-80: admin-vergebbare Flags,
- * `user.ai_grading_enabled`/`ai_generation_enabled` — der eigentliche Payment-Service existiert
- * noch nicht) und apps/api/src/ai/ für die austauschbare KI-Anbieter-Schnittstelle (F-72).
+ * F-70/F-71/F-72: KI-gestützte Bewertung (Fallaufgaben, F-23) und Aufgabengenerierung. Seit
+ * 25.09.2026 (Nutzer-Vorgabe, siehe Architekturplanung Abschnitt 13) ist F-70 über den echten
+ * Abo-Status freigeschaltet (`payment`-Router/`isPremiumActive`), nicht mehr über ein Admin-Flag
+ * — siehe apps/api/src/auth/premium-status.ts. Nur F-71 (Aufgabengenerierung, läuft laut
+ * Nutzer-Vorgabe vom 25.09.2026 vorerst extern) bleibt hinter dem admin-vergebbaren
+ * `user.ai_generation_enabled`-Flag, siehe apps/api/src/trpc/routers/admin.ts. Siehe
+ * apps/api/src/ai/ für die austauschbare KI-Anbieter-Schnittstelle (F-72).
  */
 export const aiGradingRequestInputSchema = z.object({
   sessionId: z.string().uuid(),
@@ -20,8 +23,8 @@ export const generateMcQuestionInputSchema = z.object({
 });
 export type GenerateMcQuestionInput = z.infer<typeof generateMcQuestionInputSchema>;
 
-/** F-80: admin-vergebbare Freischaltung, solange der eigentliche Payment-Service (F-81) noch
- * nicht existiert — siehe apps/api/src/trpc/routers/admin.ts. */
+/** F-80: admin-vergebbare Freischaltung für F-71 (einziges verbleibendes Admin-Flag, siehe
+ * apps/api/src/trpc/routers/admin.ts). */
 export const adminFindUserByEmailInputSchema = z.object({
   email: z.string().trim().email(),
 });
@@ -29,7 +32,6 @@ export type AdminFindUserByEmailInput = z.infer<typeof adminFindUserByEmailInput
 
 export const adminSetAiFeatureFlagsInputSchema = z.object({
   userId: z.string().uuid(),
-  aiGradingEnabled: z.boolean(),
   aiGenerationEnabled: z.boolean(),
 });
 export type AdminSetAiFeatureFlagsInput = z.infer<typeof adminSetAiFeatureFlagsInputSchema>;

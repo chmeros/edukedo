@@ -239,6 +239,13 @@
       "when": 1790261145250,
       "tag": "0033_fantastic_marten_broadcloak",
       "breakpoints": true
+    },
+    {
+      "idx": 34,
+      "version": "7",
+      "when": 1790335403151,
+      "tag": "0034_cultured_silver_surfer",
+      "breakpoints": true
     }
   ]
 }

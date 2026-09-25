@@ -4,17 +4,19 @@ import { InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 /**
- * F-70/F-71/F-80 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13):
- * admin-vergebbare Freischaltung der KI-Funktionen für ein Konto, solange der eigentliche
- * Payment-Service (F-81) noch nicht existiert. Sucht das Konto per E-Mail statt aus einer Liste
- * — anders als bei Unternehmens-Konten gibt es keine vorhandene Nutzer:innen-Übersicht.
+ * F-71/F-80 (Nutzer-Entscheidung 23.09.2026, seit 25.09.2026 einziges verbleibendes KI-
+ * Freischalt-Flag, siehe Architekturplanung Abschnitt 13): admin-vergebbare Freischaltung der
+ * KI-Aufgabengenerierung für ein Konto — F-70 (KI-Bewertung) läuft inzwischen über den echten
+ * Abo-Status (siehe AboStatus.tsx), F-71 bleibt admin-only, da die Aufgabengenerierung laut
+ * Nutzer-Vorgabe vom 25.09.2026 vorerst extern läuft. Sucht das Konto per E-Mail statt aus einer
+ * Liste — anders als bei Unternehmens-Konten gibt es keine vorhandene Nutzer:innen-Übersicht.
  */
 function AiFeatureFlagsForm() {
   const utils = trpc.useUtils();
   const [email, setEmail] = useState("");
   const [searchedEmail, setSearchedEmail] = useState<string | null>(null);
   const found = trpc.admin.findUserByEmail.useQuery({ email: searchedEmail ?? "" }, { enabled: !!searchedEmail });
-  const setFlags = trpc.admin.setAiFeatureFlags.useMutation({
+  const setFlags = trpc.admin.setAiGenerationEnabled.useMutation({
     onSuccess: () => {
       if (searchedEmail) utils.admin.findUserByEmail.invalidate({ email: searchedEmail });
       utils.auth.me.invalidate();
@@ -50,29 +52,10 @@ function AiFeatureFlagsForm() {
             <label>
               <input
                 type="checkbox"
-                checked={found.data.aiGradingEnabled}
-                disabled={setFlags.isPending}
-                onChange={(event) =>
-                  setFlags.mutate({
-                    userId: found.data!.id,
-                    aiGradingEnabled: event.target.checked,
-                    aiGenerationEnabled: found.data!.aiGenerationEnabled,
-                  })
-                }
-              />{" "}
-              KI-Bewertung (F-70)
-            </label>
-            <label>
-              <input
-                type="checkbox"
                 checked={found.data.aiGenerationEnabled}
                 disabled={setFlags.isPending}
                 onChange={(event) =>
-                  setFlags.mutate({
-                    userId: found.data!.id,
-                    aiGradingEnabled: found.data!.aiGradingEnabled,
-                    aiGenerationEnabled: event.target.checked,
-                  })
+                  setFlags.mutate({ userId: found.data!.id, aiGenerationEnabled: event.target.checked })
                 }
               />{" "}
               KI-Aufgabengenerierung (F-71)
@@ -185,9 +168,10 @@ function AiContentGenerationForm({ courses }: { courses: { id: string; title: st
 }
 
 /**
- * F-70/F-71/F-72: Admin-Werkzeuge für KI-Funktionen — Freischaltung (F-80) und Aufgaben-
- * generierung (F-71). Eigene Datei statt Erweiterung von AdminPanel.tsx (bereits umfangreich),
- * analog zu AdminContentEditor.tsx.
+ * F-71/F-72/F-80: Admin-Werkzeuge für die KI-Aufgabengenerierung — F-70 (KI-Bewertung) ist seit
+ * 25.09.2026 kein Admin-Flag mehr, sondern läuft über den echten Abo-Status (siehe AboStatus.tsx),
+ * daher hier nicht mehr aufgeführt. Eigene Datei statt Erweiterung von AdminPanel.tsx (bereits
+ * umfangreich), analog zu AdminContentEditor.tsx.
  */
 export function AiAdminTools({
   courses,
@@ -196,16 +180,25 @@ export function AiAdminTools({
   courses: { id: string; title: string }[];
   generationEnabled: boolean;
 }) {
+  const providerInfo = trpc.ai.providerInfo.useQuery();
+
   return (
     <div className="panel-section">
       <div className="panel-section-head">
-        <h2>Admin: KI-Funktionen (F-70/F-71/F-72)</h2>
-        <p>
-          Alle KI-Texte sind bewusst als Entwicklungs-Platzhalter gekennzeichnet — der eigentliche KI-Anbieter wird laut
-          Architekturplanung erst kurz vor Phase 4 ausgewählt.
-        </p>
+        <h2>Admin: KI-Aufgabengenerierung (F-71/F-72)</h2>
+        {providerInfo.data?.provider === "ollama" ? (
+          <p>
+            Aktiver KI-Anbieter: lokales Modell <code>{providerInfo.data.model}</code> über Ollama (F-128) — echte
+            KI-Ausgaben, keine Platzhalter mehr. Weiterhin klar als unverbindliche Lernhilfe gekennzeichnet.
+          </p>
+        ) : (
+          <p>
+            Alle KI-Texte sind bewusst als Entwicklungs-Platzhalter gekennzeichnet — der eigentliche KI-Anbieter wird laut
+            Architekturplanung erst kurz vor Phase 4 ausgewählt.
+          </p>
+        )}
       </div>
-      <h3>Freischaltung je Konto (F-80)</h3>
+      <h3>Freischaltung der Aufgabengenerierung je Konto (F-80)</h3>
       <AiFeatureFlagsForm />
       <h3>Aufgabengenerierung (F-71)</h3>
       {generationEnabled ? (

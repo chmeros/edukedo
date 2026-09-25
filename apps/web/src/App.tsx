@@ -363,7 +363,7 @@ export function App() {
                         <Instrumente
                           key={activeKursId}
                           kursId={activeKursId}
-                          instrumentLernpfadeEnabled={me.data.instrumentLernpfadeEnabled}
+                          instrumentLernpfadeEnabled={me.data.isPremiumActive}
                           onGoToThema={(themaId, themaTitle) => {
                             setActiveThema({ id: themaId, title: themaTitle });
                             setLearningMode("lernen");
