@@ -1,0 +1,1 @@
+ALTER TABLE "ai_grading_job" ADD COLUMN "result_parts" jsonb;

@@ -14,7 +14,23 @@ export interface FallaufgabeGradingInput {
    * (`content_item_version.explanation`) — F-70: "ausschließlich auf Basis eigener, frei
    * formulierter Bewertungskriterien — kein Rückgriff auf echte IHK-Musterlösungen". */
   criteria: string;
-  parts: { prompt: string; points: number; answerText: string }[];
+  /** `selfAssessedPoints` (Nutzer-Vorgabe 25.09.2026) wird mitgegeben, damit die KI ihr Feedback
+   * auch wertschätzend auf die eigene Selbsteinschätzung beziehen kann (z. B. Lob für eine
+   * treffsichere Selbsteinschätzung, motivierende Einordnung bei einer größeren Abweichung). */
+  parts: { prompt: string; points: number; answerText: string; selfAssessedPoints: number }[];
+}
+
+/** F-70 (Nutzer-Vorgabe 25.09.2026, siehe Architekturplanung Abschnitt 13): je Teilaufgabe EIN
+ * zusammenhängender Feedback-Absatz plus ein KI-Punktvorschlag — `points` ist bereits auf
+ * `[0, part.points]` der zugehörigen Teilaufgabe begrenzt (Aufrufstelle klemmt zusätzlich
+ * serverseitig, siehe process-grading-job.ts, analog zur Selbsteinschätzung in exam.ts). */
+export interface FallaufgabeGradingPart {
+  feedback: string;
+  points: number;
+}
+
+export interface FallaufgabeGradingResult {
+  parts: FallaufgabeGradingPart[];
 }
 
 export interface GeneratedMcQuestion {
@@ -24,10 +40,14 @@ export interface GeneratedMcQuestion {
 }
 
 export interface AiProvider {
-  /** F-70: liefert einen freien Korrekturvorschlag-Text — kein Punkte-/Richtig-falsch-Urteil,
-   * siehe F-70: "klar als unverbindliche Lernhilfe ohne Anspruch auf offizielle Korrektheit zu
-   * kennzeichnen" (die Kennzeichnung selbst übernimmt das Frontend, nicht der Text hier). */
-  gradeFallaufgabe(input: FallaufgabeGradingInput): Promise<string>;
+  /** F-70: liefert je Teilaufgabe einen konkreten Korrekturvorschlag-Absatz UND einen
+   * KI-Punktvorschlag zum Vergleich mit der eigenen Selbsteinschätzung (Nutzer-Vorgabe
+   * 25.09.2026) — weiterhin klar als unverbindliche Lernhilfe ohne Anspruch auf offizielle
+   * Korrektheit zu kennzeichnen (die Kennzeichnung selbst übernimmt das Frontend). Der
+   * Feedback-Absatz ist zusätzlich wertschätzend formuliert (Nutzer-Vorgabe 25.09.2026): Lob bei
+   * gutem/sehr gutem Ergebnis, motivierende Einordnung bei schwächerem Ergebnis — jeweils auch im
+   * Bezug zur mitgegebenen `selfAssessedPoints`. */
+  gradeFallaufgabe(input: FallaufgabeGradingInput): Promise<FallaufgabeGradingResult>;
   /** F-71: "nach vorgegebenem Schema" — hier auf quiz_mc beschränkt (siehe ai/index.ts). */
   generateMcQuestion(input: { topicHint: string; fachgebietTitle: string }): Promise<GeneratedMcQuestion>;
 }

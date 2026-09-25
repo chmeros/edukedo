@@ -591,7 +591,12 @@ export const aiGradingJob = pgTable(
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
     status: text("status").notNull().default("queued"),
-    resultText: text("result_text"),
+    /** F-70 (Nutzer-Vorgabe 25.09.2026, siehe Architekturplanung Abschnitt 13): strukturiert
+     * statt Freitext — ein Array `{ feedback: string, points: number }[]` in derselben
+     * Reihenfolge wie die Teilaufgaben der bewerteten Fallaufgabe, ermöglicht dem Frontend den
+     * Vergleich mit der Selbsteinschätzung je Teilaufgabe (`exam_answer.given_answer`). Löst das
+     * vormalige freie `result_text`-Feld ab. */
+    resultParts: jsonb("result_parts"),
     errorMessage: text("error_message"),
     requestedAt: timestamp("requested_at", { withTimezone: true }).notNull().defaultNow(),
     completedAt: timestamp("completed_at", { withTimezone: true }),

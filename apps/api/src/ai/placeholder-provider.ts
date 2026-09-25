@@ -18,19 +18,19 @@ export const placeholderAiProvider: AiProvider = {
   async gradeFallaufgabe({ parts }) {
     await simulateLatency(1500);
 
-    const partLines = parts.map((part, index) => {
-      const trimmed = part.answerText.trim();
-      const summary = trimmed.length > 0 ? `${trimmed.length} Zeichen eingereicht.` : "keine Antwort eingereicht.";
-      return `Teilaufgabe ${index + 1} (${part.points} Punkte): ${summary}`;
-    });
-
-    return [
-      "[Entwickler-Platzhalter — keine echte KI-Bewertung]",
-      "Diese Rückmeldung stammt aus einer deterministischen Platzhalter-Implementierung (kein echtes KI-Modell, siehe F-72).",
-      "Sobald ein echter Anbieter angebunden ist, ersetzt dessen Bewertung diesen Text automatisch.",
-      "",
-      ...partLines,
-    ].join("\n");
+    // Deterministisch statt eines echten Urteils (siehe Moduldoku oben): volle Punktzahl bei
+    // eingereichtem Text, 0 bei leerer Antwort — klar erkennbar als Platzhalter-Heuristik, nicht
+    // als echte Bewertung.
+    return {
+      parts: parts.map((part, index) => {
+        const trimmed = part.answerText.trim();
+        const summary = trimmed.length > 0 ? `${trimmed.length} Zeichen eingereicht.` : "keine Antwort eingereicht.";
+        return {
+          feedback: `[Entwickler-Platzhalter — keine echte KI-Bewertung] Teilaufgabe ${index + 1}: ${summary} Diese Rückmeldung stammt aus einer deterministischen Platzhalter-Implementierung (kein echtes KI-Modell, siehe F-72); sobald ein echter Anbieter angebunden ist, ersetzt dessen Bewertung diesen Text automatisch.`,
+          points: trimmed.length > 0 ? part.points : 0,
+        };
+      }),
+    };
   },
 
   async generateMcQuestion({ topicHint, fachgebietTitle }) {

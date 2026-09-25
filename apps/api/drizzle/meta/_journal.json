@@ -246,6 +246,20 @@
       "when": 1790335403151,
       "tag": "0034_cultured_silver_surfer",
       "breakpoints": true
+    },
+    {
+      "idx": 35,
+      "version": "7",
+      "when": 1790339760047,
+      "tag": "0035_majestic_living_lightning",
+      "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1790339768077,
+      "tag": "0036_old_hobgoblin",
+      "breakpoints": true
     }
   ]
 }

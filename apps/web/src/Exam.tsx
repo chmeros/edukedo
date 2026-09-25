@@ -53,12 +53,23 @@ function AiGradingRow({ sessionId, contentItemId, aiGradingEnabled }: { sessionI
         </div>
       )}
       {status === "failed" && result.data?.errorMessage && <ErrorMessage>{result.data.errorMessage}</ErrorMessage>}
-      {status === "completed" && result.data?.resultText && (
+      {status === "completed" && result.data?.parts && (
         <div className="alert alert-info">
           <InfoIcon />
-          <div>
-            <b>KI-Bewertung (unverbindliche Lernhilfe, kein Anspruch auf offizielle Korrektheit):</b>{" "}
-            {result.data.resultText}
+          <div className="stack">
+            <b>KI-Bewertung (unverbindliche Lernhilfe, kein Anspruch auf offizielle Korrektheit):</b>
+            {result.data.parts.map((part, index) => (
+              <div key={index} className="exam-ai-grading-part">
+                <p className="exam-ai-grading-part-heading">
+                  <b>Teilaufgabe {index + 1}:</b> {part.aiPoints} von {part.maxPoints} Punkten (KI-Vorschlag) · Deine
+                  Selbsteinschätzung: {part.selfAssessedPoints} von {part.maxPoints} Punkten
+                </p>
+                <p className="exam-ai-grading-answer">
+                  <b>Deine Antwort:</b> {part.answerText || "(keine Antwort eingereicht)"}
+                </p>
+                <p>{part.feedback}</p>
+              </div>
+            ))}
           </div>
         </div>
       )}

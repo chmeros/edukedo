@@ -38,19 +38,28 @@ export async function processAiGradingJob(jobRowId: string): Promise<void> {
     const payload = fallaufgabePayloadSchema.parse(versionRow.payload);
     const givenAnswer = answerRow.givenAnswer as { parts: { answerText: string; selfAssessedPoints: number }[] };
 
-    const resultText = await aiProvider.gradeFallaufgabe({
+    const gradingResult = await aiProvider.gradeFallaufgabe({
       fallaufgabePrompt: versionRow.prompt,
       criteria: versionRow.explanation ?? "",
       parts: payload.parts.map((part, index) => ({
         prompt: part.prompt,
         points: part.points,
         answerText: givenAnswer.parts[index]?.answerText ?? "",
+        selfAssessedPoints: givenAnswer.parts[index]?.selfAssessedPoints ?? 0,
       })),
     });
 
+    // Serverseitig auf die tatsächlich mögliche Punktzahl je Teilaufgabe begrenzen — derselbe
+    // Schutz wie bei der Selbsteinschätzung in exam.ts, unabhängig davon, ob sich der Provider
+    // selbst an die im Prompt vorgegebene Obergrenze hält.
+    const resultParts = gradingResult.parts.map((part, index) => ({
+      feedback: part.feedback,
+      points: Math.max(0, Math.min(part.points, payload.parts[index]?.points ?? 0)),
+    }));
+
     await db
       .update(aiGradingJob)
-      .set({ status: "completed", resultText, completedAt: new Date() })
+      .set({ status: "completed", resultParts, completedAt: new Date() })
       .where(eq(aiGradingJob.id, jobRowId));
 
     await sendGradingCompletedNotification(jobRow.userId);

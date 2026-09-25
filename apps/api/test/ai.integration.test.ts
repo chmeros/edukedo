@@ -211,9 +211,20 @@ describe("F-70/F-71: KI-Bewertung & Aufgabengenerierung", () => {
         headers: { cookie: learnerCookie },
       });
       expect(afterResponse.statusCode).toBe(200);
-      const result = afterResponse.json().result.data as { status: string; resultText: string | null };
+      const result = afterResponse.json().result.data as {
+        status: string;
+        parts: { feedback: string; aiPoints: number; maxPoints: number; selfAssessedPoints: number; answerText: string }[] | null;
+      };
       expect(result.status).toBe("completed");
-      expect(result.resultText).toContain("[Entwickler-Platzhalter — keine echte KI-Bewertung]");
+      expect(result.parts).not.toBeNull();
+      // Nur der erste Teil wurde oben tatsächlich eingereicht (siehe Payload) — der Platzhalter
+      // vergibt deterministisch die volle Punktzahl bei nicht-leerer Antwort (siehe
+      // placeholder-provider.ts), die eigene Selbsteinschätzung von 1 bleibt unverändert erhalten.
+      const [firstPart] = result.parts!;
+      expect(firstPart!.feedback).toContain("[Entwickler-Platzhalter — keine echte KI-Bewertung]");
+      expect(firstPart!.aiPoints).toBe(firstPart!.maxPoints);
+      expect(firstPart!.selfAssessedPoints).toBe(1);
+      expect(firstPart!.answerText).toBe("Meine Antwort auf Teilaufgabe 1.");
     },
     30_000,
   );

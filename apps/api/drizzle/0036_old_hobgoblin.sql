@@ -1,0 +1,1 @@
+ALTER TABLE "ai_grading_job" DROP COLUMN "result_text";

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { AiProvider, FallaufgabeGradingInput, GeneratedMcQuestion } from "./provider";
+import type { AiProvider, FallaufgabeGradingInput, FallaufgabeGradingResult, GeneratedMcQuestion } from "./provider";
 
 /**
  * F-72/F-128 (Nutzer-Entscheidung 25.09.2026, siehe Architekturplanung Abschnitt 13): erste
@@ -50,6 +50,15 @@ async function chatCompletion(
   return content;
 }
 
+/** F-70 (Nutzer-Vorgabe 25.09.2026): Länge muss exakt zur Anzahl der übergebenen Teilaufgaben
+ * passen — der Aufrufer (`gradeFallaufgabe` unten) prüft das zusätzlich, da Zod die Länge hier
+ * noch nicht gegen den variablen `parts`-Input kennt. `points` wird zusätzlich serverseitig auf
+ * `[0, part.points]` der jeweiligen Teilaufgabe geklemmt (siehe dort), nicht nur hier auf `>= 0`
+ * geprüft. */
+const fallaufgabeGradingResultSchema = z.object({
+  parts: z.array(z.object({ feedback: z.string().min(1), points: z.number().int().min(0) })),
+});
+
 const generatedMcQuestionSchema = z.object({
   prompt: z.string().min(1),
   explanation: z.string().min(1),
@@ -63,30 +72,47 @@ const generatedMcQuestionSchema = z.object({
 
 export function createOllamaProvider(baseUrl: string, model: string): AiProvider {
   return {
-    async gradeFallaufgabe({ fallaufgabePrompt, criteria, parts }: FallaufgabeGradingInput): Promise<string> {
+    async gradeFallaufgabe({ fallaufgabePrompt, criteria, parts }: FallaufgabeGradingInput): Promise<FallaufgabeGradingResult> {
       const partsText = parts
         .map(
           (part, index) =>
-            `Teilaufgabe ${index + 1} (${part.points} Punkte)\nAufgabenstellung: ${part.prompt}\nEingereichte Antwort: ${part.answerText || "(keine Antwort eingereicht)"}`,
+            `Teilaufgabe ${index + 1} (maximal ${part.points} Punkte)\nAufgabenstellung: ${part.prompt}\nEingereichte Antwort: ${part.answerText || "(keine Antwort eingereicht)"}\nSelbsteinschätzung der lernenden Person: ${part.selfAssessedPoints} von ${part.points} Punkten`,
         )
         .join("\n\n");
 
-      return chatCompletion(
+      const raw = await chatCompletion(
         baseUrl,
         model,
         [
           {
             role: "system",
             content:
-              "Du bist eine unterstützende Lernhilfe auf einer Prüfungsvorbereitungs-Plattform. Bewerte die eingereichte Abgabe AUSSCHLIESSLICH anhand der unten angegebenen, redaktionell geprüften Bewertungskriterien — nutze KEIN eigenes Fachwissen über die vermeintlich „richtige\" Lösung, das über diese Kriterien hinausgeht. Gib eine konkrete, konstruktive Rückmeldung auf Deutsch als Fließtext: was wurde bereits gut erfüllt, was fehlt oder ist ungenau, wie ließe sich die Antwort verbessern. Keine Punktzahl-Vergabe, keine Kopfzeilen, keine JSON-Ausgabe.",
+              'Du bist eine unterstützende, wertschätzende Lernhilfe auf einer Prüfungsvorbereitungs-Plattform. Bewerte die eingereichte Abgabe AUSSCHLIESSLICH anhand der unten angegebenen, redaktionell geprüften Bewertungskriterien — nutze KEIN eigenes Fachwissen über die vermeintlich „richtige" Lösung, das über diese Kriterien hinausgeht. Antworte AUSSCHLIESSLICH mit einem JSON-Objekt exakt in dieser Form, ohne jeden Text davor oder danach: {"parts": [{"feedback": string, "points": integer}, ...]}. Das "parts"-Array muss GENAU EIN Objekt je unten aufgeführter Teilaufgabe enthalten, in DERSELBEN Reihenfolge. "feedback" ist ein einzelner zusammenhängender deutscher Absatz NUR zu dieser einen Teilaufgabe: beginne mit einer kurzen, ehrlich gemeinten wertschätzenden Einordnung — bei gutem/sehr gutem Ergebnis echtes Lob, bei schwächerem Ergebnis eine motivierende, ermutigende Formulierung statt Entmutigung — und beziehe dich dabei auch auf die mitgegebene Selbsteinschätzung der lernenden Person (z. B. anerkennen, wenn die Selbsteinschätzung schon treffsicher war, oder die Abweichung freundlich und konstruktiv einordnen, falls nicht). Gehe danach konkret ein: was wurde bereits gut erfüllt, was fehlt oder ist ungenau, wie ließe sich die Antwort verbessern — ohne Kopfzeilen, Aufzählungszeichen oder Verweise auf andere Teilaufgaben. "points" ist eine ganze Zahl zwischen 0 und der für diese Teilaufgabe angegebenen Maximalpunktzahl, als dein unverbindlicher Punktvorschlag.',
           },
           {
             role: "user",
             content: `Fallaufgabe: ${fallaufgabePrompt}\n\nBewertungskriterien der Redaktion:\n${criteria || "(keine gesonderten Kriterien hinterlegt)"}\n\n${partsText}`,
           },
         ],
-        false,
+        true,
       );
+
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        throw new Error("Ollama lieferte kein gültiges JSON für die KI-Bewertung.");
+      }
+      const result = fallaufgabeGradingResultSchema.safeParse(parsed);
+      if (!result.success) {
+        throw new Error(`Ollama-Antwort entsprach nicht dem erwarteten Format: ${result.error.message}`);
+      }
+      if (result.data.parts.length !== parts.length) {
+        throw new Error(
+          `Ollama-Antwort enthielt ${result.data.parts.length} Teilaufgaben-Bewertungen, erwartet wurden ${parts.length}.`,
+        );
+      }
+      return result.data;
     },
 
     async generateMcQuestion({ topicHint, fachgebietTitle }): Promise<GeneratedMcQuestion> {

@@ -2463,6 +2463,27 @@ button.progress-block:hover .progress-head b {
   max-width: 220px;
 }
 
+.exam-ai-grading-part {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.exam-ai-grading-part-heading {
+  margin: 0 0 4px;
+  font-size: var(--fs-sm);
+}
+
+.exam-ai-grading-answer {
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.exam-ai-grading-part p:last-child {
+  margin-bottom: 0;
+}
+
 /* ---------- Präsentationstrainer (F-24) ---------- */
 .checklist-item {
   display: flex;

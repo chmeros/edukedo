@@ -1,4 +1,4 @@
-import { aiGradingRequestInputSchema, generateMcQuestionInputSchema, type AdminContentItemForm } from "@edukedo/shared";
+import { aiGradingRequestInputSchema, fallaufgabePayloadSchema, generateMcQuestionInputSchema, type AdminContentItemForm } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, inArray } from "drizzle-orm";
 import { aiProvider } from "../../ai";
@@ -122,7 +122,13 @@ export const aiRouter = router({
 
   /** `null`, solange noch nie eine Bewertung angefragt wurde — kein Fehler, siehe Frontend
    * (kein Polling, siehe Architekturplanung Abschnitt 13: einfaches erneutes Laden/Öffnen wie
-   * bei Highscore/Lernpartner/Duell). */
+   * bei Highscore/Lernpartner/Duell). `parts` (Nutzer-Vorgabe 25.09.2026) ist nur bei
+   * `status: "completed"` gefüllt und enthält je Teilaufgabe den KI-Feedback-Absatz, den
+   * KI-Punktvorschlag, die maximal erreichbare Punktzahl, die eigene Selbsteinschätzung UND die
+   * eigene eingereichte Antwort (Nutzer-Vorgabe 25.09.2026: "die Antwort sollte immer nochmal mit
+   * aufgezeigt werden") aus `exam.submitAnswer` — der Vergleich entsteht damit rein aus bereits
+   * vorhandenen Daten (`content_item_version.payload`, `exam_answer.given_answer`), keine neue
+   * Speicherung nötig. */
   myGradingResult: protectedProcedure.input(aiGradingRequestInputSchema).query(async ({ ctx, input }) => {
     const [session] = await ctx.db
       .select()
@@ -143,7 +149,7 @@ export const aiRouter = router({
     }
 
     const [version] = await ctx.db
-      .select({ id: contentItemVersion.id })
+      .select({ id: contentItemVersion.id, payload: contentItemVersion.payload })
       .from(contentItemVersion)
       .where(and(eq(contentItemVersion.contentItemId, item.id), eq(contentItemVersion.versionNumber, item.currentVersion)))
       .limit(1);
@@ -152,7 +158,7 @@ export const aiRouter = router({
     }
 
     const [answerRow] = await ctx.db
-      .select({ id: examAnswer.id })
+      .select({ id: examAnswer.id, givenAnswer: examAnswer.givenAnswer })
       .from(examAnswer)
       .where(and(eq(examAnswer.examSessionId, input.sessionId), eq(examAnswer.contentItemVersionId, version.id)))
       .limit(1);
@@ -163,15 +169,34 @@ export const aiRouter = router({
     const [job] = await ctx.db
       .select({
         status: aiGradingJob.status,
-        resultText: aiGradingJob.resultText,
+        resultParts: aiGradingJob.resultParts,
         errorMessage: aiGradingJob.errorMessage,
       })
       .from(aiGradingJob)
       .where(eq(aiGradingJob.examAnswerId, answerRow.id))
       .orderBy(desc(aiGradingJob.requestedAt))
       .limit(1);
+    if (!job) {
+      return null;
+    }
 
-    return job ?? null;
+    let parts:
+      | { feedback: string; aiPoints: number; maxPoints: number; selfAssessedPoints: number; answerText: string }[]
+      | null = null;
+    if (job.status === "completed" && job.resultParts) {
+      const payloadParts = fallaufgabePayloadSchema.parse(version.payload).parts;
+      const givenAnswerParts = (answerRow.givenAnswer as { parts: { answerText: string; selfAssessedPoints: number }[] }).parts;
+      const resultParts = job.resultParts as { feedback: string; points: number }[];
+      parts = resultParts.map((part, index) => ({
+        feedback: part.feedback,
+        aiPoints: part.points,
+        maxPoints: payloadParts[index]?.points ?? 0,
+        selfAssessedPoints: givenAnswerParts[index]?.selfAssessedPoints ?? 0,
+        answerText: givenAnswerParts[index]?.answerText ?? "",
+      }));
+    }
+
+    return { status: job.status, errorMessage: job.errorMessage, parts };
   }),
 
   /**

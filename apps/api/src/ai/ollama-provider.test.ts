@@ -22,17 +22,32 @@ describe("createOllamaProvider", () => {
   });
 
   describe("gradeFallaufgabe", () => {
-    it("ruft die OpenAI-kompatible Chat-Completions-Schnittstelle mit baseUrl/model auf und liefert den Antworttext", async () => {
-      mockFetchOnce(chatCompletionResponse("Gute Ansätze, aber die Begründung fehlt."));
+    it("fordert JSON-Modus an und liefert je Teilaufgabe Feedback und Punktvorschlag in derselben Reihenfolge", async () => {
+      mockFetchOnce(
+        chatCompletionResponse(
+          JSON.stringify({
+            parts: [
+              { feedback: "Gute Ansätze, aber die Begründung fehlt.", points: 3 },
+              { feedback: "Vollständig und korrekt begründet.", points: 5 },
+            ],
+          }),
+        ),
+      );
       const provider = createOllamaProvider("http://localhost:11434", "qwen2.5:14b-instruct-q4_K_M");
 
       const result = await provider.gradeFallaufgabe({
         fallaufgabePrompt: "Erkläre den Netzplan.",
         criteria: "Muss Vorgänger/Nachfolger korrekt benennen.",
-        parts: [{ prompt: "Teil 1", points: 5, answerText: "Meine Antwort" }],
+        parts: [
+          { prompt: "Teil 1", points: 5, answerText: "Meine Antwort", selfAssessedPoints: 4 },
+          { prompt: "Teil 2", points: 5, answerText: "Meine zweite Antwort", selfAssessedPoints: 5 },
+        ],
       });
 
-      expect(result).toBe("Gute Ansätze, aber die Begründung fehlt.");
+      expect(result.parts).toEqual([
+        { feedback: "Gute Ansätze, aber die Begründung fehlt.", points: 3 },
+        { feedback: "Vollständig und korrekt begründet.", points: 5 },
+      ]);
       expect(fetch).toHaveBeenCalledWith(
         "http://localhost:11434/v1/chat/completions",
         expect.objectContaining({ method: "POST" }),
@@ -40,7 +55,7 @@ describe("createOllamaProvider", () => {
       const [, init] = vi.mocked(fetch).mock.calls[0]!;
       const body = JSON.parse(init!.body as string);
       expect(body.model).toBe("qwen2.5:14b-instruct-q4_K_M");
-      expect(body.response_format).toBeUndefined();
+      expect(body.response_format).toEqual({ type: "json_object" });
     });
 
     it("wirft bei einem Nicht-200-Status statt eines fabrizierten Ergebnisses", async () => {
@@ -50,6 +65,35 @@ describe("createOllamaProvider", () => {
       await expect(
         provider.gradeFallaufgabe({ fallaufgabePrompt: "x", criteria: "x", parts: [] }),
       ).rejects.toThrow("Status 503");
+    });
+
+    it("wirft, wenn die Antwort kein gültiges JSON ist", async () => {
+      mockFetchOnce(chatCompletionResponse("Das ist kein JSON."));
+      const provider = createOllamaProvider("http://localhost:11434", "test-model");
+
+      await expect(
+        provider.gradeFallaufgabe({
+          fallaufgabePrompt: "x",
+          criteria: "x",
+          parts: [{ prompt: "x", points: 5, answerText: "x", selfAssessedPoints: 3 }],
+        }),
+      ).rejects.toThrow("kein gültiges JSON");
+    });
+
+    it("wirft, wenn die Anzahl der zurückgelieferten Teilaufgaben nicht zur Anzahl der übergebenen passt", async () => {
+      mockFetchOnce(chatCompletionResponse(JSON.stringify({ parts: [{ feedback: "Nur eine Rückmeldung.", points: 2 }] })));
+      const provider = createOllamaProvider("http://localhost:11434", "test-model");
+
+      await expect(
+        provider.gradeFallaufgabe({
+          fallaufgabePrompt: "x",
+          criteria: "x",
+          parts: [
+            { prompt: "Teil 1", points: 5, answerText: "x", selfAssessedPoints: 2 },
+            { prompt: "Teil 2", points: 5, answerText: "y", selfAssessedPoints: 4 },
+          ],
+        }),
+      ).rejects.toThrow("erwartet wurden 2");
     });
   });
 
