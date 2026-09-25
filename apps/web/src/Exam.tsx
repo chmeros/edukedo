@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ContentActions } from "./ContentActions";
 import { ErrorMessage } from "./ErrorMessage";
-import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
+import { DangerIcon, HamsterWheelIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
 
 const AI_GRADING_STATUS_LABELS: Record<string, string> = {
@@ -11,15 +11,27 @@ const AI_GRADING_STATUS_LABELS: Record<string, string> = {
   failed: "Bewertung fehlgeschlagen",
 };
 
+const AI_GRADING_POLL_INTERVAL_MS = 2000;
+
 /**
- * F-70 (Nutzer-Entscheidung 23.09.2026, siehe Architekturplanung Abschnitt 13): KI-Bewertung
- * für eine bereits eingereichte Fallaufgabe — bewusst kein Dauer-Polling, sondern ein manuelles
- * "Status aktualisieren" (analog zum einfachen erneuten Laden bei Highscore/Duell/Lernpartner),
- * da der Bewertungsjob asynchron im Hintergrund läuft und die Person währenddessen weiterlernen
- * kann (siehe F-43-Benachrichtigung in ai/process-grading-job.ts).
+ * F-70 (Nutzer-Vorgabe 25.09.2026, siehe Architekturplanung Abschnitt 13): KI-Bewertung für
+ * eine bereits eingereichte Fallaufgabe — löst die frühere Entscheidung "bewusst kein
+ * Dauer-Polling, sondern ein manuelles 'Status aktualisieren'" ab: die Bewertung soll ohne
+ * Zutun erscheinen, sobald sie fertig ist. `refetchInterval` pollt daher automatisch, SOLANGE
+ * der letzte bekannte Status "queued"/"processing" ist, und schaltet sich danach selbst ab
+ * (Rückgabewert `false`) — kein Dauer-Polling über das Ende der Bewertung hinaus. Der frühere
+ * Grund für den manuellen Weg (Job läuft im Hintergrund, Person kann weiterlernen) bleibt
+ * unberührt: der Hinweis mit dem laufenden Punktehamster ersetzt nur den Klick durchs erneute
+ * Öffnen dieses Tabs.
  */
 function AiGradingRow({ sessionId, contentItemId, aiGradingEnabled }: { sessionId: string; contentItemId: string; aiGradingEnabled: boolean }) {
-  const result = trpc.ai.myGradingResult.useQuery({ sessionId, contentItemId }, { enabled: aiGradingEnabled });
+  const result = trpc.ai.myGradingResult.useQuery(
+    { sessionId, contentItemId },
+    {
+      enabled: aiGradingEnabled,
+      refetchInterval: (data) => (data?.status === "queued" || data?.status === "processing" ? AI_GRADING_POLL_INTERVAL_MS : false),
+    },
+  );
   const requestGrading = trpc.ai.requestGrading.useMutation({
     onSuccess: () => result.refetch(),
   });
@@ -45,11 +57,9 @@ function AiGradingRow({ sessionId, contentItemId, aiGradingEnabled }: { sessionI
       )}
       {requestGrading.error && <ErrorMessage>{requestGrading.error.message}</ErrorMessage>}
       {status && status !== "completed" && status !== "failed" && (
-        <div className="list-row-actions">
+        <div className="exam-ai-grading-progress">
+          <HamsterWheelIcon size={26} />
           <span className="field-hint">{AI_GRADING_STATUS_LABELS[status] ?? status}</span>
-          <button type="button" className="btn btn-ghost btn-sm" onClick={() => result.refetch()} disabled={result.isFetching}>
-            Status aktualisieren
-          </button>
         </div>
       )}
       {status === "failed" && result.data?.errorMessage && <ErrorMessage>{result.data.errorMessage}</ErrorMessage>}

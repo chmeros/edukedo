@@ -80,6 +80,34 @@ export function HamsterIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+/**
+ * F-70 (Nutzer-Vorgabe 25.09.2026, siehe Architekturplanung Abschnitt 13): Lauf-Animation für
+ * den "wird bewertet"-Zustand der KI-Bewertung, an das bestehende Punktehamster-Maskottchen
+ * (`HamsterIcon` oben, `PunktehamsterWidget.tsx`) angelehnt statt eines generischen Spinners —
+ * dasselbe Hamster-Gesicht sitzt jetzt fest in einem sich drehenden Laufrad (Kreis plus Speichen)
+ * und wippt zusätzlich leicht auf der Stelle, um den Eindruck von Bewegung zu verstärken. Die
+ * eigentliche Drehung/Wipp-Bewegung steckt in den `.hamster-wheel-*`-CSS-Animationen
+ * (styles.css), damit sie rein clientseitig via `prefers-reduced-motion` abschaltbar bleibt.
+ */
+export function HamsterWheelIcon({ size = 28 }: { size?: number }) {
+  return (
+    <span className="hamster-wheel" style={{ width: size, height: size }} role="img" aria-label="Wird bewertet">
+      <svg className="hamster-wheel-ring" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1.4" />
+        <path
+          d="M12 1.5v21M1.5 12h21M4.6 4.6l14.8 14.8M19.4 4.6 4.6 19.4"
+          stroke="currentColor"
+          strokeWidth="1.1"
+          opacity="0.45"
+        />
+      </svg>
+      <span className="hamster-wheel-runner">
+        <HamsterIcon size={Math.round(size * 0.62)} />
+      </span>
+    </span>
+  );
+}
+
 /** F-119: Creditstand (PunktehamsterWidget.tsx) — einfache Münze, rein dekorativ. */
 export function CreditIcon() {
   return (

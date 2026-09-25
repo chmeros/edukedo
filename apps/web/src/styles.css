@@ -793,6 +793,57 @@ details[open] > summary.disclosure::before {
   font-weight: 700;
 }
 
+/* F-70 (Nutzer-Vorgabe 25.09.2026): laufender Punktehamster im Laufrad als "wird bewertet"-
+   Anzeige (Icons.tsx, HamsterWheelIcon) — .hamster-wheel-ring dreht sich durchgängig, der
+   Hamster selbst (.hamster-wheel-runner) wippt zusätzlich leicht gegenläufig, damit er wie
+   angetrieben statt nur mitgedreht wirkt. Farbe folgt --sprout wie das übrige "aktiv/positiv"-
+   Farbschema (Punktehamster-Widget, Erfolgs-Alerts). */
+.hamster-wheel {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+}
+
+.hamster-wheel-ring {
+  width: 100%;
+  height: 100%;
+  animation: hamster-wheel-spin 1.1s linear infinite;
+}
+
+.hamster-wheel-runner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sprout);
+  animation: hamster-wheel-run 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes hamster-wheel-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hamster-wheel-run {
+  from {
+    transform: translateY(-1px);
+  }
+  to {
+    transform: translateY(1px);
+  }
+}
+
+.exam-ai-grading-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ---------- "Weiter lernen"-Vorschläge (F-27) ---------- */
 .suggestion-row {
   display: flex;

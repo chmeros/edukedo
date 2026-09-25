@@ -44,9 +44,15 @@ export interface AiProvider {
    * KI-Punktvorschlag zum Vergleich mit der eigenen Selbsteinschätzung (Nutzer-Vorgabe
    * 25.09.2026) — weiterhin klar als unverbindliche Lernhilfe ohne Anspruch auf offizielle
    * Korrektheit zu kennzeichnen (die Kennzeichnung selbst übernimmt das Frontend). Der
-   * Feedback-Absatz ist zusätzlich wertschätzend formuliert (Nutzer-Vorgabe 25.09.2026): Lob bei
+   * Feedback-Absatz ist wertschätzend formuliert (Nutzer-Vorgabe 25.09.2026): Lob bei
    * gutem/sehr gutem Ergebnis, motivierende Einordnung bei schwächerem Ergebnis — jeweils auch im
-   * Bezug zur mitgegebenen `selfAssessedPoints`. */
+   * Bezug zur mitgegebenen `selfAssessedPoints`. Die Punktvergabe selbst ist bewusst STRENG
+   * (weiteres Nutzer-Feedback 25.09.2026, "zu wohlwollend"): die konkrete Implementierung
+   * (`ollama-provider.ts`) instruiert das Modell in der Rolle einer echten, strengen Prüfung,
+   * bewertet explizit gegen den in der Aufgabenstellung geforderten Operator/Ausführungsgrad
+   * (Nennen vs. Beschreiben vs. Erläutern/Begründen vs. Analysieren/Bewerten) sowie gegen den
+   * Umfang/die Tiefe der Antwort im Verhältnis zur Punktzahl — volle Punktzahl ist die Ausnahme
+   * für eine wirklich vollständige Antwort, nicht der Normalfall. */
   gradeFallaufgabe(input: FallaufgabeGradingInput): Promise<FallaufgabeGradingResult>;
   /** F-71: "nach vorgegebenem Schema" — hier auf quiz_mc beschränkt (siehe ai/index.ts). */
   generateMcQuestion(input: { topicHint: string; fachgebietTitle: string }): Promise<GeneratedMcQuestion>;
