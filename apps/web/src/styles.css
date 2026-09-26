@@ -339,6 +339,16 @@ a {
 .list-row-actions {
   display: flex;
   align-items: center;
+  /* F-133 (26.09.2026, siehe Architekturplanung Abschnitt 13): flex-wrap ergänzt — eine
+     mehrteilige Aktion (z. B. Button + Hinweistext wie in Instrumente.tsx) lief auf schmalen
+     Bildschirmen aus dem Viewport, weil diese Zeile selbst (anders als .list-row, siehe
+     Redesign-Audit 17.09.2026 oben) nicht umbrechen konnte. flex-wrap allein reicht bei einem
+     nicht schrumpfenden Flex-Item (flex: none) aber nicht: ohne eigene Breitenbeschränkung
+     bemisst der Browser die Breite weiterhin am unumbrochenen Inhalt (max-content) und wrappt
+     erst gar nicht. max-width: 100% zwingt die Zeile auf die Breite von .list-row, danach greift
+     flex-wrap tatsächlich. */
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 8px;
   flex: none;
 }

@@ -124,7 +124,16 @@ function ExamFallaufgabeStep({
   isSubmitting: boolean;
   error: string | null;
 }) {
-  const [revealed, setRevealed] = useState(false);
+  // F-133 (Nutzer-Vorgabe 26.09.2026, siehe Architekturplanung Abschnitt 13): "abgeben" und
+  // "Musterlösungshinweise anzeigen" waren bisher ein einziger Zustand (`revealed`) hinter einem
+  // Button, der wie ein optionales Hinweis-Angebot aussah, aber tatsächlich zwingend war, um
+  // überhaupt weiterzukommen (Selbsteinschätzung + Weiter/Abschließen-Button erschienen nur nach
+  // diesem Klick). Das zwang zudem dazu, die Musterlösung zu sehen, bevor man abgeben konnte —
+  // in einer Prüfungssimulation nicht gewünscht. Jetzt getrennt: `submitted` schaltet
+  // Selbsteinschätzung + Weiter/Abschließen frei (klar als "Antworten abgeben" beschriftet),
+  // `hintsShown` zeigt unabhängig davon optional die Musterlösungshinweise.
+  const [submitted, setSubmitted] = useState(false);
+  const [hintsShown, setHintsShown] = useState(false);
   const [answers, setAnswers] = useState(() => item.parts.map(() => ""));
   const [points, setPoints] = useState(() => item.parts.map(() => 0));
 
@@ -156,7 +165,7 @@ function ExamFallaufgabeStep({
             }
             rows={3}
           />
-          {revealed && (
+          {submitted && (
             <div className="field exam-self-assessment">
               <label htmlFor={`points-${index}`}>Selbst eingeschätzte Punktzahl (0–{part.points})</label>
               <input
@@ -175,19 +184,26 @@ function ExamFallaufgabeStep({
           )}
         </div>
       ))}
-      {!revealed && (
-        <button type="button" className="btn btn-ghost" onClick={() => setRevealed(true)}>
-          Musterlösungshinweise anzeigen
+      {!submitted && (
+        <button type="button" className="btn btn-primary" onClick={() => setSubmitted(true)}>
+          Antworten abgeben
         </button>
       )}
-      {revealed && (
+      {submitted && (
         <>
-          <div className="alert alert-info">
-            <InfoIcon />
-            <div>
-              <b>Musterlösungshinweise:</b> {item.explanation}
+          {!hintsShown && (
+            <button type="button" className="btn btn-ghost" onClick={() => setHintsShown(true)}>
+              Musterlösungshinweise anzeigen
+            </button>
+          )}
+          {hintsShown && (
+            <div className="alert alert-info">
+              <InfoIcon />
+              <div>
+                <b>Musterlösungshinweise:</b> {item.explanation}
+              </div>
             </div>
-          </div>
+          )}
           <div className="due-count">
             Selbst eingeschätzt: <b>{totalPoints}</b> von {maxPoints} Punkten
           </div>
