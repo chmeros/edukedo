@@ -295,20 +295,33 @@ export function Exam({ kursId }: { kursId: string }) {
         <div className="alert alert-success">
           <SuccessIcon />
           <div>
-            Prüfung abgeschlossen — {result.achievedPoints} von {result.maxPoints} Punkten ({result.score} %)
+            Prüfung abgeschlossen — Selbsteinschätzung: {result.achievedPoints} von {result.maxPoints} Punkten (
+            {result.score} %). Diese Punktzahl beruht auf deiner eigenen Einschätzung je Teilaufgabe, nicht auf einer
+            objektiven Korrektur.
           </div>
         </div>
-        {me.data?.isPremiumActive && sessionId && (
-          <div className="stack">
-            <h3>KI-Bewertung deiner Fallaufgaben (F-70)</h3>
-            {items.map((item) => (
-              <div key={item.id} className="exam-part">
-                <p className="exam-part-prompt">{item.prompt.slice(0, 120)}{item.prompt.length > 120 ? "…" : ""}</p>
-                <AiGradingRow sessionId={sessionId} contentItemId={item.id} aiGradingEnabled={true} />
+        {sessionId &&
+          (me.data?.isPremiumActive ? (
+            <div className="stack">
+              <h3>KI-Bewertung deiner Fallaufgaben (F-70)</h3>
+              {items.map((item) => (
+                <div key={item.id} className="exam-part">
+                  <p className="exam-part-prompt">{item.prompt.slice(0, 120)}{item.prompt.length > 120 ? "…" : ""}</p>
+                  <AiGradingRow sessionId={sessionId} contentItemId={item.id} aiGradingEnabled={true} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="alert alert-info">
+              <InfoIcon />
+              <div>
+                <b>Fortgeschritten:</b> Mit einem aktiven Fortgeschritten-Status bewertet eine KI jede deiner
+                Fallaufgaben-Antworten einzeln mit Punktvorschlag und ausführlichem Feedback (F-70), statt dich nur
+                auf deine Selbsteinschätzung zu verlassen. Freischaltbar im Kontomenü oben rechts unter
+                „Einstellungen".
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
         <button type="button" className="btn btn-primary" onClick={reset}>
           Neue Prüfung starten
         </button>

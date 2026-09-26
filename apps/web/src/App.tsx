@@ -14,6 +14,7 @@ import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
 import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
+import { OnboardingHints } from "./OnboardingHints";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
@@ -238,6 +239,7 @@ export function App() {
               <p className="welcome-greeting">
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
+              {!me.data.onboardingHintsSeen && <OnboardingHints />}
               <PunktehamsterWidget />
               {/* F-33: dezente Erinnerung, siehe Architekturplanung Abschnitt 13 — bewusst erst
                   in der eigentlichen Lernansicht (nicht bei Kursauswahl/Admin). */}

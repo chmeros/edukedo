@@ -199,6 +199,8 @@ export const authRouter = router({
     learnFlashcardsEnabled: ctx.currentUser.learnFlashcardsEnabled,
     learnQuizEnabled: ctx.currentUser.learnQuizEnabled,
     learningModePreferenceSet: ctx.currentUser.learningModePreferenceSet,
+    // F-134: steuert, ob App.tsx die einmalige Erstbesuch-Einführung (OnboardingHints.tsx) zeigt.
+    onboardingHintsSeen: ctx.currentUser.onboardingHintsSeen,
     flashcardStartWithAnswer: ctx.currentUser.flashcardStartWithAnswer,
     mascotEnabled: ctx.currentUser.mascotEnabled,
     // F-119: Creditstand soll "jederzeit einsehbar" sein — einfache Feldabfrage genügt, keine
@@ -339,6 +341,16 @@ export const authRouter = router({
         .where(eq(user.id, ctx.currentUser.id));
       return { success: true };
     }),
+
+  /**
+   * F-134 (26.09.2026, siehe Architekturplanung Abschnitt 13): Bestätigt die einmalige
+   * Erstbesuch-Einführung (OnboardingHints.tsx) — dauerhaft je Person, analog zu
+   * setLearningModePreference, kein Input nötig (reine Ja/Nein-Bestätigung).
+   */
+  dismissOnboardingHints: protectedProcedure.mutation(async ({ ctx }) => {
+    await ctx.db.update(user).set({ onboardingHintsSeen: true }).where(eq(user.id, ctx.currentUser.id));
+    return { success: true };
+  }),
 
   /**
    * F-110: Präferenz, ob eine Karteikarte zuerst mit Frage- oder Antwortseite gezeigt wird —

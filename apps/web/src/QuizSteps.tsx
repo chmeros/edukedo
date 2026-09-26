@@ -1324,6 +1324,19 @@ export function KurzantwortStep({
             )}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
+          {!feedback.isCorrect && canReport && (
+            // F-134 (26.09.2026, siehe Architekturplanung Abschnitt 13): Kurzantwort-Fragen
+            // werden serverseitig per Exakt-/Enthält-Abgleich gegen eine feste Liste akzeptierter
+            // Antworten geprüft (checkKurzantwort, packages/shared) — inhaltlich richtige, aber
+            // anders formulierte Antworten werden dadurch unvermeidbar als falsch gewertet.
+            // Statt einer riskanten Fuzzy-Bewertung verweist dieser Hinweis auf den bereits
+            // bestehenden Melde-Weg (ContentActions unten, nur eingeblendet wenn canReport),
+            // damit die Redaktion weitere akzeptierte Formulierungen ergänzen kann.
+            <p className="field-hint">
+              War deine Antwort trotzdem sinngemäß richtig, nur anders formuliert? Bitte unten über „Fehler melden"
+              mitteilen, damit wir weitere richtige Formulierungen ergänzen können.
+            </p>
+          )}
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}

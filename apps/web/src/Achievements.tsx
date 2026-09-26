@@ -64,7 +64,7 @@ export function Achievements() {
           <span className="stat-value">
             {personalBests.data?.bestExamScore != null ? `${Math.round(personalBests.data.bestExamScore)} %` : "–"}
           </span>
-          <span className="stat-label">Beste Prüfungspunktzahl</span>
+          <span className="stat-label">Beste Prüfungspunktzahl (Selbsteinschätzung)</span>
         </div>
       </div>
 

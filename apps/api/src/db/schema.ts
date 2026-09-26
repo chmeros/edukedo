@@ -118,6 +118,11 @@ export const user = pgTable(
     // Unterscheidet "Default nie angefasst" (Erstbesuch-Abfrage noch zu zeigen) von einer
     // bewussten Entscheidung für exakt die Default-Kombination.
     learningModePreferenceSet: boolean("learning_mode_preference_set").notNull().default(false),
+    // F-134 (26.09.2026, siehe Architekturplanung Abschnitt 13): steuert die einmalige
+    // Erstbesuch-Einführung (Haupt-Tabs + Kopfzeilen-Symbole) — analog zu
+    // `learningModePreferenceSet`, dauerhaft je Person statt nur pro Sitzung, damit sie nach
+    // erneutem Login/auf einem anderen Gerät nicht erneut erscheint.
+    onboardingHintsSeen: boolean("onboarding_hints_seen").notNull().default(false),
     // F-110 (Ergänzung, nicht im ursprünglichen SQL-DDL enthalten, siehe Abschnitt 13): dauerhafte
     // Präferenz, ob eine Karteikarte zuerst mit Frage- oder Antwortseite angezeigt wird.
     flashcardStartWithAnswer: boolean("flashcard_start_with_answer").notNull().default(false),
