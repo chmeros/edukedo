@@ -63,6 +63,30 @@ interface StepProps<TItem, TInput, TOutput> {
   canReport?: boolean;
 }
 
+/**
+ * F-135 (26.09.2026, Barrierefreiheits-Stichprobe, siehe Architekturplanung Abschnitt 13):
+ * gemeinsamer "Begriff auswählen, dann Zielfeld auswählen"-Zustand für alle Pool-zu-Zonen-
+ * Zuordnungsfragen (Quadrant/Matching/Hierarchie/Sortieren/Lückentext-Wortpool) — löst dieselbe,
+ * pro Step bereits vorhandene `movePlacement`-Logik aus wie ein Drag-and-Drop-Drop, rein additiv
+ * neben der bestehenden Maus-/Touch-Bedienung (siehe DraggableTerm/DroppableZone weiter unten).
+ */
+function useKeyboardPlacement(movePlacement: (termId: string, targetId: string) => void, locked: boolean) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  function toggleSelect(termId: string) {
+    if (locked) return;
+    setSelectedId((current) => (current === termId ? null : termId));
+  }
+
+  function selectTarget(targetId: string) {
+    if (locked || !selectedId) return;
+    movePlacement(selectedId, targetId);
+    setSelectedId(null);
+  }
+
+  return { selectedId, toggleSelect, selectTarget };
+}
+
 export interface McItem {
   id: string;
   prompt: string;
@@ -133,7 +157,7 @@ export function MultipleChoiceStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
@@ -232,7 +256,7 @@ export function TwoChoiceStep({
       </div>
       {feedback && (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
@@ -337,7 +361,7 @@ export function McMultiStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
             {feedback.explanation ? ` ${feedback.explanation}` : ""}
           </p>
@@ -405,10 +429,7 @@ export function MatchingStep({
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
-    const rightId = String(event.active.id);
-    const targetId = event.over ? String(event.over.id) : MATCHING_POOL_ID;
+  function movePlacement(rightId: string, targetId: string) {
     if (targetId === MATCHING_POOL_ID) {
       setPlacements((current) => ({ ...current, [rightId]: null }));
       return;
@@ -424,6 +445,13 @@ export function MatchingStep({
       return next;
     });
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : MATCHING_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
 
   const allPlaced = item.right.every((option) => placements[option.id] !== null);
 
@@ -445,24 +473,47 @@ export function MatchingStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
+      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-        <DroppableZone id={MATCHING_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={MATCHING_POOL_ID}
+          label="Nicht zugeordnet"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(MATCHING_POOL_ID)}
+          targetDisabled={feedback !== null || !selectedId}
+        >
           {item.right
             .filter((option) => placements[option.id] === null)
             .map((option) => (
-              <DraggableTerm key={option.id} id={option.id} text={option.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={option.id}
+                id={option.id}
+                text={option.text}
+                disabled={feedback !== null}
+                selected={selectedId === option.id}
+                onToggleSelect={() => toggleSelect(option.id)}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {item.left.map((leftOption) => {
             const placedRight = item.right.find((option) => placements[option.id] === leftOption.id);
             return (
-              <DroppableZone key={leftOption.id} id={leftOption.id} label={leftOption.text} className="quadrant-zone">
+              <DroppableZone
+                key={leftOption.id}
+                id={leftOption.id}
+                label={leftOption.text}
+                className="quadrant-zone"
+                onSelectTarget={() => selectTarget(leftOption.id)}
+                targetDisabled={feedback !== null || !selectedId}
+              >
                 {placedRight && (
                   <DraggableTerm
                     id={placedRight.id}
                     text={placedRight.text}
                     disabled={feedback !== null}
+                    selected={selectedId === placedRight.id}
+                    onToggleSelect={() => toggleSelect(placedRight.id)}
                     state={
                       feedback ? (feedback.correctMap[leftOption.id] === placedRight.id ? "correct" : "wrong") : undefined
                     }
@@ -475,7 +526,7 @@ export function MatchingStep({
       </DndContext>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Zuordnungen richtig.
           </p>
           <p className="field-hint">{feedback.motivation}</p>
@@ -522,22 +573,36 @@ export interface QuadrantItem {
 // Exportiert (F-129): InstrumentLernpfad.tsx nutzt diese beiden Bausteine unverändert wieder, statt
 // eine zweite Drag-and-Drop-Implementierung zu pflegen — konsistent mit der F-129-Architektur-
 // Entscheidung "Wiederverwendung wo möglich", siehe Anforderungskatalog.
+//
+// F-135 (26.09.2026, Barrierefreiheits-Stichprobe, siehe Architekturplanung Abschnitt 13): Die
+// registrierten @dnd-kit-Sensoren (siehe je Step-Komponente unten) sind bewusst nur `PointerSensor`
+// — ein `KeyboardSensor` bräuchte für dieses Pool-zu-benannten-Zonen-Layout (statt einer simplen
+// Sortable-Liste) eine eigene, fehleranfällige Kollisionsberechnung. Stattdessen bekommt
+// `DraggableTerm` einen zusätzlichen, unabhängigen "Auswählen"-Klick/Tastatur-Pfad (`onToggleSelect`,
+// native Enter/Leertaste-Aktivierung eines <button> ohne eigenen Tastatur-Handler nötig), der exakt
+// dieselbe Platzierungslogik auslöst wie ein Drop (siehe `movePlacement` je Step-Komponente) — Maus-
+// Drag-and-Drop bleibt vollständig unverändert nutzbar, dieser Pfad ist rein additiv.
 export function DraggableTerm({
   id,
   text,
   disabled,
   state,
+  selected,
+  onToggleSelect,
 }: {
   id: string;
   text: string;
   disabled: boolean;
   state?: "correct" | "wrong";
+  selected?: boolean;
+  onToggleSelect?: () => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id, disabled });
   let className = "quadrant-term";
   if (state === "correct") className += " is-correct";
   if (state === "wrong") className += " is-wrong";
   if (isDragging) className += " is-dragging";
+  if (selected) className += " is-selected";
 
   return (
     <button
@@ -548,6 +613,8 @@ export function DraggableTerm({
       style={transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined}
       {...listeners}
       {...attributes}
+      aria-pressed={onToggleSelect ? (selected ?? false) : undefined}
+      onClick={onToggleSelect}
     >
       {text}
     </button>
@@ -559,16 +626,32 @@ export function DroppableZone({
   label,
   className,
   children,
+  onSelectTarget,
+  targetDisabled,
 }: {
   id: string;
   label?: string;
   className: string;
   children: React.ReactNode;
+  onSelectTarget?: () => void;
+  targetDisabled?: boolean;
 }) {
   const { setNodeRef, isOver } = useDroppable({ id });
   return (
     <div ref={setNodeRef} className={isOver ? `${className} is-over` : className}>
-      {label && <span className="quadrant-zone-label">{label}</span>}
+      {label &&
+        (onSelectTarget ? (
+          <button
+            type="button"
+            className="quadrant-zone-label quadrant-zone-target"
+            onClick={onSelectTarget}
+            disabled={targetDisabled}
+          >
+            {label}
+          </button>
+        ) : (
+          <span className="quadrant-zone-label">{label}</span>
+        ))}
       <div className="quadrant-zone-terms">{children}</div>
     </div>
   );
@@ -600,12 +683,16 @@ export function QuadrantStep({
   // anzusehen) bereits als Drag-Start gewertet wird — auf Touch wie Maus gleichermaßen relevant.
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
-    const termId = String(event.active.id);
-    const targetId = event.over ? String(event.over.id) : QUADRANT_POOL_ID;
+  function movePlacement(termId: string, targetId: string) {
     setPlacements((current) => ({ ...current, [termId]: targetId === QUADRANT_POOL_ID ? null : targetId }));
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : QUADRANT_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
 
   const allPlaced = item.terms.every((term) => placements[term.id] !== null);
 
@@ -627,17 +714,38 @@ export function QuadrantStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
+      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-        <DroppableZone id={QUADRANT_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={QUADRANT_POOL_ID}
+          label="Nicht zugeordnet"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(QUADRANT_POOL_ID)}
+          targetDisabled={feedback !== null || !selectedId}
+        >
           {item.terms
             .filter((term) => !placements[term.id])
             .map((term) => (
-              <DraggableTerm key={term.id} id={term.id} text={term.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={term.id}
+                id={term.id}
+                text={term.text}
+                disabled={feedback !== null}
+                selected={selectedId === term.id}
+                onToggleSelect={() => toggleSelect(term.id)}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {item.zones.map((zone) => (
-            <DroppableZone key={zone.key} id={zone.key} label={zone.label} className="quadrant-zone">
+            <DroppableZone
+              key={zone.key}
+              id={zone.key}
+              label={zone.label}
+              className="quadrant-zone"
+              onSelectTarget={() => selectTarget(zone.key)}
+              targetDisabled={feedback !== null || !selectedId}
+            >
               {item.terms
                 .filter((term) => placements[term.id] === zone.key)
                 .map((term) => (
@@ -646,6 +754,8 @@ export function QuadrantStep({
                     id={term.id}
                     text={term.text}
                     disabled={feedback !== null}
+                    selected={selectedId === term.id}
+                    onToggleSelect={() => toggleSelect(term.id)}
                     state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
                   />
                 ))}
@@ -655,7 +765,7 @@ export function QuadrantStep({
       </DndContext>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
           </p>
           <p className="field-hint">{feedback.motivation}</p>
@@ -707,17 +817,29 @@ function HierarchieBranch({
   item,
   placements,
   feedback,
+  selectedId,
+  toggleSelect,
+  selectTarget,
 }: {
   zone: { key: string; label: string; parentKey: string | null };
   childrenByParent: Map<string | null, { key: string; label: string; parentKey: string | null }[]>;
   item: HierarchieItem;
   placements: Record<string, string | null>;
   feedback: { results: Record<string, boolean> } | null;
+  selectedId: string | null;
+  toggleSelect: (termId: string) => void;
+  selectTarget: (targetId: string) => void;
 }) {
   const children = childrenByParent.get(zone.key) ?? [];
   return (
     <div className="hierarchie-node">
-      <DroppableZone id={zone.key} label={zone.label} className="quadrant-zone">
+      <DroppableZone
+        id={zone.key}
+        label={zone.label}
+        className="quadrant-zone"
+        onSelectTarget={() => selectTarget(zone.key)}
+        targetDisabled={feedback !== null || !selectedId}
+      >
         {item.terms
           .filter((term) => placements[term.id] === zone.key)
           .map((term) => (
@@ -726,6 +848,8 @@ function HierarchieBranch({
               id={term.id}
               text={term.text}
               disabled={feedback !== null}
+              selected={selectedId === term.id}
+              onToggleSelect={() => toggleSelect(term.id)}
               state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
             />
           ))}
@@ -740,6 +864,9 @@ function HierarchieBranch({
               item={item}
               placements={placements}
               feedback={feedback}
+              selectedId={selectedId}
+              toggleSelect={toggleSelect}
+              selectTarget={selectTarget}
             />
           ))}
         </div>
@@ -780,12 +907,16 @@ export function HierarchieStep({
   }
   const topLevelZones = childrenByParent.get(null) ?? [];
 
-  function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
-    const termId = String(event.active.id);
-    const targetId = event.over ? String(event.over.id) : HIERARCHIE_POOL_ID;
+  function movePlacement(termId: string, targetId: string) {
     setPlacements((current) => ({ ...current, [termId]: targetId === HIERARCHIE_POOL_ID ? null : targetId }));
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : HIERARCHIE_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
 
   const allPlaced = item.terms.every((term) => placements[term.id] !== null);
 
@@ -807,12 +938,26 @@ export function HierarchieStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
+      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-        <DroppableZone id={HIERARCHIE_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={HIERARCHIE_POOL_ID}
+          label="Nicht zugeordnet"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(HIERARCHIE_POOL_ID)}
+          targetDisabled={feedback !== null || !selectedId}
+        >
           {item.terms
             .filter((term) => !placements[term.id])
             .map((term) => (
-              <DraggableTerm key={term.id} id={term.id} text={term.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={term.id}
+                id={term.id}
+                text={term.text}
+                disabled={feedback !== null}
+                selected={selectedId === term.id}
+                onToggleSelect={() => toggleSelect(term.id)}
+              />
             ))}
         </DroppableZone>
         <div className="hierarchie-tree">
@@ -826,6 +971,9 @@ export function HierarchieStep({
                 item={item}
                 placements={placements}
                 feedback={feedback}
+                selectedId={selectedId}
+                toggleSelect={toggleSelect}
+                selectTarget={selectTarget}
               />
             ))}
           </div>
@@ -833,7 +981,7 @@ export function HierarchieStep({
       </DndContext>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
           </p>
           <p className="field-hint">{feedback.motivation}</p>
@@ -901,10 +1049,7 @@ export function SortierenStep({
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
-    const elementId = String(event.active.id);
-    const targetId = event.over ? String(event.over.id) : SORTIEREN_POOL_ID;
+  function movePlacement(elementId: string, targetId: string) {
     if (targetId === SORTIEREN_POOL_ID) {
       setPlacements((current) => ({ ...current, [elementId]: null }));
       return;
@@ -921,6 +1066,13 @@ export function SortierenStep({
       return next;
     });
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : SORTIEREN_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
 
   const allPlaced = item.items.every((element) => placements[element.id] !== null);
 
@@ -942,24 +1094,47 @@ export function SortierenStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
+      <p className="field-hint">Element auswählen oder ziehen, dann die Zielposition auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-        <DroppableZone id={SORTIEREN_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={SORTIEREN_POOL_ID}
+          label="Nicht zugeordnet"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(SORTIEREN_POOL_ID)}
+          targetDisabled={feedback !== null || !selectedId}
+        >
           {item.items
             .filter((element) => placements[element.id] === null)
             .map((element) => (
-              <DraggableTerm key={element.id} id={element.id} text={element.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={element.id}
+                id={element.id}
+                text={element.text}
+                disabled={feedback !== null}
+                selected={selectedId === element.id}
+                onToggleSelect={() => toggleSelect(element.id)}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {SORTIEREN_POSITIONS.map((position) => {
             const placedElement = item.items.find((element) => placements[element.id] === position);
             return (
-              <DroppableZone key={position} id={String(position)} label={`${position + 1}.`} className="quadrant-zone">
+              <DroppableZone
+                key={position}
+                id={String(position)}
+                label={`${position + 1}.`}
+                className="quadrant-zone"
+                onSelectTarget={() => selectTarget(String(position))}
+                targetDisabled={feedback !== null || !selectedId}
+              >
                 {placedElement && (
                   <DraggableTerm
                     id={placedElement.id}
                     text={placedElement.text}
                     disabled={feedback !== null}
+                    selected={selectedId === placedElement.id}
+                    onToggleSelect={() => toggleSelect(placedElement.id)}
                     state={feedback ? (feedback.results[placedElement.id] ? "correct" : "wrong") : undefined}
                   />
                 )}
@@ -970,7 +1145,7 @@ export function SortierenStep({
       </DndContext>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Positionen richtig.
             {feedback.correctCount < feedback.total && (
               <>
@@ -1072,7 +1247,7 @@ export function BlanksStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Lücken richtig.
             {feedback.correctCount < feedback.total && (
               <>
@@ -1114,11 +1289,34 @@ export function BlanksStep({
  */
 const BLANKS_POOL_ID = "_pool";
 
-function DroppableBlankSlot({ id, children }: { id: string; children: React.ReactNode }) {
+function DroppableBlankSlot({
+  id,
+  children,
+  emptyLabel,
+  onSelectTarget,
+  targetDisabled,
+}: {
+  id: string;
+  children: React.ReactNode;
+  emptyLabel: string;
+  onSelectTarget?: () => void;
+  targetDisabled?: boolean;
+}) {
   const { setNodeRef, isOver } = useDroppable({ id });
   return (
     <span ref={setNodeRef} className={isOver ? "quiz-blank-slot is-over" : "quiz-blank-slot"}>
-      {children}
+      {/* `children` ist bei einer leeren Lücke das Boolean `false` (aus `{word && <DraggableTerm/>}`
+          im Aufrufer), nicht `undefined` — `??` würde diesen Fall daher NICHT auffangen, `||` schon. */}
+      {children ||
+        (onSelectTarget && (
+          <button
+            type="button"
+            className="quiz-blank-slot-target"
+            aria-label={emptyLabel}
+            onClick={onSelectTarget}
+            disabled={targetDisabled}
+          />
+        ))}
     </span>
   );
 }
@@ -1156,10 +1354,7 @@ export function BlanksSelectionStep({
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
-    const wordId = String(event.active.id);
-    const targetId = event.over ? String(event.over.id) : BLANKS_POOL_ID;
+  function movePlacement(wordId: string, targetId: string) {
     if (targetId === BLANKS_POOL_ID) {
       setPlacements((current) => ({ ...current, [wordId]: null }));
       return;
@@ -1175,6 +1370,13 @@ export function BlanksSelectionStep({
       return next;
     });
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    if (feedback) return;
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : BLANKS_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
 
   const parts = item.textWithBlanks.split("___");
   const allFilled = item.blankIds.every((blankId) => Object.values(placements).includes(blankId));
@@ -1199,6 +1401,7 @@ export function BlanksSelectionStep({
 
   return (
     <div className="stack">
+      <p className="field-hint">Wort auswählen oder ziehen, dann die Lücke auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
         <div className="quiz-question prose">
           {parts.map((part, partIndex) => {
@@ -1208,12 +1411,19 @@ export function BlanksSelectionStep({
               <span key={partIndex}>
                 {part}
                 {blankId && (
-                  <DroppableBlankSlot id={blankId}>
+                  <DroppableBlankSlot
+                    id={blankId}
+                    emptyLabel={`Lücke ${partIndex + 1}: ausgewähltes Wort hier einsetzen`}
+                    onSelectTarget={() => selectTarget(blankId)}
+                    targetDisabled={feedback !== null || !selectedId}
+                  >
                     {word && (
                       <DraggableTerm
                         id={word.id}
                         text={word.text}
                         disabled={feedback !== null}
+                        selected={selectedId === word.id}
+                        onToggleSelect={() => toggleSelect(word.id)}
                         state={feedback ? (feedback.results[blankId] ? "correct" : "wrong") : undefined}
                       />
                     )}
@@ -1223,17 +1433,30 @@ export function BlanksSelectionStep({
             );
           })}
         </div>
-        <DroppableZone id={BLANKS_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={BLANKS_POOL_ID}
+          label="Wortpool"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(BLANKS_POOL_ID)}
+          targetDisabled={feedback !== null || !selectedId}
+        >
           {item.words
             .filter((word) => !placements[word.id])
             .map((word) => (
-              <DraggableTerm key={word.id} id={word.id} text={word.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={word.id}
+                id={word.id}
+                text={word.text}
+                disabled={feedback !== null}
+                selected={selectedId === word.id}
+                onToggleSelect={() => toggleSelect(word.id)}
+              />
             ))}
         </DroppableZone>
       </DndContext>
       {feedback ? (
         <>
-          <p className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Lücken richtig.
             {feedback.correctCount < feedback.total && (
               <>
@@ -1316,7 +1539,7 @@ export function KurzantwortStep({
       </div>
       {feedback ? (
         <>
-          <p className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+          <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : (
               <>
                 Leider falsch. Richtige Lösung: <b>{feedback.correctAnswer}</b>

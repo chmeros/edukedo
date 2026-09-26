@@ -22,6 +22,11 @@
   --danger-tint: #fbe3e1;
   --info: #2e7896;
   --info-tint: #dceef3;
+  /* F-136 (26.09.2026, Barrierefreiheits-Stichprobe, siehe Architekturplanung Abschnitt 13):
+     --info erreichte als Textfarbe auf --info-tint nur 4,14:1 (unter WCAG-AA 4,5:1) — anders als
+     .alert-success/.alert-danger, die dafür bereits dediziert dunklere/hellere -deep-Varianten
+     nutzen. --info-deep schließt exakt diese Lücke, 5,82:1 auf --info-tint. */
+  --info-deep: #236078;
   --line: rgba(23, 33, 43, 0.12);
   --line-strong: rgba(23, 33, 43, 0.22);
   --shadow: 0 1px 2px rgba(23, 33, 43, 0.06), 0 10px 30px -12px rgba(23, 33, 43, 0.18);
@@ -76,6 +81,7 @@
     --danger-tint: #3a1917;
     --info: #7fc3de;
     --info-tint: #12262c;
+    --info-deep: #a8d8ea;
     --line: rgba(234, 243, 236, 0.14);
     --line-strong: rgba(234, 243, 236, 0.26);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 20px 40px -20px rgba(0, 0, 0, 0.6);
@@ -103,6 +109,7 @@
   --danger-tint: #3a1917;
   --info: #7fc3de;
   --info-tint: #12262c;
+  --info-deep: #a8d8ea;
   --line: rgba(234, 243, 236, 0.14);
   --line-strong: rgba(234, 243, 236, 0.26);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 20px 40px -20px rgba(0, 0, 0, 0.6);
@@ -629,7 +636,9 @@ hr {
 
 .alert-info {
   background: var(--info-tint);
-  color: var(--info);
+  /* F-136: --info-deep statt --info — Letzteres erreichte auf --info-tint nur 4,14:1 (unter
+     WCAG-AA 4,5:1 für Fließtext), siehe --info-deep-Definition oben. */
+  color: var(--info-deep);
   border: 1px dashed color-mix(in srgb, var(--info) 45%, transparent);
 }
 
@@ -1619,6 +1628,44 @@ details[open] > summary.disclosure::before {
 }
 
 .quadrant-term:disabled {
+  cursor: default;
+}
+
+/* F-135 (26.09.2026, Barrierefreiheits-Stichprobe, siehe Architekturplanung Abschnitt 13):
+   "ausgewählt, wartet auf ein Zielfeld" — Tastatur-/Klick-Alternative zum Drag-and-Drop. */
+.quadrant-term.is-selected {
+  border-color: var(--sprout);
+  box-shadow: 0 0 0 2px var(--sprout-tint);
+}
+
+/* Macht .quadrant-zone-label zusätzlich zu einem klickbaren Platzierungs-Ziel — reset der
+   <button>-UA-Stile, damit es weiterhin wie der bisherige <span>-Text aussieht. */
+.quadrant-zone-target {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: start;
+  padding: 0;
+}
+
+.quadrant-zone-target:disabled {
+  cursor: default;
+}
+
+/* Füllt dieselbe Fläche wie ein bereits belegtes .quiz-blank-slot per <button>, damit eine leere
+   Lücke ebenfalls ein fokussierbares, beschriftetes Platzierungs-Ziel ist (siehe DroppableBlankSlot). */
+.quiz-blank-slot-target {
+  width: 100%;
+  height: 100%;
+  min-width: 60px;
+  min-height: 1.4em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.quiz-blank-slot-target:disabled {
   cursor: default;
 }
 
