@@ -8,7 +8,9 @@ import { trpc } from "./trpc";
  * belegten Kurse hinweg (F-09), nicht eine einzelne Kurs-Mitgliedschaft. Prüft beim Mounten
  * einmalig auf neu erfüllte Achievements (`checkAndAward`) — ein erneutes Prüfen bei jedem
  * Kurswechsel ist unschädlich (idempotent, günstige Zählungen), da `Progress.tsx` je Kurs neu
- * gemountet wird (`key={activeKursId}` in App.tsx).
+ * gemountet wird (`key={activeKursId}` in App.tsx). Bis 25.09.2026 eigener Haupt-Tab "Erfolge"
+ * (F-107), seit 26.09.2026 interner Unter-Tab von "Fortschritt" (Nutzer-Vorgabe, siehe
+ * `Progress.tsx`/Architekturplanung Abschnitt 13) — an dieser Komponente selbst unverändert.
  */
 export function Achievements() {
   const utils = trpc.useUtils();

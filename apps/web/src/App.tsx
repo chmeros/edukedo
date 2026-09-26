@@ -1,6 +1,5 @@
 import { requiresParentalConsent } from "@edukedo/shared";
 import { useEffect, useRef, useState } from "react";
-import { Achievements } from "./Achievements";
 import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
@@ -31,16 +30,20 @@ import { UserMenu } from "./UserMenu";
 // Entscheidung 18.09.2026) — content.theorySections bleibt im Backend unverändert bestehen,
 // nur ohne aktuellen Zugriffsweg im eingeloggten Bereich. F-104: "Karteikarten"/"Quiz"
 // verschmelzen zum Tab "Lernen". F-105: neuer, vorerst leerer Platzhalter-Tab "Instrumente".
-// F-107: "Sozial" und "Erfolge" wandern vom bisherigen Fortschritt-Unter-Tab auf die
-// Haupt-Tab-Ebene; "Einstellungen" wandert ins Header-Benutzermenü (SettingsModal.tsx).
-type LearningMode = "lernen" | "exam" | "instrumente" | "sozial" | "erfolge" | "progress";
+// F-107: "Sozial" und "Erfolge" wanderten vom bisherigen Fortschritt-Unter-Tab auf die
+// Haupt-Tab-Ebene; "Einstellungen" wanderte ins Header-Benutzermenü (SettingsModal.tsx).
+// Nutzer-Vorgabe 26.09.2026 (siehe Architekturplanung Abschnitt 13): Fokus auf die drei
+// Kernfunktionen "Lernen"/"Prüfung"/"Instrumente" — "Erfolge" wandert deshalb wieder zurück
+// in den Tab "Fortschritt" (jetzt als dessen interner Unter-Tab, siehe Progress.tsx), der
+// damit als Oberbegriff für Fortschritts- UND Erfolgs-/Bestwerte-Anzeige dient. "Sozial"
+// bleibt bewusst ein eigener Haupt-Tab (nicht Teil dieser Zusammenführung).
+type LearningMode = "lernen" | "exam" | "instrumente" | "sozial" | "progress";
 
 const LEARNING_MODE_TABS: { id: LearningMode; label: string }[] = [
   { id: "lernen", label: "Lernen" },
   { id: "exam", label: "Prüfung" },
   { id: "instrumente", label: "Instrumente" },
   { id: "sozial", label: "Sozial" },
-  { id: "erfolge", label: "Erfolge" },
   { id: "progress", label: "Fortschritt" },
 ];
 
@@ -83,7 +86,7 @@ export function App() {
   const authModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   // Code-Review-Fund (23.09.2026, siehe Architekturplanung Abschnitt 13): auf schmalen
   // Bildschirmen ist .tab-nav horizontal scrollbar (siehe styles.css, @media max-width: 640px)
-  // — bisher ohne jede sichtbare Andeutung, dass "Erfolge"/"Fortschritt" außerhalb des
+  // — bisher ohne jede sichtbare Andeutung, dass "Sozial"/"Fortschritt" außerhalb des
   // sichtbaren Bereichs liegen (nur der native, auf vielen Mobilgeräten unauffällige/
   // eingeblendete Scrollbalken). `tabNavScroll` steuert zwei Fade-Overlays (unten im JSX),
   // die per CSS-Übergang ein-/ausblenden, je nachdem ob noch in die jeweilige Richtung
@@ -324,7 +327,6 @@ export function App() {
                       // Breite wie Sozial/Fortschritt), keine einzelne Frage/Karte mehr.
                       learningMode === "progress" ||
                       learningMode === "sozial" ||
-                      learningMode === "erfolge" ||
                       learningMode === "instrumente"
                         ? undefined
                         : "content-narrow"
@@ -397,7 +399,6 @@ export function App() {
                         gamificationEnabled={me.data.gamificationEnabled}
                       />
                     )}
-                    {learningMode === "erfolge" && <Achievements />}
                     {learningMode === "progress" && (
                       <Progress
                         key={activeKursId}
