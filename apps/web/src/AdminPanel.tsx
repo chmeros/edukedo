@@ -3,6 +3,7 @@ import { AdminContentEditor } from "./AdminContentEditor";
 import { AiAdminTools } from "./AiAdminTools";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
+import { SystemStatusPanel } from "./SystemStatusPanel";
 import { trpc } from "./trpc";
 
 const BILLING_STATUS_LABELS: Record<string, string> = {
@@ -269,6 +270,8 @@ export function AdminPanel() {
 
   return (
     <>
+      <SystemStatusPanel />
+
       {kpis.data && (
         <div className="panel-section">
           <div className="panel-section-head">

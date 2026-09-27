@@ -694,6 +694,32 @@ hr {
   display: inline-block;
 }
 
+/* F-138: Dienst-Verfügbarkeits-Dashboard (SystemStatusPanel.tsx) — dieselben Farbpaare wie
+   .alert-success/.alert-danger (siehe dort, bereits auf ausreichenden Kontrast geprüft), damit
+   "ok"/"down" ohne einen weiteren, neu zu prüfenden Farbton auskommen. */
+.status-pill {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.status-pill.is-ok {
+  background: var(--sprout-tint);
+  color: var(--sprout-deep);
+}
+
+.status-pill.is-down {
+  background: var(--danger-tint);
+  color: var(--danger-deep);
+}
+
+.status-pill.is-unknown {
+  background: var(--surface);
+  color: var(--ink-faint);
+}
+
 .user-actions {
   display: flex;
   align-items: center;

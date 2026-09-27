@@ -21,6 +21,11 @@ import type { AiProvider, FallaufgabeGradingInput, FallaufgabeGradingResult, Gen
  * Pflicht-Umgebungsvariablen aus `env.ts` bereitstellen zu müssen.
  */
 const REQUEST_TIMEOUT_MS = 120_000;
+// F-138 (26.09.2026, siehe Architekturplanung Abschnitt 13): eigenes, kurzes Zeitlimit für die
+// reine Erreichbarkeitsprüfung (Systemstatus-Dashboard) — deutlich kürzer als REQUEST_TIMEOUT_MS
+// oben, das für eine tatsächliche LLM-Antwort kalkuliert ist, hier soll ein Dashboard aber nicht
+// minutenlang hängen, nur weil Ollama nicht erreichbar ist.
+const HEALTH_CHECK_TIMEOUT_MS = 3000;
 
 async function chatCompletion(
   baseUrl: string,
@@ -69,6 +74,20 @@ const generatedMcQuestionSchema = z.object({
       message: "Es muss genau eine richtige Option geben.",
     }),
 });
+
+/**
+ * F-138: reine Erreichbarkeitsprüfung für das Systemstatus-Dashboard (system-status.ts) — bewusst
+ * NICHT über `/v1/chat/completions` (würde eine echte, langsame Modell-Inferenz auslösen), sondern
+ * über Ollamas natives, leichtgewichtiges `/api/tags` (listet lokal vorhandene Modelle auf, ohne
+ * eines davon zu laden). Wirft bei jedem Fehler einfach weiter, wie der Rest dieser Datei — der
+ * Aufrufer entscheidet, was ein Fehlschlag für die Anzeige bedeutet.
+ */
+export async function pingOllama(baseUrl: string): Promise<void> {
+  const response = await fetch(`${baseUrl}/api/tags`, { signal: AbortSignal.timeout(HEALTH_CHECK_TIMEOUT_MS) });
+  if (!response.ok) {
+    throw new Error(`Ollama antwortete mit Status ${response.status}.`);
+  }
+}
 
 export function createOllamaProvider(baseUrl: string, model: string): AiProvider {
   return {

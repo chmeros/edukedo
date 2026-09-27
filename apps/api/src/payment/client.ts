@@ -62,3 +62,13 @@ export function cancelSubscription(userId: string): Promise<{ status: string }> 
 export function fetchInvoices(userId: string): Promise<RemoteInvoice[]> {
   return paymentFetch(`/subscriptions/${userId}/invoices`);
 }
+
+/**
+ * F-138: reine Erreichbarkeitsprüfung für das Systemstatus-Dashboard (system-status.ts) — ruft
+ * `/health` auf (siehe apps/payment/src/app.ts), den einzigen Endpunkt, der laut dortiger
+ * preHandler-Ausnahme OHNE `x-kern-service-token` funktioniert; `paymentFetch` sendet den Token
+ * trotzdem mit, das ist dort einfach ein ungenutzter Header.
+ */
+export function pingPaymentService(): Promise<{ status: string }> {
+  return paymentFetch("/health");
+}

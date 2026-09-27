@@ -12,10 +12,14 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
+import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { importAllContent } from "../../db/import-content";
 import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
+import { pingPaymentService } from "../../payment/client";
+import { redisConnection } from "../../queue/connection";
+import { checkAllServices } from "../../system-status";
 import { roleProcedure, router } from "../trpc";
 
 const ACTIVE_USERS_WINDOW_MS = 1000 * 60 * 60 * 24 * 7; // 7 Tage (WAU, siehe Anforderungskatalog Abschnitt 11)
@@ -365,4 +369,22 @@ export const adminRouter = router({
 
       return { success: true };
     }),
+
+  /**
+   * F-138 (26.09.2026, Nutzer-Vorgabe, siehe Architekturplanung Abschnitt 13): Dienst-
+   * Verfügbarkeits-Dashboard — prüft bei jedem Aufruf live alle externen Abhängigkeiten des
+   * Kern-Backends (Datenbank, Redis-Warteschlange, Payment-Service, KI-Anbindung). Die "regelmäßige"
+   * Prüfung kommt bewusst vom Frontend her (`refetchInterval`, siehe SystemStatusPanel.tsx) statt
+   * von einem eigenen Hintergrund-Job/Cron — ein Admin-Dashboard, das nur bei tatsächlichem
+   * Betrachten aktualisiert wird, braucht keine dauerhaft laufende Prüf-Infrastruktur.
+   */
+  systemStatus: roleProcedure("admin").query(async ({ ctx }) => {
+    return checkAllServices(
+      ctx.db,
+      () => redisConnection.ping(),
+      pingPaymentService,
+      env.AI_PROVIDER,
+      () => pingOllama(env.OLLAMA_BASE_URL),
+    );
+  }),
 });
