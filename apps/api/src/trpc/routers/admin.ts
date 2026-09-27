@@ -14,6 +14,7 @@ import { eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
+import { kursZielgruppe } from "../../course-audience";
 import { importAllContent } from "../../db/import-content";
 import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
@@ -41,16 +42,64 @@ export const adminRouter = router({
         title: kurs.title,
         type: kurs.type,
         isPublished: kurs.isPublished,
+        metadata: kurs.metadata,
       })
       .from(kurs)
       .orderBy(kurs.title);
 
-    return rows;
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `targetsMinors`
+    // ist rein informativ fürs Admin-Panel (zeigt an, welche Kurse laut metadata.zielgruppe
+    // "minderjaehrige" sind) — die eigentliche Durchsetzung sitzt unten in `setPublished`.
+    return rows.map(({ metadata, ...row }) => ({
+      ...row,
+      targetsMinors: kursZielgruppe(metadata) === "minderjaehrige",
+    }));
   }),
 
+  /**
+   * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Diese Prozedur war
+   * bisher ein ungebremstes UPDATE ohne jeden Bezug zur Eltern-Consent-Pflicht — die im
+   * CLAUDE.md/Architekturplanung dokumentierte harte Regel ("Mathe-Kurs darf erst live gehen,
+   * nachdem der vollständige Eltern-Consent-Flow produktiv steht") war damit eine rein
+   * prozedurale Absprache, nicht im Code erzwungen. Da der Consent-Flow selbst inzwischen
+   * vollständig implementiert ist (F-08/F-90, siehe consent.ts/parent.ts), lässt sich "ist er
+   * produktiv" nicht mehr sinnvoll als DB-Flag modellieren — stattdessen erzwingt diese
+   * Prozedur jetzt eine explizite, separate Bestätigung (`confirmMinorsAudiencePublish`) beim
+   * ERSTMALIGEN Veröffentlichen eines Kurses mit `metadata.zielgruppe === "minderjaehrige"`,
+   * damit ein einzelner, unbedachter Klick (oder eine kompromittierte Admin-Sitzung) das nicht
+   * mehr versehentlich auslösen kann — die UI (AdminPanel.tsx) zeigt dafür einen eigenen
+   * Bestätigungsdialog statt des normalen Ein-Klick-Buttons.
+   */
   setPublished: roleProcedure("admin")
-    .input(z.object({ kursId: z.string().uuid(), isPublished: z.boolean() }))
+    .input(
+      z.object({
+        kursId: z.string().uuid(),
+        isPublished: z.boolean(),
+        confirmMinorsAudiencePublish: z.boolean().optional(),
+      }),
+    )
     .mutation(async ({ ctx, input }) => {
+      const [existing] = await ctx.db
+        .select({ isPublished: kurs.isPublished, metadata: kurs.metadata })
+        .from(kurs)
+        .where(eq(kurs.id, input.kursId))
+        .limit(1);
+
+      if (!existing) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Kurs wurde nicht gefunden." });
+      }
+
+      const isNewlyPublishing = input.isPublished && !existing.isPublished;
+      const targetsMinors = kursZielgruppe(existing.metadata) === "minderjaehrige";
+
+      if (isNewlyPublishing && targetsMinors && !input.confirmMinorsAudiencePublish) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message:
+            "Dieser Kurs richtet sich an Minderjährige — die Veröffentlichung erfordert eine explizite Bestätigung, dass der Eltern-Consent-Flow (F-08/F-90) produktiv steht.",
+        });
+      }
+
       await ctx.db.update(kurs).set({ isPublished: input.isPublished }).where(eq(kurs.id, input.kursId));
       return { success: true };
     }),

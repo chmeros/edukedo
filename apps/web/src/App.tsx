@@ -1,4 +1,5 @@
 import { requiresParentalConsent } from "@edukedo/shared";
+import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
 import { CompanyBranding } from "./CompanyBranding";
@@ -55,6 +56,7 @@ const AUTH_MODE_TABS: { id: "login" | "register"; label: string }[] = [
 
 export function App() {
   const utils = trpc.useUtils();
+  const queryClient = useQueryClient();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
   const courses = trpc.courses.list.useQuery(undefined, { enabled: !!me.data });
   const register = trpc.auth.register.useMutation({
@@ -71,7 +73,13 @@ export function App() {
   // reset() statt nur invalidate(): TanStack Query behält bei einem fehlschlagenden
   // Refetch (hier: me -> 401 nach dem Logout) den zuletzt erfolgreichen `data`-Wert bei,
   // reset() leert ihn explizit, damit die UI wirklich in den ausgeloggten Zustand wechselt.
-  const logout = trpc.auth.logout.useMutation({ onSuccess: () => utils.auth.me.reset() });
+  // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `utils.auth.me.reset()`
+  // leerte bisher NUR die me-Query — alle anderen Caches (Fortschritt, Duelle, Notizen, ...)
+  // blieben unter denselben Query-Keys bestehen. Loggt sich auf demselben Gerät/Browser
+  // anschließend eine ANDERE Person ein (geteiltes Gerät, z. B. Familien-PC), sähe sie beim
+  // ersten Render bis zum jeweiligen Refetch die zwischengespeicherten Daten der vorherigen
+  // Person — `queryClient.clear()` leert deshalb den GESAMTEN, app-weiten Cache (main.tsx).
+  const logout = trpc.auth.logout.useMutation({ onSuccess: () => queryClient.clear() });
 
   const [mode, setMode] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");

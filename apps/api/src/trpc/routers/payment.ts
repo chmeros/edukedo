@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq, isNull } from "drizzle-orm";
 import { isPremiumActive } from "../../auth/premium-status";
 import { user } from "../../db/schema";
 import {
@@ -29,8 +29,26 @@ export const paymentRouter = router({
     try {
       const remote = await fetchPaymentStatus(ctx.currentUser.id);
       const premiumUntil = remote.status === "active" && remote.premiumUntil ? new Date(remote.premiumUntil) : null;
-      if (premiumUntil?.getTime() !== ctx.currentUser.premiumUntil?.getTime()) {
-        await ctx.db.update(user).set({ premiumUntil }).where(eq(user.id, ctx.currentUser.id));
+      const cachedAtRequestStart = ctx.currentUser.premiumUntil;
+      if (premiumUntil?.getTime() !== cachedAtRequestStart?.getTime()) {
+        // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Der Remote-GET
+        // oben kann einen Stand von VOR einer zwischenzeitlichen Kündigung gelesen haben — ein
+        // unbedingtes UPDATE hier könnte einen bereits (per cancelSubscription) auf `null`
+        // gesetzten Cache mit diesem veralteten "aktiv"-Stand überschreiben, sobald diese
+        // Anfrage danach fertig wird ("premium kommt wieder"). Compare-and-swap statt
+        // unbedingtem Schreiben: nur aktualisieren, wenn sich `premium_until` seit dem Lesen
+        // dieser Anfrage (ctx.currentUser, zu Anfragebeginn geladen) nicht schon geändert hat —
+        // hat es das (z. B. durch genau diese Kündigung), gewinnt der neuere Wert, diese
+        // Anfrage schreibt dann einfach nichts.
+        await ctx.db
+          .update(user)
+          .set({ premiumUntil })
+          .where(
+            and(
+              eq(user.id, ctx.currentUser.id),
+              cachedAtRequestStart ? eq(user.premiumUntil, cachedAtRequestStart) : isNull(user.premiumUntil),
+            ),
+          );
       }
       return { isPremiumActive: isPremiumActive(premiumUntil), premiumUntil: premiumUntil?.toISOString() ?? null, live: true };
     } catch {

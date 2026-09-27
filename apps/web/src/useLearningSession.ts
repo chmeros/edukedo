@@ -60,7 +60,15 @@ export function useLearningSessionTracker(learningModeActive: boolean, kursId: s
     startRef
       .current({ kursId })
       .then((result) => {
-        if (!cancelled) {
+        if (cancelled) {
+          // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): das Aufräumen
+          // (return-Funktion unten) kann laufen, BEVOR dieses Promise aufgelöst ist (schneller
+          // Active/Kurs-Wechsel) — die lokale `sessionId`-Variable war zu diesem Zeitpunkt noch
+          // null, das Aufräumen konnte die serverseitig bereits angelegte Sitzung deshalb nicht
+          // beenden. Ohne dieses sofortige Nachholen bliebe sie dauerhaft als "aktiv" verwaist
+          // stehen (siehe learningSession in schema.ts).
+          endRef.current({ sessionId: result.sessionId });
+        } else {
           sessionId = result.sessionId;
         }
       })

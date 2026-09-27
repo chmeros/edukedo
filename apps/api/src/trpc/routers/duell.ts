@@ -26,6 +26,7 @@ import {
   userCourse,
 } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+import { recordQuizAttempt } from "./progress";
 
 /** F-61: "läuft automatisch nach 7 Tagen ab". */
 const DUELL_DURATION_MS = 1000 * 60 * 60 * 24 * 7;
@@ -62,6 +63,23 @@ async function requireExistingFriendship(db: Database, userId: string, otherUser
 
 function isDuellExpired(row: { status: string; expiresAt: Date }, now: Date): boolean {
   return row.status === "offen" && row.expiresAt.getTime() < now.getTime();
+}
+
+/** Identischer Aufbau wie friend.ts' gleichnamiger Inline-Check — ein Duell darf nach einer
+ * Blockierung nicht weiterlaufen (F-68: Blockieren soll jede weitere Interaktion sofort
+ * unterbinden), auch wenn es vor der Blockierung angelegt wurde. */
+async function isBlockedPair(db: Database, kursId: string, userIdA: string, userIdB: string): Promise<boolean> {
+  const [blockRow] = await db
+    .select()
+    .from(block)
+    .where(
+      and(
+        eq(block.kursId, kursId),
+        or(and(eq(block.userId, userIdA), eq(block.blockedUserId, userIdB)), and(eq(block.userId, userIdB), eq(block.blockedUserId, userIdA))),
+      ),
+    )
+    .limit(1);
+  return !!blockRow;
 }
 
 /**
@@ -103,20 +121,7 @@ export const duellRouter = router({
     // Zusätzliche, generische Sperre analog zu friend.redeemInviteCode — eine bestehende
     // Freundschaft wird bei einer Blockierung bereits entfernt (report.ts), dieser Check ist
     // Verteidigung in der Tiefe für den Fall einer zwischenzeitlichen Blockierung.
-    const [blockRow] = await ctx.db
-      .select()
-      .from(block)
-      .where(
-        and(
-          eq(block.kursId, input.kursId),
-          or(
-            and(eq(block.userId, ctx.currentUser.id), eq(block.blockedUserId, input.opponentUserId)),
-            and(eq(block.userId, input.opponentUserId), eq(block.blockedUserId, ctx.currentUser.id)),
-          ),
-        ),
-      )
-      .limit(1);
-    if (blockRow) {
+    if (await isBlockedPair(ctx.db, input.kursId, ctx.currentUser.id, input.opponentUserId)) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Ihr seid in diesem Kurs nicht befreundet." });
     }
 
@@ -197,6 +202,16 @@ export const duellRouter = router({
       : [];
     const emailByUserId = new Map(opponentUsers.map((row) => [row.id, row.email]));
 
+    const blockRows = opponentUserIds.length
+      ? await ctx.db
+          .select({ userId: block.userId, blockedUserId: block.blockedUserId })
+          .from(block)
+          .where(and(eq(block.kursId, input.kursId), or(eq(block.userId, ctx.currentUser.id), eq(block.blockedUserId, ctx.currentUser.id))))
+      : [];
+    const blockedOpponentUserIds = new Set(
+      blockRows.map((row) => (row.userId === ctx.currentUser.id ? row.blockedUserId : row.userId)),
+    );
+
     const now = new Date();
     return rows.map((row) => {
       const isChallenger = row.challengerUserId === ctx.currentUser.id;
@@ -206,7 +221,11 @@ export const duellRouter = router({
 
       return {
         id: row.id,
-        status: isDuellExpired(row, now) ? ("abgelaufen" as const) : row.status,
+        status: blockedOpponentUserIds.has(opponentUserId)
+          ? ("abgelaufen" as const)
+          : isDuellExpired(row, now)
+            ? ("abgelaufen" as const)
+            : row.status,
         expiresAt: row.expiresAt,
         questionCount: row.questionCount,
         opponentEmail: emailByUserId.get(opponentUserId) ?? "unbekannt",
@@ -227,10 +246,11 @@ export const duellRouter = router({
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
     }
 
-    const now = new Date();
-    const status = isDuellExpired(row, now) ? ("abgelaufen" as const) : row.status;
-
     const opponentUserId = isChallenger ? row.opponentUserId : row.challengerUserId;
+    const now = new Date();
+    const blocked = await isBlockedPair(ctx.db, row.kursId, row.challengerUserId, row.opponentUserId);
+    const status = blocked ? ("abgelaufen" as const) : isDuellExpired(row, now) ? ("abgelaufen" as const) : row.status;
+
     const [opponentUser] = await ctx.db.select({ email: user.email }).from(user).where(eq(user.id, opponentUserId)).limit(1);
 
     const questions = await ctx.db
@@ -365,7 +385,8 @@ export const duellRouter = router({
     if (!isChallenger && !isOpponent) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
     }
-    if (isDuellExpired(row, new Date()) || row.status !== "offen") {
+    const blocked = await isBlockedPair(ctx.db, row.kursId, row.challengerUserId, row.opponentUserId);
+    if (blocked || isDuellExpired(row, new Date()) || row.status !== "offen") {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Dieses Duell ist nicht mehr offen." });
     }
     const myFinishedAt = isChallenger ? row.challengerFinishedAt : row.opponentFinishedAt;
@@ -400,6 +421,14 @@ export const duellRouter = router({
       selectedOptionId: input.selectedOptionId,
       isCorrect,
     });
+
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): eine Duell-Frage ist
+    // derselbe Content-Item-Snapshot wie eine reguläre Quiz-Frage (siehe Kommentar oben zu
+    // MC_LIKE_QUIZ_TYPES) — sie sollte deshalb genauso wie quiz.submitAnswer über
+    // `recordQuizAttempt` in Fortschritt (F-26/F-31/F-32), Punktehamster (F-118) und Credits
+    // (F-119) einfließen. Das fehlte bisher vollständig (Live-Bug: Duelle spielen zählte nirgends
+    // mit), da duell.ts unabhängig von quiz.ts entstand.
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
 
     const [version] = await ctx.db
       .select({ explanation: contentItemVersion.explanation })

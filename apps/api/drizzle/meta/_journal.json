@@ -267,6 +267,13 @@
       "when": 1790421074151,
       "tag": "0037_noisy_klaw",
       "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1790514782365,
+      "tag": "0038_hesitant_starhawk",
+      "breakpoints": true
     }
   ]
 }

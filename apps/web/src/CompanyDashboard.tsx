@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Header } from "./Header";
@@ -353,9 +354,11 @@ function LoginForm() {
  * aggregierte Statistik (F-92, F-93) sind eigene, spätere Bausteine.
  */
 export function CompanyDashboard() {
-  const utils = trpc.useUtils();
+  const queryClient = useQueryClient();
   const me = trpc.company.me.useQuery(undefined, { retry: false });
-  const logout = trpc.company.logout.useMutation({ onSuccess: () => utils.company.me.reset() });
+  // clear() statt nur me.reset(): siehe App.tsx-Logout-Kommentar — derselbe app-weite
+  // QueryClient (main.tsx) wird auch für diesen Bereich verwendet.
+  const logout = trpc.company.logout.useMutation({ onSuccess: () => queryClient.clear() });
 
   if (!me.data) {
     return (

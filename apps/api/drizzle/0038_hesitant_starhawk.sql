@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "exam_answer_session_id_content_item_version_id_key" ON "exam_answer" USING btree ("exam_session_id","content_item_version_id");

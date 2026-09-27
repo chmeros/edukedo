@@ -157,6 +157,11 @@ export function FriendCircle({ kursId }: { kursId: string }) {
       // Highscore.tsx, "beschränkt auf deinen Freundeskreis"), blieb dort bisher aber bis zum
       // nächsten Reload unsichtbar.
       utils.highscore.leaderboard.invalidate({ kursId });
+      // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): dieselbe Lücke wie
+      // oben, hier für die Lernpartner-Vermittlung (F-62) — deren Kandidatenkreis ist ebenfalls
+      // auf den Freundeskreis beschränkt (Lernpartner.tsx), blieb aber bis zum nächsten Reload
+      // ohne die neue Freundschaft.
+      utils.lernpartner.matches.invalidate({ kursId });
     },
   });
   const unblock = trpc.report.unblockUser.useMutation({

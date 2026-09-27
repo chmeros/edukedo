@@ -44,6 +44,16 @@ function DuellDetail({ duellId, onClose }: { duellId: string; onClose: () => voi
   function afterAnswer() {
     utils.duell.get.invalidate({ duellId });
     utils.duell.myDuelle.invalidate({ kursId: d.kursId });
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): eine Duell-Antwort
+    // fließt seit demselben Fund serverseitig über recordQuizAttempt in Fortschritt/Punkte-
+    // hamster/Credits/Lernserie ein (siehe duell.submitAnswer) — dieselben Invalidierungen wie
+    // Quiz.tsx' invalidateProgress fehlten hier bisher, die Anzeigen blieben bis zum nächsten
+    // Reload auf dem alten Stand.
+    utils.progress.overview.invalidate();
+    utils.progress.suggestions.invalidate();
+    utils.gamification.mascotStatus.invalidate();
+    utils.auth.me.invalidate();
+    utils.gamification.streakStatus.invalidate();
   }
 
   const isLastQuestion = d.me.answeredCount + 1 >= d.questionCount;

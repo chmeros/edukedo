@@ -59,9 +59,17 @@ async function chatCompletion(
  * passen — der Aufrufer (`gradeFallaufgabe` unten) prüft das zusätzlich, da Zod die Länge hier
  * noch nicht gegen den variablen `parts`-Input kennt. `points` wird zusätzlich serverseitig auf
  * `[0, part.points]` der jeweiligen Teilaufgabe geklemmt (siehe dort), nicht nur hier auf `>= 0`
- * geprüft. */
+ * geprüft.
+ *
+ * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `teilaufgabe` (1-basiert)
+ * ist neu — vorher verließ sich die Zuordnung von Feedback/Punkten zur richtigen Teilaufgabe
+ * AUSSCHLIESSLICH auf eine weiche Prompt-Anweisung ("in DERSELBEN Reihenfolge"), nur die ANZAHL
+ * wurde geprüft. Liefert das Modell die richtige Anzahl, aber in vertauschter Reihenfolge (ein
+ * bekanntes LLM-Fehlerbild), bekäme Teilaufgabe 1 unbemerkt das Feedback/den Punktvorschlag einer
+ * anderen Teilaufgabe. Mit dem expliziten Index lässt sich das unten tatsächlich verifizieren und
+ * bei Bedarf zurücksortieren, statt sich auf die Array-Reihenfolge zu verlassen. */
 const fallaufgabeGradingResultSchema = z.object({
-  parts: z.array(z.object({ feedback: z.string().min(1), points: z.number().int().min(0) })),
+  parts: z.array(z.object({ teilaufgabe: z.number().int().min(1), feedback: z.string().min(1), points: z.number().int().min(0) })),
 });
 
 const generatedMcQuestionSchema = z.object({
@@ -106,7 +114,7 @@ export function createOllamaProvider(baseUrl: string, model: string): AiProvider
           {
             role: "system",
             content:
-              'Du bist eine erfahrene, strenge Prüferin/ein erfahrener, strenger Prüfer einer echten schriftlichen Prüfung — kein nachsichtiger Tutor. Bewerte die eingereichte Abgabe AUSSCHLIESSLICH anhand der unten angegebenen, redaktionell geprüften Bewertungskriterien — nutze KEIN eigenes Fachwissen über die vermeintlich „richtige" Lösung, das über diese Kriterien hinausgeht. Prüfe für JEDE Teilaufgabe zusätzlich zwei Dinge, bevor du Punkte vergibst: (1) den in der Aufgabenstellung geforderten Ausführungsgrad/Operator (z. B. "Nennen Sie"/"Zählen Sie auf" verlangt nur eine knappe Aufzählung ohne Begründung; "Beschreiben Sie"/"Erklären Sie" verlangt zusätzlich sachliche Ausführung; "Erläutern Sie"/"Begründen Sie" verlangt eine nachvollziehbare Argumentation, nicht nur eine Behauptung; "Analysieren Sie"/"Bewerten Sie"/"Beurteilen Sie" verlangt eine eigenständige, differenzierte Einordnung, keine bloße Wiedergabe) — ziehe Punkte ab, wenn die Antwort flacher ausfällt als der Operator verlangt, selbst wenn der genannte Inhalt korrekt ist; (2) den Umfang/die Tiefe der Antwort im Verhältnis zur Punktzahl der Teilaufgabe — eine sehr knappe, oberflächliche oder unvollständige Antwort verdient NICHT automatisch die volle Punktzahl, nur weil nichts davon falsch ist, sondern nur dann, wenn sie die Kriterien tatsächlich vollständig und in angemessener Tiefe abdeckt. Volle Punktzahl ist die Ausnahme für eine wirklich vollständige, präzise Antwort, nicht der Normalfall — sei bei der Punktvergabe eher zu streng als zu großzügig und runde nicht wohlwollend auf. Antworte AUSSCHLIESSLICH mit einem JSON-Objekt exakt in dieser Form, ohne jeden Text davor oder danach: {"parts": [{"feedback": string, "points": integer}, ...]}. Das "parts"-Array muss GENAU EIN Objekt je unten aufgeführter Teilaufgabe enthalten, in DERSELBEN Reihenfolge. "feedback" ist ein einzelner zusammenhängender deutscher Absatz NUR zu dieser einen Teilaufgabe: beginne mit einer kurzen, ehrlich gemeinten wertschätzenden Einordnung, die zur tatsächlich vergebenen Punktzahl passt — bei einem wirklich guten/sehr guten Ergebnis echtes Lob, bei einem schwächeren Ergebnis eine motivierende, ermutigende Formulierung statt Entmutigung, aber niemals beschönigend — und beziehe dich dabei auch auf die mitgegebene Selbsteinschätzung der lernenden Person (z. B. anerkennen, wenn die Selbsteinschätzung schon treffsicher war, oder die Abweichung freundlich und konstruktiv einordnen, falls nicht). Gehe danach konkret und ehrlich ein: was wurde bereits gut erfüllt, was fehlt an Tiefe/Umfang gemessen am geforderten Operator, wie ließe sich die Antwort verbessern — ohne Kopfzeilen, Aufzählungszeichen oder Verweise auf andere Teilaufgaben. "points" ist eine ganze Zahl zwischen 0 und der für diese Teilaufgabe angegebenen Maximalpunktzahl, als dein unverbindlicher, aber realistischer Punktvorschlag.',
+              'Du bist eine erfahrene, strenge Prüferin/ein erfahrener, strenger Prüfer einer echten schriftlichen Prüfung — kein nachsichtiger Tutor. Bewerte die eingereichte Abgabe AUSSCHLIESSLICH anhand der unten angegebenen, redaktionell geprüften Bewertungskriterien — nutze KEIN eigenes Fachwissen über die vermeintlich „richtige" Lösung, das über diese Kriterien hinausgeht. Prüfe für JEDE Teilaufgabe zusätzlich zwei Dinge, bevor du Punkte vergibst: (1) den in der Aufgabenstellung geforderten Ausführungsgrad/Operator (z. B. "Nennen Sie"/"Zählen Sie auf" verlangt nur eine knappe Aufzählung ohne Begründung; "Beschreiben Sie"/"Erklären Sie" verlangt zusätzlich sachliche Ausführung; "Erläutern Sie"/"Begründen Sie" verlangt eine nachvollziehbare Argumentation, nicht nur eine Behauptung; "Analysieren Sie"/"Bewerten Sie"/"Beurteilen Sie" verlangt eine eigenständige, differenzierte Einordnung, keine bloße Wiedergabe) — ziehe Punkte ab, wenn die Antwort flacher ausfällt als der Operator verlangt, selbst wenn der genannte Inhalt korrekt ist; (2) den Umfang/die Tiefe der Antwort im Verhältnis zur Punktzahl der Teilaufgabe — eine sehr knappe, oberflächliche oder unvollständige Antwort verdient NICHT automatisch die volle Punktzahl, nur weil nichts davon falsch ist, sondern nur dann, wenn sie die Kriterien tatsächlich vollständig und in angemessener Tiefe abdeckt. Volle Punktzahl ist die Ausnahme für eine wirklich vollständige, präzise Antwort, nicht der Normalfall — sei bei der Punktvergabe eher zu streng als zu großzügig und runde nicht wohlwollend auf. Antworte AUSSCHLIESSLICH mit einem JSON-Objekt exakt in dieser Form, ohne jeden Text davor oder danach: {"parts": [{"teilaufgabe": integer, "feedback": string, "points": integer}, ...]}. Das "parts"-Array muss GENAU EIN Objekt je unten aufgeführter Teilaufgabe enthalten. "teilaufgabe" ist die 1-basierte Nummer der Teilaufgabe, auf die sich dieses Objekt bezieht (siehe "Teilaufgabe N" unten) — verwechsle diese Zuordnung nicht, jede Nummer von 1 bis zur Anzahl der Teilaufgaben muss genau einmal vorkommen. "feedback" ist ein einzelner zusammenhängender deutscher Absatz NUR zu dieser einen Teilaufgabe: beginne mit einer kurzen, ehrlich gemeinten wertschätzenden Einordnung, die zur tatsächlich vergebenen Punktzahl passt — bei einem wirklich guten/sehr guten Ergebnis echtes Lob, bei einem schwächeren Ergebnis eine motivierende, ermutigende Formulierung statt Entmutigung, aber niemals beschönigend — und beziehe dich dabei auch auf die mitgegebene Selbsteinschätzung der lernenden Person (z. B. anerkennen, wenn die Selbsteinschätzung schon treffsicher war, oder die Abweichung freundlich und konstruktiv einordnen, falls nicht). Gehe danach konkret und ehrlich ein: was wurde bereits gut erfüllt, was fehlt an Tiefe/Umfang gemessen am geforderten Operator, wie ließe sich die Antwort verbessern — ohne Kopfzeilen, Aufzählungszeichen oder Verweise auf andere Teilaufgaben. "points" ist eine ganze Zahl zwischen 0 und der für diese Teilaufgabe angegebenen Maximalpunktzahl, als dein unverbindlicher, aber realistischer Punktvorschlag.',
           },
           {
             role: "user",
@@ -131,7 +139,22 @@ export function createOllamaProvider(baseUrl: string, model: string): AiProvider
           `Ollama-Antwort enthielt ${result.data.parts.length} Teilaufgaben-Bewertungen, erwartet wurden ${parts.length}.`,
         );
       }
-      return result.data;
+
+      // Codereview-Fund (27.09.2026, siehe Kommentar beim Schema oben): Reihenfolge NICHT mehr
+      // blind übernehmen — anhand von "teilaufgabe" zurücksortieren und dabei sicherstellen,
+      // dass jede Nummer von 1..n GENAU EINMAL vorkommt. Fehlt eine oder kommt eine doppelt vor,
+      // ist die Zuordnung nicht vertrauenswürdig; ein stillschweigendes Vertauschen wäre hier
+      // schlimmer als ein klarer Fehler, den der bestehende Fehlerpfad (`ai_grading_job.status =
+      // "failed"`, siehe process-grading-job.ts) ohnehin schon sauber abfängt.
+      const byTeilaufgabe = new Map(result.data.parts.map((part) => [part.teilaufgabe, part]));
+      const orderedParts = parts.map((_, index) => byTeilaufgabe.get(index + 1));
+      if (orderedParts.some((part) => !part) || byTeilaufgabe.size !== parts.length) {
+        throw new Error(
+          "Ollama-Antwort enthielt keine eindeutige 1..n-Zuordnung der Teilaufgaben-Bewertungen (teilaufgabe-Feld).",
+        );
+      }
+
+      return { parts: orderedParts.map((part) => ({ feedback: part!.feedback, points: part!.points })) };
     },
 
     async generateMcQuestion({ topicHint, fachgebietTitle }): Promise<GeneratedMcQuestion> {

@@ -61,14 +61,26 @@ export async function processAiGradingJob(jobRowId: string): Promise<void> {
       .update(aiGradingJob)
       .set({ status: "completed", resultParts, completedAt: new Date() })
       .where(eq(aiGradingJob.id, jobRowId));
-
-    await sendGradingCompletedNotification(jobRow.userId);
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : "Unbekannter Fehler bei der KI-Bewertung.";
     await db
       .update(aiGradingJob)
       .set({ status: "failed", errorMessage, completedAt: new Date() })
       .where(eq(aiGradingJob.id, jobRowId));
+    return;
+  }
+
+  // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Vorher stand dieser
+  // Aufruf noch INNERHALB desselben try-Blocks wie das obige "completed"-Update — warf er (z. B.
+  // ein kaputter VAPID-Wert oder ein kurzer DB-Aussetzer beim Lesen von pushSubscription), fing
+  // der Catch-Block das ab und überschrieb den bereits korrekt gespeicherten Bewertungs-Stand
+  // wieder mit "failed", obwohl die Bewertung selbst geglückt war. Die Benachrichtigung ist rein
+  // informativ (F-43) — ihr Fehlschlagen darf das Ergebnis der eigentlichen Bewertung nicht mehr
+  // verstecken, daher jetzt außerhalb dieses try-Blocks mit eigener Fehlerbehandlung.
+  try {
+    await sendGradingCompletedNotification(jobRow.userId);
+  } catch (error) {
+    console.error(`Push-Benachrichtigung für Job ${jobRowId} fehlgeschlagen:`, error);
   }
 }
 

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { AdminContentEditor } from "./AdminContentEditor";
 import { AiAdminTools } from "./AiAdminTools";
 import { ErrorMessage } from "./ErrorMessage";
-import { InfoIcon, SuccessIcon } from "./Icons";
+import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
+import { Modal } from "./Modal";
 import { SystemStatusPanel } from "./SystemStatusPanel";
 import { trpc } from "./trpc";
 
@@ -147,6 +148,12 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
   const create = trpc.admin.createSponsor.useMutation({
     onSuccess: () => {
       utils.admin.sponsors.invalidate();
+      // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): ein neu
+      // angelegter Sponsor ist serverseitig sofort aktiv (is_active-Spaltendefault true, siehe
+      // schema.ts) — ohne diese Invalidierung zeigte SponsorBanner.tsx (sponsor.list) den neuen
+      // Sponsor bis zum nächsten Reload nicht an, obwohl setSponsorActive dieselbe Invalidierung
+      // bereits macht.
+      utils.sponsor.list.invalidate();
       setName("");
       setLogoUrl("");
       setAttributionText("");
@@ -222,6 +229,11 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
 export function AdminPanel() {
   const utils = trpc.useUtils();
   const [focusContentItemId, setFocusContentItemId] = useState<string | null>(null);
+  // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Veröffentlichen eines
+  // Kurses mit `targetsMinors` verlangt jetzt eine explizite zweite Bestätigung (siehe
+  // admin.ts setPublished) statt eines einzelnen Klicks — dieser State hält den Kurs, für den
+  // gerade der Bestätigungsdialog offen ist.
+  const [confirmPublishCourse, setConfirmPublishCourse] = useState<{ id: string; title: string } | null>(null);
   const me = trpc.auth.me.useQuery();
   const kpis = trpc.admin.kpis.useQuery();
   const courses = trpc.admin.courses.useQuery();
@@ -311,7 +323,13 @@ export function AdminPanel() {
               <button
                 type="button"
                 className={course.isPublished ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm"}
-                onClick={() => setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished })}
+                onClick={() => {
+                  if (!course.isPublished && course.targetsMinors) {
+                    setConfirmPublishCourse({ id: course.id, title: course.title });
+                    return;
+                  }
+                  setPublished.mutate({ kursId: course.id, isPublished: !course.isPublished });
+                }}
                 disabled={setPublished.isPending}
               >
                 {course.isPublished ? "Zurückziehen" : "Veröffentlichen"}
@@ -326,6 +344,39 @@ export function AdminPanel() {
             vollständig. <code>is_published</code> bleibt dabei unangetastet.
           </div>
         </div>
+        {setPublished.error && <ErrorMessage>{setPublished.error.message}</ErrorMessage>}
+        {confirmPublishCourse && (
+          <Modal title="Kurs für Minderjährige veröffentlichen?" onClose={() => setConfirmPublishCourse(null)}>
+            <div className="stack">
+              <div className="alert alert-danger">
+                <DangerIcon />
+                <div>
+                  „{confirmPublishCourse.title}" richtet sich laut Zielgruppen-Einstellung an Minderjährige.
+                  Bitte bestätige, dass der Eltern-Consent-Flow (F-08/F-90) für diesen Kurs produktiv steht,
+                  bevor du ihn veröffentlichst.
+                </div>
+              </div>
+              <div className="alert-actions">
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm"
+                  disabled={setPublished.isPending}
+                  onClick={() => {
+                    setPublished.mutate(
+                      { kursId: confirmPublishCourse.id, isPublished: true, confirmMinorsAudiencePublish: true },
+                      { onSuccess: () => setConfirmPublishCourse(null) },
+                    );
+                  }}
+                >
+                  Ja, Eltern-Consent-Flow steht produktiv — veröffentlichen
+                </button>
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => setConfirmPublishCourse(null)}>
+                  Abbrechen
+                </button>
+              </div>
+            </div>
+          </Modal>
+        )}
         <button
           type="button"
           className="btn btn-ghost btn-sm"

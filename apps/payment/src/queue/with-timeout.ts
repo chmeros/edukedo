@@ -6,5 +6,12 @@
  * unbegrenzt statt fehlzuschlagen.
  */
 export function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
-  return Promise.race([promise, new Promise<never>((_, reject) => setTimeout(() => reject(new Error(message)), ms))]);
+  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error(message)), ms);
+  });
+  // Codereview-Fund (27.09.2026, siehe apps/api/src/queue/with-timeout.ts sowie Architekturplanung
+  // Abschnitt 13): ohne clearTimeout blieb der Timer auf dem gewinnenden Pfad bis zum Ablauf von
+  // `ms` weiterlaufen.
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timeoutId));
 }

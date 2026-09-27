@@ -18,6 +18,10 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { calculateEinzelterminPacing } from "../../pacing";
+// F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
+// weit `since` rückwirkend akzeptiert wird — großzügig genug für eine lange Lerneinheit,
+// deutlich zu kurz, um "irgendeine alte falsche Antwort" rückwirkend zu tilgen.
+const ABORT_ROUND_MAX_LOOKBACK_MS = 1000 * 60 * 60 * 6; // 6 Stunden
 import type { Database } from "../../db/client";
 import {
   contentItem,
@@ -104,6 +108,15 @@ export async function recordQuizAttempt(
   // konnte eine learningEvent-Zeile ohne zugehöriges userProgress-Update übrig bleiben. Beide
   // jetzt in einer Transaktion, damit entweder beide oder keine der beiden Änderungen greift.
   await db.transaction(async (tx) => {
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Postgres'
+    // READ-COMMITTED-Standardisolation (kein expliziter Isolationslevel gesetzt) serialisiert
+    // zwei nahezu gleichzeitige Aufrufe NICHT automatisch nur durch dieselbe Transaktion — zwei
+    // Anfragen konnten beide die "gab es schon eine richtige Antwort?"-Prüfung unten mit "nein"
+    // lesen, bevor eine von beiden ihren Insert committet, und so den Einmal-Credit-Bonus
+    // (F-119) doppelt auslösen. Die Zeilensperre hier serialisiert konkurrierende Aufrufe
+    // desselben Kontos, exakt wie beim bereits bestehenden Muster in courses.ts (enroll).
+    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
+
     // F-119: Anti-Farming (Nutzer-Entscheidung 22.09.2026) — MUSS vor dem Insert unten geprüft
     // werden, sonst fände die Abfrage das gerade erst eingefügte Ereignis selbst und hielte
     // jede Antwort für die "erste". Nur die tatsächlich erste jemals richtig beantwortete
@@ -1019,8 +1032,17 @@ export const progressRouter = router({
    * soll die "Abschlussquote"-KPI nicht verzerren.
    */
   abortRound: protectedProcedure.input(abortRoundInputSchema).mutation(async ({ ctx, input }) => {
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `since` kommt
+    // unvalidiert vom Client (normalerweise `roundStartedAt`, siehe Quiz.tsx/MixedLearning.tsx/
+    // Flashcards.tsx) und wird unten als untere Schranke für zu löschende `learning_event`-Zeilen
+    // verwendet — ohne Deckelung könnte jemand einen beliebig alten Zeitpunkt mitschicken und so
+    // eine unliebsame, längst vergangene falsche Antwort rückwirkend aus der eigenen
+    // Statistik-Historie (F-31/F-32) entfernen, weit außerhalb der tatsächlich abgebrochenen
+    // Runde. Eine echte Lernrunde dauert nie länger als ein paar Stunden — `since` wird daher
+    // serverseitig auf frühestens `ABORT_ROUND_MAX_LOOKBACK_MS` vor jetzt gekappt.
+    const flooredSince = new Date(Math.max(input.since.getTime(), Date.now() - ABORT_ROUND_MAX_LOOKBACK_MS));
     for (const contentItemId of input.contentItemIds) {
-      await abortRoundItem(ctx.db, ctx.currentUser.id, contentItemId, input.since);
+      await abortRoundItem(ctx.db, ctx.currentUser.id, contentItemId, flooredSince);
     }
     if (input.exerciseSetId) {
       await ctx.db

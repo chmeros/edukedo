@@ -409,14 +409,7 @@ function GepoolteZuordnungStation({
   }
 
   function nextRound() {
-    if (isLastRound) {
-      if (usingExtra || extraRunden.length === 0) {
-        onStationComplete();
-      }
-      // Sonst: Angebot "Zwölf weitere üben" unten wird angezeigt.
-    } else {
-      setRoundIndex((current) => current + 1);
-    }
+    setRoundIndex((current) => current + 1);
   }
 
   return (
@@ -449,27 +442,27 @@ function GepoolteZuordnungStation({
       {error && <ErrorMessage>{error}</ErrorMessage>}
       {roundDone && (
         <div className="list-row-actions">
-          {!(isLastRound && (usingExtra || extraRunden.length === 0)) && (
+          {!isLastRound && (
             <button type="button" className="btn btn-primary" onClick={nextRound}>
-              {isLastRound ? "Weiter" : "Nächste Runde"}
+              Nächste Runde
             </button>
           )}
           {isLastRound && !usingExtra && extraRunden.length > 0 && (
-            <>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => {
-                  setUsingExtra(true);
-                  setRoundIndex(0);
-                }}
-              >
-                Zwölf weitere üben
-              </button>
-              <button type="button" className="btn btn-primary" onClick={onStationComplete}>
-                Weiter: Maßnahmen
-              </button>
-            </>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => {
+                setUsingExtra(true);
+                setRoundIndex(0);
+              }}
+            >
+              Zwölf weitere üben
+            </button>
+          )}
+          {isLastRound && (
+            <button type="button" className="btn btn-primary" onClick={onStationComplete}>
+              Weiter: Maßnahmen
+            </button>
           )}
         </div>
       )}

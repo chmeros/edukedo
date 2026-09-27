@@ -570,7 +570,15 @@ export const examAnswer = pgTable(
     isCorrect: boolean("is_correct"),
     points: real("points"),
   },
-  (table) => [index("exam_answer_exam_session_id_idx").on(table.examSessionId)],
+  (table) => [
+    index("exam_answer_exam_session_id_idx").on(table.examSessionId),
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): exam.submitAnswer
+    // machte bisher ein ungesperrtes "DELETE dann INSERT" für dieselbe Fallaufgabe derselben
+    // Sitzung — ein Doppel-Klick/Client-Retry konnte zwei Zeilen für denselben Content-Item
+    // anlegen, die exam.finish() dann doppelt zählt. Dieser Unique-Index macht eine erneute
+    // Einreichung stattdessen zu einem echten Upsert (siehe dort).
+    uniqueIndex("exam_answer_session_id_content_item_version_id_key").on(table.examSessionId, table.contentItemVersionId),
+  ],
 );
 
 /**

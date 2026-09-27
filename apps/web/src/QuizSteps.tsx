@@ -147,7 +147,7 @@ export function MultipleChoiceStep({
               key={option.id}
               type="button"
               className={className}
-              disabled={feedback !== null}
+              disabled={feedback !== null || submit.isPending}
               onClick={() => setSelectedOptionId(option.id)}
             >
               {option.text}
@@ -350,7 +350,7 @@ export function McMultiStep({
               key={option.id}
               type="button"
               className={className}
-              disabled={feedback !== null}
+              disabled={feedback !== null || submit.isPending}
               onClick={() => toggleOption(option.id)}
             >
               {isSelected ? "☑ " : "☐ "}
@@ -447,11 +447,14 @@ export function MatchingStep({
   }
 
   function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
+    if (feedback || submit.isPending) return;
     movePlacement(String(event.active.id), event.over ? String(event.over.id) : MATCHING_POOL_ID);
   }
 
-  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(
+    movePlacement,
+    feedback !== null || submit.isPending,
+  );
 
   const allPlaced = item.right.every((option) => placements[option.id] !== null);
 
@@ -480,7 +483,7 @@ export function MatchingStep({
           label="Nicht zugeordnet"
           className="quadrant-pool"
           onSelectTarget={() => selectTarget(MATCHING_POOL_ID)}
-          targetDisabled={feedback !== null || !selectedId}
+          targetDisabled={feedback !== null || submit.isPending || !selectedId}
         >
           {item.right
             .filter((option) => placements[option.id] === null)
@@ -489,7 +492,7 @@ export function MatchingStep({
                 key={option.id}
                 id={option.id}
                 text={option.text}
-                disabled={feedback !== null}
+                disabled={feedback !== null || submit.isPending}
                 selected={selectedId === option.id}
                 onToggleSelect={() => toggleSelect(option.id)}
               />
@@ -505,13 +508,13 @@ export function MatchingStep({
                 label={leftOption.text}
                 className="quadrant-zone"
                 onSelectTarget={() => selectTarget(leftOption.id)}
-                targetDisabled={feedback !== null || !selectedId}
+                targetDisabled={feedback !== null || submit.isPending || !selectedId}
               >
                 {placedRight && (
                   <DraggableTerm
                     id={placedRight.id}
                     text={placedRight.text}
-                    disabled={feedback !== null}
+                    disabled={feedback !== null || submit.isPending}
                     selected={selectedId === placedRight.id}
                     onToggleSelect={() => toggleSelect(placedRight.id)}
                     state={
@@ -688,11 +691,14 @@ export function QuadrantStep({
   }
 
   function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
+    if (feedback || submit.isPending) return;
     movePlacement(String(event.active.id), event.over ? String(event.over.id) : QUADRANT_POOL_ID);
   }
 
-  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(
+    movePlacement,
+    feedback !== null || submit.isPending,
+  );
 
   const allPlaced = item.terms.every((term) => placements[term.id] !== null);
 
@@ -721,7 +727,7 @@ export function QuadrantStep({
           label="Nicht zugeordnet"
           className="quadrant-pool"
           onSelectTarget={() => selectTarget(QUADRANT_POOL_ID)}
-          targetDisabled={feedback !== null || !selectedId}
+          targetDisabled={feedback !== null || submit.isPending || !selectedId}
         >
           {item.terms
             .filter((term) => !placements[term.id])
@@ -730,7 +736,7 @@ export function QuadrantStep({
                 key={term.id}
                 id={term.id}
                 text={term.text}
-                disabled={feedback !== null}
+                disabled={feedback !== null || submit.isPending}
                 selected={selectedId === term.id}
                 onToggleSelect={() => toggleSelect(term.id)}
               />
@@ -744,7 +750,7 @@ export function QuadrantStep({
               label={zone.label}
               className="quadrant-zone"
               onSelectTarget={() => selectTarget(zone.key)}
-              targetDisabled={feedback !== null || !selectedId}
+              targetDisabled={feedback !== null || submit.isPending || !selectedId}
             >
               {item.terms
                 .filter((term) => placements[term.id] === zone.key)
@@ -753,7 +759,7 @@ export function QuadrantStep({
                     key={term.id}
                     id={term.id}
                     text={term.text}
-                    disabled={feedback !== null}
+                    disabled={feedback !== null || submit.isPending}
                     selected={selectedId === term.id}
                     onToggleSelect={() => toggleSelect(term.id)}
                     state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
@@ -817,6 +823,7 @@ function HierarchieBranch({
   item,
   placements,
   feedback,
+  locked,
   selectedId,
   toggleSelect,
   selectTarget,
@@ -826,6 +833,7 @@ function HierarchieBranch({
   item: HierarchieItem;
   placements: Record<string, string | null>;
   feedback: { results: Record<string, boolean> } | null;
+  locked: boolean;
   selectedId: string | null;
   toggleSelect: (termId: string) => void;
   selectTarget: (targetId: string) => void;
@@ -838,7 +846,7 @@ function HierarchieBranch({
         label={zone.label}
         className="quadrant-zone"
         onSelectTarget={() => selectTarget(zone.key)}
-        targetDisabled={feedback !== null || !selectedId}
+        targetDisabled={locked || !selectedId}
       >
         {item.terms
           .filter((term) => placements[term.id] === zone.key)
@@ -847,7 +855,7 @@ function HierarchieBranch({
               key={term.id}
               id={term.id}
               text={term.text}
-              disabled={feedback !== null}
+              disabled={locked}
               selected={selectedId === term.id}
               onToggleSelect={() => toggleSelect(term.id)}
               state={feedback ? (feedback.results[term.id] ? "correct" : "wrong") : undefined}
@@ -864,6 +872,7 @@ function HierarchieBranch({
               item={item}
               placements={placements}
               feedback={feedback}
+              locked={locked}
               selectedId={selectedId}
               toggleSelect={toggleSelect}
               selectTarget={selectTarget}
@@ -912,11 +921,12 @@ export function HierarchieStep({
   }
 
   function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
+    if (feedback || submit.isPending) return;
     movePlacement(String(event.active.id), event.over ? String(event.over.id) : HIERARCHIE_POOL_ID);
   }
 
-  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
+  const locked = feedback !== null || submit.isPending;
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, locked);
 
   const allPlaced = item.terms.every((term) => placements[term.id] !== null);
 
@@ -945,7 +955,7 @@ export function HierarchieStep({
           label="Nicht zugeordnet"
           className="quadrant-pool"
           onSelectTarget={() => selectTarget(HIERARCHIE_POOL_ID)}
-          targetDisabled={feedback !== null || !selectedId}
+          targetDisabled={locked || !selectedId}
         >
           {item.terms
             .filter((term) => !placements[term.id])
@@ -954,7 +964,7 @@ export function HierarchieStep({
                 key={term.id}
                 id={term.id}
                 text={term.text}
-                disabled={feedback !== null}
+                disabled={locked}
                 selected={selectedId === term.id}
                 onToggleSelect={() => toggleSelect(term.id)}
               />
@@ -971,6 +981,7 @@ export function HierarchieStep({
                 item={item}
                 placements={placements}
                 feedback={feedback}
+                locked={locked}
                 selectedId={selectedId}
                 toggleSelect={toggleSelect}
                 selectTarget={selectTarget}
@@ -1068,11 +1079,14 @@ export function SortierenStep({
   }
 
   function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
+    if (feedback || submit.isPending) return;
     movePlacement(String(event.active.id), event.over ? String(event.over.id) : SORTIEREN_POOL_ID);
   }
 
-  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(
+    movePlacement,
+    feedback !== null || submit.isPending,
+  );
 
   const allPlaced = item.items.every((element) => placements[element.id] !== null);
 
@@ -1101,7 +1115,7 @@ export function SortierenStep({
           label="Nicht zugeordnet"
           className="quadrant-pool"
           onSelectTarget={() => selectTarget(SORTIEREN_POOL_ID)}
-          targetDisabled={feedback !== null || !selectedId}
+          targetDisabled={feedback !== null || submit.isPending || !selectedId}
         >
           {item.items
             .filter((element) => placements[element.id] === null)
@@ -1110,7 +1124,7 @@ export function SortierenStep({
                 key={element.id}
                 id={element.id}
                 text={element.text}
-                disabled={feedback !== null}
+                disabled={feedback !== null || submit.isPending}
                 selected={selectedId === element.id}
                 onToggleSelect={() => toggleSelect(element.id)}
               />
@@ -1126,13 +1140,13 @@ export function SortierenStep({
                 label={`${position + 1}.`}
                 className="quadrant-zone"
                 onSelectTarget={() => selectTarget(String(position))}
-                targetDisabled={feedback !== null || !selectedId}
+                targetDisabled={feedback !== null || submit.isPending || !selectedId}
               >
                 {placedElement && (
                   <DraggableTerm
                     id={placedElement.id}
                     text={placedElement.text}
-                    disabled={feedback !== null}
+                    disabled={feedback !== null || submit.isPending}
                     selected={selectedId === placedElement.id}
                     onToggleSelect={() => toggleSelect(placedElement.id)}
                     state={feedback ? (feedback.results[placedElement.id] ? "correct" : "wrong") : undefined}
@@ -1372,11 +1386,14 @@ export function BlanksSelectionStep({
   }
 
   function handleDragEnd(event: DragEndEvent) {
-    if (feedback) return;
+    if (feedback || submit.isPending) return;
     movePlacement(String(event.active.id), event.over ? String(event.over.id) : BLANKS_POOL_ID);
   }
 
-  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null);
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(
+    movePlacement,
+    feedback !== null || submit.isPending,
+  );
 
   const parts = item.textWithBlanks.split("___");
   const allFilled = item.blankIds.every((blankId) => Object.values(placements).includes(blankId));
@@ -1415,13 +1432,13 @@ export function BlanksSelectionStep({
                     id={blankId}
                     emptyLabel={`Lücke ${partIndex + 1}: ausgewähltes Wort hier einsetzen`}
                     onSelectTarget={() => selectTarget(blankId)}
-                    targetDisabled={feedback !== null || !selectedId}
+                    targetDisabled={feedback !== null || submit.isPending || !selectedId}
                   >
                     {word && (
                       <DraggableTerm
                         id={word.id}
                         text={word.text}
-                        disabled={feedback !== null}
+                        disabled={feedback !== null || submit.isPending}
                         selected={selectedId === word.id}
                         onToggleSelect={() => toggleSelect(word.id)}
                         state={feedback ? (feedback.results[blankId] ? "correct" : "wrong") : undefined}
@@ -1438,7 +1455,7 @@ export function BlanksSelectionStep({
           label="Wortpool"
           className="quadrant-pool"
           onSelectTarget={() => selectTarget(BLANKS_POOL_ID)}
-          targetDisabled={feedback !== null || !selectedId}
+          targetDisabled={feedback !== null || submit.isPending || !selectedId}
         >
           {item.words
             .filter((word) => !placements[word.id])
@@ -1447,7 +1464,7 @@ export function BlanksSelectionStep({
                 key={word.id}
                 id={word.id}
                 text={word.text}
-                disabled={feedback !== null}
+                disabled={feedback !== null || submit.isPending}
                 selected={selectedId === word.id}
                 onToggleSelect={() => toggleSelect(word.id)}
               />

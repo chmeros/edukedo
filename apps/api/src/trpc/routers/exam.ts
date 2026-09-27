@@ -132,15 +132,24 @@ export const examRouter = router({
     }));
     const totalPoints = clampedParts.reduce((sum, part) => sum + part.selfAssessedPoints, 0);
 
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): ein "DELETE dann
+    // INSERT" ist bei zwei nahezu gleichzeitigen Einreichungen (Doppel-Klick, Client-Retry)
+    // nicht atomar — beide DELETEs können vor beiden INSERTs laufen, wodurch zwei Zeilen für
+    // dieselbe Fallaufgabe derselben Sitzung entstehen, die `finish()` unten dann doppelt
+    // zählt. Ein echter Upsert über den neuen Unique-Index (siehe schema.ts) ist atomar: die
+    // zweite Einreichung ERSETZT die erste, statt eine zusätzliche Zeile anzulegen.
     await ctx.db
-      .delete(examAnswer)
-      .where(and(eq(examAnswer.examSessionId, input.sessionId), eq(examAnswer.contentItemVersionId, version.id)));
-    await ctx.db.insert(examAnswer).values({
-      examSessionId: input.sessionId,
-      contentItemVersionId: version.id,
-      givenAnswer: { parts: clampedParts },
-      points: totalPoints,
-    });
+      .insert(examAnswer)
+      .values({
+        examSessionId: input.sessionId,
+        contentItemVersionId: version.id,
+        givenAnswer: { parts: clampedParts },
+        points: totalPoints,
+      })
+      .onConflictDoUpdate({
+        target: [examAnswer.examSessionId, examAnswer.contentItemVersionId],
+        set: { givenAnswer: { parts: clampedParts }, points: totalPoints },
+      });
 
     const maxPoints = parts.reduce((sum, part) => sum + part.points, 0);
 

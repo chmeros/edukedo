@@ -136,6 +136,11 @@ export function Flashcards({
   // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Bewertung dieser Runde zuzurechnen ist.
   const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
   const [aborted, setAborted] = useState(false);
+  // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): der Offline-Pfad in
+  // review() hat keine tRPC-Mutation (also kein isPending) — ohne dieses Flag könnte ein
+  // schneller Doppel-Tap dieselbe Karte zweimal in IndexedDB schreiben, bevor der erste
+  // asynchrone Schreibvorgang sie aus `offlineCards` entfernt hat.
+  const [offlineSaving, setOfflineSaving] = useState(false);
   // Ein Verbindungswechsel oder eine neue Auswahl (Karten-IDs/Nur-schwierig-Filter) ersetzt
   // die komplette Liste — der Index müsste sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
@@ -270,6 +275,8 @@ export function Flashcards({
         setRatedThisSession((existing) => new Set(existing).add(current!.id));
       }
     } else {
+      if (offlineSaving) return;
+      setOfflineSaving(true);
       // Entfernt die bewertete Karte direkt aus der lokalen Liste, statt (wie online) eine
       // Server-Query zu invalidieren — es gibt offline keine Query, die neu laden könnte.
       // Code-Review-Fund, nachgezogen: ohne .catch() wäre ein Schreibfehler (z. B. IndexedDB-
@@ -283,6 +290,9 @@ export function Flashcards({
         })
         .catch((error: unknown) => {
           console.error("Offline-Karteikarten-Bewertung konnte nicht gespeichert werden:", error);
+        })
+        .finally(() => {
+          setOfflineSaving(false);
         });
       setRevealed(startWithAnswer);
       return;
@@ -374,13 +384,28 @@ export function Flashcards({
       />
       {revealed && (
         <div className="rate-row">
-          <button type="button" className="again" onClick={() => review("nicht_gewusst")}>
+          <button
+            type="button"
+            className="again"
+            disabled={submitReview.isPending || changeReview.isPending || offlineSaving}
+            onClick={() => review("nicht_gewusst")}
+          >
             Schwer
           </button>
-          <button type="button" className="hard" onClick={() => review("unsicher")}>
+          <button
+            type="button"
+            className="hard"
+            disabled={submitReview.isPending || changeReview.isPending || offlineSaving}
+            onClick={() => review("unsicher")}
+          >
             Mittel
           </button>
-          <button type="button" className="good" onClick={() => review("gewusst")}>
+          <button
+            type="button"
+            className="good"
+            disabled={submitReview.isPending || changeReview.isPending || offlineSaving}
+            onClick={() => review("gewusst")}
+          >
             Einfach
           </button>
         </div>

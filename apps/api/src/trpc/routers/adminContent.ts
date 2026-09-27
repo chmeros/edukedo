@@ -380,10 +380,21 @@ export const adminContentRouter = router({
           label: node.label,
           parentIndex: node.parentKey === null ? null : payload.nodes.findIndex((candidate) => candidate.key === node.parentKey),
         })),
-        terms: rows.map((row) => ({
-          text: row.text,
-          nodeIndex: Math.max(0, payload.nodes.findIndex((node) => node.key === row.groupKey)),
-        })),
+        terms: rows.map((row) => {
+          const nodeIndex = payload.nodes.findIndex((node) => node.key === row.groupKey);
+          // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `Math.max(0, -1)`
+          // ordnete einen Begriff ohne passenden Knoten (payload/answer_option auseinandergelaufen)
+          // bisher STILLSCHWEIGEND dem ersten Knoten zu — ein erneutes Speichern des Formulars
+          // hätte diese falsche Zuordnung dann dauerhaft in der Datenbank festgeschrieben, statt
+          // die Inkonsistenz sichtbar zu machen.
+          if (nodeIndex === -1) {
+            throw new TRPCError({
+              code: "INTERNAL_SERVER_ERROR",
+              message: `Begriff "${row.text}" verweist auf einen nicht mehr existierenden Knoten — Content-Item ist inkonsistent.`,
+            });
+          }
+          return { text: row.text, nodeIndex };
+        }),
       };
     }
 
@@ -403,10 +414,19 @@ export const adminContentRouter = router({
         prompt: item.prompt,
         explanation: item.explanation,
         periods: payload.periods.map((period) => period.label),
-        terms: rows.map((row) => ({
-          text: row.text,
-          periodIndex: Math.max(0, payload.periods.findIndex((period) => period.key === row.groupKey)),
-        })),
+        terms: rows.map((row) => {
+          const periodIndex = payload.periods.findIndex((period) => period.key === row.groupKey);
+          // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): dieselbe Lücke
+          // wie oben bei "hierarchie" — `Math.max(0, -1)` verschleierte einen Begriff ohne
+          // passenden Zeitabschnitt statt die Inkonsistenz sichtbar zu machen.
+          if (periodIndex === -1) {
+            throw new TRPCError({
+              code: "INTERNAL_SERVER_ERROR",
+              message: `Begriff "${row.text}" verweist auf einen nicht mehr existierenden Zeitabschnitt — Content-Item ist inkonsistent.`,
+            });
+          }
+          return { text: row.text, periodIndex };
+        }),
       };
     }
 
@@ -534,21 +554,26 @@ export const adminContentRouter = router({
   update: roleProcedure("admin")
     .input(adminUpdateContentItemInputSchema)
     .mutation(async ({ ctx, input }) => {
-      const [existing] = await ctx.db.select().from(contentItem).where(eq(contentItem.id, input.contentItemId)).limit(1);
-      if (!existing) {
-        throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Content-Item wurde nicht gefunden." });
-      }
-      if (existing.type !== input.type) {
-        throw new TRPCError({
-          code: "BAD_REQUEST",
-          message: "Der Content-Typ eines bestehenden Items kann nicht nachträglich geändert werden.",
-        });
-      }
-
       const prepared = prepareContent(input);
-      const nextVersion = existing.currentVersion + 1;
 
       await ctx.db.transaction(async (tx) => {
+        // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): `existing` (und
+        // damit `nextVersion`) muss INNERHALB der Transaktion mit Zeilensperre gelesen werden —
+        // sonst könnten zwei parallele Bearbeitungen desselben Content-Items denselben
+        // `currentVersion`-Stand lesen und dieselbe `versionNumber` für `content_item_version`
+        // berechnen (derselbe Race-Schutz wie bei courses.ts' enroll-Mutation).
+        const [existing] = await tx.select().from(contentItem).where(eq(contentItem.id, input.contentItemId)).for("update");
+        if (!existing) {
+          throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Content-Item wurde nicht gefunden." });
+        }
+        if (existing.type !== input.type) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "Der Content-Typ eines bestehenden Items kann nicht nachträglich geändert werden.",
+          });
+        }
+        const nextVersion = existing.currentVersion + 1;
+
         await tx
           .update(contentItem)
           .set({

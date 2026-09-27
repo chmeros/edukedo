@@ -1,9 +1,10 @@
 import { cohortIdInputSchema, cohortKursInputSchema, createCohortInputSchema, joinCohortInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, count, eq, gte, sql } from "drizzle-orm";
+import { and, count, eq, gte, or, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
 import type { Database } from "../../db/client";
 import {
+  block,
   cohort,
   cohortMember,
   contentItem,
@@ -50,8 +51,26 @@ async function requireCohortDozent(db: Database, cohortId: string, dozentUserId:
 }
 
 /** F-65: verbindet zwei Personen im kursbezogenen Freundeskreis (F-63), kanonisch sortiert wie
- * überall sonst (friend.ts, report.ts) — idempotent, falls die Freundschaft bereits besteht. */
+ * überall sonst (friend.ts, report.ts) — idempotent, falls die Freundschaft bereits besteht.
+ * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): der automatische
+ * Freundeskreis-Beitritt beim Kohorten-Join darf eine bestehende Blockierung (F-68) nicht
+ * umgehen — sonst würde ein Kohorten-Beitritt zwei Personen erneut "befreunden", die sich
+ * gerade bewusst gegenseitig blockiert haben. */
 async function ensureFriendship(db: Database, kursId: string, userIdX: string, userIdY: string) {
+  const [blockRow] = await db
+    .select()
+    .from(block)
+    .where(
+      and(
+        eq(block.kursId, kursId),
+        or(and(eq(block.userId, userIdX), eq(block.blockedUserId, userIdY)), and(eq(block.userId, userIdY), eq(block.blockedUserId, userIdX))),
+      ),
+    )
+    .limit(1);
+  if (blockRow) {
+    return;
+  }
+
   const [userIdA, userIdB] = userIdX < userIdY ? [userIdX, userIdY] : [userIdY, userIdX];
   await db
     .insert(friendCircleLink)

@@ -27,8 +27,8 @@ describe("createOllamaProvider", () => {
         chatCompletionResponse(
           JSON.stringify({
             parts: [
-              { feedback: "Gute Ansätze, aber die Begründung fehlt.", points: 3 },
-              { feedback: "Vollständig und korrekt begründet.", points: 5 },
+              { teilaufgabe: 1, feedback: "Gute Ansätze, aber die Begründung fehlt.", points: 3 },
+              { teilaufgabe: 2, feedback: "Vollständig und korrekt begründet.", points: 5 },
             ],
           }),
         ),
@@ -58,6 +58,60 @@ describe("createOllamaProvider", () => {
       expect(body.response_format).toEqual({ type: "json_object" });
     });
 
+    it("sortiert die Bewertungen anhand von 'teilaufgabe' zurück, wenn das Modell sie in vertauschter Reihenfolge liefert", async () => {
+      mockFetchOnce(
+        chatCompletionResponse(
+          JSON.stringify({
+            parts: [
+              { teilaufgabe: 2, feedback: "Feedback zu Teil 2.", points: 4 },
+              { teilaufgabe: 1, feedback: "Feedback zu Teil 1.", points: 2 },
+            ],
+          }),
+        ),
+      );
+      const provider = createOllamaProvider("http://localhost:11434", "test-model");
+
+      const result = await provider.gradeFallaufgabe({
+        fallaufgabePrompt: "x",
+        criteria: "x",
+        parts: [
+          { prompt: "Teil 1", points: 5, answerText: "x", selfAssessedPoints: 2 },
+          { prompt: "Teil 2", points: 5, answerText: "y", selfAssessedPoints: 4 },
+        ],
+      });
+
+      // Trotz vertauschter Reihenfolge im Modell-Output muss Teil 1 an Index 0 landen.
+      expect(result.parts).toEqual([
+        { feedback: "Feedback zu Teil 1.", points: 2 },
+        { feedback: "Feedback zu Teil 2.", points: 4 },
+      ]);
+    });
+
+    it("wirft, wenn 'teilaufgabe' keine eindeutige 1..n-Zuordnung ergibt (z. B. doppelt statt fehlend)", async () => {
+      mockFetchOnce(
+        chatCompletionResponse(
+          JSON.stringify({
+            parts: [
+              { teilaufgabe: 1, feedback: "Feedback A.", points: 2 },
+              { teilaufgabe: 1, feedback: "Feedback B.", points: 4 },
+            ],
+          }),
+        ),
+      );
+      const provider = createOllamaProvider("http://localhost:11434", "test-model");
+
+      await expect(
+        provider.gradeFallaufgabe({
+          fallaufgabePrompt: "x",
+          criteria: "x",
+          parts: [
+            { prompt: "Teil 1", points: 5, answerText: "x", selfAssessedPoints: 2 },
+            { prompt: "Teil 2", points: 5, answerText: "y", selfAssessedPoints: 4 },
+          ],
+        }),
+      ).rejects.toThrow("eindeutige 1..n-Zuordnung");
+    });
+
     it("wirft bei einem Nicht-200-Status statt eines fabrizierten Ergebnisses", async () => {
       mockFetchOnce({}, false, 503);
       const provider = createOllamaProvider("http://localhost:11434", "test-model");
@@ -81,7 +135,9 @@ describe("createOllamaProvider", () => {
     });
 
     it("wirft, wenn die Anzahl der zurückgelieferten Teilaufgaben nicht zur Anzahl der übergebenen passt", async () => {
-      mockFetchOnce(chatCompletionResponse(JSON.stringify({ parts: [{ feedback: "Nur eine Rückmeldung.", points: 2 }] })));
+      mockFetchOnce(
+        chatCompletionResponse(JSON.stringify({ parts: [{ teilaufgabe: 1, feedback: "Nur eine Rückmeldung.", points: 2 }] })),
+      );
       const provider = createOllamaProvider("http://localhost:11434", "test-model");
 
       await expect(

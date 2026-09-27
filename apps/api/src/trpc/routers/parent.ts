@@ -7,8 +7,14 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { hashPassword, verifyPassword } from "../../auth/password";
-import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
-import { parent, parentChildLink, user } from "../../db/schema";
+import {
+  SESSION_COOKIE_NAME,
+  createSession,
+  invalidateAllSessionsForUser,
+  invalidateSession,
+  setSessionCookie,
+} from "../../auth/session";
+import { parent, parentChildLink, user, userCourse } from "../../db/schema";
 import { protectedParentProcedure, publicProcedure, router } from "../trpc";
 
 /**
@@ -102,6 +108,12 @@ export const parentRouter = router({
    * bereits ein bestehender Zustand — siehe consent.ts, auth.ts): auth.login lehnt den Login
    * für diesen Zustand bereits ab. Bewusst reversibler als ein sofortiges DELETE FROM "user",
    * siehe Architekturplanung Abschnitt 13 für die Begründung.
+   *
+   * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Das Ablehnen bei
+   * `auth.login` allein sperrt nur KÜNFTIGE Anmeldeversuche — eine bereits laufende Sitzung des
+   * Kindes (bis zu 30 Tage gültig) blieb bisher unberührt, da `trpc/context.ts` je Anfrage nur
+   * die `user`-Zeile neu lädt, nie den Consent-Status. `invalidateAllSessionsForUser` schließt
+   * diese Lücke — der Widerruf wirkt jetzt tatsächlich sofort, nicht erst beim nächsten Login.
    */
   revokeConsent: protectedParentProcedure
     .input(parentRevokeConsentInputSchema)
@@ -125,6 +137,8 @@ export const parentRouter = router({
         .set({ consentStatus: "revoked", revokedAt: new Date() })
         .where(eq(parentChildLink.id, link.id));
 
+      await invalidateAllSessionsForUser(ctx.db, link.userId);
+
       return { success: true as const };
     }),
 
@@ -134,6 +148,13 @@ export const parentRouter = router({
    * Nur bei bestätigter Einwilligung möglich (Anforderungskatalog: "Zugriff ausschließlich ...
    * mit nachgewiesener Einwilligung") — bei "pending"/"revoked" gäbe es serverseitig noch
    * gar keine aktive Sperre, die sich sinnvoll lockern ließe.
+   *
+   * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Ein Zurücknehmen
+   * (`enabled: false`) setzte bisher nur das Flag selbst zurück — bereits gesetzte Opt-ins
+   * (Highscore-Liste, Lernpartner-Fachgebietspräferenz) blieben unverändert bestehen und damit
+   * weiterhin für andere Nutzer:innen sichtbar, obwohl die Freigabe dafür gerade entzogen wurde.
+   * Bei Rücknahme werden beide Opt-ins jetzt in ALLEN Kursen der Person mit zurückgesetzt, nicht
+   * nur das Flag.
    */
   setChildGamificationEnabled: protectedParentProcedure
     .input(parentSetChildGamificationEnabledInputSchema)
@@ -155,6 +176,13 @@ export const parentRouter = router({
       }
 
       await ctx.db.update(user).set({ gamificationEnabled: input.enabled }).where(eq(user.id, link.userId));
+
+      if (!input.enabled) {
+        await ctx.db
+          .update(userCourse)
+          .set({ highscoreOptIn: false, lernpartnerFachgebietId: null })
+          .where(eq(userCourse.userId, link.userId));
+      }
 
       return { success: true as const };
     }),

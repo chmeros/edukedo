@@ -376,6 +376,15 @@ export const companyRouter = router({
    * ANDEREN Unternehmen wird abgelehnt (user_company_membership ist bewusst 1:1, siehe
    * db/schema.ts) statt die bestehende Mitgliedschaft stillschweigend zu ersetzen.
    */
+  /**
+   * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Der Sitzplatz-Check
+   * unten (COUNT gegen seatLimit) war ein ungesperrtes "Lesen, dann Einfügen" — zwei nahezu
+   * gleichzeitige Einlösungen mit exakt einem verbleibenden Platz konnten beide "noch frei"
+   * lesen, bevor eine von beiden ihre INSERT committet, und das Unternehmen so über sein
+   * Lizenzkontingent hinaus befüllen. `for("update")` auf der companyAccount-Zeile serialisiert
+   * jetzt konkurrierende Einlösungen für DASSELBE Unternehmen — die zweite Transaktion wartet,
+   * bis die erste committet hat, und zählt die Plätze danach mit dem bereits eingefügten Stand.
+   */
   redeemInviteCode: protectedProcedure.input(redeemCompanyInviteCodeInputSchema).mutation(async ({ ctx, input }) => {
     const normalizedCode = input.code.trim().toUpperCase();
     const [foundCode] = await ctx.db
@@ -391,15 +400,6 @@ export const companyRouter = router({
       throw new TRPCError({ code: "BAD_REQUEST", message: "Dieser Einladungscode ist abgelaufen." });
     }
 
-    const [companyRow] = await ctx.db
-      .select()
-      .from(companyAccount)
-      .where(eq(companyAccount.id, foundCode.companyAccountId))
-      .limit(1);
-    if (!companyRow) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig." });
-    }
-
     const [existingMembership] = await ctx.db
       .select()
       .from(userCompanyMembership)
@@ -407,8 +407,13 @@ export const companyRouter = router({
       .limit(1);
 
     if (existingMembership) {
-      if (existingMembership.companyAccountId === companyRow.id) {
-        return { companyName: companyRow.name };
+      if (existingMembership.companyAccountId === foundCode.companyAccountId) {
+        const [companyRow] = await ctx.db
+          .select()
+          .from(companyAccount)
+          .where(eq(companyAccount.id, foundCode.companyAccountId))
+          .limit(1);
+        return { companyName: companyRow?.name ?? "" };
       }
       throw new TRPCError({
         code: "BAD_REQUEST",
@@ -416,20 +421,31 @@ export const companyRouter = router({
       });
     }
 
-    const [seatsUsedRow] = await ctx.db
-      .select({ value: count() })
-      .from(userCompanyMembership)
-      .where(eq(userCompanyMembership.companyAccountId, companyRow.id));
-    if ((seatsUsedRow?.value ?? 0) >= companyRow.seatLimit) {
-      throw new TRPCError({ code: "BAD_REQUEST", message: "Das Lizenzkontingent dieses Unternehmens ist ausgeschöpft." });
-    }
+    return ctx.db.transaction(async (tx) => {
+      const [companyRow] = await tx
+        .select()
+        .from(companyAccount)
+        .where(eq(companyAccount.id, foundCode.companyAccountId))
+        .for("update");
+      if (!companyRow) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig." });
+      }
 
-    await ctx.db.insert(userCompanyMembership).values({
-      userId: ctx.currentUser.id,
-      companyAccountId: companyRow.id,
+      const [seatsUsedRow] = await tx
+        .select({ value: count() })
+        .from(userCompanyMembership)
+        .where(eq(userCompanyMembership.companyAccountId, companyRow.id));
+      if ((seatsUsedRow?.value ?? 0) >= companyRow.seatLimit) {
+        throw new TRPCError({ code: "BAD_REQUEST", message: "Das Lizenzkontingent dieses Unternehmens ist ausgeschöpft." });
+      }
+
+      await tx.insert(userCompanyMembership).values({
+        userId: ctx.currentUser.id,
+        companyAccountId: companyRow.id,
+      });
+
+      return { companyName: companyRow.name };
     });
-
-    return { companyName: companyRow.name };
   }),
 
   /**

@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { DangerIcon } from "./Icons";
 import { ErrorMessage } from "./ErrorMessage";
@@ -5,10 +6,12 @@ import { Modal } from "./Modal";
 import { trpc } from "./trpc";
 
 export function DeleteAccount() {
-  const utils = trpc.useUtils();
-  // reset() statt invalidate(): nach erfolgreicher Löschung existiert das Konto nicht mehr,
-  // ein Refetch von me würde ohnehin nur 401 liefern (siehe App.tsx-Logout-Kommentar).
-  const deleteAccount = trpc.auth.deleteAccount.useMutation({ onSuccess: () => utils.auth.me.reset() });
+  const queryClient = useQueryClient();
+  // clear() statt nur me.reset(): nach erfolgreicher Löschung existiert das Konto nicht mehr —
+  // ein Refetch von me würde ohnehin nur 401 liefern (siehe App.tsx-Logout-Kommentar) —, aber
+  // alle anderen zwischengespeicherten Daten dieser Person (Fortschritt, Kursbelegungen, …)
+  // müssen ebenfalls aus dem app-weiten Cache verschwinden, siehe App.tsx-Logout-Kommentar.
+  const deleteAccount = trpc.auth.deleteAccount.useMutation({ onSuccess: () => queryClient.clear() });
   const [confirming, setConfirming] = useState(false);
   const [password, setPassword] = useState("");
 

@@ -120,6 +120,11 @@ export function Kohorte({ kursId }: { kursId: string }) {
     onSuccess: () => {
       utils.friend.friends.invalidate({ kursId });
       utils.highscore.leaderboard.invalidate({ kursId });
+      // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): ein Kohorten-
+      // Beitritt befreundet automatisch mit allen bestehenden Mitgliedern (F-65, ensureFriendship
+      // in cohort.ts) — dieselbe Lücke wie bei FriendCircle.tsx' redeem für die Lernpartner-
+      // Vermittlung (F-62), deren Kandidatenkreis ebenfalls auf den Freundeskreis beschränkt ist.
+      utils.lernpartner.matches.invalidate({ kursId });
     },
   });
   const create = trpc.cohort.create.useMutation({

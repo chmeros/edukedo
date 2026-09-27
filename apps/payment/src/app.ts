@@ -62,28 +62,66 @@ export async function buildApp(paymentProvider: PaymentProvider = placeholderPay
     const { userId } = checkoutSessionBodySchema.parse(request.body);
     const session = await paymentProvider.createCheckoutSession(userId);
 
-    // Platzhalter-PSP simuliert eine sofort erfolgreiche Zahlung statt eines echten,
-    // asynchronen Webhooks (siehe payment-provider.ts) — daher wird die Subscription hier
-    // direkt aktiv geschaltet, nicht erst nach einem separaten Webhook-Aufruf.
-    const [existing] = await db.select().from(subscription).where(eq(subscription.userId, userId));
-    const [row] = existing
-      ? await db
-          .update(subscription)
-          .set({ status: "active", currentPeriodEnd: session.currentPeriodEnd, canceledAt: null, updatedAt: new Date() })
-          .where(eq(subscription.userId, userId))
-          .returning()
-      : await db
-          .insert(subscription)
-          .values({ userId, status: "active", currentPeriodEnd: session.currentPeriodEnd })
-          .returning();
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Diese Route hatte
+    // keinerlei Schutz gegen einen doppelten/erneuten Aufruf (Client-Retry nach dem 5s-Timeout
+    // in apps/api/src/payment/client.ts, oder ein doppelt abgeschickter "Jetzt freischalten"-
+    // Klick). Zwei Probleme behoben: (1) eine Transaktion mit `for("update")`-Zeilensperre auf
+    // der bestehenden Subscription-Zeile serialisiert zwei nahezu gleichzeitige Aufrufe für
+    // dieselbe Nutzer-ID, statt dass beide denselben "existing"-Zustand lesen und beim INSERT auf
+    // den unique(user_id)-Constraint kollidieren; (2) ein bereits aktives Abo wird ab dem
+    // SPÄTEREN von "jetzt" und dem bisherigen Periodenende verlängert statt bedingungslos auf
+    // "jetzt + 30 Tage" zurückgesetzt — sonst hätte ein Doppel-Aufruf die verbleibende bezahlte
+    // Zeit sogar verkürzen können. Eine vollständige Dedup-Sperre gegen eine ECHTE doppelte
+    // Abbuchung braucht zusätzlich einen client-seitigen Idempotenz-Schlüssel, den es beim
+    // aktuellen Platzhalter-PSP (simuliert sofortigen Erfolg, kein echter Redirect) noch nicht
+    // gibt — sinnvoll nachzuziehen, sobald ein echter Zahlungsdienstleister ausgewählt ist
+    // (Entwicklungsplan Iteration 6).
+    const row = await db.transaction(async (tx) => {
+      async function upsertActiveSubscription(existing: typeof subscription.$inferSelect | undefined) {
+        const newPeriodEnd =
+          existing?.status === "active" && existing.currentPeriodEnd > new Date()
+            ? new Date(Math.max(existing.currentPeriodEnd.getTime(), session.currentPeriodEnd.getTime()))
+            : session.currentPeriodEnd;
 
-    // Platzhalter-Betrag (F-81 nennt keinen konkreten Preis) — reine Demonstration der
-    // Rechnungshistorie für F-82 ("u. a. Rechnungen").
-    await db.insert(invoice).values({ subscriptionId: row!.id, amountCents: 999, status: "paid" });
+        const [updatedOrCreated] = existing
+          ? await tx
+              .update(subscription)
+              .set({ status: "active", currentPeriodEnd: newPeriodEnd, canceledAt: null, updatedAt: new Date() })
+              .where(eq(subscription.userId, userId))
+              .returning()
+          : await tx.insert(subscription).values({ userId, status: "active", currentPeriodEnd: newPeriodEnd }).returning();
+        return updatedOrCreated!;
+      }
 
-    await publishSubscriptionUpdated({ userId, premiumUntil: session.currentPeriodEnd.toISOString() });
+      const [existing] = await tx.select().from(subscription).where(eq(subscription.userId, userId)).for("update");
 
-    return reply.send({ checkoutUrl: session.checkoutUrl, premiumUntil: session.currentPeriodEnd.toISOString() });
+      // `for("update")` sperrt nur eine BESTEHENDE Zeile — für eine brandneue Nutzer-ID (kein
+      // "existing") schützt das nicht gegen zwei echt gleichzeitige Erst-Checkouts, die beide
+      // versuchen einzufügen. Statt einer zusätzlichen Advisory-Lock-Infrastruktur: den seltenen
+      // Kollisionsfall abfangen und dann als Update statt Insert erneut versuchen — die andere
+      // Transaktion hat zu diesem Zeitpunkt bereits committet.
+      let updatedOrCreated;
+      try {
+        updatedOrCreated = await upsertActiveSubscription(existing);
+      } catch (error) {
+        if (!existing && error instanceof Error && "code" in error && (error as { code: unknown }).code === "23505") {
+          const [nowExisting] = await tx.select().from(subscription).where(eq(subscription.userId, userId)).for("update");
+          updatedOrCreated = await upsertActiveSubscription(nowExisting);
+        } else {
+          throw error;
+        }
+      }
+
+      // Platzhalter-Betrag (F-81 nennt keinen konkreten Preis) — reine Demonstration der
+      // Rechnungshistorie für F-82 ("u. a. Rechnungen").
+      await tx.insert(invoice).values({ subscriptionId: updatedOrCreated.id, amountCents: 999, status: "paid" });
+
+      return updatedOrCreated;
+    });
+
+    await publishSubscriptionUpdated({ userId, premiumUntil: row.currentPeriodEnd.toISOString() });
+
+    return reply.send({ checkoutUrl: session.checkoutUrl, premiumUntil: row.currentPeriodEnd.toISOString() });
   });
 
   app.post("/subscriptions/:userId/cancel", async (request, reply) => {
@@ -97,6 +135,10 @@ export async function buildApp(paymentProvider: PaymentProvider = placeholderPay
     if (!row) {
       return reply.code(404).send({ error: "Kein Abo für diese Nutzer-ID gefunden." });
     }
+
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): vorher wurde nur die
+    // lokale Zeile umgeschaltet, ohne den PSP selbst zu informieren — siehe payment-provider.ts.
+    await paymentProvider.cancelSubscription(userId);
 
     // Bewusst sofortige Deaktivierung statt Zugriff bis zum Periodenende (v1-Vereinfachung,
     // siehe Architekturplanung Abschnitt 13) — vermeidet einen zusätzlichen zeitgesteuerten Job,

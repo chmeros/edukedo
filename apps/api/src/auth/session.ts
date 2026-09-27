@@ -87,3 +87,16 @@ export async function validateSessionToken(
 export async function invalidateSession(db: Database, token: string): Promise<void> {
   await db.delete(session).where(eq(session.id, hashToken(token)));
 }
+
+/**
+ * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Ein Eltern-Widerruf der
+ * Einwilligung (parent.revokeConsent, F-90) sperrte bisher nur zukünftige Logins (auth.login prüft
+ * consent_status) — eine bereits laufende Sitzung des Kindes (bis zu 30 Tage gültig) blieb davon
+ * unberührt, da `createContext` je Anfrage nur die aktuelle `user`-Zeile neu lädt, nie den
+ * Consent-Status. Diese Funktion setzt genau das um, was der Kommentar bei `revokeConsent` schon
+ * immer beschrieben hat ("sperrt/löscht das Kindeskonto analog zu F-06"): alle Sitzungen der
+ * betroffenen Person löschen, sobald ihr etwas Sitzungs-Relevantes entzogen wird.
+ */
+export async function invalidateAllSessionsForUser(db: Database, userId: string): Promise<void> {
+  await db.delete(session).where(eq(session.userId, userId));
+}

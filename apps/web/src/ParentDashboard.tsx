@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Header } from "./Header";
@@ -166,9 +167,11 @@ function LoginForm() {
 }
 
 export function ParentDashboard() {
-  const utils = trpc.useUtils();
+  const queryClient = useQueryClient();
   const me = trpc.parent.me.useQuery(undefined, { retry: false });
-  const logout = trpc.parent.logout.useMutation({ onSuccess: () => utils.parent.me.reset() });
+  // clear() statt nur me.reset(): siehe App.tsx-Logout-Kommentar — derselbe app-weite
+  // QueryClient (main.tsx) wird auch für diesen Bereich verwendet.
+  const logout = trpc.parent.logout.useMutation({ onSuccess: () => queryClient.clear() });
 
   if (!me.data) {
     return (

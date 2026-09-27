@@ -93,7 +93,19 @@ export const authRouter = router({
     // F-01: E-Mail-Verifizierung nur für volljährige Konten — die Session wird trotzdem
     // sofort vergeben (weiches Gate, siehe Architekturplanung Abschnitt 13), unbestätigte
     // Konten sind lediglich im Header per Hinweis-Banner sichtbar.
-    const { confirmUrl } = await initiateEmailVerification(ctx.db, { userId: created.id, email: created.email });
+    //
+    // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Dieser Kommentar
+    // stimmte bisher nicht mit dem Code überein — die Bedingung oben (`requiresParentalConsent`,
+    // Schwelle < 16 Jahre) gate't bewusst NUR den Eltern-Consent-Flow (F-08), nicht diese Stelle.
+    // 16-/17-Jährige (weiterhin `isMinor === true`, Schwelle < 18) fielen dadurch in diesen Zweig
+    // und bekamen ihre eigene Verifizierungsmail — obwohl `resendVerificationEmail` unten für
+    // JEDES `isMinor`-Konto explizit ablehnt, mit exakt der Begründung, dass Minderjährige "NIE
+    // eine eigene Verifizierungsmail" bekommen sollen. Ohne diese Korrektur konnte ein
+    // 16-/17-jähriges Konto bei einem abgelaufenen Link nie mehr verifiziert werden. Jetzt
+    // tatsächlich an `isMinor` (nicht an der niedrigeren Consent-Schwelle) geprüft.
+    const confirmUrl = created.isMinor
+      ? undefined
+      : (await initiateEmailVerification(ctx.db, { userId: created.id, email: created.email })).confirmUrl;
 
     return {
       status: "active" as const,

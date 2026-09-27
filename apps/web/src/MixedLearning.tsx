@@ -340,13 +340,28 @@ export function MixedLearning({
           />
           {revealed && (
             <div className="rate-row">
-              <button type="button" className="again" onClick={() => reviewCard("nicht_gewusst")}>
+              <button
+                type="button"
+                className="again"
+                disabled={submitReviewMutation.isPending}
+                onClick={() => reviewCard("nicht_gewusst")}
+              >
                 Schwer
               </button>
-              <button type="button" className="hard" onClick={() => reviewCard("unsicher")}>
+              <button
+                type="button"
+                className="hard"
+                disabled={submitReviewMutation.isPending}
+                onClick={() => reviewCard("unsicher")}
+              >
                 Mittel
               </button>
-              <button type="button" className="good" onClick={() => reviewCard("gewusst")}>
+              <button
+                type="button"
+                className="good"
+                disabled={submitReviewMutation.isPending}
+                onClick={() => reviewCard("gewusst")}
+              >
                 Einfach
               </button>
             </div>

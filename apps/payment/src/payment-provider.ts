@@ -19,6 +19,18 @@ export interface PaymentProvider {
    * tatsächlichen Abschluss erst asynchron per Webhook melden; der Platzhalter simuliert eine
    * sofort erfolgreiche Zahlung ohne echten Redirect. */
   createCheckoutSession(userId: string): Promise<CheckoutSession>;
+
+  /**
+   * Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Diese Methode fehlte
+   * bisher komplett — `app.ts`s `/subscriptions/:userId/cancel` und `handle-user-deleted.ts`
+   * änderten nur die LOKALE `subscription`-Zeile, ohne den PSP selbst je zu informieren.
+   * Harmlos beim aktuellen Platzhalter (nichts läuft dort real weiter), aber sobald ein echter
+   * PSP eingesetzt wird (Entwicklungsplan Iteration 6), würde eine Person, die kündigt oder ihr
+   * Konto löscht, beim PSP unbemerkt weiterbelastet — es gäbe keinen Code-Pfad, der das je
+   * stoppen würde. Jetzt Teil der Schnittstelle, damit ein künftiger echter PSP sie zwingend
+   * implementieren muss.
+   */
+  cancelSubscription(userId: string): Promise<void>;
 }
 
 const PLACEHOLDER_SUBSCRIPTION_DAYS = 30;
@@ -33,4 +45,8 @@ export const placeholderPaymentProvider: PaymentProvider = {
       currentPeriodEnd,
     };
   },
+
+  // Platzhalter hat nichts real Laufendes zu kündigen — reiner No-op, damit die Schnittstelle
+  // bereits jetzt vollständig ist und ein künftiger echter PSP sie nur noch ausfüllen muss.
+  async cancelSubscription(): Promise<void> {},
 };
