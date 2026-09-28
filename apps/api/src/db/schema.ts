@@ -455,9 +455,16 @@ export const learningEvent = pgTable(
     userId: uuid("user_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
-    contentItemId: uuid("content_item_id")
-      .notNull()
-      .references(() => contentItem.id, { onDelete: "cascade" }),
+    // F-140/F-141/F-142/F-143 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13):
+    // nullable statt weiterhin NOT NULL, damit dieselbe Zeile auch ein Spiel-Ereignis (siehe
+    // game_item_key unten) statt eines echten content_item repräsentieren kann — genau eine der
+    // beiden Spalten ist über den CHECK unten gesetzt.
+    contentItemId: uuid("content_item_id").references(() => contentItem.id, { onDelete: "cascade" }),
+    // Stabile Kennung eines Spiel-Elements (z. B. "kreuzwortraetsel:<kursId>:<wortNummer>"),
+    // ausschließlich von recordGameAttempt (progress.ts) gesetzt — siehe Kommentar dort für die
+    // Begründung, warum die drei neuen Spiele (F-141/F-142/F-143) NICHT über künstliche,
+    // verdeckte content_item-Zeilen an Punktehamster/Credits/Lernserie angebunden werden.
+    gameItemKey: text("game_item_key"),
     isCorrect: boolean("is_correct").notNull(),
     occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull().defaultNow(),
     /**
@@ -477,7 +484,12 @@ export const learningEvent = pgTable(
   (table) => [
     index("learning_event_user_id_occurred_at_idx").on(table.userId, table.occurredAt),
     index("learning_event_content_item_id_idx").on(table.contentItemId),
+    index("learning_event_game_item_key_idx").on(table.gameItemKey),
     uniqueIndex("learning_event_user_id_client_event_id_key").on(table.userId, table.clientEventId),
+    check(
+      "learning_event_exactly_one_reference_check",
+      sql`(${table.contentItemId} is not null) != (${table.gameItemKey} is not null)`,
+    ),
   ],
 );
 
@@ -1265,4 +1277,62 @@ export const instrumentLernpfadSelbsteinschaetzung = pgTable(
     ),
     check("instrument_lernpfad_selbsteinschaetzung_rating_check", sql`${table.rating} between 0 and 10`),
   ],
+);
+
+// ---------------------------------------------------------------------------
+// Gaming-Tab: Kreuzworträtsel/Kennzahlen-Duell/Memory (F-140/F-141/F-142/F-143) —
+// Nutzer-Vorgabe vom 28.09.2026, siehe Abschnitt 13
+// ---------------------------------------------------------------------------
+
+/**
+ * F-141/F-142/F-143: EINE Zeile je Kurs+Spieltyp-Kombination mit dem GESAMTEN Spielinhalt als
+ * JSONB-Payload — exakt dasselbe Muster wie `instrument_lernpfad` (siehe dortiger Kommentar):
+ * keine relationale Zerlegung, Payload-Form nur auf Anwendungsebene (Zod) validiert, nicht in
+ * der DB erzwungen. Anders als beim Instrumenten-Lernpfad braucht dieses Feature zusätzlich
+ * persistenten Fortschritt je Nutzer:in (siehe `gameProgress` unten) — die drei Spiele
+ * verlangen laut Spezifikation ausdrücklich, dass gewählte Variante bzw. abgeschlossene
+ * Runden/Duelle erhalten bleiben, anders als der bewusst bei jedem Aufruf neu startende
+ * Instrumenten-Lernpfad.
+ */
+export const game = pgTable(
+  "game",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    gameType: text("game_type").notNull(),
+    title: text("title").notNull(),
+    isActive: boolean("is_active").notNull().default(true),
+    payload: jsonb("payload").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("game_kurs_id_game_type_key").on(table.kursId, table.gameType)],
+);
+
+/**
+ * Fortschritt je Nutzer:in und Spiel — Form von `state` unterscheidet sich je `game.gameType`
+ * (Kreuzworträtsel: gewählte Variante + gelöste Wortnummern; Kennzahlen-Duell: abgeschlossene
+ * Fragenummern; Memory: abgeschlossene Rundennummern), ausschließlich auf Anwendungsebene per
+ * Zod validiert (siehe trpc/routers/game.ts) — dieselbe bewusste JSONB-Philosophie wie bei
+ * `content_item.payload`/`instrument_lernpfad.payload`. Getrennt von der Anti-Farming-Prüfung
+ * in `learning_event.game_item_key` (siehe dort): diese Tabelle dient rein dem Fortsetzen eines
+ * begonnenen Spiels, nicht der Punktehamster-/Credit-Vergabe.
+ */
+export const gameProgress = pgTable(
+  "game_progress",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    gameId: uuid("game_id")
+      .notNull()
+      .references(() => game.id, { onDelete: "cascade" }),
+    state: jsonb("state").notNull().default({}),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("game_progress_user_id_game_id_key").on(table.userId, table.gameId)],
 );

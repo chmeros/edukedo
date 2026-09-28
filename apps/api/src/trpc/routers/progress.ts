@@ -95,6 +95,38 @@ export async function assertContentItemAccessible(db: Database, userId: string, 
   }
 }
 
+// Der `tx`-Parameter innerhalb von `db.transaction(async (tx) => ...)` ist NICHT strukturell
+// identisch mit `Database` (fehlt u. a. `$client`) — dieser Typ wird aus der `transaction`-Methode
+// selbst abgeleitet, damit eine gemeinsame Hilfsfunktion (siehe `applyCorrectAnswerRewards` unten)
+// sowohl mit `db` als auch mit einem `tx` aufgerufen werden kann.
+type Tx = Parameters<Parameters<Database["transaction"]>[0]>[0];
+
+/**
+ * F-118/F-119: gemeinsamer Kern von `recordQuizAttempt` und `recordGameAttempt` (siehe dort) —
+ * Punktehamster-Zuwachs bei jeder richtigen Antwort, Credits nur beim jeweils ersten jemals
+ * richtig beantworteten Item, Menge nach Difficulty gestaffelt. Bewusst OHNE die
+ * `learning_event`-Insert-/Anti-Farming-Logik selbst, da diese je nach Aufrufer über eine
+ * andere Spalte (content_item_id vs. game_item_key) läuft — siehe schema.ts-Kommentar bei
+ * `learning_event.game_item_key` für die Begründung dieser Aufteilung.
+ */
+async function applyCorrectAnswerRewards(
+  tx: Tx,
+  userId: string,
+  isFirstCorrectAnswerEver: boolean,
+  difficulty: string,
+): Promise<void> {
+  // F-118: "Punktehamster" — wächst mit JEDER neu erfassten richtigen Antwort. Sinkt nie bei
+  // falschen Antworten. Bewusst UNABHÄNGIG von `credits` (F-119) — rein visuell, zählt auch
+  // Wiederholungen.
+  await tx.update(user).set({ mascotFood: sql`${user.mascotFood} + 1` }).where(eq(user.id, userId));
+
+  // F-119: Credits nur bei der ersten jemals richtig beantworteten Instanz dieses Items.
+  if (isFirstCorrectAnswerEver) {
+    const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[difficulty] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
+    await tx.update(user).set({ credits: sql`${user.credits} + ${amount}` }).where(eq(user.id, userId));
+  }
+}
+
 export async function recordQuizAttempt(
   db: Database,
   userId: string,
@@ -150,27 +182,13 @@ export async function recordQuizAttempt(
       return;
     }
 
-    // F-118: "Punktehamster" — wächst mit JEDER neu erfassten richtigen Antwort, unabhängig
-    // davon, ob der user_progress-Stand unten wegen eines bereits neueren Ereignisses
-    // übersprungen wird (siehe nächster Block). Bewusst hier statt in den einzelnen
-    // quiz.submit*-Mutationen verankert, damit auch offline beantwortete und später
-    // synchronisierte Quiz-Antworten (trpc/routers/offline.ts) mitzählen, ohne diese Logik zu
-    // duplizieren. Sinkt nie bei falschen Antworten (isCorrect === false → kein Update).
-    // Bewusst UNABHÄNGIG von `credits` (F-119) — rein visuell, zählt auch Wiederholungen.
     if (isCorrect) {
-      await tx.update(user).set({ mascotFood: sql`${user.mascotFood} + 1` }).where(eq(user.id, userId));
-    }
-
-    // F-119: Credits nur bei der ersten jemals richtig beantworteten Instanz dieses Items
-    // (siehe isFirstCorrectAnswerEver oben) — Menge nach content_item.difficulty gestaffelt.
-    if (isCorrect && isFirstCorrectAnswerEver) {
       const [item] = await tx
         .select({ difficulty: contentItem.difficulty })
         .from(contentItem)
         .where(eq(contentItem.id, contentItemId))
         .limit(1);
-      const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[item?.difficulty ?? "mittel"] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
-      await tx.update(user).set({ credits: sql`${user.credits} + ${amount}` }).where(eq(user.id, userId));
+      await applyCorrectAnswerRewards(tx, userId, isFirstCorrectAnswerEver, item?.difficulty ?? "mittel");
     }
 
     // Code-Review-Fund, nachgezogen: ein offline erfasstes Ereignis kann beim Sync später
@@ -204,6 +222,50 @@ export async function recordQuizAttempt(
         target: [userProgress.userId, userProgress.contentItemId],
         set: { state, lastReviewedAt: occurredAt },
       });
+  });
+}
+
+/**
+ * F-140/F-141/F-142/F-143 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13):
+ * Pendant zu `recordQuizAttempt` für die drei neuen, nicht content-item-basierten Lernspiele
+ * (Kreuzworträtsel/Kennzahlen-Duell/Memory) — dieselbe Zeilensperre und Anti-Farming-Logik,
+ * aber über `learning_event.game_item_key` (eine stabile, vom Aufrufer gebildete Kennung wie
+ * `"kreuzwortraetsel:<kursId>:<wortNummer>"`) statt `content_item_id`. Legt bewusst KEINE
+ * `user_progress`-Zeile an — für diese Spiele gibt es kein FSRS-/Fälligkeits-Konzept, sie sind
+ * reine Übung, keine Spaced-Repetition-Inhalte. `difficulty` kommt direkt vom Aufrufer statt aus
+ * `content_item.difficulty` (das es für diese Items nicht gibt).
+ */
+export async function recordGameAttempt(
+  db: Database,
+  userId: string,
+  gameItemKey: string,
+  isCorrect: boolean,
+  difficulty: string,
+): Promise<void> {
+  await db.transaction(async (tx) => {
+    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
+
+    let isFirstCorrectAnswerEver = false;
+    if (isCorrect) {
+      const [existingCorrectEvent] = await tx
+        .select({ id: learningEvent.id })
+        .from(learningEvent)
+        .where(
+          and(
+            eq(learningEvent.userId, userId),
+            eq(learningEvent.gameItemKey, gameItemKey),
+            eq(learningEvent.isCorrect, true),
+          ),
+        )
+        .limit(1);
+      isFirstCorrectAnswerEver = !existingCorrectEvent;
+    }
+
+    await tx.insert(learningEvent).values({ userId, gameItemKey, isCorrect, occurredAt: new Date() });
+
+    if (isCorrect) {
+      await applyCorrectAnswerRewards(tx, userId, isFirstCorrectAnswerEver, difficulty);
+    }
   });
 }
 

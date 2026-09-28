@@ -11,6 +11,7 @@ import { coursesRouter } from "./routers/courses";
 import { duellRouter } from "./routers/duell";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
+import { gameRouter } from "./routers/game";
 import { gamificationRouter } from "./routers/gamification";
 import { healthRouter } from "./routers/health";
 import { highscoreRouter } from "./routers/highscore";
@@ -64,7 +65,10 @@ import { router } from "./trpc";
  * Aufgabengenerierung (synchron, bewusst nur `quiz_mc`) — beide hinter admin-vergebbaren Flags
  * (F-80), da der eigentliche Payment-Service (F-81) noch nicht existiert. `payment` (F-81/F-82,
  * seit 24.09.2026) ist die Abo-/Kaufverwaltung und Statusübersicht, aufbauend auf dem separaten
- * Payment-Service (`apps/payment`) über dessen schmale REST-API.
+ * Payment-Service (`apps/payment`) über dessen schmale REST-API. `game` (F-140/F-141/F-142/
+ * F-143, seit 28.09.2026) sind die drei Gaming-Tab-Lernspiele (Kreuzworträtsel/Kennzahlen-Duell/
+ * Memory) — bewusst kein Premium-Gate (Teil des kostenlosen Kernangebots), mit persistentem
+ * Rundenfortschritt in `game_progress`.
  */
 export const appRouter = router({
   health: healthRouter,
@@ -90,6 +94,7 @@ export const appRouter = router({
   highscore: highscoreRouter,
   lernpartner: lernpartnerRouter,
   duell: duellRouter,
+  game: gameRouter,
   gamification: gamificationRouter,
   push: pushRouter,
   cohort: cohortRouter,

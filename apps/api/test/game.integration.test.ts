@@ -1,0 +1,302 @@
+import {
+  kennzahlenDuellPayloadSchema,
+  kreuzwortraetselPayloadSchema,
+  memoryPayloadSchema,
+} from "@edukedo/shared";
+import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import { eq } from "drizzle-orm";
+import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+import type { FastifyInstance } from "fastify";
+import { Pool } from "pg";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { kennzahlenDuellQmProzesse } from "../src/db/content/game-kennzahlen-duell-qm-prozesse";
+import { kreuzwortraetselFinanzkennzahlen } from "../src/db/content/game-kreuzwortraetsel-finanzkennzahlen";
+import { memoryPersonalkennzahlen } from "../src/db/content/game-memory-personalkennzahlen";
+import * as schema from "../src/db/schema";
+
+/**
+ * F-140/F-141/F-142/F-143 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13):
+ * erster Integrationstest für die drei neuen Lernspiele — Fokus auf dem Zusammenspiel, das
+ * `game-logic.test.ts` (reine Grading-Funktionen) nicht abdeckt: Enrollment-Gate, persistenter
+ * Fortschritt über `game_progress` hinweg, Abschlusserkennung, sowie die neue
+ * `recordGameAttempt`-Anbindung an Punktehamster/Credits über `learning_event.game_item_key`
+ * (ohne echte `content_item`-Zeile).
+ */
+describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
+  let container: StartedPostgreSqlContainer;
+  let pool: Pool;
+  let db: NodePgDatabase<typeof schema>;
+  let app: FastifyInstance;
+  let appPool: typeof import("../src/db/client").pool;
+
+  let kursId: string;
+  let learnerCookie: string;
+  let learnerUserId: string;
+
+  function extractSessionCookie(setCookieHeader: string | string[] | undefined): string {
+    const raw = Array.isArray(setCookieHeader) ? setCookieHeader[0] : setCookieHeader;
+    expect(raw).toBeTruthy();
+    return raw!.split(";")[0]!;
+  }
+
+  async function callQuery(procedure: string, input: object) {
+    return app.inject({
+      method: "GET",
+      url: `/api/v1/trpc/${procedure}?input=${encodeURIComponent(JSON.stringify(input))}`,
+      headers: { cookie: learnerCookie },
+    });
+  }
+
+  async function callMutation(procedure: string, input: object) {
+    return app.inject({
+      method: "POST",
+      url: `/api/v1/trpc/${procedure}`,
+      headers: { cookie: learnerCookie },
+      payload: input,
+    });
+  }
+
+  async function currentMascotFoodAndCredits() {
+    const [row] = await db.select({ mascotFood: schema.user.mascotFood, credits: schema.user.credits }).from(schema.user).where(eq(schema.user.id, learnerUserId));
+    return row!;
+  }
+
+  beforeAll(async () => {
+    container = await new PostgreSqlContainer("postgres:16-alpine").start();
+    process.env.DATABASE_URL = container.getConnectionUri();
+    process.env.SESSION_SECRET = "e2e-game-test-secret-mindestens-32-zeichen";
+    process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
+    process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
+    process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";
+
+    pool = new Pool({ connectionString: container.getConnectionUri() });
+    db = drizzle(pool, { schema });
+    await migrate(db, { migrationsFolder: "./drizzle" });
+
+    const { importAllContent } = await import("../src/db/import-content");
+    await importAllContent();
+
+    const [kursRow] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation")).limit(1);
+    kursId = kursRow!.id;
+
+    await db.insert(schema.game).values([
+      {
+        kursId,
+        gameType: "kreuzwortraetsel",
+        title: "Kreuzworträtsel: Finanzkennzahlen",
+        payload: kreuzwortraetselPayloadSchema.parse(kreuzwortraetselFinanzkennzahlen),
+      },
+      {
+        kursId,
+        gameType: "kennzahlen_duell",
+        title: "Kennzahlen-Duell: Qualitätsmanagement und Prozesse",
+        payload: kennzahlenDuellPayloadSchema.parse(kennzahlenDuellQmProzesse),
+      },
+      {
+        kursId,
+        gameType: "memory",
+        title: "Kennzahlen-Memory: Personal",
+        payload: memoryPayloadSchema.parse(memoryPersonalkennzahlen),
+      },
+    ]);
+
+    const appModule = await import("../src/app");
+    app = await appModule.buildApp();
+    ({ pool: appPool } = await import("../src/db/client"));
+
+    const registerResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.register",
+      payload: { email: "test-game-learner@example.com", password: "Demo1234!", birthDate: "1995-01-01" },
+    });
+    expect(registerResponse.statusCode).toBe(200);
+    learnerCookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
+
+    const enrollResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/courses.enroll",
+      headers: { cookie: learnerCookie },
+      payload: { kursId },
+    });
+    expect(enrollResponse.statusCode).toBe(200);
+
+    const [row] = await db.select({ id: schema.user.id }).from(schema.user).where(eq(schema.user.email, "test-game-learner@example.com"));
+    learnerUserId = row!.id;
+  }, 180_000);
+
+  afterAll(async () => {
+    await app?.close();
+    await appPool?.end();
+    await pool?.end();
+    await container?.stop();
+  });
+
+  it("listet alle drei Spiele in 'available'", async () => {
+    const response = await callQuery("game.available", { kursId });
+    expect(response.statusCode).toBe(200);
+    const data = response.json().result.data as { gameType: string }[];
+    expect(data.map((entry) => entry.gameType).sort()).toEqual(["kennzahlen_duell", "kreuzwortraetsel", "memory"]);
+  });
+
+  it("verweigert eine nicht eingeschriebene Person (403 FORBIDDEN), obwohl das Spiel existiert", async () => {
+    const registerResponse = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.register",
+      payload: { email: "test-game-not-enrolled@example.com", password: "Demo1234!", birthDate: "1995-01-01" },
+    });
+    const notEnrolledCookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
+
+    const response = await app.inject({
+      method: "GET",
+      url: `/api/v1/trpc/game.getKreuzwortraetsel?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+      headers: { cookie: notEnrolledCookie },
+    });
+    expect(response.statusCode).toBe(403);
+  });
+
+  it("meldet ein in diesem Kurs nicht vorhandenes Spiel als 404 NOT_FOUND", async () => {
+    const [otherKurs] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "mathematik-9")).limit(1);
+    const response = await callQuery("game.getKreuzwortraetsel", { kursId: otherKurs!.id });
+    expect(response.statusCode).toBe(404);
+  });
+
+  describe("Kreuzworträtsel", () => {
+    it("liefert vor einer Variantenwahl keine Wortkarten und keine Lösungen", async () => {
+      const response = await callQuery("game.getKreuzwortraetsel", { kursId });
+      expect(response.statusCode).toBe(200);
+      const data = response.json().result.data;
+      expect(data.variant).toBeNull();
+      expect(data.wordBank).toBeNull();
+      expect(data.woerter).toHaveLength(10);
+      expect(data.woerter.every((wort: { loesung: string | null }) => wort.loesung === null)).toBe(true);
+    });
+
+    it("zeigt nach Wahl der einfachen Variante alle zehn Begriffe als Wortkarten", async () => {
+      const startResponse = await callMutation("game.startKreuzwortraetsel", { kursId, variant: "einfach" });
+      expect(startResponse.statusCode).toBe(200);
+
+      const response = await callQuery("game.getKreuzwortraetsel", { kursId });
+      const data = response.json().result.data;
+      expect(data.variant).toBe("einfach");
+      expect(data.wordBank).toHaveLength(10);
+      expect(data.wordBank).toContain("EBIT");
+    });
+
+    it("wertet eine richtige Zuordnung, vergibt Punktehamster-Futter und Credits (erste jemals richtige Antwort)", async () => {
+      const before = await currentMascotFoodAndCredits();
+
+      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
+      expect(response.statusCode).toBe(200);
+      const result = response.json().result.data;
+      expect(result.correct).toBe(true);
+      expect(result.bestaetigung).toContain("EBIT");
+
+      const after = await currentMascotFoodAndCredits();
+      expect(after.mascotFood).toBe(before.mascotFood + 1);
+      expect(after.credits).toBeGreaterThan(before.credits);
+
+      const getResponse = await callQuery("game.getKreuzwortraetsel", { kursId });
+      const wort = getResponse.json().result.data.woerter.find((entry: { nummer: number }) => entry.nummer === 7);
+      expect(wort.geloest).toBe(true);
+      expect(getResponse.json().result.data.wordBank).not.toContain("EBIT");
+    });
+
+    it("vergibt bei einer erneuten richtigen Antwort desselben Wortes kein zweites Mal Credits (Anti-Farming)", async () => {
+      const before = await currentMascotFoodAndCredits();
+      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
+      const after = await currentMascotFoodAndCredits();
+      expect(after.mascotFood).toBe(before.mascotFood + 1); // Punktehamster wächst weiterhin
+      expect(after.credits).toBe(before.credits); // Credits nicht ein zweites Mal
+    });
+
+    it("wertet eine falsche Eingabe ohne Bestätigung und ohne Fortschritt", async () => {
+      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 9, eingabe: "FALSCH" });
+      const result = response.json().result.data;
+      expect(result.correct).toBe(false);
+      expect(result.bestaetigung).toBeNull();
+    });
+
+    it("erkennt Umlaut-/Groß-Kleinschreibungs-normalisierte Eingaben als richtig", async () => {
+      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 6, eingabe: "jahresüberschuss" });
+      expect(response.json().result.data.correct).toBe(true);
+    });
+
+    it("markiert das Rätsel erst nach allen zehn Wörtern als abgeschlossen", async () => {
+      const remaining = [1, 2, 3, 4, 5, 8, 9, 10];
+      for (const nummer of remaining) {
+        const wort = kreuzwortraetselFinanzkennzahlen.woerter.find((candidate) => candidate.nummer === nummer)!;
+        await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer, eingabe: wort.loesung });
+      }
+      const response = await callQuery("game.getKreuzwortraetsel", { kursId });
+      expect(response.json().result.data.abgeschlossen).toBe(true);
+    });
+  });
+
+  describe("Kennzahlen-Duell", () => {
+    it("liefert Fragen ohne die richtige Antwort", async () => {
+      const response = await callQuery("game.getKennzahlenDuell", { kursId });
+      const data = response.json().result.data;
+      expect(data.fragen).toHaveLength(20);
+      expect(data.fragen[0]).not.toHaveProperty("richtig");
+    });
+
+    it("wertet eine richtige und eine falsche Antwort korrekt", async () => {
+      const correct = await callMutation("game.submitKennzahlenDuellAntwort", { kursId, nummer: 1, ausgewaehlt: "A" });
+      expect(correct.json().result.data.correct).toBe(true);
+
+      const wrong = await callMutation("game.submitKennzahlenDuellAntwort", { kursId, nummer: 2, ausgewaehlt: "A" });
+      expect(wrong.json().result.data.correct).toBe(false);
+    });
+
+    it("markiert das Kennzahlen-Duell erst nach allen 20 Fragen als abgeschlossen", async () => {
+      for (const frage of kennzahlenDuellQmProzesse.fragen) {
+        await callMutation("game.submitKennzahlenDuellAntwort", { kursId, nummer: frage.nummer, ausgewaehlt: frage.richtig });
+      }
+      const response = await callQuery("game.getKennzahlenDuell", { kursId });
+      expect(response.json().result.data.abgeschlossen).toBe(true);
+    });
+  });
+
+  describe("Memory", () => {
+    it("mischt genau die zwölf Karten der angefragten Runde", async () => {
+      const response = await callQuery("game.getMemory", { kursId, runde: 1 });
+      const data = response.json().result.data;
+      expect(data.karten).toHaveLength(12);
+    });
+
+    it("erkennt ein richtiges Paar und vergibt Punktehamster-Futter", async () => {
+      const before = await currentMascotFoodAndCredits();
+      const response = await callMutation("game.submitMemoryPaar", {
+        kursId,
+        runde: 1,
+        textA: "Personalbestand",
+        textB: "Anzahl der Beschäftigten zu einem festgelegten Stichtag.",
+      });
+      expect(response.json().result.data.correct).toBe(true);
+      const after = await currentMascotFoodAndCredits();
+      expect(after.mascotFood).toBe(before.mascotFood + 1);
+    });
+
+    it("erkennt ein falsches Paar ohne Fortschritt", async () => {
+      const response = await callMutation("game.submitMemoryPaar", {
+        kursId,
+        runde: 1,
+        textA: "Personalbestand",
+        textB: "Durchschnittliche Dauer, die die Beschäftigten bereits im Unternehmen tätig sind.",
+      });
+      expect(response.json().result.data.correct).toBe(false);
+    });
+
+    it("markiert eine Runde erst nach 'completeMemoryRound' als abgeschlossen, das Spiel erst nach allen vier Runden", async () => {
+      for (const runde of [1, 2, 3, 4] as const) {
+        const before = await callQuery("game.getMemory", { kursId, runde });
+        expect(before.json().result.data.abgeschlossen).toBe(false);
+        await callMutation("game.completeMemoryRound", { kursId, runde });
+      }
+      const after = await callQuery("game.getMemory", { kursId, runde: 1 });
+      expect(after.json().result.data.abgeschlossen).toBe(true);
+      expect(after.json().result.data.abgeschlosseneRunden.sort()).toEqual([1, 2, 3, 4]);
+    });
+  });
+});

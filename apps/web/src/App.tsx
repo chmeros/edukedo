@@ -19,6 +19,7 @@ import { OnboardingHints } from "./OnboardingHints";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
+import { Spiele } from "./Spiele";
 import { SponsorBanner } from "./SponsorBanner";
 import { Sozial } from "./Sozial";
 import { StreakReminderBanner } from "./StreakReminderBanner";
@@ -39,13 +40,18 @@ import { UserMenu } from "./UserMenu";
 // in den Tab "Fortschritt" (jetzt als dessen interner Unter-Tab, siehe Progress.tsx), der
 // damit als Oberbegriff für Fortschritts- UND Erfolgs-/Bestwerte-Anzeige dient. "Sozial"
 // bleibt bewusst ein eigener Haupt-Tab (nicht Teil dieser Zusammenführung).
-type LearningMode = "lernen" | "exam" | "instrumente" | "sozial" | "progress";
+// F-140 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung Abschnitt 13):
+// "Sozial" wird in "Gaming" umbenannt (Tab-ID intern ebenfalls durchgängig "gaming", nicht nur
+// das sichtbare Label) — darüber entsteht ein neuer Spiele-Katalog (`Spiele.tsx`, analog zum
+// Instrumente-Katalog), die bestehenden Freundeskreis-/Highscore-/Duell-/Lernpartner-Features
+// (`Sozial.tsx`) bleiben inhaltlich unverändert darunter bestehen.
+type LearningMode = "lernen" | "exam" | "instrumente" | "gaming" | "progress";
 
 const LEARNING_MODE_TABS: { id: LearningMode; label: string }[] = [
   { id: "lernen", label: "Lernen" },
   { id: "exam", label: "Prüfung" },
   { id: "instrumente", label: "Instrumente" },
-  { id: "sozial", label: "Sozial" },
+  { id: "gaming", label: "Gaming" },
   { id: "progress", label: "Fortschritt" },
 ];
 
@@ -334,9 +340,9 @@ export function App() {
                     // wirkt auf voller Breite verloren statt fokussiert).
                     className={
                       // F-14: "instrumente" zeigt seit der Suche list-row-Ergebnisse (volle
-                      // Breite wie Sozial/Fortschritt), keine einzelne Frage/Karte mehr.
+                      // Breite wie Gaming/Fortschritt), keine einzelne Frage/Karte mehr.
                       learningMode === "progress" ||
-                      learningMode === "sozial" ||
+                      learningMode === "gaming" ||
                       learningMode === "instrumente"
                         ? undefined
                         : "content-narrow"
@@ -401,13 +407,20 @@ export function App() {
                         />
                       </>
                     )}
-                    {learningMode === "sozial" && (
-                      <Sozial
-                        key={activeKursId}
-                        kursId={activeKursId}
-                        isMinor={me.data.isMinor}
-                        gamificationEnabled={me.data.gamificationEnabled}
-                      />
+                    {learningMode === "gaming" && (
+                      <>
+                        {/* F-140/F-141/F-142/F-143 (Nutzer-Vorgabe vom 28.09.2026, siehe
+                            Architekturplanung Abschnitt 13): Spiele-Katalog als neuer primärer
+                            Inhalt dieses Tabs, exakt nach dem Instrumente-Muster — die
+                            bestehenden Sozial-Features bleiben unverändert darunter bestehen. */}
+                        <Spiele key={activeKursId} kursId={activeKursId} />
+                        <Sozial
+                          key={activeKursId}
+                          kursId={activeKursId}
+                          isMinor={me.data.isMinor}
+                          gamificationEnabled={me.data.gamificationEnabled}
+                        />
+                      </>
                     )}
                     {learningMode === "progress" && (
                       <Progress

@@ -70,7 +70,7 @@ interface StepProps<TItem, TInput, TOutput> {
  * pro Step bereits vorhandene `movePlacement`-Logik aus wie ein Drag-and-Drop-Drop, rein additiv
  * neben der bestehenden Maus-/Touch-Bedienung (siehe DraggableTerm/DroppableZone weiter unten).
  */
-function useKeyboardPlacement(movePlacement: (termId: string, targetId: string) => void, locked: boolean) {
+export function useKeyboardPlacement(movePlacement: (termId: string, targetId: string) => void, locked: boolean) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   function toggleSelect(termId: string) {
