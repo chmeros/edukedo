@@ -1,6 +1,6 @@
-import { DndContext, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
+import { DndContext, PointerSensor, useDroppable, useSensor, useSensors } from "@dnd-kit/core";
 import type { DragEndEvent } from "@dnd-kit/core";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { DraggableTerm, DroppableZone, useKeyboardPlacement } from "./QuizSteps";
 import { trpc } from "./trpc";
@@ -9,13 +9,20 @@ const WORD_BANK_POOL_ID = "_kreuzwortraetsel_pool";
 
 /**
  * F-141 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung Abschnitt 13):
- * Kreuzworträtsel „Finanzkennzahlen" — die Interaktion läuft bewusst über die Hinweisliste
- * (Wortkarte auf einen Hinweis ziehen/tippen bzw. Text neben einem Hinweis eintragen) statt über
- * direkte Eingabefelder IM Gitter — das Gitter selbst ist reine Anzeige (füllt sich live, sobald
- * ein Wort richtig gelöst wurde) und nutzt dieselben Koordinaten, die der Server ohnehin schon
- * lösungsfrei mitliefert. Die einfache Variante nutzt die bestehenden `DraggableTerm`/
- * `DroppableZone`-Bausteine aus `QuizSteps.tsx` (F-114/F-135, inkl. Tastatur-Alternative über
- * `useKeyboardPlacement`), die anspruchsvolle Variante ein einfaches Textfeld je Hinweis.
+ * Kreuzworträtsel „Finanzkennzahlen".
+ *
+ * Nutzer-Vorgabe vom 28.09.2026 (löst die vorherige, listenbasierte Interaktion ab): Die
+ * Lösungsworte werden DIREKT in die Gitterfelder eingetragen statt über ein separates Textfeld
+ * neben dem Hinweis. Die Hinweisliste zeigt nur noch die Begriffserklärung selbst (klickbar, um
+ * das zugehörige Wort im Gitter zu aktivieren) plus "Tipp anzeigen". Technisch überlagert je
+ * Wort ein transparentes, über die exakte Zellspanne des Wortes platziertes Element
+ * (`WordOverlay`, per CSS-Grid-Platzierung — `gridColumn`/`gridRow` aus Start/Länge/Richtung,
+ * dieselben Koordinaten wie die reine Gitteranzeige) das Gitter: in der einfachen Variante ein
+ * `useDroppable`-Ziel (Wortkarte direkt aufs Gitter ziehen), in der anspruchsvollen Variante ein
+ * Klick-Ziel, das die Zellen dieses Wortes in echte `<input maxlength=1>`-Felder verwandelt
+ * (Groß-/Kleinschreibung/Umlaute werden wie zuvor erst beim Prüfen normalisiert). Bereits über
+ * eine gelöste Kreuzung bekannte Buchstaben bleiben beim Eintippen gesperrt und werden
+ * übersprungen (siehe `focusEditableOffset`).
  */
 
 interface Wort {
@@ -30,7 +37,13 @@ interface Wort {
   loesung: string | null;
 }
 
-function buildGridCells(woerter: Wort[]) {
+interface GridInfo {
+  cells: Map<string, { letter: string | null; numberLabel: number | null }>;
+  rows: number;
+  cols: number;
+}
+
+function buildGridInfo(woerter: Wort[]): GridInfo {
   const cells = new Map<string, { letter: string | null; numberLabel: number | null }>();
   let maxRow = 0;
   let maxCol = 0;
@@ -52,21 +65,112 @@ function buildGridCells(woerter: Wort[]) {
   return { cells, rows: maxRow + 1, cols: maxCol + 1 };
 }
 
-function KreuzwortraetselGrid({ woerter }: { woerter: Wort[] }) {
-  const { cells, rows, cols } = buildGridCells(woerter);
-  const grid: React.ReactNode[] = [];
+function wortGridPlacement(wort: Wort): { gridColumn: string; gridRow: string } {
+  return {
+    gridColumn: wort.richtung === "waagerecht" ? `${wort.startCol + 1} / span ${wort.laenge}` : `${wort.startCol + 1}`,
+    gridRow: wort.richtung === "senkrecht" ? `${wort.startRow + 1} / span ${wort.laenge}` : `${wort.startRow + 1}`,
+  };
+}
+
+/** Transparentes Klick-/Drop-Ziel über die volle Zellspanne eines Wortes — liegt im DOM VOR den
+ * eigentlichen Zellinhalten, damit ein Klick auf eine noch leere Zelle (die selbst
+ * `pointer-events: none` trägt, siehe unten) zu diesem Ziel durchgereicht wird. */
+function WordOverlay({ wort, isActive, onActivate }: { wort: Wort; isActive: boolean; onActivate: () => void }) {
+  const { setNodeRef, isOver } = useDroppable({ id: `wort-${wort.nummer}`, disabled: wort.geloest });
+  if (wort.geloest) return null;
+  let className = "crossword-word-overlay";
+  if (isOver) className += " is-over";
+  if (isActive) className += " is-active";
+  return (
+    <button
+      ref={setNodeRef}
+      type="button"
+      aria-label={`Wort ${wort.nummer} bearbeiten`}
+      className={className}
+      style={wortGridPlacement(wort)}
+      onClick={onActivate}
+    />
+  );
+}
+
+function KreuzwortraetselGrid({
+  woerter,
+  gridInfo,
+  activeWortNummer,
+  eingabeProZelle,
+  onCellInput,
+  onCellBackspace,
+  onActivate,
+  inputRefs,
+}: {
+  woerter: Wort[];
+  gridInfo: GridInfo;
+  activeWortNummer: number | null;
+  eingabeProZelle: Map<string, string>;
+  onCellInput: (row: number, col: number, wortNummer: number, offset: number, value: string) => void;
+  onCellBackspace: (wortNummer: number, offset: number) => void;
+  onActivate: (nummer: number) => void;
+  inputRefs: React.MutableRefObject<Map<string, HTMLInputElement>>;
+}) {
+  const { cells, rows, cols } = gridInfo;
+  const aktivesWort = woerter.find((wort) => wort.nummer === activeWortNummer) ?? null;
+
+  const zellInhalte: React.ReactNode[] = [];
   for (let row = 0; row < rows; row += 1) {
     for (let col = 0; col < cols; col += 1) {
       const cell = cells.get(`${row},${col}`);
       const key = `${row}-${col}`;
       if (!cell) {
-        grid.push(<div key={key} className="crossword-cell is-empty" aria-hidden="true" />);
+        zellInhalte.push(<div key={key} style={{ gridColumn: col + 1, gridRow: row + 1 }} className="crossword-cell is-empty" aria-hidden="true" />);
         continue;
       }
-      grid.push(
-        <div key={key} className={cell.letter ? "crossword-cell is-solved" : "crossword-cell"}>
+
+      if (cell.letter) {
+        zellInhalte.push(
+          <div key={key} style={{ gridColumn: col + 1, gridRow: row + 1 }} className="crossword-cell is-solved">
+            {cell.numberLabel !== null && <span className="crossword-cell-number">{cell.numberLabel}</span>}
+            {cell.letter}
+          </div>,
+        );
+        continue;
+      }
+
+      const aktiverOffset =
+        aktivesWort &&
+        (aktivesWort.richtung === "waagerecht"
+          ? row === aktivesWort.startRow && col >= aktivesWort.startCol && col < aktivesWort.startCol + aktivesWort.laenge
+            ? col - aktivesWort.startCol
+            : null
+          : col === aktivesWort.startCol && row >= aktivesWort.startRow && row < aktivesWort.startRow + aktivesWort.laenge
+            ? row - aktivesWort.startRow
+            : null);
+
+      if (aktivesWort && aktiverOffset !== null) {
+        zellInhalte.push(
+          <input
+            key={key}
+            ref={(el) => {
+              if (el) inputRefs.current.set(`${aktivesWort.nummer}-${aktiverOffset}`, el);
+              else inputRefs.current.delete(`${aktivesWort.nummer}-${aktiverOffset}`);
+            }}
+            style={{ gridColumn: col + 1, gridRow: row + 1 }}
+            className="crossword-cell crossword-cell-input"
+            value={eingabeProZelle.get(`${aktivesWort.nummer}-${aktiverOffset}`) ?? ""}
+            aria-label={`Wort ${aktivesWort.nummer}, Buchstabe ${aktiverOffset + 1}`}
+            onChange={(event) => onCellInput(row, col, aktivesWort.nummer, aktiverOffset, event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Backspace" && !eingabeProZelle.get(`${aktivesWort.nummer}-${aktiverOffset}`)) {
+                onCellBackspace(aktivesWort.nummer, aktiverOffset);
+              }
+            }}
+          />,
+        );
+        continue;
+      }
+
+      zellInhalte.push(
+        <div key={key} style={{ gridColumn: col + 1, gridRow: row + 1, pointerEvents: "none" }} className="crossword-cell">
           {cell.numberLabel !== null && <span className="crossword-cell-number">{cell.numberLabel}</span>}
-          {cell.letter}
         </div>,
       );
     }
@@ -74,106 +178,62 @@ function KreuzwortraetselGrid({ woerter }: { woerter: Wort[] }) {
 
   return (
     <div className="crossword-grid-scroll">
-      <div className="crossword-grid" style={{ gridTemplateColumns: `repeat(${cols}, 28px)` }}>
-        {grid}
+      <div className="crossword-grid" style={{ gridTemplateColumns: `repeat(${cols}, 28px)`, gridTemplateRows: `repeat(${rows}, 28px)` }}>
+        {woerter.map((wort) => (
+          <WordOverlay key={wort.nummer} wort={wort} isActive={wort.nummer === activeWortNummer} onActivate={() => onActivate(wort.nummer)} />
+        ))}
+        {zellInhalte}
       </div>
     </div>
   );
 }
 
-/** Anspruchsvolle Variante: eigenes Textfeld je Hinweis statt Wortkarten (siehe Spezifikation). */
-function AnspruchsvollZeile({
+function HinweisZeile({
   wort,
-  onSubmitWort,
-  submitPending,
-  lastResult,
+  onActivate,
 }: {
   wort: Wort;
-  onSubmitWort: (nummer: number, eingabe: string) => void;
-  submitPending: boolean;
-  lastResult: { nummer: number; correct: boolean } | null;
+  onActivate: () => void;
 }) {
-  const [eingabe, setEingabe] = useState("");
   const [tippSichtbar, setTippSichtbar] = useState(false);
-  const showWrong = !wort.geloest && lastResult?.nummer === wort.nummer && !lastResult.correct;
 
   return (
     <div className="list-row">
-      <div className="meta">
-        <span>
-          {wort.nummer}. {wort.richtung === "waagerecht" ? "Waagerecht" : "Senkrecht"} ({wort.laenge} Buchstaben)
-        </span>
-        {wort.hinweis}
-        {tippSichtbar && !wort.geloest && <span className="field-hint">Tipp: {wort.tipp}</span>}
-        {showWrong && (
-          <span className="field-hint">Das passt hier noch nicht. Lies den Hinweis erneut und prüfe auch die Buchstaben an den Kreuzungen.</span>
-        )}
-      </div>
+      {wort.geloest ? (
+        <div className="meta">
+          <span>
+            {wort.nummer}. {wort.richtung === "waagerecht" ? "Waagerecht" : "Senkrecht"} ({wort.laenge} Buchstaben)
+          </span>
+          {wort.hinweis}
+        </div>
+      ) : (
+        <button type="button" className="crossword-hint-select" onClick={onActivate}>
+          <span className="meta">
+            <span>
+              {wort.nummer}. {wort.richtung === "waagerecht" ? "Waagerecht" : "Senkrecht"} ({wort.laenge} Buchstaben)
+            </span>
+            {wort.hinweis}
+            {tippSichtbar && <span className="field-hint">Tipp: {wort.tipp}</span>}
+          </span>
+        </button>
+      )}
       <div className="list-row-actions">
         {wort.geloest ? (
           <span className="quadrant-term is-correct">{wort.loesung}</span>
         ) : (
-          <>
-            <input
-              className="input"
-              style={{ width: 160 }}
-              value={eingabe}
-              maxLength={wort.laenge + 5}
-              disabled={submitPending}
-              onChange={(event) => setEingabe(event.target.value)}
-              aria-label={`Lösung zu Hinweis ${wort.nummer}`}
-            />
-            <button
-              type="button"
-              className="btn btn-secondary btn-sm"
-              disabled={!eingabe.trim() || submitPending}
-              onClick={() => onSubmitWort(wort.nummer, eingabe)}
-            >
-              Prüfen
-            </button>
-            <button type="button" className="btn btn-ghost btn-sm" onClick={() => setTippSichtbar(true)}>
-              Tipp anzeigen
-            </button>
-          </>
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            onClick={(event) => {
+              event.stopPropagation();
+              setTippSichtbar(true);
+            }}
+          >
+            Tipp anzeigen
+          </button>
         )}
       </div>
     </div>
-  );
-}
-
-/** Einfache Variante: Wortkarte auf den Hinweis ziehen bzw. per Tastatur auswählen/platzieren. */
-function EinfachZeile({
-  wort,
-  selectedId,
-  selectTarget,
-  locked,
-}: {
-  wort: Wort;
-  selectedId: string | null;
-  selectTarget: (targetId: string) => void;
-  locked: boolean;
-}) {
-  const [tippSichtbar, setTippSichtbar] = useState(false);
-
-  return (
-    <DroppableZone
-      id={`clue-${wort.nummer}`}
-      label={`${wort.nummer}. ${wort.richtung === "waagerecht" ? "Waagerecht" : "Senkrecht"} (${wort.laenge} Buchstaben) — ${wort.hinweis}`}
-      className="quadrant-zone"
-      onSelectTarget={() => selectTarget(`clue-${wort.nummer}`)}
-      targetDisabled={wort.geloest || locked || !selectedId}
-    >
-      {wort.geloest ? (
-        <DraggableTerm id={`geloest-${wort.nummer}`} text={wort.loesung!} disabled state="correct" />
-      ) : (
-        <>
-          {tippSichtbar && <span className="field-hint">Tipp: {wort.tipp}</span>}
-          <button type="button" className="btn btn-ghost btn-sm" onClick={() => setTippSichtbar(true)}>
-            Tipp anzeigen
-          </button>
-        </>
-      )}
-    </DroppableZone>
   );
 }
 
@@ -182,6 +242,9 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
   const data = trpc.game.getKreuzwortraetsel.useQuery({ kursId });
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
   const [lastResult, setLastResult] = useState<{ nummer: number; correct: boolean } | null>(null);
+  const [activeWortNummer, setActiveWortNummer] = useState<number | null>(null);
+  const [eingabeProZelle, setEingabeProZelle] = useState<Map<string, string>>(new Map());
+  const inputRefs = useRef<Map<string, HTMLInputElement>>(new Map());
 
   const invalidateProgress = () => {
     utils.progress.overview.invalidate();
@@ -194,10 +257,18 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
   const start = trpc.game.startKreuzwortraetsel.useMutation({
     onSuccess: () => {
       setLastResult(null);
+      setActiveWortNummer(null);
       utils.game.getKreuzwortraetsel.invalidate({ kursId });
     },
   });
   const submit = trpc.game.submitKreuzwortraetselWort.useMutation();
+
+  const spiel = data.data;
+
+  function aktivieren(nummer: number) {
+    setActiveWortNummer(nummer);
+    setEingabeProZelle(new Map());
+  }
 
   function submitWort(nummer: number, eingabe: string) {
     submit.mutate(
@@ -206,6 +277,8 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
         onSuccess: (result) => {
           setLastResult({ nummer, correct: result.correct });
           if (result.correct) {
+            setActiveWortNummer(null);
+            setEingabeProZelle(new Map());
             utils.game.getKreuzwortraetsel.invalidate({ kursId });
             invalidateProgress();
           }
@@ -214,8 +287,34 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
     );
   }
 
+  function focusZelle(wortNummer: number, offset: number) {
+    inputRefs.current.get(`${wortNummer}-${offset}`)?.focus();
+  }
+
+  function handleCellInput(_row: number, _col: number, wortNummer: number, offset: number, rawValue: string) {
+    const wort = spiel?.woerter.find((entry) => entry.nummer === wortNummer);
+    if (!wort) return;
+    const char = rawValue.slice(-1).toUpperCase();
+    setEingabeProZelle((current) => {
+      const next = new Map(current);
+      next.set(`${wortNummer}-${offset}`, char);
+      return next;
+    });
+    if (char && offset + 1 < wort.laenge) {
+      // Alle Eingabefelder des aktiven Wortes sind bereits im DOM (nicht erst die gerade
+      // angefasste Zelle) — ein direkter, synchroner Fokuswechsel ist deshalb sicher und nötig:
+      // requestAnimationFrame hätte bei schnellem Tippen einen nächsten Tastendruck verpasst
+      // (die noch fokussierte alte Zelle hätte ihn stattdessen erhalten).
+      focusZelle(wortNummer, offset + 1);
+    }
+  }
+
+  function handleCellBackspace(wortNummer: number, offset: number) {
+    if (offset > 0) focusZelle(wortNummer, offset - 1);
+  }
+
   function movePlacement(wordText: string, targetId: string) {
-    const nummer = Number(targetId.replace("clue-", ""));
+    const nummer = Number(targetId.replace("wort-", ""));
     submitWort(nummer, wordText);
   }
 
@@ -228,9 +327,27 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
     movePlacement(String(event.active.id), targetId);
   }
 
+  const aktivesWort = spiel?.woerter.find((wort) => wort.nummer === activeWortNummer) ?? null;
+  const aktiveEingabeVollstaendig =
+    !!aktivesWort && Array.from({ length: aktivesWort.laenge }, (_, offset) => eingabeProZelle.get(`${aktivesWort.nummer}-${offset}`)).every(Boolean);
+
+  useEffect(() => {
+    if (spiel?.variant === "anspruchsvoll" && activeWortNummer !== null) {
+      focusZelle(activeWortNummer, 0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeWortNummer]);
+
   if (data.isLoading) return <p>Lädt…</p>;
-  if (data.error || !data.data) return <ErrorMessage>Kreuzworträtsel konnte nicht geladen werden.</ErrorMessage>;
-  const spiel = data.data;
+  if (data.error || !spiel) return <ErrorMessage>Kreuzworträtsel konnte nicht geladen werden.</ErrorMessage>;
+
+  const gridInfo = buildGridInfo(spiel.woerter);
+
+  function pruefeAktivesWort() {
+    if (!aktivesWort) return;
+    const eingabe = Array.from({ length: aktivesWort.laenge }, (_, offset) => eingabeProZelle.get(`${aktivesWort.nummer}-${offset}`) ?? "").join("");
+    submitWort(aktivesWort.nummer, eingabe);
+  }
 
   return (
     <div className="panel-section">
@@ -254,16 +371,36 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
           </div>
         </div>
       ) : (
-        <div className="stack">
-          <p className="field-hint">
-            {spiel.variant === "einfach"
-              ? "Alle zehn Begriffe stehen zur Auswahl. Lies die Hinweise und ziehe die passenden Begriffe in das Zielfeld."
-              : "Lies die Hinweise und trage die gesuchten Begriffe ein."}
-          </p>
-          <KreuzwortraetselGrid woerter={spiel.woerter} />
+        <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+          <div className="stack">
+            <p className="field-hint">
+              {spiel.variant === "einfach"
+                ? "Alle zehn Begriffe stehen zur Auswahl. Lies die Hinweise und ziehe die passenden Begriffe direkt ins Gitter."
+                : "Klicke einen Hinweis oder das zugehörige Wort im Gitter an und trage die Buchstaben direkt in die Felder ein."}
+            </p>
+            <KreuzwortraetselGrid
+              woerter={spiel.woerter}
+              gridInfo={gridInfo}
+              activeWortNummer={spiel.variant === "einfach" ? null : activeWortNummer}
+              eingabeProZelle={eingabeProZelle}
+              onCellInput={handleCellInput}
+              onCellBackspace={handleCellBackspace}
+              onActivate={(nummer) => (spiel.variant === "einfach" ? selectTarget(`wort-${nummer}`) : aktivieren(nummer))}
+              inputRefs={inputRefs}
+            />
 
-          {spiel.variant === "einfach" ? (
-            <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+            {spiel.variant === "anspruchsvoll" && aktivesWort && (
+              <div className="list-row-actions">
+                <button type="button" className="btn btn-secondary btn-sm" disabled={!aktiveEingabeVollstaendig || submit.isPending} onClick={pruefeAktivesWort}>
+                  Antworten prüfen
+                </button>
+                {lastResult?.nummer === aktivesWort.nummer && !lastResult.correct && (
+                  <span className="field-hint">{spiel.falschAnspruchsvollFeedback}</span>
+                )}
+              </div>
+            )}
+
+            {spiel.variant === "einfach" && (
               <DroppableZone id={WORD_BANK_POOL_ID} label="Begriffe" className="quadrant-pool">
                 {spiel.wordBank?.map((text) => (
                   <DraggableTerm
@@ -276,41 +413,26 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
                   />
                 ))}
               </DroppableZone>
-              {lastResult && !lastResult.correct && (
-                <ErrorMessage>{spiel.falschEinfachFeedback}</ErrorMessage>
-              )}
-              <div className="list">
-                {spiel.woerter.map((wort) => (
-                  <EinfachZeile
-                    key={wort.nummer}
-                    wort={wort}
-                    selectedId={selectedId}
-                    selectTarget={selectTarget}
-                    locked={submit.isPending}
-                  />
-                ))}
-              </div>
-            </DndContext>
-          ) : (
+            )}
+            {spiel.variant === "einfach" && lastResult && !lastResult.correct && <ErrorMessage>{spiel.falschEinfachFeedback}</ErrorMessage>}
+
             <div className="list">
               {spiel.woerter.map((wort) => (
-                <AnspruchsvollZeile
+                <HinweisZeile
                   key={wort.nummer}
                   wort={wort}
-                  onSubmitWort={submitWort}
-                  submitPending={submit.isPending}
-                  lastResult={lastResult}
+                  onActivate={() => (spiel.variant === "einfach" ? undefined : aktivieren(wort.nummer))}
                 />
               ))}
             </div>
-          )}
 
-          {spiel.abgeschlossen && (
-            <div className="alert alert-success">
-              <div>{spiel.abschlussmeldung}</div>
-            </div>
-          )}
-        </div>
+            {spiel.abgeschlossen && (
+              <div className="alert alert-success">
+                <div>{spiel.abschlussmeldung}</div>
+              </div>
+            )}
+          </div>
+        </DndContext>
       )}
     </div>
   );

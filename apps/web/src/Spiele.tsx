@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { KennzahlenDuellIllustration, KreuzwortraetselIllustration, MemoryIllustration } from "./GameIllustrations";
 import { KennzahlenDuell } from "./KennzahlenDuell";
 import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
 import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
@@ -11,28 +12,44 @@ import { trpc } from "./trpc";
  * Katalog selbst nötig — feste, im Code bekannte Menge), `game.available` liefert nur, welche
  * davon in diesem Kurs tatsächlich Content haben (aktuell Fachwirt-spezifisch, der Mathe-Kurs
  * zeigt "noch nicht verfügbar", analog zu Instrumenten ohne Kurs-Content).
+ *
+ * Nutzer-Vorgabe vom 28.09.2026: Kacheln statt Listenzeilen (siehe GameIllustrations.tsx), sowie
+ * `onActiveGameChange` — meldet an `App.tsx`, ob gerade ein Spiel läuft, damit der darunter
+ * gerenderte Sozial-Bereich (`Sozial.tsx`) während eines laufenden Spiels ausgeblendet werden
+ * kann (Fokus aufs Spiel).
  */
 const GAME_CATALOG = [
   {
     type: "kreuzwortraetsel",
     label: "Kreuzworträtsel: Finanzkennzahlen",
     description: "Zehn wichtige Finanzkennzahlen anhand kurzer Hinweise im Gitter erkennen.",
+    Illustration: KreuzwortraetselIllustration,
   },
   {
     type: "kennzahlen_duell",
     label: "Kennzahlen-Duell: Qualitätsmanagement und Prozesse",
     description: "In kurzen Entweder-oder-Duellen ähnliche Kennzahlen sicher unterscheiden.",
+    Illustration: KennzahlenDuellIllustration,
   },
   {
     type: "memory",
     label: "Kennzahlen-Memory: Personal",
     description: "Personalkennzahlen und ihre Bedeutung als Karten-Paare zuordnen.",
+    Illustration: MemoryIllustration,
   },
 ] as const;
 
-export function Spiele({ kursId }: { kursId: string }) {
+export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiveGameChange?: (active: boolean) => void }) {
   const available = trpc.game.available.useQuery({ kursId });
   const [activeGame, setActiveGame] = useState<string | null>(null);
+
+  useEffect(() => {
+    onActiveGameChange?.(activeGame !== null);
+    // Beim Verlassen des Tabs (Unmount) den Fokus-Modus wieder aufheben, damit ein
+    // Tab-Wechsel mitten im Spiel den Sozial-Bereich nicht dauerhaft ausgeblendet lässt.
+    return () => onActiveGameChange?.(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeGame]);
 
   if (activeGame === "kreuzwortraetsel") {
     return <Kreuzwortraetsel kursId={kursId} onClose={() => setActiveGame(null)} />;
@@ -53,25 +70,26 @@ export function Spiele({ kursId }: { kursId: string }) {
         Fachbegriffe und Kennzahlen spielerisch üben — jedes Spiel wertet deine Fortschritte sofort in Punktehamster,
         Creditstand und Lernserie mit.
       </p>
-      <div className="list" style={{ marginTop: 10 }}>
+      <div className="game-tile-grid">
         {GAME_CATALOG.map((entry) => {
           const isAvailable = available.data?.some((row) => row.gameType === entry.type);
           return (
-            <div key={entry.type} className="list-row">
-              <div className="meta">
-                {entry.label}
-                <span>{entry.description}</span>
-              </div>
-              <div className="list-row-actions">
-                {isAvailable ? (
-                  <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveGame(entry.type)}>
-                    Spiel starten
-                  </button>
-                ) : (
-                  <span className="field-hint">In diesem Kurs noch nicht verfügbar</span>
-                )}
-              </div>
-            </div>
+            <button
+              key={entry.type}
+              type="button"
+              className="game-tile"
+              disabled={!isAvailable}
+              onClick={() => isAvailable && setActiveGame(entry.type)}
+            >
+              <span className="game-tile-image">
+                <entry.Illustration />
+              </span>
+              <span className="game-tile-body">
+                <span className="game-tile-title">{entry.label}</span>
+                <span className="game-tile-description">{entry.description}</span>
+                {!isAvailable && <span className="game-tile-unavailable">In diesem Kurs noch nicht verfügbar</span>}
+              </span>
+            </button>
           );
         })}
       </div>

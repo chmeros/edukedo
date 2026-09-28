@@ -2763,10 +2763,13 @@ button.progress-block:hover .progress-head b {
   }
 }
 
-/* F-141 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13): rein darstellendes
-   Kreuzworträtsel-Gitter (Interaktion läuft über die Hinweisliste, siehe Kreuzwortraetsel.tsx) —
+/* F-141 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13): Kreuzworträtsel-Gitter —
    ein CSS-Grid mit einer Zelle je Gitterposition, gescrollt statt umbrochen, damit die
-   Wortpositionen bei kleinen Wortlängen (EBIT, 4 Buchstaben) nicht gestaucht wirken. */
+   Wortpositionen bei kleinen Wortlängen (EBIT, 4 Buchstaben) nicht gestaucht wirken.
+   Nutzer-Vorgabe vom 28.09.2026: Interaktion läuft direkt im Gitter (siehe Kreuzwortraetsel.tsx,
+   `WordOverlay`) statt über separate Eingabefelder in der Hinweisliste — je Wort liegt ein
+   transparentes Klick-/Drop-Ziel (`.crossword-word-overlay`) über der exakten Zellspanne, per
+   CSS-Grid-Platzierung deckungsgleich mit den darunterliegenden `.crossword-cell`-Elementen. */
 .crossword-grid-scroll {
   overflow-x: auto;
   padding-bottom: 4px;
@@ -2811,4 +2814,112 @@ button.progress-block:hover .progress-head b {
   font-weight: 700;
   color: var(--ink-faint);
   line-height: 1;
+}
+
+/* Transparentes Klick-/Drop-Ziel über der Zellspanne eines Wortes (siehe Kommentar oben) — liegt
+   im DOM vor den `.crossword-cell`-Elementen, ein `pointer-events: none` auf noch nicht
+   aktivierten Zellen lässt Klicks bis hierher durch. */
+.crossword-word-overlay {
+  position: relative;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.crossword-word-overlay.is-over,
+.crossword-word-overlay.is-active {
+  outline: 2px solid var(--info);
+  outline-offset: -2px;
+  background: var(--info-tint);
+}
+
+.crossword-cell-input {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  padding: 0;
+  color: inherit;
+}
+
+.crossword-cell-input:focus {
+  outline: 2px solid var(--info);
+  outline-offset: -2px;
+}
+
+/* Hinweiszeile als Klick-Ziel zur Wort-Aktivierung (anspruchsvolle Variante) — Textbutton ohne
+   eigene Optik, damit die Zeile wie zuvor aussieht (siehe .list-row .meta). */
+.crossword-hint-select {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* F-140/F-141/F-142/F-143 (Kachel-Redesign, 28.09.2026, siehe Architekturplanung Abschnitt 13):
+   Spiele-Katalog als Kachelraster statt Listenzeilen (Nutzer-Vorgabe) — je Kachel ein
+   aussagekräftiges Vorschaubild (siehe GameIllustrations.tsx) oberhalb von Titel/Beschreibung. */
+.game-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.game-tile {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.game-tile:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.game-tile-image {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  display: block;
+}
+
+.game-tile-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.game-tile-title {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+.game-tile-description {
+  color: var(--ink-faint);
+  font-size: var(--fs-xs);
+  flex: 1;
+}
+
+.game-tile-unavailable {
+  color: var(--ink-faint);
+  font-size: var(--fs-xs);
+  font-style: italic;
 }

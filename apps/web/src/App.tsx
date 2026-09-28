@@ -95,6 +95,10 @@ export function App() {
   // F-108: rein optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg.
   const [displayName, setDisplayName] = useState("");
   const [learningMode, setLearningMode] = useState<LearningMode>("lernen");
+  // F-140 (Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung Abschnitt 13): sobald ein
+  // Spiel läuft, wird der darunter gerenderte Sozial-Bereich ausgeblendet (Fokus aufs Spiel) —
+  // `Spiele.tsx` meldet den aktiven Zustand über `onActiveGameChange` nach oben.
+  const [gamingFocusMode, setGamingFocusMode] = useState(false);
   // F-44: "roving tabindex" fürs ARIA-Tablist-Muster unten — nur der aktive Tab ist per
   // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
   const learningModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -411,15 +415,19 @@ export function App() {
                       <>
                         {/* F-140/F-141/F-142/F-143 (Nutzer-Vorgabe vom 28.09.2026, siehe
                             Architekturplanung Abschnitt 13): Spiele-Katalog als neuer primärer
-                            Inhalt dieses Tabs, exakt nach dem Instrumente-Muster — die
-                            bestehenden Sozial-Features bleiben unverändert darunter bestehen. */}
-                        <Spiele key={activeKursId} kursId={activeKursId} />
-                        <Sozial
-                          key={activeKursId}
-                          kursId={activeKursId}
-                          isMinor={me.data.isMinor}
-                          gamificationEnabled={me.data.gamificationEnabled}
-                        />
+                            Inhalt dieses Tabs, exakt nach dem Instrumente-Muster. Sobald ein
+                            Spiel läuft (gamingFocusMode), wird der Sozial-Bereich ausgeblendet
+                            statt entfernt — dessen eigener State (z. B. geöffnete Formulare)
+                            bleibt dadurch erhalten, wenn das Spiel wieder verlassen wird. */}
+                        <Spiele key={activeKursId} kursId={activeKursId} onActiveGameChange={setGamingFocusMode} />
+                        <div hidden={gamingFocusMode}>
+                          <Sozial
+                            key={activeKursId}
+                            kursId={activeKursId}
+                            isMinor={me.data.isMinor}
+                            gamificationEnabled={me.data.gamificationEnabled}
+                          />
+                        </div>
                       </>
                     )}
                     {learningMode === "progress" && (

@@ -9,6 +9,13 @@ import { trpc } from "./trpc";
  * bewusst nur clientseitig gehalten (siehe Architekturplanung Abschnitt 13 zur Datenmodell-
  * Entscheidung F-140–F-143): ein Reload mitten in einer Runde beginnt diese Runde neu, bereits
  * ABGESCHLOSSENE Runden bleiben serverseitig erhalten (`completeMemoryRound`).
+ *
+ * Nutzer-Vorgabe vom 28.09.2026: Runden laufen streng sequenziell (beginnend bei der ersten
+ * noch nicht abgeschlossenen), keine frei wählbare Rundenübersicht mehr. Nach einer
+ * abgeschlossenen Runde entscheidet die Person explizit zwischen "Weiter" und "Schluss für
+ * heute". Da `game.getMemory` immer genau eine Runde lädt, wird die passende Startrunde einmalig
+ * über eine kleine Bootstrap-Abfrage (Runde 1, liefert `abgeschlosseneRunden` unabhängig von der
+ * angefragten Runde) ermittelt, bevor die eigentliche Runde geladen wird.
  */
 
 interface Karte {
@@ -32,16 +39,24 @@ export function PersonalkennzahlenMemory({ kursId, onClose }: { kursId: string; 
     utils.gamification.streakStatus.invalidate();
   };
 
+  // Bootstrap: welche Runde ist die erste noch nicht abgeschlossene? `abgeschlosseneRunden`
+  // liegt in JEDER `getMemory`-Antwort identisch vor, unabhängig von der angefragten Runde.
+  const bootstrap = trpc.game.getMemory.useQuery({ kursId, runde: 1 }, { enabled: aktiveRunde === null });
+  useEffect(() => {
+    if (aktiveRunde !== null || !bootstrap.data) return;
+    const abgeschlossen = new Set(bootstrap.data.abgeschlosseneRunden);
+    const naturalStart =
+      bootstrap.data.runden.find((runde) => !abgeschlossen.has(runde.nummer))?.nummer ??
+      bootstrap.data.runden[bootstrap.data.runden.length - 1]?.nummer ??
+      1;
+    setAktiveRunde(naturalStart);
+  }, [bootstrap.data, aktiveRunde]);
+
   const data = trpc.game.getMemory.useQuery({ kursId, runde: aktiveRunde ?? 1 }, { enabled: aktiveRunde !== null });
   const submitPaar = trpc.game.submitMemoryPaar.useMutation();
   const completeRound = trpc.game.completeMemoryRound.useMutation({
     onSuccess: () => utils.game.getMemory.invalidate({ kursId, runde: aktiveRunde ?? 1 }),
   });
-
-  // Übersichtsdaten (welche Runden schon abgeschlossen sind) — bewusst eine zweite, feste Abfrage
-  // für Runde 1 statt vier separater Overview-Prozeduren; `abgeschlosseneRunden` liegt in jeder
-  // Runden-Antwort identisch vor (siehe game.ts-Router).
-  const overview = trpc.game.getMemory.useQuery({ kursId, runde: 1 }, { enabled: aktiveRunde === null });
 
   useEffect(() => {
     setAufgedeckt([]);
@@ -90,64 +105,43 @@ export function PersonalkennzahlenMemory({ kursId, onClose }: { kursId: string; 
     );
   }
 
-  if (aktiveRunde === null) {
-    if (overview.isLoading) return <p>Lädt…</p>;
-    if (overview.error || !overview.data) return <ErrorMessage>Kennzahlen-Memory konnte nicht geladen werden.</ErrorMessage>;
-    const abgeschlosseneRunden = new Set(overview.data.abgeschlosseneRunden);
-
-    return (
-      <div className="panel-section">
-        <div className="panel-section-head">
-          <h2>Kennzahlen-Memory: Personal</h2>
-          <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
-            Zurück zu den Spielen
-          </button>
-        </div>
-        <p className="field-hint">
-          Welche Kennzahl passt zu welcher Beschreibung? Decke jeweils zwei Karten auf und finde die passenden Paare. Nach jedem
-          gefundenen Paar erfährst du, was die Kennzahl aussagt.
-        </p>
-        <div className="list">
-          {overview.data.runden.map((runde) => (
-            <div key={runde.nummer} className="list-row">
-              <div className="meta">
-                Runde {runde.nummer}: {runde.titel}
-                {abgeschlosseneRunden.has(runde.nummer) && <span>Abgeschlossen</span>}
-              </div>
-              <div className="list-row-actions">
-                <button type="button" className="btn btn-primary btn-sm" onClick={() => setAktiveRunde(runde.nummer)}>
-                  {abgeschlosseneRunden.has(runde.nummer) ? "Runde erneut spielen" : "Runde starten"}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        {overview.data.abgeschlossen && (
-          <div className="alert alert-success">
-            <div>{overview.data.abschlussmeldung}</div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  if (data.isLoading) return <p>Lädt…</p>;
-  if (data.error || !data.data) return <ErrorMessage>Runde konnte nicht geladen werden.</ErrorMessage>;
+  if (aktiveRunde === null || data.isLoading) return <p>Lädt…</p>;
+  if (data.error || !data.data) return <ErrorMessage>Kennzahlen-Memory konnte nicht geladen werden.</ErrorMessage>;
   const runde = data.data;
   const rundeFertig = gefunden.length === runde.karten.length;
+  const rundenIndex = runde.runden.findIndex((entry) => entry.nummer === aktiveRunde);
+  const naechsteRunde = runde.runden[rundenIndex + 1];
 
   return (
     <div className="panel-section">
       <div className="panel-section-head">
         <h2>Kennzahlen-Memory: Runde {aktiveRunde}</h2>
-        <button type="button" className="btn btn-ghost btn-sm" onClick={() => setAktiveRunde(null)}>
-          Zurück zur Rundenübersicht
+        <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
+          Zurück zu den Spielen
         </button>
       </div>
 
       {rundeFertig ? (
-        <div className="alert alert-success">
-          <div>{runde.runden.find((entry) => entry.nummer === aktiveRunde)?.abschlussmeldung}</div>
+        <div className="stack">
+          <div className="alert alert-success">
+            <div>{runde.runden[rundenIndex]?.abschlussmeldung}</div>
+          </div>
+          <div className="list-row-actions">
+            {naechsteRunde ? (
+              <button type="button" className="btn btn-primary" onClick={() => setAktiveRunde(naechsteRunde.nummer)}>
+                Weiter: {naechsteRunde.titel}
+              </button>
+            ) : (
+              runde.abgeschlossen && (
+                <div className="alert alert-success">
+                  <div>{runde.abschlussmeldung}</div>
+                </div>
+              )
+            )}
+            <button type="button" className="btn btn-secondary" onClick={onClose}>
+              Schluss für heute
+            </button>
+          </div>
         </div>
       ) : (
         <div className="stack">

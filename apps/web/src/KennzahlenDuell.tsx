@@ -7,9 +7,14 @@ import { trpc } from "./trpc";
  * Kennzahlen-Duell „Qualitätsmanagement und Prozesse" — reines Einzelspieler-Quiz (20
  * Entweder-oder-Fragen in vier Themenrunden à fünf Fragen), UI-Text bewusst durchgängig
  * „Kennzahlen-Duell" statt bloß „Duell", um Verwechslung mit dem bestehenden F-61-„Duell"
- * (asynchrones 1:1-Wissensduell im Freundeskreis) zu vermeiden. Zwei große Antwortflächen wie
- * `TwoChoiceStep` (QuizSteps.tsx), hier aber als eigene, schlankere Komponente, da Runden-
- * Navigation und Rundenübersicht spezifisch für dieses Spiel sind.
+ * (asynchrones 1:1-Wissensduell im Freundeskreis) zu vermeiden.
+ *
+ * Nutzer-Vorgabe vom 28.09.2026: Runden laufen streng sequenziell (beginnend bei der ersten
+ * noch nicht abgeschlossenen), keine frei wählbare Rundenübersicht mehr. Nach einer
+ * abgeschlossenen Runde entscheidet die Person explizit zwischen "Weiter" (nächste Runde) und
+ * "Schluss für heute" (zurück zum Spiele-Katalog) — der interne Rundenzeiger startet mit der
+ * serverseitig ermittelten ersten unfertigen Runde und wird nur durch einen expliziten
+ * "Weiter"-Klick weitergesetzt, niemals automatisch.
  */
 
 interface Frage {
@@ -24,7 +29,7 @@ interface Frage {
 export function KennzahlenDuell({ kursId, onClose }: { kursId: string; onClose: () => void }) {
   const utils = trpc.useUtils();
   const data = trpc.game.getKennzahlenDuell.useQuery({ kursId });
-  const [aktiveRunde, setAktiveRunde] = useState<number | null>(null);
+  const [rundeOverride, setRundeOverride] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<{ nummer: number; ausgewaehlt: "A" | "B"; correct: boolean; feedback: string } | null>(
     null,
   );
@@ -58,50 +63,16 @@ export function KennzahlenDuell({ kursId, onClose }: { kursId: string; onClose: 
     fragenNachRunde.set(frage.runde, list);
   }
 
-  if (aktiveRunde === null) {
-    return (
-      <div className="panel-section">
-        <div className="panel-section-head">
-          <h2>Kennzahlen-Duell: Qualitätsmanagement und Prozesse</h2>
-          <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
-            Zurück zu den Spielen
-          </button>
-        </div>
-        <p className="field-hint">
-          Fehlerquote oder Nacharbeitsquote? Durchlaufzeit oder Bearbeitungszeit? Entscheide, welche Kennzahl zur Frage passt. Nach jeder
-          Antwort erfährst du, worin sich die beiden Begriffe unterscheiden.
-        </p>
-        <div className="list">
-          {spiel.runden.map((runde) => {
-            const fragen = fragenNachRunde.get(runde.nummer) ?? [];
-            const erledigt = fragen.filter((frage) => frage.beantwortet).length;
-            return (
-              <div key={runde.nummer} className="list-row">
-                <div className="meta">
-                  Runde {runde.nummer}: {runde.titel}
-                  <span>
-                    {erledigt} von {fragen.length} Duellen
-                  </span>
-                </div>
-                <div className="list-row-actions">
-                  <button type="button" className="btn btn-primary btn-sm" onClick={() => setAktiveRunde(runde.nummer)}>
-                    {erledigt === fragen.length ? "Runde wiederholen" : erledigt > 0 ? "Weiter" : "Runde starten"}
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        {spiel.abgeschlossen && (
-          <div className="alert alert-success">
-            <div>{spiel.abschlussmeldung}</div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  const runde = spiel.runden.find((entry) => entry.nummer === aktiveRunde)!;
+  // Erste noch nicht vollständig beantwortete Runde — Ausgangspunkt bei jedem (Wieder-)Einstieg,
+  // solange kein expliziter "Weiter"-Klick (rundeOverride) einen anderen Zeiger gesetzt hat.
+  const ersteUnfertigeRunde =
+    spiel.runden.find((runde) => (fragenNachRunde.get(runde.nummer) ?? []).some((frage) => !frage.beantwortet))?.nummer ??
+    spiel.runden[spiel.runden.length - 1]?.nummer ??
+    1;
+  const aktiveRunde = rundeOverride ?? ersteUnfertigeRunde;
+  const rundenIndex = spiel.runden.findIndex((entry) => entry.nummer === aktiveRunde);
+  const runde = spiel.runden[rundenIndex]!;
+  const naechsteRunde = spiel.runden[rundenIndex + 1];
   const fragenDerRunde = fragenNachRunde.get(aktiveRunde) ?? [];
   const naechsteFrage = fragenDerRunde.find((frage) => !frage.beantwortet);
   const rundeFertig = !naechsteFrage;
@@ -110,14 +81,39 @@ export function KennzahlenDuell({ kursId, onClose }: { kursId: string; onClose: 
     <div className="panel-section">
       <div className="panel-section-head">
         <h2>Kennzahlen-Duell: {runde.titel}</h2>
-        <button type="button" className="btn btn-ghost btn-sm" onClick={() => setAktiveRunde(null)}>
-          Zurück zur Rundenübersicht
+        <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
+          Zurück zu den Spielen
         </button>
       </div>
 
       {rundeFertig ? (
-        <div className="alert alert-success">
-          <div>{runde.abschlussmeldung}</div>
+        <div className="stack">
+          <div className="alert alert-success">
+            <div>{runde.abschlussmeldung}</div>
+          </div>
+          <div className="list-row-actions">
+            {naechsteRunde ? (
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  setFeedback(null);
+                  setRundeOverride(naechsteRunde.nummer);
+                }}
+              >
+                Weiter: {naechsteRunde.titel}
+              </button>
+            ) : (
+              spiel.abgeschlossen && (
+                <div className="alert alert-success">
+                  <div>{spiel.abschlussmeldung}</div>
+                </div>
+              )
+            )}
+            <button type="button" className="btn btn-secondary" onClick={onClose}>
+              Schluss für heute
+            </button>
+          </div>
         </div>
       ) : (
         <div className="stack">
