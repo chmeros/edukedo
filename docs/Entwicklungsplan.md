@@ -283,6 +283,21 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den drittgrößte
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Bezug zum neuen Modellunternehmen, Fortschrittsanzeige über alle elf Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 12 — Siebter Kurs: Geprüfter Industriefachwirt
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die viertgrößte noch nicht umgesetzte Fachwirt-Qualifikation (Industriefachwirt, 1.196 Prüfungsteilnehmer:innen 2025) als siebten Kurs ergänzen — zweiteilige Prüfungsstruktur (Wirtschaftsbezogene/Handlungsspezifische Qualifikationen), ausnahmslos Pflicht. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/industriefachwirt/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: industriefachwirt` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur des Industriefachwirts (IndFachwirtPrV 2010, WQ/HQ-Gliederung, Zulassung, Prüfungsablauf/-gewichtung). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller neun Fachgebiete (31 Themen) über neun parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Solvitec Elektrowerke GmbH". Die vier WQ-Agenten (dritte Überschneidung mit einem Vorkurs) wurden erneut zur Eigenständigkeit angewiesen. **Erledigt 29.09.2026:** 1.185 Content-Items für diesen Kurs (6.583 insgesamt über alle sieben Kurse nach Import). Dry-Run-Validierung aller 50 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 271 Dateien, 6.583 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle neun Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

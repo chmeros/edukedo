@@ -117,6 +117,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-148 (siebter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // viertgrößte noch nicht umgesetzte Fachwirt-Qualifikation (DIHK-Statistik 2025). Bewusst
+  // sofort isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  industriefachwirt: {
+    title: "Geprüfter Industriefachwirt (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

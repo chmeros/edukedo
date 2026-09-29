@@ -1,7 +1,9 @@
 # Anforderungskatalog: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb (Pilot-Kurs: IHK-Fachwirt für Büro- und Projektorganisation)
 
-Version 0.48 · Stand 29.09.2026 · Entwurf zur Abstimmung
+Version 0.49 · Stand 29.09.2026 · Entwurf zur Abstimmung
 
+> **Update (Version 0.49):** Siebter Kurs „Geprüfter Industriefachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt") — viertgrößte noch nicht umgesetzte Fachwirt-Qualifikation (1.196 Prüfungsteilnehmer:innen 2025). Zweiteilige Prüfungsstruktur (Wirtschaftsbezogene/Handlungsspezifische Qualifikationen, IndFachwirtPrV 2010), ausnahmslos Pflicht. Neun Fachgebiete (WQ1–4, HQ1–5, technisch gleichrangige `Fachgebiet`-Zeilen), 31 Themen, 1.185 Content-Items. Bereits dritte Überschneidung der vier WQ-Fächer mit einem Vorkurs (nach WBQ beim vierten und WQ beim sechsten Kurs) — Content-Agenten wieder zur Eigenständigkeit angehalten. Neues Modellunternehmen „Solvitec Elektrowerke GmbH" (Elektrotechnik/industrielle Automatisierung). Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
+>
 > **Update (Version 0.48):** Sechster Kurs „Geprüfter Technischer Fachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt") — drittgrößte noch nicht umgesetzte Fachwirt-Qualifikation (1.740 Prüfungsteilnehmer:innen 2025). Dreiteilige Prüfungsstruktur (Wirtschaftsbezogene/Technische/Handlungsspezifische Qualifikationen, TechFachwPrV), ausnahmslos Pflicht — kein Wahlpflicht-Element wie beim fünften Kurs. Elf Fachgebiete (WQ1–4, TQ1–3, HQ1–4, technisch gleichrangige `Fachgebiet`-Zeilen — bisher meiste Fachgebiete), 36 Themen, 1.457 Content-Items — größter Einzelkurs bisher. Neues Modellunternehmen „Vantera Präzisionstechnik GmbH" (Maschinenbau). Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
 >
 > **Update (Version 0.47):** Fünfter Kurs „Geprüfter Handelsfachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt", ermittelt anhand der aktuellsten DIHK-Fortbildungsstatistik Berichtsjahr 2025) — größte noch nicht umgesetzte Fachwirt-Qualifikation (3.262 Prüfungsteilnehmer:innen 2025). Acht Fachgebiete (4 Pflicht-Handlungsbereiche + 4 Wahlpflicht-Handlungsbereiche, technisch gleichrangige `Fachgebiet`-Zeilen), 28 Themen, 979 Content-Items. Neues Modellunternehmen „Loreno Mode & Wohnen GmbH". Statistik-Tabelle in Abschnitt 12 auf die 2025er-Ausgabe aktualisiert. Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
@@ -284,6 +286,33 @@ Technisch **keine Schema-Erweiterung nötig**, analog zu den beiden Vorkursen: a
 - **HQ4 – Führung und Zusammenarbeit** (Pflichtthema des Fachgesprächs): 11.1 Führungsmethoden und Mitarbeitermotivation · 11.2 Teamarbeit und Kommunikation · 11.3 Konfliktmanagement.
 
 Rechtlicher Hinweis wie bei den fünf Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (insbesondere der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen (insbesondere Recht-und-Steuern- sowie Arbeitsschutz-Fachgebiete).
+
+**Umgesetzter siebter Kurs: Geprüfter Industriefachwirt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" vom 29.09.2026, vollständig umgesetzt am 29.09.2026, siehe Architekturplanung Abschnitt 13):** Nach Ausschluss der sechs bereits umgesetzten Kurse ist der Industriefachwirt mit **1.196 Prüfungsteilnehmer:innen 2025** (907 bestanden, ~76 %) die viertgrößte noch nicht umgesetzte Fachwirt-Qualifikation (vor Immobilienfachwirt 1.151 und Versicherungen und Finanzen 1.035). Kurs-Slug `industriefachwirt`, DQR-Niveau 6 wie die sechs bestehenden Kurse.
+
+**Struktureller Aufbau:** Der Industriefachwirt hat laut Rechtsverordnung **IndFachwirtPrV 2010** (25.06.2010, BGBl. I S. 833, zuletzt geändert Art. 51 V v. 9.12.2019) eine zweiteilige Prüfungsstruktur, ausnahmslos Pflicht (kein Wahlpflicht-Element wie beim fünften Kurs):
+- **I. Wirtschaftsbezogene Qualifikationen** (4 Fächer, 330 Min. gesamt): Volks- und Betriebswirtschaft, Rechnungswesen, Recht und Steuern, Unternehmensführung.
+- **II. Handlungsspezifische Qualifikationen** (5 Handlungsbereiche, schriftlich 480–510 Min.): Finanzwirtschaft im Industrieunternehmen, Produktionsprozesse, Marketing und Vertrieb, Wissens- und Transfermanagement im Industrieunternehmen, Führung und Zusammenarbeit.
+- Mündliche Prüfung: Präsentation (max. 10 Min., muss sich auf mind. zwei Handlungsbereiche beziehen, Gewichtung 1/3) + situationsbezogenes Fachgespräch (max. 20 Min., Gewichtung 2/3).
+
+Technisch **keine Schema-Erweiterung nötig**: alle neun Qualifikationsbereiche/Handlungsbereiche werden als neun gleichrangige `Fachgebiet`-Zeilen desselben Kurses geführt (Codes `WQ1`–`WQ4`, `HQ1`–`HQ5`). Einzige Code-Änderung wie bei den drei Vorkursen: ein neuer `KURS_META`-Eintrag. Direkt mit `is_published = true` veröffentlicht.
+
+**Dritte Überschneidung mit den WQ/WBQ-Fächern:** Die vier Wirtschaftsbezogenen Qualifikationen sind jetzt bereits das dritte Mal inhaltlich identisch zu einem Vorkurs-Fachgebiet (nach WBQ1–4 beim vierten Kurs und WQ1–4 beim sechsten Kurs) — ein bundesweit standardisierter Prüfungsteil, den mehrere Fachwirt-Qualifikationen teilen. Die vier zugehörigen Content-Agenten wurden erneut ausdrücklich angewiesen, eigenständig zu formulieren statt bestehenden Content zu recyceln.
+
+**Umfang:** 9 Fachgebiete, 31 Themen, **1.185 Content-Items** für diesen Kurs allein (6.583 Content-Items insgesamt in der Datenbank nach Import aller sieben Kurse). Neues Modellunternehmen: fiktive **„Solvitec Elektrowerke GmbH"** — mittelständischer Industriehersteller für elektrotechnische Komponenten der industriellen Automatisierung, ca. 500 Beschäftigte, mehrere Werke, weltweiter Export.
+
+**Fachgebiete des siebten Kurses „Industriefachwirt" (eigene, an §§4–5 IndFachwirtPrV 2010 orientierte Gliederung, 29.09.2026):**
+
+- **WQ1 – Volks- und Betriebswirtschaft:** 1.1 Grundlagen der Volkswirtschaftslehre · 1.2 Betriebliche Grundfunktionen · 1.3 Existenzgründung und Unternehmensformen · 1.4 Unternehmenszusammenschlüsse.
+- **WQ2 – Rechnungswesen:** 2.1 Finanzbuchhaltung und Jahresabschluss · 2.2 Kostenrechnung · 2.3 Planungsrechnung.
+- **WQ3 – Recht und Steuern:** 3.1 Bürgerliches Recht und Handelsrecht · 3.2 Arbeitsrecht Grundlagen · 3.3 Vertragsgestaltung · 3.4 Unternehmensrelevantes Steuerrecht.
+- **WQ4 – Unternehmensführung:** 4.1 Betriebsorganisation · 4.2 Personalführung und -entwicklung · 4.3 Planungs- und Analysemethoden.
+- **HQ1 – Finanzwirtschaft im Industrieunternehmen:** 5.1 Investitionsplanung und -rechnung · 5.2 Finanzierungsarten · 5.3 Liquiditäts- und Finanzplanung.
+- **HQ2 – Produktionsprozesse:** 6.1 Produktionsplanung und -steuerung · 6.2 Fertigungsverfahren und Automatisierung · 6.3 Qualitätsmanagement in der Produktion · 6.4 Materialwirtschaft und Logistik.
+- **HQ3 – Marketing und Vertrieb:** 7.1 Marktanalyse · 7.2 Marketing-Mix · 7.3 Vertriebssteuerung · 7.4 Internationale Geschäftsbeziehungen.
+- **HQ4 – Wissens- und Transfermanagement im Industrieunternehmen:** 8.1 Wissensmanagement-Grundlagen · 8.2 Innovationsmanagement · 8.3 Wissenstransfer und Dokumentation.
+- **HQ5 – Führung und Zusammenarbeit:** 9.1 Führungsmethoden und Mitarbeitermotivation · 9.2 Teamarbeit und Kommunikation · 9.3 Konfliktmanagement.
+
+Rechtlicher Hinweis wie bei den sechs Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (insbesondere der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen.
 
 **Beispiel: Fachgebiete des Piloten-Kurses „Fachwirt für Büro- und Projektorganisation".** Innerhalb jedes Fachgebiets empfiehlt sich eine feinere Gliederung in Themen/Lernfelder, die sich an gängiger Prüfungsliteratur orientiert. **Alle vier Handlungsbereiche wurden inzwischen anhand des offiziellen DIHK-Rahmenplans „Geprüfter Fachwirt für Büro- und Projektorganisation" (Rahmenplan mit Lernzielen) verifiziert und durch die dortige Themenstruktur ersetzt** — zuerst HB3 (14.09.2026), dann HB1, HB2 und HB4 (15.09.2026). Die zuvor hier notierten, vorläufigen Themenvorschläge (u. a. für HB1: „Aufbau- und Ablauforganisation, Projektmanagement-Methoden..."; für HB2: „Marketing- und Kommunikationsgrundlagen..."; für HB3: „Personalführung, Ausbildungsmanagement, Arbeitsrecht-Grundlagen, Konfliktmanagement, Personalverwaltung als fünf gleichrangige Themen"; für HB4: „Büroorganisation, Kennzahlen/Controlling...") wichen jeweils von der tatsächlichen Gliederung des Rahmenplans ab und sind damit überholt:
 
@@ -758,6 +787,8 @@ Im Rahmen der Investoren-Review recherchierte Eckdaten zur Einordnung von Marktg
 | Personalfachkaufmann/-frau | 1.883 | 1.485 (~79 %) |
 | **Handelsfachwirt/in (fünfter Kurs, ergänzt 29.09.2026)** | **3.262** | **2.036 (~62 %)** |
 | Wirtschaftsfachwirt/in (vierter Kurs, ergänzt 29.09.2026) | 8.103 | 5.018 (~62 %) |
+| **Technische(r) Fachwirt/in (sechster Kurs, ergänzt 29.09.2026 — beim sechsten Kurs nicht nachgetragen, hier beim siebten Kurs ergänzt)** | **1.740** | **1.175 (~68 %)** |
+| **Industriefachwirt/in (siebter Kurs, ergänzt 29.09.2026)** | **1.196** | **907 (~76 %)** |
 
 Quelle: [IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2025 (DIHK, PDF)](https://www.dihk.de/resource/blob/182428/f042794cd59a86fff2b781cccc93e14a/fachkraefte-weiterbildungsstatistik-2025-data.pdf) — löst die beim vierten Kurs verwendete 2024er-Ausgabe ab, daher weichen einzelne Werte (insbesondere Wirtschaftsfachwirt: 8.103 statt vormals 8.179) leicht von den in Abschnitt 4 beim vierten Kurs genannten 2024er-Zahlen ab.
 
@@ -798,3 +829,5 @@ Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen
 - [Handelsfachwirt – Wikipedia](https://de.wikipedia.org/wiki/Handelsfachwirt)
 - [TechFachwPrV – Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/techfachwprv/BJNR006600006.html)
 - [IHK Nord Westfalen – Technischer Fachwirt (m/w/d): Handlungsbereiche, Prüfungsstruktur, Zulassung](https://www.ihk.de/nordwestfalen/bildung/fortbildungspruefungen/a-z/technischer-fachwirt-3607518)
+- [IndFachwirtPrV 2010 – Verordnung über die Prüfung zum anerkannten Fortbildungsabschluss Geprüfter Industriefachwirt und Geprüfte Industriefachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/indfachwirtprv_2010/BJNR083300010.html)
+- [IHK Nord Westfalen – Industriefachwirt/-in: Handlungsbereiche, Prüfungsstruktur, Zulassung](https://www.ihk.de/nordwestfalen/bildung/fortbildungspruefungen/a-z/industriefachwirt-3590492)
