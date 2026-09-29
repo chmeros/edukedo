@@ -146,6 +146,18 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-151 (zehnter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // Nachfolge-Bezeichnung des größtenteils bereits migrierten "Fachwirt für Güterverkehr und
+  // Logistik" (nur noch 6 von 442 Prüfungsteilnehmer:innen 2025 unter altem Titel) -- analog zur
+  // beim neunten Kurs getroffenen Nutzerentscheidung direkt die aktuelle Bezeichnung "Bachelor
+  // Professional in Transport Management and Logistics" umgesetzt. Bewusst sofort
+  // isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  "transport-management-logistics": {
+    title: "Bachelor Professional in Transport Management and Logistics (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

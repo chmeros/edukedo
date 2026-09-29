@@ -329,6 +329,21 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den naheliegenden
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle vier Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 15 — Zehnter Kurs: Bachelor Professional in Transport Management and Logistics
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den nächstgrößten Kandidaten „Fachwirt für Güterverkehr und Logistik" recherchiert — wie beim neunten Kurs eine Nachfolge-Titel-Situation vorgefunden (Bachelor Professional in Transport Management and Logistics), diesmal aber mit weit fortgeschrittener Migration (436 von 442 Prüfungsteilnehmer:innen 2025 bereits unter neuem Titel). Konsistent mit der beim neunten Kurs getroffenen Nutzer-Entscheidung direkt die aktuelle Bezeichnung umgesetzt, ohne erneute Rückfrage. Kompakteste Prüfungsstruktur bisher: drei Handlungsbereiche, integrierte Prüfung statt Einzelfächer — kleinste Fachgebiets-Anzahl bisher. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/transport-management-logistics/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: transport-management-logistics` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur der Nachfolge-Qualifikation (GüLogFachwBAProFV, drei Handlungsbereiche, integrierte Prüfung, Zulassung). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller drei Fachgebiete (15 Themen) über drei parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Fracora Spedition & Logistik GmbH". **Erledigt 29.09.2026:** 578 Content-Items für diesen Kurs (8.782 insgesamt über alle zehn Kurse nach Import) — kleinster Einzelkurs bisher. Dry-Run-Validierung aller 20 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 354 Dateien, 8.782 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle drei Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:
