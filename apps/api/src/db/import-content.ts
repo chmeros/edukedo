@@ -99,6 +99,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-146 (fünfter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // zweitgrößte noch nicht umgesetzte Fachwirt-Qualifikation (DIHK-Statistik 2025). Bewusst
+  // sofort isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  handelsfachwirt: {
+    title: "Geprüfter Handelsfachwirt (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

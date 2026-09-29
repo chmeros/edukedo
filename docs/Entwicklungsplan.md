@@ -253,6 +253,21 @@ Ziel: Auf Basis eines Teilnehmer-Rankings aller IHK-Fachwirt-Qualifikationen (DI
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrekter Rückmeldung und Punktehamster-/Credit-Zuwachs, Fortschrittsanzeige über alle neun Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 10 — Fünfter Kurs: Geprüfter Handelsfachwirt
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die aktuellste DIHK-Fortbildungsstatistik (Berichtsjahr 2025, aktueller als die beim vierten Kurs genutzte 2024er-Ausgabe) erneut auswerten und den größten noch nicht umgesetzten Fachwirt-Abschluss (Handelsfachwirt, 3.262 Prüfungsteilnehmer:innen 2025) als fünften Kurs ergänzen — mit dem ersten echten Wahlpflicht-Element unter den fünf Kursen (4 Pflicht- + 4 Wahl-Handlungsbereiche). Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/handelsfachwirt/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: handelsfachwirt` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: aktuellste DIHK-Fortbildungsstatistik (Berichtsjahr 2025, PDF direkt gelesen, ersetzt die 2024er-Ausgabe für die gesamte Statistik-Tabelle in Anforderungskatalog Abschnitt 12) sowie amtliche Prüfungsstruktur des Handelsfachwirts (HdlFachwPrV, Pflicht-/Wahlpflicht-Gliederung, Zulassung, Prüfungsablauf/-gewichtung). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller acht Fachgebiete (28 Themen) über acht parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Loreno Mode & Wohnen GmbH". **Erledigt 29.09.2026:** 979 Content-Items für diesen Kurs (3.901 insgesamt über alle fünf Kurse nach Import). Dry-Run-Validierung aller 40 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 164 Dateien, 3.901 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrekten Quiz-/Zuordnungs-Fragen, Fortschrittsanzeige über alle acht Fachgebiete inklusive „(Wahlpflicht)"-Kennzeichnung, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

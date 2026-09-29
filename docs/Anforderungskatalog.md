@@ -1,7 +1,9 @@
 # Anforderungskatalog: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb (Pilot-Kurs: IHK-Fachwirt für Büro- und Projektorganisation)
 
-Version 0.46 · Stand 29.09.2026 · Entwurf zur Abstimmung
+Version 0.47 · Stand 29.09.2026 · Entwurf zur Abstimmung
 
+> **Update (Version 0.47):** Fünfter Kurs „Geprüfter Handelsfachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt", ermittelt anhand der aktuellsten DIHK-Fortbildungsstatistik Berichtsjahr 2025) — größte noch nicht umgesetzte Fachwirt-Qualifikation (3.262 Prüfungsteilnehmer:innen 2025). Acht Fachgebiete (4 Pflicht-Handlungsbereiche + 4 Wahlpflicht-Handlungsbereiche, technisch gleichrangige `Fachgebiet`-Zeilen), 28 Themen, 979 Content-Items. Neues Modellunternehmen „Loreno Mode & Wohnen GmbH". Statistik-Tabelle in Abschnitt 12 auf die 2025er-Ausgabe aktualisiert. Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
+>
 > **Update (Version 0.44):** Neue Anforderungen F-140–F-143 (Nutzer-Vorgabe vom 28.09.2026, drei vollständig ausgearbeitete User-Story-Dokumente als Referenz-Content) — neuer Abschnitt 5.14 „Gaming: Lernspiele": Der Haupt-Tab „Sozial" wird in „Gaming" umbenannt (F-140) und bekommt einen neuen Spiele-Katalog mit drei Einzelspieler-Lernspielen — Kreuzworträtsel „Finanzkennzahlen" (F-141), Kennzahlen-Duell „Qualitätsmanagement und Prozesse" (F-142, kein Bezug zum bestehenden F-61-„Duell") und Kennzahlen-Memory „Personal" (F-143). Alle drei fließen anders als der Instrumenten-Lernpfad (F-129) vollständig in Fortschritt/Punktehamster/Credits/Lernserie ein und sind Teil des kostenlosen Kernangebots. Siehe Architekturplanung Abschnitt 13.
 >
 > **Update (Version 0.43):** Neue Anforderung F-139 (Nutzer-Vorgabe "Mache einen vollständigen Codereview" → "Ganzer Branch seit Projektbeginn") — vollständiger Codereview des gesamten Branches seit Projektbeginn, 28 Befunde behoben: mehrere Nebenläufigkeits-/Race-Condition-Lücken (u. a. doppelte Credit-Vergabe, doppelte Prüfungsantworten, Content-Editor-Versionsnummern-Konflikt), Blockierfunktion (F-68) wirkte in Duellen/Kohorten-Beitritt bisher nicht immer sofort, Eltern-Widerruf der Einwilligung (F-08) beendete bestehende Kind-Sitzungen nicht, ein geräteübergreifend geteilter Zwischenspeicher zeigte nach Logout/Kontowechsel kurzzeitig noch Daten der vorherigen Person, Duelle (F-61) flossen bisher gar nicht in Fortschritt/Punktehamster/Credits/Lernserie ein, die KI-Bewertung (F-70) verifizierte die Reihenfolge der zurückgelieferten Teilaufgaben-Bewertungen nicht, mehrere Bedienelemente blieben während einer laufenden Anfrage anklickbar, sowie ein Dead-End-Bug im geführten Lernpfad (F-129, kein Weiter-Button in zwei Rundenverlauf-Kombinationen). Siehe Architekturplanung Abschnitt 13.
@@ -224,6 +226,32 @@ Rechtlicher Hinweis wie bei den drei Vorkursen: Themengliederung frei formuliert
 **Ausblick (Nebenrecherche, nicht umgesetzt):** Bei der Recherche zusätzlich gesammelte, zum Wirtschaftsfachwirt passende Kandidaten für eine spätere Erweiterung des Instrumente-/Gaming-Angebots: als **Instrumente** Porter's Five Forces, BCG-/Portfolio-Matrix, Business Model Canvas, Wertschöpfungskette nach Porter, Break-Even-Analyse (visuell), 4P/7P-Marketing-Mix, Nutzwertanalyse, PESTEL-Analyse; als **Gaming**-Ideen ein Bilanz-Puzzle (Aktiv-/Passivseite zuordnen), ein VWL-Begriffsduell (analog zum bestehenden Kennzahlen-Duell), ein Rechtsformen-Memory und ein Wirtschafts-Kreuzworträtsel.
 
 **Statistik-Tabelle (Abschnitt 12):** die dortige Zeile „Wirtschaftsfachwirt/in" (8.179 Teilnehmer:innen 2024, 5.296 bestanden, ~65 %) — ursprünglich nur zur Marktkontext-Einordnung recherchiert — als „vierter Kurs, ergänzt 29.09.2026" markiert.
+
+**Umgesetzter fünfter Kurs: Geprüfter Handelsfachwirt (Nutzer-Vorgabe vom 29.09.2026 „Starte mit dem nächsten Fachwirt", vollständig umgesetzt am 29.09.2026, siehe Architekturplanung Abschnitt 13):** Ausgangspunkt war die aktuellste verfügbare DIHK-Fortbildungsstatistik, Berichtsjahr **2025** (neuer als die beim vierten Kurs genutzte 2024er-Ausgabe) — sortiert man alle Fachwirt-Abschlüsse nach Prüfungsteilnehmer:innen 2025 und blendet die vier bereits umgesetzten Kurse aus, liegt der Handelsfachwirt mit **3.262 Prüfungsteilnehmer:innen 2025** (2.036 bestanden, ~62 %) mit deutlichem Abstand (1,9× der nächstgrößere, Technischer Fachwirt mit 1.740) an erster Stelle. Kurs-Slug `handelsfachwirt`, DQR-Niveau 6 wie die vier bestehenden Kurse.
+
+**Struktureller Unterschied zu den vier Vorkursen:** Der Handelsfachwirt hat laut Rechtsverordnung **HdlFachwPrV** (13.05.2014, BGBl. I S. 527/1708, zuletzt geändert Art. 73 V v. 9.12.2019) eine Prüfungsstruktur mit einem echten **Wahlpflicht-Element** — anders als beim Wirtschaftsfachwirt (dort nur organisatorisch zweigeteilt, aber alle Fachgebiete verpflichtend):
+- **Erste schriftliche Teilprüfung** (240 Min., beide Pflicht): Unternehmensführung und -steuerung; Führung, Personalmanagement, Kommunikation und Kooperation.
+- **Zweite schriftliche Teilprüfung** (300 Min.): Handelsmarketing (Pflicht) und Beschaffung und Logistik (Pflicht) **plus einer** von vier Wahl-Handlungsbereichen: Vertriebssteuerung, Handelslogistik, Einkauf, Außenhandel.
+- Mündliche Prüfung: Präsentation (~15 Min., Gewichtung 1/3) + situationsbezogenes Fachgespräch (max. 20 Min., Gewichtung 2/3).
+
+Technisch **keine Schema-Erweiterung nötig**, analog zum vierten Kurs: alle acht Handlungsbereiche (4 Pflicht + 4 Wahl) werden als acht gleichrangige `Fachgebiet`-Zeilen desselben Kurses geführt (Codes `HB1`–`HB4` für die Pflichtbereiche, `WB1`–`WB4` für die Wahlbereiche) — die Wahlpflicht-Eigenschaft ist rein inhaltlich/dokumentarisch im Fachgebiet-Titel vermerkt (z. B. „Vertriebssteuerung (Wahlpflicht)"), keine technische Einschränkung, da Lernende sinnvoll alle vier Wahlbereiche zum Vergleich durcharbeiten können, bevor sie sich für die Prüfung festlegen. Einzige Code-Änderung wie bei den beiden Vorkursen: ein neuer `KURS_META`-Eintrag im Bulk-Import. Direkt mit `is_published = true` veröffentlicht (Zielgruppe Berufstätige, kein Jugendschutz-Gate).
+
+**Umfang:** 8 Fachgebiete, 28 Themen, **979 Content-Items** für diesen Kurs allein (Theorie, Karteikarten, Quiz über alle 14 Fragetypen, Fallaufgaben, Fachgesprächsfragen; 3.901 Content-Items insgesamt in der Datenbank nach Import aller fünf Kurse). Neues Modellunternehmen (anstelle des B2B-Großhändlers „NordWert Handels GmbH" des vierten Kurses, da dieser Kurs stärker auf den klassischen filialisierten Einzelhandel zielt): fiktive **„Loreno Mode & Wohnen GmbH"** — mittelständische Einzelhandelskette für Mode und Wohnaccessoires, ca. 40 Filialen bundesweit plus Online-Shop, Importe aus Asien und Europa.
+
+**Fachgebiete des fünften Kurses „Handelsfachwirt" (eigene, an §4 HdlFachwPrV orientierte Gliederung, 29.09.2026):**
+
+- **HB1 – Unternehmensführung und -steuerung:** 1.1 Geschäftsideen und Businessplanung · 1.2 Unternehmensfinanzierung · 1.3 Controllinginstrumente · 1.4 Risikomanagement.
+- **HB2 – Führung, Personalmanagement, Kommunikation und Kooperation:** 2.1 Führungsmethoden und Kommunikation · 2.2 Berufsausbildung und Qualifizierung · 2.3 Personalplanung · 2.4 Arbeitsschutz.
+- **HB3 – Handelsmarketing:** 3.1 Marktanalyse im Handel · 3.2 Sortimentsgestaltung · 3.3 Werbekonzepte und Verkaufsförderung · 3.4 Visual Merchandising und E-Commerce.
+- **HB4 – Beschaffung und Logistik:** 4.1 Bedarfsermittlung · 4.2 Supply Chain Management · 4.3 Lager- und Transportprozesse.
+- **WB1 – Vertriebssteuerung** (Wahlpflicht): 5.1 Category Management · 5.2 Flächenoptimierung · 5.3 Preis- und Konditionenpolitik.
+- **WB2 – Handelslogistik** (Wahlpflicht): 6.1 Logistikkette im Handel · 6.2 Vertragskonditionen und Investitionsbewertung.
+- **WB3 – Einkauf** (Wahlpflicht): 7.1 Einkaufsstrategien · 7.2 Lieferantenbewertung und Verhandlung · 7.3 Compliance im Einkauf.
+- **WB4 – Außenhandel** (Wahlpflicht): 8.1 Import und Export · 8.2 Außenhandelsrisiken und Zollabwicklung · 8.3 Außenhandelsfinanzierung.
+
+Rechtlicher Hinweis wie bei den vier Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (insbesondere der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen.
+
+**Statistik-Tabelle (Abschnitt 12):** neue Zeile „Handelsfachwirt/in" (3.262 Prüfungsteilnehmer:innen 2025, 2.036 bestanden, ~62 %) ergänzt; gleichzeitig alle Bestandszeilen auf die aktuelleren 2025er-Zahlen aus derselben, frisch abgerufenen DIHK-Statistik (Berichtsjahr 2025, Stand 27.05.2026) aktualisiert — siehe Quellen.
 
 **Beispiel: Fachgebiete des Piloten-Kurses „Fachwirt für Büro- und Projektorganisation".** Innerhalb jedes Fachgebiets empfiehlt sich eine feinere Gliederung in Themen/Lernfelder, die sich an gängiger Prüfungsliteratur orientiert. **Alle vier Handlungsbereiche wurden inzwischen anhand des offiziellen DIHK-Rahmenplans „Geprüfter Fachwirt für Büro- und Projektorganisation" (Rahmenplan mit Lernzielen) verifiziert und durch die dortige Themenstruktur ersetzt** — zuerst HB3 (14.09.2026), dann HB1, HB2 und HB4 (15.09.2026). Die zuvor hier notierten, vorläufigen Themenvorschläge (u. a. für HB1: „Aufbau- und Ablauforganisation, Projektmanagement-Methoden..."; für HB2: „Marketing- und Kommunikationsgrundlagen..."; für HB3: „Personalführung, Ausbildungsmanagement, Arbeitsrecht-Grundlagen, Konfliktmanagement, Personalverwaltung als fünf gleichrangige Themen"; für HB4: „Büroorganisation, Kennzahlen/Controlling...") wichen jeweils von der tatsächlichen Gliederung des Rahmenplans ab und sind damit überholt:
 
@@ -688,18 +716,18 @@ Retention (Wiederkehr nach X Wochen) und Free-to-Paid-Conversion wurden für die
 
 Im Rahmen der Investoren-Review recherchierte Eckdaten zur Einordnung von Marktgröße und Umsatzannahmen.
 
-**Prüfungsteilnehmerzahlen 2024 (IHK-Fortbildungsstatistik bundesweit):**
+**Prüfungsteilnehmerzahlen 2025 (IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2025, Stand 27.05.2026 — beim fünften Kurs auf die aktuellste verfügbare Ausgabe aktualisiert, ersetzt die zuvor hier verwendete 2024er-Ausgabe):**
 
-| Abschluss | Teilnehmer 2024 | Bestanden |
+| Abschluss | Prüfungsteilnehmer 2025 | Bestanden |
 |---|---|---|
-| Fachwirt/in für Büro- und Projektorganisation (Zielqualifikation) | 872 (2022: 860, 2023: 910) | 740 (~85 %) |
-| Fachwirt/in im Gesundheits- und Sozialwesen (dritter Kurs, ergänzt 29.09.2026)¹ | 2.032 (2021: 1.952, 2022: 2.059) | 1.527 (~75 %) |
-| Fachwirt/in für Versicherungen und Finanzen | 942 | 779 |
-| Personalfachkaufmann/-frau | 1.690 | 1.328 |
-| Handelsfachwirt/in | 3.833 | 2.607 |
-| **Wirtschaftsfachwirt/in (vierter Kurs, ergänzt 29.09.2026)** | **8.179** | **5.296 (~65 %)** |
+| Fachwirt/in für Büro- und Projektorganisation (Zielqualifikation) | 1.129 | 914 (~81 %) |
+| Fachwirt/in im Gesundheits- und Sozialwesen (dritter Kurs, ergänzt 29.09.2026) | 2.257 | 1.591 (~70 %) |
+| Fachwirt/in für Versicherungen und Finanzen | 1.035 | 861 (~83 %) |
+| Personalfachkaufmann/-frau | 1.883 | 1.485 (~79 %) |
+| **Handelsfachwirt/in (fünfter Kurs, ergänzt 29.09.2026)** | **3.262** | **2.036 (~62 %)** |
+| Wirtschaftsfachwirt/in (vierter Kurs, ergänzt 29.09.2026) | 8.103 | 5.018 (~62 %) |
 
-¹ Quelle: DIHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2023 (jüngste zum Zeitpunkt der Recherche am 29.09.2026 verfügbare Ausgabe für diesen Abschluss) — ein Jahr älter als die übrigen Zeilen dieser Tabelle (Berichtsjahr 2024); direkter Vergleich der Spaltenköpfe daher nur eingeschränkt möglich, die Größenordnung (gut doppelt so viele Prüfungsteilnehmer:innen wie beim Büro-Fachwirt-Piloten) ist aber belastbar.
+Quelle: [IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2025 (DIHK, PDF)](https://www.dihk.de/resource/blob/182428/f042794cd59a86fff2b781cccc93e14a/fachkraefte-weiterbildungsstatistik-2025-data.pdf) — löst die beim vierten Kurs verwendete 2024er-Ausgabe ab, daher weichen einzelne Werte (insbesondere Wirtschaftsfachwirt: 8.103 statt vormals 8.179) leicht von den in Abschnitt 4 beim vierten Kurs genannten 2024er-Zahlen ab.
 
 Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen. Da die Prüfungsvorbereitung typischerweise 1–2 Jahre dauert, dürften zu jedem Zeitpunkt bundesweit nur rund 1.300–1.800 Personen in der Vorbereitung stecken (Schätzung auf Basis der Prüfungsteilnehmerzahlen, keine offizielle Statistik). Die in der Architekturplanung bereits vorgesehene spätere Erweiterung auf weitere Fachwirt-Qualifikationen (z. B. Handelsfachwirt oder Wirtschaftsfachwirt mit deutlich größeren Teilnehmerzahlen) gewinnt dadurch an strategischer Bedeutung für die langfristige Tragfähigkeit — mit dem dritten Kurs (Gesundheits- und Sozialwesen, gut doppelt so viele Prüfungsteilnehmer:innen wie der Büro-Fachwirt-Pilot) und dem vierten Kurs (Wirtschaftsfachwirt, mit Abstand die größte Fachwirt-Qualifikation im gesamten IHK-System, 9,4× der Büro-Fachwirt-Pilot) sind bereits zwei deutliche Schritte in diese Richtung umgesetzt.
 
@@ -733,3 +761,6 @@ Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen
 - [IHK Köln – Geprüfte Fachwirte für Büro- und Projektorganisation](https://www.ihk.de/koeln/hauptnavigation/weiterbildung/fortbildungspruefungen/fachwirt-fuer-buero-und-projektorganisation-4992852)
 - [KMK – Bildungsstandards für das Fach Mathematik (ESA/MSA, Beschluss 2022)](https://www.kmk.org/fileadmin/Dateien/veroeffentlichungen_beschluesse/2022/2022_06_23-Bista-ESA-MSA-Mathe.pdf)
 - [LehrplanPLUS Bayern – Fachlehrplan Mathematik, Gymnasium/Realschule, Jahrgangsstufe 9](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/9/mathematik)
+- [IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2025 (DIHK, PDF, Stand 27.05.2026)](https://www.dihk.de/resource/blob/182428/f042794cd59a86fff2b781cccc93e14a/fachkraefte-weiterbildungsstatistik-2025-data.pdf)
+- [HdlFachwPrV – Verordnung über die Prüfung zum anerkannten Fortbildungsabschluss Geprüfter Handelsfachwirt und Geprüfte Handelsfachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/hdlfachwprv/BJNR052700014.html)
+- [Handelsfachwirt – Wikipedia](https://de.wikipedia.org/wiki/Handelsfachwirt)
