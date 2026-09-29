@@ -344,6 +344,21 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den nächstgröß
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle drei Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 16 — Elfter Kurs: Ausbildung der Ausbilder (AEVO-Ausbildereignungsprüfung)
+
+Ziel: Auf direkte Nutzer-Vorgabe „Starte mit einem Ausbildung der Ausbilder Kurs" (statt wie bei den Kursen 3–10 über das DIHK-Statistik-Ranking) die berufspädagogische Eignungsprüfung nach der Ausbilder-Eignungsverordnung (AEVO) umgesetzt — live gegen den Verordnungstext (gesetze-im-internet.de/ausbeignv_2009/, §§ 2–4) recherchiert. Fundamental andere Qualifikationsart als die zehn Vorkurse: keine Aufstiegsfortbildung, sondern eine Eignungsprüfung, deutlich kompaktere Prüfungsstruktur (3 Std. schriftlich, max. 30 Min. praktischer Teil) — dafür erstmals ein neuer `type`-Wert (`eignungspruefung` statt `fachwirt`) sowie bewusst reduzierte Content-Dichte je Thema. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/ausbildung-der-ausbilder/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: ausbildung-der-ausbilder` (Titel, neuer `type: "eignungspruefung"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration; vorab verifiziert, dass `type` freier Text ohne Enum-Constraint ist und im Code nur für die „demo"-Sortierung ausgewertet wird.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur nach AEVO (§§ 2–4, vier Handlungsfelder, schriftlicher/praktischer Prüfungsteil). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller vier Fachgebiete (12 Themen) über vier parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Kelvinar Elektrotechnik GmbH". **Erledigt 29.09.2026:** 360 Content-Items für diesen Kurs (9.142 insgesamt über alle elf Kurse) — kleinster Einzelkurs bisher, bewusst reduzierte Karteikarten-/Quiz-Zielwerte je Thema (12–15/8–10 statt der sonst üblichen 15–20/10–15). Bei der Stichprobenprüfung vor dem Dry-Run ein fabrizierter Rechtsverweis (falsche §§ 3–6-Zuordnung der Handlungsfelder) in einer Theorie-Datei entdeckt und korrigiert. Dry-Run-Validierung aller 20 neuen Dateien anschließend ohne Formatfehler. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 374 Dateien, 9.142 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle vier Fachgebiete, Fachgesprächs-Trainer, Prüfung-Tab mit eigenem Präsentation-Unterreiter, Instrumente-Tab korrekt ohne verfügbare Werkzeuge. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

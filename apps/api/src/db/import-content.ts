@@ -158,6 +158,19 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-152 (elfter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // "Ausbildung der Ausbilder" (AEVO-Ausbildereignungsprüfung) -- direkte Nutzer-Namensvorgabe,
+  // kein DIHK-Statistik-Ranking-Kandidat wie bei Kurs 3-10. type bewusst NICHT "fachwirt" (anders
+  // als bei den Bachelor-Professional-Nachfolgetiteln der Kurse 9/10): AdA ist keine
+  // Aufstiegsfortbildung, sondern eine Eignungsprüfung nach BBiG/AEVO -- neuer, eigenständiger
+  // type-Wert "eignungspruefung" eingeführt (rein deskriptiv, keine Logik hängt daran außer der
+  // bestehenden "demo"-Sortierung in courses.ts).
+  "ausbildung-der-ausbilder": {
+    title: "Ausbildung der Ausbilder – AEVO-Ausbildereignungsprüfung (IHK)",
+    type: "eignungspruefung",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {
