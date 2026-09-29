@@ -238,6 +238,21 @@ Ziel: Auf ausdrücklichen Nutzerwunsch (29.09.2026) einen dritten Kurs ergänzen
 **Testing**
 - [x] Live-Verifikation im Browser (frisches Testkonto): Kurs erscheint sofort im Katalog, Beitritt, Lernrunde mit korrekter Rückmeldung und Punktehamster-/Credit-Zuwachs, Fortschrittsanzeige über alle sechs Handlungsbereiche, Fachgesprächs-Trainer. **Erledigt 29.09.2026** — Testkonto danach entfernt. Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 9 — Vierter Kurs: Geprüfter Wirtschaftsfachwirt
+
+Ziel: Auf Basis eines Teilnehmer-Rankings aller IHK-Fachwirt-Qualifikationen (DIHK-Statistik 2024) den größten Fachwirt-Abschluss (8.179 Teilnehmer:innen 2024) als vierten Kurs ergänzen — analog zum dritten Kurs, aber mit der zweigeteilten WBQ/HSQ-Prüfungsstruktur des Wirtschaftsfachwirts (9 statt 6 Fachgebiete). Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/wirtschaftsfachwirt/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: wirtschaftsfachwirt` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: Teilnehmer-Ranking aller Fachwirt-Qualifikationen (DIHK-Statistik 2024, direkt aus PDF gelesen) sowie amtliche Prüfungsstruktur des Wirtschaftsfachwirts (Rechtsverordnung, WBQ/HSQ-Gliederung, Zulassung, DQR-Niveau). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller neun Fachgebiete (33 Themen) über neun parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „NordWert Handels GmbH". **Erledigt 29.09.2026:** 1.247 Content-Items für diesen Kurs (2.922 insgesamt über alle vier Kurse nach Import). Dry-Run-Validierung aller 51 neuen Dateien vor dem Import lief diesmal ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 122 Dateien, 2.922 Content-Items insgesamt, kein Altlasten-Problem diesmal.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrekter Rückmeldung und Punktehamster-/Credit-Zuwachs, Fortschrittsanzeige über alle neun Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

@@ -90,6 +90,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-145 (vierter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // größte Fachwirt-Qualifikation nach Teilnehmerzahl (DIHK-Statistik 2024). Bewusst sofort
+  // isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  wirtschaftsfachwirt: {
+    title: "Geprüfter Wirtschaftsfachwirt (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

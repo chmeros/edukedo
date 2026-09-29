@@ -1,6 +1,6 @@
 # Anforderungskatalog: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb (Pilot-Kurs: IHK-Fachwirt für Büro- und Projektorganisation)
 
-Version 0.45 · Stand 29.09.2026 · Entwurf zur Abstimmung
+Version 0.46 · Stand 29.09.2026 · Entwurf zur Abstimmung
 
 > **Update (Version 0.44):** Neue Anforderungen F-140–F-143 (Nutzer-Vorgabe vom 28.09.2026, drei vollständig ausgearbeitete User-Story-Dokumente als Referenz-Content) — neuer Abschnitt 5.14 „Gaming: Lernspiele": Der Haupt-Tab „Sozial" wird in „Gaming" umbenannt (F-140) und bekommt einen neuen Spiele-Katalog mit drei Einzelspieler-Lernspielen — Kreuzworträtsel „Finanzkennzahlen" (F-141), Kennzahlen-Duell „Qualitätsmanagement und Prozesse" (F-142, kein Bezug zum bestehenden F-61-„Duell") und Kennzahlen-Memory „Personal" (F-143). Alle drei fließen anders als der Instrumenten-Lernpfad (F-129) vollständig in Fortschritt/Punktehamster/Credits/Lernserie ein und sind Teil des kostenlosen Kernangebots. Siehe Architekturplanung Abschnitt 13.
 >
@@ -195,6 +195,35 @@ Aus Kapazitätsgründen wird der Pilot-Content nicht vollständig vor dem MVP-La
   - *6.3 Marketingkonzepte, Marketing-Mix und Wettbewerbsrecht:* Ansoff-Marktstrategien, Marketing-Mix-Instrumente, Grundzüge Wettbewerbsrecht (UWG), Heilmittelwerbegesetz und Berufsordnungen als branchenspezifische Werbe-Schranken.
 
 Anders als beim Büro-Fachwirt-Piloten wird HB5 hier zum verpflichtenden Fachgesprächsthema (statt HB3 dort) — die amtliche Prüfungsstruktur verlangt, dass das Fachgespräch „Führen und Entwickeln von Personal" plus einen weiteren Handlungsbereich abdeckt.
+
+**Umgesetzter vierter Kurs: Geprüfter Wirtschaftsfachwirt (Nutzer-Vorgabe vom 29.09.2026, vollständig umgesetzt am 29.09.2026, siehe Architekturplanung Abschnitt 13):** Ausgangspunkt war ein von der Nutzerin/dem Nutzer angefordertes Ranking aller IHK-Fachwirt-Qualifikationen nach Prüfungsteilnehmerzahl (DIHK-Fortbildungsstatistik, Berichtsjahr 2024) — der Wirtschaftsfachwirt liegt mit **8.179 Teilnehmer:innen 2024** mit weitem Abstand an erster Stelle aller Fachwirt-Abschlüsse (9,4× der Büro-Fachwirt-Pilot, ~4× der dritte Kurs). Kurs-Slug `wirtschaftsfachwirt`, DQR-Niveau 6 wie die drei bestehenden Kurse.
+
+**Struktureller Unterschied zu den ersten drei Kursen:** Der Wirtschaftsfachwirt hat laut Rechtsverordnung (26.08.2008, BGBl. I S. 1752, zuletzt geändert 09.12.2019) eine **zweigeteilte Prüfungsstruktur** statt eines einzigen Satzes gleichrangiger Handlungsbereiche:
+- **Wirtschaftsbezogene Qualifikationen (WBQ)** — vier Fächer (schriftlich je 75–90 Minuten): Volks- und Betriebswirtschaft, Rechnungswesen, Recht und Steuern, Unternehmensführung. Zulassung: kaufmännischer/verwaltender Ausbildungsberuf o. Ä., alternativ Berufspraxis.
+- **Handlungsspezifische Qualifikationen (HSQ)** — fünf Handlungsbereiche, zwei gleichgewichtige 240-Minuten-Klausuren auf Basis von Situationsbeschreibungen: Betriebliches Management; Investition, Finanzierung, betriebliches Rechnungswesen und Controlling; Logistik; Marketing und Vertrieb; Führung und Zusammenarbeit. Zulassung: bestandene WBQ plus weiteres Jahr Berufspraxis.
+- Mündliche Prüfung (nur nach bestandener HSQ): situationsbezogenes Fachgespräch mit Präsentation (10 Min. Präsentation + 20 Min. Fachgespräch, Gewichtung 1:2).
+
+Technisch **keine Schema-Erweiterung nötig**: WBQ-Fächer und HSQ-Handlungsbereiche werden als neun gleichrangige `Fachgebiet`-Zeilen desselben Kurses geführt (Codes `WBQ1`–`WBQ4`, `HSQ1`–`HSQ5`) — die WBQ/HSQ-Unterscheidung ist rein inhaltlich/dokumentarisch, keine technische. Einzige Code-Änderung wie beim dritten Kurs: ein neuer `KURS_META`-Eintrag im Bulk-Import. Direkt mit `is_published = true` veröffentlicht (Zielgruppe Berufstätige, kein Jugendschutz-Gate).
+
+**Umfang:** 9 Fachgebiete, 33 Themen, **2.922 Content-Items in der Datenbank insgesamt nach Import** (aller vier Kurse zusammen — der Wirtschaftsfachwirt allein trägt ca. 1.247 davon bei, größter Kurs bisher). Neues, generalistisches Modellunternehmen (statt des branchenspezifischen „Morgenlicht" der letzten beiden Kurse): fiktiver Großhändler **„NordWert Handels GmbH"** (Büro-/Verpackungsmaterial, 280 Beschäftigte, mehrere Standorte, EU-Export) — passt zu allen neun Fachgebieten (Logistik/Einkauf, Vertrieb/Marketing, Rechnungswesen, Personalführung, Investitionsentscheidungen) besser als ein branchenspezifisches Beispiel.
+
+**Fachgebiete des vierten Kurses „Wirtschaftsfachwirt" (eigene, an §§ 4/5 der Rechtsverordnung orientierte Gliederung, 29.09.2026):**
+
+- **WBQ1 – Volks- und Betriebswirtschaft:** 1.1 Grundlagen der Volkswirtschaftslehre · 1.2 Betriebliche Grundfunktionen · 1.3 Existenzgründung und Unternehmensformen · 1.4 Unternehmenszusammenschlüsse und Kooperationsformen.
+- **WBQ2 – Rechnungswesen:** 2.1 Finanzbuchhaltung und Jahresabschluss · 2.2 Kostenrechnung · 2.3 Planungsrechnung.
+- **WBQ3 – Recht und Steuern:** 3.1 Bürgerliches Recht und Handelsrecht · 3.2 Arbeitsrecht Grundlagen · 3.3 Vertragsgestaltung · 3.4 Unternehmensrelevantes Steuerrecht.
+- **WBQ4 – Unternehmensführung:** 4.1 Betriebsorganisation · 4.2 Personalführung und -entwicklung · 4.3 Planungs- und Analysemethoden.
+- **HSQ1 – Betriebliches Management:** 1.1 Strategische Planungsprozesse · 1.2 Organisationsentwicklung · 1.3 Informationstechnologie im Management · 1.4 Managementtechniken.
+- **HSQ2 – Investition, Finanzierung, betriebliches Rechnungswesen und Controlling:** 2.1 Investitionsplanung und -rechnung · 2.2 Finanzierungsarten · 2.3 Kosten- und Leistungsrechnung (vertieft) · 2.4 Controlling.
+- **HSQ3 – Logistik:** 3.1 Einkauf und Beschaffung · 3.2 Materialwirtschaft · 3.3 Wertschöpfungskette und Rationalisierung.
+- **HSQ4 – Marketing und Vertrieb:** 4.1 Marketingplanung · 4.2 Marketing-Mix · 4.3 Vertriebsmanagement · 4.4 Internationale Geschäftsbeziehungen.
+- **HSQ5 – Führung und Zusammenarbeit** (Pflichtthema des Fachgesprächs): 5.1 Kommunikation und Mitarbeitergespräche · 5.2 Konfliktmanagement · 5.3 Mitarbeiterförderung und Ausbildung · 5.4 Projektmoderation und Präsentationstechniken.
+
+Rechtlicher Hinweis wie bei den drei Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (u. a. der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen (insbesondere Recht-und-Steuern-Fachgebiet).
+
+**Ausblick (Nebenrecherche, nicht umgesetzt):** Bei der Recherche zusätzlich gesammelte, zum Wirtschaftsfachwirt passende Kandidaten für eine spätere Erweiterung des Instrumente-/Gaming-Angebots: als **Instrumente** Porter's Five Forces, BCG-/Portfolio-Matrix, Business Model Canvas, Wertschöpfungskette nach Porter, Break-Even-Analyse (visuell), 4P/7P-Marketing-Mix, Nutzwertanalyse, PESTEL-Analyse; als **Gaming**-Ideen ein Bilanz-Puzzle (Aktiv-/Passivseite zuordnen), ein VWL-Begriffsduell (analog zum bestehenden Kennzahlen-Duell), ein Rechtsformen-Memory und ein Wirtschafts-Kreuzworträtsel.
+
+**Statistik-Tabelle (Abschnitt 12):** die dortige Zeile „Wirtschaftsfachwirt/in" (8.179 Teilnehmer:innen 2024, 5.296 bestanden, ~65 %) — ursprünglich nur zur Marktkontext-Einordnung recherchiert — als „vierter Kurs, ergänzt 29.09.2026" markiert.
 
 **Beispiel: Fachgebiete des Piloten-Kurses „Fachwirt für Büro- und Projektorganisation".** Innerhalb jedes Fachgebiets empfiehlt sich eine feinere Gliederung in Themen/Lernfelder, die sich an gängiger Prüfungsliteratur orientiert. **Alle vier Handlungsbereiche wurden inzwischen anhand des offiziellen DIHK-Rahmenplans „Geprüfter Fachwirt für Büro- und Projektorganisation" (Rahmenplan mit Lernzielen) verifiziert und durch die dortige Themenstruktur ersetzt** — zuerst HB3 (14.09.2026), dann HB1, HB2 und HB4 (15.09.2026). Die zuvor hier notierten, vorläufigen Themenvorschläge (u. a. für HB1: „Aufbau- und Ablauforganisation, Projektmanagement-Methoden..."; für HB2: „Marketing- und Kommunikationsgrundlagen..."; für HB3: „Personalführung, Ausbildungsmanagement, Arbeitsrecht-Grundlagen, Konfliktmanagement, Personalverwaltung als fünf gleichrangige Themen"; für HB4: „Büroorganisation, Kennzahlen/Controlling...") wichen jeweils von der tatsächlichen Gliederung des Rahmenplans ab und sind damit überholt:
 
@@ -668,11 +697,11 @@ Im Rahmen der Investoren-Review recherchierte Eckdaten zur Einordnung von Marktg
 | Fachwirt/in für Versicherungen und Finanzen | 942 | 779 |
 | Personalfachkaufmann/-frau | 1.690 | 1.328 |
 | Handelsfachwirt/in | 3.833 | 2.607 |
-| Wirtschaftsfachwirt/in | 8.179 | 5.296 |
+| **Wirtschaftsfachwirt/in (vierter Kurs, ergänzt 29.09.2026)** | **8.179** | **5.296 (~65 %)** |
 
 ¹ Quelle: DIHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2023 (jüngste zum Zeitpunkt der Recherche am 29.09.2026 verfügbare Ausgabe für diesen Abschluss) — ein Jahr älter als die übrigen Zeilen dieser Tabelle (Berichtsjahr 2024); direkter Vergleich der Spaltenköpfe daher nur eingeschränkt möglich, die Größenordnung (gut doppelt so viele Prüfungsteilnehmer:innen wie beim Büro-Fachwirt-Piloten) ist aber belastbar.
 
-Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen. Da die Prüfungsvorbereitung typischerweise 1–2 Jahre dauert, dürften zu jedem Zeitpunkt bundesweit nur rund 1.300–1.800 Personen in der Vorbereitung stecken (Schätzung auf Basis der Prüfungsteilnehmerzahlen, keine offizielle Statistik). Die in der Architekturplanung bereits vorgesehene spätere Erweiterung auf weitere Fachwirt-Qualifikationen (z. B. Handelsfachwirt oder Wirtschaftsfachwirt mit deutlich größeren Teilnehmerzahlen) gewinnt dadurch an strategischer Bedeutung für die langfristige Tragfähigkeit — mit dem neuen dritten Kurs (Gesundheits- und Sozialwesen, gut doppelt so viele Prüfungsteilnehmer:innen wie der Büro-Fachwirt-Pilot) ist ein erster Schritt in diese Richtung bereits umgesetzt.
+Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen. Da die Prüfungsvorbereitung typischerweise 1–2 Jahre dauert, dürften zu jedem Zeitpunkt bundesweit nur rund 1.300–1.800 Personen in der Vorbereitung stecken (Schätzung auf Basis der Prüfungsteilnehmerzahlen, keine offizielle Statistik). Die in der Architekturplanung bereits vorgesehene spätere Erweiterung auf weitere Fachwirt-Qualifikationen (z. B. Handelsfachwirt oder Wirtschaftsfachwirt mit deutlich größeren Teilnehmerzahlen) gewinnt dadurch an strategischer Bedeutung für die langfristige Tragfähigkeit — mit dem dritten Kurs (Gesundheits- und Sozialwesen, gut doppelt so viele Prüfungsteilnehmer:innen wie der Büro-Fachwirt-Pilot) und dem vierten Kurs (Wirtschaftsfachwirt, mit Abstand die größte Fachwirt-Qualifikation im gesamten IHK-System, 9,4× der Büro-Fachwirt-Pilot) sind bereits zwei deutliche Schritte in diese Richtung umgesetzt.
 
 **Conversion-Benchmarks (Freemium-Lern-Apps):** Branchendaten nennen für Feature-Gating-Modelle (passt zum hier gewählten Ansatz, siehe Abschnitt 5.10) 5–8 % Free-to-Paid-Konversion; Prüfungsvorbereitungs-Apps erreichen wegen des externen Zeitdrucks tendenziell 8–15 %. Für die Planung wird bewusst konservativ mit ca. 5 % gerechnet (siehe Entscheidungsprotokoll, Abschnitt 10).
 
@@ -694,6 +723,9 @@ Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen
 - [DQR-Qualifikationsprofil: Fachwirt (Geprüfter) im Gesundheits- und Sozialwesen](https://www.dqr.de/dqr/shareddocs/qualifikationen-neu/de/Fachwirt-Gepruefter-im-Gesundheits-und-Sozialwesen-Fachwirtin-Gepruefte-im-Gesundheits-und-Sozialwesen.html)
 - [Wikipedia – Fachwirt im Gesundheits- und Sozialwesen (Rechtsgrundlage, Zulassungsvoraussetzungen)](https://de.wikipedia.org/wiki/Fachwirt_im_Gesundheits-_und_Sozialwesen)
 - [IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2023 (DIHK, PDF)](https://www.dihk.de/resource/blob/120828/c35cad78ffb4e790cdbc378edfc86d04/bildung-fortbildungsstatistik-2023-data.pdf)
+- [Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Wirtschaftsfachwirt/Geprüfte Wirtschaftsfachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/wfachwprv/BJNR175200008.html)
+- [IHK Darmstadt – Geprüfter Wirtschaftsfachwirt/in: Prüfungsablauf](https://www.ihk.de/darmstadt/produktmarken/pruefungen/pruefungeninderweiterbildung/alle-pruefungen-inkl-intranet/wifw-handreichung-6557576)
+- [DQR-Qualifikationsprofil: Wirtschaftsfachwirt (Geprüfter)/Wirtschaftsfachwirtin (Geprüfte)](https://www.dqr.de/dqr/shareddocs/qualifikationen-neu/de/Wirtschaftsfachwirt-Gepruefter-Wirtschaftsfachwirtin-Gepruefte.html)
 - [Adapty – State of In-App Subscriptions (Education-Benchmarks)](https://adapty.io/blog/education-app-subscription-benchmarks/)
 - [productgrowth.in – Free-to-Paid Conversion in EdTech](https://productgrowth.in/insights/edtech/free-to-paid/)
 - [FachkBüroOrgPrV – Verordnung über die Prüfung zum anerkannten Fortbildungsabschluss Geprüfter Fachwirt/Geprüfte Fachwirtin für Büro- und Projektorganisation (2012)](https://www.gesetze-im-internet.de/fachkb_roprv_2012/)
