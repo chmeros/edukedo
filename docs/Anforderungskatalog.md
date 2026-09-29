@@ -1,7 +1,9 @@
 # Anforderungskatalog: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb (Pilot-Kurs: IHK-Fachwirt für Büro- und Projektorganisation)
 
-Version 0.49 · Stand 29.09.2026 · Entwurf zur Abstimmung
+Version 0.50 · Stand 29.09.2026 · Entwurf zur Abstimmung
 
+> **Update (Version 0.50):** Achter Kurs „Geprüfter Immobilienfachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt") — fünftgrößte noch nicht umgesetzte Fachwirt-Qualifikation (1.151 Prüfungsteilnehmer:innen 2025). Erstmals seit dem dritten Kurs wieder eine **einteilige** Prüfungsstruktur (ImmoFachwPrV, sechs gleichrangige Handlungsbereiche HB1–HB6, alle Pflicht) statt einer WQ/HQ-Aufteilung — keine inhaltliche Überschneidung mit bestehenden Fächern. 24 Themen, 907 Content-Items. Neues Modellunternehmen „Ravelin Immobilien GmbH" (Hausverwaltung, Maklerabteilung, Bauträgersparte). Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
+>
 > **Update (Version 0.49):** Siebter Kurs „Geprüfter Industriefachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt") — viertgrößte noch nicht umgesetzte Fachwirt-Qualifikation (1.196 Prüfungsteilnehmer:innen 2025). Zweiteilige Prüfungsstruktur (Wirtschaftsbezogene/Handlungsspezifische Qualifikationen, IndFachwirtPrV 2010), ausnahmslos Pflicht. Neun Fachgebiete (WQ1–4, HQ1–5, technisch gleichrangige `Fachgebiet`-Zeilen), 31 Themen, 1.185 Content-Items. Bereits dritte Überschneidung der vier WQ-Fächer mit einem Vorkurs (nach WBQ beim vierten und WQ beim sechsten Kurs) — Content-Agenten wieder zur Eigenständigkeit angehalten. Neues Modellunternehmen „Solvitec Elektrowerke GmbH" (Elektrotechnik/industrielle Automatisierung). Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
 >
 > **Update (Version 0.48):** Sechster Kurs „Geprüfter Technischer Fachwirt (IHK)" umgesetzt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt") — drittgrößte noch nicht umgesetzte Fachwirt-Qualifikation (1.740 Prüfungsteilnehmer:innen 2025). Dreiteilige Prüfungsstruktur (Wirtschaftsbezogene/Technische/Handlungsspezifische Qualifikationen, TechFachwPrV), ausnahmslos Pflicht — kein Wahlpflicht-Element wie beim fünften Kurs. Elf Fachgebiete (WQ1–4, TQ1–3, HQ1–4, technisch gleichrangige `Fachgebiet`-Zeilen — bisher meiste Fachgebiete), 36 Themen, 1.457 Content-Items — größter Einzelkurs bisher. Neues Modellunternehmen „Vantera Präzisionstechnik GmbH" (Maschinenbau). Siehe Abschnitt 4 und Architekturplanung Abschnitt 13.
@@ -313,6 +315,27 @@ Technisch **keine Schema-Erweiterung nötig**: alle neun Qualifikationsbereiche/
 - **HQ5 – Führung und Zusammenarbeit:** 9.1 Führungsmethoden und Mitarbeitermotivation · 9.2 Teamarbeit und Kommunikation · 9.3 Konfliktmanagement.
 
 Rechtlicher Hinweis wie bei den sechs Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (insbesondere der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen.
+
+**Umgesetzter achter Kurs: Geprüfter Immobilienfachwirt (Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" vom 29.09.2026, vollständig umgesetzt am 29.09.2026, siehe Architekturplanung Abschnitt 13):** Nach Ausschluss der sieben bereits umgesetzten Kurse ist der Immobilienfachwirt mit **1.151 Prüfungsteilnehmer:innen 2025** (571 bestanden, ~50 %) die fünftgrößte noch nicht umgesetzte Fachwirt-Qualifikation (knapp vor Versicherungen und Finanzen 1.035). Kurs-Slug `immobilienfachwirt`, DQR-Niveau 6 wie die sieben bestehenden Kurse.
+
+**Struktureller Aufbau — erstmals seit dem dritten Kurs wieder einteilig:** Der Immobilienfachwirt hat laut Rechtsverordnung **ImmoFachwPrV** (25.01.2008, BGBl. I S. 117, zuletzt geändert Art. 41 V v. 9.12.2019) eine **einteilige Prüfungsstruktur** — anders als die vier vorangegangenen Kurse (WQ/HQ- bzw. WBQ/HSQ-Aufteilung oder Wahlpflicht) wieder ein einziger Satz gleichrangiger Handlungsbereiche, wie beim Büro-Fachwirt-Piloten und dem dritten Kurs:
+- **Sechs Handlungsbereiche** (alle Pflicht, schriftlich 600–660 Min. gesamt): Rahmenbedingungen der Immobilienwirtschaft (60 Min.), Unternehmenssteuerung und Kontrolle (90 Min.), Personal, Arbeitsorganisation und Qualifizierung (120 Min.), Immobilienbewirtschaftung (120 Min.), Bauprojektmanagement (120 Min.), Marktorientierung und Vertrieb/Maklertätigkeit (120 Min.).
+- Mündliche Prüfung (nur bei mind. „ausreichend" in der schriftlichen Prüfung): Präsentation (max. 10 Min., selbst gewähltes Thema aus allen Handlungsbereichen, Gewichtung 1/3) + Fachgespräch (max. 20 Min., baut auf Präsentation auf, Gewichtung 2/3).
+
+Technisch **keine Schema-Erweiterung nötig**: die sechs Handlungsbereiche werden als sechs gleichrangige `Fachgebiet`-Zeilen desselben Kurses geführt (Codes `HB1`–`HB6`) — exakt das Muster des dritten Kurses. Einzige Code-Änderung: ein neuer `KURS_META`-Eintrag. Direkt mit `is_published = true` veröffentlicht. Anders als bei den letzten drei Kursen besteht **keine inhaltliche Überschneidung** mit bestehenden WQ/WBQ-Fächern, da dieser Kurs keine solche Aufteilung kennt.
+
+**Umfang:** 6 Fachgebiete, 24 Themen, **907 Content-Items** für diesen Kurs allein (7.490 Content-Items insgesamt in der Datenbank nach Import aller acht Kurse). Neues Modellunternehmen: fiktive **„Ravelin Immobilien GmbH"** — mittelständisches Immobilienunternehmen mit drei Standbeinen: Hausverwaltung (Miet- und WEG-Verwaltung, ca. 3.000 verwaltete Einheiten), Maklerabteilung und eigener Projektentwicklung/Bauträgersparte für kleinere Neubauprojekte.
+
+**Fachgebiete des achten Kurses „Immobilienfachwirt" (eigene, an §4 ImmoFachwPrV orientierte Gliederung, 29.09.2026):**
+
+- **HB1 – Rahmenbedingungen der Immobilienwirtschaft:** 1.1 Rechtliche Rahmenbedingungen · 1.2 Marktstrukturen und Akteure der Immobilienwirtschaft · 1.3 Berufsbild und Standesregeln · 1.4 Nachhaltigkeit und ESG in der Immobilienwirtschaft.
+- **HB2 – Unternehmenssteuerung und Kontrolle:** 2.1 Rechnungswesen und Jahresabschluss · 2.2 Investitions- und Finanzierungsrechnung · 2.3 Controlling und Kennzahlen · 2.4 Risikomanagement.
+- **HB3 – Personal, Arbeitsorganisation und Qualifizierung:** 3.1 Personalplanung und -führung · 3.2 Arbeitsorganisation · 3.3 Ausbildung und Qualifizierung · 3.4 Arbeitsrecht Grundlagen.
+- **HB4 – Immobilienbewirtschaftung:** 4.1 Mietverwaltung · 4.2 WEG-Verwaltung · 4.3 Instandhaltung und Facility Management · 4.4 Betriebskostenabrechnung.
+- **HB5 – Bauprojektmanagement:** 5.1 Projektentwicklung · 5.2 Bauplanung und -durchführung · 5.3 Baurecht Grundzüge · 5.4 Kosten- und Terminplanung im Bau.
+- **HB6 – Marktorientierung und Vertrieb, Maklertätigkeit:** 6.1 Maklerrecht und Maklertätigkeit · 6.2 Marketing für Immobilien · 6.3 Immobilienbewertung Grundzüge · 6.4 Vertriebsprozess und Kundenbetreuung.
+
+Rechtlicher Hinweis wie bei den sieben Vorkursen: Themengliederung frei formuliert aus öffentlich zugänglichen Informationen (insbesondere der frei einsehbaren Rechtsverordnung selbst), keine 1:1-Übernahme aus einem kommerziellen Lehrbuch — Themenliste gilt vor Veröffentlichung für echte Lernende als fachlich/rechtlich zu prüfen (insbesondere Miet-/WEG-Recht- und Baurecht-Passagen).
 
 **Beispiel: Fachgebiete des Piloten-Kurses „Fachwirt für Büro- und Projektorganisation".** Innerhalb jedes Fachgebiets empfiehlt sich eine feinere Gliederung in Themen/Lernfelder, die sich an gängiger Prüfungsliteratur orientiert. **Alle vier Handlungsbereiche wurden inzwischen anhand des offiziellen DIHK-Rahmenplans „Geprüfter Fachwirt für Büro- und Projektorganisation" (Rahmenplan mit Lernzielen) verifiziert und durch die dortige Themenstruktur ersetzt** — zuerst HB3 (14.09.2026), dann HB1, HB2 und HB4 (15.09.2026). Die zuvor hier notierten, vorläufigen Themenvorschläge (u. a. für HB1: „Aufbau- und Ablauforganisation, Projektmanagement-Methoden..."; für HB2: „Marketing- und Kommunikationsgrundlagen..."; für HB3: „Personalführung, Ausbildungsmanagement, Arbeitsrecht-Grundlagen, Konfliktmanagement, Personalverwaltung als fünf gleichrangige Themen"; für HB4: „Büroorganisation, Kennzahlen/Controlling...") wichen jeweils von der tatsächlichen Gliederung des Rahmenplans ab und sind damit überholt:
 
@@ -789,6 +812,7 @@ Im Rahmen der Investoren-Review recherchierte Eckdaten zur Einordnung von Marktg
 | Wirtschaftsfachwirt/in (vierter Kurs, ergänzt 29.09.2026) | 8.103 | 5.018 (~62 %) |
 | **Technische(r) Fachwirt/in (sechster Kurs, ergänzt 29.09.2026 — beim sechsten Kurs nicht nachgetragen, hier beim siebten Kurs ergänzt)** | **1.740** | **1.175 (~68 %)** |
 | **Industriefachwirt/in (siebter Kurs, ergänzt 29.09.2026)** | **1.196** | **907 (~76 %)** |
+| **Immobilienfachwirt/in (achter Kurs, ergänzt 29.09.2026)** | **1.151** | **571 (~50 %)** |
 
 Quelle: [IHK-Fortbildungsstatistik bundesweit, Berichtsjahr 2025 (DIHK, PDF)](https://www.dihk.de/resource/blob/182428/f042794cd59a86fff2b781cccc93e14a/fachkraefte-weiterbildungsstatistik-2025-data.pdf) — löst die beim vierten Kurs verwendete 2024er-Ausgabe ab, daher weichen einzelne Werte (insbesondere Wirtschaftsfachwirt: 8.103 statt vormals 8.179) leicht von den in Abschnitt 4 beim vierten Kurs genannten 2024er-Zahlen ab.
 
@@ -831,3 +855,5 @@ Einordnung: Die Zielqualifikation gehört zu den kleineren Fachwirt-Abschlüssen
 - [IHK Nord Westfalen – Technischer Fachwirt (m/w/d): Handlungsbereiche, Prüfungsstruktur, Zulassung](https://www.ihk.de/nordwestfalen/bildung/fortbildungspruefungen/a-z/technischer-fachwirt-3607518)
 - [IndFachwirtPrV 2010 – Verordnung über die Prüfung zum anerkannten Fortbildungsabschluss Geprüfter Industriefachwirt und Geprüfte Industriefachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/indfachwirtprv_2010/BJNR083300010.html)
 - [IHK Nord Westfalen – Industriefachwirt/-in: Handlungsbereiche, Prüfungsstruktur, Zulassung](https://www.ihk.de/nordwestfalen/bildung/fortbildungspruefungen/a-z/industriefachwirt-3590492)
+- [ImmoFachwPrV – Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (gesetze-im-internet.de)](https://www.gesetze-im-internet.de/immofachwprv/BJNR011700008.html)
+- [IHK München – Geprüfte/r Immobilienfachwirt/-in: Prüfungsablauf](https://www.ihk-muenchen.de/ausbildung-fortbildung/fortbildung/pruefungen/immobilienfachwirt/)

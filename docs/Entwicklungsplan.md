@@ -298,6 +298,21 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die viertgrößte
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle neun Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 13 — Achter Kurs: Geprüfter Immobilienfachwirt
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die fünftgrößte noch nicht umgesetzte Fachwirt-Qualifikation (Immobilienfachwirt, 1.151 Prüfungsteilnehmer:innen 2025) als achten Kurs ergänzen — erstmals seit dem dritten Kurs wieder eine einteilige Prüfungsstruktur (sechs gleichrangige Handlungsbereiche, keine WQ/HQ-Aufteilung). Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/immobilienfachwirt/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: immobilienfachwirt` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur des Immobilienfachwirts (ImmoFachwPrV, sechs Handlungsbereiche, Zulassung, Prüfungsablauf/-gewichtung). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller sechs Handlungsbereiche (24 Themen) über sechs parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Ravelin Immobilien GmbH". **Erledigt 29.09.2026:** 907 Content-Items für diesen Kurs (7.490 insgesamt über alle acht Kurse nach Import). Dry-Run-Validierung aller 36 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 307 Dateien, 7.490 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle sechs Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:
