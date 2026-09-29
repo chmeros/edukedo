@@ -256,6 +256,26 @@ export function MixedLearning({
           </div>
         </div>
         {countControl}
+        {/* Code-Review-Fund (29.09.2026, Nutzer-Feedback "Quizfragen wiederholen sich sehr
+            oft"): siehe Quiz.tsx — staleTime: Infinity verhinderte bislang JEDEN Refetch nach
+            einem regulären Rundenabschluss, wodurch dieselbe Karten-/Fragenauswahl für den Rest
+            der Sitzung immer wieder angezeigt wurde. */}
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => {
+            setIndex(0);
+            setRevealed(false);
+            setCorrectCount(0);
+            setAnsweredQuizCount(0);
+            setRoundStartedAt(new Date());
+            dueCardsQuery.refetch();
+            quizItemsQuery.refetch();
+          }}
+        >
+          Neue Runde starten
+        </button>
       </div>
     );
   }

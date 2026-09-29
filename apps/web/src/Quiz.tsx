@@ -202,6 +202,24 @@ export function Quiz({
           </div>
         </div>
         {countControl}
+        {/* Code-Review-Fund (29.09.2026, Nutzer-Feedback "Quizfragen wiederholen sich sehr
+            oft"): staleTime: Infinity (siehe oben) verhinderte bislang JEDEN Refetch nach einem
+            regulären Rundenabschluss — anders als beim Abbruch-Pfad unten gab es hier weder
+            einen Button noch einen refetch()-Aufruf, wodurch dieselben Fragen für den Rest der
+            Sitzung immer wieder angezeigt wurden. */}
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={() => {
+            setIndex(0);
+            setCorrectCount(0);
+            setRoundStartedAt(new Date());
+            quizItemsQuery.refetch();
+          }}
+        >
+          Neue Runde starten
+        </button>
       </div>
     );
   }
