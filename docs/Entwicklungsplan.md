@@ -268,6 +268,21 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die aktuellste DI
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrekten Quiz-/Zuordnungs-Fragen, Fortschrittsanzeige über alle acht Fachgebiete inklusive „(Wahlpflicht)"-Kennzeichnung, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 11 — Sechster Kurs: Geprüfter Technischer Fachwirt
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den drittgrößten noch nicht umgesetzten Fachwirt-Abschluss (Technischer Fachwirt, 1.740 Prüfungsteilnehmer:innen 2025) als sechsten Kurs ergänzen — mit der bislang umfangreichsten Prüfungsstruktur (dreiteilig: Wirtschaftsbezogene/Technische/Handlungsspezifische Qualifikationen, 11 statt 6–9 Fachgebiete bei den Vorkursen), diesmal aber ausnahmslos Pflicht statt eines Wahlpflicht-Elements. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/technischer-fachwirt/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: technischer-fachwirt` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur des Technischen Fachwirts (TechFachwPrV, dreiteilige WQ/TQ/HQ-Gliederung, Zulassung, Prüfungsablauf/-gewichtung, Fachgesprächs-Schwerpunkt). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller elf Fachgebiete (36 Themen) über elf parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Vantera Präzisionstechnik GmbH". Die vier WQ-Agenten (inhaltliche Überschneidung mit den WBQ-Fächern des vierten Kurses) wurden explizit angewiesen, eigenständig zu formulieren statt bestehenden Content zu recyceln. **Erledigt 29.09.2026:** 1.457 Content-Items für diesen Kurs (5.358 insgesamt über alle sechs Kurse nach Import) — größter Einzelkurs bisher. Dry-Run-Validierung aller 60 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 222 Dateien, 5.358 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Bezug zum neuen Modellunternehmen, Fortschrittsanzeige über alle elf Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

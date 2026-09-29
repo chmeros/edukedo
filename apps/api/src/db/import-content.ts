@@ -108,6 +108,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-147 (sechster Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // drittgrößte noch nicht umgesetzte Fachwirt-Qualifikation (DIHK-Statistik 2025). Bewusst
+  // sofort isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  "technischer-fachwirt": {
+    title: "Geprüfter Technischer Fachwirt (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {
