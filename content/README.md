@@ -55,6 +55,19 @@ content/
     README.md
     user-story-bsc-allgemein-alle-fachwirte.docx
     user-story-bsc-pflegeeinrichtung-fachwirt-gesundheit-soziales.docx
+  fachwirt-gesundheit-soziales/    ← dritter Kurs, ergänzt 29.09.2026 (siehe Anforderungskatalog Abschnitt 4)
+    hb1/
+      1.1-rechtliche-rahmenbedingungen.md
+      1.2-betriebliche-ziele-strategien.md
+      1.3-aufbau-ablauforganisation.md
+      1.4-veraenderungsprozesse.md
+      fallaufgaben.md
+      fachgespraech.md
+    hb2/ … 2.1–2.4 + fallaufgaben.md + fachgespraech.md
+    hb3/ … 3.1–3.4 + fallaufgaben.md + fachgespraech.md
+    hb4/ … 4.1–4.4 + fallaufgaben.md + fachgespraech.md
+    hb5/ … 5.1–5.5 + fallaufgaben.md + fachgespraech.md   ← Pflichtthema des Fachgesprächs bei diesem Kurs
+    hb6/ … 6.1–6.3 + fallaufgaben.md + fachgespraech.md
 ```
 
 Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganisation/`, `mathematik-9/`), darin ein Ordner je Fachgebiet (`hb3/`, bzw. bei Mathematik `algebra-funktionen/`, `geometrie/`, `stochastik/`), darin eine Datei je Thema. Das spiegelt die Hierarchie Kurs → Fachgebiet → Thema aus dem Datenmodell. Der Ordnername ist bewusst so spezifisch wie der `kurs_slug` gewählt (nicht nur `fachwirt/`), da laut Anforderungskatalog Abschnitt 9 künftig weitere, andersartige Fachwirt-Qualifikationen als eigene Kurse hinzukommen können — ein generisches `fachwirt/` würde dann kollidieren. Bei Mathematik gibt es keine offiziellen Fachgebiets-/Themen-Nummern wie die Handlungsbereiche beim Fachwirt; die Codes (`ALG1`–`ALG3`, `GEO1`–`GEO3`, `STO1`) sind eine eigene, sprechende Benennung.
@@ -62,6 +75,8 @@ Ein Ordner je Kurs, benannt nach dem `kurs_slug` (`fachwirt-buero-projektorganis
 **Sonderfall `instrumenten-lernpfade/` (ergänzt 24.09.2026):** Kein Kurs-Ordner im obigen Sinn, sondern Referenz-/Entwurfs-Content für das in Anforderungskatalog F-129/F-130/F-131 beschriebene, noch nicht implementierte Konzept des Instrumenten-Lernpfads — folgt bewusst nicht diesem Zwischenformat und wird vom Bulk-Import nicht gelesen, siehe eigenes README dort.
 
 **Zum Umfang des Fachwirt-Kurses (Stand 15.09.2026):** Alle vier Handlungsbereiche der IHK-Prüfungsstruktur (HB1–HB4, siehe Anforderungskatalog Abschnitt 2/4) sind inzwischen vollständig ausgearbeitet: HB3 zuerst (Pflichtbestandteil der mündlichen Prüfung), anschließend auf ausdrücklichen Wunsch HB1, HB2 und HB4 in einem Zug statt gestaffelt nach KPI-Signal — analog zur bereits zuvor beim Mathematik-Kurs getroffenen Entscheidung, den vollständigen Content unabhängig vom technischen Rollout-Gate vorab zu erstellen (siehe Anforderungskatalog Abschnitt 9/10). Die Themenlisten für HB1, HB2 und HB4 wurden dabei — wie zuvor bei HB3 — anhand des offiziellen DIHK-Rahmenplans verifiziert, nicht mehr nur als vorläufiger Vorschlag übernommen.
+
+**Zum Umfang des dritten Kurses „Fachwirt für Gesundheits- und Sozialwesen" (Stand 29.09.2026):** Alle sechs amtlichen Handlungsbereiche (HB1–HB6, extern recherchiert und gegen die IHK-Prüfungsstruktur abgeglichen — anders als beim Büro-Fachwirt sechs statt vier Handlungsbereiche, siehe Anforderungskatalog Abschnitt 4) sind auf ausdrücklichen Nutzerwunsch direkt vollständig ausgearbeitet worden, statt gestaffelt nach KPI-Signal: 24 Themen, 916 Content-Items nach Import. Anders als bei den ersten beiden Kursen direkt mit `is_published = true` importiert (siehe Anforderungskatalog Abschnitt 9 zur bewussten Ausnahme vom Validierungs-Gate). Gemeinsames Modellunternehmen über alle Handlungsbereiche: der ambulante Pflegedienst „Morgenlicht" (bereits als Referenz-Content für den Instrumenten-Lernpfad vorhanden, siehe oben).
 
 **Zum Umfang des Mathematik-Kurses (Stand 14.09.2026):** Der Anforderungskatalog (Abschnitt 9) sieht als Validierungs-Gate eigentlich vor, den Schulfach-Kurs zunächst mit nur einem vollständig ausgearbeiteten Fachgebiet/Themenblock zu starten. Auf ausdrücklichen Wunsch wurde hiervon abgewichen und der Content für alle drei Themenblöcke (Algebra & Funktionen, Geometrie, Stochastik) auf einmal erstellt — siehe Anforderungskatalog Abschnitt 9/10 für die entsprechende Entscheidungsnotiz. Das *technische* Validierungs-Gate (`kurs.is_published` bleibt zunächst `false`, gestaffelter Live-Gang je nach KPI-Signal) ist davon unberührt: Nur weil der Content vorab existiert, muss er nicht sofort für echte Nutzer:innen live geschaltet werden.
 
@@ -314,4 +329,4 @@ Zwei kleine CLI-Werkzeuge in `apps/api/src/db/` nehmen das fehleranfällige manu
 
 ## Rechtlicher Hinweis
 
-Sämtliche Inhalte sind frei formuliert und aus öffentlich zugänglichem Fachwissen erstellt — keine 1:1-Übernahme von Prüfungsaufgaben, Musterlösungen oder Lehrbuchtexten (siehe Anforderungskatalog Abschnitt 7). Für den Fachwirt-Piloten orientiert sich die Gliederung am offiziellen DIHK-Rahmenplan; rechtliche Aussagen (Arbeits-/Ausbildungsrecht) sind bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden. Für den Mathematik-Kurs orientiert sich die Gliederung an den KMK-Bildungsstandards (Fassung 2022) und einem punktuellen Abgleich mit einem Landeslehrplan (Bayern, Klasse 9); der Themenkatalog gilt weiterhin als vorläufig und sollte vor Veröffentlichung mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegengeprüft werden (siehe Anforderungskatalog Abschnitt 9/10).
+Sämtliche Inhalte sind frei formuliert und aus öffentlich zugänglichem Fachwissen erstellt — keine 1:1-Übernahme von Prüfungsaufgaben, Musterlösungen oder Lehrbuchtexten (siehe Anforderungskatalog Abschnitt 7). Für den Fachwirt-Piloten orientiert sich die Gliederung am offiziellen DIHK-Rahmenplan; rechtliche Aussagen (Arbeits-/Ausbildungsrecht) sind bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden. Für den Mathematik-Kurs orientiert sich die Gliederung an den KMK-Bildungsstandards (Fassung 2022) und einem punktuellen Abgleich mit einem Landeslehrplan (Bayern, Klasse 9); der Themenkatalog gilt weiterhin als vorläufig und sollte vor Veröffentlichung mit konkretem Schulbuch-/Übungsmaterial für Klasse 9 gegengeprüft werden (siehe Anforderungskatalog Abschnitt 9/10). Für den dritten Kurs (Fachwirt für Gesundheits- und Sozialwesen) orientiert sich die Gliederung an frei zugänglichen Informationen zur amtlichen Prüfungsstruktur (IHK-Kammerseiten, DIHK-Fortbildungsstatistik), nicht am kostenpflichtigen DIHK-Rahmenplan; rechtliche Aussagen (insbesondere SGB V/SGB XI, Arbeitsrecht) sind ebenfalls bewusst allgemein/grundlagenorientiert gehalten und sollten vor Veröffentlichung für echte Lernende fachlich/rechtlich gegengelesen werden (siehe Anforderungskatalog Abschnitt 4/9).

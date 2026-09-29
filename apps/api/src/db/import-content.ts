@@ -81,6 +81,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: false,
     metadata: { klassenstufe: 9, bundesland_ansatz: "bundeslandneutral", kategorie: "schule" },
   },
+  // F-144 (dritter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // bewusst sofort isPublished:true (anders als mathematik-9) — Zielgruppe sind Berufstätige
+  // wie beim Büro-Fachwirt-Piloten, kein Jugendschutz-Gate/Consent-Flow-Abhängigkeit nötig.
+  "fachwirt-gesundheit-soziales": {
+    title: "Geprüfter Fachwirt für Gesundheits- und Sozialwesen (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

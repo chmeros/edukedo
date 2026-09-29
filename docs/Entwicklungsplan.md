@@ -223,6 +223,21 @@ Ziel: Die Navigation im eingeloggten Bereich trägt eine perspektivisch deutlich
 - [x] Test der Belegungs-Exklusivität (F-102): **Erledigt 18.09.2026** — neuer `course-enrollment.integration.test.ts` (Ablehnung ohne `leaveKursId` mit 409, atomarer Wechsel mit `leaveKursId`, unveränderte Mehrfachbelegung bei Schulkursen, `courses.leave` inkl. 404 bei nicht belegtem Kurs) sowie `course-audience.test.ts` (`kursKategorie`/`isEnrollmentExclusive`).
 - [x] Test des „Lernen"-Tabs (F-104): **Erledigt 18.09.2026** — Integrationstest deckt die Ablehnung der ungültigen Kombination "beide aus" (400) sowie eine erfolgreiche Präferenzänderung ab (`core-learning-flow.integration.test.ts`); die drei gültigen Kombinationen (nur Karteikarte, nur Quiz, beides) sowie die Checkbox-Sperre selbst wurden live über die UI verifiziert (siehe Architekturplanung Abschnitt 13), nicht zusätzlich als eigener Frontend-Test
 
+## Iteration 8 — Dritter Kurs: Fachwirt für Gesundheits- und Sozialwesen
+
+Ziel: Auf ausdrücklichen Nutzerwunsch (29.09.2026) einen dritten Kurs ergänzen, analog zum vollständigen Büro-Fachwirt-Piloten, aber mit den amtlichen sechs statt vier Handlungsbereichen der IHK-Fortbildung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen". Bewusst außerhalb des in Anforderungskatalog Abschnitt 9 beschriebenen Validierungs-Gates umgesetzt (siehe dort). Betrifft primär `content/fachwirt-gesundheit-soziales/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: fachwirt-gesundheit-soziales` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration, da das generische Content-Modell und Frontend (`CourseSwitcher.tsx`/`CourseSelection.tsx`) bereits vollständig kursunabhängig sind. Siehe Architekturplanung Abschnitt 13.
+
+**Content**
+- [x] Externe Recherche der amtlichen Prüfungsstruktur (sechs Handlungsbereiche, Zulassungsvoraussetzungen, Prüfungsablauf/-gewichtung, DIHK-Teilnehmerstatistik). **Erledigt 29.09.2026.**
+- [x] Vollständige Content-Autorierung aller sechs Handlungsbereiche (24 Themen: Theorie, 15–20 Karteikarten und 10–15 Quiz-Fragen je Thema über mehrere der 14 Fragetypen gestreut, 3 Fallaufgaben und eine Fachgesprächsfragen-Sammlung je Handlungsbereich) über sechs parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „ambulanter Pflegedienst Morgenlicht". **Erledigt 29.09.2026:** 916 Content-Items nach Import. Zwei Formatfehler beim Fragetyp „Hierarchie" (Begriff direkt der Wurzel statt einem deklarierten Kindknoten zugeordnet) durch ein eigenes Dry-Run-Validierungsskript vor dem finalen Import gefunden und behoben. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — dabei ein unabhängiges Altlasten-Problem behoben (8 verwaiste `exam_answer`-Testzeilen aus einer früheren Verifikationssitzung blockierten den Re-Import des unveränderten Büro-Fachwirt-Contents; nach Nutzer-Freigabe gelöscht). 71 Dateien, 1.675 Content-Items insgesamt über alle drei Kurse.
+
+**Testing**
+- [x] Live-Verifikation im Browser (frisches Testkonto): Kurs erscheint sofort im Katalog, Beitritt, Lernrunde mit korrekter Rückmeldung und Punktehamster-/Credit-Zuwachs, Fortschrittsanzeige über alle sechs Handlungsbereiche, Fachgesprächs-Trainer. **Erledigt 29.09.2026** — Testkonto danach entfernt. Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:
