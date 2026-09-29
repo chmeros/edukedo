@@ -313,6 +313,22 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" die fünftgrößt
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle sechs Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 14 — Neunter Kurs: Bachelor Professional in Versicherungen und Finanzanlagen
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit dem nächsten Fachwirt" den naheliegenden Kandidaten „Fachwirt für Versicherungen und Finanzen" recherchiert — dabei entdeckt, dass diese Prüfung zum 01.01.2025 durch eine neue Fortbildungsordnung (BAProVFFPrV, Abschluss „Bachelor Professional in Versicherungen und Finanzanlagen") abgelöst wird, Anmeldeschluss für die alte Fassung 31.12.2026. Per AskUserQuestion dem Nutzer vorgelegt, Entscheidung: neue Nachfolge-Qualifikation umsetzen. Vier Fachgebiete (zwei Wahlbereich-Optionen + zwei Pflichtbereiche) — kleinste Fachgebiets-Anzahl seit dem Piloten. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft primär `content/versicherungen-finanzanlagen/` (neu) sowie eine einzelne neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: versicherungen-finanzanlagen` (Titel, `type: "fachwirt"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 29.09.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Externe Recherche: amtliche Prüfungsstruktur der auslaufenden Fachwirt-Prüfung UND der neuen Bachelor-Professional-Nachfolgeprüfung (BAProVFFPrV, Kundenbedarfsfelder/Kernprozesse-Gliederung, Zulassung, Prüfungsablauf/-gewichtung). **Erledigt 29.09.2026.**
+- [x] Nutzer-Entscheidung zur Variante (klassischer auslaufender Fachwirt vs. neue Nachfolge-Qualifikation vs. beides gestaffelt) per AskUserQuestion eingeholt. **Erledigt 29.09.2026** — Entscheidung: neue Nachfolge-Qualifikation.
+- [x] Vollständige Content-Autorierung aller vier Fachgebiete (18 Themen) über vier parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Nordantis Versicherung AG". **Erledigt 29.09.2026:** 714 Content-Items für diesen Kurs (8.204 insgesamt über alle neun Kurse nach Import). Dry-Run-Validierung aller 24 neuen Dateien vor dem Import lief ohne Formatfehler durch. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 29.09.2026** — 333 Dateien, 8.204 Content-Items insgesamt.
+
+**Testing**
+- [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle vier Fachgebiete, Fachgesprächs-Trainer. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

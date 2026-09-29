@@ -135,6 +135,17 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-150 (neunter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
+  // Nachfolge-Qualifikation des auslaufenden "Fachwirt für Versicherungen und Finanzen"
+  // (VersFachwPrV 2008, Anmeldeschluss 31.12.2026) -- auf Nutzerentscheidung hin die neue
+  // Prüfungsordnung BAProVFFPrV (in Kraft seit 01.01.2025) statt der auslaufenden Fassung
+  // umgesetzt. Bewusst sofort isPublished:true wie die übrigen Erwachsenenbildungs-Kurse.
+  "versicherungen-finanzanlagen": {
+    title: "Bachelor Professional in Versicherungen und Finanzanlagen (IHK)",
+    type: "fachwirt",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {
