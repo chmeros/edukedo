@@ -383,7 +383,7 @@ export function App() {
                             Katalog als neuer primärer Inhalt dieses Tabs — Suche (F-14) und
                             eigene Notizen (F-15) bleiben zusätzlich darunter bestehen. */}
                         <Instrumente
-                          key={activeKursId}
+                          key={`${activeKursId}-instrumente`}
                           kursId={activeKursId}
                           instrumentLernpfadeEnabled={me.data.isPremiumActive}
                           onGoToThema={(themaId, themaTitle) => {
@@ -392,7 +392,7 @@ export function App() {
                           }}
                         />
                         <Suche
-                          key={activeKursId}
+                          key={`${activeKursId}-suche`}
                           kursId={activeKursId}
                           onGoToThema={(themaId, themaTitle) => {
                             setActiveThema({ id: themaId, title: themaTitle });
@@ -402,7 +402,7 @@ export function App() {
                         {/* F-15: eigene Notizen, zweiter echter Inhalt dieses Tabs neben der
                             Suche (F-14) — siehe Architekturplanung Abschnitt 13. */}
                         <MeineNotizen
-                          key={activeKursId}
+                          key={`${activeKursId}-notizen`}
                           kursId={activeKursId}
                           onGoToThema={(themaId, themaTitle) => {
                             setActiveThema({ id: themaId, title: themaTitle });
