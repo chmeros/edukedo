@@ -184,6 +184,16 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-154 (dreizehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
+  // Fachinformatiker/in Systemintegration -- zweiter der vier Fachinformatiker-Kurse; die
+  // fachrichtungsübergreifenden Fachgebiete fu1-fu7 sind aus dem Anwendungsentwicklungs-Kurs
+  // kopiert (nur kurs_slug im Frontmatter unterscheidet sich), type/Zielgruppe wie dort.
+  "fachinformatiker-systemintegration": {
+    title: "Fachinformatiker/in Systemintegration (IHK-Abschlussprüfung)",
+    type: "ausbildungsberuf",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {
