@@ -171,6 +171,19 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-153 (zwölfter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
+  // Fachinformatiker/in Anwendungsentwicklung (FIAusbV 2020) -- erster von vier Fachinformatiker-
+  // Kursen (je Fachrichtung ein eigener Kurs, gemeinsame Fachgebiete FU1-FU7 je Kurs kopiert).
+  // type "ausbildungsberuf" (neuer, rein deskriptiver Wert): Ausbildungsberuf mit gestreckter
+  // Abschlussprüfung, weder Fortbildung ("fachwirt") noch Eignungsprüfung. Titel bewusst neutral
+  // ("IHK-Abschlussprüfung"), da Umschulung und Erstausbildung zur selben Prüfung führen;
+  // zielgruppe "erwachsene" wie alle Erwachsenenbildungs-Kurse (Umschüler:innen sind erwachsen).
+  "fachinformatiker-anwendungsentwicklung": {
+    title: "Fachinformatiker/in Anwendungsentwicklung (IHK-Abschlussprüfung)",
+    type: "ausbildungsberuf",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

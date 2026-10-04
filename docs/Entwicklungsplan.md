@@ -359,6 +359,23 @@ Ziel: Auf direkte Nutzer-Vorgabe „Starte mit einem Ausbildung der Ausbilder Ku
 **Testing**
 - [x] Live-Verifikation im Browser (bestehendes Testkonto, Kurswechsel über den F-102-Dialog): Kurs erscheint sofort im Katalog, Lernrunde mit korrektem Fachbezug, Fortschrittsanzeige über alle vier Fachgebiete, Fachgesprächs-Trainer, Prüfung-Tab mit eigenem Präsentation-Unterreiter, Instrumente-Tab korrekt ohne verfügbare Werkzeuge. **Erledigt 29.09.2026.** Siehe Architekturplanung Abschnitt 13.
 
+## Iteration 17 — Zwölfter Kurs: Fachinformatiker/in Anwendungsentwicklung (IHK-Abschlussprüfung)
+
+Ziel: Auf Nutzer-Vorgabe „Starte mit einem Kurs zur Umschulung zum Fachinformatiker" (nach Rückfragen: alle vier Fachrichtungen als eigene Kurse, neutraler Titel, voller Ausbildungsrahmenplan, nur Erwachsene, ein Durchlauf je Fachrichtung) den **ersten von vier Fachinformatiker-Kursen** umgesetzt: Anwendungsentwicklung. Grundlage ist die live gegen gesetze-im-internet.de/fiausbv/ gelesene FIAusbV 2020 (Ausbildungsberuf mit gestreckter Abschlussprüfung, kein Fortbildungsabschluss). Die fachrichtungsübergreifenden Fachgebiete `FU1`–`FU7` werden einmal geschrieben und in die Kurse 13–15 kopiert. Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft `content/fachinformatiker-anwendungsentwicklung/` (neu), eine neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts` sowie eine kleine Frontend-Korrektur in `apps/web/src/Exam.tsx`/`styles.css`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: fachinformatiker-anwendungsentwicklung` (Titel, neuer `type: "ausbildungsberuf"`, `isPublished: true`, `metadata: {zielgruppe: "erwachsene", kategorie: "erwachsenenbildung"}`). **Erledigt 04.10.2026.**
+- [x] Prüfungssimulation: Ausbildungssituation von Fallaufgaben (`SituationText` in `apps/web/src/Exam.tsx`) erhält Zeilenumbrüche und stellt ```-Codeblöcke sowie Klartext-Tabellen („a | b | c"-Zeilen) in Festbreitenschrift dar — nötig, weil die IT-Fallaufgaben mehrzeiligen Code/SQL/Tabellen enthalten, die ein reines `<p>` zu einer Zeile zusammenfasste. **Erledigt 04.10.2026**, im Browser über alle zwölf Aufgaben einer Simulation verifiziert.
+
+**Content**
+- [x] Externe Recherche: FIAusbV (§§ 1–43, Ausbildungsrahmenplan Abschnitte A–F). **Erledigt 04.10.2026.**
+- [x] Vollständige Content-Autorierung (12 Fachgebiete, 45 Themen) über zwölf parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Brevanta IT-Systemhaus GmbH", Verordnungstext als verifizierte Referenzdatei im Briefing. **Erledigt 04.10.2026:** 1.606 Content-Items für diesen Kurs (10.748 insgesamt über alle zwölf Kurse nach Import) — größter Einzelkurs bisher. Stichprobenprüfung der Rechtsverweise (alle im gültigen FIAusbV-Bereich, gemeinsame Dateien fachrichtungsneutral), Dry-Run fand eine CRLF-Datei (normalisiert), danach 0 Fehler. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 04.10.2026** — 434 Dateien, 10.748 Content-Items insgesamt, Delta exakt wie im Dry-Run erwartet (1.606).
+- [ ] **Offen (Folge-Durchläufe, Kurse 13–15):** Systemintegration, Daten- und Prozessanalyse, Digitale Vernetzung — jeweils `fu1`–`fu7` kopieren, `KURS_META`-Eintrag, fünf Fachrichtungs-Fachgebiete, Verifikation, Dokumentation.
+
+**Testing**
+- [x] Live-Verifikation im Browser (frisch angelegtes Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, schriftliche Prüfungssimulation inkl. Code-/Tabellen-Darstellung, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.** Siehe Architekturplanung Abschnitt 13.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

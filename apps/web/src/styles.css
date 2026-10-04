@@ -2576,6 +2576,23 @@ button.progress-block:hover .progress-head b {
   background: var(--surface);
 }
 
+.exam-situation-text {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.exam-situation-code {
+  margin: 0;
+  padding: 10px 12px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .exam-part {
   display: flex;
   flex-direction: column;

@@ -105,6 +105,44 @@ function formatRemaining(seconds: number): string {
 }
 
 /**
+ * Ausgangssituation einer Fallaufgabe: Zeilenumbrüche bleiben erhalten (Aufzählungen), ```-Codeblöcke
+ * erscheinen als <pre>, und Absätze aus mehreren "a | b | c"-Zeilen (Tabellen als Klartext) werden in
+ * Festbreitenschrift gesetzt, damit die mit Leerzeichen ausgerichteten Spalten fluchten — ein reines
+ * <p> hätte alles zu einer Zeile zusammengefasst (bei den Fachinformatiker-Kursen mit Code/SQL/
+ * Tabellen unleserlich).
+ */
+function SituationText({ text }: { text: string }) {
+  const segments = text.split(/```[^\n]*\n([\s\S]*?)```/g);
+  const blocks = segments.flatMap((segment, index) =>
+    index % 2 === 1
+      ? [{ kind: "code" as const, content: segment.replace(/\n$/, "") }]
+      : segment
+          .split(/\n\s*\n/)
+          .map((paragraph) => paragraph.trim())
+          .filter(Boolean)
+          .map((paragraph) => ({
+            kind: paragraph.split("\n").filter((line) => line.includes(" | ")).length >= 2 ? ("code" as const) : ("text" as const),
+            content: paragraph,
+          })),
+  );
+  return (
+    <>
+      {blocks.map((block, index) =>
+        block.kind === "code" ? (
+          <pre key={index} className="exam-situation-code">
+            <code>{block.content}</code>
+          </pre>
+        ) : (
+          <p key={index} className="exam-situation-text">
+            {block.content}
+          </p>
+        ),
+      )}
+    </>
+  );
+}
+
+/**
  * Ein-Fallaufgabe-Schritt: eigener lokaler Zustand für Antwortentwürfe/Selbsteinschätzung,
  * per `key={item.id}` im Elternteil (Exam) bei jedem Fallaufgaben-Wechsel neu gemountet —
  * analog zu den `key={current.id}`-Quiz-Steps in QuizSteps.tsx.
@@ -147,7 +185,7 @@ function ExamFallaufgabeStep({
       </span>
       <div className="exam-situation">
         <span className="flip-kicker">Ausgangssituation</span>
-        <p>{item.prompt}</p>
+        <SituationText text={item.prompt} />
       </div>
       <ContentActions contentItemId={item.id} />
       {item.parts.map((part, index) => (
