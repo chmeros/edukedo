@@ -372,7 +372,8 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit einem Kurs zur Umschulung zum Fachinforma
 - [x] Vollständige Content-Autorierung (12 Fachgebiete, 45 Themen) über zwölf parallele Content-Autorierungs-Agenten, gemeinsames Modellunternehmen „Brevanta IT-Systemhaus GmbH", Verordnungstext als verifizierte Referenzdatei im Briefing. **Erledigt 04.10.2026:** 1.606 Content-Items für diesen Kurs (10.748 insgesamt über alle zwölf Kurse nach Import) — größter Einzelkurs bisher. Stichprobenprüfung der Rechtsverweise (alle im gültigen FIAusbV-Bereich, gemeinsame Dateien fachrichtungsneutral), Dry-Run fand eine CRLF-Datei (normalisiert), danach 0 Fehler. Siehe Architekturplanung Abschnitt 13.
 - [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 04.10.2026** — 434 Dateien, 10.748 Content-Items insgesamt, Delta exakt wie im Dry-Run erwartet (1.606).
 - [x] Folge-Durchlauf Kurs 13 (Systemintegration): siehe Iteration 18. **Erledigt 04.10.2026.**
-- [ ] **Offen (Folge-Durchläufe, Kurse 14–15):** Daten- und Prozessanalyse, Digitale Vernetzung — jeweils `fu1`–`fu7` kopieren, `KURS_META`-Eintrag, fünf Fachrichtungs-Fachgebiete, Verifikation, Dokumentation.
+- [x] Folge-Durchlauf Kurs 14 (Daten- und Prozessanalyse): siehe Iteration 19. **Erledigt 04.10.2026.**
+- [ ] **Offen (Folge-Durchlauf, Kurs 15):** Digitale Vernetzung — `fu1`–`fu7` kopieren, `KURS_META`-Eintrag, fünf Fachrichtungs-Fachgebiete, Verifikation, Dokumentation.
 
 **Testing**
 - [x] Live-Verifikation im Browser (frisch angelegtes Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, schriftliche Prüfungssimulation inkl. Code-/Tabellen-Darstellung, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.** Siehe Architekturplanung Abschnitt 13.
@@ -392,6 +393,21 @@ Ziel: Zweiter Durchlauf der vier Fachinformatiker-Kurse (Nutzer-Vorgabe „Ja, w
 **Testing**
 - [x] Live-Verifikation im Browser (Wegwerf-Testkonto, F-102-Wechseldialog zwischen den Fachinformatiker-Kursen, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, Prüfungssimulation ohne Abgabe, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.**
 - [ ] **Offen (technische Schuld, nicht terminiert):** Versionierender Content-Import, der bestehende `content_item_version`-Zeilen mit Prüfungsantworten nicht löscht — bisher nur ein Entwicklungswerkzeug für Datenbanken ohne Prüfungsantworten.
+
+## Iteration 19 — Vierzehnter Kurs: Fachinformatiker/in Daten- und Prozessanalyse (IHK-Abschlussprüfung)
+
+Ziel: Dritter Durchlauf der vier Fachinformatiker-Kurse (Nutzer-Vorgabe „Ja, weiter mit Kurs 14"), mit allen Grundsatzentscheidungen aus Iteration 17. `FU1`–`FU7` werden aus dem Anwendungsentwicklungs-Kurs kopiert, dazu fünf neue Fachgebiete `DP1`–`DP5` (Rahmenplan Abschnitt D, Prüfungsbereiche §§ 28–30 FIAusbV). Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft `content/fachinformatiker-daten-prozessanalyse/` (neu) und eine neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: fachinformatiker-daten-prozessanalyse` (`type: "ausbildungsberuf"`, `isPublished: true`, Zielgruppe Erwachsene). **Erledigt 04.10.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Gemeinsame Fachgebiete `FU1`–`FU7` aus Kurs 12 kopiert (36 Dateien, nur `kurs_slug` ersetzt, Inhalt byte-identisch geprüft). **Erledigt 04.10.2026.**
+- [x] Fünf neue Fachgebiete `DP1`–`DP5` (18 Themen) über fünf parallele Content-Autorierungs-Agenten. **Erledigt 04.10.2026:** 659 neue Content-Items; Kurs gesamt 1.623 (13.983 insgesamt über alle vierzehn Kurse nach Import). Stichprobe der Rechtsverweise unauffällig, Dry-Run aller 60 Dateien im ersten Anlauf ohne Fehler. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 04.10.2026** — 554 Dateien, 13.983 Content-Items insgesamt, Delta exakt wie im Dry-Run erwartet (1.623); im ersten Anlauf fehlerfrei, da zuvor keine Prüfungsantworten abgegeben worden waren.
+
+**Testing**
+- [x] Live-Verifikation im Browser (Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, Prüfungssimulation ohne Abgabe, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.**
 
 ## Offene, bewusst nicht terminierte Themen
 

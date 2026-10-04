@@ -194,6 +194,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-155 (vierzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
+  // Fachinformatiker/in Daten- und Prozessanalyse -- dritter der vier Fachinformatiker-Kurse;
+  // fu1-fu7 aus dem Anwendungsentwicklungs-Kurs kopiert (nur kurs_slug unterscheidet sich).
+  "fachinformatiker-daten-prozessanalyse": {
+    title: "Fachinformatiker/in Daten- und Prozessanalyse (IHK-Abschlussprüfung)",
+    type: "ausbildungsberuf",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {
