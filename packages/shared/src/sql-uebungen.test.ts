@@ -127,6 +127,6 @@ describe("vergleicheErgebnisse", () => {
   it("unterscheidet NULL, Zahl und Text und rundet Kommazahlen", () => {
     expect(vergleicheErgebnisse(tabelle([[null]]), tabelle([["NULL"]]), false).ok).toBe(false);
     expect(vergleicheErgebnisse(tabelle([[1]]), tabelle([["1"]]), false).ok).toBe(false);
-    expect(vergleicheErgebnisse(tabelle([[35200.000000000004]]), tabelle([[35200]]), false).ok).toBe(true);
+    expect(vergleicheErgebnisse(tabelle([[35200 + 1e-11]]), tabelle([[35200]]), false).ok).toBe(true);
   });
 });

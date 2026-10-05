@@ -1,4 +1,5 @@
 import { DndContext, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
+import { lernpfadStationsnamen } from "@edukedo/shared";
 import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
 import { DraggableTerm, DroppableZone } from "./QuizSteps";
@@ -365,6 +366,7 @@ function GepoolteZuordnungStation({
   zones,
   kernRunden,
   extraRunden,
+  weiterLabel,
   onSubmitItem,
   onStationComplete,
 }: {
@@ -372,6 +374,8 @@ function GepoolteZuordnungStation({
   zones: ZoneShaped[];
   kernRunden: ZoneItemShaped[][];
   extraRunden: ZoneItemShaped[][];
+  /** Beschriftung des Weiter-Buttons (Name der nächsten Station). */
+  weiterLabel: string;
   onSubmitItem: (itemText: string, zoneKey: string) => Promise<{ correct: boolean; feedback: string }>;
   onStationComplete: () => void;
 }) {
@@ -456,12 +460,12 @@ function GepoolteZuordnungStation({
                 setRoundIndex(0);
               }}
             >
-              Zwölf weitere üben
+              {extraRunden.reduce((summe, runde) => summe + runde.length, 0)} weitere üben
             </button>
           )}
           {isLastRound && (
             <button type="button" className="btn btn-primary" onClick={onStationComplete}>
-              Weiter: Maßnahmen
+              Weiter: {weiterLabel}
             </button>
           )}
         </div>
@@ -674,16 +678,8 @@ function Selbsteinschaetzung({
 // Hauptkomponente
 // ---------------------------------------------------------------------------
 
-const STATION_LABELS = [
-  "Grundlagen",
-  "Struktur erkennen",
-  "Ziele zuordnen",
-  "Messbare Ziele zuordnen",
-  "Maßnahmen wählen",
-  "Zusammenhänge",
-  "Wirkungsketten",
-  "Selbsteinschätzung",
-] as const;
+// F-168: die Namen der Stationen 1–7 kommen aus dem Lernpfad (`stationsnamen`), siehe lernpfadStationsnamen().
+const SELBSTEINSCHAETZUNG_LABEL = "Selbsteinschätzung";
 
 export function InstrumentLernpfad({
   kursId,
@@ -695,7 +691,10 @@ export function InstrumentLernpfad({
   onClose: () => void;
 }) {
   const utils = trpc.useUtils();
-  const data = trpc.instrumentLernpfad.get.useQuery({ kursId, instrumentType });
+  // staleTime: Infinity — `get` liefert die Optionen/Begriffe zufällig gemischt; ein Refetch beim Zurückkehren ins
+  // Fenster würde sie unter dem Cursor umsortieren (wie bei Quiz.tsx/Flashcards.tsx). Neu geladen wird nur gezielt
+  // per invalidate (nach der Selbsteinschätzung).
+  const data = trpc.instrumentLernpfad.get.useQuery({ kursId, instrumentType }, { staleTime: Infinity });
   const [stationIndex, setStationIndex] = useState(0);
 
   const submitWissensfrage = trpc.instrumentLernpfad.submitWissensfrage.useMutation();
@@ -725,6 +724,17 @@ export function InstrumentLernpfad({
   }
 
   const lernpfadId = lernpfad.id;
+  const namen = lernpfadStationsnamen(lernpfad.stationsnamen);
+  const STATION_LABELS = [
+    namen.grundlagenfragen,
+    namen.strukturErkennen,
+    namen.zieleZuordnen,
+    namen.messbareZieleZuordnen,
+    namen.massnahmenWahl,
+    namen.zusammenhaenge,
+    namen.wirkungsketten,
+    SELBSTEINSCHAETZUNG_LABEL,
+  ];
 
   return (
     <div className="panel-section">
@@ -781,6 +791,7 @@ export function InstrumentLernpfad({
           zones={lernpfad.messbareZieleZuordnen.zones}
           kernRunden={lernpfad.messbareZieleZuordnen.kernRunden}
           extraRunden={lernpfad.messbareZieleZuordnen.extraRunden}
+          weiterLabel={namen.massnahmenWahl}
           onSubmitItem={(itemText, zoneKey) =>
             submitZoneItem.mutateAsync({ lernpfadId, station: "messbareZieleZuordnen", itemText, zoneKey })
           }

@@ -4,6 +4,7 @@ export * from "./fsrs/scheduler";
 export * from "./game-logic";
 export * from "./game-logic-weitere";
 export * from "./instrument-lernpfad-logic";
+export * from "./instrument-lernpfad-pruefung";
 export * from "./netzplan-logic";
 export * from "./quiz-logic";
 export * from "./sql-uebungen";

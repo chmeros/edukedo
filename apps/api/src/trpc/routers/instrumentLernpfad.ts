@@ -175,6 +175,8 @@ export const instrumentLernpfadRouter = router({
         })),
       },
       selbsteinschaetzungPrompt: payload.selbsteinschaetzungPrompt,
+      // F-168: Anzeigenamen der Stationen (leer = Standardnamen des Frontends).
+      stationsnamen: payload.stationsnamen ?? null,
       previousSelbsteinschaetzung: previous?.rating ?? null,
     };
   }),

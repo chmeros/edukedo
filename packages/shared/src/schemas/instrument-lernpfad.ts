@@ -124,6 +124,39 @@ export const lernpfadSortierenStationSchema = z.object({
 export type LernpfadSortierAufgabe = z.infer<typeof lernpfadSortierAufgabeSchema>;
 export type LernpfadSortierenStation = z.infer<typeof lernpfadSortierenStationSchema>;
 
+/**
+ * F-168: Anzeigenamen der sieben Stationen. Die technischen Schlüssel (`zieleZuordnen`,
+ * `messbareZieleZuordnen`, `massnahmenWahl` …) stammen vom ersten, BSC-Lernpfad und bezeichnen nur noch die
+ * **Rolle** der Station (grobe Zuordnung, vertiefte Zuordnung aus einem Pool, Entscheidungsrunden mit
+ * Kontext); die sichtbaren Namen kommen je Lernpfad aus dem Payload. Fehlt das Feld (BSC-Pfad), gelten die
+ * Standardnamen unten.
+ */
+export const lernpfadStationsnamenSchema = z.object({
+  grundlagenfragen: z.string().min(1).max(40).optional(),
+  strukturErkennen: z.string().min(1).max(40).optional(),
+  zieleZuordnen: z.string().min(1).max(40).optional(),
+  messbareZieleZuordnen: z.string().min(1).max(40).optional(),
+  massnahmenWahl: z.string().min(1).max(40).optional(),
+  zusammenhaenge: z.string().min(1).max(40).optional(),
+  wirkungsketten: z.string().min(1).max(40).optional(),
+});
+export type LernpfadStationsnamen = z.infer<typeof lernpfadStationsnamenSchema>;
+
+/** Standardnamen (entsprechen dem BSC-Lernpfad), wenn der Payload keine `stationsnamen` mitbringt. */
+export const LERNPFAD_STATIONSNAMEN_STANDARD = {
+  grundlagenfragen: "Grundlagen",
+  strukturErkennen: "Struktur erkennen",
+  zieleZuordnen: "Ziele zuordnen",
+  messbareZieleZuordnen: "Messbare Ziele zuordnen",
+  massnahmenWahl: "Maßnahmen wählen",
+  zusammenhaenge: "Zusammenhänge",
+  wirkungsketten: "Wirkungsketten",
+} as const satisfies Record<string, string>;
+
+export function lernpfadStationsnamen(namen: LernpfadStationsnamen | null | undefined): Record<LernpfadStationKey, string> {
+  return { ...LERNPFAD_STATIONSNAMEN_STANDARD, ...Object.fromEntries(Object.entries(namen ?? {}).filter(([, wert]) => typeof wert === "string")) };
+}
+
 /** Vollständiges Payload eines Instrumenten-Lernpfads (`instrument_lernpfad.payload`). */
 export const instrumentLernpfadPayloadSchema = z.object({
   organisation: z.string().min(1).max(200),
@@ -137,6 +170,8 @@ export const instrumentLernpfadPayloadSchema = z.object({
   zusammenhaenge: lernpfadWissensfragenStationSchema,
   wirkungsketten: lernpfadSortierenStationSchema,
   selbsteinschaetzungPrompt: z.string().min(1).max(CONTEXT_MAX),
+  // F-168: optionale Anzeigenamen der Stationen (siehe lernpfadStationsnamenSchema).
+  stationsnamen: lernpfadStationsnamenSchema.optional(),
 });
 export type InstrumentLernpfadPayload = z.infer<typeof instrumentLernpfadPayloadSchema>;
 
