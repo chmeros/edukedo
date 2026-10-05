@@ -451,7 +451,7 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 - [x] Integrationstest `exam-pruefungsbereiche.integration.test.ts` und Live-Verifikation im Browser. **Erledigt 05.10.2026.**
 
 **Offen (Produktentscheidung bzw. größerer Umfang, nicht terminiert)**
-- [ ] Zugang für minderjährige Auszubildende zu den IHK-Kursen (Eltern-Consent-Flow, Zielgruppe der Fachinformatiker-Kurse).
+- [ ] Zugang für minderjährige Auszubildende zu den IHK-Kursen (Eltern-Consent-Flow, Zielgruppe der Fachinformatiker-Kurse) — **zurückgestellt**, seit F-159 sind nur Volljährige zugelassen (siehe unten).
 - [x] IT-Instrumente für die Fachinformatiker-Kurse: OSI-Modell, Schutzziele, SQL-Befehlsgruppen, Scrum, UML-Diagramme, Teststufen (F-156), 72 neue Content-Items, Illustrationen, Parser/Editor generalisiert. **Erledigt 05.10.2026.**
 - [x] Spiele für die Fachinformatiker-Kurse: Kreuzworträtsel „IT-Fachbegriffe", Begriffe-Duell „IT-Grundlagen", IT-Memory „Abkürzungen und Begriffe" (F-157). **Erledigt 05.10.2026.**
 - [ ] Weitere IT-Instrumente (ER-Modell/Normalisierung, Struktogramm/PAP, Netzplan, Subnetting-Rechner, SQL-Übungsfläche — brauchen teils eine neue Mechanik statt Zonen-Zuordnung) und geführte Lernpfade für die neuen Instrumente.
@@ -461,7 +461,7 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 - [ ] **Weiterhin offen (eigenes Konzept nötig, nicht terminiert):** gamifizierte Netzwerk-/Server-Simulationen (Packet-Tracer-artig) und Capture-the-Flag-Übungen; weitere Sets für die neuen Spieltypen (z. B. mehr Phishing-Mails, Bug-Hunt-Aufgaben in weiteren Sprachen); fachliche Gegenlese des Spiel-Contents durch eine Fachperson.
 - [x] Prüfungsangst-Hilfen (Reiter „Gelassen bleiben": Ablauf, Lernstand je Prüfungsbereich, Atemübung, Blackout-Tipps, Prüfungstags-Checkliste, Hilfe-Hinweise; F-154), „Ruhiger Modus" und Hell-/Dunkel-Schalter (F-155). **Erledigt 05.10.2026**, inkl. Integrationstest und Live-Verifikation. Die „Prüfungsreife" wurde bewusst als Lernstand je Prüfungsbereich ohne Notenprognose umgesetzt.
 - [ ] Fachgespräch-Trainer mit Hilfen zu Projektantrag und Projektdokumentation; Dauer der AEVO-Präsentation prüfen.
-- [ ] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung) während einer Lernrunde ausblenden; Karteikarten-Antworten strukturierter darstellen.
+- [x] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung, Erinnerung) während einer Lernrunde ausblenden; Karteikarten-Antworten gegliedert darstellen (F-160). **Erledigt 05.10.2026.**
 
 ## Offene, bewusst nicht terminierte Themen
 

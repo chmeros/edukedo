@@ -15,6 +15,7 @@ import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
 import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
+import { LearningRoundContext } from "./LearningRound";
 import { OnboardingHints } from "./OnboardingHints";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
@@ -145,6 +146,8 @@ export function App() {
   // wird sowohl explizit über den Header-Link als auch implizit erzwungen, solange kein aktiver
   // Kurs existiert (siehe showCourseSelection unten).
   const [view, setView] = useState<"app" | "admin" | "courses">("app");
+  // Läuft gerade eine Lernrunde? (gemeldet von LearningRound.tsx) — blendet dann Dauer-Hinweise aus.
+  const [roundActive, setRoundActive] = useState(false);
 
   // F-159: Solange Minderjährige nicht zugelassen sind (Server-Schalter ALLOW_MINORS), zeigt das Formular
   // statt der Eltern-E-Mail-Abfrage einen Hinweis und sperrt das Absenden — maßgeblich bleibt die Prüfung im Backend.
@@ -184,6 +187,9 @@ export function App() {
   // in CourseSelection.tsx), statt nur einen Hinweis anzuzeigen. `courses.data !== undefined`
   // verhindert ein kurzes Aufblitzen während des ersten Ladens (activeKursId ist dann ebenfalls
   // noch null, aber noch nicht aussagekräftig).
+  // Während einer laufenden Lernrunde keine Dauer-Hinweise (E-Mail-Bestätigung, „Kurz erklärt", Erinnerung):
+  // nur in der Lernen-Ansicht, damit sie in den übrigen Tabs unverändert erscheinen.
+  const hideBanners = roundActive && view === "app" && learningMode === "lernen";
   const showCourseSelection = view === "courses" || (view === "app" && courses.data !== undefined && !activeKursId);
   // Code-Review-Fund, nachgezogen: view === "app" gehört mit in die Bedingung, sonst lief
   // der Tracker unbemerkt weiter, wenn eine Admin-Person vom Lernmodus in die Verwaltung
@@ -246,7 +252,7 @@ export function App() {
           }
         />
         <main id="main-content" className="shell">
-          <EmailVerificationBanner />
+          {!hideBanners && <EmailVerificationBanner />}
           {view === "admin" && isAdmin ? (
             <AdminPanel />
           ) : showCourseSelection ? (
@@ -265,12 +271,12 @@ export function App() {
               <p className="welcome-greeting">
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
-              {!me.data.onboardingHintsSeen && <OnboardingHints />}
+              {!me.data.onboardingHintsSeen && !hideBanners && <OnboardingHints />}
               {/* F-155: im Ruhigen Modus keine Spielelemente (Punktehamster, Lernserie, Credits). */}
               {!calmMode && <PunktehamsterWidget />}
               {/* F-33: dezente Erinnerung, siehe Architekturplanung Abschnitt 13 — bewusst erst
                   in der eigentlichen Lernansicht (nicht bei Kursauswahl/Admin). */}
-              {!calmMode && <StreakReminderBanner />}
+              {!calmMode && !hideBanners && <StreakReminderBanner />}
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (
@@ -371,6 +377,7 @@ export function App() {
                         dafür, dass ein Kurswechsel oder das Setzen/Aufheben eines
                         F-27-Themenfilters die Runde bewusst zurücksetzt. */}
                     <div hidden={learningMode !== "lernen"}>
+                      <LearningRoundContext.Provider value={setRoundActive}>
                       <Lernen
                         key={`${activeKursId}-${activeThema?.id ?? "all"}`}
                         kursId={activeKursId}
@@ -381,6 +388,7 @@ export function App() {
                         quizEnabled={me.data.learnQuizEnabled}
                         preferenceSet={me.data.learningModePreferenceSet}
                       />
+                      </LearningRoundContext.Provider>
                     </div>
                     {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit
                         lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}

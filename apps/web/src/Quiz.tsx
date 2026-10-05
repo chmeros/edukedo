@@ -3,6 +3,7 @@ import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
 import { AbortRoundButton } from "./AbortRoundButton";
 import { InfoIcon, SuccessIcon } from "./Icons";
+import { RoundActiveMarker } from "./LearningRound";
 import { QuizCountControl } from "./QuizCountControl";
 import {
   BlanksSelectionStep,
@@ -254,6 +255,7 @@ export function Quiz({
   return (
     <div className="stack">
       {filterBadge}
+      <RoundActiveMarker />
       <span className="quiz-progress">
         Frage {index + 1} von {items.length}
       </span>

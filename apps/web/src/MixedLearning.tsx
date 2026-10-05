@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
 import { shuffle } from "@edukedo/shared";
 import { AbortRoundButton } from "./AbortRoundButton";
+import { RoundActiveMarker } from "./LearningRound";
+import { FlashcardAnswer } from "./FlashcardAnswer";
 import { ContentActions } from "./ContentActions";
 import { FlipCard } from "./FlipCard";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -325,6 +327,7 @@ export function MixedLearning({
   return (
     <div className="stack">
       {filterBadge}
+      <RoundActiveMarker />
       <span className="quiz-progress">
         {index + 1} von {queue.length} ({cardCount} Karteikarten + {quizCount} Quiz-Fragen)
       </span>
@@ -355,7 +358,7 @@ export function MixedLearning({
                 <span className="flip-kicker" style={{ color: "#fff" }}>
                   Antwort
                 </span>
-                <p className="flip-a">{current.card.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
+                <FlashcardAnswer text={current.card.explanation ?? null} />
                 {/* F-111: gleiche Formulierung/Beschriftung wie Flashcards.tsx (Einfach/Mittel/
                     Schwer statt Gut/Schwer/Nochmal) — nachträgliches Ändern bleibt hier bewusst
                     außen vor, da der Mischmodus (anders als F-110s "Nur Karteikarten") keine

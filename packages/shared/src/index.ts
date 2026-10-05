@@ -1,4 +1,5 @@
 export * from "./age";
+export * from "./answer-structure";
 export * from "./fsrs/scheduler";
 export * from "./game-logic";
 export * from "./game-logic-weitere";

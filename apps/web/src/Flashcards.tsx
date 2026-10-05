@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
 import { AbortRoundButton } from "./AbortRoundButton";
+import { RoundActiveMarker } from "./LearningRound";
+import { FlashcardAnswer } from "./FlashcardAnswer";
 import { ContentActions } from "./ContentActions";
 import { FlashcardSelection } from "./FlashcardSelection";
 import { FlipCard } from "./FlipCard";
@@ -354,6 +356,7 @@ export function Flashcards({
     <div className="stack">
       {filterBadge}
       {selectionControls}
+      <RoundActiveMarker />
       <span className="due-count">
         <b>{index + 1}</b> von {cards.length} Karte(n)
       </span>
@@ -381,7 +384,7 @@ export function Flashcards({
             <span className="flip-kicker" style={{ color: "#fff" }}>
               Antwort
             </span>
-            <p className="flip-a">{current.explanation ?? "Keine Zusatzerklärung vorhanden."}</p>
+            <FlashcardAnswer text={current.explanation ?? null} />
             <span className="flip-hint">
               {alreadyRated ? "Einschätzung ändern?" : "Wie schwierig war diese Karteikarte für dich?"}
             </span>
