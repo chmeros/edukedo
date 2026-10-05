@@ -447,7 +447,9 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         themaTitle: string;
       }[];
       expect(results.some((hit) => hit.id === target.id)).toBe(true);
-      expect(results.every((hit) => hit.type !== "theorie")).toBe(true);
+      // F-164: Theorie-Treffer (Lesefenster) kommen jetzt mit, stehen aber immer vor den übrigen Treffern.
+      const ersterNichtTheorie = results.findIndex((hit) => hit.type !== "theorie");
+      expect(results.slice(ersterNichtTheorie === -1 ? results.length : ersterNichtTheorie).every((hit) => hit.type !== "theorie")).toBe(true);
       expect(results[0]!.themaTitle).toBeTruthy();
 
       const tooShortResponse = await app.inject({
