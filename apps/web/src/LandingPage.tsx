@@ -31,7 +31,7 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
               </h1>
               <p className="hero-sub">
                 edukedo bringt dich mit Karteikarten und Quiz nach dem FSRS-Wiederholungsalgorithmus sicher
-                durch Prüfungen — von der IHK-Fortbildung bis zur Klassenarbeit. Ohne Bezahlschranke für den
+                durch Prüfungen — von der IHK-Fortbildung und Ausbildungsberufen wie Fachinformatiker/in bis zur Klassenarbeit. Ohne Bezahlschranke für den
                 Lerninhalt.
               </p>
               <div className="hero-ctas">
@@ -48,8 +48,8 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
                   <span>kostenloser Lerninhalt</span>
                 </div>
                 <div className="stat">
-                  <b>2</b>
-                  <span>Pilotkurse am Start</span>
+                  <b>15</b>
+                  <span>Kurse am Start</span>
                 </div>
                 <div className="stat">
                   <b>FSRS</b>

@@ -438,6 +438,25 @@ Ziel: Fortschritt, Instrumente, Kursauswahl, Erfolge und Sozial-Bereiche im Kach
 - [x] Live-Verifikation im Browser (Hell/Dunkel, mobile Breite, F-102-Dialog, Konsolen-Check in frischem Tab) und Kontrastberechnung für Text auf der Füllung. **Erledigt 05.10.2026.**
 - [ ] **Offen (nicht terminiert):** Das Header-Dropdown `CourseSwitcher` zeigt weiterhin Listenzeilen ohne Füllstand; falls gewünscht, kann es dieselbe `Tile`-Optik bekommen.
 
+## Iteration 22 — Nachbesserungen aus dem Durchgang als Azubi mit Prüfungsangst (F-149–F-153)
+
+Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.2026) gefundenen Schwächen beheben, soweit ohne Produktentscheidung möglich.
+
+**Programmierung (Kern)**
+- [x] Prüfungsbereiche mit vorgeschriebener Dauer (`exam.areas`, `exam.start` mit `pruefungsbereichKey`, Metadaten der vier Fachinformatiker-Kurse), Bloom-Label aus der Aufgabenstellung entfernt (F-149). **Erledigt 05.10.2026.**
+- [x] Präsentationsdauer je Kurs (`presentationMinutes`, Fachinformatiker 15 Min.) (F-150). **Erledigt 05.10.2026.**
+- [x] Prüfungs-Timer ausblendbar, „Prüfung beenden" (F-151); Pause in Lernrunden (F-152); Altershinweis und Startseiten-Texte (F-153). **Erledigt 05.10.2026.**
+
+**Testing**
+- [x] Integrationstest `exam-pruefungsbereiche.integration.test.ts` und Live-Verifikation im Browser. **Erledigt 05.10.2026.**
+
+**Offen (Produktentscheidung bzw. größerer Umfang, nicht terminiert)**
+- [ ] Zugang für minderjährige Auszubildende zu den IHK-Kursen (Eltern-Consent-Flow, Zielgruppe der Fachinformatiker-Kurse).
+- [ ] Spiele und IT-Instrumente (UML, ER-Modell, Struktogramm, Netzplan, Subnetting, SQL-Übungsfläche) für die Fachinformatiker-Kurse.
+- [ ] Prüfungsangst-Hilfen (Ablauf der Prüfung, Atem-/Beruhigungsübungen, Blackout-Tipps), Prüfungsreife-Anzeige, einstellbarer „ruhiger Modus" (weniger Gamification), Hell-/Dunkel-Schalter.
+- [ ] Fachgespräch-Trainer mit Hilfen zu Projektantrag und Projektdokumentation; Dauer der AEVO-Präsentation prüfen.
+- [ ] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung) während einer Lernrunde ausblenden; Karteikarten-Antworten strukturierter darstellen.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:

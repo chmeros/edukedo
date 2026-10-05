@@ -1,22 +1,30 @@
 import { useEffect, useState } from "react";
 import { trpc } from "./trpc";
 
-const PRESENTATION_LIMIT_SECONDS = 10 * 60;
+/**
+ * F-150 (Präsentationsdauer je Kurs, Nutzer-Vorgabe vom 05.10.2026, siehe Architekturplanung
+ * Abschnitt 13): Standard sind 10 Minuten (Fachwirt-Prüfung); Kurse mit anderer Vorgabe (z. B.
+ * Fachinformatiker: höchstens 15 Minuten, FIAusbV) hinterlegen `presentationMinutes` in
+ * `kurs.metadata`, geliefert über `courses.list`.
+ */
+const DEFAULT_PRESENTATION_MINUTES = 10;
 
 /**
  * F-24 Checkliste — Punkte sind bewusst im Frontend definiert statt in der Datenbank (siehe
  * presentationDraft.checklist in apps/api/src/db/schema.ts): reine Anwendungslogik, keine
  * Fachdaten, die eine Migration rechtfertigen würden.
  */
-const CHECKLIST_ITEMS: { key: string; label: string }[] = [
+function checklistItems(limitMinutes: number): { key: string; label: string }[] {
+  return [
   { key: "anlass_ziel", label: "Anlass und Zielsetzung der Präsentation klar benannt" },
   { key: "gliederung_zeitplan", label: "Gliederung mit Zeitplan für die einzelnen Punkte festgelegt" },
   { key: "kernaussage", label: "Wichtigste Kernaussage/Handlungsempfehlung klar erkennbar" },
   { key: "visualisierung", label: "Visualisierung/Medieneinsatz vorbereitet (Flipchart, Folien o. Ä.)" },
   { key: "laut_geuebt", label: "Präsentation mindestens einmal laut geübt (siehe Timer unten)" },
   { key: "rueckfragen", label: "Mögliche Rückfragen der Prüfungskommission antizipiert" },
-  { key: "redezeit", label: "Redezeit von max. 10 Minuten eingehalten" },
-];
+  { key: "redezeit", label: `Redezeit von max. ${limitMinutes} Minuten eingehalten` },
+  ];
+}
 
 function formatElapsed(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
@@ -26,10 +34,10 @@ function formatElapsed(seconds: number): string {
 
 /**
  * Stoppuhr statt Countdown: Ziel ist das Einüben der eigenen Redezeit, nicht ein Zwangsende —
- * zählt über die 10-Minuten-Grenze (F-24) hinaus weiter und markiert sie nur farblich, damit
+ * zählt über die Zeitgrenze (F-24, je Kurs, Standard 10 Minuten) hinaus weiter und markiert sie nur farblich, damit
  * beim Üben sichtbar bleibt, um wie viel eine Überziehung ausfällt.
  */
-function PresentationTimer() {
+function PresentationTimer({ limitMinutes }: { limitMinutes: number }) {
   const [elapsed, setElapsed] = useState(0);
   const [running, setRunning] = useState(false);
 
@@ -39,11 +47,11 @@ function PresentationTimer() {
     return () => clearInterval(interval);
   }, [running]);
 
-  const overLimit = elapsed >= PRESENTATION_LIMIT_SECONDS;
+  const overLimit = elapsed >= limitMinutes * 60;
 
   return (
     <div className="stack">
-      <span className="stat-subheading">Redezeit üben (max. 10 Min.)</span>
+      <span className="stat-subheading">Redezeit üben (max. {limitMinutes} Min.)</span>
       <div className={overLimit ? "exam-timer is-expired" : "exam-timer"}>⏱ {formatElapsed(elapsed)}</div>
       <div className="rate-row">
         <button type="button" className="btn btn-ghost" onClick={() => setRunning((value) => !value)}>
@@ -66,6 +74,8 @@ function PresentationTimer() {
 
 export function Praesentationstrainer({ kursId }: { kursId: string }) {
   const utils = trpc.useUtils();
+  const courses = trpc.courses.list.useQuery();
+  const limitMinutes = courses.data?.find((course) => course.id === kursId)?.presentationMinutes ?? DEFAULT_PRESENTATION_MINUTES;
   const draft = trpc.presentation.get.useQuery({ kursId });
   const save = trpc.presentation.save.useMutation({
     onSuccess: () => utils.presentation.get.invalidate(),
@@ -111,7 +121,7 @@ export function Praesentationstrainer({ kursId }: { kursId: string }) {
   return (
     <div className="stack">
       <p>
-        Strukturiere deine Kurzpräsentation (max. 10 Min.) in drei Abschnitten, hake die Checkliste ab und übe deine
+        Strukturiere deine Kurzpräsentation (max. {limitMinutes} Min.) in drei Abschnitten, hake die Checkliste ab und übe deine
         Redezeit mit dem Timer unten — dein Entwurf wird gespeichert und bleibt bei deinem nächsten Besuch erhalten.
       </p>
       <div className="field">
@@ -147,7 +157,7 @@ export function Praesentationstrainer({ kursId }: { kursId: string }) {
 
       <div className="stack">
         <span className="stat-subheading">Checkliste</span>
-        {CHECKLIST_ITEMS.map((item) => (
+        {checklistItems(limitMinutes).map((item) => (
           <label key={item.key} className="checklist-item">
             <input type="checkbox" checked={!!checklist[item.key]} onChange={() => toggleChecklistItem(item.key)} />
             {item.label}
@@ -163,7 +173,7 @@ export function Praesentationstrainer({ kursId }: { kursId: string }) {
       </div>
 
       <hr />
-      <PresentationTimer />
+      <PresentationTimer limitMinutes={limitMinutes} />
     </div>
   );
 }

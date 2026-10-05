@@ -2889,6 +2889,7 @@ details[open] > summary.disclosure::before {
 
 .tile.is-active {
   border-color: var(--sprout-deep);
+  background: var(--sprout-tint);
 }
 
 .tile.is-disabled {

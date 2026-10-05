@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ContentActions } from "./ContentActions";
 import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, HamsterWheelIcon, InfoIcon, SuccessIcon } from "./Icons";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 const AI_GRADING_STATUS_LABELS: Record<string, string> = {
@@ -191,8 +192,9 @@ function ExamFallaufgabeStep({
       {item.parts.map((part, index) => (
         <div key={index} className="exam-part">
           <p className="exam-part-prompt">
-            <b>Teilaufgabe {index + 1}</b> ({part.points} Punkte
-            {part.bloom ? `, bloom: ${part.bloom}` : ""}): {part.prompt}
+            {/* F-149: die Bloom-Stufe ist ein internes Didaktik-Label der Aufgabenautor:innen und gehört in
+                keiner echten Prüfung zur Aufgabenstellung — sie wird bewusst nicht angezeigt. */}
+            <b>Teilaufgabe {index + 1}</b> ({part.points} Punkte): {part.prompt}
           </p>
           <textarea
             className="input exam-answer-textarea"
@@ -260,10 +262,40 @@ function ExamFallaufgabeStep({
   );
 }
 
+const TIMER_HIDDEN_STORAGE_KEY = "edukedo.examTimerHidden";
+
+function readTimerHidden(): boolean {
+  try {
+    return localStorage.getItem(TIMER_HIDDEN_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function Exam({ kursId }: { kursId: string }) {
   const utils = trpc.useUtils();
   const me = trpc.auth.me.useQuery();
   const [durationMinutes, setDurationMinutes] = useState(60);
+  // F-149: Prüfungsbereiche der echten Abschlussprüfung (leer bei Kursen ohne Angabe → freie Mischprüfung).
+  // `areaKey`: undefined = Standard (erster Bereich), "mix" = freie Mischprüfung.
+  const areas = trpc.exam.areas.useQuery({ kursId });
+  const [areaKey, setAreaKey] = useState<string | undefined>(undefined);
+  // F-151: der Countdown lässt sich ausblenden (Prüfungsangst, Nutzer-Feedback vom 05.10.2026); die Zeit läuft
+  // weiter, die Einstellung bleibt im Browser gespeichert.
+  const [timerHidden, setTimerHidden] = useState(readTimerHidden);
+  const [confirmAbort, setConfirmAbort] = useState(false);
+  function toggleTimerHidden() {
+    setTimerHidden((current) => {
+      try {
+        localStorage.setItem(TIMER_HIDDEN_STORAGE_KEY, current ? "0" : "1");
+      } catch {
+        // Speichern ist nur eine Komfortfunktion.
+      }
+      return !current;
+    });
+  }
+  const areaList = areas.data ?? [];
+  const selectedArea = areaKey === "mix" ? undefined : (areaList.find((area) => area.key === areaKey) ?? areaList[0]);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [items, setItems] = useState<ExamItem[]>([]);
   const [index, setIndex] = useState(0);
@@ -276,7 +308,7 @@ export function Exam({ kursId }: { kursId: string }) {
       setSessionId(data.sessionId);
       setItems(data.items);
       setIndex(0);
-      setDeadline(Date.now() + durationMinutes * 60_000);
+      setDeadline(Date.now() + (data.durationMinutes ?? durationMinutes) * 60_000);
       setResult(null);
     },
   });
@@ -309,6 +341,7 @@ export function Exam({ kursId }: { kursId: string }) {
     setIndex(0);
     setDeadline(null);
     setResult(null);
+    setConfirmAbort(false);
   }
 
   function handleItemSubmit(parts: { answerText: string; selfAssessedPoints: number }[]) {
@@ -372,12 +405,44 @@ export function Exam({ kursId }: { kursId: string }) {
     const timeIsUp = remainingSeconds <= 0;
     return (
       <div className="stack">
-        <div className={timeIsUp ? "exam-timer is-expired" : "exam-timer"}>⏱ {formatRemaining(remainingSeconds)}</div>
+        <div className="rate-row">
+          {timerHidden ? (
+            <span className="field-hint">Timer ausgeblendet — die Zeit läuft im Hintergrund weiter.</span>
+          ) : (
+            <div className={timeIsUp ? "exam-timer is-expired" : "exam-timer"}>⏱ {formatRemaining(remainingSeconds)}</div>
+          )}
+          <button type="button" className="btn btn-ghost btn-sm" aria-pressed={timerHidden} onClick={toggleTimerHidden}>
+            {timerHidden ? "Timer einblenden" : "Timer ausblenden"}
+          </button>
+        </div>
         {timeIsUp && (
           <div className="alert alert-danger">
             <DangerIcon />
             <div>Die gewählte Zeit ist abgelaufen — du kannst trotzdem in Ruhe weitermachen, das ist ein Übungswerkzeug.</div>
           </div>
+        )}
+        {confirmAbort ? (
+          <div className="alert alert-info">
+            <InfoIcon />
+            <div className="stack">
+              <div>
+                Prüfung beenden? Bereits abgegebene Fallaufgaben bleiben gespeichert, die aktuelle Aufgabe und alle
+                weiteren werden nicht gewertet. Du kannst jederzeit eine neue Prüfung starten.
+              </div>
+              <div className="alert-actions">
+                <button type="button" className="btn btn-secondary btn-sm" onClick={reset}>
+                  Prüfung beenden
+                </button>
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => setConfirmAbort(false)}>
+                  Weitermachen
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <button type="button" className="link-muted-btn" style={{ alignSelf: "flex-start" }} onClick={() => setConfirmAbort(true)}>
+            Prüfung beenden
+          </button>
         )}
         <ExamFallaufgabeStep
           key={items[index]!.id}
@@ -400,25 +465,68 @@ export function Exam({ kursId }: { kursId: string }) {
 
   return (
     <div className="stack">
-      <p>
-        Situationsbezogene Fallaufgaben über mehrere Handlungsbereiche hinweg, wie in der schriftlichen IHK-Prüfung —
-        wähle eine Übungsdauer und starte, sobald du bereit bist.
-      </p>
-      <div className="field">
-        <label htmlFor="exam-duration">Übungsdauer</label>
-        <div className="segmented">
-          {DURATION_PRESETS_MINUTES.map((minutes) => (
-            <button
-              key={minutes}
-              type="button"
-              className={durationMinutes === minutes ? "is-active" : ""}
-              onClick={() => setDurationMinutes(minutes)}
-            >
-              {minutes >= 60 ? `${minutes / 60} Std.` : `${minutes} Min.`}
-            </button>
-          ))}
+      {areaList.length > 0 ? (
+        <>
+          <p>
+            Die schriftliche Abschlussprüfung besteht aus mehreren Prüfungsbereichen mit vorgeschriebener Dauer. Übe
+            einen davon unter echten Zeitbedingungen — oder mische frei, wenn du dich nicht festlegen möchtest.
+          </p>
+          <div className="field">
+            <span id="exam-area-label">Prüfungsbereich</span>
+            <div className="tile-grid tile-grid-sm" role="group" aria-labelledby="exam-area-label">
+              {areaList.map((area) => (
+                <Tile
+                  key={area.key}
+                  size="sm"
+                  title={area.title}
+                  meta={`${area.part} · ${area.minutes} Min.`}
+                  active={selectedArea?.key === area.key}
+                  aria-pressed={selectedArea?.key === area.key}
+                  onClick={() => setAreaKey(area.key)}
+                />
+              ))}
+              <Tile
+                size="sm"
+                title="Gemischte Übung"
+                meta="Alle Fachgebiete · freie Dauer"
+                active={selectedArea === undefined}
+                aria-pressed={selectedArea === undefined}
+                onClick={() => setAreaKey("mix")}
+              />
+            </div>
+          </div>
+          <p className="field-hint">
+            Die Aufgaben stammen aus den zum Prüfungsbereich passenden Fachgebieten. Diese Zuordnung ist eine
+            Lernhilfe dieser Plattform, keine amtliche Aufgabenliste.
+          </p>
+        </>
+      ) : (
+        <p>
+          Situationsbezogene Fallaufgaben über mehrere Handlungsbereiche hinweg, wie in der schriftlichen IHK-Prüfung —
+          wähle eine Übungsdauer und starte, sobald du bereit bist.
+        </p>
+      )}
+      {selectedArea ? (
+        <p>
+          Vorgeschriebene Dauer: <b>{selectedArea.minutes} Minuten</b>
+        </p>
+      ) : (
+        <div className="field">
+          <label htmlFor="exam-duration">Übungsdauer</label>
+          <div className="segmented">
+            {DURATION_PRESETS_MINUTES.map((minutes) => (
+              <button
+                key={minutes}
+                type="button"
+                className={durationMinutes === minutes ? "is-active" : ""}
+                onClick={() => setDurationMinutes(minutes)}
+              >
+                {minutes >= 60 ? `${minutes / 60} Std.` : `${minutes} Min.`}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       {startExam.error && (
         <div className="alert alert-info">
           <InfoIcon />
@@ -429,7 +537,7 @@ export function Exam({ kursId }: { kursId: string }) {
         type="button"
         className="btn btn-primary btn-block"
         disabled={startExam.isPending}
-        onClick={() => startExam.mutate({ kursId })}
+        onClick={() => startExam.mutate({ kursId, pruefungsbereichKey: selectedArea?.key })}
       >
         Prüfungssimulation starten
       </button>

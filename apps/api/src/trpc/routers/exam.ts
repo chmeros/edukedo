@@ -1,4 +1,9 @@
-import { fallaufgabePayloadSchema, finishExamInputSchema, startExamInputSchema, submitExamAnswerInputSchema } from "@edukedo/shared";
+import {
+  activeKursInputSchema,
+  fallaufgabePayloadSchema,
+  finishExamInputSchema,   startExamInputSchema,
+  submitExamAnswerInputSchema,
+} from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, sql } from "drizzle-orm";
 import {
@@ -7,15 +12,39 @@ import {
   examAnswer,
   examSession,
   fachgebiet,
+  kurs,
   learningEvent,
   thema,
   userCourse,
 } from "../../db/schema";
+import { kursPruefungsbereiche } from "../../pruefungsbereiche";
 import { protectedProcedure, router } from "../trpc";
 
 const EXAM_MODE = "schriftliche_pruefung";
 
+/** Eine Fallaufgabe entspricht grob 20 Minuten Bearbeitungszeit (4 Teilaufgaben à 5 Punkte). */
+const MINUTES_PER_FALLAUFGABE = 20;
+
 export const examRouter = router({
+  /**
+   * F-149: Prüfungsbereiche der echten schriftlichen Abschlussprüfung dieses Kurses (leer für Kurse
+   * ohne Angabe in `kurs.metadata.pruefungsbereiche` → freie Mischprüfung). Nur für belegte Kurse.
+   */
+  areas: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const [row] = await ctx.db
+      .select({ metadata: kurs.metadata })
+      .from(kurs)
+      .innerJoin(userCourse, and(eq(userCourse.kursId, kurs.id), eq(userCourse.userId, ctx.currentUser.id)))
+      .where(eq(kurs.id, input.kursId))
+      .limit(1);
+    return (row ? kursPruefungsbereiche(row.metadata) : []).map((area) => ({
+      key: area.key,
+      title: area.title,
+      part: area.part,
+      minutes: area.minutes,
+    }));
+  }),
+
   /**
    * F-23: startet eine neue Prüfungssitzung mit je einer zufälligen Fallaufgabe pro
    * Fachgebiet (Handlungsbereich) im Kurs — "situationsbezogene Fallaufgabe über mehrere
@@ -31,11 +60,14 @@ export const examRouter = router({
         explanation: contentItem.explanation,
         payload: contentItem.payload,
         fachgebietId: fachgebiet.id,
+        fachgebietCode: fachgebiet.code,
         fachgebietTitle: fachgebiet.title,
+        kursMetadata: kurs.metadata,
       })
       .from(contentItem)
       .innerJoin(thema, eq(thema.id, contentItem.themaId))
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(kurs, eq(kurs.id, fachgebiet.kursId))
       .innerJoin(
         userCourse,
         and(
@@ -47,15 +79,33 @@ export const examRouter = router({
       .where(and(eq(contentItem.type, "fallaufgabe"), eq(contentItem.isActive, true)))
       .orderBy(sql`random()`);
 
-    // Je Fachgebiet nur die erste (bereits zufällig sortierte) Fallaufgabe behalten, damit die
-    // Prüfung mehrere Handlungsbereiche kombiniert statt sich auf eines zu konzentrieren.
-    const byFachgebiet = new Map<string, (typeof candidates)[number]>();
-    for (const candidate of candidates) {
-      if (!byFachgebiet.has(candidate.fachgebietId)) {
-        byFachgebiet.set(candidate.fachgebietId, candidate);
+    // F-149: mit `pruefungsbereichKey` nur die Fachgebiete dieses Prüfungsbereichs, und so viele
+    // Fallaufgaben, wie in die vorgeschriebene Dauer passen (reihum über die Fachgebiete verteilt,
+    // damit der Bereich nicht von einem Fachgebiet dominiert wird). Ohne Key: wie bisher je
+    // Fachgebiet die erste (zufällig sortierte) Fallaufgabe über den ganzen Kurs.
+    let area: ReturnType<typeof kursPruefungsbereiche>[number] | undefined;
+    if (input.pruefungsbereichKey && candidates.length > 0) {
+      const areas = kursPruefungsbereiche(candidates[0]?.kursMetadata);
+      area = areas.find((entry) => entry.key === input.pruefungsbereichKey);
+      if (!area) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Unbekannter Prüfungsbereich für diesen Kurs." });
       }
     }
-    const selected = [...byFachgebiet.values()];
+
+    const pool = area ? candidates.filter((candidate) => area.fachgebietCodes.includes(candidate.fachgebietCode)) : candidates;
+    const byFachgebiet = new Map<string, typeof candidates>();
+    for (const candidate of pool) {
+      byFachgebiet.set(candidate.fachgebietId, [...(byFachgebiet.get(candidate.fachgebietId) ?? []), candidate]);
+    }
+    const target = area ? Math.max(1, Math.round(area.minutes / MINUTES_PER_FALLAUFGABE)) : byFachgebiet.size;
+    const queues = [...byFachgebiet.values()];
+    const selected: typeof candidates = [];
+    while (selected.length < target && queues.some((queue) => queue.length > 0)) {
+      for (const queue of queues) {
+        const next = queue.shift();
+        if (next && selected.length < target) selected.push(next);
+      }
+    }
 
     if (selected.length === 0) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Keine Fallaufgaben für diesen Kurs verfügbar." });
@@ -71,6 +121,8 @@ export const examRouter = router({
 
     return {
       sessionId: session.id,
+      // F-149: vorgeschriebene Dauer des Prüfungsbereichs (sonst wählt die Person sie selbst).
+      durationMinutes: area?.minutes ?? null,
       items: selected.map((candidate) => ({
         id: candidate.id,
         prompt: candidate.prompt,

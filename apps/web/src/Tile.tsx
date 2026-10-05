@@ -30,6 +30,8 @@ export interface TileProps {
   onClick?: () => void;
   children?: ReactNode;
   "aria-expanded"?: boolean;
+  /** Für auswählbare Kacheln (Einfachauswahl): markiert die gewählte Kachel für Screenreader. */
+  "aria-pressed"?: boolean;
   className?: string;
 }
 
@@ -47,6 +49,7 @@ export function Tile({
   onClick,
   children,
   "aria-expanded": ariaExpanded,
+  "aria-pressed": ariaPressed,
   className,
 }: TileProps) {
   const asButton = onClick !== undefined && actions === undefined;
@@ -88,6 +91,7 @@ export function Tile({
         style={style}
         disabled={disabled}
         aria-expanded={ariaExpanded}
+        aria-pressed={ariaPressed}
         onClick={() => !disabled && onClick()}
       >
         {content}

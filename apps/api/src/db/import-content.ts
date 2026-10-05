@@ -68,6 +68,40 @@ interface KursMeta {
  * F-09 auf de facto eine aktive Belegung gleichzeitig. Mathematik-9 trägt "schule" (unverändert
  * mehrfach belegbar); der technische Demo-Kurs bleibt bewusst unkategorisiert.
  */
+/**
+ * F-149/F-150 (Prüfungsbereiche und Präsentationsdauer der Fachinformatiker-Kurse, Nutzer-Vorgabe
+ * vom 05.10.2026, siehe Architekturplanung Abschnitt 13). Dauern und Bereichsnamen nach FIAusbV
+ * (live gegen gesetze-im-internet.de/fiausbv/ geprüft): Teil 1 "Einrichten eines IT-gestützten
+ * Arbeitsplatzes" 90 Min. für alle Fachrichtungen; Teil 2 je Fachrichtung zwei schriftliche
+ * Prüfungsbereiche à 90 Min. plus WiSo 60 Min.; Präsentation höchstens 15 Min. (Präsentation +
+ * Fachgespräch insgesamt höchstens 30 Min.). Die Zuordnung der Fachgebiete (`fachgebiet.code`) zu den
+ * Prüfungsbereichen ist eine didaktische Zuordnung dieser Plattform, keine amtliche Vorgabe: Teil 1
+ * deckt die Berufsbildpositionen der ersten 18 Monate ab (FU1/FU2/FU3/FU6), die Projekt-Fachgebiete
+ * (AE5/SI5/DP5/DV5) gehören zur mündlichen Prüfung (Präsentation/Fachgespräch), nicht zur schriftlichen.
+ */
+const FI_TEIL1 = {
+  key: "teil1",
+  title: "Einrichten eines IT-gestützten Arbeitsplatzes",
+  part: "Teil 1",
+  minutes: 90,
+  fachgebietCodes: ["FU1", "FU2", "FU3", "FU6"],
+};
+const FI_WISO = {
+  key: "wiso",
+  title: "Wirtschafts- und Sozialkunde",
+  part: "Teil 2",
+  minutes: 60,
+  fachgebietCodes: ["FU7"],
+};
+function fachinformatikMetadata(bereiche: { key: string; title: string; minutes: number; fachgebietCodes: string[] }[]) {
+  return {
+    zielgruppe: "erwachsene",
+    kategorie: "erwachsenenbildung",
+    presentationMinutes: 15,
+    pruefungsbereiche: [FI_TEIL1, ...bereiche.map((bereich) => ({ ...bereich, part: "Teil 2" })), FI_WISO],
+  };
+}
+
 const KURS_META: Record<string, KursMeta> = {
   "fachwirt-buero-projektorganisation": {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
@@ -182,7 +216,10 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Anwendungsentwicklung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: fachinformatikMetadata([
+      { key: "softwareprodukt", title: "Planen eines Softwareproduktes", minutes: 90, fachgebietCodes: ["AE1", "AE2", "AE3"] },
+      { key: "algorithmen", title: "Entwicklung und Umsetzung von Algorithmen", minutes: 90, fachgebietCodes: ["AE4", "FU4", "FU5"] },
+    ]),
   },
   // F-154 (dreizehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
   // Fachinformatiker/in Systemintegration -- zweiter der vier Fachinformatiker-Kurse; die
@@ -192,7 +229,10 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Systemintegration (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: fachinformatikMetadata([
+      { key: "konzeption", title: "Konzeption und Administration von IT-Systemen", minutes: 90, fachgebietCodes: ["SI1", "SI3", "SI4"] },
+      { key: "netzwerke", title: "Analyse und Entwicklung von Netzwerken", minutes: 90, fachgebietCodes: ["SI2", "FU3"] },
+    ]),
   },
   // F-155 (vierzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
   // Fachinformatiker/in Daten- und Prozessanalyse -- dritter der vier Fachinformatiker-Kurse;
@@ -201,7 +241,10 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Daten- und Prozessanalyse (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: fachinformatikMetadata([
+      { key: "prozessanalyse", title: "Durchführen einer Prozessanalyse", minutes: 90, fachgebietCodes: ["DP1", "FU1"] },
+      { key: "datenqualitaet", title: "Sicherstellen der Datenqualität", minutes: 90, fachgebietCodes: ["DP2", "DP3", "DP4", "FU5"] },
+    ]),
   },
   // F-156 (fünfzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
   // Fachinformatiker/in Digitale Vernetzung -- vierter und letzter der vier Fachinformatiker-Kurse;
@@ -210,7 +253,10 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Digitale Vernetzung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: fachinformatikMetadata([
+      { key: "diagnose", title: "Diagnose und Störungsbeseitigung in vernetzten Systemen", minutes: 90, fachgebietCodes: ["DV3", "FU3"] },
+      { key: "betrieb", title: "Betrieb und Erweiterung von vernetzten Systemen", minutes: 90, fachgebietCodes: ["DV1", "DV2", "DV4"] },
+    ]),
   },
 };
 

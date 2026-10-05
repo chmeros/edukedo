@@ -135,7 +135,8 @@ export function Flashcards({
   const [ratedThisSession, setRatedThisSession] = useState<Set<string>>(new Set());
   // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Bewertung dieser Runde zuzurechnen ist.
   const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
-  const [aborted, setAborted] = useState(false);
+  // F-152: "aborted" = Runde verworfen (F-125), "paused" = Runde pausiert, bisherige Antworten bleiben gewertet.
+  const [aborted, setAborted] = useState<false | "aborted" | "paused">(false);
   // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): der Offline-Pfad in
   // review() hat keine tRPC-Mutation (also kein isPending) — ohne dieses Flag könnte ein
   // schneller Doppel-Tap dieselbe Karte zweimal in IndexedDB schreiben, bevor der erste
@@ -197,7 +198,11 @@ export function Flashcards({
         {selectionControls}
         <div className="alert alert-info">
           <InfoIcon />
-          <div>Runde abgebrochen — nichts wurde gewertet.</div>
+          <div>
+            {aborted === "paused"
+              ? "Pause — deine bisherigen Antworten sind gespeichert. Mach weiter, wann immer du bereit bist."
+              : "Runde abgebrochen — nichts wurde gewertet."}
+          </div>
         </div>
         <button
           type="button"
@@ -356,7 +361,8 @@ export function Flashcards({
         <AbortRoundButton
           contentItemIds={cards.map((card) => card.id)}
           since={roundStartedAt}
-          onAborted={() => setAborted(true)}
+          onAborted={() => setAborted("aborted")}
+          onPaused={() => setAborted("paused")}
         />
       )}
       <FlipCard

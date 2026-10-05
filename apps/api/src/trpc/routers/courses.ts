@@ -4,6 +4,7 @@ import { and, eq, inArray, sql } from "drizzle-orm";
 import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
 import { contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
+import { kursPresentationMinutes } from "../../pruefungsbereiche";
 import { protectedProcedure, router } from "../trpc";
 
 /** Drizzles `date`-Spalten sind im String-Modus (siehe schema.ts) — Konvertierung analog zu
@@ -57,6 +58,8 @@ export const coursesRouter = router({
         // F-102: steuert im Frontend, ob ein Beitritt die Bestätigung "aktuellen Kurs
         // verlassen?" auslösen muss (siehe course-audience.ts, Architekturplanung Abschnitt 13).
         kategorie: kursKategorie(row.metadata),
+        // F-150: höchstzulässige Präsentationsdauer der mündlichen Prüfung dieses Kurses (Minuten).
+        presentationMinutes: kursPresentationMinutes(row.metadata),
         joined: row.joinedAt !== null,
         // F-35: nur für bereits belegte Kurse aussagekräftig — die Vorbelegungs-Felder bleiben
         // bei row.joinedAt === null (Kurs zum Beitreten, noch nicht eigener) einfach null.

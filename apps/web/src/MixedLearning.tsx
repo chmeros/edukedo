@@ -124,7 +124,8 @@ export function MixedLearning({
   const [answeredQuizCount, setAnsweredQuizCount] = useState(0);
   // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Antwort dieser Runde zuzurechnen ist.
   const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
-  const [aborted, setAborted] = useState(false);
+  // F-152: "aborted" = Runde verworfen (F-125), "paused" = Runde pausiert, bisherige Antworten bleiben gewertet.
+  const [aborted, setAborted] = useState<false | "aborted" | "paused">(false);
   // Ein Verbindungswechsel oder eine geänderte Quiz-Anzahl (F-22) ersetzt die komplette Runde.
   useEffect(() => {
     setIndex(0);
@@ -208,7 +209,11 @@ export function MixedLearning({
         {filterBadge}
         <div className="alert alert-info">
           <InfoIcon />
-          <div>Runde abgebrochen — nichts wurde gewertet.</div>
+          <div>
+            {aborted === "paused"
+              ? "Pause — deine bisherigen Antworten sind gespeichert. Mach weiter, wann immer du bereit bist."
+              : "Runde abgebrochen — nichts wurde gewertet."}
+          </div>
         </div>
         <button
           type="button"
@@ -329,7 +334,8 @@ export function MixedLearning({
           contentItemIds={queue.map((entry) => (entry.kind === "karteikarte" ? entry.card.id : entry.item.id))}
           since={roundStartedAt}
           exerciseSetId={exerciseSetIdRef.current}
-          onAborted={() => setAborted(true)}
+          onAborted={() => setAborted("aborted")}
+          onPaused={() => setAborted("paused")}
         />
       )}
       {current.kind === "karteikarte" && (

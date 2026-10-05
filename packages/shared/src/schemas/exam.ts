@@ -7,7 +7,26 @@ import { z } from "zod";
  * erzwungen — ein Selbstlern-Werkzeug, kein beaufsichtigter Prüfungsmodus, siehe
  * Architekturplanung Abschnitt 13.
  */
-export const startExamInputSchema = z.object({ kursId: z.string().uuid() });
+/**
+ * F-149 (Prüfungsbereiche, Nutzer-Vorgabe vom 05.10.2026, siehe Architekturplanung Abschnitt 13):
+ * Ein Kurs kann in `kurs.metadata.pruefungsbereiche` die Prüfungsbereiche seiner echten
+ * schriftlichen Abschlussprüfung hinterlegen (Name, Prüfungsteil, vorgeschriebene Dauer, zugehörige
+ * Fachgebiete über `fachgebiet.code`). Kurse ohne diese Angabe behalten die freie Mischprüfung.
+ */
+export const pruefungsbereichSchema = z.object({
+  key: z.string().min(1).max(64),
+  title: z.string().min(1),
+  part: z.string().min(1),
+  minutes: z.number().int().positive(),
+  fachgebietCodes: z.array(z.string().min(1)).min(1),
+});
+export type Pruefungsbereich = z.infer<typeof pruefungsbereichSchema>;
+
+export const startExamInputSchema = z.object({
+  kursId: z.string().uuid(),
+  /** Optional: Prüfungsbereich aus `kurs.metadata.pruefungsbereiche`; ohne Angabe die freie Mischprüfung. */
+  pruefungsbereichKey: z.string().min(1).max(64).optional(),
+});
 export type StartExamInput = z.infer<typeof startExamInputSchema>;
 
 export const examPartAnswerSchema = z.object({
