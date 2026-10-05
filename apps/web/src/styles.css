@@ -3647,6 +3647,74 @@ details[open] > summary.disclosure::before {
   tab-size: 2;
 }
 
+/* F-170: Syntaxhervorhebung. Das Eingabefeld liegt durchsichtig über einer gleich gesetzten Textebene (.sql-highlight);
+   Schrift, Abstände und Umbruchverhalten müssen daher exakt übereinstimmen. Farben nur über Tokens (Dark Mode automatisch),
+   nur Farbe und Kursivschrift — keine Fettschrift, damit die Zeichenbreite gleich bleibt. */
+.sql-editor-wrap {
+  position: relative;
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.sql-highlight {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 11px 14px;
+  /* Zusatzrand unten/rechts: das Eingabefeld verliert durch seine Scrollleisten Platz und scrollt ein Stück weiter */
+  padding-right: 34px;
+  padding-bottom: 31px;
+  border: 1.5px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  white-space: pre;
+  tab-size: 2;
+  color: var(--ink);
+}
+
+.sql-editor-wrap .sql-editor {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--ink);
+}
+
+.sql-editor-wrap .sql-editor::placeholder {
+  color: var(--ink-faint);
+}
+
+.sql-editor-wrap .sql-editor::selection {
+  background: color-mix(in srgb, var(--info) 35%, transparent);
+  color: transparent;
+}
+
+.sql-tok-schluesselwort {
+  color: var(--info-deep);
+}
+
+.sql-tok-zeichenkette {
+  color: var(--sprout-deep);
+}
+
+.sql-tok-zahl {
+  color: var(--danger-deep);
+}
+
+.sql-tok-bezeichner {
+  color: var(--ink-soft);
+}
+
+.sql-tok-kommentar {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
 .sql-tabellen {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));

@@ -7,6 +7,7 @@ export * from "./instrument-lernpfad-logic";
 export * from "./instrument-lernpfad-pruefung";
 export * from "./netzplan-logic";
 export * from "./quiz-logic";
+export * from "./sql-highlight";
 export * from "./sql-uebungen";
 export * from "./subnetting-logic";
 export * from "./schemas/admin-content";

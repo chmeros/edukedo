@@ -1,4 +1,4 @@
-import { SQL_TABELLEN, SQL_UEBUNGEN, type SqlStufe, type SqlUebung } from "@edukedo/shared";
+import { SQL_TABELLEN, SQL_UEBUNGEN, tokenisiereSql, type SqlStufe, type SqlUebung } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -20,6 +20,24 @@ const STUFEN: { id: SqlStufe; label: string }[] = [
 type Ausgabe =
   | { art: "fehler"; text: string }
   | { art: "ergebnis"; tabellen: SqlAnzeigeTabelle[]; geaendert: number; dauerMs: number; quelle: string };
+
+/**
+ * F-170: eingefärbter SQL-Text (Schlüsselwörter, Zeichenketten, Zahlen, Kommentare). Rein darstellend: Die
+ * Zerlegung ist verlustfrei, der Text bleibt für Kopieren und Vorlesen unverändert.
+ */
+function SqlText({ sql }: { sql: string }) {
+  return (
+    <>
+      {tokenisiereSql(sql).map((token, index) =>
+        token.art === "text" ? token.text : (
+          <span key={index} className={`sql-tok-${token.art}`}>
+            {token.text}
+          </span>
+        ),
+      )}
+    </>
+  );
+}
 
 function ErgebnisTabelle({ tabelle }: { tabelle: SqlAnzeigeTabelle }) {
   return (
@@ -58,6 +76,7 @@ function ErgebnisTabelle({ tabelle }: { tabelle: SqlAnzeigeTabelle }) {
 
 export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   const sandbox = useRef<SqlSandbox | null>(null);
+  const hervorhebungRef = useRef<HTMLPreElement>(null);
   sandbox.current ??= new SqlSandbox();
   useEffect(() => () => sandbox.current?.beenden(), []);
 
@@ -221,23 +240,37 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
 
         <div className="field">
           <label htmlFor="sql-editor">{uebung ? "Deine SQL-Anweisung" : "SQL-Anweisung"}</label>
-          <textarea
-            id="sql-editor"
-            className="input sql-editor"
-            rows={6}
-            value={sql}
-            spellCheck={false}
-            autoComplete="off"
-            autoCapitalize="off"
-            placeholder="SELECT * FROM kunde;"
-            onChange={(event) => setEingaben((aktuell) => ({ ...aktuell, [schluessel]: event.target.value }))}
-            onKeyDown={(event) => {
-              if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
-                event.preventDefault();
-                void ausfuehren(sql, "Ergebnis deiner Anweisung");
-              }
-            }}
-          />
+          {/* F-170: Die Hervorhebung liegt als eigene Ebene hinter dem (durchsichtigen) Eingabefeld und wird
+              beim Scrollen mitgeführt; das Eingabefeld bleibt das einzige bedienbare Element. */}
+          <div className="sql-editor-wrap">
+            <pre className="sql-highlight" aria-hidden="true" ref={hervorhebungRef}>
+              <SqlText sql={sql} />
+              {"\n"}
+            </pre>
+            <textarea
+              id="sql-editor"
+              className="input sql-editor"
+              rows={6}
+              value={sql}
+              spellCheck={false}
+              autoComplete="off"
+              autoCapitalize="off"
+              placeholder="SELECT * FROM kunde;"
+              onChange={(event) => setEingaben((aktuell) => ({ ...aktuell, [schluessel]: event.target.value }))}
+              onScroll={(event) => {
+                if (hervorhebungRef.current) {
+                  hervorhebungRef.current.scrollTop = event.currentTarget.scrollTop;
+                  hervorhebungRef.current.scrollLeft = event.currentTarget.scrollLeft;
+                }
+              }}
+              onKeyDown={(event) => {
+                if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+                  event.preventDefault();
+                  void ausfuehren(sql, "Ergebnis deiner Anweisung");
+                }
+              }}
+            />
+          </div>
           <span className="field-hint">Mehrere Anweisungen mit Semikolon trennen. Ausführen auch mit Strg+Enter.</span>
         </div>
 
@@ -317,7 +350,9 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
                 <div className="stack">
                   <b>Musterlösung</b>
                   <pre className="sql-loesung">
-                    <code>{uebung.loesung}</code>
+                    <code>
+                      <SqlText sql={uebung.loesung} />
+                    </code>
                   </pre>
                   <span>{uebung.erklaerung}</span>
                   <button type="button" className="link-muted-btn" onClick={() => setEingaben((aktuell) => ({ ...aktuell, [uebung.id]: uebung.loesung }))}>
