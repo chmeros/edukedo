@@ -110,6 +110,8 @@ function fachinformatikMetadata(
     zielgruppe: "erwachsene",
     kategorie: "erwachsenenbildung",
     presentationMinutes: 15,
+    // F-161: betriebliches Projekt (Stundenobergrenze nach FIAusbV) — schaltet den Reiter "Projekt" frei.
+    projekt: { stunden: projektStunden },
     pruefungsbereiche: [FI_TEIL1, ...bereiche.map((bereich) => ({ ...bereich, part: "Teil 2" })), FI_WISO],
   };
 }
@@ -215,7 +217,9 @@ export const KURS_META: Record<string, KursMeta> = {
     title: "Ausbildung der Ausbilder – AEVO-Ausbildereignungsprüfung (IHK)",
     type: "eignungspruefung",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    // Präsentation einer Ausbildungssituation: höchstens 15 Minuten (§ 4 Abs. 3 AusbEignV, verifiziert
+    // am 05.10.2026; Präsentation und Fachgespräch zusammen höchstens 30 Minuten).
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung", presentationMinutes: 15 },
   },
   // F-153 (zwölfter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
   // Fachinformatiker/in Anwendungsentwicklung (FIAusbV 2020) -- erster von vier Fachinformatiker-

@@ -24,6 +24,7 @@ import { paymentRouter } from "./routers/payment";
 import { presentationRouter } from "./routers/presentation";
 import { previewRouter } from "./routers/preview";
 import { progressRouter } from "./routers/progress";
+import { projektRouter } from "./routers/projekt";
 import { pushRouter } from "./routers/push";
 import { quizRouter } from "./routers/quiz";
 import { reportRouter } from "./routers/report";
@@ -86,6 +87,7 @@ export const appRouter = router({
   exam: examRouter,
   friend: friendRouter,
   presentation: presentationRouter,
+  projekt: projektRouter,
   admin: adminRouter,
   adminContent: adminContentRouter,
   offline: offlineRouter,

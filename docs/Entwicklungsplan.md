@@ -460,7 +460,7 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 - [x] **Spielideen für die Fachinformatiker (recherchiert 05.10.2026), umgesetzt als F-158 (Erledigt 05.10.2026):** Phishing-Detektiv, Bug-Hunt, Code-Reihenfolge, Netzwerk-Troubleshooting-Detektiv, Subnetting-Sprint, Zahlensystem-Sprint sowie je ein weiteres Kreuzworträtsel-, Duell- und Memory-Set (mehrere Sets je Spieltyp über `game.set_key`).
 - [ ] **Weiterhin offen (eigenes Konzept nötig, nicht terminiert):** gamifizierte Netzwerk-/Server-Simulationen (Packet-Tracer-artig) und Capture-the-Flag-Übungen; weitere Sets für die neuen Spieltypen (z. B. mehr Phishing-Mails, Bug-Hunt-Aufgaben in weiteren Sprachen); fachliche Gegenlese des Spiel-Contents durch eine Fachperson.
 - [x] Prüfungsangst-Hilfen (Reiter „Gelassen bleiben": Ablauf, Lernstand je Prüfungsbereich, Atemübung, Blackout-Tipps, Prüfungstags-Checkliste, Hilfe-Hinweise; F-154), „Ruhiger Modus" und Hell-/Dunkel-Schalter (F-155). **Erledigt 05.10.2026**, inkl. Integrationstest und Live-Verifikation. Die „Prüfungsreife" wurde bewusst als Lernstand je Prüfungsbereich ohne Notenprognose umgesetzt.
-- [ ] Fachgespräch-Trainer mit Hilfen zu Projektantrag und Projektdokumentation; Dauer der AEVO-Präsentation prüfen.
+- [x] Hilfen zu Projektantrag und Projektdokumentation (Reiter „Projekt" mit Antrags-/Dokumentations-Check und „Mein Projekt" samt Nachfragen, F-161); Dauer der AEVO-Präsentation geprüft und auf 15 Minuten gesetzt (§ 4 Abs. 3 AusbEignV). **Erledigt 05.10.2026.**
 - [x] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung, Erinnerung) während einer Lernrunde ausblenden; Karteikarten-Antworten gegliedert darstellen (F-160). **Erledigt 05.10.2026.**
 
 ## Offene, bewusst nicht terminierte Themen

@@ -664,6 +664,30 @@ export const presentationDraft = pgTable(
   (table) => [uniqueIndex("presentation_draft_user_id_kurs_id_key").on(table.userId, table.kursId)],
 );
 
+/**
+ * F-161: Projektprofil für die Fachgesprächs-Vorbereitung ("Mein Projekt") — genau eines je
+ * (Nutzer:in, Kurs), nur für Kurse mit betrieblichem Projekt (`kurs.metadata.projekt`). Die neun
+ * Leitfelder liegen als JSONB-Map (Feld-Key → Text) und die Checklisten-Punkte als Key→Boolean-Map,
+ * beide im Frontend definiert (apps/web/src/Projekthilfe.tsx) und im Schema nur gegen den festen
+ * Feld-Key-Satz bzw. frei validiert (packages/shared/src/schemas/projekt.ts) — analog presentation_draft.
+ */
+export const projektProfil = pgTable(
+  "projekt_profil",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    felder: jsonb("felder").notNull().default({}),
+    checklist: jsonb("checklist").notNull().default({}),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("projekt_profil_user_id_kurs_id_key").on(table.userId, table.kursId)],
+);
+
 // ---------------------------------------------------------------------------
 // Eltern-/Jugendschutz (F-08, F-90) — Abschnitt 4.3
 // ---------------------------------------------------------------------------

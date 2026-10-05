@@ -2,12 +2,17 @@ import { useRef, useState } from "react";
 import { Exam } from "./Exam";
 import { Fachgespraechstrainer } from "./Fachgespraechstrainer";
 import { Praesentationstrainer } from "./Praesentationstrainer";
+import { Projekthilfe } from "./Projekthilfe";
 import { Pruefungsangst } from "./Pruefungsangst";
+import { trpc } from "./trpc";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 
-const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech" | "gelassen"; label: string }[] = [
+type Mode = "schriftlich" | "praesentation" | "projekt" | "fachgespraech" | "gelassen";
+
+const MODE_TABS: { id: Mode; label: string }[] = [
   { id: "schriftlich", label: "Schriftliche Prüfung" },
   { id: "praesentation", label: "Präsentation" },
+  { id: "projekt", label: "Projekt" },
   { id: "fachgespraech", label: "Fachgespräch" },
   { id: "gelassen", label: "Gelassen bleiben" },
 ];
@@ -20,15 +25,20 @@ const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech" | "gela
  * mounten — sonst würde eine laufende Prüfungssitzung (Exam.tsx hält Sitzungs-ID/aktuelle
  * Fallaufgabe nur lokal, nicht serverseitig abrufbar) beim Wechsel zu einem anderen Modus
  * verloren gehen. F-154: vierter Unter-Tab "Gelassen bleiben" (Prüfungsangst-Hilfen, Pruefungsangst.tsx).
+ * F-161: Unter-Tab "Projekt" (Projekthilfe.tsx) nur für Kurse mit betrieblichem Projekt
+ * (`projektStunden` aus courses.list, siehe kurs.metadata.projekt).
  */
 export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
-  const [mode, setMode] = useState<"schriftlich" | "praesentation" | "fachgespraech" | "gelassen">("schriftlich");
+  const [mode, setMode] = useState<Mode>("schriftlich");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const courses = trpc.courses.list.useQuery();
+  const projektStunden = courses.data?.find((course) => course.id === kursId)?.projektStunden ?? null;
+  const tabs = projektStunden === null ? MODE_TABS.filter((tab) => tab.id !== "projekt") : MODE_TABS;
 
   return (
     <div className="stack">
       <div className="segmented" role="tablist" aria-label="Prüfungsvorbereitung">
-        {MODE_TABS.map((tab, index) => (
+        {tabs.map((tab, index) => (
           <button
             key={tab.id}
             ref={(el) => {
@@ -43,7 +53,7 @@ export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
             className={mode === tab.id ? "is-active" : ""}
             onClick={() => setMode(tab.id)}
             onKeyDown={(event) =>
-              handleTabListKeyDown(event, index, MODE_TABS.length, tabRefs, (next) => setMode(MODE_TABS[next]!.id))
+              handleTabListKeyDown(event, index, tabs.length, tabRefs, (next) => setMode(tabs[next]!.id))
             }
           >
             {tab.label}
@@ -66,6 +76,16 @@ export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
       >
         <Praesentationstrainer kursId={kursId} />
       </div>
+      {projektStunden !== null && (
+        <div
+          hidden={mode !== "projekt"}
+          role="tabpanel"
+          id="panel-pruefung-projekt"
+          aria-labelledby="tab-pruefung-projekt"
+        >
+          <Projekthilfe kursId={kursId} stunden={projektStunden} onOpenFachgespraech={() => setMode("fachgespraech")} />
+        </div>
+      )}
       <div
         hidden={mode !== "fachgespraech"}
         role="tabpanel"

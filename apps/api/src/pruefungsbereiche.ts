@@ -26,6 +26,21 @@ export function kursPresentationMinutes(metadata: unknown): number {
 }
 
 /**
+ * F-161: Stundenobergrenze des betrieblichen Projekts (`kurs.metadata.projekt.stunden`) —
+ * `null` für Kurse ohne Projekt (dort gibt es keinen "Projekt"-Reiter).
+ */
+export function kursProjektStunden(metadata: unknown): number | null {
+  if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+    const projekt = (metadata as Record<string, unknown>).projekt;
+    if (projekt && typeof projekt === "object" && !Array.isArray(projekt)) {
+      const stunden = (projekt as Record<string, unknown>).stunden;
+      if (typeof stunden === "number" && Number.isInteger(stunden) && stunden > 0) return stunden;
+    }
+  }
+  return null;
+}
+
+/**
  * F-154: kurze Beschreibung des Prüfungsablaufs als Stichpunkte (`kurs.metadata.pruefungsablauf`),
  * für die Hilfeseite „Gelassen bleiben" — fehlt die Angabe, ist die Liste leer.
  */
