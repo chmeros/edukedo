@@ -24,3 +24,15 @@ export function kursPresentationMinutes(metadata: unknown): number {
   }
   return DEFAULT_PRESENTATION_MINUTES;
 }
+
+/**
+ * F-154: kurze Beschreibung des Prüfungsablaufs als Stichpunkte (`kurs.metadata.pruefungsablauf`),
+ * für die Hilfeseite „Gelassen bleiben" — fehlt die Angabe, ist die Liste leer.
+ */
+export function kursPruefungsablauf(metadata: unknown): string[] {
+  if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+    const parsed = z.array(z.string().min(1)).safeParse((metadata as Record<string, unknown>).pruefungsablauf);
+    if (parsed.success) return parsed.data;
+  }
+  return [];
+}

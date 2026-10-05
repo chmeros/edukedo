@@ -18,6 +18,7 @@ import { OfflineStatus } from "./OfflineStatus";
 import { OnboardingHints } from "./OnboardingHints";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
+import { useCalmMode } from "./displayPrefs";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
 import { Spiele } from "./Spiele";
 import { SponsorBanner } from "./SponsorBanner";
@@ -61,6 +62,7 @@ const AUTH_MODE_TABS: { id: "login" | "register"; label: string }[] = [
 ];
 
 export function App() {
+  const calmMode = useCalmMode();
   const utils = trpc.useUtils();
   const queryClient = useQueryClient();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
@@ -258,10 +260,11 @@ export function App() {
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
               {!me.data.onboardingHintsSeen && <OnboardingHints />}
-              <PunktehamsterWidget />
+              {/* F-155: im Ruhigen Modus keine Spielelemente (Punktehamster, Lernserie, Credits). */}
+              {!calmMode && <PunktehamsterWidget />}
               {/* F-33: dezente Erinnerung, siehe Architekturplanung Abschnitt 13 — bewusst erst
                   in der eigentlichen Lernansicht (nicht bei Kursauswahl/Admin). */}
-              <StreakReminderBanner />
+              {!calmMode && <StreakReminderBanner />}
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
               {activeKursId && suggestions.data && suggestions.data.length > 0 && (

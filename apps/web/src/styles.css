@@ -2995,3 +2995,40 @@ details[open] > summary.disclosure::before {
   filter: grayscale(1);
   opacity: 0.65;
 }
+
+/* F-154 (Hilfeseite "Gelassen bleiben", siehe Pruefungsangst.tsx): Atemübung und Listen. */
+.calm-list {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breath-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.breath-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--tile-fill-color);
+  border: 2px solid var(--tile-fill-edge);
+  transform: scale(0.6);
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+
+.breath-circle.is-expanded {
+  transform: scale(1.5);
+}
+
+.breath-label {
+  color: var(--ink-soft);
+  min-height: 1.5em;
+}

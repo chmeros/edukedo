@@ -2,12 +2,14 @@ import { useRef, useState } from "react";
 import { Exam } from "./Exam";
 import { Fachgespraechstrainer } from "./Fachgespraechstrainer";
 import { Praesentationstrainer } from "./Praesentationstrainer";
+import { Pruefungsangst } from "./Pruefungsangst";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 
-const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech"; label: string }[] = [
+const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech" | "gelassen"; label: string }[] = [
   { id: "schriftlich", label: "Schriftliche Prüfung" },
   { id: "praesentation", label: "Präsentation" },
   { id: "fachgespraech", label: "Fachgespräch" },
+  { id: "gelassen", label: "Gelassen bleiben" },
 ];
 
 /**
@@ -17,10 +19,10 @@ const MODE_TABS: { id: "schriftlich" | "praesentation" | "fachgespraech"; label:
  * App.tsx immer gemountet (nur per `hidden` ausgeblendet) statt beim Umschalten neu zu
  * mounten — sonst würde eine laufende Prüfungssitzung (Exam.tsx hält Sitzungs-ID/aktuelle
  * Fallaufgabe nur lokal, nicht serverseitig abrufbar) beim Wechsel zu einem anderen Modus
- * verloren gehen.
+ * verloren gehen. F-154: vierter Unter-Tab "Gelassen bleiben" (Prüfungsangst-Hilfen, Pruefungsangst.tsx).
  */
 export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
-  const [mode, setMode] = useState<"schriftlich" | "praesentation" | "fachgespraech">("schriftlich");
+  const [mode, setMode] = useState<"schriftlich" | "praesentation" | "fachgespraech" | "gelassen">("schriftlich");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   return (
@@ -71,6 +73,14 @@ export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
         aria-labelledby="tab-pruefung-fachgespraech"
       >
         <Fachgespraechstrainer kursId={kursId} />
+      </div>
+      <div
+        hidden={mode !== "gelassen"}
+        role="tabpanel"
+        id="panel-pruefung-gelassen"
+        aria-labelledby="tab-pruefung-gelassen"
+      >
+        <Pruefungsangst kursId={kursId} />
       </div>
     </div>
   );

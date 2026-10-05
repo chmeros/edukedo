@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { AGB } from "./AGB";
 import { App } from "./App";
+import { initDisplayPrefs } from "./displayPrefs";
 import { CompanyDashboard } from "./CompanyDashboard";
 import { CompanySetup } from "./CompanySetup";
 import { ConsentConfirm } from "./ConsentConfirm";
@@ -15,6 +16,9 @@ import "./styles.css";
 import { trpc } from "./trpc";
 import { VerifyEmail } from "./VerifyEmail";
 import { Vorschau } from "./Vorschau";
+
+// F-155: gespeicherte Darstellung (Hell/Dunkel, Ruhiger Modus) vor dem ersten Rendern anwenden.
+initDisplayPrefs();
 
 function Root() {
   const [queryClient] = useState(() => new QueryClient());

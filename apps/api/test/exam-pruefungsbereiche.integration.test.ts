@@ -1,4 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import { and, eq } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
@@ -45,6 +46,7 @@ describe("F-149/F-150: Prüfungsbereiche und Präsentationsdauer", () => {
           isPublished: true,
           metadata: {
             presentationMinutes: 15,
+            pruefungsablauf: ["Teil 1 zuerst", "Teil 2 danach"],
             pruefungsbereiche: [
               { key: "lang", title: "Langer Bereich", part: "Teil 2", minutes: 60, fachgebietCodes: ["X1", "X2"] },
               { key: "kurz", title: "Kurzer Bereich", part: "Teil 1", minutes: 20, fachgebietCodes: ["X3"] },
@@ -66,6 +68,10 @@ describe("F-149/F-150: Prüfungsbereiche und Präsentationsdauer", () => {
         .insert(schema.thema)
         .values({ fachgebietId: fg!.id, title: `Thema ${code}`, sortOrder: 0 })
         .returning();
+      // Zwei Karteikarten je Fachgebiet für den Lernstand (Fallaufgaben zählen dort nicht mit).
+      await db.insert(schema.contentItem).values(
+        [1, 2].map((n) => ({ themaId: th!.id, type: "karteikarte", prompt: `Karte ${code}-${n}`, explanation: "Antwort" })),
+      );
       await db.insert(schema.contentItem).values(
         [1, 2, 3].map((n) => ({
           themaId: th!.id,
@@ -149,6 +155,40 @@ describe("F-149/F-150: Prüfungsbereiche und Präsentationsdauer", () => {
   it("lehnt einen unbekannten Prüfungsbereich ab", async () => {
     const response = await startExam({ kursId, pruefungsbereichKey: "gibt-es-nicht" });
     expect(response.statusCode).toBe(404);
+  });
+
+  it("liefert für die Hilfeseite Ablauf, Präsentationsdauer und den Lernstand je Prüfungsbereich", async () => {
+    const [user] = await db.select({ id: schema.user.id }).from(schema.user).where(eq(schema.user.email, "pruefungsbereiche@example.com"));
+    const [item] = await db
+      .select({ id: schema.contentItem.id })
+      .from(schema.contentItem)
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      .where(and(eq(schema.fachgebiet.code, "X1"), eq(schema.contentItem.type, "karteikarte")))
+      .limit(1);
+    await db.insert(schema.userProgress).values({
+      userId: user!.id,
+      contentItemId: item!.id,
+      difficulty: 5,
+      stability: 10,
+      state: "review",
+      dueAt: new Date(),
+    });
+
+    const response = await app.inject({
+      method: "GET",
+      url: `/api/v1/trpc/exam.guide?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
+      headers: { cookie },
+    });
+    expect(response.statusCode).toBe(200);
+    const data = response.json().result.data;
+    expect(data.presentationMinutes).toBe(15);
+    expect(data.ablauf).toEqual(["Teil 1 zuerst", "Teil 2 danach"]);
+    // Bereich "lang" = X1 + X2 mit je 2 Karteikarten, davon 1 beherrscht → 1/4 = 25 %; "kurz" = X3, nichts beherrscht.
+    expect(data.areas).toEqual([
+      { key: "lang", title: "Langer Bereich", part: "Teil 2", minutes: 60, total: 4, mastered: 1, percent: 25 },
+      { key: "kurz", title: "Kurzer Bereich", part: "Teil 1", minutes: 20, total: 2, mastered: 0, percent: 0 },
+    ]);
   });
 
   it("liefert die Präsentationsdauer je Kurs (Standard 10 Minuten)", async () => {

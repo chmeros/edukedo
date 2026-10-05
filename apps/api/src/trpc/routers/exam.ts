@@ -5,7 +5,7 @@ import {
   submitExamAnswerInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import {
   contentItem,
   contentItemVersion,
@@ -16,8 +16,10 @@ import {
   learningEvent,
   thema,
   userCourse,
+  userProgress,
 } from "../../db/schema";
-import { kursPruefungsbereiche } from "../../pruefungsbereiche";
+import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
+import { kursPresentationMinutes, kursPruefungsablauf, kursPruefungsbereiche } from "../../pruefungsbereiche";
 import { protectedProcedure, router } from "../trpc";
 
 const EXAM_MODE = "schriftliche_pruefung";
@@ -26,6 +28,75 @@ const EXAM_MODE = "schriftliche_pruefung";
 const MINUTES_PER_FALLAUFGABE = 20;
 
 export const examRouter = router({
+  /**
+   * F-154 (Hilfeseite „Gelassen bleiben“, Nutzer-Feedback vom 05.10.2026, siehe Architekturplanung
+   * Abschnitt 13): Prüfungsablauf (Stichpunkte), Präsentationsdauer und der Lernstand je
+   * Prüfungsbereich. Lernstand = beherrschte ÷ zählbare Items der zum Bereich gehörenden
+   * Fachgebiete (gleiche Zählweise wie `progress.overview`/`courses.progress`, siehe progress-items.ts) —
+   * ausdrücklich keine Prognose für die Prüfungsnote.
+   */
+  guide: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
+    const [row] = await ctx.db
+      .select({ metadata: kurs.metadata })
+      .from(kurs)
+      .innerJoin(userCourse, and(eq(userCourse.kursId, kurs.id), eq(userCourse.userId, ctx.currentUser.id)))
+      .where(eq(kurs.id, input.kursId))
+      .limit(1);
+    if (!row) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht gefunden oder nicht belegt." });
+    }
+    const areas = kursPruefungsbereiche(row.metadata);
+
+    const perFachgebiet = new Map<string, { total: number; mastered: number }>();
+    if (areas.length > 0) {
+      const rows = await ctx.db
+        .select({
+          code: fachgebiet.code,
+          total: sql<number>`count(*)::int`,
+          mastered: sql<number>`count(*) filter (where ${userProgress.state} = 'review')::int`,
+        })
+        .from(contentItem)
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .leftJoin(
+          userProgress,
+          and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
+        )
+        .where(
+          and(
+            eq(fachgebiet.kursId, input.kursId),
+            inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES),
+            eq(contentItem.isActive, true),
+          ),
+        )
+        .groupBy(fachgebiet.code);
+      for (const entry of rows) perFachgebiet.set(entry.code, { total: entry.total, mastered: entry.mastered });
+    }
+
+    return {
+      presentationMinutes: kursPresentationMinutes(row.metadata),
+      ablauf: kursPruefungsablauf(row.metadata),
+      areas: areas.map((area) => {
+        const sum = area.fachgebietCodes.reduce(
+          (acc, code) => {
+            const entry = perFachgebiet.get(code);
+            return { total: acc.total + (entry?.total ?? 0), mastered: acc.mastered + (entry?.mastered ?? 0) };
+          },
+          { total: 0, mastered: 0 },
+        );
+        return {
+          key: area.key,
+          title: area.title,
+          part: area.part,
+          minutes: area.minutes,
+          total: sum.total,
+          mastered: sum.mastered,
+          percent: sum.total === 0 ? 0 : Math.round((sum.mastered / sum.total) * 100),
+        };
+      }),
+    };
+  }),
+
   /**
    * F-149: Prüfungsbereiche der echten schriftlichen Abschlussprüfung dieses Kurses (leer für Kurse
    * ohne Angabe in `kurs.metadata.pruefungsbereiche` → freie Mischprüfung). Nur für belegte Kurse.

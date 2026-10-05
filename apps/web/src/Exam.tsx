@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ContentActions } from "./ContentActions";
+import { useCalmMode } from "./displayPrefs";
 import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, HamsterWheelIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { Tile } from "./Tile";
@@ -264,11 +265,13 @@ function ExamFallaufgabeStep({
 
 const TIMER_HIDDEN_STORAGE_KEY = "edukedo.examTimerHidden";
 
-function readTimerHidden(): boolean {
+/** Eigene Wahl der Person (true/false) oder null, wenn sie noch nichts gewählt hat. */
+function readTimerChoice(): boolean | null {
   try {
-    return localStorage.getItem(TIMER_HIDDEN_STORAGE_KEY) === "1";
+    const stored = localStorage.getItem(TIMER_HIDDEN_STORAGE_KEY);
+    return stored === null ? null : stored === "1";
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -282,17 +285,19 @@ export function Exam({ kursId }: { kursId: string }) {
   const [areaKey, setAreaKey] = useState<string | undefined>(undefined);
   // F-151: der Countdown lässt sich ausblenden (Prüfungsangst, Nutzer-Feedback vom 05.10.2026); die Zeit läuft
   // weiter, die Einstellung bleibt im Browser gespeichert.
-  const [timerHidden, setTimerHidden] = useState(readTimerHidden);
+  // F-155: ohne eigene Wahl blendet der Ruhige Modus den Countdown standardmäßig aus.
+  const calmMode = useCalmMode();
+  const [timerChoice, setTimerChoice] = useState<boolean | null>(readTimerChoice);
+  const timerHidden = timerChoice ?? calmMode;
   const [confirmAbort, setConfirmAbort] = useState(false);
   function toggleTimerHidden() {
-    setTimerHidden((current) => {
-      try {
-        localStorage.setItem(TIMER_HIDDEN_STORAGE_KEY, current ? "0" : "1");
-      } catch {
-        // Speichern ist nur eine Komfortfunktion.
-      }
-      return !current;
-    });
+    const next = !timerHidden;
+    setTimerChoice(next);
+    try {
+      localStorage.setItem(TIMER_HIDDEN_STORAGE_KEY, next ? "1" : "0");
+    } catch {
+      // Speichern ist nur eine Komfortfunktion.
+    }
   }
   const areaList = areas.data ?? [];
   const selectedArea = areaKey === "mix" ? undefined : (areaList.find((area) => area.key === areaKey) ?? areaList[0]);

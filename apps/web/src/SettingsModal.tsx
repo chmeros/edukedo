@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AboStatus } from "./AboStatus";
 import { DisplayNameSettings } from "./DisplayNameSettings";
+import { DisplaySettings } from "./DisplaySettings";
 import { FlashcardStartSideSettings } from "./FlashcardStartSideSettings";
 import { InfoIcon } from "./Icons";
 import { LearningModeSettings } from "./LearningModeSettings";
@@ -38,6 +39,9 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
             </div>
             <div className="widget">
               <FlashcardStartSideSettings />
+            </div>
+            <div className="widget">
+              <DisplaySettings />
             </div>
             <div className="widget">
               <MascotSettings />

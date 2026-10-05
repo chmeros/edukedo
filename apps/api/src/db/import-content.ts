@@ -93,8 +93,20 @@ const FI_WISO = {
   minutes: 60,
   fachgebietCodes: ["FU7"],
 };
-function fachinformatikMetadata(bereiche: { key: string; title: string; minutes: number; fachgebietCodes: string[] }[]) {
+function fachinformatikMetadata(
+  projektStunden: number,
+  bereiche: { key: string; title: string; minutes: number; fachgebietCodes: string[] }[],
+) {
   return {
+    // F-154: Stichpunkte für die Hilfeseite "Gelassen bleiben" (Prüfungsablauf nach FIAusbV, Gewichte als
+    // Anteil an der Gesamtnote).
+    pruefungsablauf: [
+      "Die Abschlussprüfung ist gestreckt: Teil 1 findet im vierten Ausbildungshalbjahr statt und zählt 20 % der Gesamtnote, Teil 2 folgt am Ende der Ausbildung.",
+      "Teil 1 ist schriftlich und dauert 90 Minuten (Prüfungsbereich: Einrichten eines IT-gestützten Arbeitsplatzes).",
+      "Teil 2 besteht aus zwei schriftlichen Prüfungsbereichen (je 90 Minuten, je 10 % der Gesamtnote) und Wirtschafts- und Sozialkunde (60 Minuten, 10 %).",
+      `Dazu kommt ein betriebliches Projekt (höchstens ${projektStunden} Stunden) mit Dokumentation, einer Präsentation von höchstens 15 Minuten und einem Fachgespräch — zusammen 50 % der Gesamtnote. Präsentation und Fachgespräch dauern gemeinsam höchstens 30 Minuten.`,
+      "Das Fachgespräch bezieht sich auf dein Projekt: Du erklärst, was du getan hast und warum — es ist kein Abfragen von Auswendiggelerntem.",
+    ],
     zielgruppe: "erwachsene",
     kategorie: "erwachsenenbildung",
     presentationMinutes: 15,
@@ -102,7 +114,7 @@ function fachinformatikMetadata(bereiche: { key: string; title: string; minutes:
   };
 }
 
-const KURS_META: Record<string, KursMeta> = {
+export const KURS_META: Record<string, KursMeta> = {
   "fachwirt-buero-projektorganisation": {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
     type: "fachwirt",
@@ -216,7 +228,7 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Anwendungsentwicklung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: fachinformatikMetadata([
+    metadata: fachinformatikMetadata(80, [
       { key: "softwareprodukt", title: "Planen eines Softwareproduktes", minutes: 90, fachgebietCodes: ["AE1", "AE2", "AE3"] },
       { key: "algorithmen", title: "Entwicklung und Umsetzung von Algorithmen", minutes: 90, fachgebietCodes: ["AE4", "FU4", "FU5"] },
     ]),
@@ -229,7 +241,7 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Systemintegration (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: fachinformatikMetadata([
+    metadata: fachinformatikMetadata(40, [
       { key: "konzeption", title: "Konzeption und Administration von IT-Systemen", minutes: 90, fachgebietCodes: ["SI1", "SI3", "SI4"] },
       { key: "netzwerke", title: "Analyse und Entwicklung von Netzwerken", minutes: 90, fachgebietCodes: ["SI2", "FU3"] },
     ]),
@@ -241,7 +253,7 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Daten- und Prozessanalyse (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: fachinformatikMetadata([
+    metadata: fachinformatikMetadata(40, [
       { key: "prozessanalyse", title: "Durchführen einer Prozessanalyse", minutes: 90, fachgebietCodes: ["DP1", "FU1"] },
       { key: "datenqualitaet", title: "Sicherstellen der Datenqualität", minutes: 90, fachgebietCodes: ["DP2", "DP3", "DP4", "FU5"] },
     ]),
@@ -253,7 +265,7 @@ const KURS_META: Record<string, KursMeta> = {
     title: "Fachinformatiker/in Digitale Vernetzung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
-    metadata: fachinformatikMetadata([
+    metadata: fachinformatikMetadata(40, [
       { key: "diagnose", title: "Diagnose und Störungsbeseitigung in vernetzten Systemen", minutes: 90, fachgebietCodes: ["DV3", "FU3"] },
       { key: "betrieb", title: "Betrieb und Erweiterung von vernetzten Systemen", minutes: 90, fachgebietCodes: ["DV1", "DV2", "DV4"] },
     ]),
