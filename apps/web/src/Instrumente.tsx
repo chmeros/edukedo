@@ -15,12 +15,14 @@ import {
   SchutzzieleIllustration,
   ScrumIllustration,
   SqlIllustration,
+  SubnettingIllustration,
   SwotIllustration,
   TeststufenIllustration,
   UmlIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Netzplan } from "./Netzplan";
+import { Subnetting } from "./Subnetting";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
@@ -158,6 +160,17 @@ const INSTRUMENT_CATALOG = [
     description: "Vorwärts- und Rückwärtsrechnung, Puffer und kritischen Pfad an zufälligen Aufgaben üben.",
     Illustration: NetzplanIllustration,
     werkzeug: true,
+    aktion: "Netzplan üben",
+  },
+  // F-166 (Subnetting-Rechner, siehe Architekturplanung Abschnitt 13): freies Rechenwerkzeug, ebenfalls über
+  // `kurs.metadata.werkzeuge` freigeschaltet (alle Fachinformatiker-Kurse).
+  {
+    type: "subnetting",
+    label: "Subnetting-Rechner",
+    description: "IPv4-Adressen und -Netze nachrechnen: Netz, Broadcast, Hostbereich, Binärdarstellung, Netze teilen.",
+    Illustration: SubnettingIllustration,
+    werkzeug: true,
+    aktion: "Rechner öffnen",
   },
 ] as const;
 
@@ -183,6 +196,9 @@ export function Instrumente({
 
   if (activeWerkzeug === "netzplan") {
     return <Netzplan onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "subnetting") {
+    return <Subnetting onClose={() => setActiveWerkzeug(null)} />;
   }
 
   if (activeLernpfad) {
@@ -211,7 +227,7 @@ export function Instrumente({
           <>
             {werkzeugVerfuegbar && (
               <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveWerkzeug(instrument.type)}>
-                Netzplan üben
+                {"aktion" in instrument ? instrument.aktion : "Öffnen"}
               </button>
             )}
             {target && (

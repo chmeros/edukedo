@@ -436,3 +436,40 @@ export function NetzplanIllustration() {
     </Frame>
   );
 }
+
+// F-166: Subnetting-Rechner.
+
+export function SubnettingIllustration() {
+  const oktette = ["11000000", "10101000", "00001010", "01001101"];
+  return (
+    <Frame background="var(--info-tint)">
+      {oktette.map((oktett, index) => (
+        <g key={index}>
+          {[...oktett].map((bit, position) => {
+            const gesamt = index * 8 + position;
+            const netz = gesamt < 26;
+            return (
+              <g key={position}>
+                <rect x={14 + index * 76 + position * 8.5} y="30" width="7.5" height="22" rx="1.5" fill={netz ? "var(--info)" : "var(--card)"} stroke="var(--info-deep)" strokeWidth="1" />
+                <text x={14 + index * 76 + position * 8.5 + 3.75} y="45" fontSize="9" fontWeight="700" fill={netz ? "#fff" : "var(--ink-soft)"} textAnchor="middle">
+                  {bit}
+                </text>
+              </g>
+            );
+          })}
+        </g>
+      ))}
+      <path d="M14 66h222" stroke="var(--info-deep)" strokeWidth="2" strokeLinecap="round" />
+      <path d="M236 66h68" stroke="var(--sun)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 3" />
+      <text x="125" y="84" fontSize="11" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        Netzanteil
+      </text>
+      <text x="270" y="84" fontSize="11" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        Host
+      </text>
+      <text x="160" y="116" fontSize="18" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        192.168.10.64 /26
+      </text>
+    </Frame>
+  );
+}

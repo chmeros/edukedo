@@ -3547,3 +3547,91 @@ details[open] > summary.disclosure::before {
     padding: 16px;
   }
 }
+
+/* F-166: Subnetting-Rechner (Subnetting.tsx) */
+.subnet-ergebnis {
+  display: grid;
+  grid-template-columns: minmax(150px, max-content) 1fr;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.subnet-ergebnis dt {
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+
+.subnet-ergebnis dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.subnet-fehler {
+  color: var(--danger-deep);
+}
+
+.subnet-bitreihe {
+  display: grid;
+  grid-template-columns: minmax(110px, max-content) 1fr;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.subnet-bit-titel {
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+}
+
+.subnet-bitreihe code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  background: none;
+  padding: 0;
+}
+
+.subnet-oktett {
+  letter-spacing: 0.06em;
+}
+
+.bit-netz {
+  font-weight: 800;
+  color: var(--info-deep);
+}
+
+.bit-host {
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+.subnet-rechenweg {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 520px) {
+  .subnet-ergebnis {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .subnet-ergebnis dt {
+    margin-top: 8px;
+  }
+
+  .subnet-bitreihe {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
