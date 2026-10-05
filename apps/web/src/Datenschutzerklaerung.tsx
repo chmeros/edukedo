@@ -95,6 +95,10 @@ export function Datenschutzerklaerung() {
             <b>4. Minderjährige Nutzer:innen und Einwilligung der Erziehungsberechtigten</b>
           </p>
           <p>
+            Derzeit ist die Registrierung nur für Volljährige (ab 18 Jahren) möglich. Die folgenden Regelungen
+            gelten, sobald auch Minderjährige zugelassen werden.
+          </p>
+          <p>
             Nutzer:innen unter 16 Jahren benötigen vor der Kontoaktivierung die Einwilligung eines Elternteils
             (Art. 8 DSGVO). Beim Registrieren wird die E-Mail-Adresse eines Elternteils abgefragt; das Konto
             bleibt gesperrt, bis der Elternteil einen Bestätigungslink per E-Mail anklickt. Bis zur Bestätigung

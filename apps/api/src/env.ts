@@ -15,6 +15,14 @@ const envSchema = z.object({
   VAPID_PUBLIC_KEY: z.string().min(1, "VAPID_PUBLIC_KEY fehlt (siehe README, mit web-push generieren)"),
   VAPID_PRIVATE_KEY: z.string().min(1, "VAPID_PRIVATE_KEY fehlt (siehe README, mit web-push generieren)"),
   VAPID_SUBJECT: z.string().min(1).default("mailto:dev@edukedo.example"),
+  // F-159 (Zugang für Minderjährige vorerst geschlossen, Nutzer-Vorgabe vom 05.10.2026, siehe
+  // Architekturplanung Abschnitt 13): ohne ausdrückliches "true" können sich nur Volljährige
+  // registrieren und einloggen. Der Eltern-Consent-Flow (F-08/F-90) bleibt vollständig im Code und
+  // wird mit ALLOW_MINORS=true wieder aktiv — es ist ein Schalter, kein Rückbau.
+  ALLOW_MINORS: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
   // F-70/F-72: BullMQ-Job-Queue für die asynchrone KI-Bewertung — dieselbe, bereits seit
   // Iteration 0 per docker-compose.yml lokal laufende Redis-Instanz, ursprünglich für die
   // Kern↔Payment-Ereignis-Queue vorgesehen (siehe Architekturplanung Abschnitt 1/12), hier als

@@ -33,8 +33,20 @@ const RESEND_VERIFICATION_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 60; // 1 Stunde
 const LOGIN_RATE_LIMIT_MAX_ATTEMPTS = 10;
 const LOGIN_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 15; // 15 Minuten
 
+/** F-159: einheitliche Meldung für Registrierung und Login, solange Minderjährige nicht zugelassen sind. */
+const MINORS_NOT_ALLOWED_MESSAGE =
+  "edukedo steht aktuell nur Volljährigen (ab 18 Jahren) offen. Sobald wir auch Jüngere aufnehmen können, geben wir Bescheid.";
+
 export const authRouter = router({
+  /** F-159: öffentliche Konfiguration für das Registrierungsformular (Alters-Hinweis, Eltern-E-Mail-Feld). */
+  publicConfig: publicProcedure.query(() => ({ minorsAllowed: env.ALLOW_MINORS })),
+
   register: publicProcedure.input(registerInputSchema).mutation(async ({ ctx, input }) => {
+    // F-159: vor allem anderen — es soll weder ein Konto noch eine Eltern-Einwilligungsanfrage entstehen.
+    if (!env.ALLOW_MINORS && calculateIsMinor(input.birthDate)) {
+      throw new TRPCError({ code: "FORBIDDEN", message: MINORS_NOT_ALLOWED_MESSAGE });
+    }
+
     const [existing] = await ctx.db.select().from(user).where(eq(user.email, input.email)).limit(1);
     if (existing) {
       throw new TRPCError({ code: "CONFLICT", message: "E-Mail-Adresse bereits registriert." });
@@ -132,6 +144,17 @@ export const authRouter = router({
 
     if (!found || !passwordMatches) {
       throw new TRPCError({ code: "UNAUTHORIZED", message: "E-Mail oder Passwort ist falsch." });
+    }
+
+    // F-159: Altersprüfung am AKTUELLEN Alter (nicht am bei der Registrierung gespeicherten Flag): wer
+    // seit der Registrierung 18 geworden ist, kommt wieder rein und wird als volljährig geführt.
+    const currentlyMinor = found.birthDate ? calculateIsMinor(new Date(found.birthDate)) : found.isMinor;
+    if (!env.ALLOW_MINORS && currentlyMinor) {
+      throw new TRPCError({ code: "FORBIDDEN", message: MINORS_NOT_ALLOWED_MESSAGE });
+    }
+    if (found.isMinor && !currentlyMinor) {
+      await ctx.db.update(user).set({ isMinor: false }).where(eq(user.id, found.id));
+      found.isMinor = false;
     }
 
     // F-08: Konto bleibt gesperrt, bis ein Elternteil die Einwilligung bestätigt hat — auf

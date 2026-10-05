@@ -1,4 +1,4 @@
-import { requiresParentalConsent } from "@edukedo/shared";
+import { calculateAge, requiresParentalConsent } from "@edukedo/shared";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { AdminPanel } from "./AdminPanel";
@@ -146,7 +146,13 @@ export function App() {
   // Kurs existiert (siehe showCourseSelection unten).
   const [view, setView] = useState<"app" | "admin" | "courses">("app");
 
-  const needsParentEmail = mode === "register" && requiresParentalConsent(new Date(birthDate));
+  // F-159: Solange Minderjährige nicht zugelassen sind (Server-Schalter ALLOW_MINORS), zeigt das Formular
+  // statt der Eltern-E-Mail-Abfrage einen Hinweis und sperrt das Absenden — maßgeblich bleibt die Prüfung im Backend.
+  const authConfig = trpc.auth.publicConfig.useQuery();
+  const minorsAllowed = authConfig.data?.minorsAllowed ?? false;
+  const birthDateValid = birthDate !== "" && !Number.isNaN(new Date(birthDate).getTime());
+  const blockedAsMinor = mode === "register" && !minorsAllowed && birthDateValid && calculateAge(new Date(birthDate)) < 18;
+  const needsParentEmail = minorsAllowed && mode === "register" && requiresParentalConsent(new Date(birthDate));
 
   // Header-Aktionen für alle nicht eingeloggten Zustände (Landing, Sperrhinweis,
   // Login/Registrierung) — an einer Stelle definiert statt in jedem Zweig einzeln, siehe
@@ -614,9 +620,20 @@ export function App() {
                 />
                 {!needsParentEmail && (
                   <span className="field-hint">
-                    Damit wir bei unter 16-Jährigen automatisch die Eltern-Einwilligung einholen.
+                    {minorsAllowed
+                      ? "Damit wir bei unter 16-Jährigen automatisch die Eltern-Einwilligung einholen."
+                      : "edukedo steht aktuell nur Volljährigen (ab 18 Jahren) offen."}
                   </span>
                 )}
+              </div>
+            )}
+            {blockedAsMinor && (
+              <div className="alert alert-info" role="status">
+                <InfoIcon />
+                <div>
+                  Wir können dich leider noch nicht aufnehmen: edukedo steht aktuell nur Volljährigen offen. Schau
+                  gern später wieder vorbei.
+                </div>
               </div>
             )}
             {needsParentEmail && (
@@ -664,7 +681,7 @@ export function App() {
                 .
               </span>
             )}
-            <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending}>
+            <button type="submit" className="btn btn-primary btn-block" disabled={activeMutation.isPending || blockedAsMinor}>
               {mode === "login" ? "Einloggen" : "Registrieren"}
             </button>
           </form>

@@ -40,6 +40,8 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     container = await new PostgreSqlContainer("postgres:16-alpine").start();
     process.env.DATABASE_URL = container.getConnectionUri();
     process.env.SESSION_SECRET = "e2e-consent-test-secret-mindestens-32-zeichen";
+    // F-159: dieser Test prüft gerade den Eltern-Consent-Flow, der nur mit zugelassenen Minderjährigen läuft.
+    process.env.ALLOW_MINORS = "true";
     process.env.VAPID_PUBLIC_KEY = "test-vapid-public-key";
     process.env.VAPID_PRIVATE_KEY = "test-vapid-private-key";
     process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";

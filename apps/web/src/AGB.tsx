@@ -54,8 +54,9 @@ export function AGB() {
           <p>
             <b>3. Registrierung und Nutzerkonto</b>
             <br />
-            Für die Nutzung ist ein Nutzerkonto mit wahrheitsgemäßer Altersangabe erforderlich. Nutzer:innen
-            unter 16 Jahren benötigen zusätzlich die Einwilligung eines Elternteils (siehe
+            Für die Nutzung ist ein Nutzerkonto mit wahrheitsgemäßer Altersangabe erforderlich. Derzeit
+            können sich nur volljährige Personen (ab 18 Jahren) registrieren; eine Öffnung für Minderjährige
+            ist erst nach Einführung der erforderlichen Einwilligungsverfahren vorgesehen (siehe
             Datenschutzerklärung). Zugangsdaten sind vertraulich zu behandeln; Missbrauchsverdacht ist uns
             unverzüglich mitzuteilen.
           </p>
