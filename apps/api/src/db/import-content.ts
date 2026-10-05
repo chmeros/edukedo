@@ -203,6 +203,15 @@ const KURS_META: Record<string, KursMeta> = {
     isPublished: true,
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
   },
+  // F-156 (fünfzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
+  // Fachinformatiker/in Digitale Vernetzung -- vierter und letzter der vier Fachinformatiker-Kurse;
+  // fu1-fu7 aus dem Anwendungsentwicklungs-Kurs kopiert (nur kurs_slug unterscheidet sich).
+  "fachinformatiker-digitale-vernetzung": {
+    title: "Fachinformatiker/in Digitale Vernetzung (IHK-Abschlussprüfung)",
+    type: "ausbildungsberuf",
+    isPublished: true,
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+  },
 };
 
 function kursMetaFor(slug: string): KursMeta {

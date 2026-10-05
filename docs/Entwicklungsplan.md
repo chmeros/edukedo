@@ -373,7 +373,7 @@ Ziel: Auf Nutzer-Vorgabe „Starte mit einem Kurs zur Umschulung zum Fachinforma
 - [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 04.10.2026** — 434 Dateien, 10.748 Content-Items insgesamt, Delta exakt wie im Dry-Run erwartet (1.606).
 - [x] Folge-Durchlauf Kurs 13 (Systemintegration): siehe Iteration 18. **Erledigt 04.10.2026.**
 - [x] Folge-Durchlauf Kurs 14 (Daten- und Prozessanalyse): siehe Iteration 19. **Erledigt 04.10.2026.**
-- [ ] **Offen (Folge-Durchlauf, Kurs 15):** Digitale Vernetzung — `fu1`–`fu7` kopieren, `KURS_META`-Eintrag, fünf Fachrichtungs-Fachgebiete, Verifikation, Dokumentation.
+- [x] Folge-Durchlauf Kurs 15 (Digitale Vernetzung): siehe Iteration 20. **Erledigt 05.10.2026** — damit sind alle vier Fachinformatiker-Kurse umgesetzt.
 
 **Testing**
 - [x] Live-Verifikation im Browser (frisch angelegtes Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, schriftliche Prüfungssimulation inkl. Code-/Tabellen-Darstellung, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.** Siehe Architekturplanung Abschnitt 13.
@@ -408,6 +408,22 @@ Ziel: Dritter Durchlauf der vier Fachinformatiker-Kurse (Nutzer-Vorgabe „Ja, w
 
 **Testing**
 - [x] Live-Verifikation im Browser (Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, Prüfungssimulation ohne Abgabe, Konsolen-Check in frischem Tab). **Erledigt 04.10.2026.**
+
+## Iteration 20 — Fünfzehnter Kurs: Fachinformatiker/in Digitale Vernetzung (IHK-Abschlussprüfung)
+
+Ziel: Vierter und letzter Durchlauf der vier Fachinformatiker-Kurse (Nutzer-Vorgabe „Ja, weiter mit Kurs 15"), mit allen Grundsatzentscheidungen aus Iteration 17. `FU1`–`FU7` werden aus dem Anwendungsentwicklungs-Kurs kopiert, dazu fünf neue Fachgebiete `DV1`–`DV5` (Rahmenplan Abschnitt E, Prüfungsbereiche §§ 36–38 FIAusbV). Bewusst außerhalb des Validierungs-Gates umgesetzt (siehe Anforderungskatalog Abschnitt 9). Betrifft `content/fachinformatiker-digitale-vernetzung/` (neu) und eine neue `KURS_META`-Zeile in `apps/api/src/db/import-content.ts`.
+
+**Programmierung (Kern)**
+- [x] Neuer `KURS_META`-Eintrag für `kurs_slug: fachinformatiker-digitale-vernetzung` (`type: "ausbildungsberuf"`, `isPublished: true`, Zielgruppe Erwachsene). **Erledigt 04.10.2026** — einzige Code-Änderung dieser Iteration.
+
+**Content**
+- [x] Gemeinsame Fachgebiete `FU1`–`FU7` aus Kurs 12 kopiert (36 Dateien, nur `kurs_slug` ersetzt, Inhalt byte-identisch geprüft). **Erledigt 04.10.2026.**
+- [x] Fünf neue Fachgebiete `DV1`–`DV5` (19 Themen) über fünf parallele Content-Autorierungs-Agenten; die Agenten wurden beim Sitzungsende gestoppt und am Folgetag per `SendMessage` fortgesetzt. **Erledigt 05.10.2026:** 677 neue Content-Items; Kurs gesamt 1.641 (15.624 insgesamt über alle fünfzehn Kurse nach Import). Stichprobe der Rechtsverweise unauffällig (ein geratener Fachgebiets-Verweis in `DV5` korrigiert), Dry-Run aller 61 Dateien im ersten Anlauf ohne Fehler. Siehe Architekturplanung Abschnitt 13.
+- [x] Bulk-Import gegen die lokale Entwicklungsdatenbank. **Erledigt 05.10.2026** — 615 Dateien, 15.624 Content-Items insgesamt, Delta exakt wie im Dry-Run erwartet (1.641), im ersten Anlauf fehlerfrei.
+
+**Testing**
+- [x] Live-Verifikation im Browser (Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, Prüfungssimulation ohne Abgabe, Konsolen-Check in frischem Tab). **Erledigt 05.10.2026.** Das Wegwerf-Testkonto wurde danach aus der lokalen Datenbank gelöscht.
+- [ ] **Offen (technische Schuld, nicht terminiert):** gemeinsame Fachgebiete `FU1`–`FU7` liegen in vier identischen Kopien vor (Kurse 12–15) — falls die Pflege zum Problem wird, wäre ein generierter Kopiermechanismus oder ein echtes Teilen von Fachgebieten zwischen Kursen (Schema-Erweiterung) zu prüfen; bisher bewusst als Überbau verworfen.
 
 ## Offene, bewusst nicht terminierte Themen
 
