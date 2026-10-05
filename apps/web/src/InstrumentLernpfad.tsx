@@ -2,7 +2,7 @@ import { DndContext, PointerSensor, useSensor, useSensors } from "@dnd-kit/core"
 import { lernpfadStationsnamen } from "@edukedo/shared";
 import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
-import { DraggableTerm, DroppableZone } from "./QuizSteps";
+import { DraggableTerm, DroppableZone, useKeyboardPlacement } from "./QuizSteps";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
@@ -194,11 +194,10 @@ function PoolRoundStep({
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
   const done = placedCorrect.size >= round.correctCount;
 
-  async function handleDragEnd(event: DragEndEvent) {
+  // F-169: Auswählen-Pfad (wie F-135) neben dem Ziehen — beide lösen dieselbe Prüfung aus.
+  async function placeItem(text: string, targetId: string) {
     if (done || checking) return;
-    const targetId = event.over ? String(event.over.id) : POOL_SOURCE_ID;
     if (targetId !== POOL_TARGET_ID) return;
-    const text = String(event.active.id);
     setChecking(text);
     setError(null);
     try {
@@ -214,18 +213,38 @@ function PoolRoundStep({
     }
   }
 
+  function handleDragEnd(event: DragEndEvent) {
+    void placeItem(String(event.active.id), event.over ? String(event.over.id) : POOL_SOURCE_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement((text, targetId) => void placeItem(text, targetId), checking !== null || done);
+
   return (
     <div className="stack">
       {round.context && <p className="lernpfad-context">{round.context}</p>}
+      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
         <DroppableZone id={POOL_SOURCE_ID} className="quadrant-pool">
           {round.items
             .filter((item) => !placedCorrect.has(item.text))
             .map((item) => (
-              <DraggableTerm key={item.text} id={item.text} text={item.text} disabled={checking !== null || done} />
+              <DraggableTerm
+                key={item.text}
+                id={item.text}
+                text={item.text}
+                disabled={checking !== null || done}
+                selected={selectedId === item.text}
+                onToggleSelect={() => toggleSelect(item.text)}
+              />
             ))}
         </DroppableZone>
-        <DroppableZone id={POOL_TARGET_ID} label={`Richtig (${placedCorrect.size}/${round.correctCount})`} className="quadrant-zone">
+        <DroppableZone
+          id={POOL_TARGET_ID}
+          label={`Richtig (${placedCorrect.size}/${round.correctCount})`}
+          className="quadrant-zone"
+          onSelectTarget={() => selectTarget(POOL_TARGET_ID)}
+          targetDisabled={checking !== null || done || !selectedId}
+        >
           {round.items
             .filter((item) => placedCorrect.has(item.text))
             .map((item) => (
@@ -303,11 +322,9 @@ function ZonenZuordnungStep({
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
   const done = Object.keys(placements).length >= items.length;
 
-  async function handleDragEnd(event: DragEndEvent) {
+  async function placeItem(text: string, targetId: string) {
     if (checking) return;
-    const targetId = event.over ? String(event.over.id) : ZONE_POOL_ID;
     if (targetId === ZONE_POOL_ID) return;
-    const text = String(event.active.id);
     setChecking(text);
     setError(null);
     try {
@@ -323,20 +340,41 @@ function ZonenZuordnungStep({
     }
   }
 
+  function handleDragEnd(event: DragEndEvent) {
+    void placeItem(String(event.active.id), event.over ? String(event.over.id) : ZONE_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement((text, targetId) => void placeItem(text, targetId), checking !== null);
+
   return (
     <div className="stack">
       <div className="quiz-question">{prompt}</div>
+      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
         <DroppableZone id={ZONE_POOL_ID} className="quadrant-pool">
           {items
             .filter((item) => !placements[item.text])
             .map((item) => (
-              <DraggableTerm key={item.text} id={item.text} text={item.text} disabled={checking !== null} />
+              <DraggableTerm
+                key={item.text}
+                id={item.text}
+                text={item.text}
+                disabled={checking !== null}
+                selected={selectedId === item.text}
+                onToggleSelect={() => toggleSelect(item.text)}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {zones.map((zone) => (
-            <DroppableZone key={zone.key} id={zone.key} label={zone.label} className="quadrant-zone">
+            <DroppableZone
+              key={zone.key}
+              id={zone.key}
+              label={zone.label}
+              className="quadrant-zone"
+              onSelectTarget={() => selectTarget(zone.key)}
+              targetDisabled={checking !== null || !selectedId}
+            >
               {items
                 .filter((item) => placements[item.text] === zone.key)
                 .map((item) => (
@@ -392,11 +430,9 @@ function GepoolteZuordnungStation({
   const roundDone = currentRoundItems.length > 0 && currentRoundItems.every((item) => placements[item.text]);
   const isLastRound = roundIndex === rounds.length - 1;
 
-  async function handleDragEnd(event: DragEndEvent) {
+  async function placeItem(text: string, targetId: string) {
     if (checking) return;
-    const targetId = event.over ? String(event.over.id) : ZONE_POOL_ID;
     if (targetId === ZONE_POOL_ID) return;
-    const text = String(event.active.id);
     setChecking(text);
     setError(null);
     try {
@@ -412,6 +448,12 @@ function GepoolteZuordnungStation({
     }
   }
 
+  function handleDragEnd(event: DragEndEvent) {
+    void placeItem(String(event.active.id), event.over ? String(event.over.id) : ZONE_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement((text, targetId) => void placeItem(text, targetId), checking !== null);
+
   function nextRound() {
     setRoundIndex((current) => current + 1);
   }
@@ -420,19 +462,33 @@ function GepoolteZuordnungStation({
     <div className="stack">
       <div className="quiz-question">{prompt}</div>
       <p className="field-hint">
-        {usingExtra ? "Zusatzrunde" : "Grunddurchlauf"} — Runde {roundIndex + 1} von {rounds.length}
+        {usingExtra ? "Zusatzrunde" : "Grunddurchlauf"} — Runde {roundIndex + 1} von {rounds.length}. Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.
       </p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
         <DroppableZone id={ZONE_POOL_ID} className="quadrant-pool">
           {currentRoundItems
             .filter((item) => !placements[item.text])
             .map((item) => (
-              <DraggableTerm key={item.text} id={item.text} text={item.text} disabled={checking !== null} />
+              <DraggableTerm
+                key={item.text}
+                id={item.text}
+                text={item.text}
+                disabled={checking !== null}
+                selected={selectedId === item.text}
+                onToggleSelect={() => toggleSelect(item.text)}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {zones.map((zone) => (
-            <DroppableZone key={zone.key} id={zone.key} label={zone.label} className="quadrant-zone">
+            <DroppableZone
+              key={zone.key}
+              id={zone.key}
+              label={zone.label}
+              className="quadrant-zone"
+              onSelectTarget={() => selectTarget(zone.key)}
+              targetDisabled={checking !== null || !selectedId}
+            >
               {Object.entries(placements)
                 .filter(([, zoneKey]) => zoneKey === zone.key)
                 .map(([text]) => (
@@ -501,12 +557,27 @@ function SortierenTask({
   const [error, setError] = useState<string | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
-  function handleDragEnd(event: DragEndEvent) {
+  // F-169: dieselbe Platzierung für Ziehen und Auswählen; ein belegtes Feld gibt seinen Begriff zurück in den Pool.
+  function movePlacement(itemId: string, targetId: string) {
     if (feedback) return;
-    const itemIndex = Number(event.active.id);
-    const targetId = event.over ? String(event.over.id) : SORTIEREN_POOL_ID;
-    setPlacements((current) => ({ ...current, [itemIndex]: targetId === SORTIEREN_POOL_ID ? null : Number(targetId) }));
+    const itemIndex = Number(itemId);
+    setPlacements((current) => {
+      const next = { ...current };
+      if (targetId !== SORTIEREN_POOL_ID) {
+        for (const [key, position] of Object.entries(next)) {
+          if (position === Number(targetId) && Number(key) !== itemIndex) next[Number(key)] = null;
+        }
+      }
+      next[itemIndex] = targetId === SORTIEREN_POOL_ID ? null : Number(targetId);
+      return next;
+    });
   }
+
+  function handleDragEnd(event: DragEndEvent) {
+    movePlacement(String(event.active.id), event.over ? String(event.over.id) : SORTIEREN_POOL_ID);
+  }
+
+  const { selectedId, toggleSelect, selectTarget } = useKeyboardPlacement(movePlacement, feedback !== null || pending);
 
   const allPlaced = items.every((item) => placements[item.index] !== null);
 
@@ -533,24 +604,47 @@ function SortierenTask({
   return (
     <div className="stack">
       <div className="quiz-question">{prompt}</div>
+      <p className="field-hint">Begriff auswählen oder ziehen, dann die Zielposition auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-        <DroppableZone id={SORTIEREN_POOL_ID} className="quadrant-pool">
+        <DroppableZone
+          id={SORTIEREN_POOL_ID}
+          label="Nicht zugeordnet"
+          className="quadrant-pool"
+          onSelectTarget={() => selectTarget(SORTIEREN_POOL_ID)}
+          targetDisabled={feedback !== null || pending || !selectedId}
+        >
           {items
             .filter((item) => placements[item.index] === null)
             .map((item) => (
-              <DraggableTerm key={item.index} id={String(item.index)} text={item.text} disabled={feedback !== null} />
+              <DraggableTerm
+                key={item.index}
+                id={String(item.index)}
+                text={item.text}
+                disabled={feedback !== null || pending}
+                selected={selectedId === String(item.index)}
+                onToggleSelect={() => toggleSelect(String(item.index))}
+              />
             ))}
         </DroppableZone>
         <div className="quadrant-grid">
           {items.map((_, position) => {
             const placedItem = items.find((item) => placements[item.index] === position);
             return (
-              <DroppableZone key={position} id={String(position)} label={`${position + 1}.`} className="quadrant-zone">
+              <DroppableZone
+                key={position}
+                id={String(position)}
+                label={`${position + 1}.`}
+                className="quadrant-zone"
+                onSelectTarget={() => selectTarget(String(position))}
+                targetDisabled={feedback !== null || pending || !selectedId}
+              >
                 {placedItem && (
                   <DraggableTerm
                     id={String(placedItem.index)}
                     text={placedItem.text}
-                    disabled={feedback !== null}
+                    disabled={feedback !== null || pending}
+                    selected={selectedId === String(placedItem.index)}
+                    onToggleSelect={() => toggleSelect(String(placedItem.index))}
                     state={feedback ? (feedback.results[position] ? "correct" : "wrong") : undefined}
                   />
                 )}
