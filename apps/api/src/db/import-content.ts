@@ -112,6 +112,8 @@ function fachinformatikMetadata(
     presentationMinutes: 15,
     // F-161: betriebliches Projekt (Stundenobergrenze nach FIAusbV) — schaltet den Reiter "Projekt" frei.
     projekt: { stunden: projektStunden },
+    // F-163: Netzplan-Trainer im Instrumente-Tab (Projektplanung gehört zu FU1 aller Fachinformatiker-Kurse).
+    werkzeuge: ["netzplan"],
     pruefungsbereiche: [FI_TEIL1, ...bereiche.map((bereich) => ({ ...bereich, part: "Teil 2" })), FI_WISO],
   };
 }
@@ -121,7 +123,7 @@ export const KURS_META: Record<string, KursMeta> = {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
     type: "fachwirt",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung", werkzeuge: ["netzplan"] },
   },
   "mathematik-9": {
     title: "Mathematik, Klasse 9 (bundeslandneutral)",
@@ -181,7 +183,7 @@ export const KURS_META: Record<string, KursMeta> = {
     title: "Geprüfter Immobilienfachwirt (IHK)",
     type: "fachwirt",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung", werkzeuge: ["netzplan"] },
   },
   // F-150 (neunter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
   // Nachfolge-Qualifikation des auslaufenden "Fachwirt für Versicherungen und Finanzen"
@@ -192,7 +194,7 @@ export const KURS_META: Record<string, KursMeta> = {
     title: "Bachelor Professional in Versicherungen und Finanzanlagen (IHK)",
     type: "fachwirt",
     isPublished: true,
-    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" },
+    metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung", werkzeuge: ["netzplan"] },
   },
   // F-151 (zehnter Kurs, Nutzer-Vorgabe vom 29.09.2026, siehe Architekturplanung Abschnitt 13):
   // Nachfolge-Bezeichnung des größtenteils bereits migrierten "Fachwirt für Güterverkehr und

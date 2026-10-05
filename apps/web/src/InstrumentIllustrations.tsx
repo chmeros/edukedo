@@ -413,3 +413,26 @@ export function AblaufIllustration() {
     </Frame>
   );
 }
+
+// F-163: Netzplan-Trainer.
+
+export function NetzplanIllustration() {
+  const knoten = [
+    { x: 24, y: 52, kritisch: true },
+    { x: 108, y: 18, kritisch: true },
+    { x: 108, y: 86, kritisch: false },
+    { x: 192, y: 18, kritisch: true },
+    { x: 252, y: 52, kritisch: true },
+  ];
+  return (
+    <Frame background="var(--surface-2)">
+      <path d="M68 66 108 36M68 74 108 100M152 36 192 36M152 100 218 100 252 80M236 36 252 60" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      {knoten.map((punkt, index) => (
+        <g key={index}>
+          <rect x={punkt.x} y={punkt.y} width="44" height="30" rx="4" fill="var(--card)" stroke={punkt.kritisch ? "var(--coral-deep)" : "var(--info-deep)"} strokeWidth={punkt.kritisch ? 3 : 2} />
+          <path d={`M${punkt.x} ${punkt.y + 10}h44M${punkt.x} ${punkt.y + 20}h44`} stroke="var(--line-strong)" strokeWidth="1" />
+        </g>
+      ))}
+    </Frame>
+  );
+}

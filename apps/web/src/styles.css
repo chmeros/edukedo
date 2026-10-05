@@ -478,6 +478,61 @@ a {
   color: var(--danger-deep);
 }
 
+/* F-163: Netzplan-Trainer (Netzplan.tsx) */
+.netzplan-grafik {
+  overflow-x: auto;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 8px;
+}
+
+.netzplan-tabelle-wrap {
+  overflow-x: auto;
+}
+
+.netzplan-tabelle {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 360px;
+}
+
+.netzplan-tabelle th,
+.netzplan-tabelle td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.netzplan-tabelle caption {
+  text-align: left;
+  padding-bottom: 6px;
+}
+
+.netzplan-eingabe {
+  width: 4.5rem;
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.netzplan-projektdauer {
+  max-width: 16rem;
+}
+
+.netzplan-marke {
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+.netzplan-marke.is-correct {
+  color: var(--sprout-deep);
+}
+
+.netzplan-marke.is-wrong {
+  color: var(--danger-deep);
+}
+
 .field-hint {
   font-size: var(--fs-xs);
   color: var(--ink-faint);

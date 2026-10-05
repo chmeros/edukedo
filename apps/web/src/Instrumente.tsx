@@ -7,6 +7,7 @@ import {
   ErModellIllustration,
   GanttIllustration,
   HierarchieIllustration,
+  NetzplanIllustration,
   NormalisierungIllustration,
   OsiIllustration,
   PdcaIllustration,
@@ -19,6 +20,7 @@ import {
   UmlIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
+import { Netzplan } from "./Netzplan";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
@@ -147,6 +149,16 @@ const INSTRUMENT_CATALOG = [
     description: "Abläufe als Sequenz, Verzweigung oder Schleife erkennen.",
     Illustration: AblaufIllustration,
   },
+  // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
+  // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)
+  // statt über Content-Items freigeschaltet werden.
+  {
+    type: "netzplan",
+    label: "Netzplan",
+    description: "Vorwärts- und Rückwärtsrechnung, Puffer und kritischen Pfad an zufälligen Aufgaben üben.",
+    Illustration: NetzplanIllustration,
+    werkzeug: true,
+  },
 ] as const;
 
 export function Instrumente({
@@ -164,6 +176,14 @@ export function Instrumente({
   // siehe F-105-Abgrenzung im Anforderungskatalog).
   const lernpfade = trpc.instrumentLernpfad.available.useQuery({ kursId });
   const [activeLernpfad, setActiveLernpfad] = useState<string | null>(null);
+  // F-163: Übungswerkzeuge ohne Content (Netzplan) — Freischaltung je Kurs über courses.list.
+  const courses = trpc.courses.list.useQuery();
+  const kursWerkzeuge = courses.data?.find((course) => course.id === kursId)?.werkzeuge ?? [];
+  const [activeWerkzeug, setActiveWerkzeug] = useState<string | null>(null);
+
+  if (activeWerkzeug === "netzplan") {
+    return <Netzplan onClose={() => setActiveWerkzeug(null)} />;
+  }
 
   if (activeLernpfad) {
     return (
@@ -176,7 +196,9 @@ export function Instrumente({
   }
 
   function renderTile(instrument: (typeof INSTRUMENT_CATALOG)[number]) {
-    const target = instruments.data?.[instrument.type];
+    const istWerkzeug = "werkzeug" in instrument;
+    const target = istWerkzeug ? undefined : instruments.data?.[instrument.type];
+    const werkzeugVerfuegbar = istWerkzeug && kursWerkzeuge.includes(instrument.type);
     const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
     return (
       <Tile
@@ -184,9 +206,14 @@ export function Instrumente({
         title={instrument.label}
         description={instrument.description}
         image={<instrument.Illustration />}
-        note={!target ? "In diesem Kurs noch nicht verfügbar" : undefined}
+        note={!target && !werkzeugVerfuegbar ? "In diesem Kurs noch nicht verfügbar" : undefined}
         actions={
           <>
+            {werkzeugVerfuegbar && (
+              <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveWerkzeug(instrument.type)}>
+                Netzplan üben
+              </button>
+            )}
             {target && (
               <button
                 type="button"
@@ -210,8 +237,10 @@ export function Instrumente({
     );
   }
 
-  const available = INSTRUMENT_CATALOG.filter((instrument) => instruments.data?.[instrument.type]);
-  const unavailable = INSTRUMENT_CATALOG.filter((instrument) => !instruments.data?.[instrument.type]);
+  const istVerfuegbar = (instrument: (typeof INSTRUMENT_CATALOG)[number]) =>
+    "werkzeug" in instrument ? kursWerkzeuge.includes(instrument.type) : Boolean(instruments.data?.[instrument.type]);
+  const available = INSTRUMENT_CATALOG.filter(istVerfuegbar);
+  const unavailable = INSTRUMENT_CATALOG.filter((instrument) => !istVerfuegbar(instrument));
 
   return (
     <div className="panel-section">
@@ -223,7 +252,7 @@ export function Instrumente({
         findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
         mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
       </p>
-      {instruments.isLoading ? (
+      {instruments.isLoading || courses.isLoading ? (
         <p>Lädt…</p>
       ) : (
         <>

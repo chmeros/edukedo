@@ -4,7 +4,7 @@ import { and, eq, inArray, sql } from "drizzle-orm";
 import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
 import { contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
-import { kursPresentationMinutes, kursProjektStunden } from "../../pruefungsbereiche";
+import { kursPresentationMinutes, kursProjektStunden, kursWerkzeuge } from "../../pruefungsbereiche";
 import { protectedProcedure, router } from "../trpc";
 
 /** Drizzles `date`-Spalten sind im String-Modus (siehe schema.ts) — Konvertierung analog zu
@@ -62,6 +62,8 @@ export const coursesRouter = router({
         presentationMinutes: kursPresentationMinutes(row.metadata),
         // F-161: Stundenobergrenze des betrieblichen Projekts, null = Kurs ohne Projekt (kein "Projekt"-Reiter).
         projektStunden: kursProjektStunden(row.metadata),
+        // F-163: Übungswerkzeuge dieses Kurses (z. B. "netzplan"), siehe kursWerkzeuge.
+        werkzeuge: kursWerkzeuge(row.metadata),
         joined: row.joinedAt !== null,
         // F-35: nur für bereits belegte Kurse aussagekräftig — die Vorbelegungs-Felder bleiben
         // bei row.joinedAt === null (Kurs zum Beitreten, noch nicht eigener) einfach null.

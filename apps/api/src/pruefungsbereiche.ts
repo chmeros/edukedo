@@ -41,6 +41,19 @@ export function kursProjektStunden(metadata: unknown): number | null {
 }
 
 /**
+ * F-163: freigeschaltete Übungswerkzeuge ohne eigenen Quiz-Content (`kurs.metadata.werkzeuge`, z. B.
+ * `["netzplan"]`) — erscheinen im Instrumente-Tab als Kachel mit eigenem Trainer. Unbekannte Werte
+ * ignoriert das Frontend; fehlt die Angabe, ist die Liste leer.
+ */
+export function kursWerkzeuge(metadata: unknown): string[] {
+  if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+    const parsed = z.array(z.string().min(1)).safeParse((metadata as Record<string, unknown>).werkzeuge);
+    if (parsed.success) return parsed.data;
+  }
+  return [];
+}
+
+/**
  * F-154: kurze Beschreibung des Prüfungsablaufs als Stichpunkte (`kurs.metadata.pruefungsablauf`),
  * für die Hilfeseite „Gelassen bleiben" — fehlt die Angabe, ist die Liste leer.
  */

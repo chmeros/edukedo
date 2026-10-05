@@ -56,7 +56,7 @@ describe("F-161: Projekthilfe", () => {
     const [mitProjekt, ohneProjekt] = await db
       .insert(schema.kurs)
       .values([
-        { slug: "test-mit-projekt", type: "test", title: "Kurs mit Projekt", isPublished: true, metadata: { projekt: { stunden: 40 } } },
+        { slug: "test-mit-projekt", type: "test", title: "Kurs mit Projekt", isPublished: true, metadata: { projekt: { stunden: 40 }, werkzeuge: ["netzplan"] } },
         { slug: "test-ohne-projekt", type: "test", title: "Kurs ohne Projekt", isPublished: true, metadata: {} },
       ])
       .returning();
@@ -78,8 +78,14 @@ describe("F-161: Projekthilfe", () => {
     await container?.stop();
   });
 
-  it("liefert die Projekt-Stunden nur für Kurse mit Projekt", async () => {
-    const rows = (await get("courses.list", undefined, cookieA)).json().result.data as { id: string; projektStunden: number | null }[];
+  it("liefert die Projekt-Stunden und Übungswerkzeuge (F-163) nur für Kurse, die sie hinterlegt haben", async () => {
+    const rows = (await get("courses.list", undefined, cookieA)).json().result.data as {
+      id: string;
+      projektStunden: number | null;
+      werkzeuge: string[];
+    }[];
+    expect(rows.find((row) => row.id === mitProjektId)!.werkzeuge).toEqual(["netzplan"]);
+    expect(rows.find((row) => row.id === ohneProjektId)!.werkzeuge).toEqual([]);
     expect(rows.find((row) => row.id === mitProjektId)!.projektStunden).toBe(40);
     expect(rows.find((row) => row.id === ohneProjektId)!.projektStunden).toBeNull();
   });
