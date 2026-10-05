@@ -23,7 +23,8 @@ interface Karte {
   text: string;
 }
 
-export function PersonalkennzahlenMemory({ kursId, onClose }: { kursId: string; onClose: () => void }) {
+/** F-157: `title` kommt aus `game.title` des Kurses (z. B. „Kennzahlen-Memory: Personal" im Fachwirt-Kurs). */
+export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
   const [aktiveRunde, setAktiveRunde] = useState<number | null>(null);
   const [aufgedeckt, setAufgedeckt] = useState<number[]>([]);
@@ -106,7 +107,7 @@ export function PersonalkennzahlenMemory({ kursId, onClose }: { kursId: string; 
   }
 
   if (aktiveRunde === null || data.isLoading) return <p>Lädt…</p>;
-  if (data.error || !data.data) return <ErrorMessage>Kennzahlen-Memory konnte nicht geladen werden.</ErrorMessage>;
+  if (data.error || !data.data) return <ErrorMessage>Das Spiel konnte nicht geladen werden.</ErrorMessage>;
   const runde = data.data;
   const rundeFertig = gefunden.length === runde.karten.length;
   const rundenIndex = runde.runden.findIndex((entry) => entry.nummer === aktiveRunde);
@@ -115,7 +116,7 @@ export function PersonalkennzahlenMemory({ kursId, onClose }: { kursId: string; 
   return (
     <div className="panel-section">
       <div className="panel-section-head">
-        <h2>Kennzahlen-Memory: Runde {aktiveRunde}</h2>
+        <h2>{title}: Runde {aktiveRunde}</h2>
         <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
           Zurück zu den Spielen
         </button>

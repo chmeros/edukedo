@@ -1,8 +1,11 @@
 import { kennzahlenDuellPayloadSchema, kreuzwortraetselPayloadSchema, memoryPayloadSchema } from "@edukedo/shared";
 import { eq } from "drizzle-orm";
 import { db, pool } from "./client";
+import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
 import { kennzahlenDuellQmProzesse } from "./content/game-kennzahlen-duell-qm-prozesse";
+import { kreuzwortraetselItFachbegriffe } from "./content/game-kreuzwortraetsel-it-fachbegriffe";
 import { kreuzwortraetselFinanzkennzahlen } from "./content/game-kreuzwortraetsel-finanzkennzahlen";
+import { memoryItBegriffe } from "./content/game-memory-it-begriffe";
 import { memoryPersonalkennzahlen } from "./content/game-memory-personalkennzahlen";
 import { game, kurs } from "./schema";
 
@@ -53,6 +56,36 @@ async function main() {
     "Kennzahlen-Memory: Personal",
     memoryPayloadSchema.parse(memoryPersonalkennzahlen),
   );
+
+  // F-157 (Spiele für die Fachinformatiker-Kurse, Nutzer-Vorgabe vom 05.10.2026, siehe
+  // Architekturplanung Abschnitt 13): dieselben drei Spieltypen mit IT-Content, für alle vier
+  // Fachinformatiker-Kurse identisch (wie die gemeinsamen Fachgebiete FU1–FU7). Der Titel je Kurs
+  // steht in `game.title` und wird im Spiele-Katalog angezeigt.
+  for (const fachinformatikSlug of [
+    "fachinformatiker-anwendungsentwicklung",
+    "fachinformatiker-systemintegration",
+    "fachinformatiker-daten-prozessanalyse",
+    "fachinformatiker-digitale-vernetzung",
+  ]) {
+    await upsertGame(
+      fachinformatikSlug,
+      "kreuzwortraetsel",
+      "Kreuzworträtsel: IT-Fachbegriffe",
+      kreuzwortraetselPayloadSchema.parse(kreuzwortraetselItFachbegriffe),
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "kennzahlen_duell",
+      "Begriffe-Duell: IT-Grundlagen",
+      kennzahlenDuellPayloadSchema.parse(kennzahlenDuellItBegriffe),
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "memory",
+      "IT-Memory: Abkürzungen und Begriffe",
+      memoryPayloadSchema.parse(memoryItBegriffe),
+    );
+  }
 
   await pool.end();
 }

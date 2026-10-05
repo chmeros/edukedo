@@ -2,6 +2,9 @@ import {
   checkKennzahlenDuellAntwort,
   checkKreuzwortraetselWort,
   checkMemoryPaar,
+  kennzahlenDuellPayloadSchema,
+  kreuzwortraetselPayloadSchema,
+  memoryPayloadSchema,
   normalizeKreuzwortraetselEingabe,
   shapeKennzahlenDuell,
   shapeKreuzwortraetsel,
@@ -9,7 +12,10 @@ import {
   verifyCrosswordGrid,
 } from "@edukedo/shared";
 import { describe, expect, it } from "vitest";
+import { kennzahlenDuellItBegriffe } from "./db/content/game-kennzahlen-duell-it-begriffe";
 import { kreuzwortraetselFinanzkennzahlen } from "./db/content/game-kreuzwortraetsel-finanzkennzahlen";
+import { kreuzwortraetselItFachbegriffe } from "./db/content/game-kreuzwortraetsel-it-fachbegriffe";
+import { memoryItBegriffe } from "./db/content/game-memory-it-begriffe";
 
 describe("F-141: Kreuzworträtsel-Gitter „Finanzkennzahlen“", () => {
   it("hat an jeder gemeinsam belegten Gitterzelle übereinstimmende Kreuzungsbuchstaben", () => {
@@ -107,5 +113,36 @@ describe("F-143: Kennzahlen-Memory „Personal“", () => {
     const result = checkMemoryPaar(payload, 1, "Personalbestand", "Anteil Abgänge");
     expect(result.correct).toBe(false);
     expect(result.bestaetigung).toBeNull();
+  });
+});
+
+describe("F-157: Spiele-Content für die Fachinformatiker-Kurse", () => {
+  it("Kreuzworträtsel: Payload gültig, zehn Wörter, Gitter ohne Kreuzungskonflikte", () => {
+    const payload = kreuzwortraetselPayloadSchema.parse(kreuzwortraetselItFachbegriffe);
+    expect(payload.woerter).toHaveLength(10);
+    expect(verifyCrosswordGrid(payload.woerter)).toEqual([]);
+    expect(new Set(payload.woerter.map((wort) => wort.loesung)).size).toBe(10);
+  });
+
+  it("Begriffe-Duell: Payload gültig, 20 Fragen in vier Runden à fünf, richtige Antwort ausgewogen", () => {
+    const payload = kennzahlenDuellPayloadSchema.parse(kennzahlenDuellItBegriffe);
+    expect(payload.fragen).toHaveLength(20);
+    expect(payload.fragen.map((frage) => frage.nummer)).toEqual(Array.from({ length: 20 }, (_, index) => index + 1));
+    for (const runde of [1, 2, 3, 4]) {
+      expect(payload.fragen.filter((frage) => frage.runde === runde)).toHaveLength(5);
+    }
+    const anzahlA = payload.fragen.filter((frage) => frage.richtig === "A").length;
+    expect(anzahlA).toBeGreaterThanOrEqual(8);
+    expect(anzahlA).toBeLessThanOrEqual(12);
+  });
+
+  it("IT-Memory: Payload gültig, 24 Paare in vier Runden à sechs, keine doppelten Begriffe oder Bedeutungen", () => {
+    const payload = memoryPayloadSchema.parse(memoryItBegriffe);
+    expect(payload.paare).toHaveLength(24);
+    for (const runde of [1, 2, 3, 4]) {
+      expect(payload.paare.filter((paar) => paar.runde === runde)).toHaveLength(6);
+    }
+    expect(new Set(payload.paare.map((paar) => paar.begriff)).size).toBe(24);
+    expect(new Set(payload.paare.map((paar) => paar.bedeutung)).size).toBe(24);
   });
 });

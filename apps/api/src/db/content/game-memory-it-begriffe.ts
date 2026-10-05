@@ -1,0 +1,203 @@
+import type { MemoryPayload } from "@edukedo/shared";
+
+/**
+ * Gaming-Tab: „IT-Memory: Abkürzungen und Begriffe" für die Fachinformatiker/in-Kurse
+ * (24 IT-Begriffe-Paare in vier Themenrunden à sechs Paare, Begriff ↔ Bedeutung).
+ */
+export const memoryItBegriffe: MemoryPayload = {
+  runden: [
+    {
+      nummer: 1,
+      titel: "Netzwerk und Internet",
+      abschlussmeldung: "Geschafft! Du kennst sechs zentrale Begriffe rund um Netzwerke und das Internet.",
+    },
+    {
+      nummer: 2,
+      titel: "Hardware und Betriebssysteme",
+      abschlussmeldung: "Geschafft! Du kannst jetzt wichtige Begriffe zu Hardware, Firmware und Betriebssystem auseinanderhalten.",
+    },
+    {
+      nummer: 3,
+      titel: "Software und Datenbanken",
+      abschlussmeldung: "Geschafft! Du erkennst jetzt zentrale Begriffe aus Softwareentwicklung und Datenbanken.",
+    },
+    {
+      nummer: 4,
+      titel: "IT-Sicherheit, Datenschutz und Projektarbeit",
+      abschlussmeldung: "Geschafft! Du kennst jetzt wichtige Begriffe zu IT-Sicherheit, Datenschutz und Projektdokumenten.",
+    },
+  ],
+  paare: [
+    {
+      nummer: 1,
+      runde: 1,
+      begriff: "DNS (Domain Name System)",
+      bedeutung: "Dienst, der lesbare Namen wie Domainnamen in die zugehörigen IP-Adressen übersetzt.",
+      bestaetigung: "Richtig! DNS ist das „Telefonbuch“ des Internets: du gibst einen Namen ein, und der Dienst liefert die IP-Adresse, unter der der Server erreichbar ist.",
+    },
+    {
+      nummer: 2,
+      runde: 1,
+      begriff: "DHCP (Dynamic Host Configuration Protocol)",
+      bedeutung: "Dienst, der Geräten beim Anschluss ans Netzwerk automatisch eine IP-Adresse und weitere Netzwerkeinstellungen zuweist.",
+      bestaetigung: "Genau! Dank DHCP musst du Geräte im Netzwerk nicht einzeln von Hand konfigurieren. Die Adressen werden meist nur für eine begrenzte Zeit vergeben (Lease).",
+    },
+    {
+      nummer: 3,
+      runde: 1,
+      begriff: "NAT (Network Address Translation)",
+      bedeutung: "Verfahren, bei dem ein Router Adressen in Datenpaketen umschreibt, sodass mehrere Geräte mit privaten Adressen über eine öffentliche Adresse ins Internet gelangen.",
+      bestaetigung: "Stimmt! NAT spart öffentliche IPv4-Adressen und verbirgt die internen Adressen nach außen. Ein Ersatz für eine Firewall ist es aber nicht.",
+    },
+    {
+      nummer: 4,
+      runde: 1,
+      begriff: "VPN (Virtual Private Network)",
+      bedeutung: "Verschlüsselter Tunnel durch ein unsicheres Netz, über den ein Gerät geschützt auf ein entferntes Netzwerk zugreifen kann.",
+      bestaetigung: "Richtig! Mit einem VPN können sich zum Beispiel Beschäftigte im Homeoffice sicher mit dem Firmennetz verbinden. Die Daten laufen verschlüsselt durch das öffentliche Internet.",
+    },
+    {
+      nummer: 5,
+      runde: 1,
+      begriff: "MAC-Adresse (Media Access Control)",
+      bedeutung: "Weltweit eindeutig vorgesehene Hardwareadresse einer Netzwerkschnittstelle, die im lokalen Netz zur Adressierung von Geräten dient.",
+      bestaetigung: "Genau! Die MAC-Adresse wird in der Regel vom Hersteller festgelegt und ist 48 Bit lang. Sie wirkt auf der Sicherungsschicht (Schicht 2 des OSI-Modells), nicht auf der Vermittlungsschicht wie die IP-Adresse.",
+    },
+    {
+      nummer: 6,
+      runde: 1,
+      begriff: "Port (Netzwerkport)",
+      bedeutung: "Nummer, die innerhalb eines Geräts festlegt, für welche Anwendung oder welchen Dienst ein ankommendes Datenpaket bestimmt ist.",
+      bestaetigung: "Richtig! Die IP-Adresse findet den Rechner, der Port die Anwendung darauf. Webseiten über HTTPS sind zum Beispiel standardmäßig über Port 443 erreichbar.",
+    },
+    {
+      nummer: 7,
+      runde: 2,
+      begriff: "RAM (Random Access Memory)",
+      bedeutung: "Flüchtiger Arbeitsspeicher, in dem Programme und Daten während des Betriebs liegen und dessen Inhalt beim Ausschalten verloren geht.",
+      bestaetigung: "Richtig! RAM ist schnell, verliert aber ohne Stromversorgung seinen Inhalt. Dauerhaft gespeichert wird nur auf Datenträgern wie Festplatte oder SSD.",
+    },
+    {
+      nummer: 8,
+      runde: 2,
+      begriff: "UEFI (Unified Extensible Firmware Interface)",
+      bedeutung: "Firmware auf dem Mainboard, die beim Einschalten die Hardware initialisiert und anschließend das Betriebssystem startet.",
+      bestaetigung: "Genau! UEFI ist der moderne Nachfolger des klassischen BIOS. Hier stellst du zum Beispiel die Startreihenfolge der Laufwerke ein.",
+    },
+    {
+      nummer: 9,
+      runde: 2,
+      begriff: "RAID (Redundant Array of Independent Disks)",
+      bedeutung: "Verbund mehrerer Datenträger zu einer logischen Einheit, um Ausfallsicherheit oder Geschwindigkeit zu erhöhen.",
+      bestaetigung: "Stimmt! Je nach RAID-Level überlebt der Verbund den Ausfall einzelner Datenträger. Ein RAID ersetzt aber keine Datensicherung, denn gelöschte Dateien sind auch dort weg.",
+    },
+    {
+      nummer: 10,
+      runde: 2,
+      begriff: "Hypervisor",
+      bedeutung: "Software-Schicht, die virtuelle Maschinen erzeugt und ihnen die Ressourcen eines physischen Rechners zuteilt.",
+      bestaetigung: "Richtig! Der Hypervisor ermöglicht es, mehrere voneinander getrennte virtuelle Maschinen mit eigenen Betriebssystemen auf derselben Hardware zu betreiben.",
+    },
+    {
+      nummer: 11,
+      runde: 2,
+      begriff: "Treiber",
+      bedeutung: "Software, die dem Betriebssystem ermöglicht, ein bestimmtes Hardwaregerät wie Drucker oder Grafikkarte anzusprechen.",
+      bestaetigung: "Genau! Ohne passenden Treiber kann das Betriebssystem ein Gerät nicht oder nur eingeschränkt nutzen. Veraltete Treiber sind eine häufige Fehlerquelle.",
+    },
+    {
+      nummer: 12,
+      runde: 2,
+      begriff: "Prozess",
+      bedeutung: "Programm, das vom Betriebssystem gerade ausgeführt wird und dabei einen eigenen Speicherbereich und einen eigenen Zustand besitzt.",
+      bestaetigung: "Richtig! Ein Programm auf der Festplatte ist nur Code. Erst wenn das Betriebssystem es startet, wird daraus ein Prozess, den es verwaltet und mit Rechenzeit versorgt.",
+    },
+    {
+      nummer: 13,
+      runde: 3,
+      begriff: "API (Application Programming Interface)",
+      bedeutung: "Schnittstelle, über die Programme in festgelegter Form miteinander kommunizieren und Funktionen anderer Software nutzen können.",
+      bestaetigung: "Richtig! Eine API legt fest, wie Anfragen aussehen und welche Antworten zurückkommen, ohne dass du die innere Umsetzung des anderen Programms kennen musst.",
+    },
+    {
+      nummer: 14,
+      runde: 3,
+      begriff: "Commit (Versionsverwaltung)",
+      bedeutung: "Speichern eines Änderungsstands im Repository, meist mit einer beschreibenden Nachricht.",
+      bestaetigung: "Genau! Jeder Commit hält fest, was sich geändert hat. So kannst du Änderungen später nachvollziehen oder bei Bedarf zu einem früheren Stand zurückkehren.",
+    },
+    {
+      nummer: 15,
+      runde: 3,
+      begriff: "Primärschlüssel",
+      bedeutung: "Attribut oder Attributkombination, die jeden Datensatz einer Tabelle eindeutig identifiziert.",
+      bestaetigung: "Stimmt! Ein Primärschlüssel darf pro Tabelle nicht doppelt vorkommen und nicht leer sein. Andere Tabellen verweisen über Fremdschlüssel auf ihn.",
+    },
+    {
+      nummer: 16,
+      runde: 3,
+      begriff: "Normalisierung",
+      bedeutung: "Schrittweises Umgestalten eines Datenbankschemas, um Redundanzen und daraus entstehende Anomalien zu vermeiden.",
+      bestaetigung: "Richtig! Durch Normalisierung werden Daten auf mehrere miteinander verknüpfte Tabellen verteilt. So steht jede Information nur an einer Stelle und bleibt widerspruchsfrei.",
+    },
+    {
+      nummer: 17,
+      runde: 3,
+      begriff: "Transaktion",
+      bedeutung: "Zusammengehörige Folge von Datenbankoperationen, die entweder vollständig oder gar nicht ausgeführt wird.",
+      bestaetigung: "Genau! Bei einer Überweisung muss die Abbuchung zusammen mit der Gutschrift gelingen, sonst wird alles zurückgerollt. Diese Atomarität gehört zu den ACID-Eigenschaften.",
+    },
+    {
+      nummer: 18,
+      runde: 3,
+      begriff: "Unit-Test",
+      bedeutung: "Automatisierter Test, der eine kleine Einheit des Codes, zum Beispiel eine Funktion, isoliert auf korrektes Verhalten prüft.",
+      bestaetigung: "Stimmt! Unit-Tests lassen sich nach jeder Änderung schnell ausführen und zeigen früh, ob etwas kaputtgegangen ist. Das Zusammenspiel mehrerer Komponenten prüfen erst Integrationstests.",
+    },
+    {
+      nummer: 19,
+      runde: 4,
+      begriff: "Zwei-Faktor-Authentifizierung (2FA)",
+      bedeutung: "Anmeldeverfahren, bei dem die Identität durch zwei unterschiedliche Arten von Nachweisen belegt wird, zum Beispiel Wissen und Besitz.",
+      bestaetigung: "Richtig! Etwa ein Passwort (Wissen) plus ein Code aus einer App oder von einem Sicherheitstoken (Besitz). Zwei Passwörter wären dagegen nur ein Faktor.",
+    },
+    {
+      nummer: 20,
+      runde: 4,
+      begriff: "Hashing",
+      bedeutung: "Verfahren, das beliebige Eingabedaten mit einer Einwegfunktion in einen Wert fester Länge umrechnet, der sich praktisch nicht zurückrechnen lässt.",
+      bestaetigung: "Genau! Deshalb speichern Systeme Passwörter nur als Hash, am besten mit Salt, statt im Klartext. Ein Hash ist keine Verschlüsselung, denn es gibt keinen Schlüssel zum Entschlüsseln.",
+    },
+    {
+      nummer: 21,
+      runde: 4,
+      begriff: "Phishing",
+      bedeutung: "Betrugsversuch, bei dem Angreifer mit gefälschten Nachrichten oder Webseiten versuchen, an vertrauliche Daten wie Zugangsdaten zu gelangen.",
+      bestaetigung: "Stimmt! Phishing setzt auf Täuschung des Menschen statt auf technische Lücken. Achte deshalb auf Absender, Links und ungewöhnliche Aufforderungen.",
+    },
+    {
+      nummer: 22,
+      runde: 4,
+      begriff: "Backup (Datensicherung)",
+      bedeutung: "Regelmäßig angelegte Kopie von Daten auf einem separaten Speicher, damit sie nach Verlust oder Beschädigung wiederhergestellt werden können.",
+      bestaetigung: "Richtig! Ein Backup hilft nur, wenn es getrennt von den Originaldaten gelagert wird und sich auch wirklich wiederherstellen lässt. Teste die Wiederherstellung deshalb regelmäßig.",
+    },
+    {
+      nummer: 23,
+      runde: 4,
+      begriff: "DSGVO (Datenschutz-Grundverordnung)",
+      bedeutung: "EU-Verordnung, die die Verarbeitung personenbezogener Daten regelt und betroffenen Personen Rechte wie Auskunft und Löschung einräumt.",
+      bestaetigung: "Genau! Die DSGVO gilt unmittelbar in allen EU-Mitgliedstaaten. Personenbezogene Daten dürfen nur mit Rechtsgrundlage und für festgelegte Zwecke verarbeitet werden.",
+    },
+    {
+      nummer: 24,
+      runde: 4,
+      begriff: "Pflichtenheft",
+      bedeutung: "Dokument, das beschreibt, wie und womit der Auftragnehmer die Anforderungen des Auftraggebers umsetzen will.",
+      bestaetigung: "Richtig! Das Pflichtenheft baut auf dem Lastenheft auf: Das Lastenheft beschreibt, was der Auftraggeber verlangt, das Pflichtenheft, wie der Auftragnehmer es umsetzt.",
+    },
+  ],
+  falschesPaarFeedback: "Das ist noch kein Paar. Schau dir beide Aussagen genau an und versuche es erneut.",
+  abschlussmeldung:
+    "Geschafft! Du hast 24 wichtige IT-Begriffe kennengelernt. Du kannst nun Abkürzungen und Fachbegriffe aus Netzwerk, Hardware, Software und IT-Sicherheit sicherer zuordnen.",
+};

@@ -237,7 +237,8 @@ function HinweisZeile({
   );
 }
 
-export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose: () => void }) {
+/** F-157: `title` kommt aus `game.title` des Kurses (jeder Kurs hat seine eigene Begriffsauswahl). */
+export function Kreuzwortraetsel({ kursId, title, onClose }: { kursId: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
   const data = trpc.game.getKreuzwortraetsel.useQuery({ kursId });
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
@@ -352,7 +353,7 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
   return (
     <div className="panel-section">
       <div className="panel-section-head">
-        <h2>Kreuzworträtsel: Finanzkennzahlen</h2>
+        <h2>{title}</h2>
         <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
           Zurück zu den Spielen
         </button>
@@ -360,7 +361,7 @@ export function Kreuzwortraetsel({ kursId, onClose }: { kursId: string; onClose:
 
       {!spiel.variant ? (
         <div className="stack">
-          <p>Wie gut kennst du die wichtigsten Finanzkennzahlen? Wähle, ob du die Begriffe zuordnen oder selbst eingeben möchtest.</p>
+          <p>Wie gut kennst du die wichtigsten Begriffe? Wähle, ob du die Begriffe zuordnen oder selbst eingeben möchtest.</p>
           <div className="list-row-actions">
             <button type="button" className="btn btn-primary" onClick={() => start.mutate({ kursId, variant: "einfach" })}>
               Einfach — Begriffe zuordnen

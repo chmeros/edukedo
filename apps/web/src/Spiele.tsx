@@ -23,20 +23,20 @@ import { trpc } from "./trpc";
 const GAME_CATALOG = [
   {
     type: "kreuzwortraetsel",
-    label: "Kreuzworträtsel: Finanzkennzahlen",
-    description: "Zehn wichtige Finanzkennzahlen anhand kurzer Hinweise im Gitter erkennen.",
+    label: "Kreuzworträtsel",
+    description: "Zehn wichtige Fachbegriffe anhand kurzer Hinweise im Gitter erkennen.",
     Illustration: KreuzwortraetselIllustration,
   },
   {
     type: "kennzahlen_duell",
-    label: "Kennzahlen-Duell: Qualitätsmanagement und Prozesse",
-    description: "In kurzen Entweder-oder-Duellen ähnliche Kennzahlen sicher unterscheiden.",
+    label: "Duell",
+    description: "In kurzen Entweder-oder-Duellen ähnliche Begriffe sicher unterscheiden.",
     Illustration: KennzahlenDuellIllustration,
   },
   {
     type: "memory",
-    label: "Kennzahlen-Memory: Personal",
-    description: "Personalkennzahlen und ihre Bedeutung als Karten-Paare zuordnen.",
+    label: "Memory",
+    description: "Begriffe und ihre Bedeutung als Karten-Paare zuordnen.",
     Illustration: MemoryIllustration,
   },
 ] as const;
@@ -53,14 +53,17 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeGame]);
 
+  // F-157: Titel je Kurs aus `game.title` (der statische Katalog-Name dient nur als Rückfall).
+  const titleFor = (type: string) =>
+    available.data?.find((row) => row.gameType === type)?.title ?? GAME_CATALOG.find((entry) => entry.type === type)?.label ?? "Spiel";
   if (activeGame === "kreuzwortraetsel") {
-    return <Kreuzwortraetsel kursId={kursId} onClose={() => setActiveGame(null)} />;
+    return <Kreuzwortraetsel kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
   }
   if (activeGame === "kennzahlen_duell") {
-    return <KennzahlenDuell kursId={kursId} onClose={() => setActiveGame(null)} />;
+    return <KennzahlenDuell kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
   }
   if (activeGame === "memory") {
-    return <PersonalkennzahlenMemory kursId={kursId} onClose={() => setActiveGame(null)} />;
+    return <PersonalkennzahlenMemory kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
   }
 
   return (
@@ -78,7 +81,7 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
           return (
             <Tile
               key={entry.type}
-              title={entry.label}
+              title={titleFor(entry.type)}
               description={entry.description}
               image={<entry.Illustration />}
               disabled={!isAvailable}
