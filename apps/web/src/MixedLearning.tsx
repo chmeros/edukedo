@@ -475,6 +475,9 @@ export function MixedLearning({
           current.item.type === "scrum" ||
           current.item.type === "uml" ||
           current.item.type === "teststufen" ||
+          current.item.type === "ermodell" ||
+          current.item.type === "normalisierung" ||
+          current.item.type === "ablauf" ||
           current.item.type === "gantt") && (
           <QuadrantStep
             key={current.item.id}

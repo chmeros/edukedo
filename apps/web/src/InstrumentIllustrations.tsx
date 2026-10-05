@@ -325,3 +325,91 @@ export function TeststufenIllustration() {
     </Frame>
   );
 }
+
+// F-162: weitere IT-Instrumente (ER-Modell, Normalformen, Ablaufstrukturen).
+
+export function ErModellIllustration() {
+  return (
+    <Frame background="var(--surface-2)">
+      <rect x="26" y="48" width="74" height="40" rx="5" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2.5" />
+      <text x="63" y="73" fontSize="13" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        Kunde
+      </text>
+      <path d="M160 40 190 68 160 96 130 68Z" fill="var(--sun-tint)" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M100 68h30M190 68h30" stroke="var(--ink-soft)" strokeWidth="2" />
+      <text x="108" y="60" fontSize="11" fontWeight="700" fill="var(--ink)">
+        1
+      </text>
+      <text x="204" y="60" fontSize="11" fontWeight="700" fill="var(--ink)">
+        n
+      </text>
+      <rect x="220" y="48" width="74" height="40" rx="5" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2.5" />
+      <text x="257" y="73" fontSize="13" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        Projekt
+      </text>
+      <ellipse cx="63" cy="20" rx="26" ry="11" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M63 31v17" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <ellipse cx="257" cy="20" rx="26" ry="11" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M257 31v17" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <ellipse cx="63" cy="120" rx="26" ry="11" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M63 88v21" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <ellipse cx="257" cy="120" rx="26" ry="11" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M257 88v21" stroke="var(--sprout-deep)" strokeWidth="2" />
+    </Frame>
+  );
+}
+
+function MiniTable({ x, y, columns, rows, fill }: { x: number; y: number; columns: number; rows: number; fill: string }) {
+  const cell = 14;
+  const width = columns * cell;
+  const height = rows * cell;
+  return (
+    <g>
+      <rect x={x} y={y} width={width} height={height} rx="3" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <rect x={x} y={y} width={width} height={cell} rx="3" fill={fill} stroke="var(--info-deep)" strokeWidth="2" />
+      {Array.from({ length: columns - 1 }, (_, index) => (
+        <path key={`c${index}`} d={`M${x + (index + 1) * cell} ${y}v${height}`} stroke="var(--info-deep)" strokeWidth="1.2" />
+      ))}
+      {Array.from({ length: rows - 2 }, (_, index) => (
+        <path key={`r${index}`} d={`M${x} ${y + (index + 2) * cell}h${width}`} stroke="var(--info-deep)" strokeWidth="1.2" />
+      ))}
+    </g>
+  );
+}
+
+export function NormalisierungIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <MiniTable x={26} y={34} columns={6} rows={6} fill="var(--coral)" />
+      <path d="M126 70h46m0 0-9-6m9 6-9 6" fill="none" stroke="var(--coral-deep)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <MiniTable x={190} y={22} columns={4} rows={4} fill="var(--sun)" />
+      <MiniTable x={190} y={86} columns={3} rows={3} fill="var(--sprout)" />
+      <MiniTable x={250} y={86} columns={3} rows={3} fill="var(--info)" />
+    </Frame>
+  );
+}
+
+export function AblaufIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <rect x="60" y="14" width="200" height="112" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M60 36h200" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M60 36l100 34 100-34" stroke="var(--ink)" strokeWidth="2" fill="none" />
+      <path d="M160 70V80" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M60 80h200" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M76 80v46" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M76 103h184" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="60" y="14" width="200" height="22" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="76" y="80" width="184" height="23" fill="var(--info-tint)" stroke="var(--ink)" strokeWidth="2" />
+      <text x="160" y="29" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Anweisung
+      </text>
+      <text x="160" y="58" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        ja / nein
+      </text>
+      <text x="168" y="96" fontSize="10" fontWeight="700" fill="var(--ink)">
+        solange …
+      </text>
+    </Frame>
+  );
+}

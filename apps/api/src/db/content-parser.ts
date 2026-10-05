@@ -291,7 +291,7 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
   // abgebildet (siehe QUADRANT_MODELS, quiz-logic.ts).
   // F-156: die Modellart steht als Beschriftung in der Überschrift (`#### Q-… · <Modell>`) und ist
   // zugleich `QUADRANT_MODELS[type].label` — dadurch gilt jedes Modell mit festen Zonen automatisch,
-  // auch die IT-Instrumente (osi/schutzziele/sql/scrum/uml/teststufen).
+  // auch die IT-Instrumente (osi/schutzziele/sql/scrum/uml/teststufen und die weiteren aus F-162).
   const quadrantModel = (QUADRANT_QUIZ_TYPES as readonly QuadrantQuizType[]).find(
     (type) => QUADRANT_MODELS[type].label === kind,
   );

@@ -38,6 +38,10 @@ export const contentItemTypeSchema = z.enum([
   "scrum",
   "uml",
   "teststufen",
+  // F-162: weitere IT-Instrumente.
+  "ermodell",
+  "normalisierung",
+  "ablauf",
   // F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice): Mehrfachauswahl —
   // eine, zwei, drei oder alle vier Antwortoptionen können richtig sein, statt wie bei "quiz_mc"
   // genau eine. Bewusst ein EIGENER Typ statt eines Flags auf "quiz_mc" (siehe Anforderungskatalog

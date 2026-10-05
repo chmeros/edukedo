@@ -540,7 +540,10 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
         parsed.type === "sql" ||
         parsed.type === "scrum" ||
         parsed.type === "uml" ||
-        parsed.type === "teststufen"
+        parsed.type === "teststufen" ||
+        parsed.type === "ermodell" ||
+        parsed.type === "normalisierung" ||
+        parsed.type === "ablauf"
       ) {
         // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
         // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.

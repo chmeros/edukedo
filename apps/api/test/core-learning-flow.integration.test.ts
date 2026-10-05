@@ -2560,7 +2560,10 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         .from(schema.contentItem)
         .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
         .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
-        .where(and(eq(schema.fachgebiet.kursId, kursId), eq(schema.contentItem.type, "quiz_mc")))
+        // isActive-Filter: ein früherer Admin-Test deaktiviert ein quiz_mc-Item desselben Kurses; ohne
+        // Filter und ohne Sortierung konnte `limit(1)` (je nach Heap-Reihenfolge) genau dieses treffen
+        // und preview.submitAnswer antwortete 404 (sporadisch rot im vollen Testlauf).
+        .where(and(eq(schema.fachgebiet.kursId, kursId), eq(schema.contentItem.type, "quiz_mc"), eq(schema.contentItem.isActive, true)))
         .limit(1);
       expect(mcItem).toBeTruthy();
 

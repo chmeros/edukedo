@@ -380,6 +380,9 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `scrum` (**Scrum**, 3 Zonen): Rollen, Events, Artefakte
   - `uml` (**UML-Diagramme**): Klassendiagramm, Use-Case-Diagramm, Sequenzdiagramm, Aktivitätsdiagramm
   - `teststufen` (**Teststufen**): Komponententest, Integrationstest, Systemtest, Abnahmetest
+  - `ermodell` (**ER-Modell**, F-162): Entitätstyp, Attribut, Beziehung, Kardinalität
+  - `normalisierung` (**Normalformen**, F-162, 3 Zonen): 1. Normalform, 2. Normalform, 3. Normalform
+  - `ablauf` (**Ablaufstrukturen**, F-162, 3 Zonen): Sequenz, Verzweigung, Schleife
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

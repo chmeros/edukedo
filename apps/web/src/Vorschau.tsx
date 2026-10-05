@@ -193,6 +193,9 @@ export function Vorschau() {
             current.type === "scrum" ||
             current.type === "uml" ||
             current.type === "teststufen" ||
+            current.type === "ermodell" ||
+            current.type === "normalisierung" ||
+            current.type === "ablauf" ||
             current.type === "gantt") && (
             <QuadrantStep
               key={current.id}

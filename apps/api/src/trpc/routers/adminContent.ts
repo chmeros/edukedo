@@ -110,6 +110,9 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
     case "scrum":
     case "uml":
     case "teststufen":
+    case "ermodell":
+    case "normalisierung":
+    case "ablauf":
       return {
         prompt: input.prompt,
         explanation: input.explanation ?? null,
@@ -356,7 +359,10 @@ export const adminContentRouter = router({
       item.type === "sql" ||
       item.type === "scrum" ||
       item.type === "uml" ||
-      item.type === "teststufen"
+      item.type === "teststufen" ||
+      item.type === "ermodell" ||
+      item.type === "normalisierung" ||
+      item.type === "ablauf"
     ) {
       const rows = await ctx.db
         .select()

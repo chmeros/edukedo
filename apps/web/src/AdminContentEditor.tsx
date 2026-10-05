@@ -33,6 +33,10 @@ const TYPE_LABELS: Record<string, string> = {
   scrum: "Quiz · Scrum",
   uml: "Quiz · UML-Diagramme",
   teststufen: "Quiz · Teststufen",
+  // F-162: weitere IT-Instrumente.
+  ermodell: "Quiz · ER-Modell",
+  normalisierung: "Quiz · Normalformen",
+  ablauf: "Quiz · Ablaufstrukturen",
   // F-105 (ToDo-Punkt 6): echte Baum-/Hierarchie-Darstellung statt fester Zonen.
   hierarchie: "Quiz · Projektstrukturplan/Organigramm",
   // F-114 Teil 2: wie swot/bsc/ansoff, aber die Zeitabschnitte sind content-autoriert statt fest
@@ -133,6 +137,9 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
     case "scrum":
     case "uml":
     case "teststufen":
+    case "ermodell":
+    case "normalisierung":
+    case "ablauf":
       return {
         type,
         prompt: "",
@@ -559,7 +566,10 @@ function ContentItemForm({
         form.type === "sql" ||
         form.type === "scrum" ||
         form.type === "uml" ||
-        form.type === "teststufen") && (
+        form.type === "teststufen" ||
+        form.type === "ermodell" ||
+        form.type === "normalisierung" ||
+        form.type === "ablauf") && (
         <div className="field">
           <label>Begriffe ({QUADRANT_MODELS[form.type].zones.map((zone) => zone.label).join(" / ")})</label>
           <div className="stack">

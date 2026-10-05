@@ -387,6 +387,59 @@ describe("parseQuizBlock", () => {
     expect(() => parseQuizBlock(unbekannt)).toThrow(/Unbekannte Zonen-Beschriftung/);
   });
 
+  it("parst die weiteren IT-Instrumente (F-162): ER-Modell, Normalformen mit Ziffern in der Zonen-Beschriftung, Ablaufstrukturen", () => {
+    const er = parseQuizBlock(
+      [
+        "#### Q-5.1-14 · ER-Modell",
+        "**Anweisung:** Ordne zu.",
+        "- Kunde → Entitätstyp",
+        "- Budget → Attribut",
+        "- beauftragt → Beziehung",
+        "- 1:n → Kardinalität",
+        "**Erklärung:** ...",
+        "`schwierigkeit: leicht`",
+      ].join("\n"),
+    );
+    expect(er?.type).toBe("ermodell");
+    if (er?.type === "ermodell") {
+      expect(er.terms.map((term) => term.zoneKey)).toEqual(["entitaetstyp", "attribut", "beziehung", "kardinalitaet"]);
+    }
+
+    const nf = parseQuizBlock(
+      [
+        "#### Q-5.1-17 · Normalformen",
+        "**Anweisung:** Ordne zu.",
+        "- Jede Zelle enthält nur atomare Werte → 1. Normalform",
+        "- Partielle Abhängigkeiten werden beseitigt → 2. Normalform",
+        "- Transitive Abhängigkeiten werden ausgelagert → 3. Normalform",
+        "- Wiederholungsgruppen werden aufgelöst → 1. Normalform",
+        "**Erklärung:** ...",
+        "`schwierigkeit: leicht`",
+      ].join("\n"),
+    );
+    expect(nf?.type).toBe("normalisierung");
+    if (nf?.type === "normalisierung") {
+      expect(nf.terms.map((term) => term.zoneKey)).toEqual(["nf1", "nf2", "nf3", "nf1"]);
+    }
+
+    const ablauf = parseQuizBlock(
+      [
+        "#### Q-4.2-14 · Ablaufstrukturen",
+        "**Anweisung:** Ordne zu.",
+        "- Anweisungen stehen übereinander → Sequenz",
+        "- Zweigeteilter Block mit ja und nein → Verzweigung",
+        "- Eingerückter, wiederholter Rumpf → Schleife",
+        "- WENN … DANN … SONST → Verzweigung",
+        "**Erklärung:** ...",
+        "`schwierigkeit: leicht`",
+      ].join("\n"),
+    );
+    expect(ablauf?.type).toBe("ablauf");
+    if (ablauf?.type === "ablauf") {
+      expect(ablauf.terms.map((term) => term.zoneKey)).toEqual(["sequenz", "verzweigung", "schleife", "verzweigung"]);
+    }
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

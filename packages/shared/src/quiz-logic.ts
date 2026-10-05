@@ -204,6 +204,35 @@ export const QUADRANT_MODELS = {
       { key: "abnahmetest", label: "Abnahmetest" },
     ],
   },
+  // F-162 (weitere IT-Instrumente, Nutzer-Vorgabe "weiter mit dem nächsten Punkt aus dem
+  // Entwicklungsplan" vom 05.10.2026, siehe Architekturplanung Abschnitt 13): drei weitere Modelle
+  // mit festen Zonen — ER-Modell (Bausteine), Normalformen (1NF bis 3NF) und die drei
+  // Ablaufstrukturen der strukturierten Programmierung (Struktogramm/PAP).
+  ermodell: {
+    label: "ER-Modell",
+    zones: [
+      { key: "entitaetstyp", label: "Entitätstyp" },
+      { key: "attribut", label: "Attribut" },
+      { key: "beziehung", label: "Beziehung" },
+      { key: "kardinalitaet", label: "Kardinalität" },
+    ],
+  },
+  normalisierung: {
+    label: "Normalformen",
+    zones: [
+      { key: "nf1", label: "1. Normalform" },
+      { key: "nf2", label: "2. Normalform" },
+      { key: "nf3", label: "3. Normalform" },
+    ],
+  },
+  ablauf: {
+    label: "Ablaufstrukturen",
+    zones: [
+      { key: "sequenz", label: "Sequenz" },
+      { key: "verzweigung", label: "Verzweigung" },
+      { key: "schleife", label: "Schleife" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

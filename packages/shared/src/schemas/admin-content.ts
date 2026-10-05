@@ -233,6 +233,27 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     terms: z.array(quadrantTermFormSchema).min(4).max(20),
     ...commonFormFields,
   }),
+  z.object({
+    type: z.literal("ermodell"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("normalisierung"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("ablauf"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
   // F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — `nodes` bilden den Baum (Label +
   // optionaler Index auf einen früheren Knoten als Elternteil), `terms` referenzieren einen
   // Knoten per Index (analog zu `periodIndex` bei Gantt).

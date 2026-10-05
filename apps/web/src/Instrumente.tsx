@@ -1,10 +1,13 @@
 import { useState } from "react";
 import {
+  AblaufIllustration,
   AnsoffIllustration,
   BscIllustration,
   EisenhowerIllustration,
+  ErModellIllustration,
   GanttIllustration,
   HierarchieIllustration,
+  NormalisierungIllustration,
   OsiIllustration,
   PdcaIllustration,
   RisikoIllustration,
@@ -123,6 +126,26 @@ const INSTRUMENT_CATALOG = [
     label: "Teststufen im V-Modell",
     description: "Testaktivitäten der richtigen Stufe vom Komponenten- bis zum Abnahmetest zuordnen.",
     Illustration: TeststufenIllustration,
+  },
+  // F-162 (weitere IT-Instrumente, siehe Architekturplanung Abschnitt 13): wiederum Zonen-Zuordnung
+  // über QUADRANT_MODELS, Content in den gemeinsamen Fachgebieten FU4/FU5 der Fachinformatiker-Kurse.
+  {
+    type: "ermodell",
+    label: "ER-Modell",
+    description: "Begriffe den Bausteinen Entitätstyp, Attribut, Beziehung und Kardinalität zuordnen.",
+    Illustration: ErModellIllustration,
+  },
+  {
+    type: "normalisierung",
+    label: "Normalformen",
+    description: "Mängel und Maßnahmen der 1., 2. oder 3. Normalform zuordnen.",
+    Illustration: NormalisierungIllustration,
+  },
+  {
+    type: "ablauf",
+    label: "Struktogramm und Programmablauf",
+    description: "Abläufe als Sequenz, Verzweigung oder Schleife erkennen.",
+    Illustration: AblaufIllustration,
   },
 ] as const;
 
