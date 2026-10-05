@@ -26,6 +26,13 @@ const TYPE_LABELS: Record<string, string> = {
   eisenhower: "Quiz · Eisenhower-Matrix",
   pdca: "Quiz · PDCA-Zyklus",
   risiko: "Quiz · Risikomatrix",
+  // F-156: IT-Instrumente (Fachinformatiker-Kurse).
+  osi: "Quiz · OSI-Modell",
+  schutzziele: "Quiz · Schutzziele der IT-Sicherheit",
+  sql: "Quiz · SQL-Befehlsgruppen",
+  scrum: "Quiz · Scrum",
+  uml: "Quiz · UML-Diagramme",
+  teststufen: "Quiz · Teststufen",
   // F-105 (ToDo-Punkt 6): echte Baum-/Hierarchie-Darstellung statt fester Zonen.
   hierarchie: "Quiz · Projektstrukturplan/Organigramm",
   // F-114 Teil 2: wie swot/bsc/ansoff, aber die Zeitabschnitte sind content-autoriert statt fest
@@ -120,6 +127,12 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
     case "eisenhower":
     case "pdca":
     case "risiko":
+    case "osi":
+    case "schutzziele":
+    case "sql":
+    case "scrum":
+    case "uml":
+    case "teststufen":
       return {
         type,
         prompt: "",
@@ -540,7 +553,13 @@ function ContentItemForm({
         form.type === "ansoff" ||
         form.type === "eisenhower" ||
         form.type === "pdca" ||
-        form.type === "risiko") && (
+        form.type === "risiko" ||
+        form.type === "osi" ||
+        form.type === "schutzziele" ||
+        form.type === "sql" ||
+        form.type === "scrum" ||
+        form.type === "uml" ||
+        form.type === "teststufen") && (
         <div className="field">
           <label>Begriffe ({QUADRANT_MODELS[form.type].zones.map((zone) => zone.label).join(" / ")})</label>
           <div className="stack">

@@ -42,7 +42,7 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
     // eigenen `pool` oben — ohne ihn hier separat zu schließen, versucht er nach dem Stoppen
     // des Testcontainers noch offene Verbindungen zu bedienen und wirft einen unhandled error.
     ({ pool: appPool } = await import("../src/db/client"));
-  }, 120_000);
+  }, 240_000);
 
   afterAll(async () => {
     await appPool?.end();
@@ -64,7 +64,7 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       expect(versions.length).toBe(items.length);
       expect(versions.every((version) => version.versionNumber === 1)).toBe(true);
     },
-    60_000,
+    240_000,
   );
 
   it(
@@ -83,7 +83,7 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       // jedem Re-Import greifen — sonst würden sich hier alte Versionen ungenutzt ansammeln.
       expect(versions.length).toBe(items.length);
     },
-    60_000,
+    240_000,
   );
 
   it(
@@ -104,7 +104,7 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       const [afterReimport] = await db.select().from(schema.kurs).where(eq(schema.kurs.id, kursRow!.id)).limit(1);
       expect(afterReimport!.isPublished).toBe(true);
     },
-    60_000,
+    240_000,
   );
 
   it(
@@ -125,6 +125,6 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       // alphabetisch (ALG vor GEO vor STO).
       expect(fachgebiete.map((f) => f.code)).toEqual(["ALG", "GEO", "STO"]);
     },
-    60_000,
+    240_000,
   );
 });

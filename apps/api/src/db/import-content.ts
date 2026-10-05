@@ -530,7 +530,13 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
         // ansoff.
         parsed.type === "eisenhower" ||
         parsed.type === "pdca" ||
-        parsed.type === "risiko"
+        parsed.type === "risiko" ||
+        parsed.type === "osi" ||
+        parsed.type === "schutzziele" ||
+        parsed.type === "sql" ||
+        parsed.type === "scrum" ||
+        parsed.type === "uml" ||
+        parsed.type === "teststufen"
       ) {
         // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
         // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.

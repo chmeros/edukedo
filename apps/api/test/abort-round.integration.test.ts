@@ -79,14 +79,32 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
     const [karteikarteRow] = await db
       .select({ id: schema.contentItem.id })
       .from(schema.contentItem)
-      .where(and(eq(schema.contentItem.type, "karteikarte"), eq(schema.contentItem.isActive, true)))
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      // Nur Items des belegten Kurses: ohne diese Einschränkung lieferte `limit(1)` je nach Importreihenfolge ein
+      // Item eines anderen Kurses (zuletzt durch neu hinzugekommene Kurse), das die Testperson nicht belegt hat → 404.
+      .where(
+        and(
+          eq(schema.contentItem.type, "karteikarte"),
+          eq(schema.contentItem.isActive, true),
+          eq(schema.fachgebiet.kursId, kursId),
+        ),
+      )
       .limit(1);
     karteikarteId = karteikarteRow!.id;
 
     const [quizMcRow] = await db
       .select({ id: schema.contentItem.id, difficulty: schema.contentItem.difficulty })
       .from(schema.contentItem)
-      .where(and(eq(schema.contentItem.type, "quiz_mc"), eq(schema.contentItem.isActive, true)))
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      .where(
+        and(
+          eq(schema.contentItem.type, "quiz_mc"),
+          eq(schema.contentItem.isActive, true),
+          eq(schema.fachgebiet.kursId, kursId),
+        ),
+      )
       .limit(1);
     quizMcId = quizMcRow!.id;
     quizMcDifficulty = quizMcRow!.difficulty;
@@ -233,7 +251,15 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
       const [otherQuizMcRow] = await db
         .select({ id: schema.contentItem.id })
         .from(schema.contentItem)
-        .where(and(eq(schema.contentItem.type, "quiz_mc"), eq(schema.contentItem.isActive, true)))
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .where(
+          and(
+            eq(schema.contentItem.type, "quiz_mc"),
+            eq(schema.contentItem.isActive, true),
+            eq(schema.fachgebiet.kursId, kursId),
+          ),
+        )
         .offset(1)
         .limit(1);
       const otherQuizMcId = otherQuizMcRow!.id;

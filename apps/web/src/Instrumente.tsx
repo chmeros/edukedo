@@ -5,9 +5,15 @@ import {
   EisenhowerIllustration,
   GanttIllustration,
   HierarchieIllustration,
+  OsiIllustration,
   PdcaIllustration,
   RisikoIllustration,
+  SchutzzieleIllustration,
+  ScrumIllustration,
+  SqlIllustration,
   SwotIllustration,
+  TeststufenIllustration,
+  UmlIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Tile } from "./Tile";
@@ -79,6 +85,45 @@ const INSTRUMENT_CATALOG = [
     description: "Aufgaben oder Positionen als echten Baum in die richtige Hierarchie-Ebene einordnen.",
     Illustration: HierarchieIllustration,
   },
+  // F-156 (IT-Instrumente für die Fachinformatiker-Kurse, Nutzer-Vorgabe vom 05.10.2026, siehe
+  // Architekturplanung Abschnitt 13): derselbe Mechanismus wie oben — die Typen stehen in
+  // QUADRANT_MODELS (quiz-logic.ts), der Content kommt aus den Fachinformatiker-Kursen.
+  {
+    type: "osi",
+    label: "OSI-Modell",
+    description: "Protokolle, Geräte und Fehlerbilder den sieben Schichten zuordnen.",
+    Illustration: OsiIllustration,
+  },
+  {
+    type: "schutzziele",
+    label: "Schutzziele der IT-Sicherheit",
+    description: "Maßnahmen und Vorfälle Vertraulichkeit, Integrität, Verfügbarkeit und Authentizität zuordnen.",
+    Illustration: SchutzzieleIllustration,
+  },
+  {
+    type: "sql",
+    label: "SQL-Befehlsgruppen",
+    description: "Anweisungen den Gruppen DDL, DML, DQL, DCL und TCL zuordnen.",
+    Illustration: SqlIllustration,
+  },
+  {
+    type: "scrum",
+    label: "Scrum",
+    description: "Rollen, Events und Artefakte unterscheiden.",
+    Illustration: ScrumIllustration,
+  },
+  {
+    type: "uml",
+    label: "UML-Diagramme",
+    description: "Notationselemente und Aufgaben dem passenden Diagrammtyp zuordnen.",
+    Illustration: UmlIllustration,
+  },
+  {
+    type: "teststufen",
+    label: "Teststufen im V-Modell",
+    description: "Testaktivitäten der richtigen Stufe vom Komponenten- bis zum Abnahmetest zuordnen.",
+    Illustration: TeststufenIllustration,
+  },
 ] as const;
 
 export function Instrumente({
@@ -107,6 +152,44 @@ export function Instrumente({
     );
   }
 
+  function renderTile(instrument: (typeof INSTRUMENT_CATALOG)[number]) {
+    const target = instruments.data?.[instrument.type];
+    const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
+    return (
+      <Tile
+        key={instrument.type}
+        title={instrument.label}
+        description={instrument.description}
+        image={<instrument.Illustration />}
+        note={!target ? "In diesem Kurs noch nicht verfügbar" : undefined}
+        actions={
+          <>
+            {target && (
+              <button
+                type="button"
+                className="btn btn-secondary btn-sm"
+                onClick={() => onGoToThema(target.themaId, target.themaTitle)}
+              >
+                Zu diesem Instrument lernen
+              </button>
+            )}
+            {lernpfad &&
+              (instrumentLernpfadeEnabled ? (
+                <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
+                  Geführten Lernpfad starten
+                </button>
+              ) : (
+                <span className="field-hint">Geführter Lernpfad: Fortgeschritten-Funktion, noch nicht freigeschaltet</span>
+              ))}
+          </>
+        }
+      />
+    );
+  }
+
+  const available = INSTRUMENT_CATALOG.filter((instrument) => instruments.data?.[instrument.type]);
+  const unavailable = INSTRUMENT_CATALOG.filter((instrument) => !instruments.data?.[instrument.type]);
+
   return (
     <div className="panel-section">
       <div className="panel-section-head">
@@ -117,42 +200,22 @@ export function Instrumente({
         findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
         mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
       </p>
-      <div className="tile-grid">
-        {INSTRUMENT_CATALOG.map((instrument) => {
-          const target = instruments.data?.[instrument.type];
-          const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
-          return (
-            <Tile
-              key={instrument.type}
-              title={instrument.label}
-              description={instrument.description}
-              image={<instrument.Illustration />}
-              note={!target ? "In diesem Kurs noch nicht verfügbar" : undefined}
-              actions={
-                <>
-                  {target && (
-                    <button
-                      type="button"
-                      className="btn btn-secondary btn-sm"
-                      onClick={() => onGoToThema(target.themaId, target.themaTitle)}
-                    >
-                      Zu diesem Instrument lernen
-                    </button>
-                  )}
-                  {lernpfad &&
-                    (instrumentLernpfadeEnabled ? (
-                      <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
-                        Geführten Lernpfad starten
-                      </button>
-                    ) : (
-                      <span className="field-hint">Geführter Lernpfad: Fortgeschritten-Funktion, noch nicht freigeschaltet</span>
-                    ))}
-                </>
-              }
-            />
-          );
-        })}
-      </div>
+      {instruments.isLoading ? (
+        <p>Lädt…</p>
+      ) : (
+        <>
+          <div className="tile-grid">{available.map(renderTile)}</div>
+          {unavailable.length > 0 && (
+            // F-156: mit den IT-Instrumenten hat jeder Kurs mehrere Instrumente ohne Content — sie stehen
+            // eingeklappt darunter statt als Reihe leerer Kacheln (Fachwirt: keine IT, Fachinformatiker: kein
+            // BSC/Ansoff).
+            <details className="instrument-more">
+              <summary>Weitere Instrumente ({unavailable.length}) — in diesem Kurs noch nicht verfügbar</summary>
+              <div className="tile-grid">{unavailable.map(renderTile)}</div>
+            </details>
+          )}
+        </>
+      )}
     </div>
   );
 }

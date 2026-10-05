@@ -104,6 +104,12 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
     case "eisenhower":
     case "pdca":
     case "risiko":
+    case "osi":
+    case "schutzziele":
+    case "sql":
+    case "scrum":
+    case "uml":
+    case "teststufen":
       return {
         prompt: input.prompt,
         explanation: input.explanation ?? null,
@@ -344,7 +350,13 @@ export const adminContentRouter = router({
       item.type === "ansoff" ||
       item.type === "eisenhower" ||
       item.type === "pdca" ||
-      item.type === "risiko"
+      item.type === "risiko" ||
+      item.type === "osi" ||
+      item.type === "schutzziele" ||
+      item.type === "sql" ||
+      item.type === "scrum" ||
+      item.type === "uml" ||
+      item.type === "teststufen"
     ) {
       const rows = await ctx.db
         .select()

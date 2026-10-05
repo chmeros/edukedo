@@ -342,6 +342,51 @@ describe("parseQuizBlock", () => {
     expect(() => parseQuizBlock(block)).toThrow(/Unbekannte Zonen-Beschriftung/);
   });
 
+  it("parst die IT-Instrumente (F-156) über die Zonen-Beschriftungen aus QUADRANT_MODELS, auch bei 3 und 7 Zonen", () => {
+    const scrum = parseQuizBlock(
+      [
+        "#### Q-1.1-16 · Scrum",
+        "**Anweisung:** Ordne zu.",
+        "- Product Owner → Rollen",
+        "- Daily Scrum → Events",
+        "- Product Backlog → Artefakte",
+        "- Increment → Artefakte",
+        "**Erklärung:** ...",
+        "`schwierigkeit: leicht`",
+      ].join("\n"),
+    );
+    expect(scrum?.type).toBe("scrum");
+    if (scrum?.type === "scrum") {
+      expect(scrum.terms.map((term) => term.zoneKey)).toEqual(["rollen", "events", "artefakte", "artefakte"]);
+    }
+
+    const osi = parseQuizBlock(
+      [
+        "#### Q-3.1-14 · OSI-Modell",
+        "**Anweisung:** Ordne zu.",
+        "- HTTP-Anfrage → Anwendung",
+        "- Elektrische Signale → Bitübertragung",
+        "- IP-Routing → Vermittlung",
+        "- Ports → Transport",
+        "**Erklärung:** ...",
+        "`schwierigkeit: leicht`",
+      ].join("\n"),
+    );
+    expect(osi?.type).toBe("osi");
+    if (osi?.type === "osi") {
+      expect(osi.terms.map((term) => term.zoneKey)).toEqual(["anwendung", "bituebertragung", "vermittlung", "transport"]);
+    }
+
+    const unbekannt = [
+      "#### Q-3.1-15 · OSI-Modell",
+      "**Anweisung:** ...",
+      "- Begriff → Schicht 9",
+      "**Erklärung:** ...",
+      "`schwierigkeit: leicht`",
+    ].join("\n");
+    expect(() => parseQuizBlock(unbekannt)).toThrow(/Unbekannte Zonen-Beschriftung/);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { contentItemBloomSchema, contentItemDifficultySchema, contentItemTypeSchema } from "./content-item";
-import { LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS } from "../quiz-logic";
+import { isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS } from "../quiz-logic";
 
 /**
  * F-11: Admin-/Redaktionsbereich — Pflege (und seit der Nutzer-Entscheidung vom 19.09.2026
@@ -190,6 +190,49 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     terms: z.array(quadrantTermFormSchema).min(4).max(20),
     ...commonFormFields,
   }),
+  // F-156: IT-Instrumente — dieselbe Formularstruktur wie swot/bsc/ansoff.
+  z.object({
+    type: z.literal("osi"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("schutzziele"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("sql"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("scrum"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("uml"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
+  z.object({
+    type: z.literal("teststufen"),
+    prompt: promptSchema,
+    explanation: explanationSchema,
+    terms: z.array(quadrantTermFormSchema).min(4).max(20),
+    ...commonFormFields,
+  }),
   // F-105 (ToDo-Punkt 6): Projektstrukturplan/Organigramm — `nodes` bilden den Baum (Label +
   // optionaler Index auf einen früheren Knoten als Elternteil), `terms` referenzieren einen
   // Knoten per Index (analog zu `periodIndex` bei Gantt).
@@ -286,16 +329,9 @@ export const adminContentItemFormSchema = adminContentItemFormUnion
   // der beim Lernen nie als richtig auswertbar wäre.
   .refine(
     (data) =>
-      (data.type !== "swot" &&
-        data.type !== "bsc" &&
-        data.type !== "ansoff" &&
-        data.type !== "eisenhower" &&
-        data.type !== "pdca" &&
-        data.type !== "risiko") ||
-      data.terms.every((term) =>
-        QUADRANT_MODELS[data.type as "swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko"].zones.some(
-          (zone) => zone.key === term.zoneKey,
-        ),
+      !isQuadrantType(data.type) ||
+      (data as unknown as { terms: { zoneKey: string }[] }).terms.every((term) =>
+        QUADRANT_MODELS[data.type as keyof typeof QUADRANT_MODELS].zones.some((zone) => zone.key === term.zoneKey),
       ),
     { message: "Jeder Begriff muss einer gültigen Zone dieses Modells zugeordnet sein.", path: ["terms"] },
   )

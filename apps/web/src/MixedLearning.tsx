@@ -466,6 +466,12 @@ export function MixedLearning({
           current.item.type === "eisenhower" ||
           current.item.type === "pdca" ||
           current.item.type === "risiko" ||
+          current.item.type === "osi" ||
+          current.item.type === "schutzziele" ||
+          current.item.type === "sql" ||
+          current.item.type === "scrum" ||
+          current.item.type === "uml" ||
+          current.item.type === "teststufen" ||
           current.item.type === "gantt") && (
           <QuadrantStep
             key={current.item.id}

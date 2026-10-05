@@ -214,3 +214,114 @@ export function HierarchieIllustration() {
     </Frame>
   );
 }
+
+/* F-156: IT-Instrumente für die Fachinformatiker-Kurse. */
+
+export function OsiIllustration() {
+  const colors = ["var(--coral)", "var(--sun)", "var(--sprout)", "var(--info)", "var(--coral)", "var(--sun)", "var(--sprout)"];
+  return (
+    <Frame background="var(--info-tint)">
+      {colors.map((fill, index) => (
+        <g key={index}>
+          <rect x="96" y={12 + index * 17.5} width="128" height="14" rx="5" fill={fill} fillOpacity="0.85" stroke="var(--card)" strokeWidth="1.5" />
+          <text x="108" y={23 + index * 17.5} fontSize="10" fontWeight="700" fill="#17212b">
+            {7 - index}
+          </text>
+        </g>
+      ))}
+      <path d="M240 20v100m0 0-5-9m5 9 5-9" fill="none" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function SchutzzieleIllustration() {
+  return (
+    <Frame background="var(--sprout-tint)">
+      <path
+        d="M160 14 220 34v38c0 28-24 48-60 58-36-10-60-30-60-58V34Z"
+        fill="var(--card)"
+        stroke="var(--sprout-deep)"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+      <rect x="140" y="66" width="40" height="32" rx="6" fill="var(--sun)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <path d="M148 66v-9a12 12 0 0 1 24 0v9" fill="none" stroke="var(--coral-deep)" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="160" cy="82" r="4" fill="var(--coral-deep)" />
+    </Frame>
+  );
+}
+
+export function SqlIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <path d="M92 36v58c0 11 25 20 56 20s56-9 56-20V36" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <ellipse cx="148" cy="36" rx="56" ry="16" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <path d="M92 65c0 11 25 20 56 20s56-9 56-20" fill="none" stroke="var(--coral-deep)" strokeWidth="2" />
+      <rect x="196" y="48" width="84" height="44" rx="8" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <text x="238" y="66" fontSize="11" fontWeight="700" fill="var(--sprout-deep)" textAnchor="middle">
+        SELECT
+      </text>
+      <text x="238" y="82" fontSize="11" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        * FROM …
+      </text>
+    </Frame>
+  );
+}
+
+export function ScrumIllustration() {
+  return (
+    <Frame background="var(--sprout-tint)">
+      <circle cx="190" cy="70" r="44" fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeDasharray="10 8" />
+      <path d="m214 30 12 8-14 8" fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="190" y="75" fontSize="16" fontWeight="700" fill="var(--sprout-deep)" textAnchor="middle">
+        Sprint
+      </text>
+      {[0, 1, 2].map((index) => (
+        <rect key={index} x="46" y={30 + index * 30} width="62" height="22" rx="5" fill={["var(--sun)", "var(--info)", "var(--coral)"][index]} stroke="var(--card)" strokeWidth="2" />
+      ))}
+      <path d="M112 70h28m0 0-7-5m7 5-7 5" fill="none" stroke="var(--sprout-deep)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function UmlIllustration() {
+  return (
+    <Frame background="var(--surface-2)">
+      <rect x="170" y="22" width="110" height="96" rx="6" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M170 48h110M170 80h110" stroke="var(--info-deep)" strokeWidth="2" />
+      <text x="225" y="40" fontSize="12" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        Kunde
+      </text>
+      <text x="180" y="66" fontSize="10" fill="var(--ink-soft)">
+        - name: String
+      </text>
+      <text x="180" y="98" fontSize="10" fill="var(--ink-soft)">
+        + bestellen()
+      </text>
+      <circle cx="68" cy="42" r="12" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2.5" />
+      <path d="M68 54v32M44 66h48M68 86 52 112M68 86l16 26" fill="none" stroke="var(--sprout-deep)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M100 70h54m0 0-8-5m8 5-8 5" fill="none" stroke="var(--coral-deep)" strokeWidth="2.5" strokeDasharray="5 4" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function TeststufenIllustration() {
+  const left = [
+    { x: 56, y: 28 },
+    { x: 92, y: 52 },
+    { x: 128, y: 76 },
+    { x: 160, y: 100 },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      <path d="M56 28 160 100 264 28" fill="none" stroke="var(--info-deep)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+      {left.map((point, index) => (
+        <g key={index}>
+          <circle cx={point.x} cy={point.y} r="9" fill={["var(--coral)", "var(--sun)", "var(--sprout)", "var(--info)"][index]} stroke="var(--card)" strokeWidth="2" />
+          <circle cx={320 - point.x} cy={point.y} r="9" fill={["var(--coral)", "var(--sun)", "var(--sprout)", "var(--info)"][index]} stroke="var(--card)" strokeWidth="2" />
+        </g>
+      ))}
+      <path d="m150 112 8 8 16-18" fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}

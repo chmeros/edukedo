@@ -373,6 +373,14 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
 - Eisenhower-Matrix: Sofort erledigen, Terminieren, Delegieren, Streichen
 - PDCA-Zyklus: Plan, Do, Check, Act
 - Risikomatrix: Vermeiden, Absichern, Beobachten, Akzeptieren (vereinfacht auf 2×2 statt der üblichen 3×3, siehe Architekturplanung Abschnitt 13)
+- **IT-Instrumente (F-156, Fachinformatiker-Kurse)** — die Beschriftung in der Überschrift ist zugleich die Modellart, die Zonen heißen exakt wie unten:
+  - `osi` (**OSI-Modell**, 7 Zonen): Anwendung, Darstellung, Sitzung, Transport, Vermittlung, Sicherung, Bitübertragung
+  - `schutzziele` (**Schutzziele der IT-Sicherheit**): Vertraulichkeit, Integrität, Verfügbarkeit, Authentizität
+  - `sql` (**SQL-Befehlsgruppen**): DDL, DML, DQL, DCL, TCL
+  - `scrum` (**Scrum**, 3 Zonen): Rollen, Events, Artefakte
+  - `uml` (**UML-Diagramme**): Klassendiagramm, Use-Case-Diagramm, Sequenzdiagramm, Aktivitätsdiagramm
+  - `teststufen` (**Teststufen**): Komponententest, Integrationstest, Systemtest, Abnahmetest
+  Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix
 **Anweisung:** Ordne die Begriffe den passenden Feldern der SWOT-Matrix zu.

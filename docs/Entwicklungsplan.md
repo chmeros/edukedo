@@ -452,7 +452,8 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 
 **Offen (Produktentscheidung bzw. größerer Umfang, nicht terminiert)**
 - [ ] Zugang für minderjährige Auszubildende zu den IHK-Kursen (Eltern-Consent-Flow, Zielgruppe der Fachinformatiker-Kurse).
-- [ ] Spiele und IT-Instrumente (UML, ER-Modell, Struktogramm, Netzplan, Subnetting, SQL-Übungsfläche) für die Fachinformatiker-Kurse.
+- [x] IT-Instrumente für die Fachinformatiker-Kurse: OSI-Modell, Schutzziele, SQL-Befehlsgruppen, Scrum, UML-Diagramme, Teststufen (F-156), 72 neue Content-Items, Illustrationen, Parser/Editor generalisiert. **Erledigt 05.10.2026.**
+- [ ] Weitere IT-Instrumente (ER-Modell/Normalisierung, Struktogramm/PAP, Netzplan, Subnetting-Rechner, SQL-Übungsfläche — brauchen teils eine neue Mechanik statt Zonen-Zuordnung), geführte Lernpfade für die neuen Instrumente sowie Spiele für die Fachinformatiker-Kurse.
 - [x] Prüfungsangst-Hilfen (Reiter „Gelassen bleiben": Ablauf, Lernstand je Prüfungsbereich, Atemübung, Blackout-Tipps, Prüfungstags-Checkliste, Hilfe-Hinweise; F-154), „Ruhiger Modus" und Hell-/Dunkel-Schalter (F-155). **Erledigt 05.10.2026**, inkl. Integrationstest und Live-Verifikation. Die „Prüfungsreife" wurde bewusst als Lernstand je Prüfungsbereich ohne Notenprognose umgesetzt.
 - [ ] Fachgespräch-Trainer mit Hilfen zu Projektantrag und Projektdokumentation; Dauer der AEVO-Präsentation prüfen.
 - [ ] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung) während einer Lernrunde ausblenden; Karteikarten-Antworten strukturierter darstellen.

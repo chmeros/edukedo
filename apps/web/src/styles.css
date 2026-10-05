@@ -3032,3 +3032,14 @@ details[open] > summary.disclosure::before {
   color: var(--ink-soft);
   min-height: 1.5em;
 }
+
+/* F-156: eingeklappte Liste der Instrumente ohne Content im aktuellen Kurs (Instrumente.tsx). */
+.instrument-more {
+  margin-top: 16px;
+}
+
+.instrument-more > summary {
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}

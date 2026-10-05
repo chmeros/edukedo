@@ -187,6 +187,12 @@ export function Vorschau() {
             current.type === "eisenhower" ||
             current.type === "pdca" ||
             current.type === "risiko" ||
+            current.type === "osi" ||
+            current.type === "schutzziele" ||
+            current.type === "sql" ||
+            current.type === "scrum" ||
+            current.type === "uml" ||
+            current.type === "teststufen" ||
             current.type === "gantt") && (
             <QuadrantStep
               key={current.id}

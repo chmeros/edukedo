@@ -143,10 +143,76 @@ export const QUADRANT_MODELS = {
       { key: "akzeptieren", label: "Niedrige Wahrscheinlichkeit & niedrige Auswirkung — akzeptieren" },
     ],
   },
+  // F-156 (IT-Instrumente für die Fachinformatiker-Kurse, Nutzer-Vorgabe vom 05.10.2026, siehe
+  // Architekturplanung Abschnitt 13): sechs weitere Modelle mit derselben "feste Zonen, Begriffe
+  // hineinziehen"-Mechanik — reine Datenerweiterung. Zonenzahl ist frei (3 bis 7), die Zonen-
+  // Beschriftungen sind zugleich die Schreibweise im Content-Zwischenformat (content/README.md).
+  osi: {
+    label: "OSI-Modell",
+    zones: [
+      { key: "anwendung", label: "Anwendung" },
+      { key: "darstellung", label: "Darstellung" },
+      { key: "sitzung", label: "Sitzung" },
+      { key: "transport", label: "Transport" },
+      { key: "vermittlung", label: "Vermittlung" },
+      { key: "sicherung", label: "Sicherung" },
+      { key: "bituebertragung", label: "Bitübertragung" },
+    ],
+  },
+  schutzziele: {
+    label: "Schutzziele der IT-Sicherheit",
+    zones: [
+      { key: "vertraulichkeit", label: "Vertraulichkeit" },
+      { key: "integritaet", label: "Integrität" },
+      { key: "verfuegbarkeit", label: "Verfügbarkeit" },
+      { key: "authentizitaet", label: "Authentizität" },
+    ],
+  },
+  sql: {
+    label: "SQL-Befehlsgruppen",
+    zones: [
+      { key: "ddl", label: "DDL" },
+      { key: "dml", label: "DML" },
+      { key: "dql", label: "DQL" },
+      { key: "dcl", label: "DCL" },
+      { key: "tcl", label: "TCL" },
+    ],
+  },
+  scrum: {
+    label: "Scrum",
+    zones: [
+      { key: "rollen", label: "Rollen" },
+      { key: "events", label: "Events" },
+      { key: "artefakte", label: "Artefakte" },
+    ],
+  },
+  uml: {
+    label: "UML-Diagramme",
+    zones: [
+      { key: "klassendiagramm", label: "Klassendiagramm" },
+      { key: "usecase", label: "Use-Case-Diagramm" },
+      { key: "sequenz", label: "Sequenzdiagramm" },
+      { key: "aktivitaet", label: "Aktivitätsdiagramm" },
+    ],
+  },
+  teststufen: {
+    label: "Teststufen",
+    zones: [
+      { key: "komponententest", label: "Komponententest" },
+      { key: "integrationstest", label: "Integrationstest" },
+      { key: "systemtest", label: "Systemtest" },
+      { key: "abnahmetest", label: "Abnahmetest" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];
 export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
+
+/** Typwächter für alle Modelle mit festen Zonen (QUADRANT_MODELS) — ohne Gantt/Hierarchie. */
+export function isQuadrantType(type: string): type is QuadrantQuizType {
+  return (QUADRANT_QUIZ_TYPES as readonly string[]).includes(type);
+}
 
 /**
  * F-114 Teil 2 (Gantt-Diagramm, Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung, siehe

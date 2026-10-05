@@ -5,6 +5,8 @@
  * das Einlesen der Dateien und das Schreiben in die Datenbank.
  */
 
+import { QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type QuadrantQuizType } from "@edukedo/shared";
+
 export type Frontmatter = Record<string, string>;
 
 export function parseFrontmatter(raw: string): Frontmatter {
@@ -124,7 +126,7 @@ export type ParsedQuizItem =
       items: { text: string }[];
     }
   | {
-      type: "swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko";
+      type: QuadrantQuizType;
       prompt: string;
       explanation: string;
       difficulty: string;
@@ -181,7 +183,7 @@ export type ParsedQuizItem =
 /** F-114: Anzeige-Beschriftung → fester Zonen-Schlüssel je Modell (siehe QUADRANT_MODELS,
  * packages/shared/src/quiz-logic.ts) — das Content-Zwischenformat verwendet die deutschen
  * Beschriftungen, dieselben, die auch im Frontend angezeigt werden, statt der internen Keys. */
-const QUADRANT_ZONE_LABELS: Record<"swot" | "bsc" | "ansoff" | "eisenhower" | "pdca" | "risiko", Record<string, string>> = {
+const QUADRANT_ZONE_LABELS: Partial<Record<QuadrantQuizType, Record<string, string>>> = {
   swot: { Stärken: "staerken", Schwächen: "schwaechen", Chancen: "chancen", Risiken: "risiken" },
   bsc: {
     Finanzen: "finanzen",
@@ -287,31 +289,24 @@ export function parseQuizBlock(block: string): ParsedQuizItem | null {
   // F-114: SWOT/BSC/Ansoff — Begriff und Zonen-Beschriftung durch "→" getrennt, die
   // Beschriftung wird über QUADRANT_ZONE_LABELS auf den festen internen Zonen-Schlüssel
   // abgebildet (siehe QUADRANT_MODELS, quiz-logic.ts).
-  if (
-    kind === "SWOT-Matrix" ||
-    kind === "Balanced Scorecard" ||
-    kind === "Ansoff-Matrix" ||
-    kind === "Eisenhower-Matrix" ||
-    kind === "PDCA-Zyklus" ||
-    kind === "Risikomatrix"
-  ) {
-    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
-    // dieselbe Struktur wie SWOT/BSC/Ansoff, drei weitere Modelle mit fest im Code hinterlegten
-    // Zonen (QUADRANT_ZONE_LABELS oben).
-    const modelByKind = {
-      "SWOT-Matrix": "swot",
-      "Balanced Scorecard": "bsc",
-      "Ansoff-Matrix": "ansoff",
-      "Eisenhower-Matrix": "eisenhower",
-      "PDCA-Zyklus": "pdca",
-      Risikomatrix: "risiko",
-    } as const;
-    const model = modelByKind[kind];
+  // F-156: die Modellart steht als Beschriftung in der Überschrift (`#### Q-… · <Modell>`) und ist
+  // zugleich `QUADRANT_MODELS[type].label` — dadurch gilt jedes Modell mit festen Zonen automatisch,
+  // auch die IT-Instrumente (osi/schutzziele/sql/scrum/uml/teststufen).
+  const quadrantModel = (QUADRANT_QUIZ_TYPES as readonly QuadrantQuizType[]).find(
+    (type) => QUADRANT_MODELS[type].label === kind,
+  );
+  if (quadrantModel) {
+    // Die ursprünglichen sechs Modelle haben Kurzbeschriftungen für den Content (QUADRANT_ZONE_LABELS);
+    // alle weiteren verwenden die Zonen-Beschriftung aus QUADRANT_MODELS selbst.
+    const model = quadrantModel;
+    const zoneLabels: Record<string, string> =
+      QUADRANT_ZONE_LABELS[model] ??
+      Object.fromEntries(QUADRANT_MODELS[model].zones.map((zone) => [zone.label as string, zone.key as string]));
     const prompt = extractField(block, "Anweisung") ?? "";
     const terms = [...block.matchAll(/^- (.+?) → (.+)$/gm)].map((match) => {
       const text = match[1]!.trim();
       const zoneLabel = match[2]!.trim();
-      const zoneKey = QUADRANT_ZONE_LABELS[model][zoneLabel];
+      const zoneKey = zoneLabels[zoneLabel];
       if (!zoneKey) {
         throw new Error(`Unbekannte Zonen-Beschriftung "${zoneLabel}" für ${kind} im Block "${text}".`);
       }

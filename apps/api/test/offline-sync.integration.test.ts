@@ -61,7 +61,16 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
     const karteikartenRows = await db
       .select({ id: schema.contentItem.id })
       .from(schema.contentItem)
-      .where(and(eq(schema.contentItem.type, "karteikarte"), eq(schema.contentItem.isActive, true)))
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      // Nur Items des belegten Kurses (siehe abort-round.integration.test.ts).
+      .where(
+        and(
+          eq(schema.contentItem.type, "karteikarte"),
+          eq(schema.contentItem.isActive, true),
+          eq(schema.fachgebiet.kursId, kursId),
+        ),
+      )
       .limit(5);
     karteikarteIds = karteikartenRows.map((row) => row.id);
     expect(karteikarteIds.length).toBeGreaterThanOrEqual(5);
