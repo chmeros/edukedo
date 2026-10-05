@@ -4,6 +4,7 @@ import {
   extractSection,
   parseFachgespraechFragen,
   parseFallaufgabe,
+  parseGlossar,
   parseKarteikarten,
   parseQuizBlock,
   splitBlocks,
@@ -685,5 +686,40 @@ describe("parseFachgespraechFragen (F-25)", () => {
   it("ignoriert den einleitenden Absatz vor der ersten Thema-Überschrift", () => {
     const fragen = parseFachgespraechFragen("Nur ein Einleitungssatz ohne jede Überschrift.");
     expect(fragen).toEqual([]);
+  });
+});
+
+describe("parseGlossar (F-165)", () => {
+  it("liest Begriff, Aliase, Thema, Abschnitt, Definition und Prüfstatus", () => {
+    const eintraege = parseGlossar(
+      [
+        "#### Netzplan",
+        "**Auch:** Vorgangsknotennetz, Netzplantechnik",
+        "**Thema:** 1.1",
+        "**Abschnitt:** Termine planen",
+        "**Definition:** Darstellung der Vorgänge und ihrer Abhängigkeiten.",
+        "**Geprüft:** nein",
+        "",
+        "#### SLA",
+        "**Definition:** Vereinbarung zur Servicequalität.",
+        "**Geprüft:** ja",
+      ].join("\n"),
+    );
+    expect(eintraege).toEqual([
+      {
+        term: "Netzplan",
+        aliases: ["Vorgangsknotennetz", "Netzplantechnik"],
+        thema: "1.1",
+        abschnitt: "Termine planen",
+        definition: "Darstellung der Vorgänge und ihrer Abhängigkeiten.",
+        geprueft: false,
+      },
+      { term: "SLA", aliases: [], thema: null, abschnitt: null, definition: "Vereinbarung zur Servicequalität.", geprueft: true },
+    ]);
+  });
+
+  it("bricht bei fehlender Definition mit klarer Meldung ab und ignoriert Text vor dem ersten Block", () => {
+    expect(() => parseGlossar("#### Leer\n**Thema:** 1.1")).toThrow(/"Leer".*Definition/);
+    expect(parseGlossar("Einleitung ohne Block")).toEqual([]);
   });
 });

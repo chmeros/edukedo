@@ -18,6 +18,8 @@ export type Theme = "system" | "light" | "dark";
 
 const THEME_KEY = "edukedo.theme";
 const CALM_KEY = "edukedo.calmMode";
+// F-165: Fachbegriffe nach der Antwort markieren — Standard an, "0" = aus.
+const TERMS_KEY = "edukedo.fachbegriffe";
 
 const memory = new Map<string, string>();
 const listeners = new Set<() => void>();
@@ -52,6 +54,10 @@ function readCalm(): boolean {
   return read(CALM_KEY) === "1";
 }
 
+function readFachbegriffe(): boolean {
+  return read(TERMS_KEY) !== "0";
+}
+
 function apply() {
   const root = document.documentElement;
   const theme = readTheme();
@@ -74,6 +80,10 @@ export function setCalmMode(enabled: boolean) {
   write(CALM_KEY, enabled ? "1" : null);
 }
 
+export function setFachbegriffe(enabled: boolean) {
+  write(TERMS_KEY, enabled ? null : "0");
+}
+
 export function getCalmMode(): boolean {
   return readCalm();
 }
@@ -91,4 +101,8 @@ export function useTheme(): Theme {
 
 export function useCalmMode(): boolean {
   return useSyncExternalStore(subscribe, readCalm, () => false);
+}
+
+export function useFachbegriffe(): boolean {
+  return useSyncExternalStore(subscribe, readFachbegriffe, () => true);
 }

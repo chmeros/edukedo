@@ -688,6 +688,33 @@ export const projektProfil = pgTable(
   (table) => [uniqueIndex("projekt_profil_user_id_kurs_id_key").on(table.userId, table.kursId)],
 );
 
+/**
+ * F-165 (Fachbegriffe mit Kurzdefinition, Stufe 2 von "Theorie ohne Tab"): ein Eintrag je Fachbegriff
+ * und Kurs, content-autoriert in `glossar.md` je Fachgebiet (siehe content/README.md) und per
+ * Bulk-Import ersetzt (`importGlossarFiles`). `aliases` (JSONB-Array) nimmt Synonyme, Abkürzungen und
+ * unregelmäßige Beugungen auf; einfache Endungen erkennt der Treffer-Algorithmus selbst
+ * (packages/shared/src/fachbegriffe.ts). `thema_id` (optional, ON DELETE SET NULL) und `abschnitt` (Text
+ * einer ###-Überschrift der Theorie) steuern, wohin "Im Thema nachlesen" springt. `geprueft` hält den
+ * Stand der fachlichen Prüfung fest (Entwürfe sind "false").
+ */
+export const glossarEintrag = pgTable(
+  "glossar_eintrag",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    kursId: uuid("kurs_id")
+      .notNull()
+      .references(() => kurs.id, { onDelete: "cascade" }),
+    term: text("term").notNull(),
+    aliases: jsonb("aliases").notNull().default([]),
+    definition: text("definition").notNull(),
+    themaId: uuid("thema_id").references(() => thema.id, { onDelete: "set null" }),
+    abschnitt: text("abschnitt"),
+    geprueft: boolean("geprueft").notNull().default(false),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [uniqueIndex("glossar_eintrag_kurs_id_term_key").on(table.kursId, sql`lower(${table.term})`)],
+);
+
 // ---------------------------------------------------------------------------
 // Eltern-/Jugendschutz (F-08, F-90) — Abschnitt 4.3
 // ---------------------------------------------------------------------------

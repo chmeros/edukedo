@@ -459,6 +459,42 @@ export function parseFachgespraechFragen(sectionBody: string): ParsedFachgesprae
   });
 }
 
+export interface ParsedGlossarEintrag {
+  term: string;
+  aliases: string[];
+  /** thema_code (z. B. "1.1") des Themas, in dem der Begriff erklärt wird. */
+  thema: string | null;
+  /** Text einer ###-Überschrift der Theorie dieses Themas. */
+  abschnitt: string | null;
+  definition: string;
+  geprueft: boolean;
+}
+
+/**
+ * F-165: `glossar.md` — je Fachbegriff ein `#### <Begriff>`-Block mit den Feldern `**Auch:**`
+ * (kommagetrennte Synonyme/Abkürzungen), `**Thema:**` (thema_code), `**Abschnitt:**` (###-Überschrift),
+ * `**Definition:**` (Pflicht) und `**Geprüft:**` (ja/nein, Standard nein). Fehlende Pflichtfelder
+ * brechen den Import mit einer klaren Meldung ab, statt leere Einträge anzulegen.
+ */
+export function parseGlossar(sectionBody: string): ParsedGlossarEintrag[] {
+  const blocks = sectionBody.split(/\n(?=#### )/).filter((block) => block.startsWith("#### "));
+  return blocks.map((block) => {
+    const term = /^#### (.+)$/m.exec(block)![1]!.trim();
+    const definition = extractField(block, "Definition");
+    if (!definition) throw new Error(`Glossar-Eintrag "${term}": Feld "Definition" fehlt.`);
+    const aliasesRaw = extractField(block, "Auch");
+    const geprueftRaw = extractField(block, "Geprüft");
+    return {
+      term,
+      aliases: aliasesRaw ? aliasesRaw.split(",").map((alias) => alias.trim()).filter(Boolean) : [],
+      thema: extractField(block, "Thema") ?? null,
+      abschnitt: extractField(block, "Abschnitt") ?? null,
+      definition,
+      geprueft: geprueftRaw !== null && /^(ja|true)$/i.test(geprueftRaw),
+    };
+  });
+}
+
 /**
  * Wie extractField, aber erfasst bis zur nächsten `**Feld:**`-Zeile statt nur der ersten
  * Zeile (Code-Review-Fund, nachgezogen): "Ausgangssituation"/"Aufgabenstellung" sind meist

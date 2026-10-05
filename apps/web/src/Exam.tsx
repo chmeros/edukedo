@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ContentActions } from "./ContentActions";
 import { useCalmMode } from "./displayPrefs";
 import { ErrorMessage } from "./ErrorMessage";
+import { FachbegriffText } from "./Fachbegriffe";
 import { DangerIcon, HamsterWheelIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
@@ -241,7 +242,7 @@ function ExamFallaufgabeStep({
             <div className="alert alert-info">
               <InfoIcon />
               <div>
-                <b>Musterlösungshinweise:</b> {item.explanation}
+                <b>Musterlösungshinweise:</b> <FachbegriffText text={item.explanation} aktiv />
               </div>
             </div>
           )}

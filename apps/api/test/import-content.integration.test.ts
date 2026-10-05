@@ -127,4 +127,32 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
     },
     240_000,
   );
+
+  it(
+    "importiert die Glossare (F-165): je Fachinformatiker-Kurs gleiche, vollständig verlinkte Einträge, glossar.md wird kein Thema",
+    async () => {
+      const kurse = await db.select().from(schema.kurs);
+      const fi = kurse.filter((kurs) => kurs.slug.startsWith("fachinformatiker-"));
+      expect(fi).toHaveLength(4);
+
+      const anzahl: number[] = [];
+      for (const kurs of fi) {
+        const eintraege = await db.select().from(schema.glossarEintrag).where(eq(schema.glossarEintrag.kursId, kurs.id));
+        anzahl.push(eintraege.length);
+        expect(eintraege.length).toBeGreaterThan(100);
+        // jeder Eintrag ist mit einem Thema des Kurses verknüpft und hat eine Definition
+        expect(eintraege.every((eintrag) => eintrag.themaId !== null && eintrag.definition.length > 20)).toBe(true);
+        expect(eintraege.every((eintrag) => Array.isArray(eintrag.aliases))).toBe(true);
+      }
+      // die gemeinsamen Fachgebiete FU1–FU7 sind in allen vier Kursen identisch kopiert
+      expect(new Set(anzahl).size).toBe(1);
+
+      // Kurse ohne glossar.md haben kein Glossar, und die Datei erzeugt kein Thema
+      const fachwirt = kurse.find((kurs) => kurs.slug === "fachwirt-buero-projektorganisation")!;
+      expect(await db.select().from(schema.glossarEintrag).where(eq(schema.glossarEintrag.kursId, fachwirt.id))).toHaveLength(0);
+      const themen = await db.select().from(schema.thema);
+      expect(themen.some((thema) => /glossar/i.test(thema.title))).toBe(false);
+    },
+    240_000,
+  );
 });

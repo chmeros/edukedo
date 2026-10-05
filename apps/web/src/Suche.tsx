@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { InfoIcon } from "./Icons";
+import { useTheorie } from "./TheorieReader";
 import { trpc } from "./trpc";
 
 // Exportiert, da MeineNotizen.tsx (F-15) dieselbe Zuordnung für ihre eigene Trefferliste braucht
@@ -28,6 +29,8 @@ export const TYPE_LABELS: Record<string, string> = {
   luecken_auswahl: "Quiz · Lückentext (Wortauswahl)",
   kurzantwort: "Quiz · Kurzantwort",
   fallaufgabe: "Fallaufgabe",
+  // F-164: Treffer im Theorie-Text öffnen das Lesefenster.
+  theorie: "Theorie",
   fachgespraech_frage: "Fachgesprächsfrage",
 };
 
@@ -50,6 +53,7 @@ export function Suche({
   const [submittedQuery, setSubmittedQuery] = useState("");
   const trimmed = submittedQuery.trim();
   const results = trpc.content.search.useQuery({ kursId, query: trimmed }, { enabled: trimmed.length >= 2 });
+  const { openTheorie, verfuegbar: theorieVerfuegbar } = useTheorie();
 
   return (
     <div className="panel-section">
@@ -103,13 +107,25 @@ export function Suche({
                   {TYPE_LABELS[hit.type] ?? hit.type} · {hit.fachgebietTitle} — {hit.themaTitle}
                 </span>
               </div>
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                onClick={() => onGoToThema(hit.themaId, hit.themaTitle)}
-              >
-                Zu diesem Thema lernen
-              </button>
+              {hit.type === "theorie" ? (
+                theorieVerfuegbar && (
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => openTheorie({ themaId: hit.themaId, themaTitle: hit.themaTitle })}
+                  >
+                    📖 Theorie lesen
+                  </button>
+                )
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => onGoToThema(hit.themaId, hit.themaTitle)}
+                >
+                  Zu diesem Thema lernen
+                </button>
+              )}
             </div>
           ))}
         </div>

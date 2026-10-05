@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { ReviewResult } from "@edukedo/shared";
 import { AbortRoundButton } from "./AbortRoundButton";
 import { RoundActiveMarker } from "./LearningRound";
+import { NachlesenButton, themaAngaben } from "./TheorieReader";
 import { FlashcardAnswer } from "./FlashcardAnswer";
 import { ContentActions } from "./ContentActions";
 import { FlashcardSelection } from "./FlashcardSelection";
@@ -384,7 +385,7 @@ export function Flashcards({
             <span className="flip-kicker" style={{ color: "#fff" }}>
               Antwort
             </span>
-            <FlashcardAnswer text={current.explanation ?? null} />
+            <FlashcardAnswer text={current.explanation ?? null} markieren={revealed} />
             <span className="flip-hint">
               {alreadyRated ? "Einschätzung ändern?" : "Wie schwierig war diese Karteikarte für dich?"}
             </span>
@@ -453,6 +454,7 @@ export function Flashcards({
           </button>
         )}
       </div>
+      {revealed && <NachlesenButton {...themaAngaben(current)} />}
       <ContentActions contentItemId={current.id} />
       {showPicker && themaId && themaTitle && (
         <FlashcardSelection

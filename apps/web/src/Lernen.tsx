@@ -18,6 +18,7 @@ export function Lernen({
   flashcardsEnabled,
   quizEnabled,
   preferenceSet,
+  active = true,
 }: {
   kursId: string;
   themaId?: string;
@@ -26,6 +27,8 @@ export function Lernen({
   flashcardsEnabled: boolean;
   quizEnabled: boolean;
   preferenceSet: boolean;
+  /** false, solange ein anderer Haupt-Tab sichtbar ist (die Lernen-Ansicht bleibt dann nur ausgeblendet gemountet). */
+  active?: boolean;
 }) {
   // Erstbesuch-Abfrage (siehe LearningModePrompt) bleibt für die aktuelle Sitzung ausblendbar,
   // ohne die Präferenz zu setzen (Modal per Escape/Backdrop schließbar) — sie erscheint dann
@@ -34,7 +37,9 @@ export function Lernen({
   const [dismissedThisSession, setDismissedThisSession] = useState(false);
 
   if (!preferenceSet && !dismissedThisSession) {
-    return <LearningModePrompt onClose={() => setDismissedThisSession(true)} />;
+    // Der Dialog gehört nur in den sichtbaren Tab "Lernen" — sonst legte er sich bei neuen Konten über
+    // Instrumente, Prüfung, Fortschritt usw. (die Ansicht bleibt beim Tab-Wechsel gemountet).
+    return active ? <LearningModePrompt onClose={() => setDismissedThisSession(true)} /> : null;
   }
 
   if (flashcardsEnabled && quizEnabled) {

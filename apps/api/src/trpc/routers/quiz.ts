@@ -72,7 +72,15 @@ export const quizRouter = router({
     }
 
     const items = await ctx.db
-      .select({ id: contentItem.id, type: contentItem.type, prompt: contentItem.prompt, payload: contentItem.payload })
+      .select({
+        id: contentItem.id,
+        type: contentItem.type,
+        prompt: contentItem.prompt,
+        payload: contentItem.payload,
+        // F-164: für "Im Thema nachlesen" (Lesefenster) nach der Antwort.
+        themaId: thema.id,
+        themaTitle: thema.title,
+      })
       .from(contentItem)
       .innerJoin(thema, eq(thema.id, contentItem.themaId))
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
@@ -113,7 +121,7 @@ export const quizRouter = router({
           .orderBy(asc(answerOption.sortOrder))
       : [];
 
-    return items.map((item) => shapeQuizItem(item, options));
+    return items.map((item) => ({ ...shapeQuizItem(item, options), themaId: item.themaId, themaTitle: item.themaTitle }));
   }),
 
   submitAnswer: protectedProcedure.input(submitQuizAnswerInputSchema).mutation(async ({ ctx, input }) => {

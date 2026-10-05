@@ -17,6 +17,8 @@ import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
 import { LearningRoundContext } from "./LearningRound";
 import { OnboardingHints } from "./OnboardingHints";
+import { FachbegriffProvider } from "./Fachbegriffe";
+import { TheorieProvider } from "./TheorieReader";
 import { Progress } from "./Progress";
 import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { useCalmMode } from "./displayPrefs";
@@ -225,7 +227,8 @@ export function App() {
   if (me.data) {
     const isAdmin = me.data.role === "admin";
     return (
-      <>
+      <TheorieProvider kursId={activeKursId}>
+        <FachbegriffProvider kursId={activeKursId}>
         <Header
           right={
             <div className="header-actions">
@@ -387,6 +390,7 @@ export function App() {
                         flashcardsEnabled={me.data.learnFlashcardsEnabled}
                         quizEnabled={me.data.learnQuizEnabled}
                         preferenceSet={me.data.learningModePreferenceSet}
+                        active={learningMode === "lernen" && view === "app"}
                       />
                       </LearningRoundContext.Provider>
                     </div>
@@ -468,7 +472,8 @@ export function App() {
             </>
           )}
         </main>
-      </>
+        </FachbegriffProvider>
+      </TheorieProvider>
     );
   }
 

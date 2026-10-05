@@ -8,6 +8,7 @@ import {
   extractSection,
   parseFachgespraechFragen,
   parseFallaufgabe,
+  parseGlossar,
   parseKarteikarten,
   parseQuizBlock,
   splitBlocks,
@@ -19,6 +20,7 @@ import {
   contentItemTag,
   contentItemVersion,
   fachgebiet,
+  glossarEintrag,
   kurs,
   tag,
   thema,
@@ -778,6 +780,63 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   return created;
 }
 
+/** Dateiname der Glossar-Datei je Fachgebiet (F-165) — wird NICHT als Thema importiert. */
+export const GLOSSAR_DATEINAME = "glossar.md";
+
+/**
+ * F-165: ersetzt das gesamte Glossar eines Kurses aus den `glossar.md`-Dateien seiner Fachgebiete.
+ * Läuft nach dem Import der Themen, weil `Thema:` (thema_code) auf deren Titel aufgelöst wird. Ein
+ * Begriff (oder Alias) darf im Kurs nur einmal vorkommen; ein unbekannter thema_code bricht ab.
+ */
+export async function importGlossarFiles(kursSlug: string, filePaths: string[]): Promise<number> {
+  const [kursRow] = await db.select().from(kurs).where(eq(kurs.slug, kursSlug)).limit(1);
+  if (!kursRow) return 0;
+  await db.delete(glossarEintrag).where(eq(glossarEintrag.kursId, kursRow.id));
+
+  const vergeben = new Map<string, string>(); // kleingeschriebener Name → Begriff, der ihn belegt
+  let angelegt = 0;
+  for (const filePath of filePaths) {
+    const { frontmatter, body } = splitFrontmatter(await readFile(filePath, "utf8"));
+    const [fachgebietRow] = await db
+      .select()
+      .from(fachgebiet)
+      .where(and(eq(fachgebiet.kursId, kursRow.id), eq(fachgebiet.code, frontmatter.fachgebiet_code ?? "")))
+      .limit(1);
+    const themen = fachgebietRow ? await db.select().from(thema).where(eq(thema.fachgebietId, fachgebietRow.id)) : [];
+
+    for (const eintrag of parseGlossar(extractSection(body, "Glossar") ?? "")) {
+      for (const name of [eintrag.term, ...eintrag.aliases]) {
+        const schluessel = name.toLowerCase();
+        const belegtVon = vergeben.get(schluessel);
+        if (belegtVon !== undefined) {
+          throw new Error(`Glossar (${kursSlug}): "${name}" ist mehrdeutig — belegt von "${belegtVon}" und "${eintrag.term}".`);
+        }
+        vergeben.set(schluessel, eintrag.term);
+      }
+      let themaId: string | null = null;
+      if (eintrag.thema) {
+        const treffer = themen.find((row) => row.title.startsWith(`${eintrag.thema} — `));
+        if (!treffer) {
+          throw new Error(`Glossar (${kursSlug}): Thema "${eintrag.thema}" zu "${eintrag.term}" nicht gefunden (${path.basename(path.dirname(filePath))}).`);
+        }
+        themaId = treffer.id;
+      }
+      await db.insert(glossarEintrag).values({
+        kursId: kursRow.id,
+        term: eintrag.term,
+        aliases: eintrag.aliases,
+        definition: eintrag.definition,
+        themaId,
+        abschnitt: eintrag.abschnitt,
+        geprueft: eintrag.geprueft,
+      });
+      angelegt += 1;
+    }
+  }
+  console.log(`${kursSlug}: ${angelegt} Glossar-Einträge importiert.`);
+  return angelegt;
+}
+
 export interface ImportSummary {
   filesProcessed: number;
   itemsImported: number;
@@ -800,14 +859,22 @@ export async function importAllContent(): Promise<ImportSummary> {
 
     const sortedFachgebietDirs = fachgebietDirs.filter((entry) => entry.isDirectory()).sort((a, b) => a.name.localeCompare(b.name));
 
+    const glossarDateien: string[] = [];
     for (const [fachgebietIndex, fachgebietDir] of sortedFachgebietDirs.entries()) {
       const fachgebietPath = path.join(kursPath, fachgebietDir.name);
-      const files = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md")).sort();
+      const alleDateien = (await readdir(fachgebietPath)).filter((file) => file.endsWith(".md")).sort();
+      // F-165: glossar.md ist kein Thema, sondern wird nach den Themen des Kurses gesammelt importiert.
+      const files = alleDateien.filter((file) => file !== GLOSSAR_DATEINAME);
+      if (alleDateien.includes(GLOSSAR_DATEINAME)) glossarDateien.push(path.join(fachgebietPath, GLOSSAR_DATEINAME));
 
       for (const [index, file] of files.entries()) {
         itemsImported += await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);
         filesProcessed += 1;
       }
+    }
+    if (glossarDateien.length > 0) {
+      await importGlossarFiles(kursDir.name, glossarDateien);
+      filesProcessed += glossarDateien.length;
     }
   }
 

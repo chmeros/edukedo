@@ -3262,3 +3262,288 @@ details[open] > summary.disclosure::before {
   font-family: var(--font-mono);
   max-width: 22rem;
 }
+
+/* F-164: Lesefenster "Theorie" (TheorieReader.tsx) — Seitenleiste statt Tab (F-103) */
+.theorie-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(460px, 100vw);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-left: 1.5px solid var(--line-strong);
+  box-shadow: -8px 0 28px rgba(0, 0, 0, 0.12);
+}
+
+.theorie-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.theorie-panel-head h2 {
+  margin: 0;
+  font-size: var(--fs-md);
+  line-height: 1.25;
+}
+
+.theorie-panel-head h2:focus {
+  outline: none;
+}
+
+.theorie-panel-head h2:focus-visible {
+  outline: 2px solid var(--sprout);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.theorie-panel-kicker {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.theorie-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px 28px;
+}
+
+/* Am Desktop den Inhalt neben das Panel schieben, damit die Frage sichtbar bleibt. */
+@media (min-width: 1100px) {
+  body.has-theorie-panel {
+    padding-right: 460px;
+  }
+}
+
+/* Auf schmalen Bildschirmen füllt das Panel den Bildschirm; der Hintergrund scrollt nicht mit. */
+@media (max-width: 1099px) {
+  body.has-theorie-panel {
+    overflow: hidden;
+  }
+}
+
+.theorie-inhalt {
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.theorie-inhalt summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.theorie-inhalt ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.theorie-inhalt li.is-top {
+  font-weight: 700;
+}
+
+.theorie-inhalt .link-muted-btn {
+  color: var(--ink);
+  text-align: left;
+  font-weight: inherit;
+}
+
+.theorie-text {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.theorie-text h3,
+.theorie-text h4,
+.theorie-text h5 {
+  scroll-margin-top: 8px;
+  margin: 1.4em 0 0.4em;
+  line-height: 1.3;
+}
+
+.theorie-text h3:focus,
+.theorie-text h4:focus {
+  outline: none;
+}
+
+.theorie-text h3 {
+  font-size: var(--fs-md);
+}
+
+.theorie-text h4 {
+  font-size: var(--fs-base);
+}
+
+.theorie-text p {
+  margin: 0.6em 0;
+}
+
+.theorie-text ul,
+.theorie-text ol {
+  margin: 0.6em 0;
+  padding-left: 1.4em;
+}
+
+.theorie-text li + li {
+  margin-top: 0.25em;
+}
+
+.theorie-text code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.theorie-text pre {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  margin: 0.8em 0;
+}
+
+.theorie-text pre code {
+  background: none;
+  padding: 0;
+  font-size: var(--fs-xs);
+}
+
+.theorie-text blockquote {
+  margin: 0.8em 0;
+  padding: 2px 12px;
+  border-left: 3px solid var(--sprout);
+  color: var(--ink-soft);
+}
+
+.theorie-tabelle {
+  overflow-x: auto;
+  margin: 0.8em 0;
+}
+
+.theorie-text table {
+  border-collapse: collapse;
+  font-size: var(--fs-sm, 0.9rem);
+}
+
+.theorie-text th,
+.theorie-text td {
+  border: 1px solid var(--line);
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.theorie-text th {
+  background: var(--surface-2);
+}
+
+.nachlesen-btn {
+  align-self: flex-start;
+}
+
+/* F-165: Fachbegriffe nach der Antwort (Fachbegriffe.tsx) */
+.fachbegriff {
+  font: inherit;
+  color: inherit;
+  background: color-mix(in srgb, var(--info) 14%, transparent);
+  border: 0;
+  border-bottom: 2px dotted var(--info-deep);
+  border-radius: 3px 3px 0 0;
+  padding: 0 2px;
+  margin: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+.fachbegriff:hover {
+  background: color-mix(in srgb, var(--info) 26%, transparent);
+}
+
+.fachbegriff:focus-visible {
+  outline: 2px solid var(--sprout);
+  outline-offset: 1px;
+}
+
+/* Auf der grünen Rückseite der Karteikarte: weiße Unterstreichung */
+.flip-back .fachbegriff {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  border-bottom-color: #fff;
+}
+
+.flip-back .fachbegriff:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Beantwortete Antwortoption: statisches Element mit denselben Zuständen wie .quiz-opt */
+.quiz-opt.is-static {
+  display: block;
+  cursor: default;
+}
+
+.fachbegriff-popover {
+  position: fixed;
+  z-index: 180;
+  width: min(360px, calc(100vw - 24px));
+  padding: 12px 14px;
+  background: var(--card);
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fachbegriff-popover:focus {
+  outline: none;
+}
+
+.fachbegriff-popover p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: var(--fs-sm);
+}
+
+.fachbegriff-popover-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.fachbegriff-popover .btn {
+  align-self: flex-start;
+}
+
+/* Schmale Bildschirme: Bottom-Sheet statt Popover am Begriff */
+@media (max-width: 640px) {
+  .fachbegriff-popover {
+    top: auto !important;
+    left: 0 !important;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 16px;
+  }
+}

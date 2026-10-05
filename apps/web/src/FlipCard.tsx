@@ -37,10 +37,15 @@ export function FlipCard({
       <div
         className={flipped ? "flip-card is-flipped" : "flip-card"}
         onClick={onToggle}
-        role="button"
-        tabIndex={0}
-        aria-pressed={flipped}
+        // F-165: Aufgedeckt kann die Rückseite anklickbare Fachbegriffe enthalten; Kinder einer Schaltfläche
+        // (role="button") sind für Screenreader nicht bedienbar. Deshalb ist die Karte nur im verdeckten
+        // Zustand eine Tastatur-Schaltfläche; per Maus lässt sie sich weiterhin zurückdrehen.
+        role={flipped ? "group" : "button"}
+        tabIndex={flipped ? -1 : 0}
+        aria-pressed={flipped ? undefined : false}
+        aria-label={flipped ? "Karteikarte, Antwortseite" : undefined}
         onKeyDown={(event) => {
+          if (flipped || event.target !== event.currentTarget) return;
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
             onToggle();

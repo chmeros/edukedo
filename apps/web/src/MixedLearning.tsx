@@ -3,6 +3,7 @@ import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
 import { shuffle } from "@edukedo/shared";
 import { AbortRoundButton } from "./AbortRoundButton";
 import { RoundActiveMarker } from "./LearningRound";
+import { NachlesenButton, themaAngaben } from "./TheorieReader";
 import { FlashcardAnswer } from "./FlashcardAnswer";
 import { ContentActions } from "./ContentActions";
 import { FlipCard } from "./FlipCard";
@@ -124,6 +125,8 @@ export function MixedLearning({
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [answeredQuizCount, setAnsweredQuizCount] = useState(0);
+  // F-164: "Im Thema nachlesen" bei Quizfragen erst nach der Auswertung (bei Karten nach dem Aufdecken).
+  const [answeredIndex, setAnsweredIndex] = useState<number | null>(null);
   // F-125: siehe Quiz.tsx — Zeitpunkt, ab dem eine Antwort dieser Runde zuzurechnen ist.
   const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
   // F-152: "aborted" = Runde verworfen (F-125), "paused" = Runde pausiert, bisherige Antworten bleiben gewertet.
@@ -134,6 +137,7 @@ export function MixedLearning({
     setRevealed(false);
     setCorrectCount(0);
     setAnsweredQuizCount(0);
+    setAnsweredIndex(null);
     setRoundStartedAt(new Date());
     setAborted(false);
   }, [online, kursId, themaId, questionCount]);
@@ -320,6 +324,7 @@ export function MixedLearning({
   }
 
   function handleQuizAnswered(isCorrect: boolean) {
+    setAnsweredIndex(index);
     setAnsweredQuizCount((count) => count + 1);
     if (isCorrect) setCorrectCount((count) => count + 1);
   }
@@ -358,7 +363,7 @@ export function MixedLearning({
                 <span className="flip-kicker" style={{ color: "#fff" }}>
                   Antwort
                 </span>
-                <FlashcardAnswer text={current.card.explanation ?? null} />
+                <FlashcardAnswer text={current.card.explanation ?? null} markieren={revealed} />
                 {/* F-111: gleiche Formulierung/Beschriftung wie Flashcards.tsx (Einfach/Mittel/
                     Schwer statt Gut/Schwer/Nochmal) — nachträgliches Ändern bleibt hier bewusst
                     außen vor, da der Mischmodus (anders als F-110s "Nur Karteikarten") keine
@@ -395,6 +400,7 @@ export function MixedLearning({
               </button>
             </div>
           )}
+          {revealed && <NachlesenButton {...themaAngaben(current.card)} />}
           <ContentActions contentItemId={current.card.id} />
         </>
       )}
@@ -536,6 +542,7 @@ export function MixedLearning({
           canReport
         />
       )}
+      {current.kind === "quiz" && answeredIndex === index && <NachlesenButton {...themaAngaben(current.item)} />}
     </div>
   );
 }

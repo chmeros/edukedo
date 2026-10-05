@@ -4,6 +4,7 @@ import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRou
 import { AbortRoundButton } from "./AbortRoundButton";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { RoundActiveMarker } from "./LearningRound";
+import { NachlesenButton, themaAngaben } from "./TheorieReader";
 import { QuizCountControl } from "./QuizCountControl";
 import {
   BlanksSelectionStep,
@@ -122,6 +123,8 @@ export function Quiz({
   const [roundStartedAt, setRoundStartedAt] = useState(() => new Date());
   // F-152: "aborted" = Runde verworfen (F-125), "paused" = Runde pausiert, bisherige Antworten bleiben gewertet.
   const [aborted, setAborted] = useState<false | "aborted" | "paused">(false);
+  // F-164: "Im Thema nachlesen" erst, nachdem die aktuelle Frage beantwortet und ausgewertet ist.
+  const [answeredIndex, setAnsweredIndex] = useState<number | null>(null);
   // Ein Verbindungswechsel oder eine geänderte Rundengröße (F-22) ersetzt die komplette
   // Fragenliste — index/correctCount müssten sonst nicht mehr zur neuen Liste passen.
   useEffect(() => {
@@ -129,6 +132,7 @@ export function Quiz({
     setCorrectCount(0);
     setRoundStartedAt(new Date());
     setAborted(false);
+    setAnsweredIndex(null);
   }, [online, questionCount]);
 
   if (online ? quizItemsQuery.isLoading : offlineRound === null) {
@@ -234,6 +238,7 @@ export function Quiz({
   const isLast = index + 1 >= items.length;
 
   function handleAnswered(isCorrect: boolean) {
+    setAnsweredIndex(index);
     if (isCorrect) {
       setCorrectCount((count) => count + 1);
     }
@@ -411,6 +416,7 @@ export function Quiz({
           canReport
         />
       )}
+      {answeredIndex === index && <NachlesenButton {...themaAngaben(current)} />}
     </div>
   );
 }

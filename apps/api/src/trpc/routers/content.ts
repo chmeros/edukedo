@@ -7,8 +7,10 @@ import {
   QUADRANT_QUIZ_TYPES,
   searchContentInputSchema,
   theoriePayloadSchema,
+  theorieThemaInputSchema,
   themaCardsInputSchema,
 } from "@edukedo/shared";
+import { TRPCError } from "@trpc/server";
 import { and, asc, eq, ilike, inArray, isNull, lte, ne, or, sql } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
@@ -60,6 +62,9 @@ export const contentRouter = router({
         id: contentItem.id,
         prompt: contentItem.prompt,
         explanation: contentItem.explanation,
+        // F-164: für "Im Thema nachlesen" (Lesefenster) nach dem Aufdecken der Karte.
+        themaId: thema.id,
+        themaTitle: thema.title,
         dueAt: userProgress.dueAt,
         flaggedAsDifficult: userProgress.flaggedAsDifficult,
       })
@@ -90,6 +95,8 @@ export const contentRouter = router({
       id: row.id,
       prompt: row.prompt,
       explanation: row.explanation,
+      themaId: row.themaId,
+      themaTitle: row.themaTitle,
       flaggedAsDifficult: row.flaggedAsDifficult ?? false,
     }));
   }),
@@ -170,6 +177,43 @@ export const contentRouter = router({
   }),
 
   /**
+   * F-164: Theorie eines einzelnen Themas für das Lesefenster (Seitenleiste). Zugriff nur für
+   * Personen, die den Kurs belegt haben (wie alle Content-Abfragen); ein Thema ohne Theorie
+   * ergibt `null` (das Lesefenster zeigt dann einen Hinweis statt eines Fehlers).
+   */
+  theorieThema: protectedProcedure.input(theorieThemaInputSchema).query(async ({ ctx, input }) => {
+    const [row] = await ctx.db
+      .select({
+        payload: contentItem.payload,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(thema)
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .leftJoin(contentItem, and(eq(contentItem.themaId, thema.id), eq(contentItem.type, "theorie"), eq(contentItem.isActive, true)))
+      .where(eq(thema.id, input.themaId))
+      .limit(1);
+
+    if (!row) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Thema nicht gefunden." });
+    }
+    return {
+      themaId: input.themaId,
+      themaTitle: row.themaTitle,
+      fachgebietTitle: row.fachgebietTitle,
+      bodyMarkdown: row.payload ? theoriePayloadSchema.parse(row.payload).body_markdown : null,
+    };
+  }),
+
+  /**
    * F-25 Fachgesprächs-Trainer: zufällige Auswahl von Übungsfragen über den ganzen Kurs
    * hinweg (mehrere Handlungsbereiche, analog zu F-23) — reiner Fragen-Pool ohne
    * Scoring/Sitzung, daher keine eigene Mutation zum Beantworten nötig. Nur beim Fachwirt-
@@ -204,7 +248,9 @@ export const contentRouter = router({
    * F-14: Volltextsuche über alle Lerninhalte eines Kurses — sucht in `prompt` (bei jedem
    * Content-Typ die eigentliche Fragestellung) sowie `explanation`, wo vorhanden. Bewusst
    * OHNE `type = "theorie"`: Der Theorie-Tab ist seit F-103 ohne Zugriffsweg im eingeloggten
-   * Bereich, ein Suchtreffer dorthin liefe ins Leere. Ergebnisse verlinken über die Thema-ID
+   * Bereich, ein Suchtreffer dorthin liefe ins Leere. **F-164:** Theorie-Treffer kommen jetzt als
+   * eigene Zeilen (`type: "theorie"`, Volltext im Theorie-Text) und öffnen das Lesefenster statt
+   * den Themenfilter. Ergebnisse verlinken über die Thema-ID
    * in den "Lernen"-Tab (bestehender F-27-Themenfilter, siehe App.tsx) statt einer neuen
    * "einzelnes Content-Item anzeigen"-Ansicht — weder `content.dueCards` (nur fällige Karten)
    * noch `quiz.quizItems` (zufällige 20er-Runde) unterstützen das gezielte Ansteuern eines
@@ -212,6 +258,37 @@ export const contentRouter = router({
    */
   search: protectedProcedure.input(searchContentInputSchema).query(async ({ ctx, input }) => {
     const pattern = `%${escapeLikePattern(input.query)}%`;
+
+    // F-164: Treffer im Theorie-Text (je Thema höchstens ein Item) — zuerst, maximal 8.
+    const theorieTreffer = await ctx.db
+      .select({
+        id: contentItem.id,
+        type: contentItem.type,
+        prompt: thema.title,
+        themaId: thema.id,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .where(
+        and(
+          eq(contentItem.type, "theorie"),
+          eq(contentItem.isActive, true),
+          ilike(sql<string>`${contentItem.payload}->>'body_markdown'`, pattern),
+        ),
+      )
+      .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder))
+      .limit(8);
 
     const rows = await ctx.db
       .select({
@@ -243,7 +320,7 @@ export const contentRouter = router({
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder))
       .limit(30);
 
-    return rows;
+    return [...theorieTreffer, ...rows];
   }),
 
   /**

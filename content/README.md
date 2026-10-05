@@ -466,6 +466,38 @@ Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben 
 
 Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
+## Glossar (`glossar.md`, F-165)
+
+Je Fachgebiet kann eine `glossar.md` Fachbegriffe mit Kurzdefinition liefern; der Import führt sie je Kurs zu einem Glossar zusammen (kein Thema, keine Content-Items). Aufbau:
+
+```markdown
+---
+kurs_slug: fachinformatiker-anwendungsentwicklung
+fachgebiet_code: FU1
+fachgebiet_title: "Projekt- und Auftragsabwicklung"
+thema_code: "FU1-glossar"
+thema_title: "Glossar (Entwurf)"
+---
+
+## Glossar
+
+#### Netzplan
+**Auch:** Vorgangsknotennetz
+**Thema:** 1.1
+**Abschnitt:** Struktur, Reihenfolge und Termine planen
+**Definition:** Darstellung der Vorgänge eines Projekts und ihrer Abhängigkeiten. …
+**Geprüft:** nein
+```
+
+- `#### Begriff`: Schreibweise, wie sie üblicherweise im Text steht; **je Kurs nur einmal** (auch nicht als Alias eines anderen Begriffs).
+- `**Auch:**` (optional): kommagetrennte Synonyme, Abkürzungen, Langformen und **unregelmäßige** Beugungen. Einfache Endungen (-e, -en, -er, -es, -n, -s) erkennt die Software selbst; Akronyme (≤ 6 Zeichen, Großbuchstaben) werden exakt, ohne Endung geprüft.
+- `**Thema:**`: `thema_code` des Themas (z. B. `1.1`) im selben Fachgebiet, in dem der Begriff erklärt wird — Ziel von „Im Thema nachlesen".
+- `**Abschnitt:**` (optional): wörtlich eine `###`-Überschrift der Theorie dieses Themas; das Lesefenster springt dorthin.
+- `**Definition:**` (Pflicht): 1–3 Sätze, höchstens ca. 300 Zeichen, **ohne Markdown**, nur Aussagen, die in der Theorie stehen.
+- `**Geprüft:**`: `ja` erst nach fachlicher Prüfung (Standard `nein`).
+
+Vermeiden: mehrdeutige Allgemeinwörter („Test", „Prozess", „System"). Die Regeln prüft `apps/api/src/db/glossar-content.test.ts`.
+
 ## Redaktions-Werkzeuge (F-17)
 
 Zwei kleine CLI-Werkzeuge in `apps/api/src/db/` nehmen das fehleranfällige manuelle Abtippen der oben beschriebenen Syntax ab:

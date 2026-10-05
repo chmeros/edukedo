@@ -1,4 +1,4 @@
-import { setCalmMode, setTheme, useCalmMode, useTheme, type Theme } from "./displayPrefs";
+import { setCalmMode, setFachbegriffe, setTheme, useCalmMode, useFachbegriffe, useTheme, type Theme } from "./displayPrefs";
 
 const THEME_OPTIONS: { id: Theme; label: string }[] = [
   { id: "system", label: "Wie das Gerät" },
@@ -14,6 +14,7 @@ const THEME_OPTIONS: { id: Theme; label: string }[] = [
 export function DisplaySettings() {
   const theme = useTheme();
   const calm = useCalmMode();
+  const fachbegriffe = useFachbegriffe();
 
   return (
     <div className="stack">
@@ -38,6 +39,15 @@ export function DisplaySettings() {
       <span className="field-hint">
         Blendet Punktehamster, Lernserie und Credits aus und versteckt den Countdown in der Prüfungssimulation —
         für entspanntes Lernen ohne Spielelemente. Gilt nur für diesen Browser.
+      </span>
+      {/* F-165: Fachbegriffe nach der Antwort markieren */}
+      <label className="field" style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+        <input type="checkbox" checked={fachbegriffe} onChange={(event) => setFachbegriffe(event.target.checked)} />
+        Fachbegriffe nach der Antwort markieren
+      </label>
+      <span className="field-hint">
+        Hebt Begriffe mit Kurzerklärung in Erklärungen und aufgedeckten Karteikarten hervor — erst nach der Antwort, nie
+        davor. Gilt nur für diesen Browser.
       </span>
     </div>
   );

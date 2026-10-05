@@ -3,6 +3,7 @@ import { Achievements } from "./Achievements";
 import { InfoIcon } from "./Icons";
 import { ProgressExportButton } from "./ProgressExport";
 import { Tile } from "./Tile";
+import { useTheorie } from "./TheorieReader";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { trpc } from "./trpc";
 
@@ -66,6 +67,7 @@ function FachgebietGrid({
 }) {
   const gridRef = useRef<HTMLDivElement | null>(null);
   const columns = useGridColumns(gridRef);
+  const { openTheorie, verfuegbar: theorieVerfuegbar } = useTheorie();
   const [expandedId, setExpandedId] = useState<string | null>(
     () => fachgebiete.find((fg) => fg.themen.some((thema) => thema.id === activeThemaId))?.id ?? null,
   );
@@ -108,7 +110,20 @@ function FachgebietGrid({
                 meta={`${thema.percent} % (${thema.mastered}/${thema.total})`}
                 fill={thema.percent}
                 active={thema.id === activeThemaId}
-                onClick={() => onGoToThema(thema.id, thema.title)}
+                // F-164: zwei Aktionen je Thema — gezielt lernen (wie bisher, F-27/F-109) und die Theorie
+                // im Lesefenster lesen. Deshalb keine Klick-Kachel mehr (verschachtelte Buttons wären ungültig).
+                actions={
+                  <>
+                    <button type="button" className="btn btn-secondary btn-sm" onClick={() => onGoToThema(thema.id, thema.title)}>
+                      Lernen
+                    </button>
+                    {theorieVerfuegbar && (
+                      <button type="button" className="btn btn-ghost btn-sm" onClick={() => openTheorie({ themaId: thema.id, themaTitle: thema.title })}>
+                        📖 Lesen
+                      </button>
+                    )}
+                  </>
+                }
               />
             ))}
           </div>

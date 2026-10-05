@@ -11,6 +11,7 @@ import { coursesRouter } from "./routers/courses";
 import { duellRouter } from "./routers/duell";
 import { examRouter } from "./routers/exam";
 import { friendRouter } from "./routers/friend";
+import { glossarRouter } from "./routers/glossar";
 import { gameRouter } from "./routers/game";
 import { gamificationRouter } from "./routers/gamification";
 import { healthRouter } from "./routers/health";
@@ -86,6 +87,7 @@ export const appRouter = router({
   quiz: quizRouter,
   exam: examRouter,
   friend: friendRouter,
+  glossar: glossarRouter,
   presentation: presentationRouter,
   projekt: projektRouter,
   admin: adminRouter,

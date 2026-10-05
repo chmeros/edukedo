@@ -3,6 +3,7 @@ import type { DragEndEvent } from "@dnd-kit/core";
 import { useState } from "react";
 import { ContentActions } from "./ContentActions";
 import { ErrorMessage } from "./ErrorMessage";
+import { FachbegriffText } from "./Fachbegriffe";
 
 /**
  * Die vier Fragetyp-Komponenten (F-21) — gemeinsam genutzt von Quiz.tsx (eingeschriebene
@@ -93,6 +94,42 @@ export interface McItem {
   options: { id: string; text: string }[];
 }
 
+/**
+ * F-165: Antwortoption. Vor der Antwort eine Schaltfläche (wie bisher); nach der Antwort ein statisches
+ * Element, in dem Fachbegriffe markiert und anklickbar sein können — eine Schaltfläche in einer
+ * deaktivierten Schaltfläche wäre ungültig und in manchen Browsern nicht klickbar.
+ */
+function AntwortOption({
+  className,
+  beantwortet,
+  disabled,
+  onClick,
+  text,
+  prefix,
+}: {
+  className: string;
+  beantwortet: boolean;
+  disabled: boolean;
+  onClick: () => void;
+  text: string;
+  prefix?: string;
+}) {
+  if (beantwortet) {
+    return (
+      <div className={className + " is-static"}>
+        {prefix}
+        <FachbegriffText text={text} aktiv />
+      </div>
+    );
+  }
+  return (
+    <button type="button" className={className} disabled={disabled} onClick={onClick}>
+      {prefix}
+      {text}
+    </button>
+  );
+}
+
 export function MultipleChoiceStep({
   item,
   isLast,
@@ -128,7 +165,9 @@ export function MultipleChoiceStep({
 
   return (
     <div className="stack">
-      <div className="quiz-question">{item.prompt}</div>
+      <div className="quiz-question">
+        <FachbegriffText text={item.prompt} aktiv={feedback !== null} />
+      </div>
       <div className="quiz-options">
         {item.options.map((option) => {
           let className = "quiz-opt";
@@ -143,15 +182,14 @@ export function MultipleChoiceStep({
           }
 
           return (
-            <button
+            <AntwortOption
               key={option.id}
-              type="button"
               className={className}
-              disabled={feedback !== null || submit.isPending}
+              beantwortet={feedback !== null}
+              disabled={submit.isPending}
               onClick={() => setSelectedOptionId(option.id)}
-            >
-              {option.text}
-            </button>
+              text={option.text}
+            />
           );
         })}
       </div>
@@ -159,7 +197,7 @@ export function MultipleChoiceStep({
         <>
           <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
-            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+            {feedback.explanation ? <> <FachbegriffText text={feedback.explanation} aktiv /></> : null}
           </p>
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
@@ -229,7 +267,9 @@ export function TwoChoiceStep({
 
   return (
     <div className="stack">
-      <div className="quiz-question">{item.prompt}</div>
+      <div className="quiz-question">
+        <FachbegriffText text={item.prompt} aktiv={feedback !== null} />
+      </div>
       <div className="quiz-two-choice">
         {item.options.map((option) => {
           let className = "quiz-opt";
@@ -242,15 +282,14 @@ export function TwoChoiceStep({
           }
 
           return (
-            <button
+            <AntwortOption
               key={option.id}
-              type="button"
               className={className}
-              disabled={feedback !== null || submit.isPending}
+              beantwortet={feedback !== null}
+              disabled={submit.isPending}
               onClick={() => checkAnswer(option.id)}
-            >
-              {option.text}
-            </button>
+              text={option.text}
+            />
           );
         })}
       </div>
@@ -258,7 +297,7 @@ export function TwoChoiceStep({
         <>
           <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
-            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+            {feedback.explanation ? <> <FachbegriffText text={feedback.explanation} aktiv /></> : null}
           </p>
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
@@ -329,7 +368,9 @@ export function McMultiStep({
 
   return (
     <div className="stack">
-      <div className="quiz-question">{item.prompt}</div>
+      <div className="quiz-question">
+        <FachbegriffText text={item.prompt} aktiv={feedback !== null} />
+      </div>
       <p className="field-hint">Mehrere Antworten können richtig sein.</p>
       <div className="quiz-options">
         {item.options.map((option) => {
@@ -346,16 +387,15 @@ export function McMultiStep({
           }
 
           return (
-            <button
+            <AntwortOption
               key={option.id}
-              type="button"
               className={className}
-              disabled={feedback !== null || submit.isPending}
+              beantwortet={feedback !== null}
+              disabled={submit.isPending}
               onClick={() => toggleOption(option.id)}
-            >
-              {isSelected ? "☑ " : "☐ "}
-              {option.text}
-            </button>
+              text={option.text}
+              prefix={isSelected ? "☑ " : "☐ "}
+            />
           );
         })}
       </div>
@@ -363,7 +403,7 @@ export function McMultiStep({
         <>
           <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
-            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+            {feedback.explanation ? <> <FachbegriffText text={feedback.explanation} aktiv /></> : null}
           </p>
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
@@ -1543,7 +1583,9 @@ export function KurzantwortStep({
 
   return (
     <div className="stack">
-      <div className="quiz-question">{item.prompt}</div>
+      <div className="quiz-question">
+        <FachbegriffText text={item.prompt} aktiv={feedback !== null} />
+      </div>
       <div className="field">
         <input
           className={feedback ? (feedback.isCorrect ? "input is-correct" : "input is-wrong") : "input"}
@@ -1562,7 +1604,7 @@ export function KurzantwortStep({
                 Leider falsch. Richtige Lösung: <b>{feedback.correctAnswer}</b>
               </>
             )}
-            {feedback.explanation ? ` ${feedback.explanation}` : ""}
+            {feedback.explanation ? <> <FachbegriffText text={feedback.explanation} aktiv /></> : null}
           </p>
           {!feedback.isCorrect && canReport && (
             // F-134 (26.09.2026, siehe Architekturplanung Abschnitt 13): Kurzantwort-Fragen
