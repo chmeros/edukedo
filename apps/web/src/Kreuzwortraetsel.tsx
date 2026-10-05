@@ -238,9 +238,9 @@ function HinweisZeile({
 }
 
 /** F-157: `title` kommt aus `game.title` des Kurses (jeder Kurs hat seine eigene Begriffsauswahl). */
-export function Kreuzwortraetsel({ kursId, title, onClose }: { kursId: string; title: string; onClose: () => void }) {
+export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: string; setKey?: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
-  const data = trpc.game.getKreuzwortraetsel.useQuery({ kursId });
+  const data = trpc.game.getKreuzwortraetsel.useQuery({ kursId, setKey });
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
   const [lastResult, setLastResult] = useState<{ nummer: number; correct: boolean } | null>(null);
   const [activeWortNummer, setActiveWortNummer] = useState<number | null>(null);
@@ -259,7 +259,7 @@ export function Kreuzwortraetsel({ kursId, title, onClose }: { kursId: string; t
     onSuccess: () => {
       setLastResult(null);
       setActiveWortNummer(null);
-      utils.game.getKreuzwortraetsel.invalidate({ kursId });
+      utils.game.getKreuzwortraetsel.invalidate({ kursId, setKey });
     },
   });
   const submit = trpc.game.submitKreuzwortraetselWort.useMutation();
@@ -273,14 +273,14 @@ export function Kreuzwortraetsel({ kursId, title, onClose }: { kursId: string; t
 
   function submitWort(nummer: number, eingabe: string) {
     submit.mutate(
-      { kursId, nummer, eingabe },
+      { kursId, setKey, nummer, eingabe },
       {
         onSuccess: (result) => {
           setLastResult({ nummer, correct: result.correct });
           if (result.correct) {
             setActiveWortNummer(null);
             setEingabeProZelle(new Map());
-            utils.game.getKreuzwortraetsel.invalidate({ kursId });
+            utils.game.getKreuzwortraetsel.invalidate({ kursId, setKey });
             invalidateProgress();
           }
         },
@@ -363,10 +363,10 @@ export function Kreuzwortraetsel({ kursId, title, onClose }: { kursId: string; t
         <div className="stack">
           <p>Wie gut kennst du die wichtigsten Begriffe? Wähle, ob du die Begriffe zuordnen oder selbst eingeben möchtest.</p>
           <div className="list-row-actions">
-            <button type="button" className="btn btn-primary" onClick={() => start.mutate({ kursId, variant: "einfach" })}>
+            <button type="button" className="btn btn-primary" onClick={() => start.mutate({ kursId, setKey, variant: "einfach" })}>
               Einfach — Begriffe zuordnen
             </button>
-            <button type="button" className="btn btn-secondary" onClick={() => start.mutate({ kursId, variant: "anspruchsvoll" })}>
+            <button type="button" className="btn btn-secondary" onClick={() => start.mutate({ kursId, setKey, variant: "anspruchsvoll" })}>
               Anspruchsvoll — Begriffe selbst eingeben
             </button>
           </div>

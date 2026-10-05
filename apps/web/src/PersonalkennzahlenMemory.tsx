@@ -24,7 +24,7 @@ interface Karte {
 }
 
 /** F-157: `title` kommt aus `game.title` des Kurses (z. B. „Kennzahlen-Memory: Personal" im Fachwirt-Kurs). */
-export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: string; title: string; onClose: () => void }) {
+export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { kursId: string; setKey?: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
   const [aktiveRunde, setAktiveRunde] = useState<number | null>(null);
   const [aufgedeckt, setAufgedeckt] = useState<number[]>([]);
@@ -42,7 +42,7 @@ export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: s
 
   // Bootstrap: welche Runde ist die erste noch nicht abgeschlossene? `abgeschlosseneRunden`
   // liegt in JEDER `getMemory`-Antwort identisch vor, unabhängig von der angefragten Runde.
-  const bootstrap = trpc.game.getMemory.useQuery({ kursId, runde: 1 }, { enabled: aktiveRunde === null });
+  const bootstrap = trpc.game.getMemory.useQuery({ kursId, setKey, runde: 1 }, { enabled: aktiveRunde === null });
   useEffect(() => {
     if (aktiveRunde !== null || !bootstrap.data) return;
     const abgeschlossen = new Set(bootstrap.data.abgeschlosseneRunden);
@@ -53,10 +53,10 @@ export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: s
     setAktiveRunde(naturalStart);
   }, [bootstrap.data, aktiveRunde]);
 
-  const data = trpc.game.getMemory.useQuery({ kursId, runde: aktiveRunde ?? 1 }, { enabled: aktiveRunde !== null });
+  const data = trpc.game.getMemory.useQuery({ kursId, setKey, runde: aktiveRunde ?? 1 }, { enabled: aktiveRunde !== null });
   const submitPaar = trpc.game.submitMemoryPaar.useMutation();
   const completeRound = trpc.game.completeMemoryRound.useMutation({
-    onSuccess: () => utils.game.getMemory.invalidate({ kursId, runde: aktiveRunde ?? 1 }),
+    onSuccess: () => utils.game.getMemory.invalidate({ kursId, setKey, runde: aktiveRunde ?? 1 }),
   });
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: s
     const zweiteKarte = karten.find((entry) => entry.cardId === zweiteId)!;
 
     submitPaar.mutate(
-      { kursId, runde: aktiveRunde!, textA: ersteKarte.text, textB: zweiteKarte.text },
+      { kursId, setKey, runde: aktiveRunde!, textA: ersteKarte.text, textB: zweiteKarte.text },
       {
         onSuccess: (result) => {
           if (result.correct) {
@@ -92,7 +92,7 @@ export function PersonalkennzahlenMemory({ kursId, title, onClose }: { kursId: s
             setAufgedeckt([]);
             invalidateProgress();
             if (neuGefunden.length === karten.length) {
-              completeRound.mutate({ kursId, runde: aktiveRunde! });
+              completeRound.mutate({ kursId, setKey, runde: aktiveRunde! });
             }
           } else {
             setFalschesPaar(naechsteAufgedeckt);

@@ -13,6 +13,15 @@ import { z } from "zod";
  * Runden/Duelle) — siehe `game_progress` in schema.ts sowie den zugehörigen `game`-Router.
  */
 
+/**
+ * F-158 (weitere Spiele für die Fachinformatiker-Kurse, Nutzer-Vorgabe vom 05.10.2026, siehe
+ * Architekturplanung Abschnitt 13): ein Kurs kann mehrere Sets desselben Spieltyps haben (z. B. zwei
+ * Memory-Sets). `setKey` wählt das Set; ohne Angabe gilt das Standard-Set ("standard") — dadurch
+ * bleiben alle bisherigen Aufrufe und Fortschrittsdaten unverändert gültig.
+ */
+export const DEFAULT_GAME_SET_KEY = "standard";
+const setKeyField = z.string().min(1).max(40).regex(/^[a-z0-9_-]+$/).optional();
+
 const TEXT_MAX = 500;
 const HINT_MAX = 1000;
 const FEEDBACK_MAX = 1000;
@@ -122,37 +131,265 @@ export type MemoryPayload = z.infer<typeof memoryPayloadSchema>;
 // game.gameType — welche der drei Spiele es aktuell gibt
 // ---------------------------------------------------------------------------
 
-export const GAME_TYPES = ["kreuzwortraetsel", "kennzahlen_duell", "memory"] as const;
+export const GAME_TYPES = [
+  "kreuzwortraetsel",
+  "kennzahlen_duell",
+  "memory",
+  // F-158: weitere Spieltypen
+  "phishing",
+  "bughunt",
+  "codereihenfolge",
+  "troubleshooting",
+  "subnetting",
+  "zahlensysteme",
+] as const;
 export type GameType = (typeof GAME_TYPES)[number];
 
 // ---------------------------------------------------------------------------
 // tRPC Input-Schemas
 // ---------------------------------------------------------------------------
 
-export const gameKursInputSchema = z.object({ kursId: z.string().uuid() });
+export const gameKursInputSchema = z.object({ kursId: z.string().uuid(), setKey: setKeyField });
 
 export const startKreuzwortraetselInputSchema = z.object({
   kursId: z.string().uuid(),
+  setKey: setKeyField,
   variant: z.enum(KREUZWORTRAETSEL_VARIANTS),
 });
 
 export const submitKreuzwortraetselWortInputSchema = z.object({
   kursId: z.string().uuid(),
+  setKey: setKeyField,
   nummer: z.number().int().positive(),
   eingabe: z.string().min(1).max(TEXT_MAX),
 });
 
 export const submitKennzahlenDuellAntwortInputSchema = z.object({
   kursId: z.string().uuid(),
+  setKey: setKeyField,
   nummer: z.number().int().positive(),
   ausgewaehlt: z.enum(["A", "B"]),
 });
 
-export const memoryRundeInputSchema = z.object({ kursId: z.string().uuid(), runde: z.number().int().min(1).max(4) });
+export const memoryRundeInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  runde: z.number().int().min(1).max(4),
+});
 
 export const submitMemoryPaarInputSchema = z.object({
   kursId: z.string().uuid(),
+  setKey: setKeyField,
   runde: z.number().int().min(1).max(4),
   textA: z.string().min(1).max(TEXT_MAX),
   textB: z.string().min(1).max(TEXT_MAX),
+});
+
+// ---------------------------------------------------------------------------
+// F-158: Phishing-Detektiv
+// ---------------------------------------------------------------------------
+
+/**
+ * Eine E-Mail besteht aus `elemente` in Anzeigereihenfolge (Absender, Betreff, Textabschnitte, Link,
+ * Anhang). Jedes Element ist anklickbar; `verdaechtig` sagt, ob es ein Phishing-Merkmal ist. Auch
+ * harmlose Elemente tragen eine kurze `erklaerung` (warum unauffällig bzw. verdächtig).
+ * `ort` steuert die Darstellung: "absender"/"betreff" als Kopfzeilen, "text" als Absatz, "link" als
+ * Link (`text` zeigt Linktext UND sichtbares Ziel im Format "Linktext → https://ziel"), "anhang" als
+ * Dateianhang.
+ */
+export const phishingElementSchema = z.object({
+  id: z.string().min(1).max(20),
+  ort: z.enum(["absender", "betreff", "text", "link", "anhang"]),
+  text: z.string().min(1).max(TEXT_MAX),
+  verdaechtig: z.boolean(),
+  erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type PhishingElement = z.infer<typeof phishingElementSchema>;
+
+export const phishingMailSchema = z
+  .object({
+    nummer: z.number().int().positive(),
+    elemente: z.array(phishingElementSchema).min(4).max(12),
+    istPhishing: z.boolean(),
+    aufloesung: z.string().min(1).max(FEEDBACK_MAX),
+  })
+  .refine((mail) => new Set(mail.elemente.map((element) => element.id)).size === mail.elemente.length, {
+    message: "Element-IDs müssen innerhalb einer E-Mail eindeutig sein.",
+  })
+  .refine((mail) => !mail.istPhishing || mail.elemente.filter((element) => element.verdaechtig).length >= 2, {
+    message: "Eine Phishing-Mail braucht mindestens zwei verdächtige Elemente.",
+  })
+  .refine((mail) => mail.istPhishing || mail.elemente.every((element) => !element.verdaechtig), {
+    message: "Eine echte Mail darf kein verdächtig markiertes Element enthalten.",
+  });
+export type PhishingMail = z.infer<typeof phishingMailSchema>;
+
+export const phishingPayloadSchema = z.object({
+  mails: z.array(phishingMailSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type PhishingPayload = z.infer<typeof phishingPayloadSchema>;
+
+export const submitPhishingInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  nummer: z.number().int().positive(),
+  markiert: z.array(z.string().min(1).max(20)).max(12),
+  urteil: z.enum(["phishing", "echt"]),
+});
+
+// ---------------------------------------------------------------------------
+// F-158: Bug-Hunt
+// ---------------------------------------------------------------------------
+
+export const bugHuntAufgabeSchema = z
+  .object({
+    nummer: z.number().int().positive(),
+    titel: z.string().min(1).max(200),
+    sprache: z.string().min(1).max(40),
+    aufgabe: z.string().min(1).max(TEXT_MAX),
+    zeilen: z.array(z.string().max(200)).min(3).max(25),
+    fehlerZeile: z.number().int().min(1),
+    tipp: z.string().min(1).max(HINT_MAX),
+    korrektur: z.string().min(1).max(200),
+    erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+  })
+  .refine((aufgabe) => aufgabe.fehlerZeile <= aufgabe.zeilen.length, { message: "fehlerZeile liegt außerhalb des Codes." });
+export type BugHuntAufgabe = z.infer<typeof bugHuntAufgabeSchema>;
+
+export const bugHuntPayloadSchema = z.object({
+  aufgaben: z.array(bugHuntAufgabeSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type BugHuntPayload = z.infer<typeof bugHuntPayloadSchema>;
+
+export const submitBugHuntInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  nummer: z.number().int().positive(),
+  zeile: z.number().int().min(1).max(25),
+});
+
+// ---------------------------------------------------------------------------
+// F-158: Code-Reihenfolge (Parsons-Probleme)
+// ---------------------------------------------------------------------------
+
+export const codeReihenfolgeAufgabeSchema = z.object({
+  nummer: z.number().int().positive(),
+  titel: z.string().min(1).max(200),
+  sprache: z.string().min(1).max(40),
+  aufgabe: z.string().min(1).max(TEXT_MAX),
+  /** Die Zeilen in der RICHTIGEN Reihenfolge (Einrückung ist Teil des Textes). */
+  zeilen: z.array(z.string().min(1).max(200)).min(3).max(10),
+  erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type CodeReihenfolgeAufgabe = z.infer<typeof codeReihenfolgeAufgabeSchema>;
+
+export const codeReihenfolgePayloadSchema = z.object({
+  aufgaben: z.array(codeReihenfolgeAufgabeSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type CodeReihenfolgePayload = z.infer<typeof codeReihenfolgePayloadSchema>;
+
+export const submitCodeReihenfolgeInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  nummer: z.number().int().positive(),
+  reihenfolge: z.array(z.string().min(1).max(40)).min(3).max(10),
+});
+
+// ---------------------------------------------------------------------------
+// F-158: Netzwerk-Troubleshooting-Detektiv
+// ---------------------------------------------------------------------------
+
+const troubleshootingOptionSchema = z.object({ id: z.string().min(1).max(20), text: z.string().min(1).max(TEXT_MAX) });
+
+export const troubleshootingFallSchema = z
+  .object({
+    nummer: z.number().int().positive(),
+    titel: z.string().min(1).max(200),
+    szenario: z.string().min(1).max(TEXT_MAX),
+    /** Beobachtungen/Messergebnisse, z. B. "ping 127.0.0.1 funktioniert", "Link-LED aus". */
+    symptome: z.array(z.string().min(1).max(300)).min(2).max(6),
+    schichtOptionen: z.array(troubleshootingOptionSchema).min(3).max(5),
+    richtigeSchicht: z.string().min(1).max(20),
+    ursachenOptionen: z.array(troubleshootingOptionSchema).min(3).max(5),
+    richtigeUrsache: z.string().min(1).max(20),
+    erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+  })
+  .refine((fall) => fall.schichtOptionen.some((option) => option.id === fall.richtigeSchicht), {
+    message: "richtigeSchicht verweist auf keine Option.",
+  })
+  .refine((fall) => fall.ursachenOptionen.some((option) => option.id === fall.richtigeUrsache), {
+    message: "richtigeUrsache verweist auf keine Option.",
+  });
+export type TroubleshootingFall = z.infer<typeof troubleshootingFallSchema>;
+
+export const troubleshootingPayloadSchema = z.object({
+  faelle: z.array(troubleshootingFallSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type TroubleshootingPayload = z.infer<typeof troubleshootingPayloadSchema>;
+
+export const submitTroubleshootingInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  nummer: z.number().int().positive(),
+  schritt: z.union([z.literal(1), z.literal(2)]),
+  antwort: z.string().min(1).max(20),
+});
+
+// ---------------------------------------------------------------------------
+// F-158: Subnetting-Sprint und Zahlensystem-Sprint (serverseitig erzeugte Aufgaben)
+// ---------------------------------------------------------------------------
+
+export const SUBNETTING_TYPEN = ["netzadresse", "broadcast", "hosts", "maske", "praefix"] as const;
+export type SubnettingTyp = (typeof SUBNETTING_TYPEN)[number];
+export const ZAHLENSYSTEM_TYPEN = ["dez_bin", "bin_dez", "dez_hex", "hex_dez", "bin_hex", "hex_bin"] as const;
+export type ZahlensystemTyp = (typeof ZAHLENSYSTEM_TYPEN)[number];
+
+/** Für diese Spiele gibt es keinen festen Aufgabeninhalt: das Payload konfiguriert nur die Aufgabenarten. */
+export const subnettingPayloadSchema = z.object({
+  aufgabenTypen: z.array(z.enum(SUBNETTING_TYPEN)).min(1),
+  anzahl: z.number().int().min(3).max(20),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type SubnettingPayload = z.infer<typeof subnettingPayloadSchema>;
+
+export const zahlensystemePayloadSchema = z.object({
+  aufgabenTypen: z.array(z.enum(ZAHLENSYSTEM_TYPEN)).min(1),
+  anzahl: z.number().int().min(3).max(20),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type ZahlensystemePayload = z.infer<typeof zahlensystemePayloadSchema>;
+
+export const SPRINT_SCHWIERIGKEITEN = ["leicht", "mittel", "schwer"] as const;
+export type SprintSchwierigkeit = (typeof SPRINT_SCHWIERIGKEITEN)[number];
+
+export const SPRINT_GAME_TYPES = ["subnetting", "zahlensysteme"] as const;
+export type SprintGameType = (typeof SPRINT_GAME_TYPES)[number];
+
+export const sprintStartInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  gameType: z.enum(SPRINT_GAME_TYPES),
+  schwierigkeit: z.enum(SPRINT_SCHWIERIGKEITEN),
+});
+
+export const sprintAntwortInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  gameType: z.enum(SPRINT_GAME_TYPES),
+  /** Signierter, serverseitig geprüfter Aufgaben-Token aus `sprintStart`. */
+  token: z.string().min(10).max(600),
+  eingabe: z.string().min(1).max(60),
+});
+
+export const sprintAbschlussInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  gameType: z.enum(SPRINT_GAME_TYPES),
+  schwierigkeit: z.enum(SPRINT_SCHWIERIGKEITEN),
+  richtig: z.number().int().min(0).max(20),
+  gesamt: z.number().int().min(1).max(20),
 });

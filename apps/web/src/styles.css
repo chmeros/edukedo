@@ -3043,3 +3043,139 @@ details[open] > summary.disclosure::before {
   color: var(--ink-soft);
   font-size: var(--fs-sm);
 }
+
+/* F-158: weitere Spiele (Phishing-Detektiv, Bug-Hunt, Code-Reihenfolge, Troubleshooting, Sprint). */
+.phishing-mail {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.phishing-element {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.phishing-element:last-child {
+  border-bottom: none;
+}
+
+.phishing-element .phishing-label {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.phishing-element.is-marked {
+  background: var(--sun-tint);
+  box-shadow: inset 4px 0 0 var(--sun);
+}
+
+.phishing-element.is-correct {
+  background: var(--sprout-tint);
+  box-shadow: inset 4px 0 0 var(--sprout);
+}
+
+.phishing-element.is-missed {
+  background: var(--danger-tint);
+  box-shadow: inset 4px 0 0 var(--danger);
+}
+
+.phishing-element.is-wrong-mark {
+  background: var(--surface-2);
+  box-shadow: inset 4px 0 0 var(--ink-faint);
+}
+
+.phishing-explain {
+  display: block;
+  margin-top: 4px;
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+}
+
+.code-block {
+  margin: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+.code-line {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 2px 12px;
+  cursor: pointer;
+  white-space: pre;
+}
+
+.code-line:hover {
+  background: var(--surface);
+}
+
+.code-line .code-no {
+  color: var(--ink-faint);
+  user-select: none;
+  min-width: 2ch;
+  text-align: right;
+}
+
+.code-line.is-selected {
+  background: var(--sun-tint);
+  box-shadow: inset 4px 0 0 var(--sun);
+}
+
+.code-line.is-correct {
+  background: var(--sprout-tint);
+  box-shadow: inset 4px 0 0 var(--sprout);
+}
+
+.code-line.is-wrong {
+  background: var(--danger-tint);
+  box-shadow: inset 4px 0 0 var(--danger);
+}
+
+.code-order-row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.code-order-row .code-block {
+  flex: 1;
+  padding: 6px 12px;
+  white-space: pre;
+}
+
+.code-order-row.is-correct .code-block {
+  background: var(--sprout-tint);
+}
+
+.code-order-row.is-wrong .code-block {
+  background: var(--danger-tint);
+}
+
+.sprint-input {
+  font-family: var(--font-mono);
+  max-width: 22rem;
+}

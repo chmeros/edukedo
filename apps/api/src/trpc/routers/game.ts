@@ -1,4 +1,36 @@
 import {
+  bugHuntPayloadSchema,
+  checkBugHunt,
+  checkCodeReihenfolge,
+  checkPhishing,
+  checkTroubleshooting,
+  codeReihenfolgePayloadSchema,
+  DEFAULT_GAME_SET_KEY,
+  erzeugeSubnettingAufgabe,
+  erzeugeZahlensystemAufgabe,
+  phishingPayloadSchema,
+  pruefeSubnettingEingabe,
+  pruefeZahlensystemEingabe,
+  shapeBugHunt,
+  shapeCodeReihenfolge,
+  shapePhishing,
+  shapeTroubleshooting,
+  sprintAbschlussInputSchema,
+  sprintAntwortInputSchema,
+  sprintStartInputSchema,
+  submitBugHuntInputSchema,
+  submitCodeReihenfolgeInputSchema,
+  submitPhishingInputSchema,
+  submitTroubleshootingInputSchema,
+  subnettingFrage,
+  subnettingLoesung,
+  subnettingPayloadSchema,
+  troubleshootingPayloadSchema,
+  zahlensystemFrage,
+  zahlensystemLoesung,
+  zahlensystemePayloadSchema,
+  type SubnettingParams,
+  type ZahlensystemParams,
   buildKreuzwortraetselWordBank,
   checkKennzahlenDuellAntwort,
   checkKreuzwortraetselWort,
@@ -21,6 +53,7 @@ import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { recordGameAttempt } from "./progress";
 import type { Database } from "../../db/client";
+import { signSprintToken, verifySprintToken } from "../../game-sprint-token";
 import { game, gameProgress, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
@@ -47,17 +80,22 @@ async function requireEnrollment(db: Database, userId: string, kursId: string): 
   }
 }
 
-async function loadGame(db: Database, userId: string, kursId: string, gameType: string) {
+async function loadGame(db: Database, userId: string, kursId: string, gameType: string, setKey: string = DEFAULT_GAME_SET_KEY) {
   const [row] = await db
-    .select({ id: game.id, payload: game.payload })
+    .select({ id: game.id, payload: game.payload, title: game.title })
     .from(game)
-    .where(and(eq(game.kursId, kursId), eq(game.gameType, gameType), eq(game.isActive, true)))
+    .where(and(eq(game.kursId, kursId), eq(game.gameType, gameType), eq(game.setKey, setKey), eq(game.isActive, true)))
     .limit(1);
   if (!row) {
     throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Spiel ist in diesem Kurs nicht verfügbar." });
   }
   await requireEnrollment(db, userId, kursId);
   return row;
+}
+
+/** Stabile Kennung für die Anti-Farming-Prüfung; das Standard-Set behält die ursprüngliche Form. */
+function itemKey(gameType: string, kursId: string, setKey: string | undefined, suffix: string | number): string {
+  return !setKey || setKey === DEFAULT_GAME_SET_KEY ? `${gameType}:${kursId}:${suffix}` : `${gameType}:${setKey}:${kursId}:${suffix}`;
 }
 
 async function loadProgressRow(db: Database, userId: string, gameId: string) {
@@ -119,18 +157,64 @@ function parseMemoryState(raw: unknown): MemoryProgressState {
   return { completedRoundNumbers: state.completedRoundNumbers ?? [] };
 }
 
+// ---------------------------------------------------------------------------
+// F-158: weitere Spiele
+// ---------------------------------------------------------------------------
+
+interface SolvedListState {
+  solvedNumbers: number[];
+}
+
+function parseSolvedListState(raw: unknown): SolvedListState {
+  const state = (raw ?? {}) as Partial<SolvedListState>;
+  return { solvedNumbers: state.solvedNumbers ?? [] };
+}
+
+/** Gemeinsamer Ablauf der vier inhaltsbasierten Spiele: Fortschritt laden, Ergebnis eintragen, Gamification. */
+async function recordListResult(
+  ctx: { db: Database; currentUser: { id: string } },
+  gameId: string,
+  nummer: number,
+  total: number,
+  correct: boolean,
+  gameItemKey: string,
+  difficulty: string,
+): Promise<void> {
+  if (correct) {
+    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, gameId);
+    const state = parseSolvedListState(progressRow?.state);
+    if (!state.solvedNumbers.includes(nummer)) state.solvedNumbers.push(nummer);
+    await upsertProgress(ctx.db, ctx.currentUser.id, gameId, state, state.solvedNumbers.length === total ? new Date() : null);
+  }
+  await recordGameAttempt(ctx.db, ctx.currentUser.id, gameItemKey, correct, difficulty);
+}
+
+interface SprintProgressState {
+  bestwerte: Record<string, { richtig: number; gesamt: number }>;
+}
+
+function parseSprintState(raw: unknown): SprintProgressState {
+  const state = (raw ?? {}) as Partial<SprintProgressState>;
+  return { bestwerte: state.bestwerte ?? {} };
+}
+
+type SprintTokenPayload =
+  | { g: "subnetting"; params: SubnettingParams; s: string }
+  | { g: "zahlensysteme"; params: ZahlensystemParams; s: string };
+
 export const gameRouter = router({
   /** Für den Spiele-Katalog (Spiele.tsx, analog zu instrumentLernpfad.available): welche der
    * drei Spiele in diesem Kurs aktiven Content haben (z. B. hat der Mathe-Kurs aktuell keinen). */
   available: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
     return ctx.db
-      .select({ gameType: game.gameType, title: game.title })
+      .select({ gameType: game.gameType, setKey: game.setKey, title: game.title })
       .from(game)
-      .where(and(eq(game.kursId, input.kursId), eq(game.isActive, true)));
+      .where(and(eq(game.kursId, input.kursId), eq(game.isActive, true)))
+      .orderBy(game.createdAt);
   }),
 
   getKreuzwortraetsel: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel", input.setKey);
     const payload = kreuzwortraetselPayloadSchema.parse(row.payload);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
     const state = parseKreuzwortraetselState(progressRow?.state);
@@ -151,13 +235,13 @@ export const gameRouter = router({
    * Rätsel-Fortschritt dieses Kurses neu (Spezifikation: "Ein erneuter Start setzt die
    * Eingaben und die gesperrten Wörter dieses Rätseldurchlaufs zurück"). */
   startKreuzwortraetsel: protectedProcedure.input(startKreuzwortraetselInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel", input.setKey);
     await upsertProgress(ctx.db, ctx.currentUser.id, row.id, { variant: input.variant, solvedWordNumbers: [] }, null);
     return { success: true };
   }),
 
   submitKreuzwortraetselWort: protectedProcedure.input(submitKreuzwortraetselWortInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel", input.setKey);
     const payload = kreuzwortraetselPayloadSchema.parse(row.payload);
     const result = checkKreuzwortraetselWort(payload, input.nummer, input.eingabe);
 
@@ -170,13 +254,13 @@ export const gameRouter = router({
       const completed = state.solvedWordNumbers.length === payload.woerter.length;
       await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
     }
-    await recordGameAttempt(ctx.db, ctx.currentUser.id, `kreuzwortraetsel:${input.kursId}:${input.nummer}`, result.correct, "leicht");
+    await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("kreuzwortraetsel", input.kursId, input.setKey, input.nummer), result.correct, "leicht");
 
     return result;
   }),
 
   getKennzahlenDuell: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kennzahlen_duell");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kennzahlen_duell", input.setKey);
     const payload = kennzahlenDuellPayloadSchema.parse(row.payload);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
     const state = parseKennzahlenDuellState(progressRow?.state);
@@ -190,7 +274,7 @@ export const gameRouter = router({
   }),
 
   submitKennzahlenDuellAntwort: protectedProcedure.input(submitKennzahlenDuellAntwortInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kennzahlen_duell");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kennzahlen_duell", input.setKey);
     const payload = kennzahlenDuellPayloadSchema.parse(row.payload);
     const result = checkKennzahlenDuellAntwort(payload, input.nummer, input.ausgewaehlt);
 
@@ -203,13 +287,13 @@ export const gameRouter = router({
       const completed = state.completedQuestionNumbers.length === payload.fragen.length;
       await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
     }
-    await recordGameAttempt(ctx.db, ctx.currentUser.id, `kennzahlen_duell:${input.kursId}:${input.nummer}`, result.correct, "mittel");
+    await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("kennzahlen_duell", input.kursId, input.setKey, input.nummer), result.correct, "mittel");
 
     return result;
   }),
 
   getMemory: protectedProcedure.input(memoryRundeInputSchema).query(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory", input.setKey);
     const payload = memoryPayloadSchema.parse(row.payload);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
     const state = parseMemoryState(progressRow?.state);
@@ -225,7 +309,7 @@ export const gameRouter = router({
   }),
 
   submitMemoryPaar: protectedProcedure.input(submitMemoryPaarInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory", input.setKey);
     const payload = memoryPayloadSchema.parse(row.payload);
     const result = checkMemoryPaar(payload, input.runde, input.textA, input.textB);
 
@@ -237,7 +321,7 @@ export const gameRouter = router({
       const paar = payload.paare.find(
         (candidate) => candidate.runde === input.runde && (candidate.begriff === input.textA || candidate.bedeutung === input.textA),
       )!;
-      await recordGameAttempt(ctx.db, ctx.currentUser.id, `memory:${input.kursId}:${paar.nummer}`, true, "leicht");
+      await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("memory", input.kursId, input.setKey, paar.nummer), true, "leicht");
     }
 
     return result;
@@ -250,7 +334,7 @@ export const gameRouter = router({
    * ("Fortschritt: Die Anwendung speichert abgeschlossene Runden") — ein fälschlich gemeldeter
    * Abschluss hat keine Gamification-Konsequenz. */
   completeMemoryRound: protectedProcedure.input(memoryRundeInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory");
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory", input.setKey);
     const payload = memoryPayloadSchema.parse(row.payload);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
     const state = parseMemoryState(progressRow?.state);
@@ -263,5 +347,165 @@ export const gameRouter = router({
     await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
 
     return { success: true };
+  }),
+
+  // -------------------------------------------------------------------------
+  // Phishing-Detektiv
+  // -------------------------------------------------------------------------
+
+  getPhishing: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "phishing", input.setKey);
+    const payload = phishingPayloadSchema.parse(row.payload);
+    const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+    return { mails: shapePhishing(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
+  }),
+
+  submitPhishing: protectedProcedure.input(submitPhishingInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "phishing", input.setKey);
+    const payload = phishingPayloadSchema.parse(row.payload);
+    const result = checkPhishing(payload, input.nummer, input.markiert, input.urteil);
+    await recordListResult(ctx, row.id, input.nummer, payload.mails.length, result.correct, itemKey("phishing", input.kursId, input.setKey, input.nummer), "mittel");
+    return result;
+  }),
+
+  // -------------------------------------------------------------------------
+  // Bug-Hunt
+  // -------------------------------------------------------------------------
+
+  getBugHunt: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "bughunt", input.setKey);
+    const payload = bugHuntPayloadSchema.parse(row.payload);
+    const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+    return { aufgaben: shapeBugHunt(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
+  }),
+
+  submitBugHunt: protectedProcedure.input(submitBugHuntInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "bughunt", input.setKey);
+    const payload = bugHuntPayloadSchema.parse(row.payload);
+    const result = checkBugHunt(payload, input.nummer, input.zeile);
+    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct, itemKey("bughunt", input.kursId, input.setKey, input.nummer), "mittel");
+    return result;
+  }),
+
+  // -------------------------------------------------------------------------
+  // Code-Reihenfolge
+  // -------------------------------------------------------------------------
+
+  getCodeReihenfolge: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "codereihenfolge", input.setKey);
+    const payload = codeReihenfolgePayloadSchema.parse(row.payload);
+    const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+    return { aufgaben: shapeCodeReihenfolge(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
+  }),
+
+  submitCodeReihenfolge: protectedProcedure.input(submitCodeReihenfolgeInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "codereihenfolge", input.setKey);
+    const payload = codeReihenfolgePayloadSchema.parse(row.payload);
+    let result;
+    try {
+      result = checkCodeReihenfolge(payload, input.nummer, input.reihenfolge);
+    } catch {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Ungültige Reihenfolge." });
+    }
+    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct, itemKey("codereihenfolge", input.kursId, input.setKey, input.nummer), "mittel");
+    return result;
+  }),
+
+  // -------------------------------------------------------------------------
+  // Netzwerk-Troubleshooting-Detektiv
+  // -------------------------------------------------------------------------
+
+  getTroubleshooting: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "troubleshooting", input.setKey);
+    const payload = troubleshootingPayloadSchema.parse(row.payload);
+    const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+    return { faelle: shapeTroubleshooting(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
+  }),
+
+  submitTroubleshooting: protectedProcedure.input(submitTroubleshootingInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "troubleshooting", input.setKey);
+    const payload = troubleshootingPayloadSchema.parse(row.payload);
+    const result = checkTroubleshooting(payload, input.nummer, input.schritt, input.antwort);
+    // Fortschritt (gelöst) erst nach der richtigen Ursache; Gamification je Schritt mit eigener Kennung.
+    if (input.schritt === 2) {
+      await recordListResult(ctx, row.id, input.nummer, payload.faelle.length, result.correct, itemKey("troubleshooting", input.kursId, input.setKey, `${input.nummer}:2`), "mittel");
+    } else {
+      await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("troubleshooting", input.kursId, input.setKey, `${input.nummer}:1`), result.correct, "leicht");
+    }
+    return result;
+  }),
+
+  // -------------------------------------------------------------------------
+  // Subnetting-/Zahlensystem-Sprint (serverseitig erzeugte Aufgaben)
+  // -------------------------------------------------------------------------
+
+  getSprint: protectedProcedure
+    .input(sprintStartInputSchema.pick({ kursId: true, setKey: true, gameType: true }))
+    .query(async ({ ctx, input }) => {
+      const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+      const payload = (input.gameType === "subnetting" ? subnettingPayloadSchema : zahlensystemePayloadSchema).parse(row.payload);
+      const state = parseSprintState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+      return { anzahl: payload.anzahl, abschlussmeldung: payload.abschlussmeldung, bestwerte: state.bestwerte };
+    }),
+
+  sprintStart: protectedProcedure.input(sprintStartInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+    const { randomInt } = await import("node:crypto");
+    const rng = () => randomInt(0, 1_000_000) / 1_000_000;
+    if (input.gameType === "subnetting") {
+      const payload = subnettingPayloadSchema.parse(row.payload);
+      const aufgaben = Array.from({ length: payload.anzahl }, () => {
+        const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
+        const params = erzeugeSubnettingAufgabe(typ, input.schwierigkeit, rng);
+        const { frage, hinweis } = subnettingFrage(params);
+        const tokenPayload: SprintTokenPayload = { g: "subnetting", params, s: input.schwierigkeit };
+        return { token: signSprintToken(tokenPayload), frage, hinweis, typ };
+      });
+      return { aufgaben };
+    }
+    const payload = zahlensystemePayloadSchema.parse(row.payload);
+    const aufgaben = Array.from({ length: payload.anzahl }, () => {
+      const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
+      const params = erzeugeZahlensystemAufgabe(typ, input.schwierigkeit, rng);
+      const { frage, hinweis } = zahlensystemFrage(params);
+      const tokenPayload: SprintTokenPayload = { g: "zahlensysteme", params, s: input.schwierigkeit };
+      return { token: signSprintToken(tokenPayload), frage, hinweis, typ };
+    });
+    return { aufgaben };
+  }),
+
+  sprintAntwort: protectedProcedure.input(sprintAntwortInputSchema).mutation(async ({ ctx, input }) => {
+    await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+    const decoded = verifySprintToken(input.token) as SprintTokenPayload | null;
+    if (!decoded || decoded.g !== input.gameType) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Die Aufgabe ist ungültig oder abgelaufen. Starte den Sprint neu." });
+    }
+    const loesung = decoded.g === "subnetting" ? subnettingLoesung(decoded.params) : zahlensystemLoesung(decoded.params);
+    const correct =
+      decoded.g === "subnetting" ? pruefeSubnettingEingabe(decoded.params, input.eingabe) : pruefeZahlensystemEingabe(decoded.params, input.eingabe);
+    // Kennung je Aufgabenart statt je Aufgabe: zufällige Aufgaben ließen sich sonst endlos "farmen".
+    await recordGameAttempt(
+      ctx.db,
+      ctx.currentUser.id,
+      itemKey(decoded.g, input.kursId, input.setKey, `${decoded.params.typ}:${decoded.s}`),
+      correct,
+      decoded.s,
+    );
+    return { correct, erwartet: loesung.erwartet, erklaerung: loesung.erklaerung };
+  }),
+
+  /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige, bewusst ohne Gamification-Folge
+   * (diese läuft bereits über `sprintAntwort` je Aufgabe, serverseitig abgesichert). */
+  sprintAbschluss: protectedProcedure.input(sprintAbschlussInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
+    const state = parseSprintState(progressRow?.state);
+    const vorher = state.bestwerte[input.schwierigkeit];
+    const richtig = Math.min(input.richtig, input.gesamt);
+    if (!vorher || richtig / input.gesamt > vorher.richtig / vorher.gesamt) {
+      state.bestwerte[input.schwierigkeit] = { richtig, gesamt: input.gesamt };
+    }
+    await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, progressRow?.completedAt ?? new Date());
+    return { bestwert: state.bestwerte[input.schwierigkeit]! };
   }),
 });

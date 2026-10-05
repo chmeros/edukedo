@@ -1,6 +1,7 @@
 export * from "./age";
 export * from "./fsrs/scheduler";
 export * from "./game-logic";
+export * from "./game-logic-weitere";
 export * from "./instrument-lernpfad-logic";
 export * from "./quiz-logic";
 export * from "./schemas/admin-content";

@@ -2,6 +2,24 @@ import { kennzahlenDuellPayloadSchema, kreuzwortraetselPayloadSchema, memoryPayl
 import { eq } from "drizzle-orm";
 import { db, pool } from "./client";
 import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
+import {
+  bugHuntPayloadSchema,
+  codeReihenfolgePayloadSchema,
+  DEFAULT_GAME_SET_KEY,
+  phishingPayloadSchema,
+  subnettingPayloadSchema,
+  troubleshootingPayloadSchema,
+  zahlensystemePayloadSchema,
+  SUBNETTING_TYPEN,
+  ZAHLENSYSTEM_TYPEN,
+} from "@edukedo/shared";
+import { bugHuntCodefehler } from "./content/game-bughunt-codefehler";
+import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
+import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
+import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
+import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
+import { phishingItAlltag } from "./content/game-phishing-it-alltag";
+import { troubleshootingNetzwerk } from "./content/game-troubleshooting-netzwerk";
 import { kennzahlenDuellQmProzesse } from "./content/game-kennzahlen-duell-qm-prozesse";
 import { kreuzwortraetselItFachbegriffe } from "./content/game-kreuzwortraetsel-it-fachbegriffe";
 import { kreuzwortraetselFinanzkennzahlen } from "./content/game-kreuzwortraetsel-finanzkennzahlen";
@@ -18,7 +36,13 @@ import { game, kurs } from "./schema";
  * (kurs_id, game_type) — ein erneuter Lauf nach einer Content-Korrektur ersetzt den vorhandenen
  * Eintrag, statt Duplikate anzulegen.
  */
-async function upsertGame(kursSlug: string, gameType: string, title: string, payload: unknown): Promise<void> {
+async function upsertGame(
+  kursSlug: string,
+  gameType: string,
+  title: string,
+  payload: unknown,
+  setKey: string = DEFAULT_GAME_SET_KEY,
+): Promise<void> {
   const [kursRow] = await db.select().from(kurs).where(eq(kurs.slug, kursSlug)).limit(1);
   if (!kursRow) {
     throw new Error(`Kurs "${kursSlug}" wurde nicht gefunden — zuerst db:import-content laufen lassen.`);
@@ -26,13 +50,13 @@ async function upsertGame(kursSlug: string, gameType: string, title: string, pay
 
   await db
     .insert(game)
-    .values({ kursId: kursRow.id, gameType, title, payload: payload as object })
+    .values({ kursId: kursRow.id, gameType, setKey, title, payload: payload as object })
     .onConflictDoUpdate({
-      target: [game.kursId, game.gameType],
+      target: [game.kursId, game.gameType, game.setKey],
       set: { title, payload: payload as object, updatedAt: new Date() },
     });
 
-  console.log(`Spiel "${title}" (${kursSlug}/${gameType}) angelegt/aktualisiert.`);
+  console.log(`Spiel "${title}" (${kursSlug}/${gameType}/${setKey}) angelegt/aktualisiert.`);
 }
 
 async function main() {
@@ -84,6 +108,64 @@ async function main() {
       "memory",
       "IT-Memory: Abkürzungen und Begriffe",
       memoryPayloadSchema.parse(memoryItBegriffe),
+    );
+
+    // F-158 (weitere Spiele für die Fachinformatiker-Kurse, Nutzer-Vorgabe vom 05.10.2026): zusätzliche
+    // Sets der bekannten Spieltypen (setKey ≠ "standard") und sechs neue Spieltypen.
+    await upsertGame(
+      fachinformatikSlug,
+      "kreuzwortraetsel",
+      "Kreuzworträtsel: Netzwerk und IT-Sicherheit",
+      kreuzwortraetselPayloadSchema.parse(kreuzwortraetselNetzwerkSicherheit),
+      "netzwerk-sicherheit",
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "kennzahlen_duell",
+      "Begriffe-Duell: SQL und Datenmodellierung",
+      kennzahlenDuellPayloadSchema.parse(kennzahlenDuellSqlDatenmodellierung),
+      "sql",
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "memory",
+      "IT-Memory: Ports und Protokolle",
+      memoryPayloadSchema.parse(memoryPortsProtokolle),
+      "ports",
+    );
+    await upsertGame(fachinformatikSlug, "phishing", "Phishing-Detektiv: E-Mails prüfen", phishingPayloadSchema.parse(phishingItAlltag));
+    await upsertGame(fachinformatikSlug, "bughunt", "Bug-Hunt: Fehlerzeilen finden", bugHuntPayloadSchema.parse(bugHuntCodefehler));
+    await upsertGame(
+      fachinformatikSlug,
+      "codereihenfolge",
+      "Code-Reihenfolge: Grundmuster",
+      codeReihenfolgePayloadSchema.parse(codeReihenfolgeGrundmuster),
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "troubleshooting",
+      "Troubleshooting-Detektiv: Netzwerkstörungen",
+      troubleshootingPayloadSchema.parse(troubleshootingNetzwerk),
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "subnetting",
+      "Subnetting-Sprint",
+      subnettingPayloadSchema.parse({
+        aufgabenTypen: [...SUBNETTING_TYPEN],
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Mit etwas Übung gehen Netzadresse, Broadcast und Maske bald im Schlaf.",
+      }),
+    );
+    await upsertGame(
+      fachinformatikSlug,
+      "zahlensysteme",
+      "Zahlensystem-Sprint",
+      zahlensystemePayloadSchema.parse({
+        aufgabenTypen: [...ZAHLENSYSTEM_TYPEN],
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Dual, dezimal und hexadezimal sind für dich bald keine Fremdsprachen mehr.",
+      }),
     );
   }
 

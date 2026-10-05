@@ -1302,13 +1302,15 @@ export const game = pgTable(
       .notNull()
       .references(() => kurs.id, { onDelete: "cascade" }),
     gameType: text("game_type").notNull(),
+    // F-158: mehrere Sets je Kurs und Spieltyp (z. B. zwei Memory-Sets); "standard" ist das ursprüngliche Set.
+    setKey: text("set_key").notNull().default("standard"),
     title: text("title").notNull(),
     isActive: boolean("is_active").notNull().default(true),
     payload: jsonb("payload").notNull(),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
-  (table) => [uniqueIndex("game_kurs_id_game_type_key").on(table.kursId, table.gameType)],
+  (table) => [uniqueIndex("game_kurs_id_game_type_set_key").on(table.kursId, table.gameType, table.setKey)],
 );
 
 /**

@@ -1,0 +1,204 @@
+import type { MemoryPayload } from "@edukedo/shared";
+
+/**
+ * Gaming-Tab: „IT-Memory: Ports und Protokolle" für die Fachinformatiker/in-Kurse
+ * (24 Protokoll-/Dienst-Paare in vier Themenrunden à sechs Paare, Protokoll mit Standardport ↔ Bedeutung).
+ * Es gelten die von der IANA registrierten Standardports.
+ */
+export const memoryPortsProtokolle: MemoryPayload = {
+  runden: [
+    {
+      nummer: 1,
+      titel: "Web und E-Mail",
+      abschlussmeldung: "Geschafft! Du kannst jetzt die wichtigsten Protokolle für Webzugriff und E-Mail samt Standardports zuordnen.",
+    },
+    {
+      nummer: 2,
+      titel: "Fernzugriff und Dateiübertragung",
+      abschlussmeldung: "Geschafft! Du erkennst jetzt Protokolle für Fernzugriff und Dateiübertragung und weißt, welche davon verschlüsselt arbeiten.",
+    },
+    {
+      nummer: 3,
+      titel: "Namens-, Adress- und Verzeichnisdienste",
+      abschlussmeldung: "Geschafft! Du kennst jetzt zentrale Dienste für Namensauflösung, Adressvergabe, Zeit, Verzeichnisse, Überwachung und Protokollierung.",
+    },
+    {
+      nummer: 4,
+      titel: "Transport, Verschlüsselung und Sicherheit",
+      abschlussmeldung: "Geschafft! Du kannst jetzt Transportprotokolle, Verschlüsselungsverfahren und grundlegende Netzwerkprotokolle auseinanderhalten.",
+    },
+  ],
+  paare: [
+    {
+      nummer: 1,
+      runde: 1,
+      begriff: "HTTP (Port 80)",
+      bedeutung: "Protokoll, mit dem Browser Webseiten bei Webservern anfragen und die Inhalte im Klartext, also ohne Verschlüsselung, übertragen werden.",
+      bestaetigung: "Richtig! Bei unverschlüsseltem HTTP kann jeder auf dem Übertragungsweg mitlesen. Deshalb leiten Webseiten heute meist automatisch auf die gesicherte Variante um.",
+    },
+    {
+      nummer: 2,
+      runde: 1,
+      begriff: "HTTPS (Port 443)",
+      bedeutung: "Gesicherte Variante des Webprotokolls, bei der die Übertragung per TLS verschlüsselt wird und der Server sich mit einem Zertifikat ausweist.",
+      bestaetigung: "Genau! Das Schloss-Symbol im Browser steht für diese verschlüsselte Verbindung. Sie schützt den Transportweg, sagt aber nichts darüber, ob der Betreiber der Seite vertrauenswürdig ist.",
+    },
+    {
+      nummer: 3,
+      runde: 1,
+      begriff: "SMTP (Port 25 bzw. 587)",
+      bedeutung: "Protokoll zum Versenden von E-Mails und zum Weiterleiten zwischen Mailservern; Mailprogramme reichen ihre Nachrichten meist über den Submission-Port ein.",
+      bestaetigung: "Stimmt! Port 25 wird vor allem zwischen Mailservern genutzt, Port 587 (Submission) von Mailprogrammen zum Einreichen neuer Nachrichten. SMTP dient nur dem Senden, nicht dem Abrufen.",
+    },
+    {
+      nummer: 4,
+      runde: 1,
+      begriff: "IMAP (Port 143)",
+      bedeutung: "Protokoll zum Abrufen von E-Mails, bei dem die Nachrichten auf dem Server bleiben und mehrere Geräte denselben Stand sehen; ohne implizite Verschlüsselung.",
+      bestaetigung: "Richtig! Wer Mails am Handy und am Laptop abruft, hat mit diesem Protokoll auf beiden Geräten dieselben Ordner und gelesenen Nachrichten. Verschlüsselt werden kann die Verbindung nachträglich per STARTTLS.",
+    },
+    {
+      nummer: 5,
+      runde: 1,
+      begriff: "IMAPS (Port 993)",
+      bedeutung: "Mit TLS von Beginn an gesicherte Variante des Mailabrufs, bei der die Nachrichten ebenfalls auf dem Server verbleiben.",
+      bestaetigung: "Genau! Hier ist die Verbindung von der ersten Sekunde an verschlüsselt, Zugangsdaten und Mails laufen also nicht im Klartext durchs Netz. Das ist die empfohlene Variante für den Mailabruf.",
+    },
+    {
+      nummer: 6,
+      runde: 1,
+      begriff: "POP3 (Port 110)",
+      bedeutung: "Älteres Protokoll zum Abrufen von E-Mails, das die Nachrichten auf das lokale Gerät herunterlädt und sie danach meist vom Server löscht.",
+      bestaetigung: "Stimmt! Dadurch liegen die Mails nach dem Abruf nur noch auf einem einzigen Gerät. Für mehrere Geräte ist das Protokoll deshalb unpraktisch, ein Abruf mit Verbleib auf dem Server passt besser.",
+    },
+    {
+      nummer: 7,
+      runde: 2,
+      begriff: "SSH (Port 22)",
+      bedeutung: "Protokoll für den verschlüsselten Fernzugriff auf die Kommandozeile entfernter Rechner, mit Anmeldung per Passwort oder Schlüsselpaar.",
+      bestaetigung: "Richtig! Administratorinnen und Administratoren verwalten damit Server über das Netz. Mit Schlüsselpaar statt Passwort ist die Anmeldung besonders sicher.",
+    },
+    {
+      nummer: 8,
+      runde: 2,
+      begriff: "Telnet (Port 23)",
+      bedeutung: "Veraltetes Protokoll für den Fernzugriff auf die Textkonsole eines Geräts, bei dem alles einschließlich des Passworts unverschlüsselt übertragen wird.",
+      bestaetigung: "Genau! Wer im Netz mitlauscht, sieht Eingaben und Passwörter im Klartext. Deshalb wird Telnet heute durch das verschlüsselte Gegenstück ersetzt und nur noch zu Testzwecken verwendet.",
+    },
+    {
+      nummer: 9,
+      runde: 2,
+      begriff: "RDP (Port 3389)",
+      bedeutung: "Protokoll für den Fernzugriff auf die grafische Oberfläche eines Rechners, sodass du ihn aus der Ferne wie vor Ort mit Maus und Tastatur bedienst.",
+      bestaetigung: "Richtig! Die Bildschirmausgabe wird zu dir übertragen, Maus und Tastatur zurück. Dieser Port sollte nicht direkt aus dem Internet erreichbar sein, sondern etwa nur über ein VPN.",
+    },
+    {
+      nummer: 10,
+      runde: 2,
+      begriff: "FTP (Port 21)",
+      bedeutung: "Klassisches Protokoll zur Dateiübertragung zwischen Client und Server, das Befehle und Daten über getrennte Verbindungen und im Klartext überträgt.",
+      bestaetigung: "Stimmt! Port 21 trägt die Steuerbefehle, die Dateien selbst laufen über eine weitere Verbindung. Weil auch Zugangsdaten unverschlüsselt fließen, nutzt man heute besser eine gesicherte Variante.",
+    },
+    {
+      nummer: 11,
+      runde: 2,
+      begriff: "SFTP (Port 22)",
+      bedeutung: "Verschlüsselte Dateiübertragung, die als Teil eines gesicherten Fernzugriffsprotokolls läuft und deshalb keinen eigenen Port braucht.",
+      bestaetigung: "Genau! SFTP teilt sich den Port mit SSH und ist nicht dasselbe wie FTPS. FTPS ist das klassische FTP, das zusätzlich mit TLS abgesichert wird.",
+    },
+    {
+      nummer: 12,
+      runde: 2,
+      begriff: "SMB (Port 445)",
+      bedeutung: "Protokoll für Datei- und Druckerfreigaben im lokalen Netz, mit dem Clients auf Netzlaufwerke und Netzwerkdrucker zugreifen.",
+      bestaetigung: "Richtig! Netzlaufwerke im Firmennetz laufen meist über dieses Protokoll, unter Linux liefert die Software Samba es ebenfalls. Der Port 445 sollte nicht aus dem Internet erreichbar sein.",
+    },
+    {
+      nummer: 13,
+      runde: 3,
+      begriff: "DNS (Port 53)",
+      bedeutung: "Dienst, der lesbare Namen wie Domainnamen in die zugehörigen IP-Adressen auflöst.",
+      bestaetigung: "Richtig! Normale Anfragen laufen meist über UDP, größere Antworten und der Austausch zwischen Nameservern über TCP. Beide Transportprotokolle nutzen dafür denselben Port.",
+    },
+    {
+      nummer: 14,
+      runde: 3,
+      begriff: "DHCP (Port 67 und 68)",
+      bedeutung: "Dienst, der Geräten beim Netzwerkanschluss automatisch eine IP-Adresse samt Gateway und weiteren Einstellungen zuweist.",
+      bestaetigung: "Genau! Der Server lauscht auf Port 67, der Client auf Port 68, beide per UDP. Der Client sucht den Server zunächst per Broadcast, weil er selbst noch keine Adresse hat.",
+    },
+    {
+      nummer: 15,
+      runde: 3,
+      begriff: "NTP (Port 123)",
+      bedeutung: "Dienst, der die Uhren von Rechnern und Geräten über das Netz mit einer genauen Zeitquelle abgleicht.",
+      bestaetigung: "Stimmt! Eine einheitliche Zeit ist wichtig für Logdateien, Zertifikate und Anmeldeverfahren, die auf Zeitstempel angewiesen sind. Das Protokoll nutzt UDP.",
+    },
+    {
+      nummer: 16,
+      runde: 3,
+      begriff: "LDAP (Port 389)",
+      bedeutung: "Protokoll zum Abfragen und Ändern von Einträgen in einem Verzeichnisdienst, etwa zu Benutzern, Gruppen und Geräten einer Organisation.",
+      bestaetigung: "Richtig! Zentrale Benutzerverwaltungen lassen sich damit anbinden, sodass Anwendungen Anmeldungen gegen ein gemeinsames Verzeichnis prüfen. Die verschlüsselte Variante LDAPS nutzt standardmäßig Port 636.",
+    },
+    {
+      nummer: 17,
+      runde: 3,
+      begriff: "SNMP (Port 161)",
+      bedeutung: "Protokoll zum Überwachen und Verwalten von Netzwerkgeräten wie Switches, Router oder Drucker, bei dem ein Managementsystem Statuswerte der Geräte abfragt.",
+      bestaetigung: "Genau! Das Managementsystem fragt auf Port 161 Werte wie Auslastung oder Fehlerzähler ab. Meldungen, die ein Gerät von sich aus sendet (Traps), gehen an Port 162.",
+    },
+    {
+      nummer: 18,
+      runde: 3,
+      begriff: "Syslog (Port 514)",
+      bedeutung: "Standard, mit dem Geräte und Dienste ihre Protokollmeldungen an einen zentralen Logserver schicken, damit sie dort gesammelt und ausgewertet werden können.",
+      bestaetigung: "Stimmt! Klassisch läuft Syslog über UDP, bei Bedarf gibt es auch gesicherte Varianten mit TLS. Zentrale Logs helfen bei der Fehlersuche und beim Erkennen von Angriffen.",
+    },
+    {
+      nummer: 19,
+      runde: 4,
+      begriff: "TCP (Transmission Control Protocol)",
+      bedeutung: "Verbindungsorientiertes Transportprotokoll, das zuverlässige Übertragung mit Empfangsbestätigung, erneutem Senden bei Verlust und richtiger Reihenfolge der Daten sicherstellt.",
+      bestaetigung: "Richtig! Diese Zuverlässigkeit kostet etwas Zeit, deshalb eignet sich TCP für Webseiten, Mails und Dateiübertragungen, bei denen jedes Byte ankommen muss.",
+    },
+    {
+      nummer: 20,
+      runde: 4,
+      begriff: "UDP (User Datagram Protocol)",
+      bedeutung: "Verbindungsloses Transportprotokoll ohne Zustellgarantie, dafür mit geringem Verwaltungsaufwand und kurzen Verzögerungen.",
+      bestaetigung: "Genau! Verlorene Pakete werden nicht automatisch erneut gesendet. Das ist bei Sprach- und Videoübertragung oder kurzen Anfragen in Ordnung, weil Geschwindigkeit dort wichtiger ist als Vollständigkeit.",
+    },
+    {
+      nummer: 21,
+      runde: 4,
+      begriff: "TLS (Transport Layer Security)",
+      bedeutung: "Verfahren, das die Verbindung zwischen zwei Anwendungen verschlüsselt und die Gegenstelle über Zertifikate authentifiziert; Nachfolger von SSL.",
+      bestaetigung: "Stimmt! Viele Protokolle werden damit abgesichert, etwa Webzugriff und Mailabruf. Die Bezeichnung SSL ist veraltet, die alten SSL-Versionen gelten als unsicher.",
+    },
+    {
+      nummer: 22,
+      runde: 4,
+      begriff: "IPsec (Internet Protocol Security)",
+      bedeutung: "Protokollfamilie, die den Datenverkehr bereits auf der Vermittlungsschicht authentifiziert und verschlüsselt und häufig für VPN-Verbindungen zwischen Netzen verwendet wird.",
+      bestaetigung: "Richtig! Im Gegensatz zu Verfahren, die einzelne Anwendungsverbindungen sichern, schützt IPsec ganze IP-Pakete. Deshalb eignet es sich gut, um zwei Standorte sicher zu koppeln.",
+    },
+    {
+      nummer: 23,
+      runde: 4,
+      begriff: "ICMP (Internet Control Message Protocol)",
+      bedeutung: "Protokoll für Fehler- und Statusmeldungen im IP-Netz, auf dem Werkzeuge wie Ping und Traceroute beruhen.",
+      bestaetigung: "Genau! Mit Ping prüfst du, ob ein Gerät erreichbar ist. ICMP transportiert keine Nutzdaten von Anwendungen und kommt daher ohne Portnummern aus.",
+    },
+    {
+      nummer: 24,
+      runde: 4,
+      begriff: "ARP (Address Resolution Protocol)",
+      bedeutung: "Protokoll, das im lokalen Netz zu einer bekannten IPv4-Adresse die zugehörige Hardwareadresse ermittelt.",
+      bestaetigung: "Richtig! Ein Gerät fragt per Broadcast, wer eine bestimmte IP-Adresse hat, und der Besitzer antwortet mit seiner MAC-Adresse. Bei IPv6 übernimmt diese Aufgabe das Neighbor Discovery Protocol.",
+    },
+  ],
+  falschesPaarFeedback: "Das ist noch kein Paar. Schau dir beide Aussagen genau an und versuche es erneut.",
+  abschlussmeldung:
+    "Geschafft! Du hast 24 wichtige Protokolle und Dienste kennengelernt. Du kannst nun Standardports und Aufgaben aus Web, E-Mail, Fernzugriff, Netzwerkdiensten und Netzwerksicherheit sicherer zuordnen.",
+};

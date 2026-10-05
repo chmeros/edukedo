@@ -281,6 +281,13 @@
       "when": 1790579318270,
       "tag": "0039_confused_junta",
       "breakpoints": true
+    },
+    {
+      "idx": 40,
+      "version": "7",
+      "when": 1791195573504,
+      "tag": "0040_game_set_key",
+      "breakpoints": true
     }
   ]
 }

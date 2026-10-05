@@ -1,24 +1,37 @@
 import { useEffect, useState } from "react";
-import { KennzahlenDuellIllustration, KreuzwortraetselIllustration, MemoryIllustration } from "./GameIllustrations";
+import {
+  BugHuntIllustration,
+  CodeReihenfolgeIllustration,
+  KennzahlenDuellIllustration,
+  KreuzwortraetselIllustration,
+  MemoryIllustration,
+  PhishingIllustration,
+  SubnettingIllustration,
+  TroubleshootingIllustration,
+  ZahlensystemeIllustration,
+} from "./GameIllustrations";
 import { KennzahlenDuell } from "./KennzahlenDuell";
 import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
 import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+import { BugHunt, CodeReihenfolge, PhishingDetektiv, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
 
 /**
  * F-140/F-141/F-142/F-143 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung
- * Abschnitt 13): Spiele-Katalog — exakt nach dem `Instrumente.tsx`-Muster (F-105): die drei
- * Spiele sind hier bewusst als STATISCHE Liste hinterlegt (keine eigene DB-Tabelle für den
- * Katalog selbst nötig — feste, im Code bekannte Menge), `game.available` liefert nur, welche
- * davon in diesem Kurs tatsächlich Content haben (aktuell Fachwirt-spezifisch, der Mathe-Kurs
- * zeigt "noch nicht verfügbar", analog zu Instrumenten ohne Kurs-Content).
+ * Abschnitt 13): Spiele-Katalog — exakt nach dem `Instrumente.tsx`-Muster (F-105): die Spieltypen
+ * sind hier bewusst als STATISCHE Liste hinterlegt (feste, im Code bekannte Menge),
+ * `game.available` liefert, welche Spiele (und Sets) in diesem Kurs tatsächlich Content haben.
  *
  * Nutzer-Vorgabe vom 28.09.2026: Kacheln statt Listenzeilen (siehe GameIllustrations.tsx; seit F-144
  * über die gemeinsame `Tile`-Komponente), sowie
  * `onActiveGameChange` — meldet an `App.tsx`, ob gerade ein Spiel läuft, damit der darunter
  * gerenderte Sozial-Bereich (`Sozial.tsx`) während eines laufenden Spiels ausgeblendet werden
  * kann (Fokus aufs Spiel).
+ *
+ * F-158 (Nutzer-Vorgabe vom 05.10.2026): sechs weitere Spieltypen und mehrere Sets je Typ — jede
+ * Kachel steht für eine Zeile aus `game.available` (Typ + Set + Titel aus der Datenbank); Typen
+ * ohne Spiel im Kurs stehen eingeklappt unter „Weitere Spiele".
  */
 const GAME_CATALOG = [
   {
@@ -39,11 +52,53 @@ const GAME_CATALOG = [
     description: "Begriffe und ihre Bedeutung als Karten-Paare zuordnen.",
     Illustration: MemoryIllustration,
   },
+  {
+    type: "phishing",
+    label: "Phishing-Detektiv",
+    description: "E-Mails prüfen, verdächtige Merkmale markieren und echte Mails von Phishing unterscheiden.",
+    Illustration: PhishingIllustration,
+  },
+  {
+    type: "bughunt",
+    label: "Bug-Hunt",
+    description: "In kurzem Code die eine fehlerhafte Zeile finden.",
+    Illustration: BugHuntIllustration,
+  },
+  {
+    type: "codereihenfolge",
+    label: "Code-Reihenfolge",
+    description: "Durcheinandergeratene Codezeilen in die richtige Reihenfolge bringen.",
+    Illustration: CodeReihenfolgeIllustration,
+  },
+  {
+    type: "troubleshooting",
+    label: "Troubleshooting-Detektiv",
+    description: "Störungen im Netzwerk eingrenzen: erst die Schicht, dann die Ursache.",
+    Illustration: TroubleshootingIllustration,
+  },
+  {
+    type: "subnetting",
+    label: "Subnetting-Sprint",
+    description: "Netzadresse, Broadcast, Hostzahl und Maske berechnen — immer neue Aufgaben.",
+    Illustration: SubnettingIllustration,
+  },
+  {
+    type: "zahlensysteme",
+    label: "Zahlensystem-Sprint",
+    description: "Dezimal, binär und hexadezimal umrechnen — immer neue Aufgaben.",
+    Illustration: ZahlensystemeIllustration,
+  },
 ] as const;
+
+interface AktivesSpiel {
+  type: string;
+  setKey: string;
+  title: string;
+}
 
 export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiveGameChange?: (active: boolean) => void }) {
   const available = trpc.game.available.useQuery({ kursId });
-  const [activeGame, setActiveGame] = useState<string | null>(null);
+  const [activeGame, setActiveGame] = useState<AktivesSpiel | null>(null);
 
   useEffect(() => {
     onActiveGameChange?.(activeGame !== null);
@@ -53,18 +108,35 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeGame]);
 
-  // F-157: Titel je Kurs aus `game.title` (der statische Katalog-Name dient nur als Rückfall).
-  const titleFor = (type: string) =>
-    available.data?.find((row) => row.gameType === type)?.title ?? GAME_CATALOG.find((entry) => entry.type === type)?.label ?? "Spiel";
-  if (activeGame === "kreuzwortraetsel") {
-    return <Kreuzwortraetsel kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
+  if (activeGame) {
+    const common = { kursId, setKey: activeGame.setKey, title: activeGame.title, onClose: () => setActiveGame(null) };
+    const key = `${activeGame.type}:${activeGame.setKey}`;
+    switch (activeGame.type) {
+      case "kreuzwortraetsel":
+        return <Kreuzwortraetsel key={key} {...common} />;
+      case "kennzahlen_duell":
+        return <KennzahlenDuell key={key} {...common} />;
+      case "memory":
+        return <PersonalkennzahlenMemory key={key} {...common} />;
+      case "phishing":
+        return <PhishingDetektiv key={key} {...common} />;
+      case "bughunt":
+        return <BugHunt key={key} {...common} />;
+      case "codereihenfolge":
+        return <CodeReihenfolge key={key} {...common} />;
+      case "troubleshooting":
+        return <TroubleshootingDetektiv key={key} {...common} />;
+      case "subnetting":
+      case "zahlensysteme":
+        return <SprintSpiel key={key} {...common} gameType={activeGame.type} />;
+    }
   }
-  if (activeGame === "kennzahlen_duell") {
-    return <KennzahlenDuell kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
-  }
-  if (activeGame === "memory") {
-    return <PersonalkennzahlenMemory kursId={kursId} title={titleFor(activeGame)} onClose={() => setActiveGame(null)} />;
-  }
+
+  const rows = available.data ?? [];
+  const catalogFor = (type: string) => GAME_CATALOG.find((entry) => entry.type === type);
+  // Kacheln in Katalogreihenfolge, mehrere Sets desselben Typs hintereinander.
+  const availableTiles = GAME_CATALOG.flatMap((entry) => rows.filter((row) => row.gameType === entry.type));
+  const unavailableTypes = GAME_CATALOG.filter((entry) => !rows.some((row) => row.gameType === entry.type));
 
   return (
     <div className="panel-section">
@@ -72,25 +144,41 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         <h2>Spiele</h2>
       </div>
       <p className="field-hint">
-        Fachbegriffe und Kennzahlen spielerisch üben — jedes Spiel wertet deine Fortschritte sofort in Punktehamster,
+        Fachbegriffe und Fertigkeiten spielerisch üben — jedes Spiel wertet deine Fortschritte sofort in Punktehamster,
         Creditstand und Lernserie mit.
       </p>
       <div className="tile-grid">
-        {GAME_CATALOG.map((entry) => {
-          const isAvailable = available.data?.some((row) => row.gameType === entry.type) ?? false;
+        {availableTiles.map((row) => {
+          const entry = catalogFor(row.gameType)!;
           return (
             <Tile
-              key={entry.type}
-              title={titleFor(entry.type)}
+              key={`${row.gameType}:${row.setKey}`}
+              title={row.title}
               description={entry.description}
               image={<entry.Illustration />}
-              disabled={!isAvailable}
-              note={!isAvailable ? "In diesem Kurs noch nicht verfügbar" : undefined}
-              onClick={() => setActiveGame(entry.type)}
+              onClick={() => setActiveGame({ type: row.gameType, setKey: row.setKey, title: row.title })}
             />
           );
         })}
       </div>
+      {unavailableTypes.length > 0 && (
+        <details className="instrument-more">
+          <summary>Weitere Spiele ({unavailableTypes.length}) — in diesem Kurs noch nicht verfügbar</summary>
+          <div className="tile-grid">
+            {unavailableTypes.map((entry) => (
+              <Tile
+                key={entry.type}
+                title={entry.label}
+                description={entry.description}
+                image={<entry.Illustration />}
+                disabled
+                note="In diesem Kurs noch nicht verfügbar"
+                onClick={() => undefined}
+              />
+            ))}
+          </div>
+        </details>
+      )}
     </div>
   );
 }

@@ -27,9 +27,9 @@ interface Frage {
 }
 
 /** F-157: `title` kommt aus `game.title` des Kurses (z. B. „Kennzahlen-Duell: …" im Fachwirt-Kurs, „Begriffe-Duell: …" bei den Fachinformatikern). */
-export function KennzahlenDuell({ kursId, title, onClose }: { kursId: string; title: string; onClose: () => void }) {
+export function KennzahlenDuell({ kursId, setKey, title, onClose }: { kursId: string; setKey?: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
-  const data = trpc.game.getKennzahlenDuell.useQuery({ kursId });
+  const data = trpc.game.getKennzahlenDuell.useQuery({ kursId, setKey });
   const [rundeOverride, setRundeOverride] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<{ nummer: number; ausgewaehlt: "A" | "B"; correct: boolean; feedback: string } | null>(
     null,
@@ -47,7 +47,7 @@ export function KennzahlenDuell({ kursId, title, onClose }: { kursId: string; ti
     onSuccess: (result, variables) => {
       setFeedback({ nummer: variables.nummer, ausgewaehlt: variables.ausgewaehlt, correct: result.correct, feedback: result.feedback });
       if (result.correct) {
-        utils.game.getKennzahlenDuell.invalidate({ kursId });
+        utils.game.getKennzahlenDuell.invalidate({ kursId, setKey });
         invalidateProgress();
       }
     },
@@ -139,7 +139,7 @@ export function KennzahlenDuell({ kursId, title, onClose }: { kursId: string; ti
                   disabled={submit.isPending}
                   onClick={() => {
                     setFeedback(null);
-                    submit.mutate({ kursId, nummer: naechsteFrage.nummer, ausgewaehlt: option });
+                    submit.mutate({ kursId, setKey, nummer: naechsteFrage.nummer, ausgewaehlt: option });
                   }}
                 >
                   {text}
