@@ -1,4 +1,5 @@
 import { ErrorMessage } from "./ErrorMessage";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -57,14 +58,16 @@ export function Highscore({
       )}
       {setOptIn.error && <ErrorMessage>{setOptIn.error.message}</ErrorMessage>}
 
-      <div className="list">
+      {/* F-148: Platzierungen als Kacheln (Tile.tsx), Rang im Titel. */}
+      <div className="tile-grid tile-grid-sm">
         {(leaderboard.data ?? []).map((entry, index) => (
-          <div key={entry.userId} className="list-row">
-            <div className="meta">
-              {index + 1}. {entry.isSelf ? "Du" : entry.email}
-              <span>{entry.points} Punkt(e)</span>
-            </div>
-          </div>
+          <Tile
+            key={entry.userId}
+            size="sm"
+            active={entry.isSelf}
+            title={`${index + 1}. ${entry.isSelf ? "Du" : entry.email}`}
+            meta={`${entry.points} Punkt(e)`}
+          />
         ))}
       </div>
       {leaderboard.data?.length === 0 && (

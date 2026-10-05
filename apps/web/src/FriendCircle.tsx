@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { SuccessIcon } from "./Icons";
 import { Modal } from "./Modal";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -43,21 +44,24 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
     report.reset();
   }
 
+  // F-148 (Nutzer-Vorgabe vom 05.10.2026): Kachel statt Listenzeile; die Modals sind Portale und
+  // liegen als Kinder in der Kachel, ohne deren Layout zu beeinflussen.
   return (
-    <div className="list-row">
-      <div className="meta">
-        {friend.friendEmail}
-        <span>Befreundet seit {new Date(friend.createdAt).toLocaleDateString("de-DE")}</span>
-      </div>
-      <div className="list-row-actions">
-        <button type="button" className="btn btn-ghost btn-sm" onClick={() => setOpenModal("report")}>
-          Melden
-        </button>
-        <button type="button" className="btn btn-danger btn-sm" onClick={() => setOpenModal("block")}>
-          Blockieren
-        </button>
-      </div>
-
+    <Tile
+      size="sm"
+      title={friend.friendEmail}
+      description={`Befreundet seit ${new Date(friend.createdAt).toLocaleDateString("de-DE")}`}
+      actions={
+        <>
+          <button type="button" className="btn btn-ghost btn-sm" onClick={() => setOpenModal("report")}>
+            Melden
+          </button>
+          <button type="button" className="btn btn-danger btn-sm" onClick={() => setOpenModal("block")}>
+            Blockieren
+          </button>
+        </>
+      }
+    >
       {openModal === "report" && (
         <Modal title={`${friend.friendEmail} melden`} onClose={closeReportModal}>
           {report.data ? (
@@ -127,7 +131,7 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
           </div>
         </Modal>
       )}
-    </div>
+    </Tile>
   );
 }
 
@@ -178,22 +182,24 @@ export function FriendCircle({ kursId }: { kursId: string }) {
 
       <div className="stack">
         <span className="stat-subheading">Meine Einladungscodes</span>
-        <div className="list">
+        <div className="tile-grid tile-grid-sm">
           {(inviteCodes.data ?? []).map((entry) => (
-            <div key={entry.id} className="list-row">
-              <div className="meta">
-                <code>{entry.code}</code>
-                <span>Gültig bis {new Date(entry.expiresAt).toLocaleDateString("de-DE")}</span>
-              </div>
-              <button
-                type="button"
-                className="btn btn-danger btn-sm"
-                onClick={() => revokeCode.mutate({ codeId: entry.id })}
-                disabled={revokeCode.isPending}
-              >
-                Widerrufen
-              </button>
-            </div>
+            <Tile
+              key={entry.id}
+              size="sm"
+              title={<code>{entry.code}</code>}
+              description={`Gültig bis ${new Date(entry.expiresAt).toLocaleDateString("de-DE")}`}
+              actions={
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm"
+                  onClick={() => revokeCode.mutate({ codeId: entry.id })}
+                  disabled={revokeCode.isPending}
+                >
+                  Widerrufen
+                </button>
+              }
+            />
           ))}
         </div>
         {inviteCodes.data?.length === 0 && <p className="field-hint">Noch kein Einladungscode erstellt.</p>}
@@ -253,7 +259,7 @@ export function FriendCircle({ kursId }: { kursId: string }) {
 
       <div className="stack">
         <span className="stat-subheading">Meine Freunde in diesem Kurs</span>
-        <div className="list">
+        <div className="tile-grid tile-grid-sm">
           {(friends.data ?? []).map((friend) => <FriendRow key={friend.id} friend={friend} kursId={kursId} />)}
         </div>
         {friends.data?.length === 0 && <p className="field-hint">Noch keine Freunde in diesem Kurs.</p>}
@@ -261,22 +267,24 @@ export function FriendCircle({ kursId }: { kursId: string }) {
 
       <div className="stack">
         <span className="stat-subheading">Meine Blockierungen in diesem Kurs</span>
-        <div className="list">
+        <div className="tile-grid tile-grid-sm">
           {(blockedUsers.data ?? []).map((entry) => (
-            <div key={entry.id} className="list-row">
-              <div className="meta">
-                {entry.blockedUserEmail}
-                <span>Blockiert seit {new Date(entry.createdAt).toLocaleDateString("de-DE")}</span>
-              </div>
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                onClick={() => unblock.mutate({ blockId: entry.id })}
-                disabled={unblock.isPending}
-              >
-                Entblocken
-              </button>
-            </div>
+            <Tile
+              key={entry.id}
+              size="sm"
+              title={entry.blockedUserEmail}
+              description={`Blockiert seit ${new Date(entry.createdAt).toLocaleDateString("de-DE")}`}
+              actions={
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => unblock.mutate({ blockId: entry.id })}
+                  disabled={unblock.isPending}
+                >
+                  Entblocken
+                </button>
+              }
+            />
           ))}
         </div>
         {blockedUsers.data?.length === 0 && <p className="field-hint">Niemand blockiert.</p>}

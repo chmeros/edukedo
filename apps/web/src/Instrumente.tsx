@@ -1,5 +1,16 @@
 import { useState } from "react";
+import {
+  AnsoffIllustration,
+  BscIllustration,
+  EisenhowerIllustration,
+  GanttIllustration,
+  HierarchieIllustration,
+  PdcaIllustration,
+  RisikoIllustration,
+  SwotIllustration,
+} from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -16,47 +27,57 @@ import { trpc } from "./trpc";
  * Instrument" steckt nicht in einer eigenen Sequenzierung, sondern darin, dass das verlinkte
  * Thema sowohl gewöhnliche Wissensfragen als auch die Zonen-/Baum-Zuordnungsfrage des Instruments
  * enthält (siehe content/README.md) — der bestehende F-27-Themenfilter zeigt beides gemischt.
+ * F-146 (Nutzer-Vorgabe vom 05.10.2026): Kacheln (`Tile.tsx`) mit eigener Illustration je Instrument
+ * (`InstrumentIllustrations.tsx`) statt Listenzeilen; Logik und Texte unverändert.
  */
 const INSTRUMENT_CATALOG = [
   {
     type: "swot",
     label: "SWOT-Matrix",
     description: "Stärken, Schwächen, Chancen und Risiken strukturiert gegenüberstellen.",
+    Illustration: SwotIllustration,
   },
   {
     type: "bsc",
     label: "Balanced Scorecard",
     description: "Unternehmenserfolg aus vier Perspektiven gleichzeitig betrachten.",
+    Illustration: BscIllustration,
   },
   {
     type: "ansoff",
     label: "Ansoff-Matrix",
     description: "Wachstumsstrategien anhand von Markt und Produkt einordnen.",
+    Illustration: AnsoffIllustration,
   },
   {
     type: "gantt",
     label: "Gantt-Diagramm",
     description: "Arbeitspakete den passenden Zeitabschnitten eines Projekts zuordnen.",
+    Illustration: GanttIllustration,
   },
   {
     type: "eisenhower",
     label: "Eisenhower-Matrix",
     description: "Aufgaben nach Dringlichkeit und Wichtigkeit priorisieren.",
+    Illustration: EisenhowerIllustration,
   },
   {
     type: "pdca",
     label: "PDCA-Zyklus",
     description: "Verbesserungsmaßnahmen den vier Phasen Plan, Do, Check und Act zuordnen.",
+    Illustration: PdcaIllustration,
   },
   {
     type: "risiko",
     label: "Risikomatrix",
     description: "Risiken nach Eintrittswahrscheinlichkeit und Auswirkung einschätzen.",
+    Illustration: RisikoIllustration,
   },
   {
     type: "hierarchie",
     label: "Projektstrukturplan / Organigramm",
     description: "Aufgaben oder Positionen als echten Baum in die richtige Hierarchie-Ebene einordnen.",
+    Illustration: HierarchieIllustration,
   },
 ] as const;
 
@@ -96,38 +117,39 @@ export function Instrumente({
         findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
         mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
       </p>
-      <div className="list" style={{ marginTop: 10 }}>
+      <div className="tile-grid">
         {INSTRUMENT_CATALOG.map((instrument) => {
           const target = instruments.data?.[instrument.type];
           const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
           return (
-            <div key={instrument.type} className="list-row">
-              <div className="meta">
-                {instrument.label}
-                <span>{instrument.description}</span>
-              </div>
-              <div className="list-row-actions">
-                {target ? (
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-sm"
-                    onClick={() => onGoToThema(target.themaId, target.themaTitle)}
-                  >
-                    Zu diesem Instrument lernen
-                  </button>
-                ) : (
-                  <span className="field-hint">In diesem Kurs noch nicht verfügbar</span>
-                )}
-                {lernpfad &&
-                  (instrumentLernpfadeEnabled ? (
-                    <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
-                      Geführten Lernpfad starten
+            <Tile
+              key={instrument.type}
+              title={instrument.label}
+              description={instrument.description}
+              image={<instrument.Illustration />}
+              note={!target ? "In diesem Kurs noch nicht verfügbar" : undefined}
+              actions={
+                <>
+                  {target && (
+                    <button
+                      type="button"
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => onGoToThema(target.themaId, target.themaTitle)}
+                    >
+                      Zu diesem Instrument lernen
                     </button>
-                  ) : (
-                    <span className="field-hint">Geführter Lernpfad: Fortgeschritten-Funktion, noch nicht freigeschaltet</span>
-                  ))}
-              </div>
-            </div>
+                  )}
+                  {lernpfad &&
+                    (instrumentLernpfadeEnabled ? (
+                      <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
+                        Geführten Lernpfad starten
+                      </button>
+                    ) : (
+                      <span className="field-hint">Geführter Lernpfad: Fortgeschritten-Funktion, noch nicht freigeschaltet</span>
+                    ))}
+                </>
+              }
+            />
           );
         })}
       </div>

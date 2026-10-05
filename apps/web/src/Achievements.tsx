@@ -1,6 +1,23 @@
 import { useEffect } from "react";
 import { SuccessIcon } from "./Icons";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+
+/** F-148: Medaille als Kachelbild (Inline-SVG, viewBox 320×140 wie GameIllustrations.tsx). */
+function MedalIllustration({ earned }: { earned: boolean }) {
+  return (
+    <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">
+      <rect width="320" height="140" fill={earned ? "var(--sun-tint)" : "var(--surface-2)"} />
+      <path d="M138 18h24l-10 36h-24Zm44 0h24l-24 36h-24Z" fill={earned ? "var(--coral)" : "var(--ink-faint)"} />
+      <circle cx="160" cy="88" r="36" fill={earned ? "var(--sun)" : "var(--card)"} stroke={earned ? "var(--coral-deep)" : "var(--ink-faint)"} strokeWidth="3" />
+      {earned ? (
+        <path d="m160 68 6.5 13.5 14.5 2-10.5 10 2.5 14.5-13-7-13 7 2.5-14.5-10.5-10 14.5-2Z" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      ) : (
+        <path d="M150 90v-6a10 10 0 0 1 20 0v6m-24 0h28v18h-28Z" fill="none" stroke="var(--ink-faint)" strokeWidth="3" strokeLinejoin="round" />
+      )}
+    </svg>
+  );
+}
 
 /**
  * F-67: Nicht-soziale Gamification — bewusst OHNE `kursId`-Prop, anders als FriendCircle/
@@ -11,6 +28,8 @@ import { trpc } from "./trpc";
  * gemountet wird (`key={activeKursId}` in App.tsx). Bis 25.09.2026 eigener Haupt-Tab "Erfolge"
  * (F-107), seit 26.09.2026 interner Unter-Tab von "Fortschritt" (Nutzer-Vorgabe, siehe
  * `Progress.tsx`/Architekturplanung Abschnitt 13) — an dieser Komponente selbst unverändert.
+ * F-148 (Nutzer-Vorgabe vom 05.10.2026): Achievements als Kacheln (`Tile.tsx`) mit Medaille statt
+ * Listenzeilen; noch nicht erreichte sind über `.tile-locked` gedämpft (nur das Bild, nicht der Text).
  */
 export function Achievements() {
   const utils = trpc.useUtils();
@@ -68,17 +87,16 @@ export function Achievements() {
         </div>
       </div>
 
-      <div className="list">
+      <div className="tile-grid">
         {(achievements.data ?? []).map((entry) => (
-          <div key={entry.key} className="list-row" style={entry.earnedAt ? undefined : { opacity: 0.6 }}>
-            <div className="meta">
-              {entry.title}
-              <span>
-                {entry.description}
-                {entry.earnedAt ? ` · Erreicht am ${new Date(entry.earnedAt).toLocaleDateString("de-DE")}` : " · Noch nicht erreicht"}
-              </span>
-            </div>
-          </div>
+          <Tile
+            key={entry.key}
+            className={entry.earnedAt ? "" : "tile-locked"}
+            title={entry.title}
+            description={entry.description}
+            meta={entry.earnedAt ? `Erreicht am ${new Date(entry.earnedAt).toLocaleDateString("de-DE")}` : "Noch nicht erreicht"}
+            image={<MedalIllustration earned={Boolean(entry.earnedAt)} />}
+          />
         ))}
       </div>
     </div>

@@ -196,6 +196,26 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       const masteredAfter = sumMastered(overviewAfter.json().result.data as { mastered: number }[]);
 
       expect(masteredAfter).toBe(masteredBefore + 1);
+
+      // F-147: courses.progress (Kursauswahl-Füllstand) muss mit der Summe aus progress.overview
+      // übereinstimmen — gleiche Zählweise und Rundung, sonst weichen Kachel und Fortschritts-Tab ab.
+      const courseProgress = await app.inject({
+        method: "GET",
+        url: "/api/v1/trpc/courses.progress",
+        headers: { cookie: sessionCookie },
+      });
+      expect(courseProgress.statusCode).toBe(200);
+      const overviewData = overviewAfter.json().result.data as { total: number; mastered: number }[];
+      const overviewTotal = overviewData.reduce((sum, fg) => sum + fg.total, 0);
+      const row = (courseProgress.json().result.data as { kursId: string; total: number; mastered: number; percent: number }[]).find(
+        (entry) => entry.kursId === kursId,
+      );
+      expect(row).toEqual({
+        kursId,
+        total: overviewTotal,
+        mastered: masteredAfter,
+        percent: Math.round((masteredAfter / overviewTotal) * 100),
+      });
     },
     30_000,
   );

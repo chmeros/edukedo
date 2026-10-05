@@ -1,8 +1,9 @@
 import { activeKursInputSchema, enrollInputSchema, setCourseTargetInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
-import { kurs, user, userCourse } from "../../db/schema";
+import { contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
+import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 import { protectedProcedure, router } from "../trpc";
 
 /** Drizzles `date`-Spalten sind im String-Modus (siehe schema.ts) — Konvertierung analog zu
@@ -64,6 +65,40 @@ export const coursesRouter = router({
         planStartDate: row.planStartDate,
         weeklyGoalItems: row.weeklyGoalItems,
       }));
+  }),
+
+  /**
+   * F-147 (Kursauswahl-Kacheln, Nutzer-Vorgabe vom 05.10.2026, siehe Architekturplanung Abschnitt 13):
+   * Gesamtfortschritt je belegtem Kurs für den Füllstand der Kachel. Bewusst eine eigene Query statt
+   * eines Feldes in `list` (die wird auch von Header, App und Zielplanung gelesen und soll leicht
+   * bleiben) und eine einzige SQL-Aggregation statt `progress.overview` je Kurs — höchstens eine Zeile
+   * je belegtem Kurs. Zählweise und Rundung wie `progress.overview` (state "review" = beherrscht,
+   * dieselben Item-Typen, siehe progress-items.ts), damit Kachel und Fortschritts-Tab nie abweichen.
+   */
+  progress: protectedProcedure.query(async ({ ctx }) => {
+    const rows = await ctx.db
+      .select({
+        kursId: fachgebiet.kursId,
+        total: sql<number>`count(*)::int`,
+        mastered: sql<number>`count(*) filter (where ${userProgress.state} = 'review')::int`,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(userCourse, and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, ctx.currentUser.id)))
+      .leftJoin(
+        userProgress,
+        and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
+      )
+      .where(and(inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES), eq(contentItem.isActive, true)))
+      .groupBy(fachgebiet.kursId);
+
+    return rows.map((row) => ({
+      kursId: row.kursId,
+      total: row.total,
+      mastered: row.mastered,
+      percent: row.total === 0 ? 0 : Math.round((row.mastered / row.total) * 100),
+    }));
   }),
 
   enroll: protectedProcedure.input(enrollInputSchema).mutation(async ({ ctx, input }) => {

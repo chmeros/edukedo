@@ -2,11 +2,7 @@ import {
   abortRoundInputSchema,
   activeKursInputSchema,
   exerciseSetIdInputSchema,
-  GANTT_QUIZ_TYPE,
-  HIERARCHIE_QUIZ_TYPE,
   initialProgressState,
-  MC_LIKE_QUIZ_TYPES,
-  QUADRANT_QUIZ_TYPES,
   scheduleReview,
   sessionIdInputSchema,
   startExerciseSetInputSchema,
@@ -18,6 +14,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { calculateEinzelterminPacing } from "../../pacing";
+import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 // F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
 // weit `since` rückwirkend akzeptiert wird — großzügig genug für eine lange Lerneinheit,
 // deutlich zu kurz, um "irgendeine alte falsche Antwort" rückwirkend zu tilgen.
@@ -704,22 +701,8 @@ export const progressRouter = router({
       )
       .where(
         and(
-          // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
-          // quiz_mc bzw. zuordnung. F-116: quiz_mc_multi ist die Mehrfachauswahl-Variante von
-          // quiz_mc. Siehe quiz-logic.ts.
-          inArray(contentItem.type, [
-            "karteikarte",
-            ...MC_LIKE_QUIZ_TYPES,
-            "quiz_mc_multi",
-            "zuordnung",
-            "sortieren",
-            ...QUADRANT_QUIZ_TYPES,
-            GANTT_QUIZ_TYPE,
-            HIERARCHIE_QUIZ_TYPE,
-            "luecken",
-            "luecken_auswahl",
-            "kurzantwort",
-          ]),
+          // Zählbare Typen: siehe progress-items.ts.
+          inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES),
           eq(contentItem.isActive, true),
         ),
       );
@@ -843,22 +826,8 @@ export const progressRouter = router({
       )
       .where(
         and(
-          // F-113/F-114: MC_LIKE_QUIZ_TYPES/QUADRANT_QUIZ_TYPES sind strukturell identisch zu
-          // quiz_mc bzw. zuordnung. F-116: quiz_mc_multi ist die Mehrfachauswahl-Variante von
-          // quiz_mc. Siehe quiz-logic.ts.
-          inArray(contentItem.type, [
-            "karteikarte",
-            ...MC_LIKE_QUIZ_TYPES,
-            "quiz_mc_multi",
-            "zuordnung",
-            "sortieren",
-            ...QUADRANT_QUIZ_TYPES,
-            GANTT_QUIZ_TYPE,
-            HIERARCHIE_QUIZ_TYPE,
-            "luecken",
-            "luecken_auswahl",
-            "kurzantwort",
-          ]),
+          // Zählbare Typen: siehe progress-items.ts.
+          inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES),
           eq(contentItem.isActive, true),
         ),
       );

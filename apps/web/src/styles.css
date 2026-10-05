@@ -1733,25 +1733,11 @@ details[open] > summary.disclosure::before {
 }
 
 /* ---------- Fortschritt ---------- */
-/* Redesign 17.09.2026: nutzt die verbreiterte .shell (siehe oben) für ein 2-spaltiges Raster der
-   Fachgebiete auf breiten Bildschirmen, statt einer einzigen, auf großen Screens sehr lang
-   werdenden vertikalen Liste. */
-.progress-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 860px) {
-  .progress-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
+/* F-145: Fachgebiete/Themen/Schwachstellen sind Kacheln (`.tile*`, siehe unten); `.progress-block/-head/-bar`
+   bleiben für die Balkenanzeigen in Zielplanung.tsx. */
 /* Redesign 17.09.2026 (Nachfrage): kompakte, kontobezogene Einstellungs-Widgets (Zielplanung,
    Offline-Download, Unternehmenscode-Einlösung) sollen auf breiten Bildschirmen nicht die volle
-   Breite verschenken, obwohl ihr Inhalt viel schmaler ist. Anders als .progress-grid (fester
-   1-auf-2-Spalten-Breakpoint) füllt auto-fit/minmax die verfügbare Breite dynamisch mit so vielen
+   Breite verschenken, obwohl ihr Inhalt viel schmaler ist. auto-fit/minmax füllt die verfügbare Breite dynamisch mit so vielen
    Spalten wie Platz vorhanden ist, ganz ohne JavaScript oder festen Breakpoint. .widget nutzt zur
    Abgrenzung im Mehrspalten-Raster dieselbe dezent getönte Fläche wie .stat-tile (--surface),
    bewusst ohne Rahmen/Schatten wie beim früheren .card.*/
@@ -1813,47 +1799,6 @@ details[open] > summary.disclosure::before {
   border-radius: 100px;
 }
 
-.progress-block.is-total .progress-head b {
-  font-size: var(--fs-md);
-}
-
-.progress-block.is-total .progress-bar {
-  height: 10px;
-}
-
-/* F-126: die Fachgebiet-Kopfzeile klappt die Themen auf/zu, statt (wie die Themen-Zeilen
-   darunter) direkt ins Lernen zu springen — eigener Hover statt der Themen-Unterstreichung
-   (button.progress-block:hover), damit der Unterschied im Klick-Ziel optisch spürbar ist. */
-.progress-block-toggle:hover {
-  background: var(--surface-2);
-}
-
-/* F-109: Themen-Fortschrittsblöcke als eigene, explizite Navigationsebene — klickbar statt
-   nur anzeigend, springt in den "Lernen"-Tab gefiltert auf dieses Thema (derselbe
-   F-27-Themenfilter wie bei F-14/F-50). */
-button.progress-block {
-  border: none;
-  background: transparent;
-  padding: 0;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-button.progress-block:hover .progress-head b {
-  text-decoration: underline;
-}
-
-/* "Standort-Hinweis": markiert das Thema, auf das der F-27-Filter gerade aktiv gesetzt ist. */
-.progress-block.is-active .progress-head b {
-  color: var(--sprout-deep);
-}
-
-.progress-block.is-active .progress-bar > span {
-  background: var(--sprout-deep);
-}
-
 /* ---------- Lernstatistik/Schwachstellenanalyse (F-31/F-32) ---------- */
 .stat-section {
   padding-top: 8px;
@@ -1884,8 +1829,10 @@ button.progress-block:hover .progress-head b {
   flex-direction: column;
   gap: 2px;
   padding: 10px 14px;
-  border-radius: 12px;
-  background: var(--surface);
+  /* F-144: gemeinsamer Kachel-Look (Rahmen/Radius/Hintergrund wie `.tile`). */
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
 }
 
 .stat-value {
@@ -1898,14 +1845,10 @@ button.progress-block:hover .progress-head b {
   color: var(--ink-faint);
 }
 
-.progress-block.is-weak .progress-bar > span {
-  background: var(--sun);
-}
-
 /* F-127 (Nutzer-Feedback vom 23.09.2026, erweitert F-31/F-32, siehe Architekturplanung
    Abschnitt 13): "Trefferquote im Zeitverlauf" bewusst als vertikales
    Balkendiagramm entlang einer Datums-Achse statt derselben horizontalen Balken-Liste wie
-   ".progress-block.is-weak" (Schwachstellen) — die strukturell andere Optik macht auf den
+   "Schwachstellen-Kacheln" — die strukturell andere Optik macht auf den
    ersten Blick erkennbar, dass es sich um eine andere Art Kennzahl handelt (Zeitverlauf statt
    Rangliste), nicht nur eine andere Farbe. Horizontal scrollbar (kein Limit auf die Anzahl der
    Tage in der API, siehe progress.ts stats-Query), fester Spaltenabstand statt Umbruch, damit
@@ -2881,17 +2824,46 @@ button.progress-block:hover .progress-head b {
   color: inherit;
 }
 
-/* F-140/F-141/F-142/F-143 (Kachel-Redesign, 28.09.2026, siehe Architekturplanung Abschnitt 13):
-   Spiele-Katalog als Kachelraster statt Listenzeilen (Nutzer-Vorgabe) — je Kachel ein
-   aussagekräftiges Vorschaubild (siehe GameIllustrations.tsx) oberhalb von Titel/Beschreibung. */
-.game-tile-grid {
+/* F-144 (durchgängiges Kacheldesign, 05.10.2026, siehe Architekturplanung Abschnitt 13): gemeinsame
+   Kachel (Tile.tsx) für Spiele, Fortschritt, Instrumente, Kursauswahl, Erfolge und Sozial —
+   Vorbild war die Spiele-Kachel (F-140, 28.09.2026). Das Vorschaubild (SVG, 16:7) steht oberhalb von
+   Titel/Beschreibung; der Füllstand (`.tile-fill`) läuft von unten nach oben in hellem,
+   transparentem Blau (nur 18 % Alpha, damit Text darüber lesbar bleibt, F-136) und liegt über dem
+   Bild, aber unter dem Text. Einlaufanimation und Hover fallen unter die globale
+   `prefers-reduced-motion`-Regel. Text auf der Füllung nutzt `--ink`/`--ink-soft` (nicht `--ink-faint`). */
+:root {
+  --tile-fill-color: color-mix(in srgb, var(--info) 18%, transparent);
+  --tile-fill-edge: color-mix(in srgb, var(--info) 45%, transparent);
+}
+
+.tile-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
   margin-top: 12px;
+  align-items: stretch;
 }
 
-.game-tile {
+.tile-grid:empty {
+  display: none;
+}
+
+.tile-grid-sm {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* Aufgeklappte Unterkacheln (Fortschritt: Themen unter einem Fachgebiet) füllen die ganze Zeile. */
+.tile-grid > .tile-subgrid {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  padding: 0 12px 12px;
+  background: var(--surface);
+  border-radius: 14px;
+}
+
+.tile {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1.5px solid var(--line);
@@ -2899,44 +2871,126 @@ button.progress-block:hover .progress-head b {
   overflow: hidden;
   background: var(--card);
   text-align: left;
-  cursor: pointer;
   padding: 0;
   font: inherit;
-  color: inherit;
+  color: var(--ink);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.game-tile:disabled {
+.tile.is-clickable {
+  cursor: pointer;
+}
+
+.tile.is-clickable:hover {
+  transform: translateY(-2px);
+  border-color: var(--tile-fill-edge);
+  box-shadow: var(--shadow);
+}
+
+.tile.is-active {
+  border-color: var(--sprout-deep);
+}
+
+.tile.is-disabled {
   cursor: default;
   opacity: 0.7;
 }
 
-.game-tile-image {
+.tile-image {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 7;
-  display: block;
 }
 
-.game-tile-body {
-  padding: 14px 16px 16px;
+.tile-body {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 6px;
   flex: 1;
+  padding: 14px 16px 16px;
 }
 
-.game-tile-title {
+.tile-title {
   font-weight: 700;
   font-size: var(--fs-sm);
 }
 
-.game-tile-description {
-  color: var(--ink-faint);
+.tile-meta {
+  color: var(--ink-soft);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.tile-description {
+  color: var(--ink-soft);
   font-size: var(--fs-xs);
   flex: 1;
 }
 
-.game-tile-unavailable {
-  color: var(--ink-faint);
+.tile-note {
+  color: var(--ink-soft);
   font-size: var(--fs-xs);
   font-style: italic;
+}
+
+.tile-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.tile-sm .tile-body {
+  padding: 10px 12px;
+  gap: 4px;
+}
+
+.tile-sm .tile-actions {
+  padding: 0 12px 12px;
+}
+
+.tile-sm .tile-title {
+  font-size: var(--fs-xs);
+}
+
+/* Füllstand: von unten nach oben, über dem Bild, unter dem Text. */
+.tile-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: var(--tile-fill, 0%);
+  background: var(--tile-fill-color);
+  border-top: 2px solid var(--tile-fill-edge);
+  pointer-events: none;
+  transition: height 0.8s ease-out;
+  animation: tile-fill-rise 0.8s ease-out;
+}
+
+/* Bei 0 % keine Oberkante, sonst entsteht ein 2-px-Strich am unteren Rand. */
+.tile[style*="--tile-fill: 0%"] .tile-fill {
+  border-top-width: 0;
+}
+
+@keyframes tile-fill-rise {
+  from {
+    height: 0;
+  }
+}
+
+/* F-145: Schwachstellen-Kachel (Fortschritt > Lernstatistik) — gelber Rahmen wie bisher `.is-weak`. */
+.tile.tile-weak {
+  border-color: var(--sun);
+}
+
+
+/* F-148: noch nicht erreichte Achievements — nur das Bild dämpfen, Text bleibt voll lesbar. */
+.tile.tile-locked .tile-image {
+  filter: grayscale(1);
+  opacity: 0.65;
 }

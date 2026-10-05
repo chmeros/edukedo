@@ -135,6 +135,18 @@ describe("F-102: Belegungs-Exklusivität für Erwachsenenbildungskurse", () => {
     expect(courses.find((course) => course.id === kursB)?.joined).toBe(true);
   });
 
+  it("courses.progress liefert für belegte Kurse ohne Content keine Zeile (Frontend zeigt dann 0 %)", async () => {
+    const response = await app.inject({
+      method: "GET",
+      url: "/api/v1/trpc/courses.progress",
+      headers: { cookie: sessionCookie },
+    });
+    expect(response.statusCode).toBe(200);
+    // Die Mini-Kurse dieses Tests haben keine Content-Items → die Aggregation (inner join auf
+    // content_item) liefert keine Zeile, nie einen NaN-Prozentwert.
+    expect(response.json().result.data).toEqual([]);
+  });
+
   it("erlaubt zusätzlich einen Schulkurs, ohne die Erwachsenenbildungs-Belegung zu beeinträchtigen", async () => {
     const response = await app.inject({
       method: "POST",

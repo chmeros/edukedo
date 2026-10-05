@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { MultipleChoiceStep, TwoChoiceStep } from "./QuizSteps";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 const STATUS_LABELS: Record<string, string> = {
@@ -241,17 +242,21 @@ export function Duell({ kursId, isMinor, gamificationEnabled }: { kursId: string
         <p>Asynchrone Wissensduelle gegen Freund:innen aus diesem Kurs — dieselben Fragen für beide Seiten.</p>
       </div>
       <ChallengeForm kursId={kursId} isMinor={isMinor} gamificationEnabled={gamificationEnabled} />
-      <div className="list">
+      {/* F-148: Duelle als klickbare Kacheln (Tile.tsx); die Detailansicht bleibt unverändert. */}
+      <div className="tile-grid tile-grid-sm">
         {(list.data ?? []).map((entry) => (
-          <button key={entry.id} type="button" className="list-row" onClick={() => setOpenDuellId(entry.id)}>
-            <div className="meta">
-              Gegen {entry.opponentEmail}
-              <span>
+          <Tile
+            key={entry.id}
+            size="sm"
+            title={`Gegen ${entry.opponentEmail}`}
+            meta={
+              <>
                 {STATUS_LABELS[entry.status] ?? entry.status}
                 {entry.status === "offen" && !entry.myFinished ? " · du bist dran" : ""}
-              </span>
-            </div>
-          </button>
+              </>
+            }
+            onClick={() => setOpenDuellId(entry.id)}
+          />
         ))}
       </div>
       {list.data?.length === 0 && <p className="field-hint">Noch keine Duelle.</p>}

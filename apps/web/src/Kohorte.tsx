@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { SuccessIcon } from "./Icons";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -39,12 +40,16 @@ function CohortDetail({ cohortId }: { cohortId: string }) {
             </div>
           </div>
           <span className="stat-subheading">Ø Trefferquote je Handlungsbereich</span>
-          <div className="list">
+          {/* F-148: Trefferquote je Handlungsbereich als Kachel mit Füllstand (Tile.tsx). */}
+          <div className="tile-grid tile-grid-sm">
             {d.byFachgebiet.map((entry) => (
-              <div key={entry.fachgebietId} className="list-row">
-                <div className="meta">{entry.fachgebietTitle}</div>
-                <span>{entry.avgAccuracyPercent !== null ? `${entry.avgAccuracyPercent} %` : "noch zu wenig Beteiligung"}</span>
-              </div>
+              <Tile
+                key={entry.fachgebietId}
+                size="sm"
+                title={entry.fachgebietTitle}
+                meta={entry.avgAccuracyPercent !== null ? `${entry.avgAccuracyPercent} %` : "noch zu wenig Beteiligung"}
+                fill={entry.avgAccuracyPercent ?? 0}
+              />
             ))}
           </div>
           {d.byFachgebiet.length === 0 && <p className="field-hint">Noch keine Quiz-Aktivität in dieser Kohorte.</p>}
@@ -52,14 +57,14 @@ function CohortDetail({ cohortId }: { cohortId: string }) {
       )}
 
       <span className="stat-subheading">Mitglieder ({members.data?.length ?? "…"})</span>
-      <div className="list">
+      <div className="tile-grid tile-grid-sm">
         {(members.data ?? []).map((member) => (
-          <div key={member.userId} className="list-row">
-            <div className="meta">
-              {member.email}
-              <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
-            </div>
-          </div>
+          <Tile
+            key={member.userId}
+            size="sm"
+            title={member.email}
+            description={`Beigetreten am ${new Date(member.joinedAt).toLocaleDateString("de-DE")}`}
+          />
         ))}
       </div>
       {members.data?.length === 0 && <p className="field-hint">Noch niemand beigetreten.</p>}
@@ -74,32 +79,43 @@ function CohortRow({ cohort }: { cohort: { id: string; name: string; joinCode: s
     onSuccess: () => utils.cohort.myCohorts.invalidate(),
   });
 
+  // F-148: Kohorte als Kachel; die Details (breit) klappen als eigene Zeile über die volle
+  // Rasterbreite darunter auf (`.tile-subgrid`).
   return (
-    <div className="stack">
-      <div className="list-row">
-        <div className="meta">
-          {cohort.name}
-          <span>
+    <>
+      <Tile
+        size="sm"
+        title={cohort.name}
+        description={
+          <>
             Beitritts-Code <code>{cohort.joinCode}</code> · {cohort.memberCount} Mitglied(er)
-          </span>
+          </>
+        }
+        aria-expanded={expanded}
+        actions={
+          <>
+            <button type="button" className="btn btn-ghost btn-sm" onClick={() => setExpanded((current) => !current)}>
+              {expanded ? "Einklappen" : "Details anzeigen"}
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost btn-sm"
+              disabled={regenerate.isPending}
+              onClick={() => regenerate.mutate({ cohortId: cohort.id })}
+            >
+              Neuen Code erzeugen
+            </button>
+          </>
+        }
+      >
+        {regenerate.error && <ErrorMessage>{regenerate.error.message}</ErrorMessage>}
+      </Tile>
+      {expanded && (
+        <div className="tile-subgrid">
+          <CohortDetail cohortId={cohort.id} />
         </div>
-        <div className="header-actions">
-          <button type="button" className="btn btn-ghost btn-sm" onClick={() => setExpanded((current) => !current)}>
-            {expanded ? "Einklappen" : "Details anzeigen"}
-          </button>
-          <button
-            type="button"
-            className="btn btn-ghost btn-sm"
-            disabled={regenerate.isPending}
-            onClick={() => regenerate.mutate({ cohortId: cohort.id })}
-          >
-            Neuen Code erzeugen
-          </button>
-        </div>
-      </div>
-      {regenerate.error && <ErrorMessage>{regenerate.error.message}</ErrorMessage>}
-      {expanded && <CohortDetail cohortId={cohort.id} />}
-    </div>
+      )}
+    </>
   );
 }
 
@@ -179,7 +195,7 @@ export function Kohorte({ kursId }: { kursId: string }) {
 
       <div className="stack">
         <span className="stat-subheading">Meine Kohorten (als Dozent:in)</span>
-        <div className="list">
+        <div className="tile-grid tile-grid-sm">
           {(myCohorts.data ?? []).map((cohort) => (
             <CohortRow key={cohort.id} cohort={cohort} />
           ))}

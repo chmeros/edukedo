@@ -1,7 +1,8 @@
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Achievements } from "./Achievements";
 import { InfoIcon } from "./Icons";
 import { ProgressExportButton } from "./ProgressExport";
+import { Tile } from "./Tile";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { trpc } from "./trpc";
 
@@ -26,6 +27,21 @@ type FachgebietOverview = {
   themen: { id: string; title: string; percent: number; mastered: number; total: number }[];
 };
 
+/** Anzahl der Spalten eines CSS-Grids (`auto-fill`) — ändert sich mit der Fensterbreite. */
+function useGridColumns(ref: { current: HTMLElement | null }): number {
+  const [columns, setColumns] = useState(1);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const update = () => setColumns(Math.max(1, getComputedStyle(el).gridTemplateColumns.split(" ").length));
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+  return columns;
+}
+
 /**
  * F-126 (Nutzer-Feedback vom 23.09.2026, erweitert F-30): Ein Fachgebiet zeigt zunächst nur
  * seine kumulierte Fortschrittsanzeige — die zugehörigen Themen werden erst nach Aufklappen
@@ -33,61 +49,78 @@ type FachgebietOverview = {
  * Standardmäßig eingeklappt, AUSSER das Fachgebiet enthält das aktuell gefilterte Thema
  * (`activeThemaId`, siehe F-109-Standort-Hinweis) — sonst würde die bestehende
  * "aktuell ausgewählt"-Hervorhebung hinter einem eingeklappten Fachgebiet verschwinden.
+ * F-145 (durchgängiges Kacheldesign, Nutzer-Vorgabe vom 05.10.2026): Fachgebiete und Themen sind
+ * Kacheln mit Füllstand (von unten nach oben) statt Balken. Es ist jeweils EIN Fachgebiet
+ * aufgeklappt; seine Themen erscheinen als eigene, kleinere Kachelzeile über die volle Rasterbreite
+ * direkt unter der Rasterzeile des Fachgebiets (Spaltenanzahl per `useGridColumns`) — so entstehen
+ * keine Lücken im Raster der übrigen Fachgebiete.
  */
-function FachgebietProgressBlock({
-  fachgebiet,
+function FachgebietGrid({
+  fachgebiete,
   activeThemaId,
   onGoToThema,
 }: {
-  fachgebiet: FachgebietOverview;
+  fachgebiete: FachgebietOverview[];
   activeThemaId?: string;
   onGoToThema: (themaId: string, themaTitle: string) => void;
 }) {
-  const containsActiveThema = fachgebiet.themen.some((thema) => thema.id === activeThemaId);
-  const [expanded, setExpanded] = useState(containsActiveThema);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const columns = useGridColumns(gridRef);
+  const [expandedId, setExpandedId] = useState<string | null>(
+    () => fachgebiete.find((fg) => fg.themen.some((thema) => thema.id === activeThemaId))?.id ?? null,
+  );
+
+  const children = fachgebiete.flatMap((fachgebiet, index) => {
+    const expanded = fachgebiet.id === expandedId;
+    const nodes = [
+      <Tile
+        key={fachgebiet.id}
+        title={
+          <>
+            {expanded ? "▾" : "▸"} {fachgebiet.title}
+          </>
+        }
+        meta={`${fachgebiet.percent} % (${fachgebiet.mastered}/${fachgebiet.total})`}
+        fill={fachgebiet.percent}
+        active={expanded}
+        aria-expanded={expanded}
+        onClick={() => setExpandedId(expanded ? null : fachgebiet.id)}
+      />,
+    ];
+    const expandedFachgebiet = fachgebiete.find((fg) => fg.id === expandedId);
+    const isRowEnd = (index + 1) % columns === 0 || index === fachgebiete.length - 1;
+    const expandedIndex = expandedFachgebiet ? fachgebiete.indexOf(expandedFachgebiet) : -1;
+    // Die Themenzeile folgt dem letzten Fachgebiet der Rasterzeile, in der das aufgeklappte liegt.
+    if (expandedFachgebiet && isRowEnd && Math.floor(expandedIndex / columns) === Math.floor(index / columns)) {
+      nodes.push(
+        <div key={`${expandedFachgebiet.id}-themen`} className="tile-subgrid">
+          <div className="tile-grid tile-grid-sm">
+            {expandedFachgebiet.themen.map((thema) => (
+              <Tile
+                key={thema.id}
+                size="sm"
+                title={
+                  <>
+                    {thema.title}
+                    {thema.id === activeThemaId ? " · aktuell ausgewählt" : ""}
+                  </>
+                }
+                meta={`${thema.percent} % (${thema.mastered}/${thema.total})`}
+                fill={thema.percent}
+                active={thema.id === activeThemaId}
+                onClick={() => onGoToThema(thema.id, thema.title)}
+              />
+            ))}
+          </div>
+        </div>,
+      );
+    }
+    return nodes;
+  });
 
   return (
-    <div className="stack">
-      <button
-        type="button"
-        className="progress-block is-total progress-block-toggle"
-        onClick={() => setExpanded((current) => !current)}
-        aria-expanded={expanded}
-      >
-        <div className="progress-head">
-          <b>
-            {expanded ? "▾" : "▸"} {fachgebiet.title}
-          </b>
-          <span>
-            {fachgebiet.percent} % ({fachgebiet.mastered}/{fachgebiet.total})
-          </span>
-        </div>
-        <div className="progress-bar">
-          <span style={{ width: `${fachgebiet.percent}%` }} />
-        </div>
-      </button>
-      {expanded &&
-        fachgebiet.themen.map((thema) => (
-          <button
-            key={thema.id}
-            type="button"
-            className={thema.id === activeThemaId ? "progress-block is-active" : "progress-block"}
-            onClick={() => onGoToThema(thema.id, thema.title)}
-          >
-            <div className="progress-head">
-              <b>
-                {thema.title}
-                {thema.id === activeThemaId ? " · aktuell ausgewählt" : ""}
-              </b>
-              <span>
-                {thema.percent} % ({thema.mastered}/{thema.total})
-              </span>
-            </div>
-            <div className="progress-bar">
-              <span style={{ width: `${thema.percent}%` }} />
-            </div>
-          </button>
-        ))}
+    <div className="tile-grid" ref={gridRef}>
+      {children}
     </div>
   );
 }
@@ -118,6 +151,10 @@ const FORTSCHRITT_MODE_TABS: { id: "uebersicht" | "erfolge"; label: string }[] =
  * F-126 (Nutzer-Feedback vom 23.09.2026): Jedes Fachgebiet ist jetzt einzeln auf-/zuklappbar
  * (siehe FachgebietProgressBlock oben) statt alle Themen aller Fachgebiete gleichzeitig zu
  * zeigen.
+ * F-145 (Nutzer-Vorgabe vom 05.10.2026): Fachgebiete, Themen, Schwachstellen und Lernstatistik nutzen
+ * das gemeinsame Kacheldesign (`Tile.tsx`); der Fortschritt steht als Füllstand der Kachel (von unten
+ * nach oben) und zusätzlich als Zahl. Die Schwachstellen-Kacheln springen wie Themen-Kacheln ins
+ * gefilterte Lernen.
  */
 export function Progress({
   kursId,
@@ -194,16 +231,7 @@ export function Progress({
                 <h2>Fortschritt je Fachgebiet</h2>
                 <p>Auf ein Fachgebiet klicken, um die Themen auf-/zuzuklappen; auf ein Thema klicken, um gezielt dort weiterzulernen.</p>
               </div>
-              <div className="progress-grid">
-                {fachgebiete.map((fachgebiet) => (
-                  <FachgebietProgressBlock
-                    key={fachgebiet.id}
-                    fachgebiet={fachgebiet}
-                    activeThemaId={activeThemaId}
-                    onGoToThema={onGoToThema}
-                  />
-                ))}
-              </div>
+              <FachgebietGrid fachgebiete={fachgebiete} activeThemaId={activeThemaId} onGoToThema={onGoToThema} />
             </div>
 
             {stats.data && stats.data.totalAnswered > 0 && (
@@ -270,21 +298,23 @@ export function Progress({
                     <span className="stat-subheading">Schwachstellen — hier lohnt sich Wiederholen, je Thema</span>
                     <p className="field-hint">
                       Die {stats.data.weakThemen.length} Themen mit der niedrigsten Trefferquote (mindestens 3
-                      beantwortete Fragen), unabhängig davon, an welchem Tag gelernt wurde.
+                      beantwortete Fragen), unabhängig davon, an welchem Tag gelernt wurde — ein Klick auf ein Thema springt direkt
+                      zum gezielten Lernen dort.
                     </p>
-                    {stats.data.weakThemen.map((thema) => (
-                      <div key={thema.id} className="progress-block is-weak">
-                        <div className="progress-head">
-                          <b>{thema.title}</b>
-                          <span>
-                            {thema.percent} % ({thema.correct}/{thema.total})
-                          </span>
-                        </div>
-                        <div className="progress-bar">
-                          <span style={{ width: `${thema.percent}%` }} />
-                        </div>
-                      </div>
-                    ))}
+                    <div className="tile-grid tile-grid-sm">
+                      {stats.data.weakThemen.map((thema) => (
+                        <Tile
+                          key={thema.id}
+                          size="sm"
+                          className="tile-weak"
+                          title={thema.title}
+                          description={thema.fachgebietTitle}
+                          meta={`${thema.percent} % (${thema.correct}/${thema.total})`}
+                          fill={thema.percent}
+                          onClick={() => onGoToThema(thema.id, thema.title)}
+                        />
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>

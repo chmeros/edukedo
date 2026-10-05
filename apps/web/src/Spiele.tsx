@@ -3,6 +3,7 @@ import { KennzahlenDuellIllustration, KreuzwortraetselIllustration, MemoryIllust
 import { KennzahlenDuell } from "./KennzahlenDuell";
 import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
 import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -13,7 +14,8 @@ import { trpc } from "./trpc";
  * davon in diesem Kurs tatsächlich Content haben (aktuell Fachwirt-spezifisch, der Mathe-Kurs
  * zeigt "noch nicht verfügbar", analog zu Instrumenten ohne Kurs-Content).
  *
- * Nutzer-Vorgabe vom 28.09.2026: Kacheln statt Listenzeilen (siehe GameIllustrations.tsx), sowie
+ * Nutzer-Vorgabe vom 28.09.2026: Kacheln statt Listenzeilen (siehe GameIllustrations.tsx; seit F-144
+ * über die gemeinsame `Tile`-Komponente), sowie
  * `onActiveGameChange` — meldet an `App.tsx`, ob gerade ein Spiel läuft, damit der darunter
  * gerenderte Sozial-Bereich (`Sozial.tsx`) während eines laufenden Spiels ausgeblendet werden
  * kann (Fokus aufs Spiel).
@@ -70,26 +72,19 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         Fachbegriffe und Kennzahlen spielerisch üben — jedes Spiel wertet deine Fortschritte sofort in Punktehamster,
         Creditstand und Lernserie mit.
       </p>
-      <div className="game-tile-grid">
+      <div className="tile-grid">
         {GAME_CATALOG.map((entry) => {
-          const isAvailable = available.data?.some((row) => row.gameType === entry.type);
+          const isAvailable = available.data?.some((row) => row.gameType === entry.type) ?? false;
           return (
-            <button
+            <Tile
               key={entry.type}
-              type="button"
-              className="game-tile"
+              title={entry.label}
+              description={entry.description}
+              image={<entry.Illustration />}
               disabled={!isAvailable}
-              onClick={() => isAvailable && setActiveGame(entry.type)}
-            >
-              <span className="game-tile-image">
-                <entry.Illustration />
-              </span>
-              <span className="game-tile-body">
-                <span className="game-tile-title">{entry.label}</span>
-                <span className="game-tile-description">{entry.description}</span>
-                {!isAvailable && <span className="game-tile-unavailable">In diesem Kurs noch nicht verfügbar</span>}
-              </span>
-            </button>
+              note={!isAvailable ? "In diesem Kurs noch nicht verfügbar" : undefined}
+              onClick={() => setActiveGame(entry.type)}
+            />
           );
         })}
       </div>

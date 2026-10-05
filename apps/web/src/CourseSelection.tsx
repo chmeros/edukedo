@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { CourseIllustration } from "./CourseIcons";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon } from "./Icons";
 import { Modal } from "./Modal";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 const KATEGORIE_LABEL: Record<string, string> = {
@@ -34,6 +36,9 @@ export function CourseSelection({
 }) {
   const utils = trpc.useUtils();
   const courses = trpc.courses.list.useQuery();
+  // F-147: Gesamtfortschritt je belegtem Kurs für den Füllstand der Kachel; Kurse ohne Content-Items
+  // liefern keine Zeile → 0 %.
+  const progress = trpc.courses.progress.useQuery();
   const [search, setSearch] = useState("");
   const [kategorieFilter, setKategorieFilter] = useState<"alle" | "erwachsenenbildung" | "schule">("alle");
   // F-102: Beitritt zu einem Erwachsenenbildungskurs bei bereits bestehender Belegung derselben
@@ -49,12 +54,16 @@ export function CourseSelection({
   const enroll = trpc.courses.enroll.useMutation({
     onSuccess: (_result, variables) => {
       utils.courses.list.invalidate();
+      utils.courses.progress.invalidate();
       setPendingSwitch(null);
       onSelected(variables.kursId);
     },
   });
   const leave = trpc.courses.leave.useMutation({
-    onSuccess: () => utils.courses.list.invalidate(),
+    onSuccess: () => {
+      utils.courses.list.invalidate();
+      utils.courses.progress.invalidate();
+    },
   });
 
   if (courses.isLoading) {
@@ -91,35 +100,39 @@ export function CourseSelection({
       {joined.length > 0 && (
         <div className="panel-section">
           <span className="stat-subheading">Deine Kurse</span>
-          <div className="list">
-            {joined.map((course) => (
-              // .stack-Wrapper wie in ParentDashboard.tsx: die Fehlermeldung soll unter der Zeile
-              // erscheinen, nicht als drittes Flex-Kind neben .meta/.header-actions gequetscht werden.
-              <div key={course.id} className="stack">
-                <div className="list-row">
-                  <div className="meta">
-                    {course.title}
-                    <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
-                  </div>
-                  <div className="header-actions">
-                    <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
-                      Auswählen
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-ghost btn-sm"
-                      disabled={leave.isPending && leave.variables?.kursId === course.id}
-                      onClick={() => leave.mutate({ kursId: course.id })}
-                    >
-                      Verlassen
-                    </button>
-                  </div>
-                </div>
-                {leave.error && leave.variables?.kursId === course.id && (
-                  <ErrorMessage>{leave.error.message}</ErrorMessage>
-                )}
-              </div>
-            ))}
+          <div className="tile-grid">
+            {joined.map((course) => {
+              const percent = progress.data?.find((row) => row.kursId === course.id)?.percent ?? 0;
+              return (
+                <Tile
+                  key={course.id}
+                  title={course.title}
+                  description={KATEGORIE_LABEL[course.kategorie]}
+                  meta={progress.data ? `${percent} % gelernt` : undefined}
+                  image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
+                  fill={progress.data ? percent : 0}
+                  actions={
+                    <>
+                      <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
+                        Auswählen
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-ghost btn-sm"
+                        disabled={leave.isPending && leave.variables?.kursId === course.id}
+                        onClick={() => leave.mutate({ kursId: course.id })}
+                      >
+                        Verlassen
+                      </button>
+                    </>
+                  }
+                >
+                  {leave.error && leave.variables?.kursId === course.id && (
+                    <ErrorMessage>{leave.error.message}</ErrorMessage>
+                  )}
+                </Tile>
+              );
+            })}
           </div>
         </div>
       )}
@@ -149,15 +162,14 @@ export function CourseSelection({
           ))}
         </div>
         {available.length === 0 && <p className="field-hint">Keine passenden Kurse gefunden.</p>}
-        <div className="list">
+        <div className="tile-grid">
           {available.map((course) => (
-            // .stack-Wrapper wie oben bei "Deine Kurse" — Fehlermeldung landet unter statt neben der Zeile.
-            <div key={course.id} className="stack">
-              <div className="list-row">
-                <div className="meta">
-                  {course.title}
-                  <span className="field-hint">{KATEGORIE_LABEL[course.kategorie]}</span>
-                </div>
+            <Tile
+              key={course.id}
+              title={course.title}
+              description={KATEGORIE_LABEL[course.kategorie]}
+              image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
+              actions={
                 <button
                   type="button"
                   className="btn btn-secondary btn-sm"
@@ -166,13 +178,14 @@ export function CourseSelection({
                 >
                   Beitreten
                 </button>
-              </div>
+              }
+            >
               {/* Ein Fehlschlag über den Wechsel-Dialog (pendingSwitch) wird dort im Modal gezeigt,
                   nicht hier — sonst wäre die Meldung hinter dem geöffneten Modal verdeckt. */}
               {enroll.error && !pendingSwitch && enroll.variables?.kursId === course.id && (
                 <ErrorMessage>{enroll.error.message}</ErrorMessage>
               )}
-            </div>
+            </Tile>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { ErrorMessage } from "./ErrorMessage";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 /**
@@ -66,24 +67,29 @@ export function Lernpartner({
       )}
       {setFachgebiet.error && <ErrorMessage>{setFachgebiet.error.message}</ErrorMessage>}
 
-      <div className="list">
+      {/* F-148: Lernpartner-Treffer als Kacheln (Tile.tsx). */}
+      <div className="tile-grid tile-grid-sm">
         {(matches.data ?? []).map((entry) => (
-          <div key={entry.friendUserId} className="list-row">
-            <div className="meta">
-              {entry.friendEmail}
-              <span>
+          <Tile
+            key={entry.friendUserId}
+            size="sm"
+            title={entry.friendEmail}
+            description={
+              <>
                 {entry.targetDate ? `Zieltermin ${new Date(entry.targetDate).toLocaleDateString("de-DE")}` : "Kein Zieltermin"}
                 {entry.fachgebietTitle ? ` · ${entry.fachgebietTitle}` : ""}
-              </span>
-            </div>
-            {entry.matchScore > 0 && (
-              <span className="stat-label">
-                {entry.matchesTargetDate && "Ähnlicher Zieltermin"}
-                {entry.matchesTargetDate && entry.matchesFachgebiet && " · "}
-                {entry.matchesFachgebiet && "Gleicher Handlungsbereich"}
-              </span>
-            )}
-          </div>
+              </>
+            }
+            meta={
+              entry.matchScore > 0 ? (
+                <>
+                  {entry.matchesTargetDate && "Ähnlicher Zieltermin"}
+                  {entry.matchesTargetDate && entry.matchesFachgebiet && " · "}
+                  {entry.matchesFachgebiet && "Gleicher Handlungsbereich"}
+                </>
+              ) : undefined
+            }
+          />
         ))}
       </div>
       {matches.data?.length === 0 && <p className="field-hint">Noch keine Freunde in diesem Kurs.</p>}

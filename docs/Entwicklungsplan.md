@@ -425,6 +425,19 @@ Ziel: Vierter und letzter Durchlauf der vier Fachinformatiker-Kurse (Nutzer-Vorg
 - [x] Live-Verifikation im Browser (Wegwerf-Testkonto, F-102-Wechseldialog, Lernrunde, Fortschritt über alle zwölf Fachgebiete mit exaktem Summenabgleich, Fachgesprächs-Trainer, Prüfungssimulation ohne Abgabe, Konsolen-Check in frischem Tab). **Erledigt 05.10.2026.** Das Wegwerf-Testkonto wurde danach aus der lokalen Datenbank gelöscht.
 - [ ] **Offen (technische Schuld, nicht terminiert):** gemeinsame Fachgebiete `FU1`–`FU7` liegen in vier identischen Kopien vor (Kurse 12–15) — falls die Pflege zum Problem wird, wäre ein generierter Kopiermechanismus oder ein echtes Teilen von Fachgebieten zwischen Kursen (Schema-Erweiterung) zu prüfen; bisher bewusst als Überbau verworfen.
 
+## Iteration 21 — Durchgängiges Kacheldesign mit Füllstand-Fortschritt (F-144–F-148)
+
+Ziel: Fortschritt, Instrumente, Kursauswahl, Erfolge und Sozial-Bereiche im Kacheldesign der Spiele (F-140) vereinheitlichen; Fortschritt als Füllstand der Kachel (Nutzer-Vorgabe vom 05.10.2026).
+
+**Programmierung (Kern)**
+- [x] Gemeinsame `Tile`-Komponente mit Füllstand (`Tile.tsx`, `.tile*`-CSS), Spiele darauf umgestellt. **Erledigt 05.10.2026.**
+- [x] Backend: Abfrage `courses.progress` (Kurs-Gesamtfortschritt), Typenliste als `PROGRESS_COUNTABLE_TYPES` zentralisiert, zwei Integrationstests ergänzt. **Erledigt 05.10.2026.**
+- [x] Kursauswahl (`CourseSelection.tsx`, `CourseIcons.tsx`), Fortschritt (`Progress.tsx`), Instrumente (`Instrumente.tsx`, `InstrumentIllustrations.tsx`), Erfolge (`Achievements.tsx`) und Sozial-Bereiche (`FriendCircle`, `Kohorte`, `Highscore`, `Duell`, `Lernpartner`) als Kacheln. **Erledigt 05.10.2026.**
+
+**Testing**
+- [x] Live-Verifikation im Browser (Hell/Dunkel, mobile Breite, F-102-Dialog, Konsolen-Check in frischem Tab) und Kontrastberechnung für Text auf der Füllung. **Erledigt 05.10.2026.**
+- [ ] **Offen (nicht terminiert):** Das Header-Dropdown `CourseSwitcher` zeigt weiterhin Listenzeilen ohne Füllstand; falls gewünscht, kann es dieselbe `Tile`-Optik bekommen.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:
