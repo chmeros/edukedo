@@ -1,7 +1,9 @@
 # Anforderungskatalog: edukedo — Lernplattform für Prüfungsvorbereitung & Wissenserwerb (Pilot-Kurs: IHK-Fachwirt für Büro- und Projektorganisation)
 
-Version 0.68 · Stand 05.10.2026 · Entwurf zur Abstimmung
+Version 0.69 · Stand 05.10.2026 · Entwurf zur Abstimmung
 
+> **Update (Version 0.69):** Theorie-Ergänzung zum Netzplan (Nutzer-Vorgabe „Ja, weiter mit der Theorie-Ergänzung"): In den Projektmanagement-Themen der sieben Kurse mit Netzplan-Trainer (F-163) steht jetzt ein Abschnitt „Netzplan berechnen" (Vorwärts-/Rückwärtsrechnung, Gesamt- und freier Puffer, kritischer Pfad, durchgerechnetes Beispiel). Reiner Content, keine neue Anforderung. Hinweis: Theorie-Inhalte haben seit F-103 keinen Zugriffsweg im eingeloggten Bereich — die Ergänzung ist für Lernende erst sichtbar, wenn Theorie wieder eingebunden wird; die Erklärung im Trainer („So rechnest du") ist bis dahin die sichtbare Fassung.
+>
 > **Update (Version 0.68):** Netzplan-Trainer umgesetzt (Nutzer-Vorgabe „Ja, weiter mit dem Netzplan"). Neue Anforderung F-163: Im Instrumente-Tab gibt es für sieben Kurse (die vier Fachinformatiker-Kurse, Fachwirt Büro- und Projektorganisation, Immobilienfachwirt, Versicherungen/Finanzanlagen) einen **Netzplan-Trainer** mit zufällig erzeugten Aufgaben in drei Stufen: Vorwärtsrechnung, Rückwärtsrechnung, Gesamt- und freier Puffer, kritischer Pfad. Nicht umgesetzt: Subnetting-Rechner, SQL-Übungsfläche, geführte Lernpfade für die IT-Instrumente. Siehe Architekturplanung Abschnitt 13.
 >
 > **Update (Version 0.67):** Weitere IT-Instrumente für die Fachinformatiker-Kurse (Nutzer-Vorgabe „Ja, weiter mit dem nächsten Punkt aus dem Entwicklungsplan"). Neue Anforderung F-162: **drei weitere Instrumente** — ER-Modell (Entitätstyp, Attribut, Beziehung, Kardinalität), Normalformen (1. bis 3. Normalform) und Struktogramm/Programmablauf (Sequenz, Verzweigung, Schleife) — mit je drei Zuordnungsfragen (leicht, mittel, schwer). Nicht umgesetzt: Netzplan, Subnetting-Rechner und SQL-Übungsfläche (brauchen eine neue Mechanik statt Zonen-Zuordnung) sowie geführte Lernpfade für die neuen Instrumente. Siehe Architekturplanung Abschnitt 13.
