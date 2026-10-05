@@ -21,12 +21,14 @@
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "sql.js": "^1.14.2",
     "workbox-precaching": "^7.4.1"
   },
   "devDependencies": {
     "@edukedo/api": "workspace:*",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "@types/sql.js": "^1.4.11",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.2",
     "vite-plugin-pwa": "^0.20.5"

@@ -115,8 +115,8 @@ function fachinformatikMetadata(
     // F-161: betriebliches Projekt (Stundenobergrenze nach FIAusbV) — schaltet den Reiter "Projekt" frei.
     projekt: { stunden: projektStunden },
     // F-163: Netzplan-Trainer im Instrumente-Tab (Projektplanung gehört zu FU1 aller Fachinformatiker-Kurse);
-    // F-166: Subnetting-Rechner (Netzwerke, FU3).
-    werkzeuge: ["netzplan", "subnetting"],
+    // F-166: Subnetting-Rechner (Netzwerke, FU3); F-167: SQL-Übungsfläche (Datenbanken, FU5).
+    werkzeuge: ["netzplan", "subnetting", "sqluebung"],
     pruefungsbereiche: [FI_TEIL1, ...bereiche.map((bereich) => ({ ...bereich, part: "Teil 2" })), FI_WISO],
   };
 }

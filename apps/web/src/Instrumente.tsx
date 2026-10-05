@@ -15,6 +15,7 @@ import {
   SchutzzieleIllustration,
   ScrumIllustration,
   SqlIllustration,
+  SqlUebungIllustration,
   SubnettingIllustration,
   SwotIllustration,
   TeststufenIllustration,
@@ -22,6 +23,7 @@ import {
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Netzplan } from "./Netzplan";
+import { SqlUebungsflaeche } from "./SqlUebung";
 import { Subnetting } from "./Subnetting";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
@@ -172,6 +174,16 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Rechner öffnen",
   },
+  // F-167 (SQL-Übungsfläche, siehe Architekturplanung Abschnitt 13): SQLite im Browser; Werkzeug-Schlüssel
+  // "sqluebung" (der Schlüssel "sql" gehört dem Quiz-Instrument "SQL-Befehlsgruppen").
+  {
+    type: "sqluebung",
+    label: "SQL-Übungsfläche",
+    description: "Eigene SQL-Abfragen und Änderungen auf einer Beispieldatenbank ausprobieren — mit Aufgaben, Tipps und Prüfung.",
+    Illustration: SqlUebungIllustration,
+    werkzeug: true,
+    aktion: "Übungsfläche öffnen",
+  },
 ] as const;
 
 export function Instrumente({
@@ -199,6 +211,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "subnetting") {
     return <Subnetting onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "sqluebung") {
+    return <SqlUebungsflaeche onClose={() => setActiveWerkzeug(null)} />;
   }
 
   if (activeLernpfad) {

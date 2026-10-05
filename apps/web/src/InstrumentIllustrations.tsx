@@ -473,3 +473,30 @@ export function SubnettingIllustration() {
     </Frame>
   );
 }
+
+// F-167: SQL-Übungsfläche.
+
+export function SqlUebungIllustration() {
+  return (
+    <Frame background="var(--surface-2)">
+      <rect x="28" y="18" width="150" height="104" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M28 40h150" stroke="var(--info-deep)" strokeWidth="2" />
+      <circle cx="42" cy="29" r="3.5" fill="var(--coral)" />
+      <circle cx="54" cy="29" r="3.5" fill="var(--sun)" />
+      <circle cx="66" cy="29" r="3.5" fill="var(--sprout)" />
+      <text x="40" y="62" fontSize="11" fontWeight="700" fill="var(--info-deep)">
+        SELECT name
+      </text>
+      <text x="40" y="78" fontSize="11" fontWeight="700" fill="var(--info-deep)">
+        FROM kunde
+      </text>
+      <text x="40" y="94" fontSize="11" fontWeight="700" fill="var(--info-deep)">
+        WHERE ort = 'Köln';
+      </text>
+      <path d="M190 70h24m0 0-7-5m7 5-7 5" fill="none" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="222" y="34" width="72" height="72" rx="5" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M222 54h72M222 74h72M222 90h72M258 54v52" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      <rect x="222" y="34" width="72" height="20" rx="5" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+    </Frame>
+  );
+}

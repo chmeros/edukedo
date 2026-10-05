@@ -3635,3 +3635,85 @@ details[open] > summary.disclosure::before {
     gap: 2px;
   }
 }
+
+/* F-167: SQL-Übungsfläche (SqlUebung.tsx) */
+.sql-editor {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  resize: vertical;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 2;
+}
+
+.sql-tabellen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.sql-tabelle-info {
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  padding: 10px 12px;
+}
+
+.sql-tabelle-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sql-tabelle-info ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sql-tabelle-info code,
+.sql-loesung code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+.sql-aufgabenliste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sql-aufgabenliste .is-active {
+  border-color: var(--ink);
+  font-weight: 700;
+}
+
+.sql-ergebnis td.sql-zahl {
+  text-align: right;
+}
+
+.sql-ergebnis td.sql-null {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.sql-ergebnis td,
+.sql-ergebnis th {
+  text-align: left;
+}
+
+.sql-loesung {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
