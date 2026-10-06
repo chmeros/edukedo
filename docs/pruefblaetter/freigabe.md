@@ -161,6 +161,19 @@ Alles noch Entwurf (F-188): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 Alles noch Entwurf (F-189): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. **Bereits sichtbar:** die zwei neuen Theorieabschnitte samt je drei Karteikarten (Handelskalkulation in 5.3, Kraljic-Matrix in 7.1).
 
+### Blatt 18 — Immobilienfachwirt (nachträglich ergänzt, 20 Fragen und ein Duell-Set, **mit Miet-, WEG-, Bau- und Maklerrecht**)
+
+| Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| Wertermittlungsverfahren (`wertermittlung`) | 4 | ◐ | Bodenwert in mehreren Verfahren (Q-6.3-13, -16 bewusst mehrdeutig) |
+| DIN-276-Kostengruppen (`kostengruppen`) | 4 | ○ | Norm; Theorie 5.4 ordnet die Erschließung der KG 500 zu (nach DIN 276 vermutlich KG 200); KG-600-Beispiele abgeleitet |
+| Wege der Mieterhöhung (`mieterhoehung`) | 4 | ○ | **Mietrecht (BGB):** Kurswortlaut mit Paragrafen und Zahlen; Rechtsstand prüfen |
+| Betriebskosten (`betriebskosten`) | 4 | ○ | **BetrKV/Heizkostenverordnung:** Zone „Verbrauchsabhängig“ überschneidet sich mit „Umlagefähig“ |
+| WEG-Organe (`wegorgane`) | 4 | ○ | **WEG-Recht:** Verwaltungsbeirat nicht durch die Theorie belegt — Theorieabsatz ergänzen oder Zone streichen |
+| Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Set) | 20 | ○ | **Recht:** Fragen 2–5, 7–9, 13, 14, 18, 20; Fachperson empfohlen |
+
+Alles noch Entwurf (F-190): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Wertermittlungsverfahren in der nächsten Freigabewelle; der Rest gehört zur Rechtsprüfung (Welle 3).
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.

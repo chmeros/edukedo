@@ -684,6 +684,31 @@ describe("parseQuizBlock", () => {
     if (kraljic?.type === "kraljic") expect(kraljic.terms.map((term) => term.zoneKey)).toEqual(["hebel", "strategisch", "standard", "engpass"]);
   });
 
+  it("parst die Modelle aus F-190 (Immobilienfachwirt)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-6.3-13 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const wert = parse("Wertermittlungsverfahren", ["- Bodenrichtwert → Vergleichswertverfahren", "- Liegenschaftszinssatz → Ertragswertverfahren", "- Herstellungskosten → Sachwertverfahren"]);
+    expect(wert?.type).toBe("wertermittlung");
+    if (wert?.type === "wertermittlung") expect(wert.terms.map((term) => term.zoneKey)).toEqual(["vergleichswert", "ertragswert", "sachwert"]);
+
+    const miete = parse("Wege der Mieterhöhung", ["- Mietspiegel → Vergleichsmiete", "- Anteil der Modernisierungskosten → Modernisierungsumlage", "- vorab vereinbarte Stufen → Staffelmiete", "- Bindung an den Verbraucherpreisindex → Indexmiete"]);
+    expect(miete?.type).toBe("mieterhoehung");
+    if (miete?.type === "mieterhoehung") expect(miete.terms.map((term) => term.zoneKey)).toEqual(["vergleichsmiete", "modernisierung", "staffel", "index"]);
+
+    const weg = parse("WEG-Organe", ["- beschließt den Wirtschaftsplan → Eigentümerversammlung", "- führt die Beschlüsse aus → Verwalter", "- unterstützt und kontrolliert → Verwaltungsbeirat"]);
+    expect(weg?.type).toBe("wegorgane");
+    if (weg?.type === "wegorgane") expect(weg.terms.map((term) => term.zoneKey)).toEqual(["versammlung", "verwalter", "beirat"]);
+
+    const kosten = parse("Betriebskosten", ["- Grundsteuer → Umlagefähig", "- Verwalterhonorar → Nicht umlagefähig", "- Heizkosten nach Verbrauch → Verbrauchsabhängig (Heizkostenverordnung)"]);
+    expect(kosten?.type).toBe("betriebskosten");
+    if (kosten?.type === "betriebskosten") expect(kosten.terms.map((term) => term.zoneKey)).toEqual(["umlagefaehig", "nichtumlagefaehig", "verbrauch"]);
+
+    const kg = parse("DIN-276-Kostengruppen", ["- Kaufpreis des Grundstücks → KG 100 Grundstück", "- Heizungsanlage → KG 400 Technische Anlagen", "- Genehmigungskosten → KG 700 Baunebenkosten"]);
+    expect(kg?.type).toBe("kostengruppen");
+    if (kg?.type === "kostengruppen") expect(kg.terms.map((term) => term.zoneKey)).toEqual(["kg100", "kg400", "kg700"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

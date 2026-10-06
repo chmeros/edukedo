@@ -567,6 +567,20 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-190: Kursprofile Phase 1 — Immobilienfachwirt)
+
+- **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Immobilienfachwirt“, gleicher Maßstab wie F-177 bis F-189: Priorität „hoch“ und Aufwand S aus docs/kursprofile/03-handel-immobilien-versicherung.md (I-IMM-01, -04, -05, -06, -07, S-IMM-02), nur soweit die Kurstheorie sie trägt.
+- **Zurückgestellt:** Rechenschema Ertragswert (Aufwand S–M, Barwertfaktor-Formel Fachwissen ohne Quelle), Bewirtschaftungskosten nach ImmoWertV (Quellenlage unsicher), HOAI-Leistungsphasen (neun Phasen übersteigen die Zonenobergrenze 7), Kreuzworträtsel, Rechensprint und Abrechnungs-Detektiv (Aufwand M), Memory, Glossar und Lernpfade.
+- **Rechtsrisiko:** Mietrecht (BGB), WEG-Recht, Betriebskosten-/Heizkostenverordnung, Maklerrecht und Baurecht sind der rechtlich dichteste Kurs. Deshalb: in Zuordnungsbegriffen keine Zahlen und Paragrafen, Kurszahlen nur in Erklärungen als „laut Kurs“, keine Aussagen zu Mietpreisbremse oder Landesregelungen; alles bleibt als Entwurf bis zur Rechtsprüfung (R4).
+- **Verwaltungsbeirat nur dünn belegt:** Die Theorie von 4.2 erwähnt den Beirat nirgends; die Zone `beirat` stützt sich allein auf die Aussage „Unterstützung und Kontrolle des Verwalters“ in Q-4.2-12. Der Vorschlag nannte als vierten Träger die Gemeinschaft der Wohnungseigentümer (0 Treffer im Kurs); `wegorgane` hat deshalb nur drei Zonen. Vor der Freigabe sollte ein Theorieabsatz zum Beirat ergänzt werden.
+- **DIN 276:** Das Instrument verwendet nur die sieben Gruppennummern und -namen der Kurstheorie (Zonenobergrenze 7 genau erreicht). Die Theorie ordnet die Erschließung des Grundstücks der KG 500 zu; nach aktueller DIN 276 gehört sie nach unserem Wissen zu den vorbereitenden Maßnahmen. Die Fragen vermeiden die Erschließung; die Theoriepassage ist eine mögliche Korrektur.
+- **Betriebskosten-Zonen:** Die Heizkostenverordnung wird als eigene Zone „Verbrauchsabhängig“ geführt, obwohl Heiz- und Warmwasserkosten auch im BetrKV-Katalog stehen; die Anweisung löst die Überschneidung per Hinweis.
+- **Technik:** Fünf Einträge in `QUADRANT_MODELS` (`wertermittlung`, `mieterhoehung`, `wegorgane`, `betriebskosten`, `kostengruppen`), fünf Literale in `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, fünf Illustrationen und Katalogeinträge, Parser-Test.
+- **Content:** je 4 Fragen in hb6/6.3 (`Q-6.3-13`–`16`), hb4/4.1 (`Q-4.1-14`–`17`), hb4/4.2 (`Q-4.2-14`–`17`), hb4/4.4 (`Q-4.4-14`–`17`) und hb5/5.4 (`Q-5.4-14`–`17`); nur ergänzt (0 gelöschte Zeilen). Keine neue Theorie.
+- **Spielset:** `game-kennzahlen-duell-immobilien-aehnlich.ts` (setKey `immobilien-aehnlich`, 20 Fragen in 4 Runden à 5), nur für diesen Kurs in `seed-games.ts` registriert; der Test verbietet Zahlen, Formeln, Paragrafen, Normangaben und das Wort „Euro“. Weggelassen, weil der Kurs sie nicht unterscheidet: Alleinauftrag gegen einfacher Maklerauftrag, Kaltmiete gegen Warmmiete, Instandhaltung gegen Modernisierung.
+- **Freigabe:** `immobilienfachwirt` in `KURS_ENTWURF` mit allen fünf Typen; das Duell ist in `KURS_ANGEBOT` auf das nicht vorhandene Set `standard` begrenzt. Prüfblatt 18 mit allen offenen Fachfragen.
+- **Verifiziert:** Dev-Datenbank nach Neuimport — 20 Fragen inaktiv, Duell-Set angelegt; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-189: Kursprofile Phase 1 — Handelsfachwirt)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Handelsfachwirt“, gleicher Maßstab wie F-177 bis F-188: Priorität „hoch“ und Aufwand S aus docs/kursprofile/03-handel-immobilien-versicherung.md (I-HAN-01, -02, -03, S-HAN-03).

@@ -22,6 +22,7 @@ import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grund
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-handel-aehnlich";
+import { kennzahlenDuellImmobilienAehnlich } from "./content/game-kennzahlen-duell-immobilien-aehnlich";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
@@ -331,6 +332,17 @@ async function main() {
     "Begriffe-Duell: Handel — ähnlich, aber nicht gleich",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellHandelAehnlich),
     "handel-aehnlich",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Immobilienfachwirt": Immobilien — ähnlich,
+  // aber nicht gleich (Eigentum, Grundbuch und Recht, Miete, WEG und Betriebskosten, Instandhaltung, Bau und Baurecht,
+  // Bewertung, Makler und Vermarktung).
+  await upsertGame(
+    "immobilienfachwirt",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Immobilien — ähnlich, aber nicht gleich",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellImmobilienAehnlich),
+    "immobilien-aehnlich",
   );
 
   await pool.end();

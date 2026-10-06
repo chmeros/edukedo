@@ -72,6 +72,11 @@ import {
   HandelskalkulationIllustration,
   KraljicIllustration,
   XyzIllustration,
+  BetriebskostenIllustration,
+  KostengruppenIllustration,
+  MieterhoehungIllustration,
+  WegOrganeIllustration,
+  WertermittlungIllustration,
   VerzeichnisdienstIllustration,
   VierSeitenIllustration,
   VierStufenIllustration,
@@ -482,6 +487,37 @@ const INSTRUMENT_CATALOG = [
     label: "Kraljic-Matrix",
     description: "Beschaffungsobjekte nach Gewinnauswirkung und Versorgungsrisiko als Hebel-, Strategische, Standard- oder Engpassprodukte einordnen.",
     Illustration: KraljicIllustration,
+  },
+  // F-190 (Kursprofile Phase 1, Immobilienfachwirt): fünf Zonen-Instrumente für Bewertung, Mietverwaltung, WEG, Betriebskosten und Baukosten.
+  {
+    type: "wertermittlung",
+    label: "Wertermittlungsverfahren",
+    description: "Begriffe und Merkmale dem Vergleichswert-, Ertragswert- oder Sachwertverfahren zuordnen.",
+    Illustration: WertermittlungIllustration,
+  },
+  {
+    type: "mieterhoehung",
+    label: "Wege der Mieterhöhung",
+    description: "Vergleichsmiete, Modernisierungsumlage, Staffelmiete und Indexmiete anhand ihrer Merkmale auseinanderhalten.",
+    Illustration: MieterhoehungIllustration,
+  },
+  {
+    type: "wegorgane",
+    label: "WEG-Organe",
+    description: "Aufgaben der Eigentümerversammlung, des Verwalters und des Verwaltungsbeirats unterscheiden.",
+    Illustration: WegOrganeIllustration,
+  },
+  {
+    type: "betriebskosten",
+    label: "Betriebskosten",
+    description: "Kostenpositionen als umlagefähig, nicht umlagefähig oder verbrauchsabhängig abrechnen.",
+    Illustration: BetriebskostenIllustration,
+  },
+  {
+    type: "kostengruppen",
+    label: "DIN-276-Kostengruppen",
+    description: "Kostenpositionen eines Bauprojekts den sieben Kostengruppen von 100 bis 700 zuordnen.",
+    Illustration: KostengruppenIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

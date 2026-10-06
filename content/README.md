@@ -427,6 +427,11 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `xyz` (**XYZ-Analyse**, F-189, 3 Zonen): X-Klasse, Y-Klasse, Z-Klasse
   - `handelskalkulation` (**Handelskalkulation**, F-189, 3 Zonen): Bezugskalkulation, Selbstkostenkalkulation, Verkaufskalkulation
   - `kraljic` (**Kraljic-Matrix**, F-189, 4 Zonen): Hebelprodukte, Strategische Produkte, Standardprodukte, Engpassprodukte
+  - `wertermittlung` (**Wertermittlungsverfahren**, F-190, 3 Zonen): Vergleichswertverfahren, Ertragswertverfahren, Sachwertverfahren
+  - `mieterhoehung` (**Wege der Mieterhöhung**, F-190, 4 Zonen): Vergleichsmiete, Modernisierungsumlage, Staffelmiete, Indexmiete
+  - `wegorgane` (**WEG-Organe**, F-190, 3 Zonen): Eigentümerversammlung, Verwalter, Verwaltungsbeirat
+  - `betriebskosten` (**Betriebskosten**, F-190, 3 Zonen): Umlagefähig, Nicht umlagefähig, Verbrauchsabhängig (Heizkostenverordnung)
+  - `kostengruppen` (**DIN-276-Kostengruppen**, F-190, 7 Zonen): KG 100 bis KG 700
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

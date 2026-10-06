@@ -649,6 +649,52 @@ export const QUADRANT_MODELS = {
       { key: "engpass", label: "Engpassprodukte" },
     ],
   },
+  // F-190 (Kursprofile Phase 1, Immobilienfachwirt): fünf Modelle in der Gliederung der Kurstheorie (Themen 6.3, 4.1, 4.2, 4.4, 5.4).
+  wertermittlung: {
+    label: "Wertermittlungsverfahren",
+    zones: [
+      { key: "vergleichswert", label: "Vergleichswertverfahren" },
+      { key: "ertragswert", label: "Ertragswertverfahren" },
+      { key: "sachwert", label: "Sachwertverfahren" },
+    ],
+  },
+  mieterhoehung: {
+    label: "Wege der Mieterhöhung",
+    zones: [
+      { key: "vergleichsmiete", label: "Vergleichsmiete" },
+      { key: "modernisierung", label: "Modernisierungsumlage" },
+      { key: "staffel", label: "Staffelmiete" },
+      { key: "index", label: "Indexmiete" },
+    ],
+  },
+  wegorgane: {
+    label: "WEG-Organe",
+    zones: [
+      { key: "versammlung", label: "Eigentümerversammlung" },
+      { key: "verwalter", label: "Verwalter" },
+      { key: "beirat", label: "Verwaltungsbeirat" },
+    ],
+  },
+  betriebskosten: {
+    label: "Betriebskosten",
+    zones: [
+      { key: "umlagefaehig", label: "Umlagefähig" },
+      { key: "nichtumlagefaehig", label: "Nicht umlagefähig" },
+      { key: "verbrauch", label: "Verbrauchsabhängig (Heizkostenverordnung)" },
+    ],
+  },
+  kostengruppen: {
+    label: "DIN-276-Kostengruppen",
+    zones: [
+      { key: "kg100", label: "KG 100 Grundstück" },
+      { key: "kg200", label: "KG 200 Vorbereitende Maßnahmen" },
+      { key: "kg300", label: "KG 300 Baukonstruktionen" },
+      { key: "kg400", label: "KG 400 Technische Anlagen" },
+      { key: "kg500", label: "KG 500 Außenanlagen" },
+      { key: "kg600", label: "KG 600 Ausstattung und Kunstwerke" },
+      { key: "kg700", label: "KG 700 Baunebenkosten" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

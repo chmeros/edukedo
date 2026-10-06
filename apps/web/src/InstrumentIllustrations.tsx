@@ -1838,3 +1838,124 @@ export function KraljicIllustration() {
     </Frame>
   );
 }
+
+export function WertermittlungIllustration() {
+  const felder = [
+    { x: 14, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Vergleich" },
+    { x: 112, f: "var(--sun)", s: "var(--ink-soft)", t: "Ertrag" },
+    { x: 210, f: "var(--info)", s: "var(--info-deep)", t: "Sach" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {felder.map((feld) => (
+        <g key={feld.t}>
+          <rect x={feld.x} y="22" width="96" height="62" rx="8" fill={feld.f} stroke={feld.s} strokeWidth="2" />
+          <text x={feld.x + 48} y="58" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {feld.t}
+          </text>
+        </g>
+      ))}
+      <path d="M62 84v14h196V84M160 84v14" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="116" y="98" width="88" height="26" rx="13" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" />
+      <text x="160" y="116" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Verkehrswert
+      </text>
+    </Frame>
+  );
+}
+
+export function MieterhoehungIllustration() {
+  const pfeile = [
+    { x: 24, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Vergleich" },
+    { x: 106, f: "var(--sun)", s: "var(--ink-soft)", t: "Moderni." },
+    { x: 188, f: "var(--info)", s: "var(--info-deep)", t: "Staffel" },
+    { x: 270, f: "var(--coral)", s: "var(--coral-deep)", t: "Index" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {pfeile.map((p, i) => (
+        <g key={p.t}>
+          <rect x={p.x - 20} y={100 - (i + 1) * 18} width="40" height={(i + 1) * 18 + 8} rx="5" fill={p.f} stroke={p.s} strokeWidth="2" />
+          <text x={p.x} y="124" fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {p.t}
+          </text>
+        </g>
+      ))}
+      <path d="M20 30l66 6 82-12 82-14" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="6 5" />
+    </Frame>
+  );
+}
+
+export function WegOrganeIllustration() {
+  const organe = [
+    { x: 20, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Versammlung" },
+    { x: 116, f: "var(--sun)", s: "var(--ink-soft)", t: "Verwalter" },
+    { x: 212, f: "var(--info)", s: "var(--info-deep)", t: "Beirat" },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      <rect x="40" y="14" width="240" height="30" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <text x="160" y="34" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Wohnungseigentümer
+      </text>
+      <path d="M68 44v22M164 44v22M260 44v22" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {organe.map((organ) => (
+        <g key={organ.t}>
+          <rect x={organ.x} y="66" width="88" height="50" rx="8" fill={organ.f} stroke={organ.s} strokeWidth="2" />
+          <text x={organ.x + 44} y="96" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {organ.t}
+          </text>
+        </g>
+      ))}
+    </Frame>
+  );
+}
+
+export function BetriebskostenIllustration() {
+  const spalten = [
+    { x: 16, f: "var(--sprout)", s: "var(--sprout-deep)", t: "umlagefähig" },
+    { x: 114, f: "var(--coral)", s: "var(--coral-deep)", t: "nicht umlagefähig" },
+    { x: 212, f: "var(--info)", s: "var(--info-deep)", t: "Verbrauch" },
+  ];
+  return (
+    <Frame background="var(--danger-tint)">
+      {spalten.map((spalte) => (
+        <g key={spalte.t}>
+          <rect x={spalte.x} y="20" width="92" height="100" rx="8" fill={spalte.f} stroke={spalte.s} strokeWidth="2" />
+          <text x={spalte.x + 46} y="42" fontSize="9.5" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {spalte.t}
+          </text>
+          <path d={`M${spalte.x + 14} 62h64M${spalte.x + 14} 82h64M${spalte.x + 14} 102h40`} stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
+        </g>
+      ))}
+    </Frame>
+  );
+}
+
+export function KostengruppenIllustration() {
+  const gruppen = [
+    { f: "var(--sprout)", t: "100" },
+    { f: "var(--sun)", t: "200" },
+    { f: "var(--coral)", t: "300" },
+    { f: "var(--info)", t: "400" },
+    { f: "var(--sprout)", t: "500" },
+    { f: "var(--sun)", t: "600" },
+    { f: "var(--coral)", t: "700" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {gruppen.map((gruppe, i) => (
+        <g key={gruppe.t}>
+          <rect x={14 + i * 43} y={100 - (i % 4) * 8 - 40} width="38" height={40 + (i % 4) * 8} rx="5" fill={gruppe.f} stroke="var(--ink-soft)" strokeWidth="2" />
+          <text x={33 + i * 43} y="116" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {gruppe.t}
+          </text>
+        </g>
+      ))}
+      <path d="M14 30h292" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+      <text x="160" y="22" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        DIN 276
+      </text>
+    </Frame>
+  );
+}

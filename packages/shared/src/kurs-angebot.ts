@@ -86,6 +86,12 @@ export const KATALOG_INSTRUMENTE = [
   "xyz",
   "handelskalkulation",
   "kraljic",
+  // Kursprofile Phase 1 (Immobilienfachwirt)
+  "wertermittlung",
+  "mieterhoehung",
+  "wegorgane",
+  "betriebskosten",
+  "kostengruppen",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -213,6 +219,7 @@ export const KURS_ENTWURF: Record<string, readonly string[]> = {
   wirtschaftsfachwirt: ["investition", "vierseiten"],
   "transport-management-logistics": ["verkehrstraeger", "abc"],
   handelsfachwirt: ["abc", "xyz", "handelskalkulation", "kraljic"],
+  immobilienfachwirt: ["wertermittlung", "mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -381,7 +388,20 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  immobilienfachwirt: { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
+  // Die neuen Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen) und das Duell-Set
+  // "immobilien-aehnlich" erst nach der Freigabe des Prüfblatts 18 (inkl. Rechtsprüfung) aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht
+  // vorhandene Set "standard" begrenzt.
+  immobilienfachwirt: {
+    instrumente: liste(OHNE()),
+    werkzeuge: liste(["netzplan"]),
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: [],
+    szenarien: {},
+  },
   "versicherungen-finanzanlagen": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   // Projektphasen, Stakeholder-Matrix, ABC-Analyse und das Duell-Set "projektmanagement" sind freigegeben (Welle 2).
   "fachwirt-buero-projektorganisation": {

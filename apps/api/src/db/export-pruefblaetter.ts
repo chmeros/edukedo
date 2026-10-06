@@ -16,6 +16,7 @@ import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konf
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-handel-aehnlich";
+import { kennzahlenDuellImmobilienAehnlich } from "./content/game-kennzahlen-duell-immobilien-aehnlich";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
@@ -1332,6 +1333,67 @@ function hanNachspann(teile: string[]): void {
   teile.push(...duellBloecke("handel-aehnlich", kennzahlenDuellHandelAehnlich));
 }
 
+const IMM_BLATT: KursBlatt = {
+  kurs: "immobilienfachwirt",
+  titel: "Immobilienfachwirt",
+  feature: "F-190",
+  theorie: [],
+  zonenDateien: [
+    { datei: "hb6/6.3-immobilienbewertung-grundzuege.md", typen: ["wertermittlung"] },
+    { datei: "hb4/4.1-mietverwaltung.md", typen: ["mieterhoehung"] },
+    { datei: "hb4/4.2-weg-verwaltung.md", typen: ["wegorgane"] },
+    { datei: "hb4/4.4-betriebskostenabrechnung.md", typen: ["betriebskosten"] },
+    { datei: "hb5/5.4-kosten-terminplanung-bau.md", typen: ["kostengruppen"] },
+  ],
+  zonenHinweise: {
+    wertermittlung: [
+      "Q-6.3-13: Bodenrichtwerte stehen beim Vergleichswertverfahren, wie in der Theorie dargestellt; sie dienen laut Theorie auch dem Bodenwert im Sachwertverfahren — die Zuordnung ist nicht ganz trennscharf, die Erklärung benennt das.",
+      "Q-6.3-14: „Standardobjekt mit ausreichender Vergleichsbasis“ ist eine allgemeine Formulierung der Theorie, kein Objektbeispiel.",
+      "**Q-6.3-16 (bewusst mehrdeutig):** Der Bodenwert kommt im Ertragswert (gesondert verzinst) und im Sachwert (Summand) vor, die Daten der Gutachterausschüsse betreffen alle drei Verfahren; die Erklärung löst über die Rolle im Verfahren auf. Der Hinweis zu Neubauwohnungen („allein oft nicht ausreichend“) entspricht der Theorie.",
+      "Keine Zahlen, Formeln oder Paragrafen in den Zuordnungen; ImmoWertV-Begriffe sind nur soweit verwendet, wie die Theorie sie nennt.",
+    ],
+    mieterhoehung: [
+      "**Mietrecht (BGB), Rechtsstand prüfen:** Der Kurstext nennt Paragrafen und Zahlen (Kappungsgrenzen, Sperrfrist, Modernisierungsumlage und deren Obergrenzen, Staffelabstand) und trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“. In den Zuordnungsbegriffen stehen keine Zahlen und Paragrafen; Zahlen erscheinen nur in den Erklärungen von Q-4.1-14 und -15 mit „laut Kurs“.",
+      "Q-4.1-14: „an das ortsübliche Niveau angepasst“ ist eine sinngemäße Umschreibung. Q-4.1-15: „prozentual“ (Vergleichsmiete) und „je Quadratmeter“ (Modernisierung) sind Ableitungen aus den Kursangaben; die Begriffe zu Sperrfrist und Staffel-Mindestabstand klingen ähnlich und sind nur über die Wortwahl getrennt.",
+      "Q-4.1-16 und -17: Die Sperrfrist als Hindernis für die nächste Anpassung und „unabhängig von der Preisentwicklung“ bzw. „bevor die Preisentwicklung bekannt ist“ (Staffelmiete) sind Ableitungen. Der Ausschluss der Vergleichsmieterhöhung bei Staffel-/Indexmiete ist nur als Kurswortlaut („grundsätzlich“) wiedergegeben; das Zusammentreffen mit der Modernisierungsumlage und Ausnahmen sind bewusst nicht behandelt.",
+      "Keine Aussagen zu Mietpreisbremse oder landesspezifischen Regelungen.",
+    ],
+    wegorgane: [
+      "**WEG-Recht, Rechtsstand prüfen (WEG-Reform):** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“.",
+      "**Verwaltungsbeirat nicht durch die Theorie belegt:** Die Theorie von 4.2 erwähnt den Beirat nirgends; die einzige inhaltliche Aussage („Unterstützung und Kontrolle des Verwalters“) steht in Q-4.2-12 (Hierarchie). Alle Beirat-Begriffe stützen sich auf diese eine Aussage und sind in den Erklärungen als abgeleitet gekennzeichnet. **Vor der Freigabe sollte ein Theorieabsatz zum Beirat ergänzt werden** (oder die Zone entfallen).",
+      "Q-4.2-14 bis -17: Beschluss-Sammlung und Vermögenstrennung liegen laut Theorie beim Verwalter; die Zuordnung der Einladung und der Auskunft zum Verwalter ist abgeleitet (die Theorie nennt Einberufung und Auskunftspflichten); die Abberufung bei der Versammlung ist abgeleitet („Erleichterung für die Gemeinschaft“) — rechtliche Zuständigkeit prüfen.",
+      "Q-4.2-15: „Muss grundsätzlich zertifiziert sein“ ist verkürzt (rechtlich ein Anspruch der Eigentümer auf Bestellung, keine Verwalterpflicht; die Erklärung nennt das als Verwechslung). Ladungsfristen wurden weggelassen, damit keine Zahlen in den Begriffen stehen.",
+    ],
+    betriebskosten: [
+      "**Mietrecht (BetrKV, Heizkostenverordnung), Rechtsstand prüfen:** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“. Zahlen (Anzahl der Kostenarten, Spanne der verbrauchsabhängigen Abrechnung) stehen nur in Erklärungen als „laut Kurs“.",
+      "**Q-4.4-14 und -15 (Überschneidung der Zonen):** Heiz- und Warmwasserkosten stehen auch im BetrKV-Katalog (umlagefähig); die Zone „Verbrauchsabhängig“ überschneidet sich daher mit „Umlagefähig“. Die Anweisung löst das per Hinweis auf, dass sie hier der dritten Zone zugeordnet werden — fachlich prüfen, ob die Dreiteilung so sinnvoll ist.",
+      "Q-4.4-14: Das Beispiel „Reparatur Treppengeländer“ steht nicht im Kurstext, nur der allgemeine Satz zu Instandsetzung. Q-4.4-16: Die Fallkonstellation ist aus Q-4.4-09 und dem Theoriehinweis zu fälschlich aufgenommenen Reparaturen abgeleitet; der Mietvertrag wird als vereinbart vorausgesetzt. Q-4.4-17: „Reparatur des Aufzugs“ und die Gegenüberstellung von laufendem Betrieb und Reparatur sind Ableitungen; das Kürzungsrecht ist ohne Zahl erwähnt.",
+    ],
+    kostengruppen: [
+      "**Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen).",
+      "**Mögliche Unstimmigkeit in der Kurstheorie 5.4:** Der Kurs ordnet die Erschließung des Grundstücks der KG 500 (Außenanlagen) zu; nach der aktuellen DIN 276 gehört sie nach meinem Wissen zu den vorbereitenden Maßnahmen (KG 200, nach neuer Fassung „Herrichten und Erschließen“). Die Erschließung wurde deshalb in keiner Zuordnung verwendet (KG 500: nur Stellplätze und Grünflächen); die Theoriepassage selbst ist eine mögliche Korrektur. Grunderwerbsteuer und Notarkosten wurden ausgespart, weil die Theorie sie nicht nennt.",
+      "Q-5.4-14 bis -17: KG 600 (Ausstattung und Kunstwerke): Das Kunstwerk und das Mobiliar sind aus dem Gruppennamen abgeleitet, die Theorie nennt kein Beispiel; Mobiliar eines Gemeinschaftsraums könnte je nach Fest-/Losteil abweichend eingeordnet werden. Ausbau bei KG 300 steht wörtlich in der Theorie; Planung und Bauleitung gehören zu KG 700.",
+    ],
+  },
+  nachspann: (teile) => immNachspann(teile),
+};
+
+function immNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Immobilienfachwirt; **mit Miet-, WEG- und Maklerrecht**)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Der Kurs trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“ — das Set gehört deshalb wie die rechtlichen Zonen-Instrumente zur Rechtsprüfung (R4). Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen.",
+    "",
+    "**Zum Set — besonders prüfen (Rechtsbezug):**",
+    "- ⚠ Fragen 2 und 3 (Grundschuld gegen Hypothek, Bruchteils- gegen Gesamthandseigentum), 4 (Standesregeln gegen Erlaubnispflicht; der Kurstext zur behördlichen Kontrolle ist knapp, die Frage nutzt nur die Seite „freiwillig, über das Gesetz hinaus“) und 5 (nichtig gegen anfechtbar, ohne Fristen und Paragrafen).",
+    "- ⚠ Fragen 7 und 8 (Modernisierungsmieterhöhung gegen Vergleichsmiete; ordentliche Kündigung gegen fristlose Kündigung wegen Zahlungsverzugs — die Antwortoption ist bewusst eng gefasst, gefragt wird nur, welche Kündigung stets ein berechtigtes Interesse verlangt) und 9 (umlagefähig gegen nicht umlagefähig).",
+    "- ⚠ Fragen 13 und 14 (Bebauungsplan gegen Flächennutzungsplan; Bauordnungs- gegen Bauplanungsrecht), 18 (Nachweis- gegen Vermittlungsmakler) und 20 (Pflichtangaben zum Energieausweis in der Immobilienanzeige): Frage 20 lässt die Rechtsgrundlage weg, weil die Theorie dort zwischen Energieeinsparverordnung und Gebäudeenergiegesetz schwankt.",
+    "- ⚠ Frage 16 (Beleihungswert gegen Verkehrswert): Die Gleichsetzung Verkehrswert gleich Marktwert stammt aus Thema 6.3, der Beleihungswert aus Thema 2.2.",
+    "- Weggelassen, weil der Kurs sie nicht unterscheidet: Alleinauftrag gegen einfacher Maklerauftrag, Kaltmiete gegen Warmmiete, Instandhaltung gegen Modernisierung als Gegenüberstellung; das Bestellerprinzip nur über Prozentangaben unterscheidbar. Handlungsbereich 3 (Personal) wurde nicht herangezogen.",
+    "",
+  );
+  teile.push(...duellBloecke("immobilien-aehnlich", kennzahlenDuellImmobilienAehnlich));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1447,6 +1509,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [15 Wirtschaftsfachwirt](15-wirtschaftsfachwirt.md) | neue Zonen-Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell), Begriffe-Duell „Finanzierung und Controlling“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [16 Transport/Logistik](16-transport-logistik.md) | neue Zonen-Instrumente (Verkehrsträger, ABC-Analyse), Begriffe-Duell „Spedition und Fracht“ (Kursprofile Phase 1; **mit Fracht- und Zollrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [17 Handelsfachwirt](17-handelsfachwirt.md) | neue Zonen-Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix), neue Theorie (Handelskalkulation, Kraljic-Matrix), Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [18 Immobilienfachwirt](18-immobilienfachwirt.md) | neue Zonen-Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen), Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Miet-, WEG- und Maklerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.",
     "",
@@ -1495,6 +1558,7 @@ function main() {
     ["15-wirtschaftsfachwirt.md", kursBlatt(WIR_BLATT)],
     ["16-transport-logistik.md", kursBlatt(LOG_BLATT)],
     ["17-handelsfachwirt.md", kursBlatt(HAN_BLATT)],
+    ["18-immobilienfachwirt.md", kursBlatt(IMM_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");
