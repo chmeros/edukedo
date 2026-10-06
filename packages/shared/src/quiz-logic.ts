@@ -351,6 +351,54 @@ export const QUADRANT_MODELS = {
       { key: "zelle", label: "Zelle/Feldebene" },
     ],
   },
+  // F-180 (Kursprofile Phase 1, Systemintegration): fünf weitere Modelle mit festen Zonen.
+  sicherungsarten: {
+    label: "Sicherungsarten",
+    zones: [
+      { key: "voll", label: "Vollsicherung" },
+      { key: "inkrementell", label: "Inkrementelle Sicherung" },
+      { key: "differentiell", label: "Differentielle Sicherung" },
+    ],
+  },
+  raid: {
+    label: "RAID-Level",
+    zones: [
+      { key: "raid0", label: "RAID 0" },
+      { key: "raid1", label: "RAID 1" },
+      { key: "raid5", label: "RAID 5" },
+      { key: "raid6", label: "RAID 6" },
+      { key: "raid10", label: "RAID 10" },
+    ],
+  },
+  netzsicherheit: {
+    label: "Netzwerksicherheits-Bausteine",
+    zones: [
+      { key: "firewall", label: "Firewall" },
+      { key: "nat", label: "NAT" },
+      { key: "vpn", label: "VPN" },
+      { key: "dmz", label: "DMZ/Segmentierung" },
+      { key: "zugangskontrolle", label: "Zugangskontrolle am Netzrand (802.1X/Port-Security)" },
+    ],
+  },
+  verzeichnisdienst: {
+    label: "Verzeichnisdienst und Berechtigungen",
+    zones: [
+      { key: "konto", label: "Benutzerkonto" },
+      { key: "gruppe", label: "Gruppe" },
+      { key: "ou", label: "Organisationseinheit (OU)" },
+      { key: "gpo", label: "Gruppenrichtlinie (GPO)" },
+      { key: "acl", label: "Berechtigung (ACL)" },
+    ],
+  },
+  switching: {
+    label: "Switching, VLAN, Routing und Redundanz",
+    zones: [
+      { key: "switching", label: "Switching (Layer 2)" },
+      { key: "vlan", label: "VLAN/Trunking" },
+      { key: "routing", label: "Routing (Layer 3)" },
+      { key: "redundanz", label: "Redundanz (Spanning Tree)" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

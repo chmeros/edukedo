@@ -396,6 +396,11 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `sensoraktor` (**Sensor, Steuerung, Aktor, Kommunikation**, F-179, 4 Zonen): Sensor, Steuerung/Verarbeitung, Aktor, Kommunikation/Gateway
   - `industrieprotokolle` (**Industrie- und IoT-Protokolle**, F-179, 4 Zonen): Feldbus/Industrial Ethernet, Modbus, OPC UA, MQTT
   - `zonenkonzept` (**Zonenkonzept IT/OT**, F-179, 4 Zonen): Büro-IT, DMZ (Übergang), Produktionsnetz (Leitebene), Zelle/Feldebene
+  - `sicherungsarten` (**Sicherungsarten**, F-180, 3 Zonen): Vollsicherung, Inkrementelle Sicherung, Differentielle Sicherung
+  - `raid` (**RAID-Level**, F-180, 5 Zonen): RAID 0, RAID 1, RAID 5, RAID 6, RAID 10
+  - `netzsicherheit` (**Netzwerksicherheits-Bausteine**, F-180, 5 Zonen): Firewall, NAT, VPN, DMZ/Segmentierung, Zugangskontrolle am Netzrand (802.1X/Port-Security)
+  - `verzeichnisdienst` (**Verzeichnisdienst und Berechtigungen**, F-180, 5 Zonen): Benutzerkonto, Gruppe, Organisationseinheit (OU), Gruppenrichtlinie (GPO), Berechtigung (ACL)
+  - `switching` (**Switching, VLAN, Routing und Redundanz**, F-180, 4 Zonen): Switching (Layer 2), VLAN/Trunking, Routing (Layer 3), Redundanz (Spanning Tree)
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

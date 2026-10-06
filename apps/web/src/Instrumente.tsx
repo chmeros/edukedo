@@ -29,11 +29,15 @@ import {
   IndustrieprotokolleIllustration,
   OsiIllustration,
   PdcaIllustration,
+  NetzsicherheitIllustration,
   PyramideIllustration,
+  RaidIllustration,
   RisikoIllustration,
   SchutzzieleIllustration,
   SensorAktorIllustration,
+  SicherungsartenIllustration,
   SkalenniveausIllustration,
+  SwitchingIllustration,
   ScrumIllustration,
   SqlIllustration,
   SqlUebungIllustration,
@@ -44,6 +48,7 @@ import {
   SwotIllustration,
   TeststufenIllustration,
   UmlIllustration,
+  VerzeichnisdienstIllustration,
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
@@ -255,6 +260,37 @@ const INSTRUMENT_CATALOG = [
     label: "Zonenkonzept IT/OT",
     description: "Systeme der Büro-IT, der DMZ, dem Produktionsnetz oder der Zelle zuordnen.",
     Illustration: ZonenkonzeptIllustration,
+  },
+  // F-180 (Kursprofile Phase 1, Systemintegration): fünf weitere Zonen-Instrumente.
+  {
+    type: "sicherungsarten",
+    label: "Sicherungsarten",
+    description: "Voll-, inkrementelle und differentielle Sicherung an Szenarien und Wiederherstellungsketten erkennen.",
+    Illustration: SicherungsartenIllustration,
+  },
+  {
+    type: "raid",
+    label: "RAID-Level",
+    description: "RAID 0, 1, 5, 6 und 10 an Kapazität, Ausfallschutz und Leistung unterscheiden.",
+    Illustration: RaidIllustration,
+  },
+  {
+    type: "netzsicherheit",
+    label: "Netzwerksicherheits-Bausteine",
+    description: "Firewall, NAT, VPN, DMZ und Zugangskontrolle am Netzrand an Einsatzszenarien erkennen.",
+    Illustration: NetzsicherheitIllustration,
+  },
+  {
+    type: "verzeichnisdienst",
+    label: "Verzeichnisdienst und Berechtigungen",
+    description: "Konto, Gruppe, OU, Gruppenrichtlinie und Berechtigung den passenden Verwaltungsaufgaben zuordnen.",
+    Illustration: VerzeichnisdienstIllustration,
+  },
+  {
+    type: "switching",
+    label: "Switching, VLAN, Routing und Redundanz",
+    description: "Probleme und passende Netzwerklösungen zuordnen: Layer 2, VLAN, Routing und Spanning Tree.",
+    Illustration: SwitchingIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

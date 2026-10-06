@@ -508,6 +508,31 @@ describe("parseQuizBlock", () => {
     if (zonen?.type === "zonenkonzept") expect(zonen.terms.map((term) => term.zoneKey)).toEqual(["bueroit", "dmz", "produktion", "zelle"]);
   });
 
+  it("parst die Modelle aus F-180 (Sicherungsarten, RAID, Netzsicherheit, Verzeichnisdienst, Switching)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-10.3-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const sicherung = parse("Sicherungsarten", ["- Alle Daten werden kopiert → Vollsicherung", "- Nur Änderungen seit der letzten Sicherung → Inkrementelle Sicherung", "- Änderungen seit der letzten Vollsicherung → Differentielle Sicherung"]);
+    expect(sicherung?.type).toBe("sicherungsarten");
+    if (sicherung?.type === "sicherungsarten") expect(sicherung.terms.map((term) => term.zoneKey)).toEqual(["voll", "inkrementell", "differentiell"]);
+
+    const raid = parse("RAID-Level", ["- Striping ohne Ausfallschutz → RAID 0", "- Spiegelung → RAID 1", "- Parität über alle Platten → RAID 5", "- zwei Paritätsblöcke → RAID 6", "- gespiegelte Stripes → RAID 10"]);
+    expect(raid?.type).toBe("raid");
+    if (raid?.type === "raid") expect(raid.terms.map((term) => term.zoneKey)).toEqual(["raid0", "raid1", "raid5", "raid6", "raid10"]);
+
+    const netz = parse("Netzwerksicherheits-Bausteine", ["- filtert Verkehr nach Regeln → Firewall", "- tauscht private gegen öffentliche Adressen → NAT", "- verschlüsselter Zugang von außen → VPN", "- Server aus dem Internet erreichbar, Intranet geschützt → DMZ/Segmentierung", "- nur freigegebene Geräte am Switchport → Zugangskontrolle am Netzrand (802.1X/Port-Security)"]);
+    expect(netz?.type).toBe("netzsicherheit");
+    if (netz?.type === "netzsicherheit") expect(netz.terms.map((term) => term.zoneKey)).toEqual(["firewall", "nat", "vpn", "dmz", "zugangskontrolle"]);
+
+    const verz = parse("Verzeichnisdienst und Berechtigungen", ["- eigene Anmeldung → Benutzerkonto", "- Vertrieb erhält Zugriff → Gruppe", "- Verwaltung der Filiale delegieren → Organisationseinheit (OU)", "- Passwortregeln zentral erzwingen → Gruppenrichtlinie (GPO)", "- wer darf den Ordner lesen → Berechtigung (ACL)"]);
+    expect(verz?.type).toBe("verzeichnisdienst");
+    if (verz?.type === "verzeichnisdienst") expect(verz.terms.map((term) => term.zoneKey)).toEqual(["konto", "gruppe", "ou", "gpo", "acl"]);
+
+    const sw = parse("Switching, VLAN, Routing und Redundanz", ["- Frames nach MAC-Tabelle weiterleiten → Switching (Layer 2)", "- Broadcast-Domäne verkleinern → VLAN/Trunking", "- Pakete in ein anderes Netz weiterleiten → Routing (Layer 3)", "- Schleife im Layer-2-Netz verhindern → Redundanz (Spanning Tree)"]);
+    expect(sw?.type).toBe("switching");
+    if (sw?.type === "switching") expect(sw.terms.map((term) => term.zoneKey)).toEqual(["switching", "vlan", "routing", "redundanz"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

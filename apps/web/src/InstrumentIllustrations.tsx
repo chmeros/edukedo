@@ -837,6 +837,159 @@ export function ZonenkonzeptIllustration() {
   );
 }
 
+// F-180 (Kursprofile Phase 1, Systemintegration): Sicherungsarten, RAID, Netzwerksicherheit, Verzeichnisdienst, Switching.
+
+export function SicherungsartenIllustration() {
+  const tage = [0, 1, 2, 3, 4];
+  const zeile = (y: number, name: string, hoehe: (tag: number) => number, farbe: string, rand: string) => (
+    <g key={name}>
+      <text x="14" y={y + 14} fontSize="9" fontWeight="700" fill="var(--ink-soft)">
+        {name}
+      </text>
+      {tage.map((tag) => (
+        <rect key={tag} x={92 + tag * 44} y={y + 22 - hoehe(tag)} width="34" height={hoehe(tag)} rx="3" fill={farbe} stroke={rand} strokeWidth="1.8" />
+      ))}
+    </g>
+  );
+  return (
+    <Frame background="var(--sprout-tint)">
+      {zeile(8, "voll", () => 20, "var(--coral)", "var(--coral-deep)")}
+      {zeile(48, "inkr.", (tag) => (tag === 0 ? 20 : 7), "var(--info)", "var(--info-deep)")}
+      {zeile(88, "diff.", (tag) => (tag === 0 ? 20 : 7 + tag * 3), "var(--sun)", "var(--ink-soft)")}
+      <path d="M92 128h216" stroke="var(--line-strong)" strokeWidth="1.5" />
+    </Frame>
+  );
+}
+
+export function RaidIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  const platte = (x: number, y: number, f: string, text?: string) => (
+    <g key={`${x}-${y}`}>
+      <ellipse cx={x} cy={y} rx="13" ry="5" fill={f} stroke="var(--ink-soft)" strokeWidth="1.5" />
+      <path d={`M${x - 13} ${y}v16a13 5 0 0 0 26 0V${y}`} fill={f} stroke="var(--ink-soft)" strokeWidth="1.5" />
+      {text && (
+        <text x={x} y={y + 14} fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+          {text}
+        </text>
+      )}
+    </g>
+  );
+  return (
+    <Frame background="var(--info-tint)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      ))}
+      {/* RAID 0: Stripes */}
+      {platte(kachel(0) + 20, 40, "var(--sun)", "A")}
+      {platte(kachel(0) + 48, 40, "var(--sun)", "B")}
+      {platte(kachel(0) + 20, 66, "var(--sun)", "C")}
+      {platte(kachel(0) + 48, 66, "var(--sun)", "D")}
+      {/* RAID 1: Spiegel */}
+      {platte(kachel(1) + 20, 46, "var(--sprout)", "A")}
+      {platte(kachel(1) + 48, 46, "var(--sprout)", "A")}
+      <path d={`M${kachel(1) + 33} 56h2`} stroke="var(--ink-soft)" strokeWidth="2" />
+      {/* RAID 5: Parität */}
+      {platte(kachel(2) + 18, 40, "var(--info)", "A")}
+      {platte(kachel(2) + 50, 40, "var(--info)", "B")}
+      {platte(kachel(2) + 34, 70, "var(--coral)", "P")}
+      {/* RAID 10: gespiegelte Stripes */}
+      {platte(kachel(3) + 18, 38, "var(--sun)", "A")}
+      {platte(kachel(3) + 50, 38, "var(--sun)", "B")}
+      {platte(kachel(3) + 18, 68, "var(--sprout)", "A")}
+      {platte(kachel(3) + 50, 68, "var(--sprout)", "B")}
+      {["RAID 0", "RAID 1", "RAID 5", "RAID 10"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="112" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function NetzsicherheitIllustration() {
+  return (
+    <Frame background="var(--danger-tint)">
+      {/* Internet links, Firmennetz rechts, Firewall dazwischen, DMZ unten */}
+      <circle cx="46" cy="52" r="26" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M24 52h44M46 28c-10 14-10 38 0 48M46 28c10 14 10 38 0 48" fill="none" stroke="var(--info-deep)" strokeWidth="1.6" />
+      <rect x="140" y="20" width="14" height="76" rx="2" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <path d="M140 38h14M140 58h14M140 78h14" stroke="var(--coral-deep)" strokeWidth="1.6" />
+      <rect x="210" y="26" width="96" height="60" rx="8" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <rect x="226" y="40" width="26" height="18" rx="3" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="1.8" />
+      <rect x="264" y="40" width="26" height="18" rx="3" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="1.8" />
+      <path d="M74 52h60M160 52h44" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+      {/* VPN-Tunnel */}
+      <path d="M74 66c30 22 100 22 130 0" fill="none" stroke="var(--info-deep)" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
+      <path d="M74 66c30 22 100 22 130 0" fill="none" stroke="var(--card)" strokeWidth="1.5" strokeDasharray="5 4" />
+      {/* DMZ */}
+      <rect x="130" y="104" width="34" height="22" rx="4" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M147 96v8" stroke="var(--ink-soft)" strokeWidth="2" />
+      <text x="147" y="136" fontSize="8" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        DMZ
+      </text>
+    </Frame>
+  );
+}
+
+export function VerzeichnisdienstIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <rect x="130" y="10" width="60" height="22" rx="6" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2" />
+      <text x="160" y="25" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Domäne
+      </text>
+      <path d="M160 32v10M70 42h180M70 42v10M250 42v10" stroke="var(--ink-soft)" strokeWidth="2" fill="none" />
+      {[
+        { x: 40, t: "OU Vertrieb" },
+        { x: 220, t: "OU Technik" },
+      ].map((ou) => (
+        <g key={ou.t}>
+          <rect x={ou.x} y="52" width="60" height="22" rx="6" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+          <text x={ou.x + 30} y="67" fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {ou.t}
+          </text>
+          <path d={`M${ou.x + 30} 74v12`} stroke="var(--ink-soft)" strokeWidth="2" />
+          <circle cx={ou.x + 14} cy="102" r="9" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+          <circle cx={ou.x + 46} cy="102" r="9" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+          <path d={`M${ou.x + 14} 86v7M${ou.x + 46} 86v7M${ou.x + 14} 86h32`} stroke="var(--ink-soft)" strokeWidth="1.6" fill="none" />
+        </g>
+      ))}
+      {/* GPO-Fahne */}
+      <path d="M140 66v38" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <path d="M140 66h30l-6 9 6 9h-30Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <text x="155" y="79" fontSize="8" fontWeight="700" fill="var(--card)" textAnchor="middle">
+        GPO
+      </text>
+    </Frame>
+  );
+}
+
+export function SwitchingIllustration() {
+  return (
+    <Frame background="var(--surface-2)">
+      <rect x="16" y="48" width="132" height="34" rx="6" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2.5" />
+      {[0, 1, 2, 3, 4, 5].map((index) => (
+        <rect key={index} x={26 + index * 20} y="58" width="12" height="14" rx="2" fill={["var(--sprout)", "var(--sprout)", "var(--sun)", "var(--sun)", "var(--coral)", "var(--coral)"][index]} stroke="var(--ink-soft)" strokeWidth="1.2" />
+      ))}
+      <path d="M82 82v20h40" fill="none" stroke="var(--ink-soft)" strokeWidth="2" />
+      <circle cx="140" cy="102" r="14" fill="var(--sun-tint)" stroke="var(--ink-soft)" strokeWidth="2.5" />
+      <path d="M130 102h20m-6-5 6 5-6 5M150 98h-20m6-5-6 5 6 5" fill="none" stroke="var(--ink)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Spanning-Tree-Dreieck mit gesperrtem Link */}
+      <path d="M210 36h70M210 36l35 62M280 36l-35 62" fill="none" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M263 66l-9 16" stroke="var(--coral-deep)" strokeWidth="2.5" strokeDasharray="4 4" />
+      {[
+        { x: 210, y: 36 },
+        { x: 280, y: 36 },
+        { x: 245, y: 98 },
+      ].map((punkt) => (
+        <rect key={`${punkt.x}-${punkt.y}`} x={punkt.x - 14} y={punkt.y - 8} width="28" height="16" rx="4" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      ))}
+      <circle cx="263" cy="76" r="8" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <path d="m259 72 8 8m0-8-8 8" stroke="var(--card)" strokeWidth="2" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

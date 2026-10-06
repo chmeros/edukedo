@@ -46,6 +46,12 @@ export const KATALOG_INSTRUMENTE = [
   "sensoraktor",
   "industrieprotokolle",
   "zonenkonzept",
+  // Kursprofile Phase 1 (Systemintegration)
+  "sicherungsarten",
+  "raid",
+  "netzsicherheit",
+  "verzeichnisdienst",
+  "switching",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -236,7 +242,8 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "grundlagen"],
       ["memory", "ports", "kern"],
       ["phishing", null, "grundlagen"],
-      ["troubleshooting", null, "kern"],
+      // Neue Sets (serverdienste, switching-routing) und Bug-Hunt skripte-konfiguration erst nach der Freigabe des Prüfblatts 09 aufnehmen.
+      ["troubleshooting", "standard", "kern"],
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
     ]),

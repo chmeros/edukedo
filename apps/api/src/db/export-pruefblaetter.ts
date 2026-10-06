@@ -2,6 +2,8 @@ import {
   FLAG_AUFGABEN,
   QUADRANT_MODELS,
   TERMINAL_SZENARIEN,
+  type BugHuntAufgabe,
+  type TroubleshootingFall,
   topologieSzenarien,
   type InstrumentLernpfadPayload,
 } from "@edukedo/shared";
@@ -9,7 +11,10 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
+import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
+import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
+import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
 import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { datenmodellBrevantaLernpfad } from "./content/instrument-lernpfad-datenmodell-brevanta";
@@ -680,6 +685,158 @@ const DPA_BLATT: KursBlatt = {
   },
 };
 
+/** Darstellung eines Troubleshooting-Falls im Prüfblatt (gemeinsam für alle Troubleshooting-Sets). */
+function troubleshootingFallBlock(setKey: string, fall: TroubleshootingFall): string[] {
+  const schicht = fall.schichtOptionen.find((option) => option.id === fall.richtigeSchicht)?.text ?? "?";
+  const ursache = fall.ursachenOptionen.find((option) => option.id === fall.richtigeUrsache)?.text ?? "?";
+  return [
+    `#### ${setKey} · ${fall.nummer} — ${fall.titel}`,
+    "",
+    `*${fall.szenario}*`,
+    "",
+    "**Symptome:**",
+    ...fall.symptome.map((symptom) => `- ${symptom}`),
+    "",
+    tabelle(
+      ["Schicht-Optionen", "Ursachen-Optionen"],
+      Array.from({ length: Math.max(fall.schichtOptionen.length, fall.ursachenOptionen.length) }, (_, index) => {
+        const so = fall.schichtOptionen[index];
+        const uo = fall.ursachenOptionen[index];
+        return [so ? `${so.id === fall.richtigeSchicht ? "✔ " : ""}${so.text}` : "", uo ? `${uo.id === fall.richtigeUrsache ? "✔ " : ""}${uo.text}` : ""];
+      }),
+    ),
+    "",
+    `**Richtig:** ${schicht} → ${ursache}`,
+    "",
+    "**Erklärung:**",
+    "",
+    zitat(fall.erklaerung),
+    "",
+    pruefBlock(undefined, ["Genau eine Ursache ist aus den Symptomen plausibel ableitbar; die falschen Optionen sind klar auszuschließen?"]),
+    "",
+  ];
+}
+
+/** Darstellung eines Bug-Hunt-Ausschnitts im Prüfblatt (gemeinsam für alle Bug-Hunt-Sets). */
+function bugHuntAufgabeBlock(setKey: string, aufgabe: BugHuntAufgabe): string[] {
+  return [
+    `#### ${setKey} · ${aufgabe.nummer} — ${aufgabe.titel} (${aufgabe.sprache})`,
+    "",
+    `*${aufgabe.aufgabe}*`,
+    "",
+    codeBlock(aufgabe.zeilen.map((zeile, index) => `${String(index + 1).padStart(2)}  ${zeile}`).join("\n")),
+    "",
+    `**Fehlerzeile:** ${aufgabe.fehlerZeile} · **Korrektur:** \`${aufgabe.korrektur.trim()}\``,
+    "",
+    `**Tipp:** ${aufgabe.tipp}`,
+    "",
+    "**Erklärung:**",
+    "",
+    zitat(aufgabe.erklaerung),
+    "",
+    pruefBlock(undefined, ["Genau eine Zeile ist fehlerhaft; keine zweite vertretbare Fehlerzeile?"]),
+    "",
+  ];
+}
+
+const SI_BLATT: KursBlatt = {
+  kurs: "fachinformatiker-systemintegration",
+  titel: "Systemintegration",
+  feature: "F-180",
+  theorie: [
+    {
+      datei: "si3/10.1-richtlinien-berechtigungen-verzeichnisdienste.md",
+      ueberschrift: "Die Bausteine im Zusammenspiel: Konto, Gruppe, OU, GPO und ACL",
+      hinweise: [
+        "Aussagen gelten für Active Directory: Eine GPO wird an Standort, Domäne oder OU verknüpft und kann per Gruppe eingeschränkt werden; eine OU taucht in keiner ACL als Berechtigte auf.",
+        "Die bestehende Karteikarte K-10.1-16 sagt „auf Gruppen von Benutzern oder Computern angewendet“ — etwas lockerer als die neue Fassung (Verknüpfung an Container); angleichen?",
+        "Keine Linux-Entsprechung genannt, weil Thema 10.1 sie nicht nennt.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "si3/10.3-datensicherung-archivierung-wiederherstellung.md", typen: ["sicherungsarten"] },
+    { datei: "si4/11.2-speicherloesungen-integrieren-verwalten.md", typen: ["raid"] },
+    { datei: "si2/9.3-netzwerksicherheit-segmentierung.md", typen: ["netzsicherheit"] },
+    { datei: "si3/10.1-richtlinien-berechtigungen-verzeichnisdienste.md", typen: ["verzeichnisdienst"] },
+    { datei: "si2/9.1-netzwerkprotokolle-schnittstellen.md", typen: ["switching"] },
+  ],
+  zonenHinweise: {
+    sicherungsarten: [
+      "Q-10.3-18 ist eine Rechenfrage mit den Zahlen der Theorie (800 GB, 20 GB pro Tag); die Zone „Vollsicherung“ steht dort für „täglich komplett sichern“ (gewollte Zuspitzung).",
+      "Q-10.3-17: „Am Sonntag wird der gesamte Datenbestand komplett neu kopiert“ gehört zur Vollsicherung — streng genommen läuft die Vollsicherung sonntags auch in den anderen Strategien.",
+    ],
+    raid: [
+      "RAID ist keine Datensicherung (Q-11.2-15 und -18).",
+      "Q-11.2-16: Die RAID-5-Szenarien sind nur über die Randbedingungen (Plattenzahl, Schreiblast, ein Ausfall genügt) von RAID 6/10 abgegrenzt — Formulierungen hart genug?",
+      "Q-11.2-18: „Zwei 12-TB-Platten ergeben 12 TB nutzbar“ = RAID 1; Zahlen aus der Theorie von 11.2.",
+    ],
+    netzsicherheit: [
+      "Grenzfälle: „Gäste dürfen laut Zugriffsmatrix nur ins Internet“ (DMZ/Segmentierung, in der Praxis von der Firewall durchgesetzt), „nach erfolgreicher Anmeldung ein bestimmtes VLAN zugewiesen“ (802.1X), „ungewollt ausgehandelte Trunks … VLAN Hopping“ (Segmentierung, wie 9.3 es einordnet).",
+      "Einige Begriffe sind mit 95–105 Zeichen länger als vorgesehen (Beispiel Q-9.3-16).",
+    ],
+    verzeichnisdienst: ["Q-10.1-15 enthält einen ausdrücklichen Deny-Eintrag in der ACL; Aussagen zu GPO-Verknüpfung und OU gelten für Active Directory."],
+    switching: [
+      "Q-9.1-17: „Randswitch wird ungewollt Root Bridge, weil seine MAC-Adresse die niedrigste ist“ setzt voraus, dass die Priorität nicht gesetzt wurde (steht in der Erklärung).",
+      "Layer-3-Switch-Grenzfälle wurden vermieden.",
+    ],
+  },
+  nachspann: (teile) => siNachspann(teile),
+};
+
+function siNachspann(teile: string[]): void {
+  teile.push("## 3. Troubleshooting-Sets (Spiel „Troubleshooting-Detektiv“, Kurs Systemintegration)", "");
+  teile.push(
+    "Je Fall: erst die **Ebene/Schicht** wählen, dann die **wahrscheinlichste Ursache**; je Fall genau eine richtige Antwort. Zu prüfen: Ist die Ursache aus den Symptomen eindeutig ableitbar, die Ebene vertretbar, die Erklärung fachlich richtig? **Alle Befehlsausgaben, Logzeilen und Fehlermeldungen sind aus Kenntnis geschrieben, nicht aus einem Lauf.**",
+    "",
+  );
+  const troubleshootingSets: { titel: string; setKey: string; faelle: TroubleshootingFall[]; besonders: string[] }[] = [
+    {
+      titel: "Serverdienste",
+      setKey: "serverdienste",
+      faelle: troubleshootingServerdienste.faelle,
+      besonders: [
+        "Statt OSI-Schichten fünf eigene Ebenen (Netzwerkanbindung, Firewall und Netzfilter, Betriebssystem und Ressourcen, Dienstkonfiguration, Konten/Rechte/Zertifikate), von unten nach oben; „Netzwerkanbindung“ ist nie richtig und dient nur als Ablenker. Das Zertifikat liegt unter „Konten, Rechte und Zertifikate“, nicht unter Dienstkonfiguration — passt das?",
+        "Fall 10: Kerberos-Logzeile (`Clock skew too great`) aus dem Gedächtnis; Toleranz 5 Minuten ist Standard, aber konfigurierbar.",
+        "Fall 9: Postfix-Meldung („cannot find your hostname“) setzt `reject_unknown_client_hostname` voraus — für Lernende zu speziell?",
+        "Fälle 1, 2, 4, 8: Linux-Ausgaben (ss, bind(), Firewall-Log), Windows-Fehler `0x80070070` und Quota-Meldung aus Kenntnis; bei FSRM-Quoten kann die echte Meldung abweichen.",
+      ],
+    },
+    {
+      titel: "Switching und Routing",
+      setKey: "switching-routing",
+      faelle: troubleshootingSwitchingRouting.faelle,
+      besonders: [
+        "Fall 5 (Duplex-Mismatch): auf Schicht 1 gelegt (Duplex/Autonegotiation); Late Collisions und CRC-Fehler sind MAC-nah, manche Lehrbücher ordnen das Schicht 2 zu — Entscheidung nötig. Zählerwerte sind erfunden.",
+        "Fall 7 (DHCP-Relay): Schicht 3, weil das Relay am Router liegt; das Netzwerk-Set ordnet „DHCP-Dienst läuft nicht“ der Anwendungsschicht zu — konsistent genug?",
+        "Fall 9: anspruchsvoll (Hin- und Rückweg getrennt betrachten); setzt voraus, dass der Niederlassungs-Router die Route 10.40.0.0/16 kennt (steht in den Symptomen).",
+        "CLI-Ausgaben herstellerneutral in Anlehnung an gängige Bezeichnungen (`err-disabled`, `ip helper-address`, `show access-lists`); Wortlaute der Logzeilen aus Kenntnis; Windows-Meldungen (tracert, „Zielhost nicht erreichbar“) nicht live verifiziert.",
+      ],
+    },
+  ];
+  for (const set of troubleshootingSets) {
+    teile.push(`### Troubleshooting: ${set.titel} (${set.faelle.length} Fälle, setKey \`${set.setKey}\`)`, "");
+    if (set.besonders.length) teile.push("**Zum Set — besonders prüfen:**", ...set.besonders.map((hinweis) => `- ⚠ ${hinweis}`), "");
+    for (const fall of set.faelle) teile.push(...troubleshootingFallBlock(set.setKey, fall));
+  }
+
+  teile.push("## 4. Bug-Hunt-Set „Skripte und Konfigurationsdateien“ (Kurs Systemintegration)", "");
+  teile.push(
+    "In jedem Ausschnitt steckt genau ein Fehler in genau einer Zeile. **Technisch geprüft:** Bash (Syntax und Läufe), Python (Compile und Läufe), PowerShell 5.1 (Parser und Läufe); **nur von Hand geprüft:** sshd_config, nginx, ufw (kein Interpreter lokal). Zu prüfen bleibt die fachliche Eindeutigkeit der Fehlerzeile und die Erklärung.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Nr. 12 (ufw): schwächste Stelle bei der Eindeutigkeit — man könnte statt der Deny-Zeile auch die allgemeine Allow-Zeile 3 als fehlerhaft ansehen; die Korrektur ersetzt Zeile 4 durch `ufw insert 1 deny …`.",
+    "- ⚠ Nr. 2 (sshd_config): Sicherheits-, kein Syntaxfehler; moderne OpenSSH-Versionen kennen zusätzlich `KbdInteractiveAuthentication` (nicht Teil der Aufgabe).",
+    "- ⚠ Nr. 5 (nginx): genaue Fehlermeldung bei fehlendem Semikolon versionsabhängig; `nginx -t` schlägt in jedem Fall fehl.",
+    "- ⚠ Nr. 7 (Bash): `df --output=pcent` ist GNU-spezifisch; Lehrziel ist der Textvergleich mit `>` in `[[ ]]`.",
+    "- ⚠ Nr. 8 (PowerShell): in Windows PowerShell 5.1 geprüft; in PowerShell 7 nicht getestet.",
+    "- ⚠ Nr. 11 (Python): ein Host-Argument mit führendem „-“ könnte von ping als Option gelesen werden (Optionsinjektion) — nur angedeutet.",
+    "- ⚠ Nr. 4 (chmod 777 gegen 600): rein fachlich begründet, unter Windows/Git-Bash nicht aussagekräftig prüfbar.",
+    "",
+  );
+  for (const aufgabe of bugHuntSkripteKonfiguration.aufgaben) teile.push(...bugHuntAufgabeBlock("skripte-konfiguration", aufgabe));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -726,39 +883,7 @@ function dvTroubleshootingAbschnitt(teile: string[]): void {
     "- ⚠ Fälle 2 und 3 ähneln dem Netzwerk-Set (VLAN, Adresskonflikt), hier mit industriellem Kontext und anderer Beweisführung.",
     "",
   );
-  for (const fall of troubleshootingIndustrieIot.faelle) {
-    const schicht = fall.schichtOptionen.find((option) => option.id === fall.richtigeSchicht)?.text ?? "?";
-    const ursache = fall.ursachenOptionen.find((option) => option.id === fall.richtigeUrsache)?.text ?? "?";
-    teile.push(
-      `#### industrie-iot · ${fall.nummer} — ${fall.titel}`,
-      "",
-      `*${fall.szenario}*`,
-      "",
-      "**Symptome:**",
-      ...fall.symptome.map((symptom) => `- ${symptom}`),
-      "",
-      tabelle(
-        ["Schicht-Optionen", "Ursachen-Optionen"],
-        Array.from({ length: Math.max(fall.schichtOptionen.length, fall.ursachenOptionen.length) }, (_, index) => {
-          const so = fall.schichtOptionen[index];
-          const uo = fall.ursachenOptionen[index];
-          return [
-            so ? `${so.id === fall.richtigeSchicht ? "✔ " : ""}${so.text}` : "",
-            uo ? `${uo.id === fall.richtigeUrsache ? "✔ " : ""}${uo.text}` : "",
-          ];
-        }),
-      ),
-      "",
-      `**Richtig:** ${schicht} → ${ursache}`,
-      "",
-      "**Erklärung:**",
-      "",
-      zitat(fall.erklaerung),
-      "",
-      pruefBlock(undefined, ["Genau eine Ursache ist aus den Symptomen plausibel ableitbar; die falschen Optionen sind klar auszuschließen?"]),
-      "",
-    );
-  }
+  for (const fall of troubleshootingIndustrieIot.faelle) teile.push(...troubleshootingFallBlock("industrie-iot", fall));
 }
 
 
@@ -790,26 +915,7 @@ function aeBugHuntAbschnitt(teile: string[]): void {
   ];
   for (const set of bugHuntSets) {
     teile.push(`### Bug-Hunt: ${set.titel} (${set.daten.aufgaben.length} Ausschnitte, setKey \`${set.setKey}\`)`, "");
-    for (const aufgabe of set.daten.aufgaben) {
-      teile.push(
-        `#### ${set.setKey} · ${aufgabe.nummer} — ${aufgabe.titel} (${aufgabe.sprache})`,
-        "",
-        `*${aufgabe.aufgabe}*`,
-        "",
-        codeBlock(aufgabe.zeilen.map((zeile, index) => `${String(index + 1).padStart(2)}  ${zeile}`).join("\n")),
-        "",
-        `**Fehlerzeile:** ${aufgabe.fehlerZeile} · **Korrektur:** \`${aufgabe.korrektur.trim()}\``,
-        "",
-        `**Tipp:** ${aufgabe.tipp}`,
-        "",
-        "**Erklärung:**",
-        "",
-        zitat(aufgabe.erklaerung),
-        "",
-        pruefBlock(undefined, ["Genau eine Zeile ist fehlerhaft; keine zweite vertretbare Fehlerzeile?"]),
-        "",
-      );
-    }
+    for (const aufgabe of set.daten.aufgaben) teile.push(...bugHuntAufgabeBlock(set.setKey, aufgabe));
     if (set.besonders.length) teile.push("**Zum Set — besonders prüfen:**", ...set.besonders.map((hinweis) => `- ⚠ ${hinweis}`), "");
   }
 }
@@ -837,6 +943,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [09 Systemintegration](09-systemintegration.md) | neue Zonen-Instrumente, Theorie, zwei Troubleshooting-Sets, Bug-Hunt „Skripte und Konfigurationsdateien“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "## Vorschlag für die Reihenfolge",
     "",
@@ -874,6 +981,7 @@ function main() {
     ["06-anwendungsentwicklung.md", kursBlatt(AE_BLATT)],
     ["07-daten-prozessanalyse.md", kursBlatt(DPA_BLATT)],
     ["08-digitale-vernetzung.md", kursBlatt(DV_BLATT)],
+    ["09-systemintegration.md", kursBlatt(SI_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

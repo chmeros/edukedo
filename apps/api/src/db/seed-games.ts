@@ -16,6 +16,7 @@ import {
 import { bugHuntCodefehler } from "./content/game-bughunt-codefehler";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
+import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
@@ -24,6 +25,8 @@ import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./content/game-phishing-it-alltag";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingNetzwerk } from "./content/game-troubleshooting-netzwerk";
+import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
+import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
 import { kennzahlenDuellQmProzesse } from "./content/game-kennzahlen-duell-qm-prozesse";
 import { kreuzwortraetselItFachbegriffe } from "./content/game-kreuzwortraetsel-it-fachbegriffe";
 import { kreuzwortraetselFinanzkennzahlen } from "./content/game-kreuzwortraetsel-finanzkennzahlen";
@@ -199,6 +202,17 @@ async function main() {
     "sql-fehler",
   );
 
+  // Zusätzliches Bug-Hunt-Set (setKey ≠ "standard") nur für die Systemintegration: Fehler in Bash-,
+  // PowerShell- und Python-Skripten sowie in sshd-, nginx- und ufw-Konfigurationen passen zu den
+  // Lerninhalten dieses Berufs (Skripting, Konfigurationsmanagement).
+  await upsertGame(
+    "fachinformatiker-systemintegration",
+    "bughunt",
+    "Bug-Hunt: Skripte und Konfigurationsdateien",
+    bugHuntPayloadSchema.parse(bugHuntSkripteKonfiguration),
+    "skripte-konfiguration",
+  );
+
   // Zusätzliches Troubleshooting-Set (setKey ≠ "standard") nur für Digitale Vernetzung: Störungsfälle aus
   // Industrie und IoT (Sensorik, Modbus, MQTT, OPC UA) passen zu den Lerninhalten dieses Berufs.
   await upsertGame(
@@ -207,6 +221,24 @@ async function main() {
     "Troubleshooting-Detektiv: Industrie und IoT",
     troubleshootingPayloadSchema.parse(troubleshootingIndustrieIot),
     "industrie-iot",
+  );
+
+  // Zusätzliche Troubleshooting-Sets (setKey ≠ "standard") nur für die Systemintegration: Störungsfälle
+  // rund um Serverdienste (Windows/Linux) sowie Switching und Routing passen zu den Lerninhalten dieses Berufs.
+  const systemintegrationSlug = "fachinformatiker-systemintegration";
+  await upsertGame(
+    systemintegrationSlug,
+    "troubleshooting",
+    "Troubleshooting-Detektiv: Serverdienste",
+    troubleshootingPayloadSchema.parse(troubleshootingServerdienste),
+    "serverdienste",
+  );
+  await upsertGame(
+    systemintegrationSlug,
+    "troubleshooting",
+    "Troubleshooting-Detektiv: Switching und Routing",
+    troubleshootingPayloadSchema.parse(troubleshootingSwitchingRouting),
+    "switching-routing",
   );
 
   await pool.end();
