@@ -19,6 +19,7 @@ import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
+import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
 import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
@@ -239,6 +240,16 @@ async function main() {
     "Troubleshooting-Detektiv: Switching und Routing",
     troubleshootingPayloadSchema.parse(troubleshootingSwitchingRouting),
     "switching-routing",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Ausbildung der Ausbilder (AEVO)": Recht der
+  // Berufsausbildung (Probezeit, Jugendarbeitsschutz, Ausbildungsvertrag/-plan, Prüfung und Zeugnis).
+  await upsertGame(
+    "ausbildung-der-ausbilder",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Recht der Berufsausbildung",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellRechtBerufsausbildung),
+    "recht-berufsausbildung",
   );
 
   await pool.end();

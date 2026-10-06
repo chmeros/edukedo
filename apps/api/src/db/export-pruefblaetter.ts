@@ -12,6 +12,7 @@ import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
+import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
 import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
@@ -837,6 +838,90 @@ function siNachspann(teile: string[]): void {
   for (const aufgabe of bugHuntSkripteKonfiguration.aufgaben) teile.push(...bugHuntAufgabeBlock("skripte-konfiguration", aufgabe));
 }
 
+const AEVO_BLATT: KursBlatt = {
+  kurs: "ausbildung-der-ausbilder",
+  titel: "AEVO (Ausbildung der Ausbilder)",
+  feature: "F-181",
+  theorie: [
+    {
+      datei: "hf3/3.2-lernaufgaben-methoden-medien.md",
+      ueberschrift: "Lernziele und Lernzielbereiche",
+      hinweise: [
+        "Im Kurs gab es zu Lernzielen vorher keine Theorie (0 Treffer). Richt-, Grob- und Feinziel nur kurz erwähnt; Beschränkung auf die drei Bereiche (keine Bloom-Stufen).",
+        "Merkhilfe „Kopf, Herz, Hand“ — gängig, passt sie für die Prüfung?",
+      ],
+    },
+    {
+      datei: "hf3/3.4-leistungsbewertung-konflikte.md",
+      ueberschrift: "Typische Beurteilungsfehler erkennen und vermeiden",
+      hinweise: [
+        "Fünf Fehler (Halo-Effekt, Tendenz zur Mitte, Milde- und Strengefehler, Sympathie und Antipathie, Recency-Effekt); die Bezeichnungen sind je Quelle unterschiedlich — Namensliste so festlegen?",
+        "„Nikolaus-Effekt“ ist beim Recency-Effekt als „teils so genannt“ eingeordnet (eigene Einschätzung, Quellenlage uneinheitlich); „Kleber-“ und „Hierarchie-Effekt“ beim Halo-Effekt als verwandte Verzerrungen formuliert.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md", typen: ["handlungsfelder", "regelwerke"] },
+    { datei: "hf3/3.2-lernaufgaben-methoden-medien.md", typen: ["vierstufen", "lernzielbereiche"] },
+    { datei: "hf3/3.4-leistungsbewertung-konflikte.md", typen: ["beurteilungsfehler"] },
+  ],
+  zonenHinweise: {
+    handlungsfelder: [
+      "Zuordnung nach der Kursstruktur: „Ausbildungsplan erstellen“ liegt in HF 2 (so in Thema 2.1), obwohl HF 1 „Ausbildung planen“ heißt — bewusste Stolperfalle in Q-1.1-14 mit Erklärung.",
+      "Ausbildungsberufe auswählen, Verbundausbildung und Einstiegsqualifizierung = HF 1 (Themen 1.2/1.3); Ausbildung im Ausland = HF 2 (2.3); Zusatzqualifikation, Lernberatung, Verkürzung = HF 3 (3.3); Nachteilsausgleich = HF 4 (4.1). Die vorzeitige Zulassung kommt in 3.3 (HF 3) und 4.1 (HF 4) vor und wurde deshalb nicht als Begriff verwendet.",
+    ],
+    vierstufen: [
+      "**Stufenfassung des Kurses (Thema 3.2): 1. Vorbereiten, Vormachen und Erklären · 2. Nachmachen lassen · 3. Üben lassen · 4. Selbstständig durchführen lassen.** In vielen Quellen und in der üblichen Prüfungspraxis sind Vorbereiten, Vormachen/Erklären getrennte Stufen (häufig: 1. Vorbereiten, 2. Vormachen und Erklären, 3. Nachmachen und Erklären lassen, 4. Üben/Festigen). Soll die Kursfassung bleiben oder auf die übliche Fassung umgestellt werden? Das betrifft Theorie, Zonen und Fragen.",
+      "Grenzzuordnungen: „Fehler beim ersten eigenen Versuch sofort korrigieren“ = Stufe 2, „Rückfragen bereit, greift nur auf Wunsch ein“ = Stufe 3, „Ergebnis selbst kontrollieren“ = Stufe 3, „Ergebniskontrolle und Auswertungsgespräch durch die Ausbilderin“ = Stufe 4.",
+    ],
+    lernzielbereiche: ["Q-3.2-17: „Ordnet Belege den passenden Konten zu“ ist als kognitiv eingeordnet (Schwerpunkt Wissen/Verstehen, begründet in der Erklärung) — entspricht das der gängigen Lehrmeinung?"],
+    beurteilungsfehler: [
+      "Abgrenzung im Kurs: Tendenz zur Mitte = überwiegend mittlere Noten, Milde = überwiegend gute Noten (Q-3.4-10, Erklärung von Q-3.4-12).",
+    ],
+    regelwerke: [
+      "**RECHTSSTAND — bitte rechtlich prüfen.** In den Fragen stehen keine Paragrafen, Monate oder Fristen; die einzigen Zahlen sind „17 Jahre“ (Beispielperson) und „zehn Stunden“ (Beispielschicht).",
+      "Aus der Kurstheorie belegt: Höchstgrenzen der täglichen/wöchentlichen Arbeitszeit, Ruhepausen und Nachtruhe, grundsätzliches Verbot der Beschäftigung an Wochenenden und Feiertagen mit Ausnahmen, gestaffelter Mindesturlaub, Geltung nur bis zur Volljährigkeit (danach Arbeitszeitgesetz).",
+      "**Eigene Konkretisierungen, nicht direkt in der Kurstheorie:** „eine zehnstündige Schicht für einen 17-Jährigen ist mit der Tagesgrenze unvereinbar“, „der Einsatz einer 17-Jährigen am Wochenende ist grundsätzlich nur in Ausnahmebereichen möglich“, die Formulierung „Vorgaben für den Berufsschulunterricht, die von den Ländern umgesetzt werden“ (im Kurs nur „länderspezifisch“ in 1.1 und KMK in 2.1).",
+      "Rahmenlehrplan: von der Kultusministerkonferenz beschlossen, kein Bundesrecht — Zuordnung genau formuliert; gilt für den Berufsschulunterricht, nicht für die betriebliche Ausbildung.",
+    ],
+  },
+  nachspann: (teile) => aevoNachspann(teile),
+};
+
+function aevoNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Recht der Berufsausbildung“ (Spiel „Begriffe-Duell“, Kurs AEVO)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen, Zahlen und Paragrafen stammen aus den Theorietexten der AEVO-Kursdateien** (Rechtsstand dort jeweils 29.09.2026); es wurden keine Zahlen aus dem Gedächtnis ergänzt. **Bitte rechtlich prüfen (Rechtsstand, Paragrafenangaben): Solange das nicht geschehen ist, bleibt das Set im Kurs unsichtbar.**",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Frage 5 (§ 102 BetrVG): Der Kurs formuliert pauschal „vor jeder Kündigung … ohne Anhörung unwirksam“. Gilt das uneingeschränkt auch in der Probezeit, und wie weit reicht das Recht des Betriebsrats bei Auszubildenden?",
+    "- ⚠ Fragen 7 bis 9 (JArbSchG): Der Kurs sagt „grundsätzlich max. 8 Stunden täglich, 40 wöchentlich“ ohne Paragrafen und Ausnahmen; die Fragen sagen deshalb ebenfalls „grundsätzlich“.",
+    "- ⚠ Fragen 1, 2, 7, 8, 17: Die falschen Antwortoptionen (sechs Monate, zwei Monate, zehn Stunden, 45 Stunden, „Zustimmung des Betriebsrats“) sind eigene Distraktoren ohne Kursquelle und bewusst falsch gedacht.",
+    "- ⚠ Paragrafenzuordnung aus dem Kurs: § 11 BBiG (Vertrag), § 13 (Ausbildungsnachweis), § 16 (Zeugnis), § 20 (Probezeit), § 22 Abs. 1 (Kündigung in der Probezeit), § 34 (Verzeichnis), § 45 Abs. 1 (vorzeitige Zulassung), § 65 Abs. 1 (Nachteilsausgleich) — einmal gegen das aktuelle BBiG lesen.",
+    "- ⚠ Frage 4 heißt „nach dem Verständnis des Kurses“, weil der Zweck der Probezeit im Kurs didaktisch formuliert ist.",
+    "- ⚠ Fragen 3 und 20 sind vereinfacht (z. B. Schriftform der Kündigung und Fristen nach der Probezeit kommen im Kurs nicht vor).",
+    "",
+  );
+  for (const runde of kennzahlenDuellRechtBerufsausbildung.runden) {
+    teile.push(`### Runde ${runde.nummer}: ${runde.titel}`, "");
+    for (const frage of kennzahlenDuellRechtBerufsausbildung.fragen.filter((eintrag) => eintrag.runde === runde.nummer)) {
+      teile.push(
+        `#### recht-berufsausbildung · ${frage.nummer} — ${frage.frage}`,
+        "",
+        `- ${frage.richtig === "A" ? "✔ " : ""}**A:** ${frage.antwortA}`,
+        `- ${frage.richtig === "B" ? "✔ " : ""}**B:** ${frage.antwortB}`,
+        "",
+        `**Rückmeldung bei richtiger Antwort:** ${frage.feedbackRichtig}`,
+        "",
+        `**Rückmeldung bei falscher Antwort:** ${frage.feedbackFalsch}`,
+        "",
+        pruefBlock(undefined, ["Genau eine Antwort ist richtig; Rechtsstand und Paragrafenangabe stimmen?"]),
+        "",
+      );
+    }
+  }
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -943,6 +1028,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [10 AEVO](10-aevo.md) | neue Zonen-Instrumente, Theorie, Begriffe-Duell „Recht der Berufsausbildung“ (Kursprofile Phase 1; **mit Rechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [09 Systemintegration](09-systemintegration.md) | neue Zonen-Instrumente, Theorie, zwei Troubleshooting-Sets, Bug-Hunt „Skripte und Konfigurationsdateien“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "## Vorschlag für die Reihenfolge",
@@ -982,6 +1068,7 @@ function main() {
     ["07-daten-prozessanalyse.md", kursBlatt(DPA_BLATT)],
     ["08-digitale-vernetzung.md", kursBlatt(DV_BLATT)],
     ["09-systemintegration.md", kursBlatt(SI_BLATT)],
+    ["10-aevo.md", kursBlatt(AEVO_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

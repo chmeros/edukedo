@@ -399,6 +399,53 @@ export const QUADRANT_MODELS = {
       { key: "redundanz", label: "Redundanz (Spanning Tree)" },
     ],
   },
+  // F-181 (Kursprofile Phase 1, AEVO): fünf weitere Modelle mit festen Zonen.
+  handlungsfelder: {
+    label: "Handlungsfelder der AEVO",
+    zones: [
+      { key: "hf1", label: "HF 1: Voraussetzungen prüfen, Ausbildung planen" },
+      { key: "hf2", label: "HF 2: Ausbildung vorbereiten, Einstellung" },
+      { key: "hf3", label: "HF 3: Ausbildung durchführen" },
+      { key: "hf4", label: "HF 4: Ausbildung abschließen" },
+    ],
+  },
+  // Stufenbezeichnungen der Kurstheorie (Thema 3.2): Stufe 1 fasst Vorbereiten, Vormachen und Erklären zusammen.
+  vierstufen: {
+    label: "Vier-Stufen-Methode",
+    zones: [
+      { key: "stufe1", label: "Stufe 1: Vorbereiten, Vormachen und Erklären" },
+      { key: "stufe2", label: "Stufe 2: Nachmachen lassen" },
+      { key: "stufe3", label: "Stufe 3: Üben lassen" },
+      { key: "stufe4", label: "Stufe 4: Selbstständig durchführen lassen" },
+    ],
+  },
+  lernzielbereiche: {
+    label: "Lernzielbereiche",
+    zones: [
+      { key: "kognitiv", label: "Kognitiv" },
+      { key: "affektiv", label: "Affektiv" },
+      { key: "psychomotorisch", label: "Psychomotorisch" },
+    ],
+  },
+  beurteilungsfehler: {
+    label: "Beurteilungsfehler",
+    zones: [
+      { key: "halo", label: "Halo-Effekt" },
+      { key: "mitte", label: "Tendenz zur Mitte" },
+      { key: "milde", label: "Milde- und Strengefehler" },
+      { key: "sympathie", label: "Sympathie und Antipathie" },
+      { key: "recency", label: "Recency-Effekt" },
+    ],
+  },
+  regelwerke: {
+    label: "Regelwerke der Berufsausbildung",
+    zones: [
+      { key: "bbig", label: "Berufsbildungsgesetz (BBiG)" },
+      { key: "jarbschg", label: "Jugendarbeitsschutzgesetz (JArbSchG)" },
+      { key: "ausbildungsordnung", label: "Ausbildungsordnung und Ausbildungsrahmenplan" },
+      { key: "rahmenlehrplan", label: "Rahmenlehrplan der Berufsschule" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

@@ -52,6 +52,12 @@ export const KATALOG_INSTRUMENTE = [
   "netzsicherheit",
   "verzeichnisdienst",
   "switching",
+  // Kursprofile Phase 1 (AEVO)
+  "handlungsfelder",
+  "vierstufen",
+  "lernzielbereiche",
+  "beurteilungsfehler",
+  "regelwerke",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -265,6 +271,17 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   "versicherungen-finanzanlagen": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   "fachwirt-buero-projektorganisation": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: ["bsc"], szenarien: {} },
   "fachwirt-gesundheit-soziales": { instrumente: liste(OHNE()), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
-  "ausbildung-der-ausbilder": { instrumente: [], werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
+  // Das neue Duell-Set "recht-berufsausbildung" und die neuen Instrumente erst nach der Freigabe des Prüfblatts 10 aufnehmen.
+  "ausbildung-der-ausbilder": {
+    instrumente: [],
+    werkzeuge: [],
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: [],
+    szenarien: {},
+  },
 };
 

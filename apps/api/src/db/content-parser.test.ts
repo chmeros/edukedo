@@ -533,6 +533,31 @@ describe("parseQuizBlock", () => {
     if (sw?.type === "switching") expect(sw.terms.map((term) => term.zoneKey)).toEqual(["switching", "vlan", "routing", "redundanz"]);
   });
 
+  it("parst die Modelle aus F-181 (Handlungsfelder, Vier-Stufen-Methode, Lernzielbereiche, Beurteilungsfehler, Regelwerke)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-3.2-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const hf = parse("Handlungsfelder der AEVO", ["- Eignung des Betriebs prüfen → HF 1: Voraussetzungen prüfen, Ausbildung planen", "- Bewerbende auswählen → HF 2: Ausbildung vorbereiten, Einstellung", "- Lernaufgaben einsetzen → HF 3: Ausbildung durchführen", "- Zeugnis erstellen → HF 4: Ausbildung abschließen"]);
+    expect(hf?.type).toBe("handlungsfelder");
+    if (hf?.type === "handlungsfelder") expect(hf.terms.map((term) => term.zoneKey)).toEqual(["hf1", "hf2", "hf3", "hf4"]);
+
+    const stufen = parse("Vier-Stufen-Methode", ["- Arbeitsplatz bereitlegen → Stufe 1: Vorbereiten, Vormachen und Erklären", "- Azubi führt den Handgriff selbst aus → Stufe 2: Nachmachen lassen", "- Wiederholen mit steigender Geschwindigkeit → Stufe 3: Üben lassen", "- Auftrag eigenverantwortlich erledigen → Stufe 4: Selbstständig durchführen lassen"]);
+    expect(stufen?.type).toBe("vierstufen");
+    if (stufen?.type === "vierstufen") expect(stufen.terms.map((term) => term.zoneKey)).toEqual(["stufe1", "stufe2", "stufe3", "stufe4"]);
+
+    const lernziele = parse("Lernzielbereiche", ["- erklärt die Funktion → Kognitiv", "- geht respektvoll auf Kundschaft zu → Affektiv", "- bohrt rechtwinklig → Psychomotorisch"]);
+    expect(lernziele?.type).toBe("lernzielbereiche");
+    if (lernziele?.type === "lernzielbereiche") expect(lernziele.terms.map((term) => term.zoneKey)).toEqual(["kognitiv", "affektiv", "psychomotorisch"]);
+
+    const fehler = parse("Beurteilungsfehler", ["- Gute Ausdrucksfähigkeit färbt auf alles ab → Halo-Effekt", "- Alle erhalten befriedigend → Tendenz zur Mitte", "- Alle Bewertungen sind zu gut → Milde- und Strengefehler", "- Bewertung nach Bauchgefühl für die Person → Sympathie und Antipathie", "- Nur das letzte Quartal zählt → Recency-Effekt"]);
+    expect(fehler?.type).toBe("beurteilungsfehler");
+    if (fehler?.type === "beurteilungsfehler") expect(fehler.terms.map((term) => term.zoneKey)).toEqual(["halo", "mitte", "milde", "sympathie", "recency"]);
+
+    const regeln = parse("Regelwerke der Berufsausbildung", ["- Probezeit → Berufsbildungsgesetz (BBiG)", "- Pausen Jugendlicher → Jugendarbeitsschutzgesetz (JArbSchG)", "- sachliche Gliederung im Betrieb → Ausbildungsordnung und Ausbildungsrahmenplan", "- Lernfelder → Rahmenlehrplan der Berufsschule"]);
+    expect(regeln?.type).toBe("regelwerke");
+    if (regeln?.type === "regelwerke") expect(regeln.terms.map((term) => term.zoneKey)).toEqual(["bbig", "jarbschg", "ausbildungsordnung", "rahmenlehrplan"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

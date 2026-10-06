@@ -20,8 +20,11 @@ import {
   ErModellIllustration,
   GanttIllustration,
   HierarchieIllustration,
+  BeurteilungsfehlerIllustration,
   GitIllustration,
+  HandlungsfelderIllustration,
   KlassenbeziehungenIllustration,
+  LernzielbereicheIllustration,
   MusterIllustration,
   NetzplanIllustration,
   TestverfahrenIllustration,
@@ -31,6 +34,7 @@ import {
   PdcaIllustration,
   NetzsicherheitIllustration,
   PyramideIllustration,
+  RegelwerkeIllustration,
   RaidIllustration,
   RisikoIllustration,
   SchutzzieleIllustration,
@@ -49,6 +53,7 @@ import {
   TeststufenIllustration,
   UmlIllustration,
   VerzeichnisdienstIllustration,
+  VierStufenIllustration,
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
@@ -291,6 +296,37 @@ const INSTRUMENT_CATALOG = [
     label: "Switching, VLAN, Routing und Redundanz",
     description: "Probleme und passende Netzwerklösungen zuordnen: Layer 2, VLAN, Routing und Spanning Tree.",
     Illustration: SwitchingIllustration,
+  },
+  // F-181 (Kursprofile Phase 1, AEVO): fünf Zonen-Instrumente für die Ausbildereignung.
+  {
+    type: "handlungsfelder",
+    label: "Handlungsfelder der AEVO",
+    description: "Ausbildungstätigkeiten dem passenden der vier Handlungsfelder zuordnen: planen, vorbereiten, durchführen, abschließen.",
+    Illustration: HandlungsfelderIllustration,
+  },
+  {
+    type: "vierstufen",
+    label: "Vier-Stufen-Methode",
+    description: "Handlungen in der Unterweisung der richtigen Stufe zuordnen: von der Vorführung bis zum selbstständigen Durchführen.",
+    Illustration: VierStufenIllustration,
+  },
+  {
+    type: "lernzielbereiche",
+    label: "Lernzielbereiche",
+    description: "Lernziele als kognitiv (Wissen), affektiv (Haltung) oder psychomotorisch (Fertigkeit) einordnen.",
+    Illustration: LernzielbereicheIllustration,
+  },
+  {
+    type: "beurteilungsfehler",
+    label: "Beurteilungsfehler",
+    description: "Typische Verzerrungen in Beurteilungen erkennen: Halo-Effekt, Tendenz zur Mitte, Milde, Sympathie und Recency.",
+    Illustration: BeurteilungsfehlerIllustration,
+  },
+  {
+    type: "regelwerke",
+    label: "Regelwerke der Berufsausbildung",
+    description: "BBiG, Jugendarbeitsschutzgesetz, Ausbildungsordnung und Rahmenlehrplan an ihren Regelungsgegenständen unterscheiden.",
+    Illustration: RegelwerkeIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

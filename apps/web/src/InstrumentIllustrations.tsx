@@ -990,6 +990,123 @@ export function SwitchingIllustration() {
   );
 }
 
+// F-181 (Kursprofile Phase 1, AEVO): Handlungsfelder, Vier-Stufen-Methode, Lernzielbereiche, Beurteilungsfehler, Regelwerke.
+
+export function HandlungsfelderIllustration() {
+  const felder = [
+    { x: 14, f: "var(--info)", s: "var(--info-deep)" },
+    { x: 92, f: "var(--sprout)", s: "var(--sprout-deep)" },
+    { x: 170, f: "var(--sun)", s: "var(--ink-soft)" },
+    { x: 248, f: "var(--coral)", s: "var(--coral-deep)" },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      {felder.map((feld, index) => (
+        <g key={feld.x}>
+          <path d={`M${feld.x} 36h50l16 34-16 34h-50l16-34Z`} fill={feld.f} stroke={feld.s} strokeWidth="2.5" strokeLinejoin="round" />
+          <text x={feld.x + 33} y="77" fontSize="20" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {index + 1}
+          </text>
+        </g>
+      ))}
+      <text x="160" y="124" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        planen · vorbereiten · durchführen · abschließen
+      </text>
+    </Frame>
+  );
+}
+
+export function VierStufenIllustration() {
+  const stufen = [
+    { x: 16, h: 28, f: "var(--sun)" },
+    { x: 94, h: 52, f: "var(--sprout)" },
+    { x: 172, h: 76, f: "var(--info)" },
+    { x: 250, h: 100, f: "var(--coral)" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {stufen.map((stufe, index) => (
+        <g key={stufe.x}>
+          <rect x={stufe.x} y={124 - stufe.h} width="58" height={stufe.h} rx="6" fill={stufe.f} stroke="var(--ink-soft)" strokeWidth="2" />
+          <text x={stufe.x + 29} y={124 - stufe.h + 24} fontSize="18" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {index + 1}
+          </text>
+        </g>
+      ))}
+      <path d="M28 70c40-30 90-42 150-44m0 0-9-1m9 1-3 8" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5 4" />
+    </Frame>
+  );
+}
+
+export function LernzielbereicheIllustration() {
+  const kachel = (index: number) => 14 + index * 100;
+  return (
+    <Frame background="var(--sun-tint)">
+      {[0, 1, 2].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="92" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      ))}
+      {/* Kopf: kognitiv */}
+      <circle cx={kachel(0) + 46} cy="52" r="20" fill="var(--info-tint)" stroke="var(--info-deep)" strokeWidth="2.5" />
+      <path d={`M${kachel(0) + 38} 48h16M${kachel(0) + 38} 56h12`} stroke="var(--info-deep)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d={`M${kachel(0) + 36} 72v8h20v-8`} fill="none" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      {/* Herz: affektiv */}
+      <path d={`M${kachel(1) + 46} 76c-28-16-26-38-10-38 8 0 10 6 10 6s2-6 10-6c16 0 18 22-10 38Z`} fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      {/* Hand: psychomotorisch */}
+      <rect x={kachel(2) + 30} y="52" width="32" height="26" rx="6" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2.5" />
+      {[0, 1, 2, 3].map((finger) => (
+        <rect key={finger} x={kachel(2) + 32 + finger * 8} y={36 + (finger === 1 || finger === 2 ? -4 : 0)} width="6" height="20" rx="3" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      ))}
+      {["kognitiv", "affektiv", "psychomotorisch"].map((text, index) => (
+        <text key={text} x={kachel(index) + 46} y="108" fontSize="10" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function BeurteilungsfehlerIllustration() {
+  return (
+    <Frame background="var(--danger-tint)">
+      {/* Person mit Heiligenschein (Halo-Effekt) */}
+      <ellipse cx="86" cy="26" rx="22" ry="7" fill="none" stroke="var(--sun)" strokeWidth="4" />
+      <circle cx="86" cy="54" r="18" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2.5" />
+      <path d="M52 118c0-26 14-38 34-38s34 12 34 38" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2.5" />
+      {/* schiefe Bewertungsskala */}
+      {[0, 1, 2, 3, 4].map((stern) => (
+        <path key={stern} d={`M${176 + stern * 26} 40l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z`} fill={stern < 4 ? "var(--sun)" : "var(--card)"} stroke="var(--ink-soft)" strokeWidth="1.5" strokeLinejoin="round" />
+      ))}
+      {[0, 1, 2, 3, 4].map((stern) => (
+        <path key={stern} d={`M${176 + stern * 26} 82l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z`} fill={stern < 2 ? "var(--sun)" : "var(--card)"} stroke="var(--ink-soft)" strokeWidth="1.5" strokeLinejoin="round" />
+      ))}
+      <path d="M166 66h124" stroke="var(--line-strong)" strokeWidth="1.5" strokeDasharray="4 3" />
+    </Frame>
+  );
+}
+
+export function RegelwerkeIllustration() {
+  const buecher = [
+    { x: 40, h: 92, f: "var(--info)", s: "var(--info-deep)", t: "§" },
+    { x: 100, h: 80, f: "var(--coral)", s: "var(--coral-deep)", t: "J" },
+    { x: 160, h: 98, f: "var(--sprout)", s: "var(--sprout-deep)", t: "AO" },
+    { x: 220, h: 84, f: "var(--sun)", s: "var(--ink-soft)", t: "RLP" },
+  ];
+  return (
+    <Frame background="var(--surface-2)">
+      {buecher.map((buch) => (
+        <g key={buch.t}>
+          <rect x={buch.x} y={124 - buch.h} width="48" height={buch.h} rx="4" fill={buch.f} stroke={buch.s} strokeWidth="2.5" />
+          <path d={`M${buch.x + 8} ${124 - buch.h + 10}h32M${buch.x + 8} ${124 - buch.h + 16}h32`} stroke={buch.s} strokeWidth="1.5" />
+          <text x={buch.x + 24} y={124 - buch.h / 2 + 6} fontSize="16" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {buch.t}
+          </text>
+        </g>
+      ))}
+      <path d="M24 124h272" stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

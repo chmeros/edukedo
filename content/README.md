@@ -401,6 +401,11 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `netzsicherheit` (**Netzwerksicherheits-Bausteine**, F-180, 5 Zonen): Firewall, NAT, VPN, DMZ/Segmentierung, Zugangskontrolle am Netzrand (802.1X/Port-Security)
   - `verzeichnisdienst` (**Verzeichnisdienst und Berechtigungen**, F-180, 5 Zonen): Benutzerkonto, Gruppe, Organisationseinheit (OU), Gruppenrichtlinie (GPO), Berechtigung (ACL)
   - `switching` (**Switching, VLAN, Routing und Redundanz**, F-180, 4 Zonen): Switching (Layer 2), VLAN/Trunking, Routing (Layer 3), Redundanz (Spanning Tree)
+  - `handlungsfelder` (**Handlungsfelder der AEVO**, F-181, 4 Zonen): HF 1: Voraussetzungen prüfen, Ausbildung planen · HF 2: Ausbildung vorbereiten, Einstellung · HF 3: Ausbildung durchführen · HF 4: Ausbildung abschließen
+  - `vierstufen` (**Vier-Stufen-Methode**, F-181, 4 Zonen): Stufe 1: Vorbereiten, Vormachen und Erklären · Stufe 2: Nachmachen lassen · Stufe 3: Üben lassen · Stufe 4: Selbstständig durchführen lassen
+  - `lernzielbereiche` (**Lernzielbereiche**, F-181, 3 Zonen): Kognitiv, Affektiv, Psychomotorisch
+  - `beurteilungsfehler` (**Beurteilungsfehler**, F-181, 5 Zonen): Halo-Effekt, Tendenz zur Mitte, Milde- und Strengefehler, Sympathie und Antipathie, Recency-Effekt
+  - `regelwerke` (**Regelwerke der Berufsausbildung**, F-181, 4 Zonen): Berufsbildungsgesetz (BBiG), Jugendarbeitsschutzgesetz (JArbSchG), Ausbildungsordnung und Ausbildungsrahmenplan, Rahmenlehrplan der Berufsschule
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix
