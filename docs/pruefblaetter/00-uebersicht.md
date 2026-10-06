@@ -26,7 +26,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [18 Immobilienfachwirt](18-immobilienfachwirt.md) | neue Zonen-Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen), Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Miet-, WEG- und Maklerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [19 Versicherungen/Finanzanlagen](19-versicherungen-finanzanlagen.md) | neue Zonen-Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik), Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Versicherungs-, Beratungs- und Steuerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 
-**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.
+**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).
 
 ## Vorschlag für die Reihenfolge
 

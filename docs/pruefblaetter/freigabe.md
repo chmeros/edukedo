@@ -2,6 +2,8 @@
 
 Stand 06.10.2026 · Grundlage ist deine Rahmenentscheidung R3: *neue Inhalte werden erst nach fachlicher Prüfung sichtbar*, und R4: *was deine Fachkenntnis übersteigt (v. a. Recht), bleibt „ungeprüft“ und wird nicht freigeschaltet.* Alle Inhalte unten sind Entwürfe von Claude; keiner ist bisher fachlich freigegeben.
 
+> **Für die Fachprüfung der noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) gibt es eine nach Fachgebieten geordnete [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).
+
 ## Stand der Freigabe
 
 **Welle 1 ist freigegeben (06.10.2026, Nutzer-Entscheidung „Ja, Welle 1 freischalten“):** 10 Instrumente mit 40 Fragen sind im Kurs sichtbar — Git-Bereiche (Anwendungsentwicklung), BPMN-2.0-Bausteine (Daten- und Prozessanalyse), Sicherungsarten und Switching/VLAN/Routing (Systemintegration), Handlungsfelder und Lernzielbereiche (AEVO), Qualitätsdimensionen nach Donabedian und PDCA-Zyklus (Gesundheit/Soziales), Beschaffungsstrategien und SECI-Modell (Industriefachwirt). In den Tabellen unten sind diese Zeilen mit ✔ markiert. **Welle 2 ist freigegeben (06.10.2026, Nutzer-Entscheidung „Welle 2 freischalten“):** 30 Einheiten (23 Instrumente mit 92 Fragen, vier Bug-Hunt-Sets und drei Begriffe-Duelle) sind im Kurs sichtbar, ebenfalls mit ✔ markiert. Die kurzen Einzelentscheidungen aus der Spalte „Vor der Freigabe zu entscheiden“ wurden dabei **nicht einzeln getroffen**: Die Inhalte gingen unverändert so live, wie sie im jeweiligen Prüfblatt stehen (Lesart des Kurses, Grenzfälle wie dort erklärt). Die ⚠-Hinweise bleiben in den Prüfblättern stehen; wo du eine andere Fassung willst, genügt eine Korrekturliste — ich passe den Inhalt an und importiere neu.
