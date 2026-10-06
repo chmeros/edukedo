@@ -1250,6 +1250,174 @@ export function AbcIllustration() {
   );
 }
 
+// F-184 (Kursprofile Phase 1, Industriefachwirt): PPS, Beschaffungsstrategien, SECI, Ishikawa, Zuschlagskalkulation, Incoterms.
+
+export function PpsIllustration() {
+  const stufen = [
+    { x: 12, f: "var(--info)", s: "var(--info-deep)", t: "Programm" },
+    { x: 86, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Menge" },
+    { x: 160, f: "var(--sun)", s: "var(--ink-soft)", t: "Termin" },
+    { x: 234, f: "var(--coral)", s: "var(--coral-deep)", t: "Steuerung" },
+  ];
+  return (
+    <Frame background="var(--surface-2)">
+      {stufen.map((stufe, index) => (
+        <g key={stufe.t}>
+          <rect x={stufe.x} y="38" width="68" height="64" rx="8" fill={stufe.f} stroke={stufe.s} strokeWidth="2.2" />
+          <text x={stufe.x + 34} y="76" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {stufe.t}
+          </text>
+          {index < 3 && <path d={`M${stufe.x + 70} 70h8`} stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />}
+        </g>
+      ))}
+      <path d="M268 106c0 16-120 16-244 0" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeDasharray="5 4" />
+      <path d="m30 108-8-2 4-7" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function BeschaffungIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--sun-tint)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      ))}
+      {/* Vorrat: Stapel */}
+      {[0, 1, 2].map((reihe) =>
+        [0, 1, 2].map((spalte) => (
+          <rect key={`${reihe}-${spalte}`} x={kachel(0) + 14 + spalte * 14} y={38 + reihe * 14} width="12" height="12" rx="2" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+        )),
+      )}
+      {/* Einzel: eine Kiste */}
+      <rect x={kachel(1) + 20} y="50" width="28" height="28" rx="3" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2.2" />
+      <path d={`M${kachel(1) + 20} 62h28`} stroke="var(--info-deep)" strokeWidth="1.8" />
+      {/* JIT: Uhr und Lkw */}
+      <circle cx={kachel(2) + 34} cy="52" r="14" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2.5" />
+      <path d={`M${kachel(2) + 34} 44v8l6 4`} fill="none" stroke="var(--sprout-deep)" strokeWidth="2.2" strokeLinecap="round" />
+      <rect x={kachel(2) + 12} y="72" width="30" height="14" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.8" />
+      <rect x={kachel(2) + 42} y="76" width="12" height="10" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.8" />
+      {/* JIS: nummerierte Reihenfolge */}
+      {[1, 2, 3].map((nummer) => (
+        <g key={nummer}>
+          <rect x={kachel(3) + 10 + (nummer - 1) * 18} y="52" width="16" height="22" rx="2" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="1.8" />
+          <text x={kachel(3) + 18 + (nummer - 1) * 18} y="67" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {nummer}
+          </text>
+        </g>
+      ))}
+      {["Vorrat", "Einzel", "JIT", "JIS"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="108" fontSize="9.5" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function SeciIllustration() {
+  const felder = [
+    { x: 72, y: 14, t: "S", f: "var(--sprout)", s: "var(--sprout-deep)" },
+    { x: 172, y: 14, t: "E", f: "var(--info)", s: "var(--info-deep)" },
+    { x: 172, y: 78, t: "K", f: "var(--sun)", s: "var(--ink-soft)" },
+    { x: 72, y: 78, t: "I", f: "var(--coral)", s: "var(--coral-deep)" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {felder.map((feld) => (
+        <g key={feld.t}>
+          <rect x={feld.x} y={feld.y} width="76" height="48" rx="8" fill={feld.f} stroke={feld.s} strokeWidth="2.2" />
+          <text x={feld.x + 38} y={feld.y + 32} fontSize="24" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {feld.t}
+          </text>
+        </g>
+      ))}
+      <path d="M150 38h18m0 0-5-4m5 4-5 4M210 64v10m0 0-4-5m4 5 4-5M168 102h-18m0 0 5-4m-5 4 5 4M110 76V66m0 0-4 5m4-5 4 5" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function IshikawaIllustration() {
+  return (
+    <Frame background="var(--danger-tint)">
+      <path d="M20 70h220" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M240 56v28l28-14Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      {[60, 120, 180].map((x) => (
+        <g key={x}>
+          <path d={`M${x} 22 ${x + 22} 70M${x} 118 ${x + 22} 70`} stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+          <path d={`M${x + 6} 36h-24M${x + 6} 104h-24`} stroke="var(--line-strong)" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+      ))}
+      {["Mensch", "Methode", "Mitwelt"].map((text, index) => (
+        <text key={text} x={[60, 120, 180][index]} y="16" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+      {["Maschine", "Material", "Management"].map((text, index) => (
+        <text key={text} x={[60, 120, 180][index]} y="132" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function KalkulationIllustration() {
+  const stufen = [
+    { x: 14, w: 70, y: 100, f: "var(--info)", t: "Material" },
+    { x: 84, w: 70, y: 82, f: "var(--sprout)", t: "Fertigung" },
+    { x: 154, w: 52, y: 58, f: "var(--sun)", t: "Herstell." },
+    { x: 206, w: 52, y: 34, f: "var(--coral)", t: "Selbstk." },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      {stufen.map((stufe) => (
+        <g key={stufe.t}>
+          <rect x={stufe.x} y={stufe.y} width={stufe.w} height={118 - stufe.y} fill={stufe.f} stroke="var(--ink-soft)" strokeWidth="2" />
+          <text x={stufe.x + stufe.w / 2} y={stufe.y - 4} fontSize="8.5" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+            {stufe.t}
+          </text>
+        </g>
+      ))}
+      <rect x="258" y="14" width="48" height="104" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <text x="282" y="70" fontSize="22" fontWeight="700" fill="var(--coral-deep)" textAnchor="middle">
+        €
+      </text>
+      <path d="M14 118h292" stroke="var(--ink-soft)" strokeWidth="2" />
+    </Frame>
+  );
+}
+
+export function IncotermsIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      {/* Weg: Werk – Hafen – Schiff – Ziel */}
+      <path d="M26 92h268" stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M26 118c60 8 140 8 208 0" fill="none" stroke="var(--info-deep)" strokeWidth="3" opacity="0.5" />
+      <rect x="14" y="62" width="26" height="30" rx="3" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M20 62V52h6v10" stroke="var(--ink-soft)" strokeWidth="2" fill="none" />
+      <path d="M140 78h50l-8 14h-34Z" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M165 78V58l16 14Z" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="1.8" strokeLinejoin="round" />
+      <rect x="268" y="66" width="30" height="26" rx="3" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      {[
+        { x: 28, t: "EXW" },
+        { x: 112, t: "FOB" },
+        { x: 190, t: "CIF" },
+        { x: 282, t: "DDP" },
+      ].map((marke) => (
+        <g key={marke.t}>
+          <path d={`M${marke.x} 92v-22`} stroke="var(--coral-deep)" strokeWidth="2" strokeDasharray="3 3" />
+          <rect x={marke.x - 16} y="30" width="32" height="18" rx="4" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="1.8" />
+          <text x={marke.x} y="43" fontSize="9" fontWeight="700" fill="var(--card)" textAnchor="middle">
+            {marke.t}
+          </text>
+          <path d={`M${marke.x} 48v22`} stroke="var(--coral-deep)" strokeWidth="1.6" />
+        </g>
+      ))}
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

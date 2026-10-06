@@ -14,6 +14,7 @@ import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from ".
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
@@ -1029,6 +1030,75 @@ function bueNachspann(teile: string[]): void {
   teile.push(...duellBloecke("projektmanagement", kennzahlenDuellProjektmanagement));
 }
 
+const IND_BLATT: KursBlatt = {
+  kurs: "industriefachwirt",
+  titel: "Industriefachwirt",
+  feature: "F-184",
+  theorie: [
+    {
+      datei: "wq2/2.2-kostenrechnung.md",
+      ueberschrift: "Zuschlagskalkulation im Überblick",
+      hinweise: [
+        "Der Kurs führte die Zuschlagskalkulation bisher nur bis zu den Selbstkosten; der neue Abschnitt ergänzt Herstellkosten, Verwaltungs- und Vertriebsgemeinkosten, Gewinnzuschlag und Angebotspreis (nur als Prinzip, ohne Rechenzahlen). Wer beide Abschnitte liest, sieht „Selbstkosten“ in zwei unterschiedlich weit gefassten Formulierungen — gegebenenfalls glätten.",
+        "Die Bezugsgrößen (Verwaltungs- und Vertriebsgemeinkosten auf die Herstellkosten, Gewinnzuschlag auf die Selbstkosten) sind Standard, standen im Kurs bisher aber nicht.",
+        "Skonto und Rabatt sind nur erwähnt; streng wäre das Zwischenergebnis nach dem Gewinn der Barverkaufspreis (kommt bewusst nicht vor) — Fragen und Text vereinfachen zu „Selbstkosten plus Gewinnaufschlag → Angebotspreis“.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "hq2/6.1-produktionsplanung-steuerung.md", typen: ["pps"] },
+    { datei: "hq2/6.4-materialwirtschaft-logistik.md", typen: ["beschaffung"] },
+    { datei: "hq2/6.3-qualitaetsmanagement-produktion.md", typen: ["ishikawa"] },
+    { datei: "hq4/8.1-wissensmanagement-grundlagen.md", typen: ["seci"] },
+    { datei: "wq2/2.2-kostenrechnung.md", typen: ["kalkulation"] },
+    { datei: "hq3/7.4-internationale-geschaeftsbeziehungen.md", typen: ["incoterms"] },
+  ],
+  zonenHinweise: {
+    pps: [
+      "**Gliederung der Kurstheorie (Thema 6.1):** Produktionsprogrammplanung, Mengenplanung, Termin- und Kapazitätsplanung, Produktionssteuerung (in der Literatur wird PPS verschieden gegliedert, z. B. Aachener Modell; Hinweis in der Erklärung von Q-6.1-17).",
+      "Die Ablaufplanung nennt der Kurs als fünfte Planungsstufe, aber nicht als eigene Zone; „Ablaufplanung nach einer Störung anpassen“ liegt laut Kurs in der Act-Phase und damit unter Produktionssteuerung.",
+      "Der werksübergreifende Kapazitätsabgleich hat im Kurs einen eigenen Abschnitt; er ist in Q-6.1-16 der Termin- und Kapazitätsplanung zugeordnet (Stufe prüft „Linien und Werke“) — oder streichen. „Kapazitätsanpassung im laufenden Betrieb“ und OEE/Auslastungsgrad der laufenden Woche liegen unter Produktionssteuerung.",
+    ],
+    beschaffung: [
+      "JIT und Einzelbeschaffung nennen beide geringe Kapitalbindung; getrennt über „auftragsbezogen einmalig“ gegen „laufend verbrauchssynchron“ (Erklärungen von Q-6.4-14 und Q-6.4-15).",
+      "Q-6.4-16: „Material mit regelmäßigem, gut prognostizierbarem Verbrauch wird synchron zum Fertigungsbedarf angeliefert“ unter JIT ist eine Ableitung aus der Kursaussage zu AX-Teilen.",
+      "Gegenüber dem Vorschlag (drei Zonen) hat das Instrument vier Zonen, weil der Kurs Just-in-Sequence (JIS) ausdrücklich als Weiterentwicklung führt.",
+    ],
+    ishikawa: [
+      "**Kategorien des Kurses (Thema 6.3): Mensch, Maschine, Material, Methode, Mitwelt, Management** — nicht „Milieu“ und „Messung“ wie in anderen Quellen; Hinweis in der Erklärung von Q-6.3-16.",
+      "Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung („Prüfmittel und Schulungen nicht bereitgestellt“, „Stückzahl vor Qualität“). Die Klammerzusätze in Q-6.3-13 sind allgemeine Deutungen.",
+      "Grenzfälle: „Beleuchtung am Prüfplatz zu schwach“ = Mitwelt; „Bediener ermüdet nach Überstunden“ = Mensch (könnte als Ressourcenthema/Management gelesen werden).",
+    ],
+    seci: [
+      "Keine Aussagen über den Kurs hinaus. Ein Beispiel für Externalisierung (Vergleich mit Bildern, Metaphern und Analogien nach Nonaka/Takeuchi) ist im Kurs nicht ausdrücklich genannt. Ein bloßer Erfahrungsaustausch im Gespräch wurde bewusst nicht verwendet (könnte Sozialisation oder Externalisierung sein).",
+    ],
+    kalkulation: [
+      "Die fünf Zonen sind die Ergebnisstufen; die Begriffe beschreiben Bestandteile oder die Stufe. Materialgemeinkosten sind mit „Lager und Wareneingang“ beschrieben (Kostenstelle des Kurses), der Einkauf wurde bewusst nicht genannt, weil er je nach Kostenstellenplan auch unter Verwaltung fällt.",
+    ],
+    incoterms: [
+      "**Rechtsstand/Urheberrecht:** Incoterms sind ein Regelwerk der ICC; alles in eigenen Worten, keine Tabellen oder Wortlaute; der Kurs führt genau vier Klauseln (EXW, FOB, CIF, DDP), nicht die Gruppen E, F, C, D wie im ursprünglichen Vorschlag. Die Pflichten hängen vom genauen Klauselwortlaut und der vereinbarten Fassung ab (Hinweis in Q-7.4-16).",
+      "Keine Aussage zu Kosten- und Gefahrenübergang bei CIF, keine Ausfuhrverzollung bei EXW — der Kurs sagt dazu nichts.",
+      "Q-7.4-16 („Kunde wählt die Seefracht selbst, Solvitec liefert nur bis zur Verladung“) setzt voraus, dass der Käufer bei FOB den Seetransport übernimmt — fachlich üblich, im Kurs nicht ausdrücklich. Q-7.4-13: „Bereitstellung der Ware“ bei EXW ist Fachsprache, nicht Kurstext.",
+    ],
+  },
+  nachspann: (teile) => indNachspann(teile),
+};
+
+function indNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Kosten und Leistungen“ (Spiel „Begriffe-Duell“, Kurs Industriefachwirt)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Aufwand, Kosten und kalkulatorische Kosten; Kostenarten; Kostenstellen und Kalkulation; Voll- und Teilkostenrechnung). **Alle Aussagen stammen aus den Theorietexten der Kursdateien** (Thema 2.2, zum Teil 2.1); keine Formeln, Normen oder Paragrafen aus dem Gedächtnis; es gibt keine Rechenfragen, weil der Kurs im Fachgebiet 2 keine Rechenbeispiele enthält.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ **Titel „und Leistungen“ nur dünn gedeckt:** Ausgabe und Auszahlung als Abgrenzungsbegriffe sowie Leistungen im Sinne der Leistungsrechnung behandelt der Kurs nicht. Runde 1 stützt sich auf Aufwand/Kosten, Grundkosten/kalkulatorische Kosten und internes/externes Rechnungswesen.",
+    "- ⚠ Fragen 1 und 2: Dass ein Kursverlust aus einer Fremdwährungsforderung „Aufwand, aber keine Kosten“ ist, folgt aus der Kursdefinition (Kosten sind betriebszweckbezogen), steht dort aber nicht wörtlich.",
+    "- ⚠ Frage 7: Dass die Hallenmiete Gemeinkosten sind, steht nur im Quiz Q-2.2-08, nicht in der Theorie.",
+    "- ⚠ Frage 20: Die Entscheidungsregel („Annahme kann sinnvoll sein, weil der Auftrag zur Deckung der fixen Kosten beiträgt“) ist nah an der Kursformulierung; die falsche Antwort A („immer ein Ablehnungsgrund“) ist bewusst absolut formuliert — fachlich unstrittig?",
+    "",
+  );
+  teile.push(...duellBloecke("kosten-leistungen", kennzahlenDuellKostenLeistungen));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1135,6 +1205,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [13 Industriefachwirt](13-industriefachwirt.md) | neue Zonen-Instrumente (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms), Theorie, Begriffe-Duell „Kosten und Leistungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [12 Büro- und Projektorganisation](12-buero-projektorganisation.md) | neue Zonen-Instrumente (Projektphasen, Stakeholder-Matrix, ABC-Analyse), Theorie, Begriffe-Duell „Projektmanagement“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [11 Gesundheit/Soziales](11-gesundheit-soziales.md) | neue Zonen-Instrumente (Donabedian, Kostenträger, PDCA), Begriffe-Duell „Gesundheits- und Sozialsystem“ (Kursprofile Phase 1; **mit Sozial- und Arbeitsrechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [10 AEVO](10-aevo.md) | neue Zonen-Instrumente, Theorie, Begriffe-Duell „Recht der Berufsausbildung“ (Kursprofile Phase 1; **mit Rechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
@@ -1180,6 +1251,7 @@ function main() {
     ["10-aevo.md", kursBlatt(AEVO_BLATT)],
     ["11-gesundheit-soziales.md", kursBlatt(GES_BLATT)],
     ["12-buero-projektorganisation.md", kursBlatt(BUE_BLATT)],
+    ["13-industriefachwirt.md", kursBlatt(IND_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

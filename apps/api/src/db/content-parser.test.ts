@@ -588,6 +588,35 @@ describe("parseQuizBlock", () => {
     if (abc?.type === "abc") expect(abc.terms.map((term) => term.zoneKey)).toEqual(["a", "b", "c"]);
   });
 
+  it("parst die Modelle aus F-184 (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-6.1-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const pps = parse("PPS-Aufgaben", ["- Erzeugnisse und Mengen festlegen → Produktionsprogrammplanung", "- Bedarf aus der Stückliste ableiten → Mengenplanung", "- Linien und Werke auslasten → Termin- und Kapazitätsplanung", "- Soll-Ist-Abgleich → Produktionssteuerung"]);
+    expect(pps?.type).toBe("pps");
+    if (pps?.type === "pps") expect(pps.terms.map((term) => term.zoneKey)).toEqual(["programm", "menge", "termin", "steuerung"]);
+
+    const beschaffung = parse("Beschaffungsstrategien", ["- große Mengen ins Lager → Vorratsbeschaffung", "- Menge für einen Auftrag bei Bedarf → Einzelbeschaffung", "- Material genau bei Bedarf → Just-in-Time (JIT)", "- Teile in der Montagereihenfolge → Just-in-Sequence (JIS)"]);
+    expect(beschaffung?.type).toBe("beschaffung");
+    if (beschaffung?.type === "beschaffung") expect(beschaffung.terms.map((term) => term.zoneKey)).toEqual(["vorrat", "einzel", "jit", "jis"]);
+
+    const seci = parse("SECI-Modell der Wissensumwandlung", ["- neben der Kollegin mitarbeiten → Sozialisation", "- Erfahrung in einer Checkliste festhalten → Externalisierung", "- Checklisten zu einem Handbuch zusammenführen → Kombination", "- aus dem Handbuch lernen → Internalisierung"]);
+    expect(seci?.type).toBe("seci");
+    if (seci?.type === "seci") expect(seci.terms.map((term) => term.zoneKey)).toEqual(["sozialisation", "externalisierung", "kombination", "internalisierung"]);
+
+    const ishikawa = parse("Ishikawa-Diagramm (Ursachenkategorien)", ["- Prüfer nicht eingearbeitet → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Arbeitsanweisung → Methode", "- schwankende Hallenluft → Mitwelt", "- widersprüchliche Zielvorgaben → Management"]);
+    expect(ishikawa?.type).toBe("ishikawa");
+    if (ishikawa?.type === "ishikawa") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "mitwelt", "management"]);
+
+    const kalkulation = parse("Zuschlagskalkulation", ["- Kupferanteil des Auftrags → Materialkosten", "- Fertigungslöhne → Fertigungskosten", "- Material plus Fertigung → Herstellkosten", "- plus Verwaltung und Vertrieb → Selbstkosten", "- plus Gewinnaufschlag → Angebotspreis"]);
+    expect(kalkulation?.type).toBe("kalkulation");
+    if (kalkulation?.type === "kalkulation") expect(kalkulation.terms.map((term) => term.zoneKey)).toEqual(["material", "fertigung", "herstellkosten", "selbstkosten", "angebotspreis"]);
+
+    const incoterms = parse("Incoterms", ["- Käufer holt im Werk ab → EXW (Ab Werk)", "- Gefahr bis zur Verladung auf das Schiff → FOB (Frei an Bord)", "- Verkäufer organisiert Seetransport und Versicherung → CIF (Kosten, Versicherung, Fracht)", "- Verkäufer trägt alle Kosten bis zur Lieferadresse → DDP (Geliefert verzollt)"]);
+    expect(incoterms?.type).toBe("incoterms");
+    if (incoterms?.type === "incoterms") expect(incoterms.terms.map((term) => term.zoneKey)).toEqual(["exw", "fob", "cif", "ddp"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

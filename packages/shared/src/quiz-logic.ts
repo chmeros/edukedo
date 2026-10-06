@@ -494,6 +494,65 @@ export const QUADRANT_MODELS = {
       { key: "c", label: "C-Klasse" },
     ],
   },
+  // F-184 (Kursprofile Phase 1, Industriefachwirt): sechs weitere Modelle mit festen Zonen, jeweils in der Gliederung der Kurstheorie.
+  pps: {
+    label: "PPS-Aufgaben",
+    zones: [
+      { key: "programm", label: "Produktionsprogrammplanung" },
+      { key: "menge", label: "Mengenplanung" },
+      { key: "termin", label: "Termin- und Kapazitätsplanung" },
+      { key: "steuerung", label: "Produktionssteuerung" },
+    ],
+  },
+  beschaffung: {
+    label: "Beschaffungsstrategien",
+    zones: [
+      { key: "vorrat", label: "Vorratsbeschaffung" },
+      { key: "einzel", label: "Einzelbeschaffung" },
+      { key: "jit", label: "Just-in-Time (JIT)" },
+      { key: "jis", label: "Just-in-Sequence (JIS)" },
+    ],
+  },
+  seci: {
+    label: "SECI-Modell der Wissensumwandlung",
+    zones: [
+      { key: "sozialisation", label: "Sozialisation" },
+      { key: "externalisierung", label: "Externalisierung" },
+      { key: "kombination", label: "Kombination" },
+      { key: "internalisierung", label: "Internalisierung" },
+    ],
+  },
+  // Kategorien laut Kurstheorie (Thema 6.3): Mitwelt und Management statt der in anderen Quellen üblichen Milieu und Messung.
+  ishikawa: {
+    label: "Ishikawa-Diagramm (Ursachenkategorien)",
+    zones: [
+      { key: "mensch", label: "Mensch" },
+      { key: "maschine", label: "Maschine" },
+      { key: "material", label: "Material" },
+      { key: "methode", label: "Methode" },
+      { key: "mitwelt", label: "Mitwelt" },
+      { key: "management", label: "Management" },
+    ],
+  },
+  kalkulation: {
+    label: "Zuschlagskalkulation",
+    zones: [
+      { key: "material", label: "Materialkosten" },
+      { key: "fertigung", label: "Fertigungskosten" },
+      { key: "herstellkosten", label: "Herstellkosten" },
+      { key: "selbstkosten", label: "Selbstkosten" },
+      { key: "angebotspreis", label: "Angebotspreis" },
+    ],
+  },
+  incoterms: {
+    label: "Incoterms",
+    zones: [
+      { key: "exw", label: "EXW (Ab Werk)" },
+      { key: "fob", label: "FOB (Frei an Bord)" },
+      { key: "cif", label: "CIF (Kosten, Versicherung, Fracht)" },
+      { key: "ddp", label: "DDP (Geliefert verzollt)" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

@@ -20,6 +20,7 @@ import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konf
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
@@ -273,6 +274,16 @@ async function main() {
     "Begriffe-Duell: Projektmanagement",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellProjektmanagement),
     "projektmanagement",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Industriefachwirt": Kosten und
+  // Leistungen (Aufwand und Kosten, Kostenarten, Kostenstellen und Kalkulation, Voll- und Teilkostenrechnung).
+  await upsertGame(
+    "industriefachwirt",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Kosten und Leistungen",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellKostenLeistungen),
+    "kosten-leistungen",
   );
 
   await pool.end();

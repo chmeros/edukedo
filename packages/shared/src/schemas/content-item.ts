@@ -76,6 +76,13 @@ export const contentItemTypeSchema = z.enum([
   "projektphasen",
   "stakeholder",
   "abc",
+  // F-184: weitere Instrumente (Industriefachwirt).
+  "pps",
+  "beschaffung",
+  "seci",
+  "ishikawa",
+  "kalkulation",
+  "incoterms",
   // F-116 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Multiple Choice): Mehrfachauswahl —
   // eine, zwei, drei oder alle vier Antwortoptionen können richtig sein, statt wie bei "quiz_mc"
   // genau eine. Bewusst ein EIGENER Typ statt eines Flags auf "quiz_mc" (siehe Anforderungskatalog
