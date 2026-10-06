@@ -19,6 +19,7 @@
     "db:seed-games": "tsx src/db/seed-games.ts",
     "db:import-content": "tsx src/db/import-content.ts",
     "db:apply-kurs-metadata": "tsx src/db/apply-kurs-metadata.ts",
+    "db:freigeben": "tsx src/db/freigeben.ts",
     "db:export-content": "tsx src/db/export-content.ts",
     "content:scaffold": "tsx src/db/scaffold-content.ts",
     "db:send-consent-reminders": "tsx src/db/send-consent-reminders.ts",

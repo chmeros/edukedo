@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
-import { isQuadrantItem, KURS_ANGEBOT } from "@edukedo/shared";
+import { isQuadrantItem, istInstrumentEntwurf, KURS_ANGEBOT } from "@edukedo/shared";
 import { db, pool } from "./client";
 import {
   type Bloom,
@@ -339,10 +339,11 @@ async function insertQuizContentItem(
   bloom: Bloom | null,
   payload: Record<string, unknown>,
   answerOptions?: { text: string; isCorrect: boolean; groupKey?: string; sortOrder: number }[],
+  isActive = true,
 ): Promise<void> {
   const [item] = await db
     .insert(contentItem)
-    .values({ themaId, type, prompt, explanation, difficulty, bloom, payload })
+    .values({ themaId, type, prompt, explanation, difficulty, bloom, payload, isActive })
     .returning();
   if (!item) throw new Error(`Content-Item vom Typ "${type}" konnte nicht angelegt werden.`);
   await db.insert(contentItemVersion).values({
@@ -565,6 +566,8 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           parsed.bloom,
           {},
           parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: term.zoneKey, sortOrder: index })),
+          // F-186: Fragen noch ungeprüfter Instrumente (KURS_ENTWURF) werden inaktiv angelegt, bis sie freigegeben sind.
+          !istInstrumentEntwurf(frontmatter.kurs_slug!, parsed.type),
         );
       } else if (parsed.type === "hierarchie") {
         // F-105 (ToDo-Punkt 6): wie gantt unten (content-autorierte Zonen, generierte Schlüssel

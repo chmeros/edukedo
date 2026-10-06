@@ -4,6 +4,8 @@ import {
   KATALOG_INSTRUMENTE,
   KATALOG_WERKZEUGE,
   KURS_ANGEBOT,
+  KURS_ENTWURF,
+  istInstrumentEntwurf,
   angebotInstrument,
   angebotLernpfad,
   angebotSpiel,
@@ -131,5 +133,26 @@ describe("angebotSzenarien", () => {
     const liste = angebotSzenarien(KURS_ANGEBOT["fachinformatiker-systemintegration"], "terminal", TERMINAL_SZENARIEN);
     expect(liste).toHaveLength(TERMINAL_SZENARIEN.length);
     expect(liste.every((s) => s.gruppe === "kern")).toBe(true);
+  });
+});
+
+describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
+  it("verweist nur auf bekannte Kurse und Instrumenttypen", () => {
+    for (const [slug, typen] of Object.entries(KURS_ENTWURF)) {
+      expect(Object.keys(KURS_ANGEBOT), slug).toContain(slug);
+      for (const typ of typen) expect(KATALOG_INSTRUMENTE as readonly string[], `${slug}/${typ}`).toContain(typ);
+    }
+  });
+
+  it("ein Typ steht entweder im Entwurf oder im Kursangebot, nie in beiden", () => {
+    for (const [slug, typen] of Object.entries(KURS_ENTWURF)) {
+      for (const typ of typen) expect(angebotInstrument(KURS_ANGEBOT[slug], typ), `${slug}/${typ}`).toBeNull();
+    }
+  });
+
+  it("istInstrumentEntwurf erkennt Entwürfe", () => {
+    expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "git")).toBe(true);
+    expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);
+    expect(istInstrumentEntwurf("mathematik-9", "git")).toBe(false);
   });
 });

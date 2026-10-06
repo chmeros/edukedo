@@ -567,6 +567,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-186: Freigabe-Mechanismus für Kursprofil-Inhalte)
+
+- **Anlass:** Nutzer-Vorgabe „Starte mit dem Freischalten“ nach F-177 bis F-185. Beim Vorbereiten fiel auf, dass die Sperre aus R3 nur Kachel, Lernpfad und Spielsets verbarg: Die Instrumentenfragen waren als aktive `content_item`-Zeilen im Lernen-Quiz erreichbar (`quiz.ts` nimmt `QUADRANT_QUIZ_TYPES` auf, alle Router filtern nur auf `is_active`). Ungeprüfte Inhalte waren damit entgegen R3 sichtbar.
+- **Entscheidung:** Zustand „Entwurf“ als Datenfeld statt als Filter in jedem Router. `KURS_ENTWURF` (Kurs-Slug → Instrumenttypen) in `kurs-angebot.ts`; `import-content.ts` legt Zuordnungsfragen dieser Typen mit `is_active = false` an. Dadurch greifen die vorhandenen `is_active`-Filter von Quiz, Gemischt-Lernen, Instrument, Vorschau und Fortschritt ohne weitere Codeänderung. Verworfen: ein zusätzlicher Filter je Router (verteilt, leicht zu vergessen) und eine neue Spalte `review_state` (Schemaänderung ohne Mehrwert gegenüber `is_active`).
+- **Invariante:** Ein Typ steht in einem Kurs entweder in `KURS_ENTWURF` oder in `KURS_ANGEBOT.instrumente`, nie in beiden (Test in `kurs-angebot.test.ts`).
+- **Freigabe:** `apps/api/src/db/freigeben.ts` (`pnpm db:freigeben <kurs> <typ…>`) setzt die Fragen aktiv und bricht ab, solange der Typ noch Entwurf ist oder nicht im Kursangebot steht, damit Code und Datenbank nicht auseinanderlaufen. Ein erneuter Import setzt die Aktivität aus der Entwurfsliste, deshalb muss die Typliste im Code der Wahrheit entsprechen.
+- **Bewusst nicht abgedeckt:** Ergänzte Theorie samt Karteikarten und Fragen in bereits bestehenden Typen (Zustandsdiagramm im UML-Instrument, Umbenennung „Ablaufstrukturen“) sind Teil der Themen und nicht über den Typ sperrbar; sie stehen in der Freigabe-Übersicht.
+- **Freigabe-Übersicht:** docs/pruefblaetter/freigabe.md mit Risikostufen, offenen Entscheidungen und drei vorgeschlagenen Wellen; Stufe „Recht/Norm“ bleibt nach R4 bis zur Prüfung durch eine Fachperson gesperrt.
+- **Verifiziert:** Datenbank nach Neuimport — Entwurfsfragen (z. B. AE Git, Muster; Gesundheit/Soziales PDCA; Industrie Incoterms, Kalkulation; Technik TOP, Kalkulation) inaktiv, gleichnamige Typen anderer Kurse (PDCA, UML) unverändert aktiv; Abbruchmeldung von `db:freigeben` für einen noch gesperrten Typ geprüft.
+
 ### Entschieden am 06.10.2026 (F-185: Kursprofile Phase 1 — Technischer Fachwirt)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Technischen Fachwirt“, gleicher Maßstab wie F-177 bis F-184: Priorität „hoch“ und Aufwand S aus docs/kursprofile/02-industrie-technik-logistik.md (I-TEC-01, -02, -03, I-FW-01, -10, S-TEC-02). Zurückgestellt: Incoterms (der Kurs nennt nur EXW; Kursbasis zu dünn), Abfallhierarchie, Zugversuch-Diagramm, Linienarten, Automatisierungspyramide (mittel/niedrig, teils ohne Kursbeleg), Kreuzworträtsel/Memory, Störungs-Detektiv Produktion und Einheiten-Sprint (Aufwand M/L), alle Werkzeuge (Phase 3), Glossar und Lernpfade (Phase 4).

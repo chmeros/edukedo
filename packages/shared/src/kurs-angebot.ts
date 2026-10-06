@@ -188,6 +188,30 @@ const TERMINAL_SI = [...TERMINAL_DV, "rechte", "cron-job"];
 const TOPOLOGIE_LEICHT = ["ein-netz-ein-switch", "zwei-netze-router", "dhcp-apotheke"];
 const TOPOLOGIE_ALLE = [...TOPOLOGIE_LEICHT, "dhcp-pool-konflikt", "filiale-zwei-router", "gastnetz-vlan", "nat-partnernetz", "server-vlan-firewall", "drei-standorte-routing"];
 
+/**
+ * F-186 (Freigabe-Mechanismus): Instrumenttypen je Kurs, deren Fragen noch **ungeprüfte Entwürfe** sind (Rahmenentscheidung R3: erst nach
+ * fachlicher Prüfung sichtbar). Der Import legt Fragen dieser Typen **inaktiv** an, sodass sie weder im Lernen-Quiz noch im Instrument,
+ * in der Vorschau oder in der Fortschrittsberechnung vorkommen. Ein Typ steht entweder hier (Entwurf) oder in `KURS_ANGEBOT` (freigegeben),
+ * nie in beiden (Test). **Freigabe:** Typ aus dieser Liste nehmen, in `KURS_ANGEBOT` aufnehmen und `pnpm db:freigeben <kurs> <typ>` ausführen.
+ * Die ergänzten Theorieabschnitte und Karteikarten sind davon nicht betroffen und bereits Teil der Themen.
+ */
+export const KURS_ENTWURF: Record<string, readonly string[]> = {
+  "fachinformatiker-anwendungsentwicklung": ["muster", "klassenbeziehungen", "testverfahren", "git"],
+  "fachinformatiker-daten-prozessanalyse": ["bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"],
+  "fachinformatiker-digitale-vernetzung": ["pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"],
+  "fachinformatiker-systemintegration": ["sicherungsarten", "raid", "netzsicherheit", "verzeichnisdienst", "switching"],
+  "ausbildung-der-ausbilder": ["handlungsfelder", "vierstufen", "lernzielbereiche", "beurteilungsfehler", "regelwerke"],
+  "fachwirt-gesundheit-soziales": ["donabedian", "kostentraeger", "pdca"],
+  "fachwirt-buero-projektorganisation": ["projektphasen", "stakeholder", "abc"],
+  industriefachwirt: ["pps", "beschaffung", "seci", "ishikawa", "kalkulation", "incoterms"],
+  "technischer-fachwirt": ["fertigungsverfahren", "instandhaltung", "top", "ishikawa6m", "kalkulation"],
+};
+
+/** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
+export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
+  return (KURS_ENTWURF[kursSlug] ?? []).includes(typ);
+}
+
 export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
