@@ -421,6 +421,8 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `instandhaltung` (**Instandhaltungsmaßnahmen nach DIN 31051**, F-185, 4 Zonen): Wartung, Inspektion, Instandsetzung, Verbesserung
   - `top` (**TOP-Prinzip im Arbeitsschutz**, F-185, 3 Zonen): Technische Maßnahmen, Organisatorische Maßnahmen, Personenbezogene Maßnahmen
   - `ishikawa6m` (**Ishikawa-Diagramm (6M)**, F-185, 6 Zonen): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management
+  - `investition` (**Investitionsrechenverfahren**, F-187, 2 Zonen): Statische Verfahren, Dynamische Verfahren
+  - `vierseiten` (**Vier-Seiten-Modell**, F-187, 4 Zonen): Sachebene, Selbstoffenbarung, Beziehungsebene, Appell
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

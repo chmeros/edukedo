@@ -19,6 +19,7 @@ import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
+import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
@@ -296,6 +297,16 @@ async function main() {
     "Begriffe-Duell: Technische Unterscheidungen",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellTechnischeUnterscheidungen),
     "technische-unterscheidungen",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Wirtschaftsfachwirt": Finanzierung und
+  // Controlling (Finanzierungsarten, Investitionsrechnung, Kosten- und Leistungsrechnung, Controlling und Kennzahlen).
+  await upsertGame(
+    "wirtschaftsfachwirt",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Finanzierung und Controlling",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellFinanzierungControlling),
+    "finanzierung-controlling",
   );
 
   await pool.end();

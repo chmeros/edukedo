@@ -13,6 +13,7 @@ import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
+import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
@@ -1167,6 +1168,50 @@ function tecNachspann(teile: string[]): void {
   teile.push(...duellBloecke("technische-unterscheidungen", kennzahlenDuellTechnischeUnterscheidungen));
 }
 
+const WIR_BLATT: KursBlatt = {
+  kurs: "wirtschaftsfachwirt",
+  titel: "Wirtschaftsfachwirt",
+  feature: "F-187",
+  theorie: [],
+  zonenDateien: [
+    { datei: "hsq2/2.1-investitionsplanung-rechnung.md", typen: ["investition"] },
+    { datei: "hsq5/5.1-kommunikation-mitarbeitergespraeche.md", typen: ["vierseiten"] },
+  ],
+  zonenHinweise: {
+    investition: [
+      "**Amortisationsrechnung ist laut Kurs ein statisches Verfahren** (Thema 2.1); andere Lehrbücher rechnen sie teils dynamisch. Die Fragen folgen der Kursfassung; Q-2.1-14 vermerkt die typische Verwechslung in der Erklärung.",
+      "Q-2.1-15: „Rechnet Zahlungen mit einem Kalkulationszinssatz …“ ist dynamisch angelegt, die Kostenvergleichsrechnung nutzt aber „kalkulatorische Zinsen“ — mögliche Verwechslung für Lernende. „Eignet sich für eine einfache, überschlägige Ersteinschätzung“ steht bei den statischen Verfahren, ist aber kein Alleinstellungsmerkmal.",
+      "Q-2.1-16: „Alternativen mit unterschiedlicher Nutzungsdauer vergleichen“ als Annuitätenmethode (der Kurs sagt „eignet sich besonders“); Kosten- und Gewinnvergleich nach „eignet sich vor allem“ bei vergleichbaren bzw. unterschiedlichen Erlösen.",
+      "Q-2.1-17: „Beim gesuchten Zinssatz beträgt der Kapitalwert genau null“ führt ohne Namensnennung auf den internen Zinsfuß — ist die Formulierung eindeutig genug?",
+      "Keine Zahlen und Formeln außer den Kursaussagen; das Instrument hat nur zwei Zonen (statisch, dynamisch).",
+    ],
+    vierseiten: [
+      "**Kursfassung mit vier Ebenen: Sachebene, Selbstoffenbarung, Beziehungsebene, Appell** (Thema 5.1). In der Literatur wird die Beziehungsseite teils zweigeteilt (wie ich zu dir stehe / was ich von dir halte) und die Selbstoffenbarung „Ich-Botschaft“ genannt; die Fragen bleiben bei der Kursfassung.",
+      "Q-5.1-13: „Wie ich dich sehe“ gehört nach der Kurstheorie zur Beziehungsebene.",
+      "Q-5.1-14: „Ich vertraue dir …“ und „Ich sehe dich als erfahrenen Kollegen …“ sind als Beziehungsebene gesetzt (Ich-Sätze, die etwas über den Empfänger aussagen); sie könnten als Selbstoffenbarung gelesen werden — die Erklärung grenzt ab.",
+      "Q-5.1-15: „Du gehst mit solchen Terminen immer so nachlässig um“ ist als Beziehungsebene (Abwertung der Person) gesetzt; es könnte auch als Sachebene oder Appell gelesen werden.",
+      "**Q-5.1-16 (Grenzfälle, höchste Streitgefahr):** „Ich kann es nicht leiden …“ und „Mir ist wichtig …“ liegen bei der Selbstoffenbarung, obwohl sie einen Appell nahelegen; „Das kann ich dir nicht allein überlassen“ bei der Beziehungsebene; „Die Auftragsbestätigung liegt noch in deinem Postausgang“ bei der Sachebene, obwohl ein Vorwurf mitschwingen kann. Die Zuordnung hängt an der wahrscheinlichsten Senderabsicht (in der Erklärung vermerkt).",
+      "Die Beispielsätze sind eigene Formulierungen (Teamleiterin und Mitarbeiter bei NordWert, Duzen); bitte kurz auf Ton und Kursstil prüfen.",
+    ],
+  },
+  nachspann: (teile) => wirNachspann(teile),
+};
+
+function wirNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Finanzierung und Controlling“ (Spiel „Begriffe-Duell“, Kurs Wirtschaftsfachwirt)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Finanzierungsarten; Investitionsrechnung; Kosten- und Leistungsrechnung; Controlling und Kennzahlen). **Alle Aussagen stammen aus den Theorietexten der Themen 2.1 bis 2.4**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Frage 8 (Kapitalwertmethode oder interner Zinsfuß): „welche Verzinsung die Investition selbst erwirtschaftet“ steht wörtlich in der Theorie; der Kapitalwert berührt den Vergleich mit der Mindestverzinsung ebenfalls.",
+    "- ⚠ Frage 17 (Balanced Scorecard oder ROI-Kennzahlensystem): Das Feedback nennt den ROI nur in Worten („Produkt aus Umsatzrentabilität und Kapitalumschlag“); ROI-Definitionen variieren (Gewinn vor oder nach Zinsen).",
+    "- ⚠ Frage 9 (Annuitätenmethode oder Rentabilitätsrechnung): Die Theorie sagt „eignet sich besonders“ bei unterschiedlicher Nutzungsdauer, nicht „ausschließlich“.",
+    "- Bewusst weggelassen: Factoring (eindeutig genug für ein späteres Set), Mengen- gegen Verbrauchsabweichung (Theorie überschneidet sich), alle Formeln und Zahlen.",
+    "",
+  );
+  teile.push(...duellBloecke("finanzierung-controlling", kennzahlenDuellFinanzierungControlling));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1279,6 +1324,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [12 Büro- und Projektorganisation](12-buero-projektorganisation.md) | neue Zonen-Instrumente (Projektphasen, Stakeholder-Matrix, ABC-Analyse), Theorie, Begriffe-Duell „Projektmanagement“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [13 Industriefachwirt](13-industriefachwirt.md) | neue Zonen-Instrumente (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms), Theorie, Begriffe-Duell „Kosten und Leistungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [14 Technischer Fachwirt](14-technischer-fachwirt.md) | neue Zonen-Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation), Theorie, Begriffe-Duell „Technische Unterscheidungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [15 Wirtschaftsfachwirt](15-wirtschaftsfachwirt.md) | neue Zonen-Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell), Begriffe-Duell „Finanzierung und Controlling“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.",
     "",
@@ -1324,6 +1370,7 @@ function main() {
     ["12-buero-projektorganisation.md", kursBlatt(BUE_BLATT)],
     ["13-industriefachwirt.md", kursBlatt(IND_BLATT)],
     ["14-technischer-fachwirt.md", kursBlatt(TEC_BLATT)],
+    ["15-wirtschaftsfachwirt.md", kursBlatt(WIR_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

@@ -38,6 +38,7 @@ import {
   IncotermsIllustration,
   InstandhaltungIllustration,
   IndustrieprotokolleIllustration,
+  InvestitionIllustration,
   Ishikawa6mIllustration,
   IshikawaIllustration,
   OsiIllustration,
@@ -68,6 +69,7 @@ import {
   TopIllustration,
   UmlIllustration,
   VerzeichnisdienstIllustration,
+  VierSeitenIllustration,
   VierStufenIllustration,
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
@@ -436,6 +438,19 @@ const INSTRUMENT_CATALOG = [
     label: "Ishikawa-Diagramm (6M)",
     description: "Ursachen eines Qualitätsproblems den sechs Kategorien zuordnen: Mensch, Maschine, Material, Methode, Milieu, Management.",
     Illustration: Ishikawa6mIllustration,
+  },
+  // F-187 (Kursprofile Phase 1, Wirtschaftsfachwirt): zwei Zonen-Instrumente für Investitionsrechnung und Kommunikation.
+  {
+    type: "investition",
+    label: "Investitionsrechenverfahren",
+    description: "Verfahren und Merkmale den statischen oder dynamischen Investitionsrechnungen zuordnen — mit und ohne Zeitwert des Geldes.",
+    Illustration: InvestitionIllustration,
+  },
+  {
+    type: "vierseiten",
+    label: "Vier-Seiten-Modell",
+    description: "Aussagen aus Mitarbeitergesprächen der Sach-, Selbstoffenbarungs-, Beziehungs- oder Appellseite zuordnen.",
+    Illustration: VierSeitenIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

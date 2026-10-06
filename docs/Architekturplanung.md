@@ -567,6 +567,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-187: Kursprofile Phase 1 — Wirtschaftsfachwirt)
+
+- **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Wirtschaftsfachwirt“, gleicher Maßstab wie F-177 bis F-185: Priorität „hoch“ und Aufwand S aus docs/kursprofile/02-industrie-technik-logistik.md (I-WIR-01, I-WIR-04, S-WIR-02). Zurückgestellt: Kreuzworträtsel „Kosten- und Leistungsrechnung“ (S-WIR-01, wie bei den anderen Kursen die Kreuzworträtsel/Memory), Kennzahlenbaum, Porter-Kette, Moderationszyklus und MbO (mittel), Break-even-Diagramm (Aufwand S–M, eigenes Diagramm), Gesprächs-Detektiv (Aufwand M), Nutzwertanalyse-Werkzeug und Lernpfade (Phase 3/4), Glossar, Prüfungsrahmen (P-WIR-01).
+- **Technik:** Zwei Einträge in `QUADRANT_MODELS` (`investition` mit zwei Zonen, `vierseiten` mit vier), zwei Literale in `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, zwei Illustrationen und Katalogeinträge, Parser-Test. Das Instrument `investition` hat bewusst nur zwei Zonen (statisch, dynamisch): Die Kurstheorie 2.1 gliedert genau so, und die Verwechslung zwischen beiden Gruppen ist der typische Klausurfehler.
+- **Kalkulation nicht wiederverwendet:** Das Modell `kalkulation` (Material-, Fertigungs-, Herstellkosten, Selbstkosten, Angebotspreis) passt zum Industrie- und Technischen Fachwirt. Der Wirtschaftsfachwirt-Kurs kalkuliert mit Einstandspreis und Handlungskostenzuschlägen (Handelskalkulation, Thema 2.3); ein eigenes Modell dafür wäre ein späterer Ausbau.
+- **Content:** je 4 Fragen in hsq2/2.1 (`Q-2.1-14`–`17`) und hsq5/5.1 (`Q-5.1-13`–`16`), nur ergänzt (0 gelöschte Zeilen, Parser-Prüfung ohne Hinweise). Keine neue Theorie.
+- **Spielset:** `game-kennzahlen-duell-finanzierung-controlling.ts` (setKey `finanzierung-controlling`, 20 Fragen in 4 Runden à 5), in `seed-games.ts` nur für diesen Kurs registriert; der Test verbietet Zahlen, Formeln, Paragrafen und Normangaben und erlaubt nur Themenverweise auf 2.1 bis 2.4. Bewusst weggelassen: Factoring und Mengen- gegen Verbrauchsabweichung.
+- **Freigabe:** `wirtschaftsfachwirt` in `KURS_ENTWURF` mit `investition` und `vierseiten` (Fragen inaktiv importiert); `KURS_ANGEBOT` nennt für das Begriffe-Duell nur das nicht vorhandene Set `standard`. Prüfblatt 15 mit allen offenen Fachfragen (Amortisation als statisches Verfahren, Beziehungsebene einteilig, Grenzfälle in Q-5.1-16).
+- **Verifiziert:** Dev-Datenbank nach Neuimport — acht Fragen (`investition`, `vierseiten`) inaktiv, das Duell-Set angelegt; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-186: Freigabe-Mechanismus für Kursprofil-Inhalte)
 
 - **Anlass:** Nutzer-Vorgabe „Starte mit dem Freischalten“ nach F-177 bis F-185. Beim Vorbereiten fiel auf, dass die Sperre aus R3 nur Kachel, Lernpfad und Spielsets verbarg: Die Instrumentenfragen waren als aktive `content_item`-Zeilen im Lernen-Quiz erreichbar (`quiz.ts` nimmt `QUADRANT_QUIZ_TYPES` auf, alle Router filtern nur auf `is_active`). Ungeprüfte Inhalte waren damit entgegen R3 sichtbar.

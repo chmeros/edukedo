@@ -596,6 +596,23 @@ export const QUADRANT_MODELS = {
       { key: "management", label: "Management" },
     ],
   },
+  // F-187 (Kursprofile Phase 1, Wirtschaftsfachwirt): zwei Modelle in der Gliederung der Kurstheorie (Themen 2.1 und 5.1).
+  investition: {
+    label: "Investitionsrechenverfahren",
+    zones: [
+      { key: "statisch", label: "Statische Verfahren" },
+      { key: "dynamisch", label: "Dynamische Verfahren" },
+    ],
+  },
+  vierseiten: {
+    label: "Vier-Seiten-Modell",
+    zones: [
+      { key: "sachebene", label: "Sachebene" },
+      { key: "selbstoffenbarung", label: "Selbstoffenbarung" },
+      { key: "beziehungsebene", label: "Beziehungsebene" },
+      { key: "appell", label: "Appell" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

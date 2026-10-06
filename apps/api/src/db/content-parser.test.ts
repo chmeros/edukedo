@@ -638,6 +638,19 @@ describe("parseQuizBlock", () => {
     if (ishikawa?.type === "ishikawa6m") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "milieu", "management"]);
   });
 
+  it("parst die Modelle aus F-187 (Investitionsrechenverfahren, Vier-Seiten-Modell)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-2.1-14 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const investition = parse("Investitionsrechenverfahren", ["- Kostenvergleichsrechnung → Statische Verfahren", "- Amortisationsrechnung → Statische Verfahren", "- Kapitalwertmethode → Dynamische Verfahren", "- interner Zinsfuß → Dynamische Verfahren"]);
+    expect(investition?.type).toBe("investition");
+    if (investition?.type === "investition") expect(investition.terms.map((term) => term.zoneKey)).toEqual(["statisch", "statisch", "dynamisch", "dynamisch"]);
+
+    const vierseiten = parse("Vier-Seiten-Modell", ["- „Das Lager ist schon wieder voll.“ → Sachebene", "- „Ich bin heute sehr angespannt.“ → Selbstoffenbarung", "- „Du kannst das ohnehin nicht.“ → Beziehungsebene", "- „Räum das bitte bis morgen auf.“ → Appell"]);
+    expect(vierseiten?.type).toBe("vierseiten");
+    if (vierseiten?.type === "vierseiten") expect(vierseiten.terms.map((term) => term.zoneKey)).toEqual(["sachebene", "selbstoffenbarung", "beziehungsebene", "appell"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

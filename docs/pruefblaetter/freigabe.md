@@ -129,6 +129,16 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 | Instandhaltung nach DIN 31051 (`instandhaltung`) | 4 | ○ | Normbegriffe in der Kursfassung (Rechtsstand-Vermerk „fachlich/rechtlich prüfen“); Beispiele ohne Kursbeleg |
 | ✔ Begriffe-Duell „Technische Unterscheidungen“ (Set) | 20 | ◐ | Frage 17 (Betriebsarzt gegen Fachkraft), Frage 20 (FI-Schutzschalter gegen Not-Aus) |
 
+### Blatt 15 — Wirtschaftsfachwirt (nachträglich ergänzt, 8 Fragen und ein Duell-Set, 12 Hinweise)
+
+| Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| Investitionsrechenverfahren (`investition`) | 4 | ◐ | Amortisationsrechnung als statisches Verfahren (Kursfassung); „Kalkulationszinssatz“ gegen „kalkulatorische Zinsen“ in Q-2.1-15; Eindeutigkeit von Q-2.1-17 |
+| Vier-Seiten-Modell (`vierseiten`) | 4 | ● | einteilige Beziehungsebene (Kursfassung); Grenzfälle in Q-5.1-16 (Senderabsicht); Ton der Beispielsätze |
+| Begriffe-Duell „Finanzierung und Controlling“ (Set) | 20 | ◐ | Frage 8 (Kapitalwert gegen internen Zinsfuß), Frage 17 (ROI-Definition), Frage 9 (Annuität „eignet sich besonders“) |
+
+Alles noch Entwurf (F-187): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Vier-Seiten-Modell und die beiden ◐-Einheiten in der nächsten Freigabewelle.
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.

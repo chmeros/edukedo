@@ -1686,3 +1686,55 @@ export function FlagRaetselIllustration() {
     </Frame>
   );
 }
+
+export function InvestitionIllustration() {
+  const statisch = [34, 34, 34, 34];
+  const dynamisch = [38, 32, 26, 20];
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="18" y="16" width="136" height="108" rx="10" fill="var(--sun-tint)" stroke="var(--ink-soft)" strokeWidth="1.8" />
+      <rect x="166" y="16" width="136" height="108" rx="10" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="1.8" />
+      {statisch.map((h, i) => (
+        <rect key={i} x={34 + i * 26} y={92 - h * 1.4} width="18" height={h * 1.4} rx="3" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+      ))}
+      <path d="M30 44h112" stroke="var(--ink)" strokeWidth="1.8" strokeDasharray="5 4" strokeLinecap="round" />
+      {dynamisch.map((h, i) => (
+        <rect key={i} x={182 + i * 26} y={92 - h * 1.4} width="18" height={h * 1.4} rx="3" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      ))}
+      <path d="M186 40 Q232 56 288 84" fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" />
+      <text x="86" y="112" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        statisch
+      </text>
+      <text x="234" y="112" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        dynamisch
+      </text>
+    </Frame>
+  );
+}
+
+export function VierSeitenIllustration() {
+  const seiten = [
+    { x: 24, y: 14, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Sache" },
+    { x: 196, y: 14, f: "var(--sun)", s: "var(--ink-soft)", t: "Selbst" },
+    { x: 24, y: 88, f: "var(--info)", s: "var(--info-deep)", t: "Beziehung" },
+    { x: 196, y: 88, f: "var(--coral)", s: "var(--coral-deep)", t: "Appell" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {seiten.map((seite) => (
+        <g key={seite.t}>
+          <rect x={seite.x} y={seite.y} width="100" height="38" rx="8" fill={seite.f} stroke={seite.s} strokeWidth="2" />
+          <text x={seite.x + 50} y={seite.y + 24} fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {seite.t}
+          </text>
+        </g>
+      ))}
+      <path d="M124 33h72M124 107h72M76 52v36M246 52v36" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <rect x="128" y="50" width="64" height="40" rx="12" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M146 90l-6 12 16-12Z" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      <text x="160" y="75" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Nachricht
+      </text>
+    </Frame>
+  );
+}
