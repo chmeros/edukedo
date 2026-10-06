@@ -13,7 +13,7 @@ export interface SqlToken {
 }
 
 /** Schlüsselwörter, Datentypen und gängige Funktionen aus den Aufgaben der SQL-Übungsfläche (SQLite-Dialekt). */
-const SQL_SCHLUESSELWOERTER: ReadonlySet<string> = new Set(
+export const SQL_SCHLUESSELWOERTER: ReadonlySet<string> = new Set(
   (
     "SELECT FROM WHERE AND OR NOT IN IS NULL LIKE BETWEEN ORDER BY GROUP HAVING JOIN INNER LEFT RIGHT FULL OUTER CROSS NATURAL ON USING AS " +
     "DISTINCT LIMIT OFFSET UNION INTERSECT EXCEPT ALL ANY EXISTS CASE WHEN THEN ELSE END ASC DESC " +

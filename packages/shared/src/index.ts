@@ -10,6 +10,7 @@ export * from "./quiz-logic";
 export * from "./flag-raetsel";
 export * from "./sql-highlight";
 export * from "./sql-uebungen";
+export * from "./sql-vorschlaege";
 export * from "./terminal-sim";
 export * from "./topologie-sim";
 export * from "./subnetting-logic";

@@ -1,4 +1,4 @@
-import { SQL_TABELLEN, SQL_UEBUNGEN, tokenisiereSql, type SqlStufe, type SqlUebung } from "@edukedo/shared";
+import { SQL_TABELLEN, SQL_UEBUNGEN, sqlVorschlaege, tokenisiereSql, type SqlStufe, type SqlUebung, type SqlVorschlagErgebnis } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -77,6 +77,11 @@ function ErgebnisTabelle({ tabelle }: { tabelle: SqlAnzeigeTabelle }) {
 export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   const sandbox = useRef<SqlSandbox | null>(null);
   const hervorhebungRef = useRef<HTMLPreElement>(null);
+  const editorRef = useRef<HTMLTextAreaElement>(null);
+  // F-172: Autovervollständigung — Vorschlagsliste unter dem Editor, Auswahl per Pfeiltasten + Enter/Tab.
+  const naechsterCursor = useRef<number | null>(null);
+  const [vorschlag, setVorschlag] = useState<SqlVorschlagErgebnis | null>(null);
+  const [aktiv, setAktiv] = useState(-1);
   sandbox.current ??= new SqlSandbox();
   useEffect(() => () => sandbox.current?.beenden(), []);
 
@@ -95,7 +100,31 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   const sql = eingaben[schluessel] ?? "";
   const gezeigteTipps = uebung ? tipps[uebung.id] ?? 0 : 0;
 
+  // Nach dem Übernehmen eines Vorschlags steht der Cursor hinter dem eingefügten Wort.
+  useEffect(() => {
+    if (naechsterCursor.current !== null && editorRef.current) {
+      editorRef.current.focus();
+      editorRef.current.setSelectionRange(naechsterCursor.current, naechsterCursor.current);
+      naechsterCursor.current = null;
+    }
+  }, [sql]);
+
+  function aktualisiereVorschlaege(feld: HTMLTextAreaElement) {
+    setVorschlag(feld.selectionStart === feld.selectionEnd ? sqlVorschlaege(feld.value, feld.selectionStart) : null);
+    setAktiv(-1);
+  }
+
+  function uebernehmeVorschlag(index: number) {
+    const eintrag = vorschlag?.vorschlaege[index];
+    if (!vorschlag || !eintrag) return;
+    naechsterCursor.current = vorschlag.von + eintrag.text.length;
+    setEingaben((aktuell) => ({ ...aktuell, [schluessel]: sql.slice(0, vorschlag.von) + eintrag.text + sql.slice(vorschlag.bis) }));
+    setVorschlag(null);
+    setAktiv(-1);
+  }
+
   function waehle(id: string | null) {
+    setVorschlag(null);
     setAuswahl(id);
     setAusgabe(null);
     setPruefung(null);
@@ -249,6 +278,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
             </pre>
             <textarea
               id="sql-editor"
+              ref={editorRef}
               className="input sql-editor"
               rows={6}
               value={sql}
@@ -256,7 +286,15 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
               autoComplete="off"
               autoCapitalize="off"
               placeholder="SELECT * FROM kunde;"
-              onChange={(event) => setEingaben((aktuell) => ({ ...aktuell, [schluessel]: event.target.value }))}
+              onChange={(event) => {
+                setEingaben((aktuell) => ({ ...aktuell, [schluessel]: event.target.value }));
+                aktualisiereVorschlaege(event.target);
+              }}
+              onClick={(event) => aktualisiereVorschlaege(event.currentTarget)}
+              onKeyUp={(event) => {
+                if (!["ArrowUp", "ArrowDown", "Enter", "Escape", "Tab"].includes(event.key)) aktualisiereVorschlaege(event.currentTarget);
+              }}
+              onBlur={() => setVorschlag(null)}
               onScroll={(event) => {
                 if (hervorhebungRef.current) {
                   hervorhebungRef.current.scrollTop = event.currentTarget.scrollTop;
@@ -264,6 +302,29 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
                 }
               }}
               onKeyDown={(event) => {
+                if (vorschlag) {
+                  const anzahl = vorschlag.vorschlaege.length;
+                  if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    setAktiv((aktuell) => (aktuell + 1) % anzahl);
+                    return;
+                  }
+                  if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    setAktiv((aktuell) => (aktuell <= 0 ? anzahl - 1 : aktuell - 1));
+                    return;
+                  }
+                  if ((event.key === "Enter" || event.key === "Tab") && aktiv >= 0 && !event.ctrlKey && !event.metaKey) {
+                    event.preventDefault();
+                    uebernehmeVorschlag(aktiv);
+                    return;
+                  }
+                  if (event.key === "Escape") {
+                    event.preventDefault();
+                    setVorschlag(null);
+                    return;
+                  }
+                }
                 if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
                   event.preventDefault();
                   void ausfuehren(sql, "Ergebnis deiner Anweisung");
@@ -271,7 +332,32 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
               }}
             />
           </div>
-          <span className="field-hint">Mehrere Anweisungen mit Semikolon trennen. Ausführen auch mit Strg+Enter.</span>
+          {vorschlag && (
+            <ul className="sql-vorschlaege" role="listbox" aria-label="Vorschläge">
+              {vorschlag.vorschlaege.map((eintrag, index) => (
+                <li
+                  key={`${eintrag.art}-${eintrag.text}`}
+                  role="option"
+                  aria-selected={index === aktiv}
+                  className={index === aktiv ? "is-active" : undefined}
+                  onMouseDown={(event) => {
+                    event.preventDefault();
+                    uebernehmeVorschlag(index);
+                  }}
+                >
+                  <code>{eintrag.text}</code>
+                  <span className="field-hint">{eintrag.hinweis}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {/* Für Bildschirmleser: Der Fokus bleibt im Eingabefeld, daher wird die Auswahl hier angesagt. */}
+          <span className="sr-only" role="status">
+            {vorschlag
+              ? `${vorschlag.vorschlaege.length} Vorschläge. Pfeil nach unten wählt aus, Enter übernimmt, Escape schließt.${aktiv >= 0 ? ` Ausgewählt: ${vorschlag.vorschlaege[aktiv]?.text}.` : ""}`
+              : ""}
+          </span>
+          <span className="field-hint">Mehrere Anweisungen mit Semikolon trennen. Ausführen auch mit Strg+Enter. Vorschläge erscheinen beim Tippen: Pfeil nach unten wählt, Enter übernimmt.</span>
         </div>
 
         <div className="rate-row">
