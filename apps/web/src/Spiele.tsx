@@ -144,8 +144,8 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         <h2>Spiele</h2>
       </div>
       <p className="field-hint">
-        Fachbegriffe und Fertigkeiten spielerisch üben — jedes Spiel wertet deine Fortschritte sofort in Punktehamster,
-        Creditstand und Lernserie mit.
+        Fachbegriffe und Fertigkeiten spielerisch üben — die Spiele sind reine Übung und zählen nicht für Punktehamster,
+        Creditstand, Lernserie oder deinen Lernfortschritt; den bekommst du im Tab „Lernen“.
       </p>
       <div className="tile-grid">
         {availableTiles.map((row) => {

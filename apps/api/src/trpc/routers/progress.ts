@@ -99,12 +99,10 @@ export async function assertContentItemAccessible(db: Database, userId: string, 
 type Tx = Parameters<Parameters<Database["transaction"]>[0]>[0];
 
 /**
- * F-118/F-119: gemeinsamer Kern von `recordQuizAttempt` und `recordGameAttempt` (siehe dort) —
- * Punktehamster-Zuwachs bei jeder richtigen Antwort, Credits nur beim jeweils ersten jemals
- * richtig beantworteten Item, Menge nach Difficulty gestaffelt. Bewusst OHNE die
- * `learning_event`-Insert-/Anti-Farming-Logik selbst, da diese je nach Aufrufer über eine
- * andere Spalte (content_item_id vs. game_item_key) läuft — siehe schema.ts-Kommentar bei
- * `learning_event.game_item_key` für die Begründung dieser Aufteilung.
+ * F-118/F-119: Belohnung von `recordQuizAttempt` — seit 06.10.2026 die EINZIGE Stelle, die Belohnungen vergibt
+ * (die Spiele vergeben keine mehr, siehe Architekturplanung Abschnitt 13): Punktehamster-Zuwachs bei jeder
+ * richtigen Antwort, Credits nur beim jeweils ersten jemals richtig beantworteten Item, Menge nach Difficulty
+ * gestaffelt. Bewusst OHNE die `learning_event`-Insert-/Anti-Farming-Logik selbst (liegt in `recordQuizAttempt`).
  */
 async function applyCorrectAnswerRewards(
   tx: Tx,
@@ -219,50 +217,6 @@ export async function recordQuizAttempt(
         target: [userProgress.userId, userProgress.contentItemId],
         set: { state, lastReviewedAt: occurredAt },
       });
-  });
-}
-
-/**
- * F-140/F-141/F-142/F-143 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13):
- * Pendant zu `recordQuizAttempt` für die drei neuen, nicht content-item-basierten Lernspiele
- * (Kreuzworträtsel/Kennzahlen-Duell/Memory) — dieselbe Zeilensperre und Anti-Farming-Logik,
- * aber über `learning_event.game_item_key` (eine stabile, vom Aufrufer gebildete Kennung wie
- * `"kreuzwortraetsel:<kursId>:<wortNummer>"`) statt `content_item_id`. Legt bewusst KEINE
- * `user_progress`-Zeile an — für diese Spiele gibt es kein FSRS-/Fälligkeits-Konzept, sie sind
- * reine Übung, keine Spaced-Repetition-Inhalte. `difficulty` kommt direkt vom Aufrufer statt aus
- * `content_item.difficulty` (das es für diese Items nicht gibt).
- */
-export async function recordGameAttempt(
-  db: Database,
-  userId: string,
-  gameItemKey: string,
-  isCorrect: boolean,
-  difficulty: string,
-): Promise<void> {
-  await db.transaction(async (tx) => {
-    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
-
-    let isFirstCorrectAnswerEver = false;
-    if (isCorrect) {
-      const [existingCorrectEvent] = await tx
-        .select({ id: learningEvent.id })
-        .from(learningEvent)
-        .where(
-          and(
-            eq(learningEvent.userId, userId),
-            eq(learningEvent.gameItemKey, gameItemKey),
-            eq(learningEvent.isCorrect, true),
-          ),
-        )
-        .limit(1);
-      isFirstCorrectAnswerEver = !existingCorrectEvent;
-    }
-
-    await tx.insert(learningEvent).values({ userId, gameItemKey, isCorrect, occurredAt: new Date() });
-
-    if (isCorrect) {
-      await applyCorrectAnswerRewards(tx, userId, isFirstCorrectAnswerEver, difficulty);
-    }
   });
 }
 

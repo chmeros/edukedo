@@ -32,14 +32,6 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
   const [falschesPaar, setFalschesPaar] = useState<number[] | null>(null);
   const [bestaetigung, setBestaetigung] = useState<string | null>(null);
 
-  const invalidateProgress = () => {
-    utils.progress.overview.invalidate();
-    utils.progress.suggestions.invalidate();
-    utils.gamification.mascotStatus.invalidate();
-    utils.auth.me.invalidate();
-    utils.gamification.streakStatus.invalidate();
-  };
-
   // Bootstrap: welche Runde ist die erste noch nicht abgeschlossene? `abgeschlosseneRunden`
   // liegt in JEDER `getMemory`-Antwort identisch vor, unabhängig von der angefragten Runde.
   const bootstrap = trpc.game.getMemory.useQuery({ kursId, setKey, runde: 1 }, { enabled: aktiveRunde === null });
@@ -90,7 +82,6 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
             setGefunden(neuGefunden);
             setBestaetigung(result.bestaetigung);
             setAufgedeckt([]);
-            invalidateProgress();
             if (neuGefunden.length === karten.length) {
               completeRound.mutate({ kursId, setKey, runde: aktiveRunde! });
             }

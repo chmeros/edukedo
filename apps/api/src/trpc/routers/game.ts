@@ -51,7 +51,6 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
-import { recordGameAttempt } from "./progress";
 import type { Database } from "../../db/client";
 import { signSprintToken, verifySprintToken } from "../../game-sprint-token";
 import { game, gameProgress, userCourse } from "../../db/schema";
@@ -91,11 +90,6 @@ async function loadGame(db: Database, userId: string, kursId: string, gameType: 
   }
   await requireEnrollment(db, userId, kursId);
   return row;
-}
-
-/** Stabile Kennung für die Anti-Farming-Prüfung; das Standard-Set behält die ursprüngliche Form. */
-function itemKey(gameType: string, kursId: string, setKey: string | undefined, suffix: string | number): string {
-  return !setKey || setKey === DEFAULT_GAME_SET_KEY ? `${gameType}:${kursId}:${suffix}` : `${gameType}:${setKey}:${kursId}:${suffix}`;
 }
 
 async function loadProgressRow(db: Database, userId: string, gameId: string) {
@@ -170,15 +164,13 @@ function parseSolvedListState(raw: unknown): SolvedListState {
   return { solvedNumbers: state.solvedNumbers ?? [] };
 }
 
-/** Gemeinsamer Ablauf der vier inhaltsbasierten Spiele: Fortschritt laden, Ergebnis eintragen, Gamification. */
+/** Gemeinsamer Ablauf der vier inhaltsbasierten Spiele: Spielstand (gelöste Nummern) fortschreiben. */
 async function recordListResult(
   ctx: { db: Database; currentUser: { id: string } },
   gameId: string,
   nummer: number,
   total: number,
   correct: boolean,
-  gameItemKey: string,
-  difficulty: string,
 ): Promise<void> {
   if (correct) {
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, gameId);
@@ -186,7 +178,6 @@ async function recordListResult(
     if (!state.solvedNumbers.includes(nummer)) state.solvedNumbers.push(nummer);
     await upsertProgress(ctx.db, ctx.currentUser.id, gameId, state, state.solvedNumbers.length === total ? new Date() : null);
   }
-  await recordGameAttempt(ctx.db, ctx.currentUser.id, gameItemKey, correct, difficulty);
 }
 
 interface SprintProgressState {
@@ -254,7 +245,6 @@ export const gameRouter = router({
       const completed = state.solvedWordNumbers.length === payload.woerter.length;
       await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
     }
-    await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("kreuzwortraetsel", input.kursId, input.setKey, input.nummer), result.correct, "leicht");
 
     return result;
   }),
@@ -287,7 +277,6 @@ export const gameRouter = router({
       const completed = state.completedQuestionNumbers.length === payload.fragen.length;
       await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
     }
-    await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("kennzahlen_duell", input.kursId, input.setKey, input.nummer), result.correct, "mittel");
 
     return result;
   }),
@@ -313,24 +302,12 @@ export const gameRouter = router({
     const payload = memoryPayloadSchema.parse(row.payload);
     const result = checkMemoryPaar(payload, input.runde, input.textA, input.textB);
 
-    // Anders als beim Kreuzworträtsel/Kennzahlen-Duell gibt es für eine FALSCHE Kombination
-    // keine sinnvolle einzelne gameItemKey (zwei aufgedeckte Karten gehören zu zwei
-    // UNTERSCHIEDLICHEN Paaren) — recordGameAttempt wird deshalb bewusst nur bei einem
-    // tatsächlichen Treffer aufgerufen, keyed über die zugehörige Paar-Nummer.
-    if (result.correct) {
-      const paar = payload.paare.find(
-        (candidate) => candidate.runde === input.runde && (candidate.begriff === input.textA || candidate.bedeutung === input.textA),
-      )!;
-      await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("memory", input.kursId, input.setKey, paar.nummer), true, "leicht");
-    }
-
     return result;
   }),
 
   /** Client-gemeldeter Rundenabschluss (alle Paare dieser Runde in der aktuellen Sitzung
-   * gefunden) — bewusst ohne serverseitige Nachprüfung der einzelnen Paare: die
-   * Punktehamster-/Credit-Vergabe ist bereits über `submitMemoryPaar` pro echtem Treffer
-   * serverseitig abgesichert, dieser Aufruf dient ausschließlich dem Fortschritts-Fortsetzen
+   * gefunden) — bewusst ohne serverseitige Nachprüfung der einzelnen Paare: Belohnungen gibt es für
+   * Spiele nicht (seit 06.10.2026), dieser Aufruf dient ausschließlich dem Fortschritts-Fortsetzen
    * ("Fortschritt: Die Anwendung speichert abgeschlossene Runden") — ein fälschlich gemeldeter
    * Abschluss hat keine Gamification-Konsequenz. */
   completeMemoryRound: protectedProcedure.input(memoryRundeInputSchema).mutation(async ({ ctx, input }) => {
@@ -364,7 +341,7 @@ export const gameRouter = router({
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "phishing", input.setKey);
     const payload = phishingPayloadSchema.parse(row.payload);
     const result = checkPhishing(payload, input.nummer, input.markiert, input.urteil);
-    await recordListResult(ctx, row.id, input.nummer, payload.mails.length, result.correct, itemKey("phishing", input.kursId, input.setKey, input.nummer), "mittel");
+    await recordListResult(ctx, row.id, input.nummer, payload.mails.length, result.correct);
     return result;
   }),
 
@@ -383,7 +360,7 @@ export const gameRouter = router({
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "bughunt", input.setKey);
     const payload = bugHuntPayloadSchema.parse(row.payload);
     const result = checkBugHunt(payload, input.nummer, input.zeile);
-    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct, itemKey("bughunt", input.kursId, input.setKey, input.nummer), "mittel");
+    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct);
     return result;
   }),
 
@@ -407,7 +384,7 @@ export const gameRouter = router({
     } catch {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Ungültige Reihenfolge." });
     }
-    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct, itemKey("codereihenfolge", input.kursId, input.setKey, input.nummer), "mittel");
+    await recordListResult(ctx, row.id, input.nummer, payload.aufgaben.length, result.correct);
     return result;
   }),
 
@@ -426,11 +403,9 @@ export const gameRouter = router({
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "troubleshooting", input.setKey);
     const payload = troubleshootingPayloadSchema.parse(row.payload);
     const result = checkTroubleshooting(payload, input.nummer, input.schritt, input.antwort);
-    // Fortschritt (gelöst) erst nach der richtigen Ursache; Gamification je Schritt mit eigener Kennung.
+    // Spielstand (gelöst) erst nach der richtigen Ursache (Schritt 2).
     if (input.schritt === 2) {
-      await recordListResult(ctx, row.id, input.nummer, payload.faelle.length, result.correct, itemKey("troubleshooting", input.kursId, input.setKey, `${input.nummer}:2`), "mittel");
-    } else {
-      await recordGameAttempt(ctx.db, ctx.currentUser.id, itemKey("troubleshooting", input.kursId, input.setKey, `${input.nummer}:1`), result.correct, "leicht");
+      await recordListResult(ctx, row.id, input.nummer, payload.faelle.length, result.correct);
     }
     return result;
   }),
@@ -483,19 +458,10 @@ export const gameRouter = router({
     const loesung = decoded.g === "subnetting" ? subnettingLoesung(decoded.params) : zahlensystemLoesung(decoded.params);
     const correct =
       decoded.g === "subnetting" ? pruefeSubnettingEingabe(decoded.params, input.eingabe) : pruefeZahlensystemEingabe(decoded.params, input.eingabe);
-    // Kennung je Aufgabenart statt je Aufgabe: zufällige Aufgaben ließen sich sonst endlos "farmen".
-    await recordGameAttempt(
-      ctx.db,
-      ctx.currentUser.id,
-      itemKey(decoded.g, input.kursId, input.setKey, `${decoded.params.typ}:${decoded.s}`),
-      correct,
-      decoded.s,
-    );
     return { correct, erwartet: loesung.erwartet, erklaerung: loesung.erklaerung };
   }),
 
-  /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige, bewusst ohne Gamification-Folge
-   * (diese läuft bereits über `sprintAntwort` je Aufgabe, serverseitig abgesichert). */
+  /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige (eigener Spielstand), keine Belohnung. */
   sprintAbschluss: protectedProcedure.input(sprintAbschlussInputSchema).mutation(async ({ ctx, input }) => {
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);

@@ -247,14 +247,6 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
   const [eingabeProZelle, setEingabeProZelle] = useState<Map<string, string>>(new Map());
   const inputRefs = useRef<Map<string, HTMLInputElement>>(new Map());
 
-  const invalidateProgress = () => {
-    utils.progress.overview.invalidate();
-    utils.progress.suggestions.invalidate();
-    utils.gamification.mascotStatus.invalidate();
-    utils.auth.me.invalidate();
-    utils.gamification.streakStatus.invalidate();
-  };
-
   const start = trpc.game.startKreuzwortraetsel.useMutation({
     onSuccess: () => {
       setLastResult(null);
@@ -281,7 +273,6 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
             setActiveWortNummer(null);
             setEingabeProZelle(new Map());
             utils.game.getKreuzwortraetsel.invalidate({ kursId, setKey });
-            invalidateProgress();
           }
         },
       },

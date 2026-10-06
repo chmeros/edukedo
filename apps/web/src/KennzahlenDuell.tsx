@@ -35,20 +35,11 @@ export function KennzahlenDuell({ kursId, setKey, title, onClose }: { kursId: st
     null,
   );
 
-  const invalidateProgress = () => {
-    utils.progress.overview.invalidate();
-    utils.progress.suggestions.invalidate();
-    utils.gamification.mascotStatus.invalidate();
-    utils.auth.me.invalidate();
-    utils.gamification.streakStatus.invalidate();
-  };
-
   const submit = trpc.game.submitKennzahlenDuellAntwort.useMutation({
     onSuccess: (result, variables) => {
       setFeedback({ nummer: variables.nummer, ausgewaehlt: variables.ausgewaehlt, correct: result.correct, feedback: result.feedback });
       if (result.correct) {
         utils.game.getKennzahlenDuell.invalidate({ kursId, setKey });
-        invalidateProgress();
       }
     },
   });

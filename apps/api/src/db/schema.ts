@@ -460,10 +460,10 @@ export const learningEvent = pgTable(
     // game_item_key unten) statt eines echten content_item repräsentieren kann — genau eine der
     // beiden Spalten ist über den CHECK unten gesetzt.
     contentItemId: uuid("content_item_id").references(() => contentItem.id, { onDelete: "cascade" }),
-    // Stabile Kennung eines Spiel-Elements (z. B. "kreuzwortraetsel:<kursId>:<wortNummer>"),
-    // ausschließlich von recordGameAttempt (progress.ts) gesetzt — siehe Kommentar dort für die
-    // Begründung, warum die drei neuen Spiele (F-141/F-142/F-143) NICHT über künstliche,
-    // verdeckte content_item-Zeilen an Punktehamster/Credits/Lernserie angebunden werden.
+    // Stabile Kennung eines Spiel-Elements (z. B. "kreuzwortraetsel:<kursId>:<wortNummer>").
+    // SEIT 06.10.2026 WIRD DIESE SPALTE NICHT MEHR BESCHRIEBEN: Spiele erzeugen keine Belohnung und keinen
+    // Fortschritt mehr (Fortschritt entsteht ausschließlich im Lernen-Tab, siehe Architekturplanung
+    // Abschnitt 13). Die Spalte samt CHECK bleibt für vorhandene Altdaten bestehen.
     gameItemKey: text("game_item_key"),
     isCorrect: boolean("is_correct").notNull(),
     occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull().defaultNow(),

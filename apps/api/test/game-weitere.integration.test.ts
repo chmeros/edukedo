@@ -1,5 +1,6 @@
 import { codeZeilenId, phishingPayloadSchema } from "@edukedo/shared";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import { eq } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
@@ -175,6 +176,16 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect(manipuliert.statusCode).toBe(400);
     const falscherTyp = await post("game.sprintAntwort", { kursId, gameType: "zahlensysteme", token: aufgaben[0]!.token, eingabe: "1" });
     expect(falscherTyp.statusCode).toBe(404); // dieser Kurs hat kein Zahlensystem-Spiel
+  });
+
+  it("Kein Spiel vergibt Belohnung oder Fortschritt (seit 06.10.2026 nur noch im Lernen-Tab)", async () => {
+    // Die Tests oben haben richtige und falsche Antworten in allen Spielen abgegeben — die Testperson ist neu,
+    // also müssen Punktehamster, Credits und Lernereignisse unverändert bei 0 stehen.
+    const [nutzer] = await db.select({ id: schema.user.id, mascotFood: schema.user.mascotFood, credits: schema.user.credits }).from(schema.user).where(eq(schema.user.email, "weitere-spiele@example.com"));
+    expect(nutzer!.mascotFood).toBe(0);
+    expect(nutzer!.credits).toBe(0);
+    const ereignisse = await db.select({ id: schema.learningEvent.id }).from(schema.learningEvent).where(eq(schema.learningEvent.userId, nutzer!.id));
+    expect(ereignisse).toHaveLength(0);
   });
 
   it("Sprint-Abschluss speichert nur den Bestwert je Schwierigkeit", async () => {

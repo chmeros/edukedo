@@ -62,6 +62,12 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
     return row!;
   }
 
+  /** Anzahl der Lernereignisse der Testperson — Spiele dürfen seit 06.10.2026 keine mehr anlegen. */
+  async function learningEventCount() {
+    const rows = await db.select({ id: schema.learningEvent.id }).from(schema.learningEvent).where(eq(schema.learningEvent.userId, learnerUserId));
+    return rows.length;
+  }
+
   beforeAll(async () => {
     container = await new PostgreSqlContainer("postgres:16-alpine").start();
     process.env.DATABASE_URL = container.getConnectionUri();
@@ -183,8 +189,9 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       expect(data.wordBank).toContain("EBIT");
     });
 
-    it("wertet eine richtige Zuordnung, vergibt Punktehamster-Futter und Credits (erste jemals richtige Antwort)", async () => {
+    it("wertet eine richtige Zuordnung und speichert den Spielstand, vergibt aber keine Belohnung (Fortschritt entsteht nur im Lernen-Tab)", async () => {
       const before = await currentMascotFoodAndCredits();
+      const eventsBefore = await learningEventCount();
 
       const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
       expect(response.statusCode).toBe(200);
@@ -193,8 +200,9 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       expect(result.bestaetigung).toContain("EBIT");
 
       const after = await currentMascotFoodAndCredits();
-      expect(after.mascotFood).toBe(before.mascotFood + 1);
-      expect(after.credits).toBeGreaterThan(before.credits);
+      expect(after.mascotFood).toBe(before.mascotFood);
+      expect(after.credits).toBe(before.credits);
+      expect(await learningEventCount()).toBe(eventsBefore);
 
       const getResponse = await callQuery("game.getKreuzwortraetsel", { kursId });
       const wort = getResponse.json().result.data.woerter.find((entry: { nummer: number }) => entry.nummer === 7);
@@ -202,12 +210,15 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       expect(getResponse.json().result.data.wordBank).not.toContain("EBIT");
     });
 
-    it("vergibt bei einer erneuten richtigen Antwort desselben Wortes kein zweites Mal Credits (Anti-Farming)", async () => {
+    it("vergibt auch bei wiederholten richtigen Antworten nichts (kein Farmen möglich)", async () => {
       const before = await currentMascotFoodAndCredits();
+      const eventsBefore = await learningEventCount();
+      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
       await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
       const after = await currentMascotFoodAndCredits();
-      expect(after.mascotFood).toBe(before.mascotFood + 1); // Punktehamster wächst weiterhin
-      expect(after.credits).toBe(before.credits); // Credits nicht ein zweites Mal
+      expect(after.mascotFood).toBe(before.mascotFood);
+      expect(after.credits).toBe(before.credits);
+      expect(await learningEventCount()).toBe(eventsBefore);
     });
 
     it("wertet eine falsche Eingabe ohne Bestätigung und ohne Fortschritt", async () => {
@@ -265,8 +276,9 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       expect(data.karten).toHaveLength(12);
     });
 
-    it("erkennt ein richtiges Paar und vergibt Punktehamster-Futter", async () => {
+    it("erkennt ein richtiges Paar, ohne Punktehamster-Futter zu vergeben", async () => {
       const before = await currentMascotFoodAndCredits();
+      const eventsBefore = await learningEventCount();
       const response = await callMutation("game.submitMemoryPaar", {
         kursId,
         runde: 1,
@@ -275,7 +287,8 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       });
       expect(response.json().result.data.correct).toBe(true);
       const after = await currentMascotFoodAndCredits();
-      expect(after.mascotFood).toBe(before.mascotFood + 1);
+      expect(after.mascotFood).toBe(before.mascotFood);
+      expect(await learningEventCount()).toBe(eventsBefore);
     });
 
     it("erkennt ein falsches Paar ohne Fortschritt", async () => {

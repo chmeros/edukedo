@@ -17,17 +17,6 @@ interface SpielProps {
   onClose: () => void;
 }
 
-function useInvalidateProgress() {
-  const utils = trpc.useUtils();
-  return () => {
-    utils.progress.overview.invalidate();
-    utils.progress.suggestions.invalidate();
-    utils.gamification.mascotStatus.invalidate();
-    utils.auth.me.invalidate();
-    utils.gamification.streakStatus.invalidate();
-  };
-}
-
 function SpielRahmen({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
   return (
     <div className="panel-section">
@@ -93,7 +82,6 @@ const ORT_LABEL: Record<string, string> = {
 
 export function PhishingDetektiv({ kursId, setKey, title, onClose }: SpielProps) {
   const utils = trpc.useUtils();
-  const invalidateProgress = useInvalidateProgress();
   const data = trpc.game.getPhishing.useQuery({ kursId, setKey });
   const zeiger = useAufgabenZeiger(data.data?.mails);
   const [markiert, setMarkiert] = useState<Set<string>>(new Set());
@@ -103,7 +91,6 @@ export function PhishingDetektiv({ kursId, setKey, title, onClose }: SpielProps)
     onSuccess: (result) => {
       if (result.correct) {
         utils.game.getPhishing.invalidate({ kursId, setKey });
-        invalidateProgress();
       }
     },
   });
@@ -241,7 +228,6 @@ export function PhishingDetektiv({ kursId, setKey, title, onClose }: SpielProps)
 
 export function BugHunt({ kursId, setKey, title, onClose }: SpielProps) {
   const utils = trpc.useUtils();
-  const invalidateProgress = useInvalidateProgress();
   const data = trpc.game.getBugHunt.useQuery({ kursId, setKey });
   const zeiger = useAufgabenZeiger(data.data?.aufgaben);
   const [zeile, setZeile] = useState<number | null>(null);
@@ -250,7 +236,6 @@ export function BugHunt({ kursId, setKey, title, onClose }: SpielProps) {
     onSuccess: (result) => {
       if (result.correct) {
         utils.game.getBugHunt.invalidate({ kursId, setKey });
-        invalidateProgress();
       }
     },
   });
@@ -339,7 +324,6 @@ export function BugHunt({ kursId, setKey, title, onClose }: SpielProps) {
 
 export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) {
   const utils = trpc.useUtils();
-  const invalidateProgress = useInvalidateProgress();
   const data = trpc.game.getCodeReihenfolge.useQuery({ kursId, setKey });
   const zeiger = useAufgabenZeiger(data.data?.aufgaben);
   const [anordnung, setAnordnung] = useState<{ nummer: number; ids: string[] } | null>(null);
@@ -348,7 +332,6 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
     onSuccess: (result) => {
       if (result.correct) {
         utils.game.getCodeReihenfolge.invalidate({ kursId, setKey });
-        invalidateProgress();
       }
     },
   });
@@ -448,7 +431,6 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
 
 export function TroubleshootingDetektiv({ kursId, setKey, title, onClose }: SpielProps) {
   const utils = trpc.useUtils();
-  const invalidateProgress = useInvalidateProgress();
   const data = trpc.game.getTroubleshooting.useQuery({ kursId, setKey });
   const zeiger = useAufgabenZeiger(data.data?.faelle);
   const [fall, setFall] = useState<{ nummer: number; schichtGeloest: boolean; schichtFalsch: string | null; ursacheFalsch: string | null }>({
@@ -472,7 +454,6 @@ export function TroubleshootingDetektiv({ kursId, setKey, title, onClose }: Spie
       } else if (result.correct) {
         setErklaerung(result.erklaerung);
         utils.game.getTroubleshooting.invalidate({ kursId, setKey });
-        invalidateProgress();
       } else {
         aktualisiere({ ursacheFalsch: variables.antwort });
       }
@@ -570,7 +551,6 @@ function formatZeit(sekunden: number): string {
 }
 
 export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielProps & { gameType: "subnetting" | "zahlensysteme" }) {
-  const invalidateProgress = useInvalidateProgress();
   const utils = trpc.useUtils();
   const info = trpc.game.getSprint.useQuery({ kursId, setKey, gameType });
   const [schwierigkeit, setSchwierigkeit] = useState<"leicht" | "mittel" | "schwer">("leicht");
@@ -594,7 +574,6 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
   const antwort = trpc.game.sprintAntwort.useMutation({
     onSuccess: (result) => {
       if (result.correct) setRichtig((current) => current + 1);
-      invalidateProgress();
     },
   });
   const abschluss = trpc.game.sprintAbschluss.useMutation({
