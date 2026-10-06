@@ -151,7 +151,7 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
   });
 
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
-    expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "muster")).toBe(true);
+    expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);
     expect(istInstrumentEntwurf("mathematik-9", "git")).toBe(false);
   });
