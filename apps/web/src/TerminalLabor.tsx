@@ -1,11 +1,11 @@
-import { TERMINAL_SZENARIEN, terminalAusfuehren, terminalPrompt, terminalStartZustand, type TerminalSzenario, type TerminalZustand } from "@edukedo/shared";
+import { TERMINAL_SZENARIEN, terminalAusfuehren, terminalPrompt, terminalStartZustand, type TerminalStufe, type TerminalSzenario, type TerminalZustand } from "@edukedo/shared";
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 
 /**
  * F-171: Terminal-Szenarien im Werkzeugkasten. Die Kommandozeile ist **simuliert** (packages/shared/src/
  * terminal-sim.ts): Es wird nichts ausgeführt, nichts gespeichert, nichts an einen Server geschickt und
- * nichts bewertet. Der Bearbeitungsstand ("gelöst ✓") lebt nur im Arbeitsspeicher dieser Sitzung.
+ * nichts bewertet. Der Bearbeitungsstand ("gelöst ✓", "x von y gelöst") lebt nur im Arbeitsspeicher dieser Sitzung.
  */
 
 /** Eine Zeile im Terminalverlauf: Eingabe mit Prompt (oder reine Meldung ohne Prompt) und die Ausgabe dazu. */
@@ -28,6 +28,20 @@ interface Sitzung {
 
 const MAX_VERLAUF = 300;
 
+/** Die Auswahl ist nach Schwierigkeit gruppiert; die Reihenfolge der Szenarien selbst steht in terminal-sim.ts. */
+const STUFEN: { id: TerminalStufe; titel: string; hinweis: string }[] = [
+  { id: "leicht", titel: "Leicht", hinweis: "eine Ursache, wenige Befehle" },
+  { id: "mittel", titel: "Mittel", hinweis: "Ursache über Protokolle, Rechte oder Konfiguration eingrenzen" },
+  { id: "schwer", titel: "Schwer", hinweis: "mehrere Ursachen oder Hinweise nur im Protokoll" },
+];
+
+const STUFEN_TITEL: Record<TerminalStufe, string> = { leicht: "Leicht", mittel: "Mittel", schwer: "Schwer" };
+
+/** Auf schmalen Bildschirmen klappt die Auswahl nach dem Wählen zu, damit das Terminal sofort sichtbar ist. */
+function schmalerBildschirm(): boolean {
+  return typeof window !== "undefined" && typeof window.matchMedia === "function" && window.matchMedia("(max-width: 700px)").matches;
+}
+
 function willkommen(szenario: TerminalSzenario): Eintrag[] {
   const z = szenario.startZustand;
   return [{ prompt: null, eingabe: "", ausgabe: [`Verbunden mit ${z.hostname} (simuliert). „help“ zeigt die verfügbaren Befehle.`] }];
@@ -40,16 +54,22 @@ function neueSitzung(szenario: TerminalSzenario): Sitzung {
 export function TerminalLabor({ onClose }: { onClose: () => void }) {
   const [auswahl, setAuswahl] = useState<string>(TERMINAL_SZENARIEN[0]!.id);
   const [sitzungen, setSitzungen] = useState<Record<string, Sitzung>>(() => Object.fromEntries(TERMINAL_SZENARIEN.map((s) => [s.id, neueSitzung(s)])));
+  /** Szenarien, die in dieser Sitzung gelöst wurden — bleibt auch nach "Szenario zurücksetzen" erhalten. */
+  const [abgeschlossen, setAbgeschlossen] = useState<ReadonlySet<string>>(() => new Set());
+  const [auswahlOffen, setAuswahlOffen] = useState(true);
   const [eingabe, setEingabe] = useState("");
   /** Position beim Blättern im Verlauf; null = neue Eingabe. */
   const [verlaufPos, setVerlaufPos] = useState<number | null>(null);
   const entwurf = useRef("");
   const logRef = useRef<HTMLDivElement>(null);
   const eingabeRef = useRef<HTMLInputElement>(null);
+  const auswahlKopfRef = useRef<HTMLElement>(null);
 
   const szenario = TERMINAL_SZENARIEN.find((eintrag) => eintrag.id === auswahl) ?? TERMINAL_SZENARIEN[0]!;
   const sitzung = sitzungen[szenario.id] ?? neueSitzung(szenario);
   const prompt = terminalPrompt(sitzung.zustand);
+  const anzahlGeloest = TERMINAL_SZENARIEN.filter((eintrag) => abgeschlossen.has(eintrag.id)).length;
+  const anteil = Math.round((anzahlGeloest / TERMINAL_SZENARIEN.length) * 100);
 
   // Ausgabe bleibt am Ende sichtbar, wenn neue Zeilen kommen oder das Szenario wechselt.
   useEffect(() => {
@@ -65,6 +85,11 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
     setAuswahl(id);
     setEingabe("");
     setVerlaufPos(null);
+    if (schmalerBildschirm()) {
+      setAuswahlOffen(false);
+      // Der gewählte Eintrag verschwindet beim Zuklappen: Der Fokus geht zur Überschrift der Auswahl, nicht ins Leere.
+      auswahlKopfRef.current?.focus();
+    }
   }
 
   function fuehreAus(text: string) {
@@ -85,6 +110,7 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
         geloest: alt.geloest || ergebnis.geloest,
       };
     });
+    if (ergebnis.geloest) setAbgeschlossen((alt) => (alt.has(szenario.id) ? alt : new Set(alt).add(szenario.id)));
     setEingabe("");
     setVerlaufPos(null);
     entwurf.current = "";
@@ -152,28 +178,79 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        <div className="term-auswahl" role="group" aria-label="Szenario wählen">
-          {TERMINAL_SZENARIEN.map((eintrag) => {
-            const aktiv = eintrag.id === szenario.id;
-            const geloest = sitzungen[eintrag.id]?.geloest ?? false;
-            return (
-              <button
-                key={eintrag.id}
-                type="button"
-                className={aktiv ? "btn btn-secondary btn-sm is-active" : "btn btn-ghost btn-sm"}
-                aria-pressed={aktiv}
-                onClick={() => waehle(eintrag.id)}
-              >
-                {geloest ? "✓ " : ""}
-                {eintrag.titel}
-                {geloest && <span className="term-sr"> (gelöst)</span>}
-              </button>
-            );
-          })}
+        {/* Fortschritt: nur für diese Sitzung, wird nicht gespeichert. */}
+        <div className="term-fortschritt">
+          <p className="term-fortschritt-text" role="status">
+            <b>
+              {anzahlGeloest} von {TERMINAL_SZENARIEN.length}
+            </b>{" "}
+            Szenarien gelöst <span className="term-fortschritt-hinweis">(nur in dieser Sitzung)</span>
+          </p>
+          <span className="term-balken" aria-hidden="true">
+            <span className="term-balken-fuellung" style={{ width: `${anteil}%` }} />
+          </span>
         </div>
 
+        {/* Szenarien nach Schwierigkeit gruppiert; als Aufklappbereich, damit die Auswahl auf dem Handy nicht den ganzen Bildschirm füllt. */}
+        <details className="term-auswahlbox" open={auswahlOffen} onToggle={(event) => setAuswahlOffen(event.currentTarget.open)}>
+          <summary className="term-auswahl-kopf" ref={auswahlKopfRef}>
+            <span className="term-auswahl-titel">Szenario wählen</span>
+            <span className="term-auswahl-aktuell">
+              Aktuell: {szenario.titel} · {STUFEN_TITEL[szenario.stufe]}
+            </span>
+          </summary>
+          <div className="term-auswahl-inhalt" role="group" aria-label="Szenario wählen">
+            {STUFEN.map((stufe) => {
+              const szenarien = TERMINAL_SZENARIEN.filter((eintrag) => eintrag.stufe === stufe.id);
+              if (szenarien.length === 0) return null;
+              const gruppeGeloest = szenarien.filter((eintrag) => abgeschlossen.has(eintrag.id)).length;
+              return (
+                <section key={stufe.id} className="term-gruppe" aria-labelledby={`term-gruppe-${stufe.id}`}>
+                  <h3 id={`term-gruppe-${stufe.id}`} className="term-gruppe-titel">
+                    {stufe.titel}
+                    <span className="term-gruppe-zaehler">
+                      {" "}
+                      · {gruppeGeloest} von {szenarien.length} gelöst
+                    </span>
+                  </h3>
+                  <p className="term-gruppe-hinweis">{stufe.hinweis}</p>
+                  <ul className="term-liste">
+                    {szenarien.map((eintrag) => {
+                      const aktiv = eintrag.id === szenario.id;
+                      const geloest = abgeschlossen.has(eintrag.id);
+                      const nummer = TERMINAL_SZENARIEN.indexOf(eintrag) + 1;
+                      return (
+                        <li key={eintrag.id}>
+                          <button
+                            type="button"
+                            className={`term-szenario${aktiv ? " is-active" : ""}${geloest ? " is-geloest" : ""}`}
+                            aria-pressed={aktiv}
+                            onClick={() => waehle(eintrag.id)}
+                          >
+                            <span className="term-szenario-marke" aria-hidden="true">
+                              {geloest ? "✓" : nummer}
+                            </span>
+                            <span className="term-szenario-text">
+                              <span className="term-szenario-titel">{eintrag.titel}</span>
+                              <span className="term-szenario-meta">
+                                {eintrag.kunde} · {geloest ? "✓ gelöst" : "offen"}
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              );
+            })}
+          </div>
+        </details>
+
         <div className="exam-situation">
-          <span className="flip-kicker">Störung · {szenario.kunde}</span>
+          <span className="flip-kicker">
+            Störung · {szenario.kunde} · Stufe {STUFEN_TITEL[szenario.stufe]}
+          </span>
           <p>
             <b>{szenario.titel}.</b> {szenario.aufgabe}
           </p>

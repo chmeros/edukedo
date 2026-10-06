@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, createHmac } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import {
   FLAG_AUFGABEN,
@@ -9,9 +9,11 @@ import {
   flagBase64Dekodiere,
   flagBase64Kodiere,
   flagCaesar,
+  flagHexDekodiere,
   flagNormalisiere,
   flagPruefe,
   flagUrlDekodiere,
+  flagXorHex,
   type FlagAufgabe,
 } from "./flag-raetsel";
 
@@ -34,7 +36,7 @@ describe("Aufgabenbestand", () => {
   it("hat eindeutige IDs und vollständig ausgefüllte Felder", () => {
     const ids = FLAG_AUFGABEN.map((eintrag) => eintrag.id);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(FLAG_AUFGABEN.length).toBeGreaterThanOrEqual(4);
+    expect(FLAG_AUFGABEN).toHaveLength(14);
     for (const eintrag of FLAG_AUFGABEN) {
       expect(eintrag.titel).not.toBe("");
       expect(["leicht", "mittel", "schwer"]).toContain(eintrag.stufe);
@@ -68,6 +70,46 @@ describe("Aufgabenbestand", () => {
     const erlaubt = /^(192\.0\.2|198\.51\.100|203\.0\.113|10)\./;
     for (const eintrag of FLAG_AUFGABEN) {
       for (const ip of eintrag.daten.match(/\b\d{1,3}(?:\.\d{1,3}){3}\b/g) ?? []) expect(ip).toMatch(erlaubt);
+    }
+  });
+
+  it("verwendet auch in Geschichte, Tipps und Lösungsweg nur Dokumentations-/private IP-Adressen", () => {
+    const erlaubt = /^(192\.0\.2|198\.51\.100|203\.0\.113|10)\./;
+    for (const eintrag of FLAG_AUFGABEN) {
+      const texte = [eintrag.geschichte, eintrag.auftrag, ...eintrag.tipps, ...eintrag.loesungsweg, eintrag.erklaerung, eintrag.flag].join("\n");
+      for (const ip of texte.match(/\b\d{1,3}(?:\.\d{1,3}){3}\b/g) ?? []) expect(ip).toMatch(erlaubt);
+    }
+  });
+
+  it("verwendet nur Domains aus den reservierten Bereichen (example.com/.org/.net, .example, .test)", () => {
+    const echteEndungen = /\b[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|de|eu|io|info|biz|co|app|dev|ch|at)\b/gi;
+    for (const eintrag of FLAG_AUFGABEN) {
+      const texte = [eintrag.daten, eintrag.geschichte, eintrag.auftrag, ...eintrag.tipps, ...eintrag.loesungsweg, eintrag.erklaerung].join("\n");
+      for (const domain of texte.match(echteEndungen) ?? []) expect(domain.toLowerCase()).toMatch(/(^|\.)example\.(com|net|org)$/);
+    }
+  });
+
+  it("hat 14 Aufgaben: 5 leicht, 5 mittel, 4 schwer — die fünf ersten IDs bleiben erhalten", () => {
+    const anzahl = (stufe: string) => FLAG_AUFGABEN.filter((eintrag) => eintrag.stufe === stufe).length;
+    expect([anzahl("leicht"), anzahl("mittel"), anzahl("schwer")]).toEqual([5, 5, 4]);
+    const ids = FLAG_AUFGABEN.map((eintrag) => eintrag.id);
+    for (const alt of ["flag-base64-kennwort", "flag-caesar-postfach", "flag-log-bruteforce", "flag-pruefsumme-spiegel", "flag-weblog-pfad"]) {
+      expect(ids).toContain(alt);
+    }
+  });
+
+  it("nennt die Flag im letzten Schritt des Lösungswegs, und alle Schritte sind gefüllt", () => {
+    for (const eintrag of FLAG_AUFGABEN) {
+      for (const schritt of eintrag.loesungsweg) expect(schritt.trim()).not.toBe("");
+      expect(eintrag.loesungsweg[eintrag.loesungsweg.length - 1]).toContain(eintrag.flag);
+    }
+  });
+
+  it("hat nur Flags im Format FLAG{...} mit Inhalt ohne Zeilenumbruch, und Hilfsmittel nur aus der bekannten Liste", () => {
+    const bekannt = ["base64", "caesar", "url", "hex", "xor"];
+    for (const eintrag of FLAG_AUFGABEN) {
+      expect(flagInhalt(eintrag.flag)).not.toMatch(/\n/);
+      for (const art of eintrag.hilfsmittel ?? []) expect(bekannt).toContain(art);
     }
   });
 });
@@ -199,6 +241,388 @@ describe("Aufgabe 5: Verdächtige Webanfrage", () => {
     expect(a.flag).toBe(`FLAG{${treffer[0]!.ip}_${treffer[0]!.status}}`);
     // im Rohtext ist das Muster "../" nicht zu sehen — erst die Dekodierung zeigt es
     expect(a.daten).not.toContain("../");
+  });
+});
+
+/** Die Zeilen einer Datenmenge als Liste (Leerzeilen am Ende entfernt). */
+const zeilenVon = (a: FlagAufgabe): string[] => a.daten.replace(/\s+$/, "").split("\n");
+
+describe("Aufgabe 6: Hex-Notiz", () => {
+  const a = aufgabe("flag-hex-notiz");
+
+  it("ist lösbar: der Hex-Block ergibt den Klartext mit dem Kennwort", () => {
+    const hexZeilen = zeilenVon(a).filter((zeile) => /^(?:[0-9a-f]{2} ?)+$/.test(zeile));
+    expect(hexZeilen.length).toBeGreaterThanOrEqual(3);
+    const hex = hexZeilen.join(" ");
+    const dekodiert = flagHexDekodiere(hex);
+    expect(dekodiert.ok).toBe(true);
+    const klartext = (dekodiert as { text: string }).text;
+    // Gegenprobe mit Node
+    expect(Buffer.from(hex.replace(/ /g, ""), "hex").toString("utf8")).toBe(klartext);
+    const kennwort = /Kennwort (\S+)$/.exec(klartext)![1]!;
+    expect(a.flag).toBe(`FLAG{${kennwort}}`);
+    expect(flagPruefe(a, kennwort)).toBe(true);
+  });
+
+  it("liefert ein Hilfsmittel, das die Aufgabe tatsächlich löst", () => {
+    expect(a.hilfsmittel).toEqual(["hex"]);
+  });
+});
+
+describe("Aufgabe 7: Basic-Authentication im Mitschnitt", () => {
+  const a = aufgabe("flag-basic-auth");
+
+  it("ist lösbar: Base64 hinter „Basic“ ergibt benutzer:kennwort", () => {
+    const treffer = a.daten.match(/^Authorization: Basic (\S+)$/gm);
+    expect(treffer).toHaveLength(1);
+    const kodiert = /^Authorization: Basic (\S+)$/m.exec(a.daten)![1]!;
+    const dekodiert = flagBase64Dekodiere(kodiert);
+    expect(dekodiert.ok).toBe(true);
+    const zugang = (dekodiert as { text: string }).text;
+    expect(Buffer.from(kodiert, "base64").toString("utf8")).toBe(zugang);
+    expect(zugang).toMatch(/^[^:]+:[^:]+$/);
+    expect(a.flag).toBe(`FLAG{${zugang}}`);
+    expect(flagPruefe(a, zugang)).toBe(true);
+  });
+
+  it("zeigt zuerst die 401-Rückfrage des Servers und erst danach die Anfrage mit Zugangsdaten", () => {
+    expect(a.daten.indexOf("401 Unauthorized")).toBeGreaterThan(-1);
+    expect(a.daten.indexOf("401 Unauthorized")).toBeLessThan(a.daten.indexOf("Authorization: Basic"));
+    expect(a.daten).toContain("Port 80");
+  });
+});
+
+describe("Aufgabe 8: Offene Ports", () => {
+  const a = aufgabe("flag-offene-ports");
+  const zeilen = zeilenVon(a);
+  const ports = zeilen
+    .map((zeile) => /^(\d+)\/tcp\s+(open|filtered|closed)\s+(\S+)$/.exec(zeile))
+    .filter((m): m is RegExpExecArray => m !== null)
+    .map((m) => ({ port: Number(m[1]), zustand: m[2]!, dienst: m[3]! }));
+
+  it("ist lösbar: offene Ports ohne Bedarf des Webshops (nur 80 und 443 sind nötig) ergeben die Flag", () => {
+    const noetig = [80, 443];
+    const unnoetig = ports
+      .filter((eintrag) => eintrag.zustand === "open" && !noetig.includes(eintrag.port))
+      .map((eintrag) => eintrag.port)
+      .sort((x, y) => x - y);
+    expect(unnoetig).toEqual([21, 23]);
+    expect(a.flag).toBe(`FLAG{${unnoetig.join("_")}}`);
+    expect(flagPruefe(a, unnoetig.join("_"))).toBe(true);
+  });
+
+  it("ist eine stimmige nmap-artige Ausgabe (1000 geprüfte Ports, Dienste passend zu den Nummern)", () => {
+    const nichtGezeigt = Number(/Not shown: (\d+) closed/.exec(a.daten)![1]);
+    expect(nichtGezeigt + ports.length).toBe(1000);
+    const erwartet: Record<number, string> = { 21: "ftp", 22: "ssh", 23: "telnet", 80: "http", 443: "https", 3306: "mysql", 3389: "ms-wbt-server" };
+    for (const eintrag of ports) expect(eintrag.dienst).toBe(erwartet[eintrag.port]);
+    // gefilterte Ports (Firewall) sind kein Fund — sie sind die Ablenkung
+    expect(ports.filter((eintrag) => eintrag.zustand === "filtered").map((eintrag) => eintrag.port)).toEqual([22, 3306, 3389]);
+  });
+});
+
+describe("Aufgabe 9: Passwort-Hashes", () => {
+  const a = aufgabe("flag-passwort-hashes");
+  const zeilen = zeilenVon(a)
+    .map((zeile) => /^(\S+)\s+\| (\S+)$/.exec(zeile))
+    .filter((m): m is RegExpExecArray => m !== null)
+    .map((m) => ({ benutzer: m[1]!, hash: m[2]! }));
+
+  const einstufen = (hash: string): "argon2id" | "bcrypt" | "md5" | "sha1" | "sha256" | "unbekannt" => {
+    if (/^\$argon2id\$v=19\$m=\d+,t=\d+,p=\d+\$[A-Za-z0-9+/]{22}\$[A-Za-z0-9+/]{43}$/.test(hash)) return "argon2id";
+    if (/^\$2b\$\d{2}\$[./A-Za-z0-9]{53}$/.test(hash)) return "bcrypt";
+    if (/^[0-9a-f]{32}$/.test(hash)) return "md5";
+    if (/^[0-9a-f]{40}$/.test(hash)) return "sha1";
+    if (/^[0-9a-f]{64}$/.test(hash)) return "sha256";
+    return "unbekannt";
+  };
+
+  it("ist lösbar: die schnellen, ungesalzenen Hashes gehören genau den Konten aus der Flag", () => {
+    expect(zeilen).toHaveLength(9);
+    for (const zeile of zeilen) expect(einstufen(zeile.hash)).not.toBe("unbekannt");
+    const schwach = zeilen
+      .filter((zeile) => ["md5", "sha1", "sha256"].includes(einstufen(zeile.hash)))
+      .map((zeile) => zeile.benutzer)
+      .sort();
+    expect(schwach).toEqual(["ckoenig", "druckdienst", "rlang", "tbrandt"]);
+    expect(a.flag).toBe(`FLAG{${schwach.join("_")}}`);
+    expect(flagPruefe(a, schwach.join("_"))).toBe(true);
+    // die übrigen fünf sind moderne Verfahren
+    const sicher = zeilen.filter((zeile) => ["argon2id", "bcrypt"].includes(einstufen(zeile.hash)));
+    expect(sicher).toHaveLength(5);
+  });
+
+  it("zeigt zwei Konten mit identischem Hash (gleiches Kennwort, kein Salz) und echte Hash-Werte", () => {
+    const md5 = zeilen.filter((zeile) => einstufen(zeile.hash) === "md5");
+    expect(md5.map((zeile) => zeile.hash)).toEqual([md5[0]!.hash, md5[0]!.hash]);
+    const hashVon = (benutzer: string) => zeilen.find((zeile) => zeile.benutzer === benutzer)!.hash;
+    // erfundene Kennwörter, deren Hashes hier stehen — die Werte sind also echt berechnet
+    expect(createHash("md5").update("Sommer2026").digest("hex")).toBe(hashVon("ckoenig"));
+    expect(createHash("md5").update("Sommer2026").digest("hex")).toBe(hashVon("druckdienst"));
+    expect(createHash("sha1").update("Nordlicht!23").digest("hex")).toBe(hashVon("tbrandt"));
+    expect(createHash("sha256").update("Hartmann#2024").digest("hex")).toBe(hashVon("rlang"));
+    // bcrypt-/Argon2-Zeilen sind (erfundene) Strings, aber alle verschieden — also gesalzen
+    const sichereHashes = zeilen.filter((zeile) => ["argon2id", "bcrypt"].includes(einstufen(zeile.hash))).map((zeile) => zeile.hash);
+    expect(new Set(sichereHashes).size).toBe(sichereHashes.length);
+  });
+});
+
+describe("Aufgabe 10: Phishing-Header", () => {
+  const a = aufgabe("flag-phishing-header");
+
+  it("ist lösbar: die von mx.brevanta.example eingetragene Einlieferer-IP stimmt mit dem SPF-Ergebnis überein", () => {
+    // Fortsetzungszeilen (eingerückt) an die vorige Zeile hängen
+    const felder = a.daten.replace(/\n[ \t]+/g, " ").split("\n").filter((zeile) => zeile.trim() !== "");
+    const empfangen = felder.filter((zeile) => zeile.startsWith("Received:"));
+    expect(empfangen).toHaveLength(3);
+    // eigener Server (mx.brevanta.example) hat die Zeile eingetragen: "by mx.brevanta.example" — Absender-IP in der "from"-Klammer
+    const eigene = empfangen.find((zeile) => /\bby mx\.brevanta\.example\b/.test(zeile))!;
+    const einlieferer = /^Received: from \S+ \(unknown \[(\d+\.\d+\.\d+\.\d+)\]\)/.exec(eigene)![1]!;
+    const spf = felder.find((zeile) => zeile.startsWith("Authentication-Results:"))!;
+    expect(spf).toMatch(/spf=fail/);
+    expect(spf).toMatch(/dkim=none/);
+    expect(spf).toMatch(/dmarc=fail/);
+    expect(/does not designate (\d+\.\d+\.\d+\.\d+) as permitted sender/.exec(spf)![1]).toBe(einlieferer);
+    expect(a.flag).toBe(`FLAG{${einlieferer}}`);
+    expect(flagPruefe(a, einlieferer)).toBe(true);
+  });
+
+  it("enthält eine fälschbare Ablenkung (X-Originating-IP), die nicht zur Lösung führt", () => {
+    const ablenkung = /^X-Originating-IP: \[([^\]]+)\]/m.exec(a.daten)![1]!;
+    expect(a.flag).not.toContain(ablenkung);
+    expect(flagPruefe(a, ablenkung)).toBe(false);
+    // Anzeigename und Absenderdomain behaupten Rheinwerk — der Mailserver gehört aber zu einer anderen Domain
+    expect(a.daten).toMatch(/^From: .*<buchhaltung@rheinwerk-maschinen\.example>/m);
+    expect(a.daten).toContain("mail-out.billing-service.example");
+  });
+});
+
+describe("Aufgabe 11: JWT-Token im Debug-Log", () => {
+  const a = aufgabe("flag-jwt-token");
+  const geheimnis = "brevanta-demo-signaturschluessel"; // erfundener Signaturschlüssel, nicht Teil der Aufgabendaten
+  const tokens = [...a.daten.matchAll(/Bearer (\S+)/g)].map((m) => m[1]!);
+
+  it("enthält zwei dreiteilige Tokens mit gültiger HS256-Signatur", () => {
+    expect(tokens).toHaveLength(2);
+    for (const token of tokens) {
+      const teile = token.split(".");
+      expect(teile).toHaveLength(3);
+      const kopf = JSON.parse(Buffer.from(teile[0]!, "base64url").toString("utf8"));
+      expect(kopf).toEqual({ alg: "HS256", typ: "JWT" });
+      const signatur = createHmac("sha256", geheimnis).update(`${teile[0]}.${teile[1]}`).digest("base64url");
+      expect(teile[2]).toBe(signatur);
+      // Base64URL ohne Auffüllzeichen und ohne + oder /
+      expect(token).toMatch(/^[A-Za-z0-9_.-]+$/);
+    }
+  });
+
+  it("ist lösbar: genau ein Token trägt neben den Standardangaben ein zusätzliches Kennwort-Feld", () => {
+    const standard = ["iss", "sub", "rolle", "iat", "exp"];
+    const mitZusatz = tokens
+      .map((token) => {
+        const nutzdaten = token.split(".")[1]!;
+        // das Hilfsmittel (Base64-Dekodierer) liest URL-sicheres Base64 genauso wie Node
+        const ergebnis = flagBase64Dekodiere(nutzdaten);
+        expect(ergebnis.ok).toBe(true);
+        const json = JSON.parse((ergebnis as { text: string }).text) as Record<string, string | number>;
+        expect(JSON.stringify(json)).toBe(Buffer.from(nutzdaten, "base64url").toString("utf8"));
+        expect(json.exp as number).toBeGreaterThan(json.iat as number);
+        return Object.entries(json).filter(([schluessel]) => !standard.includes(schluessel));
+      })
+      .filter((zusaetze) => zusaetze.length > 0);
+    expect(mitZusatz).toHaveLength(1);
+    expect(mitZusatz[0]).toHaveLength(1);
+    const [feld, wert] = mitZusatz[0]![0]!;
+    expect(feld).toBe("wartung_zugang");
+    expect(a.flag).toBe(`FLAG{${wert}}`);
+    expect(flagPruefe(a, String(wert))).toBe(true);
+  });
+});
+
+describe("Aufgabe 12: sshd_config — der erste Wert gilt", () => {
+  const a = aufgabe("flag-sshd-reihenfolge");
+  const direktiven = zeilenVon(a)
+    .map((zeile) => zeile.trim())
+    .filter((zeile) => zeile !== "" && !zeile.startsWith("#"))
+    .map((zeile) => {
+      const m = /^(\S+)\s+(.+)$/.exec(zeile)!;
+      return { name: m[1]!, wert: m[2]! };
+    });
+
+  /** Auswertung wie beim sshd: pro Einstellung zählt der erste Treffer; `letzte` = die (hier falsche) Gegenprobe. */
+  function wirksam(erste: boolean): Map<string, string> {
+    const karte = new Map<string, string>();
+    for (const eintrag of direktiven) if (!erste || !karte.has(eintrag.name)) karte.set(eintrag.name, eintrag.wert);
+    return karte;
+  }
+  const unsicher = (karte: Map<string, string>): string[] => {
+    const liste: string[] = [];
+    if (!["no", "prohibit-password"].includes(karte.get("PermitRootLogin") ?? "")) liste.push("PermitRootLogin");
+    if (karte.get("PasswordAuthentication") !== "no") liste.push("PasswordAuthentication");
+    if (karte.get("PermitEmptyPasswords") !== "no") liste.push("PermitEmptyPasswords");
+    if (Number(karte.get("MaxAuthTries")) > 6) liste.push("MaxAuthTries");
+    return liste.sort();
+  };
+
+  it("ist lösbar: nach der Regel „erster Wert gilt“ sind genau drei Einstellungen unsicher", () => {
+    const ergebnis = unsicher(wirksam(true));
+    expect(ergebnis).toEqual(["MaxAuthTries", "PasswordAuthentication", "PermitRootLogin"]);
+    expect(a.flag).toBe(`FLAG{${ergebnis.join("_")}}`);
+    expect(flagPruefe(a, ergebnis.join("_"))).toBe(true);
+  });
+
+  it("ist eine Falle: wertete man (fälschlich) den letzten Wert aus, wäre alles sicher", () => {
+    expect(unsicher(wirksam(false))).toEqual([]);
+    // auskommentierte Zeilen zählen nicht: ohne Kommentar-Filter käme das auskommentierte prohibit-password zuerst
+    expect(a.daten).toContain("#PermitRootLogin prohibit-password");
+    // PermitEmptyPasswords kommt nur einmal vor
+    expect(direktiven.filter((eintrag) => eintrag.name === "PermitEmptyPasswords")).toHaveLength(1);
+  });
+});
+
+describe("Aufgabe 13: DNS-Tunneling", () => {
+  const a = aufgabe("flag-dns-tunnel");
+  const anfragen = zeilenVon(a)
+    .map((zeile) => /^(\d\d:\d\d:\d\d)\s+(\S+)\s+(\S+)\s+(\S+)$/.exec(zeile))
+    .filter((m): m is RegExpExecArray => m !== null)
+    .map((m) => ({ zeit: m[1]!, client: m[2]!, typ: m[3]!, name: m[4]! }));
+  const labelsVon = (name: string) => name.split(".");
+
+  /** Gruppiert die Anfragen mit einem langen Namensteil (≥ 32 Zeichen) nach Client und Domain (letzte drei Teile). */
+  function auffaellig() {
+    const gruppen = new Map<string, typeof anfragen>();
+    for (const anfrage of anfragen) {
+      if (!labelsVon(anfrage.name).some((label) => label.length >= 32)) continue;
+      const domain = labelsVon(anfrage.name).slice(-3).join(".");
+      const schluessel = `${anfrage.client} ${domain}`;
+      gruppen.set(schluessel, [...(gruppen.get(schluessel) ?? []), anfrage]);
+    }
+    return [...gruppen].filter(([, liste]) => liste.length >= 5);
+  }
+
+  it("hat einen realistischen Umfang und gültige DNS-Namen (Teile höchstens 63 Zeichen, Name höchstens 253)", () => {
+    expect(anfragen.length).toBeGreaterThanOrEqual(15);
+    for (const anfrage of anfragen) {
+      expect(anfrage.name.length).toBeLessThanOrEqual(253);
+      for (const label of labelsVon(anfrage.name)) expect(label.length).toBeLessThanOrEqual(63);
+    }
+    // Zeitstempel sind nicht rückwärts
+    const zeiten = anfragen.map((anfrage) => anfrage.zeit);
+    expect(zeiten).toEqual([...zeiten].sort());
+  });
+
+  it("ist lösbar: genau ein Client/Domain-Paar tunnelt; sortiert, ohne Wiederholungen und dekodiert ergibt es das Codewort", () => {
+    const funde = auffaellig();
+    expect(funde).toHaveLength(1);
+    const [schluessel, liste] = funde[0]!;
+    expect(schluessel).toBe("10.20.4.37 update-sync.example.net");
+    expect(liste.length).toBe(6);
+    expect(liste.every((anfrage) => anfrage.typ === "TXT")).toBe(true);
+
+    // je Nummer nur ein Teil (Wiederholungen müssen identisch sein), nach Nummer sortiert
+    const teile = new Map<string, string>();
+    for (const anfrage of liste) {
+      const [nummer, hex] = labelsVon(anfrage.name);
+      expect(nummer).toMatch(/^\d\d$/);
+      expect(hex).toMatch(/^(?:[0-9a-f]{2})+$/);
+      if (teile.has(nummer!)) expect(teile.get(nummer!)).toBe(hex);
+      teile.set(nummer!, hex!);
+    }
+    expect([...teile.keys()].sort()).toEqual(["01", "02", "03", "04"]);
+    const hex = [...teile.keys()].sort().map((nummer) => teile.get(nummer)!).join("");
+    const dekodiert = flagHexDekodiere(hex);
+    expect(dekodiert.ok).toBe(true);
+    const nachricht = (dekodiert as { text: string }).text;
+    expect(Buffer.from(hex, "hex").toString("utf8")).toBe(nachricht);
+    const codewort = /Codewort: (\w+)\./.exec(nachricht)![1]!;
+    expect(a.flag).toBe(`FLAG{${codewort}}`);
+    expect(flagPruefe(a, codewort)).toBe(true);
+    // in der Reihenfolge des Protokolls wäre die Nachricht unlesbar
+    const protokollhex = liste.map((anfrage) => labelsVon(anfrage.name)[1]!).join("");
+    expect(protokollhex).not.toBe(hex);
+  });
+
+  it("enthält eine harmlose Ablenkung (kurzer Hex-Name eines Content-Delivery-Netzes) und normale Anfragen", () => {
+    const cdn = anfragen.filter((anfrage) => anfrage.name.endsWith(".cdn.example.org"));
+    expect(cdn).toHaveLength(1);
+    expect(labelsVon(cdn[0]!.name)[0]).toMatch(/^[0-9a-f]{20}$/);
+    expect(anfragen.filter((anfrage) => !anfrage.name.includes("update-sync")).length).toBeGreaterThanOrEqual(9);
+  });
+});
+
+describe("Aufgabe 14: Mehrstufiger Funkspruch (Base64, dann XOR)", () => {
+  const a = aufgabe("flag-mehrstufig-funkspruch");
+
+  /** Der Base64-Block: alle Zeilen nach der ersten Leerzeile. */
+  const block = a.daten.split("\n\n")[1]!.replace(/\s+/g, "");
+
+  it("ist lösbar: Base64 liefert die Anleitung samt Hex, XOR mit dem Schlüssel aus der Absenderadresse das Codewort", () => {
+    const stufe1 = flagBase64Dekodiere(block);
+    expect(stufe1.ok).toBe(true);
+    const text1 = (stufe1 as { text: string }).text;
+    expect(Buffer.from(block, "base64").toString("utf8")).toBe(text1);
+    expect(text1).toContain("XOR");
+    const hex = /Hex: ([0-9a-f]+)$/.exec(text1)![1]!;
+
+    // Schlüssel laut Anleitung: Teil der Absenderadresse hinter dem @ bis zum ersten Punkt
+    const schluessel = /^Von:\s+\S+@([^.\s]+)\./m.exec(a.daten)![1]!;
+    expect(schluessel).toBe("brevanta");
+
+    // unabhängige Gegenrechnung ohne die Hilfsfunktion: byteweise XOR mit dem wiederholten Schlüssel
+    const bytes = Buffer.from(hex, "hex");
+    const schluesselBytes = Buffer.from(schluessel, "utf8");
+    const klar = Buffer.alloc(bytes.length);
+    for (let i = 0; i < bytes.length; i++) klar[i] = bytes[i]! ^ schluesselBytes[i % schluesselBytes.length]!;
+    expect(klar.toString("utf8")).toBe("Codewort fuer das Wartungsfenster: Nebelhorn");
+
+    expect(flagXorHex(hex, schluessel)).toEqual({ ok: true, text: klar.toString("utf8") });
+    const codewort = /Wartungsfenster: (\w+)$/.exec(klar.toString("utf8"))![1]!;
+    expect(a.flag).toBe(`FLAG{${codewort}}`);
+    expect(flagPruefe(a, codewort)).toBe(true);
+  });
+
+  it("scheitert mit falschem Schlüssel (Groß-/Kleinschreibung zählt) und liefert beide benötigten Hilfsmittel", () => {
+    const hex = /Hex: ([0-9a-f]+)$/.exec((flagBase64Dekodiere(block) as { text: string }).text)![1]!;
+    const falsch = flagXorHex(hex, "Brevanta");
+    expect(falsch.ok && falsch.text === "Codewort fuer das Wartungsfenster: Nebelhorn").toBe(false);
+    expect(a.hilfsmittel).toEqual(["base64", "xor"]);
+  });
+});
+
+describe("Hex und XOR", () => {
+  it("dekodiert Hex in verschiedenen Schreibweisen", () => {
+    expect(flagHexDekodiere("48 61 6c 6c 6f")).toEqual({ ok: true, text: "Hallo" });
+    expect(flagHexDekodiere("48616C6C6F")).toEqual({ ok: true, text: "Hallo" });
+    expect(flagHexDekodiere("48:61:6c:6c:6f")).toEqual({ ok: true, text: "Hallo" });
+    expect(flagHexDekodiere("0x48 0x61 0x6c 0x6c 0x6f")).toEqual({ ok: true, text: "Hallo" });
+    expect(flagHexDekodiere("  48 61\n6c 6c\t6f  ")).toEqual({ ok: true, text: "Hallo" });
+    expect(flagHexDekodiere("c3 bc")).toEqual({ ok: true, text: "ü" });
+  });
+
+  it("meldet ungültige Eingaben verständlich", () => {
+    for (const falsch of ["", "   ", "4", "abc", "zz", "48 6g", "ff fe", "c3"]) {
+      const ergebnis = flagHexDekodiere(falsch);
+      expect(ergebnis.ok).toBe(false);
+      if (!ergebnis.ok) expect(ergebnis.fehler.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("XOR ist seine eigene Umkehrung (mit wiederholtem Schlüssel)", () => {
+    const klartext = "Brevanta IT-Systemhaus GmbH";
+    const schluessel = "kx9";
+    const bytes = Buffer.from(klartext, "utf8");
+    const schluesselBytes = Buffer.from(schluessel, "utf8");
+    const verschluesselt = Buffer.alloc(bytes.length);
+    for (let i = 0; i < bytes.length; i++) verschluesselt[i] = bytes[i]! ^ schluesselBytes[i % schluesselBytes.length]!;
+    expect(flagXorHex(verschluesselt.toString("hex"), schluessel)).toEqual({ ok: true, text: klartext });
+    expect(flagXorHex(verschluesselt.toString("hex"), `  ${schluessel} `)).toEqual({ ok: true, text: klartext });
+  });
+
+  it("meldet fehlenden Schlüssel, ungültiges Hex und unlesbare Ergebnisse", () => {
+    expect(flagXorHex("48 61", "").ok).toBe(false);
+    expect(flagXorHex("48 61", "   ").ok).toBe(false);
+    expect(flagXorHex("xyz", "a").ok).toBe(false);
+    expect(flagXorHex("48", "ÿ").ok).toBe(false); // 0x48 ^ 0xC3 = 0x8B ist kein gültiges UTF-8
   });
 });
 

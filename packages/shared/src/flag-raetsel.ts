@@ -1,7 +1,8 @@
 /**
  * F-171: Flag-Rätsel (Werkzeug "flags" im Instrumente-Tab) — Capture-the-Flag "light" zur IT-Sicherheit.
  * Lernende werten vorgegebene Daten aus (Konfigurationsdatei, E-Mail, Anmelde-Log, Prüfsummen,
- * Webserver-Log) und finden eine "Flag" (Lösungswort im Format FLAG{...}).
+ * Webserver-Log, Netzwerkmitschnitt, Port-Scan, Passwort-Tabelle, E-Mail-Header, Token, DNS-Log, sshd-Konfiguration)
+ * und finden eine "Flag" (Lösungswort im Format FLAG{...}). Es sind 14 Aufgaben in drei Stufen (leicht/mittel/schwer).
  *
  * Rein **defensiv und analytisch**: Alle Daten sind erfunden und stehen direkt in diesem Modul; es gibt
  * keine Zielsysteme, keine Angriffsanleitungen, keinen Server, keine Speicherung und keine Wertung.
@@ -9,7 +10,7 @@
  * ist ebenfalls fiktiv; IP-Adressen stammen aus den Dokumentations- bzw. privaten Bereichen
  * (192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24, 10.0.0.0/8).
  *
- * Die Hilfsfunktionen (Base64, Caesar, URL-Dekodierung) sind in reinem TypeScript umgesetzt und hängen
+ * Die Hilfsfunktionen (Base64, Caesar, URL-Dekodierung, Hex, XOR) sind in reinem TypeScript umgesetzt und hängen
  * weder von Node- noch von Browser-Schnittstellen ab. Dass jede Aufgabe lösbar ist und Daten und Flag nicht
  * auseinanderlaufen, weist flag-raetsel.test.ts nach (die Lösung wird dort aus den Daten selbst berechnet).
  */
@@ -17,7 +18,7 @@
 export type FlagStufe = "leicht" | "mittel" | "schwer";
 
 /** Schlüssel der Hilfswerkzeuge, die die Oberfläche bei einer Aufgabe anbieten kann. */
-export type FlagHilfsmittel = "base64" | "caesar" | "url";
+export type FlagHilfsmittel = "base64" | "caesar" | "url" | "hex" | "xor";
 
 export interface FlagAufgabe {
   id: string;
@@ -207,6 +208,55 @@ export function flagUrlDekodiere(eingabe: string): FlagErgebnis {
   }
 }
 
+/**
+ * Liest einen Hex-Text als Bytefolge. Leerraum, Doppelpunkte, Kommas und "0x"-Vorsilben zwischen den
+ * Byte-Paaren werden ignoriert (so wie Hex-Dumps und Prüfsummen-Werkzeuge sie ausgeben).
+ */
+function hexZuBytes(eingabe: string): { ok: true; bytes: number[] } | { ok: false; fehler: string } {
+  const roh = eingabe
+    .replace(/(^|[\s,:])0x/gi, "$1")
+    .replace(/[\s,:]+/g, "");
+  if (roh === "") return { ok: false, fehler: "Bitte gib einen Hex-Text ein." };
+  if (!/^[0-9a-fA-F]+$/.test(roh)) {
+    return { ok: false, fehler: "Das ist kein gültiger Hex-Text: Erlaubt sind nur die Ziffern 0–9 und die Buchstaben a–f (Leerzeichen und Doppelpunkte zwischen den Byte-Paaren werden ignoriert)." };
+  }
+  if (roh.length % 2 !== 0) {
+    return { ok: false, fehler: "Die Anzahl der Hex-Zeichen ist ungerade — jedes Byte besteht aus genau zwei Zeichen, es fehlt also eines." };
+  }
+  const bytes: number[] = [];
+  for (let i = 0; i < roh.length; i += 2) bytes.push(Number.parseInt(roh.slice(i, i + 2), 16));
+  return { ok: true, bytes };
+}
+
+/** Wandelt Hex-Bytes in Text um (UTF-8), z. B. "48 61 6c 6c 6f" → "Hallo". */
+export function flagHexDekodiere(eingabe: string): FlagErgebnis {
+  const gelesen = hexZuBytes(eingabe);
+  if (!gelesen.ok) return gelesen;
+  const text = utf8Dekodiere(gelesen.bytes);
+  if (text === null) {
+    return { ok: false, fehler: "Der Hex-Text ließ sich lesen, ergibt aber keinen lesbaren UTF-8-Text (vielleicht ist er verschlüsselt oder es sind Binärdaten)." };
+  }
+  return { ok: true, text };
+}
+
+/**
+ * XOR-Entschlüsselung mit bekanntem Schlüssel: Der Hex-Text wird byteweise mit dem (wiederholten) Schlüssel
+ * verknüpft; das Ergebnis wird als UTF-8-Text gelesen. XOR ist seine eigene Umkehrung — dieselbe Funktion
+ * verschlüsselt und entschlüsselt. Rand-Leerraum des Schlüssels wird entfernt.
+ */
+export function flagXorHex(hexEingabe: string, schluessel: string): FlagErgebnis {
+  const gelesen = hexZuBytes(hexEingabe);
+  if (!gelesen.ok) return gelesen;
+  const schluesselBytes = utf8Kodiere(schluessel.trim());
+  if (schluesselBytes.length === 0) return { ok: false, fehler: "Bitte gib einen Schlüssel ein." };
+  const klar = gelesen.bytes.map((byte, index) => byte ^ schluesselBytes[index % schluesselBytes.length]!);
+  const text = utf8Dekodiere(klar);
+  if (text === null) {
+    return { ok: false, fehler: "Mit diesem Schlüssel ergibt sich kein lesbarer Text — vermutlich ist der Schlüssel falsch (Groß-/Kleinschreibung zählt)." };
+  }
+  return { ok: true, text };
+}
+
 /* ------------------------------------------------------------------------------------------------ */
 /* Aufgabendaten                                                                                    */
 /* ------------------------------------------------------------------------------------------------ */
@@ -320,6 +370,173 @@ const DATEN_WEBLOG = `198.51.100.23 - - [06/Oct/2026:08:14:02 +0200] "GET /index
 10.20.0.15 - - [06/Oct/2026:08:27:02 +0200] "GET /intern/status HTTP/1.1" 200 312
 `;
 
+/** Hex-Dump einer Wartungsnotiz (je 16 Bytes pro Zeile) — der Klartext ist ein erfundener Zugang. */
+const DATEN_HEX = `Wartungsnotiz — Sonnenhof Apotheken KG, Filiale Nord (06.10.2026)
+Gerät: Temperaturlogger Kühlraum 2
+Zugang (als Hex abgelegt, damit es nicht jeder sofort lesen kann):
+
+5a 75 67 61 6e 67 20 54 65 6d 70 65 72 61 74 75
+72 6c 6f 67 67 65 72 3a 20 42 65 6e 75 74 7a 65
+72 20 77 61 72 74 75 6e 67 2c 20 4b 65 6e 6e 77
+6f 72 74 20 50 69 6c 6c 65 6e 62 6f 78 31 37
+
+Hinweis: Das Webinterface ist nur im Filialnetz erreichbar.
+`;
+
+/** Mitschnitt von unverschlüsseltem HTTP im Lager-WLAN (Basic-Authentication, Base64 von "benutzer:kennwort"). */
+const DATEN_BASICAUTH = `Mitschnitt im Lager-WLAN (Ausschnitt, Port 80 — unverschlüsseltes HTTP)
+
+10.40.0.23:51840 -> 10.40.0.5:80
+GET /lager/bestand HTTP/1.1
+Host: portal.nordlicht-logistik.example
+User-Agent: Mozilla/5.0 (Windows NT 10.0)
+Accept: text/html
+
+10.40.0.5:80 -> 10.40.0.23:51840
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Basic realm="Lagerportal"
+Content-Length: 0
+
+10.40.0.23:51842 -> 10.40.0.5:80
+GET /lager/bestand HTTP/1.1
+Host: portal.nordlicht-logistik.example
+User-Agent: Mozilla/5.0 (Windows NT 10.0)
+Authorization: Basic bGFnZXJsZWl0dW5nOkZyYWNodGJyaWVmNw==
+Accept: text/html
+
+10.40.0.5:80 -> 10.40.0.23:51842
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 4096
+`;
+
+/** Ausgabe eines externen Port-Scans (nmap-Stil): 7 gelistete + 993 geschlossene = 1000 geprüfte Ports. */
+const DATEN_PORTS = `Kundennotiz: Auf diesem Server läuft nur der Webshop (Web unverschlüsselt mit Weiterleitung und verschlüsselt). Sonst nichts.
+
+Externer Scan aus dem Internet, 06.10.2026
+Nmap scan report for shop.hartmann-metallbau.example (203.0.113.10)
+Host is up (0.012s latency).
+Not shown: 993 closed tcp ports (reset)
+PORT     STATE    SERVICE
+21/tcp   open     ftp
+22/tcp   filtered ssh
+23/tcp   open     telnet
+80/tcp   open     http
+443/tcp  open     https
+3306/tcp filtered mysql
+3389/tcp filtered ms-wbt-server
+
+Nmap done: 1 IP address (1 host up) scanned
+`;
+
+/** Passwort-Tabelle: moderne, gesalzene Verfahren (bcrypt, Argon2id) neben alten schnellen Hashes; zwei Konten teilen sich denselben MD5-Wert. */
+const DATEN_HASHES = `-- Auszug aus der Tabelle "konto" (Auftragsportal, Rheinwerk Maschinen GmbH)
+-- benutzer      | passwort_hash
+
+mweber        | $argon2id$v=19$m=19456,t=2,p=1$D8Fk1Z2+vemzuaWvAXfY1f$njf80mWOzJt4af+kP3LBq/AaX05KHfrJfiE80KxZVLL
+sbauer        | $2b$12$yklqlYUZ7AOq8LdVbVLbJIt6T/wDVcewvNYRDuY3XLS6QY9ghLl1f
+ckoenig       | a864a7d0f33a71467c81e7724df0020d
+jkoch         | $argon2id$v=19$m=19456,t=2,p=1$EcrXAVPAL4uwhM9xIu1YTP$fXExqxsiKKwA6s8W0ZoD4lrp4JRdues8X0GQopH5qRa
+tbrandt       | e47e7b90f59bbb717d1fcbc765f61ee88dc328bb
+tschulz       | $2b$12$coo0NEXuqlATiWWhvdflUtbHd12r2/MBXHNVXdhgmb/8Hc.jzha9k
+druckdienst   | a864a7d0f33a71467c81e7724df0020d
+rlang         | 2dade35186c275577d530d40f133044d649482d1e15f4cf03204d165d12aa106
+afranke       | $argon2id$v=19$m=19456,t=2,p=1$Wof8/1qmv630iZVBXIVomH$7rXf5PCzIMb5PcUC8zSYiMDcnrtp1kw5PzmmhC97VWh
+`;
+
+/** Kopfzeilen (Header) einer verdächtigen Mail; die IP-Adressen stammen aus den Dokumentationsbereichen. */
+const DATEN_MAILHEADER = `Return-Path: <bounce@rheinwerk-maschinen.example>
+Received: from mx.brevanta.example (mx.brevanta.example [10.20.0.25])
+        by postfach.hartmann-metallbau.example with ESMTPS; Tue, 06 Oct 2026 08:02:41 +0200
+Received: from mail-out.billing-service.example (unknown [203.0.113.55])
+        by mx.brevanta.example with ESMTP; Tue, 06 Oct 2026 08:02:39 +0200
+Received: from arbeitsplatz (localhost [10.9.8.7])
+        by mail-out.billing-service.example with ESMTP; Tue, 06 Oct 2026 06:02:35 +0000
+X-Originating-IP: [198.51.100.10]
+Authentication-Results: mx.brevanta.example;
+        spf=fail (domain of bounce@rheinwerk-maschinen.example does not designate 203.0.113.55 as permitted sender) smtp.mailfrom=bounce@rheinwerk-maschinen.example;
+        dkim=none (no signature) header.from=rheinwerk-maschinen.example;
+        dmarc=fail (p=reject) header.from=rheinwerk-maschinen.example
+From: "Rheinwerk Maschinen GmbH - Buchhaltung" <buchhaltung@rheinwerk-maschinen.example>
+To: einkauf@hartmann-metallbau.example
+Subject: Zahlungserinnerung: Rechnung 2026-1187 (bitte sofort prüfen)
+Date: Tue, 06 Oct 2026 08:02:35 +0200
+Message-ID: <20261006080235.4f1a@billing-service.example>
+`;
+
+/** API-Gateway-Debug-Log, in dem versehentlich die Kopfzeilen mitprotokolliert wurden (zwei erfundene, echt signierte JWTs). */
+const DATEN_JWT = `Debug-Log des API-Gateways (Rheinwerk Maschinen GmbH), Kopfzeilen versehentlich mitprotokolliert
+
+06/Oct/2026:09:12:44 +0200 gw-rheinwerk 198.51.100.31 "GET /api/v1/lager/bestand HTTP/1.1" 200
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLnJoZWlud2Vyay1tYXNjaGluZW4uZXhhbXBsZSIsInN1YiI6InN2Yy1sYWdlciIsInJvbGxlIjoibGVzZXIiLCJpYXQiOjE3OTEyNzAwMDAsImV4cCI6MTc5MTI3MzYwMH0.VtmbYJgPDCf9tFALOZ1hrVigZaEPgJNPbf8HvAxruhQ
+
+06/Oct/2026:09:13:02 +0200 gw-rheinwerk 198.51.100.31 "GET /api/v1/wartung/status HTTP/1.1" 200
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLnJoZWlud2Vyay1tYXNjaGluZW4uZXhhbXBsZSIsInN1YiI6InN2Yy13YXJ0dW5nIiwicm9sbGUiOiJ0ZWNobmlrZXIiLCJ3YXJ0dW5nX3p1Z2FuZyI6IlNvbW1lcnJlZ2VuNTUiLCJpYXQiOjE3OTEyNzAzMDAsImV4cCI6MTc5MTI3MzkwMH0.g7ty6JYPShdy9U3sY6kix3TauUdKtbdlnO4MMGJRsEE
+`;
+
+const DATEN_SSHD = `# /etc/ssh/sshd_config — srv-nordlicht-02 (Stand 06.10.2026)
+Port 22
+AddressFamily inet
+ListenAddress 10.30.0.12
+
+# --- Anmeldung ---
+#PermitRootLogin prohibit-password
+PermitRootLogin yes
+PubkeyAuthentication yes
+PasswordAuthentication yes
+PermitEmptyPasswords no
+MaxAuthTries 10
+LoginGraceTime 30
+
+# --- Sonstiges ---
+UsePAM yes
+X11Forwarding no
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+
+# --- Nachtrag nach dem Audit (05.10.2026, am Dateiende ergänzt) ---
+PermitRootLogin no
+PasswordAuthentication no
+MaxAuthTries 3
+`;
+
+const DATEN_DNS = `DNS-Resolver, Anfrageprotokoll (Auszug), 06.10.2026
+Zeit      Client       Typ   Name
+
+14:01:58  10.20.4.15   A     www.example.com
+14:02:03  10.20.4.22   A     updates.example.net
+14:02:09  10.20.4.15   AAAA  www.example.com
+14:02:11  10.20.4.37   A     intranet.brevanta.example
+14:02:14  10.20.4.22   A     f67911b9faac88183b4d.cdn.example.org
+14:02:20  10.20.4.37   TXT   02.6f6d706c657474202834383132205a65696c656e292e2055.t.update-sync.example.net
+14:02:20  10.20.4.37   TXT   01.6578706f7274206b756e64656e6c697374652e637376206b.t.update-sync.example.net
+14:02:21  10.20.4.15   A     mail.hartmann-metallbau.example
+14:02:22  10.20.4.37   TXT   03.6562657274726167756e67206f6b2e20436f6465776f7274.t.update-sync.example.net
+14:02:25  10.20.4.37   TXT   03.6562657274726167756e67206f6b2e20436f6465776f7274.t.update-sync.example.net
+14:02:27  10.20.4.22   A     ocsp.example.org
+14:02:29  10.20.4.37   TXT   04.3a204e6f726477696e642e20456e64652e.t.update-sync.example.net
+14:02:31  10.20.4.15   A     time.example.net
+14:02:33  10.20.4.37   TXT   02.6f6d706c657474202834383132205a65696c656e292e2055.t.update-sync.example.net
+14:02:40  10.20.4.37   A     www.example.com
+14:02:46  10.20.4.22   A     updates.example.net
+14:02:52  10.20.4.15   A     intranet.brevanta.example
+`;
+
+/** Mail mit Base64-Anhang (Stufe 1), der einen XOR-verschlüsselten Hex-Text (Stufe 2) enthält. */
+const DATEN_MEHRSTUFIG = `Von:     it-service@brevanta.example
+An:      team-rheinwerk@brevanta.example
+Betreff: Wartungsfenster Samstag (Anhang als Text)
+Datum:   06.10.2026, 16:20 Uhr
+
+U3R1ZmUgMSBnZXNjaGFmZnQuIFN0dWZlIDIgbGllZ3QgYWxzIEhleCB2b3IgdW5k
+IGlzdCBwZXIgWE9SIHZlcnNjaGzDvHNzZWx0LiBEZXIgU2NobMO8c3NlbCBzdGVo
+dCBpbiBkZXIgQWJzZW5kZXJhZHJlc3NlOiBkZXIgVGVpbCBoaW50ZXIgZGVtIEAg
+YmlzIHp1bSBlcnN0ZW4gUHVua3QuIEhleDogMjExZDAxMTMxNjAxMDYxNTQyMTQx
+MDEzMTM0ZTEwMDAxMTUyMzIxNzEzMWEwMTBmMDUwMTAzMTMwZjFkMDAwNDEwNDg0
+NTM4MDQwYzExMGQwYTFkMTcxOA==
+`;
+
 export const FLAG_AUFGABEN: readonly FlagAufgabe[] = [
   {
     id: "flag-base64-kennwort",
@@ -374,6 +591,83 @@ export const FLAG_AUFGABEN: readonly FlagAufgabe[] = [
     hilfsmittel: ["caesar"],
   },
   {
+    id: "flag-hex-notiz",
+    titel: "Hex ist keine Geheimschrift",
+    stufe: "leicht",
+    kategorie: "Kodierung und Verschlüsselung",
+    geschichte:
+      "Die Sonnenhof Apotheken KG lässt von Brevanta die Temperaturüberwachung der Kühlräume einrichten. In der Wartungsnotiz steht der Zugang zum Temperaturlogger als Folge von Zahlen und Buchstaben — „damit nicht jeder es sofort liest“. Du sollst einschätzen, wie viel Schutz das wirklich bietet.",
+    auftrag:
+      "Lies aus der Notiz das Kennwort des Temperaturloggers aus. Gib es als Flag an: FLAG{kennwort}, zum Beispiel FLAG{Beispiel12}. (Groß-/Kleinschreibung ist egal.)",
+    datenTitel: "Wartungsnotiz mit Hex-Block",
+    daten: DATEN_HEX,
+    flag: "FLAG{Pillenbox17}",
+    tipps: [
+      "Der Block besteht nur aus Zahlenpaaren und den Buchstaben a–f. Das ist die Schreibweise von Hexadezimalzahlen (Hex), jeweils zwei Zeichen für ein Byte.",
+      "Jedes Byte steht für ein Zeichen, zum Beispiel 41 für „A“ (ASCII-Tabelle). Das ist wie bei Base64 nur eine andere Schreibweise — keine Verschlüsselung, kein Schlüssel nötig.",
+      "Öffne „Hilfsmittel“ und füge die Hex-Zeilen in den Hex-Dekodierer ein. Im Klartext steht der Benutzername und danach das Kennwort — das Flag-Format steht im Auftrag.",
+    ],
+    loesungsweg: [
+      "Zeichenfolgen aus Byte-Paaren wie „5a 75 67 …“ sind ein Hex-Dump: Jedes Paar (00–ff) ist ein Byte, hier ein ASCII-Zeichen.",
+      "Die Paare mit einem Hex-Dekodierer (oder einer ASCII-Tabelle: 5a = Z, 75 = u, 67 = g …) in Text umwandeln. Heraus kommt: „Zugang Temperaturlogger: Benutzer wartung, Kennwort Pillenbox17“.",
+      "Das Kennwort steht hinter „Kennwort“. Flag: FLAG{Pillenbox17}.",
+    ],
+    erklaerung:
+      "Hex ist eine Schreibweise für Bytes — Programme, Netzwerk-Werkzeuge und Debugger zeigen Daten so an. Sie verbirgt nichts: Wer die Bytes sieht, liest den Text mit einer ASCII-Tabelle oder einem Werkzeug mit. Wie bei Base64 gilt: Kodierung ist keine Verschlüsselung. Zugangsdaten gehören nicht in Notizen oder Wikis, auch nicht „unleserlich“ gemacht, sondern in einen Passwort-Tresor mit Zugriffskontrolle. Hat ein Kennwort so offen herumgelegen, gilt es als offengelegt und wird geändert.",
+    hilfsmittel: ["hex"],
+  },
+  {
+    id: "flag-basic-auth",
+    titel: "Klartext im Netzwerkmitschnitt",
+    stufe: "leicht",
+    kategorie: "Netzwerkverkehr und Verschlüsselung",
+    geschichte:
+      "Im Lager der Nordlicht Logistik AG ist noch ein altes Lagerportal im Einsatz, das nur per HTTP (Port 80) erreichbar ist. Ein Kollege hat zur Fehlersuche kurz den Netzwerkverkehr im Lager-WLAN mitgeschnitten und dir einen Ausschnitt gegeben. Du sollst prüfen, was ein Mithörer daraus lesen könnte.",
+    auftrag:
+      "Welche Zugangsdaten übertragen die Anfragen des Mitschnitts? Gib Benutzername und Kennwort als Flag an, getrennt durch einen Doppelpunkt: FLAG{benutzer:kennwort}. (Groß-/Kleinschreibung ist egal.)",
+    datenTitel: "Netzwerkmitschnitt (Ausschnitt)",
+    daten: DATEN_BASICAUTH,
+    flag: "FLAG{lagerleitung:Frachtbrief7}",
+    tipps: [
+      "Schau dir die Kopfzeilen (Header) der Anfragen an. In einer steht eine Zeile, die mit „Authorization“ beginnt. Die erste Anfrage hat sie noch nicht — der Server hat daraufhin mit „401“ nach Zugangsdaten gefragt.",
+      "Bei „Basic“-Authentifizierung schickt der Browser „benutzer:kennwort“ nur Base64-kodiert mit. Das ist keine Verschlüsselung: Wer mithört, kann es zurückrechnen.",
+      "Kopiere die Zeichenfolge hinter „Basic“ in den Base64-Dekodierer unter „Hilfsmittel“. Das Ergebnis hat schon die Form „benutzer:kennwort“.",
+    ],
+    loesungsweg: [
+      "Die zweite Anfrage enthält die Kopfzeile „Authorization: Basic bGFnZXJsZWl0dW5nOkZyYWNodGJyaWVmNw==“ — die Antwort 401 der Server-Rückfrage davor erklärt, warum sie erst jetzt mitgeschickt wird.",
+      "Den Wert hinter „Basic“ mit Base64 dekodieren: „lagerleitung:Frachtbrief7“ — vor dem Doppelpunkt der Benutzername, dahinter das Kennwort.",
+      "Als Flag eintragen: FLAG{lagerleitung:Frachtbrief7}.",
+    ],
+    erklaerung:
+      "HTTP-Basic-Authentication packt Benutzername und Kennwort nur in Base64 in jede Anfrage. Läuft das über unverschlüsseltes HTTP, kann jeder im selben WLAN oder an einer Netzstelle auf dem Weg die Zugangsdaten mitlesen. Schutz: Anmeldungen nur über HTTPS (TLS) anbieten, HTTP zuverlässig auf HTTPS umleiten und mit HSTS absichern, im WLAN keine unverschlüsselten Dienste dulden und möglichst moderne Anmeldeverfahren mit Mehr-Faktor-Authentifizierung nutzen. Ein Kennwort, das so übertragen wurde, gilt als offengelegt.",
+    hilfsmittel: ["base64"],
+  },
+  {
+    id: "flag-offene-ports",
+    titel: "Zu viele offene Türen",
+    stufe: "leicht",
+    kategorie: "Netzwerk und Firewall",
+    geschichte:
+      "Die Hartmann Metallbau GmbH betreibt einen kleinen Webshop auf einem eigenen Server. Vor dem Jahresaudit hat Brevanta den Server testweise von außen auf offene Ports geprüft — mit einer Ausgabe im Stil von „nmap“, die du jetzt bewertest. Der Kunde sagt: „Wir brauchen dort nur den Webshop.“",
+    auftrag:
+      "Welche Ports sind aus dem Internet offen, ohne dass der Webshop sie braucht? Gib die Portnummern aufsteigend sortiert und durch Unterstrich getrennt als Flag an: FLAG{Port_Port}, zum Beispiel FLAG{8080_9000}.",
+    datenTitel: "Ergebnis des externen Port-Scans",
+    daten: DATEN_PORTS,
+    flag: "FLAG{21_23}",
+    tipps: [
+      "Nur Ports mit dem Zustand „open“ sind von außen erreichbar. „filtered“ heißt: Eine Firewall lässt nichts durch — das ist in Ordnung.",
+      "Ein Webshop braucht Port 80 (HTTP, nur für die Weiterleitung) und 443 (HTTPS). Für alle anderen offenen Dienste fragst du: Wozu braucht der Shop das?",
+      "Zwei offene Dienste sind Klassiker aus der Frühzeit des Internets, bei denen Benutzername und Kennwort im Klartext übertragen werden: Dateiübertragung und Fernwartung ohne Verschlüsselung.",
+    ],
+    loesungsweg: [
+      "Alle Zeilen mit „open“ heraussuchen: 21 (ftp), 23 (telnet), 80 (http) und 443 (https). Die Ports 22, 3306 und 3389 sind „filtered“ und damit von außen nicht erreichbar.",
+      "Für den Webshop sind 80 (Weiterleitung auf HTTPS) und 443 notwendig. Übrig bleiben 21 (FTP) und 23 (Telnet) — beide übertragen Zugangsdaten unverschlüsselt und werden für den Shop nicht gebraucht.",
+      "Aufsteigend sortiert und mit Unterstrich verbunden: FLAG{21_23}.",
+    ],
+    erklaerung:
+      "Jeder offene Port ist eine Angriffsfläche. Nach dem Prinzip „so wenig wie nötig“ bleiben von außen nur die Dienste erreichbar, die wirklich gebraucht werden. FTP und Telnet senden Anmeldedaten im Klartext; sie gehören abgeschaltet oder durch SFTP bzw. SSH ersetzt, und Verwaltungszugänge gehören ohnehin nur ins interne Netz oder hinter ein VPN. Hilfreich: Standard-Verbot in der Firewall (alles blockieren, nur Nötiges freigeben), regelmäßige Scans der eigenen Systeme von außen und Alarme bei neuen offenen Ports.",
+  },
+  {
     id: "flag-log-bruteforce",
     titel: "Wer klopft hier ständig an?",
     stufe: "mittel",
@@ -425,6 +719,82 @@ export const FLAG_AUFGABEN: readonly FlagAufgabe[] = [
       "Eine Hashfunktion wie SHA-256 macht aus einer Datei einen „Fingerabdruck“. Ändert sich in der Datei auch nur ein Zeichen (hier: build 1042 → 1043), sieht der Fingerabdruck völlig anders aus — die Dateigröße kann dabei exakt gleich bleiben. Deshalb prüft man Downloads gegen eine Prüfsumme, die man über einen anderen, vertrauenswürdigen Weg erhalten hat (Herstellerseite per HTTPS, signierte Veröffentlichung). Noch besser sind digitale Signaturen. Bei einer Abweichung: Datei löschen, nicht ausführen und den Hersteller informieren.",
   },
   {
+    id: "flag-passwort-hashes",
+    titel: "Hash ist nicht gleich Hash",
+    stufe: "mittel",
+    kategorie: "Passwortspeicherung",
+    geschichte:
+      "Beim Auftragsportal der Rheinwerk Maschinen GmbH gab es einen Fehlalarm zu einem möglichen Datenabfluss. Vorsorglich prüfst du, wie die Kennwörter in der Datenbank abgelegt sind. Du hast einen Auszug der Tabelle „konto“ erhalten — mit dem Hinweis, dass ein altes Modul früher andere Verfahren verwendet hat.",
+    auftrag:
+      "Welche Konten sind mit einem schnellen, ungesalzenen Hash gespeichert (MD5, SHA-1 oder einfaches SHA-256 — also Verfahren, die nicht für Kennwörter gedacht sind)? Gib die Benutzernamen in alphabetischer Reihenfolge, durch Unterstrich getrennt, als Flag an: FLAG{name_name}.",
+    datenTitel: "Tabelle konto (Auszug)",
+    daten: DATEN_HASHES,
+    flag: "FLAG{ckoenig_druckdienst_rlang_tbrandt}",
+    tipps: [
+      "Moderne Kennwort-Hashes verraten ihr Verfahren schon im Anfang: „$2b$“ steht für bcrypt, „$argon2id$“ für Argon2id. Beide enthalten Salz und Kostenparameter.",
+      "Eine reine Hex-Zeichenfolge ohne „$“-Präfix ist ein einfacher Hash. Die Länge verrät das Verfahren: 32 Zeichen = MD5, 40 = SHA-1, 64 = SHA-256.",
+      "Es gibt vier solche Zeilen. Zwei davon haben exakt denselben Wert — also dasselbe Kennwort und kein Salz. Sortiere die vier Benutzernamen alphabetisch (c, d, r, t …).",
+    ],
+    loesungsweg: [
+      "Zeilen mit „$argon2id$…“ (mweber, jkoch, afranke) und „$2b$12$…“ (sbauer, tschulz) sind gesalzene, bewusst langsame Kennwort-Hashes — in Ordnung.",
+      "Die übrigen vier haben nur Hex-Zeichen: ckoenig und druckdienst mit 32 Zeichen (MD5, sogar identisch), tbrandt mit 40 (SHA-1) und rlang mit 64 (SHA-256 ohne Salz).",
+      "Alphabetisch: ckoenig, druckdienst, rlang, tbrandt. Flag: FLAG{ckoenig_druckdienst_rlang_tbrandt}.",
+    ],
+    erklaerung:
+      "Für Kennwörter sind Hashfunktionen gedacht, die absichtlich langsam sind und für jedes Konto ein eigenes, zufälliges Salz verwenden: Argon2id, bcrypt, scrypt oder PBKDF2 mit hoher Iterationszahl. MD5, SHA-1 und ungesalzenes SHA-256 sind für schnelle Prüfsummen gedacht — wer eine Tabelle damit erbeutet, kann Milliarden Kennwort-Kandidaten pro Sekunde testen, und gleiche Kennwörter fallen durch gleiche Hashes auf (wie hier). Schutz: moderne Verfahren verwenden, alte Hashes beim nächsten Login automatisch umstellen, lange Kennwörter bzw. Passphrasen zulassen und prüfen, ob ein Kennwort in bekannten Leaks vorkommt. Länge schlägt Kompliziertheit: Jedes zusätzliche Zeichen erhöht die Zahl der Möglichkeiten vielfach.",
+  },
+  {
+    id: "flag-phishing-header",
+    titel: "Absender gefälscht?",
+    stufe: "mittel",
+    kategorie: "E-Mail-Sicherheit",
+    geschichte:
+      "Beim Einkauf der Hartmann Metallbau GmbH ist eine „Zahlungserinnerung“ eingegangen, angeblich von der Rheinwerk Maschinen GmbH. Der Absender sieht echt aus, aber die Rechnungsnummer sagt niemandem etwas. Du hast die Kopfzeilen (Header) der Mail exportiert.",
+    auftrag:
+      "Finde heraus, von welchem Server die Mail wirklich bei Brevanta eingeliefert wurde. Gib dessen IP-Adresse als Flag an: FLAG{IP-Adresse}, zum Beispiel FLAG{10.0.0.1}. Vorsicht: Nicht jede IP-Angabe im Header ist verlässlich.",
+    datenTitel: "E-Mail-Header (Auszug)",
+    daten: DATEN_MAILHEADER,
+    flag: "FLAG{203.0.113.55}",
+    tipps: [
+      "Die „Received“-Zeilen zeigen den Weg der Mail: von unten (Absender) nach oben (Empfänger). Jeder Server trägt oben eine Zeile ein — aber nur den eigenen Zeilen darfst du trauen.",
+      "Vertrauenswürdig ist die Zeile, die euer eigener Server (mx.brevanta.example) selbst eingetragen hat: Sie nennt, von welcher Adresse die Verbindung wirklich kam. „X-Originating-IP“ dagegen schreibt der Absender selbst.",
+      "Vergleiche mit „Authentication-Results“: Dort steht beim SPF-Ergebnis „fail“ und die Adresse, die geprüft wurde. Sie ist die gesuchte.",
+    ],
+    loesungsweg: [
+      "„X-Originating-IP: [198.51.100.10]“ ist eine beliebig änderbare Angabe des Absenders und kein Beweis.",
+      "Die „Received“-Zeile, die mx.brevanta.example selbst eingetragen hat, nennt als Einlieferer mail-out.billing-service.example mit der Adresse 203.0.113.55.",
+      "Dazu passt „Authentication-Results“: spf=fail, dkim=none, dmarc=fail — die Domain rheinwerk-maschinen.example erlaubt diesen Server nicht als Absender. Die Mail ist gefälscht. Flag: FLAG{203.0.113.55}.",
+    ],
+    erklaerung:
+      "Den Anzeigenamen und die „Von“-Adresse kann jeder beliebig setzen. Zuverlässig sind nur die Prüfungen des eigenen Mailservers: SPF (darf dieser Server für die Domain senden?), DKIM (ist die Mail signiert und unverändert?) und DMARC (die Richtlinie der Domain, was bei Fehlschlag passiert). Bei „fail“ gehört die Mail in Quarantäne. Weitere Warnzeichen: Zeitdruck, ungewöhnliche Rechnungsnummern, Link-Ziele, die nicht zum Anzeigetext passen (Mauszeiger darüberhalten!), und Domains mit kleinen Abweichungen wie „rnaschinen“ statt „maschinen“. Schutz: SPF/DKIM/DMARC für die eigene Domain einrichten und für eingehende Mails auswerten, Mitarbeitende schulen und verdächtige Mails an die IT melden, nicht auf Links oder Anhänge klicken.",
+  },
+  {
+    id: "flag-jwt-token",
+    titel: "Signiert heißt nicht verschlüsselt",
+    stufe: "mittel",
+    kategorie: "Authentifizierung und Token",
+    geschichte:
+      "Die Rheinwerk Maschinen GmbH nutzt für ihre Schnittstellen JSON Web Tokens (JWT). Im Debug-Log des API-Gateways wurden versehentlich die Kopfzeilen mitprotokolliert — samt Token. Brevanta soll prüfen, ob dort mehr steht, als dort stehen sollte.",
+    auftrag:
+      "Einer der beiden Tokens enthält in seinen Nutzdaten (Payload) ein Klartext-Zugangskennwort. Gib es als Flag an: FLAG{kennwort}, zum Beispiel FLAG{Beispiel12}. (Groß-/Kleinschreibung ist egal.)",
+    datenTitel: "Gateway-Debug-Log mit Bearer-Tokens",
+    daten: DATEN_JWT,
+    flag: "FLAG{Sommerregen55}",
+    tipps: [
+      "Ein JWT besteht aus drei Teilen, die durch Punkte getrennt sind: Kopf (Header), Nutzdaten (Payload) und Signatur.",
+      "Kopf und Nutzdaten sind nur Base64URL-kodiertes JSON — das geht auch mit dem Base64-Dekodierer unter „Hilfsmittel“ (er versteht „-“ und „_“). Dekodiere den mittleren Teil beider Tokens.",
+      "Die Nutzdaten des ersten Tokens enthalten nur Angaben wie Aussteller, Rolle und Ablaufzeit. Beim anderen Token steht dazwischen ein Feld, das dort nie stehen dürfte.",
+    ],
+    loesungsweg: [
+      "Beide Tokens beginnen mit „eyJhbGci…“ (der Kopf: {\"alg\":\"HS256\",\"typ\":\"JWT\"}). Der mittlere Teil zwischen den Punkten enthält die Nutzdaten.",
+      "Erster Token (svc-lager, Rolle leser): nur iss, sub, rolle, iat, exp — unauffällig. Zweiter Token (svc-wartung, Rolle techniker): zusätzlich das Feld „wartung_zugang“.",
+      "Dessen Wert ist das Klartext-Kennwort: Sommerregen55. Flag: FLAG{Sommerregen55}.",
+    ],
+    erklaerung:
+      "Ein JWT ist in der Regel nur signiert, nicht verschlüsselt: Die Signatur schützt davor, dass jemand Inhalte unbemerkt ändert, aber jeder, der das Token sieht, kann Kopf und Nutzdaten lesen. Deshalb gehören keine Geheimnisse (Kennwörter, Schlüssel, vertrauliche Daten) in ein Token. Schutz: Tokens kurz gültig halten (exp), nur nötige Angaben aufnehmen, Tokens nie in Logs oder URLs schreiben, immer über TLS übertragen und die Signatur auf dem Server prüfen. Wenn Inhalte vertraulich sein müssen, gibt es verschlüsselte Token (JWE) oder man speichert die Daten auf dem Server.",
+    hilfsmittel: ["base64"],
+  },
+  {
     id: "flag-weblog-pfad",
     titel: "Verdächtige Webanfrage",
     stufe: "schwer",
@@ -449,5 +819,82 @@ export const FLAG_AUFGABEN: readonly FlagAufgabe[] = [
     erklaerung:
       "Bei Pfad-Traversal (Directory Traversal) versucht jemand, über „../“ aus dem erlaubten Ordner auszubrechen. Gut erkennbar in Logs: „..“ und „etc“ bzw. die kodierten Formen %2e%2e und %2F. Schutz: Eingaben nie direkt als Dateipfad verwenden, stattdessen eine feste Zuordnung (Dateiname → erlaubte Datei) oder den Pfad kanonisieren und prüfen, dass er im erlaubten Ordner bleibt; der Webserver-Prozess läuft mit minimalen Rechten; eine Web Application Firewall und Alarme auf solche Muster helfen zusätzlich. Ein 403 oder 404 zeigt eine Abwehr — trotzdem gilt: Die Quelle beobachten und bei Häufung sperren oder melden.",
     hilfsmittel: ["url"],
+  },
+  {
+    id: "flag-sshd-reihenfolge",
+    titel: "Wer zuerst kommt, gilt zuerst",
+    stufe: "schwer",
+    kategorie: "Konfiguration und Härtung",
+    geschichte:
+      "Nach einem Sicherheitsaudit der Nordlicht Logistik AG hat ein Kollege die SSH-Konfiguration „gehärtet“ — und die neuen Einstellungen ans Dateiende geschrieben. Der Prüfbericht hält die Maßnahme für erledigt. Du sollst nachsehen, was tatsächlich gilt.",
+    auftrag:
+      "Prüfe die wirksamen Werte von PermitRootLogin, PasswordAuthentication, PermitEmptyPasswords und MaxAuthTries. Als sicher gelten: PermitRootLogin no (oder prohibit-password), PasswordAuthentication no, PermitEmptyPasswords no, MaxAuthTries höchstens 6. Gib die Namen der Einstellungen, die wirksam unsicher sind, alphabetisch sortiert und durch Unterstrich getrennt als Flag an: FLAG{Einstellung_Einstellung}.",
+    datenTitel: "sshd_config",
+    daten: DATEN_SSHD,
+    flag: "FLAG{MaxAuthTries_PasswordAuthentication_PermitRootLogin}",
+    tipps: [
+      "Zeilen mit „#“ am Anfang sind Kommentare und wirken nicht. Manche Einstellung kommt in der Datei aber mehrfach vor — mit unterschiedlichen Werten.",
+      "Beim SSH-Dienst (sshd) gilt für jede Einstellung der erste Wert, der in der Datei gelesen wird; spätere Zeilen derselben Einstellung werden ignoriert. Der „Nachtrag“ am Dateiende wirkt also nicht.",
+      "Gehe die vier Einstellungen einzeln durch und suche jeweils die erste Zeile, die nicht auskommentiert ist. Drei davon sind unsicher; PermitEmptyPasswords steht nur einmal und ist in Ordnung.",
+    ],
+    loesungsweg: [
+      "PermitRootLogin: Die erste wirksame Zeile ist „PermitRootLogin yes“ (die Zeile davor ist auskommentiert). Das spätere „no“ im Nachtrag wird ignoriert → unsicher.",
+      "PasswordAuthentication: erster Wert „yes“, das „no“ im Nachtrag zählt nicht → unsicher. MaxAuthTries: erster Wert 10 (mehr als 6), das spätere „3“ zählt nicht → unsicher. PermitEmptyPasswords steht nur einmal als „no“ → sicher.",
+      "Alphabetisch sortiert: MaxAuthTries, PasswordAuthentication, PermitRootLogin. Flag: FLAG{MaxAuthTries_PasswordAuthentication_PermitRootLogin}.",
+    ],
+    erklaerung:
+      "Bei Konfigurationsdateien kommt es auf die Auswertungsregeln an, nicht nur auf die Lesereihenfolge des Menschen: Beim sshd gilt der erste Treffer, bei anderen Programmen der letzte. Wer Änderungen ans Dateiende anhängt, ändert womöglich nichts. Prüfe deshalb immer die tatsächlich wirksame Konfiguration (bei OpenSSH zeigt „sshd -T“ sie an), nicht nur die Datei. Gute Praxis für SSH: Root-Anmeldung abschalten, Anmeldung per Schlüssel statt Kennwort, wenige Versuche (MaxAuthTries niedrig), Zugang nur aus dem Verwaltungsnetz oder per VPN, Änderungen versioniert und mit Vier-Augen-Prinzip einspielen und danach testen.",
+  },
+  {
+    id: "flag-dns-tunnel",
+    titel: "Verdächtig lange Namen",
+    stufe: "schwer",
+    kategorie: "Netzwerk-Monitoring (DNS)",
+    geschichte:
+      "Das Monitoring der Hartmann Metallbau GmbH meldet ungewöhnlich viele DNS-Anfragen mit seltsamen Namen von einer einzelnen Station. Brevanta vermutet, dass jemand versucht, Daten durch die Firewall zu schmuggeln, indem er sie in Domainnamen versteckt (DNS-Tunneling). Dir liegt ein Auszug des DNS-Anfrageprotokolls vor.",
+    auftrag:
+      "Finde die Station, die so ihre Daten nach draußen schickt, und lies die Nachricht aus den Anfragen heraus. Die Teile tragen vorn eine Nummer; setze sie der Nummer nach zusammen (wiederholte Anfragen zählen nur einmal). Wie lautet das Codewort am Ende der Nachricht? Gib es als Flag an: FLAG{Codewort}. (Groß-/Kleinschreibung ist egal.)",
+    datenTitel: "DNS-Anfrageprotokoll (Auszug)",
+    daten: DATEN_DNS,
+    flag: "FLAG{Nordwind}",
+    tipps: [
+      "Normale Anfragen haben kurze, lesbare Namen. Suche nach einem Client, der mehrfach Anfragen vom Typ TXT mit sehr langen, kryptisch wirkenden Namensteilen an dieselbe Domain schickt. Ein einzelner langer Name wie bei einem Content-Delivery-Netz ist noch kein Beweis.",
+      "Jeder dieser Namen hat die Form „Nummer.Hex-Daten.t.Domain“. Die Hex-Daten sind Text in Hex-Schreibweise. Beachte: Die Anfragen sind nicht in der richtigen Reihenfolge, und einige wurden wiederholt.",
+      "Sortiere nach der Nummer (01, 02, 03, 04), lass Wiederholungen weg, hänge die Hex-Teile ohne die Nummer aneinander und füge sie in den Hex-Dekodierer unter „Hilfsmittel“ ein. Der Text endet mit dem Codewort.",
+    ],
+    loesungsweg: [
+      "Der Client 10.20.4.37 schickt sechs TXT-Anfragen an …t.update-sync.example.net mit je 34–48 Zeichen langen Hex-Namensteilen. Die übrigen Anfragen sind unauffällig — auch der einmalige kurze Hex-Name zu cdn.example.org von 10.20.4.22.",
+      "Nach Nummer sortiert und ohne Wiederholungen (03 und 02 kommen doppelt vor) ergeben die vier Teile 01–04 hintereinander einen Hex-Text.",
+      "Hex dekodiert: „export kundenliste.csv komplett (4812 Zeilen). Uebertragung ok. Codewort: Nordwind. Ende.“ Flag: FLAG{Nordwind}.",
+    ],
+    erklaerung:
+      "Beim DNS-Tunneling werden Daten in Domainnamen verpackt, weil DNS fast überall erlaubt ist: Die Anfrage geht an einen vom Angreifer betriebenen Namensserver, der die Daten aus den Namen ausliest. Typische Erkennungsmerkmale: auffällig lange Namensteile (bis 63 Zeichen), hohe Zufälligkeit (Hex, Base32/Base64), sehr viele verschiedene Unternamen unter einer Domain, ungewöhnliche Anfragetypen (TXT, NULL), hohes Anfragevolumen einer einzelnen Station. Schutz: nur den eigenen, protokollierten DNS-Resolver zulassen (direkte DNS-Verbindungen nach außen sperren), DNS-Logs auswerten und Alarme auf diese Muster einrichten, Domains per DNS-Filter blocken und die betroffene Station vom Netz nehmen und untersuchen.",
+    hilfsmittel: ["hex"],
+  },
+  {
+    id: "flag-mehrstufig-funkspruch",
+    titel: "Die Zwiebel: Schicht für Schicht",
+    stufe: "schwer",
+    kategorie: "Kodierung und Verschlüsselung",
+    geschichte:
+      "Die Brevanta IT-Systemhaus GmbH hat dem Team der Rheinwerk Maschinen GmbH einen „Funkspruch“ mit dem Codewort für das Wartungsfenster am Samstag geschickt. Er ist in mehreren Schichten verpackt, damit er nicht beim bloßen Überfliegen lesbar ist. Du sollst zeigen, dass das als Schutz nicht taugt.",
+    auftrag:
+      "Pelle die Nachricht Schicht für Schicht aus und finde das Codewort für das Wartungsfenster. Gib es als Flag an: FLAG{Codewort}. (Groß-/Kleinschreibung ist egal.)",
+    datenTitel: "E-Mail mit kodiertem Anhang",
+    daten: DATEN_MEHRSTUFIG,
+    flag: "FLAG{Nebelhorn}",
+    tipps: [
+      "Der Block unter dem Betreff besteht aus Buchstaben, Ziffern, „+“ und endet mit „==“. Das kennst du: Base64. Dekodiere ihn zuerst — und lies das Ergebnis genau, es enthält die Anleitung für die nächste Schicht.",
+      "Das Ergebnis nennt Hex-Daten, ein Verfahren (XOR) und einen Hinweis auf den Schlüssel. Der Schlüssel steht nicht im Klartext, sondern ergibt sich aus der Absenderadresse der Mail.",
+      "Absender ist it-service@brevanta.example. Der Teil hinter dem @ bis zum ersten Punkt (kleingeschrieben) ist der Schlüssel. Gib im XOR-Werkzeug den Hex-Text und diesen Schlüssel ein.",
+    ],
+    loesungsweg: [
+      "Schicht 1: Den Base64-Block dekodieren. Heraus kommt ein Text mit Anleitung, der als Anhang einen langen Hex-Text enthält („Hex: 211d0113 …“).",
+      "Schicht 2: Der Hex-Text ist per XOR mit einem wiederholten Schlüssel verschlüsselt. Laut Anleitung ist der Schlüssel der Teil der Absenderadresse hinter dem @ bis zum ersten Punkt: „brevanta“.",
+      "Hex-Text und Schlüssel in das XOR-Werkzeug eingeben: „Codewort fuer das Wartungsfenster: Nebelhorn“. Flag: FLAG{Nebelhorn}.",
+    ],
+    erklaerung:
+      "Mehrere Kodierungen hintereinander ergeben keine Sicherheit — jede Schicht lässt sich einzeln zurückrechnen. Base64 und Hex sind nur Schreibweisen. XOR mit einem kurzen, wiederholten Schlüssel ist ebenfalls schwach, vor allem wenn der Schlüssel erratbar ist (hier aus der Mailadresse ableitbar) oder wenn man Teile des Klartexts kennt. Eine Verschlüsselung ist nur so gut wie der Schlüssel und das Verfahren: Verwende etablierte Verfahren (AES, ChaCha20 in geprüften Bibliotheken) mit zufälligen, geheimen Schlüsseln, und gib den Schlüssel nie auf demselben Weg weiter wie die Nachricht. Vertrauliche Informationen wie Codewörter gehören nicht per E-Mail verschickt, sondern über einen sicheren Kanal.",
+    hilfsmittel: ["base64", "xor"],
   },
 ];

@@ -2,29 +2,35 @@ import {
   FLAG_AUFGABEN,
   flagBase64Dekodiere,
   flagCaesar,
+  flagHexDekodiere,
   flagPruefe,
   flagUrlDekodiere,
+  flagXorHex,
   type FlagAufgabe,
   type FlagErgebnis,
   type FlagHilfsmittel,
   type FlagStufe,
 } from "@edukedo/shared";
-import { useId, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 
 /**
  * F-171: Flag-Rätsel im Werkzeugkasten — Capture-the-Flag "light" zur IT-Sicherheit. Lernende werten
- * vorgegebene, erfundene Daten aus (Konfiguration, E-Mail, Logdatei, Prüfsummen) und finden eine Flag im
- * Format FLAG{...}. Rein auswertend: keine Angriffe, keine Zielsysteme, kein Server, keine Speicherung und
- * keine Wertung — der Lösungsstand ("✓") gilt nur für diese Sitzung.
+ * vorgegebene, erfundene Daten aus (Konfiguration, E-Mail, Logdatei, Prüfsummen, Mitschnitt, Port-Scan,
+ * Tabelle, DNS-Log …) und finden eine Flag im Format FLAG{...}. Rein auswertend: keine Angriffe, keine
+ * Zielsysteme, kein Server, keine Speicherung und keine Wertung — der Lösungsstand ("✓", "x von y gelöst")
+ * gilt nur für diese Sitzung. Die Auswahl ist nach Stufe gruppiert (Leicht/Mittel/Schwer).
  */
 const STUFEN_LABEL: Record<FlagStufe, string> = { leicht: "Leicht", mittel: "Mittel", schwer: "Schwer" };
+const STUFEN: readonly FlagStufe[] = ["leicht", "mittel", "schwer"];
 
 const HILFSMITTEL_LABEL: Record<FlagHilfsmittel, string> = {
   base64: "Base64-Dekodierer",
   caesar: "Caesar-Verschieber",
   url: "URL-Dekodierer",
+  hex: "Hex-Dekodierer",
+  xor: "XOR-Entschlüsseler",
 };
 
 type Rueckmeldung = "richtig" | "falsch" | "leer";
@@ -151,6 +157,70 @@ function UrlWerkzeug() {
   );
 }
 
+function HexWerkzeug() {
+  const id = useId();
+  const [text, setText] = useState("");
+  const ergebnis = useMemo(() => (text.trim() === "" ? null : flagHexDekodiere(text)), [text]);
+  return (
+    <div className="stack">
+      <div className="field">
+        <label htmlFor={`${id}-eingabe`}>Hex-Text</label>
+        <textarea
+          id={`${id}-eingabe`}
+          className="input flag-hilfs-eingabe"
+          rows={3}
+          value={text}
+          spellCheck={false}
+          autoComplete="off"
+          autoCapitalize="off"
+          onChange={(event) => setText(event.target.value)}
+        />
+        <span className="field-hint">Zwei Hex-Zeichen ergeben ein Byte. Leerzeichen, Zeilenumbrüche und Doppelpunkte werden ignoriert; das Ergebnis wird als UTF-8-Text gelesen.</span>
+      </div>
+      <Ergebnis id={id} ergebnis={ergebnis} />
+    </div>
+  );
+}
+
+function XorWerkzeug() {
+  const id = useId();
+  const [text, setText] = useState("");
+  const [schluessel, setSchluessel] = useState("");
+  const ergebnis = useMemo(() => (text.trim() === "" || schluessel.trim() === "" ? null : flagXorHex(text, schluessel)), [text, schluessel]);
+  return (
+    <div className="stack">
+      <div className="field">
+        <label htmlFor={`${id}-eingabe`}>Hex-Text (verschlüsselt)</label>
+        <textarea
+          id={`${id}-eingabe`}
+          className="input flag-hilfs-eingabe"
+          rows={3}
+          value={text}
+          spellCheck={false}
+          autoComplete="off"
+          autoCapitalize="off"
+          onChange={(event) => setText(event.target.value)}
+        />
+      </div>
+      <div className="field">
+        <label htmlFor={`${id}-schluessel`}>Schlüssel (Text)</label>
+        <input
+          id={`${id}-schluessel`}
+          className="input flag-eingabe"
+          type="text"
+          value={schluessel}
+          spellCheck={false}
+          autoComplete="off"
+          autoCapitalize="off"
+          onChange={(event) => setSchluessel(event.target.value)}
+        />
+        <span className="field-hint">Jedes Byte wird mit dem passenden Zeichen des Schlüssels verknüpft; der Schlüssel wiederholt sich. Groß-/Kleinschreibung zählt.</span>
+      </div>
+      <Ergebnis id={id} ergebnis={ergebnis} />
+    </div>
+  );
+}
+
 function Hilfsmittel({ liste }: { liste: FlagHilfsmittel[] }) {
   return (
     <details className="instrument-more flag-hilfsmittel">
@@ -162,6 +232,8 @@ function Hilfsmittel({ liste }: { liste: FlagHilfsmittel[] }) {
             {art === "base64" && <Base64Werkzeug />}
             {art === "caesar" && <CaesarWerkzeug />}
             {art === "url" && <UrlWerkzeug />}
+            {art === "hex" && <HexWerkzeug />}
+            {art === "xor" && <XorWerkzeug />}
           </section>
         ))}
       </div>
@@ -214,6 +286,7 @@ function Aufgabenansicht({
   onGeloest,
   onTipp,
   onLoesungsweg,
+  onWeiter,
 }: {
   aufgabe: FlagAufgabe;
   nummer: number;
@@ -225,6 +298,8 @@ function Aufgabenansicht({
   onGeloest: () => void;
   onTipp: () => void;
   onLoesungsweg: () => void;
+  /** Springt zum nächsten Rätsel; `undefined` beim letzten. */
+  onWeiter?: () => void;
 }) {
   const id = useId();
   const [rueckmeldung, setRueckmeldung] = useState<Rueckmeldung | null>(geloest ? "richtig" : null);
@@ -303,6 +378,13 @@ function Aufgabenansicht({
             <SuccessIcon />
             <div>
               <b>Richtig — das ist die Flag!</b> Gut ausgewertet.
+              {onWeiter && (
+                <div className="flag-weiter">
+                  <button type="button" className="btn btn-secondary btn-sm" onClick={onWeiter}>
+                    Nächstes Rätsel →
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -373,6 +455,21 @@ export function FlagRaetsel({ onClose }: { onClose: () => void }) {
     FLAG_AUFGABEN.findIndex((eintrag) => eintrag.id === auswahl),
   );
   const aufgabe = FLAG_AUFGABEN[index]!;
+  const naechste = FLAG_AUFGABEN[index + 1];
+  const listeId = useId();
+
+  // Bei vielen Rätseln liegt die Aufgabe weit unter der Auswahl: Nach einem Wechsel springt der Fokus
+  // (und damit die Ansicht) zur Aufgabe. Beim ersten Anzeigen passiert nichts.
+  const ansichtRef = useRef<HTMLDivElement>(null);
+  const [wechsel, setWechsel] = useState(0);
+  useEffect(() => {
+    if (wechsel > 0) ansichtRef.current?.focus();
+  }, [wechsel]);
+
+  function waehle(id: string) {
+    setAuswahl(id);
+    setWechsel((zaehler) => zaehler + 1);
+  }
 
   return (
     <div className="panel-section">
@@ -387,50 +484,75 @@ export function FlagRaetsel({ onClose }: { onClose: () => void }) {
         <div className="alert alert-info">
           <InfoIcon />
           <div>
-            Das sind <b>Übungsrätsel mit erfundenen Daten</b>: Du wertest Logdateien, kodierte Texte und Prüfsummen aus — wie in der IT-Sicherheit — und
-            findest ein Lösungswort im Format FLAG{"{"}…{"}"}. Es wird nichts angegriffen und nichts verschickt; alles läuft in deinem Browser, nichts wird
-            gespeichert oder gewertet.
+            Das sind <b>Übungsrätsel mit erfundenen Daten</b>: Du wertest Logdateien, kodierte Texte, Prüfsummen, Mail-Header, Konfigurationen und andere Mitschnitte aus —
+            wie in der IT-Sicherheit — und findest ein Lösungswort im Format FLAG{"{"}…{"}"}. Es wird nichts angegriffen und nichts verschickt; alles läuft in deinem
+            Browser, nichts wird gespeichert oder gewertet.
           </div>
         </div>
 
-        <nav aria-label="Rätsel">
-          <ul className="flag-liste">
-            {FLAG_AUFGABEN.map((eintrag, nr) => {
-              const aktiv = eintrag.id === aufgabe.id;
-              const fertig = geloest.has(eintrag.id);
-              return (
-                <li key={eintrag.id}>
-                  <button type="button" className={`flag-liste-eintrag${aktiv ? " is-active" : ""}`} aria-current={aktiv ? "true" : undefined} onClick={() => setAuswahl(eintrag.id)}>
-                    <span className={`flag-liste-nr${fertig ? " is-geloest" : ""}`} aria-hidden="true">
-                      {fertig ? "✓" : nr + 1}
-                    </span>
-                    <span className="flag-liste-text">
-                      <span className="flag-liste-titel">{eintrag.titel}</span>
-                      <span className="flag-liste-meta">
-                        {STUFEN_LABEL[eintrag.stufe]}
-                        {fertig ? " · gelöst" : ""}
-                      </span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+        <p className="flag-fortschritt" role="status">
+          <b>
+            {geloest.size} von {FLAG_AUFGABEN.length} gelöst
+          </b>{" "}
+          <span>(nur in dieser Sitzung)</span>
+        </p>
+
+        <nav aria-label="Rätsel" className="flag-gruppen">
+          {STUFEN.map((stufe) => {
+            const eintraege = FLAG_AUFGABEN.map((eintrag, nr) => ({ eintrag, nr })).filter((zeile) => zeile.eintrag.stufe === stufe);
+            if (eintraege.length === 0) return null;
+            const fertigAnzahl = eintraege.filter((zeile) => geloest.has(zeile.eintrag.id)).length;
+            return (
+              <section key={stufe} className="flag-gruppe" aria-labelledby={`${listeId}-${stufe}`}>
+                <h3 id={`${listeId}-${stufe}`} className="flag-gruppe-titel">
+                  {STUFEN_LABEL[stufe]}{" "}
+                  <span className="flag-gruppe-zaehler">
+                    {fertigAnzahl} von {eintraege.length} gelöst
+                  </span>
+                </h3>
+                <ul className="flag-liste">
+                  {eintraege.map(({ eintrag, nr }) => {
+                    const aktiv = eintrag.id === aufgabe.id;
+                    const fertig = geloest.has(eintrag.id);
+                    return (
+                      <li key={eintrag.id}>
+                        <button type="button" className={`flag-liste-eintrag${aktiv ? " is-active" : ""}`} aria-current={aktiv ? "true" : undefined} onClick={() => waehle(eintrag.id)}>
+                          <span className={`flag-liste-nr${fertig ? " is-geloest" : ""}`} aria-hidden="true">
+                            {fertig ? "✓" : nr + 1}
+                          </span>
+                          <span className="flag-liste-text">
+                            <span className="flag-liste-titel">{eintrag.titel}</span>
+                            <span className="flag-liste-meta">
+                              {STUFEN_LABEL[eintrag.stufe]}
+                              {fertig ? " · gelöst" : ""}
+                            </span>
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            );
+          })}
         </nav>
 
-        <Aufgabenansicht
-          key={aufgabe.id}
-          aufgabe={aufgabe}
-          nummer={index + 1}
-          geloest={geloest.has(aufgabe.id)}
-          eingabe={eingaben[aufgabe.id] ?? ""}
-          tipps={tipps[aufgabe.id] ?? 0}
-          loesungsweg={loesungsweg.has(aufgabe.id)}
-          onEingabe={(text) => setEingaben((aktuell) => ({ ...aktuell, [aufgabe.id]: text }))}
-          onGeloest={() => setGeloest((aktuell) => new Set(aktuell).add(aufgabe.id))}
-          onTipp={() => setTipps((aktuell) => ({ ...aktuell, [aufgabe.id]: Math.min((aktuell[aufgabe.id] ?? 0) + 1, aufgabe.tipps.length) }))}
-          onLoesungsweg={() => setLoesungsweg((aktuell) => new Set(aktuell).add(aufgabe.id))}
-        />
+        <div ref={ansichtRef} className="flag-ansicht" tabIndex={-1} role="region" aria-label={`Rätsel ${index + 1}: ${aufgabe.titel}`}>
+          <Aufgabenansicht
+            key={aufgabe.id}
+            aufgabe={aufgabe}
+            nummer={index + 1}
+            geloest={geloest.has(aufgabe.id)}
+            eingabe={eingaben[aufgabe.id] ?? ""}
+            tipps={tipps[aufgabe.id] ?? 0}
+            loesungsweg={loesungsweg.has(aufgabe.id)}
+            onEingabe={(text) => setEingaben((aktuell) => ({ ...aktuell, [aufgabe.id]: text }))}
+            onGeloest={() => setGeloest((aktuell) => new Set(aktuell).add(aufgabe.id))}
+            onTipp={() => setTipps((aktuell) => ({ ...aktuell, [aufgabe.id]: Math.min((aktuell[aufgabe.id] ?? 0) + 1, aufgabe.tipps.length) }))}
+            onLoesungsweg={() => setLoesungsweg((aktuell) => new Set(aktuell).add(aufgabe.id))}
+            onWeiter={naechste ? () => waehle(naechste.id) : undefined}
+          />
+        </div>
       </div>
     </div>
   );
