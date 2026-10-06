@@ -513,15 +513,13 @@ function glossarBlatt(): string {
 // Kursprofile Phase 1 (F-176): neue Inhalte der Anwendungsentwicklung
 // ---------------------------------------------------------------------------------------------------------
 
-const AE_VERZEICHNIS = path.join(REPO, "content", "fachinformatiker-anwendungsentwicklung");
-
-function liesAeDatei(datei: string): string {
-  return readFileSync(path.join(AE_VERZEICHNIS, datei), "utf8").replace(/\r\n/g, "\n");
+function liesKursDatei(kurs: string, datei: string): string {
+  return readFileSync(path.join(REPO, "content", kurs, datei), "utf8").replace(/\r\n/g, "\n");
 }
 
 /** Text eines Abschnitts (`###`-Überschrift bis zur nächsten gleich- oder höherrangigen Überschrift) aus der Theorie. */
-function theorieAbschnitt(datei: string, ueberschrift: string): string {
-  const { body } = splitFrontmatter(liesAeDatei(datei));
+function theorieAbschnitt(kurs: string, datei: string, ueberschrift: string): string {
+  const { body } = splitFrontmatter(liesKursDatei(kurs, datei));
   const theorie = extractSection(body, "Theorie") ?? "";
   const start = theorie.indexOf(`### ${ueberschrift}`);
   if (start < 0) throw new Error(`Abschnitt "${ueberschrift}" in ${datei} nicht gefunden`);
@@ -565,18 +563,30 @@ const AE_ZONEN_HINWEISE: Record<string, string[]> = {
   git: ["`git fetch` liegt bei „Lokales Repository“ (Commits landen dort, Dateien bleiben unverändert); `git pull` kommt bewusst nicht als Begriff vor (Q-9.3-14)."],
 };
 
-function anwendungsentwicklungBlatt(): string {
+interface KursBlatt {
+  /** Kursordner unter content/. */
+  kurs: string;
+  titel: string;
+  feature: string;
+  theorie: { datei: string; ueberschrift: string; hinweise: string[] }[];
+  zonenDateien: { datei: string; typen: string[] }[];
+  zonenHinweise: Record<string, string[]>;
+  /** Weitere Abschnitte nach den Theorieabschnitten (z. B. Spielsets). */
+  nachspann?: (teile: string[]) => void;
+}
+
+function kursBlatt(blatt: KursBlatt): string {
   const teile: string[] = [
-    "# Prüfblatt Anwendungsentwicklung — neue Inhalte (Kursprofile Phase 1)",
+    `# Prüfblatt ${blatt.titel} — neue Inhalte (Kursprofile Phase 1)`,
     "",
-    `Stand ${STAND} · erzeugt aus \`content/fachinformatiker-anwendungsentwicklung/\` (F-176). **Alle Inhalte sind Entwürfe.** Die vier neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (\`kurs-angebot.ts\`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.`,
+    `Stand ${STAND} · erzeugt aus \`content/${blatt.kurs}/\` (${blatt.feature}). **Alle Inhalte sind Entwürfe.** Die neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (\`kurs-angebot.ts\`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.`,
     "",
     "## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)",
     "",
   ];
   const modelle = new Map<string, string[]>();
-  for (const { datei, typen } of AE_ZONEN_DATEIEN) {
-    const { body } = splitFrontmatter(liesAeDatei(datei));
+  for (const { datei, typen } of blatt.zonenDateien) {
+    const { body } = splitFrontmatter(liesKursDatei(blatt.kurs, datei));
     for (const block of splitBlocks(extractSection(body, "Quiz") ?? "")) {
       const parsed = parseQuizBlock(block);
       if (!parsed || !typen.includes(parsed.type) || !(parsed.type in QUADRANT_MODELS) || !("terms" in parsed)) continue;
@@ -607,15 +617,68 @@ function anwendungsentwicklungBlatt(): string {
   for (const [typ, bloecke] of modelle) {
     const modell = QUADRANT_MODELS[typ as keyof typeof QUADRANT_MODELS];
     teile.push(`### ${modell.label} (${bloecke.length} Fragen) — Zonen: ${modell.zones.map((zone) => zone.label).join(" · ")}`, "");
-    const hinweise = AE_ZONEN_HINWEISE[typ];
+    const hinweise = blatt.zonenHinweise[typ];
     if (hinweise?.length) teile.push("**Besonders prüfen:**", ...hinweise.map((hinweis) => `- ⚠ ${hinweis}`), "");
     teile.push(...bloecke);
   }
   teile.push("## 2. Neue Theorieabschnitte", "");
-  for (const { datei, ueberschrift, hinweise } of AE_NEUE_THEORIE) {
-    teile.push(`### ${datei.split("/")[0]!.toUpperCase()} · ${ueberschrift}`, "", zitat(theorieAbschnitt(datei, ueberschrift)), "");
+  for (const { datei, ueberschrift, hinweise } of blatt.theorie) {
+    teile.push(`### ${datei.split("/")[0]!.toUpperCase()} · ${ueberschrift}`, "", zitat(theorieAbschnitt(blatt.kurs, datei, ueberschrift)), "");
     teile.push(pruefBlock(hinweise), "");
   }
+  blatt.nachspann?.(teile);
+  return teile.join("\n");
+}
+
+const AE_BLATT: KursBlatt = {
+  kurs: "fachinformatiker-anwendungsentwicklung",
+  titel: "Anwendungsentwicklung",
+  feature: "F-177",
+  theorie: AE_NEUE_THEORIE,
+  zonenDateien: AE_ZONEN_DATEIEN,
+  zonenHinweise: AE_ZONEN_HINWEISE,
+  nachspann: (teile) => aeBugHuntAbschnitt(teile),
+};
+
+const DPA_BLATT: KursBlatt = {
+  kurs: "fachinformatiker-daten-prozessanalyse",
+  titel: "Daten- und Prozessanalyse",
+  feature: "F-178",
+  theorie: [
+    {
+      datei: "dp1/8.3-analysewerkzeuge-prozessoptimierung.md",
+      ueberschrift: "Schwachstellen- und Ursachenanalyse abgrenzen",
+      hinweise: ["Absatz zur Schreibweise „Process Mining“ / „Prozess Mining“ — gewünschte Schreibweise festlegen."],
+    },
+    {
+      datei: "dp2/9.1-heterogene-datenquellen-klassifizieren.md",
+      ueberschrift: "Skalenniveaus: Streitfälle sicher einstufen",
+      hinweise: [
+        "Datum, Baujahr und Fahrenheit gelten als Intervallskala, Lebensalter als Verhältnisskala (folgt der Tabelle in Thema 9.1) — in der Literatur teils anders (z. B. Jahreszahl als ordinal/Intervall).",
+        "Notendurchschnitt: in der Praxis üblich, streng genommen nur eine Näherung (Schulnote ordinal).",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "dp1/8.2-prozessmodellierung-darstellung.md", typen: ["bpmn"] },
+    { datei: "dp1/8.3-analysewerkzeuge-prozessoptimierung.md", typen: ["analysewerkzeuge"] },
+    { datei: "dp4/11.1-datenqualitaet-pruefen-sicherstellen.md", typen: ["datenqualitaet"] },
+    { datei: "dp2/9.1-heterogene-datenquellen-klassifizieren.md", typen: ["skalenniveaus"] },
+  ],
+  zonenHinweise: {
+    bpmn: ["Auf das Prüfungsübliche begrenzt (Ereignis, Aktivität, Gateway, Fluss, Pool/Lane); konsistent mit Thema 8.2?"],
+    analysewerkzeuge: [
+      "Schwachstellenanalyse = WO liegt das Problem, Ursachenanalyse = WARUM tritt es auf — Grenzfälle: „Warum liegen die Rechnungen so lange bei der Abteilungsleitung?“ (Ursachenanalyse), „Wartezeiten aus Zeitstempeln ermitteln“ (Process Mining).",
+    ],
+    datenqualitaet: [
+      "Quantität und Vollständigkeit werden in der Theorie nicht trennscharf geführt; der Sensor-Fall (1 368 statt 1 440 Messwerte) kommt deshalb nicht als Begriff vor. Q-11.1-18: „5.000 Trainingsfälle nötig, 1.200 vorhanden“ = Quantität, „Datensätze der Filiale Nord fehlen“ = Vollständigkeit.",
+      "„Fünfstellige PLZ passt nicht zum Ort“ gilt als Plausibilität (Kontextprüfung), könnte auch als Richtigkeit gelesen werden. Die fünf Dimensionen stammen aus der Kursbeschreibung zur FIAusbV; ISO/IEC 25012 kennt weitere (Konsistenz, Aktualität) — Originaltext der Verordnung noch nicht geprüft.",
+    ],
+    skalenniveaus: ["Klassische Streitfälle: Postleitzahl (nominal), Schulnote und Zufriedenheitsskala (ordinal), Temperatur in °C (Intervall), Umsatz (Verhältnis)."],
+  },
+};
+
+function aeBugHuntAbschnitt(teile: string[]): void {
   teile.push("## 3. Bug-Hunt-Sets (Spiel „Bug-Hunt“, Kurs Anwendungsentwicklung)", "");
   teile.push(
     "In jedem Ausschnitt steckt genau ein Fehler in genau einer Zeile; die Lernenden markieren die Zeile, danach sehen sie Korrektur und Erklärung. **Die Codeausschnitte wurden technisch geprüft** (korrigierte Fassung läuft wie beschrieben, fehlerhafte weicht ab — JavaScript, Python, Java, C#; SQL nur gegen SQLite, nicht gegen PostgreSQL). Zu prüfen bleibt die fachliche Eindeutigkeit der Fehlerzeile und die Erklärung.",
@@ -664,8 +727,8 @@ function anwendungsentwicklungBlatt(): string {
     }
     if (set.besonders.length) teile.push("**Zum Set — besonders prüfen:**", ...set.besonders.map((hinweis) => `- ⚠ ${hinweis}`), "");
   }
-  return teile.join("\n");
 }
+
 
 // ---------------------------------------------------------------------------------------------------------
 // Übersicht und Ausgabe
@@ -687,6 +750,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     `| [04 IT-Lernpfade](04-lernpfade.md) | Scrum, OSI, Schutzziele, Datenmodell | ${zahlen.lernpfade} Pfade (je 7 Stationen) | Instrumente → „Geführten Lernpfad starten“ (Premium) |`,
     `| [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | ${zahlen.glossar} Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |`,
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "## Vorschlag für die Reihenfolge",
     "",
@@ -721,7 +785,8 @@ function main() {
     ["03-topologie.md", topologieBlatt()],
     ["04-lernpfade.md", lernpfadBlatt()],
     ["05-glossar.md", glossarZahl.text],
-    ["06-anwendungsentwicklung.md", anwendungsentwicklungBlatt()],
+    ["06-anwendungsentwicklung.md", kursBlatt(AE_BLATT)],
+    ["07-daten-prozessanalyse.md", kursBlatt(DPA_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

@@ -272,6 +272,47 @@ export const QUADRANT_MODELS = {
       { key: "remote", label: "Remote-Repository" },
     ],
   },
+  // F-178 (Kursprofile Phase 1, Daten- und Prozessanalyse): vier weitere Modelle mit festen Zonen.
+  bpmn: {
+    label: "BPMN-2.0-Bausteine",
+    zones: [
+      { key: "ereignis", label: "Ereignis" },
+      { key: "aktivitaet", label: "Aktivität" },
+      { key: "gateway", label: "Gateway" },
+      { key: "fluss", label: "Fluss (Sequenz-/Nachrichtenfluss)" },
+      { key: "teilnehmer", label: "Teilnehmer (Pool/Lane)" },
+    ],
+  },
+  analysewerkzeuge: {
+    label: "Analysewerkzeuge der Prozessanalyse",
+    zones: [
+      { key: "schwachstellen", label: "Schwachstellenanalyse" },
+      { key: "engpass", label: "Engpassanalyse" },
+      { key: "pareto", label: "Pareto-Analyse" },
+      { key: "ursachen", label: "Ursachenanalyse (Ishikawa/5-Why)" },
+      { key: "wertstrom", label: "Wertstromanalyse" },
+      { key: "processmining", label: "Process Mining" },
+    ],
+  },
+  datenqualitaet: {
+    label: "Datenqualitäts-Dimensionen",
+    zones: [
+      { key: "plausibilitaet", label: "Plausibilität" },
+      { key: "quantitaet", label: "Quantität" },
+      { key: "redundanz", label: "Redundanz" },
+      { key: "vollstaendigkeit", label: "Vollständigkeit" },
+      { key: "validitaet", label: "Validität" },
+    ],
+  },
+  skalenniveaus: {
+    label: "Skalenniveaus",
+    zones: [
+      { key: "nominal", label: "Nominal" },
+      { key: "ordinal", label: "Ordinal" },
+      { key: "intervall", label: "Intervall" },
+      { key: "verhaeltnis", label: "Verhältnis" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

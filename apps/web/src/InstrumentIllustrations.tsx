@@ -575,6 +575,137 @@ export function GitIllustration() {
   );
 }
 
+// F-178 (Kursprofile Phase 1, Daten- und Prozessanalyse): BPMN, Analysewerkzeuge, Datenqualität, Skalenniveaus.
+
+export function BpmnIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="12" y="20" width="296" height="100" rx="6" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M36 20v100" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M12 70h296" stroke="var(--line-strong)" strokeWidth="1.5" strokeDasharray="4 3" />
+      <circle cx="62" cy="45" r="9" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M71 45h14" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="85" y="32" width="58" height="26" rx="8" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M143 45h14" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M157 45 175 31 193 45 175 59Z" fill="var(--sun-tint)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="m169 39 12 12m0-12-12 12" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" />
+      <path d="M193 45h20" stroke="var(--ink)" strokeWidth="2" />
+      <circle cx="224" cy="45" r="10" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="3.5" />
+      <path d="M175 59v38h46" fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      <rect x="221" y="84" width="58" height="26" rx="8" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M112 58v26" stroke="var(--info-deep)" strokeWidth="2" strokeDasharray="5 3" />
+    </Frame>
+  );
+}
+
+export function AnalysewerkzeugeIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      {/* Pareto: absteigende Balken mit Summenlinie */}
+      <rect x="12" y="20" width="96" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      {[
+        { x: 22, h: 60 },
+        { x: 40, h: 36 },
+        { x: 58, h: 22 },
+        { x: 76, h: 14 },
+      ].map((balken) => (
+        <rect key={balken.x} x={balken.x} y={110 - balken.h} width="13" height={balken.h} rx="2" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      ))}
+      <path d="M28 66 46 44 64 34 82 30 96 28" fill="none" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Ishikawa: Fischgräte */}
+      <rect x="116" y="20" width="96" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M126 70h64" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M190 62v16l10-8Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M138 36 150 70M162 36 174 70M138 104 150 70M162 104 174 70" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {/* Process Mining: Knoten mit unterschiedlich dicken Kanten */}
+      <rect x="220" y="20" width="88" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M244 44 270 70" stroke="var(--info-deep)" strokeWidth="5" strokeLinecap="round" />
+      <path d="M244 44 244 96" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <path d="M270 70 288 96" stroke="var(--info-deep)" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M244 96 288 96" stroke="var(--ink-soft)" strokeWidth="1.5" strokeLinecap="round" />
+      {[
+        { x: 244, y: 44 },
+        { x: 270, y: 70 },
+        { x: 244, y: 96 },
+        { x: 288, y: 96 },
+      ].map((punkt) => (
+        <circle key={`${punkt.x}-${punkt.y}`} cx={punkt.x} cy={punkt.y} r="8" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      ))}
+    </Frame>
+  );
+}
+
+export function DatenqualitaetIllustration() {
+  const zeilen = [0, 1, 2, 3];
+  const spalten = [0, 1, 2];
+  return (
+    <Frame background="var(--sprout-tint)">
+      <rect x="40" y="18" width="190" height="104" rx="6" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M40 42h190" stroke="var(--sprout-deep)" strokeWidth="2" />
+      {zeilen.map((zeile) =>
+        spalten.map((spalte) => {
+          const x = 48 + spalte * 60;
+          const y = 48 + zeile * 18;
+          const leer = zeile === 1 && spalte === 2;
+          const doppelt = zeile === 2 || zeile === 3;
+          return leer ? (
+            <rect key={`${zeile}-${spalte}`} x={x} y={y} width="48" height="10" rx="3" fill="none" stroke="var(--coral-deep)" strokeWidth="2" strokeDasharray="4 3" />
+          ) : (
+            <rect key={`${zeile}-${spalte}`} x={x} y={y} width="48" height="10" rx="3" fill={doppelt ? "var(--sun)" : "var(--line-strong)"} />
+          );
+        }),
+      )}
+      <path d="M52 28h28M112 28h28M172 28h28" stroke="var(--sprout-deep)" strokeWidth="3.5" strokeLinecap="round" />
+      <circle cx="268" cy="44" r="16" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <path d="m261 37 14 14m0-14-14 14" stroke="var(--coral-deep)" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="268" cy="96" r="16" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2.5" />
+      <path d="m260 96 6 6 11-13" fill="none" stroke="var(--sprout-deep)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function SkalenniveausIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--surface-2)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      ))}
+      {/* nominal: Kategorien ohne Reihenfolge */}
+      {[
+        { x: 20, f: "var(--coral)" },
+        { x: 40, f: "var(--info)" },
+        { x: 30, f: "var(--sun)" },
+      ].map((punkt, index) => (
+        <circle key={index} cx={kachel(0) + punkt.x} cy={index === 2 ? 74 : 54} r="9" fill={punkt.f} stroke="var(--ink-soft)" strokeWidth="1.5" />
+      ))}
+      {/* ordinal: Rangfolge */}
+      {[14, 26, 38].map((h, index) => (
+        <rect key={h} x={kachel(1) + 12 + index * 17} y={90 - h} width="12" height={h} rx="2" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      ))}
+      {/* intervall: Skala ohne echten Nullpunkt */}
+      <path d={`M${kachel(2) + 16} 40h36`} stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {[0, 1, 2, 3, 4].map((tick) => (
+        <path key={tick} d={`M${kachel(2) + 18 + tick * 8} 34v12`} stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      ))}
+      <text x={kachel(2) + 34} y="72" fontSize="14" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        °C
+      </text>
+      {/* verhältnis: absoluter Nullpunkt */}
+      <path d={`M${kachel(3) + 16} 40h36`} stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <circle cx={kachel(3) + 16} cy="40" r="5" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <text x={kachel(3) + 34} y="72" fontSize="14" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        0 €
+      </text>
+      {["nominal", "ordinal", "intervall", "Verhältnis"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="108" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

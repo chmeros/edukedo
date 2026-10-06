@@ -36,6 +36,11 @@ export const KATALOG_INSTRUMENTE = [
   "klassenbeziehungen",
   "testverfahren",
   "git",
+  // Kursprofile Phase 1 (Daten- und Prozessanalyse)
+  "bpmn",
+  "analysewerkzeuge",
+  "datenqualitaet",
+  "skalenniveaus",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;

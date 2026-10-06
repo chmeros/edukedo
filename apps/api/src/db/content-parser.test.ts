@@ -466,6 +466,27 @@ describe("parseQuizBlock", () => {
     if (uml?.type === "uml") expect(uml.terms[0]?.zoneKey).toBe("zustand");
   });
 
+  it("parst die Modelle aus F-178 (BPMN, Analysewerkzeuge, Datenqualität, Skalenniveaus)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-8.2-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const bpmn = parse("BPMN-2.0-Bausteine", ["- Entscheidung: Rechnung über 5 000 €? → Gateway", "- Nachricht an Lieferanten → Fluss (Sequenz-/Nachrichtenfluss)", "- Verantwortungsbereich Buchhaltung → Teilnehmer (Pool/Lane)", "- Rechnung prüfen → Aktivität", "- Rechnung ist eingegangen → Ereignis"]);
+    expect(bpmn?.type).toBe("bpmn");
+    if (bpmn?.type === "bpmn") expect(bpmn.terms.map((term) => term.zoneKey)).toEqual(["gateway", "fluss", "teilnehmer", "aktivitaet", "ereignis"]);
+
+    const analyse = parse("Analysewerkzeuge der Prozessanalyse", ["- Welche 20 % der Ursachen verursachen 80 % der Fehler? → Pareto-Analyse", "- Ablauf aus Ereignisprotokollen rekonstruieren → Process Mining", "- Warum tritt der Fehler immer wieder auf? → Ursachenanalyse (Ishikawa/5-Why)", "- Wo staut sich die Arbeit? → Engpassanalyse"]);
+    expect(analyse?.type).toBe("analysewerkzeuge");
+    if (analyse?.type === "analysewerkzeuge") expect(analyse.terms.map((term) => term.zoneKey)).toEqual(["pareto", "processmining", "ursachen", "engpass"]);
+
+    const dq = parse("Datenqualitäts-Dimensionen", ["- 12 % der Geburtsdaten fehlen → Vollständigkeit", "- Lieferung vor Bestellung → Plausibilität", "- Kundin doppelt angelegt → Redundanz", "- PLZ mit vier Ziffern → Validität", "- nur 40 Datensätze → Quantität"]);
+    expect(dq?.type).toBe("datenqualitaet");
+    if (dq?.type === "datenqualitaet") expect(dq.terms.map((term) => term.zoneKey)).toEqual(["vollstaendigkeit", "plausibilitaet", "redundanz", "validitaet", "quantitaet"]);
+
+    const skala = parse("Skalenniveaus", ["- Postleitzahl → Nominal", "- Schulnote → Ordinal", "- Temperatur in °C → Intervall", "- Umsatz in € → Verhältnis"]);
+    expect(skala?.type).toBe("skalenniveaus");
+    if (skala?.type === "skalenniveaus") expect(skala.terms.map((term) => term.zoneKey)).toEqual(["nominal", "ordinal", "intervall", "verhaeltnis"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

@@ -1,6 +1,6 @@
 # Prüfblatt Anwendungsentwicklung — neue Inhalte (Kursprofile Phase 1)
 
-Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/` (F-176). **Alle Inhalte sind Entwürfe.** Die vier neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (`kurs-angebot.ts`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.
+Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/` (F-177). **Alle Inhalte sind Entwürfe.** Die neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (`kurs-angebot.ts`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.
 
 ## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)
 

@@ -388,6 +388,10 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `testverfahren` (**Testverfahren**, F-176, 3 Zonen): Statische Verfahren, Dynamisch: Black-Box, Dynamisch: White-Box
   - `git` (**Git-Bereiche**, F-176, 4 Zonen): Arbeitsverzeichnis, Staging-Bereich (Index), Lokales Repository, Remote-Repository
   - `uml` hat seit F-176 eine fünfte Zone **Zustandsdiagramm**
+  - `bpmn` (**BPMN-2.0-Bausteine**, F-178, 5 Zonen): Ereignis, Aktivität, Gateway, Fluss (Sequenz-/Nachrichtenfluss), Teilnehmer (Pool/Lane)
+  - `analysewerkzeuge` (**Analysewerkzeuge der Prozessanalyse**, F-178, 6 Zonen): Schwachstellenanalyse, Engpassanalyse, Pareto-Analyse, Ursachenanalyse (Ishikawa/5-Why), Wertstromanalyse, Process Mining
+  - `datenqualitaet` (**Datenqualitäts-Dimensionen**, F-178, 5 Zonen): Plausibilität, Quantität, Redundanz, Vollständigkeit, Validität
+  - `skalenniveaus` (**Skalenniveaus**, F-178, 4 Zonen): Nominal, Ordinal, Intervall, Verhältnis
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

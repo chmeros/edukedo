@@ -11,7 +11,10 @@ import {
 import { useMemo, useState } from "react";
 import {
   AblaufIllustration,
+  AnalysewerkzeugeIllustration,
   AnsoffIllustration,
+  BpmnIllustration,
+  DatenqualitaetIllustration,
   BscIllustration,
   EisenhowerIllustration,
   ErModellIllustration,
@@ -27,6 +30,7 @@ import {
   PdcaIllustration,
   RisikoIllustration,
   SchutzzieleIllustration,
+  SkalenniveausIllustration,
   ScrumIllustration,
   SqlIllustration,
   SqlUebungIllustration,
@@ -197,6 +201,31 @@ const INSTRUMENT_CATALOG = [
     label: "Git-Bereiche",
     description: "Wohin wandern die Änderungen? Arbeitsverzeichnis, Staging, lokales und Remote-Repository.",
     Illustration: GitIllustration,
+  },
+  // F-178 (Kursprofile Phase 1, Daten- und Prozessanalyse): vier weitere Zonen-Instrumente.
+  {
+    type: "bpmn",
+    label: "BPMN-2.0-Bausteine",
+    description: "Ereignisse, Aktivitäten, Gateways, Flüsse und Pools/Lanes in Prozessausschnitten erkennen.",
+    Illustration: BpmnIllustration,
+  },
+  {
+    type: "analysewerkzeuge",
+    label: "Analysewerkzeuge der Prozessanalyse",
+    description: "Welche Frage beantwortet welches Werkzeug? Pareto, Ishikawa, Engpass-, Wertstromanalyse und Process Mining.",
+    Illustration: AnalysewerkzeugeIllustration,
+  },
+  {
+    type: "datenqualitaet",
+    label: "Datenqualitäts-Dimensionen",
+    description: "Befunde in Daten der passenden Dimension zuordnen: Plausibilität, Quantität, Redundanz, Vollständigkeit, Validität.",
+    Illustration: DatenqualitaetIllustration,
+  },
+  {
+    type: "skalenniveaus",
+    label: "Skalenniveaus",
+    description: "Merkmale als nominal, ordinal, intervall- oder verhältnisskaliert einordnen.",
+    Illustration: SkalenniveausIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)
