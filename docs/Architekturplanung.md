@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (Redaktionswerkzeug: Prüfblätter für die fachliche Prüfung der IT-Inhalte)
+
+- **Anlass:** Die IT-Inhalte (Lernpfade F-168, Glossar F-165, Terminal/Flag/Topologie F-171/F-174) sind Entwürfe von Claude und müssen vor dem Livegang fachlich geprüft werden; Nutzer-Auftrag „erstelle das Prüfblatt“.
+- **Entscheidung: Blätter werden aus den echten Daten erzeugt, nicht abgeschrieben.** `apps/api/src/db/export-pruefblaetter.ts` (Aufruf in `apps/api`: `npx tsx src/db/export-pruefblaetter.ts`) importiert die Szenario-, Aufgaben- und Lernpfad-Daten (`@edukedo/shared`, `db/content/instrument-lernpfad-*-brevanta.ts`) und liest die `glossar.md`-Dateien; Ausgabe sind Markdown-Dateien unter `docs/pruefblaetter/` (Übersicht plus fünf Blätter, zusammen rund 39.000 Wörter). Damit können Blatt und App nicht auseinanderlaufen; nach jeder Inhaltsänderung neu erzeugen.
+- **Aufbau je Inhalt:** Kennung (T01…, F01…, N01…, L1…, Glossar-Tabelle je Fachgebiet), die Texte so, wie Lernende sie sehen, erwartete Lösung bzw. Lösungsweg zum Nachspielen, Tipps, Erklärung, **Prüffragen zum Abhaken**, ein Block **„Besonders prüfen“** mit den bekannten Vereinfachungen und fachlich unsicheren Stellen (von Hand im Generator gepflegt, z. B. Rechte-Bewertung beim Terminal-Szenario „rechte“, Vereinfachung der Firewall-Logik, „bei `sshd_config` gilt der erste Wert“, NAT ohne Ports, VLANs ohne Trunks) und eine **Freigabe**-Zeile (in Ordnung / ändern / streichen, Anmerkung). Das Glossar steht als kompakte Tabelle (Begriff, Thema/Abschnitt, Definition, Kästchen), die vier Kurskopien sind inhaltlich identisch (geprüft per Vergleich; nur der Kurs-Kopf unterscheidet sich).
+- **Rückfluss:** Die Prüfung liefert Änderungswünsche als Liste „Kennung → Änderung“; sie werden in den Quelldateien nachgezogen, die Tests laufen erneut (jede Aufgabe wird weiterhin aus den Daten nachgerechnet), die Blätter neu erzeugt und im Glossar `Geprüft` auf `ja` gesetzt.
+- **Bewusst nicht enthalten:** Word-/PDF-Fassung (kein Konverter im Projekt; Markdown lässt sich in der App und in jedem Editor lesen und in Word einfügen); Übernahme von Prüfergebnissen aus dem Blatt zurück in die Daten per Skript.
+
 ### Entschieden am 06.10.2026 (F-174: Ausbau der Simulationen und Flag-Rätsel)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit den Entscheidungen zum Ausbau von F-171“. Entschieden im Gespräch: **keine Wertung** (freies Üben wie F-167, keine Speicherung, keine Serverseite), Reihenfolge **Terminal → Flag-Rätsel → Topologie**, Umfang „deutlich ausbauen“ (je etwa 10–15 Inhalte, nach Stufe gestuft), Inhalte **entwirft Claude**, die fachliche Prüfung folgt vor dem Livegang.
