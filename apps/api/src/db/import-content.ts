@@ -2,6 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
+import { KURS_ANGEBOT } from "@edukedo/shared";
 import { db, pool } from "./client";
 import {
   type Bloom,
@@ -281,6 +282,24 @@ export const KURS_META: Record<string, KursMeta> = {
     ]),
   },
 };
+
+// F-176: Kursprofil je Kurs (Allowlist der angebotenen Instrumente/Spiele/Werkzeuge/Szenarien/Lernpfade, siehe
+// packages/shared/src/kurs-angebot.ts). Das Angebot ersetzt die ältere Einzelangabe metadata.werkzeuge.
+for (const [slug, angebot] of Object.entries(KURS_ANGEBOT)) {
+  const meta = KURS_META[slug];
+  if (!meta) throw new Error(`KURS_ANGEBOT verweist auf unbekannten Kurs "${slug}".`);
+  const { werkzeuge: _veraltet, ...rest } = meta.metadata as Record<string, unknown>;
+  meta.metadata = { ...rest, angebot };
+}
+
+// F-176: Präsentationsdauer der mündlichen Prüfung laut Prüfungsordnung (Entscheidung 06.10.2026); die übrigen
+// Kurse behalten den Standard von 10 Minuten, solange die Dauer nicht belegt ist.
+const PRAESENTATION_MINUTEN: Record<string, number> = { handelsfachwirt: 15, "versicherungen-finanzanlagen": 20 };
+for (const [slug, minuten] of Object.entries(PRAESENTATION_MINUTEN)) {
+  const meta = KURS_META[slug];
+  if (!meta) throw new Error(`PRAESENTATION_MINUTEN verweist auf unbekannten Kurs "${slug}".`);
+  meta.metadata = { ...(meta.metadata as Record<string, unknown>), presentationMinutes: minuten };
+}
 
 function kursMetaFor(slug: string): KursMeta {
   return KURS_META[slug] ?? { title: slug, type: slug, isPublished: false, metadata: {} };

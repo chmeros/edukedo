@@ -278,6 +278,7 @@ function Datenblock({ aufgabe }: { aufgabe: FlagAufgabe }) {
 function Aufgabenansicht({
   aufgabe,
   nummer,
+  gesamt,
   geloest,
   eingabe,
   tipps,
@@ -290,6 +291,7 @@ function Aufgabenansicht({
 }: {
   aufgabe: FlagAufgabe;
   nummer: number;
+  gesamt: number;
   geloest: boolean;
   eingabe: string;
   tipps: number;
@@ -325,7 +327,7 @@ function Aufgabenansicht({
     <div className="stack flag-aufgabe">
       <div className="exam-situation">
         <span className="flip-kicker">
-          Rätsel {nummer} von {FLAG_AUFGABEN.length} · {STUFEN_LABEL[aufgabe.stufe]} · {aufgabe.kategorie}
+          Rätsel {nummer} von {gesamt} · {STUFEN_LABEL[aufgabe.stufe]} · {aufgabe.kategorie}
         </span>
         <h3>{aufgabe.titel}</h3>
         <p>{aufgabe.geschichte}</p>
@@ -443,8 +445,10 @@ function Aufgabenansicht({
   );
 }
 
-export function FlagRaetsel({ onClose }: { onClose: () => void }) {
-  const [auswahl, setAuswahl] = useState<string>(FLAG_AUFGABEN[0]!.id);
+/** `erlaubt`: Aufgaben-IDs, die der Kurs anbietet (F-176); ohne Angabe alle. */
+export function FlagRaetsel({ onClose, erlaubt }: { onClose: () => void; erlaubt?: readonly string[] }) {
+  const aufgaben = useMemo(() => (erlaubt ? FLAG_AUFGABEN.filter((eintrag) => erlaubt.includes(eintrag.id)) : FLAG_AUFGABEN), [erlaubt]);
+  const [auswahl, setAuswahl] = useState<string>(aufgaben[0]!.id);
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [tipps, setTipps] = useState<Record<string, number>>({});
   const [geloest, setGeloest] = useState<Set<string>>(new Set());
@@ -452,10 +456,10 @@ export function FlagRaetsel({ onClose }: { onClose: () => void }) {
 
   const index = Math.max(
     0,
-    FLAG_AUFGABEN.findIndex((eintrag) => eintrag.id === auswahl),
+    aufgaben.findIndex((eintrag) => eintrag.id === auswahl),
   );
-  const aufgabe = FLAG_AUFGABEN[index]!;
-  const naechste = FLAG_AUFGABEN[index + 1];
+  const aufgabe = aufgaben[index]!;
+  const naechste = aufgaben[index + 1];
   const listeId = useId();
 
   // Bei vielen Rätseln liegt die Aufgabe weit unter der Auswahl: Nach einem Wechsel springt der Fokus
@@ -492,14 +496,14 @@ export function FlagRaetsel({ onClose }: { onClose: () => void }) {
 
         <p className="flag-fortschritt" role="status">
           <b>
-            {geloest.size} von {FLAG_AUFGABEN.length} gelöst
+            {geloest.size} von {aufgaben.length} gelöst
           </b>{" "}
           <span>(nur in dieser Sitzung)</span>
         </p>
 
         <nav aria-label="Rätsel" className="flag-gruppen">
           {STUFEN.map((stufe) => {
-            const eintraege = FLAG_AUFGABEN.map((eintrag, nr) => ({ eintrag, nr })).filter((zeile) => zeile.eintrag.stufe === stufe);
+            const eintraege = aufgaben.map((eintrag, nr) => ({ eintrag, nr })).filter((zeile) => zeile.eintrag.stufe === stufe);
             if (eintraege.length === 0) return null;
             const fertigAnzahl = eintraege.filter((zeile) => geloest.has(zeile.eintrag.id)).length;
             return (
@@ -542,6 +546,7 @@ export function FlagRaetsel({ onClose }: { onClose: () => void }) {
             key={aufgabe.id}
             aufgabe={aufgabe}
             nummer={index + 1}
+            gesamt={aufgaben.length}
             geloest={geloest.has(aufgabe.id)}
             eingabe={eingaben[aufgabe.id] ?? ""}
             tipps={tipps[aufgabe.id] ?? 0}

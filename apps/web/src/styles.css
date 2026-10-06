@@ -2945,6 +2945,17 @@ details[open] > summary.disclosure::before {
   --tile-fill-edge: color-mix(in srgb, var(--info) 45%, transparent);
 }
 
+/* F-176: Gruppen-Überschrift über einem Kachelraster (Kernangebot / Grundlagen). */
+.tile-group-title {
+  margin: 20px 0 0;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.tile-group-title:first-of-type {
+  margin-top: 12px;
+}
+
 .tile-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

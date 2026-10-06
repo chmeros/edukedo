@@ -1,3 +1,4 @@
+import { angebotSpiel } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import {
   BugHuntIllustration,
@@ -98,6 +99,9 @@ interface AktivesSpiel {
 
 export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiveGameChange?: (active: boolean) => void }) {
   const available = trpc.game.available.useQuery({ kursId });
+  // F-176: Kursprofil — welche Spiele (und Sets) der Kurs anbietet; null = keine Einschränkung (z. B. Mathematik).
+  const courses = trpc.courses.list.useQuery();
+  const angebot = courses.data?.find((course) => course.id === kursId)?.angebot ?? null;
   const [activeGame, setActiveGame] = useState<AktivesSpiel | null>(null);
 
   useEffect(() => {
@@ -134,9 +138,25 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
 
   const rows = available.data ?? [];
   const catalogFor = (type: string) => GAME_CATALOG.find((entry) => entry.type === type);
-  // Kacheln in Katalogreihenfolge, mehrere Sets desselben Typs hintereinander.
-  const availableTiles = GAME_CATALOG.flatMap((entry) => rows.filter((row) => row.gameType === entry.type));
-  const unavailableTypes = GAME_CATALOG.filter((entry) => !rows.some((row) => row.gameType === entry.type));
+  // Kacheln in Katalogreihenfolge, mehrere Sets desselben Typs hintereinander; nur, was das Kursprofil anbietet.
+  const tiles = GAME_CATALOG.flatMap((entry) => rows.filter((row) => row.gameType === entry.type)).flatMap((row) => {
+    const gruppe = angebotSpiel(angebot, row.gameType, row.setKey);
+    return gruppe ? [{ row, gruppe }] : [];
+  });
+  const kern = tiles.filter((tile) => tile.gruppe === "kern").map((tile) => tile.row);
+  const grundlagen = tiles.filter((tile) => tile.gruppe === "grundlagen").map((tile) => tile.row);
+  const renderTile = (row: (typeof rows)[number]) => {
+    const entry = catalogFor(row.gameType)!;
+    return (
+      <Tile
+        key={`${row.gameType}:${row.setKey}`}
+        title={row.title}
+        description={entry.description}
+        image={<entry.Illustration />}
+        onClick={() => setActiveGame({ type: row.gameType, setKey: row.setKey, title: row.title })}
+      />
+    );
+  };
 
   return (
     <div className="panel-section">
@@ -147,37 +167,25 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         Fachbegriffe und Fertigkeiten spielerisch üben — die Spiele sind reine Übung und zählen nicht für Punktehamster,
         Creditstand, Lernserie oder deinen Lernfortschritt; den bekommst du im Tab „Lernen“.
       </p>
-      <div className="tile-grid">
-        {availableTiles.map((row) => {
-          const entry = catalogFor(row.gameType)!;
-          return (
-            <Tile
-              key={`${row.gameType}:${row.setKey}`}
-              title={row.title}
-              description={entry.description}
-              image={<entry.Illustration />}
-              onClick={() => setActiveGame({ type: row.gameType, setKey: row.setKey, title: row.title })}
-            />
-          );
-        })}
-      </div>
-      {unavailableTypes.length > 0 && (
-        <details className="instrument-more">
-          <summary>Weitere Spiele ({unavailableTypes.length}) — in diesem Kurs noch nicht verfügbar</summary>
-          <div className="tile-grid">
-            {unavailableTypes.map((entry) => (
-              <Tile
-                key={entry.type}
-                title={entry.label}
-                description={entry.description}
-                image={<entry.Illustration />}
-                disabled
-                note="In diesem Kurs noch nicht verfügbar"
-                onClick={() => undefined}
-              />
-            ))}
-          </div>
-        </details>
+      {available.isLoading || courses.isLoading ? (
+        <p>Lädt…</p>
+      ) : (
+        <>
+          {/* F-176: nur Spiele, die zum Kurs passen — keine „noch nicht verfügbar“-Kacheln mehr. */}
+          {tiles.length === 0 && <p className="field-hint">Für diesen Kurs gibt es derzeit keine Spiele.</p>}
+          {kern.length > 0 && (
+            <>
+              {grundlagen.length > 0 && <h3 className="tile-group-title">Kernangebot</h3>}
+              <div className="tile-grid">{kern.map(renderTile)}</div>
+            </>
+          )}
+          {grundlagen.length > 0 && (
+            <>
+              <h3 className="tile-group-title">Grundlagen (gemeinsamer Teil 1)</h3>
+              <div className="tile-grid">{grundlagen.map(renderTile)}</div>
+            </>
+          )}
+        </>
       )}
     </div>
   );

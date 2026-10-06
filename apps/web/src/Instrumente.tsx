@@ -1,4 +1,14 @@
-import { useState } from "react";
+import {
+  FLAG_AUFGABEN,
+  TERMINAL_SZENARIEN,
+  angebotInstrument,
+  angebotLernpfad,
+  angebotSzenarien,
+  angebotWerkzeug,
+  topologieSzenarien,
+  type KursAngebotGruppe,
+} from "@edukedo/shared";
+import { useMemo, useState } from "react";
 import {
   AblaufIllustration,
   AnsoffIllustration,
@@ -235,8 +245,21 @@ export function Instrumente({
   const [activeLernpfad, setActiveLernpfad] = useState<string | null>(null);
   // F-163: Übungswerkzeuge ohne Content (Netzplan) — Freischaltung je Kurs über courses.list.
   const courses = trpc.courses.list.useQuery();
-  const kursWerkzeuge = courses.data?.find((course) => course.id === kursId)?.werkzeuge ?? [];
+  const kurs = courses.data?.find((course) => course.id === kursId);
+  const kursWerkzeuge = kurs?.werkzeuge ?? [];
+  // F-176: Kursprofil — null = keine Einschränkung (z. B. Mathematik).
+  const angebot = kurs?.angebot ?? null;
   const [activeWerkzeug, setActiveWerkzeug] = useState<string | null>(null);
+  // Erlaubte Szenarien je Werkzeug (undefined = alle); stabile Identität, weil die Labore sie als Abhängigkeit nutzen.
+  const szenarien = useMemo(() => {
+    const ids = (liste: readonly { id: string }[], werkzeug: "terminal" | "topologie" | "flags") =>
+      angebot ? angebotSzenarien(angebot, werkzeug, liste).map((eintrag) => eintrag.id) : undefined;
+    return {
+      terminal: ids(TERMINAL_SZENARIEN, "terminal"),
+      topologie: ids(topologieSzenarien, "topologie"),
+      flags: ids(FLAG_AUFGABEN, "flags"),
+    };
+  }, [angebot]);
 
   if (activeWerkzeug === "netzplan") {
     return <Netzplan onClose={() => setActiveWerkzeug(null)} />;
@@ -248,13 +271,13 @@ export function Instrumente({
     return <SqlUebungsflaeche onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "terminal") {
-    return <TerminalLabor onClose={() => setActiveWerkzeug(null)} />;
+    return <TerminalLabor onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.terminal} />;
   }
   if (activeWerkzeug === "topologie") {
-    return <TopologieLabor onClose={() => setActiveWerkzeug(null)} />;
+    return <TopologieLabor onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.topologie} />;
   }
   if (activeWerkzeug === "flags") {
-    return <FlagRaetsel onClose={() => setActiveWerkzeug(null)} />;
+    return <FlagRaetsel onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.flags} />;
   }
 
   if (activeLernpfad) {
@@ -270,15 +293,14 @@ export function Instrumente({
   function renderTile(instrument: (typeof INSTRUMENT_CATALOG)[number]) {
     const istWerkzeug = "werkzeug" in instrument;
     const target = istWerkzeug ? undefined : instruments.data?.[instrument.type];
-    const werkzeugVerfuegbar = istWerkzeug && kursWerkzeuge.includes(instrument.type);
-    const lernpfad = lernpfade.data?.find((entry) => entry.instrumentType === instrument.type);
+    const werkzeugVerfuegbar = istWerkzeug;
+    const lernpfad = angebotLernpfad(angebot, instrument.type) ? lernpfade.data?.find((entry) => entry.instrumentType === instrument.type) : undefined;
     return (
       <Tile
         key={instrument.type}
         title={instrument.label}
         description={instrument.description}
         image={<instrument.Illustration />}
-        note={!target && !werkzeugVerfuegbar ? "In diesem Kurs noch nicht verfügbar" : undefined}
         actions={
           <>
             {werkzeugVerfuegbar && (
@@ -309,10 +331,21 @@ export function Instrumente({
     );
   }
 
-  const istVerfuegbar = (instrument: (typeof INSTRUMENT_CATALOG)[number]) =>
-    "werkzeug" in instrument ? kursWerkzeuge.includes(instrument.type) : Boolean(instruments.data?.[instrument.type]);
-  const available = INSTRUMENT_CATALOG.filter(istVerfuegbar);
-  const unavailable = INSTRUMENT_CATALOG.filter((instrument) => !istVerfuegbar(instrument));
+  // F-176: Gruppe des Eintrags im Kursprofil; null = im Kurs nicht angeboten. Ein Instrument erscheint zusätzlich
+  // erst, wenn der Kurs Inhalt dazu hat (Quiz-Items bzw. ein freigeschaltetes Werkzeug mit mindestens einem Szenario).
+  function gruppeVon(instrument: (typeof INSTRUMENT_CATALOG)[number]): KursAngebotGruppe | null {
+    if ("werkzeug" in instrument) {
+      const gruppe = angebot ? angebotWerkzeug(angebot, instrument.type) : kursWerkzeuge.includes(instrument.type) ? "kern" : null;
+      if (!gruppe) return null;
+      const szenarioIds = instrument.type === "terminal" ? szenarien.terminal : instrument.type === "topologie" ? szenarien.topologie : instrument.type === "flags" ? szenarien.flags : undefined;
+      return szenarioIds && szenarioIds.length === 0 ? null : gruppe;
+    }
+    const gruppe = angebotInstrument(angebot, instrument.type);
+    return gruppe && instruments.data?.[instrument.type] ? gruppe : null;
+  }
+  const eintraege = INSTRUMENT_CATALOG.map((instrument) => ({ instrument, gruppe: gruppeVon(instrument) })).filter((eintrag) => eintrag.gruppe !== null);
+  const kern = eintraege.filter((eintrag) => eintrag.gruppe === "kern").map((eintrag) => eintrag.instrument);
+  const grundlagen = eintraege.filter((eintrag) => eintrag.gruppe === "grundlagen").map((eintrag) => eintrag.instrument);
 
   return (
     <div className="panel-section">
@@ -328,15 +361,19 @@ export function Instrumente({
         <p>Lädt…</p>
       ) : (
         <>
-          <div className="tile-grid">{available.map(renderTile)}</div>
-          {unavailable.length > 0 && (
-            // F-156: mit den IT-Instrumenten hat jeder Kurs mehrere Instrumente ohne Content — sie stehen
-            // eingeklappt darunter statt als Reihe leerer Kacheln (Fachwirt: keine IT, Fachinformatiker: kein
-            // BSC/Ansoff).
-            <details className="instrument-more">
-              <summary>Weitere Instrumente ({unavailable.length}) — in diesem Kurs noch nicht verfügbar</summary>
-              <div className="tile-grid">{unavailable.map(renderTile)}</div>
-            </details>
+          {/* F-176: nur Instrumente, die zum Kurs passen — keine „noch nicht verfügbar“-Kacheln mehr. */}
+          {eintraege.length === 0 && <p className="field-hint">Für diesen Kurs gibt es derzeit keine Instrumente und Werkzeuge.</p>}
+          {kern.length > 0 && (
+            <>
+              {grundlagen.length > 0 && <h3 className="tile-group-title">Kernangebot</h3>}
+              <div className="tile-grid">{kern.map(renderTile)}</div>
+            </>
+          )}
+          {grundlagen.length > 0 && (
+            <>
+              <h3 className="tile-group-title">Grundlagen (gemeinsamer Teil 1)</h3>
+              <div className="tile-grid">{grundlagen.map(renderTile)}</div>
+            </>
           )}
         </>
       )}

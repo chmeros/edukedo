@@ -1,4 +1,4 @@
-import { pruefungsbereichSchema, type Pruefungsbereich } from "@edukedo/shared";
+import { parseKursAngebot, pruefungsbereichSchema, type KursAngebot, type Pruefungsbereich } from "@edukedo/shared";
 import { z } from "zod";
 
 /**
@@ -47,10 +47,24 @@ export function kursProjektStunden(metadata: unknown): number | null {
  */
 export function kursWerkzeuge(metadata: unknown): string[] {
   if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+    // F-176: Ist ein Kursangebot hinterlegt, bestimmt es die Werkzeuge (Quelle der Wahrheit).
+    const angebot = kursAngebot(metadata);
+    if (angebot) return angebot.werkzeuge.map((eintrag) => eintrag.schluessel);
     const parsed = z.array(z.string().min(1)).safeParse((metadata as Record<string, unknown>).werkzeuge);
     if (parsed.success) return parsed.data;
   }
   return [];
+}
+
+/**
+ * F-176: Kursangebot (`kurs.metadata.angebot`) — welche Instrumente, Spiele, Werkzeuge, Szenarien und Lernpfade
+ * der Kurs anbietet. `null` = keine Einschränkung (Kurse ohne Angabe, z. B. Mathematik).
+ */
+export function kursAngebot(metadata: unknown): KursAngebot | null {
+  if (metadata && typeof metadata === "object" && !Array.isArray(metadata)) {
+    return parseKursAngebot((metadata as Record<string, unknown>).angebot);
+  }
+  return null;
 }
 
 /**

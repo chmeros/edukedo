@@ -1,5 +1,5 @@
 import { TERMINAL_SZENARIEN, terminalAusfuehren, terminalPrompt, terminalStartZustand, type TerminalStufe, type TerminalSzenario, type TerminalZustand } from "@edukedo/shared";
-import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 
 /**
@@ -51,9 +51,11 @@ function neueSitzung(szenario: TerminalSzenario): Sitzung {
   return { zustand: terminalStartZustand(szenario), verlauf: willkommen(szenario), befehle: [], tipps: 0, loesungGezeigt: false, geloest: false };
 }
 
-export function TerminalLabor({ onClose }: { onClose: () => void }) {
-  const [auswahl, setAuswahl] = useState<string>(TERMINAL_SZENARIEN[0]!.id);
-  const [sitzungen, setSitzungen] = useState<Record<string, Sitzung>>(() => Object.fromEntries(TERMINAL_SZENARIEN.map((s) => [s.id, neueSitzung(s)])));
+/** `erlaubt`: Szenario-IDs, die der Kurs anbietet (F-176); ohne Angabe alle. */
+export function TerminalLabor({ onClose, erlaubt }: { onClose: () => void; erlaubt?: readonly string[] }) {
+  const liste = useMemo(() => (erlaubt ? TERMINAL_SZENARIEN.filter((eintrag) => erlaubt.includes(eintrag.id)) : TERMINAL_SZENARIEN), [erlaubt]);
+  const [auswahl, setAuswahl] = useState<string>(liste[0]!.id);
+  const [sitzungen, setSitzungen] = useState<Record<string, Sitzung>>(() => Object.fromEntries(liste.map((s) => [s.id, neueSitzung(s)])));
   /** Szenarien, die in dieser Sitzung gelöst wurden — bleibt auch nach "Szenario zurücksetzen" erhalten. */
   const [abgeschlossen, setAbgeschlossen] = useState<ReadonlySet<string>>(() => new Set());
   const [auswahlOffen, setAuswahlOffen] = useState(true);
@@ -65,11 +67,11 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
   const eingabeRef = useRef<HTMLInputElement>(null);
   const auswahlKopfRef = useRef<HTMLElement>(null);
 
-  const szenario = TERMINAL_SZENARIEN.find((eintrag) => eintrag.id === auswahl) ?? TERMINAL_SZENARIEN[0]!;
+  const szenario = liste.find((eintrag) => eintrag.id === auswahl) ?? liste[0]!;
   const sitzung = sitzungen[szenario.id] ?? neueSitzung(szenario);
   const prompt = terminalPrompt(sitzung.zustand);
-  const anzahlGeloest = TERMINAL_SZENARIEN.filter((eintrag) => abgeschlossen.has(eintrag.id)).length;
-  const anteil = Math.round((anzahlGeloest / TERMINAL_SZENARIEN.length) * 100);
+  const anzahlGeloest = liste.filter((eintrag) => abgeschlossen.has(eintrag.id)).length;
+  const anteil = Math.round((anzahlGeloest / liste.length) * 100);
 
   // Ausgabe bleibt am Ende sichtbar, wenn neue Zeilen kommen oder das Szenario wechselt.
   useEffect(() => {
@@ -182,7 +184,7 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
         <div className="term-fortschritt">
           <p className="term-fortschritt-text" role="status">
             <b>
-              {anzahlGeloest} von {TERMINAL_SZENARIEN.length}
+              {anzahlGeloest} von {liste.length}
             </b>{" "}
             Szenarien gelöst <span className="term-fortschritt-hinweis">(nur in dieser Sitzung)</span>
           </p>
@@ -201,7 +203,7 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
           </summary>
           <div className="term-auswahl-inhalt" role="group" aria-label="Szenario wählen">
             {STUFEN.map((stufe) => {
-              const szenarien = TERMINAL_SZENARIEN.filter((eintrag) => eintrag.stufe === stufe.id);
+              const szenarien = liste.filter((eintrag) => eintrag.stufe === stufe.id);
               if (szenarien.length === 0) return null;
               const gruppeGeloest = szenarien.filter((eintrag) => abgeschlossen.has(eintrag.id)).length;
               return (
@@ -218,7 +220,7 @@ export function TerminalLabor({ onClose }: { onClose: () => void }) {
                     {szenarien.map((eintrag) => {
                       const aktiv = eintrag.id === szenario.id;
                       const geloest = abgeschlossen.has(eintrag.id);
-                      const nummer = TERMINAL_SZENARIEN.indexOf(eintrag) + 1;
+                      const nummer = liste.indexOf(eintrag) + 1;
                       return (
                         <li key={eintrag.id}>
                           <button

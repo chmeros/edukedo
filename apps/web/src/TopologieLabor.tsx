@@ -49,7 +49,7 @@ import {
   type TopologieWirksameAdresse,
   type TopologieZustand,
 } from "@edukedo/shared";
-import { useEffect, useState, type KeyboardEvent } from "react";
+import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
 
 /**
@@ -1032,20 +1032,20 @@ function PingPanel({
 
 // ───────────────────────── Szenarioauswahl ─────────────────────────
 
-function Szenarioauswahl({ aktivId, geloest, onWaehle }: { aktivId: string; geloest: ReadonlySet<string>; onWaehle: (szenario: TopologieSzenario) => void }) {
+function Szenarioauswahl({ szenarien, aktivId, geloest, onWaehle }: { szenarien: readonly TopologieSzenario[]; aktivId: string; geloest: ReadonlySet<string>; onWaehle: (szenario: TopologieSzenario) => void }) {
   return (
     <section className="topo-auswahlbereich" aria-labelledby="topo-auswahl-titel">
       <div className="topo-auswahl-kopf">
         <h3 id="topo-auswahl-titel">Szenario wählen</h3>
         <p className="topo-fortschritt" role="status">
           <b>
-            {geloest.size} von {topologieSzenarien.length} gelöst
+            {geloest.size} von {szenarien.length} gelöst
           </b>{" "}
           <span className="field-hint">(nur in dieser Sitzung, nichts wird gespeichert)</span>
         </p>
       </div>
       {topologieStufen.map((stufe) => {
-        const liste = topologieSzenarien.filter((eintrag) => eintrag.stufe === stufe);
+        const liste = szenarien.filter((eintrag) => eintrag.stufe === stufe);
         if (liste.length === 0) return null;
         const gel = liste.filter((eintrag) => geloest.has(eintrag.id)).length;
         return (
@@ -1231,14 +1231,16 @@ function LoesungsTabellen({ szenario, zustand }: { szenario: TopologieSzenario; 
   );
 }
 
-export function TopologieLabor({ onClose }: { onClose: () => void }) {
-  const [szenarioId, setSzenarioId] = useState(topologieSzenarien[0]!.id);
-  const szenario: TopologieSzenario = topologieSzenarien.find((eintrag) => eintrag.id === szenarioId) ?? topologieSzenarien[0]!;
-  const [zustand, setZustand] = useState<TopologieZustand>(() => topologieStartzustand(topologieSzenarien[0]!));
+/** `erlaubt`: Szenario-IDs, die der Kurs anbietet (F-176); ohne Angabe alle. */
+export function TopologieLabor({ onClose, erlaubt }: { onClose: () => void; erlaubt?: readonly string[] }) {
+  const liste = useMemo(() => (erlaubt ? topologieSzenarien.filter((eintrag) => erlaubt.includes(eintrag.id)) : topologieSzenarien), [erlaubt]);
+  const [szenarioId, setSzenarioId] = useState(liste[0]!.id);
+  const szenario: TopologieSzenario = liste.find((eintrag) => eintrag.id === szenarioId) ?? liste[0]!;
+  const [zustand, setZustand] = useState<TopologieZustand>(() => topologieStartzustand(liste[0]!));
   const [version, setVersion] = useState(0);
-  const [auswahlId, setAuswahlId] = useState<string | null>(topologieSzenarien[0]!.geraete[0]!.id);
-  const [pingVon, setPingVon] = useState(() => topologieSzenarien[0]!.pruefAuftraege[0]!.von);
-  const [pingNach, setPingNach] = useState(() => standardZiel(topologieStartzustand(topologieSzenarien[0]!), topologieSzenarien[0]!.pruefAuftraege[0]!.von));
+  const [auswahlId, setAuswahlId] = useState<string | null>(liste[0]!.geraete[0]!.id);
+  const [pingVon, setPingVon] = useState(() => liste[0]!.pruefAuftraege[0]!.von);
+  const [pingNach, setPingNach] = useState(() => standardZiel(topologieStartzustand(liste[0]!), liste[0]!.pruefAuftraege[0]!.von));
   const [ping, setPing] = useState<PingAnzeige | null>(null);
   const [auftragStatus, setAuftragStatus] = useState<Record<string, AuftragStatus>>({});
   const [tipps, setTipps] = useState(0);
@@ -1368,7 +1370,7 @@ export function TopologieLabor({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        <Szenarioauswahl aktivId={szenario.id} geloest={geloest} onWaehle={lade} />
+        <Szenarioauswahl szenarien={liste} aktivId={szenario.id} geloest={geloest} onWaehle={lade} />
 
         <div className="exam-situation">
           <span className="flip-kicker">

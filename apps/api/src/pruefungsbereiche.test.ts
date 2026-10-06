@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { kursPresentationMinutes, kursProjektStunden, kursWerkzeuge } from "./pruefungsbereiche";
+import { KURS_ANGEBOT } from "@edukedo/shared";
+import { kursAngebot, kursPresentationMinutes, kursProjektStunden, kursWerkzeuge } from "./pruefungsbereiche";
 
 describe("kursProjektStunden (F-161)", () => {
   it("liest die Stundenobergrenze aus metadata.projekt.stunden", () => {
@@ -34,5 +35,24 @@ describe("kursWerkzeuge (F-163)", () => {
     for (const metadata of [null, undefined, [], {}, { werkzeuge: "netzplan" }, { werkzeuge: [1] }, { werkzeuge: [""] }]) {
       expect(kursWerkzeuge(metadata)).toEqual([]);
     }
+  });
+});
+
+describe("kursAngebot (F-176)", () => {
+  it("liest das Kursangebot aus metadata.angebot", () => {
+    const angebot = KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"]!;
+    expect(kursAngebot({ angebot })).toEqual(angebot);
+  });
+
+  it("ergibt null ohne gültige Angabe (keine Einschränkung)", () => {
+    for (const metadata of [null, undefined, [], {}, { angebot: "x" }, { angebot: { instrumente: 1 } }]) {
+      expect(kursAngebot(metadata)).toBeNull();
+    }
+  });
+
+  it("das Angebot bestimmt die Werkzeuge und hat Vorrang vor metadata.werkzeuge", () => {
+    const angebot = KURS_ANGEBOT["fachwirt-buero-projektorganisation"]!;
+    expect(kursWerkzeuge({ werkzeuge: ["terminal"], angebot })).toEqual(["netzplan"]);
+    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["industriefachwirt"] })).toEqual([]);
   });
 });
