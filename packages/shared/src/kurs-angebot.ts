@@ -196,14 +196,14 @@ const TOPOLOGIE_ALLE = [...TOPOLOGIE_LEICHT, "dhcp-pool-konflikt", "filiale-zwei
  * Die ergänzten Theorieabschnitte und Karteikarten sind davon nicht betroffen und bereits Teil der Themen.
  */
 export const KURS_ENTWURF: Record<string, readonly string[]> = {
-  "fachinformatiker-anwendungsentwicklung": ["muster", "klassenbeziehungen", "testverfahren", "git"],
-  "fachinformatiker-daten-prozessanalyse": ["bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"],
+  "fachinformatiker-anwendungsentwicklung": ["muster", "klassenbeziehungen", "testverfahren"],
+  "fachinformatiker-daten-prozessanalyse": ["analysewerkzeuge", "datenqualitaet", "skalenniveaus"],
   "fachinformatiker-digitale-vernetzung": ["pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"],
-  "fachinformatiker-systemintegration": ["sicherungsarten", "raid", "netzsicherheit", "verzeichnisdienst", "switching"],
-  "ausbildung-der-ausbilder": ["handlungsfelder", "vierstufen", "lernzielbereiche", "beurteilungsfehler", "regelwerke"],
-  "fachwirt-gesundheit-soziales": ["donabedian", "kostentraeger", "pdca"],
+  "fachinformatiker-systemintegration": ["raid", "netzsicherheit", "verzeichnisdienst"],
+  "ausbildung-der-ausbilder": ["vierstufen", "beurteilungsfehler", "regelwerke"],
+  "fachwirt-gesundheit-soziales": ["kostentraeger"],
   "fachwirt-buero-projektorganisation": ["projektphasen", "stakeholder", "abc"],
-  industriefachwirt: ["pps", "beschaffung", "seci", "ishikawa", "kalkulation", "incoterms"],
+  industriefachwirt: ["pps", "ishikawa", "kalkulation", "incoterms"],
   "technischer-fachwirt": ["fertigungsverfahren", "instandhaltung", "top", "ishikawa6m", "kalkulation"],
 };
 
@@ -215,7 +215,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
 export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
-    instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf"], ["pdca", "risiko", "osi"]),
+    instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git"], ["pdca", "risiko", "osi"]),
     werkzeuge: liste(["sqluebung"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -239,7 +239,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     },
   },
   "fachinformatiker-daten-prozessanalyse": {
-    instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung"], ["risiko", "hierarchie", "osi", "scrum"]),
+    instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn"], ["risiko", "hierarchie", "osi", "scrum"]),
     werkzeuge: liste(["sqluebung"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -282,7 +282,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     },
   },
   "fachinformatiker-systemintegration": {
-    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen"], ["pdca", "hierarchie", "scrum"]),
+    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "sicherungsarten", "switching"], ["pdca", "hierarchie", "scrum"]),
     werkzeuge: liste(["subnetting", "terminal", "topologie", "flags"], ["netzplan"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -305,10 +305,10 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
 
   // ---- Fachwirte und weitere Kurse (nur Passendes; IT-Inhalte entfallen) ----
-  // Die neuen Instrumente (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms) und das Duell-Set "kosten-leistungen" erst nach der
-  // Freigabe des Prüfblatts 13 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  // Beschaffung und SECI sind freigegeben (Welle 1, 06.10.2026). PPS, Ishikawa, Zuschlagskalkulation, Incoterms und das Duell-Set "kosten-leistungen"
+  // erst nach der Freigabe des Prüfblatts 13 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
   industriefachwirt: {
-    instrumente: liste(OHNE()),
+    instrumente: liste([...OHNE(), "beschaffung", "seci"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
@@ -350,10 +350,10 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: ["bsc"],
     szenarien: {},
   },
-  // Neue Inhalte (PDCA-Fragen, Donabedian, Kostenträger, Duell-Set "gesundheit-sozialsystem") erst nach der fachlichen und rechtlichen
-  // Freigabe des Prüfblatts 11 aufnehmen: PDCA bleibt bis dahin aus der Liste, das Duell auf das nicht vorhandene Set "standard" begrenzt.
+  // PDCA und Donabedian sind freigegeben (Welle 1, 06.10.2026). Kostenträger und das Duell-Set "gesundheit-sozialsystem" erst nach der fachlichen
+  // und rechtlichen Freigabe des Prüfblatts 11 aufnehmen; das Duell bleibt bis dahin auf das nicht vorhandene Set "standard" begrenzt.
   "fachwirt-gesundheit-soziales": {
-    instrumente: liste(OHNE("pdca")),
+    instrumente: liste([...OHNE(), "donabedian"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
@@ -363,9 +363,10 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Das neue Duell-Set "recht-berufsausbildung" und die neuen Instrumente erst nach der Freigabe des Prüfblatts 10 aufnehmen.
+  // Handlungsfelder und Lernzielbereiche sind freigegeben (Welle 1, 06.10.2026). Das Duell-Set "recht-berufsausbildung" und die übrigen
+  // Instrumente erst nach der Freigabe des Prüfblatts 10 aufnehmen.
   "ausbildung-der-ausbilder": {
-    instrumente: [],
+    instrumente: liste(["handlungsfelder", "lernzielbereiche"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],

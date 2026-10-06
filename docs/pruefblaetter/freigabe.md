@@ -2,6 +2,10 @@
 
 Stand 06.10.2026 · Grundlage ist deine Rahmenentscheidung R3: *neue Inhalte werden erst nach fachlicher Prüfung sichtbar*, und R4: *was deine Fachkenntnis übersteigt (v. a. Recht), bleibt „ungeprüft“ und wird nicht freigeschaltet.* Alle Inhalte unten sind Entwürfe von Claude; keiner ist bisher fachlich freigegeben.
 
+## Stand der Freigabe
+
+**Welle 1 ist freigegeben (06.10.2026, Nutzer-Entscheidung „Ja, Welle 1 freischalten“):** 10 Instrumente mit 40 Fragen sind im Kurs sichtbar — Git-Bereiche (Anwendungsentwicklung), BPMN-2.0-Bausteine (Daten- und Prozessanalyse), Sicherungsarten und Switching/VLAN/Routing (Systemintegration), Handlungsfelder und Lernzielbereiche (AEVO), Qualitätsdimensionen nach Donabedian und PDCA-Zyklus (Gesundheit/Soziales), Beschaffungsstrategien und SECI-Modell (Industriefachwirt). In den Tabellen unten sind diese Zeilen mit ✔ markiert. **Alles Übrige bleibt Entwurf und gesperrt.**
+
 ## 1. Wie die Freigabe technisch funktioniert (F-186)
 
 Je Kurs gibt es eine **Entwurfsliste** (`KURS_ENTWURF` in `packages/shared/src/kurs-angebot.ts`). Für jeden Instrumenttyp darauf gilt:
@@ -31,7 +35,7 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Git-Bereiche (`git`) | 4 | ● | `git fetch` liegt bei „Lokales Repository“; `reset --soft/--mixed` nur in einer Frage erklärt |
+| ✔ Git-Bereiche (`git`) | 4 | ● | `git fetch` liegt bei „Lokales Repository“; `reset --soft/--mixed` nur in einer Frage erklärt |
 | Testverfahren (`testverfahren`) | 4 | ◐ | Schreibtischtest und zyklomatische Komplexität als statisch; Abgrenzung Testverfahren/Testart |
 | Entwurfs- und Architekturmuster (`muster`) | 4 | ◐ | MVC heißt hier „Architekturmuster“, in Thema 8.4 „Entwurfsmuster“ |
 | UML-Klassenbeziehungen (`klassenbeziehungen`) | 4 | ◐ | Aggregation/Komposition nach Prüfungslesart; „Ordner und Dateien“, „Warenkorb und Artikel“ |
@@ -41,7 +45,7 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| BPMN-2.0-Bausteine (`bpmn`) | 4 | ● | auf das Prüfungsübliche begrenzt |
+| ✔ BPMN-2.0-Bausteine (`bpmn`) | 4 | ● | auf das Prüfungsübliche begrenzt |
 | Analysewerkzeuge (`analysewerkzeuge`) | 4 | ◐ | Schwachstellenanalyse (WO) gegen Ursachenanalyse (WARUM); Schreibweise „Process Mining“ |
 | Datenqualitäts-Dimensionen (`datenqualitaet`) | 4 | ◐ | Originaltext der FIAusbV zu den fünf Dimensionen noch nicht geprüft; Quantität/Vollständigkeit; Plausibilität/Richtigkeit |
 | Skalenniveaus (`skalenniveaus`) | 4 | ◐ | Datum/Baujahr als Intervallskala; Notendurchschnitt |
@@ -60,8 +64,8 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Sicherungsarten (`sicherungsarten`) | 4 | ● | Q-10.3-17/-18 leicht zugespitzt |
-| Switching, VLAN, Routing (`switching`) | 4 | ● | Layer-3-Switch-Grenzfälle vermieden |
+| ✔ Sicherungsarten (`sicherungsarten`) | 4 | ● | Q-10.3-17/-18 leicht zugespitzt |
+| ✔ Switching, VLAN, Routing (`switching`) | 4 | ● | Layer-3-Switch-Grenzfälle vermieden |
 | RAID-Level (`raid`) | 4 | ◐ | RAID-5-Szenarien nur über Randbedingungen von RAID 6/10 abgegrenzt |
 | Netzwerksicherheits-Bausteine (`netzsicherheit`) | 4 | ◐ | drei Grenzfälle (Zugriffsmatrix, VLAN nach Anmeldung, VLAN Hopping) |
 | Verzeichnisdienst und Berechtigungen (`verzeichnisdienst`) | 4 | ○ | Active-Directory-Aussagen (GPO-Verknüpfung, OU in ACLs); Karteikarte K-10.1-16 angleichen |
@@ -73,8 +77,8 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Handlungsfelder der AEVO (`handlungsfelder`) | 4 | ● | „Ausbildungsplan erstellen“ in HF 2 (Stolperfalle, erklärt) |
-| Lernzielbereiche (`lernzielbereiche`) | 4 | ● | „Belege den Konten zuordnen“ als kognitiv |
+| ✔ Handlungsfelder der AEVO (`handlungsfelder`) | 4 | ● | „Ausbildungsplan erstellen“ in HF 2 (Stolperfalle, erklärt) |
+| ✔ Lernzielbereiche (`lernzielbereiche`) | 4 | ● | „Belege den Konten zuordnen“ als kognitiv |
 | Beurteilungsfehler (`beurteilungsfehler`) | 4 | ◐ | Namensliste (Nikolaus-Effekt beim Recency-Effekt) |
 | Vier-Stufen-Methode (`vierstufen`) | 4 | ◐ | **Entscheidung nötig:** Kursfassung (Stufe 1 = Vorbereiten, Vormachen, Erklären) gegen die übliche Fassung mit vier getrennten Stufen — betrifft Theorie, Zonen, Fragen |
 | Regelwerke der Berufsausbildung (`regelwerke`) | 4 | ○ | **Recht:** zwei eigene Konkretisierungen (10-Stunden-Schicht, Wochenendeinsatz einer 17-Jährigen); Rahmenlehrplan kein Bundesrecht |
@@ -84,8 +88,8 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Qualitätsdimensionen nach Donabedian (`donabedian`) | 4 | ● | Arbeits- und Gesundheitsschutz als Strukturqualität (Randfall) |
-| PDCA-Zyklus (`pdca`, vorhandenes Instrument) | 4 | ● | keine; wiederherstellen: `liste(OHNE())` statt `OHNE("pdca")` |
+| ✔ Qualitätsdimensionen nach Donabedian (`donabedian`) | 4 | ● | Arbeits- und Gesundheitsschutz als Strukturqualität (Randfall) |
+| ✔ PDCA-Zyklus (`pdca`, vorhandenes Instrument) | 4 | ● | keine; wiederherstellen: `liste(OHNE())` statt `OHNE("pdca")` |
 | Kostenträger (`kostentraeger`) | 4 | ○ | **Sozialrecht:** häusliche Krankenpflege = GKV (Schlussfolgerung); PKV-Begriffe überschneiden sich; „kommunaler Träger“ in Q-4.2-16 |
 | Begriffe-Duell „Gesundheits- und Sozialsystem“ (Set) | 20 | ○ | **Recht:** Probezeit sechs Monate (Arbeitsverhältnis), Kündigungsschutz ohne Betriebsgröße, „Mitarbeitervertretung“ |
 
@@ -104,8 +108,8 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| SECI-Modell (`seci`) | 4 | ● | Beispiel „Vergleich mit Bildern“ (Externalisierung) nicht im Kurs |
-| Beschaffungsstrategien (`beschaffung`) | 4 | ● | JIT gegen Einzelbeschaffung über „auftragsbezogen“/„laufend“ getrennt |
+| ✔ SECI-Modell (`seci`) | 4 | ● | Beispiel „Vergleich mit Bildern“ (Externalisierung) nicht im Kurs |
+| ✔ Beschaffungsstrategien (`beschaffung`) | 4 | ● | JIT gegen Einzelbeschaffung über „auftragsbezogen“/„laufend“ getrennt |
 | PPS-Aufgaben (`pps`) | 4 | ◐ | Ablaufplanung/Kapazitätsabgleich zwischen Werken |
 | Ishikawa-Diagramm (`ishikawa`) | 4 | ◐ | „Management“ gedeutet (Kurs nennt nur den Namen); Grenzfälle |
 | Zuschlagskalkulation (`kalkulation`) | 4 | ◐ | „Selbstkosten“ im Kurs in zwei unterschiedlich weiten Formulierungen — Theorie glätten |
@@ -125,7 +129,7 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 ## 4. Empfohlene Reihenfolge
 
-**Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen):** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.
+**Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.
 
 **Welle 2 — mittleres Risiko, je eine kurze Entscheidung:** alle übrigen ◐-Instrumente, die drei Bug-Hunt-Sets (Anwendungsentwicklung), das Bug-Hunt-Set „Skripte und Konfiguration“ und die Begriffe-Duelle Projektmanagement, Kosten und Leistungen sowie Technische Unterscheidungen.
 
