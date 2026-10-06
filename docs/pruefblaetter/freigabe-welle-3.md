@@ -71,7 +71,7 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 
 ## 3. Entscheidungen (getroffen am 06.10.2026, F-192)
 
-1. **Vier-Stufen-Methode:** übliche Fassung — umgesetzt und freigegeben; nur noch bei Gelegenheit die Zonenfragen Q-3.2-10 bis -13 gegenlesen.
+1. **Vier-Stufen-Methode:** übliche Fassung — umgesetzt und freigegeben; nur noch bei Gelegenheit die Zonenfragen Q-3.2-10 bis -13 gegenlesen (kompakte Liste: [vierstufen-gegenlesen.md](vierstufen-gegenlesen.md)).
 2. **Verwaltungsbeirat:** Theorieabsatz entworfen — umgesetzt, rechtlich ungeprüft (Punkt D).
 3. **Erschließung in der Theorie 5.4:** Beispiel neutral entfernt — umgesetzt (Punkt F).
 4. **Risikopolitik im Versicherungskurs (Frage F6):** Standardbegriffe — als neues Instrument mit Theorie umgesetzt, Entwurf (Punkt E).
