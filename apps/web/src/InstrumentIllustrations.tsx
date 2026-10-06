@@ -706,6 +706,137 @@ export function SkalenniveausIllustration() {
   );
 }
 
+// F-179 (Kursprofile Phase 1, Digitale Vernetzung): Automatisierungspyramide, Sensor/Aktor, Industrieprotokolle, Zonenkonzept.
+
+export function PyramideIllustration() {
+  const ebenen = [
+    { y: 12, f: "var(--coral)", s: "var(--coral-deep)", links: 120, rechts: 200, text: "ERP" },
+    { y: 36, f: "var(--sun)", s: "var(--ink-soft)", links: 104, rechts: 216, text: "MES" },
+    { y: 60, f: "var(--sprout)", s: "var(--sprout-deep)", links: 88, rechts: 232, text: "SCADA" },
+    { y: 84, f: "var(--info)", s: "var(--info-deep)", links: 72, rechts: 248, text: "SPS" },
+    { y: 108, f: "var(--card)", s: "var(--ink-soft)", links: 56, rechts: 264, text: "Feld" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {ebenen.map((ebene, index) => {
+        const oben = index === 0 ? 160 : ebenen[index - 1]!.links;
+        const obenRechts = index === 0 ? 160 : ebenen[index - 1]!.rechts;
+        return (
+          <g key={ebene.text}>
+            <path d={`M${oben} ${ebene.y}H${obenRechts}L${ebene.rechts - 0} ${ebene.y + 22}H${ebene.links}Z`} fill={ebene.f} stroke={ebene.s} strokeWidth="2" strokeLinejoin="round" />
+            <text x="160" y={ebene.y + 16} fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+              {ebene.text}
+            </text>
+          </g>
+        );
+      })}
+    </Frame>
+  );
+}
+
+export function SensorAktorIllustration() {
+  const baustein = (x: number, farbe: string, rand: string, text: string) => (
+    <g key={text}>
+      <rect x={x} y="38" width="64" height="44" rx="8" fill={farbe} stroke={rand} strokeWidth="2" />
+      <text x={x + 32} y="64" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        {text}
+      </text>
+    </g>
+  );
+  return (
+    <Frame background="var(--info-tint)">
+      {baustein(18, "var(--sprout-tint)", "var(--sprout-deep)", "Sensor")}
+      {baustein(128, "var(--sun-tint)", "var(--ink-soft)", "Steuerung")}
+      {baustein(238, "var(--coral)", "var(--coral-deep)", "Aktor")}
+      <path d="M82 60h46m0 0-6-4m6 4-6 4M192 60h46m0 0-6-4m6 4-6 4" stroke="var(--ink)" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M160 82v22" stroke="var(--info-deep)" strokeWidth="2.5" strokeDasharray="4 3" />
+      <rect x="132" y="104" width="56" height="22" rx="6" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d="M146 115h28M150 109c6-5 14-5 20 0M150 121c6 5 14 5 20 0" stroke="var(--info-deep)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+export function IndustrieprotokolleIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--surface-2)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      ))}
+      {/* Feldbus: Linie mit Stationen */}
+      <path d={`M${kachel(0) + 10} 58h48`} stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+      {[16, 34, 52].map((x) => (
+        <g key={x}>
+          <path d={`M${kachel(0) + x} 58v14`} stroke="var(--ink-soft)" strokeWidth="2" />
+          <rect x={kachel(0) + x - 6} y="72" width="12" height="12" rx="2" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+        </g>
+      ))}
+      {/* Modbus: Register-Tabelle */}
+      {[0, 1, 2, 3].map((zeile) => (
+        <g key={zeile}>
+          <rect x={kachel(1) + 10} y={36 + zeile * 14} width="22" height="11" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+          <rect x={kachel(1) + 32} y={36 + zeile * 14} width="26" height="11" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+        </g>
+      ))}
+      {/* OPC UA: Client/Server mit Informationsmodell */}
+      <rect x={kachel(2) + 22} y="34" width="24" height="14" rx="3" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      <path d={`M${kachel(2) + 34} 48v12M${kachel(2) + 34} 60 ${kachel(2) + 18} 72M${kachel(2) + 34} 60 ${kachel(2) + 50} 72`} stroke="var(--ink-soft)" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <circle cx={kachel(2) + 18} cy="78" r="6" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      <circle cx={kachel(2) + 50} cy="78" r="6" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+      {/* MQTT: Broker in der Mitte */}
+      <circle cx={kachel(3) + 34} cy="58" r="12" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      {[
+        { x: 16, y: 38 },
+        { x: 52, y: 38 },
+        { x: 16, y: 80 },
+        { x: 52, y: 80 },
+      ].map((punkt) => (
+        <g key={`${punkt.x}-${punkt.y}`}>
+          <path d={`M${kachel(3) + 34} 58 ${kachel(3) + punkt.x} ${punkt.y}`} stroke="var(--ink-soft)" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx={kachel(3) + punkt.x} cy={punkt.y} r="5" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+        </g>
+      ))}
+      {["Feldbus", "Modbus", "OPC UA", "MQTT"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function ZonenkonzeptIllustration() {
+  const zonen = [
+    { x: 10, f: "var(--info-tint)", s: "var(--info-deep)", text: "Büro-IT" },
+    { x: 88, f: "var(--sun-tint)", s: "var(--ink-soft)", text: "DMZ" },
+    { x: 166, f: "var(--sprout-tint)", s: "var(--sprout-deep)", text: "Produktion" },
+    { x: 244, f: "var(--card)", s: "var(--ink-soft)", text: "Zelle" },
+  ];
+  return (
+    <Frame background="var(--surface-2)">
+      {zonen.map((zone) => (
+        <g key={zone.text}>
+          <rect x={zone.x} y="22" width="66" height="96" rx="8" fill={zone.f} stroke={zone.s} strokeWidth="2" />
+          <text x={zone.x + 33} y="112" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+            {zone.text}
+          </text>
+        </g>
+      ))}
+      {/* Firewall-Mauern an den Übergängen */}
+      {[78, 156, 234].map((x) => (
+        <g key={x}>
+          <rect x={x} y="44" width="10" height="46" rx="2" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+          <path d={`M${x} 56h10M${x} 68h10M${x} 80h10`} stroke="var(--coral-deep)" strokeWidth="1.5" />
+        </g>
+      ))}
+      <rect x="28" y="52" width="30" height="20" rx="3" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <circle cx="122" cy="62" r="10" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <rect x="184" y="52" width="30" height="20" rx="3" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <circle cx="277" cy="62" r="9" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2" />
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

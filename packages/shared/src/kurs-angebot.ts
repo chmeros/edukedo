@@ -41,6 +41,11 @@ export const KATALOG_INSTRUMENTE = [
   "analysewerkzeuge",
   "datenqualitaet",
   "skalenniveaus",
+  // Kursprofile Phase 1 (Digitale Vernetzung)
+  "pyramide",
+  "sensoraktor",
+  "industrieprotokolle",
+  "zonenkonzept",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -209,7 +214,8 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "grundlagen"],
       ["memory", "ports", "kern"],
       ["phishing", null, "grundlagen"],
-      ["troubleshooting", null, "kern"],
+      // Neues Set (industrie-iot) erst nach der Freigabe des Prüfblatts 08 aufnehmen.
+      ["troubleshooting", "standard", "kern"],
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
     ]),

@@ -22,6 +22,7 @@ import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-d
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
 import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./content/game-phishing-it-alltag";
+import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingNetzwerk } from "./content/game-troubleshooting-netzwerk";
 import { kennzahlenDuellQmProzesse } from "./content/game-kennzahlen-duell-qm-prozesse";
 import { kreuzwortraetselItFachbegriffe } from "./content/game-kreuzwortraetsel-it-fachbegriffe";
@@ -196,6 +197,16 @@ async function main() {
     "Bug-Hunt: SQL-Fehler",
     bugHuntPayloadSchema.parse(bugHuntSqlFehler),
     "sql-fehler",
+  );
+
+  // Zusätzliches Troubleshooting-Set (setKey ≠ "standard") nur für Digitale Vernetzung: Störungsfälle aus
+  // Industrie und IoT (Sensorik, Modbus, MQTT, OPC UA) passen zu den Lerninhalten dieses Berufs.
+  await upsertGame(
+    "fachinformatiker-digitale-vernetzung",
+    "troubleshooting",
+    "Troubleshooting-Detektiv: Industrie und IoT",
+    troubleshootingPayloadSchema.parse(troubleshootingIndustrieIot),
+    "industrie-iot",
   );
 
   await pool.end();

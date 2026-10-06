@@ -26,10 +26,13 @@ import {
   NetzplanIllustration,
   TestverfahrenIllustration,
   NormalisierungIllustration,
+  IndustrieprotokolleIllustration,
   OsiIllustration,
   PdcaIllustration,
+  PyramideIllustration,
   RisikoIllustration,
   SchutzzieleIllustration,
+  SensorAktorIllustration,
   SkalenniveausIllustration,
   ScrumIllustration,
   SqlIllustration,
@@ -41,6 +44,7 @@ import {
   SwotIllustration,
   TeststufenIllustration,
   UmlIllustration,
+  ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Netzplan } from "./Netzplan";
@@ -226,6 +230,31 @@ const INSTRUMENT_CATALOG = [
     label: "Skalenniveaus",
     description: "Merkmale als nominal, ordinal, intervall- oder verhältnisskaliert einordnen.",
     Illustration: SkalenniveausIllustration,
+  },
+  // F-179 (Kursprofile Phase 1, Digitale Vernetzung): vier weitere Zonen-Instrumente.
+  {
+    type: "pyramide",
+    label: "Automatisierungspyramide",
+    description: "Geräte und Systeme der richtigen Ebene zuordnen: vom Feldgerät über SPS und Leitstand bis zum ERP.",
+    Illustration: PyramideIllustration,
+  },
+  {
+    type: "sensoraktor",
+    label: "Sensor, Steuerung, Aktor, Kommunikation",
+    description: "Bauteile nach ihrer Rolle im cyber-physischen System einordnen: erfassen, verarbeiten, ausführen, übertragen.",
+    Illustration: SensorAktorIllustration,
+  },
+  {
+    type: "industrieprotokolle",
+    label: "Industrie- und IoT-Protokolle",
+    description: "Feldbus, Modbus, OPC UA und MQTT an ihren typischen Eigenschaften erkennen.",
+    Illustration: IndustrieprotokolleIllustration,
+  },
+  {
+    type: "zonenkonzept",
+    label: "Zonenkonzept IT/OT",
+    description: "Systeme der Büro-IT, der DMZ, dem Produktionsnetz oder der Zelle zuordnen.",
+    Illustration: ZonenkonzeptIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

@@ -313,6 +313,44 @@ export const QUADRANT_MODELS = {
       { key: "verhaeltnis", label: "Verhältnis" },
     ],
   },
+  // F-179 (Kursprofile Phase 1, Digitale Vernetzung): vier weitere Modelle mit festen Zonen.
+  pyramide: {
+    label: "Automatisierungspyramide",
+    zones: [
+      { key: "feld", label: "Feldebene" },
+      { key: "steuerung", label: "Steuerungsebene" },
+      { key: "prozessleit", label: "Prozessleitebene (SCADA/HMI)" },
+      { key: "betriebsleit", label: "Betriebsleitebene (MES)" },
+      { key: "unternehmen", label: "Unternehmensebene (ERP)" },
+    ],
+  },
+  sensoraktor: {
+    label: "Sensor, Steuerung, Aktor, Kommunikation",
+    zones: [
+      { key: "sensor", label: "Sensor" },
+      { key: "steuerung", label: "Steuerung/Verarbeitung" },
+      { key: "aktor", label: "Aktor" },
+      { key: "kommunikation", label: "Kommunikation/Gateway" },
+    ],
+  },
+  industrieprotokolle: {
+    label: "Industrie- und IoT-Protokolle",
+    zones: [
+      { key: "feldbus", label: "Feldbus/Industrial Ethernet" },
+      { key: "modbus", label: "Modbus" },
+      { key: "opcua", label: "OPC UA" },
+      { key: "mqtt", label: "MQTT" },
+    ],
+  },
+  zonenkonzept: {
+    label: "Zonenkonzept IT/OT",
+    zones: [
+      { key: "bueroit", label: "Büro-IT" },
+      { key: "dmz", label: "DMZ (Übergang)" },
+      { key: "produktion", label: "Produktionsnetz (Leitebene)" },
+      { key: "zelle", label: "Zelle/Feldebene" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

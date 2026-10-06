@@ -9,6 +9,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
+import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { datenmodellBrevantaLernpfad } from "./content/instrument-lernpfad-datenmodell-brevanta";
@@ -622,6 +623,7 @@ function kursBlatt(blatt: KursBlatt): string {
     teile.push(...bloecke);
   }
   teile.push("## 2. Neue Theorieabschnitte", "");
+  if (blatt.theorie.length === 0) teile.push("Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden (die Fragen verweisen darauf).", "");
   for (const { datei, ueberschrift, hinweise } of blatt.theorie) {
     teile.push(`### ${datei.split("/")[0]!.toUpperCase()} · ${ueberschrift}`, "", zitat(theorieAbschnitt(blatt.kurs, datei, ueberschrift)), "");
     teile.push(pruefBlock(hinweise), "");
@@ -677,6 +679,89 @@ const DPA_BLATT: KursBlatt = {
     skalenniveaus: ["Klassische Streitfälle: Postleitzahl (nominal), Schulnote und Zufriedenheitsskala (ordinal), Temperatur in °C (Intervall), Umsatz (Verhältnis)."],
   },
 };
+
+const DV_BLATT: KursBlatt = {
+  kurs: "fachinformatiker-digitale-vernetzung",
+  titel: "Digitale Vernetzung",
+  feature: "F-179",
+  theorie: [],
+  zonenDateien: [
+    { datei: "dv1/8.2-bestehende-vernetzung-topologien-architektur.md", typen: ["pyramide"] },
+    { datei: "dv2/9.2-programme-signal-datenuebertragung.md", typen: ["sensoraktor"] },
+    { datei: "dv4/11.1-einbindung-heterogener-systeme-protokolle.md", typen: ["industrieprotokolle"] },
+    { datei: "dv1/8.3-planung-sicherheit-netzwerkanforderungen-kosten.md", typen: ["zonenkonzept"] },
+  ],
+  zonenHinweise: {
+    pyramide: [
+      "Ebenenlesart des Kurses (8.2, 11.2): Feld, Steuerung, Leit (SCADA), Betriebsleit (MES), Unternehmen (ERP), ohne Nummerierung; Zählung und Benennung variieren je Quelle (Purdue 0–4, ISA-95). In 11.2 heißt die dritte Ebene „Leitstandsebene (Prozessleitebene)“ — passt die Beschriftung der Zone?",
+    ],
+    sensoraktor: [
+      "Schütze und Relais zählt Thema 9.2 ausdrücklich zu den Aktoren (Schütz als Aktor in Q-9.2-15); Signalleuchte und Hupe als Aktoren, Drehzahlgeber und Energiezähler als Sensoren.",
+      "Gegenprüfen: „als Öffner verdrahteter Näherungsschalter“ (Q-9.2-17) und „Magnetventil“ (Q-9.2-14).",
+    ],
+    industrieprotokolle: [
+      "Modbus (RTU/TCP) zählen 8.2 und 9.2 zur Feldbus-/Industrial-Ethernet-Familie; als eigene Zone nur trennbar, wenn der Begriff Register, Slave-Adressen oder fehlende Sicherheit nennt (siehe Erklärung Q-11.1-14).",
+      "Q-11.1-17: „OPC UA: klassisch Client/Server, zusätzlich Publish/Subscribe-Variante“; PROFINET und EtherCAT als Industrial Ethernet.",
+    ],
+    zonenkonzept: [
+      "Vereinfachung: MES liegt hier mit dem Leitsystem im Produktionsnetz (Tabelle in 8.3, Q-8.3-13), obwohl die Pyramide es als eigene Ebene führt; IEC 62443 zoniert nach Schutzbedarf, nicht nach Pyramidenebene.",
+      "Der Begriff „Conduit“ steht nur in den Erklärungen der Fragen, nicht in der Kurstheorie.",
+      "Funk-Gateway mit 40 Sensoren als Zelle/Feldebene (Inventarliste in 8.2).",
+    ],
+  },
+  nachspann: (teile) => dvTroubleshootingAbschnitt(teile),
+};
+
+function dvTroubleshootingAbschnitt(teile: string[]): void {
+  teile.push("## 3. Troubleshooting-Set „Industrie und IoT“ (Spiel „Troubleshooting-Detektiv“, Kurs Digitale Vernetzung)", "");
+  teile.push(
+    "Je Fall: erst die **Schicht** wählen, dann die **wahrscheinlichste Ursache**. Es gibt je Fall genau eine richtige Antwort; die Schichten sind dieselben OSI-Schichten wie im Netzwerk-Set (nur Schichten 1, 2, 3, 4 und 7 stehen zur Auswahl). Zu prüfen: Ist die Fehlerursache aus den Symptomen eindeutig ableitbar, die Schicht vertretbar und die Erklärung fachlich richtig?",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Fall 8: Ein abgelaufenes Zertifikat gehört fachlich eher zu Sitzung/Darstellung (OSI 5/6); hier der Anwendungsschicht zugeordnet, weil das Set keine Schichten 5/6 anbietet. Ist der Statuscode `BadCertificateTimeInvalid` plausibel, und lehnt der Server ein abgelaufenes Client-Zertifikat ab?",
+    "- ⚠ Fall 7: Das Broker-Log „Subscribe … verweigert“ ist vereinfacht; je nach Broker/MQTT-Version steht eine verweigerte Subscription nur im SUBACK-Code oder wird nicht geloggt.",
+    "- ⚠ Fall 10: Verhalten des Brokers bei persistenter Sitzung mit QoS 1 (Queue ohne Limit, ca. 4,9 Mio. Nachrichten, 1,8 GB, Swap aktiv) — Realismus und Zahlen prüfen.",
+    "- ⚠ Fall 5: Grauzone „falsche Zeitzone“ gegen „freilaufende Uhr“ — abgegrenzt über „Zeitstempel in der Zukunft“, wachsende Abweichung, kein voller Stundenwert.",
+    "- ⚠ Fall 1: 4–20-mA-Schleife ist kein Netzwerk; auf Schicht 1 gelegt, die Erklärung sagt das ausdrücklich. Die Messungen im Schaltschrank setzen „Anlage freischalten, nur befugtes Personal“ voraus — reicht das?",
+    "- ⚠ Fälle 2 und 3 ähneln dem Netzwerk-Set (VLAN, Adresskonflikt), hier mit industriellem Kontext und anderer Beweisführung.",
+    "",
+  );
+  for (const fall of troubleshootingIndustrieIot.faelle) {
+    const schicht = fall.schichtOptionen.find((option) => option.id === fall.richtigeSchicht)?.text ?? "?";
+    const ursache = fall.ursachenOptionen.find((option) => option.id === fall.richtigeUrsache)?.text ?? "?";
+    teile.push(
+      `#### industrie-iot · ${fall.nummer} — ${fall.titel}`,
+      "",
+      `*${fall.szenario}*`,
+      "",
+      "**Symptome:**",
+      ...fall.symptome.map((symptom) => `- ${symptom}`),
+      "",
+      tabelle(
+        ["Schicht-Optionen", "Ursachen-Optionen"],
+        Array.from({ length: Math.max(fall.schichtOptionen.length, fall.ursachenOptionen.length) }, (_, index) => {
+          const so = fall.schichtOptionen[index];
+          const uo = fall.ursachenOptionen[index];
+          return [
+            so ? `${so.id === fall.richtigeSchicht ? "✔ " : ""}${so.text}` : "",
+            uo ? `${uo.id === fall.richtigeUrsache ? "✔ " : ""}${uo.text}` : "",
+          ];
+        }),
+      ),
+      "",
+      `**Richtig:** ${schicht} → ${ursache}`,
+      "",
+      "**Erklärung:**",
+      "",
+      zitat(fall.erklaerung),
+      "",
+      pruefBlock(undefined, ["Genau eine Ursache ist aus den Symptomen plausibel ableitbar; die falschen Optionen sind klar auszuschließen?"]),
+      "",
+    );
+  }
+}
+
+
 
 function aeBugHuntAbschnitt(teile: string[]): void {
   teile.push("## 3. Bug-Hunt-Sets (Spiel „Bug-Hunt“, Kurs Anwendungsentwicklung)", "");
@@ -751,6 +836,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     `| [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | ${zahlen.glossar} Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |`,
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "## Vorschlag für die Reihenfolge",
     "",
@@ -787,6 +873,7 @@ function main() {
     ["05-glossar.md", glossarZahl.text],
     ["06-anwendungsentwicklung.md", kursBlatt(AE_BLATT)],
     ["07-daten-prozessanalyse.md", kursBlatt(DPA_BLATT)],
+    ["08-digitale-vernetzung.md", kursBlatt(DV_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

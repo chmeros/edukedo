@@ -487,6 +487,27 @@ describe("parseQuizBlock", () => {
     if (skala?.type === "skalenniveaus") expect(skala.terms.map((term) => term.zoneKey)).toEqual(["nominal", "ordinal", "intervall", "verhaeltnis"]);
   });
 
+  it("parst die Modelle aus F-179 (Pyramide, Sensor/Aktor, Industrieprotokolle, Zonenkonzept)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-8.2-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const pyramide = parse("Automatisierungspyramide", ["- Temperatursensor → Feldebene", "- SPS → Steuerungsebene", "- Leitstand → Prozessleitebene (SCADA/HMI)", "- Fertigungssteuerung → Betriebsleitebene (MES)", "- Auftragsabwicklung → Unternehmensebene (ERP)"]);
+    expect(pyramide?.type).toBe("pyramide");
+    if (pyramide?.type === "pyramide") expect(pyramide.terms.map((term) => term.zoneKey)).toEqual(["feld", "steuerung", "prozessleit", "betriebsleit", "unternehmen"]);
+
+    const sak = parse("Sensor, Steuerung, Aktor, Kommunikation", ["- Lichtschranke → Sensor", "- Mikrocontroller → Steuerung/Verarbeitung", "- Stellmotor → Aktor", "- Gateway → Kommunikation/Gateway"]);
+    expect(sak?.type).toBe("sensoraktor");
+    if (sak?.type === "sensoraktor") expect(sak.terms.map((term) => term.zoneKey)).toEqual(["sensor", "steuerung", "aktor", "kommunikation"]);
+
+    const protokolle = parse("Industrie- und IoT-Protokolle", ["- Publish/Subscribe über einen Broker → MQTT", "- Informationsmodell mit eingebauter Sicherheit → OPC UA", "- einfaches Register-Protokoll → Modbus", "- zyklischer, echtzeitfähiger Datenaustausch → Feldbus/Industrial Ethernet"]);
+    expect(protokolle?.type).toBe("industrieprotokolle");
+    if (protokolle?.type === "industrieprotokolle") expect(protokolle.terms.map((term) => term.zoneKey)).toEqual(["mqtt", "opcua", "modbus", "feldbus"]);
+
+    const zonen = parse("Zonenkonzept IT/OT", ["- Mailserver → Büro-IT", "- Historian als Datenbroker → DMZ (Übergang)", "- SCADA-Server → Produktionsnetz (Leitebene)", "- SPS → Zelle/Feldebene"]);
+    expect(zonen?.type).toBe("zonenkonzept");
+    if (zonen?.type === "zonenkonzept") expect(zonen.terms.map((term) => term.zoneKey)).toEqual(["bueroit", "dmz", "produktion", "zelle"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

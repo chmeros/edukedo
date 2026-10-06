@@ -392,6 +392,10 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `analysewerkzeuge` (**Analysewerkzeuge der Prozessanalyse**, F-178, 6 Zonen): Schwachstellenanalyse, Engpassanalyse, Pareto-Analyse, Ursachenanalyse (Ishikawa/5-Why), Wertstromanalyse, Process Mining
   - `datenqualitaet` (**Datenqualitäts-Dimensionen**, F-178, 5 Zonen): Plausibilität, Quantität, Redundanz, Vollständigkeit, Validität
   - `skalenniveaus` (**Skalenniveaus**, F-178, 4 Zonen): Nominal, Ordinal, Intervall, Verhältnis
+  - `pyramide` (**Automatisierungspyramide**, F-179, 5 Zonen): Feldebene, Steuerungsebene, Prozessleitebene (SCADA/HMI), Betriebsleitebene (MES), Unternehmensebene (ERP)
+  - `sensoraktor` (**Sensor, Steuerung, Aktor, Kommunikation**, F-179, 4 Zonen): Sensor, Steuerung/Verarbeitung, Aktor, Kommunikation/Gateway
+  - `industrieprotokolle` (**Industrie- und IoT-Protokolle**, F-179, 4 Zonen): Feldbus/Industrial Ethernet, Modbus, OPC UA, MQTT
+  - `zonenkonzept` (**Zonenkonzept IT/OT**, F-179, 4 Zonen): Büro-IT, DMZ (Übergang), Produktionsnetz (Leitebene), Zelle/Feldebene
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix
