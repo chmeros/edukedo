@@ -22,6 +22,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [14 Technischer Fachwirt](14-technischer-fachwirt.md) | neue Zonen-Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation), Theorie, Begriffe-Duell „Technische Unterscheidungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [15 Wirtschaftsfachwirt](15-wirtschaftsfachwirt.md) | neue Zonen-Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell), Begriffe-Duell „Finanzierung und Controlling“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [16 Transport/Logistik](16-transport-logistik.md) | neue Zonen-Instrumente (Verkehrsträger, ABC-Analyse), Begriffe-Duell „Spedition und Fracht“ (Kursprofile Phase 1; **mit Fracht- und Zollrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
+| [17 Handelsfachwirt](17-handelsfachwirt.md) | neue Zonen-Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix), neue Theorie (Handelskalkulation, Kraljic-Matrix), Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 
 **Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.
 

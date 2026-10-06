@@ -623,6 +623,32 @@ export const QUADRANT_MODELS = {
       { key: "luft", label: "Luft" },
     ],
   },
+  // F-189 (Kursprofile Phase 1, Handelsfachwirt): drei weitere Modelle (die ABC-Analyse aus F-183 wird mit eigenem Content wiederverwendet).
+  xyz: {
+    label: "XYZ-Analyse",
+    zones: [
+      { key: "x", label: "X-Klasse" },
+      { key: "y", label: "Y-Klasse" },
+      { key: "z", label: "Z-Klasse" },
+    ],
+  },
+  handelskalkulation: {
+    label: "Handelskalkulation",
+    zones: [
+      { key: "bezug", label: "Bezugskalkulation" },
+      { key: "selbstkosten", label: "Selbstkostenkalkulation" },
+      { key: "verkauf", label: "Verkaufskalkulation" },
+    ],
+  },
+  kraljic: {
+    label: "Kraljic-Matrix",
+    zones: [
+      { key: "hebel", label: "Hebelprodukte" },
+      { key: "strategisch", label: "Strategische Produkte" },
+      { key: "standard", label: "Standardprodukte" },
+      { key: "engpass", label: "Engpassprodukte" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

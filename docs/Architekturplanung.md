@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-189: Kursprofile Phase 1 — Handelsfachwirt)
+
+- **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Handelsfachwirt“, gleicher Maßstab wie F-177 bis F-188: Priorität „hoch“ und Aufwand S aus docs/kursprofile/03-handel-immobilien-versicherung.md (I-HAN-01, -02, -03, S-HAN-03).
+- **Theorie zuerst (R5):** Kraljic-Matrix (0 Treffer im Kurs) und Handelskalkulation (kein Bezugspreis, keine Handlungskosten) hatten keine Theoriegrundlage; beide Abschnitte wurden als reine Prinzipien ohne Rechenzahlen ergänzt (Themen 7.1 und 5.3, je drei Karteikarten). Die Feldbezeichnungen der Kraljic-Matrix variieren je Lehrbuch; der Kurs führt einheitlich Standard-, Hebel-, Engpass- und Strategische Produkte.
+- **XYZ getrennt von ABC:** Die Neun-Felder-Kombination aus dem Vorschlag (Variante M) würde die Zonenobergrenze von 7 überschreiten; stattdessen zwei getrennte Dreizonen-Instrumente (`abc` aus F-183 mit eigenem Content, `xyz` neu). Die Kombination (AX, CZ) steht nur als Hinweis in den Erklärungen.
+- **Technik:** Drei Einträge in `QUADRANT_MODELS` (`xyz`, `handelskalkulation`, `kraljic`), drei Literale in `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, drei Illustrationen und Katalogeinträge, Parser-Test. Das Modell `handelskalkulation` ist bewusst getrennt von `kalkulation` (F-184; Industrie-Stufen Material, Fertigung, Herstellkosten).
+- **Content:** je 4 Fragen in hb4/4.1 (`Q-4.1-13`–`16` ABC, `Q-4.1-17`–`20` XYZ), wb1/5.3 (`Q-5.3-14`–`17`) und wb3/7.1 (`Q-7.1-14`–`17`); nur ergänzt (0 gelöschte Zeilen). Q-5.3-17 wurde nach der Erstellung umformuliert (Preisuntergrenze nur bei Vollkostenbetrachtung gültig).
+- **Spielset:** `game-kennzahlen-duell-handel-aehnlich.ts` (setKey `handel-aehnlich`, 20 Fragen in 4 Runden à 5), nur für diesen Kurs in `seed-games.ts` registriert; der Test verbietet Zahlen, Formeln, Paragrafen, Normangaben und das Wort „Euro“ und erlaubt nur Themenverweise auf tatsächlich verwendete Themen. Weggelassen, weil der Kurs sie nicht unterscheidet: Push/Pull, FCA, Handelsspanne gegen Kalkulationszuschlag, Reexport gegen Transithandel.
+- **Freigabe:** `handelsfachwirt` in `KURS_ENTWURF` mit `abc`, `xyz`, `handelskalkulation` und `kraljic`; das Duell ist in `KURS_ANGEBOT` auf das nicht vorhandene Set `standard` begrenzt. Prüfblatt 17 mit allen offenen Fachfragen; die Duell-Fragen 18–20 berühren Außenhandels- und Zollrecht.
+- **Verifiziert:** Dev-Datenbank nach Neuimport — 16 Fragen (`abc`, `xyz`, `handelskalkulation`, `kraljic`) inaktiv, Duell-Set angelegt; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-188: Kursprofile Phase 1 — Transport/Logistik)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für Transport/Logistik“, gleicher Maßstab wie F-177 bis F-187: nur Vorschläge mit hoher Priorität, die sich allein aus der vorhandenen Kurstheorie belegen lassen (I-LOG-01, I-FW-04 teilweise, S-LOG-02).

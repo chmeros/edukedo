@@ -21,6 +21,7 @@ import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-handel-aehnlich";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
@@ -319,6 +320,17 @@ async function main() {
     "Begriffe-Duell: Spedition und Fracht",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellSpeditionFracht),
     "spedition-fracht",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Handelsfachwirt": Handel — ähnlich, aber
+  // nicht gleich (Markt, Sortiment und Marketing, Bedarf und Beschaffung, Lager und Bestand, Konditionen, Investition
+  // und Außenhandel).
+  await upsertGame(
+    "handelsfachwirt",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Handel — ähnlich, aber nicht gleich",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellHandelAehnlich),
+    "handel-aehnlich",
   );
 
   await pool.end();

@@ -667,6 +667,23 @@ describe("parseQuizBlock", () => {
     if (verkehr?.type === "verkehrstraeger") expect(verkehr.terms.map((term) => term.zoneKey)).toEqual(["strasse", "schiene", "wasser", "luft"]);
   });
 
+  it("parst die Modelle aus F-189 (XYZ-Analyse, Handelskalkulation, Kraljic-Matrix)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-4.1-17 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const xyz = parse("XYZ-Analyse", ["- gleichmäßiger Verbrauch → X-Klasse", "- saisonal schwankend → Y-Klasse", "- kaum vorhersagbar → Z-Klasse"]);
+    expect(xyz?.type).toBe("xyz");
+    if (xyz?.type === "xyz") expect(xyz.terms.map((term) => term.zoneKey)).toEqual(["x", "y", "z"]);
+
+    const kalkulation = parse("Handelskalkulation", ["- Lieferantenrabatt → Bezugskalkulation", "- Handlungskosten → Selbstkostenkalkulation", "- Kundenskonto → Verkaufskalkulation"]);
+    expect(kalkulation?.type).toBe("handelskalkulation");
+    if (kalkulation?.type === "handelskalkulation") expect(kalkulation.terms.map((term) => term.zoneKey)).toEqual(["bezug", "selbstkosten", "verkauf"]);
+
+    const kraljic = parse("Kraljic-Matrix", ["- Verhandlungsstärke nutzen → Hebelprodukte", "- enge Partnerschaft → Strategische Produkte", "- Bestellung vereinfachen → Standardprodukte", "- Versorgung absichern → Engpassprodukte"]);
+    expect(kraljic?.type).toBe("kraljic");
+    if (kraljic?.type === "kraljic") expect(kraljic.terms.map((term) => term.zoneKey)).toEqual(["hebel", "strategisch", "standard", "engpass"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

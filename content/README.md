@@ -424,6 +424,9 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `investition` (**Investitionsrechenverfahren**, F-187, 2 Zonen): Statische Verfahren, Dynamische Verfahren
   - `vierseiten` (**Vier-Seiten-Modell**, F-187, 4 Zonen): Sachebene, Selbstoffenbarung, Beziehungsebene, Appell
   - `verkehrstraeger` (**Verkehrsträger**, F-188, 4 Zonen): Straße, Schiene, Wasser, Luft
+  - `xyz` (**XYZ-Analyse**, F-189, 3 Zonen): X-Klasse, Y-Klasse, Z-Klasse
+  - `handelskalkulation` (**Handelskalkulation**, F-189, 3 Zonen): Bezugskalkulation, Selbstkostenkalkulation, Verkaufskalkulation
+  - `kraljic` (**Kraljic-Matrix**, F-189, 4 Zonen): Hebelprodukte, Strategische Produkte, Standardprodukte, Engpassprodukte
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

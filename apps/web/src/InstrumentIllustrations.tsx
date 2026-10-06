@@ -1765,3 +1765,76 @@ export function VerkehrstraegerIllustration() {
     </Frame>
   );
 }
+
+export function XyzIllustration() {
+  const reihen = [
+    { y: 20, f: "var(--sprout)", s: "var(--sprout-deep)", t: "X" },
+    { y: 54, f: "var(--sun)", s: "var(--ink-soft)", t: "Y" },
+    { y: 88, f: "var(--coral)", s: "var(--coral-deep)", t: "Z" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {reihen.map((reihe) => (
+        <g key={reihe.t}>
+          <rect x="24" y={reihe.y} width="34" height="28" rx="6" fill={reihe.f} stroke={reihe.s} strokeWidth="2" />
+          <text x="41" y={reihe.y + 20} fontSize="16" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {reihe.t}
+          </text>
+        </g>
+      ))}
+      <path d="M70 34h200" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M70 68q20-20 40 0t40 0t40 0t40 0" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M70 102l14-12 10 18 12-20 14 14 10-16 14 20 12-10 14 14 14-22 12 18 16-8 18 12" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function HandelskalkulationIllustration() {
+  const stufen = [
+    { x: 20, y: 76, h: 44, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Bezug" },
+    { x: 112, y: 48, h: 72, f: "var(--sun)", s: "var(--ink-soft)", t: "Selbstkosten" },
+    { x: 204, y: 20, h: 100, f: "var(--coral)", s: "var(--coral-deep)", t: "Verkauf" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {stufen.map((stufe) => (
+        <g key={stufe.t}>
+          <rect x={stufe.x} y={stufe.y} width="88" height={stufe.h} rx="8" fill={stufe.f} stroke={stufe.s} strokeWidth="2.2" />
+          <text x={stufe.x + 44} y={stufe.y + stufe.h - 10} fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {stufe.t}
+          </text>
+        </g>
+      ))}
+      <path d="M106 90h8M198 62h8" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+export function KraljicIllustration() {
+  const felder = [
+    { x: 40, y: 14, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Hebel" },
+    { x: 144, y: 14, f: "var(--coral)", s: "var(--coral-deep)", t: "Strategisch" },
+    { x: 40, y: 74, f: "var(--sun)", s: "var(--ink-soft)", t: "Standard" },
+    { x: 144, y: 74, f: "var(--info)", s: "var(--info-deep)", t: "Engpass" },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      {felder.map((feld) => (
+        <g key={feld.t}>
+          <rect x={feld.x} y={feld.y} width="100" height="56" rx="8" fill={feld.f} stroke={feld.s} strokeWidth="2" />
+          <text x={feld.x + 50} y={feld.y + 33} fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {feld.t}
+          </text>
+        </g>
+      ))}
+      <path d="M26 128V16m0 0-5 8m5-8 5 8" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M36 134h212m0 0-8-5m8 5-8 5" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="262" y="96" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)">
+        Risiko
+      </text>
+      <text x="262" y="36" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)">
+        Gewinn
+      </text>
+    </Frame>
+  );
+}

@@ -15,6 +15,7 @@ import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientie
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-handel-aehnlich";
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
@@ -1260,6 +1261,77 @@ function logNachspann(teile: string[]): void {
   teile.push(...duellBloecke("spedition-fracht", kennzahlenDuellSpeditionFracht));
 }
 
+const HAN_BLATT: KursBlatt = {
+  kurs: "handelsfachwirt",
+  titel: "Handelsfachwirt",
+  feature: "F-189",
+  theorie: [
+    {
+      datei: "wb1/5.3-preis-konditionenpolitik.md",
+      ueberschrift: "Handelskalkulation im Überblick",
+      hinweise: [
+        "Der Kurs hatte bisher keine Handelskalkulation (kein „Bezugspreis“, „Handlungskosten“); der Abschnitt führt Bezugs-, Selbstkosten- und Verkaufskalkulation als Prinzip ein (ohne Rechenzahlen), Schreibweise „Handlungskosten“, Bezugspreis gleich Einstandspreis, auf Loreno zugeschnitten. Karteikarten K-5.3-21 bis -23.",
+        "Bezugsgrößen (Handlungskosten auf den Bezugspreis, Gewinnzuschlag auf die Selbstkosten, Kundenskonto und -rabatt „im Hundert“) sind Standard, standen im Kurs bisher aber nicht. Zwischenstufen (Bar-, Ziel-, Zieleinkaufspreis) sind bewusst weggelassen — reicht das für die Prüfungsvorbereitung?",
+        "Handelsspanne und Kalkulationszuschlag sind nur knapp als Abstand zwischen Bezugs- und Verkaufspreis „mit unterschiedlicher Bezugsgröße“ genannt (K-5.3-19 behandelt die Handelsspanne bereits); Listenverkaufspreis ist hier das Ergebnis vor Umsatzsteuer, mit Umsatzsteuer der Ladenpreis.",
+        "K-5.3-21 nennt die Rechenfolge mit Minus- und Pluszeichen (wie die Theorie); gilt das als „Formel“?",
+      ],
+    },
+    {
+      datei: "wb3/7.1-einkaufsstrategien.md",
+      ueberschrift: "Kraljic-Matrix: Beschaffungsobjekte einordnen",
+      hinweise: [
+        "Der Kurs hatte bisher keine Kraljic-Matrix (0 Treffer). Neue Theorie mit zwei Achsen (Gewinnauswirkung, Versorgungsrisiko) und vier Feldern samt Normstrategien, auf Loreno zugeschnitten; Karteikarten K-7.1-19 bis -21.",
+        "Feldbezeichnungen variieren je Lehrbuch (oft „unkritische Produkte“ statt Standardprodukte, „Schlüssel-/Kernprodukte“ statt strategische Produkte); der Kurs führt durchgehend Standard-, Hebel-, Engpass- und Strategische Produkte.",
+        "Die Normstrategien sind vereinfacht, in manchen Lehrbüchern anders gewichtet (z. B. Hebel mit Dual statt Multiple Sourcing). Verbindung zu den Sourcing-Strategien nur kurz; Make-or-Buy wurde nicht eingebunden.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "hb4/4.1-bedarfsermittlung.md", typen: ["abc", "xyz"] },
+    { datei: "wb1/5.3-preis-konditionenpolitik.md", typen: ["handelskalkulation"] },
+    { datei: "wb3/7.1-einkaufsstrategien.md", typen: ["kraljic"] },
+  ],
+  zonenHinweise: {
+    abc: [
+      "Modell aus F-183 wiederverwendet, mit Beispielen von Loreno (Jeans, Accessoires wie in der Theorie). Keine Prozentgrenzen, weil die Theorie keine nennt. XYZ-Begriffe sind nur Störmerkmale (Q-4.1-16).",
+      "Q-4.1-14 und -15: Die B-Begriffe („mittlerer Überwachungsaufwand“, „weder Bestseller noch Randartikel“) und die C-Begründung „Einzelüberwachung lohnt sich meist nicht“ sind Ableitungen aus „mittlerer Bereich“; in den Erklärungen als Ableitung gekennzeichnet.",
+      "Q-4.1-16: Die Wert-Bedarf-Kombinationen (z. B. A-Artikel mit kaum vorhersagbarem Bedarf) sind Planspiele; die Theorie nennt nur AX, BY und CZ. „Planbarkeit ändert nie die Wertklasse“ folgt der Logik der Theorie, steht aber nicht wörtlich darin.",
+    ],
+    xyz: [
+      "Neues Modell: X, Y, Z nach Verbrauchsregelmäßigkeit. ABC-Begriffe sind nur Störmerkmale (Q-4.1-20).",
+      "Q-4.1-17: „Basic-Artikel mit gleichmäßigem Abverkauf“ als X ist abgeleitet — die Theorie ordnet Basics der stochastischen Bedarfsermittlung zu, nicht ausdrücklich X.",
+      "Q-4.1-18: „Y = mittlere Vorhersagegenauigkeit“ steht wörtlich nur in Karteikarte K-4.1-09, nicht in der Theorie.",
+      "Q-4.1-19 und -20: „Je Saison ähnlicher Verlauf“ (Y), „ohne erkennbares Muster“ (Z) und die Y-Fälle sind eigene Formulierungen; der Kurztrend als Z steht wörtlich in der Theorie. Eine Wert-Bedarf-Matrix ist in der Theorie nicht ausgeführt (AX und CZ nur als Steuerungshinweis in der Erklärung).",
+    ],
+    handelskalkulation: [
+      "Neues Modell nach der neuen Theorie „Handelskalkulation im Überblick“; keine Zahlen. Q-5.3-17 wurde nach der Erstellung umformuliert: Der Begriff zur Selbstkostenkalkulation lautet jetzt „alle zugerechneten Kosten gedeckt, noch kein Gewinn“ (die erste Fassung „darf nicht darunter verkaufen“ hätte nur bei Vollkostenbetrachtung gegolten).",
+      "Q-5.3-15: „Alle zugerechneten Kosten eines Artikels, noch ohne Gewinn“ könnte als Selbstkosten oder Bezugspreis gelesen werden (abgesichert durch „zugerechnet“ und „Handlungskosten“). Q-5.3-16: „Aufschlag, mit dem der Artikel einen Gewinn erwirtschaftet“ ist bewusst grob formuliert und nur über das Stichwort Gewinn eindeutig.",
+      "Q-5.3-17 hat das Bloom-Level „analysieren“ (die übrigen Fragen erinnern, verstehen, anwenden).",
+    ],
+    kraljic: [
+      "Neues Modell nach der neuen Theorie (Standard-, Hebel-, Engpass- und Strategische Produkte).",
+      "Q-7.1-14: Basic-T-Shirts als Hebelprodukt beruhen auf der Annahme „hohes Volumen, viele Anbieter“; „Kleinteil einer Sondermöbelserie“ als Engpassprodukt ist bewusst knapp formuliert.",
+      "Q-7.1-15: Die Abgrenzung nach reiner Risikoachse (Standard gegen Engpass) könnte für Lernende zu leicht sein. Q-7.1-16: „alternative Bezugsquellen“ und „Abhängigkeit im Blick behalten“ können sich überschneiden — in der Theorie so getrennt: Alternativen beim Engpassprodukt, Abhängigkeitssteuerung bei strategischen Produkten.",
+      "Q-7.1-17: Szenarien, bei denen Lernende aus Ergebnisbeitrag und Ersatzfähigkeit selbst auf das Feld schließen; Erklärungen mit Verwechslungshinweisen Engpass/strategisch und Hebel/strategisch.",
+    ],
+  },
+  nachspann: (teile) => hanNachspann(teile),
+};
+
+function hanNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Handelsfachwirt)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen (z. B. Handelsspanne gegen Kalkulationszuschlag, da der Kalkulationszuschlag nur in der neuen Theorie kurz vorkommt).",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Frage 18 (CIF gegen FOB) setzt Wissen aus zwei Absätzen zusammen (Thema 6.2 und 8.1); beide sind textlich gedeckt. Fragen 18 bis 20 (Incoterms, Dokumentenakkreditiv gegen Dokumenteninkasso, präferenzieller gegen nichtpräferenziellen Ursprung) berühren Außenhandels- und Zollrecht und gehören zur Rechtsprüfung (R4).",
+    "- ⚠ Frage 17 (interner Zinsfuß gegen Kapitalwertmethode) und Frage 9 (Dual gegen Multiple Sourcing) nutzen die Kurstheorie wörtlich; Lehrbuchvarianten können abweichen.",
+    "- Aus dem Vorschlag weggelassen, weil der Kurs sie nicht unterscheidet: Push gegen Pull, FCA gegen FOB, Handelsspanne gegen Kalkulationszuschlag, Reexport gegen Transithandel (Grauzone), Cross-Docking gegen Kommissionierung (unscharf); Rabatt gegen Skonto und Konnossement gegen CMR-Frachtbrief sind gedeckt, aber nicht im Set. Die Themen 1.1 bis 1.4, 5.1, 5.2 und 7.3 haben keine Frage.",
+    "",
+  );
+  teile.push(...duellBloecke("handel-aehnlich", kennzahlenDuellHandelAehnlich));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1374,6 +1446,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [14 Technischer Fachwirt](14-technischer-fachwirt.md) | neue Zonen-Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation), Theorie, Begriffe-Duell „Technische Unterscheidungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [15 Wirtschaftsfachwirt](15-wirtschaftsfachwirt.md) | neue Zonen-Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell), Begriffe-Duell „Finanzierung und Controlling“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [16 Transport/Logistik](16-transport-logistik.md) | neue Zonen-Instrumente (Verkehrsträger, ABC-Analyse), Begriffe-Duell „Spedition und Fracht“ (Kursprofile Phase 1; **mit Fracht- und Zollrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [17 Handelsfachwirt](17-handelsfachwirt.md) | neue Zonen-Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix), neue Theorie (Handelskalkulation, Kraljic-Matrix), Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.",
     "",
@@ -1421,6 +1494,7 @@ function main() {
     ["14-technischer-fachwirt.md", kursBlatt(TEC_BLATT)],
     ["15-wirtschaftsfachwirt.md", kursBlatt(WIR_BLATT)],
     ["16-transport-logistik.md", kursBlatt(LOG_BLATT)],
+    ["17-handelsfachwirt.md", kursBlatt(HAN_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

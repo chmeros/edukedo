@@ -69,6 +69,9 @@ import {
   TopIllustration,
   UmlIllustration,
   VerkehrstraegerIllustration,
+  HandelskalkulationIllustration,
+  KraljicIllustration,
+  XyzIllustration,
   VerzeichnisdienstIllustration,
   VierSeitenIllustration,
   VierStufenIllustration,
@@ -459,6 +462,26 @@ const INSTRUMENT_CATALOG = [
     label: "Verkehrsträger",
     description: "Eigenschaften, Güter und Aufträge den vier Verkehrsträgern zuordnen: Straße, Schiene, Wasser und Luft.",
     Illustration: VerkehrstraegerIllustration,
+  },
+  // F-189 (Kursprofile Phase 1, Handelsfachwirt): drei Zonen-Instrumente für Bestandsführung, Preisbildung und Einkaufsstrategie (die ABC-Analyse
+  // aus F-183 bekommt hier eigenen Content und nutzt den bestehenden Katalogeintrag).
+  {
+    type: "xyz",
+    label: "XYZ-Analyse",
+    description: "Artikel nach der Regelmäßigkeit ihres Verbrauchs den Klassen X, Y und Z zuordnen.",
+    Illustration: XyzIllustration,
+  },
+  {
+    type: "handelskalkulation",
+    label: "Handelskalkulation",
+    description: "Posten der Bezugs-, Selbstkosten- und Verkaufskalkulation der richtigen Stufe zuordnen.",
+    Illustration: HandelskalkulationIllustration,
+  },
+  {
+    type: "kraljic",
+    label: "Kraljic-Matrix",
+    description: "Beschaffungsobjekte nach Gewinnauswirkung und Versorgungsrisiko als Hebel-, Strategische, Standard- oder Engpassprodukte einordnen.",
+    Illustration: KraljicIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

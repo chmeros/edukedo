@@ -149,6 +149,18 @@ Alles noch Entwurf (F-187): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 Alles noch Entwurf (F-188): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste.
 
+### Blatt 17 — Handelsfachwirt (nachträglich ergänzt, 16 Fragen, ein Duell-Set und zwei neue Theorieabschnitte)
+
+| Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse und Maßnahmen für B/C sind Ableitungen aus „mittlerer Bereich“ (Q-4.1-14, -15) |
+| XYZ-Analyse (`xyz`) | 4 | ◐ | Basic-Artikel als X abgeleitet (Q-4.1-17); „Y = mittlere Vorhersagegenauigkeit“ nur in einer Karteikarte (Q-4.1-18) |
+| Handelskalkulation (`handelskalkulation`) | 4 | ◐ | neue Theorie ohne Zwischenstufen (Bar-, Ziel-, Zieleinkaufspreis); Q-5.3-17 umformuliert |
+| Kraljic-Matrix (`kraljic`) | 4 | ◐ | neue Theorie; Feldbezeichnungen und Normstrategien lehrbuchabhängig |
+| Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Set) | 20 | ◐ | Fragen 18–20 (Incoterms, Akkreditiv, Ursprung) berühren Außenhandels- und Zollrecht |
+
+Alles noch Entwurf (F-189): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. **Bereits sichtbar:** die zwei neuen Theorieabschnitte samt je drei Karteikarten (Handelskalkulation in 5.3, Kraljic-Matrix in 7.1).
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.
