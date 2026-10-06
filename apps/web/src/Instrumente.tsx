@@ -11,6 +11,7 @@ import {
 import { useMemo, useState } from "react";
 import {
   AblaufIllustration,
+  AbcIllustration,
   AnalysewerkzeugeIllustration,
   AnsoffIllustration,
   BpmnIllustration,
@@ -35,6 +36,7 @@ import {
   OsiIllustration,
   PdcaIllustration,
   NetzsicherheitIllustration,
+  ProjektphasenIllustration,
   PyramideIllustration,
   RegelwerkeIllustration,
   RaidIllustration,
@@ -43,6 +45,7 @@ import {
   SensorAktorIllustration,
   SicherungsartenIllustration,
   SkalenniveausIllustration,
+  StakeholderIllustration,
   SwitchingIllustration,
   ScrumIllustration,
   SqlIllustration,
@@ -342,6 +345,25 @@ const INSTRUMENT_CATALOG = [
     label: "Kostenträger im Gesundheits- und Sozialwesen",
     description: "Wer zahlt was? Leistungen den Kostenträgern zuordnen — eine Übung zur Systematik, keine Sozialberatung.",
     Illustration: KostentraegerIllustration,
+  },
+  // F-183 (Kursprofile Phase 1, Büro-/Projektorganisation): drei Zonen-Instrumente für Projektmanagement und Beschaffung.
+  {
+    type: "projektphasen",
+    label: "Projektphasen",
+    description: "Tätigkeiten den sechs Schritten eines Projekts zuordnen: vom Projektauftrag bis zur Evaluation.",
+    Illustration: ProjektphasenIllustration,
+  },
+  {
+    type: "stakeholder",
+    label: "Stakeholder-Matrix",
+    description: "Beteiligte nach Einfluss und Interesse einordnen: eng einbinden, zufriedenstellen, informieren oder beobachten.",
+    Illustration: StakeholderIllustration,
+  },
+  {
+    type: "abc",
+    label: "ABC-Analyse",
+    description: "Güter, Lieferanten oder Aufgaben nach ihrem Wertanteil als A-, B- oder C-Klasse einordnen.",
+    Illustration: AbcIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

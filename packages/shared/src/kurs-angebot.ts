@@ -61,6 +61,10 @@ export const KATALOG_INSTRUMENTE = [
   // Kursprofile Phase 1 (Gesundheit/Soziales)
   "donabedian",
   "kostentraeger",
+  // Kursprofile Phase 1 (Büro-/Projektorganisation)
+  "projektphasen",
+  "stakeholder",
+  "abc",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -272,7 +276,19 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   handelsfachwirt: { instrumente: liste(OHNE()), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   immobilienfachwirt: { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   "versicherungen-finanzanlagen": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
-  "fachwirt-buero-projektorganisation": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: ["bsc"], szenarien: {} },
+  // Die neuen Instrumente (Projektphasen, Stakeholder-Matrix, ABC-Analyse) und das Duell-Set "projektmanagement" erst nach der Freigabe des
+  // Prüfblatts 12 aufnehmen; das Begriffe-Duell ist bis dahin auf das bestehende Set "standard" begrenzt.
+  "fachwirt-buero-projektorganisation": {
+    instrumente: liste(OHNE()),
+    werkzeuge: liste(["netzplan"]),
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: ["bsc"],
+    szenarien: {},
+  },
   // Neue Inhalte (PDCA-Fragen, Donabedian, Kostenträger, Duell-Set "gesundheit-sozialsystem") erst nach der fachlichen und rechtlichen
   // Freigabe des Prüfblatts 11 aufnehmen: PDCA bleibt bis dahin aus der Liste, das Duell auf das nicht vorhandene Set "standard" begrenzt.
   "fachwirt-gesundheit-soziales": {

@@ -20,6 +20,7 @@ import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konf
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
@@ -261,6 +262,17 @@ async function main() {
     "Begriffe-Duell: Gesundheits- und Sozialsystem",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellGesundheitSozialsystem),
     "gesundheit-sozialsystem",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Fachwirt für Büro- und
+  // Projektorganisation": Projektmanagement (Projektauftrag und -start, Planung und Steuerung, Netzplan und
+  // Puffer, Kontrolle, Dokumentation und Evaluation).
+  await upsertGame(
+    "fachwirt-buero-projektorganisation",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Projektmanagement",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellProjektmanagement),
+    "projektmanagement",
   );
 
   await pool.end();

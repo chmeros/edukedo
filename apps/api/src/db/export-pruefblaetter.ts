@@ -14,6 +14,7 @@ import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from ".
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
+import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
@@ -976,6 +977,58 @@ function gesNachspann(teile: string[]): void {
   teile.push(...duellBloecke("gesundheit-sozialsystem", kennzahlenDuellGesundheitSozialsystem));
 }
 
+const BUE_BLATT: KursBlatt = {
+  kurs: "fachwirt-buero-projektorganisation",
+  titel: "Fachwirt Büro- und Projektorganisation",
+  feature: "F-183",
+  theorie: [
+    {
+      datei: "hb1/1.3-projektmanagement.md",
+      ueberschrift: "Stakeholder analysieren und einbinden",
+      hinweise: [
+        "Im Kurs stand „Stakeholder“ vorher nur als Randnotiz in 1.3. Die Matrix selbst steht nicht im Rahmenplan (Beleg unsicher) und ist als „verbreitetes Hilfsmittel“ eingeführt — soll sie im Kurs bleiben?",
+        "Feldbezeichnungen: deutsche Fassung Eng einbinden / Zufriedenstellen / Informieren / Beobachten, englische Varianten („manage closely“ usw., „Macht-Interesse-Matrix“) sind im Text genannt.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "hb1/1.3-projektmanagement.md", typen: ["projektphasen", "stakeholder"] },
+    { datei: "hb4/4.2-einkauf-beschaffung.md", typen: ["abc"] },
+  ],
+  zonenHinweise: {
+    projektphasen: [
+      "**Gliederung der Kurstheorie (Thema 1.3):** sechs Zonen Projektauftrag analysieren, Projektstart vorbereiten, Projektablauf steuern, Projektkontrolle durchführen, Projektdokumentation erstellen, Projektevaluation durchführen. Der ursprüngliche Vorschlag hatte vier Phasen (Initiierung, Planung, Durchführung, Abschluss); in Lehrbüchern ist diese Gliederung verbreitet (Hinweis in der Erklärung von Q-1.3-23). Soll die Kursgliederung bleiben?",
+      "Die Kurstheorie überschneidet sich zwischen Steuerung (Überwachung von Zeit, Kosten, Meilensteinen) und Kontrolle (Ist-Soll-Vergleich). Die Fragen trennen bewusst: Steuerung = Überwachen, Risiko, Kommunikation, Konflikte, Gegensteuern; Kontrolle = Gegenüberstellen, Abgleich, Plan-Ist-Kennzahlen, Statusberichte prüfen. Q-1.3-23: „nach erkannter Terminabweichung Aufgaben umverteilen“ = Steuerung, das Erkennen = Kontrolle — in der Theorie nicht ausdrücklich so getrennt.",
+      "Grenzfälle: „Statusberichte prüfen“ unter Kontrolle (Theorie: Statusberichte als Kontrollinstrument), „Präsentationsunterlagen für Statusmeetings“ unter Dokumentation.",
+    ],
+    stakeholder: [
+      "Q-1.3-25 (Betriebsfeier als Veranstaltungsprojekt) und Q-1.3-27 (Compliance-Beauftragte nach einem Vorfall: Momentaufnahme-Logik, Einordnung kann sich ändern) — Grenzfälle absichtlich als Lernfälle angelegt.",
+      "Betrieb der Beispiele: die Bemus AG mit dem Projekt „Kundenverwaltungssoftware“ (aus hb1/fallaufgaben.md).",
+    ],
+    abc: [
+      "Es kommen keine Zahlen vor (weder 80/15/5 noch Prozentwerte): Die Kurstheorie führt keine Grenzwerte, nur „wenige/viele“ und „wertmäßig bedeutend/unbedeutend“; die Fragen sagen, dass Klassengrenzen üblicherweise Richtwerte sind.",
+      "Die Kurstheorie beschreibt nur A und C ausdrücklich; die B-Klasse („mittel“) ist Allgemeinwissen. Q-4.2-11 erwähnt zusätzlich die XYZ-Analyse (Verbrauchsregelmäßigkeit), die im Kurs nicht vorkommt, und beschreibt B-Aufgaben im Zeitmanagement („wichtige Aufgaben, aber ohne den hohen Effekt der wichtigsten“), während Thema 1.4 nur „B (wichtig)“ sagt — vorsichtige Auslegung.",
+    ],
+  },
+  nachspann: (teile) => bueNachspann(teile),
+};
+
+function bueNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Projektmanagement“ (Spiel „Begriffe-Duell“, Kurs Büro- und Projektorganisation)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Projektauftrag und Projektstart, Planung und Steuerung, Netzplan und Puffer, Kontrolle/Dokumentation/Evaluation). **Alle Aussagen stammen aus den Theorietexten der Kursdateien** (Themen 1.2, 1.3, 2.1; Rechtsstand dort 15.09.2026); es wurden keine Normen, Paragrafen oder Formeln aus dem Gedächtnis ergänzt.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ **Abweichung von der Planung:** Der Kurs behandelt Lastenheft, Gantt-Diagramm und Abschlussbericht nicht; ein Terminplan kommt nur als „Terminüberwachung“ vor. Die Netzplan-Begriffe (FAZ, FEZ, Puffer) stehen nicht in 1.3, sondern in 1.2 (Abschnitt „Netzplan berechnen“); Runde 3 stützt sich deshalb auf 1.2. Die Norm-Angabe zu DIN 69900 aus 1.2 wurde bewusst nicht übernommen.",
+    "- ⚠ Frage 15: Die Projektdauer 8 Tage folgt dem Beispiel aus 1.2 und setzt „B und C laufen parallel“ als Lesart voraus; das Feedback erklärt das, die Frage selbst nicht ausdrücklich. Frage 13 folgt ebenfalls genau dem Beispiel (D folgt auf B mit FEZ 5 und C mit FEZ 7, frühester Beginn 7).",
+    "- ⚠ Frage 14: Das Feedback behauptet „freier Puffer nie größer als Gesamtpuffer“ — steht so in 1.2 („immer FP ≤ GP“), ist aber eine Zusatzaussage.",
+    "- ⚠ Frage 7: „hierarchisch gegliedert“ stützt sich nur auf die Erklärung von Q-1.3-19; die Theorie in 2.1 sagt „gliedert in überschaubare Teilaufgaben, Arbeitspakete zuweisbar“.",
+    "- ⚠ Die falschen Antwortoptionen in den Fragen 17 (Korrektur günstiger bei später Entdeckung), 18 (nur Archivierung) und 20 (Einzelfall) sind selbst formuliert und bewusst offensichtlich falsch; der Kurs verneint sie nur indirekt.",
+    "",
+  );
+  teile.push(...duellBloecke("projektmanagement", kennzahlenDuellProjektmanagement));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1082,6 +1135,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [12 Büro- und Projektorganisation](12-buero-projektorganisation.md) | neue Zonen-Instrumente (Projektphasen, Stakeholder-Matrix, ABC-Analyse), Theorie, Begriffe-Duell „Projektmanagement“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [11 Gesundheit/Soziales](11-gesundheit-soziales.md) | neue Zonen-Instrumente (Donabedian, Kostenträger, PDCA), Begriffe-Duell „Gesundheits- und Sozialsystem“ (Kursprofile Phase 1; **mit Sozial- und Arbeitsrechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [10 AEVO](10-aevo.md) | neue Zonen-Instrumente, Theorie, Begriffe-Duell „Recht der Berufsausbildung“ (Kursprofile Phase 1; **mit Rechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [09 Systemintegration](09-systemintegration.md) | neue Zonen-Instrumente, Theorie, zwei Troubleshooting-Sets, Bug-Hunt „Skripte und Konfigurationsdateien“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
@@ -1125,6 +1179,7 @@ function main() {
     ["09-systemintegration.md", kursBlatt(SI_BLATT)],
     ["10-aevo.md", kursBlatt(AEVO_BLATT)],
     ["11-gesundheit-soziales.md", kursBlatt(GES_BLATT)],
+    ["12-buero-projektorganisation.md", kursBlatt(BUE_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

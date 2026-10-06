@@ -464,6 +464,36 @@ export const QUADRANT_MODELS = {
       { key: "pkv", label: "Private Krankenversicherung" },
     ],
   },
+  // F-183 (Kursprofile Phase 1, Büro-/Projektorganisation): drei weitere Modelle mit festen Zonen.
+  // Projektphasen in der Gliederung der Kurstheorie (Thema 1.3: sechs Abschnitte).
+  projektphasen: {
+    label: "Projektphasen",
+    zones: [
+      { key: "auftrag", label: "Projektauftrag analysieren" },
+      { key: "start", label: "Projektstart vorbereiten" },
+      { key: "steuerung", label: "Projektablauf steuern" },
+      { key: "kontrolle", label: "Projektkontrolle durchführen" },
+      { key: "dokumentation", label: "Projektdokumentation erstellen" },
+      { key: "evaluation", label: "Projektevaluation durchführen" },
+    ],
+  },
+  stakeholder: {
+    label: "Stakeholder-Matrix",
+    zones: [
+      { key: "eng", label: "Eng einbinden" },
+      { key: "zufriedenstellen", label: "Zufriedenstellen" },
+      { key: "informieren", label: "Informieren" },
+      { key: "beobachten", label: "Beobachten" },
+    ],
+  },
+  abc: {
+    label: "ABC-Analyse",
+    zones: [
+      { key: "a", label: "A-Klasse" },
+      { key: "b", label: "B-Klasse" },
+      { key: "c", label: "C-Klasse" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

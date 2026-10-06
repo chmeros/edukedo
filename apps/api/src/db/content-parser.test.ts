@@ -571,6 +571,23 @@ describe("parseQuizBlock", () => {
     if (traeger?.type === "kostentraeger") expect(traeger.terms.map((term) => term.zoneKey)).toEqual(["gkv", "pflegeversicherung", "sozialhilfe", "pkv"]);
   });
 
+  it("parst die Modelle aus F-183 (Projektphasen, Stakeholder-Matrix, ABC-Analyse)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-1.3-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const phasen = parse("Projektphasen", ["- Umfang und Ziele klären → Projektauftrag analysieren", "- Kick-off durchführen → Projektstart vorbereiten", "- Meilensteine überwachen → Projektablauf steuern", "- Ist mit Soll vergleichen → Projektkontrolle durchführen", "- Abschlussbericht schreiben → Projektdokumentation erstellen", "- Zielerreichung bewerten → Projektevaluation durchführen"]);
+    expect(phasen?.type).toBe("projektphasen");
+    if (phasen?.type === "projektphasen") expect(phasen.terms.map((term) => term.zoneKey)).toEqual(["auftrag", "start", "steuerung", "kontrolle", "dokumentation", "evaluation"]);
+
+    const stakeholder = parse("Stakeholder-Matrix", ["- Geschäftsführung mit Budgetverantwortung → Eng einbinden", "- Datenschutzbeauftragte mit Vetorecht → Zufriedenstellen", "- Kolleginnen mit Interesse, ohne Einfluss → Informieren", "- Lieferant ohne Bezug zum Projekt → Beobachten"]);
+    expect(stakeholder?.type).toBe("stakeholder");
+    if (stakeholder?.type === "stakeholder") expect(stakeholder.terms.map((term) => term.zoneKey)).toEqual(["eng", "zufriedenstellen", "informieren", "beobachten"]);
+
+    const abc = parse("ABC-Analyse", ["- wenige Artikel mit hohem Wertanteil → A-Klasse", "- mittlerer Wertanteil → B-Klasse", "- viele Artikel mit geringem Wertanteil → C-Klasse"]);
+    expect(abc?.type).toBe("abc");
+    if (abc?.type === "abc") expect(abc.terms.map((term) => term.zoneKey)).toEqual(["a", "b", "c"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

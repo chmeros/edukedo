@@ -408,6 +408,9 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `regelwerke` (**Regelwerke der Berufsausbildung**, F-181, 4 Zonen): Berufsbildungsgesetz (BBiG), Jugendarbeitsschutzgesetz (JArbSchG), Ausbildungsordnung und Ausbildungsrahmenplan, Rahmenlehrplan der Berufsschule
   - `donabedian` (**Qualitätsdimensionen nach Donabedian**, F-182, 3 Zonen): Strukturqualität, Prozessqualität, Ergebnisqualität
   - `kostentraeger` (**Kostenträger im Gesundheits- und Sozialwesen**, F-182, 4 Zonen): Gesetzliche Krankenversicherung (SGB V), Soziale Pflegeversicherung (SGB XI), Sozialhilfe (SGB XII), Private Krankenversicherung
+  - `projektphasen` (**Projektphasen**, F-183, 6 Zonen): Projektauftrag analysieren, Projektstart vorbereiten, Projektablauf steuern, Projektkontrolle durchführen, Projektdokumentation erstellen, Projektevaluation durchführen
+  - `stakeholder` (**Stakeholder-Matrix**, F-183, 4 Zonen): Eng einbinden, Zufriedenstellen, Informieren, Beobachten
+  - `abc` (**ABC-Analyse**, F-183, 3 Zonen): A-Klasse, B-Klasse, C-Klasse
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

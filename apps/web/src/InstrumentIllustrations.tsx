@@ -1168,6 +1168,88 @@ export function KostentraegerIllustration() {
   );
 }
 
+// F-183 (Kursprofile Phase 1, Büro-/Projektorganisation): Projektphasen, Stakeholder-Matrix, ABC-Analyse.
+
+export function ProjektphasenIllustration() {
+  const phasen = [
+    { x: 8, f: "var(--info)", s: "var(--info-deep)" },
+    { x: 60, f: "var(--sprout)", s: "var(--sprout-deep)" },
+    { x: 112, f: "var(--sun)", s: "var(--ink-soft)" },
+    { x: 164, f: "var(--coral)", s: "var(--coral-deep)" },
+    { x: 216, f: "var(--info)", s: "var(--info-deep)" },
+    { x: 268, f: "var(--sprout)", s: "var(--sprout-deep)" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {phasen.map((phase, index) => (
+        <g key={phase.x}>
+          <path d={`M${phase.x} 44h34l14 26-14 26h-34l14-26Z`} fill={phase.f} stroke={phase.s} strokeWidth="2.2" strokeLinejoin="round" />
+          <text x={phase.x + 24} y="76" fontSize="15" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {index + 1}
+          </text>
+        </g>
+      ))}
+      <path d="M20 112h280" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <path d="m292 106 8 6-8 6" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
+export function StakeholderIllustration() {
+  const felder = [
+    { x: 90, y: 14, f: "var(--coral)", t: "eng" },
+    { x: 30, y: 14, f: "var(--sun)", t: "zufr." },
+    { x: 90, y: 74, f: "var(--sprout)", t: "inform." },
+    { x: 30, y: 74, f: "var(--surface-2)", t: "beobacht." },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {felder.map((feld) => (
+        <g key={feld.t}>
+          <rect x={feld.x + 40} y={feld.y} width="56" height="54" rx="8" fill={feld.f} stroke="var(--ink-soft)" strokeWidth="2" />
+          <text x={feld.x + 68} y={feld.y + 31} fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {feld.t}
+          </text>
+        </g>
+      ))}
+      <path d="M62 128V12m0 0-4 8m4-8 4 8M62 128h188m0 0-8-4m8 4-8 4" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="252" y="124" fontSize="9" fontWeight="700" fill="var(--ink-soft)">
+        Interesse
+      </text>
+      <text x="68" y="10" fontSize="9" fontWeight="700" fill="var(--ink-soft)">
+        Einfluss
+      </text>
+      {[0, 1, 2].map((punkt) => (
+        <circle key={punkt} cx={[190, 210, 170][punkt]} cy={[40, 90, 100][punkt]} r="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      ))}
+    </Frame>
+  );
+}
+
+export function AbcIllustration() {
+  const balken = [
+    { x: 24, h: 88, f: "var(--coral)", s: "var(--coral-deep)", t: "A" },
+    { x: 84, h: 40, f: "var(--sun)", s: "var(--ink-soft)", t: "B" },
+    { x: 144, h: 18, f: "var(--sprout)", s: "var(--sprout-deep)", t: "C" },
+  ];
+  return (
+    <Frame background="var(--danger-tint)">
+      {balken.map((balken1) => (
+        <g key={balken1.t}>
+          <rect x={balken1.x} y={116 - balken1.h} width="46" height={balken1.h} rx="4" fill={balken1.f} stroke={balken1.s} strokeWidth="2.2" />
+          <text x={balken1.x + 23} y="132" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {balken1.t}
+          </text>
+        </g>
+      ))}
+      {/* Summenlinie */}
+      <path d="M210 116c20-4 36-24 52-48 12-18 24-34 40-44" fill="none" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M210 116h92M302 116V20" stroke="var(--ink-soft)" strokeWidth="1.8" />
+      <path d="M232 108v-14M262 108v-30M292 108v-62" stroke="var(--line-strong)" strokeWidth="1.2" strokeDasharray="3 3" />
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {
