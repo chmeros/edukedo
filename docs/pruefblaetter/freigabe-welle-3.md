@@ -2,14 +2,14 @@
 
 Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** Einheiten (Rahmenentscheidung R4: *was die Fachkenntnis übersteigt, bleibt ungeprüft und wird nicht freigeschaltet*). Diese Liste ist nach **Fachgebieten der Prüfenden** geordnet, damit jede Person nur ihren Teil bekommt. Die ausführlichen Prüfblätter (alle Fragen mit Erklärungen und ⚠-Hinweisen) liegen in `docs/pruefblaetter/`; die Gesamtübersicht steht in [freigabe.md](freigabe.md).
 
-**Umfang:** 11 Instrumente (44 Zuordnungsfragen), 3 Troubleshooting-Sets (je 10 Fälle) und 6 Begriffe-Duelle (je 20 Fragen). Alle sind im Kurs weder sichtbar noch im Lernen-Quiz; die Fragen sind inaktiv importiert (F-186).
+**Umfang (Stand nach den Entscheidungen vom 06.10.2026, F-192):** 12 Instrumente (48 Zuordnungsfragen), 3 Troubleshooting-Sets (je 10 Fälle) und 5 Begriffe-Duelle (je 20 Fragen). Alle sind im Kurs weder sichtbar noch im Lernen-Quiz; die Fragen sind inaktiv importiert (F-186). Das Handels-Duell ist inzwischen freigegeben (Fragen ohne Rechtsbezug), neu hinzugekommen ist das Instrument Risikopolitik.
 
 ## 1. So läuft eine Prüfung
 
 1. Die prüfende Person bekommt das Prüfblatt ihres Kurses (Links unten) und liest nur die genannten Einheiten.
 2. Je Frage genügt ein Vermerk: **frei** · **ändern (mit Text)** · **streichen**. Bei den Duellen genügt die Frage-Nummer.
 3. Die Rückmeldung geht an dich; ich setze die Änderungen um (Markdown bzw. Duell-Datei), importiere neu und schalte frei: `KURS_ENTWURF` → `KURS_ANGEBOT`, `pnpm db:freigeben <kurs> <typ>`, `pnpm db:apply-kurs-metadata`, bei Sets zusätzlich `pnpm db:seed-games`.
-4. Teilfreigaben sind möglich: Ein Duell kann um einzelne Fragen gekürzt werden (z. B. Handels-Duell ohne die Zollrecht-Fragen 18–20), ein Instrument nur komplett oder gar nicht.
+4. Duelle und Instrumente werden nur komplett freigegeben; rechtlich heikle Fragen eines Duells können vorher durch kurstheoretische ersetzt werden (so beim Handels-Duell geschehen).
 
 ## 2. Nach Fachgebiet der Prüfenden
 
@@ -27,13 +27,12 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 | Kostenträger (`kostentraeger`) | 4 Fragen | Häusliche Krankenpflege als GKV-Leistung (Schlussfolgerung aus dem Kurs); Überschneidung von PKV-Begriffen; „kommunaler Träger“ in Q-4.2-16 |
 | Begriffe-Duell „Gesundheits- und Sozialsystem“ | 20 Fragen | Probezeit sechs Monate beim Arbeitsverhältnis, Kündigungsschutz ohne Betriebsgrößenangabe, „Mitarbeitervertretung“ statt Betriebsrat |
 
-### C. Fracht-, Zoll- und Außenhandelsrecht (Prüfblätter [13](13-industriefachwirt.md), [16](16-transport-logistik.md), [17](17-handelsfachwirt.md))
+### C. Fracht-, Zoll- und Außenhandelsrecht (Prüfblätter [13](13-industriefachwirt.md), [16](16-transport-logistik.md))
 
 | Einheit | Umfang | Was zu prüfen ist |
 | --- | --- | --- |
 | Incoterms (`incoterms`, Industriefachwirt) | 4 Fragen | Nur eigene Worte (ICC-Regelwerk geschützt); FOB-Aussage zum Seetransport; bewusst keine Aussage zum Gefahrenübergang bei CIF |
 | Begriffe-Duell „Spedition und Fracht“ (Transport/Logistik) | 20 Fragen | Fragen 1–3 HGB-Frachtrecht (Speditions- gegen Frachtvertrag, Selbsteintritt, grobe Fahrlässigkeit), 4 und 6 CMR (inkl. „Beweisurkunde, kein Wertpapier“), 5 Haftungsversicherungen, 17–19 Zollrecht (Versandverfahren, EORI/ATLAS, Präferenznachweis gegen Ursprungszeugnis) |
-| Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Handelsfachwirt) | 20 Fragen | Nur die Fragen 18–20 (CIF gegen FOB, Dokumentenakkreditiv gegen Inkasso, präferenzieller Ursprung) berühren Außenhandelsrecht; die übrigen 17 sind kurstheoretisch. **Teilfreigabe ohne 18–20 möglich** |
 
 ### D. Miet-, WEG-, Bau- und Maklerrecht (Immobilienfachwirt, Prüfblatt [18](18-immobilienfachwirt.md))
 
@@ -41,7 +40,7 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 | --- | --- | --- |
 | Wege der Mieterhöhung (`mieterhoehung`) | 4 Fragen | Kurstext nennt Paragrafen und Zahlen (Kappungsgrenzen, Sperrfrist, Modernisierungsumlage, Staffelabstand); Rechtsstand; Ausschluss der Vergleichsmieterhöhung bei Staffel-/Indexmiete nur als „grundsätzlich“ |
 | Betriebskosten (`betriebskosten`) | 4 Fragen | Dreiteilung umlagefähig / nicht umlagefähig / verbrauchsabhängig (Heizkostenverordnung) überschneidet sich; Beispiele wie „Reparatur Treppengeländer“ nicht im Kurstext |
-| WEG-Organe (`wegorgane`) | 4 Fragen | **Theorie zum Verwaltungsbeirat fehlt** (nur eine Aussage in Q-4.2-12); Abberufung des Verwalters bei der Versammlung abgeleitet; „zertifizierter Verwalter“ verkürzt |
+| WEG-Organe (`wegorgane`) | 4 Fragen | Neuer Theorieabschnitt „Der Verwaltungsbeirat“ (rechtlich ungeprüft, Einzelaussagen im Prüfblatt 18); Abberufung des Verwalters bei der Versammlung abgeleitet; „zertifizierter Verwalter“ verkürzt |
 | Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ | 20 Fragen | Rechtsbezug in 2–5 (Grundschuld/Hypothek, Gemeinschaftsformen, Standesregeln, nichtig/anfechtbar), 7–9 (Mieterhöhung, Kündigung, umlagefähig), 13–14 (Bauplanung/Bauordnung), 18 (Makler), 20 (Energieausweis in der Anzeige; Rechtsgrundlage bewusst weggelassen) |
 
 ### E. Versicherungs-, Beratungs- und Steuerrecht (Prüfblatt [19](19-versicherungen-finanzanlagen.md))
@@ -49,6 +48,7 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 | Einheit | Umfang | Was zu prüfen ist |
 | --- | --- | --- |
 | Drei-Schichten-Modell der Altersvorsorge (`altersvorsorge`) | 4 Fragen | Zuordnung von Direktversicherung, Pensionsfonds, Zulagen und Immobilienvermögen (teils abgeleitet); „nicht vererbbar“ absoluter formuliert als der Kurs („grundsätzlich“); Reformvorhaben nicht berücksichtigt |
+| Risikopolitik (`risikopolitik`, neu durch F-192) | 4 Fragen plus Theorie | Neuer Theorieabschnitt „Risikopolitik: vier Strategien im Umgang mit Risiken“ mit sinngemäßer Einordnung der Matrixbegriffe (Beobachten gleich Vermindern ist die schwächste Zuordnung); Vertragsgestaltung als Überwälzen (Wirksamkeit von Haftungsverlagerungen rechtlich ungeprüft) |
 | Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ | 20 Fragen | Gegenlesen vor allem 1 (Äquivalenz-/Solidarprinzip), 4 (Basisrente/Riester), 5 (BU/Erwerbsminderung, Verweisbarkeit), 11 (Dokumentation/Beratung), 12 (Anzeigepflichten und Folgen), 13 (Regress), 16 (Unterversicherungsverzicht) |
 
 ### F. Normen (technische Normung)
@@ -56,7 +56,7 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 | Einheit | Umfang | Was zu prüfen ist |
 | --- | --- | --- |
 | Instandhaltung nach DIN 31051 (`instandhaltung`, Technischer Fachwirt, Prüfblatt [14](14-technischer-fachwirt.md)) | 4 Fragen | Begriffe Wartung, Inspektion, Instandsetzung, Verbesserung in der Kursfassung; Beispiele ohne Kursbeleg (Dichtungen, Schutzabdeckung u. a.); Grenzfälle (TPM-Reinigung = Wartung, Prüfung vor Schichtbeginn = Inspektion) |
-| DIN-276-Kostengruppen (`kostengruppen`, Immobilienfachwirt, Prüfblatt [18](18-immobilienfachwirt.md)) | 4 Fragen | Sieben Gruppen nach Kurstheorie; **Erschließung** steht im Kurs bei KG 500, nach DIN 276 vermutlich bei den vorbereitenden Maßnahmen (KG 200); KG-600-Beispiele (Kunstwerk, Mobiliar) abgeleitet |
+| DIN-276-Kostengruppen (`kostengruppen`, Immobilienfachwirt, Prüfblatt [18](18-immobilienfachwirt.md)) | 4 Fragen | Sieben Gruppen nach Kurstheorie; Erschließungsbeispiel aus KG 500 entfernt — ob die Erschließung zu KG 200 gehört, klärt die Normprüfung; KG-600-Beispiele (Kunstwerk, Mobiliar) abgeleitet |
 
 ### G. IT-Administration und Netzwerke (Prüfblätter [08](08-digitale-vernetzung.md), [09](09-systemintegration.md))
 
@@ -69,19 +69,19 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 
 *Hinweis:* Bei den IT-Einheiten reicht oft eine Fachkraft mit Praxis (kein Rechtswissen); für die Troubleshooting-Sets sind die Logzeilen der kritische Teil, weil sie aus Kenntnis statt aus einem echten Lauf stammen.
 
-### H. Didaktische Entscheidung (kein Recht)
+### H. Didaktik (entschieden, bitte gegenlesen)
 
 | Einheit | Umfang | Zu entscheiden |
 | --- | --- | --- |
-| Vier-Stufen-Methode (`vierstufen`, AEVO, Prüfblatt [10](10-aevo.md)) | 4 Fragen plus Theorie | **Kursfassung** (Stufe 1 = Vorbereiten, Vormachen und Erklären) **gegen die übliche Fassung** mit vier getrennten Stufen. Betrifft Theorie, Zonen und Fragen; Antwort von dir oder einer ausbildungserfahrenen Person |
+| Vier-Stufen-Methode (`vierstufen`, AEVO, Prüfblatt [10](10-aevo.md)) | 4 Fragen plus Theorie | **Entschieden am 06.10.2026: übliche Fassung** (Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen); Theorie und Fragen sind umgestellt. Nur noch Gegenlesen der Zonenfragen Q-3.2-10 bis -13 (Vorbereiten als eigene Stufe) durch eine ausbildungserfahrene Person; danach Freigabe |
 
-## 3. Offene Entscheidungen von dir (unabhängig von der Fachprüfung)
+## 3. Entscheidungen (getroffen am 06.10.2026, F-192)
 
-1. **Vier-Stufen-Methode:** Kursfassung beibehalten oder auf die übliche Fassung umstellen (Punkt H).
-2. **Verwaltungsbeirat (Immobilien):** Theorieabsatz ergänzen (am besten durch die Rechtsprüfung geliefert) oder die Zone streichen und `wegorgane` auf zwei Zonen reduzieren.
-3. **Erschließung in der Theorie 5.4 (Immobilien):** Theorietext korrigieren (KG 200) oder bei der Kursfassung bleiben.
-4. **Risikopolitik im Versicherungskurs (Frage F6):** Standardbegriffe (vermeiden, vermindern, überwälzen, selbst tragen) oder die bestehenden Kurszonen (vermeiden, absichern, beobachten, akzeptieren). Ohne Entscheidung entsteht kein neues Modell.
-5. **Handels-Duell:** ganz sperren, teilfreigeben (ohne Fragen 18–20) oder nach Rechtsprüfung komplett freigeben.
+1. **Vier-Stufen-Methode:** übliche Fassung — umgesetzt (Punkt H).
+2. **Verwaltungsbeirat:** Theorieabsatz entworfen — umgesetzt, rechtlich ungeprüft (Punkt D).
+3. **Erschließung in der Theorie 5.4:** Beispiel neutral entfernt — umgesetzt (Punkt F).
+4. **Risikopolitik im Versicherungskurs (Frage F6):** Standardbegriffe — als neues Instrument mit Theorie umgesetzt, Entwurf (Punkt E).
+5. **Handels-Duell:** drei Fragen ohne Rechtsbezug ersetzt und freigegeben — umgesetzt; aus dieser Liste entfernt.
 
 ## 4. Bereits sichtbar, aber mit offenen Hinweisen
 
@@ -98,4 +98,4 @@ Diese Einheiten sind in den Wellen 1, 2 und 2b ohne Einzelentscheidung freigegeb
 
 1. **Zuerst ohne Rechtswissen lösbar:** Vier-Stufen-Methode (deine Entscheidung), IT-Einheiten (Fachkraft), Normen (Fachperson mit Normzugang).
 2. **Danach eine Rechtsperson je Gebiet:** Arbeits-/Berufsbildungsrecht und Sozialrecht in einem Durchgang (AEVO und Gesundheit/Soziales), Fracht/Zoll gemeinsam (Industrie, Transport, Handel), Immobilienrecht gesondert, Versicherungs- und Steuerrecht gesondert.
-3. **Teilfreigaben nutzen:** Das Handels-Duell ohne 18–20 und Duelle mit gekürzten Fragen sind schneller freizugeben als vollständige Einheiten.
+3. **Rechtsfreie Fassungen bevorzugen:** Wie beim Handels-Duell lassen sich Duell-Fragen mit Rechtsbezug durch kurstheoretische Fragen ersetzen, dann entfällt die Rechtsprüfung für diese Fragen; eine Teilfreigabe einzelner Fragen eines Sets ist technisch nicht vorgesehen.

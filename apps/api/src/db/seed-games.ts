@@ -325,8 +325,8 @@ async function main() {
   );
 
   // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Handelsfachwirt": Handel — ähnlich, aber
-  // nicht gleich (Markt, Sortiment und Marketing, Bedarf und Beschaffung, Lager und Bestand, Konditionen, Investition
-  // und Außenhandel).
+  // nicht gleich (Markt, Sortiment und Marketing, Bedarf und Beschaffung, Lager und Bestand, Konditionen und
+  // Investition).
   await upsertGame(
     "handelsfachwirt",
     "kennzahlen_duell",

@@ -5,7 +5,7 @@ import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-h
 /**
  * Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ für den Kurs „Handelsfachwirt“ (handelsfachwirt)
  * (setKey "handel-aehnlich"): Qualitätsregeln für die Inhalte, geprüft ohne Datenbank.
- * Die Aussagen stammen ausschließlich aus den Theorietexten der Kursdateien (Themen 3.1, 3.2, 3.3, 3.4, 4.1, 4.3, 5.3, 6.2, 7.1, 7.2, 8.1, 8.2 und 8.3).
+ * Die Aussagen stammen ausschließlich aus den Theorietexten der Kursdateien (Themen 3.1, 3.2, 3.3, 3.4, 4.1, 4.3, 5.3, 6.2, 7.1 und 7.2).
  * Das Set verwendet keine Zahlenwerte, Formeln, Normangaben oder Paragrafenzeichen.
  */
 
@@ -90,7 +90,7 @@ describe("Begriffe-Duell handel-aehnlich", () => {
   });
 
   it("verweist nur auf Themen, die im Kurs für dieses Set belegt sind", () => {
-    const erlaubteThemen = ["3.1", "3.2", "3.3", "3.4", "4.1", "4.3", "5.3", "6.2", "7.1", "7.2", "8.1", "8.2", "8.3"];
+    const erlaubteThemen = ["3.1", "3.2", "3.3", "3.4", "4.1", "4.3", "5.3", "6.2", "7.1", "7.2"];
     for (const frage of fragen) {
       for (const text of [frage.feedbackRichtig, frage.feedbackFalsch]) {
         for (const treffer of text.matchAll(/Thema (\d+\.\d+)/g)) {

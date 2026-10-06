@@ -541,7 +541,7 @@ describe("parseQuizBlock", () => {
     expect(hf?.type).toBe("handlungsfelder");
     if (hf?.type === "handlungsfelder") expect(hf.terms.map((term) => term.zoneKey)).toEqual(["hf1", "hf2", "hf3", "hf4"]);
 
-    const stufen = parse("Vier-Stufen-Methode", ["- Arbeitsplatz bereitlegen → Stufe 1: Vorbereiten, Vormachen und Erklären", "- Azubi führt den Handgriff selbst aus → Stufe 2: Nachmachen lassen", "- Wiederholen mit steigender Geschwindigkeit → Stufe 3: Üben lassen", "- Auftrag eigenverantwortlich erledigen → Stufe 4: Selbstständig durchführen lassen"]);
+    const stufen = parse("Vier-Stufen-Methode", ["- Arbeitsplatz bereitlegen → Stufe 1: Vorbereiten", "- Handgriff vorführen und erklären → Stufe 2: Vormachen und Erklären", "- Azubi führt den Handgriff selbst aus → Stufe 3: Nachmachen lassen", "- Wiederholen mit steigender Geschwindigkeit → Stufe 4: Üben lassen"]);
     expect(stufen?.type).toBe("vierstufen");
     if (stufen?.type === "vierstufen") expect(stufen.terms.map((term) => term.zoneKey)).toEqual(["stufe1", "stufe2", "stufe3", "stufe4"]);
 
@@ -720,6 +720,22 @@ describe("parseQuizBlock", () => {
     const kennzahlen = parse("Kennzahlen der Versicherungstechnik", ["- Schadenaufwendungen → Schadenquote", "- Abschlusskosten → Kostenquote", "- Summe aus beiden Quoten → Combined Ratio"]);
     expect(kennzahlen?.type).toBe("versicherungskennzahlen");
     if (kennzahlen?.type === "versicherungskennzahlen") expect(kennzahlen.terms.map((term) => term.zoneKey)).toEqual(["schaden", "kosten", "combined"]);
+  });
+
+  it("parst das Modell aus F-192 (Risikopolitik)", () => {
+    const block = [
+      "#### Q-2.5-12 · Risikopolitik",
+      "**Anweisung:** Ordne zu.",
+      "- auf die riskante Tätigkeit verzichten → Vermeiden",
+      "- Brandschutzanlage einbauen → Vermindern",
+      "- Risiko versichern → Überwälzen",
+      "- Selbstbehalt vereinbaren → Selbst tragen",
+      "**Erklärung:** ...",
+      "`schwierigkeit: leicht`",
+    ].join("\n");
+    const risiko = parseQuizBlock(block);
+    expect(risiko?.type).toBe("risikopolitik");
+    if (risiko?.type === "risikopolitik") expect(risiko.terms.map((term) => term.zoneKey)).toEqual(["vermeiden", "vermindern", "ueberwaelzen", "selbsttragen"]);
   });
 
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {

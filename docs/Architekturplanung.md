@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-192: Entscheidungen zur Freigabewelle 3)
+
+- **Anlass:** Die Prüfliste für Freigabewelle 3 (docs/pruefblaetter/freigabe-welle-3.md) nannte fünf offene Entscheidungen; der Nutzer hat sie am 06.10.2026 beantwortet.
+- **Vier-Stufen-Methode:** Übliche Fassung (Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen). Begründung: Die übrigen Kurse (Handel, Transport, Büro, Versicherungen, Wirtschaft) verwenden dieselbe Gliederung, und die Kursfassung der AEVO (Stufe 1 = Vorbereiten, Vormachen und Erklären) wich von der Prüfungsfassung ab. Betroffen: Theorie 3.2, K-3.2-04, Q-3.2-03, Q-3.2-06, Q-3.2-10 bis -13; Modell `vierstufen` neu beschriftet. Die Fragen sind weiterhin Entwurf (Gliederung der Begriffe in den Zonenfragen zusätzlich gegenlesen).
+- **Verwaltungsbeirat:** Statt die Zone zu streichen wurde ein allgemeiner Theorieabsatz geschrieben (Gremium aus Eigentümern, nicht zwingend, unterstützt und überwacht den Verwalter, keine Verwaltungsaufgaben anstelle des Verwalters, nach außen grundsätzlich der Verwalter). Er ist rechtlich ungeprüft und bleibt bis zur Rechtsprüfung gesperrt (R4); die Erklärungen von Q-4.2-14 bis -17 verweisen nun auf den Abschnitt.
+- **Erschließung:** Nur Entfernen des Beispiels, keine Umordnung auf KG 200, weil die Zuordnung ohne Normzugang nicht gesichert ist; die Normprüfung entscheidet.
+- **Handels-Duell:** Teilfreigabe durch Austausch statt Kürzung (die vier Runden à fünf Fragen bleiben erhalten); die neuen Fragen stammen aus den Themen 5.3 und 6.2. Duelle werden damit entweder vollständig frei von Rechtsbezug freigegeben oder gesperrt; eine Teilfreigabe einzelner Fragen eines Sets ist nicht vorgesehen.
+- **Risikopolitik (F6):** Entscheidung für die Standardbegriffe; deshalb Modell `risikopolitik` neben dem Modell `risiko` (Risikomatrix). Beide haben eine Zone „Vermeiden“ mit unterschiedlicher Bedeutung; die neue Theorie ordnet die Matrixbegriffe sinngemäß ein (Absichern gleich Überwälzen, Akzeptieren gleich Selbst tragen, Beobachten am ehesten Vermindern; schwächste Zuordnung, im Prüfblatt vermerkt). Die bestehenden Risikomatrix-Fragen blieben unverändert, um keine bereits freigegebenen Inhalte zu verschieben.
+- **Technik:** `risikopolitik` in `QUADRANT_MODELS`, `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, Illustration, Katalogeintrag, Parser-Test, `KURS_ENTWURF` (Versicherungen jetzt `altersvorsorge` und `risikopolitik`); Handels-Duell in `KURS_ANGEBOT` statt des Platzhalters `standard`.
+- **Verifiziert:** Dev-Datenbank nach Neuimport — `vierstufen`, `wegorgane` und `risikopolitik` inaktiv, Handels-Duell in der Kursliste; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-191: Kursprofile Phase 1 — Versicherungen/Finanzanlagen)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für Versicherungen/Finanzanlagen“; mit diesem Kurs ist Phase 1 für alle Kurse außer Mathematik einmal durchlaufen. Maßstab wie F-177 bis F-190: nur Vorschläge, die sich allein aus der vorhandenen Kurstheorie belegen lassen (I-VER-01, I-VER-05, S-VER-02).

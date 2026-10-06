@@ -409,14 +409,14 @@ export const QUADRANT_MODELS = {
       { key: "hf4", label: "HF 4: Ausbildung abschließen" },
     ],
   },
-  // Stufenbezeichnungen der Kurstheorie (Thema 3.2): Stufe 1 fasst Vorbereiten, Vormachen und Erklären zusammen.
+  // Übliche Fassung der Vier-Stufen-Methode (Nutzer-Entscheidung vom 06.10.2026, F-192): Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen.
   vierstufen: {
     label: "Vier-Stufen-Methode",
     zones: [
-      { key: "stufe1", label: "Stufe 1: Vorbereiten, Vormachen und Erklären" },
-      { key: "stufe2", label: "Stufe 2: Nachmachen lassen" },
-      { key: "stufe3", label: "Stufe 3: Üben lassen" },
-      { key: "stufe4", label: "Stufe 4: Selbstständig durchführen lassen" },
+      { key: "stufe1", label: "Stufe 1: Vorbereiten" },
+      { key: "stufe2", label: "Stufe 2: Vormachen und Erklären" },
+      { key: "stufe3", label: "Stufe 3: Nachmachen lassen" },
+      { key: "stufe4", label: "Stufe 4: Üben lassen" },
     ],
   },
   lernzielbereiche: {
@@ -710,6 +710,16 @@ export const QUADRANT_MODELS = {
       { key: "schaden", label: "Schadenquote" },
       { key: "kosten", label: "Kostenquote" },
       { key: "combined", label: "Combined Ratio" },
+    ],
+  },
+  // F-192 (Nutzer-Entscheidung vom 06.10.2026, Frage F6): Risikopolitik mit den Standardbegriffen (Versicherungen/Finanzanlagen, Thema 2.5).
+  risikopolitik: {
+    label: "Risikopolitik",
+    zones: [
+      { key: "vermeiden", label: "Vermeiden" },
+      { key: "vermindern", label: "Vermindern" },
+      { key: "ueberwaelzen", label: "Überwälzen" },
+      { key: "selbsttragen", label: "Selbst tragen" },
     ],
   },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;

@@ -2009,3 +2009,29 @@ export function VersicherungskennzahlenIllustration() {
     </Frame>
   );
 }
+
+export function RisikopolitikIllustration() {
+  const wege = [
+    { x: 16, f: "var(--coral)", s: "var(--coral-deep)", t: "Vermeiden" },
+    { x: 90, f: "var(--sun)", s: "var(--ink-soft)", t: "Vermindern" },
+    { x: 164, f: "var(--info)", s: "var(--info-deep)", t: "Überwälzen" },
+    { x: 238, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Selbst tragen" },
+  ];
+  return (
+    <Frame background="var(--danger-tint)">
+      <path d="M160 14 L172 36 H148 Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <text x="160" y="32" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        !
+      </text>
+      <path d="M160 40v14M49 54H271M49 54v22M123 54v22M197 54v22M271 54v22" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {wege.map((weg) => (
+        <g key={weg.t}>
+          <rect x={weg.x} y="76" width="66" height="44" rx="8" fill={weg.f} stroke={weg.s} strokeWidth="2" />
+          <text x={weg.x + 33} y="102" fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {weg.t}
+          </text>
+        </g>
+      ))}
+    </Frame>
+  );
+}

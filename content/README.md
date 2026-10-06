@@ -402,7 +402,7 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `verzeichnisdienst` (**Verzeichnisdienst und Berechtigungen**, F-180, 5 Zonen): Benutzerkonto, Gruppe, Organisationseinheit (OU), Gruppenrichtlinie (GPO), Berechtigung (ACL)
   - `switching` (**Switching, VLAN, Routing und Redundanz**, F-180, 4 Zonen): Switching (Layer 2), VLAN/Trunking, Routing (Layer 3), Redundanz (Spanning Tree)
   - `handlungsfelder` (**Handlungsfelder der AEVO**, F-181, 4 Zonen): HF 1: Voraussetzungen prüfen, Ausbildung planen · HF 2: Ausbildung vorbereiten, Einstellung · HF 3: Ausbildung durchführen · HF 4: Ausbildung abschließen
-  - `vierstufen` (**Vier-Stufen-Methode**, F-181, 4 Zonen): Stufe 1: Vorbereiten, Vormachen und Erklären · Stufe 2: Nachmachen lassen · Stufe 3: Üben lassen · Stufe 4: Selbstständig durchführen lassen
+  - `vierstufen` (**Vier-Stufen-Methode**, F-181, 4 Zonen): Stufe 1: Vorbereiten · Stufe 2: Vormachen und Erklären · Stufe 3: Nachmachen lassen · Stufe 4: Üben lassen (übliche Fassung, F-192)
   - `lernzielbereiche` (**Lernzielbereiche**, F-181, 3 Zonen): Kognitiv, Affektiv, Psychomotorisch
   - `beurteilungsfehler` (**Beurteilungsfehler**, F-181, 5 Zonen): Halo-Effekt, Tendenz zur Mitte, Milde- und Strengefehler, Sympathie und Antipathie, Recency-Effekt
   - `regelwerke` (**Regelwerke der Berufsausbildung**, F-181, 4 Zonen): Berufsbildungsgesetz (BBiG), Jugendarbeitsschutzgesetz (JArbSchG), Ausbildungsordnung und Ausbildungsrahmenplan, Rahmenlehrplan der Berufsschule
@@ -434,6 +434,7 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `kostengruppen` (**DIN-276-Kostengruppen**, F-190, 7 Zonen): KG 100 bis KG 700
   - `altersvorsorge` (**Drei-Schichten-Modell der Altersvorsorge**, F-191, 3 Zonen): Schicht 1 Basisversorgung, Schicht 2 Zusatzversorgung, Schicht 3 Private Vorsorge
   - `versicherungskennzahlen` (**Kennzahlen der Versicherungstechnik**, F-191, 3 Zonen): Schadenquote, Kostenquote, Combined Ratio
+  - `risikopolitik` (**Risikopolitik**, F-192, 4 Zonen): Vermeiden, Vermindern, Überwälzen, Selbst tragen
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

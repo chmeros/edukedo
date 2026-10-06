@@ -74,6 +74,7 @@ import {
   XyzIllustration,
   AltersvorsorgeIllustration,
   VersicherungskennzahlenIllustration,
+  RisikopolitikIllustration,
   BetriebskostenIllustration,
   KostengruppenIllustration,
   MieterhoehungIllustration,
@@ -533,6 +534,13 @@ const INSTRUMENT_CATALOG = [
     label: "Kennzahlen der Versicherungstechnik",
     description: "Bestandteile und Aussagen der Schadenquote, der Kostenquote oder der Combined Ratio zuordnen.",
     Illustration: VersicherungskennzahlenIllustration,
+  },
+  // F-192: Risikopolitik mit den Standardbegriffen (Versicherungen/Finanzanlagen).
+  {
+    type: "risikopolitik",
+    label: "Risikopolitik",
+    description: "Maßnahmen im Umgang mit einem Risiko als Vermeiden, Vermindern, Überwälzen oder Selbst tragen einordnen.",
+    Illustration: RisikopolitikIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

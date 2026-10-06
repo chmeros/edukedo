@@ -1,8 +1,128 @@
 # Prüfblatt Versicherungen/Finanzanlagen — neue Inhalte (Kursprofile Phase 1)
 
-Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191). **Alle Inhalte sind Entwürfe.** Die neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (`kurs-angebot.ts`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.
+Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, F-192). **Alle Inhalte sind Entwürfe.** Die neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (`kurs-angebot.ts`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.
 
 ## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)
+
+### Risikopolitik (4 Fragen) — Zonen: Vermeiden · Vermindern · Überwälzen · Selbst tragen
+
+**Besonders prüfen:**
+- ⚠ Standardbegriffe der Risikopolitik; das Modell `risiko` (Risikomatrix, Zonen Vermeiden/Absichern/Beobachten/Akzeptieren) bleibt davon getrennt. Beide haben die Zone „Vermeiden“, aber mit unterschiedlicher Bedeutung (Ergebnis der Einordnung bei der Matrix, Strategie „auf die Tätigkeit verzichten“ bei der Risikopolitik); die Fragen Q-2.5-15 bis -18 verwenden die Matrixbegriffe Absichern, Beobachten und Akzeptieren nirgends.
+- ⚠ Q-2.5-15: Ob „Rücklagen“ als Selbst tragen oder als Selbstversicherung geführt wird — die Theorie nennt Rücklagen ausdrücklich. Q-2.5-16: Selbstbehalt bei der Inventarversicherung als Selbst tragen, obwohl die Versicherung selbst Überwälzen ist (als Teilung gemeint, in der Erklärung begründet); die Vertragsklausel zum Subunternehmer ist nur sinngemäß fachlich.
+- ⚠ Q-2.5-17: „Verzicht auf einen Auftrag, weil das Risiko in keinem Verhältnis zum Ertrag steht“ als Vermeiden (nach einer Lesart eher Risikoscheu als Risikoverhalten, aber üblich).
+- ⚠ **Q-2.5-18 (schwerste Frage):** „Versichert, aber keine Schadenverhütung“ zeigt Überwälzen bewusst als Negativbeispiel; wer „tut nichts zur Schadenverhütung“ als Hinweis auf Vermindern liest, könnte stolpern. „Verzicht auf eine Anlage, die er nicht sicher beherrschen könnte“ als Vermeiden ist grenzwertig, liegt aber innerhalb der Definition („Tätigkeit oder Anlage“).
+
+#### Q-2.5-15 · Risikopolitik (Leicht)
+
+*Ordne die Beschreibungen der passenden Strategie der Risikopolitik zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Auf die riskante Tätigkeit oder Anlage ganz verzichten | Vermeiden |
+| Einen Auftrag mit besonders hoher Brandgefahr gar nicht erst annehmen | Vermeiden |
+| Eintrittswahrscheinlichkeit oder Schadenhöhe eines Risikos senken | Vermindern |
+| Brandschutz, Wartung und Schulung der Mitarbeitenden | Vermindern |
+| Die finanziellen Folgen eines Risikos auf Dritte übertragen | Überwälzen |
+| Eine Versicherung gegen Prämie abschließen | Überwälzen |
+| Ein verkraftbares Risiko bewusst behalten | Selbst tragen |
+| Rücklagen aus eigenen Mitteln für kleinere Schäden bilden | Selbst tragen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Jede Strategie setzt an einer anderen Stelle an: Vermeiden beendet das Risiko, Vermindern senkt es, Überwälzen verlagert die finanziellen Folgen auf Dritte, Selbst tragen behält es bewusst. Typische Verwechslung: Vermindern senkt das Risiko nur, Vermeiden beendet es ganz.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-2.5-16 · Risikopolitik (Mittel)
+
+*Ordne die Maßnahmen von „Katz Fensterbau GmbH" der passenden Strategie der Risikopolitik zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Katz verzichtet ganz auf eine Lackiertechnik mit besonders hoher Brandgefahr | Vermeiden |
+| Katz lehnt einen Auftragstyp ab, der eine sehr gefährliche Arbeitsweise verlangt | Vermeiden |
+| Katz lässt die Elektroinstallation regelmäßig warten | Vermindern |
+| Katz schult die Mitarbeitenden im Umgang mit Lacken und Lösemitteln | Vermindern |
+| Katz schließt eine Betriebshaftpflichtversicherung ab | Überwälzen |
+| Katz vereinbart mit einem Subunternehmer vertraglich, dass dieser für seine eigenen Fehler haftet | Überwälzen |
+| Katz vereinbart bei der Inventarversicherung einen Selbstbehalt und trägt kleine Schäden daraus selbst | Selbst tragen |
+| Katz bildet Rücklagen für den Verlust einfacher Handwerkzeuge | Selbst tragen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Wartung und Schulung lassen das Risiko bestehen und senken es nur, sie sind daher Vermindern und nicht Vermeiden. Die Versicherung und die Haftungsregelung verlagern die Folgen auf Dritte und sind Überwälzen. Typische Verwechslung: Ein Selbstbehalt ist Selbst tragen, nicht Überwälzen, denn dieser Teil des Schadens bleibt beim Betrieb.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-2.5-17 · Risikopolitik (Mittel)
+
+*Ordne die Situationen aus der Beratung durch die Nordantis Versicherung AG der passenden Strategie der Risikopolitik zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Eine Tätigkeit, die laufend zu Beinaheunfällen führt und sich nicht sicherer machen lässt, wird eingestellt | Vermeiden |
+| Der Betrieb verzichtet auf einen Auftrag, weil das Risiko in keinem Verhältnis zum Ertrag steht | Vermeiden |
+| Nach der Betriebsbegehung werden Rauchmelder und eine Löschanlage nachgerüstet, damit ein Brand weniger Schaden anrichtet | Vermindern |
+| Der Betrieb verbessert die Sicherungstechnik im Lager, damit Einbrüche seltener gelingen | Vermindern |
+| Ein Großbrand würde den Betrieb in seiner Existenz bedrohen, daher schlägt der Berater eine Feuerversicherung vor | Überwälzen |
+| Ein Cyberschaden würde die Möglichkeiten des Betriebs übersteigen und wird deshalb über eine Cyberversicherung abgedeckt | Überwälzen |
+| Kleinere Kratzer an Werkstücken bezahlt der Betrieb aus dem laufenden Ergebnis | Selbst tragen |
+| Der Betrieb versichert den Verlust einfacher Handwerkzeuge nicht, weil er ihn verkraften kann | Selbst tragen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Die Strategie folgt der Einordnung nach Eintrittswahrscheinlichkeit und Schadenhöhe: Existenzbedrohende Schäden werden überwälzt, kleine Schäden selbst getragen, Eintritt und Ausmaß durch Schadenverhütung vermindert und nicht beherrschbare Tätigkeiten vermieden. Typische Verwechslung: Rauchmelder und Sicherungstechnik senken das Risiko nur und beenden es nicht, sie gehören also zum Vermindern.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-2.5-18 · Risikopolitik (Schwer)
+
+*Ordne die Fälle der Strategie zu, die den jeweiligen Kern am genauesten trifft.*
+
+| Begriff | Zone |
+| --- | --- |
+| Ein Betrieb stellt eine gefährliche Fertigung ein, das Risiko entfällt vollständig | Vermeiden |
+| Ein Betrieb verzichtet darauf, eine Anlage anzuschaffen, die er nicht sicher beherrschen könnte | Vermeiden |
+| Ein Betrieb installiert Brandschutz, ändert aber an der Tätigkeit nichts, das Risiko bleibt kleiner bestehen | Vermindern |
+| Regelmäßige Prüfungen und Wartungsverträge senken die Wahrscheinlichkeit von Produktionsstopps durch Elektrodefekte | Vermindern |
+| Ein Betrieb versichert ein Risiko, tut aber nichts zur Schadenverhütung: Die Versicherung verlagert nur die finanziellen Folgen | Überwälzen |
+| Ein Subunternehmer übernimmt per Vertrag die Haftung für seine Arbeiten, die Folgen sind auf ihn verlagert | Überwälzen |
+| Bei der Versicherung ist ein Selbstbehalt vereinbart: Der Schaden bis zu dieser Grenze bleibt beim Betrieb | Selbst tragen |
+| Der Betrieb legt für unerwartete kleinere Reparaturen Geld zurück und versichert sie bewusst nicht | Selbst tragen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Die Fälle liegen an den typischen Verwechslungsstellen. Eine Versicherung ist Überwälzen und ersetzt keine Schadenverhütung; sie senkt weder Wahrscheinlichkeit noch Schadenhöhe, das leistet nur das Vermindern. Der Selbstbehalt ist Selbst tragen, nicht Überwälzen. Vermindern lässt das Risiko bestehen und senkt es nur, Vermeiden beendet es, indem die Tätigkeit oder Anlage entfällt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
 ### Drei-Schichten-Modell der Altersvorsorge (4 Fragen) — Zonen: Schicht 1: Basisversorgung · Schicht 2: Zusatzversorgung · Schicht 3: Private Vorsorge
 
@@ -233,7 +353,33 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191).
 
 ## 2. Neue Theorieabschnitte
 
-Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden (die Fragen verweisen darauf).
+### KB2 · Risikopolitik: vier Strategien im Umgang mit Risiken
+
+> ### Risikopolitik: vier Strategien im Umgang mit Risiken
+>
+> Sind die Risiken eines Betriebs erfasst und bewertet, stellt sich die Frage, wie der Betrieb mit ihnen umgeht. Die Risikopolitik kennt dafür vier Standardstrategien, die ein Nordantis-Berater mit der Geschäftsführung durchspricht, hier am Beispiel von „Katz Fensterbau GmbH":
+>
+> - **Vermeiden**: Der Betrieb verzichtet auf die riskante Tätigkeit oder Anlage, das Risiko entsteht gar nicht erst. Beispiel: Die Tischlerei legt eine veraltete, kaum noch beherrschbare Anlage still oder lehnt einen Auftrag ab, der eine besonders brandgefährliche Arbeitsweise verlangt.
+> - **Vermindern**: Das Risiko bleibt bestehen, wird aber kleiner, indem die Eintrittswahrscheinlichkeit oder die Schadenhöhe sinkt. Typisch sind Brandschutz an der Lackierkabine, regelmäßige Wartung der Elektroinstallation, Schulungen der Mitarbeitenden und bessere Sicherungstechnik im Lager.
+> - **Überwälzen**: Die finanziellen Folgen werden auf Dritte übertragen. Der wichtigste Weg ist die Versicherung, die gegen Prämie das Schadenrisiko übernimmt. Auch die Vertragsgestaltung kann Risiken verlagern, etwa wenn ein Subunternehmer vertraglich für seine eigenen Fehler haftet.
+> - **Selbst tragen**: Der Betrieb behält ein Risiko bewusst, weil der mögliche Schaden verkraftbar ist, zum Beispiel über einen vereinbarten Selbstbehalt oder über Rücklagen aus eigenen Mitteln.
+>
+> Welche Strategie passt, folgt aus der Einordnung nach Eintrittswahrscheinlichkeit und Schadenhöhe in der Risikomatrix: Existenzbedrohende Schäden sollte ein Betrieb nicht ungeschützt allein tragen, kleine Schäden müssen dagegen nicht versichert werden. In der Praxis werden die Strategien meist kombiniert, etwa Brandschutz (Vermindern), eine Feuerversicherung (Überwälzen) und ein Selbstbehalt für kleinere Schäden (Selbst tragen). Zwei Verwechslungen sind typisch: Eine Versicherung ist Überwälzen und kein Ersatz für Schadenverhütung, denn sie verlagert nur die finanziellen Folgen und senkt weder Wahrscheinlichkeit noch Schadenhöhe. Und der Selbstbehalt gehört zum Selbst tragen, nicht zum Überwälzen, weil dieser Teil des Schadens beim Betrieb bleibt.
+>
+> Die oben bei der Risikomatrix verwendeten Maßnahmenbegriffe lassen sich sinngemäß so einordnen: „Vermeiden" entspricht dem Vermeiden, „Absichern" dem Überwälzen, „Beobachten" (Schadenverhütung und Überwachung) am ehesten dem Vermindern und „Akzeptieren" dem Selbst tragen. Je nach Lehrbuch werden die Strategien unterschiedlich benannt und gegliedert.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+
+**Besonders prüfen (Unsicherheiten und Vereinfachungen aus dem Entwurf):**
+- ⚠ Neu (F-192, Nutzer-Entscheidung zu Frage F6: Standardbegriffe einführen): Vermeiden, Vermindern, Überwälzen, Selbst tragen am Beispiel Katz Fensterbau, mit Bezug zur Risikomatrix und zwei typischen Verwechslungen; Karteikarten K-2.5-19 bis -21.
+- ⚠ **Einordnung der bestehenden Matrixbegriffe** (vermeiden, absichern, beobachten, akzeptieren) als vorsichtiger Satz mit „je nach Lehrbuch unterschiedlich benannt“: Absichern entspricht Überwälzen, Akzeptieren entspricht Selbst tragen, Beobachten am ehesten Vermindern — das ist die schwächste Zuordnung, denn die bestehende Theorie nennt bei „Beobachten“ auch den Selbstbehalt (also Selbst tragen). Die bestehenden Risikomatrix-Fragen (Q-2.5-03, -10, -11) wurden nicht verändert.
+- ⚠ Vertragsgestaltung als Überwälzen (Haftung des Subunternehmers vertraglich verlagern): lehrbuchüblich, die Wirksamkeit solcher Klauseln ist rechtlich nicht geprüft.
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
 ## 3. Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Versicherungen/Finanzanlagen; **mit Versicherungs-, Beratungs- und Steuerrecht**)
 

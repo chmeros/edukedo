@@ -241,7 +241,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Besonders prüfen:**
 - ⚠ **WEG-Recht, Rechtsstand prüfen (WEG-Reform):** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“.
-- ⚠ **Verwaltungsbeirat nicht durch die Theorie belegt:** Die Theorie von 4.2 erwähnt den Beirat nirgends; die einzige inhaltliche Aussage („Unterstützung und Kontrolle des Verwalters“) steht in Q-4.2-12 (Hierarchie). Alle Beirat-Begriffe stützen sich auf diese eine Aussage und sind in den Erklärungen als abgeleitet gekennzeichnet. **Vor der Freigabe sollte ein Theorieabsatz zum Beirat ergänzt werden** (oder die Zone entfallen).
+- ⚠ **Verwaltungsbeirat (Nutzer-Entscheidung vom 06.10.2026):** Die Theorie von 4.2 enthält jetzt einen Abschnitt „Der Verwaltungsbeirat“ (drei Absätze, K-4.2-18 und -19); die Beirat-Begriffe in Q-4.2-14 bis -17 („unterstützt“, „kontrolliert/überwacht den Verwalter“) sind damit belegt, die Erklärungen verweisen auf den Abschnitt. **Der Absatz ist neu und rechtlich ungeprüft** (Einzelaussagen siehe Theorie-Hinweise oben).
 - ⚠ Q-4.2-14 bis -17: Beschluss-Sammlung und Vermögenstrennung liegen laut Theorie beim Verwalter; die Zuordnung der Einladung und der Auskunft zum Verwalter ist abgeleitet (die Theorie nennt Einberufung und Auskunftspflichten); die Abberufung bei der Versammlung ist abgeleitet („Erleichterung für die Gemeinschaft“) — rechtliche Zuständigkeit prüfen.
 - ⚠ Q-4.2-15: „Muss grundsätzlich zertifiziert sein“ ist verkürzt (rechtlich ein Anspruch der Eigentümer auf Bestellung, keine Verwalterpflicht; die Erklärung nennt das als Verwechslung). Ladungsfristen wurden weggelassen, damit keine Zahlen in den Begriffen stehen.
 
@@ -260,7 +260,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Eigentümerversammlung ist das zentrale Beschlussorgan und seit der Reform unabhängig von der Zahl der Anwesenden beschlussfähig. Der Verwalter beruft sie ein, führt die Beschluss-Sammlung und muss das Gemeinschaftsvermögen vom eigenen Vermögen trennen. Der Verwaltungsbeirat unterstützt und kontrolliert den Verwalter; diese Rolle steht in der Theorie dieses Themas nicht, sie ist aus dem Organigramm in Quiz-Frage Q-4.2-12 übernommen. Typische Verwechslung: Wer die Versammlung einberuft und die Beschluss-Sammlung führt, entscheidet damit nicht selbst; beschlossen wird in der Versammlung, nicht durch den Verwalter oder den Beirat.
+> Die Eigentümerversammlung ist das zentrale Beschlussorgan und seit der Reform unabhängig von der Zahl der Anwesenden beschlussfähig. Der Verwalter beruft sie ein, führt die Beschluss-Sammlung und muss das Gemeinschaftsvermögen vom eigenen Vermögen trennen. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Typische Verwechslung: Wer die Versammlung einberuft und die Beschluss-Sammlung führt, entscheidet damit nicht selbst; beschlossen wird in der Versammlung, nicht durch den Verwalter oder den Beirat.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -287,7 +287,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über den Vermögensstatus und die Abrechnungsspitze. Die umfassende Vertretungsmacht, die Auskunftspflichten und die Zertifizierung betreffen den Verwalter. Der Verwaltungsbeirat kommt in der Theorie dieses Themas nicht vor; die beiden Zuordnungen sind aus Quiz-Frage Q-4.2-12 (Unterstützung und Kontrolle des Verwalters) abgeleitet. Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
+> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über den Vermögensstatus und die Abrechnungsspitze. Die umfassende Vertretungsmacht, die Auskunftspflichten und die Zertifizierung betreffen den Verwalter. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -313,7 +313,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über Wirtschaftsplan und Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Vermögensstatus und Zahlungspflichten. Ableitungen sind außerdem die Zuordnung der Einladung (der Verwalter beruft ein) und der Auskunft (Auskunftspflichten des Verwalters) sowie die Aussage zum Beirat, die nur aus Q-4.2-12 stammt. Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
+> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über Wirtschaftsplan und Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Vermögensstatus und Zahlungspflichten. Ableitungen sind außerdem die Zuordnung der Einladung (der Verwalter beruft ein) und der Auskunft (Auskunftspflichten des Verwalters); die Aussage zum Beirat steht im Abschnitt „Der Verwaltungsbeirat“. Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -341,7 +341,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnung und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet sind die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft) und alle Aussagen zum Verwaltungsbeirat, der in der Theorie nicht vorkommt und nur über Q-4.2-12 belegt ist; die Aufspaltung in Unterstützung und Kontrolle folgt der Formulierung dort. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
+> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnung und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet sind die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft) ; die Aussagen zum Verwaltungsbeirat (Unterstützung und Überwachung des Verwalters) stehen im Abschnitt „Der Verwaltungsbeirat“. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -471,7 +471,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Besonders prüfen:**
 - ⚠ **Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen).
-- ⚠ **Mögliche Unstimmigkeit in der Kurstheorie 5.4:** Der Kurs ordnet die Erschließung des Grundstücks der KG 500 (Außenanlagen) zu; nach der aktuellen DIN 276 gehört sie nach meinem Wissen zu den vorbereitenden Maßnahmen (KG 200, nach neuer Fassung „Herrichten und Erschließen“). Die Erschließung wurde deshalb in keiner Zuordnung verwendet (KG 500: nur Stellplätze und Grünflächen); die Theoriepassage selbst ist eine mögliche Korrektur. Grunderwerbsteuer und Notarkosten wurden ausgespart, weil die Theorie sie nicht nennt.
+- ⚠ **Erschließung (Nutzer-Entscheidung vom 06.10.2026):** Das Beispiel „Erschließung des Grundstücks“ wurde aus der KG-500-Beschreibung der Theorie 5.4 entfernt (ohne neue Zuordnung zu behaupten); nach der aktuellen DIN 276 gehört die Erschließung nach unserem Wissen zu den vorbereitenden Maßnahmen (KG 200) — die Normprüfung klärt, ob KG 200 ergänzt werden soll. Die Fragen vermeiden das Thema weiterhin.
 - ⚠ Q-5.4-14 bis -17: KG 600 (Ausstattung und Kunstwerke): Das Kunstwerk und das Mobiliar sind aus dem Gruppennamen abgeleitet, die Theorie nennt kein Beispiel; Mobiliar eines Gemeinschaftsraums könnte je nach Fest-/Losteil abweichend eingeordnet werden. Ausbau bei KG 300 steht wörtlich in der Theorie; Planung und Bauleitung gehören zu KG 700.
 
 #### Q-5.4-14 · DIN-276-Kostengruppen (Leicht)
@@ -590,7 +590,29 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 ## 2. Neue Theorieabschnitte
 
-Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden (die Fragen verweisen darauf).
+### HB4 · Der Verwaltungsbeirat
+
+> ### Der Verwaltungsbeirat
+>
+> Neben Eigentümerversammlung und Verwalter gibt es in vielen Gemeinschaften, so auch bei „Am Lindenpark", einen **Verwaltungsbeirat**. Er ist ein Gremium aus Wohnungseigentümern der Gemeinschaft, das die Eigentümerversammlung bestellen kann. Ob ein Beirat eingerichtet wird und wie er im Einzelnen ausgestaltet ist, entscheiden die Eigentümer selbst; zwingend vorgeschrieben ist er nicht.
+>
+> Der Beirat **unterstützt den Verwalter und überwacht dessen Tätigkeit**. Typische Beispiele sind die Einsicht in Unterlagen des Verwalters, die Prüfung von Wirtschaftsplan und Jahresabrechnung, bevor die Eigentümerversammlung darüber beschließt, und die Begleitung bei der Vergabe von Aufträgen an Handwerksbetriebe. Wie weit seine Befugnisse im Einzelnen reichen, richtet sich je nach Teilungserklärung bzw. Beschluss nach den Regelungen der jeweiligen Gemeinschaft. Der Beirat übernimmt jedoch keine Verwaltungsaufgaben anstelle des Verwalters und ersetzt ihn nicht: Die laufende Geschäftsführung bleibt beim Verwalter, und nach außen tritt grundsätzlich er für die Gemeinschaft auf.
+>
+> Zusammengefasst ergänzen sich die drei Organe: Die **Eigentümerversammlung beschließt** über die Angelegenheiten der Gemeinschaft, der **Verwalter führt diese Beschlüsse aus und vertritt die Gemeinschaft**, und der **Verwaltungsbeirat unterstützt und kontrolliert** den Verwalter, ohne an dessen Stelle zu entscheiden oder zu handeln.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+
+**Besonders prüfen (Unsicherheiten und Vereinfachungen aus dem Entwurf):**
+- ⚠ Neu (F-192): Gremium aus Wohnungseigentümern, von der Eigentümerversammlung bestellbar, nicht zwingend; unterstützt den Verwalter und überwacht dessen Tätigkeit; keine Verwaltungsaufgaben anstelle des Verwalters; nach außen tritt grundsätzlich der Verwalter auf. Karteikarten K-4.2-18 und -19. **Rechtlich ungeprüft** — bei der Prüfung mit dem aktuellen Gesetzestext abgleichen.
+- ⚠ Typische Beispiele (Einsicht in Unterlagen, Prüfung von Wirtschaftsplan und Jahresabrechnung vor dem Beschluss, Begleitung bei Vergaben) sind nur als „typisch“ formuliert; Reichweite und Pflicht hängen von Teilungserklärung bzw. Beschluss ab.
+- ⚠ „Nach außen tritt grundsätzlich der Verwalter für die Gemeinschaft auf“: Die Eigentümer können dem Beiratsvorsitzenden aber eine Ermächtigung erteilen (etwa zum Abschluss des Verwaltervertrags); der Text nennt diese Ausnahme nicht — bei Bedarf Halbsatz ergänzen. „Keine Verwaltungsaufgaben anstelle des Verwalters“ ist vorsichtig formuliert, weil die Eigentümer dem Beirat per Beschluss zusätzliche Aufgaben übertragen können.
+- ⚠ Der Bezug zur Wohnanlage „Am Lindenpark“ („in vielen Gemeinschaften, so auch bei Am Lindenpark“) ist didaktisch und setzt einen Beirat dort voraus; kursintern konsistent mit Q-4.2-12.
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
 ## 3. Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Immobilienfachwirt; **mit Miet-, WEG- und Maklerrecht**)
 

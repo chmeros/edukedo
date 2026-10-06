@@ -524,7 +524,7 @@ Stand 06.10.2026 · erzeugt aus `content/handelsfachwirt/` (F-189). **Alle Inhal
 20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen (z. B. Handelsspanne gegen Kalkulationszuschlag, da der Kalkulationszuschlag nur in der neuen Theorie kurz vorkommt).
 
 **Zum Set — besonders prüfen:**
-- ⚠ Frage 18 (CIF gegen FOB) setzt Wissen aus zwei Absätzen zusammen (Thema 6.2 und 8.1); beide sind textlich gedeckt. Fragen 18 bis 20 (Incoterms, Dokumentenakkreditiv gegen Dokumenteninkasso, präferenzieller gegen nichtpräferenziellen Ursprung) berühren Außenhandels- und Zollrecht und gehören zur Rechtsprüfung (R4).
+- **Fragen 18 bis 20 ersetzt (Nutzer-Entscheidung vom 06.10.2026):** Die ursprünglichen Fragen mit Außenhandelsrecht (CIF gegen FOB, Dokumentenakkreditiv gegen Inkasso, präferenzieller Ursprung) wurden durch drei Fragen ohne Rechtsbezug ersetzt — Naturalrabatt gegen Mengenrabatt (Thema 5.3), dynamische gegen statische Verfahren der Investitionsrechnung und Skonto gegen Zahlungsziel (Thema 6.2). Runde 4 heißt jetzt „Konditionen und Investition“. Das Set ist freigegeben.
 - ⚠ Frage 17 (interner Zinsfuß gegen Kapitalwertmethode) und Frage 9 (Dual gegen Multiple Sourcing) nutzen die Kurstheorie wörtlich; Lehrbuchvarianten können abweichen.
 - Aus dem Vorschlag weggelassen, weil der Kurs sie nicht unterscheidet: Push gegen Pull, FCA gegen FOB, Handelsspanne gegen Kalkulationszuschlag, Reexport gegen Transithandel (Grauzone), Cross-Docking gegen Kommissionierung (unscharf); Rabatt gegen Skonto und Konnossement gegen CMR-Frachtbrief sind gedeckt, aber nicht im Set. Die Themen 1.1 bis 1.4, 5.1, 5.2 und 7.3 haben keine Frage.
 
@@ -804,7 +804,7 @@ Stand 06.10.2026 · erzeugt aus `content/handelsfachwirt/` (F-189). **Alle Inhal
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-### Runde 4: Konditionen, Investition und Außenhandel
+### Runde 4: Konditionen und Investition
 
 #### handel-aehnlich · 16 — Welcher Preisnachlass wird nachträglich gewährt, etwa zum Jahresende, wenn ein bestimmtes Gesamtabnahmevolumen erreicht wurde?
 
@@ -842,32 +842,14 @@ Stand 06.10.2026 · erzeugt aus `content/handelsfachwirt/` (F-189). **Alle Inhal
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### handel-aehnlich · 18 — Welche Incoterms-Klausel verpflichtet den Verkäufer zusätzlich, Fracht und eine Mindesttransportversicherung bis zum Bestimmungshafen zu bezahlen, obwohl das Risiko schon beim Verladen im Abgangshafen übergeht?
+#### handel-aehnlich · 18 — Welche Konditionsart gewährt den Preisnachlass nicht als Abzug vom Preis, sondern in Form zusätzlicher kostenloser Ware, die geliefert, aber nicht berechnet wird?
 
-- ✔ **A:** CIF (Cost, Insurance and Freight)
-- **B:** FOB (Free on Board)
+- ✔ **A:** Naturalrabatt
+- **B:** Mengenrabatt
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Bei CIF zahlt der Verkäufer Fracht und eine Mindesttransportversicherung bis zum Bestimmungshafen, das Risiko geht aber wie bei FOB bereits beim Verladen im Abgangshafen auf den Käufer über (siehe Thema 8.1).
+**Rückmeldung bei richtiger Antwort:** Richtig! Beim Naturalrabatt wird statt eines Preisabzugs zusätzliche kostenlose Ware geliefert: Der Stückpreis bleibt nominell gleich, es wird aber mehr Ware geliefert als berechnet. Ein Mengenrabatt ist dagegen ein Preisnachlass ab einer bestimmten Abnahmemenge (siehe Thema 5.3).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Bei FOB bringt der Verkäufer die Ware im Ausfuhrhafen an Bord des vom Käufer benannten Schiffs; ab dort gehen Kosten und Risiko auf den Käufer über. Fracht und Versicherung bis zum Zielhafen übernimmt erst CIF (siehe Thema 8.1).
-
-**Prüffragen:**
-- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
-- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
-- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
-- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
-- ☐ Genau eine Antwort ist richtig; Rechtsstand und Paragrafenangabe stimmen?
-
-**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
-
-#### handel-aehnlich · 19 — Bei welchem Instrument verpflichtet sich eine Bank im Auftrag des Käufers zur Zahlung, sobald der Verkäufer fristgerecht genau die vereinbarten Dokumente vorlegt?
-
-- **A:** Dokumenteninkasso
-- ✔ **B:** Dokumentenakkreditiv
-
-**Rückmeldung bei richtiger Antwort:** Genau! Beim Dokumentenakkreditiv verpflichtet sich die Bank im Auftrag des Käufers zur Zahlung, sobald der Verkäufer fristgerecht genau die festgelegten Dokumente vorlegt. Das verschiebt das Zahlungsrisiko auf die Bank (siehe Thema 8.3).
-
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Beim Dokumenteninkasso haben die Banken nur eine Abwicklungs- und Kontrollfunktion und geben keine eigene Zahlungsgarantie ab; verweigert der Käufer die Zahlung, kann der Verkäufer auf der Ware sitzen bleiben. Die Zahlungsverpflichtung der Bank kennzeichnet das Dokumentenakkreditiv (siehe Thema 8.3).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Ein Mengenrabatt ist ein Preisnachlass, der ab einer bestimmten Abnahmemenge gewährt wird, also ein direkter Abzug vom Preis. Zusätzliche kostenlose Ware statt eines Preisnachlasses kennzeichnet den Naturalrabatt (siehe Thema 5.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -878,14 +860,32 @@ Stand 06.10.2026 · erzeugt aus `content/handelsfachwirt/` (F-189). **Alle Inhal
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### handel-aehnlich · 20 — Welcher Ursprung entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens von reduzierten oder entfallenden Zöllen profitiert?
+#### handel-aehnlich · 19 — Welche Gruppe von Verfahren der Investitionsrechnung erfasst sämtliche Zahlungsströme über die gesamte Nutzungsdauer und zinst sie auf einen einheitlichen Zeitpunkt ab?
 
-- ✔ **A:** Präferenzieller Ursprung
-- **B:** Nichtpräferenzieller Ursprung
+- **A:** Statische Verfahren
+- ✔ **B:** Dynamische Verfahren
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Der präferenzielle Ursprung entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens reduzierte oder entfallende Zölle erhält, sofern die Ursprungsregeln nachweislich erfüllt sind (siehe Thema 8.2).
+**Rückmeldung bei richtiger Antwort:** Richtig! Dynamische Verfahren erfassen sämtliche Zahlungsströme über die gesamte Nutzungsdauer und zinsen sie mithilfe eines Zinssatzes auf einen einheitlichen Zeitpunkt ab. Sie berücksichtigen damit den Zeitwert des Geldes, was statische Verfahren nicht tun (siehe Thema 6.2).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Der nichtpräferenzielle Ursprung bestimmt allgemein, aus welchem Land eine Ware stammt, etwa für Handelsstatistiken, Ursprungszeugnisse oder handelspolitische Maßnahmen. Zollvergünstigungen aus Abkommen knüpfen an den präferenziellen Ursprung an (siehe Thema 8.2).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Statische Verfahren beruhen auf Durchschnittswerten einer typischen Periode und berücksichtigen den zeitlichen Anfall der Zahlungen nicht, dafür sind sie einfach zu berechnen. Die Abzinsung aller Zahlungsströme über die Nutzungsdauer kennzeichnet die dynamischen Verfahren (siehe Thema 6.2).
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Genau eine Antwort ist richtig; Rechtsstand und Paragrafenangabe stimmen?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### handel-aehnlich · 20 — Welche Zahlungsbedingung ist ein Preisnachlass, der gewährt wird, wenn die Zahlung deutlich früher als zum regulären Zahlungsziel erfolgt?
+
+- ✔ **A:** Skonto
+- **B:** Zahlungsziel
+
+**Rückmeldung bei richtiger Antwort:** Richtig! Skonto ist ein Preisnachlass für eine Zahlung, die deutlich früher als das reguläre Zahlungsziel erfolgt. Das Zahlungsziel selbst nennt nur die Frist, innerhalb der eine Rechnung ohne Abzug beglichen werden muss (siehe Thema 6.2).
+
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Das Zahlungsziel ist keine Preisermäßigung, sondern die Frist, innerhalb der eine Rechnung ohne Abzug beglichen werden muss. Der Nachlass für eine deutlich frühere Zahlung ist das Skonto (siehe Thema 6.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

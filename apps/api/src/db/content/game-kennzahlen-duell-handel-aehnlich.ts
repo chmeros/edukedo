@@ -10,12 +10,10 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * Fachgrundlage: ausschließlich die Theorietexte der Kursdateien content/handelsfachwirt/ — Thema 3.1 (Marktanalyse),
  * 3.2 (Sortimentsgestaltung), 3.3 (Werbekonzepte), 3.4 (Visual Merchandising und E-Commerce), 4.1 (Bedarfsermittlung),
  * 4.3 (Lager- und Transportprozesse), 5.3 (Preis- und Konditionenpolitik), 6.2 (Vertragskonditionen und
- * Investitionsbewertung), 7.1 (Einkaufsstrategien), 7.2 (Lieferantenbewertung), 8.1 (Import und Export), 8.2
- * (Außenhandelsrisiken und Zollabwicklung) und 8.3 (Außenhandelsfinanzierung); Rechtsstand dort: 29.09.2026. Die
- * außenhandelsrechtlichen Unterscheidungen (Incoterms, Zoll, Akkreditiv) sind vor Verwendung durch echte Lernende
- * fachlich/rechtlich zu prüfen (Hinweis der Kursdateien).
- * Bewusst nicht enthalten: Zahlenwerte, Formeln, Paragrafen, Prozentwerte, Normangaben sowie Unterscheidungen, die die
- * Kurstheorie nicht eindeutig trifft; das Set enthält keine Zahlenwerte.
+ * Investitionsbewertung), 7.1 (Einkaufsstrategien) und 7.2 (Lieferantenbewertung); Rechtsstand dort: 29.09.2026.
+ * Bewusst nicht enthalten: Rechtsbezüge (u. a. Außenhandels- und Zollrecht), Zahlenwerte, Formeln, Paragrafen,
+ * Prozentwerte, Normangaben sowie Unterscheidungen, die die Kurstheorie nicht eindeutig trifft; das Set enthält keine
+ * Zahlenwerte.
  */
 export const kennzahlenDuellHandelAehnlich: KennzahlenDuellPayload = {
   runden: [
@@ -39,9 +37,9 @@ export const kennzahlenDuellHandelAehnlich: KennzahlenDuellPayload = {
     },
     {
       nummer: 4,
-      titel: "Konditionen, Investition und Außenhandel",
+      titel: "Konditionen und Investition",
       abschlussmeldung:
-        "Runde 4 geschafft! Du kennst den Unterschied zwischen Bonus und Rabatt, Kapitalwertmethode und internem Zinsfuß, FOB und CIF, Dokumentenakkreditiv und Dokumenteninkasso sowie präferenziellem und nichtpräferenziellem Ursprung.",
+        "Runde 4 geschafft! Du kennst den Unterschied zwischen Bonus und Rabatt, Kapitalwertmethode und internem Zinsfuß, Naturalrabatt und Mengenrabatt, statischen und dynamischen Verfahren der Investitionsrechnung sowie Skonto und Zahlungsziel.",
     },
   ],
   fragen: [
@@ -252,40 +250,40 @@ export const kennzahlenDuellHandelAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 18,
       runde: 4,
-      frage: "Welche Incoterms-Klausel verpflichtet den Verkäufer zusätzlich, Fracht und eine Mindesttransportversicherung bis zum Bestimmungshafen zu bezahlen, obwohl das Risiko schon beim Verladen im Abgangshafen übergeht?",
-      antwortA: "CIF (Cost, Insurance and Freight)",
-      antwortB: "FOB (Free on Board)",
+      frage: "Welche Konditionsart gewährt den Preisnachlass nicht als Abzug vom Preis, sondern in Form zusätzlicher kostenloser Ware, die geliefert, aber nicht berechnet wird?",
+      antwortA: "Naturalrabatt",
+      antwortB: "Mengenrabatt",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Bei CIF zahlt der Verkäufer Fracht und eine Mindesttransportversicherung bis zum Bestimmungshafen, das Risiko geht aber wie bei FOB bereits beim Verladen im Abgangshafen auf den Käufer über (siehe Thema 8.1).",
+        "Richtig! Beim Naturalrabatt wird statt eines Preisabzugs zusätzliche kostenlose Ware geliefert: Der Stückpreis bleibt nominell gleich, es wird aber mehr Ware geliefert als berechnet. Ein Mengenrabatt ist dagegen ein Preisnachlass ab einer bestimmten Abnahmemenge (siehe Thema 5.3).",
       feedbackFalsch:
-        "Nicht ganz. Bei FOB bringt der Verkäufer die Ware im Ausfuhrhafen an Bord des vom Käufer benannten Schiffs; ab dort gehen Kosten und Risiko auf den Käufer über. Fracht und Versicherung bis zum Zielhafen übernimmt erst CIF (siehe Thema 8.1).",
+        "Nicht ganz. Ein Mengenrabatt ist ein Preisnachlass, der ab einer bestimmten Abnahmemenge gewährt wird, also ein direkter Abzug vom Preis. Zusätzliche kostenlose Ware statt eines Preisnachlasses kennzeichnet den Naturalrabatt (siehe Thema 5.3).",
     },
     {
       nummer: 19,
       runde: 4,
-      frage: "Bei welchem Instrument verpflichtet sich eine Bank im Auftrag des Käufers zur Zahlung, sobald der Verkäufer fristgerecht genau die vereinbarten Dokumente vorlegt?",
-      antwortA: "Dokumenteninkasso",
-      antwortB: "Dokumentenakkreditiv",
+      frage: "Welche Gruppe von Verfahren der Investitionsrechnung erfasst sämtliche Zahlungsströme über die gesamte Nutzungsdauer und zinst sie auf einen einheitlichen Zeitpunkt ab?",
+      antwortA: "Statische Verfahren",
+      antwortB: "Dynamische Verfahren",
       richtig: "B",
       feedbackRichtig:
-        "Genau! Beim Dokumentenakkreditiv verpflichtet sich die Bank im Auftrag des Käufers zur Zahlung, sobald der Verkäufer fristgerecht genau die festgelegten Dokumente vorlegt. Das verschiebt das Zahlungsrisiko auf die Bank (siehe Thema 8.3).",
+        "Richtig! Dynamische Verfahren erfassen sämtliche Zahlungsströme über die gesamte Nutzungsdauer und zinsen sie mithilfe eines Zinssatzes auf einen einheitlichen Zeitpunkt ab. Sie berücksichtigen damit den Zeitwert des Geldes, was statische Verfahren nicht tun (siehe Thema 6.2).",
       feedbackFalsch:
-        "Das stimmt nicht. Beim Dokumenteninkasso haben die Banken nur eine Abwicklungs- und Kontrollfunktion und geben keine eigene Zahlungsgarantie ab; verweigert der Käufer die Zahlung, kann der Verkäufer auf der Ware sitzen bleiben. Die Zahlungsverpflichtung der Bank kennzeichnet das Dokumentenakkreditiv (siehe Thema 8.3).",
+        "Nicht ganz. Statische Verfahren beruhen auf Durchschnittswerten einer typischen Periode und berücksichtigen den zeitlichen Anfall der Zahlungen nicht, dafür sind sie einfach zu berechnen. Die Abzinsung aller Zahlungsströme über die Nutzungsdauer kennzeichnet die dynamischen Verfahren (siehe Thema 6.2).",
     },
     {
       nummer: 20,
       runde: 4,
-      frage: "Welcher Ursprung entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens von reduzierten oder entfallenden Zöllen profitiert?",
-      antwortA: "Präferenzieller Ursprung",
-      antwortB: "Nichtpräferenzieller Ursprung",
+      frage: "Welche Zahlungsbedingung ist ein Preisnachlass, der gewährt wird, wenn die Zahlung deutlich früher als zum regulären Zahlungsziel erfolgt?",
+      antwortA: "Skonto",
+      antwortB: "Zahlungsziel",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Der präferenzielle Ursprung entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens reduzierte oder entfallende Zölle erhält, sofern die Ursprungsregeln nachweislich erfüllt sind (siehe Thema 8.2).",
+        "Richtig! Skonto ist ein Preisnachlass für eine Zahlung, die deutlich früher als das reguläre Zahlungsziel erfolgt. Das Zahlungsziel selbst nennt nur die Frist, innerhalb der eine Rechnung ohne Abzug beglichen werden muss (siehe Thema 6.2).",
       feedbackFalsch:
-        "Nicht ganz. Der nichtpräferenzielle Ursprung bestimmt allgemein, aus welchem Land eine Ware stammt, etwa für Handelsstatistiken, Ursprungszeugnisse oder handelspolitische Maßnahmen. Zollvergünstigungen aus Abkommen knüpfen an den präferenziellen Ursprung an (siehe Thema 8.2).",
+        "Das stimmt nicht. Das Zahlungsziel ist keine Preisermäßigung, sondern die Frist, innerhalb der eine Rechnung ohne Abzug beglichen werden muss. Der Nachlass für eine deutlich frühere Zahlung ist das Skonto (siehe Thema 6.2).",
     },
   ],
   abschlussmeldung:
-    "Geschafft! Du hast 20 Begriffe-Duelle zum Handel gelöst. Du kannst jetzt besser auseinanderhalten, welcher Markt- oder Sortimentsbegriff, welches Beschaffungs- oder Lagerkonzept und welche Konditions-, Investitions- oder Außenhandelsform gemeint ist.",
+    "Geschafft! Du hast 20 Begriffe-Duelle zum Handel gelöst. Du kannst jetzt besser auseinanderhalten, welcher Markt- oder Sortimentsbegriff, welches Beschaffungs- oder Lagerkonzept und welche Konditions- oder Investitionsform gemeint ist.",
 };

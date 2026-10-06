@@ -245,11 +245,11 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-### Vier-Stufen-Methode (4 Fragen) — Zonen: Stufe 1: Vorbereiten, Vormachen und Erklären · Stufe 2: Nachmachen lassen · Stufe 3: Üben lassen · Stufe 4: Selbstständig durchführen lassen
+### Vier-Stufen-Methode (4 Fragen) — Zonen: Stufe 1: Vorbereiten · Stufe 2: Vormachen und Erklären · Stufe 3: Nachmachen lassen · Stufe 4: Üben lassen
 
 **Besonders prüfen:**
-- ⚠ **Stufenfassung des Kurses (Thema 3.2): 1. Vorbereiten, Vormachen und Erklären · 2. Nachmachen lassen · 3. Üben lassen · 4. Selbstständig durchführen lassen.** In vielen Quellen und in der üblichen Prüfungspraxis sind Vorbereiten, Vormachen/Erklären getrennte Stufen (häufig: 1. Vorbereiten, 2. Vormachen und Erklären, 3. Nachmachen und Erklären lassen, 4. Üben/Festigen). Soll die Kursfassung bleiben oder auf die übliche Fassung umgestellt werden? Das betrifft Theorie, Zonen und Fragen.
-- ⚠ Grenzzuordnungen: „Fehler beim ersten eigenen Versuch sofort korrigieren“ = Stufe 2, „Rückfragen bereit, greift nur auf Wunsch ein“ = Stufe 3, „Ergebnis selbst kontrollieren“ = Stufe 3, „Ergebniskontrolle und Auswertungsgespräch durch die Ausbilderin“ = Stufe 4.
+- ⚠ **Übliche Fassung (Nutzer-Entscheidung vom 06.10.2026, F-192): 1. Vorbereiten · 2. Vormachen und Erklären · 3. Nachmachen lassen · 4. Üben lassen.** Theorie (Absatz „Ausbildungsmethoden“), Karteikarte K-3.2-04, Sortierfrage Q-3.2-03, Wahr/Falsch Q-3.2-06 und die vier Zonenfragen Q-3.2-10 bis -13 sind umgestellt; die anderen Kurse des Repos (Handel, Transport, Büro, Versicherungen) verwenden dieselbe Gliederung. Der Hinweis in Q-3.2-13 auf abweichende Quellen ist nur noch ein Randhinweis und könnte gestrichen werden.
+- ⚠ Grenzzuordnungen (gegenlesen): Da „Vorbereiten“ jetzt eine eigene Stufe ist, könnten Begriffe wie „ruhige Umgebung wählen“ oder „Vorkenntnisse erfragen“ je nach Quelle auch zu Stufe 2 zählen (Q-3.2-12, -13). In Q-3.2-10 steht „Ergebnis kontrolliert und besprochen“ als Stufe-4-Begriff; Handels- und Transportkurs formulieren die Abnahme in Stufe 4 vielleicht anders. Q-3.2-06 („letzte Stufe“): Die Aussage „Ausbilder übernimmt jeden Handgriff selbst“ bleibt falsch, die Erklärung ist aber weniger eindeutig als in der alten Fassung.
 
 #### Q-3.2-10 · Vier-Stufen-Methode (Leicht)
 
@@ -257,18 +257,18 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 | Begriff | Zone |
 | --- | --- |
-| Arbeitsplatz und Material bereitlegen, das Lernziel nennen | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Die Ausbilderin führt den Handgriff vor und erklärt jeden Schritt | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Der Auszubildende macht den Handgriff nach und erklärt dabei jeden Schritt | Stufe 2: Nachmachen lassen |
-| Die Ausbilderin korrigiert Fehler beim ersten eigenen Versuch sofort | Stufe 2: Nachmachen lassen |
-| Der Handgriff wird mehrmals allein wiederholt, bis er sicher sitzt | Stufe 3: Üben lassen |
-| Die Übung wird mit steigender Geschwindigkeit wiederholt | Stufe 3: Üben lassen |
-| Der Auszubildende erledigt den Auftrag eigenverantwortlich, das Ergebnis wird kontrolliert | Stufe 4: Selbstständig durchführen lassen |
-| Die Auszubildende übernimmt die Aufgabe ohne Anleitung wie eine Fachkraft | Stufe 4: Selbstständig durchführen lassen |
+| Arbeitsplatz und Material bereitlegen, das Lernziel nennen | Stufe 1: Vorbereiten |
+| Die Ausbilderin erfragt die Vorkenntnisse und kündigt die Sicherheitshinweise an | Stufe 1: Vorbereiten |
+| Die Ausbilderin führt den Handgriff vor und erklärt jeden Schritt | Stufe 2: Vormachen und Erklären |
+| Die Ausbilderin hebt beim Vorführen die Schlüsselstellen besonders hervor | Stufe 2: Vormachen und Erklären |
+| Der Auszubildende macht den Handgriff nach und erklärt dabei jeden Schritt | Stufe 3: Nachmachen lassen |
+| Die Ausbilderin korrigiert Fehler beim ersten eigenen Versuch sofort | Stufe 3: Nachmachen lassen |
+| Der Handgriff wird mehrmals allein wiederholt, bis er sicher sitzt | Stufe 4: Üben lassen |
+| Der Auszubildende erledigt den Auftrag zunehmend eigenverantwortlich, das Ergebnis wird kontrolliert und besprochen | Stufe 4: Üben lassen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Von Stufe zu Stufe geht die Verantwortung von der Ausbilderin auf die Auszubildenden über: Zuerst führt sie, dann handelt der Auszubildende unter ihrer Beobachtung, danach übt er weitgehend allein, und am Ende trägt er die Aufgabe selbst. Typische Verwechslung: Stufe 2 und Stufe 3. In Stufe 2 handelt der Auszubildende zum ersten Mal und wird eng begleitet und sofort korrigiert, in Stufe 3 wiederholt er die Tätigkeit selbstständig, bis sie sicher sitzt.
+> Von Stufe zu Stufe geht die Verantwortung von der Ausbilderin auf die Auszubildenden über: Zuerst bereitet sie vor (Stufe 1) und führt vor (Stufe 2), dann handelt der Auszubildende unter ihrer Beobachtung (Stufe 3), und am Ende übt er zunehmend selbstständig, bis die Leistung kontrolliert wird (Stufe 4). Typische Verwechslung: Stufe 3 und Stufe 4. In Stufe 3 handelt der Auszubildende zum ersten Mal und wird eng begleitet und sofort korrigiert, in Stufe 4 wiederholt er die Tätigkeit zunehmend selbstständig, bis sie sicher sitzt. Ebenfalls häufig: Stufe 1 und Stufe 2. Das Bereitlegen, Erfragen und Ankündigen gehört noch zur Vorbereitung, erst das Vorführen und Erklären ist Stufe 2.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -285,18 +285,18 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 | Begriff | Zone |
 | --- | --- |
-| Abisolierzange, Leitung und Klemme bereitlegen und das Ziel der Unterweisung nennen | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Die Ausbilderin zeigt das Abisolieren in Ruhe und nennt dabei die Sicherheitshinweise | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Der Auszubildende isoliert die Leitung selbst ab und begründet jeden Handgriff mündlich | Stufe 2: Nachmachen lassen |
-| Vertauschte Arbeitsschritte beim ersten Nachmachen spricht die Ausbilderin sofort an | Stufe 2: Nachmachen lassen |
-| Die Auszubildende klemmt allein zehn Leitungen an und fragt nur bei Unsicherheit nach | Stufe 3: Üben lassen |
-| Es wird genug Zeit eingeplant, damit sich der Handgriff durch Wiederholung einschleift | Stufe 3: Üben lassen |
-| Der Auszubildende verdrahtet eine komplette Klemmleiste nach Schaltplan allein | Stufe 4: Selbstständig durchführen lassen |
-| Die Ausbilderin lässt sich das fertige Ergebnis zeigen und bespricht es abschließend | Stufe 4: Selbstständig durchführen lassen |
+| Abisolierzange, Leitung und Klemme bereitlegen und das Ziel der Unterweisung nennen | Stufe 1: Vorbereiten |
+| Die Ausbilderin kündigt die Sicherheitshinweise an und fragt, was der Auszubildende über das Abisolieren schon weiß | Stufe 1: Vorbereiten |
+| Die Ausbilderin zeigt das Abisolieren in Ruhe und nennt dabei die Sicherheitshinweise | Stufe 2: Vormachen und Erklären |
+| Die Ausbilderin hebt beim Vorführen die kritische Stelle hervor, an der der Draht nicht beschädigt werden darf | Stufe 2: Vormachen und Erklären |
+| Der Auszubildende isoliert die Leitung selbst ab und begründet jeden Handgriff mündlich | Stufe 3: Nachmachen lassen |
+| Vertauschte Arbeitsschritte beim ersten Nachmachen spricht die Ausbilderin sofort an | Stufe 3: Nachmachen lassen |
+| Die Auszubildende klemmt allein zehn Leitungen an und fragt nur bei Unsicherheit nach | Stufe 4: Üben lassen |
+| Der Auszubildende verdrahtet zuletzt eine komplette Klemmleiste nach Schaltplan allein, die Ausbilderin lässt sich das Ergebnis zeigen und bespricht es abschließend | Stufe 4: Üben lassen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> In Stufe 1 liegt die gesamte Vorbereitung und die Vorführung bei der Ausbilderin. In Stufe 2 wird der Spieß umgedreht: Jetzt erklärt der Auszubildende, damit die Ausbilderin erkennt, ob er den Ablauf wirklich verstanden hat. Stufe 3 gehört dem Einüben ohne ständige Begleitung, Stufe 4 dem vollständigen Auftrag mit anschließender Ergebniskontrolle. Typische Verwechslung: „Jeden Handgriff begründen“ wirkt wie eine Erklärung der Ausbilderin (Stufe 1), ist aber die Rückmeldung des Auszubildenden an sie und damit Stufe 2.
+> In Stufe 1 liegt die gesamte Vorbereitung bei der Ausbilderin, in Stufe 2 die Vorführung. In Stufe 3 wird der Spieß umgedreht: Jetzt erklärt der Auszubildende, damit die Ausbilderin erkennt, ob er den Ablauf wirklich verstanden hat. Stufe 4 gehört dem Üben ohne ständige Begleitung bis hin zum vollständigen Auftrag mit anschließender Ergebniskontrolle. Typische Verwechslung: „Jeden Handgriff begründen“ wirkt wie eine Erklärung der Ausbilderin (Stufe 2), ist aber die Rückmeldung des Auszubildenden an sie und damit Stufe 3. Ebenso gehört das Ankündigen der Sicherheitshinweise noch zur Vorbereitung (Stufe 1), das Nennen beim Vorführen dagegen zu Stufe 2.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -313,19 +313,19 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 | Begriff | Zone |
 | --- | --- |
-| Am Bildschirm zeigen, wie ein Arbeitsplatz-PC in die Domäne aufgenommen wird | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Den Ablauf in Teilschritte gliedern und erfragen, was der Auszubildende schon weiß | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Eine ruhige Umgebung wählen und Störungen vermeiden, bevor der Ablauf gezeigt wird | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Der Auszubildende nimmt den PC selbst in die Domäne auf und nennt dabei jeden Schritt | Stufe 2: Nachmachen lassen |
-| Lässt der Auszubildende einen Schritt aus, weist die Ausbilderin sofort darauf hin | Stufe 2: Nachmachen lassen |
-| Die Auszubildende richtet nacheinander mehrere PCs ein und wird mit jedem Mal schneller | Stufe 3: Üben lassen |
-| Der Auszubildende übt allein, fragt bei Unsicherheit nach und kontrolliert sein Ergebnis selbst | Stufe 3: Üben lassen |
-| Zwei neue Arbeitsplätze werden nach Auftrag eingerichtet, die Ausbilderin prüft am Ende | Stufe 4: Selbstständig durchführen lassen |
-| Nach dem Auftrag folgt ein Abschlussgespräch über Qualität und Zeitbedarf des Ergebnisses | Stufe 4: Selbstständig durchführen lassen |
+| Arbeitsplatz-PC, Zugangsdaten und Anleitung bereitlegen und das Ziel der Einführung nennen | Stufe 1: Vorbereiten |
+| Den Ablauf in Teilschritte gliedern und erfragen, was der Auszubildende schon weiß | Stufe 1: Vorbereiten |
+| Eine ruhige Umgebung wählen und Störungen vermeiden, bevor der Ablauf gezeigt wird | Stufe 1: Vorbereiten |
+| Am Bildschirm zeigen, wie ein Arbeitsplatz-PC in die Domäne aufgenommen wird | Stufe 2: Vormachen und Erklären |
+| Beim Vorführen die Schlüsselstellen betonen und jeden Schritt erklären | Stufe 2: Vormachen und Erklären |
+| Der Auszubildende nimmt den PC selbst in die Domäne auf und nennt dabei jeden Schritt | Stufe 3: Nachmachen lassen |
+| Lässt der Auszubildende einen Schritt aus, weist die Ausbilderin sofort darauf hin | Stufe 3: Nachmachen lassen |
+| Die Auszubildende richtet nacheinander mehrere PCs ein und wird mit jedem Mal schneller | Stufe 4: Üben lassen |
+| Zwei neue Arbeitsplätze werden nach Auftrag eingerichtet, danach folgt ein Abschlussgespräch über Qualität und Zeitbedarf des Ergebnisses | Stufe 4: Üben lassen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Zu Stufe 1 gehört alles, was vor dem ersten eigenen Versuch passiert, also auch das Gliedern der Aufgabe, das Erfragen von Vorkenntnissen und die ruhige Umgebung, nicht nur die Vorführung selbst. Der Sofort-Hinweis auf ausgelassene Schritte passt zu Stufe 2, in der die Ausbilderin noch eng begleitet. In Stufe 3 wird allein geübt und die eigene Arbeit selbst kontrolliert; erst in Stufe 4 prüft die Ausbilderin das Gesamtergebnis eines echten Auftrags. Typische Verwechslung: Das Ergebnis selbst zu kontrollieren (Stufe 3) ist nicht dasselbe wie die abschließende Ergebniskontrolle durch die Ausbilderin (Stufe 4).
+> Zu Stufe 1 gehört alles, was vor dem Vormachen passiert, also das Bereitlegen, das Gliedern der Aufgabe, das Erfragen von Vorkenntnissen und die ruhige Umgebung. Stufe 2 ist das Vorführen mit Erklären und Betonen der Schlüsselstellen. Der Sofort-Hinweis auf ausgelassene Schritte passt zu Stufe 3, in der die Ausbilderin noch eng begleitet. In Stufe 4 wird zunehmend selbstständig geübt, die Ausbilderin kontrolliert am Ende das Ergebnis und bespricht es. Typische Verwechslung: Das Zeigen am Bildschirm (Stufe 2) ist nicht dasselbe wie die vorbereitenden Schritte davor (Stufe 1), und das Üben mit Ergebnisbesprechung (Stufe 4) nicht dasselbe wie das erste begleitete Nachmachen (Stufe 3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -342,19 +342,19 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 | Begriff | Zone |
 | --- | --- |
-| Vor dem Vormachen wird geklärt, warum die Tätigkeit wichtig und sicherheitsrelevant ist | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Zu jedem Teilschritt nennt die Ausbilderin den Grund, nicht nur den Ablauf | Stufe 1: Vorbereiten, Vormachen und Erklären |
-| Beim ersten Nachmachen erklärt der Auszubildende in eigenen Worten, warum er so vorgeht | Stufe 2: Nachmachen lassen |
-| Missverstandene Schritte werden schon beim Nachmachen geklärt, bevor sie sich einschleifen | Stufe 2: Nachmachen lassen |
-| Aus einem anfangs langsamen Ablauf wird durch Wiederholung ein sicherer, flüssiger Ablauf | Stufe 3: Üben lassen |
-| Die Ausbilderin steht für Rückfragen bereit, greift aber nur auf Wunsch ein | Stufe 3: Üben lassen |
-| Der Auszubildende wiederholt den Handgriff, bis Qualität und Tempo stimmen | Stufe 3: Üben lassen |
-| Die Aufgabe kommt als echter Arbeitsauftrag ohne Erinnerung an einzelne Schritte | Stufe 4: Selbstständig durchführen lassen |
-| Die Ausbilderin beurteilt das Ergebnis und führt ein Auswertungsgespräch | Stufe 4: Selbstständig durchführen lassen |
+| Vor dem Vormachen werden Arbeitsplatz und Material bereitgelegt und das Lernziel genannt | Stufe 1: Vorbereiten |
+| Vor dem Vormachen wird geklärt, warum die Tätigkeit wichtig und sicherheitsrelevant ist | Stufe 1: Vorbereiten |
+| Zu jedem Teilschritt nennt die Ausbilderin den Grund, nicht nur den Ablauf | Stufe 2: Vormachen und Erklären |
+| Die Ausbilderin führt die Tätigkeit vollständig vor und betont die Schlüsselstellen | Stufe 2: Vormachen und Erklären |
+| Beim ersten Nachmachen erklärt der Auszubildende in eigenen Worten, warum er so vorgeht | Stufe 3: Nachmachen lassen |
+| Missverstandene Schritte werden schon beim Nachmachen geklärt, bevor sie sich einschleifen | Stufe 3: Nachmachen lassen |
+| Aus einem anfangs langsamen Ablauf wird durch Wiederholung ein sicherer, flüssiger Ablauf | Stufe 4: Üben lassen |
+| Die Ausbilderin steht für Rückfragen bereit, greift aber nur auf Wunsch ein | Stufe 4: Üben lassen |
+| Am Ende beurteilt die Ausbilderin das Ergebnis und führt ein Auswertungsgespräch | Stufe 4: Üben lassen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Hilfreiche Leitfragen sind: Wer führt? Wer handelt? Wer kontrolliert? In Stufe 1 führt die Ausbilderin, in Stufe 2 handelt der Auszubildende erstmals unter enger Begleitung, in Stufe 3 übt er weitgehend allein, in Stufe 4 trägt er den Auftrag und das Ergebnis wird danach bewertet. Typische Verwechslung: „Die Ausbilderin greift nur auf Wunsch ein“ klingt nach Selbstständigkeit (Stufe 4), beschreibt aber noch das Üben, weil es um Wiederholung bis zur Sicherheit geht und nicht um einen echten Arbeitsauftrag. Hinweis: In manchen Quellen werden die Stufen anders zusammengefasst, zum Beispiel mit getrennten Stufen für Vorbereiten und Vormachen. Hier gilt die Fassung des Kurses, in der Stufe 1 Vorbereiten, Vormachen und Erklären umfasst.
+> Hilfreiche Leitfragen sind: Wer führt? Wer handelt? Wer kontrolliert? In Stufe 1 bereitet die Ausbilderin vor, in Stufe 2 führt sie vor und erklärt, in Stufe 3 handelt der Auszubildende erstmals unter enger Begleitung, in Stufe 4 übt er zunehmend selbstständig, und am Ende wird das Ergebnis bewertet. Typische Verwechslung: „Die Ausbilderin greift nur auf Wunsch ein“ klingt nach Nachmachen unter Begleitung (Stufe 3), beschreibt aber bereits das selbstständige Üben bis zur Sicherheit (Stufe 4). Umgekehrt gehört „vor dem Vormachen klären, warum die Tätigkeit wichtig ist“ zur Vorbereitung (Stufe 1) und nicht zum Vorführen selbst (Stufe 2). Hinweis: In manchen Quellen werden die Stufen anders zusammengefasst, zum Beispiel mit gemeinsamer Stufe für Vorbereiten und Vormachen. Hier gilt die übliche Fassung mit Vorbereiten, Vormachen und Erklären, Nachmachen lassen sowie Üben lassen als vier getrennten Stufen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

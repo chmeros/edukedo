@@ -95,6 +95,7 @@ export const KATALOG_INSTRUMENTE = [
   // Kursprofile Phase 1 (Versicherungen/Finanzanlagen)
   "altersvorsorge",
   "versicherungskennzahlen",
+  "risikopolitik",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -214,7 +215,7 @@ export const KURS_ENTWURF: Record<string, readonly string[]> = {
   industriefachwirt: ["incoterms"],
   "technischer-fachwirt": ["instandhaltung"],
   immobilienfachwirt: ["mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
-  "versicherungen-finanzanlagen": ["altersvorsorge"],
+  "versicherungen-finanzanlagen": ["altersvorsorge", "risikopolitik"],
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -369,15 +370,14 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // ABC-Analyse, XYZ-Analyse, Handelskalkulation und Kraljic-Matrix sind freigegeben (Welle 2b, 06.10.2026). Das Duell-Set "handel-aehnlich" (Fragen 18 bis 20
-  // berühren Außenhandels- und Zollrecht) erst nach der Rechtsprüfung des Prüfblatts 17 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene
-  // Set "standard" begrenzt.
+  // ABC-Analyse, XYZ-Analyse, Handelskalkulation und Kraljic-Matrix sind freigegeben (Welle 2b, 06.10.2026), ebenso das Duell-Set "handel-aehnlich"
+  // (Nutzer-Entscheidung vom 06.10.2026: die drei Fragen mit Außenhandelsrecht wurden durch Fragen ohne Rechtsbezug ersetzt).
   handelsfachwirt: {
     instrumente: liste([...OHNE(), "abc", "xyz", "handelskalkulation", "kraljic"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
+      ["kennzahlen_duell", "handel-aehnlich", "kern"],
       ["memory", null, "kern"],
     ]),
     lernpfade: [],

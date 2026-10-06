@@ -905,8 +905,8 @@ const AEVO_BLATT: KursBlatt = {
       "Ausbildungsberufe auswählen, Verbundausbildung und Einstiegsqualifizierung = HF 1 (Themen 1.2/1.3); Ausbildung im Ausland = HF 2 (2.3); Zusatzqualifikation, Lernberatung, Verkürzung = HF 3 (3.3); Nachteilsausgleich = HF 4 (4.1). Die vorzeitige Zulassung kommt in 3.3 (HF 3) und 4.1 (HF 4) vor und wurde deshalb nicht als Begriff verwendet.",
     ],
     vierstufen: [
-      "**Stufenfassung des Kurses (Thema 3.2): 1. Vorbereiten, Vormachen und Erklären · 2. Nachmachen lassen · 3. Üben lassen · 4. Selbstständig durchführen lassen.** In vielen Quellen und in der üblichen Prüfungspraxis sind Vorbereiten, Vormachen/Erklären getrennte Stufen (häufig: 1. Vorbereiten, 2. Vormachen und Erklären, 3. Nachmachen und Erklären lassen, 4. Üben/Festigen). Soll die Kursfassung bleiben oder auf die übliche Fassung umgestellt werden? Das betrifft Theorie, Zonen und Fragen.",
-      "Grenzzuordnungen: „Fehler beim ersten eigenen Versuch sofort korrigieren“ = Stufe 2, „Rückfragen bereit, greift nur auf Wunsch ein“ = Stufe 3, „Ergebnis selbst kontrollieren“ = Stufe 3, „Ergebniskontrolle und Auswertungsgespräch durch die Ausbilderin“ = Stufe 4.",
+      "**Übliche Fassung (Nutzer-Entscheidung vom 06.10.2026, F-192): 1. Vorbereiten · 2. Vormachen und Erklären · 3. Nachmachen lassen · 4. Üben lassen.** Theorie (Absatz „Ausbildungsmethoden“), Karteikarte K-3.2-04, Sortierfrage Q-3.2-03, Wahr/Falsch Q-3.2-06 und die vier Zonenfragen Q-3.2-10 bis -13 sind umgestellt; die anderen Kurse des Repos (Handel, Transport, Büro, Versicherungen) verwenden dieselbe Gliederung. Der Hinweis in Q-3.2-13 auf abweichende Quellen ist nur noch ein Randhinweis und könnte gestrichen werden.",
+      "Grenzzuordnungen (gegenlesen): Da „Vorbereiten“ jetzt eine eigene Stufe ist, könnten Begriffe wie „ruhige Umgebung wählen“ oder „Vorkenntnisse erfragen“ je nach Quelle auch zu Stufe 2 zählen (Q-3.2-12, -13). In Q-3.2-10 steht „Ergebnis kontrolliert und besprochen“ als Stufe-4-Begriff; Handels- und Transportkurs formulieren die Abnahme in Stufe 4 vielleicht anders. Q-3.2-06 („letzte Stufe“): Die Aussage „Ausbilder übernimmt jeden Handgriff selbst“ bleibt falsch, die Erklärung ist aber weniger eindeutig als in der alten Fassung.",
     ],
     lernzielbereiche: ["Q-3.2-17: „Ordnet Belege den passenden Konten zu“ ist als kognitiv eingeordnet (Schwerpunkt Wissen/Verstehen, begründet in der Erklärung) — entspricht das der gängigen Lehrmeinung?"],
     beurteilungsfehler: [
@@ -1326,7 +1326,7 @@ function hanNachspann(teile: string[]): void {
     "20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen (z. B. Handelsspanne gegen Kalkulationszuschlag, da der Kalkulationszuschlag nur in der neuen Theorie kurz vorkommt).",
     "",
     "**Zum Set — besonders prüfen:**",
-    "- ⚠ Frage 18 (CIF gegen FOB) setzt Wissen aus zwei Absätzen zusammen (Thema 6.2 und 8.1); beide sind textlich gedeckt. Fragen 18 bis 20 (Incoterms, Dokumentenakkreditiv gegen Dokumenteninkasso, präferenzieller gegen nichtpräferenziellen Ursprung) berühren Außenhandels- und Zollrecht und gehören zur Rechtsprüfung (R4).",
+    "- **Fragen 18 bis 20 ersetzt (Nutzer-Entscheidung vom 06.10.2026):** Die ursprünglichen Fragen mit Außenhandelsrecht (CIF gegen FOB, Dokumentenakkreditiv gegen Inkasso, präferenzieller Ursprung) wurden durch drei Fragen ohne Rechtsbezug ersetzt — Naturalrabatt gegen Mengenrabatt (Thema 5.3), dynamische gegen statische Verfahren der Investitionsrechnung und Skonto gegen Zahlungsziel (Thema 6.2). Runde 4 heißt jetzt „Konditionen und Investition“. Das Set ist freigegeben.",
     "- ⚠ Frage 17 (interner Zinsfuß gegen Kapitalwertmethode) und Frage 9 (Dual gegen Multiple Sourcing) nutzen die Kurstheorie wörtlich; Lehrbuchvarianten können abweichen.",
     "- Aus dem Vorschlag weggelassen, weil der Kurs sie nicht unterscheidet: Push gegen Pull, FCA gegen FOB, Handelsspanne gegen Kalkulationszuschlag, Reexport gegen Transithandel (Grauzone), Cross-Docking gegen Kommissionierung (unscharf); Rabatt gegen Skonto und Konnossement gegen CMR-Frachtbrief sind gedeckt, aber nicht im Set. Die Themen 1.1 bis 1.4, 5.1, 5.2 und 7.3 haben keine Frage.",
     "",
@@ -1338,7 +1338,18 @@ const IMM_BLATT: KursBlatt = {
   kurs: "immobilienfachwirt",
   titel: "Immobilienfachwirt",
   feature: "F-190",
-  theorie: [],
+  theorie: [
+    {
+      datei: "hb4/4.2-weg-verwaltung.md",
+      ueberschrift: "Der Verwaltungsbeirat",
+      hinweise: [
+        "Neu (F-192): Gremium aus Wohnungseigentümern, von der Eigentümerversammlung bestellbar, nicht zwingend; unterstützt den Verwalter und überwacht dessen Tätigkeit; keine Verwaltungsaufgaben anstelle des Verwalters; nach außen tritt grundsätzlich der Verwalter auf. Karteikarten K-4.2-18 und -19. **Rechtlich ungeprüft** — bei der Prüfung mit dem aktuellen Gesetzestext abgleichen.",
+        "Typische Beispiele (Einsicht in Unterlagen, Prüfung von Wirtschaftsplan und Jahresabrechnung vor dem Beschluss, Begleitung bei Vergaben) sind nur als „typisch“ formuliert; Reichweite und Pflicht hängen von Teilungserklärung bzw. Beschluss ab.",
+        "„Nach außen tritt grundsätzlich der Verwalter für die Gemeinschaft auf“: Die Eigentümer können dem Beiratsvorsitzenden aber eine Ermächtigung erteilen (etwa zum Abschluss des Verwaltervertrags); der Text nennt diese Ausnahme nicht — bei Bedarf Halbsatz ergänzen. „Keine Verwaltungsaufgaben anstelle des Verwalters“ ist vorsichtig formuliert, weil die Eigentümer dem Beirat per Beschluss zusätzliche Aufgaben übertragen können.",
+        "Der Bezug zur Wohnanlage „Am Lindenpark“ („in vielen Gemeinschaften, so auch bei Am Lindenpark“) ist didaktisch und setzt einen Beirat dort voraus; kursintern konsistent mit Q-4.2-12.",
+      ],
+    },
+  ],
   zonenDateien: [
     { datei: "hb6/6.3-immobilienbewertung-grundzuege.md", typen: ["wertermittlung"] },
     { datei: "hb4/4.1-mietverwaltung.md", typen: ["mieterhoehung"] },
@@ -1361,7 +1372,7 @@ const IMM_BLATT: KursBlatt = {
     ],
     wegorgane: [
       "**WEG-Recht, Rechtsstand prüfen (WEG-Reform):** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“.",
-      "**Verwaltungsbeirat nicht durch die Theorie belegt:** Die Theorie von 4.2 erwähnt den Beirat nirgends; die einzige inhaltliche Aussage („Unterstützung und Kontrolle des Verwalters“) steht in Q-4.2-12 (Hierarchie). Alle Beirat-Begriffe stützen sich auf diese eine Aussage und sind in den Erklärungen als abgeleitet gekennzeichnet. **Vor der Freigabe sollte ein Theorieabsatz zum Beirat ergänzt werden** (oder die Zone entfallen).",
+      "**Verwaltungsbeirat (Nutzer-Entscheidung vom 06.10.2026):** Die Theorie von 4.2 enthält jetzt einen Abschnitt „Der Verwaltungsbeirat“ (drei Absätze, K-4.2-18 und -19); die Beirat-Begriffe in Q-4.2-14 bis -17 („unterstützt“, „kontrolliert/überwacht den Verwalter“) sind damit belegt, die Erklärungen verweisen auf den Abschnitt. **Der Absatz ist neu und rechtlich ungeprüft** (Einzelaussagen siehe Theorie-Hinweise oben).",
       "Q-4.2-14 bis -17: Beschluss-Sammlung und Vermögenstrennung liegen laut Theorie beim Verwalter; die Zuordnung der Einladung und der Auskunft zum Verwalter ist abgeleitet (die Theorie nennt Einberufung und Auskunftspflichten); die Abberufung bei der Versammlung ist abgeleitet („Erleichterung für die Gemeinschaft“) — rechtliche Zuständigkeit prüfen.",
       "Q-4.2-15: „Muss grundsätzlich zertifiziert sein“ ist verkürzt (rechtlich ein Anspruch der Eigentümer auf Bestellung, keine Verwalterpflicht; die Erklärung nennt das als Verwechslung). Ladungsfristen wurden weggelassen, damit keine Zahlen in den Begriffen stehen.",
     ],
@@ -1372,7 +1383,7 @@ const IMM_BLATT: KursBlatt = {
     ],
     kostengruppen: [
       "**Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen).",
-      "**Mögliche Unstimmigkeit in der Kurstheorie 5.4:** Der Kurs ordnet die Erschließung des Grundstücks der KG 500 (Außenanlagen) zu; nach der aktuellen DIN 276 gehört sie nach meinem Wissen zu den vorbereitenden Maßnahmen (KG 200, nach neuer Fassung „Herrichten und Erschließen“). Die Erschließung wurde deshalb in keiner Zuordnung verwendet (KG 500: nur Stellplätze und Grünflächen); die Theoriepassage selbst ist eine mögliche Korrektur. Grunderwerbsteuer und Notarkosten wurden ausgespart, weil die Theorie sie nicht nennt.",
+      "**Erschließung (Nutzer-Entscheidung vom 06.10.2026):** Das Beispiel „Erschließung des Grundstücks“ wurde aus der KG-500-Beschreibung der Theorie 5.4 entfernt (ohne neue Zuordnung zu behaupten); nach der aktuellen DIN 276 gehört die Erschließung nach unserem Wissen zu den vorbereitenden Maßnahmen (KG 200) — die Normprüfung klärt, ob KG 200 ergänzt werden soll. Die Fragen vermeiden das Thema weiterhin.",
       "Q-5.4-14 bis -17: KG 600 (Ausstattung und Kunstwerke): Das Kunstwerk und das Mobiliar sind aus dem Gruppennamen abgeleitet, die Theorie nennt kein Beispiel; Mobiliar eines Gemeinschaftsraums könnte je nach Fest-/Losteil abweichend eingeordnet werden. Ausbau bei KG 300 steht wörtlich in der Theorie; Planung und Bauleitung gehören zu KG 700.",
     ],
   },
@@ -1398,9 +1409,20 @@ function immNachspann(teile: string[]): void {
 const VER_BLATT: KursBlatt = {
   kurs: "versicherungen-finanzanlagen",
   titel: "Versicherungen/Finanzanlagen",
-  feature: "F-191",
-  theorie: [],
+  feature: "F-191, F-192",
+  theorie: [
+    {
+      datei: "kb2/2.5-risikoanalyse-gewerbekunden.md",
+      ueberschrift: "Risikopolitik: vier Strategien im Umgang mit Risiken",
+      hinweise: [
+        "Neu (F-192, Nutzer-Entscheidung zu Frage F6: Standardbegriffe einführen): Vermeiden, Vermindern, Überwälzen, Selbst tragen am Beispiel Katz Fensterbau, mit Bezug zur Risikomatrix und zwei typischen Verwechslungen; Karteikarten K-2.5-19 bis -21.",
+        "**Einordnung der bestehenden Matrixbegriffe** (vermeiden, absichern, beobachten, akzeptieren) als vorsichtiger Satz mit „je nach Lehrbuch unterschiedlich benannt“: Absichern entspricht Überwälzen, Akzeptieren entspricht Selbst tragen, Beobachten am ehesten Vermindern — das ist die schwächste Zuordnung, denn die bestehende Theorie nennt bei „Beobachten“ auch den Selbstbehalt (also Selbst tragen). Die bestehenden Risikomatrix-Fragen (Q-2.5-03, -10, -11) wurden nicht verändert.",
+        "Vertragsgestaltung als Überwälzen (Haftung des Subunternehmers vertraglich verlagern): lehrbuchüblich, die Wirksamkeit solcher Klauseln ist rechtlich nicht geprüft.",
+      ],
+    },
+  ],
   zonenDateien: [
+    { datei: "kb2/2.5-risikoanalyse-gewerbekunden.md", typen: ["risikopolitik"] },
     { datei: "kb1/1.4-altersvorsorge.md", typen: ["altersvorsorge"] },
     { datei: "kp2/4.1-unternehmenssteuerung-controlling.md", typen: ["versicherungskennzahlen"] },
   ],
@@ -1410,6 +1432,12 @@ const VER_BLATT: KursBlatt = {
       "Q-1.4-14: „Grund- und Kinderzulage“ als Schicht-2-Merkmal ist eine Ableitung (Zulagen stehen im Kurs nur bei Riester); „staatlich gefördert“ trifft auch auf die Basisrente zu, die Erklärung warnt davor. Der Kurs sagt „grundsätzlich“ nicht vererbbar, die Begriffsformulierung ist absoluter (Hinterbliebenenabsicherung als Ausnahme laut Kurs) — rechtlich klären.",
       "Q-1.4-15: Direktversicherung in Schicht 2 und die vermietete Eigentumswohnung als „Immobilienvermögen“ in Schicht 3 sind Ableitungen; das Szenario „Fondssparplan, jederzeit frei verfügbar“ unterstellt Verfügbarkeit, die der Kurs nur allgemein für Schicht 3 nennt.",
       "Q-1.4-16: Pensionsfonds und Direktzusage in Schicht 2 (aus „bAV = Schicht 2“) und „Versorgungswerk gehört nicht zur gesetzlichen Rentenversicherung“ (nicht ausdrücklich im Kurs, nur als Abgrenzung) sind Ableitungen. „Klassische Kapitalversicherung = Schicht 3“ folgt dem Kurs; die steuerliche Behandlung bleibt unberührt.",
+    ],
+    risikopolitik: [
+      "Standardbegriffe der Risikopolitik; das Modell `risiko` (Risikomatrix, Zonen Vermeiden/Absichern/Beobachten/Akzeptieren) bleibt davon getrennt. Beide haben die Zone „Vermeiden“, aber mit unterschiedlicher Bedeutung (Ergebnis der Einordnung bei der Matrix, Strategie „auf die Tätigkeit verzichten“ bei der Risikopolitik); die Fragen Q-2.5-15 bis -18 verwenden die Matrixbegriffe Absichern, Beobachten und Akzeptieren nirgends.",
+      "Q-2.5-15: Ob „Rücklagen“ als Selbst tragen oder als Selbstversicherung geführt wird — die Theorie nennt Rücklagen ausdrücklich. Q-2.5-16: Selbstbehalt bei der Inventarversicherung als Selbst tragen, obwohl die Versicherung selbst Überwälzen ist (als Teilung gemeint, in der Erklärung begründet); die Vertragsklausel zum Subunternehmer ist nur sinngemäß fachlich.",
+      "Q-2.5-17: „Verzicht auf einen Auftrag, weil das Risiko in keinem Verhältnis zum Ertrag steht“ als Vermeiden (nach einer Lesart eher Risikoscheu als Risikoverhalten, aber üblich).",
+      "**Q-2.5-18 (schwerste Frage):** „Versichert, aber keine Schadenverhütung“ zeigt Überwälzen bewusst als Negativbeispiel; wer „tut nichts zur Schadenverhütung“ als Hinweis auf Vermindern liest, könnte stolpern. „Verzicht auf eine Anlage, die er nicht sicher beherrschen könnte“ als Vermeiden ist grenzwertig, liegt aber innerhalb der Definition („Tätigkeit oder Anlage“).",
     ],
     versicherungskennzahlen: [
       "Die Zonen sind die drei Quoten aus dem Abschnitt „Kennzahlen im Versicherungsvertrieb“ (Thema 4.1); Bestand/Neugeschäft, Stornoquote, Vertragsdichte und Cross-Selling-Quote sind bewusst keine Zonen und kommen nicht vor. Brutto-/Netto-Varianten der Quoten werden nicht erwähnt (der Kurs führt eine Variante).",
