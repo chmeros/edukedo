@@ -383,6 +383,11 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `ermodell` (**ER-Modell**, F-162): Entitätstyp, Attribut, Beziehung, Kardinalität
   - `normalisierung` (**Normalformen**, F-162, 3 Zonen): 1. Normalform, 2. Normalform, 3. Normalform
   - `ablauf` (**Ablaufstrukturen**, F-162, 3 Zonen): Sequenz, Verzweigung, Schleife
+  - `muster` (**Entwurfs- und Architekturmuster**, F-176, 4 Zonen): Singleton, Fabrikmethode (Factory), Beobachter (Observer), MVC
+  - `klassenbeziehungen` (**UML-Klassenbeziehungen**, F-176, 5 Zonen): Assoziation, Aggregation, Komposition, Vererbung (Generalisierung), Abhängigkeit
+  - `testverfahren` (**Testverfahren**, F-176, 3 Zonen): Statische Verfahren, Dynamisch: Black-Box, Dynamisch: White-Box
+  - `git` (**Git-Bereiche**, F-176, 4 Zonen): Arbeitsverzeichnis, Staging-Bereich (Index), Lokales Repository, Remote-Repository
+  - `uml` hat seit F-176 eine fünfte Zone **Zustandsdiagramm**
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

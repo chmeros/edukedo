@@ -1,4 +1,4 @@
-import { LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, type AdminContentItemForm } from "@edukedo/shared";
+import { isQuadrantItem, isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type AdminContentItemForm, type QuadrantQuizType } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
@@ -17,26 +17,8 @@ const TYPE_LABELS: Record<string, string> = {
   zuordnung: "Quiz · Zuordnung",
   // F-113 Teil 2: vier vorgegebene Elemente per Drag-and-Drop in die richtige Reihenfolge bringen.
   sortieren: "Quiz · Sortieren",
-  // F-114: visuelle Zuordnungs-Variante mit festen Zonen (siehe Architekturplanung Abschnitt 13).
-  swot: "Quiz · SWOT-Matrix",
-  bsc: "Quiz · Balanced Scorecard",
-  ansoff: "Quiz · Ansoff-Matrix",
-  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
-  // dieselbe Mechanik wie swot/bsc/ansoff, drei weitere Modelle mit festen Zonen.
-  eisenhower: "Quiz · Eisenhower-Matrix",
-  pdca: "Quiz · PDCA-Zyklus",
-  risiko: "Quiz · Risikomatrix",
-  // F-156: IT-Instrumente (Fachinformatiker-Kurse).
-  osi: "Quiz · OSI-Modell",
-  schutzziele: "Quiz · Schutzziele der IT-Sicherheit",
-  sql: "Quiz · SQL-Befehlsgruppen",
-  scrum: "Quiz · Scrum",
-  uml: "Quiz · UML-Diagramme",
-  teststufen: "Quiz · Teststufen",
-  // F-162: weitere IT-Instrumente.
-  ermodell: "Quiz · ER-Modell",
-  normalisierung: "Quiz · Normalformen",
-  ablauf: "Quiz · Ablaufstrukturen",
+  // F-114/F-105/F-156/F-162/F-176: alle Modelle mit festen Zonen — Beschriftung aus QUADRANT_MODELS.
+  ...(Object.fromEntries(QUADRANT_QUIZ_TYPES.map((type) => [type, `Quiz · ${QUADRANT_MODELS[type].label}`])) as Record<QuadrantQuizType, string>),
   // F-105 (ToDo-Punkt 6): echte Baum-/Hierarchie-Darstellung statt fester Zonen.
   hierarchie: "Quiz · Projektstrukturplan/Organigramm",
   // F-114 Teil 2: wie swot/bsc/ansoff, aber die Zeitabschnitte sind content-autoriert statt fest
@@ -56,6 +38,11 @@ const BLOOM_OPTIONS = ["erinnern", "verstehen", "anwenden", "analysieren", "bewe
 
 function defaultFormForType(type: AdminContentItemForm["type"], themaId: string): AdminContentItemForm {
   const common = { themaId, difficulty: "mittel" as const, bloom: null, isPremium: false, isActive: true };
+  // F-114/F-105/F-156/F-162/F-176: je ein leerer Begriff pro Zone als Starthilfe — alle Modelle mit festen Zonen (QUADRANT_MODELS,
+  // siehe Architekturplanung Abschnitt 13).
+  if (isQuadrantType(type)) {
+    return { type, prompt: "", explanation: "", terms: QUADRANT_MODELS[type].zones.map((zone) => ({ text: "", zoneKey: zone.key })), ...common };
+  }
   switch (type) {
     case "theorie":
       return { type, prompt: "", bodyMarkdown: "", ...common };
@@ -119,32 +106,6 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
         prompt: "",
         explanation: "",
         items: [{ text: "" }, { text: "" }, { text: "" }, { text: "" }],
-        ...common,
-      };
-    // F-114: je ein leerer Begriff pro Zone als Starthilfe — ein SWOT-Feld hat z. B. immer
-    // genau die vier festen Zonen aus QUADRANT_MODELS (siehe Architekturplanung Abschnitt 13).
-    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
-    // eisenhower/pdca/risiko teilen sich denselben Starthilfe-Aufbau wie swot/bsc/ansoff.
-    case "swot":
-    case "bsc":
-    case "ansoff":
-    case "eisenhower":
-    case "pdca":
-    case "risiko":
-    case "osi":
-    case "schutzziele":
-    case "sql":
-    case "scrum":
-    case "uml":
-    case "teststufen":
-    case "ermodell":
-    case "normalisierung":
-    case "ablauf":
-      return {
-        type,
-        prompt: "",
-        explanation: "",
-        terms: QUADRANT_MODELS[type].zones.map((zone) => ({ text: "", zoneKey: zone.key })),
         ...common,
       };
     // F-105 (ToDo-Punkt 6): zwei leere Ebenen direkt unter der Wurzel als Starthilfe, je zwei
@@ -555,21 +516,7 @@ function ContentItemForm({
           des gewählten Modells zuordnen (QUADRANT_MODELS, siehe Architekturplanung Abschnitt 13).
           Die Zonen selbst sind nicht editierbar, nur welcher Begriff zu welcher Zone gehört.
           F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko nutzen dasselbe Formular. */}
-      {(form.type === "swot" ||
-        form.type === "bsc" ||
-        form.type === "ansoff" ||
-        form.type === "eisenhower" ||
-        form.type === "pdca" ||
-        form.type === "risiko" ||
-        form.type === "osi" ||
-        form.type === "schutzziele" ||
-        form.type === "sql" ||
-        form.type === "scrum" ||
-        form.type === "uml" ||
-        form.type === "teststufen" ||
-        form.type === "ermodell" ||
-        form.type === "normalisierung" ||
-        form.type === "ablauf") && (
+      {isQuadrantItem(form) && (
         <div className="field">
           <label>Begriffe ({QUADRANT_MODELS[form.type].zones.map((zone) => zone.label).join(" / ")})</label>
           <div className="stack">

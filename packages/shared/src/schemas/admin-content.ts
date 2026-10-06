@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { contentItemBloomSchema, contentItemDifficultySchema, contentItemTypeSchema } from "./content-item";
-import { isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS } from "../quiz-logic";
+import { isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type QuadrantQuizType } from "../quiz-logic";
 
 /**
  * F-11: Admin-/Redaktionsbereich — Pflege (und seit der Nutzer-Entscheidung vom 19.09.2026
@@ -141,114 +141,13 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     items: z.array(sortierenItemFormSchema).length(4),
     ...commonFormFields,
   }),
-  // F-114 (Nutzer-Feedback vom 18.09.2026, erweitert F-21/Zuordnung): SWOT-Matrix, Balanced
-  // Scorecard und Ansoff-Matrix — dieselbe "Begriffe den festen Zonen zuordnen"-Formularstruktur,
-  // nur die im Frontend angezeigten Zonen-Beschriftungen unterscheiden sich (siehe
-  // QUADRANT_MODELS in quiz-logic.ts). Mindestens 4 Begriffe (einer je Zone), Obergrenze 20 wie
-  // bei den anderen Formaten mit variabler Elementanzahl.
+  // F-114/F-105/F-156/F-162/F-176: alle Modelle mit festen Zonen (QUADRANT_MODELS in quiz-logic.ts: SWOT, BSC,
+  // Ansoff, Eisenhower, PDCA, Risikomatrix und die IT-Instrumente) teilen sich EINE Formularstruktur — "Begriffe den
+  // festen Zonen zuordnen", nur die im Frontend angezeigten Zonen-Beschriftungen unterscheiden sich. Ein neues Modell
+  // braucht hier keinen Eintrag mehr. Mindestens 4 Begriffe, Obergrenze 20 wie bei den anderen Formaten mit variabler
+  // Elementanzahl.
   z.object({
-    type: z.literal("swot"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("bsc"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("ansoff"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
-  // dieselbe Formularstruktur wie swot/bsc/ansoff — reine Erweiterung um drei weitere Modelle.
-  z.object({
-    type: z.literal("eisenhower"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("pdca"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("risiko"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  // F-156: IT-Instrumente — dieselbe Formularstruktur wie swot/bsc/ansoff.
-  z.object({
-    type: z.literal("osi"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("schutzziele"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("sql"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("scrum"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("uml"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("teststufen"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("ermodell"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("normalisierung"),
-    prompt: promptSchema,
-    explanation: explanationSchema,
-    terms: z.array(quadrantTermFormSchema).min(4).max(20),
-    ...commonFormFields,
-  }),
-  z.object({
-    type: z.literal("ablauf"),
+    type: z.enum(QUADRANT_QUIZ_TYPES as [QuadrantQuizType, ...QuadrantQuizType[]]),
     prompt: promptSchema,
     explanation: explanationSchema,
     terms: z.array(quadrantTermFormSchema).min(4).max(20),

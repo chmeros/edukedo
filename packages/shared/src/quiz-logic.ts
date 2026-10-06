@@ -193,6 +193,8 @@ export const QUADRANT_MODELS = {
       { key: "usecase", label: "Use-Case-Diagramm" },
       { key: "sequenz", label: "Sequenzdiagramm" },
       { key: "aktivitaet", label: "Aktivitätsdiagramm" },
+      // F-176: Zustandsdiagramme kommen in den AP2-Aufgaben der Anwendungsentwicklung vor.
+      { key: "zustand", label: "Zustandsdiagramm" },
     ],
   },
   teststufen: {
@@ -233,6 +235,43 @@ export const QUADRANT_MODELS = {
       { key: "schleife", label: "Schleife" },
     ],
   },
+  // F-176 (Kursprofile Phase 1, Anwendungsentwicklung): vier weitere Modelle mit festen Zonen.
+  muster: {
+    label: "Entwurfs- und Architekturmuster",
+    zones: [
+      { key: "singleton", label: "Singleton" },
+      { key: "fabrikmethode", label: "Fabrikmethode (Factory)" },
+      { key: "beobachter", label: "Beobachter (Observer)" },
+      { key: "mvc", label: "MVC" },
+    ],
+  },
+  klassenbeziehungen: {
+    label: "UML-Klassenbeziehungen",
+    zones: [
+      { key: "assoziation", label: "Assoziation" },
+      { key: "aggregation", label: "Aggregation" },
+      { key: "komposition", label: "Komposition" },
+      { key: "vererbung", label: "Vererbung (Generalisierung)" },
+      { key: "abhaengigkeit", label: "Abhängigkeit" },
+    ],
+  },
+  testverfahren: {
+    label: "Testverfahren",
+    zones: [
+      { key: "statisch", label: "Statische Verfahren" },
+      { key: "blackbox", label: "Dynamisch: Black-Box" },
+      { key: "whitebox", label: "Dynamisch: White-Box" },
+    ],
+  },
+  git: {
+    label: "Git-Bereiche",
+    zones: [
+      { key: "arbeitsverzeichnis", label: "Arbeitsverzeichnis" },
+      { key: "staging", label: "Staging-Bereich (Index)" },
+      { key: "lokal", label: "Lokales Repository" },
+      { key: "remote", label: "Remote-Repository" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];
@@ -241,6 +280,16 @@ export type QuadrantQuizType = (typeof QUADRANT_QUIZ_TYPES)[number];
 /** Typwächter für alle Modelle mit festen Zonen (QUADRANT_MODELS) — ohne Gantt/Hierarchie. */
 export function isQuadrantType(type: string): type is QuadrantQuizType {
   return (QUADRANT_QUIZ_TYPES as readonly string[]).includes(type);
+}
+
+/** Wie isQuadrantType, aber auf dem ganzen Objekt — verengt Union-Typen (Formular, geparster Eintrag) auf die Modelle mit festen Zonen. */
+export function isQuadrantItem<T extends { type: string }>(item: T): item is Extract<T, { type: QuadrantQuizType }> {
+  return isQuadrantType(item.type);
+}
+
+/** Modelle mit festen Zonen oder Gantt: alles, was die Quiz-Oberfläche als Zonen-Zuordnung (QuadrantStep) zeigt. */
+export function isQuadrantOrGanttItem<T extends { type: string }>(item: T): item is Extract<T, { type: QuadrantQuizType | "gantt" }> {
+  return isQuadrantType(item.type) || item.type === "gantt";
 }
 
 /**

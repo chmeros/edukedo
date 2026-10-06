@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReviewResult, ShapedQuizItem } from "@edukedo/shared";
-import { shuffle } from "@edukedo/shared";
+import { isQuadrantOrGanttItem, shuffle } from "@edukedo/shared";
 import { AbortRoundButton } from "./AbortRoundButton";
 import { RoundActiveMarker } from "./LearningRound";
 import { NachlesenButton, themaAngaben } from "./TheorieReader";
@@ -469,22 +469,7 @@ export function MixedLearning({
           QuadrantStep/submitQuadrantMutation unverändert mit. F-105 (ToDo-Punkt 6):
           eisenhower/pdca/risiko ebenso. */}
       {current.kind === "quiz" &&
-        (current.item.type === "swot" ||
-          current.item.type === "bsc" ||
-          current.item.type === "ansoff" ||
-          current.item.type === "eisenhower" ||
-          current.item.type === "pdca" ||
-          current.item.type === "risiko" ||
-          current.item.type === "osi" ||
-          current.item.type === "schutzziele" ||
-          current.item.type === "sql" ||
-          current.item.type === "scrum" ||
-          current.item.type === "uml" ||
-          current.item.type === "teststufen" ||
-          current.item.type === "ermodell" ||
-          current.item.type === "normalisierung" ||
-          current.item.type === "ablauf" ||
-          current.item.type === "gantt") && (
+        isQuadrantOrGanttItem(current.item) && (
           <QuadrantStep
             key={current.item.id}
             item={current.item}

@@ -1,3 +1,4 @@
+import { isQuadrantOrGanttItem } from "@edukedo/shared";
 import { useEffect, useRef, useState } from "react";
 import type { OfflineQuizMutationKey, OfflineQuizRound } from "./offlineQuiz";
 import { createOfflineQuizMutations, DEFAULT_QUIZ_ROUND_SIZE, loadOfflineQuizRound } from "./offlineQuiz";
@@ -340,22 +341,7 @@ export function Quiz({
           erreicht, wenn `online` ohnehin true ist. F-114 Teil 2: "gantt" nutzt denselben
           QuadrantStep/submitQuadrantMutation unverändert mit — die Komponente ist bereits generisch
           über item.zones/item.terms. F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko ebenso. */}
-      {(current.type === "swot" ||
-        current.type === "bsc" ||
-        current.type === "ansoff" ||
-        current.type === "eisenhower" ||
-        current.type === "pdca" ||
-        current.type === "risiko" ||
-        current.type === "osi" ||
-        current.type === "schutzziele" ||
-        current.type === "sql" ||
-        current.type === "scrum" ||
-        current.type === "uml" ||
-        current.type === "teststufen" ||
-        current.type === "ermodell" ||
-        current.type === "normalisierung" ||
-        current.type === "ablauf" ||
-        current.type === "gantt") && (
+      {isQuadrantOrGanttItem(current) && (
         <QuadrantStep
           key={current.id}
           item={current}

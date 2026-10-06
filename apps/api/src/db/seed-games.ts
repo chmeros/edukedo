@@ -14,6 +14,9 @@ import {
   ZAHLENSYSTEM_TYPEN,
 } from "@edukedo/shared";
 import { bugHuntCodefehler } from "./content/game-bughunt-codefehler";
+import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
+import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
+import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
@@ -168,6 +171,32 @@ async function main() {
       }),
     );
   }
+
+  // Weitere Bug-Hunt-Sets (setKey ≠ "standard") nur für die Anwendungsentwicklung: Schleifen/Off-by-one,
+  // Objektorientierung und SQL-Fehler passen zu den Lerninhalten dieses Berufs, nicht zu allen vier
+  // Fachinformatiker-Kursen.
+  const anwendungsentwicklungSlug = "fachinformatiker-anwendungsentwicklung";
+  await upsertGame(
+    anwendungsentwicklungSlug,
+    "bughunt",
+    "Bug-Hunt: Schleifen und Off-by-one",
+    bugHuntPayloadSchema.parse(bugHuntSchleifen),
+    "schleifen",
+  );
+  await upsertGame(
+    anwendungsentwicklungSlug,
+    "bughunt",
+    "Bug-Hunt: Objektorientierung",
+    bugHuntPayloadSchema.parse(bugHuntObjektorientierung),
+    "objektorientierung",
+  );
+  await upsertGame(
+    anwendungsentwicklungSlug,
+    "bughunt",
+    "Bug-Hunt: SQL-Fehler",
+    bugHuntPayloadSchema.parse(bugHuntSqlFehler),
+    "sql-fehler",
+  );
 
   await pool.end();
 }

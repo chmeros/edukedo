@@ -441,6 +441,31 @@ describe("parseQuizBlock", () => {
     }
   });
 
+  it("parst die Modelle aus F-176 (Muster, Klassenbeziehungen, Testverfahren, Git) und die fünfte UML-Zone", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-1.1-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const muster = parse("Entwurfs- und Architekturmuster", ["- Genau eine Instanz → Singleton", "- Oberfläche, Logik, Daten trennen → MVC", "- Änderungen an alle melden → Beobachter (Observer)", "- Unterklasse erzeugt das Objekt → Fabrikmethode (Factory)"]);
+    expect(muster?.type).toBe("muster");
+    if (muster?.type === "muster") expect(muster.terms.map((term) => term.zoneKey)).toEqual(["singleton", "mvc", "beobachter", "fabrikmethode"]);
+
+    const beziehungen = parse("UML-Klassenbeziehungen", ["- Raum und Gebäude → Komposition", "- Kunde kennt Auftrag → Assoziation", "- Unterklasse erbt → Vererbung (Generalisierung)", "- Parameter einer Methode → Abhängigkeit", "- Team und Mitarbeitende → Aggregation"]);
+    expect(beziehungen?.type).toBe("klassenbeziehungen");
+    if (beziehungen?.type === "klassenbeziehungen") expect(beziehungen.terms.map((term) => term.zoneKey)).toEqual(["komposition", "assoziation", "vererbung", "abhaengigkeit", "aggregation"]);
+
+    const testverfahren = parse("Testverfahren", ["- Review → Statische Verfahren", "- Grenzwertanalyse → Dynamisch: Black-Box", "- Zweigüberdeckung → Dynamisch: White-Box", "- Schreibtischtest → Statische Verfahren"]);
+    expect(testverfahren?.type).toBe("testverfahren");
+    if (testverfahren?.type === "testverfahren") expect(testverfahren.terms.map((term) => term.zoneKey)).toEqual(["statisch", "blackbox", "whitebox", "statisch"]);
+
+    const git = parse("Git-Bereiche", ["- git add → Staging-Bereich (Index)", "- Datei geändert, nicht vorgemerkt → Arbeitsverzeichnis", "- git commit → Lokales Repository", "- git push → Remote-Repository"]);
+    expect(git?.type).toBe("git");
+    if (git?.type === "git") expect(git.terms.map((term) => term.zoneKey)).toEqual(["staging", "arbeitsverzeichnis", "lokal", "remote"]);
+
+    const uml = parse("UML-Diagramme", ["- Zustände einer Bestellung → Zustandsdiagramm", "- Klassen und Attribute → Klassendiagramm", "- Nachrichten über die Zeit → Sequenzdiagramm", "- Ablauf mit Verzweigung → Aktivitätsdiagramm"]);
+    expect(uml?.type).toBe("uml");
+    if (uml?.type === "uml") expect(uml.terms[0]?.zoneKey).toBe("zustand");
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

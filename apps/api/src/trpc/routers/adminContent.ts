@@ -9,6 +9,8 @@ import {
   fallaufgabePayloadSchema,
   ganttPayloadSchema,
   hierarchiePayloadSchema,
+  isQuadrantItem,
+  isQuadrantType,
   kurzantwortPayloadSchema,
   lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
@@ -45,6 +47,22 @@ interface PreparedContent {
 }
 
 export function prepareContent(input: AdminContentItemForm): PreparedContent {
+  // F-114/F-105/F-156/F-162/F-176: alle Modelle mit festen Zonen (QUADRANT_MODELS) sind eine visuelle Zuordnungs-Variante —
+  // dieselbe answer_option-Tabelle wie "zuordnung", aber `groupKey` trägt hier den (festen) Zonen-Schlüssel des Begriffs
+  // statt einer Paar-ID, und `side` bleibt ungesetzt (nur zwei Spalten kennen Seiten).
+  if (isQuadrantItem(input)) {
+    return {
+      prompt: input.prompt,
+      explanation: input.explanation ?? null,
+      payload: {},
+      answerOptions: input.terms.map((term, index) => ({
+        text: term.text,
+        isCorrect: false,
+        groupKey: term.zoneKey,
+        sortOrder: index,
+      })),
+    };
+  }
   switch (input.type) {
     case "theorie":
       return { prompt: input.prompt, explanation: null, payload: { body_markdown: input.bodyMarkdown, images: [] } };
@@ -90,37 +108,6 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
         answerOptions: input.items.map((sortierenItem, index) => ({
           text: sortierenItem.text,
           isCorrect: false,
-          sortOrder: index,
-        })),
-      };
-    // F-114: swot/bsc/ansoff sind eine visuelle Zuordnungs-Variante — dieselbe answer_option-
-    // Tabelle wie "zuordnung", aber `groupKey` trägt hier den (festen) Zonen-Schlüssel des
-    // Begriffs statt einer Paar-ID, und `side` bleibt ungesetzt (nur zwei Spalten kennen Seiten).
-    // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung Abschnitt 13):
-    // eisenhower/pdca/risiko teilen sich denselben Formular-Aufbau wie swot/bsc/ansoff.
-    case "swot":
-    case "bsc":
-    case "ansoff":
-    case "eisenhower":
-    case "pdca":
-    case "risiko":
-    case "osi":
-    case "schutzziele":
-    case "sql":
-    case "scrum":
-    case "uml":
-    case "teststufen":
-    case "ermodell":
-    case "normalisierung":
-    case "ablauf":
-      return {
-        prompt: input.prompt,
-        explanation: input.explanation ?? null,
-        payload: {},
-        answerOptions: input.terms.map((term, index) => ({
-          text: term.text,
-          isCorrect: false,
-          groupKey: term.zoneKey,
           sortOrder: index,
         })),
       };
@@ -348,21 +335,7 @@ export const adminContentRouter = router({
     // F-114: swot/bsc/ansoff laden genau wie zuordnung, aber flach als terms (kein Paar-Konzept).
     // F-105 (ToDo-Punkt 6): eisenhower/pdca/risiko laden identisch dazu.
     if (
-      item.type === "swot" ||
-      item.type === "bsc" ||
-      item.type === "ansoff" ||
-      item.type === "eisenhower" ||
-      item.type === "pdca" ||
-      item.type === "risiko" ||
-      item.type === "osi" ||
-      item.type === "schutzziele" ||
-      item.type === "sql" ||
-      item.type === "scrum" ||
-      item.type === "uml" ||
-      item.type === "teststufen" ||
-      item.type === "ermodell" ||
-      item.type === "normalisierung" ||
-      item.type === "ablauf"
+      isQuadrantType(item.type)
     ) {
       const rows = await ctx.db
         .select()

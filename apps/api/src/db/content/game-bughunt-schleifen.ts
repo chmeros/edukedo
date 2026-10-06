@@ -1,0 +1,247 @@
+import type { BugHuntPayload } from "@edukedo/shared";
+
+/**
+ * Gaming-Tab: „Bug-Hunt: Schleifen und Off-by-one" (setKey "schleifen") für den Kurs
+ * Fachinformatiker/in Anwendungsentwicklung (11 kurze Codeausschnitte in Python, JavaScript, Java und C#,
+ * in jedem steckt genau ein Fehler in genau einer Zeile). Die Schwierigkeit steigt über die Aufgaben hinweg an.
+ */
+export const bugHuntSchleifen: BugHuntPayload = {
+  aufgaben: [
+    {
+      nummer: 1,
+      titel: "Jede zweite Protokollzeile",
+      sprache: "Python",
+      aufgabe:
+        "Die Funktion soll aus den Zeilen eines Wartungsprotokolls jede zweite Zeile zurückgeben und dabei mit der ersten Zeile beginnen. Für [\"A\", \"B\", \"C\", \"D\", \"E\"] soll [\"A\", \"C\", \"E\"] herauskommen.",
+      zeilen: [
+        "def jede_zweite_zeile(zeilen):",
+        "    auswahl = []",
+        "    for i in range(1, len(zeilen), 2):",
+        "        auswahl.append(zeilen[i])",
+        "    return auswahl",
+      ],
+      fehlerZeile: 3,
+      tipp: "Überlege, bei welchem Index das erste Element einer Liste liegt und mit welchem Index die Schleife tatsächlich startet.",
+      korrektur: "    for i in range(0, len(zeilen), 2):",
+      erklaerung:
+        "Listen werden ab Index 0 gezählt. range(1, len(zeilen), 2) beginnt aber bei Index 1, also beim zweiten Element, und liefert [\"B\", \"D\"] statt [\"A\", \"C\", \"E\"]. Das ist ein Off-by-one-Fehler am Startwert: Die Schleife startet um eins zu spät. Mit range(0, len(zeilen), 2) beginnt die Auswahl bei der ersten Zeile.",
+    },
+    {
+      nummer: 2,
+      titel: "Rechnungsbeträge addieren",
+      sprache: "JavaScript",
+      aufgabe: "Die Funktion soll die Beträge einer Liste addieren. Für [10, 20, 5] soll 35 herauskommen.",
+      zeilen: [
+        "function gesamtbetrag(betraege) {",
+        "  let summe = 0;",
+        "  for (const betrag in betraege) {",
+        "    summe += betrag;",
+        "  }",
+        "  return summe;",
+        "}",
+      ],
+      fehlerZeile: 3,
+      tipp: "Schau dir an, was die Schleifenvariable bei for ... in tatsächlich enthält: die Werte der Liste oder etwas anderes?",
+      korrektur: "  for (const betrag of betraege) {",
+      erklaerung:
+        "for ... in läuft über die Schlüssel eines Objekts, bei einem Array also über die Indizes, und zwar als Text: \"0\", \"1\", \"2\". Die Addition 0 + \"0\" wird zur Textverkettung, am Ende steht \"0012\" statt 35. Für die Werte eines Arrays gehört for ... of in die Schleife.",
+    },
+    {
+      nummer: 3,
+      titel: "Trennlinie für den Ausdruck",
+      sprache: "Java",
+      aufgabe: "Die Methode soll eine Trennlinie aus genau breite Bindestrichen liefern. Für breite = 5 soll \"-----\" herauskommen.",
+      zeilen: [
+        "public static String trennlinie(int breite)",
+        "{",
+        "    StringBuilder linie = new StringBuilder();",
+        "    for (int i = 0; i < breite; i++);",
+        "    {",
+        "        linie.append('-');",
+        "    }",
+        "    return linie.toString();",
+        "}",
+      ],
+      fehlerZeile: 4,
+      tipp: "Lies die Kopfzeile der Schleife ganz genau bis zum Ende. Welches Zeichen steht hinter der schließenden Klammer, und was gehört dann zur Schleife?",
+      korrektur: "    for (int i = 0; i < breite; i++)",
+      erklaerung:
+        "Das Semikolon hinter der Schleifenklammer ist bereits die komplette (leere) Anweisung der Schleife. Sie läuft breite-mal und tut nichts. Der folgende Block in geschweiften Klammern ist danach nur ein gewöhnlicher Block, der genau einmal ausgeführt wird, es entsteht also nur \"-\". Der Compiler meldet keinen Fehler, deshalb fällt so etwas leicht durch.",
+    },
+    {
+      nummer: 4,
+      titel: "Einsatzstunden summieren",
+      sprache: "Python",
+      aufgabe: "Die Funktion soll die Stunden aller Wartungseinsätze addieren. Für [2, 3, 4] soll 9 herauskommen.",
+      zeilen: [
+        "def gesamtstunden(einsaetze):",
+        "    summe = 0",
+        "    for stunden in einsaetze:",
+        "        summe += stunden",
+        "        return summe",
+      ],
+      fehlerZeile: 5,
+      tipp: "In Python entscheidet die Einrückung, welche Zeilen zur Schleife gehören. Wann wird die Funktion beendet?",
+      korrektur: "    return summe",
+      erklaerung:
+        "Die Zeile return summe ist so weit eingerückt, dass sie zum Schleifenkörper gehört. Schon im ersten Durchlauf wird die Funktion verlassen, es ergibt sich 2 statt 9. Das return muss auf der Ebene der for-Zeile stehen, damit es erst nach der Schleife ausgeführt wird.",
+    },
+    {
+      nummer: 5,
+      titel: "Gesperrte Kunden überspringen",
+      sprache: "C#",
+      aufgabe:
+        "Die Methode soll die Namen aller Kunden ausgeben, die nicht gesperrt sind. Gesperrte Kunden werden übersprungen. Bei der Liste Anna, Bernd (gesperrt), Chris sollen Anna und Chris erscheinen.",
+      zeilen: [
+        "public static void GueltigeKundenAusgeben(List<Kunde> kunden)",
+        "{",
+        "    foreach (var kunde in kunden)",
+        "    {",
+        "        if (kunde.Gesperrt)",
+        "        {",
+        "            break;",
+        "        }",
+        "        Console.WriteLine(kunde.Name);",
+        "    }",
+        "}",
+      ],
+      fehlerZeile: 7,
+      tipp: "Überlege, ob bei einem gesperrten Kunden die ganze Schleife enden oder nur dieser eine Durchlauf übersprungen werden soll.",
+      korrektur: "            continue;",
+      erklaerung:
+        "break beendet die gesamte Schleife. Sobald Bernd gesperrt ist, bricht die Ausgabe ab, und Chris erscheint nie. Gewollt ist continue: Es überspringt nur den Rest des aktuellen Durchlaufs und macht mit dem nächsten Kunden weiter.",
+    },
+    {
+      nummer: 6,
+      titel: "Namen rückwärts ausgeben",
+      sprache: "Java",
+      aufgabe: "Die Methode soll die Namen in umgekehrter Reihenfolge, durch Leerzeichen getrennt, zurückgeben. Für {\"Anna\", \"Ben\", \"Cem\"} soll \"Cem Ben Anna\" herauskommen.",
+      zeilen: [
+        "public static String rueckwaerts(String[] namen) {",
+        "    StringBuilder sb = new StringBuilder();",
+        "    for (int i = namen.length - 1; i >= 0; i++) {",
+        "        sb.append(namen[i]).append(\" \");",
+        "    }",
+        "    return sb.toString().trim();",
+        "}",
+      ],
+      fehlerZeile: 3,
+      tipp: "Die Schleife startet am Ende des Arrays. In welche Richtung muss der Index laufen, und in welche Richtung läuft er hier?",
+      korrektur: "    for (int i = namen.length - 1; i >= 0; i--) {",
+      erklaerung:
+        "Mit i++ wird der Index nach jedem Durchlauf größer statt kleiner. Aus i = 2 wird i = 3, die Bedingung i >= 0 bleibt wahr, und namen[3] löst eine ArrayIndexOutOfBoundsException aus. Eine Rückwärtsschleife muss den Index mit i-- verringern.",
+    },
+    {
+      nummer: 7,
+      titel: "Verbindungsversuche begrenzen",
+      sprache: "JavaScript",
+      aufgabe:
+        "Die Funktion ruft aktion höchstens maxVersuche-mal auf, bis sie true liefert, und gibt die Zahl der benötigten Versuche zurück (-1, wenn alle scheitern). Bei maxVersuche = 3 und einer Aktion, die nie gelingt, darf aktion genau dreimal aufgerufen werden.",
+      zeilen: [
+        "function mitWiederholung(aktion, maxVersuche) {",
+        "  let versuche = 0;",
+        "  while (versuche <= maxVersuche) {",
+        "    versuche++;",
+        "    if (aktion()) {",
+        "      return versuche;",
+        "    }",
+        "  }",
+        "  return -1;",
+        "}",
+      ],
+      fehlerZeile: 3,
+      tipp: "Spiele die Schleife mit maxVersuche = 3 durch und notiere, welchen Wert versuche zu Beginn jedes Durchlaufs hat.",
+      korrektur: "  while (versuche < maxVersuche) {",
+      erklaerung:
+        "Der Zähler startet bei 0. Mit <= hat versuche zu Beginn der Durchläufe die Werte 0, 1, 2 und 3, die Schleife läuft also viermal. Das ist ein Off-by-one-Fehler an der Obergrenze: Wer bei 0 zu zählen beginnt, muss mit < statt <= abbrechen.",
+    },
+    {
+      nummer: 8,
+      titel: "Text umkehren",
+      sprache: "C#",
+      aufgabe: "Die Methode soll die Zeichen eines Textes in umgekehrter Reihenfolge zurückgeben. Aus \"Kunde\" soll \"ednuK\" werden.",
+      zeilen: [
+        "public static string Umkehren(string text)",
+        "{",
+        "    var sb = new StringBuilder();",
+        "    for (int i = text.Length; i >= 0; i--)",
+        "    {",
+        "        sb.Append(text[i]);",
+        "    }",
+        "    return sb.ToString();",
+        "}",
+      ],
+      fehlerZeile: 4,
+      tipp: "Welches ist der höchste gültige Index eines Textes mit fünf Zeichen? Und mit welchem Wert beginnt die Schleife?",
+      korrektur: "    for (int i = text.Length - 1; i >= 0; i--)",
+      erklaerung:
+        "Der letzte gültige Index ist Length - 1, weil die Zählung bei 0 beginnt. Die Schleife startet mit i = text.Length und greift im ersten Durchlauf auf text[5] zu, was eine IndexOutOfRangeException auslöst. Der Startwert liegt um eins zu hoch (Off-by-one).",
+    },
+    {
+      nummer: 9,
+      titel: "Zuwachs zwischen Messwerten",
+      sprache: "Python",
+      aufgabe:
+        "Die Funktion soll für jedes Paar aufeinanderfolgender Messwerte den Zuwachs (späterer minus früherer Wert) berechnen. Für [10, 14, 15] soll [4, 1] herauskommen.",
+      zeilen: [
+        "def differenzen(werte):",
+        "    ergebnis = []",
+        "    for i in range(len(werte)):",
+        "        ergebnis.append(werte[i + 1] - werte[i])",
+        "    return ergebnis",
+      ],
+      fehlerZeile: 3,
+      tipp: "Im Schleifenkörper wird auf werte[i + 1] zugegriffen. Gibt es diesen Eintrag auch beim letzten Wert von i?",
+      korrektur: "    for i in range(len(werte) - 1):",
+      erklaerung:
+        "Jedes Paar braucht einen Nachfolger. Beim letzten i, also len(werte) - 1, existiert werte[i + 1] nicht, und Python wirft einen IndexError. Mit n Werten gibt es nur n - 1 Paare, die Schleife muss deshalb mit range(len(werte) - 1) um einen Durchlauf kürzer sein (Off-by-one).",
+    },
+    {
+      nummer: 10,
+      titel: "Bubble-Sort",
+      sprache: "Java",
+      aufgabe: "Die Methode sortiert ein int-Array aufsteigend mit Bubble-Sort. Sie soll bei Arrays beliebiger Länge ohne Fehlermeldung durchlaufen.",
+      zeilen: [
+        "public static void sortiere(int[] werte) {",
+        "    for (int i = 0; i < werte.length - 1; i++) {",
+        "        for (int j = 0; j < werte.length - i; j++) {",
+        "            if (werte[j] > werte[j + 1]) {",
+        "                int tausch = werte[j];",
+        "                werte[j] = werte[j + 1];",
+        "                werte[j + 1] = tausch;",
+        "            }",
+        "        }",
+        "    }",
+        "}",
+      ],
+      fehlerZeile: 3,
+      tipp: "Die innere Schleife vergleicht werte[j] mit werte[j + 1]. Welchen Wert darf j höchstens annehmen, damit der Nachbar noch existiert?",
+      korrektur: "        for (int j = 0; j < werte.length - i - 1; j++) {",
+      erklaerung:
+        "Im ersten Durchgang (i = 0) läuft j bis werte.length - 1, und werte[j + 1] greift auf werte[werte.length] zu: ArrayIndexOutOfBoundsException. Die innere Schleife muss bei werte.length - i - 1 enden, denn j + 1 darf höchstens der letzte Index sein. Außerdem sind die i letzten Elemente nach i Durchgängen schon an ihrem Platz.",
+    },
+    {
+      nummer: 11,
+      titel: "Funktionen pro Name erzeugen",
+      sprache: "JavaScript",
+      aufgabe:
+        "Zu jedem Namen wird eine Funktion erzeugt, die genau diesen Namen zurückgibt. Bei [\"Anna\", \"Ben\"] soll anzeiger[0]() den Wert \"Anna\" und anzeiger[1]() den Wert \"Ben\" liefern.",
+      zeilen: [
+        "function erzeugeAnzeiger(namen) {",
+        "  const anzeiger = [];",
+        "  for (var i = 0; i < namen.length; i++) {",
+        "    anzeiger.push(() => namen[i]);",
+        "  }",
+        "  return anzeiger;",
+        "}",
+      ],
+      fehlerZeile: 3,
+      tipp: "Die erzeugten Funktionen werden erst nach der Schleife aufgerufen. Welchen Wert hat i dann, und wie viele Variablen i gibt es?",
+      korrektur: "  for (let i = 0; i < namen.length; i++) {",
+      erklaerung:
+        "var gilt für die ganze Funktion, es gibt nur eine einzige Variable i. Alle erzeugten Funktionen teilen sie sich, und nach der Schleife steht darin 2. Jeder Aufruf liest also namen[2], das ist undefined. let legt dagegen für jeden Schleifendurchlauf eine neue Variable an, jede Funktion merkt sich ihren eigenen Wert.",
+    },
+  ],
+  abschlussmeldung:
+    "Geschafft! Du hast elf Fehlerzeilen rund um Schleifen aufgespürt: falsche Start- und Endwerte (Off-by-one), unpassende Schleifenbedingungen, ein Semikolon an der falschen Stelle, ein return im Schleifenkörper, break statt continue, die falsche Zählrichtung sowie die Tücken von for ... in und var in Schleifen. Wer bei jeder Schleife kurz Anfang, Ende und Schrittweite durchspielt, findet solche Fehler schon beim Schreiben.",
+};

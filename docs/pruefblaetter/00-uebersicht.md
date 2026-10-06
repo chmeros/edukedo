@@ -11,6 +11,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [03 Netzwerk-Topologie](03-topologie.md) | Verkabeln, Adressen, Routen, DHCP, VLAN, Firewall, NAT | 9 Szenarien | Instrumente → Netzwerk bauen |
 | [04 IT-Lernpfade](04-lernpfade.md) | Scrum, OSI, Schutzziele, Datenmodell | 4 Pfade (je 7 Stationen) | Instrumente → „Geführten Lernpfad starten“ (Premium) |
 | [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | 157 Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |
+| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 
 ## Vorschlag für die Reihenfolge
 

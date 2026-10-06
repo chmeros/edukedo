@@ -31,6 +31,11 @@ export const KATALOG_INSTRUMENTE = [
   "ermodell",
   "normalisierung",
   "ablauf",
+  // Kursprofile Phase 1 (Anwendungsentwicklung)
+  "muster",
+  "klassenbeziehungen",
+  "testverfahren",
+  "git",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -155,7 +160,8 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "grundlagen"],
       ["memory", "ports", "grundlagen"],
       ["phishing", null, "grundlagen"],
-      ["bughunt", null, "kern"],
+      // Neue Sets (schleifen, objektorientierung, sql-fehler) erst nach der Freigabe des Prüfblatts 06 aufnehmen.
+      ["bughunt", "standard", "kern"],
       ["codereihenfolge", null, "kern"],
       ["subnetting", null, "grundlagen"],
       ["zahlensysteme", null, "grundlagen"],

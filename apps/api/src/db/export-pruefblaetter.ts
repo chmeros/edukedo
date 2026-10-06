@@ -1,11 +1,16 @@
 import {
   FLAG_AUFGABEN,
+  QUADRANT_MODELS,
   TERMINAL_SZENARIEN,
   topologieSzenarien,
   type InstrumentLernpfadPayload,
 } from "@edukedo/shared";
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
+import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
+import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
+import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { datenmodellBrevantaLernpfad } from "./content/instrument-lernpfad-datenmodell-brevanta";
 import { osiBrevantaLernpfad } from "./content/instrument-lernpfad-osi-brevanta";
 import { schutzzieleBrevantaLernpfad } from "./content/instrument-lernpfad-schutzziele-brevanta";
@@ -505,6 +510,164 @@ function glossarBlatt(): string {
 }
 
 // ---------------------------------------------------------------------------------------------------------
+// Kursprofile Phase 1 (F-176): neue Inhalte der Anwendungsentwicklung
+// ---------------------------------------------------------------------------------------------------------
+
+const AE_VERZEICHNIS = path.join(REPO, "content", "fachinformatiker-anwendungsentwicklung");
+
+function liesAeDatei(datei: string): string {
+  return readFileSync(path.join(AE_VERZEICHNIS, datei), "utf8").replace(/\r\n/g, "\n");
+}
+
+/** Text eines Abschnitts (`###`-Überschrift bis zur nächsten gleich- oder höherrangigen Überschrift) aus der Theorie. */
+function theorieAbschnitt(datei: string, ueberschrift: string): string {
+  const { body } = splitFrontmatter(liesAeDatei(datei));
+  const theorie = extractSection(body, "Theorie") ?? "";
+  const start = theorie.indexOf(`### ${ueberschrift}`);
+  if (start < 0) throw new Error(`Abschnitt "${ueberschrift}" in ${datei} nicht gefunden`);
+  const rest = theorie.slice(start);
+  const ende = rest.slice(4).search(/^#{1,3} /m);
+  return (ende < 0 ? rest : rest.slice(0, ende + 4)).trim();
+}
+
+const AE_NEUE_THEORIE: { datei: string; ueberschrift: string; hinweise: string[] }[] = [
+  {
+    datei: "ae1/8.2-analyse-designverfahren-uml.md",
+    ueberschrift: "Drei Entwurfsmuster im Detail: Singleton, Fabrikmethode, Beobachter",
+    hinweise: ["MVC wird hier als Architekturmuster geführt, in Thema 8.4 als „Entwurfsmuster“ — Literatur uneinheitlich; welche Bezeichnung soll gelten?"],
+  },
+  {
+    datei: "ae2/9.2-modultests-testkonzepte.md",
+    ueberschrift: "Testverfahren: statisch und dynamisch — und wie sie sich von Teststufe und Testart abgrenzen",
+    hinweise: [
+      "Schreibtischtest gilt hier als statisches Verfahren (von Hand durchgespielt, nicht ausgeführt); manche Quellen nennen ihn „simulierte Ausführung“.",
+      "Der bestehende Abschnitt „Testarten“ nennt Black-Box/White-Box „Testart nach Vorgehensweise“ — hier „Testverfahren“; Abgrenzung stimmig?",
+    ],
+  },
+  {
+    datei: "ae2/9.3-versionsverwaltung.md",
+    ueberschrift: "Die vier Bereiche und der Weg einer Änderung",
+    hinweise: ["`reset` kommt in der Theorie nur als `--hard` vor, in einer Quizfrage als `--soft`/`--mixed` (siehe Q-9.3-16)."],
+  },
+];
+
+const AE_ZONEN_DATEIEN: { datei: string; typen: string[] }[] = [
+  { datei: "ae1/8.2-analyse-designverfahren-uml.md", typen: ["muster", "klassenbeziehungen", "uml"] },
+  { datei: "ae2/9.2-modultests-testkonzepte.md", typen: ["testverfahren"] },
+  { datei: "ae2/9.3-versionsverwaltung.md", typen: ["git"] },
+];
+
+const AE_ZONEN_HINWEISE: Record<string, string[]> = {
+  muster: ["GoF-Entwurfsmuster (Singleton, Fabrikmethode, Beobachter) und MVC (Architekturmuster) sind verschiedene Kategorien — wird das in Erklärung und Zonen sauber ausgewiesen?"],
+  klassenbeziehungen: ["Aggregation und Komposition nach der Prüfungslesart (Komposition = Teil existiert nicht ohne Ganzes). Strittige Begriffe: „Ordner und Dateien“, „Warenkorb und Artikel“."],
+  uml: ["Neue Zone „Zustandsdiagramm“ — nur die Fragen ab Q-8.2-23 enthalten sie."],
+  testverfahren: ["Zyklomatische Komplexität gilt als statische Analyse; Kontrollflussgraph für Zweigüberdeckung als White-Box (Q-9.2-16)."],
+  git: ["`git fetch` liegt bei „Lokales Repository“ (Commits landen dort, Dateien bleiben unverändert); `git pull` kommt bewusst nicht als Begriff vor (Q-9.3-14)."],
+};
+
+function anwendungsentwicklungBlatt(): string {
+  const teile: string[] = [
+    "# Prüfblatt Anwendungsentwicklung — neue Inhalte (Kursprofile Phase 1)",
+    "",
+    `Stand ${STAND} · erzeugt aus \`content/fachinformatiker-anwendungsentwicklung/\` (F-176). **Alle Inhalte sind Entwürfe.** Die vier neuen Instrumente sind im Kurs erst sichtbar, wenn sie hier freigegeben und in die Kursliste (\`kurs-angebot.ts\`) aufgenommen sind; die ergänzte Theorie ist bereits Teil der Themen.`,
+    "",
+    "## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)",
+    "",
+  ];
+  const modelle = new Map<string, string[]>();
+  for (const { datei, typen } of AE_ZONEN_DATEIEN) {
+    const { body } = splitFrontmatter(liesAeDatei(datei));
+    for (const block of splitBlocks(extractSection(body, "Quiz") ?? "")) {
+      const parsed = parseQuizBlock(block);
+      if (!parsed || !typen.includes(parsed.type) || !(parsed.type in QUADRANT_MODELS) || !("terms" in parsed)) continue;
+      const modell = QUADRANT_MODELS[parsed.type as keyof typeof QUADRANT_MODELS];
+      const terms = parsed.terms as { text: string; zoneKey: string }[];
+      if (parsed.type === "uml" && !terms.some((term) => term.zoneKey === "zustand")) continue;
+      const kennung = /^#### (Q-[\d.]+-\d+)/m.exec(block)?.[1] ?? "?";
+      const zonenLabel = new Map<string, string>(modell.zones.map((zone) => [zone.key, zone.label]));
+      const zeilen = [
+        `#### ${kennung} · ${modell.label} (${STUFEN[parsed.difficulty as keyof typeof STUFEN]})`,
+        "",
+        `*${parsed.prompt}*`,
+        "",
+        tabelle(["Begriff", "Zone"], terms.map((term) => [term.text, zonenLabel.get(term.zoneKey) ?? term.zoneKey])),
+        "",
+        "**Erklärung (so sehen Lernende sie):**",
+        "",
+        zitat(parsed.explanation),
+        "",
+        pruefBlock(undefined, ["Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?"]),
+        "",
+      ];
+      const liste = modelle.get(parsed.type) ?? [];
+      liste.push(zeilen.join("\n"));
+      modelle.set(parsed.type, liste);
+    }
+  }
+  for (const [typ, bloecke] of modelle) {
+    const modell = QUADRANT_MODELS[typ as keyof typeof QUADRANT_MODELS];
+    teile.push(`### ${modell.label} (${bloecke.length} Fragen) — Zonen: ${modell.zones.map((zone) => zone.label).join(" · ")}`, "");
+    const hinweise = AE_ZONEN_HINWEISE[typ];
+    if (hinweise?.length) teile.push("**Besonders prüfen:**", ...hinweise.map((hinweis) => `- ⚠ ${hinweis}`), "");
+    teile.push(...bloecke);
+  }
+  teile.push("## 2. Neue Theorieabschnitte", "");
+  for (const { datei, ueberschrift, hinweise } of AE_NEUE_THEORIE) {
+    teile.push(`### ${datei.split("/")[0]!.toUpperCase()} · ${ueberschrift}`, "", zitat(theorieAbschnitt(datei, ueberschrift)), "");
+    teile.push(pruefBlock(hinweise), "");
+  }
+  teile.push("## 3. Bug-Hunt-Sets (Spiel „Bug-Hunt“, Kurs Anwendungsentwicklung)", "");
+  teile.push(
+    "In jedem Ausschnitt steckt genau ein Fehler in genau einer Zeile; die Lernenden markieren die Zeile, danach sehen sie Korrektur und Erklärung. **Die Codeausschnitte wurden technisch geprüft** (korrigierte Fassung läuft wie beschrieben, fehlerhafte weicht ab — JavaScript, Python, Java, C#; SQL nur gegen SQLite, nicht gegen PostgreSQL). Zu prüfen bleibt die fachliche Eindeutigkeit der Fehlerzeile und die Erklärung.",
+    "",
+  );
+  const bugHuntSets: { titel: string; setKey: string; daten: typeof bugHuntSchleifen; besonders: string[] }[] = [
+    {
+      titel: "Schleifen und Off-by-one",
+      setKey: "schleifen",
+      daten: bugHuntSchleifen,
+      besonders: ["Java Nr. 10 (Bubble-Sort): zwei gleichwertige Korrekturen der Grenze möglich (`length - i - 1` oder `j + 1 < length - i`); gemeint ist nur die Fehlerzeile 3."],
+    },
+    { titel: "Objektorientierung", setKey: "objektorientierung", daten: bugHuntObjektorientierung, besonders: ["Java/C#-Compilerverhalten (CS0114 nur Warnung, CS0120 Fehler) aus Kenntnis der Sprache, nicht in jeder Version geprüft."] },
+    {
+      titel: "SQL-Fehler",
+      setKey: "sql-fehler",
+      daten: bugHuntSqlFehler,
+      besonders: [
+        "Nur gegen SQLite getestet; die im Text genannten PostgreSQL-Fehlermeldungen (Nr. 6 Typfehler, Nr. 11 „muss in GROUP BY stehen“) sind aus Dialektkenntnis geschrieben.",
+        "Nr. 11: man könnte auch `standort` aus der SELECT-Liste streichen — die Aufgabe verlangt aber ausdrücklich „je Abteilung und Standort“.",
+        "Nr. 8 und Nr. 12 ähneln dem bestehenden Set (JOIN-Bedingung, WHERE statt HAVING), anderes Szenario.",
+      ],
+    },
+  ];
+  for (const set of bugHuntSets) {
+    teile.push(`### Bug-Hunt: ${set.titel} (${set.daten.aufgaben.length} Ausschnitte, setKey \`${set.setKey}\`)`, "");
+    for (const aufgabe of set.daten.aufgaben) {
+      teile.push(
+        `#### ${set.setKey} · ${aufgabe.nummer} — ${aufgabe.titel} (${aufgabe.sprache})`,
+        "",
+        `*${aufgabe.aufgabe}*`,
+        "",
+        codeBlock(aufgabe.zeilen.map((zeile, index) => `${String(index + 1).padStart(2)}  ${zeile}`).join("\n")),
+        "",
+        `**Fehlerzeile:** ${aufgabe.fehlerZeile} · **Korrektur:** \`${aufgabe.korrektur.trim()}\``,
+        "",
+        `**Tipp:** ${aufgabe.tipp}`,
+        "",
+        "**Erklärung:**",
+        "",
+        zitat(aufgabe.erklaerung),
+        "",
+        pruefBlock(undefined, ["Genau eine Zeile ist fehlerhaft; keine zweite vertretbare Fehlerzeile?"]),
+        "",
+      );
+    }
+    if (set.besonders.length) teile.push("**Zum Set — besonders prüfen:**", ...set.besonders.map((hinweis) => `- ⚠ ${hinweis}`), "");
+  }
+  return teile.join("\n");
+}
+
+// ---------------------------------------------------------------------------------------------------------
 // Übersicht und Ausgabe
 // ---------------------------------------------------------------------------------------------------------
 
@@ -523,6 +686,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     `| [03 Netzwerk-Topologie](03-topologie.md) | Verkabeln, Adressen, Routen, DHCP, VLAN, Firewall, NAT | ${zahlen.topologie} Szenarien | Instrumente → Netzwerk bauen |`,
     `| [04 IT-Lernpfade](04-lernpfade.md) | Scrum, OSI, Schutzziele, Datenmodell | ${zahlen.lernpfade} Pfade (je 7 Stationen) | Instrumente → „Geführten Lernpfad starten“ (Premium) |`,
     `| [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | ${zahlen.glossar} Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |`,
+    "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "## Vorschlag für die Reihenfolge",
     "",
@@ -557,6 +721,7 @@ function main() {
     ["03-topologie.md", topologieBlatt()],
     ["04-lernpfade.md", lernpfadBlatt()],
     ["05-glossar.md", glossarZahl.text],
+    ["06-anwendungsentwicklung.md", anwendungsentwicklungBlatt()],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

@@ -59,7 +59,7 @@ Weitere kursspezifische Fragen (z. B. KI-Themen, ISO 25010, Windows-Variante fü
 ## 5. Vorgeschlagene Reihenfolge
 
 1. **Phase 0 — Mechanismus (S–M) — umgesetzt am 06.10.2026 als F-176 (Kurs-Allowlist, Gruppe „Grundlagen“, Präsentationsdauern; die Prüfungsrahmen-Konfiguration je Kurs ist bewusst noch offen):** Kurs-Allowlist, Gruppe „Grundlagen“, Prüfungsrahmen-Konfiguration je Kurs, Präsentationsdauern. Sofort sichtbar: nur noch Passendes je Kurs.
-2. **Phase 1 — Inhalte in vorhandenen Typen (S je Stück):** neue Instrumente (Zonenmodelle, Illustrationen, Quizfragen), neue Spiel-Sets für vorhandene Typen, fehlende Theorie.
+2. **Phase 1 — Inhalte in vorhandenen Typen (S je Stück) — Anwendungsentwicklung umgesetzt am 06.10.2026 als F-177 (Freigabe im Kurs wartet auf Prüfblatt 06); die drei anderen Fachinformatiker-Kurse folgen:** neue Instrumente (Zonenmodelle, Illustrationen, Quizfragen), neue Spiel-Sets für vorhandene Typen, fehlende Theorie.
 3. **Phase 2 — gemeinsame Bausteine (M):** Rechen-Sprint, Reihenfolge-Spiel, Beleg-Detektiv, Finanzmathe-Kern, Arbeitszeit-Prüfer.
 4. **Phase 3 — kursspezifische Werkzeuge (M–L):** z. B. Unterweisungs-Planer (AEVO), Ertragswert-Rechner (Immobilien), Handelskalkulation, Frachtrechner, Testfall-Trainer, MQTT-Labor.
 5. **Phase 4 — Glossare und Lernpfade** zusammen mit der Fachprüfung (die Glossare sind der größte Prüfaufwand, rund 40–140 Begriffe je Kurs).

@@ -392,24 +392,185 @@ export function NormalisierungIllustration() {
 export function AblaufIllustration() {
   return (
     <Frame background="var(--sun-tint)">
-      <rect x="60" y="14" width="200" height="112" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
-      <path d="M60 36h200" stroke="var(--ink)" strokeWidth="2" />
-      <path d="M60 36l100 34 100-34" stroke="var(--ink)" strokeWidth="2" fill="none" />
-      <path d="M160 70V80" stroke="var(--ink)" strokeWidth="2" />
-      <path d="M60 80h200" stroke="var(--ink)" strokeWidth="2" />
-      <path d="M76 80v46" stroke="var(--ink)" strokeWidth="2" />
-      <path d="M76 103h184" stroke="var(--ink)" strokeWidth="2" />
-      <rect x="60" y="14" width="200" height="22" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" />
-      <rect x="76" y="80" width="184" height="23" fill="var(--info-tint)" stroke="var(--ink)" strokeWidth="2" />
-      <text x="160" y="29" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
-        Anweisung
+      {/* links: Pseudocode mit Einrückung */}
+      <rect x="24" y="16" width="130" height="108" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M38 36h56M38 52h38M52 68h64M52 84h46M38 100h60" stroke="var(--ink-soft)" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M38 52v0M44 60v32" stroke="var(--line-strong)" strokeWidth="1.5" />
+      {/* rechts: Aktivitätsdiagramm mit Verzweigung und Schleife */}
+      <circle cx="222" cy="22" r="6" fill="var(--ink)" />
+      <path d="M222 28v10" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="196" y="38" width="52" height="20" rx="10" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d="M222 58v8" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M222 66 244 82 222 98 200 82Z" fill="var(--info-tint)" stroke="var(--info-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M244 82h26V48h-22" fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="m252 44-6 4 6 4" fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M222 98v10" stroke="var(--ink)" strokeWidth="2" />
+      <circle cx="222" cy="116" r="7" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <circle cx="222" cy="116" r="3.5" fill="var(--ink)" />
+    </Frame>
+  );
+}
+
+// F-176 (Kursprofile Phase 1, Anwendungsentwicklung): Entwurfsmuster, UML-Klassenbeziehungen, Testverfahren, Git.
+
+export function MusterIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--sprout-tint)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="22" width="68" height="96" rx="8" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      ))}
+      {/* Singleton: genau eine Instanz */}
+      <circle cx={kachel(0) + 34} cy="62" r="17" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <text x={kachel(0) + 34} y="68" fontSize="16" fontWeight="700" fill="var(--card)" textAnchor="middle">
+        1
       </text>
-      <text x="160" y="58" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
-        ja / nein
+      <text x={kachel(0) + 34} y="106" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        Singleton
       </text>
-      <text x="168" y="96" fontSize="10" fontWeight="700" fill="var(--ink)">
-        solange …
+      {/* Fabrikmethode: eine Fabrik erzeugt Objekte */}
+      <rect x={kachel(1) + 8} y="48" width="24" height="24" rx="4" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d={`M${kachel(1) + 34} 60h10`} stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <circle cx={kachel(1) + 54} cy="50" r="7" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      <rect x={kachel(1) + 47} y="62" width="14" height="14" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      <text x={kachel(1) + 34} y="106" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        Factory
       </text>
+      {/* Beobachter: ein Subjekt benachrichtigt mehrere Beobachter */}
+      <circle cx={kachel(2) + 20} cy="62" r="10" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d={`M${kachel(2) + 30} 58 ${kachel(2) + 50} 42M${kachel(2) + 30} 62h20M${kachel(2) + 30} 66 ${kachel(2) + 50} 82`} stroke="var(--ink-soft)" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      {[42, 62, 82].map((y) => (
+        <circle key={y} cx={kachel(2) + 55} cy={y} r="5" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      ))}
+      <text x={kachel(2) + 34} y="106" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        Observer
+      </text>
+      {/* MVC: drei Rollen im Dreieck */}
+      <path d={`M${kachel(3) + 34} 44 ${kachel(3) + 14} 76H${kachel(3) + 54}Z`} fill="none" stroke="var(--ink-soft)" strokeWidth="1.8" strokeLinejoin="round" />
+      {[
+        { x: kachel(3) + 34, y: 44, t: "M", f: "var(--info)" },
+        { x: kachel(3) + 14, y: 76, t: "V", f: "var(--sprout)" },
+        { x: kachel(3) + 54, y: 76, t: "C", f: "var(--sun)" },
+      ].map((punkt) => (
+        <g key={punkt.t}>
+          <circle cx={punkt.x} cy={punkt.y} r="11" fill={punkt.f} stroke="var(--ink-soft)" strokeWidth="1.8" />
+          <text x={punkt.x} y={punkt.y + 4} fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {punkt.t}
+          </text>
+        </g>
+      ))}
+      <text x={kachel(3) + 34} y="106" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        MVC
+      </text>
+    </Frame>
+  );
+}
+
+export function KlassenbeziehungenIllustration() {
+  const zeilen = [
+    { y: 20, art: "assoziation" },
+    { y: 44, art: "aggregation" },
+    { y: 68, art: "komposition" },
+    { y: 92, art: "vererbung" },
+    { y: 116, art: "abhaengigkeit" },
+  ] as const;
+  return (
+    <Frame background="var(--info-tint)">
+      {zeilen.map(({ y, art }) => (
+        <g key={art}>
+          <rect x="30" y={y - 9} width="48" height="18" rx="3" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="1.8" />
+          <rect x="242" y={y - 9} width="48" height="18" rx="3" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="1.8" />
+          {art === "assoziation" && <path d={`M78 ${y}H242`} stroke="var(--ink)" strokeWidth="2" />}
+          {art === "aggregation" && (
+            <>
+              <path d={`M78 ${y}H212`} stroke="var(--ink)" strokeWidth="2" />
+              <path d={`M212 ${y} 227 ${y - 7} 242 ${y} 227 ${y + 7}Z`} fill="var(--card)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+            </>
+          )}
+          {art === "komposition" && (
+            <>
+              <path d={`M78 ${y}H212`} stroke="var(--ink)" strokeWidth="2" />
+              <path d={`M212 ${y} 227 ${y - 7} 242 ${y} 227 ${y + 7}Z`} fill="var(--ink)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+            </>
+          )}
+          {art === "vererbung" && (
+            <>
+              <path d={`M78 ${y}H226`} stroke="var(--ink)" strokeWidth="2" />
+              <path d={`M226 ${y - 8} 242 ${y} 226 ${y + 8}Z`} fill="var(--card)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+            </>
+          )}
+          {art === "abhaengigkeit" && (
+            <>
+              <path d={`M78 ${y}H240`} stroke="var(--ink)" strokeWidth="2" strokeDasharray="6 4" />
+              <path d={`M232 ${y - 5} 242 ${y} 232 ${y + 5}`} fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </>
+          )}
+        </g>
+      ))}
+    </Frame>
+  );
+}
+
+export function TestverfahrenIllustration() {
+  return (
+    <Frame background="var(--danger-tint)">
+      <rect x="14" y="20" width="92" height="100" rx="8" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <rect x="114" y="20" width="92" height="100" rx="8" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <rect x="214" y="20" width="92" height="100" rx="8" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2" />
+      {/* statisch: Dokument wird gelesen, nichts wird ausgeführt */}
+      <rect x="38" y="36" width="34" height="44" rx="3" fill="var(--surface-2)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M44 48h22M44 56h22M44 64h14" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="78" cy="76" r="9" fill="none" stroke="var(--info-deep)" strokeWidth="2.5" />
+      <path d="m85 83 9 9" stroke="var(--info-deep)" strokeWidth="3" strokeLinecap="round" />
+      <text x="60" y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        statisch
+      </text>
+      {/* Black-Box: nur Ein- und Ausgabe sichtbar */}
+      <rect x="140" y="44" width="40" height="36" rx="4" fill="var(--ink)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M124 62h14m0 0-5-4m5 4-5 4M182 62h14m0 0-5-4m5 4-5 4" stroke="var(--ink-soft)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="160" y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        Black-Box
+      </text>
+      {/* White-Box: Inneres (Zweige) sichtbar */}
+      <rect x="240" y="40" width="40" height="44" rx="4" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M260 46v10m0 0-8 8m8-8 8 8m-16 0v12m16-12v12" stroke="var(--sprout-deep)" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <circle cx="260" cy="56" r="3" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      <text x="260" y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        White-Box
+      </text>
+    </Frame>
+  );
+}
+
+export function GitIllustration() {
+  const stationen = [
+    { x: 10, label: "Arbeit", fill: "var(--sun)", stroke: "var(--ink-soft)" },
+    { x: 90, label: "Staging", fill: "var(--info)", stroke: "var(--info-deep)" },
+    { x: 170, label: "Lokal", fill: "var(--sprout)", stroke: "var(--sprout-deep)" },
+    { x: 250, label: "Remote", fill: "var(--coral)", stroke: "var(--coral-deep)" },
+  ];
+  const befehle = ["add", "commit", "push"];
+  return (
+    <Frame background="var(--surface-2)">
+      {stationen.map((station) => (
+        <g key={station.label}>
+          <rect x={station.x} y="40" width="60" height="50" rx="8" fill={station.fill} fillOpacity="0.35" stroke={station.stroke} strokeWidth="2" />
+          <text x={station.x + 30} y="70" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {station.label}
+          </text>
+        </g>
+      ))}
+      {befehle.map((befehl, index) => {
+        const x = 70 + index * 80;
+        return (
+          <g key={befehl}>
+            <path d={`M${x} 65h10m0 0-4-4m4 4-4 4`} stroke="var(--ink)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <text x={x + 5} y="106" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+              {befehl}
+            </text>
+          </g>
+        );
+      })}
     </Frame>
   );
 }

@@ -17,7 +17,11 @@ import {
   ErModellIllustration,
   GanttIllustration,
   HierarchieIllustration,
+  GitIllustration,
+  KlassenbeziehungenIllustration,
+  MusterIllustration,
   NetzplanIllustration,
+  TestverfahrenIllustration,
   NormalisierungIllustration,
   OsiIllustration,
   PdcaIllustration,
@@ -165,9 +169,34 @@ const INSTRUMENT_CATALOG = [
   },
   {
     type: "ablauf",
-    label: "Struktogramm und Programmablauf",
-    description: "Abläufe als Sequenz, Verzweigung oder Schleife erkennen.",
+    label: "Ablaufstrukturen",
+    description: "Abläufe in Pseudocode und Aktivitätsdiagramm als Sequenz, Verzweigung oder Schleife erkennen.",
     Illustration: AblaufIllustration,
+  },
+  // F-176 (Kursprofile Phase 1, Anwendungsentwicklung): vier weitere Zonen-Instrumente.
+  {
+    type: "muster",
+    label: "Entwurfs- und Architekturmuster",
+    description: "Singleton, Fabrikmethode, Beobachter und MVC an Situationen aus der Entwicklung erkennen.",
+    Illustration: MusterIllustration,
+  },
+  {
+    type: "klassenbeziehungen",
+    label: "UML-Klassenbeziehungen",
+    description: "Assoziation, Aggregation, Komposition, Vererbung und Abhängigkeit unterscheiden.",
+    Illustration: KlassenbeziehungenIllustration,
+  },
+  {
+    type: "testverfahren",
+    label: "Testverfahren",
+    description: "Statische Verfahren sowie Black-Box- und White-Box-Tests den passenden Beispielen zuordnen.",
+    Illustration: TestverfahrenIllustration,
+  },
+  {
+    type: "git",
+    label: "Git-Bereiche",
+    description: "Wohin wandern die Änderungen? Arbeitsverzeichnis, Staging, lokales und Remote-Repository.",
+    Illustration: GitIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

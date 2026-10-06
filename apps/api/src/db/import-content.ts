@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { and, eq, inArray } from "drizzle-orm";
-import { KURS_ANGEBOT } from "@edukedo/shared";
+import { isQuadrantItem, KURS_ANGEBOT } from "@edukedo/shared";
 import { db, pool } from "./client";
 import {
   type Bloom,
@@ -288,7 +288,8 @@ export const KURS_META: Record<string, KursMeta> = {
 for (const [slug, angebot] of Object.entries(KURS_ANGEBOT)) {
   const meta = KURS_META[slug];
   if (!meta) throw new Error(`KURS_ANGEBOT verweist auf unbekannten Kurs "${slug}".`);
-  const { werkzeuge: _veraltet, ...rest } = meta.metadata as Record<string, unknown>;
+  const rest = { ...meta.metadata };
+  delete rest.werkzeuge;
   meta.metadata = { ...rest, angebot };
 }
 
@@ -551,24 +552,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
           parsed.items.map((sortierenItem, index) => ({ text: sortierenItem.text, isCorrect: false, sortOrder: index })),
         );
       } else if (
-        parsed.type === "swot" ||
-        parsed.type === "bsc" ||
-        parsed.type === "ansoff" ||
-        // F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung
-        // Abschnitt 13): eisenhower/pdca/risiko teilen sich denselben Insert-Zweig wie swot/bsc/
-        // ansoff.
-        parsed.type === "eisenhower" ||
-        parsed.type === "pdca" ||
-        parsed.type === "risiko" ||
-        parsed.type === "osi" ||
-        parsed.type === "schutzziele" ||
-        parsed.type === "sql" ||
-        parsed.type === "scrum" ||
-        parsed.type === "uml" ||
-        parsed.type === "teststufen" ||
-        parsed.type === "ermodell" ||
-        parsed.type === "normalisierung" ||
-        parsed.type === "ablauf"
+        isQuadrantItem(parsed)
       ) {
         // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
         // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.
