@@ -24,6 +24,7 @@ import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
+import { kennzahlenDuellSpeditionFracht } from "./content/game-kennzahlen-duell-spedition-fracht";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
@@ -307,6 +308,17 @@ async function main() {
     "Begriffe-Duell: Finanzierung und Controlling",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellFinanzierungControlling),
     "finanzierung-controlling",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Bachelor Professional in Transport Management and
+  // Logistics": Spedition und Fracht (Spedition und Frachtführer, Transportplanung und Disposition, Lager und
+  // Bestand, Verkehrsträger und Zoll).
+  await upsertGame(
+    "transport-management-logistics",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Spedition und Fracht",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellSpeditionFracht),
+    "spedition-fracht",
   );
 
   await pool.end();

@@ -68,6 +68,7 @@ import {
   TeststufenIllustration,
   TopIllustration,
   UmlIllustration,
+  VerkehrstraegerIllustration,
   VerzeichnisdienstIllustration,
   VierSeitenIllustration,
   VierStufenIllustration,
@@ -451,6 +452,13 @@ const INSTRUMENT_CATALOG = [
     label: "Vier-Seiten-Modell",
     description: "Aussagen aus Mitarbeitergesprächen der Sach-, Selbstoffenbarungs-, Beziehungs- oder Appellseite zuordnen.",
     Illustration: VierSeitenIllustration,
+  },
+  // F-188 (Kursprofile Phase 1, Transport/Logistik): Zonen-Instrument für die Wahl des Verkehrsträgers.
+  {
+    type: "verkehrstraeger",
+    label: "Verkehrsträger",
+    description: "Eigenschaften, Güter und Aufträge den vier Verkehrsträgern zuordnen: Straße, Schiene, Wasser und Luft.",
+    Illustration: VerkehrstraegerIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

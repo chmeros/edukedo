@@ -613,6 +613,16 @@ export const QUADRANT_MODELS = {
       { key: "appell", label: "Appell" },
     ],
   },
+  // F-188 (Kursprofile Phase 1, Transport/Logistik): Verkehrsträger in der Gliederung der Kurstheorie (Thema 2.3).
+  verkehrstraeger: {
+    label: "Verkehrsträger",
+    zones: [
+      { key: "strasse", label: "Straße" },
+      { key: "schiene", label: "Schiene" },
+      { key: "wasser", label: "Wasser" },
+      { key: "luft", label: "Luft" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

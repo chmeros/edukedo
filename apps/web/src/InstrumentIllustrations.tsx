@@ -1738,3 +1738,30 @@ export function VierSeitenIllustration() {
     </Frame>
   );
 }
+
+export function VerkehrstraegerIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="0" y="96" width="320" height="44" fill="var(--sprout-tint)" />
+      <path d="M0 118h320" stroke="var(--ink-soft)" strokeWidth="2" strokeDasharray="10 8" />
+      {/* Lkw */}
+      <rect x="22" y="70" width="40" height="26" rx="3" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d="M62 78h14l8 10v8H62Z" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <circle cx="34" cy="98" r="5" fill="var(--ink)" />
+      <circle cx="74" cy="98" r="5" fill="var(--ink)" />
+      {/* Zug */}
+      <rect x="104" y="72" width="30" height="24" rx="3" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <rect x="138" y="72" width="30" height="24" rx="3" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <circle cx="114" cy="98" r="4" fill="var(--ink)" />
+      <circle cx="162" cy="98" r="4" fill="var(--ink)" />
+      {/* Schiff */}
+      <path d="M190 84h50l-8 16h-34Z" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <rect x="202" y="70" width="12" height="14" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <rect x="216" y="70" width="12" height="14" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <path d="M186 106q8 6 16 0t16 0t16 0t16 0" fill="none" stroke="var(--info-deep)" strokeWidth="2" strokeLinecap="round" />
+      {/* Flugzeug */}
+      <path d="M258 40l40 12-40 12-6-12Z" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M270 52l-10-16m10 16l-10 16" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+    </Frame>
+  );
+}

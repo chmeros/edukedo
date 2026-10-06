@@ -139,6 +139,16 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 Alles noch Entwurf (F-187): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Vier-Seiten-Modell und die beiden ◐-Einheiten in der nächsten Freigabewelle.
 
+### Blatt 16 — Transport/Logistik (nachträglich ergänzt, 8 Fragen und ein Duell-Set, **mit Fracht- und Zollrecht**)
+
+| Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| Verkehrsträger (`verkehrstraeger`) | 4 | ◐ | Luft bei „verderblich, schnell beim Empfänger“ (Q-2.3-14, -15); Abgrenzung zu Q-2.3-10 in Q-2.3-16 |
+| ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse nur sinngemäß abgeleitet (Q-2.2-14); Q-2.2-16 „Planbarkeit ändert nie die Wertklasse“ |
+| Begriffe-Duell „Spedition und Fracht“ (Set) | 20 | ○ | **Recht:** HGB-Frachtrecht (Fragen 1–3), CMR (4, 6), Zollrecht (17–19); Fachperson empfohlen |
+
+Alles noch Entwurf (F-188): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste.
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.

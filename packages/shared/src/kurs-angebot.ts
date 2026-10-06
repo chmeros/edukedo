@@ -80,6 +80,8 @@ export const KATALOG_INSTRUMENTE = [
   // Kursprofile Phase 1 (Wirtschaftsfachwirt)
   "investition",
   "vierseiten",
+  // Kursprofile Phase 1 (Transport/Logistik)
+  "verkehrstraeger",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -205,6 +207,7 @@ export const KURS_ENTWURF: Record<string, readonly string[]> = {
   industriefachwirt: ["incoterms"],
   "technischer-fachwirt": ["instandhaltung"],
   wirtschaftsfachwirt: ["investition", "vierseiten"],
+  "transport-management-logistics": ["verkehrstraeger", "abc"],
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -347,7 +350,19 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  "transport-management-logistics": { instrumente: liste(OHNE("bsc", "gantt")), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
+  // Die neuen Instrumente (Verkehrsträger, ABC-Analyse) und das Duell-Set "spedition-fracht" erst nach der Freigabe des Prüfblatts 16 aufnehmen;
+  // das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  "transport-management-logistics": {
+    instrumente: liste(OHNE("bsc", "gantt")),
+    werkzeuge: [],
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: [],
+    szenarien: {},
+  },
   handelsfachwirt: { instrumente: liste(OHNE()), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   immobilienfachwirt: { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   "versicherungen-finanzanlagen": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },

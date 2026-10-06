@@ -651,6 +651,22 @@ describe("parseQuizBlock", () => {
     if (vierseiten?.type === "vierseiten") expect(vierseiten.terms.map((term) => term.zoneKey)).toEqual(["sachebene", "selbstoffenbarung", "beziehungsebene", "appell"]);
   });
 
+  it("parst das Modell aus F-188 (Verkehrsträger)", () => {
+    const block = [
+      "#### Q-2.3-13 · Verkehrsträger",
+      "**Anweisung:** Ordne zu.",
+      "- Haus-zu-Haus-Transport ohne Umschlag → Straße",
+      "- Fahrplangebundener Massengutverkehr → Schiene",
+      "- Binnenschiff auf dem Rhein → Wasser",
+      "- Eilige, hochwertige Sendung → Luft",
+      "**Erklärung:** ...",
+      "`schwierigkeit: leicht`",
+    ].join("\n");
+    const verkehr = parseQuizBlock(block);
+    expect(verkehr?.type).toBe("verkehrstraeger");
+    if (verkehr?.type === "verkehrstraeger") expect(verkehr.terms.map((term) => term.zoneKey)).toEqual(["strasse", "schiene", "wasser", "luft"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

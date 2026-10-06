@@ -18,6 +18,7 @@ import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
+import { kennzahlenDuellSpeditionFracht } from "./content/game-kennzahlen-duell-spedition-fracht";
 import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
@@ -1212,6 +1213,53 @@ function wirNachspann(teile: string[]): void {
   teile.push(...duellBloecke("finanzierung-controlling", kennzahlenDuellFinanzierungControlling));
 }
 
+const LOG_BLATT: KursBlatt = {
+  kurs: "transport-management-logistics",
+  titel: "Transport/Logistik",
+  feature: "F-188",
+  theorie: [],
+  zonenDateien: [
+    { datei: "hb2/2.3-verkehrstraeger-intermodalitaet.md", typen: ["verkehrstraeger"] },
+    { datei: "hb2/2.2-lagerlogistik-bestandsmanagement.md", typen: ["abc"] },
+  ],
+  zonenHinweise: {
+    verkehrstraeger: [
+      "Die Zonen folgen der Kurstheorie (Straße, Schiene, Wasser = Binnen- und Seeschifffahrt, Luft). Kombinierter Verkehr, Huckepack und RoLa sind keine Zonen; ein Vorlauf zum Bahnterminal erscheint nur in Q-2.3-15 als Straße.",
+      "Q-2.3-14: „Verderbliche Güter mit geringem Volumen, die schnell beim Empfänger sein müssen“ als Luft — die Theorie nennt Luft für „eilig, hochwertig oder verderblich“; „schnell beim Empfänger“ ist sinngemäß ergänzt. Für Schiene gibt es nur ein Merkmal (Ganzzug).",
+      "Q-2.3-15: „Verderbliche Ware, weite Strecke“ als Luft ist ableitbar, schließt einen Straßen-Eiltransport aber nicht aus (die Theorie: Eilaufträge sprechen für Luft oder Straße). Schiene gegen Wasser wird über „feste Abfahrtszeiten“ bzw. „Hafenanbindung, Zeit nicht kritisch“ getrennt; die Theorie nennt Wasser nur „langsam“.",
+      "**Q-2.3-16 (schwerste Frage):** „Kurzfristiger Eilauftrag mit kleinen Mengen“ als Straße stützt sich auf „bleibt meist der flexible Straßentransport die einzig praktikable Option“ und kollidiert leicht mit dem bestehenden Q-2.3-10 (extreme Eile → Luft); die Erklärung grenzt ab — ist das für Lernende klar genug? Kosten- und Umweltmerkmale von Schiene und Wasser sind absichtlich ähnlich formuliert und nur über Fahrplan bzw. Wasserweg/Hafen trennbar.",
+      "Keine Zahlen, Emissionswerte oder Preise.",
+    ],
+    abc: [
+      "Modell aus F-183 (Büro) wiederverwendet, mit Beispielen aus der Kontraktlogistik von Fracora. XYZ ist keine Zone; es erscheint nur als Störmerkmal in Q-2.2-16 und in Erklärungen.",
+      "Q-2.2-13: Der Richtwert „häufig ca. 70–80 % Umsatzanteil bei ca. 10–20 % der Artikel“ steht nur in der Erklärung, nicht in den Zuordnungen. Die Merkmale zu A („nahe der Kommissionierzone“) und C („Auslistung prüfen“) sind laut Theorie „häufig“ bzw. „eher“, keine harten Regeln.",
+      "**Q-2.2-14 (schwächste Stelle):** Für die B-Klasse nennt die Theorie nur den „mittleren Bereich“; die B-Begriffe („mittlerer Steuerungsaufwand“, „weder intensive Überwachung noch kritische Auslistungsprüfung“) sind sinngemäß abgeleitet und in der Erklärung als solche gekennzeichnet.",
+      "Q-2.2-15: „Hauptartikel des Kunden … wird besonders eng überwacht“ als A ist aus „A intensiv überwacht“ abgeleitet; „Viele Artikel mit sehr geringem Umsatzanteil binden Lagerfläche“ als C lehnt sich an das bestehende Q-2.2-10 an.",
+      "Q-2.2-16: „Planbarkeit ändert nie die Wertklasse“ ist die logische Folge aus „ABC nach Wertanteil, XYZ nach Verbrauchsregelmäßigkeit“, steht aber nicht wörtlich in der Theorie.",
+    ],
+  },
+  nachspann: (teile) => logNachspann(teile),
+};
+
+function logNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Spedition und Fracht“ (Spiel „Begriffe-Duell“, Kurs Transport/Logistik; **mit Frachtrecht und Zollrecht**)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Spedition und Frachtführer; Transportplanung und Disposition; Lager und Bestand; Verkehrsträger und Zoll). Alle Aussagen stammen aus den Theorietexten der Themen 1.4, 2.1, 2.2, 2.3 und 2.4; keine Zahlenwerte, Haftungshöchstbeträge, Paragrafen oder Normangaben. **Der Kurs trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“ — die Fragen 1 bis 6 und 17 bis 20 gehören deshalb zur Rechtsprüfung (HGB-Frachtrecht, CMR, Zollrecht).**",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Frage 1 und 2 (Speditions- gegen Frachtvertrag, Selbsteintritt): HGB-Bezug, formuliert wie in der Theorie („primär“, „nicht zwingend“).",
+    "- ⚠ Frage 3 (grob fahrlässiger Schaden): Der Satz „Haftungsausschlüsse sind etwas anderes“ ist eine Abgrenzung der Aufbereitung; die Theorie nennt Ausschlüsse nur als Beispiele.",
+    "- ⚠ Frage 4 (CMR statt HGB-Frachtrecht bei grenzüberschreitendem gewerblichem Straßengütertransport): Die Theorie sagt „regelmäßig anstelle des HGB“.",
+    "- ⚠ Frage 5 (Verkehrshaftungs- gegen Transport-/Warenversicherung): Der Hinweis auf hochwertige Güter ist eine Empfehlung von Fracora, keine Rechtsregel.",
+    "- ⚠ Frage 6 (CMR-Frachtbrief als Beweisurkunde, kein Wertpapier): Theorie wörtlich — bitte auf juristische Richtigkeit achten, nicht nur auf Kurstreue.",
+    "- ⚠ Frage 17 (Versandverfahren gegen Überführung in den freien Verkehr): „schiebt die Abgaben auf“ ist eine Formulierung der Aufbereitung, nicht der Theorie.",
+    "- ⚠ Frage 18 (EORI gegen ATLAS) und 19 (Präferenznachweis gegen Ursprungszeugnis): Zollrecht; das Feedback sagt „Zollvergünstigung aus einem Präferenzabkommen“, die Theorie „ermäßigter oder wegfallender Zollsatz“.",
+    "- Aus Rechtsgründen weggelassen: Haftungshöchstbeträge und SZR-Umrechnung, Verantwortung bei der Ladungssicherung (Verlader, Fahrzeugführer, Halter), Zollwert, T1 und T2, Huckepack und RoLa. Der Test verbietet das Wort „Euro“ und damit auch „Europa“; deshalb steht „EU“ statt „Europäische Union“.",
+    "",
+  );
+  teile.push(...duellBloecke("spedition-fracht", kennzahlenDuellSpeditionFracht));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1325,6 +1373,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [13 Industriefachwirt](13-industriefachwirt.md) | neue Zonen-Instrumente (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms), Theorie, Begriffe-Duell „Kosten und Leistungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [14 Technischer Fachwirt](14-technischer-fachwirt.md) | neue Zonen-Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation), Theorie, Begriffe-Duell „Technische Unterscheidungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [15 Wirtschaftsfachwirt](15-wirtschaftsfachwirt.md) | neue Zonen-Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell), Begriffe-Duell „Finanzierung und Controlling“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [16 Transport/Logistik](16-transport-logistik.md) | neue Zonen-Instrumente (Verkehrsträger, ABC-Analyse), Begriffe-Duell „Spedition und Fracht“ (Kursprofile Phase 1; **mit Fracht- und Zollrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.",
     "",
@@ -1371,6 +1420,7 @@ function main() {
     ["13-industriefachwirt.md", kursBlatt(IND_BLATT)],
     ["14-technischer-fachwirt.md", kursBlatt(TEC_BLATT)],
     ["15-wirtschaftsfachwirt.md", kursBlatt(WIR_BLATT)],
+    ["16-transport-logistik.md", kursBlatt(LOG_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

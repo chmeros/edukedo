@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-188: Kursprofile Phase 1 — Transport/Logistik)
+
+- **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für Transport/Logistik“, gleicher Maßstab wie F-177 bis F-187: nur Vorschläge mit hoher Priorität, die sich allein aus der vorhandenen Kurstheorie belegen lassen (I-LOG-01, I-FW-04 teilweise, S-LOG-02).
+- **Beförderungsdokumente nicht gebaut:** I-LOG-04 setzt Konnossement, Air Waybill und CIM-Frachtbrief voraus; der Kurs kennt nur den CMR-Frachtbrief. Ein Instrument wäre ohne Theorie reine Kenntnis aus Fachrichtigkeit-kritischem Gebiet (R5: erst Theorie, dann Werkzeug; R4: Recht bleibt ungeprüft).
+- **ADR-Klassen zurückgestellt:** Aufwand M (neun Zonen, mobile Darstellung noch zu prüfen) und regelungsabhängig (Fassung/Jahr der ADR); eigener Schritt.
+- **Technik:** Ein Eintrag in `QUADRANT_MODELS` (`verkehrstraeger`, vier Zonen), ein Literal in `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, eine Illustration (Lkw, Zug, Schiff, Flugzeug) und ein Katalogeintrag, Parser-Test. Die ABC-Analyse verwendet das Modell `abc` aus F-183 mit eigenem Content; XYZ ist bewusst keine Zone (nur als Abgrenzung in Q-2.2-16).
+- **Content:** je 4 Fragen in hb2/2.3 (`Q-2.3-13`–`16`) und hb2/2.2 (`Q-2.2-13`–`16`), nur ergänzt (0 gelöschte Zeilen). Keine neue Theorie.
+- **Spielset:** `game-kennzahlen-duell-spedition-fracht.ts` (setKey `spedition-fracht`, 20 Fragen in 4 Runden à 5), nur für diesen Kurs in `seed-games.ts` registriert; der Test verbietet Zahlen, Formeln, Paragrafen, Normangaben und das Wort „Euro“ (damit auch „Europa“; deshalb „EU“) und erlaubt nur die Themenverweise 1.4, 2.1, 2.2, 2.3 und 2.4.
+- **Freigabe:** `transport-management-logistics` in `KURS_ENTWURF` mit `verkehrstraeger` und `abc`; das Duell ist in `KURS_ANGEBOT` auf das nicht vorhandene Set `standard` begrenzt (die Kurse hatten bis dahin die Fachwirt-Standardspiele). Prüfblatt 16 mit allen offenen Fachfragen; die Duell-Fragen 1–6 und 17–20 berühren HGB-Frachtrecht, CMR und Zollrecht und gehören zur Rechtsprüfung.
+- **Verifiziert:** Dev-Datenbank nach Neuimport — acht Fragen (`verkehrstraeger`, `abc`) inaktiv, Duell-Set angelegt; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-187: Kursprofile Phase 1 — Wirtschaftsfachwirt)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Wirtschaftsfachwirt“, gleicher Maßstab wie F-177 bis F-185: Priorität „hoch“ und Aufwand S aus docs/kursprofile/02-industrie-technik-logistik.md (I-WIR-01, I-WIR-04, S-WIR-02). Zurückgestellt: Kreuzworträtsel „Kosten- und Leistungsrechnung“ (S-WIR-01, wie bei den anderen Kursen die Kreuzworträtsel/Memory), Kennzahlenbaum, Porter-Kette, Moderationszyklus und MbO (mittel), Break-even-Diagramm (Aufwand S–M, eigenes Diagramm), Gesprächs-Detektiv (Aufwand M), Nutzwertanalyse-Werkzeug und Lernpfade (Phase 3/4), Glossar, Prüfungsrahmen (P-WIR-01).
