@@ -446,6 +446,24 @@ export const QUADRANT_MODELS = {
       { key: "rahmenlehrplan", label: "Rahmenlehrplan der Berufsschule" },
     ],
   },
+  // F-182 (Kursprofile Phase 1, Gesundheit/Soziales): zwei weitere Modelle mit festen Zonen.
+  donabedian: {
+    label: "Qualitätsdimensionen nach Donabedian",
+    zones: [
+      { key: "struktur", label: "Strukturqualität" },
+      { key: "prozess", label: "Prozessqualität" },
+      { key: "ergebnis", label: "Ergebnisqualität" },
+    ],
+  },
+  kostentraeger: {
+    label: "Kostenträger im Gesundheits- und Sozialwesen",
+    zones: [
+      { key: "gkv", label: "Gesetzliche Krankenversicherung (SGB V)" },
+      { key: "pflegeversicherung", label: "Soziale Pflegeversicherung (SGB XI)" },
+      { key: "sozialhilfe", label: "Sozialhilfe (SGB XII)" },
+      { key: "pkv", label: "Private Krankenversicherung" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

@@ -14,6 +14,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
+| [11 Gesundheit/Soziales](11-gesundheit-soziales.md) | neue Zonen-Instrumente (Donabedian, Kostenträger, PDCA), Begriffe-Duell „Gesundheits- und Sozialsystem“ (Kursprofile Phase 1; **mit Sozial- und Arbeitsrechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [10 AEVO](10-aevo.md) | neue Zonen-Instrumente, Theorie, Begriffe-Duell „Recht der Berufsausbildung“ (Kursprofile Phase 1; **mit Rechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [09 Systemintegration](09-systemintegration.md) | neue Zonen-Instrumente, Theorie, zwei Troubleshooting-Sets, Bug-Hunt „Skripte und Konfigurationsdateien“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 

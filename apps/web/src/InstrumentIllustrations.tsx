@@ -1107,6 +1107,67 @@ export function RegelwerkeIllustration() {
   );
 }
 
+// F-182 (Kursprofile Phase 1, Gesundheit/Soziales): Donabedian-Qualitätsdimensionen und Kostenträger.
+
+export function DonabedianIllustration() {
+  const kachel = (index: number) => 14 + index * 100;
+  return (
+    <Frame background="var(--sprout-tint)">
+      {[0, 1, 2].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="92" height="100" rx="8" fill="var(--card)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      ))}
+      {/* Struktur: Gebäude und Menschen */}
+      <rect x={kachel(0) + 26} y="46" width="40" height="38" rx="3" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2" />
+      <path d={`M${kachel(0) + 22} 46 ${kachel(0) + 46} 30 ${kachel(0) + 70} 46`} fill="none" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      <rect x={kachel(0) + 40} y="62" width="12" height="22" rx="2" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="1.5" />
+      {/* Prozess: Schritte mit Pfeilen */}
+      {[0, 1, 2].map((schritt) => (
+        <rect key={schritt} x={kachel(1) + 12 + schritt * 24} y="52" width="18" height="18" rx="3" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" />
+      ))}
+      <path d={`M${kachel(1) + 30} 61h6M${kachel(1) + 54} 61h6`} stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" />
+      <path d={`M${kachel(1) + 20} 80c20 10 40 10 56 0`} fill="none" stroke="var(--ink-soft)" strokeWidth="1.8" strokeDasharray="4 3" />
+      {/* Ergebnis: Zielscheibe mit Haken */}
+      <circle cx={kachel(2) + 46} cy="58" r="24" fill="var(--coral)" fillOpacity="0.25" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <circle cx={kachel(2) + 46} cy="58" r="12" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+      <path d={`m${kachel(2) + 38} 58 6 6 11-13`} fill="none" stroke="var(--sprout-deep)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+      {["Struktur", "Prozess", "Ergebnis"].map((text, index) => (
+        <text key={text} x={kachel(index) + 46} y="108" fontSize="10" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function KostentraegerIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--info-tint)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      ))}
+      {/* GKV: Kreuz */}
+      <path d={`M${kachel(0) + 28} 40h12v12h12v12H${kachel(0) + 40}v12H${kachel(0) + 28}V64H${kachel(0) + 16}V52h12Z`} fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      {/* Pflegeversicherung: Haus */}
+      <path d={`M${kachel(1) + 14} 62 ${kachel(1) + 34} 40 ${kachel(1) + 54} 62`} fill="none" stroke="var(--sprout-deep)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+      <rect x={kachel(1) + 18} y="62" width="32" height="24" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      {/* Sozialhilfe: Hände/Münze */}
+      <circle cx={kachel(2) + 34} cy="56" r="16" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2.5" />
+      <text x={kachel(2) + 34} y="62" fontSize="16" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        €
+      </text>
+      <path d={`M${kachel(2) + 12} 86c12 6 32 6 44 0`} fill="none" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+      {/* PKV: Schild */}
+      <path d={`M${kachel(3) + 34} 38 ${kachel(3) + 54} 46v16c0 12-9 20-20 24-11-4-20-12-20-24V46Z`} fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      {["SGB V", "SGB XI", "SGB XII", "PKV"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

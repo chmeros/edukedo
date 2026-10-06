@@ -406,6 +406,8 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `lernzielbereiche` (**Lernzielbereiche**, F-181, 3 Zonen): Kognitiv, Affektiv, Psychomotorisch
   - `beurteilungsfehler` (**Beurteilungsfehler**, F-181, 5 Zonen): Halo-Effekt, Tendenz zur Mitte, Milde- und Strengefehler, Sympathie und Antipathie, Recency-Effekt
   - `regelwerke` (**Regelwerke der Berufsausbildung**, F-181, 4 Zonen): Berufsbildungsgesetz (BBiG), Jugendarbeitsschutzgesetz (JArbSchG), Ausbildungsordnung und Ausbildungsrahmenplan, Rahmenlehrplan der Berufsschule
+  - `donabedian` (**Qualitätsdimensionen nach Donabedian**, F-182, 3 Zonen): Strukturqualität, Prozessqualität, Ergebnisqualität
+  - `kostentraeger` (**Kostenträger im Gesundheits- und Sozialwesen**, F-182, 4 Zonen): Gesetzliche Krankenversicherung (SGB V), Soziale Pflegeversicherung (SGB XI), Sozialhilfe (SGB XII), Private Krankenversicherung
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

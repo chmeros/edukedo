@@ -558,6 +558,19 @@ describe("parseQuizBlock", () => {
     if (regeln?.type === "regelwerke") expect(regeln.terms.map((term) => term.zoneKey)).toEqual(["bbig", "jarbschg", "ausbildungsordnung", "rahmenlehrplan"]);
   });
 
+  it("parst die Modelle aus F-182 (Donabedian, Kostenträger)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-2.1-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const donabedian = parse("Qualitätsdimensionen nach Donabedian", ["- Qualifikation der Mitarbeitenden → Strukturqualität", "- Einhaltung der Standards → Prozessqualität", "- Zufriedenheit der betreuten Menschen → Ergebnisqualität"]);
+    expect(donabedian?.type).toBe("donabedian");
+    if (donabedian?.type === "donabedian") expect(donabedian.terms.map((term) => term.zoneKey)).toEqual(["struktur", "prozess", "ergebnis"]);
+
+    const traeger = parse("Kostenträger im Gesundheits- und Sozialwesen", ["- ärztlich verordnete Leistung → Gesetzliche Krankenversicherung (SGB V)", "- Leistungen bei Pflegebedürftigkeit → Soziale Pflegeversicherung (SGB XI)", "- Hilfe bei Bedürftigkeit → Sozialhilfe (SGB XII)", "- Vertragstarif → Private Krankenversicherung"]);
+    expect(traeger?.type).toBe("kostentraeger");
+    if (traeger?.type === "kostentraeger") expect(traeger.terms.map((term) => term.zoneKey)).toEqual(["gkv", "pflegeversicherung", "sozialhilfe", "pkv"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

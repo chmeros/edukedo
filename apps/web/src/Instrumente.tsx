@@ -15,6 +15,7 @@ import {
   AnsoffIllustration,
   BpmnIllustration,
   DatenqualitaetIllustration,
+  DonabedianIllustration,
   BscIllustration,
   EisenhowerIllustration,
   ErModellIllustration,
@@ -24,6 +25,7 @@ import {
   GitIllustration,
   HandlungsfelderIllustration,
   KlassenbeziehungenIllustration,
+  KostentraegerIllustration,
   LernzielbereicheIllustration,
   MusterIllustration,
   NetzplanIllustration,
@@ -327,6 +329,19 @@ const INSTRUMENT_CATALOG = [
     label: "Regelwerke der Berufsausbildung",
     description: "BBiG, Jugendarbeitsschutzgesetz, Ausbildungsordnung und Rahmenlehrplan an ihren Regelungsgegenständen unterscheiden.",
     Illustration: RegelwerkeIllustration,
+  },
+  // F-182 (Kursprofile Phase 1, Gesundheit/Soziales): zwei Zonen-Instrumente für Qualitätsmanagement und Finanzierung.
+  {
+    type: "donabedian",
+    label: "Qualitätsdimensionen nach Donabedian",
+    description: "Merkmale der Struktur-, Prozess- und Ergebnisqualität unterscheiden — mit Beispielen aus Organisation und Qualitätsmanagement.",
+    Illustration: DonabedianIllustration,
+  },
+  {
+    type: "kostentraeger",
+    label: "Kostenträger im Gesundheits- und Sozialwesen",
+    description: "Wer zahlt was? Leistungen den Kostenträgern zuordnen — eine Übung zur Systematik, keine Sozialberatung.",
+    Illustration: KostentraegerIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

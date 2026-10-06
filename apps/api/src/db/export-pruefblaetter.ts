@@ -3,6 +3,7 @@ import {
   QUADRANT_MODELS,
   TERMINAL_SZENARIEN,
   type BugHuntAufgabe,
+  type KennzahlenDuellPayload,
   type TroubleshootingFall,
   topologieSzenarien,
   type InstrumentLernpfadPayload,
@@ -12,6 +13,7 @@ import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
+import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
@@ -838,6 +840,30 @@ function siNachspann(teile: string[]): void {
   for (const aufgabe of bugHuntSkripteKonfiguration.aufgaben) teile.push(...bugHuntAufgabeBlock("skripte-konfiguration", aufgabe));
 }
 
+/** Darstellung eines Begriffe-Duell-Sets im Prüfblatt: je Runde die Fragen mit Antworten und Rückmeldungen. */
+function duellBloecke(setKey: string, daten: KennzahlenDuellPayload): string[] {
+  const teile: string[] = [];
+  for (const runde of daten.runden) {
+    teile.push(`### Runde ${runde.nummer}: ${runde.titel}`, "");
+    for (const frage of daten.fragen.filter((eintrag) => eintrag.runde === runde.nummer)) {
+      teile.push(
+        `#### ${setKey} · ${frage.nummer} — ${frage.frage}`,
+        "",
+        `- ${frage.richtig === "A" ? "✔ " : ""}**A:** ${frage.antwortA}`,
+        `- ${frage.richtig === "B" ? "✔ " : ""}**B:** ${frage.antwortB}`,
+        "",
+        `**Rückmeldung bei richtiger Antwort:** ${frage.feedbackRichtig}`,
+        "",
+        `**Rückmeldung bei falscher Antwort:** ${frage.feedbackFalsch}`,
+        "",
+        pruefBlock(undefined, ["Genau eine Antwort ist richtig; Rechtsstand und Paragrafenangabe stimmen?"]),
+        "",
+      );
+    }
+  }
+  return teile;
+}
+
 const AEVO_BLATT: KursBlatt = {
   kurs: "ausbildung-der-ausbilder",
   titel: "AEVO (Ausbildung der Ausbilder)",
@@ -902,24 +928,52 @@ function aevoNachspann(teile: string[]): void {
     "- ⚠ Fragen 3 und 20 sind vereinfacht (z. B. Schriftform der Kündigung und Fristen nach der Probezeit kommen im Kurs nicht vor).",
     "",
   );
-  for (const runde of kennzahlenDuellRechtBerufsausbildung.runden) {
-    teile.push(`### Runde ${runde.nummer}: ${runde.titel}`, "");
-    for (const frage of kennzahlenDuellRechtBerufsausbildung.fragen.filter((eintrag) => eintrag.runde === runde.nummer)) {
-      teile.push(
-        `#### recht-berufsausbildung · ${frage.nummer} — ${frage.frage}`,
-        "",
-        `- ${frage.richtig === "A" ? "✔ " : ""}**A:** ${frage.antwortA}`,
-        `- ${frage.richtig === "B" ? "✔ " : ""}**B:** ${frage.antwortB}`,
-        "",
-        `**Rückmeldung bei richtiger Antwort:** ${frage.feedbackRichtig}`,
-        "",
-        `**Rückmeldung bei falscher Antwort:** ${frage.feedbackFalsch}`,
-        "",
-        pruefBlock(undefined, ["Genau eine Antwort ist richtig; Rechtsstand und Paragrafenangabe stimmen?"]),
-        "",
-      );
-    }
-  }
+  teile.push(...duellBloecke("recht-berufsausbildung", kennzahlenDuellRechtBerufsausbildung));
+}
+
+const GES_BLATT: KursBlatt = {
+  kurs: "fachwirt-gesundheit-soziales",
+  titel: "Fachwirt Gesundheit/Soziales",
+  feature: "F-182",
+  theorie: [],
+  zonenDateien: [
+    { datei: "hb2/2.1-qualitaetsmanagement-grundlagen.md", typen: ["donabedian", "pdca"] },
+    { datei: "hb4/4.2-finanzierungssysteme.md", typen: ["kostentraeger"] },
+  ],
+  zonenHinweise: {
+    donabedian: [
+      "Beispiele aus Verwaltung und Organisation, nicht aus pflegefachlicher Behandlung.",
+      "Q-2.1-17: Arbeits- und Gesundheitsschutz als Strukturqualität (folgt K-2.1-17 „integraler Bestandteil der Strukturqualität“) — Randfall.",
+      "Absichtliche Grenzfälle: Einarbeitungsplan (Struktur) gegen Einarbeitung nach Plan (Prozess); Fortbildung (Struktur) gegen Anwendung im Einsatz (Prozess).",
+    ],
+    pdca: [
+      "Bestehender Instrumenttyp; bisher gab es im Kurs keine PDCA-Zuordnungsfragen (das Instrument war deshalb nicht sichtbar und bleibt bis zur Freigabe aus der Kursliste).",
+    ],
+    kostentraeger: [
+      "**RECHTSSTAND — bitte sozialrechtlich prüfen.** Nur Aussagen aus der Kurstheorie (Rechtsstand dort 29.09.2026); keine Euro-Beträge, Pflegegrad-Schwellen, Paragrafen oder Einzelfallansprüche. Übung zur Systematik, keine Sozialberatung (steht in den Erklärungen von Q-4.2-13 und Q-4.2-16).",
+      "Q-4.2-14: „Häusliche Krankenpflege nach ärztlicher Verordnung für gesetzlich Versicherte“ als GKV-Begriff — der Kurs sagt nur „Krankenversicherung“, die Zuordnung zur GKV stützt sich auf Q-4.2-06; die PKV ist ebenfalls eine Krankenversicherung. Eindeutig genug?",
+      "Q-4.2-16: „Ein Pflegedienst wie Morgenlicht wird hier ggf. von einem kommunalen Träger bezahlt“ (Sozialhilfe) geht über den Kurstext hinaus (der nennt Kommunen als Träger und die Hilfe zur Pflege).",
+      "Die wenigen belegten Fakten zur PKV (Risikobeitrag, Rechnung zunächst selbst zahlen, Erstattung) überschneiden sich inhaltlich; der Wortlaut ist je Begriff verschieden.",
+    ],
+  },
+  nachspann: (teile) => gesNachspann(teile),
+};
+
+function gesNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Gesundheits- und Sozialsystem“ (Spiel „Begriffe-Duell“, Kurs Gesundheit/Soziales)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Kostenträger, Qualitätsdimensionen und Qualitätsmanagement, Kostenarten und Kostenverhalten, Arbeitsrecht im Pflegedienst). **Alle Aussagen stammen aus den Theorietexten der Kursdateien** (Rechtsstand dort 29.09.2026); keine Euro-Beträge, Pflegegrad-Schwellen, Paragrafen oder Einzelfallansprüche. **Bitte sozial- und arbeitsrechtlich prüfen: Solange das nicht geschehen ist, bleibt das Set im Kurs unsichtbar.** Keine Rechts- oder Sozialberatung.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ Frage 16: Probezeit im Arbeitsverhältnis höchstens sechs Monate (Thema 5.5); im AEVO-Kurs gilt für das Ausbildungsverhältnis „höchstens vier Monate“ — Lernende mit beiden Kursen könnten verwechseln.",
+    "- ⚠ Frage 18: Der Kurs nennt zusätzlich die Betriebsgröße (mehr als zehn Beschäftigte) als Bedingung des Kündigungsschutzes; die Frage prüft nur die Beschäftigungsdauer und lässt die Betriebsgröße bewusst weg („hinsichtlich der Beschäftigungsdauer“) — akzeptabel?",
+    "- ⚠ Frage 20: Der Kursbegriff „Mitarbeitervertretung“ (für private Betriebe nennt der Kurs den Betriebsrat nach BetrVG, für kirchliche Träger die Mitarbeitervertretung) — Wortlaut folgt dem Kursabsatz.",
+    "- ⚠ Fragen 1 und 2: Die Verknüpfung der häuslichen Krankenpflege mit SGB V ist eine Schlussfolgerung aus dem Kurs (K-4.2-11, Q-4.2-06), kein ausdrücklicher Satz.",
+    "- ⚠ Frage 5: Die PKV arbeitet laut Kurs „häufig“ mit Kostenerstattung; die Rückmeldung sagt ebenfalls „häufig“.",
+    "- ⚠ Frage 10: Gültigkeit „drei Jahre“ und Überwachungsaudits aus dem Kurs bewusst nicht aufgenommen, um keine Zahlen zu verwenden.",
+    "",
+  );
+  teile.push(...duellBloecke("gesundheit-sozialsystem", kennzahlenDuellGesundheitSozialsystem));
 }
 
 const DV_BLATT: KursBlatt = {
@@ -1028,6 +1082,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [11 Gesundheit/Soziales](11-gesundheit-soziales.md) | neue Zonen-Instrumente (Donabedian, Kostenträger, PDCA), Begriffe-Duell „Gesundheits- und Sozialsystem“ (Kursprofile Phase 1; **mit Sozial- und Arbeitsrechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [10 AEVO](10-aevo.md) | neue Zonen-Instrumente, Theorie, Begriffe-Duell „Recht der Berufsausbildung“ (Kursprofile Phase 1; **mit Rechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [09 Systemintegration](09-systemintegration.md) | neue Zonen-Instrumente, Theorie, zwei Troubleshooting-Sets, Bug-Hunt „Skripte und Konfigurationsdateien“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
@@ -1069,6 +1124,7 @@ function main() {
     ["08-digitale-vernetzung.md", kursBlatt(DV_BLATT)],
     ["09-systemintegration.md", kursBlatt(SI_BLATT)],
     ["10-aevo.md", kursBlatt(AEVO_BLATT)],
+    ["11-gesundheit-soziales.md", kursBlatt(GES_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

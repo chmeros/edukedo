@@ -19,6 +19,7 @@ import { bugHuntSchleifen } from "./content/game-bughunt-schleifen";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
 import { bugHuntSqlFehler } from "./content/game-bughunt-sql-fehler";
 import { codeReihenfolgeGrundmuster } from "./content/game-codereihenfolge-grundmuster";
+import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
@@ -250,6 +251,16 @@ async function main() {
     "Begriffe-Duell: Recht der Berufsausbildung",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellRechtBerufsausbildung),
     "recht-berufsausbildung",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Fachwirt für Gesundheits- und
+  // Sozialwesen": Gesundheits- und Sozialsystem (Kostenträger, Qualitätsmanagement, Kostenverhalten, Arbeitsrecht).
+  await upsertGame(
+    "fachwirt-gesundheit-soziales",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Gesundheits- und Sozialsystem",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellGesundheitSozialsystem),
+    "gesundheit-sozialsystem",
   );
 
   await pool.end();
