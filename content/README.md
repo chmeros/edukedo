@@ -417,6 +417,10 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `ishikawa` (**Ishikawa-Diagramm (Ursachenkategorien)**, F-184, 6 Zonen): Mensch, Maschine, Material, Methode, Mitwelt, Management
   - `kalkulation` (**Zuschlagskalkulation**, F-184, 5 Zonen): Materialkosten, Fertigungskosten, Herstellkosten, Selbstkosten, Angebotspreis
   - `incoterms` (**Incoterms**, F-184, 4 Zonen): EXW (Ab Werk), FOB (Frei an Bord), CIF (Kosten, Versicherung, Fracht), DDP (Geliefert verzollt)
+  - `fertigungsverfahren` (**Fertigungsverfahren nach DIN 8580**, F-185, 6 Zonen): Urformen, Umformen, Trennen, Fügen, Beschichten, Stoffeigenschaft ändern
+  - `instandhaltung` (**Instandhaltungsmaßnahmen nach DIN 31051**, F-185, 4 Zonen): Wartung, Inspektion, Instandsetzung, Verbesserung
+  - `top` (**TOP-Prinzip im Arbeitsschutz**, F-185, 3 Zonen): Technische Maßnahmen, Organisatorische Maßnahmen, Personenbezogene Maßnahmen
+  - `ishikawa6m` (**Ishikawa-Diagramm (6M)**, F-185, 6 Zonen): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

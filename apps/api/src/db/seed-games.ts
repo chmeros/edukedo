@@ -24,6 +24,7 @@ import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
+import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
 import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./content/game-phishing-it-alltag";
@@ -284,6 +285,17 @@ async function main() {
     "Begriffe-Duell: Kosten und Leistungen",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellKostenLeistungen),
     "kosten-leistungen",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Geprüfter Technischer Fachwirt": Technische
+  // Unterscheidungen (Werkstoffe und Werkstoffprüfung, Fertigung/Zeichnen/Passungen, Instandhaltung und Qualität,
+  // Arbeitsschutz und Elektrotechnik).
+  await upsertGame(
+    "technischer-fachwirt",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Technische Unterscheidungen",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellTechnischeUnterscheidungen),
+    "technische-unterscheidungen",
   );
 
   await pool.end();

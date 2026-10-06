@@ -17,6 +17,7 @@ import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen
 import { kennzahlenDuellKostenLeistungen } from "./content/game-kennzahlen-duell-kosten-leistungen";
 import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duell-projektmanagement";
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
+import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
 import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
@@ -1099,6 +1100,73 @@ function indNachspann(teile: string[]): void {
   teile.push(...duellBloecke("kosten-leistungen", kennzahlenDuellKostenLeistungen));
 }
 
+const TEC_BLATT: KursBlatt = {
+  kurs: "technischer-fachwirt",
+  titel: "Technischer Fachwirt",
+  feature: "F-185",
+  theorie: [
+    {
+      datei: "wq2/2.2-kostenrechnung.md",
+      ueberschrift: "Zuschlagskalkulation im Überblick",
+      hinweise: [
+        "Der Kurs führte die Zuschlagskalkulation bisher nur bis zu den Selbstkosten; der neue Abschnitt (wie im Industriefachwirt-Kurs, auf Vantera zugeschnitten) ergänzt Herstellkosten, Verwaltungs- und Vertriebsgemeinkosten, Gewinnzuschlag und Angebotspreis, ohne Rechenzahlen. Sondereinzelkosten sind nur als „nicht betrachtet“ erwähnt, Skonto und Rabatt kurz.",
+        "Bezugsgrößen: Fertigungsgemeinkosten auf Fertigungslöhne (belegt in 2.2), Verwaltungs- und Vertriebsgemeinkosten auf die Herstellkosten, Gewinnzuschlag auf die Selbstkosten, Materialgemeinkosten auf die Materialeinzelkosten (die beiden letzten Standard, im Kurs bisher nicht ausdrücklich).",
+        "Q-2.2-18: „erste Stufe mit Gewinn im Auftragswert“ setzt voraus, dass Skonto und Rabatt im vereinfachten Angebotspreis unberücksichtigt bleiben.",
+      ],
+    },
+  ],
+  zonenDateien: [
+    { datei: "tq3/7.1-fertigungsverfahren.md", typen: ["fertigungsverfahren"] },
+    { datei: "tq3/7.2-betriebsmittel-instandhaltung.md", typen: ["instandhaltung"] },
+    { datei: "hq3/10.3-arbeitsschutz-arbeitssicherheit.md", typen: ["top"] },
+    { datei: "hq3/10.1-qualitaetsmanagement.md", typen: ["ishikawa6m"] },
+    { datei: "wq2/2.2-kostenrechnung.md", typen: ["kalkulation"] },
+  ],
+  zonenHinweise: {
+    fertigungsverfahren: [
+      "**Normen nur in eigenen Worten (DIN 8580):** keine Tabellen oder Wortlaute; der Vorschlag nannte außerdem die angekündigte Norm-Aktualisierung der Hauptgruppe Fügen.",
+      "**Dünne Kursbasis bei „Stoffeigenschaft ändern“:** Der Kurs nennt nur das Härten von Stahl durch Wärmebehandlung; Glühen kommt nicht vor. Die vier Begriffe der Zone sind deshalb inhaltlich nah beieinander (Q-7.1-14 bis -17). Soll die Theorie erweitert werden?",
+      "Beschichten: verwendet sind Lackieren, galvanisches Verzinken und eine PVD-Schicht (der Kurs sagt zu PVD nur „physikalische Beschichtungsverfahren“). Nieten gilt in Q-7.1-17 als „mechanische, unlösbare Fügeverbindung“ — der Kurs sagt „lösbare bzw. unlösbare mechanische Fügeverfahren“.",
+      "Q-7.1-17: „Wellenrohlinge im Gesenk vorformen“ = Umformen; die Erklärung grenzt Härten (Masse und Zusammenhalt bleiben, Form nicht) gegen Umformen ab. „Blech ohne Spanabtrag mit der Schere zerteilen“ steht wie im Kurs bei Trennen (typische Verwechslung mit Umformen in der Erklärung).",
+    ],
+    instandhaltung: [
+      "**Begriffe nach DIN 31051 (Kursfassung) prüfen; Normtext nicht übernommen.** Die Kursdatei trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“.",
+      "Beispiele ohne Kursbeleg (Dichtungen, Schutzabdeckung, Wartungsöffnung, zentrale Schmierstelle, Zugang zum Steuerungsschrank, Schweißbrenner, Messtaster) — die Zuordnung hängt allein an den Definitionen; austauschen, falls gewünscht.",
+      "Grenzfälle: Q-7.2-17 „Dichtungen vorsorglich durch langlebigere Ausführung ersetzen“ = Verbesserung (nicht Austausch nach Ausfall); Reinigen/Schmieren durch Maschinenbediener (TPM) = Wartung, „Bediener prüfen vor Schichtbeginn auf Auffälligkeiten“ = Inspektion; Auslesen von Vibrationswerten und Temperaturverlauf = Inspektion (zustandsorientiert ist keine Zone).",
+    ],
+    top: [
+      "**Rangfolge laut Kurs: TOP (Technische, Organisatorische, Personenbezogene Maßnahmen)**, nicht STOP mit Substitution an erster Stelle wie in anderen Quellen; Hinweis in der Erklärung von Q-10.3-18. Soll die Substitution ergänzt werden (4 Zonen)?",
+      "Die Unterweisung nennt der Kurs nur bei der Unfallverhütung, ohne sie einer TOP-Gruppe zuzuweisen; hier als organisatorisch eingeordnet (abgegrenzt in der Erklärung von Q-10.3-15). Belegt sind Schutzabdeckung, Schutzgitter, Verkleidung, Not-Halt, Zugangswege, Sicherheitsabstand, Aufenthaltsdauer im Lärmbereich, Gehörschutz, Schutzbrille, Sicherheitsschuhe, Schutzhandschuhe; dazu kommen übliche Beispiele derselben Kategorien (Lichtschranke, Zweihandbedienung, Absaugung, Betriebsanweisung, Atemschutz u. a.).",
+      "Grenzfälle: Absaugung = technisch (wirkt an der Quelle), Wartungsplan für Schutzeinrichtungen = organisatorisch, Not-Halt = technisch.",
+    ],
+    ishikawa6m: [
+      "**6M des Kurses (Thema 10.1): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management** — anders als im Industriefachwirt-Kurs (dort Mitwelt); hier ein eigenes Modell. Andere Quellen benennen teils Messung statt Management (Hinweis in Q-10.1-19); Messmittel und Kalibrierung wurden bewusst nicht verwendet.",
+      "Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung (Erklärung von Q-10.1-19 sagt ausdrücklich, dass die Kurstheorie dazu keine Einzelheiten nennt).",
+      "Grenzfälle: Kühlschmierstoff mit abweichender Zusammensetzung = Material (Hilfsstoff); Spannfutter, Steuerung und Drehzahlregler = Maschine; Beleuchtung am Prüfplatz = Milieu; Schnittparameter im Arbeitsplan und Stichprobenumfang im Prüfplan = Methode; „falsch eingespannt trotz klarer Vorgabe“ = Mensch, „Arbeitsplan nennt Spannreihenfolge nicht“ = Methode.",
+    ],
+    kalkulation: [
+      "Modell aus F-184 wiederverwendet; Begriffe mit Vantera-Beispielen (Aluminiumblock, Fertigungslöhne, Zerspanungshalle), keine Zahlenrechnungen. Zwei Begriffe liegen bei etwa 91 bis 94 Zeichen.",
+    ],
+  },
+  nachspann: (teile) => tecNachspann(teile),
+};
+
+function tecNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Technische Unterscheidungen“ (Spiel „Begriffe-Duell“, Kurs Technischer Fachwirt)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen (Werkstoffe und Werkstoffprüfung; Fertigung, Zeichnen und Passungen; Instandhaltung und Qualität; Arbeitsschutz und Elektrotechnik). **Alle Aussagen stammen aus den Theorietexten der Kursdateien**; keine Formeln, Zahlenwerte oder Paragrafen; als einzige Normangabe steht der Name „DIN 31051“ in Frage 11.",
+    "",
+    "**Zum Set — besonders prüfen:**",
+    "- ⚠ **Abweichungen vom Vorschlag:** „Eisen- oder NE-Metall“ ist nicht als eigene Frage enthalten und „Übermaßpassung“ kommt im Kurs nicht vor (deshalb „Presspassung“); „Prüfmittel“ und „Wirk- oder Blindleistung“ kommen im Kurs nicht vor und fehlen im Set. Statt dessen Qualitätswerkzeuge (Ishikawa/Pareto), Strategien der Instandhaltung und Elektro-Grundbegriffe.",
+    "- ⚠ Fragen 5 und 6: Die Theorietexte sind didaktisch vereinfacht; Frage 6 lässt „Werkzeugverschleiß“ als Nachteil der spanenden Verfahren stehen, wie im Kurs.",
+    "- ⚠ Frage 17: Die Zuordnung Betriebsarzt (arbeitsmedizinische Vorsorge) gegen Fachkraft für Arbeitssicherheit folgt dem Kurs („insbesondere“); in der Praxis gibt es Überschneidungen.",
+    "- ⚠ Frage 20: „automatisch“ grenzt den FI-Schutzschalter vom Not-Aus-Schalter ab; der Kurs sagt zum Not-Aus nur „im Gefahrfall sofort trennen“, nicht, ob manuell ausgelöst.",
+    "- ⚠ Thema 7.2 trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“; das gilt entsprechend für die DIN-31051-Bezeichnungen.",
+    "",
+  );
+  teile.push(...duellBloecke("technische-unterscheidungen", kennzahlenDuellTechnischeUnterscheidungen));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1205,6 +1273,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [14 Technischer Fachwirt](14-technischer-fachwirt.md) | neue Zonen-Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation), Theorie, Begriffe-Duell „Technische Unterscheidungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [13 Industriefachwirt](13-industriefachwirt.md) | neue Zonen-Instrumente (PPS, Beschaffung, SECI, Ishikawa, Zuschlagskalkulation, Incoterms), Theorie, Begriffe-Duell „Kosten und Leistungen“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [12 Büro- und Projektorganisation](12-buero-projektorganisation.md) | neue Zonen-Instrumente (Projektphasen, Stakeholder-Matrix, ABC-Analyse), Theorie, Begriffe-Duell „Projektmanagement“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [11 Gesundheit/Soziales](11-gesundheit-soziales.md) | neue Zonen-Instrumente (Donabedian, Kostenträger, PDCA), Begriffe-Duell „Gesundheits- und Sozialsystem“ (Kursprofile Phase 1; **mit Sozial- und Arbeitsrechtsfragen**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
@@ -1252,6 +1321,7 @@ function main() {
     ["11-gesundheit-soziales.md", kursBlatt(GES_BLATT)],
     ["12-buero-projektorganisation.md", kursBlatt(BUE_BLATT)],
     ["13-industriefachwirt.md", kursBlatt(IND_BLATT)],
+    ["14-technischer-fachwirt.md", kursBlatt(TEC_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

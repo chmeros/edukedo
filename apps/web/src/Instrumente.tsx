@@ -24,6 +24,7 @@ import {
   HierarchieIllustration,
   BeschaffungIllustration,
   BeurteilungsfehlerIllustration,
+  FertigungsverfahrenIllustration,
   GitIllustration,
   HandlungsfelderIllustration,
   KalkulationIllustration,
@@ -35,7 +36,9 @@ import {
   TestverfahrenIllustration,
   NormalisierungIllustration,
   IncotermsIllustration,
+  InstandhaltungIllustration,
   IndustrieprotokolleIllustration,
+  Ishikawa6mIllustration,
   IshikawaIllustration,
   OsiIllustration,
   PdcaIllustration,
@@ -62,6 +65,7 @@ import {
   SubnettingIllustration,
   SwotIllustration,
   TeststufenIllustration,
+  TopIllustration,
   UmlIllustration,
   VerzeichnisdienstIllustration,
   VierStufenIllustration,
@@ -407,6 +411,31 @@ const INSTRUMENT_CATALOG = [
     label: "Incoterms",
     description: "EXW, FOB, CIF und DDP an der Verteilung von Kosten und Risiken zwischen Verkäufer und Käufer erkennen.",
     Illustration: IncotermsIllustration,
+  },
+  // F-185 (Kursprofile Phase 1, Technischer Fachwirt): vier Zonen-Instrumente für Fertigung, Instandhaltung, Arbeitsschutz und Qualität.
+  {
+    type: "fertigungsverfahren",
+    label: "Fertigungsverfahren nach DIN 8580",
+    description: "Verfahren den sechs Hauptgruppen zuordnen: Urformen, Umformen, Trennen, Fügen, Beschichten, Stoffeigenschaft ändern.",
+    Illustration: FertigungsverfahrenIllustration,
+  },
+  {
+    type: "instandhaltung",
+    label: "Instandhaltungsmaßnahmen nach DIN 31051",
+    description: "Tätigkeiten als Wartung, Inspektion, Instandsetzung oder Verbesserung einordnen.",
+    Illustration: InstandhaltungIllustration,
+  },
+  {
+    type: "top",
+    label: "TOP-Prinzip im Arbeitsschutz",
+    description: "Schutzmaßnahmen als technisch, organisatorisch oder personenbezogen einordnen — in der Rangfolge ihrer Priorität.",
+    Illustration: TopIllustration,
+  },
+  {
+    type: "ishikawa6m",
+    label: "Ishikawa-Diagramm (6M)",
+    description: "Ursachen eines Qualitätsproblems den sechs Kategorien zuordnen: Mensch, Maschine, Material, Methode, Milieu, Management.",
+    Illustration: Ishikawa6mIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

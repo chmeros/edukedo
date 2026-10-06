@@ -617,6 +617,27 @@ describe("parseQuizBlock", () => {
     if (incoterms?.type === "incoterms") expect(incoterms.terms.map((term) => term.zoneKey)).toEqual(["exw", "fob", "cif", "ddp"]);
   });
 
+  it("parst die Modelle aus F-185 (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-7.1-01 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const fertigung = parse("Fertigungsverfahren nach DIN 8580", ["- Sandguss → Urformen", "- Schmieden → Umformen", "- Fräsen → Trennen", "- Schweißen → Fügen", "- Lackieren → Beschichten", "- Härten → Stoffeigenschaft ändern"]);
+    expect(fertigung?.type).toBe("fertigungsverfahren");
+    if (fertigung?.type === "fertigungsverfahren") expect(fertigung.terms.map((term) => term.zoneKey)).toEqual(["urformen", "umformen", "trennen", "fuegen", "beschichten", "stoffeigenschaft"]);
+
+    const instandhaltung = parse("Instandhaltungsmaßnahmen nach DIN 31051", ["- Schmieren → Wartung", "- Lagerspiel messen → Inspektion", "- Motor austauschen → Instandsetzung", "- zuverlässigeres Bauteil einbauen → Verbesserung"]);
+    expect(instandhaltung?.type).toBe("instandhaltung");
+    if (instandhaltung?.type === "instandhaltung") expect(instandhaltung.terms.map((term) => term.zoneKey)).toEqual(["wartung", "inspektion", "instandsetzung", "verbesserung"]);
+
+    const top = parse("TOP-Prinzip im Arbeitsschutz", ["- feste Schutzeinrichtung → Technische Maßnahmen", "- Unterweisung → Organisatorische Maßnahmen", "- Gehörschutz → Personenbezogene Maßnahmen"]);
+    expect(top?.type).toBe("top");
+    if (top?.type === "top") expect(top.terms.map((term) => term.zoneKey)).toEqual(["technisch", "organisatorisch", "personenbezogen"]);
+
+    const ishikawa = parse("Ishikawa-Diagramm (6M)", ["- unzureichende Schulung → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Anweisung → Methode", "- schwankende Hallentemperatur → Milieu (Umwelt)", "- unklare Verantwortung → Management"]);
+    expect(ishikawa?.type).toBe("ishikawa6m");
+    if (ishikawa?.type === "ishikawa6m") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "milieu", "management"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

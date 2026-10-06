@@ -1418,6 +1418,117 @@ export function IncotermsIllustration() {
   );
 }
 
+// F-185 (Kursprofile Phase 1, Technischer Fachwirt): Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M.
+
+export function FertigungsverfahrenIllustration() {
+  const kachel = (index: number) => 8 + index * 52;
+  const farben = ["var(--coral)", "var(--sun)", "var(--info)", "var(--sprout)", "var(--sun)", "var(--coral)"];
+  return (
+    <Frame background="var(--surface-2)">
+      {farben.map((farbe, index) => (
+        <rect key={index} x={kachel(index)} y="22" width="46" height="96" rx="6" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      ))}
+      {/* Urformen: Tropfen/Form */}
+      <path d={`M${kachel(0) + 23} 36c10 12 14 18 14 26a14 14 0 0 1-28 0c0-8 4-14 14-26Z`} fill={farben[0]} stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      {/* Umformen: Pfeile auf Block */}
+      <rect x={kachel(1) + 10} y="50" width="26" height="22" rx="2" fill={farben[1]} stroke="var(--ink-soft)" strokeWidth="2" />
+      <path d={`M${kachel(1) + 23} 34v10m0 0-4-4m4 4 4-4M${kachel(1) + 23} 90v-10m0 0-4 4m4-4 4 4`} fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Trennen: Messer und Späne */}
+      <path d={`M${kachel(2) + 12} 44 ${kachel(2) + 34} 66`} stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      <path d={`M${kachel(2) + 12} 78c4-6 8-6 10 0M${kachel(2) + 26} 82c4-6 8-6 10 0`} fill="none" stroke="var(--info-deep)" strokeWidth="2" strokeLinecap="round" />
+      {/* Fügen: zwei Teile verbunden */}
+      <rect x={kachel(3) + 8} y="52" width="14" height="22" rx="2" fill={farben[3]} stroke="var(--sprout-deep)" strokeWidth="2" />
+      <rect x={kachel(3) + 24} y="52" width="14" height="22" rx="2" fill={farben[3]} stroke="var(--sprout-deep)" strokeWidth="2" />
+      <path d={`M${kachel(3) + 18} 63h10`} stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      {/* Beschichten: Schicht */}
+      <rect x={kachel(4) + 10} y="52" width="26" height="22" rx="2" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      <rect x={kachel(4) + 10} y="46" width="26" height="6" rx="2" fill={farben[4]} stroke="var(--ink-soft)" strokeWidth="1.5" />
+      {/* Stoffeigenschaft: Flamme */}
+      <path d={`M${kachel(5) + 23} 38c10 10 12 18 8 26-3 6-13 6-16 0-4-8 0-14 8-26Z`} fill={farben[5]} stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      {["Urf.", "Umf.", "Trenn.", "Füg.", "Besch.", "Stoff"].map((text, index) => (
+        <text key={text} x={kachel(index) + 23} y="108" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function InstandhaltungIllustration() {
+  const kachel = (index: number) => 12 + index * 77;
+  return (
+    <Frame background="var(--sun-tint)">
+      {[0, 1, 2, 3].map((index) => (
+        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="2" />
+      ))}
+      {/* Wartung: Öltropfen */}
+      <path d={`M${kachel(0) + 34} 36c8 10 12 16 12 22a12 12 0 0 1-24 0c0-6 4-12 12-22Z`} fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2" strokeLinejoin="round" />
+      {/* Inspektion: Lupe */}
+      <circle cx={kachel(1) + 30} cy="54" r="14" fill="none" stroke="var(--info-deep)" strokeWidth="3" />
+      <path d={`m${kachel(1) + 40} 64 12 12`} stroke="var(--info-deep)" strokeWidth="4" strokeLinecap="round" />
+      {/* Instandsetzung: Schraubenschlüssel */}
+      <path d={`M${kachel(2) + 18} 76 ${kachel(2) + 44} 50`} stroke="var(--coral-deep)" strokeWidth="6" strokeLinecap="round" />
+      <circle cx={kachel(2) + 48} cy="46" r="9" fill="none" stroke="var(--coral-deep)" strokeWidth="4" />
+      {/* Verbesserung: Pfeil nach oben */}
+      <path d={`M${kachel(3) + 34} 78V42m0 0-12 12m12-12 12 12`} fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      {["Wartung", "Inspektion", "Instandsetz.", "Verbesserung"].map((text, index) => (
+        <text key={text} x={kachel(index) + 34} y="108" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
+export function TopIllustration() {
+  const stufen = [
+    { y: 18, w: 220, f: "var(--sprout)", s: "var(--sprout-deep)", t: "T  Technisch" },
+    { y: 54, w: 180, f: "var(--sun)", s: "var(--ink-soft)", t: "O  Organisatorisch" },
+    { y: 90, w: 140, f: "var(--info)", s: "var(--info-deep)", t: "P  Personenbezogen" },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      {stufen.map((stufe) => (
+        <g key={stufe.t}>
+          <rect x="30" y={stufe.y} width={stufe.w} height="30" rx="6" fill={stufe.f} stroke={stufe.s} strokeWidth="2.2" />
+          <text x="42" y={stufe.y + 20} fontSize="11" fontWeight="700" fill="var(--ink)">
+            {stufe.t}
+          </text>
+        </g>
+      ))}
+      <path d="M268 22v94m0 0-6-8m6 8 6-8" fill="none" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="282" y="70" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)">
+        Rang
+      </text>
+    </Frame>
+  );
+}
+
+export function Ishikawa6mIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <path d="M20 70h220" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M240 56v28l28-14Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+      {[60, 120, 180].map((x) => (
+        <g key={x}>
+          <path d={`M${x} 22 ${x + 22} 70M${x} 118 ${x + 22} 70`} stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+          <path d={`M${x + 6} 36h-24M${x + 6} 104h-24`} stroke="var(--line-strong)" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+      ))}
+      {["Mensch", "Methode", "Milieu"].map((text, index) => (
+        <text key={text} x={[60, 120, 180][index]} y="16" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+      {["Maschine", "Material", "Management"].map((text, index) => (
+        <text key={text} x={[60, 120, 180][index]} y="132" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+          {text}
+        </text>
+      ))}
+    </Frame>
+  );
+}
+
 // F-163: Netzplan-Trainer.
 
 export function NetzplanIllustration() {

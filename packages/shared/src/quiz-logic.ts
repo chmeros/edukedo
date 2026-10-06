@@ -553,6 +553,49 @@ export const QUADRANT_MODELS = {
       { key: "ddp", label: "DDP (Geliefert verzollt)" },
     ],
   },
+  // F-185 (Kursprofile Phase 1, Technischer Fachwirt): vier weitere Modelle, jeweils in der Gliederung der Kurstheorie
+  // (die Zuschlagskalkulation aus F-184 wird mit eigenem Content wiederverwendet).
+  fertigungsverfahren: {
+    label: "Fertigungsverfahren nach DIN 8580",
+    zones: [
+      { key: "urformen", label: "Urformen" },
+      { key: "umformen", label: "Umformen" },
+      { key: "trennen", label: "Trennen" },
+      { key: "fuegen", label: "Fügen" },
+      { key: "beschichten", label: "Beschichten" },
+      { key: "stoffeigenschaft", label: "Stoffeigenschaft ändern" },
+    ],
+  },
+  instandhaltung: {
+    label: "Instandhaltungsmaßnahmen nach DIN 31051",
+    zones: [
+      { key: "wartung", label: "Wartung" },
+      { key: "inspektion", label: "Inspektion" },
+      { key: "instandsetzung", label: "Instandsetzung" },
+      { key: "verbesserung", label: "Verbesserung" },
+    ],
+  },
+  // TOP-Rangfolge laut Kurstheorie (Thema 10.3); andere Quellen nennen zusätzlich die Substitution (STOP).
+  top: {
+    label: "TOP-Prinzip im Arbeitsschutz",
+    zones: [
+      { key: "technisch", label: "Technische Maßnahmen" },
+      { key: "organisatorisch", label: "Organisatorische Maßnahmen" },
+      { key: "personenbezogen", label: "Personenbezogene Maßnahmen" },
+    ],
+  },
+  // 6M laut Kurstheorie des Technischen Fachwirts (Thema 10.1): Milieu (Umwelt) statt Mitwelt wie im Industriefachwirt.
+  ishikawa6m: {
+    label: "Ishikawa-Diagramm (6M)",
+    zones: [
+      { key: "mensch", label: "Mensch" },
+      { key: "maschine", label: "Maschine" },
+      { key: "material", label: "Material" },
+      { key: "methode", label: "Methode" },
+      { key: "milieu", label: "Milieu (Umwelt)" },
+      { key: "management", label: "Management" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

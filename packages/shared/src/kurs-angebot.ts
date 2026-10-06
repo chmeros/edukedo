@@ -72,6 +72,11 @@ export const KATALOG_INSTRUMENTE = [
   "ishikawa",
   "kalkulation",
   "incoterms",
+  // Kursprofile Phase 1 (Technischer Fachwirt)
+  "fertigungsverfahren",
+  "instandhaltung",
+  "top",
+  "ishikawa6m",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -289,7 +294,20 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  "technischer-fachwirt": { instrumente: liste(OHNE()), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
+  // Die neuen Instrumente (Fertigungsverfahren, Instandhaltung, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation) und das Duell-Set
+  // "technische-unterscheidungen" erst nach der Freigabe des Prüfblatts 14 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht
+  // vorhandene Set "standard" begrenzt.
+  "technischer-fachwirt": {
+    instrumente: liste(OHNE()),
+    werkzeuge: [],
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: [],
+    szenarien: {},
+  },
   wirtschaftsfachwirt: { instrumente: liste(OHNE("gantt")), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   "transport-management-logistics": { instrumente: liste(OHNE("bsc", "gantt")), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
   handelsfachwirt: { instrumente: liste(OHNE()), werkzeuge: [], spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
