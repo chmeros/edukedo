@@ -436,7 +436,7 @@ Ziel: Fortschritt, Instrumente, Kursauswahl, Erfolge und Sozial-Bereiche im Kach
 
 **Testing**
 - [x] Live-Verifikation im Browser (Hell/Dunkel, mobile Breite, F-102-Dialog, Konsolen-Check in frischem Tab) und Kontrastberechnung für Text auf der Füllung. **Erledigt 05.10.2026.**
-- [ ] **Offen (nicht terminiert):** Das Header-Dropdown `CourseSwitcher` zeigt weiterhin Listenzeilen ohne Füllstand; falls gewünscht, kann es dieselbe `Tile`-Optik bekommen.
+- [x] Header-Dropdown `CourseSwitcher` mit `Tile`-Optik und Füllstand (F-173); dabei das auf Mobilgeräten links aus dem Bild ragende Kopfzeilen-Menü behoben. **Erledigt 06.10.2026.**
 
 ## Iteration 22 — Nachbesserungen aus dem Durchgang als Azubi mit Prüfungsangst (F-149–F-153)
 

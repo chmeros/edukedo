@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 import { useDismissableMenu } from "./useDismissableMenu";
 
@@ -8,6 +9,9 @@ import { useDismissableMenu } from "./useDismissableMenu";
  * Kursauswahl-/Katalogseite (`CourseSelection.tsx`) für Beitritt/Wechsel — bewusst NICHT mehr
  * der vollständige Kurskatalog inline im Dropdown, der auf perspektivisch mehrere hundert Kurse
  * nicht skaliert (siehe Architekturplanung Abschnitt 13, Entscheidung 18.09.2026).
+ *
+ * F-173: Die belegten Kurse erscheinen als kleine Kacheln (`Tile`, F-144) mit Füllstand = Gesamtfortschritt
+ * wie in der Kursauswahl (F-147); der Fortschritt wird erst beim Öffnen des Menüs geladen.
  */
 export function CourseSwitcher({
   activeKursId,
@@ -20,6 +24,7 @@ export function CourseSwitcher({
 }) {
   const courses = trpc.courses.list.useQuery();
   const [open, setOpen] = useState(false);
+  const progress = trpc.courses.progress.useQuery(undefined, { enabled: open });
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   useDismissableMenu(menuRef, triggerRef, open, () => setOpen(false));
@@ -44,21 +49,27 @@ export function CourseSwitcher({
         <div className="header-menu-panel">
           {courses.isLoading && <p>Lädt…</p>}
           {joined.length > 0 && (
-            <div className="list">
-              {joined.map((course) => (
-                <button
-                  key={course.id}
-                  type="button"
-                  className={course.id === activeKursId ? "list-row is-active" : "list-row"}
-                  onClick={() => {
-                    onActiveKursChange(course.id);
-                    setOpen(false);
-                  }}
-                >
-                  <div className="meta">{course.title}</div>
-                  {course.id === activeKursId && <span aria-hidden="true">✓</span>}
-                </button>
-              ))}
+            <div className="header-menu-tiles">
+              {joined.map((course) => {
+                const percent = progress.data?.find((row) => row.kursId === course.id)?.percent ?? 0;
+                const aktiv = course.id === activeKursId;
+                const fortschritt = progress.data ? `${percent} % gelernt` : undefined;
+                return (
+                  <Tile
+                    key={course.id}
+                    size="sm"
+                    title={course.title}
+                    meta={aktiv ? ["Aktueller Kurs", fortschritt].filter(Boolean).join(" · ") : fortschritt}
+                    fill={progress.data ? percent : 0}
+                    active={aktiv}
+                    aria-pressed={aktiv}
+                    onClick={() => {
+                      onActiveKursChange(course.id);
+                      setOpen(false);
+                    }}
+                  />
+                );
+              })}
             </div>
           )}
           <button

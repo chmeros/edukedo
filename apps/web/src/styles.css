@@ -2136,6 +2136,13 @@ details[open] > summary.disclosure::before {
   }
 }
 
+/* F-173: belegte Kurse im Header-Menü als kleine Kacheln mit Füllstand */
+.header-menu-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .header-menu-panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -2153,6 +2160,25 @@ details[open] > summary.disclosure::before {
   border: 1.5px solid var(--line);
   background: var(--card);
   box-shadow: var(--shadow);
+}
+
+/* F-173: Auf schmalen Bildschirmen spannt das Menü über die Breite der Kopfzeile, statt am Auslöser verankert zu sein —
+   der Kurs-Auslöser sitzt nicht ganz rechts, das 280 px breite Menü ragte sonst links aus dem Bild. */
+@media (max-width: 480px) {
+  .landing-nav-row {
+    position: relative;
+  }
+
+  .header-menu {
+    position: static;
+  }
+
+  .header-menu-panel {
+    left: 12px;
+    right: 12px;
+    min-width: 0;
+    max-width: none;
+  }
 }
 
 .eyebrow {
