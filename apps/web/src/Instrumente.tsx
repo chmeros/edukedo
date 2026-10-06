@@ -16,6 +16,9 @@ import {
   ScrumIllustration,
   SqlIllustration,
   SqlUebungIllustration,
+  FlagRaetselIllustration,
+  TerminalLaborIllustration,
+  TopologieLaborIllustration,
   SubnettingIllustration,
   SwotIllustration,
   TeststufenIllustration,
@@ -23,7 +26,10 @@ import {
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Netzplan } from "./Netzplan";
+import { FlagRaetsel } from "./FlagRaetsel";
 import { SqlUebungsflaeche } from "./SqlUebung";
+import { TerminalLabor } from "./TerminalLabor";
+import { TopologieLabor } from "./TopologieLabor";
 import { Subnetting } from "./Subnetting";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
@@ -184,6 +190,32 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Übungsfläche öffnen",
   },
+  // F-171 (Netzwerk-/Server-Simulationen und Flag-Rätsel, siehe Architekturplanung Abschnitt 13): drei
+  // Werkzeuge, die komplett im Browser simulieren (keine echten Systeme, keine Speicherung, keine Wertung).
+  {
+    type: "terminal",
+    label: "Terminal-Szenarien",
+    description: "Störungen an simulierten Linux-Rechnern per Kommandozeile eingrenzen und beheben — ohne echte Server.",
+    Illustration: TerminalLaborIllustration,
+    werkzeug: true,
+    aktion: "Terminal öffnen",
+  },
+  {
+    type: "topologie",
+    label: "Netzwerk-Topologie",
+    description: "Geräte verkabeln, IP-Adressen und Gateways eintragen und prüfen, ob die Rechner miteinander sprechen können.",
+    Illustration: TopologieLaborIllustration,
+    werkzeug: true,
+    aktion: "Netzwerk bauen",
+  },
+  {
+    type: "flags",
+    label: "Flag-Rätsel",
+    description: "IT-Sicherheit spielerisch: Logdateien auswerten, Kodierungen entschlüsseln und Prüfsummen vergleichen.",
+    Illustration: FlagRaetselIllustration,
+    werkzeug: true,
+    aktion: "Rätsel lösen",
+  },
 ] as const;
 
 export function Instrumente({
@@ -214,6 +246,15 @@ export function Instrumente({
   }
   if (activeWerkzeug === "sqluebung") {
     return <SqlUebungsflaeche onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "terminal") {
+    return <TerminalLabor onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "topologie") {
+    return <TopologieLabor onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "flags") {
+    return <FlagRaetsel onClose={() => setActiveWerkzeug(null)} />;
   }
 
   if (activeLernpfad) {

@@ -500,3 +500,74 @@ export function SqlUebungIllustration() {
     </Frame>
   );
 }
+
+// F-171: Terminal-Szenarien, Netzwerk-Topologie, Flag-Rätsel.
+
+export function TerminalLaborIllustration() {
+  return (
+    <Frame background="var(--surface-2)">
+      <rect x="40" y="16" width="240" height="108" rx="9" fill="var(--ink)" />
+      <circle cx="56" cy="30" r="3.5" fill="var(--coral)" />
+      <circle cx="68" cy="30" r="3.5" fill="var(--sun)" />
+      <circle cx="80" cy="30" r="3.5" fill="var(--sprout)" />
+      <text x="56" y="58" fontSize="12" fontWeight="700" fill="var(--sprout)">
+        $ ping 8.8.8.8
+      </text>
+      <text x="56" y="76" fontSize="12" fontWeight="700" fill="var(--sun)">
+        Network is unreachable
+      </text>
+      <text x="56" y="94" fontSize="12" fontWeight="700" fill="var(--sprout)">
+        $ ip route add default
+      </text>
+      <rect x="56" y="102" width="9" height="12" fill="var(--sprout)" />
+    </Frame>
+  );
+}
+
+export function TopologieLaborIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <path d="M70 38 160 70 250 38M160 70v44" fill="none" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="44" y="22" width="52" height="32" rx="5" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <rect x="224" y="22" width="52" height="32" rx="5" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <rect x="134" y="52" width="52" height="36" rx="6" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="2" />
+      <rect x="136" y="102" width="48" height="26" rx="5" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <text x="70" y="43" fontSize="11" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        PC 1
+      </text>
+      <text x="250" y="43" fontSize="11" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        PC 2
+      </text>
+      <text x="160" y="74" fontSize="11" fontWeight="700" fill="var(--sprout-deep)" textAnchor="middle">
+        Switch
+      </text>
+      <text x="160" y="119" fontSize="11" fontWeight="700" fill="var(--info-deep)" textAnchor="middle">
+        Server
+      </text>
+    </Frame>
+  );
+}
+
+export function FlagRaetselIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <path d="M96 20v104" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      <path d="M100 24h96l-16 22 16 22h-96z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      <text x="104" y="52" fontSize="11" fontWeight="700" fill="var(--card)">
+        FLAG{"{"}…{"}"}
+      </text>
+      <rect x="214" y="30" width="78" height="22" rx="5" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+      <text x="253" y="45" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        SGVsbG8=
+      </text>
+      <rect x="214" y="60" width="78" height="22" rx="5" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+      <text x="253" y="75" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Khoor
+      </text>
+      <rect x="214" y="90" width="78" height="22" rx="5" fill="var(--card)" stroke="var(--ink-soft)" strokeWidth="1.5" />
+      <text x="253" y="105" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        a3f9…c07
+      </text>
+    </Frame>
+  );
+}

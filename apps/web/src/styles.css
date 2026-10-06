@@ -3636,6 +3636,807 @@ details[open] > summary.disclosure::before {
   }
 }
 
+/* F-171: Terminal-Szenarien (TerminalLabor.tsx) */
+/* F-171: Terminal-Szenarien (TerminalLabor.tsx).
+   Das Terminal ist eine "umgekehrte" Fläche: --ink als Hintergrund, --paper als Text. Beide Tokens tauschen im
+   Dunkelmodus die Helligkeit, der Kontrast bleibt in beiden Themes bei etwa 15:1; die Hervorhebungen
+   (--sprout-tint, --info-tint) liegen als helle bzw. dunkle Töne ebenfalls klar über 4,5:1 zum Hintergrund. */
+
+.term-auswahl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.term-auswahl .is-active {
+  border-color: var(--ink);
+  font-weight: 700;
+}
+
+/* Nur für Screenreader sichtbar (Label am Eingabefeld, "gelöst"-Zusatz). */
+.term-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.term {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  cursor: text;
+  min-width: 0;
+}
+
+.term:focus-within {
+  outline: 3px solid var(--info);
+  outline-offset: 2px;
+}
+
+.term ::selection {
+  background: var(--info);
+  color: var(--paper);
+}
+
+.term-kopf {
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--info-tint);
+  font-size: var(--fs-xs);
+}
+
+.term-log {
+  min-height: 16rem;
+  max-height: min(30rem, 60vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 14px 4px;
+}
+
+.term-log:focus-visible {
+  outline: 2px solid var(--info-tint);
+  outline-offset: -4px;
+}
+
+.term-eintrag + .term-eintrag {
+  margin-top: 2px;
+}
+
+.term-zeile,
+.term-ausgabe {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 8;
+}
+
+.term-prompt {
+  color: var(--sprout-tint);
+  font-weight: 700;
+}
+
+.term-befehl {
+  color: var(--paper);
+}
+
+.term-ausgabe {
+  color: var(--paper);
+}
+
+.term-eingabezeile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  padding: 2px 14px 10px;
+  margin: 0;
+}
+
+.term-eingabezeile .term-prompt {
+  flex: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Mindestens 16 px, damit mobile Browser beim Fokussieren nicht hineinzoomen. */
+.term-eingabe {
+  flex: 1 1 10rem;
+  min-width: 0;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper);
+  caret-color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+  box-shadow: none;
+}
+
+.term-eingabe:focus-visible {
+  /* Der Fokus wird über den Rahmen des gesamten Terminals (.term:focus-within) angezeigt. */
+  outline: none;
+}
+
+.term-eingabe::placeholder {
+  color: var(--surface-2);
+  opacity: 1;
+}
+
+.term-loesung {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.term-code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.term-optional {
+  font-style: italic;
+}
+
+.term-schritt-text {
+  display: block;
+}
+
+/* F-171: Flag-Rätsel (FlagRaetsel.tsx) */
+/* F-171: Flag-Rätsel (FlagRaetsel.tsx). Nur Design-Tokens (Dunkelmodus ergibt sich automatisch); Zustände
+   werden nie nur über Farbe vermittelt (Haken/Text, stärkerer Rand, Fettschrift). */
+
+/* Aufgabenliste: eine Spalte auf dem Handy, sonst automatisch mehrspaltig. */
+.flag-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 8px;
+}
+
+.flag-liste-eintrag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.flag-liste-eintrag:hover {
+  border-color: var(--ink-faint);
+}
+
+.flag-liste-eintrag.is-active {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.flag-liste-eintrag.is-active .flag-liste-titel {
+  font-weight: 800;
+}
+
+.flag-liste-nr {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+/* Gelöst: Haken statt Zahl, zusätzlich grüne Töne und der Text "gelöst" in der Meta-Zeile. */
+.flag-liste-nr.is-geloest {
+  border-color: var(--sprout);
+  background: var(--sprout-tint);
+  color: var(--sprout-deep);
+}
+
+.flag-liste-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.flag-liste-titel {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.flag-liste-meta {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+}
+
+/* Aufgabenansicht */
+.flag-aufgabe {
+  min-width: 0;
+}
+
+.flag-aufgabe h3 {
+  font-size: var(--fs-md);
+}
+
+.flag-auftrag {
+  padding: 12px 16px;
+  border-radius: 14px;
+  border-left: 5px solid var(--sun);
+  background: var(--sun-tint);
+  color: var(--ink);
+}
+
+.flag-auftrag p {
+  margin: 4px 0 0;
+}
+
+/* Daten- und Ergebnisblöcke: Monospace, nicht umbrechend, horizontales Scrollen INNERHALB des Blocks. */
+.flag-block {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  overflow: auto;
+  white-space: pre;
+  tab-size: 4;
+  background: var(--card);
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  user-select: text;
+}
+
+.flag-block code {
+  font: inherit;
+  white-space: inherit;
+}
+
+.flag-block:focus-visible {
+  outline: 2.5px solid var(--sprout);
+  outline-offset: 2px;
+}
+
+.flag-block-leer {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.flag-daten {
+  max-height: min(24rem, 60vh);
+}
+
+.flag-daten-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Eingabe und Aktionen */
+.flag-eingabe {
+  font-family: var(--font-mono);
+}
+
+.flag-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flag-schritte {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.flag-erklaerung {
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.flag-erklaerung p {
+  margin: 4px 0 0;
+}
+
+/* Hilfsmittel (aufklappbar) */
+.flag-hilfsmittel {
+  margin-top: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.flag-hilfsmittel > summary {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.flag-hilfsmittel-inhalt {
+  margin-top: 12px;
+}
+
+.flag-hilfs-eingabe {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.flag-hilfs-zeile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .flag-hilfs-zeile {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
+/* F-171: Netzwerk-Topologie (TopologieLabor.tsx) */
+/* F-171: Netzwerk-Topologie-Labor (TopologieLabor.tsx). Nur Design-Tokens, keine festen Farben — der Dunkelmodus
+   ergibt sich über die Tokens. Zustände (Kabel ok / abgebrochen, ausgewähltes Gerät, Schritte) unterscheiden sich
+   nie nur durch die Farbe, sondern zusätzlich durch Linienstärke/-stil, Symbol (✓ ✗ ○) oder Text. */
+
+.topo-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Layout ---------- */
+.topo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.topo-layout > * {
+  min-width: 0;
+}
+
+@media (min-width: 960px) {
+  .topo-layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas:
+      "flaeche konfig"
+      "kabel test";
+    align-items: start;
+  }
+
+  .topo-flaeche {
+    grid-area: flaeche;
+  }
+
+  .topo-konfig {
+    grid-area: konfig;
+  }
+
+  .topo-kabel-panel {
+    grid-area: kabel;
+  }
+
+  .topo-test {
+    grid-area: test;
+  }
+}
+
+.topo-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.topo-panel h3 {
+  font-size: var(--fs-md);
+}
+
+.topo-plan-hinweis {
+  margin: 8px 0;
+}
+
+.topo-zahl {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* ---------- Zeichenfläche (SVG) ---------- */
+.topo-flaeche {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topo-svg-wrap {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 6px;
+}
+
+.topo-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-family: var(--font-body);
+}
+
+.topo-kabel {
+  stroke: var(--ink-soft);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* Weg eines erfolgreichen Pings: dick und durchgezogen, zusätzlich ✓ in der Mitte. */
+.topo-kabel--ok {
+  stroke: var(--sprout-deep);
+  stroke-width: 6;
+}
+
+/* Weg bis zum Abbruch: dick und gestrichelt, zusätzlich ✗ am Gerät, an dem der Ping scheiterte. */
+.topo-kabel--abbruch {
+  stroke: var(--danger-deep);
+  stroke-width: 5;
+  stroke-dasharray: 10 7;
+}
+
+.topo-haken-kreis {
+  fill: var(--sprout-tint);
+  stroke: var(--sprout-deep);
+  stroke-width: 2;
+}
+
+.topo-haken {
+  fill: var(--sprout-deep);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.topo-portlabel {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: var(--card);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.topo-geraet {
+  cursor: pointer;
+  outline: none;
+}
+
+.topo-geraet:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.topo-karte {
+  fill: var(--card);
+  stroke: var(--ink-soft);
+  stroke-width: 1.5;
+}
+
+.topo-geraet:hover .topo-karte {
+  fill: var(--surface);
+}
+
+.topo-geraet:focus-visible .topo-karte {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.topo-geraet.is-ausgewaehlt .topo-karte {
+  stroke: var(--ink);
+  stroke-width: 3.5;
+}
+
+/* Auswahl: gestrichelter zweiter Rahmen (nicht nur eine Farbänderung). */
+.topo-auswahl {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.topo-piktogramm {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.topo-name {
+  fill: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.topo-detail {
+  fill: var(--ink-soft);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.topo-abbruch-kreis {
+  fill: var(--danger-tint);
+  stroke: var(--danger-deep);
+  stroke-width: 2;
+}
+
+.topo-abbruch-x {
+  fill: var(--danger-deep);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.topo-legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+}
+
+.topo-legende li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topo-legende svg {
+  flex: none;
+  overflow: visible;
+}
+
+/* ---------- Konfiguration ---------- */
+.topo-geraet-titel {
+  margin: 0;
+}
+
+.topo-schnittstelle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 12px;
+}
+
+.topo-schnittstelle legend {
+  padding: 0 6px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.topo-schnittstelle p {
+  margin: 0;
+}
+
+.topo-eingabe {
+  font-family: var(--font-mono);
+}
+
+.topo-feldfehler {
+  display: block;
+}
+
+.topo-portliste {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Kabel ---------- */
+.topo-kabelform,
+.topo-pingform {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.topo-kabelform .btn,
+.topo-pingform .btn {
+  justify-self: start;
+}
+
+.topo-kabelliste {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topo-kabelliste li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.topo-kabelliste li:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Ping-Ergebnis ---------- */
+.topo-ergebnis {
+  min-height: 1.5em;
+}
+
+.topo-ergebnis-titel {
+  margin: 0;
+  font-size: var(--fs-sm);
+}
+
+.topo-schritte {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.7em;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.topo-schritt {
+  padding-left: 4px;
+  overflow-wrap: anywhere;
+}
+
+.topo-phase {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.topo-marke {
+  display: inline-block;
+  margin-right: 6px;
+  font-weight: 800;
+}
+
+.topo-schritt.is-ok .topo-marke,
+.topo-auftrag.is-ok .topo-marke {
+  color: var(--sprout-deep);
+}
+
+.topo-schritt.is-fehler .topo-marke,
+.topo-auftrag.is-fehler .topo-marke {
+  color: var(--danger-deep);
+}
+
+.topo-schritt.is-fehler {
+  font-weight: 600;
+}
+
+/* ---------- Prüfaufträge ---------- */
+.topo-auftraege {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topo-auftrag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-sm);
+}
+
+.topo-auftrag:last-child {
+  border-bottom: none;
+}
+
+.topo-auftrag .topo-marke {
+  margin-right: 0;
+  min-width: 1.2em;
+  text-align: center;
+}
+
+.topo-auftrag-text {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.topo-auftrag-status {
+  color: var(--ink-soft);
+}
+
+.topo-loesung {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.topo-loesung li + li {
+  margin-top: 4px;
+}
+
 /* F-167: SQL-Übungsfläche (SqlUebung.tsx) */
 .sql-editor {
   font-family: var(--font-mono);
