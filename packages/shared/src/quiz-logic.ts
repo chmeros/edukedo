@@ -695,6 +695,23 @@ export const QUADRANT_MODELS = {
       { key: "kg700", label: "KG 700 Baunebenkosten" },
     ],
   },
+  // F-191 (Kursprofile Phase 1, Versicherungen/Finanzanlagen): zwei Modelle in der Gliederung der Kurstheorie (Themen 1.4 und 4.1).
+  altersvorsorge: {
+    label: "Drei-Schichten-Modell der Altersvorsorge",
+    zones: [
+      { key: "basis", label: "Schicht 1: Basisversorgung" },
+      { key: "zusatz", label: "Schicht 2: Zusatzversorgung" },
+      { key: "privat", label: "Schicht 3: Private Vorsorge" },
+    ],
+  },
+  versicherungskennzahlen: {
+    label: "Kennzahlen der Versicherungstechnik",
+    zones: [
+      { key: "schaden", label: "Schadenquote" },
+      { key: "kosten", label: "Kostenquote" },
+      { key: "combined", label: "Combined Ratio" },
+    ],
+  },
 } as const satisfies Record<string, { label: string; zones: { key: string; label: string }[] }>;
 
 export const QUADRANT_QUIZ_TYPES = Object.keys(QUADRANT_MODELS) as (keyof typeof QUADRANT_MODELS)[];

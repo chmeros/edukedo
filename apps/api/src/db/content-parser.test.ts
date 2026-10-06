@@ -709,6 +709,19 @@ describe("parseQuizBlock", () => {
     if (kg?.type === "kostengruppen") expect(kg.terms.map((term) => term.zoneKey)).toEqual(["kg100", "kg400", "kg700"]);
   });
 
+  it("parst die Modelle aus F-191 (Altersvorsorge, Versicherungskennzahlen)", () => {
+    const parse = (ueberschrift: string, zeilen: string[]) =>
+      parseQuizBlock([`#### Q-1.4-13 · ${ueberschrift}`, "**Anweisung:** Ordne zu.", ...zeilen, "**Erklärung:** ...", "`schwierigkeit: leicht`"].join("\n"));
+
+    const vorsorge = parse("Drei-Schichten-Modell der Altersvorsorge", ["- Basisrente → Schicht 1: Basisversorgung", "- Riester-Rente → Schicht 2: Zusatzversorgung", "- Fondssparplan → Schicht 3: Private Vorsorge"]);
+    expect(vorsorge?.type).toBe("altersvorsorge");
+    if (vorsorge?.type === "altersvorsorge") expect(vorsorge.terms.map((term) => term.zoneKey)).toEqual(["basis", "zusatz", "privat"]);
+
+    const kennzahlen = parse("Kennzahlen der Versicherungstechnik", ["- Schadenaufwendungen → Schadenquote", "- Abschlusskosten → Kostenquote", "- Summe aus beiden Quoten → Combined Ratio"]);
+    expect(kennzahlen?.type).toBe("versicherungskennzahlen");
+    if (kennzahlen?.type === "versicherungskennzahlen") expect(kennzahlen.terms.map((term) => term.zoneKey)).toEqual(["schaden", "kosten", "combined"]);
+  });
+
   it("parst Balanced-Scorecard- und Ansoff-Matrix-Blöcke mit ihren jeweils eigenen Zonen", () => {
     const bscBlock = [
       "#### Q-4.1-01 · Balanced Scorecard",

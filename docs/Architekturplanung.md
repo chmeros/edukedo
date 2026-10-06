@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 06.10.2026 (F-191: Kursprofile Phase 1 — Versicherungen/Finanzanlagen)
+
+- **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für Versicherungen/Finanzanlagen“; mit diesem Kurs ist Phase 1 für alle Kurse außer Mathematik einmal durchlaufen. Maßstab wie F-177 bis F-190: nur Vorschläge, die sich allein aus der vorhandenen Kurstheorie belegen lassen (I-VER-01, I-VER-05, S-VER-02).
+- **Zurückgestellt und warum:** Risikopolitik (I-VER-04) — Frage F6 des Vorschlags ist offen: Der Kurs verwendet in 2.5 und den bestehenden Risikomatrix-Fragen die Zonen vermeiden/absichern/beobachten/akzeptieren, der Vorschlag nennt die Standardbegriffe vermeiden/vermindern/überwälzen/selbst tragen; ohne Entscheidung kein neues Modell. Versicherungszweige (I-VER-02) — die Theorie enthält keine systematische Zweigübersicht (Personen/Sach/Haftpflicht). Beratungsprozess und Leistungsprüfung (I-VER-03, -06) brauchen eine neutrale Prozesskette (I-KF-02). Magisches Dreieck (I-VER-07) — der Kurs hat keinen Finanzanlagen-Content. Bedarfsstufen (I-VER-08) — fachliche Streitfrage und Normbezug (DIN 77230).
+- **Rechtsrisiko:** Versicherungsvertragsrecht, Beratungs- und Dokumentationspflichten, Steuerrecht der Altersvorsorge. Deshalb in Zuordnungsbegriffen keine Zahlen und Paragrafen (eine Ausnahme: der Kurswortlaut „unter 100 Prozent“ bei der Combined Ratio), keine Produktempfehlungen oder Eignungsaussagen, keine Aussagen zu Reformvorhaben, keine Betrugs- und Verdachtsthemen; alles bleibt Entwurf bis zur Rechtsprüfung (R4).
+- **Technik:** Zwei Einträge in `QUADRANT_MODELS` (`altersvorsorge`, `versicherungskennzahlen`), zwei Literale in `contentItemTypeSchema`, `KATALOG_INSTRUMENTE`, zwei Illustrationen und Katalogeinträge, Parser-Test. Bestand/Neugeschäft, Stornoquote, Vertragsdichte und Cross-Selling-Quote sind bewusst keine Zonen des Kennzahlen-Instruments.
+- **Content:** je 4 Fragen in kb1/1.4 (`Q-1.4-13`–`16`) und kp2/4.1 (`Q-4.1-16`–`19`); nur ergänzt (0 gelöschte Zeilen). Keine neue Theorie.
+- **Spielset:** `game-kennzahlen-duell-versicherung-aehnlich.ts` (setKey `versicherung-aehnlich`, 20 Fragen in 4 Runden à 5), nur für diesen Kurs in `seed-games.ts` registriert; der Test verbietet Zahlen, Formeln, Paragrafen, Normangaben und das Wort „Euro“. Weggelassen, weil der Kurs sie nicht unterscheidet: Obliegenheit gegen Anzeigepflicht, Haftzeit gegen Karenzzeit, Versicherungsnehmer gegen versicherte Person, Unter- gegen Überversicherung.
+- **Freigabe:** `versicherungen-finanzanlagen` in `KURS_ENTWURF` mit beiden Typen; das Duell ist in `KURS_ANGEBOT` auf das nicht vorhandene Set `standard` begrenzt. Prüfblatt 19 mit allen offenen Fachfragen; Duell-Fragen 1, 4, 5, 11, 12, 13 und 16 vor Echtbetrieb juristisch gegenlesen.
+- **Verifiziert:** Dev-Datenbank nach Neuimport — 8 Fragen inaktiv, Duell-Set angelegt; Parser-Test, Shared-Tests und Typprüfung grün.
+
 ### Entschieden am 06.10.2026 (F-190: Kursprofile Phase 1 — Immobilienfachwirt)
 
 - **Anlass:** Nutzer-Vorgabe „Weiter mit Phase 1 für den Immobilienfachwirt“, gleicher Maßstab wie F-177 bis F-189: Priorität „hoch“ und Aufwand S aus docs/kursprofile/03-handel-immobilien-versicherung.md (I-IMM-01, -04, -05, -06, -07, S-IMM-02), nur soweit die Kurstheorie sie trägt.

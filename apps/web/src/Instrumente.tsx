@@ -72,6 +72,8 @@ import {
   HandelskalkulationIllustration,
   KraljicIllustration,
   XyzIllustration,
+  AltersvorsorgeIllustration,
+  VersicherungskennzahlenIllustration,
   BetriebskostenIllustration,
   KostengruppenIllustration,
   MieterhoehungIllustration,
@@ -518,6 +520,19 @@ const INSTRUMENT_CATALOG = [
     label: "DIN-276-Kostengruppen",
     description: "Kostenpositionen eines Bauprojekts den sieben Kostengruppen von 100 bis 700 zuordnen.",
     Illustration: KostengruppenIllustration,
+  },
+  // F-191 (Kursprofile Phase 1, Versicherungen/Finanzanlagen): zwei Zonen-Instrumente für Altersvorsorge und Versicherungstechnik.
+  {
+    type: "altersvorsorge",
+    label: "Drei-Schichten-Modell der Altersvorsorge",
+    description: "Vorsorgeformen und ihre Merkmale der Basisversorgung, der Zusatzversorgung oder der privaten Vorsorge zuordnen.",
+    Illustration: AltersvorsorgeIllustration,
+  },
+  {
+    type: "versicherungskennzahlen",
+    label: "Kennzahlen der Versicherungstechnik",
+    description: "Bestandteile und Aussagen der Schadenquote, der Kostenquote oder der Combined Ratio zuordnen.",
+    Illustration: VersicherungskennzahlenIllustration,
   },
   // F-163 (Netzplan-Trainer, siehe Architekturplanung Abschnitt 13): kein Quiz-Content, sondern ein
   // eigener Rechentrainer — "werkzeug" markiert Einträge, die über `kurs.metadata.werkzeuge` (courses.list)

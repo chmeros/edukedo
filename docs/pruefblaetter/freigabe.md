@@ -174,6 +174,16 @@ Alles noch Entwurf (F-189): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 Alles noch Entwurf (F-190): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Wertermittlungsverfahren in der nächsten Freigabewelle; der Rest gehört zur Rechtsprüfung (Welle 3).
 
+### Blatt 19 — Versicherungen/Finanzanlagen (nachträglich ergänzt, 8 Fragen und ein Duell-Set, **mit Versicherungs-, Beratungs- und Steuerrecht**)
+
+| Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| Kennzahlen der Versicherungstechnik (`versicherungskennzahlen`) | 4 | ◐ | Kurswortlaut „unter 100 Prozent“ in einem Begriff; Ableitungen in Q-4.1-16 bis -19 |
+| Drei-Schichten-Modell der Altersvorsorge (`altersvorsorge`) | 4 | ○ | **Steuer-/Sozialversicherungsrecht:** Ableitungen (Zulagen, Direktversicherung, Pensionsfonds), „grundsätzlich nicht vererbbar“ absoluter formuliert; Rechtsstand prüfen |
+| Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Set) | 20 | ○ | **Recht:** Fragen 1, 4, 5, 11, 12, 13, 16 gegenlesen |
+
+Alles noch Entwurf (F-191): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Kennzahlen der Versicherungstechnik in der nächsten Freigabewelle; der Rest gehört zur Rechtsprüfung (Welle 3).
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.

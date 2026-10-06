@@ -432,6 +432,8 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `wegorgane` (**WEG-Organe**, F-190, 3 Zonen): Eigentümerversammlung, Verwalter, Verwaltungsbeirat
   - `betriebskosten` (**Betriebskosten**, F-190, 3 Zonen): Umlagefähig, Nicht umlagefähig, Verbrauchsabhängig (Heizkostenverordnung)
   - `kostengruppen` (**DIN-276-Kostengruppen**, F-190, 7 Zonen): KG 100 bis KG 700
+  - `altersvorsorge` (**Drei-Schichten-Modell der Altersvorsorge**, F-191, 3 Zonen): Schicht 1 Basisversorgung, Schicht 2 Zusatzversorgung, Schicht 3 Private Vorsorge
+  - `versicherungskennzahlen` (**Kennzahlen der Versicherungstechnik**, F-191, 3 Zonen): Schadenquote, Kostenquote, Combined Ratio
   Neue Modelle mit festen Zonen braucht keinen Parser-Code mehr: Es genügt ein Eintrag in `QUADRANT_MODELS` (`packages/shared/src/quiz-logic.ts`) — Modellbeschriftung und Zonen-Beschriftungen aus dem Eintrag gelten dann direkt im Content-Zwischenformat.
 ```markdown
 #### Q-2.2-01 · SWOT-Matrix

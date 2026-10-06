@@ -29,6 +29,7 @@ import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-
 import { kennzahlenDuellSpeditionFracht } from "./content/game-kennzahlen-duell-spedition-fracht";
 import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-duell-sql-datenmodellierung";
 import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
+import { kennzahlenDuellVersicherungAehnlich } from "./content/game-kennzahlen-duell-versicherung-aehnlich";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
 import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./content/game-phishing-it-alltag";
@@ -343,6 +344,17 @@ async function main() {
     "Begriffe-Duell: Immobilien — ähnlich, aber nicht gleich",
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellImmobilienAehnlich),
     "immobilien-aehnlich",
+  );
+
+  // Zusätzliches Begriffe-Duell (setKey ≠ "standard") nur für „Bachelor Professional in Versicherungen und
+  // Finanzanlagen": Versicherung — ähnlich, aber nicht gleich (Personenversicherung und Vorsorge, Sach-, Haftpflicht-
+  // und Ertragsausfallschutz, Beratung, Schaden und Leistung, Prämie, Risiko und Steuerung).
+  await upsertGame(
+    "versicherungen-finanzanlagen",
+    "kennzahlen_duell",
+    "Begriffe-Duell: Versicherung — ähnlich, aber nicht gleich",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellVersicherungAehnlich),
+    "versicherung-aehnlich",
   );
 
   await pool.end();

@@ -22,6 +22,7 @@ import { kennzahlenDuellProjektmanagement } from "./content/game-kennzahlen-duel
 import { kennzahlenDuellRechtBerufsausbildung } from "./content/game-kennzahlen-duell-recht-berufsausbildung";
 import { kennzahlenDuellSpeditionFracht } from "./content/game-kennzahlen-duell-spedition-fracht";
 import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
+import { kennzahlenDuellVersicherungAehnlich } from "./content/game-kennzahlen-duell-versicherung-aehnlich";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
 import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
@@ -1394,6 +1395,48 @@ function immNachspann(teile: string[]): void {
   teile.push(...duellBloecke("immobilien-aehnlich", kennzahlenDuellImmobilienAehnlich));
 }
 
+const VER_BLATT: KursBlatt = {
+  kurs: "versicherungen-finanzanlagen",
+  titel: "Versicherungen/Finanzanlagen",
+  feature: "F-191",
+  theorie: [],
+  zonenDateien: [
+    { datei: "kb1/1.4-altersvorsorge.md", typen: ["altersvorsorge"] },
+    { datei: "kp2/4.1-unternehmenssteuerung-controlling.md", typen: ["versicherungskennzahlen"] },
+  ],
+  zonenHinweise: {
+    altersvorsorge: [
+      "**Steuer- und Sozialversicherungsrecht, Rechtsstand prüfen:** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“. Das Drei-Schichten-Modell ist die Kursfassung; Reformvorhaben zur privaten Altersvorsorge sind nicht berücksichtigt. In den Begriffen stehen keine Zahlen, Paragrafen oder Produktempfehlungen; die Szenarien enthalten keine Eignungsaussage und ersetzen keine Beratung.",
+      "Q-1.4-14: „Grund- und Kinderzulage“ als Schicht-2-Merkmal ist eine Ableitung (Zulagen stehen im Kurs nur bei Riester); „staatlich gefördert“ trifft auch auf die Basisrente zu, die Erklärung warnt davor. Der Kurs sagt „grundsätzlich“ nicht vererbbar, die Begriffsformulierung ist absoluter (Hinterbliebenenabsicherung als Ausnahme laut Kurs) — rechtlich klären.",
+      "Q-1.4-15: Direktversicherung in Schicht 2 und die vermietete Eigentumswohnung als „Immobilienvermögen“ in Schicht 3 sind Ableitungen; das Szenario „Fondssparplan, jederzeit frei verfügbar“ unterstellt Verfügbarkeit, die der Kurs nur allgemein für Schicht 3 nennt.",
+      "Q-1.4-16: Pensionsfonds und Direktzusage in Schicht 2 (aus „bAV = Schicht 2“) und „Versorgungswerk gehört nicht zur gesetzlichen Rentenversicherung“ (nicht ausdrücklich im Kurs, nur als Abgrenzung) sind Ableitungen. „Klassische Kapitalversicherung = Schicht 3“ folgt dem Kurs; die steuerliche Behandlung bleibt unberührt.",
+    ],
+    versicherungskennzahlen: [
+      "Die Zonen sind die drei Quoten aus dem Abschnitt „Kennzahlen im Versicherungsvertrieb“ (Thema 4.1); Bestand/Neugeschäft, Stornoquote, Vertragsdichte und Cross-Selling-Quote sind bewusst keine Zonen und kommen nicht vor. Brutto-/Netto-Varianten der Quoten werden nicht erwähnt (der Kurs führt eine Variante).",
+      "Eine Aussage (Q-4.1-17 oder -19) enthält den Kurswortlaut „unter 100 Prozent“ im Begriff selbst, nicht nur in der Erklärung — bei Bedarf umformulieren.",
+      "Q-4.1-16 und -17: „Zeigt, welcher Teil der verdienten Beiträge für Schäden aufgewendet wird“, „nur die Schadenseite“ und „nur die Kostenseite“ sind sprachliche Ableitungen aus den Definitionen. Q-4.1-18: Die Situationen zu Unwetterserie und Vertriebsaktivität sind Anwendungsbeispiele, in der Theorie nicht wörtlich belegt.",
+      "Q-4.1-19: Zwei Begriffe sind als Rückfrage formuliert („welche Quote zeigt …?“); „Risikoauswahl senkt Schadenaufwendungen“ und „weniger Vertrieb senkt Abschlusskosten“ sind Ableitungen. Bei Änderung nur eines Bestandteils ändert sich auch die Combined Ratio — die Begriffe fragen deshalb nach der „unmittelbar betroffenen“ Quote.",
+    ],
+  },
+  nachspann: (teile) => verNachspann(teile),
+};
+
+function verNachspann(teile: string[]): void {
+  teile.push("## 3. Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Versicherungen/Finanzanlagen; **mit Versicherungs-, Beratungs- und Steuerrecht**)", "");
+  teile.push(
+    "20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben, keine Anlage- oder Produktempfehlungen. Der Kurs trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“ — das Set gehört deshalb wie die rechtlichen Zonen-Instrumente zur Rechtsprüfung (R4). Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen.",
+    "",
+    "**Zum Set — besonders prüfen (Rechtsbezug; Fragen 1, 4, 5, 11, 12, 13 und 16 vor Echtbetrieb gegenlesen):**",
+    "- ⚠ Frage 1 (Äquivalenz- gegen Solidarprinzip, PKV gegen GKV), 4 (Basisrente gegen Riester: „ausschließlich lebenslange Rente, keine Einmalauszahlung“; bei Riester nur „ein Teil darf einmalig entnommen werden“, ohne Prozentwert) und 5 (Berufsunfähigkeitsversicherung gegen Erwerbsminderungsrente: konkrete gegen abstrakte Verweisbarkeit).",
+    "- ⚠ Frage 11 (Dokumentations- gegen Beratungspflicht, VVG-Pflichten ohne Paragrafen), 12 (vorvertragliche Anzeigepflicht gegen Anzeige nach Eintritt des Versicherungsfalls; das Feedback nennt die Folgen „Rücktritt, Anfechtung oder Leistungskürzung je nach Verschulden“ wörtlich aus dem Kurs) und 13 (Regress als gesetzlicher Forderungsübergang gegen Schadenminderung).",
+    "- ⚠ Frage 16 (Unterversicherungsverzicht gegen Unterversicherungsgrundsatz, anteilige Kürzung im Verhältnis von Versicherungssumme zu Versicherungswert; keine Formel, keine Zahlen).",
+    "- Frage 8 (Vermögensschaden- gegen Betriebshaftpflicht): Die Berufshaftpflicht deckt laut Text ebenfalls echte Vermögensschäden, steht aber nicht als Option. Frage 14 (Plan- gegen Do-Phase im Schadenmanagement) ist Kurssystematik (PDCA), keine rechtliche Frage.",
+    "- Weggelassen, weil der Kurs sie nicht unterscheidet: Obliegenheit gegen Anzeigepflicht (nur beiläufig), Haftzeit gegen Karenzzeit (Karenzzeit kommt nicht vor), Versicherungsnehmer gegen versicherte Person, Unter- gegen Überversicherung (Überversicherung nicht behandelt). Aus Platzgründen nicht aufgenommen, aber eindeutig: Basis- gegen Notlagentarif, Pensionskasse gegen Pensionsfonds, Innen- gegen Außenhaftung. Bewusst ausgespart: Betrugs- und Verdachtsthemen, alles mit Zahlen oder Paragrafen.",
+    "",
+  );
+  teile.push(...duellBloecke("versicherung-aehnlich", kennzahlenDuellVersicherungAehnlich));
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1510,6 +1553,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [16 Transport/Logistik](16-transport-logistik.md) | neue Zonen-Instrumente (Verkehrsträger, ABC-Analyse), Begriffe-Duell „Spedition und Fracht“ (Kursprofile Phase 1; **mit Fracht- und Zollrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [17 Handelsfachwirt](17-handelsfachwirt.md) | neue Zonen-Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix), neue Theorie (Handelskalkulation, Kraljic-Matrix), Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [18 Immobilienfachwirt](18-immobilienfachwirt.md) | neue Zonen-Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen), Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Miet-, WEG- und Maklerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [19 Versicherungen/Finanzanlagen](19-versicherungen-finanzanlagen.md) | neue Zonen-Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik), Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Versicherungs-, Beratungs- und Steuerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge.",
     "",
@@ -1559,6 +1603,7 @@ function main() {
     ["16-transport-logistik.md", kursBlatt(LOG_BLATT)],
     ["17-handelsfachwirt.md", kursBlatt(HAN_BLATT)],
     ["18-immobilienfachwirt.md", kursBlatt(IMM_BLATT)],
+    ["19-versicherungen-finanzanlagen.md", kursBlatt(VER_BLATT)],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

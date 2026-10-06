@@ -92,6 +92,9 @@ export const KATALOG_INSTRUMENTE = [
   "wegorgane",
   "betriebskosten",
   "kostengruppen",
+  // Kursprofile Phase 1 (Versicherungen/Finanzanlagen)
+  "altersvorsorge",
+  "versicherungskennzahlen",
 ] as const;
 
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
@@ -189,12 +192,6 @@ function spiele(eintraege: [string, string | null, KursAngebotGruppe][]): SpielL
 
 const WIRTSCHAFT = ["swot", "bsc", "ansoff", "gantt", "eisenhower", "pdca", "risiko", "hierarchie"] as const;
 const OHNE = (...entfernt: string[]) => WIRTSCHAFT.filter((typ) => !entfernt.includes(typ));
-/** Die drei Spieltypen mit Content in den Fachwirt-Kursen (Sets entstehen kursweise; ohne Set erscheint nichts). */
-const FACHWIRT_SPIELE = spiele([
-  ["kreuzwortraetsel", null, "kern"],
-  ["kennzahlen_duell", null, "kern"],
-  ["memory", null, "kern"],
-]);
 
 /** Szenarien der FI-Kurse (Matrix 05, Abschnitt 5; Zuordnung der Kategorien zu IDs bestätigt am 06.10.2026). */
 const TERMINAL_LEICHT = ["internet", "dns", "platte-voll", "apipa"];
@@ -220,6 +217,7 @@ export const KURS_ENTWURF: Record<string, readonly string[]> = {
   "transport-management-logistics": ["verkehrstraeger", "abc"],
   handelsfachwirt: ["abc", "xyz", "handelskalkulation", "kraljic"],
   immobilienfachwirt: ["wertermittlung", "mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
+  "versicherungen-finanzanlagen": ["altersvorsorge", "versicherungskennzahlen"],
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -402,7 +400,19 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  "versicherungen-finanzanlagen": { instrumente: liste(OHNE()), werkzeuge: liste(["netzplan"]), spiele: FACHWIRT_SPIELE, lernpfade: [], szenarien: {} },
+  // Die neuen Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik) und das Duell-Set "versicherung-aehnlich" erst
+  // nach der Freigabe des Prüfblatts 19 (inkl. Rechtsprüfung) aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  "versicherungen-finanzanlagen": {
+    instrumente: liste(OHNE()),
+    werkzeuge: liste(["netzplan"]),
+    spiele: spiele([
+      ["kreuzwortraetsel", null, "kern"],
+      ["kennzahlen_duell", "standard", "kern"],
+      ["memory", null, "kern"],
+    ]),
+    lernpfade: [],
+    szenarien: {},
+  },
   // Projektphasen, Stakeholder-Matrix, ABC-Analyse und das Duell-Set "projektmanagement" sind freigegeben (Welle 2).
   "fachwirt-buero-projektorganisation": {
     instrumente: liste([...OHNE(), "projektphasen", "stakeholder", "abc"]),

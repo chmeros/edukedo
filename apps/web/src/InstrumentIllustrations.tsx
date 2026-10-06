@@ -1959,3 +1959,53 @@ export function KostengruppenIllustration() {
     </Frame>
   );
 }
+
+export function AltersvorsorgeIllustration() {
+  const schichten = [
+    { y: 84, w: 240, f: "var(--sprout)", s: "var(--sprout-deep)", t: "1  Basisversorgung" },
+    { y: 50, w: 190, f: "var(--sun)", s: "var(--ink-soft)", t: "2  Zusatzversorgung" },
+    { y: 16, w: 140, f: "var(--info)", s: "var(--info-deep)", t: "3  Private Vorsorge" },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      {schichten.map((schicht) => (
+        <g key={schicht.t}>
+          <rect x={(320 - schicht.w) / 2} y={schicht.y} width={schicht.w} height="30" rx="6" fill={schicht.f} stroke={schicht.s} strokeWidth="2.2" />
+          <text x="160" y={schicht.y + 20} fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {schicht.t}
+          </text>
+        </g>
+      ))}
+      <path d="M40 124h240" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+export function VersicherungskennzahlenIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="22" y="40" width="82" height="64" rx="8" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.2" />
+      <text x="63" y="68" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Schaden
+      </text>
+      <text x="63" y="84" fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        quote
+      </text>
+      <rect x="120" y="40" width="82" height="64" rx="8" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2.2" />
+      <text x="161" y="68" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Kosten
+      </text>
+      <text x="161" y="84" fontSize="9" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        quote
+      </text>
+      <path d="M108 72h8M206 72h8" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <rect x="218" y="32" width="82" height="80" rx="8" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2.2" />
+      <text x="259" y="68" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Combined
+      </text>
+      <text x="259" y="84" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Ratio
+      </text>
+    </Frame>
+  );
+}
