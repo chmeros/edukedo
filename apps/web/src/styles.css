@@ -4134,13 +4134,15 @@ details[open] > summary.disclosure::before {
   border-radius: 14px;
   background: var(--card);
   padding: 6px;
+  /* Auf schmalen Bildschirmen scrollt die Zeichnung, statt auf unlesbare Schriftgröße zu schrumpfen */
+  overflow-x: auto;
 }
 
 .topo-svg {
   display: block;
   width: 100%;
+  min-width: 520px;
   height: auto;
-  max-width: 100%;
   font-family: var(--font-body);
 }
 

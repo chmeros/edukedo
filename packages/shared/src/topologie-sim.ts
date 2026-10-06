@@ -908,10 +908,10 @@ export const topologieSzenarien: TopologieSzenario[] = [
     geraete: [
       host("pc1", "pc", "PC1", 90, 70, "192.168.10.25", "255.255.255.0"),
       host("pc2", "pc", "PC2", 90, 300, "192.168.10.26", "255.255.255.0"),
-      switchGeraet("switch-buero", "Switch Büro", 210, 185),
-      routerGeraet("router1", "Router1", 365, 185),
-      switchGeraet("switch-server", "Switch Server", 520, 185),
-      host("server1", "server", "Server1", 520, 330, "192.168.20.10", "255.255.255.0"),
+      switchGeraet("switch-buero", "Switch Büro", 230, 185),
+      routerGeraet("router1", "Router1", 440, 185),
+      switchGeraet("switch-server", "Switch Server", 650, 185),
+      host("server1", "server", "Server1", 650, 330, "192.168.20.10", "255.255.255.0"),
     ],
     kabel: [
       kabelZwischen("pc1", "eth0", "switch-buero", "p1"),

@@ -134,7 +134,8 @@ function Zeichenflaeche({
   ping: PingAnzeige | null;
 }) {
   const geraeteNachId = new Map(zustand.geraete.map((geraet) => [geraet.id, geraet]));
-  const breite = 640;
+  // Breite wächst mit den Karten mit, damit Geräte nebeneinander nie überlappen (Kabel zwischen ihnen bleiben sichtbar).
+  const breite = Math.max(640, ...zustand.geraete.map((geraet) => geraet.position.x + kartenMasse(geraet).w / 2 + 20));
   const hoehe = Math.max(320, ...zustand.geraete.map((geraet) => geraet.position.y + kartenMasse(geraet).h / 2 + 20));
   const wegIds = new Set(ping?.ergebnis.kabelIds ?? []);
   const wegOk = ping?.ergebnis.erfolg === true;
