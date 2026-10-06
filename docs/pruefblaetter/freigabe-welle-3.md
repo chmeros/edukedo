@@ -2,7 +2,7 @@
 
 Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** Einheiten (Rahmenentscheidung R4: *was die Fachkenntnis übersteigt, bleibt ungeprüft und wird nicht freigeschaltet*). Diese Liste ist nach **Fachgebieten der Prüfenden** geordnet, damit jede Person nur ihren Teil bekommt. Die ausführlichen Prüfblätter (alle Fragen mit Erklärungen und ⚠-Hinweisen) liegen in `docs/pruefblaetter/`; die Gesamtübersicht steht in [freigabe.md](freigabe.md).
 
-**Umfang (Stand nach den Entscheidungen vom 06.10.2026, F-192):** 12 Instrumente (48 Zuordnungsfragen), 3 Troubleshooting-Sets (je 10 Fälle) und 5 Begriffe-Duelle (je 20 Fragen). Alle sind im Kurs weder sichtbar noch im Lernen-Quiz; die Fragen sind inaktiv importiert (F-186). Das Handels-Duell ist inzwischen freigegeben (Fragen ohne Rechtsbezug), neu hinzugekommen ist das Instrument Risikopolitik.
+**Umfang (Stand nach den Entscheidungen vom 06.10.2026, F-192):** 11 Instrumente (44 Zuordnungsfragen), 3 Troubleshooting-Sets (je 10 Fälle) und 5 Begriffe-Duelle (je 20 Fragen). Alle sind im Kurs weder sichtbar noch im Lernen-Quiz; die Fragen sind inaktiv importiert (F-186). Das Handels-Duell (Fragen ohne Rechtsbezug) und die Vier-Stufen-Methode (übliche Fassung) sind inzwischen freigegeben, neu hinzugekommen ist das Instrument Risikopolitik.
 
 ## 1. So läuft eine Prüfung
 
@@ -69,15 +69,9 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 
 *Hinweis:* Bei den IT-Einheiten reicht oft eine Fachkraft mit Praxis (kein Rechtswissen); für die Troubleshooting-Sets sind die Logzeilen der kritische Teil, weil sie aus Kenntnis statt aus einem echten Lauf stammen.
 
-### H. Didaktik (entschieden, bitte gegenlesen)
-
-| Einheit | Umfang | Zu entscheiden |
-| --- | --- | --- |
-| Vier-Stufen-Methode (`vierstufen`, AEVO, Prüfblatt [10](10-aevo.md)) | 4 Fragen plus Theorie | **Entschieden am 06.10.2026: übliche Fassung** (Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen); Theorie und Fragen sind umgestellt. Nur noch Gegenlesen der Zonenfragen Q-3.2-10 bis -13 (Vorbereiten als eigene Stufe) durch eine ausbildungserfahrene Person; danach Freigabe |
-
 ## 3. Entscheidungen (getroffen am 06.10.2026, F-192)
 
-1. **Vier-Stufen-Methode:** übliche Fassung — umgesetzt (Punkt H).
+1. **Vier-Stufen-Methode:** übliche Fassung — umgesetzt und freigegeben; nur noch bei Gelegenheit die Zonenfragen Q-3.2-10 bis -13 gegenlesen.
 2. **Verwaltungsbeirat:** Theorieabsatz entworfen — umgesetzt, rechtlich ungeprüft (Punkt D).
 3. **Erschließung in der Theorie 5.4:** Beispiel neutral entfernt — umgesetzt (Punkt F).
 4. **Risikopolitik im Versicherungskurs (Frage F6):** Standardbegriffe — als neues Instrument mit Theorie umgesetzt, Entwurf (Punkt E).
@@ -96,6 +90,6 @@ Diese Einheiten sind in den Wellen 1, 2 und 2b ohne Einzelentscheidung freigegeb
 
 ## 5. Reihenfolge-Vorschlag
 
-1. **Zuerst ohne Rechtswissen lösbar:** Vier-Stufen-Methode (deine Entscheidung), IT-Einheiten (Fachkraft), Normen (Fachperson mit Normzugang).
+1. **Zuerst ohne Rechtswissen lösbar:** IT-Einheiten (Fachkraft), Normen (Fachperson mit Normzugang).
 2. **Danach eine Rechtsperson je Gebiet:** Arbeits-/Berufsbildungsrecht und Sozialrecht in einem Durchgang (AEVO und Gesundheit/Soziales), Fracht/Zoll gemeinsam (Industrie, Transport, Handel), Immobilienrecht gesondert, Versicherungs- und Steuerrecht gesondert.
 3. **Rechtsfreie Fassungen bevorzugen:** Wie beim Handels-Duell lassen sich Duell-Fragen mit Rechtsbezug durch kurstheoretische Fragen ersetzen, dann entfällt die Rechtsprüfung für diese Fragen; eine Teilfreigabe einzelner Fragen eines Sets ist technisch nicht vorgesehen.

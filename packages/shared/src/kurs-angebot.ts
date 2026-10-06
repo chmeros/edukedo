@@ -210,7 +210,7 @@ const TOPOLOGIE_ALLE = [...TOPOLOGIE_LEICHT, "dhcp-pool-konflikt", "filiale-zwei
  */
 export const KURS_ENTWURF: Record<string, readonly string[]> = {
   "fachinformatiker-systemintegration": ["verzeichnisdienst"],
-  "ausbildung-der-ausbilder": ["vierstufen", "regelwerke"],
+  "ausbildung-der-ausbilder": ["regelwerke"],
   "fachwirt-gesundheit-soziales": ["kostentraeger"],
   industriefachwirt: ["incoterms"],
   "technischer-fachwirt": ["instandhaltung"],
@@ -437,10 +437,10 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Handlungsfelder und Lernzielbereiche (Welle 1) sowie Beurteilungsfehler (Welle 2) sind freigegeben. Vier-Stufen-Methode, Regelwerke und das
-  // Duell-Set "recht-berufsausbildung" erst nach der Freigabe des Prüfblatts 10 aufnehmen (Rechtsfragen).
+  // Handlungsfelder und Lernzielbereiche (Welle 1), Beurteilungsfehler (Welle 2) und die Vier-Stufen-Methode (in der üblichen Fassung, freigegeben am
+  // 06.10.2026) sind freigegeben. Regelwerke und das Duell-Set "recht-berufsausbildung" erst nach der Freigabe des Prüfblatts 10 aufnehmen (Rechtsfragen).
   "ausbildung-der-ausbilder": {
-    instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler"]),
+    instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler", "vierstufen"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],

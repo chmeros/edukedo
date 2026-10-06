@@ -336,7 +336,7 @@ const INSTRUMENT_CATALOG = [
   {
     type: "vierstufen",
     label: "Vier-Stufen-Methode",
-    description: "Handlungen in der Unterweisung der richtigen Stufe zuordnen: von der Vorführung bis zum selbstständigen Durchführen.",
+    description: "Handlungen in der Unterweisung der richtigen Stufe zuordnen: Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen.",
     Illustration: VierStufenIllustration,
   },
   {
