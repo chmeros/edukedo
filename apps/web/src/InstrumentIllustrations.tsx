@@ -1812,28 +1812,28 @@ export function HandelskalkulationIllustration() {
 
 export function KraljicIllustration() {
   const felder = [
-    { x: 40, y: 14, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Hebel" },
-    { x: 144, y: 14, f: "var(--coral)", s: "var(--coral-deep)", t: "Strategisch" },
-    { x: 40, y: 74, f: "var(--sun)", s: "var(--ink-soft)", t: "Standard" },
-    { x: 144, y: 74, f: "var(--info)", s: "var(--info-deep)", t: "Engpass" },
+    { x: 46, y: 10, f: "var(--sprout)", s: "var(--sprout-deep)", t: "Hebel" },
+    { x: 150, y: 10, f: "var(--coral)", s: "var(--coral-deep)", t: "Strategisch" },
+    { x: 46, y: 66, f: "var(--sun)", s: "var(--ink-soft)", t: "Standard" },
+    { x: 150, y: 66, f: "var(--info)", s: "var(--info-deep)", t: "Engpass" },
   ];
   return (
     <Frame background="var(--sprout-tint)">
       {felder.map((feld) => (
         <g key={feld.t}>
-          <rect x={feld.x} y={feld.y} width="100" height="56" rx="8" fill={feld.f} stroke={feld.s} strokeWidth="2" />
-          <text x={feld.x + 50} y={feld.y + 33} fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+          <rect x={feld.x} y={feld.y} width="100" height="52" rx="8" fill={feld.f} stroke={feld.s} strokeWidth="2" />
+          <text x={feld.x + 50} y={feld.y + 31} fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
             {feld.t}
           </text>
         </g>
       ))}
-      <path d="M26 128V16m0 0-5 8m5-8 5 8" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M36 134h212m0 0-8-5m8 5-8 5" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="262" y="96" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)">
-        Risiko
+      <path d="M34 120V12m0 0-5 8m5-8 5 8" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M34 124h216m0 0-8-5m8 5-8 5" fill="none" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="16" y="66" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle" transform="rotate(-90 16 66)">
+        Gewinnauswirkung
       </text>
-      <text x="262" y="36" fontSize="8.5" fontWeight="700" fill="var(--ink-soft)">
-        Gewinn
+      <text x="148" y="137" fontSize="10" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Versorgungsrisiko
       </text>
     </Frame>
   );

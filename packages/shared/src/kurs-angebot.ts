@@ -213,11 +213,8 @@ export const KURS_ENTWURF: Record<string, readonly string[]> = {
   "fachwirt-gesundheit-soziales": ["kostentraeger"],
   industriefachwirt: ["incoterms"],
   "technischer-fachwirt": ["instandhaltung"],
-  wirtschaftsfachwirt: ["investition", "vierseiten"],
-  "transport-management-logistics": ["verkehrstraeger", "abc"],
-  handelsfachwirt: ["abc", "xyz", "handelskalkulation", "kraljic"],
-  immobilienfachwirt: ["wertermittlung", "mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
-  "versicherungen-finanzanlagen": ["altersvorsorge", "versicherungskennzahlen"],
+  immobilienfachwirt: ["mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
+  "versicherungen-finanzanlagen": ["altersvorsorge"],
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -347,23 +344,22 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Die neuen Instrumente (Investitionsrechenverfahren, Vier-Seiten-Modell) und das Duell-Set "finanzierung-controlling" erst nach der Freigabe des
-  // Prüfblatts 15 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  // Investitionsrechenverfahren, Vier-Seiten-Modell und das Duell "finanzierung-controlling" sind freigegeben (Welle 2b, 06.10.2026).
   wirtschaftsfachwirt: {
-    instrumente: liste(OHNE("gantt")),
+    instrumente: liste([...OHNE("gantt"), "investition", "vierseiten"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
+      ["kennzahlen_duell", "finanzierung-controlling", "kern"],
       ["memory", null, "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
   },
-  // Die neuen Instrumente (Verkehrsträger, ABC-Analyse) und das Duell-Set "spedition-fracht" erst nach der Freigabe des Prüfblatts 16 aufnehmen;
-  // das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  // Verkehrsträger und ABC-Analyse sind freigegeben (Welle 2b, 06.10.2026). Das Duell-Set "spedition-fracht" (Fracht- und Zollrecht) erst nach der
+  // Rechtsprüfung des Prüfblatts 16 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
   "transport-management-logistics": {
-    instrumente: liste(OHNE("bsc", "gantt")),
+    instrumente: liste([...OHNE("bsc", "gantt"), "verkehrstraeger", "abc"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
@@ -373,10 +369,11 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Die neuen Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix) und das Duell-Set "handel-aehnlich" erst nach der Freigabe des
-  // Prüfblatts 17 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  // ABC-Analyse, XYZ-Analyse, Handelskalkulation und Kraljic-Matrix sind freigegeben (Welle 2b, 06.10.2026). Das Duell-Set "handel-aehnlich" (Fragen 18 bis 20
+  // berühren Außenhandels- und Zollrecht) erst nach der Rechtsprüfung des Prüfblatts 17 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene
+  // Set "standard" begrenzt.
   handelsfachwirt: {
-    instrumente: liste(OHNE()),
+    instrumente: liste([...OHNE(), "abc", "xyz", "handelskalkulation", "kraljic"]),
     werkzeuge: [],
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
@@ -386,11 +383,11 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Die neuen Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen) und das Duell-Set
-  // "immobilien-aehnlich" erst nach der Freigabe des Prüfblatts 18 (inkl. Rechtsprüfung) aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht
-  // vorhandene Set "standard" begrenzt.
+  // Das Wertermittlungsverfahren ist freigegeben (Welle 2b, 06.10.2026). Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen und das
+  // Duell-Set "immobilien-aehnlich" erst nach der Rechtsprüfung des Prüfblatts 18 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set
+  // "standard" begrenzt.
   immobilienfachwirt: {
-    instrumente: liste(OHNE()),
+    instrumente: liste([...OHNE(), "wertermittlung"]),
     werkzeuge: liste(["netzplan"]),
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
@@ -400,10 +397,11 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: [],
     szenarien: {},
   },
-  // Die neuen Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik) und das Duell-Set "versicherung-aehnlich" erst
-  // nach der Freigabe des Prüfblatts 19 (inkl. Rechtsprüfung) aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set "standard" begrenzt.
+  // Die Kennzahlen der Versicherungstechnik sind freigegeben (Welle 2b, 06.10.2026). Das Drei-Schichten-Modell der Altersvorsorge und das Duell-Set
+  // "versicherung-aehnlich" erst nach der Rechtsprüfung des Prüfblatts 19 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set
+  // "standard" begrenzt.
   "versicherungen-finanzanlagen": {
-    instrumente: liste(OHNE()),
+    instrumente: liste([...OHNE(), "versicherungskennzahlen"]),
     werkzeuge: liste(["netzplan"]),
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],

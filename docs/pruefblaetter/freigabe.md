@@ -6,7 +6,9 @@ Stand 06.10.2026 · Grundlage ist deine Rahmenentscheidung R3: *neue Inhalte wer
 
 **Welle 1 ist freigegeben (06.10.2026, Nutzer-Entscheidung „Ja, Welle 1 freischalten“):** 10 Instrumente mit 40 Fragen sind im Kurs sichtbar — Git-Bereiche (Anwendungsentwicklung), BPMN-2.0-Bausteine (Daten- und Prozessanalyse), Sicherungsarten und Switching/VLAN/Routing (Systemintegration), Handlungsfelder und Lernzielbereiche (AEVO), Qualitätsdimensionen nach Donabedian und PDCA-Zyklus (Gesundheit/Soziales), Beschaffungsstrategien und SECI-Modell (Industriefachwirt). In den Tabellen unten sind diese Zeilen mit ✔ markiert. **Welle 2 ist freigegeben (06.10.2026, Nutzer-Entscheidung „Welle 2 freischalten“):** 30 Einheiten (23 Instrumente mit 92 Fragen, vier Bug-Hunt-Sets und drei Begriffe-Duelle) sind im Kurs sichtbar, ebenfalls mit ✔ markiert. Die kurzen Einzelentscheidungen aus der Spalte „Vor der Freigabe zu entscheiden“ wurden dabei **nicht einzeln getroffen**: Die Inhalte gingen unverändert so live, wie sie im jeweiligen Prüfblatt stehen (Lesart des Kurses, Grenzfälle wie dort erklärt). Die ⚠-Hinweise bleiben in den Prüfblättern stehen; wo du eine andere Fassung willst, genügt eine Korrekturliste — ich passe den Inhalt an und importiere neu.
 
-**Noch gesperrt (Welle 3, 6 Instrumente mit 24 Fragen, drei Troubleshooting-Sets, zwei Duelle):** Verzeichnisdienst (SI), Vier-Stufen-Methode und Regelwerke der Berufsausbildung (AEVO), Kostenträger (Gesundheit/Soziales), Incoterms (Industriefachwirt), Instandhaltung nach DIN 31051 (Technischer Fachwirt), die Troubleshooting-Sets „Industrie und IoT“, „Serverdienste“ und „Switching und Routing“ sowie die Begriffe-Duelle „Recht der Berufsausbildung“ und „Gesundheits- und Sozialsystem“ — Recht, Norm oder Aussagen aus Kenntnis.
+**Welle 2b ist freigegeben (06.10.2026, Nutzer-Entscheidung „Nächste Freigabewelle für ◐-Einheiten“):** alle ◐- und ●-Instrumente der später ergänzten Blätter 15 bis 19 — Investitionsrechenverfahren und Vier-Seiten-Modell (Wirtschaftsfachwirt), Verkehrsträger und ABC-Analyse (Transport/Logistik), ABC-Analyse, XYZ-Analyse, Handelskalkulation und Kraljic-Matrix (Handelsfachwirt), Wertermittlungsverfahren (Immobilienfachwirt) und Kennzahlen der Versicherungstechnik (Versicherungen/Finanzanlagen) — zusammen 10 Instrumente mit 40 Fragen, dazu das Begriffe-Duell „Finanzierung und Controlling“ (Wirtschaftsfachwirt). Wie bei Welle 2 wurden die Einzelentscheidungen der Prüfblätter nicht einzeln getroffen. **Bewusst nicht freigegeben, obwohl als ◐ eingestuft:** das Begriffe-Duell „Handel: ähnlich, aber nicht gleich“, weil seine Fragen 18 bis 20 Außenhandels- und Zollrecht berühren (R4). Die neuen Theorieabschnitte (Handelskalkulation, Kraljic-Matrix) waren schon sichtbar. Live geprüft: Instrumente-Tab des Handelsfachwirts mit den neuen Kacheln, Kraljic-Frage im Lernen.
+
+**Noch gesperrt (Welle 3: Recht, Norm, Kenntnis; Einzelheiten je Einheit in den Tabellen unten):** Verzeichnisdienst (SI), Vier-Stufen-Methode und Regelwerke der Berufsausbildung (AEVO), Kostenträger (Gesundheit/Soziales), Incoterms (Industriefachwirt), Instandhaltung nach DIN 31051 (Technischer Fachwirt), die Troubleshooting-Sets „Industrie und IoT“, „Serverdienste“ und „Switching und Routing“ sowie die Begriffe-Duelle „Recht der Berufsausbildung“ und „Gesundheits- und Sozialsystem“ — Recht, Norm oder Aussagen aus Kenntnis.
 
 ## 1. Wie die Freigabe technisch funktioniert (F-186)
 
@@ -133,9 +135,9 @@ Spalte „Fragen“ = Zonen-Fragen bzw. Fälle/Ausschnitte; die ⚠-Hinweise ste
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Investitionsrechenverfahren (`investition`) | 4 | ◐ | Amortisationsrechnung als statisches Verfahren (Kursfassung); „Kalkulationszinssatz“ gegen „kalkulatorische Zinsen“ in Q-2.1-15; Eindeutigkeit von Q-2.1-17 |
-| Vier-Seiten-Modell (`vierseiten`) | 4 | ● | einteilige Beziehungsebene (Kursfassung); Grenzfälle in Q-5.1-16 (Senderabsicht); Ton der Beispielsätze |
-| Begriffe-Duell „Finanzierung und Controlling“ (Set) | 20 | ◐ | Frage 8 (Kapitalwert gegen internen Zinsfuß), Frage 17 (ROI-Definition), Frage 9 (Annuität „eignet sich besonders“) |
+| ✔ Investitionsrechenverfahren (`investition`) | 4 | ◐ | Amortisationsrechnung als statisches Verfahren (Kursfassung); „Kalkulationszinssatz“ gegen „kalkulatorische Zinsen“ in Q-2.1-15; Eindeutigkeit von Q-2.1-17 |
+| ✔ Vier-Seiten-Modell (`vierseiten`) | 4 | ● | einteilige Beziehungsebene (Kursfassung); Grenzfälle in Q-5.1-16 (Senderabsicht); Ton der Beispielsätze |
+| ✔ Begriffe-Duell „Finanzierung und Controlling“ (Set) | 20 | ◐ | Frage 8 (Kapitalwert gegen internen Zinsfuß), Frage 17 (ROI-Definition), Frage 9 (Annuität „eignet sich besonders“) |
 
 Alles noch Entwurf (F-187): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Vier-Seiten-Modell und die beiden ◐-Einheiten in der nächsten Freigabewelle.
 
@@ -143,8 +145,8 @@ Alles noch Entwurf (F-187): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Verkehrsträger (`verkehrstraeger`) | 4 | ◐ | Luft bei „verderblich, schnell beim Empfänger“ (Q-2.3-14, -15); Abgrenzung zu Q-2.3-10 in Q-2.3-16 |
-| ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse nur sinngemäß abgeleitet (Q-2.2-14); Q-2.2-16 „Planbarkeit ändert nie die Wertklasse“ |
+| ✔ Verkehrsträger (`verkehrstraeger`) | 4 | ◐ | Luft bei „verderblich, schnell beim Empfänger“ (Q-2.3-14, -15); Abgrenzung zu Q-2.3-10 in Q-2.3-16 |
+| ✔ ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse nur sinngemäß abgeleitet (Q-2.2-14); Q-2.2-16 „Planbarkeit ändert nie die Wertklasse“ |
 | Begriffe-Duell „Spedition und Fracht“ (Set) | 20 | ○ | **Recht:** HGB-Frachtrecht (Fragen 1–3), CMR (4, 6), Zollrecht (17–19); Fachperson empfohlen |
 
 Alles noch Entwurf (F-188): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste.
@@ -153,10 +155,10 @@ Alles noch Entwurf (F-188): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse und Maßnahmen für B/C sind Ableitungen aus „mittlerer Bereich“ (Q-4.1-14, -15) |
-| XYZ-Analyse (`xyz`) | 4 | ◐ | Basic-Artikel als X abgeleitet (Q-4.1-17); „Y = mittlere Vorhersagegenauigkeit“ nur in einer Karteikarte (Q-4.1-18) |
-| Handelskalkulation (`handelskalkulation`) | 4 | ◐ | neue Theorie ohne Zwischenstufen (Bar-, Ziel-, Zieleinkaufspreis); Q-5.3-17 umformuliert |
-| Kraljic-Matrix (`kraljic`) | 4 | ◐ | neue Theorie; Feldbezeichnungen und Normstrategien lehrbuchabhängig |
+| ✔ ABC-Analyse (`abc`) | 4 | ◐ | B-Klasse und Maßnahmen für B/C sind Ableitungen aus „mittlerer Bereich“ (Q-4.1-14, -15) |
+| ✔ XYZ-Analyse (`xyz`) | 4 | ◐ | Basic-Artikel als X abgeleitet (Q-4.1-17); „Y = mittlere Vorhersagegenauigkeit“ nur in einer Karteikarte (Q-4.1-18) |
+| ✔ Handelskalkulation (`handelskalkulation`) | 4 | ◐ | neue Theorie ohne Zwischenstufen (Bar-, Ziel-, Zieleinkaufspreis); Q-5.3-17 umformuliert |
+| ✔ Kraljic-Matrix (`kraljic`) | 4 | ◐ | neue Theorie; Feldbezeichnungen und Normstrategien lehrbuchabhängig |
 | Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Set) | 20 | ◐ | Fragen 18–20 (Incoterms, Akkreditiv, Ursprung) berühren Außenhandels- und Zollrecht |
 
 Alles noch Entwurf (F-189): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. **Bereits sichtbar:** die zwei neuen Theorieabschnitte samt je drei Karteikarten (Handelskalkulation in 5.3, Kraljic-Matrix in 7.1).
@@ -165,7 +167,7 @@ Alles noch Entwurf (F-189): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Wertermittlungsverfahren (`wertermittlung`) | 4 | ◐ | Bodenwert in mehreren Verfahren (Q-6.3-13, -16 bewusst mehrdeutig) |
+| ✔ Wertermittlungsverfahren (`wertermittlung`) | 4 | ◐ | Bodenwert in mehreren Verfahren (Q-6.3-13, -16 bewusst mehrdeutig) |
 | DIN-276-Kostengruppen (`kostengruppen`) | 4 | ○ | Norm; Theorie 5.4 ordnet die Erschließung der KG 500 zu (nach DIN 276 vermutlich KG 200); KG-600-Beispiele abgeleitet |
 | Wege der Mieterhöhung (`mieterhoehung`) | 4 | ○ | **Mietrecht (BGB):** Kurswortlaut mit Paragrafen und Zahlen; Rechtsstand prüfen |
 | Betriebskosten (`betriebskosten`) | 4 | ○ | **BetrKV/Heizkostenverordnung:** Zone „Verbrauchsabhängig“ überschneidet sich mit „Umlagefähig“ |
@@ -178,7 +180,7 @@ Alles noch Entwurf (F-190): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 | Freigabe-Einheit | Fragen | Risiko | Vor der Freigabe zu entscheiden |
 | --- | ---: | :---: | --- |
-| Kennzahlen der Versicherungstechnik (`versicherungskennzahlen`) | 4 | ◐ | Kurswortlaut „unter 100 Prozent“ in einem Begriff; Ableitungen in Q-4.1-16 bis -19 |
+| ✔ Kennzahlen der Versicherungstechnik (`versicherungskennzahlen`) | 4 | ◐ | Kurswortlaut „unter 100 Prozent“ in einem Begriff; Ableitungen in Q-4.1-16 bis -19 |
 | Drei-Schichten-Modell der Altersvorsorge (`altersvorsorge`) | 4 | ○ | **Steuer-/Sozialversicherungsrecht:** Ableitungen (Zulagen, Direktversicherung, Pensionsfonds), „grundsätzlich nicht vererbbar“ absoluter formuliert; Rechtsstand prüfen |
 | Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Set) | 20 | ○ | **Recht:** Fragen 1, 4, 5, 11, 12, 13, 16 gegenlesen |
 
