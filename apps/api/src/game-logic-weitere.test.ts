@@ -1,4 +1,5 @@
 import {
+  buildKreuzwortraetselPuzzle,
   bugHuntPayloadSchema,
   checkBugHunt,
   checkCodeReihenfolge,
@@ -37,6 +38,7 @@ import { kreuzwortraetselNetzwerkSicherheit } from "./db/content/game-kreuzwortr
 import { memoryPortsProtokolle } from "./db/content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./db/content/game-phishing-it-alltag";
 import { troubleshootingNetzwerk } from "./db/content/game-troubleshooting-netzwerk";
+import { pruefeKreuzwortPool, pruefeMemoryPool } from "./db/game-pool-pruefung";
 import { signSprintToken, verifySprintToken } from "./game-sprint-token";
 
 /** Deterministischer Zufallszahlengenerator (mulberry32) für reproduzierbare Generator-Tests. */
@@ -229,10 +231,22 @@ describe("F-158: Troubleshooting-Detektiv", () => {
 });
 
 describe("F-158: zusätzliche Sets der bekannten Spieltypen", () => {
-  it("Kreuzworträtsel Netzwerk/Sicherheit: zehn Wörter, Gitter ohne Kreuzungskonflikte", () => {
+  it("Kreuzworträtsel Netzwerk/Sicherheit: Wort-Pool mit mindestens 26 Wörtern (zehn je Rätsel), Gitter ohne Kreuzungskonflikte", () => {
     const payload = kreuzwortraetselPayloadSchema.parse(kreuzwortraetselNetzwerkSicherheit);
-    expect(payload.woerter).toHaveLength(10);
+    expect(payload.woerter.length).toBeGreaterThanOrEqual(26);
+    expect(payload.wortzahl).toBe(10);
     expect(verifyCrosswordGrid(payload.woerter)).toEqual([]);
+    expect(new Set(payload.woerter.map((wort) => wort.loesung)).size).toBe(payload.woerter.length);
+    expect(payload.woerter.filter((wort) => wort.loesung.length <= 8).length).toBeGreaterThanOrEqual(payload.woerter.length * 0.6);
+    // F-193: Die zehn alten Wörter behalten Positionen und teils lange Texte; die Pool-Prüfung gilt für den neuen Teil (Nummer 11 ff.).
+    const neue = payload.woerter.filter((wort) => wort.nummer > 10);
+    expect(pruefeKreuzwortPool({ ...payload, woerter: neue }, { mindestPool: 16 })).toEqual([]);
+    expect(neue.every((wort) => wort.richtung === undefined && wort.loesung.length <= 10 && wort.hinweis.length <= 110 && wort.tipp.length <= 60)).toBe(true);
+    for (let seed = 1; seed <= 20; seed += 1) {
+      const puzzle = buildKreuzwortraetselPuzzle(payload, seed);
+      expect(puzzle.woerter.length).toBeGreaterThanOrEqual(9);
+      expect(verifyCrosswordGrid(puzzle.woerter)).toEqual([]);
+    }
   });
 
   it("Duell SQL/Datenmodellierung: 20 Fragen in 4×5, ausgewogen", () => {
@@ -244,11 +258,19 @@ describe("F-158: zusätzliche Sets der bekannten Spieltypen", () => {
     expect(anzahlA).toBeLessThanOrEqual(12);
   });
 
-  it("Memory Ports/Protokolle: 24 Paare in 4×6 ohne Dubletten", () => {
+  it("Memory Ports/Protokolle: 40 Paare in 4×10 (paareProRunde 6) ohne Dubletten", () => {
     const payload = memoryPayloadSchema.parse(memoryPortsProtokolle);
-    expect(payload.paare).toHaveLength(24);
-    for (const runde of [1, 2, 3, 4]) expect(payload.paare.filter((paar) => paar.runde === runde)).toHaveLength(6);
-    expect(new Set(payload.paare.map((paar) => paar.begriff)).size).toBe(24);
-    expect(new Set(payload.paare.map((paar) => paar.bedeutung)).size).toBe(24);
+    expect(payload.paare).toHaveLength(40);
+    expect(payload.paareProRunde).toBe(6);
+    for (const runde of [1, 2, 3, 4]) expect(payload.paare.filter((paar) => paar.runde === runde)).toHaveLength(10);
+    expect(new Set(payload.paare.map((paar) => paar.begriff)).size).toBe(40);
+    expect(new Set(payload.paare.map((paar) => paar.bedeutung)).size).toBe(40);
+    // F-193: Die 24 alten Paare haben längere Texte als die Pool-Regeln erlauben; geprüft werden die Paare ab Nummer 25.
+    const fehler = pruefeMemoryPool(payload).filter((meldung) => {
+      const treffer = /^Paar (\d+):/.exec(meldung);
+      return !treffer || Number(treffer[1]) > 24;
+    });
+    expect(fehler).toEqual([]);
+    expect(payload.paare.filter((paar) => paar.nummer > 24).every((paar) => paar.begriff.length <= 30 && paar.bedeutung.length <= 56)).toBe(true);
   });
 });

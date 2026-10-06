@@ -2,7 +2,8 @@ import type { MemoryPayload } from "@edukedo/shared";
 
 /**
  * Gaming-Tab: „IT-Memory: Abkürzungen und Begriffe" für die Fachinformatiker/in-Kurse
- * (24 IT-Begriffe-Paare in vier Themenrunden à sechs Paare, Begriff ↔ Bedeutung).
+ * (Pool aus 40 IT-Begriffe-Paaren in vier Themenrunden à zehn Paare, Begriff ↔ Bedeutung; je Spiel werden
+ * daraus sechs Paare je Runde gezogen, F-193 — das ursprüngliche Set hatte 24 Paare à sechs).
  */
 export const memoryItBegriffe: MemoryPayload = {
   runden: [
@@ -196,8 +197,122 @@ export const memoryItBegriffe: MemoryPayload = {
       bedeutung: "Dokument, das beschreibt, wie und womit der Auftragnehmer die Anforderungen des Auftraggebers umsetzen will.",
       bestaetigung: "Richtig! Das Pflichtenheft baut auf dem Lastenheft auf: Das Lastenheft beschreibt, was der Auftraggeber verlangt, das Pflichtenheft, wie der Auftragnehmer es umsetzt.",
     },
+    // F-193: Pool-Erweiterung auf 10 Paare je Runde (Nummer 25 ff.); je Spiel werden daraus sechs Paare je Runde gezogen.
+    {
+      nummer: 25,
+      runde: 1,
+      begriff: "Default Gateway",
+      bedeutung: "Router-Adresse für Ziele außerhalb des eigenen Netzes",
+      bestaetigung: "Richtig! Alles, was nicht im lokalen Netz liegt, schickt das Gerät an diese Adresse im eigenen Subnetz.",
+    },
+    {
+      nummer: 26,
+      runde: 1,
+      begriff: "VLAN",
+      bedeutung: "Logische Trennung eines Switch-Netzes in Segmente",
+      bestaetigung: "Genau! So liegen Büro, Gäste-WLAN und Server auf derselben Hardware in getrennten Netzen.",
+    },
+    {
+      nummer: 27,
+      runde: 1,
+      begriff: "DMZ",
+      bedeutung: "Abgeschirmtes Segment für extern erreichbare Server",
+      bestaetigung: "Richtig! Systeme in der DMZ sind von außen erreichbar, haben aber keinen direkten Zugriff aufs interne Netz.",
+    },
+    {
+      nummer: 28,
+      runde: 1,
+      begriff: "Subnetzmaske",
+      bedeutung: "Trennt Netzanteil und Hostanteil einer IPv4-Adresse",
+      bestaetigung: "Genau! Sie wird als 255.255.255.0 oder in Präfix-Schreibweise als /24 angegeben.",
+    },
+    {
+      nummer: 29,
+      runde: 2,
+      begriff: "Snapshot",
+      bedeutung: "Gespeicherter Zustand einer virtuellen Maschine",
+      bestaetigung: "Richtig! Mit einem Snapshot lässt sich eine virtuelle Maschine auf einen früheren Stand zurücksetzen.",
+    },
+    {
+      nummer: 30,
+      runde: 2,
+      begriff: "Virtualisierung",
+      bedeutung: "Mehrere getrennte Systeme auf einer physischen Hardware",
+      bestaetigung: "Genau! Das nutzt die Hardware besser aus und erlaubt schnell bereitgestellte Testumgebungen.",
+    },
+    {
+      nummer: 31,
+      runde: 2,
+      begriff: "Firmware",
+      bedeutung: "Fest in der Hardware gespeicherte Basissoftware",
+      bestaetigung: "Richtig! Sie steuert ein Gerät auf niedriger Ebene, noch bevor ein Betriebssystem läuft.",
+    },
+    {
+      nummer: 32,
+      runde: 2,
+      begriff: "Lizenz",
+      bedeutung: "Nutzungsrecht an einer Software",
+      bestaetigung: "Genau! Beim Einsatz im Unternehmen muss die passende Lizenz vorhanden sein.",
+    },
+    {
+      nummer: 33,
+      runde: 3,
+      begriff: "Fremdschlüssel",
+      bedeutung: "Verweist auf den Primärschlüssel einer Tabelle",
+      bestaetigung: "Richtig! Er stellt die Beziehung zwischen Tabellen her und ist Grundlage für Joins und referentielle Integrität.",
+    },
+    {
+      nummer: 34,
+      runde: 3,
+      begriff: "Kapselung",
+      bedeutung: "Verbirgt interne Daten, Zugriff nur über Methoden",
+      bestaetigung: "Genau! So durchläuft jede Änderung die Prüfregeln der Klasse und ungültige Werte werden verhindert.",
+    },
+    {
+      nummer: 35,
+      runde: 3,
+      begriff: "Compiler",
+      bedeutung: "Übersetzt Quelltext vor dem Start in Maschinencode",
+      bestaetigung: "Richtig! Ein Interpreter führt den Quelltext dagegen erst zur Laufzeit schrittweise aus.",
+    },
+    {
+      nummer: 36,
+      runde: 3,
+      begriff: "Stack",
+      bedeutung: "Datenstruktur nach dem Prinzip „Last In, First Out“",
+      bestaetigung: "Genau! Das zuletzt abgelegte Element wird zuerst entnommen, die Operationen heißen push und pop.",
+    },
+    {
+      nummer: 37,
+      runde: 4,
+      begriff: "Ransomware",
+      bedeutung: "Verschlüsselt Daten und fordert Lösegeld",
+      bestaetigung: "Richtig! Sie trifft vor allem die Verfügbarkeit; gute, getrennt gelagerte Backups sind ein wichtiger Schutz.",
+    },
+    {
+      nummer: 38,
+      runde: 4,
+      begriff: "Pseudonymisierung",
+      bedeutung: "Namen werden durch Kennungen ersetzt",
+      bestaetigung: "Genau! Mit getrennt aufbewahrten Zusatzinformationen ist die Zuordnung noch möglich, die Daten bleiben personenbezogen.",
+    },
+    {
+      nummer: 39,
+      runde: 4,
+      begriff: "Datenminimierung",
+      bedeutung: "Nur Daten verarbeiten, die für den Zweck nötig sind",
+      bestaetigung: "Richtig! Was nicht erforderlich ist, wird gar nicht erst erhoben oder gespeichert.",
+    },
+    {
+      nummer: 40,
+      runde: 4,
+      begriff: "Penetrationstest",
+      bedeutung: "Simulierter Angriff zum Aufdecken von Schwachstellen",
+      bestaetigung: "Genau! Er ist nur mit ausdrücklicher, schriftlicher Beauftragung und Freigabe zulässig.",
+    },
   ],
+  paareProRunde: 6,
   falschesPaarFeedback: "Das ist noch kein Paar. Schau dir beide Aussagen genau an und versuche es erneut.",
   abschlussmeldung:
-    "Geschafft! Du hast 24 wichtige IT-Begriffe kennengelernt. Du kannst nun Abkürzungen und Fachbegriffe aus Netzwerk, Hardware, Software und IT-Sicherheit sicherer zuordnen.",
+    "Geschafft! Du hast 24 wichtige IT-Begriffe kennengelernt. Du kannst nun Abkürzungen und Fachbegriffe aus Netzwerk, Hardware, Software und IT-Sicherheit sicherer zuordnen. Mit „Noch einmal spielen“ bekommst du neue Karten.",
 };

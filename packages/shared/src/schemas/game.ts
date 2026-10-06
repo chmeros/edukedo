@@ -37,12 +37,17 @@ const FEEDBACK_MAX = 1000;
  * `richtung` legen die Gitterposition fest — die Spezifikation gibt nur Nummern/Richtungen/
  * Lösungen vor, das tatsächliche Gitter (inkl. konsistenter Kreuzungsbuchstaben) wird bei der
  * Content-Autorierung konstruiert und über `verifyCrosswordGrid` (game-logic.ts) geprüft.
+ *
+ * F-193 (Wiederspielbarkeit, Nutzer-Vorgabe vom 06.10.2026): `richtung`/`startRow`/`startCol` sind optional.
+ * Der Server legt das Gitter bei jedem Start aus allen Wörtern des Sets (dem Wort-Pool) neu an
+ * (`buildKreuzwortraetselPuzzle`, Generator in kreuzwort-generator.ts); vorhandene Positionen werden dann ignoriert.
+ * `nummer` ist im Pool nur eine eindeutige Kennung, die Rätselnummern werden beim Anlegen neu vergeben.
  */
 export const kreuzwortraetselWortSchema = z.object({
   nummer: z.number().int().positive(),
-  richtung: z.enum(["waagerecht", "senkrecht"]),
-  startRow: z.number().int().min(0),
-  startCol: z.number().int().min(0),
+  richtung: z.enum(["waagerecht", "senkrecht"]).optional(),
+  startRow: z.number().int().min(0).optional(),
+  startCol: z.number().int().min(0).optional(),
   hinweis: z.string().min(1).max(TEXT_MAX),
   tipp: z.string().min(1).max(HINT_MAX),
   loesung: z
@@ -55,7 +60,9 @@ export const kreuzwortraetselWortSchema = z.object({
 export type KreuzwortraetselWort = z.infer<typeof kreuzwortraetselWortSchema>;
 
 export const kreuzwortraetselPayloadSchema = z.object({
-  woerter: z.array(kreuzwortraetselWortSchema).min(1).max(20),
+  woerter: z.array(kreuzwortraetselWortSchema).min(1).max(40),
+  // F-193: Wie viele Wörter ein Rätsel enthält (Standard 10); ist der Pool größer, wird bei jedem Start eine andere Auswahl getroffen.
+  wortzahl: z.number().int().min(4).max(16).optional(),
   // Generische Rückmeldungen (nicht wortspezifisch, siehe Spezifikation Abschnitt 4/5):
   // "einfach" = falsch zugeordnete Wortkarte, "anspruchsvoll" = vollständiges, aber falsches
   // Wort, "unvollstaendig" = noch nicht alle Buchstaben eingetragen (nur anspruchsvoll).
@@ -122,6 +129,8 @@ export type MemoryRunde = z.infer<typeof memoryRundeSchema>;
 export const memoryPayloadSchema = z.object({
   runden: z.array(memoryRundeSchema).min(1).max(10),
   paare: z.array(memoryPaarSchema).min(1).max(100),
+  // F-193: Wie viele Paare eine Runde zeigt (Standard 6); enthält die Runde im Pool mehr Paare, wird bei jedem Spiel neu gezogen.
+  paareProRunde: z.number().int().min(3).max(10).optional(),
   falschesPaarFeedback: z.string().min(1).max(FEEDBACK_MAX),
   abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
 });
@@ -175,6 +184,8 @@ export const memoryRundeInputSchema = z.object({
   kursId: z.string().uuid(),
   setKey: setKeyField,
   runde: z.number().int().min(1).max(4),
+  // F-193: Ziehung der Paare und Mischen der Karten; derselbe Seed liefert dieselben Karten (ein Neuladen verändert die Runde nicht).
+  seed: z.number().int().min(1).max(2147483647).optional(),
 });
 
 export const submitMemoryPaarInputSchema = z.object({

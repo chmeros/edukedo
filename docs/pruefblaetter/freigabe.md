@@ -188,6 +188,22 @@ Alles noch Entwurf (F-190): Instrumente in `KURS_ENTWURF`, Duell nicht in der Ku
 
 Alles noch Entwurf (F-191): Instrumente in `KURS_ENTWURF`, Duell nicht in der Kursliste. Vorschlag: Kennzahlen der Versicherungstechnik in der nächsten Freigabewelle; der Rest gehört zur Rechtsprüfung (Welle 3).
 
+### Blatt 20 — Spiele: Kreuzworträtsel und Memory (nachträglich ergänzt, neun Kurse, **Wort- und Paar-Pools**)
+
+| Freigabe-Einheit | Umfang | Risiko | Vor der Freigabe zu entscheiden |
+| --- | ---: | :---: | --- |
+| Industriefachwirt: Kreuzworträtsel „fachbegriffe“ und Memory „begriff-paare“ | 34 Wörter, 40 Paare | ◐ | Einzelne rechtsnahe Wörter (Prokura, Betriebsrat, Akkreditiv, Konsignationslager) |
+| Technischer Fachwirt | 34 Wörter, 40 Paare | ◐ | Rechtsnahe Wörter (Kartell, Prokura, Mangel); Arbeitsschutzbegriffe vereinfacht |
+| Handelsfachwirt | 33 Wörter, 40 Paare | ◐ | Definitionen von Kapitalwert, Kraljic, Factoring vereinfacht; Außenhandel ausgelassen |
+| Transport/Logistik | 33 Wörter, 40 Paare | ◐ | Spediteur, Formschluss, Zoll vereinfacht; keine Haftungs- und Lenkzeitdetails |
+| Wirtschaftsfachwirt | 34 Wörter, 40 Paare | ○ | Handelsrechtliche Grundbegriffe (Prokura, Handlungsvollmacht, Komplementär, Nacherfüllung, Verzug, Betriebsrat) |
+| AEVO | 34 Wörter, 40 Paare | ○ | Berufsbildungsrecht (Betriebsrat/JAV, Zulassung, Nachteilsausgleich, Ausbildungsvertrag, Zeugnis, Anmeldung, Ausbildungsordnung) |
+| Gesundheit/Soziales | 34 Wörter, 40 Paare | ○ | Sozialrecht (Sachleistungs- und Solidaritätsprinzip, Sozialhilfe, Werbung im Sozialwesen) |
+| Immobilienfachwirt | 34 Wörter, 40 Paare | ○ | Grundbegriffe mit Rechtsbezug (Grundbuch, Makler, Abnahme, Zuschlag) |
+| Versicherungen/Finanzanlagen | 34 Wörter, 40 Paare | ○ | Versicherungsbegriffe, viele Definitionen bewusst vereinfacht |
+
+Alles noch Entwurf (F-193): Die Sets stehen nicht in der Spieleliste der Kurse. **Bereits sichtbar und mit offenen Hinweisen:** die Erweiterungen der sechs vorhandenen Sets (IT-Fachbegriffe 21 neue Wörter, Netzwerk und Sicherheit 18, Finanzkennzahlen 20; je 16 neue Memory-Paare in IT-Begriffen, Ports und Protokolle, Personalkennzahlen) — vor allem die **Portnummern** der neuen Ports-Paare (995, 465, 8080, HTTP/3 über UDP 443, 990, 2049, 3260, 69, 1812, 88, 636, 853), die in der Kurstheorie nicht vorkommen, und die neuen Finanz-Wörter, die im Büro-Kurs nicht aus einer Finanzkennzahlen-Theorie stammen.
+
 ## 4. Empfohlene Reihenfolge
 
 **Welle 1 — schnell, geringes Risiko (10 Instrumente, 40 Fragen) — erledigt am 06.10.2026:** Git-Bereiche (AE) · BPMN (DPA) · Sicherungsarten und Switching (SI) · Handlungsfelder und Lernzielbereiche (AEVO) · Donabedian und PDCA (Gesundheit/Soziales) · SECI und Beschaffungsstrategien (Industrie). Dafür genügt es, die Fragen im jeweiligen Prüfblatt zu überfliegen und die ⚠-Hinweise zu lesen.

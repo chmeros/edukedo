@@ -4,6 +4,8 @@ import {
   TERMINAL_SZENARIEN,
   type BugHuntAufgabe,
   type KennzahlenDuellPayload,
+  type KreuzwortraetselPayload,
+  type MemoryPayload,
   type TroubleshootingFall,
   topologieSzenarien,
   type InstrumentLernpfadPayload,
@@ -13,6 +15,24 @@ import path from "node:path";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
 import { bugHuntSkripteKonfiguration } from "./content/game-bughunt-skripte-konfiguration";
+import { kreuzwortraetselAevo } from "./content/game-kreuzwortraetsel-aevo";
+import { memoryAevo } from "./content/game-memory-aevo";
+import { kreuzwortraetselGesundheitSoziales } from "./content/game-kreuzwortraetsel-gesundheit-soziales";
+import { memoryGesundheitSoziales } from "./content/game-memory-gesundheit-soziales";
+import { kreuzwortraetselIndustrie } from "./content/game-kreuzwortraetsel-industrie";
+import { memoryIndustrie } from "./content/game-memory-industrie";
+import { kreuzwortraetselTechnik } from "./content/game-kreuzwortraetsel-technik";
+import { memoryTechnik } from "./content/game-memory-technik";
+import { kreuzwortraetselWirtschaft } from "./content/game-kreuzwortraetsel-wirtschaft";
+import { memoryWirtschaft } from "./content/game-memory-wirtschaft";
+import { kreuzwortraetselLogistik } from "./content/game-kreuzwortraetsel-logistik";
+import { memoryLogistik } from "./content/game-memory-logistik";
+import { kreuzwortraetselHandel } from "./content/game-kreuzwortraetsel-handel";
+import { memoryHandel } from "./content/game-memory-handel";
+import { kreuzwortraetselImmobilien } from "./content/game-kreuzwortraetsel-immobilien";
+import { memoryImmobilien } from "./content/game-memory-immobilien";
+import { kreuzwortraetselVersicherung } from "./content/game-kreuzwortraetsel-versicherung";
+import { memoryVersicherung } from "./content/game-memory-versicherung";
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
 import { kennzahlenDuellHandelAehnlich } from "./content/game-kennzahlen-duell-handel-aehnlich";
@@ -1465,6 +1485,55 @@ function verNachspann(teile: string[]): void {
   teile.push(...duellBloecke("versicherung-aehnlich", kennzahlenDuellVersicherungAehnlich));
 }
 
+
+interface SpieleKurs {
+  titel: string;
+  hinweis: string;
+  kreuz: KreuzwortraetselPayload;
+  memory: MemoryPayload;
+}
+
+const SPIELE_KURSE: SpieleKurs[] = [
+  { titel: "AEVO (Ausbildung der Ausbilder)", hinweis: "Hinweise zu Betriebsrat/Jugendvertretung, Zulassung, Nachteilsausgleich, Ausbildungsvertrag, Zeugnis, Anmeldung, Eignung/zuständige Stelle, Ausbildungsordnung: nur Grundbegriffe, aber **Rechtsbezug** — Berufsbildungsrecht gegenlesen.", kreuz: kreuzwortraetselAevo, memory: memoryAevo },
+  { titel: "Gesundheit/Soziales", hinweis: "**Sozialrecht:** Sachleistungs- und Solidaritätsprinzip (nur für die GKV zutreffend), Nachrang der Sozialhilfe, Kasse als Kostenträger, Werbung im Sozialwesen („sachlich und nachweisbar“) — rechtlich gegenlesen.", kreuz: kreuzwortraetselGesundheitSoziales, memory: memoryGesundheitSoziales },
+  { titel: "Industriefachwirt", hinweis: "Rechtsnahe Begriffe: Prokura, Betriebsrat, Kommanditist, Handelsregister, Zoll, Akkreditiv, Konsignationslager, Handelsvertreter — Grundbegriffe, im Prüfblatt vermerkt.", kreuz: kreuzwortraetselIndustrie, memory: memoryIndustrie },
+  { titel: "Technischer Fachwirt", hinweis: "Technische Begriffe ohne Normnummern; Arbeitsschutzbegriffe nur allgemein.", kreuz: kreuzwortraetselTechnik, memory: memoryTechnik },
+  { titel: "Wirtschaftsfachwirt", hinweis: "Handelsrechtliche Grundbegriffe (Prokura, Handlungsvollmacht, Komplementär, Nacherfüllung, Verzug, Betriebsrat) — **Rechtsbezug**, gegenlesen.", kreuz: kreuzwortraetselWirtschaft, memory: memoryWirtschaft },
+  { titel: "Transport/Logistik", hinweis: "Zoll nur als Wort; Spediteur und Formschluss vereinfacht; Pool enthält keine Haftungs- oder Lenkzeitdetails.", kreuz: kreuzwortraetselLogistik, memory: memoryLogistik },
+  { titel: "Handelsfachwirt", hinweis: "Außenhandel (WB4) bewusst ausgelassen; Definitionen von Kapitalwert, Kraljic und Factoring vereinfacht.", kreuz: kreuzwortraetselHandel, memory: memoryHandel },
+  { titel: "Immobilienfachwirt", hinweis: "**Rechtsbezug:** Grundbuch, Makler, Abnahme, Zuschlag (förmliche Erklärung im Vergaberecht) — nur Grundbegriffe, Miet-, WEG-, Bau- und Maklerrecht ausgelassen.", kreuz: kreuzwortraetselImmobilien, memory: memoryImmobilien },
+  { titel: "Versicherungen/Finanzanlagen", hinweis: "**Versicherungsrecht (Grundbegriffe):** Prämie, Zuschlag, Fragebogen, Wartezeit, Haftzeit, Regress, Unterversicherung, Storno — viele Definitionen bewusst vereinfacht.", kreuz: kreuzwortraetselVersicherung, memory: memoryVersicherung },
+];
+
+function spieleBlatt(): string {
+  const teile: string[] = [
+    "# Prüfblatt Spiele — Kreuzworträtsel und Memory (Wiederspielbarkeit, F-193)",
+    "",
+    `Stand ${STAND} · erzeugt aus \`apps/api/src/db/content/game-kreuzwortraetsel-*.ts\` und \`game-memory-*.ts\`. **Alle Inhalte sind Entwürfe.** Jedes Kreuzworträtsel und jedes Memory zieht bei jedem Spiel neu aus dem hier gelisteten Pool (Rätsel: 10 Wörter pro Spiel, Gitter jedes Mal neu; Memory: 6 von 10 Paaren je Runde). Sichtbar sind die Sets im Kurs erst nach Freigabe (Set \`fachbegriffe\` bzw. \`begriff-paare\` in \`kurs-angebot.ts\`).`,
+    "",
+    "**Prüffragen:** (1) Stimmt die Definition (Hinweis bzw. Bedeutung)? (2) Ist das Wort im Kurs üblich und nicht zu lang oder zu speziell? (3) Verrät der Hinweis oder Tipp die Lösung zu stark? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.",
+    "",
+  ];
+  for (const kurs of SPIELE_KURSE) {
+    const woerter = [...kurs.kreuz.woerter].sort((a, b) => a.loesung.localeCompare(b.loesung, "de"));
+    teile.push(`## ${kurs.titel}`, "", `**Zum Kurs:** ${kurs.hinweis}`, "");
+    teile.push(`### Kreuzworträtsel (${woerter.length} Wörter im Pool, ${kurs.kreuz.wortzahl} je Rätsel)`, "");
+    teile.push(tabelle(["Lösung", "Länge", "Hinweis", "Tipp"], woerter.map((wort) => [wort.loesung, String(wort.loesung.length), wort.hinweis, wort.tipp])), "");
+    teile.push(`### Memory (${kurs.memory.paare.length} Paare im Pool, ${kurs.memory.paareProRunde} je Runde)`, "");
+    for (const runde of kurs.memory.runden) {
+      teile.push(`**Runde ${runde.nummer}: ${runde.titel}**`, "");
+      teile.push(
+        tabelle(
+          ["Begriff", "Bedeutung"],
+          kurs.memory.paare.filter((paar) => paar.runde === runde.nummer).map((paar) => [paar.begriff, paar.bedeutung]),
+        ),
+        "",
+      );
+    }
+  }
+  return teile.join("\n");
+}
+
 const DV_BLATT: KursBlatt = {
   kurs: "fachinformatiker-digitale-vernetzung",
   titel: "Digitale Vernetzung",
@@ -1582,6 +1651,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [17 Handelsfachwirt](17-handelsfachwirt.md) | neue Zonen-Instrumente (ABC-Analyse, XYZ-Analyse, Handelskalkulation, Kraljic-Matrix), neue Theorie (Handelskalkulation, Kraljic-Matrix), Begriffe-Duell „Handel: ähnlich, aber nicht gleich“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [18 Immobilienfachwirt](18-immobilienfachwirt.md) | neue Zonen-Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen), Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Miet-, WEG- und Maklerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [19 Versicherungen/Finanzanlagen](19-versicherungen-finanzanlagen.md) | neue Zonen-Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik), Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Versicherungs-, Beratungs- und Steuerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
+    "| [20 Spiele: Kreuzworträtsel und Memory](20-spiele-kreuzwort-memory.md) | Wort- und Paar-Pools der neun Fachwirt-Kurse und der AEVO (Wiederspielbarkeit, F-193) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).",
     "",
@@ -1632,6 +1702,7 @@ function main() {
     ["17-handelsfachwirt.md", kursBlatt(HAN_BLATT)],
     ["18-immobilienfachwirt.md", kursBlatt(IMM_BLATT)],
     ["19-versicherungen-finanzanlagen.md", kursBlatt(VER_BLATT)],
+    ["20-spiele-kreuzwort-memory.md", spieleBlatt()],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

@@ -1,3 +1,4 @@
+import { layoutCrossword, createSeededRandom, seededShuffle } from "./kreuzwort-generator";
 import { shuffle } from "./quiz-logic";
 import type {
   KennzahlenDuellFrage,
@@ -35,6 +36,36 @@ export function normalizeKreuzwortraetselEingabe(eingabe: string): string {
     .replaceAll("ß", "SS");
 }
 
+/** Wort mit festen Gitterkoordinaten — das Ergebnis von `buildKreuzwortraetselPuzzle`. */
+export type PositionedKreuzwortraetselWort = KreuzwortraetselWort & {
+  richtung: "waagerecht" | "senkrecht";
+  startRow: number;
+  startCol: number;
+};
+export type KreuzwortraetselPuzzle = Omit<KreuzwortraetselPayload, "woerter"> & { woerter: PositionedKreuzwortraetselWort[] };
+
+/** F-193: Legt aus dem Wort-Pool des Sets ein Rätsel an. Mit Seed wird bei jedem Start eine andere Auswahl und Anordnung gebildet
+ * (derselbe Seed liefert dasselbe Rätsel, ein Neuladen verändert es also nicht). Ohne Seed (alter Spielstand vor F-193) bleibt das von
+ * Hand gebaute Gitter erhalten, sofern alle Wörter Positionen tragen; sonst wird mit festem Seed 1 angelegt. Die Rätselnummern laufen
+ * wie bei einem gedruckten Rätsel von oben links nach unten rechts. */
+export function buildKreuzwortraetselPuzzle(payload: KreuzwortraetselPayload, seed?: number | null): KreuzwortraetselPuzzle {
+  const hatPositionen = payload.woerter.every((wort) => wort.richtung !== undefined && wort.startRow !== undefined && wort.startCol !== undefined);
+  if ((seed === undefined || seed === null) && hatPositionen) {
+    return { ...payload, woerter: payload.woerter as PositionedKreuzwortraetselWort[] };
+  }
+  const platziert = layoutCrossword(payload.woerter, seed ?? 1, { wortzahl: payload.wortzahl ?? 10 });
+  return {
+    ...payload,
+    woerter: platziert.map((eintrag, index) => ({
+      ...eintrag.wort,
+      nummer: index + 1,
+      richtung: eintrag.richtung,
+      startRow: eintrag.startRow,
+      startCol: eintrag.startCol,
+    })),
+  };
+}
+
 export interface ShapedKreuzwortraetselWort {
   nummer: number;
   richtung: "waagerecht" | "senkrecht";
@@ -66,9 +97,10 @@ export function shapeKreuzwortraetsel(
     const geloest = solved.has(wort.nummer);
     return {
       nummer: wort.nummer,
-      richtung: wort.richtung,
-      startRow: wort.startRow,
-      startCol: wort.startCol,
+      // F-193: Nach `buildKreuzwortraetselPuzzle` tragen alle Wörter Positionen; die Rückfallwerte gelten nur für ein unaufbereitetes Pool-Payload.
+      richtung: wort.richtung ?? "waagerecht",
+      startRow: wort.startRow ?? 0,
+      startCol: wort.startCol ?? 0,
       laenge: wort.loesung.length,
       hinweis: wort.hinweis,
       tipp: wort.tipp,
@@ -131,6 +163,8 @@ export function verifyCrosswordGrid(woerter: KreuzwortraetselWort[]): string[] {
       errors.push(`Nummer ${wort.nummer} ist mehrfach vergeben.`);
     }
     numbersSeen.add(wort.nummer);
+    // F-193: Wörter eines reinen Wort-Pools tragen keine Positionen — dort gibt es nichts zu prüfen.
+    if (wort.richtung === undefined || wort.startRow === undefined || wort.startCol === undefined) continue;
 
     for (let offset = 0; offset < wort.loesung.length; offset += 1) {
       const row = wort.richtung === "senkrecht" ? wort.startRow + offset : wort.startRow;
@@ -145,6 +179,24 @@ export function verifyCrosswordGrid(woerter: KreuzwortraetselWort[]): string[] {
         );
       }
       cells.set(key, { letter, wordNummer: wort.nummer });
+    }
+  }
+
+  // F-193: Außerdem dürfen im Gitter keine ungewollten Buchstabenfolgen entstehen (zwei Wörter nebeneinander): Jede waagerechte
+  // und senkrechte Folge von mindestens zwei Buchstaben muss genau einem Wort entsprechen.
+  const positioniert = woerter.filter((wort) => wort.richtung !== undefined && wort.startRow !== undefined && wort.startCol !== undefined);
+  const belegt = new Set(cells.keys());
+  const wortStarts = new Set(positioniert.map((wort) => `${wort.richtung}:${wort.startRow},${wort.startCol}:${wort.loesung.length}`));
+  for (const richtung of ["waagerecht", "senkrecht"] as const) {
+    for (const k of belegt) {
+      const [row, col] = k.split(",").map(Number) as [number, number];
+      const davor = richtung === "waagerecht" ? `${row},${col - 1}` : `${row - 1},${col}`;
+      if (belegt.has(davor)) continue;
+      let laenge = 1;
+      while (belegt.has(richtung === "waagerecht" ? `${row},${col + laenge}` : `${row + laenge},${col}`)) laenge += 1;
+      if (laenge >= 2 && !wortStarts.has(`${richtung}:${row},${col}:${laenge}`)) {
+        errors.push(`Ungewollte ${richtung}e Buchstabenfolge ab Zelle (${row},${col}) mit ${laenge} Buchstaben.`);
+      }
     }
   }
 
@@ -207,10 +259,16 @@ export interface ShapedMemoryCard {
  * bewusst KEINE Paar-Zugehörigkeit zurück — die Prüfung identifiziert ein Paar stattdessen über
  * die beiden Original-Texte (siehe checkMemoryPaar), dieselbe "Sitzungszustand-frei"-Idee wie im
  * Instrumenten-Lernpfad. */
-export function shapeMemoryRunde(payload: MemoryPayload, runde: number): ShapedMemoryCard[] {
-  const paare = payload.paare.filter((candidate) => candidate.runde === runde);
+export function shapeMemoryRunde(payload: MemoryPayload, runde: number, seed?: number): ShapedMemoryCard[] {
+  const pool = payload.paare.filter((candidate) => candidate.runde === runde);
+  // F-193: Enthält die Runde mehr Paare als gezeigt werden (`paareProRunde`, Standard 6), wird bei jedem Spiel neu gezogen.
+  const random = seed === undefined ? Math.random : createSeededRandom(seed + runde * 7919);
+  const paare = pool.length > (payload.paareProRunde ?? 6) ? seededShuffle(pool, random).slice(0, payload.paareProRunde ?? 6) : pool;
   const cards = paare.flatMap((paar) => [paar.begriff, paar.bedeutung]);
-  return shuffle(cards.map((text, index) => ({ cardId: index, text })));
+  return seededShuffle(
+    cards.map((text, index) => ({ cardId: index, text })),
+    random,
+  );
 }
 
 /** Prüft GENAU einen aufgedeckten Kartenversuch — beide Texte müssen zum selben Paar (derselben

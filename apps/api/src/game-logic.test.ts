@@ -1,9 +1,12 @@
 import {
+  buildKreuzwortraetselPuzzle,
   checkKennzahlenDuellAntwort,
   checkKreuzwortraetselWort,
   checkMemoryPaar,
   kennzahlenDuellPayloadSchema,
+  type KreuzwortraetselPayload,
   kreuzwortraetselPayloadSchema,
+  type MemoryPayload,
   memoryPayloadSchema,
   normalizeKreuzwortraetselEingabe,
   shapeKennzahlenDuell,
@@ -16,6 +19,42 @@ import { kennzahlenDuellItBegriffe } from "./db/content/game-kennzahlen-duell-it
 import { kreuzwortraetselFinanzkennzahlen } from "./db/content/game-kreuzwortraetsel-finanzkennzahlen";
 import { kreuzwortraetselItFachbegriffe } from "./db/content/game-kreuzwortraetsel-it-fachbegriffe";
 import { memoryItBegriffe } from "./db/content/game-memory-it-begriffe";
+import { memoryPersonalkennzahlen } from "./db/content/game-memory-personalkennzahlen";
+import { pruefeKreuzwortPool, pruefeMemoryPool } from "./db/game-pool-pruefung";
+
+/**
+ * F-193: Die Pools wurden um kurze Wörter bzw. Paare erweitert (Nummer 11 ff. bzw. 25 ff.); die alten Einträge blieben unverändert
+ * und erfüllen die neuen Pool-Regeln wegen langer Fachwörter bzw. ausführlicher Texte nicht. Deshalb prüft die Pool-Prüfung hier nur den
+ * neuen Teil (Kreuzworträtsel: alle Wörter ab Nummer 11 als eigener Pool; Memory: Meldungen zu den Paaren ab Nummer 25).
+ */
+function fehlerNeueKreuzwortWoerter(payload: KreuzwortraetselPayload): string[] {
+  const neue = payload.woerter.filter((wort) => wort.nummer > 10);
+  const fehler = pruefeKreuzwortPool({ ...payload, woerter: neue }, { mindestPool: 16 });
+  for (const wort of neue) {
+    if (wort.richtung !== undefined || wort.startRow !== undefined || wort.startCol !== undefined) fehler.push(`${wort.loesung}: neue Wörter tragen keine Gitterposition.`);
+    if (wort.loesung.length > 10) fehler.push(`${wort.loesung}: neue Wörter haben höchstens 10 Buchstaben.`);
+    if (wort.hinweis.length > 110) fehler.push(`${wort.loesung}: Hinweis länger als 110 Zeichen.`);
+    if (wort.tipp.length > 60) fehler.push(`${wort.loesung}: Tipp länger als 60 Zeichen.`);
+  }
+  for (let seed = 1; seed <= 20; seed += 1) {
+    const puzzle = buildKreuzwortraetselPuzzle(payload, seed);
+    if (puzzle.woerter.length < 9) fehler.push(`Seed ${seed}: nur ${puzzle.woerter.length} Wörter im Rätsel.`);
+    fehler.push(...verifyCrosswordGrid(puzzle.woerter));
+  }
+  return fehler;
+}
+
+function fehlerNeueMemoryPaare(payload: MemoryPayload): string[] {
+  const fehler = pruefeMemoryPool(payload).filter((meldung) => {
+    const treffer = /^Paar (\d+):/.exec(meldung);
+    return !treffer || Number(treffer[1]) > 24;
+  });
+  for (const paar of payload.paare.filter((kandidat) => kandidat.nummer > 24)) {
+    if (paar.begriff.length > 30) fehler.push(`Paar ${paar.nummer}: Begriff länger als 30 Zeichen.`);
+    if (paar.bedeutung.length > 56) fehler.push(`Paar ${paar.nummer}: Bedeutung länger als 56 Zeichen.`);
+  }
+  return fehler;
+}
 
 describe("F-141: Kreuzworträtsel-Gitter „Finanzkennzahlen“", () => {
   it("hat an jeder gemeinsam belegten Gitterzelle übereinstimmende Kreuzungsbuchstaben", () => {
@@ -52,6 +91,15 @@ describe("F-141: Kreuzworträtsel-Gitter „Finanzkennzahlen“", () => {
     const result = checkKreuzwortraetselWort(kreuzwortraetselFinanzkennzahlen, 7, "EBITDA");
     expect(result.correct).toBe(false);
     expect(result.bestaetigung).toBeNull();
+  });
+
+  it("F-193: Wort-Pool mit mindestens 26 Wörtern, zehn je Rätsel, überwiegend kurze Wörter, wechselnde fehlerfreie Gitter", () => {
+    const payload = kreuzwortraetselPayloadSchema.parse(kreuzwortraetselFinanzkennzahlen);
+    expect(payload.woerter.length).toBeGreaterThanOrEqual(26);
+    expect(payload.wortzahl).toBe(10);
+    expect(new Set(payload.woerter.map((wort) => wort.loesung)).size).toBe(payload.woerter.length);
+    expect(payload.woerter.filter((wort) => wort.loesung.length <= 8).length).toBeGreaterThanOrEqual(payload.woerter.length * 0.6);
+    expect(fehlerNeueKreuzwortWoerter(payload)).toEqual([]);
   });
 });
 
@@ -114,14 +162,28 @@ describe("F-143: Kennzahlen-Memory „Personal“", () => {
     expect(result.correct).toBe(false);
     expect(result.bestaetigung).toBeNull();
   });
+
+  it("F-193: Personal-Memory-Pool mit 40 Paaren in vier Runden à zehn (paareProRunde 6), Kartentexte eindeutig", () => {
+    const pool = memoryPayloadSchema.parse(memoryPersonalkennzahlen);
+    expect(pool.paare).toHaveLength(40);
+    expect(pool.paareProRunde).toBe(6);
+    for (const runde of [1, 2, 3, 4]) {
+      expect(pool.paare.filter((paar) => paar.runde === runde)).toHaveLength(10);
+    }
+    expect(new Set(pool.paare.flatMap((paar) => [paar.begriff, paar.bedeutung])).size).toBe(80);
+    expect(fehlerNeueMemoryPaare(pool)).toEqual([]);
+  });
 });
 
 describe("F-157: Spiele-Content für die Fachinformatiker-Kurse", () => {
-  it("Kreuzworträtsel: Payload gültig, zehn Wörter, Gitter ohne Kreuzungskonflikte", () => {
+  it("Kreuzworträtsel: Payload gültig, Wort-Pool mit mindestens 26 Wörtern (zehn je Rätsel), Gitter ohne Kreuzungskonflikte", () => {
     const payload = kreuzwortraetselPayloadSchema.parse(kreuzwortraetselItFachbegriffe);
-    expect(payload.woerter).toHaveLength(10);
+    expect(payload.woerter.length).toBeGreaterThanOrEqual(26);
+    expect(payload.wortzahl).toBe(10);
     expect(verifyCrosswordGrid(payload.woerter)).toEqual([]);
-    expect(new Set(payload.woerter.map((wort) => wort.loesung)).size).toBe(10);
+    expect(new Set(payload.woerter.map((wort) => wort.loesung)).size).toBe(payload.woerter.length);
+    expect(payload.woerter.filter((wort) => wort.loesung.length <= 8).length).toBeGreaterThanOrEqual(payload.woerter.length * 0.6);
+    expect(fehlerNeueKreuzwortWoerter(payload)).toEqual([]);
   });
 
   it("Begriffe-Duell: Payload gültig, 20 Fragen in vier Runden à fünf, richtige Antwort ausgewogen", () => {
@@ -136,13 +198,15 @@ describe("F-157: Spiele-Content für die Fachinformatiker-Kurse", () => {
     expect(anzahlA).toBeLessThanOrEqual(12);
   });
 
-  it("IT-Memory: Payload gültig, 24 Paare in vier Runden à sechs, keine doppelten Begriffe oder Bedeutungen", () => {
+  it("IT-Memory: Payload gültig, 40 Paare in vier Runden à zehn (paareProRunde 6), keine doppelten Begriffe oder Bedeutungen", () => {
     const payload = memoryPayloadSchema.parse(memoryItBegriffe);
-    expect(payload.paare).toHaveLength(24);
+    expect(payload.paare).toHaveLength(40);
+    expect(payload.paareProRunde).toBe(6);
     for (const runde of [1, 2, 3, 4]) {
-      expect(payload.paare.filter((paar) => paar.runde === runde)).toHaveLength(6);
+      expect(payload.paare.filter((paar) => paar.runde === runde)).toHaveLength(10);
     }
-    expect(new Set(payload.paare.map((paar) => paar.begriff)).size).toBe(24);
-    expect(new Set(payload.paare.map((paar) => paar.bedeutung)).size).toBe(24);
+    expect(new Set(payload.paare.map((paar) => paar.begriff)).size).toBe(40);
+    expect(new Set(payload.paare.map((paar) => paar.bedeutung)).size).toBe(40);
+    expect(fehlerNeueMemoryPaare(payload)).toEqual([]);
   });
 });

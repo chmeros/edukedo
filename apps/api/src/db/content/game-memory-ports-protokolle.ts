@@ -2,7 +2,8 @@ import type { MemoryPayload } from "@edukedo/shared";
 
 /**
  * Gaming-Tab: „IT-Memory: Ports und Protokolle" für die Fachinformatiker/in-Kurse
- * (24 Protokoll-/Dienst-Paare in vier Themenrunden à sechs Paare, Protokoll mit Standardport ↔ Bedeutung).
+ * (Pool aus 40 Protokoll-/Dienst-Paaren in vier Themenrunden à zehn Paare, Protokoll mit Standardport ↔ Bedeutung;
+ * je Spiel werden daraus sechs Paare je Runde gezogen, F-193 — das ursprüngliche Set hatte 24 Paare à sechs).
  * Es gelten die von der IANA registrierten Standardports.
  */
 export const memoryPortsProtokolle: MemoryPayload = {
@@ -197,8 +198,122 @@ export const memoryPortsProtokolle: MemoryPayload = {
       bedeutung: "Protokoll, das im lokalen Netz zu einer bekannten IPv4-Adresse die zugehörige Hardwareadresse ermittelt.",
       bestaetigung: "Richtig! Ein Gerät fragt per Broadcast, wer eine bestimmte IP-Adresse hat, und der Besitzer antwortet mit seiner MAC-Adresse. Bei IPv6 übernimmt diese Aufgabe das Neighbor Discovery Protocol.",
     },
+    // F-193: Pool-Erweiterung auf 10 Paare je Runde (Nummer 25 ff.); je Spiel werden daraus sechs Paare je Runde gezogen.
+    {
+      nummer: 25,
+      runde: 1,
+      begriff: "POP3S (Port 995)",
+      bedeutung: "Mailabruf per POP3, von Beginn an mit TLS gesichert",
+      bestaetigung: "Richtig! Die Verbindung ist von der ersten Sekunde an verschlüsselt, die Mails werden aber wie bei POP3 auf das Gerät geladen.",
+    },
+    {
+      nummer: 26,
+      runde: 1,
+      begriff: "SMTPS (Port 465)",
+      bedeutung: "Mailversand, von Beginn an per TLS gesichert",
+      bestaetigung: "Genau! Alternativ wird auf Port 587 zunächst unverschlüsselt verbunden und die Verschlüsselung dann per STARTTLS eingeschaltet.",
+    },
+    {
+      nummer: 27,
+      runde: 1,
+      begriff: "HTTP-Alt (Port 8080)",
+      bedeutung: "Häufiger Ausweichport für Webserver und Proxys",
+      bestaetigung: "Stimmt! Er ist nur eine Konvention; auch hier läuft normales HTTP, wenn der Standardport nicht verwendet wird.",
+    },
+    {
+      nummer: 28,
+      runde: 1,
+      begriff: "HTTP/3 (UDP, Port 443)",
+      bedeutung: "Neueres Webprotokoll auf Basis von QUIC über UDP",
+      bestaetigung: "Richtig! Statt TCP nutzt es UDP und bringt die Verschlüsselung gleich mit.",
+    },
+    {
+      nummer: 29,
+      runde: 2,
+      begriff: "FTPS (Port 990)",
+      bedeutung: "Klassische Dateiübertragung, mit TLS gesichert",
+      bestaetigung: "Genau! FTPS ist nicht dasselbe wie SFTP, das als Teil des gesicherten Fernzugriffsprotokolls läuft.",
+    },
+    {
+      nummer: 30,
+      runde: 2,
+      begriff: "NFS (Port 2049)",
+      bedeutung: "Netzwerkdateisystem, vor allem unter Linux und Unix",
+      bestaetigung: "Richtig! Clients binden damit Verzeichnisse eines Servers ein, als lägen sie lokal.",
+    },
+    {
+      nummer: 31,
+      runde: 2,
+      begriff: "iSCSI (Port 3260)",
+      bedeutung: "Blockspeicher über das IP-Netz, etwa für ein SAN",
+      bestaetigung: "Genau! Der Server nutzt den zugewiesenen Bereich wie eine lokale Platte und legt darauf sein eigenes Dateisystem an.",
+    },
+    {
+      nummer: 32,
+      runde: 2,
+      begriff: "TFTP (Port 69)",
+      bedeutung: "Sehr einfache Dateiübertragung ohne Anmeldung",
+      bestaetigung: "Stimmt! Es wird zum Beispiel für Gerätekonfigurationen und Startdateien genutzt und ist nur für vertrauenswürdige Netze geeignet.",
+    },
+    {
+      nummer: 33,
+      runde: 3,
+      begriff: "RADIUS (Port 1812)",
+      bedeutung: "Zentrale Anmeldeprüfung für Netzzugänge",
+      bestaetigung: "Richtig! Zum Beispiel WLAN- oder VPN-Zugänge fragen einen zentralen Server, ob eine Anmeldung erlaubt ist.",
+    },
+    {
+      nummer: 34,
+      runde: 3,
+      begriff: "Kerberos (Port 88)",
+      bedeutung: "Anmeldung mit Tickets in Verzeichnisdienst-Umgebungen",
+      bestaetigung: "Genau! Nach der Anmeldung stellt ein zentraler Dienst Tickets aus, mit denen man auf weitere Dienste zugreift.",
+    },
+    {
+      nummer: 35,
+      runde: 3,
+      begriff: "LDAPS (Port 636)",
+      bedeutung: "Verzeichnisabfrage, von Beginn an per TLS gesichert",
+      bestaetigung: "Richtig! Es ist die verschlüsselte Variante des Verzeichnisprotokolls LDAP.",
+    },
+    {
+      nummer: 36,
+      runde: 3,
+      begriff: "DNS über TLS (Port 853)",
+      bedeutung: "Verschlüsselte Namensauflösung zum DNS-Server",
+      bestaetigung: "Genau! Dritte können dadurch nicht mitlesen, welche Namen ein Gerät auflösen lässt.",
+    },
+    {
+      nummer: 37,
+      runde: 4,
+      begriff: "SSL (Secure Sockets Layer)",
+      bedeutung: "Veralteter Vorgänger von TLS, gilt als unsicher",
+      bestaetigung: "Richtig! Die alten SSL-Versionen sollte man nicht mehr einsetzen, obwohl der Name oft noch verwendet wird.",
+    },
+    {
+      nummer: 38,
+      runde: 4,
+      begriff: "OSPF",
+      bedeutung: "Routingprotokoll, das kürzeste Wege im Netz berechnet",
+      bestaetigung: "Genau! Router tauschen damit Informationen über ihre Netze aus und wählen daraus den günstigsten Weg.",
+    },
+    {
+      nummer: 39,
+      runde: 4,
+      begriff: "BGP (Border Gateway Protocol)",
+      bedeutung: "Routingprotokoll zwischen Netzen verschiedener Betreiber",
+      bestaetigung: "Richtig! Es verbindet die großen Netze des Internets miteinander.",
+    },
+    {
+      nummer: 40,
+      runde: 4,
+      begriff: "WPA3 (WLAN-Verschlüsselung)",
+      bedeutung: "Aktueller Sicherheitsstandard für Funknetze",
+      bestaetigung: "Genau! Ältere Verfahren wie WPA2 gelten als weniger sicher.",
+    },
   ],
+  paareProRunde: 6,
   falschesPaarFeedback: "Das ist noch kein Paar. Schau dir beide Aussagen genau an und versuche es erneut.",
   abschlussmeldung:
-    "Geschafft! Du hast 24 wichtige Protokolle und Dienste kennengelernt. Du kannst nun Standardports und Aufgaben aus Web, E-Mail, Fernzugriff, Netzwerkdiensten und Netzwerksicherheit sicherer zuordnen.",
+    "Geschafft! Du hast 24 wichtige Protokolle und Dienste kennengelernt. Du kannst nun Standardports und Aufgaben aus Web, E-Mail, Fernzugriff, Netzwerkdiensten und Netzwerksicherheit sicherer zuordnen. Mit „Noch einmal spielen“ bekommst du neue Karten.",
 };

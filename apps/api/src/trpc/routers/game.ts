@@ -31,7 +31,9 @@ import {
   zahlensystemePayloadSchema,
   type SubnettingParams,
   type ZahlensystemParams,
+  buildKreuzwortraetselPuzzle,
   buildKreuzwortraetselWordBank,
+  randomSeed,
   checkKennzahlenDuellAntwort,
   checkKreuzwortraetselWort,
   checkMemoryPaar,
@@ -118,11 +120,13 @@ async function upsertProgress(db: Database, userId: string, gameId: string, stat
 interface KreuzwortraetselProgressState {
   variant: KreuzwortraetselVariant | null;
   solvedWordNumbers: number[];
+  /** F-193: Seed des aktuellen Rätsels (Auswahl und Anordnung der Wörter); fehlt bei Spielständen vor F-193 (dann bleibt das alte Gitter). */
+  seed?: number;
 }
 
 function parseKreuzwortraetselState(raw: unknown): KreuzwortraetselProgressState {
   const state = (raw ?? {}) as Partial<KreuzwortraetselProgressState>;
-  return { variant: state.variant ?? null, solvedWordNumbers: state.solvedWordNumbers ?? [] };
+  return { variant: state.variant ?? null, solvedWordNumbers: state.solvedWordNumbers ?? [], seed: state.seed };
 }
 
 // ---------------------------------------------------------------------------
@@ -209,11 +213,12 @@ export const gameRouter = router({
     const payload = kreuzwortraetselPayloadSchema.parse(row.payload);
     const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
     const state = parseKreuzwortraetselState(progressRow?.state);
+    const puzzle = buildKreuzwortraetselPuzzle(payload, state.seed);
 
     return {
       variant: state.variant,
-      woerter: shapeKreuzwortraetsel(payload, state.solvedWordNumbers),
-      wordBank: state.variant === "einfach" ? buildKreuzwortraetselWordBank(payload, state.solvedWordNumbers) : null,
+      woerter: shapeKreuzwortraetsel(puzzle, state.solvedWordNumbers),
+      wordBank: state.variant === "einfach" ? buildKreuzwortraetselWordBank(puzzle, state.solvedWordNumbers) : null,
       falschEinfachFeedback: payload.falschEinfachFeedback,
       falschAnspruchsvollFeedback: payload.falschAnspruchsvollFeedback,
       unvollstaendigFeedback: payload.unvollstaendigFeedback,
@@ -227,22 +232,24 @@ export const gameRouter = router({
    * Eingaben und die gesperrten Wörter dieses Rätseldurchlaufs zurück"). */
   startKreuzwortraetsel: protectedProcedure.input(startKreuzwortraetselInputSchema).mutation(async ({ ctx, input }) => {
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel", input.setKey);
-    await upsertProgress(ctx.db, ctx.currentUser.id, row.id, { variant: input.variant, solvedWordNumbers: [] }, null);
+    // F-193: Jeder Start zieht einen neuen Seed — Auswahl und Anordnung der Wörter ändern sich, das Rätsel ist wiederspielbar.
+    await upsertProgress(ctx.db, ctx.currentUser.id, row.id, { variant: input.variant, solvedWordNumbers: [], seed: randomSeed() }, null);
     return { success: true };
   }),
 
   submitKreuzwortraetselWort: protectedProcedure.input(submitKreuzwortraetselWortInputSchema).mutation(async ({ ctx, input }) => {
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "kreuzwortraetsel", input.setKey);
     const payload = kreuzwortraetselPayloadSchema.parse(row.payload);
-    const result = checkKreuzwortraetselWort(payload, input.nummer, input.eingabe);
+    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
+    const state = parseKreuzwortraetselState(progressRow?.state);
+    const puzzle = buildKreuzwortraetselPuzzle(payload, state.seed);
+    const result = checkKreuzwortraetselWort(puzzle, input.nummer, input.eingabe);
 
     if (result.correct) {
-      const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
-      const state = parseKreuzwortraetselState(progressRow?.state);
       if (!state.solvedWordNumbers.includes(input.nummer)) {
         state.solvedWordNumbers.push(input.nummer);
       }
-      const completed = state.solvedWordNumbers.length === payload.woerter.length;
+      const completed = state.solvedWordNumbers.length === puzzle.woerter.length;
       await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
     }
 
@@ -289,7 +296,7 @@ export const gameRouter = router({
 
     return {
       runden: payload.runden,
-      karten: shapeMemoryRunde(payload, input.runde),
+      karten: shapeMemoryRunde(payload, input.runde, input.seed),
       falschesPaarFeedback: payload.falschesPaarFeedback,
       abschlussmeldung: payload.abschlussmeldung,
       abgeschlosseneRunden: state.completedRoundNumbers,

@@ -223,6 +223,11 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
   return (KURS_ENTWURF[kursSlug] ?? []).includes(typ);
 }
 
+/**
+ * F-193: Kreuzworträtsel (Set "fachbegriffe") und Memory (Set "begriff-paare") der Fachwirt-Kurse und der AEVO sind neue, noch ungeprüfte Inhalte.
+ * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
+ * Freigabe: je Kurs `["kreuzwortraetsel", "fachbegriffe", "kern"]` und `["memory", "begriff-paare", "kern"]` an die Stelle des Platzhalters setzen.
+ */
 export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
@@ -325,9 +330,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa", "kalkulation"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "kosten-leistungen", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -338,9 +343,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "fertigungsverfahren", "top", "ishikawa6m", "kalkulation"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "technische-unterscheidungen", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -350,9 +355,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE("gantt"), "investition", "vierseiten"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "finanzierung-controlling", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -363,9 +368,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE("bsc", "gantt"), "verkehrstraeger", "abc"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -376,9 +381,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "abc", "xyz", "handelskalkulation", "kraljic"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "handel-aehnlich", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -390,9 +395,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "wertermittlung"]),
     werkzeuge: liste(["netzplan"]),
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -404,9 +409,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "versicherungskennzahlen"]),
     werkzeuge: liste(["netzplan"]),
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -430,9 +435,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE(), "donabedian"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -443,9 +448,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler", "vierstufen"]),
     werkzeuge: [],
     spiele: spiele([
-      ["kreuzwortraetsel", null, "kern"],
+      ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
-      ["memory", null, "kern"],
+      ["memory", "standard", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},

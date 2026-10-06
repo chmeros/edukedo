@@ -1,3 +1,4 @@
+import { randomSeed } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
@@ -27,6 +28,8 @@ interface Karte {
 export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { kursId: string; setKey?: string; title: string; onClose: () => void }) {
   const utils = trpc.useUtils();
   const [aktiveRunde, setAktiveRunde] = useState<number | null>(null);
+  // F-193: Seed für die Ziehung der Paare und das Mischen der Karten; ein neuer Seed gibt neue Karten.
+  const [seed, setSeed] = useState(() => randomSeed());
   const [aufgedeckt, setAufgedeckt] = useState<number[]>([]);
   const [gefunden, setGefunden] = useState<number[]>([]);
   const [falschesPaar, setFalschesPaar] = useState<number[] | null>(null);
@@ -45,10 +48,10 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
     setAktiveRunde(naturalStart);
   }, [bootstrap.data, aktiveRunde]);
 
-  const data = trpc.game.getMemory.useQuery({ kursId, setKey, runde: aktiveRunde ?? 1 }, { enabled: aktiveRunde !== null });
+  const data = trpc.game.getMemory.useQuery({ kursId, setKey, runde: aktiveRunde ?? 1, seed }, { enabled: aktiveRunde !== null });
   const submitPaar = trpc.game.submitMemoryPaar.useMutation();
   const completeRound = trpc.game.completeMemoryRound.useMutation({
-    onSuccess: () => utils.game.getMemory.invalidate({ kursId, setKey, runde: aktiveRunde ?? 1 }),
+    onSuccess: () => utils.game.getMemory.invalidate({ kursId, setKey, runde: aktiveRunde ?? 1, seed }),
   });
 
   useEffect(() => {
@@ -56,7 +59,7 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
     setGefunden([]);
     setFalschesPaar(null);
     setBestaetigung(null);
-  }, [aktiveRunde]);
+  }, [aktiveRunde, seed]);
 
   function karteAufdecken(karte: Karte, karten: Karte[]) {
     if (submitPaar.isPending || aufgedeckt.length === 2 || gefunden.includes(karte.cardId) || aufgedeckt.includes(karte.cardId)) {
@@ -130,6 +133,18 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
                 </div>
               )
             )}
+            {!naechsteRunde && (
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  setSeed(randomSeed());
+                  setAktiveRunde(1);
+                }}
+              >
+                Noch einmal spielen
+              </button>
+            )}
             <button type="button" className="btn btn-secondary" onClick={onClose}>
               Schluss für heute
             </button>
@@ -137,9 +152,14 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
         </div>
       ) : (
         <div className="stack">
-          <span className="due-count">
-            {Math.floor(gefunden.length / 2)} von {runde.karten.length / 2} Paaren
-          </span>
+          <div className="list-row-actions">
+            <span className="due-count">
+              {Math.floor(gefunden.length / 2)} von {runde.karten.length / 2} Paaren
+            </span>
+            <button type="button" className="btn btn-ghost btn-sm" onClick={() => setSeed(randomSeed())}>
+              Neue Karten
+            </button>
+          </div>
           <div className="quadrant-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
             {runde.karten.map((karte) => {
               const istGefunden = gefunden.includes(karte.cardId);

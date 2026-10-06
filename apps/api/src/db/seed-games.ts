@@ -31,6 +31,24 @@ import { kennzahlenDuellSqlDatenmodellierung } from "./content/game-kennzahlen-d
 import { kennzahlenDuellTechnischeUnterscheidungen } from "./content/game-kennzahlen-duell-technische-unterscheidungen";
 import { kennzahlenDuellVersicherungAehnlich } from "./content/game-kennzahlen-duell-versicherung-aehnlich";
 import { kreuzwortraetselNetzwerkSicherheit } from "./content/game-kreuzwortraetsel-netzwerk-sicherheit";
+import { kreuzwortraetselAevo } from "./content/game-kreuzwortraetsel-aevo";
+import { memoryAevo } from "./content/game-memory-aevo";
+import { kreuzwortraetselGesundheitSoziales } from "./content/game-kreuzwortraetsel-gesundheit-soziales";
+import { memoryGesundheitSoziales } from "./content/game-memory-gesundheit-soziales";
+import { kreuzwortraetselIndustrie } from "./content/game-kreuzwortraetsel-industrie";
+import { memoryIndustrie } from "./content/game-memory-industrie";
+import { kreuzwortraetselTechnik } from "./content/game-kreuzwortraetsel-technik";
+import { memoryTechnik } from "./content/game-memory-technik";
+import { kreuzwortraetselWirtschaft } from "./content/game-kreuzwortraetsel-wirtschaft";
+import { memoryWirtschaft } from "./content/game-memory-wirtschaft";
+import { kreuzwortraetselLogistik } from "./content/game-kreuzwortraetsel-logistik";
+import { memoryLogistik } from "./content/game-memory-logistik";
+import { kreuzwortraetselHandel } from "./content/game-kreuzwortraetsel-handel";
+import { memoryHandel } from "./content/game-memory-handel";
+import { kreuzwortraetselImmobilien } from "./content/game-kreuzwortraetsel-immobilien";
+import { memoryImmobilien } from "./content/game-memory-immobilien";
+import { kreuzwortraetselVersicherung } from "./content/game-kreuzwortraetsel-versicherung";
+import { memoryVersicherung } from "./content/game-memory-versicherung";
 import { memoryPortsProtokolle } from "./content/game-memory-ports-protokolle";
 import { phishingItAlltag } from "./content/game-phishing-it-alltag";
 import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-industrie-iot";
@@ -356,6 +374,81 @@ async function main() {
     kennzahlenDuellPayloadSchema.parse(kennzahlenDuellVersicherungAehnlich),
     "versicherung-aehnlich",
   );
+
+  // F-193: Kreuzworträtsel- und Memory-Pools (Wiederspielbarkeit) für die Fachwirt-Kurse und die AEVO; setKeys "fachbegriffe" und "begriff-paare".
+  // Sichtbar erst nach Freigabe: In kurs-angebot.ts stehen sie noch nicht in der Spieleliste.
+  await upsertGame(
+    "ausbildung-der-ausbilder",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Ausbildung",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselAevo),
+    "fachbegriffe",
+  );
+  await upsertGame("ausbildung-der-ausbilder", "memory", "Memory: Begriffe der Ausbildung", memoryPayloadSchema.parse(memoryAevo), "begriff-paare");
+  await upsertGame(
+    "fachwirt-gesundheit-soziales",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe im Gesundheits- und Sozialwesen",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselGesundheitSoziales),
+    "fachbegriffe",
+  );
+  await upsertGame("fachwirt-gesundheit-soziales", "memory", "Memory: Begriffe im Gesundheits- und Sozialwesen", memoryPayloadSchema.parse(memoryGesundheitSoziales), "begriff-paare");
+  await upsertGame(
+    "industriefachwirt",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Industrie",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselIndustrie),
+    "fachbegriffe",
+  );
+  await upsertGame("industriefachwirt", "memory", "Memory: Begriffe der Industrie", memoryPayloadSchema.parse(memoryIndustrie), "begriff-paare");
+  await upsertGame(
+    "technischer-fachwirt",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Technik",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselTechnik),
+    "fachbegriffe",
+  );
+  await upsertGame("technischer-fachwirt", "memory", "Memory: Begriffe der Technik", memoryPayloadSchema.parse(memoryTechnik), "begriff-paare");
+  await upsertGame(
+    "wirtschaftsfachwirt",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Wirtschaft",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselWirtschaft),
+    "fachbegriffe",
+  );
+  await upsertGame("wirtschaftsfachwirt", "memory", "Memory: Begriffe der Wirtschaft", memoryPayloadSchema.parse(memoryWirtschaft), "begriff-paare");
+  await upsertGame(
+    "transport-management-logistics",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Logistik",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselLogistik),
+    "fachbegriffe",
+  );
+  await upsertGame("transport-management-logistics", "memory", "Memory: Begriffe der Logistik", memoryPayloadSchema.parse(memoryLogistik), "begriff-paare");
+  await upsertGame(
+    "handelsfachwirt",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe des Handels",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselHandel),
+    "fachbegriffe",
+  );
+  await upsertGame("handelsfachwirt", "memory", "Memory: Begriffe des Handels", memoryPayloadSchema.parse(memoryHandel), "begriff-paare");
+  await upsertGame(
+    "immobilienfachwirt",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Immobilienwirtschaft",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselImmobilien),
+    "fachbegriffe",
+  );
+  await upsertGame("immobilienfachwirt", "memory", "Memory: Begriffe der Immobilienwirtschaft", memoryPayloadSchema.parse(memoryImmobilien), "begriff-paare");
+  await upsertGame(
+    "versicherungen-finanzanlagen",
+    "kreuzwortraetsel",
+    "Kreuzworträtsel: Begriffe der Versicherung",
+    kreuzwortraetselPayloadSchema.parse(kreuzwortraetselVersicherung),
+    "fachbegriffe",
+  );
+  await upsertGame("versicherungen-finanzanlagen", "memory", "Memory: Begriffe der Versicherung", memoryPayloadSchema.parse(memoryVersicherung), "begriff-paare");
 
   await pool.end();
 }

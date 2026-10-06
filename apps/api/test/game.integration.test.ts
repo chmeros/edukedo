@@ -168,53 +168,93 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
   });
 
   describe("Kreuzworträtsel", () => {
+    // F-193: Rätselnummern und Anordnung entstehen bei jedem Start neu (Seed); die Lösung zu einem Wort wird deshalb über den Hinweistext aus dem Content gefunden.
+    interface RaetselWort {
+      nummer: number;
+      hinweis: string;
+      laenge: number;
+      geloest: boolean;
+      startRow: number;
+      startCol: number;
+      richtung: string;
+    }
+    const loesungZu = (hinweis: string): string => kreuzwortraetselFinanzkennzahlen.woerter.find((wort) => wort.hinweis === hinweis)!.loesung;
+    const ladeRaetsel = async () => (await callQuery("game.getKreuzwortraetsel", { kursId })).json().result.data;
+
     it("liefert vor einer Variantenwahl keine Wortkarten und keine Lösungen", async () => {
       const response = await callQuery("game.getKreuzwortraetsel", { kursId });
       expect(response.statusCode).toBe(200);
       const data = response.json().result.data;
       expect(data.variant).toBeNull();
       expect(data.wordBank).toBeNull();
-      expect(data.woerter).toHaveLength(10);
+      expect(data.woerter.length).toBeGreaterThanOrEqual(9);
       expect(data.woerter.every((wort: { loesung: string | null }) => wort.loesung === null)).toBe(true);
     });
 
-    it("zeigt nach Wahl der einfachen Variante alle zehn Begriffe als Wortkarten", async () => {
+    it("zeigt nach Wahl der einfachen Variante alle Begriffe des Rätsels als Wortkarten", async () => {
       const startResponse = await callMutation("game.startKreuzwortraetsel", { kursId, variant: "einfach" });
       expect(startResponse.statusCode).toBe(200);
 
-      const response = await callQuery("game.getKreuzwortraetsel", { kursId });
-      const data = response.json().result.data;
+      const data = await ladeRaetsel();
       expect(data.variant).toBe("einfach");
-      expect(data.wordBank).toHaveLength(10);
-      expect(data.wordBank).toContain("EBIT");
+      expect(data.wordBank).toHaveLength(data.woerter.length);
+      expect(data.wordBank).toContain(loesungZu(data.woerter[0].hinweis));
+    });
+
+    it("liefert für denselben Spielstand bei jedem Laden dasselbe Rätsel (ein Neuladen verändert es nicht)", async () => {
+      const erstes = await ladeRaetsel();
+      const zweites = await ladeRaetsel();
+      expect(zweites.woerter).toEqual(erstes.woerter);
+    });
+
+    it("liefert nach jedem neuen Start ein anderes Rätsel (Wiederspielbarkeit)", async () => {
+      const layouts = new Set<string>();
+      for (let i = 0; i < 6; i += 1) {
+        await callMutation("game.startKreuzwortraetsel", { kursId, variant: "einfach" });
+        const data = await ladeRaetsel();
+        layouts.add(
+          data.woerter
+            .map((wort: RaetselWort) => `${wort.hinweis}@${wort.richtung},${wort.startRow},${wort.startCol}`)
+            .sort()
+            .join("|"),
+        );
+      }
+      expect(layouts.size).toBeGreaterThanOrEqual(4);
     });
 
     it("wertet eine richtige Zuordnung und speichert den Spielstand, vergibt aber keine Belohnung (Fortschritt entsteht nur im Lernen-Tab)", async () => {
+      await callMutation("game.startKreuzwortraetsel", { kursId, variant: "einfach" });
+      const raetsel = await ladeRaetsel();
+      const wort: RaetselWort = raetsel.woerter[0];
+      const loesung = loesungZu(wort.hinweis);
+
       const before = await currentMascotFoodAndCredits();
       const eventsBefore = await learningEventCount();
 
-      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
+      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: wort.nummer, eingabe: loesung });
       expect(response.statusCode).toBe(200);
       const result = response.json().result.data;
       expect(result.correct).toBe(true);
-      expect(result.bestaetigung).toContain("EBIT");
+      expect(typeof result.bestaetigung).toBe("string");
 
       const after = await currentMascotFoodAndCredits();
       expect(after.mascotFood).toBe(before.mascotFood);
       expect(after.credits).toBe(before.credits);
       expect(await learningEventCount()).toBe(eventsBefore);
 
-      const getResponse = await callQuery("game.getKreuzwortraetsel", { kursId });
-      const wort = getResponse.json().result.data.woerter.find((entry: { nummer: number }) => entry.nummer === 7);
-      expect(wort.geloest).toBe(true);
-      expect(getResponse.json().result.data.wordBank).not.toContain("EBIT");
+      const data = await ladeRaetsel();
+      expect(data.woerter.find((entry: RaetselWort) => entry.nummer === wort.nummer).geloest).toBe(true);
+      expect(data.wordBank).not.toContain(loesung);
     });
 
     it("vergibt auch bei wiederholten richtigen Antworten nichts (kein Farmen möglich)", async () => {
+      const raetsel = await ladeRaetsel();
+      const wort: RaetselWort = raetsel.woerter[0];
+      const loesung = loesungZu(wort.hinweis);
       const before = await currentMascotFoodAndCredits();
       const eventsBefore = await learningEventCount();
-      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
-      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 7, eingabe: "EBIT" });
+      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: wort.nummer, eingabe: loesung });
+      await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: wort.nummer, eingabe: loesung });
       const after = await currentMascotFoodAndCredits();
       expect(after.mascotFood).toBe(before.mascotFood);
       expect(after.credits).toBe(before.credits);
@@ -222,25 +262,42 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
     });
 
     it("wertet eine falsche Eingabe ohne Bestätigung und ohne Fortschritt", async () => {
-      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 9, eingabe: "FALSCH" });
+      const raetsel = await ladeRaetsel();
+      const wort: RaetselWort = raetsel.woerter[1];
+      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: wort.nummer, eingabe: "FALSCH" });
       const result = response.json().result.data;
       expect(result.correct).toBe(false);
       expect(result.bestaetigung).toBeNull();
     });
 
-    it("erkennt Umlaut-/Groß-Kleinschreibungs-normalisierte Eingaben als richtig", async () => {
-      const response = await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: 6, eingabe: "jahresüberschuss" });
+    it("erkennt kleingeschriebene Eingaben als richtig (Normalisierung)", async () => {
+      const raetsel = await ladeRaetsel();
+      const wort: RaetselWort = raetsel.woerter[2];
+      const response = await callMutation("game.submitKreuzwortraetselWort", {
+        kursId,
+        nummer: wort.nummer,
+        eingabe: loesungZu(wort.hinweis).toLowerCase(),
+      });
       expect(response.json().result.data.correct).toBe(true);
     });
 
-    it("markiert das Rätsel erst nach allen zehn Wörtern als abgeschlossen", async () => {
-      const remaining = [1, 2, 3, 4, 5, 8, 9, 10];
-      for (const nummer of remaining) {
-        const wort = kreuzwortraetselFinanzkennzahlen.woerter.find((candidate) => candidate.nummer === nummer)!;
-        await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer, eingabe: wort.loesung });
+    it("markiert das Rätsel erst nach allen Wörtern als abgeschlossen", async () => {
+      const raetsel = await ladeRaetsel();
+      expect(raetsel.abgeschlossen).toBe(false);
+      for (const wort of raetsel.woerter as RaetselWort[]) {
+        if (wort.geloest) continue;
+        await callMutation("game.submitKreuzwortraetselWort", { kursId, nummer: wort.nummer, eingabe: loesungZu(wort.hinweis) });
       }
-      const response = await callQuery("game.getKreuzwortraetsel", { kursId });
-      expect(response.json().result.data.abgeschlossen).toBe(true);
+      const data = await ladeRaetsel();
+      expect(data.abgeschlossen).toBe(true);
+    });
+
+    it("beginnt nach einem erneuten Start ein neues, noch nicht abgeschlossenes Rätsel", async () => {
+      await callMutation("game.startKreuzwortraetsel", { kursId, variant: "anspruchsvoll" });
+      const data = await ladeRaetsel();
+      expect(data.abgeschlossen).toBe(false);
+      expect(data.variant).toBe("anspruchsvoll");
+      expect(data.woerter.every((wort: RaetselWort) => !wort.geloest)).toBe(true);
     });
   });
 
@@ -274,6 +331,19 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       const response = await callQuery("game.getMemory", { kursId, runde: 1 });
       const data = response.json().result.data;
       expect(data.karten).toHaveLength(12);
+    });
+
+    it("liefert bei gleichem Seed dieselben Karten und bei anderem Seed eine andere Ziehung (F-193)", async () => {
+      const erste = (await callQuery("game.getMemory", { kursId, runde: 1, seed: 11 })).json().result.data.karten;
+      const gleiche = (await callQuery("game.getMemory", { kursId, runde: 1, seed: 11 })).json().result.data.karten;
+      expect(gleiche).toEqual(erste);
+      const ziehungen = new Set<string>();
+      for (let seed = 1; seed <= 12; seed += 1) {
+        const karten = (await callQuery("game.getMemory", { kursId, runde: 1, seed })).json().result.data.karten as { text: string }[];
+        expect(karten).toHaveLength(12);
+        ziehungen.add(karten.map((karte) => karte.text).sort().join("|"));
+      }
+      expect(ziehungen.size).toBeGreaterThanOrEqual(2);
     });
 
     it("erkennt ein richtiges Paar, ohne Punktehamster-Futter zu vergeben", async () => {

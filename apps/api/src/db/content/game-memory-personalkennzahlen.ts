@@ -3,7 +3,8 @@ import type { MemoryPayload } from "@edukedo/shared";
 /**
  * F-143 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13): Kennzahlen-Memory
  * „Personal" — Inhalt 1:1 aus der vom Nutzer gelieferten User-Story-Spezifikation übernommen
- * (24 Personalkennzahlen-Paare in vier Themenrunden à sechs Paare, Begriff ↔ Bedeutung).
+ * (24 Personalkennzahlen-Paare in vier Themenrunden à sechs Paare, Begriff ↔ Bedeutung). F-193: erweitert zu einem Pool
+ * aus 40 Paaren (zehn je Runde); je Spiel werden daraus sechs Paare je Runde gezogen.
  */
 export const memoryPersonalkennzahlen: MemoryPayload = {
   runden: [
@@ -205,8 +206,123 @@ export const memoryPersonalkennzahlen: MemoryPayload = {
       bedeutung: "Anteil der festgelegten Schlüsselpositionen, für die mindestens eine geeignete Person als mögliche Nachfolge identifiziert wurde.",
       bestaetigung: "Genau! Die Nachfolgeabdeckungsquote beschreibt die vorbereitete Nachfolge für Schlüsselpositionen. Sie garantiert noch keine erfolgreiche spätere Besetzung.",
     },
+    // F-193: Pool-Erweiterung auf 10 Paare je Runde (Nummer 25 ff., Begriffe aus der Theorie zur Personalwirtschaft, Thema 3.1);
+    // je Spiel werden daraus sechs Paare je Runde gezogen.
+    {
+      nummer: 25,
+      runde: 1,
+      begriff: "Personalbedarf",
+      bedeutung: "Benötigte Personalausstattung für die Aufgaben",
+      bestaetigung: "Richtig! Die Differenz aus Personalbedarf und Personalbestand zeigt, ob Personal auf- oder abgebaut werden muss.",
+    },
+    {
+      nummer: 26,
+      runde: 1,
+      begriff: "Stellenbeschreibung",
+      bedeutung: "Legt Aufgaben und Anforderungen einer Position fest",
+      bestaetigung: "Genau! Sie ist die Grundlage für die Ausschreibung und für die Beurteilung von Bewerbungen.",
+    },
+    {
+      nummer: 27,
+      runde: 1,
+      begriff: "Qualifikationsstruktur",
+      bedeutung: "Verteilung der Beschäftigten nach Qualifikation",
+      bestaetigung: "Richtig! Sie zeigt, welche Kompetenzen vorhanden sind und wo der qualitative Bedarf liegt.",
+    },
+    {
+      nummer: 28,
+      runde: 1,
+      begriff: "Personalakte",
+      bedeutung: "Sammlung der Unterlagen zu einem Beschäftigten",
+      bestaetigung: "Genau! Ihre Pflege gehört zur laufenden Personalbetreuung.",
+    },
+    {
+      nummer: 29,
+      runde: 2,
+      begriff: "Kosten je Einstellung",
+      bedeutung: "Durchschnittlicher Aufwand für eine Stellenbesetzung",
+      bestaetigung: "Richtig! Sie zeigt, wie teuer die Gewinnung neuer Beschäftigter im Durchschnitt ist.",
+    },
+    {
+      nummer: 30,
+      runde: 2,
+      begriff: "Interne Beschaffung",
+      bedeutung: "Besetzung durch Versetzung oder Beförderung",
+      bestaetigung: "Genau! Sie ist meist schneller und risikoärmer, weil die Person bekannt ist.",
+    },
+    {
+      nummer: 31,
+      runde: 2,
+      begriff: "Externe Beschaffung",
+      bedeutung: "Gewinnung über Stellenanzeigen, Jobbörsen oder Messen",
+      bestaetigung: "Richtig! Sie bringt neue Impulse und deckt Bedarf, der intern nicht gedeckt werden kann.",
+    },
+    {
+      nummer: 32,
+      runde: 2,
+      begriff: "Bewerbermanagementsystem",
+      bedeutung: "Software, die Bewerbungen strukturiert erfasst",
+      bestaetigung: "Genau! Es dokumentiert den Auswahlprozess und unterstützt die Kommunikation mit Bewerbenden.",
+    },
+    {
+      nummer: 33,
+      runde: 3,
+      begriff: "Operative Personalplanung",
+      bedeutung: "Setzt den Rahmen kurzfristig in Maßnahmen um",
+      bestaetigung: "Richtig! Sie klärt, wie viele Stellen wann besetzt werden müssen und wo Engpässe entstehen.",
+    },
+    {
+      nummer: 34,
+      runde: 3,
+      begriff: "Strategische Personalplanung",
+      bedeutung: "Blickt mittel- bis langfristig auf den Personalbedarf",
+      bestaetigung: "Genau! Sie leitet aus der künftigen Unternehmensentwicklung einen groben Personalbedarf ab.",
+    },
+    {
+      nummer: 35,
+      runde: 3,
+      begriff: "Personalinformationssystem",
+      bedeutung: "HR-Software für Stammdaten und Abwesenheiten",
+      bestaetigung: "Richtig! Berichtssysteme darauf liefern dem Management Kennzahlen wie Fluktuation und Krankenstand.",
+    },
+    {
+      nummer: 36,
+      runde: 3,
+      begriff: "Personalkosten pro Kopf",
+      bedeutung: "Durchschnittliche Kosten je Beschäftigtem",
+      bestaetigung: "Genau! Zusammen mit der Personalkostenquote zeigt sie, was das Personal im Verhältnis kostet.",
+    },
+    {
+      nummer: 37,
+      runde: 4,
+      begriff: "Qualifizierungsplanung",
+      bedeutung: "Ermittelt den Fortbildungsbedarf der Beschäftigten",
+      bestaetigung: "Richtig! Grundlage sind Anforderungsprofile, Mitarbeitergespräche und die Unternehmensziele.",
+    },
+    {
+      nummer: 38,
+      runde: 4,
+      begriff: "Personalentwicklungsgespräch",
+      bedeutung: "Gespräch über Ziele und Entwicklungsmaßnahmen",
+      bestaetigung: "Genau! Führungskraft und Mitarbeitende vereinbaren darin, wie sich Qualifikationen entwickeln sollen.",
+    },
+    {
+      nummer: 39,
+      runde: 4,
+      begriff: "Mentoring",
+      bedeutung: "Erfahrene Person begleitet eine weniger erfahrene",
+      bestaetigung: "Richtig! Mentoring zählt neben Seminaren, E-Learning und Coaching zu den klassischen Instrumenten der Personalentwicklung.",
+    },
+    {
+      nummer: 40,
+      runde: 4,
+      begriff: "Mitarbeiterbindung",
+      bedeutung: "Bindung der Beschäftigten an das Unternehmen",
+      bestaetigung: "Genau! Gute Personalentwicklung erhöht auch die Mitarbeiterbindung.",
+    },
   ],
+  paareProRunde: 6,
   falschesPaarFeedback: "Das ist noch kein Paar. Schau dir beide Aussagen genau an und versuche es erneut.",
   abschlussmeldung:
-    "Geschafft! Du hast 24 wichtige Personalkennzahlen kennengelernt. Du kannst nun gezielter auswählen, welche Kennzahl zu einer personalwirtschaftlichen Fragestellung passt.",
+    "Geschafft! Du hast 24 wichtige Personalkennzahlen kennengelernt. Du kannst nun gezielter auswählen, welche Kennzahl zu einer personalwirtschaftlichen Fragestellung passt. Mit „Noch einmal spielen“ bekommst du neue Karten.",
 };

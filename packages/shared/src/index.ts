@@ -3,6 +3,7 @@ export * from "./answer-structure";
 export * from "./fsrs/scheduler";
 export * from "./game-logic";
 export * from "./game-logic-weitere";
+export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";
 export * from "./instrument-lernpfad-pruefung";

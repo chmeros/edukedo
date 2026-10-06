@@ -251,6 +251,7 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
     onSuccess: () => {
       setLastResult(null);
       setActiveWortNummer(null);
+      setEingabeProZelle(new Map());
       utils.game.getKreuzwortraetsel.invalidate({ kursId, setKey });
     },
   });
@@ -345,9 +346,21 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
     <div className="panel-section">
       <div className="panel-section-head">
         <h2>{title}</h2>
-        <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
-          Zurück zu den Spielen
-        </button>
+        <div className="list-row-actions">
+          {spiel.variant && (
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              disabled={start.isPending}
+              onClick={() => start.mutate({ kursId, setKey, variant: spiel.variant! })}
+            >
+              Neues Rätsel
+            </button>
+          )}
+          <button type="button" className="btn btn-ghost btn-sm" onClick={onClose}>
+            Zurück zu den Spielen
+          </button>
+        </div>
       </div>
 
       {!spiel.variant ? (
@@ -367,8 +380,8 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
           <div className="stack">
             <p className="field-hint">
               {spiel.variant === "einfach"
-                ? "Alle zehn Begriffe stehen zur Auswahl. Lies die Hinweise und ziehe die passenden Begriffe direkt ins Gitter."
-                : "Klicke einen Hinweis oder das zugehörige Wort im Gitter an und trage die Buchstaben direkt in die Felder ein."}
+                ? `Alle ${spiel.woerter.length} Begriffe stehen zur Auswahl. Lies die Hinweise und ziehe die passenden Begriffe direkt ins Gitter. Jedes Rätsel wird neu zusammengestellt.`
+                : "Klicke einen Hinweis oder das zugehörige Wort im Gitter an und trage die Buchstaben direkt in die Felder ein. Jedes Rätsel wird neu zusammengestellt."}
             </p>
             <KreuzwortraetselGrid
               woerter={spiel.woerter}
@@ -421,6 +434,16 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
             {spiel.abgeschlossen && (
               <div className="alert alert-success">
                 <div>{spiel.abschlussmeldung}</div>
+                <div className="list-row-actions">
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    disabled={start.isPending}
+                    onClick={() => start.mutate({ kursId, setKey, variant: spiel.variant! })}
+                  >
+                    Noch ein Rätsel
+                  </button>
+                </div>
               </div>
             )}
           </div>
