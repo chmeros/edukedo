@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen", "schreibtischtest"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen", "schreibtischtest", "wirtschaftlichkeit"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Werkzeug "wirtschaftlichkeit" in allen vier Fachinformatiker-Kursen als Kernangebot (gemeinsame Theorie 2.3: Nutzwertanalyse, TCO, Kauf gegen Abonnement, Rabatt und Skonto; Make or Buy aus 12.2); Beispielwerte. Break-even- und Leasingrechnung fehlen bewusst, weil die Theorie sie nicht enthält.
  * Schreibtischtest-Trainer (F-212): Werkzeug "schreibtischtest" im Kurs Anwendungsentwicklung als Kernangebot (Theorie 11.2 und 9.2), in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Variablen und Kontrollstrukturen); ganze Zahlen, Beispielprogramme.
  * Prozesskennzahlen-Rechner (F-211): Werkzeug "prozesskennzahlen" im Kurs Daten- und Prozessanalyse freigegeben (Durchlaufzeit, Prozesseffizienz, Engpass, Fehlerquote, Auslastung, Little, Amortisation nach 8.1, 8.3 und 8.4; Beispielwerte).
  * Statistik-Trainer (F-210): Werkzeug "statistik" im Kurs Daten- und Prozessanalyse freigegeben (Lage- und Streuungsmaße, Quartile mit festgelegter Methode, Ausreißer, Korrelation und Regression nach 10.1 und 10.2; Zahlen bleiben im Browser).
@@ -252,7 +253,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
     instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git", "muster", "klassenbeziehungen", "testverfahren"], ["pdca", "risiko", "osi"]),
-    werkzeuge: liste(["sqluebung", "testfaelle", "verfuegbarkeit", "schreibtischtest"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "testfaelle", "verfuegbarkeit", "schreibtischtest"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],
@@ -280,7 +281,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-daten-prozessanalyse": {
     instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"], ["risiko", "hierarchie", "osi", "scrum"]),
-    werkzeuge: liste(["sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags", "schreibtischtest"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],
@@ -303,7 +304,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-digitale-vernetzung": {
     instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"], ["pdca", "hierarchie", "scrum"]),
-    werkzeuge: liste(["subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "kern"],
@@ -327,7 +328,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-systemintegration": {
     instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "sicherungsarten", "switching", "raid", "netzsicherheit"], ["pdca", "hierarchie", "scrum"]),
-    werkzeuge: liste(["subnetting", "terminal", "topologie", "flags", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "kern"],

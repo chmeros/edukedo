@@ -1576,6 +1576,21 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-213: Nutzwert und Wirtschaftlichkeit (zwei Kostenlinien, die sich kreuzen).
+export function WirtschaftlichkeitIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <path d="M44 20v100h250" stroke="var(--ink)" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M44 96L290 34" stroke="var(--coral)" strokeWidth="4" fill="none" strokeLinecap="round" />
+      <path d="M44 70L290 98" stroke="var(--sprout-deep)" strokeWidth="4" fill="none" strokeLinecap="round" />
+      <circle cx="163" cy="66" r="9" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <path d="M163 66V120" stroke="var(--ink-soft)" strokeWidth="2" strokeDasharray="4 4" />
+      <rect x="58" y="24" width="34" height="8" rx="4" fill="var(--ink-soft)" opacity="0.55" />
+      <rect x="58" y="38" width="22" height="8" rx="4" fill="var(--ink-soft)" opacity="0.35" />
+    </Frame>
+  );
+}
+
 // F-212: Schreibtischtest (Codezeilen links, Trace-Tabelle rechts).
 export function SchreibtischtestIllustration() {
   const zeilen = [

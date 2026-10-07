@@ -39,6 +39,7 @@ import {
   StatistikIllustration,
   ProzesskennzahlenIllustration,
   SchreibtischtestIllustration,
+  WirtschaftlichkeitIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -117,6 +118,7 @@ import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
 import { Statistiktrainer } from "./Statistiktrainer";
 import { Prozesskennzahlen } from "./Prozesskennzahlen";
 import { Schreibtischtest } from "./Schreibtischtest";
+import { Wirtschaftlichkeit } from "./Wirtschaftlichkeit";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -641,6 +643,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-213 (Nutzwert- und Wirtschaftlichkeitsrechner): Nutzwertanalyse, TCO, Rabatt und Skonto, Kauf gegen Abonnement, in den Fachinformatiker-Kursen.
+  {
+    type: "wirtschaftlichkeit",
+    label: "Nutzwert & Wirtschaftlichkeit",
+    description: "Angebote mit Nutzwertanalyse und Sensitivität vergleichen, Gesamtkosten (TCO) berechnen, Rabatt und Skonto einrechnen und Kauf gegen Abonnement abwägen.",
+    Illustration: WirtschaftlichkeitIllustration,
+    werkzeug: true,
+    aktion: "Angebote vergleichen",
+  },
   // F-212 (Schreibtischtest-Trainer): Programme von Hand verfolgen, Trace-Tabellen ausfüllen, in den Fachinformatiker-Kursen.
   {
     type: "schreibtischtest",
@@ -818,6 +829,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "wirtschaftlichkeit") {
+    return <Wirtschaftlichkeit onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "schreibtischtest") {
     return <Schreibtischtest onClose={() => setActiveWerkzeug(null)} />;

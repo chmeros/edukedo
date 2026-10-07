@@ -218,6 +218,12 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Kernangebot in allen vier Fachinformatiker-Kursen, sonst nirgends", () => {
+    for (const slug of Object.keys(KURS_ANGEBOT)) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "wirtschaftlichkeit"), slug).toBe(slug.startsWith("fachinformatiker-") ? "kern" : null);
+    }
+  });
+
   it("Schreibtischtest-Trainer (F-212): Kernangebot in der Anwendungsentwicklung, Grundlage in den übrigen Fachinformatiker-Kursen", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "schreibtischtest")).toBe("kern");
     for (const slug of ["fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"]) {
