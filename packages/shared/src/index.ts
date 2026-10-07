@@ -62,3 +62,4 @@ export * from "./schemas/report";
 export * from "./schemas/sponsor";
 export * from "./schreibtischtest";
 export * from "./wirtschaftlichkeit";
+export * from "./sql-datenqualitaet";

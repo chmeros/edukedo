@@ -1,4 +1,4 @@
-import { SQL_TABELLEN, SQL_UEBUNGEN, sqlVorschlaege, tokenisiereSql, type SqlStufe, type SqlUebung, type SqlVorschlagErgebnis } from "@edukedo/shared";
+import { datensatzVon, SQL_ALLE_UEBUNGEN, SQL_DATENSAETZE, sqlVorschlaege, tokenisiereSql, type SqlDatensatzId, type SqlStufe, type SqlUebung, type SqlVorschlagErgebnis } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -74,7 +74,17 @@ function ErgebnisTabelle({ tabelle }: { tabelle: SqlAnzeigeTabelle }) {
   );
 }
 
-export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
+/**
+ * `erlaubt`: Übungs-IDs, die der Kurs anbietet (F-176/F-214); ohne Angabe alle. Gibt es Übungen auf mehr als einem Datensatz
+ * (Projektdaten, Importdaten), wählt ein Umschalter den Datensatz; jeder Datensatz hat seine eigene Sitzungsdatenbank.
+ */
+export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; erlaubt?: readonly string[] }) {
+  const uebungen = useMemo(() => (erlaubt ? SQL_ALLE_UEBUNGEN.filter((eintrag) => erlaubt.includes(eintrag.id)) : SQL_ALLE_UEBUNGEN), [erlaubt]);
+  const datensaetze = useMemo(() => [...new Set(uebungen.map((eintrag) => datensatzVon(eintrag)))], [uebungen]);
+  const [datensatz, setDatensatz] = useState<SqlDatensatzId>(datensaetze[0] ?? "projekte");
+  const info = SQL_DATENSAETZE[datensatz];
+  const aufgabenImDatensatz = useMemo(() => uebungen.filter((eintrag) => datensatzVon(eintrag) === datensatz), [uebungen, datensatz]);
+  const stufenImDatensatz = STUFEN.filter((eintrag) => aufgabenImDatensatz.some((aufgabe) => aufgabe.stufe === eintrag.id));
   const sandbox = useRef<SqlSandbox | null>(null);
   const hervorhebungRef = useRef<HTMLPreElement>(null);
   const editorRef = useRef<HTMLTextAreaElement>(null);
@@ -86,7 +96,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   useEffect(() => () => sandbox.current?.beenden(), []);
 
   const [stufe, setStufe] = useState<SqlStufe>("leicht");
-  const [auswahl, setAuswahl] = useState<string | null>(SQL_UEBUNGEN[0]!.id);
+  const [auswahl, setAuswahl] = useState<string | null>(aufgabenImDatensatz[0]?.id ?? null);
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [tipps, setTipps] = useState<Record<string, number>>({});
   const [geloest, setGeloest] = useState<Set<string>>(new Set());
@@ -95,7 +105,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   const [pruefung, setPruefung] = useState<{ richtig: boolean; hinweis: string } | null>(null);
   const [laeuft, setLaeuft] = useState(false);
 
-  const uebung: SqlUebung | null = useMemo(() => SQL_UEBUNGEN.find((eintrag) => eintrag.id === auswahl) ?? null, [auswahl]);
+  const uebung: SqlUebung | null = useMemo(() => uebungen.find((eintrag) => eintrag.id === auswahl) ?? null, [uebungen, auswahl]);
   const schluessel = auswahl ?? "frei";
   const sql = eingaben[schluessel] ?? "";
   const gezeigteTipps = uebung ? tipps[uebung.id] ?? 0 : 0;
@@ -123,6 +133,13 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
     setAktiv(-1);
   }
 
+  function wechsleDatensatz(id: SqlDatensatzId) {
+    const erste = uebungen.find((eintrag) => datensatzVon(eintrag) === id);
+    setDatensatz(id);
+    setStufe(erste?.stufe ?? "leicht");
+    waehle(erste?.id ?? null);
+  }
+
   function waehle(id: string | null) {
     setVorschlag(null);
     setAuswahl(id);
@@ -144,7 +161,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
 
   async function ausfuehren(text: string, quelle: string) {
     if (text.trim() === "") return;
-    const antwort = await sende({ art: "ausfuehren", sql: text });
+    const antwort = await sende({ art: "ausfuehren", datensatz, sql: text });
     if (!antwort) return;
     setPruefung(null);
     if (!antwort.ok) setAusgabe({ art: "fehler", text: antwort.fehler });
@@ -155,6 +172,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
     if (!uebung || sql.trim() === "") return;
     const antwort = await sende({
       art: "pruefen",
+      datensatz,
       sql,
       uebung: { loesung: uebung.loesung, pruefAbfrage: uebung.pruefAbfrage, art: uebung.art, geordnet: uebung.geordnet },
     });
@@ -168,7 +186,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
   }
 
   async function zuruecksetzen() {
-    const antwort = await sende({ art: "zuruecksetzen" });
+    const antwort = await sende({ art: "zuruecksetzen", datensatz });
     if (antwort?.ok) {
       setAusgabe({ art: "ergebnis", tabellen: [], geaendert: 0, dauerMs: 0, quelle: "Die Beispieldatenbank wurde auf den Ausgangszustand zurückgesetzt." });
       setPruefung(null);
@@ -189,15 +207,25 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
           <InfoIcon />
           <div>
             Hier läuft eine echte SQL-Datenbank (SQLite) <b>in deinem Browser</b> — nichts wird gespeichert oder an einen Server geschickt, du kannst
-            nichts kaputt machen. Die Tabellen und Daten entsprechen denen aus dem Thema „SQL-Abfragen". Kleine Dialekt-Unterschiede zu
-            anderen Systemen (z. B. beim Begrenzen von Zeilen oder bei Datumsfunktionen) bleiben möglich.
+            nichts kaputt machen. {info.beschreibung} Kleine Dialekt-Unterschiede zu anderen Systemen (z. B. beim Begrenzen von Zeilen oder
+            bei Datumsfunktionen) bleiben möglich.
           </div>
         </div>
+
+        {datensaetze.length > 1 && (
+          <div className="segmented" role="group" aria-label="Datensatz">
+            {datensaetze.map((id) => (
+              <button key={id} type="button" className={datensatz === id ? "is-active" : ""} aria-pressed={datensatz === id} onClick={() => wechsleDatensatz(id)}>
+                {SQL_DATENSAETZE[id].titel}
+              </button>
+            ))}
+          </div>
+        )}
 
         <details className="instrument-more" open>
           <summary>Tabellen und Spalten</summary>
           <div className="sql-tabellen">
-            {SQL_TABELLEN.map((tabelle) => (
+            {info.tabellen.map((tabelle) => (
               <div key={tabelle.name} className="sql-tabelle-info">
                 <div className="sql-tabelle-kopf">
                   <b>{tabelle.name}</b>
@@ -219,7 +247,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
 
         <div className="stack">
           <div className="segmented" role="group" aria-label="Schwierigkeit">
-            {STUFEN.map((eintrag) => (
+            {stufenImDatensatz.map((eintrag) => (
               <button
                 key={eintrag.id}
                 type="button"
@@ -227,7 +255,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
                 aria-pressed={uebung?.stufe === eintrag.id}
                 onClick={() => {
                   setStufe(eintrag.id);
-                  waehle(SQL_UEBUNGEN.find((aufgabe) => aufgabe.stufe === eintrag.id)!.id);
+                  waehle(aufgabenImDatensatz.find((aufgabe) => aufgabe.stufe === eintrag.id)!.id);
                 }}
               >
                 {eintrag.label}
@@ -235,7 +263,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
             ))}
           </div>
           <div className="sql-aufgabenliste" role="group" aria-label="Aufgaben">
-            {SQL_UEBUNGEN.filter((aufgabe) => aufgabe.stufe === (uebung?.stufe ?? stufe)).map((aufgabe) => (
+            {aufgabenImDatensatz.filter((aufgabe) => aufgabe.stufe === (uebung?.stufe ?? stufe)).map((aufgabe) => (
               <button
                 key={aufgabe.id}
                 type="button"
@@ -285,7 +313,7 @@ export function SqlUebungsflaeche({ onClose }: { onClose: () => void }) {
               spellCheck={false}
               autoComplete="off"
               autoCapitalize="off"
-              placeholder="SELECT * FROM kunde;"
+              placeholder={info.beispiel}
               onChange={(event) => {
                 setEingaben((aktuell) => ({ ...aktuell, [schluessel]: event.target.value }));
                 aktualisiereVorschlaege(event.target);

@@ -1,4 +1,4 @@
-import { SQL_SCHEMA, vergleicheErgebnisse, type SqlTabelle } from "@edukedo/shared";
+import { SQL_DATENSAETZE, vergleicheErgebnisse, type SqlDatensatzId, type SqlTabelle } from "@edukedo/shared";
 import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
 import wasmUrl from "sql.js/dist/sql-wasm.wasm?url";
 import type { SqlAnfrage, SqlAnzeigeTabelle, SqlAntwort } from "./sqlSandbox";
@@ -19,16 +19,17 @@ const kontext = self as unknown as {
 };
 
 let sqlModul: Promise<SqlJsStatic> | null = null;
-let sitzung: Database | null = null;
+/** Eine Sitzungsdatenbank je Datensatz (Projektdaten, Importdaten), damit der Wechsel keine Änderungen verwirft. */
+const sitzungen = new Map<SqlDatensatzId, Database>();
 
 function lade(): Promise<SqlJsStatic> {
   sqlModul ??= initSqlJs({ locateFile: () => wasmUrl });
   return sqlModul;
 }
 
-function neueDatenbank(SQL: SqlJsStatic): Database {
+function neueDatenbank(SQL: SqlJsStatic, datensatz: SqlDatensatzId): Database {
   const db = new SQL.Database();
-  db.exec(SQL_SCHEMA);
+  db.exec(SQL_DATENSAETZE[datensatz].schema);
   return db;
 }
 
@@ -72,20 +73,24 @@ async function bearbeite(anfrage: SqlAnfrage): Promise<SqlAntwort> {
   const SQL = await lade();
   try {
     if (anfrage.art === "zuruecksetzen") {
-      sitzung?.close();
-      sitzung = neueDatenbank(SQL);
+      sitzungen.get(anfrage.datensatz)?.close();
+      sitzungen.set(anfrage.datensatz, neueDatenbank(SQL, anfrage.datensatz));
       return { id: anfrage.id, ok: true, art: "zuruecksetzen" };
     }
     if (anfrage.art === "ausfuehren") {
-      sitzung ??= neueDatenbank(SQL);
+      let sitzung = sitzungen.get(anfrage.datensatz);
+      if (!sitzung) {
+        sitzung = neueDatenbank(SQL, anfrage.datensatz);
+        sitzungen.set(anfrage.datensatz, sitzung);
+      }
       const start = performance.now();
       const { tabellen, geaendert } = fuehreAus(sitzung, anfrage.sql, ANZEIGE_MAX_ZEILEN);
       return { id: anfrage.id, ok: true, art: "ausfuehren", tabellen, geaendert, dauerMs: Math.round(performance.now() - start) };
     }
     // Prüfen: Musterlösung und Eingabe je auf frischer Datenbank
     const { uebung } = anfrage;
-    const musterDb = neueDatenbank(SQL);
-    const eingabeDb = neueDatenbank(SQL);
+    const musterDb = neueDatenbank(SQL, anfrage.datensatz);
+    const eingabeDb = neueDatenbank(SQL, anfrage.datensatz);
     try {
       const erwartet = pruefTabelle(musterDb, uebung.loesung, uebung.art, uebung.pruefAbfrage);
       const gegeben = pruefTabelle(eingabeDb, anfrage.sql, uebung.art, uebung.pruefAbfrage);

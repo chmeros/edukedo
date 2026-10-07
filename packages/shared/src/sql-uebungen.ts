@@ -87,8 +87,13 @@ export const SQL_TABELLEN: { name: string; spalten: { name: string; typ: string;
 
 export type SqlStufe = "leicht" | "mittel" | "schwer";
 
+/** Datensatz, auf dem eine Übung läuft: Projektdaten (Thema 5.2) oder die Importdaten der Datenqualitäts-Aufgaben (F-214). */
+export type SqlDatensatzId = "projekte" | "import";
+
 export interface SqlUebung {
   id: string;
+  /** Fehlt die Angabe, läuft die Übung auf den Projektdaten. */
+  datensatz?: SqlDatensatzId;
   stufe: SqlStufe;
   titel: string;
   aufgabe: string;

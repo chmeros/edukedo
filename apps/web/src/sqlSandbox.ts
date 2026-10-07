@@ -1,4 +1,4 @@
-import type { SqlTabelle, SqlUebung } from "@edukedo/shared";
+import type { SqlDatensatzId, SqlTabelle, SqlUebung } from "@edukedo/shared";
 
 /**
  * F-167: Schnittstelle zwischen der SQL-Übungsfläche und dem Web Worker (sqlWorker.ts), in dem SQLite
@@ -13,9 +13,9 @@ export interface SqlAnzeigeTabelle extends SqlTabelle {
 }
 
 export type SqlAnfrage =
-  | { id: number; art: "ausfuehren"; sql: string }
-  | { id: number; art: "zuruecksetzen" }
-  | { id: number; art: "pruefen"; sql: string; uebung: Pick<SqlUebung, "loesung" | "pruefAbfrage" | "art" | "geordnet"> };
+  | { id: number; art: "ausfuehren"; datensatz: SqlDatensatzId; sql: string }
+  | { id: number; art: "zuruecksetzen"; datensatz: SqlDatensatzId }
+  | { id: number; art: "pruefen"; datensatz: SqlDatensatzId; sql: string; uebung: Pick<SqlUebung, "loesung" | "pruefAbfrage" | "art" | "geordnet"> };
 
 export type SqlAntwort = { id: number } & (
   | { ok: true; art: "ausfuehren"; tabellen: SqlAnzeigeTabelle[]; geaendert: number; dauerMs: number }

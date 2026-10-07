@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { SQL_ALLE_UEBUNGEN } from "./sql-datenqualitaet";
+import { SQL_UEBUNGEN } from "./sql-uebungen";
 
 /**
  * F-176 (Kursprofil-Mechanismus, Phase 0): Je Kurs steht fest, **welche** Instrumente, Spiele, Übungswerkzeuge,
@@ -101,7 +103,7 @@ export const KATALOG_INSTRUMENTE = [
 export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen", "schreibtischtest", "wirtschaftlichkeit"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
-export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
+export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags", "sql"] as const;
 export type SzenarioWerkzeug = (typeof KATALOG_SZENARIO_WERKZEUGE)[number];
 
 export const kursAngebotGruppeSchema = z.enum(["kern", "grundlagen"]);
@@ -122,6 +124,8 @@ export const kursAngebotSchema = z.object({
       terminal: z.array(eintragSchema),
       topologie: z.array(eintragSchema),
       flags: z.array(eintragSchema),
+      /** Übungen der SQL-Übungsfläche (IDs aus SQL_ALLE_UEBUNGEN). */
+      sql: z.array(eintragSchema),
     })
     .partial(),
 });
@@ -228,6 +232,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Datenqualitäts-Aufgaben der SQL-Übungsfläche (F-214): `szenarien.sql` wählt die Übungen je Kurs; die Anwendungsentwicklung behält die Aufgaben auf den Projektdaten, die Daten- und Prozessanalyse bekommt zusätzlich die Aufgaben auf den Importdaten (Theorie dp4 11.1).
  * Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Werkzeug "wirtschaftlichkeit" in allen vier Fachinformatiker-Kursen als Kernangebot (gemeinsame Theorie 2.3: Nutzwertanalyse, TCO, Kauf gegen Abonnement, Rabatt und Skonto; Make or Buy aus 12.2); Beispielwerte. Break-even- und Leasingrechnung fehlen bewusst, weil die Theorie sie nicht enthält.
  * Schreibtischtest-Trainer (F-212): Werkzeug "schreibtischtest" im Kurs Anwendungsentwicklung als Kernangebot (Theorie 11.2 und 9.2), in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Variablen und Kontrollstrukturen); ganze Zahlen, Beispielprogramme.
  * Prozesskennzahlen-Rechner (F-211): Werkzeug "prozesskennzahlen" im Kurs Daten- und Prozessanalyse freigegeben (Durchlaufzeit, Prozesseffizienz, Engpass, Fehlerquote, Auslastung, Little, Amortisation nach 8.1, 8.3 und 8.4; Beispielwerte).
@@ -274,6 +279,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     ]),
     lernpfade: ["scrum", "schutzziele", "normalisierung", "ermodell", "osi"],
     szenarien: {
+      sql: liste(SQL_UEBUNGEN.map((eintrag) => eintrag.id)),
       terminal: liste([], TERMINAL_LEICHT),
       topologie: liste([], TOPOLOGIE_LEICHT),
       flags: liste([], ["flag-base64-kennwort", "flag-caesar-postfach", "flag-hex-notiz", "flag-pruefsumme-spiegel", "flag-passwort-hashes", "flag-phishing-header", "flag-jwt-token", "flag-weblog-pfad", "flag-mehrstufig-funkspruch"]),
@@ -297,6 +303,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     ]),
     lernpfade: ["scrum", "osi", "schutzziele", "normalisierung", "ermodell"],
     szenarien: {
+      sql: liste(SQL_ALLE_UEBUNGEN.map((eintrag) => eintrag.id)),
       terminal: liste([], TERMINAL_LEICHT),
       topologie: liste([], TOPOLOGIE_LEICHT),
       flags: liste([], ["flag-base64-kennwort", "flag-caesar-postfach", "flag-hex-notiz", "flag-pruefsumme-spiegel", "flag-passwort-hashes", "flag-phishing-header", "flag-mehrstufig-funkspruch"]),

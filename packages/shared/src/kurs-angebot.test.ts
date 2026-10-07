@@ -15,6 +15,7 @@ import {
   parseKursAngebot,
 } from "./kurs-angebot";
 import { GAME_TYPES } from "./schemas/game";
+import { SQL_ALLE_UEBUNGEN } from "./sql-datenqualitaet";
 import { TERMINAL_SZENARIEN } from "./terminal-sim";
 import { topologieSzenarien } from "./topologie-sim";
 
@@ -23,6 +24,7 @@ const ALLE_IDS = {
   terminal: TERMINAL_SZENARIEN.map((s) => s.id),
   topologie: topologieSzenarien.map((s) => s.id),
   flags: FLAG_AUFGABEN.map((a) => a.id),
+  sql: SQL_ALLE_UEBUNGEN.map((u) => u.id),
 } as const;
 
 describe("KURS_ANGEBOT (Kursprofil-Allowlist)", () => {
@@ -51,7 +53,7 @@ describe("KURS_ANGEBOT (Kursprofil-Allowlist)", () => {
     eindeutig(angebot.spiele.map((s) => `${s.gameType}/${s.setKey ?? "*"}`));
     for (const typ of angebot.lernpfade) expect(angebotInstrument(angebot, typ)).not.toBeNull();
     // Szenarien nur für angebotene Werkzeuge
-    for (const werkzeug of Object.keys(angebot.szenarien)) expect(angebotWerkzeug(angebot, werkzeug)).not.toBeNull();
+    for (const werkzeug of Object.keys(angebot.szenarien)) expect(angebotWerkzeug(angebot, werkzeug === "sql" ? "sqluebung" : werkzeug)).not.toBeNull();
   });
 
   it("Fachwirt-Kurse zeigen keine IT-Instrumente, -Werkzeuge und -Spiele", () => {
@@ -221,6 +223,21 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
   it("Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Kernangebot in allen vier Fachinformatiker-Kursen, sonst nirgends", () => {
     for (const slug of Object.keys(KURS_ANGEBOT)) {
       expect(angebotWerkzeug(KURS_ANGEBOT[slug], "wirtschaftlichkeit"), slug).toBe(slug.startsWith("fachinformatiker-") ? "kern" : null);
+    }
+  });
+
+  it("Datenqualitäts-Aufgaben (F-214): nur der Kurs Daten- und Prozessanalyse bekommt die Aufgaben auf den Importdaten", () => {
+    const importIds = SQL_ALLE_UEBUNGEN.filter((u) => u.datensatz === "import").map((u) => u.id);
+    expect(importIds.length).toBeGreaterThan(10);
+    const sql = (slug: string) => (KURS_ANGEBOT[slug]!.szenarien.sql ?? []).map((e) => e.schluessel);
+    for (const id of importIds) {
+      expect(sql("fachinformatiker-daten-prozessanalyse")).toContain(id);
+      expect(sql("fachinformatiker-anwendungsentwicklung")).not.toContain(id);
+    }
+    // Die Projektdaten-Aufgaben bleiben in beiden Kursen vollständig.
+    for (const u of SQL_ALLE_UEBUNGEN.filter((x) => x.datensatz !== "import")) {
+      expect(sql("fachinformatiker-daten-prozessanalyse")).toContain(u.id);
+      expect(sql("fachinformatiker-anwendungsentwicklung")).toContain(u.id);
     }
   });
 

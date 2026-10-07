@@ -1,5 +1,6 @@
 import {
   FLAG_AUFGABEN,
+  SQL_ALLE_UEBUNGEN,
   TERMINAL_SZENARIEN,
   angebotInstrument,
   angebotLernpfad,
@@ -812,12 +813,13 @@ export function Instrumente({
   const [activeWerkzeug, setActiveWerkzeug] = useState<string | null>(null);
   // Erlaubte Szenarien je Werkzeug (undefined = alle); stabile Identität, weil die Labore sie als Abhängigkeit nutzen.
   const szenarien = useMemo(() => {
-    const ids = (liste: readonly { id: string }[], werkzeug: "terminal" | "topologie" | "flags") =>
+    const ids = (liste: readonly { id: string }[], werkzeug: "terminal" | "topologie" | "flags" | "sql") =>
       angebot ? angebotSzenarien(angebot, werkzeug, liste).map((eintrag) => eintrag.id) : undefined;
     return {
       terminal: ids(TERMINAL_SZENARIEN, "terminal"),
       topologie: ids(topologieSzenarien, "topologie"),
       flags: ids(FLAG_AUFGABEN, "flags"),
+      sql: ids(SQL_ALLE_UEBUNGEN, "sql"),
     };
   }, [angebot]);
 
@@ -879,7 +881,7 @@ export function Instrumente({
     return <Subnetting onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "sqluebung") {
-    return <SqlUebungsflaeche onClose={() => setActiveWerkzeug(null)} />;
+    return <SqlUebungsflaeche onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.sql} />;
   }
   if (activeWerkzeug === "terminal") {
     return <TerminalLabor onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.terminal} />;
@@ -948,7 +950,7 @@ export function Instrumente({
     if ("werkzeug" in instrument) {
       const gruppe = angebot ? angebotWerkzeug(angebot, instrument.type) : kursWerkzeuge.includes(instrument.type) ? "kern" : null;
       if (!gruppe) return null;
-      const szenarioIds = instrument.type === "terminal" ? szenarien.terminal : instrument.type === "topologie" ? szenarien.topologie : instrument.type === "flags" ? szenarien.flags : undefined;
+      const szenarioIds = instrument.type === "terminal" ? szenarien.terminal : instrument.type === "topologie" ? szenarien.topologie : instrument.type === "flags" ? szenarien.flags : instrument.type === "sqluebung" ? szenarien.sql : undefined;
       return szenarioIds && szenarioIds.length === 0 ? null : gruppe;
     }
     const gruppe = angebotInstrument(angebot, instrument.type);
