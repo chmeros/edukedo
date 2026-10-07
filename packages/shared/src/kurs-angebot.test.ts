@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Statistik-Trainer (F-210): Werkzeug nur im Kurs Daten- und Prozessanalyse", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-daten-prozessanalyse"], "statistik")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-daten-prozessanalyse")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "statistik"), slug).toBeNull();
+    }
+  });
+
   it("Verfügbarkeits- und RAID-Rechner (F-209): Werkzeug in den vier Fachinformatiker-Kursen", () => {
     const fi = ["fachinformatiker-anwendungsentwicklung", "fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"];
     for (const slug of fi) expect(angebotWerkzeug(KURS_ANGEBOT[slug], "verfuegbarkeit"), slug).toBe("kern");

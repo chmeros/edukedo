@@ -1576,6 +1576,23 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-210: Statistik-Trainer (Boxplot mit Ausreißer über einer Reihe von Punkten).
+export function StatistikIllustration() {
+  return (
+    <Frame background="var(--sprout-tint)">
+      <path d="M40 60h40M160 60h60" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <path d="M40 48v24M220 48v24" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <rect x="80" y="40" width="80" height="40" fill="var(--card)" stroke="var(--ink)" strokeWidth="3" />
+      <path d="M112 40v40" stroke="var(--coral-deep)" strokeWidth="5" strokeLinecap="round" />
+      <circle cx="270" cy="60" r="7" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="3" />
+      {[50, 76, 92, 108, 128, 146, 170, 204, 270].map((x, i) => (
+        <circle key={x} cx={x} cy={104 + (i % 2) * 8} r="4" fill="var(--ink-soft)" />
+      ))}
+      <path d="M30 124h260" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-209: Verfügbarkeit und RAID (vier Platten mit einer Paritätsplatte, daneben die Zahl 99,9 %).
 export function VerfuegbarkeitIllustration() {
   return (

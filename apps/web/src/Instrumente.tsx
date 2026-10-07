@@ -36,6 +36,7 @@ import {
   SkalierungIllustration,
   EnergierechnerIllustration,
   VerfuegbarkeitIllustration,
+  StatistikIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -111,6 +112,7 @@ import { Mqttlabor } from "./Mqttlabor";
 import { Skalierungsrechner } from "./Skalierungsrechner";
 import { Energierechner } from "./Energierechner";
 import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
+import { Statistiktrainer } from "./Statistiktrainer";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -635,6 +637,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-210 (Statistik-Trainer): Kennzahlen einer Zahlenreihe, Boxplot, Ausreißer, Korrelation und Regression, im Kurs Daten- und Prozessanalyse.
+  {
+    type: "statistik",
+    label: "Statistik-Trainer",
+    description: "Lage- und Streuungsmaße, Quartile und Ausreißer einer Zahlenreihe mit Boxplot berechnen, Korrelation und Regressionsgerade bestimmen und an Aufgaben üben.",
+    Illustration: StatistikIllustration,
+    werkzeug: true,
+    aktion: "Statistik rechnen",
+  },
   // F-209 (Verfügbarkeits- und RAID-Rechner): Verfügbarkeit, Ausfallzeit, Reihen- und Parallelschaltung und RAID-Kapazität, in den Fachinformatiker-Kursen.
   {
     type: "verfuegbarkeit",
@@ -785,6 +796,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "statistik") {
+    return <Statistiktrainer onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "verfuegbarkeit") {
     return <Verfuegbarkeitsrechner onClose={() => setActiveWerkzeug(null)} />;
