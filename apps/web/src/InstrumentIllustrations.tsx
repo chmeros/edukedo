@@ -1591,6 +1591,81 @@ export function WirtschaftlichkeitIllustration() {
   );
 }
 
+// F-221: Authentifizierungsfaktoren (Passwort, Token, Fingerabdruck).
+export function AuthfaktorenIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="18" y="22" width="84" height="96" rx="10" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <text x="60" y="64" textAnchor="middle" fontSize="22" fontWeight="700" fill="var(--ink)">
+        ••••
+      </text>
+      <rect x="34" y="82" width="52" height="10" rx="5" fill="var(--ink-soft)" opacity="0.5" />
+      <rect x="118" y="22" width="84" height="96" rx="10" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="146" y="44" width="28" height="48" rx="6" fill="var(--sun-tint)" stroke="var(--ink)" strokeWidth="2.5" />
+      <circle cx="160" cy="84" r="3" fill="var(--ink)" />
+      <rect x="218" y="22" width="84" height="96" rx="10" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <path d="M244 94c-8-6-10-18-4-28s20-14 30-6M252 104c-12-8-14-24-6-34s18-12 26-6M262 100c-2-8-1-18 6-24" stroke="var(--sprout-deep)" strokeWidth="3" fill="none" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
+// F-221: Kryptografie-Bausteine (ein Schlüssel, ein Schlüsselpaar, ein Prüfwert).
+export function KryptobausteineIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <g fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="52" cy="62" r="16" fill="var(--card)" />
+        <path d="M68 62h42M96 62v12M108 62v10" />
+        <circle cx="156" cy="48" r="12" fill="var(--card)" />
+        <path d="M168 48h28M184 48v9" />
+        <circle cx="156" cy="88" r="12" fill="var(--sprout-tint)" />
+        <path d="M168 88h28M184 88v9M192 88v7" />
+        <rect x="236" y="38" width="58" height="52" rx="8" fill="var(--card)" />
+      </g>
+      <text x="265" y="76" textAnchor="middle" fontSize="30" fontWeight="700" fill="var(--ink)">
+        #
+      </text>
+    </Frame>
+  );
+}
+
+// F-221: Monitoring (Messkurve mit Schwellwert und Säulen).
+export function MonitoringIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="20" y="16" width="280" height="108" rx="10" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <path d="M36 44h248" stroke="var(--coral)" strokeWidth="2" strokeDasharray="5 4" />
+      <path d="M36 98l30-14 28 8 30-30 30 18 28-34 30 22 32-12" stroke="var(--sprout-deep)" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="214" cy="52" r="5" fill="var(--coral)" stroke="var(--ink)" strokeWidth="2" />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} x={40 + i * 14} y={108 - 6 - i * 3} width="9" height={6 + i * 3} rx="2" fill="var(--ink-soft)" opacity="0.5" />
+      ))}
+    </Frame>
+  );
+}
+
+// F-221: Cloud-Servicemodelle (Schichten, die der Anbieter nach und nach übernimmt).
+export function CloudmodelleIllustration() {
+  const spalten = [
+    { x: 24, schichten: 0 },
+    { x: 94, schichten: 2 },
+    { x: 164, schichten: 3 },
+    { x: 234, schichten: 4 },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {spalten.map((s) => (
+        <g key={s.x}>
+          {[0, 1, 2, 3].map((i) => (
+            <rect key={i} x={s.x} y={24 + i * 24} width="62" height="20" rx="4" fill={3 - i < s.schichten ? "var(--info)" : "var(--card)"} stroke="var(--ink)" strokeWidth="2" />
+          ))}
+          <rect x={s.x} y="122" width="62" height="6" rx="3" fill="var(--ink-soft)" opacity="0.5" />
+        </g>
+      ))}
+    </Frame>
+  );
+}
+
 // F-215: Algorithmen-Visualisierer (Balken, die sich sortieren; zwei getauschte Balken sind hervorgehoben).
 export function AlgorithmenIllustration() {
   const hoehen = [70, 34, 96, 52, 80, 24];

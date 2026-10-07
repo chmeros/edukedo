@@ -76,6 +76,10 @@ import {
   SkalenniveausIllustration,
   StakeholderIllustration,
   SwitchingIllustration,
+  AuthfaktorenIllustration,
+  KryptobausteineIllustration,
+  MonitoringIllustration,
+  CloudmodelleIllustration,
   ScrumIllustration,
   SqlIllustration,
   SqlUebungIllustration,
@@ -362,6 +366,31 @@ const INSTRUMENT_CATALOG = [
     label: "Switching, VLAN, Routing und Redundanz",
     description: "Probleme und passende Netzwerklösungen zuordnen: Layer 2, VLAN, Routing und Spanning Tree.",
     Illustration: SwitchingIllustration,
+  },
+  // F-221 (I-FI-04 bis I-FI-06): gemeinsame Zonen-Instrumente der Fachinformatiker-Kurse.
+  {
+    type: "authfaktoren",
+    label: "Authentifizierungsfaktoren",
+    description: "Anmeldemethoden den Faktoren Wissen, Besitz und Eigenschaft zuordnen und erkennen, wann zwei Faktoren wirklich zwei sind.",
+    Illustration: AuthfaktorenIllustration,
+  },
+  {
+    type: "kryptobausteine",
+    label: "Kryptografie-Bausteine",
+    description: "Aufgaben und Eigenschaften der symmetrischen und asymmetrischen Verschlüsselung und der Hashverfahren unterscheiden.",
+    Illustration: KryptobausteineIllustration,
+  },
+  {
+    type: "monitoring",
+    label: "Monitoring-Kategorien",
+    description: "Messwerte und Meldungen den Kategorien Ressourcen, Verfügbarkeit, Netzwerk und Ereignisse zuordnen.",
+    Illustration: MonitoringIllustration,
+  },
+  {
+    type: "cloudmodelle",
+    label: "Cloud-Servicemodelle",
+    description: "On-Premises, IaaS, PaaS und SaaS an der Verantwortungsgrenze zwischen Anbieter und Kunde erkennen.",
+    Illustration: CloudmodelleIllustration,
   },
   // F-181 (Kursprofile Phase 1, AEVO): fünf Zonen-Instrumente für die Ausbildereignung.
   {

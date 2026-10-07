@@ -678,8 +678,20 @@ const AE_BLATT: KursBlatt = {
   titel: "Anwendungsentwicklung",
   feature: "F-177",
   theorie: AE_NEUE_THEORIE,
-  zonenDateien: AE_ZONEN_DATEIEN,
-  zonenHinweise: AE_ZONEN_HINWEISE,
+  zonenDateien: [...AE_ZONEN_DATEIEN, { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] }],
+  zonenHinweise: {
+    ...AE_ZONEN_HINWEISE,
+    authfaktoren: [
+      "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
+      "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
+      "Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.",
+    ],
+    kryptobausteine: [
+      "Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).",
+      "Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.",
+      "TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.",
+    ],
+  },
   nachspann: (teile) => aeBugHuntAbschnitt(teile),
 };
 
@@ -703,12 +715,23 @@ const DPA_BLATT: KursBlatt = {
     },
   ],
   zonenDateien: [
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
     { datei: "dp1/8.2-prozessmodellierung-darstellung.md", typen: ["bpmn"] },
     { datei: "dp1/8.3-analysewerkzeuge-prozessoptimierung.md", typen: ["analysewerkzeuge"] },
     { datei: "dp4/11.1-datenqualitaet-pruefen-sicherstellen.md", typen: ["datenqualitaet"] },
     { datei: "dp2/9.1-heterogene-datenquellen-klassifizieren.md", typen: ["skalenniveaus"] },
   ],
   zonenHinweise: {
+    authfaktoren: [
+      "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
+      "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
+      "Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.",
+    ],
+    kryptobausteine: [
+      "Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).",
+      "Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.",
+      "TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.",
+    ],
     bpmn: ["Auf das Prüfungsübliche begrenzt (Ereignis, Aktivität, Gateway, Fluss, Pool/Lane); konsistent mit Thema 8.2?"],
     analysewerkzeuge: [
       "Schwachstellenanalyse = WO liegt das Problem, Ursachenanalyse = WARUM tritt es auf — Grenzfälle: „Warum liegen die Rechnungen so lange bei der Abteilungsleitung?“ (Ursachenanalyse), „Wartezeiten aus Zeitstempeln ermitteln“ (Process Mining).",
@@ -791,6 +814,9 @@ const SI_BLATT: KursBlatt = {
     },
   ],
   zonenDateien: [
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
+    { datei: "si2/9.4-netzbetrieb-monitoring-verfuegbarkeit.md", typen: ["monitoring"] },
+    { datei: "si1/8.2-server-virtualisierung-cloud.md", typen: ["cloudmodelle"] },
     { datei: "si3/10.3-datensicherung-archivierung-wiederherstellung.md", typen: ["sicherungsarten"] },
     { datei: "si4/11.2-speicherloesungen-integrieren-verwalten.md", typen: ["raid"] },
     { datei: "si2/9.3-netzwerksicherheit-segmentierung.md", typen: ["netzsicherheit"] },
@@ -798,6 +824,26 @@ const SI_BLATT: KursBlatt = {
     { datei: "si2/9.1-netzwerkprotokolle-schnittstellen.md", typen: ["switching"] },
   ],
   zonenHinweise: {
+    authfaktoren: [
+      "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
+      "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
+      "Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.",
+    ],
+    kryptobausteine: [
+      "Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).",
+      "Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.",
+      "TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.",
+    ],
+    monitoring: [
+      "Gerätezustand (Temperatur, Lüfter, CPU, Speicher) steht in der Theorie unter „Kennzahlen“; hier der Kategorie Ressourcen zugeordnet. Auslastung und Trends zählen zum Netzwerk, Dienstchecks zur Verfügbarkeit.",
+      "Grenzfall: „Ein Server antwortet auf Ping, aber der Dienst nicht“ — Verfügbarkeit (Dienstcheck), nicht Netzwerk.",
+      "Grenzfall: Syslog-Meldung „Schnittstelle ausgefallen“ als Ereignis, obwohl sie auch die Verfügbarkeit berührt.",
+    ],
+    cloudmodelle: [
+      "Zonen On-Premises, IaaS, PaaS, SaaS nach der Tabelle in Thema 8.2 (vereinfacht; die konkrete Aufteilung steht im Vertrag).",
+      "Frage 3 ordnet Aussagen der Stufe zu, ab der der Anbieter eine Schicht übernimmt; Daten und Zugriffsrechte bleiben in jedem Modell beim Kunden (keine Aussage dazu ist einer Zone zugeordnet).",
+      "Public, Private und Hybrid Cloud sind bewusst nicht Teil des Instruments (anderes Einteilungskriterium).",
+    ],
     sicherungsarten: [
       "Q-10.3-18 ist eine Rechenfrage mit den Zahlen der Theorie (800 GB, 20 GB pro Tag); die Zone „Vollsicherung“ steht dort für „täglich komplett sichern“ (gewollte Zuspitzung).",
       "Q-10.3-17: „Am Sonntag wird der gesamte Datenbestand komplett neu kopiert“ gehört zur Vollsicherung — streng genommen läuft die Vollsicherung sonntags auch in den anderen Strategien.",
@@ -1662,12 +1708,29 @@ const DV_BLATT: KursBlatt = {
   feature: "F-179",
   theorie: [],
   zonenDateien: [
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
+    { datei: "dv3/10.1-systemueberwachung-status-auslastung.md", typen: ["monitoring"] },
     { datei: "dv1/8.2-bestehende-vernetzung-topologien-architektur.md", typen: ["pyramide"] },
     { datei: "dv2/9.2-programme-signal-datenuebertragung.md", typen: ["sensoraktor"] },
     { datei: "dv4/11.1-einbindung-heterogener-systeme-protokolle.md", typen: ["industrieprotokolle"] },
     { datei: "dv1/8.3-planung-sicherheit-netzwerkanforderungen-kosten.md", typen: ["zonenkonzept"] },
   ],
   zonenHinweise: {
+    authfaktoren: [
+      "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
+      "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
+      "Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.",
+    ],
+    kryptobausteine: [
+      "Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).",
+      "Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.",
+      "TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.",
+    ],
+    monitoring: [
+      "Gerätezustand (Temperatur, Lüfter, CPU, Speicher) steht in der Theorie unter „Kennzahlen“; hier der Kategorie Ressourcen zugeordnet. Auslastung und Trends zählen zum Netzwerk, Dienstchecks zur Verfügbarkeit.",
+      "Grenzfall: „Ein Server antwortet auf Ping, aber der Dienst nicht“ — Verfügbarkeit (Dienstcheck), nicht Netzwerk.",
+      "Grenzfall: Syslog-Meldung „Schnittstelle ausgefallen“ als Ereignis, obwohl sie auch die Verfügbarkeit berührt.",
+    ],
     pyramide: [
       "Ebenenlesart des Kurses (8.2, 11.2): Feld, Steuerung, Leit (SCADA), Betriebsleit (MES), Unternehmen (ERP), ohne Nummerierung; Zählung und Benennung variieren je Quelle (Purdue 0–4, ISA-95). In 11.2 heißt die dritte Ebene „Leitstandsebene (Prozessleitebene)“ — passt die Beschriftung der Zone?",
     ],

@@ -54,6 +54,11 @@ export const KATALOG_INSTRUMENTE = [
   "netzsicherheit",
   "verzeichnisdienst",
   "switching",
+  // F-221: gemeinsame Instrumente der Fachinformatiker-Kurse (I-FI-04 bis I-FI-06).
+  "authfaktoren",
+  "kryptobausteine",
+  "monitoring",
+  "cloudmodelle",
   // Kursprofile Phase 1 (AEVO)
   "handlungsfelder",
   "vierstufen",
@@ -217,7 +222,11 @@ const TOPOLOGIE_SI_NETZ = ["inter-vlan-verwaltung", "standortverbund-vpn", "dmz-
  * Die ergänzten Theorieabschnitte und Karteikarten sind davon nicht betroffen und bereits Teil der Themen.
  */
 export const KURS_ENTWURF: Record<string, readonly string[]> = {
-  "fachinformatiker-systemintegration": ["verzeichnisdienst"],
+  // F-221: neue gemeinsame Instrumente der Fachinformatiker-Kurse, bis zur Fachprüfung (Prüfblätter 06 bis 09) nicht sichtbar.
+  "fachinformatiker-anwendungsentwicklung": ["authfaktoren", "kryptobausteine"],
+  "fachinformatiker-daten-prozessanalyse": ["authfaktoren", "kryptobausteine"],
+  "fachinformatiker-digitale-vernetzung": ["authfaktoren", "kryptobausteine", "monitoring"],
+  "fachinformatiker-systemintegration": ["verzeichnisdienst", "authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle"],
   "ausbildung-der-ausbilder": ["regelwerke"],
   "fachwirt-gesundheit-soziales": ["kostentraeger"],
   industriefachwirt: ["incoterms"],

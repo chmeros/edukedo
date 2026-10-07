@@ -399,6 +399,41 @@ export const QUADRANT_MODELS = {
       { key: "redundanz", label: "Redundanz (Spanning Tree)" },
     ],
   },
+  // F-221 (I-FI-04 bis I-FI-06): gemeinsame Modelle der Fachinformatiker-Kurse mit festen Zonen.
+  authfaktoren: {
+    label: "Authentifizierungsfaktoren",
+    zones: [
+      { key: "wissen", label: "Wissen" },
+      { key: "besitz", label: "Besitz" },
+      { key: "eigenschaft", label: "Eigenschaft (Biometrie)" },
+    ],
+  },
+  kryptobausteine: {
+    label: "Kryptografie-Bausteine",
+    zones: [
+      { key: "symmetrisch", label: "Symmetrische Verschlüsselung" },
+      { key: "asymmetrisch", label: "Asymmetrische Verschlüsselung" },
+      { key: "hash", label: "Hashverfahren" },
+    ],
+  },
+  monitoring: {
+    label: "Monitoring-Kategorien",
+    zones: [
+      { key: "ressourcen", label: "Ressourcen (CPU/RAM/Speicher)" },
+      { key: "verfuegbarkeit", label: "Verfügbarkeit (Erreichbarkeit/Dienste)" },
+      { key: "netzwerk", label: "Netzwerk (Durchsatz/Latenz/Fehler)" },
+      { key: "ereignisse", label: "Ereignisse/Logs" },
+    ],
+  },
+  cloudmodelle: {
+    label: "Cloud-Servicemodelle",
+    zones: [
+      { key: "onprem", label: "On-Premises" },
+      { key: "iaas", label: "IaaS" },
+      { key: "paas", label: "PaaS" },
+      { key: "saas", label: "SaaS" },
+    ],
+  },
   // F-181 (Kursprofile Phase 1, AEVO): fünf weitere Modelle mit festen Zonen.
   handlungsfelder: {
     label: "Handlungsfelder der AEVO",

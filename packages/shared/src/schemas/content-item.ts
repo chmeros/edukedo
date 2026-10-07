@@ -63,6 +63,11 @@ export const contentItemTypeSchema = z.enum([
   "netzsicherheit",
   "verzeichnisdienst",
   "switching",
+  // F-221: gemeinsame Instrumente der Fachinformatiker-Kurse (I-FI-04 bis I-FI-06).
+  "authfaktoren",
+  "kryptobausteine",
+  "monitoring",
+  "cloudmodelle",
   // F-181: weitere Instrumente (AEVO).
   "handlungsfelder",
   "vierstufen",

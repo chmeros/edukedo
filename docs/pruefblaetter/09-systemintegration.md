@@ -4,6 +4,358 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 
 ## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)
 
+### Authentifizierungsfaktoren (3 Fragen) — Zonen: Wissen · Besitz · Eigenschaft (Biometrie)
+
+**Besonders prüfen:**
+- ⚠ Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.
+- ⚠ Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?
+- ⚠ Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.
+
+#### Q-6.1-17 · Authentifizierungsfaktoren (Leicht)
+
+*Ordne die Anmeldemethoden dem Faktor zu, den sie abfragen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Das Passwort für das Firmenkonto | Wissen |
+| Die PIN der Bankkarte | Wissen |
+| Der Einmalcode aus der Authenticator-App auf dem Smartphone | Besitz |
+| Ein USB-Sicherheitsschlüssel (Hardware-Token) | Besitz |
+| Der Fingerabdruck am Laptop | Eigenschaft (Biometrie) |
+| Die Gesichtserkennung am Smartphone | Eigenschaft (Biometrie) |
+| Die Antwort auf eine Sicherheitsfrage | Wissen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Wissen ist, was man sich merkt (Passwort, PIN, Antwort auf eine Frage), Besitz ist ein Gegenstand, den man hat (Token, Smartphone), Eigenschaft ist ein körperliches Merkmal (Biometrie).
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-18 · Authentifizierungsfaktoren (Mittel)
+
+*Welcher Faktor wird in diesen Situationen jeweils geprüft?*
+
+| Begriff | Zone |
+| --- | --- |
+| Der VPN-Zugang verlangt ein Kennwort | Wissen |
+| Beim Login erscheint eine Bestätigungsanfrage auf dem registrierten Smartphone | Besitz |
+| Das Rechenzentrum lässt Personen nur mit der Zutrittskarte ein | Besitz |
+| Der Zugang zum Serverraum öffnet sich nach einem Irisscan | Eigenschaft (Biometrie) |
+| Die Support-Hotline fragt nach dem Geburtsnamen der Mutter | Wissen |
+| Im Authenticator erzeugt eine App alle 30 Sekunden einen neuen Einmalcode | Besitz |
+| Das Notebook entsperrt sich per Fingerabdruckleser | Eigenschaft (Biometrie) |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Maßgeblich ist, was nachgewiesen wird: ein gemerktes Geheimnis (Wissen), ein Gegenstand (Besitz) oder ein körperliches Merkmal (Eigenschaft). Der Einmalcode zeigt, dass jemand das registrierte Gerät besitzt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-19 · Authentifizierungsfaktoren (Schwer)
+
+*Mehrfaktor-Authentifizierung kombiniert mindestens zwei verschiedene Faktoren. Ordne die zweite Hälfte der Aussage dem passenden Faktor zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Passwort plus Code aus der Authenticator-App: Der zweite Faktor ist | Besitz |
+| Passwort plus Fingerabdruck: Der zweite Faktor ist | Eigenschaft (Biometrie) |
+| Hardware-Sicherheitsschlüssel plus PIN: Die PIN gehört zum Faktor | Wissen |
+| Chipkarte plus Fingerabdruck: Die Chipkarte gehört zum Faktor | Besitz |
+| Passwort plus Sicherheitsfrage: Beides gehört zum selben Faktor, also kein zweiter Faktor, nämlich | Wissen |
+| Fingerabdruck plus Gesichtserkennung: Beides gehört zum selben Faktor, also kein zweiter Faktor, nämlich | Eigenschaft (Biometrie) |
+| Code per SMS auf das registrierte Handy: Der Code bestätigt den | Besitz |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Zwei Passwörter oder zwei biometrische Merkmale sind kein zweiter Faktor, weil beide zur selben Kategorie gehören. Ein echter zweiter Faktor kommt aus einer anderen Kategorie: Wissen, Besitz oder Eigenschaft. Dann schützt die Anmeldung auch noch, wenn ein Passwort abgegriffen wurde.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+### Kryptografie-Bausteine (3 Fragen) — Zonen: Symmetrische Verschlüsselung · Asymmetrische Verschlüsselung · Hashverfahren
+
+**Besonders prüfen:**
+- ⚠ Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).
+- ⚠ Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.
+- ⚠ TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.
+
+#### Q-6.1-20 · Kryptografie-Bausteine (Leicht)
+
+*Ordne die Eigenschaften dem passenden Verfahren zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Sender und Empfänger nutzen denselben geheimen Schlüssel | Symmetrische Verschlüsselung |
+| Jeder Beteiligte hat ein Schlüsselpaar aus öffentlichem und privatem Schlüssel | Asymmetrische Verschlüsselung |
+| Aus beliebigen Daten entsteht ein Prüfwert fester Länge | Hashverfahren |
+| AES ist ein Beispiel | Symmetrische Verschlüsselung |
+| RSA ist ein Beispiel | Asymmetrische Verschlüsselung |
+| Das Verfahren ist nicht umkehrbar | Hashverfahren |
+| Schnell, aber der Schlüssel muss sicher ausgetauscht werden | Symmetrische Verschlüsselung |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Symmetrisch heißt: ein gemeinsamer geheimer Schlüssel (z. B. AES). Asymmetrisch heißt: Schlüsselpaar (z. B. RSA). Eine Hashfunktion bildet einen Prüfwert fester Länge und lässt sich nicht umkehren.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-21 · Kryptografie-Bausteine (Mittel)
+
+*Welches Verfahren passt zur Aufgabe?*
+
+| Begriff | Zone |
+| --- | --- |
+| Prüfen, ob eine heruntergeladene Datei verändert wurde | Hashverfahren |
+| Passwörter in einer Datenbank ablegen (mit Salt und einem dafür geeigneten Verfahren) | Hashverfahren |
+| Die eigentlichen Daten einer HTTPS-Verbindung nach dem Verbindungsaufbau übertragen | Symmetrische Verschlüsselung |
+| Eine Nachricht so verschlüsseln, dass nur der Empfänger sie mit seinem privaten Schlüssel lesen kann | Asymmetrische Verschlüsselung |
+| Eine große Datenmenge schnell verschlüsseln, wenn beide Seiten den Schlüssel bereits sicher besitzen | Symmetrische Verschlüsselung |
+| Beim Aufbau einer TLS-Verbindung helfen, ohne vorher ein gemeinsames Geheimnis zu kennen | Asymmetrische Verschlüsselung |
+| Die Integrität feststellen, ohne etwas zu verschlüsseln | Hashverfahren |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Hashes prüfen Integrität und speichern Passwörter. Asymmetrische Verfahren helfen beim sicheren Verbindungsaufbau, die eigentlichen Daten werden bei TLS symmetrisch verschlüsselt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-22 · Kryptografie-Bausteine (Schwer)
+
+*Ordne die Aussagen zu Verwechslungen und Zusammenspiel dem Verfahren zu, auf das sie zutreffen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Beim Login wird der Prüfwert des eingegebenen Passworts neu berechnet und mit dem gespeicherten verglichen, nie entschlüsselt | Hashverfahren |
+| Der Schlüssel muss vor der Kommunikation sicher zum Empfänger gelangen | Symmetrische Verschlüsselung |
+| Der eine Schlüssel darf allen bekannt sein, der andere muss geheim bleiben | Asymmetrische Verschlüsselung |
+| Das Ergebnis lässt sich nicht in die ursprünglichen Daten zurückverwandeln | Hashverfahren |
+| Wird bei TLS für HTTPS beim Verbindungsaufbau eingesetzt | Asymmetrische Verschlüsselung |
+| Wird bei TLS für HTTPS für die übertragenen Daten eingesetzt | Symmetrische Verschlüsselung |
+| Eine digitale Signatur kombiniert dieses Verfahren mit einem Hashverfahren | Asymmetrische Verschlüsselung |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Passwörter werden nicht reversibel verschlüsselt abgelegt, sondern gehasht. In der Praxis arbeiten die Verfahren zusammen: asymmetrisch beim Verbindungsaufbau und für Signaturen, symmetrisch für die Nutzdaten, Hashes für Prüfwerte.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+### Monitoring-Kategorien (3 Fragen) — Zonen: Ressourcen (CPU/RAM/Speicher) · Verfügbarkeit (Erreichbarkeit/Dienste) · Netzwerk (Durchsatz/Latenz/Fehler) · Ereignisse/Logs
+
+**Besonders prüfen:**
+- ⚠ Gerätezustand (Temperatur, Lüfter, CPU, Speicher) steht in der Theorie unter „Kennzahlen“; hier der Kategorie Ressourcen zugeordnet. Auslastung und Trends zählen zum Netzwerk, Dienstchecks zur Verfügbarkeit.
+- ⚠ Grenzfall: „Ein Server antwortet auf Ping, aber der Dienst nicht“ — Verfügbarkeit (Dienstcheck), nicht Netzwerk.
+- ⚠ Grenzfall: Syslog-Meldung „Schnittstelle ausgefallen“ als Ereignis, obwohl sie auch die Verfügbarkeit berührt.
+
+#### Q-9.4-15 · Monitoring-Kategorien (Leicht)
+
+*Ordne die Messwerte und Meldungen der Monitoring-Kategorie zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| CPU-Auslastung des Servers | Ressourcen (CPU/RAM/Speicher) |
+| Freier Speicherplatz auf dem Dateiserver | Ressourcen (CPU/RAM/Speicher) |
+| Der Ping auf den Router schlägt fehl | Verfügbarkeit (Erreichbarkeit/Dienste) |
+| Der Webdienst antwortet auf Port 443 nicht | Verfügbarkeit (Erreichbarkeit/Dienste) |
+| Paketverlust und Latenz auf der Internetleitung | Netzwerk (Durchsatz/Latenz/Fehler) |
+| CRC-Fehler an einem Switch-Port | Netzwerk (Durchsatz/Latenz/Fehler) |
+| Syslog-Meldung „Schnittstelle ausgefallen“ | Ereignisse/Logs |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Ressourcen sind Rechenleistung, Arbeitsspeicher und Plattenplatz, Verfügbarkeit ist die Erreichbarkeit von Geräten und Diensten, Netzwerk umfasst Durchsatz, Latenz und Fehlerzähler, Ereignisse sind einzelne Meldungen in Logs und Traps.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-9.4-16 · Monitoring-Kategorien (Mittel)
+
+*Ordne die Beobachtungen der passenden Monitoring-Kategorie zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Temperatur und Lüfterdrehzahl eines Switches | Ressourcen (CPU/RAM/Speicher) |
+| Auslastung eines 1-Gbit/s-Uplinks von 45 Prozent | Netzwerk (Durchsatz/Latenz/Fehler) |
+| Der Dienstcheck meldet, dass der Mailserver nicht antwortet | Verfügbarkeit (Erreichbarkeit/Dienste) |
+| Ein SNMP-Trap meldet, dass eine Schnittstelle ausgefallen ist | Ereignisse/Logs |
+| Arbeitsspeicher des Virtualisierungshosts dauerhaft über 90 Prozent | Ressourcen (CPU/RAM/Speicher) |
+| Jitter bei Sprachverbindungen | Netzwerk (Durchsatz/Latenz/Fehler) |
+| Mehrere fehlgeschlagene Anmeldungen im Syslog | Ereignisse/Logs |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Der Gerätezustand (Temperatur, Lüfter, Speicher) gehört zu den Ressourcen, Auslastung und Jitter zum Netzwerk. Traps und Syslog-Meldungen sind Ereignisse, während der Dienstcheck die Verfügbarkeit prüft.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-9.4-17 · Monitoring-Kategorien (Schwer)
+
+*Ordne die Überwachungsaufgaben der Kategorie zu, um die es dabei hauptsächlich geht.*
+
+| Begriff | Zone |
+| --- | --- |
+| Die Erreichbarkeit des VPN-Tunnels per regelmäßigem Ping prüfen | Verfügbarkeit (Erreichbarkeit/Dienste) |
+| Aus dem Anstieg der Auslastung die nötige Erweiterung des Uplinks planen | Netzwerk (Durchsatz/Latenz/Fehler) |
+| Ein Server antwortet auf Ping, aber der Datenbankdienst nicht | Verfügbarkeit (Erreichbarkeit/Dienste) |
+| Der Speicherplatz einer Partition wächst jede Woche um zwei Prozent | Ressourcen (CPU/RAM/Speicher) |
+| Meldungen der Firewall zentral auf einem Protokollserver auswerten | Ereignisse/Logs |
+| Steigende Zahl verworfener Pakete (Drops) an einer Schnittstelle | Netzwerk (Durchsatz/Latenz/Fehler) |
+| Per SNMP die CPU-Last der Firewall abfragen | Ressourcen (CPU/RAM/Speicher) |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Ein erreichbarer Server kann trotzdem einen ausgefallenen Dienst haben, deshalb gehört der Dienstcheck zur Verfügbarkeit. Trends der Auslastung dienen der Kapazitätsplanung im Netzwerk, wachsender Speicherbedarf den Ressourcen, zentrale Logs den Ereignissen.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+### Cloud-Servicemodelle (3 Fragen) — Zonen: On-Premises · IaaS · PaaS · SaaS
+
+**Besonders prüfen:**
+- ⚠ Zonen On-Premises, IaaS, PaaS, SaaS nach der Tabelle in Thema 8.2 (vereinfacht; die konkrete Aufteilung steht im Vertrag).
+- ⚠ Frage 3 ordnet Aussagen der Stufe zu, ab der der Anbieter eine Schicht übernimmt; Daten und Zugriffsrechte bleiben in jedem Modell beim Kunden (keine Aussage dazu ist einer Zone zugeordnet).
+- ⚠ Public, Private und Hybrid Cloud sind bewusst nicht Teil des Instruments (anderes Einteilungskriterium).
+
+#### Q-8.2-15 · Cloud-Servicemodelle (Leicht)
+
+*Ordne die Beschreibungen dem Modell zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Der Kunde betreibt Server, Betriebssystem und Anwendung im eigenen Rechenzentrum | On-Premises |
+| Virtuelle Server und Speicher aus dem Netz; das Betriebssystem verwaltet der Kunde | IaaS |
+| Plattform mit Laufzeitumgebung oder Datenbankdienst; der Kunde kümmert sich um Anwendung und Daten | PaaS |
+| Fertige Anwendung im Browser, zum Beispiel E-Mail oder Buchhaltung | SaaS |
+| Gebäude, Strom und Kühlung liegen beim Kunden | On-Premises |
+| Der Anbieter betreibt Betriebssystem und Laufzeitumgebung, der Kunde die eigene Anwendung | PaaS |
+| Der Kunde installiert Updates für das Betriebssystem auf dem gemieteten virtuellen Server selbst | IaaS |
+
+**Erklärung (so sehen Lernende sie):**
+
+> On-Premises liegt komplett beim Kunden, bei IaaS stellt der Anbieter die virtuelle Infrastruktur, bei PaaS zusätzlich Betriebssystem und Laufzeitumgebung, bei SaaS die fertige Anwendung.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-8.2-16 · Cloud-Servicemodelle (Mittel)
+
+*Welches Modell liegt in diesen Situationen jeweils vor?*
+
+| Begriff | Zone |
+| --- | --- |
+| Ein Unternehmen nutzt ein Postfach im Browser, ohne einen Server zu verwalten | SaaS |
+| Eine Entwicklerin veröffentlicht Code auf einem verwalteten Datenbankdienst, ohne das Betriebssystem zu pflegen | PaaS |
+| Ein Unternehmen mietet eine virtuelle Maschine und installiert darauf selbst ein Linux | IaaS |
+| Der Serverraum im eigenen Haus mit eigener Klimaanlage | On-Premises |
+| Eine Buchhaltungssoftware, die der Anbieter betreibt und aktualisiert; der Kunde pflegt Benutzer und Daten | SaaS |
+| Der Kunde verantwortet Anwendung, Daten und Zugriffsrechte, aber nicht das Betriebssystem | PaaS |
+| Das Unternehmen kauft Server, Speicher und Netzwerkgeräte selbst und betreibt sie | On-Premises |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Entscheidend ist, wie viele Schichten der Anbieter übernimmt. Daten und Zugriffsrechte bleiben nach dem Prinzip der geteilten Verantwortung in jedem Modell beim Kunden.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-8.2-17 · Cloud-Servicemodelle (Schwer)
+
+*Ordne die Aussagen zur Verantwortungsgrenze dem Modell zu, auf das sie zutreffen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Der Anbieter übernimmt Virtualisierung, Server, Speicher und Netz, aber nicht das Betriebssystem | IaaS |
+| Der Anbieter übernimmt zusätzlich Betriebssystem und Laufzeitumgebung, die Anwendung bleibt beim Kunden | PaaS |
+| Der Anbieter betreibt zusätzlich die Anwendung | SaaS |
+| Der Kunde trägt alle Schichten bis zum Rechenzentrum selbst | On-Premises |
+| Der Kunde spielt Sicherheitsupdates für das Betriebssystem ein, die Virtualisierungsschicht betreibt der Anbieter | IaaS |
+| Der Kunde muss keine Betriebssystemupdates einspielen, verantwortet aber die eigene Anwendung | PaaS |
+| Der Kunde konfiguriert im Wesentlichen nur Benutzer, Berechtigungen und Einstellungen | SaaS |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Je höher das Servicemodell, desto mehr übernimmt der Anbieter: bei IaaS bis zur Virtualisierung, bei PaaS bis zur Laufzeitumgebung, bei SaaS bis zur Anwendung. Daten und Zugriffe bleiben immer beim Kunden.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
 ### Sicherungsarten (4 Fragen) — Zonen: Vollsicherung · Inkrementelle Sicherung · Differentielle Sicherung
 
 **Besonders prüfen:**

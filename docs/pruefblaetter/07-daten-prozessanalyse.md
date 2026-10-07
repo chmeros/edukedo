@@ -4,6 +4,182 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-daten-prozessanalyse/`
 
 ## 1. Zonen-Instrumente (Begriffe den Zonen zuordnen)
 
+### Authentifizierungsfaktoren (3 Fragen) — Zonen: Wissen · Besitz · Eigenschaft (Biometrie)
+
+**Besonders prüfen:**
+- ⚠ Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.
+- ⚠ Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?
+- ⚠ Sicherheitsfrage zählt als Wissen; viele Stellen raten davon ab, weil die Antworten erratbar sind. Die Frage stellt nur die Einordnung dar.
+
+#### Q-6.1-17 · Authentifizierungsfaktoren (Leicht)
+
+*Ordne die Anmeldemethoden dem Faktor zu, den sie abfragen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Das Passwort für das Firmenkonto | Wissen |
+| Die PIN der Bankkarte | Wissen |
+| Der Einmalcode aus der Authenticator-App auf dem Smartphone | Besitz |
+| Ein USB-Sicherheitsschlüssel (Hardware-Token) | Besitz |
+| Der Fingerabdruck am Laptop | Eigenschaft (Biometrie) |
+| Die Gesichtserkennung am Smartphone | Eigenschaft (Biometrie) |
+| Die Antwort auf eine Sicherheitsfrage | Wissen |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Wissen ist, was man sich merkt (Passwort, PIN, Antwort auf eine Frage), Besitz ist ein Gegenstand, den man hat (Token, Smartphone), Eigenschaft ist ein körperliches Merkmal (Biometrie).
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-18 · Authentifizierungsfaktoren (Mittel)
+
+*Welcher Faktor wird in diesen Situationen jeweils geprüft?*
+
+| Begriff | Zone |
+| --- | --- |
+| Der VPN-Zugang verlangt ein Kennwort | Wissen |
+| Beim Login erscheint eine Bestätigungsanfrage auf dem registrierten Smartphone | Besitz |
+| Das Rechenzentrum lässt Personen nur mit der Zutrittskarte ein | Besitz |
+| Der Zugang zum Serverraum öffnet sich nach einem Irisscan | Eigenschaft (Biometrie) |
+| Die Support-Hotline fragt nach dem Geburtsnamen der Mutter | Wissen |
+| Im Authenticator erzeugt eine App alle 30 Sekunden einen neuen Einmalcode | Besitz |
+| Das Notebook entsperrt sich per Fingerabdruckleser | Eigenschaft (Biometrie) |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Maßgeblich ist, was nachgewiesen wird: ein gemerktes Geheimnis (Wissen), ein Gegenstand (Besitz) oder ein körperliches Merkmal (Eigenschaft). Der Einmalcode zeigt, dass jemand das registrierte Gerät besitzt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-19 · Authentifizierungsfaktoren (Schwer)
+
+*Mehrfaktor-Authentifizierung kombiniert mindestens zwei verschiedene Faktoren. Ordne die zweite Hälfte der Aussage dem passenden Faktor zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Passwort plus Code aus der Authenticator-App: Der zweite Faktor ist | Besitz |
+| Passwort plus Fingerabdruck: Der zweite Faktor ist | Eigenschaft (Biometrie) |
+| Hardware-Sicherheitsschlüssel plus PIN: Die PIN gehört zum Faktor | Wissen |
+| Chipkarte plus Fingerabdruck: Die Chipkarte gehört zum Faktor | Besitz |
+| Passwort plus Sicherheitsfrage: Beides gehört zum selben Faktor, also kein zweiter Faktor, nämlich | Wissen |
+| Fingerabdruck plus Gesichtserkennung: Beides gehört zum selben Faktor, also kein zweiter Faktor, nämlich | Eigenschaft (Biometrie) |
+| Code per SMS auf das registrierte Handy: Der Code bestätigt den | Besitz |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Zwei Passwörter oder zwei biometrische Merkmale sind kein zweiter Faktor, weil beide zur selben Kategorie gehören. Ein echter zweiter Faktor kommt aus einer anderen Kategorie: Wissen, Besitz oder Eigenschaft. Dann schützt die Anmeldung auch noch, wenn ein Passwort abgegriffen wurde.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+### Kryptografie-Bausteine (3 Fragen) — Zonen: Symmetrische Verschlüsselung · Asymmetrische Verschlüsselung · Hashverfahren
+
+**Besonders prüfen:**
+- ⚠ Der Salt ist nur in der Theorie 6.1 als „zufälliger Zusatz“ erwähnt; die Fragen nennen keine konkreten Verfahren für Passwörter (Argon2, bcrypt).
+- ⚠ Eine digitale Signatur ist in der Frage dem asymmetrischen Verfahren zugeordnet (Hash plus asymmetrisches Verfahren); als Kombination wäre auch „Hashverfahren“ vertretbar — Zuordnung prüfen.
+- ⚠ TLS: asymmetrisch beim Verbindungsaufbau, symmetrisch für die Nutzdaten — wie in der Theorie.
+
+#### Q-6.1-20 · Kryptografie-Bausteine (Leicht)
+
+*Ordne die Eigenschaften dem passenden Verfahren zu.*
+
+| Begriff | Zone |
+| --- | --- |
+| Sender und Empfänger nutzen denselben geheimen Schlüssel | Symmetrische Verschlüsselung |
+| Jeder Beteiligte hat ein Schlüsselpaar aus öffentlichem und privatem Schlüssel | Asymmetrische Verschlüsselung |
+| Aus beliebigen Daten entsteht ein Prüfwert fester Länge | Hashverfahren |
+| AES ist ein Beispiel | Symmetrische Verschlüsselung |
+| RSA ist ein Beispiel | Asymmetrische Verschlüsselung |
+| Das Verfahren ist nicht umkehrbar | Hashverfahren |
+| Schnell, aber der Schlüssel muss sicher ausgetauscht werden | Symmetrische Verschlüsselung |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Symmetrisch heißt: ein gemeinsamer geheimer Schlüssel (z. B. AES). Asymmetrisch heißt: Schlüsselpaar (z. B. RSA). Eine Hashfunktion bildet einen Prüfwert fester Länge und lässt sich nicht umkehren.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-21 · Kryptografie-Bausteine (Mittel)
+
+*Welches Verfahren passt zur Aufgabe?*
+
+| Begriff | Zone |
+| --- | --- |
+| Prüfen, ob eine heruntergeladene Datei verändert wurde | Hashverfahren |
+| Passwörter in einer Datenbank ablegen (mit Salt und einem dafür geeigneten Verfahren) | Hashverfahren |
+| Die eigentlichen Daten einer HTTPS-Verbindung nach dem Verbindungsaufbau übertragen | Symmetrische Verschlüsselung |
+| Eine Nachricht so verschlüsseln, dass nur der Empfänger sie mit seinem privaten Schlüssel lesen kann | Asymmetrische Verschlüsselung |
+| Eine große Datenmenge schnell verschlüsseln, wenn beide Seiten den Schlüssel bereits sicher besitzen | Symmetrische Verschlüsselung |
+| Beim Aufbau einer TLS-Verbindung helfen, ohne vorher ein gemeinsames Geheimnis zu kennen | Asymmetrische Verschlüsselung |
+| Die Integrität feststellen, ohne etwas zu verschlüsseln | Hashverfahren |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Hashes prüfen Integrität und speichern Passwörter. Asymmetrische Verfahren helfen beim sicheren Verbindungsaufbau, die eigentlichen Daten werden bei TLS symmetrisch verschlüsselt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-22 · Kryptografie-Bausteine (Schwer)
+
+*Ordne die Aussagen zu Verwechslungen und Zusammenspiel dem Verfahren zu, auf das sie zutreffen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Beim Login wird der Prüfwert des eingegebenen Passworts neu berechnet und mit dem gespeicherten verglichen, nie entschlüsselt | Hashverfahren |
+| Der Schlüssel muss vor der Kommunikation sicher zum Empfänger gelangen | Symmetrische Verschlüsselung |
+| Der eine Schlüssel darf allen bekannt sein, der andere muss geheim bleiben | Asymmetrische Verschlüsselung |
+| Das Ergebnis lässt sich nicht in die ursprünglichen Daten zurückverwandeln | Hashverfahren |
+| Wird bei TLS für HTTPS beim Verbindungsaufbau eingesetzt | Asymmetrische Verschlüsselung |
+| Wird bei TLS für HTTPS für die übertragenen Daten eingesetzt | Symmetrische Verschlüsselung |
+| Eine digitale Signatur kombiniert dieses Verfahren mit einem Hashverfahren | Asymmetrische Verschlüsselung |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Passwörter werden nicht reversibel verschlüsselt abgelegt, sondern gehasht. In der Praxis arbeiten die Verfahren zusammen: asymmetrisch beim Verbindungsaufbau und für Signaturen, symmetrisch für die Nutzdaten, Hashes für Prüfwerte.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
 ### BPMN-2.0-Bausteine (4 Fragen) — Zonen: Ereignis · Aktivität · Gateway · Fluss (Sequenz-/Nachrichtenfluss) · Teilnehmer (Pool/Lane)
 
 **Besonders prüfen:**
