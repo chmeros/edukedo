@@ -53,6 +53,8 @@ describe("kursAngebot (F-176)", () => {
   it("das Angebot bestimmt die Werkzeuge und hat Vorrang vor metadata.werkzeuge", () => {
     const angebot = KURS_ANGEBOT["fachwirt-buero-projektorganisation"]!;
     expect(kursWerkzeuge({ werkzeuge: ["terminal"], angebot })).toEqual(["netzplan"]);
-    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["industriefachwirt"] })).toEqual([]);
+    // Der Industriefachwirt bekommt nur den Finanzrechner (F-197); Kurse ohne Werkzeuge im Angebot liefern eine leere Liste.
+    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["industriefachwirt"] })).toEqual(["finanzrechner"]);
+    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["fachwirt-gesundheit-soziales"] })).toEqual([]);
   });
 });
