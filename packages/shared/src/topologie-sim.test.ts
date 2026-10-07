@@ -509,8 +509,8 @@ function apothekeMitPool(): TopologieZustand {
 }
 
 describe("Szenarien — Umfang, Stufen und Layout", () => {
-  it("es gibt neun Szenarien mit eindeutigen IDs; die zwei ursprünglichen bleiben erhalten", () => {
-    expect(topologieSzenarien).toHaveLength(9);
+  it("es gibt dreizehn Szenarien mit eindeutigen IDs; die zwei ursprünglichen bleiben erhalten", () => {
+    expect(topologieSzenarien).toHaveLength(13);
     const ids = topologieSzenarien.map((eintrag) => eintrag.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids.slice(0, 2)).toEqual(["ein-netz-ein-switch", "zwei-netze-router"]);
@@ -522,7 +522,7 @@ describe("Szenarien — Umfang, Stufen und Layout", () => {
     const rang = stufen.map((stufe) => topologieStufen.indexOf(stufe));
     expect([...rang].sort((a, b) => a - b)).toEqual(rang);
     expect(stufen.filter((stufe) => stufe === "leicht")).toHaveLength(3);
-    expect(stufen.filter((stufe) => stufe === "schwer")).toHaveLength(2);
+    expect(stufen.filter((stufe) => stufe === "schwer")).toHaveLength(4);
   });
 
   it("jedes Szenario hat 3–4 Tipps, Lösungsschritte, Adressplan, mindestens drei Prüfaufträge und eine Erklärung", () => {
@@ -1294,3 +1294,88 @@ describe("Karten-Zeilen und Hilfsfunktionen", () => {
     }
   });
 });
+
+describe("Industrienetz-Szenarien (F-217)", () => {
+  const ping = (zustand: TopologieZustand, von: string, nach: string, schnittstelle?: string) => topologiePing(zustand, von, nach, schnittstelle);
+  const fertig = (id: string) => topologieLoesungsZustand(topologieSzenario(id)!);
+  const anfang = (id: string) => topologieStartzustand(topologieSzenario(id)!);
+
+  it("alle vier Szenarien gehören zusammen: IDs, Stufen und Reihenfolge am Ende der jeweiligen Stufe", () => {
+    const ids = ["produktionszelle-vlan", "feldnetz-gateway", "buero-produktion-firewall", "wartung-ueber-dmz"];
+    for (const id of ids) expect(topologieSzenario(id), id).toBeDefined();
+    expect(ids.map((id) => topologieSzenario(id)!.stufe)).toEqual(["mittel", "mittel", "schwer", "schwer"]);
+  });
+
+  it("Produktionszelle: im Start trennen VLAN-Fehler, die Lösung verbindet Zelle und Büro über den Router", () => {
+    const z = anfang("produktionszelle-vlan");
+    const sps2 = ping(z, "leit", "sps2");
+    expect(sps2.erfolg).toBe(false);
+    expect(sps2.fehlerart).toBe("vlan-getrennt");
+    expect(ping(z, "pc1", "leit").erfolg).toBe(false);
+    const geloest = fertig("produktionszelle-vlan");
+    for (const [von, nach] of [["leit", "sps2"], ["pc1", "leit"], ["leit", "pc1"], ["sps1", "sps2"]] as const) expect(ping(geloest, von, nach).erfolg, `${von}→${nach}`).toBe(true);
+  });
+
+  it("Feldnetz: fehlende Route und falscher Rückweg zeigen sich getrennt; die Lösung funktioniert in beide Richtungen", () => {
+    const z = anfang("feldnetz-gateway");
+    expect(ping(z, "leit", "router-g", "eth1").erfolg).toBe(false);
+    const ohneRueckweg = setzeRoutenFuerTest(z);
+    const hin = ping(ohneRueckweg, "leit", "router-g", "eth0");
+    expect(hin.erfolg).toBe(false);
+    const geloest = fertig("feldnetz-gateway");
+    expect(ping(geloest, "leit", "sps1").erfolg).toBe(true);
+    expect(ping(geloest, "sps1", "leit").erfolg).toBe(true);
+  });
+
+  it("Büro/Produktion/Leitstand: nur das Leitsystem kommt durch, der Service-Laptop im selben VLAN und das Büro nicht", () => {
+    const geloest = fertig("buero-produktion-firewall");
+    expect(ping(geloest, "leit", "sps1").erfolg).toBe(true);
+    expect(ping(geloest, "leit", "sps2").erfolg).toBe(true);
+    const laptop = ping(geloest, "svc", "sps1");
+    expect(laptop.erfolg).toBe(false);
+    expect(laptop.fehlerart).toBe("firewall-blockiert");
+    const buero = ping(geloest, "pc1", "sps1");
+    expect(buero.erfolg).toBe(false);
+    expect(buero.fehlerart).toBe("firewall-blockiert");
+    // Das Büro erreicht sein eigenes Gateway weiterhin (Pakete an den Router selbst filtert die Firewall nicht).
+    expect(ping(geloest, "pc1", "router1", "eth0").erfolg).toBe(true);
+    // Im Start lassen zu breite Regeln das Büro und den Service-Laptop durch.
+    const z = anfang("buero-produktion-firewall");
+    expect(topologieAuftragBewertung(z, topologieSzenario("buero-produktion-firewall")!.pruefAuftraege.find((a) => a.id === "pc1-sps1")!).erfuellt).toBe(false);
+    expect(topologieAuftragBewertung(z, topologieSzenario("buero-produktion-firewall")!.pruefAuftraege.find((a) => a.id === "svc-sps1")!).erfuellt).toBe(false);
+  });
+
+  it("Wartungszugriff: nur über den Jumphost; direkter Zugriff aus dem Internet und aus dem Büro bleibt gesperrt", () => {
+    const geloest = fertig("wartung-ueber-dmz");
+    expect(ping(geloest, "wartung", "jump").erfolg).toBe(true);
+    expect(ping(geloest, "jump", "sps1").erfolg).toBe(true);
+    for (const von of ["wartung", "pc1"]) {
+      const direkt = ping(geloest, von, "sps1");
+      expect(direkt.erfolg, von).toBe(false);
+      expect(direkt.fehlerart, von).toBe("firewall-blockiert");
+    }
+    expect(ping(geloest, "pc1", "jump").fehlerart).toBe("firewall-blockiert");
+    // Im Start ist die SPS gar nicht angeschlossen und die direkte Regel noch offen.
+    const z = anfang("wartung-ueber-dmz");
+    expect(ping(z, "jump", "sps1").erfolg).toBe(false);
+    expect(ping(z, "wartung", "jump").erfolg).toBe(false);
+  });
+
+  it("jedes Industrienetz-Szenario verwendet nur private Adressen und Standard „blockieren“ in der Firewall (Default Deny)", () => {
+    for (const id of ["buero-produktion-firewall", "wartung-ueber-dmz"]) {
+      const router = topologieStartzustand(topologieSzenario(id)!).geraete.find((g) => g.typ === "router")!;
+      expect(router.firewall?.standard, id).toBe("blockieren");
+      expect(topologieLoesungsZustand(topologieSzenario(id)!).geraete.find((g) => g.typ === "router")!.firewall?.standard, id).toBe("blockieren");
+    }
+  });
+});
+
+/** Hilfsfunktion: Standort-Router des Feldnetz-Szenarios mit der fehlenden Route, aber noch falscher Rückroute. */
+function setzeRoutenFuerTest(zustand: TopologieZustand): TopologieZustand {
+  const mitRoute = topologieRouteHinzufuegen(zustand, "router-s");
+  const router = mitRoute.geraete.find((g) => g.id === "router-s")!;
+  const id = router.routen!.at(-1)!.id;
+  let z = topologieRouteSetzen(mitRoute, "router-s", id, "ziel", "192.168.50.0");
+  z = topologieRouteSetzen(z, "router-s", id, "maske", "255.255.255.0");
+  return topologieRouteSetzen(z, "router-s", id, "hop", "10.10.0.2");
+}

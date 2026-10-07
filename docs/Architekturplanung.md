@@ -567,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-217: Industrienetz-Szenarien im Topologie-Simulator)
+
+- **Anlass:** Phase 3 der Kursprofile, Werkzeug W-DV-03 (Priorität hoch, Aufwand M) im Kurs Digitale Vernetzung. Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“ Die offene Frage des Kursprofils, ob neue Gerätetypen die Simulationslogik berühren, ist beantwortet: **nein**. Die vier Szenarien sind reine Daten in `packages/shared/src/topologie-sim.ts` auf den Typen PC, Server, Switch und Router; SPS, Leitstand, Jumphost und Feld-Gateway sind Gerätenamen.
+- **Vier Szenarien (13 insgesamt):** *Produktionszelle im eigenen VLAN* und *Feldnetz hinter dem Gateway* (mittel, hinter „Zugriff auf ein Partnernetz mit NAT“), *Büro-IT und Produktion über Firewall getrennt* und *Wartungszugriff über die DMZ* (schwer, am Ende). Die Stufenreihenfolge der Liste bleibt aufsteigend (Test); die Zahl der schweren Szenarien steigt von zwei auf vier.
+- **Fachliche Zuordnung (R5):** Zonen Büro, Produktion und Leitstand/MES, DMZ als Pufferzone, Jumphost, Default Deny, eng gefasste Regeln und Kommunikationsmatrix kommen aus dv2 9.3 und dv4 11.4; die Soll-Tabellen im Szenario entsprechen der Regeltabelle der Theorie (Quelle, Ziel, Aktion, Zweck).
+- **Vereinfachung benannt:** Die Firewall des Simulators kennt nur Quelle und Ziel (Netz oder Einzeladresse). „Modbus-Port nur vom Leitsystem“ aus dem Kursprofil wird deshalb als „nur vom Leitsystem (Einzeladresse)“ abgebildet; Szenario und Erklärung sagen, dass eine echte Regel zusätzlich den Dienst nennt. Trunks bleiben wie in F-174 ausgeklammert: Alle Szenarien kommen mit Access-Ports und einem Kabel je VLAN bzw. mit direkten Router-Kabeln aus. Das „externe“ Netz der Wartungsfirma ist ein privater Bereich (172.16.0.0/24), weil der Simulator nur private Adressen zulässt.
+- **Freigabe:** Neue Konstante `TOPOLOGIE_INDUSTRIE` in `kurs-angebot.ts`; nur Digitale Vernetzung bekommt die vier IDs (Systemintegration behält die bisherigen Szenarien, seine Netzthemen gehören zu W-SI-04). Danach `db:apply-kurs-metadata`.
+- **Tests:** Die bestehenden Generaltests des Simulators prüfen die neuen Szenarien automatisch (Start nicht erfüllt, Lösung vollständig erfüllt, keine überlappenden Karten, private Adressen, 3–4 Tipps, Prüfaufträge, Erklärungslänge); die Zählungen (13 Szenarien, 4 schwere) sind angepasst. Neu: gezielte Tests je Szenario (VLAN-Trennung im Start, Rückweg im Feldnetz, nur das Leitsystem kommt durch und der Service-Laptop wird von der Firewall blockiert, Wartung nur über den Jumphost, Default Deny) und kurs-angebot.test.ts. Live geprüft im Kurs Digitale Vernetzung: 13 Szenarien in der Auswahl, Layout des Szenarios „Wartungszugriff über die DMZ“ mit Router mit vier Schnittstellen.
+
 ### Entschieden am 07.10.2026 (F-216: SQL-Beiblatt-Modus)
 
 - **Anlass:** Phase 3 der Kursprofile, Werkzeug W-FI-04 (Priorität mittel, Aufwand S) für Anwendungsentwicklung und Daten- und Prozessanalyse. Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“

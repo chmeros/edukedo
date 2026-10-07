@@ -204,6 +204,8 @@ const TERMINAL_DV = [...TERMINAL_LEICHT, "webseite", "ip-maske", "firewall", "pr
 const TERMINAL_SI = [...TERMINAL_DV, "rechte", "cron-job"];
 const TOPOLOGIE_LEICHT = ["ein-netz-ein-switch", "zwei-netze-router", "dhcp-apotheke"];
 const TOPOLOGIE_ALLE = [...TOPOLOGIE_LEICHT, "dhcp-pool-konflikt", "filiale-zwei-router", "gastnetz-vlan", "nat-partnernetz", "server-vlan-firewall", "drei-standorte-routing"];
+/** Industrienetz-Szenarien (F-217), nur im Kurs Digitale Vernetzung. */
+const TOPOLOGIE_INDUSTRIE = ["produktionszelle-vlan", "feldnetz-gateway", "buero-produktion-firewall", "wartung-ueber-dmz"];
 
 /**
  * F-186 (Freigabe-Mechanismus): Instrumenttypen je Kurs, deren Fragen noch **ungeprüfte Entwürfe** sind (Rahmenentscheidung R3: erst nach
@@ -232,6 +234,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Industrienetz-Szenarien (F-217): vier neue Szenarien im Topologie-Simulator, nur im Kurs Digitale Vernetzung (Produktionszelle im VLAN, Feldnetz hinter dem Gateway, Büro/Produktion/Leitstand mit Firewall, Wartungszugriff über die DMZ; Theorie dv2 9.3 und dv4 11.4).
  * Algorithmen-Visualisierer (F-215): Werkzeug "algorithmen" im Kurs Anwendungsentwicklung als Kernangebot, in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Bubble-, Selection-, Insertionsort, lineare und binäre Suche).
  * Datenqualitäts-Aufgaben der SQL-Übungsfläche (F-214): `szenarien.sql` wählt die Übungen je Kurs; die Anwendungsentwicklung behält die Aufgaben auf den Projektdaten, die Daten- und Prozessanalyse bekommt zusätzlich die Aufgaben auf den Importdaten (Theorie dp4 11.1).
  * Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Werkzeug "wirtschaftlichkeit" in allen vier Fachinformatiker-Kursen als Kernangebot (gemeinsame Theorie 2.3: Nutzwertanalyse, TCO, Kauf gegen Abonnement, Rabatt und Skonto; Make or Buy aus 12.2); Beispielwerte. Break-even- und Leasingrechnung fehlen bewusst, weil die Theorie sie nicht enthält.
@@ -330,7 +333,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: ["scrum", "osi", "schutzziele"],
     szenarien: {
       terminal: liste(TERMINAL_DV),
-      topologie: liste(TOPOLOGIE_ALLE),
+      topologie: liste([...TOPOLOGIE_ALLE, ...TOPOLOGIE_INDUSTRIE]),
       flags: liste(["flag-basic-auth", "flag-offene-ports", "flag-log-bruteforce", "flag-dns-tunnel"]),
     },
   },

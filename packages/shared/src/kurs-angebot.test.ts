@@ -241,6 +241,14 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Industrienetz-Szenarien (F-217): nur im Kurs Digitale Vernetzung", () => {
+    const ids = ["produktionszelle-vlan", "feldnetz-gateway", "buero-produktion-firewall", "wartung-ueber-dmz"];
+    for (const slug of Object.keys(KURS_ANGEBOT)) {
+      const liste = (KURS_ANGEBOT[slug]!.szenarien.topologie ?? []).map((e) => e.schluessel);
+      for (const id of ids) expect(liste.includes(id), `${slug} ${id}`).toBe(slug === "fachinformatiker-digitale-vernetzung");
+    }
+  });
+
   it("Algorithmen-Visualisierer (F-215): Kernangebot in der Anwendungsentwicklung, Grundlage in den übrigen Fachinformatiker-Kursen", () => {
     for (const slug of Object.keys(KURS_ANGEBOT)) {
       const erwartet = slug === "fachinformatiker-anwendungsentwicklung" ? "kern" : slug.startsWith("fachinformatiker-") ? "grundlagen" : null;

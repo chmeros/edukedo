@@ -2229,6 +2229,159 @@ export const topologieSzenarien: TopologieSzenario[] = [
       "NAT (Network Address Translation) ersetzt auf dem Weg nach außen die Quelladresse eines Pakets durch die Adresse des Routers. Der Partner-Server sieht deshalb keinen Absender 192.168.10.25, sondern 172.16.50.1 — eine Adresse aus seinem eigenen Netz, die er ohne Gateway direkt erreichen kann. Der Router merkt sich in seiner NAT-Tabelle, wer die Anfrage gestellt hat, und übersetzt die Antwort zurück an PC1 oder PC2. So kommen interne Netze ohne Route auf der Gegenseite ans Ziel (und viele Geräte teilen sich eine öffentliche Adresse — in der Praxis zusätzlich mit Ports unterschieden, hier vereinfacht ohne Ports). NAT ersetzt keine Firewall: Von außen kommt nichts Neues herein, aber das ist ein Nebeneffekt, kein Schutzkonzept.",
   },
   {
+    id: "produktionszelle-vlan",
+    titel: "Produktionszelle im eigenen VLAN",
+    stufe: "mittel",
+    kurzbeschreibung: "Rheinwerk Maschinen GmbH: Büro und Produktionszelle an einem Switch, getrennt in zwei VLANs, verbunden über einen Router.",
+    aufgabe:
+      "Bei der Rheinwerk Maschinen GmbH hängen der Büro-PC (VLAN 10, 192.168.10.0/24) und die Produktionszelle mit SPS 1, SPS 2 und dem Leitstand-Rechner (VLAN 20, 192.168.20.0/24) an einem Switch. Router1 hat je eine Schnittstelle in beiden VLANs. Die Zelle liegt bewusst in einem eigenen VLAN. Zurzeit erreicht der Leitstand seine SPS 2 nicht, der Büro-PC kommt nicht in die Produktionszelle, und der Leitstand erreicht das Büro nicht. Finde die Fehler.",
+    geraete: [
+      host("pc1", "pc", "Büro-PC", 90, 80, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      host("sps1", "server", "SPS 1", 90, 230, "192.168.20.11", "255.255.255.0", "192.168.20.1"),
+      host("sps2", "server", "SPS 2", 90, 380, "192.168.20.12", "255.255.255.0", "192.168.20.1"),
+      host("leit", "pc", "Leitstand", 90, 530, "192.168.20.50", "255.255.255.0", "192.168.20.254"),
+      switchGeraet("switch1", "Switch1", 340, 305, 8, [10, 20, 1, 20, 10, 10]),
+      routerGeraet("router1", "Router1", 610, 305, 2, [
+        ["192.168.10.1", "255.255.255.0"],
+        ["192.168.20.1", "255.255.255.0"],
+      ]),
+    ],
+    kabel: [
+      kabelZwischen("pc1", "eth0", "switch1", "p1"),
+      kabelZwischen("sps1", "eth0", "switch1", "p2"),
+      kabelZwischen("sps2", "eth0", "switch1", "p3"),
+      kabelZwischen("leit", "eth0", "switch1", "p4"),
+      kabelZwischen("router1", "eth0", "switch1", "p5"),
+      kabelZwischen("router1", "eth1", "switch1", "p6"),
+    ],
+    pruefAuftraege: [
+      { id: "leit-sps1", von: "leit", nach: "sps1", beschreibung: "Leitstand → SPS 1 (gleiche Zelle)" },
+      { id: "leit-sps2", von: "leit", nach: "sps2", beschreibung: "Leitstand → SPS 2 (gleiche Zelle)" },
+      { id: "sps1-sps2", von: "sps1", nach: "sps2", beschreibung: "SPS 1 → SPS 2 (gleiche Zelle)" },
+      { id: "pc1-leit", von: "pc1", nach: "leit", beschreibung: "Büro-PC → Leitstand (über den Router)" },
+      { id: "leit-pc1", von: "leit", nach: "pc1", beschreibung: "Leitstand → Büro-PC (Gegenrichtung)" },
+    ],
+    adressplanHinweis:
+      "Zwei VLANs, zwei Netze: Büro (VLAN 10) und Produktionszelle (VLAN 20). Alle IP-Adressen und Masken stimmen; geprüft werden die VLAN-Zuordnung der Switch-Ports und die Gateways. Der Router hat je ein Kabel zu einem Port im passenden VLAN (keine Trunks).",
+    adressplan: [
+      { geraet: "Büro-PC", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1", zusatz: "VLAN 10" },
+      { geraet: "SPS 1", schnittstelle: "eth0", ip: "192.168.20.11", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "SPS 2", schnittstelle: "eth0", ip: "192.168.20.12", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "Leitstand", schnittstelle: "eth0", ip: "192.168.20.50", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "Router1", schnittstelle: "eth0 (Büro)", ip: "192.168.10.1", maske: MASKE24, gateway: "", zusatz: "VLAN 10" },
+      { geraet: "Router1", schnittstelle: "eth1 (Produktion)", ip: "192.168.20.1", maske: MASKE24, gateway: "", zusatz: "VLAN 20" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: VLAN je Port von Switch1",
+        spalten: ["Port", "angeschlossen", "VLAN"],
+        zeilen: [
+          ["Port 1", "Büro-PC", "10"],
+          ["Port 2", "SPS 1", "20"],
+          ["Port 3", "SPS 2", "20"],
+          ["Port 4", "Leitstand", "20"],
+          ["Port 5", "Router1 eth0", "10"],
+          ["Port 6", "Router1 eth1", "20"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste die Prüfaufträge der Reihe nach. Bei Fehlern zwischen zwei Geräten nennt die Meldung die beiden Ports und ihre VLANs: Vergleiche sie mit der Tabelle „Soll“.",
+      "Geräte in verschiedenen VLANs sprechen auf Schicht 2 nicht miteinander; nur der Router verbindet die Netze. Prüfe auch das VLAN der Router-Ports.",
+      "Der Leitstand erreicht schon sein eigenes Gateway nicht: Die eingetragene Adresse muss genau der Router-Schnittstelle im Produktionsnetz entsprechen.",
+    ],
+    loesung: {
+      schritte: [
+        "Switch1 · Port 3 (SPS 2) auf VLAN 20 stellen (stand im Standard-VLAN 1).",
+        "Switch1 · Port 6 (Router1 eth1, Produktionsnetz) auf VLAN 20 stellen (stand auf VLAN 10).",
+        "Leitstand: Gateway 192.168.20.1 eintragen (stand auf 192.168.20.254).",
+      ],
+      konfig: [{ geraet: "leit", schnittstelle: "eth0", ip: "192.168.20.50", maske: "255.255.255.0", gateway: "192.168.20.1" }],
+      kabel: [],
+      vlans: [
+        { geraet: "switch1", schnittstelle: "p3", vlan: 20 },
+        { geraet: "switch1", schnittstelle: "p6", vlan: 20 },
+      ],
+    },
+    erklaerung:
+      "Eine Produktionszelle legt man in ein eigenes VLAN mit eigenem Adressbereich: Die Broadcast-Domäne bleibt klein, Störungen und Rundsendungen bleiben in der Zelle, und der Übergang zum Büronetz ist ein einziger, kontrollierbarer Punkt — der Router. Ein VLAN-Fehler an einem einzigen Port genügt, damit ein Gerät aus der Zelle herausfällt (SPS 2 im Standard-VLAN 1) oder ein ganzes Netz keinen Router hat (der Router-Port im falschen VLAN). Ein falsches Gateway macht ein Gerät zur Insel: Innerhalb der Zelle funktioniert alles, hinaus kommt nichts. Segmentierung allein ist noch keine Schutzgrenze: Ohne Filterregeln am Router erreicht jeder aus dem Büro die Zelle — das ist Thema der nächsten Szenarien.",
+  },
+  {
+    id: "feldnetz-gateway",
+    titel: "Feldnetz hinter dem Gateway",
+    stufe: "mittel",
+    kurzbeschreibung: "Rheinwerk Maschinen GmbH: Standortnetz und Feldnetz, verbunden über zwei Router und ein /30-Verbindungsnetz.",
+    aufgabe:
+      "Das Feldnetz der Halle 1 (192.168.50.0/24) hängt hinter dem Feld-Gateway, das über ein /30-Verbindungsnetz (10.10.0.0/30) mit dem Standort-Router verbunden ist. Der Leitstand im Standortnetz (192.168.10.0/24) soll die SPS in der Halle erreichen und die SPS den Leitstand. Zurzeit funktioniert keine der beiden Richtungen. Finde die Fehler in den Routen und im Gateway der SPS.",
+    geraete: [
+      host("leit", "pc", "Leitstand", 90, 220, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      routerGeraet("router-s", "Standort-Router", 340, 220, 2, [
+        ["192.168.10.1", "255.255.255.0"],
+        ["10.10.0.1", "255.255.255.252"],
+      ]),
+      routerGeraet(
+        "router-g",
+        "Feld-Gateway",
+        590,
+        220,
+        2,
+        [
+          ["10.10.0.2", "255.255.255.252"],
+          ["192.168.50.1", "255.255.255.0"],
+        ],
+        { routen: routen([["0.0.0.0", "/0", "10.10.0.5"]]) },
+      ),
+      host("sps1", "server", "SPS Halle 1", 590, 440, "192.168.50.10", "255.255.255.0", "192.168.50.254"),
+    ],
+    kabel: [kabelZwischen("leit", "eth0", "router-s", "eth0"), kabelZwischen("router-s", "eth1", "router-g", "eth0"), kabelZwischen("router-g", "eth1", "sps1", "eth0")],
+    pruefAuftraege: [
+      { id: "leit-router-g", von: "leit", nach: "router-g", nachSchnittstelle: "eth1", beschreibung: "Leitstand → Feld-Gateway eth1 (Feldseite)" },
+      { id: "leit-sps1", von: "leit", nach: "sps1", beschreibung: "Leitstand → SPS Halle 1" },
+      { id: "sps1-leit", von: "sps1", nach: "leit", beschreibung: "SPS Halle 1 → Leitstand (Gegenrichtung)" },
+      { id: "sps1-router-s", von: "sps1", nach: "router-s", nachSchnittstelle: "eth0", beschreibung: "SPS Halle 1 → Standort-Router eth0 (Standortseite)" },
+    ],
+    adressplanHinweis:
+      "Drei Netze: Standortnetz 192.168.10.0/24, Verbindungsnetz 10.10.0.0/30 und Feldnetz 192.168.50.0/24. Alle IP-Adressen und Masken stimmen. Das Feld-Gateway soll alles Unbekannte über den Standort-Router schicken (Standardroute); der Standort-Router braucht eine Route in das Feldnetz.",
+    adressplan: [
+      { geraet: "Leitstand", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1" },
+      { geraet: "Standort-Router", schnittstelle: "eth0 (Standort)", ip: "192.168.10.1", maske: MASKE24, gateway: "" },
+      { geraet: "Standort-Router", schnittstelle: "eth1 (Verbindungsnetz)", ip: "10.10.0.1", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "Feld-Gateway", schnittstelle: "eth0 (Verbindungsnetz)", ip: "10.10.0.2", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "Feld-Gateway", schnittstelle: "eth1 (Feldnetz)", ip: "192.168.50.1", maske: MASKE24, gateway: "" },
+      { geraet: "SPS Halle 1", schnittstelle: "eth0", ip: "192.168.50.10", maske: MASKE24, gateway: "192.168.50.1" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: statische Routen",
+        spalten: ["Router", "Zielnetz", "Maske", "Nächster Hop"],
+        zeilen: [
+          ["Standort-Router", "192.168.50.0", "/24", "10.10.0.2 (Feld-Gateway)"],
+          ["Feld-Gateway", "0.0.0.0 (Standardroute)", "/0", "10.10.0.1 (Standort-Router)"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste zuerst „Leitstand → Feld-Gateway eth1“. Kommt die Anfrage nicht an, fehlt dem Standort-Router der Weg ins Feldnetz.",
+      "Kommt die Anfrage in der Halle an, aber keine Antwort zurück, prüfe die Standardroute des Feld-Gateways: Der nächste Hop muss die Adresse des Standort-Routers im Verbindungsnetz sein.",
+      "Die SPS erreicht nicht einmal das Feld-Gateway: Vergleiche ihr Gateway mit der Adresse der Feldschnittstelle des Gateways.",
+    ],
+    loesung: {
+      schritte: [
+        "Standort-Router: Route 192.168.50.0/24 über den nächsten Hop 10.10.0.2 (Feld-Gateway) eintragen.",
+        "Feld-Gateway: Die Standardroute zeigte auf 10.10.0.5, eine Adresse außerhalb des Verbindungsnetzes. Nächsten Hop auf 10.10.0.1 (Standort-Router) ändern.",
+        "SPS Halle 1: Gateway 192.168.50.1 eintragen (stand auf 192.168.50.254).",
+      ],
+      konfig: [{ geraet: "sps1", schnittstelle: "eth0", ip: "192.168.50.10", maske: "255.255.255.0", gateway: "192.168.50.1" }],
+      kabel: [],
+      routen: [
+        { geraet: "router-s", routen: [{ ziel: "192.168.50.0", maske: "255.255.255.0", hop: "10.10.0.2" }] },
+        { geraet: "router-g", routen: [{ ziel: "0.0.0.0", maske: "/0", hop: "10.10.0.1" }] },
+      ],
+    },
+    erklaerung:
+      "Ein Gateway zwischen Feldnetz und Standortnetz ist in der Industrie eine Schnittstelle zwischen zwei Welten: Hinter ihm liegen die Geräte der Halle (SPS, Sensoren), davor das Standortnetz mit Leitstand und Servern. Auf IP-Ebene ist es ein Router mit zwei Seiten. Damit eine Verbindung in beide Richtungen klappt, braucht jede Seite eine Route: Der Standort-Router weiß, dass das Feldnetz hinter dem Gateway liegt; das Gateway schickt alles Unbekannte zurück zum Standort (Standardroute). Ein nächster Hop außerhalb des gemeinsamen Verbindungsnetzes ist nicht erreichbar und die Route nutzlos. Und die Rückrichtung ist keine Selbstverständlichkeit: Eine Anfrage kann ankommen und trotzdem unbeantwortet bleiben, wenn der Rückweg fehlt.",
+  },
+  {
     id: "server-vlan-firewall",
     titel: "Büro, Server und Gäste mit Firewall",
     stufe: "schwer",
@@ -2445,6 +2598,205 @@ export const topologieSzenarien: TopologieSzenario[] = [
     },
     erklaerung:
       "In einem Sternnetz mit der Zentrale in der Mitte genügt es, wenn die Lager-Router eine Standardroute zur Zentrale haben („schick alles, was du nicht kennst, nach Hause“) und die Zentrale für jedes Lager eine eigene Route. Ein falscher nächster Hop erzeugt leicht eine Routing-Schleife: Router Zentrale schickt Pakete für Ost nach Süd, Router Süd schickt sie mit seiner Standardroute zurück — endlos, bis in einem echten Netz die TTL (Time to Live) abläuft und das Paket verworfen wird. Die Simulation erkennt die Schleife und bricht ab. Und wieder gilt: Jede Richtung braucht ihre eigenen Routen. Ein Router Ost ohne Weg zurück beantwortet jede Anfrage ins Leere.",
+  },
+  {
+    id: "buero-produktion-firewall",
+    titel: "Büro-IT und Produktion über Firewall getrennt",
+    stufe: "schwer",
+    kurzbeschreibung: "Rheinwerk Maschinen GmbH: Drei Zonen (Büro, Produktion, Leitstand), ein Router mit Firewall — nur das Leitsystem darf in die Produktion.",
+    aufgabe:
+      "Die Rheinwerk Maschinen GmbH trennt ihr Netz in drei Zonen: Büro (VLAN 10, 192.168.10.0/24), Produktion mit SPS 1 und SPS 2 (VLAN 20, 192.168.20.0/24) und Leitstand (VLAN 30, 192.168.30.0/24). Router1 verbindet die Zonen, seine Firewall arbeitet mit „Standard: blockieren“. In die Produktion soll nur das Leitsystem (Leitstand-Rechner 192.168.30.10) — weder das Büro noch der Service-Laptop (192.168.30.77) im selben Leitstand-VLAN. Zurzeit stimmen ein Port, ein Gateway und die Firewall nicht. Behebe alles.",
+    geraete: [
+      host("pc1", "pc", "Büro-PC", 90, 70, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      host("leit", "pc", "Leitstand", 90, 210, "192.168.30.10", "255.255.255.0", "192.168.30.254"),
+      host("svc", "pc", "Service-Laptop", 90, 350, "192.168.30.77", "255.255.255.0", "192.168.30.1"),
+      host("sps1", "server", "SPS 1", 90, 490, "192.168.20.11", "255.255.255.0", "192.168.20.1"),
+      host("sps2", "server", "SPS 2", 90, 630, "192.168.20.12", "255.255.255.0", "192.168.20.1"),
+      switchGeraet("switch1", "Switch1", 340, 350, 8, [10, 30, 30, 20, 10, 10, 20, 30]),
+      routerGeraet(
+        "router1",
+        "Router1",
+        610,
+        350,
+        3,
+        [
+          ["192.168.10.1", "255.255.255.0"],
+          ["192.168.20.1", "255.255.255.0"],
+          ["192.168.30.1", "255.255.255.0"],
+        ],
+        {
+          firewall: firewall("blockieren", [
+            ["erlauben", "192.168.10.0/24", "192.168.20.0/24"],
+            ["erlauben", "192.168.30.0/24", "192.168.20.0/24"],
+          ]),
+        },
+      ),
+    ],
+    kabel: [
+      kabelZwischen("pc1", "eth0", "switch1", "p1"),
+      kabelZwischen("leit", "eth0", "switch1", "p2"),
+      kabelZwischen("svc", "eth0", "switch1", "p3"),
+      kabelZwischen("sps1", "eth0", "switch1", "p4"),
+      kabelZwischen("sps2", "eth0", "switch1", "p5"),
+      kabelZwischen("router1", "eth0", "switch1", "p6"),
+      kabelZwischen("router1", "eth1", "switch1", "p7"),
+      kabelZwischen("router1", "eth2", "switch1", "p8"),
+    ],
+    pruefAuftraege: [
+      { id: "pc1-router1", von: "pc1", nach: "router1", nachSchnittstelle: "eth0", beschreibung: "Büro-PC → Router1 eth0 (Büro-Gateway, soll funktionieren)" },
+      { id: "leit-sps1", von: "leit", nach: "sps1", beschreibung: "Leitstand → SPS 1 (soll funktionieren)" },
+      { id: "leit-sps2", von: "leit", nach: "sps2", beschreibung: "Leitstand → SPS 2 (soll funktionieren)" },
+      { id: "pc1-sps1", von: "pc1", nach: "sps1", erwartet: "getrennt", beschreibung: "Büro-PC → SPS 1 (soll von der Firewall blockiert werden)" },
+      { id: "svc-sps1", von: "svc", nach: "sps1", erwartet: "getrennt", beschreibung: "Service-Laptop → SPS 1 (soll von der Firewall blockiert werden)" },
+    ],
+    adressplanHinweis:
+      "Drei VLANs, drei Netze, ein Router mit drei Schnittstellen (keine Trunks). Die Firewall von Router1 soll genau eine Verbindung freigeben: vom Leitsystem (192.168.30.10) in die Produktion (192.168.20.0/24). Alles andere bleibt gesperrt. Die Simulation filtert nach Quelle und Ziel; Dienste und Ports (in der Praxis z. B. Modbus/TCP, Port 502) gehören in einer echten Regel zusätzlich dazu.",
+    adressplan: [
+      { geraet: "Büro-PC", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1", zusatz: "VLAN 10" },
+      { geraet: "Leitstand", schnittstelle: "eth0", ip: "192.168.30.10", maske: MASKE24, gateway: "192.168.30.1", zusatz: "VLAN 30" },
+      { geraet: "Service-Laptop", schnittstelle: "eth0", ip: "192.168.30.77", maske: MASKE24, gateway: "192.168.30.1", zusatz: "VLAN 30" },
+      { geraet: "SPS 1", schnittstelle: "eth0", ip: "192.168.20.11", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "SPS 2", schnittstelle: "eth0", ip: "192.168.20.12", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "Router1", schnittstelle: "eth0 (Büro)", ip: "192.168.10.1", maske: MASKE24, gateway: "", zusatz: "VLAN 10" },
+      { geraet: "Router1", schnittstelle: "eth1 (Produktion)", ip: "192.168.20.1", maske: MASKE24, gateway: "", zusatz: "VLAN 20" },
+      { geraet: "Router1", schnittstelle: "eth2 (Leitstand)", ip: "192.168.30.1", maske: MASKE24, gateway: "", zusatz: "VLAN 30" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: VLAN je Port von Switch1",
+        spalten: ["Port", "angeschlossen", "VLAN"],
+        zeilen: [
+          ["Port 1", "Büro-PC", "10"],
+          ["Port 2", "Leitstand", "30"],
+          ["Port 3", "Service-Laptop", "30"],
+          ["Port 4", "SPS 1", "20"],
+          ["Port 5", "SPS 2", "20"],
+          ["Port 6", "Router1 eth0", "10"],
+          ["Port 7", "Router1 eth1", "20"],
+          ["Port 8", "Router1 eth2", "30"],
+        ],
+      },
+      {
+        titel: "Soll: Firewall von Router1 (Kommunikationsmatrix)",
+        spalten: ["Reihenfolge", "Aktion", "Von", "Nach"],
+        zeilen: [
+          ["1", "erlauben", "192.168.30.10 (Leitsystem)", "192.168.20.0/24 (Produktion)"],
+          ["Standard", "blockieren", "alle übrigen Anfragen", "—"],
+        ],
+      },
+    ],
+    tipps: [
+      "Gehe der Reihe nach vor. Der Leitstand erreicht nicht einmal sein Gateway: Vergleiche die eingetragene Adresse mit der Router-Schnittstelle im Leitstand-Netz. Bei VLAN-Fehlern nennt die Meldung beide Ports und ihre VLANs.",
+      "Regeln der Firewall werden von oben nach unten geprüft, die erste passende gilt. Welche Regel lässt das Büro in die Produktion?",
+      "„Das Leitsystem“ ist ein einzelnes Gerät, nicht das ganze Leitstand-VLAN: Eine Regel kann als Quelle auch eine einzelne Adresse nennen (z. B. 192.168.30.10).",
+      "Standardaktion „blockieren“ sperrt alles, was keine Regel erlaubt. Antworten auf erlaubte Anfragen kommen automatisch zurück; Pakete an den Router selbst (Gateway-Ping) filtert die Firewall nicht.",
+    ],
+    loesung: {
+      schritte: [
+        "Switch1 · Port 5 (SPS 2) auf VLAN 20 stellen (stand auf VLAN 10).",
+        "Leitstand: Gateway 192.168.30.1 eintragen (stand auf 192.168.30.254).",
+        "Router1 · Firewall: Die Regel „erlauben 192.168.10.0/24 → 192.168.20.0/24“ löschen (das Büro darf nicht in die Produktion).",
+        "Router1 · Firewall: Die Regel „erlauben 192.168.30.0/24 → 192.168.20.0/24“ auf die einzelne Quelladresse 192.168.30.10 (Leitsystem) einengen, damit der Service-Laptop blockiert bleibt.",
+      ],
+      konfig: [{ geraet: "leit", schnittstelle: "eth0", ip: "192.168.30.10", maske: "255.255.255.0", gateway: "192.168.30.1" }],
+      kabel: [],
+      vlans: [{ geraet: "switch1", schnittstelle: "p5", vlan: 20 }],
+      firewall: [{ geraet: "router1", standard: "blockieren", regeln: [{ aktion: "erlauben", von: "192.168.30.10", nach: "192.168.20.0/24" }] }],
+    },
+    erklaerung:
+      "Ein VLAN trennt nur logisch; erst mit Filterregeln an den Übergängen wird daraus eine Schutzgrenze. Die Regeln leitet man aus der Kommunikationsmatrix ab: Erlaubt ist, was dort steht — hier genau eine Verbindung vom Leitsystem in die Produktion — und alles andere ist verboten (Default Deny). Gute Regeln sind eng gefasst: Quelle, Ziel und Richtung werden einzeln benannt. „Das ganze Leitstand-VLAN“ ist schon zu weit, denn dann käme auch der Service-Laptop in die Steuerungsebene. Ein kompromittiertes Gerät im Büro darf nicht ungehindert in die Produktion gelangen — deshalb darf auch eine Regel „Büro → Produktion“ nicht existieren, selbst wenn sie auf den ersten Blick bequem ist. Die Firewall arbeitet zustandsbehaftet: Antworten auf erlaubte Anfragen passieren automatisch. In der Praxis nennt eine Regel zusätzlich den Dienst (z. B. Modbus/TCP, Port 502); die Simulation filtert vereinfacht nach Quelle und Ziel.",
+  },
+  {
+    id: "wartung-ueber-dmz",
+    titel: "Wartungszugriff über die DMZ",
+    stufe: "schwer",
+    kurzbeschreibung: "Rheinwerk Maschinen GmbH: Die Wartungsfirma darf nur auf den Jumphost in der DMZ, von dort in die Produktion.",
+    aufgabe:
+      "Die Wartungsfirma (Wartungs-Laptop, extern 172.16.0.0/24) soll die SPS 1 der Rheinwerk Maschinen GmbH fernwarten — aber nicht direkt: Der Zugang läuft über den Jumphost in der DMZ (192.168.99.5). Vom Jumphost aus darf die Produktion (192.168.20.0/24) erreicht werden, vom Büro (192.168.10.0/24) aus weder die Produktion noch die DMZ. Der Firewall-Router hat vier Schnittstellen, seine Firewall arbeitet mit „Standard: blockieren“. Zurzeit ist ein Kabel nicht gesteckt, der Jumphost hat ein falsches Gateway, und die Firewall-Regeln passen nicht zum Konzept. Behebe alles.",
+    geraete: [
+      host("pc1", "pc", "Büro-PC", 100, 90, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      host("sps1", "server", "SPS 1", 100, 480, "192.168.20.11", "255.255.255.0", "192.168.20.1"),
+      host("wartung", "pc", "Wartungs-Laptop", 630, 90, "172.16.0.50", "255.255.255.0", "172.16.0.1"),
+      host("jump", "server", "Jumphost (DMZ)", 630, 480, "192.168.99.5", "255.255.255.0", "192.168.99.254"),
+      routerGeraet(
+        "router1",
+        "Firewall-Router",
+        365,
+        285,
+        4,
+        [
+          ["192.168.10.1", "255.255.255.0"],
+          ["192.168.20.1", "255.255.255.0"],
+          ["192.168.99.1", "255.255.255.0"],
+          ["172.16.0.1", "255.255.255.0"],
+        ],
+        {
+          firewall: firewall("blockieren", [
+            ["erlauben", "172.16.0.0/24", "192.168.99.5"],
+            ["erlauben", "172.16.0.0/24", "192.168.20.0/24"],
+          ]),
+        },
+      ),
+    ],
+    kabel: [kabelZwischen("pc1", "eth0", "router1", "eth0"), kabelZwischen("jump", "eth0", "router1", "eth2"), kabelZwischen("wartung", "eth0", "router1", "eth3")],
+    pruefAuftraege: [
+      { id: "wartung-jump", von: "wartung", nach: "jump", beschreibung: "Wartungs-Laptop → Jumphost (soll funktionieren)" },
+      { id: "jump-sps1", von: "jump", nach: "sps1", beschreibung: "Jumphost → SPS 1 (soll funktionieren)" },
+      { id: "wartung-sps1", von: "wartung", nach: "sps1", erwartet: "getrennt", beschreibung: "Wartungs-Laptop → SPS 1 direkt (soll von der Firewall blockiert werden)" },
+      { id: "pc1-sps1", von: "pc1", nach: "sps1", erwartet: "getrennt", beschreibung: "Büro-PC → SPS 1 (soll von der Firewall blockiert werden)" },
+      { id: "pc1-jump", von: "pc1", nach: "jump", erwartet: "getrennt", beschreibung: "Büro-PC → Jumphost (soll von der Firewall blockiert werden)" },
+    ],
+    adressplanHinweis:
+      "Vier Zonen an vier Schnittstellen eines Routers: Büro 192.168.10.0/24, Produktion 192.168.20.0/24, DMZ 192.168.99.0/24 und das externe Netz 172.16.0.0/24 (für die Simulation ein privater Bereich). Die Hosts hängen mit je einem Kabel direkt am Router. Die Firewall soll nur zwei Verbindungen erlauben: extern → Jumphost und Jumphost → Produktion.",
+    adressplan: [
+      { geraet: "Büro-PC", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1" },
+      { geraet: "SPS 1", schnittstelle: "eth0", ip: "192.168.20.11", maske: MASKE24, gateway: "192.168.20.1" },
+      { geraet: "Jumphost (DMZ)", schnittstelle: "eth0", ip: "192.168.99.5", maske: MASKE24, gateway: "192.168.99.1" },
+      { geraet: "Wartungs-Laptop", schnittstelle: "eth0", ip: "172.16.0.50", maske: MASKE24, gateway: "172.16.0.1", zusatz: "extern" },
+      { geraet: "Firewall-Router", schnittstelle: "eth0 (Büro)", ip: "192.168.10.1", maske: MASKE24, gateway: "" },
+      { geraet: "Firewall-Router", schnittstelle: "eth1 (Produktion)", ip: "192.168.20.1", maske: MASKE24, gateway: "" },
+      { geraet: "Firewall-Router", schnittstelle: "eth2 (DMZ)", ip: "192.168.99.1", maske: MASKE24, gateway: "" },
+      { geraet: "Firewall-Router", schnittstelle: "eth3 (extern)", ip: "172.16.0.1", maske: MASKE24, gateway: "" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: Firewall des Firewall-Routers (Kommunikationsmatrix)",
+        spalten: ["Reihenfolge", "Aktion", "Von", "Nach"],
+        zeilen: [
+          ["1", "erlauben", "172.16.0.0/24 (Wartungsfirma, extern)", "192.168.99.5 (Jumphost)"],
+          ["2", "erlauben", "192.168.99.5 (Jumphost)", "192.168.20.0/24 (Produktion)"],
+          ["Standard", "blockieren", "alle übrigen Anfragen", "—"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste die Prüfaufträge der Reihe nach. Eine Meldung wie „Kabel fehlt“ betrifft die physische Verbindung: Welche Schnittstelle des Routers ist noch nicht verbunden?",
+      "Der Jumphost erreicht sein Gateway nicht: Vergleiche die Gateway-Adresse mit der Router-Schnittstelle in der DMZ.",
+      "Die Firewall soll die direkte Verbindung Wartungsfirma → Produktion nicht erlauben: Der Zugang ist nur über den Jumphost vorgesehen. Welche Regel öffnet die direkte Verbindung?",
+      "Für den Weg Jumphost → Produktion fehlt eine Regel. Das Ziel ist das ganze Produktionsnetz, die Quelle nur der Jumphost.",
+    ],
+    loesung: {
+      schritte: [
+        "Kabel zwischen Firewall-Router · eth1 (Produktion) und SPS 1 stecken (die SPS war nicht angeschlossen).",
+        "Jumphost: Gateway 192.168.99.1 eintragen (stand auf 192.168.99.254).",
+        "Firewall: Die Regel „erlauben 172.16.0.0/24 → 192.168.20.0/24“ löschen (kein direkter Zugriff von außen auf die Produktion).",
+        "Firewall: Die Regel „erlauben 192.168.99.5 → 192.168.20.0/24“ ergänzen (Jumphost darf in die Produktion). Die Regel „extern → Jumphost“ bleibt, Standard bleibt „blockieren“.",
+      ],
+      konfig: [{ geraet: "jump", schnittstelle: "eth0", ip: "192.168.99.5", maske: "255.255.255.0", gateway: "192.168.99.1" }],
+      kabel: [{ von: { geraet: "router1", schnittstelle: "eth1" }, nach: { geraet: "sps1", schnittstelle: "eth0" } }],
+      firewall: [
+        {
+          geraet: "router1",
+          standard: "blockieren",
+          regeln: [
+            { aktion: "erlauben", von: "172.16.0.0/24", nach: "192.168.99.5" },
+            { aktion: "erlauben", von: "192.168.99.5", nach: "192.168.20.0/24" },
+          ],
+        },
+      ],
+    },
+    erklaerung:
+      "Fernwartung ist einer der häufigsten Angriffswege in Produktionsnetzen — unkontrollierte Zugänge von Lieferanten und Dienstleistern gehören zu den typischen Schwachstellen. Das Konzept der Zonen löst es mit einer DMZ als Pufferzone: Die Wartungsfirma erreicht nur einen einzigen, gehärteten und protokollierten Punkt, den Jumphost. Erst von dort gibt es einen zweiten, eng gefassten Übergang in die Produktion. Beide Übergänge sind einzelne Regeln mit konkreter Quelle und konkretem Ziel; alles andere blockiert die Standardregel (Default Deny). Eine bequeme Regel „extern → Produktion“ würde den Jumphost überflüssig machen und die Schutzgrenze aushebeln. Auch das Büro hat in der DMZ nichts zu suchen, solange die Kommunikationsmatrix es nicht vorsieht. In der Praxis nennt jede Regel zusätzlich den Dienst (z. B. HTTPS oder SSH auf bestimmten Ports) und einen Verantwortlichen; die Simulation filtert vereinfacht nach Quelle und Ziel.",
   },
 ];
 
