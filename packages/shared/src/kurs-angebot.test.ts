@@ -164,6 +164,28 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Prozess-Reihenfolge (F-195): Set prozesse in elf Kursen, nicht in Gesundheit/Soziales, Immobilien und Versicherung", () => {
+    for (const slug of [
+      "fachinformatiker-anwendungsentwicklung",
+      "fachinformatiker-daten-prozessanalyse",
+      "fachinformatiker-digitale-vernetzung",
+      "fachinformatiker-systemintegration",
+      "industriefachwirt",
+      "technischer-fachwirt",
+      "wirtschaftsfachwirt",
+      "transport-management-logistics",
+      "handelsfachwirt",
+      "fachwirt-buero-projektorganisation",
+      "ausbildung-der-ausbilder",
+    ]) {
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "prozessreihenfolge", "prozesse"), slug).toBe("kern");
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "prozessreihenfolge", "standard"), slug).toBeNull();
+    }
+    for (const slug of ["fachwirt-gesundheit-soziales", "immobilienfachwirt", "versicherungen-finanzanlagen"]) {
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "prozessreihenfolge", "prozesse"), slug).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);

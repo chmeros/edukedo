@@ -154,6 +154,32 @@ export function TroubleshootingIllustration() {
   );
 }
 
+export function ProzessReihenfolgeIllustration() {
+  const schritte = [
+    { text: "Bedarf", farbe: "var(--sprout)" },
+    { text: "Angebot", farbe: "var(--sun)" },
+    { text: "Bestellung", farbe: "var(--coral)" },
+  ];
+  return (
+    <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">
+      <rect width="320" height="140" fill="var(--sun-tint)" />
+      {schritte.map((schritt, index) => (
+        <g key={schritt.text}>
+          <rect x="70" y={18 + index * 36} width="180" height="28" rx="8" fill="var(--card)" stroke="var(--coral-deep)" strokeWidth="2" />
+          <circle cx="90" cy={32 + index * 36} r="9" fill={schritt.farbe} />
+          <text x="90" y={36 + index * 36} fontSize="11" fontWeight="700" fill="#17212b" textAnchor="middle">
+            {index + 1}
+          </text>
+          <text x="110" y={37 + index * 36} fontSize="13" fontWeight="700" fill="var(--ink)">
+            {schritt.text}
+          </text>
+          {index < 2 && <path d={`M160 ${46 + index * 36}v8`} stroke="var(--coral-deep)" strokeWidth="2" strokeLinecap="round" />}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 export function SubnettingIllustration() {
   return (
     <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">

@@ -3287,12 +3287,23 @@ details[open] > summary.disclosure::before {
   white-space: pre;
 }
 
-.code-order-row.is-correct .code-block {
+.code-order-row.is-correct .code-block,
+.code-order-row.is-correct .process-step {
   background: var(--sprout-tint);
 }
 
-.code-order-row.is-wrong .code-block {
+.code-order-row.is-wrong .code-block,
+.code-order-row.is-wrong .process-step {
   background: var(--danger-tint);
+}
+
+/* F-195: Prozess-Reihenfolge — Fließtext statt Code */
+.code-order-row .process-step {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
 }
 
 .sprint-input {

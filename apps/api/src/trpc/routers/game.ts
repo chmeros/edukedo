@@ -10,6 +10,8 @@ import {
   erzeugeSubnettingAufgabe,
   erzeugeZahlensystemAufgabe,
   phishingPayloadSchema,
+  prozessAlsReihenfolge,
+  prozessReihenfolgePayloadSchema,
   pruefeRechenEingabe,
   pruefeSubnettingEingabe,
   pruefeZahlensystemEingabe,
@@ -24,7 +26,7 @@ import {
   sprintAntwortInputSchema,
   sprintStartInputSchema,
   submitBugHuntInputSchema,
-  submitCodeReihenfolgeInputSchema,
+  submitReihenfolgeInputSchema,
   submitPhishingInputSchema,
   submitTroubleshootingInputSchema,
   subnettingFrage,
@@ -34,6 +36,8 @@ import {
   zahlensystemFrage,
   zahlensystemLoesung,
   zahlensystemePayloadSchema,
+  type CodeReihenfolgePayload,
+  type ReihenfolgeGameType,
   type RechenParams,
   type RechenTyp,
   type SprintGameType,
@@ -49,6 +53,7 @@ import {
   checkKreuzwortraetselWort,
   checkMemoryPaar,
   gameKursInputSchema,
+  reihenfolgeKursInputSchema,
   kennzahlenDuellPayloadSchema,
   kreuzwortraetselPayloadSchema,
   memoryPayloadSchema,
@@ -252,6 +257,11 @@ function pruefeSprintAntwort(decoded: SprintTokenPayload, eingabe: string): { co
   }
 }
 
+/** Code- und Prozess-Reihenfolge teilen Mischen, Prüfen und Spielstand; nur das Payload unterscheidet sich. */
+function parseReihenfolgePayload(gameType: ReihenfolgeGameType, raw: unknown): CodeReihenfolgePayload {
+  return gameType === "prozessreihenfolge" ? prozessAlsReihenfolge(prozessReihenfolgePayloadSchema.parse(raw)) : codeReihenfolgePayloadSchema.parse(raw);
+}
+
 export const gameRouter = router({
   /** Für den Spiele-Katalog (Spiele.tsx, analog zu instrumentLernpfad.available): welche der
    * drei Spiele in diesem Kurs aktiven Content haben (z. B. hat der Mathe-Kurs aktuell keinen). */
@@ -427,19 +437,19 @@ export const gameRouter = router({
   }),
 
   // -------------------------------------------------------------------------
-  // Code-Reihenfolge
+  // Code-Reihenfolge und Prozess-Reihenfolge (F-195)
   // -------------------------------------------------------------------------
 
-  getCodeReihenfolge: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "codereihenfolge", input.setKey);
-    const payload = codeReihenfolgePayloadSchema.parse(row.payload);
+  getReihenfolge: protectedProcedure.input(reihenfolgeKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+    const payload = parseReihenfolgePayload(input.gameType, row.payload);
     const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
     return { aufgaben: shapeCodeReihenfolge(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
   }),
 
-  submitCodeReihenfolge: protectedProcedure.input(submitCodeReihenfolgeInputSchema).mutation(async ({ ctx, input }) => {
-    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "codereihenfolge", input.setKey);
-    const payload = codeReihenfolgePayloadSchema.parse(row.payload);
+  submitReihenfolge: protectedProcedure.input(submitReihenfolgeInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
+    const payload = parseReihenfolgePayload(input.gameType, row.payload);
     let result;
     try {
       result = checkCodeReihenfolge(payload, input.nummer, input.reihenfolge);

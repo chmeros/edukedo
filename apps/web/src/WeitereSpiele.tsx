@@ -319,19 +319,29 @@ export function BugHunt({ kursId, setKey, title, onClose }: SpielProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Code-Reihenfolge
+// Code-Reihenfolge und Prozess-Reihenfolge (F-195): dieselbe Oberfläche, andere Beschriftung und Schrift
 // ---------------------------------------------------------------------------
 
-export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) {
+export function CodeReihenfolge(props: SpielProps) {
+  return <ReihenfolgeSpiel {...props} gameType="codereihenfolge" />;
+}
+
+export function ProzessReihenfolge(props: SpielProps) {
+  return <ReihenfolgeSpiel {...props} gameType="prozessreihenfolge" />;
+}
+
+function ReihenfolgeSpiel({ kursId, setKey, title, gameType, onClose }: SpielProps & { gameType: "codereihenfolge" | "prozessreihenfolge" }) {
+  const istCode = gameType === "codereihenfolge";
+  const einheit = istCode ? "Zeile" : "Schritt";
   const utils = trpc.useUtils();
-  const data = trpc.game.getCodeReihenfolge.useQuery({ kursId, setKey });
+  const data = trpc.game.getReihenfolge.useQuery({ kursId, setKey, gameType });
   const zeiger = useAufgabenZeiger(data.data?.aufgaben);
   const [anordnung, setAnordnung] = useState<{ nummer: number; ids: string[] } | null>(null);
 
-  const submit = trpc.game.submitCodeReihenfolge.useMutation({
+  const submit = trpc.game.submitReihenfolge.useMutation({
     onSuccess: (result) => {
       if (result.correct) {
-        utils.game.getCodeReihenfolge.invalidate({ kursId, setKey });
+        utils.game.getReihenfolge.invalidate({ kursId, setKey, gameType });
       }
     },
   });
@@ -366,9 +376,9 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
   return (
     <SpielRahmen title={title} onClose={onClose}>
       <div className="stack">
-        <Fortschrittszeile index={zeiger.index} total={aufgaben.length} titel={`${aufgabe.titel} (${aufgabe.sprache})`} />
+        <Fortschrittszeile index={zeiger.index} total={aufgaben.length} titel={istCode ? `${aufgabe.titel} (${aufgabe.sprache})` : aufgabe.titel} />
         <p>{aufgabe.aufgabe}</p>
-        <p className="field-hint">Bringe die Zeilen mit den Pfeilen in die richtige Reihenfolge.</p>
+        <p className="field-hint">Bringe die {istCode ? "Zeilen" : "Schritte"} mit den Pfeilen in die richtige Reihenfolge.</p>
         <div className="stack" role="list">
           {ids.map((id, position) => {
             let rowClass = "code-order-row";
@@ -376,13 +386,13 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
             if (geloest) rowClass += " is-correct";
             return (
               <div key={`${id}-${position}`} className={rowClass} role="listitem">
-                <pre className="code-block">{textById.get(id)}</pre>
+                {istCode ? <pre className="code-block">{textById.get(id)}</pre> : <div className="process-step">{textById.get(id)}</div>}
                 {!geloest && (
                   <span className="list-row-actions">
-                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`Zeile ${position + 1} nach oben`} disabled={position === 0} onClick={() => verschiebe(position, -1)}>
+                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach oben`} disabled={position === 0} onClick={() => verschiebe(position, -1)}>
                       ↑
                     </button>
-                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`Zeile ${position + 1} nach unten`} disabled={position === ids.length - 1} onClick={() => verschiebe(position, 1)}>
+                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach unten`} disabled={position === ids.length - 1} onClick={() => verschiebe(position, 1)}>
                       ↓
                     </button>
                   </span>
@@ -405,7 +415,7 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
           <div className="stack">
             {ergebnis && !ergebnis.correct && (
               <p role="status" className="quiz-feedback is-wrong">
-                Noch nicht ganz — grün markierte Zeilen stehen schon an der richtigen Stelle.
+                Noch nicht ganz — grün markierte {istCode ? "Zeilen" : "Schritte"} stehen schon an der richtigen Stelle.
               </p>
             )}
             <button
@@ -413,7 +423,7 @@ export function CodeReihenfolge({ kursId, setKey, title, onClose }: SpielProps) 
               className="btn btn-primary"
               style={{ alignSelf: "flex-start" }}
               disabled={submit.isPending}
-              onClick={() => submit.mutate({ kursId, setKey, nummer: aufgabe.nummer, reihenfolge: ids })}
+              onClick={() => submit.mutate({ kursId, setKey, gameType, nummer: aufgabe.nummer, reihenfolge: ids })}
             >
               Prüfen
             </button>

@@ -32,6 +32,7 @@ import { memoryHandel } from "./content/game-memory-handel";
 import { kreuzwortraetselImmobilien } from "./content/game-kreuzwortraetsel-immobilien";
 import { memoryImmobilien } from "./content/game-memory-immobilien";
 import { kreuzwortraetselVersicherung } from "./content/game-kreuzwortraetsel-versicherung";
+import { prozessSets } from "./content/game-prozessreihenfolge";
 import { memoryVersicherung } from "./content/game-memory-versicherung";
 import { kennzahlenDuellFinanzierungControlling } from "./content/game-kennzahlen-duell-finanzierung-controlling";
 import { kennzahlenDuellGesundheitSozialsystem } from "./content/game-kennzahlen-duell-gesundheit-sozialsystem";
@@ -1505,6 +1506,26 @@ const SPIELE_KURSE: SpieleKurs[] = [
   { titel: "Versicherungen/Finanzanlagen", hinweis: "**Versicherungsrecht (Grundbegriffe):** Prämie, Zuschlag, Fragebogen, Wartezeit, Haftzeit, Regress, Unterversicherung, Storno — viele Definitionen bewusst vereinfacht.", kreuz: kreuzwortraetselVersicherung, memory: memoryVersicherung },
 ];
 
+function prozessBlatt(): string {
+  const teile: string[] = [
+    "# Prüfblatt Spiel — Prozess-Reihenfolge (F-195)",
+    "",
+    "Stand 07.10.2026 · erzeugt aus apps/api/src/db/content/game-prozessreihenfolge.ts. **Alle Inhalte sind Entwürfe von Claude.** Jede Aufgabe ist ein Ablauf mit genau einer üblichen Reihenfolge; die Lernenden bringen die Schritte per Pfeil in diese Reihenfolge. Das Set prozesse ist in elf Kursen sichtbar (freigegeben am 07.10.2026), weil nur Abläufe mit eindeutiger Reihenfolge enthalten sind und die Kalkulationsstufen der Kurstheorie folgen.",
+    "",
+    "**Prüffragen:** (1) Ist die Reihenfolge im Fach üblich und eindeutig (gibt es eine gleichwertige zweite)? (2) Stimmen die Begriffe mit dem Kurs überein? (3) Ist die Erklärung richtig? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.",
+    "",
+  ];
+  for (const set of prozessSets) {
+    teile.push("## " + set.titel + " (" + set.slug + ")", "", "**Zum Set:** " + set.hinweis, "");
+    for (const aufgabe of set.payload.aufgaben) {
+      teile.push("### " + aufgabe.nummer + ". " + aufgabe.titel, "", aufgabe.aufgabe, "");
+      aufgabe.schritte.forEach((schritt, index) => teile.push(index + 1 + ". " + schritt));
+      teile.push("", "*Erklärung:* " + aufgabe.erklaerung, "");
+    }
+  }
+  return teile.join("\n");
+}
+
 function spieleBlatt(): string {
   const teile: string[] = [
     "# Prüfblatt Spiele — Kreuzworträtsel und Memory (Wiederspielbarkeit, F-193)",
@@ -1652,6 +1673,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [18 Immobilienfachwirt](18-immobilienfachwirt.md) | neue Zonen-Instrumente (Wertermittlungsverfahren, Wege der Mieterhöhung, WEG-Organe, Betriebskosten, DIN-276-Kostengruppen), Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Miet-, WEG- und Maklerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [19 Versicherungen/Finanzanlagen](19-versicherungen-finanzanlagen.md) | neue Zonen-Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik), Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Versicherungs-, Beratungs- und Steuerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |",
     "| [20 Spiele: Kreuzworträtsel und Memory](20-spiele-kreuzwort-memory.md) | Wort- und Paar-Pools der neun Fachwirt-Kurse und der AEVO (Wiederspielbarkeit, F-193) | siehe Blatt | Industrie, Technik, Handel und Logistik freigegeben (07.10.2026); übrige Kurse erst nach Freigabe sichtbar |",
+    "| [21 Prozess-Reihenfolge](21-prozess-reihenfolge.md) | Abläufe in Fließtext für elf Kurse (Beschaffung, Kalkulation, Git, Incident u. a.) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).",
     "",
@@ -1703,6 +1725,7 @@ function main() {
     ["18-immobilienfachwirt.md", kursBlatt(IMM_BLATT)],
     ["19-versicherungen-finanzanlagen.md", kursBlatt(VER_BLATT)],
     ["20-spiele-kreuzwort-memory.md", spieleBlatt()],
+    ["21-prozess-reihenfolge.md", prozessBlatt()],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

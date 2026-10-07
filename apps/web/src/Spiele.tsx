@@ -7,6 +7,7 @@ import {
   KreuzwortraetselIllustration,
   MemoryIllustration,
   PhishingIllustration,
+  ProzessReihenfolgeIllustration,
   RechensprintIllustration,
   SubnettingIllustration,
   TroubleshootingIllustration,
@@ -17,7 +18,7 @@ import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
 import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
-import { BugHunt, CodeReihenfolge, PhishingDetektiv, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
+import { BugHunt, CodeReihenfolge, PhishingDetektiv, ProzessReihenfolge, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
 
 /**
  * F-140/F-141/F-142/F-143 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung
@@ -71,6 +72,12 @@ const GAME_CATALOG = [
     label: "Code-Reihenfolge",
     description: "Durcheinandergeratene Codezeilen in die richtige Reihenfolge bringen.",
     Illustration: CodeReihenfolgeIllustration,
+  },
+  {
+    type: "prozessreihenfolge",
+    label: "Prozess-Reihenfolge",
+    description: "Die Schritte eines Ablaufs, etwa Beschaffung oder Kalkulation, in die richtige Reihenfolge bringen.",
+    Illustration: ProzessReihenfolgeIllustration,
   },
   {
     type: "troubleshooting",
@@ -135,6 +142,8 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         return <BugHunt key={key} {...common} />;
       case "codereihenfolge":
         return <CodeReihenfolge key={key} {...common} />;
+      case "prozessreihenfolge":
+        return <ProzessReihenfolge key={key} {...common} />;
       case "troubleshooting":
         return <TroubleshootingDetektiv key={key} {...common} />;
       case "subnetting":

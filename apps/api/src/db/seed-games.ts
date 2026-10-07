@@ -2,11 +2,13 @@ import { kennzahlenDuellPayloadSchema, kreuzwortraetselPayloadSchema, memoryPayl
 import { eq } from "drizzle-orm";
 import { db, pool } from "./client";
 import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
+import { prozessSets } from "./content/game-prozessreihenfolge";
 import {
   bugHuntPayloadSchema,
   codeReihenfolgePayloadSchema,
   DEFAULT_GAME_SET_KEY,
   phishingPayloadSchema,
+  prozessReihenfolgePayloadSchema,
   rechensprintPayloadSchema,
   subnettingPayloadSchema,
   troubleshootingPayloadSchema,
@@ -504,6 +506,11 @@ async function main() {
       }),
       "it-rechnen",
     );
+  }
+
+  // F-195: Prozess-Reihenfolge (Abläufe in Fließtext), ein Set "prozesse" je Kurs; Inhalte in game-prozessreihenfolge.ts.
+  for (const set of prozessSets) {
+    await upsertGame(set.slug, "prozessreihenfolge", set.titel, prozessReihenfolgePayloadSchema.parse(set.payload), set.setKey);
   }
 
   await pool.end();

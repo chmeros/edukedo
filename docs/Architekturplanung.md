@@ -567,6 +567,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-195: Prozess-Reihenfolge)
+
+- **Anlass:** Phase 2 der Kursprofile, zweiter gemeinsamer Baustein (S-FW-02, auch in den Blättern für Büro, AEVO und die Fachinformatiker genannt). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Kein zweiter Spielstand-Mechanismus:** Der neue Spieltyp `prozessreihenfolge` nutzt dieselbe Misch- und Prüflogik wie `codereihenfolge`. Das Payload hat `schritte` statt `zeilen` und kein `sprache`; `prozessAlsReihenfolge` (game-logic-weitere.ts) bildet es auf die vorhandene Logik ab. Dadurch gelten Mischen ohne fertige Lösung, Positionsprüfung und die Spielstand-Liste (`solvedNumbers`) unverändert.
+- **Router:** `getCodeReihenfolge`/`submitCodeReihenfolge` sind durch `getReihenfolge`/`submitReihenfolge` mit dem Eingabefeld `gameType` (`codereihenfolge` oder `prozessreihenfolge`) ersetzt; `parseReihenfolgePayload` wählt das Schema. Ein Token oder Spielstand eines Typs lässt sich nicht für den anderen einreichen (Spielzeile wird je Typ geladen).
+- **Oberfläche:** `ReihenfolgeSpiel` in WeitereSpiele.tsx ist die gemeinsame Komponente; `CodeReihenfolge` und `ProzessReihenfolge` setzen nur den Typ. Der Prozess-Typ zeigt die Schritte als Textfelder (`.process-step`) statt als Code-Block und spricht von „Schritten“ statt „Zeilen“. Eigene Kachel-Illustration (drei nummerierte Schritte).
+- **Inhalte, Eindeutigkeit (R3/R4):** Die Aufgaben stehen einmal in game-prozessreihenfolge.ts und werden je Kurs zum Set `prozesse` zusammengestellt. Aufgenommen sind nur Abläufe mit genau einer üblichen Reihenfolge; Abläufe mit mehreren gleichwertigen Reihenfolgen (Wareneingangsprüfung, Mahnwesen, Server-Inbetriebnahme) fehlen. Bei der Handelskalkulation folgt die Reihenfolge der Kurstheorie (Rabatt vor Skonto beim Einkauf, Skonto vor Rabatt beim Verkauf); die Zuschlagskalkulation ist in Stufen statt in Einzelposten gefasst, damit Material und Fertigung nicht zwei richtige Reihenfolgen ergeben. Wegen dieser Eindeutigkeit und der Nähe zur Kurstheorie ist das Set in elf Kursen freigegeben; die Rückmeldung der Fachprüfung (Prüfblatt 21) steht aus.
+- **Bewusst nicht enthalten:** Aufgaben für Gesundheit/Soziales (Pflegeprozess), Immobilien und Versicherung (Schadenablauf), Mahn- und Kündigungsprozesse (Recht).
+- **Tests:** game-prozess.test.ts (alle Sets gültig, eindeutige Schritt-IDs, Startanordnung nie die Lösung, richtige Reihenfolge erkannt, vertauschte nicht), kurs-angebot.test.ts und ein Integrationstest in game-weitere.integration.test.ts. Live geprüft: Handelsfachwirt, Kachel „Prozess-Reihenfolge: Abläufe im Betrieb“, Beschaffungsaufgabe mit Pfeilen, falsche Reihenfolge wird mit grün/rot markiert.
+
 ### Entschieden am 07.10.2026 (F-194: Rechen-Sprint)
 
 - **Anlass:** Phase 2 der Kursprofile (docs/kursprofile/00-uebersicht.md, „gemeinsame Bausteine“): Der Rechen-Sprint steht für alle Fachwirt-Kurse und die Fachinformatiker in den Blättern 01 bis 04 (S-FW-01, S-FI-01, S-FI-02, S-BUE-04, S-GES-04). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“

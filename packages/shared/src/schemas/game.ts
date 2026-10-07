@@ -153,6 +153,8 @@ export const GAME_TYPES = [
   "zahlensysteme",
   // F-194: Rechen-Sprint
   "rechensprint",
+  // F-195: Prozess-Reihenfolge
+  "prozessreihenfolge",
 ] as const;
 export type GameType = (typeof GAME_TYPES)[number];
 
@@ -309,6 +311,40 @@ export const submitCodeReihenfolgeInputSchema = z.object({
   setKey: setKeyField,
   nummer: z.number().int().positive(),
   reihenfolge: z.array(z.string().min(1).max(40)).min(3).max(10),
+});
+
+// ---------------------------------------------------------------------------
+// F-195: Prozess-Reihenfolge (Verallgemeinerung der Code-Reihenfolge für Abläufe in Fließtext)
+// ---------------------------------------------------------------------------
+
+export const prozessReihenfolgeAufgabeSchema = z.object({
+  nummer: z.number().int().positive(),
+  titel: z.string().min(1).max(200),
+  aufgabe: z.string().min(1).max(TEXT_MAX),
+  /** Die Schritte in der RICHTIGEN Reihenfolge. */
+  schritte: z.array(z.string().min(1).max(200)).min(3).max(10),
+  erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type ProzessReihenfolgeAufgabe = z.infer<typeof prozessReihenfolgeAufgabeSchema>;
+
+export const prozessReihenfolgePayloadSchema = z.object({
+  aufgaben: z.array(prozessReihenfolgeAufgabeSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type ProzessReihenfolgePayload = z.infer<typeof prozessReihenfolgePayloadSchema>;
+
+/** Beide Reihenfolge-Spiele teilen Mischen, Prüfen und Spielstand. */
+export const REIHENFOLGE_GAME_TYPES = ["codereihenfolge", "prozessreihenfolge"] as const;
+export type ReihenfolgeGameType = (typeof REIHENFOLGE_GAME_TYPES)[number];
+
+export const reihenfolgeKursInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  gameType: z.enum(REIHENFOLGE_GAME_TYPES),
+});
+
+export const submitReihenfolgeInputSchema = submitCodeReihenfolgeInputSchema.extend({
+  gameType: z.enum(REIHENFOLGE_GAME_TYPES),
 });
 
 // ---------------------------------------------------------------------------

@@ -67,6 +67,15 @@ describe("F-158: weitere Spiele und Sets", () => {
       alsSpiel("codereihenfolge", "Code-Reihenfolge", codeReihenfolgeGrundmuster),
       alsSpiel("troubleshooting", "Troubleshooting", troubleshootingNetzwerk),
       alsSpiel("subnetting", "Subnetting", { aufgabenTypen: ["netzadresse", "hosts"], anzahl: 5, abschlussmeldung: "Geschafft" }),
+      alsSpiel(
+        "prozessreihenfolge",
+        "Prozess-Reihenfolge",
+        {
+          aufgaben: [{ nummer: 1, titel: "Beschaffung", aufgabe: "Ordne die Schritte.", schritte: ["Bedarf ermitteln", "Angebote einholen", "Bestellen", "Ware prüfen"], erklaerung: "Erst der Bedarf." }],
+          abschlussmeldung: "Geschafft",
+        },
+        "prozesse",
+      ),
       alsSpiel("rechensprint", "Rechen-Sprint", { aufgabenTypen: ["skonto", "raid"], anzahl: 4, abschlussmeldung: "Geschafft" }, "rechnen"),
     ]);
 
@@ -144,9 +153,9 @@ describe("F-158: weitere Spiele und Sets", () => {
 
   it("Code-Reihenfolge: richtige Reihenfolge wird erkannt, ungültige IDs sind ein 400", async () => {
     const aufgabe = codeReihenfolgeGrundmuster.aufgaben[0]!;
-    const richtig = (await post("game.submitCodeReihenfolge", { kursId, nummer: aufgabe.nummer, reihenfolge: aufgabe.zeilen.map(codeZeilenId) })).json().result.data;
+    const richtig = (await post("game.submitReihenfolge", { kursId, gameType: "codereihenfolge", nummer: aufgabe.nummer, reihenfolge: aufgabe.zeilen.map(codeZeilenId) })).json().result.data;
     expect(richtig.correct).toBe(true);
-    const ungueltig = await post("game.submitCodeReihenfolge", { kursId, nummer: aufgabe.nummer, reihenfolge: aufgabe.zeilen.map(() => "zzzz") });
+    const ungueltig = await post("game.submitReihenfolge", { kursId, gameType: "codereihenfolge", nummer: aufgabe.nummer, reihenfolge: aufgabe.zeilen.map(() => "zzzz") });
     expect(ungueltig.statusCode).toBe(400);
   });
 
@@ -177,6 +186,24 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect(manipuliert.statusCode).toBe(400);
     const falscherTyp = await post("game.sprintAntwort", { kursId, gameType: "zahlensysteme", token: aufgaben[0]!.token, eingabe: "1" });
     expect(falscherTyp.statusCode).toBe(404); // dieser Kurs hat kein Zahlensystem-Spiel
+  });
+
+  it("Prozess-Reihenfolge (F-195): Schritte werden gemischt geliefert, die richtige Reihenfolge wird erkannt", async () => {
+    const schritte = ["Bedarf ermitteln", "Angebote einholen", "Bestellen", "Ware prüfen"];
+    const data = (await get("game.getReihenfolge", { kursId, gameType: "prozessreihenfolge", setKey: "prozesse" })).json().result.data;
+    expect(data.aufgaben).toHaveLength(1);
+    expect(data.aufgaben[0].zeilen.map((zeile: { text: string }) => zeile.text).sort()).toEqual([...schritte].sort());
+    expect(data.aufgaben[0].zeilen.map((zeile: { text: string }) => zeile.text)).not.toEqual(schritte);
+    const idVon = (text: string) => data.aufgaben[0].zeilen.find((zeile: { text: string }) => zeile.text === text).id;
+    const vertauscht = [schritte[1]!, schritte[0]!, schritte[2]!, schritte[3]!];
+    const falsch = (await post("game.submitReihenfolge", { kursId, gameType: "prozessreihenfolge", setKey: "prozesse", nummer: 1, reihenfolge: vertauscht.map(idVon) })).json().result.data;
+    expect(falsch.correct).toBe(false);
+    expect(falsch.erklaerung).toBeNull();
+    const richtig = (await post("game.submitReihenfolge", { kursId, gameType: "prozessreihenfolge", setKey: "prozesse", nummer: 1, reihenfolge: schritte.map(idVon) })).json().result.data;
+    expect(richtig.correct).toBe(true);
+    expect(richtig.erklaerung).toBe("Erst der Bedarf.");
+    const fremd = await post("game.submitReihenfolge", { kursId, gameType: "codereihenfolge", nummer: 1, reihenfolge: schritte.map(idVon) });
+    expect(fremd.statusCode).toBe(400);
   });
 
   it("Rechen-Sprint (F-194): Aufgaben aus dem Set, Eingabe in deutschem Format wird akzeptiert, Token nur für das eigene Spiel", async () => {

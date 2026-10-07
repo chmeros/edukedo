@@ -227,6 +227,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * F-193: Kreuzworträtsel (Set "fachbegriffe") und Memory (Set "begriff-paare") der Fachwirt-Kurse und der AEVO sind neue, noch ungeprüfte Inhalte.
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
+ * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
  * Rechen-Sprint (F-194): Die Sets "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; das Set "kennzahlen" (Lager, OEE) steht bewusst nicht in den Listen, bis die Rechenkonventionen (360 Tage, Andler-Annahmen, OEE) fachlich geprüft sind.
  * Freigabe: je Kurs `["kreuzwortraetsel", "fachbegriffe", "kern"]` und `["memory", "begriff-paare", "kern"]` an die Stelle des Platzhalters setzen.
  */
@@ -251,6 +252,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "grundlagen"],
       ["zahlensysteme", null, "grundlagen"],
       ["rechensprint", "it-rechnen", "grundlagen"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "schutzziele", "normalisierung", "ermodell", "osi"],
     szenarien: {
@@ -273,6 +275,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "grundlagen"],
       ["zahlensysteme", null, "grundlagen"],
       ["rechensprint", "it-rechnen", "grundlagen"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele", "normalisierung", "ermodell"],
     szenarien: {
@@ -296,6 +299,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
       ["rechensprint", "it-rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele"],
     szenarien: {
@@ -320,6 +324,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
       ["rechensprint", "it-rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele"],
     szenarien: {
@@ -340,6 +345,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "kosten-leistungen", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -354,6 +360,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "technische-unterscheidungen", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -367,6 +374,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "finanzierung-controlling", "kern"],
       ["memory", "standard", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -381,6 +389,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "standard", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -395,6 +404,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "handel-aehnlich", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -436,6 +446,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "standard", "kern"],
       ["kennzahlen_duell", "projektmanagement", "kern"],
       ["memory", null, "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["bsc"],
     szenarien: {},
@@ -462,6 +473,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
       ["memory", "standard", "kern"],
+      ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},

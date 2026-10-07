@@ -4,6 +4,7 @@ import type {
   BugHuntPayload,
   CodeReihenfolgePayload,
   PhishingPayload,
+  ProzessReihenfolgePayload,
   SprintSchwierigkeit,
   SubnettingTyp,
   TroubleshootingPayload,
@@ -123,6 +124,24 @@ export function codeZeilenId(text: string): string {
     hash = Math.imul(hash, 0x01000193) >>> 0;
   }
   return `z${hash.toString(36)}`;
+}
+
+/**
+ * F-195: Die Prozess-Reihenfolge nutzt dieselbe Misch- und Prüflogik wie die Code-Reihenfolge; die Schritte
+ * sind die „Zeilen“, `sprache` bleibt leer (die Oberfläche zeigt sie nicht an).
+ */
+export function prozessAlsReihenfolge(payload: ProzessReihenfolgePayload): CodeReihenfolgePayload {
+  return {
+    abschlussmeldung: payload.abschlussmeldung,
+    aufgaben: payload.aufgaben.map((aufgabe) => ({
+      nummer: aufgabe.nummer,
+      titel: aufgabe.titel,
+      sprache: "Ablauf",
+      aufgabe: aufgabe.aufgabe,
+      zeilen: aufgabe.schritte,
+      erklaerung: aufgabe.erklaerung,
+    })),
+  };
 }
 
 export interface ShapedCodeReihenfolgeAufgabe {
