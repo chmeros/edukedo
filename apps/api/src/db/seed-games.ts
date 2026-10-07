@@ -3,6 +3,7 @@ import { eq } from "drizzle-orm";
 import { db, pool } from "./client";
 import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
 import { belegdetektivEinkauf } from "./content/game-belegdetektiv-einkauf";
+import { datenDetektivQualitaet } from "./content/game-datendetektiv-datenqualitaet";
 import { phishingFrachtBetrug } from "./content/game-phishing-fracht-betrug";
 import { prozessSets } from "./content/game-prozessreihenfolge";
 import {
@@ -536,6 +537,10 @@ async function main() {
       "algorithmen",
     );
   }
+
+  // F-220: Daten-Detektiv (Datenqualität) als Set "daten" des Beleg-Detektivs für Daten- und Prozessanalyse. Im Kurs noch NICHT sichtbar:
+  // Die Freigabe (Eintrag in kurs-angebot.ts) folgt der Fachprüfung (Prüfblatt 24), Rahmenentscheidung R3.
+  await upsertGame("fachinformatiker-daten-prozessanalyse", "belegdetektiv", "Daten-Detektiv: Datenqualität", belegPayloadSchema.parse(datenDetektivQualitaet), "daten");
 
   // F-195: Prozess-Reihenfolge (Abläufe in Fließtext), ein Set "prozesse" je Kurs; Inhalte in game-prozessreihenfolge.ts.
   for (const set of prozessSets) {

@@ -8,7 +8,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | --- | --- | --- | --- |
 | [01 Terminal-Szenarien](01-terminal.md) | simulierte Linux-Störungen | 12 Szenarien | Instrumente → Terminal öffnen |
 | [02 Flag-Rätsel](02-flag-raetsel.md) | defensive CTF-Aufgaben | 14 Aufgaben | Instrumente → Rätsel lösen |
-| [03 Netzwerk-Topologie](03-topologie.md) | Verkabeln, Adressen, Routen, DHCP, VLAN, Firewall, NAT | 9 Szenarien | Instrumente → Netzwerk bauen |
+| [03 Netzwerk-Topologie](03-topologie.md) | Verkabeln, Adressen, Routen, DHCP, VLAN, Firewall, NAT | 17 Szenarien | Instrumente → Netzwerk bauen |
 | [04 IT-Lernpfade](04-lernpfade.md) | Scrum, OSI, Schutzziele, Datenmodell | 4 Pfade (je 7 Stationen) | Instrumente → „Geführten Lernpfad starten“ (Premium) |
 | [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | 157 Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |
 | [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
@@ -29,6 +29,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [21 Prozess-Reihenfolge](21-prozess-reihenfolge.md) | Abläufe in Fließtext für elf Kurse (Beschaffung, Kalkulation, Git, Incident u. a.) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |
 | [22 Beleg- und Betrugs-Detektiv](22-beleg-und-betrugs-detektiv.md) | Wareneingang und Rechnungsprüfung (fünf Kurse), Frachtbetrug (Transport/Logistik) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |
 | [23 Arbeitszeit-Prüfer](23-arbeitszeit-pruefer.md) | Grundregeln ArbZG und JArbSchG für Gesundheit/Soziales und AEVO | siehe Blatt | noch nicht sichtbar, Fachprüfung (Recht) nötig |
+| [24 Daten-Detektiv](24-daten-detektiv.md) | elf Datenauszüge zur Datenqualität (Daten- und Prozessanalyse) | siehe Blatt | noch nicht sichtbar, Fachprüfung nötig |
 
 **Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).
 

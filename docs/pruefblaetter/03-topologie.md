@@ -1,4 +1,4 @@
-# Prüfblatt Netzwerk-Topologie (9 Szenarien)
+# Prüfblatt Netzwerk-Topologie (17 Szenarien)
 
 Stand 06.10.2026 · erzeugt aus `packages/shared/src/topologie-sim.ts` (F-171/F-174) · **alle Inhalte sind Entwürfe**.
 
@@ -178,7 +178,7 @@ Stand 06.10.2026 · erzeugt aus `packages/shared/src/topologie-sim.ts` (F-171/F-
 
 ---
 
-## Mittel (4)
+## Mittel (8)
 
 ### N04 · DHCP-Pool und feste Adresse
 
@@ -427,9 +427,259 @@ Stand 06.10.2026 · erzeugt aus `packages/shared/src/topologie-sim.ts` (F-171/F-
 
 ---
 
-## Schwer (2)
+### N08 · Produktionszelle im eigenen VLAN
 
-### N08 · Büro, Server und Gäste mit Firewall
+*id:* `produktionszelle-vlan` · *Stufe:* Mittel · Rheinwerk Maschinen GmbH: Büro und Produktionszelle an einem Switch, getrennt in zwei VLANs, verbunden über einen Router.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Bei der Rheinwerk Maschinen GmbH hängen der Büro-PC (VLAN 10, 192.168.10.0/24) und die Produktionszelle mit SPS 1, SPS 2 und dem Leitstand-Rechner (VLAN 20, 192.168.20.0/24) an einem Switch. Router1 hat je eine Schnittstelle in beiden VLANs. Die Zelle liegt bewusst in einem eigenen VLAN. Zurzeit erreicht der Leitstand seine SPS 2 nicht, der Büro-PC kommt nicht in die Produktionszelle, und der Leitstand erreicht das Büro nicht. Finde die Fehler.
+
+**Adressplan** — Zwei VLANs, zwei Netze: Büro (VLAN 10) und Produktionszelle (VLAN 20). Alle IP-Adressen und Masken stimmen; geprüft werden die VLAN-Zuordnung der Switch-Ports und die Gateways. Der Router hat je ein Kabel zu einem Port im passenden VLAN (keine Trunks).
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Büro-PC | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 | VLAN 10 |
+| SPS 1 | eth0 | 192.168.20.11 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| SPS 2 | eth0 | 192.168.20.12 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| Leitstand | eth0 | 192.168.20.50 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| Router1 | eth0 (Büro) | 192.168.10.1 | /24 (255.255.255.0) | – | VLAN 10 |
+| Router1 | eth1 (Produktion) | 192.168.20.1 | /24 (255.255.255.0) | – | VLAN 20 |
+
+**Soll: VLAN je Port von Switch1**
+
+| Port | angeschlossen | VLAN |
+| --- | --- | --- |
+| Port 1 | Büro-PC | 10 |
+| Port 2 | SPS 1 | 20 |
+| Port 3 | SPS 2 | 20 |
+| Port 4 | Leitstand | 20 |
+| Port 5 | Router1 eth0 | 10 |
+| Port 6 | Router1 eth1 | 20 |
+
+**Prüfaufträge:**
+
+- Leitstand → SPS 1 (gleiche Zelle)
+- Leitstand → SPS 2 (gleiche Zelle)
+- SPS 1 → SPS 2 (gleiche Zelle)
+- Büro-PC → Leitstand (über den Router)
+- Leitstand → Büro-PC (Gegenrichtung)
+
+**Lösung (Schritte):**
+
+1. Switch1 · Port 3 (SPS 2) auf VLAN 20 stellen (stand im Standard-VLAN 1).
+2. Switch1 · Port 6 (Router1 eth1, Produktionsnetz) auf VLAN 20 stellen (stand auf VLAN 10).
+3. Leitstand: Gateway 192.168.20.1 eintragen (stand auf 192.168.20.254).
+
+**Tipps:**
+
+1. Teste die Prüfaufträge der Reihe nach. Bei Fehlern zwischen zwei Geräten nennt die Meldung die beiden Ports und ihre VLANs: Vergleiche sie mit der Tabelle „Soll“.
+2. Geräte in verschiedenen VLANs sprechen auf Schicht 2 nicht miteinander; nur der Router verbindet die Netze. Prüfe auch das VLAN der Router-Ports.
+3. Der Leitstand erreicht schon sein eigenes Gateway nicht: Die eingetragene Adresse muss genau der Router-Schnittstelle im Produktionsnetz entsprechen.
+
+**Erklärung nach der Lösung:**
+
+> Eine Produktionszelle legt man in ein eigenes VLAN mit eigenem Adressbereich: Die Broadcast-Domäne bleibt klein, Störungen und Rundsendungen bleiben in der Zelle, und der Übergang zum Büronetz ist ein einziger, kontrollierbarer Punkt — der Router. Ein VLAN-Fehler an einem einzigen Port genügt, damit ein Gerät aus der Zelle herausfällt (SPS 2 im Standard-VLAN 1) oder ein ganzes Netz keinen Router hat (der Router-Port im falschen VLAN). Ein falsches Gateway macht ein Gerät zur Insel: Innerhalb der Zelle funktioniert alles, hinaus kommt nichts. Segmentierung allein ist noch keine Schutzgrenze: Ohne Filterregeln am Router erreicht jeder aus dem Büro die Zelle — das ist Thema der nächsten Szenarien.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N09 · Feldnetz hinter dem Gateway
+
+*id:* `feldnetz-gateway` · *Stufe:* Mittel · Rheinwerk Maschinen GmbH: Standortnetz und Feldnetz, verbunden über zwei Router und ein /30-Verbindungsnetz.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Das Feldnetz der Halle 1 (192.168.50.0/24) hängt hinter dem Feld-Gateway, das über ein /30-Verbindungsnetz (10.10.0.0/30) mit dem Standort-Router verbunden ist. Der Leitstand im Standortnetz (192.168.10.0/24) soll die SPS in der Halle erreichen und die SPS den Leitstand. Zurzeit funktioniert keine der beiden Richtungen. Finde die Fehler in den Routen und im Gateway der SPS.
+
+**Adressplan** — Drei Netze: Standortnetz 192.168.10.0/24, Verbindungsnetz 10.10.0.0/30 und Feldnetz 192.168.50.0/24. Alle IP-Adressen und Masken stimmen. Das Feld-Gateway soll alles Unbekannte über den Standort-Router schicken (Standardroute); der Standort-Router braucht eine Route in das Feldnetz.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Leitstand | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 |  |
+| Standort-Router | eth0 (Standort) | 192.168.10.1 | /24 (255.255.255.0) | – |  |
+| Standort-Router | eth1 (Verbindungsnetz) | 10.10.0.1 | /30 (255.255.255.252) | – |  |
+| Feld-Gateway | eth0 (Verbindungsnetz) | 10.10.0.2 | /30 (255.255.255.252) | – |  |
+| Feld-Gateway | eth1 (Feldnetz) | 192.168.50.1 | /24 (255.255.255.0) | – |  |
+| SPS Halle 1 | eth0 | 192.168.50.10 | /24 (255.255.255.0) | 192.168.50.1 |  |
+
+**Soll: statische Routen**
+
+| Router | Zielnetz | Maske | Nächster Hop |
+| --- | --- | --- | --- |
+| Standort-Router | 192.168.50.0 | /24 | 10.10.0.2 (Feld-Gateway) |
+| Feld-Gateway | 0.0.0.0 (Standardroute) | /0 | 10.10.0.1 (Standort-Router) |
+
+**Prüfaufträge:**
+
+- Leitstand → Feld-Gateway eth1 (Feldseite)
+- Leitstand → SPS Halle 1
+- SPS Halle 1 → Leitstand (Gegenrichtung)
+- SPS Halle 1 → Standort-Router eth0 (Standortseite)
+
+**Lösung (Schritte):**
+
+1. Standort-Router: Route 192.168.50.0/24 über den nächsten Hop 10.10.0.2 (Feld-Gateway) eintragen.
+2. Feld-Gateway: Die Standardroute zeigte auf 10.10.0.5, eine Adresse außerhalb des Verbindungsnetzes. Nächsten Hop auf 10.10.0.1 (Standort-Router) ändern.
+3. SPS Halle 1: Gateway 192.168.50.1 eintragen (stand auf 192.168.50.254).
+
+**Tipps:**
+
+1. Teste zuerst „Leitstand → Feld-Gateway eth1“. Kommt die Anfrage nicht an, fehlt dem Standort-Router der Weg ins Feldnetz.
+2. Kommt die Anfrage in der Halle an, aber keine Antwort zurück, prüfe die Standardroute des Feld-Gateways: Der nächste Hop muss die Adresse des Standort-Routers im Verbindungsnetz sein.
+3. Die SPS erreicht nicht einmal das Feld-Gateway: Vergleiche ihr Gateway mit der Adresse der Feldschnittstelle des Gateways.
+
+**Erklärung nach der Lösung:**
+
+> Ein Gateway zwischen Feldnetz und Standortnetz ist in der Industrie eine Schnittstelle zwischen zwei Welten: Hinter ihm liegen die Geräte der Halle (SPS, Sensoren), davor das Standortnetz mit Leitstand und Servern. Auf IP-Ebene ist es ein Router mit zwei Seiten. Damit eine Verbindung in beide Richtungen klappt, braucht jede Seite eine Route: Der Standort-Router weiß, dass das Feldnetz hinter dem Gateway liegt; das Gateway schickt alles Unbekannte zurück zum Standort (Standardroute). Ein nächster Hop außerhalb des gemeinsamen Verbindungsnetzes ist nicht erreichbar und die Route nutzlos. Und die Rückrichtung ist keine Selbstverständlichkeit: Eine Anfrage kann ankommen und trotzdem unbeantwortet bleiben, wenn der Rückweg fehlt.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N10 · Inter-VLAN-Routing mit Verwaltungsnetz
+
+*id:* `inter-vlan-verwaltung` · *Stufe:* Mittel · Kanzlei Rehfeld & Partner: Arbeitsplätze, Server und Management in drei VLANs, verbunden über einen Router.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Die Kanzlei Rehfeld & Partner trennt ihr Netz in drei VLANs: Arbeitsplätze (VLAN 10, 192.168.10.0/24), Server (VLAN 20, 192.168.20.0/24) und Management (VLAN 99, 192.168.99.0/24). Router1 stellt je VLAN eine Schnittstelle bereit (Inter-VLAN-Routing). Zurzeit erreicht der Arbeitsplatz den Dateiserver nicht, der Admin-PC im Managementnetz kommt nirgendwohin, und der Server findet sein Gateway nicht. Finde die Fehler.
+
+**Adressplan** — Drei VLANs, drei Netze, ein Router mit drei Schnittstellen (keine Trunks): je ein Kabel zu einem Port im passenden VLAN. Alle Adressen der Hosts stimmen; geprüft werden die VLAN-Zuordnung der Ports und die Adresse der Router-Schnittstellen.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Arbeitsplatz | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 | VLAN 10 |
+| Dateiserver | eth0 | 192.168.20.10 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| Admin-PC | eth0 | 192.168.99.10 | /24 (255.255.255.0) | 192.168.99.1 | VLAN 99 |
+| Router1 | eth0 (Arbeitsplätze) | 192.168.10.1 | /24 (255.255.255.0) | – | VLAN 10 |
+| Router1 | eth1 (Server) | 192.168.20.1 | /24 (255.255.255.0) | – | VLAN 20 |
+| Router1 | eth2 (Management) | 192.168.99.1 | /24 (255.255.255.0) | – | VLAN 99 |
+
+**Soll: VLAN je Port von Switch1**
+
+| Port | angeschlossen | VLAN |
+| --- | --- | --- |
+| Port 1 | Arbeitsplatz | 10 |
+| Port 2 | Dateiserver | 20 |
+| Port 3 | Admin-PC | 99 |
+| Port 4 | Router1 eth0 | 10 |
+| Port 5 | Router1 eth1 | 20 |
+| Port 6 | Router1 eth2 | 99 |
+
+**Prüfaufträge:**
+
+- Arbeitsplatz → Dateiserver (über den Router)
+- Dateiserver → Arbeitsplatz (Gegenrichtung)
+- Admin-PC → Dateiserver
+- Admin-PC → Arbeitsplatz
+
+**Lösung (Schritte):**
+
+1. Switch1 · Port 2 (Dateiserver) auf VLAN 20 stellen (stand im Standard-VLAN 1).
+2. Switch1 · Port 6 (Router1 eth2, Management) auf VLAN 99 stellen (stand auf VLAN 10).
+3. Router1 · eth1: IP-Adresse 192.168.20.1 eintragen (stand auf 192.168.21.1, ein Zahlendreher).
+
+**Tipps:**
+
+1. Teste die Prüfaufträge der Reihe nach. Bei VLAN-Fehlern nennt die Meldung die beiden Ports und ihre VLANs: Vergleiche sie mit der Tabelle „Soll“.
+2. Ein Router verbindet nur dann zwei VLANs, wenn er in jedem VLAN einen Anschluss hat: Prüfe die VLAN-Zuordnung seiner Ports.
+3. Der Dateiserver erreicht sein Gateway nicht, obwohl die Adresse auf dem Server stimmt: Vergleiche sie mit der Adresse der Router-Schnittstelle im Servernetz (Adressplan).
+
+**Erklärung nach der Lösung:**
+
+> Geräte in verschiedenen VLANs können nur über eine Layer-3-Instanz miteinander sprechen — Router, Layer-3-Switch oder Firewall (Inter-VLAN-Routing). Das ist gewollt, denn genau dort lassen sich Regeln festlegen, wer mit wem sprechen darf. Der Router braucht je VLAN einen Anschluss mit der Gateway-Adresse des Netzes; die Hosts tragen genau diese Adresse als Gateway ein. In der Praxis hängt der Router meist mit einem Trunk am Switch und bildet je VLAN eine logische Schnittstelle; die Simulation vereinfacht das auf ein Kabel je VLAN. Das Managementnetz (VLAN 99) ist ein eigenes Segment für die Verwaltung der Netzgeräte und Server: Der Administrationszugang soll nur von dort möglich sein — dafür kommen in einem nächsten Schritt Firewall-Regeln dazu. Kleine Fehler wie ein Zahlendreher in der Router-Adresse (21 statt 20) machen ein ganzes Netz unerreichbar.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N11 · Standortverbund mit überlappenden Netzen
+
+*id:* `standortverbund-vpn` · *Stufe:* Mittel · Kanzlei Rehfeld & Partner: Zentrale und Filiale über einen VPN-Tunnel — beide Standorte nutzen dasselbe Netz.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Die Kanzlei Rehfeld & Partner koppelt ihre Filiale per Site-to-Site-VPN an die Zentrale. Der Tunnel ist hier vereinfacht als /30-Verbindungsnetz (10.99.0.0/30) zwischen den beiden VPN-Gateways dargestellt. Beide Standorte nutzen das Netz 192.168.10.0/24 — Zentrale-PC und Filial-Server liegen scheinbar im selben Netz und finden sich nicht. Schaffe zwei getrennte Netze, indem du die Filiale auf 192.168.20.0/24 umstellst, und trage die Routen ein.
+
+**Adressplan** — Soll: Zentrale 192.168.10.0/24, Filiale 192.168.20.0/24, Verbindungsnetz (Tunnel) 10.99.0.0/30. Die Netze zweier Standorte dürfen sich nicht überlappen. In der Filiale ändern sich die Adresse der Router-Schnittstelle und die Adressen und Gateways der beiden Hosts; die Zentrale behält ihr Netz.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| PC Zentrale | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 |  |
+| VPN-Gateway Zentrale | eth0 (Zentrale) | 192.168.10.1 | /24 (255.255.255.0) | – |  |
+| VPN-Gateway Zentrale | eth1 (Tunnel) | 10.99.0.1 | /30 (255.255.255.252) | – |  |
+| VPN-Gateway Filiale | eth0 (Tunnel) | 10.99.0.2 | /30 (255.255.255.252) | – |  |
+| VPN-Gateway Filiale | eth1 (Filiale) | 192.168.20.1 | /24 (255.255.255.0) | – |  |
+| Server Filiale | eth0 | 192.168.20.10 | /24 (255.255.255.0) | 192.168.20.1 |  |
+| PC Filiale | eth0 | 192.168.20.30 | /24 (255.255.255.0) | 192.168.20.1 |  |
+
+**Soll: statische Routen**
+
+| Router | Zielnetz | Maske | Nächster Hop |
+| --- | --- | --- | --- |
+| VPN-Gateway Zentrale | 192.168.20.0 | /24 | 10.99.0.2 (VPN-Gateway Filiale) |
+| VPN-Gateway Filiale | 0.0.0.0 (Standardroute) | /0 | 10.99.0.1 (VPN-Gateway Zentrale) |
+
+**Prüfaufträge:**
+
+- PC Zentrale → Server Filiale (durch den Tunnel)
+- Server Filiale → PC Zentrale (Gegenrichtung)
+- PC Filiale → PC Zentrale
+- PC Zentrale → PC Filiale
+
+**Lösung (Schritte):**
+
+1. VPN-Gateway Filiale · eth1: IP 192.168.20.1 eintragen (stand auf 192.168.10.1).
+2. Server Filiale: IP 192.168.20.10, Gateway 192.168.20.1; PC Filiale: IP 192.168.20.30, Gateway 192.168.20.1.
+3. VPN-Gateway Zentrale: Die Route zum Filialnetz auf 192.168.20.0/24 über 10.99.0.2 ändern (zeigte auf 192.168.10.0/24, das eigene Netz). Die Standardroute der Filiale (über 10.99.0.1) bleibt.
+
+**Tipps:**
+
+1. Teste „PC Zentrale → Server Filiale“ und lies die Meldung: Liegt das Ziel im eigenen Netz, schickt der PC die Anfrage nie an sein Gateway.
+2. Die Filiale braucht ein eigenes Netz, zum Beispiel 192.168.20.0/24. Ändere die Router-Schnittstelle zur Filiale und beide Hosts samt Gateway.
+3. Danach muss das Gateway der Zentrale wissen, dass das Filialnetz hinter dem Tunnel liegt: Die vorhandene Route zeigt noch auf das alte, überlappende Netz.
+
+**Erklärung nach der Lösung:**
+
+> Bei der Standortkopplung (Site-to-Site-VPN) bauen die Gateways der Standorte einen dauerhaften Tunnel auf; die Endgeräte merken davon nichts. Eine Praxisregel gilt dabei immer: Die Netze der Standorte dürfen sich nicht überlappen. Liegen Zentrale und Filiale beide in 192.168.10.0/24, hält ein PC jedes Ziel dieser Adressen für „im eigenen Netz“ und fragt es direkt im lokalen Segment an, statt das Gateway zu benutzen — der Weg durch den Tunnel wird nie genommen, und keine Route kann das lösen. Die Abhilfe ist eine Neuadressierung eines Standorts, deshalb plant man den Adressraum vor dem Aufbau. Danach braucht jede Seite eine Route zum Netz der Gegenseite. Der Tunnel ist hier als einfaches Verbindungsnetz dargestellt; die Verschlüsselung (z. B. IPsec) ist in der Simulation nicht abgebildet. Und: Das VPN öffnet keinen Freibrief — der Verkehr durch den Tunnel unterliegt weiterhin den Firewall-Regeln.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+## Schwer (6)
+
+### N12 · Büro, Server und Gäste mit Firewall
 
 *id:* `server-vlan-firewall` · *Stufe:* Schwer · Rheinwerk Maschinen GmbH: Drei VLANs, ein Router mit drei Schnittstellen und eine Firewall.
 
@@ -508,7 +758,7 @@ Stand 06.10.2026 · erzeugt aus `packages/shared/src/topologie-sim.ts` (F-171/F-
 
 ---
 
-### N09 · Drei Standorte, drei Router
+### N13 · Drei Standorte, drei Router
 
 *id:* `drei-standorte-routing` · *Stufe:* Schwer · Nordlicht Logistik AG: Zentrale und zwei Lager, Routing-Schleife und fehlende Rückroute.
 
@@ -573,6 +823,275 @@ Stand 06.10.2026 · erzeugt aus `packages/shared/src/topologie-sim.ts` (F-171/F-
 
 **Besonders prüfen (Unsicherheiten und Vereinfachungen aus dem Entwurf):**
 - ⚠ Fehlerfolge: Routing-Schleife → fehlendes Kabel → fehlende Rückroute. Schleifenerkennung/TTL-Erklärung prüfen.
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N14 · Büro-IT und Produktion über Firewall getrennt
+
+*id:* `buero-produktion-firewall` · *Stufe:* Schwer · Rheinwerk Maschinen GmbH: Drei Zonen (Büro, Produktion, Leitstand), ein Router mit Firewall — nur das Leitsystem darf in die Produktion.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Die Rheinwerk Maschinen GmbH trennt ihr Netz in drei Zonen: Büro (VLAN 10, 192.168.10.0/24), Produktion mit SPS 1 und SPS 2 (VLAN 20, 192.168.20.0/24) und Leitstand (VLAN 30, 192.168.30.0/24). Router1 verbindet die Zonen, seine Firewall arbeitet mit „Standard: blockieren“. In die Produktion soll nur das Leitsystem (Leitstand-Rechner 192.168.30.10) — weder das Büro noch der Service-Laptop (192.168.30.77) im selben Leitstand-VLAN. Zurzeit stimmen ein Port, ein Gateway und die Firewall nicht. Behebe alles.
+
+**Adressplan** — Drei VLANs, drei Netze, ein Router mit drei Schnittstellen (keine Trunks). Die Firewall von Router1 soll genau eine Verbindung freigeben: vom Leitsystem (192.168.30.10) in die Produktion (192.168.20.0/24). Alles andere bleibt gesperrt. Die Simulation filtert nach Quelle und Ziel; Dienste und Ports (in der Praxis z. B. Modbus/TCP, Port 502) gehören in einer echten Regel zusätzlich dazu.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Büro-PC | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 | VLAN 10 |
+| Leitstand | eth0 | 192.168.30.10 | /24 (255.255.255.0) | 192.168.30.1 | VLAN 30 |
+| Service-Laptop | eth0 | 192.168.30.77 | /24 (255.255.255.0) | 192.168.30.1 | VLAN 30 |
+| SPS 1 | eth0 | 192.168.20.11 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| SPS 2 | eth0 | 192.168.20.12 | /24 (255.255.255.0) | 192.168.20.1 | VLAN 20 |
+| Router1 | eth0 (Büro) | 192.168.10.1 | /24 (255.255.255.0) | – | VLAN 10 |
+| Router1 | eth1 (Produktion) | 192.168.20.1 | /24 (255.255.255.0) | – | VLAN 20 |
+| Router1 | eth2 (Leitstand) | 192.168.30.1 | /24 (255.255.255.0) | – | VLAN 30 |
+
+**Soll: VLAN je Port von Switch1**
+
+| Port | angeschlossen | VLAN |
+| --- | --- | --- |
+| Port 1 | Büro-PC | 10 |
+| Port 2 | Leitstand | 30 |
+| Port 3 | Service-Laptop | 30 |
+| Port 4 | SPS 1 | 20 |
+| Port 5 | SPS 2 | 20 |
+| Port 6 | Router1 eth0 | 10 |
+| Port 7 | Router1 eth1 | 20 |
+| Port 8 | Router1 eth2 | 30 |
+
+**Soll: Firewall von Router1 (Kommunikationsmatrix)**
+
+| Reihenfolge | Aktion | Von | Nach |
+| --- | --- | --- | --- |
+| 1 | erlauben | 192.168.30.10 (Leitsystem) | 192.168.20.0/24 (Produktion) |
+| Standard | blockieren | alle übrigen Anfragen | — |
+
+**Prüfaufträge:**
+
+- Büro-PC → Router1 eth0 (Büro-Gateway, soll funktionieren)
+- Leitstand → SPS 1 (soll funktionieren)
+- Leitstand → SPS 2 (soll funktionieren)
+- Büro-PC → SPS 1 (soll von der Firewall blockiert werden) — **soll blockiert werden**
+- Service-Laptop → SPS 1 (soll von der Firewall blockiert werden) — **soll blockiert werden**
+
+**Lösung (Schritte):**
+
+1. Switch1 · Port 5 (SPS 2) auf VLAN 20 stellen (stand auf VLAN 10).
+2. Leitstand: Gateway 192.168.30.1 eintragen (stand auf 192.168.30.254).
+3. Router1 · Firewall: Die Regel „erlauben 192.168.10.0/24 → 192.168.20.0/24“ löschen (das Büro darf nicht in die Produktion).
+4. Router1 · Firewall: Die Regel „erlauben 192.168.30.0/24 → 192.168.20.0/24“ auf die einzelne Quelladresse 192.168.30.10 (Leitsystem) einengen, damit der Service-Laptop blockiert bleibt.
+
+**Tipps:**
+
+1. Gehe der Reihe nach vor. Der Leitstand erreicht nicht einmal sein Gateway: Vergleiche die eingetragene Adresse mit der Router-Schnittstelle im Leitstand-Netz. Bei VLAN-Fehlern nennt die Meldung beide Ports und ihre VLANs.
+2. Regeln der Firewall werden von oben nach unten geprüft, die erste passende gilt. Welche Regel lässt das Büro in die Produktion?
+3. „Das Leitsystem“ ist ein einzelnes Gerät, nicht das ganze Leitstand-VLAN: Eine Regel kann als Quelle auch eine einzelne Adresse nennen (z. B. 192.168.30.10).
+4. Standardaktion „blockieren“ sperrt alles, was keine Regel erlaubt. Antworten auf erlaubte Anfragen kommen automatisch zurück; Pakete an den Router selbst (Gateway-Ping) filtert die Firewall nicht.
+
+**Erklärung nach der Lösung:**
+
+> Ein VLAN trennt nur logisch; erst mit Filterregeln an den Übergängen wird daraus eine Schutzgrenze. Die Regeln leitet man aus der Kommunikationsmatrix ab: Erlaubt ist, was dort steht — hier genau eine Verbindung vom Leitsystem in die Produktion — und alles andere ist verboten (Default Deny). Gute Regeln sind eng gefasst: Quelle, Ziel und Richtung werden einzeln benannt. „Das ganze Leitstand-VLAN“ ist schon zu weit, denn dann käme auch der Service-Laptop in die Steuerungsebene. Ein kompromittiertes Gerät im Büro darf nicht ungehindert in die Produktion gelangen — deshalb darf auch eine Regel „Büro → Produktion“ nicht existieren, selbst wenn sie auf den ersten Blick bequem ist. Die Firewall arbeitet zustandsbehaftet: Antworten auf erlaubte Anfragen passieren automatisch. In der Praxis nennt eine Regel zusätzlich den Dienst (z. B. Modbus/TCP, Port 502); die Simulation filtert vereinfacht nach Quelle und Ziel.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N15 · Wartungszugriff über die DMZ
+
+*id:* `wartung-ueber-dmz` · *Stufe:* Schwer · Rheinwerk Maschinen GmbH: Die Wartungsfirma darf nur auf den Jumphost in der DMZ, von dort in die Produktion.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Die Wartungsfirma (Wartungs-Laptop, extern 172.16.0.0/24) soll die SPS 1 der Rheinwerk Maschinen GmbH fernwarten — aber nicht direkt: Der Zugang läuft über den Jumphost in der DMZ (192.168.99.5). Vom Jumphost aus darf die Produktion (192.168.20.0/24) erreicht werden, vom Büro (192.168.10.0/24) aus weder die Produktion noch die DMZ. Der Firewall-Router hat vier Schnittstellen, seine Firewall arbeitet mit „Standard: blockieren“. Zurzeit ist ein Kabel nicht gesteckt, der Jumphost hat ein falsches Gateway, und die Firewall-Regeln passen nicht zum Konzept. Behebe alles.
+
+**Adressplan** — Vier Zonen an vier Schnittstellen eines Routers: Büro 192.168.10.0/24, Produktion 192.168.20.0/24, DMZ 192.168.99.0/24 und das externe Netz 172.16.0.0/24 (für die Simulation ein privater Bereich). Die Hosts hängen mit je einem Kabel direkt am Router. Die Firewall soll nur zwei Verbindungen erlauben: extern → Jumphost und Jumphost → Produktion.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Büro-PC | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 |  |
+| SPS 1 | eth0 | 192.168.20.11 | /24 (255.255.255.0) | 192.168.20.1 |  |
+| Jumphost (DMZ) | eth0 | 192.168.99.5 | /24 (255.255.255.0) | 192.168.99.1 |  |
+| Wartungs-Laptop | eth0 | 172.16.0.50 | /24 (255.255.255.0) | 172.16.0.1 | extern |
+| Firewall-Router | eth0 (Büro) | 192.168.10.1 | /24 (255.255.255.0) | – |  |
+| Firewall-Router | eth1 (Produktion) | 192.168.20.1 | /24 (255.255.255.0) | – |  |
+| Firewall-Router | eth2 (DMZ) | 192.168.99.1 | /24 (255.255.255.0) | – |  |
+| Firewall-Router | eth3 (extern) | 172.16.0.1 | /24 (255.255.255.0) | – |  |
+
+**Soll: Firewall des Firewall-Routers (Kommunikationsmatrix)**
+
+| Reihenfolge | Aktion | Von | Nach |
+| --- | --- | --- | --- |
+| 1 | erlauben | 172.16.0.0/24 (Wartungsfirma, extern) | 192.168.99.5 (Jumphost) |
+| 2 | erlauben | 192.168.99.5 (Jumphost) | 192.168.20.0/24 (Produktion) |
+| Standard | blockieren | alle übrigen Anfragen | — |
+
+**Prüfaufträge:**
+
+- Wartungs-Laptop → Jumphost (soll funktionieren)
+- Jumphost → SPS 1 (soll funktionieren)
+- Wartungs-Laptop → SPS 1 direkt (soll von der Firewall blockiert werden) — **soll blockiert werden**
+- Büro-PC → SPS 1 (soll von der Firewall blockiert werden) — **soll blockiert werden**
+- Büro-PC → Jumphost (soll von der Firewall blockiert werden) — **soll blockiert werden**
+
+**Lösung (Schritte):**
+
+1. Kabel zwischen Firewall-Router · eth1 (Produktion) und SPS 1 stecken (die SPS war nicht angeschlossen).
+2. Jumphost: Gateway 192.168.99.1 eintragen (stand auf 192.168.99.254).
+3. Firewall: Die Regel „erlauben 172.16.0.0/24 → 192.168.20.0/24“ löschen (kein direkter Zugriff von außen auf die Produktion).
+4. Firewall: Die Regel „erlauben 192.168.99.5 → 192.168.20.0/24“ ergänzen (Jumphost darf in die Produktion). Die Regel „extern → Jumphost“ bleibt, Standard bleibt „blockieren“.
+
+**Tipps:**
+
+1. Teste die Prüfaufträge der Reihe nach. Eine Meldung wie „Kabel fehlt“ betrifft die physische Verbindung: Welche Schnittstelle des Routers ist noch nicht verbunden?
+2. Der Jumphost erreicht sein Gateway nicht: Vergleiche die Gateway-Adresse mit der Router-Schnittstelle in der DMZ.
+3. Die Firewall soll die direkte Verbindung Wartungsfirma → Produktion nicht erlauben: Der Zugang ist nur über den Jumphost vorgesehen. Welche Regel öffnet die direkte Verbindung?
+4. Für den Weg Jumphost → Produktion fehlt eine Regel. Das Ziel ist das ganze Produktionsnetz, die Quelle nur der Jumphost.
+
+**Erklärung nach der Lösung:**
+
+> Fernwartung ist einer der häufigsten Angriffswege in Produktionsnetzen — unkontrollierte Zugänge von Lieferanten und Dienstleistern gehören zu den typischen Schwachstellen. Das Konzept der Zonen löst es mit einer DMZ als Pufferzone: Die Wartungsfirma erreicht nur einen einzigen, gehärteten und protokollierten Punkt, den Jumphost. Erst von dort gibt es einen zweiten, eng gefassten Übergang in die Produktion. Beide Übergänge sind einzelne Regeln mit konkreter Quelle und konkretem Ziel; alles andere blockiert die Standardregel (Default Deny). Eine bequeme Regel „extern → Produktion“ würde den Jumphost überflüssig machen und die Schutzgrenze aushebeln. Auch das Büro hat in der DMZ nichts zu suchen, solange die Kommunikationsmatrix es nicht vorsieht. In der Praxis nennt jede Regel zusätzlich den Dienst (z. B. HTTPS oder SSH auf bestimmten Ports) und einen Verantwortlichen; die Simulation filtert vereinfacht nach Quelle und Ziel.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N16 · Büro mit Webserver in der DMZ
+
+*id:* `dmz-webserver` · *Stufe:* Schwer · Kanzlei Rehfeld & Partner: Büronetz, DMZ mit Webserver und Internet an einer Firewall.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Die Kanzlei Rehfeld & Partner betreibt einen Webserver, der aus dem Internet erreichbar sein muss. Er steht in der DMZ (192.168.50.0/24), getrennt vom Büronetz (192.168.10.0/24). Die Firewall hat drei Schnittstellen: Büro, DMZ und Internet (für die Simulation der private Bereich 172.16.0.0/24). Das Regelwerk soll vier Zeilen haben: Internet → Webserver erlauben, Büro → Internet erlauben, DMZ → Büro verbieten, alles andere verbieten. Zurzeit ist der Webserver aus dem Internet nicht erreichbar, das Büro kommt nicht ins Internet, und der Webserver kommt ins Büronetz. Behebe alles.
+
+**Adressplan** — Drei Zonen an drei Schnittstellen der Firewall: Büro 192.168.10.0/24, DMZ 192.168.50.0/24 und „Internet“ 172.16.0.0/24 (nur in der Simulation ein privater Bereich). Die Simulation filtert nach Quelle und Ziel; Dienste und Ports (in der Praxis hier TCP 443) gehören in einer echten Regel zusätzlich dazu.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| Büro-PC | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 |  |
+| Webserver (DMZ) | eth0 | 192.168.50.10 | /24 (255.255.255.0) | 192.168.50.1 |  |
+| Internet-Client | eth0 | 172.16.0.50 | /24 (255.255.255.0) | 172.16.0.1 |  |
+| Firewall | eth0 (Büro) | 192.168.10.1 | /24 (255.255.255.0) | – |  |
+| Firewall | eth1 (DMZ) | 192.168.50.1 | /24 (255.255.255.0) | – |  |
+| Firewall | eth2 (Internet) | 172.16.0.1 | /24 (255.255.255.0) | – |  |
+
+**Soll: Regelwerk der Firewall**
+
+| Reihenfolge | Aktion | Von | Nach |
+| --- | --- | --- | --- |
+| 1 | erlauben | 172.16.0.0/24 (Internet) | 192.168.50.10 (Webserver in der DMZ) |
+| 2 | erlauben | 192.168.10.0/24 (Büro) | 172.16.0.0/24 (Internet) |
+| 3 | blockieren | 192.168.50.0/24 (DMZ) | 192.168.10.0/24 (Büro) |
+| Standard | blockieren | alle übrigen Anfragen | — |
+
+**Prüfaufträge:**
+
+- Internet-Client → Webserver (soll funktionieren)
+- Büro-PC → Internet-Client (soll funktionieren)
+- Webserver → Büro-PC (soll von der Firewall blockiert werden) — **soll blockiert werden**
+- Internet-Client → Büro-PC (soll von der Firewall blockiert werden) — **soll blockiert werden**
+- Büro-PC → Firewall eth0 (Büro-Gateway, soll funktionieren)
+
+**Lösung (Schritte):**
+
+1. Webserver: Gateway 192.168.50.1 eintragen (stand auf 192.168.50.254).
+2. Firewall: Die Regel „erlauben 192.168.50.0/24 → 192.168.10.0/24“ in „blockieren“ umwandeln (die DMZ darf nicht ins Büronetz).
+3. Firewall: Die Regel „erlauben 192.168.10.0/24 → 172.16.0.0/24“ ergänzen (Büro darf ins Internet), und zwar vor der Blockierregel. Die Regel „erlauben Internet → Webserver“ bleibt, Standard „blockieren“ bleibt.
+
+**Tipps:**
+
+1. Teste die Prüfaufträge der Reihe nach. Der Webserver erreicht nicht einmal sein Gateway: Vergleiche seine Gateway-Adresse mit der Firewall-Schnittstelle in der DMZ.
+2. Das Büro kommt nicht ins Internet: Welche Regel fehlt? Antworten kommen automatisch zurück, nur der Verbindungsaufbau braucht eine Regel.
+3. Eine Regel „erlauben DMZ → Büro“ hebelt die Trennung auf: Wird der Webserver angegriffen, käme der Angreifer ins Büronetz. Ändere sie auf „blockieren“.
+4. Regeln werden von oben nach unten geprüft, die erste passende gilt. Die Standardaktion „blockieren“ sperrt alles, was keine Regel erlaubt.
+
+**Erklärung nach der Lösung:**
+
+> Das DMZ-Prinzip: Server, die aus dem Internet erreichbar sein müssen, sind das wahrscheinlichste Angriffsziel. Man stellt sie deshalb in ein eigenes Netz zwischen Internet und internem Netz, sodass ein erfolgreicher Angriff auf den Webserver nicht automatisch Zugriff auf das Büronetz bedeutet. Das Regelwerk hat vier Zeilen: Internet → Webserver (in der Praxis nur TCP 443), Büro → Internet, DMZ → Büro verbieten und als Standardregel alles andere verbieten. Die Regeln werden von oben nach unten abgearbeitet, die erste zutreffende gilt; die ausdrückliche Verbotsregel DMZ → Büro macht die Absicht sichtbar, auch wenn die Standardregel dasselbe bewirken würde. Die Firewall arbeitet zustandsbehaftet: Antworten auf erlaubte Verbindungen passieren automatisch, deshalb genügt für „Büro → Internet“ eine einzige Regel. Die Simulation filtert nach Quelle und Ziel; in einer echten Regel stehen zusätzlich Dienst und Port.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+---
+
+### N17 · Zwei Leitungen, eine ist ausgefallen
+
+*id:* `redundante-anbindung` · *Stufe:* Schwer · Kanzlei Rehfeld & Partner: Zentrale und Filiale mit Haupt- und Backup-Leitung — bei statischem Routing schaltet nichts automatisch um.
+
+**Aufgabe (so sehen es Lernende):**
+
+> Zentrale (192.168.10.0/24) und Filiale (192.168.20.0/24) sind über zwei Leitungen verbunden: Leitung 1 (10.0.1.0/30) und Backup-Leitung 2 (10.0.2.0/30). Alle Routen laufen über Leitung 1. Sie ist ausgefallen (der Provider hat sie gekappt und kann sie heute nicht reparieren). Weil die Router statisch geroutet sind, schaltet nichts von selbst um: Leite den Verkehr über die Backup-Leitung. Außerdem hat ein Host ein falsches Gateway.
+
+**Adressplan** — Vier Netze: Zentrale 192.168.10.0/24, Filiale 192.168.20.0/24 und zwei Verbindungsnetze, Leitung 1 (10.0.1.0/30, ausgefallen: das Kabel ist nicht gesteckt) und Backup-Leitung 2 (10.0.2.0/30, in Betrieb). Alle Adressen der Router stimmen.
+
+| Gerät | Schnittstelle | IP-Adresse | Subnetzmaske | Gateway | Zusatz |
+| --- | --- | --- | --- | --- | --- |
+| PC Zentrale | eth0 | 192.168.10.25 | /24 (255.255.255.0) | 192.168.10.1 |  |
+| Router Zentrale | eth0 (Zentrale) | 192.168.10.1 | /24 (255.255.255.0) | – |  |
+| Router Zentrale | eth1 (Leitung 1) | 10.0.1.1 | /30 (255.255.255.252) | – | ausgefallen |
+| Router Zentrale | eth2 (Leitung 2) | 10.0.2.1 | /30 (255.255.255.252) | – |  |
+| Router Filiale | eth0 (Leitung 1) | 10.0.1.2 | /30 (255.255.255.252) | – | ausgefallen |
+| Router Filiale | eth1 (Leitung 2) | 10.0.2.2 | /30 (255.255.255.252) | – |  |
+| Router Filiale | eth2 (Filiale) | 192.168.20.1 | /24 (255.255.255.0) | – |  |
+| Server Filiale | eth0 | 192.168.20.10 | /24 (255.255.255.0) | 192.168.20.1 |  |
+
+**Soll: statische Routen über die Backup-Leitung**
+
+| Router | Zielnetz | Maske | Nächster Hop |
+| --- | --- | --- | --- |
+| Router Zentrale | 192.168.20.0 | /24 | 10.0.2.2 (Router Filiale, Leitung 2) |
+| Router Filiale | 0.0.0.0 (Standardroute) | /0 | 10.0.2.1 (Router Zentrale, Leitung 2) |
+
+**Prüfaufträge:**
+
+- PC Zentrale → Server Filiale
+- Server Filiale → PC Zentrale (Gegenrichtung)
+- PC Zentrale → Router Filiale eth2 (Filial-Gateway)
+
+**Lösung (Schritte):**
+
+1. Router Zentrale: Die Route 192.168.20.0/24 auf den nächsten Hop 10.0.2.2 (Router Filiale, Leitung 2) ändern (zeigte auf 10.0.1.2, die ausgefallene Leitung 1).
+2. Router Filiale: Die Standardroute auf den nächsten Hop 10.0.2.1 (Router Zentrale, Leitung 2) ändern (zeigte auf 10.0.1.1).
+3. Server Filiale: Gateway 192.168.20.1 eintragen (stand auf 192.168.20.254).
+
+**Tipps:**
+
+1. Teste „PC Zentrale → Server Filiale“: Die Meldung nennt den nächsten Hop der Route. Ist er nicht erreichbar, hängt die Route an der ausgefallenen Leitung.
+2. Beide Router müssen umschalten: Die Zentrale braucht den Hop auf der Backup-Leitung (10.0.2.2), die Filiale für den Rückweg ebenfalls (10.0.2.1).
+3. Der Server in der Filiale erreicht sein Gateway nicht: Vergleiche die Adresse mit der Filialschnittstelle des Routers.
+
+**Erklärung nach der Lösung:**
+
+> Redundante Leitungen allein erhöhen die Verfügbarkeit nicht: Jemand oder etwas muss auf die zweite Leitung umschalten. Statisches Routing ist übersichtlich und gut nachvollziehbar, aber bei einem Ausfall schaltet nichts automatisch um; der Administrator muss die Routen von Hand ändern — beidseitig, denn auch der Rückweg läuft über die Routen der Gegenseite. Wer mehrere Standorte, redundante Leitungen und häufige Änderungen hat, profitiert deshalb vom dynamischen Routing (z. B. OSPF): Die Router tauschen Informationen über erreichbare Netze aus und passen ihre Tabellen bei einem Ausfall selbst an. In der Simulation gibt es keine dynamischen Protokolle; sie zeigt, warum man sie braucht. Auf Schicht 2 ist es anders: Redundante Switch-Verbindungen verwaltet das Spanning Tree Protocol, das Schleifen verhindert und bei einem Ausfall einen blockierten Weg aktiviert.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Der Adressplan entspricht der Lösung, und die Ping-Meldungen (Hinweg/Rückweg) erklären den Fehler richtig?
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 

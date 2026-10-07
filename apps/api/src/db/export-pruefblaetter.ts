@@ -34,6 +34,7 @@ import { memoryImmobilien } from "./content/game-memory-immobilien";
 import { kreuzwortraetselVersicherung } from "./content/game-kreuzwortraetsel-versicherung";
 import { formatDauer, REGEL_STAND, REGELN } from "@edukedo/shared";
 import { belegdetektivEinkauf } from "./content/game-belegdetektiv-einkauf";
+import { datenDetektivQualitaet } from "./content/game-datendetektiv-datenqualitaet";
 import { phishingFrachtBetrug } from "./content/game-phishing-fracht-betrug";
 import { prozessSets } from "./content/game-prozessreihenfolge";
 import { memoryVersicherung } from "./content/game-memory-versicherung";
@@ -1583,6 +1584,29 @@ function belegBlatt(): string {
   return teile.join("\n");
 }
 
+function datenDetektivBlatt(): string {
+  const teile: string[] = [
+    "# Prüfblatt Spiel — Daten-Detektiv (F-220)",
+    "",
+    "Stand 07.10.2026 · erzeugt aus apps/api/src/db/content/game-datendetektiv-datenqualitaet.ts. **Alle Inhalte sind Entwürfe von Claude.** Alle Namen, Adressen und Werte sind frei erfunden. Das Set `daten` des Beleg-Detektivs für den Kurs Daten- und Prozessanalyse ist **noch nicht sichtbar** (Rahmenentscheidung R3). Die Lernenden tippen auffällige Zeilen an und entscheiden „in Ordnung“ oder „beanstanden“; die Erklärung nennt die Qualitätsdimension nach der Kurstheorie dp4 11.1.",
+    "",
+    "**Prüffragen:** (1) Ist die markierte Auffälligkeit eindeutig ein Mangel, und gibt es keine zweite vertretbare Deutung? (2) Passt die genannte Qualitätsdimension (Plausibilität, Quantität, Redundanz, Vollständigkeit, Validität, Konsistenz) zur Begriffsabgrenzung der Theorie? (3) Sind die fehlerfreien Fälle wirklich fehlerfrei (zum Beispiel die führende Null einer Postleitzahl, die noch offene Lieferung)? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.",
+    "",
+  ];
+  for (const beleg of datenDetektivQualitaet.belege) {
+    teile.push("### " + beleg.nummer + ". " + beleg.titel + (beleg.hatFehler ? " (zu beanstanden)" : " (in Ordnung)"), "", beleg.situation, "");
+    teile.push(
+      tabelle(
+        ["Zeile", "Angabe", "Auffällig", "Erklärung"],
+        beleg.felder.map((feld) => [feld.ort, feld.text, feld.auffaellig ? "ja" : "nein", feld.erklaerung]),
+      ),
+      "",
+    );
+    teile.push("*Auflösung:* " + beleg.aufloesung, "");
+  }
+  return teile.join("\n");
+}
+
 function prozessBlatt(): string {
   const teile: string[] = [
     "# Prüfblatt Spiel — Prozess-Reihenfolge (F-195)",
@@ -1753,6 +1777,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [21 Prozess-Reihenfolge](21-prozess-reihenfolge.md) | Abläufe in Fließtext für elf Kurse (Beschaffung, Kalkulation, Git, Incident u. a.) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |",
     "| [22 Beleg- und Betrugs-Detektiv](22-beleg-und-betrugs-detektiv.md) | Wareneingang und Rechnungsprüfung (fünf Kurse), Frachtbetrug (Transport/Logistik) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |",
     "| [23 Arbeitszeit-Prüfer](23-arbeitszeit-pruefer.md) | Grundregeln ArbZG und JArbSchG für Gesundheit/Soziales und AEVO | siehe Blatt | noch nicht sichtbar, Fachprüfung (Recht) nötig |",
+    "| [24 Daten-Detektiv](24-daten-detektiv.md) | elf Datenauszüge zur Datenqualität (Daten- und Prozessanalyse) | siehe Blatt | noch nicht sichtbar, Fachprüfung nötig |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).",
     "",
@@ -1807,6 +1832,7 @@ function main() {
     ["21-prozess-reihenfolge.md", prozessBlatt()],
     ["22-beleg-und-betrugs-detektiv.md", belegBlatt()],
     ["23-arbeitszeit-pruefer.md", arbeitszeitBlatt()],
+    ["24-daten-detektiv.md", datenDetektivBlatt()],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

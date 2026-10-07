@@ -341,7 +341,7 @@ export function BelegDetektiv({ kursId, setKey, title, onClose }: SpielProps) {
                 </button>
               )}
               <button type="button" className="btn btn-primary" onClick={naechster}>
-                {zeiger.index + 1 < belege.length ? "Nächster Beleg" : "Fertig"}
+                {zeiger.index + 1 < belege.length ? "Nächster Fall" : "Fertig"}
               </button>
             </div>
           </div>

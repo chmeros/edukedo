@@ -65,7 +65,7 @@ const GAME_CATALOG = [
   {
     type: "belegdetektiv",
     label: "Beleg-Detektiv",
-    description: "Bestellung, Lieferschein und Rechnung vergleichen, Abweichungen markieren und entscheiden: in Ordnung oder beanstanden.",
+    description: "Belege oder Datenauszüge prüfen, Abweichungen und Fehler markieren und entscheiden: in Ordnung oder beanstanden.",
     Illustration: BelegDetektivIllustration,
   },
   {
