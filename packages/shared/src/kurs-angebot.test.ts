@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Energiebedarf-Rechner (F-208): Werkzeug nur im Kurs Digitale Vernetzung", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-digitale-vernetzung"], "energierechner")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-digitale-vernetzung")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "energierechner"), slug).toBeNull();
+    }
+  });
+
   it("Skalierungs- und Modbus-Register-Rechner (F-207): Werkzeug nur im Kurs Digitale Vernetzung", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-digitale-vernetzung"], "skalierung")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-digitale-vernetzung")) {

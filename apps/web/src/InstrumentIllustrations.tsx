@@ -1576,6 +1576,26 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-208: Energiebedarf-Rechner (Akku mit Ladebalken und Blitz, daneben eine Reihe Geräte).
+export function EnergierechnerIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <rect x="30" y="48" width="104" height="52" rx="8" fill="var(--card)" stroke="var(--ink)" strokeWidth="3" />
+      <rect x="134" y="62" width="10" height="24" rx="3" fill="var(--ink)" />
+      <rect x="38" y="56" width="62" height="36" rx="4" fill="var(--sprout)" />
+      <path d="m76 50-12 26h12l-6 26 20-32H78l8-20z" fill="var(--sun)" stroke="var(--ink)" strokeWidth="2" strokeLinejoin="round" />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <rect x={180 + i * 38} y="60" width="30" height="40" rx="5" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+          <path d={`M${195 + i * 38} 60V44`} stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+          <circle cx={195 + i * 38} cy="80" r="5" fill="var(--coral)" />
+        </g>
+      ))}
+      <path d="M160 112h130" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-207: Skalierung und Modbus-Register (Skala von 4 bis 20 mA, Zeiger, Registerzelle mit Faktor).
 export function SkalierungIllustration() {
   return (

@@ -15,6 +15,7 @@ export * from "./ausbildungsplan";
 export * from "./testfaelle";
 export * from "./mqttlabor";
 export * from "./skalierung";
+export * from "./energie";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";

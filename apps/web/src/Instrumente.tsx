@@ -34,6 +34,7 @@ import {
   TestfaelleIllustration,
   MqttlaborIllustration,
   SkalierungIllustration,
+  EnergierechnerIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -107,6 +108,7 @@ import { Ausbildungsplaner } from "./Ausbildungsplaner";
 import { Testfalltrainer } from "./Testfalltrainer";
 import { Mqttlabor } from "./Mqttlabor";
 import { Skalierungsrechner } from "./Skalierungsrechner";
+import { Energierechner } from "./Energierechner";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -631,6 +633,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-208 (Energiebedarf-Rechner): Leistungsbudget, Energiekosten und Akkulaufzeit, im Kurs Digitale Vernetzung.
+  {
+    type: "energierechner",
+    label: "Energiebedarf-Rechner",
+    description: "Leistungsbudget eines PoE-Switches oder Netzteils prüfen, Energie und Stromkosten berechnen und die Laufzeit eines Akkus bestimmen.",
+    Illustration: EnergierechnerIllustration,
+    werkzeug: true,
+    aktion: "Energie berechnen",
+  },
   // F-207 (Skalierungs- und Modbus-Register-Rechner): analoge Signale skalieren und Modbus-Register deuten, im Kurs Digitale Vernetzung.
   {
     type: "skalierung",
@@ -763,6 +774,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "energierechner") {
+    return <Energierechner onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "skalierung") {
     return <Skalierungsrechner onClose={() => setActiveWerkzeug(null)} />;
