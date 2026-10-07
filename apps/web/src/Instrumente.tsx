@@ -37,6 +37,7 @@ import {
   EnergierechnerIllustration,
   VerfuegbarkeitIllustration,
   StatistikIllustration,
+  ProzesskennzahlenIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -113,6 +114,7 @@ import { Skalierungsrechner } from "./Skalierungsrechner";
 import { Energierechner } from "./Energierechner";
 import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
 import { Statistiktrainer } from "./Statistiktrainer";
+import { Prozesskennzahlen } from "./Prozesskennzahlen";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -637,6 +639,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-211 (Prozesskennzahlen-Rechner): Durchlaufzeit, Engpass, Fehlerquote, Auslastung und Amortisation, im Kurs Daten- und Prozessanalyse.
+  {
+    type: "prozesskennzahlen",
+    label: "Prozesskennzahlen",
+    description: "Durchlaufzeit und Prozesseffizienz einer Prozessaufnahme berechnen, Engpässe finden, Fehlerquote, Auslastung und Amortisation bestimmen und an Aufgaben üben.",
+    Illustration: ProzesskennzahlenIllustration,
+    werkzeug: true,
+    aktion: "Kennzahlen berechnen",
+  },
   // F-210 (Statistik-Trainer): Kennzahlen einer Zahlenreihe, Boxplot, Ausreißer, Korrelation und Regression, im Kurs Daten- und Prozessanalyse.
   {
     type: "statistik",
@@ -796,6 +807,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "prozesskennzahlen") {
+    return <Prozesskennzahlen onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "statistik") {
     return <Statistiktrainer onClose={() => setActiveWerkzeug(null)} />;

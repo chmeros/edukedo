@@ -18,6 +18,7 @@ export * from "./skalierung";
 export * from "./energie";
 export * from "./verfuegbarkeit";
 export * from "./statistik";
+export * from "./prozesskennzahlen";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";

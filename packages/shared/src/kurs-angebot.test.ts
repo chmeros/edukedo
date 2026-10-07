@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Prozesskennzahlen-Rechner (F-211): Werkzeug nur im Kurs Daten- und Prozessanalyse", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-daten-prozessanalyse"], "prozesskennzahlen")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-daten-prozessanalyse")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "prozesskennzahlen"), slug).toBeNull();
+    }
+  });
+
   it("Statistik-Trainer (F-210): Werkzeug nur im Kurs Daten- und Prozessanalyse", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-daten-prozessanalyse"], "statistik")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-daten-prozessanalyse")) {

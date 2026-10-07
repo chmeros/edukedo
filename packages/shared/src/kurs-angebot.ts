@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Prozesskennzahlen-Rechner (F-211): Werkzeug "prozesskennzahlen" im Kurs Daten- und Prozessanalyse freigegeben (Durchlaufzeit, Prozesseffizienz, Engpass, Fehlerquote, Auslastung, Little, Amortisation nach 8.1, 8.3 und 8.4; Beispielwerte).
  * Statistik-Trainer (F-210): Werkzeug "statistik" im Kurs Daten- und Prozessanalyse freigegeben (Lage- und Streuungsmaße, Quartile mit festgelegter Methode, Ausreißer, Korrelation und Regression nach 10.1 und 10.2; Zahlen bleiben im Browser).
  * Verfügbarkeits- und RAID-Rechner (F-209): Werkzeug "verfuegbarkeit" in den vier Fachinformatiker-Kursen freigegeben (gemeinsamer Teil 1: Verfügbarkeit nach 3.3, RAID nach 5.3; Beispielwerte). Backup-Rechner und RPO/RTO fehlen bewusst, weil die Theorie sie nicht enthält.
  * Energiebedarf-Rechner (F-208): Werkzeug "energierechner" im Kurs Digitale Vernetzung freigegeben (Leistungsbudget wie PoE, Energie und Energiekosten, Akkulaufzeit; Beispielwerte, Datenblatt und Vertrag maßgeblich).
@@ -278,7 +279,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-daten-prozessanalyse": {
     instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"], ["risiko", "hierarchie", "osi", "scrum"]),
-    werkzeuge: liste(["sqluebung", "verfuegbarkeit", "statistik"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
+    werkzeuge: liste(["sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],

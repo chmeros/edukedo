@@ -1576,6 +1576,27 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-211: Prozesskennzahlen (Prozessschritte als Kästchen mit langen Wartezeiten, darunter ein Zeitbalken).
+export function ProzesskennzahlenIllustration() {
+  const kaesten = [28, 100, 172, 244];
+  return (
+    <Frame background="var(--sun-tint)">
+      {kaesten.map((x, i) => (
+        <g key={x}>
+          <rect x={x} y="30" width="48" height="34" rx="6" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2.5" />
+          {i < kaesten.length - 1 && <path d={`M${x + 48} 47h24`} stroke="var(--ink)" strokeWidth="2.5" strokeDasharray="4 4" strokeLinecap="round" />}
+        </g>
+      ))}
+      <rect x="28" y="88" width="30" height="16" fill="var(--sprout)" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="58" y="88" width="62" height="16" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="120" y="88" width="30" height="16" fill="var(--sprout)" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="150" y="88" width="90" height="16" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
+      <rect x="240" y="88" width="52" height="16" fill="var(--sprout)" stroke="var(--ink)" strokeWidth="2" />
+      <path d="M28 120h264" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-210: Statistik-Trainer (Boxplot mit Ausreißer über einer Reihe von Punkten).
 export function StatistikIllustration() {
   return (
