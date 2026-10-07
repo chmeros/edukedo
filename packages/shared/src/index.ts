@@ -64,3 +64,4 @@ export * from "./schreibtischtest";
 export * from "./wirtschaftlichkeit";
 export * from "./sql-datenqualitaet";
 export * from "./algorithmen";
+export * from "./sql-beiblatt";

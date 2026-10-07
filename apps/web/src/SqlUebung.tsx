@@ -1,4 +1,4 @@
-import { datensatzVon, SQL_ALLE_UEBUNGEN, SQL_DATENSAETZE, sqlVorschlaege, tokenisiereSql, type SqlDatensatzId, type SqlStufe, type SqlUebung, type SqlVorschlagErgebnis } from "@edukedo/shared";
+import { datensatzVon, SQL_ALLE_UEBUNGEN, SQL_BEIBLATT, SQL_DATENSAETZE, sqlVorschlaege, tokenisiereSql, type SqlDatensatzId, type SqlStufe, type SqlUebung, type SqlVorschlagErgebnis } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
@@ -104,6 +104,8 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
   const [ausgabe, setAusgabe] = useState<Ausgabe | null>(null);
   const [pruefung, setPruefung] = useState<{ richtig: boolean; hinweis: string } | null>(null);
   const [laeuft, setLaeuft] = useState(false);
+  // F-216: Prüfungsmodus — ohne Autovervollständigung, dafür mit Syntax-Beiblatt.
+  const [pruefungsmodus, setPruefungsmodus] = useState(false);
 
   const uebung: SqlUebung | null = useMemo(() => uebungen.find((eintrag) => eintrag.id === auswahl) ?? null, [uebungen, auswahl]);
   const schluessel = auswahl ?? "frei";
@@ -120,6 +122,7 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
   }, [sql]);
 
   function aktualisiereVorschlaege(feld: HTMLTextAreaElement) {
+    if (pruefungsmodus) return;
     setVorschlag(feld.selectionStart === feld.selectionEnd ? sqlVorschlaege(feld.value, feld.selectionStart) : null);
     setAktiv(-1);
   }
@@ -295,6 +298,48 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
           <p className="field-hint">Freies Üben: Probiere beliebige SQL-Anweisungen aus. „Datenbank zurücksetzen" stellt den Ausgangszustand wieder her.</p>
         )}
 
+        <div className="segmented" role="group" aria-label="Modus des Editors">
+          <button type="button" className={!pruefungsmodus ? "is-active" : ""} aria-pressed={!pruefungsmodus} onClick={() => setPruefungsmodus(false)}>
+            Übungsmodus (mit Vorschlägen)
+          </button>
+          <button
+            type="button"
+            className={pruefungsmodus ? "is-active" : ""}
+            aria-pressed={pruefungsmodus}
+            onClick={() => {
+              setPruefungsmodus(true);
+              setVorschlag(null);
+              setAktiv(-1);
+            }}
+          >
+            Prüfungsmodus (ohne Vorschläge, mit Beiblatt)
+          </button>
+        </div>
+        {pruefungsmodus && (
+          <details className="instrument-more" open>
+            <summary>Syntax-Beiblatt</summary>
+            <p className="field-hint">Selbst erstelltes Beiblatt nach dem Thema „SQL-Abfragen“ — kein amtliches Beiblatt. &lt;…&gt; sind Platzhalter, [ ] ist optional; die Beispiele laufen auf den Projektdaten.</p>
+            <div className="stack">
+              {SQL_BEIBLATT.map((abschnitt) => (
+                <div key={abschnitt.titel} className="stack">
+                  <h3 className="tile-group-title">{abschnitt.titel}</h3>
+                  {abschnitt.eintraege.map((eintrag) => (
+                    <div key={eintrag.syntax} className="stack" style={{ gap: 4 }}>
+                      <pre className="sql-loesung" style={{ margin: 0 }}>
+                        <code>{eintrag.syntax}</code>
+                      </pre>
+                      <span className="field-hint">{eintrag.hinweis}</span>
+                      <span className="field-hint">
+                        Beispiel: <code>{eintrag.beispiel}</code>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
+
         <div className="field">
           <label htmlFor="sql-editor">{uebung ? "Deine SQL-Anweisung" : "SQL-Anweisung"}</label>
           {/* F-170: Die Hervorhebung liegt als eigene Ebene hinter dem (durchsichtigen) Eingabefeld und wird
@@ -385,7 +430,10 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
               ? `${vorschlag.vorschlaege.length} Vorschläge. Pfeil nach unten wählt aus, Enter übernimmt, Escape schließt.${aktiv >= 0 ? ` Ausgewählt: ${vorschlag.vorschlaege[aktiv]?.text}.` : ""}`
               : ""}
           </span>
-          <span className="field-hint">Mehrere Anweisungen mit Semikolon trennen. Ausführen auch mit Strg+Enter. Vorschläge erscheinen beim Tippen: Pfeil nach unten wählt, Enter übernimmt.</span>
+          <span className="field-hint">
+            Mehrere Anweisungen mit Semikolon trennen. Ausführen auch mit Strg+Enter.{" "}
+            {pruefungsmodus ? "Im Prüfungsmodus gibt es keine Vorschläge; nutze das Beiblatt." : "Vorschläge erscheinen beim Tippen: Pfeil nach unten wählt, Enter übernimmt."}
+          </span>
         </div>
 
         <div className="rate-row">

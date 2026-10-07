@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-216: SQL-Beiblatt-Modus)
+
+- **Anlass:** Phase 3 der Kursprofile, Werkzeug W-FI-04 (Priorität mittel, Aufwand S) für Anwendungsentwicklung und Daten- und Prozessanalyse. Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Eigenes Beiblatt, kein amtliches:** Der Inhalt eines amtlichen Beiblatts ist hier unbekannt (Risiko aus dem Kursprofil); es wird nichts nachgebildet. `packages/shared/src/sql-beiblatt.ts` fasst die Syntax der Kurstheorie 5.2 zusammen (fünf Abschnitte, elf Einträge mit Schreibweise, Hinweis und Beispiel). Die Oberfläche sagt ausdrücklich, dass es kein amtliches Beiblatt ist.
+- **Beispiele sind getestet:** Ein Test führt jedes Beispiel auf der Beispieldatenbank der Projektdaten mit derselben Engine wie im Browser (sql.js) aus und prüft drei Ergebnisse gegen die Beschreibung; so enthält das Beiblatt keine Syntax, die nicht läuft.
+- **Prüfungsmodus:** `SqlUebung.tsx` hat einen Umschalter Übungsmodus/Prüfungsmodus. Im Prüfungsmodus liefert `aktualisiereVorschlaege` keine Vorschläge (F-172 ist aus), und das Beiblatt ist aufgeklappt sichtbar; sonst bleibt alles wie bisher (Hervorhebung, Prüfung, Tipps). Der Modus wird nicht gespeichert und gilt für beide Datensätze. Die Freigabe braucht keine Kursprofil-Änderung, weil die SQL-Übungsfläche nur in den beiden genannten Kursen angeboten wird.
+- **Tests:** sql-beiblatt.test.ts (14 Tests: Abdeckung der Themen, jedes Beispiel läuft, Ergebnisse passen zur Beschreibung). Live geprüft im Kurs Anwendungsentwicklung: Umschalter, Beiblatt mit allen Abschnitten.
+
 ### Entschieden am 07.10.2026 (F-215: Algorithmen-Visualisierer)
 
 - **Anlass:** Phase 3 der Kursprofile, Werkzeug W-AE-01 (Priorität mittel, Aufwand M). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“ Die gemeinsame Kurstheorie 4.2 beschreibt Bubblesort, Selectionsort, Insertionsort sowie lineare und binäre Suche und enthält Programmtexte für Bubblesort und die beiden Suchen. Kein Rechtsbezug.
