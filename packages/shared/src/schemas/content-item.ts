@@ -68,6 +68,7 @@ export const contentItemTypeSchema = z.enum([
   "kryptobausteine",
   "monitoring",
   "cloudmodelle",
+  "angriffsarten",
   // F-181: weitere Instrumente (AEVO).
   "handlungsfelder",
   "vierstufen",

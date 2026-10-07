@@ -80,6 +80,7 @@ import {
   KryptobausteineIllustration,
   MonitoringIllustration,
   CloudmodelleIllustration,
+  AngriffsartenIllustration,
   ScrumIllustration,
   SqlIllustration,
   SqlUebungIllustration,
@@ -391,6 +392,13 @@ const INSTRUMENT_CATALOG = [
     label: "Cloud-Servicemodelle",
     description: "On-Premises, IaaS, PaaS und SaaS an der Verantwortungsgrenze zwischen Anbieter und Kunde erkennen.",
     Illustration: CloudmodelleIllustration,
+  },
+  // F-222 (I-FI-02): Angriffsarten und Schutzmaßnahmen.
+  {
+    type: "angriffsarten",
+    label: "Angriffsarten und Schutzmaßnahmen",
+    description: "Merkmale, Szenarien und Abwehrmaßnahmen den Angriffsarten Injection, Man-in-the-Middle, DDoS, Social Engineering und Passwortangriffen zuordnen.",
+    Illustration: AngriffsartenIllustration,
   },
   // F-181 (Kursprofile Phase 1, AEVO): fünf Zonen-Instrumente für die Ausbildereignung.
   {

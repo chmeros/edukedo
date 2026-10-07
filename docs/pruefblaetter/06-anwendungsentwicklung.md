@@ -732,6 +732,94 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
+### Angriffsarten und Schutzmaßnahmen (3 Fragen) — Zonen: Injection · Man-in-the-Middle · Denial of Service (DDoS) · Social Engineering / Phishing · Passwortangriffe
+
+**Besonders prüfen:**
+- ⚠ Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.
+- ⚠ Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).
+- ⚠ Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.
+
+#### Q-6.1-23 · Angriffsarten und Schutzmaßnahmen (Leicht)
+
+*Ordne die Aussagen der Angriffsart zu, auf die sie zutreffen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Eingaben eines Formulars landen ungeprüft in einer Datenbankabfrage | Injection |
+| Ein Dritter liest die Kommunikation zwischen Browser und Server unbemerkt mit | Man-in-the-Middle |
+| Ein Dienst wird mit sehr vielen Anfragen überlastet und ist nicht mehr erreichbar | Denial of Service (DDoS) |
+| Eine gefälschte Mail verleitet dazu, Zugangsdaten auf einer nachgebauten Seite einzugeben | Social Engineering / Phishing |
+| Ein Programm probiert sehr viele Passwörter nacheinander aus | Passwortangriffe |
+| Parametrisierte Abfragen (Prepared Statements) schützen davor | Injection |
+| Eine verschlüsselte Verbindung mit geprüftem Zertifikat schützt davor | Man-in-the-Middle |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Injection entsteht durch ungeprüfte Eingaben in Befehlen, Man-in-the-Middle durch mitlesbaren oder veränderbaren Verkehr, Denial of Service durch Überlastung, Social Engineering und Phishing durch Täuschung von Menschen und Passwortangriffe durch massenhaftes Ausprobieren von Passwörtern.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-24 · Angriffsarten und Schutzmaßnahmen (Mittel)
+
+*Welche Maßnahme schützt vor welcher Angriffsart?*
+
+| Begriff | Zone |
+| --- | --- |
+| Statt SQL-Texte zusammenzusetzen, Abfragen mit Parametern verwenden | Injection |
+| Das Datenbankkonto der Anwendung auf die nötigen Rechte beschränken | Injection |
+| HTTPS erzwingen und Zertifikatswarnungen nicht ignorieren | Man-in-the-Middle |
+| Anfragen pro Client begrenzen und Lastspitzen mit Filterdiensten abfangen | Denial of Service (DDoS) |
+| Mitarbeitende schulen und Passwortwünsche nur nach Rückruf über eine bekannte Nummer erfüllen | Social Engineering / Phishing |
+| Das Konto nach mehreren Fehlversuchen beim Login sperren oder verzögern | Passwortangriffe |
+| Für jeden Dienst ein eigenes Passwort verwenden, damit geleakte Zugangsdaten nicht anderswo passen | Passwortangriffe |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Parametrisierte Abfragen und minimale Rechte begrenzen Injection, TLS mit Zertifikatsprüfung begrenzt Man-in-the-Middle, Filtern und Begrenzen von Anfragen begrenzt Denial of Service, Schulung und feste Abläufe begrenzen Social Engineering, Sperre nach Fehlversuchen und Mehrfaktor-Authentifizierung begrenzen Passwortangriffe.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-25 · Angriffsarten und Schutzmaßnahmen (Schwer)
+
+*Ordne die Szenarien aus einem Anwendungsprojekt der Angriffsart zu, die sie am besten beschreiben.*
+
+| Begriff | Zone |
+| --- | --- |
+| Ein Suchfeld liefert bei einer Eingabe mit Sonderzeichen plötzlich alle Datensätze statt keines | Injection |
+| Eine Anwendung akzeptiert ein ungültiges Zertifikat ohne Warnung, sodass sich Dritte in die Verbindung einklinken können | Man-in-the-Middle |
+| Ein Entwickler erhält einen Anruf einer angeblichen Kundenleitung mit der Bitte um sofortigen Zugang zum Testsystem | Social Engineering / Phishing |
+| Im Log stehen tausende Anmeldeversuche mit verschiedenen Benutzernamen und je einem Passwort aus einem fremden Datenleck | Passwortangriffe |
+| Die API fällt aus, weil sehr viele Geräte gleichzeitig Anfragen senden | Denial of Service (DDoS) |
+| Die Anwendung baut aus dem eingegebenen Namen direkt einen Systembefehl zusammen | Injection |
+| Antworten werden auf dem Weg zum Client unbemerkt verändert, etwa Kontodaten in einer Anzeige | Man-in-the-Middle |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Entscheidend ist das Merkmal im Szenario: ungeprüfte Eingabe (Injection), unbemerkt mitgelesener oder veränderter Verkehr (Man-in-the-Middle), Überlastung aus vielen Quellen (Denial of Service), Täuschung am Telefon oder per Mail (Social Engineering und Phishing), massenhafte Anmeldeversuche (Passwortangriffe).
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
 ## 2. Neue Theorieabschnitte
 
 ### AE1 · Drei Entwurfsmuster im Detail: Singleton, Fabrikmethode, Beobachter

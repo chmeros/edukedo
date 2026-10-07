@@ -678,9 +678,14 @@ const AE_BLATT: KursBlatt = {
   titel: "Anwendungsentwicklung",
   feature: "F-177",
   theorie: AE_NEUE_THEORIE,
-  zonenDateien: [...AE_ZONEN_DATEIEN, { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] }],
+  zonenDateien: [...AE_ZONEN_DATEIEN, { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine", "angriffsarten"] }],
   zonenHinweise: {
     ...AE_ZONEN_HINWEISE,
+    angriffsarten: [
+      "Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.",
+      "Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).",
+      "Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.",
+    ],
     authfaktoren: [
       "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
       "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
@@ -715,13 +720,18 @@ const DPA_BLATT: KursBlatt = {
     },
   ],
   zonenDateien: [
-    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine", "angriffsarten"] },
     { datei: "dp1/8.2-prozessmodellierung-darstellung.md", typen: ["bpmn"] },
     { datei: "dp1/8.3-analysewerkzeuge-prozessoptimierung.md", typen: ["analysewerkzeuge"] },
     { datei: "dp4/11.1-datenqualitaet-pruefen-sicherstellen.md", typen: ["datenqualitaet"] },
     { datei: "dp2/9.1-heterogene-datenquellen-klassifizieren.md", typen: ["skalenniveaus"] },
   ],
   zonenHinweise: {
+    angriffsarten: [
+      "Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.",
+      "Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).",
+      "Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.",
+    ],
     authfaktoren: [
       "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
       "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
@@ -814,7 +824,7 @@ const SI_BLATT: KursBlatt = {
     },
   ],
   zonenDateien: [
-    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine", "angriffsarten"] },
     { datei: "si2/9.4-netzbetrieb-monitoring-verfuegbarkeit.md", typen: ["monitoring"] },
     { datei: "si1/8.2-server-virtualisierung-cloud.md", typen: ["cloudmodelle"] },
     { datei: "si3/10.3-datensicherung-archivierung-wiederherstellung.md", typen: ["sicherungsarten"] },
@@ -824,6 +834,11 @@ const SI_BLATT: KursBlatt = {
     { datei: "si2/9.1-netzwerkprotokolle-schnittstellen.md", typen: ["switching"] },
   ],
   zonenHinweise: {
+    angriffsarten: [
+      "Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.",
+      "Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).",
+      "Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.",
+    ],
     authfaktoren: [
       "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
       "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",
@@ -1708,7 +1723,7 @@ const DV_BLATT: KursBlatt = {
   feature: "F-179",
   theorie: [],
   zonenDateien: [
-    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine"] },
+    { datei: "fu6/6.1-it-sicherheit-bedrohungsszenarien.md", typen: ["authfaktoren", "kryptobausteine", "angriffsarten"] },
     { datei: "dv3/10.1-systemueberwachung-status-auslastung.md", typen: ["monitoring"] },
     { datei: "dv1/8.2-bestehende-vernetzung-topologien-architektur.md", typen: ["pyramide"] },
     { datei: "dv2/9.2-programme-signal-datenuebertragung.md", typen: ["sensoraktor"] },
@@ -1716,6 +1731,11 @@ const DV_BLATT: KursBlatt = {
     { datei: "dv1/8.3-planung-sicherheit-netzwerkanforderungen-kosten.md", typen: ["zonenkonzept"] },
   ],
   zonenHinweise: {
+    angriffsarten: [
+      "Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.",
+      "Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).",
+      "Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.",
+    ],
     authfaktoren: [
       "Biometrie als eigene Zone „Eigenschaft“: Die Theorie 6.1 nennt Wissen, Besitz und Eigenschaft (Biometrie). Die Fragen enthalten keine Aussagen zur Fehlerrate oder zum Datenschutz biometrischer Daten.",
       "Einmalcode per SMS gilt hier als Besitz (Gerät mit der registrierten Nummer); in der Praxis wird SMS als schwächere Variante eingestuft — ist die Zuordnung so vertretbar?",

@@ -180,6 +180,94 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
+### Angriffsarten und Schutzmaßnahmen (3 Fragen) — Zonen: Injection · Man-in-the-Middle · Denial of Service (DDoS) · Social Engineering / Phishing · Passwortangriffe
+
+**Besonders prüfen:**
+- ⚠ Fünf Zonen (Injection, Man-in-the-Middle, Denial of Service, Social Engineering/Phishing, Passwortangriffe); Malware und ungepatchte Schwachstellen sind bewusst nicht Teil des Instruments. Die Fragen enthalten nur Erkennungsmerkmale und Abwehr, keine Angriffsanleitungen.
+- ⚠ Neu ergänzter Theorieabschnitt „Abwehr: Welche Maßnahme passt zu welcher Angriffsart?“ in Thema 6.1 (eigene Formulierung) — Zuordnung der Maßnahmen prüfen (Parametrisierte Abfragen, Rate Limiting, Rückruf über bekannte Nummer, Sperre nach Fehlversuchen).
+- ⚠ Grenzfälle: Mehrfaktor-Authentifizierung wirkt auch gegen Phishing, ist in den Fragen aber den Passwortangriffen zugeordnet (erratenes Passwort); Rate Limiting und Verbindungsbegrenzung stehen bei Denial of Service, die Kontosperre bei Passwortangriffen.
+
+#### Q-6.1-23 · Angriffsarten und Schutzmaßnahmen (Leicht)
+
+*Ordne die Aussagen der Angriffsart zu, auf die sie zutreffen.*
+
+| Begriff | Zone |
+| --- | --- |
+| Ein Webformular auf dem Intranet-Server reicht Eingaben ungeprüft an die Datenbank weiter | Injection |
+| Ein Angreifer im Netz liest die Verbindung zwischen Client und Server mit, ohne dass es auffällt | Man-in-the-Middle |
+| Der Webserver des Kunden ist nicht mehr erreichbar, weil er mit Anfragen aus sehr vielen Quellen überlastet wird | Denial of Service (DDoS) |
+| Ein Anrufer gibt sich bei der Hotline als Geschäftsführer aus und verlangt sofort ein neues Passwort | Social Engineering / Phishing |
+| Ein Skript probiert nacheinander sehr viele Passwörter für ein VPN-Konto aus | Passwortangriffe |
+| Parametrisierte Abfragen und geprüfte Eingaben schützen davor | Injection |
+| Eine TLS-Verbindung mit Prüfung des Zertifikats schützt davor | Man-in-the-Middle |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Injection entsteht durch ungeprüfte Eingaben in Befehlen, Man-in-the-Middle durch mitlesbaren oder veränderbaren Verkehr, Denial of Service durch Überlastung, Social Engineering und Phishing durch Täuschung von Menschen und Passwortangriffe durch massenhaftes Ausprobieren von Passwörtern.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-24 · Angriffsarten und Schutzmaßnahmen (Mittel)
+
+*Welche Maßnahme schützt vor welcher Angriffsart?*
+
+| Begriff | Zone |
+| --- | --- |
+| Eingaben auf Webservern prüfen und Datenbankzugriffe mit parametrisierten Abfragen umsetzen | Injection |
+| Das Datenbankkonto der Webanwendung auf die nötigen Rechte beschränken | Injection |
+| Im fremden WLAN ein VPN nutzen und Zertifikatswarnungen nicht ignorieren | Man-in-the-Middle |
+| Verkehrsfilterung beim Provider, Verbindungsbegrenzung an der Firewall und ausreichend Kapazität | Denial of Service (DDoS) |
+| Passwörter nur nach festem Verfahren zurücksetzen und bei Anrufen über eine bekannte Nummer zurückrufen | Social Engineering / Phishing |
+| Das Konto nach mehreren Fehlversuchen sperren oder verzögern | Passwortangriffe |
+| Mehrfaktor-Authentifizierung am VPN, damit ein erratenes Passwort allein nicht genügt | Passwortangriffe |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Parametrisierte Abfragen und minimale Rechte begrenzen Injection, TLS mit Zertifikatsprüfung begrenzt Man-in-the-Middle, Filtern und Begrenzen von Anfragen begrenzt Denial of Service, Schulung und feste Abläufe begrenzen Social Engineering, Sperre nach Fehlversuchen und Mehrfaktor-Authentifizierung begrenzen Passwortangriffe.
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
+#### Q-6.1-25 · Angriffsarten und Schutzmaßnahmen (Schwer)
+
+*Ordne die Szenarien aus einem Betriebsprojekt der Angriffsart zu, die sie am besten beschreiben.*
+
+| Begriff | Zone |
+| --- | --- |
+| Im Log des VPN-Gateways stehen tausende Anmeldeversuche, jeweils mit einem Passwort aus einem fremden Datenleck | Passwortangriffe |
+| Ein Client akzeptiert ein ungültiges Zertifikat ohne Warnung, sodass sich Dritte in die Verbindung einklinken können | Man-in-the-Middle |
+| Das Netz des Kunden ist ausgelastet, weil ein Verbund gekaperter Geräte gleichzeitig Anfragen schickt | Denial of Service (DDoS) |
+| Eine Mail im Namen der IT-Leitung fordert zur Anmeldung auf einer nachgebauten Seite auf | Social Engineering / Phishing |
+| Ein Wartungsportal gibt bei Sonderzeichen in einem Suchfeld plötzlich alle Einträge aus | Injection |
+| Ein Anrufer verlangt unter Zeitdruck die Freischaltung eines Firewall-Ports | Social Engineering / Phishing |
+| Ein Angreifer im selben WLAN verändert unbemerkt Daten zwischen Client und Server | Man-in-the-Middle |
+
+**Erklärung (so sehen Lernende sie):**
+
+> Entscheidend ist das Merkmal im Szenario: ungeprüfte Eingabe (Injection), unbemerkt mitgelesener oder veränderter Verkehr (Man-in-the-Middle), Überlastung aus vielen Quellen (Denial of Service), Täuschung am Telefon oder per Mail (Social Engineering und Phishing), massenhafte Anmeldeversuche (Passwortangriffe).
+
+**Prüffragen:**
+- ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
+- ☐ Eindeutig: Gibt es keine zweite fachlich vertretbare Antwort, die die App ablehnt (oder umgekehrt eine falsche, die sie annimmt)?
+- ☐ Tipps und Erklärung: helfen sie, ohne die Lösung vorwegzunehmen, und sind sie sachlich richtig?
+- ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
+- ☐ Jeder Begriff gehört eindeutig zu genau einer Zone — oder wäre eine zweite Zuordnung vertretbar?
+
+**Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
+
 ### Monitoring-Kategorien (3 Fragen) — Zonen: Ressourcen (CPU/RAM/Speicher) · Verfügbarkeit (Erreichbarkeit/Dienste) · Netzwerk (Durchsatz/Latenz/Fehler) · Ereignisse/Logs
 
 **Besonders prüfen:**

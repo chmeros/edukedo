@@ -1666,6 +1666,32 @@ export function CloudmodelleIllustration() {
   );
 }
 
+// F-222: Angriffsarten (fünf Karten: Eingabe, Mitleser, Überlast, Anruf, Passwörter).
+export function AngriffsartenIllustration() {
+  const x = (i: number) => 14 + i * 60;
+  return (
+    <Frame background="var(--sun-tint)">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <rect key={i} x={x(i)} y="22" width="52" height="96" rx="8" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      ))}
+      <g fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 56h8M24 56v28h8M52 56h-8M52 56v28h-8" />
+        <circle cx="38" cy="70" r="4" fill="var(--coral)" />
+        <circle cx={x(1) + 10} cy="70" r="5" fill="var(--card)" />
+        <circle cx={x(1) + 26} cy="70" r="5" fill="var(--coral)" />
+        <circle cx={x(1) + 42} cy="70" r="5" fill="var(--card)" />
+        <path d={`M${x(1) + 15} 70h6M${x(1) + 31} 70h6`} />
+        <rect x={x(2) + 18} y="62" width="16" height="16" rx="3" fill="var(--card)" />
+        <path d={`M${x(2) + 6} 40l12 22M${x(2) + 26} 36v26M${x(2) + 46} 40l-12 22M${x(2) + 6} 100l12-22M${x(2) + 46} 100l-12-22`} />
+        <path d={`M${x(3) + 8} 44h36a4 4 0 014 4v26a4 4 0 01-4 4H${x(3) + 26}l-10 10v-10h-8a4 4 0 01-4-4V48a4 4 0 014-4z`} fill="var(--sprout-tint)" />
+      </g>
+      <text x={x(4) + 26} y="76" textAnchor="middle" fontSize="20" fontWeight="700" fill="var(--ink)">
+        ••••
+      </text>
+    </Frame>
+  );
+}
+
 // F-215: Algorithmen-Visualisierer (Balken, die sich sortieren; zwei getauschte Balken sind hervorgehoben).
 export function AlgorithmenIllustration() {
   const hoehen = [70, 34, 96, 52, 80, 24];

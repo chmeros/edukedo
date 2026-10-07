@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import { extractSection, parseQuizBlock, splitBlocks, splitFrontmatter } from "./content-parser";
 
 /**
- * F-221 (gemeinsame Instrumente der Fachinformatiker-Kurse, I-FI-04 bis I-FI-06): Die Fragen stehen als Zuordnungsfragen in den
+ * F-221/F-222 (gemeinsame Instrumente der Fachinformatiker-Kurse, I-FI-02 und I-FI-04 bis I-FI-06): Die Fragen stehen als Zuordnungsfragen in den
  * Theoriedateien; dieser Test liest die echten Dateien und prüft Aufbau und Zonen.
  */
 const CONTENT = path.resolve(__dirname, "../../../../content");
@@ -15,6 +15,7 @@ const DATEIEN: { datei: string; typ: string; anzahl: number }[] = [
   ...["fachinformatiker-anwendungsentwicklung", "fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"].flatMap((kurs) => [
     { datei: FU6(kurs), typ: "authfaktoren", anzahl: 3 },
     { datei: FU6(kurs), typ: "kryptobausteine", anzahl: 3 },
+    { datei: FU6(kurs), typ: "angriffsarten", anzahl: 3 },
   ]),
   { datei: "fachinformatiker-systemintegration/si2/9.4-netzbetrieb-monitoring-verfuegbarkeit.md", typ: "monitoring", anzahl: 3 },
   { datei: "fachinformatiker-digitale-vernetzung/dv3/10.1-systemueberwachung-status-auslastung.md", typ: "monitoring", anzahl: 3 },
@@ -44,7 +45,7 @@ describe("F-221: gemeinsame Instrumente der Fachinformatiker-Kurse", () => {
   });
 
   it("die vier Instrumente sind im Katalog und bis zur Freigabe nur als Entwurf geführt (nicht im Angebot)", () => {
-    const neu = ["authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle"];
+    const neu = ["authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle", "angriffsarten"];
     for (const typ of neu) expect(KATALOG_INSTRUMENTE as readonly string[]).toContain(typ);
     for (const [slug, typen] of Object.entries(KURS_ENTWURF)) {
       for (const typ of typen.filter((eintrag) => neu.includes(eintrag))) {
@@ -52,8 +53,8 @@ describe("F-221: gemeinsame Instrumente der Fachinformatiker-Kurse", () => {
       }
     }
     expect(KURS_ENTWURF["fachinformatiker-systemintegration"]).toEqual(expect.arrayContaining(neu));
-    expect(KURS_ENTWURF["fachinformatiker-digitale-vernetzung"]).toEqual(expect.arrayContaining(["authfaktoren", "kryptobausteine", "monitoring"]));
-    expect(KURS_ENTWURF["fachinformatiker-anwendungsentwicklung"]).toEqual(["authfaktoren", "kryptobausteine"]);
+    expect(KURS_ENTWURF["fachinformatiker-digitale-vernetzung"]).toEqual(expect.arrayContaining(["authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"]));
+    expect(KURS_ENTWURF["fachinformatiker-anwendungsentwicklung"]).toEqual(["authfaktoren", "kryptobausteine", "angriffsarten"]);
   });
 
   it("keine Aussage der neuen Fragen enthält einen zweiten Pfeil oder eine leere Zone", () => {

@@ -59,6 +59,7 @@ export const KATALOG_INSTRUMENTE = [
   "kryptobausteine",
   "monitoring",
   "cloudmodelle",
+  "angriffsarten",
   // Kursprofile Phase 1 (AEVO)
   "handlungsfelder",
   "vierstufen",
@@ -223,10 +224,10 @@ const TOPOLOGIE_SI_NETZ = ["inter-vlan-verwaltung", "standortverbund-vpn", "dmz-
  */
 export const KURS_ENTWURF: Record<string, readonly string[]> = {
   // F-221: neue gemeinsame Instrumente der Fachinformatiker-Kurse, bis zur Fachprüfung (Prüfblätter 06 bis 09) nicht sichtbar.
-  "fachinformatiker-anwendungsentwicklung": ["authfaktoren", "kryptobausteine"],
-  "fachinformatiker-daten-prozessanalyse": ["authfaktoren", "kryptobausteine"],
-  "fachinformatiker-digitale-vernetzung": ["authfaktoren", "kryptobausteine", "monitoring"],
-  "fachinformatiker-systemintegration": ["verzeichnisdienst", "authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle"],
+  "fachinformatiker-anwendungsentwicklung": ["authfaktoren", "kryptobausteine", "angriffsarten"],
+  "fachinformatiker-daten-prozessanalyse": ["authfaktoren", "kryptobausteine", "angriffsarten"],
+  "fachinformatiker-digitale-vernetzung": ["authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"],
+  "fachinformatiker-systemintegration": ["verzeichnisdienst", "authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle", "angriffsarten"],
   "ausbildung-der-ausbilder": ["regelwerke"],
   "fachwirt-gesundheit-soziales": ["kostentraeger"],
   industriefachwirt: ["incoterms"],

@@ -434,6 +434,17 @@ export const QUADRANT_MODELS = {
       { key: "saas", label: "SaaS" },
     ],
   },
+  // F-222 (I-FI-02): Angriffsarten und passende Schutzmaßnahmen (nur Erkennen und Abwehr).
+  angriffsarten: {
+    label: "Angriffsarten und Schutzmaßnahmen",
+    zones: [
+      { key: "injection", label: "Injection" },
+      { key: "mitm", label: "Man-in-the-Middle" },
+      { key: "dos", label: "Denial of Service (DDoS)" },
+      { key: "social", label: "Social Engineering / Phishing" },
+      { key: "passwort", label: "Passwortangriffe" },
+    ],
+  },
   // F-181 (Kursprofile Phase 1, AEVO): fünf weitere Modelle mit festen Zonen.
   handlungsfelder: {
     label: "Handlungsfelder der AEVO",
