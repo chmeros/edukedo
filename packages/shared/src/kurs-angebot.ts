@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Lagerkennzahlen-Rechner (F-201): Werkzeug "lagerkennzahlen" im Handelsfachwirt freigegeben (Umschlagshäufigkeit, Reichweite, Meldebestand nach der Kurstheorie 4.1 und 4.3; Andler-Formel und Lagerzinssatz stehen nicht in der Theorie und fehlen bewusst).
  * Unterweisungs-Planer (F-200): Werkzeug "unterweisungsplan" im AEVO-Kurs freigegeben (Vier-Stufen-Methode nach F-192, Lernzielbereiche aus 3.2; Prüfungen sind Selbstkontroll-Heuristiken).
  * Handelskalkulation-Trainer (F-199): Werkzeug "kalkulationstrainer" im Handelsfachwirt freigegeben (Schema und Sätze nach der Kurstheorie 5.3, Beispielwerte).
  * Arbeitszeit-Prüfer (F-198): Werkzeug "arbeitszeit" ist angelegt, steht aber noch in keiner Kursliste (Gesundheit/Soziales und AEVO erst nach der Rechtsprüfung der Grundregeln, Prüfblatt 23).
@@ -407,7 +408,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // (Nutzer-Entscheidung vom 06.10.2026: die drei Fragen mit Außenhandelsrecht wurden durch Fragen ohne Rechtsbezug ersetzt).
   handelsfachwirt: {
     instrumente: liste([...OHNE(), "abc", "xyz", "handelskalkulation", "kraljic"]),
-    werkzeuge: liste(["finanzrechner", "kalkulationstrainer"]),
+    werkzeuge: liste(["finanzrechner", "kalkulationstrainer", "lagerkennzahlen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "handel-aehnlich", "kern"],

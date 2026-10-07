@@ -27,6 +27,7 @@ import {
   ArbeitszeitIllustration,
   KalkulationstrainerIllustration,
   UnterweisungsplanIllustration,
+  LagerkennzahlenIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -93,6 +94,7 @@ import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
 import { Handelskalkulation } from "./Handelskalkulation";
 import { Unterweisungsplaner } from "./Unterweisungsplaner";
+import { Lagerkennzahlen } from "./Lagerkennzahlen";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -617,6 +619,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-201 (Lagerkennzahlen-Rechner): Umschlagshäufigkeit, Reichweite und Meldebestand üben und rechnen, im Handelsfachwirt.
+  {
+    type: "lagerkennzahlen",
+    label: "Lagerkennzahlen-Rechner",
+    description: "Umschlagshäufigkeit, Reichweite und Meldebestand an zufälligen Aufgaben üben und mit dem Rechner eigene Werte auswerten.",
+    Illustration: LagerkennzahlenIllustration,
+    werkzeug: true,
+    aktion: "Lagerkennzahlen üben",
+  },
   // F-199 (Handelskalkulation-Trainer): Vorwärts-, Rückwärts- und Differenzkalkulation mit Zeilenprüfung, im Handelsfachwirt.
   {
     type: "kalkulationstrainer",
@@ -686,6 +697,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "lagerkennzahlen") {
+    return <Lagerkennzahlen onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "kalkulationstrainer") {
     return <Handelskalkulation onClose={() => setActiveWerkzeug(null)} />;

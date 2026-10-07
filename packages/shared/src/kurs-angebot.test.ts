@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Lagerkennzahlen-Rechner (F-201): Werkzeug nur im Handelsfachwirt", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT.handelsfachwirt, "lagerkennzahlen")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "handelsfachwirt")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "lagerkennzahlen"), slug).toBeNull();
+    }
+  });
+
   it("Unterweisungs-Planer (F-200): Werkzeug nur im AEVO-Kurs", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "unterweisungsplan")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {

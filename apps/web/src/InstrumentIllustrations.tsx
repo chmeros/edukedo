@@ -1576,6 +1576,28 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-201: Lagerkennzahlen-Rechner (Regal mit Kisten und Umschlagspfeil).
+export function LagerkennzahlenIllustration() {
+  const kisten = [
+    { x: 52, y: 36 },
+    { x: 92, y: 36 },
+    { x: 52, y: 76 },
+    { x: 92, y: 76 },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      <path d="M40 30v90M144 30v90M40 70h104M40 120h104" fill="none" stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+      {kisten.map((kiste) => (
+        <rect key={`${kiste.x}-${kiste.y}`} x={kiste.x} y={kiste.y} width="34" height="30" rx="3" fill="var(--sun-tint)" stroke="var(--sun-deep)" strokeWidth="2.5" />
+      ))}
+      <path d="M206 50a38 38 0 0 1 62 8" fill="none" stroke="var(--sprout-deep)" strokeWidth="5" strokeLinecap="round" />
+      <path d="m272 40-4 20-18-8z" fill="var(--sprout-deep)" />
+      <path d="M270 92a38 38 0 0 1-62-8" fill="none" stroke="var(--sprout-deep)" strokeWidth="5" strokeLinecap="round" />
+      <path d="m204 102 4-20 18 8z" fill="var(--sprout-deep)" />
+    </Frame>
+  );
+}
+
 // F-199: Handelskalkulation-Trainer (Preisstufen vom Einkauf zum Verkauf mit Prozentzeichen).
 export function KalkulationstrainerIllustration() {
   const stufen = [

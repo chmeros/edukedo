@@ -8,6 +8,7 @@ export * from "./finanzmathe";
 export * from "./arbeitszeit";
 export * from "./handelskalkulation";
 export * from "./unterweisungsplan";
+export * from "./lagerkennzahlen";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";
