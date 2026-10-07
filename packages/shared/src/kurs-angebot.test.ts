@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Ausbildungsplan-Zeitplaner (F-204): Werkzeug nur im AEVO-Kurs", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "ausbildungsplan")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "ausbildungsplan"), slug).toBeNull();
+    }
+  });
+
   it("Lernziel-Check (F-203): Werkzeug nur im AEVO-Kurs", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "lernzielcheck")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {

@@ -30,6 +30,7 @@ import {
   LagerkennzahlenIllustration,
   SparverfahrenIllustration,
   LernzielcheckIllustration,
+  AusbildungsplanIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -99,6 +100,7 @@ import { Unterweisungsplaner } from "./Unterweisungsplaner";
 import { Lagerkennzahlen } from "./Lagerkennzahlen";
 import { Sparverfahren } from "./Sparverfahren";
 import { Lernzielcheck } from "./Lernzielcheck";
+import { Ausbildungsplaner } from "./Ausbildungsplaner";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -623,6 +625,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-204 (Ausbildungsplan-Zeitplaner): betrieblichen Ausbildungsplan als Zeitleiste in Wochen entwerfen, im AEVO-Kurs.
+  {
+    type: "ausbildungsplan",
+    label: "Ausbildungsplan-Zeitplaner",
+    description: "Einen betrieblichen Ausbildungsplan entwerfen: Abschnitte und Berufsschulblöcke in Wochen anlegen, Summe und Probezeit prüfen, Gliederung als Text ausgeben.",
+    Illustration: AusbildungsplanIllustration,
+    werkzeug: true,
+    aktion: "Ausbildungsplan entwerfen",
+  },
   // F-203 (Lernziel-Check): Feinziele auf überprüfbare Formulierung prüfen und üben, im AEVO-Kurs.
   {
     type: "lernzielcheck",
@@ -719,6 +730,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "ausbildungsplan") {
+    return <Ausbildungsplaner onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "lernzielcheck") {
     return <Lernzielcheck onClose={() => setActiveWerkzeug(null)} />;

@@ -1576,6 +1576,27 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-204: Ausbildungsplan-Zeitplaner (Zeitleiste mit Abschnitten und Probezeit-Marke).
+export function AusbildungsplanIllustration() {
+  const abschnitte = [
+    { x: 30, breite: 50, farbe: "var(--sprout-tint)" },
+    { x: 80, breite: 78, farbe: "var(--sprout-tint)" },
+    { x: 158, breite: 30, farbe: "var(--info-tint)" },
+    { x: 188, breite: 70, farbe: "var(--sprout-tint)" },
+    { x: 258, breite: 32, farbe: "var(--info-tint)" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      {abschnitte.map((abschnitt) => (
+        <rect key={abschnitt.x} x={abschnitt.x} y="58" width={abschnitt.breite} height="40" fill={abschnitt.farbe} stroke="var(--ink)" strokeWidth="2.5" />
+      ))}
+      <path d="M96 40v70" stroke="var(--coral-deep)" strokeWidth="4" strokeLinecap="round" />
+      <path d="m96 40 18 7-18 7z" fill="var(--coral-deep)" />
+      <path d="M30 112h260M30 112v8M110 112v8M190 112v8M290 112v8" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-203: Lernziel-Check (Zielscheibe mit Pfeil und Häkchen).
 export function LernzielcheckIllustration() {
   return (
