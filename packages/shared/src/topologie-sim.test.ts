@@ -509,8 +509,8 @@ function apothekeMitPool(): TopologieZustand {
 }
 
 describe("Szenarien — Umfang, Stufen und Layout", () => {
-  it("es gibt dreizehn Szenarien mit eindeutigen IDs; die zwei ursprünglichen bleiben erhalten", () => {
-    expect(topologieSzenarien).toHaveLength(13);
+  it("es gibt siebzehn Szenarien mit eindeutigen IDs; die zwei ursprünglichen bleiben erhalten", () => {
+    expect(topologieSzenarien).toHaveLength(17);
     const ids = topologieSzenarien.map((eintrag) => eintrag.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids.slice(0, 2)).toEqual(["ein-netz-ein-switch", "zwei-netze-router"]);
@@ -522,7 +522,7 @@ describe("Szenarien — Umfang, Stufen und Layout", () => {
     const rang = stufen.map((stufe) => topologieStufen.indexOf(stufe));
     expect([...rang].sort((a, b) => a - b)).toEqual(rang);
     expect(stufen.filter((stufe) => stufe === "leicht")).toHaveLength(3);
-    expect(stufen.filter((stufe) => stufe === "schwer")).toHaveLength(4);
+    expect(stufen.filter((stufe) => stufe === "schwer")).toHaveLength(6);
   });
 
   it("jedes Szenario hat 3–4 Tipps, Lösungsschritte, Adressplan, mindestens drei Prüfaufträge und eine Erklärung", () => {
@@ -1379,3 +1379,70 @@ function setzeRoutenFuerTest(zustand: TopologieZustand): TopologieZustand {
   z = topologieRouteSetzen(z, "router-s", id, "maske", "255.255.255.0");
   return topologieRouteSetzen(z, "router-s", id, "hop", "10.10.0.2");
 }
+
+describe("Netzwerk-Szenarien für Systemintegration (F-218)", () => {
+  const ping = (zustand: TopologieZustand, von: string, nach: string, schnittstelle?: string) => topologiePing(zustand, von, nach, schnittstelle);
+  const fertig = (id: string) => topologieLoesungsZustand(topologieSzenario(id)!);
+  const anfang = (id: string) => topologieStartzustand(topologieSzenario(id)!);
+
+  it("IDs, Stufen und Reihenfolge", () => {
+    const ids = ["inter-vlan-verwaltung", "standortverbund-vpn", "dmz-webserver", "redundante-anbindung"];
+    for (const id of ids) expect(topologieSzenario(id), id).toBeDefined();
+    expect(ids.map((id) => topologieSzenario(id)!.stufe)).toEqual(["mittel", "mittel", "schwer", "schwer"]);
+  });
+
+  it("Inter-VLAN: im Start trennen VLAN-Fehler und eine falsche Router-Adresse; die Lösung verbindet alle drei VLANs", () => {
+    const z = anfang("inter-vlan-verwaltung");
+    for (const [von, nach] of [["pc1", "server1"], ["admin", "server1"], ["admin", "pc1"]] as const) expect(ping(z, von, nach).erfolg, `${von}→${nach}`).toBe(false);
+    const geloest = fertig("inter-vlan-verwaltung");
+    for (const [von, nach] of [["pc1", "server1"], ["server1", "pc1"], ["admin", "server1"], ["admin", "pc1"]] as const) expect(ping(geloest, von, nach).erfolg, `${von}→${nach}`).toBe(true);
+  });
+
+  it("Standortverbund: gleiche Netze an beiden Standorten lassen die Anfrage nie durch den Tunnel; getrennte Netze mit Routen funktionieren in beide Richtungen", () => {
+    const z = anfang("standortverbund-vpn");
+    const ueberlappt = ping(z, "pc-z", "server-f");
+    expect(ueberlappt.erfolg).toBe(false);
+    // Das Ziel gilt als „im eigenen Netz“: Die Anfrage wird direkt im Segment gesucht, das Gateway kommt nicht vor.
+    expect(ueberlappt.fehlerart).toBe("ziel-nicht-erreichbar");
+    expect(ueberlappt.schritte.some((s) => s.text.includes("liegt im eigenen Netz"))).toBe(true);
+    const geloest = fertig("standortverbund-vpn");
+    for (const [von, nach] of [["pc-z", "server-f"], ["server-f", "pc-z"], ["pc-f", "pc-z"], ["pc-z", "pc-f"]] as const) expect(ping(geloest, von, nach).erfolg, `${von}→${nach}`).toBe(true);
+    const zentrale = geloest.geraete.find((g) => g.id === "pc-z")!.schnittstellen[0]!;
+    const filiale = geloest.geraete.find((g) => g.id === "server-f")!.schnittstellen[0]!;
+    expect(topologieWerteAdresse(zentrale.ip, zentrale.maske)).not.toEqual(topologieWerteAdresse(filiale.ip, filiale.maske));
+  });
+
+  it("DMZ: Internet erreicht nur den Webserver, das Büro erreicht das Internet, die DMZ nicht das Büro", () => {
+    const geloest = fertig("dmz-webserver");
+    expect(ping(geloest, "inet", "web").erfolg).toBe(true);
+    expect(ping(geloest, "pc1", "inet").erfolg).toBe(true);
+    for (const [von, nach] of [["web", "pc1"], ["inet", "pc1"]] as const) {
+      const e = ping(geloest, von, nach);
+      expect(e.erfolg, `${von}→${nach}`).toBe(false);
+      expect(e.fehlerart, `${von}→${nach}`).toBe("firewall-blockiert");
+    }
+    // Im Start darf die DMZ ins Büro, und das Büro kommt nicht ins Internet.
+    const z = anfang("dmz-webserver");
+    expect(ping(z, "pc1", "inet").erfolg).toBe(false);
+  });
+
+  it("Redundanz: Im Start hängen beide Routen an der ausgefallenen Leitung; die Lösung nutzt die Backup-Leitung, nicht die ausgefallene", () => {
+    const szenario = topologieSzenario("redundante-anbindung")!;
+    const z = anfang("redundante-anbindung");
+    expect(ping(z, "pc-z", "server-f").erfolg).toBe(false);
+    const geloest = fertig("redundante-anbindung");
+    const weg = ping(geloest, "pc-z", "server-f");
+    expect(weg.erfolg).toBe(true);
+    // Die ausgefallene Leitung 1 bleibt ungesteckt, die Lösung braucht sie nicht.
+    expect(geloest.kabel.some((k) => [k.von, k.nach].some((e) => e.geraet === "router-z" && e.schnittstelle === "eth1"))).toBe(false);
+    expect(szenario.loesung.kabel).toEqual([]);
+  });
+
+  it("Router-Schnittstellen lassen sich über die Konfiguration der Lösung setzen (Zahlendreher in der Router-Adresse)", () => {
+    const z = anfang("inter-vlan-verwaltung");
+    const router = z.geraete.find((g) => g.id === "router1")!;
+    expect(router.schnittstellen.find((s) => s.id === "eth1")!.ip).toBe("192.168.21.1");
+    const router2 = fertig("inter-vlan-verwaltung").geraete.find((g) => g.id === "router1")!;
+    expect(router2.schnittstellen.find((s) => s.id === "eth1")!.ip).toBe("192.168.20.1");
+  });
+});

@@ -206,6 +206,8 @@ const TOPOLOGIE_LEICHT = ["ein-netz-ein-switch", "zwei-netze-router", "dhcp-apot
 const TOPOLOGIE_ALLE = [...TOPOLOGIE_LEICHT, "dhcp-pool-konflikt", "filiale-zwei-router", "gastnetz-vlan", "nat-partnernetz", "server-vlan-firewall", "drei-standorte-routing"];
 /** Industrienetz-Szenarien (F-217), nur im Kurs Digitale Vernetzung. */
 const TOPOLOGIE_INDUSTRIE = ["produktionszelle-vlan", "feldnetz-gateway", "buero-produktion-firewall", "wartung-ueber-dmz"];
+/** Szenarien für Systemintegration (F-218): Inter-VLAN-Routing, DMZ, Standortverbund und redundante Anbindung. */
+const TOPOLOGIE_SI_NETZ = ["inter-vlan-verwaltung", "standortverbund-vpn", "dmz-webserver", "redundante-anbindung"];
 
 /**
  * F-186 (Freigabe-Mechanismus): Instrumenttypen je Kurs, deren Fragen noch **ungeprüfte Entwürfe** sind (Rahmenentscheidung R3: erst nach
@@ -234,6 +236,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Netzwerk-Szenarien für Systemintegration (F-218): vier neue Szenarien im Topologie-Simulator nur im Kurs Systemintegration (Inter-VLAN-Routing mit Verwaltungsnetz, Standortverbund mit überlappenden Netzen, Webserver in der DMZ, redundante Anbindung; Theorie si2 9.1 und 9.3).
  * Industrienetz-Szenarien (F-217): vier neue Szenarien im Topologie-Simulator, nur im Kurs Digitale Vernetzung (Produktionszelle im VLAN, Feldnetz hinter dem Gateway, Büro/Produktion/Leitstand mit Firewall, Wartungszugriff über die DMZ; Theorie dv2 9.3 und dv4 11.4).
  * Algorithmen-Visualisierer (F-215): Werkzeug "algorithmen" im Kurs Anwendungsentwicklung als Kernangebot, in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Bubble-, Selection-, Insertionsort, lineare und binäre Suche).
  * Datenqualitäts-Aufgaben der SQL-Übungsfläche (F-214): `szenarien.sql` wählt die Übungen je Kurs; die Anwendungsentwicklung behält die Aufgaben auf den Projektdaten, die Daten- und Prozessanalyse bekommt zusätzlich die Aufgaben auf den Importdaten (Theorie dp4 11.1).
@@ -358,7 +361,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     lernpfade: ["scrum", "osi", "schutzziele"],
     szenarien: {
       terminal: liste(TERMINAL_SI),
-      topologie: liste(TOPOLOGIE_ALLE),
+      topologie: liste([...TOPOLOGIE_ALLE, ...TOPOLOGIE_SI_NETZ]),
       flags: liste(["flag-offene-ports", "flag-log-bruteforce", "flag-sshd-reihenfolge", "flag-dns-tunnel"], ["flag-base64-kennwort", "flag-caesar-postfach", "flag-hex-notiz", "flag-mehrstufig-funkspruch"]),
     },
   },

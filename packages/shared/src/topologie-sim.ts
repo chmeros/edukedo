@@ -2382,6 +2382,163 @@ export const topologieSzenarien: TopologieSzenario[] = [
       "Ein Gateway zwischen Feldnetz und Standortnetz ist in der Industrie eine Schnittstelle zwischen zwei Welten: Hinter ihm liegen die Geräte der Halle (SPS, Sensoren), davor das Standortnetz mit Leitstand und Servern. Auf IP-Ebene ist es ein Router mit zwei Seiten. Damit eine Verbindung in beide Richtungen klappt, braucht jede Seite eine Route: Der Standort-Router weiß, dass das Feldnetz hinter dem Gateway liegt; das Gateway schickt alles Unbekannte zurück zum Standort (Standardroute). Ein nächster Hop außerhalb des gemeinsamen Verbindungsnetzes ist nicht erreichbar und die Route nutzlos. Und die Rückrichtung ist keine Selbstverständlichkeit: Eine Anfrage kann ankommen und trotzdem unbeantwortet bleiben, wenn der Rückweg fehlt.",
   },
   {
+    id: "inter-vlan-verwaltung",
+    titel: "Inter-VLAN-Routing mit Verwaltungsnetz",
+    stufe: "mittel",
+    kurzbeschreibung: "Kanzlei Rehfeld & Partner: Arbeitsplätze, Server und Management in drei VLANs, verbunden über einen Router.",
+    aufgabe:
+      "Die Kanzlei Rehfeld & Partner trennt ihr Netz in drei VLANs: Arbeitsplätze (VLAN 10, 192.168.10.0/24), Server (VLAN 20, 192.168.20.0/24) und Management (VLAN 99, 192.168.99.0/24). Router1 stellt je VLAN eine Schnittstelle bereit (Inter-VLAN-Routing). Zurzeit erreicht der Arbeitsplatz den Dateiserver nicht, der Admin-PC im Managementnetz kommt nirgendwohin, und der Server findet sein Gateway nicht. Finde die Fehler.",
+    geraete: [
+      host("pc1", "pc", "Arbeitsplatz", 90, 90, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      host("server1", "server", "Dateiserver", 90, 250, "192.168.20.10", "255.255.255.0", "192.168.20.1"),
+      host("admin", "pc", "Admin-PC", 90, 410, "192.168.99.10", "255.255.255.0", "192.168.99.1"),
+      switchGeraet("switch1", "Switch1", 340, 250, 8, [10, 1, 99, 10, 20, 10]),
+      routerGeraet("router1", "Router1", 610, 250, 3, [
+        ["192.168.10.1", "255.255.255.0"],
+        ["192.168.21.1", "255.255.255.0"],
+        ["192.168.99.1", "255.255.255.0"],
+      ]),
+    ],
+    kabel: [
+      kabelZwischen("pc1", "eth0", "switch1", "p1"),
+      kabelZwischen("server1", "eth0", "switch1", "p2"),
+      kabelZwischen("admin", "eth0", "switch1", "p3"),
+      kabelZwischen("router1", "eth0", "switch1", "p4"),
+      kabelZwischen("router1", "eth1", "switch1", "p5"),
+      kabelZwischen("router1", "eth2", "switch1", "p6"),
+    ],
+    pruefAuftraege: [
+      { id: "pc1-server1", von: "pc1", nach: "server1", beschreibung: "Arbeitsplatz → Dateiserver (über den Router)" },
+      { id: "server1-pc1", von: "server1", nach: "pc1", beschreibung: "Dateiserver → Arbeitsplatz (Gegenrichtung)" },
+      { id: "admin-server1", von: "admin", nach: "server1", beschreibung: "Admin-PC → Dateiserver" },
+      { id: "admin-pc1", von: "admin", nach: "pc1", beschreibung: "Admin-PC → Arbeitsplatz" },
+    ],
+    adressplanHinweis:
+      "Drei VLANs, drei Netze, ein Router mit drei Schnittstellen (keine Trunks): je ein Kabel zu einem Port im passenden VLAN. Alle Adressen der Hosts stimmen; geprüft werden die VLAN-Zuordnung der Ports und die Adresse der Router-Schnittstellen.",
+    adressplan: [
+      { geraet: "Arbeitsplatz", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1", zusatz: "VLAN 10" },
+      { geraet: "Dateiserver", schnittstelle: "eth0", ip: "192.168.20.10", maske: MASKE24, gateway: "192.168.20.1", zusatz: "VLAN 20" },
+      { geraet: "Admin-PC", schnittstelle: "eth0", ip: "192.168.99.10", maske: MASKE24, gateway: "192.168.99.1", zusatz: "VLAN 99" },
+      { geraet: "Router1", schnittstelle: "eth0 (Arbeitsplätze)", ip: "192.168.10.1", maske: MASKE24, gateway: "", zusatz: "VLAN 10" },
+      { geraet: "Router1", schnittstelle: "eth1 (Server)", ip: "192.168.20.1", maske: MASKE24, gateway: "", zusatz: "VLAN 20" },
+      { geraet: "Router1", schnittstelle: "eth2 (Management)", ip: "192.168.99.1", maske: MASKE24, gateway: "", zusatz: "VLAN 99" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: VLAN je Port von Switch1",
+        spalten: ["Port", "angeschlossen", "VLAN"],
+        zeilen: [
+          ["Port 1", "Arbeitsplatz", "10"],
+          ["Port 2", "Dateiserver", "20"],
+          ["Port 3", "Admin-PC", "99"],
+          ["Port 4", "Router1 eth0", "10"],
+          ["Port 5", "Router1 eth1", "20"],
+          ["Port 6", "Router1 eth2", "99"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste die Prüfaufträge der Reihe nach. Bei VLAN-Fehlern nennt die Meldung die beiden Ports und ihre VLANs: Vergleiche sie mit der Tabelle „Soll“.",
+      "Ein Router verbindet nur dann zwei VLANs, wenn er in jedem VLAN einen Anschluss hat: Prüfe die VLAN-Zuordnung seiner Ports.",
+      "Der Dateiserver erreicht sein Gateway nicht, obwohl die Adresse auf dem Server stimmt: Vergleiche sie mit der Adresse der Router-Schnittstelle im Servernetz (Adressplan).",
+    ],
+    loesung: {
+      schritte: [
+        "Switch1 · Port 2 (Dateiserver) auf VLAN 20 stellen (stand im Standard-VLAN 1).",
+        "Switch1 · Port 6 (Router1 eth2, Management) auf VLAN 99 stellen (stand auf VLAN 10).",
+        "Router1 · eth1: IP-Adresse 192.168.20.1 eintragen (stand auf 192.168.21.1, ein Zahlendreher).",
+      ],
+      konfig: [{ geraet: "router1", schnittstelle: "eth1", ip: "192.168.20.1", maske: "255.255.255.0", gateway: "" }],
+      kabel: [],
+      vlans: [
+        { geraet: "switch1", schnittstelle: "p2", vlan: 20 },
+        { geraet: "switch1", schnittstelle: "p6", vlan: 99 },
+      ],
+    },
+    erklaerung:
+      "Geräte in verschiedenen VLANs können nur über eine Layer-3-Instanz miteinander sprechen — Router, Layer-3-Switch oder Firewall (Inter-VLAN-Routing). Das ist gewollt, denn genau dort lassen sich Regeln festlegen, wer mit wem sprechen darf. Der Router braucht je VLAN einen Anschluss mit der Gateway-Adresse des Netzes; die Hosts tragen genau diese Adresse als Gateway ein. In der Praxis hängt der Router meist mit einem Trunk am Switch und bildet je VLAN eine logische Schnittstelle; die Simulation vereinfacht das auf ein Kabel je VLAN. Das Managementnetz (VLAN 99) ist ein eigenes Segment für die Verwaltung der Netzgeräte und Server: Der Administrationszugang soll nur von dort möglich sein — dafür kommen in einem nächsten Schritt Firewall-Regeln dazu. Kleine Fehler wie ein Zahlendreher in der Router-Adresse (21 statt 20) machen ein ganzes Netz unerreichbar.",
+  },
+  {
+    id: "standortverbund-vpn",
+    titel: "Standortverbund mit überlappenden Netzen",
+    stufe: "mittel",
+    kurzbeschreibung: "Kanzlei Rehfeld & Partner: Zentrale und Filiale über einen VPN-Tunnel — beide Standorte nutzen dasselbe Netz.",
+    aufgabe:
+      "Die Kanzlei Rehfeld & Partner koppelt ihre Filiale per Site-to-Site-VPN an die Zentrale. Der Tunnel ist hier vereinfacht als /30-Verbindungsnetz (10.99.0.0/30) zwischen den beiden VPN-Gateways dargestellt. Beide Standorte nutzen das Netz 192.168.10.0/24 — Zentrale-PC und Filial-Server liegen scheinbar im selben Netz und finden sich nicht. Schaffe zwei getrennte Netze, indem du die Filiale auf 192.168.20.0/24 umstellst, und trage die Routen ein.",
+    geraete: [
+      host("pc-z", "pc", "PC Zentrale", 90, 200, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      routerGeraet("router-z", "VPN-Gateway Zentrale", 340, 200, 2, [
+        ["192.168.10.1", "255.255.255.0"],
+        ["10.99.0.1", "255.255.255.252"],
+      ], { routen: routen([["192.168.10.0", "255.255.255.0", "10.99.0.2"]]) }),
+      routerGeraet("router-f", "VPN-Gateway Filiale", 590, 200, 2, [
+        ["10.99.0.2", "255.255.255.252"],
+        ["192.168.10.1", "255.255.255.0"],
+      ], { routen: routen([["0.0.0.0", "/0", "10.99.0.1"]]) }),
+      switchGeraet("switch-f", "Switch Filiale", 590, 390, 4),
+      host("server-f", "server", "Server Filiale", 440, 550, "192.168.10.10", "255.255.255.0", "192.168.10.1"),
+      host("pc-f", "pc", "PC Filiale", 740, 550, "192.168.10.30", "255.255.255.0", "192.168.10.1"),
+    ],
+    kabel: [
+      kabelZwischen("pc-z", "eth0", "router-z", "eth0"),
+      kabelZwischen("router-z", "eth1", "router-f", "eth0"),
+      kabelZwischen("router-f", "eth1", "switch-f", "p1"),
+      kabelZwischen("server-f", "eth0", "switch-f", "p2"),
+      kabelZwischen("pc-f", "eth0", "switch-f", "p3"),
+    ],
+    pruefAuftraege: [
+      { id: "pcz-serverf", von: "pc-z", nach: "server-f", beschreibung: "PC Zentrale → Server Filiale (durch den Tunnel)" },
+      { id: "serverf-pcz", von: "server-f", nach: "pc-z", beschreibung: "Server Filiale → PC Zentrale (Gegenrichtung)" },
+      { id: "pcf-pcz", von: "pc-f", nach: "pc-z", beschreibung: "PC Filiale → PC Zentrale" },
+      { id: "pcz-pcf", von: "pc-z", nach: "pc-f", beschreibung: "PC Zentrale → PC Filiale" },
+    ],
+    adressplanHinweis:
+      "Soll: Zentrale 192.168.10.0/24, Filiale 192.168.20.0/24, Verbindungsnetz (Tunnel) 10.99.0.0/30. Die Netze zweier Standorte dürfen sich nicht überlappen. In der Filiale ändern sich die Adresse der Router-Schnittstelle und die Adressen und Gateways der beiden Hosts; die Zentrale behält ihr Netz.",
+    adressplan: [
+      { geraet: "PC Zentrale", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1" },
+      { geraet: "VPN-Gateway Zentrale", schnittstelle: "eth0 (Zentrale)", ip: "192.168.10.1", maske: MASKE24, gateway: "" },
+      { geraet: "VPN-Gateway Zentrale", schnittstelle: "eth1 (Tunnel)", ip: "10.99.0.1", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "VPN-Gateway Filiale", schnittstelle: "eth0 (Tunnel)", ip: "10.99.0.2", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "VPN-Gateway Filiale", schnittstelle: "eth1 (Filiale)", ip: "192.168.20.1", maske: MASKE24, gateway: "" },
+      { geraet: "Server Filiale", schnittstelle: "eth0", ip: "192.168.20.10", maske: MASKE24, gateway: "192.168.20.1" },
+      { geraet: "PC Filiale", schnittstelle: "eth0", ip: "192.168.20.30", maske: MASKE24, gateway: "192.168.20.1" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: statische Routen",
+        spalten: ["Router", "Zielnetz", "Maske", "Nächster Hop"],
+        zeilen: [
+          ["VPN-Gateway Zentrale", "192.168.20.0", "/24", "10.99.0.2 (VPN-Gateway Filiale)"],
+          ["VPN-Gateway Filiale", "0.0.0.0 (Standardroute)", "/0", "10.99.0.1 (VPN-Gateway Zentrale)"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste „PC Zentrale → Server Filiale“ und lies die Meldung: Liegt das Ziel im eigenen Netz, schickt der PC die Anfrage nie an sein Gateway.",
+      "Die Filiale braucht ein eigenes Netz, zum Beispiel 192.168.20.0/24. Ändere die Router-Schnittstelle zur Filiale und beide Hosts samt Gateway.",
+      "Danach muss das Gateway der Zentrale wissen, dass das Filialnetz hinter dem Tunnel liegt: Die vorhandene Route zeigt noch auf das alte, überlappende Netz.",
+    ],
+    loesung: {
+      schritte: [
+        "VPN-Gateway Filiale · eth1: IP 192.168.20.1 eintragen (stand auf 192.168.10.1).",
+        "Server Filiale: IP 192.168.20.10, Gateway 192.168.20.1; PC Filiale: IP 192.168.20.30, Gateway 192.168.20.1.",
+        "VPN-Gateway Zentrale: Die Route zum Filialnetz auf 192.168.20.0/24 über 10.99.0.2 ändern (zeigte auf 192.168.10.0/24, das eigene Netz). Die Standardroute der Filiale (über 10.99.0.1) bleibt.",
+      ],
+      konfig: [
+        { geraet: "router-f", schnittstelle: "eth1", ip: "192.168.20.1", maske: "255.255.255.0", gateway: "" },
+        { geraet: "server-f", schnittstelle: "eth0", ip: "192.168.20.10", maske: "255.255.255.0", gateway: "192.168.20.1" },
+        { geraet: "pc-f", schnittstelle: "eth0", ip: "192.168.20.30", maske: "255.255.255.0", gateway: "192.168.20.1" },
+      ],
+      kabel: [],
+      routen: [
+        { geraet: "router-z", routen: [{ ziel: "192.168.20.0", maske: "255.255.255.0", hop: "10.99.0.2" }] },
+        { geraet: "router-f", routen: [{ ziel: "0.0.0.0", maske: "/0", hop: "10.99.0.1" }] },
+      ],
+    },
+    erklaerung:
+      "Bei der Standortkopplung (Site-to-Site-VPN) bauen die Gateways der Standorte einen dauerhaften Tunnel auf; die Endgeräte merken davon nichts. Eine Praxisregel gilt dabei immer: Die Netze der Standorte dürfen sich nicht überlappen. Liegen Zentrale und Filiale beide in 192.168.10.0/24, hält ein PC jedes Ziel dieser Adressen für „im eigenen Netz“ und fragt es direkt im lokalen Segment an, statt das Gateway zu benutzen — der Weg durch den Tunnel wird nie genommen, und keine Route kann das lösen. Die Abhilfe ist eine Neuadressierung eines Standorts, deshalb plant man den Adressraum vor dem Aufbau. Danach braucht jede Seite eine Route zum Netz der Gegenseite. Der Tunnel ist hier als einfaches Verbindungsnetz dargestellt; die Verschlüsselung (z. B. IPsec) ist in der Simulation nicht abgebildet. Und: Das VPN öffnet keinen Freibrief — der Verkehr durch den Tunnel unterliegt weiterhin den Firewall-Regeln.",
+  },
+  {
     id: "server-vlan-firewall",
     titel: "Büro, Server und Gäste mit Firewall",
     stufe: "schwer",
@@ -2797,6 +2954,185 @@ export const topologieSzenarien: TopologieSzenario[] = [
     },
     erklaerung:
       "Fernwartung ist einer der häufigsten Angriffswege in Produktionsnetzen — unkontrollierte Zugänge von Lieferanten und Dienstleistern gehören zu den typischen Schwachstellen. Das Konzept der Zonen löst es mit einer DMZ als Pufferzone: Die Wartungsfirma erreicht nur einen einzigen, gehärteten und protokollierten Punkt, den Jumphost. Erst von dort gibt es einen zweiten, eng gefassten Übergang in die Produktion. Beide Übergänge sind einzelne Regeln mit konkreter Quelle und konkretem Ziel; alles andere blockiert die Standardregel (Default Deny). Eine bequeme Regel „extern → Produktion“ würde den Jumphost überflüssig machen und die Schutzgrenze aushebeln. Auch das Büro hat in der DMZ nichts zu suchen, solange die Kommunikationsmatrix es nicht vorsieht. In der Praxis nennt jede Regel zusätzlich den Dienst (z. B. HTTPS oder SSH auf bestimmten Ports) und einen Verantwortlichen; die Simulation filtert vereinfacht nach Quelle und Ziel.",
+  },
+  {
+    id: "dmz-webserver",
+    titel: "Büro mit Webserver in der DMZ",
+    stufe: "schwer",
+    kurzbeschreibung: "Kanzlei Rehfeld & Partner: Büronetz, DMZ mit Webserver und Internet an einer Firewall.",
+    aufgabe:
+      "Die Kanzlei Rehfeld & Partner betreibt einen Webserver, der aus dem Internet erreichbar sein muss. Er steht in der DMZ (192.168.50.0/24), getrennt vom Büronetz (192.168.10.0/24). Die Firewall hat drei Schnittstellen: Büro, DMZ und Internet (für die Simulation der private Bereich 172.16.0.0/24). Das Regelwerk soll vier Zeilen haben: Internet → Webserver erlauben, Büro → Internet erlauben, DMZ → Büro verbieten, alles andere verbieten. Zurzeit ist der Webserver aus dem Internet nicht erreichbar, das Büro kommt nicht ins Internet, und der Webserver kommt ins Büronetz. Behebe alles.",
+    geraete: [
+      host("pc1", "pc", "Büro-PC", 100, 285, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      host("web", "server", "Webserver (DMZ)", 630, 90, "192.168.50.10", "255.255.255.0", "192.168.50.254"),
+      host("inet", "pc", "Internet-Client", 630, 480, "172.16.0.50", "255.255.255.0", "172.16.0.1"),
+      routerGeraet(
+        "fw",
+        "Firewall",
+        365,
+        285,
+        3,
+        [
+          ["192.168.10.1", "255.255.255.0"],
+          ["192.168.50.1", "255.255.255.0"],
+          ["172.16.0.1", "255.255.255.0"],
+        ],
+        {
+          firewall: firewall("blockieren", [
+            ["erlauben", "172.16.0.0/24", "192.168.50.10"],
+            ["erlauben", "192.168.50.0/24", "192.168.10.0/24"],
+          ]),
+        },
+      ),
+    ],
+    kabel: [kabelZwischen("pc1", "eth0", "fw", "eth0"), kabelZwischen("web", "eth0", "fw", "eth1"), kabelZwischen("inet", "eth0", "fw", "eth2")],
+    pruefAuftraege: [
+      { id: "inet-web", von: "inet", nach: "web", beschreibung: "Internet-Client → Webserver (soll funktionieren)" },
+      { id: "pc1-inet", von: "pc1", nach: "inet", beschreibung: "Büro-PC → Internet-Client (soll funktionieren)" },
+      { id: "web-pc1", von: "web", nach: "pc1", erwartet: "getrennt", beschreibung: "Webserver → Büro-PC (soll von der Firewall blockiert werden)" },
+      { id: "inet-pc1", von: "inet", nach: "pc1", erwartet: "getrennt", beschreibung: "Internet-Client → Büro-PC (soll von der Firewall blockiert werden)" },
+      { id: "pc1-fw", von: "pc1", nach: "fw", nachSchnittstelle: "eth0", beschreibung: "Büro-PC → Firewall eth0 (Büro-Gateway, soll funktionieren)" },
+    ],
+    adressplanHinweis:
+      "Drei Zonen an drei Schnittstellen der Firewall: Büro 192.168.10.0/24, DMZ 192.168.50.0/24 und „Internet“ 172.16.0.0/24 (nur in der Simulation ein privater Bereich). Die Simulation filtert nach Quelle und Ziel; Dienste und Ports (in der Praxis hier TCP 443) gehören in einer echten Regel zusätzlich dazu.",
+    adressplan: [
+      { geraet: "Büro-PC", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1" },
+      { geraet: "Webserver (DMZ)", schnittstelle: "eth0", ip: "192.168.50.10", maske: MASKE24, gateway: "192.168.50.1" },
+      { geraet: "Internet-Client", schnittstelle: "eth0", ip: "172.16.0.50", maske: MASKE24, gateway: "172.16.0.1" },
+      { geraet: "Firewall", schnittstelle: "eth0 (Büro)", ip: "192.168.10.1", maske: MASKE24, gateway: "" },
+      { geraet: "Firewall", schnittstelle: "eth1 (DMZ)", ip: "192.168.50.1", maske: MASKE24, gateway: "" },
+      { geraet: "Firewall", schnittstelle: "eth2 (Internet)", ip: "172.16.0.1", maske: MASKE24, gateway: "" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: Regelwerk der Firewall",
+        spalten: ["Reihenfolge", "Aktion", "Von", "Nach"],
+        zeilen: [
+          ["1", "erlauben", "172.16.0.0/24 (Internet)", "192.168.50.10 (Webserver in der DMZ)"],
+          ["2", "erlauben", "192.168.10.0/24 (Büro)", "172.16.0.0/24 (Internet)"],
+          ["3", "blockieren", "192.168.50.0/24 (DMZ)", "192.168.10.0/24 (Büro)"],
+          ["Standard", "blockieren", "alle übrigen Anfragen", "—"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste die Prüfaufträge der Reihe nach. Der Webserver erreicht nicht einmal sein Gateway: Vergleiche seine Gateway-Adresse mit der Firewall-Schnittstelle in der DMZ.",
+      "Das Büro kommt nicht ins Internet: Welche Regel fehlt? Antworten kommen automatisch zurück, nur der Verbindungsaufbau braucht eine Regel.",
+      "Eine Regel „erlauben DMZ → Büro“ hebelt die Trennung auf: Wird der Webserver angegriffen, käme der Angreifer ins Büronetz. Ändere sie auf „blockieren“.",
+      "Regeln werden von oben nach unten geprüft, die erste passende gilt. Die Standardaktion „blockieren“ sperrt alles, was keine Regel erlaubt.",
+    ],
+    loesung: {
+      schritte: [
+        "Webserver: Gateway 192.168.50.1 eintragen (stand auf 192.168.50.254).",
+        "Firewall: Die Regel „erlauben 192.168.50.0/24 → 192.168.10.0/24“ in „blockieren“ umwandeln (die DMZ darf nicht ins Büronetz).",
+        "Firewall: Die Regel „erlauben 192.168.10.0/24 → 172.16.0.0/24“ ergänzen (Büro darf ins Internet), und zwar vor der Blockierregel. Die Regel „erlauben Internet → Webserver“ bleibt, Standard „blockieren“ bleibt.",
+      ],
+      konfig: [{ geraet: "web", schnittstelle: "eth0", ip: "192.168.50.10", maske: "255.255.255.0", gateway: "192.168.50.1" }],
+      kabel: [],
+      firewall: [
+        {
+          geraet: "fw",
+          standard: "blockieren",
+          regeln: [
+            { aktion: "erlauben", von: "172.16.0.0/24", nach: "192.168.50.10" },
+            { aktion: "erlauben", von: "192.168.10.0/24", nach: "172.16.0.0/24" },
+            { aktion: "blockieren", von: "192.168.50.0/24", nach: "192.168.10.0/24" },
+          ],
+        },
+      ],
+    },
+    erklaerung:
+      "Das DMZ-Prinzip: Server, die aus dem Internet erreichbar sein müssen, sind das wahrscheinlichste Angriffsziel. Man stellt sie deshalb in ein eigenes Netz zwischen Internet und internem Netz, sodass ein erfolgreicher Angriff auf den Webserver nicht automatisch Zugriff auf das Büronetz bedeutet. Das Regelwerk hat vier Zeilen: Internet → Webserver (in der Praxis nur TCP 443), Büro → Internet, DMZ → Büro verbieten und als Standardregel alles andere verbieten. Die Regeln werden von oben nach unten abgearbeitet, die erste zutreffende gilt; die ausdrückliche Verbotsregel DMZ → Büro macht die Absicht sichtbar, auch wenn die Standardregel dasselbe bewirken würde. Die Firewall arbeitet zustandsbehaftet: Antworten auf erlaubte Verbindungen passieren automatisch, deshalb genügt für „Büro → Internet“ eine einzige Regel. Die Simulation filtert nach Quelle und Ziel; in einer echten Regel stehen zusätzlich Dienst und Port.",
+  },
+  {
+    id: "redundante-anbindung",
+    titel: "Zwei Leitungen, eine ist ausgefallen",
+    stufe: "schwer",
+    kurzbeschreibung: "Kanzlei Rehfeld & Partner: Zentrale und Filiale mit Haupt- und Backup-Leitung — bei statischem Routing schaltet nichts automatisch um.",
+    aufgabe:
+      "Zentrale (192.168.10.0/24) und Filiale (192.168.20.0/24) sind über zwei Leitungen verbunden: Leitung 1 (10.0.1.0/30) und Backup-Leitung 2 (10.0.2.0/30). Alle Routen laufen über Leitung 1. Sie ist ausgefallen (der Provider hat sie gekappt und kann sie heute nicht reparieren). Weil die Router statisch geroutet sind, schaltet nichts von selbst um: Leite den Verkehr über die Backup-Leitung. Außerdem hat ein Host ein falsches Gateway.",
+    geraete: [
+      host("pc-z", "pc", "PC Zentrale", 90, 260, "192.168.10.25", "255.255.255.0", "192.168.10.1"),
+      routerGeraet(
+        "router-z",
+        "Router Zentrale",
+        340,
+        260,
+        3,
+        [
+          ["192.168.10.1", "255.255.255.0"],
+          ["10.0.1.1", "255.255.255.252"],
+          ["10.0.2.1", "255.255.255.252"],
+        ],
+        { routen: routen([["192.168.20.0", "255.255.255.0", "10.0.1.2"]]) },
+      ),
+      routerGeraet(
+        "router-f",
+        "Router Filiale",
+        600,
+        260,
+        3,
+        [
+          ["10.0.1.2", "255.255.255.252"],
+          ["10.0.2.2", "255.255.255.252"],
+          ["192.168.20.1", "255.255.255.0"],
+        ],
+        { routen: routen([["0.0.0.0", "/0", "10.0.1.1"]]) },
+      ),
+      host("server-f", "server", "Server Filiale", 600, 500, "192.168.20.10", "255.255.255.0", "192.168.20.254"),
+    ],
+    kabel: [
+      kabelZwischen("pc-z", "eth0", "router-z", "eth0"),
+      kabelZwischen("router-z", "eth2", "router-f", "eth1"),
+      kabelZwischen("router-f", "eth2", "server-f", "eth0"),
+    ],
+    pruefAuftraege: [
+      { id: "pcz-serverf", von: "pc-z", nach: "server-f", beschreibung: "PC Zentrale → Server Filiale" },
+      { id: "serverf-pcz", von: "server-f", nach: "pc-z", beschreibung: "Server Filiale → PC Zentrale (Gegenrichtung)" },
+      { id: "pcz-routerf", von: "pc-z", nach: "router-f", nachSchnittstelle: "eth2", beschreibung: "PC Zentrale → Router Filiale eth2 (Filial-Gateway)" },
+    ],
+    adressplanHinweis:
+      "Vier Netze: Zentrale 192.168.10.0/24, Filiale 192.168.20.0/24 und zwei Verbindungsnetze, Leitung 1 (10.0.1.0/30, ausgefallen: das Kabel ist nicht gesteckt) und Backup-Leitung 2 (10.0.2.0/30, in Betrieb). Alle Adressen der Router stimmen.",
+    adressplan: [
+      { geraet: "PC Zentrale", schnittstelle: "eth0", ip: "192.168.10.25", maske: MASKE24, gateway: "192.168.10.1" },
+      { geraet: "Router Zentrale", schnittstelle: "eth0 (Zentrale)", ip: "192.168.10.1", maske: MASKE24, gateway: "" },
+      { geraet: "Router Zentrale", schnittstelle: "eth1 (Leitung 1)", ip: "10.0.1.1", maske: "/30 (255.255.255.252)", gateway: "", zusatz: "ausgefallen" },
+      { geraet: "Router Zentrale", schnittstelle: "eth2 (Leitung 2)", ip: "10.0.2.1", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "Router Filiale", schnittstelle: "eth0 (Leitung 1)", ip: "10.0.1.2", maske: "/30 (255.255.255.252)", gateway: "", zusatz: "ausgefallen" },
+      { geraet: "Router Filiale", schnittstelle: "eth1 (Leitung 2)", ip: "10.0.2.2", maske: "/30 (255.255.255.252)", gateway: "" },
+      { geraet: "Router Filiale", schnittstelle: "eth2 (Filiale)", ip: "192.168.20.1", maske: MASKE24, gateway: "" },
+      { geraet: "Server Filiale", schnittstelle: "eth0", ip: "192.168.20.10", maske: MASKE24, gateway: "192.168.20.1" },
+    ],
+    plaene: [
+      {
+        titel: "Soll: statische Routen über die Backup-Leitung",
+        spalten: ["Router", "Zielnetz", "Maske", "Nächster Hop"],
+        zeilen: [
+          ["Router Zentrale", "192.168.20.0", "/24", "10.0.2.2 (Router Filiale, Leitung 2)"],
+          ["Router Filiale", "0.0.0.0 (Standardroute)", "/0", "10.0.2.1 (Router Zentrale, Leitung 2)"],
+        ],
+      },
+    ],
+    tipps: [
+      "Teste „PC Zentrale → Server Filiale“: Die Meldung nennt den nächsten Hop der Route. Ist er nicht erreichbar, hängt die Route an der ausgefallenen Leitung.",
+      "Beide Router müssen umschalten: Die Zentrale braucht den Hop auf der Backup-Leitung (10.0.2.2), die Filiale für den Rückweg ebenfalls (10.0.2.1).",
+      "Der Server in der Filiale erreicht sein Gateway nicht: Vergleiche die Adresse mit der Filialschnittstelle des Routers.",
+    ],
+    loesung: {
+      schritte: [
+        "Router Zentrale: Die Route 192.168.20.0/24 auf den nächsten Hop 10.0.2.2 (Router Filiale, Leitung 2) ändern (zeigte auf 10.0.1.2, die ausgefallene Leitung 1).",
+        "Router Filiale: Die Standardroute auf den nächsten Hop 10.0.2.1 (Router Zentrale, Leitung 2) ändern (zeigte auf 10.0.1.1).",
+        "Server Filiale: Gateway 192.168.20.1 eintragen (stand auf 192.168.20.254).",
+      ],
+      konfig: [{ geraet: "server-f", schnittstelle: "eth0", ip: "192.168.20.10", maske: "255.255.255.0", gateway: "192.168.20.1" }],
+      kabel: [],
+      routen: [
+        { geraet: "router-z", routen: [{ ziel: "192.168.20.0", maske: "255.255.255.0", hop: "10.0.2.2" }] },
+        { geraet: "router-f", routen: [{ ziel: "0.0.0.0", maske: "/0", hop: "10.0.2.1" }] },
+      ],
+    },
+    erklaerung:
+      "Redundante Leitungen allein erhöhen die Verfügbarkeit nicht: Jemand oder etwas muss auf die zweite Leitung umschalten. Statisches Routing ist übersichtlich und gut nachvollziehbar, aber bei einem Ausfall schaltet nichts automatisch um; der Administrator muss die Routen von Hand ändern — beidseitig, denn auch der Rückweg läuft über die Routen der Gegenseite. Wer mehrere Standorte, redundante Leitungen und häufige Änderungen hat, profitiert deshalb vom dynamischen Routing (z. B. OSPF): Die Router tauschen Informationen über erreichbare Netze aus und passen ihre Tabellen bei einem Ausfall selbst an. In der Simulation gibt es keine dynamischen Protokolle; sie zeigt, warum man sie braucht. Auf Schicht 2 ist es anders: Redundante Switch-Verbindungen verwaltet das Spanning Tree Protocol, das Schleifen verhindert und bei einem Ausfall einen blockierten Weg aktiviert.",
   },
 ];
 
