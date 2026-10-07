@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Testfall-Trainer (F-205): Werkzeug nur im Kurs Anwendungsentwicklung", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "testfaelle")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-anwendungsentwicklung")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "testfaelle"), slug).toBeNull();
+    }
+  });
+
   it("Ausbildungsplan-Zeitplaner (F-204): Werkzeug nur im AEVO-Kurs", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "ausbildungsplan")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {

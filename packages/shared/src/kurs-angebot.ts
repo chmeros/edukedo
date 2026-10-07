@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Testfall-Trainer (F-205): Werkzeug "testfaelle" im Kurs Anwendungsentwicklung freigegeben (Äquivalenzklassen und Grenzwerte nach der Kurstheorie 9.2; reine Rechenübung mit ganzen Zahlen).
  * Ausbildungsplan-Zeitplaner (F-204): Werkzeug "ausbildungsplan" im AEVO-Kurs freigegeben (Zeitleiste, Summenprüfung, sachlich-zeitliche Gliederung; bewusst ohne Rechtswerte, Dauer und Probezeit trägt man ein).
  * Lernziel-Check (F-203): Werkzeug "lernzielcheck" im AEVO-Kurs freigegeben (Wortlisten-Heuristiken zu Feinzielen, Übung zu überprüfbaren Zielen und Lernzielbereichen; kein Rechtsbezug, kein KI-Einsatz).
  * Sparverfahren-Trainer (F-202): Werkzeug "sparverfahren" im Kurs Transport/Logistik freigegeben (Savings-Algorithmus nach der Kurstheorie 2.1; reine Rechenübung ohne Rechtsbezug, Hinweis auf die Heuristik).
@@ -244,7 +245,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
     instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git", "muster", "klassenbeziehungen", "testverfahren"], ["pdca", "risiko", "osi"]),
-    werkzeuge: liste(["sqluebung"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
+    werkzeuge: liste(["sqluebung", "testfaelle"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],

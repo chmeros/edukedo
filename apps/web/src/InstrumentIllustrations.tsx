@@ -1576,6 +1576,27 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-205: Testfall-Trainer (Zahlenstrahl mit Klassen, Grenzwert-Markern beidseitig und Häkchen).
+export function TestfaelleIllustration() {
+  const grenzen = [100, 190];
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="30" y="62" width="70" height="34" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="100" y="62" width="90" height="34" fill="var(--sprout-tint)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="190" y="62" width="100" height="34" fill="var(--sun-tint)" stroke="var(--ink)" strokeWidth="2.5" />
+      {grenzen.map((x) => (
+        <g key={x}>
+          <circle cx={x - 9} cy="44" r="6" fill="var(--ink)" />
+          <circle cx={x + 9} cy="44" r="6" fill="var(--ink)" />
+          <path d={`M${x - 9} 52v8M${x + 9} 52v8`} stroke="var(--ink)" strokeWidth="2.5" strokeLinecap="round" />
+        </g>
+      ))}
+      <path d="M30 112h260" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="m240 30 10 10 20-24" fill="none" stroke="var(--sprout-deep)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
 // F-204: Ausbildungsplan-Zeitplaner (Zeitleiste mit Abschnitten und Probezeit-Marke).
 export function AusbildungsplanIllustration() {
   const abschnitte = [

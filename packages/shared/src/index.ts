@@ -12,6 +12,7 @@ export * from "./lagerkennzahlen";
 export * from "./sparverfahren";
 export * from "./lernzielcheck";
 export * from "./ausbildungsplan";
+export * from "./testfaelle";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";

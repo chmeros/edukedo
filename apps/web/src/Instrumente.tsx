@@ -31,6 +31,7 @@ import {
   SparverfahrenIllustration,
   LernzielcheckIllustration,
   AusbildungsplanIllustration,
+  TestfaelleIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -101,6 +102,7 @@ import { Lagerkennzahlen } from "./Lagerkennzahlen";
 import { Sparverfahren } from "./Sparverfahren";
 import { Lernzielcheck } from "./Lernzielcheck";
 import { Ausbildungsplaner } from "./Ausbildungsplaner";
+import { Testfalltrainer } from "./Testfalltrainer";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -625,6 +627,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-205 (Testfall-Trainer): Äquivalenzklassen und Grenzwerte an zufälligen Spezifikationen üben, im Kurs Anwendungsentwicklung.
+  {
+    type: "testfaelle",
+    label: "Testfall-Trainer",
+    description: "Zu einer Spezifikation Äquivalenzklassen bilden, Testwerte mit Grenzwerten beidseitig wählen und erwartete Ergebnisse bestimmen.",
+    Illustration: TestfaelleIllustration,
+    werkzeug: true,
+    aktion: "Testfälle üben",
+  },
   // F-204 (Ausbildungsplan-Zeitplaner): betrieblichen Ausbildungsplan als Zeitleiste in Wochen entwerfen, im AEVO-Kurs.
   {
     type: "ausbildungsplan",
@@ -730,6 +741,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "testfaelle") {
+    return <Testfalltrainer onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "ausbildungsplan") {
     return <Ausbildungsplaner onClose={() => setActiveWerkzeug(null)} />;
