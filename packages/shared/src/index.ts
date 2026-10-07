@@ -6,6 +6,7 @@ export * from "./game-logic-weitere";
 export * from "./game-logic-rechnen";
 export * from "./finanzmathe";
 export * from "./arbeitszeit";
+export * from "./handelskalkulation";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";

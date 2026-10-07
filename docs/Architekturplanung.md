@@ -567,6 +567,18 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-199: Handelskalkulation-Trainer)
+
+- **Anlass:** Erster Baustein der Phase 3 der Kursprofile (kursspezifische Werkzeuge), W-HAN-01 im Handelsfachwirt: hoher Hebel, Theorie seit F-189 vorhanden (Rahmenentscheidung R5: erst Theorie, dann Werkzeug). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Logik in `packages/shared/src/handelskalkulation.ts`:** `kalkuliereVorwaerts`, `kalkuliereRueckwaerts`, `kalkuliereDifferenz`, `berechneKennzahlen`, `rechenwege` (Rechenweg je Zeile mit eingesetzten Zahlen), `erzeugeKalkulationsAufgabe` (Zufallsaufgabe je Richtung und Schwierigkeit mit vorgegebenen und gesuchten Zeilen). Das Schema (`SCHEMA`) steht in der Reihenfolge der Kurstheorie 5.3; Basis jedes Prozentsatzes steht in der Tabelle neben dem Satz („vom Zieleinkaufspreis“, „im Hundert“), damit die Basis nie geraten werden muss (Risiko aus W-HAN-01).
+- **Rundung:** Jede Zeile wird auf Cent gerundet und die Folgezeile rechnet mit dem gerundeten Wert. Weil Lernende das nicht immer so tun, gilt eine Eingabe bis zwei Cent Abweichung als richtig.
+- **„Im Hundert“ beidseitig:** Vorwärts ist Zielverkaufspreis gleich Barverkaufspreis geteilt durch (1 minus Skontosatz) und Listenverkaufspreis gleich Zielverkaufspreis geteilt durch (1 minus Rabattsatz); rückwärts werden Rabatt und Skonto vom jeweils höheren Preis berechnet. Die Rückwärtsrechnung führt auf den höchsten zahlbaren Listeneinkaufspreis; Vorwärts- und Rückwärtsrechnung sind im Test gegeneinander gerechnet (200 € Listeneinkaufspreis führen zu 260,03 € Listenverkaufspreis und rückwärts wieder zu 200 €).
+- **Differenzkalkulation:** Selbstkosten aus dem Einkauf, Barverkaufspreis aus dem vorgegebenen Listenverkaufspreis; der Gewinn ist die Differenz, der Gewinnzuschlag der Gewinn geteilt durch die Selbstkosten. Der Marktpreis der Zufallsaufgabe wird so gewählt, dass der Gewinn nicht negativ ist.
+- **Kennzahlen mit offener Bezugsgröße:** Kalkulationszuschlag gleich (Listenverkaufspreis minus Bezugspreis) durch Bezugspreis, Kalkulationsfaktor gleich Listenverkaufspreis durch Bezugspreis, Handelsspanne gleich (Listenverkaufspreis minus Bezugspreis) durch Listenverkaufspreis. Lehrbücher wählen teils den Barverkaufspreis als Bezugsgröße; das Werkzeug nennt die gewählte Basis und weist auf die Abweichung hin. **Zur Fachprüfung:** Ob im Kurs der Listenverkaufspreis (netto) die übliche Bezugsgröße für Kalkulationszuschlag und Handelsspanne ist.
+- **Oberfläche:** `Handelskalkulation.tsx` mit Reitern (Tastaturbedienung), Prüfmuster wie im Netzplan-Trainer (✓/✗ je Feld, nie Farbe allein). Eigene Kachel-Illustration; Freigabe nur für den Handelsfachwirt (`kalkulationstrainer` in `werkzeuge`, danach `db:apply-kurs-metadata`).
+- **Bewusst nicht enthalten:** Umsatzsteuer, Provision des Vertreters, Zuschlagskalkulation der Industrie (steht schon als Instrument „Kalkulation“), Lagerkennzahlen (W-HAN-02, eigener Baustein).
+- **Tests:** handelskalkulation.test.ts (Handbeispiel vorwärts und rückwärts, Differenz, Kennzahlen und ihr Zusammenhang, Schemareihenfolge, Zahlenformat und Toleranz, 400 Zufallsaufgaben je Richtung und Schwierigkeit mit Plausibilitätsprüfung, Rechenweg für jede gesuchte Zeile) und kurs-angebot.test.ts. Live geprüft: Handelsfachwirt, Kachel „Handelskalkulation-Trainer“, Vorwärtsaufgabe (zwei Felder richtig, eines bewusst falsch mit ✗, Rechenweg über „Lösung anzeigen“).
+
 ### Entschieden am 07.10.2026 (F-198: Arbeitszeit-Prüfer)
 
 - **Anlass:** Letzter Baustein der Phase 2 der Kursprofile (Regelmaschine für W-GES-03 und W-AEV-03). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“

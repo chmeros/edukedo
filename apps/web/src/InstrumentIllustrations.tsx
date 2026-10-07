@@ -1552,6 +1552,33 @@ export function NetzplanIllustration() {
   );
 }
 
+// F-199: Handelskalkulation-Trainer (Preisstufen vom Einkauf zum Verkauf mit Prozentzeichen).
+export function KalkulationstrainerIllustration() {
+  const stufen = [
+    { x: 40, hoehe: 30, beschriftung: "EK" },
+    { x: 108, hoehe: 52, beschriftung: "SK" },
+    { x: 176, hoehe: 76, beschriftung: "VK" },
+  ];
+  return (
+    <Frame background="var(--sun-tint)">
+      <path d="M32 118h256" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {stufen.map((stufe) => (
+        <g key={stufe.beschriftung}>
+          <rect x={stufe.x} y={118 - stufe.hoehe} width="56" height={stufe.hoehe} rx="4" fill="var(--card)" stroke="var(--sun-deep)" strokeWidth="2.5" />
+          <text x={stufe.x + 28} y={118 - stufe.hoehe + 21} fontSize="15" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {stufe.beschriftung}
+          </text>
+        </g>
+      ))}
+      <path d="M100 76 108 76M168 56 176 56" stroke="var(--coral-deep)" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="268" cy="38" r="22" fill="var(--sprout)" />
+      <text x="268" y="47" fontSize="26" fontWeight="700" fill="#17212b" textAnchor="middle">
+        %
+      </text>
+    </Frame>
+  );
+}
+
 // F-198: Arbeitszeit-Prüfer (Uhr mit Arbeits- und Pausenabschnitt, daneben Häkchen).
 export function ArbeitszeitIllustration() {
   return (

@@ -211,6 +211,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     for (const slug of Object.keys(KURS_ANGEBOT)) expect(angebotWerkzeug(KURS_ANGEBOT[slug], "arbeitszeit"), slug).toBeNull();
   });
 
+  it("Handelskalkulation-Trainer (F-199): Werkzeug nur im Handelsfachwirt", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT.handelsfachwirt, "kalkulationstrainer")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "handelsfachwirt")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "kalkulationstrainer"), slug).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);

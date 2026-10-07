@@ -25,6 +25,7 @@ import {
   BeschaffungIllustration,
   BeurteilungsfehlerIllustration,
   ArbeitszeitIllustration,
+  KalkulationstrainerIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -89,6 +90,7 @@ import {
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
+import { Handelskalkulation } from "./Handelskalkulation";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -604,6 +606,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Rechner öffnen",
   },
+  // F-199 (Handelskalkulation-Trainer): Vorwärts-, Rückwärts- und Differenzkalkulation mit Zeilenprüfung, im Handelsfachwirt.
+  {
+    type: "kalkulationstrainer",
+    label: "Handelskalkulation-Trainer",
+    description: "Vorwärts-, Rückwärts- und Differenzkalkulation an zufälligen Aufgaben üben und mit dem Rechner Kalkulationszuschlag, -faktor und Handelsspanne bestimmen.",
+    Illustration: KalkulationstrainerIllustration,
+    werkzeug: true,
+    aktion: "Kalkulation üben",
+  },
   // F-198 (Arbeitszeit-Prüfer): Übung zu den Grundregeln von ArbZG und JArbSchG; noch in keinem Kurs freigegeben (Rechtsprüfung).
   {
     type: "arbeitszeit",
@@ -661,6 +672,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "finanzrechner") {
     return <Finanzrechner onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "kalkulationstrainer") {
+    return <Handelskalkulation onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "arbeitszeit") {
     return <Arbeitszeitpruefer onClose={() => setActiveWerkzeug(null)} />;
