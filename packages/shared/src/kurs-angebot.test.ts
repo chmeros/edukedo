@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Lernziel-Check (F-203): Werkzeug nur im AEVO-Kurs", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "lernzielcheck")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "lernzielcheck"), slug).toBeNull();
+    }
+  });
+
   it("Sparverfahren-Trainer (F-202): Werkzeug nur im Kurs Transport/Logistik", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["transport-management-logistics"], "sparverfahren")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "transport-management-logistics")) {

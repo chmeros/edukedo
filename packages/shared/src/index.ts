@@ -10,6 +10,7 @@ export * from "./handelskalkulation";
 export * from "./unterweisungsplan";
 export * from "./lagerkennzahlen";
 export * from "./sparverfahren";
+export * from "./lernzielcheck";
 export * from "./kreuzwort-generator";
 export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";

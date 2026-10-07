@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Lernziel-Check (F-203): Werkzeug "lernzielcheck" im AEVO-Kurs freigegeben (Wortlisten-Heuristiken zu Feinzielen, Übung zu überprüfbaren Zielen und Lernzielbereichen; kein Rechtsbezug, kein KI-Einsatz).
  * Sparverfahren-Trainer (F-202): Werkzeug "sparverfahren" im Kurs Transport/Logistik freigegeben (Savings-Algorithmus nach der Kurstheorie 2.1; reine Rechenübung ohne Rechtsbezug, Hinweis auf die Heuristik).
  * Lagerkennzahlen-Rechner (F-201): Werkzeug "lagerkennzahlen" im Handelsfachwirt freigegeben (Umschlagshäufigkeit, Reichweite, Meldebestand nach der Kurstheorie 4.1 und 4.3; Andler-Formel und Lagerzinssatz stehen nicht in der Theorie und fehlen bewusst).
  * Unterweisungs-Planer (F-200): Werkzeug "unterweisungsplan" im AEVO-Kurs freigegeben (Vier-Stufen-Methode nach F-192, Lernzielbereiche aus 3.2; Prüfungen sind Selbstkontroll-Heuristiken).
@@ -481,7 +482,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // 06.10.2026) sind freigegeben. Regelwerke und das Duell-Set "recht-berufsausbildung" erst nach der Freigabe des Prüfblatts 10 aufnehmen (Rechtsfragen).
   "ausbildung-der-ausbilder": {
     instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler", "vierstufen"]),
-    werkzeuge: liste(["unterweisungsplan"]),
+    werkzeuge: liste(["unterweisungsplan", "lernzielcheck"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],

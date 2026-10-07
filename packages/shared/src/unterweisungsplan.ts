@@ -101,17 +101,21 @@ export interface PlanHinweis {
 }
 
 /** Verben, die sich nicht beobachten und prüfen lassen (typische Stolpersteine bei Feinzielen). */
-const NICHT_PRUEFBAR = ["wissen", "kennen", "kennenlernen", "verstehen", "begreifen", "einsehen", "lernen", "vertraut", "bewusst", "schätzen", "würdigen", "interessieren", "auseinandersetzen"];
+export const NICHT_PRUEFBAR = [
+  "wissen", "weiß", "kennen", "kennt", "kenntnis", "kennenlern", "verstehen", "versteht", "begreifen", "begreift", "einsehen", "lernen", "lernt", "vertraut", "bewusst", "schätzen", "würdigen",
+  "interesse", "interessieren", "auseinander", "gefühl",
+];
 
 /** Wortanfänge überprüfbarer Tätigkeitsverben (Heuristik, keine vollständige Liste). */
-const PRUEFBAR = [
+export const PRUEFBAR = [
   "beschreib", "nenn", "benenn", "erklär", "erläuter", "begründ", "bedien", "ausführ", "durchführ", "anwend", "herstell", "stell", "mess", "einricht", "vergleich",
   "berechn", "auswähl", "zeig", "demonstrier", "isolier", "montier", "prüf", "kontrollier", "bestimm", "zuordn", "anfertig", "erstell", "einhalt", "verbind", "schließ",
   "bohr", "feil", "säg", "schleif", "löt", "schraub", "wechsel", "füll", "sortier", "ordn", "formulier", "unterscheid", "begrüß", "beraten", "berat", "schreib", "bearbeit",
   "anschließ", "einstell", "reinig", "bestell", "buch", "erfass", "nutz", "wend", "wähl", "entscheid", "identifizier", "lös", "plan", "dokumentier", "übergeb", "übernehm",
+  "acht", "beacht", "hör", "frag", "trag", "halt", "meld",
 ];
 
-function woerter(text: string): string[] {
+export function woerter(text: string): string[] {
   return text
     .toLowerCase()
     .split(/[^a-zäöüß]+/)

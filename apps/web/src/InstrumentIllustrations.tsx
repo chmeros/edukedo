@@ -1576,6 +1576,20 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-203: Lernziel-Check (Zielscheibe mit Pfeil und Häkchen).
+export function LernzielcheckIllustration() {
+  return (
+    <Frame background="var(--sun-tint)">
+      <circle cx="120" cy="72" r="52" fill="var(--card)" stroke="var(--ink)" strokeWidth="3" />
+      <circle cx="120" cy="72" r="34" fill="var(--info-tint)" stroke="var(--ink)" strokeWidth="3" />
+      <circle cx="120" cy="72" r="16" fill="var(--coral)" stroke="var(--ink)" strokeWidth="3" />
+      <path d="M120 72 196 26" stroke="var(--ink)" strokeWidth="5" strokeLinecap="round" />
+      <path d="m196 26 2-14M196 26l14 4" stroke="var(--ink-soft)" strokeWidth="4" strokeLinecap="round" />
+      <path d="m228 98 14 14 28-34" fill="none" stroke="var(--sprout-deep)" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
 // F-202: Sparverfahren-Trainer (Depot mit zwei Touren, die Kunden verbinden).
 export function SparverfahrenIllustration() {
   return (

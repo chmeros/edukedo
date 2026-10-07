@@ -29,6 +29,7 @@ import {
   UnterweisungsplanIllustration,
   LagerkennzahlenIllustration,
   SparverfahrenIllustration,
+  LernzielcheckIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -97,6 +98,7 @@ import { Handelskalkulation } from "./Handelskalkulation";
 import { Unterweisungsplaner } from "./Unterweisungsplaner";
 import { Lagerkennzahlen } from "./Lagerkennzahlen";
 import { Sparverfahren } from "./Sparverfahren";
+import { Lernzielcheck } from "./Lernzielcheck";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -621,6 +623,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-203 (Lernziel-Check): Feinziele auf überprüfbare Formulierung prüfen und üben, im AEVO-Kurs.
+  {
+    type: "lernzielcheck",
+    label: "Lernziel-Check",
+    description: "Feinziele auf Verb, Überprüfbarkeit, Bedingung, Maßstab und Lernzielbereich prüfen und an Beispielen üben, gute von schwachen Zielen zu unterscheiden.",
+    Illustration: LernzielcheckIllustration,
+    werkzeug: true,
+    aktion: "Feinziel prüfen",
+  },
   // F-202 (Sparverfahren-Trainer): Tourenplanung nach dem Savings-Algorithmus, im Kurs Transport/Logistik.
   {
     type: "sparverfahren",
@@ -708,6 +719,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "lernzielcheck") {
+    return <Lernzielcheck onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "sparverfahren") {
     return <Sparverfahren onClose={() => setActiveWerkzeug(null)} />;
