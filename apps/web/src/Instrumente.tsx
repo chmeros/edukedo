@@ -32,6 +32,7 @@ import {
   LernzielcheckIllustration,
   AusbildungsplanIllustration,
   TestfaelleIllustration,
+  MqttlaborIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -103,6 +104,7 @@ import { Sparverfahren } from "./Sparverfahren";
 import { Lernzielcheck } from "./Lernzielcheck";
 import { Ausbildungsplaner } from "./Ausbildungsplaner";
 import { Testfalltrainer } from "./Testfalltrainer";
+import { Mqttlabor } from "./Mqttlabor";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -627,6 +629,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-206 (MQTT-Labor): Broker-Simulation mit Topics, Platzhaltern, Zustellgüte, Retained Messages und Last Will, im Kurs Digitale Vernetzung.
+  {
+    type: "mqttlabor",
+    label: "MQTT-Labor",
+    description: "Einen simulierten MQTT-Broker bedienen: Abonnements mit Platzhaltern, Zustellgüte, gespeicherte Nachrichten und Last Will in Aufträgen und im freien Labor ausprobieren.",
+    Illustration: MqttlaborIllustration,
+    werkzeug: true,
+    aktion: "MQTT ausprobieren",
+  },
   // F-205 (Testfall-Trainer): Äquivalenzklassen und Grenzwerte an zufälligen Spezifikationen üben, im Kurs Anwendungsentwicklung.
   {
     type: "testfaelle",
@@ -741,6 +752,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "mqttlabor") {
+    return <Mqttlabor onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "testfaelle") {
     return <Testfalltrainer onClose={() => setActiveWerkzeug(null)} />;

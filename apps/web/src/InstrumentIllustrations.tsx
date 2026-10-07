@@ -1576,6 +1576,28 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-206: MQTT-Labor (Broker in der Mitte, Sensor veröffentlicht, zwei Abonnenten bekommen die Nachricht).
+export function MqttlaborIllustration() {
+  return (
+    <Frame background="var(--sprout-tint)">
+      <rect x="22" y="52" width="58" height="36" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="240" y="22" width="58" height="36" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="240" y="84" width="58" height="36" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <circle cx="160" cy="70" r="34" fill="var(--sun)" stroke="var(--ink)" strokeWidth="2.5" />
+      <text x="160" y="76" fontSize="15" fontWeight="700" fill="#17212b" textAnchor="middle">
+        Broker
+      </text>
+      <path d="M80 70h46" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      <path d="m120 62 8 8-8 8" fill="none" stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M190 58 238 42M190 82l48 22" stroke="var(--sprout-deep)" strokeWidth="3" strokeLinecap="round" />
+      <path d="m228 38 10 4-6 8M228 108l10-4-6-8" fill="none" stroke="var(--sprout-deep)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="51" y="75" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Sensor
+      </text>
+    </Frame>
+  );
+}
+
 // F-205: Testfall-Trainer (Zahlenstrahl mit Klassen, Grenzwert-Markern beidseitig und Häkchen).
 export function TestfaelleIllustration() {
   const grenzen = [100, 190];
