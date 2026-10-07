@@ -35,6 +35,7 @@ import {
   MqttlaborIllustration,
   SkalierungIllustration,
   EnergierechnerIllustration,
+  VerfuegbarkeitIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -109,6 +110,7 @@ import { Testfalltrainer } from "./Testfalltrainer";
 import { Mqttlabor } from "./Mqttlabor";
 import { Skalierungsrechner } from "./Skalierungsrechner";
 import { Energierechner } from "./Energierechner";
+import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -633,6 +635,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-209 (Verfügbarkeits- und RAID-Rechner): Verfügbarkeit, Ausfallzeit, Reihen- und Parallelschaltung und RAID-Kapazität, in den Fachinformatiker-Kursen.
+  {
+    type: "verfuegbarkeit",
+    label: "Verfügbarkeit und RAID",
+    description: "Verfügbarkeit aus MTBF und MTTR berechnen, Ausfallzeiten bestimmen, Reihen- und Parallelschaltung durchrechnen und die nutzbare Kapazität von RAID-Verbünden bestimmen.",
+    Illustration: VerfuegbarkeitIllustration,
+    werkzeug: true,
+    aktion: "Verfügbarkeit berechnen",
+  },
   // F-208 (Energiebedarf-Rechner): Leistungsbudget, Energiekosten und Akkulaufzeit, im Kurs Digitale Vernetzung.
   {
     type: "energierechner",
@@ -774,6 +785,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "verfuegbarkeit") {
+    return <Verfuegbarkeitsrechner onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "energierechner") {
     return <Energierechner onClose={() => setActiveWerkzeug(null)} />;

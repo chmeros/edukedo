@@ -1576,6 +1576,31 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-209: Verfügbarkeit und RAID (vier Platten mit einer Paritätsplatte, daneben die Zahl 99,9 %).
+export function VerfuegbarkeitIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      {[0, 1, 2, 3].map((i) => (
+        <g key={i}>
+          <rect x={26 + i * 46} y="40" width="38" height="62" rx="6" fill={i === 3 ? "var(--sun)" : "var(--card)"} stroke="var(--ink)" strokeWidth="2.5" />
+          <ellipse cx={45 + i * 46} cy="60" rx="12" ry="6" fill="none" stroke="var(--ink-soft)" strokeWidth="2.5" />
+          <circle cx={45 + i * 46} cy="88" r="4" fill={i === 3 ? "var(--ink)" : "var(--sprout-deep)"} />
+        </g>
+      ))}
+      <text x="49" y="124" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Daten
+      </text>
+      <text x="187" y="124" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Parität
+      </text>
+      <text x="262" y="68" fontSize="24" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        99,9 %
+      </text>
+      <path d="M232 80h60" stroke="var(--sprout-deep)" strokeWidth="5" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-208: Energiebedarf-Rechner (Akku mit Ladebalken und Blitz, daneben eine Reihe Geräte).
 export function EnergierechnerIllustration() {
   return (

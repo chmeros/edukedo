@@ -218,6 +218,14 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Verfügbarkeits- und RAID-Rechner (F-209): Werkzeug in den vier Fachinformatiker-Kursen", () => {
+    const fi = ["fachinformatiker-anwendungsentwicklung", "fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"];
+    for (const slug of fi) expect(angebotWerkzeug(KURS_ANGEBOT[slug], "verfuegbarkeit"), slug).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => !fi.includes(eintrag))) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "verfuegbarkeit"), slug).toBeNull();
+    }
+  });
+
   it("Energiebedarf-Rechner (F-208): Werkzeug nur im Kurs Digitale Vernetzung", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-digitale-vernetzung"], "energierechner")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-digitale-vernetzung")) {
