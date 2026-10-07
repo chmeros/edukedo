@@ -27,6 +27,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [19 Versicherungen/Finanzanlagen](19-versicherungen-finanzanlagen.md) | neue Zonen-Instrumente (Drei-Schichten-Modell der Altersvorsorge, Kennzahlen der Versicherungstechnik), Begriffe-Duell „Versicherung: ähnlich, aber nicht gleich“ (Kursprofile Phase 1; **mit Versicherungs-, Beratungs- und Steuerrecht**) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [20 Spiele: Kreuzworträtsel und Memory](20-spiele-kreuzwort-memory.md) | Wort- und Paar-Pools der neun Fachwirt-Kurse und der AEVO (Wiederspielbarkeit, F-193) | siehe Blatt | Industrie, Technik, Handel und Logistik freigegeben (07.10.2026); übrige Kurse erst nach Freigabe sichtbar |
 | [21 Prozess-Reihenfolge](21-prozess-reihenfolge.md) | Abläufe in Fließtext für elf Kurse (Beschaffung, Kalkulation, Git, Incident u. a.) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |
+| [22 Beleg- und Betrugs-Detektiv](22-beleg-und-betrugs-detektiv.md) | Wareneingang und Rechnungsprüfung (fünf Kurse), Frachtbetrug (Transport/Logistik) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |
 
 **Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).
 

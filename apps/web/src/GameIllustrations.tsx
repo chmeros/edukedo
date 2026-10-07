@@ -92,6 +92,26 @@ export function MemoryIllustration() {
 
 /* F-158: weitere Spiele für die Fachinformatiker-Kurse. */
 
+export function BelegDetektivIllustration() {
+  return (
+    <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">
+      <rect width="320" height="140" fill="var(--info-tint)" />
+      <rect x="92" y="14" width="136" height="112" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
+      <text x="104" y="34" fontSize="12" fontWeight="700" fill="var(--info-deep)">
+        Rechnung
+      </text>
+      {[0, 1, 2].map((zeile) => (
+        <g key={zeile}>
+          <rect x="104" y={46 + zeile * 20} width="70" height="8" rx="4" fill="var(--line)" />
+          <rect x="186" y={46 + zeile * 20} width="30" height="8" rx="4" fill={zeile === 1 ? "var(--danger)" : "var(--line)"} />
+        </g>
+      ))}
+      <circle cx="226" cy="98" r="22" fill="var(--card)" fillOpacity="0.7" stroke="var(--ink)" strokeWidth="4" />
+      <path d="m242 114 22 22" stroke="var(--ink)" strokeWidth="6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function PhishingIllustration() {
   return (
     <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">

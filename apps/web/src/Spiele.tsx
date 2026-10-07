@@ -1,6 +1,7 @@
 import { angebotSpiel } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import {
+  BelegDetektivIllustration,
   BugHuntIllustration,
   CodeReihenfolgeIllustration,
   KennzahlenDuellIllustration,
@@ -18,7 +19,7 @@ import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
 import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
-import { BugHunt, CodeReihenfolge, PhishingDetektiv, ProzessReihenfolge, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
+import { BelegDetektiv, BugHunt, CodeReihenfolge, PhishingDetektiv, ProzessReihenfolge, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
 
 /**
  * F-140/F-141/F-142/F-143 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung
@@ -60,6 +61,12 @@ const GAME_CATALOG = [
     label: "Phishing-Detektiv",
     description: "E-Mails prüfen, verdächtige Merkmale markieren und echte Mails von Phishing unterscheiden.",
     Illustration: PhishingIllustration,
+  },
+  {
+    type: "belegdetektiv",
+    label: "Beleg-Detektiv",
+    description: "Bestellung, Lieferschein und Rechnung vergleichen, Abweichungen markieren und entscheiden: in Ordnung oder beanstanden.",
+    Illustration: BelegDetektivIllustration,
   },
   {
     type: "bughunt",
@@ -138,6 +145,8 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         return <PersonalkennzahlenMemory key={key} {...common} />;
       case "phishing":
         return <PhishingDetektiv key={key} {...common} />;
+      case "belegdetektiv":
+        return <BelegDetektiv key={key} {...common} />;
       case "bughunt":
         return <BugHunt key={key} {...common} />;
       case "codereihenfolge":

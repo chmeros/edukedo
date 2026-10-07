@@ -155,6 +155,8 @@ export const GAME_TYPES = [
   "rechensprint",
   // F-195: Prozess-Reihenfolge
   "prozessreihenfolge",
+  // F-196: Beleg-Detektiv
+  "belegdetektiv",
 ] as const;
 export type GameType = (typeof GAME_TYPES)[number];
 
@@ -251,6 +253,58 @@ export const submitPhishingInputSchema = z.object({
   nummer: z.number().int().positive(),
   markiert: z.array(z.string().min(1).max(20)).max(12),
   urteil: z.enum(["phishing", "echt"]),
+});
+
+// ---------------------------------------------------------------------------
+// F-196: Beleg-Detektiv (Verallgemeinerung des Phishing-Detektivs auf Geschäftsbelege)
+// ---------------------------------------------------------------------------
+
+/**
+ * Ein Beleg besteht aus `felder` in Anzeigereihenfolge. `ort` ist die Überschrift des Feldes (zum Beispiel
+ * "Bestellung", "Lieferschein", "Rechnung"), `auffaellig` sagt, ob das Feld einen Fehler enthält. `hatFehler`
+ * ist das Gesamturteil: Ein fehlerfreier Beleg hat kein auffälliges Feld, ein fehlerhafter mindestens eines.
+ */
+export const belegFeldSchema = z.object({
+  id: z.string().min(1).max(20),
+  ort: z.string().min(1).max(40),
+  text: z.string().min(1).max(TEXT_MAX),
+  auffaellig: z.boolean(),
+  erklaerung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type BelegFeld = z.infer<typeof belegFeldSchema>;
+
+export const belegSchema = z
+  .object({
+    nummer: z.number().int().positive(),
+    titel: z.string().min(1).max(200),
+    situation: z.string().min(1).max(TEXT_MAX),
+    felder: z.array(belegFeldSchema).min(4).max(14),
+    hatFehler: z.boolean(),
+    aufloesung: z.string().min(1).max(FEEDBACK_MAX),
+  })
+  .refine((beleg) => new Set(beleg.felder.map((feld) => feld.id)).size === beleg.felder.length, {
+    message: "Feld-IDs müssen innerhalb eines Belegs eindeutig sein.",
+  })
+  .refine((beleg) => !beleg.hatFehler || beleg.felder.some((feld) => feld.auffaellig), {
+    message: "Ein fehlerhafter Beleg braucht mindestens ein auffälliges Feld.",
+  })
+  .refine((beleg) => beleg.hatFehler || beleg.felder.every((feld) => !feld.auffaellig), {
+    message: "Ein fehlerfreier Beleg darf kein auffälliges Feld enthalten.",
+  });
+export type Beleg = z.infer<typeof belegSchema>;
+
+export const belegPayloadSchema = z.object({
+  belege: z.array(belegSchema).min(1).max(30),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type BelegPayload = z.infer<typeof belegPayloadSchema>;
+
+export const submitBelegInputSchema = z.object({
+  kursId: z.string().uuid(),
+  setKey: setKeyField,
+  nummer: z.number().int().positive(),
+  markiert: z.array(z.string().min(1).max(20)).max(14),
+  urteil: z.enum(["in_ordnung", "beanstanden"]),
 });
 
 // ---------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 import {
+  belegPayloadSchema,
   bugHuntPayloadSchema,
+  checkBeleg,
   checkBugHunt,
   checkCodeReihenfolge,
   checkPhishing,
@@ -18,6 +20,7 @@ import {
   rechenFrage,
   rechenLoesung,
   rechensprintPayloadSchema,
+  shapeBelege,
   shapeBugHunt,
   shapeCodeReihenfolge,
   shapePhishing,
@@ -25,6 +28,7 @@ import {
   sprintAbschlussInputSchema,
   sprintAntwortInputSchema,
   sprintStartInputSchema,
+  submitBelegInputSchema,
   submitBugHuntInputSchema,
   submitReihenfolgeInputSchema,
   submitPhishingInputSchema,
@@ -414,6 +418,25 @@ export const gameRouter = router({
     const payload = phishingPayloadSchema.parse(row.payload);
     const result = checkPhishing(payload, input.nummer, input.markiert, input.urteil);
     await recordListResult(ctx, row.id, input.nummer, payload.mails.length, result.correct);
+    return result;
+  }),
+
+  // -------------------------------------------------------------------------
+  // Beleg-Detektiv (F-196)
+  // -------------------------------------------------------------------------
+
+  getBeleg: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "belegdetektiv", input.setKey);
+    const payload = belegPayloadSchema.parse(row.payload);
+    const state = parseSolvedListState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
+    return { belege: shapeBelege(payload, state.solvedNumbers), abschlussmeldung: payload.abschlussmeldung };
+  }),
+
+  submitBeleg: protectedProcedure.input(submitBelegInputSchema).mutation(async ({ ctx, input }) => {
+    const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "belegdetektiv", input.setKey);
+    const payload = belegPayloadSchema.parse(row.payload);
+    const result = checkBeleg(payload, input.nummer, input.markiert, input.urteil);
+    await recordListResult(ctx, row.id, input.nummer, payload.belege.length, result.correct);
     return result;
   }),
 

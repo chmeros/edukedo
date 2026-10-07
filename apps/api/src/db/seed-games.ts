@@ -2,8 +2,11 @@ import { kennzahlenDuellPayloadSchema, kreuzwortraetselPayloadSchema, memoryPayl
 import { eq } from "drizzle-orm";
 import { db, pool } from "./client";
 import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
+import { belegdetektivEinkauf } from "./content/game-belegdetektiv-einkauf";
+import { phishingFrachtBetrug } from "./content/game-phishing-fracht-betrug";
 import { prozessSets } from "./content/game-prozessreihenfolge";
 import {
+  belegPayloadSchema,
   bugHuntPayloadSchema,
   codeReihenfolgePayloadSchema,
   DEFAULT_GAME_SET_KEY,
@@ -512,6 +515,18 @@ async function main() {
   for (const set of prozessSets) {
     await upsertGame(set.slug, "prozessreihenfolge", set.titel, prozessReihenfolgePayloadSchema.parse(set.payload), set.setKey);
   }
+
+  // F-196: Beleg-Detektiv (Wareneingang und Rechnungsprüfung) für Kurse mit Beschaffung, Betrugs-Detektiv für Transport/Logistik.
+  for (const slug of ["handelsfachwirt", "industriefachwirt", "technischer-fachwirt", "wirtschaftsfachwirt", "fachwirt-buero-projektorganisation"]) {
+    await upsertGame(slug, "belegdetektiv", "Beleg-Detektiv: Wareneingang und Rechnungsprüfung", belegPayloadSchema.parse(belegdetektivEinkauf), "belege");
+  }
+  await upsertGame(
+    "transport-management-logistics",
+    "phishing",
+    "Betrugs-Detektiv: Fake-Spedition und Frachtbetrug",
+    phishingPayloadSchema.parse(phishingFrachtBetrug),
+    "fracht-betrug",
+  );
 
   await pool.end();
 }

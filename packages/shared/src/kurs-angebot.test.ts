@@ -186,6 +186,18 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Beleg-Detektiv und Betrugs-Detektiv (F-196): Sets nur in den vorgesehenen Kursen", () => {
+    for (const slug of ["industriefachwirt", "technischer-fachwirt", "wirtschaftsfachwirt", "handelsfachwirt", "fachwirt-buero-projektorganisation"]) {
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "belegdetektiv", "belege"), slug).toBe("kern");
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "phishing", "fracht-betrug"), slug).toBeNull();
+    }
+    expect(angebotSpiel(KURS_ANGEBOT["transport-management-logistics"], "phishing", "fracht-betrug")).toBe("kern");
+    expect(angebotSpiel(KURS_ANGEBOT["transport-management-logistics"], "belegdetektiv", "belege")).toBeNull();
+    for (const slug of ["immobilienfachwirt", "versicherungen-finanzanlagen", "fachwirt-gesundheit-soziales", "ausbildung-der-ausbilder"]) {
+      expect(angebotSpiel(KURS_ANGEBOT[slug], "belegdetektiv", "belege"), slug).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);

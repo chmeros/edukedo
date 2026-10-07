@@ -567,6 +567,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-196: Beleg-Detektiv und Betrugs-Detektiv)
+
+- **Anlass:** Phase 2 der Kursprofile, dritter gemeinsamer Baustein (S-KF-02 „Beleg-/Fall-Detektiv“, Handel S-HAN-04, Logistik S-LOG-04). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Eigener Spieltyp statt umgewidmetem Phishing:** `belegdetektiv` hat ein eigenes Payload (`belege` mit `felder`, `auffaellig`, `hatFehler`, `situation`, freie Feldüberschrift `ort`), weil der Phishing-Detektiv feste Orte (Absender, Betreff, Link, Anhang) und das Urteil „phishing/echt“ kennt. Die Prüf- und Spielstandlogik ist bewusst eine Kopie im Kleinen (`shapeBelege`, `checkBeleg`, Spielstand als Liste gelöster Nummern); zwei Zeilen Logik zu teilen hätte beide Spiele aneinander gebunden. Die Oberfläche (`BelegDetektiv`) benutzt die vorhandenen Phishing-Stile.
+- **Validierung im Schema:** Ein fehlerfreier Beleg darf kein auffälliges Feld enthalten, ein fehlerhafter braucht mindestens eines; Feld-IDs sind je Beleg eindeutig. Dadurch lassen sich keine widersprüchlichen Belege seeden.
+- **Router:** `getBeleg`/`submitBeleg`; `shapeBelege` liefert weder `auffaellig` noch Erklärungen noch das Gesamturteil (per Test belegt), die Antwort enthält nach dem Versuch Erklärung je Feld und Auflösung.
+- **Inhalte (R3/R4):** Das Beleg-Set besteht aus acht frei erfundenen Einkaufsfällen ohne Rechtsfragen (keine Mängelrüge-Fristen, keine Umsatzsteuersätze, keine Zahlungsverzugsregeln). Ein Test rechnet jede Gleichung „Menge × Einzelpreis = Summe“ in den Belegen nach. Das Betrugs-Set für Transport/Logistik nutzt den vorhandenen Phishing-Detektiv mit eigenem Set `fracht-betrug`; Domains sind `.example` und `.test`, ein Test lässt keine echten Domains zu. Die Hinweise sind Erfahrungsregeln (Rückruf, Zweitweg für Bankdaten, Abholer prüfen), keine Rechtsaussagen. Beide Sets sind in den vorgesehenen Kursen freigegeben; Prüfblatt 22 steht für die Fachprüfung bereit.
+- **Bewusst nicht enthalten:** Betriebskostenabrechnung (Immobilien), Schadenmeldung (Versicherung) und Exposé: Hier entscheiden Rechtsregeln, ob etwas ein Fehler ist; das gehört zur Fachprüfung der Welle 3.
+- **Tests:** game-beleg.test.ts (Set gültig, Markierungen und Urteil, nichts verraten, Summen nachgerechnet, Betrugs-Set ohne echte Domains), kurs-angebot.test.ts und ein Integrationstest in game-weitere.integration.test.ts. Live geprüft: Handelsfachwirt, Kachel „Beleg-Detektiv“, erster Beleg (Lieferschein und Rechnung markiert, „Beanstanden“) mit Erklärungen und Auflösung.
+
 ### Entschieden am 07.10.2026 (F-195: Prozess-Reihenfolge)
 
 - **Anlass:** Phase 2 der Kursprofile, zweiter gemeinsamer Baustein (S-FW-02, auch in den Blättern für Büro, AEVO und die Fachinformatiker genannt). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“

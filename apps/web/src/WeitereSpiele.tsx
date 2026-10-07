@@ -223,6 +223,135 @@ export function PhishingDetektiv({ kursId, setKey, title, onClose }: SpielProps)
 }
 
 // ---------------------------------------------------------------------------
+// Beleg-Detektiv (F-196): gleiche Bedienung wie der Phishing-Detektiv, aber für Geschäftsbelege
+// ---------------------------------------------------------------------------
+
+export function BelegDetektiv({ kursId, setKey, title, onClose }: SpielProps) {
+  const utils = trpc.useUtils();
+  const data = trpc.game.getBeleg.useQuery({ kursId, setKey });
+  const zeiger = useAufgabenZeiger(data.data?.belege);
+  const [markiert, setMarkiert] = useState<Set<string>>(new Set());
+  const [urteil, setUrteil] = useState<"in_ordnung" | "beanstanden" | null>(null);
+
+  const submit = trpc.game.submitBeleg.useMutation({
+    onSuccess: (result) => {
+      if (result.correct) {
+        utils.game.getBeleg.invalidate({ kursId, setKey });
+      }
+    },
+  });
+
+  if (data.isLoading) return <p>Lädt…</p>;
+  if (data.error || !data.data) return <ErrorMessage>Das Spiel konnte nicht geladen werden.</ErrorMessage>;
+  const belege = data.data.belege;
+  const beleg = belege[zeiger.index];
+  if (!beleg) return <SpielRahmen title={title} onClose={onClose}><Abschluss meldung={data.data.abschlussmeldung} onClose={onClose} /></SpielRahmen>;
+  const ergebnis = submit.data && submit.variables?.nummer === beleg.nummer ? submit.data : null;
+
+  function toggle(id: string) {
+    if (ergebnis) return;
+    setMarkiert((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function reset() {
+    submit.reset();
+    setMarkiert(new Set());
+    setUrteil(null);
+  }
+
+  function naechster() {
+    reset();
+    zeiger.weiter();
+  }
+
+  return (
+    <SpielRahmen title={title} onClose={onClose}>
+      <div className="stack">
+        <Fortschrittszeile index={zeiger.index} total={belege.length} titel={beleg.titel} />
+        <p>{beleg.situation}</p>
+        <p className="field-hint">Tippe auf alle Angaben, die nicht stimmen, und entscheide dann, ob der Vorgang in Ordnung ist oder beanstandet werden muss.</p>
+        <div className="phishing-mail">
+          {beleg.felder.map((feld) => {
+            const erklaerung = ergebnis?.felder.find((entry) => entry.id === feld.id);
+            let className = "phishing-element";
+            if (erklaerung) {
+              if (erklaerung.auffaellig && erklaerung.markiert) className += " is-correct";
+              else if (erklaerung.auffaellig) className += " is-missed";
+              else if (erklaerung.markiert) className += " is-wrong-mark";
+            } else if (markiert.has(feld.id)) {
+              className += " is-marked";
+            }
+            return (
+              <button key={feld.id} type="button" className={className} aria-pressed={markiert.has(feld.id)} onClick={() => toggle(feld.id)}>
+                <span className="phishing-label">{feld.ort}</span>
+                {feld.text}
+                {erklaerung && (
+                  <span className="phishing-explain">
+                    {erklaerung.auffaellig ? (erklaerung.markiert ? "✔ Erkannt. " : "✘ Übersehen. ") : erklaerung.markiert ? "✘ Fälschlich markiert. " : ""}
+                    {erklaerung.erklaerung}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {!ergebnis ? (
+          <div className="stack">
+            <div className="list-row-actions" role="group" aria-label="Dein Urteil">
+              <button type="button" className={urteil === "in_ordnung" ? "btn btn-primary" : "btn btn-secondary"} aria-pressed={urteil === "in_ordnung"} onClick={() => setUrteil("in_ordnung")}>
+                In Ordnung
+              </button>
+              <button type="button" className={urteil === "beanstanden" ? "btn btn-primary" : "btn btn-secondary"} aria-pressed={urteil === "beanstanden"} onClick={() => setUrteil("beanstanden")}>
+                Beanstanden
+              </button>
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              style={{ alignSelf: "flex-start" }}
+              disabled={!urteil || submit.isPending}
+              onClick={() => urteil && submit.mutate({ kursId, setKey, nummer: beleg.nummer, markiert: [...markiert], urteil })}
+            >
+              Prüfen
+            </button>
+            {submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
+          </div>
+        ) : (
+          <div className="stack">
+            <p role="status" className={ergebnis.correct ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
+              {ergebnis.correct
+                ? "Richtig erkannt!"
+                : ergebnis.urteilRichtig
+                  ? "Dein Urteil stimmt, aber bei den markierten Angaben war nicht alles richtig."
+                  : ergebnis.hatFehler
+                    ? "Hier war etwas zu beanstanden."
+                    : "Dieser Vorgang war in Ordnung."}{" "}
+              {ergebnis.aufloesung}
+            </p>
+            <div className="list-row-actions">
+              {!ergebnis.correct && (
+                <button type="button" className="btn btn-secondary" onClick={reset}>
+                  Nochmal versuchen
+                </button>
+              )}
+              <button type="button" className="btn btn-primary" onClick={naechster}>
+                {zeiger.index + 1 < belege.length ? "Nächster Beleg" : "Fertig"}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </SpielRahmen>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Bug-Hunt
 // ---------------------------------------------------------------------------
 

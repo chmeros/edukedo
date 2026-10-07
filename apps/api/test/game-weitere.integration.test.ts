@@ -76,6 +76,29 @@ describe("F-158: weitere Spiele und Sets", () => {
         },
         "prozesse",
       ),
+      alsSpiel(
+        "belegdetektiv",
+        "Beleg-Detektiv",
+        {
+          belege: [
+            {
+              nummer: 1,
+              titel: "Ordner",
+              situation: "Vergleiche die Belege.",
+              felder: [
+                { id: "a", ort: "Bestellung", text: "10 Ordner zu 2,00 €", auffaellig: false, erklaerung: "Vergleichsbasis." },
+                { id: "b", ort: "Lieferschein", text: "8 Ordner geliefert", auffaellig: true, erklaerung: "Zwei fehlen." },
+                { id: "c", ort: "Rechnung", text: "10 Ordner = 20,00 €", auffaellig: true, erklaerung: "Zu viel berechnet." },
+                { id: "d", ort: "Zahlungsbedingung", text: "30 Tage netto", auffaellig: false, erklaerung: "Unauffällig." },
+              ],
+              hatFehler: true,
+              aufloesung: "Es wurden 8 geliefert, aber 10 berechnet.",
+            },
+          ],
+          abschlussmeldung: "Geschafft",
+        },
+        "belege",
+      ),
       alsSpiel("rechensprint", "Rechen-Sprint", { aufgabenTypen: ["skonto", "raid"], anzahl: 4, abschlussmeldung: "Geschafft" }, "rechnen"),
     ]);
 
@@ -204,6 +227,22 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect(richtig.erklaerung).toBe("Erst der Bedarf.");
     const fremd = await post("game.submitReihenfolge", { kursId, gameType: "codereihenfolge", nummer: 1, reihenfolge: schritte.map(idVon) });
     expect(fremd.statusCode).toBe(400);
+  });
+
+  it("Beleg-Detektiv (F-196): liefert keine Lösung, wertet Markierungen und Urteil", async () => {
+    const data = (await get("game.getBeleg", { kursId, setKey: "belege" })).json().result.data;
+    expect(data.belege).toHaveLength(1);
+    expect(JSON.stringify(data)).not.toContain("auffaellig");
+    expect(JSON.stringify(data)).not.toContain("Zwei fehlen");
+    const falsch = (await post("game.submitBeleg", { kursId, setKey: "belege", nummer: 1, markiert: ["b"], urteil: "beanstanden" })).json().result.data;
+    expect(falsch.correct).toBe(false);
+    expect(falsch.urteilRichtig).toBe(true);
+    expect(falsch.markierungenRichtig).toBe(false);
+    const richtig = (await post("game.submitBeleg", { kursId, setKey: "belege", nummer: 1, markiert: ["b", "c"], urteil: "beanstanden" })).json().result.data;
+    expect(richtig.correct).toBe(true);
+    expect(richtig.aufloesung).toBe("Es wurden 8 geliefert, aber 10 berechnet.");
+    const unbekannt = await post("game.submitBeleg", { kursId, setKey: "belege", nummer: 99, markiert: [], urteil: "in_ordnung" });
+    expect(unbekannt.statusCode).not.toBe(200);
   });
 
   it("Rechen-Sprint (F-194): Aufgaben aus dem Set, Eingabe in deutschem Format wird akzeptiert, Token nur für das eigene Spiel", async () => {

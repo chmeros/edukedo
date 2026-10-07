@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Beleg-Detektiv (F-196): Set "belege" (Wareneingang, Rechnungsprüfung) in fünf Kursen, Phishing-Set "fracht-betrug" in Transport/Logistik, beide freigegeben (frei erfundene Fälle ohne Rechtsaussagen).
  * Rechen-Sprint (F-194): Die Sets "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; das Set "kennzahlen" (Lager, OEE) steht bewusst nicht in den Listen, bis die Rechenkonventionen (360 Tage, Andler-Annahmen, OEE) fachlich geprüft sind.
  * Freigabe: je Kurs `["kreuzwortraetsel", "fachbegriffe", "kern"]` und `["memory", "begriff-paare", "kern"]` an die Stelle des Platzhalters setzen.
  */
@@ -346,6 +347,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "belege", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -361,6 +363,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "belege", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -375,6 +378,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "kern"],
       ["rechensprint", "rechnen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "belege", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -390,6 +394,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["phishing", "fracht-betrug", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -405,6 +410,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "belege", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -447,6 +453,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "projektmanagement", "kern"],
       ["memory", null, "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "belege", "kern"],
     ]),
     lernpfade: ["bsc"],
     szenarien: {},

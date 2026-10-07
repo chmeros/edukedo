@@ -1,6 +1,7 @@
 import { GameItemNotFoundError } from "./game-logic";
 import { shuffle } from "./quiz-logic";
 import type {
+  BelegPayload,
   BugHuntPayload,
   CodeReihenfolgePayload,
   PhishingPayload,
@@ -71,6 +72,56 @@ export function checkPhishing(
       erklaerung: element.erklaerung,
     })),
     aufloesung: mail.aufloesung,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Beleg-Detektiv (F-196)
+// ---------------------------------------------------------------------------
+
+export interface ShapedBeleg {
+  nummer: number;
+  titel: string;
+  situation: string;
+  felder: { id: string; ort: string; text: string }[];
+  geloest: boolean;
+}
+
+/** Liefert die Felder ohne `auffaellig`, `erklaerung` und `hatFehler`. */
+export function shapeBelege(payload: BelegPayload, solvedNumbers: number[]): ShapedBeleg[] {
+  const solved = new Set(solvedNumbers);
+  return payload.belege.map((beleg) => ({
+    nummer: beleg.nummer,
+    titel: beleg.titel,
+    situation: beleg.situation,
+    felder: beleg.felder.map((feld) => ({ id: feld.id, ort: feld.ort, text: feld.text })),
+    geloest: solved.has(beleg.nummer),
+  }));
+}
+
+export interface BelegErgebnis {
+  /** Urteil UND Markierungen stimmen. */
+  correct: boolean;
+  urteilRichtig: boolean;
+  markierungenRichtig: boolean;
+  hatFehler: boolean;
+  felder: { id: string; auffaellig: boolean; markiert: boolean; erklaerung: string }[];
+  aufloesung: string;
+}
+
+export function checkBeleg(payload: BelegPayload, nummer: number, markiert: string[], urteil: "in_ordnung" | "beanstanden"): BelegErgebnis {
+  const beleg = payload.belege.find((candidate) => candidate.nummer === nummer);
+  if (!beleg) throw new GameItemNotFoundError("Beleg nicht gefunden.");
+  const markedSet = new Set(markiert);
+  const urteilRichtig = (urteil === "beanstanden") === beleg.hatFehler;
+  const markierungenRichtig = beleg.felder.every((feld) => markedSet.has(feld.id) === feld.auffaellig);
+  return {
+    correct: urteilRichtig && markierungenRichtig,
+    urteilRichtig,
+    markierungenRichtig,
+    hatFehler: beleg.hatFehler,
+    felder: beleg.felder.map((feld) => ({ id: feld.id, auffaellig: feld.auffaellig, markiert: markedSet.has(feld.id), erklaerung: feld.erklaerung })),
+    aufloesung: beleg.aufloesung,
   };
 }
 
