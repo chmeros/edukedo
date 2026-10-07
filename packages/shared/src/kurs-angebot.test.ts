@@ -198,6 +198,15 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Finanzrechner (F-197): Werkzeug nur in den sechs Kursen mit Finanzrechnung", () => {
+    for (const slug of ["industriefachwirt", "technischer-fachwirt", "wirtschaftsfachwirt", "handelsfachwirt", "immobilienfachwirt", "versicherungen-finanzanlagen"]) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "finanzrechner"), slug).toBe("kern");
+    }
+    for (const slug of ["fachinformatiker-anwendungsentwicklung", "fachinformatiker-systemintegration", "ausbildung-der-ausbilder", "fachwirt-gesundheit-soziales", "transport-management-logistics"]) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "finanzrechner"), slug).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);

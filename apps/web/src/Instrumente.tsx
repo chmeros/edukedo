@@ -25,6 +25,7 @@ import {
   BeschaffungIllustration,
   BeurteilungsfehlerIllustration,
   FertigungsverfahrenIllustration,
+  FinanzrechnerIllustration,
   GitIllustration,
   HandlungsfelderIllustration,
   KalkulationIllustration,
@@ -86,6 +87,7 @@ import {
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
+import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
 import { SqlUebungsflaeche } from "./SqlUebung";
@@ -591,6 +593,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Netzwerk bauen",
   },
+  // F-197 (Finanzmathe-Kern): Zinseszins, Sparplan, Kapitalwert, Annuität und Skonto-Effektivzins, komplett im Browser.
+  {
+    type: "finanzrechner",
+    label: "Finanzrechner",
+    description: "Zinseszins, Sparplan, Kapitalwert, Annuitätendarlehen mit Tilgungsplan und Skonto-Effektivzins nachrechnen — mit Rechenweg.",
+    Illustration: FinanzrechnerIllustration,
+    werkzeug: true,
+    aktion: "Rechner öffnen",
+  },
   {
     type: "flags",
     label: "Flag-Rätsel",
@@ -636,6 +647,9 @@ export function Instrumente({
 
   if (activeWerkzeug === "netzplan") {
     return <Netzplan onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "finanzrechner") {
+    return <Finanzrechner onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "subnetting") {
     return <Subnetting onClose={() => setActiveWerkzeug(null)} />;

@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Finanzrechner (F-197): Werkzeug "finanzrechner" in Industrie-, Technischem, Wirtschafts-, Handels-, Immobilien- und Versicherungskurs freigegeben (reine Rechenverfahren, Beispielwerte, Hinweis "keine Beratung").
  * Beleg-Detektiv (F-196): Set "belege" (Wareneingang, Rechnungsprüfung) in fünf Kursen, Phishing-Set "fracht-betrug" in Transport/Logistik, beide freigegeben (frei erfundene Fälle ohne Rechtsaussagen).
  * Rechen-Sprint (F-194): Die Sets "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; das Set "kennzahlen" (Lager, OEE) steht bewusst nicht in den Listen, bis die Rechenkonventionen (360 Tage, Andler-Annahmen, OEE) fachlich geprüft sind.
  * Freigabe: je Kurs `["kreuzwortraetsel", "fachbegriffe", "kern"]` und `["memory", "begriff-paare", "kern"]` an die Stelle des Platzhalters setzen.
@@ -340,7 +341,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Incoterms (ICC-Regelwerk) erst nach der Freigabe des Prüfblatts 13 aufnehmen.
   industriefachwirt: {
     instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa", "kalkulation"]),
-    werkzeuge: [],
+    werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "kosten-leistungen", "kern"],
@@ -356,7 +357,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Instandhaltung nach DIN 31051 (Normbegriffe) erst nach der Freigabe des Prüfblatts 14 aufnehmen.
   "technischer-fachwirt": {
     instrumente: liste([...OHNE(), "fertigungsverfahren", "top", "ishikawa6m", "kalkulation"]),
-    werkzeuge: [],
+    werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "technische-unterscheidungen", "kern"],
@@ -371,7 +372,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Investitionsrechenverfahren, Vier-Seiten-Modell und das Duell "finanzierung-controlling" sind freigegeben (Welle 2b, 06.10.2026).
   wirtschaftsfachwirt: {
     instrumente: liste([...OHNE("gantt"), "investition", "vierseiten"]),
-    werkzeuge: [],
+    werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "finanzierung-controlling", "kern"],
@@ -403,7 +404,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // (Nutzer-Entscheidung vom 06.10.2026: die drei Fragen mit Außenhandelsrecht wurden durch Fragen ohne Rechtsbezug ersetzt).
   handelsfachwirt: {
     instrumente: liste([...OHNE(), "abc", "xyz", "handelskalkulation", "kraljic"]),
-    werkzeuge: [],
+    werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "handel-aehnlich", "kern"],
@@ -420,7 +421,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // "standard" begrenzt.
   immobilienfachwirt: {
     instrumente: liste([...OHNE(), "wertermittlung"]),
-    werkzeuge: liste(["netzplan"]),
+    werkzeuge: liste(["netzplan", "finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],
@@ -434,7 +435,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // "standard" begrenzt.
   "versicherungen-finanzanlagen": {
     instrumente: liste([...OHNE(), "versicherungskennzahlen"]),
-    werkzeuge: liste(["netzplan"]),
+    werkzeuge: liste(["netzplan", "finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "kern"],
       ["kennzahlen_duell", "standard", "kern"],

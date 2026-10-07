@@ -1552,6 +1552,24 @@ export function NetzplanIllustration() {
   );
 }
 
+// F-197: Finanzrechner (Zinseszins als wachsende Säulen mit Prozentzeichen).
+export function FinanzrechnerIllustration() {
+  const saeulen = [22, 30, 40, 52, 66, 82];
+  return (
+    <Frame background="var(--sprout-tint)">
+      <path d="M40 116h240" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      {saeulen.map((hoehe, index) => (
+        <rect key={index} x={52 + index * 38} y={116 - hoehe} width="26" height={hoehe} rx="4" fill={index === saeulen.length - 1 ? "var(--sprout)" : "var(--sprout-deep)"} fillOpacity={index === saeulen.length - 1 ? 1 : 0.55} />
+      ))}
+      <path d="M62 84 100 76 138 66 176 52 214 36 252 22" fill="none" stroke="var(--coral-deep)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="252" cy="22" r="5" fill="var(--coral-deep)" />
+      <text x="40" y="34" fontSize="22" fontWeight="700" fill="var(--sprout-deep)">
+        %
+      </text>
+    </Frame>
+  );
+}
+
 // F-166: Subnetting-Rechner.
 
 export function SubnettingIllustration() {

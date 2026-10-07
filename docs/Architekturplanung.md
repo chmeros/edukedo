@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-197: Finanzmathe-Kern / Finanzrechner)
+
+- **Anlass:** Phase 2 der Kursprofile, vierter gemeinsamer Baustein (W-KF-01; Nutzer in Immobilien W-IMM-03, Versicherung, Handel, Wirtschaft und Industrie). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Reine Rechenlogik in `packages/shared/src/finanzmathe.ts`:** `aufzinsen`, `sparplanEndwert`, `barwert`, `kapitalwert`, `annuitaetendarlehen`, `skontoEffektivzins`. Jede Funktion prüft ihre Eingaben und liefert `{ ok: true, wert }` oder `{ ok: false, fehler }` mit verständlicher Meldung (Zinssatz 0 bis 100 Prozent, Laufzeit ganze Jahre von 1 bis 60, Beträge bis 1 Milliarde). Geldbeträge werden erst bei der Ausgabe auf Cent gerundet.
+- **Eine Konvention, offen genannt:** Jährliche Verzinsung und nachschüssige Zahlungen (Jahresende) für alle Reiter. Das steht im Hinweis oberhalb des Rechners und in den Rechenwegen. Monatliche Raten und unterjährige Verzinsung fehlen bewusst, weil sie je nach Lehrbuch und Bank anders gerechnet werden (Risiko aus W-KF-01).
+- **Tilgungsplan:** Die Annuität wird auf Cent gerundet; Zinsen je Jahr gleich Restschuld mal Zinssatz, Tilgung gleich Annuität minus Zinsen. Im letzten Jahr wird die Restschuld vollständig getilgt, damit der Plan mit genau 0 € endet; die Summe der Tilgungen ist per Test (viele Kombinationen aus Darlehen, Zins, Laufzeit) immer das Darlehen.
+- **Skonto-Effektivzins:** Lineare Näherung mit 360 Tagen (Zins gleich Skonto durch (100 minus Skonto) mal 360 durch Finanzierungstage), im Rechenweg als Näherung gekennzeichnet; der Hinweis nennt, dass Zinseszins höhere Werte ergäbe.
+- **Compliance (Rahmenfrage R7):** Beispielwerte statt Marktdaten, Hinweis „Lernwerkzeug, keine Anlage- oder Finanzierungsberatung, keine Prognose“, keine Steuer, nichts gespeichert. Der Sparplan-Reiter und der Darlehens-Reiter sagen zusätzlich „kein Renditeversprechen“ bzw. „kein Angebot“. Die Immobilien-Rechner mit Kaufnebenkosten und Mietrendite (W-IMM-03) bleiben Phase 3, weil sie Steuersätze und Nebenkosten enthalten.
+- **Einbindung:** `finanzrechner` ist in `KATALOG_WERKZEUGE` und in `werkzeuge` der sechs Kurse (Industrie, Technik, Wirtschaft, Handel, Immobilien, Versicherung); die Oberfläche `Finanzrechner.tsx` folgt dem Subnetting-Rechner (Reiter mit Tastaturbedienung, Tabellen im vorhandenen Stil), eigene Kachel-Illustration. Die Werkzeug-Freigabe kommt wie bei den anderen Werkzeugen aus `kurs.metadata`, daher `db:apply-kurs-metadata` nach der Änderung.
+- **Tests:** finanzmathe.test.ts (Beispielwerte per Handrechnung, Tilgungsplan-Regeln für 48 Kombinationen, Fehlermeldungen), kurs-angebot.test.ts (nur sechs Kurse). Live geprüft: Handelsfachwirt, Kachel „Finanzrechner“, Zinseszins (13.439,16 €) und Annuitätendarlehen (14.072,22 €) mit Rechenweg und Tabelle.
+
 ### Entschieden am 07.10.2026 (F-196: Beleg-Detektiv und Betrugs-Detektiv)
 
 - **Anlass:** Phase 2 der Kursprofile, dritter gemeinsamer Baustein (S-KF-02 „Beleg-/Fall-Detektiv“, Handel S-HAN-04, Logistik S-LOG-04). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
