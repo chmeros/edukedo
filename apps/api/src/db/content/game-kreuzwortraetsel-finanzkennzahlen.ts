@@ -184,7 +184,7 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     {
       nummer: 18,
       hinweis: "Wird bei der Vertragserfüllung geprüft: Entspricht die Lieferung den vereinbarten Eigenschaften?",
-      tipp: "Acht Buchstaben; beginnt mit Q.",
+      tipp: "Neun Buchstaben; beginnt mit Q.",
       loesung: "QUALITAET",
       bestaetigung: "Genau! Neben Lieferfristen und Zahlungsfluss gehört die Qualität zur Kontrolle der Vertragserfüllung.",
     },
@@ -198,7 +198,7 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     {
       nummer: 20,
       hinweis: "Aufgabe, die Waren und Dienstleistungen für das Unternehmen besorgt.",
-      tipp: "Ein Wort aus dem Alltag; beginnt mit E.",
+      tipp: "Die zuständige Abteilung heißt oft Beschaffung.",
       loesung: "EINKAUF",
       bestaetigung: "Genau! Der Einkauf koordiniert die Beschaffung und berücksichtigt dabei auch Nachhaltigkeitsaspekte.",
     },
@@ -212,21 +212,21 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     {
       nummer: 22,
       hinweis: "Eingesetzte Zeit, Mühe und Mittel, die für ein Ergebnis nötig sind.",
-      tipp: "Die Wirtschaftlichkeit setzt ihn ins Verhältnis zum Nutzen.",
+      tipp: "Das Eingesetzte beim Wirtschaftlichkeitsvergleich.",
       loesung: "AUFWAND",
       bestaetigung: "Richtig! Die Wirtschaftlichkeit beschreibt das Verhältnis von Aufwand und Nutzen, etwa bei der Projektevaluation.",
     },
     {
       nummer: 23,
       hinweis: "Wertmäßiger Aufwand, den ein Vorgang oder ein Projekt verursacht.",
-      tipp: "Gegenstück zum Nutzen.",
+      tipp: "Werden in Euro gemessen und im Budget geplant.",
       loesung: "KOSTEN",
       bestaetigung: "Richtig! Kosten je Vorgang sind ein Beispiel für eine Kostenkennzahl.",
     },
     {
       nummer: 24,
       hinweis: "Vorteil, den eine Entscheidung bringt; er wird bewertet und abgewogen.",
-      tipp: "Wird beim Vergleich mit dem Aufwand bewertet.",
+      tipp: "Die positive Seite beim Wirtschaftlichkeitsvergleich.",
       loesung: "NUTZEN",
       bestaetigung: "Genau! Die Kosten-Nutzen-Rechnung macht Entscheidungen nachvollziehbarer und weniger subjektiv.",
     },

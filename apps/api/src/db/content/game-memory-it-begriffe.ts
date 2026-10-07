@@ -293,7 +293,7 @@ export const memoryItBegriffe: MemoryPayload = {
       nummer: 38,
       runde: 4,
       begriff: "Pseudonymisierung",
-      bedeutung: "Namen werden durch Kennungen ersetzt",
+      bedeutung: "Identifizierende Angaben werden durch Kennungen ersetzt",
       bestaetigung: "Genau! Mit getrennt aufbewahrten Zusatzinformationen ist die Zuordnung noch möglich, die Daten bleiben personenbezogen.",
     },
     {

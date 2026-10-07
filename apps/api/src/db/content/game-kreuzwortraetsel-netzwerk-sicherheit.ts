@@ -212,7 +212,7 @@ export const kreuzwortraetselNetzwerkSicherheit: KreuzwortraetselPayload = {
     {
       nummer: 21,
       hinweis: "Simulierter Angriff, der zeigt, ob ein Angreifer in ein System eindringen könnte.",
-      tipp: "Nur mit ausdrücklicher schriftlicher Beauftragung zulässig.",
+      tipp: "Kurzform von Penetrationstest.",
       loesung: "PENTEST",
       bestaetigung: "Richtig! Ein Penetrationstest (kurz Pentest) darf nur mit ausdrücklicher Beauftragung und Freigabe durchgeführt werden.",
     },
@@ -225,8 +225,8 @@ export const kreuzwortraetselNetzwerkSicherheit: KreuzwortraetselPayload = {
     },
     {
       nummer: 23,
-      hinweis: "Nachweisart bei der Anmeldung: Wissen, Besitz oder Eigenschaft.",
-      tipp: "Beispiele: Passwort, Smartphone-Token, Fingerabdruck.",
+      hinweis: "Eine der Nachweisarten Wissen, Besitz oder Eigenschaft bei der mehrstufigen Anmeldung.",
+      tipp: "Das F in 2FA steht dafür.",
       loesung: "FAKTOR",
       bestaetigung: "Richtig! Mehrere unterschiedliche Faktoren zu kombinieren schützt auch dann, wenn ein Passwort abgegriffen wurde.",
     },
