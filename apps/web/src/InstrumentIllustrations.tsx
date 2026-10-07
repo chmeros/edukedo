@@ -1552,6 +1552,24 @@ export function NetzplanIllustration() {
   );
 }
 
+// F-198: Arbeitszeit-Prüfer (Uhr mit Arbeits- und Pausenabschnitt, daneben Häkchen).
+export function ArbeitszeitIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <circle cx="120" cy="70" r="44" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="3" />
+      <path d="M120 70 120 34" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      <path d="M120 70 146 84" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      <path d="M120 26a44 44 0 0 1 38 22" fill="none" stroke="var(--sprout)" strokeWidth="8" strokeLinecap="round" />
+      <path d="M160 52a44 44 0 0 1 4 36" fill="none" stroke="var(--sun)" strokeWidth="8" strokeLinecap="round" />
+      <rect x="196" y="40" width="80" height="14" rx="5" fill="var(--sprout)" />
+      <rect x="196" y="62" width="56" height="14" rx="5" fill="var(--sprout)" />
+      <rect x="256" y="62" width="20" height="14" rx="5" fill="var(--sun)" />
+      <rect x="196" y="84" width="80" height="14" rx="5" fill="var(--sprout)" />
+      <path d="m262 108 7 7 13-15" fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
 // F-197: Finanzrechner (Zinseszins als wachsende Säulen mit Prozentzeichen).
 export function FinanzrechnerIllustration() {
   const saeulen = [22, 30, 40, 52, 66, 82];

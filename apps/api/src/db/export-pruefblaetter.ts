@@ -32,6 +32,7 @@ import { memoryHandel } from "./content/game-memory-handel";
 import { kreuzwortraetselImmobilien } from "./content/game-kreuzwortraetsel-immobilien";
 import { memoryImmobilien } from "./content/game-memory-immobilien";
 import { kreuzwortraetselVersicherung } from "./content/game-kreuzwortraetsel-versicherung";
+import { formatDauer, REGEL_STAND, REGELN } from "@edukedo/shared";
 import { belegdetektivEinkauf } from "./content/game-belegdetektiv-einkauf";
 import { phishingFrachtBetrug } from "./content/game-phishing-fracht-betrug";
 import { prozessSets } from "./content/game-prozessreihenfolge";
@@ -1508,6 +1509,43 @@ const SPIELE_KURSE: SpieleKurs[] = [
   { titel: "Versicherungen/Finanzanlagen", hinweis: "**Versicherungsrecht (Grundbegriffe):** Prämie, Zuschlag, Fragebogen, Wartezeit, Haftzeit, Regress, Unterversicherung, Storno — viele Definitionen bewusst vereinfacht.", kreuz: kreuzwortraetselVersicherung, memory: memoryVersicherung },
 ];
 
+function arbeitszeitBlatt(): string {
+  const teile: string[] = [
+    "# Prüfblatt Werkzeug — Arbeitszeit-Prüfer (F-198)",
+    "",
+    "Stand 07.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Noch in keinem Kurs sichtbar** (Rahmenentscheidung R4: Recht bleibt bis zur Fachprüfung gesperrt). Freigabe: Werkzeug arbeitszeit in die Werkzeugliste von Gesundheit/Soziales (Erwachsene, ArbZG) und AEVO (Jugendliche, JArbSchG) in kurs-angebot.ts eintragen, dann db:apply-kurs-metadata.",
+    "",
+    "**Was das Werkzeug tut:** Lernende tragen eine Arbeitswoche ein (Beginn, Ende, Pause, bei Jugendlichen den Berufsschultag). Das Werkzeug meldet je Tag **Verstoß** oder **Hinweis** mit Paragraf und prüft die Ruhezeit zwischen zwei aufeinanderfolgenden Arbeitstagen. Es speichert nichts und bewertet nichts. Sichtbarer Hinweis im Werkzeug: Übung zu den Grundregeln, keine Rechtsberatung, Stand der Regelwerte " + REGEL_STAND + ".",
+    "",
+    "**Prüffragen für die Fachperson:** (1) Stimmen die Zahlen und Paragrafen der Tabellen unten mit der geltenden Fassung überein? (2) Sind die Grundregeln als Verstoß richtig eingestuft, vor allem die Grenze 8 bis 10 Stunden bei Erwachsenen (hier nur ein Hinweis) und das Zeitfenster 6 bis 20 Uhr bei Jugendlichen? (3) Ist der Berufsschultag richtig verkürzt wiedergegeben? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.",
+    "",
+  ];
+  for (const gruppe of ["erwachsene", "jugendliche"] as const) {
+    const regeln = REGELN[gruppe];
+    teile.push("## " + (gruppe === "erwachsene" ? "Erwachsene (ArbZG)" : "Jugendliche unter 18 (JArbSchG)"), "");
+    const zeilen: string[][] = [
+      [
+        "Arbeitszeit am Tag",
+        "Bis " + formatDauer(regeln.tagNormalMin) + (regeln.tagMaxMitAusgleichMin !== null ? "; darüber bis " + formatDauer(regeln.tagMaxMitAusgleichMin) + " nur mit Ausgleich (Hinweis); mehr ist ein Verstoß" : "; darüber ist ein Verstoß"),
+        regeln.paragrafen.arbeitszeit,
+      ],
+      ["Ruhepausen", regeln.pausenStufen.map((stufe) => stufe.pauseMin + " Minuten bei mehr als " + formatDauer(stufe.abMin) + " Arbeitszeit (ohne Pausen)").join("; "), regeln.paragrafen.pause],
+      ["Ruhezeit zwischen zwei Arbeitstagen", "Mindestens " + formatDauer(regeln.ruhezeitMin), regeln.paragrafen.ruhezeit],
+    ];
+    if (regeln.fenster) zeilen.push(["Zeitfenster", "Beschäftigung grundsätzlich zwischen 06:00 und 20:00 Uhr (Branchenausnahmen nicht abgebildet)", regeln.paragrafen.fenster ?? ""]);
+    if (regeln.wocheMaxMin !== null) zeilen.push(["Woche", "Höchstens " + formatDauer(regeln.wocheMaxMin) + " an höchstens " + regeln.maxArbeitstageProWoche + " Tagen", regeln.paragrafen.woche ?? ""]);
+    if (regeln.paragrafen.berufsschule) zeilen.push(["Berufsschultag", "An einem Berufsschultag mit mehr als fünf Unterrichtsstunden (je mindestens 45 Minuten, einmal in der Woche) keine Beschäftigung im Betrieb", regeln.paragrafen.berufsschule]);
+    teile.push(tabelle(["Regel", "Wert im Werkzeug", "Paragraf"], zeilen), "");
+  }
+  teile.push(
+    "## Bewusst nicht abgebildet",
+    "",
+    "Tarifverträge, Branchen- und Pflegeausnahmen (zum Beispiel Verkürzung der Ruhezeit nach § 5 Abs. 2 ArbZG), Rufbereitschaft, Nacht- und Schichtarbeit, Sonn- und Feiertage, Samstagsregeln und Branchenausnahmen für Jugendliche (§§ 14 ff. JArbSchG), Anrechnung der Berufsschulzeit als Arbeitszeit, Mindestlänge der einzelnen Pause und die Lage der Pause. Das Werkzeug weist darauf hin.",
+    "",
+  );
+  return teile.join("\n");
+}
+
 function belegBlatt(): string {
   const teile: string[] = [
     "# Prüfblatt Spiele — Beleg-Detektiv und Betrugs-Detektiv (F-196)",
@@ -1714,6 +1752,7 @@ function uebersicht(zahlen: { terminal: number; flags: number; topologie: number
     "| [20 Spiele: Kreuzworträtsel und Memory](20-spiele-kreuzwort-memory.md) | Wort- und Paar-Pools der neun Fachwirt-Kurse und der AEVO (Wiederspielbarkeit, F-193) | siehe Blatt | Industrie, Technik, Handel und Logistik freigegeben (07.10.2026); übrige Kurse erst nach Freigabe sichtbar |",
     "| [21 Prozess-Reihenfolge](21-prozess-reihenfolge.md) | Abläufe in Fließtext für elf Kurse (Beschaffung, Kalkulation, Git, Incident u. a.) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |",
     "| [22 Beleg- und Betrugs-Detektiv](22-beleg-und-betrugs-detektiv.md) | Wareneingang und Rechnungsprüfung (fünf Kurse), Frachtbetrug (Transport/Logistik) | siehe Blatt | freigegeben am 07.10.2026, Rückmeldung der Fachprüfung offen |",
+    "| [23 Arbeitszeit-Prüfer](23-arbeitszeit-pruefer.md) | Grundregeln ArbZG und JArbSchG für Gesundheit/Soziales und AEVO | siehe Blatt | noch nicht sichtbar, Fachprüfung (Recht) nötig |",
     "",
     "**Freigabe der Kursprofil-Inhalte (Blätter 06–14):** siehe [Freigabe-Übersicht](freigabe.md) — Risiko je Instrument, offene Entscheidungen und empfohlene Reihenfolge. Die **noch gesperrten Einheiten** (Recht, Norm, Fachkenntnis) stehen nach Fachgebiet der Prüfenden geordnet in der [Prüfliste für Freigabewelle 3](freigabe-welle-3.md).",
     "",
@@ -1767,6 +1806,7 @@ function main() {
     ["20-spiele-kreuzwort-memory.md", spieleBlatt()],
     ["21-prozess-reihenfolge.md", prozessBlatt()],
     ["22-beleg-und-betrugs-detektiv.md", belegBlatt()],
+    ["23-arbeitszeit-pruefer.md", arbeitszeitBlatt()],
   ];
   for (const [name, inhalt] of dateien) {
     writeFileSync(path.join(AUSGABE, name), inhalt, "utf8");

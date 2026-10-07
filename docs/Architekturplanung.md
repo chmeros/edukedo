@@ -567,6 +567,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (F-198: Arbeitszeit-Prüfer)
+
+- **Anlass:** Letzter Baustein der Phase 2 der Kursprofile (Regelmaschine für W-GES-03 und W-AEV-03). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“
+- **Gebaut, nicht freigegeben (R4):** Das Werkzeug ist in `KATALOG_WERKZEUGE` und im Katalog der Oberfläche, steht aber in keiner Werkzeugliste von `kurs-angebot.ts`; ein Test (kurs-angebot.test.ts) hält fest, dass kein Kurs es anbietet. Freigabe heißt: `arbeitszeit` in die Werkzeugliste von Gesundheit/Soziales und AEVO eintragen und `db:apply-kurs-metadata` laufen lassen, nachdem eine Person mit Arbeitsrechtskenntnis Prüfblatt 23 gelesen hat.
+- **Regelmaschine in `packages/shared/src/arbeitszeit.ts`:** Die beiden Regelsätze stehen getrennt in `REGELN` (Zahlen, Paragrafen), die Prüfung `pruefeWoche(gruppe, tage)` ist eine reine Funktion ohne Rechtskonstanten im Code. Das ist die Vorgabe aus den Kursprofilen („Regelsätze getrennt halten“) und erlaubt, einen Regelsatz nach der Fachprüfung zu ändern, ohne die Logik anzufassen. `REGEL_STAND` ist im Werkzeug sichtbar und nennt, dass die Werte noch nicht gegen den Gesetzestext abgeglichen sind.
+- **Unterscheidung Verstoß und Hinweis:** Bei Erwachsenen sind 8 bis 10 Stunden am Tag nur ein Hinweis (zulässig mit Ausgleich innerhalb von sechs Kalendermonaten oder 24 Wochen), erst mehr als 10 Stunden ein Verstoß. Das Werkzeug kennt keinen Ausgleich über Wochen und kann ihn daher nicht prüfen. Bei Jugendlichen ist jede Überschreitung von 8 Stunden ein Verstoß.
+- **Pausen auf Basis der Arbeitszeit ohne Pausen:** Maßgeblich ist die Arbeitszeit abzüglich der eingetragenen Pause. Die Lage der Pause und die Mindestlänge je Pause (15 Minuten) werden nicht geprüft und stehen im Prüfblatt unter „bewusst nicht abgebildet“.
+- **Ruhezeit nur zwischen direkt aufeinanderfolgenden Arbeitstagen,** auch wenn die Schicht über Mitternacht geht (Ende kleiner oder gleich Beginn heißt: Folgetag). Der Wechsel von Sonntag auf Montag wird nicht geprüft, weil die Woche keinen Vorwoche-Kontext hat.
+- **Oberfläche:** `Arbeitszeitpruefer.tsx` mit Umschalter Erwachsene/Jugendliche, Wochentabelle (Zeitfelder, Pause, bei Jugendlichen Berufsschultag), aufklappbarem Regelüberblick und einer Auswertung je Tag und Woche; ohne Farbe als alleinigen Träger (Wörter „Verstoß“ und „Hinweis“). Beispielwochen zeigen je Gruppe mehrere Fälle.
+- **Tests:** arbeitszeit.test.ts (Zeitumrechnung, Regelsätze getrennt, Grenzwerte der Pausenstufen, Hinweis gegen Verstoß, Ruhezeit auch über Mitternacht, 12-Stunden-Ruhezeit, Zeitfenster, 40-Stunden-Woche, Fünf-Tage-Woche, Berufsschultag, fehlerhafte Tage). Live geprüft (mit vorübergehender Freischaltung im AEVO-Kurs, danach wieder zurückgenommen): Erwachsene-Beispielwoche mit Pausen- und Ruhezeitverstoß, Umschalten auf Jugendliche mit Berufsschulspalte.
+
 ### Entschieden am 07.10.2026 (F-197: Finanzmathe-Kern / Finanzrechner)
 
 - **Anlass:** Phase 2 der Kursprofile, vierter gemeinsamer Baustein (W-KF-01; Nutzer in Immobilien W-IMM-03, Versicherung, Handel, Wirtschaft und Industrie). Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“

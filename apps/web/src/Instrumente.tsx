@@ -24,6 +24,7 @@ import {
   HierarchieIllustration,
   BeschaffungIllustration,
   BeurteilungsfehlerIllustration,
+  ArbeitszeitIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -87,6 +88,7 @@ import {
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
+import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -602,6 +604,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Rechner öffnen",
   },
+  // F-198 (Arbeitszeit-Prüfer): Übung zu den Grundregeln von ArbZG und JArbSchG; noch in keinem Kurs freigegeben (Rechtsprüfung).
+  {
+    type: "arbeitszeit",
+    label: "Arbeitszeit-Prüfer",
+    description: "Eine Arbeitswoche eintragen und gegen die Grundregeln zu Höchstarbeitszeit, Pausen und Ruhezeit prüfen, für Erwachsene und Jugendliche.",
+    Illustration: ArbeitszeitIllustration,
+    werkzeug: true,
+    aktion: "Prüfer öffnen",
+  },
   {
     type: "flags",
     label: "Flag-Rätsel",
@@ -650,6 +661,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "finanzrechner") {
     return <Finanzrechner onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "arbeitszeit") {
+    return <Arbeitszeitpruefer onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "subnetting") {
     return <Subnetting onClose={() => setActiveWerkzeug(null)} />;

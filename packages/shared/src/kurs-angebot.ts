@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Arbeitszeit-Prüfer (F-198): Werkzeug "arbeitszeit" ist angelegt, steht aber noch in keiner Kursliste (Gesundheit/Soziales und AEVO erst nach der Rechtsprüfung der Grundregeln, Prüfblatt 23).
  * Finanzrechner (F-197): Werkzeug "finanzrechner" in Industrie-, Technischem, Wirtschafts-, Handels-, Immobilien- und Versicherungskurs freigegeben (reine Rechenverfahren, Beispielwerte, Hinweis "keine Beratung").
  * Beleg-Detektiv (F-196): Set "belege" (Wareneingang, Rechnungsprüfung) in fünf Kursen, Phishing-Set "fracht-betrug" in Transport/Logistik, beide freigegeben (frei erfundene Fälle ohne Rechtsaussagen).
  * Rechen-Sprint (F-194): Die Sets "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; das Set "kennzahlen" (Lager, OEE) steht bewusst nicht in den Listen, bis die Rechenkonventionen (360 Tage, Andler-Annahmen, OEE) fachlich geprüft sind.

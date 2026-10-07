@@ -207,6 +207,10 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Arbeitszeit-Prüfer (F-198): in keinem Kurs freigegeben (Rechtsprüfung)", () => {
+    for (const slug of Object.keys(KURS_ANGEBOT)) expect(angebotWerkzeug(KURS_ANGEBOT[slug], "arbeitszeit"), slug).toBeNull();
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);
