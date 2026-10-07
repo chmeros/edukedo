@@ -26,6 +26,7 @@ import {
   BeurteilungsfehlerIllustration,
   ArbeitszeitIllustration,
   KalkulationstrainerIllustration,
+  UnterweisungsplanIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -91,6 +92,7 @@ import {
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
 import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
 import { Handelskalkulation } from "./Handelskalkulation";
+import { Unterweisungsplaner } from "./Unterweisungsplaner";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -606,6 +608,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Rechner öffnen",
   },
+  // F-200 (Unterweisungs-Planer): Entwurf einer Unterweisung nach der Vier-Stufen-Methode im AEVO-Kurs.
+  {
+    type: "unterweisungsplan",
+    label: "Unterweisungs-Planer",
+    description: "Eine Unterweisung nach den vier Stufen planen: Ziele, Zeitplan, Medien, Lernerfolgskontrolle — mit Prüfpunkten und Entwurfsblatt.",
+    Illustration: UnterweisungsplanIllustration,
+    werkzeug: true,
+    aktion: "Unterweisung planen",
+  },
   // F-199 (Handelskalkulation-Trainer): Vorwärts-, Rückwärts- und Differenzkalkulation mit Zeilenprüfung, im Handelsfachwirt.
   {
     type: "kalkulationstrainer",
@@ -672,6 +683,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "finanzrechner") {
     return <Finanzrechner onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "unterweisungsplan") {
+    return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
   }
   if (activeWerkzeug === "kalkulationstrainer") {
     return <Handelskalkulation onClose={() => setActiveWerkzeug(null)} />;

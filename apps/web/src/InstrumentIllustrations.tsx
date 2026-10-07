@@ -1552,6 +1552,30 @@ export function NetzplanIllustration() {
   );
 }
 
+// F-200: Unterweisungs-Planer (vier ansteigende Stufen mit Häkchen auf einem Formblatt).
+export function UnterweisungsplanIllustration() {
+  const stufen = [
+    { x: 70, y: 96, farbe: "var(--sprout-tint)" },
+    { x: 118, y: 76, farbe: "var(--sun-tint)" },
+    { x: 166, y: 56, farbe: "var(--info-tint)" },
+    { x: 214, y: 36, farbe: "var(--sprout)" },
+  ];
+  return (
+    <Frame background="var(--sprout-tint)">
+      {stufen.map((stufe, index) => (
+        <g key={index}>
+          <rect x={stufe.x} y={stufe.y} width="46" height={116 - stufe.y} rx="4" fill={stufe.farbe} stroke="var(--sprout-deep)" strokeWidth="2" />
+          <text x={stufe.x + 23} y={stufe.y + 18} fontSize="14" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            {index + 1}
+          </text>
+        </g>
+      ))}
+      <path d="M32 116h256" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
+      <path d="m230 22 8 8 14-16" fill="none" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
 // F-199: Handelskalkulation-Trainer (Preisstufen vom Einkauf zum Verkauf mit Prozentzeichen).
 export function KalkulationstrainerIllustration() {
   const stufen = [

@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Unterweisungs-Planer (F-200): Werkzeug nur im AEVO-Kurs", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["ausbildung-der-ausbilder"], "unterweisungsplan")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "ausbildung-der-ausbilder")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "unterweisungsplan"), slug).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);
