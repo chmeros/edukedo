@@ -567,6 +567,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 07.10.2026 (Vitest in apps/api: drizzle-orm wird inline geladen)
+
+- **Problem:** In `apps/api` scheiterten alle Testdateien, die `drizzle-orm` (0.36.4) laden, schon beim Import mit `ERR_REQUIRE_CYCLE_MODULE` („Cannot require() ES Module … drizzle-orm/operations.js in a cycle“). Ursache ist der native Node-Import des Pakets unter Node 22.12 und neuer (require(esm)): Er scheitert auch ohne Vitest (`node --input-type=module -e "import('drizzle-orm')"`). Das Paket liefert zu jeder Datei eine `.js`- und eine `.cjs`-Fassung und ist als `"type": "module"` markiert.
+- **Entscheidung:** Neue Datei `apps/api/vitest.config.ts` mit `test.server.deps.inline: [/drizzle-orm/]`. Vitest verarbeitet das Paket damit selbst, statt es von Node laden zu lassen. Bestätigt durch `npx vitest run test/duell.integration.test.ts` (8 von 8 Tests grün, mit laufender Datenbank).
+- **Grenze:** Die Konfiguration betrifft nur Vitest. Der Fehler im reinen Node-Import bleibt bestehen; die Entwicklung und die Skripte laufen weiter über `tsx`, das ihn nicht auslöst. Ob `node dist/index.js` (Skript `start`) betroffen ist, wurde nicht geprüft; vor einem Produktionslauf ohne `tsx` ist es zu testen, gegebenenfalls hilft ein Update von drizzle-orm.
+
 ### Entschieden am 07.10.2026 (F-220: Daten-Detektiv, nicht sichtbar bis zur Fachprüfung)
 
 - **Anlass:** Phase 3 der Kursprofile, Spiel S-DPA-02 (Daten-Detektiv, Priorität hoch, Aufwand M) im Kurs Daten- und Prozessanalyse. Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“ Die Kurstheorie dp4 11.1 liefert Dimensionen und Prüfverfahren; die Daten sind erfunden.
