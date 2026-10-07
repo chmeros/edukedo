@@ -81,16 +81,16 @@ export const memoryIndustrie: MemoryPayload = {
     {
       nummer: 7,
       runde: 1,
-      begriff: "Kommanditist",
-      bedeutung: "Haftet nur mit der Einlage, führt keine Geschäfte",
-      bestaetigung: "Richtig! Der Kommanditist haftet beschränkt und ist von der Geschäftsführung ausgeschlossen.",
+      begriff: "Monopol",
+      bedeutung: "Ein einziger Anbieter beherrscht den Markt",
+      bestaetigung: "Genau! Ohne Wettbewerber kann er Preis und Menge weitgehend selbst bestimmen.",
     },
     {
       nummer: 8,
       runde: 1,
-      begriff: "Handelsregister",
-      bedeutung: "Öffentliches Verzeichnis wichtiger Angaben zu Firmen",
-      bestaetigung: "Genau! Geschäftspartner können dort grundlegende Angaben zu einem Unternehmen einsehen.",
+      begriff: "Polypol",
+      bedeutung: "Viele kleine Anbieter und viele Nachfrager",
+      bestaetigung: "Richtig! Kein einzelner Anbieter kann den Marktpreis bestimmen.",
     },
     {
       nummer: 9,
@@ -102,9 +102,9 @@ export const memoryIndustrie: MemoryPayload = {
     {
       nummer: 10,
       runde: 1,
-      begriff: "Betriebsrat",
-      bedeutung: "Gewählte Vertretung der Belegschaft",
-      bestaetigung: "Genau! Der Betriebsrat vertritt die Interessen der Beschäftigten gegenüber der Arbeitgeberseite.",
+      begriff: "Angebotskurve",
+      bedeutung: "Zeigt, wie viel bei welchem Preis angeboten wird",
+      bestaetigung: "Genau! Sie steigt meist mit dem Preis, weil höhere Preise das Anbieten lohnender machen.",
     },
     // Runde 2 — WQ2 + HQ1
     {

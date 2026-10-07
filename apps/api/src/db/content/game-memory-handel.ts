@@ -170,7 +170,7 @@ export const memoryHandel: MemoryPayload = {
       nummer: 20,
       runde: 2,
       begriff: "Sicherheitsbeauftragte",
-      bedeutung: "Beschäftigte, die ehrenamtlich beim Schutz helfen",
+      bedeutung: "Beschäftigte, die Kolleg:innen bei der Sicherheit unterstützen",
       bestaetigung: "Genau! Sie unterstützen den Arbeitgeber in ihrem Arbeitsbereich, haben aber keine Weisungsbefugnis.",
     },
     // Runde 3 — Markt, Sortiment, Werbung und Fläche (HB3, WB1)

@@ -55,9 +55,9 @@ export const memoryTechnik: MemoryPayload = {
     {
       nummer: 4,
       runde: 1,
-      begriff: "Kommanditist",
-      bedeutung: "Gesellschafter mit auf die Einlage beschränkter Haftung",
-      bestaetigung: "Genau! Der Kommanditist haftet nur mit seiner Einlage, führt dafür aber nicht die Geschäfte.",
+      begriff: "Monopol",
+      bedeutung: "Ein einziger Anbieter beherrscht den Markt",
+      bestaetigung: "Genau! Ohne Wettbewerber kann er Preis und Menge weitgehend selbst bestimmen.",
     },
     {
       nummer: 5,
@@ -90,16 +90,16 @@ export const memoryTechnik: MemoryPayload = {
     {
       nummer: 9,
       runde: 1,
-      begriff: "Prokura",
-      bedeutung: "Umfassende Vertretungsvollmacht im Handelsgewerbe",
-      bestaetigung: "Richtig! Die Prokura ist die weitreichendste handelsrechtliche Vollmacht, die Handlungsvollmacht ist enger.",
+      begriff: "Polypol",
+      bedeutung: "Viele kleine Anbieter und viele Nachfrager",
+      bestaetigung: "Richtig! Kein einzelner Anbieter kann den Marktpreis bestimmen.",
     },
     {
       nummer: 10,
       runde: 1,
-      begriff: "Eigentumsvorbehalt",
-      bedeutung: "Eigentum geht erst mit voller Zahlung über",
-      bestaetigung: "Genau! Bis zur vollständigen Zahlung bleibt der Verkäufer Eigentümer der gelieferten Sache.",
+      begriff: "Marktanteil",
+      bedeutung: "Eigener Umsatz im Verhältnis zum Gesamtmarkt",
+      bestaetigung: "Genau! Je höher der Anteil, desto stärker ist die Stellung im Wettbewerb.",
     },
 
     // Runde 2: Physik, Elektrotechnik und Werkstoffe

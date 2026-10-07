@@ -1,6 +1,6 @@
 # Prüfblatt Spiele — Kreuzworträtsel und Memory (Wiederspielbarkeit, F-193)
 
-Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*.ts` und `game-memory-*.ts`. **Alle Inhalte sind Entwürfe.** Jedes Kreuzworträtsel und jedes Memory zieht bei jedem Spiel neu aus dem hier gelisteten Pool (Rätsel: 10 Wörter pro Spiel, Gitter jedes Mal neu; Memory: 6 von 10 Paaren je Runde). Sichtbar sind die Sets im Kurs erst nach Freigabe (Set `fachbegriffe` bzw. `begriff-paare` in `kurs-angebot.ts`).
+Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*.ts` und `game-memory-*.ts`. **Alle Inhalte sind Entwürfe von Claude.** Jedes Kreuzworträtsel und jedes Memory zieht bei jedem Spiel neu aus dem hier gelisteten Pool (Rätsel: 10 Wörter pro Spiel, Gitter jedes Mal neu; Memory: 6 von 10 Paaren je Runde). Sichtbar sind die Sets im Kurs erst nach Freigabe; am 07.10.2026 freigegeben wurden Industriefachwirt, Technischer Fachwirt, Handelsfachwirt und Transport/Logistik (Set `fachbegriffe` bzw. `begriff-paare` in `kurs-angebot.ts`).
 
 **Prüffragen:** (1) Stimmt die Definition (Hinweis bzw. Bedeutung)? (2) Ist das Wort im Kurs üblich und nicht zu lang oder zu speziell? (3) Verrät der Hinweis oder Tipp die Lösung zu stark? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.
 
@@ -216,16 +216,15 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 
 ## Industriefachwirt
 
-**Zum Kurs:** Rechtsnahe Begriffe: Prokura, Betriebsrat, Kommanditist, Handelsregister, Zoll, Akkreditiv, Konsignationslager, Handelsvertreter — Grundbegriffe, im Prüfblatt vermerkt.
+**Zum Kurs:** Freigegeben am 07.10.2026. Rechtsnahe Wörter (Prokura, Betriebsrat, Kommanditist, Handelsregister) vorher entfernt bzw. ersetzt; geblieben sind Grundbegriffe wie Zoll, Akkreditiv, Konsignationslager, Handelsvertreter.
 
-### Kreuzworträtsel (34 Wörter im Pool, 10 je Rätsel)
+### Kreuzworträtsel (32 Wörter im Pool, 10 je Rätsel)
 
 | Lösung | Länge | Hinweis | Tipp |
 | --- | --- | --- | --- |
 | ABSCHREIBUNG | 12 | Verteilt die Anschaffungskosten einer Maschine planmäßig auf ihre Nutzungsjahre. | Kurz AfA; es gibt sie linear und degressiv. |
 | AKKREDITIV | 10 | Bank zahlt den Kaufpreis gegen vereinbarte Dokumente an den Verkäufer. | Englisch: Letter of Credit. |
 | ANGEBOT | 7 | Die Menge eines Gutes, die Anbieter zu einem bestimmten Preis verkaufen wollen. | Steigt tendenziell, wenn der Preis steigt. |
-| BETRIEBSRAT | 11 | Gewählte Vertretung der Belegschaft gegenüber der Arbeitgeberseite. | Hat Informations-, Beratungs- und Mitbestimmungsrechte. |
 | BILANZ | 6 | Stichtagsbezogene Gegenüberstellung von Vermögen und Kapital. | Aktiva links, Passiva rechts; beide Seiten sind gleich groß. |
 | BUDGET | 6 | Wertmäßige Vorgabe für ein Geschäftsjahr, an der später die Ist-Werte gemessen werden. | Der Soll-Ist-Vergleich prüft, ob man es einhält. |
 | CASHFLOW | 8 | Zahlungsmittelüberschuss einer Periode aus der laufenden Geschäftstätigkeit. | Englischer Begriff für den Geldfluss eines Unternehmens. |
@@ -249,7 +248,6 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | MONOPOL | 7 | Marktform mit nur einem einzigen Anbieter. | Gegenteil von Polypol, wo es viele Anbieter gibt. |
 | MOTIVATION | 10 | Antrieb zum Handeln, der von außen, etwa durch Prämien, oder von innen kommen kann. | Intrinsisch oder extrinsisch. |
 | PDCA | 4 | Regelkreis aus Planen, Umsetzen, Prüfen und Verbessern. | Auch Deming-Kreis genannt. |
-| PROKURA | 7 | Umfassende Vollmacht, ein Unternehmen im laufenden Geschäft rechtsverbindlich zu vertreten. | Weiter gefasst als die Handlungsvollmacht. |
 | ROBOTIK | 7 | Einsatz programmierbarer Maschinen, z. B. zum Ansetzen von Kabeln. | Hilft bei standardisierten, wiederkehrenden Aufgaben. |
 | STELLE | 6 | Kleinste organisatorische Einheit im Unternehmen. | Im Organigramm ein Rechteck. |
 | SWOT | 4 | Analyse, die Stärken, Schwächen, Chancen und Risiken in einer Matrix zusammenführt. | Vier Anfangsbuchstaben englischer Begriffe. |
@@ -269,10 +267,10 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Konjunkturzyklus | Wellenbewegung der Wirtschaft von Aufschwung bis Tief |
 | Soziale Marktwirtschaft | Freier Preismechanismus mit staatlichem Ausgleich |
 | Joint Venture | Gemeinsam gegründetes Unternehmen zweier Partner |
-| Kommanditist | Haftet nur mit der Einlage, führt keine Geschäfte |
-| Handelsregister | Öffentliches Verzeichnis wichtiger Angaben zu Firmen |
+| Monopol | Ein einziger Anbieter beherrscht den Markt |
+| Polypol | Viele kleine Anbieter und viele Nachfrager |
 | Rahmenvertrag | Feste Grundkonditionen, Mengen werden später abgerufen |
-| Betriebsrat | Gewählte Vertretung der Belegschaft |
+| Angebotskurve | Zeigt, wie viel bei welchem Preis angeboten wird |
 
 **Runde 2: Rechnungswesen und Finanzierung**
 
@@ -321,9 +319,9 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 
 ## Technischer Fachwirt
 
-**Zum Kurs:** Technische Begriffe ohne Normnummern; Arbeitsschutzbegriffe nur allgemein.
+**Zum Kurs:** Freigegeben am 07.10.2026. Technische Begriffe ohne Normnummern; Arbeitsschutzbegriffe nur allgemein. Rechtsnahe Wörter (Haftung, Kartell, Prokura, Mangel, Kommanditist, Eigentumsvorbehalt) vorher entfernt bzw. ersetzt.
 
-### Kreuzworträtsel (34 Wörter im Pool, 10 je Rätsel)
+### Kreuzworträtsel (30 Wörter im Pool, 10 je Rätsel)
 
 | Lösung | Länge | Hinweis | Tipp |
 | --- | --- | --- | --- |
@@ -338,22 +336,18 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | FRAESEN | 7 | Spanendes Verfahren mit rotierendem Werkzeug, gut für Konturen und Flächen. | Gegenstück zum Drehen. |
 | GANTT | 5 | Balkendiagramm, das Vorgänge auf einer Zeitachse darstellt. | Zeigt Abhängigkeiten in Projektplänen. |
 | GLUEHEN | 7 | Erwärmen und langsames Abkühlen, um innere Spannungen abzubauen. | Danach lässt sich Stahl besser zerspanen. |
-| HAFTUNG | 7 | Das Einstehen für Schulden, mit dem Privatvermögen oder nur mit der Einlage. | Bei der GmbH ist sie beschränkt. |
 | INSTANZ | 7 | Stelle, die anderen Stellen Weisungen erteilen darf. | Eine Stabsstelle ist keine. |
 | INVENTUR | 8 | Zählen und Bewerten aller Vermögensgegenstände und Schulden zu einem Stichtag. | Im Rohstofflager wird dabei viel gezählt. |
 | KANBAN | 6 | Signalkarten-System: Erst der Bedarf der nächsten Stufe löst die Fertigung aus. | Gehört zum Pull-Prinzip. |
-| KARTELL | 7 | Absprache selbstständiger Unternehmen, um den Wettbewerb untereinander einzuschränken. | Preisabsprachen sind ein typisches Beispiel. |
 | KOMPROMISS | 10 | Mittelweg, bei dem beide Konfliktseiten Zugeständnisse machen. | Anders als die Kooperation keine Win-win-Lösung. |
 | KONJUNKTUR | 10 | Wellenförmige Schwankungen der gesamten Wirtschaftsleistung um ihren langfristigen Trend. | Auf Aufschwung und Boom folgen Abschwung und Tief. |
 | KORROSION | 9 | Zerstörende Reaktion eines Metalls mit seiner Umgebung, zum Beispiel Rosten. | Beschichten und Verzinken schützen davor. |
 | KRAFT | 5 | Sie beschleunigt oder verformt einen Körper, Einheit Newton. | Masse mal Beschleunigung. |
 | LEITSTAND | 9 | Zeigt die aktuelle Belegung aller Maschinen und Fertigungslinien an. | Hier sieht man freie Kapazitäten auf einen Blick. |
 | LOGISTIK | 8 | Planung und Steuerung aller Material-, Waren- und Informationsflüsse. | Beschaffung, Produktion und Distribution. |
-| MANGEL | 6 | Abweichung einer gelieferten Sache von der vereinbarten Beschaffenheit. | Zuerst kann Nacherfüllung verlangt werden. |
 | MEDIATION | 9 | Vermittlung in einem Konflikt durch eine neutrale dritte Person. | Hilft, wenn das Gespräch allein nicht reicht. |
 | NOTHALT | 7 | Einrichtung, die eine Maschine bei Gefahr sofort stillsetzt. | Er wird bei akuter Gefahr gedrückt. |
 | PARETO | 6 | Wenige Ursachen verursachen oft den Großteil der Fehler oder Kosten. | Ein bekanntes Diagramm trägt seinen Namen. |
-| PROKURA | 7 | Sehr weitreichende Vollmacht, ein Unternehmen im Handelsgewerbe zu vertreten. | Die Handlungsvollmacht ist enger als sie. |
 | SENSOR | 6 | Erfasst Größen wie Temperatur oder Position und liefert elektrische Signale. | Er meldet der Steuerung, was passiert. |
 | SPANNUNG | 8 | Treibende Größe im Stromkreis, gemessen in Volt. | Beim Wasserkreislauf entspricht sie dem Druckunterschied. |
 | STEUER | 6 | Zahlung an den Staat, zum Beispiel auf Gewinn, Umsatz oder Grundbesitz. | Das Finanzamt zieht viele davon ein. |
@@ -371,13 +365,13 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Minimalprinzip | Festes Ziel mit möglichst geringem Mitteleinsatz |
 | Oligopol | Wenige große Anbieter teilen sich den Markt |
 | Gleichgewichtspreis | Preis, bei dem Angebot und Nachfrage übereinstimmen |
-| Kommanditist | Gesellschafter mit auf die Einlage beschränkter Haftung |
+| Monopol | Ein einziger Anbieter beherrscht den Markt |
 | Konzern | Selbstständige Firmen unter einheitlicher Leitung |
 | Bilanz | Vermögen und Kapital an einem Stichtag gegenübergestellt |
 | Deckungsbeitrag | Erlös abzüglich der variablen Kosten |
 | Kapitalwert | Auf heute abgezinste Summe aller Ein- und Auszahlungen |
-| Prokura | Umfassende Vertretungsvollmacht im Handelsgewerbe |
-| Eigentumsvorbehalt | Eigentum geht erst mit voller Zahlung über |
+| Polypol | Viele kleine Anbieter und viele Nachfrager |
+| Marktanteil | Eigener Umsatz im Verhältnis zum Gesamtmarkt |
 
 **Runde 2: Physik, Elektrotechnik und Werkstoffe**
 
@@ -531,7 +525,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 
 ## Transport/Logistik
 
-**Zum Kurs:** Zoll nur als Wort; Spediteur und Formschluss vereinfacht; Pool enthält keine Haftungs- oder Lenkzeitdetails.
+**Zum Kurs:** Freigegeben am 07.10.2026. Zoll nur als Wort; Spediteur und Formschluss vereinfacht; Pool enthält keine Haftungs- oder Lenkzeitdetails.
 
 ### Kreuzworträtsel (33 Wörter im Pool, 10 je Rätsel)
 
@@ -635,7 +629,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 
 ## Handelsfachwirt
 
-**Zum Kurs:** Außenhandel (WB4) bewusst ausgelassen; Definitionen von Kapitalwert, Kraljic und Factoring vereinfacht.
+**Zum Kurs:** Freigegeben am 07.10.2026. Außenhandel (WB4) bewusst ausgelassen; Definitionen von Kapitalwert, Kraljic und Factoring vereinfacht; bei den Sicherheitsbeauftragten entfiel „ehrenamtlich“.
 
 ### Kreuzworträtsel (33 Wörter im Pool, 10 je Rätsel)
 
@@ -705,7 +699,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Off-the-Job | Weiterbildung losgelöst vom Arbeitsplatz |
 | Nettopersonalbedarf | Bruttobedarf minus vorhandenes Personal |
 | Gefährdungsbeurteilung | Gefahren am Arbeitsplatz systematisch ermitteln |
-| Sicherheitsbeauftragte | Beschäftigte, die ehrenamtlich beim Schutz helfen |
+| Sicherheitsbeauftragte | Beschäftigte, die Kolleg:innen bei der Sicherheit unterstützen |
 
 **Runde 3: Markt, Sortiment, Werbung und Fläche**
 

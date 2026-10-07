@@ -17,20 +17,6 @@ export const kreuzwortraetselTechnik: KreuzwortraetselPayload = {
       loesung: "KONJUNKTUR",
       bestaetigung: "Genau! Die Konjunktur durchläuft Phasen von Aufschwung bis Tief; Exportbetriebe wie Vantera spüren sie über die Nachfrage.",
     },
-    {
-      nummer: 2,
-      hinweis: "Das Einstehen für Schulden, mit dem Privatvermögen oder nur mit der Einlage.",
-      tipp: "Bei der GmbH ist sie beschränkt.",
-      loesung: "HAFTUNG",
-      bestaetigung: "Richtig! Die Haftung ist ein zentrales Kriterium bei der Wahl der Rechtsform.",
-    },
-    {
-      nummer: 3,
-      hinweis: "Absprache selbstständiger Unternehmen, um den Wettbewerb untereinander einzuschränken.",
-      tipp: "Preisabsprachen sind ein typisches Beispiel.",
-      loesung: "KARTELL",
-      bestaetigung: "Genau! Ein Kartell schränkt den Wettbewerb ein; das Wettbewerbsrecht richtet sich gegen solche Absprachen.",
-    },
     // Rechnungswesen und Planung
     {
       nummer: 4,
@@ -54,20 +40,6 @@ export const kreuzwortraetselTechnik: KreuzwortraetselPayload = {
       bestaetigung: "Richtig! Budgets übertragen die Planung in konkrete Zahlen; der Soll-Ist-Vergleich zeigt dann die Abweichungen.",
     },
     // Recht
-    {
-      nummer: 7,
-      hinweis: "Sehr weitreichende Vollmacht, ein Unternehmen im Handelsgewerbe zu vertreten.",
-      tipp: "Die Handlungsvollmacht ist enger als sie.",
-      loesung: "PROKURA",
-      bestaetigung: "Genau! Die Prokura ist die weitreichendste Form der handelsrechtlichen Vertretung.",
-    },
-    {
-      nummer: 8,
-      hinweis: "Abweichung einer gelieferten Sache von der vereinbarten Beschaffenheit.",
-      tipp: "Zuerst kann Nacherfüllung verlangt werden.",
-      loesung: "MANGEL",
-      bestaetigung: "Richtig! Bei einem Sachmangel steht zunächst die Nacherfüllung im Vordergrund.",
-    },
     {
       nummer: 9,
       hinweis: "Zahlung an den Staat, zum Beispiel auf Gewinn, Umsatz oder Grundbesitz.",

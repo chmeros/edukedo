@@ -76,20 +76,6 @@ export const kreuzwortraetselIndustrie: KreuzwortraetselPayload = {
     },
     // WQ3 — Recht und Steuern
     {
-      nummer: 9,
-      hinweis: "Umfassende Vollmacht, ein Unternehmen im laufenden Geschäft rechtsverbindlich zu vertreten.",
-      tipp: "Weiter gefasst als die Handlungsvollmacht.",
-      loesung: "PROKURA",
-      bestaetigung: "Genau! Mit Prokura darf eine Person das Unternehmen im Tagesgeschäft verbindlich vertreten.",
-    },
-    {
-      nummer: 10,
-      hinweis: "Gewählte Vertretung der Belegschaft gegenüber der Arbeitgeberseite.",
-      tipp: "Hat Informations-, Beratungs- und Mitbestimmungsrechte.",
-      loesung: "BETRIEBSRAT",
-      bestaetigung: "Richtig! Der Betriebsrat wird in vielen Fragen des Arbeitsalltags beteiligt.",
-    },
-    {
       nummer: 11,
       hinweis: "Abgabe, die beim Warenverkehr über Staatsgrenzen anfallen kann.",
       tipp: "Vier Buchstaben, spielt beim Export eine Rolle.",
