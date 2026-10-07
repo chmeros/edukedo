@@ -1591,6 +1591,22 @@ export function WirtschaftlichkeitIllustration() {
   );
 }
 
+// F-215: Algorithmen-Visualisierer (Balken, die sich sortieren; zwei getauschte Balken sind hervorgehoben).
+export function AlgorithmenIllustration() {
+  const hoehen = [70, 34, 96, 52, 80, 24];
+  return (
+    <Frame background="var(--info-tint)">
+      {hoehen.map((h, i) => {
+        const x = 30 + i * 46;
+        const getauscht = i === 1 || i === 2;
+        return <rect key={i} x={x} y={122 - h} width="32" height={h} rx="5" fill={getauscht ? "var(--coral)" : i === 5 ? "var(--sprout)" : "var(--card)"} stroke="var(--ink)" strokeWidth="2.5" />;
+      })}
+      <path d="M76 20c10-10 24-10 34 0" stroke="var(--ink)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <path d="M104 14l6 6-8 3" stroke="var(--ink)" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  );
+}
+
 // F-212: Schreibtischtest (Codezeilen links, Trace-Tabelle rechts).
 export function SchreibtischtestIllustration() {
   const zeilen = [

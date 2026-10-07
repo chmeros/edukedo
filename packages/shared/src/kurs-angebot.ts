@@ -100,7 +100,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen", "schreibtischtest", "wirtschaftlichkeit"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit", "statistik", "prozesskennzahlen", "schreibtischtest", "wirtschaftlichkeit", "algorithmen"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags", "sql"] as const;
@@ -232,6 +232,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Algorithmen-Visualisierer (F-215): Werkzeug "algorithmen" im Kurs Anwendungsentwicklung als Kernangebot, in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Bubble-, Selection-, Insertionsort, lineare und binäre Suche).
  * Datenqualitäts-Aufgaben der SQL-Übungsfläche (F-214): `szenarien.sql` wählt die Übungen je Kurs; die Anwendungsentwicklung behält die Aufgaben auf den Projektdaten, die Daten- und Prozessanalyse bekommt zusätzlich die Aufgaben auf den Importdaten (Theorie dp4 11.1).
  * Nutzwert- und Wirtschaftlichkeitsrechner (F-213): Werkzeug "wirtschaftlichkeit" in allen vier Fachinformatiker-Kursen als Kernangebot (gemeinsame Theorie 2.3: Nutzwertanalyse, TCO, Kauf gegen Abonnement, Rabatt und Skonto; Make or Buy aus 12.2); Beispielwerte. Break-even- und Leasingrechnung fehlen bewusst, weil die Theorie sie nicht enthält.
  * Schreibtischtest-Trainer (F-212): Werkzeug "schreibtischtest" im Kurs Anwendungsentwicklung als Kernangebot (Theorie 11.2 und 9.2), in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Variablen und Kontrollstrukturen); ganze Zahlen, Beispielprogramme.
@@ -258,7 +259,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
     instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git", "muster", "klassenbeziehungen", "testverfahren"], ["pdca", "risiko", "osi"]),
-    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "testfaelle", "verfuegbarkeit", "schreibtischtest"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "testfaelle", "verfuegbarkeit", "schreibtischtest", "algorithmen"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],
@@ -287,7 +288,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-daten-prozessanalyse": {
     instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"], ["risiko", "hierarchie", "osi", "scrum"]),
-    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "grundlagen"],
@@ -311,7 +312,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-digitale-vernetzung": {
     instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"], ["pdca", "hierarchie", "scrum"]),
-    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit"], ["netzplan", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "kern"],
@@ -335,7 +336,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-systemintegration": {
     instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "sicherungsarten", "switching", "raid", "netzsicherheit"], ["pdca", "hierarchie", "scrum"]),
-    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "verfuegbarkeit"], ["netzplan", "schreibtischtest"]),
+    werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "verfuegbarkeit"], ["netzplan", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "kern"],

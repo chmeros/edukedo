@@ -40,6 +40,7 @@ import {
   StatistikIllustration,
   ProzesskennzahlenIllustration,
   SchreibtischtestIllustration,
+  AlgorithmenIllustration,
   WirtschaftlichkeitIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
@@ -119,6 +120,7 @@ import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
 import { Statistiktrainer } from "./Statistiktrainer";
 import { Prozesskennzahlen } from "./Prozesskennzahlen";
 import { Schreibtischtest } from "./Schreibtischtest";
+import { Algorithmen } from "./Algorithmen";
 import { Wirtschaftlichkeit } from "./Wirtschaftlichkeit";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
@@ -653,6 +655,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Angebote vergleichen",
   },
+  // F-215 (Algorithmen-Visualisierer): Sortier- und Suchverfahren Schritt für Schritt, in den Fachinformatiker-Kursen.
+  {
+    type: "algorithmen",
+    label: "Algorithmen-Visualisierer",
+    description: "Bubblesort, Selectionsort, Insertionsort sowie lineare und binäre Suche Schritt für Schritt verfolgen, Vergleiche und Vertauschungen zählen und üben.",
+    Illustration: AlgorithmenIllustration,
+    werkzeug: true,
+    aktion: "Algorithmus verfolgen",
+  },
   // F-212 (Schreibtischtest-Trainer): Programme von Hand verfolgen, Trace-Tabellen ausfüllen, in den Fachinformatiker-Kursen.
   {
     type: "schreibtischtest",
@@ -834,6 +845,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "wirtschaftlichkeit") {
     return <Wirtschaftlichkeit onClose={() => setActiveWerkzeug(null)} />;
+  }
+  if (activeWerkzeug === "algorithmen") {
+    return <Algorithmen onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "schreibtischtest") {
     return <Schreibtischtest onClose={() => setActiveWerkzeug(null)} />;

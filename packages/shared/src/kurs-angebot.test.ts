@@ -241,6 +241,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Algorithmen-Visualisierer (F-215): Kernangebot in der Anwendungsentwicklung, Grundlage in den übrigen Fachinformatiker-Kursen", () => {
+    for (const slug of Object.keys(KURS_ANGEBOT)) {
+      const erwartet = slug === "fachinformatiker-anwendungsentwicklung" ? "kern" : slug.startsWith("fachinformatiker-") ? "grundlagen" : null;
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "algorithmen"), slug).toBe(erwartet);
+    }
+  });
+
   it("Schreibtischtest-Trainer (F-212): Kernangebot in der Anwendungsentwicklung, Grundlage in den übrigen Fachinformatiker-Kursen", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "schreibtischtest")).toBe("kern");
     for (const slug of ["fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"]) {
