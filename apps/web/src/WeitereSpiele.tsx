@@ -550,7 +550,7 @@ function formatZeit(sekunden: number): string {
   return `${Math.floor(sekunden / 60)}:${String(sekunden % 60).padStart(2, "0")}`;
 }
 
-export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielProps & { gameType: "subnetting" | "zahlensysteme" }) {
+export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielProps & { gameType: "subnetting" | "zahlensysteme" | "rechensprint" }) {
   const utils = trpc.useUtils();
   const info = trpc.game.getSprint.useQuery({ kursId, setKey, gameType });
   const [schwierigkeit, setSchwierigkeit] = useState<"leicht" | "mittel" | "schwer">("leicht");
@@ -604,7 +604,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
       {!aufgaben ? (
         <div className="stack">
           <p>
-            {info.data.anzahl} Aufgaben, jede ist neu zufällig erzeugt. Rechne im Kopf oder auf Papier — und prüfe jede Antwort sofort.
+            {info.data.anzahl} Aufgaben, jede ist neu zufällig erzeugt. {gameType === "rechensprint" ? "Ein einfacher Taschenrechner ist erlaubt." : "Rechne im Kopf oder auf Papier"} — und prüfe jede Antwort sofort.
           </p>
           <div className="field">
             <span id="sprint-schwierigkeit">Schwierigkeit</span>

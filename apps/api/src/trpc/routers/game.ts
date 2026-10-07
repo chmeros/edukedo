@@ -6,11 +6,16 @@ import {
   checkTroubleshooting,
   codeReihenfolgePayloadSchema,
   DEFAULT_GAME_SET_KEY,
+  erzeugeRechenAufgabe,
   erzeugeSubnettingAufgabe,
   erzeugeZahlensystemAufgabe,
   phishingPayloadSchema,
+  pruefeRechenEingabe,
   pruefeSubnettingEingabe,
   pruefeZahlensystemEingabe,
+  rechenFrage,
+  rechenLoesung,
+  rechensprintPayloadSchema,
   shapeBugHunt,
   shapeCodeReihenfolge,
   shapePhishing,
@@ -29,8 +34,14 @@ import {
   zahlensystemFrage,
   zahlensystemLoesung,
   zahlensystemePayloadSchema,
+  type RechenParams,
+  type RechenTyp,
+  type SprintGameType,
+  type SprintSchwierigkeit,
   type SubnettingParams,
+  type SubnettingTyp,
   type ZahlensystemParams,
+  type ZahlensystemTyp,
   buildKreuzwortraetselPuzzle,
   buildKreuzwortraetselWordBank,
   randomSeed,
@@ -195,7 +206,51 @@ function parseSprintState(raw: unknown): SprintProgressState {
 
 type SprintTokenPayload =
   | { g: "subnetting"; params: SubnettingParams; s: string }
-  | { g: "zahlensysteme"; params: ZahlensystemParams; s: string };
+  | { g: "zahlensysteme"; params: ZahlensystemParams; s: string }
+  | { g: "rechensprint"; params: RechenParams; s: string };
+
+/** Gemeinsame Form der drei Sprint-Payloads (Aufgabenarten, Anzahl, Abschlussmeldung). */
+interface SprintPayload {
+  aufgabenTypen: string[];
+  anzahl: number;
+  abschlussmeldung: string;
+}
+
+function parseSprintPayload(gameType: SprintGameType, raw: unknown): SprintPayload {
+  const schema = gameType === "subnetting" ? subnettingPayloadSchema : gameType === "zahlensysteme" ? zahlensystemePayloadSchema : rechensprintPayloadSchema;
+  return schema.parse(raw);
+}
+
+function erzeugeSprintAufgabe(
+  gameType: SprintGameType,
+  typ: string,
+  schwierigkeit: SprintSchwierigkeit,
+  rng: () => number,
+): { tokenPayload: SprintTokenPayload; frage: string; hinweis: string } {
+  if (gameType === "subnetting") {
+    const params = erzeugeSubnettingAufgabe(typ as SubnettingTyp, schwierigkeit, rng);
+    return { tokenPayload: { g: "subnetting", params, s: schwierigkeit }, ...subnettingFrage(params) };
+  }
+  if (gameType === "zahlensysteme") {
+    const params = erzeugeZahlensystemAufgabe(typ as ZahlensystemTyp, schwierigkeit, rng);
+    return { tokenPayload: { g: "zahlensysteme", params, s: schwierigkeit }, ...zahlensystemFrage(params) };
+  }
+  const params = erzeugeRechenAufgabe(typ as RechenTyp, schwierigkeit, rng);
+  return { tokenPayload: { g: "rechensprint", params, s: schwierigkeit }, ...rechenFrage(params) };
+}
+
+function pruefeSprintAntwort(decoded: SprintTokenPayload, eingabe: string): { correct: boolean; erwartet: string; erklaerung: string } {
+  switch (decoded.g) {
+    case "subnetting":
+      return { correct: pruefeSubnettingEingabe(decoded.params, eingabe), ...subnettingLoesung(decoded.params) };
+    case "zahlensysteme":
+      return { correct: pruefeZahlensystemEingabe(decoded.params, eingabe), ...zahlensystemLoesung(decoded.params) };
+    case "rechensprint": {
+      const { erwartet, erklaerung } = rechenLoesung(decoded.params);
+      return { correct: pruefeRechenEingabe(decoded.params, eingabe), erwartet, erklaerung };
+    }
+  }
+}
 
 export const gameRouter = router({
   /** Für den Spiele-Katalog (Spiele.tsx, analog zu instrumentLernpfad.available): welche der
@@ -425,7 +480,7 @@ export const gameRouter = router({
     .input(sprintStartInputSchema.pick({ kursId: true, setKey: true, gameType: true }))
     .query(async ({ ctx, input }) => {
       const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
-      const payload = (input.gameType === "subnetting" ? subnettingPayloadSchema : zahlensystemePayloadSchema).parse(row.payload);
+      const payload = parseSprintPayload(input.gameType, row.payload);
       const state = parseSprintState((await loadProgressRow(ctx.db, ctx.currentUser.id, row.id))?.state);
       return { anzahl: payload.anzahl, abschlussmeldung: payload.abschlussmeldung, bestwerte: state.bestwerte };
     }),
@@ -434,23 +489,10 @@ export const gameRouter = router({
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
     const { randomInt } = await import("node:crypto");
     const rng = () => randomInt(0, 1_000_000) / 1_000_000;
-    if (input.gameType === "subnetting") {
-      const payload = subnettingPayloadSchema.parse(row.payload);
-      const aufgaben = Array.from({ length: payload.anzahl }, () => {
-        const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
-        const params = erzeugeSubnettingAufgabe(typ, input.schwierigkeit, rng);
-        const { frage, hinweis } = subnettingFrage(params);
-        const tokenPayload: SprintTokenPayload = { g: "subnetting", params, s: input.schwierigkeit };
-        return { token: signSprintToken(tokenPayload), frage, hinweis, typ };
-      });
-      return { aufgaben };
-    }
-    const payload = zahlensystemePayloadSchema.parse(row.payload);
+    const payload = parseSprintPayload(input.gameType, row.payload);
     const aufgaben = Array.from({ length: payload.anzahl }, () => {
       const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
-      const params = erzeugeZahlensystemAufgabe(typ, input.schwierigkeit, rng);
-      const { frage, hinweis } = zahlensystemFrage(params);
-      const tokenPayload: SprintTokenPayload = { g: "zahlensysteme", params, s: input.schwierigkeit };
+      const { tokenPayload, frage, hinweis } = erzeugeSprintAufgabe(input.gameType, typ, input.schwierigkeit, rng);
       return { token: signSprintToken(tokenPayload), frage, hinweis, typ };
     });
     return { aufgaben };
@@ -462,10 +504,7 @@ export const gameRouter = router({
     if (!decoded || decoded.g !== input.gameType) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Die Aufgabe ist ungültig oder abgelaufen. Starte den Sprint neu." });
     }
-    const loesung = decoded.g === "subnetting" ? subnettingLoesung(decoded.params) : zahlensystemLoesung(decoded.params);
-    const correct =
-      decoded.g === "subnetting" ? pruefeSubnettingEingabe(decoded.params, input.eingabe) : pruefeZahlensystemEingabe(decoded.params, input.eingabe);
-    return { correct, erwartet: loesung.erwartet, erklaerung: loesung.erklaerung };
+    return pruefeSprintAntwort(decoded, input.eingabe);
   }),
 
   /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige (eigener Spielstand), keine Belohnung. */

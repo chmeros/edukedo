@@ -67,6 +67,7 @@ describe("F-158: weitere Spiele und Sets", () => {
       alsSpiel("codereihenfolge", "Code-Reihenfolge", codeReihenfolgeGrundmuster),
       alsSpiel("troubleshooting", "Troubleshooting", troubleshootingNetzwerk),
       alsSpiel("subnetting", "Subnetting", { aufgabenTypen: ["netzadresse", "hosts"], anzahl: 5, abschlussmeldung: "Geschafft" }),
+      alsSpiel("rechensprint", "Rechen-Sprint", { aufgabenTypen: ["skonto", "raid"], anzahl: 4, abschlussmeldung: "Geschafft" }, "rechnen"),
     ]);
 
     const appModule = await import("../src/app");
@@ -176,6 +177,29 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect(manipuliert.statusCode).toBe(400);
     const falscherTyp = await post("game.sprintAntwort", { kursId, gameType: "zahlensysteme", token: aufgaben[0]!.token, eingabe: "1" });
     expect(falscherTyp.statusCode).toBe(404); // dieser Kurs hat kein Zahlensystem-Spiel
+  });
+
+  it("Rechen-Sprint (F-194): Aufgaben aus dem Set, Eingabe in deutschem Format wird akzeptiert, Token nur für das eigene Spiel", async () => {
+    const start = await post("game.sprintStart", { kursId, setKey: "rechnen", gameType: "rechensprint", schwierigkeit: "leicht" });
+    expect(start.statusCode).toBe(200);
+    const aufgaben = start.json().result.data.aufgaben as { token: string; frage: string; hinweis: string; typ: string }[];
+    expect(aufgaben).toHaveLength(4);
+    expect(aufgaben.every((aufgabe) => ["skonto", "raid"].includes(aufgabe.typ))).toBe(true);
+    expect(JSON.stringify(aufgaben)).not.toContain("erwartet");
+
+    const falsch = (await post("game.sprintAntwort", { kursId, setKey: "rechnen", gameType: "rechensprint", token: aufgaben[0]!.token, eingabe: "0,01" })).json().result.data;
+    expect(falsch.correct).toBe(false);
+    expect(falsch.erwartet).toMatch(/[0-9]/);
+    expect(falsch.erklaerung.length).toBeGreaterThan(10);
+    const richtig = (await post("game.sprintAntwort", { kursId, setKey: "rechnen", gameType: "rechensprint", token: aufgaben[0]!.token, eingabe: falsch.erwartet })).json().result.data;
+    expect(richtig.correct).toBe(true);
+
+    const manipuliert = await post("game.sprintAntwort", { kursId, setKey: "rechnen", gameType: "rechensprint", token: `${aufgaben[0]!.token}x`, eingabe: "1" });
+    expect(manipuliert.statusCode).toBe(400);
+    const fremderTyp = await post("game.sprintAntwort", { kursId, gameType: "subnetting", token: aufgaben[0]!.token, eingabe: "1" });
+    expect(fremderTyp.statusCode).toBe(400);
+    const info = (await get("game.getSprint", { kursId, setKey: "rechnen", gameType: "rechensprint" })).json().result.data;
+    expect(info.anzahl).toBe(4);
   });
 
   it("Kein Spiel vergibt Belohnung oder Fortschritt (seit 06.10.2026 nur noch im Lernen-Tab)", async () => {

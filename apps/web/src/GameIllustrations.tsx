@@ -176,6 +176,28 @@ export function SubnettingIllustration() {
   );
 }
 
+export function RechensprintIllustration() {
+  const tasten = ["7", "8", "9", "%", "4", "5", "6", "−", "1", "2", "3", "="];
+  return (
+    <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">
+      <rect width="320" height="140" fill="var(--sun-tint)" />
+      <rect x="86" y="14" width="148" height="112" rx="12" fill="var(--card)" stroke="var(--sun-deep)" strokeWidth="2" />
+      <rect x="98" y="24" width="124" height="26" rx="6" fill="var(--sprout-tint)" stroke="var(--sprout-deep)" strokeWidth="1.5" />
+      <text x="214" y="43" fontSize="16" fontWeight="700" fill="var(--sprout-deep)" textAnchor="end">
+        1.176,00
+      </text>
+      {tasten.map((taste, index) => (
+        <g key={index}>
+          <rect x={98 + (index % 4) * 32} y={58 + Math.floor(index / 4) * 21} width="28" height="17" rx="4" fill={taste === "=" ? "var(--sprout)" : "var(--sun)"} />
+          <text x={112 + (index % 4) * 32} y={71 + Math.floor(index / 4) * 21} fontSize="11" fontWeight="700" fill="#17212b" textAnchor="middle">
+            {taste}
+          </text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 export function ZahlensystemeIllustration() {
   return (
     <svg viewBox="0 0 320 140" width="100%" height="100%" aria-hidden="true">

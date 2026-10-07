@@ -150,6 +150,20 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Rechen-Sprint (F-194): Kalkulation für die fünf Fachwirte, IT-Rechnen für die Fachinformatiker, Betriebskennzahlen noch gesperrt", () => {
+    for (const slug of ["industriefachwirt", "technischer-fachwirt", "wirtschaftsfachwirt", "transport-management-logistics", "handelsfachwirt"]) {
+      const angebot = KURS_ANGEBOT[slug];
+      expect(angebotSpiel(angebot, "rechensprint", "rechnen"), slug).toBe("kern");
+      expect(angebotSpiel(angebot, "rechensprint", "kennzahlen"), slug).toBeNull();
+      expect(angebotSpiel(angebot, "rechensprint", "it-rechnen"), slug).toBeNull();
+    }
+    expect(angebotSpiel(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "rechensprint", "it-rechnen")).toBe("grundlagen");
+    expect(angebotSpiel(KURS_ANGEBOT["fachinformatiker-systemintegration"], "rechensprint", "it-rechnen")).toBe("kern");
+    for (const slug of ["immobilienfachwirt", "versicherungen-finanzanlagen", "ausbildung-der-ausbilder", "fachwirt-gesundheit-soziales", "fachwirt-buero-projektorganisation"]) {
+      for (const setKey of ["rechnen", "kennzahlen", "it-rechnen"]) expect(angebotSpiel(KURS_ANGEBOT[slug], "rechensprint", setKey), `${slug}/${setKey}`).toBeNull();
+    }
+  });
+
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
     expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);

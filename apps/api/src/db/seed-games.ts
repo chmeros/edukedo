@@ -7,11 +7,13 @@ import {
   codeReihenfolgePayloadSchema,
   DEFAULT_GAME_SET_KEY,
   phishingPayloadSchema,
+  rechensprintPayloadSchema,
   subnettingPayloadSchema,
   troubleshootingPayloadSchema,
   zahlensystemePayloadSchema,
   SUBNETTING_TYPEN,
   ZAHLENSYSTEM_TYPEN,
+  type RechenTyp,
 } from "@edukedo/shared";
 import { bugHuntCodefehler } from "./content/game-bughunt-codefehler";
 import { bugHuntObjektorientierung } from "./content/game-bughunt-objektorientierung";
@@ -449,6 +451,60 @@ async function main() {
     "fachbegriffe",
   );
   await upsertGame("versicherungen-finanzanlagen", "memory", "Memory: Begriffe der Versicherung", memoryPayloadSchema.parse(memoryVersicherung), "begriff-paare");
+
+  // F-194: Rechen-Sprint. Der Sprint hat keine festen Inhalte, das Payload wählt nur die Aufgabenarten je Kurs.
+  // Set "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; "kennzahlen" (Lager, OEE: Rechenkonventionen) steht noch nicht in kurs-angebot.ts.
+  const kaufmaennisch: RechenTyp[] = ["prozentwert", "skonto", "dreisatz", "zuschlag", "deckungsbeitrag", "breakeven"];
+  const kennzahlenTypen: Record<string, RechenTyp[]> = {
+    wirtschaftsfachwirt: ["umschlag", "lagerdauer", "andler"],
+    industriefachwirt: ["umschlag", "lagerdauer", "andler", "oee"],
+    "technischer-fachwirt": ["oee", "umschlag", "lagerdauer", "andler"],
+    handelsfachwirt: ["umschlag", "lagerdauer", "andler"],
+    "transport-management-logistics": ["umschlag", "lagerdauer", "andler"],
+  };
+  for (const [slug, typen] of Object.entries(kennzahlenTypen)) {
+    await upsertGame(
+      slug,
+      "rechensprint",
+      "Rechen-Sprint: Kalkulation",
+      rechensprintPayloadSchema.parse({
+        aufgabenTypen: kaufmaennisch,
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Prozent, Skonto, Zuschlag und Deckungsbeitrag gehen mit etwas Übung schnell von der Hand.",
+      }),
+      "rechnen",
+    );
+    await upsertGame(
+      slug,
+      "rechensprint",
+      "Rechen-Sprint: Betriebskennzahlen",
+      rechensprintPayloadSchema.parse({
+        aufgabenTypen: typen,
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Umschlagshäufigkeit, Lagerdauer und optimale Bestellmenge sitzen schon besser.",
+      }),
+      "kennzahlen",
+    );
+  }
+  const itTypen: Record<string, RechenTyp[]> = {
+    "fachinformatiker-anwendungsentwicklung": ["uebertragung", "speicher", "stromkosten", "prozentwert", "skonto", "dreisatz"],
+    "fachinformatiker-daten-prozessanalyse": ["uebertragung", "speicher", "stromkosten", "prozentwert", "skonto", "dreisatz"],
+    "fachinformatiker-systemintegration": ["uebertragung", "speicher", "stromkosten", "verfuegbarkeit", "mtbf", "raid"],
+    "fachinformatiker-digitale-vernetzung": ["uebertragung", "speicher", "stromkosten", "verfuegbarkeit", "mtbf", "raid"],
+  };
+  for (const [slug, typen] of Object.entries(itTypen)) {
+    await upsertGame(
+      slug,
+      "rechensprint",
+      "Rechen-Sprint: IT-Rechnen",
+      rechensprintPayloadSchema.parse({
+        aufgabenTypen: typen,
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Datenmengen, Übertragungszeiten und Verfügbarkeit gehören zu den häufigen Rechenaufgaben der Prüfung.",
+      }),
+      "it-rechnen",
+    );
+  }
 
   await pool.end();
 }

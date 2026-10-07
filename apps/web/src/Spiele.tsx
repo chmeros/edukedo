@@ -7,6 +7,7 @@ import {
   KreuzwortraetselIllustration,
   MemoryIllustration,
   PhishingIllustration,
+  RechensprintIllustration,
   SubnettingIllustration,
   TroubleshootingIllustration,
   ZahlensystemeIllustration,
@@ -89,6 +90,12 @@ const GAME_CATALOG = [
     description: "Dezimal, binär und hexadezimal umrechnen — immer neue Aufgaben.",
     Illustration: ZahlensystemeIllustration,
   },
+  {
+    type: "rechensprint",
+    label: "Rechen-Sprint",
+    description: "Prozent, Skonto, Deckungsbeitrag oder Datenmengen rechnen — immer neue Aufgaben mit Lösungsweg.",
+    Illustration: RechensprintIllustration,
+  },
 ] as const;
 
 interface AktivesSpiel {
@@ -132,6 +139,7 @@ export function Spiele({ kursId, onActiveGameChange }: { kursId: string; onActiv
         return <TroubleshootingDetektiv key={key} {...common} />;
       case "subnetting":
       case "zahlensysteme":
+      case "rechensprint":
         return <SprintSpiel key={key} {...common} gameType={activeGame.type} />;
     }
   }

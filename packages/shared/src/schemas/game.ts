@@ -151,6 +151,8 @@ export const GAME_TYPES = [
   "troubleshooting",
   "subnetting",
   "zahlensysteme",
+  // F-194: Rechen-Sprint
+  "rechensprint",
 ] as const;
 export type GameType = (typeof GAME_TYPES)[number];
 
@@ -374,10 +376,38 @@ export const zahlensystemePayloadSchema = z.object({
 });
 export type ZahlensystemePayload = z.infer<typeof zahlensystemePayloadSchema>;
 
+/** F-194: Aufgabenarten des Rechen-Sprints (kaufmännisch/betrieblich und IT). */
+export const RECHEN_TYPEN = [
+  "prozentwert",
+  "skonto",
+  "dreisatz",
+  "zuschlag",
+  "deckungsbeitrag",
+  "breakeven",
+  "umschlag",
+  "lagerdauer",
+  "andler",
+  "oee",
+  "uebertragung",
+  "speicher",
+  "stromkosten",
+  "verfuegbarkeit",
+  "mtbf",
+  "raid",
+] as const;
+export type RechenTyp = (typeof RECHEN_TYPEN)[number];
+
+export const rechensprintPayloadSchema = z.object({
+  aufgabenTypen: z.array(z.enum(RECHEN_TYPEN)).min(1),
+  anzahl: z.number().int().min(3).max(20),
+  abschlussmeldung: z.string().min(1).max(FEEDBACK_MAX),
+});
+export type RechensprintPayload = z.infer<typeof rechensprintPayloadSchema>;
+
 export const SPRINT_SCHWIERIGKEITEN = ["leicht", "mittel", "schwer"] as const;
 export type SprintSchwierigkeit = (typeof SPRINT_SCHWIERIGKEITEN)[number];
 
-export const SPRINT_GAME_TYPES = ["subnetting", "zahlensysteme"] as const;
+export const SPRINT_GAME_TYPES = ["subnetting", "zahlensysteme", "rechensprint"] as const;
 export type SprintGameType = (typeof SPRINT_GAME_TYPES)[number];
 
 export const sprintStartInputSchema = z.object({
