@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Sparverfahren-Trainer (F-202): Werkzeug nur im Kurs Transport/Logistik", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["transport-management-logistics"], "sparverfahren")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "transport-management-logistics")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "sparverfahren"), slug).toBeNull();
+    }
+  });
+
   it("Lagerkennzahlen-Rechner (F-201): Werkzeug nur im Handelsfachwirt", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT.handelsfachwirt, "lagerkennzahlen")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "handelsfachwirt")) {

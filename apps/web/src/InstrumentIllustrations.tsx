@@ -1576,6 +1576,20 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-202: Sparverfahren-Trainer (Depot mit zwei Touren, die Kunden verbinden).
+export function SparverfahrenIllustration() {
+  return (
+    <Frame background="var(--sprout-tint)">
+      <path d="M160 100 82 52 58 98 160 100" fill="none" stroke="var(--sprout-deep)" strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M160 100 236 44 270 84 238 112 160 100" fill="none" stroke="var(--coral-deep)" strokeWidth="3.5" strokeLinejoin="round" />
+      {[[82, 52], [58, 98], [236, 44], [270, 84], [238, 112]].map(([x, y]) => (
+        <circle key={`${x}-${y}`} cx={x} cy={y} r="9" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      ))}
+      <rect x="146" y="86" width="28" height="28" rx="4" fill="var(--sun)" stroke="var(--ink)" strokeWidth="2.5" />
+    </Frame>
+  );
+}
+
 // F-201: Lagerkennzahlen-Rechner (Regal mit Kisten und Umschlagspfeil).
 export function LagerkennzahlenIllustration() {
   const kisten = [

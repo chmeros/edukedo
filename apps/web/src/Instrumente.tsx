@@ -28,6 +28,7 @@ import {
   KalkulationstrainerIllustration,
   UnterweisungsplanIllustration,
   LagerkennzahlenIllustration,
+  SparverfahrenIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -95,6 +96,7 @@ import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
 import { Handelskalkulation } from "./Handelskalkulation";
 import { Unterweisungsplaner } from "./Unterweisungsplaner";
 import { Lagerkennzahlen } from "./Lagerkennzahlen";
+import { Sparverfahren } from "./Sparverfahren";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -619,6 +621,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-202 (Sparverfahren-Trainer): Tourenplanung nach dem Savings-Algorithmus, im Kurs Transport/Logistik.
+  {
+    type: "sparverfahren",
+    label: "Sparverfahren-Trainer",
+    description: "Kunden mit dem Savings-Algorithmus auf Touren verteilen: Einsparungen berechnen, Paare verbinden, Kapazität beachten — mit Rechenweg und Vergleich zur besten Lösung.",
+    Illustration: SparverfahrenIllustration,
+    werkzeug: true,
+    aktion: "Touren planen",
+  },
   // F-201 (Lagerkennzahlen-Rechner): Umschlagshäufigkeit, Reichweite und Meldebestand üben und rechnen, im Handelsfachwirt.
   {
     type: "lagerkennzahlen",
@@ -697,6 +708,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "sparverfahren") {
+    return <Sparverfahren onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "lagerkennzahlen") {
     return <Lagerkennzahlen onClose={() => setActiveWerkzeug(null)} />;
