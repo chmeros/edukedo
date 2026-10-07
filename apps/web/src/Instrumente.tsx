@@ -38,6 +38,7 @@ import {
   VerfuegbarkeitIllustration,
   StatistikIllustration,
   ProzesskennzahlenIllustration,
+  SchreibtischtestIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -115,6 +116,7 @@ import { Energierechner } from "./Energierechner";
 import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
 import { Statistiktrainer } from "./Statistiktrainer";
 import { Prozesskennzahlen } from "./Prozesskennzahlen";
+import { Schreibtischtest } from "./Schreibtischtest";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -639,6 +641,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-212 (Schreibtischtest-Trainer): Programme von Hand verfolgen, Trace-Tabellen ausfüllen, in den Fachinformatiker-Kursen.
+  {
+    type: "schreibtischtest",
+    label: "Schreibtischtest",
+    description: "Kleine Programme Schritt für Schritt verfolgen, die Trace-Tabelle ausfüllen und Fehler in Schleifen und Bedingungen finden.",
+    Illustration: SchreibtischtestIllustration,
+    werkzeug: true,
+    aktion: "Programm verfolgen",
+  },
   // F-211 (Prozesskennzahlen-Rechner): Durchlaufzeit, Engpass, Fehlerquote, Auslastung und Amortisation, im Kurs Daten- und Prozessanalyse.
   {
     type: "prozesskennzahlen",
@@ -807,6 +818,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "schreibtischtest") {
+    return <Schreibtischtest onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "prozesskennzahlen") {
     return <Prozesskennzahlen onClose={() => setActiveWerkzeug(null)} />;

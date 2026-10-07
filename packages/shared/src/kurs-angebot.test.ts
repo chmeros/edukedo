@@ -218,6 +218,16 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Schreibtischtest-Trainer (F-212): Kernangebot in der Anwendungsentwicklung, Grundlage in den übrigen Fachinformatiker-Kursen", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "schreibtischtest")).toBe("kern");
+    for (const slug of ["fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"]) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "schreibtischtest"), slug).toBe("grundlagen");
+    }
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => !eintrag.startsWith("fachinformatiker-"))) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "schreibtischtest"), slug).toBeNull();
+    }
+  });
+
   it("Prozesskennzahlen-Rechner (F-211): Werkzeug nur im Kurs Daten- und Prozessanalyse", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-daten-prozessanalyse"], "prozesskennzahlen")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-daten-prozessanalyse")) {

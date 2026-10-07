@@ -60,3 +60,4 @@ export * from "./schemas/progress";
 export * from "./schemas/quiz";
 export * from "./schemas/report";
 export * from "./schemas/sponsor";
+export * from "./schreibtischtest";

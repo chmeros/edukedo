@@ -1576,6 +1576,32 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-212: Schreibtischtest (Codezeilen links, Trace-Tabelle rechts).
+export function SchreibtischtestIllustration() {
+  const zeilen = [
+    { y: 26, x: 28, w: 70 },
+    { y: 44, x: 28, w: 54 },
+    { y: 62, x: 44, w: 62 },
+    { y: 80, x: 44, w: 40 },
+    { y: 98, x: 28, w: 58 },
+  ];
+  return (
+    <Frame background="var(--info-tint)">
+      <rect x="18" y="14" width="108" height="112" rx="8" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      {zeilen.map((z) => (
+        <rect key={z.y} x={z.x} y={z.y} width={z.w} height="8" rx="4" fill="var(--ink-soft)" opacity="0.55" />
+      ))}
+      <rect x="28" y="62" width="4" height="8" rx="2" fill="var(--coral)" />
+      <rect x="150" y="22" width="150" height="96" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <path d="M150 44h150M150 66h150M150 88h150M188 22v96M226 22v96M264 22v96" stroke="var(--line)" strokeWidth="2" />
+      <rect x="150" y="22" width="150" height="22" rx="6" fill="var(--sun-tint)" stroke="var(--ink)" strokeWidth="2.5" />
+      <rect x="196" y="72" width="22" height="10" rx="3" fill="var(--sprout)" />
+      <rect x="234" y="72" width="22" height="10" rx="3" fill="var(--sprout)" />
+      <rect x="272" y="94" width="22" height="10" rx="3" fill="var(--sprout)" />
+    </Frame>
+  );
+}
+
 // F-211: Prozesskennzahlen (Prozessschritte als Kästchen mit langen Wartezeiten, darunter ein Zeitbalken).
 export function ProzesskennzahlenIllustration() {
   const kaesten = [28, 100, 172, 244];
