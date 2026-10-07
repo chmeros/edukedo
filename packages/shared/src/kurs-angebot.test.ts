@@ -218,6 +218,13 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
+  it("Skalierungs- und Modbus-Register-Rechner (F-207): Werkzeug nur im Kurs Digitale Vernetzung", () => {
+    expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-digitale-vernetzung"], "skalierung")).toBe("kern");
+    for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-digitale-vernetzung")) {
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "skalierung"), slug).toBeNull();
+    }
+  });
+
   it("MQTT-Labor (F-206): Werkzeug nur im Kurs Digitale Vernetzung", () => {
     expect(angebotWerkzeug(KURS_ANGEBOT["fachinformatiker-digitale-vernetzung"], "mqttlabor")).toBe("kern");
     for (const slug of Object.keys(KURS_ANGEBOT).filter((eintrag) => eintrag !== "fachinformatiker-digitale-vernetzung")) {

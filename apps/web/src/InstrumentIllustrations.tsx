@@ -1576,6 +1576,34 @@ export function UnterweisungsplanIllustration() {
   );
 }
 
+// F-207: Skalierung und Modbus-Register (Skala von 4 bis 20 mA, Zeiger, Registerzelle mit Faktor).
+export function SkalierungIllustration() {
+  return (
+    <Frame background="var(--info-tint)">
+      <path d="M30 100h140" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      {[0, 1, 2, 3, 4].map((i) => (
+        <path key={i} d={`M${30 + i * 35} 100v${i % 2 === 0 ? -16 : -10}`} stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" />
+      ))}
+      <text x="30" y="120" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        4
+      </text>
+      <text x="170" y="120" fontSize="12" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        20 mA
+      </text>
+      <path d="M100 100 118 52" stroke="var(--coral-deep)" strokeWidth="4" strokeLinecap="round" />
+      <circle cx="100" cy="100" r="7" fill="var(--coral-deep)" />
+      <rect x="198" y="40" width="94" height="44" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2.5" />
+      <text x="245" y="60" fontSize="12" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+        253 × 0,1
+      </text>
+      <text x="245" y="78" fontSize="15" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        25,3 °C
+      </text>
+      <path d="M176 70h18" stroke="var(--sprout-deep)" strokeWidth="4" strokeLinecap="round" />
+    </Frame>
+  );
+}
+
 // F-206: MQTT-Labor (Broker in der Mitte, Sensor veröffentlicht, zwei Abonnenten bekommen die Nachricht).
 export function MqttlaborIllustration() {
   return (

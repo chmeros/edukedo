@@ -98,7 +98,7 @@ export const KATALOG_INSTRUMENTE = [
   "risikopolitik",
 ] as const;
 
-export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor"] as const;
+export const KATALOG_WERKZEUGE = ["netzplan", "subnetting", "sqluebung", "terminal", "topologie", "flags", "finanzrechner", "arbeitszeit", "kalkulationstrainer", "unterweisungsplan", "lagerkennzahlen", "sparverfahren", "lernzielcheck", "ausbildungsplan", "testfaelle", "mqttlabor", "skalierung"] as const;
 
 /** Werkzeuge mit auswählbaren Szenarien/Aufgaben (Filter je Kurs). */
 export const KATALOG_SZENARIO_WERKZEUGE = ["terminal", "topologie", "flags"] as const;
@@ -228,6 +228,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Skalierungs- und Modbus-Register-Rechner (F-207): Werkzeug "skalierung" im Kurs Digitale Vernetzung freigegeben (4–20 mA und 0–10 V, Plausibilität, Umsetzer-Auflösung, Modbus-Register, 32 Bit aus zwei Registern, Adressen ab 0 und ab 1; Beispielwerte, Datenblatt und Registerbeschreibung maßgeblich).
  * MQTT-Labor (F-206): Werkzeug "mqttlabor" im Kurs Digitale Vernetzung freigegeben (Simulation eines Brokers nach MQTT 3.1.1 im Browser; ohne Netzwerkverkehr, TLS und Anmeldung).
  * Testfall-Trainer (F-205): Werkzeug "testfaelle" im Kurs Anwendungsentwicklung freigegeben (Äquivalenzklassen und Grenzwerte nach der Kurstheorie 9.2; reine Rechenübung mit ganzen Zahlen).
  * Ausbildungsplan-Zeitplaner (F-204): Werkzeug "ausbildungsplan" im AEVO-Kurs freigegeben (Zeitleiste, Summenprüfung, sachlich-zeitliche Gliederung; bewusst ohne Rechtswerte, Dauer und Probezeit trägt man ein).
@@ -297,7 +298,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   },
   "fachinformatiker-digitale-vernetzung": {
     instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"], ["pdca", "hierarchie", "scrum"]),
-    werkzeuge: liste(["subnetting", "terminal", "topologie", "flags", "mqttlabor"], ["netzplan"]),
+    werkzeuge: liste(["subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung"], ["netzplan"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
       ["kreuzwortraetsel", "netzwerk-sicherheit", "kern"],

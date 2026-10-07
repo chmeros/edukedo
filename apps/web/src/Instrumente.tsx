@@ -33,6 +33,7 @@ import {
   AusbildungsplanIllustration,
   TestfaelleIllustration,
   MqttlaborIllustration,
+  SkalierungIllustration,
   FertigungsverfahrenIllustration,
   FinanzrechnerIllustration,
   GitIllustration,
@@ -105,6 +106,7 @@ import { Lernzielcheck } from "./Lernzielcheck";
 import { Ausbildungsplaner } from "./Ausbildungsplaner";
 import { Testfalltrainer } from "./Testfalltrainer";
 import { Mqttlabor } from "./Mqttlabor";
+import { Skalierungsrechner } from "./Skalierungsrechner";
 import { Finanzrechner } from "./Finanzrechner";
 import { Netzplan } from "./Netzplan";
 import { FlagRaetsel } from "./FlagRaetsel";
@@ -629,6 +631,15 @@ const INSTRUMENT_CATALOG = [
     werkzeug: true,
     aktion: "Unterweisung planen",
   },
+  // F-207 (Skalierungs- und Modbus-Register-Rechner): analoge Signale skalieren und Modbus-Register deuten, im Kurs Digitale Vernetzung.
+  {
+    type: "skalierung",
+    label: "Skalierung und Modbus-Register",
+    description: "4–20-mA-Signale in Messwerte umrechnen, Fehler erkennen, Modbus-Register mit Faktor, Vorzeichen und 32 Bit deuten und Registeradressen ab 0 und ab 1 umrechnen.",
+    Illustration: SkalierungIllustration,
+    werkzeug: true,
+    aktion: "Rechner öffnen",
+  },
   // F-206 (MQTT-Labor): Broker-Simulation mit Topics, Platzhaltern, Zustellgüte, Retained Messages und Last Will, im Kurs Digitale Vernetzung.
   {
     type: "mqttlabor",
@@ -752,6 +763,9 @@ export function Instrumente({
   }
   if (activeWerkzeug === "unterweisungsplan") {
     return <Unterweisungsplaner onClose={() => setActiveWerkzeug(null)} praesentationMinuten={kurs?.presentationMinutes ?? 15} />;
+  }
+  if (activeWerkzeug === "skalierung") {
+    return <Skalierungsrechner onClose={() => setActiveWerkzeug(null)} />;
   }
   if (activeWerkzeug === "mqttlabor") {
     return <Mqttlabor onClose={() => setActiveWerkzeug(null)} />;
