@@ -511,6 +511,32 @@ async function main() {
     );
   }
 
+  // F-219: Statistik-Sprint (Daten- und Prozessanalyse) und Algorithmen-Sprint (alle vier Fachinformatiker-Kurse; Kern in der Anwendungsentwicklung).
+  await upsertGame(
+    "fachinformatiker-daten-prozessanalyse",
+    "rechensprint",
+    "Rechen-Sprint: Statistik",
+    rechensprintPayloadSchema.parse({
+      aufgabenTypen: ["mittelwert", "median", "spannweite", "quartil", "stdabw"] satisfies RechenTyp[],
+      anzahl: 10,
+      abschlussmeldung: "Sprint geschafft! Mittelwert, Median, Quartile und Standardabweichung gehören zum Handwerkszeug jeder Datenanalyse.",
+    }),
+    "statistik",
+  );
+  for (const slug of ["fachinformatiker-anwendungsentwicklung", "fachinformatiker-daten-prozessanalyse", "fachinformatiker-digitale-vernetzung", "fachinformatiker-systemintegration"]) {
+    await upsertGame(
+      slug,
+      "rechensprint",
+      "Rechen-Sprint: Sortieren und Suchen",
+      rechensprintPayloadSchema.parse({
+        aufgabenTypen: ["sortvergleiche", "sorttausch", "sortwert", "binaersuche", "suchindex", "binmax"] satisfies RechenTyp[],
+        anzahl: 10,
+        abschlussmeldung: "Sprint geschafft! Wer Sortier- und Suchverfahren von Hand durchspielen kann, liest Programmcode sicherer.",
+      }),
+      "algorithmen",
+    );
+  }
+
   // F-195: Prozess-Reihenfolge (Abläufe in Fließtext), ein Set "prozesse" je Kurs; Inhalte in game-prozessreihenfolge.ts.
   for (const set of prozessSets) {
     await upsertGame(set.slug, "prozessreihenfolge", set.titel, prozessReihenfolgePayloadSchema.parse(set.payload), set.setKey);

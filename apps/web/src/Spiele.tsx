@@ -107,7 +107,7 @@ const GAME_CATALOG = [
   {
     type: "rechensprint",
     label: "Rechen-Sprint",
-    description: "Prozent, Skonto, Deckungsbeitrag oder Datenmengen rechnen — immer neue Aufgaben mit Lösungsweg.",
+    description: "Prozent, Kennzahlen, Datenmengen, Statistik oder Sortieren und Suchen von Hand rechnen — immer neue Aufgaben mit Lösungsweg.",
     Illustration: RechensprintIllustration,
   },
 ] as const;

@@ -484,6 +484,18 @@ export const RECHEN_TYPEN = [
   "verfuegbarkeit",
   "mtbf",
   "raid",
+  // F-219: Statistik-Sprint (Daten- und Prozessanalyse) und Algorithmen-Sprint (Fachinformatiker)
+  "mittelwert",
+  "median",
+  "spannweite",
+  "quartil",
+  "stdabw",
+  "sortvergleiche",
+  "sorttausch",
+  "sortwert",
+  "binaersuche",
+  "suchindex",
+  "binmax",
 ] as const;
 export type RechenTyp = (typeof RECHEN_TYPEN)[number];
 

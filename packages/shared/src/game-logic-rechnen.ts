@@ -1,5 +1,7 @@
+import { lauf, maxVergleicheBinaer, zustandNachDurchlauf, ALGO_NAMEN, type AlgoId } from "./algorithmen";
 import type { Rng } from "./game-logic-weitere";
 import type { RechenTyp, SprintSchwierigkeit } from "./schemas/game";
+import { mittelwert, median, quartile, standardabweichung } from "./statistik";
 
 /**
  * F-194 (Rechen-Sprint, Phase 2 der Kursprofile, siehe docs/kursprofile/00-uebersicht.md): serverseitig
@@ -136,8 +138,91 @@ export function erzeugeRechenAufgabe(typ: RechenTyp, schwierigkeit: SprintSchwie
       const tb = mal(schwierigkeit, [1, 2, 4], [2, 4, 8], [3, 6, 12, 16], rng);
       return { typ, w: [stufeRaid, platten, tb] };
     }
+    case "mittelwert": {
+      const n = mal(schwierigkeit, [5], [5, 6], [5, 6, 8, 10], rng);
+      const obergrenze = [30, 60, 90][stufe(schwierigkeit)]!;
+      for (let versuch = 0; versuch < 500; versuch += 1) {
+        const werte = Array.from({ length: n }, () => randomInt(rng, 2, obergrenze));
+        const m = werte.reduce((a, b) => a + b, 0) / n;
+        // Der Mittelwert hat höchstens eine Nachkommastelle, damit die Rundung eindeutig ist.
+        if (Math.abs(m * 10 - Math.round(m * 10)) < 1e-9 && Math.max(...werte) > Math.min(...werte)) return { typ, w: werte };
+      }
+      return { typ, w: [10, 12, 14, 16, 18] };
+    }
+    case "median":
+    case "spannweite": {
+      const n = mal(schwierigkeit, [5], [5, 6, 7], [6, 7, 8, 9], rng);
+      const obergrenze = [30, 60, 99][stufe(schwierigkeit)]!;
+      for (let versuch = 0; versuch < 500; versuch += 1) {
+        const werte = Array.from({ length: n }, () => randomInt(rng, 1, obergrenze));
+        if (Math.max(...werte) > Math.min(...werte)) return { typ, w: werte };
+      }
+      return { typ, w: [3, 5, 8, 9, 14] };
+    }
+    case "quartil": {
+      const n = mal(schwierigkeit, [7, 8], [8, 9, 10], [9, 10, 11, 12], rng);
+      const welches = pick(rng, [1, 3] as const);
+      return { typ, w: [welches, ...Array.from({ length: n }, () => randomInt(rng, 1, 60))] };
+    }
+    case "stdabw": {
+      const n = mal(schwierigkeit, [5], [5, 6], [6, 7], rng);
+      const obergrenze = [12, 20, 30][stufe(schwierigkeit)]!;
+      for (let versuch = 0; versuch < 500; versuch += 1) {
+        const werte = Array.from({ length: n }, () => randomInt(rng, 2, obergrenze));
+        if (Math.max(...werte) > Math.min(...werte)) return { typ, w: werte };
+      }
+      return { typ, w: [2, 4, 4, 4, 5, 5, 7, 9] };
+    }
+    case "sortvergleiche":
+    case "sorttausch":
+    case "sortwert": {
+      const algo = mal(schwierigkeit, [0], [0, 1, 2], [0, 1, 2], rng);
+      const n = mal(schwierigkeit, [4, 5], [5, 6], [6, 7], rng);
+      for (let versuch = 0; versuch < 500; versuch += 1) {
+        const liste = verschiedeneZahlen(rng, n, 1, 40);
+        if (!liste.every((x, i) => i === 0 || liste[i - 1]! <= x)) return { typ, w: [algo, ...liste] };
+      }
+      return { typ, w: [algo, 5, 2, 9, 1] };
+    }
+    case "binaersuche": {
+      const n = mal(schwierigkeit, [7], [9, 11], [13, 15, 17], rng);
+      const liste = verschiedeneZahlen(rng, n, 1, 99).sort((a, b) => a - b);
+      const vorhanden = randomInt(rng, 1, 4) !== 1;
+      let ziel = liste[randomInt(rng, 1, n - 1)]!;
+      if (!vorhanden) {
+        do ziel = randomInt(rng, 1, 99);
+        while (liste.includes(ziel));
+      }
+      return { typ, w: [ziel, ...liste] };
+    }
+    case "suchindex": {
+      const n = mal(schwierigkeit, [5], [6, 7], [8, 9], rng);
+      const liste = verschiedeneZahlen(rng, n, 1, 60);
+      return { typ, w: [liste[randomInt(rng, 1, n - 1)]!, ...liste] };
+    }
+    case "binmax": {
+      const n = mal(schwierigkeit, [100, 1000], [500, 5000, 20_000], [100_000, 1_000_000, 750_000], rng);
+      return { typ, w: [n] };
+    }
   }
 }
+
+/** Verschiedene ganze Zahlen im Bereich (für Listen, in denen jede Zahl nur einmal vorkommt). */
+function verschiedeneZahlen(rng: Rng, anzahl: number, min: number, max: number): number[] {
+  const werte = new Set<number>();
+  while (werte.size < anzahl) werte.add(randomInt(rng, min, max));
+  return [...werte];
+}
+
+const SORT_ALGOS: AlgoId[] = ["bubble", "selection", "insertion"];
+const SORT_DEFINITION: Record<AlgoId, string> = {
+  bubble: "(Bubblesort wie im Programmbeispiel der Theorie: n − 1 Durchläufe; im Durchlauf d werden die ersten n − d Positionen paarweise verglichen, auch wenn die Liste schon sortiert ist.)",
+  selection: "(Selectionsort: Im noch unsortierten Rest wird das Minimum gesucht, jedes Restelement wird einmal mit dem bisherigen Minimum verglichen; getauscht wird nur, wenn das Minimum nicht schon an seinem Platz steht.)",
+  insertion: "(Insertionsort: Jedes Element rückt durch Vertauschen mit dem linken Nachbarn nach vorn, solange der Nachbar größer ist; ein Vergleich je Nachbar, kein Vergleich links vom ersten Element.)",
+  linear: "",
+  binaer: "",
+};
+const listeText = (liste: number[]) => `[${liste.join(", ")}]`;
 
 const RAID_NAME: Record<number, string> = { 0: "RAID 0", 1: "RAID 1", 5: "RAID 5", 6: "RAID 6", 10: "RAID 10" };
 
@@ -214,6 +299,39 @@ export function rechenFrage(params: RechenParams): { frage: string; hinweis: str
       return {
         frage: `${w[1]} Festplatten mit je ${w[2]} TB werden zu einem ${RAID_NAME[w[0]!]}-Verbund zusammengefasst. Wie viel TB nutzbare Kapazität hat der Verbund?`,
         hinweis: "TB, ganze Zahl",
+      };
+    case "mittelwert":
+      return { frage: `Berechne das arithmetische Mittel der Werte ${w.join("; ")}.`, hinweis: "Mittelwert, auf eine Nachkommastelle, z. B. 12,4" };
+    case "median":
+      return { frage: `Bestimme den Median der Werte ${w.join("; ")}. (Bei gerader Anzahl: Mittelwert der beiden mittleren Werte.)`, hinweis: "Median, z. B. 14 oder 14,5" };
+    case "spannweite":
+      return { frage: `Wie groß ist die Spannweite (größter minus kleinster Wert) der Werte ${w.join("; ")}?`, hinweis: "Spannweite, ganze Zahl" };
+    case "quartil":
+      return {
+        frage: `Bestimme das ${w[0]}. Quartil (Q${w[0]}) der Werte ${w.slice(1).join("; ")} nach der Halbierungsmethode: Median bestimmen, dann den Median der unteren bzw. oberen Hälfte; bei ungerader Anzahl gehört der Median zu keiner Hälfte.`,
+        hinweis: "Quartil, z. B. 12 oder 12,5",
+      };
+    case "stdabw":
+      return { frage: `Berechne die Standardabweichung der Stichprobe (Teilen durch n − 1) der Werte ${w.join("; ")}.`, hinweis: "auf zwei Nachkommastellen gerundet, z. B. 3,16" };
+    case "sortvergleiche":
+    case "sorttausch":
+    case "sortwert": {
+      const algo = SORT_ALGOS[w[0]!]!;
+      const liste = w.slice(1);
+      const was = params.typ === "sortvergleiche" ? "Wie viele Vergleiche zweier Elemente werden dabei ausgeführt?" : params.typ === "sorttausch" ? "Wie viele Vertauschungen werden dabei ausgeführt?" : "Welche Zahl steht nach dem ersten Durchlauf (erster Durchgang der äußeren Schleife) an Index 0 (Zählung ab 0)?";
+      return { frage: `Die Liste ${listeText(liste)} wird mit ${ALGO_NAMEN[algo]} aufsteigend sortiert. ${SORT_DEFINITION[algo]} ${was}`, hinweis: "ganze Zahl" };
+    }
+    case "binaersuche":
+      return {
+        frage: `In der sortierten Liste ${listeText(w.slice(1))} wird ${w[0]} mit der binären Suche gesucht (Mitte = (links + rechts) // 2, Index ab 0). Wie viele Vergleiche mit dem mittleren Element werden ausgeführt, bis das Ergebnis feststeht (gefunden oder nicht vorhanden)?`,
+        hinweis: "ganze Zahl",
+      };
+    case "suchindex":
+      return { frage: `In der Liste ${listeText(w.slice(1))} wird ${w[0]} mit der linearen Suche gesucht. An welchem Index (Zählung ab 0) wird der Wert gefunden?`, hinweis: "Index, ganze Zahl" };
+    case "binmax":
+      return {
+        frage: `Eine sortierte Liste hat ${formatDe(w[0]!, 0)} Einträge. Wie viele Vergleiche braucht die binäre Suche im ungünstigsten Fall höchstens? (Ein Vergleich je Durchlauf; abgerundeter Zweierlogarithmus plus 1.)`,
+        hinweis: "ganze Zahl",
       };
   }
 }
@@ -313,6 +431,50 @@ export function rechenLoesung(params: RechenParams): RechenLoesung {
       const regel =
         level === 0 ? "RAID 0 nutzt alle Platten (kein Schutz)" : level === 1 ? "RAID 1 spiegelt: nutzbar ist eine Platte" : level === 5 ? "RAID 5 verliert eine Platte an Parität" : level === 6 ? "RAID 6 verliert zwei Platten an Parität" : "RAID 10 spiegelt paarweise: nutzbar ist die Hälfte";
       return { wert, toleranz: 0.0001, erwartet: `${formatDe(wert, 0)} TB`, erklaerung: `${regel}: ${formatDe(nutz, 0)} × ${tb} TB = ${formatDe(wert, 0)} TB.` };
+    }
+    case "mittelwert": {
+      const wert = mittelwert(w)!;
+      return { wert, toleranz: 0.0501, erwartet: formatDe(wert, 1), erklaerung: `Summe ${formatDe(w.reduce((a, b) => a + b, 0), 0)} ÷ ${w.length} Werte = ${formatDe(wert, 1)}.` };
+    }
+    case "median": {
+      const wert = median(w)!;
+      return { wert, toleranz: 0.0001, erwartet: formatDe(wert, Number.isInteger(wert) ? 0 : 1), erklaerung: `Sortiert: ${[...w].sort((a, b) => a - b).join(", ")}. Median = ${formatDe(wert, Number.isInteger(wert) ? 0 : 1)}.` };
+    }
+    case "spannweite": {
+      const wert = Math.max(...w) - Math.min(...w);
+      return { wert, toleranz: 0.0001, erwartet: formatDe(wert, 0), erklaerung: `Spannweite = größter Wert ${Math.max(...w)} − kleinster Wert ${Math.min(...w)} = ${wert}.` };
+    }
+    case "quartil": {
+      const q = quartile(w.slice(1), "halbierung")!;
+      const wert = w[0] === 1 ? q.q1 : q.q3;
+      return { wert, toleranz: 0.0001, erwartet: formatDe(wert, Number.isInteger(wert) ? 0 : 1), erklaerung: `Sortiert: ${[...w.slice(1)].sort((a, b) => a - b).join(", ")}. Q1 = ${formatDe(q.q1, Number.isInteger(q.q1) ? 0 : 1)}, Q3 = ${formatDe(q.q3, Number.isInteger(q.q3) ? 0 : 1)} (Halbierungsmethode).` };
+    }
+    case "stdabw": {
+      const wert = standardabweichung(w, true)!;
+      const m = mittelwert(w)!;
+      return { wert, toleranz: 0.0051, erwartet: formatDe(Math.round(wert * 100) / 100, 2), erklaerung: `Mittelwert ${formatDe(m, 2)}; Varianz = Summe der quadrierten Abweichungen ÷ (n − 1) = ${formatDe(wert * wert, 3)}; Standardabweichung = √ = ${formatDe(wert, 2)}.` };
+    }
+    case "sortvergleiche":
+    case "sorttausch":
+    case "sortwert": {
+      const algo = SORT_ALGOS[w[0]!]!;
+      const l = lauf(algo, w.slice(1));
+      if (params.typ === "sortvergleiche") return { wert: l.vergleiche, toleranz: 0.0001, erwartet: formatDe(l.vergleiche, 0), erklaerung: `${ALGO_NAMEN[algo]} braucht auf ${listeText(w.slice(1))} ${l.vergleiche} Vergleiche.` };
+      if (params.typ === "sorttausch") return { wert: l.vertauschungen, toleranz: 0.0001, erwartet: formatDe(l.vertauschungen, 0), erklaerung: `${ALGO_NAMEN[algo]} braucht auf ${listeText(w.slice(1))} ${l.vertauschungen} Vertauschungen.` };
+      const nach = zustandNachDurchlauf(l, 1);
+      return { wert: nach[0]!, toleranz: 0.0001, erwartet: formatDe(nach[0]!, 0), erklaerung: `Nach dem ersten Durchlauf lautet die Liste ${listeText(nach)}, an Index 0 steht ${nach[0]}.` };
+    }
+    case "binaersuche": {
+      const l = lauf("binaer", w.slice(1), w[0]!);
+      return { wert: l.vergleiche, toleranz: 0.0001, erwartet: formatDe(l.vergleiche, 0), erklaerung: `Besuchte Mitten: Index ${l.schritte.filter((s) => s.bereich?.mitte != null).map((s) => s.bereich!.mitte).join(", ")} — ${l.vergleiche} Vergleiche, Ergebnis ${l.gefunden! >= 0 ? `Index ${l.gefunden}` : "−1 (nicht gefunden)"}.` };
+    }
+    case "suchindex": {
+      const l = lauf("linear", w.slice(1), w[0]!);
+      return { wert: l.gefunden!, toleranz: 0.0001, erwartet: formatDe(l.gefunden!, 0), erklaerung: `Die Elemente werden der Reihe nach geprüft; ${w[0]} steht an Index ${l.gefunden} (nach ${l.vergleiche} Vergleichen).` };
+    }
+    case "binmax": {
+      const wert = maxVergleicheBinaer(w[0]!);
+      return { wert, toleranz: 0.0001, erwartet: formatDe(wert, 0), erklaerung: `Jeder Vergleich halbiert den Suchbereich: ⌊log₂ ${formatDe(w[0]!, 0)}⌋ + 1 = ${Math.floor(Math.log2(w[0]!))} + 1 = ${wert}.` };
     }
   }
 }

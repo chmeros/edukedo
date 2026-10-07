@@ -123,3 +123,63 @@ describe("F-194: Rechen-Sprint", () => {
     expect(pruefeRechenEingabe(verfuegbar, "99,4")).toBe(false);
   });
 });
+
+describe("F-219: Statistik- und Algorithmen-Sprint (neue Aufgabenarten des Rechen-Sprints)", () => {
+  it("rechnet Beispiele der Kurstheorien richtig", () => {
+    const faelle: [RechenParams, number][] = [
+      [aufgabe("mittelwert", [10, 12, 14, 16, 18]), 14],
+      [aufgabe("median", [7, 3, 9, 5]), 6],
+      [aufgabe("median", [7, 3, 9, 5, 8]), 7],
+      [aufgabe("spannweite", [4, 9, 1, 7]), 8],
+      // Halbierungsmethode: acht Werte, untere Hälfte 1, 3, 5, 7 (Median 4), obere Hälfte 9, 11, 13, 15 (Median 12)
+      [aufgabe("quartil", [1, 1, 3, 5, 7, 9, 11, 13, 15]), 4],
+      [aufgabe("quartil", [3, 1, 3, 5, 7, 9, 11, 13, 15]), 12],
+      // Stichprobe: 32 ÷ 7 ≈ 4,571, Wurzel ≈ 2,14
+      [aufgabe("stdabw", [2, 4, 4, 4, 5, 5, 7, 9]), 2.14],
+      // Bubblesort [5, 2, 9, 1]: 6 Vergleiche, 4 Vertauschungen; Insertionsort 5 Vergleiche, 4 Vertauschungen; Selectionsort 6 und 2
+      [aufgabe("sortvergleiche", [0, 5, 2, 9, 1]), 6],
+      [aufgabe("sorttausch", [0, 5, 2, 9, 1]), 4],
+      [aufgabe("sortvergleiche", [2, 5, 2, 9, 1]), 5],
+      [aufgabe("sorttausch", [2, 5, 2, 9, 1]), 4],
+      [aufgabe("sortvergleiche", [1, 5, 2, 9, 1]), 6],
+      [aufgabe("sorttausch", [1, 5, 2, 9, 1]), 2],
+      [aufgabe("sortwert", [0, 5, 2, 9, 1]), 2],
+      // binäre Suche [3, 8, 15, 21, 34, 55, 89] nach 34: drei Vergleiche; lineare Suche [12, 7, 30, 5] nach 30: Index 2
+      [aufgabe("binaersuche", [34, 3, 8, 15, 21, 34, 55, 89]), 3],
+      [aufgabe("suchindex", [30, 12, 7, 30, 5]), 2],
+      [aufgabe("binmax", [1_000_000]), 20],
+      [aufgabe("binmax", [1000]), 10],
+    ];
+    for (const [params, erwartet] of faelle) {
+      const loesung = rechenLoesung(params);
+      expect(Math.abs(loesung.wert - erwartet), `${params.typ} ${params.w.join("/")}`).toBeLessThanOrEqual(loesung.toleranz);
+      expect(pruefeRechenEingabe(params, formatDe(erwartet, 2)), `${params.typ} Eingabe`).toBe(true);
+    }
+  });
+
+  it("die Fragen nennen die Definitionen (Halbierungsmethode, n − 1, Bubblesort ohne Abbruch, Insertionsort durch Vertauschen)", () => {
+    expect(rechenFrage(aufgabe("quartil", [1, 1, 3, 5, 7, 9, 11, 13, 15])).frage).toContain("Halbierungsmethode");
+    expect(rechenFrage(aufgabe("stdabw", [2, 4, 4, 4, 5, 5, 7, 9])).frage).toContain("n − 1");
+    expect(rechenFrage(aufgabe("sortvergleiche", [0, 5, 2, 9, 1])).frage).toContain("auch wenn die Liste schon sortiert ist");
+    expect(rechenFrage(aufgabe("sorttausch", [2, 5, 2, 9, 1])).frage).toContain("durch Vertauschen mit dem linken Nachbarn");
+    expect(rechenFrage(aufgabe("binaersuche", [34, 3, 8, 15, 21, 34, 55, 89])).frage).toContain("(links + rechts) // 2");
+  });
+
+  it("Generator: Mittelwerte haben höchstens eine Nachkommastelle, Zahlenlisten sind verschieden und unsortiert, gesuchte Werte stehen nicht an Index 0", () => {
+    const rng = createSeededRandom(31);
+    for (const schwierigkeit of SPRINT_SCHWIERIGKEITEN) {
+      for (let i = 0; i < 150; i += 1) {
+        const mw = erzeugeRechenAufgabe("mittelwert", schwierigkeit, rng).w;
+        const m = mw.reduce((a, b) => a + b, 0) / mw.length;
+        expect(Math.abs(m * 10 - Math.round(m * 10)), `${mw}`).toBeLessThan(1e-9);
+        const sort = erzeugeRechenAufgabe("sortvergleiche", schwierigkeit, rng).w.slice(1);
+        expect(new Set(sort).size).toBe(sort.length);
+        expect(sort.every((x, k) => k === 0 || sort[k - 1]! <= x)).toBe(false);
+        const such = erzeugeRechenAufgabe("suchindex", schwierigkeit, rng).w;
+        expect(such.slice(1).indexOf(such[0]!)).toBeGreaterThan(0);
+        const bin = erzeugeRechenAufgabe("binaersuche", schwierigkeit, rng).w;
+        expect(bin.slice(1).every((x, k, a) => k === 0 || a[k - 1]! < x)).toBe(true);
+      }
+    }
+  });
+});

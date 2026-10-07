@@ -236,6 +236,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Bis zur Freigabe stehen sie nicht in der Spieleliste ("standard" ist ein nicht vorhandenes Set); nur der Büro-Kurs behält seine vorhandenen Sets.
  * Freigegeben am 07.10.2026 (nach Entfernen der rechtsnahen Wörter und Paare): Industriefachwirt, Technischer Fachwirt, Handelsfachwirt, Transport/Logistik.
  * Prozess-Reihenfolge (F-195): Set "prozesse" in elf Kursen freigegeben (Abläufe mit genau einer üblichen Reihenfolge, Kalkulationsstufen nach der Kurstheorie).
+ * Statistik- und Algorithmen-Sprint (F-219): Sets "statistik" (Daten- und Prozessanalyse, Kern) und "algorithmen" (Anwendungsentwicklung Kern, übrige Fachinformatiker-Kurse Grundlagen) des Rechen-Sprints.
  * Netzwerk-Szenarien für Systemintegration (F-218): vier neue Szenarien im Topologie-Simulator nur im Kurs Systemintegration (Inter-VLAN-Routing mit Verwaltungsnetz, Standortverbund mit überlappenden Netzen, Webserver in der DMZ, redundante Anbindung; Theorie si2 9.1 und 9.3).
  * Industrienetz-Szenarien (F-217): vier neue Szenarien im Topologie-Simulator, nur im Kurs Digitale Vernetzung (Produktionszelle im VLAN, Feldnetz hinter dem Gateway, Büro/Produktion/Leitstand mit Firewall, Wartungszugriff über die DMZ; Theorie dv2 9.3 und dv4 11.4).
  * Algorithmen-Visualisierer (F-215): Werkzeug "algorithmen" im Kurs Anwendungsentwicklung als Kernangebot, in den drei übrigen Fachinformatiker-Kursen als Grundlage (gemeinsame Theorie 4.2: Bubble-, Selection-, Insertionsort, lineare und binäre Suche).
@@ -282,6 +283,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "grundlagen"],
       ["zahlensysteme", null, "grundlagen"],
       ["rechensprint", "it-rechnen", "grundlagen"],
+      ["rechensprint", "algorithmen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "schutzziele", "normalisierung", "ermodell", "osi"],
@@ -306,6 +308,8 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "grundlagen"],
       ["zahlensysteme", null, "grundlagen"],
       ["rechensprint", "it-rechnen", "grundlagen"],
+      ["rechensprint", "statistik", "kern"],
+      ["rechensprint", "algorithmen", "grundlagen"],
       ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele", "normalisierung", "ermodell"],
@@ -331,6 +335,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
       ["rechensprint", "it-rechnen", "kern"],
+      ["rechensprint", "algorithmen", "grundlagen"],
       ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele"],
@@ -356,6 +361,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
       ["rechensprint", "it-rechnen", "kern"],
+      ["rechensprint", "algorithmen", "grundlagen"],
       ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele"],
