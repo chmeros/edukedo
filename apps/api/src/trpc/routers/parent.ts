@@ -7,6 +7,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, eq } from "drizzle-orm";
 import { hashPassword, verifyPassword } from "../../auth/password";
+import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/request-limits";
 import {
   SESSION_COOKIE_NAME,
   createSession,
@@ -26,6 +27,9 @@ import { protectedParentProcedure, publicProcedure, router } from "../trpc";
  */
 export const parentRouter = router({
   login: publicProcedure.input(parentLoginInputSchema).mutation(async ({ ctx, input }) => {
+    // Review-Befund SEC-04: je Konto und je IP begrenzen, bevor das teure Passwort-Hashing läuft.
+    enforceRateLimit(`parent-login:${input.email.trim().toLowerCase()}`, LIMITS.loginPerEmail, TOO_MANY_LOGINS_MESSAGE);
+    enforceRateLimit(`login-ip:${ctx.req.ip}`, LIMITS.loginPerIp, TOO_MANY_LOGINS_MESSAGE);
     const [found] = await ctx.db.select().from(parent).where(eq(parent.email, input.email)).limit(1);
 
     if (!found || !found.passwordSet) {

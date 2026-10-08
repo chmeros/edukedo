@@ -17,6 +17,7 @@ import { initiateEmailVerification } from "../../auth/email-verification";
 import { hashPassword, verifyPassword } from "../../auth/password";
 import { isPremiumActive } from "../../auth/premium-status";
 import { checkRateLimit } from "../../auth/rate-limit";
+import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/request-limits";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
 import { env } from "../../env";
@@ -42,6 +43,16 @@ export const authRouter = router({
   publicConfig: publicProcedure.query(() => ({ minorsAllowed: env.ALLOW_MINORS })),
 
   register: publicProcedure.input(registerInputSchema).mutation(async ({ ctx, input }) => {
+    // Review-Befund SEC-04: Registrierung je IP begrenzen (Konten-Flut, Argon2-Überlast) und die Eltern-Adresse gegen
+    // Mail-Bombing (jede Registrierung eines unter 16-Jährigen löst eine Einwilligungsmail an diese Adresse aus).
+    enforceRateLimit(`register-ip:${ctx.req.ip}`, LIMITS.registerPerIp, "Zu viele Registrierungen von dieser Adresse. Bitte versuche es später erneut.");
+    if (input.parentEmail) {
+      enforceRateLimit(
+        `consent-mail:${input.parentEmail.trim().toLowerCase()}`,
+        LIMITS.consentMailPerParentEmail,
+        "An diese Eltern-Adresse wurden heute bereits mehrere Anfragen gesendet. Bitte versuche es morgen erneut.",
+      );
+    }
     // F-159: vor allem anderen — es soll weder ein Konto noch eine Eltern-Einwilligungsanfrage entstehen.
     if (!env.ALLOW_MINORS && calculateIsMinor(input.birthDate)) {
       throw new TRPCError({ code: "FORBIDDEN", message: MINORS_NOT_ALLOWED_MESSAGE });
@@ -138,6 +149,9 @@ export const authRouter = router({
         message: "Zu viele Login-Versuche für dieses Konto. Bitte warte einige Minuten, bevor du es erneut versuchst.",
       });
     }
+
+    // Review-Befund SEC-04: zusätzlich je IP begrenzen (die Grenze je Konto allein hält kein Durchprobieren vieler Adressen auf).
+    enforceRateLimit(`login-ip:${ctx.req.ip}`, LIMITS.loginPerIp, TOO_MANY_LOGINS_MESSAGE);
 
     const [found] = await ctx.db.select().from(user).where(eq(user.email, input.email)).limit(1);
     const passwordMatches = found ? await verifyPassword(found.passwordHash, input.password) : false;

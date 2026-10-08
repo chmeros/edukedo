@@ -22,7 +22,7 @@ export async function buildApp() {
   // einen 404 statt einer echten Antwort — kein Body-/Header-Limit, sondern reines Router-Matching
   // (siehe Architekturplanung Abschnitt 13). 2000 ist derselbe Wert wie `maxURLLength` auf dem
   // Client (main.tsx) — beide Seiten bewusst synchron gehalten.
-  const app = Fastify({ logger: true, maxParamLength: 2000 });
+  const app = Fastify({ logger: true, maxParamLength: 2000, trustProxy: env.TRUST_PROXY });
 
   await app.register(cookie, { secret: env.SESSION_SECRET });
 

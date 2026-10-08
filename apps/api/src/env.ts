@@ -19,6 +19,13 @@ const envSchema = z.object({
   // Architekturplanung Abschnitt 13): ohne ausdrückliches "true" können sich nur Volljährige
   // registrieren und einloggen. Der Eltern-Consent-Flow (F-08/F-90) bleibt vollständig im Code und
   // wird mit ALLOW_MINORS=true wieder aktiv — es ist ein Schalter, kein Rückbau.
+  // Review-Befund SEC-04: Hinter einem Reverse Proxy (Load Balancer, nginx) kommt jede Anfrage von dessen Adresse; nur mit
+  // TRUST_PROXY=true liest Fastify die echte Client-IP aus X-Forwarded-For, und die IP-basierten Ratenbegrenzungen greifen
+  // je Client statt für alle zusammen. Nur setzen, wenn wirklich ein vertrauenswürdiger Proxy davorsteht.
+  TRUST_PROXY: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
   ALLOW_MINORS: z
     .enum(["true", "false"])
     .default("false")

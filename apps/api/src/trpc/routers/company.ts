@@ -12,6 +12,7 @@ import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
 import { hashPassword, verifyPassword } from "../../auth/password";
+import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/request-limits";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
 import {
@@ -97,6 +98,9 @@ export const companyRouter = router({
   }),
 
   login: publicProcedure.input(companyLoginInputSchema).mutation(async ({ ctx, input }) => {
+    // Review-Befund SEC-04: je Konto und je IP begrenzen, bevor das teure Passwort-Hashing läuft.
+    enforceRateLimit(`company-login:${input.email.trim().toLowerCase()}`, LIMITS.loginPerEmail, TOO_MANY_LOGINS_MESSAGE);
+    enforceRateLimit(`login-ip:${ctx.req.ip}`, LIMITS.loginPerIp, TOO_MANY_LOGINS_MESSAGE);
     const [found] = await ctx.db
       .select()
       .from(companyAccount)

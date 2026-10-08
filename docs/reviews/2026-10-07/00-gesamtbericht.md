@@ -99,6 +99,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | B11 `rundeCent` | **erledigt 08.10.2026** (Skalierungsrechner-Meldung WRK-01 offen) | §13 „Schritt 6“ |
 | A7 Mindestgröße nach Beitragenden | **erledigt 08.10.2026** (Mitglieder erfahren weiterhin nichts, UXL-04 offen) | §13 „Sicherheit, Schritt 2“ |
 | A3 Consent-/Setup-Links dauerhaft, Links im Log | **teilweise erledigt 08.10.2026** (Einmal-Links, kein Link im Produktions-Log); echter Mailversand wartet auf Anbieterwahl | §13 „Sicherheit, Schritt 3“ |
+| SEC-04 Ratenbegrenzung (Eltern-/Firmen-Login, Registrierung, Mail-Bombing, trustProxy, Speicher) | **erledigt 08.10.2026** | §13 „Sicherheit, Schritt 4“ |
 | A5, A6, A8, B6–B8, B10, B12 | offen | — |
 
 ## 8. Einzelberichte
