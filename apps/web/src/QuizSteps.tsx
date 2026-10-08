@@ -106,6 +106,7 @@ function AntwortOption({
   onClick,
   text,
   prefix,
+  gewaehlt,
 }: {
   className: string;
   beantwortet: boolean;
@@ -113,17 +114,24 @@ function AntwortOption({
   onClick: () => void;
   text: string;
   prefix?: string;
+  /** Review WEB-15: Auswahlzustand für Hilfstechnik (nur wo erst gewählt und dann geprüft wird). */
+  gewaehlt?: boolean;
 }) {
   if (beantwortet) {
+    // Review WEB-15: Das Ergebnis steht auch als Zeichen und Text, nicht nur als Rand- oder Hintergrundfarbe (WCAG 1.4.1).
+    const richtig = className.includes("is-correct");
+    const falsch = className.includes("is-wrong");
     return (
       <div className={className + " is-static"}>
+        {richtig ? <span aria-hidden="true">✓ </span> : falsch ? <span aria-hidden="true">✗ </span> : null}
         {prefix}
         <FachbegriffText text={text} aktiv />
+        {richtig ? <span className="sr-only"> (richtige Antwort)</span> : falsch ? <span className="sr-only"> (deine Antwort, falsch)</span> : null}
       </div>
     );
   }
   return (
-    <button type="button" className={className} disabled={disabled} onClick={onClick}>
+    <button type="button" className={className} disabled={disabled} onClick={onClick} aria-pressed={gewaehlt}>
       {prefix}
       {text}
     </button>
@@ -189,6 +197,7 @@ export function MultipleChoiceStep({
               disabled={submit.isPending}
               onClick={() => setSelectedOptionId(option.id)}
               text={option.text}
+              gewaehlt={option.id === selectedOptionId}
             />
           );
         })}
@@ -395,6 +404,7 @@ export function McMultiStep({
               onClick={() => toggleOption(option.id)}
               text={option.text}
               prefix={isSelected ? "☑ " : "☐ "}
+              gewaehlt={isSelected}
             />
           );
         })}

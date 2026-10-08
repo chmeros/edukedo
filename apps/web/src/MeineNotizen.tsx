@@ -1,6 +1,7 @@
 import { InfoIcon } from "./Icons";
 import { TYPE_LABELS } from "./Suche";
 import { trpc } from "./trpc";
+import { ConfirmButton } from "./ConfirmButton";
 
 /**
  * F-15: Übersicht aller eigenen Notizen im gewählten Kurs — zweiter echter Inhalt im
@@ -56,14 +57,13 @@ export function MeineNotizen({
                 >
                   Zu diesem Thema lernen
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-ghost btn-sm"
+                <ConfirmButton
+                  label="Löschen"
+                  question="Notiz wirklich löschen?"
+                  confirmLabel="Ja, löschen"
                   disabled={remove.isPending}
-                  onClick={() => remove.mutate({ contentItemId: note.contentItemId })}
-                >
-                  Löschen
-                </button>
+                  onConfirm={() => remove.mutate({ contentItemId: note.contentItemId })}
+                />
               </div>
             </div>
           ))}

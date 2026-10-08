@@ -2,6 +2,7 @@ import { useEffect, useId, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
 import { trpc } from "./trpc";
+import { ConfirmButton } from "./ConfirmButton";
 
 /**
  * F-15: eigene, freie Notiz zu einer einzelnen Lerneinheit — dezenter Trigger nach demselben
@@ -88,14 +89,13 @@ export function NoteButton({ contentItemId }: { contentItemId: string }) {
                   Speichern
                 </button>
                 {existing.data && (
-                  <button
-                    type="button"
-                    className="btn btn-ghost btn-sm"
+                  <ConfirmButton
+                    label="Notiz löschen"
+                    question="Wirklich löschen?"
+                    confirmLabel="Ja, löschen"
                     disabled={remove.isPending}
-                    onClick={() => remove.mutate({ contentItemId })}
-                  >
-                    Notiz löschen
-                  </button>
+                    onConfirm={() => remove.mutate({ contentItemId })}
+                  />
                 )}
                 <button type="button" className="btn btn-ghost btn-sm" onClick={close}>
                   Abbrechen

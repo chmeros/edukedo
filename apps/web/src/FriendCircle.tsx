@@ -4,6 +4,7 @@ import { SuccessIcon } from "./Icons";
 import { Modal } from "./Modal";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+import { ConfirmButton } from "./ConfirmButton";
 
 /**
  * F-68: Melden/Blockieren einer Freundschaft — aktuell die einzige Fläche, auf der eine Person
@@ -190,14 +191,14 @@ export function FriendCircle({ kursId }: { kursId: string }) {
               title={<code>{entry.code}</code>}
               description={`Gültig bis ${new Date(entry.expiresAt).toLocaleDateString("de-DE")}`}
               actions={
-                <button
-                  type="button"
+                <ConfirmButton
+                  label="Widerrufen"
+                  question="Code wirklich widerrufen?"
+                  confirmLabel="Ja, widerrufen"
                   className="btn btn-danger btn-sm"
-                  onClick={() => revokeCode.mutate({ codeId: entry.id })}
                   disabled={revokeCode.isPending}
-                >
-                  Widerrufen
-                </button>
+                  onConfirm={() => revokeCode.mutate({ codeId: entry.id })}
+                />
               }
             />
           ))}

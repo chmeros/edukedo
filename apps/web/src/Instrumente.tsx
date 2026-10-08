@@ -983,7 +983,12 @@ export function Instrumente({
         actions={
           <>
             {werkzeugVerfuegbar && (
-              <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveWerkzeug(instrument.type)}>
+              <button
+                type="button"
+                className="btn btn-primary btn-sm"
+                aria-label={`${"aktion" in instrument ? instrument.aktion : "Öffnen"}: ${instrument.label}`}
+                onClick={() => setActiveWerkzeug(instrument.type)}
+              >
                 {"aktion" in instrument ? instrument.aktion : "Öffnen"}
               </button>
             )}
@@ -991,6 +996,7 @@ export function Instrumente({
               <button
                 type="button"
                 className="btn btn-secondary btn-sm"
+                aria-label={`Fragen zu diesem Instrument üben: ${instrument.label}`}
                 onClick={() => setActiveRunde({ type: instrument.type, label: instrument.label })}
               >
                 Fragen zu diesem Instrument üben
@@ -998,7 +1004,12 @@ export function Instrumente({
             )}
             {lernpfad &&
               (instrumentLernpfadeEnabled ? (
-                <button type="button" className="btn btn-primary btn-sm" onClick={() => setActiveLernpfad(instrument.type)}>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-sm"
+                  aria-label={`Geführten Lernpfad starten: ${instrument.label}`}
+                  onClick={() => setActiveLernpfad(instrument.type)}
+                >
                   Geführten Lernpfad starten
                 </button>
               ) : (

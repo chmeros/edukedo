@@ -27,6 +27,7 @@ export function FlipCard({
   stacked?: boolean;
 }) {
   return (
+    <>
     <div className={stacked ? "flip-scene has-stack" : "flip-scene"}>
       {stacked && (
         <>
@@ -64,5 +65,13 @@ export function FlipCard({
         </div>
       </div>
     </div>
+    {/* Review WEB-41: Die aufgedeckte Karte ist keine Tastatur-Schaltfläche (Fachbegriffe darin müssen bedienbar bleiben); damit sich
+        auch ohne Maus zur Frage zurückkehren lässt, gibt es diese Schaltfläche. */}
+    {flipped && (
+      <button type="button" className="link-muted-btn" style={{ alignSelf: "center" }} onClick={onToggle}>
+        ↺ Frage noch einmal ansehen
+      </button>
+    )}
+    </>
   );
 }

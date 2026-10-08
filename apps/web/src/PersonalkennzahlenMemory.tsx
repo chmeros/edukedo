@@ -173,8 +173,9 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
               Neue Karten
             </button>
           </div>
-          <div className="quadrant-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {runde.karten.map((karte) => {
+          {/* Review WRK-22: Spaltenzahl richtet sich nach der Breite statt fest 4 (auf dem Handy sonst winzige Karten). */}
+          <div className="quadrant-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 6.5rem), 1fr))" }}>
+            {runde.karten.map((karte, kartenNummer) => {
               const istGefunden = gefunden.includes(karte.cardId);
               const istAufgedeckt = aufgedeckt.includes(karte.cardId) || istGefunden;
               const istFalsch = falschesPaar?.includes(karte.cardId) ?? false;
@@ -188,6 +189,7 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
                   className={className}
                   style={{ minHeight: 64 }}
                   disabled={istGefunden || submitPaar.isPending}
+                  aria-label={istAufgedeckt ? undefined : `Karte ${kartenNummer + 1}, verdeckt`}
                   onClick={() => karteAufdecken(karte, runde.karten)}
                 >
                   {istAufgedeckt ? karte.text : "?"}

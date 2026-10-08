@@ -5,6 +5,7 @@ import { InfoIcon } from "./Icons";
 import { Modal } from "./Modal";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+import { ConfirmButton } from "./ConfirmButton";
 
 const KATEGORIE_LABEL: Record<string, string> = {
   erwachsenenbildung: "Erwachsenenbildung",
@@ -117,14 +118,14 @@ export function CourseSelection({
                       <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
                         Auswählen
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-ghost btn-sm"
+                      {/* Review WEB-24: Kurs verlassen löscht Zieltermin, Plan-Start und Lernpartner-Präferenz, daher mit Rückfrage. */}
+                      <ConfirmButton
+                        label="Verlassen"
+                        question="Kurs wirklich verlassen? Zieltermin, Plan-Start und Lernpartner-Auswahl gehen verloren."
+                        confirmLabel="Ja, verlassen"
                         disabled={leave.isPending && leave.variables?.kursId === course.id}
-                        onClick={() => leave.mutate({ kursId: course.id })}
-                      >
-                        Verlassen
-                      </button>
+                        onConfirm={() => leave.mutate({ kursId: course.id })}
+                      />
                     </>
                   }
                 >

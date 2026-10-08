@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { AGB } from "./AGB";
 import { App } from "./App";
@@ -12,6 +12,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { Datenschutzerklaerung } from "./Datenschutzerklaerung";
 import { DatenschutzKinder } from "./DatenschutzKinder";
 import { Impressum } from "./Impressum";
+import { NotFound } from "./NotFound";
 import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
@@ -21,6 +22,20 @@ import { Vorschau } from "./Vorschau";
 
 // F-155: gespeicherte Darstellung (Hell/Dunkel, Ruhiger Modus) vor dem ersten Rendern anwenden.
 initDisplayPrefs();
+
+const SEITENTITEL: Record<string, string> = {
+  "/consent/confirm": "Einwilligung bestätigen – edukedo",
+  "/verify-email": "E-Mail bestätigen – edukedo",
+  "/reset-password": "Passwort zurücksetzen – edukedo",
+  "/parent": "Eltern-Bereich – edukedo",
+  "/datenschutz-kinder": "Datenschutz für Kinder – edukedo",
+  "/vorschau": "Vorschau – edukedo",
+  "/company/setup": "Unternehmens-Konto einrichten – edukedo",
+  "/company": "Unternehmens-Bereich – edukedo",
+  "/impressum": "Impressum – edukedo",
+  "/datenschutz": "Datenschutzerklärung – edukedo",
+  "/agb": "AGB – edukedo",
+};
 
 function Root() {
   const [queryClient] = useState(() => new QueryClient());
@@ -51,7 +66,12 @@ function Root() {
   // Datenschutz-Kurzfassung (F-53), den kontolosen Vorschau-Modus (F-08), seit F-91 das
   // Unternehmens-Dashboard samt Setup-Link-Zielseite und seit F-51 Impressum/Datenschutz-
   // erklärung/AGB genügt eine einfache Pfad-Weiche.
-  const pathname = window.location.pathname;
+  // Ein abschließender Schrägstrich ("/agb/") zählt wie derselbe Pfad ohne.
+  const pathname = window.location.pathname.length > 1 ? window.location.pathname.replace(/\/+$/, "") : window.location.pathname;
+  // Review WEB-30: Jede Seite hat einen eigenen Dokumenttitel (Tab, Verlauf, Screenreader); die App selbst setzt "edukedo".
+  useEffect(() => {
+    document.title = SEITENTITEL[pathname] ?? (pathname === "/" || pathname === "/index.html" ? "edukedo" : "Seite nicht gefunden – edukedo");
+  }, [pathname]);
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
@@ -79,8 +99,10 @@ function Root() {
             <Datenschutzerklaerung />
           ) : pathname === "/agb" ? (
             <AGB />
-          ) : (
+          ) : pathname === "/" || pathname === "/index.html" ? (
             <App />
+          ) : (
+            <NotFound />
           )}
         </ErrorBoundary>
       </QueryClientProvider>

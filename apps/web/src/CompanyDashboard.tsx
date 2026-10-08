@@ -4,6 +4,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { ForgotPassword } from "./ForgotPassword";
 import { Header } from "./Header";
 import { trpc } from "./trpc";
+import { ConfirmButton } from "./ConfirmButton";
 
 const BILLING_STATUS_LABELS: Record<string, string> = {
   pending: "Ausstehend",
@@ -100,14 +101,14 @@ function InviteCodesSection() {
                   {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
                 </span>
               </div>
-              <button
-                type="button"
+              <ConfirmButton
+                label="Widerrufen"
+                question="Code wirklich widerrufen? Er lässt sich danach nicht mehr einlösen."
+                confirmLabel="Ja, widerrufen"
                 className="btn btn-danger btn-sm"
-                onClick={() => revoke.mutate({ codeId: code.id })}
                 disabled={revoke.isPending && revoke.variables?.codeId === code.id}
-              >
-                Widerrufen
-              </button>
+                onConfirm={() => revoke.mutate({ codeId: code.id })}
+              />
             </div>
             {revoke.error && revoke.variables?.codeId === code.id && <ErrorMessage>{revoke.error.message}</ErrorMessage>}
           </div>
@@ -157,14 +158,14 @@ function MembersSection() {
                 {member.email}
                 <span>Beigetreten am {new Date(member.joinedAt).toLocaleDateString("de-DE")}</span>
               </div>
-              <button
-                type="button"
+              <ConfirmButton
+                label="Lizenz entziehen"
+                question="Lizenz wirklich entziehen? Die Person verliert den Zugang über das Unternehmen."
+                confirmLabel="Ja, entziehen"
                 className="btn btn-danger btn-sm"
-                onClick={() => revoke.mutate({ membershipId: member.membershipId })}
                 disabled={revoke.isPending && revoke.variables?.membershipId === member.membershipId}
-              >
-                Lizenz entziehen
-              </button>
+                onConfirm={() => revoke.mutate({ membershipId: member.membershipId })}
+              />
             </div>
             {revoke.error && revoke.variables?.membershipId === member.membershipId && (
               <ErrorMessage>{revoke.error.message}</ErrorMessage>

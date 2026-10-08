@@ -47,7 +47,6 @@ export function UserMenu({
         type="button"
         ref={triggerRef}
         className="header-menu-trigger"
-        aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
