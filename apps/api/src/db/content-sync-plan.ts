@@ -115,6 +115,21 @@ function normalizeText(value: string): string {
   return value.normalize("NFC").replace(/\r\n/g, "\n");
 }
 
+/** Feste Reihenfolge der Optionen (auch bei gleicher sortOrder, z. B. links/rechts einer Zuordnung), unabhängig von der Datenbank-Rückgabe. */
+function compareOptions(a: SyncOption, b: SyncOption): number {
+  return (
+    a.sortOrder - b.sortOrder ||
+    (a.side ?? "").localeCompare(b.side ?? "") ||
+    (a.groupKey ?? "").localeCompare(b.groupKey ?? "") ||
+    a.text.localeCompare(b.text)
+  );
+}
+
+/** Identität einer Option innerhalb eines Items: Position und Seite (links/rechts teilen sich bei Zuordnungen die sortOrder). */
+function optionSlot(option: Pick<SyncOption, "sortOrder" | "side">): string {
+  return `${option.sortOrder}|${option.side ?? ""}`;
+}
+
 /** Hash des importierten Inhalts (ohne `isActive` und Schlüssel). Optionen nach `sortOrder`, Tags alphabetisch. */
 export function computeContentHash(item: DesiredItem): string {
   const content = {
@@ -125,7 +140,7 @@ export function computeContentHash(item: DesiredItem): string {
     bloom: item.bloom,
     payload: item.payload ?? null,
     options: [...item.options]
-      .sort((a, b) => a.sortOrder - b.sortOrder)
+      .sort(compareOptions)
       .map((option) => ({
         text: normalizeText(option.text),
         isCorrect: option.isCorrect,
@@ -139,17 +154,17 @@ export function computeContentHash(item: DesiredItem): string {
 }
 
 function planOptionChanges(existing: ExistingOption[], desired: SyncOption[], warnings: string[], key: string): OptionChanges {
-  const bySortOrder = new Map(existing.map((option) => [option.sortOrder, option] as const));
+  const bySlot = new Map(existing.map((option) => [optionSlot(option), option] as const));
   const changes: OptionChanges = { update: [], insert: [], remove: [] };
-  const used = new Set<number>();
+  const used = new Set<string>();
 
   for (const wanted of desired) {
-    const current = bySortOrder.get(wanted.sortOrder);
+    const current = bySlot.get(optionSlot(wanted));
     if (!current) {
       changes.insert.push(wanted);
       continue;
     }
-    used.add(wanted.sortOrder);
+    used.add(optionSlot(wanted));
     const same =
       current.text === wanted.text &&
       current.isCorrect === wanted.isCorrect &&
@@ -158,7 +173,7 @@ function planOptionChanges(existing: ExistingOption[], desired: SyncOption[], wa
     if (!same) changes.update.push({ id: current.id, desired: wanted });
   }
   for (const option of existing) {
-    if (used.has(option.sortOrder)) continue;
+    if (used.has(optionSlot(option))) continue;
     if (option.referenced) {
       warnings.push(`${key}: Option ${option.sortOrder} entfällt im Markdown, wird aber von einer Duellantwort verwendet und bleibt bestehen.`);
     } else {
@@ -180,7 +195,7 @@ function optionPattern(options: SyncOption[], type: string): string {
       : options
           .filter((option) => option.isCorrect || option.groupKey !== null || option.side !== null)
           .map((option) => [option.sortOrder, option.isCorrect, option.groupKey, option.side]);
-  return canonicalJson([...relevant].sort((a, b) => Number(a[0]) - Number(b[0])));
+  return canonicalJson(relevant.map((entry) => canonicalJson(entry)).sort());
 }
 
 /** Itemarten ohne Lösung: eine Änderung gilt nie als „Lösung geändert“. */

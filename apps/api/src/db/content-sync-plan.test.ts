@@ -184,6 +184,25 @@ describe("planSync", () => {
     expect(planSync([distractorChanged], [existing(mc)]).update[0]!.solutionChanged).toBe(false);
   });
 
+  it("behandelt links und rechts einer Zuordnung als getrennte Optionen mit gleicher sortOrder (Hash und Änderungen)", () => {
+    const pair = (index: number, left: string, right: string): SyncOption[] => [
+      { sortOrder: index, text: left, isCorrect: false, groupKey: String(index), side: "links" },
+      { sortOrder: index, text: right, isCorrect: false, groupKey: String(index), side: "rechts" },
+    ];
+    const oldItem = desired("Q-5", { type: "zuordnung", options: [...pair(0, "A", "a"), ...pair(1, "B", "b")] });
+    // Hash unabhängig davon, in welcher Reihenfolge die Datenbank die Optionen liefert.
+    const shuffled = desired("Q-5", { type: "zuordnung", options: [...pair(1, "B", "b").reverse(), ...pair(0, "A", "a").reverse()] });
+    expect(computeContentHash(oldItem)).toBe(computeContentHash(shuffled));
+
+    const newItem = desired("Q-5", { type: "zuordnung", options: [...pair(0, "A", "a neu"), ...pair(1, "B", "b")] });
+    const update = planSync([newItem], [existing(oldItem)]).update[0]!;
+    expect(update.options.update).toHaveLength(1);
+    expect(update.options.update[0]!.desired.text).toBe("a neu");
+    expect(update.options.insert).toEqual([]);
+    expect(update.options.remove).toEqual([]);
+    expect(update.solutionChanged).toBe(false);
+  });
+
   it("gleicht Tags ab (hinzufügen und entfernen, alphabetisch)", () => {
     const oldItem = desired("K-1", { tags: ["a", "b"] });
     const newItem = desired("K-1", { tags: ["b", "d", "c"] });
