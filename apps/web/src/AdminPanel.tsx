@@ -259,8 +259,10 @@ export function AdminPanel() {
   const resolveContentReport = trpc.admin.resolveContentReport.useMutation({
     onSuccess: () => utils.admin.contentReports.invalidate(),
   });
+  const previewImport = trpc.admin.previewImport.useMutation();
   const triggerImport = trpc.admin.triggerImport.useMutation({
     onSuccess: () => {
+      previewImport.reset();
       utils.courses.list.invalidate();
       utils.content.theorySections.invalidate();
       utils.content.dueCards.invalidate();
@@ -342,7 +344,7 @@ export function AdminPanel() {
           <div>
             Liest <code>content/</code> (Repo-Root) neu ein und gleicht den Content je Thema ab: Neues wird angelegt,
             Geändertes aktualisiert, Entferntes deaktiviert. Lernfortschritt, Notizen und Prüfungsantworten bleiben
-            erhalten, <code>is_published</code> bleibt unangetastet.
+            erhalten, <code>is_published</code> bleibt unangetastet. Zuerst die Vorschau ansehen, dann bestätigen.
           </div>
         </div>
         {setPublished.error && <ErrorMessage>{setPublished.error.message}</ErrorMessage>}
@@ -378,36 +380,67 @@ export function AdminPanel() {
             </div>
           </Modal>
         )}
+        {/* Zweistufig (Entwurf sicherer-content-import.md): erst die Vorschau (Trockenlauf), dann der ausdrücklich bestätigte Import. */}
         <button
           type="button"
           className="btn btn-ghost btn-sm"
           style={{ alignSelf: "flex-start" }}
-          onClick={() => triggerImport.mutate()}
-          disabled={triggerImport.isPending}
+          onClick={() => {
+            triggerImport.reset();
+            previewImport.mutate();
+          }}
+          disabled={previewImport.isPending || triggerImport.isPending}
         >
-          {triggerImport.isPending ? "Import läuft…" : "Content neu importieren"}
+          {previewImport.isPending ? "Vorschau wird berechnet…" : "Import-Vorschau"}
         </button>
-        {triggerImport.data && (
-          <div className="alert alert-success">
-            <SuccessIcon />
+        {previewImport.data && !triggerImport.data && (
+          <div className="alert alert-info">
+            <InfoIcon />
             <div>
               <b>
-                {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items:{" "}
-                {triggerImport.data.created} neu, {triggerImport.data.updated} geändert, {triggerImport.data.unchanged}{" "}
-                unverändert, {triggerImport.data.deactivated} deaktiviert.
+                Vorschau: {previewImport.data.summary.itemsImported} Content-Items, davon {previewImport.data.summary.created} neu,{" "}
+                {previewImport.data.summary.updated} geändert, {previewImport.data.summary.deactivated} würden deaktiviert,{" "}
+                {previewImport.data.summary.unchanged} unverändert.
               </b>
-              {triggerImport.data.solutionChanged.length > 0 && (
-                <div>{triggerImport.data.solutionChanged.length} Items mit geänderter Lösung (Fortschritt bleibt erhalten).</div>
-              )}
-              {triggerImport.data.blocked.length > 0 && (
+              {previewImport.data.summary.solutionChanged.length > 0 && (
                 <div>
-                  Nicht verändert (zu viele Entfernungen): {triggerImport.data.blocked.map((entry) => entry.thema).join(", ")}.
-                  Bitte per Kommandozeile mit <code>--allow-removals</code> bestätigen.
+                  {previewImport.data.summary.solutionChanged.length} Items mit geänderter Lösung (Fortschritt bleibt erhalten):{" "}
+                  {previewImport.data.summary.solutionChanged
+                    .slice(0, 8)
+                    .map((entry) => `${entry.thema} ${entry.key}`)
+                    .join(", ")}
+                  {previewImport.data.summary.solutionChanged.length > 8 ? ", …" : ""}
+                </div>
+              )}
+              {previewImport.data.summary.blocked.length > 0 && (
+                <div>
+                  Zu viele Entfernungen, diese Themen bleiben unverändert:{" "}
+                  {previewImport.data.summary.blocked.map((entry) => entry.thema).join(", ")}. Bestätigung nur per Kommandozeile mit{" "}
+                  <code>--allow-removals</code>.
+                </div>
+              )}
+              {previewImport.data.summary.warnings.length > 0 && <div>{previewImport.data.summary.warnings.length} Warnungen, Details im Kommandozeilen-Trockenlauf.</div>}
+              {previewImport.data.summary.created + previewImport.data.summary.updated + previewImport.data.summary.deactivated === 0 ? (
+                <div>Keine Änderungen, es gibt nichts zu importieren.</div>
+              ) : (
+                <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => triggerImport.mutate({ previewToken: previewImport.data!.previewToken })}
+                    disabled={triggerImport.isPending}
+                  >
+                    {triggerImport.isPending ? "Import läuft…" : "Import jetzt durchführen"}
+                  </button>
+                  <button type="button" className="btn btn-ghost btn-sm" onClick={() => previewImport.reset()} disabled={triggerImport.isPending}>
+                    Verwerfen
+                  </button>
                 </div>
               )}
             </div>
           </div>
         )}
+        {previewImport.error && <ErrorMessage>{previewImport.error.message}</ErrorMessage>}
         {triggerImport.error && <ErrorMessage>{triggerImport.error.message}</ErrorMessage>}
       </div>
 

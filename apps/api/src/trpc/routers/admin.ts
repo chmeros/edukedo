@@ -16,6 +16,7 @@ import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { kursZielgruppe } from "../../course-audience";
 import { importAllContent } from "../../db/import-content";
+import { importPreviewToken } from "../../db/import-preview";
 import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
 import { pingPaymentService } from "../../payment/client";
@@ -107,17 +108,42 @@ export const adminRouter = router({
   // F-17: löst das bisherige manuelle `pnpm db:import-content` per SSH/Terminal ab. Liest
   // das Content-Zwischenformat aus content/ (Repo-Root) neu ein und gleicht den Content je Thema
   // ab (siehe import-content.ts; ohne Löschen von Items, Lernfortschritt bleibt erhalten) —
-  // is_published bleibt dabei unangetastet.
-  triggerImport: roleProcedure("admin").mutation(async () => {
+  // is_published bleibt dabei unangetastet. Zweistufig (Entwurf sicherer-content-import.md,
+  // Entscheidung 5): `previewImport` ist ein Trockenlauf und liefert Zusammenfassung und
+  // Prüfmarke, `triggerImport` schreibt nur mit der passenden Marke.
+  previewImport: roleProcedure("admin").mutation(async () => {
     try {
-      return await importAllContent();
+      const summary = await importAllContent({ dryRun: true });
+      return { summary, previewToken: importPreviewToken(summary) };
     } catch (error) {
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
-        message: error instanceof Error ? error.message : "Content-Import fehlgeschlagen.",
+        message: error instanceof Error ? error.message : "Import-Vorschau fehlgeschlagen.",
       });
     }
   }),
+
+  triggerImport: roleProcedure("admin")
+    .input(z.object({ previewToken: z.string().min(1) }))
+    .mutation(async ({ input }) => {
+      try {
+        // Erneuter Trockenlauf: Hat sich Content oder Datenbank seit der Vorschau geändert, stimmt die Marke nicht mehr.
+        const check = await importAllContent({ dryRun: true });
+        if (importPreviewToken(check) !== input.previewToken) {
+          throw new TRPCError({
+            code: "CONFLICT",
+            message: "Der Content hat sich seit der Vorschau geändert. Bitte die Vorschau erneut ausführen.",
+          });
+        }
+        return await importAllContent();
+      } catch (error) {
+        if (error instanceof TRPCError) throw error;
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: error instanceof Error ? error.message : "Content-Import fehlgeschlagen.",
+        });
+      }
+    }),
 
   /**
    * F-91: Business-Lizenzen, Baustein 1. Liste aller Unternehmens-Konten für den

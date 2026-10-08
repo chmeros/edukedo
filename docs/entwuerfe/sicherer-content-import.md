@@ -1,6 +1,6 @@
 # Entwurf: Sicherer Content-Import (Upsert statt „löschen und neu anlegen“)
 
-Stand: 08.10.2026 · Status: **Entschieden (alle sechs Empfehlungen aus Abschnitt 9 angenommen), Umsetzung läuft: Schritte 1 bis 5 erledigt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
+Stand: 08.10.2026 · Status: **Entschieden (alle sechs Empfehlungen aus Abschnitt 9 angenommen), Umsetzung läuft: Schritte 1 bis 6 erledigt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
 
 ## 1. Problem
 
@@ -130,7 +130,7 @@ Verschwindet ein Item aus dem Markdown, wird es **deaktiviert**, nicht gelöscht
 | 3 | `planSync` als reine Funktion mit Tests (noch nicht angebunden) | gering — **erledigt 08.10.2026** (`content-sync-plan.ts`) |
 | 4 | Backfill-Skript mit Trockenlauf und Bericht; Lauf auf Entwicklungs-DB | mittel — **erledigt 08.10.2026** (`backfill-source-keys.ts`, `content-desired.ts`) |
 | 5 | Executor (Transaktion je Datei, Advisory-Sperre) und Umstellung von `importThemaFile`; Integrationstests | **hoch** — in zwei Teilen, beide **erledigt 08.10.2026**: 5a Executor mit Integrationstests (`content-sync.ts`), 5b Umstellung des Importers (`import-content.ts`) |
-| 6 | Trockenlauf/Schwelle/Zusammenfassung im CLI; `admin.triggerImport` zweistufig; Glossar transaktional | mittel — CLI (Trockenlauf, `--allow-removals`, Zusammenfassung) und transaktionales Glossar mit 5b erledigt; **zweistufiger Admin-Auslöser offen** |
+| 6 | Trockenlauf/Schwelle/Zusammenfassung im CLI; `admin.triggerImport` zweistufig; Glossar transaktional | mittel — **erledigt 08.10.2026** (CLI und Glossar mit 5b, zweistufiger Admin-Auslöser `admin.previewImport` und `admin.triggerImport` mit Prüfmarke) |
 | 7 | `db:purge-inactive`, Doku (`content/README.md`, Architekturplanung §13, Entwicklungsplan), optional Fremdschlüssel auf `RESTRICT` | gering |
 
 Jeder Schritt wird einzeln getestet, committet und gepusht. Bis Schritt 5 ändert sich am Importverhalten nichts, das Risiko liegt gebündelt in Schritt 5 und wird durch die Schritte 2 bis 4 vorbereitet.

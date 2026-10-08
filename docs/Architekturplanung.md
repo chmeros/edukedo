@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Sicherer Content-Import, Schritt 6 von 7: zweistufiger Admin-Auslöser)
+
+- **Entscheidung 5 des Entwurfs umgesetzt:** Der Import aus dem Admin-Bereich ist zweistufig. `admin.previewImport` (Mutation, nur Admin) führt einen Trockenlauf aus und liefert Zusammenfassung und eine **Prüfmarke** (`importPreviewToken` in apps/api/src/db/import-preview.ts, SHA-256 über Zahlen, blockierte Themen und geänderte Lösungen). `admin.triggerImport` verlangt diese Marke (`previewToken`), führt vor dem Schreiben **erneut einen Trockenlauf** aus und importiert nur, wenn die Marke übereinstimmt; sonst Fehler „CONFLICT“ („Der Content hat sich seit der Vorschau geändert. Bitte die Vorschau erneut ausführen.“). Damit lässt sich nur importieren, was vorher angezeigt wurde, und eine Änderung zwischen Vorschau und Bestätigung erzwingt eine neue Vorschau.
+- **Bewusst nicht im Admin-Bereich:** Die Bestätigung blockierter Themen (`--allow-removals`) bleibt der Kommandozeile vorbehalten; die Vorschau nennt die betroffenen Themen. Der Auslöser kennt dafür keinen Schalter.
+- **Oberfläche (AdminPanel.tsx):** „Import-Vorschau“ zeigt Anzahl neu, geändert, zu deaktivieren und unverändert, geänderte Lösungen (die ersten acht), blockierte Themen und Warnungen; „Import jetzt durchführen“ und „Verwerfen“ erscheinen nur, wenn es Änderungen gibt. Nach dem Import werden die Ergebniszahlen angezeigt. Live geprüft (Wegwerf-Adminkonto, danach gelöscht): „Vorschau: 16040 Content-Items, davon 0 neu, 0 geändert, 0 würden deaktiviert, 16040 unverändert. Keine Änderungen, es gibt nichts zu importieren.“
+- **Tests:** test/admin-import.integration.test.ts (5 Tests): Nicht-Admins erhalten 403 für beide Prozeduren; die Vorschau schreibt nichts; ohne oder mit falscher Marke wird abgelehnt (400 bzw. 409) und nichts geschrieben; mit passender Marke wird genau das importiert, was die Vorschau zeigte; nach dem Import zeigt die Vorschau keine Änderungen, und die alte Marke wird abgelehnt. Dazu zwei Unit-Tests für die Prüfmarke (import-preview.test.ts).
+- **Kosten:** Der Import aus dem Admin-Bereich führt zwei Trockenläufe und den Import aus; auf der Entwicklungs-DB je rund 10 Sekunden bei unverändertem Content.
+
 ### Entschieden am 08.10.2026 (Sicherer Content-Import, Schritt 5b von 7: Importer auf Abgleich umgestellt)
 
 - **Umstellung:** `importThemaFile` und `importAllContent` (apps/api/src/db/import-content.ts) nutzen jetzt `buildDesiredItems` und `syncThemaItems`. Das Löschen und Neuanlegen aller Items eines Themas entfällt, ebenso die alten Einfüge-Hilfsfunktionen (`ensureTagIds`, `insertQuizContentItem`). Lernfortschritt, Notizen, Lernereignisse, Prüfungsantworten und Duelle bleiben bei jedem Import erhalten; Items behalten ihre IDs; entfernte Items werden deaktiviert.
