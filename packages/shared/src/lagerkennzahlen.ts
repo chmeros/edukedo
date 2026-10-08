@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet, leseBetrag } from "./handelskalkulation";
 
 /**
  * F-201 (Lagerkennzahlen-Rechner, siehe Architekturplanung Abschnitt 13): Kennzahlen der Bestandsführung im Handel
@@ -261,9 +261,7 @@ export function erzeugeLagerAufgabe(art: LagerArt, schwierigkeit: LagerSchwierig
   return erzeugeZiel(schwierigkeit, zufall);
 }
 
-/** Eine Eingabe gilt als richtig, wenn sie auf die verlangte Dezimalstelle gerundet mit der Lösung übereinstimmt (halbe letzte Stelle Toleranz). */
+/** Eine Eingabe gilt als richtig, wenn sie dem auf die verlangte Dezimalstelle gerundeten Wert exakt entspricht (Review WRK-04). */
 export function pruefeLagerFeld(eingabe: string, feld: LagerFeld): boolean {
-  const wert = leseBetrag(eingabe);
-  if (wert === null) return false;
-  return Math.abs(wert - feld.soll) <= 0.5 * Math.pow(10, -feld.stellen) + 1e-9;
+  return istExaktGerundet(eingabe, feld.soll, feld.stellen);
 }

@@ -7,6 +7,7 @@ import {
   parseZahlEingabe,
   skontoEffektivzins,
   sparplanEndwert,
+  zahlLesehinweis,
 } from "@edukedo/shared";
 import { useMemo, useRef, useState } from "react";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
@@ -56,6 +57,8 @@ function Feld({
         <input id={id} className="input" inputMode="decimal" value={wert} autoComplete="off" onChange={(event) => onChange(event.target.value)} />
       )}
       {hinweis && <span className="field-hint">{hinweis}</span>}
+      {/* Review WRK-06: mehrdeutige Eingaben wie 2.500 zeigen, wie sie gelesen wurden. */}
+      {!multiline && zahlLesehinweis(wert) && <span className="field-hint" aria-live="polite">{zahlLesehinweis(wert)}</span>}
     </div>
   );
 }

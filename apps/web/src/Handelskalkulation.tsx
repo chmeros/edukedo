@@ -2,6 +2,7 @@ import {
   berechneKennzahlen,
   erzeugeKalkulationsAufgabe,
   formatDe,
+  formatKurz,
   istRichtig,
   kalkuliereRueckwaerts,
   kalkuliereVorwaerts,
@@ -52,7 +53,7 @@ function euro(wert: number): string {
 }
 
 function prozent(wert: number): string {
-  return `${formatDe(wert, wert % 1 === 0 ? 0 : 1)} %`;
+  return `${formatKurz(wert, 4)} %`;
 }
 
 function satzText(zeile: SchemaZeile, saetze: Saetze, zeigeSatz: boolean): string {

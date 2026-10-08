@@ -34,6 +34,8 @@ const MODI: { id: Modus; label: string }[] = [
 ];
 
 const zahl = (wert: number | null, stellen = 2): string => (wert === null ? "–" : formatDe(wert, stellen));
+// Review WRK-05: Eingaben im Rechenweg ungerundet (bis 6 Stellen) zeigen.
+const kurz = (wert: number | null): string => (wert === null ? "–" : formatKurz(wert));
 
 function Feld({ id, label, hinweis, wert, setze, breite = "9rem" }: { id: string; label: string; hinweis?: string; wert: string; setze: (wert: string) => void; breite?: string }) {
   return (
@@ -207,7 +209,7 @@ function Kosten({ summeW }: { summeW: number }) {
               <b>Kosten pro Jahr: {zahl(ergebnis.kostenJahr, 2)} €</b>
             </p>
             <p className="field-hint">
-              {zahl(p, 1)} W × {zahl(h, 1)} h ÷ 1000 = {zahl(ergebnis.kwhTag, 3)} kWh pro Tag; × {zahl(t, 0)} Tage = {zahl(ergebnis.kwhJahr, 2)} kWh; × {zahl(c, 2)} €/kWh = {zahl(ergebnis.kostenJahr, 2)} €. Gerechnet wird
+              {kurz(p)} W × {kurz(h)} h ÷ 1000 = {zahl(ergebnis.kwhTag, 3)} kWh pro Tag; × {kurz(t)} Tage = {zahl(ergebnis.kwhJahr, 2)} kWh; × {kurz(c)} €/kWh = {zahl(ergebnis.kostenJahr, 2)} €. Gerechnet wird
               mit ungerundeten Zwischenwerten, gerundet wird nur die Anzeige.
             </p>
           </div>

@@ -491,27 +491,69 @@ export function rechenLoesung(params: RechenParams): RechenLoesung {
 }
 
 /**
- * Liest eine Zahl aus der Eingabe: deutsches und englisches Format, Tausenderpunkte, Einheiten wie „€“ oder „%“
- * werden ignoriert. Gibt `null` zurück, wenn keine Zahl erkennbar ist.
+ * Liest eine Zahl aus der Eingabe: deutsches und englisches Format, Tausendertrennung nur in Dreiergruppen, eine Einheit hinter der
+ * Zahl („€“, „%“, „Stück“) wird ignoriert. Review WRK-06: Buchstaben mitten in der Zahl, Leerzeichen zwischen Ziffern und
+ * unregelmäßige Trennzeichen werden **abgelehnt** (`null`), statt sie still zu verschmelzen („1e5“ ergab 15, „10 20“ ergab 1020,
+ * „1,5,5“ ergab 155).
  */
 export function parseZahlEingabe(eingabe: string): number | null {
-  let text = eingabe.trim().replace(/[€%a-zäöüß]+/gi, "").replace(/[\s'’]/g, "");
-  if (!/^[-+]?[\d.,]+$/.test(text)) return null;
-  const hatPunkt = text.includes(".");
-  const hatKomma = text.includes(",");
-  if (hatPunkt && hatKomma) {
-    // Das letzte Trennzeichen ist das Dezimaltrennzeichen.
-    const dezimalIstKomma = text.lastIndexOf(",") > text.lastIndexOf(".");
-    text = dezimalIstKomma ? text.replace(/\./g, "").replace(",", ".") : text.replace(/,/g, "");
-  } else if (hatKomma) {
-    if ((text.match(/,/g) ?? []).length > 1) text = text.replace(/,/g, "");
-    else text = text.replace(",", ".");
-  } else if (hatPunkt) {
-    // „1.234“ und „12.345.678“ sind Tausendertrennung, „12.5“ ist ein Dezimalwert.
-    if (/^[-+]?[1-9]\d{0,2}(\.\d{3})+$/.test(text)) text = text.replace(/\./g, "");
+  // Einheit hinter der Zahl entfernen; danach darf kein Buchstabe mehr vorkommen.
+  const text = eingabe.trim().replace(/\s*[a-zäöüß€%/.²³]*[a-zäöüß€%/²³][a-zäöüß€%/.²³]*$/i, "").trim();
+  const vorzeichen = /^[-+]/.test(text) ? text[0] : "";
+  let rest = vorzeichen ? text.slice(1).trim() : text;
+  // Leerzeichen und Hochkomma nur als Tausendertrenner zwischen Dreiergruppen.
+  if (/[\s'’]/.test(rest)) {
+    if (!/^\d{1,3}([\s'’]\d{3})+([.,]\d+)?$/.test(rest)) return null;
+    rest = rest.replace(/[\s'’]/g, "");
   }
-  const zahl = Number(text);
+  if (!/^[\d.,]+$/.test(rest)) return null;
+  const punkte = (rest.match(/\./g) ?? []).length;
+  const kommas = (rest.match(/,/g) ?? []).length;
+  let zahlText: string;
+  if (punkte > 0 && kommas > 0) {
+    // Das letzte Trennzeichen ist das Dezimaltrennzeichen, das andere trennt Tausender (Dreiergruppen).
+    const dezimal = rest.lastIndexOf(",") > rest.lastIndexOf(".") ? "," : ".";
+    const tausend = dezimal === "," ? "." : ",";
+    const [ganz, nach, ...zuviel] = rest.split(dezimal) as [string, string | undefined];
+    const gruppen = ganz.split(tausend);
+    const ganzOk = gruppen.length > 1 && /^\d{1,3}$/.test(gruppen[0]!) && gruppen.slice(1).every((gruppe) => /^\d{3}$/.test(gruppe));
+    if (zuviel.length > 0 || nach === undefined || !/^\d+$/.test(nach) || !ganzOk) return null;
+    zahlText = `${ganz.split(tausend).join("")}.${nach}`;
+  } else if (kommas > 0) {
+    if (kommas === 1) {
+      if (!/^\d*,\d+$|^\d+,$/.test(rest)) return null;
+      zahlText = rest.replace(",", ".");
+    } else {
+      // Mehrere Kommas nur als englische Tausendertrennung („1,234,567“).
+      if (!/^\d{1,3}(,\d{3})+$/.test(rest)) return null;
+      zahlText = rest.replace(/,/g, "");
+    }
+  } else if (punkte > 0) {
+    if (punkte === 1) {
+      // „1.234“ ist Tausendertrennung (siehe `zahlLesehinweis`), „12.5“ und „0.48“ sind Dezimalwerte.
+      zahlText = /^[1-9]\d{0,2}\.\d{3}$/.test(rest) ? rest.replace(".", "") : rest;
+      if (!/^\d*\.?\d+$|^\d+\.$/.test(zahlText)) return null;
+    } else {
+      if (!/^\d{1,3}(\.\d{3})+$/.test(rest)) return null;
+      zahlText = rest.replace(/\./g, "");
+    }
+  } else {
+    zahlText = rest;
+  }
+  const zahl = Number(`${vorzeichen === "-" ? "-" : ""}${zahlText}`);
   return Number.isFinite(zahl) ? zahl : null;
+}
+
+/**
+ * Review WRK-06: Hinweis, wenn eine Eingabe mehrdeutig gelesen wurde. „2.500“ kann 2,5 (englisch) oder 2500 (Tausenderpunkt)
+ * bedeuten; gelesen wird 2500. Gibt `null` zurück, wenn die Eingabe eindeutig ist.
+ */
+export function zahlLesehinweis(eingabe: string): string | null {
+  const text = eingabe.trim().replace(/[€%\s]/g, "");
+  if (/^[-+]?[1-9]\d{0,2}\.\d{3}$/.test(text)) {
+    return `gelesen als ${formatDe(Number(text.replace(".", "")), 0)} (Punkt = Tausendertrennung; Dezimalwerte mit Komma schreiben)`;
+  }
+  return null;
 }
 
 export function pruefeRechenEingabe(params: RechenParams, eingabe: string): boolean {

@@ -1,4 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
+import { formatKurz } from "./skalierung";
 import { leseBetrag } from "./handelskalkulation";
 
 /**
@@ -227,8 +228,8 @@ const GRUND_TEXT: Record<Grund, string> = {
 
 export function beschreibeSchritte(p: TourenProblem, ergebnis: SparErgebnis): string[] {
   return ergebnis.schritte.map((schritt, index) => {
-    const kopf = `${index + 1}. Paar (${schritt.i}, ${schritt.j}), Einsparung ${formatDe(schritt.wert, 0)}: `;
-    if (schritt.tour) return `${kopf}verbunden zu ${schritt.tour.join(" – ")} (Last ${formatDe(tourLast(p, schritt.tour), 0)} von ${formatDe(p.kapazitaet, 0)}).`;
+    const kopf = `${index + 1}. Paar (${schritt.i}, ${schritt.j}), Einsparung ${formatKurz(schritt.wert, 2)}: `;
+    if (schritt.tour) return `${kopf}verbunden zu ${schritt.tour.join(" – ")} (Last ${formatKurz(tourLast(p, schritt.tour), 2)} von ${formatKurz(p.kapazitaet, 2)}).`;
     return `${kopf}übersprungen, weil ${schritt.gruende.map((grund) => GRUND_TEXT[grund]).join(" und ")}.`;
   });
 }

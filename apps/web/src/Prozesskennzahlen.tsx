@@ -357,14 +357,14 @@ function Amortisation() {
           <>
             <ul>
               <li>
-                <b>Einsparung pro Jahr:</b> {zahl(eingabe.vorgaengeJeJahr, 0)} × ({zahl(a, 2)} € − {zahl(n, 2)} €) = {zahl(erg.einsparungJeJahr, 2)} €
+                <b>Einsparung pro Jahr:</b> {kurz(eingabe.vorgaengeJeJahr)} × ({kurz(a)} € − {kurz(n)} €) = {zahl(erg.einsparungJeJahr, 2)} €
               </li>
               <li>
-                <b>Netto-Nutzen pro Jahr:</b> {zahl(erg.einsparungJeJahr, 2)} € − {zahl(l, 2)} € = {zahl(erg.nettoNutzenJeJahr, 2)} €
+                <b>Netto-Nutzen pro Jahr:</b> {zahl(erg.einsparungJeJahr, 2)} € − {kurz(l)} € = {zahl(erg.nettoNutzenJeJahr, 2)} €
               </li>
               {erg.dauerJahre !== null ? (
                 <li>
-                  <b>Amortisationsdauer:</b> {zahl(e, 2)} € ÷ {zahl(erg.nettoNutzenJeJahr, 2)} € = {zahl(erg.dauerJahre, 2)} Jahre ({zahl(erg.dauerMonate, 1)} Monate)
+                  <b>Amortisationsdauer:</b> {kurz(e)} € ÷ {zahl(erg.nettoNutzenJeJahr, 2)} € = {zahl(erg.dauerJahre, 2)} Jahre ({zahl(erg.dauerMonate, 1)} Monate)
                 </li>
               ) : (
                 <li>
@@ -373,7 +373,7 @@ function Amortisation() {
               )}
               {j !== null && j > 0 && (
                 <li>
-                  <b>Nach {zahl(j, 0)} Jahren:</b> {zahl(erg.nettoNutzenJeJahr, 2)} € × {zahl(j, 0)} − {zahl(e, 2)} € = {zahl(kumulierterNutzen(eingabe, j), 2)} €
+                  <b>Nach {kurz(j)} Jahren:</b> {zahl(erg.nettoNutzenJeJahr, 2)} € × {kurz(j)} − {kurz(e)} € = {zahl(kumulierterNutzen(eingabe, j), 2)} €
                 </li>
               )}
             </ul>

@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet, leseBetrag } from "./handelskalkulation";
 import { formatKurz } from "./skalierung";
 
 /**
@@ -379,8 +379,10 @@ export function erzeugeVerfAufgabe(art: VerfArt, stufe: VerfStufe, zufall: () =>
   return erzeugeRaid(stufe, zufall);
 }
 
-/** Ein Feld gilt als richtig innerhalb einer halben letzten Stelle. */
+/** Ein Feld gilt nur mit dem exakt gerundeten Wert als richtig; eine Toleranz nur, wenn die Aufgabe sie nennt (Review WRK-04). */
 export function pruefeVerfFeld(eingabe: string, feld: VerfFeld): boolean {
+  // Eine Toleranz gilt nur, wo die Aufgabe sie ausdrücklich nennt; sonst zählt der exakt gerundete Wert (Review WRK-04).
+  if (feld.toleranz === undefined) return istExaktGerundet(eingabe, feld.soll, feld.stellen);
   const wert = leseBetrag(eingabe);
-  return wert !== null && Math.abs(wert - feld.soll) <= (feld.toleranz ?? 0.5 * Math.pow(10, -feld.stellen)) + 1e-9;
+  return wert !== null && Math.abs(wert - feld.soll) <= feld.toleranz + 1e-9;
 }

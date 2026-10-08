@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet, leseBetrag } from "./handelskalkulation";
 import { formatKurz } from "./skalierung";
 
 /**
@@ -320,8 +320,7 @@ export function erzeugeEnergieAufgabe(art: EnergieArt, stufe: EnergieStufe, zufa
   return erzeugeAkku(stufe, zufall);
 }
 
-/** Ein Feld gilt als richtig innerhalb einer halben letzten Stelle. */
+/** Ein Feld gilt nur mit dem exakt auf die verlangte Stellenzahl gerundeten Wert als richtig (Review WRK-04). */
 export function pruefeEnergieFeld(eingabe: string, feld: EnergieFeld): boolean {
-  const wert = leseBetrag(eingabe);
-  return wert !== null && Math.abs(wert - feld.soll) <= 0.5 * Math.pow(10, -feld.stellen) + 1e-9;
+  return istExaktGerundet(eingabe, feld.soll, feld.stellen);
 }

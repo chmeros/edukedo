@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet } from "./handelskalkulation";
 import { formatKurz } from "./skalierung";
 
 /**
@@ -378,8 +378,7 @@ export function erzeugeProzessAufgabe(art: ProzessArt, stufe: ProzessStufe, zufa
   return erzeugeAmortisation(stufe, zufall);
 }
 
-/** Ein Feld gilt als richtig innerhalb einer halben letzten Stelle. */
+/** Ein Feld gilt nur mit dem exakt auf die verlangte Stellenzahl gerundeten Wert als richtig (Review WRK-04). */
 export function pruefeProzessFeld(eingabe: string, feld: ProzessFeld): boolean {
-  const wert = leseBetrag(eingabe);
-  return wert !== null && Math.abs(wert - feld.soll) <= 0.5 * Math.pow(10, -feld.stellen) + 1e-9;
+  return istExaktGerundet(eingabe, feld.soll, feld.stellen);
 }

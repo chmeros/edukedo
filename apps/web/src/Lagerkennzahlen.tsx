@@ -2,6 +2,7 @@ import {
   durchschnittsbestand,
   erzeugeLagerAufgabe,
   formatDe,
+  formatKurz,
   leseBestaende,
   leseBetrag,
   meldebestand,
@@ -184,6 +185,9 @@ function zahl(wert: number, stellen = 2): string {
   return formatDe(wert, stellen);
 }
 
+// Review WRK-05: Eingaben im Rechenweg so zeigen, wie gerechnet wurde (bis 6 Stellen), nicht auf ganze Zahlen gerundet.
+const kurz = (wert: number): string => formatKurz(wert);
+
 /** Mengen ohne überflüssige Nachkommastelle: 1.200 statt 1.200,0, aber 1.150,5. */
 function menge(wert: number): string {
   return formatDe(wert, Math.abs(wert - Math.round(wert)) < 1e-9 ? 0 : 1);
@@ -282,17 +286,17 @@ function Rechner() {
             <li>
               <b>Durchschnittlicher Lagerbestand:</b> {menge(durchschnitt)}{" "}
               <span className="field-hint">
-                ({anzahlWerte === 2 ? `(${zahl(anfangWert!, 0)} + ${zahl(endeWert!, 0)}) ÷ 2` : `Mittelwert aus ${anzahlWerte} Bestandswerten`})
+                ({anzahlWerte === 2 ? `(${kurz(anfangWert!)} + ${kurz(endeWert!)}) ÷ 2` : `Mittelwert aus ${anzahlWerte} Bestandswerten`})
               </span>
             </li>
             {umschlag !== null && (
               <li>
-                <b>Umschlagshäufigkeit:</b> {zahl(umschlag)} mal <span className="field-hint">(Verbrauch ÷ Ø Bestand = {zahl(verbrauchWert!, 0)} ÷ {menge(durchschnitt)})</span>
+                <b>Umschlagshäufigkeit:</b> {zahl(umschlag)} mal <span className="field-hint">(Verbrauch ÷ Ø Bestand = {kurz(verbrauchWert!)} ÷ {menge(durchschnitt)})</span>
               </li>
             )}
             {reichweite !== null && (
               <li>
-                <b>Reichweite des durchschnittlichen Bestands (Ø Lagerdauer):</b> {menge(reichweite)} Tage <span className="field-hint">(Tage ÷ Umschlag = {zahl(tageWert!, 0)} ÷ {zahl(umschlag!)})</span>
+                <b>Reichweite des durchschnittlichen Bestands (Ø Lagerdauer):</b> {menge(reichweite)} Tage <span className="field-hint">(Tage ÷ Umschlag = {kurz(tageWert!)} ÷ {zahl(umschlag!)})</span>
               </li>
             )}
             {taeglich !== null && (
@@ -304,7 +308,7 @@ function Rechner() {
               <li>
                 <b>Meldebestand:</b> {menge(melde)}{" "}
                 <span className="field-hint">
-                  (Sicherheitsbestand + Verbrauch pro Tag × Wiederbeschaffungszeit = {zahl(sicherheitWert!, 0)} + {menge(taeglich)} × {zahl(wbzWert!, 0)})
+                  (Sicherheitsbestand + Verbrauch pro Tag × Wiederbeschaffungszeit = {kurz(sicherheitWert!)} + {menge(taeglich)} × {kurz(wbzWert!)})
                 </span>
               </li>
             )}

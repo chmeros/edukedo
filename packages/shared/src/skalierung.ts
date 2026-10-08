@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet, leseBetrag } from "./handelskalkulation";
 
 /**
  * F-207 (Skalierungs- und Modbus-Register-Rechner, siehe Architekturplanung Abschnitt 13): Rechenlogik für den Kurs
@@ -343,9 +343,8 @@ export function erzeugeSkalAufgabe(art: SkalArt, stufe: SkalStufe, zufall: () =>
   return erzeugeAdresse(stufe, zufall);
 }
 
-/** Zahlenfelder gelten als richtig innerhalb einer halben letzten Stelle; bei „Fehler“ genügt ein Wort, das mit „Fehler“, „ungültig“ oder „Drahtbruch“ beginnt. */
+/** Zahlenfelder gelten nur mit dem exakt gerundeten Wert als richtig (Review WRK-04); bei „Fehler“ genügt ein Wort, das mit „Fehler“, „ungültig“ oder „Drahtbruch“ beginnt. */
 export function pruefeSkalFeld(eingabe: string, feld: SkalFeld): boolean {
   if (feld.soll === "Fehler") return /^(fehler|ungültig|ungueltig|drahtbruch|error)/i.test(eingabe.trim());
-  const wert = leseBetrag(eingabe);
-  return wert !== null && Math.abs(wert - feld.soll) <= 0.5 * Math.pow(10, -feld.stellen) + 1e-9;
+  return istExaktGerundet(eingabe, feld.soll, feld.stellen);
 }

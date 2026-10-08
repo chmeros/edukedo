@@ -3,6 +3,8 @@ import { createSeededRandom } from "./kreuzwort-generator";
 import {
   berechneKennzahlen,
   erzeugeKalkulationsAufgabe,
+  istExaktGerundet,
+  rundeDezimal,
   istRichtig,
   kalkuliereDifferenz,
   kalkuliereRueckwaerts,
@@ -127,3 +129,45 @@ describe("F-199: Handelskalkulation", () => {
     expect(erzeugeKalkulationsAufgabe("vorwaerts", "mittel", createSeededRandom(3))).toEqual(erzeugeKalkulationsAufgabe("vorwaerts", "mittel", createSeededRandom(3)));
   });
 });
+
+describe("rundeDezimal und istExaktGerundet (Review WRK-04)", () => {
+  it("rundet dezimal, halbe Stellen weg von null", () => {
+    expect(rundeDezimal(1.005, 2)).toBe(1.01);
+    expect(rundeDezimal(0.845, 2)).toBe(0.85);
+    expect(rundeDezimal(-2.5, 0)).toBe(-3);
+    expect(rundeDezimal(12.4, 0)).toBe(12);
+  });
+
+  it("akzeptiert nur den exakt gerundeten Wert", () => {
+    // "auf ganze Zahlen", Soll 12,4: nur 12 zählt, nicht 12,4 und nicht 12,5 oder 11,5.
+    expect(istExaktGerundet("12", 12.4, 0)).toBe(true);
+    expect(istExaktGerundet("12,0", 12.4, 0)).toBe(true);
+    expect(istExaktGerundet("12,4", 12.4, 0)).toBe(false);
+    expect(istExaktGerundet("11,5", 12.4, 0)).toBe(false);
+    // Eine Stelle, Soll 99,94: 99,9 ja, 99,94 nein.
+    expect(istExaktGerundet("99,9", 99.94, 1)).toBe(true);
+    expect(istExaktGerundet("99,94", 99.94, 1)).toBe(false);
+    expect(istExaktGerundet("zwölf", 12, 0)).toBe(false);
+    expect(istExaktGerundet("", 12, 0)).toBe(false);
+  });
+});
+
+describe("Rechenwege zeigen die Sätze ungerundet (Review WRK-05)", () => {
+  it("2,5 % Kundenskonto erscheint als 0,025, 7,25 % Gewinn als 7,25 %", () => {
+    const aufgabe = erzeugeKalkulationsAufgabe("vorwaerts", "mittel", createSeededRandom(4));
+    const saetze = { ...aufgabe.saetze, kundenskonto: 2.5, gewinn: 7.25 };
+    const wege = rechenwege("vorwaerts", aufgabe.zeilen, saetze);
+    expect(wege.zvp).toContain("÷ (1 − 0,025)");
+    expect(wege.gewinn).toContain("× 7,25 %");
+  });
+});
+
+describe("leseBetrag: Leerzeichen (Review WRK-06)", () => {
+  it("nimmt Dreiergruppen, lehnt 10 20 ab", () => {
+    expect(leseBetrag("1 234,50 €")).toBe(1234.5);
+    expect(leseBetrag("12 €")).toBe(12);
+    expect(leseBetrag("10 20")).toBeNull();
+    expect(leseBetrag("1 2")).toBeNull();
+  });
+});
+

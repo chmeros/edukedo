@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createSeededRandom } from "./kreuzwort-generator";
-import { leseBetrag } from "./handelskalkulation";
+import { leseBetrag, rundeDezimal } from "./handelskalkulation";
 import {
   anschaffungspreis,
   erzeugeWirtschaftAufgabe,
@@ -184,7 +184,7 @@ describe("erzeugeWirtschaftAufgabe", () => {
             expect(Number.isFinite(feld.soll), `${art}/${stufe}/${feld.id}`).toBe(true);
             expect(feld.weg.length).toBeGreaterThan(5);
             expect(feld.weg).not.toMatch(/NaN|undefined|Infinity/);
-            const gerundet = feld.soll.toFixed(feld.stellen).replace(".", ",");
+            const gerundet = rundeDezimal(feld.soll, feld.stellen).toFixed(feld.stellen).replace(".", ",");
             expect(pruefeWirtschaftFeld(gerundet, feld), `${art}/${stufe}/${feld.id}: ${gerundet} (${feld.soll})`).toBe(true);
             expect(pruefeWirtschaftFeld(String(feld.soll + 7).replace(".", ","), feld)).toBe(false);
           }

@@ -4,7 +4,7 @@ import {
   einzeltourenStrecke,
   ersparnisse,
   erzeugeTourenAufgabe,
-  formatDe,
+  formatKurz,
   gleicheTouren,
   istGanzzahlRichtig,
   leseBetrag,
@@ -40,7 +40,8 @@ const STUFEN: { id: TourenSchwierigkeit; label: string; hinweis: string }[] = [
   { id: "schwer", label: "Schwer", hinweis: "Sechs Kunden, Kapazität und Tourenenden spielen eine Rolle." },
 ];
 
-const zahl = (wert: number) => formatDe(wert, 0);
+// Review WRK-05: Dezimalwerte (2,5 km) werden nicht auf ganze Zahlen gerundet angezeigt.
+const zahl = (wert: number) => formatKurz(wert, 2);
 
 function Erklaerung() {
   return (

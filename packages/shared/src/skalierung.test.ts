@@ -1,3 +1,4 @@
+import { rundeDezimal } from "./handelskalkulation";
 import { describe, expect, it } from "vitest";
 import { createSeededRandom } from "./kreuzwort-generator";
 import {
@@ -155,7 +156,7 @@ describe("erzeugeSkalAufgabe", () => {
               expect(pruefeSkalFeld("12,5", feld)).toBe(false);
             } else {
               expect(Number.isFinite(feld.soll)).toBe(true);
-              const gerundet = feld.soll.toFixed(feld.stellen).replace(".", ",");
+              const gerundet = rundeDezimal(feld.soll, feld.stellen).toFixed(feld.stellen).replace(".", ",");
               expect(pruefeSkalFeld(gerundet, feld), `${art}/${stufe}/${feld.id}: ${gerundet} (${feld.soll})`).toBe(true);
               expect(pruefeSkalFeld("Fehler", feld)).toBe(false);
             }

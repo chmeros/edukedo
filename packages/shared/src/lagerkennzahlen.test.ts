@@ -1,3 +1,4 @@
+import { rundeDezimal } from "./handelskalkulation";
 import { describe, expect, it } from "vitest";
 import { createSeededRandom } from "./kreuzwort-generator";
 import {
@@ -59,7 +60,8 @@ describe("Lagerkennzahlen (Kurstheorie 4.1 und 4.3)", () => {
   it("pruefeLagerFeld akzeptiert die auf die verlangte Stelle gerundete Lösung und nur sie", () => {
     const feld = { id: "x", label: "x", einheit: "mal", stellen: 2, soll: 6.6667, weg: "" };
     expect(pruefeLagerFeld("6,67", feld)).toBe(true);
-    expect(pruefeLagerFeld("6,6667", feld)).toBe(true);
+    // Review WRK-04: Ein nicht gerundeter Wert ist nicht die verlangte Antwort.
+    expect(pruefeLagerFeld("6,6667", feld)).toBe(false);
     expect(pruefeLagerFeld("6,66", feld)).toBe(false);
     expect(pruefeLagerFeld("6,7", feld)).toBe(false);
     expect(pruefeLagerFeld("", feld)).toBe(false);
@@ -86,7 +88,7 @@ describe("erzeugeLagerAufgabe", () => {
             expect(feld.soll, `${art}/${stufe}/${feld.id}`).toBeGreaterThan(0);
             expect(feld.weg.length).toBeGreaterThan(10);
             // Die gerundete Lösung wird von der Prüfung selbst akzeptiert.
-            const gerundet = feld.soll.toFixed(feld.stellen).replace(".", ",");
+            const gerundet = rundeDezimal(feld.soll, feld.stellen).toFixed(feld.stellen).replace(".", ",");
             expect(pruefeLagerFeld(gerundet, feld), `${art}/${stufe}/${feld.id}: ${gerundet} (${feld.soll})`).toBe(true);
           }
           expect(aufgabe.text).not.toContain("NaN");

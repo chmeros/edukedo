@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createSeededRandom } from "./kreuzwort-generator";
-import { erzeugeRechenAufgabe, formatDe, parseZahlEingabe, pruefeRechenEingabe, rechenFrage, rechenLoesung, type RechenParams } from "./game-logic-rechnen";
+import { erzeugeRechenAufgabe, formatDe, parseZahlEingabe, pruefeRechenEingabe, zahlLesehinweis, rechenFrage, rechenLoesung, type RechenParams } from "./game-logic-rechnen";
 import { RECHEN_TYPEN, SPRINT_SCHWIERIGKEITEN } from "./schemas/game";
 
 function aufgabe(typ: RechenParams["typ"], w: number[]): RechenParams {
@@ -109,7 +109,25 @@ describe("F-194: Rechen-Sprint", () => {
     expect(parseZahlEingabe("1,234.56")).toBe(1234.56);
     expect(parseZahlEingabe("")).toBeNull();
     expect(parseZahlEingabe("zwölf")).toBeNull();
-    expect(parseZahlEingabe("1,2,3")).toBe(123);
+    // Review WRK-06: nichts still verschmelzen.
+    expect(parseZahlEingabe("1,2,3")).toBeNull();
+    expect(parseZahlEingabe("1e5")).toBeNull();
+    expect(parseZahlEingabe("0x10")).toBeNull();
+    expect(parseZahlEingabe("12abc3")).toBeNull();
+    expect(parseZahlEingabe("10 20")).toBeNull();
+    expect(parseZahlEingabe("1,5,5")).toBeNull();
+    expect(parseZahlEingabe("1.2,3")).toBeNull();
+    // Dreiergruppen mit Leerzeichen, englische und deutsche Tausendertrennung bleiben erlaubt.
+    expect(parseZahlEingabe("1 234 567")).toBe(1234567);
+    expect(parseZahlEingabe("1,234,567")).toBe(1234567);
+    expect(parseZahlEingabe("1.234.567")).toBe(1234567);
+    expect(parseZahlEingabe("-12,5")).toBe(-12.5);
+  });
+
+  it("weist auf die Deutung von „2.500“ hin", () => {
+    expect(zahlLesehinweis("2.500")).toContain("2.500");
+    expect(zahlLesehinweis("2,5")).toBeNull();
+    expect(zahlLesehinweis("12.5")).toBeNull();
   });
 
   it("nimmt bei gerundeten Aufgaben die übliche Rundung an, aber keine groben Abweichungen", () => {

@@ -1,5 +1,6 @@
 import { rundeCent } from "./finanzmathe";
 import { formatDe } from "./game-logic-rechnen";
+import { formatKurz } from "./skalierung";
 
 /**
  * F-199 (Handelskalkulation-Trainer, Phase 3 der Kursprofile, W-HAN-01): Rechenlogik und Aufgabengenerator für das
@@ -154,8 +155,9 @@ function e(wert: number): string {
   return `${formatDe(wert, 2)} €`;
 }
 
+// Review WRK-05: Sätze ungerundet zeigen (7,25 % statt 7,3 %), sonst ergibt die gezeigte Formel nicht das gezeigte Ergebnis.
 function p(wert: number): string {
-  return `${formatDe(wert, wert % 1 === 0 ? 0 : 1)} %`;
+  return `${formatKurz(wert, 4)} %`;
 }
 
 /** Rechenweg je Zeile (Text mit eingesetzten Zahlen) für die gewählte Richtung. */
@@ -171,9 +173,9 @@ export function rechenwege(richtung: "vorwaerts" | "rueckwaerts" | "differenz", 
       selbstkosten: `${e(z.bzp)} + ${e(z.handlungskosten)} = ${e(z.selbstkosten)}`,
       gewinn: `${e(z.selbstkosten)} × ${p(s.gewinn)} = ${e(z.gewinn)}`,
       bvp: `${e(z.selbstkosten)} + ${e(z.gewinn)} = ${e(z.bvp)}`,
-      zvp: `${e(z.bvp)} ÷ (1 − ${formatDe(s.kundenskonto / 100, 2)}) = ${e(z.zvp)} (Skonto „im Hundert“: der Zielverkaufspreis ist 100 %)`,
+      zvp: `${e(z.bvp)} ÷ (1 − ${formatKurz(s.kundenskonto / 100, 6)}) = ${e(z.zvp)} (Skonto „im Hundert“: der Zielverkaufspreis ist 100 %)`,
       kundenskonto: `${e(z.zvp)} − ${e(z.bvp)} = ${e(z.kundenskonto)}`,
-      lvp: `${e(z.zvp)} ÷ (1 − ${formatDe(s.kundenrabatt / 100, 2)}) = ${e(z.lvp)} (Rabatt „im Hundert“: der Listenverkaufspreis ist 100 %)`,
+      lvp: `${e(z.zvp)} ÷ (1 − ${formatKurz(s.kundenrabatt / 100, 6)}) = ${e(z.lvp)} (Rabatt „im Hundert“: der Listenverkaufspreis ist 100 %)`,
       kundenrabatt: `${e(z.lvp)} − ${e(z.zvp)} = ${e(z.kundenrabatt)}`,
     };
   }
@@ -198,14 +200,14 @@ export function rechenwege(richtung: "vorwaerts" | "rueckwaerts" | "differenz", 
   }
   return {
     ...verkauf,
-    selbstkosten: `${e(z.bvp)} ÷ (1 + ${formatDe(s.gewinn / 100, 2)}) = ${e(z.selbstkosten)} (Gewinn auf die Selbstkosten: sie sind 100 %)`,
+    selbstkosten: `${e(z.bvp)} ÷ (1 + ${formatKurz(s.gewinn / 100, 6)}) = ${e(z.selbstkosten)} (Gewinn auf die Selbstkosten: sie sind 100 %)`,
     gewinn: `${e(z.bvp)} − ${e(z.selbstkosten)} = ${e(z.gewinn)}`,
-    bzp: `${e(z.selbstkosten)} ÷ (1 + ${formatDe(s.handlungskosten / 100, 2)}) = ${e(z.bzp)} (Handlungskosten auf den Bezugspreis: er ist 100 %)`,
+    bzp: `${e(z.selbstkosten)} ÷ (1 + ${formatKurz(s.handlungskosten / 100, 6)}) = ${e(z.bzp)} (Handlungskosten auf den Bezugspreis: er ist 100 %)`,
     handlungskosten: `${e(z.selbstkosten)} − ${e(z.bzp)} = ${e(z.handlungskosten)}`,
     bep: `${e(z.bzp)} − ${e(z.bezugskosten)} = ${e(z.bep)}`,
-    zep: `${e(z.bep)} ÷ (1 − ${formatDe(s.lieferantenskonto / 100, 2)}) = ${e(z.zep)} (Skonto vom Zieleinkaufspreis: er ist 100 %)`,
+    zep: `${e(z.bep)} ÷ (1 − ${formatKurz(s.lieferantenskonto / 100, 6)}) = ${e(z.zep)} (Skonto vom Zieleinkaufspreis: er ist 100 %)`,
     lieferantenskonto: `${e(z.zep)} − ${e(z.bep)} = ${e(z.lieferantenskonto)}`,
-    lep: `${e(z.zep)} ÷ (1 − ${formatDe(s.lieferantenrabatt / 100, 2)}) = ${e(z.lep)} (Rabatt vom Listeneinkaufspreis: er ist 100 %)`,
+    lep: `${e(z.zep)} ÷ (1 − ${formatKurz(s.lieferantenrabatt / 100, 6)}) = ${e(z.lep)} (Rabatt vom Listeneinkaufspreis: er ist 100 %)`,
     lieferantenrabatt: `${e(z.lep)} − ${e(z.zep)} = ${e(z.lieferantenrabatt)}`,
   };
 }
@@ -279,10 +281,32 @@ export function erzeugeKalkulationsAufgabe(richtung: KalkulationRichtung, schwie
 
 /** Liest eine Zahl in deutscher Schreibweise („1.234,50“, „12,5“); `null` bei ungültiger Eingabe. */
 export function leseBetrag(eingabe: string): number | null {
-  const text = eingabe.trim().replace(/[€%\s]/g, "");
+  let text = eingabe.trim().replace(/[€%]/g, "").trim();
+  // Review WRK-06: Leerzeichen nur als Tausendertrenner zwischen Dreiergruppen ("1 234,50"); "10 20" ergab vorher 1020.
+  if (/\s/.test(text)) {
+    if (!/^-?\d{1,3}(\s\d{3})+(,\d+)?$/.test(text)) return null;
+    text = text.replace(/\s/g, "");
+  }
   if (!/^-?[\d.]*,?\d*$/.test(text) || text === "" || text === "-") return null;
   const zahl = text.includes(",") ? Number(text.replace(/\./g, "").replace(",", ".")) : /^-?\d{1,3}(\.\d{3})+$/.test(text) ? Number(text.replace(/\./g, "")) : Number(text);
   return Number.isFinite(zahl) ? zahl : null;
+}
+
+/** Rundet dezimal (nicht binär) auf `stellen` Nachkommastellen, halbe Stellen weg von null: 1,005 wird 1,01. */
+export function rundeDezimal(wert: number, stellen: number): number {
+  const betrag = Math.abs(wert);
+  const roh = String(betrag);
+  const gerundet = roh.includes("e") ? Number(betrag.toFixed(stellen)) : Number(`${Math.round(Number(`${roh}e${stellen}`))}e-${stellen}`);
+  return wert < 0 ? -gerundet : gerundet;
+}
+
+/**
+ * Review WRK-04: Wird "auf n Nachkommastellen gerundet" verlangt, zählt nur der exakt gerundete Wert (Nutzer-Entscheidung 08.10.2026).
+ * Vorher genügte jeder Wert innerhalb einer halben letzten Stelle, auch ein nicht gerundeter (12,4 statt 12 bei "ganze Zahl").
+ */
+export function istExaktGerundet(eingabe: string, soll: number, stellen: number): boolean {
+  const wert = leseBetrag(eingabe);
+  return wert !== null && Math.abs(wert - rundeDezimal(soll, stellen)) <= 1e-9;
 }
 
 /** Eine Eingabe gilt als richtig, wenn sie auf höchstens 2 Cent (bei Prozent: 0,05) an der Lösung liegt (kleine Rundungsunterschiede entlang der Rechenkette). */

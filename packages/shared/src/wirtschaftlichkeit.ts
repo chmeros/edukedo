@@ -1,5 +1,5 @@
 import { formatDe } from "./game-logic-rechnen";
-import { leseBetrag } from "./handelskalkulation";
+import { istExaktGerundet } from "./handelskalkulation";
 import type { ProzessFeld } from "./prozesskennzahlen";
 import { formatKurz } from "./skalierung";
 
@@ -424,8 +424,7 @@ export function erzeugeWirtschaftAufgabe(art: WirtschaftArt, stufe: WirtschaftSt
   return erzeugeKaufAbo(stufe, zufall);
 }
 
-/** Prüft eine Eingabe gegen ein Aufgabenfeld; die Rundung auf die angegebenen Nachkommastellen genügt. */
+/** Prüft eine Eingabe gegen ein Aufgabenfeld; verlangt ist der exakt auf die angegebenen Nachkommastellen gerundete Wert (Review WRK-04). */
 export function pruefeWirtschaftFeld(eingabe: string, feld: ProzessFeld): boolean {
-  const wert = leseBetrag(eingabe);
-  return wert !== null && Math.abs(wert - feld.soll) <= 0.5 * Math.pow(10, -feld.stellen) + 1e-9;
+  return istExaktGerundet(eingabe, feld.soll, feld.stellen);
 }
