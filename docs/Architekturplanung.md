@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review vom 07.10.2026, Schritt 1: Antwortoptionen werden gemischt)
+
+- **Anlass:** Der Review (docs/reviews/2026-10-07/00-gesamtbericht.md, Punkt B1) und alle Fachlehrer-Berichte zeigen, dass die Reihenfolge der Antwortoptionen unverändert aus dem Content kommt: Die richtige Antwort steht bei Multiple Choice in 60 bis 70 % der Fälle an Position 2, fast nie an Position 4, bei „Was passt nicht dazu“ meist an letzter Stelle. Das Quiz war dadurch ohne Fachwissen lösbar und verfälschte Fortschritt, Credits und Streaks.
+- **Entscheidung:** `shapeQuizItem` (packages/shared/src/quiz-logic.ts) mischt die Optionen von `quiz_mc`, `quiz_mc_multi`, `entweder_oder` und `was_passt_nicht` bei jeder Ausgabe. Das gilt zentral für Lernen, Vorschau, Duell und Offline-Quiz, weil alle `shapeQuizItem` verwenden. Die Bewertung läuft über Options-IDs und ist von der Reihenfolge unabhängig.
+- **Ausnahme:** `wahr_falsch` behält die feste Reihenfolge (Wahr zuerst); dort ist die Position keine Information, sondern Konvention.
+- **Nicht gelöst:** Die verzerrte Verteilung `Wahr`/`Falsch` (je nach Kurs 70 bis 90 % „Falsch“) ist ein Content-Thema und bleibt den Fachlehrern; die längste Option ist in ca. 70 % richtig (Distraktor-Qualität, ebenfalls Content).
+- **Test:** quiz-logic.test.ts prüft, dass jede Position vorkommt und Wahr/Falsch stabil bleibt.
+
 ### Entschieden am 07.10.2026 (F-222: Angriffsarten und Schutzmaßnahmen, nicht sichtbar bis zur Fachprüfung)
 
 - **Anlass:** Phase 1 der Kursprofile, Instrument I-FI-02 aus dem gemeinsamen Teil des Kursprofils der Fachinformatiker-Kurse. Nutzer-Auftrag: „Starte mit dem nächsten Punkt.“ In F-221 war es zurückgestellt worden, weil die Theorie in 6.1 die Abwehr je Angriffsart nur verstreut nennt.

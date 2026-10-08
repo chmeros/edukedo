@@ -874,13 +874,16 @@ export function shapeQuizItem(item: RawQuizItem, options: RawAnswerOption[]): Sh
   // isCorrect) — nur die spätere Bewertung (checkMcMultiAnswer) und die Lernenden-UI (Checkboxen
   // statt Radio-Buttons, siehe QuizSteps.tsx McMultiStep) unterscheiden sich.
   if (item.type === "quiz_mc_multi" || (MC_LIKE_QUIZ_TYPES as readonly string[]).includes(item.type)) {
+    const shapedOptions = options
+      .filter((option) => option.contentItemId === item.id)
+      .map((option) => ({ id: option.id, text: option.text }));
     return {
       id: item.id,
       type: item.type as McLikeQuizType | "quiz_mc_multi",
       prompt: item.prompt,
-      options: options
-        .filter((option) => option.contentItemId === item.id)
-        .map((option) => ({ id: option.id, text: option.text })),
+      // Die Autorenreihenfolge ist stark verzerrt (richtige Antwort meist an Position 2, selten an 4);
+      // gemischt wird deshalb bei jeder Ausgabe. Wahr/Falsch behält die feste Reihenfolge (Wahr zuerst).
+      options: item.type === "wahr_falsch" ? shapedOptions : shuffle(shapedOptions),
     };
   }
 

@@ -201,11 +201,32 @@ describe("shapeQuizItem", () => {
       id: "item-1",
       type: "quiz_mc",
       prompt: "Frage?",
-      options: [
+      options: expect.arrayContaining([
         { id: "opt-a", text: "Falsch A" },
         { id: "opt-b", text: "Richtig" },
-      ],
+      ]),
     });
+    expect((shaped as { options: unknown[] }).options).toHaveLength(2);
+  });
+
+  it("mischt die Optionen von Mehrfachauswahl-Typen (jede Position kommt vor), Wahr/Falsch bleibt in fester Reihenfolge", () => {
+    const options = [0, 1, 2, 3].map((i) => ({ id: `o${i}`, contentItemId: "m", text: `Option ${i}`, isCorrect: i === 0 }) as never);
+    const positionOfFirst = new Set<number>();
+    for (let i = 0; i < 400; i += 1) {
+      const shaped = shapeQuizItem({ id: "m", type: "quiz_mc", prompt: "?", payload: {} }, options) as { options: { id: string }[] };
+      expect(shaped.options.map((option) => option.id).sort()).toEqual(["o0", "o1", "o2", "o3"]);
+      positionOfFirst.add(shaped.options.findIndex((option) => option.id === "o0"));
+    }
+    expect([...positionOfFirst].sort()).toEqual([0, 1, 2, 3]);
+
+    const wf = [
+      { id: "w", contentItemId: "t", text: "Wahr", isCorrect: false },
+      { id: "f", contentItemId: "t", text: "Falsch", isCorrect: true },
+    ] as never[];
+    for (let i = 0; i < 50; i += 1) {
+      const shaped = shapeQuizItem({ id: "t", type: "wahr_falsch", prompt: "?", payload: {} }, wf) as { options: { id: string }[] };
+      expect(shaped.options.map((option) => option.id)).toEqual(["w", "f"]);
+    }
   });
 
   it("liefert bei luecken den Lückentext ohne die akzeptierten Antworten", () => {
