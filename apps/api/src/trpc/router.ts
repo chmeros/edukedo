@@ -8,6 +8,7 @@ import { companyRouter } from "./routers/company";
 import { consentRouter } from "./routers/consent";
 import { contentRouter } from "./routers/content";
 import { contentFeedbackRouter } from "./routers/contentFeedback";
+import { kursInhaltRouter } from "./routers/kursInhalt";
 import { coursesRouter } from "./routers/courses";
 import { duellRouter } from "./routers/duell";
 import { examRouter } from "./routers/exam";
@@ -84,6 +85,7 @@ export const appRouter = router({
   courses: coursesRouter,
   content: contentRouter,
   contentFeedback: contentFeedbackRouter,
+  kursInhalt: kursInhaltRouter,
   notes: notesRouter,
   progress: progressRouter,
   quiz: quizRouter,

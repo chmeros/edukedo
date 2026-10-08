@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CourseIllustration } from "./CourseIcons";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon } from "./Icons";
+import { KursInhalte } from "./KursInhalte";
 import { Modal } from "./Modal";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
@@ -41,6 +42,8 @@ export function CourseSelection({
   // F-147: Gesamtfortschritt je belegtem Kurs für den Füllstand der Kachel; Kurse ohne Content-Items
   // liefern keine Zeile → 0 %.
   const progress = trpc.courses.progress.useQuery();
+  // Review UXL-12: Lese-Modus für Kursinhalte (ohne Beitritt).
+  const [lesen, setLesen] = useState<{ kursId: string; titel: string } | null>(null);
   const [search, setSearch] = useState("");
   // Review UXL-24: Schulkurse nennen offen, dass Minderjährige derzeit nicht zugelassen sind (Server-Schalter ALLOW_MINORS).
   const authConfig = trpc.auth.publicConfig.useQuery();
@@ -76,6 +79,10 @@ export function CourseSelection({
 
   if (courses.isLoading) {
     return <p>Lädt…</p>;
+  }
+
+  if (lesen) {
+    return <KursInhalte kursId={lesen.kursId} titel={lesen.titel} onClose={() => setLesen(null)} />;
   }
 
   const all = courses.data ?? [];
@@ -123,6 +130,9 @@ export function CourseSelection({
                     <>
                       <button type="button" className="btn btn-primary btn-sm" onClick={() => onSelected(course.id)}>
                         Auswählen
+                      </button>
+                      <button type="button" className="btn btn-ghost btn-sm" onClick={() => setLesen({ kursId: course.id, titel: course.title })}>
+                        Inhalte ansehen
                       </button>
                       {/* Review WEB-24: Kurs verlassen löscht Zieltermin, Plan-Start und Lernpartner-Präferenz, daher mit Rückfrage. */}
                       <ConfirmButton
@@ -190,14 +200,19 @@ export function CourseSelection({
               description={kategorieText(course.kategorie)}
               image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
               actions={
-                <button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  disabled={enroll.isPending && enroll.variables?.kursId === course.id}
-                  onClick={() => handleJoin(course)}
-                >
-                  Beitreten
-                </button>
+                <>
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-sm"
+                    disabled={enroll.isPending && enroll.variables?.kursId === course.id}
+                    onClick={() => handleJoin(course)}
+                  >
+                    Beitreten
+                  </button>
+                  <button type="button" className="btn btn-ghost btn-sm" onClick={() => setLesen({ kursId: course.id, titel: course.title })}>
+                    Inhalte ansehen
+                  </button>
+                </>
               }
             >
               {/* Ein Fehlschlag über den Wechsel-Dialog (pendingSwitch) wird dort im Modal gezeigt,
