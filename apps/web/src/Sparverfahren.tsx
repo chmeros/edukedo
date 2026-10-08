@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   beschreibeSchritte,
   beschreibeTour,
   einzeltourenStrecke,
@@ -21,6 +23,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
@@ -150,16 +153,19 @@ function Ergebnisblock({ problem }: { problem: TourenProblem }) {
 
 function Ueben() {
   const [schwierigkeit, setSchwierigkeit] = useState<TourenSchwierigkeit>("leicht");
-  const [aufgabe, setAufgabe] = useState<TourenAufgabe>(() => erzeugeTourenAufgabe("leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<TourenAufgabe>(() => erzeugeTourenAufgabe("leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
   const { problem, ergebnis } = aufgabe;
   const paare = useMemo(() => ersparnisse(problem), [problem]);
 
-  function neu(stufe: TourenSchwierigkeit) {
+  function neu(stufe: TourenSchwierigkeit, vorgabe?: number) {
     setSchwierigkeit(stufe);
-    setAufgabe(erzeugeTourenAufgabe(stufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeTourenAufgabe(stufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -280,6 +286,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(schwierigkeit, geladen)} />
     </div>
   );
 }

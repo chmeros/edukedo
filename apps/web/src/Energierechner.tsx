@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   budgetReserve,
   energie,
   erzeugeEnergieAufgabe,
@@ -18,6 +20,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
@@ -321,15 +324,18 @@ const STUFEN: { id: EnergieStufe; label: string; hinweis: Record<EnergieArt, str
 function Ueben() {
   const [art, setArt] = useState<EnergieArt>("budget");
   const [stufe, setStufe] = useState<EnergieStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<EnergieAufgabe>(() => erzeugeEnergieAufgabe("budget", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<EnergieAufgabe>(() => erzeugeEnergieAufgabe("budget", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: EnergieArt, naechsteStufe: EnergieStufe) {
+  function neu(naechsteArt: EnergieArt, naechsteStufe: EnergieStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeEnergieAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeEnergieAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -438,6 +444,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }

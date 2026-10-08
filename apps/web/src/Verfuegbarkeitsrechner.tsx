@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   ausfallStunden,
   erzeugeVerfAufgabe,
   formatAusfall,
@@ -24,6 +26,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
@@ -388,15 +391,18 @@ const STUFEN: { id: VerfStufe; label: string; hinweis: Record<VerfArt, string> }
 function Ueben() {
   const [art, setArt] = useState<VerfArt>("mtbf");
   const [stufe, setStufe] = useState<VerfStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<VerfAufgabe>(() => erzeugeVerfAufgabe("mtbf", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<VerfAufgabe>(() => erzeugeVerfAufgabe("mtbf", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: VerfArt, naechsteStufe: VerfStufe) {
+  function neu(naechsteArt: VerfArt, naechsteStufe: VerfStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeVerfAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeVerfAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -507,6 +513,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }

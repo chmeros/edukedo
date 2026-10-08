@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   ALGO_NAMEN,
   erzeugeAlgoAufgabe,
   istSortiert,
@@ -16,6 +18,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 
 /**
  * F-215 (Algorithmen-Visualisierer, siehe Architekturplanung Abschnitt 13): Schritt-für-Schritt-Ablauf der einfachen Sortier- und
@@ -269,15 +272,18 @@ const STUFEN: { id: AlgoStufe; label: string; hinweis: Record<AlgoArt, string> }
 function Ueben() {
   const [art, setArt] = useState<AlgoArt>("sortieren");
   const [stufe, setStufe] = useState<AlgoStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<AlgoAufgabe>(() => erzeugeAlgoAufgabe("sortieren", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<AlgoAufgabe>(() => erzeugeAlgoAufgabe("sortieren", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: AlgoArt, naechsteStufe: AlgoStufe) {
+  function neu(naechsteArt: AlgoArt, naechsteStufe: AlgoStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeAlgoAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeAlgoAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -384,6 +390,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }

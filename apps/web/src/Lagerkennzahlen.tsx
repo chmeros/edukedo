@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   durchschnittsbestand,
   erzeugeLagerAufgabe,
   formatDe,
@@ -19,6 +21,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
@@ -62,14 +65,17 @@ const STUFEN: Record<LagerArt, { id: LagerSchwierigkeit; label: string; hinweis:
 
 function Training({ art }: { art: LagerArt }) {
   const [schwierigkeit, setSchwierigkeit] = useState<LagerSchwierigkeit>("leicht");
-  const [aufgabe, setAufgabe] = useState<LagerAufgabe>(() => erzeugeLagerAufgabe(art, "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<LagerAufgabe>(() => erzeugeLagerAufgabe(art, "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(stufe: LagerSchwierigkeit) {
+  function neu(stufe: LagerSchwierigkeit, vorgabe?: number) {
     setSchwierigkeit(stufe);
-    setAufgabe(erzeugeLagerAufgabe(art, stufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeLagerAufgabe(art, stufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -178,6 +184,7 @@ function Training({ art }: { art: LagerArt }) {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(schwierigkeit, geladen)} />
     </div>
   );
 }

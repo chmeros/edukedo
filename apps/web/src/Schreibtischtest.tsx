@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   erzeugeTraceAufgabe,
   fuehreAus,
   ProgrammFehler,
@@ -11,6 +13,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 
 /**
  * F-212 (Schreibtischtest-Trainer, siehe Architekturplanung Abschnitt 13): Ablaufverfolgung kleiner Programme nach den
@@ -213,14 +216,17 @@ const STUFEN: { id: TraceStufe; label: string; hinweis: string }[] = [
 
 function Ueben() {
   const [stufe, setStufe] = useState<TraceStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<TraceAufgabe>(() => erzeugeTraceAufgabe("leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<TraceAufgabe>(() => erzeugeTraceAufgabe("leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteStufe: TraceStufe) {
+  function neu(naechsteStufe: TraceStufe, vorgabe?: number) {
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeTraceAufgabe(naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeTraceAufgabe(naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -369,6 +375,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(stufe, geladen)} />
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   berechneKennzahlen,
   erzeugeKalkulationsAufgabe,
   formatDe,
@@ -19,6 +21,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
@@ -65,14 +68,17 @@ function satzText(zeile: SchemaZeile, saetze: Saetze, zeigeSatz: boolean): strin
 
 function Training({ richtung }: { richtung: Exclude<Modus, "rechner"> }) {
   const [schwierigkeit, setSchwierigkeit] = useState<KalkulationSchwierigkeit>("leicht");
-  const [aufgabe, setAufgabe] = useState<KalkulationsAufgabe>(() => erzeugeKalkulationsAufgabe(richtung, "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<KalkulationsAufgabe>(() => erzeugeKalkulationsAufgabe(richtung, "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(stufe: KalkulationSchwierigkeit) {
+  function neu(stufe: KalkulationSchwierigkeit, vorgabe?: number) {
     setSchwierigkeit(stufe);
-    setAufgabe(erzeugeKalkulationsAufgabe(richtung, stufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeKalkulationsAufgabe(richtung, stufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -232,6 +238,7 @@ function Training({ richtung }: { richtung: Exclude<Modus, "rechner"> }) {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(schwierigkeit, geladen)} />
     </div>
   );
 }

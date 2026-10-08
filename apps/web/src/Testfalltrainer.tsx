@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   bewerteTestwerte,
   erwartet,
   erzeugeTestAufgabe,
@@ -15,6 +17,7 @@ import {
 } from "@edukedo/shared";
 import { useMemo, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
+import { AufgabenNummer } from "./AufgabenNummer";
 
 /**
  * F-205 (Testfall-Trainer, siehe Architekturplanung Abschnitt 13): Übung zu Äquivalenzklassen und Grenzwerten für
@@ -42,16 +45,19 @@ function Marke({ ok }: { ok: boolean }) {
 
 export function Testfalltrainer({ onClose }: { onClose: () => void }) {
   const [stufe, setStufe] = useState<TestStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<TestAufgabe>(() => erzeugeTestAufgabe("leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<TestAufgabe>(() => erzeugeTestAufgabe("leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
   const { spec, erwartungsEingaben } = aufgabe;
   const alleKlassen = useMemo(() => klassen(spec), [spec]);
 
-  function neu(naechste: TestStufe) {
+  function neu(naechste: TestStufe, vorgabe?: number) {
     setStufe(naechste);
-    setAufgabe(erzeugeTestAufgabe(naechste));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeTestAufgabe(naechste, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -240,6 +246,7 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
             Neue Aufgabe
           </button>
         </div>
+        <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(stufe, geladen)} />
       </div>
     </div>
   );

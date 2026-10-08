@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   amortisation,
   auslastung,
   durchlauf,
@@ -25,6 +27,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
@@ -396,15 +399,18 @@ const STUFEN: { id: ProzessStufe; label: string; hinweis: Record<ProzessArt, str
 function Ueben() {
   const [art, setArt] = useState<ProzessArt>("durchlauf");
   const [stufe, setStufe] = useState<ProzessStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<ProzessAufgabe>(() => erzeugeProzessAufgabe("durchlauf", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<ProzessAufgabe>(() => erzeugeProzessAufgabe("durchlauf", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: ProzessArt, naechsteStufe: ProzessStufe) {
+  function neu(naechsteArt: ProzessArt, naechsteStufe: ProzessStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeProzessAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeProzessAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -514,6 +520,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }

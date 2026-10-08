@@ -568,6 +568,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Werkzeuge: Aufgabennummer, WRK-47)
+
+- **Aufgabennummer:** Jede Übungsaufgabe der zwölf Trainer (Algorithmen, Energie, Handelskalkulation, Lagerkennzahlen, Prozesskennzahlen, Schreibtischtest, Skalierung, Sparverfahren, Statistik, Testfälle, Verfügbarkeit, Wirtschaftlichkeit) entsteht aus einer Aufgabennummer, dem Startwert des Zufallsgenerators (`createSeededRandom`, `randomSeed` aus `kreuzwort-generator.ts`). Unter den Schaltflächen steht aufklappbar "Aufgabennummer: 1563766187" mit einem Feld "Nummer laden". Dieselbe Nummer ergibt mit **derselben Aufgabenart und Schwierigkeit** dieselbe Aufgabe; die Nummer kodiert Art und Stufe nicht (die stehen sichtbar daneben). Lehrkräfte können eine Aufgabe also nennen ("Handelskalkulation vorwärts, mittel, Nummer 482913"), Lernende sie erneut laden. Gültig sind Zahlen von 1 bis 2147483647, sonst eine Fehlermeldung.
+- **Prüfung:** Der Test `aufgaben-nummer.test.ts` stellt für alle zwölf Generatoren sicher, dass gleiche Nummer gleiche Aufgabe und verschiedene Nummern verschiedene Aufgaben ergeben (12 Tests). Live geprüft (Wirtschaftlichkeit, Üben): neue Aufgabe weicht ab, Eingabe der alten Nummer stellt die alte Aufgabe wieder her, ungültige Eingabe zeigt den Fehler.
+- **Nicht erfasst:** Rechen-Sprint, Subnetting-Sprint (serverseitig erzeugt, Token) und die Netzplan-, Terminal- und Topologie-Aufgaben haben keine Aufgabennummer. Das Ergebnis eines Trainings wird weiterhin nirgends gespeichert.
+
 ### Entschieden am 08.10.2026 (Werkzeuge: Rundung, Rechenwege und Zahleneingabe, WRK-04/05/06)
 
 Nutzer-Entscheidung vom 08.10.2026: **Wird "auf n Nachkommastellen gerundet" verlangt, zählt nur der exakt gerundete Wert.**

@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   adcSchritt,
   adcStufen,
   anteilProzent,
@@ -24,6 +26,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -337,15 +340,18 @@ const STUFEN: { id: SkalStufe; label: string; hinweis: Record<SkalArt, string> }
 function Ueben() {
   const [art, setArt] = useState<SkalArt>("analog");
   const [stufe, setStufe] = useState<SkalStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<SkalAufgabe>(() => erzeugeSkalAufgabe("analog", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<SkalAufgabe>(() => erzeugeSkalAufgabe("analog", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: SkalArt, naechsteStufe: SkalStufe) {
+  function neu(naechsteArt: SkalArt, naechsteStufe: SkalStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeSkalAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeSkalAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -455,6 +461,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }

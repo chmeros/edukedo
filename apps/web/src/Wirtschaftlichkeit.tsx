@@ -1,4 +1,6 @@
 import {
+  createSeededRandom,
+  randomSeed,
   erzeugeWirtschaftAufgabe,
   formatDe,
   formatKurz,
@@ -18,6 +20,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { AufgabenNummer } from "./AufgabenNummer";
 import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
@@ -537,15 +540,18 @@ const STUFEN: { id: WirtschaftStufe; label: string; hinweis: Record<WirtschaftAr
 function Ueben() {
   const [art, setArt] = useState<WirtschaftArt>("nutzwert");
   const [stufe, setStufe] = useState<WirtschaftStufe>("leicht");
-  const [aufgabe, setAufgabe] = useState<WirtschaftAufgabe>(() => erzeugeWirtschaftAufgabe("nutzwert", "leicht"));
+  const [nummer, setNummer] = useState(randomSeed);
+  const [aufgabe, setAufgabe] = useState<WirtschaftAufgabe>(() => erzeugeWirtschaftAufgabe("nutzwert", "leicht", createSeededRandom(nummer)));
   const [eingaben, setEingaben] = useState<Record<string, string>>({});
   const [geprueft, setGeprueft] = useState(false);
   const [geloest, setGeloest] = useState(false);
 
-  function neu(naechsteArt: WirtschaftArt, naechsteStufe: WirtschaftStufe) {
+  function neu(naechsteArt: WirtschaftArt, naechsteStufe: WirtschaftStufe, vorgabe?: number) {
     setArt(naechsteArt);
     setStufe(naechsteStufe);
-    setAufgabe(erzeugeWirtschaftAufgabe(naechsteArt, naechsteStufe));
+    const neueNummer = vorgabe ?? randomSeed();
+    setNummer(neueNummer);
+    setAufgabe(erzeugeWirtschaftAufgabe(naechsteArt, naechsteStufe, createSeededRandom(neueNummer)));
     setEingaben({});
     setGeprueft(false);
     setGeloest(false);
@@ -655,6 +661,7 @@ function Ueben() {
           Neue Aufgabe
         </button>
       </div>
+      <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(art, stufe, geladen)} />
     </div>
   );
 }
