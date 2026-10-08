@@ -166,4 +166,18 @@ describe("Lernlogik: Typbindung, Sperre und Notizen (LOG-08/11/14)", () => {
     const bestwerte = (await app.inject({ method: "GET", url: "/api/v1/trpc/gamification.myPersonalBests", headers: { cookie } })).json().result.data;
     expect(bestwerte.mostAnsweredInOneDay).toBeGreaterThanOrEqual(12);
   });
+
+  it("LOG-07: fällige Wiederholungen kommen vor neuen Karten", async () => {
+    const [th] = await db.select({ themaId: schema.contentItem.themaId }).from(schema.contentItem).where(eq(schema.contentItem.id, karteId));
+    const [neueKarte] = await db
+      .insert(schema.contentItem)
+      .values({ themaId: th!.themaId, type: "karteikarte", prompt: "Neue Karte" })
+      .returning();
+    await db.update(schema.userProgress).set({ dueAt: new Date(Date.now() - 86_400_000) }).where(eq(schema.userProgress.contentItemId, karteId));
+
+    const fällig = (
+      await app.inject({ method: "GET", url: `/api/v1/trpc/content.dueCards?input=${encodeURIComponent(JSON.stringify({ kursId }))}`, headers: { cookie } })
+    ).json().result.data as { id: string }[];
+    expect(fällig.map((karte) => karte.id)).toEqual([karteId, neueKarte!.id]);
+  });
 });

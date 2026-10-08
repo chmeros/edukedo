@@ -64,7 +64,8 @@ export type ExerciseSetIdInput = z.infer<typeof exerciseSetIdInputSchema>;
  * — anders als Quiz.tsx/MixedLearning.tsx — kein exercise_set anlegt.
  */
 export const abortRoundInputSchema = z.object({
-  contentItemIds: z.array(z.string().uuid()).min(1),
+  // Review LOG-12: Obergrenze, damit eine Anfrage nicht beliebig viele Datenbankschritte auslöst.
+  contentItemIds: z.array(z.string().uuid()).min(1).max(200),
   since: z.coerce.date(),
   exerciseSetId: z.string().uuid().optional(),
 });

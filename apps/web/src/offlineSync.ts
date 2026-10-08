@@ -28,7 +28,9 @@ export async function syncOfflineQueue(utils: ReturnType<typeof trpc.useUtils>):
   const me = await utils.client.auth.me.query();
   await claimOfflineData(me.id);
 
-  const pending = await offlineDb.queue.toArray();
+  // Review LOG-13: chronologisch senden. Die Tabelle liefert nach Primärschlüssel (UUID); bei mehr als einem Block kämen sonst
+  // ältere Ereignisse nach neueren an und würden für den Lernstand übergangen.
+  const pending = (await offlineDb.queue.toArray()).sort((a, b) => a.occurredAt - b.occurredAt);
   if (pending.length === 0) {
     return 0;
   }

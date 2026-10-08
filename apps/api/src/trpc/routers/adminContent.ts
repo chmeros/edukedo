@@ -18,7 +18,7 @@ import {
   type AdminContentItemForm,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, asc, eq, ilike } from "drizzle-orm";
+import { and, asc, eq, ilike, inArray } from "drizzle-orm";
 import { parseLueckentext } from "../../db/content-parser";
 import { renderLueckentextSource } from "../../db/content-serializer";
 import { answerOption, contentItem, contentItemVersion, fachgebiet, thema } from "../../db/schema";
@@ -592,10 +592,37 @@ export const adminContentRouter = router({
         });
 
         if (prepared.answerOptions) {
-          await tx.delete(answerOption).where(eq(answerOption.contentItemId, input.contentItemId));
-          await tx
-            .insert(answerOption)
-            .values(prepared.answerOptions.map((option) => ({ contentItemId: input.contentItemId, ...option })));
+          // Review LOG-13: Optionen werden nach Position fortgeschrieben statt gelöscht und neu angelegt, die IDs bleiben also
+          // stabil. Laufende Quiz-Runden und Offline-Kopien mit alten IDs führten sonst zu "Frage nicht gefunden"
+          // (online HTTP 500, offline ein dauerhaft hängender Eintrag).
+          const vorhanden = await tx
+            .select({ id: answerOption.id })
+            .from(answerOption)
+            .where(eq(answerOption.contentItemId, input.contentItemId))
+            .orderBy(asc(answerOption.sortOrder), asc(answerOption.id));
+          const neue = prepared.answerOptions;
+          for (let index = 0; index < neue.length; index += 1) {
+            const option = neue[index]!;
+            const bestehend = vorhanden[index];
+            if (bestehend) {
+              await tx
+                .update(answerOption)
+                .set({
+                  text: option.text,
+                  isCorrect: option.isCorrect,
+                  groupKey: option.groupKey ?? null,
+                  side: option.side ?? null,
+                  sortOrder: option.sortOrder,
+                })
+                .where(eq(answerOption.id, bestehend.id));
+            } else {
+              await tx.insert(answerOption).values({ contentItemId: input.contentItemId, ...option });
+            }
+          }
+          const ueberzaehlig = vorhanden.slice(neue.length).map((row) => row.id);
+          if (ueberzaehlig.length > 0) {
+            await tx.delete(answerOption).where(inArray(answerOption.id, ueberzaehlig));
+          }
         }
       });
 

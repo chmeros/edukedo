@@ -32,8 +32,8 @@ export const contentRouter = router({
   /**
    * Fällige Karteikarten (F-20) im ausgewählten Kurs (F-09: Mehrfach-Kursbelegung aktiv
    * genutzt, siehe Architekturplanung Abschnitt 13 — vorher über alle eingeschriebenen
-   * Kurse hinweg aggregiert): neue Karten (kein user_progress-Datensatz) zuerst, danach nach
-   * Fälligkeit (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
+   * Kurse hinweg aggregiert): fällige Wiederholungen zuerst (nach Fälligkeit), neue Karten (kein
+   * user_progress-Datensatz) füllen die übrigen Plätze, siehe Review LOG-07 (Architekturplanung Abschnitt 4.3, Index auf user_progress(user_id, due_at)).
    *
    * F-110: `contentItemIds` (gezielte Auswahl einzelner Karten, siehe `content.themaFlashcards`)
    * und `onlyFlagged` (nur als "schwierig" markierte Karten) ersetzen jeweils die reguläre
@@ -84,9 +84,10 @@ export const contentRouter = router({
         and(eq(userProgress.contentItemId, contentItem.id), eq(userProgress.userId, ctx.currentUser.id)),
       )
       .where(and(...conditions))
-      // NULLS FIRST: neue, noch nie geübte Karten (kein user_progress-Datensatz) vor
-      // bereits fälligen Wiederholungen — Postgres sortiert NULL bei ASC sonst zuletzt.
-      .orderBy(sql`${userProgress.dueAt} asc nulls first`)
+      // Review LOG-07: Fällige Wiederholungen zuerst (die am längsten überfällige zuerst), neue Karten (kein user_progress-Datensatz)
+      // füllen nur die übrigen Plätze der Runde. Vorher standen neue Karten vorn; bei vielen ungesehenen Karten kamen fällige
+      // Wiederholungen dadurch nie dran, und das Vergessen stieg. Ein Tageslimit für neue Karten gibt es noch nicht.
+      .orderBy(sql`${userProgress.dueAt} asc nulls last`)
       // F-110: bei expliziter Auswahl (contentItemIds) darf die Auswahl nicht stillschweigend
       // auf 20 Karten gekürzt werden — sie ist bereits durch die Auswahl selbst begrenzt.
       .limit(input.contentItemIds ? input.contentItemIds.length : 20);

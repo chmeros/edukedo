@@ -133,6 +133,40 @@ async function upsertProgress(db: Database, userId: string, gameId: string, stat
     });
 }
 
+/**
+ * Review LOG-15: Spielstand atomar fortschreiben. Der JSON-Zustand wurde vorher gelesen, ergänzt und zurückgeschrieben; zwei fast
+ * gleichzeitige richtige Antworten (zwei Tabs, schnelle Eingabe) überschrieben sich, eine gelöste Nummer ging verloren. Jetzt
+ * liegt die Zeile (bei Bedarf leer angelegt) unter einer Zeilensperre, `aendern` ändert den Zustand und meldet, ob das Spiel
+ * damit abgeschlossen ist. `completed_at` wird nur gesetzt, wenn es noch leer ist: eine spätere richtige Antwort oder eine
+ * geänderte Elementzahl macht ein abgeschlossenes Spiel weder "neu abgeschlossen" noch wieder "offen".
+ */
+async function aktualisiereFortschritt<S>(
+  db: Database,
+  userId: string,
+  gameId: string,
+  lesen: (raw: unknown) => S,
+  aendern: (state: S) => boolean,
+): Promise<S> {
+  return db.transaction(async (tx) => {
+    await tx
+      .insert(gameProgress)
+      .values({ userId, gameId, state: {}, completedAt: null, updatedAt: new Date() })
+      .onConflictDoNothing({ target: [gameProgress.userId, gameProgress.gameId] });
+    const [row] = await tx
+      .select({ id: gameProgress.id, state: gameProgress.state, completedAt: gameProgress.completedAt })
+      .from(gameProgress)
+      .where(and(eq(gameProgress.userId, userId), eq(gameProgress.gameId, gameId)))
+      .for("update");
+    const state = lesen(row!.state);
+    const abgeschlossen = aendern(state);
+    await tx
+      .update(gameProgress)
+      .set({ state: state as object, completedAt: row!.completedAt ?? (abgeschlossen ? new Date() : null), updatedAt: new Date() })
+      .where(eq(gameProgress.id, row!.id));
+    return state;
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Kreuzworträtsel „Finanzkennzahlen" (F-141)
 // ---------------------------------------------------------------------------
@@ -197,10 +231,10 @@ async function recordListResult(
   correct: boolean,
 ): Promise<void> {
   if (correct) {
-    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, gameId);
-    const state = parseSolvedListState(progressRow?.state);
-    if (!state.solvedNumbers.includes(nummer)) state.solvedNumbers.push(nummer);
-    await upsertProgress(ctx.db, ctx.currentUser.id, gameId, state, state.solvedNumbers.length === total ? new Date() : null);
+    await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, gameId, parseSolvedListState, (state) => {
+      if (!state.solvedNumbers.includes(nummer)) state.solvedNumbers.push(nummer);
+      return state.solvedNumbers.length >= total;
+    });
   }
 }
 
@@ -315,11 +349,13 @@ export const gameRouter = router({
     const result = checkKreuzwortraetselWort(puzzle, input.nummer, input.eingabe);
 
     if (result.correct) {
-      if (!state.solvedWordNumbers.includes(input.nummer)) {
-        state.solvedWordNumbers.push(input.nummer);
-      }
-      const completed = state.solvedWordNumbers.length === puzzle.woerter.length;
-      await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
+      // Der Seed ist Teil des Zustands und ändert sich nur beim Neustart; die Wörterzahl des Rätsels steht oben fest.
+      await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, row.id, parseKreuzwortraetselState, (aktuell) => {
+        if (!aktuell.solvedWordNumbers.includes(input.nummer)) {
+          aktuell.solvedWordNumbers.push(input.nummer);
+        }
+        return aktuell.solvedWordNumbers.length >= puzzle.woerter.length;
+      });
     }
 
     return result;
@@ -345,13 +381,12 @@ export const gameRouter = router({
     const result = checkKennzahlenDuellAntwort(payload, input.nummer, input.ausgewaehlt);
 
     if (result.correct) {
-      const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
-      const state = parseKennzahlenDuellState(progressRow?.state);
-      if (!state.completedQuestionNumbers.includes(input.nummer)) {
-        state.completedQuestionNumbers.push(input.nummer);
-      }
-      const completed = state.completedQuestionNumbers.length === payload.fragen.length;
-      await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
+      await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, row.id, parseKennzahlenDuellState, (state) => {
+        if (!state.completedQuestionNumbers.includes(input.nummer)) {
+          state.completedQuestionNumbers.push(input.nummer);
+        }
+        return state.completedQuestionNumbers.length >= payload.fragen.length;
+      });
     }
 
     return result;
@@ -389,15 +424,18 @@ export const gameRouter = router({
   completeMemoryRound: protectedProcedure.input(memoryRundeInputSchema).mutation(async ({ ctx, input }) => {
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, "memory", input.setKey);
     const payload = memoryPayloadSchema.parse(row.payload);
-    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
-    const state = parseMemoryState(progressRow?.state);
-
-    if (!state.completedRoundNumbers.includes(input.runde)) {
-      state.completedRoundNumbers.push(input.runde);
+    // Review LOG-15: nur Runden, die es in diesem Satz gibt; abgeschlossen ist das Spiel, wenn jede vorhandene Runde gemeldet
+    // wurde (nicht, wenn die Anzahl zufällig stimmt).
+    const runden = new Set(payload.paare.map((paar) => paar.runde));
+    if (!runden.has(input.runde)) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Diese Runde gibt es in diesem Spiel nicht." });
     }
-    const totalRounds = new Set(payload.paare.map((paar) => paar.runde)).size;
-    const completed = state.completedRoundNumbers.length === totalRounds;
-    await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, completed ? new Date() : null);
+    await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, row.id, parseMemoryState, (state) => {
+      if (!state.completedRoundNumbers.includes(input.runde)) {
+        state.completedRoundNumbers.push(input.runde);
+      }
+      return [...runden].every((runde) => state.completedRoundNumbers.includes(runde));
+    });
 
     return { success: true };
   }),
@@ -543,14 +581,18 @@ export const gameRouter = router({
   /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige (eigener Spielstand), keine Belohnung. */
   sprintAbschluss: protectedProcedure.input(sprintAbschlussInputSchema).mutation(async ({ ctx, input }) => {
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
-    const progressRow = await loadProgressRow(ctx.db, ctx.currentUser.id, row.id);
-    const state = parseSprintState(progressRow?.state);
-    const vorher = state.bestwerte[input.schwierigkeit];
-    const richtig = Math.min(input.richtig, input.gesamt);
-    if (!vorher || richtig / input.gesamt > vorher.richtig / vorher.gesamt) {
-      state.bestwerte[input.schwierigkeit] = { richtig, gesamt: input.gesamt };
+    // Review LOG-15: Ein Sprint hat genau `anzahl` Aufgaben; "1 von 1" (100 %) lässt sich so nicht mehr als Bestwert melden.
+    const payload = parseSprintPayload(input.gameType, row.payload);
+    if (input.gesamt !== payload.anzahl || input.richtig > input.gesamt) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Das Ergebnis passt nicht zu diesem Sprint." });
     }
-    await upsertProgress(ctx.db, ctx.currentUser.id, row.id, state, progressRow?.completedAt ?? new Date());
+    const state = await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, row.id, parseSprintState, (aktuell) => {
+      const vorher = aktuell.bestwerte[input.schwierigkeit];
+      if (!vorher || input.richtig / input.gesamt > vorher.richtig / vorher.gesamt) {
+        aktuell.bestwerte[input.schwierigkeit] = { richtig: input.richtig, gesamt: input.gesamt };
+      }
+      return true;
+    });
     return { bestwert: state.bestwerte[input.schwierigkeit]! };
   }),
 });

@@ -729,6 +729,14 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       ]);
       expect(detail.currentVersion).toBe(1);
 
+      // Review LOG-13: Bearbeiten lässt die IDs der bestehenden Optionen unverändert (Position bleibt Schlüssel).
+      const optionIdsVorher = (
+        await db
+          .select({ id: schema.answerOption.id })
+          .from(schema.answerOption)
+          .where(eq(schema.answerOption.contentItemId, contentItemId))
+          .orderBy(schema.answerOption.sortOrder)
+      ).map((row) => row.id);
       const updateResponse = await app.inject({
         method: "POST",
         url: "/api/v1/trpc/adminContent.update",
@@ -752,6 +760,15 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         },
       });
       expect(updateResponse.statusCode).toBe(200);
+      const optionIdsNachher = (
+        await db
+          .select({ id: schema.answerOption.id })
+          .from(schema.answerOption)
+          .where(eq(schema.answerOption.contentItemId, contentItemId))
+          .orderBy(schema.answerOption.sortOrder)
+      ).map((row) => row.id);
+      expect(optionIdsNachher).toHaveLength(3);
+      expect(optionIdsNachher.slice(0, 2)).toEqual(optionIdsVorher);
 
       const getAfterUpdateResponse = await app.inject({
         method: "GET",

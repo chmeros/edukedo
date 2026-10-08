@@ -284,4 +284,65 @@ describe("F-158: weitere Spiele und Sets", () => {
     const info = (await get("game.getSprint", { kursId, gameType: "subnetting" })).json().result.data;
     expect(info.bestwerte.mittel).toEqual({ richtig: 3, gesamt: 5 });
   });
+
+  it("LOG-15: gleichzeitige richtige Antworten gehen nicht verloren, completed_at bleibt nach dem Abschluss unverändert", async () => {
+    const beleg = (nummer: number) => ({
+      nummer,
+      titel: `Beleg ${nummer}`,
+      situation: "Vergleiche die Belege.",
+      felder: [
+        { id: "a", ort: "Bestellung", text: "10 Ordner", auffaellig: false, erklaerung: "Basis." },
+        { id: "b", ort: "Lieferschein", text: "8 Ordner", auffaellig: true, erklaerung: "Zwei fehlen." },
+        { id: "c", ort: "Rechnung", text: "10 Ordner = 20,00 €", auffaellig: false, erklaerung: "Passt." },
+        { id: "d", ort: "Zahlungsbedingung", text: "30 Tage netto", auffaellig: false, erklaerung: "Unauffällig." },
+      ],
+      hatFehler: true,
+      aufloesung: "Es fehlen zwei.",
+    });
+    const [spiel] = await db
+      .insert(schema.game)
+      .values({
+        kursId,
+        gameType: "belegdetektiv",
+        setKey: "parallel",
+        title: "Parallel",
+        payload: { belege: [beleg(1), beleg(2)], abschlussmeldung: "Geschafft" },
+      })
+      .returning();
+    const antwort = (nummer: number) =>
+      post("game.submitBeleg", { kursId, setKey: "parallel", nummer, markiert: ["b"], urteil: "beanstanden" });
+    const antworten = await Promise.all([antwort(1), antwort(2)]);
+    expect(antworten.map((a) => a.statusCode), antworten[0]!.body).toEqual([200, 200]);
+    expect(antworten.map((a) => a.json().result.data.correct)).toEqual([true, true]);
+
+    const lesen = async () => {
+      const [row] = await db.select().from(schema.gameProgress).where(eq(schema.gameProgress.gameId, spiel!.id));
+      return row!;
+    };
+    const nachParallel = await lesen();
+    expect((nachParallel.state as { solvedNumbers: number[] }).solvedNumbers.sort()).toEqual([1, 2]);
+    expect(nachParallel.completedAt).not.toBeNull();
+
+    // Erneut richtig beantwortet: der Abschlusszeitpunkt springt nicht auf "jetzt".
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    expect((await antwort(1)).statusCode).toBe(200);
+    expect((await lesen()).completedAt?.getTime()).toBe(nachParallel.completedAt!.getTime());
+
+    // Kommt durch eine Inhaltsänderung ein drittes Element hinzu, bleibt das Spiel abgeschlossen.
+    await db
+      .update(schema.game)
+      .set({ payload: { belege: [beleg(1), beleg(2), beleg(3)], abschlussmeldung: "Geschafft" } })
+      .where(eq(schema.game.id, spiel!.id));
+    expect((await antwort(1)).statusCode).toBe(200);
+    expect((await lesen()).completedAt).not.toBeNull();
+  });
+
+  it("LOG-15: Sprint-Abschluss prüft das Ergebnis gegen den Sprint", async () => {
+    const zuKurz = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 1, gesamt: 1 });
+    expect(zuKurz.statusCode).toBe(400);
+    const zuViel = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 6, gesamt: 5 });
+    expect(zuViel.statusCode).toBe(400);
+    const gueltig = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 5, gesamt: 5 });
+    expect(gueltig.statusCode).toBe(200);
+  });
 });

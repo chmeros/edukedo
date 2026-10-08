@@ -321,4 +321,138 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
     },
     30_000,
   );
+
+  it(
+    "LOG-12: Rundenstart kommt vom Übungssatz (Client-Uhr geht vor), alle Antworten der Runde werden verworfen, Wiederholungen zählen mit",
+    async () => {
+      const [quizRow] = await db
+        .select({ id: schema.contentItem.id })
+        .from(schema.contentItem)
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .where(
+          and(
+            eq(schema.contentItem.type, "quiz_mc"),
+            eq(schema.contentItem.isActive, true),
+            eq(schema.fachgebiet.kursId, kursId),
+          ),
+        )
+        .offset(2)
+        .limit(1);
+      const itemId = quizRow!.id;
+      const options = await db
+        .select({ id: schema.answerOption.id, isCorrect: schema.answerOption.isCorrect })
+        .from(schema.answerOption)
+        .where(eq(schema.answerOption.contentItemId, itemId));
+      const wrongId = options.find((option) => !option.isCorrect)!.id;
+      const correctId = options.find((option) => option.isCorrect)!.id;
+      const antwort = (selectedOptionId: string) =>
+        app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/quiz.submitAnswer",
+          headers: { cookie: learnerCookie },
+          payload: { contentItemId: itemId, selectedOptionId },
+        });
+
+      // Vor der Runde: eine falsche Antwort (bleibt bestehen).
+      expect((await antwort(wrongId)).statusCode).toBe(200);
+      await new Promise((resolve) => setTimeout(resolve, 20));
+      const satz = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.startExerciseSet",
+        headers: { cookie: learnerCookie },
+        payload: { kursId, mode: "quiz", totalItems: 1 },
+      });
+      expect(satz.statusCode).toBe(200);
+      const exerciseSetId = satz.json().result.data.exerciseSetId as string;
+      const mascotVorher = await mascotFood(learnerUserId);
+
+      // In der Runde: falsch, dann (Wiederholung) richtig — zwei Ereignisse zum selben Item.
+      expect((await antwort(wrongId)).statusCode).toBe(200);
+      expect((await antwort(correctId)).statusCode).toBe(200);
+
+      // Die Client-Uhr geht eine Stunde vor: ohne serverseitigen Rundenstart würde nichts verworfen.
+      const abbruch = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.abortRound",
+        headers: { cookie: learnerCookie },
+        payload: { contentItemIds: [itemId, itemId], since: new Date(Date.now() + 3_600_000).toISOString(), exerciseSetId },
+      });
+      expect(abbruch.statusCode, abbruch.body).toBe(200);
+
+      const events = await db
+        .select({ isCorrect: schema.learningEvent.isCorrect })
+        .from(schema.learningEvent)
+        .where(and(eq(schema.learningEvent.userId, learnerUserId), eq(schema.learningEvent.contentItemId, itemId)));
+      expect(events).toEqual([{ isCorrect: false }]);
+      expect(await mascotFood(learnerUserId)).toBe(mascotVorher);
+      const [fortschritt] = await db
+        .select({ state: schema.userProgress.state })
+        .from(schema.userProgress)
+        .where(and(eq(schema.userProgress.userId, learnerUserId), eq(schema.userProgress.contentItemId, itemId)));
+      expect(fortschritt?.state).toBe("learning");
+      const saetze = await db.select().from(schema.exerciseSet).where(eq(schema.exerciseSet.id, exerciseSetId));
+      expect(saetze).toHaveLength(0);
+
+      // Obergrenze der Liste.
+      const zuViele = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.abortRound",
+        headers: { cookie: learnerCookie },
+        payload: {
+          contentItemIds: Array.from({ length: 201 }, () => itemId),
+          since: new Date().toISOString(),
+        },
+      });
+      expect(zuViele.statusCode).toBe(400);
+    },
+    30_000,
+  );
+
+  it(
+    "LOG-12: Karte ohne Vorzustand (vor F-111 bewertet) wird beim Verwerfen der einzigen Bewertung auf 'neu' zurückgesetzt",
+    async () => {
+      const [karteRow] = await db
+        .select({ id: schema.contentItem.id })
+        .from(schema.contentItem)
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .where(
+          and(
+            eq(schema.contentItem.type, "karteikarte"),
+            eq(schema.contentItem.isActive, true),
+            eq(schema.fachgebiet.kursId, kursId),
+          ),
+        )
+        .offset(3)
+        .limit(1);
+      const karteId = karteRow!.id;
+      const since = new Date();
+      const bewertung = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: learnerCookie },
+        payload: { contentItemId: karteId, result: "gewusst" },
+      });
+      expect(bewertung.statusCode).toBe(200);
+      await db
+        .update(schema.userProgress)
+        .set({ previousSnapshot: null })
+        .where(and(eq(schema.userProgress.userId, learnerUserId), eq(schema.userProgress.contentItemId, karteId)));
+
+      const abbruch = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.abortRound",
+        headers: { cookie: learnerCookie },
+        payload: { contentItemIds: [karteId], since: since.toISOString() },
+      });
+      expect(abbruch.statusCode).toBe(200);
+      const [fortschritt] = await db
+        .select()
+        .from(schema.userProgress)
+        .where(and(eq(schema.userProgress.userId, learnerUserId), eq(schema.userProgress.contentItemId, karteId)));
+      expect(fortschritt).toMatchObject({ state: "new", reps: 0, lapses: 0 });
+    },
+    30_000,
+  );
 });

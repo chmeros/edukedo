@@ -493,107 +493,123 @@ export async function applyChangeReview(
  *   Löschen bleibt kein korrektes Ereignis mehr übrig, wenn (und nur wenn) das gelöschte
  *   Ereignis tatsächlich die Credit-Vergabe ausgelöst hatte.
  */
-async function abortRoundItem(db: Database, userId: string, contentItemId: string, since: Date): Promise<void> {
-  await db.transaction(async (tx) => {
-    // Review LOG-11: Zeilensperre auf das Konto wie in recordQuizAttempt. Ohne sie lasen bei einem Doppeltipp oder zwei Tabs beide
-    // Transaktionen denselben Zustand und schrieben je ihr Ergebnis (ein Review statt zwei, Ereignisse doppelt, falscher Vorzustand).
-    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
-    const [event] = await tx
-      .select()
+async function abortRoundItem(
+  tx: Parameters<Parameters<Database["transaction"]>[0]>[0],
+  userId: string,
+  contentItemId: string,
+  since: Date,
+): Promise<void> {
+  // Review LOG-12: ALLE Ereignisse der Runde zu diesem Item werden entfernt (nicht nur das jüngste), auch wenn eine Frage in der
+  // Runde mehrfach beantwortet wurde (Wiederholung falscher Fragen).
+  const deleted = await tx
+    .delete(learningEvent)
+    .where(
+      and(
+        eq(learningEvent.userId, userId),
+        eq(learningEvent.contentItemId, contentItemId),
+        gte(learningEvent.occurredAt, since),
+      ),
+    )
+    .returning({ isCorrect: learningEvent.isCorrect });
+  if (deleted.length === 0) {
+    // Dieses Item wurde in der abgebrochenen Runde gar nicht beantwortet — nichts zu tun.
+    return;
+  }
+
+  const [item] = await tx
+    .select({ type: contentItem.type, difficulty: contentItem.difficulty })
+    .from(contentItem)
+    .where(eq(contentItem.id, contentItemId))
+    .limit(1);
+  if (!item) return;
+
+  const [remaining] = await tx
+    .select({ occurredAt: learningEvent.occurredAt, isCorrect: learningEvent.isCorrect })
+    .from(learningEvent)
+    .where(and(eq(learningEvent.userId, userId), eq(learningEvent.contentItemId, contentItemId)))
+    .orderBy(desc(learningEvent.occurredAt))
+    .limit(1);
+
+  if (item.type === "karteikarte") {
+    const [existing] = await tx
+      .select({ previousSnapshot: userProgress.previousSnapshot })
+      .from(userProgress)
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
+      .limit(1);
+    if (existing?.previousSnapshot) {
+      const baseline = parseProgressSnapshot(existing.previousSnapshot);
+      await tx
+        .update(userProgress)
+        .set({
+          difficulty: baseline.difficulty,
+          stability: baseline.stability,
+          state: baseline.state,
+          dueAt: baseline.dueAt,
+          lastReviewedAt: baseline.lastReviewedAt,
+          reps: baseline.reps,
+          lapses: baseline.lapses,
+          lastResult: baseline.lastResult,
+          previousSnapshot: null,
+        })
+        .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+    } else if (existing && !remaining) {
+      // Review LOG-12: Karten, die vor F-111 bewertet wurden, haben keinen Vorzustand. War die Bewertung der Runde aber die einzige
+      // Bewertung überhaupt (kein Ereignis mehr übrig), ist der Ausgangszustand eindeutig "neu".
+      const initial = initialProgressState(new Date());
+      await tx
+        .update(userProgress)
+        .set({
+          difficulty: initial.difficulty,
+          stability: initial.stability,
+          state: initial.state,
+          dueAt: initial.dueAt,
+          lastReviewedAt: initial.lastReviewedAt,
+          reps: initial.reps,
+          lapses: initial.lapses,
+          lastResult: null,
+          previousSnapshot: null,
+        })
+        .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+    }
+  } else if (remaining) {
+    await tx
+      .update(userProgress)
+      .set({ state: remaining.isCorrect ? "review" : "learning", lastReviewedAt: remaining.occurredAt })
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+  } else {
+    await tx
+      .delete(userProgress)
+      .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
+  }
+
+  // F-118/F-119: Punktehamster und Credits kommen ausschließlich aus Quiz-Antworten (siehe recordQuizAttempt oben), nie aus
+  // Karteikarten (applyReview vergibt weder das eine noch das andere). Review LOG-02: Die Rücknahme darf deshalb auch nur
+  // Quiz-Antworten betreffen; sonst zog der Abbruch einer Karteikarten-Runde Credits ab, die nie vergeben wurden.
+  const correctDeleted = deleted.filter((event) => event.isCorrect).length;
+  if (correctDeleted > 0 && item.type !== "karteikarte") {
+    await tx
+      .update(user)
+      .set({ mascotFood: sql`greatest(${user.mascotFood} - ${correctDeleted}, 0)` })
+      .where(eq(user.id, userId));
+    const [stillCorrect] = await tx
+      .select({ id: learningEvent.id })
       .from(learningEvent)
       .where(
         and(
           eq(learningEvent.userId, userId),
           eq(learningEvent.contentItemId, contentItemId),
-          gte(learningEvent.occurredAt, since),
+          eq(learningEvent.isCorrect, true),
         ),
       )
-      .orderBy(desc(learningEvent.occurredAt))
       .limit(1);
-    if (!event) {
-      // Dieses Item wurde in der abgebrochenen Runde gar nicht beantwortet — nichts zu tun.
-      return;
-    }
-
-    await tx.delete(learningEvent).where(eq(learningEvent.id, event.id));
-
-    const [item] = await tx
-      .select({ type: contentItem.type, difficulty: contentItem.difficulty })
-      .from(contentItem)
-      .where(eq(contentItem.id, contentItemId))
-      .limit(1);
-    if (!item) return;
-
-    if (item.type === "karteikarte") {
-      const [existing] = await tx
-        .select({ previousSnapshot: userProgress.previousSnapshot })
-        .from(userProgress)
-        .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
-        .limit(1);
-      if (existing?.previousSnapshot) {
-        const baseline = parseProgressSnapshot(existing.previousSnapshot);
-        await tx
-          .update(userProgress)
-          .set({
-            difficulty: baseline.difficulty,
-            stability: baseline.stability,
-            state: baseline.state,
-            dueAt: baseline.dueAt,
-            lastReviewedAt: baseline.lastReviewedAt,
-            reps: baseline.reps,
-            lapses: baseline.lapses,
-            lastResult: baseline.lastResult,
-            previousSnapshot: null,
-          })
-          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
-      }
-    } else {
-      const [priorEvent] = await tx
-        .select()
-        .from(learningEvent)
-        .where(and(eq(learningEvent.userId, userId), eq(learningEvent.contentItemId, contentItemId)))
-        .orderBy(desc(learningEvent.occurredAt))
-        .limit(1);
-      if (priorEvent) {
-        await tx
-          .update(userProgress)
-          .set({ state: priorEvent.isCorrect ? "review" : "learning", lastReviewedAt: priorEvent.occurredAt })
-          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
-      } else {
-        await tx
-          .delete(userProgress)
-          .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)));
-      }
-    }
-
-    // F-118/F-119: Punktehamster und Credits kommen ausschließlich aus Quiz-Antworten (siehe recordQuizAttempt oben), nie aus
-    // Karteikarten (applyReview vergibt weder das eine noch das andere). Review LOG-02: Die Rücknahme darf deshalb auch nur
-    // Quiz-Antworten betreffen; sonst zog der Abbruch einer Karteikarten-Runde Credits ab, die nie vergeben wurden.
-    if (event.isCorrect && item.type !== "karteikarte") {
+    if (!stillCorrect) {
+      const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[item.difficulty] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
       await tx
         .update(user)
-        .set({ mascotFood: sql`greatest(${user.mascotFood} - 1, 0)` })
+        .set({ credits: sql`greatest(${user.credits} - ${amount}, 0)` })
         .where(eq(user.id, userId));
-      const [stillCorrect] = await tx
-        .select({ id: learningEvent.id })
-        .from(learningEvent)
-        .where(
-          and(
-            eq(learningEvent.userId, userId),
-            eq(learningEvent.contentItemId, contentItemId),
-            eq(learningEvent.isCorrect, true),
-          ),
-        )
-        .limit(1);
-      if (!stillCorrect) {
-        const amount = CREDIT_AMOUNTS_BY_DIFFICULTY[item.difficulty] ?? CREDIT_AMOUNTS_BY_DIFFICULTY.mittel!;
-        await tx
-          .update(user)
-          .set({ credits: sql`greatest(${user.credits} - ${amount}, 0)` })
-          .where(eq(user.id, userId));
-      }
     }
-  });
+  }
 }
 
 /**
@@ -1057,15 +1073,32 @@ export const progressRouter = router({
     // Statistik-Historie (F-31/F-32) entfernen, weit außerhalb der tatsächlich abgebrochenen
     // Runde. Eine echte Lernrunde dauert nie länger als ein paar Stunden — `since` wird daher
     // serverseitig auf frühestens `ABORT_ROUND_MAX_LOOKBACK_MS` vor jetzt gekappt.
-    const flooredSince = new Date(Math.max(input.since.getTime(), Date.now() - ABORT_ROUND_MAX_LOOKBACK_MS));
-    for (const contentItemId of input.contentItemIds) {
-      await abortRoundItem(ctx.db, ctx.currentUser.id, contentItemId, flooredSince);
-    }
+    // Review LOG-12: Gehört die Runde zu einem Übungssatz (Quiz, Mischmodus), bestimmt der Server den Rundenstart aus dessen
+    // Startzeit statt aus der Client-Uhr (eine vorgehende Uhr ließ Antworten stehen, eine nachgehende löschte ältere mit). Nur die
+    // Runde ohne Satz (reiner Karteikarten-Modus) nutzt weiter die gedeckelte Client-Angabe, nie später als jetzt.
+    const userId = ctx.currentUser.id;
+    const now = Date.now();
+    let since = Math.min(input.since.getTime(), now);
     if (input.exerciseSetId) {
-      await ctx.db
-        .delete(exerciseSet)
-        .where(and(eq(exerciseSet.id, input.exerciseSetId), eq(exerciseSet.userId, ctx.currentUser.id)));
+      const [satz] = await ctx.db
+        .select({ startedAt: exerciseSet.startedAt })
+        .from(exerciseSet)
+        .where(and(eq(exerciseSet.id, input.exerciseSetId), eq(exerciseSet.userId, userId)))
+        .limit(1);
+      if (satz) since = satz.startedAt.getTime();
     }
+    const flooredSince = new Date(Math.max(since, now - ABORT_ROUND_MAX_LOOKBACK_MS));
+    // Eine Transaktion unter einer Kontosperre (wie recordQuizAttempt, LOG-11): ein Fehler mittendrin lässt keine halb
+    // abgebrochene Runde zurück, gleichzeitige Antworten laufen nicht dazwischen.
+    await ctx.db.transaction(async (tx) => {
+      await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
+      for (const contentItemId of new Set(input.contentItemIds)) {
+        await abortRoundItem(tx, userId, contentItemId, flooredSince);
+      }
+      if (input.exerciseSetId) {
+        await tx.delete(exerciseSet).where(and(eq(exerciseSet.id, input.exerciseSetId), eq(exerciseSet.userId, userId)));
+      }
+    });
     return { success: true };
   }),
 

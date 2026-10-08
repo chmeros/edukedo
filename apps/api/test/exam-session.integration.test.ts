@@ -212,4 +212,21 @@ describe("Prüfungssimulation: Bindung von Sitzung und Aufgaben (LOG-04)", () =>
     const [row] = await db.select().from(schema.examSession).where(eq(schema.examSession.id, session.sessionId));
     expect(row!.finishedAt).toBeNull();
   });
+
+  it("LOG-05: Beim erneuten Einreichen verschwindet die KI-Bewertung der alten Fassung", async () => {
+    const session = await startSession();
+    const aufgabe = session.items[0]!.id;
+    const einreichen = (punkte: number) => call("submitAnswer", { sessionId: session.sessionId, contentItemId: aufgabe, parts: antwort(punkte) });
+    expect((await einreichen(5)).statusCode).toBe(200);
+    const [antwortZeile] = await db.select().from(schema.examAnswer).where(eq(schema.examAnswer.examSessionId, session.sessionId));
+    await db.insert(schema.aiGradingJob).values({
+      examAnswerId: antwortZeile!.id,
+      userId,
+      status: "completed",
+      resultParts: [{ feedback: "alt", points: 5 }],
+    });
+
+    expect((await einreichen(2)).statusCode).toBe(200);
+    expect(await db.select().from(schema.aiGradingJob).where(eq(schema.aiGradingJob.examAnswerId, antwortZeile!.id))).toHaveLength(0);
+  });
 });

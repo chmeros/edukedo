@@ -650,10 +650,10 @@ export const examAnswer = pgTable(
  * für eine bereits eingereichte Fallaufgaben-Abgabe (`exam_answer`) — "Die Bewertung läuft
  * asynchron (Job-Queue): Nutzer:innen reichen die Abgabe ein, können währenddessen weiterlernen
  * und werden benachrichtigt (siehe F-43), sobald das Ergebnis vorliegt". `exam_answer_id`
- * bewusst `onDelete: cascade` — reicht eine Person dieselbe Fallaufgabe erneut ein, ersetzt
- * `exam.submitAnswer` die vorhandene `exam_answer`-Zeile per Delete+Insert (siehe dort), ein
- * daran hängender Job für die alte Abgabe wird damit automatisch mit entsorgt statt verwaist
- * stehen zu bleiben. `user_id` zusätzlich zur über `exam_answer` erreichbaren Kette gespeichert,
+ * bewusst `onDelete: cascade`. Reicht eine Person dieselbe Fallaufgabe erneut ein, ersetzt
+ * `exam.submitAnswer` die vorhandene `exam_answer`-Zeile per Upsert (die ID bleibt gleich) und löscht
+ * die daran hängenden Jobs der alten Fassung ausdrücklich (Review LOG-05); früher hieß es hier
+ * fälschlich, das geschehe über Delete+Insert und Kaskade. `user_id` zusätzlich zur über `exam_answer` erreichbaren Kette gespeichert,
  * da der asynchrone Worker (queue/ai-grading-queue.ts) direkt wissen muss, wen er per Web Push
  * benachrichtigen soll, ohne über drei Tabellen zurückzujoinen.
  */

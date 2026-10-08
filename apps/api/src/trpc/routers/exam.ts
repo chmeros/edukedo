@@ -7,6 +7,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import {
+  aiGradingJob,
   contentItem,
   contentItemVersion,
   examAnswer,
@@ -304,7 +305,7 @@ export const examRouter = router({
       const stale = earlier.filter((entry) => entry.versionId !== version.id).map((entry) => entry.id);
       if (stale.length > 0) await tx.delete(examAnswer).where(inArray(examAnswer.id, stale));
 
-      await tx
+      const [gespeichert] = await tx
         .insert(examAnswer)
         .values({
           examSessionId: input.sessionId,
@@ -315,7 +316,14 @@ export const examRouter = router({
         .onConflictDoUpdate({
           target: [examAnswer.examSessionId, examAnswer.contentItemVersionId],
           set: { givenAnswer: { parts: clampedParts }, points: totalPoints },
-        });
+        })
+        .returning({ id: examAnswer.id });
+      // Review LOG-05: Der Upsert behält die ID der Antwort. Eine KI-Bewertung zur früheren Fassung würde sonst neben dem neuen Text
+      // stehen bleiben (und ein laufender Job einen Text bewerten, der nicht zur Anforderung gehört). Bei erneuter Einreichung
+      // werden die Bewertungen der alten Fassung entfernt; die Person kann die neue erneut bewerten lassen.
+      if (gespeichert && earlier.length > 0) {
+        await tx.delete(aiGradingJob).where(eq(aiGradingJob.examAnswerId, gespeichert.id));
+      }
 
       if (isCorrect === null) return;
       // Fallaufgaben haben keine einzelne "richtig/falsch"-Antwort; Näherung wie unten beschrieben. Bei erneuter Einreichung
