@@ -218,7 +218,7 @@ create index on thema (fachgebiet_id, sort_order);
 content_item (
   id               uuid primary key default gen_random_uuid(),
   thema_id         uuid not null references thema(id) on delete cascade,
-  type             text not null,          -- "theorie" | "karteikarte" | "quiz_mc" | "zuordnung" | "luecken" | "kurzantwort" | "fallaufgabe"
+  type             text not null,          -- z. B. "theorie" | "karteikarte" | "quiz_mc" | "zuordnung" | "luecken" | "kurzantwort" | "fallaufgabe" (Stand Konzept; die vollständige Liste der inzwischen über 20 Typen steht in packages/shared, siehe §13)
   prompt           text not null,           -- Frage/Vorderseite/Aufgabentext, je nach type
   explanation      text,                    -- Erklärung/Rückseite/Musterlösung, je nach type
   payload          jsonb not null default '{}', -- typspezifische Struktur, siehe unten
@@ -322,7 +322,7 @@ user_progress (
   content_item_id  uuid not null references content_item(id) on delete cascade,
   difficulty       real not null,        -- FSRS-Parameter
   stability        real not null,        -- FSRS-Parameter
-  state            text not null,        -- "new" | "learning" | "review" | "relearning"
+  state            text not null check (state in ('new', 'learning', 'review', 'relearning')),
   due_at           timestamptz not null,
   last_reviewed_at timestamptz,
   last_result      text,                 -- "gewusst" | "unsicher" | "nicht_gewusst"
@@ -336,7 +336,7 @@ exam_session (
   id           uuid primary key default gen_random_uuid(),
   user_id      uuid not null references "user"(id) on delete cascade,
   kurs_id      uuid not null references kurs(id) on delete cascade,
-  mode         text not null,     -- "quiz" | "schriftliche_simulation" | "praesentation" | "fachgespraech"
+  mode         text not null,     -- umgesetzt: "schriftliche_pruefung"; vorgesehen: "praesentation" | "fachgespraech"
   assigned_item_ids jsonb,        -- beim Start zugeteilte Fallaufgaben (Review LOG-04); null bei älteren Sitzungen
   started_at   timestamptz not null default now(),
   finished_at  timestamptz,
@@ -568,6 +568,23 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Lernlogik, niedrige Befunde und Hinweise LOG-16 bis LOG-26)
+
+Aus dem Lernlogik-Review (code-api-lernlogik.md).
+
+- **Sprint-Token (LOG-16):** Der signierte Token trägt die Nutzer-ID und gilt nur für diese Person (`signSprintToken(payload, userId)`, `verifySprintToken(token, userId)`). Ein weitergegebener Token samt Lösung in der Antwort ist für andere wertlos. **Offen:** einmalige Verwendung und serverseitige Zählung des Ergebnisses; ohne Belohnung betrifft das nur die eigene Bestwert-Anzeige.
+- **Fachliche Fehler (LOG-17):** Eine Middleware an allen Prozeduren (`mapDomainErrors` in `trpc/trpc.ts`) bildet `QuizItemNotFoundError`, `GameItemNotFoundError` und `LernpfadItemNotFoundError` auf `NOT_FOUND` ab (vorher HTTP 500 und Eintrag im Fehlerlog). `content.theorySections` überspringt ein defektes Theorie-Payload, statt die ganze Liste scheitern zu lassen.
+- **Bewertung ändern (LOG-18):** `changeReview` ist nur innerhalb von 10 Minuten nach der letzten Bewertung möglich (sonst 400 "Diese Bewertung lässt sich nicht mehr ändern."). Tage später rechnete FSRS mit der längeren verstrichenen Zeit und vergab ein zu langes Intervall.
+- **Pacing (LOG-19):** Der Zieltermin gilt bis zum **Ende des Kalendertags in Europe/Berlin** (`endOfLearningDay`, `startOfLearningDay` in `learning-day.ts`, getestet inkl. Zeitumstellung) statt ab 00:00 UTC. Ein Kurs ohne zählbare Lerninhalte meldet `hasNoContent: true` und gilt nicht mehr als abgeschlossen; die Zielplanung zeigt dafür einen Hinweis.
+- **Schema (LOG-20), Migration 0048:** CHECK-Constraints `user_progress.state in ('new','learning','review','relearning')`, `user.credits >= 0`, `user.mascot_food >= 0` (bestehende negative Werte werden vorher auf 0 gesetzt). §4.3 ist angepasst: `content_item.type` nennt nur noch das Prinzip (die Liste der Typen steht in `packages/shared`), `exam_session.mode` heißt `schriftliche_pruefung`. **Bekannt:** Quiz-Zeilen in `user_progress` tragen Platzhalterwerte (`difficulty 0`, `stability 0`); der Scheduler behandelt jede Zeile ohne letzte Bewertung oder ohne Stabilität wie eine neue Karte (LOG-25), statt mit NaN zu rechnen. `exam_answer.is_correct` bleibt ungenutzt (Selbsteinschätzung mit Punkten).
+- **Freigabe (LOG-21), ebenfalls Migration 0048:** Neue Spalte `content_item.editor_deactivated`, gesetzt von `adminContent.setActive` (aktiv = nein/ja). `db:freigeben` und der Import (`planSync`, mit Hinweis im Plan) aktivieren solche Items nicht wieder; eine in der Fachprüfung ausgenommene Frage (R3/R4) kommt so nicht über denselben Mechanismus zurück. Bereits vorher deaktivierte Items sind nicht rückwirkend markiert.
+- **`is_premium` (LOG-22):** Bewusst unverändert. Kein Item ist so markiert, und F-80 (Umfang des kostenpflichtigen Contents) ist noch nicht entschieden. **Vor der Einführung** muss jede Lese-Abfrage für Lernende (Karteikarten, Quiz, Suche, Offline-Download, Prüfung) auf `is_premium` und `premium_until` prüfen; bis dahin dürfen Redakteur:innen das Feld nicht setzen.
+- **Eingabegrenzen (LOG-23):** `progress.startSession` und `startExerciseSet` verlangen die Einschreibung, `themaId` muss zum Kurs gehören (403/404 statt Fremdschlüsselfehler); `totalItems` höchstens 1000, `dueCards.contentItemIds` höchstens 500; `game.available` und `instrumentLernpfad.available` liefern ohne Einschreibung eine leere Liste. **Offen:** Ratenbegrenzung der Quiz-/Spiel-Endpunkte und Batch-Verarbeitung von `syncQueue` (bis 500 Einträge, je einer eigenen Transaktion).
+- **Code-Reihenfolge (LOG-24):** `codeZeilenIds` vergibt gleichen Zeilen eigene IDs (n-tes Vorkommen mit Zusatz "-n"); eine doppelt gesendete ID ist ungültig. Die Wertung vergleicht weiter den Text, vertauschte gleiche Zeilen sind also richtig.
+- **FSRS (LOG-25):** Fälligkeit bleibt ein exakter Zeitstempel ohne Fuzz und ohne Tagesgrenze (bewusst, Standardparameter); der Scheduler-Test deckt jetzt mehrere Lernschritte, `review → relearning` mit Rückfallzähler und Zeilen ohne letzte Bewertung ab.
+- **Prüfungs-Zeitlimit (LOG-26):** Bewusst unverändert: Selbstlern-Werkzeug ohne Aufsicht. Die Musterlösungshinweise werden mit den Aufgaben geliefert und erst nach dem Abgeben angezeigt; wer sie im Netzwerk-Tab vorab liest, täuscht nur sich selbst.
+- **Tests:** Unit: learning-day (Tagesgrenzen), pacing (leerer Kurs), content-sync-plan (Redaktions-Deaktivierung), game-logic-weitere (gleiche Zeilen), Sprint-Token (anderer Nutzer), scheduler (3 Übergänge). Die Integrationstests liefen im API-Gesamtlauf.
+
 ### Entschieden am 08.10.2026 (Lernlogik, mittlere Befunde, Paket 2: Prüfung, Fälligkeit, Runde verwerfen, Spielstände)
 
 Aus dem Lernlogik-Review (code-api-lernlogik.md), die mittleren Befunde LOG-05, 07, 12, 13 und 15.
@@ -588,7 +605,7 @@ Aus dem Lernlogik-Review (code-api-lernlogik.md), die mittleren Befunde LOG-08, 
 - **Notizen (LOG-14):** `notes.save` verlangt einen zugänglichen Inhalt (Kurs belegt, Item aktiv und vorhanden; eine erfundene ID liefert 404 statt eines Datenbankfehlers), das Löschen einer Notiz (leerer Text) bleibt immer möglich; `notes.list` zeigt keine zurückgezogenen (deaktivierten) Inhalte.
 - **Wiederholungen zählen nicht (LOG-09):** "zehn richtig" und "hundert richtig" zählen **verschiedene** richtig beantwortete Elemente (`count distinct` über Content-Item bzw. Spiel-Element) statt jede Wiederholung; die Rangliste zählt verschiedene richtig beantwortete Fragen **je Kalendertag**. Bereits vergebene Achievements bleiben unverändert. **Nicht umgesetzt:** Idempotenzschlüssel (`clientEventId`) für Online-Antworten gegen Doppelklick; die Sperre aus LOG-11 verhindert wenigstens inkonsistente Zustände.
 - **Aggregation und Index (LOG-10):** Neues Modul `apps/api/src/activity.ts` (`tagesAktivitaet`, `ereignisTag`, `ereignisElement`): Aktivität je Kalendertag wird in SQL aggregiert (Zeitzone Europe/Berlin als Konstante im SQL-Text, weil Parameter in SELECT und GROUP BY nicht als gleicher Ausdruck gelten). Serien, Bestwerte, `streakStatus`, Achievements, Erinnerungsskript, Trefferquote je Tag und Thema (`progress.stats`, `suggestions`) und das Wochenziel laden nicht mehr jedes Ereignis; die Zeilenzahl wächst mit den Lerntagen statt mit jeder Antwort. Das Erinnerungsskript fällt nicht mehr über `Math.max(...)` bei sehr vielen Ereignissen (ein `RangeError` hätte den Lauf für alle weiteren Konten beendet). Migration 0047: Index `learning_event (user_id, content_item_id, occurred_at)` für "gab es schon ein richtiges Ereignis" und "letztes Ereignis".
-- **Tests:** test/lernlogik-integritaet.integration.test.ts (4): Typbindung, gleichzeitige Bewertungen, Notizen, Achievements/Rangliste/Serie. API-Gesamtlauf grün (95 Dateien, 808 Tests), Migration 0047 auf die lokale Entwicklungsdatenbank angewendet.
+- **Tests:** test/lernlogik-integritaet.integration.test.ts (4): Typbindung, gleichzeitige Bewertungen, Notizen, Achievements/Rangliste/Serie. API-Gesamtlauf grün (95 Dateien, 812 Tests), Migration 0047 auf die lokale Entwicklungsdatenbank angewendet.
 
 ### Entschieden am 08.10.2026 (Web-Feinschliff aus den Werkzeug- und Lehrkraft-Reviews, laufende Abarbeitung WRK/UXL/WEB)
 

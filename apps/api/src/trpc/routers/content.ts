@@ -169,12 +169,19 @@ export const contentRouter = router({
       .where(and(eq(contentItem.type, "theorie"), eq(contentItem.isActive, true)))
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder));
 
-    return rows.map((row) => ({
-      id: row.contentItemId,
-      fachgebietTitle: row.fachgebietTitle,
-      themaTitle: row.themaTitle,
-      bodyMarkdown: theoriePayloadSchema.parse(row.payload).body_markdown,
-    }));
+    // Review LOG-17: Ein einziges defektes Payload lässt nicht die gesamte Theorie-Liste scheitern; der Abschnitt entfällt.
+    return rows.flatMap((row) => {
+      const payload = theoriePayloadSchema.safeParse(row.payload);
+      if (!payload.success) return [];
+      return [
+        {
+          id: row.contentItemId,
+          fachgebietTitle: row.fachgebietTitle,
+          themaTitle: row.themaTitle,
+          bodyMarkdown: payload.data.body_markdown,
+        },
+      ];
+    });
   }),
 
   /**

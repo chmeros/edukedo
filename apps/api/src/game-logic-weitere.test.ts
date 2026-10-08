@@ -7,6 +7,7 @@ import {
   checkTroubleshooting,
   codeReihenfolgePayloadSchema,
   codeZeilenId,
+  codeZeilenIds,
   erzeugeSubnettingAufgabe,
   erzeugeZahlensystemAufgabe,
   kennzahlenDuellPayloadSchema,
@@ -138,13 +139,15 @@ describe("F-158: Zahlensystem-Generator", () => {
 
 describe("F-158: Sprint-Token", () => {
   it("verifiziert eigene Token und lehnt manipulierte ab", () => {
-    const token = signSprintToken({ g: "subnetting", params: { typ: "hosts", ip: [10, 0, 0, 1], praefix: 24 }, s: "leicht" });
-    expect(verifySprintToken(token)).toEqual({ g: "subnetting", params: { typ: "hosts", ip: [10, 0, 0, 1], praefix: 24 }, s: "leicht" });
+    const token = signSprintToken({ g: "subnetting", params: { typ: "hosts", ip: [10, 0, 0, 1], praefix: 24 }, s: "leicht" }, "nutzer-1");
+    expect(verifySprintToken(token, "nutzer-1")).toEqual({ g: "subnetting", params: { typ: "hosts", ip: [10, 0, 0, 1], praefix: 24 }, s: "leicht" });
     const [body, signature] = token.split(".");
     const manipuliert = Buffer.from(JSON.stringify({ p: { g: "subnetting", params: { typ: "hosts", ip: [10, 0, 0, 1], praefix: 30 }, s: "leicht" }, e: Date.now() + 1e9 })).toString("base64url");
-    expect(verifySprintToken(`${manipuliert}.${signature}`)).toBeNull();
-    expect(verifySprintToken(`${body}.abc`)).toBeNull();
-    expect(verifySprintToken("kein-token")).toBeNull();
+    expect(verifySprintToken(`${manipuliert}.${signature}`, "nutzer-1")).toBeNull();
+    expect(verifySprintToken(`${body}.abc`, "nutzer-1")).toBeNull();
+    expect(verifySprintToken("kein-token", "nutzer-1")).toBeNull();
+    // Review LOG-16: Ein Token gilt nur für die Person, für die er ausgestellt wurde.
+    expect(verifySprintToken(token, "nutzer-2")).toBeNull();
   });
 });
 
@@ -213,6 +216,26 @@ describe("F-158: Code-Reihenfolge", () => {
     const falsch = checkCodeReihenfolge(payload, aufgabe.nummer, vertauscht);
     expect(falsch.correct).toBe(false);
     expect(falsch.loesung).toBeNull();
+  });
+});
+
+describe("Review LOG-24: gleiche Zeilen in der Code-Reihenfolge", () => {
+  const payload = codeReihenfolgePayloadSchema.parse({
+    ...codeReihenfolgeGrundmuster,
+    aufgaben: [{ ...codeReihenfolgeGrundmuster.aufgaben[0]!, nummer: 1, zeilen: ["if (a) {", "x();", "}", "y();", "}"] }],
+  });
+
+  it("vergibt jeder Zeile eine eigene ID und wertet die Reihenfolge nach Text", () => {
+    const aufgabe = payload.aufgaben[0]!;
+    const ids = codeZeilenIds(aufgabe.zeilen);
+    expect(new Set(ids).size).toBe(aufgabe.zeilen.length);
+    expect(checkCodeReihenfolge(payload, 1, ids).correct).toBe(true);
+    // Die beiden gleichen Zeilen dürfen vertauscht werden (gleicher Text), eine ID zweimal zu senden ist ungültig.
+    const vertauscht = [ids[0]!, ids[1]!, ids[4]!, ids[3]!, ids[2]!];
+    expect(checkCodeReihenfolge(payload, 1, vertauscht).correct).toBe(true);
+    expect(() => checkCodeReihenfolge(payload, 1, [ids[0]!, ids[1]!, ids[2]!, ids[3]!, ids[2]!])).toThrow();
+    const gemischt = shapeCodeReihenfolge(payload, [])[0]!.zeilen;
+    expect(new Set(gemischt.map((zeile) => zeile.id)).size).toBe(5);
   });
 });
 

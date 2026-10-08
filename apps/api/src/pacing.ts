@@ -22,6 +22,8 @@ export interface EinzelterminPacingInput {
 }
 
 export interface EinzelterminPacingResult {
+  /** Review LOG-19: Der Kurs hat noch keine zählbaren Lerninhalte; "fertig" wäre irreführend. */
+  hasNoContent: boolean;
   isComplete: boolean;
   isOverdue: boolean;
   /** Aufgerundete Themen/Woche — null, solange das nicht aussagekräftig wäre (siehe unten). */
@@ -32,7 +34,8 @@ export interface EinzelterminPacingResult {
 export function calculateEinzelterminPacing(input: EinzelterminPacingInput): EinzelterminPacingResult {
   const { totalThemen, remainingThemen, targetDate, planStartDate, now } = input;
 
-  const isComplete = remainingThemen === 0;
+  const hasNoContent = totalThemen === 0;
+  const isComplete = !hasNoContent && remainingThemen === 0;
   const isOverdue = targetDate.getTime() <= now.getTime();
 
   // Untergrenze 1/7 Woche (= 1 Tag) statt 0: verhindert Division durch 0 direkt am Zieltermin
@@ -45,12 +48,13 @@ export function calculateEinzelterminPacing(input: EinzelterminPacingInput): Ein
   const rawOriginalPerWeek = totalThemen === 0 ? 0 : totalThemen / totalWeeksOriginal;
 
   return {
+    hasNoContent,
     isComplete,
     isOverdue,
     // Fertig: nichts mehr zu empfehlen. Termin verstrichen: eine "Themen/Woche"-Zahl wäre
     // irreführend (rechnerisch riesig, da remainingWeeks unten geklemmt ist) — die Warnung
     // dafür ist stattdessen isOverdue selbst.
-    recommendedPerWeek: isComplete ? 0 : isOverdue ? null : Math.ceil(rawRecommendedPerWeek),
-    isBehind: !isComplete && !isOverdue && rawRecommendedPerWeek > rawOriginalPerWeek + 1e-9,
+    recommendedPerWeek: hasNoContent ? null : isComplete ? 0 : isOverdue ? null : Math.ceil(rawRecommendedPerWeek),
+    isBehind: !hasNoContent && !isComplete && !isOverdue && rawRecommendedPerWeek > rawOriginalPerWeek + 1e-9,
   };
 }

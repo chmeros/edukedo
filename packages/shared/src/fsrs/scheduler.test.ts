@@ -44,3 +44,42 @@ describe("scheduleReview", () => {
     expect(next.reps).toBe(2);
   });
 });
+
+describe("scheduleReview: weitere Übergänge (Review LOG-25)", () => {
+  const start = new Date("2026-01-01T00:00:00Z");
+
+  /** Bewertet mit "gewusst", bis die Karte den Zustand "review" erreicht (nach jeweils fälligem Zeitpunkt). */
+  function bisReview() {
+    let karte = initialProgressState(start);
+    let zeit = start;
+    for (let schritt = 0; schritt < 6 && karte.state !== "review"; schritt += 1) {
+      karte = scheduleReview(karte, "gewusst", zeit);
+      zeit = karte.dueAt;
+    }
+    return { karte, zeit };
+  }
+
+  it("erreicht über mehrere Lernschritte den Zustand 'review'", () => {
+    const { karte } = bisReview();
+    expect(karte.state).toBe("review");
+    expect(karte.reps).toBeGreaterThanOrEqual(2);
+  });
+
+  it("schickt eine Karte im Zustand 'review' bei 'nicht gewusst' in 'relearning' und zählt einen Rückfall", () => {
+    const { karte, zeit } = bisReview();
+    const rueckfall = scheduleReview(karte, "nicht_gewusst", zeit);
+    expect(rueckfall.state).toBe("relearning");
+    expect(rueckfall.lapses).toBe(karte.lapses + 1);
+    expect(rueckfall.dueAt.getTime()).toBeLessThan(karte.dueAt.getTime() + 1000 * 60 * 60 * 24);
+  });
+
+  it("verträgt einen Zustand ohne letzte Bewertung und einen unbekannten Zustandswert", () => {
+    const ohneLetzte = { ...initialProgressState(start), state: "review", lastReviewedAt: null, reps: 3 };
+    const next = scheduleReview(ohneLetzte, "gewusst", start);
+    expect(Number.isFinite(next.stability)).toBe(true);
+    expect(next.dueAt.getTime()).toBeGreaterThan(start.getTime());
+    // Unbekannte Werte behandelt der Scheduler wie "new"; die Datenbank verhindert sie seit Migration 0048 per CHECK.
+    expect(scheduleReview({ ...initialProgressState(start), state: "kaputt" }, "gewusst", start).state).toBe("learning");
+  });
+});
+

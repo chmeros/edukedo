@@ -51,6 +51,8 @@ export interface ExistingItem {
   key: string | null;
   type: string;
   isActive: boolean;
+  /** Review LOG-21: In der Redaktion von Hand deaktiviert; der Import aktiviert das Item nicht wieder. */
+  editorDeactivated?: boolean;
   contentHash: string | null;
   payload: unknown;
   options: ExistingOption[];
@@ -256,7 +258,9 @@ export function planSync(desiredItems: DesiredItem[], existingItems: ExistingIte
         solutionChanged: isSolutionChanged(current, desired),
       });
     }
-    if (current.isActive !== desired.isActive) {
+    if (!current.isActive && desired.isActive && current.editorDeactivated) {
+      plan.warnings.push(`${desired.key}: bleibt deaktiviert, weil es in der Redaktion von Hand deaktiviert wurde.`);
+    } else if (current.isActive !== desired.isActive) {
       plan.setActive.push({ id: current.id, key: desired.key, isActive: desired.isActive });
     }
   }

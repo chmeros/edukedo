@@ -189,6 +189,9 @@ export const user = pgTable(
   },
   (table) => [
     check("user_role_check", sql`${table.role} in ('learner', 'admin')`),
+    // Review LOG-20: Die Untergrenze lag nur im Anwendungscode (`greatest(…, 0)`).
+    check("user_credits_non_negative_check", sql`${table.credits} >= 0`),
+    check("user_mascot_food_non_negative_check", sql`${table.mascotFood} >= 0`),
     check(
       "user_learning_mode_at_least_one_check",
       sql`${table.learnFlashcardsEnabled} or ${table.learnQuizEnabled}`,
@@ -332,6 +335,9 @@ export const contentItem = pgTable(
     bloom: text("bloom"),
     isPremium: boolean("is_premium").notNull().default(false),
     isActive: boolean("is_active").notNull().default(true),
+    // Review LOG-21: Von einer Person in der Redaktion deaktiviert (`adminContent.setActive`). Weder `db:freigeben` noch der
+    // Import aktivieren solche Items wieder; die Fachprüfung (R3/R4) bleibt damit bindend.
+    editorDeactivated: boolean("editor_deactivated").notNull().default(false),
     currentVersion: integer("current_version").notNull().default(1),
     // Stabiler Schlüssel aus dem Content (ID der `####`-Überschrift, z. B. "K-1.1-01", "theorie" oder "fg:<hash>"),
     // eindeutig je Thema. Der Importer gleicht darüber ab statt Items zu löschen und neu anzulegen. `contentHash`
@@ -450,6 +456,8 @@ export const userProgress = pgTable(
   },
   (table) => [
     uniqueIndex("user_progress_user_id_content_item_id_key").on(table.userId, table.contentItemId),
+    // Review LOG-20: `scheduleReview` fiel bei einem unbekannten Wert still auf "new" zurück.
+    check("user_progress_state_check", sql`${table.state} in ('new', 'learning', 'review', 'relearning')`),
     index("user_progress_user_id_due_at_idx").on(table.userId, table.dueAt),
   ],
 );

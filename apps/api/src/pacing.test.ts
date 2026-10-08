@@ -17,7 +17,7 @@ describe("calculateEinzelterminPacing", () => {
       now,
     });
 
-    expect(result).toEqual({ isComplete: false, isOverdue: false, recommendedPerWeek: 1, isBehind: false });
+    expect(result).toEqual({ hasNoContent: false, isComplete: false, isOverdue: false, recommendedPerWeek: 1, isBehind: false });
   });
 
   it("erkennt Rückstand und erhöht die Empfehlung, wenn weniger geschafft wurde als geplant", () => {
@@ -59,7 +59,7 @@ describe("calculateEinzelterminPacing", () => {
       now,
     });
 
-    expect(result).toEqual({ isComplete: true, isOverdue: false, recommendedPerWeek: 0, isBehind: false });
+    expect(result).toEqual({ hasNoContent: false, isComplete: true, isOverdue: false, recommendedPerWeek: 0, isBehind: false });
   });
 
   it("meldet isOverdue statt einer irreführenden Wochenempfehlung, wenn der Zieltermin verstrichen ist", () => {
@@ -88,5 +88,18 @@ describe("calculateEinzelterminPacing", () => {
     });
 
     expect(result.isOverdue).toBe(true);
+  });
+
+  it("meldet einen Kurs ohne zählbare Inhalte nicht als abgeschlossen (Review LOG-19)", () => {
+    const now = new Date("2026-06-01T00:00:00Z");
+    const result = calculateEinzelterminPacing({
+      totalThemen: 0,
+      remainingThemen: 0,
+      planStartDate: new Date(now.getTime() - WEEK),
+      targetDate: new Date(now.getTime() + 4 * WEEK),
+      now,
+    });
+
+    expect(result).toEqual({ hasNoContent: true, isComplete: false, isOverdue: false, recommendedPerWeek: null, isBehind: false });
   });
 });

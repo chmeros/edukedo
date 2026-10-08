@@ -43,7 +43,7 @@ export type ThemaCardsInput = z.infer<typeof themaCardsInputSchema>;
  * sein (Anforderungskatalog F-110, Architekturplanung Abschnitt 13).
  */
 export const dueCardsInputSchema = themaFilterableKursInputSchema.extend({
-  contentItemIds: z.array(z.string().uuid()).min(1).optional(),
+  contentItemIds: z.array(z.string().uuid()).min(1).max(500).optional(),
   onlyFlagged: z.boolean().optional(),
 });
 export type DueCardsInput = z.infer<typeof dueCardsInputSchema>;

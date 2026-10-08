@@ -107,6 +107,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
 | B7 Allowlist auch für Instrument-Fragen | **erledigt 08.10.2026** (50 Fragen im Bestand unsichtbar) | §13 „Kursangebot gilt auch für Instrument-Fragen“ |
 | B8 Instrument-Kachel führt zum Instrument | **erledigt 08.10.2026** | §13 „Instrument-Kacheln führen zum Instrument“ |
+| LOG (niedrig/Hinweis), LOG-16 bis 26 (Token an Nutzer, Fehlerabbildung, Änderungsfenster, Zieltag, CHECKs, Freigabe-Schutz, Eingabegrenzen, Zeilen-IDs, FSRS) | **erledigt 08.10.2026** (offen: einmaliger Sprint-Token, `is_premium` vor F-80, Ratenbegrenzung) | §13 „Lernlogik, niedrige Befunde“ |
 | LOG (mittel), Paket 2: LOG-05/07/12/13/15 (Neuabgabe, Fälligkeit, Runde verwerfen, stabile Options-IDs, Spielstände atomar) | **erledigt 08.10.2026** (LOG-16 Sprint-Token offen) | §13 „Lernlogik, mittlere Befunde, Paket 2“ |
 | LOG (mittel), Paket 1: LOG-08/09/10/11/14 (Typbindung, Sperren, Notizen, Aggregation, Index) | **erledigt 08.10.2026** (Idempotenzschlüssel für Online-Antworten offen) | §13 „Lernlogik, mittlere Befunde, Paket 1“ |
 | WRK/UXL/WEB, Paket 11 (Abschluss: WEB-16, WRK-45 bewusst unverändert; Reststand in §13) | **erledigt 08.10.2026** | §13 „Web-Feinschliff“ |

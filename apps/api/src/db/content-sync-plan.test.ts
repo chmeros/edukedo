@@ -136,6 +136,13 @@ describe("planSync", () => {
     expect(plan.unchanged).toBe(3);
   });
 
+  it("aktiviert ein in der Redaktion deaktiviertes Item nicht wieder (Review LOG-21)", () => {
+    const item = desired("Q-1", { isActive: true });
+    const plan = planSync([item], [existing(item, { isActive: false, editorDeactivated: true })]);
+    expect(plan.setActive).toEqual([]);
+    expect(plan.warnings).toEqual(["Q-1: bleibt deaktiviert, weil es in der Redaktion von Hand deaktiviert wurde."]);
+  });
+
   it("plant Option-Änderungen an der Stelle (stabile IDs): ändern, ergänzen, entfernen", () => {
     const oldItem = desired("Q-1", { type: "quiz_mc", options: [option(1, "A", true), option(2, "B"), option(3, "C")] });
     const newItem = desired("Q-1", { type: "quiz_mc", options: [option(1, "A", true), option(2, "B neu"), option(4, "D")] });

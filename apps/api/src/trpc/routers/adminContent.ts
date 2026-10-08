@@ -484,7 +484,7 @@ export const adminContentRouter = router({
     .mutation(async ({ ctx, input }) => {
       const [updated] = await ctx.db
         .update(contentItem)
-        .set({ isActive: input.isActive })
+        .set({ isActive: input.isActive, editorDeactivated: !input.isActive })
         .where(eq(contentItem.id, input.contentItemId))
         .returning({ id: contentItem.id });
       if (!updated) {

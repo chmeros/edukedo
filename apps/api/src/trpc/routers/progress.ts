@@ -14,6 +14,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, count, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { ereignisTag } from "../../activity";
+import { endOfLearningDay } from "../../learning-day";
 import { calculateEinzelterminPacing } from "../../pacing";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 // F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
@@ -392,6 +393,9 @@ function parseProgressSnapshot(raw: unknown): FsrsProgressState & { lastResult: 
  * (Trefferquote/Schwachstellenanalyse) nicht durch die ursprünglich falsche Bewertung verfälscht
  * bleiben. Nur online (F-110-Vorbild) — kein Offline-/Sync-Pfad.
  */
+/** Zeitfenster, in dem die letzte Karteikarten-Bewertung noch geändert werden kann. */
+const CHANGE_REVIEW_WINDOW_MS = 1000 * 60 * 10;
+
 export async function applyChangeReview(
   db: Database,
   userId: string,
@@ -408,6 +412,12 @@ export async function applyChangeReview(
       .from(userProgress)
       .where(and(eq(userProgress.userId, userId), eq(userProgress.contentItemId, contentItemId)))
       .limit(1);
+
+    // Review LOG-18: Die Änderung gilt der gerade abgegebenen Einschätzung (F-110-Zurück-Navigation). Tage später würde FSRS mit der
+    // längeren verstrichenen Zeit rechnen und ein zu langes Intervall vergeben; das Ereignis eines alten Tages würde umgeschrieben.
+    if (existing?.lastReviewedAt && now.getTime() - existing.lastReviewedAt.getTime() > CHANGE_REVIEW_WINDOW_MS) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Diese Bewertung lässt sich nicht mehr ändern." });
+    }
 
     // Fällt defensiv auf eine reguläre Bewertung zurück, falls (entgegen der eigentlich
     // vorausgesetzten UI-Führung über die F-110-Zurück-Navigation) noch nie bewertet wurde.
@@ -608,6 +618,32 @@ async function abortRoundItem(
         .update(user)
         .set({ credits: sql`greatest(${user.credits} - ${amount}, 0)` })
         .where(eq(user.id, userId));
+    }
+  }
+}
+
+/**
+ * Review LOG-23: Sitzungen und Übungssätze nur für belegte Kurse und nur mit einem Thema dieses Kurses; vorher führten
+ * fremde oder erfundene IDs zu einem Fremdschlüsselfehler (HTTP 500) oder zu Daten in einem nicht belegten Kurs.
+ */
+async function assertKursZugang(db: Database, userId: string, kursId: string, themaId?: string): Promise<void> {
+  const [enrollment] = await db
+    .select({ id: userCourse.id })
+    .from(userCourse)
+    .where(and(eq(userCourse.userId, userId), eq(userCourse.kursId, kursId)))
+    .limit(1);
+  if (!enrollment) {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Du bist in diesem Kurs nicht eingeschrieben." });
+  }
+  if (themaId) {
+    const [passend] = await db
+      .select({ id: thema.id })
+      .from(thema)
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .where(and(eq(thema.id, themaId), eq(fachgebiet.kursId, kursId)))
+      .limit(1);
+    if (!passend) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Thema gehört nicht zu diesem Kurs." });
     }
   }
 }
@@ -890,7 +926,8 @@ export const progressRouter = router({
     const pacing = calculateEinzelterminPacing({
       totalThemen,
       remainingThemen,
-      targetDate: new Date(enrollment.targetDate),
+      // Review LOG-19: Der Zieltag läuft bis zum Ende des Kalendertags in Europe/Berlin (nicht bis 00:00 UTC).
+      targetDate: endOfLearningDay(enrollment.targetDate),
       planStartDate: new Date(enrollment.planStartDate ?? enrollment.joinedAt),
       now: new Date(),
     });
@@ -969,6 +1006,7 @@ export const progressRouter = router({
    * Karteikarten- oder Quiz-Tab sichtbar aktiv wird.
    */
   startSession: protectedProcedure.input(activeKursInputSchema).mutation(async ({ ctx, input }) => {
+    await assertKursZugang(ctx.db, ctx.currentUser.id, input.kursId);
     const now = new Date();
     const [created] = await ctx.db
       .insert(learningSession)
@@ -1021,6 +1059,7 @@ export const progressRouter = router({
    * Übungssets"-KPI (Anforderungskatalog Abschnitt 11).
    */
   startExerciseSet: protectedProcedure.input(startExerciseSetInputSchema).mutation(async ({ ctx, input }) => {
+    await assertKursZugang(ctx.db, ctx.currentUser.id, input.kursId, input.themaId);
     const [created] = await ctx.db
       .insert(exerciseSet)
       .values({

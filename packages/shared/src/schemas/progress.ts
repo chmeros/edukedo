@@ -44,7 +44,7 @@ export const startExerciseSetInputSchema = z.object({
   kursId: z.string().uuid(),
   themaId: z.string().uuid().optional(),
   mode: exerciseSetModeSchema,
-  totalItems: z.number().int().positive(),
+  totalItems: z.number().int().positive().max(1000),
 });
 export type StartExerciseSetInput = z.infer<typeof startExerciseSetInputSchema>;
 

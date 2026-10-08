@@ -118,6 +118,13 @@ export function Zielplanung({ kursId }: { kursId: string }) {
         </div>
       )}
 
+      {data.targetDate !== null && data.hasNoContent && (
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div>Für diesen Kurs gibt es noch keine Lerninhalte, deshalb lässt sich kein Wochenpensum berechnen.</div>
+        </div>
+      )}
+
       {data.targetDate !== null && data.isComplete && (
         <div className="alert alert-success">
           <SuccessIcon />
@@ -125,7 +132,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
         </div>
       )}
 
-      {data.targetDate !== null && !data.isComplete && data.isOverdue && (
+      {data.targetDate !== null && !data.hasNoContent && !data.isComplete && data.isOverdue && (
         <div className="alert alert-danger">
           <DangerIcon />
           <div>
@@ -135,7 +142,7 @@ export function Zielplanung({ kursId }: { kursId: string }) {
         </div>
       )}
 
-      {data.targetDate !== null && !data.isComplete && !data.isOverdue && (
+      {data.targetDate !== null && !data.hasNoContent && !data.isComplete && !data.isOverdue && (
         <>
           <div className="progress-block">
             <div className="progress-head">

@@ -6,6 +6,7 @@ import { contentItem, fachgebiet, kurs, thema } from "./schema";
 /**
  * F-186: schaltet die Fragen freigegebener Instrumente eines Kurses in der Datenbank aktiv. Aufruf aus `apps/api`:
  *   pnpm db:freigeben <kurs-slug> <instrumenttyp> [<instrumenttyp> …]
+ * Von Hand in der Redaktion deaktivierte Fragen (`editor_deactivated`) bleiben deaktiviert (Review LOG-21).
  * Voraussetzung: Der Typ ist in `kurs-angebot.ts` aus `KURS_ENTWURF` genommen und in `KURS_ANGEBOT` aufgenommen (sonst bricht das Skript ab,
  * damit Datenbank und Code nicht auseinanderlaufen). Danach `pnpm db:apply-kurs-metadata` ausführen, damit Kachel und Lernpfad erscheinen.
  */
@@ -31,7 +32,7 @@ async function freigeben(kursSlug: string, typen: string[]): Promise<void> {
   const aktualisiert = await db
     .update(contentItem)
     .set({ isActive: true })
-    .where(and(inArray(contentItem.themaId, themaIds), inArray(contentItem.type, typen), eq(contentItem.isActive, false)))
+    .where(and(inArray(contentItem.themaId, themaIds), inArray(contentItem.type, typen), eq(contentItem.isActive, false), eq(contentItem.editorDeactivated, false)))
     .returning({ id: contentItem.id });
   console.log(`${kursSlug}: ${aktualisiert.length} Fragen (${typen.join(", ")}) aktiviert.`);
 }

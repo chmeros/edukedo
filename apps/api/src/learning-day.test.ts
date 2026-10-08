@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { currentStreakDays, daysSinceLastActive, longestConsecutiveDayStreak } from "./achievements/catalog";
-import { learningDay } from "./learning-day";
+import { endOfLearningDay, learningDay, startOfLearningDay } from "./learning-day";
 
 describe("learningDay (Review LOG-06)", () => {
   it("ordnet Zeitpunkte dem deutschen Kalendertag zu, nicht dem UTC-Tag", () => {
@@ -36,5 +36,18 @@ describe("Serien und Inaktivität mit deutschen Tagesgrenzen", () => {
     expect(daysSinceLastActive(tage, new Date("2026-07-11T22:30:00Z"))).toBe(1);
     // Zwei Tage später in Ortszeit ist die Serie gerissen.
     expect(currentStreakDays(tage, new Date("2026-07-13T22:30:00Z"))).toBe(0);
+  });
+});
+
+describe("startOfLearningDay / endOfLearningDay (Review LOG-19)", () => {
+  it("liefert Tagesgrenzen in Ortszeit, auch an Zeitumstellungstagen", () => {
+    expect(startOfLearningDay("2026-07-01").toISOString()).toBe("2026-06-30T22:00:00.000Z");
+    expect(startOfLearningDay("2026-01-15").toISOString()).toBe("2026-01-14T23:00:00.000Z");
+    expect(endOfLearningDay("2026-07-01").toISOString()).toBe("2026-07-01T22:00:00.000Z");
+    // Umstellung auf Sommerzeit am 29.03.2026: der Tag hat 23 Stunden.
+    expect(startOfLearningDay("2026-03-29").toISOString()).toBe("2026-03-28T23:00:00.000Z");
+    expect(endOfLearningDay("2026-03-29").toISOString()).toBe("2026-03-29T22:00:00.000Z");
+    // Monats- und Jahreswechsel.
+    expect(endOfLearningDay("2026-12-31").toISOString()).toBe("2026-12-31T23:00:00.000Z");
   });
 });

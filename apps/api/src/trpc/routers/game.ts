@@ -304,6 +304,13 @@ export const gameRouter = router({
   /** Für den Spiele-Katalog (Spiele.tsx, analog zu instrumentLernpfad.available): welche der
    * drei Spiele in diesem Kurs aktiven Content haben (z. B. hat der Mathe-Kurs aktuell keinen). */
   available: protectedProcedure.input(gameKursInputSchema).query(async ({ ctx, input }) => {
+    // Review LOG-23: Ohne Einschreibung keine Titelliste (die Spiele selbst waren ohnehin gesperrt).
+    const [enrollment] = await ctx.db
+      .select({ id: userCourse.id })
+      .from(userCourse)
+      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+      .limit(1);
+    if (!enrollment) return [];
     return ctx.db
       .select({ gameType: game.gameType, setKey: game.setKey, title: game.title })
       .from(game)
@@ -564,14 +571,14 @@ export const gameRouter = router({
     const aufgaben = Array.from({ length: payload.anzahl }, () => {
       const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
       const { tokenPayload, frage, hinweis } = erzeugeSprintAufgabe(input.gameType, typ, input.schwierigkeit, rng);
-      return { token: signSprintToken(tokenPayload), frage, hinweis, typ };
+      return { token: signSprintToken(tokenPayload, ctx.currentUser.id), frage, hinweis, typ };
     });
     return { aufgaben };
   }),
 
   sprintAntwort: protectedProcedure.input(sprintAntwortInputSchema).mutation(async ({ ctx, input }) => {
     await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
-    const decoded = verifySprintToken(input.token) as SprintTokenPayload | null;
+    const decoded = verifySprintToken(input.token, ctx.currentUser.id) as SprintTokenPayload | null;
     if (!decoded || decoded.g !== input.gameType) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Die Aufgabe ist ungültig oder abgelaufen. Starte den Sprint neu." });
     }

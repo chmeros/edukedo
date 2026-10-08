@@ -18,21 +18,22 @@ function sign(body: string): string {
   return createHmac("sha256", key()).update(body).digest("base64url");
 }
 
-export function signSprintToken(payload: unknown): string {
-  const body = Buffer.from(JSON.stringify({ p: payload, e: Date.now() + TOKEN_LIFETIME_MS })).toString("base64url");
+/** Review LOG-16: Der Token gehört zu genau einer Person (`u`); ein weitergegebener Token (samt Lösung in der Antwort) ist für andere wertlos. */
+export function signSprintToken(payload: unknown, userId: string): string {
+  const body = Buffer.from(JSON.stringify({ p: payload, e: Date.now() + TOKEN_LIFETIME_MS, u: userId })).toString("base64url");
   return `${body}.${sign(body)}`;
 }
 
 /** Gibt die Parameter zurück oder `null` bei ungültiger Signatur/abgelaufenem Token. */
-export function verifySprintToken(token: string): unknown | null {
+export function verifySprintToken(token: string, userId: string): unknown | null {
   const [body, signature] = token.split(".");
   if (!body || !signature) return null;
   const expected = Buffer.from(sign(body));
   const given = Buffer.from(signature);
   if (expected.length !== given.length || !timingSafeEqual(expected, given)) return null;
   try {
-    const parsed = JSON.parse(Buffer.from(body, "base64url").toString("utf8")) as { p: unknown; e: number };
-    return parsed.e > Date.now() ? parsed.p : null;
+    const parsed = JSON.parse(Buffer.from(body, "base64url").toString("utf8")) as { p: unknown; e: number; u?: string };
+    return parsed.e > Date.now() && parsed.u === userId ? parsed.p : null;
   } catch {
     return null;
   }

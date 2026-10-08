@@ -1,4 +1,4 @@
-import type { UserRole } from "@edukedo/shared";
+import { GameItemNotFoundError, LernpfadItemNotFoundError, QuizItemNotFoundError, type UserRole } from "@edukedo/shared";
 import { TRPCError, initTRPC } from "@trpc/server";
 import { ZodError } from "zod";
 import { hasRole } from "../auth/roles";
@@ -17,7 +17,29 @@ const t = initTRPC.context<Context>().create({
 
 export const router = t.router;
 export const middleware = t.middleware;
-export const publicProcedure = t.procedure;
+
+/**
+ * Review LOG-17: Fachliche "nicht gefunden"-Fehler der gemeinsamen Prüffunktionen (Frage, Spielelement, Lernpfad-Element)
+ * sind kein Serverfehler. Ohne Abbildung endeten sie als HTTP 500 und füllten das Fehlerlog (veraltete Option-ID,
+ * manipulierter Aufruf).
+ */
+const mapDomainErrors = middleware(async ({ next }) => {
+  const result = await next();
+  if (!result.ok) {
+    const cause = result.error.cause;
+    if (
+      cause instanceof QuizItemNotFoundError ||
+      cause instanceof GameItemNotFoundError ||
+      cause instanceof LernpfadItemNotFoundError
+    ) {
+      throw new TRPCError({ code: "NOT_FOUND", message: cause.message, cause });
+    }
+  }
+  return result;
+});
+
+const baseProcedure = t.procedure.use(mapDomainErrors);
+export const publicProcedure = baseProcedure;
 
 const requireUser = middleware(({ ctx, next }) => {
   if (!ctx.currentUser) {
@@ -26,7 +48,7 @@ const requireUser = middleware(({ ctx, next }) => {
   return next({ ctx: { ...ctx, currentUser: ctx.currentUser } });
 });
 
-export const protectedProcedure = t.procedure.use(requireUser);
+export const protectedProcedure = baseProcedure.use(requireUser);
 
 /**
  * F-90: Eltern-Dashboard. Eigene Middleware statt requireUser, weil "parent" ein eigener
@@ -40,7 +62,7 @@ const requireParent = middleware(({ ctx, next }) => {
   return next({ ctx: { ...ctx, currentParent: ctx.currentParent } });
 });
 
-export const protectedParentProcedure = t.procedure.use(requireParent);
+export const protectedParentProcedure = baseProcedure.use(requireParent);
 
 /**
  * F-91: Business-Lizenzen. Eigene Middleware analog zu requireParent — "company_account" ist
@@ -54,7 +76,7 @@ const requireCompanyAdmin = middleware(({ ctx, next }) => {
   return next({ ctx: { ...ctx, currentCompanyAdmin: ctx.currentCompanyAdmin } });
 });
 
-export const protectedCompanyAdminProcedure = t.procedure.use(requireCompanyAdmin);
+export const protectedCompanyAdminProcedure = baseProcedure.use(requireCompanyAdmin);
 
 export function roleProcedure(...allowed: UserRole[]) {
   return protectedProcedure.use(({ ctx, next }) => {

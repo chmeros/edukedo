@@ -81,6 +81,7 @@ export async function loadExistingItems(tx: Tx, themaId: string): Promise<Existi
     key: item.sourceKey,
     type: item.type,
     isActive: item.isActive,
+    editorDeactivated: item.editorDeactivated,
     contentHash: item.contentHash,
     payload: item.payload,
     options: options

@@ -178,6 +178,20 @@ export function codeZeilenId(text: string): string {
 }
 
 /**
+ * Review LOG-24: IDs einer ganzen Aufgabe. Gleiche Zeilen (z. B. zwei Mal "}") bekämen sonst dieselbe ID, was Listen-Keys und die
+ * Zuordnung beim Ziehen stört; das n-te Vorkommen erhält den Zusatz "-n". Die Reihenfolge der Zeilen bleibt maßgeblich.
+ */
+export function codeZeilenIds(zeilen: string[]): string[] {
+  const gesehen = new Map<string, number>();
+  return zeilen.map((text) => {
+    const basis = codeZeilenId(text);
+    const nummer = (gesehen.get(basis) ?? 0) + 1;
+    gesehen.set(basis, nummer);
+    return nummer === 1 ? basis : `${basis}-${nummer}`;
+  });
+}
+
+/**
  * F-195: Die Prozess-Reihenfolge nutzt dieselbe Misch- und Prüflogik wie die Code-Reihenfolge; die Schritte
  * sind die „Zeilen“, `sprache` bleibt leer (die Oberfläche zeigt sie nicht an).
  */
@@ -207,7 +221,8 @@ export interface ShapedCodeReihenfolgeAufgabe {
 export function shapeCodeReihenfolge(payload: CodeReihenfolgePayload, solvedNumbers: number[]): ShapedCodeReihenfolgeAufgabe[] {
   const solved = new Set(solvedNumbers);
   return payload.aufgaben.map((aufgabe) => {
-    const items = aufgabe.zeilen.map((text) => ({ id: codeZeilenId(text), text }));
+    const ids = codeZeilenIds(aufgabe.zeilen);
+    const items = aufgabe.zeilen.map((text, index) => ({ id: ids[index]!, text }));
     let mixed = shuffle(items);
     // Nie die fertige Lösung als Startanordnung ausliefern.
     for (let attempt = 0; attempt < 5 && mixed.every((item, index) => item.text === aufgabe.zeilen[index]); attempt += 1) {
@@ -235,8 +250,13 @@ export interface CodeReihenfolgeErgebnis {
 export function checkCodeReihenfolge(payload: CodeReihenfolgePayload, nummer: number, reihenfolge: string[]): CodeReihenfolgeErgebnis {
   const aufgabe = payload.aufgaben.find((candidate) => candidate.nummer === nummer);
   if (!aufgabe) throw new GameItemNotFoundError("Aufgabe nicht gefunden.");
-  const textById = new Map(aufgabe.zeilen.map((text) => [codeZeilenId(text), text]));
-  if (reihenfolge.length !== aufgabe.zeilen.length || reihenfolge.some((id) => !textById.has(id))) {
+  const ids = codeZeilenIds(aufgabe.zeilen);
+  const textById = new Map(aufgabe.zeilen.map((text, index) => [ids[index]!, text]));
+  if (
+    reihenfolge.length !== aufgabe.zeilen.length ||
+    new Set(reihenfolge).size !== reihenfolge.length ||
+    reihenfolge.some((id) => !textById.has(id))
+  ) {
     throw new GameItemNotFoundError("Ungültige Reihenfolge.");
   }
   const positionen = reihenfolge.map((id, index) => textById.get(id) === aufgabe.zeilen[index]);

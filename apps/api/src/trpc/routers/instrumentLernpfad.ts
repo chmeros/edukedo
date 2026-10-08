@@ -83,6 +83,13 @@ export const instrumentLernpfadRouter = router({
    * "Instrumente".
    */
   available: protectedProcedure.input(lernpfadInputSchema.pick({ kursId: true })).query(async ({ ctx, input }) => {
+    // Review LOG-23: Ohne Einschreibung keine Titelliste.
+    const [enrollment] = await ctx.db
+      .select({ id: userCourse.id })
+      .from(userCourse)
+      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+      .limit(1);
+    if (!enrollment) return [];
     const rows = await ctx.db
       .select({ instrumentType: instrumentLernpfad.instrumentType, title: instrumentLernpfad.title })
       .from(instrumentLernpfad)

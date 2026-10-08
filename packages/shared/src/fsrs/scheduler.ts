@@ -62,6 +62,12 @@ export function scheduleReview(
   result: ReviewResult,
   now: Date = new Date(),
 ): FsrsProgressState {
+  // Review LOG-25: Eine Zeile ohne letzte Bewertung oder ohne Stabilität (z. B. Platzhalter einer Quiz-Antwort) lässt FSRS mit NaN
+  // rechnen; sie wird wie eine neue Karte behandelt.
+  const usableState =
+    current.state !== "new" && (!current.lastReviewedAt || !(current.stability > 0))
+      ? State.New
+      : (DB_STATE_TO_FSRS[current.state] ?? State.New);
   const card: Card = {
     due: current.dueAt,
     stability: current.stability,
@@ -70,7 +76,7 @@ export function scheduleReview(
     scheduled_days: 0,
     reps: current.reps,
     lapses: current.lapses,
-    state: DB_STATE_TO_FSRS[current.state] ?? State.New,
+    state: usableState,
     last_review: current.lastReviewedAt ?? undefined,
   };
 
