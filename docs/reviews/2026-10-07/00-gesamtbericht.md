@@ -83,6 +83,22 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 3. **Inhalt (nur mit fachkundiger Prüfung, R3/R4):** Blocker je Kurs aus Abschnitt 4 abarbeiten, mehrdeutige Zonenfragen im Live-Kurs Transport zuerst; Rechenaufgaben und fehlende Theorie (R5) ergänzen, bevor die zugehörigen Werkzeuge/Spiele sichtbar bleiben.
 4. **Folgearbeit:** Web-Tests, ErrorBoundary, Mobil-Navigation, Instrument-Kachel-Navigation, Theorie-Tab, Passwort-Reset, Doku-Drift bereinigen.
 
+## 7a. Umsetzungsstand (laufend ergänzt)
+
+| Punkt | Stand | Nachweis |
+| --- | --- | --- |
+| A1 Re-Import vernichtet Lernfortschritt | **erledigt 08.10.2026** | docs/entwuerfe/sicherer-content-import.md, Architekturplanung §13 (Schritte 1 bis 7) |
+| A2 Mathe-Jugendschutz serverseitig | **teilweise erledigt 08.10.2026** (Veröffentlichungs-Guard); „Mail produktiv“ als Bedingung offen | Architekturplanung §13 „Sicherheit, Schritt 1“ |
+| A4 Payment-Platzhalter | **erledigt 08.10.2026** (503 in Produktion) | Architekturplanung §13 „Schritt 7“ des Stabilisierungsblocks |
+| B1 Quiz-Optionen mischen | **erledigt 08.10.2026** | §13 „Schritt 1“ |
+| B2 Modal-Fokus | **erledigt 08.10.2026** | §13 „Schritt 2“ |
+| B3 Mischmodus-Queue | **erledigt 08.10.2026** | §13 „Schritt 3“ |
+| B4 Offline-Daten pro Person | **erledigt 08.10.2026** (WEB-03 Kaltstart offline offen) | §13 „Schritt 4“ |
+| B5 Zeitstempel im Offline-Sync | **erledigt 08.10.2026** (Fenster 14 Tage) | §13 „Schritt 5“ |
+| B9 Mobile Tab-Leisten | **erledigt 08.10.2026** | §13 „Schritt 8“ |
+| B11 `rundeCent` | **erledigt 08.10.2026** (Skalierungsrechner-Meldung WRK-01 offen) | §13 „Schritt 6“ |
+| A3, A5–A8, B6–B8, B10, B12 | offen | — |
+
 ## 8. Einzelberichte
 
 Code: `code-api-sicherheit.md` (28 Befunde), `code-api-lernlogik.md` (26), `code-api-sozial-admin-payment.md` (32), `code-shared.md` (29), `code-web-kern.md` (47), `code-web-werkzeuge.md` (47), `code-pipeline-tests-infra.md` (36).

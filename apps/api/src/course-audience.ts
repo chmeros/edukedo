@@ -17,6 +17,20 @@ export function kursZielgruppe(metadata: unknown): KursZielgruppe {
   return "alle";
 }
 
+/**
+ * Review-Befund SEC-02: Ob sich ein Kurs (auch) an Minderjährige richtet, hängt nicht allein am Feld `zielgruppe`. Der
+ * Mathematik-Kurs trägt es bewusst nicht ("alle", damit Erwachsene den Schulstoff auffrischen können), ist aber ein Schulfach.
+ * Als an Minderjährige gerichtet gelten deshalb: `zielgruppe: "minderjaehrige"`, die Kategorie "schule" oder eine
+ * Klassenstufe in den Metadaten. Eine ausdrückliche `zielgruppe: "erwachsene"` hat Vorrang.
+ */
+export function kursTargetsMinors(metadata: unknown): boolean {
+  const zielgruppe = kursZielgruppe(metadata);
+  if (zielgruppe === "minderjaehrige") return true;
+  if (zielgruppe === "erwachsene") return false;
+  if (kursKategorie(metadata) === "schule") return true;
+  return typeof (metadata as Record<string, unknown> | null)?.klassenstufe === "number";
+}
+
 export function matchesKursZielgruppe(zielgruppe: KursZielgruppe, isMinor: boolean): boolean {
   switch (zielgruppe) {
     case "minderjaehrige":

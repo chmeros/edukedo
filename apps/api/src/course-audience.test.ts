@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "./course-audience";
+import { isEnrollmentExclusive, kursKategorie, kursTargetsMinors, kursZielgruppe, matchesKursZielgruppe } from "./course-audience";
 
 describe("kursZielgruppe", () => {
   it("liest ein gesetztes zielgruppe-Feld aus den Metadaten", () => {
@@ -18,6 +18,27 @@ describe("kursZielgruppe", () => {
     expect(kursZielgruppe(undefined)).toBe("alle");
     expect(kursZielgruppe("erwachsene")).toBe("alle");
     expect(kursZielgruppe(["erwachsene"])).toBe("alle");
+  });
+});
+
+describe("kursTargetsMinors (Review SEC-02)", () => {
+  it("erkennt ausdrücklich für Minderjährige gedachte Kurse", () => {
+    expect(kursTargetsMinors({ zielgruppe: "minderjaehrige" })).toBe(true);
+  });
+
+  it("erkennt den Mathematik-Kurs (Kategorie schule, Klassenstufe, ohne zielgruppe)", () => {
+    expect(kursTargetsMinors({ klassenstufe: 9, bundesland_ansatz: "bundeslandneutral", kategorie: "schule" })).toBe(true);
+    expect(kursTargetsMinors({ kategorie: "schule" })).toBe(true);
+    expect(kursTargetsMinors({ klassenstufe: 9 })).toBe(true);
+  });
+
+  it("lässt Erwachsenenkurse, Kurse ohne Angaben und eine ausdrückliche Erwachsenen-Zielgruppe nicht als Minderjährigenkurs gelten", () => {
+    expect(kursTargetsMinors({ zielgruppe: "erwachsene", kategorie: "erwachsenenbildung" })).toBe(false);
+    expect(kursTargetsMinors({ zielgruppe: "erwachsene", kategorie: "schule" })).toBe(false);
+    expect(kursTargetsMinors({})).toBe(false);
+    expect(kursTargetsMinors(null)).toBe(false);
+    expect(kursTargetsMinors("kein objekt")).toBe(false);
+    expect(kursTargetsMinors({ klassenstufe: "9" })).toBe(false);
   });
 });
 

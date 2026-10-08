@@ -14,7 +14,7 @@ import { eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
-import { kursZielgruppe } from "../../course-audience";
+import { kursTargetsMinors } from "../../course-audience";
 import { importAllContent } from "../../db/import-content";
 import { importPreviewToken } from "../../db/import-preview";
 import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
@@ -53,7 +53,7 @@ export const adminRouter = router({
     // "minderjaehrige" sind) — die eigentliche Durchsetzung sitzt unten in `setPublished`.
     return rows.map(({ metadata, ...row }) => ({
       ...row,
-      targetsMinors: kursZielgruppe(metadata) === "minderjaehrige",
+      targetsMinors: kursTargetsMinors(metadata),
     }));
   }),
 
@@ -91,7 +91,19 @@ export const adminRouter = router({
       }
 
       const isNewlyPublishing = input.isPublished && !existing.isPublished;
-      const targetsMinors = kursZielgruppe(existing.metadata) === "minderjaehrige";
+      // Review-Befund SEC-02: Auch der Mathematik-Kurs (Schulfach ohne Feld zielgruppe) gilt als Kurs für Minderjährige.
+      const targetsMinors = kursTargetsMinors(existing.metadata);
+
+      // Solange der Zugang für Minderjährige gesperrt ist (ALLOW_MINORS=false, F-159), darf ein Kurs für Minderjährige nicht
+      // veröffentlicht werden: Die harte Regel "erst nach produktivem Eltern-Consent-Flow" lässt sich nicht allein durch eine
+      // vom Client gesendete Bestätigung erfüllen. Die Sperre ist serverseitig und hängt am Betriebsschalter.
+      if (isNewlyPublishing && targetsMinors && !env.ALLOW_MINORS) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message:
+            "Dieser Kurs richtet sich an Minderjährige und kann erst veröffentlicht werden, wenn der Zugang für Minderjährige freigeschaltet ist (ALLOW_MINORS) und der Eltern-Consent-Flow produktiv steht.",
+        });
+      }
 
       if (isNewlyPublishing && targetsMinors && !input.confirmMinorsAudiencePublish) {
         throw new TRPCError({
