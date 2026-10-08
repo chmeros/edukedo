@@ -98,7 +98,7 @@ function Verfuegbarkeit() {
         {vAusMtbf !== null ? (
           <>
             <p>
-              <b>Verfügbarkeit: {zahl(vAusMtbf, 3)} %</b>
+              <b>Verfügbarkeit: {zahl(vAusMtbf, 4)} %</b>
             </p>
             <p className="field-hint">
               {zahl(mtbfWert, 2)} ÷ ({zahl(mtbfWert, 2)} + {zahl(mttrWert, 2)}) = {zahl(vAusMtbf, 4)} %. Das sind pro Jahr {formatAusfall(ausfallStunden(vAusMtbf, 8760))} und pro Monat (30 Tage) {formatAusfall(ausfallStunden(vAusMtbf, 720))} Ausfall.
@@ -235,13 +235,16 @@ function System() {
             <p className="field-hint">
               Pro Jahr sind das {formatAusfall(ausfallStunden(ergebnis.gesamt, 8760))} Ausfall, pro Monat (30 Tage) {formatAusfall(ausfallStunden(ergebnis.gesamt, 720))}.
             </p>
+            {slaWert !== null && (slaWert < 0 || slaWert > 100) && (
+              <p className="field-hint subnet-fehler">Die zugesagte Verfügbarkeit muss zwischen 0 und 100 % liegen.</p>
+            )}
             {slaWert !== null && slaWert >= 0 && slaWert <= 100 && (
               <>
                 {ergebnis.gesamt + 1e-9 >= slaWert ? (
                   <div className="alert alert-success">
                     <SuccessIcon />
                     <div>
-                      <b>Zusage erreichbar:</b> {zahl(ergebnis.gesamt, 4)} % liegen über {zahl(slaWert, 3)} %. Zulässig wären im Zeitraum {formatAusfall(ausfallStunden(slaWert, stunden))}, zu erwarten sind {formatAusfall(ausfallStunden(ergebnis.gesamt, stunden))}.
+                      <b>Zusage erreichbar:</b> {zahl(ergebnis.gesamt, 4)} % erreichen die zugesagten {zahl(slaWert, 3)} %. Zulässig wären im Zeitraum {formatAusfall(ausfallStunden(slaWert, stunden))}, zu erwarten sind {formatAusfall(ausfallStunden(ergebnis.gesamt, stunden))}.
                     </div>
                   </div>
                 ) : (
@@ -351,6 +354,8 @@ function Raid() {
           <b>
             Mindestens {bedarf} Platten zu je {formatKurz(g!, 3)} TB ({formatKurz(raidKapazitaet(level, bedarf, g!).nutzbar, 3)} TB nutzbar).
           </b>
+        ) : g !== null && gw !== null && g > 0 && gw > 0 ? (
+          <span className="field-hint subnet-fehler">Mit höchstens 256 Platten ist diese Kapazität bei {RAID_LEVEL.find((eintrag) => eintrag.id === level)!.name} nicht erreichbar. Wähle größere Platten oder eine kleinere Kapazität.</span>
         ) : (
           <span className="field-hint subnet-fehler">Bitte gewünschte Kapazität und Plattengröße als Zahlen größer als 0 eingeben.</span>
         )}

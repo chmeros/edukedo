@@ -183,3 +183,24 @@ describe("F-219: Statistik- und Algorithmen-Sprint (neue Aufgabenarten des Reche
     }
   });
 });
+
+describe("formatDe (Review WRK-26)", () => {
+  it("formatiert wie bisher mit Punkt als Tausender- und Komma als Dezimaltrenner", () => {
+    expect(formatDe(1234567.891, 2)).toBe("1.234.567,89");
+    expect(formatDe(-1234.5, 1)).toBe("-1.234,5");
+    expect(formatDe(7, 0)).toBe("7");
+  });
+
+  it("zeigt kein '-0,00' für kleine negative Werte und rundet dezimal statt binär", () => {
+    expect(formatDe(-0.001, 2)).toBe("0,00");
+    expect(formatDe(-0, 2)).toBe("0,00");
+    expect(formatDe(1.005, 2)).toBe("1,01");
+    expect(formatDe(2.675, 2)).toBe("2,68");
+  });
+
+  it("gibt für NaN und Unendlich einen Strich und für sehr große Werte keine Exponentschreibweise aus", () => {
+    expect(formatDe(Number.NaN, 2)).toBe("–");
+    expect(formatDe(Number.POSITIVE_INFINITY, 2)).toBe("–");
+    expect(formatDe(1e22, 0)).not.toMatch(/e/i);
+  });
+});

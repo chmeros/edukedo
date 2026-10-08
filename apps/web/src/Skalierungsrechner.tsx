@@ -46,7 +46,7 @@ function Feld({ id, label, hinweis, wert, setze, breite }: { id: string; label: 
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <input id={id} className="input" style={breite ? { width: breite, maxWidth: "100%" } : eingabeStil} inputMode="decimal" autoComplete="off" value={wert} onChange={(event) => setze(event.target.value)} />
+      <input id={id} className="input" style={breite ? { width: breite, maxWidth: "100%" } : eingabeStil} inputMode="text" autoComplete="off" value={wert} onChange={(event) => setze(event.target.value)} />
       {hinweis && <span className="field-hint">{hinweis}</span>}
     </div>
   );
@@ -75,7 +75,9 @@ function Analog() {
   const anteil = w !== null ? anteilProzent(w, signalMin, signalMax) : null;
   const schwelleUnter = leseBetrag(unter);
   const schwelleOber = leseBetrag(ober);
-  const pruefung = signal === "ma" && w !== null && schwelleUnter !== null && schwelleOber !== null ? pruefeStrom(w, schwelleUnter, schwelleOber) : null;
+  // Review WRK-29: Die untere Fehlerschwelle muss unter der oberen liegen, sonst wird nicht geprüft.
+  const schwellenOk = schwelleUnter !== null && schwelleOber !== null && schwelleUnter < schwelleOber;
+  const pruefung = signal === "ma" && w !== null && schwellenOk ? pruefeStrom(w, schwelleUnter!, schwelleOber!) : null;
   const rueck = leseBetrag(rueckwert);
   const signalRueck = rueck !== null && bereichOk ? messwertZuSignal(rueck, messMin!, messMax!, signalMin, signalMax) : null;
   const b = leseBetrag(bits);
@@ -111,6 +113,9 @@ function Analog() {
       <div aria-live="polite" className="stack">
         {w === null && <p className="field-hint subnet-fehler">Bitte das Signal als Zahl eingeben.</p>}
         {!bereichOk && <p className="field-hint subnet-fehler">Der Messbereich braucht zwei Zahlen, das Ende muss größer als der Anfang sein.</p>}
+        {signal === "ma" && schwelleUnter !== null && schwelleOber !== null && !schwellenOk && (
+          <p className="field-hint subnet-fehler">Die untere Fehlerschwelle muss kleiner sein als die obere; ohne gültige Schwellen wird nicht geprüft.</p>
+        )}
         {pruefung && pruefung.status !== "ok" && (
           <div className="alert alert-info">
             <InfoIcon />
@@ -180,7 +185,7 @@ function Register() {
   const w2 = leseRegister(r2);
   const f32 = leseBetrag(faktor32);
   const a = leseBetrag(adresse);
-  const adresseOk = a !== null && Number.isInteger(a) && a >= (zaehlung === "1" ? 1 : 0) && a <= 65536;
+  const adresseOk = a !== null && Number.isInteger(a) && a >= (zaehlung === "1" ? 1 : 0) && a <= (zaehlung === "1" ? 65536 : 65535); // Review WRK-29: Adressen zählen bis 65535 (ab 1: bis 65536)
 
   return (
     <div className="stack">
@@ -208,7 +213,7 @@ function Register() {
             </p>
             <p className="field-hint">
               Rohwert {formatDe(rohWert, 0)} = {hex16(rohWert)}
-              {vorzeichen && rohWert >= 32768 ? `; als Zahl mit Vorzeichen ${formatDe(rohWert, 0)} − 65 536 = ${formatDe(erg.gedeutet, 0)}` : ""}. Messwert = {formatDe(erg.gedeutet, 0)} × {formatKurz(f!, 6)}
+              {vorzeichen && rohWert >= 32768 ? `; als Zahl mit Vorzeichen ${formatDe(rohWert, 0)} − ${formatDe(65536, 0)} = ${formatDe(erg.gedeutet, 0)}` : ""}. Messwert = {formatDe(erg.gedeutet, 0)} × {formatKurz(f!, 6)}
               {o !== 0 ? ` + ${formatKurz(o!, 6)}` : ""} = {formatKurz(erg.wert, 4)}.
             </p>
           </>
@@ -388,7 +393,7 @@ function Ueben() {
               id={`sk-f-${feld.id}`}
               className={`input netzplan-eingabe${geprueft ? (richtig[index] ? " is-correct" : " is-wrong") : ""}`}
               style={{ width: "11rem", maxWidth: "100%" }}
-              inputMode="decimal"
+              inputMode="text"
               autoComplete="off"
               aria-invalid={geprueft && !richtig[index] ? true : undefined}
               value={eingaben[feld.id] ?? ""}

@@ -97,7 +97,7 @@ export interface Budget {
 }
 
 export function budgetReserve(summeW: number, budgetW: number): Budget {
-  return { reserve: budgetW - summeW, auslastung: budgetW > 0 ? (summeW / budgetW) * 100 : null, ueberschritten: summeW > budgetW };
+  return { reserve: budgetW - summeW, auslastung: budgetW > 0 ? (summeW / budgetW) * 100 : null, ueberschritten: summeW > budgetW + 1e-9 /* Review WRK-08: Gleitkomma-Summen wie n × 15,4 sind nicht exakt */ };
 }
 
 export interface Energie {

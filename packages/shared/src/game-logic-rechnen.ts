@@ -39,10 +39,21 @@ function mal<T>(schwierigkeit: SprintSchwierigkeit, leicht: readonly T[], mittel
 
 /** Zahl im deutschen Format ("1.234,50"), mit fester Anzahl Nachkommastellen. */
 export function formatDe(wert: number, stellen: number): string {
-  const text = Math.abs(wert).toFixed(stellen);
+  // Review WRK-26: keine Zahl ("NaN", "Infinity") und keine Exponentschreibweise ab 1e21 ausgeben.
+  if (!Number.isFinite(wert)) return "–";
+  const betrag = Math.abs(wert);
+  if (betrag >= 1e21) {
+    return new Intl.NumberFormat("de-DE", { minimumFractionDigits: stellen, maximumFractionDigits: stellen }).format(wert);
+  }
+  // Dezimal statt binär runden (1,005 wird 1,01 statt 1,00); bei Exponentschreibweise (sehr kleine Werte) unverändert.
+  const roh = String(betrag);
+  const gerundet = roh.includes("e") ? betrag : Number(`${Math.round(Number(`${roh}e${stellen}`))}e-${stellen}`);
+  const text = gerundet.toFixed(stellen);
   const [ganz, nach] = text.split(".") as [string, string | undefined];
   const mitPunkten = ganz.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return `${wert < 0 ? "-" : ""}${mitPunkten}${nach ? `,${nach}` : ""}`;
+  // Review WRK-26: kein "-0,00" für kleine negative Werte, die auf null runden.
+  const negativ = wert < 0 && Number(text) !== 0;
+  return `${negativ ? "-" : ""}${mitPunkten}${nach ? `,${nach}` : ""}`;
 }
 
 function euro(cent: number): string {

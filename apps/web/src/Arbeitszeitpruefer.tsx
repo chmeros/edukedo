@@ -41,8 +41,16 @@ const BEISPIEL: Record<Personengruppe, Zeile[]> = {
 };
 
 function alsArbeitstag(zeile: Zeile): Arbeitstag {
-  const pause = /^\d{1,3}$/.test(zeile.pause.trim()) ? Number(zeile.pause.trim()) : 0;
-  return { beginnMin: parseUhrzeit(zeile.beginn), endeMin: parseUhrzeit(zeile.ende), pauseMin: pause, berufsschule: zeile.berufsschule };
+  // Review WRK-07: Eine ungültige Pause wird nicht still zu 0 (das meldete einen Pausenverstoß), sondern markiert den Tag
+  // als "Eingabe prüfen" wie eine ungültige Uhrzeit.
+  const pauseGueltig = /^\d{1,3}$/.test(zeile.pause.trim());
+  const pause = pauseGueltig ? Number(zeile.pause.trim()) : 0;
+  return {
+    beginnMin: pauseGueltig ? parseUhrzeit(zeile.beginn) : null,
+    endeMin: parseUhrzeit(zeile.ende),
+    pauseMin: pause,
+    berufsschule: zeile.berufsschule,
+  };
 }
 
 const GRUPPEN: { id: Personengruppe; label: string }[] = [

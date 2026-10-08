@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
@@ -467,6 +467,17 @@ function ReihenfolgeSpiel({ kursId, setKey, title, gameType, onClose }: SpielPro
   const zeiger = useAufgabenZeiger(data.data?.aufgaben);
   const [anordnung, setAnordnung] = useState<{ nummer: number; ids: string[] } | null>(null);
 
+  // Review WRK-16: Da der Key einer Zeile ihre Position enthält, wird sie beim Verschieben neu eingehängt und der Fokus ginge verloren.
+  // Deshalb wird er nach dem Verschieben auf die Pfeiltaste an der neuen Position gesetzt.
+  const [fokusZiel, setFokusZiel] = useState<string | null>(null);
+  useEffect(() => {
+    if (!fokusZiel) return;
+    const knopf = document.querySelector<HTMLButtonElement>(`[data-verschiebe="${fokusZiel}"]:not(:disabled)`);
+    const alternativ = document.querySelector<HTMLButtonElement>(`[data-verschiebe="${fokusZiel.replace(/-(hoch|runter)$/, (_, art) => (art === "hoch" ? "-runter" : "-hoch"))}"]:not(:disabled)`);
+    (knopf ?? alternativ)?.focus();
+    setFokusZiel(null);
+  }, [fokusZiel]);
+
   const submit = trpc.game.submitReihenfolge.useMutation({
     onSuccess: (result) => {
       if (result.correct) {
@@ -494,6 +505,7 @@ function ReihenfolgeSpiel({ kursId, setKey, title, gameType, onClose }: SpielPro
     [next[position], next[ziel]] = [next[ziel]!, next[position]!];
     submit.reset();
     setAnordnung({ nummer: aufgabe!.nummer, ids: next });
+    setFokusZiel(`${ziel}-${richtung < 0 ? "hoch" : "runter"}`);
   }
 
   function naechste() {
@@ -516,12 +528,16 @@ function ReihenfolgeSpiel({ kursId, setKey, title, gameType, onClose }: SpielPro
             return (
               <div key={`${id}-${position}`} className={rowClass} role="listitem">
                 {istCode ? <pre className="code-block">{textById.get(id)}</pre> : <div className="process-step">{textById.get(id)}</div>}
+                {/* Review WRK-16: Das Prüfergebnis je Zeile steht auch als Text, nicht nur als Färbung. */}
+                {ergebnis && !ergebnis.correct && (
+                  <span className="field-hint">{ergebnis.positionen[position] ? "✓ richtig" : "✗ falsch"}</span>
+                )}
                 {!geloest && (
                   <span className="list-row-actions">
-                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach oben`} disabled={position === 0} onClick={() => verschiebe(position, -1)}>
+                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach oben`} data-verschiebe={`${position}-hoch`} disabled={position === 0} onClick={() => verschiebe(position, -1)}>
                       ↑
                     </button>
-                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach unten`} disabled={position === ids.length - 1} onClick={() => verschiebe(position, 1)}>
+                    <button type="button" className="btn btn-ghost btn-sm" aria-label={`${einheit} ${position + 1} nach unten`} data-verschiebe={`${position}-runter`} disabled={position === ids.length - 1} onClick={() => verschiebe(position, 1)}>
                       ↓
                     </button>
                   </span>

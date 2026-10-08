@@ -135,3 +135,11 @@ describe("erzeugeEnergieAufgabe", () => {
     for (let i = 0; i < 100; i++) expect(erzeugeEnergieAufgabe("budget", "leicht", zufall).felder[1]!.soll).toBeGreaterThan(0);
   });
 });
+
+describe("budgetReserve (Review WRK-08)", () => {
+  it("meldet bei Gleitkomma-Rauschen keine Überschreitung", () => {
+    // 0,1 × 3 ist in Gleitkomma 0,30000000000000004 und damit rechnerisch größer als 0,3.
+    expect(budgetReserve(0.1 * 3, 0.3).ueberschritten).toBe(false);
+    expect(budgetReserve(0.31, 0.3).ueberschritten).toBe(true);
+  });
+});

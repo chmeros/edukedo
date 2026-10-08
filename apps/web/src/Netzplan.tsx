@@ -155,12 +155,20 @@ export function Netzplan({ onClose }: { onClose: () => void }) {
     return leseNetzplanZahl(eingaben[id]?.[feld] ?? "") === ergebnis.vorgaenge[id]![feld];
   }
 
+  // Review WRK-25: Ein nicht angehaktes Feld "kritisch" gilt nur dann als richtige Antwort "nicht kritisch", wenn die Zeile
+  // bearbeitet wurde; sonst zählte jede unberührte Zeile eines nicht kritischen Vorgangs schon vor der ersten Eingabe als richtig.
+  function kritischRichtig(id: string): boolean {
+    const soll = ergebnis.vorgaenge[id]!.kritisch;
+    if (kritisch.has(id) !== soll) return false;
+    return kritisch.has(id) || felder.some((feld) => (eingaben[id]?.[feld] ?? "").trim() !== "");
+  }
+
   const projektdauerRichtig = leseNetzplanZahl(projektdauer) === ergebnis.projektdauer;
   const gesamt = plan.length * felder.length + 1 + (fragtKritisch ? plan.length : 0);
   const richtig =
     plan.reduce((summe, vorgang) => summe + felder.filter((feld) => istRichtig(vorgang.id, feld)).length, 0) +
     (projektdauerRichtig ? 1 : 0) +
-    (fragtKritisch ? plan.filter((vorgang) => kritisch.has(vorgang.id) === ergebnis.vorgaenge[vorgang.id]!.kritisch).length : 0);
+    (fragtKritisch ? plan.filter((vorgang) => kritischRichtig(vorgang.id)).length : 0);
   const alleRichtig = richtig === gesamt;
 
   function zeigeLoesung() {
@@ -298,7 +306,7 @@ export function Netzplan({ onClose }: { onClose: () => void }) {
                           setGeprueft(false);
                         }}
                       />
-                      {markierung(kritisch.has(vorgang.id) === ergebnis.vorgaenge[vorgang.id]!.kritisch)}
+                      {markierung(kritischRichtig(vorgang.id))}
                     </td>
                   )}
                 </tr>

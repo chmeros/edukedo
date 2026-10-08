@@ -480,8 +480,8 @@ function DhcpDienstFelder({ geraet, sc, onAendere, gesperrt }: { geraet: Topolog
           feste Adresse im Pool, kann sie doppelt vergeben werden.
         </p>
         <PruefHaken id={`${basis}-aktiv`} label="DHCP-Server eingeschaltet" an={dienst?.aktiv === true} disabled={gesperrt} onAn={(an) => setze("aktiv", an)} />
-        <TextFeld id={`${basis}-start`} label="Pool-Start" wert={dienst?.poolStart ?? ""} platzhalter="z. B. 192.168.10.100" fehler={poolFehler("poolStart")} disabled={gesperrt} onWert={(wert) => setze("poolStart", wert)} inputMode="decimal" />
-        <TextFeld id={`${basis}-ende`} label="Pool-Ende" wert={dienst?.poolEnde ?? ""} platzhalter="z. B. 192.168.10.109" fehler={poolFehler("poolEnde")} disabled={gesperrt} onWert={(wert) => setze("poolEnde", wert)} inputMode="decimal" />
+        <TextFeld id={`${basis}-start`} label="Pool-Start" wert={dienst?.poolStart ?? ""} platzhalter="z. B. 192.168.10.100" fehler={poolFehler("poolStart")} disabled={gesperrt} onWert={(wert) => setze("poolStart", wert)} inputMode="text" />
+        <TextFeld id={`${basis}-ende`} label="Pool-Ende" wert={dienst?.poolEnde ?? ""} platzhalter="z. B. 192.168.10.109" fehler={poolFehler("poolEnde")} disabled={gesperrt} onWert={(wert) => setze("poolEnde", wert)} inputMode="text" />
         <TextFeld
           id={`${basis}-gateway`}
           label="Gateway für die Clients"
@@ -490,7 +490,7 @@ function DhcpDienstFelder({ geraet, sc, onAendere, gesperrt }: { geraet: Topolog
           fehler={gatewayFehler}
           disabled={gesperrt}
           onWert={(wert) => setze("gateway", wert)}
-          inputMode="decimal"
+          inputMode="text"
         />
         {pool?.ok && (
           <p className="field-hint">
@@ -553,7 +553,7 @@ function Schnittstellenfelder({
         </>
       ) : (
         <>
-          <TextFeld id={`${basis}-ip`} label="IP-Adresse" wert={sc.ip} platzhalter="z. B. 192.168.10.25" fehler={fehler.ip} disabled={gesperrt} onWert={(wert) => setzeFeld("ip", wert)} inputMode="decimal" />
+          <TextFeld id={`${basis}-ip`} label="IP-Adresse" wert={sc.ip} platzhalter="z. B. 192.168.10.25" fehler={fehler.ip} disabled={gesperrt} onWert={(wert) => setzeFeld("ip", wert)} inputMode="text" />
           <TextFeld id={`${basis}-maske`} label="Subnetzmaske" wert={sc.maske} platzhalter="/24 oder 255.255.255.0" fehler={fehler.maske} disabled={gesperrt} onWert={(wert) => setzeFeld("maske", wert)} />
           {geraet.typ !== "router" && (
             <TextFeld
@@ -564,7 +564,7 @@ function Schnittstellenfelder({
               fehler={fehler.gateway}
               disabled={gesperrt}
               onWert={(wert) => setzeFeld("gateway", wert)}
-              inputMode="decimal"
+              inputMode="text"
             />
           )}
           {info && (
@@ -658,9 +658,9 @@ function RoutenAbschnitt({ geraet, onAendere }: { geraet: TopologieGeraet; onAen
             <fieldset key={route.id} className="topo-zeile" disabled={gesperrt}>
               <legend>Route {index + 1}</legend>
               <div className="topo-zeile-felder">
-                <TextFeld id={`${basis}-ziel`} label="Zielnetz" wert={route.ziel} platzhalter="z. B. 192.168.30.0" fehler={fehler.ziel} onWert={(wert) => setze("ziel", wert)} inputMode="decimal" />
+                <TextFeld id={`${basis}-ziel`} label="Zielnetz" wert={route.ziel} platzhalter="z. B. 192.168.30.0" fehler={fehler.ziel} onWert={(wert) => setze("ziel", wert)} inputMode="text" />
                 <TextFeld id={`${basis}-maske`} label="Maske" wert={route.maske} platzhalter="/24" fehler={fehler.maske} onWert={(wert) => setze("maske", wert)} />
-                <TextFeld id={`${basis}-hop`} label="Nächster Hop" wert={route.hop} platzhalter="z. B. 10.0.0.2" fehler={fehler.hop} onWert={(wert) => setze("hop", wert)} inputMode="decimal" />
+                <TextFeld id={`${basis}-hop`} label="Nächster Hop" wert={route.hop} platzhalter="z. B. 10.0.0.2" fehler={fehler.hop} onWert={(wert) => setze("hop", wert)} inputMode="text" />
               </div>
               <button type="button" className="btn btn-ghost btn-sm" onClick={() => onAendere((z) => topologieRouteEntfernen(z, geraet.id, route.id))}>
                 Route {index + 1} entfernen

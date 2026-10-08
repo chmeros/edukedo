@@ -466,10 +466,24 @@ a {
   width: 100%;
 }
 
+/* Review WRK-36: iOS-Safari zoomt beim Fokus in Felder unter 16 px; auf kleinen Bildschirmen daher mindestens 16 px. */
+@media (max-width: 640px) {
+  .input,
+  select.input,
+  textarea.input {
+    font-size: max(16px, var(--fs-sm));
+  }
+}
+
+/* Review WRK-17: Der Fokus bleibt auch bei grün/rot markierten Feldern sichtbar (Rahmenfarbe allein ging dort unter). */
 .input:focus {
-  outline: none;
   border-color: var(--sprout);
   box-shadow: 0 0 0 3px var(--sprout-tint);
+}
+
+.input:focus-visible {
+  outline: 2.5px solid var(--ink);
+  outline-offset: 2px;
 }
 
 .input.is-correct {

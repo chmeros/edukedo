@@ -1,5 +1,5 @@
 import { randomSeed } from "@edukedo/shared";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
@@ -54,7 +54,18 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
     onSuccess: () => utils.game.getMemory.invalidate({ kursId, setKey, runde: aktiveRunde ?? 1, seed }),
   });
 
+  // Review WRK-38: Der Timer, der ein falsches Paar nach 1,2 s wieder zudeckt, wird beim Rundenwechsel und beim Verlassen gelöscht.
+  const zudeckTimer = useRef<number | null>(null);
+  const loescheZudeckTimer = () => {
+    if (zudeckTimer.current !== null) {
+      window.clearTimeout(zudeckTimer.current);
+      zudeckTimer.current = null;
+    }
+  };
+  useEffect(() => loescheZudeckTimer, []);
+
   useEffect(() => {
+    loescheZudeckTimer();
     setAufgedeckt([]);
     setGefunden([]);
     setFalschesPaar(null);
@@ -90,7 +101,9 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
             }
           } else {
             setFalschesPaar(naechsteAufgedeckt);
-            window.setTimeout(() => {
+            loescheZudeckTimer();
+            zudeckTimer.current = window.setTimeout(() => {
+              zudeckTimer.current = null;
               setAufgedeckt([]);
               setFalschesPaar(null);
             }, 1200);

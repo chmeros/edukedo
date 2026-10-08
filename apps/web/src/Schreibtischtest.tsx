@@ -62,7 +62,11 @@ function Ausprobieren() {
   const [code, setCode] = useState(BEISPIELE[0]!.code);
   const [lauf, setLauf] = useState<{ ergebnis: Ausfuehrung } | { fehler: string; zeile: number | null } | null>(() => ({ ergebnis: fuehreAus(BEISPIELE[0]!.code) }));
 
+  // Review WRK-40: Fassung des Programms, zu der der gezeigte Ablauf gehört; nach einer Änderung des Textes ist er veraltet.
+  const [gelaufenerCode, setGelaufenerCode] = useState(BEISPIELE[0]!.code);
+
   function starte(text: string) {
+    setGelaufenerCode(text);
     try {
       setLauf({ ergebnis: fuehreAus(text) });
     } catch (fehler) {
@@ -113,6 +117,9 @@ function Ausprobieren() {
         </button>
       </div>
       <div aria-live="polite" className="stack">
+        {lauf && gelaufenerCode !== code && (
+          <p className="field-hint">Das Programm wurde geändert. Der gezeigte Ablauf gehört noch zur vorherigen Fassung; mit „Ablauf anzeigen“ aktualisierst du ihn.</p>
+        )}
         {lauf && "fehler" in lauf && (
           <div className="alert alert-info">
             <InfoIcon />

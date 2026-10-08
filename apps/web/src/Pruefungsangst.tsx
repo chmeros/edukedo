@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
@@ -29,19 +29,24 @@ function BreathingExercise() {
   const [remaining, setRemaining] = useState(BREATH_PHASES[0]!.seconds);
   const [finished, setFinished] = useState(false);
 
+  // Review WRK-37: Ein einziges, stabiles Intervall je Lauf (vorher wurde es jede Sekunde neu angelegt); der aktuelle Stand wird
+  // über eine Referenz gelesen.
+  const stand = useRef({ round, phaseIndex, remaining });
+  stand.current = { round, phaseIndex, remaining };
   useEffect(() => {
     if (!running) return;
     const interval = setInterval(() => {
-      if (remaining > 1) {
-        setRemaining(remaining - 1);
+      const { round: runde, phaseIndex: phase, remaining: rest } = stand.current;
+      if (rest > 1) {
+        setRemaining(rest - 1);
         return;
       }
       // Phase vorbei: nächste Phase bzw. nächste Runde bzw. Ende.
-      if (phaseIndex + 1 < BREATH_PHASES.length) {
-        setPhaseIndex(phaseIndex + 1);
-        setRemaining(BREATH_PHASES[phaseIndex + 1]!.seconds);
-      } else if (round < BREATH_ROUNDS) {
-        setRound(round + 1);
+      if (phase + 1 < BREATH_PHASES.length) {
+        setPhaseIndex(phase + 1);
+        setRemaining(BREATH_PHASES[phase + 1]!.seconds);
+      } else if (runde < BREATH_ROUNDS) {
+        setRound(runde + 1);
         setPhaseIndex(0);
         setRemaining(BREATH_PHASES[0]!.seconds);
       } else {
@@ -52,7 +57,7 @@ function BreathingExercise() {
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [running, remaining, phaseIndex, round]);
+  }, [running]);
 
   function start() {
     setRound(1);
@@ -87,7 +92,7 @@ function BreathingExercise() {
         <div className="breath-label" role="status" aria-live="polite">
           {running ? (
             <>
-              <b>{phase.label}</b> · {remaining} · Runde {round} von {BREATH_ROUNDS}
+              <b>{phase.label}</b> · <span aria-hidden="true">{remaining} · </span>Runde {round} von {BREATH_ROUNDS}
             </>
           ) : finished ? (
             "Geschafft — spürst du den Unterschied?"
