@@ -470,7 +470,7 @@ export function Mqttlabor({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-mq-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-mq-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-mq-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

@@ -177,14 +177,14 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
               </>
             )}
             {richtig === felder.length ? (
-              <div className="alert alert-success">
+              <div className="alert alert-success" role="status">
                 <SuccessIcon />
                 <div>
                   Alles richtig — {felder.length} von {felder.length}.
                 </div>
               </div>
             ) : (
-              <div className="alert alert-info">
+              <div className="alert alert-info" role="status">
                 <InfoIcon />
                 <div>
                   {richtig} von {felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert.

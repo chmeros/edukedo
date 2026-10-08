@@ -107,6 +107,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
 | B7 Allowlist auch für Instrument-Fragen | **erledigt 08.10.2026** (50 Fragen im Bestand unsichtbar) | §13 „Kursangebot gilt auch für Instrument-Fragen“ |
 | B8 Instrument-Kachel führt zum Instrument | **erledigt 08.10.2026** | §13 „Instrument-Kacheln führen zum Instrument“ |
+| WRK/UXL/WEB, Paket 8 (Werkzeuge und Spiele, Bedienung; WRK-18/23/27/30/31/32/34/43/46) | **erledigt 08.10.2026** (WRK-04/05/06/19/47 bewusst offen) | §13 „Web-Feinschliff“ |
 | WRK/UXL/WEB, Paket 7 (Robustheit der Werkzeuge; WRK-10/11/12/13/14/15/20/24/33/39) | **erledigt 08.10.2026** | §13 „Web-Feinschliff“ |
 | WRK/UXL/WEB, Paket 6 (Unternehmen, Codes, Startseite; UXL-09/10/11/24, SHR-11, WEB-17) | **erledigt 08.10.2026** | §13 „Web-Feinschliff“ |
 | WRK/UXL/WEB, Paket 5 (Sitzung, Offline-Daten, Ladefehler; WEB-08/12/20/25/34/38) | **erledigt 08.10.2026** (WEB-03/19/21 offen) | §13 „Web-Feinschliff“ |

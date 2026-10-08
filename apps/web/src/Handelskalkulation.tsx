@@ -187,12 +187,12 @@ function Training({ richtung }: { richtung: Exclude<Modus, "rechner"> }) {
 
       {geprueft &&
         (richtigAnzahl === felder.length ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>Alles richtig — {felder.length} von {felder.length}.</div>
           </div>
         ) : (
-          <div className="alert alert-info">
+          <div className="alert alert-info" role="status">
             <InfoIcon />
             <div>
               {richtigAnzahl} von {felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert. Rechne sie noch einmal nach oder lass dir die Lösung mit Rechenweg anzeigen.
@@ -252,7 +252,7 @@ function Rechner() {
   const startWert = leseBetrag(start);
   const bk = leseBetrag(bezugskosten);
   const saetzeWerte = (Object.keys(saetzeText) as (keyof Saetze)[]).map((schluessel) => [schluessel, leseBetrag(saetzeText[schluessel])] as const);
-  const gueltig = startWert !== null && startWert > 0 && bk !== null && bk >= 0 && saetzeWerte.every(([, wert]) => wert !== null && wert >= 0 && wert < 100);
+  const gueltig = startWert !== null && startWert > 0 && startWert <= 1e9 && bk !== null && bk >= 0 && bk <= 1e9 && saetzeWerte.every(([, wert]) => wert !== null && wert >= 0 && wert < 100);
   const ergebnis = useMemo(() => {
     if (!gueltig || startWert === null || bk === null) return null;
     const saetze = Object.fromEntries(saetzeWerte.map(([schluessel, wert]) => [schluessel, wert as number])) as unknown as Saetze;
@@ -378,7 +378,7 @@ export function Handelskalkulation({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-kalk-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-kalk-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-kalk-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

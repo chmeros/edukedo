@@ -108,7 +108,7 @@ function Zinseszins() {
       {ergebnis?.ok && k !== null && z !== null && n !== null && (
         <>
           <p>
-            Nach {n} Jahren sind aus {euro(k)} <b>{euro(ergebnis.wert.endkapital)}</b> geworden, davon {euro(ergebnis.wert.zinsenGesamt)} Zinsen.
+            Nach {n} {n === 1 ? "Jahr" : "Jahren"} sind aus {euro(k)} <b>{euro(ergebnis.wert.endkapital)}</b> geworden, davon {euro(ergebnis.wert.zinsenGesamt)} Zinsen.
           </p>
           <p className="field-hint">
             Rechenweg: Endkapital = Startkapital × (1 + Zinssatz)^Jahre = {formatDe(k, 2)} × (1 + {formatDe(z / 100, 4)})^{n}. Die Zinsen werden jedes Jahr dem Kapital zugeschlagen und
@@ -144,7 +144,7 @@ function Sparplan() {
       {ergebnis?.ok && r !== null && z !== null && n !== null && (
         <>
           <p>
-            Nach {n} Jahren ergibt sich ein Endwert von <b>{euro(ergebnis.wert.endwert)}</b>. Eingezahlt wurden {euro(ergebnis.wert.eingezahlt)}, die Zinsen betragen {euro(ergebnis.wert.zinsenGesamt)}.
+            Nach {n} {n === 1 ? "Jahr" : "Jahren"} ergibt sich ein Endwert von <b>{euro(ergebnis.wert.endwert)}</b>. Eingezahlt wurden {euro(ergebnis.wert.eingezahlt)}, die Zinsen betragen {euro(ergebnis.wert.zinsenGesamt)}.
           </p>
           <p className="field-hint">
             Rechenweg: Endwert = Rate × ((1 + Zinssatz)^Jahre − 1) ÷ Zinssatz = {formatDe(r, 2)} × ((1 + {formatDe(z / 100, 4)})^{n} − 1) ÷ {formatDe(z / 100, 4)}.
@@ -306,7 +306,7 @@ export function Finanzrechner({ onClose }: { onClose: () => void }) {
       <div className="stack">
         <p className="field-hint">
           Lernwerkzeug zum Nachrechnen, keine Anlage- oder Finanzierungsberatung. Die Beträge und Zinssätze sind frei gewählte Beispielwerte, keine Prognose. Gerechnet wird mit jährlicher Verzinsung
-          und Zahlungen am Jahresende; die Eingaben werden nicht gespeichert.
+          und Zahlungen am Jahresende, vor Steuern, Gebühren und Inflation; die Eingaben werden nicht gespeichert.
         </p>
         <div className="segmented" role="tablist" aria-label="Rechner">
           {MODI.map((eintrag, index) => (
@@ -319,7 +319,7 @@ export function Finanzrechner({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-fin-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-fin-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-fin-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

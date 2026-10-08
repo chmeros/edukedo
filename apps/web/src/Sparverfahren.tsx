@@ -250,14 +250,14 @@ function Ueben() {
 
       {geprueft &&
         (richtigAnzahl === felder.length ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>
               Alles richtig — {felder.length} von {felder.length}.
             </div>
           </div>
         ) : (
-          <div className="alert alert-info">
+          <div className="alert alert-info" role="status">
             <InfoIcon />
             <div>
               {richtigAnzahl} von {felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert. Rechne sie noch einmal nach oder lass dir die Lösung mit Rechenweg anzeigen.
@@ -422,7 +422,7 @@ export function Sparverfahren({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-spar-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-spar-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-spar-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

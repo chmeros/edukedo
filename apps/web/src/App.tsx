@@ -371,7 +371,7 @@ export function App() {
                           role="tab"
                           id={`tab-${tab.id}`}
                           aria-selected={learningMode === tab.id}
-                          aria-controls={`panel-${tab.id}`}
+                          aria-controls={(learningMode === tab.id) ? `panel-${tab.id}` : undefined}
                           tabIndex={learningMode === tab.id ? 0 : -1}
                           className={learningMode === tab.id ? "is-active" : ""}
                           onClick={() => setLearningMode(tab.id)}
@@ -588,7 +588,7 @@ export function App() {
                 role="tab"
                 id={`tab-auth-${tab.id}`}
                 aria-selected={mode === tab.id}
-                aria-controls="panel-auth"
+                aria-controls={(mode === tab.id) ? "panel-auth" : undefined}
                 tabIndex={mode === tab.id ? 0 : -1}
                 className={mode === tab.id ? "is-active" : ""}
                 onClick={() => setMode(tab.id)}

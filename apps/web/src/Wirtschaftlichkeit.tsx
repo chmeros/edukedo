@@ -182,8 +182,8 @@ function Nutzwert() {
                 <thead>
                   <tr>
                     <th scope="col">Kriterium</th>
-                    {ergebnis.zeilen.map((z) => (
-                      <th key={z.name} scope="col">
+                    {ergebnis.zeilen.map((z, zi) => (
+                      <th key={zi} scope="col">
                         {z.name}
                         {z.ko ? " (KO)" : ""}
                       </th>
@@ -405,8 +405,8 @@ function Tco() {
                 <thead>
                   <tr>
                     <th scope="col" />
-                    {ergebnis.map((e) => (
-                      <th key={e.name} scope="col">
+                    {ergebnis.map((e, ei) => (
+                      <th key={ei} scope="col">
                         {e.name}
                       </th>
                     ))}
@@ -425,8 +425,8 @@ function Tco() {
                       <th scope="row" style={{ textAlign: "left" }}>
                         {label}
                       </th>
-                      {ergebnis.map((e) => (
-                        <td key={e.name}>{wert(e)}</td>
+                      {ergebnis.map((e, ei) => (
+                        <td key={ei}>{wert(e)}</td>
                       ))}
                     </tr>
                   ))}
@@ -434,8 +434,8 @@ function Tco() {
                     <th scope="row" style={{ textAlign: "left" }}>
                       TCO
                     </th>
-                    {ergebnis.map((e) => (
-                      <td key={e.name}>
+                    {ergebnis.map((e, ei) => (
+                      <td key={ei}>
                         <b>{euro(e.tco)}</b>
                       </td>
                     ))}
@@ -444,24 +444,24 @@ function Tco() {
                     <th scope="row" style={{ textAlign: "left" }}>
                       TCO je Jahr
                     </th>
-                    {ergebnis.map((e) => (
-                      <td key={e.name}>{euro(e.tcoJeJahr)}</td>
+                    {ergebnis.map((e, ei) => (
+                      <td key={ei}>{euro(e.tcoJeJahr)}</td>
                     ))}
                   </tr>
                   <tr>
                     <th scope="row" style={{ textAlign: "left" }}>
                       Rang (niedrigste TCO = 1)
                     </th>
-                    {ergebnis.map((e) => (
-                      <td key={e.name}>{e.rang}</td>
+                    {ergebnis.map((e, ei) => (
+                      <td key={ei}>{e.rang}</td>
                     ))}
                   </tr>
                   <tr>
                     <th scope="row" style={{ textAlign: "left" }}>
                       Mehrkosten zum günstigsten
                     </th>
-                    {ergebnis.map((e) => (
-                      <td key={e.name}>{e.mehrkosten === 0 ? "–" : euro(e.mehrkosten)}</td>
+                    {ergebnis.map((e, ei) => (
+                      <td key={ei}>{e.mehrkosten === 0 ? "–" : euro(e.mehrkosten)}</td>
                     ))}
                   </tr>
                 </tbody>
@@ -616,14 +616,14 @@ function Ueben() {
       ))}
       {geprueft &&
         (anzahlRichtig === aufgabe.felder.length ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>
               Alles richtig — {aufgabe.felder.length} von {aufgabe.felder.length}.
             </div>
           </div>
         ) : (
-          <div className="alert alert-info">
+          <div className="alert alert-info" role="status">
             <InfoIcon />
             <div>
               {anzahlRichtig} von {aufgabe.felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert. Rechne sie noch einmal nach oder lass dir die Lösung mit Rechenweg anzeigen.
@@ -684,7 +684,7 @@ export function Wirtschaftlichkeit({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-wi-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-wi-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-wi-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

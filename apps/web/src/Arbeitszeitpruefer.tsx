@@ -98,7 +98,7 @@ export function Arbeitszeitpruefer({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-az-${eintrag.id}`}
               aria-selected={gruppe === eintrag.id}
-              aria-controls="panel-az"
+              aria-controls={(gruppe === eintrag.id) ? "panel-az" : undefined}
               tabIndex={gruppe === eintrag.id ? 0 : -1}
               className={gruppe === eintrag.id ? "is-active" : ""}
               onClick={() => wechsle(eintrag.id)}

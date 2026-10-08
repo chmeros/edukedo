@@ -174,7 +174,7 @@ function Ueben() {
       ))}
       {geprueft &&
         (richtig === gesamt ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>
               Alles richtig — {gesamt} von {gesamt}.
@@ -225,7 +225,7 @@ export function Lernzielcheck({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-lz-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-lz-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-lz-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

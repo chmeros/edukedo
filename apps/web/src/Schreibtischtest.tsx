@@ -26,7 +26,7 @@ const MODI: { id: Modus; label: string }[] = [
 
 function Programm({ zeilen, markiert }: { zeilen: string[]; markiert?: number | null }) {
   return (
-    <pre className="code-block" style={{ fontVariantLigatures: "none" }} aria-label="Programm">
+    <pre className="code-block" style={{ fontVariantLigatures: "none" }} role="group" aria-label="Programm">
       {zeilen.map((zeile, index) => (
         <div key={index} className={`code-line${markiert === index + 1 ? " is-wrong" : ""}`} style={{ cursor: "default" }}>
           <span className="code-no">{index + 1}</span>
@@ -336,14 +336,14 @@ function Ueben() {
       )}
       {geprueft &&
         (anzahlRichtig === felder.length ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>
               Alles richtig — {felder.length} von {felder.length}.
             </div>
           </div>
         ) : (
-          <div className="alert alert-info">
+          <div className="alert alert-info" role="status">
             <InfoIcon />
             <div>
               {anzahlRichtig} von {felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert. Verfolge den Ablauf Zeile für Zeile noch einmal oder lass dir die Lösung anzeigen. Ein falscher Wert früh in der Tabelle zieht alle folgenden mit.
@@ -400,7 +400,7 @@ export function Schreibtischtest({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-st-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-st-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-st-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

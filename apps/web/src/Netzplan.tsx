@@ -333,12 +333,12 @@ export function Netzplan({ onClose }: { onClose: () => void }) {
 
         {geprueft &&
           (alleRichtig ? (
-            <div className="alert alert-success">
+            <div className="alert alert-success" role="status">
               <SuccessIcon />
               <div>Alles richtig — {gesamt} von {gesamt} 🎉</div>
             </div>
           ) : (
-            <div className="alert alert-info">
+            <div className="alert alert-info" role="status">
               <InfoIcon />
               <div>
                 {richtig} von {gesamt} richtig. Falsche oder leere Felder sind mit ✗ markiert — rechne sie noch einmal nach oder lass dir die Lösung anzeigen.

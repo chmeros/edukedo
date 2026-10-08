@@ -16,6 +16,8 @@ export function handleTabListKeyDown(
   tabRefs: RefObject<(HTMLButtonElement | null)[]>,
   onSelect: (index: number) => void,
 ) {
+  // Review WRK-34: Tastenkombinationen mit Alt, Strg oder Meta (z. B. Alt+Pfeil = Browser zurück) gehören dem Browser.
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
   let nextIndex: number | null = null;
   if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % count;
   else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + count) % count;

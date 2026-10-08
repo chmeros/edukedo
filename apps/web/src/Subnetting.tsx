@@ -311,7 +311,7 @@ export function Subnetting({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-subnet-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-subnet-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-subnet-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}

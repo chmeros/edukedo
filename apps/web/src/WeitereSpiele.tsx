@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
@@ -389,7 +389,7 @@ export function BugHunt({ kursId, setKey, title, onClose }: SpielProps) {
         <Fortschrittszeile index={zeiger.index} total={aufgaben.length} titel={`${aufgabe.titel} (${aufgabe.sprache})`} />
         <p>{aufgabe.aufgabe}</p>
         <p className="field-hint">In genau einer Zeile steckt der Fehler. Tippe sie an.</p>
-        <pre className="code-block" aria-label={`Code, ${aufgabe.zeilen.length} Zeilen`}>
+        <pre className="code-block" role="group" aria-label={`Code, ${aufgabe.zeilen.length} Zeilen`}>
           {aufgabe.zeilen.map((text, index) => {
             const nummer = index + 1;
             let className = "code-line";
@@ -735,6 +735,17 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
     onSuccess: () => utils.game.getSprint.invalidate({ kursId, setKey, gameType }),
   });
 
+  // Review WRK-32: Tastaturfluss: nach dem Prüfen springt der Fokus auf "Weiter", nach "Weiter" zurück ins Eingabefeld
+  // (autoFocus wirkt nur beim ersten Einhängen, das Feld bleibt zwischen den Aufgaben stehen).
+  const eingabeRef = useRef<HTMLInputElement>(null);
+  const weiterRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (antwort.data) weiterRef.current?.focus();
+  }, [antwort.data]);
+  useEffect(() => {
+    if (aufgaben) eingabeRef.current?.focus();
+  }, [index, aufgaben]);
+
   if (info.isLoading) return <p>Lädt…</p>;
   if (info.error || !info.data) return <ErrorMessage>Das Spiel konnte nicht geladen werden.</ErrorMessage>;
 
@@ -811,10 +822,10 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
                 className="input sprint-input"
                 value={eingabe}
                 onChange={(event) => setEingabe(event.target.value)}
-                disabled={!!ergebnis}
+                readOnly={!!ergebnis}
+                ref={eingabeRef}
                 aria-label="Deine Antwort"
                 autoComplete="off"
-                autoFocus
               />
               <span className="field-hint">{aufgabe.hinweis}</span>
               {!ergebnis && (
@@ -830,7 +841,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
                   {ergebnis.correct ? "Richtig! " : `Nicht ganz — richtig wäre ${ergebnis.erwartet}. `}
                   {ergebnis.erklaerung}
                 </p>
-                <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={weiter}>
+                <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} ref={weiterRef} onClick={weiter}>
                   {index + 1 < aufgaben.length ? "Weiter" : "Ergebnis anzeigen"}
                 </button>
               </div>

@@ -48,7 +48,7 @@ export function Pruefungsvorbereitung({ kursId }: { kursId: string }) {
             role="tab"
             id={`tab-pruefung-${tab.id}`}
             aria-selected={mode === tab.id}
-            aria-controls={`panel-pruefung-${tab.id}`}
+            aria-controls={(mode === tab.id) ? `panel-pruefung-${tab.id}` : undefined}
             tabIndex={mode === tab.id ? 0 : -1}
             className={mode === tab.id ? "is-active" : ""}
             onClick={() => setMode(tab.id)}

@@ -38,9 +38,8 @@ export function KennzahlenDuell({ kursId, setKey, title, onClose }: { kursId: st
   const submit = trpc.game.submitKennzahlenDuellAntwort.useMutation({
     onSuccess: (result, variables) => {
       setFeedback({ nummer: variables.nummer, ausgewaehlt: variables.ausgewaehlt, correct: result.correct, feedback: result.feedback });
-      if (result.correct) {
-        utils.game.getKennzahlenDuell.invalidate({ kursId, setKey });
-      }
+      // Review WRK-31: Die Liste wird erst mit "Weiter" neu geladen. Vorher sprang die nächste Frage sofort ein, und die Rückmeldung
+      // zur richtigen Antwort verschwand, bevor man sie lesen konnte.
     },
   });
 
@@ -127,7 +126,7 @@ export function KennzahlenDuell({ kursId, setKey, title, onClose }: { kursId: st
                   key={option}
                   type="button"
                   className={className}
-                  disabled={submit.isPending}
+                  disabled={submit.isPending || (feedback?.nummer === naechsteFrage.nummer && feedback.correct)}
                   onClick={() => {
                     setFeedback(null);
                     submit.mutate({ kursId, setKey, nummer: naechsteFrage.nummer, ausgewaehlt: option });
@@ -142,6 +141,20 @@ export function KennzahlenDuell({ kursId, setKey, title, onClose }: { kursId: st
             <p role="status" className={feedback.correct ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
               {feedback.feedback}
             </p>
+          )}
+          {feedback?.nummer === naechsteFrage.nummer && feedback.correct && (
+            <button
+              type="button"
+              className="btn btn-primary"
+              style={{ alignSelf: "flex-start" }}
+              autoFocus
+              onClick={() => {
+                setFeedback(null);
+                utils.game.getKennzahlenDuell.invalidate({ kursId, setKey });
+              }}
+            >
+              Weiter
+            </button>
           )}
         </div>
       )}

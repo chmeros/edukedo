@@ -379,6 +379,10 @@ export function Kreuzwortraetsel({ kursId, setKey, title, onClose }: { kursId: s
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
           <div className="stack">
             <p className="field-hint">
+              {/* Review WRK-30: Die Lösungswörter sind normalisiert; die Längenangabe zählt die Normalform. */}
+              Umlaute werden als AE, OE und UE geschrieben, ß als SS; die Buchstabenzahl zählt so.
+            </p>
+            <p className="field-hint">
               {spiel.variant === "einfach"
                 ? `Alle ${spiel.woerter.length} Begriffe stehen zur Auswahl. Lies die Hinweise und ziehe die passenden Begriffe direkt ins Gitter. Jedes Rätsel wird neu zusammengestellt.`
                 : "Klicke einen Hinweis oder das zugehörige Wort im Gitter an und trage die Buchstaben direkt in die Felder ein. Jedes Rätsel wird neu zusammengestellt."}

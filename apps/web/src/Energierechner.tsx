@@ -398,14 +398,14 @@ function Ueben() {
       ))}
       {geprueft &&
         (anzahlRichtig === aufgabe.felder.length ? (
-          <div className="alert alert-success">
+          <div className="alert alert-success" role="status">
             <SuccessIcon />
             <div>
               Alles richtig — {aufgabe.felder.length} von {aufgabe.felder.length}.
             </div>
           </div>
         ) : (
-          <div className="alert alert-info">
+          <div className="alert alert-info" role="status">
             <InfoIcon />
             <div>
               {anzahlRichtig} von {aufgabe.felder.length} richtig. Falsche oder leere Felder sind mit ✗ markiert. Rechne sie noch einmal nach oder lass dir die Lösung mit Rechenweg anzeigen.
@@ -473,7 +473,7 @@ export function Energierechner({ onClose }: { onClose: () => void }) {
               role="tab"
               id={`tab-en-${eintrag.id}`}
               aria-selected={modus === eintrag.id}
-              aria-controls={`panel-en-${eintrag.id}`}
+              aria-controls={(modus === eintrag.id) ? `panel-en-${eintrag.id}` : undefined}
               tabIndex={modus === eintrag.id ? 0 : -1}
               className={modus === eintrag.id ? "is-active" : ""}
               onClick={() => setModus(eintrag.id)}
