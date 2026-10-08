@@ -29,7 +29,7 @@ VLAN  Zweck            Geräte
 99    Management       bis zu 10 Geräte (Switches, Access Points, Firewall)
 ```
 
-Zum Anschluss sind vorgesehen: 38 Arbeitsplätze, 6 Peripheriegeräte, 3 Server, 4 Access Points (PoE, je 20 Watt Reservierung am Switch), 2 Kameras (PoE, je 12 Watt Reservierung) und eine Verbindung zur Firewall. Die Switches sollen für die heutigen Geräte plus 25 % Reserve dimensioniert werden. Zwei Angebotsvarianten liegen vor:
+Zum Anschluss sind vorgesehen: 38 Arbeitsplätze, 6 Peripheriegeräte (darunter 2 Kameras mit PoE und je 12 Watt Reservierung), 3 Server, 4 Access Points (PoE, je 20 Watt Reservierung am Switch) und eine Verbindung zur Firewall. Die Switches sollen für die heutigen Geräte plus 25 % Reserve dimensioniert werden. Zwei Angebotsvarianten liegen vor:
 
 ```
 Modell  Ports            PoE                  PoE-Budget  SFP+-Uplinks  Preis je Gerät

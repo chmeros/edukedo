@@ -47,7 +47,7 @@ export const bugHuntSkripteKonfiguration: BugHuntPayload = {
       tipp: "Suche die Direktive, die steuert, ob ein Kennwort als Anmeldeverfahren akzeptiert wird. Welchen Wert hat sie hier, und welchen Wert verlangt die Vorgabe?",
       korrektur: "PasswordAuthentication no",
       erklaerung:
-        "PasswordAuthentication yes erlaubt die Anmeldung per Kennwort. Dann bleibt der Server für Brute-Force- und Wörterbuchangriffe auf Kennwörter offen, auch wenn Schlüssel erlaubt sind. Mit no werden nur noch Schlüssel akzeptiert. Wichtig ist die Reihenfolge der Arbeitsschritte: Erst prüfen, dass ein Schlüssel für die erlaubten Konten funktioniert, dann das Kennwortverfahren abschalten, sonst sperrt man sich selbst aus.",
+        "PasswordAuthentication yes erlaubt die Anmeldung per Kennwort. Dann bleibt der Server für Brute-Force- und Wörterbuchangriffe auf Kennwörter offen, auch wenn Schlüssel erlaubt sind. Mit no ist die Anmeldung per Kennwort abgeschaltet. (Ist in einer vollständigen Konfiguration zusätzlich Keyboard-Interactive mit PAM aktiv, muss auch KbdInteractiveAuthentication auf no stehen, damit wirklich nur Schlüssel gelten.) Wichtig ist die Reihenfolge der Arbeitsschritte: Erst prüfen, dass ein Schlüssel für die erlaubten Konten funktioniert, dann das Kennwortverfahren abschalten, sonst sperrt man sich selbst aus.",
     },
     {
       nummer: 3,

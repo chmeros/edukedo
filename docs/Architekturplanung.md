@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Systemintegration)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei Q-8.1-09 ändert sich der Typ von "Was passt nicht dazu" zu Multiple Choice (positive Frage nach der funktionalen Anforderung statt doppelter Verneinung); der Fortschritt bleibt am Item erhalten.
+
+- **Umgesetzt:** FL-SI-05 (K-10.1-16: Gruppenrichtlinie wird mit einem Container verknüpft), FL-SI-06 (Q-10.1-16: ACL-Zeile nur mit Stoff aus 10.1), FL-SI-07 (`set -u` schützt nur vor ungesetzten, nicht vor leeren Variablen; Theorie und K-11.1-17), FL-SI-08 (Q-9.1-14, Q-9.3-17 und Q-11.2-18: je eine Zuordnungszeile eindeutig gemacht), FL-SI-09 (nur Teil a: Q-9.4-16, Zeile Temperatur/Lüfter ersetzt), FL-SI-11 (nur Teil a: Bug-Hunt-Erklärung zu `PasswordAuthentication no`), FL-SI-12 (Kosten-Punkte der Nutzwertanalyse: A 4, B 3, C 3; Gesamtnutzwerte 3,70 / 3,80 / 3,95, Empfehlung C bleibt knapp vorn), FL-SI-13 (nur Teil a: Kameras sind in den Peripheriegeräten enthalten), FL-SI-16 (Q-8.4-14: Testmigration ist eigene Phase), FL-SI-17 (Q-8.1-09 und Q-10.3-12), FL-SI-20 (Wiedergabefragen zu RTO/RPO nicht "schwer").
+- **Nicht geändert:** FL-SI-01 (Mischen der Optionen ist bereits umgesetzt; Wahr/Falsch-Verteilung und Distraktoren-Längen sind ein Umbau), FL-SI-02, 03, 04, 14 (fehlende Theorie und neue Inhalte: R3, R5), FL-SI-10, 15, 18, 19, 21, 22, 23 (mehrdeutig, Umbau oder Spielinhalte mit Einordnungsfragen), die Teile b bis e von FL-SI-09, 11 und 13 sowie alle rechtsnahen Befunde (R4). Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Industriefachwirt)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei zehn Items ändert sich die Lösung durch gestrichene oder ergänzte Zeilen bzw. Antwortvarianten (Q-1.1-03, Q-2.2-04, Q-4.3-15, Q-6.2-10, Q-6.3-06, Q-7.2-03, Q-7.3-04, Q-8.1-13, Q-9.1-03, Q-9.2-01); der Fortschritt bleibt erhalten.
