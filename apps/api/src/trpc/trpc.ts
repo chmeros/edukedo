@@ -1,9 +1,19 @@
 import type { UserRole } from "@edukedo/shared";
 import { TRPCError, initTRPC } from "@trpc/server";
+import { ZodError } from "zod";
 import { hasRole } from "../auth/roles";
 import type { Context } from "./context";
+import { zodIssuesDe } from "./zod-messages";
 
-const t = initTRPC.context<Context>().create();
+const t = initTRPC.context<Context>().create({
+  // Review UXL-08/WEB-14: verständliche deutsche Meldung statt des rohen Zod-Arrays. Die Einzelheiten bleiben in `data.zodIssues`.
+  errorFormatter({ shape, error }) {
+    if (error.code === "BAD_REQUEST" && error.cause instanceof ZodError) {
+      return { ...shape, message: zodIssuesDe(error.cause.issues), data: { ...shape.data, zodIssues: error.cause.issues } };
+    }
+    return shape;
+  },
+});
 
 export const router = t.router;
 export const middleware = t.middleware;

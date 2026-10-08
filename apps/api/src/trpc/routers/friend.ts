@@ -123,7 +123,8 @@ export const friendRouter = router({
     const [foundCode] = await ctx.db.select().from(inviteCode).where(eq(inviteCode.code, normalizedCode)).limit(1);
 
     if (!foundCode) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig." });
+      // Review UXL-09: die drei Code-Arten (Freunde, Kohorte, Unternehmen) sehen gleich aus; der Hinweis nennt, wo welcher gehört.
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig. Codes für Kohorten gibst du unter „Kohorte beitreten“ ein, Unternehmenscodes in den Einstellungen." });
     }
     if (foundCode.expiresAt.getTime() < Date.now()) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Dieser Einladungscode ist abgelaufen." });

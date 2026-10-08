@@ -146,7 +146,7 @@ export const cohortRouter = router({
     const normalizedCode = input.code.trim().toUpperCase();
     const [foundCohort] = await ctx.db.select().from(cohort).where(eq(cohort.joinCode, normalizedCode)).limit(1);
     if (!foundCohort) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Beitritts-Code ist ungültig." });
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Beitritts-Code ist ungültig. Einladungscodes für den Freundeskreis löst du im Bereich „Freundeskreis“ unter „Code einlösen“ ein." });
     }
     if (foundCohort.dozentUserId === ctx.currentUser.id) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Du bist bereits Dozent:in dieser Kohorte." });

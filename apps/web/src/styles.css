@@ -17,6 +17,7 @@
   --coral-deep: #e0502f;
   --sun: #ffc23c;
   --sun-tint: #fff1d2;
+  --sun-text: #8a5a00; /* Textfarbe auf --card, 5,9:1 (--sun selbst nur 1,6:1, nur für Flächen) */
   --danger: #d6473f;
   --danger-deep: #b93b34;
   --danger-tint: #fbe3e1;
@@ -76,6 +77,7 @@
     --coral-deep: #ffa98f;
     --sun: #ffd166;
     --sun-tint: #3a2e12;
+  --sun-text: #ffd166;
     --danger: #ff8078;
     --danger-deep: #ffa9a3;
     --danger-tint: #3a1917;
@@ -104,6 +106,7 @@
   --coral-deep: #ffa98f;
   --sun: #ffd166;
   --sun-tint: #3a2e12;
+  --sun-text: #ffd166;
   --danger: #ff8078;
   --danger-deep: #ffa9a3;
   --danger-tint: #3a1917;
@@ -629,7 +632,7 @@ a {
 }
 
 .link-danger {
-  color: var(--danger);
+  color: var(--danger-deep);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -642,7 +645,7 @@ a {
   align-self: flex-start;
   cursor: pointer;
   font: inherit;
-  color: var(--danger);
+  color: var(--danger-deep);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -1391,12 +1394,12 @@ details[open] > summary.disclosure::before {
 }
 
 .rate-row button.again {
-  color: var(--danger);
+  color: var(--danger-deep);
   border-color: color-mix(in srgb, var(--danger) 35%, var(--line));
 }
 
 .rate-row button.hard {
-  color: var(--sun);
+  color: var(--sun-text);
   border-color: color-mix(in srgb, var(--sun) 45%, var(--line));
 }
 

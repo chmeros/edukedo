@@ -403,7 +403,10 @@ export const companyRouter = router({
       .limit(1);
 
     if (!foundCode) {
-      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig." });
+      throw new TRPCError({
+        code: "NOT_FOUND",
+        message: "Dieser Einladungscode ist ungültig. Codes für den Freundeskreis oder eine Kohorte gibst du im Bereich „Gaming“ ein.",
+      });
     }
     if (foundCode.expiresAt && foundCode.expiresAt.getTime() < Date.now()) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Dieser Einladungscode ist abgelaufen." });

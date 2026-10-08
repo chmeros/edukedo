@@ -226,8 +226,8 @@ export function FriendCircle({ kursId }: { kursId: string }) {
         className="stack"
         onSubmit={(event) => {
           event.preventDefault();
-          redeem.mutate({ code });
-          setCode("");
+          // Review UXL-09: Das Feld bleibt bei einem Fehler gefüllt, ein Tippfehler lässt sich so korrigieren.
+          redeem.mutate({ code }, { onSuccess: () => setCode("") });
         }}
       >
         {/* Redesign-Audit 17.09.2026: eigene stat-subheading ergänzt — vorher war dies der

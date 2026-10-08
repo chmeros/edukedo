@@ -171,8 +171,8 @@ export function Kohorte({ kursId }: { kursId: string }) {
         className="stack"
         onSubmit={(event) => {
           event.preventDefault();
-          join.mutate({ code: joinCode });
-          setJoinCode("");
+          // Review UXL-09: Das Feld bleibt bei einem Fehler gefüllt, ein Tippfehler lässt sich so korrigieren.
+          join.mutate({ code: joinCode }, { onSuccess: () => setJoinCode("") });
         }}
       >
         <span className="stat-subheading">Kohorte beitreten</span>

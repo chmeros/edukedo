@@ -480,6 +480,14 @@ export function App() {
                   </div>
                   </ErrorBoundary>
                 </>
+              ) : courses.isError ? (
+                // Review WEB-07: Ein Ladefehler soll nicht dauerhaft als "Lädt…" erscheinen.
+                <div className="stack">
+                  <ErrorMessage>Deine Kurse konnten nicht geladen werden. Bitte prüfe deine Verbindung.</ErrorMessage>
+                  <button type="button" className="btn btn-primary btn-sm" style={{ alignSelf: "flex-start" }} onClick={() => courses.refetch()}>
+                    Erneut versuchen
+                  </button>
+                </div>
               ) : (
                 <p>Lädt…</p>
               )}
@@ -614,7 +622,7 @@ export function App() {
               <label htmlFor="auth-email">E-Mail</label>
               <input
                 className="input"
-                id="auth-email"
+                id="auth-email" autoComplete={mode === "login" ? "username" : "email"}
                 type="email"
                 placeholder="du@beispiel.de"
                 value={email}
@@ -626,7 +634,7 @@ export function App() {
               <label htmlFor="auth-pw">Passwort</label>
               <input
                 className="input"
-                id="auth-pw"
+                id="auth-pw" autoComplete={mode === "login" ? "current-password" : "new-password"}
                 type="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}

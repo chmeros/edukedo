@@ -568,6 +568,19 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Web-Feinschliff aus den Werkzeug- und Lehrkraft-Reviews, laufende Abarbeitung WRK/UXL/WEB)
+
+Die übrigen Befunde aus code-web-kern.md (WEB), code-web-werkzeuge.md (WRK) und usability-lehrkraft-verwaltung.md (UXL) werden in kleinen Paketen abgearbeitet; jedes Paket steht hier als eigener Punkt. Was nicht aufgeführt ist, ist noch offen (Stand je Paket im Gesamtbericht).
+
+- **Paket 1: Fehlermeldungen, Eingabefelder, Kontraste.**
+  - **Deutsche Validierungsmeldungen (UXL-08, WEB-14):** Das Fehlerformat von tRPC (apps/api/src/trpc/trpc.ts) ersetzt die rohe Zod-Meldung für `BAD_REQUEST` durch kurze deutsche Sätze (trpc/zod-messages.ts, z. B. "Bitte gib eine gültige E-Mail-Adresse ein. Das Passwort ist zu kurz (mindestens 8 Zeichen)."). Eigene deutsche Meldungen der Schemas bleiben unverändert; die Einzelheiten bleiben maschinenlesbar in `data.zodIssues`. Wirkt an allen Formularen zugleich, ohne dass jede Stelle angefasst werden muss.
+  - **Code-Felder (UXL-09, WEB-37):** Das Feld für Freundes- und Kohorten-Code wird nur bei Erfolg geleert (ein Tippfehler lässt sich korrigieren). Die Fehlermeldungen bei unbekanntem Code nennen, wo welcher Code gehört (Freundeskreis, Kohorte, Unternehmen).
+  - **Skalierungsrechner (WRK-01):** "(außerhalb des Nennbereichs)" richtet sich jetzt nach dem Signalbereich (0 bis 10 V bzw. 4 bis 20 mA); bei 0 bis 10 V erschien die Meldung vorher immer.
+  - **Kontraste (WEB-09, WEB-40):** Neues Token `--sun-text` (5,9:1 auf Weiß; `--sun` selbst bleibt nur für Flächen, 1,6:1) für die Schaltfläche "Mittel"; "Schwer" und die roten Textlinks (Konto löschen u. a.) nutzen `--danger-deep` (5,6:1 statt 4,35:1).
+  - **Anmeldefelder (WEB-32):** `autoComplete` (`username`, `current-password`, `new-password`, `email`) in Anmeldung, Registrierung, Eltern- und Unternehmensformularen. Ein Schalter zum Anzeigen des Passworts fehlt weiterhin.
+  - **Fehlerzustände (WEB-06, WEB-07):** Schlägt die Bewertung einer Karteikarte fehl, erscheint eine Meldung und die Karte gilt nicht als bewertet (der nächste Versuch geht nicht fälschlich an `changeReview`). Schlägt `courses.list` fehl, zeigt die App eine Meldung mit "Erneut versuchen" statt dauerhaft "Lädt…".
+  - **Tests:** apps/api/src/trpc/zod-messages.test.ts (3); API-Gesamtlauf grün (93 Dateien, 795 Tests), Web-Typprüfung und ESLint sauber.
+
 ### Entschieden am 08.10.2026 (Fortschritt, Credits und Prüfungssimulation, Review-Punkt B12)
 
 Drei Befunde des Lernlogik-Reviews (LOG-02, LOG-04, LOG-06), je einzeln committet.

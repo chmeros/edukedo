@@ -6,6 +6,7 @@ import { NachlesenButton, themaAngaben } from "./TheorieReader";
 import { FlashcardAnswer } from "./FlashcardAnswer";
 import { ContentActions } from "./ContentActions";
 import { FlashcardSelection } from "./FlashcardSelection";
+import { ErrorMessage } from "./ErrorMessage";
 import { FlipCard } from "./FlipCard";
 import { InfoIcon, StarIcon, SuccessIcon } from "./Icons";
 import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
@@ -279,8 +280,21 @@ export function Flashcards({
       if (alreadyRated) {
         changeReview.mutate({ contentItemId: current!.id, result });
       } else {
-        submitReview.mutate({ contentItemId: current!.id, result });
-        setRatedThisSession((existing) => new Set(existing).add(current!.id));
+        const itemId = current!.id;
+        // Review WEB-06: Schlägt die erste Bewertung fehl, gilt die Karte nicht als bewertet (sonst ginge der nächste Versuch
+        // fälschlich an changeReview), und die Fehlermeldung unter den Schaltflächen erklärt, dass nichts gespeichert wurde.
+        submitReview.mutate(
+          { contentItemId: itemId, result },
+          {
+            onError: () =>
+              setRatedThisSession((existing) => {
+                const rest = new Set(existing);
+                rest.delete(itemId);
+                return rest;
+              }),
+          },
+        );
+        setRatedThisSession((existing) => new Set(existing).add(itemId));
       }
     } else {
       if (offlineSaving) return;
@@ -419,6 +433,9 @@ export function Flashcards({
             Einfach
           </button>
         </div>
+      )}
+      {(submitReview.error ?? changeReview.error) && (
+        <ErrorMessage>Die letzte Bewertung wurde nicht gespeichert ({(submitReview.error ?? changeReview.error)!.message}). Die Karte bleibt fällig und kommt erneut.</ErrorMessage>
       )}
       <div className="list-row-actions" style={{ justifyContent: "center" }}>
         <button

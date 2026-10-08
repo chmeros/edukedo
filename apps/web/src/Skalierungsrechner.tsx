@@ -125,7 +125,7 @@ function Analog() {
               <b>Messwert: {zahl(messwert)} {einheit}</b> {pruefung && pruefung.status !== "ok" && <span className="field-hint">(rechnerisch, aber nicht plausibel)</span>}
             </p>
             <p>
-              Anteil im Signalbereich: {zahl(anteil, 1)} %{signal === "ma" && w >= 4 && w <= 20 ? "" : " (außerhalb des Nennbereichs)"}
+              Anteil im Signalbereich: {zahl(anteil, 1)} %{w >= signalMin && w <= signalMax ? "" : " (außerhalb des Nennbereichs)"}
             </p>
             <p className="field-hint">
               Rechenweg: Messwert = {zahl(messMin, 2)} + ({zahl(w, 2)} − {signalMin}) ÷ {signalMax - signalMin} × ({zahl(messMax, 2)} − {zahl(messMin, 2)}) = {zahl(messwert, 3)}.

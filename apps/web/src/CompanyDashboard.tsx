@@ -36,7 +36,7 @@ function SetInitialPasswordForm() {
         <label htmlFor="cd-pw1">Neues Passwort</label>
         <input
           className="input"
-          id="cd-pw1"
+          id="cd-pw1" autoComplete="new-password"
           type="password"
           value={password}
           onChange={(event) => setPasswordValue(event.target.value)}
@@ -48,7 +48,7 @@ function SetInitialPasswordForm() {
         <label htmlFor="cd-pw2">Passwort wiederholen</label>
         <input
           className="input"
-          id="cd-pw2"
+          id="cd-pw2" autoComplete="new-password"
           type="password"
           value={passwordRepeat}
           onChange={(event) => setPasswordRepeat(event.target.value)}
@@ -335,13 +335,13 @@ function LoginForm() {
     >
       <div className="field">
         <label htmlFor="cd-email">E-Mail</label>
-        <input className="input" id="cd-email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+        <input className="input" id="cd-email" autoComplete="username" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
       </div>
       <div className="field">
         <label htmlFor="cd-login-pw">Passwort</label>
         <input
           className="input"
-          id="cd-login-pw"
+          id="cd-login-pw" autoComplete="current-password"
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
