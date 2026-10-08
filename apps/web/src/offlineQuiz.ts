@@ -25,10 +25,14 @@ export async function loadOfflineQuizRound(
   kursId: string,
   themaId: string | undefined,
   count: number = DEFAULT_QUIZ_ROUND_SIZE,
+  itemType?: string,
 ): Promise<OfflineQuizRound> {
   const all = await offlineDb.content.where("kursId").equals(kursId).toArray();
   const filtered = all.filter(
-    (item) => (QUIZ_TYPES as readonly string[]).includes(item.type) && (!themaId || item.themaId === themaId),
+    (item) =>
+      (QUIZ_TYPES as readonly string[]).includes(item.type) &&
+      (!themaId || item.themaId === themaId) &&
+      (!itemType || item.type === itemType),
   );
   const raw = shuffle(filtered).slice(0, count);
   const shaped = raw.map((item) => shapeQuizItem(item, item.options));

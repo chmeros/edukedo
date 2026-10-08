@@ -110,6 +110,7 @@ import {
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
 import { InstrumentLernpfad } from "./InstrumentLernpfad";
+import { Quiz } from "./Quiz";
 import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
 import { Handelskalkulation } from "./Handelskalkulation";
 import { Unterweisungsplaner } from "./Unterweisungsplaner";
@@ -145,8 +146,8 @@ import { trpc } from "./trpc";
  * eigenständig wertvoll bleiben, nur nicht mehr der einzige Inhalt des Tabs). Die acht
  * Instrumente sind hier bewusst als STATISCHE Liste hinterlegt (keine eigene DB-Tabelle nötig —
  * es handelt sich um eine feste, im Code bekannte Menge fachlicher Modelle, keine
- * content-autorierte Sammlung), `content.instruments` liefert nur, WOHIN "Zu diesem Instrument
- * lernen" je Kurs springt (kursspezifisch: der Mathe-Kurs hat andere Instrumente mit Content
+ * content-autorierte Sammlung), `content.instruments` liefert nur, OB "Fragen zu diesem Instrument
+ * üben" je Kurs angeboten wird (Review B8: Übungsrunde nur mit den Fragen dieses Instruments) (kursspezifisch: der Mathe-Kurs hat andere Instrumente mit Content
  * hinterlegt als der Fachwirt-Kurs). Der Lernpfad "erst Wissenstest per Quiz, danach Anwendung am
  * Instrument" steckt nicht in einer eigenen Sequenzierung, sondern darin, dass das verlinkte
  * Thema sowohl gewöhnliche Wissensfragen als auch die Zonen-/Baum-Zuordnungsfrage des Instruments
@@ -840,11 +841,9 @@ const INSTRUMENT_CATALOG = [
 export function Instrumente({
   kursId,
   instrumentLernpfadeEnabled,
-  onGoToThema,
 }: {
   kursId: string;
   instrumentLernpfadeEnabled: boolean;
-  onGoToThema: (themaId: string, themaTitle: string) => void;
 }) {
   const instruments = trpc.content.instruments.useQuery({ kursId });
   // F-129/F-130/F-131: welche Instrumente zusätzlich einen geführten Lernpfad haben — unabhängig
@@ -852,6 +851,8 @@ export function Instrumente({
   // siehe F-105-Abgrenzung im Anforderungskatalog).
   const lernpfade = trpc.instrumentLernpfad.available.useQuery({ kursId });
   const [activeLernpfad, setActiveLernpfad] = useState<string | null>(null);
+  // Review B8: Übungsrunde nur mit den Fragen genau dieses Instruments (statt einer gemischten Themenrunde).
+  const [activeRunde, setActiveRunde] = useState<{ type: string; label: string } | null>(null);
   // F-163: Übungswerkzeuge ohne Content (Netzplan) — Freischaltung je Kurs über courses.list.
   const courses = trpc.courses.list.useQuery();
   const kurs = courses.data?.find((course) => course.id === kursId);
@@ -944,6 +945,20 @@ export function Instrumente({
     return <FlagRaetsel onClose={() => setActiveWerkzeug(null)} erlaubt={szenarien.flags} />;
   }
 
+  if (activeRunde) {
+    return (
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>{activeRunde.label}: Fragen üben</h2>
+          <button type="button" className="link-muted-btn" onClick={() => setActiveRunde(null)}>
+            ← Zurück zum Werkzeugkasten
+          </button>
+        </div>
+        <Quiz key={activeRunde.type} kursId={kursId} itemType={activeRunde.type} />
+      </div>
+    );
+  }
+
   if (activeLernpfad) {
     return (
       <InstrumentLernpfad
@@ -976,9 +991,9 @@ export function Instrumente({
               <button
                 type="button"
                 className="btn btn-secondary btn-sm"
-                onClick={() => onGoToThema(target.themaId, target.themaTitle)}
+                onClick={() => setActiveRunde({ type: instrument.type, label: instrument.label })}
               >
-                Zu diesem Instrument lernen
+                Fragen zu diesem Instrument üben
               </button>
             )}
             {lernpfad &&

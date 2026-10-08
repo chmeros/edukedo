@@ -70,6 +70,10 @@ export const quizRouter = router({
     if (input.themaId) {
       conditions.push(eq(thema.id, input.themaId));
     }
+    // Review B8: Runde zu genau einem Inhaltstyp (Instrument); der Typ bleibt auf die oben zugelassenen Quiztypen beschränkt.
+    if (input.itemType) {
+      conditions.push(eq(contentItem.type, input.itemType));
+    }
 
     const items = await ctx.db
       .select({

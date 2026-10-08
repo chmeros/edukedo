@@ -424,10 +424,6 @@ export function App() {
                           key={`${activeKursId}-instrumente`}
                           kursId={activeKursId}
                           instrumentLernpfadeEnabled={me.data.isPremiumActive}
-                          onGoToThema={(themaId, themaTitle) => {
-                            setActiveThema({ id: themaId, title: themaTitle });
-                            setLearningMode("lernen");
-                          }}
                         />
                         <Suche
                           key={`${activeKursId}-suche`}

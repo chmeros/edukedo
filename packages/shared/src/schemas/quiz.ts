@@ -8,6 +8,11 @@ import { z } from "zod";
 export const quizItemsInputSchema = z.object({
   kursId: z.string().uuid(),
   themaId: z.string().uuid().optional(),
+  /**
+   * Review B8: nur Fragen dieses Inhaltstyps (z. B. "swot" für eine Runde zu genau einem Instrument). Statt einer Themenrunde, in
+   * der mehrere Instrumente und gewöhnliche Fragen gemischt sind.
+   */
+  itemType: z.string().min(1).max(40).optional(),
   count: z.number().int().min(1).max(50).default(20),
 });
 export type QuizItemsInput = z.infer<typeof quizItemsInputSchema>;

@@ -28,11 +28,14 @@ export function Quiz({
   themaId,
   themaTitle,
   onClearThema,
+  itemType,
 }: {
   kursId: string;
   themaId?: string;
   themaTitle?: string;
   onClearThema?: () => void;
+  /** Review B8: Runde nur zu einem Inhaltstyp, z. B. einem einzelnen Instrument (Tab "Instrumente"). */
+  itemType?: string;
 }) {
   const online = useOnlineStatus();
   const utils = trpc.useUtils();
@@ -62,7 +65,7 @@ export function Quiz({
   // F-22: frei wählbare Rundengröße statt fest 20 — siehe QuizCountControl.
   const [questionCount, setQuestionCount] = useState(DEFAULT_QUIZ_ROUND_SIZE);
   const quizItemsQuery = trpc.quiz.quizItems.useQuery(
-    { kursId, themaId, count: questionCount },
+    { kursId, themaId, itemType, count: questionCount },
     { staleTime: Infinity, enabled: online },
   );
   const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
@@ -108,13 +111,13 @@ export function Quiz({
       return;
     }
     let cancelled = false;
-    loadOfflineQuizRound(kursId, themaId, questionCount).then((round) => {
+    loadOfflineQuizRound(kursId, themaId, questionCount, itemType).then((round) => {
       if (!cancelled) setOfflineRound(round);
     });
     return () => {
       cancelled = true;
     };
-  }, [online, kursId, themaId, questionCount]);
+  }, [online, kursId, themaId, questionCount, itemType]);
 
   const [index, setIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);

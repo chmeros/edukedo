@@ -346,6 +346,34 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
   );
 
   it(
+    "Review B8: liefert mit itemType nur Fragen dieses Instrumenttyps, kein Typ außerhalb der Quiztypen und keine Fremdfragen",
+    async () => {
+      const abfrage = (input: Record<string, unknown>) =>
+        app.inject({
+          method: "GET",
+          url: `/api/v1/trpc/quiz.quizItems?input=${encodeURIComponent(JSON.stringify({ kursId, ...input }))}`,
+          headers: { cookie: sessionCookie },
+        });
+
+      // Im Büro-Kurs gibt es Zonenfragen zu mehreren Instrumenten, hier "swot" und "gantt" als Beispiel.
+      const swot = await abfrage({ itemType: "swot", count: 50 });
+      expect(swot.statusCode).toBe(200);
+      const swotItems = swot.json().result.data as { type: string }[];
+      expect(swotItems.length).toBeGreaterThan(0);
+      expect(swotItems.every((item) => item.type === "swot")).toBe(true);
+
+      const gantt = await abfrage({ itemType: "gantt", count: 50 });
+      const ganttItems = gantt.json().result.data as { type: string }[];
+      expect(ganttItems.every((item) => item.type === "gantt")).toBe(true);
+
+      // Kein Weg an den zugelassenen Quiztypen vorbei: Karteikarten und Theorie liefern nichts.
+      expect((await abfrage({ itemType: "karteikarte" })).json().result.data).toEqual([]);
+      expect((await abfrage({ itemType: "theorie" })).json().result.data).toEqual([]);
+    },
+    30_000,
+  );
+
+  it(
     "F-104: setzt die Lernmodus-Präferenz, lehnt aber die Kombination 'beide aus' ab",
     async () => {
       const meBefore = await app.inject({
