@@ -113,6 +113,9 @@ pnpm install
 docker compose up -d   # im Repo-Root: startet lokale Postgres+Redis-Instanzen
 pnpm db:migrate
 pnpm db:seed            # legt einen Demo-Kurs mit Platzhalter-Karteikarten und -Quizfragen an (kein echter Content)
+pnpm db:validate-content  # prüft content/ ohne Datenbank (Pflichtfelder, eindeutige Themen und IDs)
+pnpm db:import-content --dry-run  # zeigt, was der Import ändern würde (ohne --dry-run: gleicht ab, löscht keine Items)
+pnpm db:purge-inactive  # Trockenlauf: deaktivierte Items ohne Nutzerbezug, die nicht mehr im Markdown stehen
 pnpm db:import-content  # importiert den echten Content (Fachwirt HB3 + Mathematik-9) aus content/ (Repo-Root)
 pnpm db:export-content  # F-17: schreibt den DB-Content zurück ins Zwischenformat nach content-export/ (Backup/Diff, kein Ersatz für content/)
 pnpm content:scaffold -- new-thema <kurs_slug> <fachgebiet_code> <thema_code> <ziel-datei>  # F-17: neue Thema-Datei-Vorlage

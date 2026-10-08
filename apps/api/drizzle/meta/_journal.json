@@ -309,6 +309,13 @@
       "when": 1791443050617,
       "tag": "0043_content_source_keys",
       "breakpoints": true
+    },
+    {
+      "idx": 44,
+      "version": "7",
+      "when": 1791449377328,
+      "tag": "0044_lerndaten_restrict",
+      "breakpoints": true
     }
   ]
 }

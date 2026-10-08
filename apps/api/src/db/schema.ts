@@ -399,7 +399,10 @@ export const userProgress = pgTable(
       .references(() => user.id, { onDelete: "cascade" }),
     contentItemId: uuid("content_item_id")
       .notNull()
-      .references(() => contentItem.id, { onDelete: "cascade" }),
+    // Seit 08.10.2026 RESTRICT statt CASCADE (Entwurf docs/entwuerfe/sicherer-content-import.md, Schritt 7): Ein Content-Item mit
+    // Lerndaten lässt sich nicht mehr versehentlich löschen; entfernte Items werden deaktiviert, `db:purge-inactive` löscht nur
+    // Items ohne Nutzerbezug.
+      .references(() => contentItem.id, { onDelete: "restrict" }),
     difficulty: real("difficulty").notNull(),
     stability: real("stability").notNull(),
     state: text("state").notNull(),
@@ -442,7 +445,10 @@ export const userNote = pgTable(
       .references(() => user.id, { onDelete: "cascade" }),
     contentItemId: uuid("content_item_id")
       .notNull()
-      .references(() => contentItem.id, { onDelete: "cascade" }),
+    // Seit 08.10.2026 RESTRICT statt CASCADE (Entwurf docs/entwuerfe/sicherer-content-import.md, Schritt 7): Ein Content-Item mit
+    // Lerndaten lässt sich nicht mehr versehentlich löschen; entfernte Items werden deaktiviert, `db:purge-inactive` löscht nur
+    // Items ohne Nutzerbezug.
+      .references(() => contentItem.id, { onDelete: "restrict" }),
     noteText: text("note_text").notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
@@ -473,7 +479,8 @@ export const learningEvent = pgTable(
     // nullable statt weiterhin NOT NULL, damit dieselbe Zeile auch ein Spiel-Ereignis (siehe
     // game_item_key unten) statt eines echten content_item repräsentieren kann — genau eine der
     // beiden Spalten ist über den CHECK unten gesetzt.
-    contentItemId: uuid("content_item_id").references(() => contentItem.id, { onDelete: "cascade" }),
+    // Seit 08.10.2026 RESTRICT statt CASCADE, siehe user_progress.
+    contentItemId: uuid("content_item_id").references(() => contentItem.id, { onDelete: "restrict" }),
     // Stabile Kennung eines Spiel-Elements (z. B. "kreuzwortraetsel:<kursId>:<wortNummer>").
     // SEIT 06.10.2026 WIRD DIESE SPALTE NICHT MEHR BESCHRIEBEN: Spiele erzeugen keine Belohnung und keinen
     // Fortschritt mehr (Fortschritt entsteht ausschließlich im Lernen-Tab, siehe Architekturplanung

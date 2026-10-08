@@ -92,7 +92,8 @@ export interface ContentValidationReport {
 
 const GLOSSAR_DATEINAME = "glossar.md";
 
-async function listMarkdownFiles(dir: string): Promise<string[]> {
+/** Alle Themendateien unterhalb von `dir` (ohne `glossar.md`), sortiert. */
+export async function listMarkdownFiles(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
   const nested = await Promise.all(
     entries.map(async (entry) => {
