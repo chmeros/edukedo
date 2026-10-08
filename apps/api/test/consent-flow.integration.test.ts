@@ -202,6 +202,27 @@ describe("End-to-End: Eltern-Consent-Flow", () => {
     expect(loginResponse.json().result.data.email).toBe(parentEmail);
   });
 
+  it("Review SEC-03: der Bestätigungslink verschafft nach dem Setzen des Passworts keine Session mehr", async () => {
+    const reopen = await app.inject({ method: "POST", url: "/api/v1/trpc/consent.confirm", payload: { token: confirmToken } });
+    expect(reopen.statusCode).toBe(200);
+    expect(reopen.json().result.data).toEqual({ status: "already_confirmed", passwordSet: true });
+    expect(reopen.headers["set-cookie"]).toBeUndefined();
+  });
+
+  it("Review SEC-03: ein abgelaufener Link verschafft auch bei noch nicht gesetztem Passwort keine Session", async () => {
+    await db.update(schema.parent).set({ passwordSet: false }).where(eq(schema.parent.email, parentEmail));
+    await db.update(schema.consentToken).set({ expiresAt: new Date(Date.now() - 1000) });
+    try {
+      const expired = await app.inject({ method: "POST", url: "/api/v1/trpc/consent.confirm", payload: { token: confirmToken } });
+      expect(expired.statusCode).toBe(400);
+      expect(expired.json().error.message).toContain("abgelaufen");
+      expect(expired.headers["set-cookie"]).toBeUndefined();
+    } finally {
+      await db.update(schema.parent).set({ passwordSet: true }).where(eq(schema.parent.email, parentEmail));
+      await db.update(schema.consentToken).set({ expiresAt: new Date(Date.now() + 86_400_000) });
+    }
+  });
+
   /**
    * F-90/F-66 (Code-Review-Fund vom 22.09.2026, umgesetzt am 23.09.2026, siehe
    * Architekturplanung Abschnitt 13): granulare Berechtigung — vor der Freigabe sind

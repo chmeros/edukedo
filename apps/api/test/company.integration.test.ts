@@ -207,6 +207,53 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
     });
   });
 
+  describe("Setup-Link (Review SEC-03/SOZ-06)", () => {
+    // Dynamisch importiert: company-setup.ts lädt env.ts, das erst nach dem Start des Testcontainers gelesen werden darf.
+    async function createCompanyAccountWithSetup(...args: Parameters<typeof import("../src/auth/company-setup").createCompanyAccount>) {
+      const { createCompanyAccount: create } = await import("../src/auth/company-setup");
+      return create(...args);
+    }
+
+    function confirmSetup(token: string) {
+      return app.inject({ method: "POST", url: "/api/v1/trpc/company.confirmSetup", payload: { token } });
+    }
+
+    it("gibt dem Setup-Link nur bis zur Passwortvergabe eine Session; danach führt er nur noch zur Anmeldung", async () => {
+      const { setupUrl } = await createCompanyAccountWithSetup(db, { name: "Setup GmbH", contactEmail: "setup-link@example.com", seatLimit: 10 });
+      const token = new URL(setupUrl).searchParams.get("token")!;
+
+      const first = await confirmSetup(token);
+      expect(first.statusCode).toBe(200);
+      expect(first.json().result.data.status).toBe("confirmed");
+      const cookie = extractSessionCookie(first.headers["set-cookie"]);
+
+      const setPassword = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/company.setInitialPassword",
+        headers: { cookie },
+        payload: { password: "Demo1234!" },
+      });
+      expect(setPassword.statusCode).toBe(200);
+
+      // Früher gab der Link hier eine Session ohne Passwort aus (dauerhafter Zugang).
+      const reopen = await confirmSetup(token);
+      expect(reopen.statusCode).toBe(200);
+      expect(reopen.json().result.data.status).toBe("already_confirmed");
+      expect(reopen.headers["set-cookie"]).toBeUndefined();
+    });
+
+    it("lehnt einen abgelaufenen Setup-Link ab, solange kein Passwort gesetzt ist", async () => {
+      const { id, setupUrl } = await createCompanyAccountWithSetup(db, { name: "Abgelaufen GmbH", contactEmail: "setup-expired@example.com", seatLimit: 10 });
+      const token = new URL(setupUrl).searchParams.get("token")!;
+      await db.update(schema.companySetupToken).set({ expiresAt: new Date(Date.now() - 1000) }).where(eq(schema.companySetupToken.companyAccountId, id));
+
+      const expired = await confirmSetup(token);
+      expect(expired.statusCode).toBe(400);
+      expect(expired.json().error.message).toContain("abgelaufen");
+      expect(expired.headers["set-cookie"]).toBeUndefined();
+    });
+  });
+
   describe("Lizenzkontingent (F-91 Baustein 2)", () => {
     async function createInviteCode(cookie: string): Promise<string> {
       const response = await app.inject({

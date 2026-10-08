@@ -47,10 +47,18 @@ export const consentRouter = router({
     }
 
     if (linkRow.consentStatus === "confirmed") {
-      // F-90: Auch beim erneuten Öffnen eines bereits benutzten Bestätigungslinks bekommt
-      // das Elternteil eine Session — bequemer Einstieg ins Eltern-Dashboard, ohne dass der
-      // Link dafür ein zweites Mal "gültig" sein müsste (die Einwilligung selbst ändert sich
-      // dadurch nicht).
+      // Review-Befund SEC-03: Der Link darf kein dauerhafter Zugang sein. Er verschafft nur so lange eine Session, wie das
+      // Elternteil noch kein Passwort gesetzt hat (Einstieg zum Passwort setzen, F-90) und der Link nicht abgelaufen ist.
+      // Danach gilt die Anmeldung mit E-Mail und Passwort; die Einwilligung selbst ändert sich nie.
+      if (parentRow.passwordSet) {
+        return { status: "already_confirmed" as const, passwordSet: true };
+      }
+      if (tokenRow.expiresAt.getTime() < Date.now()) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Dieser Bestätigungslink ist abgelaufen. Die Einwilligung wurde bereits bestätigt; bitte wende dich an den Support.",
+        });
+      }
       const { token, expiresAt } = await createSession(ctx.db, { parentId: parentRow.id });
       setSessionCookie(ctx.res, token, expiresAt);
       return { status: "already_confirmed" as const, passwordSet: parentRow.passwordSet };

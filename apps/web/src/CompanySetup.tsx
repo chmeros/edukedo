@@ -46,7 +46,7 @@ export function CompanySetup() {
           {token && confirm.data?.status === "already_confirmed" && (
             <div className="alert alert-success">
               <SuccessIcon />
-              <div>Dieses Unternehmens-Konto wurde bereits eingerichtet.</div>
+              <div>Dieses Unternehmens-Konto wurde bereits eingerichtet. Bitte melde dich mit deiner E-Mail-Adresse und deinem Passwort an.</div>
             </div>
           )}
           {token && confirm.data && (

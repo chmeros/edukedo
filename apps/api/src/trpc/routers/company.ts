@@ -75,11 +75,9 @@ export const companyRouter = router({
     }
 
     if (companyRow.passwordSet) {
-      // F-91: Auch beim erneuten Öffnen eines bereits benutzten Setup-Links bekommt das
-      // Unternehmens-Konto eine Session — bequemer Einstieg ins Dashboard, analog zu
-      // consent.confirm ("already_confirmed").
-      const { token, expiresAt } = await createSession(ctx.db, { companyAccountId: companyRow.id });
-      setSessionCookie(ctx.res, token, expiresAt);
+      // Review-Befund SEC-03/SOZ-06: Der Setup-Link ist nach der Einrichtung wertlos. Früher gab er bei bereits gesetztem
+      // Passwort ohne jede Prüfung eine Session aus, der Link war also ein dauerhafter Zugang ohne Passwort. Jetzt führt er
+      // nur noch zur Anmeldung mit E-Mail und Passwort.
       return { status: "already_confirmed" as const };
     }
 

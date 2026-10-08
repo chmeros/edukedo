@@ -1,3 +1,6 @@
+import { env } from "../env";
+import { maskEmailAddress } from "./mask";
+
 /**
  * Platzhalter-E-Mail-Versand: Es ist noch kein transaktionaler E-Mail-Anbieter gewählt/
  * eingerichtet (echte Kontoerstellung bei einem Anbieter ist keine Aufgabe, die als Agent
@@ -6,17 +9,33 @@
  * bereits vollständig durchspielbar ist. Absichtlich als schmale, austauschbare Funktion
  * gehalten: Sobald ein Anbieter feststeht, genügt es, den Rumpf dieser einen Funktion zu
  * ersetzen — der Rest des Consent-Flows bleibt unverändert.
+ *
+ * Review-Befund SEC-01: In Produktion (NODE_ENV=production) werden weder Links noch Adressen im Klartext ins Log geschrieben,
+ * denn der Link ist ein Zugangsdatum (Einwilligung bestätigen, Konto einrichten). Dort steht nur eine Warnung mit maskierter
+ * Adresse, dass nichts zugestellt wurde. Ohne echten Anbieter erreicht in Produktion also keine Mail ihr Ziel; das ist
+ * sichtbar und kein stiller Fehler. Nur Entwicklung und Test geben den vollständigen Text samt Link aus.
  */
-export function sendConsentEmail(params: { to: string; confirmUrl: string; childEmail: string }): void {
+
+function logPlaceholderEmail(kind: string, to: string, lines: string[]): void {
+  if (env.NODE_ENV === "production") {
+    console.warn(`[E-Mail] ${kind} an ${maskEmailAddress(to)} wurde NICHT versendet: kein E-Mail-Anbieter konfiguriert.`);
+    return;
+  }
   console.log(
     [
       "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
-      `An: ${params.to}`,
-      `Betreff: Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
-      `Bestätigungslink: ${params.confirmUrl}`,
+      `An: ${to}`,
+      ...lines,
       "---------------------------------------------------------------------------",
     ].join("\n"),
   );
+}
+
+export function sendConsentEmail(params: { to: string; confirmUrl: string; childEmail: string }): void {
+  logPlaceholderEmail("Einwilligungsanfrage", params.to, [
+    `Betreff: Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
+    `Bestätigungslink: ${params.confirmUrl}`,
+  ]);
 }
 
 /**
@@ -25,18 +44,11 @@ export function sendConsentEmail(params: { to: string; confirmUrl: string; child
  * lässt sich nicht erneut verschicken (nur der Hash des Tokens wird gespeichert) — die
  * Erinnerung enthält deshalb einen neuen, frisch generierten Bestätigungslink.
  */
-export function sendConsentReminderEmail(
-  params: { to: string; confirmUrl: string; childEmail: string; reminderNumber: number },
-): void {
-  console.log(
-    [
-      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
-      `An: ${params.to}`,
-      `Betreff: Erinnerung (${params.reminderNumber}) — Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
-      `Bestätigungslink: ${params.confirmUrl}`,
-      "---------------------------------------------------------------------------",
-    ].join("\n"),
-  );
+export function sendConsentReminderEmail(params: { to: string; confirmUrl: string; childEmail: string; reminderNumber: number }): void {
+  logPlaceholderEmail("Erinnerung zur Einwilligung", params.to, [
+    `Betreff: Erinnerung (${params.reminderNumber}) — Einwilligung für das edukedo-Konto von ${params.childEmail} bestätigen`,
+    `Bestätigungslink: ${params.confirmUrl}`,
+  ]);
 }
 
 /**
@@ -44,15 +56,10 @@ export function sendConsentReminderEmail(
  * apps/api/src/auth/email-verification.ts) — dasselbe Platzhalter-Verfahren wie bei F-08.
  */
 export function sendEmailVerificationEmail(params: { to: string; confirmUrl: string }): void {
-  console.log(
-    [
-      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
-      `An: ${params.to}`,
-      "Betreff: Bitte bestätige deine E-Mail-Adresse bei edukedo",
-      `Bestätigungslink: ${params.confirmUrl}`,
-      "---------------------------------------------------------------------------",
-    ].join("\n"),
-  );
+  logPlaceholderEmail("E-Mail-Verifizierung", params.to, [
+    "Betreff: Bitte bestätige deine E-Mail-Adresse bei edukedo",
+    `Bestätigungslink: ${params.confirmUrl}`,
+  ]);
 }
 
 /**
@@ -60,13 +67,8 @@ export function sendEmailVerificationEmail(params: { to: string; confirmUrl: str
  * apps/api/src/auth/company-setup.ts).
  */
 export function sendCompanySetupEmail(params: { to: string; setupUrl: string; companyName: string }): void {
-  console.log(
-    [
-      "----- Platzhalter-E-Mail-Versand (kein echter Anbieter konfiguriert) -----",
-      `An: ${params.to}`,
-      `Betreff: Unternehmens-Konto für ${params.companyName} bei edukedo einrichten`,
-      `Setup-Link: ${params.setupUrl}`,
-      "---------------------------------------------------------------------------",
-    ].join("\n"),
-  );
+  logPlaceholderEmail("Setup-Link für ein Unternehmens-Konto", params.to, [
+    `Betreff: Unternehmens-Konto für ${params.companyName} bei edukedo einrichten`,
+    `Setup-Link: ${params.setupUrl}`,
+  ]);
 }

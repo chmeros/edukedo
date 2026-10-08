@@ -45,7 +45,7 @@ export function ConsentConfirm() {
           {token && confirm.data?.status === "already_confirmed" && (
             <div className="alert alert-success">
               <SuccessIcon />
-              <div>Diese Einwilligung wurde bereits bestätigt.</div>
+              <div>Diese Einwilligung wurde bereits bestätigt. Bitte melde dich mit deiner E-Mail-Adresse und deinem Passwort an.</div>
             </div>
           )}
           {token && confirm.data && (
