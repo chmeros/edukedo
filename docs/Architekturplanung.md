@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Sicherer Content-Import, Schritt 1 von 7: stabile Schlüssel in der Datenbank)
+
+- **Anlass:** Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04). Der Import ersetzt Themen per „löschen und neu anlegen“ und vernichtet damit Lernfortschritt, Notizen und Lernereignisse (`ON DELETE CASCADE`); er läuft nicht transaktional und bricht an `RESTRICT`-Verweisen (Prüfungsantworten, Duelle) halb ab. Der vollständige Entwurf mit den sechs angenommenen Entscheidungen steht in docs/entwuerfe/sicherer-content-import.md.
+- **Entscheidungen (alle wie empfohlen):** entfernte Items werden deaktiviert statt gelöscht (Löschen nur per eigenem Befehl für Items ohne Nutzerbezug); bei geänderter richtiger Antwort bleibt der Fortschritt erhalten und der Trockenlauf markiert das Item; Items ohne ID bekommen den Schlüssel `theorie` bzw. einen Text-Hash; Abbruchschwelle 20 % je Thema (mindestens 5 Items); `admin.triggerImport` wird zweistufig mit Trockenlauf; die Regel „IDs nie ändern oder wiederverwenden“ kommt in content/README.md und wird per Test abgesichert.
+- **Schritt 1 (Migration 0043, keine Verhaltensänderung):** neue Spalten `thema.code` (der `thema_code` aus dem Frontmatter, mit Backfill aus dem Titel vor „ — “; 615 von 619 Themen, die vier Seed-Themen bleiben `NULL`), `content_item.source_key` und `content_item.content_hash` (nullable, bis der Backfill läuft) sowie die Eindeutigkeit je Fachgebiet und Code bzw. je Thema und Schlüssel (mit `NULL` mehrfach erlaubt). Der bestehende Import schreibt die neuen Spalten noch nicht; sein Verhalten und das Testergebnis sind unverändert.
+- **Hinweis zu Tests:** Der Integrationstest `import-content.integration.test.ts` dauert rund 520 Sekunden (mehrere vollständige Importe). Mit einem kürzeren Timeout wird der Lauf abgebrochen und meldet fälschlich „Worker exited unexpectedly“. Ergebnis vor und nach der Migration: 5 von 5 Tests grün, gleiche Laufzeit.
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 8: Tab-Leisten brechen auf schmalen Bildschirmen um)
 
 - **Anlass:** Review-Befunde WRK-02 und UXT-I-03/UXT-B: Auf 375 px war die Haupt-Tab-Leiste („Lernen, Prüfung, Instrumente, Gaming, Fortschritt“) ein horizontal scrollbarer Einzeiler, in dem „Fortschritt“ außerhalb des sichtbaren Bereichs lag; nur ein schwacher Fade deutete das an. Die `.segmented`-Reiter der Rechner (Finanzrechner, Prozesskennzahlen, Verfügbarkeit u. a.) hatten keinen Umbruch; da `body` `overflow-x: hidden` setzt, waren die hinteren Reiter dort unerreichbar.

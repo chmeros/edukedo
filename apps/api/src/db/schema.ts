@@ -75,9 +75,16 @@ export const thema = pgTable(
       .notNull()
       .references(() => fachgebiet.id, { onDelete: "cascade" }),
     title: text("title").notNull(),
+    // Stabiler Schlüssel des Themas (`thema_code` aus dem Content-Frontmatter, z. B. "1.1" oder "HB1-fachgespraech").
+    // Der Importer findet das Thema darüber statt über den Titel, damit eine Titelkorrektur kein zweites Thema erzeugt
+    // (Entwurf docs/entwuerfe/sicherer-content-import.md, Abschnitt 4.2). Nullable: Seed-Themen ohne Code.
+    code: text("code"),
     sortOrder: integer("sort_order").notNull().default(0),
   },
-  (table) => [index("thema_fachgebiet_id_sort_order_idx").on(table.fachgebietId, table.sortOrder)],
+  (table) => [
+    index("thema_fachgebiet_id_sort_order_idx").on(table.fachgebietId, table.sortOrder),
+    uniqueIndex("thema_fachgebiet_id_code_key").on(table.fachgebietId, table.code),
+  ],
 );
 
 // ---------------------------------------------------------------------------
@@ -300,11 +307,18 @@ export const contentItem = pgTable(
     isPremium: boolean("is_premium").notNull().default(false),
     isActive: boolean("is_active").notNull().default(true),
     currentVersion: integer("current_version").notNull().default(1),
+    // Stabiler Schlüssel aus dem Content (ID der `####`-Überschrift, z. B. "K-1.1-01", "theorie" oder "fg:<hash>"),
+    // eindeutig je Thema. Der Importer gleicht darüber ab statt Items zu löschen und neu anzulegen. `contentHash`
+    // ist der Hash des importierten Inhalts, um Unverändertes zu überspringen (Entwurf sicherer-content-import.md,
+    // Abschnitte 4.1 und 4.3). Beide nullable, bis der Backfill gelaufen ist.
+    sourceKey: text("source_key"),
+    contentHash: text("content_hash"),
     createdBy: uuid("created_by").references(() => user.id, { onDelete: "set null" }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [
+    uniqueIndex("content_item_thema_id_source_key_key").on(table.themaId, table.sourceKey),
     index("content_item_thema_id_active_idx")
       .on(table.themaId)
       .where(sql`${table.isActive}`),

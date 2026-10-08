@@ -1,6 +1,6 @@
 # Entwurf: Sicherer Content-Import (Upsert statt „löschen und neu anlegen“)
 
-Stand: 08.10.2026 · Status: **Entwurf zur Entscheidung, noch nichts umgesetzt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
+Stand: 08.10.2026 · Status: **Entschieden (alle sechs Empfehlungen aus Abschnitt 9 angenommen), Umsetzung läuft: Schritt 1 erledigt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
 
 ## 1. Problem
 
@@ -125,7 +125,7 @@ Verschwindet ein Item aus dem Markdown, wird es **deaktiviert**, nicht gelöscht
 
 | Schritt | Inhalt | Risiko |
 | --- | --- | --- |
-| 1 | Migration (drei Spalten, Thema-Code-Backfill), keine Verhaltensänderung | gering |
+| 1 | Migration (drei Spalten, Thema-Code-Backfill), keine Verhaltensänderung | gering — **erledigt 08.10.2026** (`drizzle/0043_content_source_keys.sql`) |
 | 2 | Parser liefert Schlüssel; Vorab-Validierung der Eindeutigkeit; Unit-Tests | gering |
 | 3 | `planSync` als reine Funktion mit Tests (noch nicht angebunden) | gering |
 | 4 | Backfill-Skript mit Trockenlauf und Bericht; Lauf auf Entwicklungs-DB | mittel |
@@ -135,7 +135,7 @@ Verschwindet ein Item aus dem Markdown, wird es **deaktiviert**, nicht gelöscht
 
 Jeder Schritt wird einzeln getestet, committet und gepusht. Bis Schritt 5 ändert sich am Importverhalten nichts, das Risiko liegt gebündelt in Schritt 5 und wird durch die Schritte 2 bis 4 vorbereitet.
 
-## 9. Offene Entscheidungen (bitte klären)
+## 9. Entscheidungen (08.10.2026: alle wie empfohlen angenommen)
 
 1. **Entfernte Items deaktivieren oder löschen?** Empfehlung: deaktivieren, Löschen nur über `db:purge-inactive` für Items ohne Nutzerbezug.
 2. **Änderung der richtigen Antwort eines Quiz:** Fortschritt behalten (Empfehlung, mit Hinweis im Trockenlauf) oder für dieses Item zurücksetzen?
