@@ -568,6 +568,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Handelsfachwirt)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie im Eintrag "Paket 1 und Technischer Fachwirt" (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), in die lokale Datenbank importiert (21 Items geändert), Trockenlauf danach ohne Änderung, Unit-Tests grün.
+
+- **Hoch:** FL-HF-02 (Lieferantenkredit: ohne Skonto praktisch kostenlos, wer ein angebotenes Skonto nicht nutzt, zahlt einen hohen Effektivzins), FL-HF-03 (F-WB1-03: Loreno verlangt die Listungsgebühr vom Lieferanten, Musterlösung T4 angepasst), FL-HF-06 (Zuordnungen mit doppelten Begriffen: Q-3.3-11 mit eindeutigen Kategorien, Q-2.2-11 als Mehrfachauswahl "Pflichten der Auszubildenden"; der Import meldet den Typwechsel zuordnung zu quiz_mc_multi als Warnung, der Fortschritt bleibt am Item), FL-HF-07 (Q-6.2-03 mit gängigen Schreibweisen für Beträge, Q-1.4-06 mit Reihenfolge- und Wortvarianten, Q-6.1-09 als Rechenaufgabe "76 von 80" mit Antwort 95 statt Formel als Freitext), FL-HF-08 (eine Definition der vier Risikofelder in der Theorie: Vermeiden = hoher Schaden bei hoher Wahrscheinlichkeit, Absichern = hoher Schaden, Beobachten = geringer Schaden, häufig oder langsam entstehend, Akzeptieren = gering und selten; Q-1.4-02 mit Schadenshinweis).
+- **Mittel/Niedrig:** FL-HF-17 (Skonto gegen Kredit richtig verglichen, Effektivzins 36,7 % als Beispiel), FL-HF-18 und FL-HF-19 (Q-5.3-16, Q-5.3-12 eindeutiger; "Hochpreisstrategie" wird "gehobenes Segment"), FL-HF-26 und FL-HF-27 (F-HB4-01: bestehendes Basic-Shirt in neuen Farben, F-HB2-01: Herzberg richtig), FL-HF-28 und FL-HF-46 (Q-7.2-07 Reihenfolge wie die Theorie, Q-7.2-12 ohne Positionsangabe), FL-HF-47, 50, 53, 54 und 61 (Formulierungen), FL-HF-17 (Q-6.2-03).
+- **Nicht geändert:** FL-HF-04 (Transithandel, Definition umstritten und an das Zollrecht gebunden, bleibt Prüfhinweis, R4), FL-HF-14 bis 16, 30, 31, 39, 44 (rechtsnah), FL-HF-09 bis 13 und 36 bis 41 (Rahmenplan-Lücken, neue Rechenaufgaben, Theorie vor Werkzeug, Fachgespräch: neue Inhalte, R3), FL-HF-20 bis 25, 29, 33 bis 35, 42, 43, 45, 48 bis 52, 55 bis 60 (mehrdeutig, Szenario-Vereinheitlichung oder Bündelung; Vorschläge im Bericht).
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Paket 1 und Technischer Fachwirt)
 
 Nutzer-Freigabe vom 08.10.2026 für die in `docs/reviews/2026-10-07/content-korrekturen.md` vorgeschlagenen Korrekturen (Paket 1) und für den Technischen Fachwirt. Regel: nur belegte, **nicht rechtsnahe** Befunde (R4), keine neuen Inhalte (R3). Die Inhaltsdateien sind geändert, validiert (0 Verstöße) und in die lokale Datenbank importiert (nach Schlüssel fortgeschrieben, Lernstände bleiben).

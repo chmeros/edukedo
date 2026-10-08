@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.3) zu einer zusammenh
 
 **Themenbezug:** 4.1 (Bedarfsermittlung) + 4.2 (Supply Chain Management)
 
-**Ausgangssituation:** Loreno plant die Frühjahr/Sommer-Kollektion „Loreno Coastal". Darin enthalten sind unter anderem ein neues Basic-Shirt, das dauerhaft in mehreren Farben im Sortiment bleiben soll (NOS-Artikel), sowie eine limitierte Trendjacke, die nur für eine Saison produziert wird. Für das Basic-Shirt bezieht Loreno bislang ausschließlich von einem Lieferanten in Vietnam; bei der Trendjacke ist noch offen, ob ein oder mehrere Lieferanten beauftragt werden sollen. Die Einkaufsleitung bittet die Fachwirt-Anwärterin bzw. den Fachwirt-Anwärter um eine fundierte Einschätzung, wie Bedarf und Beschaffung für beide Artikeltypen sinnvoll geplant werden sollten.
+**Ausgangssituation:** Loreno plant die Frühjahr/Sommer-Kollektion „Loreno Coastal". Darin enthalten sind unter anderem ein bestehendes Basic-Shirt, das in neuen Farben dauerhaft im Sortiment bleiben soll (NOS-Artikel), sowie eine limitierte Trendjacke, die nur für eine Saison produziert wird. Für das Basic-Shirt bezieht Loreno bislang ausschließlich von einem Lieferanten in Vietnam; bei der Trendjacke ist noch offen, ob ein oder mehrere Lieferanten beauftragt werden sollen. Die Einkaufsleitung bittet die Fachwirt-Anwärterin bzw. den Fachwirt-Anwärter um eine fundierte Einschätzung, wie Bedarf und Beschaffung für beide Artikeltypen sinnvoll geplant werden sollten.
 
 **Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche Bedarfsermittlungsmethode (deterministisch, stochastisch oder heuristisch) sich für das Basic-Shirt bzw. für die neue Trendjacke jeweils eignet, und begründen Sie Ihre Wahl.
 
