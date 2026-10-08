@@ -27,5 +27,12 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0",
     "vitest": "^2.0.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "proxy-addr@<2.0.8": "^2.0.8",
+      "fast-uri@>=3.0.0 <3.1.8": "^3.1.8",
+      "fast-uri@<2.4.7": "^2.4.7"
+    }
   }
 }
