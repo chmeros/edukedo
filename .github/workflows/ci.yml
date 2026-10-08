@@ -3,21 +3,41 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, master]
+
+# Review A5/INF-30: Standard-Token nur lesend, keine hängenden Läufe, ältere Läufe desselben Zweigs abbrechen.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
+    # Review A5/INF-05: Die Integrationstests von Kern und Payment nutzen eine Redis-Instanz unter localhost:6379
+    # (BullMQ-Warteschlangen); Postgres starten sie selbst per Testcontainers.
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
     steps:
       - uses: actions/checkout@v4
 
+      # Keine eigene Versionsangabe: pnpm/action-setup liest "packageManager" aus der package.json.
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "pnpm"
 
       - name: Install dependencies
@@ -29,8 +49,69 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Validate content
+        run: pnpm --filter @edukedo/api db:validate-content
+
       - name: Test
         run: pnpm test
 
       - name: Build
         run: pnpm build
+
+      # Review A5/INF-01: Das gebaute Bündel muss ohne Quellbaum und ohne tsx starten. /health braucht weder Datenbank noch
+      # externe Dienste; der Aufruf scheitert, wenn ein Import im Bündel fehlt.
+      - name: Smoke test of the built API
+        working-directory: apps/api
+        env:
+          NODE_ENV: production
+          PORT: "3101"
+          DATABASE_URL: postgresql://ci:ci@127.0.0.1:5432/ci
+          SESSION_SECRET: ci-only-session-secret-0123456789abcdef
+          VAPID_PUBLIC_KEY: ci
+          VAPID_PRIVATE_KEY: ci
+          PAYMENT_SERVICE_TOKEN: ci-only-payment-token-0123456789
+          CONTENT_DIR: ${{ github.workspace }}/content
+        run: |
+          node dist/validate-content.js
+          node dist/index.js > server.log 2>&1 &
+          pid=$!
+          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:3101/health && break; sleep 1; done
+          curl -fsS http://127.0.0.1:3101/health || { cat server.log; kill $pid; exit 1; }
+          kill $pid
+
+      - name: Smoke test of the built payment service
+        working-directory: apps/payment
+        env:
+          NODE_ENV: production
+          PORT: "3102"
+          PAYMENT_DATABASE_URL: postgresql://ci:ci@127.0.0.1:5433/ci
+          KERN_SERVICE_TOKEN: ci-only-payment-token-0123456789
+        run: |
+          node dist/index.js > server.log 2>&1 &
+          pid=$!
+          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:3102/health && break; sleep 1; done
+          curl -fsS http://127.0.0.1:3102/health || { cat server.log; kill $pid; exit 1; }
+          kill $pid
+
+  # Review A5: Die Images müssen sich bauen lassen (kein Push, kein Deployment).
+  docker-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f infra/docker/api.Dockerfile -t edukedo-api:ci .
+      - name: Build payment image
+        run: docker build -f infra/docker/payment.Dockerfile -t edukedo-payment:ci .
+
+  # Review A5/INF-06/INF-30: Bekannte Sicherheitsmeldungen in Produktionsabhängigkeiten lassen die CI fehlschlagen.
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm audit --prod --audit-level=high

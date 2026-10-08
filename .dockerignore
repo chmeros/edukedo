@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/dev-dist
+.git
+.claude
+.turbo
+.github
+docs
+design
+content-export
+**/.env
+**/.env.*
+!**/.env.example
+**/*.log
+**/coverage

@@ -8,5 +8,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
     server: { deps: { inline: [/drizzle-orm/] } },
+    // Review A5/INF-10: begrenzte Parallelität der Container-Tests, siehe apps/api/vitest.config.ts.
+    poolOptions: { forks: { minForks: 1, maxForks: 2 } },
   },
 });
