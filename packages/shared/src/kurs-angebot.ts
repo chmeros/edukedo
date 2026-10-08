@@ -10,7 +10,8 @@ import { SQL_UEBUNGEN } from "./sql-uebungen";
  *
  * - `gruppe: "kern"` = Kernangebot des Kurses, `"grundlagen"` = gemeinsamer Teil-1-Stoff (nur bei den
  *   Fachinformatiker-Kursen: bleibt sichtbar, aber in einer eigenen Gruppe).
- * - **Allowlist:** Was nicht aufgeführt ist, wird im Kurs nicht angeboten (kein „noch nicht verfügbar“).
+ * - **Allowlist:** Was nicht aufgeführt ist, wird im Kurs nicht angeboten (kein „noch nicht verfügbar“). Das gilt auch für die Quizfragen
+ *   zu den Instrumenten: Der Import legt sie inaktiv an (`sindInstrumentFragenAktiv`, Review B7).
  * - Ein erlaubter Instrumenttyp erscheint erst, wenn der Kurs Inhalt dazu hat (Entscheidung Q-1).
  * - Fehlt einem Kurs die Angabe ganz (z. B. Mathematik), gilt keine Einschränkung (alter Zustand).
  * - Gespeichert wird die Liste je Kurs in `kurs.metadata.angebot` (siehe import-content.ts).
@@ -533,4 +534,23 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     szenarien: {},
   },
 };
+
+/**
+ * Review B7 (SHR-10, UXT-I-02): Die Allowlist gilt nicht nur für den Instrumente-Tab, sondern auch für die Fragen zu den
+ * Instrumenten. Ist `typ` ein Instrumenttyp des Katalogs und der Kurs hat ein Angebot, das ihn nicht enthält, gehört er nicht zum
+ * Kurs. Kurse ohne Angebot (z. B. Mathematik) und Typen außerhalb des Katalogs sind nicht eingeschränkt.
+ */
+export function istInstrumentImAngebot(kursSlug: string, typ: string): boolean {
+  const angebot = KURS_ANGEBOT[kursSlug];
+  if (!angebot || !(KATALOG_INSTRUMENTE as readonly string[]).includes(typ)) return true;
+  return angebot.instrumente.some((eintrag) => eintrag.schluessel === typ);
+}
+
+/**
+ * Sollen Fragen dieses Instrumenttyps im Kurs aktiv sein (Lernen-Quiz, Fortschritt, Vorschau)? Nur wenn der Typ zum Kurs gehört
+ * (Allowlist) und kein ungeprüfter Entwurf ist (F-186). Der Import legt die übrigen Fragen inaktiv an; sie bleiben erhalten.
+ */
+export function sindInstrumentFragenAktiv(kursSlug: string, typ: string): boolean {
+  return istInstrumentImAngebot(kursSlug, typ) && !istInstrumentEntwurf(kursSlug, typ);
+}
 

@@ -1,4 +1,4 @@
-import { isQuadrantItem, istInstrumentEntwurf } from "@edukedo/shared";
+import { isQuadrantItem, sindInstrumentFragenAktiv } from "@edukedo/shared";
 import { blockSourceKey, fachgespraechSourceKey, THEORIE_SOURCE_KEY } from "./content-keys";
 import { type DesiredItem, type SyncOption } from "./content-sync-plan";
 import {
@@ -86,8 +86,8 @@ export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInpu
           ...common,
           type: parsed.type,
           options: parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: term.zoneKey, side: null, sortOrder: index })),
-          // Fragen noch ungeprüfter Instrumente (KURS_ENTWURF) werden inaktiv angelegt, bis sie freigegeben sind.
-          isActive: !istInstrumentEntwurf(kursSlug, parsed.type),
+          // Fragen ungeprüfter (KURS_ENTWURF) oder im Kurs nicht angebotener Instrumente (KURS_ANGEBOT) werden inaktiv angelegt.
+          isActive: sindInstrumentFragenAktiv(kursSlug, parsed.type),
         });
       } else if (parsed.type === "hierarchie") {
         const nodes = parsed.nodes.map((node, index) => ({
@@ -99,6 +99,7 @@ export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInpu
           ...common,
           type: "hierarchie",
           payload: { root: parsed.root, nodes },
+          isActive: sindInstrumentFragenAktiv(kursSlug, "hierarchie"),
           options: parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: nodes[term.nodeIndex]!.key, side: null, sortOrder: index })),
         });
       } else if (parsed.type === "gantt") {
@@ -107,6 +108,7 @@ export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInpu
           ...common,
           type: "gantt",
           payload: { periods },
+          isActive: sindInstrumentFragenAktiv(kursSlug, "gantt"),
           options: parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: periods[term.periodIndex]!.key, side: null, sortOrder: index })),
         });
       } else if (parsed.type === "luecken_auswahl") {

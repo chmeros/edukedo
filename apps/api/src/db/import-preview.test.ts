@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { importPreviewToken } from "./import-preview";
 
-const base = { created: 1, updated: 2, unchanged: 3, deactivated: 0, blocked: [], solutionChanged: [{ thema: "k/f/1.1", key: "Q-1" }] };
+const base = { created: 1, updated: 2, unchanged: 3, deactivated: 0, activationChanges: 0, blocked: [], solutionChanged: [{ thema: "k/f/1.1", key: "Q-1" }] };
 
 describe("importPreviewToken", () => {
   it("ist deterministisch und unabhängig von der Reihenfolge der Listen", () => {
@@ -17,6 +17,7 @@ describe("importPreviewToken", () => {
     expect(importPreviewToken({ ...base, updated: 3 })).not.toBe(token);
     expect(importPreviewToken({ ...base, unchanged: 4 })).not.toBe(token);
     expect(importPreviewToken({ ...base, deactivated: 1 })).not.toBe(token);
+    expect(importPreviewToken({ ...base, activationChanges: 1 })).not.toBe(token);
     expect(importPreviewToken({ ...base, blocked: [{ thema: "k/f/1.1", reason: "zu viele" }] })).not.toBe(token);
     expect(importPreviewToken({ ...base, solutionChanged: [] })).not.toBe(token);
   });

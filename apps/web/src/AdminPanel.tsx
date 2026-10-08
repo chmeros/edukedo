@@ -399,7 +399,7 @@ export function AdminPanel() {
             <div>
               <b>
                 Vorschau: {previewImport.data.summary.itemsImported} Content-Items, davon {previewImport.data.summary.created} neu,{" "}
-                {previewImport.data.summary.updated} geändert, {previewImport.data.summary.deactivated} würden deaktiviert,{" "}
+                {previewImport.data.summary.updated} geändert, {previewImport.data.summary.deactivated} würden deaktiviert, bei {previewImport.data.summary.activationChanges} ändert sich die Sichtbarkeit,{" "}
                 {previewImport.data.summary.unchanged} unverändert.
               </b>
               {previewImport.data.summary.solutionChanged.length > 0 && (
@@ -420,7 +420,11 @@ export function AdminPanel() {
                 </div>
               )}
               {previewImport.data.summary.warnings.length > 0 && <div>{previewImport.data.summary.warnings.length} Warnungen, Details im Kommandozeilen-Trockenlauf.</div>}
-              {previewImport.data.summary.created + previewImport.data.summary.updated + previewImport.data.summary.deactivated === 0 ? (
+              {previewImport.data.summary.created +
+                previewImport.data.summary.updated +
+                previewImport.data.summary.deactivated +
+                previewImport.data.summary.activationChanges ===
+              0 ? (
                 <div>Keine Änderungen, es gibt nichts zu importieren.</div>
               ) : (
                 <div style={{ display: "flex", gap: 8, marginTop: 8 }}>

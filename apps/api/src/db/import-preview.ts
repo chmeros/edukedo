@@ -6,12 +6,13 @@ import type { ImportSummary } from "./import-content";
  * schreibt nur, wenn die Marke der Vorschau mit der eines erneuten Trockenlaufs übereinstimmt. So lässt sich nichts
  * importieren, was nicht vorher angezeigt wurde, und eine zwischenzeitliche Änderung am Content erzwingt eine neue Vorschau.
  */
-export function importPreviewToken(summary: Pick<ImportSummary, "created" | "updated" | "unchanged" | "deactivated" | "blocked" | "solutionChanged">): string {
+export function importPreviewToken(summary: Pick<ImportSummary, "created" | "updated" | "unchanged" | "deactivated" | "activationChanges" | "blocked" | "solutionChanged">): string {
   const payload = JSON.stringify({
     created: summary.created,
     updated: summary.updated,
     unchanged: summary.unchanged,
     deactivated: summary.deactivated,
+    activationChanges: summary.activationChanges,
     blocked: summary.blocked.map((entry) => `${entry.thema}|${entry.reason}`).sort(),
     solutionChanged: summary.solutionChanged.map((entry) => `${entry.thema}|${entry.key}`).sort(),
   });

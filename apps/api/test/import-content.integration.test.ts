@@ -1,5 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import { Pool } from "pg";
@@ -63,6 +63,18 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       const versions = await db.select().from(schema.contentItemVersion);
       expect(versions.length).toBe(items.length);
       expect(versions.every((version) => version.versionNumber === 1)).toBe(true);
+
+      // Review B7: Fragen zu Instrumenten, die ein Kurs laut Kursprofil nicht anbietet (SWOT in den Fachinformatiker-Kursen),
+      // werden inaktiv angelegt und tauchen weder im Quiz noch im Fortschritt auf.
+      const swot = await db
+        .select({ isActive: schema.contentItem.isActive })
+        .from(schema.contentItem)
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .innerJoin(schema.kurs, eq(schema.kurs.id, schema.fachgebiet.kursId))
+        .where(and(eq(schema.contentItem.type, "swot"), eq(schema.kurs.slug, "fachinformatiker-systemintegration")));
+      expect(swot.length).toBeGreaterThan(0);
+      expect(swot.every((item) => !item.isActive)).toBe(true);
     },
     240_000,
   );

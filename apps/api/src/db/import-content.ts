@@ -417,7 +417,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
   const result = await syncThemaItems(db, themaRow.id, desired, { allowRemovals: options.allowRemovals });
   const { stats } = result;
   console.log(
-    `${path.basename(filePath)}: ${desired.length} Items (${stats.created} neu, ${stats.updated} geändert, ${stats.unchanged} unverändert, ${stats.deactivated} deaktiviert)` +
+    `${path.basename(filePath)}: ${desired.length} Items (${stats.created} neu, ${stats.updated} geändert, ${stats.unchanged} unverändert, ${stats.deactivated} deaktiviert, ${stats.activationChanges} Sichtbarkeit geändert)` +
       `${result.plan.blocked ? " — BLOCKIERT: " + result.plan.blocked : ""} (Thema "${themaTitle}").`,
   );
   return { label, itemCount: desired.length, stats, blocked: result.plan.blocked };
@@ -491,6 +491,8 @@ export interface ImportSummary {
   updated: number;
   unchanged: number;
   deactivated: number;
+  /** Items, die sichtbar bzw. unsichtbar werden (Entwurf, Kursangebot), ohne dass sich ihr Inhalt ändert. */
+  activationChanges: number;
   dryRun: boolean;
   /** Themen, bei denen die Abbruchschwelle für Entfernungen griff; sie wurden nicht verändert. */
   blocked: { thema: string; reason: string }[];
@@ -522,6 +524,7 @@ export async function importAllContent(options: ImportOptions = {}): Promise<Imp
     updated: 0,
     unchanged: 0,
     deactivated: 0,
+    activationChanges: 0,
     dryRun: options.dryRun === true,
     blocked: [],
     solutionChanged: [],
@@ -550,6 +553,7 @@ export async function importAllContent(options: ImportOptions = {}): Promise<Imp
         summary.updated += result.stats.updated;
         summary.unchanged += result.stats.unchanged;
         summary.deactivated += result.stats.deactivated;
+        summary.activationChanges += result.stats.activationChanges;
         if (result.blocked) summary.blocked.push({ thema: result.label, reason: result.blocked });
         for (const key of result.stats.solutionChanged) summary.solutionChanged.push({ thema: result.label, key });
         for (const warning of result.stats.warnings) summary.warnings.push(`${result.label}: ${warning}`);
@@ -568,7 +572,7 @@ export async function importAllContent(options: ImportOptions = {}): Promise<Imp
 function printSummary(summary: ImportSummary): void {
   console.log(
     `${summary.dryRun ? "Trockenlauf (nichts geschrieben): " : "Import abgeschlossen: "}${summary.filesProcessed} Dateien, ${summary.itemsImported} Content-Items ` +
-      `(${summary.created} neu, ${summary.updated} geändert, ${summary.unchanged} unverändert, ${summary.deactivated} deaktiviert).`,
+      `(${summary.created} neu, ${summary.updated} geändert, ${summary.unchanged} unverändert, ${summary.deactivated} deaktiviert, ${summary.activationChanges} mit geänderter Sichtbarkeit).`,
   );
   if (summary.solutionChanged.length > 0) {
     console.log(`
