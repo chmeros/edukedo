@@ -531,6 +531,8 @@ export const learningEvent = pgTable(
   (table) => [
     index("learning_event_user_id_occurred_at_idx").on(table.userId, table.occurredAt),
     index("learning_event_content_item_id_idx").on(table.contentItemId),
+    // Review LOG-10: "gab es für diese Person und dieses Item schon ein (richtiges) Ereignis?" bei jeder Antwort.
+    index("learning_event_user_id_content_item_id_occurred_at_idx").on(table.userId, table.contentItemId, table.occurredAt),
     index("learning_event_game_item_key_idx").on(table.gameItemKey),
     uniqueIndex("learning_event_user_id_client_event_id_key").on(table.userId, table.clientEventId),
     check(

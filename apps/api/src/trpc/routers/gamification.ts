@@ -1,4 +1,4 @@
-import { and, count, desc, eq, isNotNull } from "drizzle-orm";
+import { and, countDistinct, desc, eq, isNotNull } from "drizzle-orm";
 import {
   ACHIEVEMENT_DEFINITIONS,
   currentStreakDays,
@@ -6,7 +6,7 @@ import {
   longestConsecutiveDayStreak,
 } from "../../achievements/catalog";
 import { achievement, examSession, learningEvent } from "../../db/schema";
-import { learningDay } from "../../learning-day";
+import { ereignisElement, tagesAktivitaet } from "../../activity";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-67 "Bestwerte": Ein einzelner Tag mit sehr wenigen Antworten würde die Trefferquote sonst
@@ -38,27 +38,22 @@ export const gamificationRouter = router({
    * selbst nur wenige einfache Zählungen über die eigenen Daten der Person umfasst.
    */
   checkAndAward: protectedProcedure.mutation(async ({ ctx }) => {
-    const [totalRow] = await ctx.db
-      .select({ value: count() })
-      .from(learningEvent)
-      .where(eq(learningEvent.userId, ctx.currentUser.id));
-    const [correctRow] = await ctx.db
-      .select({ value: count() })
+    // Review LOG-10: Tageszeilen statt aller Ereignisse; Review LOG-09: "richtig" zählt verschiedene beantwortete Elemente, nicht
+    // jede Wiederholung (sonst entstand "100 richtig" durch hundertmaliges Beantworten einer einzigen leichten Frage).
+    const tage = await tagesAktivitaet(ctx.db, ctx.currentUser.id);
+    const [richtigVerschieden] = await ctx.db
+      .select({ value: countDistinct(ereignisElement) })
       .from(learningEvent)
       .where(and(eq(learningEvent.userId, ctx.currentUser.id), eq(learningEvent.isCorrect, true)));
-    const dayRows = await ctx.db
-      .select({ occurredAt: learningEvent.occurredAt })
-      .from(learningEvent)
-      .where(eq(learningEvent.userId, ctx.currentUser.id));
-    const streak = longestConsecutiveDayStreak(dayRows.map((row) => learningDay(row.occurredAt)));
+    const streak = longestConsecutiveDayStreak(tage.map((tag) => tag.day));
     const [examRow] = await ctx.db
       .select({ id: examSession.id })
       .from(examSession)
       .where(and(eq(examSession.userId, ctx.currentUser.id), isNotNull(examSession.finishedAt)))
       .limit(1);
 
-    const totalAnswered = totalRow?.value ?? 0;
-    const correctCount = correctRow?.value ?? 0;
+    const totalAnswered = tage.reduce((summe, tag) => summe + tag.total, 0);
+    const correctCount = richtigVerschieden?.value ?? 0;
 
     const earnedKeys = new Set<string>();
     if (totalAnswered >= 1) earnedKeys.add("erste_antwort");
@@ -98,19 +93,8 @@ export const gamificationRouter = router({
   }),
 
   myPersonalBests: protectedProcedure.query(async ({ ctx }) => {
-    const events = await ctx.db
-      .select({ occurredAt: learningEvent.occurredAt, isCorrect: learningEvent.isCorrect })
-      .from(learningEvent)
-      .where(eq(learningEvent.userId, ctx.currentUser.id));
-
-    const byDay = new Map<string, { total: number; correct: number }>();
-    for (const event of events) {
-      const day = learningDay(event.occurredAt);
-      const entry = byDay.get(day) ?? { total: 0, correct: 0 };
-      entry.total += 1;
-      if (event.isCorrect) entry.correct += 1;
-      byDay.set(day, entry);
-    }
+    const tage = await tagesAktivitaet(ctx.db, ctx.currentUser.id);
+    const byDay = new Map(tage.map((tag) => [tag.day, { total: tag.total, correct: tag.correct }] as const));
 
     let bestHitRatePercent: number | null = null;
     let mostAnsweredInOneDay = 0;
@@ -162,11 +146,7 @@ export const gamificationRouter = router({
    * ausgewertet (siehe achievements/catalog.ts).
    */
   streakStatus: protectedProcedure.query(async ({ ctx }) => {
-    const dayRows = await ctx.db
-      .select({ occurredAt: learningEvent.occurredAt })
-      .from(learningEvent)
-      .where(eq(learningEvent.userId, ctx.currentUser.id));
-    const dateStrings = dayRows.map((row) => learningDay(row.occurredAt));
+    const dateStrings = (await tagesAktivitaet(ctx.db, ctx.currentUser.id)).map((tag) => tag.day);
     const today = new Date();
 
     return {

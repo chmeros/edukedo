@@ -1,6 +1,7 @@
 import { listNotesInputSchema, noteContentItemInputSchema, saveNoteInputSchema } from "@edukedo/shared";
 import { and, desc, eq } from "drizzle-orm";
 import { contentItem, fachgebiet, thema, userCourse, userNote } from "../../db/schema";
+import { assertContentItemAccessible } from "./progress";
 import { protectedProcedure, router } from "../trpc";
 
 /**
@@ -33,6 +34,10 @@ export const notesRouter = router({
         .where(and(eq(userNote.userId, ctx.currentUser.id), eq(userNote.contentItemId, input.contentItemId)));
       return { noteText: null };
     }
+
+    // Review LOG-14: Notizen nur zu Inhalten, die die Person sehen darf (Kurs belegt, Item aktiv und vorhanden). Vorher gaben fremde
+    // oder erfundene IDs einen Datenbankfehler (HTTP 500) und ließen die Existenz von IDs prüfen.
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
 
     await ctx.db
       .insert(userNote)
@@ -79,7 +84,8 @@ export const notesRouter = router({
           eq(userCourse.kursId, input.kursId),
         ),
       )
-      .where(eq(userNote.userId, ctx.currentUser.id))
+      // Zurückgezogene (deaktivierte) Inhalte tauchen auch über die Notizen nicht mehr auf (Review LOG-14).
+      .where(and(eq(userNote.userId, ctx.currentUser.id), eq(contentItem.isActive, true)))
       .orderBy(desc(userNote.updatedAt));
 
     return rows;

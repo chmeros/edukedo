@@ -330,6 +330,13 @@
       "when": 1791462997052,
       "tag": "0046_exam_session_assigned_items",
       "breakpoints": true
+    },
+    {
+      "idx": 47,
+      "version": "7",
+      "when": 1791472833921,
+      "tag": "0047_learning_event_nutzer_item_index",
+      "breakpoints": true
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { highscoreKursInputSchema, highscoreOptInInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, count, eq, gte, or } from "drizzle-orm";
+import { and, countDistinct, eq, gte, or, sql } from "drizzle-orm";
+import { ereignisElement, ereignisTag } from "../../activity";
 import { contentItem, fachgebiet, friendCircleLink, learningEvent, thema, user, userCourse } from "../../db/schema";
 import { isSocialRestricted, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
@@ -96,7 +97,9 @@ export const highscoreRouter = router({
 
     const since = new Date(Date.now() - HIGHSCORE_WINDOW_MS);
     const pointRows = await ctx.db
-      .select({ userId: learningEvent.userId, points: count() })
+      // Review LOG-09: Punkte = verschiedene richtig beantwortete Fragen je Kalendertag. Vorher zählte jede Wiederholung derselben
+      // leichten Frage, und wer sie hundertmal beantwortete, führte die Rangliste an.
+      .select({ userId: learningEvent.userId, points: countDistinct(sql`${ereignisElement} || '|' || ${ereignisTag}`) })
       .from(learningEvent)
       .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
       .innerJoin(thema, eq(thema.id, contentItem.themaId))

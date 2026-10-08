@@ -1,8 +1,8 @@
-import { eq } from "drizzle-orm";
+import { eq, max } from "drizzle-orm";
 import webpush from "web-push";
 import { daysSinceLastActive } from "../achievements/catalog";
 import { env } from "../env";
-import { learningDay } from "../learning-day";
+import { tagesAktivitaet } from "../activity";
 import { shouldSendLearningReminder } from "../learning-reminder-logic";
 import { learningEvent, pushSubscription, user } from "./schema";
 import { db, pool } from "./client";
@@ -31,17 +31,18 @@ async function main() {
   let staleSubscriptionCount = 0;
 
   for (const row of usersWithSubscriptions) {
-    const events = await db
-      .select({ occurredAt: learningEvent.occurredAt })
-      .from(learningEvent)
-      .where(eq(learningEvent.userId, row.userId));
-
-    if (events.length === 0) {
+    // Review LOG-10: Tageszeilen und letzter Zeitpunkt aus der Datenbank. Vorher lud das Skript je Konto alle Ereignisse, und
+    // Math.max(...) über sehr viele Werte warf einen RangeError, der den Lauf für alle weiteren Konten beendete.
+    const tage = await tagesAktivitaet(db, row.userId);
+    if (tage.length === 0) {
       continue;
     }
-
-    const dateStrings = events.map((event) => learningDay(event.occurredAt));
-    const lastActiveAt = new Date(Math.max(...events.map((event) => event.occurredAt.getTime())));
+    const [letztes] = await db
+      .select({ zeitpunkt: max(learningEvent.occurredAt) })
+      .from(learningEvent)
+      .where(eq(learningEvent.userId, row.userId));
+    const dateStrings = tage.map((tag) => tag.day);
+    const lastActiveAt = letztes?.zeitpunkt ?? new Date(0);
 
     const shouldSend = shouldSendLearningReminder({
       daysSinceLastActive: daysSinceLastActive(dateStrings, today),

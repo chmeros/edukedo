@@ -129,7 +129,7 @@ export const quizRouter = router({
   }),
 
   submitAnswer: protectedProcedure.input(submitQuizAnswerInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, MC_LIKE_QUIZ_TYPES);
 
     const options = await ctx.db
       .select()
@@ -152,7 +152,7 @@ export const quizRouter = router({
   /** F-116: Mehrfachauswahl auswerten — dieselbe answer_option-Grundlage wie submitAnswer, aber
    * ein Set von Options-IDs statt einer einzelnen (siehe checkMcMultiAnswer). */
   submitMcMulti: protectedProcedure.input(submitMcMultiInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["quiz_mc_multi"]);
 
     const options = await ctx.db
       .select()
@@ -173,7 +173,7 @@ export const quizRouter = router({
   }),
 
   submitMatching: protectedProcedure.input(submitMatchingInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["zuordnung"]);
 
     const options = await ctx.db
       .select()
@@ -193,7 +193,7 @@ export const quizRouter = router({
   /** F-113 Teil 2: Sortieren-Reihenfolge auswerten — dieselbe answer_option-Grundlage wie
    * submitMatching, aber eine positionsweise Prüfung gegen `sortOrder` (siehe checkSortierenAnswer). */
   submitSortieren: protectedProcedure.input(submitSortierenInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["sortieren"]);
 
     const options = await ctx.db
       .select()
@@ -210,7 +210,7 @@ export const quizRouter = router({
   /** F-114: SWOT/BSC/Ansoff-Zonen-Zuordnung auswerten — dieselbe answer_option-Grundlage wie
    * submitMatching, aber N Zonen statt exakt zwei Seiten (siehe checkQuadrantAnswer). */
   submitQuadrant: protectedProcedure.input(submitQuadrantInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, [...QUADRANT_QUIZ_TYPES, GANTT_QUIZ_TYPE, HIERARCHIE_QUIZ_TYPE]);
 
     const options = await ctx.db
       .select()
@@ -225,7 +225,7 @@ export const quizRouter = router({
   }),
 
   submitBlanks: protectedProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["luecken", "luecken_auswahl"]);
 
     const [item] = await ctx.db
       .select()
@@ -245,7 +245,7 @@ export const quizRouter = router({
   }),
 
   submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["kurzantwort"]);
 
     const [item] = await ctx.db
       .select()

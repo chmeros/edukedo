@@ -12,8 +12,8 @@ import {
   type ReviewResult,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
-import { learningDay } from "../../learning-day";
+import { and, count, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
+import { ereignisTag } from "../../activity";
 import { calculateEinzelterminPacing } from "../../pacing";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 // F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
@@ -78,14 +78,30 @@ const CREDIT_AMOUNTS_BY_DIFFICULTY: Record<string, number> = { leicht: 1, mittel
  * damit nicht verraten wird, ob eine ID überhaupt existiert (analog zum bereits bestehenden
  * Verhalten in submitBlanks/submitKurzantwort).
  */
-export async function assertContentItemAccessible(db: Database, userId: string, contentItemId: string): Promise<void> {
+export async function assertContentItemAccessible(
+  db: Database,
+  userId: string,
+  contentItemId: string,
+  /**
+   * Review LOG-08: Welche Inhaltstypen der Aufrufer verarbeiten darf. Ohne diese Angabe wertete jeder Endpunkt jedes Item, das
+   * einem Kurs der Person gehört: Eine Teilantwort auf eine Mehrfachauswahl zählte als richtig, Karteikarten-Bewertungen auf einem
+   * Quiz-Item machten es "beherrscht", und Typfremdes endete als HTTP 500.
+   */
+  erlaubteTypen?: readonly string[],
+): Promise<void> {
   const [row] = await db
     .select({ id: contentItem.id })
     .from(contentItem)
     .innerJoin(thema, eq(thema.id, contentItem.themaId))
     .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
     .innerJoin(userCourse, and(eq(userCourse.kursId, fachgebiet.kursId), eq(userCourse.userId, userId)))
-    .where(and(eq(contentItem.id, contentItemId), eq(contentItem.isActive, true)))
+    .where(
+      and(
+        eq(contentItem.id, contentItemId),
+        eq(contentItem.isActive, true),
+        erlaubteTypen ? inArray(contentItem.type, [...erlaubteTypen]) : undefined,
+      ),
+    )
     .limit(1);
 
   if (!row) {
@@ -240,6 +256,12 @@ export async function applyReview(
   // Code-Review-Fund, nachgezogen: siehe recordQuizAttempt oben — dieselbe Transaktion, damit
   // die learningEvent-Zeile nie ohne das zugehörige user_progress-Update übrig bleiben kann.
   return db.transaction(async (tx) => {
+    // Review LOG-11: Zeilensperre auf das Konto wie in recordQuizAttempt. Ohne sie lasen bei einem Doppeltipp oder zwei Tabs beide
+    // Transaktionen denselben Zustand und schrieben je ihr Ergebnis (ein Review statt zwei, Ereignisse doppelt, falscher Vorzustand).
+    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
+    // Online-Aufrufe: Der Zeitpunkt gilt ab dem Moment, in dem die Sperre erteilt ist. Sonst hätte eine wartende Anfrage einen früheren
+    // Zeitpunkt als die zuvor abgeschlossene und würde als "älteres Offline-Ereignis" übergangen (Review LOG-11).
+    if (!clientEventId) now = new Date();
     const [existing] = await tx
       .select()
       .from(userProgress)
@@ -378,6 +400,9 @@ export async function applyChangeReview(
   now: Date,
 ): Promise<{ dueAt: Date }> {
   return db.transaction(async (tx) => {
+    // Review LOG-11: Zeilensperre auf das Konto wie in recordQuizAttempt. Ohne sie lasen bei einem Doppeltipp oder zwei Tabs beide
+    // Transaktionen denselben Zustand und schrieben je ihr Ergebnis (ein Review statt zwei, Ereignisse doppelt, falscher Vorzustand).
+    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
     const [existing] = await tx
       .select()
       .from(userProgress)
@@ -470,6 +495,9 @@ export async function applyChangeReview(
  */
 async function abortRoundItem(db: Database, userId: string, contentItemId: string, since: Date): Promise<void> {
   await db.transaction(async (tx) => {
+    // Review LOG-11: Zeilensperre auf das Konto wie in recordQuizAttempt. Ohne sie lasen bei einem Doppeltipp oder zwei Tabs beide
+    // Transaktionen denselben Zustand und schrieben je ihr Ergebnis (ein Review statt zwei, Ereignisse doppelt, falscher Vorzustand).
+    await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
     const [event] = await tx
       .select()
       .from(learningEvent)
@@ -583,10 +611,12 @@ const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
  * mitzuladen kostet nichts und hält die Funktion für beide Aufrufer nutzbar.
  */
 async function fetchLearningEventsByThema(db: Database, userId: string, kursId: string) {
+  // Review LOG-10: je Thema und Kalendertag aggregiert (Anzahl und davon richtig) statt jedes Ereignis einzeln zu laden.
   return db
     .select({
-      occurredAt: learningEvent.occurredAt,
-      isCorrect: learningEvent.isCorrect,
+      day: ereignisTag,
+      total: sql<number>`count(*)`.mapWith(Number),
+      correct: sql<number>`count(*) filter (where ${learningEvent.isCorrect})`.mapWith(Number),
       themaId: thema.id,
       themaTitle: thema.title,
       fachgebietTitle: fachgebiet.title,
@@ -595,7 +625,8 @@ async function fetchLearningEventsByThema(db: Database, userId: string, kursId: 
     .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
     .innerJoin(thema, eq(thema.id, contentItem.themaId))
     .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
-    .where(and(eq(learningEvent.userId, userId), eq(fachgebiet.kursId, kursId)));
+    .where(and(eq(learningEvent.userId, userId), eq(fachgebiet.kursId, kursId)))
+    .groupBy(ereignisTag, thema.id, thema.title, fachgebiet.title);
 }
 
 /** Gruppiert das Ergebnis von `fetchLearningEventsByThema` nach Thema — ebenfalls gemeinsam
@@ -609,8 +640,8 @@ function aggregateEventsByThema(events: Awaited<ReturnType<typeof fetchLearningE
       total: 0,
       correct: 0,
     };
-    entry.total += 1;
-    if (event.isCorrect) entry.correct += 1;
+    entry.total += event.total;
+    entry.correct += event.correct;
     byThema.set(event.themaId, entry);
   }
   return byThema;
@@ -806,8 +837,8 @@ export const progressRouter = router({
       // Termin gibt es keinen sinnvollen Bezugspunkt, WANN ein Thema "diese Woche" fertig
       // wurde, ohne eine bislang nicht vorhandene Thema-Abschluss-Zeitstempel einzuführen.
       const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-      const recentEvents = await ctx.db
-        .select({ id: learningEvent.id })
+      const [recentRow] = await ctx.db
+        .select({ value: count() })
         .from(learningEvent)
         .innerJoin(contentItem, eq(contentItem.id, learningEvent.contentItemId))
         .innerJoin(thema, eq(thema.id, contentItem.themaId))
@@ -823,7 +854,7 @@ export const progressRouter = router({
       return {
         mode: "wochenziel" as const,
         weeklyGoalItems: enrollment.weeklyGoalItems,
-        itemsThisWeek: recentEvents.length,
+        itemsThisWeek: recentRow?.value ?? 0,
         totalThemen,
         completedThemen,
       };
@@ -860,7 +891,7 @@ export const progressRouter = router({
   }),
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["karteikarte"]);
     return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
@@ -870,7 +901,7 @@ export const progressRouter = router({
    * Rückgängig"-Logik.
    */
   changeReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
-    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+    await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["karteikarte"]);
     return applyChangeReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
 
@@ -884,7 +915,7 @@ export const progressRouter = router({
   toggleDifficultyFlag: protectedProcedure
     .input(toggleDifficultyFlagInputSchema)
     .mutation(async ({ ctx, input }) => {
-      await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId);
+      await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["karteikarte"]);
 
       const [existing] = await ctx.db
         .select({ flaggedAsDifficult: userProgress.flaggedAsDifficult })
@@ -1060,17 +1091,16 @@ export const progressRouter = router({
         .where(and(eq(learningSession.userId, ctx.currentUser.id), eq(learningSession.kursId, input.kursId))),
     ]);
 
-    const totalAnswered = events.length;
-    const correctCount = events.filter((event) => event.isCorrect).length;
+    const totalAnswered = events.reduce((summe, event) => summe + event.total, 0);
+    const correctCount = events.reduce((summe, event) => summe + event.correct, 0);
     const hitRatePercent = totalAnswered === 0 ? 0 : Math.round((correctCount / totalAnswered) * 100);
 
     const byDay = new Map<string, { total: number; correct: number }>();
     for (const event of events) {
-      const day = learningDay(event.occurredAt);
-      const entry = byDay.get(day) ?? { total: 0, correct: 0 };
-      entry.total += 1;
-      if (event.isCorrect) entry.correct += 1;
-      byDay.set(day, entry);
+      const entry = byDay.get(event.day) ?? { total: 0, correct: 0 };
+      entry.total += event.total;
+      entry.correct += event.correct;
+      byDay.set(event.day, entry);
     }
     const dailyHitRate = [...byDay.entries()]
       .sort(([a], [b]) => a.localeCompare(b))
