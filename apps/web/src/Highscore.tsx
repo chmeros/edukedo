@@ -65,7 +65,7 @@ export function Highscore({
             key={entry.userId}
             size="sm"
             active={entry.isSelf}
-            title={`${index + 1}. ${entry.isSelf ? "Du" : entry.email}`}
+            title={`${index + 1}. ${entry.isSelf ? "Du" : entry.name}`}
             meta={`${entry.points} Punkt(e)`}
           />
         ))}

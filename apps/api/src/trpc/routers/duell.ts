@@ -25,6 +25,7 @@ import {
   user,
   userCourse,
 } from "../../db/schema";
+import { socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 import { recordQuizAttempt } from "./progress";
 
@@ -59,6 +60,15 @@ async function requireExistingFriendship(db: Database, userId: string, otherUser
   if (!existing) {
     throw new TRPCError({ code: "BAD_REQUEST", message: "Ihr seid in diesem Kurs nicht befreundet." });
   }
+}
+
+/** Review A8: Ein Duell ist nur zwischen zwei uneingeschränkten Konten sichtbar und spielbar (F-66). */
+async function isVisibleOpponent(
+  db: Database,
+  caller: { isMinor: boolean; gamificationEnabled: boolean },
+  opponentUserId: string,
+): Promise<boolean> {
+  return (await visibleSocialUserIds(db, caller, [opponentUserId])).length === 1;
 }
 
 function isDuellExpired(row: { status: string; expiresAt: Date }, now: Date): boolean {
@@ -117,6 +127,12 @@ export const duellRouter = router({
     await requireEnrollment(ctx.db, ctx.currentUser.id, input.kursId);
     await requireEnrollment(ctx.db, input.opponentUserId, input.kursId);
     await requireExistingFriendship(ctx.db, ctx.currentUser.id, input.opponentUserId, input.kursId);
+
+    // Review A8 (SOZ-07): auch die Gegenseite darf nicht eingeschränkt sein (Minderjährige ohne Elternfreigabe); die Meldung
+    // bleibt dieselbe wie ohne Freundschaft und verrät nichts über das Konto.
+    if (!(await isVisibleOpponent(ctx.db, ctx.currentUser, input.opponentUserId))) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Ihr seid in diesem Kurs nicht befreundet." });
+    }
 
     // Zusätzliche, generische Sperre analog zu friend.redeemInviteCode — eine bestehende
     // Freundschaft wird bei einer Blockierung bereits entfernt (report.ts), dieser Check ist
@@ -191,16 +207,29 @@ export const duellRouter = router({
       )
       .orderBy(desc(duell.createdAt));
 
+    // Review A8: Duelle mit (inzwischen) eingeschränkten Konten werden nicht angezeigt; ein eingeschränktes Konto sieht keine.
+    const sichtbareGegner = new Set(
+      await visibleSocialUserIds(
+        ctx.db,
+        ctx.currentUser,
+        rows.map((row) => (row.challengerUserId === ctx.currentUser.id ? row.opponentUserId : row.challengerUserId)),
+      ),
+    );
+    const sichtbareRows = rows.filter((row) =>
+      sichtbareGegner.has(row.challengerUserId === ctx.currentUser.id ? row.opponentUserId : row.challengerUserId),
+    );
+    rows.splice(0, rows.length, ...sichtbareRows);
+
     const opponentUserIds = rows.map((row) =>
       row.challengerUserId === ctx.currentUser.id ? row.opponentUserId : row.challengerUserId,
     );
     const opponentUsers = opponentUserIds.length
       ? await ctx.db
-          .select({ id: user.id, email: user.email })
+          .select({ id: user.id, email: user.email, displayName: user.displayName, isMinor: user.isMinor })
           .from(user)
           .where(or(...opponentUserIds.map((id) => eq(user.id, id))))
       : [];
-    const emailByUserId = new Map(opponentUsers.map((row) => [row.id, row.email]));
+    const nameByUserId = new Map(opponentUsers.map((row) => [row.id, socialName(row, ctx.currentUser)]));
 
     const blockRows = opponentUserIds.length
       ? await ctx.db
@@ -228,7 +257,7 @@ export const duellRouter = router({
             : row.status,
         expiresAt: row.expiresAt,
         questionCount: row.questionCount,
-        opponentEmail: emailByUserId.get(opponentUserId) ?? "unbekannt",
+        opponentName: nameByUserId.get(opponentUserId) ?? "unbekannt",
         myFinished: myFinishedAt !== null,
         opponentFinished: opponentFinishedAt !== null,
       };
@@ -245,13 +274,16 @@ export const duellRouter = router({
     if (!isChallenger && !isOpponent) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
     }
+    if (!(await isVisibleOpponent(ctx.db, ctx.currentUser, isChallenger ? row.opponentUserId : row.challengerUserId))) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
+    }
 
     const opponentUserId = isChallenger ? row.opponentUserId : row.challengerUserId;
     const now = new Date();
     const blocked = await isBlockedPair(ctx.db, row.kursId, row.challengerUserId, row.opponentUserId);
     const status = blocked ? ("abgelaufen" as const) : isDuellExpired(row, now) ? ("abgelaufen" as const) : row.status;
 
-    const [opponentUser] = await ctx.db.select({ email: user.email }).from(user).where(eq(user.id, opponentUserId)).limit(1);
+    const [opponentUser] = await ctx.db.select({ email: user.email, displayName: user.displayName, isMinor: user.isMinor }).from(user).where(eq(user.id, opponentUserId)).limit(1);
 
     const questions = await ctx.db
       .select({
@@ -356,7 +388,7 @@ export const duellRouter = router({
       status,
       expiresAt: row.expiresAt,
       questionCount: row.questionCount,
-      opponentEmail: opponentUser?.email ?? "unbekannt",
+      opponentName: opponentUser ? socialName(opponentUser, ctx.currentUser) : "unbekannt",
       me: {
         finishedAt: myFinishedAt,
         correctCount: myCorrectCount,
@@ -383,6 +415,9 @@ export const duellRouter = router({
     const isChallenger = row.challengerUserId === ctx.currentUser.id;
     const isOpponent = row.opponentUserId === ctx.currentUser.id;
     if (!isChallenger && !isOpponent) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
+    }
+    if (!(await isVisibleOpponent(ctx.db, ctx.currentUser, isChallenger ? row.opponentUserId : row.challengerUserId))) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
     }
     const blocked = await isBlockedPair(ctx.db, row.kursId, row.challengerUserId, row.opponentUserId);
@@ -492,6 +527,9 @@ export const duellRouter = router({
     const isChallenger = row.challengerUserId === ctx.currentUser.id;
     const isOpponent = row.opponentUserId === ctx.currentUser.id;
     if (!isChallenger && !isOpponent) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
+    }
+    if (!(await isVisibleOpponent(ctx.db, ctx.currentUser, isChallenger ? row.opponentUserId : row.challengerUserId))) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Duell wurde nicht gefunden." });
     }
 

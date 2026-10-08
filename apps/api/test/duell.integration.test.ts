@@ -189,9 +189,9 @@ describe("F-61: Duelle", () => {
         url: `/api/v1/trpc/duell.myDuelle?input=${encodeURIComponent(JSON.stringify({ kursId }))}`,
         headers: { cookie: challengerCookie },
       });
-      const list = listResponse.json().result.data as { id: string; status: string; opponentEmail: string }[];
+      const list = listResponse.json().result.data as { id: string; status: string; opponentName: string }[];
       expect(list.find((entry) => entry.id === duellId)?.status).toBe("offen");
-      expect(list.find((entry) => entry.id === duellId)?.opponentEmail).toBe("test-duell-opponent@example.com");
+      expect(list.find((entry) => entry.id === duellId)?.opponentName).toBe("test-duell-opponent@example.com");
     },
     30_000,
   );

@@ -5,7 +5,7 @@ import {
   parentSetInitialPasswordInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, or } from "drizzle-orm";
 import { hashPassword, verifyPassword } from "../../auth/password";
 import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/request-limits";
 import {
@@ -15,7 +15,7 @@ import {
   invalidateSession,
   setSessionCookie,
 } from "../../auth/session";
-import { parent, parentChildLink, user, userCourse } from "../../db/schema";
+import { cohort, cohortMember, duell, friendCircleLink, inviteCode, parent, parentChildLink, user, userCourse } from "../../db/schema";
 import { protectedParentProcedure, publicProcedure, router } from "../trpc";
 
 /**
@@ -142,6 +142,19 @@ export const parentRouter = router({
         .where(eq(parentChildLink.id, link.id));
 
       await invalidateAllSessionsForUser(ctx.db, link.userId);
+
+      // Review A8 (SEC-06): Der Widerruf entfernt das Kind auch aus allen sozialen Verbindungen. Sonst bliebe es mit seinen
+      // Daten in den Listen anderer sichtbar. Duelle, Kohortenmitgliedschaften und Einladungen hängen per Fremdschlüssel
+      // kaskadierend an Konto bzw. Kohorte.
+      await ctx.db.delete(friendCircleLink).where(or(eq(friendCircleLink.userIdA, link.userId), eq(friendCircleLink.userIdB, link.userId)));
+      await ctx.db.delete(inviteCode).where(eq(inviteCode.userId, link.userId));
+      await ctx.db.delete(cohortMember).where(eq(cohortMember.userId, link.userId));
+      await ctx.db.delete(cohort).where(eq(cohort.dozentUserId, link.userId));
+      await ctx.db.delete(duell).where(or(eq(duell.challengerUserId, link.userId), eq(duell.opponentUserId, link.userId)));
+      await ctx.db
+        .update(userCourse)
+        .set({ highscoreOptIn: false, lernpartnerFachgebietId: null })
+        .where(eq(userCourse.userId, link.userId));
 
       return { success: true as const };
     }),

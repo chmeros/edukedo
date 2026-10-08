@@ -3,6 +3,7 @@ import { TRPCError } from "@trpc/server";
 import { and, eq, or } from "drizzle-orm";
 import type { Database } from "../../db/client";
 import { block, friendCircleLink, report, user } from "../../db/schema";
+import { socialName } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 
 /**
@@ -89,15 +90,15 @@ export const reportRouter = router({
     const blockedUserIds = rows.map((row) => row.blockedUserId);
     const blockedUserRows = blockedUserIds.length
       ? await ctx.db
-          .select({ id: user.id, email: user.email })
+          .select({ id: user.id, email: user.email, displayName: user.displayName, isMinor: user.isMinor })
           .from(user)
           .where(or(...blockedUserIds.map((id) => eq(user.id, id))))
       : [];
-    const emailByUserId = new Map(blockedUserRows.map((row) => [row.id, row.email]));
+    const nameByUserId = new Map(blockedUserRows.map((row) => [row.id, socialName(row, ctx.currentUser)]));
 
     return rows.map((row) => ({
       id: row.id,
-      blockedUserEmail: emailByUserId.get(row.blockedUserId) ?? "unbekannt",
+      blockedUserName: nameByUserId.get(row.blockedUserId) ?? "unbekannt",
       createdAt: row.createdAt,
     }));
   }),

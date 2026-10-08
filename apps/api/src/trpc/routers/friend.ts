@@ -9,6 +9,7 @@ import { TRPCError } from "@trpc/server";
 import { and, eq, or } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
 import { checkRateLimit } from "../../auth/rate-limit";
+import { isSocialRestricted, requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import type { Database } from "../../db/client";
 import { block, friendCircleLink, inviteCode, user, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
@@ -55,6 +56,8 @@ export const friendRouter = router({
   createInviteCode: protectedProcedure
     .input(createFriendInviteCodeInputSchema)
     .mutation(async ({ ctx, input }) => {
+      // Review A8: Minderjährige ohne Elternfreigabe können keinen Freundeskreis aufbauen (F-66).
+      requireSocialAccess(ctx.currentUser);
       await requireEnrollment(ctx.db, ctx.currentUser.id, input.kursId);
 
       const [created] = await ctx.db
@@ -114,6 +117,8 @@ export const friendRouter = router({
       });
     }
 
+    requireSocialAccess(ctx.currentUser);
+
     const normalizedCode = input.code.trim().toUpperCase();
     const [foundCode] = await ctx.db.select().from(inviteCode).where(eq(inviteCode.code, normalizedCode)).limit(1);
 
@@ -149,7 +154,8 @@ export const friendRouter = router({
     }
 
     const [ownerRow] = await ctx.db.select().from(user).where(eq(user.id, foundCode.userId)).limit(1);
-    if (!ownerRow) {
+    // Auch die Gegenseite darf nicht eingeschränkt sein; die Meldung bleibt generisch (kein Hinweis auf das Konto).
+    if (!ownerRow || isSocialRestricted(ownerRow)) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Einladungscode ist ungültig." });
     }
 
@@ -163,7 +169,7 @@ export const friendRouter = router({
         target: [friendCircleLink.kursId, friendCircleLink.userIdA, friendCircleLink.userIdB],
       });
 
-    return { friendEmail: ownerRow.email };
+    return { friendName: socialName(ownerRow, ctx.currentUser) };
   }),
 
   friends: protectedProcedure.input(friendsInputSchema).query(async ({ ctx, input }) => {
@@ -183,21 +189,32 @@ export const friendRouter = router({
       )
       .orderBy(friendCircleLink.createdAt);
 
-    const friendUserIds = rows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA));
+    // Review A8: eingeschränkte Konten sehen niemanden und sind für niemanden sichtbar (bestehende Verbindungen bleiben
+    // gespeichert und erscheinen wieder, wenn die Freigabe erneut erteilt wird).
+    const visibleIds = new Set(
+      await visibleSocialUserIds(
+        ctx.db,
+        ctx.currentUser,
+        rows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA)),
+      ),
+    );
+    const friendUserIds = [...visibleIds];
     const friendUsers = friendUserIds.length
       ? await ctx.db
-          .select({ id: user.id, email: user.email })
+          .select({ id: user.id, email: user.email, displayName: user.displayName, isMinor: user.isMinor })
           .from(user)
           .where(or(...friendUserIds.map((id) => eq(user.id, id))))
       : [];
-    const emailByUserId = new Map(friendUsers.map((row) => [row.id, row.email]));
+    const nameByUserId = new Map(friendUsers.map((row) => [row.id, socialName(row, ctx.currentUser)]));
 
-    return rows.map((row) => {
+    return rows
+      .filter((row) => visibleIds.has(row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA))
+      .map((row) => {
       const friendUserId = row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA;
       return {
         id: row.id,
         friendUserId,
-        friendEmail: emailByUserId.get(friendUserId) ?? "unbekannt",
+        friendName: nameByUserId.get(friendUserId) ?? "unbekannt",
         createdAt: row.createdAt,
       };
     });

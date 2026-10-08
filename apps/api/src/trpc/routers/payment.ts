@@ -62,6 +62,14 @@ export const paymentRouter = router({
    * Architekturplanung Abschnitt 3: der zweite, asynchrone Kanal — die Event-Queue — bestätigt
    * denselben Wert kurz darauf noch einmal, was dank des absoluten Ereigniszustands unschädlich ist). */
   startCheckout: protectedProcedure.mutation(async ({ ctx }) => {
+    // Review A8 (SOZ-08, F-81): keine Kaufabschlüsse durch Minderjährige ohne Einwilligung der Erziehungsberechtigten. Einen
+    // Kaufweg über das Eltern-Dashboard gibt es noch nicht, deshalb bleibt der Kauf für Minderjährige gesperrt.
+    if (ctx.currentUser.isMinor) {
+      throw new TRPCError({
+        code: "FORBIDDEN",
+        message: "Premium-Käufe sind für minderjährige Nutzer:innen nicht möglich.",
+      });
+    }
     let session: Awaited<ReturnType<typeof createCheckoutSession>>;
     try {
       session = await createCheckoutSession(ctx.currentUser.id);

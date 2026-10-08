@@ -2,6 +2,7 @@ import { highscoreKursInputSchema, highscoreOptInInputSchema } from "@edukedo/sh
 import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, or } from "drizzle-orm";
 import { contentItem, fachgebiet, friendCircleLink, learningEvent, thema, user, userCourse } from "../../db/schema";
+import { isSocialRestricted, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-60: "regelmäßiger (z. B. wöchentlicher) Reset" — als reines Zeitfenster in der Abfrage
@@ -67,7 +68,15 @@ export const highscoreRouter = router({
           or(eq(friendCircleLink.userIdA, ctx.currentUser.id), eq(friendCircleLink.userIdB, ctx.currentUser.id)),
         ),
       );
-    const friendUserIds = friendRows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA));
+    // Review A8: eingeschränkte Konten nehmen nicht teil und sehen die Liste nicht (F-66).
+    const friendUserIds = await visibleSocialUserIds(
+      ctx.db,
+      ctx.currentUser,
+      friendRows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA)),
+    );
+    if (isSocialRestricted(ctx.currentUser)) {
+      return [];
+    }
     const candidateUserIds = [ctx.currentUser.id, ...friendUserIds];
 
     const optedInRows = await ctx.db
@@ -104,15 +113,15 @@ export const highscoreRouter = router({
     const pointsByUserId = new Map(pointRows.map((row) => [row.userId, row.points]));
 
     const userRows = await ctx.db
-      .select({ id: user.id, email: user.email })
+      .select({ id: user.id, email: user.email, displayName: user.displayName, isMinor: user.isMinor })
       .from(user)
       .where(or(...optedInUserIds.map((id) => eq(user.id, id))));
-    const emailByUserId = new Map(userRows.map((row) => [row.id, row.email]));
+    const nameByUserId = new Map(userRows.map((row) => [row.id, socialName(row, ctx.currentUser)]));
 
     return optedInUserIds
       .map((userId) => ({
         userId,
-        email: emailByUserId.get(userId) ?? "unbekannt",
+        name: nameByUserId.get(userId) ?? "unbekannt",
         points: pointsByUserId.get(userId) ?? 0,
         isSelf: userId === ctx.currentUser.id,
       }))

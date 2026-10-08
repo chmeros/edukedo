@@ -38,7 +38,7 @@ export function Lernpartner({
         <h2>Lernpartner-Vermittlung</h2>
         <p>
           Zeigt Übereinstimmungen bei Prüfungstermin und Handlungsbereich innerhalb deines Freundeskreises — ohne
-          eigenen Chat, meldet euch per E-Mail.
+          eigenen Chat. Zwischen Erwachsenen siehst du die E-Mail-Adresse zum Melden; bei Minderjährigen bleibt sie verborgen.
         </p>
       </div>
 
@@ -73,11 +73,12 @@ export function Lernpartner({
           <Tile
             key={entry.friendUserId}
             size="sm"
-            title={entry.friendEmail}
+            title={entry.friendName}
             description={
               <>
                 {entry.targetDate ? `Zieltermin ${new Date(entry.targetDate).toLocaleDateString("de-DE")}` : "Kein Zieltermin"}
                 {entry.fachgebietTitle ? ` · ${entry.fachgebietTitle}` : ""}
+                {entry.friendEmail && entry.friendEmail !== entry.friendName ? ` · Kontakt: ${entry.friendEmail}` : ""}
               </>
             }
             meta={

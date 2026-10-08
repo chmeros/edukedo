@@ -2,6 +2,7 @@ import { cohortIdInputSchema, cohortKursInputSchema, createCohortInputSchema, jo
 import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, or, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
+import { requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import type { Database } from "../../db/client";
 import {
   block,
@@ -90,6 +91,8 @@ async function ensureFriendship(db: Database, kursId: string, userIdX: string, u
  */
 export const cohortRouter = router({
   create: protectedProcedure.input(createCohortInputSchema).mutation(async ({ ctx, input }) => {
+    // Review A8: Kohorten verbinden Mitglieder automatisch zu Freunden; eingeschränkte Konten sind ausgeschlossen (F-66).
+    requireSocialAccess(ctx.currentUser);
     await requireEnrollment(ctx.db, ctx.currentUser.id, input.kursId);
 
     const [created] = await ctx.db
@@ -139,6 +142,7 @@ export const cohortRouter = router({
    * Idempotent bei erneutem Beitritt (wie friend.redeemInviteCode/company.redeemInviteCode).
    */
   join: protectedProcedure.input(joinCohortInputSchema).mutation(async ({ ctx, input }) => {
+    requireSocialAccess(ctx.currentUser);
     const normalizedCode = input.code.trim().toUpperCase();
     const [foundCohort] = await ctx.db.select().from(cohort).where(eq(cohort.joinCode, normalizedCode)).limit(1);
     if (!foundCohort) {
@@ -168,8 +172,14 @@ export const cohortRouter = router({
       .returning({ id: cohortMember.id });
 
     if (inserted) {
-      for (const existingMember of existingMembers) {
-        await ensureFriendship(ctx.db, foundCohort.kursId, ctx.currentUser.id, existingMember.userId);
+      // Review A8: nur mit Mitgliedern verbinden, die selbst nicht eingeschränkt sind.
+      const befreundbar = await visibleSocialUserIds(
+        ctx.db,
+        ctx.currentUser,
+        existingMembers.map((member) => member.userId),
+      );
+      for (const memberUserId of befreundbar) {
+        await ensureFriendship(ctx.db, foundCohort.kursId, ctx.currentUser.id, memberUserId);
       }
     }
 
@@ -196,13 +206,29 @@ export const cohortRouter = router({
     await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
 
     const rows = await ctx.db
-      .select({ userId: cohortMember.userId, email: user.email, joinedAt: cohortMember.joinedAt })
+      .select({ userId: cohortMember.userId, email: user.email, displayName: user.displayName, isMinor: user.isMinor, joinedAt: cohortMember.joinedAt })
       .from(cohortMember)
       .innerJoin(user, eq(user.id, cohortMember.userId))
       .where(eq(cohortMember.cohortId, input.cohortId))
       .orderBy(cohortMember.joinedAt);
 
-    return rows;
+    // Review A8: Mitglieder, die inzwischen eingeschränkt sind (Freigabe entzogen), erscheinen nicht in der Liste.
+    const sichtbar = new Set(
+      await visibleSocialUserIds(
+        ctx.db,
+        ctx.currentUser,
+        rows.map((row) => row.userId),
+      ),
+    );
+    // Erwachsene Mitglieder zeigt die Liste wie bisher mit Adresse (Entscheidung F-64: Dozent:in muss die Teilnehmenden kennen);
+    // Minderjährige nur mit ihrem Anzeigenamen.
+    return rows
+      .filter((row) => sichtbar.has(row.userId))
+      .map((row) => ({
+        userId: row.userId,
+        email: socialName({ ...row, displayName: row.isMinor ? row.displayName : null }, ctx.currentUser),
+        joinedAt: row.joinedAt,
+      }));
   }),
 
   /**

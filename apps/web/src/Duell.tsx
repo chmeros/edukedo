@@ -71,7 +71,7 @@ function DuellDetail({ duellId, onClose }: { duellId: string; onClose: () => voi
         ← Zurück zu meinen Duellen
       </button>
       <span className="quiz-progress">
-        Gegen {d.opponentEmail} · {STATUS_LABELS[d.status] ?? d.status}
+        Gegen {d.opponentName} · {STATUS_LABELS[d.status] ?? d.status}
       </span>
 
       {nextQuestion && (nextQuestion.type === "quiz_mc" || nextQuestion.type === "was_passt_nicht") && (
@@ -109,7 +109,7 @@ function DuellDetail({ duellId, onClose }: { duellId: string; onClose: () => voi
             {d.result === "me" && "Du hast gewonnen! "}
             {d.result === "opponent" && "Die Gegenseite hat gewonnen. "}
             {d.result === "draw" && "Unentschieden. "}
-            Du: {d.me.correctCount}/{d.questionCount} · {d.opponentEmail}: {d.opponent.correctCount}/{d.questionCount}
+            Du: {d.me.correctCount}/{d.questionCount} · {d.opponentName}: {d.opponent.correctCount}/{d.questionCount}
           </div>
         </div>
       )}
@@ -129,7 +129,7 @@ function DuellDetail({ duellId, onClose }: { duellId: string; onClose: () => voi
 
       {d.opponentAnswers && (
         <div className="list">
-          <span className="stat-subheading">Einzelfragen von {d.opponentEmail}</span>
+          <span className="stat-subheading">Einzelfragen von {d.opponentName}</span>
           {d.opponentAnswers.map((answer, index) => (
             <div key={answer.contentItemId} className="list-row">
               <div className="meta">
@@ -184,7 +184,7 @@ function ChallengeForm({
           <option value="">Auswählen…</option>
           {(friends.data ?? []).map((friend) => (
             <option key={friend.friendUserId} value={friend.friendUserId}>
-              {friend.friendEmail}
+              {friend.friendName}
             </option>
           ))}
         </select>
@@ -248,7 +248,7 @@ export function Duell({ kursId, isMinor, gamificationEnabled }: { kursId: string
           <Tile
             key={entry.id}
             size="sm"
-            title={`Gegen ${entry.opponentEmail}`}
+            title={`Gegen ${entry.opponentName}`}
             meta={
               <>
                 {STATUS_LABELS[entry.status] ?? entry.status}

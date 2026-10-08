@@ -104,7 +104,8 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | B10 ErrorBoundary und Absturz im Statistiktrainer | **erledigt 08.10.2026** (kein automatischer Komponententest, manuell geprüft) | §13 „ErrorBoundary und Absturz im Statistiktrainer“ |
 | A6 Abhängigkeiten (Fastify 5, drizzle-orm 0.45, Overrides) | **erledigt 08.10.2026** (Produktion: 0 Funde; Dev-Werkzeuge vitest/vite offen) | §13 „Abhängigkeiten, Sicherheitsupdates“ |
 | A5 Produktions-Build, Images, CI | **erledigt 08.10.2026** (Actions-Datei noch nicht in GitHub gelaufen; Deploy-Workflow und Hosting offen) | §13 „Produktions-Build, Images und CI“, infra/README.md |
-| A8, B7, B8, B12 | offen | — |
+| A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
+| B7, B8, B12 | offen | — |
 
 ## 8. Einzelberichte
 

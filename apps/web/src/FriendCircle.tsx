@@ -14,7 +14,7 @@ import { trpc } from "./trpc";
  * (Begründung), "Blockieren" eine folgenreiche Aktion (entfernt die Freundschaft sofort), beides
  * verdient eine bewusste zweite Bestätigung statt eines einzelnen Klicks.
  */
-function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendEmail: string; createdAt: string }; kursId: string }) {
+function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendName: string; createdAt: string }; kursId: string }) {
   const utils = trpc.useUtils();
   const [openModal, setOpenModal] = useState<"report" | "block" | null>(null);
   const [reason, setReason] = useState("");
@@ -49,7 +49,7 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
   return (
     <Tile
       size="sm"
-      title={friend.friendEmail}
+      title={friend.friendName}
       description={`Befreundet seit ${new Date(friend.createdAt).toLocaleDateString("de-DE")}`}
       actions={
         <>
@@ -63,7 +63,7 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
       }
     >
       {openModal === "report" && (
-        <Modal title={`${friend.friendEmail} melden`} onClose={closeReportModal}>
+        <Modal title={`${friend.friendName} melden`} onClose={closeReportModal}>
           {report.data ? (
             <div className="stack">
               <div className="alert alert-success">
@@ -108,10 +108,10 @@ function FriendRow({ friend, kursId }: { friend: { friendUserId: string; friendE
       )}
 
       {openModal === "block" && (
-        <Modal title={`${friend.friendEmail} blockieren?`} onClose={() => setOpenModal(null)}>
+        <Modal title={`${friend.friendName} blockieren?`} onClose={() => setOpenModal(null)}>
           <div className="stack">
             <p>
-              Ihr seid danach nicht mehr befreundet, und {friend.friendEmail} kann dir keine neuen
+              Ihr seid danach nicht mehr befreundet, und {friend.friendName} kann dir keine neuen
               Einladungscodes mehr schicken. Du kannst die Blockierung jederzeit wieder aufheben.
             </p>
             <div className="alert-actions">
@@ -251,7 +251,7 @@ export function FriendCircle({ kursId }: { kursId: string }) {
         {redeem.data && (
           <div className="alert alert-success">
             <SuccessIcon />
-            <div>Du bist jetzt mit {redeem.data.friendEmail} befreundet.</div>
+            <div>Du bist jetzt mit {redeem.data.friendName} befreundet.</div>
           </div>
         )}
         {redeem.error && <ErrorMessage>{redeem.error.message}</ErrorMessage>}
@@ -272,7 +272,7 @@ export function FriendCircle({ kursId }: { kursId: string }) {
             <Tile
               key={entry.id}
               size="sm"
-              title={entry.blockedUserEmail}
+              title={entry.blockedUserName}
               description={`Blockiert seit ${new Date(entry.createdAt).toLocaleDateString("de-DE")}`}
               actions={
                 <button

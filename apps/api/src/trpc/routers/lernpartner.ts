@@ -2,6 +2,7 @@ import { lernpartnerKursInputSchema, setLernpartnerFachgebietInputSchema } from 
 import { TRPCError } from "@trpc/server";
 import { and, eq, or } from "drizzle-orm";
 import { fachgebiet, friendCircleLink, user, userCourse } from "../../db/schema";
+import { contactEmail, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-62: Zwei Prüfungstermine gelten als "im selben Zeitraum", wenn sie höchstens 30 Tage
@@ -82,7 +83,12 @@ export const lernpartnerRouter = router({
           or(eq(friendCircleLink.userIdA, ctx.currentUser.id), eq(friendCircleLink.userIdB, ctx.currentUser.id)),
         ),
       );
-    const friendUserIds = friendRows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA));
+    // Review A8: Prüfungstermin und Adresse nur für uneingeschränkte Konten, in beide Richtungen (F-66).
+    const friendUserIds = await visibleSocialUserIds(
+      ctx.db,
+      ctx.currentUser,
+      friendRows.map((row) => (row.userIdA === ctx.currentUser.id ? row.userIdB : row.userIdA)),
+    );
     if (friendUserIds.length === 0) {
       return [];
     }
@@ -91,6 +97,8 @@ export const lernpartnerRouter = router({
       .select({
         userId: user.id,
         email: user.email,
+        displayName: user.displayName,
+        isMinor: user.isMinor,
         targetDate: userCourse.targetDate,
         fachgebietId: userCourse.lernpartnerFachgebietId,
         fachgebietTitle: fachgebiet.title,
@@ -113,7 +121,8 @@ export const lernpartnerRouter = router({
 
         return {
           friendUserId: row.userId,
-          friendEmail: row.email,
+          friendName: socialName(row, ctx.currentUser),
+          friendEmail: contactEmail(row, ctx.currentUser),
           targetDate: row.targetDate,
           fachgebietTitle: row.fachgebietTitle,
           matchesTargetDate,
