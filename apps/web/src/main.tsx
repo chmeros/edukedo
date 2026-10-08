@@ -14,6 +14,7 @@ import { Impressum } from "./Impressum";
 import { ParentDashboard } from "./ParentDashboard";
 import "./styles.css";
 import { trpc } from "./trpc";
+import { ResetPassword } from "./ResetPassword";
 import { VerifyEmail } from "./VerifyEmail";
 import { Vorschau } from "./Vorschau";
 
@@ -58,6 +59,8 @@ function Root() {
           <ConsentConfirm />
         ) : pathname === "/verify-email" ? (
           <VerifyEmail />
+        ) : pathname === "/reset-password" ? (
+          <ResetPassword />
         ) : pathname === "/parent" ? (
           <ParentDashboard />
         ) : pathname === "/datenschutz-kinder" ? (

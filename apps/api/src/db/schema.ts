@@ -282,6 +282,32 @@ export const emailVerificationToken = pgTable(
   (table) => [index("email_verification_token_expires_at_idx").on(table.expiresAt)],
 );
 
+/**
+ * F-02 "Passwort vergessen": Einmal-Token für das Zurücksetzen des Passworts. Genau eines der drei Konten ist gesetzt
+ * (Lernende, Elternteil, Unternehmens-Konto), analog zur session-Tabelle. Nur der Hash des Tokens wird gespeichert; ein
+ * Token gilt kurz (siehe PASSWORD_RESET_TOKEN_DURATION_MS) und genau einmal.
+ */
+export const passwordResetToken = pgTable(
+  "password_reset_token",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").references(() => user.id, { onDelete: "cascade" }),
+    parentId: uuid("parent_id").references(() => parent.id, { onDelete: "cascade" }),
+    companyAccountId: uuid("company_account_id").references(() => companyAccount.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    usedAt: timestamp("used_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("password_reset_token_expires_at_idx").on(table.expiresAt),
+    check(
+      "password_reset_token_one_account_check",
+      sql`num_nonnulls(${table.userId}, ${table.parentId}, ${table.companyAccountId}) = 1`,
+    ),
+  ],
+);
+
 // ---------------------------------------------------------------------------
 // Content-Items — relational, wo stabil, JSONB, wo variabel — Abschnitt 4.3
 // ---------------------------------------------------------------------------

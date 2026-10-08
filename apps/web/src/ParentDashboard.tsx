@@ -1,6 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
+import { ForgotPassword } from "./ForgotPassword";
 import { Header } from "./Header";
 import { DangerIcon } from "./Icons";
 import { trpc } from "./trpc";
@@ -136,6 +137,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
 
   return (
+    <>
     <form
       className="stack"
       onSubmit={(event) => {
@@ -163,6 +165,8 @@ function LoginForm() {
       </button>
       {login.error && <ErrorMessage>{login.error.message}</ErrorMessage>}
     </form>
+    <ForgotPassword kind="parent" initialEmail={email} />
+    </>
   );
 }
 

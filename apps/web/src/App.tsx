@@ -7,6 +7,7 @@ import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { EmailVerificationBanner } from "./EmailVerificationBanner";
 import { ErrorMessage } from "./ErrorMessage";
+import { ForgotPassword } from "./ForgotPassword";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
@@ -713,6 +714,7 @@ export function App() {
             </button>
           </form>
           {activeMutation.error && <ErrorMessage>{activeMutation.error.message}</ErrorMessage>}
+          {mode === "login" && <ForgotPassword kind="user" initialEmail={email} />}
           <button type="button" className="link-muted-btn" onClick={() => setShowAuth(false)}>
             ← Zurück zur Startseite
           </button>

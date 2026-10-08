@@ -2,6 +2,7 @@ import { adminRouter } from "./routers/admin";
 import { adminContentRouter } from "./routers/adminContent";
 import { aiRouter } from "./routers/ai";
 import { authRouter } from "./routers/auth";
+import { passwordResetRouter } from "./routers/passwordReset";
 import { cohortRouter } from "./routers/cohort";
 import { companyRouter } from "./routers/company";
 import { consentRouter } from "./routers/consent";
@@ -75,6 +76,7 @@ import { router } from "./trpc";
 export const appRouter = router({
   health: healthRouter,
   auth: authRouter,
+  passwordReset: passwordResetRouter,
   consent: consentRouter,
   parent: parentRouter,
   company: companyRouter,

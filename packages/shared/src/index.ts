@@ -50,6 +50,7 @@ export * from "./schemas/instrument-lernpfad";
 export * from "./schemas/lernpartner";
 export * from "./schemas/note";
 export * from "./schemas/offline-sync";
+export * from "./schemas/password-reset";
 export * from "./schemas/parent";
 export * from "./schemas/presentation";
 export * from "./schemas/theorie-lesen";

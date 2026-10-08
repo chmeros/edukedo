@@ -17,6 +17,11 @@ export const LIMITS = {
   loginPerIp: { max: 30, windowMs: 15 * 60 * 1000 },
   /** Registrierungen je IP und Stunde. */
   registerPerIp: { max: 30, windowMs: 60 * 60 * 1000 },
+  /** "Passwort vergessen": Links je Adresse und Stunde sowie je IP und Stunde (Mail-Bombing, Adress-Abfrage). */
+  passwordResetPerEmail: { max: 3, windowMs: 60 * 60 * 1000 },
+  passwordResetPerIp: { max: 10, windowMs: 60 * 60 * 1000 },
+  /** Passwort setzen mit Token je IP und Stunde (Token-Raten ist bei 256 Bit aussichtslos, die Grenze bremst nur Argon2-Last). */
+  passwordResetConfirmPerIp: { max: 20, windowMs: 60 * 60 * 1000 },
   /** Eltern-Einwilligungsmails je Adresse und Tag (Mail-Bombing über das Registrierungsformular). */
   consentMailPerParentEmail: { max: 5, windowMs: 24 * 60 * 60 * 1000 },
 } as const;

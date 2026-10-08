@@ -62,6 +62,14 @@ export function sendEmailVerificationEmail(params: { to: string; confirmUrl: str
   ]);
 }
 
+/** F-02: Link zum Zurücksetzen des Passworts (siehe auth/password-reset.ts). */
+export function sendPasswordResetEmail(params: { to: string; resetUrl: string }): void {
+  logPlaceholderEmail("Passwort zurücksetzen", params.to, [
+    "Betreff: Passwort bei edukedo zurücksetzen",
+    `Link (gilt eine Stunde, nur einmal): ${params.resetUrl}`,
+  ]);
+}
+
 /**
  * F-91: Setup-Link für ein neu von einem Admin angelegtes Unternehmens-Konto (siehe
  * apps/api/src/auth/company-setup.ts).
