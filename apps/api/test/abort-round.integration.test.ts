@@ -150,6 +150,8 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
   it(
     "verwirft eine Karteikarten-Bewertung rückwirkend auf den FSRS-Ausgangszustand (erste Bewertung dieser Karte überhaupt)",
     async () => {
+      // Review LOG-02: Guthaben aus früheren Quiz-Antworten; Karteikarten vergeben nie Credits, ihr Abbruch darf also keine abziehen.
+      await db.update(schema.user).set({ credits: 10, mascotFood: 5 }).where(eq(schema.user.id, learnerUserId));
       const since = new Date();
       const reviewResponse = await app.inject({
         method: "POST",
@@ -189,6 +191,9 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
       // Erste jemals abgegebene Bewertung dieser Karte — previous_snapshot hielt den
       // FSRS-Ausgangszustand fest (state "new", siehe applyReview/initialProgressState).
       expect(afterAbort?.state).toBe("new");
+
+      expect((await meData(learnerCookie)).credits).toBe(10);
+      expect(await mascotFood(learnerUserId)).toBe(5);
     },
     30_000,
   );

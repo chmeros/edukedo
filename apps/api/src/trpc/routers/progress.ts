@@ -537,14 +537,14 @@ async function abortRoundItem(db: Database, userId: string, contentItemId: strin
       }
     }
 
-    if (event.isCorrect) {
-      // F-118: nur Quiz-Antworten füttern den Punktehamster (siehe recordQuizAttempt oben).
-      if (item.type !== "karteikarte") {
-        await tx
-          .update(user)
-          .set({ mascotFood: sql`greatest(${user.mascotFood} - 1, 0)` })
-          .where(eq(user.id, userId));
-      }
+    // F-118/F-119: Punktehamster und Credits kommen ausschließlich aus Quiz-Antworten (siehe recordQuizAttempt oben), nie aus
+    // Karteikarten (applyReview vergibt weder das eine noch das andere). Review LOG-02: Die Rücknahme darf deshalb auch nur
+    // Quiz-Antworten betreffen; sonst zog der Abbruch einer Karteikarten-Runde Credits ab, die nie vergeben wurden.
+    if (event.isCorrect && item.type !== "karteikarte") {
+      await tx
+        .update(user)
+        .set({ mascotFood: sql`greatest(${user.mascotFood} - 1, 0)` })
+        .where(eq(user.id, userId));
       const [stillCorrect] = await tx
         .select({ id: learningEvent.id })
         .from(learningEvent)
