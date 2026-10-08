@@ -8,6 +8,7 @@ import { initDisplayPrefs } from "./displayPrefs";
 import { CompanyDashboard } from "./CompanyDashboard";
 import { CompanySetup } from "./CompanySetup";
 import { ConsentConfirm } from "./ConsentConfirm";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { Datenschutzerklaerung } from "./Datenschutzerklaerung";
 import { DatenschutzKinder } from "./DatenschutzKinder";
 import { Impressum } from "./Impressum";
@@ -55,31 +56,33 @@ function Root() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        {pathname === "/consent/confirm" ? (
-          <ConsentConfirm />
-        ) : pathname === "/verify-email" ? (
-          <VerifyEmail />
-        ) : pathname === "/reset-password" ? (
-          <ResetPassword />
-        ) : pathname === "/parent" ? (
-          <ParentDashboard />
-        ) : pathname === "/datenschutz-kinder" ? (
-          <DatenschutzKinder />
-        ) : pathname === "/vorschau" ? (
-          <Vorschau />
-        ) : pathname === "/company/setup" ? (
-          <CompanySetup />
-        ) : pathname === "/company" ? (
-          <CompanyDashboard />
-        ) : pathname === "/impressum" ? (
-          <Impressum />
-        ) : pathname === "/datenschutz" ? (
-          <Datenschutzerklaerung />
-        ) : pathname === "/agb" ? (
-          <AGB />
-        ) : (
-          <App />
-        )}
+        <ErrorBoundary vollbild bereich="Diese Seite">
+          {pathname === "/consent/confirm" ? (
+            <ConsentConfirm />
+          ) : pathname === "/verify-email" ? (
+            <VerifyEmail />
+          ) : pathname === "/reset-password" ? (
+            <ResetPassword />
+          ) : pathname === "/parent" ? (
+            <ParentDashboard />
+          ) : pathname === "/datenschutz-kinder" ? (
+            <DatenschutzKinder />
+          ) : pathname === "/vorschau" ? (
+            <Vorschau />
+          ) : pathname === "/company/setup" ? (
+            <CompanySetup />
+          ) : pathname === "/company" ? (
+            <CompanyDashboard />
+          ) : pathname === "/impressum" ? (
+            <Impressum />
+          ) : pathname === "/datenschutz" ? (
+            <Datenschutzerklaerung />
+          ) : pathname === "/agb" ? (
+            <AGB />
+          ) : (
+            <App />
+          )}
+        </ErrorBoundary>
       </QueryClientProvider>
     </trpc.Provider>
   );

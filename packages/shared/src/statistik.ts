@@ -32,6 +32,23 @@ export function leseZahlen(eingabe: string): number[] | null {
   return werte;
 }
 
+/**
+ * Kleinster und größter Wert einer beliebig langen Reihe. `Math.min(...werte)` bricht bei sehr langen Reihen mit einem
+ * `RangeError` ab (zu viele Funktionsargumente, ab etwa 100.000 Werten); die Schleife nicht. Für eine leere Reihe liefern sie
+ * `Infinity` bzw. `-Infinity` wie `Math.min()` und `Math.max()` ohne Argumente.
+ */
+export function kleinsterWert(werte: number[]): number {
+  let ergebnis = Infinity;
+  for (const wert of werte) if (wert < ergebnis) ergebnis = wert;
+  return ergebnis;
+}
+
+export function groessterWert(werte: number[]): number {
+  let ergebnis = -Infinity;
+  for (const wert of werte) if (wert > ergebnis) ergebnis = wert;
+  return ergebnis;
+}
+
 export function mittelwert(werte: number[]): number | null {
   return werte.length === 0 ? null : werte.reduce((s, w) => s + w, 0) / werte.length;
 }

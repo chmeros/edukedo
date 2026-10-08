@@ -6,6 +6,7 @@ import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
 import { EmailVerificationBanner } from "./EmailVerificationBanner";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { ErrorMessage } from "./ErrorMessage";
 import { ForgotPassword } from "./ForgotPassword";
 import { GuestHeaderActions } from "./GuestHeaderActions";
@@ -369,6 +370,7 @@ export function App() {
                     <div className={`tab-nav-fade tab-nav-fade--left${tabNavScroll.canScrollLeft ? " is-visible" : ""}`} aria-hidden="true" />
                     <div className={`tab-nav-fade tab-nav-fade--right${tabNavScroll.canScrollRight ? " is-visible" : ""}`} aria-hidden="true" />
                   </div>
+                  <ErrorBoundary resetKey={`${activeKursId ?? ""}:${learningMode}`} bereich="Dieser Lernbereich">
                   <div
                     // Redesign 17.09.2026 (siehe Architekturplanung Abschnitt 13): löst die
                     // bisherige, alle Lernmodi umschließende .card ab — Theorie/Fortschritt
@@ -480,6 +482,7 @@ export function App() {
                       />
                     )}
                   </div>
+                  </ErrorBoundary>
                 </>
               ) : (
                 <p>Lädt…</p>

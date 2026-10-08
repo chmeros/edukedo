@@ -3,6 +3,8 @@ import { createSeededRandom } from "./kreuzwort-generator";
 import {
   beschreibe,
   erzeugeStatAufgabe,
+  groessterWert,
+  kleinsterWert,
   leseZahlen,
   median,
   mittelwert,
@@ -186,5 +188,21 @@ describe("erzeugeStatAufgabe", () => {
       expect(r).toBeGreaterThanOrEqual(0.6);
       expect(r).toBeLessThan(1);
     }
+  });
+});
+
+describe("kleinsterWert und groessterWert (kein RangeError bei langen Reihen)", () => {
+  it("liefern Minimum und Maximum und für eine leere Reihe Infinity wie Math.min() ohne Argumente", () => {
+    expect(kleinsterWert([3, -2, 7])).toBe(-2);
+    expect(groessterWert([3, -2, 7])).toBe(7);
+    expect(kleinsterWert([])).toBe(Infinity);
+    expect(groessterWert([])).toBe(-Infinity);
+  });
+
+  it("verarbeiten auch Reihen, bei denen Math.min(...werte) mit einem RangeError scheitert", () => {
+    const lang = Array.from({ length: 500_000 }, (_, i) => i % 1000);
+    expect(() => Math.min(...lang)).toThrow(RangeError);
+    expect(kleinsterWert(lang)).toBe(0);
+    expect(groessterWert(lang)).toBe(999);
   });
 });

@@ -3,6 +3,8 @@ import {
   erzeugeStatAufgabe,
   formatDe,
   formatKurz,
+  groessterWert,
+  kleinsterWert,
   leseZahlen,
   pruefeStatFeld,
   QUARTIL_METHODEN,
@@ -199,10 +201,12 @@ function Reihe() {
 }
 
 function Streudiagramm({ x, y, a, b }: { x: number[]; y: number[]; a: number | null; b: number | null }) {
-  const xMin = Math.min(...x);
-  const xMax = Math.max(...x);
-  const yMin = Math.min(...y, ...(a !== null && b !== null ? [a + b * xMin, a + b * xMax] : []));
-  const yMax = Math.max(...y, ...(a !== null && b !== null ? [a + b * xMin, a + b * xMax] : []));
+  // Kein Math.min(...x): Bei sehr langen eingefügten Reihen löste das einen RangeError und damit einen leeren Bildschirm aus.
+  const xMin = kleinsterWert(x);
+  const xMax = groessterWert(x);
+  const gerade = a !== null && b !== null ? [a + b * xMin, a + b * xMax] : [];
+  const yMin = Math.min(kleinsterWert(y), ...gerade);
+  const yMax = Math.max(groessterWert(y), ...gerade);
   const sx = (wert: number) => 50 + ((wert - xMin) / (xMax - xMin || 1)) * 500;
   const sy = (wert: number) => 170 - ((wert - yMin) / (yMax - yMin || 1)) * 140;
   return (
