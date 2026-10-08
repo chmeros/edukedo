@@ -93,10 +93,18 @@ const OFFLINE_OWNER_KEY = "edukedo-offline-owner";
  * genau einer Person. Beim Logout und beim Wechsel der angemeldeten Person werden sie gelöscht, sonst würden
  * Offline-Antworten von Nutzer A auf einem geteilten Gerät dem nächsten Nutzer B gutgeschrieben.
  */
+/**
+ * Review WRK-20: Entwürfe der Planungswerkzeuge (Freitext wie Thema, Zielgruppe, Beruf) und die Prüfungstag-Checkliste liegen im
+ * Browser, nicht beim Server. Auf einem geteilten Gerät sollen sie dem nächsten Konto nicht angezeigt werden; Einstellungen zur
+ * Darstellung (Hell/Dunkel usw.) bleiben dagegen erhalten.
+ */
+const LOKALE_ENTWUERFE = ["edukedo.ausbildungsplan.v1", "edukedo.unterweisungsplan.v1", "edukedo.examDayChecklist"];
+
 export async function clearOfflineData(): Promise<void> {
   await Promise.all([offlineDb.content.clear(), offlineDb.queue.clear()]);
   try {
     localStorage.removeItem(OFFLINE_OWNER_KEY);
+    for (const schluessel of LOKALE_ENTWUERFE) localStorage.removeItem(schluessel);
   } catch {
     // Speicher blockiert: nichts zu tun.
   }

@@ -3166,6 +3166,36 @@ function fuehreBefehlAus(lauf: Laufzeit, args: string[], stdin: string[] | null,
   return befehl(kontext);
 }
 
+/**
+ * Review WRK-13: Glob-Abgleich (* und ?) ohne Regex. Ein aus dem Muster gebauter Ausdruck mit vielen hintereinander gesetzten ".*"
+ * konnte exponentiell zurückverfolgen und die Seite einfrieren; dieser Abgleich merkt sich nur die letzte Position eines "*" und
+ * braucht höchstens (Muster × Name) Schritte.
+ */
+export function globPasst(muster: string, name: string): boolean {
+  let m = 0;
+  let n = 0;
+  let sternM = -1;
+  let sternN = 0;
+  while (n < name.length) {
+    if (m < muster.length && (muster[m] === "?" || muster[m] === name[n])) {
+      m += 1;
+      n += 1;
+    } else if (m < muster.length && muster[m] === "*") {
+      sternM = m;
+      sternN = n;
+      m += 1;
+    } else if (sternM !== -1) {
+      m = sternM + 1;
+      sternN += 1;
+      n = sternN;
+    } else {
+      return false;
+    }
+  }
+  while (m < muster.length && muster[m] === "*") m += 1;
+  return m === muster.length;
+}
+
 /** Ersetzt Platzhalter (* und ?) außerhalb von Anführungszeichen durch passende Namen im Verzeichnis (wie die Shell, mit den Rechten des Benutzers). */
 function expandiereGlobs(z: TerminalZustand, stufe: Stufe): string[] {
   return stufe.args.flatMap((arg, index) => {
@@ -3176,9 +3206,8 @@ function expandiereGlobs(z: TerminalZustand, stufe: Stufe): string[] {
     if (/[*?]/.test(verzeichnisTeil)) return [arg];
     const abs = absPfad(z, verzeichnisTeil);
     if (!istVerzeichnis(z, abs) || !terminalKannLesen(z, z.benutzer, abs)) return [arg];
-    const maskiert = muster.replace(/[.+^$|(){}[\]\\]/g, "\\$&");
-    const regex = new RegExp(`^${maskiert.replace(/\*/g, ".*").replace(/\?/g, ".")}$`);
-    const treffer = kinder(z, abs).filter((k) => regex.test(k.name) && (!k.name.startsWith(".") || muster.startsWith(".")));
+    if (muster.length > 200) return [arg];
+    const treffer = kinder(z, abs).filter((k) => globPasst(muster, k.name) && (!k.name.startsWith(".") || muster.startsWith(".")));
     if (treffer.length === 0) return [arg];
     const vorn = arg.slice(0, stelle + 1);
     return treffer.map((k) => `${vorn}${k.name}`);

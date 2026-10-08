@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
@@ -41,10 +41,16 @@ function formatElapsed(seconds: number): string {
 function PresentationTimer({ limitMinutes }: { limitMinutes: number }) {
   const [elapsed, setElapsed] = useState(0);
   const [running, setRunning] = useState(false);
+  const elapsedRef = useRef(0);
+  elapsedRef.current = elapsed;
 
+  // Review WRK-15: Die Zeit kommt aus der Uhr (Differenz zum Start), nicht aus gezählten Ticks; gedrosselte Hintergrund-Tabs und
+  // Bildschirmsperren verfälschen sie so nicht. Das Intervall dient nur dem Neuzeichnen.
   useEffect(() => {
     if (!running) return;
-    const interval = setInterval(() => setElapsed((seconds) => seconds + 1), 1000);
+    const start = Date.now();
+    const basis = elapsedRef.current;
+    const interval = setInterval(() => setElapsed(basis + Math.floor((Date.now() - start) / 1000)), 250);
     return () => clearInterval(interval);
   }, [running]);
 

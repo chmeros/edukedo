@@ -38,7 +38,8 @@ export class SqlSandbox {
   private worker: Worker | null = null;
   private naechsteId = 1;
   private readonly wartend = new Map<number, Wartend>();
-  private timer: ReturnType<typeof setTimeout> | null = null;
+  /** Ein Zeitgeber je Anfrage (Review WRK-33): Eine zweite Anfrage bekommt ihre eigene Frist statt der Restzeit der ersten. */
+  private readonly timer = new Map<number, ReturnType<typeof setTimeout>>();
 
   private erzeugeWorker(): Worker {
     const worker = new Worker(new URL("./sqlWorker.ts", import.meta.url), { type: "module" });
@@ -46,10 +47,9 @@ export class SqlSandbox {
       const eintrag = this.wartend.get(event.data.id);
       if (!eintrag) return;
       this.wartend.delete(event.data.id);
-      if (this.wartend.size === 0 && this.timer) {
-        clearTimeout(this.timer);
-        this.timer = null;
-      }
+      const frist = this.timer.get(event.data.id);
+      if (frist) clearTimeout(frist);
+      this.timer.delete(event.data.id);
       eintrag.resolve(event.data);
     };
     worker.onerror = (event) => {
@@ -62,8 +62,8 @@ export class SqlSandbox {
   private abbrechen(fehler: Error): void {
     this.worker?.terminate();
     this.worker = null;
-    if (this.timer) clearTimeout(this.timer);
-    this.timer = null;
+    for (const frist of this.timer.values()) clearTimeout(frist);
+    this.timer.clear();
     for (const eintrag of this.wartend.values()) eintrag.reject(fehler);
     this.wartend.clear();
   }
@@ -74,9 +74,12 @@ export class SqlSandbox {
     const id = this.naechsteId++;
     return new Promise<SqlAntwort>((resolve, reject) => {
       this.wartend.set(id, { resolve, reject });
-      this.timer ??= setTimeout(
-        () => this.abbrechen(new Error(`Abbruch nach ${SQL_TIMEOUT_MS / 1000} Sekunden: Die Anweisung läuft zu lange. Die Beispieldatenbank wurde neu geladen.`)),
-        SQL_TIMEOUT_MS,
+      this.timer.set(
+        id,
+        setTimeout(
+          () => this.abbrechen(new Error(`Abbruch nach ${SQL_TIMEOUT_MS / 1000} Sekunden: Die Anweisung läuft zu lange. Die Beispieldatenbank wurde neu geladen.`)),
+          SQL_TIMEOUT_MS,
+        ),
       );
       this.worker!.postMessage({ ...anfrage, id } as SqlAnfrage);
     });

@@ -727,6 +727,7 @@ function Selbsteinschaetzung({
   const [rating, setRating] = useState(previous ?? 5);
   const [done, setDone] = useState(false);
   const [pending, setPending] = useState(false);
+  const [fehler, setFehler] = useState<string | null>(null);
 
   if (done) {
     return (
@@ -756,14 +757,22 @@ function Selbsteinschaetzung({
         style={{ alignSelf: "flex-start" }}
         disabled={pending}
         onClick={async () => {
+          // Review WRK-12: Bei einem Fehler wird der Knopf wieder frei und die Meldung angezeigt (vorher blieb er gesperrt).
           setPending(true);
-          await onSubmit(rating);
-          setPending(false);
-          setDone(true);
+          setFehler(null);
+          try {
+            await onSubmit(rating);
+            setDone(true);
+          } catch (error) {
+            setFehler(error instanceof Error ? error.message : "Die Einschätzung konnte nicht gespeichert werden.");
+          } finally {
+            setPending(false);
+          }
         }}
       >
         Ergebnis ansehen
       </button>
+      {fehler && <p className="error" role="alert">Nicht gespeichert: {fehler}</p>}
     </div>
   );
 }

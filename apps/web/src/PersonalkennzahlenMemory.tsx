@@ -113,6 +113,8 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
     );
   }
 
+  // Review WRK-11: Scheitert schon die erste Abfrage (Bootstrap), bleibt aktiveRunde leer; das zeigte endlos "Lädt…".
+  if (bootstrap.error) return <ErrorMessage>Das Spiel konnte nicht geladen werden.</ErrorMessage>;
   if (aktiveRunde === null || data.isLoading) return <p>Lädt…</p>;
   if (data.error || !data.data) return <ErrorMessage>Das Spiel konnte nicht geladen werden.</ErrorMessage>;
   const runde = data.data;
@@ -128,6 +130,11 @@ export function PersonalkennzahlenMemory({ kursId, setKey, title, onClose }: { k
           Zurück zu den Spielen
         </button>
       </div>
+
+      {/* Review WRK-10: Fehler beim Prüfen eines Paares oder beim Abschließen der Runde werden angezeigt. */}
+      {(submitPaar.error || completeRound.error) && (
+        <ErrorMessage>Das hat nicht geklappt ({(submitPaar.error ?? completeRound.error)!.message}). Bitte versuche es noch einmal.</ErrorMessage>
+      )}
 
       {rundeFertig ? (
         <div className="stack">

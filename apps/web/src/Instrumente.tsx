@@ -1043,12 +1043,28 @@ export function Instrumente({
         <h2>Werkzeugkasten</h2>
       </div>
       <p className="field-hint">
-        Je Instrument erst ein Wissenstest per Quiz, danach die praktische Anwendung am Instrument selbst — beides
-        findet sich im jeweils verlinkten Thema. Für manche Instrumente gibt es zusätzlich einen geführten,
+        Je Instrument eine Übungsrunde mit Fragen genau zu diesem Instrument und, wo vorhanden, die praktische Anwendung
+        am Werkzeug selbst. Für manche Instrumente gibt es zusätzlich einen geführten,
         mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
       </p>
       {instruments.isLoading || courses.isLoading ? (
         <p>Lädt…</p>
+      ) : instruments.isError || courses.isError ? (
+        // Review WRK-24: Ein Ladefehler ist keine leere Antwort ("keine Instrumente").
+        <div className="stack">
+          <p className="error" role="alert">Die Instrumente konnten nicht geladen werden. Bitte prüfe deine Verbindung.</p>
+          <button
+            type="button"
+            className="btn btn-primary btn-sm"
+            style={{ alignSelf: "flex-start" }}
+            onClick={() => {
+              void instruments.refetch();
+              void courses.refetch();
+            }}
+          >
+            Erneut versuchen
+          </button>
+        </div>
       ) : (
         <>
           {/* F-176: nur Instrumente, die zum Kurs passen — keine „noch nicht verfügbar“-Kacheln mehr. */}

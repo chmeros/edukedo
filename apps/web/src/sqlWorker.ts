@@ -27,9 +27,18 @@ function lade(): Promise<SqlJsStatic> {
   return sqlModul;
 }
 
+/**
+ * Review WRK-14: Der Watchdog (5 s) begrenzt nur die Zeit. Zusätzlich ist die Größe der Datenbank (4.000 Seiten, rund 16 MB) und die
+ * Länge einer Eingabe begrenzt; ein rekursives INSERT oder eine riesige Anweisung scheitert so mit einer Meldung, statt den
+ * Arbeitsspeicher des Browsers zu füllen.
+ */
+const MAX_SEITEN = 4000;
+const MAX_SQL_ZEICHEN = 20000;
+
 function neueDatenbank(SQL: SqlJsStatic, datensatz: SqlDatensatzId): Database {
   const db = new SQL.Database();
   db.exec(SQL_DATENSAETZE[datensatz].schema);
+  db.exec(`PRAGMA max_page_count = ${MAX_SEITEN};`);
   return db;
 }
 
@@ -70,8 +79,12 @@ function pruefTabelle(db: Database, sql: string, art: "abfrage" | "aenderung", p
 }
 
 async function bearbeite(anfrage: SqlAnfrage): Promise<SqlAntwort> {
-  const SQL = await lade();
   try {
+    // Review WRK-33: Scheitert das Laden von sql.js/WebAssembly, kommt eine Fehlermeldung statt nach 5 s "läuft zu lange".
+    const SQL = await lade();
+    if ("sql" in anfrage && anfrage.sql.length > MAX_SQL_ZEICHEN) {
+      throw new Error(`Die Anweisung ist zu lang (höchstens ${MAX_SQL_ZEICHEN} Zeichen).`);
+    }
     if (anfrage.art === "zuruecksetzen") {
       sitzungen.get(anfrage.datensatz)?.close();
       sitzungen.set(anfrage.datensatz, neueDatenbank(SQL, anfrage.datensatz));

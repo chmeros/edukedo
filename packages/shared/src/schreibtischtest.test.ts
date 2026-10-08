@@ -188,3 +188,9 @@ describe("erzeugeTraceAufgabe", () => {
     expect([...alle].sort()).toEqual([...VORLAGEN_IDS].sort());
   });
 });
+
+describe("Obergrenze des Programmtextes (Review WRK-39)", () => {
+  it("lehnt ein zu langes Programm mit einer verständlichen Meldung ab", () => {
+    expect(() => fuehreAus("x = 1\n".repeat(3000))).toThrow(/zu lang/);
+  });
+});

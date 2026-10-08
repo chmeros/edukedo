@@ -400,7 +400,7 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
                 }
                 if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
                   event.preventDefault();
-                  void ausfuehren(sql, "Ergebnis deiner Anweisung");
+                  if (!laeuft && sql.trim() !== "") void ausfuehren(sql, "Ergebnis deiner Anweisung");
                 }
               }}
             />

@@ -86,10 +86,18 @@ function Boxplot({ k, werte }: { k: StatKennzahlen; werte: number[] }) {
   );
 }
 
+/** Review WRK-39: Obergrenze der Werte je Reihe (Beschriftung und Streudiagramm wachsen sonst mit jedem Wert). */
+const MAX_WERTE = 1000;
+const ZU_VIELE_WERTE = `Bitte höchstens ${MAX_WERTE} Werte je Reihe eingeben.`;
+
+function begrenzt(werte: number[] | null): { werte: number[] | null; zuViele: boolean } {
+  return werte !== null && werte.length > MAX_WERTE ? { werte: [], zuViele: true } : { werte, zuViele: false };
+}
+
 function Reihe() {
   const [text, setText] = useState("2; 3; 3; 4; 5; 6; 27");
   const [methode, setMethode] = useState<QuartilMethode>("halbierung");
-  const werte = leseZahlen(text);
+  const { werte, zuViele } = begrenzt(leseZahlen(text));
   const k = werte !== null && werte.length > 0 ? beschreibe(werte, methode) : null;
   const methodeInfo = QUARTIL_METHODEN.find((eintrag) => eintrag.id === methode)!;
 
@@ -142,8 +150,9 @@ function Reihe() {
       </div>
 
       <div aria-live="polite" className="stack">
+        {zuViele && <p className="field-hint subnet-fehler">{ZU_VIELE_WERTE}</p>}
         {werte === null && <p className="field-hint subnet-fehler">Die Eingabe enthält etwas, das keine Zahl ist. Trenne die Zahlen mit Semikolon, Leerzeichen oder Zeilenumbruch.</p>}
-        {werte !== null && werte.length === 0 && <p className="field-hint">Gib eine Zahlenreihe ein.</p>}
+        {werte !== null && werte.length === 0 && !zuViele && <p className="field-hint">Gib eine Zahlenreihe ein.</p>}
         {k && werte && (
           <>
             <div className="netzplan-tabelle-wrap">
@@ -238,8 +247,11 @@ function Streudiagramm({ x, y, a, b }: { x: number[]; y: number[]; a: number | n
 function Zusammenhang() {
   const [xText, setXText] = useState("1; 2; 3; 4; 5; 6");
   const [yText, setYText] = useState("11; 13; 12; 16; 18; 17");
-  const x = leseZahlen(xText);
-  const y = leseZahlen(yText);
+  const xBegrenzt = begrenzt(leseZahlen(xText));
+  const yBegrenzt = begrenzt(leseZahlen(yText));
+  const x = xBegrenzt.werte;
+  const y = yBegrenzt.werte;
+  const zuVieleXY = xBegrenzt.zuViele || yBegrenzt.zuViele;
   const zs = x && y && x.length === y.length ? zusammenhang(x, y) : null;
 
   return (
@@ -259,6 +271,7 @@ function Zusammenhang() {
         <textarea id="st-y" className="input" rows={2} autoComplete="off" spellCheck={false} value={yText} onChange={(event) => setYText(event.target.value)} />
       </div>
       <div aria-live="polite" className="stack">
+        {zuVieleXY && <p className="field-hint subnet-fehler">{ZU_VIELE_WERTE}</p>}
         {(x === null || y === null) && <p className="field-hint subnet-fehler">Eine der Eingaben enthält etwas, das keine Zahl ist.</p>}
         {x && y && x.length !== y.length && <p className="field-hint subnet-fehler">x und y müssen gleich viele Werte haben ({x.length} und {y.length}).</p>}
         {x && y && x.length === y.length && x.length < 3 && <p className="field-hint">Mindestens drei Wertepaare.</p>}

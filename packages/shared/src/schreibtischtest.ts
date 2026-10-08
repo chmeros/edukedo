@@ -407,7 +407,13 @@ const zuZahl = (w: Wert, zeile: number): number => {
 };
 const wahrheit = (w: Wert): boolean => (Array.isArray(w) ? w.length > 0 : Boolean(w));
 
+/** Review WRK-39: Obergrenze des Programmtextes (der Interpreter kopiert Listen bei jedem Lesen). */
+export const MAX_PROGRAMM_ZEICHEN = 10000;
+
 export function fuehreAus(code: string): Ausfuehrung {
+  if (code.length > MAX_PROGRAMM_ZEICHEN) {
+    throw new ProgrammFehler(`Das Programm ist zu lang (höchstens ${MAX_PROGRAMM_ZEICHEN} Zeichen).`, null);
+  }
   const programm = liesProgramm(code);
   const variablen = new Map<string, Wert>();
   const reihenfolge: string[] = [];
