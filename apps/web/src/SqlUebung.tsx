@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { SqlSandbox, type SqlAnzeigeTabelle } from "./sqlSandbox";
+import { pluralDe } from "./plural";
 
 /**
  * F-167 (Nutzer-Vorgabe vom 05.10.2026, siehe Architekturplanung Abschnitt 13): SQL-Übungsfläche im
@@ -494,7 +495,7 @@ export function SqlUebungsflaeche({ onClose, erlaubt }: { onClose: () => void; e
             ))}
             {ausgabe.tabellen.length === 0 && ausgabe.dauerMs > 0 && (
               <p className="field-hint">
-                Ausgeführt ({ausgabe.dauerMs} ms), keine Ergebnistabelle. {ausgabe.geaendert > 0 ? `${ausgabe.geaendert} Zeile(n) geändert.` : ""}
+                Ausgeführt ({ausgabe.dauerMs} ms), keine Ergebnistabelle. {ausgabe.geaendert > 0 ? `${pluralDe(ausgabe.geaendert, "Zeile", "Zeilen")} geändert.` : ""}
               </p>
             )}
           </div>

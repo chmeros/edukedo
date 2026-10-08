@@ -2,6 +2,7 @@ import { InfoIcon } from "./Icons";
 import { TYPE_LABELS } from "./Suche";
 import { trpc } from "./trpc";
 import { ConfirmButton } from "./ConfirmButton";
+import { ErrorMessage } from "./ErrorMessage";
 
 /**
  * F-15: Übersicht aller eigenen Notizen im gewählten Kurs — zweiter echter Inhalt im
@@ -32,6 +33,7 @@ export function MeineNotizen({
         <h2>Meine Notizen</h2>
       </div>
       {notes.isLoading && <p>Lädt…</p>}
+      {notes.isError && <ErrorMessage>Deine Notizen konnten nicht geladen werden ({notes.error.message}).</ErrorMessage>}
       {notes.data && notes.data.length === 0 && (
         <div className="alert alert-info">
           <InfoIcon />

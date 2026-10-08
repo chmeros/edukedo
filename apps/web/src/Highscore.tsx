@@ -1,6 +1,7 @@
 import { ErrorMessage } from "./ErrorMessage";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+import { pluralDe } from "./plural";
 
 /**
  * F-60: Highscore-/Punkteliste — opt-in, je Kurs getrennt, beschränkt auf den eigenen
@@ -66,7 +67,7 @@ export function Highscore({
             size="sm"
             active={entry.isSelf}
             title={`${index + 1}. ${entry.isSelf ? "Du" : entry.name}`}
-            meta={`${entry.points} Punkt(e)`}
+            meta={pluralDe(entry.points, "Punkt", "Punkte")}
           />
         ))}
       </div>

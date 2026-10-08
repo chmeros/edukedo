@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 import { trpc } from "./trpc";
+import { pluralDe } from "./plural";
 
 /**
  * F-110: Gezielte Auswahl einzelner Karteikarten (über die themenbezogene Fragenzahl aus F-22
@@ -68,7 +69,7 @@ export function FlashcardSelection({
             disabled={selected.size === 0}
             onClick={() => onApply([...selected])}
           >
-            {selected.size} Karte(n) lernen
+            {pluralDe(selected.size, "Karte", "Karten")} lernen
           </button>
         </div>
       </div>

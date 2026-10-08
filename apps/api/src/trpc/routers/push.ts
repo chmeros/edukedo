@@ -59,6 +59,15 @@ export const pushRouter = router({
     return { success: true };
   }),
 
+  /**
+   * Review WEB-36: Abschalten gilt für das Konto, nicht nur für den Browser, in dem man gerade ist: alle Abonnements entfernen.
+   * Ohne das blieb der Server-Eintrag stehen, wenn der aktuelle Browser keine eigene Subscription (mehr) hatte.
+   */
+  unsubscribeAll: protectedProcedure.mutation(async ({ ctx }) => {
+    await ctx.db.delete(pushSubscription).where(eq(pushSubscription.userId, ctx.currentUser.id));
+    return { success: true };
+  }),
+
   unsubscribe: protectedProcedure.input(unsubscribeInputSchema).mutation(async ({ ctx, input }) => {
     await ctx.db
       .delete(pushSubscription)

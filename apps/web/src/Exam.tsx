@@ -341,6 +341,19 @@ export function Exam({ kursId }: { kursId: string }) {
     return () => clearInterval(interval);
   }, [deadline, result]);
 
+  // Review WEB-10: Während einer laufenden Sitzung warnt der Browser vor dem Neuladen oder Schließen der Seite (Antworten und
+  // Frist liegen nur im Arbeitsspeicher dieser Seite).
+  const sitzungLaeuft = sessionId !== null && items.length > 0 && result === null;
+  useEffect(() => {
+    if (!sitzungLaeuft) return;
+    const warnen = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warnen);
+    return () => window.removeEventListener("beforeunload", warnen);
+  }, [sitzungLaeuft]);
+
   function reset() {
     setSessionId(null);
     setItems([]);

@@ -14,6 +14,7 @@ import type { OfflineContentItem } from "./offlineDb";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
+import { pluralDe } from "./plural";
 
 /**
  * F-110: Erweiterte Karteikarten-Auswahl (Nutzer-Feedback vom 18.09.2026, erweitert F-22).
@@ -330,7 +331,7 @@ export function Flashcards({
         {selectionControls}
         <div className="alert alert-success">
           <SuccessIcon />
-          <div>Runde abgeschlossen 🎉 — {cards.length} Karte(n)</div>
+          <div>Runde abgeschlossen 🎉 — {pluralDe(cards.length, "Karte", "Karten")}</div>
         </div>
         <div className="list-row-actions">
           <button
@@ -373,7 +374,7 @@ export function Flashcards({
       {selectionControls}
       <RoundActiveMarker />
       <span className="due-count">
-        <b>{index + 1}</b> von {cards.length} Karte(n)
+        <b>{index + 1}</b> von {pluralDe(cards.length, "Karte", "Karten")}
       </span>
       {online && (
         <AbortRoundButton

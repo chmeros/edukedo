@@ -178,6 +178,8 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     });
 
     expect(await sichtbar(a)).toEqual({ freunde: 1, rangliste: 2, lernpartner: 1 });
+    // Review WEB-33: Die gespeicherte Handlungsbereich-Präferenz ist abrufbar (hier noch keine).
+    expect((await query(a.cookie, "lernpartner.myFachgebiet", { kursId })).json().result.data).toEqual({ fachgebietId: null });
 
     await setMinor(b.userId, false);
     expect(await sichtbar(a)).toEqual({ freunde: 0, rangliste: 1, lernpartner: 0 });

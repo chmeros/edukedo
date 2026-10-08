@@ -58,6 +58,16 @@ export const lernpartnerRouter = router({
     return { success: true };
   }),
 
+  /** Review WEB-33: Die gespeicherte Handlungsbereich-Präferenz, damit die Auswahl im Formular den Stand zeigt. */
+  myFachgebiet: protectedProcedure.input(lernpartnerKursInputSchema).query(async ({ ctx, input }) => {
+    const [row] = await ctx.db
+      .select({ fachgebietId: userCourse.lernpartnerFachgebietId })
+      .from(userCourse)
+      .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, input.kursId)))
+      .limit(1);
+    return { fachgebietId: row?.fachgebietId ?? null };
+  }),
+
   /**
    * Liefert für jeden Freund in diesem Kurs die Übereinstimmung mit der eigenen Präferenz
    * (Prüfungstermin innerhalb von 30 Tagen und/oder identischer Handlungsbereich), absteigend

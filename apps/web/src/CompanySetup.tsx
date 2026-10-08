@@ -17,7 +17,10 @@ function goHome() {
  * window.location.pathname gerendert.
  */
 export function CompanySetup() {
-  const confirm = trpc.company.confirmSetup.useMutation();
+  const confirm = trpc.company.confirmSetup.useMutation({
+    // Review WEB-11: Nach dem Versuch verschwindet der Token aus der Adresszeile und dem Verlauf.
+    onSettled: () => window.history.replaceState(null, "", window.location.pathname),
+  });
   const [token] = useState(() => new URLSearchParams(window.location.search).get("token"));
 
   useEffect(() => {

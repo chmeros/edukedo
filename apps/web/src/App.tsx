@@ -36,6 +36,7 @@ import { syncOfflineQueue } from "./offlineSync";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
+import { pluralDe } from "./plural";
 
 // F-103: Der bisherige eigenständige Tab "Theorie" entfällt vorerst vollständig (Nutzer-
 // Entscheidung 18.09.2026) — content.theorySections bleibt im Backend unverändert bestehen,
@@ -131,6 +132,12 @@ export function App() {
   // F-108: rein optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg.
   const [displayName, setDisplayName] = useState("");
   const [learningMode, setLearningMode] = useState<LearningMode>("lernen");
+  // Review WEB-10: Der Prüfungs-Tab bleibt nach dem ersten Besuch eingehängt (nur ausgeblendet), damit eine laufende
+  // Prüfungssitzung mit ihren Antworten beim Wechsel in einen anderen Tab nicht verloren geht (wie bei "Lernen").
+  const [examBesucht, setExamBesucht] = useState(false);
+  useEffect(() => {
+    if (learningMode === "exam") setExamBesucht(true);
+  }, [learningMode]);
   // F-140 (Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung Abschnitt 13): sobald ein
   // Spiel läuft, wird der darunter gerenderte Sozial-Bereich ausgeblendet (Fokus aufs Spiel) —
   // `Spiele.tsx` meldet den aktiven Zustand über `onActiveGameChange` nach oben.
@@ -339,7 +346,7 @@ export function App() {
                       <span className="suggestion-title">{suggestion.title}</span>
                       <span className="suggestion-reason">
                         {suggestion.dueCount > 0
-                          ? `${suggestion.dueCount} Karte(n) fällig${suggestion.overdueDays > 0 ? `, ${suggestion.overdueDays} Tag(e) überfällig` : ""}`
+                          ? `${pluralDe(suggestion.dueCount, "Karte", "Karten")} fällig${suggestion.overdueDays > 0 ? `, ${pluralDe(suggestion.overdueDays, "Tag", "Tage")} überfällig` : ""}`
                           : `${suggestion.weakPercent} % Trefferquote`}
                       </span>
                     </button>
@@ -431,7 +438,11 @@ export function App() {
                     </div>
                     {/* key={activeKursId}: erzwingt einen Remount bei Kurswechsel, damit
                         lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}
-                    {learningMode === "exam" && <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />}
+                    {examBesucht && (
+                      <div hidden={learningMode !== "exam"}>
+                        <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />
+                      </div>
+                    )}
                     {learningMode === "instrumente" && (
                       <>
                         {/* F-105 (ToDo-Punkt 6, Nutzer-Entscheidung 24.09.2026, siehe

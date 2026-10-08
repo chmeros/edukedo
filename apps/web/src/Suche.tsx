@@ -2,6 +2,7 @@ import { useState } from "react";
 import { InfoIcon } from "./Icons";
 import { useTheorie } from "./TheorieReader";
 import { trpc } from "./trpc";
+import { ErrorMessage } from "./ErrorMessage";
 
 // Exportiert, da MeineNotizen.tsx (F-15) dieselbe Zuordnung für ihre eigene Trefferliste braucht
 // — Notizen können prinzipiell an jedem Content-Typ hängen, den auch die Suche durchsucht.
@@ -86,6 +87,8 @@ export function Suche({
       {trimmed.length > 0 && trimmed.length < 2 && (
         <p className="field-hint">Bitte mindestens 2 Zeichen eingeben.</p>
       )}
+      {/* Review WEB-35: Ein Fehler der Suche ist keine leere Trefferliste. */}
+      {results.isError && <ErrorMessage>Die Suche hat nicht geklappt ({results.error.message}). Bitte versuche es noch einmal.</ErrorMessage>}
       {/* @tanstack/react-query v4: `isLoading` bleibt bei einer deaktivierten Query (`enabled:
           false`, hier: noch kein Suchbegriff abgeschickt) dauerhaft `true` (status "loading"
           statt "idle"), solange nie erfolgreich geladen wurde — `isFetching` bildet dagegen

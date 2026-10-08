@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
@@ -16,17 +16,11 @@ function goHome() {
  * main.tsx): Diese Seite wird direkt anhand von window.location.pathname gerendert.
  */
 export function ConsentConfirm() {
-  const confirm = trpc.consent.confirm.useMutation();
+  const confirm = trpc.consent.confirm.useMutation({
+    // Review WEB-11: Nach der Bestätigung verschwindet der Token aus der Adresszeile und dem Verlauf.
+    onSettled: () => window.history.replaceState(null, "", window.location.pathname),
+  });
   const [token] = useState(() => new URLSearchParams(window.location.search).get("token"));
-
-  useEffect(() => {
-    if (token) {
-      confirm.mutate({ token });
-    }
-    // token wird per useState-Initializer einmalig aus der URL gelesen und ändert sich
-    // danach nie mehr — der Effect läuft also faktisch nur beim ersten Rendern.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
 
   return (
     <>
@@ -34,6 +28,17 @@ export function ConsentConfirm() {
       <main id="main-content" className="shell shell--narrow">
         <div className="card">
           {!token && <ErrorMessage>Kein Bestätigungs-Token in der URL gefunden.</ErrorMessage>}
+          {/* Review WEB-11: Die Einwilligung wird erst mit einem Klick bestätigt, nicht schon durch das bloße Öffnen des Links (Mail-
+              Vorschau, Link-Scanner und Browser-Vorlader rufen Adressen automatisch auf). */}
+          {token && !confirm.data && !confirm.error && !confirm.isPending && (
+            <div className="stack">
+              <h1 style={{ fontSize: "var(--fs-lg)" }}>Einwilligung bestätigen</h1>
+              <p>Mit der Bestätigung stimmst du als erziehungsberechtigte Person der Nutzung von edukedo durch dein Kind zu.</p>
+              <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={() => confirm.mutate({ token })}>
+                Einwilligung bestätigen
+              </button>
+            </div>
+          )}
           {token && confirm.isPending && <p>Einwilligung wird bestätigt…</p>}
           {token && confirm.error && <ErrorMessage>{confirm.error.message}</ErrorMessage>}
           {token && confirm.data?.status === "confirmed" && (

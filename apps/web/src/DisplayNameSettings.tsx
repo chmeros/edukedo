@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { trpc } from "./trpc";
+import { ErrorMessage } from "./ErrorMessage";
 
 /**
  * F-108: Anzeigename nachträglich ändern — treibt die namentliche Begrüßung beim Wiedereinstieg
@@ -38,10 +39,14 @@ export function DisplayNameSettings() {
           onChange={(event) => setDisplayName(event.target.value)}
         />
         <span className="field-hint">Leer lassen und speichern, um zur neutralen Begrüßung zurückzukehren.</span>
+        <span className="field-hint">Der Name erscheint auch bei deinen Freund:innen, in Ranglisten und Duellen, statt deiner E-Mail-Adresse.</span>
       </div>
       <button type="submit" className="btn btn-secondary btn-sm" style={{ alignSelf: "flex-start" }} disabled={update.isPending}>
         Speichern
       </button>
+      {/* Review WEB-35: Rückmeldung nach dem Speichern. */}
+      {update.isSuccess && <span className="field-hint" role="status">Gespeichert ✓</span>}
+      {update.error && <ErrorMessage>{update.error.message}</ErrorMessage>}
     </form>
   );
 }

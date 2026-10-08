@@ -32,7 +32,7 @@ export function PushNotificationSettings() {
   const utils = trpc.useUtils();
   const status = trpc.push.status.useQuery();
   const subscribe = trpc.push.subscribe.useMutation({ onSuccess: () => utils.push.status.invalidate() });
-  const unsubscribe = trpc.push.unsubscribe.useMutation({ onSuccess: () => utils.push.status.invalidate() });
+  const unsubscribeAll = trpc.push.unsubscribeAll.useMutation({ onSuccess: () => utils.push.status.invalidate() });
   const [error, setError] = useState<string | null>(null);
   const [isWorking, setIsWorking] = useState(false);
 
@@ -42,12 +42,19 @@ export function PushNotificationSettings() {
 
     try {
       if (!nextEnabled) {
-        const registration = await navigator.serviceWorker.ready;
-        const existing = await registration.pushManager.getSubscription();
-        if (existing) {
-          await existing.unsubscribe();
-          await unsubscribe.mutateAsync({ endpoint: existing.endpoint });
+        // Review WEB-36: Der lokale Teil ist best effort (ohne Service Worker hängt `ready` unbegrenzt; Timeout 3 s); das Abschalten
+        // auf dem Server gilt immer, auch ohne Subscription in diesem Browser.
+        try {
+          const registration = await Promise.race([
+            navigator.serviceWorker.ready,
+            new Promise<null>((resolve) => window.setTimeout(() => resolve(null), 3000)),
+          ]);
+          const existing = registration ? await registration.pushManager.getSubscription() : null;
+          if (existing) await existing.unsubscribe();
+        } catch {
+          // Lokale Abmeldung nicht möglich; der Serverteil unten entscheidet.
         }
+        await unsubscribeAll.mutateAsync();
         return;
       }
 

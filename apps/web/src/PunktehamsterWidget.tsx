@@ -36,6 +36,7 @@ export function PunktehamsterWidget() {
   const streak = trpc.gamification.streakStatus.useQuery();
   const previousRewardsEarned = useRef<number | null>(null);
   const [celebrating, setCelebrating] = useState(false);
+  const feierTimer = useRef<number | null>(null);
 
   useEffect(() => {
     if (!status.data) return;
@@ -45,11 +46,22 @@ export function PunktehamsterWidget() {
     const previous = previousRewardsEarned.current;
     previousRewardsEarned.current = status.data.rewardsEarned;
     if (previous !== null && status.data.rewardsEarned > previous) {
+      // Review WEB-28: Der Timer gehört nicht zur Daten-Abhängigkeit. Vorher löschte jeder weitere Datenabruf innerhalb der drei
+      // Sekunden den Timer, ohne einen neuen zu setzen, und die Feier blieb für immer an.
       setCelebrating(true);
-      const timeout = setTimeout(() => setCelebrating(false), 3000);
-      return () => clearTimeout(timeout);
+      if (feierTimer.current !== null) window.clearTimeout(feierTimer.current);
+      feierTimer.current = window.setTimeout(() => {
+        feierTimer.current = null;
+        setCelebrating(false);
+      }, 3000);
     }
   }, [status.data]);
+  useEffect(
+    () => () => {
+      if (feierTimer.current !== null) window.clearTimeout(feierTimer.current);
+    },
+    [],
+  );
 
   if (!me.data) {
     return null;

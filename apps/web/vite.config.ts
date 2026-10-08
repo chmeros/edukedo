@@ -21,6 +21,8 @@ export default defineConfig({
       filename: "sw.ts",
       registerType: "autoUpdate",
       devOptions: { enabled: true, type: "module" },
+      // Das Apple-Touch-Icon aus index.html muss mit im Precache liegen (Review WEB-39).
+      includeAssets: ["icons/icon-180.png"],
       manifest: {
         name: "edukedo",
         short_name: "edukedo",
@@ -28,11 +30,12 @@ export default defineConfig({
         start_url: "/",
         display: "standalone",
         background_color: "#f5f5f4",
-        theme_color: "#1c1917",
+        // Review WEB-39: gleiche Farbe wie <meta name="theme-color"> in index.html (vorher widersprachen sich beide), und kein
+        // "maskable"-Eintrag mit demselben Bild: Es hat keine Sicherheitszone und würde auf Android beschnitten.
+        theme_color: "#178f5e",
         icons: [
           { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
           { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
     }),

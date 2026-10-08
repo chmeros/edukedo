@@ -41,13 +41,16 @@ export function Modal({
       // Fokus-Falle: Tab/Shift+Tab bleiben innerhalb des Panels, statt in den (unsichtbaren,
       // aber weiterhin im DOM befindlichen) Hintergrund zu wandern.
       if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-      );
+      // Review WEB-26: Deaktivierte und unsichtbare Elemente zählen nicht als Fokusziele; das Panel selbst (Startfokus) auch nicht.
+      const focusable = [
+        ...panelRef.current.querySelectorAll<HTMLElement>(
+          'button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+        ),
+      ].filter((element) => element.offsetParent !== null || element === document.activeElement);
       if (focusable.length === 0) return;
       const first = focusable[0]!;
       const last = focusable[focusable.length - 1]!;
-      if (event.shiftKey && document.activeElement === first) {
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === panelRef.current)) {
         event.preventDefault();
         last.focus();
       } else if (!event.shiftKey && document.activeElement === last) {

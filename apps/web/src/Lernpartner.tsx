@@ -28,8 +28,12 @@ export function Lernpartner({
 }) {
   const utils = trpc.useUtils();
   const matches = trpc.lernpartner.matches.useQuery({ kursId });
+  const meine = trpc.lernpartner.myFachgebiet.useQuery({ kursId });
   const setFachgebiet = trpc.lernpartner.setFachgebiet.useMutation({
-    onSuccess: () => utils.lernpartner.matches.invalidate({ kursId }),
+    onSuccess: () => {
+      utils.lernpartner.matches.invalidate({ kursId });
+      utils.lernpartner.myFachgebiet.invalidate({ kursId });
+    },
   });
 
   return (
@@ -53,6 +57,7 @@ export function Lernpartner({
           <select
             className="input"
             id="lernpartner-fachgebiet"
+            value={meine.data?.fachgebietId ?? ""}
             onChange={(event) => setFachgebiet.mutate({ kursId, fachgebietId: event.target.value || null })}
             disabled={setFachgebiet.isPending}
           >

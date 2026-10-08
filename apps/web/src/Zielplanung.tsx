@@ -44,6 +44,10 @@ export function Zielplanung({ kursId }: { kursId: string }) {
     }
   }, [course, hydrated]);
 
+  // Review WEB-35: Ein Ladefehler bleibt nicht stumm.
+  if (pacing.isError) {
+    return <ErrorMessage>Die Zielplanung konnte nicht geladen werden ({pacing.error.message}).</ErrorMessage>;
+  }
   if (!course || pacing.isLoading || !pacing.data) {
     return null;
   }

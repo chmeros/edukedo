@@ -293,14 +293,14 @@ export function Progress({
                         <div
                           key={day.date}
                           className="stat-timeline-col"
-                          title={`${new Date(day.date).toLocaleDateString("de-DE")}: ${day.percent} % (${day.correct}/${day.total})`}
+                          title={`${new Date(day.date).toLocaleDateString("de-DE", { timeZone: "UTC" })}: ${day.percent} % (${day.correct}/${day.total})`}
                         >
                           <span className="stat-timeline-value">{day.percent} %</span>
                           <div className="stat-timeline-track">
                             <span className="stat-timeline-bar" style={{ height: `${day.percent}%` }} />
                           </div>
                           <span className="stat-timeline-date">
-                            {new Date(day.date).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" })}
+                            {new Date(day.date).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", timeZone: "UTC" })}
                           </span>
                         </div>
                       ))}
