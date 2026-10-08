@@ -568,6 +568,10 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Topologie-Labor: Stand je Szenario, WRK-19 Rest)
+
+- **Stand je Szenario:** Das Topologie-Labor merkt sich beim Szenariowechsel Verkabelung, Konfiguration, Prüfstatus, Tipps, Geräteauswahl und Ping-Felder des verlassenen Szenarios (`gemerkt` in `TopologieLabor.tsx`) und stellt sie beim Rückwechsel wieder her, wie Terminal und SQL es schon taten. Vorher verwarf der Wechsel die gesamte Arbeit ohne Rückfrage. "Zurücksetzen" setzt nur das gewählte Szenario zurück (Hinweistext am Knopf), die Stände der anderen bleiben. Der Stand lebt nur in der geöffneten Werkzeugansicht (kein Speichern, wie bisher). Das erneute Anklicken des bereits aktiven Szenarios in der Auswahl ändert nichts mehr (es setzte vorher zurück). Live geprüft (Digitale Vernetzung): Kabel entfernt, anderes Szenario, zurück: Änderung erhalten; Zurücksetzen stellt den Anfangszustand her, das andere Szenario bleibt unberührt.
+
 ### Entschieden am 08.10.2026 (Werkzeuge: Aufgabennummer, WRK-47)
 
 - **Aufgabennummer:** Jede Übungsaufgabe der zwölf Trainer (Algorithmen, Energie, Handelskalkulation, Lagerkennzahlen, Prozesskennzahlen, Schreibtischtest, Skalierung, Sparverfahren, Statistik, Testfälle, Verfügbarkeit, Wirtschaftlichkeit) entsteht aus einer Aufgabennummer, dem Startwert des Zufallsgenerators (`createSeededRandom`, `randomSeed` aus `kreuzwort-generator.ts`). Unter den Schaltflächen steht aufklappbar "Aufgabennummer: 1563766187" mit einem Feld "Nummer laden". Dieselbe Nummer ergibt mit **derselben Aufgabenart und Schwierigkeit** dieselbe Aufgabe; die Nummer kodiert Art und Stufe nicht (die stehen sichtbar daneben). Lehrkräfte können eine Aufgabe also nennen ("Handelskalkulation vorwärts, mittel, Nummer 482913"), Lernende sie erneut laden. Gültig sind Zahlen von 1 bis 2147483647, sonst eine Fehlermeldung.

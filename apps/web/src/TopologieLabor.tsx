@@ -1231,6 +1231,16 @@ function LoesungsTabellen({ szenario, zustand }: { szenario: TopologieSzenario; 
   );
 }
 
+interface GemerkterStand {
+  zustand: TopologieZustand;
+  version: number;
+  auswahlId: string | null;
+  pingVon: string;
+  pingNach: string;
+  auftragStatus: Record<string, AuftragStatus>;
+  tipps: number;
+}
+
 /** `erlaubt`: Szenario-IDs, die der Kurs anbietet (F-176); ohne Angabe alle. */
 export function TopologieLabor({ onClose, erlaubt }: { onClose: () => void; erlaubt?: readonly string[] }) {
   const liste = useMemo(() => (erlaubt ? topologieSzenarien.filter((eintrag) => erlaubt.includes(eintrag.id)) : topologieSzenarien), [erlaubt]);
@@ -1247,19 +1257,37 @@ export function TopologieLabor({ onClose, erlaubt }: { onClose: () => void; erla
   const [loesungOffen, setLoesungOffen] = useState(false);
   const [geloest, setGeloest] = useState<ReadonlySet<string>>(() => new Set());
 
-  function lade(neuesSzenario: TopologieSzenario) {
+  // Review WRK-19: Der Stand jedes Szenarios (Verkabelung, Konfiguration, Prüfstatus, Tipps) bleibt beim Wechsel erhalten, wie bei
+  // Terminal und SQL; vorher verwarf ein Szenariowechsel alles ohne Rückfrage. "Zurücksetzen" setzt nur das gewählte Szenario zurück.
+  const [gemerkt, setGemerkt] = useState<Record<string, GemerkterStand>>({});
+
+  function lade(neuesSzenario: TopologieSzenario, zuruecksetzen = false) {
+    const stand: Record<string, GemerkterStand> = { ...gemerkt, [szenarioId]: { zustand, version, auswahlId, pingVon, pingNach, auftragStatus, tipps } };
+    if (zuruecksetzen) delete stand[neuesSzenario.id];
+    setGemerkt(stand);
+    const alt = stand[neuesSzenario.id];
+    setSzenarioId(neuesSzenario.id);
+    setPing(null);
+    setLoesungOffen(false);
+    if (alt) {
+      setZustand(alt.zustand);
+      setVersion(alt.version);
+      setAuswahlId(alt.auswahlId);
+      setPingVon(alt.pingVon);
+      setPingNach(alt.pingNach);
+      setAuftragStatus(alt.auftragStatus);
+      setTipps(alt.tipps);
+      return;
+    }
     const start = topologieStartzustand(neuesSzenario);
     const erster = neuesSzenario.pruefAuftraege[0]!;
-    setSzenarioId(neuesSzenario.id);
     setZustand(start);
     setVersion((aktuell) => aktuell + 1);
     setAuswahlId(start.geraete[0]!.id);
     setPingVon(erster.von);
     setPingNach(standardZiel(start, erster.von));
-    setPing(null);
     setAuftragStatus({});
     setTipps(0);
-    setLoesungOffen(false);
   }
 
   function aendere(neu: TopologieZustand) {
@@ -1521,7 +1549,7 @@ export function TopologieLabor({ onClose, erlaubt }: { onClose: () => void; erla
             <button type="button" className="btn btn-ghost" aria-expanded={loesungOffen} onClick={() => setLoesungOffen((aktuell) => !aktuell)}>
               {loesungOffen ? "Lösung ausblenden" : "Lösung anzeigen"}
             </button>
-            <button type="button" className="btn btn-ghost" onClick={() => lade(szenario)}>
+            <button type="button" className="btn btn-ghost" onClick={() => lade(szenario, true)} title="Setzt nur dieses Szenario zurück; die Stände der anderen Szenarien bleiben erhalten.">
               Zurücksetzen
             </button>
           </div>
