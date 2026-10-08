@@ -567,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Abhängigkeiten, Sicherheitsupdates, Review-Punkt A6)
+
+- **Anlass:** `pnpm audit --prod` meldete für die Produktionsabhängigkeiten 1 kritischen, 7 hohe, 5 mittlere und 1 niedrigen Fund. Kritisch: `proxy-addr` 2.0.7 (IP-Fälschung über IPv4-gemappte IPv6-Adressen im vertrauten Subnetz; betrifft die IP-basierte Ratenbegrenzung mit `TRUST_PROXY`). Hoch: Fastify 4.29.1 (mehrere Umgehungen der Validierung/Authentifizierung per manipulierter URL, behoben erst ab 5.x), `find-my-way` (DoS über HTTP/2) und drizzle-orm < 0.45.2 (SQL-Injection über unzureichend maskierte Bezeichner).
+- **Schritt 1 (Overrides):** In der Wurzel-package.json erzwingen `pnpm.overrides` `proxy-addr@^2.0.8` und `fast-uri@^3.1.8` bzw. `^2.4.7` (reine Patch-Updates transitiver Pakete; Fastify 4 verlangte sie nicht selbst).
+- **Schritt 2 (Fastify 5):** apps/api und apps/payment nutzen `fastify ^5.12.5`, apps/api zusätzlich `@fastify/cookie ^11.1.2`. Es war keine Code-Änderung nötig: Der tRPC-10-Fastify-Adapter läuft unverändert unter Fastify 5, `maxParamLength`, `trustProxy`, `app.inject()` und der Cookie-Plug-in verhalten sich wie bisher. Live geprüft (Wegwerf-Konto, danach gelöscht): Registrierung, signiertes Session-Cookie, `auth.me`, ein Batch mit sechs Prozeduren (Pfad länger als 100 Zeichen), Abmelden.
+- **Schritt 3 (drizzle-orm):** `drizzle-orm ^0.45.3` in apps/api und apps/payment (drizzle-kit 0.31 bleibt). `tsc` ohne Fehler, `drizzle-kit generate` meldet für Kern und Payment "No schema changes", es entstehen keine neuen Migrationen. Die Vitest-Einstellung `server.deps.inline: [/drizzle-orm/]` bleibt nötig.
+- **Ergebnis:** `pnpm audit --prod` meldet **keine** Funde mehr (vorher 14). Offen bleibt `pnpm audit` einschließlich Entwicklungsabhängigkeiten (vitest 2.x, vite, tinypool, undici, brace-expansion u. a.): Sie laufen nur lokal bzw. in der CI und nie in Produktion; der kritische vitest-Fund betrifft nur den eingeschalteten Vitest-UI-Server, der nicht genutzt wird. Ein Sprung auf vitest 3 (und vite 6) ist als eigener Schritt vorgemerkt.
+- **Tests:** 535 API-Unit-Tests, 16 Payment-Tests und die API-Integrationstests laufen grün. Im Gesamtlauf der Integrationstests scheitern `core-learning-flow` und `offline-sync` mit einer Zeitüberschreitung beim Starten des Test-Containers (zu viele parallele Container); einzeln laufen beide fehlerfrei (38 Tests). Der Payment-Test "publiziert … subscription.updated" ist nur dann stabil, wenn keine Dev-API dieselbe Redis-Queue mitliest (bekannt, Review INF-05).
+
 ### Entschieden am 08.10.2026 (Stabilisierung, ErrorBoundary und Absturz im Statistiktrainer, Review-Punkt B10)
 
 - **Anlass:** Review-Befunde WRK und WEB: Ein Renderfehler irgendwo im React-Baum ließ die ganze App verschwinden (leerer Bildschirm, keine Erklärung, kein Weg zurück). Konkreter Auslöser: Im Statistiktrainer (Streudiagramm) lösten sehr lange eingefügte Zahlenreihen (ab etwa 100.000 Werten) in `Math.min(...x)` einen `RangeError` („zu viele Argumente“) aus.

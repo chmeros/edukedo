@@ -102,7 +102,8 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | SEC-04 Ratenbegrenzung (Eltern-/Firmen-Login, Registrierung, Mail-Bombing, trustProxy, Speicher) | **erledigt 08.10.2026** | §13 „Sicherheit, Schritt 4“ |
 | B6 Passwort vergessen (F-02) für Lernende, Eltern, Unternehmen | **erledigt 08.10.2026** | §13 „Sicherheit, Schritt 5“ |
 | B10 ErrorBoundary und Absturz im Statistiktrainer | **erledigt 08.10.2026** (kein automatischer Komponententest, manuell geprüft) | §13 „ErrorBoundary und Absturz im Statistiktrainer“ |
-| A5, A6, A8, B7, B8, B12 | offen | — |
+| A6 Abhängigkeiten (Fastify 5, drizzle-orm 0.45, Overrides) | **erledigt 08.10.2026** (Produktion: 0 Funde; Dev-Werkzeuge vitest/vite offen) | §13 „Abhängigkeiten, Sicherheitsupdates“ |
+| A5, A8, B7, B8, B12 | offen | — |
 
 ## 8. Einzelberichte
 
