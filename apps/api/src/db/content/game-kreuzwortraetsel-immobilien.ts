@@ -173,7 +173,7 @@ export const kreuzwortraetselImmobilien: KreuzwortraetselPayload = {
     },
     {
       nummer: 24,
-      hinweis: "Erste Bauphase: Wände, Decken und tragende Teile, noch ohne Ausbau.",
+      hinweis: "Bauphase nach den Erdarbeiten: Wände, Decken und tragende Teile, noch ohne Ausbau.",
       tipp: "Danach folgt der Innenausbau.",
       loesung: "ROHBAU",
       bestaetigung: "Richtig! Erst entsteht der Rohbau, dann folgen Dach und Innenausbau.",

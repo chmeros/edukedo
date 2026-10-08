@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Immobilienfachwirt)
+
+Nutzer-Freigabe vom 08.10.2026. Der Kurs ist fast durchgehend Mietrecht, WEG-Recht, Maklerrecht und Gewerberecht (BGB, WEG, GewO, MaBV, ImmoWertV); die Befunde dazu sind Prüfhinweise für fachkundige Personen (R4) und blieben unverändert. Umgesetzt wurden nur Befunde ohne Normbezug. Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (11 Items geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei fünf Items ändert sich die Lösung (Q-2.1-10, Q-2.2-09, Q-2.2-10, Q-3.2-12, Q-4.2-11); der Fortschritt bleibt erhalten.
+
+- **Umgesetzt:** FL-IM-22 (Q-2.1-10: Distraktor "Vorsichtsprinzip" ersetzt), FL-IM-11 Teil a (Q-2.1-12: Erhaltungsrücklagen der WEG stehen auf Fremdgeldkonten und erscheinen nicht in der Bilanz von Ravelin, wie die Theorie), FL-IM-25 (Q-2.2-09: austauschbare Schritte zusammengefasst; Q-2.2-10: Abschlagszahlungen nach Baufortschritt gehören in die Bauphase), FL-IM-38 (Musterlösung F-HB4-03: Dachschäden sind dringend und wichtig), FL-IM-56 (Q-4.2-11), FL-IM-46 (kursfremde Distraktoren "§ 113 SGB XI" und "Medizinischer Dienst" ersetzt), FL-IM-48 ("ausheben", Kreuzworträtsel ROHBAU), FL-IM-49 (Q-3.2-12, Q-1.3-12).
+- **Nicht geändert:** Alle Befunde mit Normbezug (R4): FL-IM-01 bis 14, 16 bis 21, 23, 26 bis 37, 39 bis 42, 50, 51, 53 bis 55, 57 (Provisionsrecht, Maklervertrag, Mieterhöhung, WEG, Kabelanschluss, VOB/A, ImmoWertV, Energieausweis u. a.). Lücken und neue Inhalte (R3, R5): FL-IM-15, 16, 32, 42, 43 (keine Rechenaufgaben, Mietpreisbremse, Wohnungseigentum, Kaufabwicklung, Theorie zum Finanzrechner). Systemisch oder Umbau: FL-IM-24 (Modellannahme), 44, 45, 47, 52, 54. Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Daten- und Prozessanalyse)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (29 Items geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei vier Kurzantworten ändert sich die Lösung durch zusätzlich akzeptierte Varianten (Q-8.1-05, Q-8.4-05, Q-3.3-02) bzw. durch die Zuordnung in Q-11.1-18; der Fortschritt bleibt erhalten.
