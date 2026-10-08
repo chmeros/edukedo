@@ -28,7 +28,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.2 Ausbildung planen, organisieren, durchführen und kontrollieren
 
 - Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung, und was regeln sie jeweils?
-- Wie erstellen Sie einen betrieblichen Ausbildungsplan auf Basis eines Rahmenlehrplans?
+- Wie erstellen Sie einen betrieblichen Ausbildungsplan auf Basis der Ausbildungsordnung bzw. des Ausbildungsrahmenplans?
 - Erläutern Sie die Vier-Stufen-Methode anhand eines Beispiels aus der Büroorganisation.
 - Was ist der Unterschied zwischen der Vier-Stufen-Methode und der Leittextmethode?
 - Welche Aufgaben hat der Ausbildende während der Probezeit eines Auszubildenden?

@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Themenbezug:** 3.1 (Personalplanung/-beschaffung) + 3.2 (Ausbildung)
 
-**Ausgangssituation:** Die Mustermann GmbH, ein mittelständisches Büroorganisationsunternehmen mit 60 Beschäftigten, verzeichnet einen deutlichen Anstieg des Auftragsvolumens im Bereich Projektassistenz. Die Personalabteilung stellt fest, dass in den kommenden 18 Monaten zusätzlicher Personalbedarf entsteht, gleichzeitig läuft die Probezeit eines neu eingestellten Auszubildenden im dritten Ausbildungsjahr, der zunehmend Schwierigkeiten hat, die vereinbarten Ausbildungsinhalte im vorgesehenen Tempo zu bewältigen. Die Geschäftsführung bittet Sie als Fachwirt/in, beide Themen aufzubereiten.
+**Ausgangssituation:** Die Mustermann GmbH, ein mittelständisches Büroorganisationsunternehmen mit 60 Beschäftigten, verzeichnet einen deutlichen Anstieg des Auftragsvolumens im Bereich Projektassistenz. Die Personalabteilung stellt fest, dass in den kommenden 18 Monaten zusätzlicher Personalbedarf entsteht, gleichzeitig läuft die Probezeit eines neu eingestellten Auszubildenden im ersten Ausbildungsjahr, der zunehmend Schwierigkeiten hat, die vereinbarten Ausbildungsinhalte im vorgesehenen Tempo zu bewältigen. Die Geschäftsführung bittet Sie als Fachwirt/in, beide Themen aufzubereiten.
 
 **Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Erläutern Sie, mit welchen Instrumenten die Personalabteilung den quantitativen und qualitativen Personalbedarf für die nächsten 18 Monate systematisch ermitteln kann. Gehen Sie dabei auf mindestens zwei interne und zwei externe Informationsquellen ein.
 

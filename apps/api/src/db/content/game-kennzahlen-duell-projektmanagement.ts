@@ -9,7 +9,7 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  *
  * Fachgrundlage: ausschließlich die Theorietexte (und die dortigen Erklärungen) der Kursdateien
  * content/fachwirt-buero-projektorganisation/ — Thema 1.3 (Projektmanagement), Thema 1.2 (Netzplan,
- * Terminüberwachung) und Thema 2.1 (Pflichtenheft, Projektstrukturplan); Rechtsstand dort: 15.09.2026.
+ * Terminüberwachung) und Thema 2.1 (Lastenheft, Projektstrukturplan); Rechtsstand dort: 15.09.2026.
  * Bewusst nicht enthalten, weil der Kurs sie nicht behandelt: Lastenheft, Gantt-Diagramm, Abschlussbericht
  * sowie Normen- und Paragrafenangaben. Zahlenwerte stammen nur aus dem Netzplan-Beispiel in Thema 1.2.
  */
@@ -19,7 +19,7 @@ export const kennzahlenDuellProjektmanagement: KennzahlenDuellPayload = {
       nummer: 1,
       titel: "Projektauftrag und Projektstart",
       abschlussmeldung:
-        "Runde 1 geschafft! Du kannst Scope Creep, Auftragsanalyse, Kick-off, Pflichtenheft und Projektstart-Vorbereitung auseinanderhalten.",
+        "Runde 1 geschafft! Du kannst Scope Creep, Auftragsanalyse, Kick-off, Lastenheft und Projektstart-Vorbereitung auseinanderhalten.",
     },
     {
       nummer: 2,
@@ -81,13 +81,13 @@ export const kennzahlenDuellProjektmanagement: KennzahlenDuellPayload = {
       nummer: 4,
       runde: 1,
       frage: "Welches Dokument hält die konkreten Kundenanforderungen an ein Projekt strukturiert fest?",
-      antwortA: "Pflichtenheft",
+      antwortA: "Lastenheft",
       antwortB: "Projektstrukturplan",
       richtig: "A",
       feedbackRichtig:
-        "Genau! Das Pflichtenheft hält die Anforderungen und Wünsche der Kundschaft strukturiert fest. Der Projektstrukturplan gliedert dagegen das Projekt in Teilaufgaben (siehe Thema 2.1).",
+        "Genau! Das Lastenheft hält die Anforderungen und Wünsche der Kundschaft strukturiert fest (das Pflichtenheft beschreibt dagegen die Umsetzung durch den Auftragnehmer). Der Projektstrukturplan gliedert dagegen das Projekt in Teilaufgaben (siehe Thema 2.1).",
       feedbackFalsch:
-        "Das passt nicht. Kundenanforderungen hält das Pflichtenheft fest; der Projektstrukturplan gliedert das Projekt in Teilaufgaben (siehe Thema 2.1).",
+        "Das passt nicht. Kundenanforderungen hält das Lastenheft fest; der Projektstrukturplan gliedert das Projekt in Teilaufgaben (siehe Thema 2.1).",
     },
     {
       nummer: 5,

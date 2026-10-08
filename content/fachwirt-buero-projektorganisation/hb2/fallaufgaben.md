@@ -20,7 +20,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.5) zu einer zusammenh
 
 **Ausgangssituation:** Die Deko & Büro GmbH plant für einen wichtigen Bestandskunden ein individuelles Projekt zur Neugestaltung seiner Empfangsbereiche in mehreren Filialen. Der Kunde hat seine Wünsche bislang nur in einem kurzen, unstrukturierten Telefongespräch geäußert. Die Projektleitung möchte vor Projektstart eine fundierte Zielgruppenanalyse für die künftige Nutzung der Empfangsbereiche durchführen.
 
-**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Beschreiben Sie, wie die telefonisch geäußerten Kundenwünsche in ein strukturiertes Pflichtenheft überführt werden können.
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Beschreiben Sie, wie die telefonisch geäußerten Kundenwünsche in ein strukturiertes Lastenheft überführt werden können.
 
 **Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche Datenquellen und Erhebungsinstrumente sich eignen, um die Erwartungen der Besucher:innen an die neu zu gestaltenden Empfangsbereiche zu ermitteln.
 

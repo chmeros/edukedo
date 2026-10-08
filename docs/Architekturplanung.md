@@ -568,6 +568,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Büro und Projektorganisation)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei Technischem Fachwirt und Handelsfachwirt. Validiert (0 Verstöße), importiert, Trockenlauf danach ohne Änderung, Spielsets neu eingespielt, Unit-Tests grün.
+
+- **Blocker:** FL-BP-01 (Lastenheft statt Pflichtenheft für die Anforderungen des Auftraggebers: Theorie, K-2.1-01/-02, Q-2.1-02/-05/-08/-11, Fachgespräch, F-HB2-01 und die Duell-Frage 4 in `game-kennzahlen-duell-projektmanagement.ts`; das Pflichtenheft ist als Umsetzung des Auftragnehmers abgegrenzt, so wie es Kreuzworträtsel und Memory der IT-Kurse schon beschreiben), FL-BP-02 (Corporate Design ist das visuelle Erscheinungsbild, Corporate Identity die Gesamtidentität, Corporate Behavior ein Teil davon: 2.3 und 2.5 mit K-2.3-02, Q-2.3-02/-04, K-2.5-06, Q-2.5-04/-05), FL-BP-03 (Datenquellen: interne, externe und selbst erhobene Daten statt "Zielgruppenanalyse, Marktforschung, Filterkriterien"; K-2.2-01), FL-BP-04 (Fachgespräch 3.2: Ausbildungsordnung bzw. Ausbildungsrahmenplan statt Rahmenlehrplan).
+- **Hoch:** FL-BP-05 (Q-3.1-05 ohne doppelte Beschreibungen, als Mehrfachauswahl), FL-BP-06 (Q-4.1-09 mit eindeutigen Kennzahlen je BSC-Perspektive), FL-BP-07 (Intranet gehört zu den internen Quellen, 4.4), FL-BP-08 (Q-1.3-18 mit Wahrscheinlichkeit und Schadenshöhe je Risiko und der Bedeutung der vier Felder in der Anweisung), FL-BP-11 teilweise (Q-1.1-12, vorher praktisch nicht lösbar, als Mehrfachauswahl).
+- **Mittel/Niedrig:** FL-BP-21 (K-1.1-05 "unpassende"), FL-BP-22 (Q-4.2-11: kein falscher Bezug zur XYZ-Analyse), FL-BP-23 (Q-4.4-04: Wissenslandkarte schärfer vom Expertenverzeichnis getrennt), FL-BP-24 (Kurzantworten Q-1.4-08, Q-1.3-12, Q-3.4-10 mit gängigen Schreibweisen), FL-BP-25 (a) (F-HB3-01: Probezeit im ersten Ausbildungsjahr), FL-BP-28 (Q-1.3-19: Wurzel "Projekt" statt "Projektleitung").
+- **Hinweis zum Import:** Fachgesprächsfragen sind über einen Hash ihres Textes verschlüsselt; die zwei geänderten Fragen erscheinen deshalb als neu (alte deaktiviert). Das ist gewollt, es gibt zu ihnen keinen Lernstand. Zwei Aufgaben wechseln den Typ (Q-1.1-12 und Q-3.1-05 zu Mehrfachauswahl), der Fortschritt bleibt am Item.
+- **Nicht geändert:** FL-BP-09, 10, 13 (fehlende Theorie zu Instrumenten, Rahmenplan-Lücken, Rechenanteile: neue Inhalte, R3), FL-BP-11 (übrige Kurzantworten: Umbau von 14 Fragen), FL-BP-12 (Mischen ist bereits umgesetzt), FL-BP-14 bis 20, 25 bis 26 (b bis d), 29, 33 (rechtsnah, R4 oder Lehrmeinung), FL-BP-26 bis 27, 30 bis 32, 34, 35 (Schwierigkeitsstufen, Distraktoren, Titel: Vorschläge im Bericht).
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Handelsfachwirt)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie im Eintrag "Paket 1 und Technischer Fachwirt" (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), in die lokale Datenbank importiert (21 Items geändert), Trockenlauf danach ohne Änderung, Unit-Tests grün.

@@ -14,7 +14,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 ### 2.1 Kundenorientierte Projekte
 
-- Wie gehen Sie vor, um aus einem unstrukturierten Kundengespräch ein verwertbares Pflichtenheft zu erstellen?
+- Wie gehen Sie vor, um aus einem unstrukturierten Kundengespräch ein verwertbares Lastenheft zu erstellen?
 - Erläutern Sie den Unterschied zwischen Projektkonzept und Projektstrukturplan an einem Beispiel.
 - Wie stellen Sie sicher, dass die Kommunikation zwischen internen und externen Projektbeteiligten reibungslos funktioniert?
 - Welche Vorbereitung ist für eine erfolgreiche Projektsitzung mit Kundenbeteiligung notwendig?
