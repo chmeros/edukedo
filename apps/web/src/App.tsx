@@ -1,7 +1,6 @@
 import { calculateAge, requiresParentalConsent } from "@edukedo/shared";
 import { useQueryClient } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
-import { AdminPanel } from "./AdminPanel";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
@@ -12,7 +11,6 @@ import { ForgotPassword } from "./ForgotPassword";
 import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
-import { Instrumente } from "./Instrumente";
 import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
 import { MeineNotizen } from "./MeineNotizen";
@@ -21,11 +19,8 @@ import { LearningRoundContext } from "./LearningRound";
 import { OnboardingHints } from "./OnboardingHints";
 import { FachbegriffProvider } from "./Fachbegriffe";
 import { TheorieProvider } from "./TheorieReader";
-import { Progress } from "./Progress";
-import { Pruefungsvorbereitung } from "./Pruefungsvorbereitung";
 import { useCalmMode } from "./displayPrefs";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
-import { Spiele } from "./Spiele";
 import { SponsorBanner } from "./SponsorBanner";
 import { Sozial } from "./Sozial";
 import { StreakReminderBanner } from "./StreakReminderBanner";
@@ -37,6 +32,14 @@ import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
 import { pluralDe } from "./plural";
+
+// Review WEB-22: Große Bereiche werden erst beim ersten Aufruf geladen statt im Start-Bundle (Landing-Besuchende luden vorher Admin,
+// Rechner, Spiele und Redaktion mit).
+const AdminPanel = lazy(() => import("./AdminPanel").then((modul) => ({ default: modul.AdminPanel })));
+const Instrumente = lazy(() => import("./Instrumente").then((modul) => ({ default: modul.Instrumente })));
+const Progress = lazy(() => import("./Progress").then((modul) => ({ default: modul.Progress })));
+const Pruefungsvorbereitung = lazy(() => import("./Pruefungsvorbereitung").then((modul) => ({ default: modul.Pruefungsvorbereitung })));
+const Spiele = lazy(() => import("./Spiele").then((modul) => ({ default: modul.Spiele })));
 
 // F-103: Der bisherige eigenständige Tab "Theorie" entfällt vorerst vollständig (Nutzer-
 // Entscheidung 18.09.2026) — content.theorySections bleibt im Backend unverändert bestehen,
@@ -298,7 +301,9 @@ export function App() {
           )}
           {!hideBanners && <EmailVerificationBanner />}
           {view === "admin" && isAdmin ? (
+            <Suspense fallback={<p>Lädt…</p>}>
             <AdminPanel />
+            </Suspense>
           ) : showCourseSelection ? (
             <CourseSelection
               onSelected={(kursId) => {
@@ -440,7 +445,9 @@ export function App() {
                         lokaler Interaktionszustand nicht vom vorherigen Kurs übernommen wird. */}
                     {examBesucht && (
                       <div hidden={learningMode !== "exam"}>
+                        <Suspense fallback={<p>Lädt…</p>}>
                         <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />
+                        </Suspense>
                       </div>
                     )}
                     {learningMode === "instrumente" && (
@@ -449,11 +456,13 @@ export function App() {
                             Architekturplanung Abschnitt 13): kursspezifischer Werkzeugkasten-
                             Katalog als neuer primärer Inhalt dieses Tabs — Suche (F-14) und
                             eigene Notizen (F-15) bleiben zusätzlich darunter bestehen. */}
+                        <Suspense fallback={<p>Lädt…</p>}>
                         <Instrumente
                           key={`${activeKursId}-instrumente`}
                           kursId={activeKursId}
                           instrumentLernpfadeEnabled={me.data.isPremiumActive}
                         />
+                        </Suspense>
                         <Suche
                           key={`${activeKursId}-suche`}
                           kursId={activeKursId}
@@ -482,7 +491,9 @@ export function App() {
                             Spiel läuft (gamingFocusMode), wird der Sozial-Bereich ausgeblendet
                             statt entfernt — dessen eigener State (z. B. geöffnete Formulare)
                             bleibt dadurch erhalten, wenn das Spiel wieder verlassen wird. */}
+                        <Suspense fallback={<p>Lädt…</p>}>
                         <Spiele key={activeKursId} kursId={activeKursId} onActiveGameChange={setGamingFocusMode} />
+                        </Suspense>
                         <div hidden={gamingFocusMode}>
                           <Sozial
                             key={activeKursId}
@@ -494,6 +505,7 @@ export function App() {
                       </>
                     )}
                     {learningMode === "progress" && (
+                      <Suspense fallback={<p>Lädt…</p>}>
                       <Progress
                         key={activeKursId}
                         kursId={activeKursId}
@@ -505,6 +517,7 @@ export function App() {
                           setLearningMode("lernen");
                         }}
                       />
+                      </Suspense>
                     )}
                   </div>
                   </ErrorBoundary>

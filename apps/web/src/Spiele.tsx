@@ -1,5 +1,5 @@
 import { angebotSpiel } from "@edukedo/shared";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import {
   BelegDetektivIllustration,
   BugHuntIllustration,
@@ -14,12 +14,20 @@ import {
   TroubleshootingIllustration,
   ZahlensystemeIllustration,
 } from "./GameIllustrations";
-import { KennzahlenDuell } from "./KennzahlenDuell";
-import { Kreuzwortraetsel } from "./Kreuzwortraetsel";
-import { PersonalkennzahlenMemory } from "./PersonalkennzahlenMemory";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
-import { BelegDetektiv, BugHunt, CodeReihenfolge, PhishingDetektiv, ProzessReihenfolge, SprintSpiel, TroubleshootingDetektiv } from "./WeitereSpiele";
+
+// Review WEB-22: Die Spiele werden erst beim Start eines Spiels geladen (Spiele.tsx liegt selbst in einem eigenen Chunk).
+const KennzahlenDuell = lazy(() => import("./KennzahlenDuell").then((modul) => ({ default: modul.KennzahlenDuell })));
+const Kreuzwortraetsel = lazy(() => import("./Kreuzwortraetsel").then((modul) => ({ default: modul.Kreuzwortraetsel })));
+const PersonalkennzahlenMemory = lazy(() => import("./PersonalkennzahlenMemory").then((modul) => ({ default: modul.PersonalkennzahlenMemory })));
+const BelegDetektiv = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.BelegDetektiv })));
+const BugHunt = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.BugHunt })));
+const CodeReihenfolge = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.CodeReihenfolge })));
+const PhishingDetektiv = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.PhishingDetektiv })));
+const ProzessReihenfolge = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.ProzessReihenfolge })));
+const SprintSpiel = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.SprintSpiel })));
+const TroubleshootingDetektiv = lazy(() => import("./WeitereSpiele").then((modul) => ({ default: modul.TroubleshootingDetektiv })));
 
 /**
  * F-140/F-141/F-142/F-143 (Gaming-Tab, Nutzer-Vorgabe vom 28.09.2026, siehe Architekturplanung

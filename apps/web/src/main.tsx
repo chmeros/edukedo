@@ -14,14 +14,29 @@ import { DatenschutzKinder } from "./DatenschutzKinder";
 import { Impressum } from "./Impressum";
 import { NotFound } from "./NotFound";
 import { ParentDashboard } from "./ParentDashboard";
+// Review WEB-18: Schriften selbst ausliefern statt von fonts.googleapis.com zu laden (keine IP-Übertragung an Google, auch offline
+// verfügbar). Nur der lateinische Zeichensatz, den die deutschen Texte brauchen.
+import "@fontsource/fredoka/latin-500.css";
+import "@fontsource/fredoka/latin-600.css";
+import "@fontsource/fredoka/latin-700.css";
+import "@fontsource/manrope/latin-400.css";
+import "@fontsource/manrope/latin-500.css";
+import "@fontsource/manrope/latin-600.css";
+import "@fontsource/manrope/latin-700.css";
+import "@fontsource/manrope/latin-800.css";
+import "@fontsource/jetbrains-mono/latin-500.css";
+import "@fontsource/jetbrains-mono/latin-600.css";
 import "./styles.css";
 import { trpc } from "./trpc";
+import { UpdateBanner } from "./UpdateBanner";
+import { initUpdateNotice } from "./updateNotice";
 import { ResetPassword } from "./ResetPassword";
 import { VerifyEmail } from "./VerifyEmail";
 import { Vorschau } from "./Vorschau";
 
 // F-155: gespeicherte Darstellung (Hell/Dunkel, Ruhiger Modus) vor dem ersten Rendern anwenden.
 initDisplayPrefs();
+initUpdateNotice();
 
 /** tRPC-Fehler mit Code UNAUTHORIZED? */
 function istNichtAngemeldet(error: unknown): boolean {
@@ -84,8 +99,13 @@ function Root() {
           // Batch stattdessen proaktiv in mehrere Requests auf, bevor irgendein serverseitiges
           // Limit erreicht wird — bewusst derselbe Wert wie `maxParamLength` in app.ts.
           maxURLLength: 2000,
+          // Review WEB-21: Ohne Frist hing ein Aufruf bei "verbunden, aber Server nicht erreichbar" (Funkloch, Captive Portal)
+          // beliebig lange. Nach 20 Sekunden wird abgebrochen; die Oberfläche zeigt dann den Fehler statt zu warten.
           fetch(url, options) {
-            return fetch(url, { ...options, credentials: "include" });
+            const abbruch = new AbortController();
+            const frist = window.setTimeout(() => abbruch.abort(), 20_000);
+            options?.signal?.addEventListener("abort", () => abbruch.abort());
+            return fetch(url, { ...options, credentials: "include", signal: abbruch.signal }).finally(() => window.clearTimeout(frist));
           },
         }),
       ],
@@ -136,6 +156,7 @@ function Root() {
             <NotFound />
           )}
         </ErrorBoundary>
+        <UpdateBanner />
       </QueryClientProvider>
     </trpc.Provider>
   );

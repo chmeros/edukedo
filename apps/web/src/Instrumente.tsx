@@ -9,7 +9,7 @@ import {
   topologieSzenarien,
   type KursAngebotGruppe,
 } from "@edukedo/shared";
-import { useMemo, useState } from "react";
+import { lazy, useMemo, useState } from "react";
 import {
   AblaufIllustration,
   AbcIllustration,
@@ -109,34 +109,36 @@ import {
   VierStufenIllustration,
   ZonenkonzeptIllustration,
 } from "./InstrumentIllustrations";
-import { InstrumentLernpfad } from "./InstrumentLernpfad";
-import { Quiz } from "./Quiz";
-import { Arbeitszeitpruefer } from "./Arbeitszeitpruefer";
-import { Handelskalkulation } from "./Handelskalkulation";
-import { Unterweisungsplaner } from "./Unterweisungsplaner";
-import { Lagerkennzahlen } from "./Lagerkennzahlen";
-import { Sparverfahren } from "./Sparverfahren";
-import { Lernzielcheck } from "./Lernzielcheck";
-import { Ausbildungsplaner } from "./Ausbildungsplaner";
-import { Testfalltrainer } from "./Testfalltrainer";
-import { Mqttlabor } from "./Mqttlabor";
-import { Skalierungsrechner } from "./Skalierungsrechner";
-import { Energierechner } from "./Energierechner";
-import { Verfuegbarkeitsrechner } from "./Verfuegbarkeitsrechner";
-import { Statistiktrainer } from "./Statistiktrainer";
-import { Prozesskennzahlen } from "./Prozesskennzahlen";
-import { Schreibtischtest } from "./Schreibtischtest";
-import { Algorithmen } from "./Algorithmen";
-import { Wirtschaftlichkeit } from "./Wirtschaftlichkeit";
-import { Finanzrechner } from "./Finanzrechner";
-import { Netzplan } from "./Netzplan";
-import { FlagRaetsel } from "./FlagRaetsel";
-import { SqlUebungsflaeche } from "./SqlUebung";
-import { TerminalLabor } from "./TerminalLabor";
-import { TopologieLabor } from "./TopologieLabor";
-import { Subnetting } from "./Subnetting";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+
+// Review WEB-22/WRK-44: Die Werkzeuge (Rechner, Labore) werden erst beim Öffnen geladen.
+const InstrumentLernpfad = lazy(() => import("./InstrumentLernpfad").then((modul) => ({ default: modul.InstrumentLernpfad })));
+const Quiz = lazy(() => import("./Quiz").then((modul) => ({ default: modul.Quiz })));
+const Arbeitszeitpruefer = lazy(() => import("./Arbeitszeitpruefer").then((modul) => ({ default: modul.Arbeitszeitpruefer })));
+const Handelskalkulation = lazy(() => import("./Handelskalkulation").then((modul) => ({ default: modul.Handelskalkulation })));
+const Unterweisungsplaner = lazy(() => import("./Unterweisungsplaner").then((modul) => ({ default: modul.Unterweisungsplaner })));
+const Lagerkennzahlen = lazy(() => import("./Lagerkennzahlen").then((modul) => ({ default: modul.Lagerkennzahlen })));
+const Sparverfahren = lazy(() => import("./Sparverfahren").then((modul) => ({ default: modul.Sparverfahren })));
+const Lernzielcheck = lazy(() => import("./Lernzielcheck").then((modul) => ({ default: modul.Lernzielcheck })));
+const Ausbildungsplaner = lazy(() => import("./Ausbildungsplaner").then((modul) => ({ default: modul.Ausbildungsplaner })));
+const Testfalltrainer = lazy(() => import("./Testfalltrainer").then((modul) => ({ default: modul.Testfalltrainer })));
+const Mqttlabor = lazy(() => import("./Mqttlabor").then((modul) => ({ default: modul.Mqttlabor })));
+const Skalierungsrechner = lazy(() => import("./Skalierungsrechner").then((modul) => ({ default: modul.Skalierungsrechner })));
+const Energierechner = lazy(() => import("./Energierechner").then((modul) => ({ default: modul.Energierechner })));
+const Verfuegbarkeitsrechner = lazy(() => import("./Verfuegbarkeitsrechner").then((modul) => ({ default: modul.Verfuegbarkeitsrechner })));
+const Statistiktrainer = lazy(() => import("./Statistiktrainer").then((modul) => ({ default: modul.Statistiktrainer })));
+const Prozesskennzahlen = lazy(() => import("./Prozesskennzahlen").then((modul) => ({ default: modul.Prozesskennzahlen })));
+const Schreibtischtest = lazy(() => import("./Schreibtischtest").then((modul) => ({ default: modul.Schreibtischtest })));
+const Algorithmen = lazy(() => import("./Algorithmen").then((modul) => ({ default: modul.Algorithmen })));
+const Wirtschaftlichkeit = lazy(() => import("./Wirtschaftlichkeit").then((modul) => ({ default: modul.Wirtschaftlichkeit })));
+const Finanzrechner = lazy(() => import("./Finanzrechner").then((modul) => ({ default: modul.Finanzrechner })));
+const Netzplan = lazy(() => import("./Netzplan").then((modul) => ({ default: modul.Netzplan })));
+const FlagRaetsel = lazy(() => import("./FlagRaetsel").then((modul) => ({ default: modul.FlagRaetsel })));
+const SqlUebungsflaeche = lazy(() => import("./SqlUebung").then((modul) => ({ default: modul.SqlUebungsflaeche })));
+const TerminalLabor = lazy(() => import("./TerminalLabor").then((modul) => ({ default: modul.TerminalLabor })));
+const TopologieLabor = lazy(() => import("./TopologieLabor").then((modul) => ({ default: modul.TopologieLabor })));
+const Subnetting = lazy(() => import("./Subnetting").then((modul) => ({ default: modul.Subnetting })));
 
 /**
  * F-105 (ToDo-Punkt 6 vom 23.09.2026, Nutzer-Entscheidung 24.09.2026, siehe Architekturplanung

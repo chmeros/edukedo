@@ -23,6 +23,8 @@ export default defineConfig({
       devOptions: { enabled: true, type: "module" },
       // Das Apple-Touch-Icon aus index.html muss mit im Precache liegen (Review WEB-39).
       includeAssets: ["icons/icon-180.png"],
+      // Die selbst ausgelieferten Schriften (woff2) gehören mit in den Precache, damit sie offline da sind (Review WEB-18).
+      injectManifest: { globPatterns: ["**/*.{js,css,html,woff2}"] },
       manifest: {
         name: "edukedo",
         short_name: "edukedo",

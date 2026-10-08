@@ -5307,3 +5307,46 @@ h4.stat-subheading {
   overflow-x: auto;
   white-space: pre-wrap;
 }
+
+/* Review WEB-19: Hinweis auf eine neue App-Version, unten am Bildschirmrand. */
+.update-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: var(--card);
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Review WEB-23/WRK-35: Auf Touch-Geräten mindestens 44 px hohe Bedienelemente (WCAG 2.5.5/2.5.8). Reine Textlinks erhalten
+   Innenabstand, damit sie nicht dicht aneinanderliegen; Kontrollkästchen und Optionsfelder sind größer. */
+@media (pointer: coarse) {
+  .btn-sm,
+  .header-menu-trigger {
+    min-height: 44px;
+  }
+
+  .link-muted-btn,
+  .link-danger-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 8px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 22px;
+    height: 22px;
+  }
+}
