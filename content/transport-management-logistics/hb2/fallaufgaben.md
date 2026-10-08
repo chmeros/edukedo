@@ -20,7 +20,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.6) zu einer zusammenh
 
 **Ausgangssituation:** Ein Automobilzulieferer beauftragt Fracora mit der regelmäßigen wöchentlichen Belieferung von Bauteilen zwischen einem Werk in Süddeutschland und einem Produktionsstandort in Norditalien. Die Sendungsmengen sind planbar und liegen bei einer vollen Lkw-Ladung pro Woche. Gleichzeitig soll für eine kurzfristige Zusatzlieferung schwerer, verrutschgefährdeter Maschinenteile innerhalb weniger Tage eine geeignete Ladungssicherung sichergestellt werden.
 
-**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche Tourenplanungsaspekte (Restriktionen und Verfahren) Fracora bei der Einrichtung der wöchentlichen Regelverbindung berücksichtigen sollte.
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche Tourenplanungsaspekte (Restriktionen) Fracora bei der Einrichtung der wöchentlichen Regelverbindung berücksichtigen sollte, und beurteilen Sie, ob ein Verfahren zur Tourenbündelung (Spar- oder Sweep-Verfahren) bei dieser Verbindung etwas bringt.
 
 **Teilaufgabe 2 (5 Punkte, bloom: bewerten):** Prüfen Sie, ob für die wöchentliche Regelverbindung ein Wechsel von reinem Straßentransport auf kombinierten Verkehr sinnvoll sein könnte, und begründen Sie Ihre Einschätzung anhand der Kriterien der Verkehrsträgerwahl.
 
@@ -28,7 +28,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.6) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: analysieren):** Erläutern Sie, welche Kennzahlen Fracora heranziehen sollte, um die Wirtschaftlichkeit der neuen Regelverbindung laufend zu überwachen.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Berücksichtigung von Lenk- und Ruhezeiten, Ladekapazität und mögliche Anwendung des Sparverfahrens bzw. Sweep-Verfahrens zur Tourenbündelung eingehen. Teilaufgabe 2 sollte die planbare, regelmäßige Menge über eine längere Distanz als Argument für kombinierten Verkehr (Bahn oder Straße-Schiene-Kombination) nennen, gleichzeitig aber auf die geringere Flexibilität und den nötigen Vor-/Nachlauf hinweisen — beide Einschätzungen sind bei nachvollziehbarer Begründung anzuerkennen. Teilaufgabe 3 sollte Direktzurren (Diagonalzurren) als formschlüssiges Verfahren für schwere, verrutschgefährdete Güter empfehlen, da es Kräfte unmittelbar über Zurrpunkte aufnimmt statt nur auf Reibung zu setzen. Teilaufgabe 4 sollte Auslastungsgrad, Leerkilometerquote und Pünktlichkeitsquote als geeignete Steuerungsgrößen nennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Berücksichtigung von Lenk- und Ruhezeiten, Ladekapazität eingehen; bei einer einzelnen Punkt-zu-Punkt-Relation mit einer Komplettladung gibt es nichts zu bündeln, Spar- bzw. Sweep-Verfahren lohnen erst bei mehreren Abladestellen oder Zusatzaufträgen auf einer Rundtour. Teilaufgabe 2 sollte die planbare, regelmäßige Menge über eine längere Distanz als Argument für kombinierten Verkehr (Bahn oder Straße-Schiene-Kombination) nennen, gleichzeitig aber auf die geringere Flexibilität und den nötigen Vor-/Nachlauf hinweisen — beide Einschätzungen sind bei nachvollziehbarer Begründung anzuerkennen. Teilaufgabe 3 sollte Direktzurren (Diagonalzurren) als formschlüssiges Verfahren für schwere, verrutschgefährdete Güter empfehlen, da es Kräfte unmittelbar über Zurrpunkte aufnimmt statt nur auf Reibung zu setzen. Teilaufgabe 4 sollte Auslastungsgrad, Leerkilometerquote und Pünktlichkeitsquote als geeignete Steuerungsgrößen nennen.
 
 ---
 

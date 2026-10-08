@@ -240,7 +240,7 @@ export const memoryLogistik: MemoryPayload = {
       nummer: 30,
       runde: 3,
       begriff: "Modal Shift",
-      bedeutung: "Verlagerung der Fracht von der Straße auf Schiene",
+      bedeutung: "Verlagerung der Fracht von der Straße auf Schiene/Binnenschiff",
       bestaetigung: "Genau! Das senkt bei planbaren Großmengen den CO2-Ausstoß.",
     },
     // Runde 4: Führung, Team und Ausbildung

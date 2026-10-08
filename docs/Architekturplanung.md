@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Transport/Logistik)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei fünf Items ändert sich die Lösung (Q-1.1-06, Q-1.2-06, Q-2.3-13, Q-2.3-16, Q-2.4-06); der Fortschritt bleibt erhalten. Beim Memory-Spiel gilt die Grenze von 64 Zeichen je Bedeutung (Test `game-pool-logistik`), daher "Schiene/Binnenschiff".
+
+- **Umgesetzt:** FL-TL-03 (Q-2.4-06: unlogischer Schritt "Übergabe im Zielland" entfernt; Anmeldung, Verlassen des Zollgebiets, Ausgangsbestätigung), FL-TL-04, 33 und 41 (Verkehrsträger-Zuordnungen: Vor-/Nachlauf-Zeilen entfernt, "feste Abfahrtszeiten" zu "Gleisbindung und Bahnfahrplan", Eilauftrag-Widerspruch Luft/Straße aufgelöst, Q-2.3-01 und Q-2.3-12 neu formuliert), FL-TL-05 (ABC-Analyse bezieht sich auf den Wertanteil; die Platzierung nahe der Kommissionierzone ist kein Merkmal der A-Klasse mehr), FL-TL-06 (Teilkostenrechnung: nur variable Kosten, Deckungsbeitrag; Theorie, K-1.3-09, Q-1.3-07, Q-1.3-14), FL-TL-12 (Behördenname seit 01.01.2023: Bundesamt für Logistik und Mobilität, früher Bundesamt für Güterverkehr), FL-TL-14, 15, 24, 25, 34 (Vier-Stufen-Erklärung, Ausbildungsplan als Beispiel der Fiktivfirma, Rollout-Zeile, Standortreihenfolge, Maslow-Beispiele), FL-TL-23 (direkte/indirekte Beschwerde nach Adressat), FL-TL-36, 37, 38, 43, 45.
+- **Nicht geändert:** Rechtsnahes (R4): FL-TL-01, 02, 07, 13, 16 bis 21, 42, 49 (Haftung, Gefahrgut, Zoll, Normverweise); Lücken und neue Inhalte (R3, R5): FL-TL-08 bis 11, 29, 30, 32, 35, 47 (fehlende Themen, Rechenaufgaben, Lenk-/Ruhezeiten); mehrdeutig oder größerer Umbau: FL-TL-22, 26, 27, 28, 31, 39, 40, 44, 46; FL-TL-48 (Streichen einer Karte wurde nicht ohne Rückfrage vorgenommen). Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Systemintegration)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei Q-8.1-09 ändert sich der Typ von "Was passt nicht dazu" zu Multiple Choice (positive Frage nach der funktionalen Anforderung statt doppelter Verneinung); der Fortschritt bleibt am Item erhalten.
