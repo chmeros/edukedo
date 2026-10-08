@@ -107,7 +107,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
 | B7 Allowlist auch für Instrument-Fragen | **erledigt 08.10.2026** (50 Fragen im Bestand unsichtbar) | §13 „Kursangebot gilt auch für Instrument-Fragen“ |
 | B8 Instrument-Kachel führt zum Instrument | **erledigt 08.10.2026** | §13 „Instrument-Kacheln führen zum Instrument“ |
-| B12 | offen | — |
+| B12 Credits-Abbruch, Prüfungssimulation, Tagesgrenzen | **erledigt 08.10.2026** (LOG-02, LOG-04, LOG-06; Zeitlimit serverseitig und Pacing-Zieltage offen) | §13 „Fortschritt, Credits und Prüfungssimulation“ |
 
 ## 8. Einzelberichte
 

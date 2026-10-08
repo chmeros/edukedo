@@ -13,6 +13,7 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
+import { learningDay } from "../../learning-day";
 import { calculateEinzelterminPacing } from "../../pacing";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 // F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
@@ -1065,7 +1066,7 @@ export const progressRouter = router({
 
     const byDay = new Map<string, { total: number; correct: number }>();
     for (const event of events) {
-      const day = event.occurredAt.toISOString().slice(0, 10);
+      const day = learningDay(event.occurredAt);
       const entry = byDay.get(day) ?? { total: 0, correct: 0 };
       entry.total += 1;
       if (event.isCorrect) entry.correct += 1;

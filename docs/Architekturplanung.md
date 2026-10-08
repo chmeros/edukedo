@@ -337,6 +337,7 @@ exam_session (
   user_id      uuid not null references "user"(id) on delete cascade,
   kurs_id      uuid not null references kurs(id) on delete cascade,
   mode         text not null,     -- "quiz" | "schriftliche_simulation" | "praesentation" | "fachgespraech"
+  assigned_item_ids jsonb,        -- beim Start zugeteilte Fallaufgaben (Review LOG-04); null bei älteren Sitzungen
   started_at   timestamptz not null default now(),
   finished_at  timestamptz,
   score        real
@@ -566,6 +567,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 - **KI-Unterstützung (F-70–F-72):** Das Warteschlangen-Subsystem für die asynchrone Bewertung (F-70, BullMQ/Redis) steht seit 23.09.2026 (siehe Abschnitt 13), hinter einer austauschbaren `AiProvider`-Schnittstelle mit einer deterministischen Platzhalter-Implementierung statt eines echten Modells. Noch offen: die Fallback-Logik auf eine Managed API bei Überlastung des selbst gehosteten Modells (F-72) sowie die konkrete Infrastruktur für das selbst gehostete Modell, bewusst erst kurz vor Phase 4 festgelegt (entschieden am 12.09.2026, siehe Abschnitt 13), da sich die Hosting-Landschaft für KI-Modelle schnell ändert.
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
+
+### Entschieden am 08.10.2026 (Fortschritt, Credits und Prüfungssimulation, Review-Punkt B12)
+
+Drei Befunde des Lernlogik-Reviews (LOG-02, LOG-04, LOG-06), je einzeln committet.
+
+- **Credits beim Rundenabbruch (LOG-02):** `progress.abortRound` zog bei einer abgebrochenen Karteikarten-Runde Credits ab, die nie vergeben worden waren (Credits und Punktehamster kommen nur aus Quiz-Antworten, F-118/F-119). Die Rücknahme betrifft jetzt nur noch Quiz-Antworten (`item.type !== "karteikarte"`). Regressionstest in test/abort-round.integration.test.ts (Guthaben vor und nach dem Abbruch einer Karteikarten-Runde gleich; ohne Korrektur schlägt er mit 9 statt 10 fehl).
+- **Prüfungssimulation (LOG-04):** Neue Spalte `exam_session.assigned_item_ids` (jsonb, Migration 0046; null bei Sitzungen aus der Zeit davor): `exam.start` hält die zugeteilten Fallaufgaben fest. `exam.submitAnswer` nimmt nur Antworten zu diesen Aufgaben an, nur zu Aufgaben im Kurs der Sitzung und nur, solange die Sitzung nicht abgeschlossen ist. Persistenz in einer Transaktion: genau **eine** Antwort je Aufgabe (eine Antwort zu einer älteren Version derselben Aufgabe wird beim erneuten Einreichen ersetzt, sodass `finish` sie nicht doppelt zählt) und höchstens **ein** Lernereignis je Aufgabe und Sitzung (eine erneute Einreichung korrigiert es). `exam.finish` ist idempotent (eine abgeschlossene Sitzung liefert ihr Ergebnis, ohne `finished_at` oder Score zu ändern) und schließt eine Sitzung **ohne jede Antwort nicht ab**, damit weder Score 0 noch das Achievement "Erste Prüfungssimulation" entsteht. Tests: test/exam-session.integration.test.ts (5). **Bewusst offen:** Das Zeitlimit bleibt rein clientseitig (LOG-26, dokumentiert); LOG-05 (veraltete KI-Bewertung nach erneutem Einreichen) ist ein eigener Punkt.
+- **Tagesgrenzen (LOG-06):** Neue Funktion `learningDay` (apps/api/src/learning-day.ts) ordnet Zeitpunkte dem Kalendertag in **Europe/Berlin** zu statt in UTC. Betrifft Lernserie (längste und aktuelle), "Tage seit der letzten Aktivität" (Erinnerungsbanner und Push-Erinnerungen), Achievements, "meiste Antworten an einem Tag" und die Tages-Trefferquote im Fortschritt. Wer gegen Mitternacht Ortszeit lernt, behält seine Serie. Entscheidung: eine feste Zeitzone statt einer Einstellung je Konto, weil sich die Plattform an ein deutsches Publikum richtet; die einzige Stelle ist `learningDay`, eine Spalte `user.time_zone` wäre der nächste Schritt. Tests: src/learning-day.test.ts (Sommer-/Winterzeit, Umstellung 25.10.2026, Serie um Mitternacht). **Nicht geändert:** Zieltermine (Pacing, LOG-19) sind Datumswerte und ein eigener Punkt; bereits gespeicherte Ereignisse bleiben unverändert (UTC-Zeitpunkte), nur ihre Zuordnung zum Tag ändert sich, wodurch sich vergangene Serien in Einzelfällen um einen Tag verschieben können.
+- **Verifikation:** Gesamtlauf der API-Tests grün (92 Dateien, 792 Tests), Typprüfung und ESLint sauber; Migration 0046 auf die lokale Entwicklungsdatenbank angewendet.
 
 ### Entschieden am 08.10.2026 (Instrument-Kacheln führen zum Instrument, Review-Punkt B8)
 

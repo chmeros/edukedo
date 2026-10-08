@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import webpush from "web-push";
 import { daysSinceLastActive } from "../achievements/catalog";
 import { env } from "../env";
+import { learningDay } from "../learning-day";
 import { shouldSendLearningReminder } from "../learning-reminder-logic";
 import { learningEvent, pushSubscription, user } from "./schema";
 import { db, pool } from "./client";
@@ -39,7 +40,7 @@ async function main() {
       continue;
     }
 
-    const dateStrings = events.map((event) => event.occurredAt.toISOString().slice(0, 10));
+    const dateStrings = events.map((event) => learningDay(event.occurredAt));
     const lastActiveAt = new Date(Math.max(...events.map((event) => event.occurredAt.getTime())));
 
     const shouldSend = shouldSendLearningReminder({

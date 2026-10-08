@@ -1,3 +1,5 @@
+import { learningDay } from "../learning-day";
+
 /**
  * F-67: Achievement-Katalog — Server-Konstante statt DB-Tabelle (siehe db/schema.ts,
  * `achievement`). Jeder Eintrag ist über alle vom Nutzer belegten Kurse hinweg auswertbar (kein
@@ -43,12 +45,16 @@ export function longestConsecutiveDayStreak(dateStrings: string[]): number {
   return longest;
 }
 
+/**
+ * Kalendertag des Zeitpunkts in der Lernzeitzone (Review LOG-06), als Mitternacht UTC desselben Datums dargestellt: Mit solchen
+ * reinen Datumswerten ist Rechnen in 86.400.000-ms-Schritten tagesgenau, auch über Zeitumstellungen hinweg.
+ */
 function toUtcDayStart(date: Date): Date {
-  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  return new Date(`${learningDay(date)}T00:00:00.000Z`);
 }
 
 function toDateString(date: Date): string {
-  return date.toISOString().slice(0, 10);
+  return date.toISOString().slice(0, 10); // nur auf Datumswerte aus toUtcDayStart angewandt
 }
 
 /**

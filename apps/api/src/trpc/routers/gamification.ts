@@ -6,6 +6,7 @@ import {
   longestConsecutiveDayStreak,
 } from "../../achievements/catalog";
 import { achievement, examSession, learningEvent } from "../../db/schema";
+import { learningDay } from "../../learning-day";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-67 "Bestwerte": Ein einzelner Tag mit sehr wenigen Antworten würde die Trefferquote sonst
@@ -49,7 +50,7 @@ export const gamificationRouter = router({
       .select({ occurredAt: learningEvent.occurredAt })
       .from(learningEvent)
       .where(eq(learningEvent.userId, ctx.currentUser.id));
-    const streak = longestConsecutiveDayStreak(dayRows.map((row) => row.occurredAt.toISOString().slice(0, 10)));
+    const streak = longestConsecutiveDayStreak(dayRows.map((row) => learningDay(row.occurredAt)));
     const [examRow] = await ctx.db
       .select({ id: examSession.id })
       .from(examSession)
@@ -104,7 +105,7 @@ export const gamificationRouter = router({
 
     const byDay = new Map<string, { total: number; correct: number }>();
     for (const event of events) {
-      const day = event.occurredAt.toISOString().slice(0, 10);
+      const day = learningDay(event.occurredAt);
       const entry = byDay.get(day) ?? { total: 0, correct: 0 };
       entry.total += 1;
       if (event.isCorrect) entry.correct += 1;
@@ -165,7 +166,7 @@ export const gamificationRouter = router({
       .select({ occurredAt: learningEvent.occurredAt })
       .from(learningEvent)
       .where(eq(learningEvent.userId, ctx.currentUser.id));
-    const dateStrings = dayRows.map((row) => row.occurredAt.toISOString().slice(0, 10));
+    const dateStrings = dayRows.map((row) => learningDay(row.occurredAt));
     const today = new Date();
 
     return {
