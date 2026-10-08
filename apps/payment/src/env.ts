@@ -20,3 +20,14 @@ const envSchema = z.object({
 });
 
 export const env = envSchema.parse(process.env);
+
+/**
+ * Review-Befund SOZ-01: Der Platzhalter-Zahlungsanbieter (simuliert sofort erfolgreiche Zahlungen) ist in Entwicklung und
+ * Test erlaubt, in Produktion nur mit ausdrücklichem `ALLOW_PLACEHOLDER_PAYMENT=true` (z. B. für ein Staging). Ein
+ * explizit gesetzter Wert gilt in jeder Umgebung. Hinweis: Fehlt `NODE_ENV`, gilt der Standard "development"; im Betrieb
+ * muss `NODE_ENV=production` gesetzt sein.
+ */
+export const placeholderPaymentAllowed =
+  process.env.ALLOW_PLACEHOLDER_PAYMENT !== undefined
+    ? process.env.ALLOW_PLACEHOLDER_PAYMENT === "true"
+    : env.NODE_ENV !== "production";

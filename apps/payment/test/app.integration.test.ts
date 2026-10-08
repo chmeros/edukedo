@@ -101,6 +101,23 @@ describe("Payment-Service (Grundgerüst, Iteration 6 Baustein 1)", () => {
     expect(invoices[0]!.status).toBe("paid");
   });
 
+  it("lehnt einen Checkout mit 503 ab und legt nichts an, wenn kein Zahlungsanbieter eingerichtet ist (Review SOZ-01)", async () => {
+    const { buildApp } = await import("../src/app");
+    const { selectPaymentProvider } = await import("../src/payment-provider");
+    const guardedApp = await buildApp(selectPaymentProvider(false));
+    const userId = "99999999-9999-9999-9999-999999999999";
+    const response = await guardedApp.inject({
+      method: "POST",
+      url: "/checkout-sessions",
+      headers: authHeaders(),
+      payload: { userId },
+    });
+    expect(response.statusCode).toBe(503);
+    const status = await guardedApp.inject({ method: "GET", url: `/subscriptions/${userId}`, headers: authHeaders() });
+    expect(status.json()).toEqual({ status: "none", premiumUntil: null });
+    await guardedApp.close();
+  });
+
   it("deaktiviert ein Abo bei Kündigung sofort", async () => {
     const userId = "33333333-3333-3333-3333-333333333333";
     await app.inject({ method: "POST", url: "/checkout-sessions", headers: authHeaders(), payload: { userId } });

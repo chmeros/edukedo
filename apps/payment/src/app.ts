@@ -4,7 +4,7 @@ import { z } from "zod";
 import { db } from "./db/client";
 import { invoice, subscription } from "./db/schema";
 import { env } from "./env";
-import { placeholderPaymentProvider, type PaymentProvider } from "./payment-provider";
+import { PaymentProviderNotConfiguredError, placeholderPaymentProvider, type PaymentProvider } from "./payment-provider";
 import { publishSubscriptionUpdated } from "./queue/subscription-updated-queue";
 
 const userIdParamsSchema = z.object({ userId: z.string().uuid() });
@@ -60,7 +60,15 @@ export async function buildApp(paymentProvider: PaymentProvider = placeholderPay
 
   app.post("/checkout-sessions", async (request, reply) => {
     const { userId } = checkoutSessionBodySchema.parse(request.body);
-    const session = await paymentProvider.createCheckoutSession(userId);
+    let session: Awaited<ReturnType<PaymentProvider["createCheckoutSession"]>>;
+    try {
+      session = await paymentProvider.createCheckoutSession(userId);
+    } catch (error) {
+      if (error instanceof PaymentProviderNotConfiguredError) {
+        return reply.code(503).send({ error: error.message });
+      }
+      throw error;
+    }
 
     // Codereview-Fund (27.09.2026, siehe Architekturplanung Abschnitt 13): Diese Route hatte
     // keinerlei Schutz gegen einen doppelten/erneuten Aufruf (Client-Retry nach dem 5s-Timeout

@@ -50,3 +50,27 @@ export const placeholderPaymentProvider: PaymentProvider = {
   // bereits jetzt vollständig ist und ein künftiger echter PSP sie nur noch ausfüllen muss.
   async cancelSubscription(): Promise<void> {},
 };
+
+/** Wird geworfen, wenn ein Checkout verlangt wird, aber kein (zulässiger) Zahlungsanbieter eingerichtet ist. */
+export class PaymentProviderNotConfiguredError extends Error {
+  constructor() {
+    super("Es ist kein Zahlungsanbieter eingerichtet.");
+  }
+}
+
+/**
+ * Review-Befund SOZ-01: Der Platzhalter schaltet bei jedem Checkout sofort ein Abo samt Rechnung "paid" frei. In
+ * Produktion darf das nie ungewollt passieren. Dieser Anbieter verweigert deshalb jeden Checkout; Statusabfragen und die
+ * Löschung beim Konto-Löschen (cancelSubscription) laufen weiter, damit der Dienst seine Datenschutzpflichten erfüllt.
+ */
+export const unconfiguredPaymentProvider: PaymentProvider = {
+  async createCheckoutSession(): Promise<CheckoutSession> {
+    throw new PaymentProviderNotConfiguredError();
+  },
+  async cancelSubscription(): Promise<void> {},
+};
+
+/** Wählt den Anbieter: der Platzhalter nur, wenn er ausdrücklich zulässig ist (siehe env.ts `placeholderPaymentAllowed`). */
+export function selectPaymentProvider(placeholderAllowed: boolean): PaymentProvider {
+  return placeholderAllowed ? placeholderPaymentProvider : unconfiguredPaymentProvider;
+}

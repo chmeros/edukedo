@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { and, eq, isNull } from "drizzle-orm";
 import { isPremiumActive } from "../../auth/premium-status";
 import { user } from "../../db/schema";
@@ -61,7 +62,16 @@ export const paymentRouter = router({
    * Architekturplanung Abschnitt 3: der zweite, asynchrone Kanal — die Event-Queue — bestätigt
    * denselben Wert kurz darauf noch einmal, was dank des absoluten Ereigniszustands unschädlich ist). */
   startCheckout: protectedProcedure.mutation(async ({ ctx }) => {
-    const session = await createCheckoutSession(ctx.currentUser.id);
+    let session: Awaited<ReturnType<typeof createCheckoutSession>>;
+    try {
+      session = await createCheckoutSession(ctx.currentUser.id);
+    } catch (error) {
+      // 503 vom Payment-Service: kein Zahlungsanbieter eingerichtet (Review SOZ-01) — verständliche Meldung statt 500.
+      if (error instanceof Error && error.message.includes("Status 503")) {
+        throw new TRPCError({ code: "NOT_IMPLEMENTED", message: "Die Premium-Freischaltung ist derzeit nicht verfügbar." });
+      }
+      throw error;
+    }
     await ctx.db.update(user).set({ premiumUntil: new Date(session.premiumUntil) }).where(eq(user.id, ctx.currentUser.id));
     return { checkoutUrl: session.checkoutUrl };
   }),
