@@ -5,6 +5,7 @@ import {
   checkMatching,
   checkMcAnswer,
   initialProgressState,
+  normalizeOccurredAt,
   QuizItemNotFoundError,
   syncQueueInputSchema,
 } from "@edukedo/shared";
@@ -143,7 +144,11 @@ export const offlineRouter = router({
    * content_item-Zeilen, auch wenn die Warteschlange selbst länger sein kann.
    */
   syncQueue: protectedProcedure.input(syncQueueInputSchema).mutation(async ({ ctx, input }) => {
-    const entries = [...input.entries].sort((a, b) => a.occurredAt.getTime() - b.occurredAt.getTime());
+    // Zeitstempel der Geräteuhr auf ein plausibles Fenster begrenzen (siehe normalizeOccurredAt), erst danach sortieren.
+    const now = new Date();
+    const entries = input.entries
+      .map((entry) => ({ ...entry, occurredAt: normalizeOccurredAt(entry.occurredAt, now) }))
+      .sort((a, b) => a.occurredAt.getTime() - b.occurredAt.getTime());
 
     // Code-Review-Fund, nachgezogen: vorher gab es für "review"-Ereignisse (Karteikarten) gar
     // keine Existenz-/Aktiv-Prüfung vor `applyReview` — ein zwischenzeitlich hart gelöschtes

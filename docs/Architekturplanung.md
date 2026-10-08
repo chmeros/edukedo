@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 5: Zeitstempel im Offline-Sync werden begrenzt)
+
+- **Anlass:** Review-Befund LOG-03 (auch SHR): `offline.syncQueue` übernahm `occurredAt` ungeprüft von der Geräteuhr. Ein Zeitstempel in der Zukunft friert die Karte ein, weil spätere Reviews als „älter“ gelten und nicht angewendet werden (`occurredAt <= lastReviewedAt` in `applyReview`); er verfälscht außerdem Streak, Highscore und Achievements. Ein sehr alter Zeitstempel erlaubt das nachträgliche Auffüllen von Streak-Tagen.
+- **Entscheidung:** `normalizeOccurredAt(occurredAt, now)` (packages/shared/src/schemas/offline-sync.ts) ersetzt einen Zeitstempel durch die Serverzeit des Syncs, wenn er mehr als 5 Minuten in der Zukunft (Toleranz für abweichende Uhren) oder mehr als 14 Tage in der Vergangenheit liegt oder ungültig ist. Die Normalisierung läuft im Router vor dem chronologischen Sortieren. Das Ereignis (die Antwort) bleibt erhalten und wird gewertet; nur sein Zeitpunkt wird ersetzt. Ablehnen wäre schlechter: Der Eintrag bliebe dauerhaft unsynchronisiert und würde bei jedem Sync erneut gesendet.
+- **Abwägung:** Die Geräteuhr bleibt innerhalb des Fensters unüberprüfbar; wer bis zu 14 Tage zurückdatiert, kann weiterhin Streak-Tage dieses Zeitraums füllen. Das Fenster ist ein Kompromiss zwischen längerer legitimer Offline-Nutzung und Manipulationsspielraum und lässt sich über `OFFLINE_EVENT_MAX_AGE_DAYS` anpassen. Eine vollständige Lösung (serverseitig signierte Zeitstempel beim Download) wurde nicht gewählt.
+- **Tests:** `offline-sync.test.ts` in packages/shared (Fenstergrenzen, ungültiges Datum) und ein Integrationstest in apps/api/test (Zukunftsdatum wird zur Serverzeit, ein folgendes echtes Review wird nicht verworfen).
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 4: Offline-Daten gehören zu einer Person)
 
 - **Anlass:** Review-Befund WEB-04: Die IndexedDB (`edukedo-offline`: Inhalte mit Lösung, Warteschlange noch nicht synchronisierter Antworten) war nicht an die angemeldete Person gebunden und wurde beim Logout nicht geleert. Auf einem geteilten Gerät hätte die nächste Person die Antworten der vorherigen gutgeschrieben bekommen (der Sync sendet die Warteschlange mit der Sitzung der aktuell angemeldeten Person) und deren heruntergeladene Lösungen vorgefunden.

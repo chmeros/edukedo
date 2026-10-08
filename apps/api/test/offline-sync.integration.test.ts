@@ -229,6 +229,44 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
   );
 
   it(
+    "ersetzt einen unplausiblen Zeitstempel (Zukunft) durch die Serverzeit, damit die Karte nicht einfriert",
+    async () => {
+      const meResponse = await app.inject({ method: "GET", url: "/api/v1/trpc/auth.me", headers: { cookie: sessionCookie } });
+      const userId = (meResponse.json().result.data as { id: string }).id;
+      const contentItemId = karteikarteIds[2]!;
+
+      const before = Date.now();
+      const futureEntryId = crypto.randomUUID();
+      const futureSync = await syncQueue(sessionCookie, [
+        {
+          id: futureEntryId,
+          contentItemId,
+          occurredAt: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+          event: { kind: "review", result: "gewusst" },
+        },
+      ]);
+      expect(futureSync.statusCode).toBe(200);
+      expect(futureSync.json().result.data.syncedIds).toEqual([futureEntryId]);
+
+      const afterFuture = await fetchProgress(userId, contentItemId);
+      expect(afterFuture?.lastReviewedAt).toBeTruthy();
+      expect(afterFuture!.lastReviewedAt!.getTime()).toBeGreaterThanOrEqual(before - 1000);
+      expect(afterFuture!.lastReviewedAt!.getTime()).toBeLessThanOrEqual(Date.now() + 1000);
+
+      // Ein anschließendes, echtes Review wird nicht als "älter" verworfen.
+      const online = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/progress.submitReview",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId, result: "gewusst" },
+      });
+      expect(online.statusCode).toBe(200);
+      expect((await fetchProgress(userId, contentItemId))?.reps).toBe(afterFuture!.reps + 1);
+    },
+    30_000,
+  );
+
+  it(
     "lässt einen Sync-Batch mit einem nicht existierenden und einem deaktivierten Content-Item nicht abbrechen — nur diese beiden Einträge bleiben unsynchronisiert",
     async () => {
       const validContentItemId = karteikarteIds[2]!;
