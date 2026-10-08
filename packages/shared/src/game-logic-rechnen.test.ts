@@ -125,7 +125,7 @@ describe("F-194: Rechen-Sprint", () => {
   });
 
   it("weist auf die Deutung von „2.500“ hin", () => {
-    expect(zahlLesehinweis("2.500")).toContain("2.500");
+    expect(zahlLesehinweis("2.500")).toContain("gelesen als 2500");
     expect(zahlLesehinweis("2,5")).toBeNull();
     expect(zahlLesehinweis("12.5")).toBeNull();
   });

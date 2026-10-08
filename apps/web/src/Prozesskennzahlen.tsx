@@ -25,6 +25,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -554,7 +555,7 @@ export function Prozesskennzahlen({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-pk-${modus}`} aria-labelledby={`tab-pk-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-pk-${modus}`} aria-labelledby={`tab-pk-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "durchlauf"}><Durchlaufzeit /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "engpass"}><Engpass /></ReiterInhalt>
@@ -562,7 +563,7 @@ export function Prozesskennzahlen({ onClose }: { onClose: () => void }) {
           <ReiterInhalt aktiv={modus === "amortisation"}><Amortisation /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

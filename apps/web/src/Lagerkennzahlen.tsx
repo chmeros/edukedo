@@ -19,6 +19,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -361,14 +362,14 @@ export function Lagerkennzahlen({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-lager-${modus}`} aria-labelledby={`tab-lager-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-lager-${modus}`} aria-labelledby={`tab-lager-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "rechner"}><Rechner /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "umschlag"}><Training art="umschlag" /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "meldebestand"}><Training art="meldebestand" /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ziel"}><Training art="ziel" /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

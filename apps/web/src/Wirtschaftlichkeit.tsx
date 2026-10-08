@@ -18,6 +18,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -695,13 +696,13 @@ export function Wirtschaftlichkeit({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-wi-${modus}`} aria-labelledby={`tab-wi-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-wi-${modus}`} aria-labelledby={`tab-wi-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "nutzwert"}><Nutzwert /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "tco"}><Tco /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

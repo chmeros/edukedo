@@ -551,7 +551,7 @@ export function parseZahlEingabe(eingabe: string): number | null {
 export function zahlLesehinweis(eingabe: string): string | null {
   const text = eingabe.trim().replace(/[€%\s]/g, "");
   if (/^[-+]?[1-9]\d{0,2}\.\d{3}$/.test(text)) {
-    return `gelesen als ${formatDe(Number(text.replace(".", "")), 0)} (Punkt = Tausendertrennung; Dezimalwerte mit Komma schreiben)`;
+    return `gelesen als ${Number(text.replace(".", ""))} (Punkt = Tausendertrennung; Dezimalwerte mit Komma schreiben)`;
   }
   return null;
 }

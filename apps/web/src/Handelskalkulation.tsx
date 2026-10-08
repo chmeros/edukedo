@@ -19,6 +19,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -390,14 +391,14 @@ export function Handelskalkulation({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-kalk-${modus}`} aria-labelledby={`tab-kalk-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-kalk-${modus}`} aria-labelledby={`tab-kalk-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "rechner"}><Rechner /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "vorwaerts"}><Training richtung="vorwaerts" /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "rueckwaerts"}><Training richtung="rueckwaerts" /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "differenz"}><Training richtung="differenz" /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
  * F-208 (Energiebedarf-Rechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den Kurs „Fachinformatiker
@@ -485,9 +486,9 @@ export function Energierechner({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-en-${modus}`} aria-labelledby={`tab-en-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-en-${modus}`} aria-labelledby={`tab-en-${modus}`}>
           {modus === "budget" ? <Budget geraete={geraete} setGeraete={setGeraete} budget={budget} setBudget={setBudget} /> : modus === "kosten" ? <Kosten summeW={summe} /> : modus === "akku" ? <Akku /> : <Ueben />}
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

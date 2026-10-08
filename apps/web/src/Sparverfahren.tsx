@@ -21,6 +21,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
  * F-202 (Sparverfahren-Trainer, siehe Architekturplanung Abschnitt 13): Tourenplanung nach dem Sparverfahren (Savings-
@@ -433,9 +434,9 @@ export function Sparverfahren({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-spar-${modus}`} aria-labelledby={`tab-spar-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-spar-${modus}`} aria-labelledby={`tab-spar-${modus}`}>
           {modus === "rechner" ? <Rechner /> : <Ueben />}
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

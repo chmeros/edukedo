@@ -24,6 +24,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
@@ -548,14 +549,14 @@ export function Verfuegbarkeitsrechner({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-vf-${modus}`} aria-labelledby={`tab-vf-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-vf-${modus}`} aria-labelledby={`tab-vf-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "verfuegbarkeit"}><Verfuegbarkeit /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "system"}><System /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "raid"}><Raid /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );
