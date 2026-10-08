@@ -3,6 +3,7 @@ import { httpBatchLink } from "@trpc/client";
 import { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { AGB } from "./AGB";
+import { istNichtAngemeldet } from "./authFehler";
 import { App } from "./App";
 import { initDisplayPrefs } from "./displayPrefs";
 import { CompanyDashboard } from "./CompanyDashboard";
@@ -30,6 +31,7 @@ import "./styles.css";
 import { trpc } from "./trpc";
 import { UpdateBanner } from "./UpdateBanner";
 import { initUpdateNotice } from "./updateNotice";
+import { clearLastSession, saveLastSessionPart } from "./lastSession";
 import { ResetPassword } from "./ResetPassword";
 import { VerifyEmail } from "./VerifyEmail";
 import { Vorschau } from "./Vorschau";
@@ -38,15 +40,13 @@ import { Vorschau } from "./Vorschau";
 initDisplayPrefs();
 initUpdateNotice();
 
-/** tRPC-Fehler mit Code UNAUTHORIZED? */
-function istNichtAngemeldet(error: unknown): boolean {
-  return typeof error === "object" && error !== null && (error as { data?: { code?: string } }).data?.code === "UNAUTHORIZED";
+/** Schlüssel der Anmelde-Abfragen (auth.me, auth.login ...): deren "nicht angemeldet" ist der Normalfall, kein Sitzungsende. */
+function abfragePfad(key: readonly unknown[] | undefined): string {
+  return Array.isArray(key) && Array.isArray(key[0]) ? (key[0] as unknown[]).join(".") : "";
 }
 
-/** Schlüssel der Anmelde-Abfragen (auth.me, auth.login ...): deren "nicht angemeldet" ist der Normalfall, kein Sitzungsende. */
 function istAnmeldeAbfrage(key: readonly unknown[] | undefined): boolean {
-  const pfad = Array.isArray(key) && Array.isArray(key[0]) ? (key[0] as unknown[]).join(".") : "";
-  return pfad.startsWith("auth.");
+  return abfragePfad(key).startsWith("auth.");
 }
 
 const SEITENTITEL: Record<string, string> = {
@@ -69,9 +69,17 @@ function Root() {
   const [queryClient] = useState(() => {
     const client: QueryClient = new QueryClient({
       queryCache: new QueryCache({
+        // Review WEB-03: Letzten erfolgreichen Stand von Anmeldung und Kursliste für den Kaltstart ohne Netz merken.
+        onSuccess: (data, query) => {
+          const pfad = abfragePfad(query.queryKey);
+          if (pfad === "auth.me") saveLastSessionPart("me", data);
+          else if (pfad === "courses.list") saveLastSessionPart("courses", data);
+        },
         onError: (error, query) => {
-          if (istNichtAngemeldet(error) && !istAnmeldeAbfrage(query.queryKey)) {
-            void client.resetQueries({ queryKey: [["auth", "me"]] });
+          if (istNichtAngemeldet(error)) {
+            // Die Sitzung ist beendet: der gemerkte Stand gehört nicht mehr zu einer angemeldeten Person.
+            if (abfragePfad(query.queryKey) === "auth.me") clearLastSession();
+            if (!istAnmeldeAbfrage(query.queryKey)) void client.resetQueries({ queryKey: [["auth", "me"]] });
           }
         },
       }),

@@ -19,6 +19,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-210 (Statistik-Trainer, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den Kurs „Fachinformatiker
@@ -524,7 +525,11 @@ export function Statistiktrainer({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-st-${modus}`} aria-labelledby={`tab-st-${modus}`}>
-          {modus === "reihe" ? <Reihe /> : modus === "zusammenhang" ? <Zusammenhang /> : <Ueben />}
+          
+          <ReiterInhalt aktiv={modus === "reihe"}><Reihe /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "zusammenhang"}><Zusammenhang /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

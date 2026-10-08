@@ -18,6 +18,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-199 (Handelskalkulation-Trainer, siehe Architekturplanung Abschnitt 13): Übungs- und Rechenwerkzeug für das
@@ -389,7 +390,12 @@ export function Handelskalkulation({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-kalk-${modus}`} aria-labelledby={`tab-kalk-${modus}`}>
-          {modus === "rechner" ? <Rechner /> : <Training key={modus} richtung={modus} />}
+          
+          <ReiterInhalt aktiv={modus === "rechner"}><Rechner /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "vorwaerts"}><Training richtung="vorwaerts" /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "rueckwaerts"}><Training richtung="rueckwaerts" /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "differenz"}><Training richtung="differenz" /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

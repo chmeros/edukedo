@@ -18,6 +18,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-213 (Nutzwert- und Wirtschaftlichkeitsrechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für die
@@ -695,7 +696,11 @@ export function Wirtschaftlichkeit({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-wi-${modus}`} aria-labelledby={`tab-wi-${modus}`}>
-          {modus === "nutzwert" ? <Nutzwert /> : modus === "tco" ? <Tco /> : <Ueben />}
+          
+          <ReiterInhalt aktiv={modus === "nutzwert"}><Nutzwert /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "tco"}><Tco /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

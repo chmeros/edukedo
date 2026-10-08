@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOfflineQueueCount } from "./useOfflineQueueCount";
 import { useOfflineSync } from "./useOfflineSync";
 import { useOnlineStatus } from "./useOnlineStatus";
@@ -11,7 +11,7 @@ import { useOnlineStatus } from "./useOnlineStatus";
  * (`role="status"`, wie bei `ErrorMessage.tsx`s `role="alert"` implizit `aria-live`), im
  * normalen Online-Alltag ohne ausstehende Ereignisse zeigt die Komponente nichts an.
  */
-export function OfflineStatus() {
+export function OfflineStatus({ roundActive = false }: { roundActive?: boolean }) {
   const online = useOnlineStatus();
   const pendingCount = useOfflineQueueCount();
   const syncState = useOfflineSync();
@@ -26,6 +26,27 @@ export function OfflineStatus() {
     const timer = setTimeout(() => setShowSynced(false), 3000);
     return () => clearTimeout(timer);
   }, [syncState]);
+
+  // Review WEB-21: Ein Wechsel zwischen online und offline ersetzt die Fragenliste der laufenden Runde (offline kommt sie aus der lokalen
+  // Kopie). Die Runde beginnt dann von vorn; ohne Hinweis wirkt das wie ein Fehler. Die Antworten bis dahin bleiben gespeichert.
+  const [rundeNeu, setRundeNeu] = useState(false);
+  const vorher = useRef(online);
+  useEffect(() => {
+    if (vorher.current === online) return;
+    vorher.current = online;
+    if (!roundActive) return;
+    setRundeNeu(true);
+    const timer = setTimeout(() => setRundeNeu(false), 8000);
+    return () => clearTimeout(timer);
+  }, [online, roundActive]);
+
+  if (rundeNeu) {
+    return (
+      <span className="offline-status offline-status--syncing" role="status">
+        Verbindung gewechselt – die Runde beginnt neu, bisherige Antworten bleiben gespeichert.
+      </span>
+    );
+  }
 
   if (!online) {
     return (

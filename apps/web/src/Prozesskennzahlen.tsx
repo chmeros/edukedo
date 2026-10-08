@@ -25,6 +25,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-211 (Prozesskennzahlen-Rechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den Kurs
@@ -554,7 +555,13 @@ export function Prozesskennzahlen({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-pk-${modus}`} aria-labelledby={`tab-pk-${modus}`}>
-          {modus === "durchlauf" ? <Durchlaufzeit /> : modus === "engpass" ? <Engpass /> : modus === "kennzahlen" ? <Kennzahlen /> : modus === "amortisation" ? <Amortisation /> : <Ueben />}
+          
+          <ReiterInhalt aktiv={modus === "durchlauf"}><Durchlaufzeit /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "engpass"}><Engpass /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "kennzahlen"}><Kennzahlen /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "amortisation"}><Amortisation /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

@@ -98,7 +98,7 @@ const OFFLINE_OWNER_KEY = "edukedo-offline-owner";
  * Browser, nicht beim Server. Auf einem geteilten Gerät sollen sie dem nächsten Konto nicht angezeigt werden; Einstellungen zur
  * Darstellung (Hell/Dunkel usw.) bleiben dagegen erhalten.
  */
-const LOKALE_ENTWUERFE = ["edukedo.ausbildungsplan.v1", "edukedo.unterweisungsplan.v1", "edukedo.examDayChecklist"];
+const LOKALE_ENTWUERFE = ["edukedo.ausbildungsplan.v1", "edukedo.unterweisungsplan.v1", "edukedo.examDayChecklist", "edukedo.lastSession.v1", "edukedo.examDraft.v1"];
 
 export async function clearOfflineData(): Promise<void> {
   await Promise.all([offlineDb.content.clear(), offlineDb.queue.clear()]);

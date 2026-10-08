@@ -1,5 +1,6 @@
 /// <reference lib="webworker" />
-import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
+import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from "workbox-precaching";
+import { NavigationRoute, registerRoute } from "workbox-routing";
 import type { PrecacheEntry } from "workbox-precaching";
 
 /**
@@ -19,6 +20,15 @@ declare const self: ServiceWorkerGlobalScope & {
 
 precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();
+
+// Review WEB-03: Jede Seitennavigation (auch /agb, /parent, /vorschau und ein Neuladen ohne Netz) liefert die vorgehaltene App-Shell;
+// die Weiche nach Pfad liegt in main.tsx. Ohne diesen Fallback deckte der Precache nur "/" ab, und ein Neustart der installierten
+// App ohne Netz zeigte die Fehlerseite des Browsers. Die API (/api) bleibt ausgenommen.
+try {
+  registerRoute(new NavigationRoute(createHandlerBoundToURL("/index.html"), { denylist: [/^\/api\//] }));
+} catch {
+  // Entwicklungsmodus ohne vorgehaltene index.html: kein Fallback nötig.
+}
 
 self.addEventListener("install", () => {
   self.skipWaiting();

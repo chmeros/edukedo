@@ -2,8 +2,39 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
+/**
+ * Review WEB-18: Content-Security-Policy für die ausgelieferte App. Skripte, Schriften, Verbindungen und Worker nur von der eigenen
+ * Herkunft; `wasm-unsafe-eval` für die SQL-Übungsfläche (sql.js/WebAssembly). Bilder zusätzlich über https, weil Logos von
+ * Unternehmen und Sponsoren externe Adressen sind (offener Punkt: eigener Upload, siehe Architekturplanung §13). Als Meta-Tag nur im
+ * Produktions-Build (der Entwicklungsserver braucht Inline-Skripte); `frame-ancestors` und Sicherheits-Header gehören zusätzlich in
+ * die Auslieferung (infra/README.md), weil sie sich per Meta-Tag nicht setzen lassen.
+ */
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'wasm-unsafe-eval'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
 export default defineConfig({
   plugins: [
+    {
+      name: "edukedo-content-security-policy",
+      apply: "build",
+      transformIndexHtml: {
+        order: "post",
+        handler: (html: string) =>
+          html.replace("<head>", `<head>
+    <meta http-equiv="Content-Security-Policy" content="${CONTENT_SECURITY_POLICY}" />`),
+      },
+    },
     react(),
     // F-40/F-41 (PWA-Grundgerüst): App-Shell-Precaching + Manifest, damit die App
     // installierbar ist. Volle Offline-Synchronisierung (F-42, IndexedDB-Warteschlange,
@@ -32,12 +63,14 @@ export default defineConfig({
         start_url: "/",
         display: "standalone",
         background_color: "#f5f5f4",
-        // Review WEB-39: gleiche Farbe wie <meta name="theme-color"> in index.html (vorher widersprachen sich beide), und kein
-        // "maskable"-Eintrag mit demselben Bild: Es hat keine Sicherheitszone und würde auf Android beschnitten.
+        // Review WEB-39: gleiche Farbe wie <meta name="theme-color"> in index.html (vorher widersprachen sich beide).
         theme_color: "#178f5e",
         icons: [
           { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
           { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          // Das Bild füllt die ganze Fläche, der helle Kreis liegt mittig innerhalb der Sicherheitszone (80 %): als "maskable" geeignet.
+          // Wird ein echtes Logo gestaltet, muss es dieselbe Zone einhalten.
+          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
     }),

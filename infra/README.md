@@ -35,3 +35,7 @@ Payment: `PAYMENT_DATABASE_URL`, `KERN_SERVICE_TOKEN` (identisch zu `PAYMENT_SER
 ## CI
 
 `.github/workflows/ci.yml`: Lint, Typecheck, Inhaltsprüfung, Tests (mit Redis-Dienst), Build, Start-Test der gebauten Server (`/health`), Docker-Build beider Images, `pnpm audit --prod --audit-level=high`. `.github/dependabot.yml` schlägt wöchentlich Updates vor.
+
+## Header der Web-Auslieferung
+
+Die Content-Security-Policy steckt als Meta-Tag im Produktions-Build (`apps/web/vite.config.ts`). Folgende Header lassen sich nur beim Ausliefern setzen und gehören in die Konfiguration des Hosters oder Proxys (Review WEB-18): `frame-ancestors 'none'` (als Teil einer CSP), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Strict-Transport-Security`. Der Service Worker `/sw.js` sollte mit `Cache-Control: no-cache` ausgeliefert werden, damit Updates ankommen; alle Dateien unter `/assets/` mit Hash im Namen dürfen langfristig gecacht werden. Jede Seitenadresse außer `/api` muss auf `index.html` zeigen (Single-Page-App).

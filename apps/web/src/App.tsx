@@ -1,5 +1,6 @@
 import { calculateAge, requiresParentalConsent } from "@edukedo/shared";
 import { useQueryClient } from "@tanstack/react-query";
+import { getQueryKey } from "@trpc/react-query";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
@@ -26,6 +27,8 @@ import { Sozial } from "./Sozial";
 import { StreakReminderBanner } from "./StreakReminderBanner";
 import { Suche } from "./Suche";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { istNichtAngemeldet } from "./authFehler";
+import { readLastSession } from "./lastSession";
 import { clearOfflineData } from "./offlineDb";
 import { syncOfflineQueue } from "./offlineSync";
 import { trpc } from "./trpc";
@@ -78,6 +81,16 @@ export function App() {
   const queryClient = useQueryClient();
   const me = trpc.auth.me.useQuery(undefined, { retry: false });
   const courses = trpc.courses.list.useQuery(undefined, { enabled: !!me.data });
+  // Review WEB-03: Scheitert die Anmeldeabfrage am Netz (Kaltstart im Zug, Funkloch), kommt die Person mit dem zuletzt bekannten
+  // Stand in die App und an ihre heruntergeladenen Inhalte, statt auf der Startseite für Gäste zu landen. Bei "nicht angemeldet"
+  // passiert das bewusst nicht. Sobald das Netz zurück ist, lädt TanStack Query die Daten neu (refetchOnReconnect).
+  useEffect(() => {
+    if (!me.isError || istNichtAngemeldet(me.error)) return;
+    const letzte = readLastSession();
+    if (!letzte?.me) return;
+    queryClient.setQueryData(getQueryKey(trpc.auth.me, undefined, "query"), letzte.me);
+    if (letzte.courses) queryClient.setQueryData(getQueryKey(trpc.courses.list, undefined, "query"), letzte.courses);
+  }, [me.isError, me.error, queryClient]);
   const register = trpc.auth.register.useMutation({
     onSuccess: (result) => {
       // F-08: Bei einer unter 16-jährigen Person wurde bewusst keine Session angelegt
@@ -273,7 +286,7 @@ export function App() {
         <Header
           right={
             <div className="header-actions">
-              <OfflineStatus />
+              <OfflineStatus roundActive={roundActive} />
               {view === "app" && (
                 <CourseSwitcher
                   activeKursId={activeKursId}

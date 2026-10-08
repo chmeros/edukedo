@@ -1,4 +1,4 @@
-import { isQuadrantItem, isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type AdminContentItemForm, type QuadrantQuizType } from "@edukedo/shared";
+import { ADMIN_LIST_PAGE_SIZE, isQuadrantItem, isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type AdminContentItemForm, type QuadrantQuizType } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
@@ -1150,8 +1150,25 @@ export function AdminContentEditor({
   );
 
   const themaTree = trpc.adminContent.themaTree.useQuery({ kursId }, { enabled: !!kursId });
+  // Review WEB-22: Die Suche läuft serverseitig (verzögert) und die Liste seitenweise; vorher wurde nur innerhalb der ersten 200
+  // Einträge gefiltert, alle weiteren waren nicht erreichbar.
+  const [page, setPage] = useState(0);
+  const [searchDebounced, setSearchDebounced] = useState("");
+  useEffect(() => {
+    const timer = setTimeout(() => setSearchDebounced(search.trim()), 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+  useEffect(() => {
+    setPage(0);
+  }, [kursId, themaFilter, typeFilter, searchDebounced]);
   const list = trpc.adminContent.list.useQuery(
-    { kursId, themaId: themaFilter || undefined, type: (typeFilter || undefined) as AdminContentItemForm["type"] | undefined },
+    {
+      kursId,
+      themaId: themaFilter || undefined,
+      type: (typeFilter || undefined) as AdminContentItemForm["type"] | undefined,
+      search: searchDebounced || undefined,
+      offset: page * ADMIN_LIST_PAGE_SIZE,
+    },
     { enabled: !!kursId },
   );
   const editingItem = trpc.adminContent.get.useQuery(
@@ -1189,9 +1206,7 @@ export function AdminContentEditor({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focusContentItemId]);
 
-  const filteredList = (list.data ?? []).filter(
-    (item) => search.trim() === "" || item.prompt.toLowerCase().includes(search.trim().toLowerCase()),
-  );
+  const filteredList = list.data ?? [];
 
   function closeEditor() {
     setEditing(null);
@@ -1271,6 +1286,22 @@ export function AdminContentEditor({
         ))}
       </div>
       {list.data?.length === 0 && <p className="field-hint">Keine Content-Items in dieser Auswahl.</p>}
+      {(page > 0 || (list.data?.length ?? 0) >= ADMIN_LIST_PAGE_SIZE) && (
+        <div className="alert-actions">
+          <button type="button" className="btn btn-ghost btn-sm" disabled={page === 0} onClick={() => setPage((current) => current - 1)}>
+            Vorherige Seite
+          </button>
+          <span className="field-hint">Seite {page + 1}</span>
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            disabled={(list.data?.length ?? 0) < ADMIN_LIST_PAGE_SIZE}
+            onClick={() => setPage((current) => current + 1)}
+          >
+            Nächste Seite
+          </button>
+        </div>
+      )}
 
       <div className="field">
         <label htmlFor="ce-new-type">Neues Content-Item anlegen</label>

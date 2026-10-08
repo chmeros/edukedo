@@ -24,6 +24,7 @@ import {
 import { useMemo, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-209 (Verfügbarkeits- und RAID-Rechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für die
@@ -548,7 +549,12 @@ export function Verfuegbarkeitsrechner({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-vf-${modus}`} aria-labelledby={`tab-vf-${modus}`}>
-          {modus === "verfuegbarkeit" ? <Verfuegbarkeit /> : modus === "system" ? <System /> : modus === "raid" ? <Raid /> : <Ueben />}
+          
+          <ReiterInhalt aktiv={modus === "verfuegbarkeit"}><Verfuegbarkeit /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "system"}><System /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "raid"}><Raid /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

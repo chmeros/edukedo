@@ -16,6 +16,7 @@ import {
   lueckenPayloadSchema,
   theoriePayloadSchema,
   type AdminContentItemForm,
+  ADMIN_LIST_PAGE_SIZE,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, ilike, inArray } from "drizzle-orm";
@@ -253,7 +254,8 @@ export const adminContentRouter = router({
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
       .where(and(...conditions))
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder), asc(contentItem.createdAt))
-      .limit(200);
+      .limit(ADMIN_LIST_PAGE_SIZE)
+      .offset(input.offset ?? 0);
   }),
 
   /** Volles Detail eines Items für den Editor — payload/answer_option zurück in Formularform. */

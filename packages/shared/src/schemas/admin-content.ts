@@ -15,11 +15,16 @@ import { isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADR
 
 export const adminThemaTreeInputSchema = z.object({ kursId: z.string().uuid() });
 
+/** Einträge je Seite der Redaktionsliste. */
+export const ADMIN_LIST_PAGE_SIZE = 200;
+
 export const adminContentItemsInputSchema = z.object({
   kursId: z.string().uuid(),
   themaId: z.string().uuid().optional(),
   type: contentItemTypeSchema.optional(),
   search: z.string().max(200).optional(),
+  // Review WEB-22: Seitenweise Liste (200 je Seite); vorher waren Items jenseits der ersten 200 nicht erreichbar.
+  offset: z.number().int().min(0).max(1_000_000).optional(),
 });
 
 export const adminContentItemInputSchema = z.object({ contentItemId: z.string().uuid() });

@@ -10,6 +10,7 @@ import {
 } from "@edukedo/shared";
 import { useMemo, useRef, useState } from "react";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-197 (Finanzmathe-Kern, siehe Architekturplanung Abschnitt 13): Finanzrechner im Werkzeugkasten für die
@@ -330,11 +331,11 @@ export function Finanzrechner({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-fin-${modus}`} aria-labelledby={`tab-fin-${modus}`}>
-          {modus === "zinseszins" && <Zinseszins />}
-          {modus === "sparplan" && <Sparplan />}
-          {modus === "kapitalwert" && <Kapitalwert />}
-          {modus === "annuitaet" && <Annuitaet />}
-          {modus === "skonto" && <Skonto />}
+          <ReiterInhalt aktiv={modus === "zinseszins"}><Zinseszins /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "sparplan"}><Sparplan /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "kapitalwert"}><Kapitalwert /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "annuitaet"}><Annuitaet /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "skonto"}><Skonto /></ReiterInhalt>
         </div>
       </div>
     </div>

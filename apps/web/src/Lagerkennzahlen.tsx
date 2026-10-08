@@ -18,6 +18,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-201 (Lagerkennzahlen-Rechner, siehe Architekturplanung Abschnitt 13): Übung und Rechner zu den Kennzahlen der
@@ -357,7 +358,12 @@ export function Lagerkennzahlen({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-lager-${modus}`} aria-labelledby={`tab-lager-${modus}`}>
-          {modus === "rechner" ? <Rechner /> : <Training key={modus} art={modus} />}
+          
+          <ReiterInhalt aktiv={modus === "rechner"}><Rechner /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "umschlag"}><Training art="umschlag" /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "meldebestand"}><Training art="meldebestand" /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ziel"}><Training art="ziel" /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

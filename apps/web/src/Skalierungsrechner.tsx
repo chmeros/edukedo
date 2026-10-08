@@ -24,6 +24,7 @@ import {
 import { useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { ReiterInhalt } from "./ReiterInhalt";
 
 /**
  * F-207 (Skalierungs- und Modbus-Register-Rechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den
@@ -497,7 +498,11 @@ export function Skalierungsrechner({ onClose }: { onClose: () => void }) {
           ))}
         </div>
         <div role="tabpanel" id={`panel-sk-${modus}`} aria-labelledby={`tab-sk-${modus}`}>
-          {modus === "analog" ? <Analog /> : modus === "register" ? <Register /> : <Ueben />}
+          
+          <ReiterInhalt aktiv={modus === "analog"}><Analog /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "register"}><Register /></ReiterInhalt>
+          <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
+        
         </div>
       </div>
     </div>

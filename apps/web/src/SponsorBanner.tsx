@@ -18,7 +18,7 @@ export function SponsorBanner({ kursId }: { kursId?: string }) {
     <>
       {sponsors.data.map((entry) => (
         <div key={entry.id} className="alert alert-info">
-          {entry.logoUrl && <img src={entry.logoUrl} alt="" style={{ height: 32, width: "auto" }} />}
+          {entry.logoUrl && <img src={entry.logoUrl} alt="" referrerPolicy="no-referrer" loading="lazy" style={{ height: 32, width: "auto" }} />}
           <div>{entry.attributionText}</div>
         </div>
       ))}

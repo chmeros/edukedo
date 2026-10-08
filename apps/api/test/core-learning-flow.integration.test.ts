@@ -799,6 +799,15 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       });
       const list = listResponse.json().result.data as { id: string; isActive: boolean }[];
       expect(list.find((row) => row.id === contentItemId)?.isActive).toBe(false);
+
+      // Review WEB-22: Die Liste ist seitenweise; eine Seite jenseits der Treffer ist leer.
+      const secondPage = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/adminContent.list?input=${encodeURIComponent(JSON.stringify({ kursId, search: "F-11-Testfrage", offset: 200 }))}`,
+        headers: { cookie: adminCookie },
+      });
+      expect(secondPage.statusCode).toBe(200);
+      expect(secondPage.json().result.data).toEqual([]);
     },
     30_000,
   );

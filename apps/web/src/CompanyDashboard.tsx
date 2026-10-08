@@ -274,7 +274,7 @@ function BrandingSection({
       </div>
       {(logoUrl || color || headline) && (
         <div className="alert alert-info" style={color ? { borderColor: color, borderWidth: 2 } : undefined}>
-          {logoUrl && <img src={logoUrl} alt="" style={{ height: 32, width: "auto" }} />}
+          {logoUrl && <img src={logoUrl} alt="" referrerPolicy="no-referrer" loading="lazy" style={{ height: 32, width: "auto" }} />}
           <div>{headline || "Vorschau des Begrüßungstexts"}</div>
         </div>
       )}

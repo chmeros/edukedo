@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ContentActions } from "./ContentActions";
 import { useCalmMode } from "./displayPrefs";
 import { ErrorMessage } from "./ErrorMessage";
+import { clearExamDraft, readExamDraft, writeExamDraft, type ExamStepDraft } from "./examDraft";
 import { FachbegriffText } from "./Fachbegriffe";
 import { DangerIcon, HamsterWheelIcon, InfoIcon, SuccessIcon } from "./Icons";
 import { Tile } from "./Tile";
@@ -157,6 +158,8 @@ function ExamFallaufgabeStep({
   onSubmit,
   isSubmitting,
   error,
+  initialDraft,
+  onDraftChange,
 }: {
   item: ExamItem;
   position: number;
@@ -164,6 +167,9 @@ function ExamFallaufgabeStep({
   onSubmit: (parts: { answerText: string; selfAssessedPoints: number }[]) => void;
   isSubmitting: boolean;
   error: string | null;
+  /** Review WEB-10: gesicherter Stand dieser Aufgabe (nach Neuladen oder Tabwechsel). */
+  initialDraft?: ExamStepDraft;
+  onDraftChange: (draft: ExamStepDraft) => void;
 }) {
   // F-133 (Nutzer-Vorgabe 26.09.2026, siehe Architekturplanung Abschnitt 13): "abgeben" und
   // "Musterlösungshinweise anzeigen" waren bisher ein einziger Zustand (`revealed`) hinter einem
@@ -173,10 +179,15 @@ function ExamFallaufgabeStep({
   // in einer Prüfungssimulation nicht gewünscht. Jetzt getrennt: `submitted` schaltet
   // Selbsteinschätzung + Weiter/Abschließen frei (klar als "Antworten abgeben" beschriftet),
   // `hintsShown` zeigt unabhängig davon optional die Musterlösungshinweise.
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(initialDraft?.submitted ?? false);
   const [hintsShown, setHintsShown] = useState(false);
-  const [answers, setAnswers] = useState(() => item.parts.map(() => ""));
-  const [points, setPoints] = useState(() => item.parts.map(() => 0));
+  const [answers, setAnswers] = useState(() => (initialDraft?.answers.length === item.parts.length ? initialDraft.answers : item.parts.map(() => "")));
+  const [points, setPoints] = useState(() => (initialDraft?.points.length === item.parts.length ? initialDraft.points : item.parts.map(() => 0)));
+  useEffect(() => {
+    onDraftChange({ answers, points, submitted });
+    // `onDraftChange` ist im Elternteil stabil; der Entwurf soll nur bei Änderungen der Eingaben gesichert werden.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answers, points, submitted]);
 
   const totalPoints = points.reduce((sum, value) => sum + value, 0);
   const maxPoints = item.parts.reduce((sum, part) => sum + part.points, 0);
@@ -309,8 +320,32 @@ export function Exam({ kursId }: { kursId: string }) {
   const [now, setNow] = useState(() => Date.now());
   const [result, setResult] = useState<{ achievedPoints: number; maxPoints: number; score: number } | null>(null);
 
+  // Review WEB-10: gesicherter Stand einer unterbrochenen Sitzung ("Prüfung fortsetzen") und laufende Sicherung.
+  const [saved, setSaved] = useState(() => readExamDraft(kursId));
+  const stepsRef = useRef<Record<string, ExamStepDraft>>({});
+  const laufRef = useRef<{ sessionId: string | null; items: ExamItem[]; index: number; deadline: number | null }>({
+    sessionId: null,
+    items: [],
+    index: 0,
+    deadline: null,
+  });
+  const sichern = useCallback(() => {
+    const lauf = laufRef.current;
+    if (!lauf.sessionId || lauf.items.length === 0) return;
+    writeExamDraft({ kursId, sessionId: lauf.sessionId, items: lauf.items, index: lauf.index, deadline: lauf.deadline, steps: stepsRef.current });
+  }, [kursId]);
+  const onStepDraft = useCallback(
+    (itemId: string, draft: ExamStepDraft) => {
+      stepsRef.current[itemId] = draft;
+      sichern();
+    },
+    [sichern],
+  );
+
   const startExam = trpc.exam.start.useMutation({
     onSuccess: (data) => {
+      stepsRef.current = {};
+      setSaved(null);
       setSessionId(data.sessionId);
       setItems(data.items);
       setIndex(0);
@@ -332,7 +367,10 @@ export function Exam({ kursId }: { kursId: string }) {
     },
   });
   const finishExam = trpc.exam.finish.useMutation({
-    onSuccess: (data) => setResult(data),
+    onSuccess: (data) => {
+      clearExamDraft();
+      setResult(data);
+    },
   });
 
   useEffect(() => {
@@ -344,6 +382,10 @@ export function Exam({ kursId }: { kursId: string }) {
   // Review WEB-10: Während einer laufenden Sitzung warnt der Browser vor dem Neuladen oder Schließen der Seite (Antworten und
   // Frist liegen nur im Arbeitsspeicher dieser Seite).
   const sitzungLaeuft = sessionId !== null && items.length > 0 && result === null;
+  laufRef.current = { sessionId, items, index, deadline };
+  useEffect(() => {
+    if (sitzungLaeuft) sichern();
+  }, [sitzungLaeuft, sessionId, items, index, deadline, sichern]);
   useEffect(() => {
     if (!sitzungLaeuft) return;
     const warnen = (event: BeforeUnloadEvent) => {
@@ -355,6 +397,8 @@ export function Exam({ kursId }: { kursId: string }) {
   }, [sitzungLaeuft]);
 
   function reset() {
+    clearExamDraft();
+    stepsRef.current = {};
     setSessionId(null);
     setItems([]);
     setIndex(0);
@@ -470,6 +514,8 @@ export function Exam({ kursId }: { kursId: string }) {
           total={items.length}
           onSubmit={handleItemSubmit}
           isSubmitting={submitAnswer.isPending || finishExam.isPending}
+          initialDraft={stepsRef.current[items[index]!.id]}
+          onDraftChange={(draft) => onStepDraft(items[index]!.id, draft)}
           // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): weder
           // submitAnswer noch finishExam zeigten bisher eine Fehlermeldung — der Button wurde
           // nach einem Fehlschlag (Netzwerkfehler, abgelaufene Session) stillschweigend wieder
@@ -482,8 +528,44 @@ export function Exam({ kursId }: { kursId: string }) {
     );
   }
 
+  function resume(draft: NonNullable<typeof saved>) {
+    stepsRef.current = draft.steps ?? {};
+    setSessionId(draft.sessionId);
+    setItems(draft.items as ExamItem[]);
+    setIndex(Math.min(draft.index, draft.items.length - 1));
+    setDeadline(draft.deadline);
+    setResult(null);
+    setSaved(null);
+  }
+
   return (
     <div className="stack">
+      {saved && (
+        <div className="alert alert-info">
+          <InfoIcon />
+          <div className="stack">
+            <div>
+              <b>Unterbrochene Prüfung:</b> Du hast eine Prüfungssimulation mit {saved.items.length} Fallaufgaben begonnen (bei Aufgabe{" "}
+              {Math.min(saved.index + 1, saved.items.length)}). Deine noch nicht abgegebenen Antworten sind auf diesem Gerät gesichert.
+            </div>
+            <div className="alert-actions">
+              <button type="button" className="btn btn-primary btn-sm" onClick={() => resume(saved)}>
+                Prüfung fortsetzen
+              </button>
+              <button
+                type="button"
+                className="btn btn-ghost btn-sm"
+                onClick={() => {
+                  clearExamDraft();
+                  setSaved(null);
+                }}
+              >
+                Verwerfen
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {areaList.length > 0 ? (
         <>
           <p>
