@@ -189,12 +189,12 @@ export const kennzahlenDuellKostenLeistungen: KennzahlenDuellPayload = {
     {
       nummer: 13,
       runde: 3,
-      frage: "Welche Größe steht am Ende der Zuschlagskalkulation fest, nachdem zu den Einzelkosten eines Auftrags die anteiligen Gemeinkosten hinzugerechnet wurden?",
+      frage: "Welche Größe steht am Ende der Zuschlagskalkulation fest, nachdem zu den Einzelkosten eines Auftrags die anteiligen Material-, Fertigungs-, Verwaltungs- und Vertriebsgemeinkosten hinzugerechnet wurden?",
       antwortA: "Die Selbstkosten des Auftrags",
       antwortB: "Der Deckungsbeitrag des Auftrags",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Material- und Fertigungseinzelkosten plus anteilige Gemeinkosten über die Zuschlagssätze aus dem BAB ergeben die Selbstkosten des Auftrags (siehe Thema 2.2).",
+        "Richtig! Material- und Fertigungseinzelkosten plus die anteiligen Material-, Fertigungs-, Verwaltungs- und Vertriebsgemeinkosten über die Zuschlagssätze ergeben die Selbstkosten des Auftrags (siehe Thema 2.2).",
       feedbackFalsch:
         "Nicht ganz. Der Deckungsbeitrag gehört zur Teilkostenrechnung und entsteht aus dem Erlös abzüglich der variablen Kosten. Die Zuschlagskalkulation mündet in den Selbstkosten (siehe Thema 2.2).",
     },

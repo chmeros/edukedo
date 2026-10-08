@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Industriefachwirt)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei zehn Items ändert sich die Lösung durch gestrichene oder ergänzte Zeilen bzw. Antwortvarianten (Q-1.1-03, Q-2.2-04, Q-4.3-15, Q-6.2-10, Q-6.3-06, Q-7.2-03, Q-7.3-04, Q-8.1-13, Q-9.1-03, Q-9.2-01); der Fortschritt bleibt erhalten.
+
+- **Umgesetzt:** FL-IF-04 und FL-IF-41 ("Selbstkosten" einheitlich als Herstellkosten plus Verwaltungs- und Vertriebsgemeinkosten, ohne Gewinn: Theorie, K-2.2-10, Q-2.2-04 mit vier unterscheidbaren Schritten, Q-2.2-19 Angebotspreis eindeutig, Duell-Frage 13), FL-IF-06 (Q-1.4-10: Zeile mit zwei möglichen Töchtern eindeutig gemacht), FL-IF-07 (Q-8.1-13 nur noch implizit/explizit, weil die Theorie die Unterbegriffe nicht trennt), FL-IF-18 (Einzelunternehmen als Nicht-Gesellschaft gekennzeichnet), FL-IF-23 (Q-6.4-15: zwei überlappende Beschaffungsmerkmale geschärft), FL-IF-26 (Q-4.3-15: Beispiel statt eigener Planungsstufe), FL-IF-39, 40, 42 (nur Fragenzahl), 43 (Begriff Vorstand), 45, 46, 47, 48, 49.
+- **Nicht geändert:** FL-IF-16 (interne Zinsfußmethode und Annuität im Finanzrechner: neue Inhalte, R3 und R5), FL-IF-11 bis 15, 17, 19, 38 (fehlende Themen, Rechenaufgaben, Großfälle: R3), FL-IF-33, 34, 50, 51 (systemisch, Umbau vieler Items), FL-IF-25, 27, 32, 36 (mehrdeutig oder größerer Umbau), sowie alle Befunde mit Normbezug oder Rechtsaussage (R4): z. B. FL-IF-01, 02, 03, 05, 08, 09, 10, 20 bis 22, 24, 28 bis 31, 35, 37, 44. Auch bei Q-4.1-11 (Applikationstechnik) wurde nichts geändert, weil jede Umhängung den Bezug zur Theorie verschieben würde. Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Gesundheit/Soziales)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei vier Sortieraufgaben ändert sich die Lösung durch ergänzte oder gestrichene Schritte (Q-1.4-12, Q-2.2-02, Q-3.2-02, Q-5.2-06); der Fortschritt bleibt erhalten.
