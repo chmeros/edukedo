@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Ausbildung der Ausbilder)
+
+Nutzer-Freigabe vom 08.10.2026. Der Kurs besteht fast vollständig aus Berufsbildungsrecht (BBiG, BetrVG, JArbSchG, AEVO); deshalb sind nur wenige, nicht rechtsnahe Befunde umgesetzt. Validiert (0 Verstöße), importiert (6 Items geändert, bei Q-1.2-10 ändert sich die Lösung durch den zusammengefassten Schritt; Trockenlauf danach ohne Änderung), Unit-Tests grün.
+
+- **Umgesetzt:** FL-AEVO-19 (Q-1.2-03: Kategorienfehler "Duales Studium" ersetzt, Q-1.2-10: austauschbare Schritte zusammengefasst), FL-AEVO-22 (Rahmenlehrplan der Kultusministerkonferenz, die Länder setzen ihn in Lehrpläne um), FL-AEVO-24 und 25 (Zonenfragen zu Beurteilungsfehlern und Vier-Stufen-Methode: widersprüchliche oder mehrdeutige Zeilen ersetzt, Erklärungen angepasst), FL-AEVO-40 (README: AEVO ausgefertigt am 21.01.2009, in Kraft seit 01.08.2009 laut Bericht).
+- **Nicht geändert:** Alle Befunde mit Normbezug (R4): FL-AEVO-01 bis 06, 08 bis 18, 20, 21, 23, 26, 30 bis 32, 38 bis 42 (Zeugnis, Textform § 11, Verlängerung/Verkürzung, Betriebsrat, Probezeit, Eignung, Jugendarbeitsschutz, Zulassungsvoraussetzungen u. a.). FL-AEVO-07 (Prozess-Reihenfolge-Set mit Tuckman und PDCA, die der Kurs nicht lehrt: neue Abläufe wären neue Inhalte, R3, R5). Systemisch oder Umbau vieler Items: FL-AEVO-27, 28, 29, 33 bis 37. Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Versicherungen/Finanzanlagen)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen. Dieser Kurs ist überwiegend rechtsnah (VVG, VAG, SGB, BetrAVG), deshalb blieb die Zahl der Änderungen klein: nur Befunde ohne Normbezug und ein Blocker, der einen logischen Widerspruch in der Aufgabe selbst betrifft. Validiert (0 Verstöße), importiert (12 Items geändert, keine Lösung geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün.
