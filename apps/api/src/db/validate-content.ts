@@ -1,12 +1,11 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { contentDir } from "./content-dir";
 import { validateContentDir } from "./content-keys";
 
 /**
  * `pnpm db:validate-content`: prüft die Markdown-Dateien in content/ auf Pflichtfelder, eindeutige Themen und eindeutige
  * Item-Schlüssel, ohne Datenbankzugriff (Entwurf docs/entwuerfe/sicherer-content-import.md). Exit-Code 1 bei Verstößen.
  */
-const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
+const CONTENT_DIR = contentDir();
 
 validateContentDir(CONTENT_DIR)
   .then((report) => {

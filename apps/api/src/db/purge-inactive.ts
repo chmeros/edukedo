@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { isCliEntry } from "./cli-entry";
+import { contentDir } from "./content-dir";
 import { and, eq, inArray, isNull, notInArray, or, sql } from "drizzle-orm";
 import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 import { buildDesiredItems } from "./content-desired";
@@ -92,11 +92,10 @@ export async function runPurge(db: Db, contentDir: string, apply: boolean): Prom
   return summary;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry("purge-inactive")) {
   const apply = process.argv.includes("--apply");
-  const contentDir = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
   const { db, pool } = await import("./client");
-  runPurge(db, contentDir, apply)
+  runPurge(db, contentDir(), apply)
     .then(async (summary) => {
       console.log(`${apply ? "Gelöscht" : "Trockenlauf (nichts gelöscht)"}: ${summary.themen} Themen geprüft, ${summary.candidates.length} Kandidaten, ${summary.deleted} gelöscht.`);
       for (const candidate of summary.candidates.slice(0, 40)) console.log(`  ${candidate.thema} ${candidate.key ?? "(ohne Schlüssel)"} (${candidate.type}): ${candidate.prompt}`);

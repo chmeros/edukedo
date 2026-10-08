@@ -1,6 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { isCliEntry } from "./cli-entry";
+import { contentDir } from "./content-dir";
 import { and, asc, eq, inArray } from "drizzle-orm";
 import { buildDesiredItems } from "./content-desired";
 import { validateContentDir } from "./content-keys";
@@ -110,7 +111,7 @@ export interface BackfillSummary {
   written: number;
 }
 
-const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
+const CONTENT_DIR = contentDir();
 
 async function listThemaFiles(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -282,7 +283,7 @@ function printSummary(summary: BackfillSummary, apply: boolean, verbose: boolean
   show("Themen ohne Datei", summary.themenOhneDatei, (row) => row);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry("backfill-source-keys")) {
   const args = process.argv.slice(2);
   const kursFilter = args.find((arg) => arg.startsWith("--kurs="))?.slice("--kurs=".length);
   const apply = args.includes("--apply");

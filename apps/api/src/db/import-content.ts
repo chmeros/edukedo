@@ -1,6 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { isCliEntry } from "./cli-entry";
+import { contentDir } from "./content-dir";
 import { and, eq } from "drizzle-orm";
 import { KURS_ANGEBOT } from "@edukedo/shared";
 import { db, pool } from "./client";
@@ -23,7 +24,7 @@ import { fachgebiet, glossarEintrag, kurs, thema } from "./schema";
  * 16.09.2026 importiert (siehe unten und Architekturplanung Abschnitt 13) — beide lagen vorher
  * bewusst ungenutzt, solange die zugehörigen Features im Code noch nicht existierten.
  */
-const CONTENT_DIR = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../../../content");
+const CONTENT_DIR = contentDir();
 
 interface KursMeta {
   title: string;
@@ -592,7 +593,7 @@ BLOCKIERT (${summary.blocked.length} Themen unverändert, mit --allow-removals b
  * den Import allein sofort einen vollen Content-Import auslösen und danach den gemeinsamen
  * DB-Pool des Servers schließen. Exit-Code 1 bei Fehlern oder blockierten Themen.
  */
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry("import-content")) {
   const args = process.argv.slice(2);
   importAllContent({ dryRun: args.includes("--dry-run"), allowRemovals: args.includes("--allow-removals") })
     .then(async (summary) => {
