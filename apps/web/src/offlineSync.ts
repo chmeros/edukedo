@@ -1,5 +1,5 @@
 import { OFFLINE_SYNC_BATCH_LIMIT } from "@edukedo/shared";
-import { offlineDb } from "./offlineDb";
+import { claimOfflineData, offlineDb } from "./offlineDb";
 import { trpc } from "./trpc";
 
 /**
@@ -23,6 +23,11 @@ import { trpc } from "./trpc";
  * fehlschlagender Block bricht erst hier ab (die vorherigen Blöcke bleiben synchronisiert).
  */
 export async function syncOfflineQueue(utils: ReturnType<typeof trpc.useUtils>): Promise<number> {
+  // Vor dem Senden klären, wem die lokale Warteschlange gehört: Gehört sie einer anderen Person als der
+  // angemeldeten (geteiltes Gerät, abgelaufene Sitzung), wird sie gelöscht statt der falschen Person gutgeschrieben.
+  const me = await utils.client.auth.me.query();
+  await claimOfflineData(me.id);
+
   const pending = await offlineDb.queue.toArray();
   if (pending.length === 0) {
     return 0;

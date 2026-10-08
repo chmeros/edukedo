@@ -567,6 +567,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 4: Offline-Daten gehören zu einer Person)
+
+- **Anlass:** Review-Befund WEB-04: Die IndexedDB (`edukedo-offline`: Inhalte mit Lösung, Warteschlange noch nicht synchronisierter Antworten) war nicht an die angemeldete Person gebunden und wurde beim Logout nicht geleert. Auf einem geteilten Gerät hätte die nächste Person die Antworten der vorherigen gutgeschrieben bekommen (der Sync sendet die Warteschlange mit der Sitzung der aktuell angemeldeten Person) und deren heruntergeladene Lösungen vorgefunden.
+- **Entscheidung:** (1) Beim Logout wird zuerst die Warteschlange noch einmal übertragen (`syncOfflineQueue`, Fehler werden ignoriert), nach erfolgreichem Logout werden Inhalte und Warteschlange gelöscht (`clearOfflineData`). (2) Zusätzlich merkt sich `claimOfflineData(userId)` in `localStorage` (`edukedo-offline-owner`), wem die lokalen Daten gehören; `syncOfflineQueue` ruft vor dem Senden `auth.me` ab und löscht die Daten, wenn sie einer anderen Person gehören (abgelaufene Sitzung, Login einer anderen Person ohne Logout). Der Sync läuft bei jedem Wechsel zu `online`, auch beim Start, und kommt damit vor jeder Nutzung der lokalen Daten.
+- **Bewusste Abwägung:** Noch nicht übertragene Antworten gehen verloren, wenn der Sync vor dem Logout scheitert; die Zuordnung zur richtigen Person hat Vorrang vor dem Erhalt. Bei blockiertem `localStorage` (privates Fenster) ist keine Zuordnung möglich, dort gilt das Verhalten wie bisher plus Löschen beim Logout. Altbestände ohne Besitzer werden der ersten anmeldenden Person zugeordnet.
+- **Nicht gelöst:** Der Kaltstart ohne Netz landet weiterhin auf der Landing Page (WEB-03), weil `auth.me` und `courses.list` offline fehlschlagen.
+- **Verifikation:** Live im Browser (Wegwerf-Konto, danach gelöscht): Logout leerte Inhalte und Warteschlange und entfernte den Besitzer-Marker; ein Login mit fremdem Besitzer-Marker und vorhandenen Daten löschte diese beim ersten Sync und setzte den Marker auf die neue Person. Keine automatischen Web-Tests vorhanden.
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 3: Mischmodus-Queue bleibt innerhalb einer Runde stabil)
 
 - **Anlass:** Review-Befund WEB-05, in drei Usability-Tests bestätigt: Im Mischmodus („Beides gemischt“) wiederholten sich Fragen, der Zähler „x von y“ schrumpfte (z. B. 39 auf 37), und mit Themenfilter erschien eine Frage aus einem anderen Thema.

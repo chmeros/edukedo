@@ -29,6 +29,8 @@ import { Sozial } from "./Sozial";
 import { StreakReminderBanner } from "./StreakReminderBanner";
 import { Suche } from "./Suche";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
+import { clearOfflineData } from "./offlineDb";
+import { syncOfflineQueue } from "./offlineSync";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
@@ -90,7 +92,19 @@ export function App() {
   // anschließend eine ANDERE Person ein (geteiltes Gerät, z. B. Familien-PC), sähe sie beim
   // ersten Render bis zum jeweiligen Refetch die zwischengespeicherten Daten der vorherigen
   // Person — `queryClient.clear()` leert deshalb den GESAMTEN, app-weiten Cache (main.tsx).
-  const logout = trpc.auth.logout.useMutation({ onSuccess: () => queryClient.clear() });
+  // Review-Befund WEB-04: Zusätzlich werden die lokalen Offline-Daten gelöscht (siehe offlineDb.clearOfflineData).
+  const logout = trpc.auth.logout.useMutation({
+    onSuccess: () => {
+      queryClient.clear();
+      void clearOfflineData();
+    },
+  });
+  // Vor dem Logout noch ausstehende Offline-Antworten übertragen, sie würden sonst mit gelöscht.
+  const logoutAfterSync = () => {
+    syncOfflineQueue(utils)
+      .catch(() => undefined)
+      .finally(() => logout.mutate());
+  };
 
   const [mode, setMode] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");
@@ -244,7 +258,7 @@ export function App() {
                 email={me.data.email}
                 role={me.data.role}
                 isMinor={me.data.isMinor}
-                onLogout={() => logout.mutate()}
+                onLogout={logoutAfterSync}
                 logoutPending={logout.isPending}
                 isAdmin={isAdmin}
                 view={view}

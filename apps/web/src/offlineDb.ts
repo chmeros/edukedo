@@ -85,3 +85,30 @@ class OfflineDatabase extends Dexie {
 }
 
 export const offlineDb = new OfflineDatabase();
+
+const OFFLINE_OWNER_KEY = "edukedo-offline-owner";
+
+/**
+ * Review-Befund WEB-04: Die lokalen Daten (Inhalte mit Lösung, noch nicht synchronisierte Antworten) gehören zu
+ * genau einer Person. Beim Logout und beim Wechsel der angemeldeten Person werden sie gelöscht, sonst würden
+ * Offline-Antworten von Nutzer A auf einem geteilten Gerät dem nächsten Nutzer B gutgeschrieben.
+ */
+export async function clearOfflineData(): Promise<void> {
+  await Promise.all([offlineDb.content.clear(), offlineDb.queue.clear()]);
+  try {
+    localStorage.removeItem(OFFLINE_OWNER_KEY);
+  } catch {
+    // Speicher blockiert: nichts zu tun.
+  }
+}
+
+/** Merkt sich, wem die lokalen Daten gehören; bei einer anderen Person werden sie vor jeder weiteren Nutzung gelöscht. */
+export async function claimOfflineData(userId: string): Promise<void> {
+  try {
+    const owner = localStorage.getItem(OFFLINE_OWNER_KEY);
+    if (owner && owner !== userId) await clearOfflineData();
+    localStorage.setItem(OFFLINE_OWNER_KEY, userId);
+  } catch {
+    // Speicher blockiert (z. B. privates Fenster): Zuordnung nicht möglich, Verhalten wie bisher.
+  }
+}
