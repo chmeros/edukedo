@@ -203,6 +203,13 @@ describe("planSync", () => {
     expect(update.solutionChanged).toBe(false);
   });
 
+  it("warnt, wenn sich der Typ eines Items ändert, und aktualisiert es trotzdem", () => {
+    const old = desired("X-1", { type: "quiz_mc", options: [option(1, "A", true)] });
+    const plan = planSync([desired("X-1", { type: "wahr_falsch", options: [option(1, "Wahr", true)] })], [existing(old)]);
+    expect(plan.update).toHaveLength(1);
+    expect(plan.warnings).toEqual(['X-1: Typ ändert sich von "quiz_mc" zu "wahr_falsch"; der Fortschritt bleibt am Item erhalten.']);
+  });
+
   it("gleicht Tags ab (hinzufügen und entfernen, alphabetisch)", () => {
     const oldItem = desired("K-1", { tags: ["a", "b"] });
     const newItem = desired("K-1", { tags: ["b", "d", "c"] });

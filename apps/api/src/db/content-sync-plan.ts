@@ -237,6 +237,9 @@ export function planSync(desiredItems: DesiredItem[], existingItems: ExistingIte
       plan.create.push({ desired, contentHash });
       continue;
     }
+    if (current.type !== desired.type) {
+      plan.warnings.push(`${desired.key}: Typ ändert sich von "${current.type}" zu "${desired.type}"; der Fortschritt bleibt am Item erhalten.`);
+    }
     if (current.contentHash === contentHash) {
       plan.unchanged += 1;
     } else {
