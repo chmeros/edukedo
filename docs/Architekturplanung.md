@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Digitale Vernetzung)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (3 Items geändert, keine Lösung geändert, Trockenlauf danach ohne Änderung), Unit-Tests grün.
+
+- **Umgesetzt:** FL-DV-01 (bereits mit Paket 1), FL-DV-03 (11.1 Theorie und Q-11.1-15-Erklärung: Modbus wird ausschließlich abgefragt, OPC UA kann abgefragt werden oder Änderungen per Subscription melden, MQTT veröffentlicht immer von sich aus), FL-DV-04 (zwei Zuordnungszeilen, die zu zwei Protokollen passten: Q-11.1-15 "Zertifikate, Signatur und Verschlüsselung gehören zum Standard selbst" und Q-11.1-16 "über einen zwischengeschalteten Broker, den die Empfänger abonnieren").
+- **Nicht geändert:** FL-DV-02 (Mischen der Optionsreihenfolge ist bereits umgesetzt; Distraktoren-Längen und Wahr/Falsch-Verteilung sind ein Umbau vieler Fragen). Alle übrigen Befunde dieses Kurses sind Mittel/Niedrig, rechtsnah (R4: FL-DV-11, 14, 15, 16, 26), Lücken und neue Inhalte (R3: z. B. FL-DV-08, 09, 11, 12, 17) oder größerer Umbau; Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Anwendungsentwicklung)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (Trockenlauf danach ohne Änderung, 16 Items geändert, bei Q-11.2-14 wurde die Lösung um Schreibvarianten erweitert), Unit-Tests grün.
