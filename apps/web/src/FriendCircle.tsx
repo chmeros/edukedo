@@ -5,6 +5,7 @@ import { Modal } from "./Modal";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 import { ConfirmButton } from "./ConfirmButton";
+import { CopyButton } from "./CopyButton";
 
 /**
  * F-68: Melden/Blockieren einer Freundschaft — aktuell die einzige Fläche, auf der eine Person
@@ -188,7 +189,11 @@ export function FriendCircle({ kursId }: { kursId: string }) {
             <Tile
               key={entry.id}
               size="sm"
-              title={<code>{entry.code}</code>}
+              title={
+                <>
+                  <code>{entry.code}</code> <CopyButton text={entry.code} />
+                </>
+              }
               description={`Gültig bis ${new Date(entry.expiresAt).toLocaleDateString("de-DE")}`}
               actions={
                 <ConfirmButton

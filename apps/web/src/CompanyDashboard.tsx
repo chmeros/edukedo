@@ -5,6 +5,7 @@ import { ForgotPassword } from "./ForgotPassword";
 import { Header } from "./Header";
 import { trpc } from "./trpc";
 import { ConfirmButton } from "./ConfirmButton";
+import { CopyButton } from "./CopyButton";
 
 const BILLING_STATUS_LABELS: Record<string, string> = {
   pending: "Ausstehend",
@@ -76,6 +77,8 @@ function SetInitialPasswordForm() {
  */
 function InviteCodesSection() {
   const utils = trpc.useUtils();
+  // Review UXL-11: Der Server kennt ein Ablaufdatum für Codes; hier lässt es sich setzen (leer = ohne Ablauf).
+  const [expiresOn, setExpiresOn] = useState("");
   const codes = trpc.company.inviteCodes.useQuery();
   const create = trpc.company.createInviteCode.useMutation({
     onSuccess: () => utils.company.inviteCodes.invalidate(),
@@ -96,7 +99,7 @@ function InviteCodesSection() {
           <div key={code.id} className="stack">
             <div className="list-row">
               <div className="meta">
-                <code>{code.code}</code>
+                <code>{code.code}</code> <CopyButton text={code.code} />
                 <span>
                   {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
                 </span>
@@ -119,11 +122,24 @@ function InviteCodesSection() {
         type="button"
         className="btn btn-ghost btn-sm"
         style={{ alignSelf: "flex-start" }}
-        onClick={() => create.mutate({})}
+        onClick={() => create.mutate(expiresOn ? { expiresAt: new Date(`${expiresOn}T23:59:59`) } : {}, { onSuccess: () => setExpiresOn("") })}
         disabled={create.isPending}
       >
         Neuen Einladungscode erstellen
       </button>
+      <div className="field">
+        <label htmlFor="cd-code-expires">Gültig bis (optional)</label>
+        <input
+          className="input"
+          id="cd-code-expires"
+          type="date"
+          style={{ maxWidth: "12rem" }}
+          min={new Date().toISOString().slice(0, 10)}
+          value={expiresOn}
+          onChange={(event) => setExpiresOn(event.target.value)}
+        />
+        <span className="field-hint">Ohne Datum läuft der Code nicht ab; das Platz-Kontingent bleibt die Grenze.</span>
+      </div>
       {create.error && <ErrorMessage>{create.error.message}</ErrorMessage>}
     </div>
   );
@@ -215,7 +231,7 @@ function BrandingSection({
         <p>Wird als Banner in der App der Lernenden angezeigt, die deinem Unternehmen zugeordnet sind.</p>
       </div>
       <div className="field">
-        <label htmlFor="cd-branding-logo">Logo-URL</label>
+        <label htmlFor="cd-branding-logo">Logo-Adresse (https)</label>
         <input
           className="input"
           id="cd-branding-logo"
@@ -226,14 +242,24 @@ function BrandingSection({
         />
       </div>
       <div className="field">
-        <label htmlFor="cd-branding-color">Farbe</label>
-        <input
-          className="input"
-          id="cd-branding-color"
-          type="color"
-          value={/^#[0-9a-fA-F]{6}$/.test(color) ? color : "#1c1c1c"}
-          onChange={(event) => setColor(event.target.value)}
-        />
+        <label htmlFor="cd-branding-color">Rahmenfarbe des Banners (optional)</label>
+        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+          <input
+            id="cd-branding-color"
+            type="color"
+            style={{ width: 56, height: 36 }}
+            value={/^#[0-9a-fA-F]{6}$/.test(color) ? color : "#1c1c1c"}
+            onChange={(event) => setColor(event.target.value)}
+          />
+          {color ? (
+            <button type="button" className="btn btn-ghost btn-sm" onClick={() => setColor("")}>
+              Farbe entfernen
+            </button>
+          ) : (
+            <span className="field-hint">Keine Farbe gewählt</span>
+          )}
+        </div>
+        <span className="field-hint">Die Farbe wirkt nur zusammen mit Logo oder Begrüßungstext und färbt den Rahmen.</span>
       </div>
       <div className="field">
         <label htmlFor="cd-branding-headline">Begrüßungstext</label>
@@ -247,7 +273,7 @@ function BrandingSection({
         />
       </div>
       {(logoUrl || color || headline) && (
-        <div className="alert alert-info" style={color ? { borderColor: color, color } : undefined}>
+        <div className="alert alert-info" style={color ? { borderColor: color, borderWidth: 2 } : undefined}>
           {logoUrl && <img src={logoUrl} alt="" style={{ height: 32, width: "auto" }} />}
           <div>{headline || "Vorschau des Begrüßungstexts"}</div>
         </div>
@@ -424,6 +450,7 @@ export function CompanyDashboard() {
             <div className="stat-tile">
               <span className="stat-value">{BILLING_STATUS_LABELS[me.data.billingStatus] ?? me.data.billingStatus}</span>
               <span className="stat-label">Abrechnungsstatus</span>
+              <span className="field-hint">Wird von der Plattform-Verwaltung gepflegt; hat derzeit keinen Einfluss auf deine Einladungscodes.</span>
             </div>
           </div>
         </div>

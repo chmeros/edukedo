@@ -12,7 +12,7 @@ import { Header } from "./Header";
  * Prozentwerten) wurde bewusst nicht übernommen — echte Nutzungszahlen zu erfinden wäre
  * irreführend, und die eigentliche App ist ja nur einen Klick entfernt.
  */
-export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin: () => void }) {
+export function LandingPage({ onStart, onLogin, minorsAllowed = false }: { onStart: () => void; onLogin: () => void; minorsAllowed?: boolean }) {
   const [heroFlipped, setHeroFlipped] = useState(false);
 
   return (
@@ -180,8 +180,15 @@ export function LandingPage({ onStart, onLogin }: { onStart: () => void; onLogin
                 {/* Kurs ist inhaltlich fertig, aber noch nicht veröffentlicht (kurs.is_published =
                     false, siehe Architekturplanung Abschnitt 4.1/13) — bewusst kein anklickbarer
                     "Kurs ansehen"-Link mehr, der einen sofortigen Zugang suggerieren würde. */}
-                <span className="course-meta">Registrierung schon möglich, Inhalte folgen in Kürze</span>
-                <span className="course-meta">mit&nbsp;Eltern-Einwilligung</span>
+                {/* Review UXL-24: Solange Minderjährige nicht zugelassen sind (ALLOW_MINORS), sagt die Startseite das offen. */}
+                {minorsAllowed ? (
+                  <>
+                    <span className="course-meta">Registrierung schon möglich, Inhalte folgen in Kürze</span>
+                    <span className="course-meta">mit&nbsp;Eltern-Einwilligung</span>
+                  </>
+                ) : (
+                  <span className="course-meta">Aktuell nur für Volljährige zugänglich, Inhalte folgen in Kürze</span>
+                )}
               </div>
             </article>
           </div>

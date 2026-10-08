@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { httpsUrlSchema } from "./company";
 
 /**
  * F-91 Baustein 5 (F-94): Sponsoring — admin-gepflegt, bewusst vom Lizenzmodell (F-91) getrennt
@@ -8,7 +9,7 @@ import { z } from "zod";
  */
 export const createSponsorInputSchema = z.object({
   name: z.string().min(1).max(200),
-  logoUrl: z.union([z.string().url().max(2000), z.literal("")]),
+  logoUrl: z.union([httpsUrlSchema, z.literal("")]),
   attributionText: z.string().min(1).max(200),
   kursId: z.string().uuid().optional(),
   startsAt: z.coerce.date().optional(),

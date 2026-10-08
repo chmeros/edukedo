@@ -42,6 +42,12 @@ export function CourseSelection({
   // liefern keine Zeile → 0 %.
   const progress = trpc.courses.progress.useQuery();
   const [search, setSearch] = useState("");
+  // Review UXL-24: Schulkurse nennen offen, dass Minderjährige derzeit nicht zugelassen sind (Server-Schalter ALLOW_MINORS).
+  const authConfig = trpc.auth.publicConfig.useQuery();
+  const kategorieText = (kategorie: string) =>
+    kategorie === "schule" && authConfig.data?.minorsAllowed === false
+      ? `${KATEGORIE_LABEL[kategorie]} · aktuell nur für Volljährige zugänglich`
+      : KATEGORIE_LABEL[kategorie];
   const [kategorieFilter, setKategorieFilter] = useState<"alle" | "erwachsenenbildung" | "schule">("alle");
   // F-102: Beitritt zu einem Erwachsenenbildungskurs bei bereits bestehender Belegung derselben
   // Kategorie erfordert eine Bestätigung, da dabei automatisch die alte Belegung verlassen wird
@@ -109,7 +115,7 @@ export function CourseSelection({
                 <Tile
                   key={course.id}
                   title={course.title}
-                  description={KATEGORIE_LABEL[course.kategorie]}
+                  description={kategorieText(course.kategorie)}
                   meta={progress.data ? `${percent} % gelernt` : undefined}
                   image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
                   fill={progress.data ? percent : 0}
@@ -181,7 +187,7 @@ export function CourseSelection({
             <Tile
               key={course.id}
               title={course.title}
-              description={KATEGORIE_LABEL[course.kategorie]}
+              description={kategorieText(course.kategorie)}
               image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
               actions={
                 <button

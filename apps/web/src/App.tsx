@@ -125,7 +125,8 @@ export function App() {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [birthDate, setBirthDate] = useState("2000-01-01");
+  // Review WEB-17: kein vorbelegtes Geburtsdatum (eine falsche Voreinstellung würde unbemerkt übernommen).
+  const [birthDate, setBirthDate] = useState("");
   const [parentEmail, setParentEmail] = useState("");
   // F-108: rein optionaler Anzeigename für die namentliche Begrüßung beim Wiedereinstieg.
   const [displayName, setDisplayName] = useState("");
@@ -521,6 +522,7 @@ export function App() {
       <LandingPage
         onStart={goToRegister}
         onLogin={goToLogin}
+        minorsAllowed={minorsAllowed}
       />
     );
   }

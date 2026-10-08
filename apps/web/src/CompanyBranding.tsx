@@ -19,7 +19,8 @@ export function CompanyBranding() {
   }
 
   return (
-    <div className="alert alert-info" style={color ? { borderColor: color, color } : undefined}>
+    // Review UXL-10: Die Firmenfarbe färbt nur den Rahmen; als Textfarbe war z. B. Gelb auf hellem Grund kaum lesbar.
+    <div className="alert alert-info" style={color ? { borderColor: color, borderWidth: 2 } : undefined}>
       {logoUrl && <img src={logoUrl} alt="" style={{ height: 32, width: "auto" }} />}
       {headline && <div>{headline}</div>}
     </div>

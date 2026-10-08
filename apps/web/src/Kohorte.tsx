@@ -5,6 +5,7 @@ import { SuccessIcon } from "./Icons";
 import { pluralDe } from "./plural";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
+import { CopyButton } from "./CopyButton";
 
 /**
  * F-64: aggregierte Kennzahlen + Mitgliederliste (nur E-Mail/Beitrittsdatum, kein
@@ -130,7 +131,8 @@ function CohortRow({ cohort }: { cohort: { id: string; name: string; joinCode: s
         title={cohort.name}
         description={
           <>
-            Beitritts-Code <code>{cohort.joinCode}</code> · {pluralDe(cohort.memberCount, "Mitglied", "Mitglieder")}
+            Beitritts-Code <code>{cohort.joinCode}</code> <CopyButton text={cohort.joinCode} /> ·{" "}
+            {pluralDe(cohort.memberCount, "Mitglied", "Mitglieder")}
           </>
         }
         aria-expanded={expanded}

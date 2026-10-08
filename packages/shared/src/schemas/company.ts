@@ -93,8 +93,18 @@ export type RedeemCompanyInviteCodeInput = z.infer<typeof redeemCompanyInviteCod
  * Plattform hat noch keine Objektspeicher-Anbindung (siehe Architekturplanung Abschnitt 4.3),
  * ein Unternehmen verlinkt stattdessen ein bereits extern gehostetes Logo.
  */
+/**
+ * Review SHR-11/UXL-10: Logo-Adressen nur mit https (kein http, javascript:, data:, file:). Das Logo wird von einem Drittserver in
+ * die App aller Mitglieder geladen; ohne Verschlüsselung wäre es manipulierbar.
+ */
+export const httpsUrlSchema = z
+  .string()
+  .url()
+  .max(2000)
+  .refine((value) => value.toLowerCase().startsWith("https://"), { message: "Die Adresse muss mit https:// beginnen." });
+
 export const updateCompanyBrandingInputSchema = z.object({
-  logoUrl: z.union([z.string().url().max(2000), z.literal("")]),
+  logoUrl: z.union([httpsUrlSchema, z.literal("")]),
   color: z.union([z.string().regex(/^#[0-9a-fA-F]{6}$/), z.literal("")]),
   headline: z.string().max(200),
 });
