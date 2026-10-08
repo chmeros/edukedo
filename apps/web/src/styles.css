@@ -411,13 +411,16 @@ a {
 }
 
 /* ---------- Segmented toggle (Login/Registrieren) ---------- */
+/* Review-Befund WRK-02: Ohne Umbruch liefen die hinteren Reiter der Rechner auf schmalen Bildschirmen aus dem Bild
+   (body hat overflow-x: hidden, sie waren unerreichbar). Umbrechen statt schrumpfen. */
 .segmented {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .segmented button {
-  flex: 1;
+  flex: 1 1 auto;
   text-align: center;
   padding: 10px 14px;
   border-radius: 12px;
@@ -1036,15 +1039,17 @@ details[open] > summary.disclosure::before {
    letzten Zeile) — ein horizontal scrollbarer Einzeiler ist das gängigere Mobile-Muster für
    eine ungerade Tab-Anzahl, die nicht mehr nebeneinander passt, und vermeidet den Umbruch
    vollständig. */
+/* Review-Befund (UXT-I-03, UXT-B): Der horizontal scrollbare Einzeiler ließ "Fortschritt" auf 375 px außerhalb des
+   sichtbaren Bereichs, nur ein schwacher Fade deutete es an. Jetzt brechen die Tabs um und füllen die Zeile
+   (flex: 1 1 auto), sodass alle Tabs ohne Scrollen sichtbar sind und die letzte Zeile nicht linksbündig verwaist. */
 @media (max-width: 640px) {
   .tab-nav {
     display: flex;
-    overflow-x: auto;
-    padding-bottom: 2px;
+    flex-wrap: wrap;
   }
 
   .tab-nav button {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     white-space: nowrap;
   }
 }

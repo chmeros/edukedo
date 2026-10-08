@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 8: Tab-Leisten brechen auf schmalen Bildschirmen um)
+
+- **Anlass:** Review-Befunde WRK-02 und UXT-I-03/UXT-B: Auf 375 px war die Haupt-Tab-Leiste („Lernen, Prüfung, Instrumente, Gaming, Fortschritt“) ein horizontal scrollbarer Einzeiler, in dem „Fortschritt“ außerhalb des sichtbaren Bereichs lag; nur ein schwacher Fade deutete das an. Die `.segmented`-Reiter der Rechner (Finanzrechner, Prozesskennzahlen, Verfügbarkeit u. a.) hatten keinen Umbruch; da `body` `overflow-x: hidden` setzt, waren die hinteren Reiter dort unerreichbar.
+- **Entscheidung:** Beide Leisten brechen jetzt um und füllen die Zeilen (`flex-wrap: wrap`, Buttons `flex: 1 1 auto`): `.tab-nav` unter 640 px, `.segmented` überall. Alle Reiter sind ohne Scrollen sichtbar, und die letzte Zeile bleibt nicht linksbündig verwaist (frühere Begründung gegen ein Raster, siehe Redesign-Audit 17.09.2026). Der Scroll-Hinweis (`.tab-nav-fade`) bleibt im Code und ist ohne Überlauf unsichtbar.
+- **Verifikation:** Live im Browser bei 375×812 (Wegwerf-Konto, danach gelöscht): Industriefachwirt, alle fünf Haupt-Tabs liegen im sichtbaren Bereich (drei in der ersten, zwei in der zweiten Zeile); im Finanzrechner liegen alle fünf Reiter innerhalb 16 bis 359 px, die Seite hat keinen horizontalen Überlauf (`scrollWidth` 375).
+- **Nicht umgesetzt:** Weitere Mobil-Befunde aus dem Review bleiben offen (z. B. WRK-03: IPv4-Felder im Topologie-Labor mit `inputMode="decimal"` — auf iOS fehlt der Punkt; Banner-Stapel auf Mobil).
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 7: Payment-Platzhalter nur in Entwicklung und Test)
 
 - **Anlass:** Review-Befund SOZ-01 (Blocker): `POST /checkout-sessions` im Payment-Service aktivierte mit dem Platzhalter-Anbieter sofort ein Abo samt Rechnung „paid“, und der Platzhalter war der Standard ohne Produktions-Schutz. Jedes eingeloggte Konto hätte so kostenlos Premium (KI-Bewertung, Instrumenten-Lernpfade) bekommen.
