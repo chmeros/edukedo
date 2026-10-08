@@ -234,6 +234,15 @@ rechtsstand: "14.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 Bei Mathematik entfällt das Konzept „Handlungsbereich"; `fachgebiet_code` ist dort z. B. `ALG` (Algebra & Funktionen), `GEO` (Geometrie) oder `STO` (Stochastik), `thema_code` z. B. `ALG1`, `quelle` verweist auf die KMK-Bildungsstandards statt auf einen DIHK-Rahmenplan.
 
+### Stabile IDs (Regel, ab 08.10.2026)
+
+Jeder `####`-Block (Karteikarte, Quizfrage, Fallaufgabe, Übungsaufgabe) trägt eine ID in der Überschrift, z. B. `K-1.1-01`, `Q-6.1-17` oder `F-WB1-03`. Der Importer erkennt Items an dieser ID wieder (siehe docs/entwuerfe/sicherer-content-import.md), damit Lernfortschritt, Notizen und Duelle bei einem erneuten Import erhalten bleiben. Deshalb gilt:
+
+- **IDs werden nie geändert und nie für anderen Inhalt wiederverwendet.** Eine umbenannte ID gilt als „Item entfernt, neues Item angelegt“ und verliert den Lernfortschritt dieser Karte.
+- Die ID ist eindeutig je Thema (Kurs, Fachgebiet, Thema); neue Blöcke bekommen die nächste freie Nummer.
+- Die Theorie eines Themas und die Fachgesprächsfragen haben keine eigene ID (Schlüssel `theorie` bzw. ein Hash des Fragetexts); ein geänderter Fragetext gilt dort als neue Frage.
+- `pnpm db:validate-content` (und ein Test in `apps/api`) prüft Pflichtfelder, eindeutige Themen und eindeutige Schlüssel in allen Dateien.
+
 ### Abschnitt „## Theorie"
 
 Fließtext (Markdown-Prosa, `###`-Zwischenüberschriften erlaubt). Entspricht `content_item.type = "theorie"`, `payload.body_markdown`.

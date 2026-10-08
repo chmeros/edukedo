@@ -18,6 +18,7 @@
     "db:seed-instrument-lernpfad": "tsx src/db/seed-instrument-lernpfad.ts",
     "db:seed-games": "tsx src/db/seed-games.ts",
     "db:import-content": "tsx src/db/import-content.ts",
+    "db:validate-content": "tsx src/db/validate-content.ts",
     "db:apply-kurs-metadata": "tsx src/db/apply-kurs-metadata.ts",
     "db:freigeben": "tsx src/db/freigeben.ts",
     "db:export-content": "tsx src/db/export-content.ts",

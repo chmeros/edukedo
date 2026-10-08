@@ -1,6 +1,6 @@
 # Entwurf: Sicherer Content-Import (Upsert statt „löschen und neu anlegen“)
 
-Stand: 08.10.2026 · Status: **Entschieden (alle sechs Empfehlungen aus Abschnitt 9 angenommen), Umsetzung läuft: Schritt 1 erledigt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
+Stand: 08.10.2026 · Status: **Entschieden (alle sechs Empfehlungen aus Abschnitt 9 angenommen), Umsetzung läuft: Schritte 1 und 2 erledigt** · Anlass: Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04 in `docs/reviews/2026-10-07/`)
 
 ## 1. Problem
 
@@ -126,7 +126,7 @@ Verschwindet ein Item aus dem Markdown, wird es **deaktiviert**, nicht gelöscht
 | Schritt | Inhalt | Risiko |
 | --- | --- | --- |
 | 1 | Migration (drei Spalten, Thema-Code-Backfill), keine Verhaltensänderung | gering — **erledigt 08.10.2026** (`drizzle/0043_content_source_keys.sql`) |
-| 2 | Parser liefert Schlüssel; Vorab-Validierung der Eindeutigkeit; Unit-Tests | gering |
+| 2 | Parser liefert Schlüssel; Vorab-Validierung der Eindeutigkeit; Unit-Tests | gering — **erledigt 08.10.2026** (`content-keys.ts`, `db:validate-content`) |
 | 3 | `planSync` als reine Funktion mit Tests (noch nicht angebunden) | gering |
 | 4 | Backfill-Skript mit Trockenlauf und Bericht; Lauf auf Entwicklungs-DB | mittel |
 | 5 | Executor (Transaktion je Datei, Advisory-Sperre) und Umstellung von `importThemaFile`; Integrationstests | **hoch** |

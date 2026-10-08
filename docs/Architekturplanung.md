@@ -567,6 +567,12 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Sicherer Content-Import, Schritt 2 von 7: Schlüsselableitung und Content-Validierung)
+
+- **Umfang:** Neues Modul apps/api/src/db/content-keys.ts mit reinen Funktionen, kein Datenbankzugriff, keine Verhaltensänderung des Imports. `blockSourceKey` liest die ID aus der `####`-Überschrift (auch mit Zusatz „ · <Instrument>“), `fachgespraechSourceKey` bildet den Schlüssel `fg:<16 Hex>` aus dem normalisierten Fragetext (Unicode NFC, Leerraum zusammengefasst, Kleinschreibung), die Theorie hat den Schlüssel `theorie`. `deriveThemaSourceKeys` liefert alle Schlüssel einer Themendatei in Importreihenfolge und meldet fehlende IDs und doppelte Schlüssel; `validateContentDir` prüft zusätzlich Pflichtfelder im Frontmatter und dass jeder Themencode je (Kurs, Fachgebiet) nur einmal vorkommt. Quizblöcke, die der Importer überspringt, und der Einleitungsabsatz einer Fallaufgaben-Sektion zählen wie im Importer nicht.
+- **Messung am echten Content:** 615 Themendateien, 16.040 Item-Schlüssel (deckt sich mit der Zahl der importierten Items), 0 Verstöße. Aufruf: `pnpm db:validate-content` (Exit-Code 1 bei Verstößen); derselbe Befund ist als Test abgesichert (content-keys.test.ts, 14 Tests), sodass eine doppelte oder fehlende ID im Content künftig den Testlauf bricht.
+- **Regel:** content/README.md hat jetzt den Abschnitt „Stabile IDs“: IDs nie ändern und nie wiederverwenden, eindeutig je Thema; ein geänderter Fachgesprächstext zählt als neue Frage (Entscheidung 6 des Entwurfs).
+
 ### Entschieden am 08.10.2026 (Sicherer Content-Import, Schritt 1 von 7: stabile Schlüssel in der Datenbank)
 
 - **Anlass:** Review-Punkt A1 (LOG-01, SOZ-03/04, INF-02/03/04). Der Import ersetzt Themen per „löschen und neu anlegen“ und vernichtet damit Lernfortschritt, Notizen und Lernereignisse (`ON DELETE CASCADE`); er läuft nicht transaktional und bricht an `RESTRICT`-Verweisen (Prüfungsantworten, Duelle) halb ab. Der vollständige Entwurf mit den sechs angenommenen Entscheidungen steht in docs/entwuerfe/sicherer-content-import.md.
