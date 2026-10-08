@@ -55,26 +55,69 @@ function PresentationTimer({ limitMinutes }: { limitMinutes: number }) {
   }, [running]);
 
   const overLimit = elapsed >= limitMinutes * 60;
+  // Review UXL-15: Großanzeige (Vollbild, z. B. am Beamer im Unterricht), wahlweise als Countdown, und eine Ansage für Screenreader,
+  // sobald die Zeit erreicht ist.
+  const [gross, setGross] = useState(false);
+  const [countdown, setCountdown] = useState(false);
+  const rest = limitMinutes * 60 - elapsed;
+  const anzeige = countdown ? (rest >= 0 ? formatElapsed(rest) : `+${formatElapsed(-rest)}`) : formatElapsed(elapsed);
+
+  useEffect(() => {
+    if (!gross) return;
+    const schliessen = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setGross(false);
+    };
+    window.addEventListener("keydown", schliessen);
+    return () => window.removeEventListener("keydown", schliessen);
+  }, [gross]);
+
+  const steuerung = (
+    <div className="rate-row">
+      <button type="button" className="btn btn-ghost" onClick={() => setRunning((value) => !value)}>
+        {running ? "Pause" : elapsed === 0 ? "Start" : "Weiter"}
+      </button>
+      <button
+        type="button"
+        className="btn btn-ghost"
+        onClick={() => {
+          setRunning(false);
+          setElapsed(0);
+        }}
+      >
+        Zurücksetzen
+      </button>
+      <button type="button" className="btn btn-ghost" aria-pressed={countdown} onClick={() => setCountdown((wert) => !wert)}>
+        {countdown ? "Zeit zählt rückwärts" : "Zeit zählt vorwärts"}
+      </button>
+      <button type="button" className="btn btn-secondary" onClick={() => setGross((wert) => !wert)}>
+        {gross ? "Großanzeige schließen (Esc)" : "Großanzeige"}
+      </button>
+    </div>
+  );
+
+  const zeit = (
+    <div role="timer" className={`${overLimit ? "exam-timer is-expired" : "exam-timer"}${gross ? " timer-gross-zahl" : ""}`}>
+      ⏱ {anzeige}
+    </div>
+  );
 
   return (
     <div className="stack">
       <span className="stat-subheading">Redezeit üben (max. {limitMinutes} Min.)</span>
-      <div className={overLimit ? "exam-timer is-expired" : "exam-timer"}>⏱ {formatElapsed(elapsed)}</div>
-      <div className="rate-row">
-        <button type="button" className="btn btn-ghost" onClick={() => setRunning((value) => !value)}>
-          {running ? "Pause" : elapsed === 0 ? "Start" : "Weiter"}
-        </button>
-        <button
-          type="button"
-          className="btn btn-ghost"
-          onClick={() => {
-            setRunning(false);
-            setElapsed(0);
-          }}
-        >
-          Zurücksetzen
-        </button>
-      </div>
+      {gross ? (
+        <div className="timer-gross" role="dialog" aria-label="Großanzeige der Redezeit">
+          {zeit}
+          {steuerung}
+        </div>
+      ) : (
+        <>
+          {zeit}
+          {steuerung}
+        </>
+      )}
+      <span role="status" className="field-hint">
+        {overLimit ? `Die Redezeit von ${limitMinutes} Minuten ist erreicht.` : ""}
+      </span>
     </div>
   );
 }

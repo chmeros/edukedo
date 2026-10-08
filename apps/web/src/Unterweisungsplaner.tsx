@@ -12,6 +12,7 @@ import {
   type Unterweisungsplan,
 } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { DruckExport } from "./DruckExport";
 
 /**
  * F-200 (Unterweisungs-Planer, siehe Architekturplanung Abschnitt 13): Formular für den Entwurf einer Unterweisung nach
@@ -42,7 +43,7 @@ function ladeEntwurf(minuten: number): Unterweisungsplan {
     return {
       ...basis,
       ...geparst,
-      gesamtMinuten: minuten,
+      gesamtMinuten: typeof geparst.gesamtMinuten === "number" && geparst.gesamtMinuten >= 1 && geparst.gesamtMinuten <= 180 ? geparst.gesamtMinuten : minuten,
       feinziele: Array.isArray(geparst.feinziele) && geparst.feinziele.length > 0 ? geparst.feinziele.slice(0, MAX_FEINZIELE) : basis.feinziele,
       stufen: { ...basis.stufen, ...(geparst.stufen ?? {}) },
     };
@@ -111,6 +112,24 @@ export function Unterweisungsplaner({ onClose, praesentationMinuten }: { onClose
           Plane eine Unterweisung nach der Vier-Stufen-Methode und prüfe sie auf Vollständigkeit, Zeitplan und überprüfbare Feinziele. Die Hinweise sind Faustregeln zur Selbstkontrolle, keine Bewertung. Dein
           Entwurf bleibt nur in diesem Browser und wird nicht an den Server gesendet.
         </p>
+        {/* Review UXL-14: Die verfügbare Zeit ist einstellbar (Standard: Vorgabe des Kurses). */}
+        <div className="field">
+          <label htmlFor="uw-zeit">Verfügbare Zeit (Minuten)</label>
+          <input
+            id="uw-zeit"
+            className="input"
+            style={{ maxWidth: "8rem" }}
+            type="number"
+            min={1}
+            max={180}
+            value={plan.gesamtMinuten}
+            onChange={(event) => {
+              const wert = Math.round(Number(event.target.value));
+              if (Number.isFinite(wert) && wert >= 1 && wert <= 180) setzeFeld("gesamtMinuten", wert);
+            }}
+          />
+          <span className="field-hint">Vorgabe des Kurses: {praesentationMinuten} Minuten.</span>
+        </div>
         <div className="rate-row">
           <button type="button" className="btn btn-secondary btn-sm" onClick={() => { setPlan(beispielPlan(praesentationMinuten)); setKopiert(null); }}>
             Beispiel laden
@@ -237,6 +256,7 @@ export function Unterweisungsplaner({ onClose, praesentationMinuten }: { onClose
           <button type="button" className="btn btn-primary" onClick={kopiere}>
             Entwurf kopieren
           </button>
+          <DruckExport titel="Unterweisungsplan" text={text} />
           <span role="status" className="field-hint">
             {kopiert === "ja" && "Kopiert."}
             {kopiert === "nein" && "Das Kopieren wurde vom Browser abgelehnt. Der Text ist markiert, kopiere ihn mit Strg+C."}

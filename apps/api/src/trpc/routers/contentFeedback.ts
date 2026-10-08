@@ -1,6 +1,6 @@
 import { reportContentInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { contentItem, contentReport } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
@@ -25,9 +25,30 @@ export const contentFeedbackRouter = router({
     await ctx.db.insert(contentReport).values({
       contentItemId: input.contentItemId,
       reporterUserId: ctx.currentUser.id,
+      category: input.category,
       reason: input.reason,
     });
 
     return { success: true };
+  }),
+
+  /** Review UXL-13: eigene Meldungen mit Bearbeitungsstand und Rückmeldung der Redaktion. */
+  myReports: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.db
+      .select({
+        id: contentReport.id,
+        category: contentReport.category,
+        reason: contentReport.reason,
+        status: contentReport.status,
+        resolutionNote: contentReport.resolutionNote,
+        createdAt: contentReport.createdAt,
+        resolvedAt: contentReport.resolvedAt,
+        contentItemPrompt: contentItem.prompt,
+      })
+      .from(contentReport)
+      .innerJoin(contentItem, eq(contentItem.id, contentReport.contentItemId))
+      .where(eq(contentReport.reporterUserId, ctx.currentUser.id))
+      .orderBy(desc(contentReport.createdAt))
+      .limit(50);
   }),
 });

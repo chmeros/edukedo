@@ -40,9 +40,10 @@ const PREVIEW_ITEM_LIMIT = 5;
  * gemeinsamer Schlüssel für alle sieben submit*-Prozeduren (statt je einer eigenen), damit ein
  * Umgehen der Grenze durch Verteilen der Aufrufe auf mehrere Aufgabentypen nicht möglich ist.
  */
-const PREVIEW_ITEMS_RATE_LIMIT_MAX_ATTEMPTS = 20;
+// Review UXL-12: großzügiger (vorher 20/30), damit eine Klasse hinter derselben Schul- oder Firmen-IP die Vorschau gemeinsam nutzen kann.
+const PREVIEW_ITEMS_RATE_LIMIT_MAX_ATTEMPTS = 60;
 const PREVIEW_ITEMS_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10; // 10 Minuten
-const PREVIEW_SUBMIT_RATE_LIMIT_MAX_ATTEMPTS = 30;
+const PREVIEW_SUBMIT_RATE_LIMIT_MAX_ATTEMPTS = 150;
 const PREVIEW_SUBMIT_RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10; // 10 Minuten
 
 function assertPreviewRateLimit(ip: string, bucket: "items" | "submit", maxAttempts: number, windowMs: number): void {

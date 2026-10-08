@@ -6,6 +6,7 @@ import { pluralDe } from "./plural";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 import { CopyButton } from "./CopyButton";
+import { csvText, ladeTextHerunter, sichererDateiname } from "./dateiExport";
 
 /**
  * F-64: aggregierte Kennzahlen + Mitgliederliste (nur E-Mail/Beitrittsdatum, kein
@@ -14,7 +15,7 @@ import { CopyButton } from "./CopyButton";
  * tatsächlichem Aufklappen geladen werden sollen (keine Dozentin-Kennzahlen unnötig im
  * Hintergrund laden, solange niemand hinschaut).
  */
-function CohortDetail({ cohortId }: { cohortId: string }) {
+function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: string }) {
   const utils = trpc.useUtils();
   const stats = trpc.cohort.stats.useQuery({ cohortId });
   const members = trpc.cohort.members.useQuery({ cohortId });
@@ -31,6 +32,28 @@ function CohortDetail({ cohortId }: { cohortId: string }) {
     return <p>Lädt…</p>;
   }
   const d = stats.data;
+
+  // Review UXL-16: Export der Gruppenkennzahlen als Nachweis (CSV). Enthält nur, was auf dem Bildschirm steht, also nur aggregierte Werte
+  // und nur dort, wo genug verschiedene Personen beigetragen haben; keine Einzelpersonen, keine Mitgliederliste.
+  function exportiere() {
+    const prozent = (wert: number | null) => (wert === null ? "" : wert);
+    ladeTextHerunter(
+      `kohorte-${sichererDateiname(cohortName)}-${new Date().toISOString().slice(0, 10)}.csv`,
+      csvText([
+        ["Kohorte", cohortName],
+        ["Stand", new Date().toLocaleDateString("de-DE")],
+        ["Mitglieder", d.totalMembers],
+        ["Hinweis", `Kennzahlen erst ab ${d.minCohortSize} beteiligten Mitgliedern; leere Felder sind aus Datenschutzgründen ausgeblendet.`],
+        [],
+        ["Kennzahl", "Wert in Prozent"],
+        ["Aktive Mitglieder (30 Tage)", prozent(d.activeSharePercent)],
+        ["Durchschnittlicher Fortschritt", prozent(d.avgProgressPercent)],
+        [],
+        ["Handlungsbereich", "Durchschnittliche Trefferquote in Prozent"],
+        ...d.byFachgebiet.map((eintrag) => [eintrag.fachgebietTitle, prozent(eintrag.avgAccuracyPercent)]),
+      ]),
+    );
+  }
 
   return (
     <div className="stack">
@@ -71,6 +94,9 @@ function CohortDetail({ cohortId }: { cohortId: string }) {
             ))}
           </div>
           {d.byFachgebiet.length === 0 && <p className="field-hint">Noch keine Quiz-Aktivität in dieser Kohorte.</p>}
+          <button type="button" className="btn btn-ghost btn-sm" style={{ alignSelf: "flex-start" }} onClick={exportiere}>
+            Kennzahlen als CSV exportieren
+          </button>
         </>
       )}
 
@@ -190,7 +216,7 @@ function CohortRow({ cohort }: { cohort: { id: string; name: string; joinCode: s
       </Tile>
       {expanded && (
         <div className="tile-subgrid">
-          <CohortDetail cohortId={cohort.id} />
+          <CohortDetail cohortId={cohort.id} cohortName={cohort.name} />
         </div>
       )}
     </>

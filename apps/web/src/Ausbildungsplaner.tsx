@@ -13,6 +13,7 @@ import {
   type Ausbildungsplan,
 } from "@edukedo/shared";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { DruckExport } from "./DruckExport";
 
 /**
  * F-204 (Ausbildungsplan-Zeitplaner, siehe Architekturplanung Abschnitt 13): Formular für den Entwurf eines betrieblichen
@@ -321,6 +322,7 @@ export function Ausbildungsplaner({ onClose }: { onClose: () => void }) {
           <button type="button" className="btn btn-primary" onClick={kopiere}>
             Entwurf kopieren
           </button>
+          <DruckExport titel="Ausbildungsplan" text={text} />
           <span role="status" className="field-hint">
             {kopiert === "ja" && "Kopiert."}
             {kopiert === "nein" && "Das Kopieren wurde vom Browser abgelehnt. Der Text ist markiert, kopiere ihn mit Strg+C."}

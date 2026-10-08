@@ -22,7 +22,7 @@ import { TRPCError } from "@trpc/server";
 import { and, asc, eq, ilike, inArray } from "drizzle-orm";
 import { parseLueckentext } from "../../db/content-parser";
 import { renderLueckentextSource } from "../../db/content-serializer";
-import { answerOption, contentItem, contentItemVersion, fachgebiet, thema } from "../../db/schema";
+import { answerOption, contentItem, contentItemVersion, contentReport, fachgebiet, thema } from "../../db/schema";
 import { roleProcedure, router } from "../trpc";
 import { escapeLikePattern } from "./content";
 
@@ -256,6 +256,15 @@ export const adminContentRouter = router({
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder), asc(contentItem.createdAt))
       .limit(ADMIN_LIST_PAGE_SIZE)
       .offset(input.offset ?? 0);
+  }),
+
+  /** Review UXL-13: offene Meldungen zu einem Item, damit sie im Bearbeiten-Dialog neben dem Inhalt stehen. */
+  openReports: roleProcedure("admin").input(adminContentItemInputSchema).query(async ({ ctx, input }) => {
+    return ctx.db
+      .select({ id: contentReport.id, category: contentReport.category, reason: contentReport.reason, createdAt: contentReport.createdAt })
+      .from(contentReport)
+      .where(and(eq(contentReport.contentItemId, input.contentItemId), eq(contentReport.status, "offen")))
+      .orderBy(asc(contentReport.createdAt));
   }),
 
   /** Volles Detail eines Items für den Editor — payload/answer_option zurück in Formularform. */

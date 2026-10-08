@@ -107,6 +107,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
 | B7 Allowlist auch für Instrument-Fragen | **erledigt 08.10.2026** (50 Fragen im Bestand unsichtbar) | §13 „Kursangebot gilt auch für Instrument-Fragen“ |
 | B8 Instrument-Kachel führt zum Instrument | **erledigt 08.10.2026** | §13 „Instrument-Kacheln führen zum Instrument“ |
+| Lehrkraft-Erweiterungen: UXL-12 (Vorschau-Limit, Dialog), UXL-13 (Meldungen mit Kategorie und Rückmeldung), UXL-14 (Druck/Textdatei, Zeit), UXL-15 (Großanzeige), UXL-16 (CSV-Export), UXL-19, UXL-21, UXL-22 | **erledigt 08.10.2026** (offen: Lese-Modus ohne Beitritt, Aufbewahrungsfrist der Meldungen, UXL-23 bewusst unverändert) | §13 „Lehrkraft-Erweiterungen“ |
 | Werkzeuge: WRK-19 Rest (Topologie-Labor merkt den Stand je Szenario) | **erledigt 08.10.2026** | §13 „Topologie-Labor“ |
 | Werkzeuge: WRK-47 (Aufgabennummer in zwölf Trainern) | **erledigt 08.10.2026** | §13 „Werkzeuge: Aufgabennummer“ |
 | Werkzeuge: WRK-04 (nur exakt gerundete Werte, Nutzer-Entscheidung), WRK-05 (Rechenwege ungerundet), WRK-06 (strikte Zahleneingabe) | **erledigt 08.10.2026** (Lesehinweis in acht Rechnern; offen: Skalierung, Testfalltrainer, Statistik, WRK-47) | §13 „Werkzeuge: Rundung“ |

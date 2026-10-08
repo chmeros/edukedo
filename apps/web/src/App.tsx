@@ -14,6 +14,7 @@ import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
 import { Lernen } from "./Lernen";
+import { MeineMeldungen } from "./MeineMeldungen";
 import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
 import { LearningRoundContext } from "./LearningRound";
@@ -494,6 +495,7 @@ export function App() {
                             setLearningMode("lernen");
                           }}
                         />
+                        <MeineMeldungen key={`${activeKursId}-meldungen`} />
                       </>
                     )}
                     {learningMode === "gaming" && (

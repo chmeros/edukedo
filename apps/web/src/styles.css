@@ -5350,3 +5350,52 @@ h4.stat-subheading {
     height: 22px;
   }
 }
+
+/* ---------- Review UXL-14: Druck der Planer (DruckExport.tsx) ---------- */
+/* Der Druckinhalt liegt per Portal unter <body>, ist am Bildschirm unsichtbar und erscheint nur, wenn der Druck über den Knopf
+   gestartet wurde (Klasse `druck-planer` am <body>). Andere Druckinhalte (Fortschrittsbericht) werden dann ausgeblendet. */
+.planer-druck {
+  display: none;
+}
+
+@media print {
+  body.druck-planer .planer-druck {
+    display: block;
+    color: #000;
+    font-family: var(--font-body);
+  }
+
+  body.druck-planer .planer-druck h1 {
+    font-size: 20px;
+    margin: 0 0 12px;
+  }
+
+  body.druck-planer .planer-druck pre {
+    white-space: pre-wrap;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  body.druck-planer .progress-print-report {
+    display: none;
+  }
+}
+
+/* ---------- Review UXL-15: Großanzeige der Redezeit (Praesentationstrainer.tsx) ---------- */
+.timer-gross {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: var(--paper, var(--surface));
+}
+
+.timer-gross .exam-timer {
+  font-size: clamp(4rem, 22vw, 16rem);
+  line-height: 1;
+}

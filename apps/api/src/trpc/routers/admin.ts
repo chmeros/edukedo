@@ -10,7 +10,7 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { eq, gte, sql } from "drizzle-orm";
+import { and, eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
@@ -346,6 +346,7 @@ export const adminRouter = router({
       .select({
         id: contentReport.id,
         reporterEmail: reporterUser.email,
+        category: contentReport.category,
         reason: contentReport.reason,
         status: contentReport.status,
         createdAt: contentReport.createdAt,
@@ -365,7 +366,7 @@ export const adminRouter = router({
     .mutation(async ({ ctx, input }) => {
       const [updated] = await ctx.db
         .update(contentReport)
-        .set({ status: "geschlossen" })
+        .set({ status: "geschlossen", resolutionNote: input.note || null, resolvedAt: new Date() })
         .where(eq(contentReport.id, input.contentReportId))
         .returning({ id: contentReport.id });
 
@@ -395,7 +396,14 @@ export const adminRouter = router({
       ctx.db
         .select({ completedAt: exerciseSet.completedAt })
         .from(exerciseSet)
-        .where(gte(exerciseSet.startedAt, exerciseSetsSince)),
+        // Review UXL-22: Ein Satz entsteht schon beim Öffnen einer Runde. Gezählt werden nur Sätze, nach deren Start die Person
+        // tatsächlich etwas beantwortet hat; wer nur schaut (z. B. Lehrkräfte), verfälscht die Abschlussquote nicht.
+        .where(
+          and(
+            gte(exerciseSet.startedAt, exerciseSetsSince),
+            sql`exists (select 1 from ${learningEvent} where ${learningEvent.userId} = ${exerciseSet.userId} and ${learningEvent.occurredAt} >= ${exerciseSet.startedAt})`,
+          ),
+        ),
     ]);
 
     const exerciseSetsStarted = exerciseSets.length;

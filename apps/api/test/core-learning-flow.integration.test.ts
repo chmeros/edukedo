@@ -434,6 +434,8 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         payload: { contentItemId: "00000000-0000-0000-0000-000000000000", reason: "Testfehler" },
       });
       expect(unknownResponse.statusCode).toBe(404);
+      // Review UXL-19: Fehlerantworten enthalten außerhalb des Entwicklungsmodus keinen Stacktrace (lokale Pfade).
+      expect(unknownResponse.json().error.data.stack).toBeUndefined();
 
       const reportResponse = await app.inject({
         method: "POST",
@@ -443,6 +445,48 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       });
       expect(reportResponse.statusCode).toBe(200);
       expect(reportResponse.json().result.data.success).toBe(true);
+
+      // Review UXL-13: Kategorie, Statusrückmeldung an die meldende Person, offene Meldungen im Redaktions-Dialog.
+      const kategorieResponse = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/contentFeedback.report",
+        headers: { cookie: sessionCookie },
+        payload: { contentItemId: dueCards[0]!.id, category: "tippfehler", reason: "Zeile 1\nZeile 2" },
+      });
+      expect(kategorieResponse.statusCode).toBe(200);
+      const meine = (
+        await app.inject({ method: "GET", url: "/api/v1/trpc/contentFeedback.myReports", headers: { cookie: sessionCookie } })
+      ).json().result.data as { id: string; category: string; status: string; resolutionNote: string | null }[];
+      expect(meine.map((meldung) => meldung.category).sort()).toEqual(["sonstiges", "tippfehler"]);
+      expect(meine.every((meldung) => meldung.status === "offen")).toBe(true);
+
+      const adminRegister = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/auth.register",
+        payload: { email: "admin-uxl13@example.com", password: "adminPasswort123!", birthDate: "1990-01-01" },
+      });
+      await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, adminRegister.json().result.data.id as string));
+      const adminCookieUxl13 = extractSessionCookie(adminRegister.headers["set-cookie"]);
+      const offen = (
+        await app.inject({
+          method: "GET",
+          url: `/api/v1/trpc/adminContent.openReports?input=${encodeURIComponent(JSON.stringify({ contentItemId: dueCards[0]!.id }))}`,
+          headers: { cookie: adminCookieUxl13 },
+        })
+      ).json().result.data as { id: string; category: string }[];
+      expect(offen.length).toBeGreaterThanOrEqual(2);
+      const tippfehler = offen.find((meldung) => meldung.category === "tippfehler")!;
+      const geschlossen = await app.inject({
+        method: "POST",
+        url: "/api/v1/trpc/admin.resolveContentReport",
+        headers: { cookie: adminCookieUxl13 },
+        payload: { contentReportId: tippfehler.id, note: "Korrigiert, danke." },
+      });
+      expect(geschlossen.statusCode).toBe(200);
+      const danach = (
+        await app.inject({ method: "GET", url: "/api/v1/trpc/contentFeedback.myReports", headers: { cookie: sessionCookie } })
+      ).json().result.data as { id: string; status: string; resolutionNote: string | null }[];
+      expect(danach.find((meldung) => meldung.id === tippfehler.id)).toMatchObject({ status: "geschlossen", resolutionNote: "Korrigiert, danke." });
     },
     30_000,
   );
@@ -850,6 +894,11 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         payload: { exerciseSetId },
       });
       expect(completeAgainResponse.statusCode).toBe(200);
+
+      // Review UXL-22: Nur Sätze zählen, nach deren Start etwas beantwortet wurde; ein Satz ohne Antwort (nur geschaut) nicht.
+      const [satzRow] = await db.select({ userId: schema.exerciseSet.userId }).from(schema.exerciseSet).limit(1);
+      const [irgendeinItem] = await db.select({ id: schema.contentItem.id }).from(schema.contentItem).limit(1);
+      await db.insert(schema.learningEvent).values({ userId: satzRow!.userId, contentItemId: irgendeinItem!.id, isCorrect: true });
 
       // Admin-Session (eigener Testnutzer, analog zum F-11-Test oben).
       const adminRegisterResponse = await app.inject({
@@ -2630,7 +2679,7 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
         .limit(1);
       expect(anyOption).toBeTruthy();
 
-      for (let attempt = 0; attempt < 30; attempt += 1) {
+      for (let attempt = 0; attempt < 150; attempt += 1) {
         const response = await app.inject({
           method: "POST",
           url: "/api/v1/trpc/preview.submitAnswer",
@@ -2640,7 +2689,7 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       }
 
       // Derselbe Zähler gilt gemeinsam für alle sieben submit*-Prozeduren (findPublishedItem in
-      // preview.ts) — der 31. Aufruf ist blockiert, obwohl er eine ANDERE Prozedur trifft, damit
+      // preview.ts) — der 151. Aufruf ist blockiert, obwohl er eine ANDERE Prozedur trifft, damit
       // ein Verteilen der Aufrufe auf mehrere Aufgabentypen das Limit nicht umgeht.
       const blockedResponse = await app.inject({
         method: "POST",

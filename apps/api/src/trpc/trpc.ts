@@ -5,7 +5,10 @@ import { hasRole } from "../auth/roles";
 import type { Context } from "./context";
 import { zodIssuesDe } from "./zod-messages";
 
+// Review UXL-19: Stacktraces (lokale Pfade) nur im Entwicklungsmodus ausliefern, nicht in Tests oder Produktion.
 const t = initTRPC.context<Context>().create({
+  // Direkt aus process.env, damit dieses Modul ohne vollständige Umgebung (Unit-Tests) importierbar bleibt.
+  isDev: process.env.NODE_ENV === "development",
   // Review UXL-08/WEB-14: verständliche deutsche Meldung statt des rohen Zod-Arrays. Die Einzelheiten bleiben in `data.zodIssues`.
   errorFormatter({ shape, error }) {
     if (error.code === "BAD_REQUEST" && error.cause instanceof ZodError) {

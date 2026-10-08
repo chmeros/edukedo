@@ -1017,8 +1017,12 @@ export const contentReport = pgTable("content_report", {
     .notNull()
     .references(() => contentItem.id, { onDelete: "cascade" }),
   reporterUserId: uuid("reporter_user_id").references(() => user.id, { onDelete: "set null" }),
+  // Review UXL-13: Kategorie, Rückmeldung der Redaktion und Zeitpunkt der Bearbeitung.
+  category: text("category").notNull().default("sonstiges"),
   reason: text("reason").notNull(),
   status: text("status").notNull().default("offen"),
+  resolutionNote: text("resolution_note"),
+  resolvedAt: timestamp("resolved_at", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

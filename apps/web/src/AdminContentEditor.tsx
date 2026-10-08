@@ -1,4 +1,4 @@
-import { ADMIN_LIST_PAGE_SIZE, isQuadrantItem, isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type AdminContentItemForm, type QuadrantQuizType } from "@edukedo/shared";
+import { ADMIN_LIST_PAGE_SIZE, CONTENT_REPORT_CATEGORY_LABELS, isQuadrantItem, isQuadrantType, LUECKEN_AUSWAHL_MIN_DISTRACTORS, QUADRANT_MODELS, QUADRANT_QUIZ_TYPES, type AdminContentItemForm, type ContentReportCategory, type QuadrantQuizType } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
@@ -1171,6 +1171,10 @@ export function AdminContentEditor({
     },
     { enabled: !!kursId },
   );
+  const openReports = trpc.adminContent.openReports.useQuery(
+    { contentItemId: editing?.mode === "edit" ? editing.contentItemId : "" },
+    { enabled: editing?.mode === "edit" },
+  );
   const editingItem = trpc.adminContent.get.useQuery(
     { contentItemId: editing?.mode === "edit" ? editing.contentItemId : "" },
     { enabled: editing?.mode === "edit" },
@@ -1341,6 +1345,19 @@ export function AdminContentEditor({
 
       {editing?.mode === "edit" && (
         <Modal title="Content-Item bearbeiten" onClose={closeEditor}>
+          {/* Review UXL-13: offene Meldungen zu diesem Item neben dem Inhalt. */}
+          {(openReports.data ?? []).length > 0 && (
+            <div className="alert alert-info">
+              <div className="stack">
+                <b>Offene Meldungen zu diesem Inhalt</b>
+                {openReports.data!.map((meldung) => (
+                  <span key={meldung.id}>
+                    {CONTENT_REPORT_CATEGORY_LABELS[meldung.category as ContentReportCategory] ?? meldung.category}: {meldung.reason}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           {editingItem.isLoading && <p>Lädt…</p>}
           {editingItem.error && <ErrorMessage>{editingItem.error.message}</ErrorMessage>}
           {editingItem.data && (

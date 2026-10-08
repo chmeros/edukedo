@@ -1,3 +1,4 @@
+import { CONTENT_REPORT_CATEGORY_LABELS, type ContentReportCategory } from "@edukedo/shared";
 import { useState } from "react";
 import { AdminContentEditor } from "./AdminContentEditor";
 import { AiAdminTools } from "./AiAdminTools";
@@ -233,6 +234,7 @@ export function AdminPanel() {
   // Kurses mit `targetsMinors` verlangt jetzt eine explizite zweite Bestätigung (siehe
   // admin.ts setPublished) statt eines einzelnen Klicks — dieser State hält den Kurs, für den
   // gerade der Bestätigungsdialog offen ist.
+  const [reportNotes, setReportNotes] = useState<Record<string, string>>({});
   const [confirmPublishCourse, setConfirmPublishCourse] = useState<{ id: string; title: string } | null>(null);
   const me = trpc.auth.me.useQuery();
   const kpis = trpc.admin.kpis.useQuery();
@@ -543,18 +545,28 @@ export function AdminPanel() {
                 {entry.contentItemType}: „{entry.contentItemPrompt.slice(0, 80)}
                 {entry.contentItemPrompt.length > 80 ? "…" : ""}"
                 <span>
-                  {entry.reason} · gemeldet von {entry.reporterEmail ?? "unbekannt"} ·{" "}
+                  {CONTENT_REPORT_CATEGORY_LABELS[entry.category as ContentReportCategory] ?? entry.category}: {entry.reason} · gemeldet von{" "}
+                  {entry.reporterEmail ?? "unbekannt"} ·{" "}
                   {new Date(entry.createdAt).toLocaleDateString("de-DE")}
                 </span>
               </div>
               <div className="list-row-actions">
+                <input
+                  className="input"
+                  style={{ maxWidth: "14rem" }}
+                  aria-label="Rückmeldung an die meldende Person (optional)"
+                  placeholder="Rückmeldung (optional)"
+                  maxLength={500}
+                  value={reportNotes[entry.id] ?? ""}
+                  onChange={(event) => setReportNotes((aktuell) => ({ ...aktuell, [entry.id]: event.target.value }))}
+                />
                 <button type="button" className="btn btn-ghost btn-sm" onClick={() => setFocusContentItemId(entry.contentItemId)}>
                   In Redaktion bearbeiten
                 </button>
                 <button
                   type="button"
                   className="btn btn-secondary btn-sm"
-                  onClick={() => resolveContentReport.mutate({ contentReportId: entry.id })}
+                  onClick={() => resolveContentReport.mutate({ contentReportId: entry.id, note: reportNotes[entry.id] })}
                   disabled={resolveContentReport.isPending}
                 >
                   Schließen

@@ -224,6 +224,11 @@ export function CourseSelection({
               eine aktive Belegung gleichzeitig — mit dem Beitritt zu <b>{pendingSwitch.title}</b> verlässt du{" "}
               {pendingSwitch.leaveTitle} automatisch.
             </p>
+            {/* Review UXL-12/UXL-21: Kohorten sind nur im belegten Kurs sichtbar; das sollte vor dem Wechsel klar sein. */}
+            <p className="field-hint">
+              Kohorten (als Leitung oder Mitglied) bleiben bestehen, sind aber nur sichtbar, solange du den zugehörigen Kurs belegt
+              hast. Wechselst du später zurück, sind sie wieder da. Deine Lernstände bleiben erhalten, ein gesetzter Zieltermin des verlassenen Kurses nicht.
+            </p>
             <div className="header-actions">
               <button type="button" className="btn btn-ghost" onClick={() => setPendingSwitch(null)}>
                 Abbrechen
