@@ -99,9 +99,9 @@ Geplant ist ein digitaler Rechnungsworkflow mit ERP-Anbindung. Einmalige Kosten:
 
 #### F-DP1-03 · Fallaufgabe
 
-**Themenbezug:** 8.1 (Kennzahlen) + 8.3 (Prozess Mining, Optimierung, Lean) + 8.4 (rechtliche Auswirkungen, Wirtschaftlichkeit, Erfolgskontrolle)
+**Themenbezug:** 8.1 (Kennzahlen) + 8.3 (Process Mining, Optimierung, Lean) + 8.4 (rechtliche Auswirkungen, Wirtschaftlichkeit, Erfolgskontrolle)
 
-**Ausgangssituation:** Der IT-Service-Desk der Stadtwerke Lindenau GmbH (600 Beschäftigte, Betriebsrat vorhanden, Service-Desk mit 12 Beschäftigten) bearbeitet Störungsmeldungen interner Anwender. Die Brevanta analysiert den Ticketprozess. Der Standardweg lautet: Ticket erfassen → Ticket klassifizieren → Lösung im 1st-Level → Ticket schließen. Eine Auswertung des Ticketsystems per Prozess Mining für ein Quartal (6.000 Tickets) lieferte folgende Prozessvarianten:
+**Ausgangssituation:** Der IT-Service-Desk der Stadtwerke Lindenau GmbH (600 Beschäftigte, Betriebsrat vorhanden, Service-Desk mit 12 Beschäftigten) bearbeitet Störungsmeldungen interner Anwender. Die Brevanta analysiert den Ticketprozess. Der Standardweg lautet: Ticket erfassen → Ticket klassifizieren → Lösung im 1st-Level → Ticket schließen. Eine Auswertung des Ticketsystems per Process Mining für ein Quartal (6.000 Tickets) lieferte folgende Prozessvarianten:
 
 ```
 Variante A: 3.300 Tickets, mittlere Durchlaufzeit 6 h

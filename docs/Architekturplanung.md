@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Daten- und Prozessanalyse)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (29 Items geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei vier Kurzantworten ändert sich die Lösung durch zusätzlich akzeptierte Varianten (Q-8.1-05, Q-8.4-05, Q-3.3-02) bzw. durch die Zuordnung in Q-11.1-18; der Fortschritt bleibt erhalten.
+
+- **Umgesetzt:** FL-DPA-01 (Regel für Datenqualität: Vollständigkeit = nötige Felder befüllt; Quantität = Anzahl der Datensätze und Messwerte im Verhältnis zum Soll bzw. zum Analysebedarf; Theorie, Karteikarten, Vollständigkeitsquote und Q-11.1-18), FL-DPA-02 (Validität = Format, Datentyp und zulässige Werteliste; numerische Grenzen sind Plausibilitätsregeln), FL-DPA-04 (metrisch = Intervall- und Verhältnisskala), FL-DPA-05 (einheitlich "Process Mining", Hinweisabsatz entfernt), FL-DPA-08 (Merkregel: orten, gewichten mit Pareto, dann Ursachen erklären), FL-DPA-09 Teil c (DQL und TCL in 5.2, wie im Kurs Anwendungsentwicklung), FL-DPA-12 (Dezimalpunkt-Varianten), FL-DPA-16 (zwei einstufige Rechnungen nicht "schwer"), FL-DPA-18, 20, 22.
+- **Nicht geändert:** FL-DPA-03 (Mischen der Optionen ist bereits umgesetzt), FL-DPA-06 und 07 (Umbau von Lückentexten und Zonenfragen), FL-DPA-09 Teile a, b und d (SQLite-Dialekt, ungerade Quartile, MAPE: Theorie ergänzen, R5), FL-DPA-10 (Aussagen zur Prüfungspraxis, Normbezug), FL-DPA-11, 13 bis 15, 17, 19, 21, 23 (Stil, Zahlenformat, Du/Sie, Gendern, Distraktoren, Fallaufgabe mit eigenen Zahlen). Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Ausbildung der Ausbilder)
 
 Nutzer-Freigabe vom 08.10.2026. Der Kurs besteht fast vollständig aus Berufsbildungsrecht (BBiG, BetrVG, JArbSchG, AEVO); deshalb sind nur wenige, nicht rechtsnahe Befunde umgesetzt. Validiert (0 Verstöße), importiert (6 Items geändert, bei Q-1.2-10 ändert sich die Lösung durch den zusammengefassten Schritt; Trockenlauf danach ohne Änderung), Unit-Tests grün.
