@@ -28,7 +28,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Formulieren Sie ein SMART formuliertes operatives Ziel für die Einführungsphase der neuen Tagespflege innerhalb der ersten zwölf Monate.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Haftungsbeschränkung, Gemeinnützigkeitsfähigkeit/steuerliche Vorteile der gGmbH sowie die einfachere Aufnahme weiterer Gesellschafter gegenüber dem Einzelunternehmen eingehen. Teilaufgabe 2: z. B. Landesverbände der Pflegekassen (Versorgungsvertrag), Heimaufsichtsbehörde (ggf. Betriebserlaubnis für die Tagespflege), Finanzamt (Gemeinnützigkeitsstatus). Teilaufgabe 3: Diversifikationsstrategie, da ein neuer, bisher nicht angebotener Leistungsbereich erschlossen wird. Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z. B. eine bestimmte Belegungsquote der Tagespflege bis zu einem festen Datum.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Haftungsbeschränkung, Gemeinnützigkeitsfähigkeit/steuerliche Vorteile der gGmbH sowie die einfachere Aufnahme weiterer Gesellschafter gegenüber dem Einzelunternehmen eingehen. Teilaufgabe 2: z. B. Landesverbände der Pflegekassen (Versorgungsvertrag), Heimaufsichtsbehörde (ggf. Betriebserlaubnis für die Tagespflege), Finanzamt (Gemeinnützigkeitsstatus). Teilaufgabe 3: Diversifikationsstrategie im Sinne von Thema 1.2, da ein neuer, bisher nicht angebotener Leistungsbereich erschlossen wird (nach Ansoff, Thema 6.3, im bestehenden Einzugsgebiet streng genommen Produktentwicklung; als Hinweis genügt). Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z. B. eine bestimmte Belegungsquote der Tagespflege bis zu einem festen Datum.
 
 ---
 

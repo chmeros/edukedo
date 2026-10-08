@@ -221,7 +221,7 @@ export const memoryGesundheitSoziales: MemoryPayload = {
       nummer: 27,
       runde: 3,
       begriff: "Vier-Stufen-Methode",
-      bedeutung: "Vormachen, Nachmachen, Üben, Erfolgskontrolle",
+      bedeutung: "Vorbereiten, Vormachen, Nachmachen, Üben",
       bestaetigung: "Richtig! Mit dieser Methode lassen sich praktische Fertigkeiten Schritt für Schritt vermitteln.",
     },
     {
