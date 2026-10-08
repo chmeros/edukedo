@@ -105,9 +105,9 @@ export const adminRouter = router({
     }),
 
   // F-17: löst das bisherige manuelle `pnpm db:import-content` per SSH/Terminal ab. Liest
-  // das Content-Zwischenformat aus content/ (Repo-Root) neu ein und ersetzt je Thema den
-  // vorhandenen Content vollständig (siehe import-content.ts) — is_published bleibt dabei
-  // unangetastet.
+  // das Content-Zwischenformat aus content/ (Repo-Root) neu ein und gleicht den Content je Thema
+  // ab (siehe import-content.ts; ohne Löschen von Items, Lernfortschritt bleibt erhalten) —
+  // is_published bleibt dabei unangetastet.
   triggerImport: roleProcedure("admin").mutation(async () => {
     try {
       return await importAllContent();

@@ -40,6 +40,19 @@ export interface SyncThemaOptions extends PlanOptions {
   dryRun?: boolean;
 }
 
+/** Kennzahlen eines Plans, ohne ihn auszuführen (Trockenlauf, blockierter Plan). */
+export function statsFromPlan(plan: SyncPlan): SyncStats {
+  return {
+    created: plan.create.length,
+    updated: plan.update.length,
+    unchanged: plan.unchanged,
+    deactivated: plan.deactivate.length,
+    activationChanges: plan.setActive.length,
+    solutionChanged: plan.update.filter((entry) => entry.solutionChanged).map((entry) => entry.key),
+    warnings: plan.warnings,
+  };
+}
+
 /** Lädt den Ist-Zustand eines Themas (Items, Optionen, Tags) in der Form für `planSync`. */
 export async function loadExistingItems(tx: Tx, themaId: string): Promise<ExistingItem[]> {
   const items = await tx.select().from(contentItem).where(eq(contentItem.themaId, themaId));
@@ -228,19 +241,7 @@ export async function syncThemaItems(db: Db, themaId: string, desired: DesiredIt
     const existing = await loadExistingItems(tx, themaId);
     const plan = planSync(desired, existing, { allowRemovals: options.allowRemovals });
     if (options.dryRun || plan.blocked) {
-      return {
-        plan,
-        applied: false,
-        stats: {
-          created: plan.create.length,
-          updated: plan.update.length,
-          unchanged: plan.unchanged,
-          deactivated: plan.deactivate.length,
-          activationChanges: plan.setActive.length,
-          solutionChanged: plan.update.filter((entry) => entry.solutionChanged).map((entry) => entry.key),
-          warnings: plan.warnings,
-        },
-      };
+      return { plan, applied: false, stats: statsFromPlan(plan) };
     }
     const stats = await executePlan(tx, themaId, plan);
     return { plan, applied: true, stats };

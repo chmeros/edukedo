@@ -267,7 +267,7 @@ export function AdminPanel() {
       utils.quiz.quizItems.invalidate();
       utils.progress.overview.invalidate();
       // Code-Review-Fund (22.09.2026, siehe Architekturplanung Abschnitt 13): der Import
-      // "ersetzt je Thema den vorhandenen Content vollständig" (siehe Hinweistext unten) —
+      // "gleicht je Thema den Content ab" (siehe Hinweistext unten) —
       // AdminContentEditor.tsx ist im selben Panel gerendert und lädt seine eigenen
       // adminContent.list/themaTree-Queries, die vorher nicht mit invalidiert wurden. Ohne das
       // konnte "Bearbeiten" auf eine bereits ersetzte, nicht mehr existierende Zeile zeigen.
@@ -340,8 +340,9 @@ export function AdminPanel() {
         <div className="alert alert-info">
           <InfoIcon />
           <div>
-            Liest <code>content/</code> (Repo-Root) neu ein und ersetzt je Thema den vorhandenen Content
-            vollständig. <code>is_published</code> bleibt dabei unangetastet.
+            Liest <code>content/</code> (Repo-Root) neu ein und gleicht den Content je Thema ab: Neues wird angelegt,
+            Geändertes aktualisiert, Entferntes deaktiviert. Lernfortschritt, Notizen und Prüfungsantworten bleiben
+            erhalten, <code>is_published</code> bleibt unangetastet.
           </div>
         </div>
         {setPublished.error && <ErrorMessage>{setPublished.error.message}</ErrorMessage>}
@@ -391,9 +392,19 @@ export function AdminPanel() {
             <SuccessIcon />
             <div>
               <b>
-                {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items
-                importiert.
+                {triggerImport.data.filesProcessed} Dateien, {triggerImport.data.itemsImported} Content-Items:{" "}
+                {triggerImport.data.created} neu, {triggerImport.data.updated} geändert, {triggerImport.data.unchanged}{" "}
+                unverändert, {triggerImport.data.deactivated} deaktiviert.
               </b>
+              {triggerImport.data.solutionChanged.length > 0 && (
+                <div>{triggerImport.data.solutionChanged.length} Items mit geänderter Lösung (Fortschritt bleibt erhalten).</div>
+              )}
+              {triggerImport.data.blocked.length > 0 && (
+                <div>
+                  Nicht verändert (zu viele Entfernungen): {triggerImport.data.blocked.map((entry) => entry.thema).join(", ")}.
+                  Bitte per Kommandozeile mit <code>--allow-removals</code> bestätigen.
+                </div>
+              )}
             </div>
           </div>
         )}

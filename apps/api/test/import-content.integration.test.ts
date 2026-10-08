@@ -68,20 +68,43 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
   );
 
   it(
-    "ersetzt bei einem erneuten Import den Content vollständig, ohne verwaiste Versionen anzusammeln",
+    "gleicht bei einem erneuten Import ab statt zu ersetzen: nichts ändert sich, keine neuen Versionen, Item-IDs und Fortschritt bleiben",
     async () => {
       const first = await importAllContent();
+      const itemsBefore = await db.select().from(schema.contentItem);
+      const [karte] = itemsBefore.filter((item) => item.type === "karteikarte");
+      const [nutzer] = await db.insert(schema.user).values({ email: "import-test@example.test", passwordHash: "x", isMinor: false }).returning();
+      await db.insert(schema.userProgress).values({ userId: nutzer!.id, contentItemId: karte!.id, difficulty: 3, stability: 2, state: "review", dueAt: new Date() });
+      await db.insert(schema.userNote).values({ userId: nutzer!.id, contentItemId: karte!.id, noteText: "bleibt erhalten" });
+
       const second = await importAllContent();
 
       expect(second.filesProcessed).toBe(first.filesProcessed);
       expect(second.itemsImported).toBe(first.itemsImported);
+      expect(second).toMatchObject({ created: 0, updated: 0, deactivated: 0, unchanged: first.itemsImported, blocked: [] });
 
       const items = await db.select().from(schema.contentItem);
       const versions = await db.select().from(schema.contentItemVersion);
       expect(items.length).toBe(second.itemsImported);
-      // Kaskadierendes Löschen (content_item -> content_item_version, Abschnitt 4.4) muss bei
-      // jedem Re-Import greifen — sonst würden sich hier alte Versionen ungenutzt ansammeln.
+      expect(items.map((item) => item.id).sort()).toEqual(itemsBefore.map((item) => item.id).sort());
       expect(versions.length).toBe(items.length);
+      expect(items.every((item) => item.sourceKey !== null && item.contentHash !== null)).toBe(true);
+
+      // Früher löschte der Re-Import die Items und mit ihnen Fortschritt und Notizen (ON DELETE CASCADE).
+      expect(await db.select().from(schema.userProgress).where(eq(schema.userProgress.contentItemId, karte!.id))).toHaveLength(1);
+      expect(await db.select().from(schema.userNote).where(eq(schema.userNote.contentItemId, karte!.id))).toHaveLength(1);
+    },
+    240_000,
+  );
+
+  it(
+    "liefert im Trockenlauf eine Zusammenfassung und schreibt nichts",
+    async () => {
+      const before = (await db.select().from(schema.contentItem)).map((item) => `${item.id}:${item.currentVersion}`).sort();
+      const summary = await importAllContent({ dryRun: true });
+      expect(summary.dryRun).toBe(true);
+      expect(summary).toMatchObject({ created: 0, updated: 0, deactivated: 0 });
+      expect((await db.select().from(schema.contentItem)).map((item) => `${item.id}:${item.currentVersion}`).sort()).toEqual(before);
     },
     240_000,
   );

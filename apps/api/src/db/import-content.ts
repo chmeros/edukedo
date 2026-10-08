@@ -1,31 +1,15 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { and, eq, inArray } from "drizzle-orm";
-import { isQuadrantItem, istInstrumentEntwurf, KURS_ANGEBOT } from "@edukedo/shared";
+import { and, eq } from "drizzle-orm";
+import { KURS_ANGEBOT } from "@edukedo/shared";
 import { db, pool } from "./client";
-import {
-  type Bloom,
-  extractSection,
-  parseFachgespraechFragen,
-  parseFallaufgabe,
-  parseGlossar,
-  parseKarteikarten,
-  parseQuizBlock,
-  splitBlocks,
-  splitFrontmatter,
-} from "./content-parser";
-import {
-  answerOption,
-  contentItem,
-  contentItemTag,
-  contentItemVersion,
-  fachgebiet,
-  glossarEintrag,
-  kurs,
-  tag,
-  thema,
-} from "./schema";
+import { buildDesiredItems } from "./content-desired";
+import { validateContentDir } from "./content-keys";
+import { extractSection, parseGlossar, splitFrontmatter } from "./content-parser";
+import { statsFromPlan, syncThemaItems, type SyncStats } from "./content-sync";
+import { type DesiredItem, planSync } from "./content-sync-plan";
+import { fachgebiet, glossarEintrag, kurs, thema } from "./schema";
 
 /**
  * Bulk-Import des Content-Zwischenformats (siehe content/README.md im Repo-Root) — löst das
@@ -306,61 +290,55 @@ function kursMetaFor(slug: string): KursMeta {
   return KURS_META[slug] ?? { title: slug, type: slug, isPublished: false, metadata: {} };
 }
 
-async function ensureTagIds(tagNames: string[]): Promise<Map<string, string>> {
-  const uniqueNames = [...new Set(tagNames)];
-  const ids = new Map<string, string>();
-  for (const name of uniqueNames) {
-    const [existing] = await db.select().from(tag).where(eq(tag.name, name)).limit(1);
-    if (existing) {
-      ids.set(name, existing.id);
-      continue;
-    }
-    const [created] = await db.insert(tag).values({ name }).returning();
-    if (!created) throw new Error(`Tag "${name}" konnte nicht angelegt werden.`);
-    ids.set(name, created.id);
+export interface ImportOptions {
+  /** Nur planen und berichten, nichts schreiben. */
+  dryRun?: boolean;
+  /** Hebt die Abbruchschwelle für Entfernungen auf (siehe REMOVAL_THRESHOLD_* in content-sync-plan.ts). */
+  allowRemovals?: boolean;
+}
+
+interface ThemaImportResult {
+  label: string;
+  itemCount: number;
+  stats: SyncStats;
+  blocked: string | null;
+}
+
+/** Findet das Thema über den stabilen Code (Fallback: Titel eines noch nicht zugeordneten Altbestands). */
+async function findThema(fachgebietId: string, code: string, title: string) {
+  const [byCode] = await db.select().from(thema).where(and(eq(thema.fachgebietId, fachgebietId), eq(thema.code, code))).limit(1);
+  if (byCode) return byCode;
+  const [byTitle] = await db.select().from(thema).where(and(eq(thema.fachgebietId, fachgebietId), eq(thema.title, title))).limit(1);
+  return byTitle;
+}
+
+/** Trockenlauf für ein Thema: liest nur, legt weder Kurs noch Fachgebiet noch Thema an. */
+async function planThemaDryRun(frontmatter: Record<string, string>, desired: DesiredItem[], themaTitle: string, label: string): Promise<ThemaImportResult> {
+  const [kursRow] = await db.select().from(kurs).where(eq(kurs.slug, frontmatter.kurs_slug!)).limit(1);
+  const [fachgebietRow] = kursRow
+    ? await db.select().from(fachgebiet).where(and(eq(fachgebiet.kursId, kursRow.id), eq(fachgebiet.code, frontmatter.fachgebiet_code!))).limit(1)
+    : [];
+  const themaRow = fachgebietRow ? await findThema(fachgebietRow.id, frontmatter.thema_code!, themaTitle) : undefined;
+  if (themaRow) {
+    const result = await syncThemaItems(db, themaRow.id, desired, { dryRun: true });
+    return { label, itemCount: desired.length, stats: result.stats, blocked: result.plan.blocked };
   }
-  return ids;
+  return { label, itemCount: desired.length, stats: statsFromPlan(planSync(desired, [])), blocked: null };
 }
 
 /**
- * Gemeinsamer Insert-Helfer für die F-113/F-114/F-115/F-116-Fragetypen (10 Stück, siehe
- * content-parser.ts) — alle folgen demselben Muster wie die länger bestehenden
- * quiz_mc/zuordnung-Zweige unten (contentItem + contentItemVersion + optionale
- * answer_option-Zeilen), nur mit unterschiedlichem payload/answerOptions-Aufbau je Typ. Die
- * älteren, bereits produktiv laufenden Zweige (quiz_mc/zuordnung/luecken/kurzantwort) bleiben
- * bewusst unangetastet, um kein Regressionsrisiko in bereits getesteten Code einzubringen.
+ * Importiert eine Themendatei als Abgleich (Entwurf docs/entwuerfe/sicherer-content-import.md): Items werden über ihren
+ * stabilen Schlüssel angelegt, aktualisiert oder deaktiviert, aber nie gelöscht. Lernfortschritt, Notizen, Prüfungsantworten
+ * und Duelle bleiben erhalten; die Datei wird in einer Transaktion abgeglichen.
  */
-async function insertQuizContentItem(
-  themaId: string,
-  type: string,
-  prompt: string,
-  explanation: string,
-  difficulty: string,
-  bloom: Bloom | null,
-  payload: Record<string, unknown>,
-  answerOptions?: { text: string; isCorrect: boolean; groupKey?: string; sortOrder: number }[],
-  isActive = true,
-): Promise<void> {
-  const [item] = await db
-    .insert(contentItem)
-    .values({ themaId, type, prompt, explanation, difficulty, bloom, payload, isActive })
-    .returning();
-  if (!item) throw new Error(`Content-Item vom Typ "${type}" konnte nicht angelegt werden.`);
-  await db.insert(contentItemVersion).values({
-    contentItemId: item.id,
-    versionNumber: 1,
-    prompt: item.prompt,
-    explanation: item.explanation,
-    payload,
-  });
-  if (answerOptions && answerOptions.length > 0) {
-    await db.insert(answerOption).values(answerOptions.map((option) => ({ contentItemId: item.id, ...option })));
-  }
-}
-
-async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number): Promise<number> {
+async function importThemaFile(filePath: string, fachgebietSortOrder: number, sortOrder: number, options: ImportOptions): Promise<ThemaImportResult> {
   const raw = await readFile(filePath, "utf8");
   const { frontmatter, body } = splitFrontmatter(raw);
+
+  const themaTitle = `${frontmatter.thema_code} — ${frontmatter.thema_title}`;
+  const label = `${frontmatter.kurs_slug}/${frontmatter.fachgebiet_code}/${frontmatter.thema_code}`;
+  const desired = buildDesiredItems({ kursSlug: frontmatter.kurs_slug!, themaTitle: frontmatter.thema_title!, body });
+  if (options.dryRun) return planThemaDryRun(frontmatter, desired, themaTitle, label);
 
   const meta = kursMetaFor(frontmatter.kurs_slug!);
 
@@ -425,367 +403,23 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
     await db.update(fachgebiet).set({ sortOrder: fachgebietSortOrder }).where(eq(fachgebiet.id, fachgebietRow.id));
   }
 
-  const themaTitle = `${frontmatter.thema_code} — ${frontmatter.thema_title}`;
-  const [existingThema] = await db
-    .select()
-    .from(thema)
-    .where(and(eq(thema.fachgebietId, fachgebietRow.id), eq(thema.title, themaTitle)))
-    .limit(1);
-
+  const existingThema = await findThema(fachgebietRow.id, frontmatter.thema_code!, themaTitle);
   const themaRow =
     existingThema ??
-    (await db.insert(thema).values({ fachgebietId: fachgebietRow.id, title: themaTitle, sortOrder }).returning())[0];
+    (await db.insert(thema).values({ fachgebietId: fachgebietRow.id, code: frontmatter.thema_code!, title: themaTitle, sortOrder }).returning())[0];
   if (!themaRow) throw new Error(`Thema "${themaTitle}" konnte nicht angelegt werden.`);
-
-  if (existingThema) {
-    // Volle Ersetzung statt Upsert je Content-Item: Es gibt für dieses Thema noch keine
-    // echten Nutzerdaten (erster Import echten Fachwirt-Contents), ein erneuter Lauf nach
-    // Textänderungen soll einfach den vorherigen Stand ersetzen. Kaskadiert automatisch zu
-    // content_item_version/answer_option/content_item_tag/user_progress (Abschnitt 4.4).
-    const existingItems = await db.select({ id: contentItem.id }).from(contentItem).where(eq(contentItem.themaId, themaRow.id));
-    if (existingItems.length > 0) {
-      await db.delete(contentItem).where(inArray(contentItem.id, existingItems.map((item) => item.id)));
-    }
-    await db.update(thema).set({ sortOrder }).where(eq(thema.id, themaRow.id));
+  // Titel, Code und Reihenfolge bei jedem Lauf nachziehen: Eine Titelkorrektur erzeugt kein zweites Thema.
+  if (existingThema && (existingThema.title !== themaTitle || existingThema.code !== frontmatter.thema_code || existingThema.sortOrder !== sortOrder)) {
+    await db.update(thema).set({ title: themaTitle, code: frontmatter.thema_code!, sortOrder }).where(eq(thema.id, themaRow.id));
   }
 
-  const theorieBody = extractSection(body, "Theorie");
-  const karteikartenBody = extractSection(body, "Karteikarten");
-  const quizBody = extractSection(body, "Quiz");
-  // F-23: "Fallaufgaben" beim Fachwirt-Piloten, "Übungsaufgaben" bei Mathematik/Schulfach —
-  // dieselbe Struktur, derselbe content_item.type, siehe content/README.md.
-  const fallaufgabenBody = extractSection(body, "Fallaufgaben") ?? extractSection(body, "Übungsaufgaben");
-  // F-25: nur beim Fachwirt-Piloten relevant (siehe content/README.md), daher bei anderen
-  // Kurstypen (Mathematik-9, Demo) einfach nicht vorhanden.
-  const fachgespraechBody = extractSection(body, "Fachgesprächsfragen");
-
-  let created = 0;
-
-  if (theorieBody) {
-    const [item] = await db
-      .insert(contentItem)
-      .values({
-        themaId: themaRow.id,
-        type: "theorie",
-        prompt: frontmatter.thema_title!,
-        payload: { body_markdown: theorieBody, images: [] },
-      })
-      .returning();
-    if (!item) throw new Error("Theorie-Item konnte nicht angelegt werden.");
-    await db.insert(contentItemVersion).values({
-      contentItemId: item.id,
-      versionNumber: 1,
-      prompt: item.prompt,
-      explanation: null,
-      payload: item.payload,
-    });
-    created += 1;
-  }
-
-  if (karteikartenBody) {
-    for (const card of parseKarteikarten(karteikartenBody)) {
-      const [item] = await db
-        .insert(contentItem)
-        .values({
-          themaId: themaRow.id,
-          type: "karteikarte",
-          prompt: card.prompt,
-          explanation: card.explanation,
-          difficulty: card.difficulty,
-          bloom: card.bloom,
-        })
-        .returning();
-      if (!item) throw new Error("Karteikarte konnte nicht angelegt werden.");
-      await db.insert(contentItemVersion).values({
-        contentItemId: item.id,
-        versionNumber: 1,
-        prompt: item.prompt,
-        explanation: item.explanation,
-        payload: {},
-      });
-
-      if (card.tags.length > 0) {
-        const tagIds = await ensureTagIds(card.tags);
-        await db
-          .insert(contentItemTag)
-          .values(card.tags.map((name) => ({ contentItemId: item.id, tagId: tagIds.get(name)! })));
-      }
-      created += 1;
-    }
-  }
-
-  if (quizBody) {
-    for (const block of splitBlocks(quizBody)) {
-      const parsed = parseQuizBlock(block);
-      if (!parsed) continue;
-
-      if (
-        parsed.type === "wahr_falsch" ||
-        parsed.type === "entweder_oder" ||
-        parsed.type === "was_passt_nicht" ||
-        parsed.type === "quiz_mc_multi"
-      ) {
-        // F-113/F-116: strukturell identisch zu Multiple Choice (options-Array), siehe
-        // prepareContent in adminContent.ts für dieselbe Zuordnung — hier bewusst dupliziert
-        // statt importiert, um db/ frei von trpc/routers/-Abhängigkeiten zu halten (siehe
-        // Moduldoku oben: content-parser.ts ist bewusst ohne DB-/Router-Kopplung ausgelagert).
-        await insertQuizContentItem(
-          themaRow.id,
-          parsed.type,
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          {},
-          parsed.options.map((option, index) => ({ text: option.text, isCorrect: option.isCorrect, sortOrder: index })),
-        );
-      } else if (parsed.type === "sortieren") {
-        // F-113 Teil 2: sortOrder trägt hier die tatsächlich zu prüfende Position (die
-        // Eingabereihenfolge selbst), nicht nur eine kosmetische Anzeige-Reihenfolge.
-        await insertQuizContentItem(
-          themaRow.id,
-          "sortieren",
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          {},
-          parsed.items.map((sortierenItem, index) => ({ text: sortierenItem.text, isCorrect: false, sortOrder: index })),
-        );
-      } else if (
-        isQuadrantItem(parsed)
-      ) {
-        // F-114: visuelle Zuordnungs-Variante — dieselbe answer_option-Tabelle wie "zuordnung",
-        // group_key trägt hier den festen Zonen-Schlüssel statt einer Paar-ID.
-        await insertQuizContentItem(
-          themaRow.id,
-          parsed.type,
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          {},
-          parsed.terms.map((term, index) => ({ text: term.text, isCorrect: false, groupKey: term.zoneKey, sortOrder: index })),
-          // F-186: Fragen noch ungeprüfter Instrumente (KURS_ENTWURF) werden inaktiv angelegt, bis sie freigegeben sind.
-          !istInstrumentEntwurf(frontmatter.kurs_slug!, parsed.type),
-        );
-      } else if (parsed.type === "hierarchie") {
-        // F-105 (ToDo-Punkt 6): wie gantt unten (content-autorierte Zonen, generierte Schlüssel
-        // n0, n1, …), zusätzlich `parentKey` je Knoten für die Baumstruktur (siehe
-        // hierarchiePayloadSchema).
-        const nodes = parsed.nodes.map((node, index) => ({
-          key: `n${index}`,
-          label: node.label,
-          parentKey: node.parentIndex === null ? null : `n${node.parentIndex}`,
-        }));
-        await insertQuizContentItem(
-          themaRow.id,
-          "hierarchie",
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          { root: parsed.root, nodes },
-          parsed.terms.map((term, index) => ({
-            text: term.text,
-            isCorrect: false,
-            groupKey: nodes[term.nodeIndex]!.key,
-            sortOrder: index,
-          })),
-        );
-      } else if (parsed.type === "gantt") {
-        // F-114 Teil 2: Zeitabschnitte sind content-autoriert statt fest im Code (siehe
-        // ganttPayloadSchema) — generierte Schlüssel (p0, p1, …) analog zu adminContent.ts.
-        const periods = parsed.periods.map((label, index) => ({ key: `p${index}`, label }));
-        await insertQuizContentItem(
-          themaRow.id,
-          "gantt",
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          { periods },
-          parsed.terms.map((term, index) => ({
-            text: term.text,
-            isCorrect: false,
-            groupKey: periods[term.periodIndex]!.key,
-            sortOrder: index,
-          })),
-        );
-      } else if (parsed.type === "luecken_auswahl") {
-        // F-115: wie "luecken" unten, zusätzlich die frei eingegebenen Distraktoren im payload.
-        await insertQuizContentItem(
-          themaRow.id,
-          "luecken_auswahl",
-          parsed.prompt,
-          parsed.explanation,
-          parsed.difficulty,
-          parsed.bloom,
-          { text_with_blanks: parsed.textWithBlanks, blanks: parsed.blanks, distractors: parsed.distractors },
-        );
-      } else if (parsed.type === "quiz_mc") {
-        const [item] = await db
-          .insert(contentItem)
-          .values({
-            themaId: themaRow.id,
-            type: "quiz_mc",
-            prompt: parsed.prompt,
-            explanation: parsed.explanation,
-            difficulty: parsed.difficulty,
-            bloom: parsed.bloom,
-          })
-          .returning();
-        if (!item) throw new Error("Multiple-Choice-Frage konnte nicht angelegt werden.");
-        await db.insert(contentItemVersion).values({
-          contentItemId: item.id,
-          versionNumber: 1,
-          prompt: item.prompt,
-          explanation: item.explanation,
-          payload: {},
-        });
-        await db.insert(answerOption).values(
-          parsed.options.map((option, index) => ({
-            contentItemId: item.id,
-            text: option.text,
-            isCorrect: option.isCorrect,
-            sortOrder: index,
-          })),
-        );
-      } else if (parsed.type === "zuordnung") {
-        const [item] = await db
-          .insert(contentItem)
-          .values({
-            themaId: themaRow.id,
-            type: "zuordnung",
-            prompt: parsed.prompt,
-            explanation: parsed.explanation,
-            difficulty: parsed.difficulty,
-            bloom: parsed.bloom,
-          })
-          .returning();
-        if (!item) throw new Error("Zuordnungs-Frage konnte nicht angelegt werden.");
-        await db.insert(contentItemVersion).values({
-          contentItemId: item.id,
-          versionNumber: 1,
-          prompt: item.prompt,
-          explanation: item.explanation,
-          payload: {},
-        });
-        await db.insert(answerOption).values(
-          parsed.pairs.flatMap((pair, index) => [
-            { contentItemId: item.id, groupKey: String(index), side: "links", text: pair.left, sortOrder: index },
-            { contentItemId: item.id, groupKey: String(index), side: "rechts", text: pair.right, sortOrder: index },
-          ]),
-        );
-      } else if (parsed.type === "luecken") {
-        const payload = { text_with_blanks: parsed.textWithBlanks, blanks: parsed.blanks };
-        const [item] = await db
-          .insert(contentItem)
-          .values({
-            themaId: themaRow.id,
-            type: "luecken",
-            prompt: parsed.prompt,
-            explanation: parsed.explanation,
-            difficulty: parsed.difficulty,
-            bloom: parsed.bloom,
-            payload,
-          })
-          .returning();
-        if (!item) throw new Error("Lückentext-Frage konnte nicht angelegt werden.");
-        await db.insert(contentItemVersion).values({
-          contentItemId: item.id,
-          versionNumber: 1,
-          prompt: item.prompt,
-          explanation: item.explanation,
-          payload,
-        });
-      } else if (parsed.type === "kurzantwort") {
-        const payload = { accepted_answers: parsed.acceptedAnswers, match_mode: "exact" as const };
-        const [item] = await db
-          .insert(contentItem)
-          .values({
-            themaId: themaRow.id,
-            type: "kurzantwort",
-            prompt: parsed.prompt,
-            explanation: parsed.explanation,
-            difficulty: parsed.difficulty,
-            bloom: parsed.bloom,
-            payload,
-          })
-          .returning();
-        if (!item) throw new Error("Kurzantwort-Frage konnte nicht angelegt werden.");
-        await db.insert(contentItemVersion).values({
-          contentItemId: item.id,
-          versionNumber: 1,
-          prompt: item.prompt,
-          explanation: item.explanation,
-          payload,
-        });
-      }
-      created += 1;
-    }
-  }
-
-  if (fallaufgabenBody) {
-    // Führender Absatz vor dem ersten "#### "-Block (Einleitungstext, siehe fallaufgaben.md/
-    // uebungsaufgaben.md) ist kein eigener Aufgaben-Block — splitBlocks liefert ihn trotzdem
-    // als erstes Element, wenn die Sektion nicht direkt mit "#### " beginnt.
-    for (const block of splitBlocks(fallaufgabenBody).filter((entry) => entry.startsWith("#### "))) {
-      const parsed = parseFallaufgabe(block);
-      const payload = {
-        parts: parsed.parts.map((part) => ({ prompt: part.prompt, points: part.points, bloom: part.bloom })),
-      };
-      const [item] = await db
-        .insert(contentItem)
-        .values({
-          themaId: themaRow.id,
-          type: "fallaufgabe",
-          prompt: parsed.prompt,
-          explanation: parsed.explanation,
-          // bloom bleibt am content_item selbst null: Fallaufgaben stufen jede Teilaufgabe
-          // einzeln ein (payload.parts[].bloom), keine einzelne Stufe für die ganze Aufgabe.
-          bloom: null,
-          payload,
-        })
-        .returning();
-      if (!item) throw new Error("Fallaufgabe konnte nicht angelegt werden.");
-      await db.insert(contentItemVersion).values({
-        contentItemId: item.id,
-        versionNumber: 1,
-        prompt: item.prompt,
-        explanation: item.explanation,
-        payload,
-      });
-      created += 1;
-    }
-  }
-
-  if (fachgespraechBody) {
-    for (const { themaTitel, frage } of parseFachgespraechFragen(fachgespraechBody)) {
-      const payload = { themaTitel };
-      const [item] = await db
-        .insert(contentItem)
-        .values({
-          themaId: themaRow.id,
-          type: "fachgespraech_frage",
-          prompt: frage,
-          payload,
-        })
-        .returning();
-      if (!item) throw new Error("Fachgesprächsfrage konnte nicht angelegt werden.");
-      await db.insert(contentItemVersion).values({
-        contentItemId: item.id,
-        versionNumber: 1,
-        prompt: item.prompt,
-        explanation: null,
-        payload,
-      });
-      created += 1;
-    }
-  }
-
-  console.log(`${path.basename(filePath)}: ${created} Content-Items importiert (Thema "${themaTitle}").`);
-  return created;
+  const result = await syncThemaItems(db, themaRow.id, desired, { allowRemovals: options.allowRemovals });
+  const { stats } = result;
+  console.log(
+    `${path.basename(filePath)}: ${desired.length} Items (${stats.created} neu, ${stats.updated} geändert, ${stats.unchanged} unverändert, ${stats.deactivated} deaktiviert)` +
+      `${result.plan.blocked ? " — BLOCKIERT: " + result.plan.blocked : ""} (Thema "${themaTitle}").`,
+  );
+  return { label, itemCount: desired.length, stats, blocked: result.plan.blocked };
 }
 
 /** Dateiname der Glossar-Datei je Fachgebiet (F-165) — wird NICHT als Thema importiert. */
@@ -799,18 +433,20 @@ export const GLOSSAR_DATEINAME = "glossar.md";
 export async function importGlossarFiles(kursSlug: string, filePaths: string[]): Promise<number> {
   const [kursRow] = await db.select().from(kurs).where(eq(kurs.slug, kursSlug)).limit(1);
   if (!kursRow) return 0;
-  await db.delete(glossarEintrag).where(eq(glossarEintrag.kursId, kursRow.id));
+  // Alles in einer Transaktion: Bei einem Fehler (z. B. mehrdeutiger Begriff) bleibt das bisherige Glossar bestehen statt leer.
+  return db.transaction(async (tx) => {
+  await tx.delete(glossarEintrag).where(eq(glossarEintrag.kursId, kursRow.id));
 
   const vergeben = new Map<string, string>(); // kleingeschriebener Name → Begriff, der ihn belegt
   let angelegt = 0;
   for (const filePath of filePaths) {
     const { frontmatter, body } = splitFrontmatter(await readFile(filePath, "utf8"));
-    const [fachgebietRow] = await db
+    const [fachgebietRow] = await tx
       .select()
       .from(fachgebiet)
       .where(and(eq(fachgebiet.kursId, kursRow.id), eq(fachgebiet.code, frontmatter.fachgebiet_code ?? "")))
       .limit(1);
-    const themen = fachgebietRow ? await db.select().from(thema).where(eq(thema.fachgebietId, fachgebietRow.id)) : [];
+    const themen = fachgebietRow ? await tx.select().from(thema).where(eq(thema.fachgebietId, fachgebietRow.id)) : [];
 
     for (const eintrag of parseGlossar(extractSection(body, "Glossar") ?? "")) {
       for (const name of [eintrag.term, ...eintrag.aliases]) {
@@ -829,7 +465,7 @@ export async function importGlossarFiles(kursSlug: string, filePaths: string[]):
         }
         themaId = treffer.id;
       }
-      await db.insert(glossarEintrag).values({
+      await tx.insert(glossarEintrag).values({
         kursId: kursRow.id,
         term: eintrag.term,
         aliases: eintrag.aliases,
@@ -843,22 +479,53 @@ export async function importGlossarFiles(kursSlug: string, filePaths: string[]):
   }
   console.log(`${kursSlug}: ${angelegt} Glossar-Einträge importiert.`);
   return angelegt;
+  });
 }
 
 export interface ImportSummary {
   filesProcessed: number;
+  /** Anzahl der Items laut Markdown (alle Themen), unabhängig davon, ob sie neu, geändert oder unverändert sind. */
   itemsImported: number;
+  created: number;
+  updated: number;
+  unchanged: number;
+  deactivated: number;
+  dryRun: boolean;
+  /** Themen, bei denen die Abbruchschwelle für Entfernungen griff; sie wurden nicht verändert. */
+  blocked: { thema: string; reason: string }[];
+  /** Geänderte Items, bei denen sich die richtige Antwort oder Lösung geändert hat (Fortschritt bleibt erhalten). */
+  solutionChanged: { thema: string; key: string }[];
+  warnings: string[];
 }
 
 /**
  * Exportierte Kernlogik statt nur eines CLI-Skripts (F-17, Bulk-Import-Trigger im Admin-
  * Bereich, siehe trpc/routers/admin.ts) — bewusst ohne `pool.end()` hier drin, da ein
  * Server-Aufruf den gemeinsamen DB-Pool des laufenden Prozesses sonst mit schließen würde.
+ *
+ * Seit 08.10.2026 ein Abgleich statt „löschen und neu anlegen“ (siehe docs/entwuerfe/sicherer-content-import.md): Vorab wird
+ * der gesamte Content validiert (Pflichtfelder, eindeutige Themen und Schlüssel); ein Fehler bricht ab, ohne etwas zu
+ * ändern. Danach wird je Themendatei in einer Transaktion abgeglichen.
  */
-export async function importAllContent(): Promise<ImportSummary> {
+export async function importAllContent(options: ImportOptions = {}): Promise<ImportSummary> {
+  const preflight = await validateContentDir(CONTENT_DIR);
+  if (preflight.issues.length > 0) {
+    throw new Error(`Content-Validierung fehlgeschlagen (${preflight.issues.length} Verstöße), erster: ${preflight.issues[0]}`);
+  }
+
   const kursDirs = await readdir(CONTENT_DIR, { withFileTypes: true });
-  let filesProcessed = 0;
-  let itemsImported = 0;
+  const summary: ImportSummary = {
+    filesProcessed: 0,
+    itemsImported: 0,
+    created: 0,
+    updated: 0,
+    unchanged: 0,
+    deactivated: 0,
+    dryRun: options.dryRun === true,
+    blocked: [],
+    solutionChanged: [],
+    warnings: [],
+  };
 
   for (const kursDir of kursDirs) {
     if (!kursDir.isDirectory()) continue;
@@ -876,30 +543,62 @@ export async function importAllContent(): Promise<ImportSummary> {
       if (alleDateien.includes(GLOSSAR_DATEINAME)) glossarDateien.push(path.join(fachgebietPath, GLOSSAR_DATEINAME));
 
       for (const [index, file] of files.entries()) {
-        itemsImported += await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10);
-        filesProcessed += 1;
+        const result = await importThemaFile(path.join(fachgebietPath, file), (fachgebietIndex + 1) * 10, (index + 1) * 10, options);
+        summary.itemsImported += result.itemCount;
+        summary.created += result.stats.created;
+        summary.updated += result.stats.updated;
+        summary.unchanged += result.stats.unchanged;
+        summary.deactivated += result.stats.deactivated;
+        if (result.blocked) summary.blocked.push({ thema: result.label, reason: result.blocked });
+        for (const key of result.stats.solutionChanged) summary.solutionChanged.push({ thema: result.label, key });
+        for (const warning of result.stats.warnings) summary.warnings.push(`${result.label}: ${warning}`);
+        summary.filesProcessed += 1;
       }
     }
     if (glossarDateien.length > 0) {
-      await importGlossarFiles(kursDir.name, glossarDateien);
-      filesProcessed += glossarDateien.length;
+      if (!options.dryRun) await importGlossarFiles(kursDir.name, glossarDateien);
+      summary.filesProcessed += glossarDateien.length;
     }
   }
 
-  return { filesProcessed, itemsImported };
+  return summary;
+}
+
+function printSummary(summary: ImportSummary): void {
+  console.log(
+    `${summary.dryRun ? "Trockenlauf (nichts geschrieben): " : "Import abgeschlossen: "}${summary.filesProcessed} Dateien, ${summary.itemsImported} Content-Items ` +
+      `(${summary.created} neu, ${summary.updated} geändert, ${summary.unchanged} unverändert, ${summary.deactivated} deaktiviert).`,
+  );
+  if (summary.solutionChanged.length > 0) {
+    console.log(`
+Lösung geändert (Fortschritt bleibt erhalten, bitte prüfen), ${summary.solutionChanged.length}:`);
+    for (const entry of summary.solutionChanged.slice(0, 30)) console.log(`  ${entry.thema} ${entry.key}`);
+  }
+  if (summary.warnings.length > 0) {
+    console.log(`
+Warnungen (${summary.warnings.length}):`);
+    for (const warning of summary.warnings.slice(0, 30)) console.log(`  ${warning}`);
+  }
+  if (summary.blocked.length > 0) {
+    console.error(`
+BLOCKIERT (${summary.blocked.length} Themen unverändert, mit --allow-removals bestätigen):`);
+    for (const entry of summary.blocked) console.error(`  ${entry.thema}: ${entry.reason}`);
+  }
 }
 
 /**
- * CLI-Einstiegspunkt (`pnpm db:import-content`) — läuft nur, wenn diese Datei direkt
+ * CLI-Einstiegspunkt (`pnpm db:import-content [--dry-run] [--allow-removals]`) — läuft nur, wenn diese Datei direkt
  * ausgeführt wird, nicht beim bloßen Import als Modul. Ohne diese Guard würde admin.ts durch
  * den Import allein sofort einen vollen Content-Import auslösen und danach den gemeinsamen
- * DB-Pool des Servers schließen.
+ * DB-Pool des Servers schließen. Exit-Code 1 bei Fehlern oder blockierten Themen.
  */
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  importAllContent()
-    .then((summary) => {
-      console.log(`Import abgeschlossen: ${summary.filesProcessed} Dateien, ${summary.itemsImported} Content-Items.`);
-      return pool.end();
+  const args = process.argv.slice(2);
+  importAllContent({ dryRun: args.includes("--dry-run"), allowRemovals: args.includes("--allow-removals") })
+    .then(async (summary) => {
+      printSummary(summary);
+      await pool.end();
+      if (summary.blocked.length > 0) process.exit(1);
     })
     .catch((error: unknown) => {
       console.error("Content-Import fehlgeschlagen:", error);
