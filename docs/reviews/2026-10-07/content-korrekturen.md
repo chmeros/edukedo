@@ -334,7 +334,9 @@ Diese Aussagen wurden von den Prüfern gemeldet, sind aber **nicht von Claude zu
 - FL-WF-06 (hoch): Mehrstufige Deckungsbeitragsrechnung mit verschobener Nummerierung: „Deckungsbeitrag I (nach Abzug der Produktfixkosten)“, „II nach Produktgruppenfixkosten“. Im Lehrbuchstandard ist DB I = Erlöse − variable Kosten (vor jeder Fixk…
 - FL-WF-07 (hoch): Lagerfunktionen vertauscht gegenüber üblicher Lehrbuchzuordnung: „Sicherungsfunktion (überbrückt Zeitspanne)“, „Ausgleichsfunktion (stellt Lieferfähigkeit sicher)“, „Spekulationsfunktion (günstigere Konditionen durch größere Best…
 
-## 4a. Vorschlag Paket 1: sechs Blocker, am Inhalt geprüft (nicht rechtsnah)
+## 4a. Paket 1: Blocker, am Inhalt geprüft (nicht rechtsnah): **umgesetzt am 08.10.2026** (FL-DV-01, GS-03, HF-01, MA-01, TF-01); zurückgestellt FL-MA-02, FL-TF-03 (TF-03 später umgesetzt)
+
+**Stand 08.10.2026, später am Tag:** Außer Paket 1 sind im Technischen Fachwirt FL-TF-03, 05, 07, 08, 12, 14, 15, 18, 32 und 39 umgesetzt (siehe Architekturplanung §13 „Inhaltskorrekturen“). Die folgende Tabelle zeigt den Stand der Vorlage.
 
 Die folgenden Befunde habe ich gegen die Inhaltsdateien gegengelesen: Der beschriebene Wortlaut steht dort so, und der Fehler ist fachlich eindeutig (Rechnen, Definitionen, Aufgabenstellung). **Es ist noch nichts geändert.** Mit Ihrer Freigabe würde ich genau diese Textstellen ändern, den Import (der Inhalte nach Schlüssel fortschreibt, ohne Lernstände zu löschen) laufen lassen und das Ergebnis prüfen.
 

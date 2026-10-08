@@ -107,7 +107,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | A8 Minderjährigenschutz (beide Seiten, Widerruf, Anzeigenamen, Kaufsperre) | **erledigt 08.10.2026** (Oberfläche für Minderjährige und rechtliche Prüfung offen) | §13 „Minderjährigenschutz in den sozialen Funktionen“ |
 | B7 Allowlist auch für Instrument-Fragen | **erledigt 08.10.2026** (50 Fragen im Bestand unsichtbar) | §13 „Kursangebot gilt auch für Instrument-Fragen“ |
 | B8 Instrument-Kachel führt zum Instrument | **erledigt 08.10.2026** | §13 „Instrument-Kacheln führen zum Instrument“ |
-| Fachlehrer-Befunde zum Content: Sortierung aller 610 Befunde (Blocker/Hoch nach Recht, Beleg, Korrekturkandidat) und Vorschlag Paket 1 (sechs Blocker, am Inhalt geprüft) | **Vorlage erstellt 08.10.2026**, Inhalte unverändert, wartet auf Freigabe (R3/R4) | `content-korrekturen.md` |
+| Fachlehrer-Befunde zum Content: Sortierung aller 610 Befunde; Paket 1 (5 Blocker) und Technischer Fachwirt (14 Korrekturen) umgesetzt | **teilweise erledigt 08.10.2026** (Rest und Rechtsnahes offen, R3/R4) | `content-korrekturen.md`, §13 „Inhaltskorrekturen“ |
 | Lese-Modus für Kursinhalte (UXL-12 Rest: "Inhalte ansehen" ohne Beitritt, mit Lösungen) | **erledigt 08.10.2026** | §13 „Lese-Modus für Kursinhalte“ |
 | Lehrkraft-Erweiterungen: UXL-12 (Vorschau-Limit, Dialog), UXL-13 (Meldungen mit Kategorie und Rückmeldung), UXL-14 (Druck/Textdatei, Zeit), UXL-15 (Großanzeige), UXL-16 (CSV-Export), UXL-19, UXL-21, UXL-22 | **erledigt 08.10.2026** (offen: Lese-Modus ohne Beitritt, Aufbewahrungsfrist der Meldungen, UXL-23 bewusst unverändert) | §13 „Lehrkraft-Erweiterungen“ |
 | Werkzeuge: WRK-19 Rest (Topologie-Labor merkt den Stand je Szenario) | **erledigt 08.10.2026** | §13 „Topologie-Labor“ |

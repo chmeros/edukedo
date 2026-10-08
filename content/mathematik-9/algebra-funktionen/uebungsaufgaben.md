@@ -22,7 +22,7 @@ Diese Aufgaben kombinieren mehrere Themen aus dem Fachgebiet Algebra & Funktione
 
 **Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Vereinfache √98 und √32 jeweils so weit wie möglich und berechne anschließend die Summe der beiden vereinfachten Terme.
 
-**Teilaufgabe 2 (6 Punkte, bloom: erschaffen):** Eine Seite des Rechtecks (parallel zur Hauswand) habe die Länge x. Stelle die Flächenfunktion A(x) in Abhängigkeit von x auf.
+**Teilaufgabe 2 (6 Punkte, bloom: erschaffen):** Eine der beiden zur Hauswand senkrechten Seiten des Rechtecks habe die Länge x. Stelle die Flächenfunktion A(x) in Abhängigkeit von x auf.
 
 **Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Bestimme mithilfe der quadratischen Ergänzung die Scheitelpunktform von A(x) und gib die maximale Fläche sowie die zugehörige Seitenlänge x an.
 
@@ -30,7 +30,7 @@ Diese Aufgaben kombinieren mehrere Themen aus dem Fachgebiet Algebra & Funktione
 
 **Musterlösungshinweise:**
 - T1: √98 = 7√2, √32 = 4√2, Summe = 11√2.
-- T2: Die beiden zur Hauswand senkrechten Seiten haben zusammen 20 − x Meter Zaun, also je (20 − x)/2 — oder direkt mit A(x) = x·(20 − 2x) = −2x² + 20x, wenn man x als eine senkrechte Seite definiert (Definition im Sachtext klarstellen).
+- T2: Die zur Hauswand parallele Seite ist 20 − 2x Meter lang (zwei senkrechte Seiten der Länge x), also A(x) = x·(20 − 2x) = −2x² + 20x.
 - T3: A(x) = −2x² + 20x = −2(x² − 10x) = −2[(x − 5)² − 25] = −2(x − 5)² + 50. Scheitelpunkt S(5 | 50): maximale Fläche 50 m² bei x = 5 m.
 - T4: −2x² + 20x = 0 → −2x(x − 10) = 0 → x = 0 oder x = 10. Beide Werte ergeben ein „Rechteck" ohne Fläche (Seitenlänge 0) und sind damit die Grenzen des sinnvollen Definitionsbereichs 0 < x < 10.
 
