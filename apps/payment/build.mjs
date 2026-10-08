@@ -1,5 +1,6 @@
 // Produktions-Build des Payment-Service (Review A5/INF-01), siehe apps/api/build.mjs. Alle Pakete bleiben extern.
 import { readFileSync } from "node:fs";
+import { URL } from "node:url";
 import { build } from "esbuild";
 
 const eigene = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"));

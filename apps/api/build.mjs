@@ -3,6 +3,7 @@
 // `pnpm install --prod` bereitgestellt, weil argon2 nativ ist und bullmq seine Lua-Skripte zur Laufzeit aus dem eigenen
 // Paketordner liest.
 import { readFileSync } from "node:fs";
+import { URL } from "node:url";
 import { build } from "esbuild";
 
 const lesen = (pfad) => JSON.parse(readFileSync(new URL(pfad, import.meta.url), "utf8"));
