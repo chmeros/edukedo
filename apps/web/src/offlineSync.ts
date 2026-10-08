@@ -8,9 +8,9 @@ import { trpc } from "./trpc";
  * `useOnlineStatus() === true`). Serverseitig werden sie chronologisch über
  * applyReview/recordQuizAttempt nachgespielt (siehe trpc/routers/offline.ts,
  * Architekturplanung Abschnitt 13, Ereignis-Replay statt "Last Write Wins"). Nur die vom
- * Server bestätigten Einträge (`syncedIds`) werden anschließend aus der lokalen Warteschlange
- * entfernt — alles andere (z. B. eine inzwischen deaktivierte Frage) bleibt für einen späteren
- * Versuch stehen, statt stillschweigend verworfen zu werden.
+ * Server bestätigten (`syncedIds`) und die dauerhaft abgelehnten Einträge (`rejectedIds`, z. B. eine inzwischen entfernte
+ * Frage; Review WEB-20) werden anschließend aus der lokalen Warteschlange entfernt. Schlägt der Request selbst fehl, bleibt
+ * alles für einen späteren Versuch stehen.
  *
  * Nutzt bewusst `utils.client.offline.syncQueue.mutate` (vanilla-Client aus `useUtils()`) statt
  * `useMutation` — ein Hintergrund-Sync ohne eigene UI-Bindung an Ladezustand/Formular.
@@ -36,7 +36,7 @@ export async function syncOfflineQueue(utils: ReturnType<typeof trpc.useUtils>):
   let totalSynced = 0;
   for (let offset = 0; offset < pending.length; offset += OFFLINE_SYNC_BATCH_LIMIT) {
     const batch = pending.slice(offset, offset + OFFLINE_SYNC_BATCH_LIMIT);
-    const { syncedIds } = await utils.client.offline.syncQueue.mutate({
+    const { syncedIds, rejectedIds } = await utils.client.offline.syncQueue.mutate({
       entries: batch.map((entry) => ({
         id: entry.id,
         contentItemId: entry.contentItemId,
@@ -44,7 +44,9 @@ export async function syncOfflineQueue(utils: ReturnType<typeof trpc.useUtils>):
         event: entry.event,
       })),
     });
-    await offlineDb.queue.bulkDelete(syncedIds);
+    // Review WEB-20: Vom Server dauerhaft abgelehnte Einträge (z. B. Frage inzwischen entfernt) werden verworfen, sonst blieben sie
+    // für immer in der Warteschlange und die Statusanzeige meldete dauerhaft "nicht synchronisiert".
+    await offlineDb.queue.bulkDelete([...syncedIds, ...rejectedIds]);
     totalSynced += syncedIds.length;
   }
 

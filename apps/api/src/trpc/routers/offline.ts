@@ -214,6 +214,9 @@ export const offlineRouter = router({
     const payloadByItem = new Map(payloadRows.map((row) => [row.id, row.payload] as const));
 
     const syncedIds: string[] = [];
+    // Review WEB-20: Einträge, die der Server dauerhaft nicht übernehmen kann (Frage entfernt/deaktiviert, Antwortformat veraltet).
+    // Der Client verwirft sie, statt sie bei jedem Sync erneut zu senden und dauerhaft "nicht synchronisiert" anzuzeigen.
+    const rejectedIds: string[] = [];
 
     // Bewusst sequenziell statt Promise.all: Karteikarten-Bewertungen bauen über applyReview
     // auf dem jeweils zuletzt geschriebenen user_progress-Zustand auf, die chronologische
@@ -261,9 +264,10 @@ export const offlineRouter = router({
         if (!(error instanceof QuizItemNotFoundError) && !(error instanceof ZodError)) {
           throw error;
         }
+        rejectedIds.push(entry.id);
       }
     }
 
-    return { syncedIds };
+    return { syncedIds, rejectedIds };
   }),
 });

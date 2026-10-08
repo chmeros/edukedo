@@ -84,7 +84,13 @@ export function App() {
       }
     },
   });
-  const login = trpc.auth.login.useMutation({ onSuccess: () => utils.auth.me.invalidate() });
+  const login = trpc.auth.login.useMutation({
+    onSuccess: () => {
+      // Review WEB-08: Das Passwort bleibt nicht im React-Zustand, nachdem es nicht mehr gebraucht wird.
+      setPassword("");
+      utils.auth.me.invalidate();
+    },
+  });
   // reset() statt nur invalidate(): TanStack Query behält bei einem fehlschlagenden
   // Refetch (hier: me -> 401 nach dem Logout) den zuletzt erfolgreichen `data`-Wert bei,
   // reset() leert ihn explizit, damit die UI wirklich in den ausgeloggten Zustand wechselt.
@@ -99,6 +105,14 @@ export function App() {
     onSuccess: () => {
       queryClient.clear();
       void clearOfflineData();
+      // Review WEB-08: Nach dem Abmelden beginnt die nächste Person (geteiltes Gerät) mit leerem Formular und Startansicht,
+      // nicht mit den Eingaben und dem Navigationszustand der vorherigen.
+      setEmail("");
+      setPassword("");
+      setLearningMode("lernen");
+      setView("app");
+      setSelectedKursId(null);
+      setActiveThema(null);
     },
   });
   // Vor dem Logout noch ausstehende Offline-Antworten übertragen, sie würden sonst mit gelöscht.
@@ -271,6 +285,9 @@ export function App() {
           }
         />
         <main id="main-content" className="shell">
+          {logout.error && (
+            <ErrorMessage>Das Abmelden hat nicht geklappt ({logout.error.message}). Bitte versuche es mit bestehender Verbindung erneut.</ErrorMessage>
+          )}
           {!hideBanners && <EmailVerificationBanner />}
           {view === "admin" && isAdmin ? (
             <AdminPanel />

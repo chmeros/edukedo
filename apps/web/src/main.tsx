@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
@@ -23,6 +23,17 @@ import { Vorschau } from "./Vorschau";
 // F-155: gespeicherte Darstellung (Hell/Dunkel, Ruhiger Modus) vor dem ersten Rendern anwenden.
 initDisplayPrefs();
 
+/** tRPC-Fehler mit Code UNAUTHORIZED? */
+function istNichtAngemeldet(error: unknown): boolean {
+  return typeof error === "object" && error !== null && (error as { data?: { code?: string } }).data?.code === "UNAUTHORIZED";
+}
+
+/** Schlüssel der Anmelde-Abfragen (auth.me, auth.login ...): deren "nicht angemeldet" ist der Normalfall, kein Sitzungsende. */
+function istAnmeldeAbfrage(key: readonly unknown[] | undefined): boolean {
+  const pfad = Array.isArray(key) && Array.isArray(key[0]) ? (key[0] as unknown[]).join(".") : "";
+  return pfad.startsWith("auth.");
+}
+
 const SEITENTITEL: Record<string, string> = {
   "/consent/confirm": "Einwilligung bestätigen – edukedo",
   "/verify-email": "E-Mail bestätigen – edukedo",
@@ -38,7 +49,27 @@ const SEITENTITEL: Record<string, string> = {
 };
 
 function Root() {
-  const [queryClient] = useState(() => new QueryClient());
+  // Review WEB-12: Meldet der Server bei irgendeiner Abfrage oder Aktion "nicht angemeldet" (Sitzung abgelaufen oder beendet),
+  // wird der Anmeldestatus zurückgesetzt und die App zeigt die Anmeldung. Ausgenommen sind die Anmeldeabfragen selbst.
+  const [queryClient] = useState(() => {
+    const client: QueryClient = new QueryClient({
+      queryCache: new QueryCache({
+        onError: (error, query) => {
+          if (istNichtAngemeldet(error) && !istAnmeldeAbfrage(query.queryKey)) {
+            void client.resetQueries({ queryKey: [["auth", "me"]] });
+          }
+        },
+      }),
+      mutationCache: new MutationCache({
+        onError: (error, _variables, _context, mutation) => {
+          if (istNichtAngemeldet(error) && !istAnmeldeAbfrage(mutation.options.mutationKey)) {
+            void client.resetQueries({ queryKey: [["auth", "me"]] });
+          }
+        },
+      }),
+    });
+    return client;
+  });
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [

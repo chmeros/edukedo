@@ -249,16 +249,15 @@ export function Quiz({
   }
 
   function next() {
-    setIndex((i) => {
-      const nextIndex = i + 1;
-      // N-08: Übungsset abgeschlossen, sobald die letzte Frage beantwortet wurde.
-      if (nextIndex >= items.length && exerciseSetIdRef.current) {
-        const exerciseSetId = exerciseSetIdRef.current;
-        exerciseSetIdRef.current = null;
-        completeExerciseSet.mutate({ exerciseSetId });
-      }
-      return nextIndex;
-    });
+    const nextIndex = index + 1;
+    // N-08: Übungsset abgeschlossen, sobald die letzte Frage beantwortet wurde. Review WEB-38: außerhalb des State-Updaters
+    // (ein Seiteneffekt darin kann unter React-Concurrent mehrfach laufen).
+    if (nextIndex >= items.length && exerciseSetIdRef.current) {
+      const exerciseSetId = exerciseSetIdRef.current;
+      exerciseSetIdRef.current = null;
+      completeExerciseSet.mutate({ exerciseSetId });
+    }
+    setIndex(nextIndex);
   }
 
   return (

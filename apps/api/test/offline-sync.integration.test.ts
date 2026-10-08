@@ -304,6 +304,8 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
       // Fremdschlüssel-Verstoß, kein den ganzen Batch blockierender Fehler).
       expect(response.statusCode).toBe(200);
       expect(response.json().result.data.syncedIds).toEqual([validEntryId]);
+      // Die beiden nicht übernehmbaren Einträge meldet der Server als abgelehnt, damit der Client sie verwirft (Review WEB-20).
+      expect(response.json().result.data.rejectedIds).toHaveLength(2);
 
       await db.update(schema.contentItem).set({ isActive: true }).where(eq(schema.contentItem.id, deactivatedContentItemId));
     },

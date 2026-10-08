@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
 
 /**
@@ -103,6 +104,18 @@ export function Praesentationstrainer({ kursId }: { kursId: string }) {
   if (draft.isLoading) {
     return <p>Lädt…</p>;
   }
+  // Review WEB-25: Schlägt das Laden fehl, bleibt das Formular leer, und ein Speichern würde den vorhandenen Entwurf auf dem Server
+  // überschreiben. Deshalb gibt es dann kein Formular, sondern eine Meldung mit erneutem Versuch.
+  if (draft.isError) {
+    return (
+      <div className="stack">
+        <ErrorMessage>Dein gespeicherter Entwurf konnte nicht geladen werden. Zum Schutz vor dem Überschreiben ist die Bearbeitung gesperrt.</ErrorMessage>
+        <button type="button" className="btn btn-primary btn-sm" style={{ alignSelf: "flex-start" }} onClick={() => draft.refetch()}>
+          Erneut laden
+        </button>
+      </div>
+    );
+  }
 
   function toggleChecklistItem(key: string) {
     setChecklist((current) => ({ ...current, [key]: !current[key] }));
@@ -170,6 +183,7 @@ export function Praesentationstrainer({ kursId }: { kursId: string }) {
           Entwurf speichern
         </button>
         {save.isSuccess && <span className="field-hint">Gespeichert ✓</span>}
+        {save.isError && <span className="field-hint">Speichern fehlgeschlagen: {save.error.message}</span>}
       </div>
 
       <hr />

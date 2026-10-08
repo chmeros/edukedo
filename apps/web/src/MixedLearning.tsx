@@ -298,16 +298,15 @@ export function MixedLearning({
   const isLast = index + 1 >= queue.length;
 
   function next() {
-    setIndex((i) => {
-      const nextIndex = i + 1;
-      // N-08: Übungsset abgeschlossen, sobald das letzte Element (Karte oder Frage) erledigt ist.
-      if (nextIndex >= queue.length && exerciseSetIdRef.current) {
-        const exerciseSetId = exerciseSetIdRef.current;
-        exerciseSetIdRef.current = null;
-        completeExerciseSet.mutate({ exerciseSetId });
-      }
-      return nextIndex;
-    });
+    const nextIndex = index + 1;
+    // N-08: Übungsset abgeschlossen, sobald das letzte Element (Karte oder Frage) erledigt ist. Review WEB-38: außerhalb des
+    // State-Updaters (ein Seiteneffekt darin kann unter React-Concurrent mehrfach laufen).
+    if (nextIndex >= queue.length && exerciseSetIdRef.current) {
+      const exerciseSetId = exerciseSetIdRef.current;
+      exerciseSetIdRef.current = null;
+      completeExerciseSet.mutate({ exerciseSetId });
+    }
+    setIndex(nextIndex);
     setRevealed(false);
   }
 

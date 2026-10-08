@@ -1,5 +1,6 @@
 import { PROJEKT_FELD_KEYS, PROJEKT_FELD_MAX_LENGTH, type ProjektFeldKey } from "@edukedo/shared";
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon } from "./Icons";
 import { trpc } from "./trpc";
 
@@ -164,6 +165,17 @@ export function Projekthilfe({
 
   if (profil.isLoading) {
     return <p>Lädt…</p>;
+  }
+  // Review WEB-25: siehe Praesentationstrainer.tsx, kein Formular, das beim Speichern den Serverstand überschreibt.
+  if (profil.isError) {
+    return (
+      <div className="stack">
+        <ErrorMessage>Dein gespeichertes Projektprofil konnte nicht geladen werden. Zum Schutz vor dem Überschreiben ist die Bearbeitung gesperrt.</ErrorMessage>
+        <button type="button" className="btn btn-primary btn-sm" style={{ alignSelf: "flex-start" }} onClick={() => profil.refetch()}>
+          Erneut laden
+        </button>
+      </div>
+    );
   }
 
   const ausgefuellt = PROJEKT_FELD_KEYS.filter((key) => (felder[key] ?? "").trim() !== "").length;

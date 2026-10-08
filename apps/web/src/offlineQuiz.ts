@@ -54,6 +54,20 @@ function pushQueueEvent(contentItemId: string, event: OfflineQueueEventPayload) 
 export type OfflineQuizMutationKey = "submitAnswer" | "submitMatching" | "submitBlanks" | "submitKurzantwort";
 
 const OFFLINE_SAVE_FAILED_MESSAGE = "Antwort konnte lokal nicht gespeichert werden. Bitte versuche es erneut.";
+const OFFLINE_ITEM_MISSING_MESSAGE = "Diese Frage ist offline nicht mehr verfügbar. Bitte lade den Kurs für die Offline-Nutzung erneut herunter.";
+
+/**
+ * Review WEB-34: Die Offline-"Mutationen" haben keinen eigenen Ladezustand; schnelles Doppel-Tippen schrieb zwei Queue-Einträge
+ * und rief onSuccess doppelt auf (Trefferzähler +2). Solange das Schreiben für ein Item läuft, wird ein weiterer Aufruf ignoriert.
+ */
+const inFlight = new Set<string>();
+function sperre(contentItemId: string): (() => void) | null {
+  if (inFlight.has(contentItemId)) return null;
+  inFlight.add(contentItemId);
+  return () => {
+    inFlight.delete(contentItemId);
+  };
+}
 
 /**
  * Baut die vier submit*-"Mutationen" für den Offline-Fall — dieselbe `MutationLike`-Schnittstelle
@@ -97,8 +111,13 @@ export function createOfflineQuizMutations(
       ) {
         setError("submitAnswer", null);
         const item = findItem(input.contentItemId);
-        if (!item) return;
+        if (!item) {
+          setError("submitAnswer", OFFLINE_ITEM_MISSING_MESSAGE);
+          return;
+        }
         const { isCorrect, correctOptionId } = checkMcAnswer(item.options, input.selectedOptionId);
+        const frei = sperre(item.id);
+        if (!frei) return;
         pushQueueEvent(item.id, { kind: "quiz_mc", selectedOptionId: input.selectedOptionId })
           .then(() => opts.onSuccess({ isCorrect, correctOptionId, explanation: item.explanation }))
           .catch((error: unknown) => {
@@ -109,7 +128,8 @@ export function createOfflineQuizMutations(
             // bleibt jetzt aus, ein erneuter Klick auf "Antwort prüfen" versucht es erneut.
             console.error("Offline-Quiz-Antwort (quiz_mc) konnte nicht gespeichert werden:", error);
             setError("submitAnswer", OFFLINE_SAVE_FAILED_MESSAGE);
-          });
+          })
+          .finally(frei);
       },
     },
     submitMatching: {
@@ -121,14 +141,20 @@ export function createOfflineQuizMutations(
       ) {
         setError("submitMatching", null);
         const item = findItem(input.contentItemId);
-        if (!item) return;
+        if (!item) {
+          setError("submitMatching", OFFLINE_ITEM_MISSING_MESSAGE);
+          return;
+        }
         const result = checkMatching(item.options, input.pairs);
+        const frei = sperre(item.id);
+        if (!frei) return;
         pushQueueEvent(item.id, { kind: "zuordnung", pairs: input.pairs })
           .then(() => opts.onSuccess(result))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (zuordnung) konnte nicht gespeichert werden:", error);
             setError("submitMatching", OFFLINE_SAVE_FAILED_MESSAGE);
-          });
+          })
+          .finally(frei);
       },
     },
     submitBlanks: {
@@ -147,14 +173,20 @@ export function createOfflineQuizMutations(
       ) {
         setError("submitBlanks", null);
         const item = findItem(input.contentItemId);
-        if (!item) return;
+        if (!item) {
+          setError("submitBlanks", OFFLINE_ITEM_MISSING_MESSAGE);
+          return;
+        }
         const result = checkBlanks(item.payload, input.answers);
+        const frei = sperre(item.id);
+        if (!frei) return;
         pushQueueEvent(item.id, { kind: "luecken", answers: input.answers })
           .then(() => opts.onSuccess(result))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (luecken) konnte nicht gespeichert werden:", error);
             setError("submitBlanks", OFFLINE_SAVE_FAILED_MESSAGE);
-          });
+          })
+          .finally(frei);
       },
     },
     submitKurzantwort: {
@@ -166,14 +198,20 @@ export function createOfflineQuizMutations(
       ) {
         setError("submitKurzantwort", null);
         const item = findItem(input.contentItemId);
-        if (!item) return;
+        if (!item) {
+          setError("submitKurzantwort", OFFLINE_ITEM_MISSING_MESSAGE);
+          return;
+        }
         const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
+        const frei = sperre(item.id);
+        if (!frei) return;
         pushQueueEvent(item.id, { kind: "kurzantwort", answer: input.answer })
           .then(() => opts.onSuccess({ isCorrect, correctAnswer, explanation: item.explanation }))
           .catch((error: unknown) => {
             console.error("Offline-Quiz-Antwort (kurzantwort) konnte nicht gespeichert werden:", error);
             setError("submitKurzantwort", OFFLINE_SAVE_FAILED_MESSAGE);
-          });
+          })
+          .finally(frei);
       },
     },
   };
