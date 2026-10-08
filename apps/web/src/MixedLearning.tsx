@@ -63,15 +63,18 @@ export function MixedLearning({
   const [questionCount, setQuestionCount] = useState(DEFAULT_QUIZ_ROUND_SIZE);
   const dueCardsQuery = trpc.content.dueCards.useQuery(
     { kursId, themaId },
-    { enabled: online, staleTime: Infinity },
+    { enabled: online, staleTime: Infinity, refetchOnWindowFocus: false, refetchOnReconnect: false },
   );
   const quizItemsQuery = trpc.quiz.quizItems.useQuery(
     { kursId, themaId, count: questionCount },
-    { enabled: online, staleTime: Infinity },
+    { enabled: online, staleTime: Infinity, refetchOnWindowFocus: false, refetchOnReconnect: false },
   );
 
   const invalidateProgress = () => {
-    utils.content.dueCards.invalidate();
+    // Review-Befund WEB-05: Ein Refetch der laufenden Runde würde die Warteschlange nach jeder Antwort neu mischen
+    // (Index verschiebt sich, Fragen wiederholen sich, `startExerciseSet` startet neu). Deshalb nur als veraltet
+    // markieren (`refetchType: "none"`); neu geladen wird erst beim Start einer neuen Runde (`refetch()` unten).
+    utils.content.dueCards.invalidate(undefined, { refetchType: "none" });
     utils.progress.overview.invalidate();
     utils.progress.suggestions.invalidate();
     // F-118: eine richtige Quiz-Antwort kann den Punktehamster-Füllstand erhöht haben (bei

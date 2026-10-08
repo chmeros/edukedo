@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 3: Mischmodus-Queue bleibt innerhalb einer Runde stabil)
+
+- **Anlass:** Review-Befund WEB-05, in drei Usability-Tests bestätigt: Im Mischmodus („Beides gemischt“) wiederholten sich Fragen, der Zähler „x von y“ schrumpfte (z. B. 39 auf 37), und mit Themenfilter erschien eine Frage aus einem anderen Thema.
+- **Ursache:** `MixedLearning.tsx` rief nach jeder Antwort `utils.content.dueCards.invalidate()` auf. Das lud die Karten der laufenden Runde neu; die Warteschlange (`useMemo` über die Abfragedaten) wurde neu gemischt, `index` zeigte auf ein anderes Element, und der Effekt für das Übungsset (N-08) startete ein neues Set.
+- **Lösung:** Die Karten-Abfrage wird nach einer Antwort nur noch als veraltet markiert (`invalidate(undefined, { refetchType: "none" })`); beide Abfragen laden bei Fensterfokus und Wiederverbindung nicht neu (`refetchOnWindowFocus: false`, `refetchOnReconnect: false`), denn als veraltet markierte Daten würden sonst beim Fokuswechsel nachgeladen. Eine neue Runde lädt wie bisher ausdrücklich per `refetch()`; andere Ansichten (Karteikarten-Tab) bekommen den veralteten Zustand beim nächsten Einbinden.
+- **Verifikation:** Live im Browser (Wegwerf-Konto, danach gelöscht), Kurs Büro-/Projektorganisation, Mischmodus: nach dem Bewerten einer Karte blieb der Zähler bei „40 (20 Karteikarten + 20 Quiz-Fragen)“; im Netzwerkprotokoll genau ein Laden von `content.dueCards`/`quiz.quizItems` und ein `startExerciseSet`. Nicht geprüft: Verhalten über eine ganze Runde und der Themenfilter. Keine automatischen Web-Tests vorhanden.
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 2: Modal-Fokus und Menü-Schließen)
 
 - **Anlass:** Review-Befunde WEB-01/WEB-02, im Browser von drei Usability-Tests bestätigt: In Dialogen mit Textfeld (Notiz, „Fehler melden“, „Konto löschen“) sprang der Fokus nach jedem Zeichen aufs Dialog-Panel, und ein Mausklick im Einstellungsdialog schloss ihn.
