@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 2: Modal-Fokus und Menü-Schließen)
+
+- **Anlass:** Review-Befunde WEB-01/WEB-02, im Browser von drei Usability-Tests bestätigt: In Dialogen mit Textfeld (Notiz, „Fehler melden“, „Konto löschen“) sprang der Fokus nach jedem Zeichen aufs Dialog-Panel, und ein Mausklick im Einstellungsdialog schloss ihn.
+- **Ursache 1:** `Modal.tsx` hängte seinen Effekt an `[onClose]`; Aufrufer übergeben pro Render eine neue Funktion, also lief der Effekt bei jedem Re-Render neu und rief `panelRef.focus()` auf. **Lösung:** Der aktuelle Handler wird in einer Ref gehalten, der Effekt läuft nur beim Öffnen und Schließen (`[]`).
+- **Ursache 2:** Das Modal liegt per Portal außerhalb des Header-Menüs; `useDismissableMenu` wertete den `mousedown` im Modal als Klick außerhalb, schloss das Menü und entfernte damit das darin gerenderte Modal. **Lösung:** Klicks innerhalb von `.modal-backdrop` schließen das Menü nicht; bei offenem Modal wirkt Escape nur auf das Modal.
+- **Verifikation:** Live im Browser (Wegwerf-Konto, danach gelöscht): 8 Zeichen im Passwortfeld von „Konto löschen“ getippt, Fokus und Dialog blieben erhalten; ein Mausklick im Einstellungsdialog ließ Dialog und Menü offen; Escape schloss nur das Modal. Web-Tests gibt es nicht (siehe Review INF), die Prüfung ist manuell.
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review vom 07.10.2026, Schritt 1: Antwortoptionen werden gemischt)
 
 - **Anlass:** Der Review (docs/reviews/2026-10-07/00-gesamtbericht.md, Punkt B1) und alle Fachlehrer-Berichte zeigen, dass die Reihenfolge der Antwortoptionen unverändert aus dem Content kommt: Die richtige Antwort steht bei Multiple Choice in 60 bis 70 % der Fälle an Position 2, fast nie an Position 4, bei „Was passt nicht dazu“ meist an letzter Stelle. Das Quiz war dadurch ohne Fachwissen lösbar und verfälschte Fortschritt, Credits und Streaks.

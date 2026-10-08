@@ -21,6 +21,11 @@ export function Modal({
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  // Aufrufer übergeben meist eine neue Inline-Funktion pro Render. Würde der Effekt an `onClose` hängen,
+  // liefe er bei jedem Re-Render (z. B. bei jedem getippten Zeichen) neu und `panelRef.focus()` risse den
+  // Fokus aus dem Eingabefeld (Review-Befund WEB-02). Deshalb wird der aktuelle Handler nur in einer Ref gehalten.
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null;
@@ -30,7 +35,7 @@ export function Modal({
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        onClose();
+        onCloseRef.current();
         return;
       }
       // Fokus-Falle: Tab/Shift+Tab bleiben innerhalb des Panels, statt in den (unsichtbaren,
@@ -57,7 +62,7 @@ export function Modal({
       document.body.style.overflow = previousOverflow;
       previouslyFocused?.focus();
     };
-  }, [onClose]);
+  }, []);
 
   return createPortal(
     <div
