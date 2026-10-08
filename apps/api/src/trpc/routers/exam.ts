@@ -184,7 +184,7 @@ export const examRouter = router({
 
     const [session] = await ctx.db
       .insert(examSession)
-      .values({ userId: ctx.currentUser.id, kursId: input.kursId, mode: EXAM_MODE })
+      .values({ userId: ctx.currentUser.id, kursId: input.kursId, mode: EXAM_MODE, assignedItemIds: selected.map((candidate) => candidate.id) })
       .returning();
     if (!session) {
       throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Prüfungssitzung konnte nicht angelegt werden." });
@@ -225,11 +225,28 @@ export const examRouter = router({
     if (!session) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Prüfungssitzung nicht gefunden." });
     }
+    // Review B12/LOG-04: eine abgeschlossene Sitzung bleibt, wie sie war (Score, Bestwert und Achievement hängen daran).
+    if (session.finishedAt) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Diese Prüfungssitzung ist bereits abgeschlossen." });
+    }
+    // Nur Aufgaben, die beim Start zugeteilt wurden (Sitzungen aus der Zeit vor dieser Prüfung haben keine Liste).
+    if (session.assignedItemIds && !session.assignedItemIds.includes(input.contentItemId)) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Diese Fallaufgabe gehört nicht zu dieser Prüfungssitzung." });
+    }
 
+    // Die Aufgabe muss im Kurs der Sitzung liegen (nie eine Aufgabe eines fremden oder nicht belegten Kurses).
     const [item] = await ctx.db
-      .select()
+      .select({ id: contentItem.id, currentVersion: contentItem.currentVersion, payload: contentItem.payload })
       .from(contentItem)
-      .where(and(eq(contentItem.id, input.contentItemId), eq(contentItem.type, "fallaufgabe")))
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .where(
+        and(
+          eq(contentItem.id, input.contentItemId),
+          eq(contentItem.type, "fallaufgabe"),
+          eq(fachgebiet.kursId, session.kursId),
+        ),
+      )
       .limit(1);
     if (!item) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Fallaufgabe nicht gefunden." });
@@ -261,35 +278,69 @@ export const examRouter = router({
     // dieselbe Fallaufgabe derselben Sitzung entstehen, die `finish()` unten dann doppelt
     // zählt. Ein echter Upsert über den neuen Unique-Index (siehe schema.ts) ist atomar: die
     // zweite Einreichung ERSETZT die erste, statt eine zusätzliche Zeile anzulegen.
-    await ctx.db
-      .insert(examAnswer)
-      .values({
-        examSessionId: input.sessionId,
-        contentItemVersionId: version.id,
-        givenAnswer: { parts: clampedParts },
-        points: totalPoints,
-      })
-      .onConflictDoUpdate({
-        target: [examAnswer.examSessionId, examAnswer.contentItemVersionId],
-        set: { givenAnswer: { parts: clampedParts }, points: totalPoints },
-      });
-
     const maxPoints = parts.reduce((sum, part) => sum + part.points, 0);
+    const isCorrect = maxPoints > 0 ? totalPoints / maxPoints >= 0.5 : null;
 
-    // Code-Review-Fund, nachgezogen: ohne diesen Eintrag blieb Prüfungs-Übung für F-31
-    // (Trefferquote/Anzahl) und F-32/F-27 (Schwachstellen) komplett unsichtbar, da nur
-    // recordQuizAttempt/submitReview (siehe progress.ts) in learning_event schrieben.
-    // Fallaufgaben haben keine einzelne "richtig/falsch"-Antwort wie Quiz/Karteikarten,
-    // daher als Näherung: mehrheitlich erreichte Punktzahl (>= 50 %) zählt als "richtig" —
-    // bewusst dieselbe großzügige Grundhaltung wie bei Karteikarten, wo schon "unsicher"
-    // (nicht nur "gewusst") als nicht-falsch zählt, siehe submitReview unten.
-    if (maxPoints > 0) {
-      await ctx.db.insert(learningEvent).values({
-        userId: ctx.currentUser.id,
-        contentItemId: item.id,
-        isCorrect: totalPoints / maxPoints >= 0.5,
-      });
-    }
+    // Review B12/LOG-04: alles in einer Transaktion, genau eine Antwort und höchstens ein Lernereignis je Aufgabe und Sitzung.
+    await ctx.db.transaction(async (tx) => {
+      // Wurde die Aufgabe zwischen zwei Einreichungen redaktionell geändert (neue Version), bliebe sonst die Antwort zur alten
+      // Version zusätzlich stehen und finish() zählte die Aufgabe doppelt.
+      const itemVersions = await tx
+        .select({ id: contentItemVersion.id })
+        .from(contentItemVersion)
+        .where(eq(contentItemVersion.contentItemId, item.id));
+      const earlier = await tx
+        .select({ id: examAnswer.id, versionId: examAnswer.contentItemVersionId })
+        .from(examAnswer)
+        .where(
+          and(
+            eq(examAnswer.examSessionId, input.sessionId),
+            inArray(
+              examAnswer.contentItemVersionId,
+              itemVersions.map((entry) => entry.id),
+            ),
+          ),
+        );
+      const stale = earlier.filter((entry) => entry.versionId !== version.id).map((entry) => entry.id);
+      if (stale.length > 0) await tx.delete(examAnswer).where(inArray(examAnswer.id, stale));
+
+      await tx
+        .insert(examAnswer)
+        .values({
+          examSessionId: input.sessionId,
+          contentItemVersionId: version.id,
+          givenAnswer: { parts: clampedParts },
+          points: totalPoints,
+        })
+        .onConflictDoUpdate({
+          target: [examAnswer.examSessionId, examAnswer.contentItemVersionId],
+          set: { givenAnswer: { parts: clampedParts }, points: totalPoints },
+        });
+
+      if (isCorrect === null) return;
+      // Fallaufgaben haben keine einzelne "richtig/falsch"-Antwort; Näherung wie unten beschrieben. Bei erneuter Einreichung
+      // wird das Ereignis dieser Sitzung korrigiert statt ein weiteres anzulegen (Statistik zählt die Aufgabe einmal).
+      const [sessionEvent] =
+        earlier.length > 0
+          ? await tx
+              .select({ id: learningEvent.id })
+              .from(learningEvent)
+              .where(
+                and(
+                  eq(learningEvent.userId, ctx.currentUser.id),
+                  eq(learningEvent.contentItemId, item.id),
+                  sql`${learningEvent.occurredAt} >= ${session.startedAt}`,
+                ),
+              )
+              .orderBy(sql`${learningEvent.occurredAt} desc`)
+              .limit(1)
+          : [];
+      if (sessionEvent) {
+        await tx.update(learningEvent).set({ isCorrect }).where(eq(learningEvent.id, sessionEvent.id));
+      } else {
+        await tx.insert(learningEvent).values({ userId: ctx.currentUser.id, contentItemId: item.id, isCorrect });
+      }
+    });
 
     return { totalPoints, maxPoints };
   }),
@@ -321,6 +372,16 @@ export const examRouter = router({
       0,
     );
     const score = maxPoints === 0 ? 0 : Math.round((achievedPoints / maxPoints) * 100);
+
+    // Review B12/LOG-04: Eine bereits abgeschlossene Sitzung liefert ihr gespeichertes Ergebnis, ohne sich zu ändern.
+    if (session.finishedAt) {
+      return { achievedPoints, maxPoints, score: session.score ?? score, answeredCount: answers.length };
+    }
+    // Ohne eine einzige Antwort gibt es nichts zu werten: kein Abschluss, damit weder ein Score 0 noch das Achievement
+    // "Erste Prüfungssimulation" entsteht.
+    if (answers.length === 0) {
+      return { achievedPoints, maxPoints, score, answeredCount: 0 };
+    }
 
     await ctx.db.update(examSession).set({ finishedAt: new Date(), score }).where(eq(examSession.id, input.sessionId));
 

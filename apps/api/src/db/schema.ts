@@ -608,6 +608,9 @@ export const examSession = pgTable(
       .notNull()
       .references(() => kurs.id, { onDelete: "cascade" }),
     mode: text("mode").notNull(),
+    // Review B12/LOG-04: die beim Start zugeteilten Fallaufgaben. `exam.submitAnswer` nimmt nur Antworten zu diesen Aufgaben an.
+    // null bei Sitzungen aus der Zeit davor (dort entfällt die Zuordnungsprüfung).
+    assignedItemIds: jsonb("assigned_item_ids").$type<string[]>(),
     startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
     finishedAt: timestamp("finished_at", { withTimezone: true }),
     score: real("score"),

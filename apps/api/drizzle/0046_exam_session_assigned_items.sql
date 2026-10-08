@@ -1,0 +1,1 @@
+ALTER TABLE "exam_session" ADD COLUMN "assigned_item_ids" jsonb;
