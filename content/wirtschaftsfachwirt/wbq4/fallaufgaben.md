@@ -46,7 +46,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ4 (4.1–4.3) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Schlagen Sie eine geeignete Personalentwicklungsmaßnahme für die neue Teamleitung vor und ordnen Sie diese einer der Grundformen (Into-/On-/Off-the-job) zu.
 
-**Musterlösungshinweise:** Teilaufgabe 1: autoritärer Führungsstil, erkennbar an alleinigen Entscheidungen und fehlenden Rückfragemöglichkeiten. Teilaufgabe 2: sinkende Motivation, insbesondere fehlende Motivatoren (Anerkennung, Mitspracherecht); gestiegene Fluktuation als Zeichen mangelnder Motivatoren, nicht zwingend mangelnder Hygienefaktoren. Teilaufgabe 3: Rückblick auf die ersten drei Monate, offenes gegenseitiges Feedback, gemeinsame Ursachenanalyse, Vereinbarung konkreter Verhaltensänderungen und Folgetermin. Teilaufgabe 4: z. B. Off-the-job-Seminar zu kooperativer Mitarbeiterführung oder Coaching; alternativ On-the-job-Begleitung durch eine erfahrene Führungskraft.
+**Musterlösungshinweise:** Teilaufgabe 1: autoritärer Führungsstil, erkennbar an alleinigen Entscheidungen und fehlenden Rückfragemöglichkeiten. Teilaufgabe 2: sinkende Motivation, insbesondere fehlende Motivatoren (Anerkennung, Mitspracherecht); gestiegene Fluktuation als Folge von Unzufriedenheit durch fehlende Hygienefaktoren (autoritärer Führungsstil, verschlechtertes Betriebsklima) zusammen mit fehlenden Motivatoren. Teilaufgabe 3: Rückblick auf die ersten drei Monate, offenes gegenseitiges Feedback, gemeinsame Ursachenanalyse, Vereinbarung konkreter Verhaltensänderungen und Folgetermin. Teilaufgabe 4: z. B. Off-the-job-Seminar zu kooperativer Mitarbeiterführung oder Coaching; alternativ On-the-job-Begleitung durch eine erfahrene Führungskraft.
 
 ---
 

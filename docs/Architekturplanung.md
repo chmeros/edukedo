@@ -568,6 +568,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Wirtschaftsfachwirt)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (Trockenlauf danach ohne Änderung), Unit-Tests grün.
+
+- **Hoch:** FL-WF-03 (fünf Zuordnungen mit gleichlautender rechter Seite als Mehrfachauswahl: Q-2.1-03 Aktiva, Q-2.2-03 fixe Kosten, Q-2.3-03 Preisabweichung, hsq2 Q-2.1-11 dynamische Verfahren, hsq2 Q-2.2-10 Außenfinanzierung), FL-WF-04 (Q-2.1-10 verlangt nur noch den Kapitalwert als Zahl, Q-4.2-08 mit Varianten, Q-4.4-12 als Multiple Choice statt freiem Begründungstext), FL-WF-06 (Deckungsbeitragsstufen nach Lehrbuchstandard: DB I = Erlöse minus variable Kosten, DB II nach Produktfixkosten, DB III nach Produktgruppenfixkosten; Theorie, K-2.3-04, Q-2.3-11), FL-WF-07 (Lagerfunktionen: Ausgleichsfunktion = Zeitüberbrückung, Sicherungsfunktion = Lieferfähigkeit, Spekulationsfunktion = Nutzen erwarteter Preisänderungen, Mengenrabatt nur als Zusatz; Theorie, K-3.2-01, Q-3.2-01/-02/-13), FL-WF-08 (Distraktor "Nutzschwelle", ein Synonym, ersetzt), FL-WF-09 (Q-1.2-08 aus Sicht der Hersteller gestellt), FL-WF-10 (Beispiel "Streckengeschäft" als Outsourcing-Beispiel ersetzt), FL-WF-11 (Musterlösung F-WBQ4-02 nach Herzberg: Betriebsklima und Führungsstil sind Hygienefaktoren).
+- **Mittel/Niedrig:** FL-WF-26 (Q-5.2-08: beginnender statt eskalierter Konflikt, "frühe Warnzeichen"), FL-WF-29 (kalkulatorische Abschreibung: Wiederbeschaffungswert und Nutzungsdauer, Zinsen auf betriebsnotwendiges Kapital), FL-WF-30 (Beschäftigungsabweichung aus der Verbrauchsabweichung gestrichen), FL-WF-32 (Q-2.1-01 Distraktor 500 statt 250 Beschäftigte), FL-WF-43 (Q-3.2-12 nur "Wie viele Minuten"), FL-WF-44 (Q-1.4-02 Formulierung).
+- **Nicht geändert:** Rechtsnah (R4): FL-WF-01, 02, 12, 15, 21, 22, 24, 25, 35, 36, 40 bis 42, 50; Lücken und neue Inhalte (R3): FL-WF-13, 14, 17, 18, 31; mehrdeutig oder größerer Umbau: FL-WF-16, 19, 20, 23, 27, 28, 33, 34, 37 bis 39, 45 bis 49, 51. Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Büro und Projektorganisation)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei Technischem Fachwirt und Handelsfachwirt. Validiert (0 Verstöße), importiert, Trockenlauf danach ohne Änderung, Spielsets neu eingespielt, Unit-Tests grün.
