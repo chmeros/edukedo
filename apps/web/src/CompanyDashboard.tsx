@@ -272,7 +272,7 @@ function StatsSection() {
     return null;
   }
 
-  if (stats.data.activeSharePercent === null) {
+  if (stats.data.totalMembers < stats.data.minCohortSize) {
     return (
       <div className="panel-section">
         <div className="panel-section-head">
@@ -295,18 +295,24 @@ function StatsSection() {
       </div>
       <div className="stat-row">
         <div className="stat-tile">
-          <span className="stat-value">{stats.data.activeSharePercent} %</span>
+          <span className="stat-value">{stats.data.activeSharePercent === null ? "–" : `${stats.data.activeSharePercent} %`}</span>
           <span className="stat-label">Aktive Lizenzen (30 Tage)</span>
         </div>
         <div className="stat-tile">
-          <span className="stat-value">{stats.data.avgAccuracyPercent ?? "–"} %</span>
+          <span className="stat-value">{stats.data.avgAccuracyPercent === null ? "–" : `${stats.data.avgAccuracyPercent} %`}</span>
           <span className="stat-label">Ø Trefferquote</span>
         </div>
         <div className="stat-tile">
-          <span className="stat-value">{stats.data.avgProgressPercent ?? "–"} %</span>
+          <span className="stat-value">{stats.data.avgProgressPercent === null ? "–" : `${stats.data.avgProgressPercent} %`}</span>
           <span className="stat-label">Ø Fortschritt</span>
         </div>
       </div>
+      {(stats.data.activeSharePercent === null || stats.data.avgAccuracyPercent === null || stats.data.avgProgressPercent === null) && (
+        <p className="field-hint">
+          Mit „–“ gekennzeichnete Kennzahlen erscheinen erst, wenn mindestens {stats.data.minCohortSize} verschiedene Mitgliedschaften
+          dazu beigetragen haben — sonst ließe sich die Leistung einzelner Personen ablesen.
+        </p>
+      )}
     </div>
   );
 }

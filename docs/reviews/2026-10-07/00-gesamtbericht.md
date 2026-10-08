@@ -97,7 +97,8 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | B5 Zeitstempel im Offline-Sync | **erledigt 08.10.2026** (Fenster 14 Tage) | §13 „Schritt 5“ |
 | B9 Mobile Tab-Leisten | **erledigt 08.10.2026** | §13 „Schritt 8“ |
 | B11 `rundeCent` | **erledigt 08.10.2026** (Skalierungsrechner-Meldung WRK-01 offen) | §13 „Schritt 6“ |
-| A3, A5–A8, B6–B8, B10, B12 | offen | — |
+| A7 Mindestgröße nach Beitragenden | **erledigt 08.10.2026** (Mitglieder erfahren weiterhin nichts, UXL-04 offen) | §13 „Sicherheit, Schritt 2“ |
+| A3, A5, A6, A8, B6–B8, B10, B12 | offen | — |
 
 ## 8. Einzelberichte
 

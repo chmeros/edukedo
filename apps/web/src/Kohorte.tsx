@@ -31,14 +31,20 @@ function CohortDetail({ cohortId }: { cohortId: string }) {
         <>
           <div className="stat-row">
             <div className="stat-tile">
-              <span className="stat-value">{d.activeSharePercent} %</span>
+              <span className="stat-value">{d.activeSharePercent === null ? "–" : `${d.activeSharePercent} %`}</span>
               <span className="stat-label">Aktive Mitglieder (30 Tage)</span>
             </div>
             <div className="stat-tile">
-              <span className="stat-value">{d.avgProgressPercent ?? "–"} %</span>
+              <span className="stat-value">{d.avgProgressPercent === null ? "–" : `${d.avgProgressPercent} %`}</span>
               <span className="stat-label">Ø Fortschritt</span>
             </div>
           </div>
+          {(d.activeSharePercent === null || d.avgProgressPercent === null) && (
+            <p className="field-hint">
+              Mit „–“ gekennzeichnete Kennzahlen erscheinen erst, wenn mindestens {d.minCohortSize} verschiedene Mitglieder dazu
+              beigetragen haben — sonst ließe sich die Leistung einzelner Personen ablesen.
+            </p>
+          )}
           <span className="stat-subheading">Ø Trefferquote je Handlungsbereich</span>
           {/* F-148: Trefferquote je Handlungsbereich als Kachel mit Füllstand (Tile.tsx). */}
           <div className="tile-grid tile-grid-sm">

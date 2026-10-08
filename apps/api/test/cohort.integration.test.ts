@@ -303,6 +303,61 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     60_000,
   );
 
+  it("Review UXL-01: bei genug Mitgliedern, aber nur einer beitragenden Person bleiben Aktivität und Fortschritt verborgen", async () => {
+    const created = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/cohort.create",
+      headers: { cookie: dozentCookie },
+      payload: { kursId, name: "Ein-Beitragender-Kohorte" },
+    });
+    const cohortIdOne = created.json().result.data.id as string;
+
+    const fresh = await db
+      .insert(schema.user)
+      .values([1, 2, 3, 4, 5].map((n) => ({ email: `beitrag-${n}@example.test`, passwordHash: "x", isMinor: false })))
+      .returning();
+    await db.insert(schema.cohortMember).values(fresh.map((row) => ({ cohortId: cohortIdOne, userId: row.id })));
+    const [item] = await db
+      .select({ id: schema.contentItem.id })
+      .from(schema.contentItem)
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      .where(eq(schema.fachgebiet.kursId, kursId))
+      .limit(1);
+
+    async function contribute(userId: string) {
+      await db.insert(schema.learningEvent).values({ userId, contentItemId: item!.id, isCorrect: true });
+      await db.insert(schema.userProgress).values({ userId, contentItemId: item!.id, difficulty: 3, stability: 2, state: "review", dueAt: new Date() });
+    }
+    async function stats() {
+      const response = await app.inject({
+        method: "GET",
+        url: `/api/v1/trpc/cohort.stats?input=${encodeURIComponent(JSON.stringify({ cohortId: cohortIdOne }))}`,
+        headers: { cookie: dozentCookie },
+      });
+      expect(response.statusCode).toBe(200);
+      return response.json().result.data;
+    }
+
+    // Eine Person lernt: ohne die Prüfung wären die Kennzahlen exakt ihre eigene Quote.
+    await contribute(fresh[0]!.id);
+    let data = await stats();
+    expect(data.totalMembers).toBe(5);
+    expect(data.activeSharePercent).toBeNull();
+    expect(data.avgProgressPercent).toBeNull();
+
+    // Vier Personen reichen noch nicht, fünf schon.
+    for (const row of fresh.slice(1, 4)) await contribute(row.id);
+    data = await stats();
+    expect(data.activeSharePercent).toBeNull();
+    expect(data.avgProgressPercent).toBeNull();
+
+    await contribute(fresh[4]!.id);
+    data = await stats();
+    expect(data.activeSharePercent).toBe(100);
+    expect(data.avgProgressPercent).toBe(100);
+  });
+
   it("unterhalb der Mindestgröße liefert cohort.stats ausschließlich null-Kennzahlen", async () => {
     const smallResponse = await app.inject({
       method: "POST",

@@ -138,13 +138,16 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
         .insert(schema.userCompanyMembership)
         .values(learners.map((learner) => ({ userId: learner.userId, companyAccountId: companyId })));
 
-      // Ein paar Lernereignisse für zwei der fünf Mitglieder, damit avgAccuracyPercent nicht
-      // trivial null bleibt.
+      // Lernereignisse für alle fünf Mitglieder (Review SOZ-05: eine Kennzahl erscheint erst, wenn mindestens fünf
+      // verschiedene Personen beigetragen haben); 4 von 6 Ereignissen richtig.
       const [contentItemRow] = await db.select({ id: schema.contentItem.id }).from(schema.contentItem).limit(1);
       await db.insert(schema.learningEvent).values([
         { userId: learners[0]!.userId, contentItemId: contentItemRow!.id, isCorrect: true },
         { userId: learners[0]!.userId, contentItemId: contentItemRow!.id, isCorrect: false },
         { userId: learners[1]!.userId, contentItemId: contentItemRow!.id, isCorrect: true },
+        { userId: learners[2]!.userId, contentItemId: contentItemRow!.id, isCorrect: true },
+        { userId: learners[3]!.userId, contentItemId: contentItemRow!.id, isCorrect: true },
+        { userId: learners[4]!.userId, contentItemId: contentItemRow!.id, isCorrect: false },
       ]);
 
       const response = await companyStats(cookie);
@@ -157,8 +160,27 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
         ["activeSharePercent", "avgAccuracyPercent", "avgProgressPercent", "minCohortSize", "totalMembers"].sort(),
       );
       expect(data.totalMembers).toBe(5);
-      expect(data.avgAccuracyPercent).toBe(67); // 2 von 3 Ereignissen richtig, gerundet
+      expect(data.avgAccuracyPercent).toBe(67); // 4 von 6 Ereignissen richtig, gerundet
       expect(typeof data.activeSharePercent).toBe("number");
+    });
+
+    it("Review SOZ-05: bei genug Mitgliedschaften, aber weniger als fünf beitragenden Personen bleiben die Kennzahlen verborgen", async () => {
+      const companyId = await createCompanyAccount("Wenig-Beitragende GmbH", "wenig-beitragende@example.com", 50);
+      const cookie = await loginCompany("wenig-beitragende@example.com");
+      const learners = await Promise.all([1, 2, 3, 4, 5].map((n) => registerLearner(`wenig-beitragende-${n}@example.com`)));
+      await db.insert(schema.userCompanyMembership).values(learners.map((learner) => ({ userId: learner.userId, companyAccountId: companyId })));
+
+      const [contentItemRow] = await db.select({ id: schema.contentItem.id }).from(schema.contentItem).limit(1);
+      // Vier der fünf Personen lernen: ohne die Prüfung wäre jede Kennzahl ablesbar, wenn nur wenige beitragen.
+      await db.insert(schema.learningEvent).values(
+        learners.slice(0, 4).map((learner) => ({ userId: learner.userId, contentItemId: contentItemRow!.id, isCorrect: true })),
+      );
+
+      const data = (await companyStats(cookie)).json().result.data;
+      expect(data.totalMembers).toBe(5);
+      expect(data.activeSharePercent).toBeNull();
+      expect(data.avgAccuracyPercent).toBeNull();
+      expect(data.avgProgressPercent).toBeNull();
     });
 
     it("isoliert Statistik strikt je Unternehmen — kein Zugriff auf Kennzahlen eines anderen Kontos", async () => {

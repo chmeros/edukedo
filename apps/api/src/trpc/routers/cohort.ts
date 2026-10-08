@@ -16,11 +16,12 @@ import {
   userCourse,
   userProgress,
 } from "../../db/schema";
+import { hideIfFewContributors, MIN_CONTRIBUTORS_FOR_STATS } from "../../stats-privacy";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-93/F-64 (dieselbe Begründung wie in company.ts): unterhalb dieser Mitgliederzahl wäre eine
  * "aggregierte" Kennzahl faktisch eine personenbezogene Einzelauswertung. */
-const MIN_COHORT_SIZE_FOR_STATS = 5;
+const MIN_COHORT_SIZE_FOR_STATS = MIN_CONTRIBUTORS_FOR_STATS;
 
 /** F-64: "Anteil aktiver Mitglieder" — dasselbe rollierende 30-Tage-Fenster wie company.stats. */
 const ACTIVE_WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
@@ -249,7 +250,7 @@ export const cohortRouter = router({
         .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
         .where(and(eq(fachgebiet.kursId, cohortRow.kursId), gte(learningEvent.occurredAt, activeSince))),
       ctx.db
-        .select({ value: count() })
+        .select({ value: count(), contributors: sql<number>`count(distinct ${userProgress.userId})::int` })
         .from(userProgress)
         .innerJoin(
           cohortMember,
@@ -296,8 +297,12 @@ export const cohortRouter = router({
     return {
       totalMembers,
       minCohortSize: MIN_COHORT_SIZE_FOR_STATS,
-      activeSharePercent: Math.round(((activeRow?.value ?? 0) / totalMembers) * 100),
-      avgProgressPercent: totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
+      // Jede Kennzahl nur, wenn genug verschiedene Personen beigetragen haben (Review UXL-01), nicht nur genug Mitglieder.
+      activeSharePercent: hideIfFewContributors(Math.round(((activeRow?.value ?? 0) / totalMembers) * 100), activeRow?.value ?? 0),
+      avgProgressPercent: hideIfFewContributors(
+        totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
+        totalProgressRow?.contributors ?? 0,
+      ),
       byFachgebiet: accuracyByFachgebiet.map((row) => ({
         fachgebietId: row.fachgebietId,
         fachgebietTitle: row.fachgebietTitle,
