@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Anwendungsentwicklung)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (Trockenlauf danach ohne Änderung, 16 Items geändert, bei Q-11.2-14 wurde die Lösung um Schreibvarianten erweitert), Unit-Tests grün.
+
+- **Umgesetzt:** FL-AE-03 (MVC als Architekturmuster, "oft auch als Entwurfsmuster bezeichnet"), FL-AE-04 (Theorie und Antwort zu 5.2 nennen DQL und TCL neben DML und DCL), FL-AE-08 (digitale Signatur: privater Schlüssel signiert, öffentlicher prüft), FL-AE-09 und FL-AE-26 (UML-Zuordnungen eindeutiger: Vererbung als "ist ein" mit Übernahme von Attributen und Methoden, Fabrikmethode, Singleton als einzige Instanz, Assoziation; Erklärung von Q-8.2-22 angepasst), FL-AE-12 (Phishing betrifft Authentizität und Vertraulichkeit), FL-AE-13 (Scrum: Sprint als Rahmen der fünf Events, Definition of Done als Verbindlichkeit zum Inkrement), FL-AE-17 (Endzustand im Zustandsdiagramm: Kreis mit gefülltem Kreis darin; PAP-Start/Ende: Oval bzw. abgerundetes Rechteck), FL-AE-22 (Musterlösung der Fallaufgabe nutzt nur Angaben der Ausgangssituation), FL-AE-34 (Q-11.2-14 akzeptiert Bre auch in Anführungszeichen).
+- **Nicht geändert:** Rechtsnah (R4): FL-AE-10, 35, 37; Lücken und neue Inhalte (R3): FL-AE-05, 06, 07, 11, 23, 25; übrige Befunde mehrdeutig oder größerer Umbau (Vorschläge je Befund im Bericht).
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Wirtschaftsfachwirt)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert (Trockenlauf danach ohne Änderung), Unit-Tests grün.
