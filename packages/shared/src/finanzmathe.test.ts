@@ -6,6 +6,34 @@ function ok<T>(ergebnis: { ok: true; wert: T } | { ok: false; fehler: string }):
   return ergebnis.wert;
 }
 
+describe("rundeCent (Review SHR-02)", () => {
+  it("rundet exakte Halbcent-Werte kaufmännisch auf, auch bei Beträgen über 2 Euro", () => {
+    expect(rundeCent(8.54 * 0.25)).toBe(2.14);
+    expect(rundeCent(1.005)).toBe(1.01);
+    expect(rundeCent(2.675)).toBe(2.68);
+    expect(rundeCent(1.255)).toBe(1.26);
+    expect(rundeCent(0.125)).toBe(0.13);
+    expect(rundeCent(1234567890.125)).toBe(1234567890.13);
+  });
+
+  it("rundet negative Werte symmetrisch (weg von null) und lässt 0, ganze Cent und Nicht-Zahlen unverändert", () => {
+    expect(rundeCent(-2.135)).toBe(-2.14);
+    expect(rundeCent(-0.004)).toBe(0);
+    expect(rundeCent(0)).toBe(0);
+    expect(rundeCent(12.34)).toBe(12.34);
+    expect(rundeCent(Number.NaN)).toBeNaN();
+    expect(rundeCent(Number.POSITIVE_INFINITY)).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  it("stimmt für alle Tausendstel-Werte mit 5 an letzter Stelle bis 1.000 Euro mit der Dezimalrechnung überein", () => {
+    // n/1000 mit n = 10k + 5 liegt genau auf einem halben Cent; erwartet wird k + 1 Cent.
+    for (let n = 5; n <= 1_000_000; n += 10) {
+      const erwartetCent = (n + 5) / 10;
+      expect(rundeCent(n / 1000)).toBe(erwartetCent / 100);
+    }
+  });
+});
+
 describe("F-197: Finanzmathe-Kern", () => {
   it("zinst auf (Zinseszins) und führt einen Verlauf je Jahr", () => {
     const a = ok(aufzinsen(10_000, 3, 10));

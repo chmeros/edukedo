@@ -567,6 +567,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 6: Cent-Rundung `rundeCent`)
+
+- **Anlass:** Review-Befund SHR-02: `rundeCent` (packages/shared/src/finanzmathe.ts, auch von der Handelskalkulation genutzt) rundete mit `Math.round((wert + Number.EPSILON) * 100) / 100`. `Number.EPSILON` (ca. 2,2e-16) wirkt nur bei Werten unter 2; bei größeren Beträgen blieb der Gleitkomma-Rest erhalten. Beispiel: 8,54 × 25 % = 2,135 ist als 2,1349999999999998 gespeichert und wurde zu 2,13 statt 2,14. Tilgungspläne waren dadurch in etwa 4 % der Fälle um einen Cent falsch, in der Handelskalkulation wich in etwa 5 % der Parameterkombinationen eine Zeile ab, in 0,5 % um mehr als die Prüftoleranz von 2 Cent.
+- **Entscheidung:** Das Zwischenergebnis (Betrag × 100) wird zuerst auf 15 gültige Stellen gerundet (`toPrecision(15)`), das entfernt den Gleitkomma-Rest (213,49999999999997 wird 213,5), danach kaufmännisch gerundet. Negative Werte runden symmetrisch (weg von null); `-0` wird zu `0`; `NaN` und `Infinity` bleiben unverändert. Gültig bis in den Billionenbereich (15 Stellen).
+- **Auswirkung:** Rechenwege und Musterlösungen der Rechner, der Handelskalkulation und der Rechen-Sprints, die `rundeCent` nutzen, können in einzelnen Fällen um einen Cent von früher abweichen — jetzt zum korrekten Wert. Die bestehenden 991 Shared-Tests laufen unverändert grün.
+- **Test:** Neue Tests in finanzmathe.test.ts: Beispielwerte (8,54 × 25 %, 1,005, 2,675, 1.234.567.890,125), negative Werte, 0 und Nicht-Zahlen, sowie alle 100.000 Halbcent-Werte bis 1.000 Euro gegen die Dezimalrechnung.
+
 ### Entschieden am 08.10.2026 (Stabilisierung nach dem Review, Schritt 5: Zeitstempel im Offline-Sync werden begrenzt)
 
 - **Anlass:** Review-Befund LOG-03 (auch SHR): `offline.syncQueue` übernahm `occurredAt` ungeprüft von der Geräteuhr. Ein Zeitstempel in der Zukunft friert die Karte ein, weil spätere Reviews als „älter“ gelten und nicht angewendet werden (`occurredAt <= lastReviewedAt` in `applyReview`); er verfälscht außerdem Streak, Highscore und Achievements. Ein sehr alter Zeitstempel erlaubt das nachträgliche Auffüllen von Streak-Tagen.

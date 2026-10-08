@@ -25,9 +25,18 @@ function pruefeBetrag(betrag: number, name: string): string | null {
   return null;
 }
 
-/** Auf Cent runden (mit kleiner Korrektur gegen Gleitkomma-Fehler wie 1,005). */
+/**
+ * Auf Cent runden, kaufmännisch (ab 0,5 Cent auf, bei negativen Werten weg von null).
+ * Review-Befund SHR-02: Die frühere Korrektur `+ Number.EPSILON` wirkt nur bei Werten unter 2; bei größeren Beträgen
+ * wurde z. B. 8,54 × 25 % = 2,135 (gespeichert als 2,1349999…) zu 2,13 statt 2,14. Deshalb wird das Zwischenergebnis
+ * zuerst auf 15 gültige Stellen gerundet, das beseitigt den Gleitkomma-Rest (213,49999999999997 → 213,5) für Beträge
+ * bis in den Billionenbereich.
+ */
 export function rundeCent(wert: number): number {
-  return Math.round((wert + Number.EPSILON) * 100) / 100;
+  if (!Number.isFinite(wert)) return wert;
+  const cents = Number((Math.abs(wert) * 100).toPrecision(15));
+  const gerundet = Math.round(cents) / 100;
+  return wert < 0 && gerundet !== 0 ? -gerundet : gerundet;
 }
 
 // ---------------------------------------------------------------------------
