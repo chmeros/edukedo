@@ -36,7 +36,11 @@ function einheit(art: string, anzahl: number): string {
   return "";
 }
 
+/** Zods eigene englische Standardtexte; alles andere hat ein Schema selbst formuliert (deutsch) und bleibt unverändert. */
+const ZOD_STANDARDTEXT = /^(Invalid|Required|Expected|String must|Number must|Array must|Too |Unrecognized|Input |Expected )/;
+
 export function zodIssueDe(issue: ZodIssue): string {
+  if (!ZOD_STANDARDTEXT.test(issue.message)) return issue.message;
   switch (issue.code) {
     case "invalid_type":
       return issue.received === "undefined" || issue.received === "null" ? `${feld(issue)} fehlt.` : `${feld(issue)} hat ein ungültiges Format.`;

@@ -177,7 +177,7 @@ export function FriendCircle({ kursId }: { kursId: string }) {
     <div className="panel-section">
       <div className="panel-section-head">
         <h2>Freundeskreis</h2>
-        <p>Nur für diesen Kurs — Grundlage für spätere Highscore-/Duell-Funktionen.</p>
+        <p>Nur für diesen Kurs — Freunde, mit denen du Highscore, Duelle und Lernpartner-Vermittlung nutzen kannst.</p>
       </div>
 
       <div className="stack">

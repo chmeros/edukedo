@@ -214,7 +214,7 @@ export function CourseSelection({
           <div className="stack">
             <p>
               Du bist aktuell in <b>{pendingSwitch.leaveTitle}</b> eingeschrieben. Weiterbildungskurse erlauben nur
-              eine aktive Belegung gleichzeitig (F-102) — mit dem Beitritt zu <b>{pendingSwitch.title}</b> verlässt du{" "}
+              eine aktive Belegung gleichzeitig — mit dem Beitritt zu <b>{pendingSwitch.title}</b> verlässt du{" "}
               {pendingSwitch.leaveTitle} automatisch.
             </p>
             <div className="header-actions">

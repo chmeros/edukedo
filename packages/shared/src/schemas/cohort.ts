@@ -21,7 +21,25 @@ export const cohortIdInputSchema = z.object({
 });
 export type CohortIdInput = z.infer<typeof cohortIdInputSchema>;
 
+/**
+ * Review UXL-04: Wer beitritt, bestätigt vorher, was die Gruppe sieht (Dozent:in: E-Mail-Adresse, Beitrittsdatum und
+ * Gruppenkennzahlen; Mitglieder werden Freunde). Die Bestätigung gehört zum Beitritt und wird serverseitig verlangt.
+ */
 export const joinCohortInputSchema = z.object({
   code: z.string().trim().min(1),
+  confirmed: z.literal(true, { errorMap: () => ({ message: "Bitte bestätige den Hinweis zur Sichtbarkeit in der Gruppe." }) }),
 });
 export type JoinCohortInput = z.infer<typeof joinCohortInputSchema>;
+
+/** Review UXL-05: Verwaltung durch die Dozent:in (umbenennen, Mitglied entfernen). */
+export const renameCohortInputSchema = z.object({
+  cohortId: z.string().uuid(),
+  name: z.string().trim().min(1).max(100),
+});
+export type RenameCohortInput = z.infer<typeof renameCohortInputSchema>;
+
+export const removeCohortMemberInputSchema = z.object({
+  cohortId: z.string().uuid(),
+  userId: z.string().uuid(),
+});
+export type RemoveCohortMemberInput = z.infer<typeof removeCohortMemberInputSchema>;

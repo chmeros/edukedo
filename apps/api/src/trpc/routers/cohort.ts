@@ -1,4 +1,11 @@
-import { cohortIdInputSchema, cohortKursInputSchema, createCohortInputSchema, joinCohortInputSchema } from "@edukedo/shared";
+import {
+  cohortIdInputSchema,
+  cohortKursInputSchema,
+  createCohortInputSchema,
+  joinCohortInputSchema,
+  removeCohortMemberInputSchema,
+  renameCohortInputSchema,
+} from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, or, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
@@ -184,6 +191,59 @@ export const cohortRouter = router({
     }
 
     return { cohortId: foundCohort.id, cohortName: foundCohort.name };
+  }),
+
+  /**
+   * Review UXL-05: Kohorten, in denen die aufrufende Person Mitglied ist (nicht Dozent:in). Dient der Transparenz (wo bin ich
+   * Mitglied, wer leitet?) und dem Austritt.
+   */
+  myMemberships: protectedProcedure.input(cohortKursInputSchema).query(async ({ ctx, input }) => {
+    return ctx.db
+      .select({ cohortId: cohort.id, name: cohort.name, joinedAt: cohortMember.joinedAt })
+      .from(cohortMember)
+      .innerJoin(cohort, eq(cohort.id, cohortMember.cohortId))
+      .where(and(eq(cohortMember.userId, ctx.currentUser.id), eq(cohort.kursId, input.kursId)))
+      .orderBy(cohortMember.joinedAt);
+  }),
+
+  /**
+   * Review UXL-05: Austritt. Die in der Kohorte entstandenen Freundschaften bleiben bestehen (sie lassen sich im Freundeskreis
+   * einzeln lösen); die Mitgliedschaft und damit die Sichtbarkeit für die Dozent:in und die Gruppenkennzahlen enden sofort.
+   */
+  leave: protectedProcedure.input(cohortIdInputSchema).mutation(async ({ ctx, input }) => {
+    const deleted = await ctx.db
+      .delete(cohortMember)
+      .where(and(eq(cohortMember.cohortId, input.cohortId), eq(cohortMember.userId, ctx.currentUser.id)))
+      .returning({ id: cohortMember.id });
+    if (deleted.length === 0) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Du bist in dieser Kohorte kein Mitglied." });
+    }
+    return { success: true as const };
+  }),
+
+  rename: protectedProcedure.input(renameCohortInputSchema).mutation(async ({ ctx, input }) => {
+    await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
+    await ctx.db.update(cohort).set({ name: input.name }).where(eq(cohort.id, input.cohortId));
+    return { success: true as const };
+  }),
+
+  /** Beendet die Kohorte: Mitgliedschaften und Beitritts-Code entfallen, bestehende Freundschaften bleiben. */
+  remove: protectedProcedure.input(cohortIdInputSchema).mutation(async ({ ctx, input }) => {
+    await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
+    await ctx.db.delete(cohort).where(eq(cohort.id, input.cohortId));
+    return { success: true as const };
+  }),
+
+  removeMember: protectedProcedure.input(removeCohortMemberInputSchema).mutation(async ({ ctx, input }) => {
+    await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
+    const deleted = await ctx.db
+      .delete(cohortMember)
+      .where(and(eq(cohortMember.cohortId, input.cohortId), eq(cohortMember.userId, input.userId)))
+      .returning({ id: cohortMember.id });
+    if (deleted.length === 0) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieses Mitglied wurde nicht gefunden." });
+    }
+    return { success: true as const };
   }),
 
   regenerateJoinCode: protectedProcedure.input(cohortIdInputSchema).mutation(async ({ ctx, input }) => {

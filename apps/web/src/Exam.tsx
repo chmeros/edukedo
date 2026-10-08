@@ -380,7 +380,7 @@ export function Exam({ kursId }: { kursId: string }) {
         {sessionId &&
           (me.data?.isPremiumActive ? (
             <div className="stack">
-              <h3>KI-Bewertung deiner Fallaufgaben (F-70)</h3>
+              <h3>KI-Bewertung deiner Fallaufgaben</h3>
               {items.map((item) => (
                 <div key={item.id} className="exam-part">
                   <p className="exam-part-prompt">{item.prompt.slice(0, 120)}{item.prompt.length > 120 ? "…" : ""}</p>

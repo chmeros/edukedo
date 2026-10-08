@@ -133,7 +133,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
       method: "POST",
       url: "/api/v1/trpc/cohort.join",
       headers: { cookie: dozentCookie },
-      payload: { code: joinCode },
+      payload: { confirmed: true, code: joinCode },
     });
     expect(response.statusCode).toBe(400);
   });
@@ -143,7 +143,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
       method: "POST",
       url: "/api/v1/trpc/cohort.join",
       headers: { cookie: outsiderCookie },
-      payload: { code: "NICHTVORHANDEN" },
+      payload: { confirmed: true, code: "NICHTVORHANDEN" },
     });
     expect(response.statusCode).toBe(404);
   });
@@ -156,7 +156,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
           method: "POST",
           url: "/api/v1/trpc/cohort.join",
           headers: { cookie },
-          payload: { code: joinCode },
+          payload: { confirmed: true, code: joinCode },
         });
         expect(response.statusCode).toBe(200);
         expect(response.json().result.data.cohortName).toBe("Testkohorte Herbst 2026");
@@ -167,7 +167,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
         method: "POST",
         url: "/api/v1/trpc/cohort.join",
         headers: { cookie: memberCookies[0] },
-        payload: { code: joinCode },
+        payload: { confirmed: true, code: joinCode },
       });
       expect(repeatResponse.statusCode).toBe(200);
 
@@ -372,7 +372,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
       method: "POST",
       url: "/api/v1/trpc/cohort.join",
       headers: { cookie: memberCookies[0] },
-      payload: { code: smallJoinCode },
+      payload: { confirmed: true, code: smallJoinCode },
     });
     expect(joinResponse.statusCode).toBe(200);
 
@@ -405,7 +405,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
         method: "POST",
         url: "/api/v1/trpc/cohort.join",
         headers: { cookie: outsiderCookie },
-        payload: { code: joinCode },
+        payload: { confirmed: true, code: joinCode },
       });
       expect(oldCodeResponse.statusCode).toBe(404);
 
@@ -413,7 +413,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
         method: "POST",
         url: "/api/v1/trpc/cohort.join",
         headers: { cookie: outsiderCookie },
-        payload: { code: newCode },
+        payload: { confirmed: true, code: newCode },
       });
       expect(newCodeResponse.statusCode).toBe(200);
     },

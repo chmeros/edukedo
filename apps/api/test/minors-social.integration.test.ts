@@ -108,7 +108,7 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
 
     expect((await mutate(kind.cookie, "cohort.create", { kursId, name: "Klasse" })).statusCode).toBe(403);
     const cohort = (await mutate(erwachsen.cookie, "cohort.create", { kursId, name: "Gruppe" })).json().result.data;
-    expect((await mutate(kind.cookie, "cohort.join", { code: cohort.joinCode })).statusCode).toBe(403);
+    expect((await mutate(kind.cookie, "cohort.join", { code: cohort.joinCode, confirmed: true })).statusCode).toBe(403);
 
     const links = await db.select().from(schema.friendCircleLink);
     expect(links.filter((l) => l.userIdA === kind.userId || l.userIdB === kind.userId)).toHaveLength(0);
@@ -193,9 +193,9 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     const zweites = await newUser();
     const cohort = (await mutate(dozent.cookie, "cohort.create", { kursId, name: "Gruppe" })).json().result.data;
 
-    expect((await mutate(erstes.cookie, "cohort.join", { code: cohort.joinCode })).statusCode).toBe(200);
+    expect((await mutate(erstes.cookie, "cohort.join", { code: cohort.joinCode, confirmed: true })).statusCode).toBe(200);
     await setMinor(erstes.userId, false);
-    expect((await mutate(zweites.cookie, "cohort.join", { code: cohort.joinCode })).statusCode).toBe(200);
+    expect((await mutate(zweites.cookie, "cohort.join", { code: cohort.joinCode, confirmed: true })).statusCode).toBe(200);
 
     const links = await db
       .select()
@@ -238,7 +238,7 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     await mutate(kind.cookie, "friend.createInviteCode", { kursId });
     await mutate(kind.cookie, "highscore.setOptIn", { kursId, optIn: true });
     const cohort = (await mutate(erwachsen.cookie, "cohort.create", { kursId, name: "Gruppe" })).json().result.data;
-    expect((await mutate(kind.cookie, "cohort.join", { code: cohort.joinCode })).statusCode).toBe(200);
+    expect((await mutate(kind.cookie, "cohort.join", { code: cohort.joinCode, confirmed: true })).statusCode).toBe(200);
     await db.insert(schema.duell).values({
       kursId,
       challengerUserId: erwachsen.userId,

@@ -77,8 +77,8 @@ export function Datenschutzerklaerung() {
           <p>
             <b>Bei Mitgliedschaft in einem Unternehmenskonto:</b> die Zuordnung zu diesem Unternehmen. Der
             Arbeitgeber erhält dabei ausdrücklich <b>keine</b> Einsicht in individuelle Lerninhalte oder
-            Einzelantworten, sondern höchstens aggregierte Kennzahlen ab einer Mindestgruppengröße (siehe
-            Anforderungskatalog Abschnitt 7, Beschäftigtendatenschutz).
+            Einzelantworten, sondern höchstens aggregierte Kennzahlen ab einer Mindestgruppengröße
+            (Beschäftigtendatenschutz).
           </p>
 
           <p>
@@ -140,7 +140,7 @@ export function Datenschutzerklaerung() {
             vorab deine Einwilligung über ein entsprechendes Banner ein.
           </p>
           <p>
-            Für den Offline-Modus (F-42) werden zusätzlich Lerninhalte und noch nicht synchronisierte
+            Für den Offline-Modus werden zusätzlich Lerninhalte und noch nicht synchronisierte
             Antworten lokal in deinem Browser (IndexedDB) gespeichert — diese Daten verlassen dein Gerät nicht,
             bis eine Online-Verbindung besteht und sie mit deinem Konto synchronisiert werden.
           </p>

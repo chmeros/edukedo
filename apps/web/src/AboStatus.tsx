@@ -41,7 +41,7 @@ export function AboStatus() {
   return (
     <div className="stack">
       <span className="stat-subheading">Abo</span>
-      <span className="field-hint">Schaltet die Fortgeschritten-Funktionen frei: KI-Bewertung deiner Fallaufgaben (F-70) und geführte Instrumenten-Lernpfade (F-129).</span>
+      <span className="field-hint">Schaltet die Fortgeschritten-Funktionen frei: KI-Bewertung deiner Fallaufgaben und geführte Instrumenten-Lernpfade.</span>
       {!status.data.live && (
         <span className="field-hint">Zahlungsdienst gerade nicht erreichbar — zuletzt bekannter Stand:</span>
       )}

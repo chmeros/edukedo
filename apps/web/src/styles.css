@@ -1908,6 +1908,28 @@ details[open] > summary.disclosure::before {
   color: var(--ink-soft);
 }
 
+/* Review UXL-18: Zwischenüberschriften sind echte Überschriften (h3/h4), sehen aber wie bisher aus. */
+h3.stat-subheading,
+h4.stat-subheading {
+  margin: 0;
+  line-height: inherit;
+}
+
+/* Zeile mit Kontrollkästchen und Text; die Zeile ist die Klickfläche (Review UXL-04). */
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  min-height: 44px;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
 .stat-row {
   display: flex;
   flex-wrap: wrap;
@@ -3044,6 +3066,7 @@ details[open] > summary.disclosure::before {
 .tile-title {
   font-weight: 700;
   font-size: var(--fs-sm);
+  overflow-wrap: anywhere; /* Review UXL-17: lange Titel brechen um statt abgeschnitten zu werden */
 }
 
 .tile-meta {
