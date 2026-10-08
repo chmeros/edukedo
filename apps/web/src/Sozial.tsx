@@ -29,6 +29,22 @@ export function Sozial({
   const overview = trpc.progress.overview.useQuery({ kursId });
   const fachgebiete = (overview.data ?? []).map((entry) => ({ id: entry.id, title: entry.title }));
 
+  // Review WEB-16/A8: Minderjährige ohne Freigabe der Eltern sehen keinen der sozialen Bereiche (der Server sperrt sie ohnehin);
+  // statt vieler einzelner Fehlermeldungen steht hier ein verständlicher Hinweis.
+  if (isMinor && !gamificationEnabled) {
+    return (
+      <div className="panel-section">
+        <div className="panel-section-head">
+          <h2>Freundeskreis, Gruppen und Wettbewerbe</h2>
+        </div>
+        <p>
+          Freundeskreis, Lehrgangsgruppen, Highscore, Duelle und Lernpartner-Vermittlung sind für dich gesperrt, solange deine Eltern
+          sie nicht freigegeben haben. Alles andere in edukedo kannst du ganz normal nutzen.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="stack">
       <FriendCircle kursId={kursId} />
