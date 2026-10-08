@@ -568,6 +568,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Versicherungen/Finanzanlagen)
+
+Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen. Dieser Kurs ist überwiegend rechtsnah (VVG, VAG, SGB, BetrAVG), deshalb blieb die Zahl der Änderungen klein: nur Befunde ohne Normbezug und ein Blocker, der einen logischen Widerspruch in der Aufgabe selbst betrifft. Validiert (0 Verstöße), importiert (12 Items geändert, keine Lösung geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün.
+
+- **Umgesetzt:** FL-VF-02 (F-KB1-03: ein bereits eingetretener Unfall ist nicht versicherbar; Teilaufgabe 2 fragt jetzt, warum für den Kletterunfall kein Anspruch besteht und welche Frist bei einer künftigen Unfallversicherung zu beachten wäre; Musterlösung angepasst), FL-VF-13 (Äquivalenzprinzip einheitlich: Prämie entspricht dem Risiko, im Kollektiv Risikoausgleich), FL-VF-17 (Berufsunfähigkeit statt Erwerbsunfähigkeit), FL-VF-23 (Distraktor "Wartezeit" ersetzt), FL-VF-28 (Break-even über den Deckungsbeitrag der neuen Verträge), FL-VF-32 (Begriff "Restversicherer", Anweisung Q-1.2-03), FL-VF-36 (Tippfehler).
+- **Nicht geändert:** Alle rechtsnahen Befunde (R4): FL-VF-01, 03 bis 06, 09 bis 11, 14 bis 16, 18, 22, 24, 25, 33, 34, 37, 38 (u. a. Notlagentarif, § 61/62 VVG, § 19 VVG, Produkthaftung, Altersvorsorgereform, bAV-Zuschuss). Lücken und neue Inhalte (R3, R5): FL-VF-07, 08, 12, 35 (Finanzanlagen, Nachhaltigkeit, Finanzrechner ohne Theorie). Mehrdeutig, systemisch oder Umbau: FL-VF-19, 20, 21, 26, 27, 29 bis 31, 39, 40. Vorschläge je Befund im Bericht.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Transport/Logistik)
 
 Nutzer-Freigabe vom 08.10.2026, gleiche Regeln wie bei den vorigen Kursen (nur belegte, nicht rechtsnahe Befunde, keine neuen Inhalte). Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei fünf Items ändert sich die Lösung (Q-1.1-06, Q-1.2-06, Q-2.3-13, Q-2.3-16, Q-2.4-06); der Fortschritt bleibt erhalten. Beim Memory-Spiel gilt die Grenze von 64 Zeichen je Bedeutung (Test `game-pool-logistik`), daher "Schiene/Binnenschiff".
