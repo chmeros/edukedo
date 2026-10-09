@@ -212,8 +212,11 @@ Auch bei dreidimensionalen Körpern hilft der Satz des Pythagoras weiter, meist 
 **Erklärung:** d = √(3²+4²+12²) = √(9+16+144) = √169 = 13 cm.
 `schwierigkeit: schwer` · `bloom: anwenden`
 
-#### Q-GEO1-12 · Kurzantwort
-**Frage:** Prüfe rechnerisch, ob ein Dreieck mit den Seiten 8 cm, 15 cm, 17 cm rechtwinklig ist, und begründe kurz.
-**Akzeptierte Antworten:** ja, da 8²+15²=17² (64+225=289); ja, rechtwinklig, 289=289
-**Erklärung:** 8² + 15² = 64 + 225 = 289 = 17², also rechtwinklig laut Umkehrsatz.
-`schwierigkeit: schwer` · `bloom: bewerten`
+#### Q-GEO1-12 · Multiple Choice
+**Frage:** Ein Dreieck hat die Seiten 8 cm, 15 cm und 17 cm. Welche Aussage ist richtig?
+- [ ] Es ist nicht rechtwinklig, weil 8 + 15 = 23 und nicht 17 ist.
+- [x] Es ist rechtwinklig, weil 8² + 15² = 64 + 225 = 289 = 17² gilt.
+- [ ] Es ist nicht rechtwinklig, weil 8² + 17² = 353 und nicht 15² ist.
+- [ ] Es ist rechtwinklig, weil 8 + 15 größer als 17 ist.
+**Erklärung:** Beim Umkehrsatz setzt man die längste Seite als Hypotenuse: 8² + 15² = 64 + 225 = 289 = 17², also ist das Dreieck rechtwinklig. Die Dreiecksungleichung (8 + 15 > 17) sagt nur, dass ein Dreieck existiert.
+`schwierigkeit: mittel` · `bloom: bewerten`

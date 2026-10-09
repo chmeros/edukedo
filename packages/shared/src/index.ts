@@ -24,6 +24,7 @@ export * from "./instrument-lernpfad-logic";
 export * from "./kurs-angebot";
 export * from "./instrument-lernpfad-pruefung";
 export * from "./netzplan-logic";
+export * from "./antwort-normalisierung";
 export * from "./quiz-logic";
 export * from "./flag-raetsel";
 export * from "./sql-highlight";

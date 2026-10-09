@@ -5,6 +5,7 @@ import {
   lueckenAuswahlPayloadSchema,
   lueckenPayloadSchema,
 } from "./schemas/content-item";
+import { normalisiereAntwort } from "./antwort-normalisierung";
 
 /**
  * Reine Formungs-/Prüflogik für Quiz-Items (F-21) — ursprünglich nur in apps/api geteilt
@@ -1149,8 +1150,9 @@ export function checkBlanks(payload: unknown, answers: Record<string, string>) {
   let correctCount = 0;
 
   for (const blank of parsed.blanks) {
-    const given = (answers[blank.id] ?? "").trim().toLowerCase();
-    const isCorrect = blank.accepted.some((accepted) => accepted.trim().toLowerCase() === given);
+    // FL-MA-03: beide Seiten mit denselben Regeln angleichen (Schreibweisen von Wurzel, Hochzahl, Grad, Leerzeichen).
+    const given = normalisiereAntwort(answers[blank.id] ?? "");
+    const isCorrect = blank.accepted.some((accepted) => normalisiereAntwort(accepted) === given);
     results[blank.id] = isCorrect;
     correctAnswers[blank.id] = blank.accepted[0] ?? "";
     if (isCorrect) {
@@ -1163,10 +1165,11 @@ export function checkBlanks(payload: unknown, answers: Record<string, string>) {
 
 export function checkKurzantwort(payload: unknown, answer: string) {
   const parsed = kurzantwortPayloadSchema.parse(payload);
-  const given = answer.trim().toLowerCase();
+  // FL-MA-03: beide Seiten mit denselben Regeln angleichen (Schreibweisen von Wurzel, Hochzahl, Grad, Leerzeichen).
+  const given = normalisiereAntwort(answer);
 
   const isCorrect = parsed.accepted_answers.some((accepted) => {
-    const normalizedAccepted = accepted.trim().toLowerCase();
+    const normalizedAccepted = normalisiereAntwort(accepted);
     return parsed.match_mode === "contains" ? given.includes(normalizedAccepted) : normalizedAccepted === given;
   });
 

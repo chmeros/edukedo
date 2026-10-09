@@ -120,6 +120,43 @@ describe("checkKurzantwort", () => {
     const payload = { accepted_answers: ["Nachweisgesetz"], match_mode: "contains" as const };
     expect(checkKurzantwort(payload, "Das Nachweisgesetz regelt das.").isCorrect).toBe(true);
   });
+
+  describe("gleiche Schreibweisen (FL-MA-03)", () => {
+    const wurzel = { accepted_answers: ["10√2"], match_mode: "exact" as const };
+    const tangens = { accepted_answers: ["Gegenkathete = 9 · tan(60°)"], match_mode: "exact" as const };
+    const potenz = { accepted_answers: ["2^10"], match_mode: "exact" as const };
+
+    it("wertet gängige Tipp-Schreibweisen als richtig, ohne dass sie im Inhalt aufgezählt sind", () => {
+      for (const eingabe of ["10 wurzel 2", "10*√2", "10 √ 2", "10·sqrt(2)", "10 Wurzel aus 2"]) {
+        expect(checkKurzantwort(wurzel, eingabe).isCorrect, eingabe).toBe(true);
+      }
+      for (const eingabe of ["gegenkathete = 9 tan 60", "Gegenkathete=9*tan(60)", "gegenkathete = 9 · tan 60°"]) {
+        expect(checkKurzantwort(tangens, eingabe).isCorrect, eingabe).toBe(true);
+      }
+      for (const eingabe of ["2¹⁰", "2 hoch 10", "2**10", "2 ^ 10"]) {
+        expect(checkKurzantwort(potenz, eingabe).isCorrect, eingabe).toBe(true);
+      }
+    });
+
+    it("wertet falsche Antworten weiterhin als falsch und zeigt als Lösung die Schreibweise des Autors", () => {
+      expect(checkKurzantwort(wurzel, "10√3")).toEqual({ isCorrect: false, correctAnswer: "10√2" });
+      expect(checkKurzantwort(potenz, "2^11").isCorrect).toBe(false);
+      expect(checkKurzantwort(tangens, "gegenkathete = 9 tan 30").isCorrect).toBe(false);
+      expect(checkKurzantwort(wurzel, "").isCorrect).toBe(false);
+    });
+
+    it("gleicht Punkt und Komma bei Zahlen nicht an", () => {
+      const tausend = { accepted_answers: ["1.000"], match_mode: "exact" as const };
+      expect(checkKurzantwort(tausend, "1,000").isCorrect).toBe(false);
+      expect(checkKurzantwort(tausend, "1.000").isCorrect).toBe(true);
+    });
+
+    it("gilt auch für Lücken im Lückentext", () => {
+      const lueckentext = { text_with_blanks: "Die Zahl ___ ist irrational.", blanks: [{ id: "1", accepted: ["√2"] }] };
+      expect(checkBlanks(lueckentext, { "1": "wurzel 2" }).results["1"]).toBe(true);
+      expect(checkBlanks(lueckentext, { "1": "wurzel 3" }).results["1"]).toBe(false);
+    });
+  });
 });
 
 describe("checkSortierenAnswer", () => {

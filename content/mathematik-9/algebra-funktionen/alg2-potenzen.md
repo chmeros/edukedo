@@ -214,8 +214,11 @@ Diese Unterscheidung ist eine wichtige Grundlage für das nachfolgende Thema (AL
 **Erklärung:** (2⁵)² = 2^(5·2) = 2¹⁰.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
-#### Q-ALG2-12 · Kurzantwort
-**Frage:** Ist der Graph von f(x) = x⁵ achsen- oder punktsymmetrisch? Begründe kurz mit dem Exponenten.
-**Akzeptierte Antworten:** punktsymmetrisch, da 5 ungerade ist; punktsymmetrisch zum Ursprung, ungerader Exponent
-**Erklärung:** Ungerade Exponenten führen zu Punktsymmetrie zum Ursprung.
-`schwierigkeit: schwer` · `bloom: verstehen`
+#### Q-ALG2-12 · Multiple Choice
+**Frage:** Welche Aussage über den Graphen von f(x) = x⁵ ist richtig?
+- [ ] Er ist achsensymmetrisch zur y-Achse, weil der Exponent 5 ungerade ist.
+- [x] Er ist punktsymmetrisch zum Ursprung, weil der Exponent 5 ungerade ist.
+- [ ] Er ist achsensymmetrisch zur y-Achse, weil der Exponent 5 größer als 1 ist.
+- [ ] Er ist weder achsen- noch punktsymmetrisch, weil x⁵ für negative x negativ wird.
+**Erklärung:** Ungerade Exponenten führen zu Punktsymmetrie zum Ursprung: f(−x) = −f(x). Gerade Exponenten führen zu Achsensymmetrie zur y-Achse.
+`schwierigkeit: mittel` · `bloom: verstehen`
