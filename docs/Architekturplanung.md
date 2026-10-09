@@ -568,6 +568,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Modellunternehmen Ravelin und Karteikarte K-3.1-21, Review FL-IM-24 und FL-TL-48)
+
+Anlass: Letzte der sechs Entscheidungen aus Iteration 23, vorgelegt und entschieden am 09.10.2026.
+
+- **Ravelin (FL-IM-24, Immobilienfachwirt):** Die Texte widersprachen sich (1.1 und 3.1: rund 3.000 Einheiten gesamt; 4.1: rund 3.000 Einheiten, darunter vermietete; 4.2: „neben den rund 3.000 vermieteten Einheiten“ also zusätzlich; 2.1: rund 3.000 verwaltete Wohnungseigentümergemeinschaften). Entscheidung: Ravelin verwaltet insgesamt rund 3.000 Einheiten, davon rund 2.000 Mieteinheiten (Mietverwaltung) und rund 1.000 Einheiten in rund 40 Wohnungseigentümergemeinschaften (WEG-Verwaltung). Die Zahlen sind frei erfunden und werden nirgends gerechnet. Geändert: 2.1 („rund 40 verwaltete WEG“ statt 3.000), 4.1 (Aufteilung der 3.000 Einheiten), 4.2 („neben rund 2.000 vermieteten Einheiten rund 40 WEG mit zusammen etwa 1.000 Einheiten, darunter die Wohnanlage am Lindenpark mit 48 Einheiten“). 1.1 und 3.1 passten schon zu „3.000 gesamt“.
+- **K-3.1-21 (FL-TL-48, Transport/Logistik):** Die Karte fragte „Wer führt bei Fracora disziplinarisch die einzelnen Schichtleitungen im Lager?“ und prüfte damit nur Wissen über die erfundene Firma; dieselbe Struktur steht schon in der Zuordnungsaufgabe „Schichtleitung Lager → Lagerleitung“. Sie fragt jetzt nach dem übertragbaren Prinzip (wem die Schichtleitungen in einer mehrstufigen Führungsstruktur unterstellt sind und dass jede Ebene die ihr unmittelbar unterstellten Stellen führt) mit Fracora als Beispiel. Schlüssel und Lernfortschritt bleiben erhalten, nichts wurde gelöscht oder deaktiviert.
+- **Prüfung:** validiert (0 Verstöße), importiert (4 Items geändert, keine Lösung geändert), Trockenlauf danach ohne Änderung, Unit-Tests grün.
+
 ### Entschieden am 09.10.2026 (Kurzantworten: Normalisierung vor dem Vergleich, Review FL-MA-03)
 
 Anlass: Fachlehrer-Befund FL-MA-03 (hoch, Mathematik 9): Die Bewertung von Kurzantworten und Lückentext-Lücken verglich exakt (nur Randleerzeichen und Groß-/Kleinschreibung wurden angeglichen). Richtige Antworten in anderer Schreibweise („wurzel 10“ statt „√10“, „9 tan 60“ statt „9·tan(60°)“, „x^2“ statt „x²“) galten als falsch; Zeichen wie √, ², ° sind auf Tastatur und Handy kaum tippbar. Entscheidung der Projektleitung vom 09.10.2026: zentrale Normalisierung und Umbau der Begründungsfragen.
