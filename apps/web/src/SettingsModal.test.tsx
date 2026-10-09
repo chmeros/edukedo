@@ -3,6 +3,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { describe, expect, it, vi } from "vitest";
 import { registry as reg } from "./test/trpcRegistry";
 
+// Der Seitenwechsel nach dem Löschen lässt sich in jsdom nicht ausführen.
+vi.mock("./seitenwechsel", () => ({ zurStartseite: vi.fn() }));
+import { zurStartseite } from "./seitenwechsel";
+
 // Die Einzel-Einstellungen sind nicht Gegenstand dieses Tests (Review UXT-I-18: „Konto löschen“ im Bereich „Konto“).
 vi.mock("./AboStatus", () => ({ AboStatus: () => null }));
 vi.mock("./DisplayNameSettings", () => ({ DisplayNameSettings: () => null }));
@@ -68,6 +72,8 @@ describe("SettingsModal, Bereich „Konto“ (Review UXT-I-18)", () => {
     fireEvent.click(screen.getByRole("button", { name: "Konto endgültig löschen" }));
 
     expect(reg.mutationCalls["auth.deleteAccount"]).toEqual([{ password: "geheim-test" }]);
+    // Nach der Löschung lädt die App neu auf der Startseite (sonst bliebe die angemeldete Ansicht samt Dialog stehen).
+    expect(zurStartseite).toHaveBeenCalledTimes(1);
   });
 
   it("warnt beim Löschen, wenn die Person Kohorten leitet, und nennt die Zahl", () => {

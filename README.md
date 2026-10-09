@@ -10,6 +10,7 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 /apps
   /web        → React-PWA-Frontend (Vite) — Lernen, Spiele, Instrumente, Prüfung, Sozial, Eltern-/Unternehmens-/Admin-Bereiche
   /api        → Kern-Backend (Fastify + tRPC + Drizzle) — Auth, Consent, Content, Sync, Sozial, Prüfung, KI-Anbindung
+  /e2e        → Ende-zu-Ende-Tests (Playwright), siehe apps/e2e/README.md
   /payment    → Eigenständiger Payment-Service — Event-Queue und Abo-/Kaufverwaltung stehen, echter Zahlungsdienstleister offen, siehe apps/payment/README.md
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern

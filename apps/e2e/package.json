@@ -1,0 +1,16 @@
+{
+  "name": "@edukedo/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ende-zu-Ende-Tests (Playwright) gegen die laufende Anwendung: Browser, Web-Frontend, API, Postgres und Redis",
+  "scripts": {
+    "prepare-db": "node scripts/prepare-db.mjs",
+    "e2e": "playwright test",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0"
+  }
+}

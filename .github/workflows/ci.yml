@@ -93,6 +93,59 @@ jobs:
           curl -fsS http://127.0.0.1:3102/health || { cat server.log; kill $pid; exit 1; }
           kill $pid
 
+  # Ende-zu-Ende-Tests (Playwright, apps/e2e): echter Browser gegen Vite-Entwicklungsserver, API, Postgres und Redis. Die Testdatenbank
+  # und ihr fester Testkurs entstehen im Schritt "Prepare database" (siehe apps/e2e/README.md).
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: edukedo
+          POSTGRES_PASSWORD: edukedo
+          POSTGRES_DB: edukedo_e2e
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U edukedo -d edukedo_e2e"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install browser
+        run: pnpm --filter @edukedo/e2e exec playwright install --with-deps chromium
+      - name: Prepare database
+        run: pnpm --filter @edukedo/e2e prepare-db
+      - name: Run end-to-end tests
+        run: pnpm --filter @edukedo/e2e e2e
+      - name: Upload report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            apps/e2e/playwright-report/
+            apps/e2e/test-results/
+          retention-days: 7
+
   # Review A5: Die Images müssen sich bauen lassen (kein Push, kein Deployment).
   docker-build:
     runs-on: ubuntu-latest

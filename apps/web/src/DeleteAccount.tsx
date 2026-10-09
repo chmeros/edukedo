@@ -3,7 +3,9 @@ import { useState } from "react";
 import { DangerIcon } from "./Icons";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
+import { clearOfflineData } from "./offlineDb";
 import { pluralDe } from "./plural";
+import { zurStartseite } from "./seitenwechsel";
 import { trpc } from "./trpc";
 
 /**
@@ -16,7 +18,16 @@ export function DeleteAccountDialog({ onClose }: { onClose: () => void }) {
   // ein Refetch von me würde ohnehin nur 401 liefern (siehe App.tsx-Logout-Kommentar) —, aber
   // alle anderen zwischengespeicherten Daten dieser Person (Fortschritt, Kursbelegungen, …)
   // müssen ebenfalls aus dem app-weiten Cache verschwinden, siehe App.tsx-Logout-Kommentar.
-  const deleteAccount = trpc.auth.deleteAccount.useMutation({ onSuccess: () => queryClient.clear() });
+  // Ende-zu-Ende-Befund (09.10.2026): `clear()` benachrichtigt die laufenden Abfragen nicht, die App blieb nach der Löschung in der
+  // angemeldeten Ansicht stehen und der Dialog offen. Deshalb danach ein Neuladen auf der Startseite; zusätzlich werden wie beim
+  // Abmelden (App.tsx) die lokalen Offline-Daten dieser Person gelöscht (Review WEB-04).
+  const deleteAccount = trpc.auth.deleteAccount.useMutation({
+    onSuccess: () => {
+      queryClient.clear();
+      clearOfflineData().catch(() => undefined);
+      zurStartseite();
+    },
+  });
   const [password, setPassword] = useState("");
   // Review UXL-05: Eigene Kohorten werden mit dem Konto gelöscht; wer eine leitet, wird vorher gewarnt.
   const owned = trpc.cohort.ownedCount.useQuery();
