@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Wahr/Falsch und Entweder-Oder: erst wählen, dann prüfen, Review UXT-F-10)
+
+Anlass: `TwoChoiceStep` (Wahr/Falsch, Entweder-Oder; F-113) wertete schon beim Klick auf eine der zwei Antwortflächen. Alle anderen Fragetypen verlangen erst eine Auswahl und dann „Antwort prüfen“. Ein versehentlicher Tipp am Handy zählte so als Antwort mit Wirkung auf Credits, Lernserie und Fortschritt. Entscheidung des Projektleiters (09.10.2026, nach Vorlage der Wahl): **erst wählen, dann prüfen**.
+
+- **Umsetzung (`QuizSteps.tsx`, `TwoChoiceStep`):** Ein Klick wählt nur aus (hervorgehoben über `is-selected`, `aria-pressed` für Hilfstechnik); die Auswahl lässt sich vor dem Prüfen ändern. „Antwort prüfen“ ist erst nach einer Auswahl aktiv und sendet die zuletzt gewählte Antwort. Die Rückmeldung (richtig/falsch, Erklärung, „Nächste Frage“) bleibt unverändert. Die Fehleranzeige und der Aufbau folgen `MultipleChoiceStep`.
+- **Wirkung:** Der Baustein steckt im Quiz, im Mischmodus, im Duell und in der kontolosen Vorschau; überall gilt jetzt dasselbe. Im Duell passt das zu den Multiple-Choice-Fragen derselben Runde, die ohnehin so funktionierten.
+- **Bewusst nicht Teil:** ein Schnellmodus als Einstellung (Wahr/Falsch mit Sofortwertung blieb als Alternative zur Wahl, wurde aber nicht gewählt).
+- **Prüfung:** Zwei neue Tests in `QuizSteps.test.tsx` (Klick wertet nicht, „Antwort prüfen“ erst nach der Auswahl aktiv, Auswahl änderbar, nur die zuletzt gewählte Antwort wird gesendet) und der bestehende Quiz-Test angepasst. Gegenprobe: mit der alten Sofortwertung schlagen drei Tests fehl. Web-Suite 114, Typprüfung und Lint sauber. Nicht im Browser angesehen (kleine Änderung an einem getesteten Baustein; die Auswahl-Hervorhebung nutzt die vorhandene Klasse `is-selected` der übrigen Fragetypen).
+
 ### Entschieden am 09.10.2026 (Prüfungs-Tab für Schulkurse: Probe-Klassenarbeit, Review UXT-I-10)
 
 Anlass: Der Prüfungs-Tab war für Mathematik 9 unbrauchbar. Die schriftliche Prüfung braucht Fallaufgaben, die der Mathe-Kurs nicht hat („Keine Fallaufgaben für diesen Kurs verfügbar“ beim Start); dazu kamen IHK-Texte, Präsentation, Projekt und Fachgespräch. Entscheidung des Projektleiters (09.10.2026, nach Vorlage der Wahl zwischen reinem Zuschneiden und neuer Funktion): **eine Probe-Klassenarbeit bauen** und die übrigen Reiter für Schulkurse zuschneiden.
