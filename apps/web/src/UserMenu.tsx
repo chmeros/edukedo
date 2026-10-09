@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { DeleteAccount } from "./DeleteAccount";
 import { SettingsModal } from "./SettingsModal";
 import { useDismissableMenu } from "./useDismissableMenu";
 
@@ -93,7 +92,6 @@ export function UserMenu({
             >
               Logout
             </button>
-            <DeleteAccount />
           </div>
         </div>
       )}

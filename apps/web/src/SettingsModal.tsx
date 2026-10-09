@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AboStatus } from "./AboStatus";
+import { DeleteAccountDialog } from "./DeleteAccount";
 import { DisplayNameSettings } from "./DisplayNameSettings";
 import { DisplaySettings } from "./DisplaySettings";
 import { FlashcardStartSideSettings } from "./FlashcardStartSideSettings";
@@ -14,14 +15,15 @@ import { Zielplanung } from "./Zielplanung";
 
 /**
  * F-107: Der bisherige Unter-Tab "Einstellungen" im Fortschritt-Tab wandert ins
- * Header-Benutzermenü (Modal) — analog zu `DeleteAccount.tsx` (Trigger-Button + selbst
- * verwaltetes Modal, siehe Architekturplanung Abschnitt 13). `kursId` kann null sein (z. B.
+ * Header-Benutzermenü (Modal) — mit selbst
+ * verwaltetem Modal (siehe Architekturplanung Abschnitt 13); am Ende liegt der abgesetzte Bereich „Konto“ mit „Konto löschen“. `kursId` kann null sein (z. B.
  * direkt nach der Registrierung, bevor F-101 einen Kurs erzwungen hat) — Zielplanung/
  * Offline-Download brauchen einen belegten Kurs, LearningModeSettings/RedeemCompanyCode sind
  * kursunabhängig und bleiben immer verfügbar.
  */
 export function SettingsModal({ kursId }: { kursId: string | null }) {
   const [open, setOpen] = useState(false);
+  const [loeschen, setLoeschen] = useState(false);
 
   return (
     <>
@@ -73,7 +75,29 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
               <AboStatus />
             </div>
           </div>
+          <section className="settings-konto" aria-labelledby="settings-konto-titel">
+            <h3 id="settings-konto-titel">Konto</h3>
+            <p className="field-hint">Löscht dein Konto und alle Daten dazu unwiderruflich. Vorher fragen wir noch einmal nach deinem Passwort.</p>
+            <button
+              type="button"
+              className="link-danger-btn"
+              onClick={() => {
+                setOpen(false);
+                setLoeschen(true);
+              }}
+            >
+              Konto löschen
+            </button>
+          </section>
         </Modal>
+      )}
+      {loeschen && (
+        <DeleteAccountDialog
+          onClose={() => {
+            setLoeschen(false);
+            setOpen(true);
+          }}
+        />
       )}
     </>
   );

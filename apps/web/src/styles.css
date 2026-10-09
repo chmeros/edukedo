@@ -40,8 +40,9 @@
      Fläche mit weißem Text braucht unabhängig vom Farbschema denselben Mindestkontrast,
      anders als die Text-Rollen von coral/sprout/danger, die zwischen den Themes bewusst die
      Helligkeit tauschen (dunkel auf hellem Grund vs. hell auf dunklem Grund). */
-  --coral-fill: #e62800;
-  --coral-fill-hover: #be2100;
+  /* Review UXT-B-23/I-18 (Entscheidung 09.10.2026): Aktionen sind grün (--sprout-fill, 4,52:1 mit weißem Text,
+     Hover --sprout-deep 6,28:1); Rot (--danger-fill) bleibt Gefahr und Löschen vorbehalten. Der frühere
+     Korallton --coral-fill (#e62800) lag zu nah am Gefahr-Rot und ist entfallen. */
   --sprout-fill: #168759;
   --danger-fill: #d5423a;
 
@@ -597,22 +598,24 @@ a {
 }
 
 .btn-primary {
-  background: var(--coral-fill);
+  background: var(--sprout-fill);
   color: #fff;
-  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--coral) 70%, transparent);
+  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--sprout) 70%, transparent);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--coral-fill-hover);
+  background: var(--sprout-deep);
 }
 
+/* Zweitrangige Aktion: umrandet statt gefüllt, damit die Hauptaktion (.btn-primary) hervorsticht. */
 .btn-secondary {
-  background: var(--sprout-fill);
-  color: #fff;
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line-strong);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: var(--sprout-deep);
+  border-color: var(--sprout-fill);
 }
 
 .btn-ghost {
@@ -652,6 +655,24 @@ a {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* Abgesetzter Bereich „Konto“ am Ende der Einstellungen (Review UXT-I-18). */
+.settings-konto {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--danger);
+  border-radius: 12px;
+  background: var(--danger-tint);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-konto h3 {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--danger-deep);
 }
 
 .link-danger-btn {
@@ -1000,6 +1021,11 @@ details[open] > summary.disclosure::before {
 .suggestion-reason {
   font-size: var(--fs-xs);
   color: var(--ink-faint);
+}
+
+/* Review UXT-B-21: --ink-faint auf der grünen Tönung des Haupt-Vorschlags erreichte im Dunkelmodus nur 4,18:1. */
+.suggestion-chip.is-primary .suggestion-reason {
+  color: var(--ink-soft);
 }
 
 .suggestion-mehr {
