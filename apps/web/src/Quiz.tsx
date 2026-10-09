@@ -24,12 +24,22 @@ import { trpc } from "./trpc";
 import { useAttemptKeys, withAttemptKey } from "./attemptKey";
 import { useOnlineStatus } from "./useOnlineStatus";
 
+/** Stand einer laufenden Runde für Aufrufer, die sie begleiten (Klassenarbeit). */
+export interface QuizFortschritt {
+  richtig: number;
+  beantwortet: number;
+  gesamt: number;
+  fertig: boolean;
+}
+
 export function Quiz({
   kursId,
   themaId,
   themaTitle,
   onClearThema,
   itemType,
+  fixedCount,
+  onFortschritt,
 }: {
   kursId: string;
   themaId?: string;
@@ -37,6 +47,13 @@ export function Quiz({
   onClearThema?: () => void;
   /** Review B8: Runde nur zu einem Inhaltstyp, z. B. einem einzelnen Instrument (Tab "Instrumente"). */
   itemType?: string;
+  /**
+   * Probe-Klassenarbeit (Review UXT-I-10): feste Fragenzahl ohne Auswahl „Anzahl anpassen“, ohne Pause/Abbruch und ohne eigenen Abschluss-
+   * Bildschirm; die Klassenarbeit (Klassenarbeit.tsx) führt Zeit und Ergebnis selbst.
+   */
+  fixedCount?: number;
+  /** Meldet nach jeder Antwort und nach der letzten Frage den Stand (richtig, beantwortet, gesamt) an die Klassenarbeit. */
+  onFortschritt?: (stand: QuizFortschritt) => void;
 }) {
   const online = useOnlineStatus();
   const utils = trpc.useUtils();
@@ -64,7 +81,7 @@ export function Quiz({
   // zur Fragenzahl passen. Die Komponente bleibt jetzt ohnehin über den Tab-Wechsel hinweg
   // gemountet (siehe App.tsx), ein Re-Fetch ist hier also nie erwünscht.
   // F-22: frei wählbare Rundengröße statt fest 20 — siehe QuizCountControl.
-  const [questionCount, setQuestionCount] = useState(DEFAULT_QUIZ_ROUND_SIZE);
+  const [questionCount, setQuestionCount] = useState(fixedCount ?? DEFAULT_QUIZ_ROUND_SIZE);
   const quizItemsQuery = trpc.quiz.quizItems.useQuery(
     { kursId, themaId, itemType, count: questionCount },
     { staleTime: Infinity, enabled: online },
@@ -159,7 +176,7 @@ export function Quiz({
   const filterBadge = themaId && themaTitle && onClearThema && (
     <ThemaFilterBadge themaTitle={themaTitle} onClear={onClearThema} />
   );
-  const countControl = <QuizCountControl count={questionCount} onChange={setQuestionCount} />;
+  const countControl = fixedCount === undefined ? <QuizCountControl count={questionCount} onChange={setQuestionCount} /> : null;
 
   // F-125: nach einem Abbruch zurück zum Rundenstart, statt einfach an derselben Stelle
   // weiterzumachen — die soeben verworfenen Antworten dürfen nicht erneut als "diese Runde"
@@ -248,6 +265,7 @@ export function Quiz({
     if (isCorrect) {
       setCorrectCount((count) => count + 1);
     }
+    onFortschritt?.({ richtig: correctCount + (isCorrect ? 1 : 0), beantwortet: index + 1, gesamt: items.length, fertig: false });
   }
 
   function next() {
@@ -260,6 +278,9 @@ export function Quiz({
       completeExerciseSet.mutate({ exerciseSetId });
     }
     setIndex(nextIndex);
+    if (nextIndex >= items.length) {
+      onFortschritt?.({ richtig: correctCount, beantwortet: items.length, gesamt: items.length, fertig: true });
+    }
   }
 
   return (
@@ -270,7 +291,7 @@ export function Quiz({
         Frage {index + 1} von {items.length}
       </span>
       {countControl}
-      {online && (
+      {online && fixedCount === undefined && (
         <AbortRoundButton
           contentItemIds={items.map((item) => item.id)}
           since={roundStartedAt}

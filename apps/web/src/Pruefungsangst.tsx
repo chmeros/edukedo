@@ -135,6 +135,16 @@ const EXAM_DAY_CHECKLIST: { key: string; label: string }[] = [
   { key: "kommission", label: "Bei der mündlichen Prüfung: laut geübt, wie ich mein Projekt in zwei Sätzen erkläre" },
 ];
 
+// Klassenarbeit (Schulkurse): ohne Einladung und Ausweis, ohne Projekt und mündliche Prüfung.
+const BLACKOUT_TIPS_SCHULE: string[] = BLACKOUT_TIPS.filter((tip) => !tip.startsWith("In der mündlichen Prüfung"));
+
+const EXAM_DAY_CHECKLIST_SCHULE: { key: string; label: string }[] = [
+  { key: "material", label: "Stifte, Lineal, Geodreieck und erlaubte Hilfsmittel (z. B. Taschenrechner) liegen bereit" },
+  { key: "anreise", label: "Rechtzeitig losgehen, lieber früh da sein als hetzen" },
+  { key: "essen_trinken", label: "Wasser und eine Kleinigkeit zu essen dabei" },
+  { key: "schlaf", label: "Am Abend vorher nicht mehr gelernt, sondern früh schlafen gegangen" },
+];
+
 const CHECKLIST_STORAGE_KEY = "edukedo.examDayChecklist";
 
 function readChecklist(): Record<string, boolean> {
@@ -146,7 +156,7 @@ function readChecklist(): Record<string, boolean> {
   }
 }
 
-function ExamDayChecklist() {
+function ExamDayChecklist({ items }: { items: { key: string; label: string }[] }) {
   const [checked, setChecked] = useState<Record<string, boolean>>(readChecklist);
 
   function toggle(key: string) {
@@ -161,7 +171,7 @@ function ExamDayChecklist() {
 
   return (
     <div className="stack">
-      {EXAM_DAY_CHECKLIST.map((item) => (
+      {items.map((item) => (
         <label key={item.key} className="checklist-item">
           <input type="checkbox" checked={!!checked[item.key]} onChange={() => toggle(item.key)} />
           {item.label}
@@ -171,20 +181,20 @@ function ExamDayChecklist() {
   );
 }
 
-export function Pruefungsangst({ kursId }: { kursId: string }) {
+export function Pruefungsangst({ kursId, schule = false }: { kursId: string; schule?: boolean }) {
   const guide = trpc.exam.guide.useQuery({ kursId });
   const areas = guide.data?.areas ?? [];
 
   return (
     <div className="stack">
       <p>
-        Aufgeregt vor der Prüfung zu sein ist normal — und gut behandelbar. Hier findest du einen Überblick, was dich
-        erwartet, wo du stehst, und ein paar Dinge, die in der Situation helfen.
+        {schule ? "Aufgeregt vor einer Klassenarbeit" : "Aufgeregt vor der Prüfung"} zu sein ist normal — und gut behandelbar. Hier findest du
+        einen Überblick, was dich erwartet, wo du stehst, und ein paar Dinge, die in der Situation helfen.
       </p>
 
       <div className="panel-section">
         <div className="panel-section-head">
-          <h2>So läuft deine Prüfung ab</h2>
+          <h2>{schule ? "So läuft eine Klassenarbeit ab" : "So läuft deine Prüfung ab"}</h2>
         </div>
         {guide.data && guide.data.ablauf.length > 0 ? (
           <ul className="calm-list">
@@ -194,11 +204,16 @@ export function Pruefungsangst({ kursId }: { kursId: string }) {
           </ul>
         ) : (
           <p className="field-hint">
-            Für diesen Kurs ist der Prüfungsablauf hier noch nicht beschrieben. Die verbindlichen Angaben findest du in
-            der Prüfungsordnung deiner Kammer bzw. in der Einladung zur Prüfung.
+            {schule
+              ? "Wie lange die Klassenarbeit dauert, welche Hilfsmittel erlaubt sind und wie sie bewertet wird, sagt dir deine Lehrkraft. Frag am besten vorher nach."
+              : "Für diesen Kurs ist der Prüfungsablauf hier noch nicht beschrieben. Die verbindlichen Angaben findest du in der Prüfungsordnung deiner Kammer bzw. in der Einladung zur Prüfung."}
           </p>
         )}
-        <p className="field-hint">Alle Angaben ohne Gewähr — verbindlich sind Prüfungsordnung und Einladung deiner IHK.</p>
+        <p className="field-hint">
+          {schule
+            ? "Alle Angaben ohne Gewähr — verbindlich sind die Vorgaben deiner Lehrkraft und deiner Schule."
+            : "Alle Angaben ohne Gewähr — verbindlich sind Prüfungsordnung und Einladung deiner IHK."}
+        </p>
       </div>
 
       {areas.length > 0 && (
@@ -238,7 +253,7 @@ export function Pruefungsangst({ kursId }: { kursId: string }) {
           <h2>Wenn ein Blackout kommt</h2>
         </div>
         <ul className="calm-list">
-          {BLACKOUT_TIPS.map((tip) => (
+          {(schule ? BLACKOUT_TIPS_SCHULE : BLACKOUT_TIPS).map((tip) => (
             <li key={tip}>{tip}</li>
           ))}
         </ul>
@@ -246,10 +261,10 @@ export function Pruefungsangst({ kursId }: { kursId: string }) {
 
       <div className="panel-section">
         <div className="panel-section-head">
-          <h2>Checkliste für den Prüfungstag</h2>
+          <h2>{schule ? "Checkliste für den Tag der Klassenarbeit" : "Checkliste für den Prüfungstag"}</h2>
           <p>Wird in diesem Browser gespeichert.</p>
         </div>
-        <ExamDayChecklist />
+        <ExamDayChecklist items={schule ? EXAM_DAY_CHECKLIST_SCHULE : EXAM_DAY_CHECKLIST} />
       </div>
 
       <div className="panel-section">
@@ -258,11 +273,13 @@ export function Pruefungsangst({ kursId }: { kursId: string }) {
         </div>
         <ul className="calm-list">
           <li>
-            Sprich mit jemandem: Ausbilder:in, Berufsschullehrkraft, Freund:innen. Viele kennen das und helfen gern.
+            {schule
+              ? "Sprich mit jemandem: Eltern, Lehrkraft, Freund:innen. Viele kennen das und helfen gern."
+              : "Sprich mit jemandem: Ausbilder:in, Berufsschullehrkraft, Freund:innen. Viele kennen das und helfen gern."}
           </li>
           <li>
             Bei starker Prüfungsangst kann eine Beratung helfen (z. B. eine Bildungs- oder Beratungsstelle oder deine
-            Hausärztin / dein Hausarzt). Ob du besondere Prüfungsbedingungen bekommen kannst, entscheidet deine IHK —
+            Hausärztin / dein Hausarzt). Ob du besondere Prüfungsbedingungen bekommen kannst, entscheidet {schule ? "deine Schule" : "deine IHK"} —
             frag dort rechtzeitig nach.
           </li>
           <li>
