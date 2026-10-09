@@ -710,6 +710,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
   const info = trpc.game.getSprint.useQuery({ kursId, setKey, gameType });
   const [schwierigkeit, setSchwierigkeit] = useState<"leicht" | "mittel" | "schwer">("leicht");
   const [aufgaben, setAufgaben] = useState<{ token: string; frage: string; hinweis: string }[] | null>(null);
+  const [sprintId, setSprintId] = useState<string | null>(null);
   const [index, setIndex] = useState(0);
   const [richtig, setRichtig] = useState(0);
   const [eingabe, setEingabe] = useState("");
@@ -719,6 +720,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
   const startSprint = trpc.game.sprintStart.useMutation({
     onSuccess: (result) => {
       setAufgaben(result.aufgaben);
+      setSprintId(result.sprintId);
       setIndex(0);
       setRichtig(0);
       setEingabe("");
@@ -728,7 +730,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
   });
   const antwort = trpc.game.sprintAntwort.useMutation({
     onSuccess: (result) => {
-      if (result.correct) setRichtig((current) => current + 1);
+      if (result.correct && result.gezaehlt) setRichtig((current) => current + 1);
     },
   });
   const abschluss = trpc.game.sprintAbschluss.useMutation({
@@ -758,10 +760,10 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
     setEingabe("");
     const naechster = index + 1;
     setIndex(naechster);
-    if (aufgaben && naechster >= aufgaben.length) {
+    if (aufgaben && sprintId && naechster >= aufgaben.length) {
       const sekunden = start ? Math.round((Date.now() - start) / 1000) : 0;
       setDauer(sekunden);
-      abschluss.mutate({ kursId, setKey, gameType, schwierigkeit, richtig, gesamt: aufgaben.length });
+      abschluss.mutate({ kursId, setKey, gameType, sprintId });
     }
   }
 
@@ -792,7 +794,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
         <div className="stack">
           <div className="alert alert-success">
             <div>
-              {richtig} von {aufgaben.length} richtig{dauer !== null ? ` in ${formatZeit(dauer)} Minuten` : ""}. {info.data.abschlussmeldung}
+              {abschluss.data?.richtig ?? richtig} von {aufgaben.length} richtig{dauer !== null ? ` in ${formatZeit(dauer)} Minuten` : ""}. {info.data.abschlussmeldung}
             </div>
           </div>
           <div className="list-row-actions">

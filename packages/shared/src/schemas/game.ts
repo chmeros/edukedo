@@ -528,11 +528,13 @@ export const sprintAntwortInputSchema = z.object({
   eingabe: z.string().min(1).max(60),
 });
 
+/**
+ * Abschluss eines Sprints: Das Ergebnis meldet nicht mehr der Browser (Review LOG-16, Entscheidung 09.10.2026), der Server leitet es
+ * aus seiner Zählung der Antworten zu dieser Sprint-Kennung ab.
+ */
 export const sprintAbschlussInputSchema = z.object({
   kursId: z.string().uuid(),
   setKey: setKeyField,
   gameType: z.enum(SPRINT_GAME_TYPES),
-  schwierigkeit: z.enum(SPRINT_SCHWIERIGKEITEN),
-  richtig: z.number().int().min(0).max(20),
-  gesamt: z.number().int().min(1).max(20),
+  sprintId: z.string().uuid(),
 });

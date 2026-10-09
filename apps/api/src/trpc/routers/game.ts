@@ -72,10 +72,11 @@ import {
   type KreuzwortraetselVariant,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, isNull, lt } from "drizzle-orm";
 import type { Database } from "../../db/client";
+import { enforceRateLimit, LIMITS } from "../../auth/request-limits";
 import { signSprintToken, verifySprintToken } from "../../game-sprint-token";
-import { game, gameProgress, userCourse } from "../../db/schema";
+import { game, gameProgress, sprintAnswer, sprintRun, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 /**
@@ -247,10 +248,16 @@ function parseSprintState(raw: unknown): SprintProgressState {
   return { bestwerte: state.bestwerte ?? {} };
 }
 
-type SprintTokenPayload =
+type SprintAufgabeToken =
   | { g: "subnetting"; params: SubnettingParams; s: string }
   | { g: "zahlensysteme"; params: ZahlensystemParams; s: string }
   | { g: "rechensprint"; params: RechenParams; s: string };
+
+/** Der Token trägt zusätzlich die Kennung des Sprint-Laufs (`r`) und den Index der Aufgabe (`i`) für die serverseitige Zählung (Review LOG-16). */
+type SprintTokenPayload = SprintAufgabeToken & { r: string; i: number };
+
+const SPRINT_ZU_OFT = "Zu viele Sprint-Anfragen in kurzer Zeit. Bitte warte einige Minuten.";
+const SPRINT_LAUF_MAX_ALTER_MS = 24 * 60 * 60 * 1000;
 
 /** Gemeinsame Form der drei Sprint-Payloads (Aufgabenarten, Anzahl, Abschlussmeldung). */
 interface SprintPayload {
@@ -269,7 +276,7 @@ function erzeugeSprintAufgabe(
   typ: string,
   schwierigkeit: SprintSchwierigkeit,
   rng: () => number,
-): { tokenPayload: SprintTokenPayload; frage: string; hinweis: string } {
+): { tokenPayload: SprintAufgabeToken; frage: string; hinweis: string } {
   if (gameType === "subnetting") {
     const params = erzeugeSubnettingAufgabe(typ as SubnettingTyp, schwierigkeit, rng);
     return { tokenPayload: { g: "subnetting", params, s: schwierigkeit }, ...subnettingFrage(params) };
@@ -282,7 +289,7 @@ function erzeugeSprintAufgabe(
   return { tokenPayload: { g: "rechensprint", params, s: schwierigkeit }, ...rechenFrage(params) };
 }
 
-function pruefeSprintAntwort(decoded: SprintTokenPayload, eingabe: string): { correct: boolean; erwartet: string; erklaerung: string } {
+function pruefeSprintAntwort(decoded: SprintAufgabeToken, eingabe: string): { correct: boolean; erwartet: string; erklaerung: string } {
   switch (decoded.g) {
     case "subnetting":
       return { correct: pruefeSubnettingEingabe(decoded.params, eingabe), ...subnettingLoesung(decoded.params) };
@@ -564,42 +571,107 @@ export const gameRouter = router({
     }),
 
   sprintStart: protectedProcedure.input(sprintStartInputSchema).mutation(async ({ ctx, input }) => {
+    enforceRateLimit(`sprint-start:${ctx.currentUser.id}`, LIMITS.sprintStartPerUser, SPRINT_ZU_OFT);
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
     const { randomInt } = await import("node:crypto");
     const rng = () => randomInt(0, 1_000_000) / 1_000_000;
     const payload = parseSprintPayload(input.gameType, row.payload);
-    const aufgaben = Array.from({ length: payload.anzahl }, () => {
+
+    // Review LOG-16: Der Server zählt den Sprint selbst. Läufe sind kurzlebig; ältere Läufe derselben Person werden hier aufgeräumt.
+    await ctx.db
+      .delete(sprintRun)
+      .where(and(eq(sprintRun.userId, ctx.currentUser.id), lt(sprintRun.createdAt, new Date(Date.now() - SPRINT_LAUF_MAX_ALTER_MS))));
+    const [lauf] = await ctx.db
+      .insert(sprintRun)
+      .values({ userId: ctx.currentUser.id, gameId: row.id, schwierigkeit: input.schwierigkeit, anzahl: payload.anzahl })
+      .returning({ id: sprintRun.id });
+    if (!lauf) {
+      throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+    }
+
+    const aufgaben = Array.from({ length: payload.anzahl }, (_, index) => {
       const typ = payload.aufgabenTypen[Math.floor(rng() * payload.aufgabenTypen.length)]!;
       const { tokenPayload, frage, hinweis } = erzeugeSprintAufgabe(input.gameType, typ, input.schwierigkeit, rng);
-      return { token: signSprintToken(tokenPayload, ctx.currentUser.id), frage, hinweis, typ };
+      return { token: signSprintToken({ ...tokenPayload, r: lauf.id, i: index }, ctx.currentUser.id), frage, hinweis, typ };
     });
-    return { aufgaben };
+    return { sprintId: lauf.id, aufgaben };
   }),
 
+  /**
+   * Prüft die Antwort auf eine Aufgabe. Die erste Antwort je Aufgabe geht in die Zählung des Sprints ein (`gezaehlt`); eine
+   * weitere Antwort auf dieselbe Aufgabe wird weiter geprüft (die Oberfläche zeigt das Ergebnis), ändert die Zählung aber nicht.
+   */
   sprintAntwort: protectedProcedure.input(sprintAntwortInputSchema).mutation(async ({ ctx, input }) => {
+    enforceRateLimit(`sprint-antwort:${ctx.currentUser.id}`, LIMITS.sprintAntwortPerUser, SPRINT_ZU_OFT);
     await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
     const decoded = verifySprintToken(input.token, ctx.currentUser.id) as SprintTokenPayload | null;
-    if (!decoded || decoded.g !== input.gameType) {
+    if (!decoded || decoded.g !== input.gameType || typeof decoded.r !== "string" || !Number.isInteger(decoded.i)) {
       throw new TRPCError({ code: "BAD_REQUEST", message: "Die Aufgabe ist ungültig oder abgelaufen. Starte den Sprint neu." });
     }
-    return pruefeSprintAntwort(decoded, input.eingabe);
+    const [lauf] = await ctx.db
+      .select({ anzahl: sprintRun.anzahl, completedAt: sprintRun.completedAt })
+      .from(sprintRun)
+      .where(and(eq(sprintRun.id, decoded.r), eq(sprintRun.userId, ctx.currentUser.id)))
+      .limit(1);
+    if (!lauf || lauf.completedAt !== null || decoded.i < 0 || decoded.i >= lauf.anzahl) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "Dieser Sprint ist beendet oder ungültig. Starte den Sprint neu." });
+    }
+
+    const ergebnis = pruefeSprintAntwort(decoded, input.eingabe);
+    const gespeichert = await ctx.db
+      .insert(sprintAnswer)
+      .values({ sprintRunId: decoded.r, taskIndex: decoded.i, isCorrect: ergebnis.correct })
+      .onConflictDoNothing()
+      .returning({ taskIndex: sprintAnswer.taskIndex });
+    return { ...ergebnis, gezaehlt: gespeichert.length === 1 };
   }),
 
-  /** Client-gemeldetes Ergebnis eines Sprints — nur Bestwert-Anzeige (eigener Spielstand), keine Belohnung. */
+  /**
+   * Schließt einen Sprint ab (Review LOG-16, Entscheidung 09.10.2026): Das Ergebnis leitet der Server aus seiner Zählung ab;
+   * der Browser meldet nur noch die Sprint-Kennung. Der Sprint muss vollständig beantwortet sein. Mehrfaches Abschließen ist
+   * unschädlich (gleiches Ergebnis).
+   */
   sprintAbschluss: protectedProcedure.input(sprintAbschlussInputSchema).mutation(async ({ ctx, input }) => {
+    enforceRateLimit(`sprint-abschluss:${ctx.currentUser.id}`, LIMITS.sprintAbschlussPerUser, SPRINT_ZU_OFT);
     const row = await loadGame(ctx.db, ctx.currentUser.id, input.kursId, input.gameType, input.setKey);
-    // Review LOG-15: Ein Sprint hat genau `anzahl` Aufgaben; "1 von 1" (100 %) lässt sich so nicht mehr als Bestwert melden.
-    const payload = parseSprintPayload(input.gameType, row.payload);
-    if (input.gesamt !== payload.anzahl || input.richtig > input.gesamt) {
-      throw new TRPCError({ code: "BAD_REQUEST", message: "Das Ergebnis passt nicht zu diesem Sprint." });
+    const [lauf] = await ctx.db
+      .select()
+      .from(sprintRun)
+      .where(and(eq(sprintRun.id, input.sprintId), eq(sprintRun.userId, ctx.currentUser.id), eq(sprintRun.gameId, row.id)))
+      .limit(1);
+    if (!lauf) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Dieser Sprint wurde nicht gefunden. Starte einen neuen Sprint." });
     }
+
+    let richtig = lauf.richtig;
+    if (lauf.completedAt === null) {
+      const antworten = await ctx.db.select({ isCorrect: sprintAnswer.isCorrect }).from(sprintAnswer).where(eq(sprintAnswer.sprintRunId, lauf.id));
+      if (antworten.length < lauf.anzahl) {
+        throw new TRPCError({ code: "BAD_REQUEST", message: `Der Sprint ist noch nicht beendet (${antworten.length} von ${lauf.anzahl} Aufgaben beantwortet).` });
+      }
+      const gezaehlt = antworten.filter((antwort) => antwort.isCorrect).length;
+      // Nur ein gleichzeitiger Aufruf gewinnt das Abschließen; der andere liest das gespeicherte Ergebnis.
+      const [abgeschlossen] = await ctx.db
+        .update(sprintRun)
+        .set({ completedAt: new Date(), richtig: gezaehlt })
+        .where(and(eq(sprintRun.id, lauf.id), isNull(sprintRun.completedAt)))
+        .returning({ richtig: sprintRun.richtig });
+      if (abgeschlossen) {
+        richtig = abgeschlossen.richtig;
+      } else {
+        const [gespeichert] = await ctx.db.select({ richtig: sprintRun.richtig }).from(sprintRun).where(eq(sprintRun.id, lauf.id)).limit(1);
+        richtig = gespeichert?.richtig ?? gezaehlt;
+      }
+    }
+
+    const ergebnisRichtig = richtig ?? 0;
     const state = await aktualisiereFortschritt(ctx.db, ctx.currentUser.id, row.id, parseSprintState, (aktuell) => {
-      const vorher = aktuell.bestwerte[input.schwierigkeit];
-      if (!vorher || input.richtig / input.gesamt > vorher.richtig / vorher.gesamt) {
-        aktuell.bestwerte[input.schwierigkeit] = { richtig: input.richtig, gesamt: input.gesamt };
+      const vorher = aktuell.bestwerte[lauf.schwierigkeit];
+      if (!vorher || ergebnisRichtig / lauf.anzahl > vorher.richtig / vorher.gesamt) {
+        aktuell.bestwerte[lauf.schwierigkeit] = { richtig: ergebnisRichtig, gesamt: lauf.anzahl };
       }
       return true;
     });
-    return { bestwert: state.bestwerte[input.schwierigkeit]! };
+    return { richtig: ergebnisRichtig, gesamt: lauf.anzahl, bestwert: state.bestwerte[lauf.schwierigkeit]! };
   }),
 });

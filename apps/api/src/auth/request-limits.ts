@@ -24,6 +24,13 @@ export const LIMITS = {
   passwordResetConfirmPerIp: { max: 20, windowMs: 60 * 60 * 1000 },
   /** Eltern-Einwilligungsmails je Adresse und Tag (Mail-Bombing über das Registrierungsformular). */
   consentMailPerParentEmail: { max: 5, windowMs: 24 * 60 * 60 * 1000 },
+  /**
+   * Sprint-Spiele je angemeldeter Person und Stunde (Review LOG-16/LOG-23): ein Sprint hat höchstens 20 Aufgaben, normales Üben
+   * erreicht diese Grenzen nie; sie bremsen Skripte, die Aufgaben und Lösungen in Massen abrufen.
+   */
+  sprintStartPerUser: { max: 60, windowMs: 60 * 60 * 1000 },
+  sprintAntwortPerUser: { max: 1000, windowMs: 60 * 60 * 1000 },
+  sprintAbschlussPerUser: { max: 120, windowMs: 60 * 60 * 1000 },
 } as const;
 
 export function rateLimitsActive(): boolean {

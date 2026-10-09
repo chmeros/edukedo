@@ -568,6 +568,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Sprint serverseitig zählen und Ratenbegrenzung, Review LOG-16)
+
+Anlass: Beim Abschluss eines Sprints (Subnetting, Zahlensysteme, Rechensprint) meldete der Browser Ergebnis und Schwierigkeit selbst; der Server prüfte nur, dass die Aufgabenzahl stimmte. Wer die Anfrage selbst abschickte, konnte so einen beliebigen Bestwert eintragen. Entschieden: Umfang „Ratenbegrenzung plus serverseitige Zählung“.
+
+- **Zählung auf dem Server:** `sprintStart` legt einen Lauf an (`sprint_run`: Person, Spiel, Schwierigkeit, Aufgabenzahl) und liefert dessen Kennung (`sprintId`) mit. Jeder Aufgaben-Token trägt zusätzlich Kennung und Index des Laufs. `sprintAntwort` speichert die Antwort in `sprint_answer` (Primärschlüssel: Lauf + Aufgabenindex). **Die erste Antwort je Aufgabe zählt**; weitere Versuche werden weiter geprüft (die Oberfläche zeigt Lösung und Erklärung), ändern die Zählung aber nicht (Rückgabefeld `gezaehlt`).
+- **Abschluss:** `sprintAbschluss` nimmt nur noch die `sprintId`. Der Server verlangt, dass alle Aufgaben beantwortet sind, leitet `richtig` aus seiner Zählung ab, schließt den Lauf (`completed_at`, `richtig`) und aktualisiert den Bestwert je Schwierigkeit mit den eigenen Werten. Mehrfaches Abschließen liefert dasselbe Ergebnis; ein beendeter Lauf nimmt keine Antworten mehr an. Schwierigkeit und Aufgabenzahl stammen aus dem Lauf, nicht mehr aus der Anfrage.
+- **Ratenbegrenzung je Person** (Hauptspeicher, wie die übrigen Grenzen; im Testlauf aus): 60 Starts, 1.000 Antworten und 120 Abschlüsse je Stunde (`LIMITS.sprintStartPerUser`, `sprintAntwortPerUser`, `sprintAbschlussPerUser`). Ein Sprint hat höchstens 20 Aufgaben; die Grenzen lassen normales Üben ohne Einschränkung zu.
+- **Aufräumen:** Beim Start werden Läufe derselben Person gelöscht, die älter als 24 Stunden sind (Token gelten nur eine Stunde). Die Läufe hängen per `ON DELETE CASCADE` an Person und Spiel, die Kontolöschung nimmt sie also mit.
+- **Bewusst nicht Teil:** Der Token bleibt zustandslos wiederverwendbar (eine Aufgabe lässt sich mehrfach prüfen); das ist gewollt, weil die Lösung nach einem Versuch ohnehin angezeigt wird. Ein Sprint-Ergebnis bleibt eine reine Übungsangabe ohne Belohnung (F-175). Offen aus dem früheren Sammelpunkt: `is_premium` vor F-80 klären und Idempotenzschlüssel für Online-Antworten (siehe Entwicklungsplan).
+- **Prüfung:** Integrationstests (Zählung, erste Antwort zählt, unvollständiger/fremder/abgeschlossener Lauf, vorgetäuschtes Ergebnis wird ignoriert, Ratenbegrenzung → 429), Typprüfung und Lint in API, Web und Shared, komplette API-Suite (856 Tests).
+
 ### Entschieden am 09.10.2026 (Modellunternehmen Ravelin und Karteikarte K-3.1-21, Review FL-IM-24 und FL-TL-48)
 
 Anlass: Letzte der sechs Entscheidungen aus Iteration 23, vorgelegt und entschieden am 09.10.2026.

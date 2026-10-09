@@ -1478,3 +1478,48 @@ export const gameProgress = pgTable(
   },
   (table) => [uniqueIndex("game_progress_user_id_game_id_key").on(table.userId, table.gameId)],
 );
+
+/**
+ * Serverseitige Zählung eines Sprints (Subnetting, Zahlensysteme, Rechen-Sprint; Review LOG-16, Entscheidung 09.10.2026): Jeder
+ * `sprintStart` legt eine Zeile an, jede beantwortete Aufgabe genau eine Zeile in `sprint_answer` (die erste Antwort je Aufgabe
+ * zählt). Der Abschluss leitet das Ergebnis aus dieser Zählung ab, statt den vom Browser gemeldeten Wert zu übernehmen. Läufe
+ * sind kurzlebig: Der nächste Sprint-Start derselben Person löscht ihre Läufe, die älter als ein Tag sind (die Antworten
+ * kaskadieren).
+ */
+export const sprintRun = pgTable(
+  "sprint_run",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    gameId: uuid("game_id")
+      .notNull()
+      .references(() => game.id, { onDelete: "cascade" }),
+    schwierigkeit: text("schwierigkeit").notNull(),
+    anzahl: integer("anzahl").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+    /** Ergebnis, gesetzt beim Abschluss (aus `sprint_answer` abgeleitet). */
+    richtig: integer("richtig"),
+  },
+  (table) => [
+    index("sprint_run_user_id_created_at_idx").on(table.userId, table.createdAt),
+    check("sprint_run_schwierigkeit_check", sql`${table.schwierigkeit} in ('leicht', 'mittel', 'schwer')`),
+    check("sprint_run_anzahl_check", sql`${table.anzahl} between 1 and 20`),
+  ],
+);
+
+export const sprintAnswer = pgTable(
+  "sprint_answer",
+  {
+    sprintRunId: uuid("sprint_run_id")
+      .notNull()
+      .references(() => sprintRun.id, { onDelete: "cascade" }),
+    /** Nullbasierter Index der Aufgabe im Sprint (steht signiert im Aufgaben-Token). */
+    taskIndex: integer("task_index").notNull(),
+    isCorrect: boolean("is_correct").notNull(),
+    answeredAt: timestamp("answered_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [primaryKey({ columns: [table.sprintRunId, table.taskIndex] })],
+);

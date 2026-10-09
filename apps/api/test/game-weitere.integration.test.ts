@@ -1,4 +1,4 @@
-import { codeZeilenId, phishingPayloadSchema } from "@edukedo/shared";
+import { codeZeilenId, phishingPayloadSchema, subnettingLoesung } from "@edukedo/shared";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { eq } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
@@ -278,11 +278,71 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect(ereignisse).toHaveLength(0);
   });
 
-  it("Sprint-Abschluss speichert nur den Bestwert je Schwierigkeit", async () => {
-    await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "mittel", richtig: 3, gesamt: 5 });
-    await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "mittel", richtig: 2, gesamt: 5 });
+  /** Startet einen Subnetting-Sprint und beantwortet die Aufgaben: `richtigeIndizes` richtig, alle übrigen falsch (jeweils zuerst). */
+  async function sprintDurchspielen(schwierigkeit: "leicht" | "mittel" | "schwer", richtigeIndizes: number[], antwortenBis?: number) {
+    const start = (await post("game.sprintStart", { kursId, gameType: "subnetting", schwierigkeit })).json().result.data as {
+      sprintId: string;
+      aufgaben: { token: string }[];
+    };
+    const bis = antwortenBis ?? start.aufgaben.length;
+    for (let index = 0; index < bis; index++) {
+      const token = start.aufgaben[index]!.token;
+      // Die Lösung steht nicht im Token, sondern wird aus dessen (signierten) Parametern berechnet — wie der Server es tut.
+      const params = JSON.parse(Buffer.from(token.split(".")[0]!, "base64url").toString("utf8")).p.params;
+      const eingabe = richtigeIndizes.includes(index) ? subnettingLoesung(params).erwartet : "999";
+      const antwort = await post("game.sprintAntwort", { kursId, gameType: "subnetting", token, eingabe });
+      expect(antwort.statusCode, antwort.body).toBe(200);
+    }
+    return start;
+  }
+
+  it("Sprint-Abschluss (LOG-16): der Server zählt selbst; Ergebnis und Bestwert kommen nicht vom Browser", async () => {
+    const lauf = await sprintDurchspielen("mittel", [0, 1, 2]);
+    const abschluss = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: lauf.sprintId });
+    expect(abschluss.statusCode, abschluss.body).toBe(200);
+    expect(abschluss.json().result.data).toMatchObject({ richtig: 3, gesamt: 5, bestwert: { richtig: 3, gesamt: 5 } });
+
+    // Mehrfaches Abschließen ändert nichts (gleiches Ergebnis).
+    const nochmal = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: lauf.sprintId });
+    expect(nochmal.json().result.data).toMatchObject({ richtig: 3, gesamt: 5 });
+
+    // Ein schlechterer Sprint ersetzt den Bestwert nicht.
+    const schlechter = await sprintDurchspielen("mittel", [0, 1]);
+    expect((await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: schlechter.sprintId })).json().result.data).toMatchObject({ richtig: 2, bestwert: { richtig: 3, gesamt: 5 } });
     const info = (await get("game.getSprint", { kursId, gameType: "subnetting" })).json().result.data;
     expect(info.bestwerte.mittel).toEqual({ richtig: 3, gesamt: 5 });
+  });
+
+  it("Sprint-Zählung (LOG-16): die erste Antwort je Aufgabe zählt, ein nachgeschobener richtiger Versuch nicht", async () => {
+    const lauf = await sprintDurchspielen("leicht", []);
+    // Mit der verratenen Lösung ist dieselbe Aufgabe nochmals richtig lösbar, geht aber nicht mehr in die Zählung ein.
+    const token = lauf.aufgaben[0]!.token;
+    const params = JSON.parse(Buffer.from(token.split(".")[0]!, "base64url").toString("utf8")).p.params;
+    const nochmal = (await post("game.sprintAntwort", { kursId, gameType: "subnetting", token, eingabe: subnettingLoesung(params).erwartet })).json().result.data;
+    expect(nochmal).toMatchObject({ correct: true, gezaehlt: false });
+    const abschluss = (await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: lauf.sprintId })).json().result.data;
+    expect(abschluss).toMatchObject({ richtig: 0, gesamt: 5 });
+  });
+
+  it("Sprint-Abschluss (LOG-16): ein unvollständiger, ein fremder und ein abgeschlossener Sprint werden abgewiesen", async () => {
+    const unvollstaendig = await sprintDurchspielen("leicht", [0, 1, 2], 3);
+    const zuFrueh = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: unvollstaendig.sprintId });
+    expect(zuFrueh.statusCode).toBe(400);
+    expect(zuFrueh.json().error.message).toContain("3 von 5");
+
+    const unbekannt = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: "00000000-0000-4000-8000-000000000000" });
+    expect(unbekannt.statusCode).toBe(404);
+
+    // Eine Aufgabe eines beendeten Sprints lässt sich nicht mehr beantworten.
+    const fertig = await sprintDurchspielen("leicht", [0]);
+    expect((await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: fertig.sprintId })).statusCode).toBe(200);
+    const spaet = await post("game.sprintAntwort", { kursId, gameType: "subnetting", token: fertig.aufgaben[0]!.token, eingabe: "1" });
+    expect(spaet.statusCode).toBe(400);
+
+    // Das Ergebnis ist nicht mehr vom Browser vorgebbar: unbekannte Felder (richtig/gesamt) ändern nichts.
+    const lauf = await sprintDurchspielen("schwer", []);
+    const vorgetaeuscht = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", sprintId: lauf.sprintId, richtig: 5, gesamt: 5, schwierigkeit: "schwer" });
+    expect(vorgetaeuscht.json().result.data).toMatchObject({ richtig: 0, gesamt: 5 });
   });
 
   it("LOG-15: gleichzeitige richtige Antworten gehen nicht verloren, completed_at bleibt nach dem Abschluss unverändert", async () => {
@@ -337,12 +397,18 @@ describe("F-158: weitere Spiele und Sets", () => {
     expect((await lesen()).completedAt).not.toBeNull();
   });
 
-  it("LOG-15: Sprint-Abschluss prüft das Ergebnis gegen den Sprint", async () => {
-    const zuKurz = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 1, gesamt: 1 });
-    expect(zuKurz.statusCode).toBe(400);
-    const zuViel = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 6, gesamt: 5 });
-    expect(zuViel.statusCode).toBe(400);
-    const gueltig = await post("game.sprintAbschluss", { kursId, gameType: "subnetting", schwierigkeit: "leicht", richtig: 5, gesamt: 5 });
-    expect(gueltig.statusCode).toBe(200);
+  it("Sprint-Ratenbegrenzung (LOG-16): zu viele Sprint-Starts je Person in kurzer Zeit werden gebremst", async () => {
+    const envModule = await import("../src/env");
+    (envModule.env as { NODE_ENV: string }).NODE_ENV = "development"; // Grenzen einschalten
+    try {
+      const codes: number[] = [];
+      for (let i = 0; i < 61; i++) {
+        codes.push((await post("game.sprintStart", { kursId, gameType: "subnetting", schwierigkeit: "leicht" })).statusCode);
+      }
+      expect(codes.slice(0, 60).every((code) => code === 200)).toBe(true);
+      expect(codes[60]).toBe(429);
+    } finally {
+      (envModule.env as { NODE_ENV: string }).NODE_ENV = "test";
+    }
   });
 });

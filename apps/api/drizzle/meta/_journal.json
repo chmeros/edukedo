@@ -372,6 +372,13 @@
       "when": 1791528290099,
       "tag": "0052_branding_logo_url_entfernt",
       "breakpoints": true
+    },
+    {
+      "idx": 53,
+      "version": "7",
+      "when": 1791532424643,
+      "tag": "0053_sprint_zaehlung",
+      "breakpoints": true
     }
   ]
 }
