@@ -1,4 +1,4 @@
-import { fallaufgabePayloadSchema, kurzantwortPayloadSchema, lueckenPayloadSchema, theoriePayloadSchema } from "@edukedo/shared";
+import { fallaufgabePayloadSchema, kurzantwortPayloadSchema, lueckenAuswahlPayloadSchema, lueckenPayloadSchema, theoriePayloadSchema } from "@edukedo/shared";
 
 /**
  * Lese-Modus für Kursinhalte (Review UXL-12): bereitet ein Content-Item für die reine Ansicht auf, MIT Lösung. Keine Wertung, kein
@@ -67,6 +67,14 @@ export function leseAnsicht(item: LeseItem): LeseAnsicht {
     if (payload.success) {
       text = payload.data.text_with_blanks;
       for (const lucke of payload.data.blanks) loesung.push(`${lucke.id}: ${lucke.accepted.join(" / ")}`);
+    }
+  } else if (item.type === "luecken_auswahl") {
+    // Review UXT-F-06: Auch die Wortauswahl zeigt im Lese-Modus Text mit Platzhaltern, die Lösungen und die Ablenker darunter.
+    const payload = lueckenAuswahlPayloadSchema.safeParse(item.payload);
+    if (payload.success) {
+      text = payload.data.text_with_blanks;
+      for (const lucke of payload.data.blanks) loesung.push(`${lucke.id}: ${lucke.accepted.join(" / ")}`);
+      if (payload.data.distractors.length > 0) loesung.push(`Nicht passend: ${payload.data.distractors.join(", ")}`);
     }
   } else if (item.type === "kurzantwort") {
     const payload = kurzantwortPayloadSchema.safeParse(item.payload);

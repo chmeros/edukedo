@@ -1,3 +1,4 @@
+import { istLueckentext } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import ReactMarkdown from "react-markdown";
@@ -174,7 +175,8 @@ export function KursInhalte({ kursId, titel, onClose }: { kursId: string; titel:
               ) : (
                 <>
                   <p style={{ whiteSpace: "pre-wrap" }}>{item.prompt}</p>
-                  {item.text && <p style={{ whiteSpace: "pre-wrap" }}>{item.text}</p>}
+                  {/* Bei Lückentexten steht der Satz schon in der Aufgabe (Lösungen als […]); der Platzhaltertext wäre eine Doublette. */}
+                  {item.text && !istLueckentext(item.type) && <p style={{ whiteSpace: "pre-wrap" }}>{item.text}</p>}
                 </>
               )}
               {(item.loesung.length > 0 || item.erklaerung) && (
@@ -214,7 +216,7 @@ export function KursInhalte({ kursId, titel, onClose }: { kursId: string; titel:
                 ) : (
                   <>
                     <p>{item.prompt}</p>
-                    {item.text && <p>{item.text}</p>}
+                    {item.text && !istLueckentext(item.type) && <p>{item.text}</p>}
                   </>
                 )}
                 {mitLoesungen && (item.loesung.length > 0 || item.erklaerung) && (

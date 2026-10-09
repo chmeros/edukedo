@@ -83,6 +83,12 @@ describe("Lese-Modus für Kursinhalte (UXL-12)", () => {
       { themaId: sucheThemaId, type: "karteikarte", prompt: "Was ist der Zinssatz?", explanation: "Prozentsatz für die Abzinsung." },
       { themaId: sucheThemaId, type: "karteikarte", prompt: "Alte Amortisation", explanation: "zurückgezogen", isActive: false },
       { themaId: sucheThemaId, type: "karteikarte", prompt: "Wert mit 100 % und a_b Zeichen", explanation: "Sonderzeichen" },
+      {
+        themaId: sucheThemaId,
+        type: "luecken",
+        prompt: "Die Summe der abgezinsten Zahlungen heißt ___Kapitalwert___.",
+        payload: { text_with_blanks: "Die Summe der abgezinsten Zahlungen heißt ___.", blanks: [{ id: "1", accepted: ["Kapitalwert"] }] },
+      },
     ]);
 
     const appModule = await import("../src/app");
@@ -158,5 +164,26 @@ describe("Lese-Modus für Kursinhalte (UXL-12)", () => {
     expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "K" })).statusCode).toBe(400);
     const privatKurs = (await db.select({ id: schema.kurs.id }).from(schema.kurs).where(eq(schema.kurs.slug, "lese-modus-privat")))[0]!.id;
     expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: privatKurs, query: "Privat" })).statusCode).toBe(404);
+  });
+
+  it("Lückentexte erscheinen in Suche und Themenansicht ohne die Lösung im Klartext (UXT-F-06)", async () => {
+    const suche = (await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "abgezinsten" })).json().result.data;
+    const treffer = suche.treffer.find((eintrag: { type: string }) => eintrag.type === "luecken");
+    expect(treffer.ausschnitt).toContain("[…]");
+    expect(treffer.ausschnitt).not.toContain("Kapitalwert");
+
+    const thema = (await get(erwachsenCookie, "kursInhalt.thema", { themaId: sucheThemaId })).json().result.data;
+    const luecke = thema.items.find((eintrag: { type: string }) => eintrag.type === "luecken");
+    expect(luecke.prompt).toBe("Die Summe der abgezinsten Zahlungen heißt […].");
+    expect(luecke.text).toBe("Die Summe der abgezinsten Zahlungen heißt ___.");
+    expect(luecke.loesung).toEqual(["1: Kapitalwert"]); // die Lösung steht dort, wo sie ausdrücklich gezeigt wird
+  });
+
+  it("die Suche in den eigenen Lerninhalten (content.search) zeigt Lückentexte ebenfalls ohne Lösung", async () => {
+    const lernend = await registriere("lese-suche@example.test");
+    await db.insert(schema.userCourse).values({ userId: lernend.id, kursId: sucheKursId });
+    const treffer = (await get(lernend.cookie, "content.search", { kursId: sucheKursId, query: "abgezinsten" })).json().result.data as { type: string; prompt: string }[];
+    const luecke = treffer.find((eintrag) => eintrag.type === "luecken");
+    expect(luecke?.prompt).toBe("Die Summe der abgezinsten Zahlungen heißt […].");
   });
 });

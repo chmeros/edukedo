@@ -4,6 +4,7 @@ import {
   fachgespraechFragePayloadSchema,
   GANTT_QUIZ_TYPE,
   HIERARCHIE_QUIZ_TYPE,
+  promptFuerAnzeige,
   QUADRANT_QUIZ_TYPES,
   searchContentInputSchema,
   theoriePayloadSchema,
@@ -328,7 +329,8 @@ export const contentRouter = router({
       .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder))
       .limit(30);
 
-    return [...theorieTreffer, ...rows];
+    // Review UXT-F-06: Bei Lückentexten steht im Treffer sonst die Lösung im Klartext (`___Lösung___`).
+    return [...theorieTreffer, ...rows.map((row) => ({ ...row, prompt: promptFuerAnzeige(row.type, row.prompt) }))];
   }),
 
   /**

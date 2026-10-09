@@ -1,5 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { and, asc, count, eq, ilike, or, sql } from "drizzle-orm";
+import { promptFuerAnzeige } from "@edukedo/shared";
 import { z } from "zod";
 import { enforceRateLimit, LIMITS } from "../../auth/request-limits";
 import { kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
@@ -94,7 +95,7 @@ export const kursInhaltRouter = router({
         themaId: row.themaId,
         themaTitle: row.themaTitle,
         fachgebietTitle: row.fachgebietTitle,
-        ausschnitt: suchAusschnitt(row.prompt, input.query) ?? suchAusschnitt(row.explanation, input.query) ?? suchAusschnitt(row.koerper, input.query) ?? row.prompt.slice(0, 140),
+        ausschnitt: suchAusschnitt(promptFuerAnzeige(row.type, row.prompt), input.query) ?? suchAusschnitt(row.explanation, input.query) ?? suchAusschnitt(row.koerper, input.query) ?? promptFuerAnzeige(row.type, row.prompt).slice(0, 140),
       })),
     };
   }),
@@ -135,7 +136,7 @@ export const kursInhaltRouter = router({
       items: items.map((item) => ({
         id: item.id,
         type: item.type,
-        prompt: item.prompt,
+        prompt: promptFuerAnzeige(item.type, item.prompt),
         ...leseAnsicht({
           type: item.type,
           prompt: item.prompt,

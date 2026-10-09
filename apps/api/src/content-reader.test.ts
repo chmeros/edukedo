@@ -79,3 +79,17 @@ describe("suchAusschnitt (Suche im Lese-Modus)", () => {
     expect(suchAusschnitt("Text", "")).toBeNull();
   });
 });
+
+describe("leseAnsicht: Wortauswahl-Lückentext (UXT-F-06)", () => {
+  it("zeigt Text mit Platzhaltern, die Lösungen und die nicht passenden Wörter", () => {
+    const ansicht = leseAnsicht({
+      type: "luecken_auswahl",
+      prompt: "Das ___Netz___ braucht ein ___Kabel___.",
+      explanation: null,
+      payload: { text_with_blanks: "Das ___ braucht ein ___.", blanks: [{ id: "1", accepted: ["Netz"] }, { id: "2", accepted: ["Kabel"] }], distractors: ["Drucker"] },
+      options: [],
+    });
+    expect(ansicht.text).toBe("Das ___ braucht ein ___.");
+    expect(ansicht.loesung).toEqual(["1: Netz", "2: Kabel", "Nicht passend: Drucker"]);
+  });
+});
