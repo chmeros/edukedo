@@ -22,9 +22,16 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
+import type { Database } from "../../db/client";
 import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 import { assertContentItemAccessible, recordQuizAttempt } from "./progress";
+
+/** Erklärung eines Content-Items für die Rückmeldung nach der Antwort (Review UXT-B-07); `null`, wenn keine hinterlegt ist. */
+async function ladeErklaerung(db: Database, contentItemId: string): Promise<string | null> {
+  const [row] = await db.select({ explanation: contentItem.explanation }).from(contentItem).where(eq(contentItem.id, contentItemId)).limit(1);
+  return row?.explanation ?? null;
+}
 
 export const quizRouter = router({
   /**
@@ -187,7 +194,7 @@ export const quizRouter = router({
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
-    return result;
+    return { ...result, explanation: await ladeErklaerung(ctx.db, input.contentItemId) };
   }),
 
   /** F-113 Teil 2: Sortieren-Reihenfolge auswerten — dieselbe answer_option-Grundlage wie
@@ -204,7 +211,7 @@ export const quizRouter = router({
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
-    return result;
+    return { ...result, explanation: await ladeErklaerung(ctx.db, input.contentItemId) };
   }),
 
   /** F-114: SWOT/BSC/Ansoff-Zonen-Zuordnung auswerten — dieselbe answer_option-Grundlage wie
@@ -221,7 +228,7 @@ export const quizRouter = router({
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
-    return result;
+    return { ...result, explanation: await ladeErklaerung(ctx.db, input.contentItemId) };
   }),
 
   submitBlanks: protectedProcedure.input(submitBlanksInputSchema).mutation(async ({ ctx, input }) => {
@@ -241,7 +248,7 @@ export const quizRouter = router({
 
     await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
-    return result;
+    return { ...result, explanation: item.explanation };
   }),
 
   submitKurzantwort: protectedProcedure.input(submitKurzantwortInputSchema).mutation(async ({ ctx, input }) => {

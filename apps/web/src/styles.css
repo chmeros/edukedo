@@ -5225,6 +5225,27 @@ h4.stat-subheading {
 }
 
 /* Nur für Bildschirmleser sichtbar */
+/* Review UXT-B-07: Lösung und Erklärung nach der Antwort (QuizSteps.tsx, LoesungsHinweis). */
+.quiz-solution {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--line);
+  border-left: 4px solid var(--sprout-deep);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.quiz-solution p,
+.quiz-solution ul {
+  margin: 0;
+}
+
+.quiz-solution ul {
+  padding-left: 20px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

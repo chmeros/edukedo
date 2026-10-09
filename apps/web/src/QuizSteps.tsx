@@ -95,6 +95,49 @@ export interface McItem {
 }
 
 /**
+ * Review UXT-B-07/F-09/I-06: Nach einer Antwort steht die Lösung als Text da, nicht nur als Farbe am Begriff (WCAG 1.4.1), samt Erklärung.
+ * `zeilen` nennt, was bei falsch eingeordneten Begriffen richtig gewesen wäre; die Erklärung kommt aus dem Server-Ergebnis.
+ */
+function LoesungsHinweis({ zeilen, erklaerung }: { zeilen?: string[]; erklaerung?: string | null }) {
+  const hatZeilen = zeilen !== undefined && zeilen.length > 0;
+  if (!hatZeilen && !erklaerung) return null;
+  return (
+    <div className="quiz-solution">
+      {hatZeilen && (
+        <>
+          <p>
+            <b>Richtig wäre:</b>
+          </p>
+          <ul>
+            {zeilen.map((zeile) => (
+              <li key={zeile}>{zeile}</li>
+            ))}
+          </ul>
+        </>
+      )}
+      {erklaerung && (
+        <p>
+          <FachbegriffText text={erklaerung} aktiv />
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Falsch eingeordnete Begriffe einer Zonen-Zuordnung (Quadrant, Gantt, Hierarchie) als „Begriff → richtige Zone“. */
+function falscheZonen(
+  terms: { id: string; text: string }[],
+  zones: { key: string; label: string }[],
+  results: Record<string, boolean>,
+  correctZones: Record<string, string>,
+): string[] {
+  return terms.flatMap((term) => {
+    const richtig = zones.find((zone) => zone.key === correctZones[term.id]);
+    return richtig && !results[term.id] ? [`${term.text} → ${richtig.label}`] : [];
+  });
+}
+
+/**
  * F-165: Antwortoption. Vor der Antwort eine Schaltfläche (wie bisher); nach der Antwort ein statisches
  * Element, in dem Fachbegriffe markiert und anklickbar sein können — eine Schaltfläche in einer
  * deaktivierten Schaltfläche wäre ungültig und in manchen Browsern nicht klickbar.
@@ -464,7 +507,7 @@ export function MatchingStep({
 }: StepProps<
   MatchingItem,
   { contentItemId: string; pairs: { leftOptionId: string; rightOptionId: string }[] },
-  { correctMap: Record<string, string>; correctCount: number; total: number }
+  { correctMap: Record<string, string>; correctCount: number; total: number; explanation?: string | null }
 >) {
   // rechte Options-ID → linke Options-ID, oder null = noch im Pool — analog zu QuadrantSteps
   // `placements`, nur ist der Zielwert hier eine linke Options-ID statt eines Zonen-Schlüssels.
@@ -475,6 +518,7 @@ export function MatchingStep({
     correctMap: Record<string, string>;
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
@@ -580,8 +624,16 @@ export function MatchingStep({
       {feedback ? (
         <>
           <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
-            {feedback.correctCount} von {feedback.total} Zuordnungen richtig.
+            {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
           </p>
+          <LoesungsHinweis
+            zeilen={item.left.flatMap((leftOption) => {
+              const platziert = item.right.find((option) => placements[option.id] === leftOption.id);
+              const richtig = item.right.find((option) => option.id === feedback.correctMap[leftOption.id]);
+              return richtig && platziert?.id !== richtig.id ? [`${leftOption.text} → ${richtig.text}`] : [];
+            })}
+            erklaerung={feedback.explanation}
+          />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
@@ -669,7 +721,9 @@ export function DraggableTerm({
       aria-pressed={onToggleSelect ? (selected ?? false) : undefined}
       onClick={onToggleSelect}
     >
+      {state && <span aria-hidden="true">{state === "correct" ? "✓ " : "✗ "}</span>}
       {text}
+      {state && <span className="sr-only">{state === "correct" ? " (richtig)" : " (falsch)"}</span>}
     </button>
   );
 }
@@ -720,7 +774,7 @@ export function QuadrantStep({
 }: StepProps<
   QuadrantItem,
   { contentItemId: string; placements: { optionId: string; zoneKey: string }[] },
-  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number }
+  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number; explanation?: string | null }
 >) {
   const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
     Object.fromEntries(item.terms.map((term) => [term.id, null])),
@@ -730,6 +784,7 @@ export function QuadrantStep({
     correctZones: Record<string, string>;
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
   // distance-Schwelle verhindert, dass ein einfacher Tap/Klick (z. B. um den Begriff nur
@@ -824,6 +879,7 @@ export function QuadrantStep({
           <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
           </p>
+          <LoesungsHinweis zeilen={falscheZonen(item.terms, item.zones, feedback.results, feedback.correctZones)} erklaerung={feedback.explanation} />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
@@ -944,7 +1000,7 @@ export function HierarchieStep({
 }: StepProps<
   HierarchieItem,
   { contentItemId: string; placements: { optionId: string; zoneKey: string }[] },
-  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number }
+  { results: Record<string, boolean>; correctZones: Record<string, string>; correctCount: number; total: number; explanation?: string | null }
 >) {
   const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
     Object.fromEntries(item.terms.map((term) => [term.id, null])),
@@ -954,6 +1010,7 @@ export function HierarchieStep({
     correctZones: Record<string, string>;
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
@@ -1045,6 +1102,7 @@ export function HierarchieStep({
           <p role="status" className={feedback.correctCount === feedback.total ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.correctCount} von {feedback.total} Begriffen richtig zugeordnet.
           </p>
+          <LoesungsHinweis zeilen={falscheZonen(item.terms, item.zones, feedback.results, feedback.correctZones)} erklaerung={feedback.explanation} />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
@@ -1094,7 +1152,7 @@ export function SortierenStep({
 }: StepProps<
   SortierenItem,
   { contentItemId: string; orderedOptionIds: string[] },
-  { results: Record<string, boolean>; correctOrder: string[]; correctCount: number; total: number }
+  { results: Record<string, boolean>; correctOrder: string[]; correctCount: number; total: number; explanation?: string | null }
 >) {
   // Element-ID → Positions-Index (0–3), oder null = noch im Pool — analog zu QuadrantSteps
   // `placements`, nur ist der Zielwert hier ein Positions-Index statt eines Zonen-Schlüssels.
@@ -1106,6 +1164,7 @@ export function SortierenStep({
     correctOrder: string[];
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
@@ -1221,6 +1280,7 @@ export function SortierenStep({
               </>
             )}
           </p>
+          <LoesungsHinweis erklaerung={feedback.explanation} />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
@@ -1260,7 +1320,7 @@ export function BlanksStep({
 }: StepProps<
   BlanksItem,
   { contentItemId: string; answers: Record<string, string> },
-  { results: Record<string, boolean>; correctAnswers: Record<string, string>; correctCount: number; total: number }
+  { results: Record<string, boolean>; correctAnswers: Record<string, string>; correctCount: number; total: number; explanation?: string | null }
 >) {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState<{
@@ -1268,6 +1328,7 @@ export function BlanksStep({
     correctAnswers: Record<string, string>;
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
 
@@ -1305,6 +1366,12 @@ export function BlanksStep({
                   onChange={(event) => setAnswers((current) => ({ ...current, [blankId]: event.target.value }))}
                 />
               )}
+              {blankId && feedback && (
+                <>
+                  <span aria-hidden="true">{feedback.results[blankId] ? " ✓" : " ✗"}</span>
+                  <span className="sr-only">{feedback.results[blankId] ? " (richtig)" : " (falsch)"}</span>
+                </>
+              )}
             </span>
           );
         })}
@@ -1320,6 +1387,7 @@ export function BlanksStep({
               </>
             )}
           </p>
+          <LoesungsHinweis erklaerung={feedback.explanation} />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
@@ -1403,7 +1471,7 @@ export function BlanksSelectionStep({
 }: StepProps<
   BlanksSelectionItem,
   { contentItemId: string; answers: Record<string, string> },
-  { results: Record<string, boolean>; correctAnswers: Record<string, string>; correctCount: number; total: number }
+  { results: Record<string, boolean>; correctAnswers: Record<string, string>; correctCount: number; total: number; explanation?: string | null }
 >) {
   // Pool-Wort-ID → Lücken-ID (oder null = noch im Pool) — analog zu QuadrantSteps `placements`.
   const [placements, setPlacements] = useState<Record<string, string | null>>(() =>
@@ -1414,6 +1482,7 @@ export function BlanksSelectionStep({
     correctAnswers: Record<string, string>;
     correctCount: number;
     total: number;
+    explanation?: string | null;
     motivation: string;
   } | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
@@ -1532,6 +1601,7 @@ export function BlanksSelectionStep({
               </>
             )}
           </p>
+          <LoesungsHinweis erklaerung={feedback.explanation} />
           <p className="field-hint">{feedback.motivation}</p>
           <button type="button" className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={onNext}>
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}

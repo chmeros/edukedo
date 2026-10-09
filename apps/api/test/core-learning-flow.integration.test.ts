@@ -1388,6 +1388,8 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
       expect(result.results[byText("Veraltete IT").id]).toBe(false);
       expect(result.results[byText("Starke Marke").id]).toBe(true);
       expect(result.correctZones[byText("Veraltete IT").id]).toBe("schwaechen");
+      // Review UXT-B-07: Die Rückmeldung liefert auch die Erklärung des Items mit (hier ohne hinterlegten Text: null).
+      expect(result).toHaveProperty("explanation");
 
       // adminContent.get reshaped die Begriffe inkl. ihrer richtigen Zone für die Redaktion.
       const getResponse = await app.inject({
