@@ -568,6 +568,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Mathematik 9: Beschriftung der Strahlensätze, Review FL-MA-02)
+
+Anlass: Der Fachlehrer-Befund FL-MA-02 (Blocker): Text und Formeln des Themas „Ähnlichkeit und Strahlensätze“ widersprachen sich. Der Text legte „A, B auf dem einen und A', B' auf dem anderen Strahl, Parallelen durch AB bzw. A'B'“ fest, die Formeln ZA/ZA' = ZB/ZB' und AB/A'B' = ZA/ZA' passen aber nur zur üblichen Beschriftung; Q-GEO3-04 hatte deshalb zwei wahre Optionen. Der Befund war zurückgestellt, bis die Schreibweise feststeht.
+
+- **Entscheidung der Projektleitung (09.10.2026):** Die übliche Fassung gilt kursweit: Z ist der Anfangspunkt, A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, AB ∥ A'B'. Die Fassung wurde nicht an den Zielschulbüchern belegt; nach Auskunft des Berichts ist sie die in Lehrbüchern übliche. Eine Lehrkraft sollte sie bei Gelegenheit bestätigen.
+- **Umgesetzt (`geometrie/geo3-strahlensaetze.md`):** Die Theorie beschreibt die Beschriftung jetzt eindeutig (Abschnitte auf dem ersten Strahl: ZA und ZA', auf dem zweiten: ZB und ZB'); K-GEO3-07 und K-GEO3-08 nennen die Beschriftung in der Antwort; Q-GEO3-04 fragt „Welche Gleichung ist der **erste** Strahlensatz“ mit der vollständigen Beschriftung, sodass die Gleichung mit AB und A'B' nur noch als Gleichung des zweiten Strahlensatzes zählt und nicht mehr als zweite richtige Option; Erklärung und Q-GEO3-05 sprechen von Verhältnissen der Strahlenabschnitte auf beiden Strahlen statt von „Abschnitten auf demselben Strahl“. Die Formeln und alle Rechenaufgaben des Themas blieben unverändert. 5 Items geändert, keine Lösung geändert; validiert, importiert, Unit-Tests grün.
+- **Nicht umgesetzt:** eine Skizze oder Figurbeschreibung als Bild (FL-MA-08); Q-GEO3-04 mit konkreten Zahlen statt reiner Formelfrage.
+- **Richtigstellung:** FL-MA-02 betrifft ausschließlich die Strahlensätze. Die Frage nach Kurzantworten mit Wurzel, Hochzahl und Gradzeichen ist der Befund FL-MA-03 (Entwicklungsplan Iteration 23, eigener Punkt); sie war im Plan zunächst fälschlich unter FL-MA-02 geführt.
+
 ### Entschieden am 09.10.2026 (Aufbewahrung der Inhaltsmeldungen, Review UXL-13)
 
 Anlass: Entscheidung der Projektleitung vom 09.10.2026 (Entwicklungsplan Iteration 23): Der Freitext von Inhaltsmeldungen wird 6 Monate (180 Tage) nach der Bearbeitung geleert; bisher blieb er unbegrenzt gespeichert, auch nach dem Löschen des Kontos der meldenden Person (der Verweis wurde dann `NULL`, der Text blieb).

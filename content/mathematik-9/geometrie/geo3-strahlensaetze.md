@@ -24,7 +24,7 @@ Schneiden zwei Strahlen mit gemeinsamem Anfangspunkt Z zwei zueinander parallele
 
 ZA / ZA' = ZB / ZB'
 
-(wobei A, B auf dem einen Strahl und A', B' auf dem anderen Strahl liegen, mit den parallelen Geraden durch AB bzw. A'B').
+Beschriftung in diesem Kurs: Z ist der gemeinsame Anfangspunkt. Auf dem ersten Strahl liegen A (näher an Z) und A', auf dem zweiten Strahl B (näher an Z) und B'. Die eine parallele Gerade verläuft durch A und B, die andere durch A' und B'; es gilt also AB ∥ A'B'. ZA und ZA' sind die Abschnitte auf dem ersten Strahl, ZB und ZB' die auf dem zweiten.
 
 ### Der zweite Strahlensatz
 
@@ -72,12 +72,12 @@ Strahlensätze werden klassischerweise genutzt, um Höhen oder Entfernungen indi
 
 #### K-GEO3-07
 **Frage:** Wie lautet der erste Strahlensatz?
-**Antwort:** ZA/ZA' = ZB/ZB' — die Abschnitte auf einem Strahl verhalten sich wie die entsprechenden Abschnitte auf dem anderen Strahl.
+**Antwort:** ZA/ZA' = ZB/ZB' (A, A' auf dem einen, B, B' auf dem anderen Strahl, AB ∥ A'B') — das Verhältnis der Abschnitte auf dem einen Strahl ist gleich dem Verhältnis der entsprechenden Abschnitte auf dem anderen Strahl.
 `tags: erster-strahlensatz` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-GEO3-08
 **Frage:** Wie lautet der zweite Strahlensatz?
-**Antwort:** AB/A'B' = ZA/ZA' — die Abschnitte auf den parallelen Geraden verhalten sich wie die zugehörigen Strahlenabschnitte vom Zentrum aus.
+**Antwort:** AB/A'B' = ZA/ZA' (gleiche Beschriftung, AB ∥ A'B') — die Abschnitte auf den parallelen Geraden verhalten sich wie die zugehörigen Strahlenabschnitte vom Zentrum aus.
 `tags: zweiter-strahlensatz` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-GEO3-09
@@ -160,19 +160,19 @@ Strahlensätze werden klassischerweise genutzt, um Höhen oder Entfernungen indi
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-GEO3-04 · Multiple Choice
-**Frage:** Welche Aussage zum ersten Strahlensatz ist korrekt (Z = Zentrum, A, B auf einem Strahl, A', B' auf dem anderen)?
+**Frage:** Welche Gleichung ist der erste Strahlensatz (Z = Zentrum, A und A' auf dem einen Strahl, B und B' auf dem anderen, AB ∥ A'B')?
 - [ ] AB/A'B' = ZA/ZA'
 - [x] ZA/ZA' = ZB/ZB'
 - [ ] ZA · ZA' = ZB · ZB'
 - [ ] ZA + ZB = ZA' + ZB'
-**Erklärung:** Der erste Strahlensatz vergleicht Abschnitte auf demselben Strahl.
+**Erklärung:** Der erste Strahlensatz setzt die Verhältnisse der Strahlenabschnitte auf den beiden Strahlen gleich: ZA : ZA' = ZB : ZB'. Die Gleichung mit den parallelen Abschnitten AB und A'B' gehört zum zweiten Strahlensatz.
 `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-GEO3-05 · Zuordnung
 **Anweisung:** Ordne die Begriffe ihrer Bedeutung zu.
 - Ähnlichkeitsfaktor ↔ Verhältnis, mit dem alle Längen skaliert werden
 - Kongruenz ↔ Ähnlichkeit mit Faktor 1 (deckungsgleich)
-- Erster Strahlensatz ↔ vergleicht Abschnitte auf demselben Strahl
+- Erster Strahlensatz ↔ die Verhältnisse der Strahlenabschnitte auf beiden Strahlen sind gleich
 - Zweiter Strahlensatz ↔ vergleicht Abschnitte auf den parallelen Geraden mit Strahlenabschnitten
 **Erklärung:** Grundbegriffe zu Ähnlichkeit und Strahlensätzen.
 `schwierigkeit: mittel` · `bloom: erinnern`
