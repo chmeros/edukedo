@@ -568,6 +568,19 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Echter E-Mail-Versand per SMTP, Review-Punkt A3)
+
+Anlass: Entwicklungsplan Iteration 23, Entscheidung der Projektleitung vom 09.10.2026: Mails gehen über das SMTP-Postfach des Hosters bzw. Domain-Anbieters, kein Mail-Cloud-Dienst.
+
+- **Adapter statt neuer Schnittstelle:** `apps/api/src/email/sender.ts` behält die fünf exportierten Funktionen mit unveränderten Parametern; sie geben weiter `void` zurück und warten nicht auf den Versand, damit Registrierung, Passwort-Reset und Consent-Flow nicht an einem langsamen Mailserver hängen. Intern bauen sie eine Nachricht (Art, Empfänger, Betreff, Textzeilen) und übergeben sie an `deliver`: mit `SMTP_HOST` und `MAIL_FROM` per SMTP, sonst über den bisherigen Platzhalter. Der Platzhalter bleibt der Standard, damit Entwicklung, Test und bestehende Deployments ohne Postfach unverändert laufen.
+- **Neue Umgebungsvariablen (alle optional):** `SMTP_HOST`, `SMTP_PORT` (587), `SMTP_SECURE` (false), `SMTP_USER`, `SMTP_PASSWORD`, `MAIL_FROM`. Leere Werte aus einer `.env` gelten als nicht gesetzt. Start-Prüfung: `MAIL_FROM` ist Pflicht, sobald `SMTP_HOST` gesetzt ist; `SMTP_USER` und `SMTP_PASSWORD` nur zusammen. Eine halbe Konfiguration lässt den Server also nicht anlaufen, statt still nichts zu senden.
+- **Nur verschlüsselt:** Bei Port 465 implizites TLS, sonst `requireTLS`: STARTTLS ohne Rückfall auf Klartext. Ein Server ohne Verschlüsselung wird abgelehnt (mit einer lokalen Attrappe geprüft: `ESOCKET`, nichts gesendet). Feste Zeitlimits (10 s Verbindung und Begrüßung, 20 s Socket).
+- **Wiederholung und Fehlerprotokoll:** bis zu drei Versuche (Wartezeit 2 s, dann 10 s). Nach dem letzten Fehlversuch steht nur Art der Mail, maskierte Adresse und SMTP-Code (`code`, `responseCode`) im Log; der Text der Fehlermeldung wird nicht ausgegeben, weil er Adressen enthalten kann. Das gilt auch außerhalb der Produktion, und der Zugangslink steht in keinem Fall im Log (Review SEC-01).
+- **Reiner Text:** Der Betreff ist wie zuvor, der Text enthält die bisherigen Zeilen (Link) und den Hinweis „Diese Nachricht wurde automatisch von edukedo versendet.“ Die rechtlich relevanten Formulierungen der Consent-Mail wurden bewusst nicht umgeschrieben.
+- **Neue Abhängigkeit:** `nodemailer` (Produktion) und `@types/nodemailer` (Entwicklung) in `apps/api`; `pnpm audit --prod` ohne Funde.
+- **Tests:** `sender-smtp.test.ts` (7 Tests: Inhalt und Absender, kein Link und keine Adresse im Log, STARTTLS-Pflicht, Port 465, Wiederholung, Fehlerprotokoll, kein unbehandelter Fehler, Rückfall auf den Platzhalter); die bisherigen Platzhalter-Tests laufen unverändert.
+- **Noch nicht getan (braucht Ihre Angaben):** Zugangsdaten des Postfachs als Secrets hinterlegen, Absenderdomain mit SPF, DKIM und DMARC einrichten, Auftragsverarbeitungsvertrag mit dem Anbieter, einmal eine echte Testmail an eine eigene Adresse senden. Erst danach den Teil „Mail produktiv“ in den `setPublished`-Guard aufnehmen (A2). Postfächer haben Mengenlimits; bei Wachstum oder vielen Erinnerungen ist ein Wechsel zu einem Transaktionsmaildienst nur der Austausch von `getTransport`.
+
 ### Entschieden am 08.10.2026 (Inhaltskorrekturen aus den Fachlehrer-Befunden: Immobilienfachwirt)
 
 Nutzer-Freigabe vom 08.10.2026. Der Kurs ist fast durchgehend Mietrecht, WEG-Recht, Maklerrecht und Gewerberecht (BGB, WEG, GewO, MaBV, ImmoWertV); die Befunde dazu sind Prüfhinweise für fachkundige Personen (R4) und blieben unverändert. Umgesetzt wurden nur Befunde ohne Normbezug. Validiert (0 Verstöße), importiert und `seed-games` ausgeführt (11 Items geändert; Trockenlauf danach ohne Änderung), Unit-Tests grün. Bei fünf Items ändert sich die Lösung (Q-2.1-10, Q-2.2-09, Q-2.2-10, Q-3.2-12, Q-4.2-11); der Fortschritt bleibt erhalten.

@@ -98,7 +98,7 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | B9 Mobile Tab-Leisten | **erledigt 08.10.2026** | §13 „Schritt 8“ |
 | B11 `rundeCent` | **erledigt 08.10.2026** (Skalierungsrechner-Meldung WRK-01 offen) | §13 „Schritt 6“ |
 | A7 Mindestgröße nach Beitragenden | **erledigt 08.10.2026** (Mitglieder erfahren weiterhin nichts, UXL-04 offen) | §13 „Sicherheit, Schritt 2“ |
-| A3 Consent-/Setup-Links dauerhaft, Links im Log | **teilweise erledigt 08.10.2026** (Einmal-Links, kein Link im Produktions-Log); echter Mailversand wartet auf Anbieterwahl | §13 „Sicherheit, Schritt 3“ |
+| A3 Consent-/Setup-Links dauerhaft, Links im Log | **teilweise erledigt 08.10.2026** (Einmal-Links, kein Link im Produktions-Log); Mailversand per SMTP seit 09.10.2026 im Code (Postfach-Zugangsdaten, Absenderdomain und Testmail offen) | §13 „Sicherheit, Schritt 3“ |
 | SEC-04 Ratenbegrenzung (Eltern-/Firmen-Login, Registrierung, Mail-Bombing, trustProxy, Speicher) | **erledigt 08.10.2026** | §13 „Sicherheit, Schritt 4“ |
 | B6 Passwort vergessen (F-02) für Lernende, Eltern, Unternehmen | **erledigt 08.10.2026** | §13 „Sicherheit, Schritt 5“ |
 | B10 ErrorBoundary und Absturz im Statistiktrainer | **erledigt 08.10.2026** (kein automatischer Komponententest, manuell geprüft) | §13 „ErrorBoundary und Absturz im Statistiktrainer“ |

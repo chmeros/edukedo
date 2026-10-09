@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+// Leere Werte aus einer .env-Datei ("SMTP_USER=") gelten als nicht gesetzt.
+const optionalText = z.preprocess((value) => (value === "" ? undefined : value), z.string().min(1).optional());
+
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   SESSION_SECRET: z.string().min(32, "SESSION_SECRET muss mindestens 32 Zeichen lang sein"),
@@ -48,6 +51,28 @@ const envSchema = z.object({
   AI_PROVIDER: z.enum(["placeholder", "ollama"]).default("placeholder"),
   OLLAMA_BASE_URL: z.string().url().default("http://localhost:11434"),
   OLLAMA_MODEL: z.string().default("qwen2.5:14b-instruct-q4_K_M"),
+  // Echter E-Mail-Versand per SMTP (Entscheidung 09.10.2026: Postfach des Hosters bzw. Domain-Anbieters, siehe
+  // Entwicklungsplan Iteration 23). Ohne SMTP_HOST bleibt der Platzhalter-Versand in src/email/sender.ts aktiv.
+  // Port 587 nutzt STARTTLS (SMTP_SECURE=false, es gibt keinen Rückfall auf unverschlüsselte Übertragung),
+  // Port 465 implizites TLS (SMTP_SECURE=true). MAIL_FROM ist der Absender, z. B. "edukedo <noreply@edukedo.de>".
+  SMTP_HOST: optionalText,
+  SMTP_PORT: z.coerce.number().int().positive().default(587),
+  SMTP_SECURE: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
+  SMTP_USER: optionalText,
+  SMTP_PASSWORD: optionalText,
+  MAIL_FROM: optionalText,
 });
 
-export const env = envSchema.parse(process.env);
+export const env = envSchema
+  .superRefine((value, ctx) => {
+    if (value.SMTP_HOST && !value.MAIL_FROM) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["MAIL_FROM"], message: "MAIL_FROM fehlt (Pflicht, sobald SMTP_HOST gesetzt ist)" });
+    }
+    if (Boolean(value.SMTP_USER) !== Boolean(value.SMTP_PASSWORD)) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["SMTP_PASSWORD"], message: "SMTP_USER und SMTP_PASSWORD müssen zusammen gesetzt werden" });
+    }
+  })
+  .parse(process.env);

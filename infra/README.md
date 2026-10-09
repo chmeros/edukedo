@@ -28,7 +28,7 @@ docker build -f infra/docker/payment.Dockerfile -t edukedo-payment .
 
 ## Pflicht-Umgebungsvariablen
 
-Kern: `DATABASE_URL`, `SESSION_SECRET` (mindestens 32 Zeichen), `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `PAYMENT_SERVICE_TOKEN` (mindestens 16 Zeichen), `REDIS_URL`, `WEB_BASE_URL`; hinter einem Proxy `TRUST_PROXY=true`.
+Kern: `DATABASE_URL`, `SESSION_SECRET` (mindestens 32 Zeichen), `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `PAYMENT_SERVICE_TOKEN` (mindestens 16 Zeichen), `REDIS_URL`, `WEB_BASE_URL`; hinter einem Proxy `TRUST_PROXY=true`. Für echten Mailversand zusätzlich `SMTP_HOST`, `MAIL_FROM` und meist `SMTP_USER`/`SMTP_PASSWORD` (Port über `SMTP_PORT`, `SMTP_SECURE=true` für Port 465); ohne `SMTP_HOST` wird in Produktion keine Mail zugestellt, der Server warnt nur mit maskierter Adresse. Die Absenderdomain braucht SPF, DKIM und DMARC beim Anbieter.
 Payment: `PAYMENT_DATABASE_URL`, `KERN_SERVICE_TOKEN` (identisch zu `PAYMENT_SERVICE_TOKEN`), `REDIS_URL`.
 `NODE_ENV=production` setzen die Images selbst. Alle Werte gehören in die Secret-Verwaltung des Hosters, nie ins Repository. Vollständige Liste: `apps/api/src/env.ts`, `apps/payment/src/env.ts`.
 

@@ -542,7 +542,8 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 
 **Programmierung (Kern)**
 - [ ] Deploy-Workflow, Staging/Produktion, GitHub-Actions an Commit-SHAs binden (INF-30), ersten CI-Lauf in GitHub prüfen, Entwicklungswerkzeuge (vitest/vite) im Audit nachziehen (A5/A6). Abhängig von der Hostingwahl.
-- [ ] Echter Mailversand per SMTP hinter der vorhandenen Stub-Schnittstelle `apps/api/src/email/sender.ts` (fünf Mailarten, Anbieter-Entscheidung 09.10.2026: SMTP des Hosters/Domain-Anbieters), Zeitplan für die drei Erinnerungsskripte beim Hoster (`infra/README.md`).
+- [x] Echter Mailversand per SMTP hinter der vorhandenen Schnittstelle `apps/api/src/email/sender.ts` (fünf Mailarten, nur verschlüsselt, Wiederholung, Fehlerprotokoll ohne Link). **Erledigt 09.10.2026**, siehe Architekturplanung §13. **Offen (braucht Ihre Angaben):** Zugangsdaten als Secrets, Absenderdomain mit SPF/DKIM/DMARC, Auftragsverarbeitungsvertrag, eine echte Testmail.
+- [ ] Zeitplan für die drei Erinnerungsskripte (Einwilligung, Lernen, Duell) beim Hoster einrichten (`infra/README.md`); abhängig von der Hostingwahl.
 - [ ] Sprint-Token härten: einmalige Verwendung, Ratenbegrenzung (LOG-16); `is_premium` vor F-80 klären; Idempotenzschlüssel für Online-Antworten (Lernlogik, Paket 1).
 - [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).
 - [ ] Lesehinweis (Zahlenschreibweise) für Skalierungsrechner, Testfalltrainer und Statistiktrainer (WRK-04/05/06, Rest).
