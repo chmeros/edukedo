@@ -23,6 +23,7 @@ import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { AufgabenNummer } from "./AufgabenNummer";
 import { ReiterInhalt } from "./ReiterInhalt";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
  * F-210 (Statistik-Trainer, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den Kurs „Fachinformatiker
@@ -531,13 +532,13 @@ export function Statistiktrainer({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-st-${modus}`} aria-labelledby={`tab-st-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-st-${modus}`} aria-labelledby={`tab-st-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "reihe"}><Reihe /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "zusammenhang"}><Zusammenhang /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

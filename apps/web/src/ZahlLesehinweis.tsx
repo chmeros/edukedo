@@ -4,7 +4,8 @@ import { useState, type ComponentPropsWithoutRef } from "react";
 /**
  * Review WRK-06: Rahmen um die Eingabefelder eines Rechners. Schreibt jemand eine mehrdeutige Zahl wie „2.500“ (Punkt =
  * Tausendertrennung, gelesen 2500), steht darunter, wie sie gelesen wurde. Ein Baustein für alle Felder des Rahmens (Ereignis
- * „input“ steigt auf), statt jedes der vielen Zahlenfelder einzeln zu ändern; erfasst werden Felder mit `inputMode="decimal"`.
+ * „input“ steigt auf), statt jedes der vielen Zahlenfelder einzeln zu ändern; erfasst werden Felder mit `inputMode="decimal"` und Felder
+ * mit `data-zahl` (für Zahlenfelder, die `inputMode="text"` brauchen, damit auf dem Handy auch ein Minuszeichen getippt werden kann).
  */
 export function ZahlLesehinweis({ children, ...rest }: ComponentPropsWithoutRef<"div">) {
   const [hinweis, setHinweis] = useState<string | null>(null);
@@ -13,7 +14,7 @@ export function ZahlLesehinweis({ children, ...rest }: ComponentPropsWithoutRef<
       {...rest}
       onInput={(event) => {
         const feld = event.target;
-        if (!(feld instanceof HTMLInputElement) || feld.inputMode !== "decimal") return;
+        if (!(feld instanceof HTMLInputElement) || (feld.inputMode !== "decimal" && feld.dataset.zahl === undefined)) return;
         const text = zahlLesehinweis(feld.value);
         const name = feld.getAttribute("aria-label") ?? feld.labels?.[0]?.textContent ?? "Eingabe";
         setHinweis(text ? `${name}: ${text}` : null);

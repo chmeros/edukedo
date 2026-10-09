@@ -561,7 +561,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [x] **Idempotenzschlüssel für Online-Antworten, erledigt 09.10.2026** (siehe Architekturplanung §13): optionales `clientEventId` an Quiz-Antworten und `progress.submitReview`, Browser schickt ihn je Antwortversuch mit; eine wiederholte Antwort zählt nur einmal.
 - [x] **`is_premium` vor F-80, entschieden und umgesetzt 09.10.2026** (siehe Architekturplanung §13): Setzen wird serverseitig abgewiesen, Checkbox im Redaktions-Editor entfernt, Spalte bleibt. **Offen bleibt F-80 selbst:** welcher Content kostenpflichtig sein soll und die Durchsetzung auf allen Lesepfaden (Karteikarten, Quiz, Suche, Offline, Prüfung, Duell, Vorschau).
 - [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).
-- [ ] Lesehinweis (Zahlenschreibweise) für Skalierungsrechner, Testfalltrainer und Statistiktrainer (WRK-04/05/06, Rest).
+- [x] **Lesehinweis zur Zahlenschreibweise für Skalierungsrechner, Testfalltrainer und Statistiktrainer, erledigt 09.10.2026** (siehe Architekturplanung §13). Im Browser geprüft nur im Skalierungsrechner; Testfalltrainer und Statistiktrainer bei Gelegenheit in ihren Kursen ansehen.
 - [ ] Lese-Modus für Kursinhalte: Suche und Druck.
 - [ ] Kursübergreifende Kohortenübersicht für Lehrkräfte (UXL-21, Rest).
 - [x] **Ladegröße, erledigt 09.10.2026** (siehe Architekturplanung §13): `@edukedo/shared` als seiteneffektfrei markiert und Bibliotheken per `manualChunks` in eigene Dateien gelegt; Hauptdatei 1.193 → 306 kB (gzip 355 → 84 kB).

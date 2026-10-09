@@ -18,6 +18,7 @@ import {
 import { useMemo, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
 import { AufgabenNummer } from "./AufgabenNummer";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
  * F-205 (Testfall-Trainer, siehe Architekturplanung Abschnitt 13): Übung zu Äquivalenzklassen und Grenzwerten für
@@ -94,7 +95,7 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
           ← Zurück zum Werkzeugkasten
         </button>
       </div>
-      <div className="stack">
+      <ZahlLesehinweis className="stack">
         <p className="field-hint">
           Übung zu Äquivalenzklassen und Grenzwerten, wie sie die Kurstheorie zum Black-Box-Test beschreibt. Alle Eingaben sind ganze Zahlen. Die Aufgaben sind Beispiele, die Eingaben werden nicht gespeichert.
         </p>
@@ -123,7 +124,7 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
         <div className="field">
           <label htmlFor="tf-anzahl">Wie viele Äquivalenzklassen gibt es (gültige und ungültige zusammen)?</label>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <input id="tf-anzahl" className={eingabeKlasse(anzahlOk)} inputMode="numeric" autoComplete="off" value={eingaben.anzahl ?? ""} onChange={(event) => aendere("anzahl", event.target.value)} />
+            <input id="tf-anzahl" className={eingabeKlasse(anzahlOk)} inputMode="numeric" data-zahl autoComplete="off" value={eingaben.anzahl ?? ""} onChange={(event) => aendere("anzahl", event.target.value)} />
             {geprueft && <Marke ok={anzahlOk} />}
           </div>
         </div>
@@ -154,7 +155,7 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
               <div className="field" key={wert}>
                 <label htmlFor={`tf-erw-${wert}`}>Eingabe {wert}</label>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <input id={`tf-erw-${wert}`} className={eingabeKlasse(erwartetOk[index]!)} autoComplete="off" value={eingaben[`erw-${wert}`] ?? ""} onChange={(event) => aendere(`erw-${wert}`, event.target.value)} />
+                  <input id={`tf-erw-${wert}`} className={eingabeKlasse(erwartetOk[index]!)} data-zahl autoComplete="off" value={eingaben[`erw-${wert}`] ?? ""} onChange={(event) => aendere(`erw-${wert}`, event.target.value)} />
                   {geprueft && <Marke ok={erwartetOk[index]!} />}
                 </div>
               </div>
@@ -247,7 +248,7 @@ export function Testfalltrainer({ onClose }: { onClose: () => void }) {
           </button>
         </div>
         <AufgabenNummer nummer={nummer} onLaden={(geladen) => neu(stufe, geladen)} />
-      </div>
+      </ZahlLesehinweis>
     </div>
   );
 }

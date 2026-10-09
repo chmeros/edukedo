@@ -28,6 +28,7 @@ import { InfoIcon, SuccessIcon } from "./Icons";
 import { handleTabListKeyDown } from "./tabListKeyboardNav";
 import { AufgabenNummer } from "./AufgabenNummer";
 import { ReiterInhalt } from "./ReiterInhalt";
+import { ZahlLesehinweis } from "./ZahlLesehinweis";
 
 /**
  * F-207 (Skalierungs- und Modbus-Register-Rechner, siehe Architekturplanung Abschnitt 13): Rechner und Übung für den
@@ -50,7 +51,7 @@ function Feld({ id, label, hinweis, wert, setze, breite }: { id: string; label: 
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <input id={id} className="input" style={breite ? { width: breite, maxWidth: "100%" } : eingabeStil} inputMode="text" autoComplete="off" value={wert} onChange={(event) => setze(event.target.value)} />
+      <input id={id} className="input" style={breite ? { width: breite, maxWidth: "100%" } : eingabeStil} inputMode="text" data-zahl autoComplete="off" value={wert} onChange={(event) => setze(event.target.value)} />
       {hinweis && <span className="field-hint">{hinweis}</span>}
     </div>
   );
@@ -401,6 +402,7 @@ function Ueben() {
               className={`input netzplan-eingabe${geprueft ? (richtig[index] ? " is-correct" : " is-wrong") : ""}`}
               style={{ width: "11rem", maxWidth: "100%" }}
               inputMode="text"
+              data-zahl
               autoComplete="off"
               aria-invalid={geprueft && !richtig[index] ? true : undefined}
               value={eingaben[feld.id] ?? ""}
@@ -504,13 +506,13 @@ export function Skalierungsrechner({ onClose }: { onClose: () => void }) {
             </button>
           ))}
         </div>
-        <div role="tabpanel" id={`panel-sk-${modus}`} aria-labelledby={`tab-sk-${modus}`}>
+        <ZahlLesehinweis role="tabpanel" id={`panel-sk-${modus}`} aria-labelledby={`tab-sk-${modus}`}>
           
           <ReiterInhalt aktiv={modus === "analog"}><Analog /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "register"}><Register /></ReiterInhalt>
           <ReiterInhalt aktiv={modus === "ueben"}><Ueben /></ReiterInhalt>
         
-        </div>
+        </ZahlLesehinweis>
       </div>
     </div>
   );

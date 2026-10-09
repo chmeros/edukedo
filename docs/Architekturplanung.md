@@ -568,6 +568,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Lesehinweis zur Zahlenschreibweise in drei weiteren Werkzeugen, Review WRK-06)
+
+Anlass: Der Lesehinweis „gelesen als 2500“ (`ZahlLesehinweis`) stand bisher unter acht Rechnern. Skalierungsrechner, Testfalltrainer und Statistiktrainer fehlten, obwohl auch dort ein Punkt als Tausendertrennung gelesen wird („2.500“ ergibt 2500).
+
+- **Einbindung:** Skalierungsrechner und Statistiktrainer umschließen ihr Reiterfeld mit `ZahlLesehinweis` (wie der Energierechner), der Testfalltrainer seinen Aufgabenbereich.
+- **Neues Kennzeichen `data-zahl`:** Der Baustein erfasste bisher nur Felder mit `inputMode="decimal"`. Der Skalierungsrechner und der Statistik-Teil des Testfalltrainers nutzen `inputMode="text"` bzw. `"numeric"`, damit am Handy auch ein Minuszeichen getippt werden kann. Solche Zahlenfelder tragen jetzt `data-zahl` und werden ebenfalls erfasst. Gekennzeichnet sind alle Zahlenfelder des Skalierungsrechners (Analogwert, Register, Üben), die Antwortfelder „Anzahl der Klassen“ und „erwartete Ergebnisse“ im Testfalltrainer. Das Eingabefeld „Deine Testwerte“ (Liste mit Trennzeichen) bleibt bewusst ohne Hinweis, weil `zahlLesehinweis` nur einzelne Zahlen deutet.
+- **Unverändert:** `zahlLesehinweis` und die Parser (`leseBetrag`, `parseZahlEingabe`), die Rundungs- und Rechenwegregeln aus WRK-04/05.
+- **Prüfung:** Typprüfung und Lint; live im Browser (Wegwerf-Konto, Kurs Digitale Vernetzung): „2.500“ im Skalierungsrechner zeigt „Messbereich bis: gelesen als 2500 (Punkt = Tausendertrennung; Dezimalwerte mit Komma schreiben)“. Testfalltrainer (Kurs Anwendungsentwicklung) und Statistiktrainer (Kurs Daten- und Prozessanalyse) habe ich nicht im Browser geöffnet, weil sich das Konto nicht in mehrere Kurse einschreiben ließ; sie nutzen denselben Baustein und dasselbe Muster wie der geprüfte Skalierungsrechner und der Energierechner.
+
 ### Entschieden am 09.10.2026 (Content-Flag `is_premium` gesperrt, Review LOG-22 und SOZ-29)
 
 Anlass: `content_item.is_premium` wird in keiner Lese-Abfrage für Lernende ausgewertet (Karteikarten, Quiz, Suche, Offline-Download, Prüfung, Duell, Vorschau). Wer das Flag im Redaktions-Editor gesetzt hätte, hätte die Frage trotzdem für alle freigegeben, ein stilles Leck, sobald F-80 eingeführt wird. Zur Wahl standen: sperren und die Spalte behalten, Spalte entfernen, oder auf allen Lesepfaden durchsetzen (2 bis 3 Tage, setzt die Entscheidung voraus, welcher Content kostenpflichtig sein soll). Entschieden: **sperren, Spalte behalten**.
