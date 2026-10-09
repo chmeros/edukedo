@@ -72,6 +72,7 @@ export function ReportContentButton({ contentItemId }: { contentItemId: string }
                 <textarea
                   className="input"
                   id={reasonFieldId}
+                  data-autofocus
                   rows={4}
                   value={reason}
                   onChange={(event) => setReason(event.target.value)}

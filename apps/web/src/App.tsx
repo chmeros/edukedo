@@ -239,6 +239,18 @@ export function App() {
   // ProgressExportButton — der wäre rein redundant, courses.list ist hier schon geladen (siehe
   // Architekturplanung Abschnitt 13 für einen dabei entdeckten, von F-34 unabhängigen 404-Fund).
   const activeKursTitle = joinedCourses.find((course) => course.id === activeKursId)?.title ?? "";
+  // Review UXT-B-22/F-20: Beim Wechsel in einen anderen Kurs laufen die Abfragen des alten Kurses nicht mehr weiter (sonst folgen Fehler
+  // „nicht eingeschrieben“ nach dem Wechsel), und die neue Ansicht beginnt im Lernen-Tab statt im zuletzt offenen Reiter.
+  function wechsleKurs(neuerKursId: string | null) {
+    if (neuerKursId !== null && neuerKursId !== activeKursId) {
+      if (activeKursId !== null) {
+        const alterKurs = activeKursId;
+        void queryClient.cancelQueries({ predicate: (query) => JSON.stringify(query.queryKey).includes(alterKurs) });
+      }
+      setLearningMode("lernen");
+    }
+    setSelectedKursId(neuerKursId);
+  }
   // F-101: verbindliche Lernbereichsauswahl — sobald courses.list geladen ist und keine
   // Belegung existiert, ersetzt die Kursauswahl den Lernbereich zwangsweise (canDismiss=false
   // in CourseSelection.tsx), statt nur einen Hinweis anzuzeigen. `courses.data !== undefined`
@@ -291,7 +303,7 @@ export function App() {
               {view === "app" && (
                 <CourseSwitcher
                   activeKursId={activeKursId}
-                  onActiveKursChange={setSelectedKursId}
+                  onActiveKursChange={wechsleKurs}
                   onOpenCourseSelection={() => setView("courses")}
                 />
               )}
@@ -321,7 +333,7 @@ export function App() {
           ) : showCourseSelection ? (
             <CourseSelection
               onSelected={(kursId) => {
-                setSelectedKursId(kursId);
+                wechsleKurs(kursId);
                 setView("app");
               }}
               canDismiss={activeKursId !== null}
@@ -553,6 +565,15 @@ export function App() {
         </main>
         </FachbegriffProvider>
       </TheorieProvider>
+    );
+  }
+
+  // Review UXT-F-17: Solange die erste Anmeldeabfrage läuft, nicht kurz die Startseite für Gäste zeigen.
+  if (me.isInitialLoading && !showAuth && !register.data) {
+    return (
+      <main id="main-content" className="shell shell--narrow">
+        <p role="status">Lädt…</p>
+      </main>
     );
   }
 

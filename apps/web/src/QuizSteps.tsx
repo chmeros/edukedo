@@ -150,6 +150,7 @@ function AntwortOption({
   text,
   prefix,
   gewaehlt,
+  mehrfach,
 }: {
   className: string;
   beantwortet: boolean;
@@ -159,6 +160,8 @@ function AntwortOption({
   prefix?: string;
   /** Review WEB-15: Auswahlzustand für Hilfstechnik (nur wo erst gewählt und dann geprüft wird). */
   gewaehlt?: boolean;
+  /** Review UXT-B-12: Bei Mehrfachauswahl ist jede Option ein Ankreuzfeld (`role="checkbox"`), sonst eine Auswahl-Schaltfläche. */
+  mehrfach?: boolean;
 }) {
   if (beantwortet) {
     // Review WEB-15: Das Ergebnis steht auch als Zeichen und Text, nicht nur als Rand- oder Hintergrundfarbe (WCAG 1.4.1).
@@ -174,8 +177,16 @@ function AntwortOption({
     );
   }
   return (
-    <button type="button" className={className} disabled={disabled} onClick={onClick} aria-pressed={gewaehlt}>
-      {prefix}
+    <button
+      type="button"
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      role={mehrfach ? "checkbox" : undefined}
+      aria-checked={mehrfach ? (gewaehlt ?? false) : undefined}
+      aria-pressed={mehrfach ? undefined : gewaehlt}
+    >
+      {prefix && <span aria-hidden="true">{prefix}</span>}
       {text}
     </button>
   );
@@ -448,6 +459,7 @@ export function McMultiStep({
               text={option.text}
               prefix={isSelected ? "☑ " : "☐ "}
               gewaehlt={isSelected}
+              mehrfach
             />
           );
         })}
@@ -744,8 +756,15 @@ export function DroppableZone({
   targetDisabled?: boolean;
 }) {
   const { setNodeRef, isOver } = useDroppable({ id });
+  // Review UXT-B-06: Ein Klick auf die freie Fläche der Zone legt den gewählten Begriff dort ab, nicht nur der Klick auf die kleine
+  // Beschriftung. Klicks auf Begriffe in der Zone und auf die Beschriftung selbst behalten ihre eigene Wirkung.
+  function klickAufFlaeche(event: React.MouseEvent<HTMLDivElement>) {
+    if (!onSelectTarget || targetDisabled) return;
+    const ziel = event.target as HTMLElement;
+    if (ziel === event.currentTarget || ziel.classList.contains("quadrant-zone-terms")) onSelectTarget();
+  }
   return (
-    <div ref={setNodeRef} className={isOver ? `${className} is-over` : className}>
+    <div ref={setNodeRef} className={isOver ? `${className} is-over` : className} onClick={klickAufFlaeche}>
       {label &&
         (onSelectTarget ? (
           <button
@@ -1363,7 +1382,15 @@ export function BlanksStep({
                   }
                   value={answers[blankId] ?? ""}
                   disabled={feedback !== null}
+                  aria-label={`Lücke ${partIndex + 1}`}
                   onChange={(event) => setAnswers((current) => ({ ...current, [blankId]: event.target.value }))}
+                  onKeyDown={(event) => {
+                    // Review UXT-B-16: Enter prüft die Antwort, sobald alle Lücken gefüllt sind.
+                    if (event.key === "Enter" && allFilled && !submit.isPending && !feedback) {
+                      event.preventDefault();
+                      checkAnswer();
+                    }
+                  }}
                 />
               )}
               {blankId && feedback && (
@@ -1671,9 +1698,17 @@ export function KurzantwortStep({
           className={feedback ? (feedback.isCorrect ? "input is-correct" : "input is-wrong") : "input"}
           type="text"
           placeholder="Antwort"
+          aria-label="Deine Antwort"
           value={answer}
           disabled={feedback !== null}
           onChange={(event) => setAnswer(event.target.value)}
+          onKeyDown={(event) => {
+            // Review UXT-B-16: Enter prüft die Antwort.
+            if (event.key === "Enter" && answer.trim() && !submit.isPending && !feedback) {
+              event.preventDefault();
+              checkAnswer();
+            }
+          }}
         />
       </div>
       {feedback ? (

@@ -77,6 +77,7 @@ export function NoteButton({ contentItemId }: { contentItemId: string }) {
                 <textarea
                   className="input"
                   id={textFieldId}
+                  data-autofocus
                   rows={4}
                   maxLength={2000}
                   value={text}

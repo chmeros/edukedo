@@ -31,7 +31,8 @@ export function Modal({
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    panelRef.current?.focus();
+    // Review UXT-B-01: Enthält der Dialog ein Feld mit `data-autofocus`, bekommt dieses den Fokus (sofort tippen), sonst das Panel.
+    (panelRef.current?.querySelector<HTMLElement>("[data-autofocus]") ?? panelRef.current)?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {

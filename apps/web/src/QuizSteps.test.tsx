@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { BlanksStep, KurzantwortStep, MatchingStep, QuadrantStep, SortierenStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, QuadrantStep, SortierenStep } from "./QuizSteps";
 
 /**
  * Rückmeldung nach der Antwort (Review UXT-B-07, UXT-F-09, UXT-I-06): Die Lösung steht als Text da, nicht nur als Farbe am Begriff,
@@ -189,5 +189,83 @@ describe("KurzantwortStep: Hinweis auf anders formulierte Antworten", () => {
     antworteFalsch("1.250,50");
     expect(text()).toContain("Richtige Lösung:");
     expect(text()).not.toContain("War deine Antwort trotzdem sinngemäß richtig");
+  });
+});
+
+describe("Eingabe und Bedienung (Review UXT-B-06, B-12, B-16)", () => {
+  it("Kurzantwort: das Feld hat einen Namen, und Enter prüft die Antwort (nur mit Eingabe)", () => {
+    const submit = nachgemachteAuswertung({ isCorrect: true, correctAnswer: "Pflichtenheft", explanation: null });
+    render(<KurzantwortStep item={{ id: "k", prompt: "Frage?" }} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    const feld = screen.getByRole("textbox", { name: "Deine Antwort" });
+
+    fireEvent.keyDown(feld, { key: "Enter" });
+    expect(submit.mutate).not.toHaveBeenCalled();
+
+    fireEvent.change(feld, { target: { value: "Pflichtenheft" } });
+    fireEvent.keyDown(feld, { key: "Enter" });
+    expect(submit.mutate).toHaveBeenCalledTimes(1);
+    expect(text()).toContain("Richtig!");
+  });
+
+  it("Lückentext: Enter prüft erst, wenn alle Lücken gefüllt sind; jede Lücke hat einen Namen", () => {
+    const submit = nachgemachteAuswertung({
+      results: { b1: true, b2: true },
+      correctAnswers: { b1: "Netz", b2: "Kabel" },
+      correctCount: 2,
+      total: 2,
+    });
+    const item = { id: "b", prompt: "Fülle aus.", textWithBlanks: "Ein ___ braucht ein ___.", blankIds: ["b1", "b2"] };
+    render(<BlanksStep item={item} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    const erste = screen.getByRole("textbox", { name: "Lücke 1" });
+    const zweite = screen.getByRole("textbox", { name: "Lücke 2" });
+
+    fireEvent.change(erste, { target: { value: "Netz" } });
+    fireEvent.keyDown(erste, { key: "Enter" });
+    expect(submit.mutate).not.toHaveBeenCalled();
+
+    fireEvent.change(zweite, { target: { value: "Kabel" } });
+    fireEvent.keyDown(zweite, { key: "Enter" });
+    expect(submit.mutate).toHaveBeenCalledTimes(1);
+  });
+
+  it("Mehrfachauswahl: jede Option ist ein Ankreuzfeld mit Zustand, das Kästchen-Zeichen wird nicht mitgelesen", () => {
+    const submit = nachgemachteAuswertung({ isCorrect: true, correctOptionIds: ["a"], explanation: null });
+    const item = { id: "m", prompt: "Mehrere?", options: [{ id: "a", text: "Alpha" }, { id: "b", text: "Beta" }] };
+    render(<McMultiStep item={item} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    const alpha = screen.getByRole("checkbox", { name: "Alpha" });
+    expect(alpha.getAttribute("aria-checked")).toBe("false");
+    fireEvent.click(alpha);
+    expect(alpha.getAttribute("aria-checked")).toBe("true");
+    expect(alpha.querySelector("[aria-hidden='true']")?.textContent).toBe("☑ ");
+  });
+
+  it("Zuordnung: ein Klick auf die freie Fläche des Zielfelds legt den gewählten Begriff dort ab, nicht nur der Klick auf die Beschriftung", () => {
+    const submit = nachgemachteAuswertung({ correctMap: {}, correctCount: 0, total: 1 });
+    const item = { id: "z", prompt: "Ordne zu.", left: [{ id: "l1", text: "Hund" }], right: [{ id: "r1", text: "bellt" }] };
+    render(<MatchingStep item={item} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    fireEvent.click(screen.getByRole("button", { name: "bellt" }));
+    const zone = screen.getByRole("button", { name: "Hund" }).closest(".quadrant-zone") as HTMLElement;
+    fireEvent.click(zone);
+
+    expect(zone.querySelector(".quadrant-term")?.textContent).toContain("bellt");
+    expect(document.querySelector(".quadrant-pool .quadrant-term")).toBeNull();
+  });
+
+  it("Zuordnung: ein Klick auf einen Begriff in der Zone legt nichts ab, sondern wählt ihn nur aus", () => {
+    const submit = nachgemachteAuswertung({ correctMap: {}, correctCount: 0, total: 2 });
+    const item = {
+      id: "z",
+      prompt: "Ordne zu.",
+      left: [{ id: "l1", text: "Hund" }, { id: "l2", text: "Katze" }],
+      right: [{ id: "r1", text: "bellt" }, { id: "r2", text: "miaut" }],
+    };
+    render(<MatchingStep item={item} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    fireEvent.click(screen.getByRole("button", { name: "bellt" }));
+    fireEvent.click(screen.getByRole("button", { name: "Hund" }));
+    // „bellt“ liegt jetzt im Feld „Hund“; ein Klick darauf wählt es aus und verschiebt nichts.
+    const begriff = screen.getByRole("button", { name: "bellt" });
+    fireEvent.click(begriff);
+    expect(begriff.getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "Hund" }).closest(".quadrant-zone")?.querySelector(".quadrant-term")?.textContent).toContain("bellt");
   });
 });

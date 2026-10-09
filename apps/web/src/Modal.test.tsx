@@ -129,6 +129,18 @@ describe("Modal (Redesign 17.09.2026, Review WEB-02/WEB-26)", () => {
     expect(document.activeElement).toBe(feld);
   });
 
+  it("setzt den Fokus beim Öffnen auf ein Feld mit data-autofocus, damit man sofort tippen kann (UXT-B-01)", () => {
+    render(
+      <Modal title="Notiz" onClose={() => {}}>
+        <label>
+          Text
+          <textarea data-autofocus />
+        </label>
+      </Modal>,
+    );
+    expect(document.activeElement).toBe(screen.getByLabelText("Text"));
+  });
+
   it("ruft immer die aktuelle onClose-Funktion auf, nicht die vom ersten Render", () => {
     const erste = vi.fn();
     const zweite = vi.fn();
