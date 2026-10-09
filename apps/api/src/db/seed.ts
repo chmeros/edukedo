@@ -287,6 +287,10 @@ async function seedBlanks(fachgebietId: string) {
 }
 
 async function main() {
+  // Review UXT-I-12: Der Demo-Kurs ist veröffentlicht und wäre für Lernende beitretbar — in Produktion nicht anlegen.
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("db:seed legt den Demo-Kurs an und läuft nicht mit NODE_ENV=production.");
+  }
   const demoKurs = await ensureKurs();
   const demoFachgebiet = await ensureFachgebiet(demoKurs.id);
 

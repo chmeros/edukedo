@@ -1,8 +1,9 @@
 import { activeKursInputSchema, enrollInputSchema, setCourseTargetInputSchema } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
-import { isEnrollmentExclusive, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
+import { isEnrollmentExclusive, istDemoKursGesperrt, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
 import { contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
+import { env } from "../../env";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 import { kursAngebot, kursPresentationMinutes, kursProjektStunden, kursWerkzeuge } from "../../pruefungsbereiche";
 import { protectedProcedure, router } from "../trpc";
@@ -43,7 +44,10 @@ export const coursesRouter = router({
 
     return rows
       .filter(
-        (row) => row.joinedAt !== null || matchesKursZielgruppe(kursZielgruppe(row.metadata), ctx.currentUser.isMinor),
+        (row) =>
+          row.joinedAt !== null ||
+          (matchesKursZielgruppe(kursZielgruppe(row.metadata), ctx.currentUser.isMinor) &&
+            !istDemoKursGesperrt(row.type, env.NODE_ENV)),
       )
       // Ohne ORDER BY liefert Postgres keine garantierte Reihenfolge — in der Praxis meist
       // Einfügereihenfolge, wodurch der zuerst per db:seed angelegte Demo-Kurs vor den echten
@@ -112,7 +116,7 @@ export const coursesRouter = router({
 
   enroll: protectedProcedure.input(enrollInputSchema).mutation(async ({ ctx, input }) => {
     const [course] = await ctx.db.select().from(kurs).where(eq(kurs.id, input.kursId)).limit(1);
-    if (!course?.isPublished) {
+    if (!course?.isPublished || istDemoKursGesperrt(course.type, env.NODE_ENV)) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht gefunden." });
     }
 

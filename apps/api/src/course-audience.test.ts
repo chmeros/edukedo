@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { isEnrollmentExclusive, kursKategorie, kursTargetsMinors, kursZielgruppe, matchesKursZielgruppe } from "./course-audience";
+import {
+  isEnrollmentExclusive,
+  istDemoKursGesperrt,
+  kursKategorie,
+  kursTargetsMinors,
+  kursZielgruppe,
+  matchesKursZielgruppe,
+} from "./course-audience";
 
 describe("kursZielgruppe", () => {
   it("liest ein gesetztes zielgruppe-Feld aus den Metadaten", () => {
@@ -75,5 +82,18 @@ describe("isEnrollmentExclusive", () => {
     expect(isEnrollmentExclusive("erwachsenenbildung")).toBe(true);
     expect(isEnrollmentExclusive("schule")).toBe(false);
     expect(isEnrollmentExclusive("unbekannt")).toBe(false);
+  });
+});
+
+describe("istDemoKursGesperrt (Review UXT-I-12)", () => {
+  it("sperrt den Demo-Kurs nur in Produktion", () => {
+    expect(istDemoKursGesperrt("demo", "production")).toBe(true);
+    expect(istDemoKursGesperrt("demo", "development")).toBe(false);
+    expect(istDemoKursGesperrt("demo", "test")).toBe(false);
+  });
+
+  it("lässt echte Kurse in jeder Umgebung offen", () => {
+    expect(istDemoKursGesperrt("kurs", "production")).toBe(false);
+    expect(istDemoKursGesperrt("fachwirt", "production")).toBe(false);
   });
 });

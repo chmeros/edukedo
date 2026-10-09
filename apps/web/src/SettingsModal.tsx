@@ -43,7 +43,7 @@ export function SettingsModal({ kursId }: { kursId: string | null }) {
               <FlashcardStartSideSettings />
             </div>
             <div className="widget">
-              <DisplaySettings />
+              <DisplaySettings kursId={kursId} />
             </div>
             <div className="widget">
               <MascotSettings />

@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Demo-Kurs in Produktion sperren, Fachbegriff-Einstellung nur mit Glossar, Review UXT-I-12, UXT-I-14)
+
+Anlass: Der technische Demo-Kurs aus `db:seed` (`type = "demo"`, `isPublished = true`, Platzhalter-Inhalt wie „Hauptstadt von Frankreich“) wäre in einer Produktionsdatenbank für Lernende in „Verfügbare Kurse“ sichtbar und beitretbar. Zusätzlich zeigte die Einstellung „Fachbegriffe nach der Antwort markieren“ auch bei Kursen ohne Glossar eine Wahl ohne Wirkung. Beides Entscheidungen im Rahmen der Review-Punkte, ohne Rückfrage an den Projektleiter, da ohne Gestaltungs- oder Rechtsfrage.
+
+- **Demo-Kurs (`course-audience.ts`, `courses.ts`, `seed.ts`):** Neue Funktion `istDemoKursGesperrt(kursType, nodeEnv)`. Mit `NODE_ENV=production` fehlt der Demo-Kurs in `courses.list` für Personen, die ihn nicht belegt haben, und `courses.enroll` antwortet „Kurs nicht gefunden“. Wer ihn schon belegt, behält den Zugriff (wie bei der Zielgruppen-Regel). Das schützt auch eine bereits geseedete Datenbank. Zusätzlich bricht `db:seed` mit `NODE_ENV=production` ab, damit der Demo-Kurs gar nicht erst angelegt wird. In Entwicklung und Test ändert sich nichts.
+- **Glossar-Einstellung (`DisplaySettings.tsx`, `SettingsModal.tsx`):** Die Checkbox erscheint nur, wenn der aktive Kurs Glossareinträge hat (`glossar.list`, derselbe Abfrage-Schlüssel wie in `Fachbegriffe.tsx`, also keine zweite Abfrage). Ohne belegten Kurs oder ohne Einträge ist sie ausgeblendet; Farbschema und „Ruhiger Modus“ bleiben. Die Wahl selbst bleibt im Browser gespeichert und gilt wieder, sobald ein Kurs mit Glossar aktiv ist.
+- **Bewusst nicht Teil:** Glossare für weitere Kurse (brauchen fachliche Prüfung, siehe Iteration 22).
+- **Prüfung:** Zwei Einheitstests für `istDemoKursGesperrt` (nur Demo und nur Produktion), drei Web-Tests in `DisplaySettings.test.tsx` (mit Glossar sichtbar, ohne Glossar ausgeblendet, ohne Kurs ausgeblendet). API-Einheitstest, Web-Suite 121, Typprüfung und Lint sauber. Den Produktionszweig in `courses.list`/`enroll` deckt kein Integrationstest ab (die Testläufe laufen mit `NODE_ENV=test`); er besteht aus der geprüften Funktion und einer Zeile je Aufruf.
+
 ### Entschieden am 09.10.2026 (Farben und Menü: grüne Aktionen, „Konto löschen“ in den Einstellungen, Review UXT-B-23, UXT-I-18, UXT-B-21)
 
 Anlass: Die Primärfarbe der Aktionen (Korallrot `#e62800`) lag fast gleich zum Gefahr-Rot (`#d5423a`); „Beides gemischt“ war im Lernmodus-Dialog der einzige rote Knopf, und „Konto löschen“ stand im Nutzermenü direkt unter „Logout“. Entscheidung des Projektleiters (09.10.2026, nach Vorlage von Mockups in Hell und Dunkel): **alle drei Vorschläge wie vorgelegt, Variante A (Grün)**.

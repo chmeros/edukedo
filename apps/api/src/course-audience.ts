@@ -68,3 +68,11 @@ export function kursKategorie(metadata: unknown): KursKategorie {
 export function isEnrollmentExclusive(kategorie: KursKategorie): boolean {
   return kategorie === "erwachsenenbildung";
 }
+
+/**
+ * Review UXT-I-12: Der technische Demo-Kurs (`db:seed`, type "demo", veröffentlicht) darf in Produktion
+ * nicht beitretbar sein. Gilt nur für neue Beitritte; wer ihn schon belegt hat, behält den Zugriff.
+ */
+export function istDemoKursGesperrt(kursType: string, nodeEnv: string): boolean {
+  return kursType === "demo" && nodeEnv === "production";
+}
