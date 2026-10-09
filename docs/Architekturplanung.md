@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Usability: mobile Startansicht)
+
+Anlass: Auf dem Handy (375 Pixel Breite) füllten das E-Mail-Banner, „Kurz erklärt“ und bis zu fünf Karten „Weiter, wo du aufgehört hast“ den ersten Bildschirm, bevor man die Tabs oder die erste Frage sah (UXT-B-11, UXT-I-03, UXT-B-26).
+
+- **E-Mail-Hinweis ausblendbar (`EmailVerificationBanner.tsx`):** Neben „Erneut senden“ steht „Später“. Es blendet den Hinweis für die laufende Browser-Sitzung aus (`sessionStorage`) und er kommt bei der nächsten Sitzung wieder, solange die Adresse nicht bestätigt ist. Das weiche Gate (F-01) bleibt eine Erinnerung, die man nicht dauerhaft wegklicken kann; die Entscheidung „Lernen vor der Bestätigung ist möglich“ bleibt unberührt. Ohne verfügbaren Speicher (z. B. privates Fenster) gilt das Ausblenden bis zum Neuladen.
+- **Vorschläge gekürzt (`WeiterLernenVorschlaege.tsx`):** Die Liste ist aus `App.tsx` in einen eigenen Baustein gewandert (testbar). Auf Bildschirmen bis 640 Pixel Breite zeigt sie zunächst zwei Karten und darunter „Weitere Vorschläge (n)“ (nur ab drei Karten), das Ausklappen wechselt zu „Weniger Vorschläge“ (`aria-expanded`). Das Ausblenden macht die Formatvorlage (`.suggestion-row:not(.is-alle) .suggestion-item:nth-child(n + 3)`), am Desktop sind immer alle Karten sichtbar. Nebenbei: Ein Thema ohne Trefferquote zeigte „null % Trefferquote“; jetzt „Zum Wiederholen“.
+- **Bewusst nicht Teil:** „Kurz erklärt“ (ist schon mit „Verstanden“ dauerhaft ausblendbar), der abgeschnittene Kursname im Kopf (eigener Befund, nicht im Plan), eine dauerhafte Ausblendung des E-Mail-Hinweises.
+- **Prüfung:** Acht neue Tests (`MobileStartansicht.test.tsx`: Hinweis bei unbestätigter Adresse, keiner bei bestätigter oder minderjähriger Person, „Später“ gilt auch nach einem Neuaufbau, neue Sitzung zeigt ihn wieder, ohne Speicher; Vorschläge mit Grund und Wahl, „Weitere Vorschläge“ erst ab drei Karten und Umklappen). Gegenprobe: Ohne das Speichern bzw. ohne die Mindestzahl schlagen zwei Tests fehl. Web-Suite 101, Typprüfung und Lint sauber. Live im Browser bei 375 Pixeln (Wegwerf-Konto): „Später“ blendet den Hinweis aus und er bleibt nach dem Neuladen aus; die Formatvorlage zeigt von fünf Karten zwei und den Knopf „Weitere Vorschläge“, nach dem Umklappen alle fünf (mit künstlich eingefügten Karten, weil das neue Konto keine Vorschläge hatte). Das Konto wurde gelöscht.
+
 ### Entschieden am 09.10.2026 (Zahlwörter und Ziffern gelten als gleich, Review UXT-F-19)
 
 Anlass: Im Immobilienfachwirt-Kurs steht ein Lückentext „… spätestens ___zwölf___ Monate …“ (Betriebskostenabrechnung). Wer „12“ eintrug, bekam „falsch“, obwohl die Antwort richtig ist; das verfälscht Wertung, Fortschritt und Lernserie. Der Parser kennt je Lücke nur die eine Schreibweise aus dem Quelltext.
