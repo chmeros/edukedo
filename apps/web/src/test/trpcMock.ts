@@ -63,12 +63,20 @@ export function createTrpcMock(registry: TrpcMockRegistry): unknown {
 
   function useMutation(path: string, hookCallbacks: Callbacks | undefined) {
     const [error, setError] = useState<{ message: string } | null>(null);
+    const [variables, setVariables] = useState<unknown>(undefined);
+    const [data, setData] = useState<unknown>(undefined);
     return {
       isPending: false,
       error,
-      reset: () => setError(null),
+      variables,
+      data,
+      reset: () => {
+        setError(null);
+        setData(undefined);
+      },
       mutate: (input: unknown, callCallbacks?: Callbacks) => {
         (registry.mutationCalls[path] ??= []).push(input);
+        setVariables(input);
         let result: unknown;
         try {
           result = registry.mutations[path]?.(input);
@@ -81,6 +89,7 @@ export function createTrpcMock(registry: TrpcMockRegistry): unknown {
           return;
         }
         setError(null);
+        setData(result);
         hookCallbacks?.onSuccess?.(result, input);
         callCallbacks?.onSuccess?.(result, input);
       },

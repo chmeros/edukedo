@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Web-Tests, Teil 3: Kursauswahl, Anmeldung, Eltern-Einwilligung; Wechsel-Dialog und „Zurück zum Login“ berichtigt)
+
+Anlass: Der Plan nannte als weiter offen für die Web-Tests die Kursauswahl, die Anmeldung und die Eltern-Einwilligung. Beim Schreiben der Tests fielen zwei Abweichungen auf, die mit behoben wurden. Umsetzung ohne Rückfrage (Tests und zwei Textkorrekturen, kein Verhalten für Minderjährige geändert).
+
+- **Neue Tests (`CourseSelection.test.tsx`, `AppAnmeldung.test.tsx`, `ElternEinwilligung.test.tsx`):** Kursauswahl (belegte Kurse mit Fortschritt, Beitritt ohne Konflikt, Wechsel-Dialog bei zweitem Weiterbildungskurs mit „Wechseln“ und „Abbrechen“, Verlassen mit Rückfrage, Suche und Kategoriefilter, Hinweise für Minderjährige, Fehleranzeige); Anmeldung und Registrierung für Gäste (Login, Fehleranzeige, Registrierung Volljähriger, Sperre Minderjähriger bei `ALLOW_MINORS=false`, Eltern-E-Mail bei erlaubten Kindern unter 16, Sperrhinweis nach ausstehender Elternbestätigung); Eltern-Einwilligung (`ConsentConfirm` bestätigt erst nach Klick, bereits bestätigt, Fehler, fehlender Token; `ParentDashboard` mit Login, Erstpasswort mit Wiederholung, Kinderliste, Widerruf mit Rückfrage, Gamification-Freigabe).
+- **Testhilfe (`test/trpcMock.ts`):** Die Mutations-Attrappe liefert jetzt auch `data` (Ergebnis des letzten Aufrufs, wird von `reset()` geleert) und `variables` (Eingabe des letzten Aufrufs), wie react-query; bisher fehlten beide, sodass Zustände nach einer Mutation nicht prüfbar waren.
+- **Berichtigt 1, Wechsel-Dialog (`CourseSelection.tsx`):** Der Dialog „Kurs wechseln?“ sagte noch, Kohorten blieben bestehen und seien beim Zurückwechseln wieder da. Seit „Kohorten und Firmen, Teil 1“ enden Mitgliedschaften in Kohorten des verlassenen Kurses; jetzt steht dort: Mitgliedschaften enden, geleitete Kohorten bleiben bestehen und sind beim Zurückwechseln wieder sichtbar. Ein Test sichert den Wortlaut.
+- **Berichtigt 2, „Zurück zum Login“ (`App.tsx`):** Der Knopf nach einer Registrierung mit ausstehender Elternbestätigung setzte nur die Registrierung zurück und zeigte dadurch wieder das Registrierungsformular. Er ruft jetzt `goToLogin` auf und zeigt das Login. Dazu ein Kommentar in `ParentDashboard.tsx` zum „Kein Passwort-Reset“ angeglichen (es gibt „Passwort vergessen“ für Eltern-Konten).
+- **Stand:** Web-Suite 163 Tests in 22 Dateien, Typprüfung und Lint sauber. **Weiter offen:** Playwright-Ende-zu-Ende-Tests.
+
 ### Entschieden am 09.10.2026 (Lernansicht oben ausrichten, „Kurz erklärt“ nur in Start-Ansichten, Review UXT-I-09)
 
 Anlass: Die Browser-Prüfung (siehe nächsten Eintrag) bestätigte den Leerraum über der Frage und das Springen der Frage beim Einblenden der Rückmeldung; beides folgt aus der vertikalen Zentrierung. Entscheidung des Projektleiters (09.10.2026, nach Vorlage der Wahl): **oben ausrichten**, und **„Kurz erklärt“ nur in den Start-Ansichten der Tabs**.

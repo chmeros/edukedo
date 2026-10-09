@@ -81,9 +81,9 @@ function SetInitialPasswordForm() {
   });
   const [password, setPasswordValue] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  // Kein Passwort-Reset für Eltern-Konten vorgesehen (siehe Architekturplanung Abschnitt 13) —
-  // ein Tippfehler beim einmaligen Setzen würde sonst ohne Wiederholungsfeld unbemerkt
-  // ins Aussperren führen. Rein clientseitige Prüfung, kein neues Feld im Backend nötig.
+  // Ein Tippfehler beim einmaligen Setzen würde sonst ohne Wiederholungsfeld unbemerkt ins Aussperren
+  // führen (ein Zurücksetzen über „Passwort vergessen“ gibt es inzwischen, siehe ForgotPassword unten).
+  // Rein clientseitige Prüfung, kein neues Feld im Backend nötig.
   const passwordsMatch = password.length > 0 && password === passwordRepeat;
 
   return (

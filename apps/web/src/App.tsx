@@ -618,7 +618,7 @@ export function App() {
               </a>{" "}
               — ohne Konto, ohne dass dabei etwas gespeichert wird.
             </p>
-            <button type="button" className="btn btn-ghost" onClick={() => register.reset()}>
+            <button type="button" className="btn btn-ghost" onClick={goToLogin}>
               Zurück zum Login
             </button>
           </div>
