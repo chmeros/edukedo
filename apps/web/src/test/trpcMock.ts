@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { vi } from "vitest";
 
 /**
- * Testhilfe: ersetzt den tRPC-React-Client (`./trpc`) durch eine Attrappe, damit Komponenten ohne Server und ohne QueryClient
+ * Testhilfe: ersetzt den tRPC-React-Client (`../trpc`) durch eine Attrappe, damit Komponenten ohne Server und ohne QueryClient
  * getestet werden können. Jede beliebige Aufrufkette funktioniert: `trpc.quiz.quizItems.useQuery(...)`, `trpc.progress.submitReview
  * .useMutation(...)` und über `trpc.useUtils()` auch `utils.auth.me.invalidate()` (ohne Wirkung).
  *
- * Die Antworten legt der Test in der Registry fest (Schlüssel: Pfad der Prozedur, z. B. "quiz.quizItems"). Abfragen liefern sofort
- * ihre Daten, Mutationen rufen synchron den hinterlegten Handler auf und danach die Erfolgs-Rückrufe (zuerst die des Hooks, dann die des
- * einzelnen Aufrufs, wie bei react-query). Alle Mutations-Eingaben werden je Pfad aufgezeichnet.
+ * Die Antworten legt der Test in der Registry fest (Schlüssel: Pfad der Prozedur, z. B. "quiz.quizItems"; siehe `trpcRegistry.ts`).
+ * - Abfragen liefern sofort ihre Daten. Der Wert darf auch eine Funktion der Abfrage-Eingabe sein.
+ * - Mutationen rufen synchron den hinterlegten Handler auf und danach die Erfolgs-Rückrufe (zuerst die des Hooks, dann die des einzelnen
+ *   Aufrufs, wie bei react-query). Wirft der Handler, melden sich Fehlerzustand und Fehler-Rückrufe wie im echten Betrieb erst nach dem
+ *   Aufruf (asynchron); Tests warten darauf mit `findBy…`.
+ * - Alle Mutations-Eingaben werden je Pfad aufgezeichnet.
  */
 export interface TrpcMockRegistry {
   queries: Record<string, unknown>;
@@ -39,14 +43,15 @@ export function createTrpcRegistry(): TrpcMockRegistry {
   return registry;
 }
 
-type Callbacks = { onSuccess?: (result: unknown, input: unknown) => void; onError?: (error: unknown) => void };
+type Callbacks = { onSuccess?: (result: unknown, input: unknown) => void; onError?: (error: unknown, input: unknown) => void };
 
 export function createTrpcMock(registry: TrpcMockRegistry): unknown {
   function useQuery(path: string, input: unknown) {
     (registry.queryInputs[path] ??= []).push(input);
     const refetch = (registry.refetch[path] ??= vi.fn());
+    const wert = registry.queries[path];
     return {
-      data: registry.queries[path],
+      data: typeof wert === "function" ? (wert as (eingabe: unknown) => unknown)(input) : wert,
       isLoading: registry.loading[path] ?? false,
       isError: false,
       error: null,
@@ -55,13 +60,25 @@ export function createTrpcMock(registry: TrpcMockRegistry): unknown {
   }
 
   function useMutation(path: string, hookCallbacks: Callbacks | undefined) {
+    const [error, setError] = useState<{ message: string } | null>(null);
     return {
       isPending: false,
-      error: null,
-      reset: () => {},
+      error,
+      reset: () => setError(null),
       mutate: (input: unknown, callCallbacks?: Callbacks) => {
         (registry.mutationCalls[path] ??= []).push(input);
-        const result = registry.mutations[path]?.(input);
+        let result: unknown;
+        try {
+          result = registry.mutations[path]?.(input);
+        } catch (fehler) {
+          Promise.resolve().then(() => {
+            setError({ message: fehler instanceof Error ? fehler.message : String(fehler) });
+            hookCallbacks?.onError?.(fehler, input);
+            callCallbacks?.onError?.(fehler, input);
+          });
+          return;
+        }
+        setError(null);
         hookCallbacks?.onSuccess?.(result, input);
         callCallbacks?.onSuccess?.(result, input);
       },

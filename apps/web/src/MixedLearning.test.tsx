@@ -1,21 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-
-// Die Attrappen müssen vor dem Import der Komponente stehen (vi.mock wird nach oben gezogen).
-const registry = vi.hoisted(() => ({ current: null as unknown as ReturnType<typeof import("./test/trpcMock").createTrpcRegistry> }));
-
-vi.mock("./trpc", async () => {
-  const { createTrpcMock, createTrpcRegistry: neu } = await import("./test/trpcMock");
-  registry.current = neu();
-  return { trpc: createTrpcMock(registry.current) };
-});
-vi.mock("./useOnlineStatus", () => ({ useOnlineStatus: () => true }));
-// Reihenfolge der Runde festlegen: erst alle Karteikarten, dann alle Quizfragen (sonst mischt `shuffle` zufällig).
-vi.mock("@edukedo/shared", async (original) => ({ ...(await original<typeof import("@edukedo/shared")>()), shuffle: <T,>(liste: T[]) => [...liste] }));
-// Nebenkomponenten mit eigener Serveranbindung sind nicht Gegenstand dieses Tests.
-vi.mock("./ContentActions", () => ({ ContentActions: () => null }));
-vi.mock("./AbortRoundButton", () => ({ AbortRoundButton: () => <button type="button">Runde beenden</button> }));
-vi.mock("./TheorieReader", () => ({ NachlesenButton: () => null, themaAngaben: () => ({}) }));
+import { describe, expect, it } from "vitest";
+import { registry as reg } from "./test/trpcRegistry";
 
 import { MixedLearning } from "./MixedLearning";
 
@@ -33,10 +18,10 @@ const frage = (nummer: number) => ({
 });
 
 function bereiteVor({ karten = 2, fragen = 1 } = {}) {
-  registry.current.queries["content.dueCards"] = Array.from({ length: karten }, (_, index) => karte(index + 1));
-  registry.current.queries["quiz.quizItems"] = Array.from({ length: fragen }, (_, index) => frage(index + 1));
-  registry.current.mutations["progress.startExerciseSet"] = () => ({ exerciseSetId: "set-1" });
-  registry.current.mutations["quiz.submitAnswer"] = (eingabe) => {
+  reg.queries["content.dueCards"] = Array.from({ length: karten }, (_, index) => karte(index + 1));
+  reg.queries["quiz.quizItems"] = Array.from({ length: fragen }, (_, index) => frage(index + 1));
+  reg.mutations["progress.startExerciseSet"] = () => ({ exerciseSetId: "set-1" });
+  reg.mutations["quiz.submitAnswer"] = (eingabe) => {
     const { selectedOptionId } = eingabe as { selectedOptionId: string };
     return { isCorrect: selectedOptionId.endsWith("richtig"), correctOptionId: selectedOptionId.replace("falsch", "richtig"), explanation: "Darum." };
   };
@@ -58,13 +43,9 @@ function beantworteFrage(option: "Richtige Option" | "Falsche Option") {
 }
 
 describe("MixedLearning (F-104, Beides gemischt)", () => {
-  beforeEach(() => {
-    registry.current.reset();
-  });
-
   it("zeigt „Lädt…“, solange Karten oder Fragen noch geladen werden", () => {
     bereiteVor();
-    registry.current.loading["content.dueCards"] = true;
+    reg.loading["content.dueCards"] = true;
     zeigeMischmodus();
     expect(screen.getByText("Lädt…")).toBeTruthy();
   });
@@ -86,8 +67,8 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
   it("fragt Karten mit den für den Thema-Filter und die Quizanzahl passenden Eingaben ab", () => {
     bereiteVor();
     zeigeMischmodus();
-    expect(registry.current.queryInputs["content.dueCards"]![0]).toEqual({ kursId: "kurs-1", themaId: "thema-1" });
-    expect(registry.current.queryInputs["quiz.quizItems"]![0]).toMatchObject({ kursId: "kurs-1", themaId: "thema-1", count: 20 });
+    expect(reg.queryInputs["content.dueCards"]![0]).toEqual({ kursId: "kurs-1", themaId: "thema-1" });
+    expect(reg.queryInputs["quiz.quizItems"]![0]).toMatchObject({ kursId: "kurs-1", themaId: "thema-1", count: 20 });
   });
 
   it("verbucht eine Kartenbewertung mit Idempotenzschlüssel und geht zur nächsten Aufgabe", () => {
@@ -95,7 +76,7 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
     zeigeMischmodus();
     bewerteKarte("Vorderseite 1", "Einfach");
 
-    const aufrufe = registry.current.mutationCalls["progress.submitReview"]!;
+    const aufrufe = reg.mutationCalls["progress.submitReview"]!;
     expect(aufrufe).toHaveLength(1);
     expect(aufrufe[0]).toMatchObject({ contentItemId: "karte-1", result: "gewusst" });
     expect((aufrufe[0] as { clientEventId: string }).clientEventId).toMatch(UUID);
@@ -109,7 +90,7 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
     bewerteKarte("Vorderseite 1", "Einfach");
     bewerteKarte("Vorderseite 2", "Mittel");
     bewerteKarte("Vorderseite 3", "Schwer");
-    const ergebnisse = registry.current.mutationCalls["progress.submitReview"]!.map((aufruf) => (aufruf as { result: string }).result);
+    const ergebnisse = reg.mutationCalls["progress.submitReview"]!.map((aufruf) => (aufruf as { result: string }).result);
     expect(ergebnisse).toEqual(["gewusst", "unsicher", "nicht_gewusst"]);
   });
 
@@ -118,7 +99,7 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
     zeigeMischmodus();
     beantworteFrage("Richtige Option");
 
-    const aufruf = registry.current.mutationCalls["quiz.submitAnswer"]![0] as { contentItemId: string; selectedOptionId: string; clientEventId: string };
+    const aufruf = reg.mutationCalls["quiz.submitAnswer"]![0] as { contentItemId: string; selectedOptionId: string; clientEventId: string };
     expect(aufruf).toMatchObject({ contentItemId: "frage-1", selectedOptionId: "frage-1-richtig" });
     expect(aufruf.clientEventId).toMatch(UUID);
     expect(screen.getByText(/Richtig!/)).toBeTruthy();
@@ -148,14 +129,14 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
   it("legt für die ganze gemischte Runde ein Übungsset an und schließt es nach der letzten Aufgabe ab", () => {
     bereiteVor({ karten: 1, fragen: 1 });
     zeigeMischmodus();
-    expect(registry.current.mutationCalls["progress.startExerciseSet"]).toEqual([{ kursId: "kurs-1", themaId: "thema-1", mode: "mixed", totalItems: 2 }]);
-    expect(registry.current.mutationCalls["progress.completeExerciseSet"]).toBeUndefined();
+    expect(reg.mutationCalls["progress.startExerciseSet"]).toEqual([{ kursId: "kurs-1", themaId: "thema-1", mode: "mixed", totalItems: 2 }]);
+    expect(reg.mutationCalls["progress.completeExerciseSet"]).toBeUndefined();
 
     bewerteKarte("Vorderseite 1", "Einfach");
-    expect(registry.current.mutationCalls["progress.completeExerciseSet"]).toBeUndefined();
+    expect(reg.mutationCalls["progress.completeExerciseSet"]).toBeUndefined();
     beantworteFrage("Richtige Option");
     fireEvent.click(screen.getByRole("button", { name: "Ergebnis anzeigen" }));
-    expect(registry.current.mutationCalls["progress.completeExerciseSet"]).toEqual([{ exerciseSetId: "set-1" }]);
+    expect(reg.mutationCalls["progress.completeExerciseSet"]).toEqual([{ exerciseSetId: "set-1" }]);
   });
 
   it("lädt bei „Neue Runde starten“ Karten und Fragen neu und beginnt wieder bei der ersten Aufgabe", () => {
@@ -164,8 +145,8 @@ describe("MixedLearning (F-104, Beides gemischt)", () => {
     bewerteKarte("Vorderseite 1", "Einfach");
     fireEvent.click(screen.getByRole("button", { name: "Neue Runde starten" }));
 
-    expect(registry.current.refetch["content.dueCards"]).toHaveBeenCalledTimes(1);
-    expect(registry.current.refetch["quiz.quizItems"]).toHaveBeenCalledTimes(1);
+    expect(reg.refetch["content.dueCards"]).toHaveBeenCalledTimes(1);
+    expect(reg.refetch["quiz.quizItems"]).toHaveBeenCalledTimes(1);
     expect(screen.getByText("1 von 1 (1 Karteikarten + 0 Quiz-Fragen)")).toBeTruthy();
   });
 

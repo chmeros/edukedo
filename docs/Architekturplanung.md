@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Komponententests für Quiz und Karteikarten)
+
+Anlass: Nach der Grundlage für die Web-Tests (Eintrag darunter) fehlten die beiden Lernrunden, die Lernende am häufigsten nutzen: `Quiz.tsx` und `Flashcards.tsx`.
+
+- **Gemeinsame Testbasis:** Die Attrappen stehen jetzt in `src/test/setup.tsx` und gelten für alle Testdateien: tRPC-Client (`trpcMock.ts`), `useOnlineStatus` (über `testState.online`), `shuffle` (feste Reihenfolge), `ContentActions`, Nachlesen und ein Abbruchknopf, der Abbrechen und Pause als zwei Schaltflächen nachstellt. Abfrage-Daten und Mutations-Handler tragen die Tests in `registry` ein (`trpcRegistry.ts`), geleert wird sie vor jedem Test. Erweiterungen der Attrappe: Abfrage-Daten dürfen eine Funktion der Eingabe sein, und eine fehlschlagende Mutation meldet Fehlerzustand und `onError` wie im Betrieb asynchron. Der Mischmodus-Test nutzt jetzt dieselbe Basis.
+- **`Quiz.test.tsx` (15):** Laden, leere Runde, Abfrage mit Thema, Inhaltstyp und 20 Fragen, „Antwort prüfen“ erst nach Auswahl, Antwort samt Idempotenzschlüssel an den Server, Rückmeldung richtig und falsch, Wahr/Falsch mit einem Klick, Weiterschalten und Endwertung, Übungsset anlegen und abschließen, „Anzahl anpassen“, „Neue Runde starten“, Abbruch und Pause, Fehler der Antwort mit erneutem Absenden unter **demselben** Schlüssel, Offline-Zweig (lokale Auswertung ohne Serveraufruf, kein Übungsset, kein Abbruchknopf).
+- **`Flashcards.test.tsx` (17):** Laden, keine Karte fällig, Umdrehen vor der Bewertung, Einstellung „mit Antwort starten“, Bewertung mit Schlüssel, Abbildung Einfach/Mittel/Schwer auf gewusst/unsicher/nicht_gewusst, nachträgliche Änderung über `changeReview` (F-111), **fehlgeschlagene Bewertung zählt nicht als bewertet** (WEB-06), Blättern, Schwierig-Markierung, Filter „Nur schwierige Karten“, „Weitere Karten laden“, „Von vorne beginnen“, Abbruch und Pause, Offline (lokale Bewertung, Karte verschwindet; bei Speicherfehler bleibt sie stehen; Auswahl und Markierung sind offline ausgeblendet).
+- **Prüfung der Tests selbst:** Quelltext vorübergehend beschädigt (Rundengröße, Übungsset-Abschluss, Neuladen, `changeReview`-Zweig, Zurück-Sperre, Fehlerrücknahme der Bewertung); in jedem Fall schlugen die zuständigen Tests fehl (7 und 1 Test), danach wurde der Quelltext wiederhergestellt.
+- **Stand:** 68 Komponententests in 6 Dateien. **Weiter offen:** die übrigen Fragetypen in `QuizSteps.tsx` (Mehrfachauswahl, Zuordnung, Sortieren, Zonen, Lücken, Kurzantwort), Kursauswahl, Anmeldung und Eltern-Einwilligung sowie Playwright-Ende-zu-Ende-Tests.
+
 ### Entschieden am 09.10.2026 (Komponententests für apps/web, Review WEB)
 
 Anlass: `apps/web` hatte keinen Test (`"test": "echo TODO"`); Oberflächenverhalten wurde nur von Hand geprüft. Die Fehler aus den Reviews (Fokusverlust im Modal WEB-02, Neumischen der Runde WEB-05, Idempotenzschlüssel LOG-09) sind genau die, die ohne Test unbemerkt wiederkommen.
