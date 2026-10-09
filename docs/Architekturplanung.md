@@ -568,6 +568,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Mathematik 9: irrationale Zahlen als Multiple Choice, Review FL-MA-10)
+
+Anlass: Q-ALG1-07 (Lückentext „Die Zahl ___√2___ ist irrational") akzeptierte nur √2, obwohl auch √3, √5 oder π richtig wären. Q-ALG1-12 („Nenne eine irrationale Zahl zwischen 3 und 4") akzeptierte nur √10 bis √15 und lehnte π und z. B. √9,5 ab. Beide waren offen formulierte Fragen mit mehreren richtigen Antworten, die eine Zeichenliste nicht vollständig abdeckt; die Normalisierung aus FL-MA-03 löst das nicht, sie gleicht nur Schreibweisen an. Entscheidung (Vorschlag aus dem Review, ohne Rückfrage übernommen): beide als Multiple Choice.
+
+- **Q-ALG1-07:** „Warum ist √2 eine irrationale Zahl?" mit der Begründung (nicht als Bruch ganzer Zahlen darstellbar) als richtiger Option. Bewusst nicht „Welche Zahl ist irrational?", weil Q-ALG1-01 genau das schon fragt. Falsche Optionen sind typische Fehlvorstellungen (Dezimalbruch bricht ab, negativ, nur aus geraden Zahlen). Die Erklärung nennt √3 und √5 als weitere Beispiele.
+- **Q-ALG1-12:** „Welche der folgenden Zahlen ist irrational und liegt zwischen 3 und 4?" mit √12 richtig. Die Ablenker prüfen je eine der beiden Bedingungen: 3,5 (zwischen 3 und 4, aber rational), √16 (rational, nicht dazwischen) und √8 (irrational, aber kleiner als 3). π ist mit Absicht keine Option, damit es genau eine richtige Antwort gibt.
+- **Import:** Beide Items wechseln den Typ (Lückentext bzw. Kurzantwort → Multiple Choice); der Import hält den Lernfortschritt am Item (zwei Warnungen zum Typwechsel, zwei „Lösung geändert“). Validierung 0 Verstöße, Trockenlauf danach ohne Änderung, Unit-Tests grün (581).
+- **Offen aus dem Befund:** der Hinweis, dass beide Aufgaben auch das √-Eingabeproblem hatten, ist mit FL-MA-03 und diesem Umbau erledigt.
+
 ### Entschieden am 09.10.2026 (Sprint serverseitig zählen und Ratenbegrenzung, Review LOG-16)
 
 Anlass: Beim Abschluss eines Sprints (Subnetting, Zahlensysteme, Rechensprint) meldete der Browser Ergebnis und Schwierigkeit selbst; der Server prüfte nur, dass die Aufgabenzahl stimmte. Wer die Anfrage selbst abschickte, konnte so einen beliebigen Bestwert eintragen. Entschieden: Umfang „Ratenbegrenzung plus serverseitige Zählung“.

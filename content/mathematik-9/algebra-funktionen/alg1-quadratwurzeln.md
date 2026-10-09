@@ -180,9 +180,13 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 **Erklärung:** Jeweils die größte Quadratzahl aus dem Radikanden herausziehen.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
-#### Q-ALG1-07 · Lückentext
-**Text:** Die Zahl ___√2___ ist irrational, da sie sich nicht als Bruch zweier ganzer Zahlen darstellen lässt.
-**Erklärung:** Klassisches Beispiel für eine irrationale Zahl.
+#### Q-ALG1-07 · Multiple Choice
+**Frage:** Warum ist √2 eine irrationale Zahl?
+- [x] Sie lässt sich nicht als Bruch zweier ganzer Zahlen darstellen.
+- [ ] Ihre Dezimaldarstellung bricht nach einigen Stellen ab.
+- [ ] Sie ist keine Quadratzahl und deshalb negativ.
+- [ ] Sie entsteht nur beim Wurzelziehen aus geraden Zahlen.
+**Erklärung:** Irrational heißt: nicht als Bruch zweier ganzer Zahlen darstellbar. Die Dezimaldarstellung von √2 = 1,41421… bricht nie ab und wiederholt sich nie. Auch √3 oder √5 sind irrational, obwohl 3 und 5 ungerade sind.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-ALG1-08 · Lückentext
@@ -207,8 +211,11 @@ Enthält der Nenner eines Bruchs eine Wurzel (z. B. 1/√3), erweitert man übli
 **Erklärung:** √200 = √(100·2) = 10√2.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
-#### Q-ALG1-12 · Kurzantwort
-**Frage:** Nenne eine irrationale Zahl, die zwischen 3 und 4 liegt.
-**Akzeptierte Antworten:** √10; √11; √12; √13; √14; √15
-**Erklärung:** Alle Wurzeln aus Nicht-Quadratzahlen zwischen 9 und 16 liegen zwischen 3 und 4.
+#### Q-ALG1-12 · Multiple Choice
+**Frage:** Welche der folgenden Zahlen ist irrational und liegt zwischen 3 und 4?
+- [ ] 3,5
+- [ ] √16
+- [x] √12
+- [ ] √8
+**Erklärung:** Wurzeln aus Nicht-Quadratzahlen zwischen 9 und 16 liegen zwischen 3 und 4, hier √12 ≈ 3,46. 3,5 liegt zwar dazwischen, ist aber rational (7/2). √16 = 4 ist rational und liegt nicht zwischen 3 und 4. √8 ≈ 2,83 ist zwar irrational, aber kleiner als 3.
 `schwierigkeit: schwer` · `bloom: analysieren`
