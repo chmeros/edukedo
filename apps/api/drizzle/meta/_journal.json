@@ -351,6 +351,13 @@
       "when": 1791481504007,
       "tag": "0049_content_report_kategorie",
       "breakpoints": true
+    },
+    {
+      "idx": 50,
+      "version": "7",
+      "when": 1791527259493,
+      "tag": "0050_ki_job_startzeit",
+      "breakpoints": true
     }
   ]
 }

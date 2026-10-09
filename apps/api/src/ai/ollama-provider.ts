@@ -20,35 +20,81 @@ import type { AiProvider, FallaufgabeGradingInput, FallaufgabeGradingResult, Gen
  * mit einem gemockten `fetch` direkt unit-testbar (`ollama-provider.test.ts`), ohne die vollen
  * Pflicht-Umgebungsvariablen aus `env.ts` bereitstellen zu müssen.
  */
-const REQUEST_TIMEOUT_MS = 120_000;
+const DEFAULT_REQUEST_TIMEOUT_MS = 120_000;
 // F-138 (26.09.2026, siehe Architekturplanung Abschnitt 13): eigenes, kurzes Zeitlimit für die
-// reine Erreichbarkeitsprüfung (Systemstatus-Dashboard) — deutlich kürzer als REQUEST_TIMEOUT_MS
-// oben, das für eine tatsächliche LLM-Antwort kalkuliert ist, hier soll ein Dashboard aber nicht
-// minutenlang hängen, nur weil Ollama nicht erreichbar ist.
+// reine Erreichbarkeitsprüfung (Systemstatus-Dashboard) — deutlich kürzer als das Zeitlimit für
+// eine tatsächliche LLM-Antwort, hier soll ein Dashboard aber nicht minutenlang hängen, nur weil
+// Ollama nicht erreichbar ist.
 const HEALTH_CHECK_TIMEOUT_MS = 3000;
 
+/** Betriebsparameter (siehe env.ts, OLLAMA_*): Zeitlimit, Antwortlänge, Kontextfenster, Verweildauer des Modells im Speicher. */
+export interface OllamaOptions {
+  timeoutMs?: number;
+  numPredict?: number;
+  numCtx?: number;
+  keepAlive?: string;
+}
+
+const DEFAULT_OPTIONS: Required<OllamaOptions> = {
+  timeoutMs: DEFAULT_REQUEST_TIMEOUT_MS,
+  numPredict: 1500,
+  numCtx: 8192,
+  keepAlive: "30m",
+};
+
+/**
+ * Ollamas native `/api/chat`-Schnittstelle statt der OpenAI-kompatiblen `/v1/chat/completions` (Änderung 09.10.2026):
+ * Nur die native Schnittstelle erlaubt es sicher, je Anfrage das Kontextfenster (`num_ctx`), die Antwortlänge
+ * (`num_predict`) und die Verweildauer des Modells (`keep_alive`) zu setzen. Ohne ausdrücklichen `num_ctx` richtet sich das
+ * Kontextfenster nach dem Standard des Servers; der Prompt dieser Anwendung (ausführliche Systemanweisung, Aufgabentext,
+ * Kriterien, vier Antworten) kann mehrere tausend Token umfassen, und ein zu kleines Fenster würde den Anfang des Prompts
+ * still abschneiden.
+ */
 async function chatCompletion(
   baseUrl: string,
   model: string,
   messages: { role: string; content: string }[],
   jsonMode: boolean,
+  options: Required<OllamaOptions>,
 ): Promise<string> {
-  const response = await fetch(`${baseUrl}/v1/chat/completions`, {
+  const startedAt = Date.now();
+  const response = await fetch(`${baseUrl}/api/chat`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       model,
       messages,
-      temperature: 0.4,
-      ...(jsonMode ? { response_format: { type: "json_object" } } : {}),
+      stream: false,
+      keep_alive: options.keepAlive,
+      ...(jsonMode ? { format: "json" } : {}),
+      options: { temperature: 0.4, num_ctx: options.numCtx, num_predict: options.numPredict },
     }),
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    signal: AbortSignal.timeout(options.timeoutMs),
   });
   if (!response.ok) {
     throw new Error(`Ollama antwortete mit Status ${response.status}.`);
   }
-  const data = (await response.json()) as { choices?: { message?: { content?: string } }[] };
-  const content = data.choices?.[0]?.message?.content;
+  const data = (await response.json()) as {
+    message?: { content?: string };
+    done_reason?: string;
+    prompt_eval_count?: number;
+    eval_count?: number;
+  };
+
+  // Kennzahlen ohne Inhalte der Lernenden: Sie zeigen, ob Zeitlimit, Antwortlänge und Kontextfenster zur Hardware passen.
+  const promptTokens = data.prompt_eval_count ?? 0;
+  const answerTokens = data.eval_count ?? 0;
+  console.info(
+    `[KI] ${model}: ${Math.round((Date.now() - startedAt) / 1000)} s, Eingabe ${promptTokens} Token, Antwort ${answerTokens} Token (Kontextfenster ${options.numCtx}, Grenze Antwort ${options.numPredict}).`,
+  );
+  if (promptTokens + answerTokens >= options.numCtx) {
+    console.warn(`[KI] Kontextfenster (${options.numCtx} Token) ausgeschöpft: OLLAMA_NUM_CTX erhöhen, sonst kann der Prompt abgeschnitten sein.`);
+  }
+  if (data.done_reason === "length") {
+    throw new Error(`Ollama-Antwort wurde bei ${options.numPredict} Token abgeschnitten (OLLAMA_NUM_PREDICT erhöhen).`);
+  }
+
+  const content = data.message?.content;
   if (!content) {
     throw new Error("Ollama-Antwort enthielt keinen Text.");
   }
@@ -97,7 +143,8 @@ export async function pingOllama(baseUrl: string): Promise<void> {
   }
 }
 
-export function createOllamaProvider(baseUrl: string, model: string): AiProvider {
+export function createOllamaProvider(baseUrl: string, model: string, operatingOptions: OllamaOptions = {}): AiProvider {
+  const options: Required<OllamaOptions> = { ...DEFAULT_OPTIONS, ...operatingOptions };
   return {
     async gradeFallaufgabe({ fallaufgabePrompt, criteria, parts }: FallaufgabeGradingInput): Promise<FallaufgabeGradingResult> {
       const partsText = parts
@@ -122,6 +169,7 @@ export function createOllamaProvider(baseUrl: string, model: string): AiProvider
           },
         ],
         true,
+        options,
       );
 
       let parsed: unknown;
@@ -173,6 +221,7 @@ export function createOllamaProvider(baseUrl: string, model: string): AiProvider
           },
         ],
         true,
+        options,
       );
 
       let parsed: unknown;

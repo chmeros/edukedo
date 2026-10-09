@@ -19,7 +19,7 @@ export async function processAiGradingJob(jobRowId: string): Promise<void> {
     return;
   }
 
-  await db.update(aiGradingJob).set({ status: "processing" }).where(eq(aiGradingJob.id, jobRowId));
+  await db.update(aiGradingJob).set({ status: "processing", startedAt: new Date() }).where(eq(aiGradingJob.id, jobRowId));
 
   try {
     const [answerRow] = await db.select().from(examAnswer).where(eq(examAnswer.id, jobRow.examAnswerId)).limit(1);

@@ -684,6 +684,9 @@ export const aiGradingJob = pgTable(
     resultParts: jsonb("result_parts"),
     errorMessage: text("error_message"),
     requestedAt: timestamp("requested_at", { withTimezone: true }).notNull().defaultNow(),
+    /** Beginn der eigentlichen Bearbeitung (Status "processing"); `completed_at - started_at` ist die reine Rechenzeit der KI,
+     * `started_at - requested_at` die Wartezeit in der Queue. Null bei Zeilen aus der Zeit davor und solange der Job wartet. */
+    startedAt: timestamp("started_at", { withTimezone: true }),
     completedAt: timestamp("completed_at", { withTimezone: true }),
   },
   (table) => [

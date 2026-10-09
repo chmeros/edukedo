@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createOllamaProvider } from "./ollama-provider";
 
 function mockFetchOnce(body: unknown, ok = true, status = 200): void {
@@ -12,13 +12,19 @@ function mockFetchOnce(body: unknown, ok = true, status = 200): void {
   );
 }
 
-function chatCompletionResponse(content: string) {
-  return { choices: [{ message: { content } }] };
+function chatCompletionResponse(content: string, extra: Record<string, unknown> = {}) {
+  return { message: { content }, done: true, done_reason: "stop", prompt_eval_count: 1200, eval_count: 300, ...extra };
 }
 
 describe("createOllamaProvider", () => {
+  beforeEach(() => {
+    // Die Kennzahlenzeile je Anfrage soll die Testausgabe nicht füllen.
+    vi.spyOn(console, "info").mockImplementation(() => undefined);
+  });
+
   afterEach(() => {
     vi.unstubAllGlobals();
+    vi.restoreAllMocks();
   });
 
   describe("gradeFallaufgabe", () => {
@@ -49,13 +55,14 @@ describe("createOllamaProvider", () => {
         { feedback: "Vollständig und korrekt begründet.", points: 5 },
       ]);
       expect(fetch).toHaveBeenCalledWith(
-        "http://localhost:11434/v1/chat/completions",
+        "http://localhost:11434/api/chat",
         expect.objectContaining({ method: "POST" }),
       );
       const [, init] = vi.mocked(fetch).mock.calls[0]!;
       const body = JSON.parse(init!.body as string);
       expect(body.model).toBe("qwen2.5:14b-instruct-q4_K_M");
-      expect(body.response_format).toEqual({ type: "json_object" });
+      expect(body.format).toBe("json");
+      expect(body.stream).toBe(false);
     });
 
     it("sortiert die Bewertungen anhand von 'teilaufgabe' zurück, wenn das Modell sie in vertauschter Reihenfolge liefert", async () => {
@@ -178,7 +185,8 @@ describe("createOllamaProvider", () => {
       expect(result.options.filter((option) => option.isCorrect)).toHaveLength(1);
       const [, init] = vi.mocked(fetch).mock.calls[0]!;
       const body = JSON.parse(init!.body as string);
-      expect(body.response_format).toEqual({ type: "json_object" });
+      expect(body.format).toBe("json");
+      expect(body.stream).toBe(false);
     });
 
     it("wirft, wenn die Antwort kein gültiges JSON ist", async () => {
@@ -210,6 +218,57 @@ describe("createOllamaProvider", () => {
       await expect(
         provider.generateMcQuestion({ topicHint: "x", fachgebietTitle: "x" }),
       ).rejects.toThrow("entsprach nicht dem erwarteten Format");
+    });
+  });
+  describe("Betriebsparameter", () => {
+    const sampleInput = {
+      fallaufgabePrompt: "x",
+      criteria: "x",
+      parts: [{ prompt: "Teil 1", points: 5, answerText: "x", selfAssessedPoints: 2 }],
+    };
+    const sampleAnswer = JSON.stringify({ parts: [{ teilaufgabe: 1, feedback: "ok", points: 2 }] });
+
+    it("sendet Kontextfenster, Antwortlänge und Verweildauer des Modells mit den Standardwerten", async () => {
+      mockFetchOnce(chatCompletionResponse(sampleAnswer));
+      await createOllamaProvider("http://localhost:11434", "test-model").gradeFallaufgabe(sampleInput);
+
+      const [, init] = vi.mocked(fetch).mock.calls[0]!;
+      const body = JSON.parse(init!.body as string);
+      expect(body.options).toEqual({ temperature: 0.4, num_ctx: 8192, num_predict: 1500 });
+      expect(body.keep_alive).toBe("30m");
+      expect(init!.signal).toBeInstanceOf(AbortSignal);
+    });
+
+    it("übernimmt eigene Werte für den Betrieb ohne GPU", async () => {
+      mockFetchOnce(chatCompletionResponse(sampleAnswer));
+      await createOllamaProvider("http://localhost:11434", "test-model", { numCtx: 16384, numPredict: 800, keepAlive: "-1", timeoutMs: 900_000 }).gradeFallaufgabe(sampleInput);
+
+      const [, init] = vi.mocked(fetch).mock.calls[0]!;
+      const body = JSON.parse(init!.body as string);
+      expect(body.options).toEqual({ temperature: 0.4, num_ctx: 16384, num_predict: 800 });
+      expect(body.keep_alive).toBe("-1");
+    });
+
+    it("wirft mit klarem Hinweis, wenn die Antwort an der Längengrenze abgeschnitten wurde, statt kaputtes JSON zu parsen", async () => {
+      mockFetchOnce(chatCompletionResponse('{"parts": [{"teilaufgabe": 1, "feedb', { done_reason: "length", eval_count: 1500 }));
+      await expect(createOllamaProvider("http://localhost:11434", "test-model").gradeFallaufgabe(sampleInput)).rejects.toThrow(/OLLAMA_NUM_PREDICT/);
+    });
+
+    it("warnt, wenn Eingabe und Antwort das Kontextfenster ausschöpfen, schreibt aber keine Inhalte der Lernenden ins Log", async () => {
+      const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
+      const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+      mockFetchOnce(chatCompletionResponse(sampleAnswer, { prompt_eval_count: 8000, eval_count: 400 }));
+      await createOllamaProvider("http://localhost:11434", "test-model").gradeFallaufgabe({
+        ...sampleInput,
+        parts: [{ prompt: "Teil 1", points: 5, answerText: "GEHEIME-ANTWORT-XYZ", selfAssessedPoints: 2 }],
+      });
+
+      const logged = [...info.mock.calls, ...warn.mock.calls].flat().join(" | ");
+      expect(logged).toContain("OLLAMA_NUM_CTX");
+      expect(logged).toContain("Eingabe 8000 Token");
+      expect(logged).not.toContain("GEHEIME-ANTWORT-XYZ");
+      info.mockRestore();
+      warn.mockRestore();
     });
   });
 });

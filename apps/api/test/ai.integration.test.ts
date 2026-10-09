@@ -217,6 +217,12 @@ describe("F-70/F-71: KI-Bewertung & Aufgabengenerierung", () => {
       };
       expect(result.status).toBe("completed");
       expect(result.parts).not.toBeNull();
+      // Zeiten für die Auswertung der Wartezeit und der Rechenzeit (Anforderung für den Betrieb ohne GPU).
+      const [jobRow] = await db.select().from(schema.aiGradingJob).where(eq(schema.aiGradingJob.id, jobId)).limit(1);
+      expect(jobRow!.startedAt).not.toBeNull();
+      expect(jobRow!.completedAt).not.toBeNull();
+      expect(jobRow!.startedAt!.getTime()).toBeGreaterThanOrEqual(jobRow!.requestedAt.getTime());
+      expect(jobRow!.completedAt!.getTime()).toBeGreaterThanOrEqual(jobRow!.startedAt!.getTime());
       // Nur der erste Teil wurde oben tatsächlich eingereicht (siehe Payload) — der Platzhalter
       // vergibt deterministisch die volle Punktzahl bei nicht-leerer Antwort (siehe
       // placeholder-provider.ts), die eigene Selbsteinschätzung von 1 bleibt unverändert erhalten.

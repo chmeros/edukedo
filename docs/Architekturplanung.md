@@ -568,6 +568,21 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (KI-Bewertung auch ohne GPU, Anpassungen für den CPU-Betrieb)
+
+Anlass: Frage der Projektleitung, wie sich die Reaktionszeiten ändern, wenn das Modell statt auf einer GPU auf einem eigenen Server mit CPU läuft. Ergebnis der Analyse und Umsetzung vom selben Tag:
+
+- **Befund im bestehenden Code:** Das Zeitlimit je Anfrage war fest auf 120 Sekunden gesetzt, die Antwortlänge unbegrenzt, das Kontextfenster dem Server überlassen. Auf einer GPU (Sekunden je Bewertung) unproblematisch, auf einer CPU (geschätzt 3 bis 6 Minuten) wäre fast jeder Job am Zeitlimit gescheitert. Der Prompt ist zudem größer als zuerst geschätzt: die Systemanweisung allein hat rund 3.100 Zeichen (etwa 950 Token), dazu kommen Aufgabentext und Kriterien (Median 2.900 Zeichen) und vier Antworten, zusammen etwa 2.500 bis 4.000 Token. Die ursprüngliche Schätzung von 1.300 bis 2.500 Token war zu niedrig, die CPU-Zeiten fallen entsprechend eher am oberen Ende aus.
+- **Native Ollama-Schnittstelle statt OpenAI-kompatibler:** `ai/ollama-provider.ts` ruft jetzt `/api/chat` mit `stream: false`, `format: "json"` und `options` auf. Grund: Nur so lassen sich Kontextfenster (`num_ctx`), Antwortlänge (`num_predict`) und Verweildauer des Modells (`keep_alive`) sicher je Anfrage setzen; ob die kompatible Schnittstelle sie annimmt, ließ sich nicht belegen. Ein zu kleines Kontextfenster hätte den Anfang des Prompts still abgeschnitten. Der Standardwert des Servers ist nicht belegt, deshalb wird das Fenster ausdrücklich gesetzt.
+- **Neue Variablen (alle mit Standardwerten):** `OLLAMA_TIMEOUT_MS` (120000, wie bisher), `OLLAMA_NUM_PREDICT` (1500), `OLLAMA_NUM_CTX` (8192), `OLLAMA_KEEP_ALIVE` (30m). Für den CPU-Betrieb wird das Zeitlimit z. B. auf 900000 gesetzt. Das Modell bleibt wie bisher `OLLAMA_MODEL`, ein kleineres Modell (7B) lässt sich ohne Codeänderung erproben; seine Bewertungsqualität ist nicht gemessen.
+- **Abgeschnittene Antworten:** Meldet Ollama `done_reason: "length"`, schlägt der Job mit dem Hinweis auf `OLLAMA_NUM_PREDICT` fehl, statt kaputtes JSON zu parsen. Ist das Kontextfenster ausgeschöpft, steht eine Warnung im Log.
+- **Messung:** Neue Spalte `ai_grading_job.started_at` (Migration 0050), gesetzt beim Übergang auf „processing“. Wartezeit = `started_at - requested_at`, Rechenzeit = `completed_at - started_at`. Zusätzlich schreibt die Kern-API je Anfrage eine Zeile mit Modell, Dauer und Token-Zahlen, ohne Inhalte der Lernenden. Der Integrationstest prüft die Zeiten.
+- **Warteschlange:** Der Worker läuft ausdrücklich mit `concurrency: 1` (bisher BullMQ-Standard): Parallele Anfragen würden sich auf einer CPU gegenseitig ausbremsen und das Zeitlimit reißen.
+- **Oberfläche:** Die Statusanzeige der KI-Bewertung weist darauf hin, dass es einige Minuten dauern kann und bei erlaubten Benachrichtigungen eine Nachricht kommt.
+- **Nicht umgesetzt:** Kürzung der langen Systemanweisung (würde die Bewertung verändern und braucht eine fachliche Prüfung der Wirkung), serverseitiges `OLLAMA_KEEP_ALIVE` (die Anfrage setzt es selbst), Anzeige der Dauer im Admin-Dashboard (die Abfrage steht in `infra/README.md`).
+- **Offen:** Reale Messung auf dem gewählten Server (`llama-bench` und ein echter Bewertungsjob), Entscheidung zwischen GPU und CPU danach.
+- **Tests:** 13 Tests im Provider (neue Schnittstelle, Betriebsparameter, abgeschnittene Antwort, Kontextwarnung ohne Inhalte im Log), Integrationstest um die Zeiten erweitert; gesamte API-Suite 828 Tests grün.
+
 ### Entschieden am 09.10.2026 (Echter E-Mail-Versand per SMTP, Review-Punkt A3)
 
 Anlass: Entwicklungsplan Iteration 23, Entscheidung der Projektleitung vom 09.10.2026: Mails gehen über das SMTP-Postfach des Hosters bzw. Domain-Anbieters, kein Mail-Cloud-Dienst.

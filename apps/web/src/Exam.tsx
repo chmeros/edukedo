@@ -9,8 +9,8 @@ import { Tile } from "./Tile";
 import { trpc } from "./trpc";
 
 const AI_GRADING_STATUS_LABELS: Record<string, string> = {
-  queued: "In der Warteschlange…",
-  processing: "Wird bewertet…",
+  queued: "In der Warteschlange… (kann je nach Auslastung einige Minuten dauern)",
+  processing: "Wird bewertet… (kann einige Minuten dauern, bei erlaubten Benachrichtigungen melden wir uns)",
   completed: "Bewertung vorliegend",
   failed: "Bewertung fehlgeschlagen",
 };

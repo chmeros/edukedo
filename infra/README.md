@@ -32,6 +32,15 @@ Kern: `DATABASE_URL`, `SESSION_SECRET` (mindestens 32 Zeichen), `VAPID_PUBLIC_KE
 Payment: `PAYMENT_DATABASE_URL`, `KERN_SERVICE_TOKEN` (identisch zu `PAYMENT_SERVICE_TOKEN`), `REDIS_URL`.
 `NODE_ENV=production` setzen die Images selbst. Alle Werte gehören in die Secret-Verwaltung des Hosters, nie ins Repository. Vollständige Liste: `apps/api/src/env.ts`, `apps/payment/src/env.ts`.
 
+## KI-Server (Ollama)
+
+Die Kern-API spricht Ollama über dessen native Schnittstelle (`/api/chat`) an; `AI_PROVIDER=ollama` und `OLLAMA_BASE_URL` sind Pflicht, sobald die KI-Bewertung laufen soll. Die Bewertung läuft asynchron über die Queue, ein Job nach dem anderen.
+
+- **GPU:** Eine Bewertung dauert Sekunden. Die Standardwerte reichen.
+- **CPU-Server ohne GPU:** Mit dem 14B-Modell dauert eine Bewertung geschätzt 3 bis 6 Minuten (Schätzung, nicht gemessen). Dafür `OLLAMA_TIMEOUT_MS` deutlich erhöhen (z. B. 900000), den Server nicht mit der App teilen und vor der Entscheidung einmal `llama-bench` sowie einen echten Bewertungsjob messen. Die Oberfläche weist auf die Wartezeit hin, bei erlaubten Benachrichtigungen kommt eine Push-Nachricht.
+- **Messen:** `ai_grading_job.started_at - requested_at` ist die Wartezeit in der Queue, `completed_at - started_at` die Rechenzeit. Die Kern-API schreibt je Anfrage eine Zeile `[KI] …` mit Dauer und Token-Zahlen (ohne Inhalte). Beispielabfrage der letzten Jobs: `select status, completed_at - started_at as rechenzeit, started_at - requested_at as wartezeit from ai_grading_job order by requested_at desc limit 20;`
+- **Kontextfenster:** `OLLAMA_NUM_CTX` (Standard 8192) gilt je Anfrage. Meldet das Log, dass das Fenster ausgeschöpft ist, den Wert erhöhen; mehr Fenster braucht mehr Arbeitsspeicher.
+
 ## CI
 
 `.github/workflows/ci.yml`: Lint, Typecheck, Inhaltsprüfung, Tests (mit Redis-Dienst), Build, Start-Test der gebauten Server (`/health`), Docker-Build beider Images, `pnpm audit --prod --audit-level=high`. `.github/dependabot.yml` schlägt wöchentlich Updates vor.

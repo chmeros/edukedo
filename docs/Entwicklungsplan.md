@@ -543,6 +543,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 **Programmierung (Kern)**
 - [ ] Deploy-Workflow, Staging/Produktion, GitHub-Actions an Commit-SHAs binden (INF-30), ersten CI-Lauf in GitHub prüfen, Entwicklungswerkzeuge (vitest/vite) im Audit nachziehen (A5/A6). Abhängig von der Hostingwahl.
 - [x] Echter Mailversand per SMTP hinter der vorhandenen Schnittstelle `apps/api/src/email/sender.ts` (fünf Mailarten, nur verschlüsselt, Wiederholung, Fehlerprotokoll ohne Link). **Erledigt 09.10.2026**, siehe Architekturplanung §13. **Offen (braucht Ihre Angaben):** Zugangsdaten als Secrets, Absenderdomain mit SPF/DKIM/DMARC, Auftragsverarbeitungsvertrag, eine echte Testmail.
+- [x] KI-Bewertung auch ohne GPU: Zeitlimit, Antwortlänge, Kontextfenster und Verweildauer einstellbar, native Ollama-Schnittstelle, Startzeit je Job (Migration 0050), Hinweis in der Oberfläche. **Erledigt 09.10.2026**, siehe Architekturplanung §13. **Offen:** Messung auf dem gewählten Server (`llama-bench`, ein echter Job), danach Entscheidung GPU oder CPU.
 - [ ] Zeitplan für die drei Erinnerungsskripte (Einwilligung, Lernen, Duell) beim Hoster einrichten (`infra/README.md`); abhängig von der Hostingwahl.
 - [ ] Sprint-Token härten: einmalige Verwendung, Ratenbegrenzung (LOG-16); `is_premium` vor F-80 klären; Idempotenzschlüssel für Online-Antworten (Lernlogik, Paket 1).
 - [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).

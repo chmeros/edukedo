@@ -51,6 +51,15 @@ const envSchema = z.object({
   AI_PROVIDER: z.enum(["placeholder", "ollama"]).default("placeholder"),
   OLLAMA_BASE_URL: z.string().url().default("http://localhost:11434"),
   OLLAMA_MODEL: z.string().default("qwen2.5:14b-instruct-q4_K_M"),
+  // Anpassungen für den Betrieb ohne GPU (siehe Architekturplanung Abschnitt 13, 09.10.2026): Auf einer CPU dauert eine Bewertung
+  // mit dem 14B-Modell einige Minuten, auf einer GPU Sekunden. Zeitlimit je Anfrage in Millisekunden (Default wie bisher 2 Minuten;
+  // für CPU-Betrieb z. B. 900000), Obergrenze für die Länge der Antwort in Token, Größe des Kontextfensters in Token (wird
+  // ausdrücklich gesetzt, damit lange Prompts nicht still abgeschnitten werden) und die Zeit, die das Modell nach der letzten
+  // Anfrage geladen bleibt (Ollama-Schreibweise, z. B. "30m" oder "-1" für dauerhaft).
+  OLLAMA_TIMEOUT_MS: z.coerce.number().int().min(1000).default(120_000),
+  OLLAMA_NUM_PREDICT: z.coerce.number().int().min(100).default(1500),
+  OLLAMA_NUM_CTX: z.coerce.number().int().min(2048).default(8192),
+  OLLAMA_KEEP_ALIVE: z.string().regex(/^(-1|\d+[smh]?)$/, "OLLAMA_KEEP_ALIVE z. B. 30m, 3600s oder -1").default("30m"),
   // Echter E-Mail-Versand per SMTP (Entscheidung 09.10.2026: Postfach des Hosters bzw. Domain-Anbieters, siehe
   // Entwicklungsplan Iteration 23). Ohne SMTP_HOST bleibt der Platzhalter-Versand in src/email/sender.ts aktiv.
   // Port 587 nutzt STARTTLS (SMTP_SECURE=false, es gibt keinen Rückfall auf unverschlüsselte Übertragung),

@@ -11,6 +11,13 @@ import type { AiProvider } from "./provider";
  * verfügbare lokale Anbindung (F-128, siehe Architekturplanung Abschnitt 13).
  */
 export const aiProvider: AiProvider =
-  env.AI_PROVIDER === "ollama" ? createOllamaProvider(env.OLLAMA_BASE_URL, env.OLLAMA_MODEL) : placeholderAiProvider;
+  env.AI_PROVIDER === "ollama"
+    ? createOllamaProvider(env.OLLAMA_BASE_URL, env.OLLAMA_MODEL, {
+        timeoutMs: env.OLLAMA_TIMEOUT_MS,
+        numPredict: env.OLLAMA_NUM_PREDICT,
+        numCtx: env.OLLAMA_NUM_CTX,
+        keepAlive: env.OLLAMA_KEEP_ALIVE,
+      })
+    : placeholderAiProvider;
 
 export type { AiProvider, FallaufgabeGradingInput, GeneratedMcQuestion } from "./provider";

@@ -43,7 +43,10 @@ export function startAiGradingWorker(): Worker<{ jobRowId: string }> {
     async (job) => {
       await processAiGradingJob(job.data.jobRowId);
     },
-    { connection: redisConnection },
+    // Bewusst ein Job nach dem anderen: Auf einer CPU würden parallele Anfragen sich gegenseitig ausbremsen und das Zeitlimit
+    // reißen; auch auf einer GPU teilen sich parallele Anfragen Speicher und Rechenzeit. Die Wartezeit steht in
+    // `ai_grading_job.started_at - requested_at`, die Rechenzeit in `completed_at - started_at`.
+    { connection: redisConnection, concurrency: 1 },
   );
 
   worker.on("failed", async (job, error) => {
