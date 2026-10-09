@@ -533,7 +533,7 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 aus `docs/reviews/2026-10-07/` noch offen ist, an einer Stelle führen. Erledigtes steht mit Nachweis im Gesamtbericht (Abschnitt 7a), die Begründungen in der Architekturplanung §13. Stand 09.10.2026. Punkte mit **Entscheidung nötig** warten auf eine Entscheidung der Projektleitung; Rechts-, Steuer- und Normeninhalte bleiben nach Regel R4 ungeprüft, neue Inhalte nach R3 unsichtbar, bis eine fachkundige Person sie geprüft hat.
 
 **Entscheidungen (Projektleitung)**
-- [ ] **Entscheidung nötig: Mailanbieter wählen (A3).** Voraussetzung für den echten Versand von Eltern-Consent- und Setup-Mails; danach den Teil „Mail produktiv“ in die Bedingung des `setPublished`-Guards aufnehmen (A2) und den Mathe-Livegang freigeben (Reihenfolge laut Jugendschutz-Regel beachten).
+- [x] **Mailanbieter (A3), entschieden 09.10.2026:** Versand über das SMTP-Postfach des Hosters bzw. Domain-Anbieters (kein eigener Mail-Cloud-Dienst). Folgen: Absenderdomain mit SPF/DKIM/DMARC einrichten (hängt an der offenen Domain-Einrichtung in Iteration 0), Mengen- und Zustellbarkeitsgrenzen des Postfachs beachten, Auftragsverarbeitungsvertrag mit dem Anbieter, Versand mit Wiederholung statt fire-and-forget. Umsetzung siehe Programmierung („Echter Mailversand“). **Offen bleibt:** danach den Teil „Mail produktiv“ in die Bedingung des `setPublished`-Guards aufnehmen (A2) und den Mathe-Livegang freigeben (Reihenfolge laut Jugendschutz-Regel beachten).
 - [ ] **Entscheidung nötig: Hosting-Anbieter wählen** (verknüpft mit den Hosting-Punkten in Iteration 0); danach Deploy-Workflow, Staging und Produktion einrichten (siehe Programmierung).
 - [ ] **Entscheidung nötig: Logo-Auslieferung für Unternehmensbranding.** Upload in einen Objektspeicher oder feste Liste erlaubter Hosts; heute nur eine geprüfte URL.
 - [ ] **Entscheidung nötig: Aufbewahrungsfrist für den Freitext der Inhaltsmeldungen** (UXL-13), danach Löschung bzw. Anonymisierung umsetzen.
@@ -542,7 +542,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 
 **Programmierung (Kern)**
 - [ ] Deploy-Workflow, Staging/Produktion, GitHub-Actions an Commit-SHAs binden (INF-30), ersten CI-Lauf in GitHub prüfen, Entwicklungswerkzeuge (vitest/vite) im Audit nachziehen (A5/A6). Abhängig von der Hostingwahl.
-- [ ] Echter Mailversand hinter der vorhandenen Stub-Schnittstelle (A3), Zeitplan für die drei Erinnerungsskripte beim Hoster (`infra/README.md`).
+- [ ] Echter Mailversand per SMTP hinter der vorhandenen Stub-Schnittstelle `apps/api/src/email/sender.ts` (fünf Mailarten, Anbieter-Entscheidung 09.10.2026: SMTP des Hosters/Domain-Anbieters), Zeitplan für die drei Erinnerungsskripte beim Hoster (`infra/README.md`).
 - [ ] Sprint-Token härten: einmalige Verwendung, Ratenbegrenzung (LOG-16); `is_premium` vor F-80 klären; Idempotenzschlüssel für Online-Antworten (Lernlogik, Paket 1).
 - [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).
 - [ ] Lesehinweis (Zahlenschreibweise) für Skalierungsrechner, Testfalltrainer und Statistiktrainer (WRK-04/05/06, Rest).
