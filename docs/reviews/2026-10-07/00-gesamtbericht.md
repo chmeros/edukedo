@@ -132,6 +132,8 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 
 **Offene Punkte:** Alles, was nach dem Stand dieser Tabelle noch offen ist, steht gesammelt in `docs/Entwicklungsplan.md`, Iteration 23.
 
+**Reststand der Usability-Befunde (Abgleich 09.10.2026):** Von 94 Einzelbefunden der vier Usability-Berichte sind 28 erledigt, 27 teilweise erledigt, 33 offen, 2 bewusst unverändert und 4 nur im Browser prüfbar. Die offenen Punkte stehen einzeln in Iteration 23 des Entwicklungsplans; Begründung und Vorgehen in der Architekturplanung §13 „Reststand der Usability-Punkte abgeglichen“.
+
 ## 8. Einzelberichte
 
 Code: `code-api-sicherheit.md` (28 Befunde), `code-api-lernlogik.md` (26), `code-api-sozial-admin-payment.md` (32), `code-shared.md` (29), `code-web-kern.md` (47), `code-web-werkzeuge.md` (47), `code-pipeline-tests-infra.md` (36).

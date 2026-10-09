@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Reststand der Usability-Punkte abgeglichen)
+
+Anlass: Der Gesamtbericht führte unter Priorität D einen Auszug der Usability-Befunde, ohne dass klar war, was nach den Paketen 1 bis 11 und den späteren Arbeiten noch besteht. Der Plan verlangte den Abgleich.
+
+- **Vorgehen:** Vier Prüfungen liefen parallel und nur lesend, je eine für `usability-lehrkraft-verwaltung.md` (UXL-01 bis 24 samt den Mängeln außerhalb der Tabelle) und die drei Teilnehmerberichte (`UXT-B` Branchenkurse, `UXT-F` Fachwirte, `UXT-I` Fachinformatiker und Mathematik). Jeder Befund wurde im Code nachgesehen und mit Fundstelle einem von fünf Zuständen zugeordnet: erledigt, teilweise, offen, bewusst unverändert, nur im Browser prüfbar. Danach wurden über ein Dutzend der wichtigsten offenen Aussagen selbst im Code gegengeprüft (Rechen-Sprint-Satz, IDs in `Exam.tsx` und `AGB.tsx`, Prüfungsdauer-Anzeige, Enter in der Kurzantwort, fehlender Theorie-Hinweis im Onboarding, Lückentext im Suchtreffer, Prüfungsablauf nur für Fachinformatiker, Texte der Kinderseite, Kohorten in der Datenschutzerklärung, Demo-Kurs, ungenutzte Lösungsdaten bei Zonen, rote Schaltfläche „Beides gemischt“); alle bestätigten sich.
+- **Ergebnis (94 Befunde):** 28 erledigt, 27 teilweise, 33 offen, 2 bewusst unverändert (Weiches E-Mail-Gate F-01, Gast-Konsolenfehler UXL-23), 4 nur im Browser prüfbar.
+- **Offene Punkte:** stehen einzeln in `docs/Entwicklungsplan.md`, Iteration 23: Texte und Kleinigkeiten, Eingabe und Bedienung, Rückmeldung mit Lösung statt nur Farbe, Theorie auffindbar, Lückentext-Lösung im Klartext, mobile Startansicht, Farben und Menü, Demo-Kurs und Glossar-Einstellung, Prüfungs-Tab für Schulkurse, Lückentexte mit Zahlwörtern, Browser-Prüfungen, Kohorten und Firmen; unter Content die freigabepflichtigen Befunde (Prüfungsablauf, Rechtsstand, Karten ohne Kontext, „Nenne zwei …“, Immobilien-Spiele); unter Recht die Datenschutzerklärung zu Kohorten und Firmen, die Kinderseite und die AGB-ID. Zwei Punkte brauchen eine Entscheidung: Wahr/Falsch mit Sofortwertung (UXT-F-10) und die Kennzahlen kleiner Kohorten (UXL-01 Rest).
+- **Wichtigste Befunde nach Nutzen (aus den vier Berichten):** Rückmeldung mit richtiger Lösung statt nur Farbe, Theorie auffindbar machen, Enter in der Kurzantwort, Prüfungs-Tab für Schulkurse, Lückentexte mit Zahlwörtern, Transparenz vor dem Firmenbeitritt, Datenschutzerklärung zu Kohorten.
+- **Grenzen der Prüfung:** Layout- und Laufzeitbefunde (leerer Bereich über der Frage, Übergang beim Fragenwechsel, Linie durch den Füllstand, Konsolenfehler beim Kurswechsel) lassen sich aus dem Code nicht sicher beurteilen; sie stehen als „Browser-Prüfung nötig“ im Plan. Die Abgleiche selbst sind Lesearbeit der Prüfer; die Zustände „erledigt“ stützen sich auf Fundstellen im Code, nicht auf einen neuen Durchgang mit echten Testpersonen.
+
 ### Entschieden am 09.10.2026 (Komponententests für Quiz und Karteikarten)
 
 Anlass: Nach der Grundlage für die Web-Tests (Eintrag darunter) fehlten die beiden Lernrunden, die Lernende am häufigsten nutzen: `Quiz.tsx` und `Flashcards.tsx`.
