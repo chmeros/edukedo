@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Kurz-Teaser je Kurs: Themen und Aufgaben in der Kursauswahl, Review UXT-F-23)
+
+Anlass: Die Kursliste zeigte je Kurs nur Titel und Kategorie, sodass sich Kurse in Umfang und Tiefe nicht vergleichen ließen. Umsetzung ohne Rückfrage (kleine Server-Erweiterung, keine Gestaltungs- oder Rechtsfrage); die Form „Themenzahl“ stammt aus dem Befund.
+
+- **Server (`courses.umfang`):** Neue Abfrage ohne Eingabe. Je veröffentlichtem Kurs die Zahl der Themen und der übbaren Aufgaben, in einer einzigen SQL-Aggregation. Gezählt wird, was Lernende tatsächlich üben können: aktive Inhalte der zählbaren Typen (Karteikarten und Quiz-Typen, `PROGRESS_COUNTABLE_TYPES`, dieselbe Liste wie `progress.overview` und `courses.progress`), also ohne Theorietexte und ohne noch nicht freigegebene Inhalte (R3); Themen nur, wenn sie mindestens eine solche Aufgabe haben. Bewusst eine eigene Abfrage statt zusätzlicher Felder in `courses.list` (die wird von Kopf, App und Zielplanung mitgelesen und soll leicht bleiben), wie schon bei `courses.progress`.
+- **Oberfläche (`CourseSelection.tsx`):** Unter der Kategorie steht „Erwachsenenbildung · 24 Themen · 752 Aufgaben“, bei belegten wie bei beitretbaren Kursen; Zahlen mit Tausenderpunkt und geschütztem Leerzeichen zwischen Zahl und Wort, damit die Angabe nicht mitten umbricht; „1 Thema“ und „1 Aufgabe“ in der Einzahl. Kurse ohne Zeile (keine Aufgaben) zeigen nur die Kategorie.
+- **Bewusst nicht Teil:** eine Beschreibung in Worten je Kurs (bräuchte Redaktionstext und Pflege je Kurs), die Dauer oder Zielgruppe, Abschnitte wie „Handlungsbereiche“ (je Kurs anders benannt).
+- **Prüfung:** Integrationstest in `course-enrollment.integration.test.ts` (zwei Themen und drei Aufgaben; inaktive Aufgabe, Theorietext und ein reines Theorie-Thema zählen nicht), Web-Test in `CourseSelection.test.tsx` (Anzeige mit Tausenderpunkt, Einzahl, Kurs ohne Zahlen). Integrationstest Einschreibung 9 grün, Web-Suite 164, Typprüfung und Lint sauber. Live im Browser (Wegwerf-Konto, danach gelöscht) mit den echten Kursen: z. B. Gesundheit und Soziales 24 Themen, 752 Aufgaben; Mathematik 7 Themen, 210 Aufgaben; die Angabe bricht nicht mitten in der Zahl um.
+
 ### Entschieden am 09.10.2026 (Playwright-Ende-zu-Ende-Tests, Befund: „Konto löschen“ blieb nach dem Löschen stehen)
 
 Anlass: Der Plan nannte als letzten offenen Teil der Web-Tests die Playwright-Ende-zu-Ende-Tests. Umsetzung ohne Rückfrage (Werkzeug laut Testkonzept bereits festgelegt); neu ist nur das Paket `apps/e2e` und eine Entwicklungsabhängigkeit (`@playwright/test`).

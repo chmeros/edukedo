@@ -147,6 +147,31 @@ describe("F-102: Belegungs-Exklusivität für Erwachsenenbildungskurse", () => {
     expect(response.json().result.data).toEqual([]);
   });
 
+  it("courses.umfang zählt je Kurs Themen und aktive, übbare Aufgaben (Review UXT-F-23)", async () => {
+    const [fachgebietRow] = await db.insert(schema.fachgebiet).values({ kursId: kursA, code: "u", title: "Umfang" }).returning();
+    const [themaEins, themaZwei, themaLeer] = await db
+      .insert(schema.thema)
+      .values([
+        { fachgebietId: fachgebietRow!.id, title: "Thema Eins" },
+        { fachgebietId: fachgebietRow!.id, title: "Thema Zwei" },
+        { fachgebietId: fachgebietRow!.id, title: "Nur Theorie" },
+      ])
+      .returning();
+    await db.insert(schema.contentItem).values([
+      { themaId: themaEins!.id, type: "karteikarte", prompt: "K1" },
+      { themaId: themaEins!.id, type: "quiz_mc", prompt: "Q1" },
+      { themaId: themaZwei!.id, type: "karteikarte", prompt: "K2" },
+      // Zählen nicht: inaktiv, Theorie (kein übbarer Typ), und ein Thema, das nur Theorie hat.
+      { themaId: themaZwei!.id, type: "karteikarte", prompt: "K3 inaktiv", isActive: false },
+      { themaId: themaEins!.id, type: "theorie", prompt: "T1" },
+      { themaId: themaLeer!.id, type: "theorie", prompt: "T2" },
+    ]);
+
+    const response = await app.inject({ method: "GET", url: "/api/v1/trpc/courses.umfang", headers: { cookie: sessionCookie } });
+    expect(response.statusCode).toBe(200);
+    expect(response.json().result.data).toEqual([{ kursId: kursA, themen: 2, aufgaben: 3 }]);
+  });
+
   it("erlaubt zusätzlich einen Schulkurs, ohne die Erwachsenenbildungs-Belegung zu beeinträchtigen", async () => {
     const response = await app.inject({
       method: "POST",

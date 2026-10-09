@@ -10,6 +10,10 @@ const kurs = (id: string, title: string, kategorie: string, joined: boolean) => 
 function bereiteVor(kurse = [kurs("a", "Fachwirt Büro", "erwachsenenbildung", true), kurs("b", "Handelsfachwirt", "erwachsenenbildung", false), kurs("c", "Mathematik 9", "schule", false)]) {
   reg.queries["courses.list"] = kurse;
   reg.queries["courses.progress"] = [{ kursId: "a", total: 10, mastered: 4, percent: 40 }];
+  reg.queries["courses.umfang"] = [
+    { kursId: "a", themen: 21, aufgaben: 1234 },
+    { kursId: "b", themen: 1, aufgaben: 1 },
+  ];
   reg.queries["auth.me"] = { isMinor: false };
   reg.queries["auth.publicConfig"] = { minorsAllowed: true };
   reg.mutations["courses.enroll"] = () => ({ success: true });
@@ -30,6 +34,16 @@ describe("CourseSelection (F-100/F-101/F-102)", () => {
     expect(text()).toContain("40 % gelernt");
     fireEvent.click(screen.getByRole("button", { name: "Auswählen" }));
     expect(onSelected).toHaveBeenCalledWith("a");
+  });
+
+  it("nennt je Kurs Themen und Aufgaben als Kurzbeschreibung, Kurse ohne Zahlen nur die Kategorie (Review UXT-F-23)", () => {
+    bereiteVor();
+    zeige();
+    expect(text()).toContain("Erwachsenenbildung · 21\u00A0Themen · 1.234\u00A0Aufgaben");
+    expect(text()).toContain("Erwachsenenbildung · 1\u00A0Thema · 1\u00A0Aufgabe");
+    // Mathematik 9 hat in der Attrappe keine Zahlen: nur die Kategorie.
+    expect(text()).toContain("Schule");
+    expect(text()).not.toContain("Schule ·");
   });
 
   it("verlangt in der Erstauswahl einen Kurs und bietet dort keinen Weg zurück", () => {

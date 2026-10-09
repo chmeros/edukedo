@@ -131,6 +131,27 @@ export const coursesRouter = router({
     }));
   }),
 
+  /**
+   * Review UXT-F-23: Umfang je veröffentlichtem Kurs für die Kurzbeschreibung in der Kursauswahl („21 Themen · 640 Aufgaben“).
+   * Gezählt wird, was Lernende tatsächlich üben können: aktive Inhalte der zählbaren Typen (Karteikarten und Quiz-Typen, siehe
+   * progress-items.ts, wie bei `progress.overview`), also ohne Theorietexte und ohne noch nicht freigegebene Inhalte; Themen nur, wenn
+   * sie mindestens eine solche Aufgabe haben. Eine einzige SQL-Aggregation, Kurse ohne Aufgaben liefern keine Zeile.
+   */
+  umfang: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.db
+      .select({
+        kursId: fachgebiet.kursId,
+        themen: sql<number>`count(distinct ${thema.id})::int`,
+        aufgaben: sql<number>`count(${contentItem.id})::int`,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(kurs, eq(kurs.id, fachgebiet.kursId))
+      .where(and(eq(kurs.isPublished, true), eq(contentItem.isActive, true), inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES)))
+      .groupBy(fachgebiet.kursId);
+  }),
+
   enroll: protectedProcedure.input(enrollInputSchema).mutation(async ({ ctx, input }) => {
     const [course] = await ctx.db.select().from(kurs).where(eq(kurs.id, input.kursId)).limit(1);
     if (!course?.isPublished || istDemoKursGesperrt(course.type, env.NODE_ENV)) {

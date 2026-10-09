@@ -42,15 +42,24 @@ export function CourseSelection({
   // F-147: Gesamtfortschritt je belegtem Kurs für den Füllstand der Kachel; Kurse ohne Content-Items
   // liefern keine Zeile → 0 %.
   const progress = trpc.courses.progress.useQuery();
+  // Review UXT-F-23: Umfang je Kurs (Themen und Aufgaben) als Kurzbeschreibung unter der Kategorie.
+  const umfang = trpc.courses.umfang.useQuery();
   // Review UXL-12: Lese-Modus für Kursinhalte (ohne Beitritt).
   const [lesen, setLesen] = useState<{ kursId: string; titel: string } | null>(null);
   const [search, setSearch] = useState("");
   // Review UXL-24: Schulkurse nennen offen, dass Minderjährige derzeit nicht zugelassen sind (Server-Schalter ALLOW_MINORS).
   const authConfig = trpc.auth.publicConfig.useQuery();
-  const kategorieText = (kategorie: string) =>
-    kategorie === "schule" && authConfig.data?.minorsAllowed === false
-      ? `${KATEGORIE_LABEL[kategorie]} · aktuell nur für Volljährige zugänglich`
-      : KATEGORIE_LABEL[kategorie];
+  const kategorieText = (kategorie: string, kursId: string) => {
+    const basis =
+      kategorie === "schule" && authConfig.data?.minorsAllowed === false
+        ? `${KATEGORIE_LABEL[kategorie]} · aktuell nur für Volljährige zugänglich`
+        : KATEGORIE_LABEL[kategorie];
+    const zeile = umfang.data?.find((eintrag) => eintrag.kursId === kursId);
+    if (!zeile) return basis;
+    // Geschützte Leerzeichen, damit „752 Aufgaben“ nicht mitten in der Angabe umbricht.
+    const mitZahl = (wert: number, einzahl: string, mehrzahl: string) => `${wert.toLocaleString("de-DE")}\u00A0${wert === 1 ? einzahl : mehrzahl}`;
+    return `${basis} · ${mitZahl(zeile.themen, "Thema", "Themen")} · ${mitZahl(zeile.aufgaben, "Aufgabe", "Aufgaben")}`;
+  };
   const [kategorieFilter, setKategorieFilter] = useState<"alle" | "erwachsenenbildung" | "schule">("alle");
   // F-102: Beitritt zu einem Erwachsenenbildungskurs bei bereits bestehender Belegung derselben
   // Kategorie erfordert eine Bestätigung, da dabei automatisch die alte Belegung verlassen wird
@@ -122,7 +131,7 @@ export function CourseSelection({
                 <Tile
                   key={course.id}
                   title={course.title}
-                  description={kategorieText(course.kategorie)}
+                  description={kategorieText(course.kategorie, course.id)}
                   meta={progress.data ? `${percent} % gelernt` : undefined}
                   image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
                   fill={progress.data ? percent : 0}
@@ -197,7 +206,7 @@ export function CourseSelection({
             <Tile
               key={course.id}
               title={course.title}
-              description={kategorieText(course.kategorie)}
+              description={kategorieText(course.kategorie, course.id)}
               image={<CourseIllustration kategorie={course.kategorie} type={course.type} />}
               actions={
                 <>
