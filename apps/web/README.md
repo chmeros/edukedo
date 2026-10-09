@@ -173,4 +173,5 @@ Hinweis: Die folgende Liste ist eine Chronik bis Anfang Oktober 2026. Sp√§tere √
 ```bash
 pnpm --filter @edukedo/api dev   # Backend auf Port 3001 (siehe apps/api/README.md)
 pnpm --filter @edukedo/web dev   # Frontend auf Port 5173
+pnpm --filter @edukedo/web test  # Komponententests (Vitest, jsdom, Testing Library)
 ```
