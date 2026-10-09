@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SuccessIcon } from "./Icons";
 import { Tile } from "./Tile";
 import { trpc } from "./trpc";
@@ -33,13 +33,20 @@ function MedalIllustration({ earned }: { earned: boolean }) {
  */
 export function Achievements() {
   const utils = trpc.useUtils();
-  const achievements = trpc.gamification.myAchievements.useQuery();
-  const personalBests = trpc.gamification.myPersonalBests.useQuery();
+  // Review UXT-I-05: Die Listen werden erst gelesen, nachdem die Prüfung auf neue Achievements gelaufen ist. Parallel gestartet las die
+  // Abfrage den Stand vor der Vergabe, und ihre Antwort überschrieb die Aktualisierung: das Banner nannte „Erster Schritt“, die Kachel
+  // blieb bis zum Neuladen gesperrt.
+  const [geprueft, setGeprueft] = useState(false);
+  const achievements = trpc.gamification.myAchievements.useQuery(undefined, { enabled: geprueft });
+  const personalBests = trpc.gamification.myPersonalBests.useQuery(undefined, { enabled: geprueft });
   const checkAndAward = trpc.gamification.checkAndAward.useMutation({
     onSuccess: () => {
       utils.gamification.myAchievements.invalidate();
       utils.gamification.myPersonalBests.invalidate();
+      setGeprueft(true);
     },
+    // Schlägt die Prüfung fehl, zeigen die Listen trotzdem den bekannten Stand.
+    onError: () => setGeprueft(true),
   });
 
   useEffect(() => {
@@ -54,7 +61,7 @@ export function Achievements() {
         <p>Deine persönliche Lernreise über alle belegten Kurse hinweg — ohne Fremdkontakt.</p>
       </div>
 
-      {checkAndAward.data && checkAndAward.data.newlyEarnedKeys.length > 0 && (
+      {checkAndAward.data && achievements.data && checkAndAward.data.newlyEarnedKeys.length > 0 && (
         <div className="alert alert-success">
           <SuccessIcon />
           <div>

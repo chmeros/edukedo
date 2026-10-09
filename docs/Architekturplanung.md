@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Browser-Prüfung: Achievement-Kachel, leerer Bereich, Fragenwechsel, namenlose Knöpfe, Review UXT-I-05, I-09, B-17, B-12)
+
+Anlass: Vier Befunde der Teilnehmer-Berichte ließen sich nur im laufenden Browser beurteilen. Geprüft im Vite-Entwicklungsserver mit Wegwerf-Konto im Kurs Mathematik 9 (Konto danach gelöscht); der Bildschirm der Prüfung war rund 1.350 × 1.000 Pixel groß.
+
+- **UXT-I-05, Achievement-Kachel: bestätigt und behoben.** Direkt nach der ersten Antwort nannte das Banner „Erster Schritt“, die Kachel blieb „Noch nicht erreicht“, bis zum Neuladen. Ursache war ein Wettlauf in `Achievements.tsx`: Die Liste und die Prüfung auf neue Achievements (`checkAndAward`) starteten gleichzeitig, die Liste las den Stand vor der Vergabe, und ihre Antwort überschrieb die Aktualisierung (im Zwischenspeicher stand `earnedAt = null`, obwohl der Server den Wert hatte). Jetzt werden Liste und Bestwerte erst gelesen, wenn die Prüfung gelaufen ist (auch bei einem Fehler der Prüfung), und das Banner erscheint erst mit geladener Liste. Live nachgeprüft: Banner und Kachel „Erreicht am 9.10.2026“ zugleich. Zwei neue Tests in `Achievements.test.tsx` (Gegenprobe: ohne die Änderung schlägt der Reihenfolge-Test fehl).
+- **UXT-I-09, leerer Bereich über der Frage: bestätigt, aber bewusst.** Zwischen Tab-Leiste und Frage liegen rund 96 Pixel. Ursache ist die vertikale Zentrierung von `.content-narrow` (`min-height: 60vh`, `justify-content: center`), eingeführt im Redesign-Audit (Befund #10) und damals mit dem Projektleiter abgestimmt; die schmale Spalte (640 Pixel) gehört dazu. Neu beobachtet: Weil mittig ausgerichtet wird, springt die Frage nach oben, sobald die Rückmeldung Höhe hinzufügt (hier um etwa 47 Pixel). Unverändert gelassen, **Entscheidung offen** (siehe Entwicklungsplan). Der zweite Teil des Befunds („Kurz erklärt“ auf jeder Werkzeugseite bis „Verstanden“) stimmt: das Banner erscheint in allen Tabs außer dem Lernen-Tab mit laufender Runde. Ein Versuch, es nur im Lernen-Tab zu zeigen, wurde verworfen, weil es dort wegen der laufenden Runde fast nie sichtbar wäre und die Einführung (F-134) verfehlt.
+- **UXT-B-17, Übergang beim Fragenwechsel: nicht reproduzierbar.** Nach „Nächste Frage“ stand die neue Frage nach 52 Millisekunden, die alte war sofort weg.
+- **UXT-B-12, namenlose Kopf-Icon-Knöpfe: nicht reproduzierbar.** Eine Prüfung aller Knöpfe, Links und Felder der Lernansicht ergab keinen ohne Namen (Beschriftung, `aria-label` oder verknüpftes Label).
+- **Nebenbei live bestätigt:** Farben (Primär grün, Lernmodus-Dialog mit „Beides gemischt“ gefüllt), Bereich „Konto“ am Ende der Einstellungen mit Rückfrage und „Abbrechen“ zurück in die Einstellungen, „Fehler melden“ im Theorie-Lesefenster, Escape im Melden-Dialog schließt nur den Dialog, Firmen-Hinweis beim Code einlösen.
+
 ### Entschieden am 09.10.2026 (Kohorten und Firmen, Teil 3: Firmenseiten, Bezeichnung für Codes, „Fehler melden“ im Lese-Modus und Theorie-Fenster, Dev-Links in Produktion, Review UXL-11, UXL-13, UXL-19)
 
 Anlass: Letzter Rest der Befunde zu Firmen-Dashboard, Fehlermeldungen und Entwicklungs-Links. Umsetzung ohne Rückfrage, ohne Rechtstext und ohne Gestaltungsfrage.
