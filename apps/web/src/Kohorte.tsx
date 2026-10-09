@@ -47,10 +47,11 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
         [],
         ["Kennzahl", "Wert in Prozent"],
         ["Aktive Mitglieder (30 Tage)", prozent(d.activeSharePercent)],
-        ["Durchschnittlicher Fortschritt", prozent(d.avgProgressPercent)],
+        ["Durchschnittlicher Kursfortschritt (beherrschte Aufgaben an allen Aufgaben des Kurses)", prozent(d.avgCourseProgressPercent)],
+        ["Sicher beherrscht unter den bearbeiteten Aufgaben", prozent(d.avgProgressPercent)],
         [],
-        ["Handlungsbereich", "Durchschnittliche Trefferquote in Prozent"],
-        ...d.byFachgebiet.map((eintrag) => [eintrag.fachgebietTitle, prozent(eintrag.avgAccuracyPercent)]),
+        ["Handlungsbereich", "Durchschnittliche Trefferquote in Prozent", "Anzahl Antworten"],
+        ...d.byFachgebiet.map((eintrag) => [eintrag.fachgebietTitle, prozent(eintrag.avgAccuracyPercent), prozent(eintrag.answers)]),
       ]),
     );
   }
@@ -70,11 +71,35 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
               <span className="stat-label">Aktive Mitglieder (30 Tage)</span>
             </div>
             <div className="stat-tile">
+              <span className="stat-value">{d.avgCourseProgressPercent === null ? "–" : `${d.avgCourseProgressPercent} %`}</span>
+              <span className="stat-label">Ø Kursfortschritt</span>
+            </div>
+            <div className="stat-tile">
               <span className="stat-value">{d.avgProgressPercent === null ? "–" : `${d.avgProgressPercent} %`}</span>
-              <span className="stat-label">Ø Fortschritt</span>
+              <span className="stat-label">Sicher beherrscht (bearbeitete Aufgaben)</span>
             </div>
           </div>
-          {(d.activeSharePercent === null || d.avgProgressPercent === null) && (
+          {/* Review UXL-06: Was die Zahlen bedeuten und auf welcher Basis sie stehen. */}
+          <ul className="field-hint stat-erklaerung">
+            <li>
+              <b>Aktive Mitglieder:</b> Anteil der Mitglieder, die in den letzten 30 Tagen mindestens eine Aufgabe beantwortet haben.
+            </li>
+            <li>
+              <b>Ø Kursfortschritt:</b> Anteil der Aufgaben des Kurses, die ein Mitglied sicher beherrscht, gemittelt über alle Mitglieder.
+              Das ist dieselbe Zahl, die Lernende in ihrem Fortschritt sehen.
+            </li>
+            <li>
+              <b>Sicher beherrscht (bearbeitete Aufgaben):</b> Von den Aufgaben, die Mitglieder schon angefasst haben, der Anteil, der sicher
+              sitzt. Die Zahl ist meist deutlich höher als der Kursfortschritt, weil der noch unbearbeitete Rest des Kurses nicht mitzählt.
+            </li>
+          </ul>
+          {d.activeMembers !== null && d.workedMembers !== null && d.workedItems !== null && (
+            <p className="field-hint">
+              Basis: {d.activeMembers} von {d.totalMembers} Mitgliedern waren in den letzten 30 Tagen aktiv; {d.workedMembers} Mitglieder
+              haben zusammen {d.workedItems} Aufgaben bearbeitet.
+            </p>
+          )}
+          {(d.activeSharePercent === null || d.avgProgressPercent === null || d.avgCourseProgressPercent === null) && (
             <p className="field-hint">
               Mit „–“ gekennzeichnete Kennzahlen erscheinen erst, wenn mindestens {d.minCohortSize} verschiedene Mitglieder dazu
               beigetragen haben — sonst ließe sich die Leistung einzelner Personen ablesen.
@@ -88,7 +113,11 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
                 key={entry.fachgebietId}
                 size="sm"
                 title={entry.fachgebietTitle}
-                meta={entry.avgAccuracyPercent !== null ? `${entry.avgAccuracyPercent} %` : "noch zu wenig Beteiligung"}
+                meta={
+                  entry.avgAccuracyPercent !== null
+                    ? `${entry.avgAccuracyPercent} % (${pluralDe(entry.answers ?? 0, "Antwort", "Antworten")})`
+                    : "noch zu wenig Beteiligung"
+                }
                 fill={entry.avgAccuracyPercent ?? 0}
               />
             ))}

@@ -7,7 +7,7 @@ import {
   renameCohortInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
-import { and, count, eq, gte, or, sql } from "drizzle-orm";
+import { and, count, eq, gte, inArray, or, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
 import { requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import type { Database } from "../../db/client";
@@ -24,6 +24,7 @@ import {
   userCourse,
   userProgress,
 } from "../../db/schema";
+import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 import { hideIfFewContributors, MIN_CONTRIBUTORS_FOR_STATS } from "../../stats-privacy";
 import { protectedProcedure, router } from "../trpc";
 
@@ -326,13 +327,23 @@ export const cohortRouter = router({
         minCohortSize: MIN_COHORT_SIZE_FOR_STATS,
         activeSharePercent: null,
         avgProgressPercent: null,
-        byFachgebiet: [] as { fachgebietId: string; fachgebietTitle: string; avgAccuracyPercent: number | null }[],
+        avgCourseProgressPercent: null,
+        activeMembers: null,
+        workedMembers: null,
+        workedItems: null,
+        byFachgebiet: [] as {
+          fachgebietId: string;
+          fachgebietTitle: string;
+          avgAccuracyPercent: number | null;
+          answers: number | null;
+        }[],
       };
     }
 
     const activeSince = new Date(Date.now() - ACTIVE_WINDOW_MS);
 
-    const [[activeRow], [totalProgressRow], [masteredProgressRow], accuracyByFachgebiet] = await Promise.all([
+    const [[activeRow], [totalProgressRow], [masteredProgressRow], [kursItemsRow], [masteredCountableRow], accuracyByFachgebiet] =
+      await Promise.all([
       ctx.db
         .select({ value: sql<number>`count(distinct ${learningEvent.userId})::int` })
         .from(learningEvent)
@@ -366,6 +377,34 @@ export const cohortRouter = router({
         .innerJoin(thema, eq(thema.id, contentItem.themaId))
         .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
         .where(and(eq(fachgebiet.kursId, cohortRow.kursId), eq(userProgress.state, "review"))),
+      // Review UXL-06: „Kursfortschritt“ wie in der Lernenden-Ansicht (progress.overview): beherrschte Aufgaben geteilt durch alle
+      // zählbaren, aktiven Aufgaben des Kurses, hier über alle Mitglieder gemittelt.
+      ctx.db
+        .select({ value: count() })
+        .from(contentItem)
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .where(
+          and(eq(fachgebiet.kursId, cohortRow.kursId), eq(contentItem.isActive, true), inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES)),
+        ),
+      ctx.db
+        .select({ value: count() })
+        .from(userProgress)
+        .innerJoin(
+          cohortMember,
+          and(eq(cohortMember.userId, userProgress.userId), eq(cohortMember.cohortId, input.cohortId)),
+        )
+        .innerJoin(contentItem, eq(contentItem.id, userProgress.contentItemId))
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .where(
+          and(
+            eq(fachgebiet.kursId, cohortRow.kursId),
+            eq(userProgress.state, "review"),
+            eq(contentItem.isActive, true),
+            inArray(contentItem.type, PROGRESS_COUNTABLE_TYPES),
+          ),
+        ),
       ctx.db
         .select({
           fachgebietId: fachgebiet.id,
@@ -388,6 +427,7 @@ export const cohortRouter = router({
     ]);
 
     const totalProgress = totalProgressRow?.value ?? 0;
+    const kursItems = kursItemsRow?.value ?? 0;
 
     return {
       totalMembers,
@@ -398,12 +438,25 @@ export const cohortRouter = router({
         totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
         totalProgressRow?.contributors ?? 0,
       ),
-      byFachgebiet: accuracyByFachgebiet.map((row) => ({
-        fachgebietId: row.fachgebietId,
-        fachgebietTitle: row.fachgebietTitle,
-        avgAccuracyPercent:
-          row.contributors >= MIN_COHORT_SIZE_FOR_STATS && row.total > 0 ? Math.round((row.correct / row.total) * 100) : null,
-      })),
+      // Review UXL-06: Anteil sicher beherrschter Aufgaben unter den BEARBEITETEN (anders als der Kursfortschritt unten, der
+      // alle Aufgaben des Kurses als Nenner nimmt); beide stehen mit Erklärung in der Oberfläche.
+      avgCourseProgressPercent: hideIfFewContributors(
+        kursItems > 0 ? Math.round(((masteredCountableRow?.value ?? 0) / (totalMembers * kursItems)) * 100) : null,
+        totalProgressRow?.contributors ?? 0,
+      ),
+      // Review UXL-06: Fallzahlen zu den Kennzahlen, jeweils nur bei genug Beitragenden (wie die Kennzahl selbst).
+      activeMembers: hideIfFewContributors(activeRow?.value ?? 0, activeRow?.value ?? 0),
+      workedMembers: hideIfFewContributors(totalProgressRow?.contributors ?? 0, totalProgressRow?.contributors ?? 0),
+      workedItems: hideIfFewContributors(totalProgress, totalProgressRow?.contributors ?? 0),
+      byFachgebiet: accuracyByFachgebiet.map((row) => {
+        const genug = row.contributors >= MIN_COHORT_SIZE_FOR_STATS && row.total > 0;
+        return {
+          fachgebietId: row.fachgebietId,
+          fachgebietTitle: row.fachgebietTitle,
+          avgAccuracyPercent: genug ? Math.round((row.correct / row.total) * 100) : null,
+          answers: genug ? row.total : null,
+        };
+      }),
     };
   }),
 });

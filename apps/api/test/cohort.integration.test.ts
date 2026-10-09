@@ -1,11 +1,12 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
 import { Pool } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as schema from "../src/db/schema";
+import { PROGRESS_COUNTABLE_TYPES } from "../src/progress-items";
 
 /**
  * F-07/F-64/F-65: Kohorten-/Dozenten-Funktion — Integrationstest über die echte HTTP-Schicht
@@ -298,6 +299,9 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
       const entryA = stats.byFachgebiet.find((entry: { fachgebietId: string }) => entry.fachgebietId === fachgebietA!.id);
       const entryB = stats.byFachgebiet.find((entry: { fachgebietId: string }) => entry.fachgebietId === fachgebietB!.id);
       expect(entryA.avgAccuracyPercent).toBe(100);
+      // Review UXL-06: Anzahl der Antworten hinter der Trefferquote, nur wo sie angezeigt wird.
+      expect(typeof entryA.answers).toBe("number");
+      expect(entryB.answers).toBeNull();
       expect(entryB.avgAccuracyPercent).toBeNull();
     },
     60_000,
@@ -345,6 +349,11 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     expect(data.totalMembers).toBe(5);
     expect(data.activeSharePercent).toBeNull();
     expect(data.avgProgressPercent).toBeNull();
+    // Review UXL-06: Auch Kursfortschritt und Fallzahlen bleiben verborgen, solange zu wenige Personen beitragen.
+    expect(data.avgCourseProgressPercent).toBeNull();
+    expect(data.activeMembers).toBeNull();
+    expect(data.workedMembers).toBeNull();
+    expect(data.workedItems).toBeNull();
 
     // Vier Personen reichen noch nicht, fünf schon.
     for (const row of fresh.slice(1, 4)) await contribute(row.id);
@@ -356,6 +365,23 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     data = await stats();
     expect(data.activeSharePercent).toBe(100);
     expect(data.avgProgressPercent).toBe(100);
+
+    // Review UXL-06: Fallzahlen, und der Kursfortschritt rechnet wie in der Lernenden-Ansicht (beherrschte Aufgaben geteilt durch
+    // alle zählbaren, aktiven Aufgaben des Kurses), gemittelt über die fünf Mitglieder.
+    expect(data.activeMembers).toBe(5);
+    expect(data.workedMembers).toBe(5);
+    expect(data.workedItems).toBe(5);
+    const [kursItems] = await db
+      .select({ value: sql<number>`count(*)::int` })
+      .from(schema.contentItem)
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      .where(
+        and(eq(schema.fachgebiet.kursId, kursId), eq(schema.contentItem.isActive, true), inArray(schema.contentItem.type, PROGRESS_COUNTABLE_TYPES)),
+      );
+    const [itemRow] = await db.select({ type: schema.contentItem.type }).from(schema.contentItem).where(eq(schema.contentItem.id, item!.id));
+    const beherrscht = PROGRESS_COUNTABLE_TYPES.includes(itemRow!.type) ? 5 : 0;
+    expect(data.avgCourseProgressPercent).toBe(Math.round((beherrscht / (5 * kursItems!.value)) * 100));
   });
 
   it("unterhalb der Mindestgröße liefert cohort.stats ausschließlich null-Kennzahlen", async () => {

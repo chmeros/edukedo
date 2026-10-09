@@ -333,9 +333,23 @@ function StatsSection() {
         </div>
         <div className="stat-tile">
           <span className="stat-value">{stats.data.avgProgressPercent === null ? "–" : `${stats.data.avgProgressPercent} %`}</span>
-          <span className="stat-label">Ø Fortschritt</span>
+          <span className="stat-label">Sicher beherrscht (bearbeitete Aufgaben)</span>
         </div>
       </div>
+      {/* Review UXL-11/UXL-06: Was die Zahlen bedeuten. */}
+      <ul className="field-hint stat-erklaerung">
+        <li>
+          <b>Aktive Lizenzen:</b> Anteil der Mitgliedschaften, die in den letzten 30 Tagen mindestens eine Aufgabe beantwortet haben.
+        </li>
+        <li>
+          <b>Ø Trefferquote:</b> Anteil richtiger Antworten über alle Mitgliedschaften und alle bisherigen Antworten.
+        </li>
+        <li>
+          <b>Sicher beherrscht (bearbeitete Aufgaben):</b> Von den Aufgaben, die Mitglieder schon angefasst haben, der Anteil, der sicher sitzt;
+          nicht der Anteil am ganzen Kurs, denn die Mitglieder können verschiedene Kurse lernen.
+        </li>
+      </ul>
+      <p className="field-hint">Basis: {stats.data.totalMembers} Mitgliedschaften.</p>
       {(stats.data.activeSharePercent === null || stats.data.avgAccuracyPercent === null || stats.data.avgProgressPercent === null) && (
         <p className="field-hint">
           Mit „–“ gekennzeichnete Kennzahlen erscheinen erst, wenn mindestens {stats.data.minCohortSize} verschiedene Mitgliedschaften
