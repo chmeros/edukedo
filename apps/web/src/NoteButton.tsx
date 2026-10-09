@@ -78,6 +78,7 @@ export function NoteButton({ contentItemId }: { contentItemId: string }) {
                   className="input"
                   id={textFieldId}
                   data-autofocus
+                  autoFocus
                   rows={4}
                   maxLength={2000}
                   value={text}

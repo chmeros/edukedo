@@ -569,6 +569,19 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Usability: Eingabe und Bedienung)
+
+Anlass: Fünf Bedienungsmängel aus dem Reststand-Abgleich, die bei jeder Lernrunde oder beim Kurswechsel auffallen.
+
+- **Enter prüft die Antwort (UXT-B-16, F-12):** Bei der Kurzantwort sendet Enter ab, sobald etwas eingegeben ist; beim Lückentext, sobald alle Lücken gefüllt sind. Kein Absenden bei leerem Feld, bei laufender Prüfung oder nach der Rückmeldung. Das Eingabefeld heißt „Deine Antwort“, die Lücken heißen „Lücke 1“, „Lücke 2“ usw. (UXT-B-12; vorher nur Platzhalter bzw. ohne Namen).
+- **Mehrfachauswahl als Ankreuzfelder (UXT-B-12):** Die Optionen sind `role="checkbox"` mit `aria-checked` statt Schaltflächen mit `aria-pressed`; das sichtbare Kästchen (☐/☑) ist für Hilfstechnik ausgeblendet (`AntwortOption`, Parameter `mehrfach`). Einfachauswahl bleibt unverändert.
+- **Ganze Zone als Klickziel (UXT-B-06):** In `DroppableZone` legt ein Klick auf die freie Fläche des Zielfelds den gewählten Begriff dort ab (Zuordnung, Sortieren, Zonen, Hierarchie, Wortauswahl); bisher war nur die kleine Beschriftung („1.“) klickbar. Klicks auf einen Begriff in der Zone und auf die Beschriftung behalten ihre Wirkung (der Begriff wird nur ausgewählt, die Beschriftung wirkt einmal).
+- **Fokus im Dialog (UXT-B-01 Rest):** `Modal` fokussiert beim Öffnen ein Feld mit `data-autofocus`, sonst das Panel. Die Dialoge „Notiz“ und „Fehler melden“ setzen das Attribut auf ihr Textfeld, der Notiz-Dialog zusätzlich `autoFocus`, weil sein Inhalt erst nach dem Laden der Notiz erscheint. Man kann sofort tippen.
+- **Kurswechsel (UXT-F-20, B-22):** `App.tsx` bekommt `wechsleKurs`: Beim Wechsel in einen anderen Kurs (Kopf-Auswahl und Kursauswahl nach dem Beitritt) werden laufende Abfragen des alten Kurses abgebrochen (Abfrage-Schlüssel enthält die Kurs-ID; gegen die Fehler „nicht eingeschrieben“ nach dem Wechsel), und die Ansicht beginnt im Lernen-Tab statt im zuletzt offenen Reiter.
+- **Kein Aufblitzen der Startseite (UXT-F-17):** Solange die erste Anmeldeabfrage läuft (`isInitialLoading`), zeigt die App „Lädt…“ statt kurz die Startseite für Gäste. Bei einer pausierten Abfrage (Kaltstart ohne Netz) bleibt das bisherige Verhalten samt Wiederherstellung aus der letzten Sitzung (WEB-03).
+- **Bewusst nicht Teil:** `inputMode="decimal"` im Rechen-Sprint (kein Minuszeichen auf der Zahlentastatur), `<label>` an jedem Feld im Lückentext statt `aria-label` (die Lücken stehen im Satz).
+- **Prüfung:** Sechs neue Tests (`QuizSteps.test.tsx`: Enter bei Kurzantwort und Lückentext mit Feldnamen, Ankreuzfelder, Klick auf die Zonenfläche, kein Ablegen beim Klick auf einen Begriff; `Modal.test.tsx`: Fokus auf `data-autofocus`). Gegenprobe mit vorübergehend deaktivierten Änderungen: fünf der Tests schlagen fehl (der sechste prüft das Gegenteil und besteht erwartungsgemäß weiter). Web-Suite 88, Typprüfung und Lint sauber. Live im Browser (Wegwerf-Konto, Büro-Kurs): Der Notiz-Dialog und der Melden-Dialog setzen den Fokus auf das Textfeld; der erste Versuch zeigte, dass der Notiz-Dialog wegen des nachladenden Inhalts `autoFocus` braucht, was dann behoben wurde. **Nicht live gesehen:** der Kurswechsel (Erwachsenen-Weiterbildungskurse erlauben nur eine Belegung) und das Aufblitzen der Startseite.
+
 ### Entschieden am 09.10.2026 (Usability: Textpaket und kleine Hinweise)
 
 Anlass: Der Reststand-Abgleich (Eintrag darunter) ergab eine Reihe kleiner, risikoarmer Text- und Hinweisfehler, die zusammen sofort sichtbar sind.
