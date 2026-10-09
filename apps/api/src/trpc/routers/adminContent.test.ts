@@ -1,6 +1,7 @@
 import type { AdminContentItemForm } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { describe, expect, it } from "vitest";
+import { adminCreateContentItemInputSchema, PREMIUM_CONTENT_NOT_AVAILABLE_MESSAGE } from "@edukedo/shared";
 import { prepareContent } from "./adminContent";
 
 const commonFormFields = {
@@ -143,5 +144,19 @@ describe("prepareContent (F-11)", () => {
     } as AdminContentItemForm);
 
     expect(result.payload).toEqual({ themaTitel: "3.3 Konfliktmanagement" });
+  });
+});
+
+describe("Premium-Kennzeichen (LOG-22)", () => {
+  const karteikarte = { type: "karteikarte", prompt: "Frage?", explanation: "Antwort.", ...commonFormFields };
+
+  it("lässt Content ohne Premium-Kennzeichen zu", () => {
+    expect(adminCreateContentItemInputSchema.safeParse(karteikarte).success).toBe(true);
+  });
+
+  it("weist ein gesetztes Premium-Kennzeichen ab, solange F-80 nicht durchgesetzt wird", () => {
+    const result = adminCreateContentItemInputSchema.safeParse({ ...karteikarte, isPremium: true });
+    expect(result.success).toBe(false);
+    expect(JSON.stringify(result)).toContain(PREMIUM_CONTENT_NOT_AVAILABLE_MESSAGE);
   });
 });

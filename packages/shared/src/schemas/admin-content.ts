@@ -68,11 +68,19 @@ const fallaufgabePartFormSchema = z.object({
   bloom: contentItemBloomSchema.nullable().optional(),
 });
 
+/**
+ * Review LOG-22/SOZ-29: `is_premium` hat noch keine Wirkung (keine Lese-Abfrage wertet es aus), ein gesetztes Flag würde die Frage also
+ * trotzdem für alle freigeben. Bis F-80 (Umfang des kostenpflichtigen Contents) entschieden und durchgesetzt ist, wird das Setzen
+ * abgewiesen; die Spalte bleibt bestehen.
+ */
+export const PREMIUM_CONTENT_NOT_AVAILABLE_MESSAGE =
+  "Kostenpflichtiger Content ist noch nicht freigeschaltet. Das Premium-Kennzeichen kann derzeit nicht gesetzt werden.";
+
 const commonFormFields = {
   themaId: z.string().uuid(),
   difficulty: contentItemDifficultySchema,
   bloom: contentItemBloomSchema.nullable().optional(),
-  isPremium: z.boolean(),
+  isPremium: z.boolean().refine((value) => !value, { message: PREMIUM_CONTENT_NOT_AVAILABLE_MESSAGE }),
   isActive: z.boolean(),
 };
 

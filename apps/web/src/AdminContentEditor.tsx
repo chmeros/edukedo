@@ -217,9 +217,10 @@ function ContentItemForm({
   function submit(event: React.FormEvent) {
     event.preventDefault();
     if (isEdit) {
-      update.mutate({ ...form, contentItemId, changeNote: changeNote.trim() || undefined } as never);
+      // Review LOG-22: Das Premium-Kennzeichen hat noch keine Wirkung und kann nicht gesetzt werden (siehe PREMIUM_CONTENT_NOT_AVAILABLE_MESSAGE).
+      update.mutate({ ...form, isPremium: false, contentItemId, changeNote: changeNote.trim() || undefined } as never);
     } else {
-      create.mutate(form as never);
+      create.mutate({ ...form, isPremium: false } as never);
     }
   }
 
@@ -1092,10 +1093,6 @@ function ContentItemForm({
         <label className="field-hint" style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <input type="checkbox" checked={form.isActive} onChange={(event) => setField("isActive", event.target.checked)} />
           Aktiv (sichtbar für Lernende)
-        </label>
-        <label className="field-hint" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <input type="checkbox" checked={form.isPremium} onChange={(event) => setField("isPremium", event.target.checked)} />
-          Premium (F-80)
         </label>
       </div>
 
