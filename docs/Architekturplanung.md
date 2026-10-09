@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Lückentext-Lösung nicht im Klartext, Review UXT-F-06)
+
+Anlass: Der gespeicherte Text eines Lückentexts (`content_item.prompt`) enthält die Lösungen im Autorenformat `___Lösung___`. Die Suche der Lernenden (`content.search`, Tab „Lernen“) zeigte ihn roh, also die Antwort gleich mit; der Lese-Modus (`kursInhalt.thema`, `kursInhalt.suche`) ebenso, auch im Druck „ohne Lösungen“, und die neue Suche im Lese-Modus nahm ihren Ausschnitt aus demselben Text.
+
+- **Gemeinsamer Helfer (`packages/shared/src/luecken-maske.ts`):** `maskiereLuecken` ersetzt jede `___Lösung___` durch „[…]“, `promptFuerAnzeige(type, prompt)` tut das nur für die Lückentext-Typen (`luecken`, `luecken_auswahl`; `istLueckentext`). Das Zeichen „[…]“ statt einfacher Unterstriche, weil der Ausschnitt-Helfer der Suche Unterstriche als Markdown-Zeichen entfernt und die Lücke sonst unsichtbar würde.
+- **Wo maskiert wird:** `content.search` (Treffer der eigenen Lerninhalte), `kursInhalt.thema` (Feld `prompt` je Inhalt) und `kursInhalt.suche` (Ausschnitt und Rückfallanzeige). Die Lösung steht dort, wo sie ausdrücklich gezeigt wird: im Lese-Modus unter „Lösung und Erklärung“ (`1: Kapitalwert`). Nicht geändert: die Lernrunde selbst (sie nutzt `textWithBlanks` mit leeren Feldern), der Redaktionsbereich (dort ist die Lösung gewollt) und die Bewertung.
+- **Wortauswahl im Lese-Modus:** `leseAnsicht` kannte nur den freien Lückentext; die Wortauswahl (`luecken_auswahl`) zeigte keine Lösung. Jetzt: Text mit Platzhaltern, Lösungen je Lücke und „Nicht passend: …“ für die Ablenker.
+- **Doppelter Text im Lese-Modus:** `KursInhalte.tsx` zeigt bei Lückentexten den Platzhaltertext (`text`) nicht mehr zusätzlich zur Aufgabe (Bildschirm und Druck), weil der Satz in der Aufgabe schon steht.
+- **Bekannte Grenze:** Die Suche vergleicht weiter gegen den gespeicherten Rohtext. Wer nach einem Lösungswort sucht, findet also den Lückentext (mit „[…]“ im Treffer) und erfährt, dass das Wort dort vorkommt. Das ist wie bei der Textsuche über Theorie und Erklärungen und verrät die Lösung nicht im Treffer; ein Ausschluss der Lösungswörter aus der Suche wäre eine eigene Datenänderung.
+- **Prüfung:** Vier Unit-Tests für die Maske (Shared), ein Unit-Test für die Wortauswahl im Lese-Modus, zwei Integrationstests (`kurs-inhalt.integration.test.ts`: Suche und Themenansicht ohne Klartext-Lösung, `content.search` ebenso; entfernt man die Maske, schlagen beide fehl). Komplette API-Suite 871, Shared 1044, Web 93, Typprüfung und Lint in allen drei Paketen sauber. Nicht im Browser angesehen: die Anzeige folgt dem Text aus dem Server; die Änderung an `KursInhalte.tsx` ist eine Bedingung für zwei Absätze.
+
 ### Entschieden am 09.10.2026 (Usability: Theorie auffindbar)
 
 Anlass: Der am häufigsten genannte Befund der Teilnehmerberichte (UXT-B-04, UXT-I-16): Wer neu im Kurs ist, findet die Theorie nicht. Es gibt bewusst keinen Theorie-Tab (F-103); sie war nur nach einer Antwort („Im Thema nachlesen“), im Fortschritt und über die Suche erreichbar, und der Einführungstext erwähnte sie nicht.
