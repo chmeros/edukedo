@@ -562,6 +562,7 @@ export function AdminPanel() {
                   {CONTENT_REPORT_CATEGORY_LABELS[entry.category as ContentReportCategory] ?? entry.category}: {entry.reason} · gemeldet von{" "}
                   {entry.reporterEmail ?? "unbekannt"} ·{" "}
                   {new Date(entry.createdAt).toLocaleDateString("de-DE")}
+                  {entry.overdue && <strong> · seit über 12 Monaten offen</strong>}
                 </span>
               </div>
               <div className="list-row-actions">
@@ -590,6 +591,9 @@ export function AdminPanel() {
           ))}
         </div>
         {contentReports.data?.length === 0 && <p className="field-hint">Keine offenen Fehlermeldungen.</p>}
+        <p className="field-hint">
+          Geschlossene Meldungen verlieren 6 Monate nach dem Schließen ihren Text und die Rückmeldung (Aufbewahrungsfrist); offene Meldungen werden nie automatisch gelöscht.
+        </p>
         {resolveContentReport.error && <ErrorMessage>{resolveContentReport.error.message}</ErrorMessage>}
       </div>
 

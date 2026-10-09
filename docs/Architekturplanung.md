@@ -568,6 +568,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Aufbewahrung der Inhaltsmeldungen, Review UXL-13)
+
+Anlass: Entscheidung der Projektleitung vom 09.10.2026 (Entwicklungsplan Iteration 23): Der Freitext von Inhaltsmeldungen wird 6 Monate (180 Tage) nach der Bearbeitung geleert; bisher blieb er unbegrenzt gespeichert, auch nach dem Löschen des Kontos der meldenden Person (der Verweis wurde dann `NULL`, der Text blieb).
+
+- **Regel (`content-report-retention.ts`, reine Funktionen):** 180 Tage nach der Bearbeitung (`resolved_at`) verlieren bearbeitete Meldungen Meldungstext (`reason`) und Rückmeldung der Redaktion (`resolution_note`) sowie den Verweis auf die meldende Person (`reporter_user_id`). Kategorie, Status und Zeitpunkte bleiben als Statistik. Meldungen ohne Bearbeitungszeitpunkt (aus der Zeit vor Migration 0049) zählen ab dem Eingang (`coalesce(resolved_at, created_at)`). Offene Meldungen werden nie automatisch gelöscht; ab 365 Tagen nach dem Eingang kennzeichnet der Admin-Bereich sie als „seit über 12 Monaten offen“.
+- **Wartungsbefehl `pnpm db:purge-content-reports [--apply]`** (`db/purge-content-reports.ts`, im Produktions-Image `node dist/purge-content-reports.js`): Standard ist ein Trockenlauf mit Anzahlen; mit `--apply` wird in einer einzigen Anweisung geleert. Die Ausgabe enthält nur Anzahlen, keine Inhalte. Das Feld `reason` ist `NOT NULL`; es bekommt den festen Hinweistext „[Text nach Ablauf der Aufbewahrungsfrist gelöscht]“, an dem der Befehl bereits geleerte Zeilen erkennt (wiederholbar, keine neue Spalte nötig). Es läuft als Einstieg im gebündelten Build, der Server startet es nicht mit.
+- **Folgen für die Oberfläche:** „Meine Meldungen“ der meldenden Person zeigt geleerte Meldungen nicht mehr (der Verweis ist entfernt, die Meldung ist abgeschlossen und der Text ist ohnehin weg). Im Admin-Bereich steht unter den Fehlermeldungen ein Hinweis auf die Frist.
+- **Zeitplan:** Der Befehl muss vom Zeitplan des Hosters aufgerufen werden (monatlich genügt), wie die Erinnerungsskripte; `infra/README.md` führt ihn in der Tabelle. Ohne diesen Aufruf passiert nichts.
+- **Tests:** 4 Unit-Tests der Regel, 5 Integrationstests (Trockenlauf ändert nichts, geleert werden Text, Rückmeldung und Verweis, Meldungen innerhalb der Frist und alle offenen bleiben, zweiter Lauf findet nichts, Frist läuft während des Betriebs ab); beide Aufrufwege (`tsx` und gebündelt) gegen die Entwicklungsdatenbank im Trockenlauf geprüft; gesamte API-Suite 854 Tests grün.
+- **Offen:** Die Frist ist eine Datenschutzentscheidung; eine fachkundige Person sollte sie bestätigen, und sie gehört in die Datenschutzerklärung (nicht von mir geändert, R4). Die Nutzer-Meldungen (`report`, F-68) tragen ebenfalls Freitext und haben noch keine Frist. Der Zeitplan beim Hoster hängt an der Hostingwahl.
+
 ### Entschieden am 09.10.2026 (Logo-Upload für Unternehmen und Sponsoren)
 
 Anlass: Entscheidung der Projektleitung vom 09.10.2026 (Entwicklungsplan Iteration 23): Logos werden hochgeladen und von der eigenen Domain ausgeliefert, statt als externe https-Adresse vom Fremdserver geladen zu werden (die IP-Adresse der Lernenden erreichte sonst Dritte).

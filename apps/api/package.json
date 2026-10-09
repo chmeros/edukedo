@@ -24,6 +24,7 @@
     "db:import-content": "tsx src/db/import-content.ts",
     "db:validate-content": "tsx src/db/validate-content.ts",
     "db:purge-inactive": "tsx src/db/purge-inactive.ts",
+    "db:purge-content-reports": "tsx src/db/purge-content-reports.ts",
     "db:backfill-source-keys": "tsx src/db/backfill-source-keys.ts",
     "db:apply-kurs-metadata": "tsx src/db/apply-kurs-metadata.ts",
     "db:freigeben": "tsx src/db/freigeben.ts",

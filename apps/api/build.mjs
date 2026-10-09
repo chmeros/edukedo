@@ -21,6 +21,7 @@ const einstiege = {
   "import-content": "src/db/import-content.ts",
   "validate-content": "src/db/validate-content.ts",
   "purge-inactive": "src/db/purge-inactive.ts",
+  "purge-content-reports": "src/db/purge-content-reports.ts",
   "backfill-source-keys": "src/db/backfill-source-keys.ts",
   "apply-kurs-metadata": "src/db/apply-kurs-metadata.ts",
   freigeben: "src/db/freigeben.ts",

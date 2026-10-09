@@ -23,6 +23,7 @@ docker build -f infra/docker/payment.Dockerfile -t edukedo-payment .
 | `node dist/validate-content.js` | Inhalte prüfen, ohne Datenbankzugriff. |
 | `node dist/import-content.js [--dry-run] [--allow-removals]` | Inhalte importieren (Löschungen über der Schwelle werden blockiert, siehe `content/README.md`). |
 | `node dist/purge-inactive.js [--apply]` | Deaktivierte Items ohne Nutzerdaten endgültig entfernen. |
+| `node dist/purge-content-reports.js [--apply]` | Freitext bearbeiteter Inhaltsmeldungen 180 Tage nach der Bearbeitung leeren (Standard: Trockenlauf). **Monatlich vom Zeitplan des Hosters mit `--apply` aufrufen.** |
 | `node dist/backfill-source-keys.js` | Einmalig: stabile Schlüssel für bestehende Daten nachtragen. |
 | `node dist/send-consent-reminders.js`, `send-learning-reminders.js`, `send-duell-reminders.js` | Erinnerungen; **müssen von einem externen Zeitplan (Cron/Scheduler des Hosters) aufgerufen werden**, einen solchen gibt es im Repository noch nicht. |
 

@@ -16,6 +16,7 @@ import { alias } from "drizzle-orm/pg-core";
 import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
 import { deleteLogo, logoPath, storeLogo } from "../../branding/logo-store";
+import { isOverdueOpenReport } from "../../content-report-retention";
 import { kursTargetsMinors } from "../../course-audience";
 import { importAllContent } from "../../db/import-content";
 import { importPreviewToken } from "../../db/import-preview";
@@ -382,7 +383,9 @@ export const adminRouter = router({
       .innerJoin(contentItem, eq(contentItem.id, contentReport.contentItemId))
       .leftJoin(reporterUser, eq(reporterUser.id, contentReport.reporterUserId))
       .where(eq(contentReport.status, "offen"))
-      .orderBy(contentReport.createdAt);
+      .orderBy(contentReport.createdAt)
+      // Offene Meldungen werden nie automatisch gelöscht; ab 365 Tagen weist die Oberfläche auf sie hin (Aufbewahrungsregel).
+      .then((rows) => rows.map((row) => ({ ...row, overdue: isOverdueOpenReport(row.createdAt, new Date()) })));
   }),
 
   resolveContentReport: roleProcedure("admin")
