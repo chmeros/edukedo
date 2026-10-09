@@ -7,6 +7,7 @@ import {
   resolveContentReportInputSchema,
   resolveReportInputSchema,
   setSponsorActiveInputSchema,
+  setSponsorLogoInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
@@ -14,6 +15,7 @@ import { and, eq, gte, sql } from "drizzle-orm";
 import { alias } from "drizzle-orm/pg-core";
 import { pingOllama } from "../../ai/ollama-provider";
 import { createCompanyAccount } from "../../auth/company-setup";
+import { deleteLogo, logoPath, storeLogo } from "../../branding/logo-store";
 import { kursTargetsMinors } from "../../course-audience";
 import { importAllContent } from "../../db/import-content";
 import { importPreviewToken } from "../../db/import-preview";
@@ -242,7 +244,7 @@ export const adminRouter = router({
       .select({
         id: sponsor.id,
         name: sponsor.name,
-        logoUrl: sponsor.logoUrl,
+        logoId: sponsor.logoId,
         attributionText: sponsor.attributionText,
         kursId: sponsor.kursId,
         isActive: sponsor.isActive,
@@ -250,35 +252,57 @@ export const adminRouter = router({
         endsAt: sponsor.endsAt,
       })
       .from(sponsor)
-      .orderBy(sponsor.createdAt);
+      .orderBy(sponsor.createdAt)
+      .then((rows) => rows.map(({ logoId, ...rest }) => ({ ...rest, logoUrl: logoPath(logoId) })));
   }),
 
   /**
    * F-91 Baustein 5 (F-94): Legt ein Sponsoring an — admin-gepflegt, kein Self-Service durch das
-   * sponsernde Unternehmen (redaktionelle Unabhängigkeit, siehe F-11/F-16). Ein leerer String bei
-   * `logoUrl` wird auf `null` normalisiert (kaputtes `<img src="">` vermeiden, analog zu
-   * `company.updateBranding`).
+   * sponsernde Unternehmen (redaktionelle Unabhängigkeit, siehe F-11/F-16). Das Logo ist optional
+   * und wird als Base64-Bild hochgeladen (siehe `setSponsorLogo`).
    */
   createSponsor: roleProcedure("admin")
     .input(createSponsorInputSchema)
     .mutation(async ({ ctx, input }) => {
-      const [created] = await ctx.db
-        .insert(sponsor)
-        .values({
-          name: input.name,
-          logoUrl: input.logoUrl || null,
-          attributionText: input.attributionText,
-          kursId: input.kursId ?? null,
-          startsAt: input.startsAt ?? null,
-          endsAt: input.endsAt ?? null,
-        })
-        .returning({ id: sponsor.id });
+      const id = await ctx.db.transaction(async (tx) => {
+        const logoId = input.logoData ? await storeLogo(tx, input.logoData) : null;
+        const [created] = await tx
+          .insert(sponsor)
+          .values({
+            name: input.name,
+            logoId,
+            attributionText: input.attributionText,
+            kursId: input.kursId ?? null,
+            startsAt: input.startsAt ?? null,
+            endsAt: input.endsAt ?? null,
+          })
+          .returning({ id: sponsor.id });
+        if (!created) {
+          throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+        }
+        return created.id;
+      });
 
-      if (!created) {
-        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
-      }
+      return { id };
+    }),
 
-      return { id: created.id };
+  /**
+   * Logo eines bestehenden Sponsorings ersetzen (Base64) oder entfernen (`null`); das bisherige Bild wird in derselben
+   * Transaktion gelöscht.
+   */
+  setSponsorLogo: roleProcedure("admin")
+    .input(setSponsorLogoInputSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db.transaction(async (tx) => {
+        const [current] = await tx.select({ logoId: sponsor.logoId }).from(sponsor).where(eq(sponsor.id, input.sponsorId)).limit(1);
+        if (!current) {
+          throw new TRPCError({ code: "NOT_FOUND", message: "Sponsoring nicht gefunden." });
+        }
+        const newLogoId = input.logoData ? await storeLogo(tx, input.logoData) : null;
+        await tx.update(sponsor).set({ logoId: newLogoId }).where(eq(sponsor.id, input.sponsorId));
+        await deleteLogo(tx, current.logoId);
+      });
+      return { success: true };
     }),
 
   /**

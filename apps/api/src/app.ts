@@ -2,6 +2,7 @@ import cookie from "@fastify/cookie";
 import type { TRPCError } from "@trpc/server";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import Fastify from "fastify";
+import { registerLogoRoute } from "./branding/logo-route";
 import { env } from "./env";
 import { createContext } from "./trpc/context";
 import { appRouter } from "./trpc/router";
@@ -45,6 +46,8 @@ export async function buildApp() {
   });
 
   app.get("/health", async () => ({ status: "ok" }));
+
+  registerLogoRoute(app);
 
   return app;
 }

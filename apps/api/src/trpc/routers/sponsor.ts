@@ -1,5 +1,6 @@
 import { listSponsorsInputSchema } from "@edukedo/shared";
 import { and, eq, isNull, lte, or, gte } from "drizzle-orm";
+import { logoPath } from "../../branding/logo-store";
 import { sponsor } from "../../db/schema";
 import { publicProcedure, router } from "../trpc";
 
@@ -22,7 +23,7 @@ export const sponsorRouter = router({
       .select({
         id: sponsor.id,
         name: sponsor.name,
-        logoUrl: sponsor.logoUrl,
+        logoId: sponsor.logoId,
         attributionText: sponsor.attributionText,
         kursId: sponsor.kursId,
       })
@@ -37,6 +38,6 @@ export const sponsorRouter = router({
       )
       .orderBy(sponsor.createdAt);
 
-    return rows;
+    return rows.map(({ logoId, ...rest }) => ({ ...rest, logoUrl: logoPath(logoId) }));
   }),
 });

@@ -7,6 +7,7 @@ import {
   createCompanyInviteCodeInputSchema,
   redeemCompanyInviteCodeInputSchema,
   updateCompanyBrandingInputSchema,
+  uploadLogoInputSchema,
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, sql } from "drizzle-orm";
@@ -15,6 +16,7 @@ import { hashPassword, verifyPassword } from "../../auth/password";
 import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/request-limits";
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
+import { deleteLogo, logoPath, storeLogo } from "../../branding/logo-store";
 import {
   companyAccount,
   companyInviteCode,
@@ -175,7 +177,7 @@ export const companyRouter = router({
       seatLimit: ctx.currentCompanyAdmin.seatLimit,
       seatsUsed: seatsUsedRow?.value ?? 0,
       billingStatus: ctx.currentCompanyAdmin.billingStatus,
-      brandingLogoUrl: ctx.currentCompanyAdmin.brandingLogoUrl,
+      brandingLogoUrl: logoPath(ctx.currentCompanyAdmin.brandingLogoId),
       brandingColor: ctx.currentCompanyAdmin.brandingColor,
       brandingHeadline: ctx.currentCompanyAdmin.brandingHeadline,
     };
@@ -272,7 +274,6 @@ export const companyRouter = router({
       await ctx.db
         .update(companyAccount)
         .set({
-          brandingLogoUrl: input.logoUrl || null,
           brandingColor: input.color || null,
           brandingHeadline: input.headline || null,
         })
@@ -280,6 +281,29 @@ export const companyRouter = router({
 
       return { success: true };
     }),
+
+  /**
+   * Logo-Upload (Entscheidung 09.10.2026, Entwicklungsplan Iteration 23): ersetzt die frühere Eingabe einer externen Adresse.
+   * Das Bild wird geprüft (branding/logo.ts) und in der Datenbank abgelegt; das bisherige Logo des Unternehmens wird in
+   * derselben Transaktion gelöscht, damit keine verwaisten Bilder bleiben.
+   */
+  uploadLogo: protectedCompanyAdminProcedure.input(uploadLogoInputSchema).mutation(async ({ ctx, input }) => {
+    const logoUrl = await ctx.db.transaction(async (tx) => {
+      const newId = await storeLogo(tx, input.dataBase64);
+      await tx.update(companyAccount).set({ brandingLogoId: newId }).where(eq(companyAccount.id, ctx.currentCompanyAdmin.id));
+      await deleteLogo(tx, ctx.currentCompanyAdmin.brandingLogoId);
+      return logoPath(newId);
+    });
+    return { logoUrl };
+  }),
+
+  removeLogo: protectedCompanyAdminProcedure.mutation(async ({ ctx }) => {
+    await ctx.db.transaction(async (tx) => {
+      await tx.update(companyAccount).set({ brandingLogoId: null }).where(eq(companyAccount.id, ctx.currentCompanyAdmin.id));
+      await deleteLogo(tx, ctx.currentCompanyAdmin.brandingLogoId);
+    });
+    return { success: true };
+  }),
 
   /**
    * F-91 Baustein 2: Codes bewusst mehrfach anlegbar (z. B. je Abteilung) statt auf einen
@@ -470,7 +494,7 @@ export const companyRouter = router({
     const [row] = await ctx.db
       .select({
         companyName: companyAccount.name,
-        logoUrl: companyAccount.brandingLogoUrl,
+        logoId: companyAccount.brandingLogoId,
         color: companyAccount.brandingColor,
         headline: companyAccount.brandingHeadline,
       })
@@ -479,6 +503,8 @@ export const companyRouter = router({
       .where(eq(userCompanyMembership.userId, ctx.currentUser.id))
       .limit(1);
 
-    return row ?? null;
+    if (!row) return null;
+    const { logoId, ...rest } = row;
+    return { ...rest, logoUrl: logoPath(logoId) };
   }),
 });

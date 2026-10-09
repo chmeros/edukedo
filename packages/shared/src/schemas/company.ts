@@ -94,17 +94,18 @@ export type RedeemCompanyInviteCodeInput = z.infer<typeof redeemCompanyInviteCod
  * ein Unternehmen verlinkt stattdessen ein bereits extern gehostetes Logo.
  */
 /**
- * Review SHR-11/UXL-10: Logo-Adressen nur mit https (kein http, javascript:, data:, file:). Das Logo wird von einem Drittserver in
- * die App aller Mitglieder geladen; ohne Verschlüsselung wäre es manipulierbar.
+ * Logo-Upload (Entscheidung 09.10.2026): Das Bild wird als reines Base64 übertragen und serverseitig am Dateiaufbau geprüft
+ * (apps/api/src/branding/logo.ts: PNG, JPEG oder WebP, höchstens 200 KB und 1024 x 1024 Pixel). Die Obergrenze hier bremst nur
+ * offensichtlich zu große Anfragen; maßgeblich ist die Prüfung auf dem Server.
  */
-export const httpsUrlSchema = z
-  .string()
-  .url()
-  .max(2000)
-  .refine((value) => value.toLowerCase().startsWith("https://"), { message: "Die Adresse muss mit https:// beginnen." });
+export const logoDataSchema = z.string().min(1).max(300_000);
+
+export const uploadLogoInputSchema = z.object({
+  dataBase64: logoDataSchema,
+});
+export type UploadLogoInput = z.infer<typeof uploadLogoInputSchema>;
 
 export const updateCompanyBrandingInputSchema = z.object({
-  logoUrl: z.union([httpsUrlSchema, z.literal("")]),
   color: z.union([z.string().regex(/^#[0-9a-fA-F]{6}$/), z.literal("")]),
   headline: z.string().max(200),
 });

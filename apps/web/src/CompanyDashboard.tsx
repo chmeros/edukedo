@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { ForgotPassword } from "./ForgotPassword";
 import { Header } from "./Header";
+import { LogoUpload } from "./LogoUpload";
 import { trpc } from "./trpc";
 import { ConfirmButton } from "./ConfirmButton";
 import { CopyButton } from "./CopyButton";
@@ -195,11 +196,12 @@ function MembersSection() {
 }
 
 /**
- * F-91 Baustein 3 (F-92): Formular für Logo-URL/Farbe/Begrüßungstext, mit Live-Vorschau in
+ * F-91 Baustein 3 (F-92): Formular für Logo/Farbe/Begrüßungstext, mit Live-Vorschau in
  * derselben Aufmachung wie das spätere CompanyBranding.tsx-Banner in der Lern-App — damit ein
  * Unternehmen sofort sieht, wie die Angaben bei den Lernenden ankommen, statt erst nach dem
- * Speichern zu prüfen. Kein Datei-Upload (siehe packages/shared/src/schemas/company.ts) — es
- * wird die URL eines bereits extern gehosteten Logos eingetragen.
+ * Speichern zu prüfen. Das Logo wird seit dem 09.10.2026 hochgeladen und von der eigenen Domain
+ * ausgeliefert (statt einer externen Adresse); Hochladen und Entfernen wirken sofort, Farbe und
+ * Begrüßungstext werden wie bisher mit "Branding speichern" übernommen.
  */
 function BrandingSection({
   brandingLogoUrl,
@@ -214,7 +216,8 @@ function BrandingSection({
   const update = trpc.company.updateBranding.useMutation({
     onSuccess: () => utils.company.me.invalidate(),
   });
-  const [logoUrl, setLogoUrl] = useState(brandingLogoUrl ?? "");
+  const uploadLogo = trpc.company.uploadLogo.useMutation({ onSuccess: () => utils.company.me.invalidate() });
+  const removeLogo = trpc.company.removeLogo.useMutation({ onSuccess: () => utils.company.me.invalidate() });
   const [color, setColor] = useState(brandingColor ?? "");
   const [headline, setHeadline] = useState(brandingHeadline ?? "");
 
@@ -223,24 +226,22 @@ function BrandingSection({
       className="panel-section"
       onSubmit={(event) => {
         event.preventDefault();
-        update.mutate({ logoUrl, color, headline });
+        update.mutate({ color, headline });
       }}
     >
       <div className="panel-section-head">
         <h2>Branding</h2>
         <p>Wird als Banner in der App der Lernenden angezeigt, die deinem Unternehmen zugeordnet sind.</p>
       </div>
-      <div className="field">
-        <label htmlFor="cd-branding-logo">Logo-Adresse (https)</label>
-        <input
-          className="input"
-          id="cd-branding-logo"
-          type="url"
-          value={logoUrl}
-          onChange={(event) => setLogoUrl(event.target.value)}
-          placeholder="https://…"
-        />
-      </div>
+      <LogoUpload
+        id="cd-branding-logo"
+        label="Logo"
+        logoUrl={brandingLogoUrl}
+        onSelect={(logo) => uploadLogo.mutate({ dataBase64: logo.base64 })}
+        onRemove={() => removeLogo.mutate()}
+        disabled={uploadLogo.isPending || removeLogo.isPending}
+        serverFehler={uploadLogo.error?.message ?? removeLogo.error?.message}
+      />
       <div className="field">
         <label htmlFor="cd-branding-color">Rahmenfarbe des Banners (optional)</label>
         <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
@@ -272,9 +273,9 @@ function BrandingSection({
           maxLength={200}
         />
       </div>
-      {(logoUrl || color || headline) && (
+      {(brandingLogoUrl || color || headline) && (
         <div className="alert alert-info" style={color ? { borderColor: color, borderWidth: 2 } : undefined}>
-          {logoUrl && <img src={logoUrl} alt="" referrerPolicy="no-referrer" loading="lazy" style={{ height: 32, width: "auto" }} />}
+          {brandingLogoUrl && <img src={brandingLogoUrl} alt="" loading="lazy" style={{ height: 32, width: "auto" }} />}
           <div>{headline || "Vorschau des Begrüßungstexts"}</div>
         </div>
       )}

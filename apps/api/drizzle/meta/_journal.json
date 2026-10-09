@@ -358,6 +358,20 @@
       "when": 1791527259493,
       "tag": "0050_ki_job_startzeit",
       "breakpoints": true
+    },
+    {
+      "idx": 51,
+      "version": "7",
+      "when": 1791528288872,
+      "tag": "0051_branding_logo_tabelle",
+      "breakpoints": true
+    },
+    {
+      "idx": 52,
+      "version": "7",
+      "when": 1791528290099,
+      "tag": "0052_branding_logo_url_entfernt",
+      "breakpoints": true
     }
   ]
 }

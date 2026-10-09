@@ -4,6 +4,8 @@ import { AdminContentEditor } from "./AdminContentEditor";
 import { AiAdminTools } from "./AiAdminTools";
 import { ErrorMessage } from "./ErrorMessage";
 import { DangerIcon, InfoIcon, SuccessIcon } from "./Icons";
+import { LogoUpload } from "./LogoUpload";
+import { type GelesenesLogo } from "./logoDatei";
 import { Modal } from "./Modal";
 import { SystemStatusPanel } from "./SystemStatusPanel";
 import { trpc } from "./trpc";
@@ -156,13 +158,13 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
       // bereits macht.
       utils.sponsor.list.invalidate();
       setName("");
-      setLogoUrl("");
+      setLogo(null);
       setAttributionText("");
       setKursId("");
     },
   });
   const [name, setName] = useState("");
-  const [logoUrl, setLogoUrl] = useState("");
+  const [logo, setLogo] = useState<GelesenesLogo | null>(null);
   const [attributionText, setAttributionText] = useState("");
   const [kursId, setKursId] = useState("");
 
@@ -171,24 +173,21 @@ function CreateSponsorForm({ courses }: { courses: { id: string; title: string }
       className="stack"
       onSubmit={(event) => {
         event.preventDefault();
-        create.mutate({ name, logoUrl, attributionText, kursId: kursId || undefined });
+        create.mutate({ name, logoData: logo?.base64, attributionText, kursId: kursId || undefined });
       }}
     >
       <div className="field">
         <label htmlFor="sp-name">Name des Sponsors</label>
         <input className="input" id="sp-name" value={name} onChange={(event) => setName(event.target.value)} required />
       </div>
-      <div className="field">
-        <label htmlFor="sp-logo">Logo-URL (optional)</label>
-        <input
-          className="input"
-          id="sp-logo"
-          type="url"
-          value={logoUrl}
-          onChange={(event) => setLogoUrl(event.target.value)}
-          placeholder="https://…"
-        />
-      </div>
+      <LogoUpload
+        id="sp-logo"
+        label="Logo (optional)"
+        logoUrl={logo?.vorschauUrl ?? null}
+        onSelect={setLogo}
+        onRemove={() => setLogo(null)}
+        disabled={create.isPending}
+      />
       <div className="field">
         <label htmlFor="sp-text">Hinweistext</label>
         <input
@@ -247,6 +246,12 @@ export function AdminPanel() {
     onSuccess: () => {
       utils.admin.courses.invalidate();
       utils.courses.list.invalidate();
+    },
+  });
+  const setSponsorLogo = trpc.admin.setSponsorLogo.useMutation({
+    onSuccess: () => {
+      utils.admin.sponsors.invalidate();
+      utils.sponsor.list.invalidate();
     },
   });
   const setSponsorActive = trpc.admin.setSponsorActive.useMutation({
@@ -488,6 +493,15 @@ export function AdminPanel() {
                     ? (courses.data ?? []).find((course) => course.id === entry.kursId)?.title ?? "Kurs entfernt"
                     : "Plattformweit"}
                 </span>
+                <LogoUpload
+                  id={`sp-logo-${entry.id}`}
+                  label="Logo"
+                  logoUrl={entry.logoUrl}
+                  onSelect={(logo) => setSponsorLogo.mutate({ sponsorId: entry.id, logoData: logo.base64 })}
+                  onRemove={() => setSponsorLogo.mutate({ sponsorId: entry.id, logoData: null })}
+                  disabled={setSponsorLogo.isPending}
+                  serverFehler={setSponsorLogo.variables?.sponsorId === entry.id ? setSponsorLogo.error?.message : undefined}
+                />
               </div>
               <button
                 type="button"

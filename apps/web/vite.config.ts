@@ -4,8 +4,8 @@ import { VitePWA } from "vite-plugin-pwa";
 
 /**
  * Review WEB-18: Content-Security-Policy für die ausgelieferte App. Skripte, Schriften, Verbindungen und Worker nur von der eigenen
- * Herkunft; `wasm-unsafe-eval` für die SQL-Übungsfläche (sql.js/WebAssembly). Bilder zusätzlich über https, weil Logos von
- * Unternehmen und Sponsoren externe Adressen sind (offener Punkt: eigener Upload, siehe Architekturplanung §13). Als Meta-Tag nur im
+ * Herkunft; `wasm-unsafe-eval` für die SQL-Übungsfläche (sql.js/WebAssembly). Bilder nur von der eigenen Herkunft und als data:-Vorschau;
+ * Logos von Unternehmen und Sponsoren werden seit dem 09.10.2026 hochgeladen und von der eigenen Domain ausgeliefert (siehe Architekturplanung §13). Als Meta-Tag nur im
  * Produktions-Build (der Entwicklungsserver braucht Inline-Skripte); `frame-ancestors` und Sicherheits-Header gehören zusätzlich in
  * die Auslieferung (infra/README.md), weil sie sich per Meta-Tag nicht setzen lassen.
  */
@@ -13,7 +13,7 @@ const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'wasm-unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https:",
+  "img-src 'self' data:",
   "font-src 'self' data:",
   "connect-src 'self'",
   "worker-src 'self' blob:",

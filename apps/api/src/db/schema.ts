@@ -29,6 +29,12 @@ const citext = customType<{ data: string }>({
   },
 });
 
+const bytea = customType<{ data: Buffer }>({
+  dataType() {
+    return "bytea";
+  },
+});
+
 // ---------------------------------------------------------------------------
 // Content-Hierarchie (Abschnitt 4.3)
 // ---------------------------------------------------------------------------
@@ -835,6 +841,22 @@ export const consentToken = pgTable(
 // ---------------------------------------------------------------------------
 
 /**
+ * Hochgeladene Logos von Unternehmen (company_account) und Sponsoren (sponsor); Entscheidung 09.10.2026 (Entwicklungsplan
+ * Iteration 23). Das Bild liegt in der Kern-Datenbank und wird über /api/v1/branding-logo/:id von der eigenen Domain
+ * ausgeliefert. Jeder Upload legt eine neue Zeile mit neuer ID an (und damit eine neue, dauerhaft zwischenspeicherbare Adresse);
+ * die ersetzte Zeile wird in derselben Transaktion gelöscht. Inhaltstyp und Maße stammen aus der Prüfung der Bytes
+ * (branding/logo.ts), nie aus Angaben des Absenders.
+ */
+export const brandingLogo = pgTable("branding_logo", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  contentType: text("content_type").notNull(),
+  data: bytea("data").notNull(),
+  width: integer("width").notNull(),
+  height: integer("height").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+/**
  * Eigener Account-Typ analog zu "parent" (F-91) — eigenes Login, nicht Teil des
  * "user"-Rollenmodells (siehe Abschnitt 13, "user.role"). `password_set` folgt demselben
  * Platzhalter-Muster wie `parent.password_set`: Ein Admin legt das Konto an (siehe
@@ -855,7 +877,7 @@ export const companyAccount = pgTable(
     passwordSet: boolean("password_set").notNull().default(false),
     seatLimit: integer("seat_limit").notNull().default(0),
     billingStatus: text("billing_status").notNull().default("pending"),
-    brandingLogoUrl: text("branding_logo_url"),
+    brandingLogoId: uuid("branding_logo_id").references(() => brandingLogo.id, { onDelete: "set null" }),
     brandingColor: text("branding_color"),
     brandingHeadline: text("branding_headline"),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -948,7 +970,7 @@ export const sponsor = pgTable(
   {
     id: uuid("id").primaryKey().defaultRandom(),
     name: text("name").notNull(),
-    logoUrl: text("logo_url"),
+    logoId: uuid("logo_id").references(() => brandingLogo.id, { onDelete: "set null" }),
     attributionText: text("attribution_text").notNull(),
     kursId: uuid("kurs_id").references(() => kurs.id, { onDelete: "cascade" }),
     isActive: boolean("is_active").notNull().default(true),

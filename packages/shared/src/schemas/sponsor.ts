@@ -1,21 +1,28 @@
 import { z } from "zod";
-import { httpsUrlSchema } from "./company";
+import { logoDataSchema } from "./company";
 
 /**
  * F-91 Baustein 5 (F-94): Sponsoring — admin-gepflegt, bewusst vom Lizenzmodell (F-91) getrennt
- * (siehe apps/api/src/db/schema.ts, `sponsor`). `logoUrl` ist optional (leerer String = kein
- * Logo, nur Text), `attributionText` ist die einzige Pflichtangabe — reine, nicht-interaktive
+ * (siehe apps/api/src/db/schema.ts, `sponsor`). `logoData` (Base64 eines hochgeladenen Logos, siehe
+ * company.ts `logoDataSchema`) ist optional (fehlt es, gibt es kein Logo, nur Text), `attributionText` ist die einzige Pflichtangabe — reine, nicht-interaktive
  * Markenplatzierung ohne Call-to-Action (N-01/N-13), siehe Anforderungskatalog Abschnitt 5.12.
  */
 export const createSponsorInputSchema = z.object({
   name: z.string().min(1).max(200),
-  logoUrl: z.union([httpsUrlSchema, z.literal("")]),
+  logoData: logoDataSchema.optional(),
   attributionText: z.string().min(1).max(200),
   kursId: z.string().uuid().optional(),
   startsAt: z.coerce.date().optional(),
   endsAt: z.coerce.date().optional(),
 });
 export type CreateSponsorInput = z.infer<typeof createSponsorInputSchema>;
+
+/** Logo eines bestehenden Sponsorings ersetzen (Base64) oder entfernen (null). */
+export const setSponsorLogoInputSchema = z.object({
+  sponsorId: z.string().uuid(),
+  logoData: logoDataSchema.nullable(),
+});
+export type SetSponsorLogoInput = z.infer<typeof setSponsorLogoInputSchema>;
 
 export const sponsorIdInputSchema = z.object({
   sponsorId: z.string().uuid(),
