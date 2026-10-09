@@ -456,8 +456,8 @@ export function App() {
                         dafür, dass ein Kurswechsel oder das Setzen/Aufheben eines
                         F-27-Themenfilters die Runde bewusst zurücksetzt. */}
                     <div hidden={learningMode !== "lernen"}>
-                      {/* Review UXT-B-04: Theorie ist im Lernen-Tab direkt erreichbar, solange keine Runde läuft. */}
-                      {!roundActive && <TheorieEinstieg kursId={activeKursId} />}
+                      {/* Review UXT-B-04: Theorie ist im Lernen-Tab direkt erreichbar, auch während einer Runde (eingeklappt nur eine Zeile). */}
+                      <TheorieEinstieg kursId={activeKursId} />
                       <LearningRoundContext.Provider value={setRoundActive}>
                       <Lernen
                         key={`${activeKursId}-${activeThema?.id ?? "all"}`}

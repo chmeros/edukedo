@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Usability: Theorie auffindbar)
+
+Anlass: Der am häufigsten genannte Befund der Teilnehmerberichte (UXT-B-04, UXT-I-16): Wer neu im Kurs ist, findet die Theorie nicht. Es gibt bewusst keinen Theorie-Tab (F-103); sie war nur nach einer Antwort („Im Thema nachlesen“), im Fortschritt und über die Suche erreichbar, und der Einführungstext erwähnte sie nicht.
+
+- **Einstieg im Lernen-Tab (`TheorieEinstieg.tsx`):** Über der Lernrunde steht eine eingeklappte Zeile „📖 Theorie lesen“. Aufgeklappt zeigt sie die Themen des Kurses nach Fachgebieten; ein Klick öffnet das Lesefenster (F-164). Die Themenliste (Abfrage `progress.overview`, dieselbe wie im Fortschritt) wird erst beim Aufklappen geladen, damit nicht jede Antwort (sie macht `overview` ungültig) eine Neuabfrage auslöst. Die Zeile bleibt auch während einer laufenden Runde sichtbar, eingeklappt ist sie nur eine Zeile; ein erster Entwurf, sie während der Runde auszublenden, hätte sie für Neue unsichtbar gemacht, weil die Runde sofort beginnt. Wie das Lesefenster nur online (die Theorie wird nicht offline vorgehalten) und nur mit aktivem Kurs.
+- **Nachlesen bei den Weiter-Karten:** Unter jeder Karte von „Weiter, wo du aufgehört hast“ steht „📖 Im Thema nachlesen“ für das Thema der Karte (`NachlesenButton`, Wrapper `suggestion-item`; die Karte selbst bleibt eine Schaltfläche, verschachtelte Schaltflächen wären ungültig).
+- **Einführungstext:** „Kurz erklärt“ nennt jetzt, dass die Theorie zu jedem Thema im Tab „Lernen“ unter „📖 Theorie lesen“ steht (und nach einer Antwort über „Im Thema nachlesen“).
+- **Lesefenster schließt beim Tab-Wechsel (UXT-I-07):** `TheorieProvider` bekommt `resetKey` (Ansicht und Tab); wechselt der Schlüssel, schließt das Fenster, zusätzlich zum bisherigen Schließen beim Kurswechsel. Vorher blieb es über Prüfung, Instrumente und Spiele offen und nahm dort Platz weg. Codeblöcke im Lesefenster brechen auf schmalen Bildschirmen um (Breite bis 640 px), statt abgeschnitten zu scrollen.
+- **Bewusst nicht Teil:** ein eigener Theorie-Tab (F-103 bleibt), Theorie offline, ein Suchfeld im Einstieg (die Suche im Lernen-Tab gibt es bereits).
+- **Prüfung:** Fünf neue Tests (`TheorieEinstieg.test.tsx`: eingeklappt ohne Themenliste und Laden erst beim Aufklappen, Themen nach Fachgebieten und Öffnen des Lesefensters mit der Theorie, kein Einstieg offline und ohne Kurs, Fenster schließt nur bei geändertem Schlüssel). Die Test-Attrappe berücksichtigt jetzt `enabled: false` und die jsdom-Stubs für `scrollTo` und `scrollIntoView`. Gegenprobe: ohne `resetKey` bzw. mit immer aktiver Abfrage schlagen zwei Tests fehl. Web-Suite 93, Typprüfung und Lint sauber. Live im Browser (Wegwerf-Konto, Büro-Kurs): „Theorie lesen“ steht über der Frage, aufgeklappt 17 Themen, ein Klick öffnet das Lesefenster mit dem Theorietext, ein Wechsel auf „Prüfung“ schließt es. Das Konto wurde gelöscht. Nicht live gesehen: die Karten „Weiter, wo du aufgehört hast“ (das neue Konto hatte keine) und das Umbrechen der Codeblöcke auf einem schmalen Bildschirm.
+
 ### Entschieden am 09.10.2026 (Usability: Eingabe und Bedienung)
 
 Anlass: Fünf Bedienungsmängel aus dem Reststand-Abgleich, die bei jeder Lernrunde oder beim Kurswechsel auffallen.
