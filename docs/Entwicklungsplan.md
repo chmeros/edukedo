@@ -562,7 +562,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [x] **`is_premium` vor F-80, entschieden und umgesetzt 09.10.2026** (siehe Architekturplanung §13): Setzen wird serverseitig abgewiesen, Checkbox im Redaktions-Editor entfernt, Spalte bleibt. **Offen bleibt F-80 selbst:** welcher Content kostenpflichtig sein soll und die Durchsetzung auf allen Lesepfaden (Karteikarten, Quiz, Suche, Offline, Prüfung, Duell, Vorschau).
 - [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).
 - [x] **Lesehinweis zur Zahlenschreibweise für Skalierungsrechner, Testfalltrainer und Statistiktrainer, erledigt 09.10.2026** (siehe Architekturplanung §13). Im Browser geprüft nur im Skalierungsrechner; Testfalltrainer und Statistiktrainer bei Gelegenheit in ihren Kursen ansehen.
-- [ ] Lese-Modus für Kursinhalte: Suche und Druck.
+- [x] **Lese-Modus für Kursinhalte: Suche und Druck, erledigt 09.10.2026** (siehe Architekturplanung §13): Suche über den ganzen Kurs mit Ausschnitt, Druck eines Themas mit oder ohne Lösungen. Das Druck-Layout im echten Druckdialog bei Gelegenheit ansehen.
 - [ ] Kursübergreifende Kohortenübersicht für Lehrkräfte (UXL-21, Rest).
 - [x] **Ladegröße, erledigt 09.10.2026** (siehe Architekturplanung §13): `@edukedo/shared` als seiteneffektfrei markiert und Bibliotheken per `manualChunks` in eigene Dateien gelegt; Hauptdatei 1.193 → 306 kB (gzip 355 → 84 kB).
 - [ ] Tests für `apps/web` aufbauen (Komponententest der ErrorBoundary, Modal, Mischmodus; bisher nur manuell geprüft).

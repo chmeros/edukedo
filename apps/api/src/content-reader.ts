@@ -78,3 +78,17 @@ export function leseAnsicht(item: LeseItem): LeseAnsicht {
 
   return { text, loesung, erklaerung: item.explanation };
 }
+
+/**
+ * Suche im Lese-Modus: Ausschnitt um die erste Fundstelle (ohne Beachtung der Groß-/Kleinschreibung), Zeilenumbrüche und Markdown-Zeichen
+ * werden zu Leerzeichen bzw. entfernt, damit die Trefferliste einzeilig bleibt. `null`, wenn der Text die Suche nicht enthält.
+ */
+export function suchAusschnitt(text: string | null | undefined, suche: string, vorher = 40, nachher = 100): string | null {
+  if (!text || !suche) return null;
+  const sauber = text.replace(/[#*_`>|]+/g, "").replace(/\s+/g, " ").trim();
+  const stelle = sauber.toLowerCase().indexOf(suche.trim().toLowerCase());
+  if (stelle === -1) return null;
+  const von = Math.max(0, stelle - vorher);
+  const bis = Math.min(sauber.length, stelle + suche.trim().length + nachher);
+  return `${von > 0 ? "…" : ""}${sauber.slice(von, bis)}${bis < sauber.length ? "…" : ""}`;
+}

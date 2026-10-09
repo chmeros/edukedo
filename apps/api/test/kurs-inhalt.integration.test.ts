@@ -20,6 +20,8 @@ describe("Lese-Modus für Kursinhalte (UXL-12)", () => {
   let kursId: string;
   let themaId: string;
   let unveroeffentlichtThemaId: string;
+  let sucheKursId: string;
+  let sucheThemaId: string;
 
   const get = (cookie: string, path: string, input: unknown) =>
     app.inject({ method: "GET", url: `/api/v1/trpc/${path}?input=${encodeURIComponent(JSON.stringify(input))}`, headers: { cookie } });
@@ -67,6 +69,22 @@ describe("Lese-Modus für Kursinhalte (UXL-12)", () => {
     const [th2] = await db.insert(schema.thema).values({ fachgebietId: fg2!.id, title: "Privat", sortOrder: 0 }).returning();
     unveroeffentlichtThemaId = th2!.id;
 
+    const [sucheKurs] = await db
+      .insert(schema.kurs)
+      .values({ slug: "lese-suche", type: "test", title: "Suchkurs", isPublished: true, metadata: { kategorie: "erwachsenenbildung", zielgruppe: "erwachsene" } })
+      .returning();
+    sucheKursId = sucheKurs!.id;
+    const [sfg] = await db.insert(schema.fachgebiet).values({ kursId: sucheKursId, code: "S1", title: "Finanzen", sortOrder: 0 }).returning();
+    const [sth] = await db.insert(schema.thema).values({ fachgebietId: sfg!.id, title: "Investition", sortOrder: 0 }).returning();
+    sucheThemaId = sth!.id;
+    await db.insert(schema.contentItem).values([
+      { themaId: sucheThemaId, type: "theorie", prompt: "Investition", payload: { body_markdown: "# Amortisation\n\nDie **Amortisationsdauer** gibt an, wann sich eine Investition bezahlt gemacht hat.", images: [] } },
+      { themaId: sucheThemaId, type: "karteikarte", prompt: "Was ist der Kapitalwert?", explanation: "Summe der abgezinsten Zahlungen." },
+      { themaId: sucheThemaId, type: "karteikarte", prompt: "Was ist der Zinssatz?", explanation: "Prozentsatz für die Abzinsung." },
+      { themaId: sucheThemaId, type: "karteikarte", prompt: "Alte Amortisation", explanation: "zurückgezogen", isActive: false },
+      { themaId: sucheThemaId, type: "karteikarte", prompt: "Wert mit 100 % und a_b Zeichen", explanation: "Sonderzeichen" },
+    ]);
+
     const appModule = await import("../src/app");
     app = await appModule.buildApp();
     ({ pool: appPool } = await import("../src/db/client"));
@@ -110,5 +128,35 @@ describe("Lese-Modus für Kursinhalte (UXL-12)", () => {
     const minderjaehrig = await get(minderjaehrigCookie, "kursInhalt.thema", { themaId });
     expect(minderjaehrig.statusCode).toBe(403);
     expect((await get(minderjaehrigCookie, "kursInhalt.uebersicht", { kursId })).statusCode).toBe(403);
+  });
+
+  it("sucht im ganzen Kurs in Aufgabe, Erklärung und Theorietext, ohne zurückgezogene Inhalte, und liefert Ausschnitte", async () => {
+    const amortisation = (await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "amortisation" })).json().result.data;
+    expect(amortisation.zuViele).toBe(false);
+    expect(amortisation.treffer).toHaveLength(1); // nur der Theorietext; die zurückgezogene Karte erscheint nicht
+    expect(amortisation.treffer[0]).toMatchObject({ type: "theorie", themaId: sucheThemaId, themaTitle: "Investition", fachgebietTitle: "Finanzen" });
+    expect(amortisation.treffer[0].ausschnitt).toContain("Amortisationsdauer");
+    expect(amortisation.treffer[0].ausschnitt).not.toContain("**");
+
+    const abzinsung = (await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "Abzinsung" })).json().result.data;
+    expect(abzinsung.treffer.map((treffer: { ausschnitt: string }) => treffer.ausschnitt)).toEqual(["Prozentsatz für die Abzinsung."]);
+
+    // Sonderzeichen der LIKE-Syntax werden wörtlich gesucht.
+    expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "100 %" })).json().result.data.treffer).toHaveLength(1);
+    expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "a_b" })).json().result.data.treffer).toHaveLength(1);
+    expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "%%" })).json().result.data.treffer).toHaveLength(0);
+
+    // Rein lesend: keine Belegung, kein Fortschritt.
+    expect(await db.select().from(schema.userCourse).where(eq(schema.userCourse.userId, erwachsenId))).toHaveLength(0);
+  });
+
+  it("die Suche verweigert dieselben Fälle wie die Themenansicht und verlangt mindestens zwei Zeichen", async () => {
+    const eingabe = { kursId: sucheKursId, query: "Kapital" };
+    const ohneKonto = await app.inject({ method: "GET", url: `/api/v1/trpc/kursInhalt.suche?input=${encodeURIComponent(JSON.stringify(eingabe))}` });
+    expect(ohneKonto.statusCode).toBe(401);
+    expect((await get(minderjaehrigCookie, "kursInhalt.suche", eingabe)).statusCode).toBe(403);
+    expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: sucheKursId, query: "K" })).statusCode).toBe(400);
+    const privatKurs = (await db.select({ id: schema.kurs.id }).from(schema.kurs).where(eq(schema.kurs.slug, "lese-modus-privat")))[0]!.id;
+    expect((await get(erwachsenCookie, "kursInhalt.suche", { kursId: privatKurs, query: "Privat" })).statusCode).toBe(404);
   });
 });

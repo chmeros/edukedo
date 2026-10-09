@@ -1,11 +1,13 @@
 import { TRPCError } from "@trpc/server";
-import { and, asc, count, eq } from "drizzle-orm";
+import { and, asc, count, eq, ilike, or, sql } from "drizzle-orm";
 import { z } from "zod";
+import { enforceRateLimit, LIMITS } from "../../auth/request-limits";
 import { kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
-import { leseAnsicht } from "../../content-reader";
+import { leseAnsicht, suchAusschnitt } from "../../content-reader";
 import type { Database } from "../../db/client";
 import { answerOption, contentItem, fachgebiet, kurs, thema, userCourse } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
+import { escapeLikePattern } from "./content";
 
 /**
  * Lese-Modus für Kursinhalte (Review UXL-12): Lehrkräfte und Interessierte können die Inhalte eines Kurses mit Lösungen ansehen,
@@ -49,6 +51,52 @@ export const kursInhaltRouter = router({
       fachgebiete.set(row.fachgebietId, eintrag);
     }
     return [...fachgebiete.values()];
+  }),
+
+  /**
+   * Suche über den ganzen Kurs (Aufgabentext, Erklärung bzw. Rückseite, Theorietext), ohne Beitritt, nur aktive Inhalte. Liefert
+   * höchstens 40 Treffer in der Reihenfolge der Gliederung, je mit Ausschnitt; die Lösung selbst steht erst in der Themenansicht.
+   */
+  suche: protectedProcedure.input(z.object({ kursId: z.string().uuid(), query: z.string().trim().min(2).max(200) })).query(async ({ ctx, input }) => {
+    enforceRateLimit(`kursinhalt-suche:${ctx.currentUser.id}`, LIMITS.kursInhaltSuchePerUser, "Zu viele Suchanfragen in kurzer Zeit. Bitte warte einige Minuten.");
+    await kursOffen(ctx.db, ctx.currentUser.id, ctx.currentUser.isMinor, input.kursId);
+    const muster = `%${escapeLikePattern(input.query)}%`;
+    const koerper = sql<string | null>`${contentItem.payload}->>'body_markdown'`;
+    const rows = await ctx.db
+      .select({
+        id: contentItem.id,
+        type: contentItem.type,
+        prompt: contentItem.prompt,
+        explanation: contentItem.explanation,
+        koerper,
+        themaId: thema.id,
+        themaTitle: thema.title,
+        fachgebietTitle: fachgebiet.title,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .where(
+        and(
+          eq(fachgebiet.kursId, input.kursId),
+          eq(contentItem.isActive, true),
+          or(ilike(contentItem.prompt, muster), ilike(contentItem.explanation, muster), ilike(koerper, muster)),
+        ),
+      )
+      .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder), asc(contentItem.createdAt), asc(contentItem.id))
+      .limit(41);
+
+    return {
+      zuViele: rows.length > 40,
+      treffer: rows.slice(0, 40).map((row) => ({
+        id: row.id,
+        type: row.type,
+        themaId: row.themaId,
+        themaTitle: row.themaTitle,
+        fachgebietTitle: row.fachgebietTitle,
+        ausschnitt: suchAusschnitt(row.prompt, input.query) ?? suchAusschnitt(row.explanation, input.query) ?? suchAusschnitt(row.koerper, input.query) ?? row.prompt.slice(0, 140),
+      })),
+    };
   }),
 
   /** Inhalte eines Themas mit Lösung (aktive Inhalte, in der Reihenfolge der Erstellung). */

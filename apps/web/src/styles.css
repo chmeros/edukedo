@@ -5382,6 +5382,93 @@ h4.stat-subheading {
   }
 }
 
+/* ---------- Lese-Modus für Kursinhalte: Suche und Druck (KursInhalte.tsx) ---------- */
+.kursinhalt-treffer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.kursinhalt-treffer-knopf {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--card);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.kursinhalt-treffer-knopf:hover {
+  border-color: var(--sprout-deep);
+}
+
+.kursinhalt-markiert {
+  outline: 2px solid var(--sprout-deep);
+  outline-offset: 2px;
+}
+
+/* Druckinhalt: per Portal unter <body>, am Bildschirm unsichtbar, nur nach dem Knopf "Thema drucken" sichtbar (Klasse am <body>). */
+.kursinhalt-druck {
+  display: none;
+}
+
+@media print {
+  body.druck-kursinhalt .kursinhalt-druck {
+    display: block;
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck-kopf {
+    margin: 0 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #000;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck article {
+    break-inside: avoid;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #999;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck-art {
+    margin: 0 0 4px;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck-loesung {
+    margin-top: 6px;
+    padding: 6px 10px;
+    border: 1px solid #000;
+  }
+
+  body.druck-kursinhalt .kursinhalt-druck-loesung p,
+  body.druck-kursinhalt .kursinhalt-druck-loesung ul {
+    margin: 2px 0;
+  }
+
+  body.druck-kursinhalt .progress-print-report {
+    display: none;
+  }
+}
+
 /* ---------- Review UXL-15: Großanzeige der Redezeit (Praesentationstrainer.tsx) ---------- */
 .timer-gross {
   position: fixed;

@@ -31,6 +31,8 @@ export const LIMITS = {
   sprintStartPerUser: { max: 60, windowMs: 60 * 60 * 1000 },
   sprintAntwortPerUser: { max: 1000, windowMs: 60 * 60 * 1000 },
   sprintAbschlussPerUser: { max: 120, windowMs: 60 * 60 * 1000 },
+  /** Suche im Lese-Modus für Kursinhalte (durchsucht Aufgaben samt Erklärung und Theorietexte): großzügig für Tippen mit Pausen, bremst Massenabfragen. */
+  kursInhaltSuchePerUser: { max: 120, windowMs: 10 * 60 * 1000 },
 } as const;
 
 export function rateLimitsActive(): boolean {
