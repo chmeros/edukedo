@@ -78,3 +78,48 @@ describe("normalisiereAntwort: verschiedene Antworten bleiben verschieden", () =
     expect(n("   ")).toBe("");
   });
 });
+
+describe("normalisiereAntwort: Zahlwörter und Ziffern (UXT-F-19)", () => {
+  it("Zahlwort und Ziffer gelten als gleich", () => {
+    gleich("zwölf", "12", "Zwölf", "zwoelf");
+    gleich("fünf", "5", "fuenf");
+    gleich("dreißig", "30", "dreissig");
+    gleich("hundert", "100");
+  });
+
+  it("zusammengesetzte Zahlen von 21 bis 99", () => {
+    gleich("einundzwanzig", "21");
+    gleich("fünfundvierzig", "45", "fuenfundvierzig");
+    gleich("neunundneunzig", "99");
+  });
+
+  it("in Wendungen mit Einheit", () => {
+    gleich("zwei Wochen", "2 Wochen", "2Wochen");
+    gleich("zwölf Monate", "12 Monate");
+    gleich("spätestens sechs Wochen", "spätestens 6 Wochen");
+  });
+
+  it("nur ganze Wörter: Wortteile, Ableitungen und Zusammensetzungen bleiben unverändert", () => {
+    verschieden("Dreieck", "3eck");
+    verschieden("zweite", "2te");
+    verschieden("achten", "8en");
+    verschieden("vierteljährlich", "4teljährlich");
+  });
+
+  it("„null“ bleibt erhalten, weil es in den IT-Kursen den SQL-Wert NULL meint", () => {
+    verschieden("NULL", "0");
+    verschieden("null", "0");
+  });
+
+  it("„ein“, „eine“ und „einen“ bleiben als Artikel erhalten", () => {
+    verschieden("ein Kabel", "1 Kabel");
+    verschieden("eine Woche", "1 Woche");
+    expect(n("eins")).toBe("1");
+  });
+
+  it("verschiedene Zahlen bleiben verschieden", () => {
+    verschieden("zwölf", "13");
+    verschieden("zwei", "3");
+    verschieden("dreizehn", "3");
+  });
+});

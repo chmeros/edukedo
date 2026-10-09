@@ -290,3 +290,31 @@ describe("shapeQuizItem", () => {
     expect(shaped).toEqual({ id: "item-3", type: "kurzantwort", prompt: "Frage?" });
   });
 });
+
+describe("Zahlwörter und Ziffern in Lücken und Kurzantworten (UXT-F-19)", () => {
+  const lueckenPayload = { text_with_blanks: "Die Abrechnung erfolgt spätestens ___ Monate nach Ende.", blanks: [{ id: "1", accepted: ["zwölf"] }] };
+
+  it("wertet in einer Lücke „12“ wie „zwölf“", () => {
+    expect(checkBlanks(lueckenPayload, { "1": "12" }).results["1"]).toBe(true);
+    expect(checkBlanks(lueckenPayload, { "1": "Zwölf" }).results["1"]).toBe(true);
+    expect(checkBlanks(lueckenPayload, { "1": "13" }).results["1"]).toBe(false);
+  });
+
+  it("wertet umgekehrt auch das Zahlwort, wenn die Ziffer als richtig hinterlegt ist", () => {
+    const payload = { text_with_blanks: "Es gibt ___ Phasen.", blanks: [{ id: "1", accepted: ["4"] }] };
+    expect(checkBlanks(payload, { "1": "vier" }).results["1"]).toBe(true);
+  });
+
+  it("wertet bei Kurzantworten „2 Wochen“ wie „zwei Wochen“", () => {
+    const payload = { accepted_answers: ["zwei Wochen"], match_mode: "exact" };
+    expect(checkKurzantwort(payload, "2 Wochen").isCorrect).toBe(true);
+    expect(checkKurzantwort(payload, "3 Wochen").isCorrect).toBe(false);
+  });
+
+  it("verwechselt den SQL-Wert NULL nicht mit der Zahl 0", () => {
+    const payload = { text_with_blanks: "Fehlende Werte stehen als ___.", blanks: [{ id: "1", accepted: ["NULL"] }] };
+    expect(checkBlanks(payload, { "1": "NULL" }).results["1"]).toBe(true);
+    expect(checkBlanks(payload, { "1": "0" }).results["1"]).toBe(false);
+  });
+});
+
