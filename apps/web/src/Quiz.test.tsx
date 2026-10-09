@@ -99,10 +99,12 @@ describe("Quiz (F-21/F-22, nur Quiz)", () => {
     expect(text()).toContain("Leider falsch.");
   });
 
-  it("beantwortet Wahr/Falsch-Fragen mit einem Klick auf die Antwort", () => {
+  it("beantwortet Wahr/Falsch-Fragen wie Multiple Choice: erst auswählen, dann „Antwort prüfen“", () => {
     bereiteVor([wahrFalsch(1)]);
     zeige();
     fireEvent.click(screen.getByRole("button", { name: "Wahr" }));
+    expect(reg.mutationCalls["quiz.submitAnswer"]).toBeUndefined();
+    fireEvent.click(screen.getByRole("button", { name: "Antwort prüfen" }));
     expect(reg.mutationCalls["quiz.submitAnswer"]![0]).toMatchObject({ contentItemId: "frage-1", selectedOptionId: "frage-1-wahr" });
     expect(text()).toContain("Richtig!");
   });

@@ -294,6 +294,9 @@ export function MultipleChoiceStep({
  * potenziell längeren Multiple-Choice-Liste abhebt. "Was passt nicht dazu" (vier Begriffe, einer
  * ist der Ausreißer) ist dagegen mechanisch identisch zu einer regulären MC-Liste und nutzt
  * deshalb MultipleChoiceStep unverändert weiter (siehe Quiz.tsx/MixedLearning.tsx/Vorschau.tsx).
+ *
+ * Entscheidung 09.10.2026 (Review UXT-F-10): Wie bei Multiple Choice wählt ein Klick nur aus, gewertet wird erst mit „Antwort prüfen“.
+ * Vorher wertete schon der Klick; ein versehentlicher Tipp am Handy zählte dann als Antwort (Credits, Lernserie, Fortschritt).
  */
 export function TwoChoiceStep({
   item,
@@ -315,10 +318,10 @@ export function TwoChoiceStep({
     motivation: string;
   } | null>(null);
 
-  function checkAnswer(optionId: string) {
-    setSelectedOptionId(optionId);
+  function checkAnswer() {
+    if (!selectedOptionId) return;
     submit.mutate(
-      { contentItemId: item.id, selectedOptionId: optionId },
+      { contentItemId: item.id, selectedOptionId },
       {
         onSuccess: (result) => {
           setFeedback({ ...result, motivation: pickMotivation(result.isCorrect) });
@@ -342,6 +345,8 @@ export function TwoChoiceStep({
             } else if (option.id === selectedOptionId) {
               className += " is-wrong";
             }
+          } else if (option.id === selectedOptionId) {
+            className += " is-selected";
           }
 
           return (
@@ -350,13 +355,14 @@ export function TwoChoiceStep({
               className={className}
               beantwortet={feedback !== null}
               disabled={submit.isPending}
-              onClick={() => checkAnswer(option.id)}
+              onClick={() => setSelectedOptionId(option.id)}
               text={option.text}
+              gewaehlt={option.id === selectedOptionId}
             />
           );
         })}
       </div>
-      {feedback && (
+      {feedback ? (
         <>
           <p role="status" className={feedback.isCorrect ? "quiz-feedback is-correct" : "quiz-feedback is-wrong"}>
             {feedback.isCorrect ? "Richtig!" : "Leider falsch."}
@@ -367,6 +373,16 @@ export function TwoChoiceStep({
             {isLast ? "Ergebnis anzeigen" : "Nächste Frage"}
           </button>
         </>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ alignSelf: "flex-start" }}
+          onClick={checkAnswer}
+          disabled={!selectedOptionId || submit.isPending}
+        >
+          Antwort prüfen
+        </button>
       )}
       {!feedback && submit.error && <ErrorMessage>{submit.error.message}</ErrorMessage>}
       {canReport && <ContentActions contentItemId={item.id} />}

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, QuadrantStep, SortierenStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, QuadrantStep, SortierenStep, TwoChoiceStep } from "./QuizSteps";
 
 /**
  * Rückmeldung nach der Antwort (Review UXT-B-07, UXT-F-09, UXT-I-06): Die Lösung steht als Text da, nicht nur als Farbe am Begriff,
@@ -267,5 +267,36 @@ describe("Eingabe und Bedienung (Review UXT-B-06, B-12, B-16)", () => {
     fireEvent.click(begriff);
     expect(begriff.getAttribute("aria-pressed")).toBe("true");
     expect(screen.getByRole("button", { name: "Hund" }).closest(".quadrant-zone")?.querySelector(".quadrant-term")?.textContent).toContain("bellt");
+  });
+});
+
+describe("TwoChoiceStep: erst wählen, dann prüfen (UXT-F-10, Entscheidung 09.10.2026)", () => {
+  const item = { id: "w", prompt: "Die Erde ist rund.", options: [{ id: "w-wahr", text: "Wahr" }, { id: "w-falsch", text: "Falsch" }] };
+
+  function zeige() {
+    const submit = nachgemachteAuswertung({ isCorrect: true, correctOptionId: "w-wahr", explanation: "Näherungsweise eine Kugel." });
+    render(<TwoChoiceStep item={item} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} />);
+    return submit;
+  }
+
+  it("wertet den Klick auf eine Antwort nicht sofort; „Antwort prüfen“ ist erst nach der Auswahl möglich", () => {
+    const submit = zeige();
+    expect((screen.getByRole("button", { name: "Antwort prüfen" }) as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.click(screen.getByRole("button", { name: "Falsch" }));
+    expect(submit.mutate).not.toHaveBeenCalled();
+    expect(screen.getByRole("button", { name: "Falsch" }).getAttribute("aria-pressed")).toBe("true");
+    expect((screen.getByRole("button", { name: "Antwort prüfen" }) as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it("erlaubt, die Auswahl vor dem Prüfen zu ändern, und sendet nur die zuletzt gewählte Antwort", () => {
+    const submit = zeige();
+    fireEvent.click(screen.getByRole("button", { name: "Falsch" }));
+    fireEvent.click(screen.getByRole("button", { name: "Wahr" }));
+    pruefe();
+
+    expect(submit.mutate).toHaveBeenCalledTimes(1);
+    expect(submit.mutate.mock.calls[0]![0]).toEqual({ contentItemId: "w", selectedOptionId: "w-wahr" });
+    expect(text()).toContain("Richtig!");
+    expect(text()).toContain("Näherungsweise eine Kugel.");
   });
 });
