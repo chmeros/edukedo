@@ -130,6 +130,8 @@ Zusätzlich kursübergreifend: **zu wenige Rechenaufgaben** (v. a. Fachwirte), *
 | WRK/UXL/WEB, Paket 1 (Fehlermeldungen, Code-Felder, Kontraste, autocomplete, Ladefehler; UXL-08/09, WEB-06/07/09/14/32/37/40, WRK-01) | **erledigt 08.10.2026**; weitere Pakete laufend | §13 „Web-Feinschliff“ |
 | B12 Credits-Abbruch, Prüfungssimulation, Tagesgrenzen | **erledigt 08.10.2026** (LOG-02, LOG-04, LOG-06; Zeitlimit serverseitig und Pacing-Zieltage offen) | §13 „Fortschritt, Credits und Prüfungssimulation“ |
 
+**Offene Punkte:** Alles, was nach dem Stand dieser Tabelle noch offen ist, steht gesammelt in `docs/Entwicklungsplan.md`, Iteration 23.
+
 ## 8. Einzelberichte
 
 Code: `code-api-sicherheit.md` (28 Befunde), `code-api-lernlogik.md` (26), `code-api-sozial-admin-payment.md` (32), `code-shared.md` (29), `code-web-kern.md` (47), `code-web-werkzeuge.md` (47), `code-pipeline-tests-infra.md` (36).

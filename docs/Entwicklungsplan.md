@@ -528,6 +528,45 @@ Ziel: Die im Rollen-Durchgang (Fachinformatiker-Azubi mit Prüfungsangst, 05.10.
 - [x] Hilfen zu Projektantrag und Projektdokumentation (Reiter „Projekt" mit Antrags-/Dokumentations-Check und „Mein Projekt" samt Nachfragen, F-161); Dauer der AEVO-Präsentation geprüft und auf 15 Minuten gesetzt (§ 4 Abs. 3 AusbEignV). **Erledigt 05.10.2026.**
 - [x] Dauer-Banner („Kurz erklärt", E-Mail-Bestätigung, Erinnerung) während einer Lernrunde ausblenden; Karteikarten-Antworten gegliedert darstellen (F-160). **Erledigt 05.10.2026.**
 
+## Iteration 23 — Offene Punkte aus Code-Review und Usability-Test (07./08.10.2026)
+
+Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 aus `docs/reviews/2026-10-07/` noch offen ist, an einer Stelle führen. Erledigtes steht mit Nachweis im Gesamtbericht (Abschnitt 7a), die Begründungen in der Architekturplanung §13. Stand 09.10.2026. Punkte mit **Entscheidung nötig** warten auf eine Entscheidung der Projektleitung; Rechts-, Steuer- und Normeninhalte bleiben nach Regel R4 ungeprüft, neue Inhalte nach R3 unsichtbar, bis eine fachkundige Person sie geprüft hat.
+
+**Entscheidungen (Projektleitung)**
+- [ ] **Entscheidung nötig: Mailanbieter wählen (A3).** Voraussetzung für den echten Versand von Eltern-Consent- und Setup-Mails; danach den Teil „Mail produktiv“ in die Bedingung des `setPublished`-Guards aufnehmen (A2) und den Mathe-Livegang freigeben (Reihenfolge laut Jugendschutz-Regel beachten).
+- [ ] **Entscheidung nötig: Hosting-Anbieter wählen** (verknüpft mit den Hosting-Punkten in Iteration 0); danach Deploy-Workflow, Staging und Produktion einrichten (siehe Programmierung).
+- [ ] **Entscheidung nötig: Logo-Auslieferung für Unternehmensbranding.** Upload in einen Objektspeicher oder feste Liste erlaubter Hosts; heute nur eine geprüfte URL.
+- [ ] **Entscheidung nötig: Aufbewahrungsfrist für den Freitext der Inhaltsmeldungen** (UXL-13), danach Löschung bzw. Anonymisierung umsetzen.
+- [ ] **Entscheidung nötig: Mathematik FL-MA-02**, Schulbuch-Schreibweise für Kurzantworten mit Wurzel, Hochzahl und Gradzeichen festlegen.
+- [ ] **Entscheidung nötig: Modellannahme Immobilien (FL-IM-24)**, eine verbindliche Zahl betreuter Einheiten und ihren Anteil an WEG festlegen; **Karteikarte FL-TL-48** (reines Fiktivfirmen-Wissen) streichen oder umwandeln (deaktiviert Fortschrittsdaten).
+
+**Programmierung (Kern)**
+- [ ] Deploy-Workflow, Staging/Produktion, GitHub-Actions an Commit-SHAs binden (INF-30), ersten CI-Lauf in GitHub prüfen, Entwicklungswerkzeuge (vitest/vite) im Audit nachziehen (A5/A6). Abhängig von der Hostingwahl.
+- [ ] Echter Mailversand hinter der vorhandenen Stub-Schnittstelle (A3), Zeitplan für die drei Erinnerungsskripte beim Hoster (`infra/README.md`).
+- [ ] Sprint-Token härten: einmalige Verwendung, Ratenbegrenzung (LOG-16); `is_premium` vor F-80 klären; Idempotenzschlüssel für Online-Antworten (Lernlogik, Paket 1).
+- [ ] Oberfläche für Minderjährige in den sozialen Funktionen (A8) — nur zusammen mit der Rechtsprüfung, siehe Iteration 22 („Vor Öffnung für Minderjährige“).
+- [ ] Lesehinweis (Zahlenschreibweise) für Skalierungsrechner, Testfalltrainer und Statistiktrainer (WRK-04/05/06, Rest).
+- [ ] Lese-Modus für Kursinhalte: Suche und Druck.
+- [ ] Kursübergreifende Kohortenübersicht für Lehrkräfte (UXL-21, Rest).
+- [ ] Ladegröße: `manualChunks` für das Web-Bündel (Web-Feinschliff, Paket 10).
+- [ ] Tests für `apps/web` aufbauen (Komponententest der ErrorBoundary, Modal, Mischmodus; bisher nur manuell geprüft).
+- [ ] Doku-Drift: `CLAUDE.md` nennt noch Anforderungskatalog 0.19 (Ist: 1.28) und Architekturplanung 0.6 (Ist: 0.8) sowie einen veralteten Abschnitt „Woran gerade gearbeitet wird“; `README`-Stände angleichen.
+- [ ] Reststand der Usability-Punkte (Gesamtbericht Abschnitt 5, Priorität D) gegen die Pakete 1 bis 11 abgleichen und verbleibende Punkte hier einzeln aufnehmen (z. B. Theorie-Tab, „Prüfungsablauf noch nicht beschrieben“, Glossar für weitere Kurse).
+
+**Content (nur mit fachkundiger Prüfung, R3/R4/R5)**
+- [ ] **Rechtsnahe Fachlehrer-Befunde (R4)** von fachkundigen Personen prüfen lassen und danach korrigieren; Liste je Kurs in `content-korrekturen.md`. Zuerst die rechtsnahen Blocker: AEVO (FL-AEVO-01 bis 04), Transport (FL-TL-01), Industriefachwirt (FL-IF-01 bis 03), Versicherungen (FL-VF-01, 03, 04), Gesundheit/Soziales (FL-GS-02, 04), Immobilien (FL-IM-01 bis 06).
+- [ ] **Rahmenplan-Lücken (R3):** neue Themen mit Theorie und Aufgaben je Kurs, u. a. Finanzanlagen und Nachhaltigkeit (FL-VF-07), Controlling, Projektmanagement und Beschaffung/Lager/Entsorgung (FL-IF-11 bis 13), Marketing, Ausschreibungen und Kostenanalyse (FL-TL-08, 09), Mietpreisbremse, Kaufabwicklung und Wohnungseigentum (FL-IM-16, 32, 42), Personal/Ausbildung in Transport (FL-TL-10).
+- [ ] **Rechenaufgaben:** je Fachwirt-Kurs Rechenaufgaben mit Musterrechnung in der Theorie ergänzen (FL-IF-15, FL-GS-07, FL-IM-15, FL-TL-32, FL-VF, Handelsfachwirt, Wirtschaftsfachwirt).
+- [ ] **Theorie vor Werkzeug (R5):** Linux/Windows-Befehle, Subnetting/VLSM, Zahlensysteme, DNS/DHCP/IPv6/Zertifikate (FL-SI-02 bis 04), Theorie zum Finanzrechner (FL-VF-08, FL-IM-43, FL-IF-16), SQLite-Dialekt, Quartile bei ungerader Anzahl und MAPE (FL-DPA-09), Prozess-Reihenfolge-Sets mit Abläufen aus der Kurstheorie statt Tuckman/PDCA (FL-AEVO-07, FL-TL-28).
+- [ ] **Technischer Fachwirt:** Nachträge FL-TF-03, 04, 06.
+- [ ] **Fachgespräch-Pools:** Erwartungshorizont und situationsbezogene Rückfragen ergänzen (FL-IM-55, FL-TL-46, FL-AEVO-29).
+- [ ] **Systemisch, Umbau vieler Items:** Distraktorqualität und Wahr/Falsch-Verteilung (Fachlehrer-Befunde „Antwortmuster“, „Strohmann-Distraktoren“), Kurzantworten mit mehr Schreibvarianten (FL-IM-45, FL-DPA-12, FL-TL-39), Du/Sie-Regel, Gendern und Zahlenformat als Hausregel in `content/README.md` festlegen, Redundanz der Karteikarten verringern, Schwierigkeit und Bloom kalibrieren.
+- [ ] IT-Inhalte (Lernpfade, Glossar, Terminal, Flag-Rätsel, Topologie) fachlich prüfen — siehe Iteration 22, nicht doppelt führen.
+
+**Recht & Compliance**
+- [ ] Datenschutzerklärung um die Kohorten ergänzen (die Lehrkraft sieht E-Mail und Beitrittsdatum der Mitglieder) und rechtlich prüfen lassen.
+- [ ] Rechtsprüfung der angepassten AGB-/Datenschutz-Formulierungen vor der Öffnung für Minderjährige — siehe Iteration 22.
+
 ## Offene, bewusst nicht terminierte Themen
 
 Diese Punkte sind laut Anforderungskatalog (Abschnitt 10) bewusst ohne festen Auslöser in diesem Plan und werden erst aufgenommen, wenn ihre jeweilige Bedingung eintritt:
