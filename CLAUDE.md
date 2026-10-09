@@ -7,8 +7,8 @@ Die vollständige Planung liegt in `docs/` und ist die Quelle der Wahrheit für 
 ## Die vier Planungsdokumente
 
 - **`docs/Projektziel.md`** — Mission, Vision und grober Rahmen (Kurzfassung, guter Einstieg).
-- **`docs/Anforderungskatalog.md`** (Version 0.19) — vollständiger fachlicher Anforderungskatalog: Zielgruppen, Content-Modell, funktionale Anforderungen (F-xx), nicht-funktionale Anforderungen (N-xx), rechtliche Hinweise, Phasenplanung, vollständiges Entscheidungsprotokoll. Bei Unklarheit über *was* gebaut werden soll und *warum*, zuerst hier nachsehen.
-- **`docs/Architekturplanung.md`** (Version 0.6) — technische Umsetzung: Technologie-Stack, Systemarchitektur, vollständiges Datenmodell inkl. SQL-DDL (Abschnitt 4), Sicherheits-/Datenschutzkonzept, Testkonzept, Repository-Struktur. Bei Unklarheit über *wie* etwas gebaut werden soll, zuerst hier nachsehen.
+- **`docs/Anforderungskatalog.md`** (aktuelle Version im Kopf der Datei) — vollständiger fachlicher Anforderungskatalog: Zielgruppen, Content-Modell, funktionale Anforderungen (F-xx), nicht-funktionale Anforderungen (N-xx), rechtliche Hinweise, Phasenplanung, vollständiges Entscheidungsprotokoll. Bei Unklarheit über *was* gebaut werden soll und *warum*, zuerst hier nachsehen.
+- **`docs/Architekturplanung.md`** (aktuelle Version im Kopf der Datei) — technische Umsetzung: Technologie-Stack, Systemarchitektur, vollständiges Datenmodell inkl. SQL-DDL (Abschnitt 4), Sicherheits-/Datenschutzkonzept, Testkonzept, Repository-Struktur. Bei Unklarheit über *wie* etwas gebaut werden soll, zuerst hier nachsehen.
 - **`docs/Entwicklungsplan.md`** — iterativer, nicht-kalendarischer Umsetzungsplan mit Aufgaben je Bereich (Programmierung Kern/Payment, Content, Recht & Compliance, Organisatorisches, Testing, Nutzer:innen-Feedback), unterteilt in Iterationen 0–6. **Das ist die Aufgabenliste** — hier steht, was als Nächstes dran ist.
 
 ## Wichtige, bereits getroffene Grundsatzentscheidungen (Kurzfassung)
@@ -38,7 +38,11 @@ Details und Begründung in Architekturplanung Abschnitt 11.
 
 ## Woran gerade gearbeitet wird
 
-Der Stand ist deutlich weiter als der Name "Iteration 0" vermuten lässt (dieser Abschnitt wurde seit Projektbeginn nicht mehr aktualisiert) — nahezu alle Programmierung(Kern)/(Payment)-Punkte aller Iterationen 0–7 sind erledigt, inklusive Payment-Service (F-81/F-82) und der ersten echten lokalen KI-Anbindung (F-72/F-128, Ollama). Die konkrete, abzuhakende Aufgabenliste steht in `docs/Entwicklungsplan.md` — dort nachsehen, was laut den `- [ ]`-Einträgen als Nächstes ansteht (Stand 25.09.2026: überwiegend nicht-technische Punkte wie Zahlungsdienstleister-Auswahl, AGB-Prüfung, sowie kleinere Content-/Testing-Nachträge), und erledigte Punkte dort mit `- [x]` abhaken.
+Stand 09.10.2026: Die Programmierung (Kern und Payment) der Iterationen 0–22 ist weitgehend umgesetzt, dazu fünfzehn Kurse (Mathematik 9 und vierzehn Berufs-/Fachwirt-Kurse in `content/`), Spiele, Instrumente, Prüfungsmodus, Payment-Service und die lokale KI-Anbindung (Ollama). Die konkrete, abzuhakende Aufgabenliste steht in `docs/Entwicklungsplan.md`; aktuell wird **Iteration 23** („Offene Punkte aus Code-Review und Usability-Test", Reviews vom 07./08.10.2026 in `docs/reviews/`) Punkt für Punkt abgearbeitet. Erledigte Punkte dort mit `- [x]` abhaken; **jede Entscheidung gehört zusätzlich als neuester Eintrag in `docs/Architekturplanung.md` Abschnitt 13** (die Einträge dort sind das Entscheidungsprotokoll, neueste oben).
+
+Bewusst zurückgestellt (Entscheidung des Nutzers, nicht von selbst wieder vorlegen): **Hosting-Anbieter** und **Betrieb der KI-Bewertung**; davon hängen Deploy-Workflow/Staging und der Erinnerungs-Zeitplan beim Hoster ab. Rechtsnahe Inhalte und alles, was Minderjährige betrifft, bleibt bis zur Rechtsprüfung gesperrt (Iteration 22, „Vor Öffnung für Minderjährige").
+
+Hinweis für Tests: `pnpm test` in `apps/api` braucht einen laufenden Docker-Daemon (Testcontainers) **und** die lokale Redis-Instanz (`docker compose up -d redis`); ohne Redis scheitern die KI-, Payment- und Queue-Tests.
 
 ## Hinweise für die Arbeit in diesem Repo
 

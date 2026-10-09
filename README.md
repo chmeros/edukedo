@@ -8,9 +8,9 @@ Die vollständige Planung (Anforderungen, Architektur, Entwicklungsplan, Projekt
 
 ```
 /apps
-  /web        → React-Frontend — minimales Grundgerüst mit Auth-Seite steht, PWA folgt in Iteration 1
-  /api        → Kern-Backend (Fastify + tRPC) — Auth-Grundgerüst und Datenmodell stehen
-  /payment    → Eigenständiger Payment-Service (Iteration 6) — Grundgerüst inkl. Event-Queue steht, siehe apps/payment/README.md
+  /web        → React-PWA-Frontend (Vite) — Lernen, Spiele, Instrumente, Prüfung, Sozial, Eltern-/Unternehmens-/Admin-Bereiche
+  /api        → Kern-Backend (Fastify + tRPC + Drizzle) — Auth, Consent, Content, Sync, Sozial, Prüfung, KI-Anbindung
+  /payment    → Eigenständiger Payment-Service — Event-Queue und Abo-/Kaufverwaltung stehen, echter Zahlungsdienstleister offen, siehe apps/payment/README.md
 /packages
   /shared     → geteilte Zod-Schemas/Typen für Kern
 /docs         → Projektziel, Anforderungskatalog, Architekturplanung, Entwicklungsplan
@@ -41,7 +41,7 @@ pnpm build       # Produktions-Build
 pnpm db:generate # neue Drizzle-Migration aus apps/api/src/db/schema.ts generieren
 ```
 
-Der Stand entspricht dem aktuellen Fortschritt aus `docs/Entwicklungsplan.md`, Iteration 0: Monorepo-Tooling, CI, Kern-Datenmodell (Drizzle-Migrationen), Auth-Grundgerüst und tRPC-Router-Grundstruktur stehen; `apps/web` hat ein minimales, typsicher an die Auth-API angebundenes Grundgerüst. Eine verwaltete Postgres-Cloud-Instanz (Neon/Supabase) für Staging/Produktion sowie das PWA-Grundgerüst (Iteration 1) folgen in den nächsten Schritten.
+Der Stand entspricht dem aktuellen Fortschritt aus `docs/Entwicklungsplan.md` (Stand 09.10.2026: Iterationen 0–22 weitgehend umgesetzt, Iteration 23 „Offene Punkte aus Code-Review und Usability-Test" in Arbeit). Fünfzehn Kurse sind als Markdown in `content/` angelegt und per `pnpm --filter @edukedo/api db:import-content` importierbar. Nicht umgesetzt bzw. offen: Hosting/Staging, echter Zahlungsdienstleister, Betrieb der KI-Bewertung und die Rechtsprüfung vor der Öffnung für Minderjährige. Das Entscheidungsprotokoll steht in `docs/Architekturplanung.md` Abschnitt 13 (neueste Einträge oben).
 
 ## Lizenz / Status
 

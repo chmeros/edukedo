@@ -1,6 +1,6 @@
 # Entwicklungsplan: edukedo
 
-Stand: 18.09.2026 · Grundlage: Anforderungskatalog Version 0.24 (insbesondere Abschnitt 9, Phasenplanung) und Architekturplanung Version 0.8 (insbesondere „Nächste Schritte")
+Stand: 09.10.2026 (Grundlage ursprünglich 18.09.2026: Anforderungskatalog Version 0.24, Abschnitt 9, Phasenplanung, und Architekturplanung Version 0.8; die aktuellen Versionen stehen im Kopf der jeweiligen Datei) (insbesondere „Nächste Schritte")
 
 > **Aktualisierung 18.09.2026:** Neue Anforderungsgruppe „Navigation, Kursauswahl & In-App-Struktur" (F-100–F-107, Anforderungskatalog Abschnitt 5.13) als neue **Iteration 7** ergänzt. Anders als die bisherigen Iterationen ist das kein neuer, additiver Funktionsbereich, sondern ein Umbau bereits bestehender, produktiver UI (Header-Dropdown, Theorie-Tab, Quiz-/Karteikarten-Tabs, Fortschritt-Tab-Struktur, Mehrfach-Kursbelegung) — deshalb bewusst als eigene Iteration statt rückwirkender Änderung an den bereits als erledigt markierten Aufgaben in Iteration 1/3/5, um deren historischen Umsetzungsstand nicht zu verfälschen. Die beiden zunächst offenen Namensfragen sind noch am selben Tag entschieden worden: Der vereinheitlichte Lernmodus-Tab (F-104) heißt **„Lernen"**, Theorie-Inhalte (F-103) bleiben vorerst ohne jeglichen Zugriffsweg unsichtbar.
 >
@@ -564,7 +564,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [ ] Kursübergreifende Kohortenübersicht für Lehrkräfte (UXL-21, Rest).
 - [ ] Ladegröße: `manualChunks` für das Web-Bündel (Web-Feinschliff, Paket 10).
 - [ ] Tests für `apps/web` aufbauen (Komponententest der ErrorBoundary, Modal, Mischmodus; bisher nur manuell geprüft).
-- [ ] Doku-Drift: `CLAUDE.md` nennt noch Anforderungskatalog 0.19 (Ist: 1.28) und Architekturplanung 0.6 (Ist: 0.8) sowie einen veralteten Abschnitt „Woran gerade gearbeitet wird“; `README`-Stände angleichen.
+- [x] **Doku-Drift behoben, erledigt 09.10.2026:** `CLAUDE.md` nennt keine festen Versionsnummern mehr (die aktuelle Version steht im Kopf der Dokumente) und beschreibt den tatsächlichen Stand samt Testhinweis (Docker und Redis); Wurzel-`README` mit Struktur und Stand angeglichen; `apps/api/README.md` und `apps/web/README.md` weisen darauf hin, dass ihre Stand-Listen eine Chronik bis Anfang Oktober sind; Kopfzeile des Entwicklungsplans aktualisiert.
 - [ ] Reststand der Usability-Punkte (Gesamtbericht Abschnitt 5, Priorität D) gegen die Pakete 1 bis 11 abgleichen und verbleibende Punkte hier einzeln aufnehmen (z. B. Theorie-Tab, „Prüfungsablauf noch nicht beschrieben“, Glossar für weitere Kurse).
 
 **Content (nur mit fachkundiger Prüfung, R3/R4/R5)**
