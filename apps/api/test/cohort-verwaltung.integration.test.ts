@@ -130,4 +130,31 @@ describe("Kohorten-Verwaltung (UXL-04/05)", () => {
     expect(await db.select().from(schema.cohortMember).where(eq(schema.cohortMember.cohortId, cohortId))).toHaveLength(0);
     expect((await query(a.cookie, "myMemberships", { kursId })).json().result.data).toEqual([]);
   });
+  it("nennt, wie viele Kohorten jemand leitet (für die Warnung beim Löschen des Kontos)", async () => {
+    const { dozent, mitglieder } = await kohorteMitMitgliedern(0);
+    const zaehle = async (cookie: string) =>
+      (await app.inject({ method: "GET", url: "/api/v1/trpc/cohort.ownedCount", headers: { cookie } })).json().result.data as { count: number };
+    expect(await zaehle(dozent.cookie)).toEqual({ count: 1 });
+    expect((await mutate(dozent.cookie, "create", { kursId, name: "Zweite Gruppe" })).statusCode).toBe(200);
+    expect(await zaehle(dozent.cookie)).toEqual({ count: 2 });
+    const niemand = await newUser();
+    expect(await zaehle(niemand.cookie)).toEqual({ count: 0 });
+    expect(mitglieder).toHaveLength(0);
+  });
+
+  it("wer den Kurs verlässt, verlässt auch dessen Kohorten (Mitgliedschaft und Zählung enden, Freundschaften bleiben)", async () => {
+    const { dozent, cohortId, mitglieder } = await kohorteMitMitgliedern(2);
+    const [a, b] = mitglieder as [(typeof mitglieder)[number], (typeof mitglieder)[number]];
+
+    const leave = await app.inject({ method: "POST", url: "/api/v1/trpc/courses.leave", headers: { cookie: a.cookie }, payload: { kursId } });
+    expect(leave.statusCode).toBe(200);
+
+    const verbleibend = (await query(dozent.cookie, "members", { cohortId })).json().result.data as { userId: string }[];
+    expect(verbleibend.map((m) => m.userId)).toEqual([b.userId]);
+    const meine = (await query(dozent.cookie, "myCohorts", { kursId })).json().result.data as { id: string; memberCount: number }[];
+    expect(meine.find((entry) => entry.id === cohortId)?.memberCount).toBe(1);
+
+    const links = await db.select().from(schema.friendCircleLink);
+    expect(links.some((l) => [l.userIdA, l.userIdB].sort().join() === [a.userId, b.userId].sort().join())).toBe(true);
+  });
 });

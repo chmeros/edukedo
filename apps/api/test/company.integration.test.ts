@@ -271,7 +271,7 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
         method: "POST",
         url: "/api/v1/trpc/company.redeemInviteCode",
         headers: { cookie },
-        payload: { code },
+        payload: { code, confirmed: true },
       });
     }
 
@@ -299,6 +299,26 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
         .from(schema.userCompanyMembership)
         .where(eq(schema.userCompanyMembership.companyAccountId, companyId));
       expect(memberships).toHaveLength(2);
+    });
+
+    it("verlangt die Bestätigung des Sichtbarkeits-Hinweises und legt ohne sie keine Mitgliedschaft an", async () => {
+      await createCompanyAccount("Hinweis GmbH", "hinweis@example.com", 5);
+      const adminCookie = await loginCompany("hinweis@example.com");
+      const code = await createInviteCode(adminCookie);
+      const learner = await registerLearner("hinweis-1@example.com");
+
+      for (const payload of [{ code }, { code, confirmed: false }]) {
+        const response = await app.inject({
+          method: "POST",
+          url: "/api/v1/trpc/company.redeemInviteCode",
+          headers: { cookie: learner.cookie },
+          payload,
+        });
+        expect(response.statusCode).toBe(400);
+        expect(response.json().error.message).toContain("Hinweis zur Sichtbarkeit");
+      }
+      const memberships = await db.select().from(schema.userCompanyMembership);
+      expect(memberships.some((row) => row.userId === learner.userId)).toBe(false);
     });
 
     it("erlaubt ein wiederholtes Einlösen desselben Codes durch dieselbe Person auch bei ausgeschöpftem Kontingent (no-op)", async () => {

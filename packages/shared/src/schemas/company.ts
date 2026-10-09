@@ -82,6 +82,8 @@ export type CompanyMembershipIdInput = z.infer<typeof companyMembershipIdInputSc
  */
 export const redeemCompanyInviteCodeInputSchema = z.object({
   code: z.string().min(1).max(32),
+  // Review UXL-04: Wer einen Firmencode einlöst, bestätigt vorher, was das Unternehmen sieht (wie beim Kohorten-Beitritt).
+  confirmed: z.literal(true, { errorMap: () => ({ message: "Bitte bestätige den Hinweis zur Sichtbarkeit für das Unternehmen." }) }),
 });
 export type RedeemCompanyInviteCodeInput = z.infer<typeof redeemCompanyInviteCodeInputSchema>;
 

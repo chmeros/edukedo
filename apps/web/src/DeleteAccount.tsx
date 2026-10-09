@@ -3,6 +3,7 @@ import { useState } from "react";
 import { DangerIcon } from "./Icons";
 import { ErrorMessage } from "./ErrorMessage";
 import { Modal } from "./Modal";
+import { pluralDe } from "./plural";
 import { trpc } from "./trpc";
 
 /**
@@ -17,6 +18,9 @@ export function DeleteAccountDialog({ onClose }: { onClose: () => void }) {
   // müssen ebenfalls aus dem app-weiten Cache verschwinden, siehe App.tsx-Logout-Kommentar.
   const deleteAccount = trpc.auth.deleteAccount.useMutation({ onSuccess: () => queryClient.clear() });
   const [password, setPassword] = useState("");
+  // Review UXL-05: Eigene Kohorten werden mit dem Konto gelöscht; wer eine leitet, wird vorher gewarnt.
+  const owned = trpc.cohort.ownedCount.useQuery();
+  const ownedCount = owned.data?.count ?? 0;
 
   return (
     <Modal title="Konto endgültig löschen?" onClose={onClose}>
@@ -31,6 +35,16 @@ export function DeleteAccountDialog({ onClose }: { onClose: () => void }) {
           <DangerIcon />
           <div>Dein Konto und alle zugehörigen Daten (Fortschritt, Kursbelegungen, …) werden unwiderruflich gelöscht.</div>
         </div>
+        {ownedCount > 0 && (
+          <div className="alert alert-danger">
+            <DangerIcon />
+            <div>
+              Du leitest {pluralDe(ownedCount, "Kohorte", "Kohorten")}. {ownedCount === 1 ? "Sie wird" : "Sie werden"} mit deinem Konto gelöscht, die
+              Mitglieder verlieren ihre Gruppe (die Freundschaften bleiben). Du kannst die Gruppe vorher unter „Gaming“ beenden oder
+              die Mitglieder informieren.
+            </div>
+          </div>
+        )}
         <div className="field">
           <label htmlFor="delete-account-password">Bestätige mit deinem Passwort</label>
           <input

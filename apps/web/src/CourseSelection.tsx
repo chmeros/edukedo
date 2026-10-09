@@ -137,7 +137,7 @@ export function CourseSelection({
                       {/* Review WEB-24: Kurs verlassen löscht Zieltermin, Plan-Start und Lernpartner-Präferenz, daher mit Rückfrage. */}
                       <ConfirmButton
                         label="Verlassen"
-                        question="Kurs wirklich verlassen? Zieltermin, Plan-Start und Lernpartner-Auswahl gehen verloren, dein Lernfortschritt bleibt erhalten."
+                        question="Kurs wirklich verlassen? Zieltermin, Plan-Start, Lernpartner-Auswahl und deine Mitgliedschaften in Kohorten dieses Kurses gehen verloren, dein Lernfortschritt bleibt erhalten."
                         confirmLabel="Ja, verlassen"
                         disabled={leave.isPending && leave.variables?.kursId === course.id}
                         onConfirm={() => leave.mutate({ kursId: course.id })}

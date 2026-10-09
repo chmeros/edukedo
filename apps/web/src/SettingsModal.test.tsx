@@ -69,4 +69,21 @@ describe("SettingsModal, Bereich „Konto“ (Review UXT-I-18)", () => {
 
     expect(reg.mutationCalls["auth.deleteAccount"]).toEqual([{ password: "geheim-test" }]);
   });
+
+  it("warnt beim Löschen, wenn die Person Kohorten leitet, und nennt die Zahl", () => {
+    reg.queries["cohort.ownedCount"] = { count: 2 };
+    zeige();
+    fireEvent.click(screen.getByRole("button", { name: "Einstellungen" }));
+    fireEvent.click(screen.getByRole("button", { name: "Konto löschen" }));
+    expect(text()).toContain("Du leitest 2 Kohorten.");
+    expect(text()).toContain("Mitglieder verlieren ihre Gruppe");
+  });
+
+  it("zeigt die Kohorten-Warnung nicht, wenn die Person keine Kohorte leitet", () => {
+    reg.queries["cohort.ownedCount"] = { count: 0 };
+    zeige();
+    fireEvent.click(screen.getByRole("button", { name: "Einstellungen" }));
+    fireEvent.click(screen.getByRole("button", { name: "Konto löschen" }));
+    expect(text()).not.toContain("Du leitest");
+  });
 });

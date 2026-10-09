@@ -194,6 +194,15 @@ export const cohortRouter = router({
   }),
 
   /**
+   * Review UXL-05: Wie viele Kohorten die aufrufende Person leitet (kursübergreifend). Das Löschen des Kontos löscht sie
+   * mit (Fremdschlüssel mit ON DELETE CASCADE); die Warnung im Löschdialog nennt diese Zahl.
+   */
+  ownedCount: protectedProcedure.query(async ({ ctx }) => {
+    const [row] = await ctx.db.select({ value: count() }).from(cohort).where(eq(cohort.dozentUserId, ctx.currentUser.id));
+    return { count: row?.value ?? 0 };
+  }),
+
+  /**
    * Review UXL-05: Kohorten, in denen die aufrufende Person Mitglied ist (nicht Dozent:in). Dient der Transparenz (wo bin ich
    * Mitglied, wer leitet?) und dem Austritt.
    */

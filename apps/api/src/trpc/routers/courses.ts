@@ -2,7 +2,8 @@ import { activeKursInputSchema, enrollInputSchema, setCourseTargetInputSchema } 
 import { TRPCError } from "@trpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { isEnrollmentExclusive, istDemoKursGesperrt, kursKategorie, kursZielgruppe, matchesKursZielgruppe } from "../../course-audience";
-import { contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
+import type { Database } from "../../db/client";
+import { cohort, cohortMember, contentItem, fachgebiet, kurs, thema, user, userCourse, userProgress } from "../../db/schema";
 import { env } from "../../env";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
 import { kursAngebot, kursPresentationMinutes, kursProjektStunden, kursWerkzeuge } from "../../pruefungsbereiche";
@@ -13,6 +14,22 @@ import { protectedProcedure, router } from "../trpc";
  * gespeichert wird. */
 function toDateOnlyString(date: Date): string {
   return date.toISOString().slice(0, 10);
+}
+
+/**
+ * Review UXL-05: Wer einen Kurs verlässt, verlässt auch die Kohorten dieses Kurses. Sonst bliebe die Person Mitglied
+ * (sichtbar für die Leitung, in den Gruppenkennzahlen gezählt), obwohl sie den Kurs nicht mehr belegt. Freundschaften
+ * bleiben wie beim Austritt aus einer Kohorte bestehen.
+ */
+async function verlasseKohortenDesKurses(db: Pick<Database, "delete" | "select">, userId: string, kursId: string) {
+  await db
+    .delete(cohortMember)
+    .where(
+      and(
+        eq(cohortMember.userId, userId),
+        inArray(cohortMember.cohortId, db.select({ id: cohort.id }).from(cohort).where(eq(cohort.kursId, kursId))),
+      ),
+    );
 }
 
 export const coursesRouter = router({
@@ -174,6 +191,7 @@ export const coursesRouter = router({
           await tx
             .delete(userCourse)
             .where(and(eq(userCourse.userId, ctx.currentUser.id), eq(userCourse.kursId, conflict.kursId)));
+          await verlasseKohortenDesKurses(tx, ctx.currentUser.id, conflict.kursId);
           await tx.insert(userCourse).values({ userId: ctx.currentUser.id, kursId: input.kursId });
           return { success: true };
         }
@@ -199,6 +217,7 @@ export const coursesRouter = router({
     if (deleted.length === 0) {
       throw new TRPCError({ code: "NOT_FOUND", message: "Kurs nicht belegt." });
     }
+    await verlasseKohortenDesKurses(ctx.db, ctx.currentUser.id, input.kursId);
     return { success: true };
   }),
 

@@ -18,6 +18,7 @@ export function RedeemCompanyCode() {
     onSuccess: () => utils.company.myBranding.invalidate(),
   });
   const [code, setCode] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
 
   if (redeem.data) {
     return (
@@ -36,7 +37,7 @@ export function RedeemCompanyCode() {
       className="stack"
       onSubmit={(event) => {
         event.preventDefault();
-        redeem.mutate({ code });
+        redeem.mutate({ code, confirmed: true });
       }}
     >
       <span className="stat-subheading">Unternehmenscode</span>
@@ -51,7 +52,21 @@ export function RedeemCompanyCode() {
           required
         />
       </div>
-      <button type="submit" className="btn btn-ghost btn-sm" style={{ alignSelf: "flex-start" }} disabled={redeem.isPending}>
+      {/* Review UXL-04: Transparenz vor dem Beitritt, die Zustimmung wird auch serverseitig verlangt. */}
+      <p className="field-hint">
+        Wenn du den Code einlöst, sieht das Unternehmen deine E-Mail-Adresse und dein Beitrittsdatum und kann dir die Lizenz
+        wieder entziehen. Deinen Lernfortschritt und deine Antworten sieht es nicht, nur Kennzahlen der ganzen Gruppe.
+      </p>
+      <label className="checkbox-row" htmlFor="redeem-company-confirm">
+        <input id="redeem-company-confirm" type="checkbox" checked={confirmed} onChange={(event) => setConfirmed(event.target.checked)} />{" "}
+        Ich habe das gelesen und möchte beitreten.
+      </label>
+      <button
+        type="submit"
+        className="btn btn-ghost btn-sm"
+        style={{ alignSelf: "flex-start" }}
+        disabled={redeem.isPending || !confirmed}
+      >
         Code einlösen
       </button>
       {redeem.error && <ErrorMessage>{redeem.error.message}</ErrorMessage>}
