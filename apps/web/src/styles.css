@@ -1002,6 +1002,22 @@ details[open] > summary.disclosure::before {
   color: var(--ink-faint);
 }
 
+.suggestion-mehr {
+  display: none;
+}
+
+/* Review UXT-B-11/I-03: Auf schmalen Bildschirmen zunächst nur zwei Vorschläge, der Rest hinter „Weitere Vorschläge“. */
+@media (max-width: 640px) {
+  .suggestion-row:not(.is-alle) .suggestion-item:nth-child(n + 3) {
+    display: none;
+  }
+
+  .suggestion-mehr {
+    display: inline-flex;
+    align-self: flex-start;
+  }
+}
+
 .thema-filter-badge {
   display: flex;
   align-items: center;

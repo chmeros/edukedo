@@ -20,7 +20,8 @@ import { OfflineStatus } from "./OfflineStatus";
 import { LearningRoundContext } from "./LearningRound";
 import { OnboardingHints } from "./OnboardingHints";
 import { FachbegriffProvider } from "./Fachbegriffe";
-import { NachlesenButton, TheorieProvider } from "./TheorieReader";
+import { TheorieProvider } from "./TheorieReader";
+import { WeiterLernenVorschlaege } from "./WeiterLernenVorschlaege";
 import { TheorieEinstieg } from "./TheorieEinstieg";
 import { useCalmMode } from "./displayPrefs";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
@@ -36,7 +37,6 @@ import { syncOfflineQueue } from "./offlineSync";
 import { trpc } from "./trpc";
 import { useLearningSessionTracker } from "./useLearningSession";
 import { UserMenu } from "./UserMenu";
-import { pluralDe } from "./plural";
 
 // Review WEB-22: Große Bereiche werden erst beim ersten Aufruf geladen statt im Start-Bundle (Landing-Besuchende luden vorher Admin,
 // Rechner, Spiele und Redaktion mit).
@@ -355,38 +355,16 @@ export function App() {
               {!calmMode && !hideBanners && <StreakReminderBanner />}
               <CompanyBranding />
               <SponsorBanner kursId={activeKursId ?? undefined} />
-              {activeKursId && suggestions.data && suggestions.data.length > 0 && (
-                <>
-                  {/* F-108: "Weiter, wo du aufgehört hast" statt nur einer neutralen
-                      Vorschlagsliste — auf Themen-Ebene (Nutzer-Entscheidung 21.09.2026), der
-                      oberste Vorschlag (is-primary) bleibt unverändert derselbe wie in F-27. */}
-                  <span className="field-hint">Weiter, wo du aufgehört hast:</span>
-                  <div className="suggestion-row">
-                    {suggestions.data.map((suggestion, position) => (
-                    <div key={suggestion.themaId} className="suggestion-item">
-                    <button
-                      type="button"
-                      className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
-                      onClick={() => {
-                        setActiveThema({ id: suggestion.themaId, title: suggestion.title });
-                        // F-104: nur noch ein Lernmodus-Tab — welcher Modus (Karteikarte/Quiz)
-                        // den Rückstand verursacht, steckt weiterhin in der Begründung unten,
-                        // steuert aber keinen Tab-Wechsel mehr (siehe Lernen.tsx).
-                        setLearningMode("lernen");
-                      }}
-                    >
-                      <span className="suggestion-title">{suggestion.title}</span>
-                      <span className="suggestion-reason">
-                        {suggestion.dueCount > 0
-                          ? `${pluralDe(suggestion.dueCount, "Karte", "Karten")} fällig${suggestion.overdueDays > 0 ? `, ${pluralDe(suggestion.overdueDays, "Tag", "Tage")} überfällig` : ""}`
-                          : `${suggestion.weakPercent} % Trefferquote`}
-                      </span>
-                    </button>
-                    <NachlesenButton themaId={suggestion.themaId} themaTitle={suggestion.title} />
-                    </div>
-                    ))}
-                  </div>
-                </>
+              {activeKursId && suggestions.data && (
+                <WeiterLernenVorschlaege
+                  vorschlaege={suggestions.data}
+                  onWaehle={(themaId, title) => {
+                    setActiveThema({ id: themaId, title });
+                    // F-104: nur noch ein Lernmodus-Tab — welcher Modus (Karteikarte/Quiz) den Rückstand verursacht, steckt weiterhin in
+                    // der Begründung der Karte, steuert aber keinen Tab-Wechsel mehr (siehe Lernen.tsx).
+                    setLearningMode("lernen");
+                  }}
+                />
               )}
               {/* activeKursId ist hier nur während des allerersten Ladens von courses.list
                   noch null (showCourseSelection fängt den eingeschwungenen "kein Kurs
