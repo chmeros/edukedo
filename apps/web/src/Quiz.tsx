@@ -21,6 +21,7 @@ import {
 } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
+import { useAttemptKeys, withAttemptKey } from "./attemptKey";
 import { useOnlineStatus } from "./useOnlineStatus";
 
 export function Quiz({
@@ -68,13 +69,14 @@ export function Quiz({
     { kursId, themaId, itemType, count: questionCount },
     { staleTime: Infinity, enabled: online },
   );
-  const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
-  const submitMcMultiMutation = trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress });
-  const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
-  const submitSortierenMutation = trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress });
-  const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
-  const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
-  const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
+  const attemptKeys = useAttemptKeys();
+  const submitAnswerMutation = withAttemptKey(trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitMcMultiMutation = withAttemptKey(trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitMatchingMutation = withAttemptKey(trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitSortierenMutation = withAttemptKey(trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitQuadrantMutation = withAttemptKey(trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitBlanksMutation = withAttemptKey(trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitKurzantwortMutation = withAttemptKey(trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
 
   // N-08: Übungsset-Tracking für die "Abschlussquote"-KPI (Anforderungskatalog Abschnitt 11) —
   // bewusst nur online, siehe exercise_set in apps/api/src/db/schema.ts. Startet neu, sobald

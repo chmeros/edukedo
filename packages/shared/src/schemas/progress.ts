@@ -8,9 +8,18 @@ import { z } from "zod";
 export const reviewResultSchema = z.enum(["gewusst", "unsicher", "nicht_gewusst"]);
 export type ReviewResult = z.infer<typeof reviewResultSchema>;
 
+/**
+ * Review LOG-09/LOG-11: Idempotenzschlüssel einer Online-Antwort. Die Oberfläche erzeugt ihn einmal je Antwortversuch und schickt ihn
+ * bei einer Wiederholung (Doppeltipp, zwei Tabs, erneuter Versuch nach Verbindungsabbruch) unverändert mit. Der Server verbucht
+ * ein Ereignis mit demselben Schlüssel nur einmal (`learning_event`: eindeutig je Person und Schlüssel, dieselbe Spalte wie beim
+ * Offline-Sync). Optional, damit Aufrufer ohne Schlüssel unverändert funktionieren.
+ */
+export const clientEventIdSchema = z.string().uuid();
+
 export const submitReviewInputSchema = z.object({
   contentItemId: z.string().uuid(),
   result: reviewResultSchema,
+  clientEventId: clientEventIdSchema.optional(),
 });
 export type SubmitReviewInput = z.infer<typeof submitReviewInputSchema>;
 

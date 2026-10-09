@@ -144,7 +144,7 @@ export const quizRouter = router({
       .where(eq(contentItem.id, input.contentItemId))
       .limit(1);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect, undefined, input.clientEventId);
 
     return { isCorrect, correctOptionId, explanation: item?.explanation ?? null };
   }),
@@ -167,7 +167,7 @@ export const quizRouter = router({
       .where(eq(contentItem.id, input.contentItemId))
       .limit(1);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect, undefined, input.clientEventId);
 
     return { isCorrect, correctOptionIds, explanation: item?.explanation ?? null };
   }),
@@ -185,7 +185,7 @@ export const quizRouter = router({
       input.pairs.map((pair) => ({ leftOptionId: pair.leftOptionId, rightOptionId: pair.rightOptionId })),
     );
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
     return result;
   }),
@@ -202,7 +202,7 @@ export const quizRouter = router({
 
     const result = checkSortierenAnswer(options, input.orderedOptionIds);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
     return result;
   }),
@@ -219,7 +219,7 @@ export const quizRouter = router({
 
     const result = checkQuadrantAnswer(options, input.placements);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
     return result;
   }),
@@ -239,7 +239,7 @@ export const quizRouter = router({
 
     const result = checkBlanks(item.payload, input.answers);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, result.correctCount === result.total, undefined, input.clientEventId);
 
     return result;
   }),
@@ -259,7 +259,7 @@ export const quizRouter = router({
 
     const { isCorrect, correctAnswer } = checkKurzantwort(item.payload, input.answer);
 
-    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect);
+    await recordQuizAttempt(ctx.db, ctx.currentUser.id, input.contentItemId, isCorrect, undefined, input.clientEventId);
 
     return { isCorrect, correctAnswer, explanation: item.explanation };
   }),

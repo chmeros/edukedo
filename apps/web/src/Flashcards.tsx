@@ -13,6 +13,7 @@ import { loadOfflineDueCards, reviewOfflineCard } from "./offlineFlashcards";
 import type { OfflineContentItem } from "./offlineDb";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
+import { useAttemptKeys, withAttemptKey } from "./attemptKey";
 import { useOnlineStatus } from "./useOnlineStatus";
 import { pluralDe } from "./plural";
 
@@ -98,7 +99,8 @@ export function Flashcards({
     // F-33: eine Karteikarten-Bewertung kann die aktuelle Lernserie begonnen/verlängert haben.
     utils.gamification.streakStatus.invalidate();
   };
-  const submitReview = trpc.progress.submitReview.useMutation({ onSuccess: invalidateAfterReview });
+  const attemptKeys = useAttemptKeys();
+  const submitReview = withAttemptKey(trpc.progress.submitReview.useMutation({ onSuccess: invalidateAfterReview }), attemptKeys);
   // F-111: für eine bereits in dieser Runde bewertete Karte (siehe `ratedThisSession` unten).
   const changeReview = trpc.progress.changeReview.useMutation({ onSuccess: invalidateAfterReview });
 

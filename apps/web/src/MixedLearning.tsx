@@ -27,6 +27,7 @@ import {
 } from "./QuizSteps";
 import { ThemaFilterBadge } from "./ThemaFilterBadge";
 import { trpc } from "./trpc";
+import { useAttemptKeys, withAttemptKey } from "./attemptKey";
 import { useOnlineStatus } from "./useOnlineStatus";
 
 type FlashItem = { kind: "karteikarte"; card: { id: string; prompt: string; explanation: string | null } };
@@ -87,14 +88,15 @@ export function MixedLearning({
     // Lernserie begonnen/verlängert haben.
     utils.gamification.streakStatus.invalidate();
   };
-  const submitReviewMutation = trpc.progress.submitReview.useMutation({ onSuccess: invalidateProgress });
-  const submitAnswerMutation = trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress });
-  const submitMcMultiMutation = trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress });
-  const submitMatchingMutation = trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress });
-  const submitSortierenMutation = trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress });
-  const submitQuadrantMutation = trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress });
-  const submitBlanksMutation = trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress });
-  const submitKurzantwortMutation = trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress });
+  const attemptKeys = useAttemptKeys();
+  const submitReviewMutation = withAttemptKey(trpc.progress.submitReview.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitAnswerMutation = withAttemptKey(trpc.quiz.submitAnswer.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitMcMultiMutation = withAttemptKey(trpc.quiz.submitMcMulti.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitMatchingMutation = withAttemptKey(trpc.quiz.submitMatching.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitSortierenMutation = withAttemptKey(trpc.quiz.submitSortieren.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitQuadrantMutation = withAttemptKey(trpc.quiz.submitQuadrant.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitBlanksMutation = withAttemptKey(trpc.quiz.submitBlanks.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
+  const submitKurzantwortMutation = withAttemptKey(trpc.quiz.submitKurzantwort.useMutation({ onSuccess: invalidateProgress }), attemptKeys);
 
   const [offlineCards, setOfflineCards] = useState<OfflineContentItem[] | null>(null);
   const [offlineRound, setOfflineRound] = useState<OfflineQuizRound | null>(null);

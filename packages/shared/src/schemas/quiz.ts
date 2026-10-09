@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { clientEventIdSchema } from "./progress";
 
 /**
  * F-22: Themenbezogenes Übungsset mit frei wählbarer Fragenzahl — `count` steuert, wie viele
@@ -24,6 +25,7 @@ export type QuizItemsInput = z.infer<typeof quizItemsInputSchema>;
  */
 export const submitQuizAnswerInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   selectedOptionId: z.string().uuid(),
 });
 export type SubmitQuizAnswerInput = z.infer<typeof submitQuizAnswerInputSchema>;
@@ -35,6 +37,7 @@ export type SubmitQuizAnswerInput = z.infer<typeof submitQuizAnswerInputSchema>;
  */
 export const submitMatchingInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   pairs: z
     .array(z.object({ leftOptionId: z.string().uuid(), rightOptionId: z.string().uuid() }))
     .min(1),
@@ -49,6 +52,7 @@ export type SubmitMatchingInput = z.infer<typeof submitMatchingInputSchema>;
  */
 export const submitSortierenInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   orderedOptionIds: z.array(z.string().uuid()).length(4),
 });
 export type SubmitSortierenInput = z.infer<typeof submitSortierenInputSchema>;
@@ -58,6 +62,7 @@ export type SubmitSortierenInput = z.infer<typeof submitSortierenInputSchema>;
  */
 export const submitBlanksInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   answers: z.record(z.string(), z.string()),
 });
 export type SubmitBlanksInput = z.infer<typeof submitBlanksInputSchema>;
@@ -68,6 +73,7 @@ export type SubmitBlanksInput = z.infer<typeof submitBlanksInputSchema>;
  */
 export const submitKurzantwortInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   answer: z.string(),
 });
 export type SubmitKurzantwortInput = z.infer<typeof submitKurzantwortInputSchema>;
@@ -79,6 +85,7 @@ export type SubmitKurzantwortInput = z.infer<typeof submitKurzantwortInputSchema
  */
 export const submitMcMultiInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   selectedOptionIds: z.array(z.string().uuid()).min(1),
 });
 export type SubmitMcMultiInput = z.infer<typeof submitMcMultiInputSchema>;
@@ -93,6 +100,7 @@ export type SubmitMcMultiInput = z.infer<typeof submitMcMultiInputSchema>;
  */
 export const submitQuadrantInputSchema = z.object({
   contentItemId: z.string().uuid(),
+  clientEventId: clientEventIdSchema.optional(),
   placements: z.array(z.object({ optionId: z.string().uuid(), zoneKey: z.string() })).min(1),
 });
 export type SubmitQuadrantInput = z.infer<typeof submitQuadrantInputSchema>;

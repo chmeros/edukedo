@@ -54,7 +54,8 @@ import { protectedProcedure, router } from "../trpc";
  * tatsächlichen (client-seitigen) Zeitstempel statt der Sync-Ankunftszeit verbucht, und
  * `clientEventId` dient als Idempotenz-Schlüssel, falls ein Sync-Versuch wiederholt wird
  * (siehe learningEvent.clientEventId in db/schema.ts). Bei normalen Online-Aufrufen aus
- * quiz.ts bleiben beide auf ihrem Default (jetzt, kein Idempotenz-Schlüssel nötig).
+ * quiz.ts bleiben beide auf ihrem Default (jetzt); `clientEventId` schickt bei Online-Aufrufen seit LOG-09 die Oberfläche mit
+ * (ein Schlüssel je Antwortversuch), damit eine Wiederholung nicht doppelt zählt.
  */
 /**
  * F-119 (Nutzer-Feedback vom 18.09.2026, Nutzer-Entscheidung 22.09.2026, siehe Architekturplanung
@@ -251,7 +252,8 @@ export async function applyReview(
   userId: string,
   contentItemId: string,
   result: ReviewResult,
-  now: Date,
+  /** Offline-Sync: Zeitpunkt der Bewertung. Online (`undefined`): gilt ab dem Moment, in dem die Kontosperre erteilt ist. */
+  now: Date | undefined,
   clientEventId?: string,
 ): Promise<{ dueAt: Date }> {
   // Code-Review-Fund, nachgezogen: siehe recordQuizAttempt oben — dieselbe Transaktion, damit
@@ -262,7 +264,7 @@ export async function applyReview(
     await tx.select({ id: user.id }).from(user).where(eq(user.id, userId)).for("update");
     // Online-Aufrufe: Der Zeitpunkt gilt ab dem Moment, in dem die Sperre erteilt ist. Sonst hätte eine wartende Anfrage einen früheren
     // Zeitpunkt als die zuvor abgeschlossene und würde als "älteres Offline-Ereignis" übergangen (Review LOG-11).
-    if (!clientEventId) now = new Date();
+    if (!now) now = new Date();
     const [existing] = await tx
       .select()
       .from(userProgress)
@@ -945,7 +947,7 @@ export const progressRouter = router({
 
   submitReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
     await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["karteikarte"]);
-    return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
+    return applyReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, undefined, input.clientEventId);
   }),
 
   /**
@@ -953,7 +955,7 @@ export const progressRouter = router({
    * submitReview (Karte + neue Einschätzung), siehe applyChangeReview für die "echtes
    * Rückgängig"-Logik.
    */
-  changeReview: protectedProcedure.input(submitReviewInputSchema).mutation(async ({ ctx, input }) => {
+  changeReview: protectedProcedure.input(submitReviewInputSchema.omit({ clientEventId: true })).mutation(async ({ ctx, input }) => {
     await assertContentItemAccessible(ctx.db, ctx.currentUser.id, input.contentItemId, ["karteikarte"]);
     return applyChangeReview(ctx.db, ctx.currentUser.id, input.contentItemId, input.result, new Date());
   }),
