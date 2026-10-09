@@ -1038,17 +1038,22 @@ export function Instrumente({
   const eintraege = INSTRUMENT_CATALOG.map((instrument) => ({ instrument, gruppe: gruppeVon(instrument) })).filter((eintrag) => eintrag.gruppe !== null);
   const kern = eintraege.filter((eintrag) => eintrag.gruppe === "kern").map((eintrag) => eintrag.instrument);
   const grundlagen = eintraege.filter((eintrag) => eintrag.gruppe === "grundlagen").map((eintrag) => eintrag.instrument);
+  const hatLernpfade = (lernpfade.data ?? []).some((eintrag) => angebotLernpfad(angebot, eintrag.instrumentType));
 
   return (
     <div className="panel-section">
       <div className="panel-section-head">
         <h2>Werkzeugkasten</h2>
       </div>
-      <p className="field-hint">
-        Je Instrument eine Übungsrunde mit Fragen genau zu diesem Instrument und, wo vorhanden, die praktische Anwendung
-        am Werkzeug selbst. Für manche Instrumente gibt es zusätzlich einen geführten,
-        mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen, siehe unten).
-      </p>
+      {/* Review UXT-B-18/I-11: Die Einleitung erscheint nur, wenn es etwas zu zeigen gibt, und nennt Lernpfade nur in Kursen, die welche haben. */}
+      {eintraege.length > 0 && (
+        <p className="field-hint">
+          Je Instrument eine Übungsrunde mit Fragen genau zu diesem Instrument und, wo vorhanden, die praktische Anwendung am
+          Werkzeug selbst.
+          {hatLernpfade &&
+            " Für manche Instrumente gibt es zusätzlich einen geführten, mehrstufigen Lernpfad mit durchgehendem Fallbeispiel (Teil der Fortgeschritten-Funktionen)."}
+        </p>
+      )}
       {instruments.isLoading || courses.isLoading ? (
         <p>Lädt…</p>
       ) : instruments.isError || courses.isError ? (

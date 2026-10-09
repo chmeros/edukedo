@@ -25,6 +25,12 @@ describe("pruefeLernziel (Heuristiken, W-AEV-02)", () => {
     expect(status("Die Auszubildende kennzeichnet die Leitungen mit Schildern.").Überprüfbarkeit).toBe(true);
   });
 
+  it("zeigt „Überprüfbarkeit“ nicht als erfüllt, wenn kein Tätigkeitsverb erkannt wurde (UXT-B-19)", () => {
+    expect(status("asdf qwer").Überprüfbarkeit).toBe(false);
+    expect(status("Der Auszubildende ist ein guter Mitarbeiter im Betrieb des Unternehmens heute.").Überprüfbarkeit).toBe(false);
+    expect(status("Die Auszubildende beschreibt den Ablauf.").Überprüfbarkeit).toBe(true);
+  });
+
   it("meldet fehlendes Tätigkeitsverb, fehlende Bedingung und fehlenden Maßstab", () => {
     const ergebnis = status("Der Auszubildende ist ein guter Mitarbeiter im Betrieb des Unternehmens heute.");
     expect(ergebnis.Tätigkeitsverb).toBe(false);

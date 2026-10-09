@@ -470,7 +470,7 @@ export function Flashcards({
             aria-pressed={currentFlagged}
             onClick={() => toggleFlag.mutate({ contentItemId: current.id })}
           >
-            <StarIcon filled={currentFlagged} /> Schwierig
+            <StarIcon filled={currentFlagged} /> Als schwierig markieren
           </button>
         )}
       </div>

@@ -101,6 +101,11 @@ type ExamItem = {
 
 const DURATION_PRESETS_MINUTES = [30, 60, 90, 600];
 
+/** Review UXT-B-10: deutsche Schreibweise mit Komma („1,5 Std.“), nicht „1.5 Std.“. */
+function formatDuration(minutes: number): string {
+  return minutes >= 60 ? `${(minutes / 60).toLocaleString("de-DE")} Std.` : `${minutes} Min.`;
+}
+
 function formatRemaining(seconds: number): string {
   const clamped = Math.max(0, seconds);
   const minutes = Math.floor(clamped / 60);
@@ -450,7 +455,7 @@ export function Exam({ kursId }: { kursId: string }) {
               <InfoIcon />
               <div>
                 <b>Fortgeschritten:</b> Mit einem aktiven Fortgeschritten-Status bewertet eine KI jede deiner
-                Fallaufgaben-Antworten einzeln mit Punktvorschlag und ausführlichem Feedback (F-70), statt dich nur
+                Fallaufgaben-Antworten einzeln mit Punktvorschlag und ausführlichem Feedback, statt dich nur
                 auf deine Selbsteinschätzung zu verlassen. Freischaltbar im Kontomenü oben rechts unter
                 „Einstellungen".
               </div>
@@ -622,10 +627,11 @@ export function Exam({ kursId }: { kursId: string }) {
                 className={durationMinutes === minutes ? "is-active" : ""}
                 onClick={() => setDurationMinutes(minutes)}
               >
-                {minutes >= 60 ? `${minutes / 60} Std.` : `${minutes} Min.`}
+                {formatDuration(minutes)}
               </button>
             ))}
           </div>
+          <span className="field-hint">Die Übungsdauer ist frei wählbar. 10 Std. entsprechen der Gesamtdauer der schriftlichen Fachwirt-Prüfung (600 Minuten).</span>
         </div>
       )}
       {startExam.error && (

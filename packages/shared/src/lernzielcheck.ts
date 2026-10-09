@@ -73,6 +73,13 @@ export function pruefeLernziel(text: string, bereich: Lernzielbereich | ""): Che
       erfuellt: false,
       text: `„${unpruefbar}“ lässt sich nicht beobachten oder prüfen. Ersetze es durch ein Verb, das man sieht oder hört, zum Beispiel „beschreibt“, „bohrt“ oder „begründet“.`,
     });
+  } else if (!pruefbarVerb) {
+    // Review UXT-B-19: Ohne erkanntes Tätigkeitsverb lässt sich die Überprüfbarkeit nicht beurteilen; ein ✓ für beliebigen Text wäre irreführend.
+    ergebnisse.push({
+      kriterium: "Überprüfbarkeit",
+      erfuellt: false,
+      text: "Noch nicht beurteilbar: Es wurde kein Tätigkeitsverb erkannt (Heuristik). Nenne, was man am Ende sehen oder hören kann.",
+    });
   } else {
     ergebnisse.push({ kriterium: "Überprüfbarkeit", erfuellt: true, text: "Kein Wort aus der Liste nicht überprüfbarer Verben gefunden (Heuristik)." });
   }

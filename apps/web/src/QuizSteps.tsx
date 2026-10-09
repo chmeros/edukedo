@@ -1686,7 +1686,8 @@ export function KurzantwortStep({
             )}
             {feedback.explanation ? <> <FachbegriffText text={feedback.explanation} aktiv /></> : null}
           </p>
-          {!feedback.isCorrect && canReport && (
+          {/* Review UXT-B-13/Zusatzbefund: Bei reinen Zahlenantworten gibt es keine „anders formulierte“ richtige Antwort. */}
+          {!feedback.isCorrect && canReport && !/^[\d\s.,+\-–%€]+$/.test(feedback.correctAnswer) && (
             // F-134 (26.09.2026, siehe Architekturplanung Abschnitt 13): Kurzantwort-Fragen
             // werden serverseitig per Exakt-/Enthält-Abgleich gegen eine feste Liste akzeptierter
             // Antworten geprüft (checkKurzantwort, packages/shared) — inhaltlich richtige, aber

@@ -1,3 +1,4 @@
+import { parseZahlEingabe } from "@edukedo/shared";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { trpc } from "./trpc";
@@ -714,6 +715,8 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
   const [index, setIndex] = useState(0);
   const [richtig, setRichtig] = useState(0);
   const [eingabe, setEingabe] = useState("");
+  // Review UXT-B-15: Eine Eingabe wie „abc“ im Rechen-Sprint ist keine falsche Rechnung, sondern keine Zahl: Hinweis statt Wertung.
+  const [eingabeHinweis, setEingabeHinweis] = useState<string | null>(null);
   const [start, setStart] = useState<number | null>(null);
   const [dauer, setDauer] = useState<number | null>(null);
 
@@ -772,7 +775,7 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
       {!aufgaben ? (
         <div className="stack">
           <p>
-            {info.data.anzahl} Aufgaben, jede ist neu zufällig erzeugt. {gameType === "rechensprint" ? "Ein einfacher Taschenrechner ist erlaubt." : "Rechne im Kopf oder auf Papier"} — und prüfe jede Antwort sofort.
+            {info.data.anzahl} Aufgaben, jede ist neu zufällig erzeugt. {gameType === "rechensprint" ? "Ein einfacher Taschenrechner ist erlaubt." : "Rechne im Kopf oder auf Papier."} Prüfe jede Antwort sofort.
           </p>
           <div className="field">
             <span id="sprint-schwierigkeit">Schwierigkeit</span>
@@ -817,19 +820,33 @@ export function SprintSpiel({ kursId, setKey, title, gameType, onClose }: SpielP
               className="stack"
               onSubmit={(event) => {
                 event.preventDefault();
-                if (!ergebnis && eingabe.trim()) antwort.mutate({ kursId, setKey, gameType, token: aufgabe.token, eingabe });
+                if (ergebnis || !eingabe.trim()) return;
+                if (gameType === "rechensprint" && parseZahlEingabe(eingabe) === null) {
+                  setEingabeHinweis("Bitte gib eine Zahl ein, zum Beispiel 1.250,50 oder 12,5.");
+                  return;
+                }
+                setEingabeHinweis(null);
+                antwort.mutate({ kursId, setKey, gameType, token: aufgabe.token, eingabe });
               }}
             >
               <input
                 className="input sprint-input"
                 value={eingabe}
-                onChange={(event) => setEingabe(event.target.value)}
+                onChange={(event) => {
+                  setEingabe(event.target.value);
+                  setEingabeHinweis(null);
+                }}
                 readOnly={!!ergebnis}
                 ref={eingabeRef}
                 aria-label="Deine Antwort"
                 autoComplete="off"
               />
               <span className="field-hint">{aufgabe.hinweis}</span>
+              {eingabeHinweis && (
+                <span className="field-hint" role="alert">
+                  {eingabeHinweis}
+                </span>
+              )}
               {!ergebnis && (
                 <button type="submit" className="btn btn-primary" style={{ alignSelf: "flex-start" }} disabled={antwort.isPending || !eingabe.trim()}>
                   Prüfen

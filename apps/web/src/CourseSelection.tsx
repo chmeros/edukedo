@@ -137,7 +137,7 @@ export function CourseSelection({
                       {/* Review WEB-24: Kurs verlassen löscht Zieltermin, Plan-Start und Lernpartner-Präferenz, daher mit Rückfrage. */}
                       <ConfirmButton
                         label="Verlassen"
-                        question="Kurs wirklich verlassen? Zieltermin, Plan-Start und Lernpartner-Auswahl gehen verloren."
+                        question="Kurs wirklich verlassen? Zieltermin, Plan-Start und Lernpartner-Auswahl gehen verloren, dein Lernfortschritt bleibt erhalten."
                         confirmLabel="Ja, verlassen"
                         disabled={leave.isPending && leave.variables?.kursId === course.id}
                         onConfirm={() => leave.mutate({ kursId: course.id })}
@@ -168,7 +168,7 @@ export function CourseSelection({
       )}
 
       <div className="panel-section">
-        <span className="stat-subheading">Weiteren Kurs beitreten</span>
+        <span className="stat-subheading">{joined.length > 0 ? "Weiteren Kurs beitreten" : "Kurs beitreten"}</span>
         <div className="field">
           <input
             className="input"

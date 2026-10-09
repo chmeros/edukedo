@@ -112,7 +112,7 @@ export const PRUEFBAR = [
   "berechn", "auswähl", "zeig", "demonstrier", "isolier", "montier", "prüf", "kontrollier", "bestimm", "zuordn", "anfertig", "erstell", "einhalt", "verbind", "schließ",
   "bohr", "feil", "säg", "schleif", "löt", "schraub", "wechsel", "füll", "sortier", "ordn", "formulier", "unterscheid", "begrüß", "beraten", "berat", "schreib", "bearbeit",
   "anschließ", "einstell", "reinig", "bestell", "buch", "erfass", "nutz", "wend", "wähl", "entscheid", "identifizier", "lös", "plan", "dokumentier", "übergeb", "übernehm",
-  "acht", "beacht", "hör", "frag", "trag", "halt", "meld",
+  "acht", "beacht", "hör", "frag", "trag", "halt", "meld", "erkenn", "kennzeichn",
 ];
 
 export function woerter(text: string): string[] {

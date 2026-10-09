@@ -149,7 +149,7 @@ describe("Flashcards (F-110/F-111, nur Karteikarten)", () => {
   it("markiert eine Karte als schwierig und zeigt den Zustand an", () => {
     bereiteVor([karte(1, { flaggedAsDifficult: true }), karte(2)]);
     zeige();
-    const markierung = screen.getByRole("button", { name: /Schwierig/ });
+    const markierung = screen.getByRole("button", { name: /Als schwierig markieren/ });
     expect(markierung.getAttribute("aria-pressed")).toBe("true");
     fireEvent.click(markierung);
     expect(reg.mutationCalls["progress.toggleDifficultyFlag"]).toEqual([{ contentItemId: "karte-1" }]);
@@ -242,7 +242,7 @@ describe("Flashcards (F-110/F-111, nur Karteikarten)", () => {
       zeige();
       await screen.findByText("Vorderseite 1");
       expect(screen.queryByRole("checkbox", { name: "Nur schwierige Karten" })).toBeNull();
-      expect(screen.queryByRole("button", { name: /Schwierig/ })).toBeNull();
+      expect(screen.queryByRole("button", { name: /Als schwierig markieren/ })).toBeNull();
     });
   });
 });

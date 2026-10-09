@@ -312,9 +312,10 @@ export function Progress({
                   <div className="stack">
                     <span className="stat-subheading">Schwachstellen — hier lohnt sich Wiederholen, je Thema</span>
                     <p className="field-hint">
-                      Die {stats.data.weakThemen.length} Themen mit der niedrigsten Trefferquote (mindestens 3
-                      beantwortete Fragen), unabhängig davon, an welchem Tag gelernt wurde — ein Klick auf ein Thema springt direkt
-                      zum gezielten Lernen dort.
+                      {stats.data.weakThemen.length === 1 ? "Das Thema" : `Die ${stats.data.weakThemen.length} Themen`} mit der
+                      niedrigsten Trefferquote (mindestens 3 beantwortete Fragen), unabhängig davon, an welchem Tag gelernt
+                      wurde. Die Trefferquote ist der Anteil richtig beantworteter Fragen, in Klammern stehen richtige und
+                      beantwortete Antworten. Ein Klick auf ein Thema springt direkt zum gezielten Lernen dort.
                     </p>
                     <div className="tile-grid tile-grid-sm">
                       {stats.data.weakThemen.map((thema) => (

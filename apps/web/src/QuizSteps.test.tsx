@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { BlanksStep, MatchingStep, QuadrantStep, SortierenStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, QuadrantStep, SortierenStep } from "./QuizSteps";
 
 /**
  * Rückmeldung nach der Antwort (Review UXT-B-07, UXT-F-09, UXT-I-06): Die Lösung steht als Text da, nicht nur als Farbe am Begriff,
@@ -169,5 +169,25 @@ describe("SortierenStep: Erklärung", () => {
     });
     pruefe();
     expect(text()).toContain("Erst planen, dann umsetzen.");
+  });
+});
+
+describe("KurzantwortStep: Hinweis auf anders formulierte Antworten", () => {
+  function antworteFalsch(richtigeAntwort: string) {
+    const submit = nachgemachteAuswertung({ isCorrect: false, correctAnswer: richtigeAntwort, explanation: null });
+    render(<KurzantwortStep item={{ id: "k", prompt: "Frage?" }} isLast={false} onAnswered={() => {}} onNext={() => {}} submit={submit} canReport />);
+    fireEvent.change(screen.getByRole("textbox"), { target: { value: "falsch" } });
+    pruefe();
+  }
+
+  it("zeigt bei einer falschen Textantwort den Hinweis, dass sinngemäß richtige Antworten meldbar sind", () => {
+    antworteFalsch("Pflichtenheft");
+    expect(text()).toContain("War deine Antwort trotzdem sinngemäß richtig");
+  });
+
+  it("zeigt den Hinweis nicht bei reinen Zahlenantworten (UXT-F, Zusatzbefund)", () => {
+    antworteFalsch("1.250,50");
+    expect(text()).toContain("Richtige Lösung:");
+    expect(text()).not.toContain("War deine Antwort trotzdem sinngemäß richtig");
   });
 });
