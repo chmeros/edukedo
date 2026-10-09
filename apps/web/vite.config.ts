@@ -23,6 +23,31 @@ const CONTENT_SECURITY_POLICY = [
   "form-action 'self'",
 ].join("; ");
 
+/**
+ * Review WEB-22: Bibliotheken in eigene, selten wechselnde Dateien. Der Hauptteil enthält dann nur noch den eigenen Code; nach einer
+ * neuen Version laden Browser und Service Worker die Bibliotheks-Dateien nicht erneut (ihr Inhalt und damit ihr Dateiname bleibt gleich).
+ * Nur Bibliotheken, die ohnehin beim Start gebraucht werden: Gruppen, die nur in nachgeladenen Teilen vorkommen (@dnd-kit, sql.js),
+ * bleiben bewusst unberührt und werden mit dem jeweiligen Teil geladen.
+ */
+const VENDOR_CHUNKS: { name: string; packages: RegExp }[] = [
+  { name: "vendor-react", packages: /^(react|react-dom|scheduler)$/ },
+  { name: "vendor-daten", packages: /^(@tanstack\/.+|@trpc\/.+|dexie)$/ },
+  { name: "vendor-zod", packages: /^zod$/ },
+  {
+    name: "vendor-markdown",
+    packages: /^(react-markdown|remark-.+|rehype-.+|unified|bail|trough|vfile.*|unist-.+|mdast-.+|hast-.+|micromark.*|decode-named-character-reference|character-entities.*|property-information|space-separated-tokens|comma-separated-tokens|devlop|is-plain-obj|ccount|escape-string-regexp|markdown-table|longest-streak|trim-lines|html-url-attributes|estree-util-is-identifier-name|style-to-.*|inline-style-parser)$/,
+  },
+];
+
+function vendorChunk(id: string): string | undefined {
+  const marker = "node_modules/";
+  const index = id.lastIndexOf(marker);
+  if (index === -1) return undefined;
+  const parts = id.slice(index + marker.length).split("/");
+  const packageName = parts[0]!.startsWith("@") ? `${parts[0]}/${parts[1]}` : parts[0]!;
+  return VENDOR_CHUNKS.find((group) => group.packages.test(packageName))?.name;
+}
+
 export default defineConfig({
   plugins: [
     {
@@ -75,6 +100,11 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: { manualChunks: vendorChunk },
+    },
+  },
   server: {
     proxy: {
       "/api": {

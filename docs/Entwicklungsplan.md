@@ -564,7 +564,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [ ] Lesehinweis (Zahlenschreibweise) für Skalierungsrechner, Testfalltrainer und Statistiktrainer (WRK-04/05/06, Rest).
 - [ ] Lese-Modus für Kursinhalte: Suche und Druck.
 - [ ] Kursübergreifende Kohortenübersicht für Lehrkräfte (UXL-21, Rest).
-- [ ] Ladegröße: `manualChunks` für das Web-Bündel (Web-Feinschliff, Paket 10).
+- [x] **Ladegröße, erledigt 09.10.2026** (siehe Architekturplanung §13): `@edukedo/shared` als seiteneffektfrei markiert und Bibliotheken per `manualChunks` in eigene Dateien gelegt; Hauptdatei 1.193 → 306 kB (gzip 355 → 84 kB).
 - [ ] Tests für `apps/web` aufbauen (Komponententest der ErrorBoundary, Modal, Mischmodus; bisher nur manuell geprüft).
 - [x] **Doku-Drift behoben, erledigt 09.10.2026:** `CLAUDE.md` nennt keine festen Versionsnummern mehr (die aktuelle Version steht im Kopf der Dokumente) und beschreibt den tatsächlichen Stand samt Testhinweis (Docker und Redis); Wurzel-`README` mit Struktur und Stand angeglichen; `apps/api/README.md` und `apps/web/README.md` weisen darauf hin, dass ihre Stand-Listen eine Chronik bis Anfang Oktober sind; Kopfzeile des Entwicklungsplans aktualisiert.
 - [ ] Reststand der Usability-Punkte (Gesamtbericht Abschnitt 5, Priorität D) gegen die Pakete 1 bis 11 abgleichen und verbleibende Punkte hier einzeln aufnehmen (z. B. Theorie-Tab, „Prüfungsablauf noch nicht beschrieben“, Glossar für weitere Kurse).
