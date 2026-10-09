@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Zahlwörter und Ziffern gelten als gleich, Review UXT-F-19)
+
+Anlass: Im Immobilienfachwirt-Kurs steht ein Lückentext „… spätestens ___zwölf___ Monate …“ (Betriebskostenabrechnung). Wer „12“ eintrug, bekam „falsch“, obwohl die Antwort richtig ist; das verfälscht Wertung, Fortschritt und Lernserie. Der Parser kennt je Lücke nur die eine Schreibweise aus dem Quelltext.
+
+- **Entscheidung:** Statt jede Lücke von Hand um Ziffern zu ergänzen (Alternativsyntax `___zwölf|12___`), gleicht die zentrale Normalisierung (`normalisiereAntwort`, Entscheidung 09.10.2026 zu FL-MA-03) jetzt Zahlwörter und Ziffern an. Sie wirkt auf beide Seiten des Vergleichs, also auch auf alle bestehenden Lücken und Kurzantworten in allen Kursen, ohne Content zu ändern.
+- **Umfang:** ganze Wörter von „eins“ bis „hundert“ (eins bis zwanzig, die Zehner, „hundert“, dazu die Zusammensetzungen 21 bis 99 wie „einundzwanzig“; auch die Schreibweisen „fuenf“, „zwoelf“, „dreissig“). Die Wortgrenzen sind Buchstaben: „zweite“, „Dreieck“, „achten“, „vierteljährlich“ bleiben unverändert. „zwei Wochen“ gilt wie „2 Wochen“, „zwölf Monate“ wie „12 Monate“.
+- **Bewusst ausgenommen:** „ein“, „eine“, „einen“ (meist der unbestimmte Artikel, „ein Kabel“ ist nicht „1 Kabel“) und **„null“**. „null“ steht in den IT-Kursen für den SQL-Wert `NULL` (mehrere Lücken `___NULL___`); „0“ wäre dort sachlich falsch. Ein erster Entwurf mit „null → 0“ hätte das als richtig gewertet und wurde deshalb vor der Übernahme gestrichen (Prüfung der Inhalte: 21 Lücken und 33 Kurzantworten mit Zahlwörtern; die meisten Kurzantworten führen Ziffer und Wort schon nebeneinander auf, das bleibt harmlos).
+- **Grenze:** Beim Vergleichsmodus „enthält“ (`match_mode: "contains"`, nur über den Redaktionsbereich anlegbar, der Markdown-Import erzeugt immer „exakt“) kann eine kurze hinterlegte Zahl wie „eins“ nach der Angleichung als „1“ in einer längeren Antwort stecken. Für diesen Modus sollten Zahlen daher nicht als einzelne Ziffer hinterlegt werden; im Bestand gibt es dafür keinen Fall.
+- **Nicht Teil:** eine Alternativsyntax im Parser für beliebige Schreibvarianten (bleibt bei den Punkten „Kurzantworten mit mehr Schreibvarianten“ in Iteration 23), Dezimalzahlen als Wörter („zwei Komma fünf“), römische Zahlen.
+- **Prüfung:** Neue Tests für die Normalisierung (Wort und Ziffer, Zusammensetzungen, Wendungen mit Einheit, Wortteile bleiben, Artikel und „null“ bleiben, verschiedene Zahlen bleiben verschieden) und für `checkBlanks`/`checkKurzantwort` (12 gegen zwölf, Ziffer als Lösung und Wort als Eingabe, „2 Wochen“, NULL gegen 0). Gegenprobe: ohne die Zahlwort-Ersetzung schlagen sieben Tests fehl. Shared 1055, komplette API-Suite 871, Typprüfung sauber. Es musste kein Content geändert und nichts importiert werden.
+
 ### Entschieden am 09.10.2026 (Lückentext-Lösung nicht im Klartext, Review UXT-F-06)
 
 Anlass: Der gespeicherte Text eines Lückentexts (`content_item.prompt`) enthält die Lösungen im Autorenformat `___Lösung___`. Die Suche der Lernenden (`content.search`, Tab „Lernen“) zeigte ihn roh, also die Antwort gleich mit; der Lese-Modus (`kursInhalt.thema`, `kursInhalt.suche`) ebenso, auch im Druck „ohne Lösungen“, und die neue Suche im Lese-Modus nahm ihren Ausschnitt aus demselben Text.
