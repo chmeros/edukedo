@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Rückmeldung mit Lösung statt nur Farbe, Review UXT-B-07, UXT-F-09, UXT-I-06)
+
+Anlass: Bei Zuordnungs- und Zonenfragen zeigte die Rückmeldung nach einer falschen Antwort nur „x von y richtig“ und rote oder grüne Begriffe. Die richtige Zuordnung stand nicht da (obwohl der Server sie lieferte), der Hinweis hing allein an der Farbe (WCAG 1.4.1), und eine Erklärung fehlte bei allen Typen außer Multiple Choice, Mehrfachauswahl und Kurzantwort. Das betraf Zuordnung, die Zonen-Fragen (SWOT, Balanced Scorecard, Ansoff, Stakeholder, Gantt u. a.), Hierarchie, Sortieren und beide Lückentext-Arten.
+
+- **Lösung als Text (`QuizSteps.tsx`, Baustein `LoesungsHinweis`):** Nach der Antwort steht unter dem Ergebnis ein Kasten „Richtig wäre:“ mit einer Zeile je falsch eingeordnetem Begriff, „Begriff → richtiger Partner“ (Zuordnung) bzw. „Begriff → richtige Zone“ (Zonen und Hierarchie, Hilfsfunktion `falscheZonen`). Richtig eingeordnete Begriffe werden nicht wiederholt; ist alles richtig, entfällt die Liste. Sortieren und Lückentext nannten die Lösung schon (Reihenfolge bzw. „Richtige Lösung: …“) und bleiben dabei.
+- **Erklärung überall:** Der Server liefert jetzt bei `quiz.submitMatching`, `submitSortieren`, `submitQuadrant` und `submitBlanks` die Erklärung des Items mit (`explanation`, `null` ohne hinterlegten Text; Hilfsfunktion `ladeErklaerung` in `quiz.ts`, bei `submitBlanks` aus dem schon geladenen Item). Die Schritte zeigen sie im Kasten, auch bei vollständig richtiger Antwort. Das Feld ist in den Rückgabetypen optional, damit die kontolose Vorschau und die Offline-Auswertung unverändert funktionieren; sie liefern keine Erklärung und zeigen deshalb keinen Kasten.
+- **Zeichen und Text neben der Farbe:** `DraggableTerm` setzt bei der Rückmeldung „✓ “ bzw. „✗ “ (für Hilfstechnik ausgeblendet) vor den Begriff und einen nur für Hilfstechnik lesbaren Text „(richtig)“ bzw. „(falsch)“ dahinter; Freitext-Lücken bekommen dasselbe Paar hinter dem Feld. Das gilt für alle Fragetypen mit `DraggableTerm`, auch Sortieren und Lückentext mit Wortauswahl.
+- **Wortwahl vereinheitlicht:** Zuordnung meldet wie die Zonen-Fragen „x von y Begriffen richtig zugeordnet.“ (vorher „Zuordnungen richtig“).
+- **Bewusst nicht Teil:** Anweisung der Zuordnung im Industriefachwirt-Kurs 5.3 (Inhalt, steht bei den Content-Punkten), die kontolose Vorschau und der Offline-Pfad (keine Erklärung), eine eigene Darstellung für die Rückmeldung der Spiele.
+- **Prüfung:** Sechs neue Komponententests (`QuizSteps.test.tsx`: Zuordnung falsch, richtig und Zeichen, Zonen, Lückentext, Sortieren) und eine Zusicherung im Integrationstest der Zonen-Auswertung, Typprüfung und Lint in API und Web, Web-Tests (74) und der Lernfluss-Test (33). Die Tests wurden gegenprüft: Entfernt man Lösungstext, Zeichen oder Erklärung, schlagen alle sechs fehl. Live im Browser (Wegwerf-Konto, Büro-Kurs, Stakeholder-Matrix mit acht Begriffen): „2 von 8 Begriffen richtig zugeordnet.“, sechs Zeilen „… → Informieren/Beobachten/Zufriedenstellen“ samt Erklärung, ✓ und ✗ an den Begriffen. Das Konto wurde danach gelöscht.
+
 ### Entschieden am 09.10.2026 (Reststand der Usability-Punkte abgeglichen)
 
 Anlass: Der Gesamtbericht führte unter Priorität D einen Auszug der Usability-Befunde, ohne dass klar war, was nach den Paketen 1 bis 11 und den späteren Arbeiten noch besteht. Der Plan verlangte den Abgleich.
