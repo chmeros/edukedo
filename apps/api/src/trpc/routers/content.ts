@@ -193,6 +193,7 @@ export const contentRouter = router({
   theorieThema: protectedProcedure.input(theorieThemaInputSchema).query(async ({ ctx, input }) => {
     const [row] = await ctx.db
       .select({
+        itemId: contentItem.id,
         payload: contentItem.payload,
         themaTitle: thema.title,
         fachgebietTitle: fachgebiet.title,
@@ -218,6 +219,8 @@ export const contentRouter = router({
       themaId: input.themaId,
       themaTitle: row.themaTitle,
       fachgebietTitle: row.fachgebietTitle,
+      // Review UXL-13: Das Lesefenster bietet „Fehler melden“ für den Theorietext; die Meldung braucht die ID des Inhalts.
+      contentItemId: row.payload ? row.itemId : null,
       bodyMarkdown: row.payload ? theoriePayloadSchema.parse(row.payload).body_markdown : null,
     };
   }),

@@ -925,6 +925,8 @@ export const companyInviteCode = pgTable(
       .notNull()
       .references(() => companyAccount.id, { onDelete: "cascade" }),
     code: text("code").notNull().unique(),
+    // Review UXL-11: freie Bezeichnung des Codes (z. B. Abteilung), nur für die Übersicht des Unternehmens.
+    label: text("label"),
     expiresAt: timestamp("expires_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },

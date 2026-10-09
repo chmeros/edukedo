@@ -57,6 +57,28 @@ describe("TheorieEinstieg (Review UXT-B-04, UXT-I-16)", () => {
     expect(reg.queryInputs["content.theorieThema"]![0]).toEqual({ kursId: "kurs-1", themaId: "t11" });
   });
 
+  it("bietet im Lesefenster „Fehler melden“ für den Theorietext an, nur wenn es einen Theorietext gibt (Review UXL-13)", () => {
+    bereiteVor();
+    reg.queries["content.theorieThema"] = { ...(reg.queries["content.theorieThema"] as object), contentItemId: "theorie-1" };
+    const { unmount } = render(
+      <TheorieProvider kursId="kurs-1">
+        <NachlesenButton themaId="t11" themaTitle="1.1 Planung" />
+      </TheorieProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Im Thema nachlesen/ }));
+    expect(screen.getByRole("button", { name: "Fehler melden" })).toBeTruthy();
+    unmount();
+
+    reg.queries["content.theorieThema"] = { themaTitle: "Leer", fachgebietTitle: "FG", bodyMarkdown: null, contentItemId: null };
+    render(
+      <TheorieProvider kursId="kurs-1">
+        <NachlesenButton themaId="t11" themaTitle="Leer" />
+      </TheorieProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Im Thema nachlesen/ }));
+    expect(screen.queryByRole("button", { name: "Fehler melden" })).toBeNull();
+  });
+
   it("erscheint offline nicht, weil die Theorie nicht offline vorgehalten wird", () => {
     bereiteVor();
     testState.online = false;

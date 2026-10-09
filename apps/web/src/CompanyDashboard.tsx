@@ -80,6 +80,8 @@ function InviteCodesSection() {
   const utils = trpc.useUtils();
   // Review UXL-11: Der Server kennt ein Ablaufdatum für Codes; hier lässt es sich setzen (leer = ohne Ablauf).
   const [expiresOn, setExpiresOn] = useState("");
+  // Review UXL-11: Bezeichnung (z. B. Abteilung), damit sich mehrere Codes unterscheiden lassen.
+  const [label, setLabel] = useState("");
   const codes = trpc.company.inviteCodes.useQuery();
   const create = trpc.company.createInviteCode.useMutation({
     onSuccess: () => utils.company.inviteCodes.invalidate(),
@@ -101,6 +103,7 @@ function InviteCodesSection() {
             <div className="list-row">
               <div className="meta">
                 <code>{code.code}</code> <CopyButton text={code.code} />
+                {code.label && <b>{code.label}</b>}
                 <span>
                   {code.expiresAt ? `Gültig bis ${new Date(code.expiresAt).toLocaleDateString("de-DE")}` : "Ohne Ablaufdatum"}
                 </span>
@@ -123,11 +126,34 @@ function InviteCodesSection() {
         type="button"
         className="btn btn-ghost btn-sm"
         style={{ alignSelf: "flex-start" }}
-        onClick={() => create.mutate(expiresOn ? { expiresAt: new Date(`${expiresOn}T23:59:59`) } : {}, { onSuccess: () => setExpiresOn("") })}
+        onClick={() =>
+          create.mutate(
+            { ...(expiresOn ? { expiresAt: new Date(`${expiresOn}T23:59:59`) } : {}), ...(label.trim() ? { label: label.trim() } : {}) },
+            {
+              onSuccess: () => {
+                setExpiresOn("");
+                setLabel("");
+              },
+            },
+          )
+        }
         disabled={create.isPending}
       >
         Neuen Einladungscode erstellen
       </button>
+      <div className="field">
+        <label htmlFor="cd-code-label">Bezeichnung (optional)</label>
+        <input
+          className="input"
+          id="cd-code-label"
+          style={{ maxWidth: "20rem" }}
+          maxLength={100}
+          placeholder="z. B. Abteilung Einkauf"
+          value={label}
+          onChange={(event) => setLabel(event.target.value)}
+        />
+        <span className="field-hint">Nur für deine Übersicht; die Mitarbeitenden sehen sie nicht.</span>
+      </div>
       <div className="field">
         <label htmlFor="cd-code-expires">Gültig bis (optional)</label>
         <input
@@ -396,6 +422,10 @@ function LoginForm() {
       {login.error && <ErrorMessage>{login.error.message}</ErrorMessage>}
     </form>
     <ForgotPassword kind="company" initialEmail={email} />
+    {/* Review UXL-11: Wer noch kein Unternehmens-Konto hat, erfährt hier, wie er eines bekommt. */}
+    <p className="field-hint">
+      Noch kein Unternehmens-Konto? Wir richten es auf Anfrage ein, die Kontaktangaben stehen im <a className="link" href="/impressum">Impressum</a>.
+    </p>
     </>
   );
 }

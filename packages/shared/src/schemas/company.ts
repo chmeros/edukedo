@@ -62,6 +62,8 @@ export type AdminUpdateCompanyBillingInput = z.infer<typeof adminUpdateCompanyBi
  */
 export const createCompanyInviteCodeInputSchema = z.object({
   expiresAt: z.coerce.date().optional(),
+  // Review UXL-11: z. B. die Abteilung; leer oder fehlend = ohne Bezeichnung.
+  label: z.string().trim().max(100, "Die Bezeichnung ist zu lang (höchstens 100 Zeichen).").optional(),
 });
 export type CreateCompanyInviteCodeInput = z.infer<typeof createCompanyInviteCodeInputSchema>;
 

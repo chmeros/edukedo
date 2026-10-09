@@ -3,6 +3,7 @@ import { TRPCError } from "@trpc/server";
 import { completePasswordReset, initiatePasswordReset } from "../../auth/password-reset";
 import { enforceRateLimit, LIMITS } from "../../auth/request-limits";
 import { env } from "../../env";
+import { devLink } from "../../dev-links";
 import { publicProcedure, router } from "../trpc";
 
 /**
@@ -21,7 +22,7 @@ export const passwordResetRouter = router({
       // Immer dieselbe Antwort, unabhängig davon, ob es das Konto gibt.
       status: "requested" as const,
       // Nur außerhalb von production offengelegt (kein echter Mailversand), siehe devConfirmUrl bei der Registrierung.
-      devResetUrl: env.NODE_ENV === "production" ? undefined : result?.resetUrl,
+      devResetUrl: devLink(env.NODE_ENV, result?.resetUrl),
     };
   }),
 

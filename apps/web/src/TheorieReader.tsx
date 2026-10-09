@@ -14,6 +14,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ErrorMessage } from "./ErrorMessage";
+import { ReportContentButton } from "./ReportContentButton";
 import { trpc } from "./trpc";
 import { useOnlineStatus } from "./useOnlineStatus";
 
@@ -146,7 +147,8 @@ function TheorieSeitenleiste({ kursId, ziel, onClose }: { kursId: string; ziel: 
       role="complementary"
       aria-label={`Theorie: ${titel}`}
       onKeyDown={(event) => {
-        if (event.key === "Escape") {
+        // Ein Dialog aus dem Fenster (Fehler melden) reicht seine Tasten per Portal an dieses Element weiter; Escape gehört dann dem Dialog.
+        if (event.key === "Escape" && !(event.target as Element).closest(".modal-backdrop")) {
           event.stopPropagation();
           onClose();
         }
@@ -170,6 +172,12 @@ function TheorieSeitenleiste({ kursId, ziel, onClose }: { kursId: string; ziel: 
           <p className="field-hint">Zu diesem Thema gibt es noch keine Theorie — übe es über Karteikarten und Quiz.</p>
         )}
         {daten.data?.bodyMarkdown && <TheorieInhalt markdown={daten.data.bodyMarkdown} abschnitt={ziel.abschnitt} bodyRef={bodyRef} />}
+        {/* Review UXL-13: Fehler im Theorietext lassen sich direkt aus dem Lesefenster melden. */}
+        {daten.data?.contentItemId && (
+          <div style={{ marginTop: 16 }}>
+            <ReportContentButton contentItemId={daten.data.contentItemId} />
+          </div>
+        )}
       </div>
     </aside>
   );

@@ -319,6 +319,7 @@ export const companyRouter = router({
           companyAccountId: ctx.currentCompanyAdmin.id,
           code: generateInviteCode(),
           expiresAt: input.expiresAt ?? null,
+          label: input.label || null,
         })
         .returning();
 
@@ -326,7 +327,7 @@ export const companyRouter = router({
         throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
       }
 
-      return { id: created.id, code: created.code, expiresAt: created.expiresAt };
+      return { id: created.id, code: created.code, label: created.label, expiresAt: created.expiresAt };
     }),
 
   inviteCodes: protectedCompanyAdminProcedure.query(async ({ ctx }) => {
@@ -334,6 +335,7 @@ export const companyRouter = router({
       .select({
         id: companyInviteCode.id,
         code: companyInviteCode.code,
+        label: companyInviteCode.label,
         expiresAt: companyInviteCode.expiresAt,
         createdAt: companyInviteCode.createdAt,
       })

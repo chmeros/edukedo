@@ -1,0 +1,1 @@
+ALTER TABLE "company_invite_code" ADD COLUMN "label" text;

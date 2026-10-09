@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
-import { GuestHeaderActions } from "./GuestHeaderActions";
 import { Header } from "./Header";
 import { SuccessIcon } from "./Icons";
 import { trpc } from "./trpc";
-
-/** Eigenständige Seite ohne App.tsx-Zustand — Header-Aktionen führen schlicht zur Startseite. */
-function goHome() {
-  window.location.href = "/";
-}
 
 /**
  * F-91: Zielseite des vom Admin ausgelösten Setup-Links (siehe
@@ -34,7 +28,14 @@ export function CompanySetup() {
 
   return (
     <>
-      <Header right={<GuestHeaderActions onLogin={goHome} onStart={goHome} />} />
+      {/* Review UXL-11: Kein „Anmelden / Kostenlos starten“ für Lernende im Kopf, sondern der Weg ins Unternehmens-Dashboard. */}
+      <Header
+        right={
+          <a className="btn btn-ghost btn-sm" href="/company">
+            Zum Unternehmens-Dashboard
+          </a>
+        }
+      />
       <main id="main-content" className="shell shell--narrow">
         <div className="card">
           {!token && <ErrorMessage>Kein Setup-Token in der URL gefunden.</ErrorMessage>}

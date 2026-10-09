@@ -569,6 +569,18 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Kohorten und Firmen, Teil 3: Firmenseiten, Bezeichnung für Codes, „Fehler melden“ im Lese-Modus und Theorie-Fenster, Dev-Links in Produktion, Review UXL-11, UXL-13, UXL-19)
+
+Anlass: Letzter Rest der Befunde zu Firmen-Dashboard, Fehlermeldungen und Entwicklungs-Links. Umsetzung ohne Rückfrage, ohne Rechtstext und ohne Gestaltungsfrage.
+
+- **Firmen-Einrichtungsseite (`CompanySetup.tsx`):** Der Kopf zeigt nicht mehr „Anmelden / Kostenlos starten“ (die Angebote für Lernende), sondern „Zum Unternehmens-Dashboard“.
+- **Firmen-Anmeldung (`CompanyDashboard.tsx`):** Unter dem Formular steht, wie man ein Unternehmens-Konto bekommt (auf Anfrage, Kontakt im Impressum). „Passwort vergessen“ gab es schon.
+- **Bezeichnung für Einladungscodes (Migration `0054_company_invite_code_label.sql`, Spalte `company_invite_code.label`, nullable):** Beim Erstellen lässt sich eine Bezeichnung angeben (z. B. Abteilung; höchstens 100 Zeichen, leer = keine). Sie steht in der Codeliste, nur für die Übersicht des Unternehmens; Mitarbeitende sehen sie nicht. Ablaufdatum, Kopieren, Rückfragen und die Erklärung des Abrechnungsstatus waren schon erledigt.
+- **„Fehler melden“ im Lese-Modus und im Lesefenster (`KursInhalte.tsx`, `TheorieReader.tsx`, `content.theorieThema`):** Jede Aufgabe und jeder Theorietext im Lese-Modus hat den Knopf (der per Suche geöffnete Treffer ebenfalls, da er im Thema steht). Das Theorie-Lesefenster zeigt ihn unter dem Text; dafür liefert `content.theorieThema` die ID des Theorie-Inhalts mit (`contentItemId`, null ohne Theorie). Escape in einem aus dem Lesefenster geöffneten Dialog schließt nur den Dialog, nicht das Fenster.
+- **Entwicklungs-Links in Produktion (`dev-links.ts`):** Bestätigungs-, Reset- und Einrichtungs-Links, die die API ohne echten Mailversand in der Antwort mitliefert, laufen jetzt über die Funktion `devLink(nodeEnv, link)`; in Produktion liefert sie nichts. Vorher stand diese Prüfung fünfmal einzeln in `auth.ts`, `admin.ts` und `passwordReset.ts`; jetzt ist der Produktionsfall an einer Stelle getestet. Stacktraces in Fehlerantworten waren schon auf `NODE_ENV=development` beschränkt.
+- **Bewusst nicht Teil:** der eigene Einstieg „Gruppe leiten“ außerhalb von „Gaming“ samt Erwähnung auf der Startseite (UXL-07). Er ändert die Navigation und braucht eine Gestaltungsentscheidung. Co-Leitung und Übergabe bleiben nachgelagert.
+- **Prüfung:** Integrationstests für Bezeichnung (Trimmen, leer, zu lang, Liste) und die ID der Theorie; Einheitstest `dev-links.test.ts` (drei Fälle); Web-Tests `CompanyPages.test.tsx` (Setup-Kopf, Anmeldehinweis, Bezeichnung wird gezeigt und mitgeschickt), `KursInhalte.test.tsx` (Knopf bei jeder Aufgabe) und ein Test im Lesefenster (Knopf nur mit Theorietext). Web-Suite 132, Typprüfung und Lint sauber. Nicht im Browser angesehen.
+
 ### Entschieden am 09.10.2026 (Kohorten und Firmen, Teil 2: Kennzahlen erklären, Fallzahlen, gleiche Definition wie bei Lernenden, Review UXL-06, UXL-11)
 
 Anlass: Lernende sehen für sich einen Fortschritt von wenigen Prozent (beherrschte Aufgaben an allen Aufgaben des Kurses), die Leitung sah „42 % Ø Fortschritt“ (Anteil sicher beherrschter unter den bereits bearbeiteten Aufgaben), beides ohne Erklärung und ohne Fallzahl. Entscheidung im Rahmen des Reviews, ohne Rückfrage; die gewählte Variante ändert keine bestehende Zahl, sondern ergänzt und benennt.

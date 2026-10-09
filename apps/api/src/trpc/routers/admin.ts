@@ -22,6 +22,7 @@ import { importAllContent } from "../../db/import-content";
 import { importPreviewToken } from "../../db/import-preview";
 import { companyAccount, contentItem, contentReport, exerciseSet, kurs, learningEvent, report, sponsor, user } from "../../db/schema";
 import { env } from "../../env";
+import { devLink } from "../../dev-links";
 import { pingPaymentService } from "../../payment/client";
 import { redisConnection } from "../../queue/connection";
 import { checkAllServices } from "../../system-status";
@@ -209,7 +210,7 @@ export const adminRouter = router({
         // Nur außerhalb von production offengelegt — es gibt noch keinen echten
         // E-Mail-Versand (siehe apps/api/src/email/sender.ts), daher wird der Setup-Link
         // hier direkt für die manuelle Weiterverwendung zurückgegeben (siehe auth.register).
-        devSetupUrl: env.NODE_ENV === "production" ? undefined : setupUrl,
+        devSetupUrl: devLink(env.NODE_ENV, setupUrl),
       };
     }),
 

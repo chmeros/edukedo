@@ -21,6 +21,7 @@ import { enforceRateLimit, LIMITS, TOO_MANY_LOGINS_MESSAGE } from "../../auth/re
 import { SESSION_COOKIE_NAME, createSession, invalidateSession, setSessionCookie } from "../../auth/session";
 import { hashToken } from "../../auth/token";
 import { env } from "../../env";
+import { devLink } from "../../dev-links";
 import { emailVerificationToken, parentChildLink, user } from "../../db/schema";
 import { publishUserDeleted } from "../../queue/payment-queue";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
@@ -106,7 +107,7 @@ export const authRouter = router({
         // Nur außerhalb von production offengelegt — es gibt noch keinen echten
         // E-Mail-Versand (siehe apps/api/src/email/sender.ts), daher wird der
         // Bestätigungslink hier direkt für die manuelle Weiterverwendung zurückgegeben.
-        devConfirmUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
+        devConfirmUrl: devLink(env.NODE_ENV, confirmUrl),
       };
     }
 
@@ -137,7 +138,7 @@ export const authRouter = router({
       role: created.role,
       isMinor: created.isMinor,
       // Nur außerhalb von production offengelegt, siehe devConfirmUrl oben bei F-08.
-      devVerifyEmailUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
+      devVerifyEmailUrl: devLink(env.NODE_ENV, confirmUrl),
     };
   }),
 
@@ -365,7 +366,7 @@ export const authRouter = router({
 
     return {
       success: true,
-      devVerifyEmailUrl: env.NODE_ENV === "production" ? undefined : confirmUrl,
+      devVerifyEmailUrl: devLink(env.NODE_ENV, confirmUrl),
     };
   }),
 

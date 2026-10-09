@@ -301,6 +301,26 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
       expect(memberships).toHaveLength(2);
     });
 
+    it("speichert eine Bezeichnung am Einladungscode und liefert sie in der Liste mit (Review UXL-11)", async () => {
+      await createCompanyAccount("Bezeichnung GmbH", "bezeichnung@example.com", 5);
+      const adminCookie = await loginCompany("bezeichnung@example.com");
+      const create = (payload: Record<string, unknown>) =>
+        app.inject({ method: "POST", url: "/api/v1/trpc/company.createInviteCode", headers: { cookie: adminCookie }, payload });
+
+      const mit = await create({ label: "  Abteilung Einkauf  " });
+      expect(mit.statusCode).toBe(200);
+      expect(mit.json().result.data.label).toBe("Abteilung Einkauf");
+      expect((await create({})).json().result.data.label).toBeNull();
+      expect((await create({ label: "   " })).json().result.data.label).toBeNull();
+      const zuLang = await create({ label: "x".repeat(101) });
+      expect(zuLang.statusCode).toBe(400);
+      expect(zuLang.json().error.message).toContain("zu lang");
+
+      const liste = await app.inject({ method: "GET", url: "/api/v1/trpc/company.inviteCodes", headers: { cookie: adminCookie } });
+      const labels = (liste.json().result.data as { label: string | null }[]).map((row) => row.label);
+      expect(labels).toEqual(["Abteilung Einkauf", null, null]);
+    });
+
     it("verlangt die Bestätigung des Sichtbarkeits-Hinweises und legt ohne sie keine Mitgliedschaft an", async () => {
       await createCompanyAccount("Hinweis GmbH", "hinweis@example.com", 5);
       const adminCookie = await loginCompany("hinweis@example.com");

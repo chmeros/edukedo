@@ -111,11 +111,13 @@ describe("F-164: Theorie lesen", () => {
     expect(data.themaTitle).toBe("Projektplanung");
     expect(data.fachgebietTitle).toBe("Fachgebiet Eins");
     expect(data.bodyMarkdown).toContain("**Pufferzeit**");
+    expect(data.contentItemId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
   });
 
   it("liefert für ein Thema ohne Theorie body null statt eines Fehlers", async () => {
     const data = (await get("content.theorieThema", { kursId, themaId: themaOhneTheorie })).json().result.data;
     expect(data.bodyMarkdown).toBeNull();
+    expect(data.contentItemId).toBeNull();
     expect(data.themaTitle).toBe("Ohne Theorie");
   });
 

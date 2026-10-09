@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import ReactMarkdown from "react-markdown";
 import { ErrorMessage } from "./ErrorMessage";
 import { InfoIcon } from "./Icons";
+import { ReportContentButton } from "./ReportContentButton";
 import { TYPE_LABELS } from "./Suche";
 import { trpc } from "./trpc";
 
@@ -192,6 +193,10 @@ export function KursInhalte({ kursId, titel, onClose }: { kursId: string; titel:
                   {item.erklaerung && <p style={{ whiteSpace: "pre-wrap" }}>{item.erklaerung}</p>}
                 </details>
               )}
+              {/* Review UXL-13: Fehler melden auch im Lese-Modus (auch für den per Suche geöffneten Treffer). */}
+              <div>
+                <ReportContentButton contentItemId={item.id} />
+              </div>
             </article>
           ))}
           {thema.data?.items.length === 0 && <p className="field-hint">In diesem Thema gibt es noch keine freigegebenen Inhalte.</p>}
