@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useImWerkzeug } from "./StartAnsicht";
 import { ContentActions } from "./ContentActions";
 import { useCalmMode } from "./displayPrefs";
 import { ErrorMessage } from "./ErrorMessage";
@@ -319,6 +320,8 @@ export function Exam({ kursId }: { kursId: string }) {
   const areaList = areas.data ?? [];
   const selectedArea = areaKey === "mix" ? undefined : (areaList.find((area) => area.key === areaKey) ?? areaList[0]);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  // Review UXT-I-09: Eine laufende Prüfung ist keine Start-Ansicht (kein „Kurz erklärt“ darüber).
+  useImWerkzeug(sessionId !== null);
   const [items, setItems] = useState<ExamItem[]>([]);
   const [index, setIndex] = useState(0);
   const [deadline, setDeadline] = useState<number | null>(null);

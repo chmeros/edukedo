@@ -10,6 +10,7 @@ import {
   type KursAngebotGruppe,
 } from "@edukedo/shared";
 import { lazy, useMemo, useState } from "react";
+import { useImWerkzeug } from "./StartAnsicht";
 import {
   AblaufIllustration,
   AbcIllustration,
@@ -862,6 +863,8 @@ export function Instrumente({
   // F-176: Kursprofil — null = keine Einschränkung (z. B. Mathematik).
   const angebot = kurs?.angebot ?? null;
   const [activeWerkzeug, setActiveWerkzeug] = useState<string | null>(null);
+  // Review UXT-I-09: Ein geöffnetes Werkzeug, eine Übungsrunde oder ein Lernpfad ist keine Start-Ansicht (kein „Kurz erklärt“ darüber).
+  useImWerkzeug(activeLernpfad !== null || activeRunde !== null || activeWerkzeug !== null);
   // Erlaubte Szenarien je Werkzeug (undefined = alle); stabile Identität, weil die Labore sie als Abhängigkeit nutzen.
   const szenarien = useMemo(() => {
     const ids = (liste: readonly { id: string }[], werkzeug: "terminal" | "topologie" | "flags" | "sql") =>

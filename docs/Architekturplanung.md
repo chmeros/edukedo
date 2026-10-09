@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 09.10.2026 (Lernansicht oben ausrichten, „Kurz erklärt“ nur in Start-Ansichten, Review UXT-I-09)
+
+Anlass: Die Browser-Prüfung (siehe nächsten Eintrag) bestätigte den Leerraum über der Frage und das Springen der Frage beim Einblenden der Rückmeldung; beides folgt aus der vertikalen Zentrierung. Entscheidung des Projektleiters (09.10.2026, nach Vorlage der Wahl): **oben ausrichten**, und **„Kurz erklärt“ nur in den Start-Ansichten der Tabs**.
+
+- **Oben ausrichten (`styles.css`, `.content-narrow`):** Die Zentrierung aus dem Redesign-Audit (Befund #10, `justify-content: center`, `min-height: 60vh` ab 860 Pixel Breite) ist entfallen. Die Spalte bleibt 640 Pixel breit und mittig im Raster, steht aber direkt unter den Tabs (Abstand 18 statt rund 96 Pixel bei einem 1.000 Pixel hohen Bildschirm) und verschiebt sich nicht mehr, wenn die Rückmeldung Höhe hinzufügt. Betrifft die Tabs „Lernen“ und „Prüfung“ (nur dort wird die Klasse verwendet).
+- **„Kurz erklärt“ (`StartAnsicht.tsx`, `App.tsx`):** Neuer Hook `useImWerkzeug(aktiv)` mit Kontext: Eine Seite meldet, dass sie ein Werkzeug, eine Übungsrunde oder eine laufende Prüfung zeigt, und meldet sich beim Verlassen ab. App.tsx hält die Meldung je Tab (der im Hintergrund gemountete Prüfungs-Tab soll den aktiven nicht beeinflussen) und blendet `OnboardingHints` dann aus. Gemeldet wird in `Instrumente.tsx` (Lernpfad, Übungsrunde oder Werkzeug geöffnet), `Exam.tsx` (Sitzung läuft) und `Klassenarbeit.tsx` (Lauf läuft); im Gaming-Tab zählt wie bisher der Fokus-Modus bei laufendem Spiel (`onActiveGameChange`), im Lernen-Tab die laufende Runde. Start-Ansichten (Instrumente-Liste, Prüfungs-Auswahl, Gaming-Übersicht, Fortschritt) zeigen das Banner unverändert bis „Verstanden“. Nicht erfasst: Präsentations-, Fachgesprächs- und Projekt-Trainer im Prüfungs-Tab (sie sind Reiter des Tabs, keine eigene Seite).
+- **Prüfung:** Zwei neue Tests für den Hook (`StartAnsicht.test.tsx`). Live im Browser (Wegwerf-Konto, Mathematik 9, danach gelöscht): Banner sichtbar in Prüfung (Start), Instrumente, Gaming, Fortschritt; unsichtbar, solange eine Klassenarbeit läuft (auch nach Tab-Wechsel und zurück); `.content-narrow` ist `display: block` ohne Mindesthöhe. Web-Suite 136, Typprüfung und Lint sauber. Nicht live gesehen: ein geöffnetes Werkzeug oder Spiel (der Mathe-Kurs hat keine Werkzeuge; Spiele nutzen den bestehenden Fokus-Modus).
+
 ### Entschieden am 09.10.2026 (Browser-Prüfung: Achievement-Kachel, leerer Bereich, Fragenwechsel, namenlose Knöpfe, Review UXT-I-05, I-09, B-17, B-12)
 
 Anlass: Vier Befunde der Teilnehmer-Berichte ließen sich nur im laufenden Browser beurteilen. Geprüft im Vite-Entwicklungsserver mit Wegwerf-Konto im Kurs Mathematik 9 (Konto danach gelöscht); der Bildschirm der Prüfung war rund 1.350 × 1.000 Pixel groß.

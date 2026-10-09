@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { InfoIcon, SuccessIcon } from "./Icons";
+import { useImWerkzeug } from "./StartAnsicht";
 import { Quiz, type QuizFortschritt } from "./Quiz";
 import { trpc } from "./trpc";
 
@@ -31,6 +32,8 @@ export function Klassenarbeit({ kursId }: { kursId: string }) {
   const [lauf, setLauf] = useState<{ stufe: Stufe; endeZeit: number; nummer: number } | null>(null);
   const [ergebnis, setErgebnis] = useState<(QuizFortschritt & { grund: Ende }) | null>(null);
   const [restSekunden, setRestSekunden] = useState(0);
+  // Review UXT-I-09: Eine laufende Klassenarbeit ist keine Start-Ansicht (kein „Kurz erklärt“ darüber).
+  useImWerkzeug(lauf !== null);
   const stand = useRef<QuizFortschritt>({ richtig: 0, beantwortet: 0, gesamt: 0, fertig: false });
   const nummer = useRef(0);
 

@@ -1,7 +1,7 @@
 import { calculateAge, requiresParentalConsent } from "@edukedo/shared";
 import { useQueryClient } from "@tanstack/react-query";
 import { getQueryKey } from "@trpc/react-query";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { CompanyBranding } from "./CompanyBranding";
 import { CourseSelection } from "./CourseSelection";
 import { CourseSwitcher } from "./CourseSwitcher";
@@ -18,6 +18,7 @@ import { MeineMeldungen } from "./MeineMeldungen";
 import { MeineNotizen } from "./MeineNotizen";
 import { OfflineStatus } from "./OfflineStatus";
 import { LearningRoundContext } from "./LearningRound";
+import { WerkzeugContext } from "./StartAnsicht";
 import { OnboardingHints } from "./OnboardingHints";
 import { FachbegriffProvider } from "./Fachbegriffe";
 import { TheorieProvider } from "./TheorieReader";
@@ -160,6 +161,13 @@ export function App() {
   // Spiel läuft, wird der darunter gerenderte Sozial-Bereich ausgeblendet (Fokus aufs Spiel) —
   // `Spiele.tsx` meldet den aktiven Zustand über `onActiveGameChange` nach oben.
   const [gamingFocusMode, setGamingFocusMode] = useState(false);
+  // Review UXT-I-09: Welche Tabs gerade ein Werkzeug oder eine laufende Prüfung zeigen (siehe StartAnsicht.tsx); je Tab, weil der
+  // Prüfungs-Tab im Hintergrund gemountet bleibt.
+  const [werkzeugTabs, setWerkzeugTabs] = useState<Record<string, boolean>>({});
+  const werkzeugMelder = useMemo(() => {
+    const fuer = (tab: string) => (imWerkzeug: boolean) => setWerkzeugTabs((vorher) => (vorher[tab] === imWerkzeug ? vorher : { ...vorher, [tab]: imWerkzeug }));
+    return { exam: fuer("exam"), instrumente: fuer("instrumente") };
+  }, []);
   // F-44: "roving tabindex" fürs ARIA-Tablist-Muster unten — nur der aktive Tab ist per
   // Tab-Taste erreichbar, die Pfeiltasten bewegen den Fokus zwischen den übrigen Tabs.
   const learningModeTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -260,6 +268,8 @@ export function App() {
   // Während einer laufenden Lernrunde keine Dauer-Hinweise (E-Mail-Bestätigung, „Kurz erklärt", Erinnerung):
   // nur in der Lernen-Ansicht, damit sie in den übrigen Tabs unverändert erscheinen.
   const hideBanners = roundActive && view === "app" && learningMode === "lernen";
+  // Review UXT-I-09: Die Einführung „Kurz erklärt“ nur in Start-Ansichten, nicht über einem Werkzeug, Spiel oder einer laufenden Prüfung.
+  const imWerkzeug = (learningMode === "gaming" && gamingFocusMode) || werkzeugTabs[learningMode] === true;
   const showCourseSelection = view === "courses" || (view === "app" && courses.data !== undefined && !activeKursId);
   // Code-Review-Fund, nachgezogen: view === "app" gehört mit in die Bedingung, sonst lief
   // der Tracker unbemerkt weiter, wenn eine Admin-Person vom Lernmodus in die Verwaltung
@@ -347,7 +357,7 @@ export function App() {
               <p className="welcome-greeting">
                 {me.data.displayName ? `Hallo, ${me.data.displayName}!` : "Schön, dass du wieder da bist!"}
               </p>
-              {!me.data.onboardingHintsSeen && !hideBanners && <OnboardingHints />}
+              {!me.data.onboardingHintsSeen && !hideBanners && !imWerkzeug && <OnboardingHints />}
               {/* F-155: im Ruhigen Modus keine Spielelemente (Punktehamster, Lernserie, Credits). */}
               {!calmMode && <PunktehamsterWidget />}
               {/* F-33: dezente Erinnerung, siehe Architekturplanung Abschnitt 13 — bewusst erst
@@ -455,7 +465,9 @@ export function App() {
                     {examBesucht && (
                       <div hidden={learningMode !== "exam"}>
                         <Suspense fallback={<p>Lädt…</p>}>
+                        <WerkzeugContext.Provider value={werkzeugMelder.exam}>
                         <Pruefungsvorbereitung key={activeKursId} kursId={activeKursId} />
+                        </WerkzeugContext.Provider>
                         </Suspense>
                       </div>
                     )}
@@ -466,11 +478,13 @@ export function App() {
                             Katalog als neuer primärer Inhalt dieses Tabs — Suche (F-14) und
                             eigene Notizen (F-15) bleiben zusätzlich darunter bestehen. */}
                         <Suspense fallback={<p>Lädt…</p>}>
+                        <WerkzeugContext.Provider value={werkzeugMelder.instrumente}>
                         <Instrumente
                           key={`${activeKursId}-instrumente`}
                           kursId={activeKursId}
                           instrumentLernpfadeEnabled={me.data.isPremiumActive}
                         />
+                        </WerkzeugContext.Provider>
                         </Suspense>
                         <Suche
                           key={`${activeKursId}-suche`}
