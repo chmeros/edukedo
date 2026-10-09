@@ -175,7 +175,7 @@ function TheorieSeitenleiste({ kursId, ziel, onClose }: { kursId: string; ziel: 
   );
 }
 
-export function TheorieProvider({ kursId, children }: { kursId: string | null; children: ReactNode }) {
+export function TheorieProvider({ kursId, resetKey, children }: { kursId: string | null; resetKey?: string; children: ReactNode }) {
   const [ziel, setZiel] = useState<TheorieZiel | null>(null);
   const oeffnerRef = useRef<HTMLElement | null>(null);
 
@@ -193,10 +193,11 @@ export function TheorieProvider({ kursId, children }: { kursId: string | null; c
     if (oeffner && document.contains(oeffner)) oeffner.focus();
   }, []);
 
-  // Anderer Kurs → Panel schließen (die Theorie gehört zum Kurs).
+  // Anderer Kurs → Panel schließen (die Theorie gehört zum Kurs). Ebenso beim Wechsel von Tab oder Ansicht (`resetKey`), damit das
+  // Lesefenster nicht über Prüfung, Instrumente oder Spiele stehen bleibt und dort Platz wegnimmt (Review UXT-I-07).
   useEffect(() => {
     setZiel(null);
-  }, [kursId]);
+  }, [kursId, resetKey]);
 
   // Inhalt am Desktop zur Seite schieben, solange das Panel offen ist (siehe styles.css).
   useEffect(() => {

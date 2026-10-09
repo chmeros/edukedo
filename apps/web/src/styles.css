@@ -3506,6 +3506,39 @@ h4.stat-subheading {
   border-radius: 5px;
 }
 
+/* Review UXT-B-04: Einstieg „Theorie lesen“ im Lernen-Tab und „Nachlesen“ unter den Weiter-Karten. */
+.theorie-einstieg {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.theorie-einstieg summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.theorie-einstieg[open] summary {
+  margin-bottom: 8px;
+}
+
+.suggestion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+/* Review UXT-I-07: Codeblöcke im Lesefenster brechen auf schmalen Bildschirmen um, statt abgeschnitten zu scrollen. */
+@media (max-width: 640px) {
+  .theorie-text pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
 .theorie-text pre {
   background: var(--surface-2);
   border: 1px solid var(--line);

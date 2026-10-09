@@ -39,6 +39,10 @@ vi.mock("../AbortRoundButton", () => ({
   ),
 }));
 
+// jsdom kennt kein Layout und damit kein Scrollen; die Komponenten rufen es nur zur Bequemlichkeit auf.
+Element.prototype.scrollTo = () => {};
+Element.prototype.scrollIntoView = () => {};
+
 beforeEach(() => {
   registry.reset();
   testState.online = true;

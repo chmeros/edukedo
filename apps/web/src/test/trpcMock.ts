@@ -46,12 +46,14 @@ export function createTrpcRegistry(): TrpcMockRegistry {
 type Callbacks = { onSuccess?: (result: unknown, input: unknown) => void; onError?: (error: unknown, input: unknown) => void };
 
 export function createTrpcMock(registry: TrpcMockRegistry): unknown {
-  function useQuery(path: string, input: unknown) {
+  function useQuery(path: string, input: unknown, options?: { enabled?: boolean }) {
     (registry.queryInputs[path] ??= []).push(input);
     const refetch = (registry.refetch[path] ??= vi.fn());
     const wert = registry.queries[path];
+    // Eine abgeschaltete Abfrage (`enabled: false`) liefert wie im echten Client keine Daten.
+    const aktiv = options?.enabled !== false;
     return {
-      data: typeof wert === "function" ? (wert as (eingabe: unknown) => unknown)(input) : wert,
+      data: !aktiv ? undefined : typeof wert === "function" ? (wert as (eingabe: unknown) => unknown)(input) : wert,
       isLoading: registry.loading[path] ?? false,
       isError: false,
       error: null,
@@ -90,7 +92,7 @@ export function createTrpcMock(registry: TrpcMockRegistry): unknown {
       get(_ziel, eigenschaft) {
         if (typeof eigenschaft !== "string") return undefined;
         const pfad = path.join(".");
-        if (eigenschaft === "useQuery") return (input: unknown) => useQuery(pfad, input);
+        if (eigenschaft === "useQuery") return (input: unknown, options?: { enabled?: boolean }) => useQuery(pfad, input, options);
         if (eigenschaft === "useMutation") return (callbacks?: Callbacks) => useMutation(pfad, callbacks);
         if (eigenschaft === "useUtils") return () => knoten([]);
         return knoten([...path, eigenschaft]);

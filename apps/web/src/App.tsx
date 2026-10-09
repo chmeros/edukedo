@@ -20,7 +20,8 @@ import { OfflineStatus } from "./OfflineStatus";
 import { LearningRoundContext } from "./LearningRound";
 import { OnboardingHints } from "./OnboardingHints";
 import { FachbegriffProvider } from "./Fachbegriffe";
-import { TheorieProvider } from "./TheorieReader";
+import { NachlesenButton, TheorieProvider } from "./TheorieReader";
+import { TheorieEinstieg } from "./TheorieEinstieg";
 import { useCalmMode } from "./displayPrefs";
 import { PunktehamsterWidget } from "./PunktehamsterWidget";
 import { SponsorBanner } from "./SponsorBanner";
@@ -294,7 +295,7 @@ export function App() {
   if (me.data) {
     const isAdmin = me.data.role === "admin";
     return (
-      <TheorieProvider kursId={activeKursId}>
+      <TheorieProvider kursId={activeKursId} resetKey={`${view}:${learningMode}`}>
         <FachbegriffProvider kursId={activeKursId}>
         <Header
           right={
@@ -362,8 +363,8 @@ export function App() {
                   <span className="field-hint">Weiter, wo du aufgehört hast:</span>
                   <div className="suggestion-row">
                     {suggestions.data.map((suggestion, position) => (
+                    <div key={suggestion.themaId} className="suggestion-item">
                     <button
-                      key={suggestion.themaId}
                       type="button"
                       className={position === 0 ? "suggestion-chip is-primary" : "suggestion-chip"}
                       onClick={() => {
@@ -381,6 +382,8 @@ export function App() {
                           : `${suggestion.weakPercent} % Trefferquote`}
                       </span>
                     </button>
+                    <NachlesenButton themaId={suggestion.themaId} themaTitle={suggestion.title} />
+                    </div>
                     ))}
                   </div>
                 </>
@@ -453,6 +456,8 @@ export function App() {
                         dafür, dass ein Kurswechsel oder das Setzen/Aufheben eines
                         F-27-Themenfilters die Runde bewusst zurücksetzt. */}
                     <div hidden={learningMode !== "lernen"}>
+                      {/* Review UXT-B-04: Theorie ist im Lernen-Tab direkt erreichbar, solange keine Runde läuft. */}
+                      {!roundActive && <TheorieEinstieg kursId={activeKursId} />}
                       <LearningRoundContext.Provider value={setRoundActive}>
                       <Lernen
                         key={`${activeKursId}-${activeThema?.id ?? "all"}`}

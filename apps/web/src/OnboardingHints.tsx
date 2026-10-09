@@ -25,7 +25,7 @@ export function OnboardingHints() {
       <div>
         <b>Kurz erklärt:</b> „Lernen" übt Karteikarten/Quiz zu deinem aktuellen Kurs, „Prüfung" simuliert die
         echte Prüfungssituation, „Instrumente" ist ein Werkzeugkasten fachlicher Modelle, „Gaming" bündelt
-        Lernspiele sowie Freundeskreis/Kohorten/Duelle, „Fortschritt" zeigt Statistik und Erfolge. Oben siehst du außerdem deinen
+        Lernspiele sowie Freundeskreis/Kohorten/Duelle, „Fortschritt" zeigt Statistik und Erfolge. Die Theorie zu jedem Thema findest du im Tab „Lernen“ unter „📖 Theorie lesen“ (und nach einer Antwort über „Im Thema nachlesen“). Oben siehst du außerdem deinen
         Punktehamster-Fortschritt, deine Lernserie und deinen Creditstand.{" "}
         <button
           type="button"
