@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-digitale-vernetzung
 fachgebiet_code: DV5
 fachgebiet_title: "Planen und Umsetzen eines Projektes der digitalen Vernetzung"
 thema_code: "DV5-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Situationen im Prüfungsbereich „Planen und Umsetzen eines Projektes der digitalen Vernetzung" der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 36 und § 40 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

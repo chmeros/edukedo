@@ -3,7 +3,7 @@ kurs_slug: fachwirt-buero-projektorganisation
 fachgebiet_code: HB4
 fachgebiet_title: "Steuern von Geschäftsprozessen im bürowirtschaftlichen Umfeld"
 thema_code: "HB4-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "15.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

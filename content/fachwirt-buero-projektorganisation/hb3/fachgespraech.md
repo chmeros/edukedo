@@ -3,7 +3,7 @@ kurs_slug: fachwirt-buero-projektorganisation
 fachgebiet_code: HB3
 fachgebiet_title: "Führen, Betreuen, Verwalten und Ausbilden im büro- und personalwirtschaftlichen Umfeld"
 thema_code: "HB3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "14.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

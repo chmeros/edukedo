@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-daten-prozessanalyse
 fachgebiet_code: DP5
 fachgebiet_title: "Planen und Durchführen eines Projektes der Datenanalyse"
 thema_code: "DP5-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Situationen im Prüfungsbereich „Planen und Durchführen eines Projektes der Datenanalyse“ der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 28 und § 32 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

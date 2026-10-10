@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: WQ3
 fachgebiet_title: "Recht und Steuern"
 thema_code: "WQ3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwirtPrV vom 08.11.2010, BGBl. I S. 1503), § 4 (Qualifikationsbereich Recht und Steuern) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

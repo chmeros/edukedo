@@ -3,7 +3,7 @@ kurs_slug: fachwirt-gesundheit-soziales
 fachgebiet_code: HB6
 fachgebiet_title: "Planen und Durchführen von Marketingmaßnahmen"
 thema_code: "HB6-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

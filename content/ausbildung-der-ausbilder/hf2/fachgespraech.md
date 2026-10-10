@@ -3,7 +3,7 @@ kurs_slug: ausbildung-der-ausbilder
 fachgebiet_code: HF2
 fachgebiet_title: "Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken"
 thema_code: "HF2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsfeld „Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken" der Ausbilder-Eignungsverordnung (AEVO / AusbEignV, 21.01.2009, BGBl. I S. 88), § 2 Nr. 2/§ 3 Abs. 2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

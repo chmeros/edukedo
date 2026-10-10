@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: TQ3
 fachgebiet_title: "Fertigungs- und Betriebstechnik"
 thema_code: "TQ3-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 4 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

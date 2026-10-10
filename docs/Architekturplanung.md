@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Kleinigkeiten im Content: interne IDs aus Themen-Titeln, „Handelskalkulation (Zuordnung)“, Review UXT-B-14, UXT-F-18)
+
+Anlass: Rest „Kleinigkeiten im Content“ aus dem Usability-Rest. Umsetzung im Rahmen von „Weiter mit dem nächsten Thema“; nur Beschriftungen, keine fachlichen Aussagen (R3/R4 nicht berührt).
+
+- **Interne IDs aus Themen-Titeln:** In 169 Themendateien stand „(F-25)“ im Titel „Fachgesprächsfragen-Sammlung (F-25)“ (71 Dateien) und „(F-23)“ im Titel „Themenübergreifende Situationsaufgaben (F-23)“ (98 Dateien); der Befund nannte nur AEVO, der Fehler steckte in allen Kursen. Jetzt ohne Klammer. Die Schlüssel der Aufgaben sind eigene Kennungen je Block und hängen nicht am Titel; ein Trockenlauf des Imports meldet 16.040 Items unverändert, der echte Import in die Entwicklungsdatenbank änderte nur die Titel der Themen (keine neuen, geänderten oder deaktivierten Items). `db:validate-content`: 615 Themendateien, 0 Verstöße. Der Erklärtext im Dateikörper („Fachgesprächs-Trainer (F-25)“) wird Lernenden nicht angezeigt und bleibt. **Aufgefallen, nicht geändert:** Themen dieser Art erscheinen mit ihrem Code davor („HF1-fachgespraech — Fachgesprächsfragen-Sammlung“); das ist das allgemeine Format „Code — Titel“ und wäre eine eigene Entscheidung.
+- **„Handelskalkulation“ doppelt (UXT-F-18):** Im Handelsfachwirt hießen sowohl die Zuordnungsaufgabe als auch das Werkzeug fast gleich. Die Zuordnung heißt jetzt „Handelskalkulation (Zuordnung)“ (Katalog in `Instrumente.tsx` und Beschriftung in `quiz-logic.ts`), das Werkzeug bleibt „Handelskalkulation-Trainer“.
+- **Bewusst nicht Teil (brauchen eine fachliche Abstimmung):** Ishikawa „Ursachenkategorien“ gegen „6M“ und „Mitwelt“ gegen „Milieu“ (5M oder 6M), Umbenennung des Kreuzworträtsels „Finanzkennzahlen“ im Büro-Kurs, Handelsjargon im Handelsfachwirt.
+- **Prüfung:** Validierung und Trockenlauf wie beschrieben, Shared-Suite 1.055 und Web-Suite 180 grün, Typprüfung sauber.
+
 ### Entschieden am 10.10.2026 (Anzeigename Pflicht für soziale Funktionen, E-Mail nie sichtbar, Kontakt für die Leitung nur auf Klick; Entscheidung des Projektleiters, UXL-04 Rest)
 
 Anlass: Erwachsene sahen sich in Freundeskreis, Rangliste, Duellen und Kohorten mit E-Mail-Adresse, wenn sie keinen Anzeigenamen gesetzt hatten; die Leitung einer Kohorte sah die Adressen aller erwachsenen Mitglieder offen in der Liste. Der Projektleiter wählte (10.10.2026, jeweils die Empfehlung): **(1) Anzeigename Pflicht, E-Mail nie sichtbar; (2) die Leitung sieht in der Mitgliederliste den Namen, die E-Mail nur auf Klick.**

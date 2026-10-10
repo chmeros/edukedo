@@ -3,7 +3,7 @@ kurs_slug: ausbildung-der-ausbilder
 fachgebiet_code: HF3
 fachgebiet_title: "Ausbildung durchführen"
 thema_code: "HF3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsfeld 3 „Ausbildung durchführen" der Ausbilder-Eignungsverordnung (AEVO) vom 21.01.2009 (BGBl. I S. 88), § 3 Abs. 3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

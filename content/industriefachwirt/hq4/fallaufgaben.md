@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: HQ4
 fachgebiet_title: "Wissens- und Transfermanagement im Industrieunternehmen"
 thema_code: "HQ4-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung IndFachwirtPrV 2010, §5 (Handlungsbereich „Wissens- und Transfermanagement im Industrieunternehmen") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

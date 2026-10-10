@@ -3,7 +3,7 @@ kurs_slug: immobilienfachwirt
 fachgebiet_code: HB4
 fachgebiet_title: "Immobilienbewirtschaftung"
 thema_code: "HB4-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Immobilienbewirtschaftung" (§4 ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117) der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

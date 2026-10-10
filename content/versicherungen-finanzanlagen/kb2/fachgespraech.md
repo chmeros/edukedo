@@ -3,7 +3,7 @@ kurs_slug: versicherungen-finanzanlagen
 fachgebiet_code: KB2
 fachgebiet_title: "Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und Vermögensschutz"
 thema_code: "KB2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Wahlbereich „Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und Vermögensschutz" der Verordnung BAProVFFPrV (§ 7) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

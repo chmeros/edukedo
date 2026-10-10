@@ -3,7 +3,7 @@ kurs_slug: transport-management-logistics
 fachgebiet_code: HB3
 fachgebiet_title: "Kommunikation, Führung und Zusammenarbeit sicherstellen"
 thema_code: "HB3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §6, Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

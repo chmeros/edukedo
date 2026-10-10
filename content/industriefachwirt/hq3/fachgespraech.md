@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: HQ3
 fachgebiet_title: "Marketing und Vertrieb"
 thema_code: "HQ3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin" (IndFachwirtPrV) vom 2010, §5 Handlungsbereich „Marketing und Vertrieb" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

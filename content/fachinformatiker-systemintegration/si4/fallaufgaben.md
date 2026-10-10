@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-systemintegration
 fachgebiet_code: SI4
 fachgebiet_title: "Automatisierte Systemverwaltung und Speicherlösungen"
 thema_code: "SI4-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen im Prüfungsbereich „Konzeption und Administration von IT-Systemen“ der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 21 sowie Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 9 und 10 c und Abschnitt C lfd. Nr. 3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

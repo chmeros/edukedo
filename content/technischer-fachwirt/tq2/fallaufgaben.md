@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: TQ2
 fachgebiet_title: "Technische Kommunikation und Werkstofftechnologie"
 thema_code: "TQ2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 5 Abs. 4, Qualifikationsbereich „Technische Kommunikation und Werkstofftechnologie" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

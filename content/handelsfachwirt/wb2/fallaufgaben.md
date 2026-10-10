@@ -3,7 +3,7 @@ kurs_slug: handelsfachwirt
 fachgebiet_code: WB2
 fachgebiet_title: "Handelslogistik (Wahlpflicht)"
 thema_code: "WB2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, §4 Abs. 6, Wahlpflicht-Handlungsbereich „Handelslogistik") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

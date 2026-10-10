@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-anwendungsentwicklung
 fachgebiet_code: AE2
 fachgebiet_title: "Sicherstellen der Qualität von Softwareanwendungen"
 thema_code: "AE2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zur Berufsbildposition „Sicherstellen der Qualität von Softwareanwendungen" der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 4 Abs. 3 Nr. 2 und Anlage (Ausbildungsrahmenplan) Abschnitt B lfd. Nr. 2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

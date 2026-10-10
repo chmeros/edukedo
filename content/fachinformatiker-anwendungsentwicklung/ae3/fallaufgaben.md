@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-anwendungsentwicklung
 fachgebiet_code: AE3
 fachgebiet_title: "Planen eines Softwareproduktes"
 thema_code: "AE3-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen im schriftlichen Prüfungsbereich „Planen eines Softwareproduktes“ der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 13 (Prüfungsbereich Planen eines Softwareproduktes) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

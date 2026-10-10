@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-daten-prozessanalyse
 fachgebiet_code: FU1
 fachgebiet_title: "Projekt- und Auftragsabwicklung"
 thema_code: "FU1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen Rückfragen im Fachgespräch zur betrieblichen Projektarbeit (Fachinformatikerausbildungsverordnung, FIAusbV, 28.02.2020, BGBl. I S. 250, § 12 Abs. 3 für die Fachrichtung Anwendungsentwicklung; Parallelvorschriften der übrigen Fachrichtungen: § 20 Abs. 3, § 28 Abs. 3, § 36 Abs. 3) zu Fertigkeiten aus Abschnitt A lfd. Nr. 1, 2 und 7 des Ausbildungsrahmenplans — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

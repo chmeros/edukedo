@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: HQ2
 fachgebiet_title: "Produktionsprozesse"
 thema_code: "HQ2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwirtPrV 2010), § 5, Handlungsbereich „Produktionsprozesse" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

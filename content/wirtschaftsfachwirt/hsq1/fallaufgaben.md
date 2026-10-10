@@ -3,7 +3,7 @@ kurs_slug: wirtschaftsfachwirt
 fachgebiet_code: HSQ1
 fachgebiet_title: "Betriebliches Management"
 thema_code: "HSQ1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Betriebliches Management, Teil der Handlungsspezifischen Qualifikationen) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

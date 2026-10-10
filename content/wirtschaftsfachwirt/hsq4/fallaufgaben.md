@@ -3,7 +3,7 @@ kurs_slug: wirtschaftsfachwirt
 fachgebiet_code: HSQ4
 fachgebiet_title: "Marketing und Vertrieb"
 thema_code: "HSQ4-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Marketing und Vertrieb) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

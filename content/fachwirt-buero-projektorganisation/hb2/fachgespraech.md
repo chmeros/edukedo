@@ -3,7 +3,7 @@ kurs_slug: fachwirt-buero-projektorganisation
 fachgebiet_code: HB2
 fachgebiet_title: "Gestalten und Pflegen von Kundenbeziehungen in betrieblichen Leistungsprozessen"
 thema_code: "HB2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "15.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

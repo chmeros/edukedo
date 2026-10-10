@@ -3,7 +3,7 @@ kurs_slug: immobilienfachwirt
 fachgebiet_code: HB6
 fachgebiet_title: "Marktorientierung und Vertrieb, Maklertätigkeit"
 thema_code: "HB6-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

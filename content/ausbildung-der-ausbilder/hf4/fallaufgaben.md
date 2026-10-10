@@ -3,7 +3,7 @@ kurs_slug: ausbildung-der-ausbilder
 fachgebiet_code: HF4
 fachgebiet_title: "Ausbildung abschließen"
 thema_code: "HF4-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zum Handlungsfeld „Ausbildung abschließen" der Ausbilder-Eignungsverordnung (AEVO, 21.01.2009, BGBl. I S. 88), § 2 Nr. 4 i. V. m. § 3 Abs. 4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

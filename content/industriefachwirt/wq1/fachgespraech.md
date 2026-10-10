@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: WQ1
 fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WQ1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Industriefachwirt" (IndFachwirtPrV vom 25.06.2010, BGBl. I S. 833, §4, Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fragen, keine 1:1-Übernahme aus Rechtsverordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: HQ1
 fachgebiet_title: "Absatz-, Materialwirtschaft und Logistik"
 thema_code: "HQ1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung TechFachwPrV (17.01.2006, BGBl. I S. 66), §6 Abs. 1, Handlungsbereich „Absatz-, Materialwirtschaft und Logistik" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

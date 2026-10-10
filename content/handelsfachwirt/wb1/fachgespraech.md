@@ -3,7 +3,7 @@ kurs_slug: handelsfachwirt
 fachgebiet_code: WB1
 fachgebiet_title: "Vertriebssteuerung (Wahlpflicht)"
 thema_code: "WB1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 5, Wahlpflicht-Handlungsbereich „Vertriebssteuerung") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

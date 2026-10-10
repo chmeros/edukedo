@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: HQ2
 fachgebiet_title: "Produktionsplanung, -steuerung und -kontrolle"
 thema_code: "HQ2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 6 Abs. 2, Handlungsbereich „Produktionsplanung, -steuerung und -kontrolle" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

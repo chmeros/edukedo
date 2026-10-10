@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-digitale-vernetzung
 fachgebiet_code: DV5
 fachgebiet_title: "Planen und Umsetzen eines Projektes der digitalen Vernetzung"
 thema_code: "DV5-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen Rückfragen im Fachgespräch zur betrieblichen Projektarbeit nach § 36 Abs. 3 der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

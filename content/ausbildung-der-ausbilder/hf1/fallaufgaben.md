@@ -3,7 +3,7 @@ kurs_slug: ausbildung-der-ausbilder
 fachgebiet_code: HF1
 fachgebiet_title: "Ausbildungsvoraussetzungen prüfen und Ausbildung planen"
 thema_code: "HF1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsfeld 1 „Ausbildungsvoraussetzungen prüfen und Ausbildung planen" der Ausbilder-Eignungsverordnung (AEVO, 21.01.2009, BGBl. I S. 88), § 2 Nr. 1 / § 3 Abs. 1 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

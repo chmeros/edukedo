@@ -3,7 +3,7 @@ kurs_slug: fachwirt-buero-projektorganisation
 fachgebiet_code: HB1
 fachgebiet_title: "Koordinieren von Entscheidungsprozessen im Rahmen betrieblicher Organisationsstrukturen"
 thema_code: "HB1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB1 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "15.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

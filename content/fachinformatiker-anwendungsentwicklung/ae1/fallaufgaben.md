@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-anwendungsentwicklung
 fachgebiet_code: AE1
 fachgebiet_title: "Konzipieren und Umsetzen von Softwareanwendungen"
 thema_code: "AE1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu den Prüfungsbereichen „Planen und Umsetzen eines Softwareprojektes" und „Planen eines Softwareproduktes" der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), §§ 12 und 13, sowie zum Ausbildungsrahmenplan Abschnitt B lfd. Nr. 1 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

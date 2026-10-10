@@ -3,7 +3,7 @@ kurs_slug: wirtschaftsfachwirt
 fachgebiet_code: WBQ1
 fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WBQ1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Volks- und Betriebswirtschaft, Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

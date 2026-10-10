@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-systemintegration
 fachgebiet_code: SI1
 fachgebiet_title: "Konzipieren und Realisieren von IT-Systemen"
 thema_code: "SI1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zur Berufsbildposition „Konzipieren und Realisieren von IT-Systemen“ der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 4 Abs. 4 Nr. 1 und Anlage (Ausbildungsrahmenplan) Abschnitt C lfd. Nr. 1 sowie § 20 Abs. 2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

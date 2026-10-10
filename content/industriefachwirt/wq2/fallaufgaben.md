@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: WQ2
 fachgebiet_title: "Rechnungswesen"
 thema_code: "WQ2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin" (IndFachwirtPrV, 25.06.2010, BGBl. I S. 833), § 4, Qualifikationsbereich „Rechnungswesen" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

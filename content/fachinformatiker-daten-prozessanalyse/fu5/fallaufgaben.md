@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-daten-prozessanalyse
 fachgebiet_code: FU5
 fachgebiet_title: "Datenbanken und Speicherlösungen"
 thema_code: "FU5-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zum Fachgebiet Datenbanken und Speicherlösungen; Grundlage ist die Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 4 e und 9 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: HQ5
 fachgebiet_title: "Führung und Zusammenarbeit"
 thema_code: "HQ5-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung IndFachwirtPrV (2010), §5, Handlungsbereich „Führung und Zusammenarbeit" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

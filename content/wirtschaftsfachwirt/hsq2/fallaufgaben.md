@@ -3,7 +3,7 @@ kurs_slug: wirtschaftsfachwirt
 fachgebiet_code: HSQ2
 fachgebiet_title: "Investition, Finanzierung, betriebliches Rechnungswesen und Controlling"
 thema_code: "HSQ2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

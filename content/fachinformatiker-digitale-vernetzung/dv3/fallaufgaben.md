@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-digitale-vernetzung
 fachgebiet_code: DV3
 fachgebiet_title: "Betreiben vernetzter Systeme, Diagnose und Störungsbeseitigung"
 thema_code: "DV3-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen im Prüfungsbereich Diagnose und Störungsbeseitigung in vernetzten Systemen der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 37, sowie Anlage (Ausbildungsrahmenplan) Abschnitt E lfd. Nr. 3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

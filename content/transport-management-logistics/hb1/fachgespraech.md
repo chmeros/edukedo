@@ -3,7 +3,7 @@ kurs_slug: transport-management-logistics
 fachgebiet_code: HB1
 fachgebiet_title: "Entwickeln und Vermarkten von Güterverkehrs- und Logistikdienstleistungen"
 thema_code: "HB1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Bachelor Professional in Transport Management and Logistics" (GüLogFachwBAProFV vom 21.09.2023, in Kraft seit 28.09.2023, § 4, Handlungsbereich „Entwickeln und Vermarkten von Güterverkehrs- und Logistikdienstleistungen") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

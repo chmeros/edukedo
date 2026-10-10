@@ -3,7 +3,7 @@ kurs_slug: immobilienfachwirt
 fachgebiet_code: HB3
 fachgebiet_title: "Personal, Arbeitsorganisation und Qualifizierung"
 thema_code: "HB3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich „Personal, Arbeitsorganisation und Qualifizierung" der Verordnung ImmoFachwPrV (25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

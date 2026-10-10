@@ -3,7 +3,7 @@ kurs_slug: handelsfachwirt
 fachgebiet_code: HB3
 fachgebiet_title: "Handelsmarketing"
 thema_code: "HB3-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 3, Handlungsbereich „Handelsmarketing") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

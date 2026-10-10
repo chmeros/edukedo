@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: TQ1
 fachgebiet_title: "Naturwissenschaftliche und technische Grundlagen"
 thema_code: "TQ1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), §5 Abs. 4, Qualifikationsbereich „Naturwissenschaftliche und technische Grundlagen" — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

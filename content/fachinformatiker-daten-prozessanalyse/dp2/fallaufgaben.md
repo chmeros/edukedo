@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-daten-prozessanalyse
 fachgebiet_code: DP2
 fachgebiet_title: "Datenquellen analysieren und Daten bereitstellen"
 thema_code: "DP2-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zur Berufsbildposition „Analysieren von Datenquellen und Bereitstellen von Daten“ der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 4 Abs. 5 Nr. 2 und Anlage (Ausbildungsrahmenplan) Abschnitt D lfd. Nr. 2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

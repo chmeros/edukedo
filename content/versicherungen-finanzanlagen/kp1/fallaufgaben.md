@@ -3,7 +3,7 @@ kurs_slug: versicherungen-finanzanlagen
 fachgebiet_code: KP1
 fachgebiet_title: "Kernprozesse gestalten"
 thema_code: "KP1-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zum Pflicht-Handlungsbereich „Kernprozesse gestalten" der Verordnung über die Prüfung zum Geprüften Bachelor Professional/zur Geprüften Bachelor Professional in Versicherungen und Finanzanlagen (BAProVFFPrV, § 8) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

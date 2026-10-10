@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: WQ4
 fachgebiet_title: "Unternehmensführung"
 thema_code: "WQ4-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV vom 17.01.2006, BGBl. I S. 66), §4 Abs. 5 (Qualifikationsbereich „Unternehmensführung", Teil der wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

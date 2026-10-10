@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: WQ3
 fachgebiet_title: "Recht und Steuern"
 thema_code: "WQ3-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV vom 17.01.2006, BGBl. I S. 66), § 4 Abs. 5 (Qualifikationsbereich Recht und Steuern, Teil der wirtschaftsbezogenen Qualifikationen) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

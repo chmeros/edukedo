@@ -3,7 +3,7 @@ kurs_slug: fachinformatiker-anwendungsentwicklung
 fachgebiet_code: FU7
 fachgebiet_title: "Wirtschafts- und Sozialkunde"
 thema_code: "FU7-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele im Stil der schriftlichen Prüfung im Prüfungsbereich Wirtschafts- und Sozialkunde der Abschlussprüfung Teil 2 (60 Min., 10 %), orientiert an Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), § 4 Abs. 7 Nr. 1–5, Anlage (Ausbildungsrahmenplan) Abschnitt F lfd. Nr. 1–5 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

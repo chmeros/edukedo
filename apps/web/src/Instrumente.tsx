@@ -559,7 +559,7 @@ const INSTRUMENT_CATALOG = [
   },
   {
     type: "handelskalkulation",
-    label: "Handelskalkulation",
+    label: "Handelskalkulation (Zuordnung)",
     description: "Posten der Bezugs-, Selbstkosten- und Verkaufskalkulation der richtigen Stufe zuordnen.",
     Illustration: HandelskalkulationIllustration,
   },

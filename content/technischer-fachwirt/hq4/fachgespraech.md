@@ -3,7 +3,7 @@ kurs_slug: technischer-fachwirt
 fachgebiet_code: HQ4
 fachgebiet_title: "Führung und Zusammenarbeit"
 thema_code: "HQ4-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung TechFachwPrV (17.01.2006, BGBl. I S. 66), §6 Abs. 4, Handlungsbereich „Führung und Zusammenarbeit" — frei formulierte Fragen, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

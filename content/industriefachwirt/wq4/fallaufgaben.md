@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: WQ4
 fachgebiet_title: "Unternehmensführung"
 thema_code: "WQ4-fallaufgaben"
-thema_title: "Themenübergreifende Situationsaufgaben (F-23)"
+thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwPrV vom 2010), §4 (Qualifikationsbereich „Unternehmensführung") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

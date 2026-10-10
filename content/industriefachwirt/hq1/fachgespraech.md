@@ -3,7 +3,7 @@ kurs_slug: industriefachwirt
 fachgebiet_code: HQ1
 fachgebiet_title: "Finanzwirtschaft im Industrieunternehmen"
 thema_code: "HQ1-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin" (IndFachwirtPrV, 25.06.2010, BGBl. I S. 833), §5 Handlungsbereich „Finanzwirtschaft im Industrieunternehmen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

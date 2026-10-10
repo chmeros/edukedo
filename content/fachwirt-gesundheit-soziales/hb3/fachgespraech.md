@@ -3,7 +3,7 @@ kurs_slug: fachwirt-gesundheit-soziales
 fachgebiet_code: HB3
 fachgebiet_title: "Gestalten von Schnittstellen und Projekten"
 thema_code: "HB3-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" (Handlungsbereich 3) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---

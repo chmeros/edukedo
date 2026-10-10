@@ -3,7 +3,7 @@ kurs_slug: handelsfachwirt
 fachgebiet_code: HB2
 fachgebiet_title: "Führung, Personalmanagement, Kommunikation und Kooperation"
 thema_code: "HB2-fachgespraech"
-thema_title: "Fachgesprächsfragen-Sammlung (F-25)"
+thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Handelsfachwirt/Geprüfte Handelsfachwirtin (HdlFachwPrV, 13.05.2014, BGBl. I S. 527/1708), §4 Abs. 2 (Handlungsbereich „Führung, Personalmanagement, Kommunikation und Kooperation") — frei formulierte Fragen, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
