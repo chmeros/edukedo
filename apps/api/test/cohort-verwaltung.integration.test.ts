@@ -55,7 +55,7 @@ describe("Kohorten-Verwaltung (UXL-04/05)", () => {
     const register = await app.inject({
       method: "POST",
       url: "/api/v1/trpc/auth.register",
-      payload: { email, password: "Verwaltung1234!", birthDate: "1995-01-01" },
+      payload: { email, password: "Verwaltung1234!", birthDate: "1995-01-01", displayName: email.split("@")[0] },
     });
     expect(register.statusCode).toBe(200);
     const cookie = String(register.headers["set-cookie"]).split(";")[0]!;
@@ -211,5 +211,26 @@ describe("Kohorten-Verwaltung (UXL-04/05)", () => {
     expect(sieben.activeSharePercent).toBeNull();
     // Andere Zeiträume gibt es nicht.
     expect((await query(dozent.cookie, "stats", { cohortId, days: 14 })).statusCode).toBe(400);
+  });
+  it("memberContact: die Leitung sieht die Adresse eines erwachsenen Mitglieds nur auf Abruf, Minderjährige und Fremde nicht (Entscheidung 10.10.2026)", async () => {
+    const { dozent, cohortId, mitglieder } = await kohorteMitMitgliedern(2);
+    const [erwachsen, kind] = mitglieder as [(typeof mitglieder)[number], (typeof mitglieder)[number]];
+    await db.update(schema.user).set({ isMinor: true, gamificationEnabled: true }).where(eq(schema.user.id, kind.userId));
+    const kontakt = (cookie: string, userId: string) => mutate(cookie, "memberContact", { cohortId, userId });
+
+    // Die Liste nennt Namen und sagt, wo ein Kontakt möglich ist; Adressen stehen nicht darin.
+    const liste = (await query(dozent.cookie, "members", { cohortId })).json().result.data as { userId: string; name: string; contactAvailable: boolean }[];
+    expect(liste.find((m) => m.userId === erwachsen.userId)?.contactAvailable).toBe(true);
+    expect(liste.find((m) => m.userId === kind.userId)?.contactAvailable).toBe(false);
+    expect(JSON.stringify(liste)).not.toContain("@example");
+
+    const [row] = await db.select({ email: schema.user.email }).from(schema.user).where(eq(schema.user.id, erwachsen.userId));
+    const ok = await kontakt(dozent.cookie, erwachsen.userId);
+    expect(ok.statusCode).toBe(200);
+    expect(ok.json().result.data).toEqual({ email: row!.email });
+
+    expect((await kontakt(dozent.cookie, kind.userId)).statusCode).toBe(404); // Minderjährige nie
+    expect((await kontakt(erwachsen.cookie, erwachsen.userId)).statusCode).toBe(404); // nicht die Leitung
+    expect((await kontakt(dozent.cookie, dozent.userId)).statusCode).toBe(404); // kein Mitglied
   });
 });

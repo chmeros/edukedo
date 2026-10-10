@@ -10,7 +10,8 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, count, eq, gte, inArray, or, sql } from "drizzle-orm";
 import { generateInviteCode } from "../../auth/invite-code";
-import { requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
+import { enforceRateLimit, LIMITS } from "../../auth/request-limits";
+import { contactEmail, requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import type { Database } from "../../db/client";
 import {
   block,
@@ -317,15 +318,38 @@ export const cohortRouter = router({
         rows.map((row) => row.userId),
       ),
     );
-    // Erwachsene Mitglieder zeigt die Liste wie bisher mit Adresse (Entscheidung F-64: Dozent:in muss die Teilnehmenden kennen);
-    // Minderjährige nur mit ihrem Anzeigenamen.
+    // Entscheidung 10.10.2026 (UXL-04 Rest): Die Liste nennt nur den Anzeigenamen (sonst die unkenntliche Kurzform), nie die Adresse.
+    // `contactAvailable` sagt, ob die Leitung die Adresse auf ausdrücklichen Klick sehen kann (`memberContact`; nur zwischen Erwachsenen).
     return rows
       .filter((row) => sichtbar.has(row.userId))
       .map((row) => ({
         userId: row.userId,
-        email: socialName({ ...row, displayName: row.isMinor ? row.displayName : null }, ctx.currentUser),
+        name: socialName(row),
+        contactAvailable: contactEmail(row, ctx.currentUser) !== null,
         joinedAt: row.joinedAt,
       }));
+  }),
+
+  /**
+   * Entscheidung 10.10.2026 (UXL-04 Rest): Die E-Mail-Adresse eines erwachsenen Mitglieds erst auf ausdrücklichen Klick der Leitung
+   * („Kontakt anzeigen“), damit die Adressen nicht wie eine offene Liste dastehen. Nur die Leitung dieser Kohorte, nur für aktuelle,
+   * nicht eingeschränkte Mitglieder und nur zwischen zwei Erwachsenen; Minderjährige liefern nichts. Ratenbegrenzt.
+   */
+  memberContact: protectedProcedure.input(removeCohortMemberInputSchema).mutation(async ({ ctx, input }) => {
+    enforceRateLimit(`kohorte-kontakt:${ctx.currentUser.id}`, LIMITS.kohorteKontaktPerUser, "Zu viele Kontaktabfragen in kurzer Zeit. Bitte warte einige Minuten.");
+    await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
+    const [row] = await ctx.db
+      .select({ userId: cohortMember.userId, email: user.email, isMinor: user.isMinor })
+      .from(cohortMember)
+      .innerJoin(user, eq(user.id, cohortMember.userId))
+      .where(and(eq(cohortMember.cohortId, input.cohortId), eq(cohortMember.userId, input.userId)))
+      .limit(1);
+    const sichtbar = row ? await visibleSocialUserIds(ctx.db, ctx.currentUser, [row.userId]) : [];
+    const email = row && sichtbar.length > 0 ? contactEmail(row, ctx.currentUser) : null;
+    if (!email) {
+      throw new TRPCError({ code: "NOT_FOUND", message: "Für dieses Mitglied ist keine Kontaktadresse verfügbar." });
+    }
+    return { email };
   }),
 
   /**

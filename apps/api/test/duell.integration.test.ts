@@ -40,7 +40,7 @@ describe("F-61: Duelle", () => {
     const registerResponse = await app.inject({
       method: "POST",
       url: "/api/v1/trpc/auth.register",
-      payload: { email, password: "Demo1234!", birthDate: "1995-01-01" },
+      payload: { email, password: "Demo1234!", birthDate: "1995-01-01", displayName: email.split("@")[0] },
     });
     expect(registerResponse.statusCode).toBe(200);
     const cookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
@@ -191,7 +191,7 @@ describe("F-61: Duelle", () => {
       });
       const list = listResponse.json().result.data as { id: string; status: string; opponentName: string }[];
       expect(list.find((entry) => entry.id === duellId)?.status).toBe("offen");
-      expect(list.find((entry) => entry.id === duellId)?.opponentName).toBe("test-duell-opponent@example.com");
+      expect(list.find((entry) => entry.id === duellId)?.opponentName).toBe("test-duell-opponent");
     },
     30_000,
   );

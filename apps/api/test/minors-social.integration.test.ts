@@ -61,7 +61,7 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     const register = await app.inject({
       method: "POST",
       url: "/api/v1/trpc/auth.register",
-      payload: { email, password: PASSWORD, birthDate: "1995-01-01" },
+      payload: { email, password: PASSWORD, birthDate: "1995-01-01", displayName: `Konto ${counter}` },
     });
     expect(register.statusCode).toBe(200);
     const cookie = String(register.headers["set-cookie"]).split(";")[0]!;
@@ -114,7 +114,7 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     expect(links.filter((l) => l.userIdA === kind.userId || l.userIdB === kind.userId)).toHaveLength(0);
   });
 
-  it("die Adresse eines Minderjährigen erscheint in keiner sozialen Antwort; zwischen Erwachsenen bleibt sie sichtbar", async () => {
+  it("keine E-Mail-Adresse erscheint in einer sozialen Antwort: Anzeigename, ohne Namen eine Kurzform (Entscheidung 10.10.2026)", async () => {
     const a = await newUser();
     const b = await newUser();
     const c = await newUser();
@@ -124,13 +124,15 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
     await befreunden(a, b);
     await befreunden(a, c);
     await befreunden(a, d);
+    // d hat den Namen nachträglich entfernt: Verbindungen bleiben, angezeigt wird nur noch die Kurzform.
+    await db.update(schema.user).set({ displayName: null }).where(eq(schema.user.id, d.userId));
     for (const who of [a, b, c, d]) await mutate(who.cookie, "highscore.setOptIn", { kursId, optIn: true });
-    const [kindRow] = await db.select({ email: schema.user.email }).from(schema.user).where(eq(schema.user.id, c.userId));
-    const [erwachsenRow] = await db.select({ email: schema.user.email }).from(schema.user).where(eq(schema.user.id, d.userId));
+    const adressen = (await db.select({ email: schema.user.email }).from(schema.user)).map((row) => row.email);
+    const [kindRow] = await db.select({ displayName: schema.user.displayName }).from(schema.user).where(eq(schema.user.id, c.userId));
 
-    // Erwachsene:r a sieht: Mia (Anzeigename), das Kind nur als Kurzform, d mit Adresse.
+    // Erwachsene:r a sieht: Mia (Anzeigename), das Kind unter seinem Anzeigenamen, d ohne Namen nur als Kurzform (nie mit Adresse).
     const freunde = (await query(a.cookie, "friend.friends", { kursId })).json().result.data as { friendName: string }[];
-    expect(freunde.map((f) => f.friendName).sort()).toEqual(["Mia", "ko***@***.test", erwachsenRow!.email].sort());
+    expect(freunde.map((f) => f.friendName).sort()).toEqual(["Mia", kindRow!.displayName, "ko***@***.test"].sort());
 
     const antworten = JSON.stringify([
       (await query(a.cookie, "friend.friends", { kursId })).json(),
@@ -140,15 +142,29 @@ describe("Minderjährigenschutz in den sozialen Funktionen (Review A8)", () => {
       (await query(c.cookie, "highscore.leaderboard", { kursId })).json(),
       (await query(c.cookie, "lernpartner.matches", { kursId })).json(),
     ]);
-    expect(antworten).not.toContain(kindRow!.email);
+    for (const adresse of adressen) expect(antworten).not.toContain(adresse);
 
-    // Der Kontaktweg der Lernpartner-Vermittlung (E-Mail) besteht nur zwischen Erwachsenen.
-    const treffer = (await query(a.cookie, "lernpartner.matches", { kursId })).json().result.data as {
-      friendUserId: string;
-      friendEmail: string | null;
-    }[];
-    expect(treffer.find((t) => t.friendUserId === d.userId)?.friendEmail).toBe(erwachsenRow!.email);
-    expect(treffer.find((t) => t.friendUserId === c.userId)?.friendEmail).toBeNull();
+    // Der frühere Kontaktweg der Lernpartner-Vermittlung per E-Mail ist entfallen.
+    const treffer = (await query(a.cookie, "lernpartner.matches", { kursId })).json().result.data as Record<string, unknown>[];
+    expect(treffer.every((t) => !("friendEmail" in t))).toBe(true);
+  });
+
+  it("soziale Funktionen verlangen einen Anzeigenamen; ohne Namen sind Einladung, Kohorte und Duell gesperrt (Entscheidung 10.10.2026)", async () => {
+    const ohneName = await newUser();
+    await db.update(schema.user).set({ displayName: null }).where(eq(schema.user.id, ohneName.userId));
+    const anderer = await newUser();
+
+    for (const antwort of [
+      await mutate(ohneName.cookie, "friend.createInviteCode", { kursId }),
+      await mutate(ohneName.cookie, "cohort.create", { kursId, name: "Gruppe" }),
+      await mutate(ohneName.cookie, "duell.challenge", { kursId, opponentUserId: anderer.userId }),
+    ]) {
+      expect(antwort.statusCode).toBe(403);
+      expect(antwort.json().error.message).toContain("Anzeigenamen");
+    }
+
+    await db.update(schema.user).set({ displayName: "Spitzname" }).where(eq(schema.user.id, ohneName.userId));
+    expect((await mutate(ohneName.cookie, "friend.createInviteCode", { kursId })).statusCode).toBe(200);
   });
 
   it("ein Einladungscode eines (inzwischen) eingeschränkten Kontos ist für andere ungültig, ohne Hinweis auf den Grund", async () => {

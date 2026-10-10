@@ -1,3 +1,4 @@
+import { AnzeigenameHinweis } from "./AnzeigenameHinweis";
 import { Duell } from "./Duell";
 import { FriendCircle } from "./FriendCircle";
 import { Highscore } from "./Highscore";
@@ -47,6 +48,7 @@ export function Sozial({
 
   return (
     <div className="stack">
+      <AnzeigenameHinweis />
       <FriendCircle kursId={kursId} />
       <Kohorte kursId={kursId} />
       <Highscore kursId={kursId} isMinor={isMinor} gamificationEnabled={gamificationEnabled} />

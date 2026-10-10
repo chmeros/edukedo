@@ -25,7 +25,7 @@ import {
   user,
   userCourse,
 } from "../../db/schema";
-import { socialName, visibleSocialUserIds } from "../../auth/social-policy";
+import { requireSocialAccess, socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 import { recordQuizAttempt } from "./progress";
 
@@ -124,6 +124,8 @@ export const duellRouter = router({
       });
     }
 
+    // Entscheidung 10.10.2026: Duelle setzen wie alle sozialen Funktionen einen Anzeigenamen voraus.
+    requireSocialAccess(ctx.currentUser);
     await requireEnrollment(ctx.db, ctx.currentUser.id, input.kursId);
     await requireEnrollment(ctx.db, input.opponentUserId, input.kursId);
     await requireExistingFriendship(ctx.db, ctx.currentUser.id, input.opponentUserId, input.kursId);

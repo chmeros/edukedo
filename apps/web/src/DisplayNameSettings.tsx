@@ -39,7 +39,7 @@ export function DisplayNameSettings() {
           onChange={(event) => setDisplayName(event.target.value)}
         />
         <span className="field-hint">Leer lassen und speichern, um zur neutralen Begrüßung zurückzukehren.</span>
-        <span className="field-hint">Der Name erscheint auch bei deinen Freund:innen, in Ranglisten und Duellen, statt deiner E-Mail-Adresse.</span>
+        <span className="field-hint">Der Name erscheint bei deinen Freund:innen, in Ranglisten, Duellen und Gruppen. Deine E-Mail-Adresse sehen andere nie. Für Freundeskreis, Gruppen und Duelle ist ein Anzeigename Pflicht.</span>
       </div>
       <button type="submit" className="btn btn-secondary btn-sm" style={{ alignSelf: "flex-start" }} disabled={update.isPending}>
         Speichern

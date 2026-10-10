@@ -18,33 +18,41 @@ export const SOCIAL_RESTRICTED_MESSAGE =
   "Für minderjährige Nutzer:innen sind soziale Funktionen ohne gesonderte Einwilligung der Erziehungsberechtigten deaktiviert.";
 
 /**
- * Review A8 (SEC-05): Name, unter dem eine Person (`account`) einer anderen (`viewer`) in sozialen Ansichten erscheint (Freunde,
- * Rangliste, Duelle, Lernpartner, Blockierliste). Reihenfolge: freiwillig gesetzter Anzeigename (F-108); sonst die Adresse, aber
- * **nur zwischen zwei Erwachsenen** (so bleibt die Lernpartner-Vermittlung per E-Mail möglich); sobald eine der beiden Seiten
- * minderjährig ist, eine unkenntliche Kurzform ("ma***@***.de"), die Wiedererkennen erlaubt, aber weder Adresse noch Anbieter
- * preisgibt. Die Adresse eines Minderjährigen verlässt den Server in sozialen Antworten damit nie.
+ * Review A8 (SEC-05), Entscheidung 10.10.2026 (UXL-04 Rest): Name, unter dem eine Person (`account`) in sozialen Ansichten erscheint
+ * (Freunde, Rangliste, Duelle, Lernpartner, Blockierliste, Mitgliederliste der Kohorte). Es ist der freiwillig gesetzte
+ * Anzeigename (F-108), der für soziale Funktionen inzwischen Pflicht ist (`requireSocialAccess`); die E-Mail-Adresse erscheint
+ * **nie** mehr. Fehlt der Name (Konten, die ihn nach der Einführung der Pflicht entfernt haben, oder Altbestand), steht eine unkenntliche
+ * Kurzform ("ma***@***.de"), die Wiedererkennen erlaubt, aber weder Adresse noch Anbieter preisgibt.
  */
-export function socialName(
-  account: { displayName: string | null; email: string; isMinor: boolean },
-  viewer: { isMinor: boolean },
-): string {
+export function socialName(account: { displayName: string | null; email: string }, _viewer?: unknown): string {
   const name = account.displayName?.trim();
   if (name) return name;
-  if (!account.isMinor && !viewer.isMinor) return account.email;
   const [local = "", domain = ""] = account.email.split("@");
   const tld = domain.includes(".") ? domain.slice(domain.lastIndexOf(".")) : "";
   return `${local.slice(0, 2)}***@***${tld}`;
 }
 
-/** Die Adresse für den Kontaktweg der Lernpartner-Vermittlung: nur zwischen zwei Erwachsenen, sonst null. */
+/**
+ * Die Adresse, die die Leitung einer Kohorte auf ausdrücklichen Klick sieht (`cohort.memberContact`): nur zwischen zwei Erwachsenen,
+ * sonst null. Die Adresse eines Minderjährigen verlässt den Server in sozialen Antworten nie.
+ */
 export function contactEmail(account: { email: string; isMinor: boolean }, viewer: { isMinor: boolean }): string | null {
   return !account.isMinor && !viewer.isMinor ? account.email : null;
 }
 
-/** Wirft FORBIDDEN, wenn das Konto eingeschränkt ist. */
-export function requireSocialAccess(account: { isMinor: boolean; gamificationEnabled: boolean }): void {
+export const DISPLAY_NAME_REQUIRED_MESSAGE =
+  "Bitte setze zuerst einen Anzeigenamen (Menü oben rechts → Einstellungen). Andere sehen dich dann unter diesem Namen, nie mit deiner E-Mail-Adresse.";
+
+/**
+ * Wirft FORBIDDEN, wenn das Konto eingeschränkt ist oder (Entscheidung 10.10.2026) noch keinen Anzeigenamen hat. Wer soziale Funktionen
+ * nutzen will, setzt vorher einen Namen; Spitzname genügt.
+ */
+export function requireSocialAccess(account: { isMinor: boolean; gamificationEnabled: boolean; displayName: string | null }): void {
   if (isSocialRestricted(account)) {
     throw new TRPCError({ code: "FORBIDDEN", message: SOCIAL_RESTRICTED_MESSAGE });
+  }
+  if (!account.displayName?.trim()) {
+    throw new TRPCError({ code: "FORBIDDEN", message: DISPLAY_NAME_REQUIRED_MESSAGE });
   }
 }
 

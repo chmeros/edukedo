@@ -83,7 +83,6 @@ export function Lernpartner({
               <>
                 {entry.targetDate ? `Zieltermin ${new Date(entry.targetDate).toLocaleDateString("de-DE")}` : "Kein Zieltermin"}
                 {entry.fachgebietTitle ? ` · ${entry.fachgebietTitle}` : ""}
-                {entry.friendEmail && entry.friendEmail !== entry.friendName ? ` · Kontakt: ${entry.friendEmail}` : ""}
               </>
             }
             meta={

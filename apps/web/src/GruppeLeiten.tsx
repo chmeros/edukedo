@@ -1,3 +1,4 @@
+import { AnzeigenameHinweis } from "./AnzeigenameHinweis";
 import { InfoIcon } from "./Icons";
 import { Kohorte } from "./Kohorte";
 
@@ -24,7 +25,7 @@ export function GruppeLeiten({ kursId, onBack }: { kursId: string; onBack: () =>
             <li>Gib den Beitritts-Code der Kohorte an deine Gruppe weiter (Kopieren-Knopf neben dem Code).</li>
             <li>
               Die Teilnehmenden belegen denselben Kurs und geben den Code unter „Gaming“ → „Lehrgangsgruppen“ → „Kohorte beitreten“ ein. Vorher
-              erfahren sie, was die Leitung sieht: E-Mail-Adresse, Beitrittsdatum und Kennzahlen der ganzen Gruppe, nie einzelne Antworten.
+              erfahren sie, was die Leitung sieht: Anzeigename, Beitrittsdatum und Kennzahlen der ganzen Gruppe, nie einzelne Antworten. Die E-Mail-Adresse zeigt die App der Leitung nur auf ausdrücklichen Klick.
             </li>
             <li>
               Kennzahlen erscheinen ab fünf Teilnehmenden, die gelernt haben, in gerundeter Form. Die Mitgliederliste sieht nur die Leitung.
@@ -32,6 +33,7 @@ export function GruppeLeiten({ kursId, onBack }: { kursId: string; onBack: () =>
           </ol>
         </div>
       </div>
+      <AnzeigenameHinweis />
       <Kohorte key={kursId} kursId={kursId} nurLeiten />
     </div>
   );

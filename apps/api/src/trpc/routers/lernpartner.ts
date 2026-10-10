@@ -2,7 +2,7 @@ import { lernpartnerKursInputSchema, setLernpartnerFachgebietInputSchema } from 
 import { TRPCError } from "@trpc/server";
 import { and, eq, or } from "drizzle-orm";
 import { fachgebiet, friendCircleLink, user, userCourse } from "../../db/schema";
-import { contactEmail, socialName, visibleSocialUserIds } from "../../auth/social-policy";
+import { socialName, visibleSocialUserIds } from "../../auth/social-policy";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-62: Zwei Prüfungstermine gelten als "im selben Zeitraum", wenn sie höchstens 30 Tage
@@ -132,7 +132,6 @@ export const lernpartnerRouter = router({
         return {
           friendUserId: row.userId,
           friendName: socialName(row, ctx.currentUser),
-          friendEmail: contactEmail(row, ctx.currentUser),
           targetDate: row.targetDate,
           fachgebietTitle: row.fachgebietTitle,
           matchesTargetDate,

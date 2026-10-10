@@ -40,7 +40,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     const registerResponse = await app.inject({
       method: "POST",
       url: "/api/v1/trpc/auth.register",
-      payload: { email, password: "Demo1234!", birthDate: "1995-01-01" },
+      payload: { email, password: "Demo1234!", birthDate: "1995-01-01", displayName: email.split("@")[0] },
     });
     expect(registerResponse.statusCode).toBe(200);
     const cookie = extractSessionCookie(registerResponse.headers["set-cookie"]);
@@ -224,9 +224,11 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
         headers: { cookie: dozentCookie },
       });
       expect(response.statusCode).toBe(200);
-      const members = response.json().result.data as { userId: string; email: string; joinedAt: string }[];
+      const members = response.json().result.data as { userId: string; name: string; contactAvailable: boolean; joinedAt: string }[];
       expect(members).toHaveLength(5);
-      expect(Object.keys(members[0]!).sort()).toEqual(["email", "joinedAt", "userId"]);
+      // Entscheidung 10.10.2026: Name statt Adresse; ob die Leitung die Adresse auf Klick sehen kann, steht in contactAvailable.
+      expect(Object.keys(members[0]!).sort()).toEqual(["contactAvailable", "joinedAt", "name", "userId"]);
+      expect(JSON.stringify(members)).not.toContain("@example");
     },
     30_000,
   );

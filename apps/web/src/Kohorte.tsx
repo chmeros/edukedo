@@ -29,6 +29,11 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
   const stats = trpc.cohort.stats.useQuery({ cohortId, days: tage }, { keepPreviousData: true });
   const members = trpc.cohort.members.useQuery({ cohortId });
   // Review UXL-05: Die Dozent:in kann Mitglieder aus der Kohorte entfernen.
+  // Entscheidung 10.10.2026: Die Adresse eines erwachsenen Mitglieds zeigt die Leitung erst auf ausdrücklichen Klick.
+  const [kontakte, setKontakte] = useState<Record<string, string>>({});
+  const memberContact = trpc.cohort.memberContact.useMutation({
+    onSuccess: (ergebnis, eingabe) => setKontakte((vorher) => ({ ...vorher, [eingabe.userId]: ergebnis.email })),
+  });
   const removeMember = trpc.cohort.removeMember.useMutation({
     onSuccess: () => {
       utils.cohort.members.invalidate({ cohortId });
@@ -156,19 +161,44 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
           <Tile
             key={member.userId}
             size="sm"
-            title={member.email}
-            description={`Beigetreten am ${new Date(member.joinedAt).toLocaleDateString("de-DE")}`}
+            title={member.name}
+            description={
+              <>
+                {`Beigetreten am ${new Date(member.joinedAt).toLocaleDateString("de-DE")}`}
+                {kontakte[member.userId] && (
+                  <>
+                    {" · Kontakt: "}
+                    <a className="link" href={`mailto:${kontakte[member.userId]}`}>
+                      {kontakte[member.userId]}
+                    </a>
+                  </>
+                )}
+              </>
+            }
             actions={
+              <>
+              {member.contactAvailable && !kontakte[member.userId] && (
+                <button
+                  type="button"
+                  className="btn btn-ghost btn-sm"
+                  disabled={memberContact.isPending}
+                  onClick={() => memberContact.mutate({ cohortId, userId: member.userId })}
+                >
+                  Kontakt anzeigen
+                </button>
+              )}
               <ConfirmButton
                 label="Entfernen"
                 question="Aus der Kohorte entfernen?"
                 disabled={removeMember.isPending}
                 onConfirm={() => removeMember.mutate({ cohortId, userId: member.userId })}
               />
+              </>
             }
           />
         ))}
       </div>
+      {memberContact.error && <ErrorMessage>{memberContact.error.message}</ErrorMessage>}
       {removeMember.error && <ErrorMessage>{removeMember.error.message}</ErrorMessage>}
       {members.data?.length === 0 && <p className="field-hint">Noch niemand beigetreten.</p>}
     </div>
@@ -360,8 +390,8 @@ export function Kohorte({ kursId, nurLeiten = false }: { kursId: string; nurLeit
         </div>
         {/* Review UXL-04: Transparenz vor dem Beitritt. */}
         <p className="field-hint">
-          Wenn du beitrittst, sieht die Leitung der Gruppe deine E-Mail-Adresse und dein Beitrittsdatum sowie Kennzahlen der ganzen
-          Gruppe (nie deine einzelnen Antworten). Du wirst mit allen Mitgliedern befreundet und kannst jederzeit wieder austreten;
+          Wenn du beitrittst, sieht die Leitung der Gruppe deinen Anzeigenamen und dein Beitrittsdatum sowie Kennzahlen der ganzen
+          Gruppe (nie deine einzelnen Antworten); deine E-Mail-Adresse kann die Leitung nur auf ausdrücklichen Klick einsehen. Du wirst mit allen Mitgliedern befreundet und kannst jederzeit wieder austreten;
           die Freundschaften bleiben dann bestehen und lassen sich im Freundeskreis einzeln lösen.
         </p>
         <label className="checkbox-row" htmlFor="cohort-join-confirm">

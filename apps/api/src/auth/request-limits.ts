@@ -33,6 +33,8 @@ export const LIMITS = {
   sprintAbschlussPerUser: { max: 120, windowMs: 60 * 60 * 1000 },
   /** Suche im Lese-Modus für Kursinhalte (durchsucht Aufgaben samt Erklärung und Theorietexte): großzügig für Tippen mit Pausen, bremst Massenabfragen. */
   kursInhaltSuchePerUser: { max: 120, windowMs: 10 * 60 * 1000 },
+  /** Kontaktadresse eines Kohorten-Mitglieds auf Klick der Leitung (Entscheidung 10.10.2026): bremst das Abgreifen aller Adressen. */
+  kohorteKontaktPerUser: { max: 40, windowMs: 10 * 60 * 1000 },
 } as const;
 
 export function rateLimitsActive(): boolean {
