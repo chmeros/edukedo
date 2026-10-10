@@ -1,6 +1,6 @@
 # Entwurf: Kennzahlen-Duell „QM und Prozesse“ im Büro-Kurs (E-BUE-2, S-BUE-02)
 
-Stand 10.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Betrifft nur das Set `fachwirt-buero-projektorganisation/kennzahlen_duell/standard` (Datei `apps/api/src/db/content/game-kennzahlen-duell-qm-prozesse.ts`, Titel „Kennzahlen-Duell: Qualitätsmanagement und Prozesse“). Das zweite Duell des Kurses („Begriffe-Duell: Projektmanagement“) ist nicht betroffen.
+Stand 10.10.2026 · **Variante C vom Projektleiter gewählt, altes Set samt Fortschritt gelöscht, am 10.10.2026 eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3). Betrifft nur das Set `fachwirt-buero-projektorganisation/kennzahlen_duell/standard` (Datei `apps/api/src/db/content/game-kennzahlen-duell-qm-prozesse.ts`, Titel „Kennzahlen-Duell: Qualitätsmanagement und Prozesse“). Das zweite Duell des Kurses („Begriffe-Duell: Projektmanagement“) ist nicht betroffen.
 
 ## Befund
 

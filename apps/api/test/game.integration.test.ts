@@ -10,7 +10,7 @@ import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
 import { Pool } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { kennzahlenDuellQmProzesse } from "../src/db/content/game-kennzahlen-duell-qm-prozesse";
+import { kennzahlenDuellBueroKennzahlen } from "../src/db/content/game-kennzahlen-duell-buero-kennzahlen";
 import { kreuzwortraetselFinanzkennzahlen } from "../src/db/content/game-kreuzwortraetsel-finanzkennzahlen";
 import { memoryPersonalkennzahlen } from "../src/db/content/game-memory-personalkennzahlen";
 import * as schema from "../src/db/schema";
@@ -96,8 +96,8 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
       {
         kursId,
         gameType: "kennzahlen_duell",
-        title: "Kennzahlen-Duell: Qualitätsmanagement und Prozesse",
-        payload: kennzahlenDuellPayloadSchema.parse(kennzahlenDuellQmProzesse),
+        title: "Kennzahlen-Duell: Kennzahlen und Steuerung im Büro",
+        payload: kennzahlenDuellPayloadSchema.parse(kennzahlenDuellBueroKennzahlen),
       },
       {
         kursId,
@@ -318,7 +318,7 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
     });
 
     it("markiert das Kennzahlen-Duell erst nach allen 20 Fragen als abgeschlossen", async () => {
-      for (const frage of kennzahlenDuellQmProzesse.fragen) {
+      for (const frage of kennzahlenDuellBueroKennzahlen.fragen) {
         await callMutation("game.submitKennzahlenDuellAntwort", { kursId, nummer: frage.nummer, ausgewaehlt: frage.richtig });
       }
       const response = await callQuery("game.getKennzahlenDuell", { kursId });

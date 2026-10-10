@@ -16,6 +16,7 @@ import {
 } from "@edukedo/shared";
 import { describe, expect, it } from "vitest";
 import { kennzahlenDuellItBegriffe } from "./db/content/game-kennzahlen-duell-it-begriffe";
+import { kennzahlenDuellBueroKennzahlen } from "./db/content/game-kennzahlen-duell-buero-kennzahlen";
 import { kreuzwortraetselFinanzkennzahlen } from "./db/content/game-kreuzwortraetsel-finanzkennzahlen";
 import { kreuzwortraetselItFachbegriffe } from "./db/content/game-kreuzwortraetsel-it-fachbegriffe";
 import { memoryItBegriffe } from "./db/content/game-memory-it-begriffe";
@@ -168,6 +169,29 @@ describe("F-142: Kennzahlen-Duell „Qualitätsmanagement und Prozesse“", () =
   it("prüft eine Antwort gegen die hinterlegte Lösung", () => {
     expect(checkKennzahlenDuellAntwort(payload, 1, "A")).toEqual({ correct: true, feedback: "Richtig!" });
     expect(checkKennzahlenDuellAntwort(payload, 1, "B")).toEqual({ correct: false, feedback: "Falsch." });
+  });
+});
+
+describe("Entscheidung 10.10.2026 (E-BUE-2): Kennzahlen-Duell „Kennzahlen und Steuerung im Büro“", () => {
+  const payload = kennzahlenDuellPayloadSchema.parse(kennzahlenDuellBueroKennzahlen);
+
+  it("hat 20 Fragen in vier Runden à fünf, ausgewogene richtige Antworten und beide Antworten je Frage verschieden", () => {
+    expect(payload.fragen.map((frage) => frage.nummer)).toEqual(Array.from({ length: 20 }, (_, index) => index + 1));
+    for (const runde of [1, 2, 3, 4]) {
+      expect(payload.fragen.filter((frage) => frage.runde === runde)).toHaveLength(5);
+      expect(payload.runden.some((eintrag) => eintrag.nummer === runde)).toBe(true);
+    }
+    const anzahlA = payload.fragen.filter((frage) => frage.richtig === "A").length;
+    expect(anzahlA).toBeGreaterThanOrEqual(8);
+    expect(anzahlA).toBeLessThanOrEqual(12);
+    expect(payload.fragen.every((frage) => frage.antwortA !== frage.antwortB)).toBe(true);
+  });
+
+  it("enthält keinen Begriff des früheren Fertigungs-Duells, der in der Kurstheorie nicht vorkommt", () => {
+    const text = JSON.stringify(payload).toLowerCase();
+    for (const kursfremd of ["first-pass-yield", "durchlaufzeit", "ausschussquote", "nacharbeitsquote", "termintreue", "auslastungsgrad", "prüfkostenquote", "fehlerkostenquote", "qualitätskonformität"]) {
+      expect(text).not.toContain(kursfremd);
+    }
   });
 });
 

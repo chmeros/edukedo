@@ -1,5 +1,5 @@
 import { kennzahlenDuellPayloadSchema, kreuzwortraetselPayloadSchema, memoryPayloadSchema } from "@edukedo/shared";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { db, pool } from "./client";
 import { kennzahlenDuellItBegriffe } from "./content/game-kennzahlen-duell-it-begriffe";
 import { belegdetektivEinkauf } from "./content/game-belegdetektiv-einkauf";
@@ -63,7 +63,7 @@ import { troubleshootingIndustrieIot } from "./content/game-troubleshooting-indu
 import { troubleshootingNetzwerk } from "./content/game-troubleshooting-netzwerk";
 import { troubleshootingServerdienste } from "./content/game-troubleshooting-serverdienste";
 import { troubleshootingSwitchingRouting } from "./content/game-troubleshooting-switching-routing";
-import { kennzahlenDuellQmProzesse } from "./content/game-kennzahlen-duell-qm-prozesse";
+import { kennzahlenDuellBueroKennzahlen } from "./content/game-kennzahlen-duell-buero-kennzahlen";
 import { kreuzwortraetselItFachbegriffe } from "./content/game-kreuzwortraetsel-it-fachbegriffe";
 import { kreuzwortraetselFinanzkennzahlen } from "./content/game-kreuzwortraetsel-finanzkennzahlen";
 import { memoryItBegriffe } from "./content/game-memory-it-begriffe";
@@ -102,8 +102,26 @@ async function upsertGame(
   console.log(`Spiel "${title}" (${kursSlug}/${gameType}/${setKey}) angelegt/aktualisiert.`);
 }
 
+/**
+ * Entfernt ein nicht mehr angebotenes Spiel samt Spielfortschritt (`game_progress` hängt per ON DELETE CASCADE am Spiel). Idempotent:
+ * Existiert die Zeile nicht (neue Datenbank, zweiter Lauf), passiert nichts.
+ */
+async function entferneSpiel(kursSlug: string, gameType: string, setKey: string): Promise<void> {
+  const [kursRow] = await db.select().from(kurs).where(eq(kurs.slug, kursSlug)).limit(1);
+  if (!kursRow) return;
+  const geloescht = await db
+    .delete(game)
+    .where(and(eq(game.kursId, kursRow.id), eq(game.gameType, gameType), eq(game.setKey, setKey)))
+    .returning({ id: game.id });
+  if (geloescht.length > 0) console.log(`Spiel ${kursSlug}/${gameType}/${setKey} samt Spielfortschritt entfernt.`);
+}
+
 async function main() {
   const kursSlug = "fachwirt-buero-projektorganisation";
+
+  // Entscheidung 10.10.2026 (E-BUE-2): Das Duell „Qualitätsmanagement und Prozesse“ (Set "standard") fällt im Büro-Kurs weg,
+  // das neue Duell aus der Kurstheorie hat den Set-Schlüssel "kennzahlen-buero".
+  await entferneSpiel(kursSlug, "kennzahlen_duell", "standard");
 
   await upsertGame(
     kursSlug,
@@ -114,8 +132,9 @@ async function main() {
   await upsertGame(
     kursSlug,
     "kennzahlen_duell",
-    "Kennzahlen-Duell: Qualitätsmanagement und Prozesse",
-    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellQmProzesse),
+    "Kennzahlen-Duell: Kennzahlen und Steuerung im Büro",
+    kennzahlenDuellPayloadSchema.parse(kennzahlenDuellBueroKennzahlen),
+    "kennzahlen-buero",
   );
   await upsertGame(
     kursSlug,

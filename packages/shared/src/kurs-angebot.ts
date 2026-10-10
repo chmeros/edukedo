@@ -496,7 +496,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     werkzeuge: liste(["netzplan"]),
     spiele: spiele([
       ["kreuzwortraetsel", null, "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
+      ["kennzahlen_duell", "kennzahlen-buero", "kern"],
       ["kennzahlen_duell", "projektmanagement", "kern"],
       ["memory", null, "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],

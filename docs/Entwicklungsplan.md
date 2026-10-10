@@ -608,7 +608,7 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [x] **Kleinigkeiten im Content, Teil 1, erledigt 10.10.2026** (siehe Architekturplanung §13): interne IDs „(F-25)“ und „(F-23)“ aus den Themen-Titeln in allen Kursen entfernt (169 Dateien), „Handelskalkulation (Zuordnung)“ gegen das Werkzeug abgegrenzt.
 - [x] **Ishikawa einheitlich „6M“ mit „Mitwelt (Umwelt)“, entschieden und umgesetzt 10.10.2026** (siehe Architekturplanung §13; UXT-F-18).
 - [x] **Kreuzworträtsel im Büro-Kurs heißt „Controlling“, erledigt 10.10.2026** (siehe Architekturplanung §13; UXT-B-24).
-- [ ] **Kennzahlen-Duell „QM und Prozesse“ im Büro-Kurs (R3, fachliche Entscheidung, M), Entwurf zur Entscheidung liegt vor (10.10.2026, `docs/entwuerfe/buero-kennzahlen-duell.md`, Empfehlung: durch ein Duell aus der Kurstheorie ersetzen; nicht eingespielt):** 18 von 20 Fragen prüfen Fertigungskennzahlen, die der Kurs nicht behandelt (E-BUE-2, S-BUE-02).
+- [x] **Kennzahlen-Duell im Büro-Kurs, erledigt 10.10.2026:** „QM und Prozesse“ durch ein Duell aus der Kurstheorie ersetzt (Set `kennzahlen-buero`), altes Set samt Fortschritt beim Seed gelöscht (siehe Architekturplanung §13; E-BUE-2, S-BUE-02; Entwurf `docs/entwuerfe/buero-kennzahlen-duell.md`).
 - [x] **Wortbestand des Büro-Kreuzworträtsels „Controlling“, erledigt 10.10.2026:** acht kursfremde Wörter durch Begriffe aus Thema 4.1 ersetzt, Hinweise bereinigt, Test gegen verratende Hinweise ergänzt (siehe Architekturplanung §13; FL-BP-29, E-BUE-2; Entwurf `docs/entwuerfe/buero-kreuzwortraetsel-wortbestand.md`).
 
 **Recht & Compliance**
