@@ -10,6 +10,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { ErrorMessage } from "./ErrorMessage";
 import { ForgotPassword } from "./ForgotPassword";
 import { GuestHeaderActions } from "./GuestHeaderActions";
+import { GruppeLeiten } from "./GruppeLeiten";
 import { Header } from "./Header";
 import { InfoIcon } from "./Icons";
 import { LandingPage } from "./LandingPage";
@@ -211,7 +212,7 @@ export function App() {
   // ersetzt das bisherige Inline-Dropdown durch eine eigene Ansicht (`CourseSelection.tsx`) —
   // wird sowohl explizit über den Header-Link als auch implizit erzwungen, solange kein aktiver
   // Kurs existiert (siehe showCourseSelection unten).
-  const [view, setView] = useState<"app" | "admin" | "courses">("app");
+  const [view, setView] = useState<"app" | "admin" | "courses" | "gruppe">("app");
   // Läuft gerade eine Lernrunde? (gemeldet von LearningRound.tsx) — blendet dann Dauer-Hinweise aus.
   const [roundActive, setRoundActive] = useState(false);
 
@@ -311,7 +312,7 @@ export function App() {
           right={
             <div className="header-actions">
               <OfflineStatus roundActive={roundActive} />
-              {view === "app" && (
+              {(view === "app" || view === "gruppe") && (
                 <CourseSwitcher
                   activeKursId={activeKursId}
                   onActiveKursChange={wechsleKurs}
@@ -341,6 +342,9 @@ export function App() {
             <Suspense fallback={<p>Lädt…</p>}>
             <AdminPanel />
             </Suspense>
+          ) : view === "gruppe" && activeKursId && !me.data.isMinor ? (
+            // Review UXL-07: eigener Einstieg „Gruppe leiten“ (Nutzermenü), siehe GruppeLeiten.tsx.
+            <GruppeLeiten kursId={activeKursId} onBack={() => setView("app")} />
           ) : showCourseSelection ? (
             <CourseSelection
               onSelected={(kursId) => {

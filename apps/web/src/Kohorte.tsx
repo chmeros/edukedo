@@ -15,6 +15,12 @@ import { csvText, ladeTextHerunter, sichererDateiname } from "./dateiExport";
  * tatsächlichem Aufklappen geladen werden sollen (keine Dozentin-Kennzahlen unnötig im
  * Hintergrund laden, solange niemand hinschaut).
  */
+/** „0“ heißt nach dem Runden: unter der halben Stufe. So steht dort keine Zahl, die wie ein exakter Wert aussieht. */
+function zeigeProzent(wert: number | null, stufe: number): string {
+  if (wert === null) return "–";
+  return wert === 0 ? `unter ${stufe / 2} %` : `${wert} %`;
+}
+
 function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: string }) {
   const utils = trpc.useUtils();
   const stats = trpc.cohort.stats.useQuery({ cohortId });
@@ -46,6 +52,7 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
         ["Hinweis", `Kennzahlen erst ab ${d.minCohortSize} beteiligten Mitgliedern; leere Felder sind aus Datenschutzgründen ausgeblendet.`],
         [],
         ["Kennzahl", "Wert in Prozent"],
+        ["Hinweis", `Prozentwerte sind auf ${d.roundingStepPercent} % gerundet (0 bedeutet unter ${d.roundingStepPercent / 2} %), Anzahlen auf Zehner.`],
         ["Aktive Mitglieder (30 Tage)", prozent(d.activeSharePercent)],
         ["Durchschnittlicher Kursfortschritt (beherrschte Aufgaben an allen Aufgaben des Kurses)", prozent(d.avgCourseProgressPercent)],
         ["Sicher beherrscht unter den bearbeiteten Aufgaben", prozent(d.avgProgressPercent)],
@@ -67,15 +74,15 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
         <>
           <div className="stat-row">
             <div className="stat-tile">
-              <span className="stat-value">{d.activeSharePercent === null ? "–" : `${d.activeSharePercent} %`}</span>
+              <span className="stat-value">{zeigeProzent(d.activeSharePercent, d.roundingStepPercent)}</span>
               <span className="stat-label">Aktive Mitglieder (30 Tage)</span>
             </div>
             <div className="stat-tile">
-              <span className="stat-value">{d.avgCourseProgressPercent === null ? "–" : `${d.avgCourseProgressPercent} %`}</span>
+              <span className="stat-value">{zeigeProzent(d.avgCourseProgressPercent, d.roundingStepPercent)}</span>
               <span className="stat-label">Ø Kursfortschritt</span>
             </div>
             <div className="stat-tile">
-              <span className="stat-value">{d.avgProgressPercent === null ? "–" : `${d.avgProgressPercent} %`}</span>
+              <span className="stat-value">{zeigeProzent(d.avgProgressPercent, d.roundingStepPercent)}</span>
               <span className="stat-label">Sicher beherrscht (bearbeitete Aufgaben)</span>
             </div>
           </div>
@@ -93,12 +100,13 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
               sitzt. Die Zahl ist meist deutlich höher als der Kursfortschritt, weil der noch unbearbeitete Rest des Kurses nicht mitzählt.
             </li>
           </ul>
-          {d.activeMembers !== null && d.workedMembers !== null && d.workedItems !== null && (
-            <p className="field-hint">
-              Basis: {d.activeMembers} von {d.totalMembers} Mitgliedern waren in den letzten 30 Tagen aktiv; {d.workedMembers} Mitglieder
-              haben zusammen {d.workedItems} Aufgaben bearbeitet.
-            </p>
-          )}
+          {/* Entscheidung 10.10.2026 (UXL-01 Rest): Werte in Stufen gerundet, damit sich bei kleinen Gruppen aus dem Vergleich zweier Abrufe
+              kein Einzelwert ablesen lässt. */}
+          <p className="field-hint">
+            Die Prozentwerte sind auf {d.roundingStepPercent} % gerundet („unter {d.roundingStepPercent / 2} %“ heißt: kaum Fortschritt), damit sich
+            bei kleinen Gruppen keine Einzelwerte ablesen lassen.
+            {d.workedItems !== null && ` Basis: ${d.totalMembers} Mitglieder, die Beteiligten haben zusammen rund ${d.workedItems} Aufgaben bearbeitet.`}
+          </p>
           {(d.activeSharePercent === null || d.avgProgressPercent === null || d.avgCourseProgressPercent === null) && (
             <p className="field-hint">
               Mit „–“ gekennzeichnete Kennzahlen erscheinen erst, wenn mindestens {d.minCohortSize} verschiedene Mitglieder dazu
@@ -115,7 +123,7 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
                 title={entry.fachgebietTitle}
                 meta={
                   entry.avgAccuracyPercent !== null
-                    ? `${entry.avgAccuracyPercent} % (${pluralDe(entry.answers ?? 0, "Antwort", "Antworten")})`
+                    ? `${entry.avgAccuracyPercent} % (rund ${pluralDe(entry.answers ?? 0, "Antwort", "Antworten")})`
                     : "noch zu wenig Beteiligung"
                 }
                 fill={entry.avgAccuracyPercent ?? 0}
@@ -262,7 +270,7 @@ function CohortRow({ cohort }: { cohort: { id: string; name: string; joinCode: s
  * Review UXL-04/05: Vor dem Beitritt steht, was die Gruppe sieht, und der Beitritt wird bestätigt; Mitglieder sehen ihre
  * Mitgliedschaften und können austreten; die Dozent:in kann umbenennen, Mitglieder entfernen und die Kohorte beenden.
  */
-export function Kohorte({ kursId }: { kursId: string }) {
+export function Kohorte({ kursId, nurLeiten = false }: { kursId: string; nurLeiten?: boolean }) {
   const utils = trpc.useUtils();
   const myCohorts = trpc.cohort.myCohorts.useQuery({ kursId });
   const memberships = trpc.cohort.myMemberships.useQuery({ kursId });
@@ -297,15 +305,18 @@ export function Kohorte({ kursId }: { kursId: string }) {
 
   return (
     <div className="panel-section">
-      <div className="panel-section-head">
-        <h2>Lehrgangsgruppen</h2>
-        <p>
-          Kohorten bündeln eine Lerngruppe innerhalb dieses Kurses. Mitglieder werden automatisch miteinander befreundet
-          (Grundlage für Duelle und Lernpartner-Vermittlung). Die Leitung der Gruppe sieht Kennzahlen der ganzen Gruppe, nie
-          Einzelantworten.
-        </p>
-      </div>
+      {!nurLeiten && (
+        <div className="panel-section-head">
+          <h2>Lehrgangsgruppen</h2>
+          <p>
+            Kohorten bündeln eine Lerngruppe innerhalb dieses Kurses. Mitglieder werden automatisch miteinander befreundet
+            (Grundlage für Duelle und Lernpartner-Vermittlung). Die Leitung der Gruppe sieht Kennzahlen der ganzen Gruppe, nie
+            Einzelantworten. Wer eine Gruppe leitet, findet die Verwaltung auch im Menü oben rechts unter „Gruppe leiten“.
+          </p>
+        </div>
+      )}
 
+      {!nurLeiten && (
       <form
         className="stack"
         onSubmit={(event) => {
@@ -365,7 +376,9 @@ export function Kohorte({ kursId }: { kursId: string }) {
         )}
         {join.error && <ErrorMessage>{join.error.message}</ErrorMessage>}
       </form>
+      )}
 
+      {!nurLeiten && (
       <div className="stack">
         <h3 className="stat-subheading">Meine Mitgliedschaften</h3>
         <div className="tile-grid tile-grid-sm">
@@ -390,6 +403,7 @@ export function Kohorte({ kursId }: { kursId: string }) {
         {leave.error && <ErrorMessage>{leave.error.message}</ErrorMessage>}
         {memberships.data?.length === 0 && <p className="field-hint">Du bist in diesem Kurs in keiner Kohorte Mitglied.</p>}
       </div>
+      )}
 
       <div className="stack">
         <h3 className="stat-subheading">Meine Kohorten (als Leitung)</h3>

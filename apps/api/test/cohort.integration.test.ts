@@ -351,8 +351,6 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     expect(data.avgProgressPercent).toBeNull();
     // Review UXL-06: Auch Kursfortschritt und Fallzahlen bleiben verborgen, solange zu wenige Personen beitragen.
     expect(data.avgCourseProgressPercent).toBeNull();
-    expect(data.activeMembers).toBeNull();
-    expect(data.workedMembers).toBeNull();
     expect(data.workedItems).toBeNull();
 
     // Vier Personen reichen noch nicht, fünf schon.
@@ -368,9 +366,11 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
 
     // Review UXL-06: Fallzahlen, und der Kursfortschritt rechnet wie in der Lernenden-Ansicht (beherrschte Aufgaben geteilt durch
     // alle zählbaren, aktiven Aufgaben des Kurses), gemittelt über die fünf Mitglieder.
-    expect(data.activeMembers).toBe(5);
-    expect(data.workedMembers).toBe(5);
-    expect(data.workedItems).toBe(5);
+    // Review UXL-01 Rest (Entscheidung 10.10.2026): Anzahlen und Prozentwerte sind gerundet, exakte Zählungen gibt es nicht mehr.
+    expect(data.roundingStepPercent).toBe(10);
+    expect(data.workedItems).toBe(10);
+    expect(data).not.toHaveProperty("activeMembers");
+    expect(data).not.toHaveProperty("workedMembers");
     const [kursItems] = await db
       .select({ value: sql<number>`count(*)::int` })
       .from(schema.contentItem)
@@ -381,7 +381,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
       );
     const [itemRow] = await db.select({ type: schema.contentItem.type }).from(schema.contentItem).where(eq(schema.contentItem.id, item!.id));
     const beherrscht = PROGRESS_COUNTABLE_TYPES.includes(itemRow!.type) ? 5 : 0;
-    expect(data.avgCourseProgressPercent).toBe(Math.round((beherrscht / (5 * kursItems!.value)) * 100));
+    expect(data.avgCourseProgressPercent).toBe(Math.round(Math.round((beherrscht / (5 * kursItems!.value)) * 100) / 10) * 10);
   });
 
   it("unterhalb der Mindestgröße liefert cohort.stats ausschließlich null-Kennzahlen", async () => {

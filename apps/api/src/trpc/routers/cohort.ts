@@ -26,12 +26,15 @@ import {
   userProgress,
 } from "../../db/schema";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
-import { hideIfFewContributors, MIN_CONTRIBUTORS_FOR_STATS } from "../../stats-privacy";
+import { COHORT_PERCENT_STEP, hideIfFewContributors, MIN_CONTRIBUTORS_FOR_STATS, roundToStep } from "../../stats-privacy";
 import { protectedProcedure, router } from "../trpc";
 
 /** F-93/F-64 (dieselbe Begründung wie in company.ts): unterhalb dieser Mitgliederzahl wäre eine
  * "aggregierte" Kennzahl faktisch eine personenbezogene Einzelauswertung. */
 const MIN_COHORT_SIZE_FOR_STATS = MIN_CONTRIBUTORS_FOR_STATS;
+
+/** Prozentwerte der Kohortenkennzahlen in 10er-Stufen (Entscheidung 10.10.2026, siehe stats-privacy.ts). */
+const stufe = (wert: number | null) => roundToStep(wert, COHORT_PERCENT_STEP, 100);
 
 /** F-64: "Anteil aktiver Mitglieder" — dasselbe rollierende 30-Tage-Fenster wie company.stats. */
 const ACTIVE_WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
@@ -351,9 +354,8 @@ export const cohortRouter = router({
         activeSharePercent: null,
         avgProgressPercent: null,
         avgCourseProgressPercent: null,
-        activeMembers: null,
-        workedMembers: null,
         workedItems: null,
+        roundingStepPercent: COHORT_PERCENT_STEP,
         byFachgebiet: [] as {
           fachgebietId: string;
           fachgebietTitle: string;
@@ -455,29 +457,34 @@ export const cohortRouter = router({
     return {
       totalMembers,
       minCohortSize: MIN_COHORT_SIZE_FOR_STATS,
-      // Jede Kennzahl nur, wenn genug verschiedene Personen beigetragen haben (Review UXL-01), nicht nur genug Mitglieder.
-      activeSharePercent: hideIfFewContributors(Math.round(((activeRow?.value ?? 0) / totalMembers) * 100), activeRow?.value ?? 0),
-      avgProgressPercent: hideIfFewContributors(
-        totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
-        totalProgressRow?.contributors ?? 0,
+      // Jede Kennzahl nur, wenn genug verschiedene Personen beigetragen haben (Review UXL-01), nicht nur genug Mitglieder, und in
+      // 10-Prozent-Stufen gerundet (Entscheidung 10.10.2026), damit der Vergleich zweier Abrufe bei kleinen Gruppen keinen Einzelwert verrät.
+      activeSharePercent: stufe(hideIfFewContributors(Math.round(((activeRow?.value ?? 0) / totalMembers) * 100), activeRow?.value ?? 0)),
+      avgProgressPercent: stufe(
+        hideIfFewContributors(
+          totalProgress > 0 ? Math.round(((masteredProgressRow?.value ?? 0) / totalProgress) * 100) : null,
+          totalProgressRow?.contributors ?? 0,
+        ),
       ),
       // Review UXL-06: Anteil sicher beherrschter Aufgaben unter den BEARBEITETEN (anders als der Kursfortschritt unten, der
       // alle Aufgaben des Kurses als Nenner nimmt); beide stehen mit Erklärung in der Oberfläche.
-      avgCourseProgressPercent: hideIfFewContributors(
-        kursItems > 0 ? Math.round(((masteredCountableRow?.value ?? 0) / (totalMembers * kursItems)) * 100) : null,
-        totalProgressRow?.contributors ?? 0,
+      avgCourseProgressPercent: stufe(
+        hideIfFewContributors(
+          kursItems > 0 ? Math.round(((masteredCountableRow?.value ?? 0) / (totalMembers * kursItems)) * 100) : null,
+          totalProgressRow?.contributors ?? 0,
+        ),
       ),
-      // Review UXL-06: Fallzahlen zu den Kennzahlen, jeweils nur bei genug Beitragenden (wie die Kennzahl selbst).
-      activeMembers: hideIfFewContributors(activeRow?.value ?? 0, activeRow?.value ?? 0),
-      workedMembers: hideIfFewContributors(totalProgressRow?.contributors ?? 0, totalProgressRow?.contributors ?? 0),
-      workedItems: hideIfFewContributors(totalProgress, totalProgressRow?.contributors ?? 0),
+      // Review UXL-06: Fallzahl zu den Kennzahlen, nur bei genug Beitragenden und wie die Prozentwerte gerundet (auf Zehner). Exakte
+      // Zählungen (z. B. „6 von 8 aktiv“) gibt es bewusst nicht: Sie würden die Rundung der Prozentwerte wieder aufheben.
+      workedItems: roundToStep(hideIfFewContributors(totalProgress, totalProgressRow?.contributors ?? 0), 10),
+      roundingStepPercent: COHORT_PERCENT_STEP,
       byFachgebiet: accuracyByFachgebiet.map((row) => {
         const genug = row.contributors >= MIN_COHORT_SIZE_FOR_STATS && row.total > 0;
         return {
           fachgebietId: row.fachgebietId,
           fachgebietTitle: row.fachgebietTitle,
-          avgAccuracyPercent: genug ? Math.round((row.correct / row.total) * 100) : null,
-          answers: genug ? row.total : null,
+          avgAccuracyPercent: genug ? stufe(Math.round((row.correct / row.total) * 100)) : null,
+          answers: genug ? roundToStep(row.total, 10) : null,
         };
       }),
     };

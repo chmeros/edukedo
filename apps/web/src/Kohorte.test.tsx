@@ -14,10 +14,9 @@ function oeffneDetails(stats: Record<string, unknown>) {
     minCohortSize: 5,
     activeSharePercent: 75,
     avgProgressPercent: 42,
-    avgCourseProgressPercent: 4,
-    activeMembers: 6,
-    workedMembers: 7,
+    avgCourseProgressPercent: 0,
     workedItems: 120,
+    roundingStepPercent: 10,
     byFachgebiet: [{ fachgebietId: "f1", fachgebietTitle: "Recht", avgAccuracyPercent: 80, answers: 1 }],
     ...stats,
   };
@@ -60,10 +59,13 @@ describe("Kohorte, Kennzahlen der Leitung (Review UXL-06)", () => {
   it("zeigt Kursfortschritt und „sicher beherrscht“ getrennt, mit Erklärung und Basis", () => {
     oeffneDetails({});
     expect(text()).toContain("Ø Kursfortschritt");
+    // Nach dem Runden heißt 0: unter der halben Stufe, nicht „0 %“ als exakter Wert.
+    expect(text()).toContain("unter 5 %");
     expect(text()).toContain("Sicher beherrscht (bearbeitete Aufgaben)");
     expect(text()).toContain("dieselbe Zahl, die Lernende in ihrem Fortschritt sehen");
-    expect(text()).toContain("Basis: 6 von 8 Mitgliedern waren in den letzten 30 Tagen aktiv; 7 Mitglieder haben zusammen 120 Aufgaben bearbeitet.");
-    expect(text()).toContain("80 % (1 Antwort)");
+    expect(text()).toContain("auf 10 % gerundet");
+    expect(text()).toContain("Basis: 8 Mitglieder, die Beteiligten haben zusammen rund 120 Aufgaben bearbeitet.");
+    expect(text()).toContain("80 % (rund 1 Antwort)");
   });
 
   it("lässt die Basis weg, solange zu wenige Mitglieder beigetragen haben, und erklärt die Striche", () => {
@@ -71,12 +73,11 @@ describe("Kohorte, Kennzahlen der Leitung (Review UXL-06)", () => {
       activeSharePercent: null,
       avgProgressPercent: null,
       avgCourseProgressPercent: null,
-      activeMembers: null,
-      workedMembers: null,
       workedItems: null,
       byFachgebiet: [{ fachgebietId: "f1", fachgebietTitle: "Recht", avgAccuracyPercent: null, answers: null }],
     });
     expect(text()).not.toContain("Basis:");
+    expect(text()).toContain("auf 10 % gerundet");
     expect(text()).toContain("noch zu wenig Beteiligung");
     expect(text()).toContain("mindestens 5 verschiedene Mitglieder");
   });

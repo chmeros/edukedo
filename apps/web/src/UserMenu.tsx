@@ -31,8 +31,8 @@ export function UserMenu({
   onLogout: () => void;
   logoutPending: boolean;
   isAdmin: boolean;
-  view: "app" | "admin" | "courses";
-  onViewChange: (view: "app" | "admin") => void;
+  view: "app" | "admin" | "courses" | "gruppe";
+  onViewChange: (view: "app" | "admin" | "gruppe") => void;
   activeKursId: string | null;
 }) {
   const [open, setOpen] = useState(false);
@@ -77,6 +77,21 @@ export function UserMenu({
               }}
             >
               {view === "admin" ? "← Zur Lern-App" : "Verwaltung öffnen"}
+            </button>
+          )}
+          {/* Review UXL-07 (Entscheidung 10.10.2026): eigener Einstieg für Gruppenleitungen, außerhalb von „Gaming“. Nicht für Minderjährige
+              (soziale Funktionen bleiben für sie gesperrt) und nur mit einem gewählten Kurs, weil Kohorten zu einem Kurs gehören. */}
+          {!isMinor && activeKursId !== null && (
+            <button
+              type="button"
+              className="btn btn-ghost btn-sm"
+              style={{ alignSelf: "flex-start" }}
+              onClick={() => {
+                onViewChange(view === "gruppe" ? "app" : "gruppe");
+                setOpen(false);
+              }}
+            >
+              {view === "gruppe" ? "← Zur Lern-App" : "Gruppe leiten"}
             </button>
           )}
           <hr />
