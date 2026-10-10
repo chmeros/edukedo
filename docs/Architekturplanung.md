@@ -569,6 +569,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Kreuzworträtsel im Büro-Kurs heißt „Controlling“ statt „Finanzkennzahlen“; Projektleiter, UXT-B-24)
+
+Anlass: Das Kreuzworträtsel „Finanzkennzahlen“ im Kurs Fachwirt für Büro- und Projektorganisation wirkte in der Usability-Prüfung themenfern (UXT-B-24). Das Thema des Kurses ist Kennzahlen und Controlling (Themenbereich 4.1). Der Projektleiter bestätigte die Umbenennung am 10.10.2026.
+
+- **Umgesetzt:** Der Titel in `seed-games.ts` lautet jetzt „Kreuzworträtsel: Controlling“. Der Titel steht nur in `game.title` (Spiele-Katalog und Spielansicht lesen ihn aus der Datenbank), deshalb genügt `db:seed-games`; Wörter, Hinweise, Gitter und Fortschritt (gelöste Wörter je Set) bleiben unverändert. In der Entwicklungsdatenbank eingespielt; in anderen Datenbanken denselben Schritt nach dem Deploy ausführen.
+- **Bewusst nicht Teil:** Die Datei, Testnamen und Kommentare heißen weiter „Finanzkennzahlen“ (technischer Name des Inhalts aus F-141, nicht sichtbar). Der Titel ändert nichts daran, dass zehn Hauptwörter (EBIT, EBITDA, Cashflow, Verschuldungsgrad, Umsatzrentabilität, Deckungsbeitrag, Rohertrag, Jahresüberschuss u. a.) in der Kurstheorie 4.1 nicht vorkommen und die Hinweise zu AUFWAND und KOSTEN Aufwand und Kosten vermengen (FL-BP-29). Ob das Set belassen, auf Begriffe der Kurstheorie gekürzt oder ersetzt wird, ist eine eigene fachliche Entscheidung (R3, Entwicklungsplan Iteration 23).
+
 ### Entschieden am 10.10.2026 („Nenne zwei …“-Kurzantworten im Büro-Kurs als Mehrfachauswahl; Entwurf vom Projektleiter geprüft, FL-BP-11, UXT-B-27, R3)
 
 Anlass: 14 Kurzantworten im Kurs Fachwirt für Büro- und Projektorganisation verlangten eine freie Aufzählung („Nenne zwei …“, offene Beispielfragen). Geprüft wird exakt gegen 2 bis 7 vorformulierte Satzvarianten; jede andere richtige Antwort („Scrum und XP“, „Berichte und Präsentationen“) wurde abgelehnt. Der Entwurf (`docs/entwuerfe/buero-kurzantworten-umbau.md`) wurde vom Projektleiter fachlich geprüft und am 10.10.2026 mit „Einspielen“ freigegeben.

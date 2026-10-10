@@ -607,7 +607,8 @@ Ziel: Alles, was nach den Stabilisierungs- und Korrekturpaketen vom 08.10.2026 a
 - [ ] **Immobilienfachwirt mit drei Spielen (M, Freigabe):** um Rechen-Sprint, Prozessreihenfolge und Beleg-Detektiv ergänzen und ein Mindestangebot an Spielen je Kurs festlegen (UXT-F-07); Spiele von Versicherungen, Gesundheit und AEVO sind angelegt, aber noch nicht freigegeben, die Set-Schlüssel im Kursangebot passen nicht zu den angelegten Sets (UXT-B-09).
 - [x] **Kleinigkeiten im Content, Teil 1, erledigt 10.10.2026** (siehe Architekturplanung §13): interne IDs „(F-25)“ und „(F-23)“ aus den Themen-Titeln in allen Kursen entfernt (169 Dateien), „Handelskalkulation (Zuordnung)“ gegen das Werkzeug abgegrenzt.
 - [x] **Ishikawa einheitlich „6M“ mit „Mitwelt (Umwelt)“, entschieden und umgesetzt 10.10.2026** (siehe Architekturplanung §13; UXT-F-18).
-- [ ] **Kleinigkeiten im Content, Rest (S, fachliche Abstimmung):** Kreuzworträtsel „Finanzkennzahlen“ im Büro-Kurs ggf. in „Controlling“ umbenennen (UXT-B-24).
+- [x] **Kreuzworträtsel im Büro-Kurs heißt „Controlling“, erledigt 10.10.2026** (siehe Architekturplanung §13; UXT-B-24).
+- [ ] **Wortbestand des Büro-Kreuzworträtsels „Controlling“ (R3, fachliche Entscheidung, M):** zehn Hauptwörter (EBIT, EBITDA, Cashflow, Verschuldungsgrad u. a.) stehen nicht in der Kurstheorie 4.1; die Hinweise zu AUFWAND und KOSTEN vermengen Aufwand und Kosten (FL-BP-29). Belassen, auf Begriffe der Kurstheorie kürzen oder ersetzen.
 
 **Recht & Compliance**
 - [ ] Datenschutzerklärung: Aufbewahrungsfrist für Inhaltsmeldungen nennen (6 Monate nach Bearbeitung, Entscheidung 09.10.2026); Hinweis, dass Logos von der eigenen Domain ausgeliefert werden und keine Fremdabrufe mehr stattfinden (Logo-Upload, 09.10.2026); außerdem um die Kohorten ergänzen (die Lehrkraft sieht E-Mail und Beitrittsdatum der Mitglieder) und rechtlich prüfen lassen.

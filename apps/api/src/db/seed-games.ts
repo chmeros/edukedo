@@ -108,7 +108,7 @@ async function main() {
   await upsertGame(
     kursSlug,
     "kreuzwortraetsel",
-    "Kreuzworträtsel: Finanzkennzahlen",
+    "Kreuzworträtsel: Controlling",
     kreuzwortraetselPayloadSchema.parse(kreuzwortraetselFinanzkennzahlen),
   );
   await upsertGame(
