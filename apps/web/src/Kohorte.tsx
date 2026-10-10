@@ -1,3 +1,4 @@
+import { COHORT_ACTIVE_WINDOW_DAYS } from "@edukedo/shared";
 import { useEffect, useState } from "react";
 import { ConfirmButton } from "./ConfirmButton";
 import { ErrorMessage } from "./ErrorMessage";
@@ -23,7 +24,9 @@ function zeigeProzent(wert: number | null, stufe: number): string {
 
 function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: string }) {
   const utils = trpc.useUtils();
-  const stats = trpc.cohort.stats.useQuery({ cohortId });
+  // Review UXL-06: Zeitraum für „aktive Mitglieder“ wählbar (Standard 30 Tage).
+  const [tage, setTage] = useState<7 | 30 | 90>(30);
+  const stats = trpc.cohort.stats.useQuery({ cohortId, days: tage }, { keepPreviousData: true });
   const members = trpc.cohort.members.useQuery({ cohortId });
   // Review UXL-05: Die Dozent:in kann Mitglieder aus der Kohorte entfernen.
   const removeMember = trpc.cohort.removeMember.useMutation({
@@ -53,7 +56,7 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
         [],
         ["Kennzahl", "Wert in Prozent"],
         ["Hinweis", `Prozentwerte sind auf ${d.roundingStepPercent} % gerundet (0 bedeutet unter ${d.roundingStepPercent / 2} %), Anzahlen auf Zehner.`],
-        ["Aktive Mitglieder (30 Tage)", prozent(d.activeSharePercent)],
+        [`Aktive Mitglieder (${d.activeWindowDays} Tage)`, prozent(d.activeSharePercent)],
         ["Durchschnittlicher Kursfortschritt (beherrschte Aufgaben an allen Aufgaben des Kurses)", prozent(d.avgCourseProgressPercent)],
         ["Sicher beherrscht unter den bearbeiteten Aufgaben", prozent(d.avgProgressPercent)],
         [],
@@ -72,10 +75,20 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
         </p>
       ) : (
         <>
+          <div className="field" role="group" aria-label="Zeitraum für aktive Mitglieder">
+            <span id={`kohorte-zeitraum-${cohortId}`}>Zeitraum für „aktive Mitglieder“</span>
+            <div className="segmented" role="group" aria-labelledby={`kohorte-zeitraum-${cohortId}`}>
+              {COHORT_ACTIVE_WINDOW_DAYS.map((anzahl) => (
+                <button key={anzahl} type="button" className={tage === anzahl ? "is-active" : ""} aria-pressed={tage === anzahl} onClick={() => setTage(anzahl)}>
+                  {anzahl} Tage
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="stat-row">
             <div className="stat-tile">
               <span className="stat-value">{zeigeProzent(d.activeSharePercent, d.roundingStepPercent)}</span>
-              <span className="stat-label">Aktive Mitglieder (30 Tage)</span>
+              <span className="stat-label">Aktive Mitglieder ({d.activeWindowDays} Tage)</span>
             </div>
             <div className="stat-tile">
               <span className="stat-value">{zeigeProzent(d.avgCourseProgressPercent, d.roundingStepPercent)}</span>
@@ -89,7 +102,7 @@ function CohortDetail({ cohortId, cohortName }: { cohortId: string; cohortName: 
           {/* Review UXL-06: Was die Zahlen bedeuten und auf welcher Basis sie stehen. */}
           <ul className="field-hint stat-erklaerung">
             <li>
-              <b>Aktive Mitglieder:</b> Anteil der Mitglieder, die in den letzten 30 Tagen mindestens eine Aufgabe beantwortet haben.
+              <b>Aktive Mitglieder:</b> Anteil der Mitglieder, die im gewählten Zeitraum mindestens eine Aufgabe beantwortet haben.
             </li>
             <li>
               <b>Ø Kursfortschritt:</b> Anteil der Aufgaben des Kurses, die ein Mitglied sicher beherrscht, gemittelt über alle Mitglieder.

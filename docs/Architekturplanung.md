@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Kohortenkennzahlen: Zeitraum für „aktive Mitglieder“ wählbar, Review UXL-06)
+
+Anlass: Rest des Befunds UXL-06: „Aktive Mitglieder (30 Tage)“ war unveränderlich. Umsetzung im Rahmen von „weiter mit dem nächsten Punkt“ ohne Rückfrage (kleine Erweiterung ohne Gestaltungs- oder Rechtsfrage).
+
+- **Server (`cohort.stats`, `cohortStatsInputSchema`):** Neue optionale Eingabe `days` mit den Werten 7, 30 (Standard) oder 90; andere Werte weist der Server mit 400 ab. Sie bestimmt das Fenster für „aktive Mitglieder“ (mindestens eine beantwortete Aufgabe). Die Antwort nennt `activeWindowDays`. Alle Schutzregeln bleiben: Mindestzahl Beitragender im gewählten Fenster (bei 7 Tagen oft weniger als fünf, dann bleibt die Kennzahl „–“), Rundung auf Zehner.
+- **Oberfläche (`Kohorte.tsx`):** Über den Kacheln steht eine Auswahl „7 Tage · 30 Tage · 90 Tage“; die Beschriftung der Kachel, die Erklärung und der CSV-Export nennen den gewählten Zeitraum. Beim Umschalten bleiben die alten Zahlen stehen, bis die neuen da sind.
+- **Bewusst nicht Teil:** eine Kennzahl je Thema und „behandelte Themen“ als Eingabe der Lehrkraft (Fachentscheidung; UXL-06 Rest), ein Zeitraum für Trefferquote und Fortschritt (sie zählen weiter über die ganze Laufzeit).
+- **Prüfung:** Integrationstest in `cohort-verwaltung.integration.test.ts` (fünf Mitglieder, Aktivität vor 20 Tagen: bei 30 und 90 Tagen 100 %, bei 7 Tagen verborgen; 14 Tage wird abgewiesen), Web-Test in `Kohorte.test.tsx` (Beschriftung, Umschalten, abgefragter Zeitraum). Kohorten-Integrationstests 17 grün, Web-Suite 177, Typprüfung und Lint sauber. Nicht im Browser angesehen.
+
 ### Entschieden am 10.10.2026 (Schwachstellen nur unter 80 % Trefferquote, Entscheidung des Projektleiters; Kohorten als Thema des Jugendschutzes vorgemerkt)
 
 Anlass: Der Befund UXT-F-15 („ein Thema mit 81 % wird als Schwachstelle gelistet“). Die Liste zeigte immer die fünf schwächsten Themen, auch wenn alle gut waren. Vorgelegt wurde die Obergrenze 80 % mit Empfehlung; der Projektleiter stimmte zu (10.10.2026).

@@ -192,4 +192,24 @@ describe("Kohorten-Verwaltung (UXL-04/05)", () => {
     const fremd = await newUser();
     expect((await app.inject({ method: "GET", url: "/api/v1/trpc/cohort.leadingOverview", headers: { cookie: fremd.cookie } })).json().result.data).toEqual([]);
   });
+  it("wählbarer Zeitraum: Aktivität vor 20 Tagen zählt bei 30 und 90 Tagen, nicht bei 7 (Review UXL-06)", async () => {
+    const { dozent, cohortId, mitglieder } = await kohorteMitMitgliedern(5);
+    const [fachgebietRow] = await db.insert(schema.fachgebiet).values({ kursId, code: "z", title: "Zeitraum" }).returning();
+    const [themaRow] = await db.insert(schema.thema).values({ fachgebietId: fachgebietRow!.id, title: "Thema Zeitraum" }).returning();
+    const [item] = await db.insert(schema.contentItem).values({ themaId: themaRow!.id, type: "karteikarte", prompt: "Zeitraum" }).returning();
+    const vorZwanzigTagen = new Date(Date.now() - 20 * 24 * 60 * 60 * 1000);
+    await db.insert(schema.learningEvent).values(mitglieder.map((member) => ({ userId: member.userId, contentItemId: item!.id, isCorrect: true, occurredAt: vorZwanzigTagen })));
+
+    const stats = async (input: Record<string, unknown>) =>
+      (await query(dozent.cookie, "stats", { cohortId, ...input })).json().result.data as { activeSharePercent: number | null; activeWindowDays: number };
+    const standard = await stats({});
+    expect(standard).toMatchObject({ activeWindowDays: 30, activeSharePercent: 100 });
+    expect((await stats({ days: 90 })).activeSharePercent).toBe(100);
+    const sieben = await stats({ days: 7 });
+    expect(sieben.activeWindowDays).toBe(7);
+    // Niemand war in den letzten 7 Tagen aktiv: weniger als fünf Beitragende, die Kennzahl bleibt verborgen.
+    expect(sieben.activeSharePercent).toBeNull();
+    // Andere Zeiträume gibt es nicht.
+    expect((await query(dozent.cookie, "stats", { cohortId, days: 14 })).statusCode).toBe(400);
+  });
 });

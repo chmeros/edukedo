@@ -1,6 +1,7 @@
 import {
   cohortIdInputSchema,
   cohortKursInputSchema,
+  cohortStatsInputSchema,
   createCohortInputSchema,
   joinCohortInputSchema,
   removeCohortMemberInputSchema,
@@ -36,8 +37,8 @@ const MIN_COHORT_SIZE_FOR_STATS = MIN_CONTRIBUTORS_FOR_STATS;
 /** Prozentwerte der Kohortenkennzahlen in 10er-Stufen (Entscheidung 10.10.2026, siehe stats-privacy.ts). */
 const stufe = (wert: number | null) => roundToStep(wert, COHORT_PERCENT_STEP, 100);
 
-/** F-64: "Anteil aktiver Mitglieder" — dasselbe rollierende 30-Tage-Fenster wie company.stats. */
-const ACTIVE_WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
+/** F-64: "Anteil aktiver Mitglieder" — rollierendes Fenster, von der Leitung wählbar (7, 30 oder 90 Tage, Review UXL-06). */
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 async function requireEnrollment(db: Database, userId: string, kursId: string) {
   const [enrollment] = await db
@@ -338,7 +339,7 @@ export const cohortRouter = router({
    * ohne diese zweite Prüfung könnte ein Handlungsbereich, den bisher nur eine einzelne Person
    * bearbeitet hat, deren Einzelleistung offenlegen, obwohl die Kohorte insgesamt groß genug ist).
    */
-  stats: protectedProcedure.input(cohortIdInputSchema).query(async ({ ctx, input }) => {
+  stats: protectedProcedure.input(cohortStatsInputSchema).query(async ({ ctx, input }) => {
     const cohortRow = await requireCohortDozent(ctx.db, input.cohortId, ctx.currentUser.id);
 
     const [totalRow] = await ctx.db
@@ -356,6 +357,7 @@ export const cohortRouter = router({
         avgCourseProgressPercent: null,
         workedItems: null,
         roundingStepPercent: COHORT_PERCENT_STEP,
+        activeWindowDays: input.days,
         byFachgebiet: [] as {
           fachgebietId: string;
           fachgebietTitle: string;
@@ -365,7 +367,7 @@ export const cohortRouter = router({
       };
     }
 
-    const activeSince = new Date(Date.now() - ACTIVE_WINDOW_MS);
+    const activeSince = new Date(Date.now() - input.days * DAY_MS);
 
     const [[activeRow], [totalProgressRow], [masteredProgressRow], [kursItemsRow], [masteredCountableRow], accuracyByFachgebiet] =
       await Promise.all([
@@ -478,6 +480,7 @@ export const cohortRouter = router({
       // Zählungen (z. B. „6 von 8 aktiv“) gibt es bewusst nicht: Sie würden die Rundung der Prozentwerte wieder aufheben.
       workedItems: roundToStep(hideIfFewContributors(totalProgress, totalProgressRow?.contributors ?? 0), 10),
       roundingStepPercent: COHORT_PERCENT_STEP,
+      activeWindowDays: input.days,
       byFachgebiet: accuracyByFachgebiet.map((row) => {
         const genug = row.contributors >= MIN_COHORT_SIZE_FOR_STATS && row.total > 0;
         return {
