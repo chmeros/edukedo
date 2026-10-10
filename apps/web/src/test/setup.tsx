@@ -42,6 +42,8 @@ vi.mock("../AbortRoundButton", () => ({
 // jsdom kennt kein Layout und damit kein Scrollen; die Komponenten rufen es nur zur Bequemlichkeit auf.
 Element.prototype.scrollTo = () => {};
 Element.prototype.scrollIntoView = () => {};
+// jsdom kennt ResizeObserver nicht (Tab-Leisten, die ihre Überlauf-Hinweise messen).
+globalThis.ResizeObserver ??= class { observe() {} unobserve() {} disconnect() {} };
 
 beforeEach(() => {
   registry.reset();

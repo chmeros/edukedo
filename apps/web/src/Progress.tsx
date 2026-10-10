@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Achievements } from "./Achievements";
-import { InfoIcon } from "./Icons";
+import { InfoIcon, SuccessIcon } from "./Icons";
 import { ProgressExportButton } from "./ProgressExport";
 import { Tile } from "./Tile";
 import { useTheorie } from "./TheorieReader";
@@ -308,12 +308,24 @@ export function Progress({
                   </div>
                 )}
 
+                {/* Review UXT-F-15: Gibt es Themen mit genug Antworten, aber keines unter der Grenze, sagt das die Liste statt zu schweigen. */}
+                {stats.data.weakThemen.length === 0 && stats.data.ratedThemenCount > 0 && (
+                  <div className="alert alert-success">
+                    <SuccessIcon />
+                    <div>
+                      Keine Schwachstellen: Alle Themen mit mindestens {stats.data.weakSpotRules.minAttempts} beantworteten Fragen liegen bei{" "}
+                      {stats.data.weakSpotRules.belowPercent} % Trefferquote oder darüber.
+                    </div>
+                  </div>
+                )}
+
                 {stats.data.weakThemen.length > 0 && (
                   <div className="stack">
                     <span className="stat-subheading">Schwachstellen — hier lohnt sich Wiederholen, je Thema</span>
                     <p className="field-hint">
                       {stats.data.weakThemen.length === 1 ? "Das Thema" : `Die ${stats.data.weakThemen.length} Themen`} mit der
-                      niedrigsten Trefferquote (mindestens 3 beantwortete Fragen), unabhängig davon, an welchem Tag gelernt
+                      niedrigsten Trefferquote unter {stats.data.weakSpotRules.belowPercent} % (mindestens{" "}
+                      {stats.data.weakSpotRules.minAttempts} beantwortete Fragen), unabhängig davon, an welchem Tag gelernt
                       wurde. Die Trefferquote ist der Anteil richtig beantworteter Fragen, in Klammern stehen richtige und
                       beantwortete Antworten. Ein Klick auf ein Thema springt direkt zum gezielten Lernen dort.
                     </p>

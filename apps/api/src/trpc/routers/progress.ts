@@ -17,6 +17,7 @@ import { ereignisTag } from "../../activity";
 import { endOfLearningDay } from "../../learning-day";
 import { calculateEinzelterminPacing } from "../../pacing";
 import { PROGRESS_COUNTABLE_TYPES } from "../../progress-items";
+import { MAX_PERCENT_FOR_WEAK_SPOT, MIN_ATTEMPTS_FOR_WEAK_SPOT, weakSpotPercent } from "../../weak-spots";
 // F-125-Codereview-Fund (27.09.2026, siehe Kommentar bei `abortRound` unten): Obergrenze, wie
 // weit `since` rückwirkend akzeptiert wird — großzügig genug für eine lange Lerneinheit,
 // deutlich zu kurz, um "irgendeine alte falsche Antwort" rückwirkend zu tilgen.
@@ -650,12 +651,8 @@ async function assertKursZugang(db: Database, userId: string, kursId: string, th
   }
 }
 
-/**
- * F-32: Mindestanzahl Antworten, ab der eine Trefferquote je Thema überhaupt aussagekräftig
- * ist — an einer Stelle definiert statt (wie ursprünglich) in `stats` und `suggestions`
- * unabhängig doppelt, siehe Code-Review-Fund unten.
- */
-const MIN_ATTEMPTS_FOR_WEAK_SPOT = 3;
+// F-32: Mindestanzahl Antworten und Obergrenze der Trefferquote für eine Schwachstelle — an einer Stelle definiert (weak-spots.ts),
+// damit `stats` und `suggestions` dieselbe Regel nutzen.
 
 /**
  * F-31/F-32/F-27: `learning_event`, über Thema/Fachgebiet hinweg verjoint — von `stats` (F-31)
@@ -1195,7 +1192,12 @@ export const progressRouter = router({
         correct: entry.correct,
         percent: Math.round((entry.correct / entry.total) * 100),
       }))
-      .filter((entry) => entry.total >= MIN_ATTEMPTS_FOR_WEAK_SPOT)
+      .filter((entry) => entry.total >= MIN_ATTEMPTS_FOR_WEAK_SPOT);
+    // Review UXT-F-15: nur Themen unter der Obergrenze sind Schwachstellen; `ratedThemenCount` sagt der Oberfläche, ob es überhaupt
+    // Themen mit genug Antworten gibt (dann heißt eine leere Liste „alles gut“ statt „noch zu wenig Antworten“).
+    const ratedThemenCount = weakThemen.length;
+    const schwachstellen = weakThemen
+      .filter((entry) => weakSpotPercent(entry.total, entry.correct) !== null)
       .sort((a, b) => a.percent - b.percent)
       .slice(0, 5);
 
@@ -1210,7 +1212,9 @@ export const progressRouter = router({
       hitRatePercent,
       learningMinutes: Math.round(learningMs / 60_000),
       dailyHitRate,
-      weakThemen,
+      weakThemen: schwachstellen,
+      ratedThemenCount,
+      weakSpotRules: { minAttempts: MIN_ATTEMPTS_FOR_WEAK_SPOT, belowPercent: MAX_PERCENT_FOR_WEAK_SPOT },
     };
   }),
 
@@ -1280,8 +1284,8 @@ export const progressRouter = router({
       .map((themaId) => {
         const overdue = byThemaOverdue.get(themaId);
         const weak = byThemaWeak.get(themaId);
-        const weakPercent =
-          weak && weak.total >= MIN_ATTEMPTS_FOR_WEAK_SPOT ? Math.round((weak.correct / weak.total) * 100) : null;
+        // Review UXT-F-15: wie in `stats` nur Themen unter der Obergrenze; ein gutes Thema wird nicht zur Wiederholung vorgeschlagen.
+        const weakPercent = weak ? weakSpotPercent(weak.total, weak.correct) : null;
         return {
           themaId,
           title: (overdue ?? weak)!.title,
