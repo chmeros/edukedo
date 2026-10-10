@@ -1,155 +1,110 @@
 import type { KreuzwortraetselPayload } from "@edukedo/shared";
 
 /**
- * F-141 (Gaming-Tab, 28.09.2026, siehe Architekturplanung Abschnitt 13): Kreuzworträtsel
- * „Finanzkennzahlen" — Inhalt 1:1 aus der vom Nutzer gelieferten User-Story-Spezifikation
- * übernommen (zehn Begriffe, Hinweise, Tipps, Begriffsbestätigungen, generische Rückmeldungen).
+ * Kreuzworträtsel „Controlling" im Büro-Kurs (Titel in `seed-games.ts`; der Dateiname stammt aus F-141 und bleibt).
  *
- * Die Spezifikation gibt Nummern/Richtungen/Lösungen vor, aber KEINE Gitterkoordinaten — das
- * tatsächliche Gitter (startRow/startCol je Wort) wurde bei der Umsetzung von Hand konstruiert
- * und Buchstabe für Buchstabe gegen alle acht waagerechten Wörter verifiziert (siehe
- * `verifyCrosswordGrid` in game-logic.ts sowie den begleitenden Test `game-logic.test.ts`).
- * Aufbau: EIGENKAPITALQUOTE (senkrecht, Spalte 10, Zeile 0–16) kreuzt UMSATZRENTABILITAET,
- * DECKUNGSBEITRAG, VERSCHULDUNGSGRAD und JAHRESUEBERSCHUSS (Zeilen 0/2/4/6); LIQUIDITAET
- * (senkrecht, Spalte 30, Zeile 8–18) kreuzt CASHFLOW, EBIT, EBITDA und ROHERTRAG (Zeilen
- * 8/14/16/18) — die beiden senkrechten Wörter kreuzen sich bewusst NICHT gegenseitig (unabhängige
- * Spalten), das Gitter zerfällt dadurch in zwei durch die beiden senkrechten Wörter
- * zusammengehaltene Gruppen statt eines einzigen, überall verwobenen Rätsels.
+ * Geschichte: F-141 (Gaming-Tab, 28.09.2026) lieferte zehn Finanzkennzahlen mit fester Gitterkonstruktion, F-193 (06.10.2026)
+ * erweiterte um einen Wort-Pool. Am 10.10.2026 (Entscheidung des Projektleiters, Entwurf docs/entwuerfe/buero-kreuzwortraetsel-wortbestand.md,
+ * FL-BP-29, E-BUE-2) wurden die acht Begriffe ohne Bezug zur Kurstheorie (Umsatzrentabilität, Deckungsbeitrag, Verschuldungsgrad,
+ * Jahresüberschuss, EBIT, EBITDA, Cashflow, Rohertrag) durch Begriffe aus Thema 4.1 ersetzt. EIGENKAPITALQUOTE und LIQUIDITAET
+ * stehen als Beispiele in 4.1 und bleiben.
+ *
+ * Kein Wort trägt eine Gitterposition: der Server legt das Gitter bei jedem Start neu an und zieht zehn Wörter aus dem Pool.
+ * Die Nummern 1 bis 10 sind lange Fachwörter (bis 18 Buchstaben) und von den Pool-Regeln für kurze Wörter ausgenommen
+ * (siehe `game-logic.test.ts`); die Nummern ab 11 sind kurze Wörter.
+ * Hinweise und Tipps dürfen kein anderes Wort des Pools nennen (Test in `game-logic.test.ts`).
  */
 export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
   woerter: [
     {
       nummer: 1,
-      richtung: "waagerecht",
-      startRow: 0,
-      startCol: 3,
-      hinweis:
-        "Diese Kennzahl setzt einen festgelegten Gewinnwert ins Verhältnis zum Umsatz. In diesem Lernpfad verwenden wir den Jahresüberschuss.",
-      tipp: "Gesucht ist eine Rentabilitätskennzahl, keine absolute Gewinnzahl.",
-      loesung: "UMSATZRENTABILITAET",
-      bestaetigung:
-        "Genau! Die Umsatzrentabilität setzt einen Gewinnwert ins Verhältnis zum Umsatz. In diesem Lernpfad verwenden wir dafür den Jahresüberschuss.",
+      hinweis: "Systematische Planung, Steuerung und Kontrolle betrieblicher Abläufe.",
+      tipp: "Elf Buchstaben; beginnt mit C.",
+      loesung: "CONTROLLING",
+      bestaetigung: "Richtig! Controlling plant, steuert und kontrolliert betriebliche Abläufe und stützt sich dafür auf Kennzahlen.",
     },
     {
       nummer: 2,
-      richtung: "senkrecht",
-      startRow: 0,
-      startCol: 10,
       hinweis: "Anteil des Eigenkapitals am Gesamtkapital, ausgedrückt in Prozent.",
       tipp: "Der Begriff beginnt mit der Kapitalart, deren Anteil bestimmt wird.",
       loesung: "EIGENKAPITALQUOTE",
-      bestaetigung:
-        "Richtig! Die Eigenkapitalquote zeigt, welcher Anteil des Gesamtkapitals durch Eigenkapital finanziert ist.",
+      bestaetigung: "Richtig! Die Eigenkapitalquote zeigt, welcher Anteil des Gesamtkapitals durch Eigenkapital finanziert ist.",
     },
     {
       nummer: 3,
-      richtung: "waagerecht",
-      startRow: 2,
-      startCol: 4,
-      hinweis: "Was vom Umsatz nach Abzug der variablen Kosten zur Deckung der Fixkosten übrig bleibt.",
-      tipp: "Dieser Betrag trägt zur Deckung der Fixkosten bei.",
-      loesung: "DECKUNGSBEITRAG",
-      bestaetigung:
-        "Genau! Der Deckungsbeitrag ist der Betrag, der nach Abzug der variablen Kosten vom Umsatz zur Deckung der Fixkosten und danach zum Gewinn beiträgt.",
+      hinweis: "Vergleich der eigenen Werte mit Wettbewerbern oder internen Referenzwerten.",
+      tipp: "Zwölf Buchstaben; beginnt mit B.",
+      loesung: "BENCHMARKING",
+      bestaetigung: "Genau! Benchmarking setzt die eigenen Kosten und den eigenen Nutzen in Relation zu vergleichbaren Referenzwerten.",
     },
     {
       nummer: 4,
-      richtung: "waagerecht",
-      startRow: 4,
-      startCol: 0,
-      hinweis: "Verhältnis des Fremdkapitals zum Eigenkapital.",
-      tipp: "Welche Kennzahl setzt Fremdkapital und Eigenkapital ins Verhältnis?",
-      loesung: "VERSCHULDUNGSGRAD",
-      bestaetigung:
-        "Richtig! Der Verschuldungsgrad setzt das Fremdkapital ins Verhältnis zum Eigenkapital. Er beschreibt damit einen Teil der Finanzierungsstruktur.",
+      hinweis: "Verfahren, das Handlungsalternativen anhand gewichteter Kriterien systematisch vergleicht.",
+      tipp: "Hier werden Kriterien gewichtet und Punkte vergeben.",
+      loesung: "NUTZWERTANALYSE",
+      bestaetigung: "Richtig! Die Nutzwertanalyse macht Entscheidungen nachvollziehbar, weil alle Alternativen nach denselben gewichteten Kriterien bewertet werden.",
     },
     {
       nummer: 5,
-      richtung: "senkrecht",
-      startRow: 8,
-      startCol: 30,
       hinweis: "Fähigkeit, fällige Zahlungsverpflichtungen zu erfüllen.",
       tipp: "Gesucht ist die Fähigkeit, Zahlungen rechtzeitig leisten zu können.",
       loesung: "LIQUIDITAET",
-      bestaetigung:
-        "Genau! Liquidität bedeutet, fällige Zahlungsverpflichtungen erfüllen zu können. Ein Gewinn allein beweist noch keine ausreichende Liquidität.",
+      bestaetigung: "Genau! Liquidität bedeutet, fällige Zahlungsverpflichtungen erfüllen zu können. Ein Gewinn allein beweist noch keine ausreichende Liquidität.",
     },
     {
       nummer: 6,
-      richtung: "waagerecht",
-      startRow: 6,
-      startCol: 9,
-      hinweis:
-        "Positives Ergebnis am Ende der Gewinn- und Verlustrechnung nach Berücksichtigung der Steuern.",
-      tipp: "Gesucht ist das positive Ergebnis eines Geschäftsjahres.",
-      loesung: "JAHRESUEBERSCHUSS",
-      bestaetigung:
-        "Richtig! Der Jahresüberschuss ist das positive Ergebnis eines Geschäftsjahres nach Berücksichtigung der Aufwendungen und Erträge einschließlich der Steuern.",
+      hinweis: "Zeitraum, nach dem sich eine Anschaffung durch ihre Rückflüsse bezahlt gemacht hat.",
+      tipp: "Eine Investitionskennzahl; gesucht ist ein Zeitraum.",
+      loesung: "AMORTISATIONSDAUER",
+      bestaetigung: "Genau! Die Amortisationsdauer ist die typische Investitionskennzahl für neue Anschaffungen.",
     },
     {
       nummer: 7,
-      richtung: "waagerecht",
-      startRow: 14,
-      startCol: 28,
-      hinweis: "Ergebnis vor Zinsen und Steuern; Abschreibungen sind bereits berücksichtigt.",
-      tipp: "Diese Ergebnisgröße wird vor Zinsen und Steuern bestimmt. Die Abschreibungen sind bereits berücksichtigt.",
-      loesung: "EBIT",
-      bestaetigung: "Genau! EBIT ist das Ergebnis vor Zinsen und Steuern. Abschreibungen sind darin bereits berücksichtigt.",
+      hinweis: "Anteil der Beschäftigten, die in einem Zeitraum aus dem Unternehmen ausscheiden.",
+      tipp: "Eine Personalkennzahl (vgl. Thema 3.1).",
+      loesung: "FLUKTUATIONSRATE",
+      bestaetigung: "Richtig! Die Fluktuationsrate gehört zu den Personalkennzahlen und zeigt, wie stark die Belegschaft wechselt.",
     },
     {
       nummer: 8,
-      richtung: "waagerecht",
-      startRow: 16,
-      startCol: 25,
-      hinweis: "Ergebnis vor Zinsen, Steuern und Abschreibungen.",
-      tipp: "Anders als beim EBIT werden hier auch die Abschreibungen noch nicht abgezogen. Achte auf den zusätzlichen Bestandteil des Begriffs.",
-      loesung: "EBITDA",
-      bestaetigung:
-        "Richtig! EBITDA ist das Ergebnis vor Zinsen, Steuern und Abschreibungen. Anders als beim EBIT sind die Abschreibungen hier noch nicht abgezogen.",
+      hinweis: "Anteil der beanstandeten Lieferungen an allen Lieferungen.",
+      tipp: "Misst im Beschaffungswesen die Beanstandungen; beginnt mit R.",
+      loesung: "REKLAMATIONSQUOTE",
+      bestaetigung: "Genau! Die Reklamationsquote gehört zu den Einkaufskennzahlen und macht die Lieferqualität messbar.",
     },
     {
       nummer: 9,
-      richtung: "waagerecht",
-      startRow: 8,
-      startCol: 25,
-      hinweis: "Finanzielle Stromgröße, die Ein- und Auszahlungen innerhalb eines Zeitraums gegenüberstellt.",
-      tipp: "Der Begriff beginnt mit „Cash“.",
-      loesung: "CASHFLOW",
-      bestaetigung:
-        "Genau! Der Cashflow ist eine finanzielle Stromgröße für einen Zeitraum. Er ist nicht mit dem Geldbestand auf dem Bankkonto gleichzusetzen.",
+      hinweis: "Entscheidungskriterium, das zunehmend wichtiger wird und langfristige Folgen einbezieht.",
+      tipp: "Vierzehn Buchstaben; beginnt mit N.",
+      loesung: "NACHHALTIGKEIT",
+      bestaetigung: "Richtig! Nachhaltigkeit ist neben Prozessoptimierung, Kundenorientierung und Kosteneinsparung eine der Dimensionen bei der Datenaufbereitung.",
     },
     {
       nummer: 10,
-      richtung: "waagerecht",
-      startRow: 18,
-      startCol: 25,
-      hinweis: "Im Handelsbetrieb: Umsatzerlöse abzüglich Wareneinsatz.",
-      tipp: "Gesucht ist eine Größe vor Abzug weiterer betrieblicher Aufwendungen.",
-      loesung: "ROHERTRAG",
-      bestaetigung:
-        "Richtig! Im Handelsbetrieb ergibt sich der Rohertrag aus den Umsatzerlösen abzüglich des Wareneinsatzes. Weitere betriebliche Aufwendungen sind damit noch nicht abgezogen.",
+      hinweis: "Systematische Verbesserung von Abläufen; eine der vier Dimensionen bei der Datenaufbereitung.",
+      tipp: "Achtzehn Buchstaben; beginnt mit P.",
+      loesung: "PROZESSOPTIMIERUNG",
+      bestaetigung: "Genau! Prozessoptimierung ist eine der vier Dimensionen, für die Daten aufbereitet werden.",
     },
-    // F-193: Pool-Erweiterung (Nummer 11 ff., kurze Wörter ohne Gitterposition) aus Kennzahlen/Controlling, Einkauf/Beschaffung und
-    // Projektsteuerung des Kurses. Die ersten zehn Wörter behalten ihre Positionen; sobald ein Wort ohne Position im Pool steht,
-    // legt der Server das Gitter bei jedem Start neu an und zieht zehn Wörter.
+    // F-193: Pool-Erweiterung (Nummer 11 ff., kurze Wörter) aus Kennzahlen/Controlling, Einkauf/Beschaffung und Projektsteuerung des Kurses.
     {
       nummer: 11,
       hinweis: "Regelmäßige, strukturierte Berichterstattung an Entscheidungsträger:innen.",
-      tipp: "Englisch; ein Steuerungsinstrument neben Benchmarking.",
+      tipp: "Englisch; Steuerungsinstrument mit regelmäßigen Berichten.",
       loesung: "REPORTING",
       bestaetigung: "Richtig! Reporting liefert Kennzahlen regelmäßig und strukturiert an diejenigen, die entscheiden müssen.",
     },
     {
       nummer: 12,
       hinweis: "Messbare Größe, die einen betrieblichen Sachverhalt in einer Zahl zusammenfasst.",
-      tipp: "Fluktuationsrate und Amortisationsdauer sind Beispiele.",
+      tipp: "Oberbegriff für Größen wie Quoten, Raten und Dauern.",
       loesung: "KENNZAHL",
       bestaetigung: "Genau! Eine Kennzahl muss zum Steuerungsinstrument passen: Was im Monatsreporting sinnvoll ist, taugt nicht automatisch für die tägliche Steuerung.",
     },
     {
       nummer: 13,
       hinweis: "Vorgegebener finanzieller Rahmen für ein Projekt oder einen Bereich, der kontrolliert wird.",
-      tipp: "Wird in der Projektkontrolle mit den Ist-Kosten verglichen.",
+      tipp: "Wird in der Projektkontrolle mit den Ist-Werten verglichen.",
       loesung: "BUDGET",
       bestaetigung: "Richtig! Die Projektkontrolle vergleicht Soll und Ist, etwa bei Meilensteinen, Kosten und Budget, um Abweichungen früh zu erkennen.",
     },
@@ -162,7 +117,7 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     },
     {
       nummer: 15,
-      hinweis: "Dauer zwischen Bestellung und Eintreffen der Ware; eine typische Kennzahl des Beschaffungswesens.",
+      hinweis: "Dauer zwischen Bestellung und Eintreffen der Ware; eine typische Größe im Beschaffungswesen.",
       tipp: "Wird als Durchschnitt über viele Bestellungen gebildet.",
       loesung: "LIEFERZEIT",
       bestaetigung: "Richtig! Die durchschnittliche Lieferzeit gehört zu den Einkaufskennzahlen.",
@@ -177,20 +132,20 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     {
       nummer: 17,
       hinweis: "Angestrebter Zustand, nach dem sich die Steuerung der Geschäftsprozesse richtet.",
-      tipp: "Wachstum oder Kostenführerschaft können eines sein.",
+      tipp: "Wachstum kann eines sein.",
       loesung: "ZIEL",
       bestaetigung: "Richtig! Die Unternehmensziele bestimmen, welche Prozesse mit welchen Kennzahlen gesteuert werden.",
     },
     {
       nummer: 18,
-      hinweis: "Wird bei der Vertragserfüllung geprüft: Entspricht die Lieferung den vereinbarten Eigenschaften?",
+      hinweis: "Wird bei der Lieferkontrolle geprüft: Entspricht die Lieferung den vereinbarten Eigenschaften?",
       tipp: "Neun Buchstaben; beginnt mit Q.",
       loesung: "QUALITAET",
       bestaetigung: "Genau! Neben Lieferfristen und Zahlungsfluss gehört die Qualität zur Kontrolle der Vertragserfüllung.",
     },
     {
       nummer: 19,
-      hinweis: "Preis- und Leistungsvorschlag eines Lieferanten, der mit anderen verglichen wird.",
+      hinweis: "Vorschlag eines Lieferanten zu Leistung und Konditionen, der mit anderen verglichen wird.",
       tipp: "Bevor man bestellt, holt man mehrere davon ein.",
       loesung: "ANGEBOT",
       bestaetigung: "Richtig! Bei der Angebotsanalyse werden Preisbildung, Leistungsumfang, Verpackungsart und Transportwege verglichen.",
@@ -218,8 +173,8 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     },
     {
       nummer: 23,
-      hinweis: "Wertmäßiger Aufwand, den ein Vorgang oder ein Projekt verursacht.",
-      tipp: "Werden in Euro gemessen und im Budget geplant.",
+      hinweis: "In Geld bewerteter Verbrauch an Gütern und Leistungen für einen Vorgang oder ein Projekt.",
+      tipp: "Werden in Euro gemessen und im Voraus geplant.",
       loesung: "KOSTEN",
       bestaetigung: "Richtig! Kosten je Vorgang sind ein Beispiel für eine Kostenkennzahl.",
     },
@@ -246,7 +201,7 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     },
     {
       nummer: 27,
-      hinweis: "Zeit, um die ein Vorgang im Netzplan verschoben werden darf, ohne das Projektende zu verzögern.",
+      hinweis: "Zeit, um die ein Vorgang im Projektplan verschoben werden darf, ohne das Projektende zu verzögern.",
       tipp: "Beim kritischen Pfad ist er gleich null.",
       loesung: "PUFFER",
       bestaetigung: "Richtig! Der Gesamtpuffer ist die Differenz aus spätestem und frühestem Anfangszeitpunkt.",
@@ -267,7 +222,7 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
     },
     {
       nummer: 30,
-      hinweis: "Geldbetrag, der für ein Produkt oder eine Leistung gezahlt wird; ein Vergleichskriterium bei Angeboten.",
+      hinweis: "Geldbetrag, der für ein Produkt oder eine Leistung gezahlt wird; ein Kriterium bei der Lieferantenauswahl.",
       tipp: "Fünf Buchstaben; beim Lieferantenvergleich zentral.",
       loesung: "PREIS",
       bestaetigung: "Genau! Neben dem Preis zählen auch Leistungsumfang, Verpackungsart und Transportwege.",
@@ -278,5 +233,5 @@ export const kreuzwortraetselFinanzkennzahlen: KreuzwortraetselPayload = {
   falschAnspruchsvollFeedback: "Das passt hier noch nicht. Lies den Hinweis erneut und prüfe auch die Buchstaben an den Kreuzungen.",
   unvollstaendigFeedback: "Hier fehlen noch Buchstaben. Du kannst das Wort weiter ausfüllen.",
   abschlussmeldung:
-    "Geschafft! Du hast zehn Finanzkennzahlen erkannt und ihre Bedeutung wiederholt. Besonders wichtig: EBIT und EBITDA, Liquidität und Jahresüberschuss beantworten unterschiedliche wirtschaftliche Fragen. Jedes Rätsel ist anders — spiel gern noch eins!",
+    "Geschafft! Du hast zehn Begriffe aus Kennzahlen und Controlling erkannt und ihre Bedeutung wiederholt. Besonders wichtig: Controlling, Reporting und Benchmarking sind die drei zentralen Steuerungsinstrumente. Jedes Rätsel ist anders — spiel gern noch eins!",
 };

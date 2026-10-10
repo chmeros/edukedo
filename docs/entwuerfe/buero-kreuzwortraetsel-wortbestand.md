@@ -1,6 +1,6 @@
 # Entwurf: Wortbestand des Büro-Kreuzworträtsels „Controlling“ (FL-BP-29, E-BUE-2, UXT-B-24)
 
-Stand 10.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Betrifft nur das Set `fachwirt-buero-projektorganisation/kreuzwortraetsel/standard` (Datei `apps/api/src/db/content/game-kreuzwortraetsel-finanzkennzahlen.ts`).
+Stand 10.10.2026 · **Variante C mit den drei Bereinigungen vom Projektleiter gewählt und am 10.10.2026 eingespielt** (siehe Architekturplanung §13; einzelne Texte beim Umbau leicht gekürzt oder ergänzt) (Rahmenentscheidung R3). Betrifft nur das Set `fachwirt-buero-projektorganisation/kreuzwortraetsel/standard` (Datei `apps/api/src/db/content/game-kreuzwortraetsel-finanzkennzahlen.ts`).
 
 ## Befund
 
