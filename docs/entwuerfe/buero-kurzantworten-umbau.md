@@ -1,6 +1,6 @@
 # Entwurf: Offene „Nenne zwei …“-Kurzantworten im Büro-Kurs als Mehrfachauswahl (FL-BP-11, UXT-B-27)
 
-Stand 10.10.2026 · **zur fachlichen Prüfung vorgelegt, noch nicht eingespielt** (Rahmenentscheidung R3).
+Stand 10.10.2026 · **vom Projektleiter geprüft und am 10.10.2026 eingespielt** (Rahmenentscheidung R3; siehe Architekturplanung §13).
 
 ## Problem
 

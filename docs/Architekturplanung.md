@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 („Nenne zwei …“-Kurzantworten im Büro-Kurs als Mehrfachauswahl; Entwurf vom Projektleiter geprüft, FL-BP-11, UXT-B-27, R3)
+
+Anlass: 14 Kurzantworten im Kurs Fachwirt für Büro- und Projektorganisation verlangten eine freie Aufzählung („Nenne zwei …“, offene Beispielfragen). Geprüft wird exakt gegen 2 bis 7 vorformulierte Satzvarianten; jede andere richtige Antwort („Scrum und XP“, „Berichte und Präsentationen“) wurde abgelehnt. Der Entwurf (`docs/entwuerfe/buero-kurzantworten-umbau.md`) wurde vom Projektleiter fachlich geprüft und am 10.10.2026 mit „Einspielen“ freigegeben.
+
+- **Umbau:** 13 Fragen wurden Mehrfachauswahl (`quiz_mc_multi`), eine (Q-2.5-07) Multiple Choice mit einer richtigen Antwort (`quiz_mc`). Betroffen sind Q-1.2-09, Q-1.3-09, Q-1.4-10, Q-2.1-10, Q-2.2-07, Q-2.3-05, Q-2.4-06, Q-2.5-06, Q-2.5-07, Q-4.1-06, Q-4.2-06, Q-4.3-05, Q-4.4-07 und Q-4.4-10 in zwölf Themendateien (HB1: 1.2, 1.3, 1.4; HB2: 2.1 bis 2.5; HB4: 4.1 bis 4.4). Die richtigen Optionen stammen aus der Theorie des jeweiligen Themas; die falschen sind dort ausdrücklich anders eingeordnet (zum Beispiel Wasserfallmodell als klassisch, Intranet als intern) oder kommen im Thema nicht als Antwort vor.
+- **IDs und Fortschritt bleiben:** Die Item-IDs sind unverändert; der Abgleich meldet je Frage „Typ ändert sich von „kurzantwort“ …; der Fortschritt bleibt am Item erhalten“. Bereits gegebene Antworten bleiben als Verlauf erhalten, der Wiederholungsstand (FSRS) gilt weiter.
+- **Nicht geändert:** die übrigen 20 Kurzantworten mit eindeutigem Einzelbegriff (zum Beispiel „Kontinuierlicher Verbesserungsprozess“, „Soll-Ist-Vergleich“) und Q-1.1-09 (zwei feste Kompetenzen, beide Reihenfolgen werden akzeptiert).
+- **Import:** `db:validate-content`: 615 Dateien, 16.040 Schlüssel, 0 Verstöße; `db:import-content` in der Entwicklungsdatenbank: 14 geändert, 0 neu, 0 deaktiviert. Im Büro-Kurs gibt es danach 20 Kurzantworten und 16 Mehrfachauswahl-Aufgaben. Für eine andere Datenbank dasselbe Einspielen nach dem Deploy.
+- **Stolperstein:** Die Themendateien müssen mit LF-Zeilenenden vorliegen, sonst meldet der Import „Kein gültiger Frontmatter-Block gefunden“; ein `git checkout -- content` legt sie unter Windows (autocrlf) als CRLF an und muss mit einer Umwandlung nach LF nachbehandelt werden.
+
 ### Entschieden am 10.10.2026 (Ishikawa-Diagramm einheitlich „6M“ mit „Mitwelt (Umwelt)“; Entscheidung des Projektleiters, Review UXT-F-18)
 
 Anlass: Der Industriefachwirt nannte das Instrument „Ishikawa-Diagramm (Ursachenkategorien)“ mit „Mitwelt“, der Technische Fachwirt „Ishikawa-Diagramm (6M)“ mit „Milieu (Umwelt)“; inhaltlich dieselben sechs Kategorien (Mensch, Maschine, Material, Methode, Umwelt, Management). Der Projektleiter wählte (10.10.2026, Empfehlung): **beide „6M“, sechste Kategorie „Mitwelt (Umwelt)“.**
