@@ -18,6 +18,7 @@ import {
   contentItem,
   fachgebiet,
   friendCircleLink,
+  kurs,
   learningEvent,
   thema,
   user,
@@ -201,6 +202,28 @@ export const cohortRouter = router({
   ownedCount: protectedProcedure.query(async ({ ctx }) => {
     const [row] = await ctx.db.select({ value: count() }).from(cohort).where(eq(cohort.dozentUserId, ctx.currentUser.id));
     return { count: row?.value ?? 0 };
+  }),
+
+  /**
+   * Review UXL-21: Alle Kohorten, die die aufrufende Person leitet, über Kursgrenzen hinweg. `myCohorts` liefert nur die des
+   * aktiven Kurses; wer in einen anderen Kurs wechselt, fände die übrigen sonst nicht mehr. `enrolled` sagt, ob die Person den
+   * Kurs der Kohorte aktuell belegt (nur dann lässt sich die Kohorte verwalten, siehe `requireEnrollment` bei `create`/`join`).
+   */
+  leadingOverview: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.db
+      .select({
+        id: cohort.id,
+        name: cohort.name,
+        kursId: cohort.kursId,
+        kursTitle: kurs.title,
+        memberCount: sql<number>`(select count(*)::int from ${cohortMember} where ${cohortMember.cohortId} = ${cohort.id})`,
+        enrolled: sql<boolean>`${userCourse.userId} is not null`,
+      })
+      .from(cohort)
+      .innerJoin(kurs, eq(kurs.id, cohort.kursId))
+      .leftJoin(userCourse, and(eq(userCourse.kursId, cohort.kursId), eq(userCourse.userId, ctx.currentUser.id)))
+      .where(eq(cohort.dozentUserId, ctx.currentUser.id))
+      .orderBy(kurs.title, cohort.createdAt);
   }),
 
   /**

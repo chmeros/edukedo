@@ -25,6 +25,37 @@ function oeffneDetails(stats: Record<string, unknown>) {
   fireEvent.click(screen.getByRole("button", { name: "Details anzeigen" }));
 }
 
+describe("Kohorte, Kohorten in anderen Kursen (Review UXL-21)", () => {
+  function zeige(leitung: unknown[]) {
+    reg.queries["cohort.myCohorts"] = [];
+    reg.queries["cohort.myMemberships"] = [];
+    reg.queries["cohort.leadingOverview"] = leitung;
+    render(<Kohorte kursId="kurs-1" />);
+  }
+
+  it("zeigt Kohorten aus anderen Kursen mit Kurs und Mitgliederzahl, die des aktiven Kurses nicht doppelt", () => {
+    zeige([
+      { id: "k1", name: "Hier", kursId: "kurs-1", kursTitle: "Aktiver Kurs", memberCount: 3, enrolled: true },
+      { id: "k2", name: "Dort", kursId: "kurs-2", kursTitle: "Anderer Kurs", memberCount: 1, enrolled: true },
+    ]);
+    expect(text()).toContain("Meine Kohorten in anderen Kursen");
+    expect(text()).toContain("Dort");
+    expect(text()).toContain("Anderer Kurs · 1 Mitglied");
+    expect(text()).not.toContain("Aktiver Kurs");
+    expect(text()).not.toContain("belegst diesen Kurs aktuell nicht");
+  });
+
+  it("weist darauf hin, wenn der Kurs der Kohorte nicht mehr belegt ist", () => {
+    zeige([{ id: "k2", name: "Dort", kursId: "kurs-2", kursTitle: "Anderer Kurs", memberCount: 5, enrolled: false }]);
+    expect(text()).toContain("Du belegst diesen Kurs aktuell nicht");
+  });
+
+  it("zeigt den Bereich nicht, wenn es keine Kohorten in anderen Kursen gibt", () => {
+    zeige([{ id: "k1", name: "Hier", kursId: "kurs-1", kursTitle: "Aktiver Kurs", memberCount: 3, enrolled: true }]);
+    expect(text()).not.toContain("in anderen Kursen");
+  });
+});
+
 describe("Kohorte, Kennzahlen der Leitung (Review UXL-06)", () => {
   it("zeigt Kursfortschritt und „sicher beherrscht“ getrennt, mit Erklärung und Basis", () => {
     oeffneDetails({});

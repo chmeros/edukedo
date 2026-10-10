@@ -157,4 +157,39 @@ describe("Kohorten-Verwaltung (UXL-04/05)", () => {
     const links = await db.select().from(schema.friendCircleLink);
     expect(links.some((l) => [l.userIdA, l.userIdB].sort().join() === [a.userId, b.userId].sort().join())).toBe(true);
   });
+  it("leadingOverview listet Kohorten über Kursgrenzen hinweg, auch wenn der Kurs nicht mehr belegt ist (Review UXL-21)", async () => {
+    const [anderer] = await db
+      .insert(schema.kurs)
+      .values({ slug: "kohorte-anderer-kurs", type: "test", title: "Anderer Kurs", isPublished: true, metadata: { kategorie: "schule" } })
+      .returning();
+    const dozent = await newUser();
+    const enroll = (kurs: string) =>
+      app.inject({ method: "POST", url: "/api/v1/trpc/courses.enroll", headers: { cookie: dozent.cookie }, payload: { kursId: kurs } });
+    expect((await enroll(anderer!.id)).statusCode).toBe(200);
+    expect((await mutate(dozent.cookie, "create", { kursId, name: "Hier" })).statusCode).toBe(200);
+    expect((await mutate(dozent.cookie, "create", { kursId: anderer!.id, name: "Dort" })).statusCode).toBe(200);
+    const uebersicht = async () =>
+      (await app.inject({ method: "GET", url: "/api/v1/trpc/cohort.leadingOverview", headers: { cookie: dozent.cookie } })).json().result.data as {
+        name: string;
+        kursTitle: string;
+        memberCount: number;
+        enrolled: boolean;
+      }[];
+
+    const beide = await uebersicht();
+    expect(beide.map((eintrag) => [eintrag.name, eintrag.kursTitle, eintrag.enrolled])).toEqual([
+      ["Dort", "Anderer Kurs", true],
+      ["Hier", "Testkurs", true],
+    ]);
+
+    // Nach dem Verlassen des anderen Kurses bleibt die Kohorte sichtbar, mit dem Vermerk „nicht belegt“.
+    expect((await app.inject({ method: "POST", url: "/api/v1/trpc/courses.leave", headers: { cookie: dozent.cookie }, payload: { kursId: anderer!.id } })).statusCode).toBe(200);
+    const nachVerlassen = await uebersicht();
+    expect(nachVerlassen.find((eintrag) => eintrag.name === "Dort")).toMatchObject({ enrolled: false, memberCount: 0 });
+    expect(nachVerlassen.find((eintrag) => eintrag.name === "Hier")?.enrolled).toBe(true);
+
+    // Andere Personen sehen nur ihre eigenen Kohorten.
+    const fremd = await newUser();
+    expect((await app.inject({ method: "GET", url: "/api/v1/trpc/cohort.leadingOverview", headers: { cookie: fremd.cookie } })).json().result.data).toEqual([]);
+  });
 });

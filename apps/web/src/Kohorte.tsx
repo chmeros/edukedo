@@ -266,6 +266,9 @@ export function Kohorte({ kursId }: { kursId: string }) {
   const utils = trpc.useUtils();
   const myCohorts = trpc.cohort.myCohorts.useQuery({ kursId });
   const memberships = trpc.cohort.myMemberships.useQuery({ kursId });
+  // Review UXL-21: Kohorten, die diese Person in anderen Kursen leitet (die Verwaltung gibt es nur im jeweiligen Kurs).
+  const leading = trpc.cohort.leadingOverview.useQuery();
+  const inAnderenKursen = (leading.data ?? []).filter((eintrag) => eintrag.kursId !== kursId);
   const [joinCode, setJoinCode] = useState("");
   const [joinConfirmed, setJoinConfirmed] = useState(false);
   const [newCohortName, setNewCohortName] = useState("");
@@ -397,6 +400,30 @@ export function Kohorte({ kursId }: { kursId: string }) {
         </div>
         {myCohorts.data?.length === 0 && <p className="field-hint">Noch keine eigene Kohorte angelegt.</p>}
       </div>
+
+      {inAnderenKursen.length > 0 && (
+        <div className="stack">
+          <h3 className="stat-subheading">Meine Kohorten in anderen Kursen</h3>
+          <p className="field-hint">
+            Kohorten lassen sich nur im jeweiligen Kurs verwalten. Wechsle über das Kursmenü oben in den Kurs, um sie zu öffnen. Die
+            Mitglieder bleiben in der Zwischenzeit bestehen.
+          </p>
+          <div className="tile-grid tile-grid-sm">
+            {inAnderenKursen.map((eintrag) => (
+              <Tile
+                key={eintrag.id}
+                size="sm"
+                title={eintrag.name}
+                description={`${eintrag.kursTitle} · ${pluralDe(eintrag.memberCount, "Mitglied", "Mitglieder")}`}
+              >
+                {!eintrag.enrolled && (
+                  <p className="field-hint">Du belegst diesen Kurs aktuell nicht. Tritt ihm wieder bei, um die Kohorte zu verwalten.</p>
+                )}
+              </Tile>
+            ))}
+          </div>
+        </div>
+      )}
 
       <form
         className="stack"

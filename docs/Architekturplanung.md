@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Kohorten in anderen Kursen sichtbar, schlanke Fassung der kursübergreifenden Übersicht, Review UXL-21)
+
+Anlass: Kohorten und ihre Verwaltung gibt es nur im aktiven Kurs. Wer als Leitung in einen anderen Kurs wechselt, findet seine Kohorten dort nicht mehr (die Mitglieder bleiben und zählen weiter). Entscheidung im Rahmen von „Starte mit dem nächsten ToDo“ ohne eigene Rückfrage; bewusst die schlanke Fassung, weil eine echte kursübergreifende Verwaltung die Navigation und die Zugriffsregeln ändern würde.
+
+- **Server (`cohort.leadingOverview`):** Neue Abfrage ohne Eingabe: alle Kohorten, die die aufrufende Person leitet, über Kursgrenzen hinweg (Name, Kurs, Mitgliederzahl, ob der Kurs aktuell belegt ist). Nur eigene Kohorten, sortiert nach Kurstitel; andere Personen sehen nichts Fremdes. `myCohorts` bleibt unverändert und liefert weiter nur den aktiven Kurs.
+- **Oberfläche (`Kohorte.tsx`):** Unter „Meine Kohorten (als Leitung)“ erscheint, falls es welche gibt, der Bereich „Meine Kohorten in anderen Kursen“ mit Name, Kurs und Mitgliederzahl, dazu der Hinweis, dass sich Kohorten nur im jeweiligen Kurs verwalten lassen (über das Kursmenü wechseln) und die Mitglieder bestehen bleiben. Ist der Kurs nicht mehr belegt, steht dabei, dass man ihm wieder beitreten muss, um die Kohorte zu verwalten (die Prüfung auf Einschreibung bleibt wie bei `create` und `join`). Ohne Kohorten in anderen Kursen erscheint nichts.
+- **Bewusst nicht Teil:** Verwalten, Umbenennen oder Beenden aus der Übersicht heraus, ein Wechseln-Knopf (der Kurswechsel liegt in `App.tsx`, die Einschreibung kann fehlen), Co-Leitung und Übergabe (UXL-05 Rest).
+- **Prüfung:** Integrationstest in `cohort-verwaltung.integration.test.ts` (zwei Kurse; Übersicht listet beide, nach dem Verlassen des einen bleibt dessen Kohorte mit „nicht belegt“ sichtbar, fremde Personen sehen eine leere Liste), drei Web-Tests in `Kohorte.test.tsx` (andere Kurse, Hinweis „nicht belegt“, Bereich entfällt). Kohorten-Integrationstests 16 grün, Web-Suite 167, Typprüfung und Lint sauber. Nicht im Browser angesehen.
+
 ### Entschieden am 09.10.2026 (Kurz-Teaser je Kurs: Themen und Aufgaben in der Kursauswahl, Review UXT-F-23)
 
 Anlass: Die Kursliste zeigte je Kurs nur Titel und Kategorie, sodass sich Kurse in Umfang und Tiefe nicht vergleichen ließen. Umsetzung ohne Rückfrage (kleine Server-Erweiterung, keine Gestaltungs- oder Rechtsfrage); die Form „Themenzahl“ stammt aus dem Befund.
