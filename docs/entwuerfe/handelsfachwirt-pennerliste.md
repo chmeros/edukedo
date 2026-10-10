@@ -1,6 +1,6 @@
 # Entwurf: „Pennerliste“ im Handelsfachwirt-Kurs (FL-HF-63)
 
-Stand 10.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Betrifft nur die Themendatei `content/handelsfachwirt/wb1/5.1-category-management.md`.
+Stand 10.10.2026 · **Variante B mit Nennung in der Theorie vom Projektleiter gewählt und am 10.10.2026 eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3). Betrifft nur die Themendatei `content/handelsfachwirt/wb1/5.1-category-management.md`.
 
 ## Befund
 

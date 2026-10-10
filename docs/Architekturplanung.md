@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 („Pennerliste“ im Handelsfachwirt-Kurs durch „Schwachläuferliste“ ersetzt, alter Begriff als umgangssprachlicher Hinweis; Entscheidung des Projektleiters, Variante B, FL-HF-63)
+
+Anlass: Der Kurs nannte die Liste der umsatz- oder ertragsschwächsten Artikel einer Warengruppe „Pennerliste“. Die Fachprüfung (FL-HF-63) bewertete den Begriff als Handelsjargon mit abwertender Nebenbedeutung. Entwurf: `docs/entwuerfe/handelsfachwirt-pennerliste.md`. Der Projektleiter wählte am 10.10.2026 Variante B (ersetzen, alter Begriff bleibt als Hinweis) und die Nennung in der Theorie.
+
+- **Begriff:** „Schwachläuferliste“ ist der Fachbegriff des Kurses, Gegenstück zur Rennerliste. „Ladenhüterliste“ wird nicht als Hauptbegriff geführt (ein Ladenhüter ist ein Artikel, der sich gar nicht verkauft; die Liste enthält auch schwach laufende), aber als Antwort akzeptiert.
+- **Fünf Stellen in `wb1/5.1-category-management.md`:** Die Theorie nennt „Schwachläuferliste (im Handel umgangssprachlich auch „Pennerliste“)“, damit Lernende den Praxisbegriff erkennen. Karteikarte K-5.1-15 fragt „Wozu dient eine Schwachläuferliste?“, Option in Q-5.1-08 heißt „Renner-/Schwachläuferliste“. Die Kurzantwort Q-5.1-10 akzeptiert Schwachläuferliste, Schwachläufer-Liste, Ladenhüterliste, Ladenhüter-Liste, Pennerliste und Penner-Liste; ihre Erklärung nennt den umgangssprachlichen Namen. Das Kreuzworträtsel-Wort RENNER ist unverändert.
+- **Import:** `db:validate-content`: 615 Dateien, 16.040 Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 4 geändert (Theorie, K-5.1-15, Q-5.1-08, Q-5.1-10), 0 neu, 0 deaktiviert; die Meldung „Lösung geändert“ betrifft Q-5.1-08 (Beschriftung der Option), der Fortschritt bleibt an den Items. In anderen Datenbanken denselben Import nach dem Deploy ausführen.
+- **Nicht Teil:** Weiterer Handelsjargon wurde nicht gefunden (Suche über Content, Spiele und Code nach „Penner“, „Renner“, „Ladenhüter“); die Fachprüfung nannte nur diese Stelle. Nicht im Browser angesehen.
+
 ### Entschieden am 10.10.2026 (Kennzahlen-Duell im Büro-Kurs: „QM und Prozesse“ durch ein Duell aus der Kurstheorie ersetzt, altes Set samt Spielfortschritt gelöscht; Entscheidung des Projektleiters, Variante C, E-BUE-2, S-BUE-02)
 
 Anlass: Von den 20 Fragen des Duells „Kennzahlen-Duell: Qualitätsmanagement und Prozesse“ (Nutzer-Vorgabe F-142) kamen die Begriffe nur bei zwei Fragen (Fehlerquote, Reklamationsquote) in der Kurstheorie vor; die übrigen prüften Fertigungskennzahlen (First-Pass-Yield, Durchlaufzeit, Ausschussquote, Prüfkostenquote u. a.), die der Büro-Fachwirt nicht behandelt. Entwurf: `docs/entwuerfe/buero-kennzahlen-duell.md`. Der Projektleiter wählte am 10.10.2026 Variante C (ersetzen) und das Löschen des alten Sets samt Fortschritt.
