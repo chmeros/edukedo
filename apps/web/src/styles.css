@@ -573,8 +573,12 @@ a {
   transform: translateY(1px);
 }
 
+/* Review UXT-B-23/I-18: Inaktive Knöpfe stärker gedämpft und entsättigt, damit sie sich klar von aktiven unterscheiden (vorher nur
+   Deckkraft 0,55: ein deaktivierter grüner Knopf wirkte wie ein blasser, aber bedienbarer). */
 .btn:disabled {
-  opacity: 0.55;
+  opacity: 0.45;
+  filter: grayscale(0.6);
+  box-shadow: none;
   cursor: not-allowed;
 }
 

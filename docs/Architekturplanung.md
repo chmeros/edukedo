@@ -569,6 +569,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Inaktive Knöpfe stärker gedämpft, Review UXT-B-23, UXT-I-18)
+
+Anlass: Letzter offener Rest aus „Farben und Menü“ (09.10.2026): Ein inaktiver Knopf unterschied sich nur durch Deckkraft 0,55 von einem aktiven; ein deaktivierter grüner Knopf wirkte wie ein blasser, aber bedienbarer. Umsetzung ohne Rückfrage (reine Stilfrage, Werte nach Augenschein im Browser).
+
+- **Änderung (`styles.css`, `.btn:disabled`):** Deckkraft 0,45 statt 0,55, zusätzlich `filter: grayscale(0.6)` und kein Schatten. Der inaktive Primärknopf erscheint jetzt als gedämpftes Graugrün statt als helles Grün; Sekundär-, Ghost- und Gefahr-Knöpfe werden ebenfalls grauer. Gilt für alle `.btn` (Aktivierungsbedingungen und Funktion unverändert); Quiz-Optionen und Zonen (`.quiz-opt:disabled` u. a.) haben eigene Regeln und bleiben unberührt.
+- **Prüfung:** Im Browser am deaktivierten „Registrieren“-Knopf des Anmeldeformulars (Geburtsdatum unter 18, der Knopf ist dort gesperrt) gesehen: berechnete Werte `opacity 0.45`, `grayscale(0.6)`, kein Schatten. Reine Stiländerung, keine neuen Tests.
+
 ### Entschieden am 10.10.2026 (Kohorten in anderen Kursen sichtbar, schlanke Fassung der kursübergreifenden Übersicht, Review UXL-21)
 
 Anlass: Kohorten und ihre Verwaltung gibt es nur im aktiven Kurs. Wer als Leitung in einen anderen Kurs wechselt, findet seine Kohorten dort nicht mehr (die Mitglieder bleiben und zählen weiter). Entscheidung im Rahmen von „Starte mit dem nächsten ToDo“ ohne eigene Rückfrage; bewusst die schlanke Fassung, weil eine echte kursübergreifende Verwaltung die Navigation und die Zugriffsregeln ändern würde.
