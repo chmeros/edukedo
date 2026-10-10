@@ -86,7 +86,6 @@ export const contentItemTypeSchema = z.enum([
   "pps",
   "beschaffung",
   "seci",
-  "ishikawa",
   "kalkulation",
   "incoterms",
   // F-185: weitere Instrumente (Technischer Fachwirt).

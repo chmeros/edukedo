@@ -569,18 +569,6 @@ export const QUADRANT_MODELS = {
       { key: "internalisierung", label: "Internalisierung" },
     ],
   },
-  // Kategorien laut Kurstheorie (Thema 6.3): Mitwelt und Management statt der in anderen Quellen üblichen Milieu und Messung.
-  ishikawa: {
-    label: "Ishikawa-Diagramm (Ursachenkategorien)",
-    zones: [
-      { key: "mensch", label: "Mensch" },
-      { key: "maschine", label: "Maschine" },
-      { key: "material", label: "Material" },
-      { key: "methode", label: "Methode" },
-      { key: "mitwelt", label: "Mitwelt" },
-      { key: "management", label: "Management" },
-    ],
-  },
   kalkulation: {
     label: "Zuschlagskalkulation",
     zones: [
@@ -631,7 +619,9 @@ export const QUADRANT_MODELS = {
       { key: "personenbezogen", label: "Personenbezogene Maßnahmen" },
     ],
   },
-  // 6M laut Kurstheorie des Technischen Fachwirts (Thema 10.1): Milieu (Umwelt) statt Mitwelt wie im Industriefachwirt.
+  // 6M, ein Instrument für Industriefachwirt (Thema 6.3) und Technischen Fachwirt (Thema 10.1). Entscheidung 10.10.2026 (UXT-F-18):
+  // einheitlich „Mitwelt (Umwelt)“ statt Mitwelt im einen und Milieu im anderen Kurs; Management statt der in anderen Quellen
+  // üblichen Messung (so führen es beide Kurstheorien). Der Name des Instruments ist zugleich der Schlüssel für die Überschrift im Content.
   ishikawa6m: {
     label: "Ishikawa-Diagramm (6M)",
     zones: [
@@ -639,7 +629,7 @@ export const QUADRANT_MODELS = {
       { key: "maschine", label: "Maschine" },
       { key: "material", label: "Material" },
       { key: "methode", label: "Methode" },
-      { key: "milieu", label: "Milieu (Umwelt)" },
+      { key: "mitwelt", label: "Mitwelt (Umwelt)" },
       { key: "management", label: "Management" },
     ],
   },

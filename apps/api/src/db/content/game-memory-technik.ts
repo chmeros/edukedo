@@ -252,7 +252,7 @@ export const memoryTechnik: MemoryPayload = {
       runde: 4,
       begriff: "Ishikawa-Diagramm",
       bedeutung: "Ursache-Wirkungs-Diagramm in Fischgrätenform",
-      bestaetigung: "Richtig! Es ordnet mögliche Fehlerursachen den Kategorien Mensch, Maschine, Material, Methode, Milieu und Management zu.",
+      bestaetigung: "Richtig! Es ordnet mögliche Fehlerursachen den Kategorien Mensch, Maschine, Material, Methode, Mitwelt und Management zu.",
     },
     {
       nummer: 32,

@@ -78,7 +78,6 @@ export const KATALOG_INSTRUMENTE = [
   "pps",
   "beschaffung",
   "seci",
-  "ishikawa",
   "kalkulation",
   "incoterms",
   // Kursprofile Phase 1 (Technischer Fachwirt)
@@ -387,7 +386,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Beschaffung und SECI (Welle 1) sowie PPS, Ishikawa, Zuschlagskalkulation und das Duell "kosten-leistungen" (Welle 2) sind freigegeben.
   // Incoterms (ICC-Regelwerk) erst nach der Freigabe des Prüfblatts 13 aufnehmen.
   industriefachwirt: {
-    instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa", "kalkulation"]),
+    instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa6m", "kalkulation"]),
     werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],

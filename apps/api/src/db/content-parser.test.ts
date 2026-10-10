@@ -604,9 +604,12 @@ describe("parseQuizBlock", () => {
     expect(seci?.type).toBe("seci");
     if (seci?.type === "seci") expect(seci.terms.map((term) => term.zoneKey)).toEqual(["sozialisation", "externalisierung", "kombination", "internalisierung"]);
 
-    const ishikawa = parse("Ishikawa-Diagramm (Ursachenkategorien)", ["- Prüfer nicht eingearbeitet → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Arbeitsanweisung → Methode", "- schwankende Hallenluft → Mitwelt", "- widersprüchliche Zielvorgaben → Management"]);
-    expect(ishikawa?.type).toBe("ishikawa");
-    if (ishikawa?.type === "ishikawa") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "mitwelt", "management"]);
+    const ishikawa = parse("Ishikawa-Diagramm (6M)", ["- Prüfer nicht eingearbeitet → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Arbeitsanweisung → Methode", "- schwankende Hallenluft → Mitwelt (Umwelt)", "- widersprüchliche Zielvorgaben → Management"]);
+    expect(ishikawa?.type).toBe("ishikawa6m");
+    if (ishikawa?.type === "ishikawa6m") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "mitwelt", "management"]);
+
+    // Entscheidung 10.10.2026: Die frühere Schreibweise „Ursachenkategorien“ gibt es nicht mehr, die Überschrift wird nicht mehr erkannt.
+    expect(parse("Ishikawa-Diagramm (Ursachenkategorien)", ["- Prüfer nicht eingearbeitet → Mensch"])).toBeNull();
 
     const kalkulation = parse("Zuschlagskalkulation", ["- Kupferanteil des Auftrags → Materialkosten", "- Fertigungslöhne → Fertigungskosten", "- Material plus Fertigung → Herstellkosten", "- plus Verwaltung und Vertrieb → Selbstkosten", "- plus Gewinnaufschlag → Angebotspreis"]);
     expect(kalkulation?.type).toBe("kalkulation");
@@ -633,9 +636,9 @@ describe("parseQuizBlock", () => {
     expect(top?.type).toBe("top");
     if (top?.type === "top") expect(top.terms.map((term) => term.zoneKey)).toEqual(["technisch", "organisatorisch", "personenbezogen"]);
 
-    const ishikawa = parse("Ishikawa-Diagramm (6M)", ["- unzureichende Schulung → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Anweisung → Methode", "- schwankende Hallentemperatur → Milieu (Umwelt)", "- unklare Verantwortung → Management"]);
+    const ishikawa = parse("Ishikawa-Diagramm (6M)", ["- unzureichende Schulung → Mensch", "- Werkzeugverschleiß → Maschine", "- fehlerhafte Charge → Material", "- unklare Anweisung → Methode", "- schwankende Hallentemperatur → Mitwelt (Umwelt)", "- unklare Verantwortung → Management"]);
     expect(ishikawa?.type).toBe("ishikawa6m");
-    if (ishikawa?.type === "ishikawa6m") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "milieu", "management"]);
+    if (ishikawa?.type === "ishikawa6m") expect(ishikawa.terms.map((term) => term.zoneKey)).toEqual(["mensch", "maschine", "material", "methode", "mitwelt", "management"]);
   });
 
   it("parst die Modelle aus F-187 (Investitionsrechenverfahren, Vier-Seiten-Modell)", () => {

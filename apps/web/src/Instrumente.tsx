@@ -60,7 +60,6 @@ import {
   IndustrieprotokolleIllustration,
   InvestitionIllustration,
   Ishikawa6mIllustration,
-  IshikawaIllustration,
   OsiIllustration,
   PdcaIllustration,
   NetzsicherheitIllustration,
@@ -487,12 +486,6 @@ const INSTRUMENT_CATALOG = [
     Illustration: SeciIllustration,
   },
   {
-    type: "ishikawa",
-    label: "Ishikawa-Diagramm (Ursachenkategorien)",
-    description: "Mögliche Ursachen eines Qualitätsproblems den sechs Kategorien zuordnen: Mensch, Maschine, Material, Methode, Mitwelt, Management.",
-    Illustration: IshikawaIllustration,
-  },
-  {
     type: "kalkulation",
     label: "Zuschlagskalkulation",
     description: "Kostenbestandteile und Rechenschritte der Zuschlagskalkulation den Stufen zuordnen — von den Materialkosten bis zum Angebotspreis.",
@@ -526,7 +519,7 @@ const INSTRUMENT_CATALOG = [
   {
     type: "ishikawa6m",
     label: "Ishikawa-Diagramm (6M)",
-    description: "Ursachen eines Qualitätsproblems den sechs Kategorien zuordnen: Mensch, Maschine, Material, Methode, Milieu, Management.",
+    description: "Ursachen eines Qualitätsproblems den sechs Kategorien zuordnen: Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management.",
     Illustration: Ishikawa6mIllustration,
   },
   // F-187 (Kursprofile Phase 1, Wirtschaftsfachwirt): zwei Zonen-Instrumente für Investitionsrechnung und Kommunikation.

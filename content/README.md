@@ -423,13 +423,12 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `pps` (**PPS-Aufgaben**, F-184, 4 Zonen): Produktionsprogrammplanung, Mengenplanung, Termin- und Kapazitätsplanung, Produktionssteuerung
   - `beschaffung` (**Beschaffungsstrategien**, F-184, 4 Zonen): Vorratsbeschaffung, Einzelbeschaffung, Just-in-Time (JIT), Just-in-Sequence (JIS)
   - `seci` (**SECI-Modell der Wissensumwandlung**, F-184, 4 Zonen): Sozialisation, Externalisierung, Kombination, Internalisierung
-  - `ishikawa` (**Ishikawa-Diagramm (Ursachenkategorien)**, F-184, 6 Zonen): Mensch, Maschine, Material, Methode, Mitwelt, Management
   - `kalkulation` (**Zuschlagskalkulation**, F-184, 5 Zonen): Materialkosten, Fertigungskosten, Herstellkosten, Selbstkosten, Angebotspreis
   - `incoterms` (**Incoterms**, F-184, 4 Zonen): EXW (Ab Werk), FOB (Frei an Bord), CIF (Kosten, Versicherung, Fracht), DDP (Geliefert verzollt)
   - `fertigungsverfahren` (**Fertigungsverfahren nach DIN 8580**, F-185, 6 Zonen): Urformen, Umformen, Trennen, Fügen, Beschichten, Stoffeigenschaft ändern
   - `instandhaltung` (**Instandhaltungsmaßnahmen nach DIN 31051**, F-185, 4 Zonen): Wartung, Inspektion, Instandsetzung, Verbesserung
   - `top` (**TOP-Prinzip im Arbeitsschutz**, F-185, 3 Zonen): Technische Maßnahmen, Organisatorische Maßnahmen, Personenbezogene Maßnahmen
-  - `ishikawa6m` (**Ishikawa-Diagramm (6M)**, F-185, 6 Zonen): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management
+  - `ishikawa6m` (**Ishikawa-Diagramm (6M)**, F-184/F-185, 6 Zonen, Industriefachwirt und Technischer Fachwirt; seit 10.10.2026 einheitlich): Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management
   - `investition` (**Investitionsrechenverfahren**, F-187, 2 Zonen): Statische Verfahren, Dynamische Verfahren
   - `vierseiten` (**Vier-Seiten-Modell**, F-187, 4 Zonen): Sachebene, Selbstoffenbarung, Beziehungsebene, Appell
   - `verkehrstraeger` (**Verkehrsträger**, F-188, 4 Zonen): Straße, Schiene, Wasser, Luft

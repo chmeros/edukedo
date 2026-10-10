@@ -1140,7 +1140,7 @@ const IND_BLATT: KursBlatt = {
   zonenDateien: [
     { datei: "hq2/6.1-produktionsplanung-steuerung.md", typen: ["pps"] },
     { datei: "hq2/6.4-materialwirtschaft-logistik.md", typen: ["beschaffung"] },
-    { datei: "hq2/6.3-qualitaetsmanagement-produktion.md", typen: ["ishikawa"] },
+    { datei: "hq2/6.3-qualitaetsmanagement-produktion.md", typen: ["ishikawa6m"] },
     { datei: "hq4/8.1-wissensmanagement-grundlagen.md", typen: ["seci"] },
     { datei: "wq2/2.2-kostenrechnung.md", typen: ["kalkulation"] },
     { datei: "hq3/7.4-internationale-geschaeftsbeziehungen.md", typen: ["incoterms"] },
@@ -1156,8 +1156,8 @@ const IND_BLATT: KursBlatt = {
       "Q-6.4-16: „Material mit regelmäßigem, gut prognostizierbarem Verbrauch wird synchron zum Fertigungsbedarf angeliefert“ unter JIT ist eine Ableitung aus der Kursaussage zu AX-Teilen.",
       "Gegenüber dem Vorschlag (drei Zonen) hat das Instrument vier Zonen, weil der Kurs Just-in-Sequence (JIS) ausdrücklich als Weiterentwicklung führt.",
     ],
-    ishikawa: [
-      "**Kategorien des Kurses (Thema 6.3): Mensch, Maschine, Material, Methode, Mitwelt, Management** — nicht „Milieu“ und „Messung“ wie in anderen Quellen; Hinweis in der Erklärung von Q-6.3-16.",
+    ishikawa6m: [
+      "**Kategorien des Kurses (Thema 6.3): Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management** — nicht „Messung“ wie in anderen Quellen; Hinweis in der Erklärung von Q-6.3-16. Seit dem 10.10.2026 dasselbe Instrument (6M) wie im Technischen Fachwirt.",
       "Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung („Prüfmittel und Schulungen nicht bereitgestellt“, „Stückzahl vor Qualität“). Die Klammerzusätze in Q-6.3-13 sind allgemeine Deutungen.",
       "Grenzfälle: „Beleuchtung am Prüfplatz zu schwach“ = Mitwelt; „Bediener ermüdet nach Überstunden“ = Mensch (könnte als Ressourcenthema/Management gelesen werden).",
     ],
@@ -1231,9 +1231,9 @@ const TEC_BLATT: KursBlatt = {
       "Grenzfälle: Absaugung = technisch (wirkt an der Quelle), Wartungsplan für Schutzeinrichtungen = organisatorisch, Not-Halt = technisch.",
     ],
     ishikawa6m: [
-      "**6M des Kurses (Thema 10.1): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management** — anders als im Industriefachwirt-Kurs (dort Mitwelt); hier ein eigenes Modell. Andere Quellen benennen teils Messung statt Management (Hinweis in Q-10.1-19); Messmittel und Kalibrierung wurden bewusst nicht verwendet.",
+      "**6M des Kurses (Thema 10.1): Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management** — seit dem 10.10.2026 einheitlich mit dem Industriefachwirt-Kurs (Thema 6.3). Andere Quellen benennen teils Messung statt Management (Hinweis in Q-10.1-19); Messmittel und Kalibrierung wurden bewusst nicht verwendet.",
       "Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung (Erklärung von Q-10.1-19 sagt ausdrücklich, dass die Kurstheorie dazu keine Einzelheiten nennt).",
-      "Grenzfälle: Kühlschmierstoff mit abweichender Zusammensetzung = Material (Hilfsstoff); Spannfutter, Steuerung und Drehzahlregler = Maschine; Beleuchtung am Prüfplatz = Milieu; Schnittparameter im Arbeitsplan und Stichprobenumfang im Prüfplan = Methode; „falsch eingespannt trotz klarer Vorgabe“ = Mensch, „Arbeitsplan nennt Spannreihenfolge nicht“ = Methode.",
+      "Grenzfälle: Kühlschmierstoff mit abweichender Zusammensetzung = Material (Hilfsstoff); Spannfutter, Steuerung und Drehzahlregler = Maschine; Beleuchtung am Prüfplatz = Mitwelt; Schnittparameter im Arbeitsplan und Stichprobenumfang im Prüfplan = Methode; „falsch eingespannt trotz klarer Vorgabe“ = Mensch, „Arbeitsplan nennt Spannreihenfolge nicht“ = Methode.",
     ],
     kalkulation: [
       "Modell aus F-184 wiederverwendet; Begriffe mit Vantera-Beispielen (Aluminiumblock, Fertigungslöhne, Zerspanungshalle), keine Zahlenrechnungen. Zwei Begriffe liegen bei etwa 91 bis 94 Zeichen.",

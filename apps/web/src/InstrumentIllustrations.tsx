@@ -1515,7 +1515,7 @@ export function Ishikawa6mIllustration() {
           <path d={`M${x + 6} 36h-24M${x + 6} 104h-24`} stroke="var(--line-strong)" strokeWidth="1.5" strokeLinecap="round" />
         </g>
       ))}
-      {["Mensch", "Methode", "Milieu"].map((text, index) => (
+      {["Mensch", "Methode", "Mitwelt"].map((text, index) => (
         <text key={text} x={[60, 120, 180][index]} y="16" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
           {text}
         </text>

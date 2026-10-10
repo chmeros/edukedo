@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 10.10.2026 (Ishikawa-Diagramm einheitlich „6M“ mit „Mitwelt (Umwelt)“; Entscheidung des Projektleiters, Review UXT-F-18)
+
+Anlass: Der Industriefachwirt nannte das Instrument „Ishikawa-Diagramm (Ursachenkategorien)“ mit „Mitwelt“, der Technische Fachwirt „Ishikawa-Diagramm (6M)“ mit „Milieu (Umwelt)“; inhaltlich dieselben sechs Kategorien (Mensch, Maschine, Material, Methode, Umwelt, Management). Der Projektleiter wählte (10.10.2026, Empfehlung): **beide „6M“, sechste Kategorie „Mitwelt (Umwelt)“.**
+
+- **Ein Instrument statt zwei (`quiz-logic.ts`, `schemas/content-item.ts`, `kurs-angebot.ts`, `Instrumente.tsx`):** Der Typ `ishikawa` („Ursachenkategorien“) ist entfallen. Beide Kurse nutzen `ishikawa6m` („Ishikawa-Diagramm (6M)“) mit der Zone „Mitwelt (Umwelt)“ (Schlüssel `mitwelt` statt `milieu`). Das Kursprofil des Industriefachwirts führt jetzt `ishikawa6m` statt `ishikawa`; ein Modellname ist zugleich der Schlüssel, über den der Content-Parser die Überschrift der Aufgaben erkennt, deshalb ging es nicht über zwei Typen mit gleichem Namen.
+- **Content:** Industriefachwirt (Thema 6.3, vier Aufgaben): Überschrift „(6M)“ und Zone „Mitwelt (Umwelt)“. Technischer Fachwirt (Thema 10.1 samt Fallaufgabe): „Milieu“ überall durch „Mitwelt“ ersetzt. Dazu die Karteikarten und Spiele (Memory und Kennzahlen-Duell des Technischen Fachwirts), die Illustration des Instruments, `content/README.md` und die Hinweise der Prüfblätter. Die Kurstheorie des Industriefachwirts sagte schon „Mitwelt“; sie ist unverändert.
+- **Import:** `db:validate-content`: 615 Dateien, 16.040 Schlüssel, 0 Verstöße. Der Abgleich meldet acht geänderte Aufgaben: vier im Industriefachwirt (Typ `ishikawa` → `ishikawa6m`; der Fortschritt bleibt am Item) und vier im Technischen Fachwirt (Lösung geändert wegen der umbenannten Zone). Angewendet in der Entwicklungsdatenbank mit `db:import-content`, `db:apply-kurs-metadata` und `db:seed-games`; für eine andere Datenbank dieselben drei Schritte nach dem Einspielen.
+- **Test:** `content-parser.test.ts` prüft die Überschrift „(6M)“ mit „Mitwelt (Umwelt)“ und dass die frühere Schreibweise „(Ursachenkategorien)“ nicht mehr erkannt wird.
+- **Nicht Teil:** Die Erklärungstexte in der Theorie sprechen weiter von „Mitwelt“ (Industriefachwirt) bzw. nannten „Milieu (Umwelt)“ (Technischer Fachwirt, jetzt „Mitwelt (Umwelt)“); ob eine der Kursquellen „Milieu“ ausdrücklich vorgibt, wurde nicht geprüft (fachliche Prüfung nach R3/R4).
+
 ### Entschieden am 10.10.2026 (Kleinigkeiten im Content: interne IDs aus Themen-Titeln, „Handelskalkulation (Zuordnung)“, Review UXT-B-14, UXT-F-18)
 
 Anlass: Rest „Kleinigkeiten im Content“ aus dem Usability-Rest. Umsetzung im Rahmen von „Weiter mit dem nächsten Thema“; nur Beschriftungen, keine fachlichen Aussagen (R3/R4 nicht berührt).

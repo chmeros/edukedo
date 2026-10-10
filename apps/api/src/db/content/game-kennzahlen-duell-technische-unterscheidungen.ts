@@ -215,14 +215,14 @@ export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload =
     {
       nummer: 15,
       runde: 3,
-      frage: "Welches Qualitätswerkzeug ordnet mögliche Ursachen eines Problems den Kategorien Mensch, Maschine, Material, Methode, Milieu und Management zu?",
+      frage: "Welches Qualitätswerkzeug ordnet mögliche Ursachen eines Problems den Kategorien Mensch, Maschine, Material, Methode, Mitwelt und Management zu?",
       antwortA: "Ishikawa-Diagramm",
       antwortB: "Pareto-Diagramm",
       richtig: "A",
       feedbackRichtig:
         "Genau! Das Ishikawa-Diagramm (Fischgräten-Diagramm) strukturiert mögliche Ursachen nach diesen Kategorien. Das Pareto-Diagramm filtert dagegen die wenigen Hauptursachen heraus (siehe Thema 10.1).",
       feedbackFalsch:
-        "Das stimmt nicht. Das Pareto-Prinzip zeigt, dass wenige Ursachen den Großteil der Fehler verursachen. Die Einteilung nach Mensch, Maschine, Material, Methode, Milieu und Management gehört zum Ishikawa-Diagramm (siehe Thema 10.1).",
+        "Das stimmt nicht. Das Pareto-Prinzip zeigt, dass wenige Ursachen den Großteil der Fehler verursachen. Die Einteilung nach Mensch, Maschine, Material, Methode, Mitwelt und Management gehört zum Ishikawa-Diagramm (siehe Thema 10.1).",
     },
     {
       nummer: 16,
