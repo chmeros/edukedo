@@ -680,7 +680,7 @@ export const QUADRANT_MODELS = {
     ],
   },
   handelskalkulation: {
-    label: "Handelskalkulation (Zuordnung)",
+    label: "Handelskalkulation",
     zones: [
       { key: "bezug", label: "Bezugskalkulation" },
       { key: "selbstkosten", label: "Selbstkostenkalkulation" },
