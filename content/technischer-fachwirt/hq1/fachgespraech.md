@@ -108,7 +108,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Ladungssicherung verhindert, dass Ladung während des Transports verrutscht, kippt oder herabfällt.
   - Erwartung: Sie dient der Verkehrssicherheit.
   - Erwartung: Sie dient zugleich dem Schutz der Ware selbst, denn Beschädigungen während des Transports können zu kostspieligen Reklamationen führen.
-  - Erwartung: Die Verantwortung für eine ordnungsgemäße Ladungssicherung liegt sowohl beim Verlader als auch beim Fahrer bzw. Frachtführer, sie ist nicht allein Aufgabe des Fahrers.
+  - Erwartung: Die Verantwortung für eine ordnungsgemäße Ladungssicherung liegt sowohl beim Verlader als auch bei den Fahrer:innen bzw. dem Frachtführer, sie ist nicht allein Aufgabe der Fahrer:innen.
   - Erwartung: Gängige Methoden sind das Niederzurren mit Spanngurten und das Formschluss-Verfahren mit lückenloser Verstauung oder Sperrbalken und Keilen.
   - Rückfrage: Was unterscheidet das Niederzurren vom Formschluss-Verfahren?
 

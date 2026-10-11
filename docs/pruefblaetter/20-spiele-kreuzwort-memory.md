@@ -194,7 +194,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Lenkungsausschuss | Entscheidet grundsätzlich und überwacht ein Projekt |
 | Meilenstein | Wichtiges, terminiertes Zwischenergebnis im Projekt |
 | Stellenbeschreibung | Hält Aufgaben und Anforderungen einer Position fest |
-| Vier-Stufen-Methode | Vormachen, Nachmachen, Üben, Erfolgskontrolle |
+| Vier-Stufen-Methode | Vorbereiten, Vormachen, Nachmachen, Üben |
 | Hygienefaktor | Verhindert Unzufriedenheit, motiviert aber nicht allein |
 | Mediation | Konfliktklärung mit neutraler dritter Person |
 | Mentoring | Erfahrene Fachkraft begleitet Neue eher informell |
@@ -610,7 +610,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | ABC-Analyse | Artikel nach ihrem Wertanteil einteilen |
 | Sicherheitsbestand | Zusätzlicher Puffer gegen Schwankungen |
 | Kombinierter Verkehr | Mehrere Verkehrsträger, nur die Ladeeinheit wechselt |
-| Modal Shift | Verlagerung der Fracht von der Straße auf Schiene |
+| Modal Shift | Verlagerung der Fracht von der Straße auf Schiene/Binnenschiff |
 
 **Runde 4: Führung, Team und Ausbildung**
 
@@ -769,7 +769,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | PUFFER | 6 | Zeitlicher Spielraum eines Vorgangs, ohne das Projektende zu verschieben. | Auf dem kritischen Pfad ist er null. |
 | RENDITE | 7 | Kennzahl für den Ertrag einer Immobilie im Verhältnis zum Kaufpreis. | Brutto, netto oder als Objektwert gerechnet. |
 | RISIKO | 6 | Mögliche Gefahr, die Erfolg oder Geld eines Projekts bedroht. | Wird nach Wahrscheinlichkeit und Schaden bewertet. |
-| ROHBAU | 6 | Erste Bauphase: Wände, Decken und tragende Teile, noch ohne Ausbau. | Danach folgt der Innenausbau. |
+| ROHBAU | 6 | Bauphase nach den Erdarbeiten: Wände, Decken und tragende Teile, noch ohne Ausbau. | Danach folgt der Innenausbau. |
 | ROHRBRUCH | 9 | Plötzlicher Schaden an einer Leitung, bei dem Wasser austritt. | Muss sofort bearbeitet werden. |
 | WARTUNG | 7 | Regelmäßige Maßnahme, die den Sollzustand einer Anlage bewahrt. | Zum Beispiel für die Heizung. |
 | ZUSCHLAG | 8 | Zusage an die Firma, die nach der Angebotsprüfung den Auftrag erhält. | Folgt auf Ausschreibung und Prüfung der Angebote. |

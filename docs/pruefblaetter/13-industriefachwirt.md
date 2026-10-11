@@ -196,8 +196,8 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Begriff | Zone |
 | --- | --- |
 | Das eingelagerte Material bindet Kapital und verursacht Lagerkosten | Vorratsbeschaffung |
-| Eignet sich, wenn der Bedarf nicht zuverlässig vorhersagbar ist | Vorratsbeschaffung |
-| Setzt voraus, dass Lieferzeiten und Flexibilität zum Auftragstermin passen | Einzelbeschaffung |
+| Hält Material bereit, damit auch bei kurzfristigem Bedarf sofort geliefert werden kann | Vorratsbeschaffung |
+| Das Material wird erst für einen einmaligen, konkreten Auftragsbedarf bestellt | Einzelbeschaffung |
 | Kapitalbindung sinkt, weil kein Bestand ohne konkreten Auftrag aufgebaut wird | Einzelbeschaffung |
 | Lagerbestände sinken deutlich, weil die Lieferung laufend auf den Fertigungsbedarf abgestimmt ist | Just-in-Time (JIT) |
 | Die Lieferung erfolgt bedarfssynchron, die Reihenfolge der Teile ist dabei nicht vorgegeben | Just-in-Time (JIT) |
@@ -247,14 +247,14 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-### Ishikawa-Diagramm (Ursachenkategorien) (4 Fragen) — Zonen: Mensch · Maschine · Material · Methode · Mitwelt · Management
+### Ishikawa-Diagramm (6M) (4 Fragen) — Zonen: Mensch · Maschine · Material · Methode · Mitwelt (Umwelt) · Management
 
 **Besonders prüfen:**
-- ⚠ **Kategorien des Kurses (Thema 6.3): Mensch, Maschine, Material, Methode, Mitwelt, Management** — nicht „Milieu“ und „Messung“ wie in anderen Quellen; Hinweis in der Erklärung von Q-6.3-16.
+- ⚠ **Kategorien des Kurses (Thema 6.3): Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management** — nicht „Messung“ wie in anderen Quellen; Hinweis in der Erklärung von Q-6.3-16. Seit dem 10.10.2026 dasselbe Instrument (6M) wie im Technischen Fachwirt.
 - ⚠ Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung („Prüfmittel und Schulungen nicht bereitgestellt“, „Stückzahl vor Qualität“). Die Klammerzusätze in Q-6.3-13 sind allgemeine Deutungen.
 - ⚠ Grenzfälle: „Beleuchtung am Prüfplatz zu schwach“ = Mitwelt; „Bediener ermüdet nach Überstunden“ = Mensch (könnte als Ressourcenthema/Management gelesen werden).
 
-#### Q-6.3-13 · Ishikawa-Diagramm (Ursachenkategorien) (Leicht)
+#### Q-6.3-13 · Ishikawa-Diagramm (6M) (Leicht)
 
 *Ordne die möglichen Ursachen eines Qualitätsproblems in der Fertigung der passenden Ursachenkategorie zu.*
 
@@ -266,7 +266,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Lötpaste aus fehlerhafter Charge | Material |
 | Zugekaufte Leiterplatten-Rohlinge entsprechen nicht der Spezifikation | Material |
 | Arbeitsanweisung für das Löten uneindeutig | Methode |
-| Hallentemperatur und Luftfeuchte schwanken | Mitwelt |
+| Hallentemperatur und Luftfeuchte schwanken | Mitwelt (Umwelt) |
 | Zielvorgaben widersprüchlich, Verantwortung ungeklärt | Management |
 
 **Erklärung (so sehen Lernende sie):**
@@ -282,7 +282,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### Q-6.3-14 · Ishikawa-Diagramm (Ursachenkategorien) (Mittel)
+#### Q-6.3-14 · Ishikawa-Diagramm (6M) (Mittel)
 
 *Die AOI und der Funktionstest zeigen bei Leiterplatten gehäuft Lötfehler. Ordne die möglichen Ursachen der passenden Kategorie zu.*
 
@@ -294,8 +294,8 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Verarbeitete Bauteile haben ihre Lagerfähigkeit überschritten | Material |
 | Der Prüfablauf sieht nach dem Löten keine Zwischenprüfung vor | Methode |
 | Die Reihenfolge der Arbeitsschritte im Prozess ist ungünstig festgelegt | Methode |
-| Staub und Luftzug in der Halle beeinträchtigen den Lötprozess | Mitwelt |
-| Erschütterungen durch eine benachbarte Anlage stören die Bestückung | Mitwelt |
+| Staub und Luftzug in der Halle beeinträchtigen den Lötprozess | Mitwelt (Umwelt) |
+| Erschütterungen durch eine benachbarte Anlage stören die Bestückung | Mitwelt (Umwelt) |
 | Die Qualitätsziele der Abteilungen widersprechen sich, niemand fühlt sich zuständig | Management |
 
 **Erklärung (so sehen Lernende sie):**
@@ -311,7 +311,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### Q-6.3-15 · Ishikawa-Diagramm (Ursachenkategorien) (Mittel)
+#### Q-6.3-15 · Ishikawa-Diagramm (6M) (Mittel)
 
 *Sensorik-Baugruppen fallen im Funktionstest gehäuft aus. Ordne die möglichen Ursachen der passenden Kategorie zu.*
 
@@ -323,8 +323,8 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Gelieferte Sensorelemente streuen stark in ihren elektrischen Werten | Material |
 | Die Prüfanweisung legt keine Reihenfolge der Messpunkte fest | Methode |
 | Der Ablauf der Endprüfung ist in zwei Abteilungen unterschiedlich beschrieben | Methode |
-| Im Prüffeld treten elektrische Störungen durch benachbarte Maschinen auf | Mitwelt |
-| Im Sommer steigt die Raumtemperatur am Prüfplatz über den zulässigen Bereich | Mitwelt |
+| Im Prüffeld treten elektrische Störungen durch benachbarte Maschinen auf | Mitwelt (Umwelt) |
+| Im Sommer steigt die Raumtemperatur am Prüfplatz über den zulässigen Bereich | Mitwelt (Umwelt) |
 | Die Leitung stellt Prüfmittel und Schulungen nicht bereit, obwohl Qualität als Ziel gilt | Management |
 | Die Freigabe abweichender Teile ist zwischen Fertigung und Qualitätswesen nicht geregelt | Management |
 
@@ -341,7 +341,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### Q-6.3-16 · Ishikawa-Diagramm (Ursachenkategorien) (Schwer)
+#### Q-6.3-16 · Ishikawa-Diagramm (6M) (Schwer)
 
 *Die Lötqualität in der SMD-Fertigung schwankt. Ordne die möglichen Ursachen der passenden Kategorie zu.*
 
@@ -354,8 +354,8 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Ein Zulieferer liefert Lötpaste, deren Zusammensetzung von der Spezifikation abweicht | Material |
 | Leiterplatten-Rohlinge eines neuen Lieferanten haben eine abweichende Oberflächenbeschaffenheit | Material |
 | Die Anweisung beschreibt zwei Lötschritte in widersprüchlicher Reihenfolge | Methode |
-| Am Lötbereich entstehen durch einen Hallenzugang starker Luftzug und Staubeintrag | Mitwelt |
-| Die Beleuchtung am Prüfplatz ist zu schwach, optische Fehler werden übersehen | Mitwelt |
+| Am Lötbereich entstehen durch einen Hallenzugang starker Luftzug und Staubeintrag | Mitwelt (Umwelt) |
+| Die Beleuchtung am Prüfplatz ist zu schwach, optische Fehler werden übersehen | Mitwelt (Umwelt) |
 | Die Leitung gibt Stückzahl vor Qualität vor und stellt keine Zeit für Prüfungen bereit | Management |
 
 **Erklärung (so sehen Lernende sie):**
@@ -592,7 +592,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 | Material und Fertigung sind hier vollständig erfasst, die Kosten für Verwaltung und Vertrieb fehlen noch | Herstellkosten |
 | Hier sind erstmals alle Kostenbereiche des Betriebs im Auftrag enthalten, ein Gewinn fehlt noch | Selbstkosten |
 | Auf diesen Betrag wird der Gewinnzuschlag prozentual aufgeschlagen | Selbstkosten |
-| Hier entscheidet sich, wie viel Gewinnaufschlag der Markt verträgt, bevor der Preis an den Kunden geht | Angebotspreis |
+| Selbstkosten zuzüglich Gewinnzuschlag ergeben diesen Wert | Angebotspreis |
 | Erster Wert im Schema, den der Kunde zu sehen bekommt | Angebotspreis |
 
 **Erklärung (so sehen Lernende sie):**
@@ -984,12 +984,12 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### kosten-leistungen · 13 — Welche Größe steht am Ende der Zuschlagskalkulation fest, nachdem zu den Einzelkosten eines Auftrags die anteiligen Gemeinkosten hinzugerechnet wurden?
+#### kosten-leistungen · 13 — Welche Größe steht am Ende der Zuschlagskalkulation fest, nachdem zu den Einzelkosten eines Auftrags die anteiligen Material-, Fertigungs-, Verwaltungs- und Vertriebsgemeinkosten hinzugerechnet wurden?
 
 - ✔ **A:** Die Selbstkosten des Auftrags
 - **B:** Der Deckungsbeitrag des Auftrags
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Material- und Fertigungseinzelkosten plus anteilige Gemeinkosten über die Zuschlagssätze aus dem BAB ergeben die Selbstkosten des Auftrags (siehe Thema 2.2).
+**Rückmeldung bei richtiger Antwort:** Richtig! Material- und Fertigungseinzelkosten plus die anteiligen Material-, Fertigungs-, Verwaltungs- und Vertriebsgemeinkosten über die Zuschlagssätze ergeben die Selbstkosten des Auftrags (siehe Thema 2.2).
 
 **Rückmeldung bei falscher Antwort:** Nicht ganz. Der Deckungsbeitrag gehört zur Teilkostenrechnung und entsteht aus dem Erlös abzüglich der variablen Kosten. Die Zuschlagskalkulation mündet in den Selbstkosten (siehe Thema 2.2).
 

@@ -1,10 +1,10 @@
-# Prüfblatt Glossar (157 Einträge)
+# Prüfblatt Glossar (158 Einträge)
 
 Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-*/*/glossar.md` (F-165) — hier die Fassung des Kurses *Systemintegration*; die anderen drei Fachinformatiker-Kurse enthalten dieselben Fachgebiete FU1–FU7 mit denselben Einträgen (nur der Kurs-Kopf der Datei unterscheidet sich). **Alle Definitionen sind Entwürfe** (Feld „Geprüft: nein“).
 
 **So prüfst du:** Je Eintrag die Kurzdefinition (1–3 Sätze, die Lernende nach einer Antwort im Popover sehen) gegen die Theorie (Thema/Abschnitt) und gegen dein Fachwissen prüfen. Nach der Prüfung wird in der Datei `Geprüft: ja` gesetzt (für alle vier Kurse). Spalte „✓“: ☐ in Ordnung / Änderung eintragen.
 
-## FU1 · Projekt- und Auftragsabwicklung (21)
+## FU1 · Projekt- und Auftragsabwicklung (22)
 
 | # | Begriff (auch) | Thema · Abschnitt | Definition | ✓ / Änderung |
 | --- | --- | --- | --- | --- |
@@ -29,6 +29,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-*/*/glossar.md` (F-165
 | 19 | **Abnahmeprotokoll** | 1.3 · Übergabe und Abnahme | Protokoll über die Abnahme einer Leistung. Es hält u. a. Gegenstand, Teilnehmende, Prüfergebnis und festgestellte Mängel fest und wird von beiden Seiten unterschrieben. | ☐ |
 | 20 | **Soll-Ist-Vergleich** | 1.3 · Kosten erfassen und im Soll-Ist-Vergleich bewerten | Gegenüberstellung geplanter Werte (Soll) und tatsächlicher Werte (Ist). Die Abweichung ergibt sich aus Ist minus Soll, auch prozentual bezogen auf das Soll. | ☐ |
 | 21 | **Nachkalkulation** | 1.3 · Kosten erfassen und im Soll-Ist-Vergleich bewerten | Auswertung der tatsächlich angefallenen Kosten eines Auftrags im Vergleich zur Planung. Sie dient der Verbesserung künftiger Angebote. | ☐ |
+| 22 | **Brevanta IT-Systemhaus GmbH** (auch: Brevanta) | 1.1 · Warum Planung zum Kern des Berufs gehört | Fiktives Fallunternehmen dieser Kurse: ein IT-Systemhaus mit rund 220 Beschäftigten und vier Bereichen: Softwareentwicklung für Kunden, Systemintegration und Managed Services, Datenanalyse sowie Smart-Factory- und IoT-Vernetzung. | ☐ |
 
 ## FU2 · IT-Systeme beurteilen und IT-Arbeitsplatz einrichten (19)
 
@@ -149,7 +150,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-*/*/glossar.md` (F-165
 | 5 | **Prinzip der minimalen Rechte** | 6.1 · Schutzmaßnahmen: technisch und organisatorisch | Jede Person und jedes System erhält nur die Rechte, die für die jeweilige Aufgabe nötig sind. | ☐ |
 | 6 | **Mehrfaktor-Authentifizierung** (auch: MFA) | 6.1 · Verschlüsselung und Authentifizierung — Grundlagen | Verfahren, das mindestens zwei unterschiedliche Faktoren (Wissen, Besitz, Eigenschaft) kombiniert. Es schützt auch dann noch, wenn ein Passwort abgegriffen wurde. | ☐ |
 | 7 | **Pseudonymisierung** (auch: pseudonymisiert) | 6.2 · Zentrale Begriffe | Identifizierende Merkmale werden durch Kennungen ersetzt, die Zuordnung ist mit getrennt aufbewahrten Zusatzinformationen aber noch möglich. Die Daten bleiben personenbezogen. | ☐ |
-| 8 | **Anonymisierung** (auch: anonymisiert) | 6.2 · Zentrale Begriffe | Der Personenbezug wird so entfernt, dass die Person nicht mehr oder nur mit unverhältnismäßigem Aufwand identifizierbar ist. Anonyme Daten fallen nicht mehr unter die DSGVO. | ☐ |
+| 8 | **Anonymisierung** (auch: anonymisiert) | 6.2 · Zentrale Begriffe | Der Personenbezug wird so entfernt, dass die Person mit allen Mitteln, die nach allgemeinem Ermessen wahrscheinlich eingesetzt werden, nicht mehr identifiziert werden kann. Anonyme Daten fallen nicht mehr unter die DSGVO. | ☐ |
 | 9 | **Auftragsverarbeiter** (auch: Auftragsverarbeitung) | 6.2 · Zentrale Begriffe | Wer personenbezogene Daten im Auftrag und nach Weisung des Verantwortlichen verarbeitet. Der Verantwortliche entscheidet dagegen über Zwecke und Mittel der Verarbeitung. | ☐ |
 | 10 | **Zweckbindung** | 6.2 · Grundsätze der Verarbeitung | Grundsatz, nach dem Daten für festgelegte, eindeutige Zwecke erhoben und nicht beliebig weiterverwendet werden. | ☐ |
 | 11 | **Datenminimierung** | 6.2 · Grundsätze der Verarbeitung | Grundsatz, nach dem nur die Daten verarbeitet werden, die für den Zweck erforderlich sind. | ☐ |

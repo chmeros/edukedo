@@ -71,7 +71,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 
 | Begriff | Zone |
 | --- | --- |
-| Ein Verbindungspool, den alle Programmteile des Portals gemeinsam nutzen | Singleton |
+| Eine zentrale Konfigurationsverwaltung, von der es in der Anwendung genau eine Instanz geben darf | Singleton |
 | Die Anwendung darf nie zwei verschiedene Lizenzverwalter gleichzeitig besitzen | Singleton |
 | Statuswechsel eines Auftrags lässt Dashboard und Mailversand reagieren | Beobachter (Observer) |
 | Eine Messwert-Anzeige abonniert den Sensor und aktualisiert sich selbst | Beobachter (Observer) |
@@ -103,7 +103,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 | Der Zustand der einzigen Instanz muss bei mehreren Threads abgesichert werden | Singleton |
 | Ein nicht abgemeldeter Beobachter bleibt im Speicher hängen | Beobachter (Observer) |
 | Das Subjekt ruft bei Änderung eine update-Methode aller Angemeldeten auf | Beobachter (Observer) |
-| Der Aufrufer ruft eine Erzeugungsmethode statt new auf eine konkrete Klasse auf | Fabrikmethode (Factory) |
+| Der Aufrufer fordert über eine Erzeugungsmethode ein Objekt an; welche Unterklasse entsteht, entscheidet die Fabrik | Fabrikmethode (Factory) |
 | Neue Produktvariante ergänzen, ohne den bestehenden Aufrufer zu ändern | Fabrikmethode (Factory) |
 | Zählt zu den Architekturmustern, nicht zu den klassischen GoF-Mustern | MVC |
 | Neues Layout für die Webseite, das Model bleibt unverändert | MVC |
@@ -195,7 +195,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 | Eine Bestellung erzeugt ihre Positionen selbst und löscht sie beim eigenen Löschen | Komposition |
 | Eine Adresse, die nur zu einem Kundenkonto gehört und mit ihm gelöscht wird | Komposition |
 | Mitarbeitende einer aufgelösten Abteilung wechseln in andere Abteilungen | Aggregation |
-| Ein Student belegt mehrere Kurse, ein Kurs hat mehrere Studierende | Assoziation |
+| Studierende belegen mehrere Kurse, ein Kurs hat mehrere Studierende | Assoziation |
 
 **Erklärung (so sehen Lernende sie):**
 
@@ -220,14 +220,14 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 | Mitglieder eines aufgelösten Vereins bestehen als Privatpersonen weiter | Aggregation |
 | Der Konstruktor von Auftrag erzeugt die Positionen; ohne Auftrag keine Position | Komposition |
 | Wird der Ordner gelöscht, werden alle enthaltenen Dateien mitgelöscht | Komposition |
-| Eine Methode, die Fahrzeug erwartet, akzeptiert auch jedes Auto-Objekt | Vererbung (Generalisierung) |
+| Die Klasse Auto ist ein Fahrzeug und übernimmt dessen Attribute und Methoden | Vererbung (Generalisierung) |
 | Die Unterklasse überschreibt die geerbte Methode berechnePreis() | Vererbung (Generalisierung) |
 | Ein Dozent unterrichtet mehrere Gruppen, jede Gruppe hat genau einen Dozenten | Assoziation |
 | Eine Lieferklasse ruft eine statische Hilfsmethode einer Utility-Klasse auf | Abhängigkeit |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Entscheidend sind die Signalwörter: „kann getauscht werden / bleibt bestehen" spricht für Aggregation, „ohne … keine …/mitgelöscht" für Komposition. Eine Methode, die ein Fahrzeug erwartet und ein Auto akzeptiert, nutzt die Ersetzbarkeit durch Unterklassen (Vererbung). Der Aufruf einer statischen Hilfsmethode begründet nur eine Abhängigkeit, Multiplizitäten zwischen Dozent und Gruppe kennzeichnen eine Assoziation. In Prüfungen gilt die hier verwendete Lesart; in der Fachliteratur wird die Abgrenzung von Aggregation und Komposition teils weicher gezogen.
+> Entscheidend sind die Signalwörter: „kann getauscht werden / bleibt bestehen" spricht für Aggregation, „ohne … keine …/mitgelöscht" für Komposition. Dass ein Auto ein Fahrzeug ist und dessen Attribute und Methoden übernimmt, ist Vererbung (ist-ein-Beziehung). Der Aufruf einer statischen Hilfsmethode begründet nur eine Abhängigkeit, Multiplizitäten zwischen Dozent und Gruppe kennzeichnen eine Assoziation. In Prüfungen gilt die hier verwendete Lesart; in der Fachliteratur wird die Abgrenzung von Aggregation und Komposition teils weicher gezogen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -717,7 +717,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-anwendungsentwicklung/
 | Das Ergebnis lässt sich nicht in die ursprünglichen Daten zurückverwandeln | Hashverfahren |
 | Wird bei TLS für HTTPS beim Verbindungsaufbau eingesetzt | Asymmetrische Verschlüsselung |
 | Wird bei TLS für HTTPS für die übertragenen Daten eingesetzt | Symmetrische Verschlüsselung |
-| Eine digitale Signatur kombiniert dieses Verfahren mit einem Hashverfahren | Asymmetrische Verschlüsselung |
+| Eine digitale Signatur nutzt das Schlüsselpaar dieses Verfahrens: Signiert wird mit dem privaten, geprüft mit dem öffentlichen Schlüssel | Asymmetrische Verschlüsselung |
 
 **Erklärung (so sehen Lernende sie):**
 

@@ -14,7 +14,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 ### 10.1 Qualitätsmanagement
 
-- Erläutern Sie den prozessorientierten Ansatz der DIN ISO 9001 anhand eines Beispiels aus der Fertigung.
+- Erläutern Sie den prozessorientierten Ansatz der DIN EN ISO 9001:2015 anhand eines Beispiels aus der Fertigung.
   - Erwartung: ISO 9001 legt die konkreten Anforderungen an ein Qualitätsmanagementsystem fest, nach denen sich Unternehmen zertifizieren lassen können.
   - Erwartung: Statt Abteilungen isoliert zu betrachten, werden Tätigkeiten als zusammenhängende Prozesse mit definierten Eingaben, Abläufen und Ergebnissen verstanden.
   - Erwartung: Beispiel: der Prozess „Auftragsabwicklung Präzisionsbauteil“ von der Kundenanfrage über Konstruktion, Materialbeschaffung und Fertigung bis zur Auslieferung.
@@ -81,8 +81,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Erläutern Sie das TOP-Prinzip anhand eines Beispiels aus einer Fertigungshalle.
   - Erwartung: Das TOP-Prinzip legt die Rangfolge der Schutzmaßnahmen fest: zuerst technische, dann organisatorische, zuletzt personenbezogene Maßnahmen.
   - Erwartung: Technische Maßnahmen, z. B. eine feste Schutzabdeckung an einer Fräsmaschine, stehen an erster Stelle, weil sie die Gefahr direkt an der Quelle beseitigen oder mindern, unabhängig vom Verhalten der Beschäftigten.
-  - Erwartung: Organisatorische Maßnahmen, z. B. festgelegte Zugangswege oder begrenzte Aufenthaltsdauer in Lärmbereichen, folgen an zweiter Stelle.
+  - Erwartung: Organisatorische Maßnahmen regeln Abläufe, Zuständigkeiten und Wissen, z. B. Unterweisungen oder begrenzte Aufenthaltsdauer in Lärmbereichen, und folgen an zweiter Stelle.
   - Erwartung: Persönliche Schutzausrüstung gilt erst als letzte Maßnahme.
+  - Erwartung: Ergänzend wird in der Praxis (z. B. bei Gefahrstoffen) die Substitution vorangestellt, also das Ersetzen durch weniger Gefährliches (STOP-Prinzip).
   - Rückfrage: Wie fließt das TOP-Prinzip in die Gefährdungsbeurteilung ein?
 - Welche Schritte umfasst eine Gefährdungsbeurteilung, und wann muss sie aktualisiert werden?
   - Erwartung: Nach § 5 ArbSchG ist jeder Arbeitgeber verpflichtet, für jeden Arbeitsbereich und jede Tätigkeit eine Gefährdungsbeurteilung durchzuführen, also die mit der Arbeit verbundenen Gefährdungen systematisch zu ermitteln und zu bewerten.
@@ -94,7 +95,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Arbeitssicherheitsgesetz (ASiG) regelt die Bestellung und die Aufgaben der Fachkraft für Arbeitssicherheit und der Betriebsärztin bzw. des Betriebsarztes.
   - Erwartung: Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in allen Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes.
   - Erwartung: Die Betriebsärztin bzw. der Betriebsarzt führt insbesondere arbeitsmedizinische Vorsorgeuntersuchungen durch.
-  - Erwartung: Sicherheitsbeauftragte sind ehrenamtlich tätig, unterstützen die Beschäftigten ihres Arbeitsbereichs bei der Unfallverhütung und achten auf sicheres Arbeiten, besitzen dabei aber keine eigene Weisungsbefugnis.
+  - Erwartung: Sicherheitsbeauftragte sind ehrenamtlich tätig, unterstützen die Beschäftigten ihres Arbeitsbereichs bei der Unfallverhütung und achten auf sicheres Arbeiten, besitzen dabei aber keine eigene Weisungsbefugnis und sind in dieser Funktion nicht in die Linienhierarchie der Produktionsleitung eingebunden.
   - Rückfrage: Wer trägt nach dem Arbeitsschutzgesetz die grundsätzliche Verantwortung für den Arbeitsschutz im Betrieb?
 - Warum gilt persönliche Schutzausrüstung im TOP-Prinzip erst als letzte Maßnahme?
   - Erwartung: PSA beseitigt die Gefahr nicht, sondern mindert nur deren Auswirkung auf die einzelne Person.
@@ -104,7 +105,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum müssen Beschäftigte im Umgang mit der PSA regelmäßig unterwiesen werden?
 - Wozu dient ein Arbeitsschutzausschuss, und wer nimmt typischerweise daran teil?
   - Erwartung: Der Arbeitsschutzausschuss (ASA) dient der regelmäßigen Abstimmung zwischen allen Beteiligten des betrieblichen Arbeitsschutzes.
-  - Erwartung: In ihm beraten Arbeitgeber bzw. dessen Vertretung, Fachkraft für Arbeitssicherheit und Betriebsarzt gemeinsam Arbeitsschutzfragen.
+  - Erwartung: In ihm beraten Arbeitgeber bzw. dessen Vertretung, Fachkraft für Arbeitssicherheit und Betriebsärzt:in gemeinsam Arbeitsschutzfragen; er ist ein Beratungsgremium, kein Teil der Linienorganisation.
   - Erwartung: Außerdem nehmen typischerweise Sicherheitsbeauftragte und der Betriebsrat teil.
   - Erwartung: Die grundsätzliche Verantwortung für den Arbeitsschutz bleibt beim Arbeitgeber, im Tagesgeschäft setzt die Produktionsleitung die Maßnahmen aus der Gefährdungsbeurteilung um.
   - Rückfrage: Welche Rolle und welche Befugnisse haben Sicherheitsbeauftragte im betrieblichen Arbeitsschutz?

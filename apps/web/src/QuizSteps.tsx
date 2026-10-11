@@ -95,6 +95,23 @@ export interface McItem {
 }
 
 /**
+ * Review FL-TF-38 (11.10.2026): Die Optionen stehen im Inhalt meist in einer festen Reihenfolge (die richtige oft vorn, oft die längste),
+ * dadurch war die Lösung erratbar. Multiple Choice und Mehrfachauswahl zeigen die Optionen deshalb je Frage in zufälliger Reihenfolge.
+ * Sammeloptionen wie „Keine der genannten“ oder „Alle genannten“ bleiben am Ende, weil sie sich auf die anderen Optionen beziehen.
+ */
+const SAMMELOPTION = /^(alle|keine)\s+(der\s+|dieser\s+|obigen\s+|oben\s+)?(genannten|aufgeführten|aufgefuehrten|vorgenannten|aussagen|antworten|oben)/i;
+
+export function mischeOptionen<T extends { text: string }>(options: T[], zufall: () => number = Math.random): T[] {
+  const beweglich = options.filter((option) => !SAMMELOPTION.test(option.text.trim()));
+  const fest = options.filter((option) => SAMMELOPTION.test(option.text.trim()));
+  for (let i = beweglich.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(zufall() * (i + 1));
+    [beweglich[i], beweglich[j]] = [beweglich[j]!, beweglich[i]!];
+  }
+  return [...beweglich, ...fest];
+}
+
+/**
  * Review UXT-B-07/F-09/I-06: Nach einer Antwort steht die Lösung als Text da, nicht nur als Farbe am Begriff (WCAG 1.4.1), samt Erklärung.
  * `zeilen` nennt, was bei falsch eingeordneten Begriffen richtig gewesen wäre; die Erklärung kommt aus dem Server-Ergebnis.
  */
@@ -205,6 +222,7 @@ export function MultipleChoiceStep({
   explanation: string | null;
 }>) {
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+  const [optionen] = useState(() => mischeOptionen(item.options));
   const [feedback, setFeedback] = useState<{
     isCorrect: boolean;
     correctOptionId: string;
@@ -231,7 +249,7 @@ export function MultipleChoiceStep({
         <FachbegriffText text={item.prompt} aktiv={feedback !== null} />
       </div>
       <div className="quiz-options">
-        {item.options.map((option) => {
+        {optionen.map((option) => {
           let className = "quiz-opt";
           if (feedback) {
             if (option.id === feedback.correctOptionId) {
@@ -419,6 +437,7 @@ export function McMultiStep({
   { isCorrect: boolean; correctOptionIds: string[]; explanation: string | null }
 >) {
   const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
+  const [optionen] = useState(() => mischeOptionen(item.options));
   const [feedback, setFeedback] = useState<{
     isCorrect: boolean;
     correctOptionIds: string[];
@@ -452,7 +471,7 @@ export function McMultiStep({
       </div>
       <p className="field-hint">Mehrere Antworten können richtig sein.</p>
       <div className="quiz-options">
-        {item.options.map((option) => {
+        {optionen.map((option) => {
           const isSelected = selectedOptionIds.includes(option.id);
           let className = "quiz-opt";
           if (feedback) {

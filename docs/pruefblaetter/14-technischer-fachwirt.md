@@ -195,7 +195,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | Spindellager einer CNC-Fräsmaschine mit Fett nachschmieren | Wartung |
 | Die Führung der Fördertechnik nachjustieren, bevor sie schleift | Wartung |
 | Die Vibrationswerte an den Spindellagern auslesen und beurteilen | Inspektion |
-| Maschinenbediener prüfen vor Schichtbeginn auf Auffälligkeiten | Inspektion |
+| Maschinenbediener:innen prüfen vor Schichtbeginn auf Auffälligkeiten | Inspektion |
 | Einen gerissenen Antriebsriemen der Fördertechnik ersetzen | Instandsetzung |
 | Nach einem Lagerschaden an der Spindel das Lager erneuern | Instandsetzung |
 | Eine Schutzabdeckung nachrüsten, damit Späne die Führung nicht mehr verschmutzen | Verbesserung |
@@ -203,7 +203,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Erklärung (so sehen Lernende sie):**
 
-> Entscheidend ist, was die Maßnahme bewirkt. Nachschmieren und Nachjustieren verzögern den Abnutzungsvorrat (Wartung). Das Auslesen der Vibrationswerte und die Prüfung durch die Bediener stellen den Zustand fest und bewerten ihn (Inspektion), noch ohne einzugreifen. Der gerissene Riemen und der Lagerschaden sind Ausfälle, nach denen die Funktion wiederhergestellt wird (Instandsetzung). Schutzabdeckung und besserer Zugang machen den Betrieb zuverlässiger oder die Instandhaltung leichter (Verbesserung). Typische Verwechslung: Wird ein ausgefallenes Teil nur gleichwertig ersetzt, ist das Instandsetzung. Verbesserung liegt erst vor, wenn die Zuverlässigkeit oder Instandhaltbarkeit erhöht wird, ohne dass sich die geforderte Funktion ändert.
+> Entscheidend ist, was die Maßnahme bewirkt. Nachschmieren und Nachjustieren verzögern den Abnutzungsvorrat (Wartung). Das Auslesen der Vibrationswerte und die Prüfung durch die Bediener:innen stellen den Zustand fest und bewerten ihn (Inspektion), noch ohne einzugreifen. Der gerissene Riemen und der Lagerschaden sind Ausfälle, nach denen die Funktion wiederhergestellt wird (Instandsetzung). Schutzabdeckung und besserer Zugang machen den Betrieb zuverlässiger oder die Instandhaltung leichter (Verbesserung). Typische Verwechslung: Wird ein ausgefallenes Teil nur gleichwertig ersetzt, ist das Instandsetzung. Verbesserung liegt erst vor, wenn die Zuverlässigkeit oder Instandhaltbarkeit erhöht wird, ohne dass sich die geforderte Funktion ändert.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -220,7 +220,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 | Begriff | Zone |
 | --- | --- |
-| Maschinenbediener reinigen und schmieren ihre Maschine selbst als Teil der autonomen Instandhaltung | Wartung |
+| Maschinenbediener:innen reinigen und schmieren ihre Maschine selbst als Teil der autonomen Instandhaltung | Wartung |
 | Kühlschmierstoffbehälter und Filter der Drehmaschine in festen Abständen reinigen | Wartung |
 | Den Temperaturverlauf der Spindel auswerten und beurteilen, ob ein Eingriff nötig ist | Inspektion |
 | Den Zustand des Schweißbrenners begutachten und bewerten, ob er noch einsatzfähig ist | Inspektion |
@@ -231,7 +231,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Erklärung (so sehen Lernende sie):**
 
-> Zwei Trennlinien sind wichtig. Erstens: Wartung greift ein und bremst den Verschleiß (Reinigen, Schmieren), Inspektion stellt nur fest und beurteilt, ohne den Zustand selbst zu verändern. Auch die einfache Wartung durch Maschinenbediener bleibt Wartung, wenn sie reinigen und schmieren. Zweitens: Instandsetzung stellt nach einem Ausfall die bisherige Funktion wieder her, Verbesserung erhöht Zuverlässigkeit oder Instandhaltbarkeit, ohne die geforderte Funktion zu ändern, und geschieht unabhängig von einem aktuellen Ausfall. Typische Verwechslung: Der Austausch eines Bauteils ist nicht automatisch Instandsetzung. Wird er vorsorglich und mit dem Ziel größerer Zuverlässigkeit an allen Maschinen vorgenommen, ist er eine Verbesserung. Hinweis: Instandhaltungsstrategien wie vorbeugend, korrektiv oder zustandsorientiert sind keine Zonen dieser Zuordnung, sie legen fest, wann Grundmaßnahmen ausgelöst werden.
+> Zwei Trennlinien sind wichtig. Erstens: Wartung greift ein und bremst den Verschleiß (Reinigen, Schmieren), Inspektion stellt nur fest und beurteilt, ohne den Zustand selbst zu verändern. Auch die einfache Wartung durch Maschinenbediener:innen bleibt Wartung, wenn sie reinigen und schmieren. Zweitens: Instandsetzung stellt nach einem Ausfall die bisherige Funktion wieder her, Verbesserung erhöht Zuverlässigkeit oder Instandhaltbarkeit, ohne die geforderte Funktion zu ändern, und geschieht unabhängig von einem aktuellen Ausfall. Typische Verwechslung: Der Austausch eines Bauteils ist nicht automatisch Instandsetzung. Wird er vorsorglich und mit dem Ziel größerer Zuverlässigkeit an allen Maschinen vorgenommen, ist er eine Verbesserung. Hinweis: Instandhaltungsstrategien wie vorbeugend, korrektiv oder zustandsorientiert sind keine Zonen dieser Zuordnung, sie legen fest, wann Grundmaßnahmen ausgelöst werden.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -245,8 +245,8 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 ### TOP-Prinzip im Arbeitsschutz (4 Fragen) — Zonen: Technische Maßnahmen · Organisatorische Maßnahmen · Personenbezogene Maßnahmen
 
 **Besonders prüfen:**
-- ⚠ **Rangfolge laut Kurs: TOP (Technische, Organisatorische, Personenbezogene Maßnahmen)**, nicht STOP mit Substitution an erster Stelle wie in anderen Quellen; Hinweis in der Erklärung von Q-10.3-18. Soll die Substitution ergänzt werden (4 Zonen)?
-- ⚠ Die Unterweisung nennt der Kurs nur bei der Unfallverhütung, ohne sie einer TOP-Gruppe zuzuweisen; hier als organisatorisch eingeordnet (abgegrenzt in der Erklärung von Q-10.3-15). Belegt sind Schutzabdeckung, Schutzgitter, Verkleidung, Not-Halt, Zugangswege, Sicherheitsabstand, Aufenthaltsdauer im Lärmbereich, Gehörschutz, Schutzbrille, Sicherheitsschuhe, Schutzhandschuhe; dazu kommen übliche Beispiele derselben Kategorien (Lichtschranke, Zweihandbedienung, Absaugung, Betriebsanweisung, Atemschutz u. a.).
+- ⚠ **Rangfolge laut Kurs: TOP (Technische, Organisatorische, Personenbezogene Maßnahmen)**; die Theorie in 10.3 nennt seit dem 11.10.2026 auch die Substitution (STOP) in einem eigenen Absatz (K-10.3-21, Hinweis in der Erklärung von Q-10.3-18). Die Zonen-Items bleiben bei TOP. Soll das Instrument vierzonig (STOP) werden?
+- ⚠ Die Unterweisung nennt der Kurs nur bei der Unfallverhütung, ohne sie einer TOP-Gruppe zuzuweisen; hier als organisatorisch eingeordnet (abgegrenzt in der Erklärung von Q-10.3-15). Belegt sind Schutzabdeckung, Schutzgitter, Verkleidung, Not-Halt, Aufenthaltsdauer im Lärmbereich, Gehörschutz, Schutzbrille, Sicherheitsschuhe, Schutzhandschuhe; dazu kommen übliche Beispiele derselben Kategorien (Lichtschranke, Zweihandbedienung, Absaugung, Betriebsanweisung, Atemschutz u. a.).
 - ⚠ Grenzfälle: Absaugung = technisch (wirkt an der Quelle), Wartungsplan für Schutzeinrichtungen = organisatorisch, Not-Halt = technisch.
 
 #### Q-10.3-15 · TOP-Prinzip im Arbeitsschutz (Leicht)
@@ -257,14 +257,14 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | --- | --- |
 | Feste Schutzabdeckung an der Fräsmaschine | Technische Maßnahmen |
 | Schutzgitter vor dem Gefahrenbereich der Stanzmaschine | Technische Maßnahmen |
-| Festgelegte Zugangswege durch die Fertigungshalle | Organisatorische Maßnahmen |
+| Pausenregelung mit festen Erholzeiten bei körperlich belastender Arbeit | Organisatorische Maßnahmen |
 | Regelmäßige Unterweisung zu den Gefährdungen am Arbeitsplatz | Organisatorische Maßnahmen |
 | Gehörschutz an der lauten Stanzmaschine | Personenbezogene Maßnahmen |
 | Schutzbrille bei der spanenden Bearbeitung | Personenbezogene Maßnahmen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Technische Maßnahmen wirken an der Gefahrenquelle selbst (Abdeckung, Schutzgitter), organisatorische regeln Abläufe, Wege und Wissen (Zugangswege, Unterweisung), personenbezogene schützen die einzelne Person mit persönlicher Schutzausrüstung (Gehörschutz, Schutzbrille). Typische Verwechslung: Die Unterweisung gilt nicht als personenbezogene Maßnahme, nur weil sie sich an Personen richtet — sie ist eine organisatorische Regelung. Personenbezogen im Sinne des TOP-Prinzips ist vor allem die persönliche Schutzausrüstung.
+> Technische Maßnahmen wirken an der Gefahrenquelle selbst (Abdeckung, Schutzgitter), organisatorische regeln Abläufe, Zeiten und Wissen (Pausenregelung, Unterweisung), personenbezogene schützen die einzelne Person mit persönlicher Schutzausrüstung (Gehörschutz, Schutzbrille). Typische Verwechslung: Die Unterweisung gilt nicht als personenbezogene Maßnahme, nur weil sie sich an Personen richtet — sie ist eine organisatorische Regelung. Personenbezogen im Sinne des TOP-Prinzips ist vor allem die persönliche Schutzausrüstung.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -285,7 +285,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | Not-Halt-Einrichtung zum sofortigen Stillsetzen der Maschine | Technische Maßnahmen |
 | Begrenzte Aufenthaltsdauer im Lärmbereich der Stanzerei | Organisatorische Maßnahmen |
 | Betriebsanweisung für das sichere Bedienen der Maschine | Organisatorische Maßnahmen |
-| Festlegung eines Sicherheitsabstands zur laufenden Maschine | Organisatorische Maßnahmen |
+| Tägliche Sichtkontrolle der Schutzeinrichtungen vor Schichtbeginn durch die Schichtleitung | Organisatorische Maßnahmen |
 | Sicherheitsschuhe beim Transport schwerer Werkstücke | Personenbezogene Maßnahmen |
 | Schutzhandschuhe beim Umgang mit scharfkantigen Werkstücken | Personenbezogene Maßnahmen |
 
@@ -315,11 +315,11 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | Nur unterwiesene Beschäftigte dürfen die Maschine bedienen | Organisatorische Maßnahmen |
 | Feste Wartungs- und Reinigungszeiten bei stillstehender Maschine | Organisatorische Maßnahmen |
 | Atemschutz bei Arbeiten mit starker Staubentwicklung | Personenbezogene Maßnahmen |
-| Schutzhelm bei Arbeiten unter schwebenden Lasten | Personenbezogene Maßnahmen |
+| Sicherheitsschuhe beim Transport schwerer Paletten | Personenbezogene Maßnahmen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Entscheidend ist, wo die Maßnahme ansetzt. Die Schutztür, die Zweihandbedienung und die Absaugung sind bauliche bzw. maschinentechnische Lösungen und wirken unabhängig vom Verhalten der Beschäftigten. Schichteinteilung, Zutrittsbeschränkung auf unterwiesene Personen und feste Wartungszeiten regeln dagegen Abläufe und Zuständigkeiten, ohne die Maschine zu verändern. Atemschutz und Schutzhelm sind persönliche Schutzausrüstung. Typische Verwechslung: Eine Absaugung wird leicht als „Schutz der Person“ gedeutet, beseitigt die Belastung aber an der Quelle und ist deshalb technisch.
+> Entscheidend ist, wo die Maßnahme ansetzt. Die Schutztür, die Zweihandbedienung und die Absaugung sind bauliche bzw. maschinentechnische Lösungen und wirken unabhängig vom Verhalten der Beschäftigten. Schichteinteilung, Zutrittsbeschränkung auf unterwiesene Personen und feste Wartungszeiten regeln dagegen Abläufe und Zuständigkeiten, ohne die Maschine zu verändern. Atemschutz und Sicherheitsschuhe sind persönliche Schutzausrüstung. Typische Verwechslung: Eine Absaugung wird leicht als „Schutz der Person“ gedeutet, beseitigt die Belastung aber an der Quelle und ist deshalb technisch.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -348,7 +348,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Erklärung (so sehen Lernende sie):**
 
-> Im Sinne der Rangfolge sollte Vantera zuerst prüfen, ob die Gefahr technisch beseitigt oder gemindert werden kann (Lichtschranke, Schutzeinrichtung, Schutzzaun), danach Abläufe organisatorisch absichern (Markierungen, Regel zur Einzelarbeit, Wartungsplan) und erst als letzte Stufe persönliche Schutzausrüstung vorsehen. Typische Verwechslung: Ein Wartungsplan für Schutzeinrichtungen ist keine technische Maßnahme, auch wenn er technische Einrichtungen betrifft — er regelt, wann und durch wen geprüft wird, und ist deshalb organisatorisch. Hinweis zur Quellenlage: Andere Quellen ergänzen vor den drei Gruppen eine Substitution an erster Stelle (STOP-Prinzip: Substitution, Technisch, Organisatorisch, Persönlich). Der Kurs führt die Rangfolge TOP, hier gilt die Kursfassung.
+> Im Sinne der Rangfolge sollte Vantera zuerst prüfen, ob die Gefahr technisch beseitigt oder gemindert werden kann (Lichtschranke, Schutzeinrichtung, Schutzzaun), danach Abläufe organisatorisch absichern (Markierungen, Regel zur Einzelarbeit, Wartungsplan) und erst als letzte Stufe persönliche Schutzausrüstung vorsehen. Typische Verwechslung: Ein Wartungsplan für Schutzeinrichtungen ist keine technische Maßnahme, auch wenn er technische Einrichtungen betrifft — er regelt, wann und durch wen geprüft wird, und ist deshalb organisatorisch. Hinweis: Dem TOP-Prinzip wird in der Praxis die Substitution vorangestellt (STOP: Substitution, Technisch, Organisatorisch, Persönlich, siehe Theorie); in dieser Aufgabe wird die Zuordnung zu den drei Gruppen T, O und P abgefragt.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -359,12 +359,12 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-### Ishikawa-Diagramm (6M) (4 Fragen) — Zonen: Mensch · Maschine · Material · Methode · Milieu (Umwelt) · Management
+### Ishikawa-Diagramm (6M) (4 Fragen) — Zonen: Mensch · Maschine · Material · Methode · Mitwelt (Umwelt) · Management
 
 **Besonders prüfen:**
-- ⚠ **6M des Kurses (Thema 10.1): Mensch, Maschine, Material, Methode, Milieu (Umwelt), Management** — anders als im Industriefachwirt-Kurs (dort Mitwelt); hier ein eigenes Modell. Andere Quellen benennen teils Messung statt Management (Hinweis in Q-10.1-19); Messmittel und Kalibrierung wurden bewusst nicht verwendet.
-- ⚠ Der Kurs erklärt „Management“ nur als Namen; gedeutet als Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung (Erklärung von Q-10.1-19 sagt ausdrücklich, dass die Kurstheorie dazu keine Einzelheiten nennt).
-- ⚠ Grenzfälle: Kühlschmierstoff mit abweichender Zusammensetzung = Material (Hilfsstoff); Spannfutter, Steuerung und Drehzahlregler = Maschine; Beleuchtung am Prüfplatz = Milieu; Schnittparameter im Arbeitsplan und Stichprobenumfang im Prüfplan = Methode; „falsch eingespannt trotz klarer Vorgabe“ = Mensch, „Arbeitsplan nennt Spannreihenfolge nicht“ = Methode.
+- ⚠ **6M des Kurses (Thema 10.1): Mensch, Maschine, Material, Methode, Mitwelt (Umwelt), Management** — seit dem 10.10.2026 einheitlich mit dem Industriefachwirt-Kurs (Thema 6.3). Andere Quellen benennen teils Messung statt Management (Hinweis in Q-10.1-19); Messmittel und Kalibrierung wurden bewusst nicht verwendet.
+- ⚠ Die Theorie in 10.1 hat seit dem 11.10.2026 einen Abschnitt „Kursfassung der 6M“: Management = Vorgaben, Ziele, Zuständigkeiten, Organisation und Ressourcenbereitstellung, mit Abgrenzungsregel zum Menschen.
+- ⚠ Grenzfälle: Kühlschmierstoff mit abweichender Zusammensetzung = Material (Hilfsstoff); Spannfutter, Steuerung und Drehzahlregler = Maschine; Beleuchtung am Prüfplatz = Mitwelt; Schnittparameter im Arbeitsplan und Stichprobenumfang im Prüfplan = Methode; Bedienfehler wie falsches Korrekturmaß oder verwechselte Werkzeugnummern = Mensch, „Arbeitsplan nennt Spannreihenfolge nicht“ = Methode.
 
 #### Q-10.1-16 · Ishikawa-Diagramm (6M) (Leicht)
 
@@ -372,18 +372,18 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 | Begriff | Zone |
 | --- | --- |
-| Unzureichende Schulung der Bedienenden an der CNC-Drehmaschine | Mensch |
-| Ermüdete Bedienende übersehen Abweichungen am Schichtende | Mensch |
+| Die Bedienperson der CNC-Drehmaschine gibt beim Einrichten ein falsches Korrekturmaß ein | Mensch |
+| Die Bedienperson verwechselt beim Rüsten zwei Werkzeugnummern | Mensch |
 | Werkzeugverschleiß an der Schneidplatte | Maschine |
 | Ausgeschlagene Lager der Hauptspindel | Maschine |
 | Rohmaterialcharge außerhalb der Toleranz | Material |
 | Uneindeutige Arbeitsanweisung für das Drehen der Welle | Methode |
-| Hallentemperatur schwankt im Tagesverlauf | Milieu (Umwelt) |
+| Hallentemperatur schwankt im Tagesverlauf | Mitwelt (Umwelt) |
 | Vorgaben und Verantwortlichkeiten sind nicht geklärt | Management |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Das Ishikawa-Diagramm sammelt mögliche Ursachen nach den 6M: Mensch (Qualifikation, Verhalten), Maschine (Anlagen, Werkzeuge), Material (Roh- und Zukaufteile), Methode (Verfahren, Arbeits- und Prüfanweisungen), Milieu (Umwelt) und Management (Vorgaben, Ziele, Zuständigkeiten, Organisation). Typische Verwechslung: Eine uneindeutige Arbeitsanweisung ist ein Problem der Methode, nicht des Menschen, der sie ausführt.
+> Das Ishikawa-Diagramm sammelt mögliche Ursachen nach den 6M: Mensch (Handeln und Verhalten der einzelnen Person), Maschine (Anlagen, Werkzeuge), Material (Roh- und Zukaufteile), Methode (Verfahren, Arbeits- und Prüfanweisungen), Mitwelt (Umwelt) und Management (Vorgaben, Ziele, Zuständigkeiten, Organisation, Ressourcen). Typische Verwechslung: Eine uneindeutige Arbeitsanweisung ist ein Problem der Methode, nicht des Menschen, der sie ausführt. Hinweis: Hier gilt die Kursfassung der 6M mit Management (siehe Theorie).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -400,19 +400,19 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 | Begriff | Zone |
 | --- | --- |
-| Neue Mitarbeitende sind nicht in die Messprozedur eingearbeitet | Mensch |
-| Ein Bediener weicht bewusst von der Vorgabe ab, um Zeit zu sparen | Mensch |
-| Spiel in den Führungsbahnen der Maschine, Wartung überfällig | Maschine |
+| Eine Bedienperson liest die Messuhr falsch ab | Mensch |
+| Eine Bedienperson weicht bewusst von der Vorgabe ab, um Zeit zu sparen | Mensch |
+| Spiel in den Führungsbahnen der Maschine | Maschine |
 | Das Spannfutter spannt Werkstücke ungleichmäßig | Maschine |
 | Aluminiumstangen mit abweichender Werkstoffhärte vom Lieferanten | Material |
 | Kühlschmierstoff mit abweichender Zusammensetzung geliefert | Material |
 | Prüfablauf sieht keine Zwischenprüfung nach dem Schruppen vor | Methode |
-| Erschütterungen durch eine Presse der Nachbarhalle | Milieu (Umwelt) |
+| Erschütterungen durch eine Presse der Nachbarhalle | Mitwelt (Umwelt) |
 | Für die Instandhaltung der Maschinen ist kein Budget eingeplant | Management |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Bei jeder Ursache lohnt die Frage, wo sie ihren Ursprung hat: im Handeln oder Wissen einer Person (Mensch), im technischen Zustand der Anlage (Maschine), im gelieferten Stoff (Material), im festgelegten Verfahren (Methode), in der Umgebung (Milieu) oder in Rahmenbedingungen, die die Leitung setzt, etwa Ressourcen (Management). Typische Verwechslung: Das Spiel in den Führungsbahnen ist ein Maschinenproblem; dass die Wartung nicht finanziert wird, liegt dagegen auf Ebene des Managements.
+> Bei jeder Ursache lohnt die Frage, wo sie ihren Ursprung hat: im Handeln einer einzelnen Person (Mensch), im technischen Zustand der Anlage (Maschine), im gelieferten Stoff (Material), im festgelegten Verfahren (Methode), in der Umgebung (Mitwelt) oder in Rahmenbedingungen, die die Leitung setzt, etwa Ressourcen (Management). Typische Verwechslung: Das Spiel in den Führungsbahnen ist ein Maschinenproblem; dass die Wartung nicht finanziert wird, liegt dagegen auf Ebene des Managements.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -429,20 +429,20 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 | Begriff | Zone |
 | --- | --- |
-| Nachlassende Konzentration bei der Sichtprüfung am Schichtende | Mensch |
-| Fehlende Erfahrung der Maschinenführerin mit dem neuen Werkstoff | Mensch |
+| Die Prüfperson übersieht bei der Sichtprüfung einen Kratzer, obwohl die Prüfanweisung eindeutig ist | Mensch |
+| Die Bedienperson wählt irrtümlich das falsche Bearbeitungsprogramm aus | Mensch |
 | Schwingungen durch eine unwuchtige Spindel | Maschine |
 | Die Kühlmittelpumpe der Anlage fällt zeitweise aus | Maschine |
 | Werkstoffcharge mit Einschlüssen im Gefüge | Material |
 | Rohlinge mit zu großem Aufmaß vom Lieferanten | Material |
 | Die Prüfanweisung legt keine Messstelle für die Oberfläche fest | Methode |
 | Schnittparameter im Arbeitsplan unpassend gewählt | Methode |
-| Hohe Luftfeuchte in der Halle im Sommer | Milieu (Umwelt) |
+| Hohe Luftfeuchte in der Halle im Sommer | Mitwelt (Umwelt) |
 | Qualitäts- und Terminziele widersprechen sich, Prioritäten ungeklärt | Management |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Material betrifft den gelieferten Werkstoff und die Zukaufteile, Methode das festgelegte Vorgehen (Arbeitsplan, Prüfanweisung), Maschine die Anlage und ihre Werkzeuge. Milieu (Umwelt) beschreibt die Umgebung, etwa Raumklima. Management umfasst Ziele, Vorgaben und Zuständigkeiten. Typische Verwechslung: Unpassende Schnittparameter im Arbeitsplan sind eine Frage der Methode (das festgelegte Verfahren), nicht der Maschine, auch wenn sie an der Maschine eingestellt werden.
+> Material betrifft den gelieferten Werkstoff und die Zukaufteile, Methode das festgelegte Vorgehen (Arbeitsplan, Prüfanweisung), Maschine die Anlage und ihre Werkzeuge. Mitwelt (Umwelt) beschreibt die Umgebung, etwa Raumklima. Management umfasst Ziele, Vorgaben und Zuständigkeiten. Typische Verwechslung: Unpassende Schnittparameter im Arbeitsplan sind eine Frage der Methode (das festgelegte Verfahren), nicht der Maschine, auch wenn sie an der Maschine eingestellt werden.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -455,24 +455,24 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 #### Q-10.1-19 · Ishikawa-Diagramm (6M) (Schwer)
 
-*Ordne die Ursachen einer schwankenden Maßhaltigkeit bei Vantera den Kategorien zu. Achte auf die Abgrenzung zwischen Mensch, Methode und Management sowie zwischen Maschine und Milieu.*
+*Ordne die Ursachen einer schwankenden Maßhaltigkeit bei Vantera den Kategorien zu. Achte auf die Abgrenzung zwischen Mensch, Methode und Management sowie zwischen Maschine und Mitwelt.*
 
 | Begriff | Zone |
 | --- | --- |
-| Die Maschinenführerin spannt das Werkstück trotz klarer Vorgabe falsch ein | Mensch |
-| Der Prüfer führt die Messung nicht wie vorgegeben aus, obwohl die Vorgabe eindeutig ist | Mensch |
+| Die Bedienperson spannt das Werkstück trotz klarer Vorgabe falsch ein | Mensch |
+| Die Prüfperson überträgt einen Messwert falsch ins Prüfprotokoll, obwohl die Vorgabe eindeutig ist | Mensch |
 | Der Drehzahlregler der Hauptspindel arbeitet unzuverlässig | Maschine |
 | Die Steuerung setzt Nullpunktverschiebungen nicht zuverlässig um | Maschine |
 | Halbzeug mit Eigenspannungen verzieht sich nach dem Zerspanen | Material |
 | Der Arbeitsplan nennt die Spannreihenfolge nicht | Methode |
 | Der Prüfplan legt einen zu kleinen Stichprobenumfang fest | Methode |
-| Unzureichende Beleuchtung am Prüfplatz | Milieu (Umwelt) |
+| Unzureichende Beleuchtung am Prüfplatz | Mitwelt (Umwelt) |
 | Qualitätsziele für die Fertigung sind nicht festgelegt und nicht kommuniziert | Management |
 | Zuständigkeit für die Maschinenwartung zwischen Produktion und Instandhaltung ungeklärt | Management |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Ist die Vorgabe eindeutig und wird trotzdem falsch gearbeitet, liegt die Ursache beim Menschen. Fehlt die Vorgabe oder ist sie unvollständig (Arbeitsplan, Prüfplan), ist es die Methode. Sind Ziele, Verantwortung oder Zuständigkeiten nicht geklärt, liegt es beim Management; die Kurstheorie benennt dafür keine Einzelheiten, hier wird Management deshalb vorsichtig als Ebene der Vorgaben, Ziele, Zuständigkeiten und Organisation gedeutet. Der technische Zustand der Anlage gehört zur Maschine, die Umgebung (Licht, Klima, Erschütterungen) zum Milieu (Umwelt). Hinweis zur Quellenlage: Andere Quellen benennen die 6M teils anders (z. B. Mitwelt oder Messung statt Milieu bzw. als eigene Kategorie); hier gilt die Kursfassung.
+> Ist die Vorgabe eindeutig und wird trotzdem falsch gearbeitet, liegt die Ursache beim Menschen. Fehlt die Vorgabe oder ist sie unvollständig (Arbeitsplan, Prüfplan), ist es die Methode. Sind Ziele, Verantwortung oder Zuständigkeiten nicht geklärt, liegt es beim Management; die Kurstheorie benennt dafür keine Einzelheiten, hier wird Management deshalb vorsichtig als Ebene der Vorgaben, Ziele, Zuständigkeiten und Organisation gedeutet. Der technische Zustand der Anlage gehört zur Maschine, die Umgebung (Licht, Klima, Erschütterungen) zur Mitwelt (Umwelt). Hinweis zur Quellenlage: Andere Quellen benennen die 6M teils anders (z. B. Messung statt Management); hier gilt die Kursfassung mit Mitwelt und Management (siehe Theorie).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -900,14 +900,14 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### technische-unterscheidungen · 15 — Welches Qualitätswerkzeug ordnet mögliche Ursachen eines Problems den Kategorien Mensch, Maschine, Material, Methode, Milieu und Management zu?
+#### technische-unterscheidungen · 15 — Welches Qualitätswerkzeug ordnet mögliche Ursachen eines Problems den Kategorien Mensch, Maschine, Material, Methode, Mitwelt und Management zu?
 
 - ✔ **A:** Ishikawa-Diagramm
 - **B:** Pareto-Diagramm
 
 **Rückmeldung bei richtiger Antwort:** Genau! Das Ishikawa-Diagramm (Fischgräten-Diagramm) strukturiert mögliche Ursachen nach diesen Kategorien. Das Pareto-Diagramm filtert dagegen die wenigen Hauptursachen heraus (siehe Thema 10.1).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Das Pareto-Prinzip zeigt, dass wenige Ursachen den Großteil der Fehler verursachen. Die Einteilung nach Mensch, Maschine, Material, Methode, Milieu und Management gehört zum Ishikawa-Diagramm (siehe Thema 10.1).
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Das Pareto-Prinzip zeigt, dass wenige Ursachen den Großteil der Fehler verursachen. Die Einteilung nach Mensch, Maschine, Material, Methode, Mitwelt und Management gehört zum Ishikawa-Diagramm (siehe Thema 10.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

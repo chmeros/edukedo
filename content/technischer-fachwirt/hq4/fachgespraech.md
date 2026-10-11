@@ -140,7 +140,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Er wird bei bestimmten Konflikten, etwa zu Arbeitsbedingungen oder Versetzungen, nach dem Betriebsverfassungsgesetz beteiligt.
   - Erwartung: Betriebsrat und Einigungsstelle sind institutionalisierte Wege der Konfliktbeilegung, die neben die informelle Klärung im direkten Gespräch treten.
   - Erwartung: Können sich Arbeitgeber und Betriebsrat in einer mitbestimmungspflichtigen Angelegenheit nicht einigen, kann eine Einigungsstelle angerufen werden.
-  - Erwartung: Die Einigungsstelle ist ein paritätisch mit Vertretern beider Seiten und einer neutralen vorsitzenden Person besetztes Schlichtungsgremium, dessen Spruch unter bestimmten Voraussetzungen die Einigung der Betriebsparteien ersetzen kann.
+  - Erwartung: Die Einigungsstelle ist ein paritätisch mit Vertreter:innen beider Seiten und einer neutralen vorsitzenden Person besetztes Schlichtungsgremium, dessen Spruch unter bestimmten Voraussetzungen die Einigung der Betriebsparteien ersetzen kann.
   - Rückfrage: In welchen Betrieben stehen diese institutionalisierten Wege überhaupt zur Verfügung?
 - Zwei Abteilungsleitungen geraten öffentlich vor dem gesamten Team in einen offenen Streit über die Freigabe einer Bauteil-Charge. Nennen Sie die Schritte eines strukturierten Konfliktgesprächs, mit dem Sie als Werksleitung den Streit klären können, und begründen Sie, warum eine frühzeitige Klärung wichtig ist.
   - Erwartung: Es handelt sich um einen Sachkonflikt, nämlich unterschiedliche fachliche Auffassungen darüber, ob eine Bauteil-Charge mit minimaler Maßabweichung noch freigegeben werden kann.

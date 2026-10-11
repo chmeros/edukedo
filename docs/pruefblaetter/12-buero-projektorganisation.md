@@ -357,7 +357,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die ABC-Analyse klassifiziert nach Wertanteil bzw. Effekt, nicht nach Stückzahl oder Seltenheit: Eine einmalige, aber sehr teure Anschaffung ist ein A-Gut, tausende günstige Kleinteile bleiben C-Güter, auch wenn der Betrieb ohne sie nicht arbeiten könnte. Typische Verwechslung: „Unverzichtbar“ heißt nicht „A“; die Unverzichtbarkeit eines Gutes wird in anderen Analysen betrachtet (z. B. XYZ-Analyse nach der Verbrauchsregelmäßigkeit). Die Übertragung auf Aufgaben (Thema 1.4) folgt demselben Prinzip: wenige Aufgaben mit großem Effekt (A), viele Routineaufgaben mit kleinem Effekt (C). Die Klassengrenzen sind üblicherweise Richtwerte.
+> Die ABC-Analyse klassifiziert nach Wertanteil bzw. Effekt, nicht nach Stückzahl oder Seltenheit: Eine einmalige, aber sehr teure Anschaffung ist ein A-Gut, tausende günstige Kleinteile bleiben C-Güter, auch wenn der Betrieb ohne sie nicht arbeiten könnte. Typische Verwechslung: „Unverzichtbar“ heißt nicht „A“; die Unverzichtbarkeit eines Gutes wird in anderen Analysen betrachtet (z. B. in einer Betrachtung der Versorgungsrisiken). Die Übertragung auf Aufgaben (Thema 1.4) folgt demselben Prinzip: wenige Aufgaben mit großem Effekt (A), viele Routineaufgaben mit kleinem Effekt (C). Die Klassengrenzen sind üblicherweise Richtwerte.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -466,12 +466,12 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 #### projektmanagement · 4 — Welches Dokument hält die konkreten Kundenanforderungen an ein Projekt strukturiert fest?
 
-- ✔ **A:** Pflichtenheft
+- ✔ **A:** Lastenheft
 - **B:** Projektstrukturplan
 
-**Rückmeldung bei richtiger Antwort:** Genau! Das Pflichtenheft hält die Anforderungen und Wünsche der Kundschaft strukturiert fest. Der Projektstrukturplan gliedert dagegen das Projekt in Teilaufgaben (siehe Thema 2.1).
+**Rückmeldung bei richtiger Antwort:** Genau! Das Lastenheft hält die Anforderungen und Wünsche der Kundschaft strukturiert fest (das Pflichtenheft beschreibt dagegen die Umsetzung durch den Auftragnehmer). Der Projektstrukturplan gliedert dagegen das Projekt in Teilaufgaben (siehe Thema 2.1).
 
-**Rückmeldung bei falscher Antwort:** Das passt nicht. Kundenanforderungen hält das Pflichtenheft fest; der Projektstrukturplan gliedert das Projekt in Teilaufgaben (siehe Thema 2.1).
+**Rückmeldung bei falscher Antwort:** Das passt nicht. Kundenanforderungen hält das Lastenheft fest; der Projektstrukturplan gliedert das Projekt in Teilaufgaben (siehe Thema 2.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

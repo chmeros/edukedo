@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HQ3 (10.1–10.3) zu einer zusamme
 
 **Themenbezug:** 10.1 (Qualitätsmanagement) + 10.3 (Arbeitsschutz und Arbeitssicherheit)
 
-**Ausgangssituation:** Bei einem internen Audit nach DIN ISO 9001 stellt der Auditor in der Fertigungshalle 2 der Vantera Präzisionstechnik GmbH fest, dass an einer neu installierten CNC-Fräsmaschine wiederholt Bauteile mit Maßabweichungen produziert wurden. Bei der Ursachensuche zeigt sich, dass die zuständige Fachkraft aufgrund fehlender Schutzeinrichtungen an der Maschine regelmäßig unter erhöhter Unsicherheit arbeitet, was die Konzentration beeinträchtigt. Außerdem wurde für die neue Maschine bislang keine aktualisierte Gefährdungsbeurteilung erstellt. Die Geschäftsführung bittet um eine fundierte Analyse und um Maßnahmenvorschläge.
+**Ausgangssituation:** Bei einem internen Audit nach DIN EN ISO 9001:2015 stellt die Auditorin bzw. der Auditor in der Fertigungshalle 2 der Vantera Präzisionstechnik GmbH fest, dass an einer neu installierten CNC-Fräsmaschine wiederholt Bauteile mit Maßabweichungen produziert wurden. Bei der Ursachensuche zeigt sich, dass die zuständige Fachkraft aufgrund fehlender Schutzeinrichtungen an der Maschine regelmäßig unter erhöhter Unsicherheit arbeitet, was die Konzentration beeinträchtigt. Außerdem wurde für die neue Maschine bislang keine aktualisierte Gefährdungsbeurteilung erstellt. Die Geschäftsführung bittet um eine fundierte Analyse und um Maßnahmenvorschläge.
 
 **Teilaufgabe 1 (5 Punkte, bloom: verstehen):** Erläutern Sie, mit welchem Qualitätswerkzeug die möglichen Ursachen für die Maßabweichungen strukturiert nach Kategorien untersucht werden könnten, und nennen Sie die zugehörigen Kategorien.
 
@@ -36,7 +36,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HQ3 (10.1–10.3) zu einer zusamme
 
 **Themenbezug:** 10.1 (Qualitätsmanagement) + 10.2 (Umweltmanagement)
 
-**Ausgangssituation:** Die Vantera Präzisionstechnik GmbH ist bereits nach DIN ISO 9001 zertifiziert und plant nun, zusätzlich ein Umweltmanagementsystem nach DIN ISO 14001 einzuführen, um den steigenden Nachhaltigkeitsanforderungen ihrer Automobilkunden gerecht zu werden. Die Geschäftsleitung möchte beide Systeme möglichst effizient zu einem integrierten Managementsystem zusammenführen und bittet die Fachwirt-Anwärterin bzw. den Fachwirt-Anwärter um eine Einschätzung.
+**Ausgangssituation:** Die Vantera Präzisionstechnik GmbH ist bereits nach DIN EN ISO 9001:2015 zertifiziert und plant nun, zusätzlich ein Umweltmanagementsystem nach DIN EN ISO 14001:2015 einzuführen, um den steigenden Nachhaltigkeitsanforderungen ihrer Automobilkunden gerecht zu werden. Die Geschäftsleitung möchte beide Systeme möglichst effizient zu einem integrierten Managementsystem zusammenführen und bittet die Fachwirt-Anwärterin bzw. den Fachwirt-Anwärter um eine Einschätzung.
 
 **Teilaufgabe 1 (4 Punkte, bloom: verstehen):** Erläutern Sie, warum sich ISO 9001 und ISO 14001 strukturell besonders gut zu einem integrierten Managementsystem zusammenführen lassen.
 

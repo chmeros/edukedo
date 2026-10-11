@@ -40,7 +40,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus TQ3 (7.1–7.4) zu einer zusammenh
 
 **Teilaufgabe 1 (4 Punkte, bloom: verstehen):** Erläutern Sie den Unterschied zwischen der bisherigen korrektiven Instandhaltung und einer zustandsorientierten (vorausschauenden) Instandhaltung.
 
-**Teilaufgabe 2 (6 Punkte, bloom: analysieren):** Analysieren Sie, welche der drei OEE-Faktoren (Verfügbarkeit, Leistungsgrad, Qualitätsrate) durch die wiederholten ungeplanten Stillstände am stärksten beeinträchtigt werden, und begründen Sie Ihre Einschätzung.
+**Teilaufgabe 2 (6 Punkte, bloom: analysieren):** Analysieren Sie, welche der drei OEE-Faktoren (Verfügbarkeit, Leistung, Qualität) durch die wiederholten ungeplanten Stillstände am stärksten beeinträchtigt werden, und begründen Sie Ihre Einschätzung.
 
 **Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Erläutern Sie, wie mithilfe von Sensorik und der SPS der Fertigungszelle eine zustandsorientierte Instandhaltung des Spindellagers technisch umgesetzt werden könnte.
 

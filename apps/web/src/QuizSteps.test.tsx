@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, QuadrantStep, SortierenStep, TwoChoiceStep } from "./QuizSteps";
+import { BlanksStep, KurzantwortStep, MatchingStep, McMultiStep, QuadrantStep, SortierenStep, TwoChoiceStep, mischeOptionen } from "./QuizSteps";
 
 /**
  * Rückmeldung nach der Antwort (Review UXT-B-07, UXT-F-09, UXT-I-06): Die Lösung steht als Text da, nicht nur als Farbe am Begriff,
@@ -298,5 +298,35 @@ describe("TwoChoiceStep: erst wählen, dann prüfen (UXT-F-10, Entscheidung 09.1
     expect(submit.mutate.mock.calls[0]![0]).toEqual({ contentItemId: "w", selectedOptionId: "w-wahr" });
     expect(text()).toContain("Richtig!");
     expect(text()).toContain("Näherungsweise eine Kugel.");
+  });
+});
+
+describe("mischeOptionen (Review FL-TF-38)", () => {
+  const optionen = [
+    { id: "a", text: "Erste" },
+    { id: "b", text: "Zweite" },
+    { id: "c", text: "Dritte" },
+    { id: "d", text: "Vierte" },
+  ];
+
+  it("liefert dieselben Optionen und verändert das Original nicht", () => {
+    const kopie = [...optionen];
+    const gemischt = mischeOptionen(optionen, () => 0.3);
+    expect(gemischt).toHaveLength(4);
+    expect(gemischt.map((o) => o.id).sort()).toEqual(["a", "b", "c", "d"]);
+    expect(optionen).toEqual(kopie);
+  });
+
+  it("ändert die Reihenfolge, wenn der Zufall es verlangt", () => {
+    const gemischt = mischeOptionen(optionen, () => 0);
+    expect(gemischt.map((o) => o.id)).not.toEqual(["a", "b", "c", "d"]);
+  });
+
+  it("lässt Sammeloptionen wie „Keine der genannten“ am Ende", () => {
+    const mitSammel = [{ id: "x", text: "Keine der genannten passt" }, ...optionen];
+    for (const zufall of [0, 0.5, 0.99]) {
+      const gemischt = mischeOptionen(mitSammel, () => zufall);
+      expect(gemischt[gemischt.length - 1]!.id).toBe("x");
+    }
   });
 });

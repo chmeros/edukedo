@@ -343,18 +343,18 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 | Begriff | Zone |
 | --- | --- |
 | Vor dem Vormachen werden Arbeitsplatz und Material bereitgelegt und das Lernziel genannt | Stufe 1: Vorbereiten |
-| Vor dem Vormachen wird geklärt, warum die Tätigkeit wichtig und sicherheitsrelevant ist | Stufe 1: Vorbereiten |
+| Das Lernziel und die Sicherheitsrelevanz werden vor dem Vormachen besprochen | Stufe 1: Vorbereiten |
 | Zu jedem Teilschritt nennt die Ausbilderin den Grund, nicht nur den Ablauf | Stufe 2: Vormachen und Erklären |
 | Die Ausbilderin führt die Tätigkeit vollständig vor und betont die Schlüsselstellen | Stufe 2: Vormachen und Erklären |
 | Beim ersten Nachmachen erklärt der Auszubildende in eigenen Worten, warum er so vorgeht | Stufe 3: Nachmachen lassen |
 | Missverstandene Schritte werden schon beim Nachmachen geklärt, bevor sie sich einschleifen | Stufe 3: Nachmachen lassen |
 | Aus einem anfangs langsamen Ablauf wird durch Wiederholung ein sicherer, flüssiger Ablauf | Stufe 4: Üben lassen |
-| Die Ausbilderin steht für Rückfragen bereit, greift aber nur auf Wunsch ein | Stufe 4: Üben lassen |
+| Die Auszubildenden arbeiten selbstständig, die Ausbilderin prüft am Ende das Ergebnis | Stufe 4: Üben lassen |
 | Am Ende beurteilt die Ausbilderin das Ergebnis und führt ein Auswertungsgespräch | Stufe 4: Üben lassen |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Hilfreiche Leitfragen sind: Wer führt? Wer handelt? Wer kontrolliert? In Stufe 1 bereitet die Ausbilderin vor, in Stufe 2 führt sie vor und erklärt, in Stufe 3 handelt der Auszubildende erstmals unter enger Begleitung, in Stufe 4 übt er zunehmend selbstständig, und am Ende wird das Ergebnis bewertet. Typische Verwechslung: „Die Ausbilderin greift nur auf Wunsch ein“ klingt nach Nachmachen unter Begleitung (Stufe 3), beschreibt aber bereits das selbstständige Üben bis zur Sicherheit (Stufe 4). Umgekehrt gehört „vor dem Vormachen klären, warum die Tätigkeit wichtig ist“ zur Vorbereitung (Stufe 1) und nicht zum Vorführen selbst (Stufe 2). Hinweis: In manchen Quellen werden die Stufen anders zusammengefasst, zum Beispiel mit gemeinsamer Stufe für Vorbereiten und Vormachen. Hier gilt die übliche Fassung mit Vorbereiten, Vormachen und Erklären, Nachmachen lassen sowie Üben lassen als vier getrennten Stufen.
+> Hilfreiche Leitfragen sind: Wer führt? Wer handelt? Wer kontrolliert? In Stufe 1 bereitet die Ausbilderin vor, in Stufe 2 führt sie vor und erklärt, in Stufe 3 handelt der Auszubildende erstmals unter enger Begleitung, in Stufe 4 übt er zunehmend selbstständig, und am Ende wird das Ergebnis bewertet. Typische Verwechslung: Das selbstständige Arbeiten mit Ergebniskontrolle (Stufe 4) ist nicht dasselbe wie das eng begleitete Nachmachen (Stufe 3). Umgekehrt gehört „Lernziel und Sicherheitsrelevanz vorab besprechen“ zur Vorbereitung (Stufe 1), die Begründung jedes einzelnen Teilschritts dagegen zum Vorführen (Stufe 2). Hinweis: In manchen Quellen werden die Stufen anders zusammengefasst, zum Beispiel mit gemeinsamer Stufe für Vorbereiten und Vormachen. Hier gilt die übliche Fassung mit Vorbereiten, Vormachen und Erklären, Nachmachen lassen sowie Üben lassen als vier getrennten Stufen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -555,7 +555,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Erklärung (so sehen Lernende sie):**
 
-> Halo-Effekte entstehen, wenn von einem Merkmal (Prüfungsnote, Handschrift) auf andere Eigenschaften geschlossen wird. Die Tendenz zur Mitte zeigt sich in der Vermeidung der Skalenenden – bei guten wie bei schwachen Leistungen. Ein pauschal zu gutes Notenniveau gehört zum Mildefehler. Ähnlichkeit und persönliche Zu- oder Abneigung sind Sympathie und Antipathie. Typische Verwechslung: Halo und Sympathie werden gern vertauscht: Beim Halo-Effekt überstrahlt ein bestimmtes Merkmal, bei Sympathie und Antipathie wirkt die Person als Ganzes, unabhängig von einem Merkmal.
+> Halo-Effekte entstehen, wenn von einem Merkmal (Prüfungsnote, Handschrift) auf andere Eigenschaften geschlossen wird. Die Tendenz zur Mitte zeigt sich in der Vermeidung der Skalenenden – bei guten wie bei schwachen Leistungen. Ein pauschal zu gutes Notenniveau gehört zum Mildefehler. Ähnlichkeit und persönliche Zu- oder Abneigung sind Sympathie und Antipathie. Typische Verwechslung: Halo und Sympathie werden gern vertauscht: Beim Halo-Effekt überstrahlt ein bestimmtes Merkmal, bei Sympathie und Antipathie prägt die persönliche Beziehung zur Person das Urteil.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -575,8 +575,8 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 | Ein einzelnes herausragendes Merkmal, etwa Souveränität im Kundengespräch, bestimmt das Gesamturteil | Halo-Effekt |
 | Von der sauberen Lötarbeit wird auf Zuverlässigkeit bei allen anderen Aufgaben geschlossen | Halo-Effekt |
 | Die Beurteilerin wählt in jeder Zeile die Mitte, weil sie sich ihres Urteils unsicher ist | Tendenz zur Mitte |
-| Die Noten eines Ausbilders liegen über alle Jahrgänge hinweg eng um denselben Mittelwert | Tendenz zur Mitte |
-| Der Ausbilder misst alle an seinem eigenen hohen Anspruch und vergibt kaum Bestnoten | Milde- und Strengefehler |
+| Der Ausbilder vergibt grundsätzlich nur Noten im Mittelfeld, auch bei auffallend guten Leistungen | Tendenz zur Mitte |
+| Der Ausbilder legt für alle denselben sehr hohen Maßstab an, daher liegen seine Noten durchweg unter dem Abteilungsschnitt | Milde- und Strengefehler |
 | Seine Noten liegen regelmäßig über dem Abteilungsschnitt, ohne dass die Leistungen besser sind | Milde- und Strengefehler |
 | Eine Auszubildende, die ihn an seine eigene Jugend erinnert, erhält überdurchschnittliche Noten | Sympathie und Antipathie |
 | Dasselbe kritische Nachfragen gilt beim einen als engagiert, beim anderen als frech | Sympathie und Antipathie |

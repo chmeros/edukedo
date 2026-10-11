@@ -308,7 +308,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 
 | Begriff | Zone |
 | --- | --- |
-| Temperatur und Lüfterdrehzahl eines Switches | Ressourcen (CPU/RAM/Speicher) |
+| Die CPU-Last eines Switches liegt im Dauerbetrieb bei 95 Prozent | Ressourcen (CPU/RAM/Speicher) |
 | Auslastung eines 1-Gbit/s-Uplinks von 45 Prozent | Netzwerk (Durchsatz/Latenz/Fehler) |
 | Der Dienstcheck meldet, dass der Mailserver nicht antwortet | Verfügbarkeit (Erreichbarkeit/Dienste) |
 | Ein SNMP-Trap meldet, dass eine Schnittstelle ausgefallen ist | Ereignisse/Logs |
@@ -667,7 +667,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 | Zwei 12-TB-Platten ergeben 12 TB nutzbar, der Ausfall einer Platte bleibt folgenlos | RAID 1 |
 | Sinnvoll für das Betriebssystem eines kleinen Servers, wenn nur Platz für zwei Platten ist | RAID 1 |
 | Acht 4-TB-Platten ergeben 28 TB nutzbar | RAID 5 |
-| Beim Rebuild ohne Redundanz: ein zweiter Ausfall oder Lesefehler vernichtet Daten | RAID 5 |
+| Beim Rebuild nach einem Ausfall trägt nur noch die Parität die Daten, ein zweiter Ausfall vernichtet sie | RAID 5 |
 | Acht 4-TB-Platten ergeben 24 TB nutzbar | RAID 6 |
 | Beim Rebuild fällt eine zweite, beliebige Platte aus, der Verbund bleibt trotzdem intakt | RAID 6 |
 | Acht 4-TB-Platten ergeben 16 TB nutzbar | RAID 10 |
@@ -761,7 +761,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 | Eine allgemeine Verbotsregel über einer Erlaubnisregel macht die Erlaubnis wirkungslos | Firewall |
 | Ausgehender Verkehr eines infizierten Rechners ins Internet soll gezielt blockiert werden | Firewall |
 | Private Adressen aus 10.0.0.0/8 erreichen das Internet über eine öffentliche Adresse | NAT |
-| Antworten aus dem Internet erreichen dank Umsetzungstabelle das richtige interne Gerät | NAT |
+| Die Zuordnung interner Adressen und Ports zur öffentlichen Adresse wird in einer Umsetzungstabelle geführt | NAT |
 | Beim Split Tunneling läuft nur der Verkehr zum Firmennetz verschlüsselt durch den Tunnel | VPN |
 | Zwei Standorte koppeln ihre Netze per IPsec mit Schlüsselaustausch über IKE | VPN |
 | Gäste dürfen laut Zugriffsmatrix nur ins Internet, Server sind nur für Arbeitsplätze offen | DMZ/Segmentierung |
@@ -892,7 +892,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 | Die Vorgabe „Bildschirmsperre nach 10 Minuten“ wird technisch durchgesetzt | Gruppenrichtlinie (GPO) |
 | Eine neue Vorgabe wird erst an einer Testgruppe erprobt, weil sie sonst alle trifft | Gruppenrichtlinie (GPO) |
 | Laut Rollenmatrix darf der Verkauf Kundenakten ändern, die Werkstatt nur lesen | Berechtigung (ACL) |
-| Bei Freigabe- und NTFS-Berechtigung gilt effektiv die restriktivere Kombination | Berechtigung (ACL) |
+| Pro Ordner ist festgelegt, welche Gruppe lesen, ändern oder nichts darf | Berechtigung (ACL) |
 
 **Erklärung (so sehen Lernende sie):**
 
@@ -951,7 +951,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-systemintegration/` (F
 | --- | --- |
 | Frames anhand der MAC-Adresstabelle weiterleiten | Switching (Layer 2) |
 | Frames mit unbekannter Ziel-MAC-Adresse an alle anderen Ports fluten | Switching (Layer 2) |
-| Broadcast-Domäne verkleinern | VLAN/Trunking |
+| Ein physisches Netz in mehrere logische Netze aufteilen, ohne je Netz eigene Switches | VLAN/Trunking |
 | Mehrere getrennte Netze über einen einzigen Link zwischen zwei Switches übertragen | VLAN/Trunking |
 | Pakete anhand der IP-Adresse in ein anderes Netz weiterleiten | Routing (Layer 3) |
 | Pakete ohne spezifischere Route über die Default-Route zum Internetzugang schicken | Routing (Layer 3) |
@@ -1820,7 +1820,7 @@ In jedem Ausschnitt steckt genau ein Fehler in genau einer Zeile. **Technisch ge
 
 **Erklärung:**
 
-> PasswordAuthentication yes erlaubt die Anmeldung per Kennwort. Dann bleibt der Server für Brute-Force- und Wörterbuchangriffe auf Kennwörter offen, auch wenn Schlüssel erlaubt sind. Mit no werden nur noch Schlüssel akzeptiert. Wichtig ist die Reihenfolge der Arbeitsschritte: Erst prüfen, dass ein Schlüssel für die erlaubten Konten funktioniert, dann das Kennwortverfahren abschalten, sonst sperrt man sich selbst aus.
+> PasswordAuthentication yes erlaubt die Anmeldung per Kennwort. Dann bleibt der Server für Brute-Force- und Wörterbuchangriffe auf Kennwörter offen, auch wenn Schlüssel erlaubt sind. Mit no ist die Anmeldung per Kennwort abgeschaltet. (Ist in einer vollständigen Konfiguration zusätzlich Keyboard-Interactive mit PAM aktiv, muss auch KbdInteractiveAuthentication auf no stehen, damit wirklich nur Schlüssel gelten.) Wichtig ist die Reihenfolge der Arbeitsschritte: Erst prüfen, dass ein Schlüssel für die erlaubten Konten funktioniert, dann das Kennwortverfahren abschalten, sonst sperrt man sich selbst aus.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

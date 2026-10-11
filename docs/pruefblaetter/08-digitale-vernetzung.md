@@ -644,13 +644,13 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-digitale-vernetzung/` 
 | Meldung nur bei Änderung an einen zentralen Vermittler, Empfänger kennen den Sender nicht | MQTT |
 | Der Vermittler meldet automatisch, wenn ein Gerät unerwartet wegbricht (Last Will) | MQTT |
 | Ein Client liest Knoten im Adressraum, Typ und Einheit liefert der Server mit | OPC UA |
-| Die Verbindung wird über Zertifikate als vertrauenswürdig geprüft und verschlüsselt | OPC UA |
+| Zertifikate, Signatur und Verschlüsselung gehören zum Standard selbst, nicht nur zur Transportschicht | OPC UA |
 | Steuerung und Antriebe tauschen im festen Takt Prozessdaten mit garantierter Zykluszeit aus | Feldbus/Industrial Ethernet |
 | Zeitverhalten ist vorhersagbar, nicht nur „so schnell wie möglich“ wie im Büronetz | Feldbus/Industrial Ethernet |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Request/Response mit Polling kennzeichnet Modbus, Publish/Subscribe über einen Vermittler (Broker) MQTT, der Adressraum mit Typinformationen und Zertifikaten OPC UA. Feldbus und Industrial Ethernet stehen für zyklischen, zeitlich vorhersagbaren Austausch. Typische Verwechslung: Bei Modbus und OPC UA fragt ein Client ab (Request/Response), bei MQTT veröffentlicht der Sender von sich aus und weiß nicht, wer mitliest. Die Modbus-Rollen heißen je nach Quelle Master/Slave oder Client/Server und meinen dasselbe Prinzip.
+> Request/Response mit Polling kennzeichnet Modbus, Publish/Subscribe über einen Vermittler (Broker) MQTT, der Adressraum mit Typinformationen und Zertifikaten OPC UA. Feldbus und Industrial Ethernet stehen für zyklischen, zeitlich vorhersagbaren Austausch. Typische Verwechslung: Bei Modbus fragt der Client ausschließlich ab (Request/Response), OPC UA kann ebenfalls abgefragt werden, meldet per Subscription aber auch Änderungen von sich aus, und bei MQTT veröffentlicht der Sender immer von sich aus und weiß nicht, wer mitliest. Die Modbus-Rollen heißen je nach Quelle Master/Slave oder Client/Server und meinen dasselbe Prinzip.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -667,7 +667,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-digitale-vernetzung/` 
 
 | Begriff | Zone |
 | --- | --- |
-| Presse liefert Werte an Leitstand, MES und Auswertung, ohne mehrfach abgefragt zu werden | MQTT |
+| Presse meldet Werte an einen zwischengeschalteten Broker, den Leitstand, MES und Auswertung abonnieren, ohne dass der Sender sie kennt | MQTT |
 | Neue Abonnenten erhalten sofort den zuletzt gemeldeten Wert (Retained Message) | MQTT |
 | Alter Energiezähler mit RS-485, der Halteregister per Funktionscode 3 bereitstellt | Modbus |
 | Werte um Faktor 10 zu groß, weil der Faktor aus der Registerbeschreibung fehlt | Modbus |

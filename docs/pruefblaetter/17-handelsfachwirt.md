@@ -298,7 +298,7 @@ Stand 06.10.2026 · erzeugt aus `content/handelsfachwirt/` (F-189). **Alle Inhal
 | Der Lieferant gewährt Loreno einen Preisnachlass, der den Listeneinkaufspreis mindert | Bezugskalkulation |
 | Der Betrag, den die Ware Loreno bis zur Einlagerung tatsächlich kostet | Bezugskalkulation |
 | Eingangsfracht, die zusätzlich zum Einkaufspreis zu tragen ist | Bezugskalkulation |
-| Zwischenergebnis, auf das der Handlungskostenzuschlag angewendet wird | Selbstkostenkalkulation |
+| Prozentualer Zuschlag auf den Bezugspreis, mit dem die Handlungskosten abgedeckt werden | Selbstkostenkalkulation |
 | Gemeinkosten des Handelsbetriebs, die nicht einzelnen Artikeln direkt zugeordnet werden können | Selbstkostenkalkulation |
 | Betrag, bei dem der Artikel alle Kosten deckt, aber noch keinen Gewinn bringt | Selbstkostenkalkulation |
 | Aufschlag, mit dem der Artikel einen Gewinn erwirtschaftet | Verkaufskalkulation |

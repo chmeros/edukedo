@@ -22,7 +22,6 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 | Haus-zu-Haus-Transport ohne Umschlag | Straße |
 | Höchste Flexibilität aller Verkehrsträger | Straße |
 | An das Schienennetz und feste Fahrpläne gebunden | Schiene |
-| Braucht in der Regel zusätzlichen Vor- und Nachlauf per Lkw | Schiene |
 | Langsam und auf schiffbare Wasserwege bzw. Hafenanbindung angewiesen | Wasser |
 | Mit Abstand der schnellste Verkehrsträger | Luft |
 | Der teuerste Verkehrsträger | Luft |
@@ -76,7 +75,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 | Ein Industriekunde meldet einen Produktionsstillstand und braucht umgehend ein kleines Ersatzteil aus einem weit entfernten Werk | Luft |
 | Verderbliche Ware in kleiner Menge soll auf einer weiten Strecke so schnell wie möglich beim Empfänger sein | Luft |
 | Große Mengen werden regelmäßig und planbar zwischen zwei Industriestandorten als Ganzzug befördert | Schiene |
-| Ein Kunde akzeptiert für große Mengen über eine lange Distanz feste Abfahrtszeiten statt flexibler Abholung | Schiene |
+| Ein Kunde akzeptiert für große Mengen über eine lange Distanz Gleisbindung und Bahnfahrplan statt flexibler Abholung | Schiene |
 | Große Mengen gehen zwischen zwei Standorten mit Hafenanbindung am Rhein, die Transportzeit ist nicht kritisch | Wasser |
 | Eine Sendung soll per Seefracht auf einer Fernstrecke reisen; Fracora nutzt dafür eine Partneranbindung | Wasser |
 | Eine Ladeeinheit wird im Vorlauf vom Absender zum Bahnterminal gebracht | Straße |
@@ -106,13 +105,12 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 | Der bei Fracora am häufigsten genutzte Verkehrsträger, zugleich mit der vergleichsweise ungünstigsten CO2-Bilanz je transportierter Tonne | Straße |
 | Bei langen Distanzen meist teurer je Tonnenkilometer als Bahn oder Binnenschiff | Straße |
 | Der schnellste, aber auch teuerste Verkehrsträger, der nur bei geringem Volumen gewählt wird | Luft |
-| Bei einem kurzfristigen Eilauftrag mit kleinen Mengen meist die einzig praktikable Option, weil er flexibel einsetzbar ist | Straße |
-| Benötigt in der Regel zusätzlichen Vor- und Nachlauf per Lkw | Schiene |
+| Kleine Menge auf kurzer Distanz, die flexibel abgeholt und ohne Umschlag direkt zum Empfänger gefahren wird | Straße |
 | Seefracht auf Fernstrecken, für die Fracora Partner einbindet, weil ein eigener Reedereibetrieb außerhalb des Kerngeschäfts liegt | Wasser |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Schiene und Wasser teilen das Profil „kostengünstig und umweltfreundlich bei großen Mengen über lange Strecken“, unterscheiden sich aber in der Einschränkung: Die Schiene ist an Netz und Fahrpläne gebunden (und braucht meist Lkw-Vor- und Nachlauf), das Wasser ist langsam und von Wasserwegen bzw. Häfen abhängig. Die Straße ist bei Fracora der häufigste Verkehrsträger und flexibel, hat aber bei langen Distanzen Kosten- und CO2-Nachteile. Bei kurzfristigen Eilaufträgen mit kleinen Mengen nennt der Kurs meist den flexiblen Straßentransport als praktikable Option; der Luftverkehr bleibt den besonders eiligen, hochwertigen oder verderblichen Gütern mit geringem Volumen vorbehalten. Typische Verwechslung: „Eilig“ heißt nicht automatisch Luft, denn Eilaufträge sprechen laut Kurs für Luft oder Straße.
+> Schiene und Wasser teilen das Profil „kostengünstig und umweltfreundlich bei großen Mengen über lange Strecken“, unterscheiden sich aber in der Einschränkung: Die Schiene ist an Netz und Fahrpläne gebunden (und braucht meist Lkw-Vor- und Nachlauf), das Wasser ist langsam und von Wasserwegen bzw. Häfen abhängig. Die Straße ist bei Fracora der häufigste Verkehrsträger und flexibel, hat aber bei langen Distanzen Kosten- und CO2-Nachteile. Der Luftverkehr bleibt den besonders eiligen, hochwertigen oder verderblichen Gütern mit geringem Volumen vorbehalten; kleine Mengen auf kurzer Distanz fährt flexibel der Lkw. Typische Verwechslung: „Eilig“ heißt nicht automatisch Luft, denn auf kurzer Distanz ist der Lkw meist konkurrenzlos.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -139,7 +137,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 | Begriff | Zone |
 | --- | --- |
 | Kleiner Anteil der Artikelzahl, aber großer Anteil am Gesamtumsatz | A-Klasse |
-| Wird häufig in unmittelbarer Nähe der Kommissionierzone gelagert | A-Klasse |
+| Verdient wegen des hohen Wertanteils die engste Bestandsüberwachung | A-Klasse |
 | Wertanteil liegt im mittleren Bereich | B-Klasse |
 | Liegt zwischen den wenigen wertvollen und den vielen unbedeutenden Artikeln | B-Klasse |
 | Mehrzahl der Artikel bei nur geringem Umsatzanteil | C-Klasse |
@@ -165,7 +163,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 | Begriff | Zone |
 | --- | --- |
 | Artikel intensiv überwachen | A-Klasse |
-| Lagerplatz in unmittelbarer Nähe der Kommissionierzone | A-Klasse |
+| Disposition und Bestände eng begleiten, weil Bestandsfehler teuer sind | A-Klasse |
 | Artikel platzsparend lagern | C-Klasse |
 | Prüfen, ob der Artikel im Sortiment bleiben soll (Auslistung) | C-Klasse |
 | Steuerungsaufwand mittleren Umfangs, weil der Wertanteil im mittleren Bereich liegt | B-Klasse |
@@ -173,7 +171,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 
 **Erklärung (so sehen Lernende sie):**
 
-> Für Fracoras Kontraktlogistikkunden hat die ABC-Einteilung praktische Konsequenzen: A-Artikel werden häufig nahe der Kommissionierzone gelagert und intensiv überwacht, C-Artikel eher kritisch auf Auslistung oder platzsparende Lagerung geprüft. Der Steuerungsaufwand wird so auf die wichtigen Artikel konzentriert. Für B-Artikel nennt der Kurs keine eigene Maßnahme; sie liegen im mittleren Bereich, daher ist hier sinngemäß auch ein mittlerer Aufwand sinnvoll. Typische Verwechslung: Nahe an der Kommissionierzone liegen nicht die Artikel mit der größten Stückzahl, sondern die mit großem Wertanteil (A).
+> Für Fracoras Kontraktlogistikkunden hat die ABC-Einteilung praktische Konsequenzen: A-Artikel werden intensiv überwacht, C-Artikel eher kritisch auf Auslistung oder platzsparende Lagerung geprüft. Der Steuerungsaufwand wird so auf die wichtigen Artikel konzentriert. Für B-Artikel nennt der Kurs keine eigene Maßnahme; sie liegen im mittleren Bereich, daher ist hier sinngemäß auch ein mittlerer Aufwand sinnvoll. Typische Verwechslung: Die Klasse richtet sich nach dem Wertanteil, nicht nach der Stückzahl; die Platzierung im Lager folgt in der Praxis meist zusätzlich der Zugriffshäufigkeit.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -190,7 +188,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 
 | Begriff | Zone |
 | --- | --- |
-| Wenige Artikel tragen zusammen einen sehr großen Teil des Umsatzes, Fracora lagert sie direkt an der Kommissionierzone | A-Klasse |
+| Wenige Artikel tragen zusammen einen sehr großen Teil des Umsatzes | A-Klasse |
 | Der Hauptartikel des Kunden, auf den ein großer Teil des Gesamtumsatzes entfällt, wird besonders eng überwacht | A-Klasse |
 | Ein Artikel liegt beim Wertanteil im Mittelfeld des Sortiments | B-Klasse |
 | Ein Artikel gehört weder zu den wenigen umsatzstarken noch zu den vielen umsatzschwachen Artikeln | B-Klasse |
@@ -200,7 +198,7 @@ Stand 06.10.2026 · erzeugt aus `content/transport-management-logistics/` (F-188
 
 **Erklärung (so sehen Lernende sie):**
 
-> Entscheidend ist in allen Fällen der Wertanteil am Umsatz oder Verbrauch: Wenige Artikel mit großem Anteil sind A, viele Artikel mit geringem Anteil sind C, dazwischen liegt B. Fracora konzentriert Überwachung und Platz nahe der Kommissionierzone auf A-Artikel und prüft C-Artikel auf Auslistung oder platzsparende Lagerung. Typische Verwechslung: Ein Artikel, der viel Lagerfläche bindet, ist nicht automatisch A; es zählt sein Wertanteil, nicht der Platzbedarf.
+> Entscheidend ist in allen Fällen der Wertanteil am Umsatz oder Verbrauch: Wenige Artikel mit großem Anteil sind A, viele Artikel mit geringem Anteil sind C, dazwischen liegt B. Fracora konzentriert die Überwachung auf A-Artikel und prüft C-Artikel auf Auslistung oder platzsparende Lagerung. Typische Verwechslung: Ein Artikel, der viel Lagerfläche bindet, ist nicht automatisch A; es zählt sein Wertanteil, nicht der Platzbedarf.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

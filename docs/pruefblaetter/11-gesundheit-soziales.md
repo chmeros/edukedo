@@ -75,7 +75,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Begriff | Zone |
 | --- | --- |
 | Zusätzliche Pflegefachkräfte für die Frühtouren einstellen | Strukturqualität |
-| Fortbildungen zur Qualifikation der Mitarbeitenden einplanen | Strukturqualität |
+| Ein Fortbildungsangebot zur Qualifikation der Mitarbeitenden ist vorhanden | Strukturqualität |
 | Tablets für die mobile Dokumentation anschaffen | Strukturqualität |
 | Die Tourenplanung nach einem einheitlichen Standard durchführen | Prozessqualität |
 | Den Ablauf des Erstgesprächs mit neuen Kundinnen und Kunden einheitlich festlegen | Prozessqualität |
@@ -110,13 +110,13 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Bei der Zuteilung von Einsätzen werden die Qualifikationsvorgaben beachtet | Prozessqualität |
 | Teambesprechungen finden nach festgelegtem Ablauf statt | Prozessqualität |
 | Die Angehörigen werden bei Änderungen der Tourenzeiten nach festem Ablauf informiert | Prozessqualität |
-| Rückgang fehlerhafter Abrechnungen im Quartalsvergleich | Ergebnisqualität |
+| Die Beschwerdequote der Kundschaft sinkt im Quartalsvergleich | Ergebnisqualität |
 | Angehörige bewerten die Verständlichkeit der Informationen in der Befragung gut | Ergebnisqualität |
 | Gestiegene Vertrauensbewertung des Pflegedienstes in der Kundenbefragung | Ergebnisqualität |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Eine Regelung oder Ausstattung, die bereitsteht, gehört zur Strukturqualität. Ihre tatsächliche Befolgung im Arbeitsalltag gehört zur Prozessqualität. Deshalb ist ein Einarbeitungsplan Struktur, die Einarbeitung nach diesem Plan aber Prozess. Ebenso ist die vorhandene Qualifikation Struktur, die Beachtung von Qualifikationsvorgaben bei der Einsatzzuteilung dagegen Prozess. Der Arbeits- und Gesundheitsschutz wird im Kurs als Teil der Strukturqualität betrachtet, weil gesundes, nicht überlastetes Personal eine Rahmenbedingung guter Leistungen ist. Die Ergebnisqualität erkennt man an Resultaten wie weniger Abrechnungsfehlern oder besseren Bewertungen.
+> Eine Regelung oder Ausstattung, die bereitsteht, gehört zur Strukturqualität. Ihre tatsächliche Befolgung im Arbeitsalltag gehört zur Prozessqualität. Deshalb ist ein Einarbeitungsplan Struktur, die Einarbeitung nach diesem Plan aber Prozess. Ebenso ist die vorhandene Qualifikation Struktur, die Beachtung von Qualifikationsvorgaben bei der Einsatzzuteilung dagegen Prozess. Der Arbeits- und Gesundheitsschutz wird im Kurs als Teil der Strukturqualität betrachtet, weil gesundes, nicht überlastetes Personal eine Rahmenbedingung guter Leistungen ist. Die Ergebnisqualität erkennt man an Resultaten wie sinkenden Beschwerden oder besseren Bewertungen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -145,7 +145,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Die Beschwerdezahlen vor und nach der Maßnahme vergleichen | Check |
 | Die Zielerreichung im Quartalsbericht prüfen | Check |
 | Das bewährte Beschwerdeverfahren dauerhaft für alle Touren einführen | Act |
-| Erfahrungen für das nächste Verbesserungsprojekt festhalten | Act |
+| Nicht wirksame Teile des Beschwerdeverfahrens überarbeiten | Act |
 
 **Erklärung (so sehen Lernende sie):**
 
@@ -201,7 +201,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Die Mitarbeitenden der Pilotregion über die Änderungen informieren | Do |
 | Pünktlichkeitsdaten während des Pilotzeitraums erfassen | Do |
 | Die erfassten Pünktlichkeitsdaten auswerten und mit der Ausgangslage vergleichen | Check |
-| Rückmeldungen der Touren-Teams zur Praxistauglichkeit einholen und bewerten | Check |
+| Rückmeldungen der Touren-Teams zur Praxistauglichkeit auswerten | Check |
 | Die neue Tourenplanung auf alle Regionen ausweiten | Act |
 | Das Qualitätshandbuch um die neue Tourenplanung ergänzen | Act |
 
@@ -229,7 +229,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Die Kennzahl zur Erfolgsmessung bereits vor dem Start definieren | Plan |
 | Den neuen Einarbeitungsplan bei den nächsten Neueinstellungen anwenden | Do |
 | Die Schulungstermine für die Einarbeitungsbegleitung durchführen | Do |
-| Eine feste Ansprechperson für neue Mitarbeitende benennen und einsetzen | Do |
+| Neuen Mitarbeitenden im Einsatz eine feste Ansprechperson an die Seite stellen | Do |
 | Fluktuation und Probezeitabbrüche nach sechs Monaten auswerten | Check |
 | Einen Soll-Ist-Vergleich der Kennzahl mit der Zielvorgabe erstellen | Check |
 | Wirksame Teile des Einarbeitungsplans in den Standard übernehmen | Act |
@@ -262,9 +262,9 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 
 | Begriff | Zone |
 | --- | --- |
-| Der Beitrag richtet sich nach dem Einkommen, nicht nach dem Krankheitsrisiko | Gesetzliche Krankenversicherung (SGB V) |
+| Leistungen bei Krankheit wie ärztliche Behandlung, Arzneimittel und Krankenhausbehandlung | Gesetzliche Krankenversicherung (SGB V) |
 | Versicherte erhalten die Behandlung, ohne in Vorleistung treten zu müssen | Gesetzliche Krankenversicherung (SGB V) |
-| Fünf Pflegegrade, begutachtet vom Medizinischen Dienst | Soziale Pflegeversicherung (SGB XI) |
+| Fünf Pflegegrade, in der Regel vom Medizinischen Dienst begutachtet | Soziale Pflegeversicherung (SGB XI) |
 | Pflegesachleistung für professionelle Pflegeeinsätze | Soziale Pflegeversicherung (SGB XI) |
 | Nachrangiges staatliches Fürsorgesystem | Sozialhilfe (SGB XII) |
 | Träger sind in der Regel Kommunen bzw. überörtliche Sozialhilfeträger | Sozialhilfe (SGB XII) |
@@ -292,7 +292,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | --- | --- |
 | Die Krankenkasse rechnet unmittelbar mit den Leistungserbringern ab | Gesetzliche Krankenversicherung (SGB V) |
 | Häusliche Krankenpflege nach ärztlicher Verordnung für gesetzlich Versicherte | Gesetzliche Krankenversicherung (SGB V) |
-| Pflegegeld, wenn die Pflege überwiegend durch Angehörige erfolgt | Soziale Pflegeversicherung (SGB XI) |
+| Pflegegeld, wenn die Pflege selbst sichergestellt wird, z. B. durch Angehörige | Soziale Pflegeversicherung (SGB XI) |
 | Verhinderungspflege bei Ausfall einer Pflegeperson | Soziale Pflegeversicherung (SGB XI) |
 | Hilfe zur Pflege, wenn Pflegeversicherung und eigene Mittel nicht ausreichen | Sozialhilfe (SGB XII) |
 | Greift erst, wenn der Bedarf nicht anderweitig gedeckt werden kann | Sozialhilfe (SGB XII) |
@@ -319,7 +319,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Begriff | Zone |
 | --- | --- |
 | Morgenlicht rechnet eine ärztlich verordnete Medikamentengabe mit der Krankenkasse ab | Gesetzliche Krankenversicherung (SGB V) |
-| Die meisten Menschen in Deutschland sind hier versichert | Gesetzliche Krankenversicherung (SGB V) |
+| Ärztlich verordnete Leistungen wie Injektionen oder Wundversorgung durch den Pflegedienst | Gesetzliche Krankenversicherung (SGB V) |
 | Der Entlastungsbetrag für niedrigschwellige Unterstützung im Alltag | Soziale Pflegeversicherung (SGB XI) |
 | Kombination aus Geld- und Sachleistung bei teils professioneller, teils familiärer Pflege | Soziale Pflegeversicherung (SGB XI) |
 | Die Pflege lässt sich weder über die Pflegeversicherung noch aus eigenen Mitteln bezahlen | Sozialhilfe (SGB XII) |
@@ -347,8 +347,8 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 | Begriff | Zone |
 | --- | --- |
 | Gesetzlich im SGB V geregelt, getragen vom Gedanken des Solidarausgleichs | Gesetzliche Krankenversicherung (SGB V) |
-| Ein hohes Krankheitsrisiko einer Person lässt den Beitrag unverändert | Gesetzliche Krankenversicherung (SGB V) |
-| Umlagefinanzierte Beiträge als eigenständige Säule der Sozialversicherung | Soziale Pflegeversicherung (SGB XI) |
+| Krankenbehandlung, Vorsorge und Krankengeld als Leistungsspektrum | Gesetzliche Krankenversicherung (SGB V) |
+| Teilleistungsprinzip: Die Leistungen decken den Pflegebedarf nur bis zu festen Höchstbeträgen, darüber hinaus fällt ein Eigenanteil an | Soziale Pflegeversicherung (SGB XI) |
 | Grundpflegerische und hauswirtschaftliche Leistungen entsprechend dem Pflegegrad | Soziale Pflegeversicherung (SGB XI) |
 | Leistungen richten sich nach der Selbstständigkeit in mehreren Lebensbereichen | Soziale Pflegeversicherung (SGB XI) |
 | Staatliche Fürsorge für Menschen, die ihren Bedarf nicht selbst decken können | Sozialhilfe (SGB XII) |
@@ -358,7 +358,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Systematik der vier Kostenträger lässt sich über ihre Grundprinzipien ordnen. Die GKV folgt der Solidarität: Beiträge hängen vom Einkommen ab, nicht vom persönlichen Risiko. Die soziale Pflegeversicherung ist umlagefinanziert und knüpft ihre Leistungen an den Pflegegrad, der die Selbstständigkeit abbildet. Die Sozialhilfe ist Fürsorge und nachrangig. Die PKV folgt dem Äquivalenzprinzip: Beitrag und Leistungsumfang entsprechen einander, und Rechnungen werden häufig zunächst selbst gezahlt. Typische Verwechslung: „Umlagefinanziert“ und „Solidarausgleich“ klingen ähnlich, kennzeichnen aber unterschiedliche Zweige. Es handelt sich um eine Übung zur Systematik, nicht um Sozialberatung.
+> Die Systematik der vier Kostenträger lässt sich über ihre Grundprinzipien ordnen. Die GKV trägt die Krankenbehandlung und folgt der Solidarität: Beiträge hängen vom Einkommen ab, nicht vom persönlichen Risiko. Die soziale Pflegeversicherung knüpft ihre Leistungen an den Pflegegrad, der die Selbstständigkeit abbildet, und ist als Teilleistungssystem mit Höchstbeträgen angelegt. Die Sozialhilfe ist Fürsorge und nachrangig. Die PKV folgt dem Äquivalenzprinzip: Beitrag und Leistungsumfang entsprechen einander, und Rechnungen werden häufig zunächst selbst gezahlt. Typische Verwechslung: Einkommensabhängige, umlagefinanzierte Beiträge gelten für GKV und soziale Pflegeversicherung gleichermaßen, deshalb unterscheiden sie sich über ihre Leistungen: Krankenbehandlung dort, Leistungen nach Pflegegrad mit Höchstbeträgen hier. Es handelt sich um eine Übung zur Systematik, nicht um Sozialberatung.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

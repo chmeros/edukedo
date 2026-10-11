@@ -344,7 +344,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-daten-prozessanalyse/`
 | Abweichung klären (durch die Fachabteilung) | Aktivität |
 | Abgleich ohne Abweichung? mit den Ausgängen „ja" und „nein" | Gateway |
 | Verzweigung, bei der alle ausgehenden Pfade gleichzeitig gestartet werden | Gateway |
-| Auftragsbestätigung vom Unternehmen an den Kunden-Pool | Fluss (Sequenz-/Nachrichtenfluss) |
+| Rückfrage des Unternehmens an den Lieferanten-Pool | Fluss (Sequenz-/Nachrichtenfluss) |
 | Übergang von „Rechnung erfassen" zu „Rechnung abgleichen" im selben Pool | Fluss (Sequenz-/Nachrichtenfluss) |
 | Bereich der Geschäftsleitung im Pool des Unternehmens | Teilnehmer (Pool/Lane) |
 | Kunde und Unternehmen als zwei getrennte Beteiligte | Teilnehmer (Pool/Lane) |
@@ -537,7 +537,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-daten-prozessanalyse/`
 
 **Erklärung (so sehen Lernende sie):**
 
-> Leere Pflichtfelder gehören zur Vollständigkeit; Dubletten zur Redundanz; formale Verstöße gegen Format und Wertebereich (vier Ziffern, kein gültiges Datum) zur Validität; unglaubwürdige Werte im sachlichen Zusammenhang (Lieferung vor Bestellung, Geburtsjahr 1850) zur Plausibilität; zu wenige Daten für den Zweck zur Quantität. Typische Verwechslung: Auch ein unmögliches Datum wie der 31.02. ist ein formaler Verstoß (Validität), während „Lieferung vor Bestellung" aus gültigen Datumswerten besteht, die erst im Zusammenhang unmöglich sind.
+> Leere Pflichtfelder gehören zur Vollständigkeit; Dubletten zur Redundanz; formale Verstöße gegen Format und Datentyp (vier Ziffern, kein gültiges Datum) zur Validität; unglaubwürdige Werte im sachlichen Zusammenhang (Lieferung vor Bestellung, Geburtsjahr 1850) zur Plausibilität; zu wenige Daten für den Zweck zur Quantität. Typische Verwechslung: Auch ein unmögliches Datum wie der 31.02. ist ein formaler Verstoß (Validität), während „Lieferung vor Bestellung" aus gültigen Datumswerten besteht, die erst im Zusammenhang unmöglich sind.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -616,14 +616,15 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-daten-prozessanalyse/`
 | Ein Einzelhandelsgeschäft meldet einen Jahresumsatz von 5 Milliarden Euro | Plausibilität |
 | Zwei Systeme führen dieselbe Kundin mit verschiedenen Kundennummern | Redundanz |
 | Nach dem Zusammenführen zweier Tabellen verdoppeln sich Umsatzsummen durch doppelte Zeilen | Redundanz |
-| Alle Pflichtfelder sind befüllt, aber die Datensätze der Filiale Nord fehlen für März | Vollständigkeit |
+| Alle Pflichtfelder sind befüllt, aber die Datensätze der Filiale Nord fehlen für März | Quantität |
 | Die Spalte Telefon ist laut Regel Pflicht und bei 30 % der Kunden leer | Vollständigkeit |
+| Bei jedem fünften Auftrag fehlt die Angabe zur Lieferadresse | Vollständigkeit |
 | Das Modell braucht mindestens 5.000 Trainingsfälle, vorhanden sind 1.200 | Quantität |
 | Die Stichprobe von 25 Befragten trägt keine Aussage über 4.000 Kunden | Quantität |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Validität prüft die formale Regel (nur Ziffern, Zahl statt Text) und kann automatisch erfolgen; Plausibilität prüft die inhaltliche Glaubwürdigkeit und braucht Fachwissen oder Vergleichsfelder: Eine fünfstellige Postleitzahl ist formal gültig, passt aber zum Ort nicht. Vollständigkeit betrifft fehlende Felder oder konkret erwartete Datensätze (Filiale Nord), Quantität dagegen die Gesamtmenge im Verhältnis zum Analysebedarf. Doppelte Information (auch als doppelte Zeilen nach einem Join) ist Redundanz. Typische Verwechslung: „Zu wenig Daten" kann Vollständigkeit oder Quantität sein — entscheidend ist, ob bestimmte erwartete Daten fehlen oder ob die Menge insgesamt nicht reicht. Die Begriffe sind in der Literatur nicht einheitlich abgegrenzt; hier gelten die Definitionen des Themas.
+> Validität prüft die formale Regel (nur Ziffern, Zahl statt Text) und kann automatisch erfolgen; Plausibilität prüft die inhaltliche Glaubwürdigkeit und braucht Fachwissen oder Vergleichsfelder: Eine fünfstellige Postleitzahl ist formal gültig, passt aber zum Ort nicht. Vollständigkeit betrifft fehlende oder leere Felder, Quantität die Anzahl der Datensätze und Messwerte im Verhältnis zum Soll bzw. zum Analysebedarf (auch wenn ganze Datensätze fehlen, wie bei der Filiale Nord). Doppelte Information (auch als doppelte Zeilen nach einem Join) ist Redundanz. Typische Verwechslung: „Zu wenig Daten" kann Vollständigkeit oder Quantität sein — entscheidend ist, ob einzelne Felder leer sind (Vollständigkeit) oder ob Datensätze und Messwerte insgesamt fehlen bzw. nicht reichen (Quantität). Die Begriffe sind in der Literatur nicht einheitlich abgegrenzt; hier gelten die Definitionen des Themas.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -754,9 +755,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachinformatiker-daten-prozessanalyse/`
 
 > ### Schwachstellen- und Ursachenanalyse abgrenzen
 >
-> Beide Begriffe liegen eng beieinander, beantworten aber verschiedene Fragen. Die **Schwachstellenanalyse** fragt: **Wo** im Prozess liegt das Problem? Sie arbeitet am Prozessmodell und an Kennzahlen und endet mit einer priorisierten Schwachstellenliste. Die **Ursachenanalyse** (Ishikawa, 5-Why) fragt: **Warum** tritt das Problem auf? Sie beginnt bei einer bereits erkannten Auffälligkeit und sucht die Grundursache. Die **Engpassanalyse** ist ein Spezialfall der Schwachstellensuche, der sich auf die Kapazität einer Station und den Durchsatz konzentriert. Merkregel: erst orten (Schwachstelle), dann erklären (Ursache), dann gewichten (Pareto).
->
-> Für die Prozessanalyse wird häufig die Schreibweise „Process Mining" (englisch) verwendet; gemeint ist dasselbe wie das hier beschriebene „Prozess Mining".
+> Beide Begriffe liegen eng beieinander, beantworten aber verschiedene Fragen. Die **Schwachstellenanalyse** fragt: **Wo** im Prozess liegt das Problem? Sie arbeitet am Prozessmodell und an Kennzahlen und endet mit einer priorisierten Schwachstellenliste. Die **Ursachenanalyse** (Ishikawa, 5-Why) fragt: **Warum** tritt das Problem auf? Sie beginnt bei einer bereits erkannten Auffälligkeit und sucht die Grundursache. Die **Engpassanalyse** ist ein Spezialfall der Schwachstellensuche, der sich auf die Kapazität einer Station und den Durchsatz konzentriert. Merkregel: erst orten (Schwachstelle), dann gewichten (Pareto), dann für die wichtigsten Fehlerarten erklären (Ursache).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

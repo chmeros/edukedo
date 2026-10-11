@@ -10,7 +10,7 @@ Diese Blätter sind für die **fachliche und didaktische Prüfung vor dem Livega
 | [02 Flag-Rätsel](02-flag-raetsel.md) | defensive CTF-Aufgaben | 14 Aufgaben | Instrumente → Rätsel lösen |
 | [03 Netzwerk-Topologie](03-topologie.md) | Verkabeln, Adressen, Routen, DHCP, VLAN, Firewall, NAT | 17 Szenarien | Instrumente → Netzwerk bauen |
 | [04 IT-Lernpfade](04-lernpfade.md) | Scrum, OSI, Schutzziele, Datenmodell | 4 Pfade (je 7 Stationen) | Instrumente → „Geführten Lernpfad starten“ (Premium) |
-| [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | 157 Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |
+| [05 Glossar](05-glossar.md) | Kurzdefinitionen mit Popover | 158 Einträge | nach einer beantworteten Quizfrage: markierte Fachbegriffe |
 | [06 Anwendungsentwicklung](06-anwendungsentwicklung.md) | neue Zonen-Instrumente, Theorie, Bug-Hunt-Sets (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [07 Daten- und Prozessanalyse](07-daten-prozessanalyse.md) | neue Zonen-Instrumente und Theorie (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |
 | [08 Digitale Vernetzung](08-digitale-vernetzung.md) | neue Zonen-Instrumente, Troubleshooting-Set „Industrie und IoT“ (Kursprofile Phase 1) | siehe Blatt | erst nach Freigabe im Kurs sichtbar |

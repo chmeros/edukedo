@@ -42,7 +42,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus WQ3 (3.1–3.4) zu zusammenhängen
 
 **Teilaufgabe 2 (5 Punkte, bloom: verstehen):** Erläutern Sie, welche Rolle der Betriebsrat vor Ausspruch der geplanten Kündigungen nach dem Betriebsverfassungsgesetz einnimmt und welche Konsequenz eine unterlassene Beteiligung hätte.
 
-**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Ein betroffener Beschäftigter reicht sechs Wochen nach Erhalt seiner Kündigung Kündigungsschutzklage beim Arbeitsgericht ein. Analysieren Sie, ob die Klage fristgerecht erhoben wurde und welche Konsequenz sich daraus ergibt.
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Eine betroffene beschäftigte Person reicht sechs Wochen nach Erhalt ihrer Kündigung Kündigungsschutzklage beim Arbeitsgericht ein. Analysieren Sie, ob die Klage fristgerecht erhoben wurde und welche Konsequenz sich daraus ergibt.
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Vantera zahlt einem Teil der ausscheidenden Beschäftigten Abfindungen. Bewerten Sie, worin sich Abfindungszahlungen von der laufenden, lohnsteuerpflichtigen Vergütung grundsätzlich unterscheiden und warum Vantera als Arbeitgeberin bei der Lohnabrechnung sorgfältig zwischen beiden unterscheiden sollte.
 
