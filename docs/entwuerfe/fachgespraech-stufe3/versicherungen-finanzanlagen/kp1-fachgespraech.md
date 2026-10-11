@@ -58,7 +58,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Nach Vertragsabschluss helfen Jahresgespräche und regelmäßige Kontaktpunkte, Deckungslücken frühzeitig zu erkennen, etwa wenn ein Gewerbekunde neue Maschinen anschafft, die noch nicht in der Sachversicherung erfasst sind.
   - Erwartung: Vertragsänderungen passen Versicherungssummen, Tarifmerkmale oder Zahlweisen an veränderte Umstände an, zum Beispiel an eine Geschäftserweiterung.
   - Rückfrage: Wie erkennen Sie, dass ein Gewerbekunde neue Maschinen angeschafft hat, die noch nicht erfasst sind?
-- Was unterscheidet einen Ausschließlichkeitsvertreter rechtlich von einem Makler, und welche Konsequenzen hat das für die Beratung?
+- Was unterscheidet die Tätigkeit als Ausschließlichkeitsvertreter:in rechtlich von der als Makler:in, und welche Konsequenzen hat das für die Beratung?
 - Wo ziehen Sie die Grenze zwischen zulässigem Cross-Selling und einem unzulässigen „Zusatzverkauf" ohne echten Bedarfsbezug?
   - Erwartung: Cross-Selling ist der Verkauf ergänzender Produkte an Bestandskunden auf Basis der bereits bekannten Bedarfssituation.
   - Erwartung: Zulässig ist es nur, wenn es sich weiterhin an den tatsächlichen Wünschen und Bedürfnissen des Kunden orientiert.
@@ -80,7 +80,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Am Ende steht die Regulierungsentscheidung: Auszahlung der Entschädigung, teilweise Kürzung oder begründete Ablehnung.
   - Rückfrage: Wann zieht Nordantis unabhängige Sachverständige hinzu?
 - Was ist die Schadenminderungspflicht, und welche Konsequenzen kann ihre Verletzung haben?
-- Wie würden Sie mit einem Kunden umgehen, der einen Schaden erst mehrere Wochen nach Eintritt meldet?
+- Wie würden Sie mit einer Kundin oder einem Kunden umgehen, die oder der einen Schaden erst mehrere Wochen nach Eintritt meldet?
 - Erläutern Sie an einem selbst gewählten Beispiel, wie der PDCA-Zyklus auf die Schadenbearbeitung angewendet werden kann.
   - Erwartung: Plan: Prüfung des Versicherungsschutzes dem Grunde nach und Festlegung des weiteren Vorgehens, zum Beispiel die Beauftragung eines Gutachters bei größeren Schäden.
   - Erwartung: Do: Durchführung der Schadenbearbeitung mit Einholung von Belegen und Gutachten, gegebenenfalls Rücksprache mit dem Versicherungsnehmer und Ermittlung der konkreten Schadenhöhe.
@@ -99,7 +99,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche weiteren formalen Voraussetzungen werden vor einer Leistung geprüft?
 - Erläutern Sie die vorvertragliche Anzeigepflicht nach § 19 VVG und mögliche Folgen einer Verletzung.
 - Wie unterscheiden sich die möglichen Konsequenzen einer Anzeigepflichtverletzung je nach Verschuldensgrad?
-- Welche Auffälligkeitsmerkmale können auf Versicherungsbetrug hindeuten, und wie geht Nordantis damit um, ohne ehrliche Kunden unangemessen zu verunsichern?
+- Welche Auffälligkeitsmerkmale können auf Versicherungsbetrug hindeuten, und wie geht Nordantis damit um, ohne ehrliche Kundinnen und Kunden unangemessen zu verunsichern?
   - Erwartung: Auffällig sind zum Beispiel kurz nach Vertragsabschluss gemeldete Großschäden und widersprüchliche Angaben im Leistungsantrag.
   - Erwartung: Weitere Merkmale sind eine ungewöhnlich hohe Schadenhäufigkeit einzelner Versicherungsnehmer sowie fehlende oder nachträglich veränderte Belege.
   - Erwartung: Nordantis wertet Schadenmuster statistisch aus und setzt spezialisierte Fachkräfte in einer eigenen Anti-Fraud-Einheit ein.

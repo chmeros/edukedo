@@ -83,7 +83,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Intrinsische Motivation entsteht aus der Tätigkeit selbst, zum Beispiel aus Freude an der Kundenberatung oder Stolz auf eine gute Schadenregulierung.
   - Erwartung: Für Führungskräfte im Vertrieb ist die Unterscheidung relevant, weil nachhaltige Leistungsbereitschaft meist erst entsteht, wenn beide Motivationsarten zusammenwirken.
   - Rückfrage: Welche Bedürfnisse müssen nach Maslow zuerst erfüllt sein, damit höhere Stufen wie eine Fachexpertenrolle motivierend wirken können?
-- Welche Grundsätze beachten Sie bei Vorbereitung und Durchführung eines Kritikgesprächs mit einem Mitarbeitenden, der wiederholt Beratungsgespräche unzureichend dokumentiert? Nennen Sie drei und begründen Sie einen.
+- Welche Grundsätze beachten Sie bei Vorbereitung und Durchführung eines Kritikgesprächs mit einer mitarbeitenden Person, die wiederholt Beratungsgespräche unzureichend dokumentiert? Nennen Sie drei und begründen Sie einen.
   - Erwartung: Ein Kritikgespräch wird gezielt geführt, wenn wiederholtes Fehlverhalten wie die mangelhafte Dokumentation von Beratungsgesprächen anzusprechen ist.
   - Erwartung: Es sollte sachlich, zeitnah und unter vier Augen erfolgen.
   - Erwartung: Erforderlich sind eine gute Vorbereitung und konkrete Beispiele statt pauschaler Vorwürfe.
@@ -163,7 +163,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Es dient zugleich als Kontrollinstrument.
   - Erwartung: Regelmäßige Feedbackgespräche begleiten den Ausbildungsfortschritt.
   - Erwartung: Bei erkannten Lernschwierigkeiten werden gezielte Fördergespräche geführt, in denen individuelle Unterstützungsmaßnahmen vereinbart werden.
-- Welche Rolle spielt die beruflich Handlungskompetenz als übergreifendes Ausbildungsziel im Vergleich zu reinem Fachwissen?
+- Welche Rolle spielt die berufliche Handlungskompetenz als übergreifendes Ausbildungsziel im Vergleich zu reinem Fachwissen?
   - Erwartung: Der Aufbau beruflicher Handlungskompetenz ist das übergreifende Ziel der Ausbildung.
   - Erwartung: Berufliche Handlungskompetenz ist die Fähigkeit, berufstypische Aufgaben wie eine Kundenberatung oder eine Schadenbearbeitung selbstständig, fachlich korrekt und methodisch angemessen zu lösen.
   - Erwartung: Fachliche Korrektheit ist damit nur ein Bestandteil; hinzu kommen selbstständiges Handeln und ein methodisch angemessenes Vorgehen.

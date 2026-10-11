@@ -80,7 +80,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Vier-Stufen-Methode (Vorbereiten, Vormachen/Erklären, Nachmachen lassen, Üben lassen) dient dem handlungsorientierten Anlernen.
   - Erwartung: Bei der Leittextmethode erarbeiten sich Auszubildende Inhalte anhand strukturierter Leitfragen selbstständig.
   - Rückfrage: Welche Methode eignet sich, um Wissen im Dialog zu vermitteln?
-- Welche Aufgaben hat der Ausbildende während der Probezeit eines Auszubildenden?
+- Welche Aufgaben hat die ausbildende Person während der Probezeit einer oder eines Auszubildenden?
 - Welche Maßnahmen zur Kontrolle und Förderung setzen Sie ein, wenn ein:e Auszubildende:r die vereinbarten Ausbildungsziele nicht erreicht, und warum?
   - Erwartung: Strukturierte Feedback-Gespräche gehören zur laufenden Qualitätssicherung der Ausbildung.
   - Erwartung: Bei Lernschwierigkeiten werden gezielte Fördergespräche geführt.
@@ -89,8 +89,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auf Zwischenprüfung und Abschlussprüfung wird gezielt vorbereitet.
   - Rückfrage: Welche Ausbildungsmethoden und Medien können die Vermittlung der Inhalte unterstützen?
 - Was ist bei der Beschäftigung von minderjährigen Auszubildenden arbeitsrechtlich besonders zu beachten?
-- Welche Aufgaben hat der Ausbildende im Vorfeld einer Zwischen- oder Abschlussprüfung?
-- Wie dokumentieren Sie den Ausbildungsfortschritt eines Auszubildenden nachvollziehbar?
+- Welche Aufgaben hat die ausbildende Person im Vorfeld einer Zwischen- oder Abschlussprüfung?
+- Wie dokumentieren Sie den Ausbildungsfortschritt einer oder eines Auszubildenden nachvollziehbar?
   - Erwartung: Der Ausbildungsfortschritt wird über Bewertungsstrukturen dokumentiert.
   - Erwartung: Das Berichtsheft (Ausbildungsnachweis) dokumentiert die Ausbildungsinhalte und wird von den Auszubildenden regelmäßig geführt.
   - Erwartung: Das Berichtsheft dient zugleich als Kontrollinstrument.

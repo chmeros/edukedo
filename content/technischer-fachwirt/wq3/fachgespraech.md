@@ -34,6 +34,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welchen Zweck erfüllt ein Eigentumsvorbehalt in Lieferverträgen, und wie unterscheidet er sich von einer Vertragsstrafe?
 - Worin liegt der Unterschied zwischen gesetzlicher Gewährleistung und einer freiwillig übernommenen Garantie?
 - Welche Funktion übernehmen INCOTERMS-Klauseln in internationalen Lieferverträgen?
+  - Erwartung: INCOTERMS sind standardisierte Lieferklauseln der Internationalen Handelskammer für internationale Lieferverträge.
+  - Erwartung: Sie regeln eindeutig Transportkosten, Gefahrübergang und Zollformalitäten.
+  - Erwartung: Beispiel EXW (Ab Werk): minimale Verpflichtung der Verkäuferseite.
+  - Erwartung: Beispiel DAP (Delivered at Place): Lieferung an einen bestimmten Bestimmungsort.
+  - Rückfrage: Was empfiehlt sich in internationalen Verträgen ergänzend, um Klarheit über anwendbares Recht und zuständige Gerichte zu schaffen?
 - Warum schließen Unternehmen wie Vantera das UN-Kaufrecht (CISG) in internationalen Verträgen häufig ausdrücklich aus?
 
 ### 3.4 Unternehmensrelevantes Steuerrecht

@@ -62,7 +62,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Am Ende stand eine schriftliche, von den Kund:innen bestätigte Zusammenfassung.
   - Rückfrage: Worin unterscheiden sich Lösungswunsch und Bedarf, etwa bei der Aussage „Wir brauchen eine App“?
   - Rückfrage: Wozu dient das Paraphrasieren?
-- Wer waren die Ansprechpersonen und Zielgruppen in Ihrem Projekt (z. B. Entscheider, Anwender, Fachexperten), und wie haben Sie Ihre Kommunikation darauf abgestimmt?
+- Wer waren die Ansprechpersonen und Zielgruppen in Ihrem Projekt (z. B. Entscheider:innen, Anwender:innen, Fachexpert:innen), und wie haben Sie Ihre Kommunikation darauf abgestimmt?
   - Erwartung: Die Rollen im Entscheidungsprozess wurden unterschieden: Entscheider:innen (Budget und Freigabe), Anwender:innen (täglicher Umgang mit der Lösung) und Beeinflusser:innen bzw. Fachexpert:innen (technische Bewertung).
   - Erwartung: Entscheider:innen erwarten Nutzen, Kosten und Risiken, Anwender:innen praktische Bedienbarkeit im Alltag, Fachexpert:innen technische Details und Eignung.
   - Erwartung: Sprache, Detailtiefe, Beispiele und Medien wurden an die Zielgruppe angepasst; Fachbegriffe wurden nur verwendet, wenn sie bekannt waren oder erklärt wurden.
@@ -111,7 +111,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Gute Dokumentation ist zeitnah, vollständig, richtig und nachvollziehbar, nicht erst am Projektende aus dem Gedächtnis erstellt.
   - Erwartung: Sicherheitsrelevante Angaben wie Passwörter gehören nicht im Klartext in allgemein zugängliche Dokumente.
   - Rückfrage: Worin unterscheiden sich Benutzerdokumentation und Systemdokumentation?
-- Wie haben Sie die Anwender in die Nutzung eingewiesen, und woran haben Sie erkannt, dass sie die Lösung selbstständig nutzen können?
+- Wie haben Sie die Anwender:innen in die Nutzung eingewiesen, und woran haben Sie erkannt, dass sie die Lösung selbstständig nutzen können?
   - Erwartung: Die Einweisung wurde vorbereitet: Zielgruppe (Vorkenntnisse, Rollen), Lernziele, Inhalte, Methode, Zeitrahmen sowie Räume und Technik.
   - Erwartung: Geeignete Methoden sind Live-Demonstration, begleitetes Ausprobieren an realen Aufgaben, Kurzanleitungen, Videos oder FAQ-Listen.
   - Erwartung: Während der Einweisung wird in kleinen Schritten vorgegangen, Fachsprache erklärt, werden Fragen zugelassen und wird das Verständnis geprüft, z. B. indem die Anwender:innen eine kleine Aufgabe selbst ausführen.

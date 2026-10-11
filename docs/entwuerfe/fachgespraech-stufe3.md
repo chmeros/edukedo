@@ -1,6 +1,6 @@
 # Entwurf: Fachgespräch-Pools der übrigen elf Kurse mit Erwartungshorizont und Rückfragen (Stufe 3)
 
-Stand 11.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (Rahmenentscheidung R3, rechtsnahe Aussagen R4). Folgt auf `docs/entwuerfe/fachgespraech-pilot.md` (Stufe 2) und `docs/entwuerfe/fachgespraech-pilot-recht.md`. Stufe 1 (Format, Trainer, Raster) und Stufe 2 (AEVO, Immobilienfachwirt, Transport) sind umgesetzt; dieser Entwurf liefert die Inhalte für die **elf übrigen Kurse mit Fachgespräch-Pool**. Mathematik 9 und die Instrumenten-Lernpfade haben keinen Pool.
+Stand 11.10.2026 · **vom Projektleiter angenommen und am 11.10.2026 in `content/` eingespielt** (siehe Architekturplanung §13; die Tabellen unten zeigen den Stand beim Einspielen, 21 Fragetexte sind danach noch nach den Hausregeln bereinigt worden) (Rahmenentscheidung R3, rechtsnahe Aussagen R4). Folgt auf `docs/entwuerfe/fachgespraech-pilot.md` (Stufe 2) und `docs/entwuerfe/fachgespraech-pilot-recht.md`. Stufe 1 (Format, Trainer, Raster) und Stufe 2 (AEVO, Immobilienfachwirt, Transport) sind umgesetzt; dieser Entwurf liefert die Inhalte für die **elf übrigen Kurse mit Fachgespräch-Pool**. Mathematik 9 und die Instrumenten-Lernpfade haben keinen Pool.
 
 ## Was vorliegt
 

@@ -138,7 +138,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine Ursache ist das Gefühl mangelnder Einbeziehung in die Entscheidung.
   - Erwartung: Eine Ursache sind negative Erfahrungen mit früheren, schlecht gemanagten Veränderungen.
   - Rückfrage: Wie lassen sich Widerstände am wirksamsten adressieren?
-- Welche Maßnahmen helfen, wenn ein Mitarbeitender eine neu eingeführte Software ignoriert und weiter die alten Abläufe nutzt, und um welche Form von Widerstand handelt es sich dabei?
+- Welche Maßnahmen helfen, wenn eine mitarbeitende Person eine neu eingeführte Software ignoriert und weiter die alten Abläufe nutzt, und um welche Form von Widerstand handelt es sich dabei?
   - Erwartung: Das bewusste Ignorieren neuer Vorgaben ist ein verdeckter Widerstand.
   - Erwartung: Widerstand ist ein normaler Bestandteil von Veränderungsprozessen und nicht Zeichen grundsätzlicher Unwilligkeit.
   - Erwartung: Bedenken sollten in offenen Gesprächen ernsthaft aufgegriffen werden, denn manche Einwände sind inhaltlich berechtigt.

@@ -50,7 +50,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Intrinsisch motivierte Mitarbeitende zeigen in der Regel eine nachhaltigere Leistungsbereitschaft.
   - Erwartung: Führungskräfte sollten neben monetären Anreizen Rahmenbedingungen schaffen, die intrinsische Motivation fördern, etwa Gestaltungsspielräume, sinnstiftende Aufgaben oder Einbindung in Verbesserungsprozesse.
   - Rückfrage: Welches Beispiel für extrinsische Motivation kennen Sie aus der Fertigung?
-- Ein Schichtleiter beklagt sich, dass eine kürzlich eingeführte Leistungsprämie die Motivation seines Teams kaum spürbar verbessert hat. Wie würden Sie diese Beobachtung mit der Zwei-Faktoren-Theorie erklären?
+- Eine Schichtleitung beklagt sich, dass eine kürzlich eingeführte Leistungsprämie die Motivation ihres Teams kaum spürbar verbessert hat. Wie würden Sie diese Beobachtung mit der Zwei-Faktoren-Theorie erklären?
   - Erwartung: Bezahlung gehört nach Herzberg zu den Hygienefaktoren.
   - Erwartung: Hygienefaktoren verhindern bei ausreichender Erfüllung nur Unzufriedenheit, erzeugen aber für sich allein keine echte Motivation.
   - Erwartung: Echte, dauerhafte Motivation entsteht eher durch Motivatoren wie mehr Verantwortung, interessante Aufgabeninhalte, Anerkennung oder Entwicklungsmöglichkeiten.
@@ -136,7 +136,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Je weiter ein Konflikt eskaliert ist, desto eher ist externe Unterstützung nötig, weil mit jeder Stufe das gegenseitige Vertrauen weiter sinkt.
   - Rückfrage: Warum sollte die vermittelnde Person für den Konflikt nicht zuständig sein?
 - Erläutern Sie die Rolle von Betriebsrat und Einigungsstelle bei innerbetrieblichen Konflikten.
-- Zwei Abteilungsleiter geraten öffentlich vor dem gesamten Team in einen offenen Streit über die Freigabe einer Bauteil-Charge. Nennen Sie die Schritte eines strukturierten Konfliktgesprächs, mit dem Sie als Werksleitung den Streit klären können, und begründen Sie, warum eine frühzeitige Klärung wichtig ist.
+- Zwei Abteilungsleitungen geraten öffentlich vor dem gesamten Team in einen offenen Streit über die Freigabe einer Bauteil-Charge. Nennen Sie die Schritte eines strukturierten Konfliktgesprächs, mit dem Sie als Werksleitung den Streit klären können, und begründen Sie, warum eine frühzeitige Klärung wichtig ist.
   - Erwartung: Es handelt sich um einen Sachkonflikt, nämlich unterschiedliche fachliche Auffassungen darüber, ob eine Bauteil-Charge mit minimaler Maßabweichung noch freigegeben werden kann.
   - Erwartung: Zunächst wird beiden Seiten ungestört Gehör verschafft.
   - Erwartung: Der Sachverhalt wird von persönlichen Bewertungen getrennt und gemeinsame Interessen werden herausgearbeitet, statt nur gegensätzliche Positionen zu betrachten.

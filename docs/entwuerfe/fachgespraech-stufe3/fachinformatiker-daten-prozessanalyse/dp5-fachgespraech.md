@@ -104,7 +104,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 ### 12.3 Visualisierung, Soll-Ist-Vergleich, Reflexion und Präsentation
 
-- Warum haben Sie sich für diese Diagramme und Darstellungsformen entschieden, und wie haben Sie die Ergebnisse für Entscheider beim Kunden und für Fachleute unterschiedlich aufbereitet?
+- Warum haben Sie sich für diese Diagramme und Darstellungsformen entschieden, und wie haben Sie die Ergebnisse für Entscheider:innen beim Kunden und für Fachleute unterschiedlich aufbereitet?
   - Erwartung: Jede Grafik hat eine klare Botschaft, die als Aussagetitel in der Überschrift steht, z. B. Prognosefehler halbiert sich gegenüber der Vorjahresmethode statt MAPE-Werte; eine Botschaft je Folie.
   - Erwartung: Die Diagrammform folgt der Aussage: Zeitverlauf als Liniendiagramm, Vergleich von Kategorien als Balkendiagramm, Zusammenhang zweier Größen als Streudiagramm, Verteilung als Histogramm oder Boxplot.
   - Erwartung: Die Darstellung ist ehrlich: Balken beginnen bei null, Achsen sind beschriftet und mit Einheiten versehen, der Vergleichswert (Baseline, Ziel) ist sichtbar, die Unsicherheit einer Prognose wird gezeigt, und auf 3D-Effekte wird verzichtet.
