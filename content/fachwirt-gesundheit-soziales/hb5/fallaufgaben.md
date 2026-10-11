@@ -44,7 +44,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB5 (5.1–5.5) zu einer zusammenh
 
 **Teilaufgabe 3 (6 Punkte, bloom: erschaffen):** Entwerfen Sie einen strukturierten Ablauf für ein Klärungsgespräch zwischen den beiden Konfliktparteien, das die Tourenleitung moderiert. Berücksichtigen Sie sowohl die Sach- als auch die Beziehungsebene.
 
-**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, mit welchen personalentwicklerischen Maßnahmen (z. B. kollegiale Fallberatung, Mentoring) "Morgenlicht" ähnlichen Spannungen zwischen erfahrenen und neuen Kolleg/innen langfristig vorbeugen kann.
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, mit welchen personalentwicklerischen Maßnahmen (z. B. kollegiale Fallberatung, Mentoring) "Morgenlicht" ähnlichen Spannungen zwischen erfahrenen und neuen Kolleg:innen langfristig vorbeugen kann.
 
 **Musterlösungshinweise:** Teilaufgabe 1: Mischung aus Sachkonflikt (Zeitdruck, Arbeitsorganisation) und beginnendem Beziehungskonflikt; Anzeichen sind das Gefühl der Abweisung und die steigende Fluktuation. Teilaufgabe 2: ein kooperativer bzw. situativer Führungsstil ist geeignet, um beide Sichtweisen einzubeziehen; eine rein autoritäre Anweisung würde die Ursachen nicht adressieren. Teilaufgabe 3: Gesprächseröffnung, getrennte Darstellung beider Perspektiven, Benennung der Sach- und Beziehungsebene, gemeinsame Lösungssuche, Vereinbarung mit Nachverfolgung. Teilaufgabe 4: strukturierte Einarbeitung mit Mentoring-Patenschaft, regelmäßige kollegiale Fallberatung, klar geregelte Zuständigkeiten im Tourenablauf.
 

@@ -14,7 +14,7 @@ rechtsstand: "11.10.2026 — Entwurf, vor Livegang fachlich prüfen"
 **Auch:** Kelvinar
 **Thema:** 1.1
 **Abschnitt:** Das Berufsbildungsgesetz (BBiG) als zentrale Rechtsgrundlage
-**Definition:** Fallbetrieb dieses Kurses: ein mittelständisches Industrieunternehmen mit rund 180 Beschäftigten, das in den Berufen Elektroniker/in für Betriebstechnik, Industriekaufmann/-frau und Fachinformatiker/in Systemintegration ausbildet.
+**Definition:** Fallbetrieb dieses Kurses: ein mittelständisches Industrieunternehmen mit rund 180 Beschäftigten, das in den Berufen Elektroniker:in für Betriebstechnik, Industriekaufmann/-frau und Fachinformatiker:in Systemintegration ausbildet.
 **Geprüft:** nein
 
 #### Frau Yildiz

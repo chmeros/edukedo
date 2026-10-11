@@ -166,11 +166,11 @@ export function CourseSelection({
 
       {me.data?.isMinor && (
         // F-153 (Nutzer-Feedback vom 05.10.2026): Minderjährige sahen bisher stillschweigend nur einen Bruchteil
-        // des Katalogs — die IHK-Kurse (Fortbildung, Fachinformatiker/in, AEVO) sind laut F-13 nur für Erwachsene.
+        // des Katalogs — die IHK-Kurse (Fortbildung, Fachinformatiker:in, AEVO) sind laut F-13 nur für Erwachsene.
         <div className="alert alert-info">
           <InfoIcon />
           <div>
-            Du siehst hier nur Kurse für deine Altersgruppe. Die IHK-Kurse (Fortbildungen, Fachinformatiker/in, AEVO)
+            Du siehst hier nur Kurse für deine Altersgruppe. Die IHK-Kurse (Fortbildungen, Fachinformatiker:in, AEVO)
             sind aktuell erst ab 18 Jahren freigeschaltet.
           </div>
         </div>

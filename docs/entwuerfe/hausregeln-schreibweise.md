@@ -1,6 +1,6 @@
 # Entwurf: Hausregeln für Anrede, Gendern und Zahlenformat im Content
 
-Stand 11.10.2026 · **zur Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Betrifft den Punkt „Du/Sie-Regel, Gendern und Zahlenformat als Hausregel in `content/README.md` festlegen“ aus Iteration 23 („Systemisch“). `content/README.md` enthält bisher keine Schreibregeln.
+Stand 11.10.2026 · **Vorschläge vom Projektleiter angenommen (Variante A für Berufsbezeichnungen) und am 11.10.2026 eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3). Betrifft den Punkt „Du/Sie-Regel, Gendern und Zahlenformat als Hausregel in `content/README.md` festlegen“ aus Iteration 23 („Systemisch“). `content/README.md` enthält bisher keine Schreibregeln.
 
 ## Befund: Der Bestand folgt schon weitgehend einer Regel
 

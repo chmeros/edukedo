@@ -214,14 +214,14 @@ export const KURS_META: Record<string, KursMeta> = {
     metadata: { zielgruppe: "erwachsene", kategorie: "erwachsenenbildung", presentationMinutes: 15 },
   },
   // F-153 (zwölfter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
-  // Fachinformatiker/in Anwendungsentwicklung (FIAusbV 2020) -- erster von vier Fachinformatiker-
+  // Fachinformatiker:in Anwendungsentwicklung (FIAusbV 2020) -- erster von vier Fachinformatiker-
   // Kursen (je Fachrichtung ein eigener Kurs, gemeinsame Fachgebiete FU1-FU7 je Kurs kopiert).
   // type "ausbildungsberuf" (neuer, rein deskriptiver Wert): Ausbildungsberuf mit gestreckter
   // Abschlussprüfung, weder Fortbildung ("fachwirt") noch Eignungsprüfung. Titel bewusst neutral
   // ("IHK-Abschlussprüfung"), da Umschulung und Erstausbildung zur selben Prüfung führen;
   // zielgruppe "erwachsene" wie alle Erwachsenenbildungs-Kurse (Umschüler:innen sind erwachsen).
   "fachinformatiker-anwendungsentwicklung": {
-    title: "Fachinformatiker/in Anwendungsentwicklung (IHK-Abschlussprüfung)",
+    title: "Fachinformatiker:in Anwendungsentwicklung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
     metadata: fachinformatikMetadata(80, [
@@ -230,11 +230,11 @@ export const KURS_META: Record<string, KursMeta> = {
     ]),
   },
   // F-154 (dreizehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
-  // Fachinformatiker/in Systemintegration -- zweiter der vier Fachinformatiker-Kurse; die
+  // Fachinformatiker:in Systemintegration -- zweiter der vier Fachinformatiker-Kurse; die
   // fachrichtungsübergreifenden Fachgebiete fu1-fu7 sind aus dem Anwendungsentwicklungs-Kurs
   // kopiert (nur kurs_slug im Frontmatter unterscheidet sich), type/Zielgruppe wie dort.
   "fachinformatiker-systemintegration": {
-    title: "Fachinformatiker/in Systemintegration (IHK-Abschlussprüfung)",
+    title: "Fachinformatiker:in Systemintegration (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
     metadata: fachinformatikMetadata(40, [
@@ -243,10 +243,10 @@ export const KURS_META: Record<string, KursMeta> = {
     ]),
   },
   // F-155 (vierzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
-  // Fachinformatiker/in Daten- und Prozessanalyse -- dritter der vier Fachinformatiker-Kurse;
+  // Fachinformatiker:in Daten- und Prozessanalyse -- dritter der vier Fachinformatiker-Kurse;
   // fu1-fu7 aus dem Anwendungsentwicklungs-Kurs kopiert (nur kurs_slug unterscheidet sich).
   "fachinformatiker-daten-prozessanalyse": {
-    title: "Fachinformatiker/in Daten- und Prozessanalyse (IHK-Abschlussprüfung)",
+    title: "Fachinformatiker:in Daten- und Prozessanalyse (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
     metadata: fachinformatikMetadata(40, [
@@ -255,10 +255,10 @@ export const KURS_META: Record<string, KursMeta> = {
     ]),
   },
   // F-156 (fünfzehnter Kurs, Nutzer-Vorgabe vom 04.10.2026, siehe Architekturplanung Abschnitt 13):
-  // Fachinformatiker/in Digitale Vernetzung -- vierter und letzter der vier Fachinformatiker-Kurse;
+  // Fachinformatiker:in Digitale Vernetzung -- vierter und letzter der vier Fachinformatiker-Kurse;
   // fu1-fu7 aus dem Anwendungsentwicklungs-Kurs kopiert (nur kurs_slug unterscheidet sich).
   "fachinformatiker-digitale-vernetzung": {
-    title: "Fachinformatiker/in Digitale Vernetzung (IHK-Abschlussprüfung)",
+    title: "Fachinformatiker:in Digitale Vernetzung (IHK-Abschlussprüfung)",
     type: "ausbildungsberuf",
     isPublished: true,
     metadata: fachinformatikMetadata(40, [

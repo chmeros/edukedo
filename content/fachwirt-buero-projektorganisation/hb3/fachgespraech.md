@@ -21,7 +21,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Wie unterscheiden sich Personalentwicklung und Personalbetreuung inhaltlich voneinander?
 - Nennen Sie Instrumente, mit denen ein Unternehmen die Mitarbeiterbindung erhöhen kann.
 - Welche Rolle spielt das Mitarbeitergespräch als Instrument der Personalbetreuung?
-- Wie gehen Sie vor, wenn Sie feststellen, dass eine Stelle wiederholt nicht mit geeigneten Bewerber/innen besetzt werden kann?
+- Wie gehen Sie vor, wenn Sie feststellen, dass eine Stelle wiederholt nicht mit geeigneten Bewerber:innen besetzt werden kann?
 - Was versteht man unter einer Personalbedarfsplanung, und welche Datenquellen ziehen Sie dafür heran?
 - Erläutern Sie den Unterschied zwischen quantitativem und qualitativem Personalbedarf.
 
@@ -57,7 +57,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Erläutern Sie die typischen Phasen eines Moderationsprozesses.
 - Was ist der Unterschied zwischen Prozessverantwortung und Ergebnisverantwortung in der Moderation?
 - Welche Techniken setzen Sie ein, um in einer Gruppe alle Teilnehmenden gleichberechtigt zu beteiligen?
-- Wie gehen Sie als Moderator/in mit dominanten oder zurückhaltenden Teilnehmenden um?
+- Wie gehen Sie als Moderator:in mit dominanten oder zurückhaltenden Teilnehmenden um?
 - Welche Medien und Visualisierungstechniken sind für eine Moderation typischerweise sinnvoll?
 - Wie sichern Sie die Ergebnisse einer Moderation, damit sie tatsächlich umgesetzt werden?
 - Wie evaluieren Sie im Nachgang, ob eine Moderation erfolgreich war?

@@ -179,7 +179,7 @@ function ChallengeForm({
   return (
     <div className="stack">
       <div className="field">
-        <label htmlFor="duell-opponent">Freund/in herausfordern</label>
+        <label htmlFor="duell-opponent">Freund:in herausfordern</label>
         <select className="input" id="duell-opponent" value={opponentUserId} onChange={(event) => setOpponentUserId(event.target.value)}>
           <option value="">Auswählen…</option>
           {(friends.data ?? []).map((friend) => (

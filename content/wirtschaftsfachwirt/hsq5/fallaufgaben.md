@@ -54,7 +54,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ5 (5.1–5.4) zu einer zusammen
 
 **Themenbezug:** 5.4 (Projektmoderation und Präsentationstechniken) + 5.3 (Mitarbeiterförderung)
 
-**Ausgangssituation:** Die NordWert Handels GmbH plant, ein neues digitales Bestellportal für Geschäftskunden einzuführen. Eine bereichsübergreifende Projektgruppe aus Vertrieb, IT und Kundenservice soll dazu in einem ganztägigen Workshop erste Anforderungen sammeln und priorisieren. Sie wurden als Moderator/in für den Workshop bestimmt. Im Anschluss sollen die Ergebnisse der Geschäftsführung in einer 15-minütigen Präsentation vorgestellt werden, gefolgt von einer offenen Fragerunde. Zusätzlich soll eine Auszubildende aus dem Vertrieb, die im Projekt mitarbeitet, durch den Workshop gezielt gefördert werden.
+**Ausgangssituation:** Die NordWert Handels GmbH plant, ein neues digitales Bestellportal für Geschäftskunden einzuführen. Eine bereichsübergreifende Projektgruppe aus Vertrieb, IT und Kundenservice soll dazu in einem ganztägigen Workshop erste Anforderungen sammeln und priorisieren. Sie wurden als Moderator:in für den Workshop bestimmt. Im Anschluss sollen die Ergebnisse der Geschäftsführung in einer 15-minütigen Präsentation vorgestellt werden, gefolgt von einer offenen Fragerunde. Zusätzlich soll eine Auszubildende aus dem Vertrieb, die im Projekt mitarbeitet, durch den Workshop gezielt gefördert werden.
 
 **Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Beschreiben Sie, mit welchen Moderationstechniken Sie in der Sammlungsphase des Workshops sicherstellen, dass sich alle Teilnehmenden aus den drei Bereichen gleichberechtigt einbringen können.
 

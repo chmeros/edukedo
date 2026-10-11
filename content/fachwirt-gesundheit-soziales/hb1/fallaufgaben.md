@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Themenbezug:** 1.1 (Rechtliche Rahmenbedingungen) + 1.2 (Betriebliche Ziele und Strategien)
 
-**Ausgangssituation:** Der ambulante Pflegedienst „Morgenlicht" versorgt inzwischen 120 pflegebedürftige Menschen und wird bislang als Einzelunternehmen der Gründerin geführt. Angesichts des kontinuierlichen Wachstums und einer geplanten Aufnahme zweier neuer Mitgesellschafter aus dem Pflegeteam prüft die Geschäftsführung einen Wechsel der Rechtsform. Gleichzeitig überlegt die Geschäftsführung, ob „Morgenlicht" künftig neben der ambulanten Versorgung auch eine Tagespflege anbieten soll, um dem steigenden regionalen Bedarf zu begegnen und das Leistungsangebot zu verbreitern. Sie bitten Sie als Fachwirt/in um eine fundierte Entscheidungsgrundlage.
+**Ausgangssituation:** Der ambulante Pflegedienst „Morgenlicht" versorgt inzwischen 120 pflegebedürftige Menschen und wird bislang als Einzelunternehmen der Gründerin geführt. Angesichts des kontinuierlichen Wachstums und einer geplanten Aufnahme zweier neuer Mitgesellschafter aus dem Pflegeteam prüft die Geschäftsführung einen Wechsel der Rechtsform. Gleichzeitig überlegt die Geschäftsführung, ob „Morgenlicht" künftig neben der ambulanten Versorgung auch eine Tagespflege anbieten soll, um dem steigenden regionalen Bedarf zu begegnen und das Leistungsangebot zu verbreitern. Sie bitten Sie als Fachwirt:in um eine fundierte Entscheidungsgrundlage.
 
 **Teilaufgabe 1 (6 Punkte, bloom: bewerten):** Vergleichen Sie die gGmbH mit dem bisherigen Einzelunternehmen im Hinblick auf Haftung, steuerliche Behandlung und Eignung für die geplante Aufnahme weiterer Gesellschafter. Geben Sie eine begründete Empfehlung ab.
 

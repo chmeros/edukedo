@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.4) zu einer zusammenh
 
 **Themenbezug:** 2.1 (Qualitätsbegriff/QM-Systeme) + 2.2 (Prozessdaten und Qualitätsindikatoren)
 
-**Ausgangssituation:** Der ambulante Pflegedienst „Morgenlicht" versorgt 120 pflegebedürftige Menschen in mehreren Touren. Die Geschäftsleitung möchte erstmals ein systematisches Qualitätsmanagement nach DIN EN ISO 9001 aufbauen und beauftragt Sie als Fachwirt/in für Gesundheits- und Sozialwesen, ein Grobkonzept zu erarbeiten. Bislang existieren keine schriftlich festgelegte Qualitätspolitik und keine regelmäßige Auswertung von Qualitätsdaten; Rückmeldungen von Klient:innen und Angehörigen werden bisher nur unsystematisch mündlich erfasst.
+**Ausgangssituation:** Der ambulante Pflegedienst „Morgenlicht" versorgt 120 pflegebedürftige Menschen in mehreren Touren. Die Geschäftsleitung möchte erstmals ein systematisches Qualitätsmanagement nach DIN EN ISO 9001 aufbauen und beauftragt Sie als Fachwirt:in für Gesundheits- und Sozialwesen, ein Grobkonzept zu erarbeiten. Bislang existieren keine schriftlich festgelegte Qualitätspolitik und keine regelmäßige Auswertung von Qualitätsdaten; Rückmeldungen von Klient:innen und Angehörigen werden bisher nur unsystematisch mündlich erfasst.
 
 **Teilaufgabe 1 (5 Punkte, bloom: erschaffen):** Formulieren Sie einen Entwurf für die Qualitätspolitik von „Morgenlicht" (3–4 Sätze) sowie zwei daraus abgeleitete, konkret überprüfbare Qualitätsziele.
 

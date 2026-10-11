@@ -43,7 +43,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 - Was unterscheidet Prozessverantwortung von Ergebnisverantwortung in der Moderation?
 - Welche Moderationstechniken setzen Sie ein, um in einer heterogenen Gruppe alle Teilnehmenden gleichberechtigt zu beteiligen?
-- Wie gehen Sie als Moderator/in mit dominanten oder besonders zurückhaltenden Teilnehmenden um?
+- Wie gehen Sie als Moderator:in mit dominanten oder besonders zurückhaltenden Teilnehmenden um?
 - Erläutern Sie den klassischen Aufbau einer Präsentation anhand von Einleitung, Hauptteil und Schluss.
 - Wie wählen Sie ein passendes Präsentationshilfsmittel für eine konkrete Vortragssituation aus?
 - Was tun Sie, wenn Sie eine Rückfrage im Fachgespräch nicht sofort beantworten können?

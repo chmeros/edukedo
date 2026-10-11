@@ -24,7 +24,7 @@ aber erst in ein tatsächliches, importierbares Datenmodell (neue Lernpfad-Entit
   Unternehmen „Nordstern GmbH", 90 Beschäftigte, Geschäftskunden-Dienstleister).
 - **`user-story-bsc-pflegeeinrichtung-fachwirt-gesundheit-soziales.docx`** — Fassung für den
   in `docs/Anforderungskatalog.md` Abschnitt 4 **vorgemerkten** (noch nicht terminierten) dritten
-  Kurs „Fachwirt/in im Gesundheits- und Sozialwesen" (fiktiver ambulanter Pflegedienst
+  Kurs „Fachwirt:in im Gesundheits- und Sozialwesen" (fiktiver ambulanter Pflegedienst
   „Morgenlicht", 120 betreute Menschen).
 
 Beide Dokumente beschreiben dieselbe Stationenstruktur (sieben Stationen plus abschließende,

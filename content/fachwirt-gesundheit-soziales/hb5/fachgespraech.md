@@ -18,7 +18,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Vor- und Nachteile sehen Sie bei interner im Vergleich zu externer Personalbeschaffung in der Pflege?
 - Was ist bei der Formulierung einer Stellenausschreibung im Hinblick auf das AGG zu beachten?
 - Welche Fragen sind in einem Vorstellungsgespräch unzulässig, und warum?
-- Wie gehen Sie vor, wenn eine offene Stelle wiederholt nicht mit geeigneten Bewerber/innen besetzt werden kann?
+- Wie gehen Sie vor, wenn eine offene Stelle wiederholt nicht mit geeigneten Bewerber:innen besetzt werden kann?
 
 ### 5.2 Ausbildung planen und durchführen
 
