@@ -17,21 +17,115 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche rechtliche Grundlage regelt die Berufsausbildung bei Kelvinar, und warum ist dort nicht die Handwerksordnung einschlägig?
 - Was verlangen § 28 BBiG bzw. § 22 HwO von Personen, die ausbilden möchten, und welche Rolle spielt dabei die AEVO?
 - Nennen Sie die vier Handlungsfelder der AEVO und ordnen Sie kurz ein, worum es in dem Ihnen vorliegenden Fachgespräch geht.
+  - Erwartung: Die AEVO gliedert die berufs- und arbeitspädagogische Eignung in vier Handlungsfelder: Ausbildungsvoraussetzungen prüfen und Ausbildung planen; Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken; Ausbildung durchführen; Ausbildung abschließen.
+  - Erwartung: Das vorliegende Fachgespräch gehört zum Handlungsfeld 1 „Ausbildungsvoraussetzungen prüfen und Ausbildung planen“.
+  - Erwartung: Das Fachgespräch ist Teil des praktischen Prüfungsteils und folgt auf die durchgeführte Unterweisung.
+  - Erwartung: Im Fachgespräch begründet die geprüfte Person ihre ausbildungsrelevanten Entscheidungen gegenüber dem Prüfungsausschuss.
+  - Rückfrage: Geht es im Fachgespräch vor allem um Faktenwissen, oder worauf kommt es dem Prüfungsausschuss an?
 - Welche Schutzvorschriften des Jugendarbeitsschutzgesetzes sind bei der Planung des Einsatzes minderjähriger Auszubildender besonders zu beachten?
 - Was verstehen Sie unter dem dualen System der Berufsausbildung, und wie stimmt Kelvinar die betriebliche Einsatzplanung mit der Berufsschule ab?
+  - Erwartung: Die Ausbildung findet gleichzeitig an zwei Lernorten statt: im Betrieb und in der Berufsschule.
+  - Erwartung: Der Betrieb vermittelt die praktische Anwendung anhand des Ausbildungsrahmenplans, konkretisiert im betrieblichen Ausbildungsplan.
+  - Erwartung: Die Berufsschule vermittelt theoretischen und allgemeinbildenden Unterricht anhand des Rahmenlehrplans der Kultusministerkonferenz, den die Länder in Lehrpläne umsetzen.
+  - Erwartung: Kelvinar stimmt die betriebliche Einsatzplanung mit den Blockzeiten bzw. dem Teilzeitunterricht der zuständigen Berufsschulen ab.
+  - Erwartung: Die Abschlussprüfung vor der IHK stellt fest, ob die im Ausbildungsrahmenplan vorgesehenen Fertigkeiten, Kenntnisse und Fähigkeiten erworben wurden.
+  - Rückfrage: Worin unterscheiden sich der Ausbildungsrahmenplan und der Rahmenlehrplan der Berufsschule?
 
 ### 1.2 Ausbildungsbedarf und Ausbildungsberuf
 
 - Welche Vorteile hat betriebliche Ausbildung gegenüber der ausschließlich externen Rekrutierung fertig ausgebildeter Fachkräfte?
-- Wie würden Sie bei Kelvinar systematisch vorgehen, um den zukünftigen Ausbildungsbedarf zu ermitteln?
+  - Erwartung: Betriebliche Ausbildung ermöglicht eine passgenaue Qualifikation von Fachkräften nach den eigenen betrieblichen Anforderungen.
+  - Erwartung: Sie sichert frühzeitig den Fachkräftebedarf angesichts des Fachkräftemangels in Elektrotechnik und IT.
+  - Erwartung: Die Einarbeitungskosten sind geringer als bei der externen Neueinstellung erfahrener Fachkräfte.
+  - Erwartung: Selbst ausgebildete Fachkräfte kennen Betrieb, Prozesse und Kultur bereits, was die Mitarbeiterbindung erhöht.
+  - Erwartung: Ein Imagegewinn als ausbildender Betrieb (Employer Branding) erleichtert die spätere Gewinnung weiterer Nachwuchskräfte.
+  - Rückfrage: Was ist mit Employer Branding im Zusammenhang mit betrieblicher Ausbildung gemeint?
+- Nennen Sie drei Grundlagen, auf denen Kelvinar den zukünftigen Ausbildungsbedarf ermittelt, und erläutern Sie eine davon.
+  - Erwartung: Auf betrieblicher Grundlage werden die Altersstruktur der Belegschaft, geplante Wachstumsvorhaben und die Ergebnisse der Personalplanung analysiert.
+  - Erwartung: Ein Beispiel für die Altersstruktur sind bevorstehende Verrentungen in der Ausbildungswerkstatt.
+  - Erwartung: Ein einschlägiger Tarifvertrag kann eine Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl vorschreiben.
+  - Erwartung: Tarifvertraglich können zudem Vorgaben zur Ausbildungsvergütung oder zu Übernahmeregelungen bestehen.
+  - Rückfrage: Welchen Einfluss haben Übernahmeregelungen auf die Planung neuer Ausbildungsplätze?
 - Erläutern Sie die Struktur des deutschen Berufsbildungssystems und die wichtigsten Schnittstellen für einen Auszubildenden.
+  - Erwartung: Die Berufsausbildungsvorbereitung richtet sich an Jugendliche ohne Ausbildungsplatz oder mit Förderbedarf.
+  - Erwartung: Die duale Berufsausbildung (Betrieb plus Berufsschule) ist der Regelfall bei Kelvinar.
+  - Erwartung: Die schulische Berufsausbildung findet vollzeitschulisch statt, z. B. bei bestimmten Assistenzberufen.
+  - Erwartung: Berufliche Fortbildung und Umschulung folgen nach einer abgeschlossenen Erstausbildung.
+  - Erwartung: Wichtige Schnittstellen sind der Übergang von der Schule in die duale Ausbildung (z. B. über Praktika), der Übergang von der Ausbildung in die Fortbildung (z. B. zum Meister oder Fachwirt) und der Übergang in ein duales Studium.
+  - Rückfrage: Was unterscheidet eine schulische Berufsausbildung von einer dualen?
 - Warum bildet Kelvinar bewusst in drei unterschiedlichen Berufen gleichzeitig aus, statt sich auf einen Beruf zu konzentrieren?
+  - Erwartung: Die Auswahl der Ausbildungsberufe orientiert sich am tatsächlichen betrieblichen Tätigkeitsspektrum.
+  - Erwartung: Elektroniker:innen für Betriebstechnik werden in Ausbildungswerkstatt und Fertigung ausgebildet, weil dort ständig Bedarf an Fachkräften für Instandhaltung, Installation und Wartung besteht.
+  - Erwartung: Industriekaufleute werden in der kaufmännischen Verwaltung ausgebildet, um den betriebswirtschaftlichen Nachwuchs zu sichern.
+  - Erwartung: Fachinformatiker:innen Systemintegration werden in der IT-Abteilung ausgebildet, die die interne Systemlandschaft und digitalisierte Fertigungsprozesse betreut.
+  - Erwartung: Mehrere Ausbildungsberufe erlauben es, den Fachkräftebedarf über alle wesentlichen Unternehmensbereiche aus eigener Ausbildung zu decken.
+  - Rückfrage: Wie gleicht ein Betrieb seine Tätigkeitsfelder mit den Ausbildungsberufen ab?
 
 ### 1.3 Eignung des Betriebs und Kooperationsformen
 
 - Welche zwei Aspekte prüft die IHK, um die Eignung eines Ausbildungsbetriebs festzustellen?
+  - Erwartung: Die IHK prüft als zuständige Stelle die sachliche und die personelle Eignung des Ausbildungsbetriebs.
+  - Erwartung: Die sachliche Eignung fragt, ob die Ausstattung (Maschinen, Werkzeuge, Ausbildungsmittel) alle im Ausbildungsrahmenplan vorgesehenen Inhalte vermitteln kann.
+  - Erwartung: Die personelle Eignung fragt, ob eine ausreichende Zahl geeigneter, nach AEVO qualifizierter Ausbilder:innen vorhanden ist.
+  - Erwartung: Ein Beispiel für die sachliche Eignung bei Kelvinar ist die vollständig ausgestattete Ausbildungswerkstatt.
+  - Rückfrage: Welche Möglichkeiten gibt es, wenn ein Betrieb nicht alle Inhalte des Ausbildungsrahmenplans selbst vermitteln kann?
 - Was ist der Ausbilder-Azubi-Schlüssel, und warum ist er für die personelle Eignung entscheidend?
+  - Erwartung: Der Ausbilder-Azubi-Schlüssel beschreibt das Verhältnis der Zahl qualifizierter Ausbilder:innen zur Zahl der Auszubildenden.
+  - Erwartung: Er gehört zur personellen Eignung des Ausbildungsbetriebs.
+  - Erwartung: Gezählt werden geeignete, nach AEVO qualifizierte Ausbilder:innen.
+  - Erwartung: Kelvinar stellt den Schlüssel in allen drei Ausbildungsberufen sicher, bevor neue Ausbildungsverträge zur Eintragung eingereicht werden.
+  - Rückfrage: Wer sorgt bei Kelvinar dafür, dass der Ausbilder-Azubi-Schlüssel eingehalten wird?
 - Erläutern Sie den Unterschied zwischen Verbundausbildung, überbetrieblicher und außerbetrieblicher Ausbildung.
+  - Erwartung: Bei der Verbundausbildung teilen sich mehrere Betriebe die Ausbildung arbeitsteilig, und jeder vermittelt die Inhalte, für die er am besten ausgestattet ist.
+  - Erwartung: Überbetriebliche Ausbildung besteht aus ergänzenden Lehrgängen in überbetrieblichen Ausbildungsstätten, z. B. Lehrwerkstätten der IHK oder von Bildungsträgern.
+  - Erwartung: Überbetrieblich vermittelt werden Fertigkeiten, die im eigenen Betrieb nicht oder nicht wirtschaftlich vermittelbar sind.
+  - Erwartung: Außerbetriebliche Ausbildung findet vollständig bei einem Bildungsträger und nicht in einem Betrieb statt.
+  - Erwartung: Sie ist für besondere Zielgruppen vorgesehen, z. B. Jugendliche ohne betrieblichen Ausbildungsplatz trotz Ausbildungsreife.
+  - Rückfrage: Warum nutzt Kelvinar für Spezialverfahren der Elektroinstallation überbetriebliche Lehrgänge?
 - In welcher Situation würden Sie einer/einem Bewerber:in eine Einstiegsqualifizierung statt eines direkten Ausbildungsvertrags vorschlagen?
-- Wie stimmen Sie als Ausbilder:in die Aufgaben der an der Ausbildung Mitwirkenden (Ausbildungsleitung, Berufsschule, Erziehungsberechtigte, JAV/Betriebsrat) sinnvoll aufeinander ab?
+  - Erwartung: Die Einstiegsqualifizierung ist ein betriebliches Langzeitpraktikum von in der Regel sechs bis zwölf Monaten.
+  - Erwartung: Sie kommt bei Jugendlichen mit noch unsicherer Ausbildungsreife oder ohne passenden Ausbildungsplatz infrage.
+  - Erwartung: Kelvinar nutzt sie für Bewerbende mit Potenzial, aber offenen fachlichen Lücken.
+  - Erwartung: Die Bewerbenden werden vor einem regulären Ausbildungsvertrag kennengelernt und gezielt vorbereitet.
+  - Rückfrage: Wodurch unterscheidet sich die Einstiegsqualifizierung von einer berufsvorbereitenden Bildungsmaßnahme?
+- Nennen Sie vier an der Ausbildung Mitwirkende und beschreiben Sie, welche Aufgabe jede:r von ihnen übernimmt.
+  - Erwartung: Die Ausbildungsleitung koordiniert die Ausbildung berufsübergreifend, stimmt sich mit der Geschäftsführung ab und ist zentrale Ansprechperson für die IHK.
+  - Erwartung: Die Ausbilder:innen in den Fachabteilungen vermitteln die fachpraktischen Inhalte vor Ort.
+  - Erwartung: Die Berufsschule vermittelt den theoretischen Teil der Ausbildung.
+  - Erwartung: Bei minderjährigen Auszubildenden werden die Erziehungsberechtigten frühzeitig einbezogen, insbesondere beim Vertragsabschluss.
+  - Rückfrage: Welche Rückmeldungen kann die Berufsschule an den Betrieb geben?
 
+
+### Rückfragen zur eigenen Unterweisung (Handlungsfeld 1)
+
+- Aus welchem Inhalt des Ausbildungsrahmenplans haben Sie das Thema Ihrer Unterweisung abgeleitet, und was legt dieser Plan fest?
+  - Erwartung: Der Ausbildungsrahmenplan ist die sachliche und zeitliche Gliederung der Ausbildungsinhalte eines Ausbildungsberufs.
+  - Erwartung: Er gehört zur bundeseinheitlichen Ausbildungsordnung des Berufs.
+  - Erwartung: Der Betrieb konkretisiert ihn im betrieblichen Ausbildungsplan.
+  - Rückfrage: Wie wird der Ausbildungsrahmenplan im Betrieb konkretisiert?
+- Woran erkennen Sie, dass Ihr Betrieb die Inhalte dieser Unterweisung vermitteln kann, sachlich wie personell?
+  - Erwartung: Die sachliche Eignung ist gegeben, wenn die Ausstattung (Maschinen, Werkzeuge, Ausbildungsmittel) alle im Ausbildungsrahmenplan vorgesehenen Inhalte vermitteln kann.
+  - Erwartung: Die personelle Eignung verlangt eine ausreichende Zahl geeigneter, nach AEVO qualifizierter Ausbilder:innen.
+  - Erwartung: Diese Zahl steht im richtigen Verhältnis zur Zahl der Auszubildenden (Ausbilder-Azubi-Schlüssel).
+  - Rückfrage: Welche Stelle prüft die Eignung des Ausbildungsbetriebs?
+- Aus welchem Tätigkeitsfeld Ihres Betriebs stammt Ihre Unterweisung, und welcher Ausbildungsberuf deckt es ab?
+  - Erwartung: Die Auswahl der Ausbildungsberufe orientiert sich am tatsächlichen betrieblichen Tätigkeitsspektrum.
+  - Erwartung: Der Betrieb gleicht dazu vorhandene Arbeitsplätze und Tätigkeitsfelder mit den Inhalten bestehender Ausbildungsordnungen ab.
+  - Erwartung: Ein Beispiel ist die Ausbildungswerkstatt mit dem Ausbildungsberuf Elektroniker:in für Betriebstechnik, weil dort ständig Bedarf an Fachkräften für Instandhaltung, Installation und Wartung besteht.
+  - Erwartung: Mehrere Ausbildungsberufe erlauben es, den Fachkräftebedarf über alle wesentlichen Unternehmensbereiche aus eigener Ausbildung zu decken.
+  - Rückfrage: Woran machen Sie den Bedarf an Ausbildungsplätzen in diesem Bereich fest?
+- Welche Aufgabe hat Ihr Betrieb im dualen System, und welche übernimmt der andere Lernort?
+  - Erwartung: Die Ausbildung findet gleichzeitig an zwei Lernorten statt: im Betrieb und in der Berufsschule.
+  - Erwartung: Der Betrieb übernimmt die praktische Anwendung anhand des Ausbildungsrahmenplans, konkretisiert im betrieblichen Ausbildungsplan.
+  - Erwartung: Die Berufsschule übernimmt den theoretischen und allgemeinbildenden Unterricht anhand des Rahmenlehrplans.
+  - Rückfrage: Wie stimmt der Betrieb seine Einsatzplanung mit der Berufsschule ab?
+- Wen aus dem Kreis der an der Ausbildung Mitwirkenden haben Sie bei der Planung Ihrer Unterweisung einbezogen, und welche Aufgabe hat diese Person?
+  - Erwartung: Die Ausbildungsleitung koordiniert die Ausbildung berufsübergreifend und ist zentrale Ansprechperson für die IHK.
+  - Erwartung: Die Ausbilder:innen in den Fachabteilungen vermitteln die fachpraktischen Inhalte vor Ort.
+  - Erwartung: Die Berufsschule vermittelt den theoretischen Teil und meldet relevante Auffälligkeiten, z. B. Fehlzeiten, zurück.
+  - Rückfrage: Wo liegt Ihre eigene Aufgabe in diesem Zusammenspiel?
+- Welche Wege stehen der unterwiesenen Auszubildenden nach der Ausbildung im Berufsbildungssystem offen?
+  - Erwartung: Nach einer abgeschlossenen Erstausbildung folgen berufliche Fortbildung und Umschulung.
+  - Erwartung: Beispiele für Fortbildung sind die Weiterqualifizierung zur Meisterin bzw. zum Meister oder zum Fachwirt.
+  - Erwartung: Bei entsprechender Eignung ist ein Übergang in ein duales Studium in Kooperation mit einer Hochschule möglich.
+  - Rückfrage: Wie gelangen Jugendliche aus der allgemeinbildenden Schule in die duale Ausbildung?

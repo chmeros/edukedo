@@ -1,6 +1,6 @@
 # Entwurf: Fachgespräch-Pools der Pilotkurse mit Erwartungshorizont und Rückfragen (Stufe 2)
 
-Stand 11.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (Rahmenentscheidung R3, rechtsnahe Aussagen R4). Folgt auf `docs/entwuerfe/fachgespraech-erwartungshorizont.md`. Stufe 1 (Format, Trainer mit „Antwort prüfen“, Raster) ist umgesetzt; dieser Entwurf liefert die Inhalte für die drei Pilotkurse **AEVO, Immobilienfachwirt und Transport**.
+Stand 11.10.2026 · **vom Projektleiter geprüft und am 11.10.2026 in `content/` eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3, rechtsnahe Aussagen R4). Folgt auf `docs/entwuerfe/fachgespraech-erwartungshorizont.md`. Stufe 1 (Format, Trainer mit „Antwort prüfen“, Raster) ist umgesetzt; dieser Entwurf liefert die Inhalte für die drei Pilotkurse **AEVO, Immobilienfachwirt und Transport**.
 
 ## Was vorliegt
 

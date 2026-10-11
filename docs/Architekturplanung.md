@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 11.10.2026 (Fachgespräch-Pools der Pilotkurse AEVO, Immobilienfachwirt und Transport eingespielt; geprüft vom Projektleiter, FL-IM-55, FL-TL-46, FL-AEVO-29)
+
+Anlass: Stufe 2 des Fachgespräch-Vorhabens (Eintrag davor). Der Projektleiter hat die Entwürfe (`docs/entwuerfe/fachgespraech-pilot.md`, 13 Ersatzdateien) am 11.10.2026 geprüft, einschließlich der rechtsnahen Fragen, und die Übernahme veranlasst.
+
+- **Eingespielt:** Die 13 Ersatzdateien liegen jetzt als `fachgespraech.md` in `content/ausbildung-der-ausbilder/hf1..hf4`, `content/immobilienfachwirt/hb1..hb6` und `content/transport-management-logistics/hb1..hb3`. Zusammen 287 Fragen: AEVO 81 (57 bisherige und 24 neue „Rückfragen zur eigenen Unterweisung“), Immobilienfachwirt 130, Transport 76. 207 Fragen haben einen Erwartungshorizont, 208 Rückfragen.
+- **Umformuliert:** 49 Fragen (AEVO 19, Immobilienfachwirt 25, Transport 5), darunter die „Wie würden Sie …“-Fragen und die AEVO-Frage zur 4-Stufen-Methode (ohne „Grenzen“, die Theorie behandelt sie nicht). Wegen der textabhängigen Kennung entstehen sie als neue Fragen, die alten werden deaktiviert.
+- **Rechtsnahe Fragen:** Sie stehen unverändert im Entwurfsstand, also ohne Erwartungspunkte und Rückfragen, mit dem allgemeinen Raster im Trainer. Ob sie nach der Rechtsprüfung einen Erwartungshorizont bekommen, ist offen.
+- **Import:** `db:validate-content`: 615 Dateien, 16.058 Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 73 neu (49 umformulierte und 24 neue Fragen), 142 geändert (Fragen, die jetzt Erwartung und Rückfragen im Payload tragen), 49 deaktiviert. In anderen Datenbanken denselben Import nach dem Deploy ausführen. Nicht im Browser angesehen.
+- **Stufe 3:** Die übrigen elf Kurse (1.209 Fragen) sind noch nicht bearbeitet.
+
 ### Entschieden am 11.10.2026 (Fachgespräch-Trainer mit Erwartungshorizont, Rückfragen und Bewertungsraster, Stufe 1; Entscheidung des Projektleiters, FL-IM-55, FL-TL-46, FL-AEVO-29)
 
 Anlass: Der Fachgesprächs-Trainer (F-25) zeigte nur die Frage; Immobilien (FL-IM-55), Transport (FL-TL-46) und AEVO (FL-AEVO-29) bemängelten fehlenden Erwartungshorizont und fehlende situationsbezogene Rückfragen. Entwurf: `docs/entwuerfe/fachgespraech-erwartungshorizont.md` (drei Stufen). Der Projektleiter ließ am 11.10.2026 alle Vorschläge umsetzen. Dieser Eintrag beschreibt Stufe 1 (Technik und Raster); die Inhalte der Pilotkurse (Stufe 2: AEVO, Immobilienfachwirt, Transport, 13 Dateien mit 287 Fragen) liegen als Entwurf zur Prüfung vor (`docs/entwuerfe/fachgespraech-pilot.md`, Ersatzdateien unter `docs/entwuerfe/fachgespraech-pilot/`) und sind nicht in `content/` eingespielt.
