@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 11.10.2026 (Rechtsnahe Fachgespräch-Fragen der elf übrigen Kurse eingespielt, Stufe 3; Freigabe durch den Projektleiter, R4, FL-IM-55, FL-TL-46, FL-AEVO-29)
+
+Anlass: Der Projektleiter hat den Entwurf `docs/entwuerfe/fachgespraech-stufe3-recht.md` am 11.10.2026 mit „alle Vorschläge umsetzen“ angenommen.
+
+- **Eingespielt:** 45 Dateien `fachgespraech.md` (Anwendungsentwicklung, Daten- und Prozessanalyse, Digitale Vernetzung, Systemintegration, Büro und Projektorganisation, Gesundheit und Soziales, Handelsfachwirt, Industriefachwirt, Technischer Fachwirt, Versicherungen und Finanzanlagen, Wirtschaftsfachwirt). 182 bisher bloße Fragen haben jetzt Erwartungspunkte (844) und Rückfragen (212). Die Kennungen der Fragen bleiben gleich, im Abgleich erscheinen sie als „geändert“.
+- **Umformuliert:** Büro und Projektorganisation HB3: Die Frage zum Mitarbeitergespräch als Instrument der Personalbetreuung ist auf das Personalentwicklungsgespräch umgestellt („Welche Rolle spielt das Personalentwicklungsgespräch als Instrument der Personalentwicklung?“), weil die Theorie das Gespräch der Personalentwicklung zuordnet; sie hat vier Erwartungen und eine Rückfrage. Als neue Frage angelegt, die alte deaktiviert.
+- **Weiter ohne Erwartungshorizont (9):** AE5 12.3 (Skalierung), Büro HB3 (fünf Fragen zu Probezeit, AEVO-Kompetenzen, Führungsrolle im Teamkonflikt, dritte Instanz, Klärungsgespräch), Gesundheit HB5 (Feedback und Mitarbeiterbindung), Handelsfachwirt WB2 (Verteilzentrum-Risiken), Versicherungen KP1 (Verschuldensgrade); die Theorie trägt sie nicht. Sie zeigen das allgemeine Raster.
+- **Rechtsstand und Zweifel:** Die Agenten haben rund 50 Stellen gemeldet, an denen die Theorie rechtlich zweifelhaft oder veraltet wirkt. Diese Aussagen stehen nicht in den Erwartungen, aber noch in Theorie, Karteikarten und Quizfragen. Die Prüfung gegen die Normtexte mit Änderungsentwürfen liegt unter `docs/entwuerfe/theorie-rechtspruefung/` zur Entscheidung vor (Auftrag des Projektleiters vom 11.10.2026). Die Erwartungen selbst sind nicht rechtlich geprüft; die Rechtsprüfung der Iteration 22 bleibt.
+- **Import:** `db:validate-content`: 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 1 neu, 182 geändert, 1 deaktiviert, kein Themenblock. In anderen Datenbanken denselben Import nach dem Deploy ausführen. Nicht im Browser angesehen.
+
 ### Entschieden am 11.10.2026 (Fachgespräch-Pools der übrigen elf Kurse eingespielt, Stufe 3; Entscheidung des Projektleiters, FL-IM-55, FL-TL-46, FL-AEVO-29)
 
 Anlass: Stufe 3 des Fachgespräch-Vorhabens (Einträge davor). Der Projektleiter hat den Entwurf `docs/entwuerfe/fachgespraech-stufe3.md` am 11.10.2026 angenommen („alle Vorschläge umsetzen, Rechtsnahes nachliefern“): einspielen, die Grenzfälle (Rechtsformen und Haftung, Incoterms, FIAusbV-Werte) so lassen, die Fragetexte bereinigen und die rechtsnahen Fragen als eigenen Entwurf nachliefern.

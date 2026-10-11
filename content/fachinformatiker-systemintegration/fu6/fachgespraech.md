@@ -51,10 +51,45 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
 ### 6.2 Datenschutz
 
 - Werden in Ihrem Projekt personenbezogene Daten verarbeitet? Wenn ja, welche, und wie haben Sie das für sich geklärt?
+  - Erwartung: Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Art. 4 Nr. 1 DSGVO).
+  - Erwartung: Dazu zählen nicht nur der Name, sondern auch Kundennummer, E-Mail-Adresse, IP-Adresse, Standortdaten und Beschäftigtendaten.
+  - Erwartung: Auch Maschinendaten können personenbezogen sein, wenn sie sich einer Person zuordnen lassen, z. B. eine Schicht-ID oder eine Bedienerkennung in den Protokollen einer vernetzten Anlage.
+  - Erwartung: Für einige Datenarten, z. B. Gesundheitsdaten oder biometrische Daten, gelten verschärfte Anforderungen (besondere Kategorien, Art. 9 DSGVO).
+  - Erwartung: Bleibt unklar, ob Daten personenbezogen sind, wird die oder der Datenschutzbeauftragte einbezogen; eine grundlagenorientierte Einordnung ersetzt keine Rechtsberatung.
+  - Rückfrage: Worin unterscheiden sich Pseudonymisierung und Anonymisierung?
+  - Rückfrage: Was versteht man im Datenschutz unter Verarbeitung?
 - Wie haben Sie die Grundsätze der Datenminimierung und der Zweckbindung in Ihrer Lösung berücksichtigt?
+  - Erwartung: Zweckbindung bedeutet, dass Daten für festgelegte, eindeutige Zwecke erhoben und nicht beliebig weiterverwendet werden.
+  - Erwartung: Datenminimierung bedeutet, dass nur die Daten verarbeitet werden, die für den Zweck erforderlich sind; nicht jedes Feld in einem Formular ist nötig.
+  - Erwartung: Zur Umsetzung gehört, dass Löschfristen technisch umsetzbar sind und Logdateien nicht unnötig personenbezogene Daten enthalten.
+  - Erwartung: Beide Grundsätze gehören zu den Grundsätzen nach Art. 5 DSGVO, an denen jede Verarbeitung gemessen wird, neben u. a. Rechtmäßigkeit und Transparenz, Richtigkeit, Speicherbegrenzung, Integrität und Vertraulichkeit sowie Rechenschaftspflicht.
+  - Erwartung: Datenschutz wird von Beginn an in Anforderungen, Architektur und Standardeinstellungen eingeplant (Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen), nicht erst kurz vor dem Go-live.
+  - Rückfrage: Was bedeutet Datenminimierung für ein Anmeldeformular?
+  - Rückfrage: Welcher Grundsatz ist betroffen, wenn für die Vertragsabwicklung erhobene Kundendaten für ein nicht vereinbartes Marketing-Profiling genutzt werden sollen?
 - Mit welchen Daten haben Sie getestet, und wie haben Sie sichergestellt, dass dabei keine echten personenbezogenen Daten ungeschützt verwendet wurden?
+  - Erwartung: Für Test- und Entwicklungssysteme werden statt Echtdaten synthetische oder wirksam anonymisierte Daten verwendet.
+  - Erwartung: In Testumgebungen herrschen meist geringere Schutzmaßnahmen, und Echtdaten erhöhen dort das Risiko für Datenpannen.
+  - Erwartung: Die Verarbeitung zu Testzwecken kann von der ursprünglichen Zweckbindung abweichen, und Echtdaten in Testumgebungen können gegen Zweckbindung und Datenminimierung verstoßen.
+  - Erwartung: Pseudonymisierte Daten bleiben personenbezogen und unterliegen der DSGVO; nur wirksam anonymisierte Daten fallen nicht mehr darunter.
+  - Erwartung: Die Wahl der Testdaten und die Schutzmaßnahmen werden dokumentiert, weil der Verantwortliche die Einhaltung nachweisen können muss (Rechenschaftspflicht).
+  - Rückfrage: Worin unterscheiden sich Pseudonymisierung und Anonymisierung?
+  - Rückfrage: Welche Meldepflicht besteht gegenüber der Aufsichtsbehörde, wenn doch personenbezogene Daten aus einer Testumgebung abhandenkommen?
 - Wie ist die Rollenverteilung zwischen Ihrem Ausbildungsbetrieb und dem Kunden, und welche Vereinbarungen sind dafür nötig?
+  - Erwartung: Der Verantwortliche entscheidet über Zwecke und Mittel der Verarbeitung; der Auftragsverarbeiter verarbeitet im Auftrag und nach Weisung des Verantwortlichen.
+  - Erwartung: Verarbeitet der Ausbildungsbetrieb personenbezogene Daten im Auftrag der Kundschaft, z. B. beim Hosting, bei der Fernwartung oder bei der Auswertung von Kundendaten, handelt er als Auftragsverarbeiter.
+  - Erwartung: Dann ist ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO nötig, der u. a. Gegenstand und Dauer, Art der Daten, Weisungsbindung, Vertraulichkeitsverpflichtungen, Sicherheitsmaßnahmen und den Umgang mit Unterauftragnehmern regelt.
+  - Erwartung: Setzt der Ausbildungsbetrieb weitere Dienstleister ein, z. B. einen Cloud-Anbieter, sind diese entsprechend einzubinden; das gilt auch umgekehrt, wenn der Betrieb als Verantwortlicher Dienstleister beauftragt.
+  - Erwartung: Die Rechtsgrundlage der Verarbeitung klärt die Kundschaft, gegebenenfalls mit ihrer oder ihrem Datenschutzbeauftragten; der Ausbildungsbetrieb erkennt die Anforderungen und zeigt Gestaltungsoptionen auf.
+  - Rückfrage: Wie verfahren Sie, wenn der Ausbildungsbetrieb als Auftragsverarbeiter von einer Datenpanne betroffen ist?
+  - Rückfrage: Was ist bei der Übermittlung personenbezogener Daten in Länder außerhalb der EU bzw. des EWR zu beachten?
 - Wie haben Sie Ihre Kundschaft oder Ihre Kolleg:innen zu Datenschutz-Anforderungen beraten, und wann haben Sie bewusst die Datenschutzbeauftragte oder den Datenschutzbeauftragten einbezogen?
+  - Erwartung: Beratung bedeutet nicht, Rechtsauskünfte zu erteilen, sondern Anforderungen zu erkennen und Gestaltungsoptionen aufzuzeigen.
+  - Erwartung: Gute Beratung fragt zunächst nach Zweck und Branche der Kundschaft, macht Datenschutzaspekte früh in Anforderungsgesprächen sichtbar und dokumentiert Absprachen.
+  - Erwartung: Typische Beratungsfragen sind: Welche personenbezogenen Daten fallen an, welche Rechtsgrundlage kommt in Frage, welche technischen und organisatorischen Maßnahmen lassen sich umsetzen, welche Löschfristen sind sinnvoll und sind Auftragsverarbeitungsverträge erforderlich?
+  - Erwartung: Wo Rechtsfragen über das Fachwissen hinausgehen, wird an die zuständige Fachstelle verwiesen; im Zweifel wird die oder der Datenschutzbeauftragte einbezogen.
+  - Erwartung: Die oder der Datenschutzbeauftragte unterrichtet und berät, überwacht die Einhaltung der Vorschriften und arbeitet mit der Aufsichtsbehörde zusammen; sie oder er vollzieht die Verarbeitung nicht selbst und berät unabhängig.
+  - Rückfrage: Wie reagieren Sie, wenn Kundschaft von Ihnen die verbindliche Zusage verlangt, dass für ihr Vorhaben keine rechtlichen Risiken bestehen?
+  - Rückfrage: Was ist bei einem Vorhaben mit Gesundheitsdaten, etwa einer Plattform für Arztpraxen, besonders zu beachten?
 
 ### 6.3 Qualitätssicherung und Verbesserungsprozesse
 

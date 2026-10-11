@@ -15,6 +15,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.1 Finanzbuchhaltung und Jahresabschluss
 
 - Warum ist eine GmbH wie die Solvitec Elektrowerke GmbH unabhängig von ihrer tatsächlichen Betriebsgröße zur doppelten Buchführung verpflichtet?
+  - Erwartung: Als GmbH ist Solvitec kraft ihrer Rechtsform Formkaufmann (§ 6 HGB), unabhängig davon, wie groß der tatsächliche Geschäftsbetrieb ausfällt.
+  - Erwartung: Damit unterliegt Solvitec uneingeschränkt der Buchführungspflicht nach §§ 238 ff. HGB sowie den ergänzenden Rechnungslegungsvorschriften für Kapitalgesellschaften (§§ 264 ff. HGB).
+  - Erwartung: Die Befreiungsmöglichkeit des § 241a HGB für kleine Einzelkaufleute unterhalb bestimmter Umsatz- und Gewinnschwellen greift für eine Kapitalgesellschaft nicht.
+  - Erwartung: Der konkrete Pflichtenumfang bemisst sich nach den Größenklassen des § 267 HGB, abgegrenzt anhand von Bilanzsumme, Umsatzerlösen und durchschnittlicher Beschäftigtenzahl; Solvitec ist regelmäßig mindestens mittelgroß, je nach Geschäftsjahr auch groß.
+  - Rückfrage: Welche zusätzlichen Pflichten ergeben sich für Solvitec als mittelgroße bzw. große Kapitalgesellschaft?
 - Erläutern Sie den Unterschied zwischen Stichtagsinventur und permanenter Inventur und begründen Sie, für welche Bestandsarten sich die permanente Inventur bei einem Industriehersteller besonders eignet.
   - Erwartung: Die Inventur ist die körperliche und wertmäßige Bestandsaufnahme aller Vermögensgegenstände und Schulden zu einem Stichtag.
   - Erwartung: Bei der klassischen Stichtagsinventur werden die Bestände zu einem Stichtag aufgenommen, zum Beispiel die Kupfer- und Kunststoffgranulat-Bestände im Werk Nord.
@@ -31,6 +36,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Umsatzkostenverfahren werden nur die Herstellkosten der tatsächlich abgesetzten Komponenten den Umsatzerlösen gegenübergestellt.
   - Erwartung: Die Unterscheidung ist bedeutsam, weil zum Bilanzstichtag regelmäßig zahlreiche, teils kundenspezifische Aufträge noch nicht vollständig fertiggestellt sind.
 - Welche zusätzlichen Anforderungen stellen die GoBD an ein Unternehmen, das seine Finanzbuchhaltung wie Solvitec vollständig EDV-gestützt führt?
+  - Erwartung: Da Solvitec die Finanzbuchhaltung vollständig EDV-gestützt führt, sind zusätzlich zu den Grundsätzen ordnungsmäßiger Buchführung (GoB) die GoBD zu beachten, also die Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern, Aufzeichnungen und Unterlagen in elektronischer Form.
+  - Erwartung: Die GoBD sollen insbesondere die Unveränderbarkeit und Nachvollziehbarkeit elektronisch erfasster Belege sicherstellen.
+  - Erwartung: Das betrifft bei Solvitec zum Beispiel digital eingehende Lieferantenrechnungen aus dem Halbleiter-Einkauf.
+  - Erwartung: Für Buchführungsunterlagen gelten gesetzliche Aufbewahrungsfristen, die sich nach der Belegart richten.
+  - Rückfrage: Welche Grundsätze verlangen die klassischen GoB, und was besagt das Belegprinzip?
 
 ### 2.2 Kostenrechnung
 

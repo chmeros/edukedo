@@ -123,6 +123,13 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Belastbarkeit hängt davon ab, dass keine typischen Fehler gemacht wurden: Personalkosten vergessen, Einsparungen ohne Quelle, laufende Kosten ignoriert oder Lieferantenpreise nicht belegt.
   - Rückfrage: Wie berechnen Sie die Amortisationszeit bei 8.400 € Investition und 2.800 € jährlicher Einsparung?
 - Welche Rolle spielten Datenschutz und Vertraulichkeit im Projekt (z. B. Umgang mit Kundendaten, Zugriffsrechte, Testdaten)?
+  - Erwartung: Rechtliche und betriebliche Vorgaben wie Datenschutz und interne Richtlinien gehören zu den Rahmenbedingungen der Anforderungsanalyse; Datenschutz kann außerdem als Kriterium in der Nutzwertanalyse der Lösungsalternativen gewichtet werden.
+  - Erwartung: Bei der Vertraulichkeit wird vorab das Einverständnis des Betriebs bzw. der Kundschaft geklärt, ob Kundendaten, Netzpläne und Konfigurationen verwendet werden dürfen; üblich ist, Kunden- und Personennamen zu anonymisieren und sicherheitsrelevante Angaben wie Passwörter, öffentliche IP-Adressen und Schlüssel zu schwärzen.
+  - Erwartung: Zugriffsrechte folgen einem Berechtigungskonzept nach dem Prinzip der geringsten Rechte (Least Privilege); getestet wird, ob Berechtigte Zugriff haben und Nichtberechtigte keinen.
+  - Erwartung: Sind personenbezogene Daten betroffen, sind außerdem die technischen und organisatorischen Maßnahmen des Datenschutzes zu beachten; ein Zugriff auf Kundendaten im Rahmen der Dienstleistung setzt in der Regel eine vertragliche Regelung zur Auftragsverarbeitung voraus.
+  - Erwartung: Bei der Übergabe werden Zugangsdaten und Berechtigungen auf sicherem Weg übergeben, und Standard- und Projektkonten werden entfernt oder geändert.
+  - Rückfrage: Was prüft der Negativtest beim Berechtigungstest?
+  - Rückfrage: Welche technischen Schutzmaßnahmen kennen Sie für Administrationszugänge und die Datenübertragung?
 
 ### 12.3 Soll-Ist-Vergleich, Reflexion und Präsentation
 

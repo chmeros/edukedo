@@ -52,7 +52,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Klassische Instrumente der Personalentwicklung sind Seminare und Schulungen sowie E-Learning.
   - Erwartung: Coaching und Mentoring-Programme gehören ebenfalls dazu.
   - Erwartung: Im Personalentwicklungsgespräch vereinbaren Führungskraft und Mitarbeitende Ziele und Entwicklungsmaßnahmen.
-- Welche Rolle spielt das Mitarbeitergespräch als Instrument der Personalbetreuung?
+- Welche Rolle spielt das Personalentwicklungsgespräch als Instrument der Personalentwicklung?
+  - Erwartung: Das Personalentwicklungsgespräch ist ein klassisches Instrument der Personalentwicklung, neben Seminaren und Schulungen, E-Learning, Coaching und Mentoring-Programmen.
+  - Erwartung: In diesem Gespräch vereinbaren Führungskraft und Mitarbeitende Ziele und Entwicklungsmaßnahmen.
+  - Erwartung: Mitarbeitergespräche liefern neben Anforderungsprofilen und Unternehmenszielen die Grundlage der Qualifizierungsplanung, die den Fortbildungsbedarf ermittelt.
+  - Erwartung: Eine gute Personalentwicklung erhöht neben der fachlichen Leistungsfähigkeit auch die Mitarbeiterbindung.
+  - Rückfrage: Worauf stützt sich die Qualifizierungsplanung, bevor Maßnahmen vereinbart werden?
 - Welche Ansatzpunkte prüfen Sie, wenn eine Stelle wiederholt nicht mit geeigneten Bewerber:innen besetzt werden kann, und warum?
   - Erwartung: Die Stellenbeschreibung mit Aufgaben, Verantwortlichkeiten, Kompetenzen und Anforderungen ist die Basis für Ausschreibung und Beurteilung von Bewerbungen und sollte überprüft werden.
   - Erwartung: Weitere externe Wege wie Karrieremessen, Personaldienstleister/Zeitarbeit, Active Sourcing über soziale Netzwerke oder Kooperationen mit Hochschulen können genutzt werden.

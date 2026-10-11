@@ -21,6 +21,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der indirekte Export reduziert Aufwand und Risiko, geht aber zulasten von Marge und direktem Marktkontakt.
   - Rückfrage: Welche Markteintrittsform ist die kapitalintensivste?
 - Was regelt die Incoterm-Klausel FOB, und an welchem Punkt genau geht das Risiko vom Verkäufer auf den Käufer über?
+  - Erwartung: Incoterms sind standardisierte Klauseln der Internationalen Handelskammer (ICC), die Kosten-, Risiko- und Pflichtenverteilung beim Transport regeln, nicht aber den Eigentumsübergang oder die Zahlungsbedingungen.
+  - Erwartung: FOB (Free on Board) ist nur für See- und Binnenschiffstransport zulässig.
+  - Erwartung: Der Verkäufer muss die Ware im Ausfuhrhafen an Bord des vom Käufer benannten Schiffs bringen.
+  - Erwartung: Ab dort gehen Kosten und Risiko auf den Käufer über, das Risiko also beim Verladen im Abgangshafen.
+  - Rückfrage: Wie unterscheidet sich CIF von FOB bei der Kostentragung, und wann geht bei CIF das Risiko über?
 - Welche Dokumente begleiten typischerweise eine Importsendung, und wozu dient ein Ursprungszeugnis konkret?
   - Erwartung: Die Handelsrechnung weist Warenbezeichnung, Menge, Preis und Lieferbedingungen aus und dient als Zahlungsgrundlage sowie als Basis für die Zollwertermittlung.
   - Erwartung: Das Ursprungszeugnis bescheinigt, in welchem Land eine Ware hergestellt bzw. wesentlich be- oder verarbeitet wurde.
@@ -44,8 +49,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Rechtsrisiko ist die Unsicherheit, welches Recht bei Streitigkeiten gilt und wie Ansprüche im Ausland durchgesetzt werden können.
   - Rückfrage: Wie lässt sich das Wechselkursrisiko absichern?
 - Erläutern Sie den Ablauf einer Zollanmeldung im ATLAS-Verfahren in groben Schritten.
+  - Erwartung: Die Einfuhr wird über eine elektronische Zollanmeldung im deutschen IT-Verfahren ATLAS abgewickelt.
+  - Erwartung: Jede Ware wird nach dem Unionszollkodex anhand des Zolltarifs (in der EU über die Datenbank TARIC) einer Zolltarifnummer zugeordnet, aus der sich unter anderem der Zollsatz ergibt.
+  - Erwartung: Der Anmelder, bei Loreno meist ein beauftragter Zollspediteur, übermittelt die Anmeldedaten elektronisch an die Zollbehörde.
+  - Erwartung: Die Zollbehörde prüft die Angaben, gegebenenfalls mit physischer Beschau der Ware.
+  - Erwartung: Anschließend gibt sie die Ware zur Überlassung frei; im Regelfall ist das die Überlassung zum freien Verkehr nach Zahlung von Zoll und Einfuhrumsatzsteuer.
+  - Rückfrage: Welche Zollverfahren kommen neben der Überlassung zum freien Verkehr infrage?
 - Was versteht man unter dem Zollwert einer Ware, und welche Kostenbestandteile fließen ein?
+  - Erwartung: Der Zollwert ist die Grundlage für die Berechnung der Einfuhrabgaben.
+  - Erwartung: Er entspricht grob dem Transaktionspreis der Ware zuzüglich der Transport- und Versicherungskosten bis zur EU-Außengrenze, nicht einfach nur dem reinen Rechnungsbetrag.
+  - Erwartung: Die Handelsrechnung mit Warenbezeichnung, Menge, Preis und Lieferbedingungen dient als Basis für die Zollwertermittlung.
+  - Erwartung: Die Einfuhrumsatzsteuer wird auf den Zollwert zuzüglich Zoll erhoben.
+  - Erwartung: Vorsteuerabzugsberechtigte Unternehmen wie Loreno können die Einfuhrumsatzsteuer regelmäßig als Vorsteuer geltend machen.
+  - Rückfrage: Woraus ergibt sich der anzuwendende Zollsatz?
 - Worin unterscheidet sich der präferenzielle vom nichtpräferenziellen Ursprung einer Ware?
+  - Erwartung: Der Ursprung der Ware spielt für die Höhe des Zollsatzes eine zentrale Rolle.
+  - Erwartung: Der nichtpräferenzielle Ursprung bestimmt allgemein, aus welchem Land eine Ware stammt, etwa für Handelsstatistiken, Ursprungszeugnisse oder handelspolitische Maßnahmen.
+  - Erwartung: Der präferenzielle Ursprung ist enger gefasst und entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens von reduzierten oder gänzlich entfallenden Zöllen profitiert.
+  - Erwartung: Voraussetzung dafür ist, dass bestimmte Ursprungsregeln, etwa ein Mindestanteil an im Ursprungsland erbrachter Wertschöpfung, nachweislich erfüllt sind.
+  - Rückfrage: Wie hängen Ursprung und Zolltarifnummer bei der Bestimmung des Zollsatzes zusammen?
 
 ### 8.3 Außenhandelsfinanzierung
 

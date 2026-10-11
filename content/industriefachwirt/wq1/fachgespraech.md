@@ -82,6 +82,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Businessplan ist ein internes Steuerungsinstrument und Voraussetzung, um Banken oder Investoren von einer Finanzierung zu überzeugen.
   - Erwartung: Bei industriellen Gründungen sollte der Finanzplan realistisch und detailliert sein und auch Anlaufverluste in der Startphase berücksichtigen.
 - Wie unterscheidet sich die Haftung bei einem Einzelunternehmen von der Haftung bei einer GmbH?
+  - Erwartung: Das Einzelunternehmen ist keine Gesellschaft, sondern die Rechtsform einer einzelnen Person, die das Unternehmen allein führt.
+  - Erwartung: Die Inhaberin bzw. der Inhaber haftet unbeschränkt mit dem gesamten Vermögen, also auch mit dem Privatvermögen; der Gründungsaufwand ist gering, das Haftungsrisiko aber voll.
+  - Erwartung: Die GmbH ist als Kapitalgesellschaft eine eigenständige juristische Person, und die Haftung der Gesellschafter ist auf die Einlage beschränkt.
+  - Erwartung: Für die GmbH gilt ein Mindeststammkapital von 25.000 €.
+  - Erwartung: Solvitec hat die Haftungsbeschränkung genutzt, um das Privatvermögen der Gründerfamilie vom wachsenden unternehmerischen Risiko zu trennen; ein Industrieunternehmen mit hohem Investitionsbedarf tendiert typischerweise zu einer Kapitalgesellschaft.
+  - Rückfrage: Wie unterscheidet sich bei der Kommanditgesellschaft die Haftung von Komplementär und Kommanditist?
 - Welche Kriterien würden Sie einer Gründerin bzw. einem Gründer für die Wahl der passenden Rechtsform nennen?
   - Erwartung: Haftung: unbeschränkt oder auf die Einlage beschränkt.
   - Erwartung: Kapitalbedarf und die Möglichkeit, weitere Gesellschafter:innen oder Kapitalgeber:innen aufzunehmen.
@@ -113,6 +119,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Gleichordnungskonzern beherrscht keines der Unternehmen das andere.
   - Rückfrage: Welche Konzernform bildet Solvitec mit ihren Tochtergesellschaften im Ausland?
 - Warum sind Kartelle in Deutschland grundsätzlich verboten, und wer überwacht die Einhaltung des Kartellverbots?
+  - Erwartung: Ein Kartell ist eine Absprache zwischen eigentlich unabhängigen Unternehmen über Preise, Mengen oder Marktaufteilung.
+  - Erwartung: Solche Absprachen schränken den Wettbewerb künstlich ein.
+  - Erwartung: Deshalb sind Kartelle nach deutschem und europäischem Wettbewerbsrecht grundsätzlich verboten.
+  - Erwartung: Das Kartellverbot gilt unabhängig von Unternehmenszusammenschlüssen; Zusammenschlüsse werden davon getrennt in der Fusionskontrolle geprüft.
+  - Rückfrage: Welche Behörde prüft in Deutschland größere Unternehmenszusammenschlüsse, und wann ist stattdessen die Europäische Kommission zuständig?
 - Welche Vor- und Nachteile hat ein Joint Venture im Vergleich zu einer vollständigen Übernahme beim Eintritt in einen ausländischen Markt?
   - Erwartung: Ein Joint Venture ist ein von zwei oder mehr Unternehmen gemeinsam neu gegründetes Gemeinschaftsunternehmen, an dem beide Partner beteiligt bleiben.
   - Erwartung: Die Partner teilen Risiko und Marktzugang.

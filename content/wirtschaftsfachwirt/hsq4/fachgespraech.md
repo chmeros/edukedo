@@ -104,6 +104,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 4.4 Internationale Geschäftsbeziehungen
 
 - Was ändert sich für ein Unternehmen rechtlich und organisatorisch, wenn es vom reinen Inlandsgeschäft zum Export innerhalb der EU übergeht?
+  - Erwartung: Innerhalb des EU-Binnenmarkts gilt der Grundsatz des freien Warenverkehrs, es bestehen also keine Zollgrenzen und keine systematischen Grenzkontrollen mehr.
+  - Erwartung: Dennoch bestehen weiterhin Melde- und Nachweispflichten: Größere innergemeinschaftliche Warenlieferungen müssen im Rahmen der Intrastat-Meldung an die Statistikbehörden gemeldet werden.
+  - Erwartung: Umsatzsteuerlich gelten besondere Regeln für innergemeinschaftliche Lieferungen.
+  - Erwartung: Grenzüberschreitende Kaufverträge unterliegen häufig dem UN-Kaufrecht (CISG), sofern nichts anderes vereinbart wird, und sollten eine klare Rechtswahl- und Gerichtsstandsklausel enthalten.
+  - Erwartung: Mit Incoterms lassen sich Kosten- und Gefahrenübergang zwischen Käufer und Verkäufer eindeutig regeln.
+  - Rückfrage: Welche zusätzlichen Formalitäten kommen bei Geschäften mit Ländern außerhalb der EU (Drittländern) hinzu?
 - Erläutern Sie den Zweck der Incoterms und den Unterschied zwischen zwei Klauseln Ihrer Wahl.
   - Erwartung: Incoterms („International Commercial Terms“) sind ein internationaler Standard der Internationalen Handelskammer (ICC), damit Käufer und Verkäufer nicht jedes Mal neu aushandeln müssen, wer welche Kosten trägt und ab wann das Risiko übergeht.
   - Erwartung: Sie regeln ausschließlich den Kosten- und Gefahrenübergang, nicht den Eigentumsübergang an der Ware.
@@ -112,6 +118,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Klar vereinbarte Incoterms schaffen eindeutige Regelungen und reduzieren Missverständnisse mit ausländischen Geschäftspartner:innen erheblich.
   - Rückfrage: Bei welcher Klausel übergibt der Verkäufer die Ware an einen vom Käufer benannten Frachtführer?
 - Was versteht man unter dem UN-Kaufrecht (CISG), und warum kann es sinnvoll sein, es vertraglich auszuschließen?
+  - Erwartung: Das UN-Kaufrecht (CISG) ist ein einheitliches, in zahlreichen Staaten geltendes Regelwerk für internationale Warenkaufverträge.
+  - Erwartung: Grenzüberschreitende Kaufverträge unterliegen, sofern nichts anderes vereinbart wird, häufig dem CISG.
+  - Erwartung: Die Vertragsparteien können die Anwendung des CISG ausdrücklich vertraglich ausschließen und stattdessen ein bestimmtes nationales Recht vereinbaren.
+  - Erwartung: Weil im internationalen Geschäft unterschiedliche Rechtsordnungen aufeinandertreffen, sollten Verträge eine klare Rechtswahl- und Gerichtsstandsklausel enthalten.
+  - Rückfrage: Regeln die Incoterms auch den Eigentumsübergang an der Ware?
 - Welche interkulturellen Aspekte sollte ein Vertriebsmitarbeitender bei Verhandlungen mit ausländischen Geschäftspartner:innen berücksichtigen?
   - Erwartung: In High-Context-Kulturen wird ein großer Teil der Botschaft implizit über Beziehung, Kontext und nonverbale Signale vermittelt; direkte Kritik oder ein klares „Nein“ werden eher vermieden.
   - Erwartung: In Low-Context-Kulturen wird dagegen explizit, direkt und überwiegend über den reinen Wortinhalt kommuniziert.
@@ -119,4 +130,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein rein sachlich-deutsches Kommunikationsverhalten kann in manchen Ländern als unhöflich oder distanziert wahrgenommen werden, in anderen als angemessen professionell.
   - Erwartung: Wer diese Unterschiede kennt, vermeidet Missverständnisse und baut tragfähigere, langfristige Geschäftsbeziehungen auf.
 - Warum ist das Thema Exportkontrolle auch für ein Unternehmen relevant, das bislang überwiegend innerhalb der EU tätig ist?
+  - Erwartung: Exportkontrolle umfasst gesetzliche Beschränkungen, die den Export bestimmter Güter in bestimmte Länder einschränken oder ganz verbieten können.
+  - Erwartung: Ein Beispiel sind Dual-Use-Güter, die sowohl zivil als auch militärisch nutzbar sind.
+  - Erwartung: Die Vorgaben der Exportkontrolle sind bei Geschäften mit Drittländern oder bestimmten sensiblen Warengruppen im Blick zu behalten.
+  - Erwartung: Auch ein bislang überwiegend EU-ausgerichtetes Unternehmen kann sein Geschäftsfeld künftig erweitern, wodurch entsprechende Prüfpflichten entstehen können.
+  - Rückfrage: Was bestätigt ein Ursprungszeugnis im Unterschied zu einer Rechnung?
 

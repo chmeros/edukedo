@@ -51,7 +51,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.2 Kundenmanagement und Kundenberatung
 
 - Welche Pflichten hat ein Versicherungsvermittler nach §§ 61 f. VVG gegenüber dem Kunden?
+  - Erwartung: Beratungspflicht nach § 61 VVG: Der Vermittler muss den Kunden nach seinen Wünschen und Bedürfnissen befragen und unter Berücksichtigung eines angemessenen Verhältnisses von Beratungsaufwand und Prämienhöhe beraten.
+  - Erwartung: Er muss die Gründe für einen konkreten Rat zu einem bestimmten Vertrag angeben.
+  - Erwartung: Dokumentationspflicht: Die Beratung und ihre Ergebnisse sind vor Vertragsschluss klar und verständlich zu dokumentieren, und der Kunde erhält die Dokumentation in Textform.
+  - Erwartung: Der Kunde kann auf Beratung und Dokumentation ausdrücklich verzichten, muss dabei aber auf mögliche Nachteile hingewiesen werden.
+  - Erwartung: Die Pflichten gelten unabhängig vom Vertriebsweg für Ausschließlichkeitsvertreter:innen und Makler:innen.
+  - Rückfrage: Warum akzeptiert Nordantis einen Verzicht nur in klar begründeten Ausnahmefällen?
 - Was würden Sie einem Vermittler entgegnen, der die Dokumentation „aus Zeitgründen" regelmäßig verkürzt?
+  - Erwartung: Die Beratung und ihre Ergebnisse sind vor Vertragsschluss klar und verständlich zu dokumentieren, und die Kundin oder der Kunde erhält die Dokumentation in Textform.
+  - Erwartung: Auf Beratung und Dokumentation kann nur die Kundin bzw. der Kunde ausdrücklich verzichten, und zwar nach einem Hinweis auf mögliche Nachteile.
+  - Erwartung: Bei Nordantis wird ein solcher Verzicht nur in klar begründeten Ausnahmefällen akzeptiert, weil er im Streitfall die Beweislage des Vermittlers verschlechtert.
+  - Erwartung: Das strukturierte digitale Beratungsprotokoll wird automatisch in die Vertragsakte übernommen und dient im Schadenfall oder bei Beschwerden als Nachweis der ordnungsgemäßen Beratung.
+  - Rückfrage: Welche Rolle spielt die Bedarfsanalyse am Anfang der Beratung?
 - Welche Angaben erheben Sie in der Bedarfsanalyse bei einem Gewerbekunden, und mit welchen Kontaktpunkten erkennen Sie nach Vertragsabschluss neue Deckungslücken frühzeitig?
   - Erwartung: Die Bedarfsanalyse erhebt systematisch die Lebens- und Vermögenssituation, bestehende Verträge und Risiken, um Absicherungslücken zu erkennen.
   - Erwartung: Bei einem Gewerbekunden werden Betriebsart, Mitarbeiterzahl, vorhandene Sachwerte und branchentypische Haftungsrisiken geprüft, bevor ein Vorschlag erarbeitet wird.
@@ -59,6 +70,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Vertragsänderungen passen Versicherungssummen, Tarifmerkmale oder Zahlweisen an veränderte Umstände an, zum Beispiel an eine Geschäftserweiterung.
   - Rückfrage: Wie erkennen Sie, dass ein Gewerbekunde neue Maschinen angeschafft hat, die noch nicht erfasst sind?
 - Was unterscheidet die Tätigkeit als Ausschließlichkeitsvertreter:in rechtlich von der als Makler:in, und welche Konsequenzen hat das für die Beratung?
+  - Erwartung: Die Ausschließlichkeitsvertreter:innen sind gebunden, nämlich an einen Versicherer, die Makler:innen sind dagegen unabhängig.
+  - Erwartung: Makler:innen vertreten die Interessen der Kundschaft gegenüber mehreren Versicherern; beide Vertriebswege unterscheiden sich damit in ihrer rechtlichen Stellung gegenüber der Kundin oder dem Kunden.
+  - Erwartung: Beide Vertriebswege sind an dieselben gesetzlichen Beratungs- und Dokumentationspflichten gebunden; die Beratungspflicht nach § 61 VVG gilt unabhängig vom Vertriebsweg.
+  - Rückfrage: Welche Beratungs- und Dokumentationspflichten gelten für beide Vertriebswege gleichermaßen?
 - Wo ziehen Sie die Grenze zwischen zulässigem Cross-Selling und einem unzulässigen „Zusatzverkauf" ohne echten Bedarfsbezug?
   - Erwartung: Cross-Selling ist der Verkauf ergänzender Produkte an Bestandskunden auf Basis der bereits bekannten Bedarfssituation.
   - Erwartung: Zulässig ist es nur, wenn es sich weiterhin an den tatsächlichen Wünschen und Bedürfnissen des Kunden orientiert.
@@ -80,7 +95,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Am Ende steht die Regulierungsentscheidung: Auszahlung der Entschädigung, teilweise Kürzung oder begründete Ablehnung.
   - Rückfrage: Wann zieht Nordantis unabhängige Sachverständige hinzu?
 - Was ist die Schadenminderungspflicht, und welche Konsequenzen kann ihre Verletzung haben?
+  - Erwartung: Nach § 82 VVG ist der Versicherungsnehmer verpflichtet, den Schaden nach Möglichkeit abzuwenden und zu mindern.
+  - Erwartung: Ein Beispiel ist das Abdichten eines geplatzten Rohrs.
+  - Erwartung: Erstmaßnahmen zur Schadenminderung werden bei der Schadenaufnahme strukturiert miterfasst.
+  - Erwartung: Daneben besteht nach § 30 VVG die gesetzliche Anzeigepflicht, den Eintritt des Versicherungsfalls dem Versicherer unverzüglich anzuzeigen.
+  - Rückfrage: Über welche Meldewege kann die Kundschaft bei Nordantis einen Schaden melden?
 - Wie würden Sie mit einer Kundin oder einem Kunden umgehen, die oder der einen Schaden erst mehrere Wochen nach Eintritt meldet?
+  - Erwartung: Nach § 30 VVG besteht eine gesetzliche Anzeigepflicht: Der Eintritt des Versicherungsfalls ist dem Versicherer unverzüglich anzuzeigen.
+  - Erwartung: Bei Nordantis stehen dafür mehrere Meldewege zur Verfügung: telefonische Schadenhotline, Online-Schadenformular im Kundenportal sowie die Meldung über den betreuenden Vertreter oder Makler.
+  - Erwartung: Bei der Schadenaufnahme werden unter anderem Schadenzeitpunkt und -ort, Schadenursache, betroffene versicherte Sachen und eine erste Schätzung der Schadenhöhe strukturiert erfasst.
+  - Erwartung: Die Regulierung beginnt mit der Prüfung des Versicherungsschutzes dem Grunde nach, etwa ob der Vertrag zum Schadenzeitpunkt gültig ist, ein versicherter Schadenfall vorliegt oder ein Ausschluss greift.
+  - Rückfrage: Warum ist der genaue Schadenzeitpunkt für die Prüfung des Versicherungsschutzes wichtig?
 - Erläutern Sie an einem selbst gewählten Beispiel, wie der PDCA-Zyklus auf die Schadenbearbeitung angewendet werden kann.
   - Erwartung: Plan: Prüfung des Versicherungsschutzes dem Grunde nach und Festlegung des weiteren Vorgehens, zum Beispiel die Beauftragung eines Gutachters bei größeren Schäden.
   - Erwartung: Do: Durchführung der Schadenbearbeitung mit Einholung von Belegen und Gutachten, gegebenenfalls Rücksprache mit dem Versicherungsnehmer und Ermittlung der konkreten Schadenhöhe.
@@ -88,7 +113,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Act: Regulierungsentscheidung (Auszahlung, teilweise Kürzung oder begründete Ablehnung); bei wiederkehrenden Schadenmustern fließt die Erkenntnis in Tarifierung und Schadenprävention zurück.
   - Rückfrage: Zu welchem Bereich besteht bei wiederkehrenden Schadenmustern eine Rückkopplung?
 - Was versteht man unter dem gesetzlichen Forderungsübergang nach § 86 VVG, und wie hängt er mit dem Regressmanagement zusammen?
+  - Erwartung: Ist ein Schaden durch einen Dritten verursacht worden, kann der Anspruch des Versicherungsnehmers gegen diesen Dritten nach § 86 VVG kraft Gesetzes auf den Versicherer übergehen.
+  - Erwartung: Der Übergang tritt ein, sobald der Versicherer die Entschädigung gezahlt hat; umgangssprachlich spricht man von Regress.
+  - Erwartung: Beispiel: Ein Wasserschaden bei einem Gewerbekunden wurde durch einen fehlerhaft installierten Heizungsanschluss eines Handwerksbetriebs verursacht; nach der Regulierung prüft die Regressabteilung den Rückgriff beim Handwerksbetrieb bzw. dessen Haftpflichtversicherer.
+  - Erwartung: Das Regressmanagement dient der Kostenentlastung und hat eine präventive Wirkung, da es Schadenverursacher wirtschaftlich zur Sorgfalt anhält.
+  - Erwartung: Bei Personenschäden können auch Kranken- oder Rentenversicherungsträger Regressansprüche geltend machen, sodass eine sorgfältige Abstimmung zur Vermeidung von Doppelregressen erforderlich ist.
+  - Rückfrage: Wie wirkt sich ein Mitverschulden des Versicherungsnehmers auf den Regressanspruch aus?
 - Wie gehen Sie vor, wenn Sie bei der Schadenprüfung Anhaltspunkte für ein Mitverschulden des Versicherungsnehmers feststellen?
+  - Erwartung: Zunächst wird der Versicherungsschutz dem Grunde nach geprüft, also ob Deckung besteht, der Vertrag zum Schadenzeitpunkt gültig ist, ein versicherter Schadenfall vorliegt oder ein Ausschluss greift.
+  - Erwartung: In der Bearbeitung werden Belege und Gutachten eingeholt und gegebenenfalls Rücksprache mit dem Versicherungsnehmer gehalten.
+  - Erwartung: Bei komplexeren oder strittigen Fällen zieht Nordantis unabhängige Sachverständige hinzu.
+  - Erwartung: Trifft den Versicherungsnehmer selbst ein Mitverschulden, wird der Regressanspruch gegen den Dritten entsprechend quotal gekürzt (Quotenteilung).
+  - Rückfrage: Welche Regulierungsentscheidungen sind am Ende des Prozesses möglich?
 
 ### 3.4 Leistungsmanagement
 
@@ -98,6 +134,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei Unfällen gilt eine Ausnahme von der Wartezeit.
   - Rückfrage: Welche weiteren formalen Voraussetzungen werden vor einer Leistung geprüft?
 - Erläutern Sie die vorvertragliche Anzeigepflicht nach § 19 VVG und mögliche Folgen einer Verletzung.
+  - Erwartung: Nach § 19 VVG muss der Versicherungsnehmer bei Vertragsschluss alle ihm bekannten gefahrerheblichen Umstände wahrheitsgemäß anzeigen.
+  - Erwartung: Anzuzeigen sind die Umstände, nach denen der Versicherer in Textform gefragt hat.
+  - Erwartung: Ein Beispiel für eine Verletzung ist das Verschweigen einer bereits bekannten Vorerkrankung bei Abschluss einer Berufsunfähigkeitsversicherung.
+  - Erwartung: Die Folgen hängen vom Grad des Verschuldens ab; eine Anzeigepflichtverletzung kann etwa zum Rücktritt oder zur Anfechtung des Vertrags führen.
+  - Erwartung: Nordantis prüft die vorvertragliche Anzeigepflicht bei der Leistungsprüfung in Personenversicherungen neben den formalen Voraussetzungen und den vertraglichen Ausschlüssen.
+  - Rückfrage: Welche formalen Voraussetzungen prüft Nordantis vor einer Leistung außerdem?
 - Wie unterscheiden sich die möglichen Konsequenzen einer Anzeigepflichtverletzung je nach Verschuldensgrad?
 - Welche Auffälligkeitsmerkmale können auf Versicherungsbetrug hindeuten, und wie geht Nordantis damit um, ohne ehrliche Kundinnen und Kunden unangemessen zu verunsichern?
   - Erwartung: Auffällig sind zum Beispiel kurz nach Vertragsabschluss gemeldete Großschäden und widersprüchliche Angaben im Leistungsantrag.

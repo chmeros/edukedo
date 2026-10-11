@@ -15,6 +15,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.1 Finanzbuchhaltung und Jahresabschluss
 
 - Warum ist eine GmbH wie die Vantera Präzisionstechnik GmbH unabhängig von ihrer tatsächlichen Betriebsgröße zur doppelten Buchführung verpflichtet?
+  - Erwartung: Formkaufleute sind kraft ihrer Rechtsform Kaufleute (§ 6 HGB), unabhängig davon, wie groß ihr tatsächlicher Geschäftsbetrieb ist.
+  - Erwartung: Als GmbH ist Vantera Formkaufmann und damit uneingeschränkt buchführungspflichtig nach §§ 238 ff. HGB, die Pflicht knüpft an die Rechtsform an, nicht an die Betriebsgröße.
+  - Erwartung: Die Befreiung von der doppelten Buchführung nach § 241a HGB gilt nur für Einzelkaufleute unterhalb bestimmter Umsatz- und Gewinnschwellen und betrifft Kapitalgesellschaften wie Vantera nicht.
+  - Erwartung: Als GmbH unterliegt Vantera zusätzlich den ergänzenden Rechnungslegungsvorschriften für Kapitalgesellschaften (§§ 264 ff. HGB).
+  - Erwartung: Der konkrete Pflichtenumfang, etwa Prüfungspflicht und Offenlegung, richtet sich nach den Größenklassen des § 267 HGB, die anhand von Bilanzsumme, Umsatzerlösen und durchschnittlicher Beschäftigtenzahl abgegrenzt werden.
+  - Rückfrage: Was unterscheidet Formkaufleute von Istkaufleuten?
 - Erläutern Sie den Unterschied zwischen Stichtagsinventur und permanenter Inventur und begründen Sie, welche Inventurart sich für einen kontinuierlich fertigenden Betrieb besser eignet.
   - Erwartung: Die Stichtagsinventur ist die körperliche und wertmäßige Bestandsaufnahme aller Vermögensgegenstände und Schulden zu einem Stichtag.
   - Erwartung: Bei der permanenten Inventur werden die Bestände laufend fortgeschrieben und einmal jährlich abgeglichen.
@@ -33,6 +39,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Umsatzkostenverfahren werden nur die Herstellkosten der tatsächlich abgesetzten Bauteile den Umsatzerlösen gegenübergestellt.
   - Erwartung: Für einen Fertigungsbetrieb ist die Korrektur um Bestandsveränderungen bedeutsam, weil zum Bilanzstichtag stets größere Mengen teilbearbeiteter Bauteile in den Fertigungshallen liegen.
 - Wann muss ein Unternehmen bei der Bewertung seines Anlagevermögens eine außerplanmäßige Abschreibung vornehmen?
+  - Erwartung: Abschreibungen verteilen die Anschaffungs- oder Herstellungskosten von Vermögensgegenständen des Anlagevermögens planmäßig über deren voraussichtliche Nutzungsdauer.
+  - Erwartung: Eine außerplanmäßige Abschreibung ist vorzunehmen, wenn der Wert eines Vermögensgegenstands über die planmäßige Abschreibung hinaus dauerhaft sinkt.
+  - Erwartung: Ein Beispiel ist eine CNC-Maschine, die durch einen technischen Defekt vorzeitig nicht mehr die geplante Präzision erreicht.
+  - Erwartung: Entfällt der Grund für die außerplanmäßige Abschreibung später, besteht bei Kapitalgesellschaften grundsätzlich eine Zuschreibungspflicht bis maximal zu den fortgeführten Anschaffungskosten.
+  - Rückfrage: Worin unterscheiden sich lineare und degressive Abschreibung, und wonach richtet sich, welches Verfahren zulässig ist?
 
 ### 2.2 Kostenrechnung
 

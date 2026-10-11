@@ -39,6 +39,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Alternativ wird der Umfang so geplant, dass Kann-Ziele bei Bedarf entfallen können; wesentliche Änderungen, z. B. eine unbrauchbare Datenquelle, werden mit den Auftraggebenden und dem Ausbildungsbetrieb abgestimmt und begründet dokumentiert.
   - Rückfrage: Warum gehört ein Machbarkeits-Check der Daten schon in die Anforderungsanalyse?
 - Wie haben Sie Datenschutz, Berechtigungen und Freigaben in Ihrer Planung berücksichtigt (z. B. Personenbezug, Datenminimierung, Beteiligung der Datenschutzbeauftragten)?
+  - Erwartung: Zur Berechtigung wird geklärt, wer Dateneigner:in ist und wer den Zugriff freigibt; typischer Ablauf ist Antrag bei den Dateneigner:innen, Freigabe und technische Einrichtung (Lesezugriff, Export, Testumgebung).
+  - Erwartung: Personenbezogene Daten dürfen nur im Rahmen der geltenden Datenschutzvorschriften verarbeitet werden; geprüft wird, ob sie benötigt werden oder aggregierte bzw. pseudonymisierte Daten genügen.
+  - Erwartung: Weitere Planungsfragen betreffen den Zweck der Verarbeitung (Zweckbindung), die Beschränkung auf erforderliche Felder (Datenminimierung) sowie Zeitpunkt und Art der Löschung.
+  - Erwartung: Bei Projekten mit Personenbezug wird die oder der Datenschutzbeauftragte frühzeitig einbezogen.
+  - Erwartung: Bei Kundendaten gelten Geheimhaltungsvereinbarungen und gegebenenfalls Vereinbarungen zur Auftragsverarbeitung; Kundendaten gehören nicht auf private Geräte oder in öffentliche Cloud-Werkzeuge.
+  - Rückfrage: Wann kann bei der Auswertung von Beschäftigtendaten die Mitbestimmung des Betriebsrats berührt sein?
 - Wie haben Sie Ihren Zeitplan aufgestellt, welche Risiken haben Sie eingeplant, und welche Abweichungen gab es gegenüber der genehmigten Projektbeschreibung?
   - Erwartung: Der Zeitplan ist in Arbeitspakete gegliedert (z. B. Anforderungsanalyse, Datenbeschaffung, Datenaufbereitung, Analyse und Modellbildung, Ergebnisaufbereitung, Dokumentation, Puffer) und summiert sich auf den Rahmen von höchstens 40 Stunden.
   - Erwartung: Die Datenaufbereitung wird bewusst hoch angesetzt, weil das Verstehen, Bereinigen und Zusammenführen von Daten in der Praxis häufig einen großen Teil der Projektzeit kostet (Erfahrungswert, keine Vorgabe).
@@ -51,6 +57,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 12.2 Datenqualität, Methodik, Ergebnisse, Optimierung und Wirtschaftlichkeit
 
 - Wie haben Sie die Datenquellen identifiziert und klassifiziert, und wie haben Sie die Berechtigung zur Nutzung und zur Verknüpfung der Daten geprüft?
+  - Erwartung: Die Datenherkunft wird festgehalten: Quelle (System, Tabelle, Datei), Dateneigner:in, Stand und Zeitraum des Abzugs, Abrufweg und Berechtigung, damit sich später erklären lässt, woher ein Ergebnis kommt.
+  - Erwartung: Daten werden klassifiziert und modelliert: Welche Felder sind Merkmale, welche Zielgröße, welche Schlüssel, und wie hängen die Tabellen zusammen?
+  - Erwartung: Geprüft wird die Berechtigung zur Nutzung und zur Verknüpfung der Daten: Bei jeder Verknüpfung von Datenquellen wird gefragt, ob sie erlaubt ist, und es werden Maßnahmen abgeleitet.
+  - Erwartung: Die Daten werden entsprechend ihrer Schutzbedarfsklasse behandelt (z. B. öffentlich, intern, vertraulich, streng vertraulich); daraus folgen Speicherorte, Verschlüsselung und Weitergabe.
+  - Rückfrage: Welche Rolle spielen die Dateneigner:innen bei der Freigabe?
+  - Rückfrage: Was beschreibt ein Datenwörterbuch?
 - Wie haben Sie die Datenqualität geprüft (z. B. Vollständigkeit, Plausibilität, Redundanz, Validität), welche Mängel haben Sie gefunden, und wie haben Sie darauf reagiert?
   - Erwartung: Als Prüfmerkmale dienen Plausibilität, Quantität, Redundanz, Vollständigkeit und Validität; die Ergebnisse werden dokumentiert, und bei Abweichungen vom Sollzustand werden Maßnahmen vorgeschlagen.
   - Erwartung: Ein Datenprofil zeigt Anzahl der Datensätze und Felder, Datentypen, Wertebereiche, fehlende Werte, Verteilungen und auffällige Ausreißer.

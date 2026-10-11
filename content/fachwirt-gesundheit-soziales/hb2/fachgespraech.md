@@ -84,8 +84,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.3 Grundlagen des Vertragsrechts und Risikomanagement
 
 - Als welcher Vertragstyp wird ein Pflegevertrag üblicherweise eingeordnet, und warum?
+  - Erwartung: Ein Pflegevertrag wird überwiegend als Dienstvertrag (§§ 611 ff. BGB) eingeordnet.
+  - Erwartung: Geschuldet wird das sorgfältige Bemühen um die vereinbarte Pflege- und Betreuungsleistung, nicht ein garantierter Erfolg.
+  - Erwartung: Beim Werkvertrag (§§ 631 ff. BGB) wird dagegen ein konkretes Werk bzw. Erfolg geschuldet, z. B. bei einer beauftragten baulichen Anpassung.
+  - Erwartung: Für Verträge über Pflege- und Betreuungsleistungen mit Unterkunft, z. B. in stationären Einrichtungen, enthält das Wohn- und Betreuungsvertragsgesetz (WBVG) besondere Schutzvorschriften; bei rein ambulanten Leistungen ohne Unterkunft findet es keine Anwendung, dort gelten die allgemeinen Regeln des Dienstvertragsrechts.
+  - Erwartung: Ein eigenständiges Gewährleistungsrecht gibt es beim Dienstvertrag nicht, bei mangelhafter Leistung kommen jedoch die allgemeinen Regeln zur Schlechtleistung und ggf. Schadensersatzansprüche zum Tragen.
+  - Rückfrage: Welche Schutzvorschriften enthält das WBVG zugunsten der pflegebedürftigen Person?
 - Was prüft die AGB-rechtliche Inhaltskontrolle, und welche Klauseln sind unwirksam?
+  - Erwartung: Allgemeine Geschäftsbedingungen (AGB) sind für eine Vielzahl von Verträgen vorformulierte Vertragsbedingungen, die eine Vertragspartei der anderen bei Vertragsschluss stellt (§ 305 BGB).
+  - Erwartung: AGB werden nur wirksam Vertragsbestandteil, wenn die andere Partei bei Vertragsschluss ausdrücklich oder zumindest deutlich sichtbar auf sie hingewiesen wird und in zumutbarer Weise von ihrem Inhalt Kenntnis nehmen kann.
+  - Erwartung: Die Inhaltskontrolle (§§ 307 ff. BGB) prüft, ob eine Klausel die andere Vertragspartei entgegen den Geboten von Treu und Glauben unangemessen benachteiligt.
+  - Erwartung: Solche Klauseln sind unwirksam, etwa ein unangemessen weitgehender Ausschluss der Haftung.
+  - Erwartung: Auch Regelungen zu Zahlungsmodalitäten, Kündigungsfristen oder zum Verhalten bei kurzfristiger Absage eines Einsatzes unterliegen der Inhaltskontrolle.
+  - Rückfrage: Wann werden AGB überhaupt Vertragsbestandteil?
 - Erläutern Sie die drei zentralen Fallgruppen von Leistungsstörungen.
+  - Erwartung: Das Recht der Leistungsstörungen regelt, was gilt, wenn eine Vertragspartei ihre Pflichten nicht, nicht rechtzeitig oder nicht wie geschuldet erfüllt.
+  - Erwartung: Beim Verzug wird die geschuldete Leistung trotz Fälligkeit und in der Regel erfolgter Mahnung nicht rechtzeitig erbracht.
+  - Erwartung: Bei der Schlechtleistung wird die Leistung zwar erbracht, aber mangelhaft.
+  - Erwartung: Bei der Unmöglichkeit kann die Leistung objektiv oder subjektiv gar nicht mehr erbracht werden, z. B. wenn eine vereinbarte Pflegefachkraft dauerhaft ausfällt und kein Ersatz organisierbar ist.
+  - Rückfrage: Gibt es beim Pflegevertrag ein eigenständiges Gewährleistungsrecht?
+  - Rückfrage: Nach welcher Frist verjähren Ansprüche regelmäßig?
 - Beschreiben Sie den Risikomanagement-Kreislauf anhand eines Beispiels aus einem Pflegedienst.
   - Erwartung: Risikoidentifikation: Mögliche Risiken werden systematisch erkannt, z. B. Sturzrisiken bei Klient:innen oder Personalausfall.
   - Erwartung: Risikobewertung: Eintrittswahrscheinlichkeit und potenzielles Schadensausmaß werden eingeschätzt, häufig visualisiert in einer Risikomatrix.

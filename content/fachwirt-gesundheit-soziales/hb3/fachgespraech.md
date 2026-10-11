@@ -43,6 +43,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Missverständnisse entstehen oft nicht durch böse Absicht, sondern durch unterschiedliche Normen, und wer diese Unterschiede kennt und offen anspricht, kann Konflikten vorbeugen.
   - Rückfrage: Nennen Sie Beispiele für unterschiedliche kulturelle Normen, die zu Missverständnissen führen können.
 - Warum ist die Unterscheidung zwischen formeller und informeller Kommunikation im Berufsalltag wichtig?
+  - Erwartung: Formelle Kommunikation folgt festgelegten Wegen, z. B. Dienstbesprechung oder Dokumentation.
+  - Erwartung: Informelle Kommunikation entsteht spontan, z. B. im Gespräch zwischen Kolleg:innen zwischen zwei Einsätzen.
+  - Erwartung: Informelle Kommunikation ergänzt die formellen Wege und trägt wesentlich zum Informationsfluss und Teamzusammenhalt bei.
+  - Erwartung: Je klarer Übergabepunkte durch feste Dokumentationsvorgaben, Ansprechpersonen oder Regelkommunikation geregelt sind, desto geringer ist das Risiko, dass wichtige Informationen verloren gehen.
+  - Rückfrage: Welche Bedeutung hat ein kurzes Gespräch zwischen zwei Pflegekräften für die Zusammenarbeit im Team?
 
 ### 3.2 Teamarbeit im multiprofessionellen Team
 

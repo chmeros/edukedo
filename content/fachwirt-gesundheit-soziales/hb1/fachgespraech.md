@@ -23,6 +23,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wofür eignet sich die Stiftung als Rechtsform besonders?
   - Rückfrage: Welche Auswirkungen hat die Wahl der Rechtsform?
 - Was unterscheidet eine gGmbH rechtlich und steuerlich von einer regulären GmbH?
+  - Erwartung: Die reguläre GmbH ist eine gewerbliche Rechtsform ohne Gemeinnützigkeitsstatus.
+  - Erwartung: Die gGmbH behält wie die reguläre GmbH die Haftungsbeschränkung auf das Gesellschaftsvermögen.
+  - Erwartung: Die gGmbH verfolgt ausschließlich und unmittelbar gemeinnützige, mildtätige oder kirchliche Zwecke nach den §§ 51 ff. AO.
+  - Erwartung: Die gGmbH darf keine Gewinne an Gesellschafter:innen ausschütten.
+  - Erwartung: Dafür genießt sie steuerliche Vergünstigungen, sofern die Voraussetzungen der Abgabenordnung erfüllt sind.
+  - Rückfrage: Haften die Gesellschafter:innen einer gGmbH mit ihrem Privatvermögen?
 - Welche institutionellen Partner sind für einen ambulanten Pflegedienst besonders relevant, und welche Aufgabe hat jeweils?
   - Erwartung: Die Kranken- und Pflegekassen sind zentrale Vertragspartner und Kostenträger, schließen Versorgungsverträge und Vergütungsvereinbarungen ab und erstatten die erbrachten Leistungen.
   - Erwartung: Der Medizinische Dienst (MD) prüft im Auftrag der Kassen die Qualität der Leistungen und begutachtet im Einzelfall die Pflegebedürftigkeit zur Einstufung in einen Pflegegrad.
@@ -32,8 +38,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
   - Rückfrage: Welche Aufgabe haben kommunale Pflegestützpunkte?
 - Was prüft der Medizinische Dienst bei einer Pflegeeinrichtung, und mit welcher Konsequenz kann das Ergebnis verbunden sein?
+  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Kranken- und Pflegekassen regelmäßige Qualitätsprüfungen durch (§ 114 SGB XI).
+  - Erwartung: Die Pflegedokumentation dient als Nachweis erbrachter Leistungen und als Grundlage für solche Prüfungen.
+  - Erwartung: Die Aufsichtsbehörde (Heimaufsicht) kann bei Mängeln Auflagen erteilen.
+  - Erwartung: Verstöße gegen Dokumentations- oder Qualitätspflichten können aufsichtsrechtliche Maßnahmen bis zum Entzug der Betriebserlaubnis oder zur Kündigung des Versorgungsvertrags nach sich ziehen.
+  - Erwartung: Daneben begutachtet der MD im Einzelfall die Pflegebedürftigkeit von Antragstellenden zur Einstufung in einen Pflegegrad.
+  - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
+  - Rückfrage: Was ist ein Versorgungsvertrag nach § 72 SGB XI?
 - Was ist bei einer drohenden Insolvenz einer Pflegeeinrichtung im Hinblick auf die Versorgung der betreuten Menschen besonders zu beachten?
+  - Erwartung: Insolvenzgründe sind wie im allgemeinen Insolvenzrecht die Zahlungsunfähigkeit und die Überschuldung.
+  - Erwartung: Bei Vorliegen eines dieser Gründe besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche Insolvenzantragspflicht.
+  - Erwartung: Die Besonderheit des Sektors ist die Versorgungsverantwortung: Die Weiterversorgung der betreuten Menschen muss auch bei drohender oder eingetretener Insolvenz sichergestellt bleiben.
+  - Erwartung: Die zuständigen Kostenträger und die Aufsichtsbehörde sind frühzeitig einzubeziehen.
+  - Erwartung: Im Sozialrecht gibt es Regelungen, die eine geordnete Übergabe an andere Leistungserbringer:innen erleichtern sollen, damit Pflegebedürftige nicht plötzlich ohne Versorgung dastehen.
+  - Rückfrage: Worin unterscheidet sich die Liquidation von der Insolvenz?
 - Welche Rolle spielt der Sozialhilfeträger bei der Finanzierung von Pflegeleistungen?
+  - Erwartung: Der Sozialhilfeträger (Sozialamt, Leistungen nach SGB XII) ist ein institutioneller Partner bei der Finanzierung von Pflegeleistungen.
+  - Erwartung: Er tritt bei Pflegebedürftigen ohne ausreichende eigene Mittel hinzu.
+  - Erwartung: Er übernimmt ergänzend zur Pflegeversicherung ungedeckte Kosten, wenn die Leistungen der Pflegeversicherung und das eigene Einkommen bzw. Vermögen nicht ausreichen.
+  - Erwartung: Die Kranken- und Pflegekassen sind demgegenüber die zentralen Vertragspartner und Kostenträger, die die erbrachten Leistungen gegenüber den Versicherten erstatten.
+  - Rückfrage: Welche Aufgabe haben die Kranken- und Pflegekassen als Vertragspartner einer Pflegeeinrichtung?
 
 ### 1.2 Entwickeln und Umsetzen betrieblicher Ziele und Strategien
 

@@ -21,6 +21,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Bei Nordantis wird der Unterschied in der Beratung regelmäßig anhand von Vergleichsrechnungen verdeutlicht, weil er für die Tarif- und Anbieterwahl entscheidend ist.
   - Rückfrage: Welche Rückstellungen bildet die PKV aufgrund des Kapitaldeckungsverfahrens für jede versicherte Person?
 - Welche Personengruppen haben typischerweise Zugang zur privaten Krankenvollversicherung, und warum?
+  - Erwartung: In Deutschland besteht grundsätzlich eine Krankenversicherungspflicht, die entweder über die gesetzliche Krankenversicherung (GKV) oder über eine private Vollversicherung erfüllt werden kann.
+  - Erwartung: Der Zugang zur PKV als Vollversicherung ist an bestimmte Voraussetzungen geknüpft.
+  - Erwartung: Er steht insbesondere Beamtinnen und Beamten offen, deren Absicherung über die Beihilfe ergänzt wird.
+  - Erwartung: Auch Selbstständige können sich privat vollversichern.
+  - Erwartung: Arbeitnehmende haben Zugang, wenn ihr regelmäßiges Bruttoeinkommen die jährlich neu festgesetzte Versicherungspflichtgrenze übersteigt.
+  - Rückfrage: Nach welchem Prinzip richtet sich der Beitrag in der PKV im Unterschied zur GKV?
 - Was passiert bei der Gesundheitsprüfung, wenn ein erhöhtes Risiko festgestellt wird, und welche Auswirkungen hat das für die Kundin oder den Kunden?
   - Erwartung: Der Versicherer prüft die Gesundheit anhand eines Fragebogens zu Vorerkrankungen, Behandlungen und Medikationen und kalkuliert auf dieser Basis das individuelle Risiko.
   - Erwartung: Bei erhöhtem Risiko können Risikozuschläge auf den Beitrag oder Leistungsausschlüsse für bestimmte Erkrankungen vereinbart werden.
@@ -28,6 +34,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Für die Kundin oder den Kunden bedeutet das einen höheren Beitrag oder einen fehlenden Leistungsanspruch für die ausgeschlossenen Erkrankungen.
   - Rückfrage: Für welchen Tarif führt der Versicherer keine Gesundheitsprüfung durch?
 - Was ist bei einem Wechsel des PKV-Versicherers im Hinblick auf die Alterungsrückstellung zu beachten?
+  - Erwartung: Innerhalb desselben Versicherers besteht nach § 204 VVG grundsätzlich ein Tarifwechselrecht in einen Tarif mit gleichartigem Versicherungsschutz.
+  - Erwartung: Dabei können die erworbenen Alterungsrückstellungen und das erreichte Lebensalter für die Beitragsberechnung mitgenommen werden, ohne erneute Gesundheitsprüfung für den bereits versicherten Leistungsumfang.
+  - Erwartung: Bei einem Wechsel zu einem anderen Versicherer wird nur der auf den Basistarif entfallende Teil der Alterungsrückstellung mitgenommen, der sogenannte Übertragungswert.
+  - Erwartung: Darüber hinausgehende, im bisherigen Tarif angesparte Rückstellungen verbleiben beim bisherigen Versicherer.
+  - Erwartung: Ein Versichererwechsel ist daher sorgfältig gegen den Verbleib im bestehenden Vertrag mit internem Tarifwechsel abzuwägen.
+  - Rückfrage: Warum bildet die PKV überhaupt Alterungsrückstellungen?
 - Warum bildet die PKV Alterungsrückstellungen, und was bezweckt der Gesetzgeber damit?
   - Erwartung: Die PKV ist nicht umlagefinanziert, sondern arbeitet nach dem Kapitaldeckungsverfahren und bildet deshalb für jede versicherte Person Alterungsrückstellungen.
   - Erwartung: In jungen Jahren wird dazu ein Teil des Beitrags über die reinen Risikokosten hinaus angespart.
@@ -69,6 +81,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Mit steigendem Pflegegrad steigen die Leistungen, sowohl bei häuslicher Pflege (Pflegegeld, Pflegesachleistungen) als auch bei stationärer Unterbringung (nach Pflegegrad gestaffelter, gedeckelter Zuschuss).
   - Rückfrage: Welche Wahlmöglichkeiten bestehen bei häuslicher Pflege?
 - Warum sind PKV-Vollversicherte verpflichtet, eine private Pflegepflichtversicherung abzuschließen, und wie unterscheidet sich diese von einer freiwilligen Pflegezusatzversicherung?
+  - Erwartung: Wer in der GKV versichert ist, ist automatisch auch sozial pflegeversichert; PKV-Vollversicherte schließen entsprechend eine private Pflegepflichtversicherung (PPV) ab.
+  - Erwartung: Die PPV ist inhaltlich weitgehend an die Leistungen der sozialen Pflegeversicherung angeglichen und wie diese als Teilkaskoversicherung konzipiert.
+  - Erwartung: Aus dem Teilkaskocharakter ergibt sich die Pflegelücke, die durch eine private Pflegezusatzversicherung geschlossen werden kann.
+  - Erwartung: Die PPV ist im Beitrag für Bestandskunden nach oben gedeckelt (Höchstbeitragsgrenze orientiert an der sozialen Pflegeversicherung).
+  - Erwartung: Private Pflegezusatzversicherungen unterliegen keiner solchen Deckelung und werden nach den allgemeinen Grundsätzen der Risikokalkulation des Versicherers kalkuliert.
+  - Rückfrage: Welche drei Grundformen der privaten Pflegezusatzversicherung unterscheidet man?
 
 ### 1.3 Unfallversicherung
 
@@ -89,6 +107,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Bei einem Invaliditätsgrad von 100 % kann je nach Tarif ein Vielfaches der vereinbarten Grundsumme ausgezahlt werden, zum Beispiel 225 % oder 350 % oder mehr.
   - Rückfrage: Wovon hängt die Höhe der Invaliditätsleistung grundsätzlich ab?
 - Welche Fristen sind für den Leistungsanspruch nach einem Unfall zu beachten, und was passiert bei deren Versäumnis?
+  - Erwartung: Für den Leistungsanspruch in der privaten Unfallversicherung sind vertragliche Fristen von großer praktischer Bedeutung.
+  - Erwartung: Die Invalidität muss innerhalb einer bestimmten Frist nach dem Unfall eingetreten und ärztlich festgestellt sowie beim Versicherer schriftlich geltend gemacht worden sein.
+  - Erwartung: Die konkreten Fristen ergeben sich aus den Tarifbedingungen.
+  - Erwartung: Wird eine Frist versäumt, kann der Leistungsanspruch ganz oder teilweise verloren gehen.
+  - Erwartung: Bei Nordantis wird empfohlen, nach jedem nicht offensichtlich folgenlosen Unfall zeitnah eine ärztliche Untersuchung und Dokumentation vornehmen zu lassen, auch wenn eine dauerhafte Beeinträchtigung zunächst nicht absehbar ist.
+  - Rückfrage: Welche Leistung zahlt die private Unfallversicherung bei dauerhafter Beeinträchtigung?
 - Was versteht man unter einem Mitwirkungsanteil, und wann kann er zur Anwendung kommen?
   - Erwartung: Trug eine bereits vor dem Unfall bestehende Krankheit oder ein Gebrechen wesentlich zum Ausmaß der Unfallfolgen bei, kann der Versicherer einen Mitwirkungsanteil von der Leistung abziehen.
   - Erwartung: Voraussetzung ist, dass die Mitwirkung einen im Vertrag festgelegten Mindestanteil erreicht, häufig 25 %.
@@ -103,6 +127,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Schicht 3 (private Vorsorge) umfasst alle sonstigen, frei verfügbaren Vorsorgeformen ohne besondere staatliche Förderung oder mit anderer steuerlicher Behandlung, etwa Kapital- und Rentenversicherungen, Fondssparpläne oder Immobilienvermögen.
   - Rückfrage: In welcher Reihenfolge schöpfen Sie die Schichten in der Beratung grundsätzlich aus?
 - Was unterscheidet die Basisrente (Rürup-Rente) von der Riester-Rente hinsichtlich Zielgruppe und Förderung?
+  - Erwartung: Die Basisrente richtet sich vor allem an Selbstständige und Freiberufler ohne oder mit nur geringer gesetzlicher Rentenversicherungspflicht, ist aber grundsätzlich für alle unbeschränkt Steuerpflichtigen zugänglich.
+  - Erwartung: Die Riester-Rente richtet sich vor allem an sozialversicherungspflichtig Beschäftigte, Beamtinnen und Beamte sowie ihnen gleichgestellte Personengruppen.
+  - Erwartung: Bei der Basisrente sind die Beiträge bis zu einem jährlichen Höchstbetrag als Sonderausgaben steuerlich absetzbar.
+  - Erwartung: Die Riester-Rente wird durch Grundzulage, Kinderzulage je kindergeldberechtigtem Kind und gegebenenfalls den Sonderausgabenabzug gefördert, wobei die günstigere Alternative gilt; für die volle Förderung ist ein Mindesteigenbeitrag nötig.
+  - Erwartung: Beide werden in der Auszahlungsphase nachgelagert versteuert; die Basisrente zahlt ausschließlich eine lebenslange Rente, bei der Riester-Rente dürfen zu Rentenbeginn bis zu 30 % des Kapitals einmalig entnommen werden.
+  - Rückfrage: In welche Schicht des Drei-Schichten-Modells ordnen Sie die beiden Vorsorgeformen ein?
 - Nennen und erläutern Sie die fünf Durchführungswege der betrieblichen Altersversorgung.
   - Erwartung: Bei der Direktzusage sagt der Arbeitgeber die Versorgungsleistung unmittelbar selbst zu und bildet dafür Pensionsrückstellungen in der eigenen Bilanz.
   - Erwartung: Die Unterstützungskasse ist eine rechtlich selbstständige Versorgungseinrichtung des Arbeitgebers, ohne eigenen Rechtsanspruch der Versorgungsberechtigten gegen die Kasse, wohl aber gegen den Arbeitgeber.
@@ -117,6 +147,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die geförderten Schichten sind mit Bindungen verbunden: Schicht 1 ist nicht kapitalisierbar, Schicht 2 an bestimmte Auszahlungsbedingungen gebunden, während Schicht 3 frei verfügbar ist.
   - Rückfrage: Welche Rolle spielt die gewünschte Flexibilität hinsichtlich der Kapitalverfügbarkeit vor Rentenbeginn bei dieser Abwägung?
 - Was bedeutet die gesetzliche Arbeitgeberzuschusspflicht bei Entgeltumwandlung, und wie würden Sie diese einer Kundin oder einem Kunden erklären?
+  - Erwartung: Arbeitnehmende mit Anspruch auf Entgeltumwandlung haben gegenüber dem Arbeitgeber einen gesetzlichen Anspruch auf Durchführung der betrieblichen Altersversorgung über mindestens einen der fünf Durchführungswege.
+  - Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber einen Teil der dadurch eingesparten Sozialversicherungsbeiträge als Zuschuss an die bAV weiterleiten.
+  - Erwartung: Die Pflicht besteht nur, soweit die Ersparnis tatsächlich entsteht.
+  - Erwartung: Kundengerecht erklärt: Weil durch die Entgeltumwandlung Sozialversicherungsbeiträge eingespart werden, kommt ein Teil dieser Ersparnis über den Arbeitgeberzuschuss der bAV zugute.
+  - Rückfrage: Welche fünf Durchführungswege kennt die bAV?
 - Worin liegt der Unterschied zwischen Pensionskasse und Pensionsfonds als Durchführungswege der bAV?
   - Erwartung: Beide sind externe, rechtlich selbstständige Versorgungsträger, die einer eigenen Aufsicht unterliegen.
   - Erwartung: Beide räumen den Arbeitnehmenden einen unmittelbaren Rechtsanspruch ein.

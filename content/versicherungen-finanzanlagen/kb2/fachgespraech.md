@@ -55,6 +55,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Versichert sind nur die Schäden, die durch den Mangel an anderen Rechtsgütern Dritter entstehen.
   - Rückfrage: Welche Vermögensschäden sind in der Betriebshaftpflicht regelmäßig mitversichert?
 - Auf welchem Gesetz beruht die Produkthaftpflichtversicherung inhaltlich, und was bedeutet „verschuldensunabhängige Gefährdungshaftung"?
+  - Erwartung: Die Produkthaftpflichtversicherung knüpft an das Produkthaftungsgesetz (ProdHaftG) an.
+  - Erwartung: Das ProdHaftG sieht eine verschuldensunabhängige Gefährdungshaftung des Herstellers für Schäden durch fehlerhafte Produkte vor.
+  - Erwartung: Verschuldensunabhängig heißt, dass der Hersteller haftet, unabhängig davon, ob ihn ein persönliches Verschulden trifft.
+  - Erwartung: Die Produkthaftpflichtversicherung ist häufig als Baustein in die Betriebshaftpflicht integriert oder wird ergänzend abgeschlossen.
+  - Erwartung: Sinnvoll ergänzt wird sie oft durch eine Rückrufkostenversicherung, die die Kosten eines vorsorglichen Produktrückrufs abdeckt, bevor überhaupt ein Schaden eintritt.
+  - Rückfrage: Welche beiden Funktionen erfüllen Haftpflichtversicherungen?
 - Was unterscheidet Innen- von Außenhaftung bei der D&O-Versicherung, und wem würden Sie eine D&O-Versicherung empfehlen?
   - Erwartung: Die D&O-Versicherung schützt Mitglieder der Geschäftsleitung, etwa Geschäftsführer:innen einer GmbH, vor der persönlichen Inanspruchnahme wegen Pflichtverletzungen in Ausübung ihrer Organfunktion.
   - Erwartung: Bei der Innenhaftung nimmt die Gesellschaft selbst ihr Organ wegen einer Pflichtverletzung in Anspruch, zum Beispiel nach einer riskanten Fehlentscheidung mit finanziellem Schaden für das Unternehmen.
@@ -75,12 +81,22 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Für echte Vermögensschäden ist eine eigenständige Vermögensschadenhaftpflichtversicherung erforderlich.
   - Rückfrage: Nennen Sie Berufsgruppen, für die dieser Baustein besonders relevant ist.
 - Für welche Berufsgruppen ist eine Berufshaftpflichtversicherung gesetzlich vorgeschrieben, und warum?
+  - Erwartung: Für bestimmte Berufsgruppen ist die Berufshaftpflichtversicherung gesetzlich vorgeschrieben; sie ist dann eine Pflichtversicherung mit gesetzlich vorgegebenen Mindestversicherungssummen.
+  - Erwartung: Das betrifft unter anderem Versicherungsvermittler nach § 34d Gewerbeordnung in Verbindung mit der Versicherungsvermittlerverordnung, aber auch Rechtsanwälte, Steuerberater oder Architekten.
+  - Erwartung: Echte Vermögensschäden, also finanzielle Schäden ohne vorangegangenen Personen- oder Sachschaden, können insbesondere bei Berufsgruppen mit Beratungs- oder Planungsverantwortung entstehen.
+  - Erwartung: Die Berufshaftpflicht deckt echte Vermögensschäden, oft auch Personen- und Sachschäden aus der beruflichen Tätigkeit, und kombiniert damit Elemente der Betriebs- und der Vermögensschadenhaftpflicht.
+  - Rückfrage: Was versteht man unter einem echten Vermögensschaden?
 - Was deckt eine Cyberversicherung typischerweise als Eigenschaden, was als Drittschaden ab?
   - Erwartung: Eigenschäden sind Kosten, die dem Betrieb selbst durch einen Cyber-Vorfall entstehen, zum Beispiel Betriebsunterbrechung durch einen IT-Ausfall, Kosten der Datenwiederherstellung, IT-Forensik zur Ursachenermittlung und Krisenkommunikation.
   - Erwartung: Kosten im Zusammenhang mit Erpressung durch Ransomware sind je nach vertraglicher Regelung eingeschlossen.
   - Erwartung: Drittschäden sind Haftpflichtansprüche Dritter gegen den Betrieb, etwa weil durch einen Cyberangriff personenbezogene Kundendaten unrechtmäßig offengelegt wurden.
   - Rückfrage: Welche Voraussetzung gilt bei Nordantis in der Regel für den Abschluss einer Cyberversicherung?
 - Welche Rolle spielen die Benachrichtigungspflichten nach der DSGVO im Rahmen einer Cyberversicherung?
+  - Erwartung: Die Cyberversicherung deckt typischerweise Eigenschäden des Betriebs und Drittschäden.
+  - Erwartung: Werden bei einem Cyberangriff personenbezogene Kundendaten unrechtmäßig offengelegt, liegt ein Verstoß gegen die Datenschutz-Grundverordnung (DSGVO) vor, aus dem Haftpflichtansprüche Dritter entstehen können.
+  - Erwartung: Zu den Leistungen zählen auch die Kosten für die gesetzlich vorgeschriebenen Benachrichtigungspflichten nach Art. 33/34 DSGVO gegenüber der Aufsichtsbehörde und den Betroffenen.
+  - Erwartung: Behördliche Bußgelder, z. B. DSGVO-Bußgelder, sind je nach Rechtslage und vertraglicher Ausgestaltung nur eingeschränkt versicherbar.
+  - Rückfrage: Welche Voraussetzung stellt Nordantis in der Regel für den Abschluss einer Cyberversicherung?
 - Warum prüfen Versicherer vor Abschluss einer Cyberversicherung häufig die IT-Sicherheitsstandards eines Betriebs?
   - Erwartung: Voraussetzung für den Abschluss ist bei Nordantis in der Regel ein Risikofragebogen zu grundlegenden IT-Sicherheitsstandards.
   - Erwartung: Abgefragt werden zum Beispiel Firewalls, regelmäßige Backups und Mitarbeiterschulungen zu Phishing.

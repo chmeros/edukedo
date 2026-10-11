@@ -54,6 +54,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Aus den identifizierten Umweltaspekten werden Umweltziele abgeleitet und in einem Umweltprogramm mit Maßnahmen, Verantwortlichkeiten und Terminen konkretisiert.
   - Rückfrage: Welches Umweltziel könnte sich ein Fertigungsbetrieb setzen?
 - Was besagt die Abfallhierarchie, und warum steht die Vermeidung an oberster Stelle?
+  - Erwartung: Das Kreislaufwirtschaftsgesetz gibt mit der Abfallhierarchie eine verbindliche Rangfolge vor.
+  - Erwartung: An oberster Stelle steht die Vermeidung von Abfall, etwa durch optimierte Zuschnittpläne, die weniger Materialverschnitt erzeugen.
+  - Erwartung: Es folgen die Vorbereitung zur Wiederverwendung, das Recycling (z. B. Einschmelzen von Metallspänen), die sonstige Verwertung (z. B. energetische Nutzung) und zuletzt, nachrangig, die Beseitigung (Deponierung).
+  - Erwartung: Die Vermeidung steht an erster Stelle, weil gar nicht erst entstandener Abfall keinerlei Entsorgungsaufwand und -kosten verursacht.
+  - Rückfrage: Wie sind Kühlschmierstoffe abfallrechtlich in der Regel einzuordnen, und wie dürfen sie entsorgt werden?
 - Wie unterscheidet sich EMAS von einer Zertifizierung nach ISO 14001?
   - Erwartung: ISO 14001 legt die Anforderungen an ein Umweltmanagementsystem fest, die Zertifizierung erfolgt durch eine unabhängige externe Stelle.
   - Erwartung: EMAS (Eco-Management and Audit Scheme) ist eine strengere, freiwillige Alternative bzw. Ergänzung in Form einer EU-Verordnung, die über ISO 14001 hinausgeht.
@@ -80,7 +85,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Persönliche Schutzausrüstung gilt erst als letzte Maßnahme.
   - Rückfrage: Wie fließt das TOP-Prinzip in die Gefährdungsbeurteilung ein?
 - Welche Schritte umfasst eine Gefährdungsbeurteilung, und wann muss sie aktualisiert werden?
+  - Erwartung: Nach § 5 ArbSchG ist jeder Arbeitgeber verpflichtet, für jeden Arbeitsbereich und jede Tätigkeit eine Gefährdungsbeurteilung durchzuführen, also die mit der Arbeit verbundenen Gefährdungen systematisch zu ermitteln und zu bewerten.
+  - Erwartung: Zuerst werden Arbeitsbereiche und Tätigkeiten festgelegt und Gefährdungen ermittelt, danach werden diese nach Eintrittswahrscheinlichkeit und möglicher Schwere beurteilt.
+  - Erwartung: Anschließend werden geeignete Schutzmaßnahmen nach dem TOP-Prinzip festgelegt und umgesetzt, ihre Wirksamkeit wird überprüft und das Ergebnis dokumentiert.
+  - Erwartung: Die Gefährdungsbeurteilung ist kein einmaliger Vorgang, sie muss bei wesentlichen Änderungen der Arbeitsbedingungen, etwa durch eine neue Maschine, sowie nach Unfällen oder Beinaheunfällen aktualisiert werden.
+  - Rückfrage: Was besagt das TOP-Prinzip, und warum steht die persönliche Schutzausrüstung dabei an letzter Stelle?
 - Worin unterscheiden sich die Aufgaben einer Fachkraft für Arbeitssicherheit, eines Betriebsarztes und einer bzw. eines Sicherheitsbeauftragten?
+  - Erwartung: Das Arbeitssicherheitsgesetz (ASiG) regelt die Bestellung und die Aufgaben der Fachkraft für Arbeitssicherheit und der Betriebsärztin bzw. des Betriebsarztes.
+  - Erwartung: Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in allen Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes.
+  - Erwartung: Die Betriebsärztin bzw. der Betriebsarzt führt insbesondere arbeitsmedizinische Vorsorgeuntersuchungen durch.
+  - Erwartung: Sicherheitsbeauftragte sind ehrenamtlich tätig, unterstützen die Beschäftigten ihres Arbeitsbereichs bei der Unfallverhütung und achten auf sicheres Arbeiten, besitzen dabei aber keine eigene Weisungsbefugnis.
+  - Rückfrage: Wer trägt nach dem Arbeitsschutzgesetz die grundsätzliche Verantwortung für den Arbeitsschutz im Betrieb?
 - Warum gilt persönliche Schutzausrüstung im TOP-Prinzip erst als letzte Maßnahme?
   - Erwartung: PSA beseitigt die Gefahr nicht, sondern mindert nur deren Auswirkung auf die einzelne Person.
   - Erwartung: Die Schutzwirkung der PSA hängt von der korrekten Anwendung ab.
@@ -88,4 +103,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiele für PSA sind Gehörschutz an lauten Stanzmaschinen, Schutzbrillen bei spanender Bearbeitung, Sicherheitsschuhe oder Schutzhandschuhe.
   - Rückfrage: Warum müssen Beschäftigte im Umgang mit der PSA regelmäßig unterwiesen werden?
 - Wozu dient ein Arbeitsschutzausschuss, und wer nimmt typischerweise daran teil?
+  - Erwartung: Der Arbeitsschutzausschuss (ASA) dient der regelmäßigen Abstimmung zwischen allen Beteiligten des betrieblichen Arbeitsschutzes.
+  - Erwartung: In ihm beraten Arbeitgeber bzw. dessen Vertretung, Fachkraft für Arbeitssicherheit und Betriebsarzt gemeinsam Arbeitsschutzfragen.
+  - Erwartung: Außerdem nehmen typischerweise Sicherheitsbeauftragte und der Betriebsrat teil.
+  - Erwartung: Die grundsätzliche Verantwortung für den Arbeitsschutz bleibt beim Arbeitgeber, im Tagesgeschäft setzt die Produktionsleitung die Maßnahmen aus der Gefährdungsbeurteilung um.
+  - Rückfrage: Welche Rolle und welche Befugnisse haben Sicherheitsbeauftragte im betrieblichen Arbeitsschutz?
 

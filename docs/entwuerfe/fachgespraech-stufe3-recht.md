@@ -1,6 +1,6 @@
 # Entwurf: Erwartungshorizont für die rechtsnahen Fachgespräch-Fragen der elf übrigen Kurse (Stufe 3)
 
-Stand 11.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (rechtsnahe Inhalte, R4). Folgt auf `docs/entwuerfe/fachgespraech-stufe3.md` (eingespielt) und entspricht für die Pilotkurse `docs/entwuerfe/fachgespraech-pilot-recht.md`. Der Projektleiter hat am 11.10.2026 veranlasst, die rechtsnahen Fragen nachzuliefern; hier liegen die zugehörigen Erwartungspunkte und Rückfragen als Entwurf vor.
+Stand 11.10.2026 · **vom Projektleiter freigegeben und am 11.10.2026 in `content/` eingespielt** (siehe Architekturplanung §13; rechtsnahe Inhalte, R4). Die Frage zum Mitarbeitergespräch in Büro HB3 ist beim Einspielen auf das Personalentwicklungsgespräch umgestellt worden (4 Erwartungen, 1 Rückfrage); damit bleiben 9 Fragen ohne Erwartungshorizont. Folgt auf `docs/entwuerfe/fachgespraech-stufe3.md` (eingespielt) und entspricht für die Pilotkurse `docs/entwuerfe/fachgespraech-pilot-recht.md`. Der Projektleiter hat am 11.10.2026 veranlasst, die rechtsnahen Fragen nachzuliefern; hier liegen die zugehörigen Erwartungspunkte und Rückfragen als Entwurf vor.
 
 ## Was vorliegt
 

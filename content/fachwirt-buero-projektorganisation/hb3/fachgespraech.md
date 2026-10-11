@@ -29,7 +29,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Externe Beschaffung deckt Bedarf, der intern nicht abgedeckt werden kann.
   - Rückfrage: Nennen Sie zwei Wege der externen Personalbeschaffung.
 - Was ist bei der Formulierung einer Stellenausschreibung im Hinblick auf das AGG zu beachten?
+  - Erwartung: Stellenausschreibungen müssen AGG-konform, also diskriminierungsfrei formuliert sein.
+  - Erwartung: Das Allgemeine Gleichbehandlungsgesetz (AGG) verbietet eine Benachteiligung wegen ethnischer Herkunft, Geschlecht, Religion oder Weltanschauung, Behinderung, Alter oder sexueller Identität.
+  - Erwartung: Ausschreibungen werden z. B. geschlechtsneutral formuliert, etwa mit „m/w/d“.
+  - Erwartung: Ausschreibungen enthalten keine unzulässigen Altersgrenzen.
+  - Erwartung: Die Stellenbeschreibung mit Aufgaben, Verantwortlichkeiten, Kompetenzen und Anforderungen ist die Basis der Ausschreibung.
+  - Rückfrage: Woran orientieren Sie sich bei den Anforderungen, die Sie in die Ausschreibung aufnehmen?
 - Welche Mitwirkungsrechte hat der Betriebsrat bei der Personalplanung und bei Einstellungen?
+  - Erwartung: Existiert ein Betriebsrat, hat er nach dem Betriebsverfassungsgesetz (BetrVG) bei der Personalplanung Unterrichtungs- und Beratungsrechte.
+  - Erwartung: Dazu gehört u. a. die rechtzeitige und umfassende Information über den Personalbedarf.
+  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellung, Versetzung und Ein-/Umgruppierung hat der Betriebsrat ein echtes Mitbestimmungsrecht.
+  - Erwartung: Bei der Einstellung besteht das Mitbestimmungsrecht nach § 99 BetrVG in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
+  - Rückfrage: Worin unterscheidet sich das Recht des Betriebsrats bei der Personalplanung von seinem Recht bei einer einzelnen Einstellung?
 - Wie unterscheiden sich Personalentwicklung und Personalbetreuung inhaltlich voneinander?
   - Erwartung: Personalbetreuung umfasst die laufenden administrativen und unterstützenden Prozesse rund um bestehende Beschäftigungsverhältnisse.
   - Erwartung: Dazu gehören die Pflege der Personalakte, Personalinformationssysteme (HR-Software für Stammdaten, Abwesenheiten, Gehaltsdaten) und Berichtssysteme mit Kennzahlen zur Personalsituation.
@@ -41,7 +52,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Klassische Instrumente der Personalentwicklung sind Seminare und Schulungen sowie E-Learning.
   - Erwartung: Coaching und Mentoring-Programme gehören ebenfalls dazu.
   - Erwartung: Im Personalentwicklungsgespräch vereinbaren Führungskraft und Mitarbeitende Ziele und Entwicklungsmaßnahmen.
-- Welche Rolle spielt das Mitarbeitergespräch als Instrument der Personalbetreuung?
+- Welche Rolle spielt das Personalentwicklungsgespräch als Instrument der Personalentwicklung?
+  - Erwartung: Das Personalentwicklungsgespräch ist ein klassisches Instrument der Personalentwicklung, neben Seminaren und Schulungen, E-Learning, Coaching und Mentoring-Programmen.
+  - Erwartung: In diesem Gespräch vereinbaren Führungskraft und Mitarbeitende Ziele und Entwicklungsmaßnahmen.
+  - Erwartung: Mitarbeitergespräche liefern neben Anforderungsprofilen und Unternehmenszielen die Grundlage der Qualifizierungsplanung, die den Fortbildungsbedarf ermittelt.
+  - Erwartung: Eine gute Personalentwicklung erhöht neben der fachlichen Leistungsfähigkeit auch die Mitarbeiterbindung.
+  - Rückfrage: Worauf stützt sich die Qualifizierungsplanung, bevor Maßnahmen vereinbart werden?
 - Welche Ansatzpunkte prüfen Sie, wenn eine Stelle wiederholt nicht mit geeigneten Bewerber:innen besetzt werden kann, und warum?
   - Erwartung: Die Stellenbeschreibung mit Aufgaben, Verantwortlichkeiten, Kompetenzen und Anforderungen ist die Basis für Ausschreibung und Beurteilung von Bewerbungen und sollte überprüft werden.
   - Erwartung: Weitere externe Wege wie Karrieremessen, Personaldienstleister/Zeitarbeit, Active Sourcing über soziale Netzwerke oder Kooperationen mit Hochschulen können genutzt werden.
@@ -64,6 +80,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.2 Ausbildung planen, organisieren, durchführen und kontrollieren
 
 - Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung, und was regeln sie jeweils?
+  - Erwartung: Die betriebliche Berufsausbildung ist im Berufsbildungsgesetz (BBiG) geregelt, das z. B. die persönliche und fachliche Eignung der Ausbilder:innen (§§ 28–30 BBiG) und das Führen des Berichtshefts (Ausbildungsnachweis) betrifft.
+  - Erwartung: Für jeden anerkannten Ausbildungsberuf gibt eine Ausbildungsordnung die Mindestinhalte und die zeitliche Gliederung vor, aus der der Betrieb seinen betrieblichen Ausbildungsplan ableitet.
+  - Erwartung: Die Ausbilder-Eignungsverordnung (AEVO) regelt den Nachweis der fachlichen Eignung von Ausbilder:innen, der in der Regel durch die Ausbilder-Eignungsprüfung erbracht wird.
+  - Erwartung: Für minderjährige Auszubildende gilt zusätzlich das Jugendarbeitsschutzgesetz (JArbSchG) mit Regelungen zu Höchstarbeitszeiten, Pausen und Beschäftigungsverboten für bestimmte Tätigkeiten.
+  - Erwartung: Das Betriebsverfassungsgesetz (BetrVG) räumt dem Betriebsrat, sofern vorhanden, Mitwirkungsrechte bei der Ausgestaltung der betrieblichen Berufsbildung ein (§ 98 BetrVG).
+  - Rückfrage: Welche Stelle ist bei kaufmännischen Ausbildungsberufen für die Überwachung und Registrierung der Ausbildungsverhältnisse zuständig?
 - Wie erstellen Sie einen betrieblichen Ausbildungsplan auf Basis der Ausbildungsordnung bzw. des Ausbildungsrahmenplans?
   - Erwartung: Die Ausbildungsordnung gibt die Mindestinhalte und die zeitliche Gliederung vor.
   - Erwartung: Der betriebliche Ausbildungsplan legt konkret fest, wann welche Ausbildungsinhalte in welcher Abteilung vermittelt werden.
@@ -89,7 +111,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auf Zwischenprüfung und Abschlussprüfung wird gezielt vorbereitet.
   - Rückfrage: Welche Ausbildungsmethoden und Medien können die Vermittlung der Inhalte unterstützen?
 - Was ist bei der Beschäftigung von minderjährigen Auszubildenden arbeitsrechtlich besonders zu beachten?
+  - Erwartung: Für minderjährige Auszubildende gilt zusätzlich zum Berufsbildungsgesetz das Jugendarbeitsschutzgesetz (JArbSchG).
+  - Erwartung: Das JArbSchG sieht u. a. Höchstarbeitszeiten vor.
+  - Erwartung: Das JArbSchG enthält Pausenregelungen.
+  - Erwartung: Das JArbSchG enthält Beschäftigungsverbote für bestimmte Tätigkeiten.
+  - Rückfrage: Welches Gesetz regelt die betriebliche Berufsausbildung allgemein?
 - Welche Aufgaben hat die ausbildende Person im Vorfeld einer Zwischen- oder Abschlussprüfung?
+  - Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung vor der zuständigen Stelle (IHK) wird gezielt vorbereitet.
+  - Erwartung: Strukturierte Feedback-Gespräche gehören zur laufenden Qualitätssicherung der Ausbildung.
+  - Erwartung: Bei Lernschwierigkeiten werden gezielte Fördergespräche geführt.
+  - Erwartung: Das Berichtsheft dient als Kontrollinstrument, und der Ausbildungsfortschritt wird über Bewertungsstrukturen dokumentiert.
+  - Rückfrage: Was steht am Ende der Ausbildung nach der Abschlussprüfung?
 - Wie dokumentieren Sie den Ausbildungsfortschritt einer oder eines Auszubildenden nachvollziehbar?
   - Erwartung: Der Ausbildungsfortschritt wird über Bewertungsstrukturen dokumentiert.
   - Erwartung: Das Berichtsheft (Ausbildungsnachweis) dokumentiert die Ausbildungsinhalte und wird von den Auszubildenden regelmäßig geführt.

@@ -128,5 +128,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Gleichordnungskonzern unterstellen sich mehrere rechtlich selbständige Unternehmen ohne Abhängigkeitsverhältnis einer gemeinsamen einheitlichen Leitung, z. B. über eine gemeinsame Geschäftsführung.
   - Erwartung: Beispiel: Bündelt die Vantera Präzisionstechnik GmbH Tochtergesellschaften unter einer „Vantera Holding GmbH“, entsteht ein Unterordnungskonzern.
 - Warum sind Kartelle in Deutschland grundsätzlich verboten, und wer überwacht die Einhaltung des Kartellverbots?
+  - Erwartung: Ein Kartell ist ein Zusammenschluss rechtlich selbständiger Unternehmen zur Einschränkung des Wettbewerbs, z. B. durch Preisabsprachen oder Marktaufteilung.
+  - Erwartung: § 1 GWB enthält ein grundsätzliches Kartellverbot: Wettbewerbsbeschränkende Vereinbarungen zwischen Unternehmen sind unzulässig, Ausnahmen bestehen nur in eng begrenzten Fällen.
+  - Erwartung: Das Wettbewerbsrecht gehört zur Ordnungspolitik der sozialen Marktwirtschaft und soll verhindern, dass einzelne Unternehmen ihre Marktmacht missbrauchen.
+  - Erwartung: In Deutschland überwacht das Bundeskartellamt die Einhaltung der kartellrechtlichen Vorschriften.
+  - Erwartung: Bei Zusammenschlüssen mit gemeinschaftsweiter Bedeutung ist die Europäische Kommission zuständig.
+  - Rückfrage: Warum ist das Kartellrecht für Vantera in einem oligopolistisch geprägten Zulieferermarkt relevant?
 - Wozu dient die Fusionskontrolle, und wann wird sie relevant?
+  - Erwartung: Größere Unternehmenszusammenschlüsse unterliegen der Fusionskontrolle.
+  - Erwartung: Sie wird relevant, wenn die beteiligten Unternehmen bestimmte Umsatzschwellen überschreiten.
+  - Erwartung: Dann muss der geplante Zusammenschluss vorab angemeldet und vom Bundeskartellamt bzw. bei gemeinschaftsweiter Bedeutung von der EU-Kommission geprüft werden.
+  - Erwartung: Ziel ist es, zu verhindern, dass durch den Zusammenschluss eine marktbeherrschende Stellung entsteht oder verstärkt wird, die wirksamen Wettbewerb erheblich behindern würde.
+  - Erwartung: Die Fusionskontrolle gilt grundsätzlich für alle Arten von Zusammenschlüssen, nicht nur für horizontale.
+  - Rückfrage: Welche kartellrechtlichen Aspekte sollte Vantera vor der Übernahme eines regionalen Wettbewerbers prüfen?
 

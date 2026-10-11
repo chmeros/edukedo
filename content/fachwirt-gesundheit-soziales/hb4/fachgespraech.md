@@ -46,10 +46,40 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 4.2 Finanzierungssysteme im Gesundheits- und Sozialwesen
 
 - Erläutern Sie den Unterschied zwischen dem Sachleistungs- und dem Kostenerstattungsprinzip.
+  - Erwartung: Die gesetzliche Krankenversicherung (GKV) ist nach dem Solidaritätsprinzip organisiert: Beiträge richten sich nach dem Einkommen, nicht nach dem individuellen Krankheitsrisiko.
+  - Erwartung: Beim Sachleistungsprinzip erhalten Versicherte die Behandlung direkt, ohne in Vorleistung treten zu müssen.
+  - Erwartung: Beim Sachleistungsprinzip rechnet die Krankenkasse unmittelbar mit den Leistungserbringer:innen ab.
+  - Erwartung: Die private Krankenversicherung (PKV) folgt dem Äquivalenzprinzip: Der Beitrag richtet sich stärker nach individuellem Risiko und Leistungsumfang.
+  - Erwartung: Beim Kostenerstattungsprinzip zahlen Versicherte Rechnungen häufig zunächst selbst und reichen sie zur Erstattung ein.
+  - Rückfrage: Warum ist diese Unterscheidung für einen ambulanten Pflegedienst relevant?
 - Wie unterscheiden sich Pflegesachleistung, Pflegegeld und Kombinationsleistung?
+  - Erwartung: Die Pflegesachleistung umfasst professionelle Pflegeeinsätze, die direkt mit der Pflegekasse abgerechnet werden.
+  - Erwartung: Das Pflegegeld ist eine Geldleistung, die gezahlt wird, wenn die Pflege überwiegend durch Angehörige sichergestellt wird.
+  - Erwartung: Die Kombinationsleistung ist eine anteilige Kombination aus Pflegesachleistung und Pflegegeld.
+  - Erwartung: Welche Leistungsarten in der ambulanten Versorgung zur Verfügung stehen, hängt vom Pflegegrad ab.
+  - Erwartung: Ergänzend gibt es u. a. die Verhinderungspflege bei Ausfall einer Pflegeperson und den Entlastungsbetrag für niedrigschwellige Unterstützungsangebote.
+  - Rückfrage: Welche dieser Leistungen rechnet ein ambulanter Pflegedienst unmittelbar mit der Pflegekasse ab?
 - Welche Rolle spielt der Medizinische Dienst bei der Einstufung in einen Pflegegrad?
+  - Erwartung: Die Pflegebedürftigkeit wird in fünf Pflegegraden (1 bis 5) abgebildet.
+  - Erwartung: Der Medizinische Dienst begutachtet den Pflegegrad anhand der Selbstständigkeit einer Person in mehreren Lebensbereichen.
+  - Erwartung: Pflegegrad 1 bezeichnet geringe Beeinträchtigungen der Selbstständigkeit, Pflegegrad 5 schwerste Beeinträchtigungen mit besonderen Anforderungen an die pflegerische Versorgung.
+  - Erwartung: Der Medizinische Dienst handelt im Auftrag der Kranken- und Pflegekassen und begutachtet im Einzelfall die Pflegebedürftigkeit von Antragstellenden.
+  - Erwartung: Verzögerungen bei der Begutachtung eines Pflegegrads können sich unmittelbar auf die Liquidität eines Pflegedienstes auswirken.
+  - Rückfrage: Welche Leistungsarten stehen je nach Pflegegrad in der ambulanten Versorgung zur Verfügung?
 - Warum können bei einer pflegebedürftigen Person mehrere Kostenträger gleichzeitig zuständig sein?
+  - Erwartung: Die Krankenversicherung trägt insbesondere die häusliche Krankenpflege nach ärztlicher Verordnung, z. B. Medikamentengabe und Wundversorgung.
+  - Erwartung: Die Pflegeversicherung finanziert die grundpflegerischen und hauswirtschaftlichen Leistungen der Pflegegrade.
+  - Erwartung: Für dieselbe pflegebedürftige Person können deshalb je nach konkreter Leistung unterschiedliche Kostenträger zuständig sein.
+  - Erwartung: Das erfordert eine sorgfältige, leistungsgenaue Dokumentation und Abrechnung.
+  - Erwartung: Reicht die pflegeversicherungsrechtliche Absicherung im Einzelfall nicht aus, kann ergänzend die Hilfe zur Pflege als Sozialhilfeleistung in Betracht kommen.
+  - Rückfrage: Welche Folgen können Verzögerungen bei der Genehmigung von Leistungen für einen Pflegedienst haben?
 - In welchem Verhältnis steht die Sozialhilfe zur Pflegeversicherung, und was bedeutet das für die Praxis?
+  - Erwartung: Die Sozialhilfe (SGB XII) ist als staatliches Fürsorgesystem grundsätzlich nachrangig gegenüber vorrangigen Sicherungssystemen wie der Kranken- und Pflegeversicherung sowie gegenüber eigenem Einkommen und Vermögen.
+  - Erwartung: Sie greift erst, wenn die betroffene Person ihren notwendigen Bedarf nicht anderweitig decken kann.
+  - Erwartung: Für pflegebedürftige Menschen ist die Hilfe zur Pflege relevant, die einspringt, wenn Leistungen der Pflegeversicherung und eigene Mittel nicht ausreichen.
+  - Erwartung: Träger der Sozialhilfe sind in der Regel die Kommunen bzw. überörtliche Sozialhilfeträger.
+  - Erwartung: In der Praxis muss ein Pflegedienst wissen, mit welchen Kostenträgern er welche Leistungen abrechnen darf, und seine Liquiditätsplanung auf diese Zahlungsströme abstimmen.
+  - Rückfrage: Wann kommt die Hilfe zur Pflege ergänzend in Betracht?
 
 ### 4.3 Kosten- und Leistungsrechnung
 

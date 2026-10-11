@@ -72,6 +72,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Für die Präsentation eignet sich ein Architekturdiagramm besser als Text.
   - Rückfrage: Welches Risiko birgt die Anbindung an ein Fremdsystem, dessen Schnittstelle nur unvollständig dokumentiert ist?
 - Wie haben Sie Datenschutz und IT-Sicherheit im Projekt berücksichtigt (z. B. Zugriffsrechte, Verschlüsselung, Umgang mit Testdaten)?
+  - Erwartung: Sicherheit und Datenschutz zählen zu den nichtfunktionalen Anforderungen, die Qualitätseigenschaften wie Antwortzeit, Bedienbarkeit oder Barrierefreiheit beschreiben; ein Beispiel für eine Sicherheitsanforderung ist, dass die Daten verschlüsselt übertragen werden.
+  - Erwartung: In der Anforderungsanalyse werden Auftragsunterlagen und Durchführbarkeit insbesondere hinsichtlich rechtlicher, wirtschaftlicher und terminlicher Vorgaben geprüft.
+  - Erwartung: Zugriffsrechte und Testdaten werden als Ressourcen eingeplant; fehlender Zugang zu Testdaten und Datenschutzfragen werden als Projektrisiken mit je einer Gegenmaßnahme benannt.
+  - Erwartung: Kundendaten und Betriebsgeheimnisse werden nur mit Freigabe verwendet bzw. anonymisiert; nicht anonymisierte Kundendaten in der Dokumentation gelten als formaler Mangel.
+  - Erwartung: Die Berücksichtigung von Sicherheitsaspekten wird in der Dokumentation der Implementierung belegt.
+  - Rückfrage: Welche Rolle spielen Datenschutz und IT-Sicherheit bei der Entscheidung zwischen Eigenentwicklung und Standardsoftware?
 - Welche Tests haben Sie durchgeführt, wie haben Sie die Testfälle abgeleitet, und was haben Sie bewusst nicht getestet?
   - Erwartung: Die Teststufen sind benannt: Modultest (einzelne Einheiten), Integrationstest (Zusammenspiel), Systemtest (Gesamtsystem gegen die Anforderungen) und Abnahmetest (Prüfung durch Auftraggeber bzw. Fachanwender:innen).
   - Erwartung: Die Testfälle sind aus den Anforderungen abgeleitet, am überzeugendsten mit einer nachvollziehbaren Zuordnung von Anforderungen zu Testfällen.

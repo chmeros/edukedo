@@ -85,6 +85,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auch der Trend zu neuen IT-basierten Arbeitsformen, z. B. mobiles Arbeiten oder Cloud-Lösungen, kann Anlass sein.
   - Erwartung: Erkannte Optimierungsmöglichkeiten werden als konkrete Vorschläge zur Anpassung der Anwendungssoftware formuliert und mit den Entscheidungsträger:innen abgestimmt.
 - Welche Rolle spielt Datenschutz bei der Auswahl und dem Betrieb von Datenbanksystemen?
+  - Erwartung: Datenschutz ist ein Auswahlkriterium neben z. B. Mehrplatzfähigkeit, Kauf oder Miete/Abonnement, Lizenzen und Updates.
+  - Erwartung: Er ist besonders wichtig, wenn personenbezogene Daten verarbeitet werden.
+  - Erwartung: Der Schutz dieser Daten muss gesetzlich und organisatorisch sichergestellt werden.
+  - Erwartung: Datenschutz und Datensicherheit sind insbesondere bei der Vergabe von Zugriffsrechten zu berücksichtigen (Bezug zu Thema 4.4).
+  - Rückfrage: Welche weiteren Kriterien ziehen Sie bei der Auswahl einer Anwendung heran?
 
 ### 4.4 Wissensmanagement
 
@@ -109,6 +114,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine gelebte Wissenskultur, in der Mitarbeitende Erfahrungen aktiv teilen, unterstützt den Transfer.
   - Rückfrage: Was versteht man unter „Yellow Pages“?
 - Welche Datenschutzaspekte müssen Sie beim Aufbau eines unternehmensweiten Wissensportals beachten?
+  - Erwartung: Viele Wissensmanagement-Systeme enthalten personenbezogene oder sensible Informationen.
+  - Erwartung: Deshalb müssen Datenschutz und Datensicherheit stets berücksichtigt werden.
+  - Erwartung: Zugriffsrechte müssen klar geregelt werden.
+  - Erwartung: Zugriffsrechte müssen so gestaltet sein, dass das Wissen für berechtigte Bereiche zugänglich ist und zugleich Datenschutz und Datensicherheit gewahrt bleiben.
+  - Erwartung: Das zentrale Info-Portal ist ein Werkzeug zur Strukturierung von Wissen und wird mit klar geregelten Zugriffsrechten verbunden.
+  - Rückfrage: Wie vermeiden Sie, dass der Wissenstransfer an alle Unternehmensbereiche mit dem Datenschutz kollidiert?
 - Wie strukturieren Sie gesichertes Wissen so, dass es konkret zur Erreichung der Unternehmensziele beiträgt?
   - Erwartung: Werkzeuge zur Strukturierung sind Wissenslandkarte, Wissensbilanz, Expertenverzeichnisse, Wissenszirkel, zentrales Info-Portal und geeignete Suchmaschinen.
   - Erwartung: Die Wissenslandkarte visualisiert, wo welches Wissen im Unternehmen vorhanden ist.

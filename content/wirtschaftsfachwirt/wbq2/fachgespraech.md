@@ -15,6 +15,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.1 Finanzbuchhaltung und Jahresabschluss
 
 - Warum ist eine GmbH unabhängig von ihrer Größe zur doppelten Buchführung verpflichtet, ein Einzelkaufmann unter Umständen aber nicht?
+  - Erwartung: Ob ein Unternehmen zur doppelten Buchführung verpflichtet ist, hängt zunächst von seiner Kaufmannseigenschaft nach dem Handelsgesetzbuch ab.
+  - Erwartung: Formkaufleute sind kraft ihrer Rechtsform Kaufleute (§ 6 HGB), unabhängig davon, wie groß ihr Geschäftsbetrieb tatsächlich ist.
+  - Erwartung: Die GmbH ist als Formkaufmann uneingeschränkt buchführungspflichtig nach §§ 238 ff. HGB, selbst wenn sie nur einen kleinen Geschäftsbetrieb hätte.
+  - Erwartung: Für Einzelkaufleute sieht § 241a HGB eine Befreiung von der doppelten Buchführung vor, wenn bestimmte Umsatz- und Jahresüberschussgrenzen an zwei aufeinanderfolgenden Abschlussstichtagen nicht überschritten werden.
+  - Erwartung: Diese Ausnahme gilt nicht für Kapitalgesellschaften, die zusätzlich den ergänzenden Rechnungslegungsvorschriften der §§ 264 ff. HGB unterliegen.
+  - Rückfrage: Was unterscheidet Formkaufleute von Istkaufleuten?
 - Erläutern Sie den Zusammenhang zwischen Inventur, Inventar und Bilanz an einem selbstgewählten Beispiel.
   - Erwartung: Die Inventur ist die körperliche und wertmäßige Bestandsaufnahme aller Vermögensgegenstände und Schulden zu einem Stichtag, z. B. die Zählung der Lagerbestände an mehreren Standorten und die Prüfung offener Forderungen.
   - Erwartung: Das Ergebnis wird im Inventar festgehalten, einem detaillierten Verzeichnis aller Positionen nach Art, Menge und Wert.
@@ -28,6 +34,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auf der Aktivseite stehen Anlage- und Umlaufvermögen, auf der Passivseite Eigenkapital, Rückstellungen und Verbindlichkeiten.
   - Rückfrage: Welche Positionen gehören zum Umlaufvermögen?
 - Welche Bestandteile umfasst der Jahresabschluss einer mittelgroßen Kapitalgesellschaft, und wodurch unterscheidet er sich von dem einer kleinen Kapitalgesellschaft?
+  - Erwartung: Kleine Kapitalgesellschaften müssen Bilanz, Gewinn- und Verlustrechnung und einen verkürzten Anhang aufstellen.
+  - Erwartung: Mittelgroße Kapitalgesellschaften stellen zusätzlich einen Lagebericht auf.
+  - Erwartung: Mittelgroße und große Kapitalgesellschaften unterliegen außerdem der Prüfungspflicht durch eine:n Abschlussprüfer:in.
+  - Erwartung: Die Größenklassen klein, mittelgroß und groß werden nach § 267 HGB anhand von Bilanzsumme, Umsatzerlösen und Beschäftigtenzahl abgegrenzt.
+  - Erwartung: Der festgestellte Jahresabschluss ist offenzulegen, damit sich außenstehende Adressat:innen wie Geschäftsbanken, Lieferant:innen oder Finanzbehörden ein Bild von der wirtschaftlichen Lage machen können.
+  - Rückfrage: Welche Rechnungslegungsvorschriften gelten für Kapitalgesellschaften ergänzend zu den allgemeinen Buchführungsvorschriften?
 - Wie würden Sie den Unterschied zwischen Gesamtkosten- und Umsatzkostenverfahren bei der GuV in eigenen Worten erklären?
   - Erwartung: Die Gewinn- und Verlustrechnung stellt alle Erträge und Aufwendungen einer Abrechnungsperiode gegenüber und ermittelt so den Periodenerfolg.
   - Erwartung: Beim Gesamtkostenverfahren werden sämtliche Aufwendungen einer Periode den Erträgen gegenübergestellt und um Bestandsveränderungen korrigiert.

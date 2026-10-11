@@ -117,6 +117,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Outsourcing kann Abhängigkeiten von externen Dienstleistern schaffen und den direkten Einfluss auf die Servicequalität verringern.
   - Rückfrage: Welcher Zusammenhang besteht zwischen der Automatisierungsentscheidung und der ABC-Klassifizierung?
 - Welche rechtlichen Grundlagen sind beim grenzüberschreitenden Straßengütertransport innerhalb Europas zu beachten?
+  - Erwartung: Im innerdeutschen Straßengüterverkehr regelt das Frachtrecht des Handelsgesetzbuchs (§§ 407 ff. HGB) die Rechte und Pflichten von Absender, Frachtführer und Empfänger.
+  - Erwartung: Dazu gehören insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts.
+  - Erwartung: Für den grenzüberschreitenden Straßengütertransport innerhalb weiter Teile Europas gilt das internationale CMR-Übereinkommen.
+  - Erwartung: Das CMR-Übereinkommen schafft eine einheitliche Haftungsordnung für grenzüberschreitende Transporte.
+  - Erwartung: Für ein Unternehmen wie die NordWert, das auch in andere EU-Länder exportiert, ist das CMR-Übereinkommen deshalb relevant.
+  - Rückfrage: Was legen die Incoterms im Zusammenhang mit dem Transport fest?
 - Erläutern Sie den Unterschied zwischen den Incoterms-Klauseln EXW und DAP anhand eines Beispiels.
   - Erwartung: Incoterms (International Commercial Terms, herausgegeben von der Internationalen Handelskammer ICC) legen standardisiert fest, an welchem Punkt Kosten und Gefahr vom Verkäufer auf den Käufer übergehen und wer für Transport, Versicherung und Zollformalitäten verantwortlich ist.
   - Erwartung: Bei EXW (Ex Works/ab Werk) trägt der Käufer bereits ab der Abholung beim Verkäufer sämtliche Kosten und Risiken.

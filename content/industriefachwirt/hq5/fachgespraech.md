@@ -127,6 +127,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Bei größeren oder besonders verhärteten Konflikten kommen die Personalabteilung oder eine externe Mediatorin bzw. ein externer Mediator in Betracht.
   - Erwartung: Je weiter ein Konflikt eskaliert ist, desto schwerer lässt er sich ohne externe Unterstützung lösen, weil das gegenseitige Vertrauen sinkt.
 - Erläutern Sie die Rolle von Betriebsrat und Einigungsstelle bei innerbetrieblichen Konflikten.
+  - Erwartung: Neben der informellen Konfliktlösung im direkten Gespräch gibt es in Betrieben mit Betriebsrat institutionalisierte Wege der Konfliktbeilegung.
+  - Erwartung: Der Betriebsrat vertritt die Interessen der Belegschaft gegenüber der Arbeitgeberseite.
+  - Erwartung: Er wird nach dem Betriebsverfassungsgesetz bei bestimmten Konflikten beteiligt, etwa zu Arbeitsbedingungen oder Versetzungen zwischen Werken.
+  - Erwartung: Können sich Arbeitgeber und Betriebsrat in einer mitbestimmungspflichtigen Angelegenheit nicht einigen, kann eine Einigungsstelle angerufen werden.
+  - Erwartung: Die Einigungsstelle ist ein paritätisch mit Vertreter:innen beider Seiten sowie einer neutralen vorsitzenden Person besetztes betriebliches Schlichtungsgremium, dessen Spruch unter bestimmten Voraussetzungen die Einigung der Betriebsparteien ersetzen kann.
+  - Rückfrage: Welche Rolle bleibt dem direkten Gespräch neben diesen institutionalisierten Wegen?
 - Zwei Bereichsleitungen geraten öffentlich vor dem gesamten Team in einen offenen Streit über die Freigabe einer beanstandeten Bauteilcharge. Welche Schritte sind für die Werkleitung in dieser Situation sinnvoll, und warum?
   - Erwartung: Der Streit um die Freigabe einer Bauteilabweichung ist ein typischer Sachkonflikt aus unterschiedlichen fachlichen Auffassungen.
   - Erwartung: Die Führungskraft sollte den Konflikt möglichst früh erkennen und moderieren, weil er mit zunehmender Eskalation schwerer lösbar wird und das gegenseitige Vertrauen sinkt.

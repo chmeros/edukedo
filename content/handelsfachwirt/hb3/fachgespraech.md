@@ -97,6 +97,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei psychografischen Zielen wie Bekanntheit oder Image kommen eher Befragungen oder Panel-Daten zum Einsatz.
   - Erwartung: Die Ergebnisse helfen, das Werbebudget künftig gezielter auf die wirksamsten Werbeträger und -maßnahmen zu verteilen (Optimierung des Media-Mix).
 - Welche rechtlichen Grenzen sind bei der Gestaltung von Rabattaktionen zu beachten?
+  - Erwartung: Rabattaktionen sind zeitlich befristete Instrumente der konsumentengerichteten Verkaufsförderung, etwa ein Nachlass von 20 % auf die gesamte Frühjahrskollektion für ein Wochenende.
+  - Erwartung: Wichtig ist ihre rechtliche Zulässigkeit: Sie müssen die Vorgaben des Lauterkeitsrechts, insbesondere des Gesetzes gegen den unlauteren Wettbewerb (UWG), einhalten.
+  - Erwartung: Preisnachlässe dürfen nicht irreführend dargestellt werden.
+  - Erwartung: Ein Beispiel für eine irreführende Darstellung sind vorher künstlich erhöhte Ursprungspreise.
+  - Rückfrage: Wie stellen Sie bei einer Rabattaktion der Loreno Mode & Wohnen GmbH sicher, dass der Preisnachlass nicht irreführend wirkt?
 
 ### 3.4 Visual Merchandising und E-Commerce
 

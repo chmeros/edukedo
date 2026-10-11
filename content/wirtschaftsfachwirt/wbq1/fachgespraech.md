@@ -83,6 +83,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Er umfasst außerdem eine Rentabilitätsvorschau, ob das Geschäftsmodell auf Dauer profitabel ist.
   - Erwartung: Die Liquiditätsplanung prüft, ob zu jedem Zeitpunkt genügend flüssige Mittel vorhanden sind; auch bei insgesamt profitablem Geschäft kann kurzfristige Zahlungsunfähigkeit den Fortbestand gefährden.
 - Wie unterscheidet sich die Haftung bei einem Einzelunternehmen von der Haftung bei einer GmbH?
+  - Erwartung: Beim Einzelunternehmen, ob Kleingewerbetreibender oder eingetragener Kaufmann, haftet der Inhaber unbeschränkt, also auch mit seinem gesamten Privatvermögen.
+  - Erwartung: Bei der GmbH haftet nur das Gesellschaftsvermögen, die Gesellschafter haften nicht persönlich.
+  - Erwartung: Das gesetzliche Mindeststammkapital der GmbH beträgt 25.000 €.
+  - Erwartung: Das gewünschte Haftungsrisiko, also persönliche Haftung mit dem Privatvermögen oder Haftungsbeschränkung auf das Gesellschaftsvermögen, ist ein zentrales Kriterium der Rechtsformwahl.
+  - Rückfrage: Wie haften die Gesellschafter einer GbR oder einer OHG?
 - Welche Kriterien würden Sie einer Gründerin bzw. einem Gründer für die Wahl der passenden Rechtsform nennen?
   - Erwartung: Das gewünschte Haftungsrisiko: persönliche Haftung mit dem Privatvermögen oder Haftungsbeschränkung auf das Gesellschaftsvermögen.
   - Erwartung: Der Kapitalbedarf und die Möglichkeit, Kapitalgeber einzubinden.
@@ -91,6 +96,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Publizitätspflicht, also die Pflicht, bestimmte Unternehmensdaten (z. B. Jahresabschlüsse) öffentlich zugänglich zu machen; sie fällt für Kapitalgesellschaften deutlich strenger aus als für Einzelunternehmen oder Personengesellschaften.
   - Rückfrage: Welche drei großen Gruppen von Rechtsformen unterscheidet man?
 - Was unterscheidet einen Komplementär von einem Kommanditisten in einer KG?
+  - Erwartung: Der Komplementär haftet unbeschränkt.
+  - Erwartung: Der Komplementär ist zur Geschäftsführung berechtigt.
+  - Erwartung: Der Kommanditist haftet nur beschränkt, nämlich bis zur Höhe seiner im Handelsregister eingetragenen Einlage.
+  - Erwartung: Der Kommanditist ist von der Geschäftsführung grundsätzlich ausgeschlossen.
+  - Erwartung: Bei der Kommanditgesellschaft haftet mindestens ein Gesellschafter als Komplementär, und mindestens ein weiterer Gesellschafter ist Kommanditist.
+  - Rückfrage: Wie haften die Gesellschafter einer OHG?
 
 ### 1.4 Unternehmenszusammenschlüsse und Kooperationsformen
 
@@ -109,4 +120,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Unterordnungskonzern übt ein herrschendes Unternehmen (Mutterunternehmen) die einheitliche Leitung über abhängige Unternehmen (Tochterunternehmen) aus, meist auf Basis einer Mehrheitsbeteiligung.
   - Erwartung: Beim selteneren Gleichordnungskonzern stehen die Unternehmen rechtlich gleichrangig nebeneinander und unterstellen sich lediglich einer gemeinsamen einheitlichen Leitung, ohne dass ein Unternehmen das andere beherrscht.
 - Warum sind Kartelle in Deutschland grundsätzlich verboten, und wer überwacht die Einhaltung des Kartellverbots?
+  - Erwartung: Ein Kartell ist eine Absprache zwischen rechtlich selbständigen, eigentlich im Wettbewerb zueinanderstehenden Unternehmen mit dem Ziel, den Wettbewerb zwischen ihnen einzuschränken.
+  - Erwartung: Kartelle setzen den freien Preismechanismus außer Kraft.
+  - Erwartung: Kartelle benachteiligen Verbraucher durch höhere Preise und geringere Auswahl.
+  - Erwartung: Kartelle widersprechen dem Grundgedanken der sozialen Marktwirtschaft, in der funktionierender Wettbewerb ein Ordnungsprinzip ist.
+  - Erwartung: In Deutschland überwacht das Bundeskartellamt die Einhaltung des Kartellverbots nach dem Gesetz gegen Wettbewerbsbeschränkungen (GWB), auf EU-Ebene ergänzt durch das europäische Wettbewerbsrecht.
+  - Rückfrage: Welche typischen Formen von Kartellen kennen Sie?
 

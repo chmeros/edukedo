@@ -84,6 +84,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Qualität ist der Anteil fehlerfreier, verwertbarer Teile an der Gesamtproduktion.
   - Rückfrage: Welche OEE ergibt sich bei 80 % Verfügbarkeit, 90 % Leistung und 95 % Qualität?
 - Warum ist es sinnvoll, die drei OEE-Faktoren multiplikativ statt additiv zu verknüpfen?
+  - Erwartung: Die OEE ergibt sich als Produkt der drei Faktoren: OEE = Verfügbarkeit × Leistung × Qualität, sie werden nicht addiert.
+  - Erwartung: Bei der multiplikativen Verknüpfung senkt ein schwacher Teilfaktor die OEE überproportional.
+  - Erwartung: Im Beispiel ergibt sich bei 80 % Verfügbarkeit, 90 % Leistung und 95 % Qualität eine OEE von 0,80 × 0,90 × 0,95 ≈ 0,684, also rund 68 %.
+  - Erwartung: Die OEE zeigt auf einen Blick, in welchem der drei Teilfaktoren das größte Verbesserungspotenzial liegt.
+  - Rückfrage: Was folgt für die OEE, wenn nur einer der drei Faktoren deutlich sinkt?
 - Was ist der Unterschied zwischen der Fortschrittskontrolle der Produktionssteuerung und der Abweichungsanalyse des Produktionscontrollings?
   - Erwartung: Die Fortschrittskontrolle vergleicht laufend den geplanten mit dem tatsächlichen Bearbeitungsstand eines Auftrags und ist auftragsbezogen und kurzfristig.
   - Erwartung: Das Produktionscontrolling führt einen periodischen Soll-Ist-Vergleich von Kennzahlen durch, z. B. angestrebte OEE, geplante Durchlaufzeit und budgetierte Kosten je Stück.

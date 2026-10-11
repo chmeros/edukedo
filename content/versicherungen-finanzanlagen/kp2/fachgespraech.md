@@ -142,6 +142,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 4.4 Berufsausbildung
 
 - Welche Voraussetzungen muss eine Person nach dem BBiG erfüllen, um bei Nordantis als Ausbilderin oder Ausbilder tätig zu sein?
+  - Erwartung: Rechtlich zu unterscheiden sind Ausbildende (Nordantis als Unternehmen, das den Ausbildungsvertrag schließt) und Ausbilder:innen (Personen, die die Ausbildung tatsächlich durchführen).
+  - Erwartung: Ausbilder:innen müssen nach §§ 28–30 BBiG persönlich und fachlich geeignet sein.
+  - Erwartung: Die fachliche Eignung wird in der Regel durch die Ausbilder-Eignungsprüfung (AEVO) nachgewiesen.
+  - Erwartung: Die AEVO umfasst berufs- und arbeitspädagogische Kenntnisse sowie die Fähigkeit, Ausbildung zu planen, durchzuführen und abzuschließen.
+  - Erwartung: Ausbildungsbeauftragte unterstützen die praktische Anleitung, ohne selbst die volle Ausbilder-Eignung nach AEVO zu benötigen.
+  - Rückfrage: Welche Stelle führt das Verzeichnis der Ausbildungsverhältnisse?
 - Woraus leiten Sie den betrieblichen Ausbildungsplan ab, was legt er fest, und wie stellt der Versetzungsplan sicher, dass die in der Ausbildungsordnung geforderten Kompetenzen vollständig vermittelt werden?
   - Erwartung: Der betriebliche Ausbildungsplan wird aus der Ausbildungsordnung abgeleitet, die die Mindestinhalte und die zeitliche Gliederung der dreijährigen Ausbildung vorgibt.
   - Erwartung: Er legt konkret fest, wann welche Ausbildungsinhalte in welcher Sparte oder Abteilung vermittelt werden.

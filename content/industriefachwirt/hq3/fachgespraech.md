@@ -64,6 +64,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Skimmingstrategie setzt auf einen hohen Einführungspreis, der schrittweise gesenkt wird.
   - Erwartung: Die Skimmingstrategie ist für technologisch führende Neuentwicklungen ohne unmittelbare Konkurrenz geeignet.
 - Worin unterscheidet sich rechtlich und wirtschaftlich ein Handelsvertreter von einem Vertriebspartner/Distributor?
+  - Erwartung: Der Handelsvertreter ist ein rechtlich selbstständiger Vermittler, der im Namen und auf Rechnung des Herstellers tätig wird (§§ 84 ff. HGB).
+  - Erwartung: Der Vertriebspartner bzw. Distributor kauft die Ware im eigenen Namen und auf eigene Rechnung und verkauft sie weiter.
+  - Erwartung: Wirtschaftlich trägt der Distributor damit selbst das Absatzrisiko, während der Handelsvertreter lediglich im Namen und auf Rechnung des Herstellers vermittelt.
+  - Erwartung: Solvitec setzt für kleinere Exportmärkte lokale Vertriebspartner ein, weil diese bessere Marktkenntnis vor Ort und bestehende Kundenkontakte einbringen.
+  - Rückfrage: Welchen gesetzlichen Anspruch kann ein Handelsvertreter nach Vertragsende gegen den Hersteller haben?
 - Welche Bedeutung haben Messeauftritte für die Kommunikationspolitik eines Industrieunternehmens?
   - Erwartung: Im B2B-Umfeld dominieren andere Kommunikationsinstrumente als im Konsumgütermarketing; Messeauftritte sind dabei für Solvitec zentral, zum Beispiel auf der Hannover Messe.
   - Erwartung: Weitere B2B-Instrumente sind technische Fachdokumentation, Content-Marketing, persönlicher Verkauf durch den technisch geschulten Außendienst und Public Relations in Fachmedien.
@@ -113,6 +118,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Akkreditiv wirkt unabhängig von der Zahlungsfähigkeit des Käufers selbst.
   - Erwartung: Ergänzend kommen Exportkreditversicherungen zum Einsatz, in Deutschland unter anderem über staatlich geförderte Hermesdeckungen.
 - Was sind Dual-Use-Güter, und welche Konsequenzen hat diese Einstufung für den Export?
+  - Erwartung: Dual-Use-Güter sind Güter mit sowohl zivilem als auch potenziell militärischem Verwendungszweck.
+  - Erwartung: Sie unterliegen besonderen exportrechtlichen Beschränkungen, geregelt unter anderem im Außenwirtschaftsgesetz (AWG), in der Außenwirtschaftsverordnung (AWV) und auf EU-Ebene in der Dual-Use-Verordnung.
+  - Erwartung: Weil bestimmte industrielle Steuerungs- und Automatisierungskomponenten auch für sicherheitsrelevante Anwendungen genutzt werden könnten, muss Solvitec vor bestimmten Exporten prüfen, ob eine Genehmigungspflicht besteht.
+  - Erwartung: Für die Exportkontrolle genehmigungspflichtiger Güter ist in Deutschland das Bundesamt für Wirtschaft und Ausfuhrkontrolle (BAFA) zuständig.
+  - Erwartung: Ein Verstoß gegen Exportkontrollvorschriften kann erhebliche straf- und ordnungsrechtliche Konsequenzen haben.
+  - Rückfrage: Gilt die besondere Kontrolle auch dann, wenn ein Gut überwiegend zivil genutzt wird?
 - Welche Rolle spielt interkulturelle Kompetenz beim Aufbau von Geschäftsbeziehungen in neuen Auslandsmärkten?
   - Erwartung: Verhandlungsstile, Bedeutung persönlicher Beziehungen vor Vertragsabschluss, Hierarchie- und Statusverständnis sowie Kommunikationsgepflogenheiten unterscheiden sich zwischen Zielmärkten erheblich.
   - Erwartung: Beispiel: In manchen asiatischen Zielmärkten kommt dem Aufbau einer persönlichen Vertrauensbasis über mehrere Besuche hinweg deutlich mehr Gewicht zu als im schnelleren, sachorientierten deutschen Geschäftsverkehr.

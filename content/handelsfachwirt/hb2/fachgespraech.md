@@ -63,6 +63,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Leittextmethode fördert selbständiges, methodisches Arbeiten stärker als reines Vormachen und Nachmachen.
   - Erwartung: Die Vier-Stufen-Methode dient dagegen der praktischen Vermittlung einzelner Arbeitsschritte über Vorbereiten, Vormachen, Nachmachen lassen und Üben.
 - Welche wesentlichen Pflichten hat ein Ausbildungsbetrieb gegenüber Auszubildenden?
+  - Erwartung: Das Berufsbildungsgesetz (BBiG) rahmt die betriebliche Berufsausbildung und legt Mindestinhalte des Ausbildungsvertrags fest, z. B. Ausbildungsberuf, Dauer, Ausbildungsvergütung und Probezeit.
+  - Erwartung: Der Ausbildungsbetrieb ist verpflichtet, die Ausbildung entsprechend dem Ausbildungsrahmenplan durchzuführen.
+  - Erwartung: Er muss die für die Ausbildung erforderlichen Mittel kostenlos bereitstellen.
+  - Erwartung: Wer ausbildet, muss persönlich und fachlich geeignet sein; die fachliche Eignung wird häufig durch eine Ausbildereignungsprüfung nach der Ausbilder-Eignungsverordnung (AEVO) nachgewiesen.
+  - Rückfrage: Welche Pflichten haben im Gegenzug die Auszubildenden?
 - Wozu dient der Ausbildungsrahmenplan, und wie hängt er mit dem betrieblichen Ausbildungsplan zusammen?
   - Erwartung: Der bundeseinheitliche Ausbildungsrahmenplan gibt vor, welche Fertigkeiten, Kenntnisse und Fähigkeiten in welchem zeitlichen Rahmen vermittelt werden sollen.
   - Erwartung: Daraus leitet der Ausbildungsbetrieb einen betrieblichen Ausbildungsplan ab.
@@ -110,11 +115,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Krankenstand ist der Anteil der krankheitsbedingten Fehltage an den Solltagen.
   - Erwartung: Er gibt Hinweise auf Arbeitsbelastung oder Arbeitsschutzprobleme.
 - Welche milderen Mittel stehen einem Unternehmen vor betriebsbedingten Kündigungen zur Verfügung?
+  - Erwartung: Eine Personalfreisetzung kann erforderlich werden, wenn der Personalbedarf dauerhaft sinkt, etwa durch rückläufige Filialumsätze oder den Wegfall von Aufgaben durch Digitalisierung.
+  - Erwartung: Vor einer Kündigung stehen dem Unternehmen oft mildere Mittel zur Verfügung, etwa der Abbau von Überstunden und ein Einstellungsstopp.
+  - Erwartung: Weitere mildere Mittel sind die natürliche Fluktuation (ausscheidende Mitarbeitende werden nicht ersetzt), die interne Versetzung an einen Standort mit höherem Bedarf und Kurzarbeit.
+  - Erwartung: Eine sozialverträgliche Personalfreisetzung, die harte Einschnitte möglichst vermeidet oder abfedert, dient dem Ansehen des Unternehmens und der Motivation der verbleibenden Belegschaft.
+  - Rückfrage: Wie sinkt der Personalbestand durch natürliche Fluktuation, ohne dass aktiv gekündigt wird?
 
 ### 2.4 Arbeitsschutz
 
 - Erläutern Sie das duale System des Arbeitsschutzes in Deutschland.
+  - Erwartung: In Deutschland besteht ein duales System aus staatlichem und berufsgenossenschaftlichem Arbeitsschutz.
+  - Erwartung: Der staatliche Arbeitsschutz (u. a. Arbeitsschutzgesetz, Arbeitsstättenverordnung) legt grundlegende, für alle Branchen geltende Anforderungen fest und wird von den staatlichen Gewerbeaufsichtsämtern überwacht.
+  - Erwartung: Der berufsgenossenschaftliche Arbeitsschutz der gesetzlichen Unfallversicherungsträger (Berufsgenossenschaften) ergänzt ihn durch branchenspezifische Vorschriften und Beratung.
+  - Erwartung: Für den Einzelhandel ist dies etwa die Berufsgenossenschaft Handel und Warenlogistik (BGHW).
+  - Rückfrage: Welcher Teil des Systems gilt für alle Branchen, und welcher ist branchenspezifisch?
 - Was ist eine Gefährdungsbeurteilung, und wann muss sie aktualisiert werden?
+  - Erwartung: Die Gefährdungsbeurteilung ist das zentrale Instrument des betrieblichen Arbeitsschutzes.
+  - Erwartung: Der Arbeitgeber ist verpflichtet, systematisch zu ermitteln, welche Gefährdungen für die Beschäftigten an ihrem jeweiligen Arbeitsplatz bestehen, und darauf aufbauend geeignete Schutzmaßnahmen festzulegen.
+  - Erwartung: Typische Gefährdungen in einer Filiale sind etwa Stolperfallen durch Kartonagen und schweres Heben im Lager, rutschige Böden bei Nässe auf der Verkaufsfläche sowie einseitige Körperhaltung und psychische Belastung im Kassenbereich.
+  - Erwartung: Sie ist kein einmaliger Vorgang, sondern regelmäßig zu überprüfen und bei Veränderungen, z. B. einem neuen Ladenlayout oder neuen Arbeitsmitteln, zu aktualisieren.
+  - Rückfrage: Welche Funktion berät den Arbeitgeber fachlich bei der Gefährdungsbeurteilung?
 - Welche Aufgaben haben Sicherheitsbeauftragte, Fachkraft für Arbeitssicherheit und Betriebsarzt bzw. Betriebsärztin jeweils im betrieblichen Arbeitsschutz?
   - Erwartung: Sicherheitsbeauftragte sind Beschäftigte, die den Arbeitgeber ehrenamtlich und ohne eigene Weisungsbefugnis bei der Umsetzung des Arbeitsschutzes in ihrem unmittelbaren Arbeitsbereich unterstützen.
   - Erwartung: Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber fachlich zu allen Fragen der Arbeitssicherheit, etwa bei der Gefährdungsbeurteilung oder der Gestaltung von Arbeitsplätzen.
@@ -133,4 +153,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Psychische Belastungen entstehen z. B. durch anhaltenden Kundenkontakt, Zeitdruck in Stoßzeiten oder schwierige Reklamationssituationen.
   - Erwartung: Weitere typische Gefährdungen sind Stolperfallen durch Kartonagen im Lager, rutschige Böden bei Nässe auf der Verkaufsfläche und einseitige Körperhaltung im Kassenbereich.
 - Warum zählen laut Arbeitsschutzgesetz auch psychische Belastungen zu den zu beurteilenden Gefährdungen, und wie könnte sich das im Filialalltag zeigen?
+  - Erwartung: Laut Arbeitsschutzgesetz gehören psychische Belastungen ausdrücklich zu den zu beurteilenden Gefährdungen, nicht nur klassische körperliche Gefahren.
+  - Erwartung: Der Arbeitgeber trägt die Fürsorgepflicht für die Sicherheit und Gesundheit seiner Beschäftigten und muss deshalb systematisch ermitteln, welche Gefährdungen an ihrem Arbeitsplatz bestehen.
+  - Erwartung: Arbeitsschutz soll nicht nur akute Unfälle vermeiden, sondern auch vor langfristigen gesundheitlichen Belastungen schützen.
+  - Erwartung: Im Filialalltag können psychische Belastungen durch anhaltenden Kundenkontakt, Zeitdruck in Stoßzeiten wie dem Vorweihnachtsgeschäft oder den Umgang mit schwierigen Reklamationssituationen entstehen.
+  - Rückfrage: An welchem Arbeitsplatz der Filiale ist psychische Belastung durch Kundenkontakt besonders typisch?
 

@@ -78,6 +78,13 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 7.3 Compliance im Einkauf
 
 - Welche zentralen Pflichten verlangt das Lieferkettensorgfaltspflichtengesetz (LkSG) von betroffenen Unternehmen?
+  - Erwartung: Das LkSG verlangt von betroffenen Unternehmen die Einrichtung eines Risikomanagements.
+  - Erwartung: Es verlangt eine regelmäßige Risikoanalyse bei den eigenen Geschäftsbereichen und bei unmittelbaren Zulieferern.
+  - Erwartung: Bei erkannten Risiken müssen Präventions- und Abhilfemaßnahmen ergriffen werden.
+  - Erwartung: Außerdem ist ein Beschwerdemechanismus einzurichten, über den Betroffene auf Missstände hinweisen können.
+  - Erwartung: Das Gesetz wurde schrittweise ab 2023 für Unternehmen ab bestimmten Beschäftigtenschwellen verpflichtend.
+  - Rückfrage: Warum kann das LkSG auch Unternehmen unterhalb der gesetzlichen Schwellenwerte mittelbar betreffen?
+  - Rückfrage: Wie setzt die Loreno Mode & Wohnen GmbH die Anforderungen bei asiatischen Textillieferanten praktisch um?
 - Welche Maßnahmen können Korruptionsrisiken im Einkauf wirksam vorbeugen?
   - Erwartung: Das Vier-Augen-Prinzip: Wichtige Entscheidungen, insbesondere Lieferantenauswahl und Vertragsabschluss, werden nicht von einer einzelnen Person allein getroffen.
   - Erwartung: Klare Wertgrenzen für Geschenke und Einladungen, ab denen Geschenke von Geschäftspartnern abzulehnen oder anzuzeigen sind.
@@ -90,3 +97,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Zur unabhängigen Überprüfung greifen Unternehmen häufig auf etablierte Sozial- und Umweltstandards bzw. Auditierungsinitiativen zurück, die eine von Dritten geprüfte Bewertung von Produktionsstätten ermöglichen.
   - Erwartung: Loreno verlangt von neuen Textillieferanten in Asien vertraglich die Bereitschaft zu unabhängigen Sozialaudits nach einem anerkannten Standard als Voraussetzung für die Aufnahme in den Lieferantenpool.
 - Welche zusätzlichen Kosten- und Risikofaktoren sind beim Wareneinkauf aus Drittländern gegenüber dem EU-Binnenmarkt zu berücksichtigen?
+  - Erwartung: Bei der Einfuhr aus Drittländern fallen grundsätzlich Zölle an, deren Höhe von der zolltariflichen Einreihung der Ware abhängt, sowie die Einfuhrumsatzsteuer.
+  - Erwartung: Die korrekte Ursprungsbestimmung (Präferenzursprung) kann unter bestimmten Handelsabkommen zu Zollvergünstigungen führen.
+  - Erwartung: Für bestimmte Warengruppen oder Zielländer können Einfuhr- bzw. Ausfuhrbeschränkungen oder Genehmigungspflichten nach dem Außenwirtschaftsrecht bestehen.
+  - Erwartung: Der Einkauf muss Zölle, Einfuhrabgaben und Transportkosten bereits bei der Kalkulation des Einstandspreises berücksichtigen, weil ein günstiger Angebotspreis dadurch deutlich teurer werden kann als ein Angebot innerhalb der EU.
+  - Erwartung: Bei weltweiter Beschaffung kommen oft längere Lieferzeiten, Wechselkursrisiken und ein höherer Koordinations- und Kontrollaufwand hinzu.
+  - Rückfrage: Warum sollte ein Angebot aus einem Drittland nur inklusive Zöllen und Einfuhrabgaben mit einem EU-Angebot verglichen werden?

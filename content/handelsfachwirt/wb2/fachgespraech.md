@@ -43,6 +43,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 6.2 Vertragskonditionen und Investitionsbewertung
 
 - Erläutern Sie den Unterschied zwischen den Incoterms EXW und DAP.
+  - Erwartung: Incoterms sind standardisierte Klauseln, die regeln, wer für Transport, Versicherung und Verzollung verantwortlich ist und an welchem Ort Gefahr und Kosten vom Verkäufer auf den Käufer übergehen.
+  - Erwartung: Bei EXW (Ex Works) holt Loreno die Ware bereits ab Werk des Lieferanten ab und trägt selbst den gesamten Transport- und Versicherungsaufwand.
+  - Erwartung: Bei DAP (Delivered at Place) liefert der Lieferant die Ware bis zu einem vereinbarten Bestimmungsort und trägt bis dahin Kosten und Risiko.
+  - Erwartung: Der Unterschied liegt darin, bis zu welchem Punkt der Lieferant Kosten und Risiko trägt: bei EXW endet seine Verantwortung mit der Abholung ab Werk, bei DAP erst am Bestimmungsort.
+  - Rückfrage: Bis zu welchem Punkt trägt der Lieferant bei FOB Transport und Kosten?
 - Wie berechnet sich der Skontobetrag, und wann lohnt sich die Nutzung von Skonto für ein Unternehmen wirtschaftlich?
   - Erwartung: Skonto ist ein prozentualer Preisnachlass, der gewährt wird, wenn die Zahlung deutlich früher als das reguläre Zahlungsziel erfolgt, z. B. 2 % Skonto bei Zahlung innerhalb von 10 Tagen.
   - Erwartung: Ob sich die Skontonutzung lohnt, hängt davon ab, ob die durch die frühere Zahlung entgehende Liquidität anderweitig teurer finanziert werden müsste, als der Nachlass wert ist.

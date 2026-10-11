@@ -27,6 +27,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Folgen für die Vertriebsarbeit: persönlicher Verkauf durch technisch versierte Vertriebsingenieur:innen, systematisches Kundenbeziehungsmanagement und für wichtige Kunden Key-Account-Management.
   - Rückfrage: Wer gehört typischerweise zum Buying Center eines Automobilherstellers?
 - Was ist der Unterschied zwischen einem verbindlichen Angebot und einer invitatio ad offerendum, und warum ist diese Unterscheidung praktisch relevant?
+  - Erwartung: Ein verbindliches Angebot bindet den Anbietenden an die genannten Konditionen.
+  - Erwartung: Eine invitatio ad offerendum ist eine bloße Aufforderung zur Abgabe eines Angebots und rechtlich unverbindlich.
+  - Erwartung: Bei der invitatio ad offerendum wird der Kunde lediglich eingeladen, seinerseits ein Angebot abzugeben, sodass der Anbietende selbst nicht gebunden ist.
+  - Erwartung: Nimmt der Kunde ein verbindliches Angebot an, kommt der Vertrag zustande.
+  - Erwartung: Üblich ist zusätzlich eine schriftliche Auftragsbestätigung, die Menge, Preis, Liefertermin und Zahlungsbedingungen nochmals festhält.
+  - Rückfrage: Welche Funktion hat die Auftragsbestätigung, nachdem ein Kunde ein verbindliches Angebot angenommen hat?
 - Welche Rolle spielen Rahmenverträge und Lieferabrufe in der Zusammenarbeit mit Großkunden?
   - Erwartung: Rahmenverträge legen Grundkonditionen wie Preise, Qualitätsanforderungen und Lieferbedingungen für einen längeren Zeitraum fest.
   - Erwartung: Die konkrete Liefermenge erfolgt über regelmäßige Abrufe (Lieferabrufe) des Kunden.
@@ -99,4 +105,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Regelmäßiges Logistik-Controlling anhand solcher Kennzahlen hilft, Schwachstellen wie wiederkehrende Verzögerungen auf bestimmten Routen oder bei Lieferanten frühzeitig zu erkennen.
   - Rückfrage: Was gibt der Lieferbereitschaftsgrad an?
 - Warum ist eine zuverlässige Ladungssicherung sowohl aus rechtlicher als auch aus wirtschaftlicher Sicht wichtig?
+  - Erwartung: Die Ladungssicherung verhindert, dass Ladung während des Transports verrutscht, kippt oder herabfällt.
+  - Erwartung: Sie dient der Verkehrssicherheit.
+  - Erwartung: Sie dient zugleich dem Schutz der Ware selbst, denn Beschädigungen während des Transports können zu kostspieligen Reklamationen führen.
+  - Erwartung: Die Verantwortung für eine ordnungsgemäße Ladungssicherung liegt sowohl beim Verlader als auch beim Fahrer bzw. Frachtführer, sie ist nicht allein Aufgabe des Fahrers.
+  - Erwartung: Gängige Methoden sind das Niederzurren mit Spanngurten und das Formschluss-Verfahren mit lückenloser Verstauung oder Sperrbalken und Keilen.
+  - Rückfrage: Was unterscheidet das Niederzurren vom Formschluss-Verfahren?
 

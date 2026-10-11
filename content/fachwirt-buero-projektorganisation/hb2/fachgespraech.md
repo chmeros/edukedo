@@ -38,6 +38,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Ergebnisse der Sitzung fließen in die laufende Projektdokumentation ein, die auf Datenbanken, Management-Systemen oder Info-Portalen sowie einheitlichen Vorlagen basieren kann.
   - Rückfrage: Warum ist eine gute Dokumentation auch für später hinzukommende Projektbeteiligte wichtig?
 - Wie gehen Sie mit vertraulichen Projektergebnissen um, wenn diese teilweise veröffentlicht werden sollen?
+  - Erwartung: Am Projektende werden die Projektergebnisse häufig zur Veröffentlichung aufbereitet.
+  - Erwartung: Dabei muss abgewogen werden, welcher Umfang des ursprünglichen Projektauftrags und welches Kundenfeedback kommuniziert werden darf und soll.
+  - Erwartung: Zu entscheiden ist außerdem die Form der Kommunikation: intern, extern oder für die Presse.
+  - Erwartung: Zu prüfen ist, ob vertragliche oder vertrauliche Inhalte betroffen sind, die nicht veröffentlicht werden dürfen.
+  - Erwartung: Eine klare Kommunikationsstruktur verhindert, dass interne Zwischenstände unabgestimmt nach außen dringen.
+  - Rückfrage: Welche Rolle spielt das Kundenfeedback bei der Entscheidung über die Veröffentlichung?
 
 ### 2.2 Zielgruppen- und Marktanalyse
 
@@ -105,6 +111,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein detaillierter, für alle Beteiligten zugänglicher Ablaufplan erleichtert es, im Ernstfall schnell zu improvisieren, ohne den Gesamtüberblick zu verlieren.
   - Erwartung: Wo Programmpunkte moderiert präsentiert werden, kommen Moderationstechniken zum Einsatz.
 - Welche rechtlichen Aspekte sollten bei der Planung einer öffentlichkeitswirksamen Veranstaltung geprüft werden?
+  - Erwartung: Die Prüfung relevanter rechtlicher Vorgaben gehört zur Vorbereitung einer Veranstaltung, die auf die Klärung der Ziele folgt.
+  - Erwartung: Zu prüfen sind z. B. erforderliche Genehmigungen.
+  - Erwartung: Zu prüfen ist außerdem der Versicherungsschutz.
+  - Erwartung: Zu prüfen sind auch Brandschutzauflagen.
+  - Erwartung: Welche Vorgaben relevant sind, hängt von Veranstaltungsart und -größe ab.
+  - Rückfrage: Was gehört neben der Prüfung rechtlicher Vorgaben noch zur Vorbereitung einer Veranstaltung?
 - Wie evaluieren Sie im Nachgang, ob eine Veranstaltung ihre Ziele erreicht hat?
   - Erwartung: Die Veranstaltung wird dokumentiert, z. B. durch Berichte, Presseartikel, einen Pressespiegel oder Charts zu Besucherzahl und -struktur.
   - Erwartung: Feedbackbögen und Teilnehmerbefragungen werden ausgewertet.
