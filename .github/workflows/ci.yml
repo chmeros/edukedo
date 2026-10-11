@@ -82,6 +82,9 @@ jobs:
           VAPID_PRIVATE_KEY: ci
           PAYMENT_SERVICE_TOKEN: ci-only-payment-token-0123456789
           CONTENT_DIR: ${{ github.workspace }}/content
+          # Eigene Redis-Datenbank: Die Tests lassen Aufträge in der Standarddatenbank zurück, die der Worker des gebauten Servers sonst
+          # abarbeiten würde (und das ohne Postgres).
+          REDIS_URL: redis://localhost:6379/15
         run: |
           node dist/validate-content.js
           node dist/index.js > server.log 2>&1 &

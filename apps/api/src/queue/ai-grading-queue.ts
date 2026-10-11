@@ -51,14 +51,24 @@ export function startAiGradingWorker(): Worker<{ jobRowId: string }> {
 
   worker.on("failed", async (job, error) => {
     if (!job) return;
-    await db
-      .update(aiGradingJob)
-      .set({
-        status: "failed",
-        errorMessage: `Bewertungs-Job konnte nicht abgeschlossen werden: ${error.message}`,
-        completedAt: new Date(),
-      })
-      .where(and(eq(aiGradingJob.id, job.data.jobRowId), eq(aiGradingJob.status, "processing")));
+    // Ein Fehler beim Zurückschreiben (etwa weil die Datenbank gerade nicht erreichbar ist) darf den Prozess nicht beenden: Ein
+    // nicht abgefangener Fehler in diesem asynchronen Handler wäre eine unbehandelte Zurückweisung, und Node beendet sich dann.
+    try {
+      await db
+        .update(aiGradingJob)
+        .set({
+          status: "failed",
+          errorMessage: `Bewertungs-Job konnte nicht abgeschlossen werden: ${error.message}`,
+          completedAt: new Date(),
+        })
+        .where(and(eq(aiGradingJob.id, job.data.jobRowId), eq(aiGradingJob.status, "processing")));
+    } catch (writeError) {
+      console.error(`Bewertungs-Job ${job.data.jobRowId} konnte nicht als fehlgeschlagen vermerkt werden:`, writeError);
+    }
+  });
+  // Verbindungsfehler zu Redis melden statt den Prozess zu beenden (BullMQ-Worker ohne Fehler-Listener lösen sonst eine Ausnahme aus).
+  worker.on("error", (error) => {
+    console.error("Fehler im Bewertungs-Worker:", error);
   });
 
   return worker;

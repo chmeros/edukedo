@@ -48,11 +48,16 @@ export async function handleSubscriptionUpdated(database: Database, event: Subsc
 
 /** Konsumiert die von apps/payment publizierten `subscription.updated`-Ereignisse. */
 export function startSubscriptionUpdatedWorker(): Worker<SubscriptionUpdatedEvent> {
-  return new Worker<SubscriptionUpdatedEvent>(
+  const worker = new Worker<SubscriptionUpdatedEvent>(
     SUBSCRIPTION_UPDATED_QUEUE_NAME,
     async (job) => {
       await handleSubscriptionUpdated(db, job.data);
     },
     { connection: redisConnection },
   );
+  // Verbindungsfehler zu Redis melden statt den Prozess zu beenden (BullMQ-Worker ohne Fehler-Listener lösen sonst eine Ausnahme aus).
+  worker.on("error", (error) => {
+    console.error("Fehler im Abo-Worker:", error);
+  });
+  return worker;
 }
