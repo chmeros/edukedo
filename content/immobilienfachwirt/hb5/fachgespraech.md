@@ -70,11 +70,27 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine laufende Dokumentation (Bautagebuch, Fotodokumentation) dient im Streitfall als Nachweis.
   - Rückfrage: Wer übernimmt bei der Ravelin-Bauträgersparte die technische Überwachung vor Ort?
 - Was passiert rechtlich mit der Abnahme einer Bauleistung, und warum ist der Zeitpunkt der Abnahme so wichtig?
+  - Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.
+  - Erwartung: Mit der Abnahme beginnt regelmäßig die Gewährleistungsfrist, also die Verjährungsfrist für Mängelansprüche, zu laufen.
+  - Erwartung: Die konkrete Frist richtet sich nach der vertraglich vereinbarten Grundlage: bei Bauleistungen nach VOB/B in der Regel vier Jahre, nach BGB regelmäßig fünf Jahre für Bauwerke.
+  - Erwartung: Werden bei der Abnahme oder danach Mängel festgestellt, werden diese systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt.
+  - Rückfrage: Warum ist ein funktionierendes Mängelmanagement gerade im Bauträgergeschäft besonders wichtig?
 
 ### 5.3 Baurecht Grundzüge
 
 - Was ist der Unterschied zwischen Flächennutzungsplan und Bebauungsplan?
+  - Erwartung: Der Flächennutzungsplan ist ein vorbereitender Plan für das gesamte Gemeindegebiet, der grob festlegt, welche Flächen künftig z. B. für Wohnen, Gewerbe oder Landwirtschaft vorgesehen sind.
+  - Erwartung: Der Flächennutzungsplan entfaltet noch keine unmittelbare Rechtswirkung gegenüber einzelnen Bauwilligen.
+  - Erwartung: Der Bebauungsplan wird aus dem Flächennutzungsplan entwickelt und gilt für ein bestimmtes, meist kleineres Gebiet.
+  - Erwartung: Der Bebauungsplan ist als Satzung rechtsverbindlich und schafft unmittelbares Baurecht für die dort erfassten Grundstücke.
+  - Erwartung: Beide Pläne bilden gemeinsam die zweistufige Bauleitplanung der Gemeinden.
+  - Rückfrage: Was konkretisiert die Baunutzungsverordnung bei der Art und beim Maß der baulichen Nutzung?
 - Erläutern Sie den Unterschied zwischen §34 und §35 BauGB anhand eines Beispiels.
+  - Erwartung: Existiert kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB.
+  - Erwartung: Im im Zusammenhang bebauten Ortsteil (Innenbereich) ist ein Vorhaben nach § 34 BauGB zulässig, wenn es sich nach Art und Maß der Nutzung, Bauweise und Grundstücksfläche in die Eigenart der näheren Umgebung einfügt (Einfügungsgebot).
+  - Erwartung: Im Außenbereich ist ein Vorhaben nach § 35 BauGB grundsätzlich nur zulässig, wenn es privilegiert ist, z. B. ein land- oder forstwirtschaftlicher Betrieb oder bestimmte Ver- und Entsorgungsanlagen.
+  - Erwartung: Reine Wohnbebauung ist im Außenbereich regelmäßig nicht oder nur sehr eingeschränkt zulässig.
+  - Rückfrage: Warum wird die planungsrechtliche Einordnung bereits zu Beginn der Grundstücksakquise mitgeprüft?
 - Was regeln Grundflächenzahl und Geschossflächenzahl, und wofür werden sie in der Projektentwicklung genutzt?
   - Erwartung: Die Grundflächenzahl (GRZ) gibt den Anteil der überbaubaren Grundstücksfläche an.
   - Erwartung: Die Geschossflächenzahl (GFZ) gibt das Verhältnis der gesamten Geschossfläche zur Grundstücksfläche an.
@@ -82,7 +98,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Machbarkeitsstudie begrenzen sie das maximal realisierbare Bauvolumen und damit die Anzahl möglicher Wohneinheiten.
   - Rückfrage: Was regelt die Art der baulichen Nutzung?
 - Welche Schritte durchläuft ein Baugenehmigungsverfahren typischerweise?
+  - Erwartung: Regelmäßig darf erst nach Erteilung einer Baugenehmigung durch die zuständige Bauaufsichtsbehörde mit dem Bau begonnen werden.
+  - Erwartung: Der Bauherr reicht dazu einen Bauantrag mit den erforderlichen Bauvorlagen ein, z. B. Lageplänen, Bauzeichnungen, Baubeschreibung und statischen Nachweisen.
+  - Erwartung: Je nach Vorhabenart und Bundesland gibt es ein vereinfachtes Genehmigungsverfahren mit reduziertem Prüfumfang und das reguläre Verfahren mit umfassenderer bauaufsichtlicher Prüfung.
+  - Erwartung: Bei größeren Mehrfamilienhausprojekten ist regelmäßig eine Nachbarbeteiligung vorgesehen.
+  - Erwartung: Die erteilte Baugenehmigung enthält häufig Nebenbestimmungen (Auflagen, Bedingungen), die während der Bauausführung zu beachten sind.
+  - Rückfrage: Wann darf tatsächlich mit den Bauarbeiten begonnen werden?
 - Warum ist die Nachbarbeteiligung im Baugenehmigungsverfahren wichtig, und was können Nachbarn einwenden?
+  - Erwartung: Bei größeren Mehrfamilienhausprojekten ist regelmäßig eine Nachbarbeteiligung vorgesehen.
+  - Erwartung: Angrenzende Grundstückseigentümer:innen erhalten die Möglichkeit, Einwände gegen das Vorhaben vorzubringen, bevor die Genehmigung erteilt wird.
+  - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand.
+  - Erwartung: Abstandsflächen sind Mindestabstände zu Nachbargrundstücken, u. a. zur Sicherstellung von Belichtung, Belüftung und Brandschutz.
+  - Rückfrage: Was regelt das Bauordnungsrecht im Unterschied zum Bauplanungsrecht, und wer ist dafür zuständig?
 
 ### 5.4 Kosten- und Terminplanung im Bau
 

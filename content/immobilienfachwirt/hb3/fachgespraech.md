@@ -22,7 +22,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Grundlage der Bedarfsermittlung ist ein Abgleich von Personalbestand und Personalbedarf.
   - Rückfrage: Welche Möglichkeit besteht an einem Standort mit stagnierender Maklertätigkeit anstelle einer Neueinstellung?
 - Welche Rolle spielt § 34c GewO bei der Personalauswahl für Makler- und Verwalterpositionen?
+  - Erwartung: Wer gewerblich als Makler:in oder Verwalter:in tätig werden soll, benötigt eine Erlaubnis nach § 34c GewO.
+  - Erwartung: Bei der Personalauswahl für diese Positionen wird zusätzlich geprüft, ob Bewerbende die Voraussetzungen für diese Erlaubnis mitbringen bzw. erwerben können.
+  - Erwartung: Für Personen mit Erlaubnis nach § 34c GewO besteht eine gesetzliche Fortbildungspflicht.
+  - Erwartung: Zum qualitativen Personalbedarf zählen erforderliche Qualifikationen, z. B. der Sachkundenachweis für Makler:innen.
+  - Rückfrage: Worin unterscheiden sich interne und externe Personalbeschaffung?
 - Welche Mitbestimmungsrechte hat der Betriebsrat bei Personalplanung und Einstellungen, und woraus ergeben sie sich?
+  - Erwartung: Existiert an einem Standort ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
+  - Erwartung: Zur Personalplanung hat der Betriebsrat Unterrichtungs- und Beratungsrechte.
+  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
+  - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
+  - Rückfrage: Welche Mitbestimmungsrechte hat der Betriebsrat bei sozialen Angelegenheiten wie der Arbeitszeitgestaltung?
 - Was kennzeichnet einen situativen Führungsstil, und welche Konsequenz hat das für Tätigkeitsprofile wie Objektbetreuung, Maklertätigkeit und Projektentwicklung?
   - Erwartung: Ein situativer Führungsstil orientiert sich an Aufgabe und Reifegrad der Mitarbeitenden.
   - Erwartung: Objektbetreuer:innen in der Hausverwaltung arbeiten oft selbstständig im Kundenkontakt.
@@ -88,6 +98,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.3 Ausbildung und Qualifizierung
 
 - Welche formalen Voraussetzungen muss eine Person erfüllen, um im Betrieb auszubilden?
+  - Erwartung: Wer ausbildet, benötigt zusätzlich zur fachlichen Eignung die Ausbildereignung nach der Ausbilder-Eignungsverordnung (AEVO).
+  - Erwartung: Die Ausbildereignung ist der Nachweis pädagogischer Kompetenz zur Durchführung der Ausbildung.
+  - Erwartung: Der Ausbildungsberuf Immobilienkaufmann/-frau ist dreijährig und im Berufsbildungsgesetz geregelt.
+  - Erwartung: Aus dem Ausbildungsrahmenplan leitet der Betrieb einen betrieblichen Ausbildungsplan ab, der festlegt, wann welche Ausbildungsinhalte vermittelt werden.
+  - Rückfrage: Vor welcher Stelle findet die Abschlussprüfung statt, und welche Rolle hat die Berufsschule?
 - Auf welcher Grundlage wird der Qualifizierungsbedarf bestehender Mitarbeitender ermittelt, und welche Instrumente stehen zur Deckung des Bedarfs zur Verfügung?
   - Erwartung: Der Qualifizierungsbedarf wird regelmäßig ermittelt.
   - Erwartung: Grundlagen sind Anforderungsprofile, Mitarbeitergespräche und sich ändernde gesetzliche oder technische Anforderungen.
@@ -95,6 +110,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Klassische Instrumente sind interne Schulungen, externe Weiterbildungsseminare, E-Learning-Module und Fachtagungen.
   - Rückfrage: Welche Rolle spielen Personalentwicklungsgespräche bei der Planung von Qualifizierung?
 - Was versteht man unter der gesetzlichen Fortbildungspflicht nach der ImmVermV, und welche organisatorischen Maßnahmen sichern ihre Einhaltung?
+  - Erwartung: Für Personen mit Erlaubnis nach § 34c GewO besteht eine gesetzliche Fortbildungspflicht.
+  - Erwartung: Nach der ImmVermV müssen Makler:innen und Wohnimmobilienverwalter:innen sich innerhalb von jeweils drei Jahren mindestens 20 Stunden fortbilden.
+  - Erwartung: Das Unternehmen dokumentiert die Fortbildungsnachweise zentral, um die Einhaltung für alle betroffenen Mitarbeitenden sicherzustellen.
+  - Rückfrage: Welche Instrumente stehen zur Deckung des Qualifizierungsbedarfs zur Verfügung?
 - Welchen Unterschied sehen Sie zwischen Mentoring und Coaching als Personalentwicklungsinstrumente?
   - Erwartung: Beim Mentoring begleiten erfahrene Objektbetreuer:innen neue Kolleg:innen.
   - Erwartung: Coaching ist eine individuelle Begleitung bei besonderen Herausforderungen, z. B. für angehende Führungskräfte.
@@ -112,9 +131,33 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.4 Arbeitsrecht Grundlagen
 
 - Unter welchen Voraussetzungen greift der allgemeine Kündigungsschutz nach dem KSchG?
+  - Erwartung: Der allgemeine Kündigungsschutz greift ab einer Betriebsgröße von in der Regel mehr als zehn Beschäftigten.
+  - Erwartung: Außerdem ist eine Betriebszugehörigkeit von mehr als sechs Monaten erforderlich.
+  - Erwartung: Eine Kündigung muss dann sozial gerechtfertigt sein.
+  - Erwartung: Sozial gerechtfertigt ist eine Kündigung, wenn sie personen-, verhaltens- oder betriebsbedingt begründet werden kann.
+  - Rückfrage: Mit welcher Frist kann in der Probezeit in der Regel gekündigt werden?
 - Was muss ein Arbeitsvertrag nach dem Nachweisgesetz mindestens schriftlich enthalten?
+  - Erwartung: Der Arbeitsvertrag begründet das Arbeitsverhältnis zwischen Unternehmen und Mitarbeitenden.
+  - Erwartung: Nach dem Nachweisgesetz müssen die wesentlichen Vertragsbedingungen schriftlich festgehalten werden.
+  - Erwartung: Dazu zählen u. a. Beginn, Vergütung, Arbeitszeit, Kündigungsfristen und Tätigkeitsort.
+  - Rückfrage: Wie verändert sich die gesetzliche Kündigungsfrist mit zunehmender Betriebszugehörigkeit?
 - Wie unterscheiden sich Informationsrechte und Mitbestimmungsrechte des Betriebsrats nach dem BetrVG?
+  - Erwartung: Existiert ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
+  - Erwartung: Die Rechte reichen von reinen Informations- und Beratungsrechten, z. B. zur Personalplanung.
+  - Erwartung: Es gibt Mitbestimmungsrechte bei sozialen Angelegenheiten, z. B. der Arbeitszeitgestaltung.
+  - Erwartung: Außerdem bestehen Mitbestimmungsrechte bei personellen Einzelmaßnahmen wie Einstellungen.
+  - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
+  - Rückfrage: In welchen Betrieben besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?
 - Welche Merkmale schützt das Allgemeine Gleichbehandlungsgesetz, und wie wirkt sich das auf Stellenausschreibungen aus?
+  - Erwartung: Das AGG verbietet Benachteiligungen im Arbeitsverhältnis wegen Rasse/ethnischer Herkunft, Geschlecht, Religion/Weltanschauung, Behinderung, Alter oder sexueller Identität.
+  - Erwartung: Das Verbot gilt sowohl bei der Stellenausschreibung und Bewerberauswahl als auch während des laufenden Arbeitsverhältnisses, z. B. bei Beförderungen oder Vergütung.
+  - Erwartung: Stellenausschreibungen müssen AGG-konform, also diskriminierungsfrei, formuliert sein, z. B. geschlechtsneutral mit „m/w/d“.
+  - Rückfrage: Welche Folgen können Verstöße gegen das AGG haben?
 - In welchen Fällen kann ein befristeter Arbeitsvertrag nach dem TzBfG sinnvoll sein, und was ist dabei zu beachten?
 - Mit welchen Maßnahmen kann ein Unternehmen diskriminierungsfreies Handeln von Führungskräften bei Auswahl- und Beförderungsentscheidungen fördern, und warum ist das wichtig?
+  - Erwartung: Regelmäßige Schulungen von Führungskräften zu den Grundzügen des AGG helfen, Diskriminierung in Auswahl- und Beförderungsprozessen zu vermeiden.
+  - Erwartung: Das AGG verbietet Benachteiligungen auch während des laufenden Arbeitsverhältnisses, z. B. bei Beförderungen oder Vergütung.
+  - Erwartung: Bereits Stellenausschreibungen müssen diskriminierungsfrei formuliert sein.
+  - Erwartung: Verstöße gegen das AGG können zu Entschädigungs- oder Schadensersatzansprüchen der betroffenen Person führen.
+  - Rückfrage: Welche Merkmale schützt das AGG?
 

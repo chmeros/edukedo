@@ -27,7 +27,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auf dieser Grundlage kann gezielt nachgesteuert werden.
   - Rückfrage: Welche Maßnahmen leiten Sie ein, wenn der Ausbildungsnachweis Lücken zeigt?
 - Welche Voraussetzungen müssen nach § 43 BBiG erfüllt sein, damit ein:e Auszubildende:r zur Abschlussprüfung zugelassen wird?
+  - Erwartung: Die Ausbildungszeit muss zurückgelegt sein oder darf höchstens zwei Monate vor Ende der Ausbildungszeit enden.
+  - Erwartung: Das Ausbildungsverhältnis muss in einem Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein, bei Kelvinar durch die zuständige IHK.
+  - Erwartung: Die vorgeschriebenen Ausbildungsnachweise müssen geführt worden sein.
+  - Erwartung: Zusätzlich können besonders leistungsstarke Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zugelassen werden.
+  - Rückfrage: Was bedeutet es für die Zulassung, wenn der Ausbildungsnachweis nicht ordnungsgemäß geführt wurde?
 - Unter welchen Bedingungen kann eine vorzeitige Zulassung zur Abschlussprüfung nach § 45 Abs. 1 BBiG infrage kommen, und welche Gesichtspunkte besprechen Sie dazu mit dem/der Auszubildenden?
+  - Erwartung: Besonders leistungsstarke Auszubildende können nach § 45 Abs. 1 BBiG vor Ablauf der regulären Ausbildungszeit zur Abschlussprüfung zugelassen werden.
+  - Erwartung: Voraussetzung ist, dass die Leistungen der bzw. des Auszubildenden dies rechtfertigen, etwa durchgehend sehr gute Berufsschulnoten und Beurteilungen.
+  - Erwartung: Über die vorzeitige Zulassung entscheidet die zuständige IHK.
+  - Erwartung: Ausbildende prüfen regelmäßig, ob eine vorzeitige Zulassung fachlich sinnvoll und im Interesse der bzw. des Auszubildenden ist, und besprechen dies frühzeitig mit ihr bzw. ihm.
+  - Erwartung: Eine verfrühte Zulassung ohne tragfähige fachliche Grundlage erhöht das Prüfungsrisiko unnötig.
+  - Rückfrage: Wird die Ausbildungszeit durch eine vorzeitige Zulassung formal verkürzt?
 - Wer ist dafür verantwortlich, dass Auszubildende fristgerecht bei der zuständigen Stelle zur Prüfung angemeldet werden, und was tun Sie, um Fristen nicht zu versäumen?
   - Erwartung: Die Anmeldung zur Abschlussprüfung gehört zu den Aufgaben der Ausbildenden bzw. des Ausbildungsbetriebs.
   - Erwartung: Zuständige Stelle ist für Kelvinar die örtliche IHK.
@@ -36,6 +47,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein verpasster Anmeldetermin kann dazu führen, dass erst zum nächsten regulären Prüfungstermin angetreten werden kann.
   - Rückfrage: Warum führt Kelvinar die Terminübersicht über alle Ausbildungsberufe und -jahrgänge?
 - Was verstehen Sie unter einem Nachteilsausgleich, und was veranlassen Sie, wenn ein:e Auszubildende:r eine Behinderung hat, die die Prüfungsdurchführung betrifft?
+  - Erwartung: Beim Nachteilsausgleich sind die besonderen Verhältnisse behinderter Menschen bei der Prüfungsdurchführung angemessen zu berücksichtigen (§ 65 Abs. 1 BBiG bzw. entsprechende Regelung der Handwerksordnung).
+  - Erwartung: Möglich sind z. B. eine Zeitverlängerung, eine angepasste Prüfungsform oder zugelassene Hilfsmittel.
+  - Erwartung: Das Prüfungsniveau wird dadurch nicht abgesenkt.
+  - Erwartung: Der Nachteilsausgleich muss rechtzeitig, nicht erst am Prüfungstag, bei der IHK beantragt werden.
+  - Erwartung: Ein Beispiel ist eine vergrößerte Prüfungsvorlage bei einer Sehbeeinträchtigung.
+  - Rückfrage: Warum muss der Nachteilsausgleich rechtzeitig vor der Prüfung beantragt werden?
 - Welche weiteren durchführungsrelevanten Besonderheiten neben dem Nachteilsausgleich sollten Sie Auszubildenden vor der Prüfung mitteilen?
   - Erwartung: Ein durchführungsrelevanter Hinweis betrifft die mitzubringenden Unterlagen.
   - Erwartung: Auch die zugelassenen Hilfsmittel gehören zu den durchführungsrelevanten Hinweisen, z. B. nicht programmierbare Taschenrechner.
@@ -50,6 +67,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Prüfungszeugnis bescheinigt den erfolgreichen Abschluss der Abschlussprüfung.
   - Rückfrage: Welche Angaben enthält ein einfaches Ausbildungszeugnis?
 - Was ist der Unterschied zwischen einem einfachen und einem qualifizierten Ausbildungszeugnis, und wann besteht Anspruch auf welches?
+  - Erwartung: Am Ende der Berufsausbildung besteht Anspruch auf ein schriftliches Ausbildungszeugnis (§ 16 BBiG).
+  - Erwartung: Ein einfaches Ausbildungszeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung.
+  - Erwartung: Ein qualifiziertes Zeugnis enthält zusätzlich Angaben zu Führung, Leistung sowie besonderen fachlichen Fähigkeiten.
+  - Erwartung: Ein qualifiziertes Zeugnis ist zusätzlich auszustellen, wenn die bzw. der Auszubildende es ausdrücklich verlangt.
+  - Rückfrage: Wie unterscheidet sich das Ausbildungszeugnis vom Prüfungszeugnis der IHK?
 - Nennen Sie die Grundsätze, die Sie bei der Formulierung eines Zeugnisses beachten, und zeigen Sie, wie sich eine kritische, aber zutreffende Beobachtung unter diesen Grundsätzen formulieren lässt.
   - Erwartung: Zeugniswahrheit: Die Aussagen müssen inhaltlich zutreffend sein.
   - Erwartung: Zeugnisklarheit: Es gibt keine versteckten, doppeldeutigen Formulierungen.

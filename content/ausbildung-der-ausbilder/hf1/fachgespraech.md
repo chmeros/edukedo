@@ -15,7 +15,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 1.1 Rechtliche Grundlagen der Berufsausbildung
 
 - Welche rechtliche Grundlage regelt die Berufsausbildung bei Kelvinar, und warum ist dort nicht die Handwerksordnung einschlägig?
+  - Erwartung: Die betriebliche Berufsausbildung bei Kelvinar stützt sich in erster Linie auf das Berufsbildungsgesetz (BBiG).
+  - Erwartung: Alle drei Ausbildungsberufe bei Kelvinar (Elektroniker:in für Betriebstechnik, Industriekaufmann/-frau, Fachinformatiker:in Systemintegration) sind BBiG-Berufe.
+  - Erwartung: Für Ausbildungsberufe des Handwerks gilt anstelle des BBiG die Handwerksordnung (HwO).
+  - Erwartung: Die HwO wäre für Kelvinar nur relevant, würde Kelvinar zusätzlich in einem zulassungspflichtigen Handwerksberuf ausbilden.
+  - Erwartung: Zuständige Stelle nach dem BBiG ist für Kelvinar als Industrieunternehmen die Industrie- und Handelskammer (IHK).
+  - Rückfrage: Welche Stelle wäre zuständige Stelle, wenn nach der Handwerksordnung ausgebildet würde?
 - Was verlangen § 28 BBiG bzw. § 22 HwO von Personen, die ausbilden möchten, und welche Rolle spielt dabei die AEVO?
+  - Erwartung: Nach § 28 Abs. 1 BBiG bzw. § 22 Abs. 1 HwO ist von Ausbildenden und Ausbilder:innen die persönliche und fachliche Eignung verlangt.
+  - Erwartung: Die fachliche Eignung schließt ausdrücklich die berufs- und arbeitspädagogische Eignung ein.
+  - Erwartung: Der Nachweis der berufs- und arbeitspädagogischen Eignung ist in der AEVO geregelt.
+  - Erwartung: Die AEVO gilt einheitlich für beide Rechtskreise, also für BBiG und HwO.
+  - Erwartung: Die AEVO gliedert die berufs- und arbeitspädagogische Eignung in vier Handlungsfelder.
+  - Rückfrage: Wer prüft bei Kelvinar die Eignung von Betrieb und Ausbildungspersonal?
 - Nennen Sie die vier Handlungsfelder der AEVO und ordnen Sie kurz ein, worum es in dem Ihnen vorliegenden Fachgespräch geht.
   - Erwartung: Die AEVO gliedert die berufs- und arbeitspädagogische Eignung in vier Handlungsfelder: Ausbildungsvoraussetzungen prüfen und Ausbildung planen; Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken; Ausbildung durchführen; Ausbildung abschließen.
   - Erwartung: Das vorliegende Fachgespräch gehört zum Handlungsfeld 1 „Ausbildungsvoraussetzungen prüfen und Ausbildung planen“.
@@ -23,6 +35,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Im Fachgespräch begründet die geprüfte Person ihre ausbildungsrelevanten Entscheidungen gegenüber dem Prüfungsausschuss.
   - Rückfrage: Geht es im Fachgespräch vor allem um Faktenwissen, oder worauf kommt es dem Prüfungsausschuss an?
 - Welche Schutzvorschriften des Jugendarbeitsschutzgesetzes sind bei der Planung des Einsatzes minderjähriger Auszubildender besonders zu beachten?
+  - Erwartung: Das JArbSchG begrenzt die Arbeitszeit, grundsätzlich auf höchstens 8 Stunden täglich und 40 Stunden wöchentlich.
+  - Erwartung: Es enthält Vorgaben zu Ruhepausen und Nachtruhe.
+  - Erwartung: Es enthält ein grundsätzliches Verbot der Beschäftigung an Wochenenden und Feiertagen, mit branchenspezifischen Ausnahmen.
+  - Erwartung: Minderjährige Auszubildende sind für den Berufsschulunterricht freizustellen.
+  - Erwartung: Der Mindesturlaubsanspruch ist erhöht und nach Alter gestaffelt.
+  - Rückfrage: Was gilt für volljährige Auszubildende bei Kelvinar?
 - Was verstehen Sie unter dem dualen System der Berufsausbildung, und wie stimmt Kelvinar die betriebliche Einsatzplanung mit der Berufsschule ab?
   - Erwartung: Die Ausbildung findet gleichzeitig an zwei Lernorten statt: im Betrieb und in der Berufsschule.
   - Erwartung: Der Betrieb vermittelt die praktische Anwendung anhand des Ausbildungsrahmenplans, konkretisiert im betrieblichen Ausbildungsplan.

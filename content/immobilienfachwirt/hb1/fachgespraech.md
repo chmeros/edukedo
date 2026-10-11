@@ -26,8 +26,22 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Mit dem Sondereigentum ist ein Miteigentumsanteil am Gemeinschaftseigentum verbunden.
   - Rückfrage: Wer vertritt die Gemeinschaft der Wohnungseigentümer nach außen?
 - Unter welchen Voraussetzungen darf ein Vermieter ein Wohnraummietverhältnis ordentlich kündigen?
+  - Erwartung: Beim Wohnraummietrecht besteht ein besonderer Kündigungsschutz.
+  - Erwartung: Eine ordentliche Kündigung durch den Vermieter ist nur bei einem berechtigten Interesse zulässig, etwa bei Eigenbedarf.
+  - Erwartung: Die Kündigungsfristen sind je nach Mietdauer gestaffelt.
+  - Rückfrage: Welche Rechte stehen Mieter:innen bei erheblichen Mängeln der Mietsache zu?
 - Welche Bedeutung hat das Bestellerprinzip für die Maklerbranche?
+  - Erwartung: Bei der Vermittlung von Wohnraum zur Miete gilt das Bestellerprinzip: Wer den Makler beauftragt, zahlt auch dessen Provision.
+  - Erwartung: In der Praxis ist das bei Wohnraummiete meist der Vermieter.
+  - Erwartung: Der Makler erhält seine Provision grundsätzlich, wenn er einen Hauptvertrag nachweist oder vermittelt.
+  - Erwartung: Das Bestellerprinzip ist ein Verbraucherschutzinstrument, weil es verhindert, dass Mieter:innen mit Kosten für einen nicht von ihnen beauftragten Makler belastet werden.
+  - Rückfrage: Welche Informationspflicht besteht bei Maklerprovisionen gegenüber Kund:innen?
 - Welchen Zweck verfolgt die Makler- und Bauträgerverordnung (MaBV)?
+  - Erwartung: Der Bauträgervertrag verbindet einen Grundstückskauf mit einer Bauverpflichtung des Bauträgers.
+  - Erwartung: Er unterliegt besonderen Schutzvorschriften der Makler- und Bauträgerverordnung.
+  - Erwartung: Abschlagszahlungen der Erwerber:innen dürfen nur gestaffelt nach erreichtem Baufortschritt fällig werden.
+  - Erwartung: Die gestaffelten Zahlungen sollen Erwerber:innen vor erheblicher Vorleistung schützen.
+  - Rückfrage: Was unterscheidet einen Bauträgervertrag von einem klassischen Grundstückskaufvertrag?
 
 ### 1.2 Marktstrukturen und Akteure der Immobilienwirtschaft
 
@@ -76,7 +90,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Verbände übernehmen Interessenvertretung gegenüber Politik und Öffentlichkeit, Weiterbildungsangebote, Zertifizierungen und die Erarbeitung von Berufsgrundsätzen.
   - Rückfrage: Welchen Verbänden gehört die Ravelin Immobilien GmbH an?
 - Was unterscheidet Standesregeln von gesetzlichen Pflichten wie der Erlaubnispflicht nach § 34c GewO?
+  - Erwartung: Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind Verhaltensstandards, zu denen sich viele Verbandsmitglieder freiwillig verpflichten und die über gesetzliche Pflichten hinausgehen.
+  - Erwartung: Beispiele für Standesregeln sind eine Wahrheitspflicht in der Vermarktung, die Offenlegung von Interessenkonflikten und allgemeine Sorgfaltspflichten.
+  - Erwartung: Makler, Bauträger und Verwalter benötigen eine gewerberechtliche Erlaubnis, die u. a. an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist.
+  - Erwartung: Hinzu kommt bei den gesetzlichen Pflichten eine regelmäßige Fortbildungspflicht.
+  - Erwartung: Im Unterschied zu Standesregeln unterliegen die gesetzlichen Pflichten einer unmittelbaren behördlichen Kontrolle mit Sanktionsmöglichkeit.
+  - Rückfrage: Welche Aufgaben übernehmen die Verbände neben der Erarbeitung von Berufsgrundsätzen?
 - Wie tragen Verbraucherschutzinstrumente wie das Bestellerprinzip oder die Energieausweispflicht zur Qualitätssicherung bei?
+  - Erwartung: Das Bestellerprinzip verhindert, dass Mieter:innen mit Kosten für einen nicht von ihnen beauftragten Makler belastet werden.
+  - Erwartung: Der Energieausweis weist die energetische Qualität eines Gebäudes aus und muss potenziellen Mietern oder Käufern spätestens bei der Besichtigung vorgelegt werden.
+  - Erwartung: Bei Maklerprovisionen gilt eine Transparenzpflicht: Kund:innen müssen klar und rechtzeitig über Höhe und Verteilung der Provision informiert werden.
+  - Erwartung: Die Erlaubnis- und Fortbildungspflicht dient ebenfalls der Qualitätssicherung zugunsten der Verbraucher:innen.
+  - Rückfrage: An wen können sich Betroffene bei Konflikten wie überhöhten Nebenkostenabrechnungen oder unzulässigen Maklerforderungen wenden?
 - Welche Verhaltensgrundsätze verlangen Standesregeln bei einem Interessenkonflikt durch Doppelmaklertätigkeit, und warum sind sie in der Immobilienwirtschaft besonders wichtig?
   - Erwartung: Standesregeln verlangen die Offenlegung von Interessenkonflikten, z. B. bei einer Doppelmaklertätigkeit für Käufer:in und Verkäufer:in.
   - Erwartung: Weitere Standesregeln sind eine Wahrheitspflicht in der Vermarktung und allgemeine Sorgfaltspflichten.
@@ -94,6 +119,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Bedeutung hat die EU-Taxonomie?
   - Rückfrage: Was versteht man im Bauträgergeschäft unter Kreislaufwirtschaft?
 - Welche Rolle spielt das Gebäudeenergiegesetz für Eigentümer und Verwalter?
+  - Erwartung: Das Gebäudeenergiegesetz bildet die zentrale deutsche Rechtsgrundlage für energetische Anforderungen an Gebäude, sowohl im Neubau als auch im Bestand.
+  - Erwartung: Dazu gehören etwa Vorgaben zu erneuerbaren Energien bei neuen Heizungsanlagen.
+  - Erwartung: Förderprogramme der KfW und des BAFA setzen finanzielle Anreize für Eigentümer:innen.
+  - Erwartung: Die Hausverwaltung informiert bei WEGs die Eigentümergemeinschaft über gesetzliche Anforderungen und Fördermöglichkeiten und bereitet die entsprechenden Beschlüsse für die Eigentümerversammlung vor.
+  - Rückfrage: Welche Maßnahmen zählen typischerweise zur energetischen Sanierung?
 - Welche Nachhaltigkeitszertifikate für Gebäude kennen Sie, und worin unterscheiden sie sich?
   - Erwartung: Die DGNB (Deutsche Gesellschaft für Nachhaltiges Bauen) betreibt ein bekanntes deutsches Zertifikat mit ganzheitlichem Ansatz.
   - Erwartung: Die DGNB bewertet ökologische, ökonomische, soziokulturelle/funktionale sowie Prozess- und technische Qualität.

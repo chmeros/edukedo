@@ -15,7 +15,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.1 Rechnungswesen und Jahresabschluss
 
 - Warum ist die Ravelin Immobilien GmbH unabhängig von ihrer Größe zur doppelten Buchführung verpflichtet?
+  - Erwartung: Die Ravelin Immobilien GmbH ist als Gesellschaft mit beschränkter Haftung ein Formkaufmann.
+  - Erwartung: Sie ist damit unabhängig von ihrer tatsächlichen Betriebsgröße zur doppelten Buchführung verpflichtet.
+  - Erwartung: Als Kapitalgesellschaft unterliegt sie zusätzlich den ergänzenden Rechnungslegungsvorschriften für Kapitalgesellschaften.
+  - Rückfrage: Wovon hängt es ab, ob für die GmbH zusätzlich eine Prüfungs- und Offenlegungspflicht gilt?
 - Was verlangt die Makler- und Bauträgerverordnung im Hinblick auf die Verwaltung fremder Gelder, und warum ist das gerade für eine Hausverwaltung relevant?
+  - Erwartung: Die Hausverwaltungssparte verwaltet in erheblichem Umfang fremdes Geld, z. B. Mieteingänge, Erhaltungsrücklagen der Wohnungseigentümergemeinschaften und Kautionen der Mieter:innen.
+  - Erwartung: Dieses Geld gehört wirtschaftlich den Eigentümer:innen bzw. Mieter:innen und nicht der Verwaltung selbst.
+  - Erwartung: Wer gewerblich fremde Gelder im Zusammenhang mit der Verwaltung von Wohnungseigentum oder als Bauträger entgegennimmt, unterliegt der Makler- und Bauträgerverordnung.
+  - Erwartung: Die Verordnung verlangt die strikte Trennung der Fremdgelder vom eigenen Vermögen auf gesonderten Treuhand-/Fremdgeldkonten sowie eine zeitnahe, nachvollziehbare Verbuchung.
+  - Rückfrage: Wie erscheinen die Fremdgeldkonten in der Bilanz der Verwaltung?
 - Erläutern Sie den Unterschied zwischen Erhaltungsrücklage und Sonderumlage anhand eines Beispiels.
   - Erwartung: Die Erhaltungsrücklage (bis zur WEG-Reform 2020 „Instandhaltungsrücklage") wird aus den laufenden Hausgeldzahlungen der Wohnungseigentümer:innen angespart.
   - Erwartung: Sie finanziert künftige größere Instandhaltungsmaßnahmen, z. B. eine Dachsanierung oder Aufzugserneuerung.
@@ -31,6 +40,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bauträgerprojekte in der Bauphase werden als unfertige Erzeugnisse im Umlaufvermögen geführt.
   - Rückfrage: Warum werden Grundstücke nicht abgeschrieben, Gebäude im Bestand aber schon?
 - Woraus besteht der Jahresabschluss der Ravelin Immobilien GmbH, und wovon hängt der genaue Pflichtenumfang ab?
+  - Erwartung: Der Jahresabschluss umfasst mindestens Bilanz, Gewinn- und Verlustrechnung sowie einen Anhang.
+  - Erwartung: Ob zusätzlich ein Lagebericht und eine Prüfung durch eine:n Abschlussprüfer:in erforderlich sind, richtet sich nach der Größenklasse (klein, mittelgroß, groß).
+  - Erwartung: Handelsrechtlich ist nur ein einheitlicher Jahresabschluss für die GmbH als Ganzes aufzustellen.
+  - Erwartung: Der festgestellte Jahresabschluss ist beim Bundesanzeiger offenzulegen.
+  - Erwartung: Die Offenlegung ermöglicht es Banken, Geschäftspartner:innen und Eigentümergemeinschaften, sich ein Bild von der wirtschaftlichen Lage zu machen.
+  - Rückfrage: Warum empfiehlt sich trotz des einheitlichen Jahresabschlusses eine getrennte interne Kostenrechnung je Sparte?
 
 ### 2.2 Investitions- und Finanzierungsrechnung
 

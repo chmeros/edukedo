@@ -15,6 +15,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 ### 2.1 Transportplanung und -durchführung
 
 - Erläutern Sie den Unterschied zwischen Frachtführer und Spediteur anhand eines Beispiels.
+  - Erwartung: Beim Frachtvertrag verpflichtet sich der Frachtführer, das Gut zum Bestimmungsort zu befördern und dort abzuliefern; der Absender zahlt den vereinbarten Frachtlohn.
+  - Erwartung: Beim Speditionsvertrag organisiert der Spediteur die Versendung des Gutes, führt den Transport aber nicht zwangsläufig selbst durch.
+  - Erwartung: Der Spediteur beauftragt gegebenenfalls Frachtführer mit der Durchführung des Transports.
+  - Erwartung: Ein Beispiel: Ein Speditionsunternehmen mit eigenem Fuhrpark tritt als Frachtführer auf, wenn es selbst befördert, und als Spediteur, wenn es an Subunternehmer oder Partner, z. B. für Seefracht, vergibt.
+  - Rückfrage: Welches Übereinkommen gilt für grenzüberschreitende Straßentransporte innerhalb Europas?
 - Wie funktioniert das Sparverfahren (Savings-Algorithmus) in der Tourenplanung, und wo liegen seine Grenzen?
   - Erwartung: Das Sparverfahren berechnet für Paare von Kunden die Einsparung, die entsteht, wenn beide auf einer gemeinsamen Tour statt auf getrennten Einzeltouren beliefert werden.
   - Erwartung: Schrittweise werden die einsparungsträchtigsten Verbindungen zu Touren zusammengefügt.
@@ -23,6 +28,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Bei der begrenzten Rechenzeit im Tagesgeschäft ist eine gute, nicht optimale Lösung ein akzeptabler Kompromiss.
   - Rückfrage: Worin unterscheidet sich das Sweep-Verfahren vom Sparverfahren?
 - Welche gesetzlichen Restriktionen muss die Disposition beim Einsatz von Fahrpersonal beachten?
+  - Erwartung: Die Disposition muss die gesetzlichen Lenk- und Ruhezeiten des Fahrpersonals nach der entsprechenden EU-Verordnung beachten.
+  - Erwartung: Zu diesen Vorgaben gehören u. a. die maximale tägliche Lenkzeit und vorgeschriebene Ruhepausen.
+  - Erwartung: Eine Tour, die zwar kilometeroptimal wäre, aber die zulässige Lenkzeit überschreiten würde, ist nicht zulässig und muss angepasst werden.
+  - Erwartung: Disponent:innen gleichen eingehende Aufträge mit der Verfügbarkeit des Fahrpersonals ab, z. B. mit der verbleibenden Lenkzeit und Qualifikationen wie dem ADR-Schein für Gefahrguttransporte.
+  - Erwartung: Telematiksysteme übermitteln u. a. die verbleibende Lenkzeit in Echtzeit an die Dispositionszentrale.
+  - Rückfrage: Wie unterstützen Telematiksysteme die kurzfristige Umdisposition, etwa bei einem Eilauftrag oder einer Panne?
 - Erläutern Sie den Unterschied zwischen Formschluss und Kraftschluss bei der Ladungssicherung.
   - Erwartung: Formschluss: Die Ladung liegt lückenlos an Stirnwand, Seitenwänden oder Sperrbalken an und kann sich dadurch nicht bewegen.
   - Erwartung: Kraftschluss: Reibung zwischen Ladung und Ladefläche erzeugt einen Widerstand gegen Verrutschen.
@@ -31,6 +42,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Direktzurren verbindet die Ladung über Zurrmittel formschlüssig mit Zurrpunkten des Fahrzeugs, ohne auf Reibung angewiesen zu sein.
   - Rückfrage: Für welche Güter eignet sich das Direktzurren besonders?
 - Wer trägt bei der Ladungssicherung welche Verantwortung, und warum ist diese Aufteilung sinnvoll?
+  - Erwartung: Die Verantwortung für ordnungsgemäße Ladungssicherung ist geteilt.
+  - Erwartung: Der Verlader haftet für die sachgerechte Verstauung.
+  - Erwartung: Der Fahrzeugführer haftet für die verkehrssichere Sicherung vor Fahrtantritt.
+  - Erwartung: Der Halter haftet für die Bereitstellung geeigneter Sicherungsmittel.
+  - Erwartung: Die Ladung muss so verstaut und gesichert sein, dass sie auch bei Vollbremsung oder plötzlichem Ausweichen nicht verrutscht.
+  - Rückfrage: Welche zwei Grundprinzipien der Ladungssicherung werden unterschieden?
 
 ### 2.2 Lagerlogistik und Bestandsmanagement
 
@@ -97,15 +114,53 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 ### 2.4 Zoll- und Außenwirtschaft im Güterverkehr
 
 - Erläutern Sie den Unterschied zwischen dem T1- und dem T2-Versandverfahren.
+  - Erwartung: Das Versandverfahren ermöglicht den Transport von Waren unter zollamtlicher Überwachung, ohne dass am Grenzübertritt sofort Einfuhrabgaben fällig werden.
+  - Erwartung: Innerhalb des gemeinsamen Versandverfahrens unterscheidet man vereinfacht das T1- vom T2-Verfahren.
+  - Erwartung: Das T1-Verfahren betrifft Nicht-Unionsware, bei der die Abgaben noch nicht entrichtet sind.
+  - Erwartung: Das T2-Verfahren betrifft Unionsware, die z. B. durch ein Drittland transitiert.
+  - Rückfrage: Wie unterscheidet sich das Versandverfahren von der Überführung in den zollrechtlich freien Verkehr?
 - Was ist eine EORI-Nummer, und warum ist sie für den grenzüberschreitenden Warenverkehr notwendig?
+  - Erwartung: EORI steht für Economic Operators' Registration and Identification.
+  - Erwartung: Die EORI-Nummer ist eine EU-weit eindeutige Kennung, mit der Zollbehörden Wirtschaftsbeteiligte identifizieren.
+  - Erwartung: Sie ist Voraussetzung für jedes Unternehmen, das am grenzüberschreitenden Warenverkehr mit der EU teilnimmt.
+  - Rückfrage: Über welches System werden Zollanmeldungen in Deutschland elektronisch abgewickelt?
 - Welchen Unterschied gibt es zwischen einem Ursprungszeugnis und einem Präferenznachweis?
+  - Erwartung: Das Ursprungszeugnis bescheinigt den wirtschaftlichen Ursprung einer Ware, also wo sie hergestellt bzw. wesentlich be- oder verarbeitet wurde.
+  - Erwartung: Das Ursprungszeugnis wird häufig von der zuständigen Industrie- und Handelskammer ausgestellt.
+  - Erwartung: Der Präferenznachweis, z. B. die Warenverkehrsbescheinigung EUR.1, bescheinigt, dass eine Ware die Ursprungsregeln eines Präferenzabkommens erfüllt.
+  - Erwartung: Der Präferenznachweis ermöglicht dem Importeur einen ermäßigten oder wegfallenden Zollsatz im Zielland.
+  - Erwartung: Der präferenzielle Warenursprung wird im Rahmen von Freihandels- oder Präferenzabkommen zwischen der EU und Partnerländern ermittelt und ist Voraussetzung für eine Zollvergünstigung.
+  - Rückfrage: Worin unterscheidet sich der präferenzielle vom nichtpräferenziellen Warenursprung?
 - Erläutern Sie anhand von zwei Beispielen, wie sich die Incoterm-Klauselgruppen E, F, C und D hinsichtlich der Verkäuferverantwortung unterscheiden.
+  - Erwartung: Die Incoterms regeln standardisiert, an welchem Punkt Kosten und Transportrisiko vom Verkäufer auf den Käufer übergehen und wer welche Transport- und Versicherungsleistungen organisiert.
+  - Erwartung: Bei der E-Klausel (EXW) gehen Risiko und Kosten bereits ab Werk des Verkäufers auf den Käufer über, für den Käufer ist das die maximale Verantwortung.
+  - Erwartung: Bei den F-Klauseln (u. a. FCA) übergibt der Verkäufer die Ware dem vom Käufer benannten Frachtführer, der Hauptlauf wird vom Käufer organisiert.
+  - Erwartung: Bei den C-Klauseln (u. a. CPT, CIP) organisiert und bezahlt der Verkäufer den Haupttransport (bei CIP zusätzlich die Versicherung), das Risiko geht jedoch bereits bei Übergabe an den ersten Frachtführer über.
+  - Erwartung: Bei den D-Klauseln (u. a. DAP, DDP) trägt der Verkäufer die weitestgehende Verantwortung; bei DDP übernimmt er sogar die Einfuhrverzollung und -abgaben im Zielland.
+  - Rückfrage: Warum berät ein Logistikdienstleister Industriekunden bei der Wahl der passenden Incoterm-Klausel?
 
 ### 2.5 Gefahrgut- und Sicherheitsvorschriften
 
 - Welche Angaben macht die orangefarbene Warntafel am Fahrzeug, und wozu dienen sie im Gefahrenfall?
+  - Erwartung: Die orangefarbene Warntafel ist für den Straßentransport in loser Schüttung oder größeren Mengen zusätzlich am Fahrzeug vorgeschrieben.
+  - Erwartung: Im oberen Feld zeigt sie die Kemler-Zahl (Gefahrnummer), die die Art der Gefahr beschreibt, z. B. Entzündbarkeit.
+  - Erwartung: Im unteren Feld zeigt sie die vierstellige UN-Nummer, eine eindeutige, weltweit standardisierte Stoffkennung.
+  - Erwartung: Die Kennzeichnung ermöglicht es Einsatzkräften im Gefahrenfall, den Stoff und seine spezifischen Risiken schnell zu identifizieren, ohne erst Begleitpapiere sichten zu müssen.
+  - Rückfrage: Wodurch wird die Gefahrgutklasse an Versandstück und Fahrzeug kenntlich gemacht?
 - Erläutern Sie, wie die Verantwortlichkeiten beim Gefahrguttransport auf Absender, Verpacker, Beförderer und Fahrzeugführer verteilt sind.
+  - Erwartung: Der Absender ist dafür verantwortlich, dass das Gefahrgut korrekt klassifiziert, verpackt und gekennzeichnet sowie mit vollständigen Beförderungspapieren übergeben wird.
+  - Erwartung: Der Verpacker haftet für die vorschriftsmäßige Verpackung.
+  - Erwartung: Der Beförderer, bei einer Spedition typischerweise der Frachtführer, muss ein geeignetes, zugelassenes Fahrzeug einsetzen und die Vorschriften während der Beförderung einhalten.
+  - Erwartung: Der Fahrzeugführer muss über eine gültige ADR-Bescheinigung (ADR-Schein) verfügen, die durch eine spezielle Schulung und Prüfung erworben wird.
+  - Erwartung: Jeder Gefahrguttransport muss von einem Beförderungspapier begleitet werden, das u. a. UN-Nummer, offizielle Benennung, Gefahrgutklasse, Verpackungsgruppe und Menge des Stoffs enthält.
+  - Rückfrage: Was regelt das ADR einheitlich für alle Vertragsstaaten?
 - Welche Aufgaben hat ein Gefahrgutbeauftragter, und wann muss ein Unternehmen einen solchen bestellen?
+  - Erwartung: Unternehmen, die regelmäßig gefährliche Güter befördern, verpacken, verladen oder versenden, müssen nach der Gefahrgutbeauftragtenverordnung einen Gefahrgutbeauftragten bestellen.
+  - Erwartung: Zu den Aufgaben gehört die Überwachung der Einhaltung aller gefahrgutrechtlichen Vorschriften im Unternehmen.
+  - Erwartung: Zu den Aufgaben gehört die Erstellung eines jährlichen Berichts über die Beförderung gefährlicher Güter.
+  - Erwartung: Zu den Aufgaben gehört die Beratung der Geschäftsleitung bei gefahrgutrelevanten Entscheidungen.
+  - Erwartung: Beispielsweise führt der Gefahrgutbeauftragte einer Spedition mit umfangreichen Gefahrguttransporten regelmäßig interne Schulungen für das Dispositions- und Fahrpersonal durch.
+  - Rückfrage: Welche Erleichterungen bietet die 1000-Punkte-Regel bei kleinen Mitnahmemengen?
 
 ### 2.6 Qualitäts- und Umweltmanagement in der Logistik
 

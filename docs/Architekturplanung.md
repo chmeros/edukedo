@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 11.10.2026 (Rechtsnahe Fachgespräch-Fragen der Pilotkurse eingespielt: Erwartungspunkte und Rückfragen für 78 von 80 Fragen; Freigabe durch den Projektleiter, R4, FL-IM-55, FL-TL-46, FL-AEVO-29)
+
+Anlass: Der Projektleiter hat die 80 bisher zurückgestellten rechtsnahen Fragen am 11.10.2026 freigegeben und die Entwürfe (`docs/entwuerfe/fachgespraech-pilot-recht.md`, 13 Ersatzdateien) geprüft und zum Einspielen freigegeben.
+
+- **Eingespielt:** Die 13 Ersatzdateien liegen als `fachgespraech.md` in `content/` (AEVO hf1..hf4, Immobilienfachwirt hb1..hb6, Transport hb1..hb3). 78 Fragen tragen jetzt Erwartungspunkte (335) und Rückfragen (79). Zwei Fragen bleiben bewusst ohne Erwartungshorizont (Immobilien HB3 3.4 befristete Arbeitsverträge, HB5 5.2 Vergabearten) und zeigen das allgemeine Raster. Fragetexte und Kennungen sind unverändert.
+- **Gestrichen vor dem Einspielen:** Eine Erwartungszeile zur fristlosen Kündigung wegen Zahlungsverzugs (Immobilien HB4) gab die Theorie mit Schwellen wieder, die nach § 543 Abs. 2 Nr. 3 BGB zweifelhaft sind; sie steht nicht in `content/`. Die vier Zweifelsstellen der Immobilien-Theorie sind als eigener Punkt im Entwicklungsplan angelegt.
+- **Import und Sicherung:** `db:validate-content`: 615 Dateien, 16.058 Schlüssel, 0 Verstöße. Der Abgleich meldete 44 neu, 107 geändert, 32 deaktiviert, blockierte aber fünf Themen (AEVO HF3 und HF4, Immobilien HB3, HB4 und HB6), weil dort mehr als 20 % der aktiven Items deaktiviert worden wären (umformulierte Fragen des Pilot-Imports vom selben Tag). Die Sicherung gegen versehentliches Deaktivieren hat damit wie vorgesehen gegriffen; nach Prüfung der Liste wurde mit `--allow-removals` bestätigt. Danach: AEVO 81, Immobilienfachwirt 130, Transport 76 aktive Fachgespräch-Fragen, Trockenlauf ohne Differenzen. **In anderen Datenbanken (Staging, Produktion) beide Fachgespräch-Importe vom 11.10.2026 mit `--allow-removals` ausführen**; die Liste der Deaktivierungen vorher ansehen.
+- **Tests:** Unit-Tests `src/db` grün (41 Dateien, 416 Tests). Nicht im Browser angesehen.
+
 ### Entschieden am 11.10.2026 (Fachgespräch-Pools der Pilotkurse AEVO, Immobilienfachwirt und Transport eingespielt; geprüft vom Projektleiter, FL-IM-55, FL-TL-46, FL-AEVO-29)
 
 Anlass: Stufe 2 des Fachgespräch-Vorhabens (Eintrag davor). Der Projektleiter hat die Entwürfe (`docs/entwuerfe/fachgespraech-pilot.md`, 13 Ersatzdateien) am 11.10.2026 geprüft, einschließlich der rechtsnahen Fragen, und die Übernahme veranlasst.

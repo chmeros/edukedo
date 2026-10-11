@@ -1,6 +1,6 @@
 # Entwurf: Erwartungshorizont für die rechtsnahen Fachgespräch-Fragen der Pilotkurse
 
-Stand 11.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (rechtsnahe Inhalte, R4). Folgt auf `docs/entwuerfe/fachgespraech-pilot.md`. Der Projektleiter hat die 80 bisher zurückgestellten rechtsnahen Fragen am 11.10.2026 freigegeben; hier liegen die zugehörigen Erwartungspunkte und Rückfragen als Entwurf vor.
+Stand 11.10.2026 · **vom Projektleiter freigegeben und am 11.10.2026 in `content/` eingespielt** (siehe Architekturplanung §13; rechtsnahe Inhalte, R4). Folgt auf `docs/entwuerfe/fachgespraech-pilot.md`. Der Projektleiter hat die 80 bisher zurückgestellten rechtsnahen Fragen am 11.10.2026 freigegeben; hier liegen die zugehörigen Erwartungspunkte und Rückfragen als Entwurf vor.
 
 ## Was vorliegt
 

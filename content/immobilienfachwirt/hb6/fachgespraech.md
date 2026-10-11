@@ -15,11 +15,44 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 6.1 Maklerrecht und Maklertätigkeit
 
 - Welche Voraussetzungen müssen für die Erteilung einer Erlaubnis nach § 34c GewO vorliegen?
+  - Erwartung: Wer gewerbsmäßig Grundstücke, grundstücksgleiche Rechte oder Wohn- und Gewerberäume vermittelt oder den Abschluss entsprechender Verträge nachweist, benötigt eine Erlaubnis nach § 34c GewO.
+  - Erwartung: Die Erlaubnis wird von der zuständigen Behörde, in der Regel dem Gewerbeamt, erteilt.
+  - Erwartung: Sie setzt unter anderem geordnete Vermögensverhältnisse sowie persönliche Zuverlässigkeit voraus.
+  - Erwartung: Um die Erlaubnis zu behalten, sind Makler:innen seit 2018 zur regelmäßigen Weiterbildung verpflichtet, mindestens 20 Stunden innerhalb von drei Kalenderjahren.
+  - Erwartung: Verstöße gegen die Berufspflichten können zum Erlöschen der Erlaubnis führen.
+  - Rückfrage: Gilt für die Hausverwaltung dieselbe Erlaubnis wie für die Maklertätigkeit?
 - Erläutern Sie den Unterschied zwischen Nachweis- und Vermittlungsmakler anhand eines Beispiels.
+  - Erwartung: Der Nachweismakler weist dem Auftraggeber lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden.
+  - Erwartung: Ein Beispiel für den Nachweis sind Adresse und Kontaktdaten eines Verkaufsinteressenten.
+  - Erwartung: Der Vermittlungsmakler wird darüber hinaus aktiv tätig, um den Vertragsabschluss selbst herbeizuführen.
+  - Erwartung: Ein Beispiel für die Vermittlung ist die Verhandlungsführung zwischen den Parteien.
+  - Erwartung: In der Praxis übt eine Maklerin oder ein Makler häufig beide Rollen gleichzeitig aus, was rechtlich unproblematisch ist, solange die Provisionsvoraussetzungen erfüllt sind.
+  - Rückfrage: Welcher Zusammenhang muss zwischen der Maklerleistung und dem späteren Vertragsabschluss bestehen, damit ein Provisionsanspruch entsteht?
 - Was versteht man unter dem Bestellerprinzip bei der Wohnungsvermittlung, und welchem Zweck dient es?
+  - Erwartung: Bei der Vermittlung von Mietwohnungen gilt das Bestellerprinzip nach dem Wohnungsvermittlungsgesetz: Wer den Makler beauftragt, zahlt auch die Provision.
+  - Erwartung: Beauftragt ein Vermieter die Maklerabteilung mit der Vermietung einer Wohnung, darf die Provision nicht dem einziehenden Mieter in Rechnung gestellt werden.
+  - Erwartung: Das gilt selbst dann, wenn der Mieter vom Maklerauftrag profitiert.
+  - Erwartung: Das Bestellerprinzip verhindert, dass Mieter:innen mit Kosten für einen nicht von ihnen beauftragten Makler belastet werden.
+  - Rückfrage: Wie ist die Verteilung der Maklerkosten beim Verbraucherkauf von Wohnungen und Einfamilienhäusern geregelt?
 - Wie ist die Verteilung der Maklerkosten beim Verbraucherkauf von Wohnungen und Einfamilienhäusern gesetzlich geregelt?
+  - Erwartung: Die Maklerprovision ist grundsätzlich frei verhandelbar, in der Praxis aber regional unterschiedlich üblich.
+  - Erwartung: Bei der Vermittlung von Kaufverträgen über Wohnungen und Einfamilienhäuser an Verbraucher gilt seit Dezember 2020 ein eigenes Gesetz über die Verteilung der Maklerkosten.
+  - Erwartung: Beauftragt nur eine Partei den Makler, darf höchstens die Hälfte der vereinbarten Provision auf die andere Partei abgewälzt werden.
+  - Erwartung: Die Zahlung der anderen Partei ist nachweispflichtig an die Zahlung der beauftragenden Partei gekoppelt.
+  - Rückfrage: Muss diese Regelung auch beim Verkauf von Neubauwohnungen durch eine Bauträgersparte an Privatkäufer:innen beachtet werden?
 - Welche Pflichten hat eine Maklerin bei einer Doppeltätigkeit gegenüber beiden Vertragsparteien, und welche Folgen hat ein Verstoß dagegen?
+  - Erwartung: Tritt eine Maklerin für beide Vertragsparteien gleichzeitig auf, muss dies beiden Seiten offengelegt werden.
+  - Erwartung: Eine verdeckte Doppeltätigkeit gefährdet den Provisionsanspruch.
+  - Erwartung: Eine verdeckte Doppeltätigkeit kann zudem Schadensersatzpflichten auslösen.
+  - Erwartung: In der Praxis werden beide Parteien schriftlich über die Doppeltätigkeit informiert, bevor der Maklervertrag zustande kommt.
+  - Rückfrage: Welche Aufklärungs- und Nachforschungspflichten treffen Makler:innen gegenüber beiden Vertragsparteien?
 - Welche Pflichten treffen einen Makler nach dem Geldwäschegesetz, und warum gelten sie gerade für die Immobilienbranche?
+  - Erwartung: Immobilienmakler:innen zählen zu den Verpflichteten nach dem Geldwäschegesetz.
+  - Erwartung: Immobiliengeschäfte gelten als besonders geldwäscheanfällig.
+  - Erwartung: Die Vertragsparteien sind vor Abschluss eines Kauf- oder Mietvertrags über bestimmten Wertgrenzen zu identifizieren.
+  - Erwartung: Bei Gesellschaften ist der wirtschaftlich Berechtigte zu prüfen.
+  - Erwartung: Bei auffälligen Sachverhalten besteht eine Meldepflicht an die Zentralstelle für Finanztransaktionsuntersuchungen (FIU).
+  - Rückfrage: Wann sollten interne Prüfroutinen zur Geldwäscheprävention durchlaufen werden?
 
 ### 6.2 Marketing für Immobilien
 
@@ -31,6 +64,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein einzelnes Objekt lässt sich nur begrenzt oft verkaufen, jede Vermarktungsmaßnahme zielt auf einen einmaligen Abschluss und nicht auf wiederkehrenden Konsum.
   - Rückfrage: Warum lohnt sich Kundenbindung trotz des einmaligen Abschlusses?
 - Welche Angaben müssen bereits in einer Immobilienanzeige zum Energieausweis enthalten sein, und warum?
+  - Erwartung: Bereits in der Immobilienanzeige, nicht erst im vollständigen Exposé, müssen bestimmte Pflichtangaben zum Energieausweis enthalten sein.
+  - Erwartung: Dazu zählen etwa die Art des Energieausweises, der Endenergiebedarf bzw. -verbrauch, der wesentliche Energieträger sowie das Baujahr.
+  - Erwartung: Verstöße gegen diese Pflichtangaben können als Wettbewerbsverstoß abgemahnt werden.
+  - Rückfrage: Wie lässt sich sicherstellen, dass jede Anzeige die Pflichtangaben enthält?
 - Nennen Sie drei Bestandteile eines überzeugenden Exposés für ein noch nicht fertiggestelltes Neubauprojekt und begründen Sie einen davon.
   - Erwartung: Das Exposé fasst die Objektinformationen strukturiert zusammen: Lagebeschreibung, Ausstattungsmerkmale, Wohn-/Nutzfläche, Baujahr, Preis- bzw. Mietangabe und aussagekräftige Bilder.
   - Erwartung: Bei einem noch nicht fertiggestellten Objekt kommen 3D-Visualisierungen auf Basis der Baupläne zum Einsatz.
@@ -59,6 +96,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 6.3 Immobilienbewertung Grundzüge
 
 - Erläutern Sie den gesetzlich definierten Begriff des Verkehrswerts.
+  - Erwartung: Der Verkehrswert (auch Marktwert) einer Immobilie ist gesetzlich im Baugesetzbuch definiert.
+  - Erwartung: Er bezeichnet den Preis, der im gewöhnlichen Geschäftsverkehr nach den rechtlichen und tatsächlichen Eigenschaften, der sonstigen Beschaffenheit sowie der Lage des Grundstücks zu erzielen wäre.
+  - Erwartung: Ungewöhnliche oder persönliche Verhältnisse bleiben dabei unberücksichtigt.
+  - Erwartung: Die Methodik der Wertermittlung regelt die Immobilienwertermittlungsverordnung (ImmoWertV).
+  - Erwartung: Die ImmoWertV sieht drei anerkannte, normierte Verfahren vor: das Vergleichswert-, das Ertragswert- und das Sachwertverfahren.
+  - Rückfrage: Für welche Objekte eignet sich das Ertragswertverfahren vor allem?
 - Nach welchen Kriterien entscheiden Sie, welches der drei Wertermittlungsverfahren für ein konkretes Objekt anzuwenden ist?
   - Erwartung: Die Wahl des Verfahrens richtet sich nach Objektart und Zweck der Bewertung.
   - Erwartung: Das Vergleichswertverfahren eignet sich für Standardobjekte mit ausreichender Vergleichsbasis, z. B. Eigentumswohnungen in größeren Wohnanlagen oder Reihenhäuser.

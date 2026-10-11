@@ -169,7 +169,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.4 Berufsausbildung
 
 - Welche rechtlichen Grundlagen regeln die betriebliche Berufsausbildung, und was regeln sie jeweils?
+  - Erwartung: Das Berufsbildungsgesetz (BBiG) regelt u. a. Abschluss und Inhalt des Berufsausbildungsvertrags, die Pflichten von Ausbildenden und Auszubildenden sowie die Probezeit.
+  - Erwartung: Die fachlichen und zeitlichen Inhalte der Ausbildung ergeben sich aus der Ausbildungsordnung des jeweiligen Ausbildungsberufs, die den Ausbildungsrahmenplan enthält.
+  - Erwartung: Nach der Ausbildereignungsverordnung (AEVO) muss, wer selbst ausbilden möchte, sowohl persönlich als auch fachlich geeignet sein.
+  - Erwartung: Bei minderjährigen Auszubildenden greifen zusätzlich die Schutzvorschriften des Jugendarbeitsschutzgesetzes (JArbSchG).
+  - Rückfrage: Wie wird die fachliche Eignung nach der AEVO in der Regel nachgewiesen?
 - Was muss ein Berufsausbildungsvertrag nach dem BBiG mindestens enthalten?
+  - Erwartung: Der Vertrag muss Beginn und Dauer der Ausbildung sowie den Ausbildungsort enthalten.
+  - Erwartung: Der Vertrag muss die sachliche und zeitliche Gliederung der Ausbildung und die tägliche Ausbildungszeit enthalten.
+  - Erwartung: Der Vertrag muss die Dauer der Probezeit enthalten (mindestens ein, höchstens vier Monate).
+  - Erwartung: Der Vertrag muss Zahlung und Höhe der Ausbildungsvergütung sowie die Dauer des Urlaubs enthalten.
+  - Rückfrage: Was gilt für die Kündigung des Ausbildungsverhältnisses während der Probezeit, und was gilt danach?
 - Erläutern Sie die Vier-Stufen-Methode anhand eines Beispiels aus der Ausbildung im Speditionsbereich.
   - Erwartung: Vorbereiten: Auszubildende werden auf die Aufgabe eingestimmt und motiviert.
   - Erwartung: Vormachen: Die ausbildende Person führt die Tätigkeit unter Erklärung der einzelnen Schritte vor, z. B. das korrekte Erstellen eines Frachtbriefs.
@@ -185,6 +195,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Vier-Stufen-Methode eignet sich dagegen zur Vermittlung praktischer Fertigkeiten durch Vormachen und Nachmachen.
   - Rückfrage: Welche Ausbildungsinhalte gelten als komplexer und werden eher gegen Ende der Ausbildung vermittelt?
 - Welche Schutzvorschriften des Jugendarbeitsschutzgesetzes sind bei minderjährigen Auszubildenden im Lager besonders zu beachten?
+  - Erwartung: Bei minderjährigen Auszubildenden greifen zusätzlich die Schutzvorschriften des Jugendarbeitsschutzgesetzes (JArbSchG).
+  - Erwartung: Das Gesetz sieht Begrenzungen der täglichen Arbeitszeit vor.
+  - Erwartung: Das Gesetz enthält besondere Ruhepausenregelungen.
+  - Erwartung: Die Vorschriften sind insbesondere bei jungen Auszubildenden im Lager relevant, wo teilweise Schichtarbeit stattfindet.
+  - Rückfrage: Welche Pflichten haben Ausbildende im Ausbildungsverhältnis, etwa gegenüber Berufsschule und Ausbildungsmitteln?
 - Nennen Sie drei Maßnahmen, mit denen Ausbildende Auszubildende gezielt auf die IHK-Zwischen- und Abschlussprüfung vorbereiten können, und begründen Sie eine davon.
   - Erwartung: Den Ausbildungsstand regelmäßig überprüfen.
   - Erwartung: Gezielt auf Prüfungsschwerpunkte vorbereiten.
@@ -193,4 +208,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Feedback konkret, verhaltensbezogen und zeitnah formulieren.
   - Rückfrage: Welche Funktion hat der betriebliche Ausbildungsplan?
 - Welche Voraussetzungen müssen nach der AEVO erfüllt sein, um selbst ausbilden zu dürfen?
+  - Erwartung: Wer selbst ausbilden möchte, muss nach der AEVO sowohl persönlich als auch fachlich geeignet sein.
+  - Erwartung: Die fachliche Eignung wird in der Regel durch die Ausbildereignungsprüfung (AdA-Schein) nachgewiesen.
+  - Erwartung: Die Ausbildereignungsprüfung prüft berufs- und arbeitspädagogische Kenntnisse.
+  - Rückfrage: Nach welchem Plan führen Ausbildende die Ausbildung durch, und wie wird er im Betrieb konkretisiert?
 

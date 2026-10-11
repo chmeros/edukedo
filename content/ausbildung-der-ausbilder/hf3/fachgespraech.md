@@ -80,6 +80,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Sie kommen infrage, wenn innerbetriebliche Maßnahmen nicht ausreichen.
   - Rückfrage: Welche innerbetrieblichen Maßnahmen setzen Sie vor den ausbildungsunterstützenden Hilfen ein?
 - Worin unterscheiden sich die Verkürzung der Ausbildungsdauer und die vorzeitige Zulassung zur Abschlussprüfung?
+  - Erwartung: Nach § 8 Abs. 1 BBiG kann die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildenden und Ausbildenden gekürzt werden.
+  - Erwartung: Ein typischer Anlass für die Verkürzung sind bereits vorhandene einschlägige Vorkenntnisse, z. B. eine vorangegangene Berufsausbildung oder ein Studienabbruch mit fachlicher Nähe.
+  - Erwartung: Die zuständige IHK kann Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zulassen, wenn deren Leistungen dies rechtfertigen.
+  - Erwartung: Bei der vorzeitigen Zulassung wird die Ausbildungszeit selbst nicht formal verkürzt, die Prüfung findet aber vor dem regulären Ende statt.
+  - Erwartung: Beide Instrumente erfordern eine sorgfältige, dokumentierte Einschätzung der Ausbilder:innen, da eine verfrühte Zulassung ohne tragfähige fachliche Grundlage das Prüfungsrisiko unnötig erhöht.
+  - Rückfrage: Woran machen Sie fest, ob die Leistungen einer Auszubildenden eine vorzeitige Zulassung rechtfertigen?
 
 ### 3.4 Leistungsbewertung, soziale Entwicklung, Konflikte und interkulturelle Kompetenz
 

@@ -50,7 +50,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 2.2 Interessenvertretung und Berufsschule
 
 - Welche Mitwirkungs- und Mitbestimmungsrechte hat der Betriebsrat bei der betrieblichen Berufsbildung?
+  - Erwartung: Nach § 96 BetrVG haben Arbeitgeber und Betriebsrat die Berufsbildung gemeinsam zu fördern (allgemeines Beratungsrecht).
+  - Erwartung: Nach § 97 BetrVG kann der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung mitwirken bzw. unter bestimmten Voraussetzungen mitbestimmen.
+  - Erwartung: Nach § 98 BetrVG hat der Betriebsrat ein echtes Mitbestimmungsrecht bei der Durchführung betrieblicher Berufsbildungsmaßnahmen, insbesondere bei Bestellung und Abberufung von Ausbildenden sowie bei der Auswahl der teilnehmenden Beschäftigten.
+  - Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen.
+  - Erwartung: Vor einer Kündigung eines Ausbildungsverhältnisses ist der Betriebsrat nach § 102 BetrVG anzuhören; eine Kündigung ohne Anhörung ist unwirksam.
+  - Rückfrage: Welches Recht des Betriebsrats ist zu beachten, wenn eine Facharbeiterin nebenberuflich zur Ausbilderin bestellt werden soll?
+  - Rückfrage: Was kann der Arbeitgeber tun, wenn der Betriebsrat einer Einstellung form- und fristgerecht die Zustimmung verweigert?
 - Was ist die Jugend- und Auszubildendenvertretung (JAV), und welche Aufgaben hat sie im Zusammenhang mit der Ausbildung?
+  - Erwartung: Die JAV vertritt speziell die Interessen jugendlicher Beschäftigter unter 18 Jahren sowie Auszubildender unter 25 Jahren.
+  - Erwartung: Bei Berufsbildungsangelegenheiten, die diese Gruppe besonders betreffen, hat die JAV eigene Beteiligungsrechte gegenüber dem Betriebsrat.
+  - Erwartung: Die JAV kann Maßnahmen beantragen.
+  - Erwartung: Die JAV wird zu Betriebsratssitzungen mit Berufsbildungsbezug hinzugezogen.
+  - Erwartung: Die JAV kann verlangen, dass eine Entscheidung des Betriebsrats zur Berufsbildung noch einmal vertagt wird, wenn sie diese für nicht ausreichend hält.
+  - Rückfrage: Welche Rolle kommt der JAV bei Kelvinar mit drei Ausbildungsberufen zu?
 - Was verstehen Sie unter Lernortkooperation, und wie setzen Sie diese in der Praxis konkret um?
   - Erwartung: Lernortkooperation stellt sicher, dass die in Betrieb und Berufsschule vermittelten Inhalte zeitlich und sachlich aufeinander abgestimmt sind.
   - Erwartung: Sie verhindert, dass sich die Inhalte überschneiden oder Lücken lassen.
@@ -81,9 +94,33 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Instrumente werden meist kombiniert; Kelvinar nutzt ein mehrstufiges Verfahren aus schriftlicher Bewerbung, berufsspezifischem Eignungstest und abschließendem Gespräch mit Ausbildungsleitung und Fachabteilung.
   - Rückfrage: Wie unterscheidet sich der Eignungstest je nach Ausbildungsberuf?
 - Welche Chancen bietet die Vielfalt (Diversität) von Bewerbenden, und was ist bei Stellenausschreibung und Auswahlentscheidung im Hinblick auf das Allgemeine Gleichbehandlungsgesetz zu beachten?
+  - Erwartung: Das Allgemeine Gleichbehandlungsgesetz (AGG) ist bei jedem Auswahlschritt zu beachten.
+  - Erwartung: Das AGG verbietet Benachteiligungen u. a. wegen ethnischer Herkunft, Geschlecht, Religion oder Weltanschauung, Behinderung, Alter und sexueller Identität.
+  - Erwartung: Das betrifft sowohl die Formulierung von Stellenausschreibungen als auch die eigentliche Auswahlentscheidung.
+  - Erwartung: Über die reine Rechtskonformität hinaus ist die Verschiedenartigkeit (Diversität) von Bewerbenden bewusst als Chance statt als Risiko zu begreifen.
+  - Erwartung: Unterschiedliche Bildungswege, kulturelle Hintergründe oder eine Behinderung schließen fachliche Eignung nicht aus und können den Ausbildungsbetrieb um wertvolle Perspektiven bereichern.
+  - Rückfrage: Welchen Nutzen kann eine diverse Zusammensetzung der Auszubildenden-Jahrgänge bei einem Betrieb mit mehreren Berufsfeldern haben?
 - Welche Mindestinhalte muss ein Berufsausbildungsvertrag nach § 11 BBiG enthalten?
+  - Erwartung: Der Berufsausbildungsvertrag ist schriftlich abzuschließen.
+  - Erwartung: Der Vertrag nennt Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung, unter Bezug auf den beigefügten betrieblichen Ausbildungsplan.
+  - Erwartung: Der Vertrag nennt Beginn und Dauer der Berufsausbildung sowie die Dauer der regelmäßigen täglichen Ausbildungszeit.
+  - Erwartung: Der Vertrag nennt die Dauer der Probezeit sowie Zahlung und Höhe der Ausbildungsvergütung.
+  - Erwartung: Der Vertrag nennt Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer des Urlaubs und die Voraussetzungen, unter denen der Vertrag gekündigt werden kann.
+  - Rückfrage: Wie lang muss die Probezeit mindestens sein, und wie lang darf sie höchstens sein?
 - Wie und bei welcher Stelle wird ein Berufsausbildungsvertrag eingetragen, und wer ist dafür verantwortlich?
+  - Erwartung: Die Ausbildenden sind verpflichtet, den Berufsausbildungsvertrag unverzüglich bei der zuständigen Stelle zur Eintragung anzumelden (§ 34 BBiG).
+  - Erwartung: Zuständige Stelle ist bei kaufmännisch-technischen Ausbildungsberufen wie denen bei Kelvinar in der Regel die zuständige Industrie- und Handelskammer (IHK).
+  - Erwartung: Eingetragen wird der Vertrag in das Verzeichnis der Berufsausbildungsverhältnisse.
+  - Erwartung: Die zuständige Stelle prüft dabei u. a., ob der Vertrag den gesetzlichen Mindestanforderungen entspricht.
+  - Erwartung: Die zuständige Stelle prüft dabei zudem, ob der Betrieb sowie die vorgesehenen Ausbildenden persönlich und fachlich geeignet sind.
+  - Rückfrage: Ab wann ist das Ausbildungsverhältnis formal vollständig angemeldet?
 - Unter welchen Voraussetzungen können Teile der Ausbildung im Ausland durchgeführt werden?
+  - Erwartung: Nach § 2 Abs. 3 BBiG können Teile der Berufsausbildung im Ausland durchgeführt werden, wenn dies dem Ausbildungsziel dient.
+  - Erwartung: Dies ist grundsätzlich bis zu einem Viertel der in der Ausbildungsordnung vorgesehenen Ausbildungsdauer möglich.
+  - Erwartung: Voraussetzung ist u. a. die Zustimmung der bzw. des Auszubildenden, bei Minderjährigen zusätzlich der gesetzlichen Vertreter.
+  - Erwartung: Der betriebliche Ausbildungsplan wird entsprechend angepasst, damit der Auslandsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist.
+  - Erwartung: In der Praxis werden Auslandsabschnitte häufig über Förderprogramme wie Erasmus+ unterstützt.
+  - Rückfrage: Wie könnte ein Auslandsabschnitt für Fachinformatiker:innen Systemintegration bei Kelvinar aussehen?
 
 
 ### Rückfragen zur eigenen Unterweisung (Handlungsfeld 2)

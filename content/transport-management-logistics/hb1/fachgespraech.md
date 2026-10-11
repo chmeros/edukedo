@@ -124,10 +124,36 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 1.4 Vertragsgestaltung im Güterverkehr
 
 - Erläutern Sie den Unterschied zwischen Speditionsvertrag und Frachtvertrag nach HGB.
+  - Erwartung: Beim Speditionsvertrag verpflichtet sich der Spediteur, die Versendung des Gutes zu organisieren, z. B. durch Auswahl geeigneter Frachtführer und Abschluss der nötigen Verträge.
+  - Erwartung: Der Spediteur schuldet beim Speditionsvertrag primär die Organisation des Transports, nicht zwingend die Beförderung selbst.
+  - Erwartung: Beim Frachtvertrag verpflichtet sich der Frachtführer, das Gut zum Bestimmungsort zu befördern und dort an den Empfänger abzuliefern.
+  - Erwartung: Beim Frachtvertrag hat der Absender die vereinbarte Fracht zu zahlen.
+  - Rückfrage: Ist der Frachtbrief für die Wirksamkeit des Frachtvertrags zwingend erforderlich, und welche Funktion hat er?
 - Was versteht man unter dem Selbsteintritt des Spediteurs, und welche rechtlichen Folgen hat er?
+  - Erwartung: Selbsteintritt liegt vor, wenn der Spediteur die Beförderung ganz oder teilweise mit eigenen Beförderungsmitteln übernimmt.
+  - Erwartung: Beim Selbsteintritt gelten für den betreffenden Streckenabschnitt die Vorschriften über den Frachtvertrag.
+  - Erwartung: Für eine Spedition mit eigenem Fuhrpark ist der Selbsteintritt der Regelfall, weil sie Transporte überwiegend selbst durchführt, statt sie nur zu organisieren.
+  - Rückfrage: Was schuldet der Spediteur, wenn er nicht selbst eintritt, sondern ausschließlich den Transport organisiert?
 - Wann greifen die gesetzlichen Haftungshöchstbeträge des Frachtführers nicht, und warum ist das sachgerecht?
+  - Erwartung: Die Haftungshöchstbeträge entfallen, wenn der Frachtführer den Schaden vorsätzlich oder grob fahrlässig verursacht hat.
+  - Erwartung: In diesem Fall haftet der Frachtführer unbeschränkt.
+  - Erwartung: Die Haftungshöchstbeträge sollen die wirtschaftlichen Risiken für Frachtführer kalkulierbar halten.
+  - Erwartung: Daneben sieht das Gesetz bestimmte Haftungsausschlüsse vor, etwa bei einem Mangel der Verpackung durch den Absender, bei besonderer Natur des Gutes oder bei einer Weisung des Verfügungsberechtigten.
+  - Rückfrage: Welche Maßnahme hilft einer Spedition, im Schadensfall die eigene Haftung korrekt einzuordnen?
 - Für welche Transporte gilt das CMR-Übereinkommen, und worin unterscheidet es sich grundlegend vom HGB-Frachtrecht?
+  - Erwartung: Für den grenzüberschreitenden gewerblichen Gütertransport auf der Straße gilt regelmäßig das CMR-Übereinkommen anstelle des HGB.
+  - Erwartung: Das CMR-Übereinkommen ist ein internationales Abkommen, dem zahlreiche europäische Staaten beigetreten sind.
+  - Erwartung: Es regelt in weiten Teilen ähnliche Fragen wie das HGB-Frachtrecht, etwa Pflichten von Absender und Frachtführer, Bedeutung des Frachtbriefs und Haftung bei Verlust, Beschädigung und Lieferfristüberschreitung.
+  - Erwartung: Es sieht eigene Haftungshöchstbeträge vor, die in Sonderziehungsrechten des Internationalen Währungsfonds je Kilogramm Rohgewicht ausgedrückt werden.
+  - Erwartung: Sonderziehungsrechte dienen als international einheitliche, währungsunabhängige Bezugsgröße.
+  - Rückfrage: Was muss ein europaweit tätiges Unternehmen bei grenzüberschreitenden Transporten regelmäßig prüfen?
 - Welchen Zweck erfüllt eine zusätzliche Transport- bzw. Warenversicherung neben der gesetzlichen Haftung des Frachtführers?
+  - Erwartung: Wegen der gesetzlichen Haftungshöchstbeträge tragen Frachtführer und Spediteure ein Restrisiko.
+  - Erwartung: Die Verkehrshaftungsversicherung deckt die gesetzliche Haftung des Frachtführers bzw. Spediteurs im Rahmen der jeweils geltenden Haftungshöchstbeträge ab.
+  - Erwartung: Mit einer eigenen Transport- bzw. Warenversicherung kann der Absender den vollen Warenwert unabhängig von den Haftungsgrenzen absichern.
+  - Erwartung: Die Transport- bzw. Warenversicherung versichert den tatsächlichen Wert der Güter, unabhängig von der Haftung des Frachtführers.
+  - Erwartung: Bei hochwertiger Fracht decken die gesetzlichen Haftungshöchstbeträge häufig nicht den vollen Warenwert ab.
+  - Rückfrage: Welchen Kunden empfiehlt eine Spedition den zusätzlichen Abschluss einer eigenen Warenversicherung, und warum?
 
 ### 1.5 Digitalisierung in der Logistik
 
