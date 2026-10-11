@@ -1,6 +1,6 @@
 # Entwurf: Fallfirmen weiterer Kurse (Brevanta, Loreno, Ravelin, Solvitec, Vantera, NordWert)
 
-Stand 11.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/karten-ohne-kontext.md` und `…-teil-c.md`, wo das Verfahren für AEVO und Versicherungen entschieden und umgesetzt wurde (Glossar-Einträge für Fallfirma und Fallperson, dazu Umformulieren der Items, die ohne den Fallfakt nicht lösbar sind).
+Stand 11.10.2026 · **Vorschläge vom Projektleiter angenommen und am 11.10.2026 eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/karten-ohne-kontext.md` und `…-teil-c.md`, wo das Verfahren für AEVO und Versicherungen entschieden und umgesetzt wurde (Glossar-Einträge für Fallfirma und Fallperson, dazu Umformulieren der Items, die ohne den Fallfakt nicht lösbar sind).
 
 ## Befund
 

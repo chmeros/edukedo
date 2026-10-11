@@ -1,6 +1,6 @@
 # Entwurf: Fallfakt-Items in den Kursen mit Fallfirma (Vorschlag B, vollständige Durchsicht)
 
-Stand 11.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/fallfirmen-weitere-kurse.md`; dort wurde Vorschlag B (alle Kurse vollständig durchsehen) gewählt. Dieser Entwurf enthält das Ergebnis für alle sieben Kurse. Vorschlag A (Glossar-Einträge für die sechs Fallfirmen) ist weiterhin nicht entschieden.
+Stand 11.10.2026 · **Vorschläge vom Projektleiter angenommen und am 11.10.2026 eingespielt** (siehe Architekturplanung §13) (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/fallfirmen-weitere-kurse.md`; dort wurde Vorschlag B (alle Kurse vollständig durchsehen) gewählt. Dieser Entwurf enthält das Ergebnis für alle sieben Kurse. Vorschlag A (Glossar-Einträge für die sechs Fallfirmen) ist weiterhin nicht entschieden.
 
 ## Vorgehen und Grenzen
 

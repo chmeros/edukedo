@@ -143,3 +143,10 @@ rechtsstand: "05.10.2026 — Entwurf, vor Livegang fachlich prüfen"
 **Abschnitt:** Kosten erfassen und im Soll-Ist-Vergleich bewerten
 **Definition:** Auswertung der tatsächlich angefallenen Kosten eines Auftrags im Vergleich zur Planung. Sie dient der Verbesserung künftiger Angebote.
 **Geprüft:** nein
+
+#### Brevanta IT-Systemhaus GmbH
+**Auch:** Brevanta
+**Thema:** 1.1
+**Abschnitt:** Warum Planung zum Kern des Berufs gehört
+**Definition:** Fiktives Fallunternehmen dieser Kurse: ein IT-Systemhaus mit rund 220 Beschäftigten und vier Bereichen: Softwareentwicklung für Kunden, Systemintegration und Managed Services, Datenanalyse sowie Smart-Factory- und IoT-Vernetzung.
+**Geprüft:** nein
