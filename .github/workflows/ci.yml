@@ -60,7 +60,11 @@ jobs:
           pnpm test 2>&1 | tee test.log
           code=${PIPESTATUS[0]}
           if [ "$code" -ne 0 ]; then
-            grep -E "FAIL|AssertionError|Hook timed out|Test timed out|Unhandled|ERR_|Error:" test.log | sed -E 's/\x1b\[[0-9;]*m//g' | sort -u | head -15 | while IFS= read -r zeile; do
+            sed -E 's/\x1b\[[0-9;]*m//g' test.log > test.plain.log
+            {
+              grep -i -E "failed|timed out|timeout|AssertionError|Unhandled|ERR_|Error:|ELIFECYCLE" test.plain.log | sort -u | head -6
+              grep -v '^[[:space:]]*$' test.plain.log | tail -n 4
+            } | while IFS= read -r zeile; do
               echo "::error title=Test fehlgeschlagen::${zeile:0:400}"
             done
           fi
