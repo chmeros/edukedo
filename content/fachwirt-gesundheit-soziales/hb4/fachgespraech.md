@@ -53,9 +53,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Kostenerstattungsprinzip zahlen Versicherte Rechnungen häufig zunächst selbst und reichen sie zur Erstattung ein.
   - Rückfrage: Warum ist diese Unterscheidung für einen ambulanten Pflegedienst relevant?
 - Wie unterscheiden sich Pflegesachleistung, Pflegegeld und Kombinationsleistung?
-  - Erwartung: Die Pflegesachleistung umfasst professionelle Pflegeeinsätze, die direkt mit der Pflegekasse abgerechnet werden.
-  - Erwartung: Das Pflegegeld ist eine Geldleistung, die gezahlt wird, wenn die Pflege überwiegend durch Angehörige sichergestellt wird.
-  - Erwartung: Die Kombinationsleistung ist eine anteilige Kombination aus Pflegesachleistung und Pflegegeld.
+  - Erwartung: Die Pflegesachleistung umfasst professionelle Pflegeeinsätze zugelassener Pflegedienste (Pflegegrade 2 bis 5), die direkt mit der Pflegekasse abgerechnet werden.
+  - Erwartung: Das Pflegegeld ist eine Geldleistung für die Pflegegrade 2 bis 5, die gezahlt wird, wenn die pflegebedürftige Person die Pflege selbst sicherstellt, z. B. durch Angehörige.
+  - Erwartung: Die Kombinationsleistung ist eine anteilige Kombination aus Pflegesachleistung und Pflegegeld; wird die Sachleistung nur teilweise genutzt, wird das Pflegegeld entsprechend gekürzt (§ 38 SGB XI).
   - Erwartung: Welche Leistungsarten in der ambulanten Versorgung zur Verfügung stehen, hängt vom Pflegegrad ab.
   - Erwartung: Ergänzend gibt es u. a. die Verhinderungspflege bei Ausfall einer Pflegeperson und den Entlastungsbetrag für niedrigschwellige Unterstützungsangebote.
   - Rückfrage: Welche dieser Leistungen rechnet ein ambulanter Pflegedienst unmittelbar mit der Pflegekasse ab?
@@ -63,7 +63,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Pflegebedürftigkeit wird in fünf Pflegegraden (1 bis 5) abgebildet.
   - Erwartung: Der Medizinische Dienst begutachtet den Pflegegrad anhand der Selbstständigkeit einer Person in mehreren Lebensbereichen.
   - Erwartung: Pflegegrad 1 bezeichnet geringe Beeinträchtigungen der Selbstständigkeit, Pflegegrad 5 schwerste Beeinträchtigungen mit besonderen Anforderungen an die pflegerische Versorgung.
-  - Erwartung: Der Medizinische Dienst handelt im Auftrag der Kranken- und Pflegekassen und begutachtet im Einzelfall die Pflegebedürftigkeit von Antragstellenden.
+  - Erwartung: Die Pflegekassen beauftragen den Medizinischen Dienst oder unabhängige Gutachter:innen mit der Begutachtung der Pflegebedürftigkeit von Antragstellenden (§ 18 SGB XI).
   - Erwartung: Verzögerungen bei der Begutachtung eines Pflegegrads können sich unmittelbar auf die Liquidität eines Pflegedienstes auswirken.
   - Rückfrage: Welche Leistungsarten stehen je nach Pflegegrad in der ambulanten Versorgung zur Verfügung?
 - Warum können bei einer pflegebedürftigen Person mehrere Kostenträger gleichzeitig zuständig sein?

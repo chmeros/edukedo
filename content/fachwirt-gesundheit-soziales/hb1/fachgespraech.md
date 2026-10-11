@@ -31,17 +31,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Haften die Gesellschafter:innen einer gGmbH mit ihrem Privatvermögen?
 - Welche institutionellen Partner sind für einen ambulanten Pflegedienst besonders relevant, und welche Aufgabe hat jeweils?
   - Erwartung: Die Kranken- und Pflegekassen sind zentrale Vertragspartner und Kostenträger, schließen Versorgungsverträge und Vergütungsvereinbarungen ab und erstatten die erbrachten Leistungen.
-  - Erwartung: Der Medizinische Dienst (MD) prüft im Auftrag der Kassen die Qualität der Leistungen und begutachtet im Einzelfall die Pflegebedürftigkeit zur Einstufung in einen Pflegegrad.
-  - Erwartung: Die Aufsichtsbehörden der Länder (Heimaufsicht) überwachen die Einhaltung der Betriebserlaubnis-Voraussetzungen und können bei Mängeln Auflagen erteilen.
+  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Landesverbände der Pflegekassen die Qualitätsprüfungen durch und begutachtet im Einzelfall im Auftrag der Pflegekassen die Pflegebedürftigkeit zur Einstufung in einen Pflegegrad.
+  - Erwartung: Die Aufsichtsbehörden der Länder (Heimaufsicht) überwachen die Einhaltung der heimrechtlichen Anforderungen und können bei Mängeln Auflagen erteilen oder den Betrieb untersagen.
   - Erwartung: Der Sozialhilfeträger übernimmt bei Pflegebedürftigen ohne ausreichende eigene Mittel ergänzend ungedeckte Kosten.
-  - Erwartung: Berufs- und Wohlfahrtsverbände sind Interessenvertretung und Tarifpartner, kommunale Pflegestützpunkte sind Beratungsstellen für Betroffene und Angehörige.
+  - Erwartung: Berufs- und Wohlfahrtsverbände sind Interessenvertretung und Tarifpartner, Pflegestützpunkte (§ 7c SGB XI) sind wohnortnahe Beratungsstellen für Betroffene und Angehörige.
   - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
-  - Rückfrage: Welche Aufgabe haben kommunale Pflegestützpunkte?
+  - Rückfrage: Welche Aufgabe haben Pflegestützpunkte?
 - Was prüft der Medizinische Dienst bei einer Pflegeeinrichtung, und mit welcher Konsequenz kann das Ergebnis verbunden sein?
-  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Kranken- und Pflegekassen regelmäßige Qualitätsprüfungen durch (§ 114 SGB XI).
+  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Landesverbände der Pflegekassen regelmäßige Qualitätsprüfungen durch (§ 114 SGB XI); die Regelprüfung findet grundsätzlich im Abstand von höchstens einem Jahr statt.
   - Erwartung: Die Pflegedokumentation dient als Nachweis erbrachter Leistungen und als Grundlage für solche Prüfungen.
-  - Erwartung: Die Aufsichtsbehörde (Heimaufsicht) kann bei Mängeln Auflagen erteilen.
-  - Erwartung: Verstöße gegen Dokumentations- oder Qualitätspflichten können aufsichtsrechtliche Maßnahmen bis zum Entzug der Betriebserlaubnis oder zur Kündigung des Versorgungsvertrags nach sich ziehen.
+  - Erwartung: Die Heimaufsicht kann nach dem jeweiligen Landesrecht bei Mängeln Auflagen erteilen.
+  - Erwartung: Die Landesverbände der Pflegekassen können nach einer Qualitätsprüfung einen Mängelbescheid mit Frist erlassen, die Pflegevergütung kürzen und im äußersten Fall den Versorgungsvertrag kündigen (§ 115 SGB XI).
   - Erwartung: Daneben begutachtet der MD im Einzelfall die Pflegebedürftigkeit von Antragstellenden zur Einstufung in einen Pflegegrad.
   - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
   - Rückfrage: Was ist ein Versorgungsvertrag nach § 72 SGB XI?

@@ -39,7 +39,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bestimmte Fragen sind im Vorstellungsgespräch aufgrund des AGG und des allgemeinen Persönlichkeitsrechts unzulässig.
   - Erwartung: Unzulässig sind z. B. Fragen nach einer Schwangerschaft, der Familienplanung oder der Gewerkschaftszugehörigkeit.
   - Erwartung: Zulässig sind Fragen, die unmittelbar mit der Eignung für die konkrete Pflegetätigkeit zusammenhängen.
-  - Erwartung: Zulässig sind z. B. Fragen nach einschlägigen Vorstrafen bei Tätigkeiten mit besonderem Vertrauensschutz oder nach dem Nachweis einer Masernimpfung, sofern gesetzlich vorgeschrieben.
+  - Erwartung: Zulässig sind z. B. Fragen nach einschlägigen Vorstrafen bei Tätigkeiten mit besonderem Vertrauensschutz oder nach dem Masernschutz, soweit das Infektionsschutzgesetz den Nachweis für die Einrichtung vorschreibt.
   - Erwartung: Strukturierte Interviewleitfäden mit vorab festgelegten, für alle Bewerbenden gleichen Fragen erhöhen die Vergleichbarkeit und Rechtssicherheit der Entscheidung.
   - Rückfrage: Aus welchen Phasen besteht ein strukturiertes Vorstellungsgespräch typischerweise?
 - Welche Wege der internen und externen Personalbeschaffung kommen in Betracht, wenn eine offene Stelle wiederholt nicht besetzt werden kann, und warum gewinnt die internationale Personalgewinnung an Bedeutung?
@@ -75,11 +75,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Gemeinsam sollten Fördermaßnahmen abgestimmt werden.
   - Erwartung: Isoliertes Reagieren ist zu vermeiden, weil schulische und betriebliche Ausbildung sich ergänzen und eng abgestimmt sein müssen.
   - Erwartung: Praxisanleitungen dokumentieren den Lernfortschritt, und Ausbildungsnachweise, Praxisbesuche der Lehrkräfte und gegenseitige Rückmeldungen liefern Informationen zum Leistungsstand.
-- Welche Kompetenzen sollte eine Praxisanleitung nach der AEVO mitbringen?
-  - Erwartung: Die Ausbilder-Eignungsverordnung (AEVO) beschreibt berufs- und arbeitspädagogische Kompetenzen von Ausbildenden.
-  - Erwartung: Wer ausbildet, sollte nicht nur fachlich, sondern auch didaktisch in der Lage sein, Ausbildungsinhalte zu vermitteln, zu begleiten und zu beurteilen.
+- Welche Qualifikation muss eine Praxisanleitung in der Pflegeausbildung nachweisen, und worin unterscheidet sie sich von der Eignung nach der AEVO?
+  - Erwartung: Die Praxisanleitung wird von Personen mit mindestens einem Jahr Berufserfahrung als Pflegefachkraft in den letzten fünf Jahren übernommen (§ 4 PflAPrV).
+  - Erwartung: Die Befähigung wird durch eine berufspädagogische Zusatzqualifikation von mindestens 300 Stunden und mindestens 24 Stunden Fortbildung jährlich nachgewiesen.
   - Erwartung: Praxisanleitungen begleiten die praktische Ausbildung strukturiert, dokumentieren den Lernfortschritt und bereiten die Auszubildenden gezielt auf Zwischen- und Abschlussprüfungen vor.
-  - Erwartung: Bewährt hat sich die Vier-Stufen-Methode: Vorbereiten, Vormachen und Erklären, Nachmachen lassen, Üben lassen.
+  - Erwartung: Die AEVO gilt für anerkannte Ausbildungsberufe nach dem BBiG, nicht für die Pflegeausbildung.
+  - Erwartung: Die Praxisanleitung umfasst mindestens 10 Prozent der Einsatzzeit, geplant und strukturiert, und führt schrittweise an die Aufgaben der Pflegefachfrau oder des Pflegefachmanns heran (§ 4 PflAPrV, § 6 Abs. 3 PflBG).
   - Rückfrage: Wie gehen Sie vor, wenn eine Auszubildende die vereinbarten Lernziele wiederholt nicht erreicht?
 
 ### 5.3 Mitarbeiterführung, Motivation und Konfliktmanagement
@@ -155,20 +156,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine Befristung ohne besonderen Sachgrund ist nach dem Teilzeit- und Befristungsgesetz (TzBfG) grundsätzlich nur bis zu einer Höchstdauer von zwei Jahren zulässig.
   - Erwartung: Innerhalb dieser zwei Jahre sind maximal drei Verlängerungen möglich.
   - Erwartung: Eine sachgrundlose Befristung ist ausgeschlossen, wenn zuvor bereits ein Arbeitsverhältnis mit demselben Arbeitgeber bestand.
-  - Erwartung: Eine Befristung mit Sachgrund, z. B. Elternzeitvertretung oder vorübergehender Mehrbedarf, kann auch für längere Zeiträume zulässig sein, sofern der Sachgrund tatsächlich vorliegt.
-  - Erwartung: Die befristete Elternzeitvertretung einer Pflegefachkraft ist ein typisches Beispiel für eine Befristung mit Sachgrund.
+  - Erwartung: Eine Befristung mit Sachgrund, z. B. Elternzeitvertretung oder vorübergehender Mehrbedarf, kann auch über zwei Jahre hinaus und mehrfach zulässig sein, sofern der Sachgrund bei Vertragsschluss tatsächlich vorliegt; bei Kettenbefristungen prüfen die Gerichte zusätzlich einen Rechtsmissbrauch.
+  - Erwartung: Jede Befristung bedarf der Schriftform (§ 14 Abs. 4 TzBfG).
   - Rückfrage: Nennen Sie ein weiteres Beispiel für einen Sachgrund.
 - Welche Kündigungsfrist gilt üblicherweise während der Probezeit, und ab wann greift der allgemeine Kündigungsschutz?
   - Erwartung: Zu Beginn eines Arbeitsverhältnisses wird häufig eine Probezeit vereinbart, in der beide Seiten die Zusammenarbeit erproben können.
-  - Erwartung: Die Probezeit darf höchstens sechs Monate betragen.
-  - Erwartung: Während der Probezeit gilt eine verkürzte gesetzliche Kündigungsfrist von zwei Wochen, sofern nichts anderes vereinbart ist.
-  - Erwartung: Der allgemeine Kündigungsschutz nach dem Kündigungsschutzgesetz greift erst nach einer ununterbrochenen Beschäftigungsdauer von mehr als sechs Monaten im selben Betrieb.
-  - Erwartung: Er gilt zudem nur in Betrieben mit in der Regel mehr als zehn Beschäftigten.
+  - Erwartung: Die verkürzte Kündigungsfrist von zwei Wochen gilt höchstens für die ersten sechs Monate einer vereinbarten Probezeit (§ 622 Abs. 3 BGB).
+  - Erwartung: Ein Tarifvertrag kann von der Zwei-Wochen-Frist abweichen; ohne abweichende tarifliche Regelung beträgt die Kündigungsfrist in der vereinbarten Probezeit zwei Wochen.
+  - Erwartung: Der allgemeine Kündigungsschutz nach dem Kündigungsschutzgesetz greift erst nach einer ununterbrochenen Beschäftigungsdauer von mehr als sechs Monaten in demselben Betrieb oder Unternehmen.
+  - Erwartung: Er gilt zudem nur in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (ohne Auszubildende).
   - Rückfrage: Aus welchen Gründen ist eine ordentliche Kündigung durch den Arbeitgeber nach Eintritt des allgemeinen Kündigungsschutzes sozial gerechtfertigt?
 - Welche besonderen Kündigungsschutzregelungen kennen Sie, und für wen gelten sie?
-  - Erwartung: Besonderen Kündigungsschutz genießen unter anderem schwangere Mitarbeiterinnen (Mutterschutz), Mitarbeitende in Elternzeit sowie schwerbehinderte Menschen.
-  - Erwartung: Hier ist regelmäßig vorab die Zustimmung einer zuständigen Behörde erforderlich.
-  - Erwartung: Der allgemeine Kündigungsschutz greift in Betrieben mit in der Regel mehr als zehn Beschäftigten und nach mehr als sechsmonatiger Betriebszugehörigkeit.
+  - Erwartung: Besonderen Kündigungsschutz genießen unter anderem schwangere Mitarbeiterinnen (Kündigungsverbot, § 17 MuSchG), Mitarbeitende in Elternzeit (Kündigungsverbot, § 18 BEEG) sowie schwerbehinderte Menschen (vorherige Zustimmung des Integrationsamts, § 168 SGB IX).
+  - Erwartung: Bei Schwangerschaft und Elternzeit kann die zuständige Landesbehörde eine Kündigung nur in besonderen Fällen ausnahmsweise für zulässig erklären.
+  - Erwartung: Der allgemeine Kündigungsschutz greift in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (ohne Auszubildende) und nach mehr als sechsmonatigem Bestehen des Arbeitsverhältnisses.
   - Erwartung: Danach ist eine ordentliche Kündigung durch den Arbeitgeber nur aus personen-, verhaltens- oder betriebsbedingten Gründen sozial gerechtfertigt zulässig.
   - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören; eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.
   - Rückfrage: Welche Arten der Kündigung unterscheidet man?
@@ -177,7 +178,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Es enthält Beschäftigungsverbote für bestimmte körperlich belastende oder mit Infektionsrisiken verbundene Tätigkeiten.
   - Erwartung: Es enthält grundsätzliche Schutzfristen vor und nach der Entbindung.
   - Erwartung: Im Pflegedienst müssen bestimmte Pflegetätigkeiten mit erhöhtem Infektions- oder Verletzungsrisiko für schwangere Kolleginnen individuell angepasst oder umverteilt werden.
-  - Erwartung: Schwangere Mitarbeiterinnen genießen besonderen Kündigungsschutz, wofür regelmäßig vorab die Zustimmung einer zuständigen Behörde erforderlich ist.
+  - Erwartung: Schwangere Mitarbeiterinnen genießen besonderen Kündigungsschutz: Die Kündigung ist grundsätzlich unzulässig und kann nur in besonderen Fällen ausnahmsweise von der zuständigen Landesbehörde für zulässig erklärt werden (§ 17 MuSchG).
   - Rückfrage: Welche Tätigkeiten in der Pflege kommen für ein Beschäftigungsverbot in Betracht?
 - Welche Mitbestimmungsrechte hat eine Mitarbeitervertretung bei Kündigungen und bei der Dienstplangestaltung?
   - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören.
@@ -190,7 +191,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Betriebsverfassungsgesetz (BetrVG) regelt die Mitbestimmung der Arbeitnehmenden über den Betriebsrat in privatwirtschaftlichen Betrieben und sieht abgestufte Beteiligungsrechte vor.
   - Erwartung: Informationsrechte betreffen z. B. die wirtschaftliche Lage.
   - Erwartung: Beratungsrechte bestehen z. B. bei der Personalplanung.
-  - Erwartung: Bei echten Mitbestimmungsrechten ist der Arbeitgeber auf die Zustimmung des Betriebsrats angewiesen, z. B. bei Einstellung und Versetzung (§ 99 BetrVG) oder bei Arbeitszeit und Dienstplangestaltung (§ 87 BetrVG).
+  - Erwartung: Bei echten Mitbestimmungsrechten kann der Arbeitgeber die Maßnahme nicht gegen den Willen des Betriebsrats durchsetzen: Bei Einstellung und Versetzung (§ 99 BetrVG) muss er die Zustimmung einholen und bei Verweigerung die Ersetzung beim Arbeitsgericht beantragen; bei Arbeitszeit und Dienstplangestaltung (§ 87 BetrVG) entscheidet bei Uneinigkeit die Einigungsstelle.
   - Erwartung: Bei kirchlichen Trägern gilt stattdessen meist das kirchliche Mitarbeitervertretungsrecht mit vergleichbaren, aber eigenständig geregelten Beteiligungsrechten.
   - Rückfrage: Nennen Sie ein Beispiel für eine soziale Angelegenheit, bei der der Betriebsrat mitbestimmt.
 

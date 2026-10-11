@@ -30,7 +30,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Erläutern Sie den Unterschied zwischen der kaufrechtlichen Gewährleistung und der Produkthaftung nach dem ProdHaftG.
   - Erwartung: Die kaufrechtliche bzw. werkvertragliche Gewährleistung (Mängelhaftung) betrifft das Verhältnis zwischen Vantera und ihrem unmittelbaren Vertragspartner bei einem Sachmangel (§ 434 BGB).
   - Erwartung: Der Vertragspartner kann zunächst Nacherfüllung (Nachbesserung oder Ersatzlieferung, § 439 BGB) verlangen, erst wenn diese fehlschlägt, kommen Rücktritt, Minderung oder Schadensersatz in Betracht.
-  - Erwartung: Die Produkthaftung nach dem ProdHaftG greift verschuldensunabhängig, wenn ein fehlerhaftes Produkt einen Schaden an Leben, Körper, Gesundheit oder privat genutzten Sachen eines Dritten verursacht.
+  - Erwartung: Die Produkthaftung nach dem ProdHaftG greift verschuldensunabhängig, wenn ein fehlerhaftes Produkt einen Schaden an Leben, Körper, Gesundheit oder privat genutzten Sachen eines Dritten verursacht; Schäden an gewerblich genutzten Sachen erfasst sie nicht (dafür bleibt die deliktische Haftung nach § 823 BGB).
   - Erwartung: Anders als bei der Gewährleistung haftet Vantera nach dem ProdHaftG potenziell gegenüber jedem Geschädigten, nicht nur gegenüber dem unmittelbaren Vertragspartner.
   - Erwartung: Die deliktische Produzentenhaftung nach § 823 Abs. 1 BGB setzt dagegen Verschulden voraus, ist aber nicht auf bestimmte Schadensarten beschränkt.
   - Rückfrage: Welche betrieblichen Konsequenzen ergeben sich für einen Zulieferer wie Vantera aus der Produkthaftung?
@@ -42,16 +42,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Deshalb betreibt Vantera eine strukturierte Wareneingangskontrolle.
   - Rückfrage: Wie läuft ein kaufrechtlicher Mängelfall bei Vantera von der Wareneingangskontrolle bis zu Rücktritt oder Minderung typischerweise ab?
 - Wozu berechtigt eine Prokura, und worin unterscheidet sie sich von einer Handlungsvollmacht?
-  - Erwartung: Die Prokura (§§ 48 ff. HGB) ist die weitreichendste handelsrechtliche Vertretungsform und berechtigt zu nahezu allen Geschäften des laufenden Handelsgewerbes.
+  - Erwartung: Die Prokura (§§ 48 ff. HGB) ist die weitreichendste handelsrechtliche Vertretungsform und berechtigt zu allen Arten von gerichtlichen und außergerichtlichen Geschäften und Rechtshandlungen, die der Betrieb eines Handelsgewerbes mit sich bringt.
   - Erwartung: Ihr Umfang ist im Außenverhältnis gesetzlich nicht beschränkbar, interne Beschränkungen wirken nur im Innenverhältnis.
   - Erwartung: Grundstücksgeschäfte sind ohne ausdrückliche Erweiterung von der Prokura ausgenommen.
   - Erwartung: Die Handlungsvollmacht (§ 54 HGB) ist enger gefasst auf die üblichen Geschäfte eines bestimmten Betriebs oder einer bestimmten Geschäftsart und kann inhaltlich beschränkt werden, etwa auf den Einkauf von Rohmaterial.
+  - Erwartung: Die Prokura ist zur Eintragung ins Handelsregister anzumelden (§ 53 HGB) und wird mit einem die Prokura andeutenden Zusatz gezeichnet, üblich ist „ppa.“ (§ 51 HGB); die Handlungsvollmacht wird nicht eingetragen und mit einem nur auf das Vollmachtsverhältnis hinweisenden Zusatz gezeichnet, üblich ist „i. V.“ oder „i. A.“ (§ 57 HGB).
   - Rückfrage: Wie erhalten Geschäftspartner Sicherheit über die Vertretungsbefugnis einer Person bei Vantera?
 
 ### 3.2 Arbeitsrecht Grundlagen
 
 - Welche Voraussetzungen muss eine betriebsbedingte Kündigung nach dem Kündigungsschutzgesetz erfüllen?
-  - Erwartung: Das Kündigungsschutzgesetz greift in Betrieben mit in der Regel mehr als zehn Beschäftigten, was bei Vantera mit rund 350 Beschäftigten erfüllt ist.
+  - Erwartung: Das Kündigungsschutzgesetz greift in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (ohne Auszubildende), was bei Vantera mit rund 350 Beschäftigten erfüllt ist.
   - Erwartung: Eine ordentliche Kündigung ist danach nur wirksam, wenn sie sozial gerechtfertigt ist, also auf personenbedingten, verhaltensbedingten oder betriebsbedingten Gründen beruht (§ 1 Abs. 2 KSchG).
   - Erwartung: Bei einer betriebsbedingten Kündigung muss der Arbeitsplatz tatsächlich wegfallen, etwa durch die Stilllegung einer Fertigungslinie nach einem dauerhaften Auftragsrückgang.
   - Erwartung: Außerdem darf keine anderweitige Beschäftigungsmöglichkeit bestehen.
@@ -72,14 +73,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Was regelt das Arbeitszeitgesetz hinsichtlich täglicher Höchstarbeitszeit und Ruhezeiten?
   - Erwartung: Der Schichtbetrieb in den Fertigungshallen von Vantera unterliegt dem Arbeitszeitgesetz (ArbZG).
   - Erwartung: Die werktägliche Arbeitszeit darf grundsätzlich acht Stunden nicht überschreiten.
-  - Erwartung: Sie kann auf bis zu zehn Stunden verlängert werden, wenn im Ausgleichszeitraum von sechs Kalendermonaten im Durchschnitt acht Stunden nicht überschritten werden.
+  - Erwartung: Sie kann auf bis zu zehn Stunden verlängert werden, wenn innerhalb von sechs Kalendermonaten oder 24 Wochen im Durchschnitt acht Stunden werktäglich nicht überschritten werden (§ 3 ArbZG).
   - Erwartung: Zwischen zwei Arbeitstagen ist eine ununterbrochene Ruhezeit von mindestens elf Stunden einzuhalten (§ 5 ArbZG).
   - Rückfrage: Welche Mitbestimmungsrechte hat der Betriebsrat bei Beginn und Ende der täglichen Arbeitszeit?
 - Worin unterscheidet sich die Stellung eines Leiharbeitnehmers von der eines regulär bei Vantera Beschäftigten?
   - Erwartung: Bei der Arbeitnehmerüberlassung bleibt der Verleiher (das Zeitarbeitsunternehmen) Vertragsarbeitgeber der überlassenen Beschäftigten, nicht Vantera.
   - Erwartung: Vantera übt als Entleiher für die Dauer des Einsatzes das Weisungsrecht aus.
-  - Erwartung: Die Überlassung unterliegt dem Arbeitnehmerüberlassungsgesetz (AÜG), Vantera setzt Leiharbeit gelegentlich zur Abdeckung von Auftragsspitzen ein.
   - Erwartung: Regulär bei Vantera Beschäftigte haben dagegen einen Arbeitsvertrag unmittelbar mit Vantera, durch den sie sich zur weisungsgebundenen Arbeitsleistung gegen Vergütung verpflichten (§ 611a BGB).
+  - Erwartung: Nach dem Gleichstellungsgrundsatz haben Leiharbeitnehmer:innen grundsätzlich ab dem ersten Tag Anspruch auf die wesentlichen Arbeitsbedingungen vergleichbarer Beschäftigter; ein Tarifvertrag kann beim Entgelt für die ersten neun Monate abweichen (§ 8 AÜG).
+  - Erwartung: Die Überlassung an denselben Entleiher ist grundsätzlich auf 18 aufeinanderfolgende Monate begrenzt (§ 1 Abs. 1b AÜG); bei Überschreitung kann ein Arbeitsverhältnis zum Entleiher entstehen, wenn die Person nicht am Vertrag mit dem Verleiher festhält (§§ 9, 10 AÜG).
   - Rückfrage: Welche Bedeutung hat die Dauer der Überlassung an denselben Entleiher für die rechtliche Stellung der Leiharbeitnehmer:innen?
 
 ### 3.3 Vertragsgestaltung
@@ -111,8 +113,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiel DAP (Delivered at Place): Lieferung an einen bestimmten Bestimmungsort.
   - Rückfrage: Was empfiehlt sich in internationalen Verträgen ergänzend, um Klarheit über anwendbares Recht und zuständige Gerichte zu schaffen?
 - Warum schließen Unternehmen wie Vantera das UN-Kaufrecht (CISG) in internationalen Verträgen häufig ausdrücklich aus?
-  - Erwartung: Das UN-Kaufrecht (CISG) gilt subsidiär für grenzüberschreitende Kaufverträge zwischen Unternehmen aus verschiedenen Vertragsstaaten, sofern es nicht vertraglich ausgeschlossen wird.
-  - Erwartung: Es kann vertraglich ausgeschlossen werden, was Vantera in ihren Lieferverträgen häufig ausdrücklich tut.
+  - Erwartung: Das UN-Kaufrecht (CISG) gilt für grenzüberschreitende Warenkaufverträge zwischen Unternehmen aus verschiedenen Vertragsstaaten automatisch und geht dem nationalen Kaufrecht vor, sofern es nicht ausgeschlossen wird.
+  - Erwartung: Es kann vertraglich ausgeschlossen werden, was Vantera in ihren Lieferverträgen häufig ausdrücklich tut; die bloße Wahl deutschen Rechts schließt es nach überwiegender Auffassung nicht aus, dafür ist ein klarer Ausschluss sinnvoll.
   - Erwartung: Als Motiv gilt, statt eines weniger vertrauten Regelwerks das vertraute deutsche Recht anzuwenden und so Rechtsunsicherheit zu vermeiden.
   - Erwartung: Ergänzend empfiehlt sich in internationalen Verträgen eine ausdrückliche Rechtswahlklausel sowie eine Gerichtsstandsvereinbarung, um Klarheit über das anwendbare Recht und die zuständigen Gerichte zu schaffen.
   - Rückfrage: Worin unterscheiden sich eine Rechtswahlklausel und eine Gerichtsstandsvereinbarung?

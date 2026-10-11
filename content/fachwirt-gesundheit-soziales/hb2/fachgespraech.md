@@ -87,15 +87,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein Pflegevertrag wird überwiegend als Dienstvertrag (§§ 611 ff. BGB) eingeordnet.
   - Erwartung: Geschuldet wird das sorgfältige Bemühen um die vereinbarte Pflege- und Betreuungsleistung, nicht ein garantierter Erfolg.
   - Erwartung: Beim Werkvertrag (§§ 631 ff. BGB) wird dagegen ein konkretes Werk bzw. Erfolg geschuldet, z. B. bei einer beauftragten baulichen Anpassung.
-  - Erwartung: Für Verträge über Pflege- und Betreuungsleistungen mit Unterkunft, z. B. in stationären Einrichtungen, enthält das Wohn- und Betreuungsvertragsgesetz (WBVG) besondere Schutzvorschriften; bei rein ambulanten Leistungen ohne Unterkunft findet es keine Anwendung, dort gelten die allgemeinen Regeln des Dienstvertragsrechts.
+  - Erwartung: Für Verträge, in denen Wohnraum überlassen wird und zugleich Pflege- oder Betreuungsleistungen vereinbart sind, z. B. in stationären Einrichtungen, enthält das Wohn- und Betreuungsvertragsgesetz (WBVG) besondere Schutzvorschriften; bei rein ambulanten Leistungen ohne Wohnraum-Überlassung findet es keine Anwendung, dort gelten die allgemeinen Regeln des Dienstvertragsrechts, ergänzt durch § 120 SGB XI (u. a. kann die pflegebedürftige Person den Pflegevertrag jederzeit ohne Frist kündigen).
   - Erwartung: Ein eigenständiges Gewährleistungsrecht gibt es beim Dienstvertrag nicht, bei mangelhafter Leistung kommen jedoch die allgemeinen Regeln zur Schlechtleistung und ggf. Schadensersatzansprüche zum Tragen.
   - Rückfrage: Welche Schutzvorschriften enthält das WBVG zugunsten der pflegebedürftigen Person?
 - Was prüft die AGB-rechtliche Inhaltskontrolle, und welche Klauseln sind unwirksam?
   - Erwartung: Allgemeine Geschäftsbedingungen (AGB) sind für eine Vielzahl von Verträgen vorformulierte Vertragsbedingungen, die eine Vertragspartei der anderen bei Vertragsschluss stellt (§ 305 BGB).
-  - Erwartung: AGB werden nur wirksam Vertragsbestandteil, wenn die andere Partei bei Vertragsschluss ausdrücklich oder zumindest deutlich sichtbar auf sie hingewiesen wird und in zumutbarer Weise von ihrem Inhalt Kenntnis nehmen kann.
-  - Erwartung: Die Inhaltskontrolle (§§ 307 ff. BGB) prüft, ob eine Klausel die andere Vertragspartei entgegen den Geboten von Treu und Glauben unangemessen benachteiligt.
+  - Erwartung: Überraschende Klauseln, mit denen die andere Partei nach den Umständen nicht zu rechnen braucht, werden nicht Vertragsbestandteil (§ 305c BGB); erst eine einbezogene Klausel unterliegt der Inhaltskontrolle.
+  - Erwartung: Die Inhaltskontrolle (§§ 307 ff. BGB) prüft, ob eine Klausel die andere Vertragspartei entgegen den Geboten von Treu und Glauben unangemessen benachteiligt, auch durch unklare oder unverständliche Formulierung.
   - Erwartung: Solche Klauseln sind unwirksam, etwa ein unangemessen weitgehender Ausschluss der Haftung.
-  - Erwartung: Auch Regelungen zu Zahlungsmodalitäten, Kündigungsfristen oder zum Verhalten bei kurzfristiger Absage eines Einsatzes unterliegen der Inhaltskontrolle.
+  - Erwartung: Auch Regelungen zu Zahlungsmodalitäten oder zum Verhalten bei kurzfristiger Absage eines Einsatzes unterliegen der Inhaltskontrolle; für die Kündigung des ambulanten Pflegevertrags durch die pflegebedürftige Person gilt § 120 Abs. 2 SGB XI (jederzeit ohne Frist).
   - Rückfrage: Wann werden AGB überhaupt Vertragsbestandteil?
 - Erläutern Sie die drei zentralen Fallgruppen von Leistungsstörungen.
   - Erwartung: Das Recht der Leistungsstörungen regelt, was gilt, wenn eine Vertragspartei ihre Pflichten nicht, nicht rechtzeitig oder nicht wie geschuldet erfüllt.

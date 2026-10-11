@@ -39,7 +39,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Existiert ein Betriebsrat, hat er nach dem Betriebsverfassungsgesetz (BetrVG) bei der Personalplanung Unterrichtungs- und Beratungsrechte.
   - Erwartung: Dazu gehört u. a. die rechtzeitige und umfassende Information über den Personalbedarf.
   - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellung, Versetzung und Ein-/Umgruppierung hat der Betriebsrat ein echtes Mitbestimmungsrecht.
-  - Erwartung: Bei der Einstellung besteht das Mitbestimmungsrecht nach § 99 BetrVG in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
+  - Erwartung: Bei der Einstellung besteht das Mitbestimmungsrecht nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
   - Rückfrage: Worin unterscheidet sich das Recht des Betriebsrats bei der Personalplanung von seinem Recht bei einer einzelnen Einstellung?
 - Wie unterscheiden sich Personalentwicklung und Personalbetreuung inhaltlich voneinander?
   - Erwartung: Personalbetreuung umfasst die laufenden administrativen und unterstützenden Prozesse rund um bestehende Beschäftigungsverhältnisse.
@@ -82,9 +82,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung, und was regeln sie jeweils?
   - Erwartung: Die betriebliche Berufsausbildung ist im Berufsbildungsgesetz (BBiG) geregelt, das z. B. die persönliche und fachliche Eignung der Ausbilder:innen (§§ 28–30 BBiG) und das Führen des Berichtshefts (Ausbildungsnachweis) betrifft.
   - Erwartung: Für jeden anerkannten Ausbildungsberuf gibt eine Ausbildungsordnung die Mindestinhalte und die zeitliche Gliederung vor, aus der der Betrieb seinen betrieblichen Ausbildungsplan ableitet.
-  - Erwartung: Die Ausbilder-Eignungsverordnung (AEVO) regelt den Nachweis der fachlichen Eignung von Ausbilder:innen, der in der Regel durch die Ausbilder-Eignungsprüfung erbracht wird.
+  - Erwartung: Die Ausbilder-Eignungsverordnung (AEVO) regelt den Nachweis der berufs- und arbeitspädagogischen Eignung von Ausbilder:innen, der in einer Prüfung mit schriftlichem und praktischem Teil erbracht wird.
   - Erwartung: Für minderjährige Auszubildende gilt zusätzlich das Jugendarbeitsschutzgesetz (JArbSchG) mit Regelungen zu Höchstarbeitszeiten, Pausen und Beschäftigungsverboten für bestimmte Tätigkeiten.
-  - Erwartung: Das Betriebsverfassungsgesetz (BetrVG) räumt dem Betriebsrat, sofern vorhanden, Mitwirkungsrechte bei der Ausgestaltung der betrieblichen Berufsbildung ein (§ 98 BetrVG).
+  - Erwartung: Das Betriebsverfassungsgesetz (BetrVG) gibt dem Betriebsrat, sofern vorhanden, ein Mitbestimmungsrecht bei der Durchführung der betrieblichen Berufsbildung und das Recht, der Bestellung einer ungeeigneten Ausbilderperson zu widersprechen oder ihre Abberufung zu verlangen (§ 98 BetrVG).
   - Rückfrage: Welche Stelle ist bei kaufmännischen Ausbildungsberufen für die Überwachung und Registrierung der Ausbildungsverhältnisse zuständig?
 - Wie erstellen Sie einen betrieblichen Ausbildungsplan auf Basis der Ausbildungsordnung bzw. des Ausbildungsrahmenplans?
   - Erwartung: Die Ausbildungsordnung gibt die Mindestinhalte und die zeitliche Gliederung vor.
@@ -103,6 +103,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei der Leittextmethode erarbeiten sich Auszubildende Inhalte anhand strukturierter Leitfragen selbstständig.
   - Rückfrage: Welche Methode eignet sich, um Wissen im Dialog zu vermitteln?
 - Welche Aufgaben hat die ausbildende Person während der Probezeit einer oder eines Auszubildenden?
+  - Erwartung: Die Probezeit beginnt mit dem Ausbildungsverhältnis, dauert mindestens einen und höchstens vier Monate und ist im Ausbildungsvertrag anzugeben (§ 20 BBiG).
+  - Erwartung: Beide Seiten prüfen, ob Beruf und Betrieb zueinander passen; die Ausbildenden führen die Ausbildung dennoch planmäßig nach dem betrieblichen Ausbildungsplan durch.
+  - Erwartung: Strukturierte Feedback-Gespräche und das Berichtsheft als Kontrollinstrument begleiten die Probezeit.
+  - Erwartung: Während der Probezeit kann ohne Kündigungsfrist gekündigt werden, schriftlich (§ 22 BBiG).
+  - Rückfrage: Wie lange darf die Probezeit höchstens dauern?
 - Welche Maßnahmen zur Kontrolle und Förderung setzen Sie ein, wenn ein:e Auszubildende:r die vereinbarten Ausbildungsziele nicht erreicht, und warum?
   - Erwartung: Strukturierte Feedback-Gespräche gehören zur laufenden Qualitätssicherung der Ausbildung.
   - Erwartung: Bei Lernschwierigkeiten werden gezielte Fördergespräche geführt.
@@ -127,7 +132,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Berichtsheft (Ausbildungsnachweis) dokumentiert die Ausbildungsinhalte und wird von den Auszubildenden regelmäßig geführt.
   - Erwartung: Das Berichtsheft dient zugleich als Kontrollinstrument.
   - Erwartung: Strukturierte Feedback-Gespräche und bei Lernschwierigkeiten Fördergespräche begleiten die laufende Qualitätssicherung.
-- Welche Kompetenzen sollte eine ausbildende Person nach der AEVO mitbringen?
+- Welche berufs- und arbeitspädagogischen Kompetenzen muss eine Ausbilderin oder ein Ausbilder nach der AEVO nachweisen?
+  - Erwartung: Die AEVO beschreibt die Kompetenz zum selbstständigen Planen, Durchführen und Kontrollieren der Berufsausbildung.
+  - Erwartung: Sie gliedert sich in vier Handlungsfelder: Ausbildungsvoraussetzungen prüfen und Ausbildung planen; Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken; Ausbildung durchführen; Ausbildung abschließen.
+  - Erwartung: Nachgewiesen wird die Eignung in einer Prüfung mit schriftlichem und praktischem Teil.
+  - Rückfrage: Was gehört zur fachlichen Eignung außer den pädagogischen Kompetenzen? (Erwartung: die beruflichen Fertigkeiten, Kenntnisse und Fähigkeiten, § 30 BBiG.)
 
 ### 3.3 Konfliktmanagement
 

@@ -107,7 +107,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Innerhalb des EU-Binnenmarkts gilt der Grundsatz des freien Warenverkehrs, es bestehen also keine Zollgrenzen und keine systematischen Grenzkontrollen mehr.
   - Erwartung: Dennoch bestehen weiterhin Melde- und Nachweispflichten: Größere innergemeinschaftliche Warenlieferungen müssen im Rahmen der Intrastat-Meldung an die Statistikbehörden gemeldet werden.
   - Erwartung: Umsatzsteuerlich gelten besondere Regeln für innergemeinschaftliche Lieferungen.
-  - Erwartung: Grenzüberschreitende Kaufverträge unterliegen häufig dem UN-Kaufrecht (CISG), sofern nichts anderes vereinbart wird, und sollten eine klare Rechtswahl- und Gerichtsstandsklausel enthalten.
+  - Erwartung: Grenzüberschreitende Warenkaufverträge zwischen Unternehmen aus verschiedenen Vertragsstaaten unterliegen dem UN-Kaufrecht (CISG), sofern die Parteien es nicht ausschließen, und sollten eine klare Rechtswahl- und Gerichtsstandsklausel enthalten.
   - Erwartung: Mit Incoterms lassen sich Kosten- und Gefahrenübergang zwischen Käufer und Verkäufer eindeutig regeln.
   - Rückfrage: Welche zusätzlichen Formalitäten kommen bei Geschäften mit Ländern außerhalb der EU (Drittländern) hinzu?
 - Erläutern Sie den Zweck der Incoterms und den Unterschied zwischen zwei Klauseln Ihrer Wahl.
@@ -119,8 +119,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Bei welcher Klausel übergibt der Verkäufer die Ware an einen vom Käufer benannten Frachtführer?
 - Was versteht man unter dem UN-Kaufrecht (CISG), und warum kann es sinnvoll sein, es vertraglich auszuschließen?
   - Erwartung: Das UN-Kaufrecht (CISG) ist ein einheitliches, in zahlreichen Staaten geltendes Regelwerk für internationale Warenkaufverträge.
-  - Erwartung: Grenzüberschreitende Kaufverträge unterliegen, sofern nichts anderes vereinbart wird, häufig dem CISG.
-  - Erwartung: Die Vertragsparteien können die Anwendung des CISG ausdrücklich vertraglich ausschließen und stattdessen ein bestimmtes nationales Recht vereinbaren.
+  - Erwartung: Grenzüberschreitende Warenkaufverträge zwischen Unternehmen aus verschiedenen Vertragsstaaten unterliegen dem CISG, sofern die Parteien es nicht ausschließen; die bloße Wahl eines nationalen Rechts genügt dafür nach überwiegender Auffassung nicht.
+  - Erwartung: Die Vertragsparteien können die Anwendung des CISG vertraglich ausschließen (am besten ausdrücklich) und stattdessen ein bestimmtes nationales Recht vereinbaren.
   - Erwartung: Weil im internationalen Geschäft unterschiedliche Rechtsordnungen aufeinandertreffen, sollten Verträge eine klare Rechtswahl- und Gerichtsstandsklausel enthalten.
   - Rückfrage: Regeln die Incoterms auch den Eigentumsübergang an der Ware?
 - Welche interkulturellen Aspekte sollte ein Vertriebsmitarbeitender bei Verhandlungen mit ausländischen Geschäftspartner:innen berücksichtigen?

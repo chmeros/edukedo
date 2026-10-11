@@ -76,14 +76,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Ab welcher Betriebsgröße kann nach dem Betriebsverfassungsgesetz ein Betriebsrat gewählt werden?
 - Was regelt das Arbeitszeitgesetz zur täglichen Höchstarbeitszeit und zu den Ruhezeiten, und warum ist das für die Personalplanung relevant?
   - Erwartung: Das Arbeitszeitgesetz begrenzt die werktägliche Arbeitszeit grundsätzlich auf acht Stunden.
-  - Erwartung: Eine Verlängerung auf bis zu zehn Stunden ist zulässig, wenn innerhalb eines Ausgleichszeitraums von sechs Kalendermonaten im Durchschnitt acht Stunden werktäglich nicht überschritten werden.
+  - Erwartung: Eine Verlängerung auf bis zu zehn Stunden ist zulässig, wenn innerhalb von sechs Kalendermonaten oder 24 Wochen im Durchschnitt acht Stunden werktäglich nicht überschritten werden (§ 3 ArbZG).
   - Erwartung: Zwischen zwei Arbeitstagen ist grundsätzlich eine Ruhezeit von mindestens elf Stunden einzuhalten.
   - Erwartung: Zusätzlich sind Ruhepausen vorgeschrieben: mindestens 30 Minuten bei einer täglichen Arbeitszeit von mehr als sechs bis zu neun Stunden und 45 Minuten bei mehr als neun Stunden.
   - Erwartung: Für die Personalplanung sind bei Schichtbetrieb, wie er in den Verteilzentren der NordWert vorkommen kann, zusätzlich die besonderen Regelungen zur Sonn- und Feiertagsruhe sowie zur Nacht- und Schichtarbeit zu beachten.
   - Rückfrage: Welches Mitbestimmungsrecht hat der Betriebsrat bei der Gestaltung der Arbeitszeit?
 - Wie berechnet sich der gesetzliche Mindesturlaub, und unter welchen Voraussetzungen kann er ins Folgejahr übertragen werden?
   - Erwartung: Der gesetzliche Mindesturlaub nach dem Bundesurlaubsgesetz beträgt bei einer Sechs-Tage-Woche 24 Werktage, umgerechnet auf die Fünf-Tage-Woche also 20 Arbeitstage im Kalenderjahr.
-  - Erwartung: Der Urlaubsanspruch entsteht grundsätzlich zum 1. Januar eines Kalenderjahres, der volle Anspruch erstmals nach sechsmonatigem Bestehen des Arbeitsverhältnisses (Wartezeit, § 4 BUrlG).
+  - Erwartung: Der volle Urlaubsanspruch wird erstmals nach sechsmonatigem Bestehen des Arbeitsverhältnisses erworben (Wartezeit, § 4 BUrlG); davor und bei einem Ausscheiden vor Erfüllung der Wartezeit besteht Anspruch auf ein Zwölftel des Jahresurlaubs für jeden vollen Monat (Teilurlaub, § 5 BUrlG).
   - Erwartung: Nicht genommener Urlaub verfällt grundsätzlich am Jahresende.
   - Erwartung: Aus dringenden betrieblichen oder in der Person liegenden Gründen kann er bis zum 31. März des Folgejahres übertragen werden.
   - Erwartung: Nach der Rechtsprechung setzt ein Verfall regelmäßig voraus, dass der Arbeitgeber rechtzeitig und konkret auf den drohenden Verfall hingewiesen hat.
@@ -124,7 +124,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die regelmäßige Verjährungsfrist beträgt nach § 195 BGB drei Jahre.
   - Erwartung: Sie beginnt mit dem Schluss des Jahres, in dem der Anspruch entstanden ist und der Gläubiger von den anspruchsbegründenden Umständen Kenntnis erlangt hat oder ohne grobe Fahrlässigkeit hätte erlangen müssen (§ 199 BGB).
   - Erwartung: Für kaufrechtliche Mängelansprüche gilt abweichend regelmäßig eine kürzere Frist von zwei Jahren ab Ablieferung der Sache (§ 438 BGB), bei Bauwerken sogar fünf Jahre.
-  - Erwartung: Nach Ablauf der Frist kann sich die verpflichtete Partei auf die Einrede der Verjährung berufen; der Anspruch besteht dann rechtlich fort, ist aber nicht mehr klageweise durchsetzbar.
+  - Erwartung: Nach Ablauf der Frist kann sich die verpflichtete Partei auf die Einrede der Verjährung berufen und die Leistung verweigern (§ 214 Abs. 1 BGB); der Anspruch besteht dann rechtlich fort, ist aber nach Erhebung der Einrede nicht mehr durchsetzbar.
   - Erwartung: Die NordWert muss Fristen sorgfältig überwachen, insbesondere bei Ansprüchen gegen Lieferanten, deren Durchsetzung sonst an der Verjährung scheitern kann.
   - Rückfrage: Welche Pflicht trifft Kaufleute beim Wareneingang, damit Mängelansprüche nicht schon vorher entfallen?
 
@@ -154,7 +154,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine Kapitalgesellschaft wie die GmbH ist als eigenständiges Steuersubjekt körperschaftsteuerpflichtig.
   - Erwartung: Natürliche Personen, also Einzelunternehmer oder Gesellschafter einer Personengesellschaft, unterliegen mit ihren gewerblichen Einkünften der Einkommensteuer.
   - Erwartung: Die Einkommensteuer hat einen progressiven Tarif, der mit steigendem zu versteuerndem Einkommen ansteigt.
-  - Erwartung: Die Körperschaftsteuer beträgt dagegen linear 15 % (zuzüglich Solidaritätszuschlag), unabhängig von der Höhe des Einkommens.
+  - Erwartung: Die Körperschaftsteuer beträgt dagegen linear derzeit 15 % (zuzüglich Solidaritätszuschlag), unabhängig von der Höhe des Einkommens; ab 2028 sinkt der Satz gesetzlich stufenweise bis auf 10 % ab 2032 (§ 23 Abs. 1 KStG).
   - Erwartung: Schüttet die Kapitalgesellschaft Gewinne an ihre Gesellschafter aus, werden diese dort erneut besteuert, zum Beispiel durch die Abgeltungsteuer bei natürlichen Personen im Privatvermögen; diese wirtschaftliche Doppelbelastung sollte bei der Rechtsformwahl berücksichtigt werden.
   - Rückfrage: Welche Ertragsteuer fällt für die Kapitalgesellschaft zusätzlich zur Körperschaftsteuer an?
 - Welche laufenden Erklärungs- und Meldepflichten treffen ein bilanzierungspflichtiges Unternehmen gegenüber dem Finanzamt?

@@ -53,7 +53,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Art. 4 Nr. 1 DSGVO).
   - Erwartung: Dazu zählen nicht nur der Name, sondern auch Kundennummer, E-Mail-Adresse, IP-Adresse, Standortdaten und Beschäftigtendaten.
   - Erwartung: Auch Maschinendaten können personenbezogen sein, wenn sie sich einer Person zuordnen lassen, z. B. eine Schicht-ID oder eine Bedienerkennung in den Protokollen einer vernetzten Anlage.
-  - Erwartung: Für einige Datenarten, z. B. Gesundheitsdaten oder biometrische Daten, gelten verschärfte Anforderungen (besondere Kategorien, Art. 9 DSGVO).
+  - Erwartung: Für einige Datenarten, z. B. Gesundheitsdaten oder biometrische Daten zur eindeutigen Identifizierung einer Person, gelten verschärfte Anforderungen (besondere Kategorien, Art. 9 DSGVO).
   - Erwartung: Bleibt unklar, ob Daten personenbezogen sind, wird die oder der Datenschutzbeauftragte einbezogen; eine grundlagenorientierte Einordnung ersetzt keine Rechtsberatung.
   - Rückfrage: Worin unterscheiden sich Pseudonymisierung und Anonymisierung?
   - Rückfrage: Was versteht man im Datenschutz unter Verarbeitung?

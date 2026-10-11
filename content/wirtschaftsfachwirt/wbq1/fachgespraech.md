@@ -84,7 +84,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Liquiditätsplanung prüft, ob zu jedem Zeitpunkt genügend flüssige Mittel vorhanden sind; auch bei insgesamt profitablem Geschäft kann kurzfristige Zahlungsunfähigkeit den Fortbestand gefährden.
 - Wie unterscheidet sich die Haftung bei einem Einzelunternehmen von der Haftung bei einer GmbH?
   - Erwartung: Beim Einzelunternehmen, ob Kleingewerbetreibender oder eingetragener Kaufmann, haftet der Inhaber unbeschränkt, also auch mit seinem gesamten Privatvermögen.
-  - Erwartung: Bei der GmbH haftet nur das Gesellschaftsvermögen, die Gesellschafter haften nicht persönlich.
+  - Erwartung: Bei der GmbH haftet nur das Gesellschaftsvermögen, die Gesellschafter:innen haften grundsätzlich nicht persönlich; die Geschäftsführung haftet für eigene Pflichtverletzungen.
   - Erwartung: Das gesetzliche Mindeststammkapital der GmbH beträgt 25.000 €.
   - Erwartung: Das gewünschte Haftungsrisiko, also persönliche Haftung mit dem Privatvermögen oder Haftungsbeschränkung auf das Gesellschaftsvermögen, ist ein zentrales Kriterium der Rechtsformwahl.
   - Rückfrage: Wie haften die Gesellschafter einer GbR oder einer OHG?

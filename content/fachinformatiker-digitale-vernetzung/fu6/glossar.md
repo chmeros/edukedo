@@ -60,7 +60,7 @@ rechtsstand: "05.10.2026 — Entwurf, vor Livegang fachlich prüfen"
 **Auch:** anonymisiert
 **Thema:** 6.2
 **Abschnitt:** Zentrale Begriffe
-**Definition:** Der Personenbezug wird so entfernt, dass die Person nicht mehr oder nur mit unverhältnismäßigem Aufwand identifizierbar ist. Anonyme Daten fallen nicht mehr unter die DSGVO.
+**Definition:** Der Personenbezug wird so entfernt, dass die Person mit allen Mitteln, die nach allgemeinem Ermessen wahrscheinlich eingesetzt werden, nicht mehr identifiziert werden kann. Anonyme Daten fallen nicht mehr unter die DSGVO.
 **Geprüft:** nein
 
 #### Auftragsverarbeiter

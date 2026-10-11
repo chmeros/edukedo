@@ -86,7 +86,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Sie zeigen der Geschäftsleitung auf einen Blick den aktuellen Unternehmenszustand.
   - Rückfrage: Für welche Managementebene sind Managementinformationssysteme primär gedacht?
 - Welche Grundprinzipien der DSGVO sind bei der Einführung eines neuen IT-Systems im Unternehmen besonders zu beachten?
-  - Erwartung: Die Verarbeitung personenbezogener Daten muss rechtmäßig sein, und die Daten dürfen nur für festgelegte, eindeutige Zwecke erhoben werden (Zweckbindung).
+  - Erwartung: Die Verarbeitung personenbezogener Daten muss rechtmäßig, nach Treu und Glauben und für die Betroffenen nachvollziehbar (transparent) erfolgen, und die Daten dürfen nur für festgelegte, eindeutige Zwecke erhoben werden (Zweckbindung).
   - Erwartung: Nach dem Grundsatz der Datenminimierung werden nur die für den Zweck wirklich erforderlichen Daten erhoben.
   - Erwartung: Die Daten müssen richtig sein (Richtigkeit) und dürfen nicht länger als nötig aufbewahrt werden (Speicherbegrenzung).
   - Erwartung: Integrität und Vertraulichkeit verlangen den Schutz vor unbefugtem Zugriff, zum Beispiel durch Verschlüsselung.
@@ -96,7 +96,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine Auftragsverarbeitung liegt vor, wenn ein externer Dienstleister personenbezogene Daten im Auftrag des Unternehmens verarbeitet.
   - Erwartung: Ein Beispiel ist ein IT-Dienstleister, der das Warenwirtschaftssystem der NordWert Handels GmbH hostet.
   - Erwartung: In diesem Fall ist ein Auftragsverarbeitungsvertrag (AVV) erforderlich.
-  - Erwartung: Der AVV regelt Umfang, Zweck und Sicherheitsmaßnahmen der Verarbeitung.
+  - Erwartung: Der AVV (Art. 28 DSGVO) regelt u. a. Gegenstand und Dauer, Art und Zweck der Verarbeitung, Weisungsbindung, Sicherheitsmaßnahmen und den Umgang mit Unterauftragnehmern.
   - Rückfrage: Was ist bei einer Datenübermittlung in Länder außerhalb der EU (Drittländer) zusätzlich zu beachten?
 - Wie können technisch-organisatorische Maßnahmen konkret aussehen, um personenbezogene Daten im Unternehmen zu schützen?
   - Erwartung: Unternehmen müssen zur Absicherung der Datenverarbeitung geeignete technisch-organisatorische Maßnahmen (TOM) treffen.
@@ -104,7 +104,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine weitere mögliche Maßnahme ist die Verschlüsselung der Daten.
   - Erwartung: Auch die Protokollierung von Zugriffen zählt zu den technisch-organisatorischen Maßnahmen.
   - Erwartung: Solche Maßnahmen dienen dem Grundsatz der Integrität und Vertraulichkeit, also dem Schutz vor unbefugtem Zugriff.
-  - Rückfrage: Ab wann ist nach deutschem Recht in der Regel ein Datenschutzbeauftragter zu bestellen?
+  - Rückfrage: Ab wann ist nach deutschem Recht in der Regel ein Datenschutzbeauftragter zu benennen?
 
 ### 1.4 Managementtechniken
 

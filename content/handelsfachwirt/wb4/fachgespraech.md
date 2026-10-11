@@ -28,9 +28,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie unterscheidet sich CIF von FOB bei der Kostentragung, und wann geht bei CIF das Risiko über?
 - Welche Dokumente begleiten typischerweise eine Importsendung, und wozu dient ein Ursprungszeugnis konkret?
   - Erwartung: Die Handelsrechnung weist Warenbezeichnung, Menge, Preis und Lieferbedingungen aus und dient als Zahlungsgrundlage sowie als Basis für die Zollwertermittlung.
-  - Erwartung: Das Ursprungszeugnis bescheinigt, in welchem Land eine Ware hergestellt bzw. wesentlich be- oder verarbeitet wurde.
-  - Erwartung: Das Ursprungszeugnis ist für Loreno wichtig, um bei bestehenden Präferenzabkommen von reduzierten Einfuhrzöllen zu profitieren oder um Handelsstatistiken und Embargovorschriften zu erfüllen.
-  - Erwartung: Die Packliste listet detailliert den Inhalt jeder Kollo- bzw. Containereinheit auf und erleichtert Zollbeschau und Wareneingangskontrolle.
+  - Erwartung: Das Ursprungszeugnis bescheinigt, in welchem Land eine Ware hergestellt bzw. wesentlich be- oder verarbeitet wurde (nichtpräferenzieller Ursprung); es wird in der Regel von der IHK ausgestellt.
+  - Erwartung: Das Ursprungszeugnis ist für Loreno wichtig, wenn Banken, Behörden oder Kund:innen einen Ursprungsnachweis verlangen oder Embargovorschriften zu prüfen sind (z. B. im Akkreditiv).
+  - Erwartung: Zollvergünstigungen aus Präferenzabkommen erfordern dagegen einen Präferenznachweis, etwa eine Warenverkehrsbescheinigung EUR.1 oder eine Ursprungserklärung auf der Rechnung.
   - Erwartung: Das Konnossement (Bill of Lading) dient im Seetransport als Transportvertrag, Empfangsbestätigung der Reederei und Eigentumsnachweis; im Straßengüterverkehr übernimmt der CMR-Frachtbrief eine vergleichbare Funktion.
   - Rückfrage: Was bedeutet es, dass das Konnossement ein Traditionspapier ist?
 - Wann würde ein Unternehmen ein Joint Venture statt eines Direktexports als Markteintrittsform wählen?
@@ -59,7 +59,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Zollwert ist die Grundlage für die Berechnung der Einfuhrabgaben.
   - Erwartung: Er entspricht grob dem Transaktionspreis der Ware zuzüglich der Transport- und Versicherungskosten bis zur EU-Außengrenze, nicht einfach nur dem reinen Rechnungsbetrag.
   - Erwartung: Die Handelsrechnung mit Warenbezeichnung, Menge, Preis und Lieferbedingungen dient als Basis für die Zollwertermittlung.
-  - Erwartung: Die Einfuhrumsatzsteuer wird auf den Zollwert zuzüglich Zoll erhoben.
+  - Erwartung: Die Einfuhrumsatzsteuer wird auf den Zollwert zuzüglich Zoll und weiterer Hinzurechnungen (z. B. Verbrauchsteuern, Beförderungskosten bis zum ersten Bestimmungsort in der EU) erhoben (§ 11 UStG).
   - Erwartung: Vorsteuerabzugsberechtigte Unternehmen wie Loreno können die Einfuhrumsatzsteuer regelmäßig als Vorsteuer geltend machen.
   - Rückfrage: Woraus ergibt sich der anzuwendende Zollsatz?
 - Worin unterscheidet sich der präferenzielle vom nichtpräferenziellen Ursprung einer Ware?

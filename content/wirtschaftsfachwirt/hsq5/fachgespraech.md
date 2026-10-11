@@ -116,7 +116,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das BBiG regelt unter anderem den Ausbildungsvertrag, die Pflichten von Ausbildenden und Auszubildenden sowie Prüfungsfragen.
   - Erwartung: Für die fachliche und zeitliche Gliederung der Ausbildungsinhalte ist die jeweilige Ausbildungsordnung mit ihrem Ausbildungsrahmenplan maßgeblich.
   - Erwartung: Aus dem Ausbildungsrahmenplan leitet der Betrieb einen individuellen betrieblichen Ausbildungsplan ab.
-  - Erwartung: Wer selbst ausbildet, benötigt regelmäßig den Nachweis der Ausbildereignung nach der Ausbilder-Eignungsverordnung (AEVO), die neben fachlicher auch pädagogische Kompetenz sicherstellen soll.
+  - Erwartung: Wer selbst ausbildet, muss persönlich und fachlich geeignet sein (§§ 28–30 BBiG); die berufs- und arbeitspädagogische Eignung ist regelmäßig nach der Ausbilder-Eignungsverordnung (AEVO) in einer Prüfung nachzuweisen, die neben der fachlichen auch die pädagogische Kompetenz sicherstellen soll.
   - Rückfrage: Welche Methode hat sich für die praktische Wissensvermittlung in der Ausbildung bewährt, und aus welchen Stufen besteht sie?
 - Welche Maßnahmen ergreifen Sie, wenn ein:e Auszubildende:r die vereinbarten Ausbildungsziele nicht erreicht, und warum ist dabei ein Fördergespräch sinnvoll?
   - Erwartung: Ein Feedbackgespräch beschreibt konkretes, beobachtbares Verhalten statt pauschaler Werturteile über die Person.

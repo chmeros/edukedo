@@ -30,7 +30,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Mitbestimmungsrechte hat der Betriebsrat bei Personalplanung und Einstellungen, und woraus ergeben sie sich?
   - Erwartung: Existiert an einem Standort ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
   - Erwartung: Zur Personalplanung hat der Betriebsrat Unterrichtungs- und Beratungsrechte.
-  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
+  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
   - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
   - Rückfrage: Welche Mitbestimmungsrechte hat der Betriebsrat bei sozialen Angelegenheiten wie der Arbeitszeitgestaltung?
 - Was kennzeichnet einen situativen Führungsstil, und welche Konsequenz hat das für Tätigkeitsprofile wie Objektbetreuung, Maklertätigkeit und Projektentwicklung?
@@ -132,7 +132,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 3.4 Arbeitsrecht Grundlagen
 
 - Unter welchen Voraussetzungen greift der allgemeine Kündigungsschutz nach dem KSchG?
-  - Erwartung: Der allgemeine Kündigungsschutz greift ab einer Betriebsgröße von in der Regel mehr als zehn Beschäftigten.
+  - Erwartung: Der allgemeine Kündigungsschutz greift in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (ohne Auszubildende).
   - Erwartung: Außerdem ist eine Betriebszugehörigkeit von mehr als sechs Monaten erforderlich.
   - Erwartung: Eine Kündigung muss dann sozial gerechtfertigt sein.
   - Erwartung: Sozial gerechtfertigt ist eine Kündigung, wenn sie personen-, verhaltens- oder betriebsbedingt begründet werden kann.
@@ -150,7 +150,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
   - Rückfrage: In welchen Betrieben besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?
 - Welche Merkmale schützt das Allgemeine Gleichbehandlungsgesetz, und wie wirkt sich das auf Stellenausschreibungen aus?
-  - Erwartung: Das AGG verbietet Benachteiligungen im Arbeitsverhältnis wegen Rasse/ethnischer Herkunft, Geschlecht, Religion/Weltanschauung, Behinderung, Alter oder sexueller Identität.
+  - Erwartung: Das AGG verbietet Benachteiligungen im Arbeitsverhältnis aus Gründen der Rasse oder wegen der ethnischen Herkunft, des Geschlechts, der Religion oder Weltanschauung, einer Behinderung, des Alters oder der sexuellen Identität (§ 1 AGG).
   - Erwartung: Das Verbot gilt sowohl bei der Stellenausschreibung und Bewerberauswahl als auch während des laufenden Arbeitsverhältnisses, z. B. bei Beförderungen oder Vergütung.
   - Erwartung: Stellenausschreibungen müssen AGG-konform, also diskriminierungsfrei, formuliert sein, z. B. geschlechtsneutral mit „m/w/d“.
   - Rückfrage: Welche Folgen können Verstöße gegen das AGG haben?

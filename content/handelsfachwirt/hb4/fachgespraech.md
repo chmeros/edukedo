@@ -72,7 +72,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Bei Produktionsstätten in Asien ist die Auditierung sozialer und ökologischer Standards ein wichtiger Bestandteil der Bewertung, nicht zuletzt aus Reputationsgründen gegenüber der eigenen Kundschaft.
   - Rückfrage: Wie funktioniert ein Scoring-Modell zur Lieferantenbewertung?
 - Welche Bedeutung hat das Lieferkettensorgfaltspflichtengesetz für ein importierendes Handelsunternehmen?
-  - Erwartung: Das Lieferkettensorgfaltspflichtengesetz (LkSG) verpflichtet Unternehmen ab einer bestimmten Größe zu Sorgfaltspflichten hinsichtlich Menschenrechten und Umweltstandards in ihrer Lieferkette; rechtlich bedeutsam ist es seit 2023.
+  - Erwartung: Das Lieferkettensorgfaltspflichtengesetz (LkSG) verpflichtet Unternehmen ab einer bestimmten Größe zu abgestuften Sorgfaltspflichten hinsichtlich Menschenrechten und Umweltstandards in ihren Lieferketten (bei mittelbaren Zulieferern nur anlassbezogen); rechtlich bedeutsam ist es seit 2023, seit 2024 für Unternehmen ab 1.000 Arbeitnehmer:innen im Inland, und der Rechtsstand ist in Bewegung.
   - Erwartung: Es stellt Anforderungen an die Risikoanalyse, an Präventions- und Abhilfemaßnahmen sowie an einen Beschwerdemechanismus.
   - Erwartung: Für ein importierendes Unternehmen wie die Loreno Mode & Wohnen GmbH mit Produktionsbeziehungen in Asien ist dies bei der Auswahl und laufenden Überwachung von Lieferanten von wachsender Bedeutung.
   - Erwartung: Verletzungen menschenrechtlicher oder umweltbezogener Sorgfaltspflichten in der Lieferkette können neben rechtlichen Konsequenzen erhebliche Reputationsschäden verursachen, gerade im Einzelhandel mit direktem Endkundenkontakt.

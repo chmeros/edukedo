@@ -119,8 +119,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche rechtlichen Grundlagen sind beim grenzüberschreitenden Straßengütertransport innerhalb Europas zu beachten?
   - Erwartung: Im innerdeutschen Straßengüterverkehr regelt das Frachtrecht des Handelsgesetzbuchs (§§ 407 ff. HGB) die Rechte und Pflichten von Absender, Frachtführer und Empfänger.
   - Erwartung: Dazu gehören insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts.
-  - Erwartung: Für den grenzüberschreitenden Straßengütertransport innerhalb weiter Teile Europas gilt das internationale CMR-Übereinkommen.
-  - Erwartung: Das CMR-Übereinkommen schafft eine einheitliche Haftungsordnung für grenzüberschreitende Transporte.
+  - Erwartung: Für grenzüberschreitende Straßengütertransporte gilt das internationale CMR-Übereinkommen grundsätzlich anstelle des nationalen Frachtrechts.
+  - Erwartung: Das CMR-Übereinkommen schafft eine einheitliche, weitgehend zwingende Haftungsordnung für grenzüberschreitende Transporte.
   - Erwartung: Für ein Unternehmen wie die NordWert, das auch in andere EU-Länder exportiert, ist das CMR-Übereinkommen deshalb relevant.
   - Rückfrage: Was legen die Incoterms im Zusammenhang mit dem Transport fest?
 - Erläutern Sie den Unterschied zwischen den Incoterms-Klauseln EXW und DAP anhand eines Beispiels.

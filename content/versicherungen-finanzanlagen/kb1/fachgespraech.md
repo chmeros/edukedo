@@ -36,8 +36,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 - Was ist bei einem Wechsel des PKV-Versicherers im Hinblick auf die Alterungsrückstellung zu beachten?
   - Erwartung: Innerhalb desselben Versicherers besteht nach § 204 VVG grundsätzlich ein Tarifwechselrecht in einen Tarif mit gleichartigem Versicherungsschutz.
   - Erwartung: Dabei können die erworbenen Alterungsrückstellungen und das erreichte Lebensalter für die Beitragsberechnung mitgenommen werden, ohne erneute Gesundheitsprüfung für den bereits versicherten Leistungsumfang.
-  - Erwartung: Bei einem Wechsel zu einem anderen Versicherer wird nur der auf den Basistarif entfallende Teil der Alterungsrückstellung mitgenommen, der sogenannte Übertragungswert.
-  - Erwartung: Darüber hinausgehende, im bisherigen Tarif angesparte Rückstellungen verbleiben beim bisherigen Versicherer.
+  - Erwartung: Bei einem Wechsel zu einem anderen Versicherer überträgt der bisherige Versicherer nur den auf den Basistarif entfallenden Teil der Alterungsrückstellung (sogenannter Übertragungswert); dieser Anspruch besteht generell für Verträge ab dem 1. Januar 2009 (§ 204 Abs. 1 Nr. 2 VVG).
+  - Erwartung: Darüber hinausgehende, im bisherigen Tarif angesparte Rückstellungen verbleiben beim bisherigen Versicherer und gehen für die Beitragsberechnung beim neuen Versicherer verloren; die versicherte Person kann aber einen Zusatztarif beim bisherigen Versicherer verlangen, auf den dieser Teil angerechnet wird.
   - Erwartung: Ein Versichererwechsel ist daher sorgfältig gegen den Verbleib im bestehenden Vertrag mit internem Tarifwechsel abzuwägen.
   - Rückfrage: Warum bildet die PKV überhaupt Alterungsrückstellungen?
 - Warum bildet die PKV Alterungsrückstellungen, und was bezweckt der Gesetzgeber damit?
@@ -52,7 +52,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Er dient als Auffangtarif für Personen, die sonst keinen Versicherungsschutz erhalten würden.
   - Erwartung: Der Beitrag ist auf den GKV-Höchstbeitrag gedeckelt.
   - Erwartung: Vor Abschluss entfällt hier die sonst übliche Gesundheitsprüfung.
-  - Rückfrage: Wodurch unterscheidet sich der Notlagentarif vom Basistarif?
+  - Erwartung: Der Notlagentarif ist kein frei wählbarer Tarif, sondern die gesetzliche Folge von Beitragsrückständen nach erfolglosem Mahnverfahren; der Vertrag ruht, und die Person gilt als im Notlagentarif versichert (§ 193 Abs. 6 und 7 VVG, § 153 VAG).
+  - Rückfrage: Wann gilt eine versicherte Person als im Notlagentarif versichert?
 
 ### 1.2 Pflegeversicherung
 
@@ -78,7 +79,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Der Grad der Pflegebedürftigkeit wird in fünf Pflegegraden (1 bis 5) erfasst.
   - Erwartung: Ein Begutachtungsinstrument bewertet die Selbstständigkeit in mehreren Bereichen, etwa Mobilität, kognitive und kommunikative Fähigkeiten, Selbstversorgung und Bewältigung krankheits- oder therapiebedingter Anforderungen.
   - Erwartung: Pflegegrad 1 steht für eine geringe Beeinträchtigung der Selbstständigkeit, Pflegegrad 5 für die schwersten Beeinträchtigungen mit besonderen Anforderungen an die pflegerische Versorgung.
-  - Erwartung: Mit steigendem Pflegegrad steigen die Leistungen, sowohl bei häuslicher Pflege (Pflegegeld, Pflegesachleistungen) als auch bei stationärer Unterbringung (nach Pflegegrad gestaffelter, gedeckelter Zuschuss).
+  - Erwartung: Mit steigendem Pflegegrad steigen die Leistungen; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 insbesondere eine Beratung in der eigenen Häuslichkeit, und stationär zahlt die Pflegeversicherung ab Pflegegrad 2 nach Pflegegrad gestaffelte, gedeckelte Pauschalen (bei Pflegegrad 1 nur einen geringen Zuschuss).
   - Rückfrage: Welche Wahlmöglichkeiten bestehen bei häuslicher Pflege?
 - Warum sind PKV-Vollversicherte verpflichtet, eine private Pflegepflichtversicherung abzuschließen, und wie unterscheidet sich diese von einer freiwilligen Pflegezusatzversicherung?
   - Erwartung: Wer in der GKV versichert ist, ist automatisch auch sozial pflegeversichert; PKV-Vollversicherte schließen entsprechend eine private Pflegepflichtversicherung (PPV) ab.
@@ -91,7 +92,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 ### 1.3 Unfallversicherung
 
 - Erläutern Sie die Abgrenzung zwischen gesetzlicher und privater Unfallversicherung anhand eines Beispiels.
-  - Erwartung: Die gesetzliche Unfallversicherung greift ausschließlich bei Arbeitsunfällen, Wegeunfällen auf dem direkten Weg zur oder von der Arbeit und Berufskrankheiten.
+  - Erwartung: Die gesetzliche Unfallversicherung greift bei Beschäftigten bei Arbeitsunfällen, Wegeunfällen auf dem direkten Weg zur oder von der Arbeit und Berufskrankheiten; kraft Gesetzes versichert sind außerdem unter anderem Kinder in Kindertageseinrichtungen, Schüler:innen und Studierende (§ 2 SGB VII).
   - Erwartung: Unfälle in der Freizeit, im Haushalt, beim Sport oder im Straßenverkehr außerhalb des Arbeitswegs sind von ihr nicht erfasst.
   - Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.
   - Erwartung: Ein Beispiel: Ein Sturz beim Freizeitsport ist nur über die private Unfallversicherung abgesichert, ein Unfall auf dem direkten Arbeitsweg fällt dagegen in die gesetzliche Unfallversicherung.
@@ -100,7 +101,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die Gliedertaxe ist eine tabellarische Festlegung fester Invaliditätsgrade in Prozent für den Verlust oder die vollständige Funktionsunfähigkeit bestimmter Körperteile oder Sinnesorgane.
   - Erwartung: Typische Beispiele sind der Verlust eines Arms, einer Hand, eines Beins oder eines Auges.
   - Erwartung: Sie dient der Bemessung des Invaliditätsgrades, nach dem sich zusammen mit der vereinbarten Versicherungssumme die Höhe der einmaligen Kapitalleistung richtet.
-  - Rückfrage: Wie wird der Invaliditätsgrad bemessen, wenn eine Verletzung nicht von der Gliedertaxe erfasst ist oder nur eine teilweise Funktionsbeeinträchtigung vorliegt?
+  - Erwartung: Bei Teilverlust oder teilweiser Funktionsbeeinträchtigung eines Gliedertaxe-Körperteils gilt der entsprechende Teil des Taxwerts (Beispiel: Arm mit 70 %, um ein Zehntel beeinträchtigt, ergibt 7 %); nur außerhalb der Gliedertaxe wird individuell nach medizinischen Gesichtspunkten bemessen.
+  - Rückfrage: Wie wird der Invaliditätsgrad bemessen, wenn der betroffene Körperteil nicht in der Gliedertaxe genannt ist, und wie, wenn ein genannter Körperteil nur teilweise in seiner Funktion beeinträchtigt ist?
 - Erklären Sie den Mechanismus einer Progression in der Unfallversicherung anhand eines Beispiels.
   - Erwartung: Eine lineare Kapitalleistung reicht bei sehr hohen Invaliditätsgraden oft nicht aus, um die tatsächlichen finanziellen Folgen wie einen behindertengerechten Umbau oder dauerhafte Pflege abzudecken.
   - Erwartung: Bei einer Progression steigt die ausgezahlte Leistung ab einem bestimmten Invaliditätsgrad, häufig ab 25 %, überproportional zum Invaliditätsgrad an.
@@ -108,9 +110,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Rückfrage: Wovon hängt die Höhe der Invaliditätsleistung grundsätzlich ab?
 - Welche Fristen sind für den Leistungsanspruch nach einem Unfall zu beachten, und was passiert bei deren Versäumnis?
   - Erwartung: Für den Leistungsanspruch in der privaten Unfallversicherung sind vertragliche Fristen von großer praktischer Bedeutung.
-  - Erwartung: Die Invalidität muss innerhalb einer bestimmten Frist nach dem Unfall eingetreten und ärztlich festgestellt sowie beim Versicherer schriftlich geltend gemacht worden sein.
+  - Erwartung: Die Invalidität muss innerhalb der vertraglich vereinbarten Frist nach dem Unfall eingetreten und von einem Arzt schriftlich festgestellt sein und beim Versicherer geltend gemacht werden; nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos.
   - Erwartung: Die konkreten Fristen ergeben sich aus den Tarifbedingungen.
-  - Erwartung: Wird eine Frist versäumt, kann der Leistungsanspruch ganz oder teilweise verloren gehen.
+  - Erwartung: Wird eine Frist versäumt, ist der Anspruch auf die Invaliditätsleistung ausgeschlossen; nur in besonderen Ausnahmefällen lässt sich die Versäumung entschuldigen, und unterbleibt der Fristenhinweis des Versicherers nach § 186 VVG, kann er sich auf die Versäumung nicht berufen.
   - Erwartung: Bei Nordantis wird empfohlen, nach jedem nicht offensichtlich folgenlosen Unfall zeitnah eine ärztliche Untersuchung und Dokumentation vornehmen zu lassen, auch wenn eine dauerhafte Beeinträchtigung zunächst nicht absehbar ist.
   - Rückfrage: Welche Leistung zahlt die private Unfallversicherung bei dauerhafter Beeinträchtigung?
 - Was versteht man unter einem Mitwirkungsanteil, und wann kann er zur Anwendung kommen?
@@ -128,9 +130,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Rückfrage: In welcher Reihenfolge schöpfen Sie die Schichten in der Beratung grundsätzlich aus?
 - Was unterscheidet die Basisrente (Rürup-Rente) von der Riester-Rente hinsichtlich Zielgruppe und Förderung?
   - Erwartung: Die Basisrente richtet sich vor allem an Selbstständige und Freiberufler ohne oder mit nur geringer gesetzlicher Rentenversicherungspflicht, ist aber grundsätzlich für alle unbeschränkt Steuerpflichtigen zugänglich.
-  - Erwartung: Die Riester-Rente richtet sich vor allem an sozialversicherungspflichtig Beschäftigte, Beamtinnen und Beamte sowie ihnen gleichgestellte Personengruppen.
+  - Erwartung: Die Riester-Rente richtete sich bislang vor allem an Pflichtversicherte der gesetzlichen Rentenversicherung, Beamtinnen und Beamte sowie ihnen gleichgestellte Personengruppen; mit dem Altersvorsorgereformgesetz (ab 2027) können auch bestimmte Selbstständige zulageberechtigt sein.
   - Erwartung: Bei der Basisrente sind die Beiträge bis zu einem jährlichen Höchstbetrag als Sonderausgaben steuerlich absetzbar.
-  - Erwartung: Die Riester-Rente wird durch Grundzulage, Kinderzulage je kindergeldberechtigtem Kind und gegebenenfalls den Sonderausgabenabzug gefördert, wobei die günstigere Alternative gilt; für die volle Förderung ist ein Mindesteigenbeitrag nötig.
+  - Erwartung: Die Riester-Rente wird durch Grundzulage, Kinderzulage je kindergeldberechtigtem Kind und gegebenenfalls den Sonderausgabenabzug gefördert, wobei die günstigere Alternative gilt; für die volle Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr.
   - Erwartung: Beide werden in der Auszahlungsphase nachgelagert versteuert; die Basisrente zahlt ausschließlich eine lebenslange Rente, bei der Riester-Rente dürfen zu Rentenbeginn bis zu 30 % des Kapitals einmalig entnommen werden.
   - Rückfrage: In welche Schicht des Drei-Schichten-Modells ordnen Sie die beiden Vorsorgeformen ein?
 - Nennen und erläutern Sie die fünf Durchführungswege der betrieblichen Altersversorgung.
@@ -147,10 +149,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die geförderten Schichten sind mit Bindungen verbunden: Schicht 1 ist nicht kapitalisierbar, Schicht 2 an bestimmte Auszahlungsbedingungen gebunden, während Schicht 3 frei verfügbar ist.
   - Rückfrage: Welche Rolle spielt die gewünschte Flexibilität hinsichtlich der Kapitalverfügbarkeit vor Rentenbeginn bei dieser Abwägung?
 - Was bedeutet die gesetzliche Arbeitgeberzuschusspflicht bei Entgeltumwandlung, und wie würden Sie diese einer Kundin oder einem Kunden erklären?
-  - Erwartung: Arbeitnehmende mit Anspruch auf Entgeltumwandlung haben gegenüber dem Arbeitgeber einen gesetzlichen Anspruch auf Durchführung der betrieblichen Altersversorgung über mindestens einen der fünf Durchführungswege.
-  - Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber einen Teil der dadurch eingesparten Sozialversicherungsbeiträge als Zuschuss an die bAV weiterleiten.
+  - Erwartung: Arbeitnehmende haben einen gesetzlichen Anspruch auf Entgeltumwandlung von bis zu 4 % der Beitragsbemessungsgrenze der allgemeinen Rentenversicherung; durchgeführt wird sie über einen Pensionsfonds, eine Pensionskasse oder eine Versorgungseinrichtung, sofern der Arbeitgeber dazu bereit ist, andernfalls über eine Direktversicherung (§ 1a BetrAVG).
+  - Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart.
   - Erwartung: Die Pflicht besteht nur, soweit die Ersparnis tatsächlich entsteht.
-  - Erwartung: Kundengerecht erklärt: Weil durch die Entgeltumwandlung Sozialversicherungsbeiträge eingespart werden, kommt ein Teil dieser Ersparnis über den Arbeitgeberzuschuss der bAV zugute.
+  - Erwartung: Kundengerecht erklärt: Weil durch die Entgeltumwandlung Sozialversicherungsbeiträge eingespart werden, kommt diese Ersparnis in Form des Arbeitgeberzuschusses (15 % des umgewandelten Entgelts) der bAV zugute.
   - Rückfrage: Welche fünf Durchführungswege kennt die bAV?
 - Worin liegt der Unterschied zwischen Pensionskasse und Pensionsfonds als Durchführungswege der bAV?
   - Erwartung: Beide sind externe, rechtlich selbstständige Versorgungsträger, die einer eigenen Aufsicht unterliegen.

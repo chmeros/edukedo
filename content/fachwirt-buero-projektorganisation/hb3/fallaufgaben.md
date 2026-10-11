@@ -28,7 +28,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Der Ausbildende bemerkt, dass der Auszubildende den vereinbarten Ausbildungsplan nicht einhält. Skizzieren Sie ein strukturiertes Vorgehen (z. B. anhand der Vier-Stufen-Methode oder eines Rückmeldegesprächs), mit dem der Ausbildende die Ursachen klärt und den Auszubildenden gezielt unterstützt, ohne die Ausbildung zu gefährden.
 
-**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fluktuationsanalyse, Altersstrukturanalyse, Auftrags-/Kapazitätsplanung (intern) sowie Arbeitsmarktdaten, Branchenreports (extern). Teilaufgabe 2 sollte Argumente wie Motivation/Kenntnis der internen Abläufe (intern) versus frisches Know-how/größerer Bewerberpool (extern) enthalten. Teilaufgabe 3 sollte diskriminierungsfreie Formulierung, Pflichtangaben nach Nachweisgesetz und Fristen nennen. Teilaufgabe 4 sollte ein strukturiertes Feedback- bzw. Fördergespräch mit konkreten Zwischenzielen und Dokumentation beschreiben.
+**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fluktuationsanalyse, Altersstrukturanalyse, Auftrags-/Kapazitätsplanung (intern) sowie Arbeitsmarktdaten, Branchenreports (extern). Teilaufgabe 2 sollte Argumente wie Motivation/Kenntnis der internen Abläufe (intern) versus frisches Know-how/größerer Bewerberpool (extern) enthalten. Teilaufgabe 3 sollte diskriminierungsfreie Formulierung, Pflichtangaben nach Nachweisgesetz und die gestaffelten Fristen (erster Tag der Arbeitsleistung, siebter Kalendertag, ein Monat nach dem vereinbarten Beginn) nennen. Teilaufgabe 4 sollte ein strukturiertes Feedback- bzw. Fördergespräch mit konkreten Zwischenzielen und Dokumentation beschreiben.
 
 ---
 

@@ -30,7 +30,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Erläutern Sie den Unterschied zwischen kaufrechtlicher Gewährleistung und Produkthaftung nach dem ProdHaftG.
   - Erwartung: Die kaufrechtliche bzw. werkvertragliche Gewährleistung betrifft das Verhältnis zum unmittelbaren Vertragspartner.
   - Erwartung: Bei einem Sachmangel (§ 434 BGB) kann der Vertragspartner zunächst Nacherfüllung verlangen (§ 439 BGB); erst wenn diese fehlschlägt, kommen Rücktritt, Minderung oder Schadensersatz in Betracht.
-  - Erwartung: Die Produkthaftung nach dem ProdHaftG greift verschuldensunabhängig, wenn ein fehlerhaftes Produkt einen Schaden an Leben, Körper, Gesundheit oder privat genutzten Sachen eines Dritten verursacht.
+  - Erwartung: Die Produkthaftung nach dem ProdHaftG greift verschuldensunabhängig, wenn ein fehlerhaftes Produkt einen Schaden an Leben, Körper, Gesundheit oder privat genutzten Sachen eines Dritten verursacht; Schäden an gewerblich genutzten Sachen erfasst sie nicht (dafür bleibt die deliktische Haftung nach § 823 BGB).
   - Erwartung: Solvitec haftet hier potenziell gegenüber jedem Geschädigten, nicht nur gegenüber dem Vertragspartner.
   - Erwartung: Ergänzend kann die deliktische Produzentenhaftung nach § 823 Abs. 1 BGB eingreifen, die Verschulden voraussetzt, dafür aber nicht auf die im ProdHaftG genannten Schadensarten beschränkt ist.
   - Rückfrage: Was verlangt die aus der Produzentenhaftung abgeleitete Produktbeobachtungspflicht von Solvitec?
@@ -42,7 +42,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Praxis stellt die Wareneingangskontrolle einen Mangel fest, der unverzüglich beim Zulieferer gerügt wird; erst danach kommt die Nacherfüllung in Betracht.
   - Rückfrage: Wodurch wird die Solvitec Elektrowerke GmbH kraft ihrer Rechtsform zum Kaufmann?
 - Welche Unterschiede bestehen zwischen Prokura und Handlungsvollmacht hinsichtlich Umfang und Beschränkbarkeit?
-  - Erwartung: Die Prokura (§§ 48 ff. HGB) berechtigt zu nahezu allen Geschäften des Handelsgewerbes.
+  - Erwartung: Die Prokura (§§ 48 ff. HGB) berechtigt zu allen Arten von gerichtlichen und außergerichtlichen Geschäften und Rechtshandlungen, die der Betrieb eines Handelsgewerbes mit sich bringt.
   - Erwartung: Ihr Umfang ist im Außenverhältnis gesetzlich nicht beschränkbar.
   - Erwartung: Grundstücksgeschäfte sind ohne ausdrückliche Erweiterung ausgenommen, also die Veräußerung und Belastung von Grundstücken.
   - Erwartung: Die Handlungsvollmacht (§ 54 HGB) ist enger gefasst, bezieht sich auf die üblichen Geschäfte eines bestimmten Betriebs oder einer bestimmten Geschäftsart und kann inhaltlich beschränkt werden, etwa auf den Einkauf von Elektronikbauteilen.
@@ -78,7 +78,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Rolle spielt der Betriebsrat, wenn infolge der Werksschließung Kündigungen ausgesprochen werden?
 - Welche besonderen Kündigungsschutzregelungen gelten für schwangere Beschäftigte und für schwerbehinderte Menschen?
   - Erwartung: Schwangere und Mütter im Mutterschutz genießen nach dem MuSchG einen erhöhten Kündigungsschutz.
-  - Erwartung: Für schwerbehinderte Menschen gilt besonderer Kündigungsschutz nach dem SGB IX; vor der Kündigung ist die Zustimmung des Integrationsamts erforderlich.
+  - Erwartung: Für schwerbehinderte Menschen gilt besonderer Kündigungsschutz nach dem SGB IX; vor der Kündigung ist die vorherige Zustimmung des Integrationsamts (in mehreren Ländern: Inklusionsamt) erforderlich (§ 168 SGB IX).
   - Erwartung: Auch Mitglieder des Betriebsrats genießen einen erhöhten Kündigungsschutz.
   - Erwartung: Die Personalabteilung von Solvitec muss diese Schutzvorschriften vor jeder Kündigung sorgfältig prüfen.
   - Erwartung: Die Schwerbehinderung ist zudem eines der Kriterien der Sozialauswahl bei betriebsbedingten Kündigungen.
@@ -89,7 +89,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Grenzen setzt das AGB-Recht der Vertragsfreiheit, und gelten diese auch zwischen zwei Unternehmen?
   - Erwartung: AGB sind vorformulierte Vertragsbedingungen für eine Vielzahl von Verträgen, die eine Partei der anderen bei Vertragsschluss stellt (§§ 305 ff. BGB).
   - Erwartung: Die Vertragsfreiheit (Abschluss-, Inhalts- und Formfreiheit) ist nicht schrankenlos; Grenzen setzen etwa das Verbot sittenwidriger Geschäfte (§ 138 BGB), zwingende Formvorschriften und das AGB-Recht.
-  - Erwartung: AGB unterliegen einer Inhaltskontrolle; Klauseln, die den Vertragspartner unangemessen benachteiligen, etwa ein vollständiger Ausschluss der Mängelhaftung gegenüber Verbrauchern, oder überraschende Klauseln (§ 305c BGB) sind unwirksam.
+  - Erwartung: AGB unterliegen einer Inhaltskontrolle (§§ 307 ff. BGB); Klauseln, die den Vertragspartner unangemessen benachteiligen, etwa ein vollständiger Ausschluss der Mängelhaftung gegenüber Verbrauchern, sind unwirksam; überraschende Klauseln (§ 305c BGB) werden bereits gar nicht erst Vertragsbestandteil.
   - Erwartung: Auch im Geschäftsverkehr zwischen Unternehmern (B2B) findet die Inhaltskontrolle nach § 310 Abs. 1 BGB statt, sie ist zwar weniger streng, aber nicht ausgeschlossen.
   - Erwartung: Solvitec lässt ihre Einkaufs- und Verkaufsbedingungen deshalb regelmäßig rechtlich prüfen, insbesondere hinsichtlich Haftungsbeschränkungen, Eigentumsvorbehalt und Gerichtsstandsklauseln.
   - Rückfrage: Was bewirkt eine überraschende Klausel nach § 305c BGB?
@@ -114,8 +114,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Voraussetzungen müssen vorliegen, damit ein Käufer wegen Lieferverzugs vom Vertrag zurücktreten kann?
   - Erwartung: Der zugesagte Liefertermin muss überschritten sein, etwa weil eine Sonderanfertigung ihn nicht einhält.
   - Erwartung: Der Kunde muss dem Lieferanten eine angemessene Nachfrist zur Lieferung setzen.
-  - Erwartung: Erst wenn die Nachfrist erfolglos verstreicht, kann der Kunde vom Vertrag zurücktreten; bei einfachem Verzug setzt dies regelmäßig eine erfolglose Fristsetzung voraus.
-  - Erwartung: Neben dem Rücktritt kann der Kunde Schadensersatz statt der Leistung verlangen.
+  - Erwartung: Erst wenn die Frist erfolglos verstreicht, kann der Kunde vom Vertrag zurücktreten (§ 323 Abs. 1 BGB); Verzug oder Verschulden setzt der Rücktritt nicht voraus, und die Fristsetzung ist nur ausnahmsweise entbehrlich, etwa bei endgültiger Leistungsverweigerung (§ 323 Abs. 2 BGB).
+  - Erwartung: Neben dem Rücktritt kann der Kunde Schadensersatz statt der Leistung verlangen, wenn der Lieferant die Nichtleistung zu vertreten hat (§§ 280, 281 BGB).
   - Rückfrage: Welche Ansprüche kann Solvitec geltend machen, wenn ein Kunde die Kaufpreisrechnung trotz Fälligkeit und Mahnung nicht begleicht?
 
 ### 3.4 Unternehmensrelevantes Steuerrecht
@@ -148,7 +148,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie hoch ist derzeit der Regelsteuersatz der Umsatzsteuer?
 - Welche Konsequenzen kann eine Betriebsprüfung haben, wenn dabei fehlerhafte Steuererklärungen festgestellt werden?
   - Erwartung: Die Außenprüfung (Betriebsprüfung) nach der Abgabenordnung ist die Prüfung der steuerlichen Verhältnisse von Solvitec durch die Finanzverwaltung vor Ort.
-  - Erwartung: Solvitec trifft dabei umfangreiche Mitwirkungs- und Aufbewahrungspflichten.
+  - Erwartung: Solvitec trifft dabei umfangreiche Mitwirkungs- und Aufbewahrungspflichten; Buchungsbelege sind acht Jahre, Bücher und Jahresabschlüsse zehn Jahre aufzubewahren (§ 147 AO).
   - Erwartung: Stellt sich eine fehlerhafte Steuererklärung heraus, kann dies zu Steuernachzahlungen zuzüglich Zinsen führen.
   - Erwartung: Bei vorsätzlichem Fehlverhalten drohen strafrechtliche Konsequenzen wegen Steuerhinterziehung (§ 370 AO).
   - Erwartung: Bei leichtfertigem Fehlverhalten drohen bußgeldrechtliche Konsequenzen wegen leichtfertiger Steuerverkürzung (§ 378 AO).

@@ -39,7 +39,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Da Solvitec die Finanzbuchhaltung vollständig EDV-gestützt führt, sind zusätzlich zu den Grundsätzen ordnungsmäßiger Buchführung (GoB) die GoBD zu beachten, also die Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern, Aufzeichnungen und Unterlagen in elektronischer Form.
   - Erwartung: Die GoBD sollen insbesondere die Unveränderbarkeit und Nachvollziehbarkeit elektronisch erfasster Belege sicherstellen.
   - Erwartung: Das betrifft bei Solvitec zum Beispiel digital eingehende Lieferantenrechnungen aus dem Halbleiter-Einkauf.
-  - Erwartung: Für Buchführungsunterlagen gelten gesetzliche Aufbewahrungsfristen, die sich nach der Belegart richten.
+  - Erwartung: Für Buchführungsunterlagen gelten gesetzliche Aufbewahrungsfristen: zehn Jahre für Bücher und Jahresabschlüsse, acht Jahre für Buchungsbelege und sechs Jahre für Handelsbriefe (§ 257 HGB, § 147 AO).
   - Rückfrage: Welche Grundsätze verlangen die klassischen GoB, und was besagt das Belegprinzip?
 
 ### 2.2 Kostenrechnung

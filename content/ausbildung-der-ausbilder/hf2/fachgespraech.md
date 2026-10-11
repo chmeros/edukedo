@@ -52,10 +52,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Mitwirkungs- und Mitbestimmungsrechte hat der Betriebsrat bei der betrieblichen Berufsbildung?
   - Erwartung: Nach § 96 BetrVG haben Arbeitgeber und Betriebsrat die Berufsbildung gemeinsam zu fördern (allgemeines Beratungsrecht).
   - Erwartung: Nach § 97 BetrVG kann der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung mitwirken bzw. unter bestimmten Voraussetzungen mitbestimmen.
-  - Erwartung: Nach § 98 BetrVG hat der Betriebsrat ein echtes Mitbestimmungsrecht bei der Durchführung betrieblicher Berufsbildungsmaßnahmen, insbesondere bei Bestellung und Abberufung von Ausbildenden sowie bei der Auswahl der teilnehmenden Beschäftigten.
-  - Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Betrieben mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen.
+  - Erwartung: Nach § 98 BetrVG hat der Betriebsrat ein echtes Mitbestimmungsrecht bei der Durchführung betrieblicher Berufsbildungsmaßnahmen (Abs. 1); er kann außerdem der Bestellung einer ungeeigneten Ausbilderperson widersprechen oder ihre Abberufung verlangen (Abs. 2) und Vorschläge für die Teilnahme von Beschäftigten an Bildungsmaßnahmen machen (Abs. 3).
+  - Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen.
   - Erwartung: Vor einer Kündigung eines Ausbildungsverhältnisses ist der Betriebsrat nach § 102 BetrVG anzuhören; eine Kündigung ohne Anhörung ist unwirksam.
-  - Rückfrage: Welches Recht des Betriebsrats ist zu beachten, wenn eine Facharbeiterin nebenberuflich zur Ausbilderin bestellt werden soll?
+  - Rückfrage: Welches Recht hat der Betriebsrat, wenn eine Facharbeiterin nebenberuflich zur Ausbilderin bestellt werden soll, und wann kann er es ausüben? (Erwartung: Widerspruch gegen die Bestellung bzw. Verlangen der Abberufung, wenn die persönliche oder fachliche, insbesondere berufs- und arbeitspädagogische Eignung fehlt, § 98 Abs. 2 BetrVG.)
   - Rückfrage: Was kann der Arbeitgeber tun, wenn der Betriebsrat einer Einstellung form- und fristgerecht die Zustimmung verweigert?
 - Was ist die Jugend- und Auszubildendenvertretung (JAV), und welche Aufgaben hat sie im Zusammenhang mit der Ausbildung?
   - Erwartung: Die JAV vertritt speziell die Interessen jugendlicher Beschäftigter unter 18 Jahren sowie Auszubildender unter 25 Jahren.

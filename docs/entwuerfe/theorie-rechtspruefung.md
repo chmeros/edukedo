@@ -1,6 +1,6 @@
 # Entwurf: Rechtsprüfung der Theorie weiterer Kurse gegen die Normtexte
 
-Stand 11.10.2026 · **zur Entscheidung vorgelegt, nichts in `content/` geändert** (rechtsnahe Inhalte, R4). Auftrag des Projektleiters vom 11.10.2026 („alle Vorschläge umsetzen“): die rund 50 Zweifelsstellen, die beim Schreiben der rechtsnahen Fachgespräch-Fragen gemeldet wurden (`fachgespraech-stufe3-recht.md`), nach dem Muster der Immobilien-Prüfung (`immobilien-rechtspruefung.md`) gegen die Normtexte prüfen und Änderungsentwürfe vorlegen.
+Stand 11.10.2026 · **vom Projektleiter am 11.10.2026 zur Umsetzung freigegeben und paketweise (A bis D) umgesetzt** (siehe Architekturplanung §13; rechtsnahe Inhalte, R4). Die Teildateien behalten den Prüfstand vor der Umsetzung; maßgeblich ist, was in `content/` steht. Auftrag des Projektleiters vom 11.10.2026 („alle Vorschläge umsetzen“): die rund 50 Zweifelsstellen, die beim Schreiben der rechtsnahen Fachgespräch-Fragen gemeldet wurden (`fachgespraech-stufe3-recht.md`), nach dem Muster der Immobilien-Prüfung (`immobilien-rechtspruefung.md`) gegen die Normtexte prüfen und Änderungsentwürfe vorlegen.
 
 ## Was vorliegt
 

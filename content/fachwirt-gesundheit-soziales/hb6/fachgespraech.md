@@ -43,8 +43,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Nennen Sie ein Beispiel für eine Aussage, die Ängste von Angehörigen ausnutzt.
 - Was ist bei der Veröffentlichung von Erfahrungsberichten oder Fotos betreuter Personen zu beachten?
   - Erwartung: Der Umgang mit sensiblen Gesundheitsdaten, etwa bei Referenzen oder Erfahrungsberichten, erfordert besondere Sorgfalt und eine ausdrückliche, informierte Einwilligung der betroffenen Person.
-  - Erwartung: Erfahrungsberichte von Angehörigen dürfen nur mit deren Zustimmung veröffentlicht werden.
-  - Erwartung: Fotos von zu pflegenden Menschen erfordern eine gesonderte, informierte Einwilligung.
+  - Erwartung: Erfahrungsberichte von Angehörigen dürfen nur mit deren Zustimmung veröffentlicht werden; soweit sie Angaben zur pflegebedürftigen Person enthalten, braucht es zusätzlich deren Einwilligung oder die ihrer Vertretung.
+  - Erwartung: Fotos, auf denen zu pflegende Menschen erkennbar sind, erfordern deren gesonderte, ausdrückliche und informierte Einwilligung (§ 22 KUG, Art. 9 DSGVO); ist die Person nicht einwilligungsfähig, kommt es grundsätzlich auf ihre rechtliche Vertretung an, nicht allein auf Angehörige.
   - Erwartung: Informierte Einwilligung heißt: Die abgebildete Person oder ihre Vertretung ist über Zweck und Verwendung aufgeklärt und stimmt der Veröffentlichung ausdrücklich zu.
   - Erwartung: Die erforderlichen Einwilligungen werden vor der Veröffentlichung eingeholt und dokumentiert.
   - Rückfrage: Warum gelten im Gesundheits- und Sozialwesen besonders enge Grenzen für Marketingmaßnahmen?
@@ -114,21 +114,21 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Gesetz gegen den unlauteren Wettbewerb (UWG) setzt für alle Marktteilnehmer:innen, auch für Einrichtungen des Gesundheits- und Sozialwesens, allgemeine Grenzen für zulässige Werbung.
   - Erwartung: Verboten sind irreführende geschäftliche Handlungen, also unwahre oder zur Täuschung geeignete Angaben, etwa über die Qualifikation des Personals oder Erfolge der Pflege.
   - Erwartung: Verboten sind aggressive geschäftliche Handlungen, also unzulässige Beeinflussung, etwa durch Belästigung oder Ausnutzung einer Zwangslage.
-  - Erwartung: Verboten sind ganz allgemein unlautere geschäftliche Handlungen, die geeignet sind, die Interessen von Marktteilnehmer:innen spürbar zu beeinträchtigen.
+  - Erwartung: Verboten sind ganz allgemein unlautere geschäftliche Handlungen (§ 3 UWG), gegenüber Verbraucher:innen also solche, die nicht der unternehmerischen Sorgfalt entsprechen und geeignet sind, das wirtschaftliche Verhalten wesentlich zu beeinflussen.
   - Erwartung: Eine Spitzenstellungsbehauptung wie „Wir sind der beste Pflegedienst der Region“ sollte sich nachweisen lassen; pauschale, nicht belegbare Behauptungen dieser Art können gegen das UWG verstoßen.
   - Rückfrage: Nennen Sie ein Beispiel für eine aggressive geschäftliche Handlung.
 - Inwiefern orientiert sich die Werbung eines Pflegedienstes am Heilmittelwerbegesetz, obwohl dieses primär auf Arzneimittel zielt?
-  - Erwartung: Das Heilmittelwerbegesetz (HWG) beschränkt insbesondere die Werbung für Arzneimittel, Medizinprodukte und bestimmte Heilbehandlungen gegenüber der Öffentlichkeit.
-  - Erwartung: Es verbietet etwa irreführende Werbung mit Angst erzeugenden Effekten, mit Erfolgsgarantien oder mit Darstellungen, die einen übertriebenen Eindruck vom Behandlungserfolg erwecken.
-  - Erwartung: Das HWG zielt primär auf Arzneimittel und konkrete Heilbehandlungen, ein Pflegedienst ist davon nicht in jedem Fall direkt betroffen.
+  - Erwartung: Das Heilmittelwerbegesetz (HWG) beschränkt insbesondere die Werbung für Arzneimittel, Medizinprodukte sowie Verfahren und Behandlungen mit Krankheitsbezug gegenüber der Öffentlichkeit.
+  - Erwartung: Es verbietet etwa irreführende Werbung, zum Beispiel mit Erfolgsgarantien (§ 3 HWG), sowie bestimmte missbräuchliche, abstoßende oder irreführende Darstellungen außerhalb der Fachkreise (§ 11 HWG).
+  - Erwartung: Das Ausnutzen von Ängsten ist im allgemeinen Wettbewerbsrecht (UWG) als Merkmal aggressiver Handlungen geregelt (§ 4a UWG).
   - Erwartung: Der branchenübliche Werbestandard im Gesundheits- und Sozialwesen orientiert sich dennoch erkennbar an diesem strengeren Maßstab.
   - Erwartung: Werbeaussagen stützen sich daher auf nachweisbare, sachliche Informationen wie Leistungsumfang, Erreichbarkeit und Qualifikation des Teams und verzichten auf reißerische, vergleichende oder angstbasierte Formulierungen.
   - Rückfrage: Welche Gründe außer den rechtlichen sprechen für diese Zurückhaltung in der Werbung?
-- Welche Rolle spielen Berufsordnungen (z. B. für Pflegefachkräfte) zusätzlich zum allgemeinen Wettbewerbsrecht bei der Gestaltung von Werbung?
-  - Erwartung: Viele im Gesundheits- und Sozialwesen tätige Berufsgruppen unterliegen eigenen Berufsordnungen, z. B. Ärzt:innen und Therapeut:innen.
+- Welche Rolle spielen Berufsordnungen zusätzlich zum allgemeinen Wettbewerbsrecht bei der Gestaltung von Werbung?
+  - Erwartung: Berufsgruppen, die in Kammern organisiert sind, z. B. Ärzt:innen, unterliegen eigenen Berufsordnungen; für Pflegefachpersonen gibt es keine bundesweit einheitliche Berufsordnung, ob berufsrechtliche Werberegeln gelten, hängt vom Landesrecht ab (z. B. davon, ob eine Pflegekammer besteht).
   - Erwartung: Die Berufsordnungen können ergänzend berufsständische Werbe-Schranken vorsehen.
-  - Erwartung: Beispiele sind das Gebot einer sachlichen, nicht reißerischen Außendarstellung oder Einschränkungen bei vergleichender Werbung gegenüber Berufskolleg:innen.
+  - Erwartung: Ein Beispiel ist das Gebot einer sachlichen, nicht reißerischen Außendarstellung.
   - Erwartung: Diese Schranken gelten zusätzlich zum allgemeinen Wettbewerbsrecht (UWG) und zu den branchenspezifischen Sonderregelungen wie dem HWG.
   - Erwartung: In der Praxis sollten sich Werbeaussagen strikt auf nachweisbare, sachliche Informationen stützen, sowohl aus rechtlichen als auch aus ethischen Gründen.
-  - Rückfrage: Welche Einschränkung bei vergleichender Werbung kann eine Berufsordnung vorsehen?
+  - Rückfrage: Was kann eine Berufsordnung zur Außendarstellung einer Berufsgruppe vorsehen?
 

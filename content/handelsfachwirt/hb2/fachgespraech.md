@@ -66,7 +66,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Berufsbildungsgesetz (BBiG) rahmt die betriebliche Berufsausbildung und legt Mindestinhalte des Ausbildungsvertrags fest, z. B. Ausbildungsberuf, Dauer, Ausbildungsvergütung und Probezeit.
   - Erwartung: Der Ausbildungsbetrieb ist verpflichtet, die Ausbildung entsprechend dem Ausbildungsrahmenplan durchzuführen.
   - Erwartung: Er muss die für die Ausbildung erforderlichen Mittel kostenlos bereitstellen.
-  - Erwartung: Wer ausbildet, muss persönlich und fachlich geeignet sein; die fachliche Eignung wird häufig durch eine Ausbildereignungsprüfung nach der Ausbilder-Eignungsverordnung (AEVO) nachgewiesen.
+  - Erwartung: Wer ausbildet, muss persönlich und fachlich geeignet sein; zur fachlichen Eignung gehören die beruflichen sowie die berufs- und arbeitspädagogischen Kenntnisse, und die berufs- und arbeitspädagogische Eignung ist nach der Ausbilder-Eignungsverordnung (AEVO) in einer Prüfung nachzuweisen (§ 30 BBiG, § 1 AEVO).
   - Rückfrage: Welche Pflichten haben im Gegenzug die Auszubildenden?
 - Wozu dient der Ausbildungsrahmenplan, und wie hängt er mit dem betrieblichen Ausbildungsplan zusammen?
   - Erwartung: Der bundeseinheitliche Ausbildungsrahmenplan gibt vor, welche Fertigkeiten, Kenntnisse und Fähigkeiten in welchem zeitlichen Rahmen vermittelt werden sollen.

@@ -43,7 +43,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Jahresabschluss umfasst mindestens Bilanz, Gewinn- und Verlustrechnung sowie einen Anhang.
   - Erwartung: Ob zusätzlich ein Lagebericht und eine Prüfung durch eine:n Abschlussprüfer:in erforderlich sind, richtet sich nach der Größenklasse (klein, mittelgroß, groß).
   - Erwartung: Handelsrechtlich ist nur ein einheitlicher Jahresabschluss für die GmbH als Ganzes aufzustellen.
-  - Erwartung: Der festgestellte Jahresabschluss ist beim Bundesanzeiger offenzulegen.
+  - Erwartung: Der festgestellte Jahresabschluss ist elektronisch zum Unternehmensregister einzureichen und damit offenzulegen (§ 325 HGB).
   - Erwartung: Die Offenlegung ermöglicht es Banken, Geschäftspartner:innen und Eigentümergemeinschaften, sich ein Bild von der wirtschaftlichen Lage zu machen.
   - Rückfrage: Warum empfiehlt sich trotz des einheitlichen Jahresabschlusses eine getrennte interne Kostenrechnung je Sparte?
 

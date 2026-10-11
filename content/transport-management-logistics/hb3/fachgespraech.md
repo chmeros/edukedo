@@ -171,9 +171,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche rechtlichen Grundlagen regeln die betriebliche Berufsausbildung, und was regeln sie jeweils?
   - Erwartung: Das Berufsbildungsgesetz (BBiG) regelt u. a. Abschluss und Inhalt des Berufsausbildungsvertrags, die Pflichten von Ausbildenden und Auszubildenden sowie die Probezeit.
   - Erwartung: Die fachlichen und zeitlichen Inhalte der Ausbildung ergeben sich aus der Ausbildungsordnung des jeweiligen Ausbildungsberufs, die den Ausbildungsrahmenplan enthält.
-  - Erwartung: Nach der Ausbildereignungsverordnung (AEVO) muss, wer selbst ausbilden möchte, sowohl persönlich als auch fachlich geeignet sein.
+  - Erwartung: Nach den §§ 28–30 BBiG muss, wer selbst ausbilden möchte, sowohl persönlich als auch fachlich geeignet sein; die berufs- und arbeitspädagogische Eignung ist nach der Ausbildereignungsverordnung (AEVO) nachzuweisen.
   - Erwartung: Bei minderjährigen Auszubildenden greifen zusätzlich die Schutzvorschriften des Jugendarbeitsschutzgesetzes (JArbSchG).
-  - Rückfrage: Wie wird die fachliche Eignung nach der AEVO in der Regel nachgewiesen?
+  - Rückfrage: Wie wird die berufs- und arbeitspädagogische Eignung nach der AEVO in der Regel nachgewiesen?
 - Was muss ein Berufsausbildungsvertrag nach dem BBiG mindestens enthalten?
   - Erwartung: Der Vertrag muss Beginn und Dauer der Ausbildung sowie den Ausbildungsort enthalten.
   - Erwartung: Der Vertrag muss die sachliche und zeitliche Gliederung der Ausbildung und die tägliche Ausbildungszeit enthalten.
@@ -208,8 +208,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Feedback konkret, verhaltensbezogen und zeitnah formulieren.
   - Rückfrage: Welche Funktion hat der betriebliche Ausbildungsplan?
 - Welche Voraussetzungen müssen nach der AEVO erfüllt sein, um selbst ausbilden zu dürfen?
-  - Erwartung: Wer selbst ausbilden möchte, muss nach der AEVO sowohl persönlich als auch fachlich geeignet sein.
-  - Erwartung: Die fachliche Eignung wird in der Regel durch die Ausbildereignungsprüfung (AdA-Schein) nachgewiesen.
+  - Erwartung: Wer selbst ausbilden möchte, muss nach den §§ 28–30 BBiG sowohl persönlich als auch fachlich geeignet sein; zur fachlichen Eignung gehört der Nachweis der berufs- und arbeitspädagogischen Eignung nach der AEVO.
+  - Erwartung: Die berufs- und arbeitspädagogische Eignung wird in der Regel durch die Ausbildereignungsprüfung (AdA-Schein) nachgewiesen.
   - Erwartung: Die Ausbildereignungsprüfung prüft berufs- und arbeitspädagogische Kenntnisse.
   - Rückfrage: Nach welchem Plan führen Ausbildende die Ausbildung durch, und wie wird er im Betrieb konkretisiert?
 

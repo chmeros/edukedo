@@ -82,7 +82,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Es verlangt eine regelmäßige Risikoanalyse bei den eigenen Geschäftsbereichen und bei unmittelbaren Zulieferern.
   - Erwartung: Bei erkannten Risiken müssen Präventions- und Abhilfemaßnahmen ergriffen werden.
   - Erwartung: Außerdem ist ein Beschwerdemechanismus einzurichten, über den Betroffene auf Missstände hinweisen können.
-  - Erwartung: Das Gesetz wurde schrittweise ab 2023 für Unternehmen ab bestimmten Beschäftigtenschwellen verpflichtend.
+  - Erwartung: Das Gesetz gilt seit 2023 für Unternehmen ab 3.000, seit 2024 ab 1.000 Arbeitnehmer:innen im Inland; der Rechtsstand ist in Bewegung (geplante Entlastungen, etwa bei der Berichtspflicht).
   - Rückfrage: Warum kann das LkSG auch Unternehmen unterhalb der gesetzlichen Schwellenwerte mittelbar betreffen?
   - Rückfrage: Wie setzt die Loreno Mode & Wohnen GmbH die Anforderungen bei asiatischen Textillieferanten praktisch um?
 - Welche Maßnahmen können Korruptionsrisiken im Einkauf wirksam vorbeugen?
