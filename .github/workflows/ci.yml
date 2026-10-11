@@ -57,6 +57,9 @@ jobs:
       - name: Test
         shell: bash
         run: |
+          # Mit explizitem `shell: bash` gilt `-e -o pipefail`: Ohne `set +e` würde der Schritt schon an der Pipeline enden und die
+          # Annotationen nie ausgeben.
+          set +e
           pnpm test 2>&1 | tee test.log
           code=${PIPESTATUS[0]}
           if [ "$code" -ne 0 ]; then

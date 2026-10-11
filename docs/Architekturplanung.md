@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (CI: Absturz des API-Servers im Smoke-Test behoben, Worker robust gegen Datenbank- und Redis-Fehler; Entscheidung des Projektleiters)
+
+Anlass: Der Job `build-and-test` der CI war seit 09.10.2026 rot (e2e, docker-build und audit grün; e2e läuft seit Lauf 112 vom 09.10.2026 durch). Die Job-Protokolle sind ohne Admin-Anmeldung nicht lesbar; Ursache gefunden über Fehler-Annotationen und einen Nachbau im Linux-Container (Node 22, `pnpm install --frozen-lockfile`, Build, Smoke-Test, Redis wie in der CI).
+
+- **Ursache des Smoke-Fehlers:** Der Test-Lauf lässt Bewertungs-Aufträge in der Redis-Standarddatenbank zurück. Der Worker des gebauten Servers verarbeitet sie im Smoke-Test ohne Postgres; der `failed`-Handler schrieb ohne Absicherung in die nicht erreichbare Datenbank, die unbehandelte Zurückweisung beendete den Prozess, `/health` blieb unbeantwortet. Das ist auch im Betrieb ein Fehler (Datenbank kurz weg, während ein Auftrag fehlschlägt).
+- **Behoben:** `startAiGradingWorker` fängt Fehler beim Zurückschreiben ab und protokolliert sie; beide Worker (`ai-grading-queue.ts`, `payment-queue.ts`) haben einen `error`-Listener. Der Smoke-Test der API nutzt `REDIS_URL=redis://localhost:6379/15` und ist damit unabhängig von Testresten. Im Container nachgestellt: vorher Prozess beendet, nachher läuft er, `/health` antwortet.
+- **Offen:** Der Schritt „Test“ im Job `build-and-test` scheitert weiter (Lauf zu a6603d1 und c1704d6), Ursache unbekannt; die Fehler-Annotationen im Workflow zeigten wegen `-e -o pipefail` nichts und sind mit `set +e` korrigiert. Lokal laufen alle 915 API-Tests; verdächtig sind Zeitüberschreitungen der Testcontainers-Setups auf den kleineren CI-Rechnern. Nächster Schritt: Annotationen des nächsten Laufs lesen.
+
 ### Entschieden am 11.10.2026 (Technischer Fachwirt: Mittel-Befunde des Fachlehrer-Reviews umgesetzt, Optionen in Multiple Choice gemischt FL-TF-38; Entscheidung des Projektleiters)
 
 Anlass: Die Mittel-Befunde FL-TF-17, 19 bis 21, 23 bis 26, 31, 34 bis 38 des Reviews vom 07.10.2026 waren offen. Der Projektleiter ließ sie am 11.10.2026 umsetzen. Ausgespart bleiben FL-TF-16 (Rahmenplan-Lücken, neue Theorie, R3) und die rechtsnahen Befunde FL-TF-02, 09 bis 11, 13, 22, 27 bis 30, 33. Die Änderungen wurden von drei Agenten je Ordnergruppe (tq1 bis tq3, hq1 bis hq4, wq1 bis wq4) umgesetzt und von mir mit `db:validate-content`, dem Struktur-Check der Fachgespräch-Dateien und dem Importabgleich geprüft; kein Browser-Durchgang.
