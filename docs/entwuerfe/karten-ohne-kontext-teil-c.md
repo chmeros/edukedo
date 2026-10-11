@@ -1,6 +1,6 @@
 # Entwurf: Karten ohne Kontext, Teil 1 C — Items, die ohne den Fallbezug nicht beantwortbar sind
 
-Stand 11.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/karten-ohne-kontext.md` (dort Teil 1, Variante B umgesetzt: Glossar-Einträge für Kelvinar, Frau Yildiz und Nordantis). Dieser Entwurf betrifft nur die Items, bei denen auch das Popover nach der Antwort nicht genügt.
+Stand 11.10.2026 · **Vorschläge 1 bis 4 vom Projektleiter angenommen und am 11.10.2026 eingespielt** (siehe Architekturplanung §13); Frage 5 (weitere Kurse) ist offen (Rahmenentscheidung R3). Folgt auf `docs/entwuerfe/karten-ohne-kontext.md` (dort Teil 1, Variante B umgesetzt: Glossar-Einträge für Kelvinar, Frau Yildiz und Nordantis). Dieser Entwurf betrifft nur die Items, bei denen auch das Popover nach der Antwort nicht genügt.
 
 ## Kriterium und Ergebnis
 

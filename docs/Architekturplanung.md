@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 11.10.2026 (Karten ohne Kontext, Teil 1 C: 16 Items mit Fallfakt selbsterklärend gefasst, 2 entfernt; Entscheidung des Projektleiters, UXT-B-08, R3)
+
+Anlass: Nach dem Glossar-Verfahren (Eintrag davor) blieben 18 Karten und Quizfragen in AEVO (14) und Versicherungen (4), die ohne den Fallfakt auch nach dem Popover nicht lösbar sind. Entwurf: `docs/entwuerfe/karten-ohne-kontext-teil-c.md`. Der Projektleiter ließ am 11.10.2026 alle Vorschläge des Entwurfs umsetzen und die übrigen 120 Items mit Fallname unverändert.
+
+- **AEVO, umformuliert (12):** K-1.1-05, Q-1.1-01 und Q-1.1-08 nennen statt „die drei bei Kelvinar vertretenen Berufe“ die Berufe selbst (Elektroniker/in für Betriebstechnik, Industriekaufmann/-frau, Fachinformatiker/in Systemintegration); K-1.2-10, K-1.2-11, K-1.2-12, Q-1.2-02 und Q-1.2-09 sprechen von „einem Industriebetrieb“ (K-1.2-10 mit dem Kontext der Ausbildungswerkstatt in der Frage); K-1.3-05 fragt allgemein nach der ÜBA (Antwort „Für Ausbildungsinhalte, etwa Spezialverfahren der Elektroinstallation, …“); K-3.2-09 „in der Ausbildung“ (Antwort „durch Auszubildende mehrerer Berufe“); Q-3.2-07 und Q-3.2-08 ohne „bei Kelvinar“ bzw. „drei … beschriebenen“.
+- **AEVO, entfernt (2):** K-3.1-02 und Q-3.1-07 prüften nur den Inhalt der Erzählung (Zahl und Namen der Berufe). Sie sind jetzt aus der Datei gestrichen; der Import deaktiviert sie, die Antwortverläufe bleiben in der Datenbank.
+- **Versicherungen, verallgemeinert (4):** K-3.2-01 „Nenne zwei klassische Vertriebswege der Versicherungswirtschaft.“ (Antwort „Gebundene Ausschließlichkeitsvertreter und unabhängige Makler.“), K-3.4-01 ohne „bei Nordantis“, K-3.4-16 „in einem Versicherer“, K-3.3-20 „eines Versicherers“. Die verallgemeinerten Aussagen sind fachlich zu prüfen (R3). Direkt- oder Bankenvertrieb wurden bewusst nicht ergänzt, weil sie in der Theorie nicht stehen.
+- **Import:** `db:validate-content`: 615 Dateien, 16.038 Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 16 geändert, 0 neu, 2 deaktiviert. In anderen Datenbanken denselben Import nach dem Deploy ausführen.
+- **Offen:** Ob die Fallfirmen weiterer Kurse (Brevanta, Loreno, Ravelin, Solvitec, Vantera, NordWert) ein Glossar-Verfahren bekommen oder ob zuerst ihre Items auf Fallfakt-Items durchgesehen werden, ist nicht entschieden. Nicht im Browser angesehen.
+
 ### Entschieden am 11.10.2026 (Karten und Aufgaben ohne Kontext: Fallbetrieb als Fachbegriff, Einstieg im ersten Thema, Zuordnungs-Wortlaut; Entscheidung des Projektleiters, UXT-B-08, UXT-F-09, R3)
 
 Anlass: Die Usability-Prüfung vom 07.10.2026 fand Karten und Aufgaben, die ohne Vorwissen nicht verständlich sind. Entwurf: `docs/entwuerfe/karten-ohne-kontext.md`. Der Projektleiter wählte am 11.10.2026: Teil 1 Variante B (später gezielt C), K-1.1-16 neu fassen, Teil 2 B und C, Teil 3 alles.
