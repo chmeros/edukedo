@@ -1,0 +1,155 @@
+---
+kurs_slug: technischer-fachwirt
+fachgebiet_code: WQ3
+fachgebiet_title: "Recht und Steuern"
+thema_code: "WQ3-fachgespraech"
+thema_title: "Fachgesprächsfragen-Sammlung"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV vom 17.01.2006, BGBl. I S. 66), § 4 Abs. 5 (Qualifikationsbereich Recht und Steuern, Teil der wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+---
+
+## Fachgesprächsfragen
+
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus WQ3. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+
+### 3.1 Bürgerliches Recht und Handelsrecht
+
+- Worin unterscheiden sich Kaufvertrag und Werkvertrag, und warum ist diese Unterscheidung für einen Maschinenbauer wie Vantera besonders relevant?
+  - Erwartung: Beim Kaufvertrag verpflichtet sich der Verkäufer, eine bereits existierende oder gattungsmäßig bestimmte Sache zu übergeben und Eigentum zu verschaffen, der Käufer zahlt den Kaufpreis (§ 433 BGB).
+  - Erwartung: Beim Werkvertrag schuldet der Unternehmer die Herstellung eines bestimmten Erfolgs, etwa einer nach Kundenzeichnung individuell gefertigten Präzisionswelle, der Besteller zahlt die vereinbarte Vergütung (§ 631 BGB).
+  - Erwartung: Kaufrecht betrifft bei Vantera etwa den Bezug von Standard-Rohmaterial oder den Verkauf serienmäßig gefertigter Normteile, Werkvertragsrecht die Sonderanfertigung nach Kundenspezifikation.
+  - Erwartung: Stellt Vantera bei einer individuell gefertigten Sache das Material selbst, liegt häufig ein Werklieferungsvertrag (§ 650 BGB) vor, auf den überwiegend Kaufrecht Anwendung findet.
+  - Erwartung: Die Unterscheidung ist relevant, weil sich daraus unterschiedliche Regeln zu Abnahme, Gefahrübergang, Fälligkeit der Vergütung und Verjährung der Mängelrechte ergeben, weshalb Vantera in Lieferverträgen klarstellen sollte, ob ein Kauf oder ein Werkvertrag vorliegt.
+  - Rückfrage: Welche Mängelrechte stehen einem Käufer bei einem Sachmangel zu, und in welcher Reihenfolge?
+- Welche Bedeutung hat die Abnahme beim Werkvertrag für Gefahrübergang und Verjährung der Mängelrechte?
+  - Erwartung: Beim Werkvertrag setzt die Fälligkeit der Vergütung grundsätzlich die Abnahme des Werks durch den Besteller voraus (§ 640 BGB).
+  - Erwartung: Mit der Abnahme geht die Gefahr des zufälligen Untergangs auf den Besteller über.
+  - Erwartung: Mit der Abnahme beginnt zugleich die Verjährung der Mängelansprüche zu laufen.
+  - Erwartung: Vantera sollte in Lieferverträgen klarstellen, ob eine Bestell- und Fertigungssituation kauf- oder werkvertraglich einzuordnen ist, um Missverständnisse über Abnahme, Gefahrübergang und Verjährungsfristen zu vermeiden.
+  - Rückfrage: Welche Rechte hat ein Automobilzulieferer, wenn er nach der Übergabe einer Sonderanfertigung einen Fertigungsfehler rügt?
+- Erläutern Sie den Unterschied zwischen der kaufrechtlichen Gewährleistung und der Produkthaftung nach dem ProdHaftG.
+  - Erwartung: Die kaufrechtliche bzw. werkvertragliche Gewährleistung (Mängelhaftung) betrifft das Verhältnis zwischen Vantera und ihrem unmittelbaren Vertragspartner bei einem Sachmangel (§ 434 BGB).
+  - Erwartung: Der Vertragspartner kann zunächst Nacherfüllung (Nachbesserung oder Ersatzlieferung, § 439 BGB) verlangen, erst wenn diese fehlschlägt, kommen Rücktritt, Minderung oder Schadensersatz in Betracht.
+  - Erwartung: Die Produkthaftung nach dem ProdHaftG greift verschuldensunabhängig, wenn ein fehlerhaftes Produkt einen Schaden an Leben, Körper, Gesundheit oder privat genutzten Sachen eines Dritten verursacht.
+  - Erwartung: Anders als bei der Gewährleistung haftet Vantera nach dem ProdHaftG potenziell gegenüber jedem Geschädigten, nicht nur gegenüber dem unmittelbaren Vertragspartner.
+  - Erwartung: Die deliktische Produzentenhaftung nach § 823 Abs. 1 BGB setzt dagegen Verschulden voraus, ist aber nicht auf bestimmte Schadensarten beschränkt.
+  - Rückfrage: Welche betrieblichen Konsequenzen ergeben sich für einen Zulieferer wie Vantera aus der Produkthaftung?
+- Was versteht man unter der kaufmännischen Rügepflicht nach § 377 HGB, und welche Konsequenz hat ihre Verletzung?
+  - Erwartung: Als GmbH gilt Vantera nach § 6 HGB i. V. m. § 13 Abs. 3 GmbHG als Formkaufmann, unabhängig von der tatsächlichen Größe des Geschäftsbetriebs.
+  - Erwartung: Nach § 377 HGB muss Vantera als Kaufmann eingehende Ware unverzüglich untersuchen und erkennbare Mängel unverzüglich rügen.
+  - Erwartung: Verletzt Vantera diese Pflicht, gilt die Lieferung als genehmigt.
+  - Erwartung: Mit der Genehmigung gehen Gewährleistungsansprüche verloren.
+  - Erwartung: Deshalb betreibt Vantera eine strukturierte Wareneingangskontrolle.
+  - Rückfrage: Wie läuft ein kaufrechtlicher Mängelfall bei Vantera von der Wareneingangskontrolle bis zu Rücktritt oder Minderung typischerweise ab?
+- Wozu berechtigt eine Prokura, und worin unterscheidet sie sich von einer Handlungsvollmacht?
+  - Erwartung: Die Prokura (§§ 48 ff. HGB) ist die weitreichendste handelsrechtliche Vertretungsform und berechtigt zu nahezu allen Geschäften des laufenden Handelsgewerbes.
+  - Erwartung: Ihr Umfang ist im Außenverhältnis gesetzlich nicht beschränkbar, interne Beschränkungen wirken nur im Innenverhältnis.
+  - Erwartung: Grundstücksgeschäfte sind ohne ausdrückliche Erweiterung von der Prokura ausgenommen.
+  - Erwartung: Die Handlungsvollmacht (§ 54 HGB) ist enger gefasst auf die üblichen Geschäfte eines bestimmten Betriebs oder einer bestimmten Geschäftsart und kann inhaltlich beschränkt werden, etwa auf den Einkauf von Rohmaterial.
+  - Rückfrage: Wie erhalten Geschäftspartner Sicherheit über die Vertretungsbefugnis einer Person bei Vantera?
+
+### 3.2 Arbeitsrecht Grundlagen
+
+- Welche Voraussetzungen muss eine betriebsbedingte Kündigung nach dem Kündigungsschutzgesetz erfüllen?
+  - Erwartung: Das Kündigungsschutzgesetz greift in Betrieben mit in der Regel mehr als zehn Beschäftigten, was bei Vantera mit rund 350 Beschäftigten erfüllt ist.
+  - Erwartung: Eine ordentliche Kündigung ist danach nur wirksam, wenn sie sozial gerechtfertigt ist, also auf personenbedingten, verhaltensbedingten oder betriebsbedingten Gründen beruht (§ 1 Abs. 2 KSchG).
+  - Erwartung: Bei einer betriebsbedingten Kündigung muss der Arbeitsplatz tatsächlich wegfallen, etwa durch die Stilllegung einer Fertigungslinie nach einem dauerhaften Auftragsrückgang.
+  - Erwartung: Außerdem darf keine anderweitige Beschäftigungsmöglichkeit bestehen.
+  - Erwartung: Unter den vergleichbaren Beschäftigten muss eine ordnungsgemäße Sozialauswahl erfolgen, u. a. nach Betriebszugehörigkeit, Lebensalter, Unterhaltspflichten und Schwerbehinderung.
+  - Rückfrage: Wann ist demgegenüber eine außerordentliche (fristlose) Kündigung nach § 626 BGB zulässig?
+  - Rückfrage: Welche Rolle spielt der Betriebsrat vor Ausspruch einer Kündigung?
+- Welche Rolle spielt der Betriebsrat vor Ausspruch einer Kündigung, und was folgt aus einer unterlassenen Anhörung?
+  - Erwartung: Der Betriebsrat wird nach dem Betriebsverfassungsgesetz von den wahlberechtigten Beschäftigten gewählt und vertritt die Interessen der Belegschaft gegenüber der Geschäftsführung.
+  - Erwartung: Seine Beteiligungsrechte sind abgestuft in Informationsrechte, Anhörungsrechte und echte Mitbestimmungsrechte.
+  - Erwartung: Vor jeder Kündigung ist der Betriebsrat anzuhören (§ 102 BetrVG).
+  - Erwartung: Eine ohne vorherige Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam.
+  - Rückfrage: Worin unterscheidet sich ein Anhörungsrecht von einem Mitbestimmungsrecht, und nennen Sie ein Beispiel für Letzteres nach § 87 BetrVG?
+- Innerhalb welcher Frist muss eine Kündigungsschutzklage erhoben werden, und was geschieht bei Fristversäumnis?
+  - Erwartung: Wer sich gegen eine Kündigung wehren will, muss innerhalb von drei Wochen nach Zugang der Kündigung Klage erheben (§ 4 KSchG).
+  - Erwartung: Die Kündigungsschutzklage ist beim Arbeitsgericht zu erheben.
+  - Erwartung: Versäumt der oder die Betroffene die Frist, gilt die Kündigung grundsätzlich als von Anfang an wirksam.
+  - Rückfrage: Ab welcher Betriebsgröße greift das Kündigungsschutzgesetz grundsätzlich?
+- Was regelt das Arbeitszeitgesetz hinsichtlich täglicher Höchstarbeitszeit und Ruhezeiten?
+  - Erwartung: Der Schichtbetrieb in den Fertigungshallen von Vantera unterliegt dem Arbeitszeitgesetz (ArbZG).
+  - Erwartung: Die werktägliche Arbeitszeit darf grundsätzlich acht Stunden nicht überschreiten.
+  - Erwartung: Sie kann auf bis zu zehn Stunden verlängert werden, wenn im Ausgleichszeitraum von sechs Kalendermonaten im Durchschnitt acht Stunden nicht überschritten werden.
+  - Erwartung: Zwischen zwei Arbeitstagen ist eine ununterbrochene Ruhezeit von mindestens elf Stunden einzuhalten (§ 5 ArbZG).
+  - Rückfrage: Welche Mitbestimmungsrechte hat der Betriebsrat bei Beginn und Ende der täglichen Arbeitszeit?
+- Worin unterscheidet sich die Stellung eines Leiharbeitnehmers von der eines regulär bei Vantera Beschäftigten?
+  - Erwartung: Bei der Arbeitnehmerüberlassung bleibt der Verleiher (das Zeitarbeitsunternehmen) Vertragsarbeitgeber der überlassenen Beschäftigten, nicht Vantera.
+  - Erwartung: Vantera übt als Entleiher für die Dauer des Einsatzes das Weisungsrecht aus.
+  - Erwartung: Die Überlassung unterliegt dem Arbeitnehmerüberlassungsgesetz (AÜG), Vantera setzt Leiharbeit gelegentlich zur Abdeckung von Auftragsspitzen ein.
+  - Erwartung: Regulär bei Vantera Beschäftigte haben dagegen einen Arbeitsvertrag unmittelbar mit Vantera, durch den sie sich zur weisungsgebundenen Arbeitsleistung gegen Vergütung verpflichten (§ 611a BGB).
+  - Rückfrage: Welche Bedeutung hat die Dauer der Überlassung an denselben Entleiher für die rechtliche Stellung der Leiharbeitnehmer:innen?
+
+### 3.3 Vertragsgestaltung
+
+- Was versteht man unter Allgemeinen Geschäftsbedingungen, und wie werden sie im unternehmerischen Geschäftsverkehr wirksam einbezogen?
+  - Erwartung: Allgemeine Geschäftsbedingungen sind für eine Vielzahl von Verträgen vorformulierte Vertragsbedingungen, die eine Partei der anderen bei Vertragsschluss stellt (§ 305 Abs. 1 BGB).
+  - Erwartung: Damit AGB wirksam Vertragsbestandteil werden, müssen sie bei Vertragsschluss wirksam einbezogen werden.
+  - Erwartung: Im unternehmerischen Geschäftsverkehr genügt dafür ein ausdrücklicher oder stillschweigender Hinweis, mit dem die andere Vertragspartei einverstanden ist.
+  - Erwartung: Anders als bei Verbraucherverträgen sind ein ausdrücklicher Aushang oder eine besondere Zumutbarkeitsprüfung nicht zwingend erforderlich.
+  - Erwartung: Auch zwischen Unternehmen (§ 310 Abs. 1 BGB) bleibt die Angemessenheitskontrolle nach § 307 BGB anwendbar, sodass Klauseln, die die andere Seite entgegen Treu und Glauben unangemessen benachteiligen, unwirksam sind.
+  - Rückfrage: Was gilt, wenn beide Vertragsparteien widersprechende AGB verwenden (Battle of Forms)?
+- Welchen Zweck erfüllt ein Eigentumsvorbehalt in Lieferverträgen, und wie unterscheidet er sich von einer Vertragsstrafe?
+  - Erwartung: Beim Eigentumsvorbehalt (§ 449 BGB) geht das Eigentum an den gelieferten Bauteilen erst mit vollständiger Zahlung des Kaufpreises auf den Käufer über, bis dahin bleibt Vantera Eigentümerin, obwohl die Sache bereits übergeben wurde.
+  - Erwartung: Der Eigentumsvorbehalt sichert Vantera gegen das Risiko eines Zahlungsausfalls bei Lieferungen ab.
+  - Erwartung: Eine Vertragsstrafe (§§ 339 ff. BGB) ist ein pauschalierter Betrag, der bei schuldhafter Lieferverzögerung unabhängig vom Nachweis eines konkreten Schadens zu zahlen ist.
+  - Erwartung: Die Vertragsstrafe sichert damit die termingerechte Lieferung, der Eigentumsvorbehalt dagegen die Zahlung.
+  - Erwartung: Vertragsstrafeklauseln müssen der Höhe nach angemessen sein, um einer Inhaltskontrolle nach § 307 BGB standzuhalten, eine unangemessen hohe Vertragsstrafe kann unwirksam sein.
+  - Rückfrage: Was unterscheidet den verlängerten vom erweiterten Eigentumsvorbehalt?
+- Worin liegt der Unterschied zwischen gesetzlicher Gewährleistung und einer freiwillig übernommenen Garantie?
+  - Erwartung: Die gesetzliche Gewährleistung (Mängelhaftung nach §§ 434 ff. BGB) tritt kraft Gesetzes ein.
+  - Erwartung: Die Garantie (§ 443 BGB) ist dagegen eine freiwillig übernommene, zusätzliche vertragliche Zusage, die über die gesetzliche Gewährleistung hinausgeht, etwa zu einer bestimmten Beschaffenheit oder Haltbarkeit eines Bauteils.
+  - Erwartung: Inhalt und Umfang einer Garantie kann Vantera selbst bestimmen, z. B. eine Garantie auf Maßhaltigkeit über einen bestimmten Zeitraum hinaus.
+  - Erwartung: Die regelmäßige gesetzliche Gewährleistungsfrist beträgt zwei Jahre (§ 438 BGB).
+  - Rückfrage: Wie wirkt sich der Unterschied auf die Gestaltung von Lieferverträgen mit Zulieferern aus?
+- Welche Funktion übernehmen INCOTERMS-Klauseln in internationalen Lieferverträgen?
+  - Erwartung: INCOTERMS sind standardisierte Lieferklauseln der Internationalen Handelskammer für internationale Lieferverträge.
+  - Erwartung: Sie regeln eindeutig Transportkosten, Gefahrübergang und Zollformalitäten.
+  - Erwartung: Beispiel EXW (Ab Werk): minimale Verpflichtung der Verkäuferseite.
+  - Erwartung: Beispiel DAP (Delivered at Place): Lieferung an einen bestimmten Bestimmungsort.
+  - Rückfrage: Was empfiehlt sich in internationalen Verträgen ergänzend, um Klarheit über anwendbares Recht und zuständige Gerichte zu schaffen?
+- Warum schließen Unternehmen wie Vantera das UN-Kaufrecht (CISG) in internationalen Verträgen häufig ausdrücklich aus?
+  - Erwartung: Das UN-Kaufrecht (CISG) gilt subsidiär für grenzüberschreitende Kaufverträge zwischen Unternehmen aus verschiedenen Vertragsstaaten, sofern es nicht vertraglich ausgeschlossen wird.
+  - Erwartung: Es kann vertraglich ausgeschlossen werden, was Vantera in ihren Lieferverträgen häufig ausdrücklich tut.
+  - Erwartung: Als Motiv gilt, statt eines weniger vertrauten Regelwerks das vertraute deutsche Recht anzuwenden und so Rechtsunsicherheit zu vermeiden.
+  - Erwartung: Ergänzend empfiehlt sich in internationalen Verträgen eine ausdrückliche Rechtswahlklausel sowie eine Gerichtsstandsvereinbarung, um Klarheit über das anwendbare Recht und die zuständigen Gerichte zu schaffen.
+  - Rückfrage: Worin unterscheiden sich eine Rechtswahlklausel und eine Gerichtsstandsvereinbarung?
+
+### 3.4 Unternehmensrelevantes Steuerrecht
+
+- Welche Steuerarten sind für ein produzierendes Unternehmen wie Vantera typischerweise relevant, und wie lassen sie sich grob systematisieren?
+  - Erwartung: Ertragsteuern knüpfen an das erwirtschaftete Einkommen bzw. den Gewinn an, z. B. Körperschaftsteuer und Gewerbesteuer.
+  - Erwartung: Verkehrsteuern knüpfen an Vorgänge des Rechts- und Wirtschaftsverkehrs an, insbesondere die Umsatzsteuer.
+  - Erwartung: Substanzsteuern knüpfen an den Bestand von Vermögen an, insbesondere die Grundsteuer.
+  - Erwartung: Die Lohnsteuer behält Vantera als Abzugsverpflichtete ein und führt sie ab, sie ist eine Erhebungsform der Einkommensteuer der Arbeitnehmenden, Steuerschuldner sind die Beschäftigten.
+  - Erwartung: Zuständig für Veranlagung und Prüfung ist grundsätzlich das für den Sitz von Vantera zuständige Finanzamt, bei der Gewerbesteuer zusätzlich die Gemeinde der Betriebsstätte.
+  - Rückfrage: Warum ist die GmbH selbst körperschaftsteuerpflichtig, anders als eine Personengesellschaft?
+- Wie wird die Gewerbesteuerlast eines Unternehmens grundsätzlich berechnet, und welche Rolle spielt dabei der Hebesatz der Gemeinde?
+  - Erwartung: Die Gewerbesteuer steht ausschließlich den Gemeinden zu, in denen eine Betriebsstätte belegen ist.
+  - Erwartung: Bemessungsgrundlage ist der nach dem Gewerbesteuergesetz modifizierte Gewerbeertrag, auf den zunächst die bundeseinheitliche Steuermesszahl von 3,5 % angewendet wird.
+  - Erwartung: Den daraus resultierenden Steuermessbetrag multipliziert die Gemeinde mit ihrem individuell festgelegten Hebesatz.
+  - Erwartung: Deshalb kann sich die tatsächliche Gewerbesteuerlast je nach Gemeinde erheblich unterscheiden.
+  - Erwartung: Bei Betriebsstätten in mehreren Gemeinden wird der einheitliche Steuermessbetrag im Wege der Zerlegung anteilig aufgeteilt, typischerweise nach dem Verhältnis der dort gezahlten Arbeitslöhne.
+  - Rückfrage: Warum stellt die Gewerbesteuer für eine Kapitalgesellschaft eine echte zusätzliche Ertragsteuerbelastung dar?
+- Erläutern Sie das Prinzip des Vorsteuerabzugs bei der Umsatzsteuer.
+  - Erwartung: Vantera stellt bei Lieferungen an inländische Kunden regelmäßig 19 % Umsatzsteuer in Rechnung und führt sie an das Finanzamt ab.
+  - Erwartung: Die ihr selbst von Lieferanten in Rechnung gestellte Umsatzsteuer kann Vantera als Vorsteuer geltend machen (§ 15 UStG) und mit der eigenen Umsatzsteuerschuld verrechnen.
+  - Erwartung: Dadurch wirkt die Umsatzsteuer im unternehmerischen Bereich weitgehend neutral.
+  - Erwartung: Wirtschaftlich belastet sie erst den Endverbrauch.
+  - Rückfrage: Was ändert sich, wenn Vantera bestimmte Leistungen von ausländischen Anbietern bezieht?
+- Unter welchen Voraussetzungen ist eine Lieferung an ein Unternehmen in einem anderen EU-Mitgliedstaat umsatzsteuerfrei?
+  - Erwartung: Eine Lieferung an ein Unternehmen in einem anderen EU-Mitgliedstaat ist unter bestimmten Voraussetzungen eine innergemeinschaftliche Lieferung, die im Ursprungsland umsatzsteuerfrei ist.
+  - Erwartung: Eine zentrale Voraussetzung ist die Verwendung einer gültigen Umsatzsteuer-Identifikationsnummer des Abnehmers.
+  - Erwartung: Eine weitere zentrale Voraussetzung ist der Nachweis der Warenbewegung ins EU-Ausland.
+  - Erwartung: Nach dem Bestimmungslandprinzip versteuert der Abnehmer im Bestimmungsland einen korrespondierenden innergemeinschaftlichen Erwerb.
+  - Rückfrage: Wie wird dagegen eine Lieferung an einen inländischen Automobilzulieferer umsatzsteuerlich behandelt?
+- Was ist eine Betriebsprüfung, und welche Konsequenzen können sich aus ihr ergeben?
+  - Erwartung: Bei einer Betriebsprüfung überprüft die Finanzverwaltung die steuerlichen Verhältnisse mehrerer zurückliegender Jahre systematisch.
+  - Erwartung: Vantera ist verpflichtet, die Betriebsprüfung zu dulden und daran mitzuwirken.
+  - Erwartung: Wird eine fehlerhafte Steuererklärung festgestellt, kann das zu Steuernachzahlungen zuzüglich Nachzahlungszinsen führen.
+  - Erwartung: Bei vorsätzlichen oder leichtfertigen Verstößen drohen zusätzlich straf- bzw. bußgeldrechtliche Konsequenzen wegen Steuerhinterziehung oder leichtfertiger Steuerverkürzung.
+  - Erwartung: Grundlage der Prüfung sind u. a. die fristgerecht abgegebenen Steuererklärungen und die ordnungsgemäße Buchführung nach handels- und steuerrechtlichen Vorschriften.
+  - Rückfrage: Welche steuerlichen Mitwirkungspflichten muss Vantera auch unabhängig von einer Betriebsprüfung erfüllen?
+
