@@ -971,15 +971,45 @@ describe("parseFachgespraechFragen (F-25)", () => {
       {
         themaTitel: "3.1 Personalplanung, -beschaffung, -betreuung und -entwicklung",
         frage: "Wie würden Sie vorgehen, um den Personalbedarf zu ermitteln?",
+        erwartung: [],
+        rueckfragen: [],
       },
       {
         themaTitel: "3.1 Personalplanung, -beschaffung, -betreuung und -entwicklung",
         frage: "Welche Vor- und Nachteile sehen Sie bei interner vs. externer Personalbeschaffung?",
+        erwartung: [],
+        rueckfragen: [],
       },
       {
         themaTitel: "3.2 Ausbildung planen, organisieren, durchführen und kontrollieren",
         frage: "Welche gesetzlichen Grundlagen regeln die betriebliche Berufsausbildung?",
+        erwartung: [],
+        rueckfragen: [],
       },
+    ]);
+  });
+
+  it("liest eingerückte Erwartungspunkte und Rückfragen und ordnet sie der davorstehenden Frage zu (Entscheidung 11.10.2026)", () => {
+    const fragen = parseFachgespraechFragen(
+      [
+        "### 3.2 Hub-and-Spoke",
+        "",
+        "- Erläutern Sie das Hub-and-Spoke-Prinzip.",
+        "  - Erwartung: Sendungen werden über zentrale Umschlagpunkte gebündelt.",
+        "  - Erwartung:   Vorteil: niedrigere Kosten je Sendung.",
+        "  - Rückfrage: Welche Faktoren bestimmen den Standort eines Umschlagpunkts?",
+        "- Eine Frage ohne Unterpunkte?",
+        "  - Hinweis: kein bekanntes Präfix, wird ignoriert.",
+      ].join("\n"),
+    );
+    expect(fragen).toEqual([
+      {
+        themaTitel: "3.2 Hub-and-Spoke",
+        frage: "Erläutern Sie das Hub-and-Spoke-Prinzip.",
+        erwartung: ["Sendungen werden über zentrale Umschlagpunkte gebündelt.", "Vorteil: niedrigere Kosten je Sendung."],
+        rueckfragen: ["Welche Faktoren bestimmen den Standort eines Umschlagpunkts?"],
+      },
+      { themaTitel: "3.2 Hub-and-Spoke", frage: "Eine Frage ohne Unterpunkte?", erwartung: [], rueckfragen: [] },
     ]);
   });
 

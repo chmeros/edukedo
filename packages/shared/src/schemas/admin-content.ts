@@ -234,6 +234,9 @@ const adminContentItemFormUnion = z.discriminatedUnion("type", [
     prompt: promptSchema,
     explanation: explanationSchema,
     themaTitel: z.string().min(1).max(300),
+    // Leere Zeilen sind beim Tippen erlaubt und werden beim Speichern entfernt.
+    erwartung: z.array(z.string().max(500)).max(10).default([]),
+    rueckfragen: z.array(z.string().max(500)).max(10).default([]),
     ...commonFormFields,
   }),
 ]);

@@ -526,6 +526,17 @@ Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben 
 
 Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
+Optional dürfen unter einer Frage eingerückte Zeilen stehen (Entscheidung 11.10.2026, FL-IM-55, FL-TL-46, FL-AEVO-29):
+
+```markdown
+- Erläutern Sie das Hub-and-Spoke-Prinzip und nennen Sie einen Vor- und einen Nachteil.
+  - Erwartung: Sendungen werden über zentrale Umschlagpunkte gebündelt.
+  - Erwartung: Vorteil: niedrigere Kosten je Sendung.
+  - Rückfrage: Welche Faktoren bestimmen den Standort eines Umschlagpunkts?
+```
+
+`Erwartung:` sind 3 bis 5 prüfbare Stichpunkte, die eine gute Antwort nennt; sie stützen sich nur auf die Theorie des Kurses. `Rückfrage:` sind mögliche Nachfragen der Prüfenden, bei der AEVO bezogen auf die eigene Unterweisung. Der Trainer zeigt beides nach „Antwort prüfen“; Fragen ohne Unterpunkte zeigen das allgemeine Raster (Fachlichkeit, Struktur, Praxisbezug). Rechtsnahe Fragen (R4) bekommen Erwartungspunkte erst nach der Rechtsprüfung. Die Kennung einer Frage hängt nur am Fragetext; Unterpunkte ändern sie nicht.
+
 ## Glossar (`glossar.md`, F-165)
 
 Je Fachgebiet kann eine `glossar.md` Fachbegriffe mit Kurzdefinition liefern; der Import führt sie je Kurs zu einem Glossar zusammen (kein Thema, keine Content-Items). Aufbau:

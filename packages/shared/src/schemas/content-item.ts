@@ -271,6 +271,12 @@ export const fallaufgabePayloadSchema = z.object({
  */
 export const fachgespraechFragePayloadSchema = z.object({
   themaTitel: z.string(),
+  /**
+   * Entscheidung 11.10.2026 (FL-IM-55, FL-TL-46, FL-AEVO-29): Erwartungshorizont (3 bis 5 prüfbare Stichpunkte, die eine gute Antwort
+   * nennt) und situationsbezogene Rückfragen der Prüfenden. Beides ist optional; fehlt es, zeigt der Trainer nur das allgemeine Raster.
+   */
+  erwartung: z.array(z.string().min(1)).default([]),
+  rueckfragen: z.array(z.string().min(1)).default([]),
 });
 
 export const emptyPayloadSchema = z.object({}).strict();

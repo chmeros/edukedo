@@ -20,6 +20,7 @@ import {
   serializeZuordnung,
   splitThemaTitle,
 } from "./content-serializer";
+import type { FachgespraechFrageZeile } from "./content-serializer";
 import { db, pool } from "./client";
 import { answerOption, contentItem, contentItemTag, fachgebiet, kurs, tag, thema } from "./schema";
 
@@ -112,7 +113,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
         const karteikartenBlocks: string[] = [];
         const quizBlocks: string[] = [];
         const fallaufgabeBlocks: string[] = [];
-        const fragenByThema = new Map<string, string[]>();
+        const fragenByThema = new Map<string, FachgespraechFrageZeile[]>();
         let karteikarteCounter = 0;
         let quizCounter = 0;
         let fallaufgabeCounter = 0;
@@ -212,7 +213,7 @@ export async function exportAllContent(): Promise<ExportSummary> {
           if (item.type === "fachgespraech_frage") {
             const payload = fachgespraechFragePayloadSchema.parse(item.payload);
             const fragen = fragenByThema.get(payload.themaTitel) ?? [];
-            fragen.push(item.prompt);
+            fragen.push({ frage: item.prompt, erwartung: payload.erwartung, rueckfragen: payload.rueckfragen });
             fragenByThema.set(payload.themaTitel, fragen);
             itemsExported += 1;
             continue;

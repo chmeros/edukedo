@@ -439,6 +439,10 @@ export interface ParsedFallaufgabe {
 export interface ParsedFachgespraechFrage {
   themaTitel: string;
   frage: string;
+  /** Erwartungshorizont: eingerückte Zeilen `  - Erwartung: …` unter der Frage. */
+  erwartung: string[];
+  /** Situationsbezogene Rückfragen: eingerückte Zeilen `  - Rückfrage: …` unter der Frage. */
+  rueckfragen: string[];
 }
 
 /**
@@ -454,8 +458,22 @@ export function parseFachgespraechFragen(sectionBody: string): ParsedFachgesprae
 
   return chunks.flatMap((chunk) => {
     const themaTitel = /^### (.+)$/m.exec(chunk)?.[1]!.trim() ?? "";
-    const fragen = [...chunk.matchAll(/^- (.+)$/gm)].map((match) => match[1]!.trim());
-    return fragen.map((frage) => ({ themaTitel, frage }));
+    // Entscheidung 11.10.2026: Unter jeder Frage dürfen eingerückte Zeilen `  - Erwartung: …` und `  - Rückfrage: …` stehen. Eine Frage
+    // beginnt weiter in Spalte 0 mit "- "; eingerückte Zeilen gehören zur davorstehenden Frage.
+    const ergebnis: ParsedFachgespraechFrage[] = [];
+    for (const zeile of chunk.split("\n")) {
+      const frage = /^- (.+)$/.exec(zeile);
+      if (frage) {
+        ergebnis.push({ themaTitel, frage: frage[1]!.trim(), erwartung: [], rueckfragen: [] });
+        continue;
+      }
+      const aktuelle = ergebnis[ergebnis.length - 1];
+      const unterpunkt = /^\s+- (Erwartung|Rückfrage):\s*(.+)$/.exec(zeile);
+      if (aktuelle && unterpunkt) {
+        (unterpunkt[1] === "Erwartung" ? aktuelle.erwartung : aktuelle.rueckfragen).push(unterpunkt[2]!.trim());
+      }
+    }
+    return ergebnis;
   });
 }
 

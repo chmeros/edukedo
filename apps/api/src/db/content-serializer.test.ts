@@ -155,8 +155,26 @@ describe("Round-Trip serialize -> parse", () => {
     ]);
     const parsed = parseFachgespraechFragen(block);
     expect(parsed).toEqual([
-      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Wie würden Sie den Informationsfluss neu strukturieren?" },
-      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Woran erkennen Sie relevante Informationen?" },
+      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Wie würden Sie den Informationsfluss neu strukturieren?", erwartung: [], rueckfragen: [] },
+      { themaTitel: "1.1 Informationsmanagement für Entscheidungsprozesse", frage: "Woran erkennen Sie relevante Informationen?", erwartung: [], rueckfragen: [] },
+    ]);
+  });
+
+  it("Fachgesprächsfrage mit Erwartungshorizont und Rückfragen: Serialisieren und Parsen ergeben dasselbe", () => {
+    const block = serializeFachgespraechThema("1.2 Netzwerke", [
+      { frage: "Erläutern Sie das Hub-and-Spoke-Prinzip.", erwartung: ["Bündelung über Hubs.", "Niedrigere Kosten je Sendung."], rueckfragen: ["Wie wählen Sie den Standort?"] },
+      "Eine Frage ohne Unterpunkte?",
+    ]);
+    expect(block).toContain("  - Erwartung: Bündelung über Hubs.");
+    expect(block).toContain("  - Rückfrage: Wie wählen Sie den Standort?");
+    expect(parseFachgespraechFragen(block)).toEqual([
+      {
+        themaTitel: "1.2 Netzwerke",
+        frage: "Erläutern Sie das Hub-and-Spoke-Prinzip.",
+        erwartung: ["Bündelung über Hubs.", "Niedrigere Kosten je Sendung."],
+        rueckfragen: ["Wie wählen Sie den Standort?"],
+      },
+      { themaTitel: "1.2 Netzwerke", frage: "Eine Frage ohne Unterpunkte?", erwartung: [], rueckfragen: [] },
     ]);
   });
 });

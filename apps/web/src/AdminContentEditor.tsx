@@ -159,7 +159,7 @@ function defaultFormForType(type: AdminContentItemForm["type"], themaId: string)
     case "fallaufgabe":
       return { type, prompt: "", explanation: "", parts: [{ prompt: "", points: 1, bloom: null }], ...common };
     case "fachgespraech_frage":
-      return { type, prompt: "", explanation: "", themaTitel: "", ...common };
+      return { type, prompt: "", explanation: "", themaTitel: "", erwartung: [], rueckfragen: [], ...common };
   }
 }
 
@@ -1042,6 +1042,31 @@ function ContentItemForm({
             required
           />
         </div>
+      )}
+
+      {form.type === "fachgespraech_frage" && (
+        <>
+          <div className="field">
+            <label htmlFor="ce-erwartung">Erwartungshorizont (ein Punkt je Zeile, optional)</label>
+            <textarea
+              className="input"
+              id="ce-erwartung"
+              rows={4}
+              value={form.erwartung.join("\n")}
+              onChange={(event) => setField("erwartung", event.target.value.split("\n"))}
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="ce-rueckfragen">Rückfragen der Prüfenden (eine je Zeile, optional)</label>
+            <textarea
+              className="input"
+              id="ce-rueckfragen"
+              rows={3}
+              value={form.rueckfragen.join("\n")}
+              onChange={(event) => setField("rueckfragen", event.target.value.split("\n"))}
+            />
+          </div>
+        </>
       )}
 
       {form.type !== "theorie" && form.type !== "luecken" && form.type !== "karteikarte" && (

@@ -151,8 +151,11 @@ export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInpu
 
   const fachgespraechBody = extractSection(body, "Fachgesprächsfragen");
   if (fachgespraechBody) {
-    for (const { themaTitel, frage } of parseFachgespraechFragen(fachgespraechBody)) {
-      items.push({ ...base, key: fachgespraechSourceKey(frage), type: "fachgespraech_frage", prompt: frage, payload: { themaTitel } });
+    for (const { themaTitel, frage, erwartung, rueckfragen } of parseFachgespraechFragen(fachgespraechBody)) {
+      // Erwartung und Rückfragen nur aufnehmen, wenn vorhanden: so bleibt die Nutzlast bestehender Fragen unverändert und der
+      // Abgleich meldet sie nicht als geändert.
+      const payload = { themaTitel, ...(erwartung.length > 0 ? { erwartung } : {}), ...(rueckfragen.length > 0 ? { rueckfragen } : {}) };
+      items.push({ ...base, key: fachgespraechSourceKey(frage), type: "fachgespraech_frage", prompt: frage, payload });
     }
   }
   return items;

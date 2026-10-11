@@ -193,7 +193,15 @@ export function prepareContent(input: AdminContentItemForm): PreparedContent {
     case "fallaufgabe":
       return { prompt: input.prompt, explanation: input.explanation ?? null, payload: { parts: input.parts } };
     case "fachgespraech_frage":
-      return { prompt: input.prompt, explanation: input.explanation ?? null, payload: { themaTitel: input.themaTitel } };
+      return {
+        prompt: input.prompt,
+        explanation: input.explanation ?? null,
+        payload: {
+          themaTitel: input.themaTitel,
+          erwartung: (input.erwartung ?? []).map((zeile) => zeile.trim()).filter((zeile) => zeile.length > 0),
+          rueckfragen: (input.rueckfragen ?? []).map((zeile) => zeile.trim()).filter((zeile) => zeile.length > 0),
+        },
+      };
   }
 }
 
@@ -483,6 +491,8 @@ export const adminContentRouter = router({
         prompt: item.prompt,
         explanation: item.explanation,
         themaTitel: payload.themaTitel,
+        erwartung: payload.erwartung,
+        rueckfragen: payload.rueckfragen,
       };
     }
 

@@ -179,8 +179,18 @@ export function serializeFallaufgabe(
  * Fragen als Aufzählung — anders als die anderen Content-Typen hat `fachgespraech_frage` keinen
  * eigenen `#### `-Block je Item, siehe parseFachgespraechFragen in content-parser.ts.
  */
-export function serializeFachgespraechThema(themaTitel: string, fragen: string[]): string {
-  return [`### ${themaTitel}`, "", ...fragen.map((frage) => `- ${frage}`)].join("\n");
+export type FachgespraechFrageZeile = string | { frage: string; erwartung?: string[]; rueckfragen?: string[] };
+
+export function serializeFachgespraechThema(themaTitel: string, fragen: FachgespraechFrageZeile[]): string {
+  const zeilen = fragen.flatMap((eintrag) => {
+    if (typeof eintrag === "string") return [`- ${eintrag}`];
+    return [
+      `- ${eintrag.frage}`,
+      ...(eintrag.erwartung ?? []).map((punkt) => `  - Erwartung: ${punkt}`),
+      ...(eintrag.rueckfragen ?? []).map((rueckfrage) => `  - Rückfrage: ${rueckfrage}`),
+    ];
+  });
+  return [`### ${themaTitel}`, "", ...zeilen].join("\n");
 }
 
 export function serializeThemaFile(

@@ -1,6 +1,6 @@
 # Entwurf: Fachgespräch-Pools mit Erwartungshorizont und situativen Rückfragen (FL-IM-55, FL-TL-46, FL-AEVO-29)
 
-Stand 11.10.2026 · **zur Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3; rechtsnahe Antworten R4). Betrifft Iteration 23, Content: „Fachgespräch-Pools: Erwartungshorizont und situationsbezogene Rückfragen ergänzen“.
+Stand 11.10.2026 · **Vorschläge vom Projektleiter angenommen; Stufe 1 am 11.10.2026 umgesetzt, Stufe 2 als Entwürfe zur Prüfung** (siehe Architekturplanung §13) (Rahmenentscheidung R3; rechtsnahe Antworten R4). Betrifft Iteration 23, Content: „Fachgespräch-Pools: Erwartungshorizont und situationsbezogene Rückfragen ergänzen“.
 
 ## Befund
 

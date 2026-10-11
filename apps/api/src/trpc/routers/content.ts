@@ -256,11 +256,10 @@ export const contentRouter = router({
       .orderBy(sql`random()`)
       .limit(20);
 
-    return rows.map((row) => ({
-      id: row.id,
-      frage: row.prompt,
-      themaTitel: fachgespraechFragePayloadSchema.parse(row.payload).themaTitel,
-    }));
+    return rows.map((row) => {
+      const payload = fachgespraechFragePayloadSchema.parse(row.payload);
+      return { id: row.id, frage: row.prompt, themaTitel: payload.themaTitel, erwartung: payload.erwartung, rueckfragen: payload.rueckfragen };
+    });
   }),
 
   /**

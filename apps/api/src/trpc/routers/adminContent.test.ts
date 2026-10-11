@@ -143,7 +143,25 @@ describe("prepareContent (F-11)", () => {
       ...commonFormFields,
     } as AdminContentItemForm);
 
-    expect(result.payload).toEqual({ themaTitel: "3.3 Konfliktmanagement" });
+    expect(result.payload).toEqual({ themaTitel: "3.3 Konfliktmanagement", erwartung: [], rueckfragen: [] });
+  });
+
+  it("fachgespraech_frage: übernimmt Erwartungshorizont und Rückfragen und entfernt leere Zeilen", () => {
+    const result = prepareContent({
+      type: "fachgespraech_frage",
+      prompt: "Erläutern Sie das Hub-and-Spoke-Prinzip.",
+      explanation: null,
+      themaTitel: "1.1 Netzwerke",
+      erwartung: ["  Bündelung über Hubs.  ", "", "Niedrigere Kosten je Sendung."],
+      rueckfragen: ["", "Wie wählen Sie den Standort?"],
+      ...commonFormFields,
+    } as AdminContentItemForm);
+
+    expect(result.payload).toEqual({
+      themaTitel: "1.1 Netzwerke",
+      erwartung: ["Bündelung über Hubs.", "Niedrigere Kosten je Sendung."],
+      rueckfragen: ["Wie wählen Sie den Standort?"],
+    });
   });
 });
 
