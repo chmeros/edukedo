@@ -54,6 +54,12 @@ describe("Fachgesprächsfragen mit Erwartungshorizont", () => {
       .set({ isActive: false })
       .where(and(eq(schema.contentItem.type, "fachgespraech_frage"), ne(schema.contentItem.id, fragenIds[0]!), ne(schema.contentItem.id, fragenIds[1]!)));
     const erste = fragen[0]!;
+    // Die zweite Frage ohne Erwartungshorizont herstellen, unabhängig davon, was die Inhaltsdateien gerade tragen.
+    const zweite = fragen[1]!;
+    const zweitePayload = { ...(zweite.payload as Record<string, unknown>) };
+    delete zweitePayload.erwartung;
+    delete zweitePayload.rueckfragen;
+    await db.update(schema.contentItem).set({ payload: zweitePayload }).where(eq(schema.contentItem.id, zweite.id));
     await db
       .update(schema.contentItem)
       .set({ payload: { ...(erste.payload as object), erwartung: ["Erster Punkt.", "Zweiter Punkt."], rueckfragen: ["Eine Rückfrage?"] } })
