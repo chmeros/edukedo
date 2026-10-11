@@ -598,7 +598,7 @@ export function MatchingStep({
   return (
     <div className="stack">
       <div className="quiz-question">{item.prompt}</div>
-      <p className="field-hint">Begriff auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
+      <p className="field-hint">Eintrag auswählen oder ziehen, dann das Zielfeld auswählen oder dorthin ziehen.</p>
       <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
         <DroppableZone
           id={MATCHING_POOL_ID}

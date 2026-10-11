@@ -88,7 +88,14 @@ export const contentRouter = router({
       // Review LOG-07: Fällige Wiederholungen zuerst (die am längsten überfällige zuerst), neue Karten (kein user_progress-Datensatz)
       // füllen nur die übrigen Plätze der Runde. Vorher standen neue Karten vorn; bei vielen ungesehenen Karten kamen fällige
       // Wiederholungen dadurch nie dran, und das Vergessen stieg. Ein Tageslimit für neue Karten gibt es noch nicht.
-      .orderBy(sql`${userProgress.dueAt} asc nulls last`)
+      .orderBy(
+        sql`${userProgress.dueAt} asc nulls last`,
+        // Entscheidung 11.10.2026 (UXT-B-08): Neue Karten (ohne Fälligkeit) kommen in der Reihenfolge des Kurses (Fachgebiet, Thema,
+        // Kartenkennung) statt in beliebiger Reihenfolge; eine neue Person beginnt so im ersten Thema.
+        asc(fachgebiet.sortOrder),
+        asc(thema.sortOrder),
+        asc(contentItem.sourceKey),
+      )
       // F-110: bei expliziter Auswahl (contentItemIds) darf die Auswahl nicht stillschweigend
       // auf 20 Karten gekürzt werden — sie ist bereits durch die Auswahl selbst begrenzt.
       .limit(input.contentItemIds ? input.contentItemIds.length : 20);

@@ -292,7 +292,7 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
 **Zuordnung** (`type: zuordnung`) — Paare durch `↔` getrennt:
 ```markdown
 #### Q-3.1-05 · Zuordnung
-**Anweisung:** Ordne die Begriffe den passenden Beschreibungen zu.
+**Anweisung:** Ordne jedem Begriff die passende Beschreibung zu.
 - Begriff A ↔ Beschreibung A
 - Begriff B ↔ Beschreibung B
 **Erklärung:** ...

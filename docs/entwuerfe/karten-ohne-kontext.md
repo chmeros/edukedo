@@ -1,6 +1,6 @@
 # Entwurf: Karten und Aufgaben ohne Kontext (UXT-B-08, UXT-F-09)
 
-Stand 10.10.2026 · **zur fachlichen Entscheidung vorgelegt, nicht eingespielt** (Rahmenentscheidung R3). Der Befund der Usability-Prüfung vom 07.10.2026 besteht aus vier Teilen, die unterschiedlich groß sind. Der Entwurf stellt sie getrennt vor, damit Sie sie einzeln entscheiden können.
+Stand 11.10.2026 · **Entscheidungen getroffen und umgesetzt** (Teil 1 B, K-1.1-16, Teil 2 B und C, Teil 3 alles; Teil 1 C folgt als zweiter Entwurf; siehe Architekturplanung §13). Hinweis: Die Anzeige der richtigen Zuordnung nach einer falschen Antwort (Teil 3) gab es schon, sie wurde nicht neu gebaut (Rahmenentscheidung R3). Der Befund der Usability-Prüfung vom 07.10.2026 besteht aus vier Teilen, die unterschiedlich groß sind. Der Entwurf stellt sie getrennt vor, damit Sie sie einzeln entscheiden können.
 
 ## Teil 1: Fallbetrieb und Fallperson in Karten und Fragen (AEVO, Versicherungen)
 

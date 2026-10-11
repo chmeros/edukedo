@@ -23,7 +23,7 @@ import {
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import type { Database } from "../../db/client";
-import { answerOption, contentItem, fachgebiet, thema, userCourse } from "../../db/schema";
+import { answerOption, contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 import { assertContentItemAccessible, recordQuizAttempt } from "./progress";
 
@@ -82,6 +82,40 @@ export const quizRouter = router({
       conditions.push(eq(contentItem.type, input.itemType));
     }
 
+    // Entscheidung 11.10.2026 (UXT-B-08): Hat die Person im Kurs noch nichts beantwortet und wählt weder Thema noch Instrument, kommen die
+    // Aufgaben der ersten Runde zuerst aus dem ersten Thema des Kurses (Fachgebiet, Thema); fehlen dort Aufgaben, füllt der Zufall auf.
+    // Danach bleibt es bei der zufälligen Stichprobe über den ganzen Kurs.
+    let einstiegThemaId: string | null = null;
+    if (!input.themaId && !input.itemType) {
+      const [fortschritt] = await ctx.db
+        .select({ id: userProgress.id })
+        .from(userProgress)
+        .innerJoin(contentItem, eq(contentItem.id, userProgress.contentItemId))
+        .innerJoin(thema, eq(thema.id, contentItem.themaId))
+        .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+        .where(and(eq(userProgress.userId, ctx.currentUser.id), eq(fachgebiet.kursId, input.kursId)))
+        .limit(1);
+      if (!fortschritt) {
+        const [erstes] = await ctx.db
+          .select({ id: thema.id })
+          .from(contentItem)
+          .innerJoin(thema, eq(thema.id, contentItem.themaId))
+          .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+          .innerJoin(
+            userCourse,
+            and(
+              eq(userCourse.kursId, fachgebiet.kursId),
+              eq(userCourse.userId, ctx.currentUser.id),
+              eq(userCourse.kursId, input.kursId),
+            ),
+          )
+          .where(and(...conditions))
+          .orderBy(asc(fachgebiet.sortOrder), asc(thema.sortOrder))
+          .limit(1);
+        einstiegThemaId = erstes?.id ?? null;
+      }
+    }
+
     const items = await ctx.db
       .select({
         id: contentItem.id,
@@ -104,7 +138,7 @@ export const quizRouter = router({
         ),
       )
       .where(and(...conditions))
-      .orderBy(sql`random()`)
+      .orderBy(...(einstiegThemaId ? [sql`(${thema.id} = ${einstiegThemaId}) desc`] : []), sql`random()`)
       // F-22: frei wählbare Anzahl (siehe quizItemsInputSchema) statt fest verdrahteter 20.
       .limit(input.count);
 
