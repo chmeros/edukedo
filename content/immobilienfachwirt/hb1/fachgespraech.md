@@ -93,14 +93,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind Verhaltensstandards, zu denen sich viele Verbandsmitglieder freiwillig verpflichten und die über gesetzliche Pflichten hinausgehen.
   - Erwartung: Beispiele für Standesregeln sind eine Wahrheitspflicht in der Vermarktung, die Offenlegung von Interessenkonflikten und allgemeine Sorgfaltspflichten.
   - Erwartung: Makler, Bauträger und Verwalter benötigen eine gewerberechtliche Erlaubnis, die u. a. an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist.
-  - Erwartung: Hinzu kommt bei den gesetzlichen Pflichten eine regelmäßige Fortbildungspflicht.
+  - Erwartung: Hinzu kommt bei den gesetzlichen Pflichten für Wohnimmobilienverwalter eine regelmäßige Weiterbildungspflicht.
   - Erwartung: Im Unterschied zu Standesregeln unterliegen die gesetzlichen Pflichten einer unmittelbaren behördlichen Kontrolle mit Sanktionsmöglichkeit.
   - Rückfrage: Welche Aufgaben übernehmen die Verbände neben der Erarbeitung von Berufsgrundsätzen?
 - Wie tragen Verbraucherschutzinstrumente wie das Bestellerprinzip oder die Energieausweispflicht zur Qualitätssicherung bei?
   - Erwartung: Das Bestellerprinzip verhindert, dass Mieter:innen mit Kosten für einen nicht von ihnen beauftragten Makler belastet werden.
   - Erwartung: Der Energieausweis weist die energetische Qualität eines Gebäudes aus und muss potenziellen Mietern oder Käufern spätestens bei der Besichtigung vorgelegt werden.
   - Erwartung: Bei Maklerprovisionen gilt eine Transparenzpflicht: Kund:innen müssen klar und rechtzeitig über Höhe und Verteilung der Provision informiert werden.
-  - Erwartung: Die Erlaubnis- und Fortbildungspflicht dient ebenfalls der Qualitätssicherung zugunsten der Verbraucher:innen.
+  - Erwartung: Die Erlaubnispflicht und, für Wohnimmobilienverwalter, die Weiterbildungspflicht dienen ebenfalls der Qualitätssicherung zugunsten der Verbraucher:innen.
   - Rückfrage: An wen können sich Betroffene bei Konflikten wie überhöhten Nebenkostenabrechnungen oder unzulässigen Maklerforderungen wenden?
 - Welche Verhaltensgrundsätze verlangen Standesregeln bei einem Interessenkonflikt durch Doppelmaklertätigkeit, und warum sind sie in der Immobilienwirtschaft besonders wichtig?
   - Erwartung: Standesregeln verlangen die Offenlegung von Interessenkonflikten, z. B. bei einer Doppelmaklertätigkeit für Käufer:in und Verkäufer:in.

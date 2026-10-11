@@ -1,6 +1,6 @@
 # Entwurf: Rechtsprüfung der vier Zweifelsstellen in der Immobilien-Theorie
 
-Stand 11.10.2026 · **zur Prüfung vorgelegt, nichts in `content/` geändert** (rechtsnahe Inhalte, R4). Auftrag des Projektleiters vom 11.10.2026: „prüfe die selber gegen (Legal Plugin)“.
+Stand 11.10.2026 · **vom Projektleiter am 11.10.2026 zur Umsetzung freigegeben und umgesetzt** (siehe Architekturplanung §13; Punkte 3 und 4 mit den im Eintrag genannten Annahmen) (rechtsnahe Inhalte, R4). Auftrag des Projektleiters vom 11.10.2026: „prüfe die selber gegen (Legal Plugin)“.
 
 ## Wie geprüft wurde, und was das wert ist
 

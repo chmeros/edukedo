@@ -18,7 +18,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Wer gewerbsmäßig Grundstücke, grundstücksgleiche Rechte oder Wohn- und Gewerberäume vermittelt oder den Abschluss entsprechender Verträge nachweist, benötigt eine Erlaubnis nach § 34c GewO.
   - Erwartung: Die Erlaubnis wird von der zuständigen Behörde, in der Regel dem Gewerbeamt, erteilt.
   - Erwartung: Sie setzt unter anderem geordnete Vermögensverhältnisse sowie persönliche Zuverlässigkeit voraus.
-  - Erwartung: Um die Erlaubnis zu behalten, sind Makler:innen seit 2018 zur regelmäßigen Weiterbildung verpflichtet, mindestens 20 Stunden innerhalb von drei Kalenderjahren.
+  - Erwartung: Die Weiterbildungspflicht, die von 2018 bis zum 23.07.2026 auch für Makler:innen galt, ist entfallen; für Wohnimmobilienverwalter:innen besteht sie weiter, mindestens 20 Stunden innerhalb von drei Kalenderjahren.
   - Erwartung: Verstöße gegen die Berufspflichten können zum Erlöschen der Erlaubnis führen.
   - Rückfrage: Gilt für die Hausverwaltung dieselbe Erlaubnis wie für die Maklertätigkeit?
 - Erläutern Sie den Unterschied zwischen Nachweis- und Vermittlungsmakler anhand eines Beispiels.
@@ -65,7 +65,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum lohnt sich Kundenbindung trotz des einmaligen Abschlusses?
 - Welche Angaben müssen bereits in einer Immobilienanzeige zum Energieausweis enthalten sein, und warum?
   - Erwartung: Bereits in der Immobilienanzeige, nicht erst im vollständigen Exposé, müssen bestimmte Pflichtangaben zum Energieausweis enthalten sein.
-  - Erwartung: Dazu zählen etwa die Art des Energieausweises, der Endenergiebedarf bzw. -verbrauch, der wesentliche Energieträger sowie das Baujahr.
+  - Erwartung: Dazu zählen die Art des Energieausweises, der Endenergiebedarf bzw. -verbrauch, die wesentlichen Energieträger der Heizung sowie bei Wohngebäuden das Baujahr und die Energieeffizienzklasse.
   - Erwartung: Verstöße gegen diese Pflichtangaben können als Wettbewerbsverstoß abgemahnt werden.
   - Rückfrage: Wie lässt sich sicherstellen, dass jede Anzeige die Pflichtangaben enthält?
 - Nennen Sie drei Bestandteile eines überzeugenden Exposés für ein noch nicht fertiggestelltes Neubauprojekt und begründen Sie einen davon.

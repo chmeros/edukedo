@@ -29,8 +29,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welcher Mindestabstand ist zwischen zwei Staffeln vorgeschrieben?
 - Unter welchen Voraussetzungen darf ein Vermieter wegen Zahlungsverzugs fristlos kündigen, und welche Rolle spielt dabei die Schonfristzahlung?
   - Erwartung: Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist von der ordentlichen Kündigung zu unterscheiden.
-  - Erwartung: Die Schonfristzahlung heilt eine fristlose Kündigung wegen Zahlungsverzugs rückwirkend.
-  - Erwartung: Voraussetzung dafür ist, dass der Mieter den Rückstand binnen zwei Monaten nach Zustellung einer Räumungsklage vollständig ausgleicht.
+  - Erwartung: Voraussetzung ist ein Verzug mit der Miete oder einem nicht unerheblichen Teil für zwei aufeinander folgende Termine (bei Wohnraum: Rückstand über einer Monatsmiete) oder ein Rückstand von zwei Monatsmieten über mehr als zwei Termine.
+  - Erwartung: Die Schonfristzahlung macht eine fristlose Kündigung wegen Zahlungsverzugs unwirksam.
+  - Erwartung: Voraussetzung dafür ist, dass der Mieter den Rückstand binnen zwei Monaten nach Eintritt der Rechtshängigkeit der Räumungsklage (Zustellung der Klage) vollständig ausgleicht.
   - Rückfrage: Wie geht die Hausverwaltung vor, wenn der Mieter trotz Kündigung nicht auszieht?
 - Nennen Sie die Stufen des Mahnwesens bei erstmaligem Zahlungsrückstand von Mieter:innen und begründen Sie, warum eine Ratenvereinbarung dabei in Betracht kommt.
   - Erwartung: Auf eine freundliche Zahlungserinnerung folgt eine förmliche erste Mahnung.

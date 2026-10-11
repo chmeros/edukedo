@@ -24,7 +24,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Rolle spielt § 34c GewO bei der Personalauswahl für Makler- und Verwalterpositionen?
   - Erwartung: Wer gewerblich als Makler:in oder Verwalter:in tätig werden soll, benötigt eine Erlaubnis nach § 34c GewO.
   - Erwartung: Bei der Personalauswahl für diese Positionen wird zusätzlich geprüft, ob Bewerbende die Voraussetzungen für diese Erlaubnis mitbringen bzw. erwerben können.
-  - Erwartung: Für Personen mit Erlaubnis nach § 34c GewO besteht eine gesetzliche Fortbildungspflicht.
+  - Erwartung: Für Wohnimmobilienverwalter:innen besteht eine gesetzliche Weiterbildungspflicht; für Makler:innen ist sie zum 24.07.2026 entfallen.
   - Erwartung: Zum qualitativen Personalbedarf zählen erforderliche Qualifikationen, z. B. der Sachkundenachweis für Makler:innen.
   - Rückfrage: Worin unterscheiden sich interne und externe Personalbeschaffung?
 - Welche Mitbestimmungsrechte hat der Betriebsrat bei Personalplanung und Einstellungen, und woraus ergeben sie sich?
@@ -109,10 +109,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiele für sich ändernde Anforderungen sind neue Softwaresysteme oder geänderte Energieausweispflichten.
   - Erwartung: Klassische Instrumente sind interne Schulungen, externe Weiterbildungsseminare, E-Learning-Module und Fachtagungen.
   - Rückfrage: Welche Rolle spielen Personalentwicklungsgespräche bei der Planung von Qualifizierung?
-- Was versteht man unter der gesetzlichen Fortbildungspflicht nach der ImmVermV, und welche organisatorischen Maßnahmen sichern ihre Einhaltung?
-  - Erwartung: Für Personen mit Erlaubnis nach § 34c GewO besteht eine gesetzliche Fortbildungspflicht.
-  - Erwartung: Nach der ImmVermV müssen Makler:innen und Wohnimmobilienverwalter:innen sich innerhalb von jeweils drei Jahren mindestens 20 Stunden fortbilden.
-  - Erwartung: Das Unternehmen dokumentiert die Fortbildungsnachweise zentral, um die Einhaltung für alle betroffenen Mitarbeitenden sicherzustellen.
+- Was versteht man unter der gesetzlichen Weiterbildungspflicht nach § 34c Abs. 2a GewO, und welche organisatorischen Maßnahmen sichern ihre Einhaltung?
+  - Erwartung: Für wohnimmobilienverwaltende Gewerbetreibende mit Erlaubnis nach § 34c GewO und die unmittelbar mitwirkenden Beschäftigten besteht eine gesetzliche Weiterbildungspflicht (§ 34c Abs. 2a GewO, § 15b MaBV).
+  - Erwartung: Sie müssen sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden.
+  - Erwartung: Für Makler:innen galt eine entsprechende Pflicht von 2018 bis zum 23.07.2026; sie ist entfallen.
+  - Erwartung: Das Unternehmen dokumentiert die Weiterbildungsnachweise zentral, um die Einhaltung für alle betroffenen Mitarbeitenden sicherzustellen.
   - Rückfrage: Welche Instrumente stehen zur Deckung des Qualifizierungsbedarfs zur Verfügung?
 - Welchen Unterschied sehen Sie zwischen Mentoring und Coaching als Personalentwicklungsinstrumente?
   - Erwartung: Beim Mentoring begleiten erfahrene Objektbetreuer:innen neue Kolleg:innen.
