@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 45 Items zu Zeichnen und Werkstoffe P2 eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p2-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
+
+- **Eingespielt:** 15 Karteikarten und 30 Quizfragen (16 Rechenaufgaben plus Leseaufgaben zu Kurznamen, Ra-Richtwerten, Passungssystem und Gefüge) in `tq2/6.1` (K-6.1-23 bis 28, Q-6.1-21 bis 30), `tq2/6.2` (K-6.2-21 bis 25, Q-6.2-17 bis 26) und `tq2/6.3` (K-6.3-23 bis 26, Q-6.3-19 bis 28). Rechenaufgaben vom Agenten mit exakten Brüchen und von mir unabhängig nachgerechnet; die Ergebnisse stimmen.
+- **Entscheidungen (Vorschläge übernommen):** Abmaße (Ø25 H7/f7, Ø30 H7/k6), As = 84 mm² (M12) und der Faktor in Q-6.2-18 (28Mn6) stehen als Aufgabenvorgabe in der Aufgabe und gehören zur fachlichen Prüfung; die TQ2-Karten bleiben ohne `tags`-Zeile (wie die vorhandenen Karten dieser Dateien); Q-6.3-22 und Q-6.3-28 bleiben im Kurs.
+- **Import:** `db:validate-content`: 16.222 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 45 neu, 0 geändert, 0 deaktiviert; zweiter Trockenlauf 16.222 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: Zeichnen und Werkstoffe P2 eingearbeitet, zehn Theorieabschnitte TQ2; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p2-zeichnen-werkstoffe.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
