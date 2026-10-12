@@ -1,6 +1,6 @@
 # Entwurf: Fehlende Rahmenplan-Theorie im Technischen Fachwirt (FL-TF-16, TQ1 bis TQ3)
 
-Stand 12.10.2026 · **zur Entscheidung vorgelegt, nicht in `content/` eingespielt** (neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „weiter mit FL-TF-16“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 (Abschnitt 4, „Lücken gegenüber dem Rahmenplan“, TechFachwPrV § 4 bis 6; der IHK-Rahmenplan selbst war nicht abrufbar).
+Stand 12.10.2026 · **vom Projektleiter angenommen und am 12.10.2026 in `content/` eingearbeitet** (siehe Architekturplanung §13; neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „weiter mit FL-TF-16“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 (Abschnitt 4, „Lücken gegenüber dem Rahmenplan“, TechFachwPrV § 4 bis 6; der IHK-Rahmenplan selbst war nicht abrufbar).
 
 ## Was vorliegt
 

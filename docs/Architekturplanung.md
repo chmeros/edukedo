@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: fehlende Rahmenplan-Theorie FL-TF-16 eingearbeitet; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Fachlehrer-Review vom 07.10.2026 (FL-TF-16) fand Pflichtinhalte des Rahmenplans (TechFachwPrV § 4 bis 6) ohne Theorie. Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-theorie.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten.
+
+- **Eingearbeitet (nur Theorie, keine neuen Items):** `tq1/5.1` „Energieformen und Wärme“ und „Druck, Hydraulik und Pneumatik“; `tq1/5.2` „Geschwindigkeit, Drehzahl und Schnittgeschwindigkeit“ und „Statistische Verfahren“; `tq1/5.3` „Elektrische Energie und Schaltungen“; `tq2/6.3` „Messtechnik und Prüfmittel“; `tq2/6.1` „Schaltpläne und Funktionserkennung“; `tq3/7.4` „Rechnergestützte Systeme und NC-Programmierung“; `tq3/7.2` Verfügbarkeit = MTBF / (MTBF + MTTR) im Abschnitt Kennzahlen. Alle Rechenbeispiele nachgerechnet; Stoffwerte als gerundete Richtwerte gekennzeichnet; Normen nur DIN ISO 1219, DIN EN 60617 und die Bezugstemperatur 20 °C. Die fachliche Prüfung steht aus.
+- **Als Entwürfe zur Prüfung (R3, nicht eingespielt):** Karteikarten und Quizfragen (auch Rechenaufgaben) zu den neuen Abschnitten unter `docs/entwuerfe/tf-rahmenplan-items/`; Vorschlag für acht weitere Pakete der übrigen Rahmenplan-Lücken in `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md` (Empfehlung: Rechnungswesen rechnerisch zuerst, dann Zeichnen und Werkstoffe, Fertigung, Produktion, Absatz und Führung, Qualität; Rechtsnahes bleibt bis zur Rechtsprüfung gesperrt).
+- **Import:** `db:validate-content`: 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 7 Themen geändert (nur Theorie), sonst unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (CI: Absturz des API-Servers im Smoke-Test behoben, Worker robust gegen Datenbank- und Redis-Fehler; Entscheidung des Projektleiters)
 
 Anlass: Der Job `build-and-test` der CI war seit 09.10.2026 rot (e2e, docker-build und audit grün; e2e läuft seit Lauf 112 vom 09.10.2026 durch). Die Job-Protokolle sind ohne Admin-Anmeldung nicht lesbar; Ursache gefunden über Fehler-Annotationen und einen Nachbau im Linux-Container (Node 22, `pnpm install --frozen-lockfile`, Build, Smoke-Test, Redis wie in der CI).
