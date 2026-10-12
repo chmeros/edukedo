@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Produktion P4 eingearbeitet, sieben Theorieabschnitte HQ2; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p4-produktion.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
+
+- **Eingearbeitet (nur Theorie):** `hq2/9.1` „Fertigungsorganisation: Werkstatt, Fließ, Gruppe und Insel“ (mit Takt und Bandwirkungsgrad), „Optimale Losgröße rechnen“, „Zeitwirtschaft nach REFA“, „Kapazitätsbelastung rechnen“, „Arbeitsplatzgestaltung und Ergonomie“; `hq2/9.2` „Netzplantechnik“ (Vorgangsknotennetz mit FAZ, FEZ, SAZ, SEZ, Gesamt- und freiem Puffer, kritischer Weg); `hq2/9.3` „Produktivität und Wirtschaftlichkeit“. Alle Zahlenbeispiele mit Skript nachgerechnet.
+- **Entscheidungen (Vorschläge übernommen):** alle sieben Abschnitte, auch die Ergonomie (rein qualitativ, ohne Grenzwerte); die Losgrößenformel x_opt = √(2 · M · K_r / (h · k)) wird hier eingeführt, Paket P6 (Bestellmenge nach Andler) verweist darauf; Beispielwerte (Verteilzeit 10 %, Lagerhaltungskostensatz 20 %, Leistungsgrad 110 %, Netzplanvorgänge) sind erfunden; die REFA-Zeiten verwenden die vereinfachte Zerlegung t_e = t_g + t_v (Grundzeit aus Haupt- und Nebenzeit, Verteilzeit als Zuschlag); Gesetzliches zu Arbeitszeit und Arbeitsschutz bleibt bis zur Rechtsprüfung weg (Paket P8, Rechtsnahes).
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P4 unter `docs/entwuerfe/tf-rahmenplan-p4-items/` (in Arbeit).
+- **Import:** `db:validate-content`: 16.260 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 0 neu, 3 geändert (die Theorie-Items von 9.1, 9.2 und 9.3), 0 deaktiviert; zweiter Trockenlauf 16.260 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 38 Items zu Fertigung und Betrieb P3 eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p3-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
