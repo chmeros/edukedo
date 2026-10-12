@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 42 Items zum Rechnungswesen rechnerisch P1 eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p1-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
+
+- **Eingespielt:** 12 Karteikarten und 30 Quizfragen (18 Rechenaufgaben: 9 Kurzantworten, 9 Multiple Choice mit typischen Rechenfehlern als falschen Optionen) in `wq2/2.1` (K-2.1-21 bis 24, Q-2.1-15 bis 24), `wq2/2.2` (K-2.2-24 bis 27, Q-2.2-19 bis 28) und `wq2/2.3` (K-2.3-21 bis 24, Q-2.3-16 bis 25). Alle Rechenaufgaben vom Agenten mit exakten Brüchen und von mir unabhängig mit einem zweiten Skript nachgerechnet; die Ergebnisse stimmen.
+- **Entscheidungen zu den Grenzfällen (Vorschläge übernommen):** Q-2.3-20 (Sortieren Kapitalwert) und Q-2.3-25 (Bewertung bei Erlösen) bleiben im Kurs; die Formelkarten K-2.1-23, K-2.2-24 und K-2.3-23 bleiben trotz teilweiser Überschneidung mit vorhandenen Karten; Q-2.3-19 nutzt konstruierte Überschüsse (exakt 10.000 € Kapitalwert), weil die Theorie mit gerundetem Rentenbarwertfaktor rechnet; der Umsatzsteuersatz 19 % steht als „Beispielsatz“, die degressive Abschreibung (25 %) als „frei gewählt“ ohne Aussage zur Zulässigkeit (beides in die fachliche Prüfung und die Rechtsprüfung Iteration 22).
+- **Bewusst nicht abgefragt:** Differenzkalkulation, Engpassrechnung als Zahl, Rentabilität als Zahl, weitere Bilanzkennzahlen als Zahl, Buchungssätze von Ausgangsrechnung, Zahllast und Abschreibung. Fachgespräch und Fallaufgaben zum Rechnungswesen sind ein eigener Schritt.
+- **Import:** `db:validate-content`: 16.177 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 42 neu, 0 geändert, 0 deaktiviert; zweiter Trockenlauf 16.177 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: Rechnungswesen rechnerisch P1 eingearbeitet, 45 Items zu den FL-TF-16-Abschnitten eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ am 12.10.2026 mit „alle Vorschläge umsetzen“ (1) die zehn Theorieabschnitte aus `docs/entwuerfe/tf-rahmenplan-p1-rechnungswesen.md` (Paket P1) und (2) die 45 Items aus `docs/entwuerfe/tf-rahmenplan-items/` einarbeiten. Die fachliche Prüfung steht aus.

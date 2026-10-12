@@ -1,6 +1,6 @@
 # Entwurf: Karteikarten und Quizfragen zu den zehn Rechnungswesen-Abschnitten (Technischer Fachwirt, WQ2, Themen 2.1 bis 2.3)
 
-Stand 12.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (neue Inhalte, Rahmenentscheidung R3). Grundlage sind die am 12.10.2026 eingearbeiteten zehn Theorieabschnitte des Pakets P1 (Entwurf: `docs/entwuerfe/tf-rahmenplan-p1-rechnungswesen.md`). Schwerpunkt sind Rechenaufgaben mit neuen Zahlen nach denselben Formeln wie in der Theorie. Schreibweise nach den Hausregeln in `content/README.md` (Anrede „Du“, Tausenderpunkt und Dezimalkomma, Leerzeichen vor €, % und Einheiten, akzeptierte Antworten mit `;`). Fallfirma ist durchgängig die Vantera Präzisionstechnik GmbH. Fachgespräch- und Fallaufgaben-Entwürfe sind nicht Teil dieses Auftrags.
+Stand 12.10.2026 · **vom Projektleiter angenommen („alle Vorschläge umsetzen“) und am 12.10.2026 in `content/` eingespielt** (neue Inhalte, Rahmenentscheidung R3). Grundlage sind die am 12.10.2026 eingearbeiteten zehn Theorieabschnitte des Pakets P1 (Entwurf: `docs/entwuerfe/tf-rahmenplan-p1-rechnungswesen.md`). Schwerpunkt sind Rechenaufgaben mit neuen Zahlen nach denselben Formeln wie in der Theorie. Schreibweise nach den Hausregeln in `content/README.md` (Anrede „Du“, Tausenderpunkt und Dezimalkomma, Leerzeichen vor €, % und Einheiten, akzeptierte Antworten mit `;`). Fallfirma ist durchgängig die Vantera Präzisionstechnik GmbH. Fachgespräch- und Fallaufgaben-Entwürfe sind nicht Teil dieses Auftrags.
 
 ## Dateien
 
