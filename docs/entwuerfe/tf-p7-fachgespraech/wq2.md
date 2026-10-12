@@ -1,0 +1,139 @@
+# Entwurf: Neue Fachgesprächsfragen Technischer Fachwirt, WQ2 Rechnungswesen (Paket P7)
+
+Stand 12.10.2026 · Entwurf zur Entscheidung des Projektleiters, nichts davon liegt in `content/`. Die Abschnitte unten tragen die `###`-Überschriften der Zieldatei `content/technischer-fachwirt/wq2/fachgespraech.md` wörtlich; ein Skript kann die Fragen jeweils am Ende der gleichnamigen Themengruppe anfügen. Übersicht, nachgerechnete Zahlen und Grenzen der Theorie stehen in `docs/entwuerfe/tf-p7-fachgespraech-wq12.md`.
+
+### 2.1 Finanzbuchhaltung und Jahresabschluss
+
+- Erläutern Sie am Beispiel einer Eingangs- und einer Ausgangsrechnung der Vantera Präzisionstechnik GmbH, wie die Umsatzsteuer gebucht wird und warum sie für das Unternehmen ein durchlaufender Posten ist.
+  - Erwartung: Die Umsatzsteuer auf Ausgangsrechnungen führt Vantera an das Finanzamt ab, die Umsatzsteuer auf Eingangsrechnungen kann sie als Vorsteuer verrechnen, deshalb ist die Steuer für das Unternehmen ein durchlaufender Posten.
+  - Erwartung: Bei einer Eingangsrechnung über Aluminium (6.000 € netto, Umsatzsteuer 1.140 €, Rechnungsbetrag 7.140 €) lautet der Buchungssatz: Rohstoffe 6.000 € und Vorsteuer 1.140 € an Verbindlichkeiten aus Lieferungen und Leistungen 7.140 €.
+  - Erwartung: Bei einer Ausgangsrechnung über Präzisionsbauteile (10.000 € netto, Umsatzsteuer 1.900 €, Rechnungsbetrag 11.900 €) lautet er: Forderungen aus Lieferungen und Leistungen 11.900 € an Umsatzerlöse 10.000 € und Umsatzsteuer 1.900 €.
+  - Erwartung: Die Zahllast ist Umsatzsteuer minus Vorsteuer, bei diesen beiden Geschäftsvorfällen 1.900 € − 1.140 € = 760 €, die Vantera mit dem Buchungssatz Umsatzsteuer 1.900 € an Vorsteuer 1.140 € und Bank 760 € überweist.
+  - Erwartung: Die Beispiele rechnen mit 19 % als Beispielsatz, die Steuersätze können sich ändern, maßgeblich ist der jeweils geltende gesetzliche Satz.
+  - Rückfrage: Nach welchen Regeln bestimmen Sie die Seite eines Kontos im Buchungssatz?
+  - Rückfrage: Warum kommt es bei den Kontenbezeichnungen vor allem auf die richtige Seite im Soll oder Haben an?
+- Wie werden Rabatt, Bezugskosten und Skonto bei einer Eingangsrechnung der Vantera Präzisionstechnik GmbH gebucht, und warum nutzt das Unternehmen den Skonto in der Regel, selbst wenn dafür kurzfristig Kredit nötig ist?
+  - Erwartung: Ein Rabatt, der sofort auf der Rechnung abgezogen wird, wird nicht gebucht; gebucht wird der Rechnungsbetrag nach Rabatt, im Beispiel Listenpreis 5.000 € abzüglich 10 % gleich 4.500 € netto, Umsatzsteuer 855 €, Rechnungsbetrag 5.355 €.
+  - Erwartung: Bezugskosten wie die Eingangsfracht gehören zu den Anschaffungskosten und werden auf dem Materialkonto gebucht (Fracht 120 € netto, Vorsteuer 22,80 €), Ausgangsfrachten sind dagegen Aufwand.
+  - Erwartung: Der Skonto wird erst bei der Zahlung gebucht und mindert die Anschaffungskosten und die Vorsteuer: 2 % von 5.355 € sind 107,10 €, davon 90,00 € Minderung der Rohstoffe und 17,10 € der Vorsteuer, überwiesen werden 5.247,90 €.
+  - Erwartung: Die Anschaffungskosten betragen danach 4.500 € + 120 € − 90 € = 4.530 €, das entspricht dem Einstandspreis der Bezugskalkulation.
+  - Erwartung: Wer statt am zehnten Tag erst nach 30 Tagen zahlt, nimmt 20 Tage Kredit in Anspruch und verzichtet auf 2 % Skonto, das entspricht einem Jahreszins von rund 36,7 % und liegt weit über den Kosten einer Kontokorrentlinie.
+  - Rückfrage: Wie wird ein Kundenskonto auf einer Ausgangsrechnung der Vantera gebucht?
+  - Rückfrage: Welchen Einstandspreis hat das Aluminium im Beispiel, wenn Vantera die Skontofrist verpasst?
+- Beurteilen Sie anhand von Anlagendeckungsgrad, Liquiditätsgraden und Strukturbilanz, ob die Vantera Präzisionstechnik GmbH ihr langfristig gebundenes Vermögen langfristig finanziert hat und ob sie kurzfristig zahlungsfähig ist.
+  - Erwartung: Die goldene Bilanzregel verlangt, langfristig gebundenes Vermögen langfristig zu finanzieren; der Anlagendeckungsgrad I liegt mit 9 / 12 = 75 % unter 100 %, der Anlagendeckungsgrad II mit (9 + 6) / 12 = 125 % darüber und erfüllt die Regel im üblichen Sinn.
+  - Erwartung: Der Überschuss der langfristigen Mittel über das Anlagevermögen von 15 − 12 = 3 Mio. € entspricht dem Working Capital (8 − 5 = 3 Mio. €), ein positiver Wert wirkt als Liquiditätspuffer.
+  - Erwartung: Die Liquidität 2. Grades beträgt (1 + 3) / 5 = 80 % und die 3. Grades 8 / 5 = 160 %, beide liegen unter den Faustregeln von mindestens 100 % beziehungsweise etwa 200 %.
+  - Erwartung: Die Strukturbilanz ordnet das Vermögen nach der Dauer der Kapitalbindung und das Kapital nach der Fälligkeit; kurzfristig stehen 4 Mio. € Vermögen 5 Mio. € Kapital gegenüber, die Vorräte (4 Mio. €), die hier als mittelfristig gebunden gelten, werden aus dem langfristigen Überschuss von 3 Mio. € und dem kurzfristigen Überhang von 1 Mio. € finanziert.
+  - Erwartung: Aus der Strukturbilanz folgt kein akuter Handlungsbedarf, wohl aber die Frage nach dem Umschlag der Vorräte und der Fälligkeit der kurzfristigen Verbindlichkeiten; eine einzelne Kennzahl genügt nie, man vergleicht mit Vorjahren und Branche.
+  - Rückfrage: Was zeigt die Eigenkapitalquote, und wie hoch ist sie bei Vantera?
+  - Rückfrage: Warum ist die Einordnung der Vorräte als mittelfristig gebunden eine Entscheidung der Analyse?
+- Was zeigt der Cashflow der Vantera Präzisionstechnik GmbH, wie wird er in der vereinfachten Form ermittelt, und warum liegt er über dem Jahresüberschuss?
+  - Erwartung: Der Cashflow zeigt, wie viele Finanzmittel das Unternehmen aus seiner laufenden Tätigkeit selbst erwirtschaftet, und misst damit die Innenfinanzierungskraft; aus ihm können Investitionen, Tilgungen und Gewinnausschüttungen bezahlt werden.
+  - Erwartung: Vereinfacht gilt Cashflow = Jahresüberschuss + Abschreibungen + Zunahme der Rückstellungen, im Beispiel 1,35 Mio. € + 1,2 Mio. € + 0,15 Mio. € = 2,7 Mio. €.
+  - Erwartung: Er liegt über dem Jahresüberschuss, weil Abschreibungen und Rückstellungszuführungen den Gewinn mindern, ohne dass in der Periode eine Auszahlung folgt.
+  - Erwartung: Die Bildung einer Rückstellung belastet den Gewinn, obwohl noch nichts bezahlt wurde, und wird deshalb im Cashflow wieder addiert; wird die Rückstellung später durch eine Zahlung verbraucht, nimmt der Bestand ab und das mindert den Cashflow dieser Periode.
+  - Erwartung: Setzt man die Verschuldung ins Verhältnis zum Cashflow, ergibt sich eine grobe Entschuldungsdauer von (11 − 1) / 2,7 ≈ 3,7 Jahren.
+  - Rückfrage: Wie hoch ist die Cashflow-Umsatzrate bei Umsatzerlösen von 22,5 Mio. €, und wie unterscheidet sie sich von der Umsatzrentabilität?
+  - Rückfrage: Wie schlägt sich der Verbrauch einer Gewährleistungsrückstellung von 40.000 € durch eine Nacharbeit von 34.000 € netto im Cashflow des Folgejahres nieder?
+- Erläutern Sie den Leverage-Effekt am Beispiel einer Investition von 1.000.000 €, die die Vantera Präzisionstechnik GmbH je zur Hälfte mit Eigenkapital und mit Fremdkapital zu 5 % finanziert, und beurteilen Sie, wann die Verschuldung zum Risiko wird.
+  - Erwartung: Der Leverage-Effekt beschreibt, wie sich Fremdkapital auf die Eigenkapitalrentabilität auswirkt: r_EK = r_GK + (r_GK − i) · FK / EK.
+  - Erwartung: Liegt die Gesamtkapitalrentabilität über dem Fremdkapitalzinssatz, steigert zusätzliches Fremdkapital die Eigenkapitalrentabilität.
+  - Erwartung: Bei einer Gesamtkapitalrentabilität von 9 % beträgt der Gewinn 90.000 € − 25.000 € = 65.000 €, die Eigenkapitalrentabilität also 65.000 € / 500.000 € = 13 % statt 9 % bei reiner Eigenfinanzierung.
+  - Erwartung: Fällt die Gesamtkapitalrentabilität auf 3 %, bleiben 30.000 € − 25.000 € = 5.000 €, das sind nur 1 % Eigenkapitalrentabilität und damit weniger als die 3 % bei reiner Eigenfinanzierung.
+  - Erwartung: Die Verschuldung erhöht damit nicht nur die Chance, sondern auch das Risiko, sobald die Gesamtkapitalrentabilität unter den Fremdkapitalzinssatz sinkt.
+  - Rückfrage: Wie lässt sich die Gesamtkapitalrentabilität als ROI in Umsatzrendite vor Zinsen und Kapitalumschlag zerlegen?
+  - Rückfrage: Welche beiden Stellhebel ergeben sich aus dieser Zerlegung?
+- Die Vantera Präzisionstechnik GmbH schafft eine CNC-Fräsmaschine für 240.000 € mit einer Nutzungsdauer von acht Jahren an. Erläutern Sie, wie sich lineare und degressive Abschreibung in den ersten Jahren auf Restbuchwert und Gewinn auswirken und warum die Abschreibung zugleich Mittel im Unternehmen hält.
+  - Erwartung: Die lineare Abschreibung beträgt (Anschaffungskosten − Restwert) / Nutzungsdauer, ohne Restwert 240.000 € / 8 = 30.000 € je Jahr, bei einem Restwert von 24.000 € sind es (240.000 € − 24.000 €) / 8 = 27.000 €.
+  - Erwartung: Der Restbuchwert nach drei Jahren beträgt bei linearer Abschreibung ohne Restwert 240.000 € − 3 · 30.000 € = 150.000 €.
+  - Erwartung: Die degressive Abschreibung schreibt einen gleichbleibenden Prozentsatz vom jeweiligen Restbuchwert ab; bei frei gewählten 20 % sind es 48.000 €, 38.400 € und 30.720 € in den ersten drei Jahren.
+  - Erwartung: Der Restbuchwert beträgt damit nach drei Jahren 122.880 €, abgeschrieben sind 117.120 € statt 90.000 € bei linearer Abschreibung, die Gewinne der ersten Jahre sind also niedriger; über die gesamte Nutzungsdauer wird bei beiden Verfahren höchstens bis zum Restwert abgeschrieben.
+  - Erwartung: Die Abschreibung mindert den Gewinn, ist aber keine Auszahlung; über die Preise der Produkte fließt Geld für den Ersatz der Maschine zurück (Abschreibungsgegenwert, Innenfinanzierung).
+  - Rückfrage: Wie lautet der Buchungssatz der jährlichen Abschreibung von 30.000 €?
+- Ordnen Sie für den Jahresabschluss der Vantera Präzisionstechnik GmbH eine Gewährleistungsrückstellung, eine im Oktober im Voraus gezahlte Versicherungsprämie und nachträglich zu zahlende Darlehenszinsen ein und erklären Sie, warum diese Posten Aufwand und Ertrag der richtigen Periode zuordnen.
+  - Erwartung: Rückstellungen sind Verpflichtungen gegenüber Dritten, die wirtschaftlich in der Periode verursacht sind, bei denen aber Grund, Höhe oder Fälligkeit noch ungewiss ist; stehen alle drei fest, liegt eine Verbindlichkeit vor.
+  - Erwartung: Bei einem angenommenen Erfahrungswert von 0,5 % auf 8.000.000 € Umsatz mit Gewährleistung werden 40.000 € gebucht: Aufwendungen für Gewährleistung an Rückstellungen für Gewährleistung, der Aufwand fällt damit in das Jahr der Lieferung.
+  - Erwartung: Eine am 1. Oktober gezahlte Prämie von 12.000 € für zwölf Monate ergibt zum 31. Dezember eine aktive Rechnungsabgrenzung von 9 / 12 = 9.000 €, weil die Zahlung vor dem Stichtag liegt und der Aufwand zu drei Vierteln das neue Jahr betrifft.
+  - Erwartung: Zinsen für ein Darlehen von 200.000 € zu 4 %, die nachträglich am 1. April gezahlt werden, ergeben zum 31. Dezember eine sonstige Verbindlichkeit von 200.000 € · 0,04 · 9 / 12 = 6.000 €, weil die Zahlung erst nach dem Stichtag erfolgt.
+  - Erwartung: Entscheidend ist der Zahlungszeitpunkt: Liegt die Zahlung vor dem Stichtag, spricht man von transitorischen Rechnungsabgrenzungsposten, liegt sie danach, von antizipativen sonstigen Forderungen oder Verbindlichkeiten, bei der Rückstellung ist die Zahlung dagegen ungewiss.
+  - Rückfrage: Wie wird die Rückstellung im Folgejahr gebucht, wenn eine Fremdfirma die Nacharbeit mit 34.000 € netto berechnet?
+  - Rückfrage: Wie wird die Zinsverbindlichkeit bei der Zahlung am 1. April gebucht?
+- Die Vantera Präzisionstechnik GmbH hält kurzfristig angelegte Wertpapiere und eine Forderung in polnischen Zloty. Erläutern Sie, wie beide zum Bilanzstichtag bewertet werden und worin sich die Behandlung von Kursgewinnen unterscheidet.
+  - Erwartung: Wertpapiere, die nur kurzfristig angelegt werden, gehören zum Umlaufvermögen; zu den Anschaffungskosten zählen der Kaufpreis und die Nebenkosten, bei 1.000 Stück zu 42,00 € und 1 % Provision sind das 42.420 €.
+  - Erwartung: Für das Umlaufvermögen gilt das strenge Niederstwertprinzip: Bei einem Stichtagskurs von 38,50 € ist auf 38.500 € abzuschreiben, also um 3.920 €, auch wenn der Rückgang nur vorübergehend sein könnte.
+  - Erwartung: Steigt der Kurs später auf 44,00 €, wird nur bis zu den Anschaffungskosten zugeschrieben (3.920 €), die weiteren 1.580 € bleiben nach dem Realisationsprinzip unberücksichtigt, bis die Wertpapiere verkauft sind.
+  - Erwartung: Eine Forderung über 200.000 PLN wird mit dem Kurs 1 € = 4,00 PLN als 50.000 € gebucht (Euro-Betrag = Fremdwährungsbetrag / Kurs), bei einem Stichtagskurs von 4,20 PLN beträgt sie 47.619,05 €, die Differenz von 2.380,95 € ist Aufwand aus der Währungsumrechnung.
+  - Erwartung: Bei einer Restlaufzeit von höchstens einem Jahr werden nach den handelsrechtlichen Grundsätzen Kursgewinne wie Kursverluste ausgewiesen (bei 3,80 PLN wären es 52.631,58 € und 2.631,58 € Ertrag), bei längerer Restlaufzeit gilt das Vorsichtsprinzip und Gewinne über den ursprünglichen Euro-Betrag hinaus werden nicht ausgewiesen.
+  - Rückfrage: Wie kann sich die Vantera gegen das Währungsrisiko aus Fremdwährungsgeschäften absichern?
+  - Rückfrage: Welcher Betrag fließt bei einem Zahlungseingang zu 4,10 PLN je Euro zu, und wie hoch ist der Kursgewinn gegenüber dem Buchwert von 47.619,05 €?
+
+### 2.2 Kostenrechnung
+
+- Erläutern Sie, wie die Gemeinkosten der Hilfskostenstellen Energieversorgung und Instandhaltung im Betriebsabrechnungsbogen nach dem Stufenleiterverfahren auf die Hauptkostenstellen umgelegt werden und wie daraus die Zuschlagssätze der Vantera Präzisionstechnik GmbH entstehen.
+  - Erwartung: Hilfskostenstellen erbringen Leistungen für andere Stellen und rechnen nicht direkt mit Aufträgen ab, ihre Kosten werden über einen Umlageschlüssel wie Kilowattstunden oder Instandhaltungsstunden auf die Hauptkostenstellen umgelegt und heißen danach sekundäre Gemeinkosten.
+  - Erwartung: Beim Stufenleiterverfahren wird zuerst die Hilfsstelle abgerechnet, die am meisten an andere Hilfsstellen abgibt und am wenigsten von ihnen empfängt, hier die Energie mit 200.000 € / 400.000 kWh = 0,50 € je kWh; Rückleistungen an bereits abgerechnete Stellen bleiben unberücksichtigt.
+  - Erwartung: Die Instandhaltung verteilt danach 380.000 € + 20.000 € = 400.000 €, das sind bei 5.000 Stunden 80,00 € je Stunde.
+  - Erwartung: Nach der Umlage liegen bei Material 150.000 €, bei der Zerspanung 1.260.000 € und bei Verwaltung und Vertrieb 1.920.000 € Gemeinkosten; die Summe von 3.330.000 € bleibt unverändert, denn die Umlage verteilt die Kosten nur.
+  - Erwartung: Daraus ergeben sich die Zuschlagssätze 150.000 € / 1.500.000 € = 10 % auf die Materialeinzelkosten, 1.260.000 € / 700.000 € = 180 % auf die Fertigungslöhne und 1.920.000 € / 16.000.000 € = 12 % auf die Herstellkosten.
+  - Rückfrage: Warum ist die Reihenfolge der Hilfsstellen zu begründen?
+  - Rückfrage: Wodurch unterscheiden sich Anbauverfahren und Gleichungsverfahren vom Stufenleiterverfahren?
+- Ein Kundenauftrag der Vantera Präzisionstechnik GmbH soll nach der Zuschlagskalkulation kalkuliert werden, die Kundschaft akzeptiert aber höchstens 8.000 € Listenpreis. Erläutern Sie den Weg der Vorwärtskalkulation von den Einzelkosten bis zum Listenverkaufspreis und beurteilen Sie mit der Differenzkalkulation, ob der Auftrag zu diesem Preis lohnt.
+  - Erwartung: Bei Materialeinzelkosten von 2.000 € mit 10 % Gemeinkosten und Fertigungslöhnen von 1.500 € mit 180 % Gemeinkosten ergeben sich Materialkosten von 2.200 €, Fertigungskosten von 4.200 € und Herstellkosten von 6.400 €.
+  - Erwartung: Mit 12 % Verwaltungs- und Vertriebsgemeinkosten auf die Herstellkosten betragen die Selbstkosten 7.168 €, ein Gewinnzuschlag von 8 % auf die Selbstkosten ergibt den Barverkaufspreis von 7.741,44 €.
+  - Erwartung: Skonto und Rabatt werden vom höheren Wert berechnet, deshalb rechnet man dividierend: 7.741,44 € / 0,98 = 7.899,43 € Zielverkaufspreis und 7.899,43 € / 0,90 = 8.777,14 € Listenverkaufspreis.
+  - Erwartung: Die Differenzkalkulation geht vom Marktpreis aus: 8.000 € abzüglich 10 % Rabatt ergeben 7.200 €, abzüglich 2 % Skonto 7.056 € Barverkaufspreis, das liegt um 112 € (rund 1,6 %) unter den Selbstkosten von 7.168 €.
+  - Erwartung: Die höchstzulässigen Selbstkosten bei 8 % Gewinn betragen 7.056 € / 1,08 ≈ 6.533,33 €, deshalb bleibt nur, über den Preis zu verhandeln oder Kosten bei Materialeinsatz und Fertigungszeit zu senken.
+  - Rückfrage: Auf welche Bezugsgrößen beziehen sich die Materialgemeinkosten, die Fertigungsgemeinkosten, die Verwaltungs- und Vertriebsgemeinkosten und der Gewinnzuschlag?
+  - Rückfrage: Worin unterscheiden sich Herstellkosten und Selbstkosten?
+- Die maschinenabhängigen Jahreskosten einer CNC-Fräsmaschine der Vantera Präzisionstechnik GmbH sind mit 60.000 € angesetzt. Erläutern Sie, welche Kostenarten in den Maschinenstundensatz eingehen, wie sich der Satz bei 1.500 und bei 1.000 Laufstunden unterscheidet und welche Folgen das für die Kalkulation hat.
+  - Erwartung: Der Maschinenstundensatz ist der Quotient aus den maschinenabhängigen Jahreskosten und der Maschinenlaufzeit je Jahr.
+  - Erwartung: Zu den Jahreskosten zählen die kalkulatorische Abschreibung (240.000 € / 8 = 30.000 €), kalkulatorische Zinsen (5 % auf die halben Anschaffungskosten von 120.000 €, also 6.000 €), Energie (9.000 €), Wartung und Instandhaltung (12.000 €) und Raumkosten (3.000 €), zusammen 60.000 €.
+  - Erwartung: Lohnkosten des Bedieners gehören nicht hinein, sie bleiben bei den Fertigungslöhnen.
+  - Erwartung: Bei 1.500 Laufstunden beträgt der Satz 60.000 € / 1.500 h = 40,00 € je Maschinenstunde, ein Auftrag mit 12 Maschinenstunden wird mit 480,00 € Maschinenkosten belastet.
+  - Erwartung: Bei nur 1.000 Laufstunden steigt der Satz auf 60,00 € je Stunde, weil sich die fixen Kosten auf weniger Stunden verteilen, deshalb sind Auslastung und Rüstzeiten für die Kalkulation wichtig.
+  - Rückfrage: Warum ist die Verrechnung über Maschinenstunden bei hohem Automatisierungsgrad genauer als über Fertigungslöhne?
+  - Rückfrage: Warum nimmt man für die kalkulatorische Abschreibung in der Praxis oft Wiederbeschaffungswerte?
+- Wie ermitteln Sie die Gewinnschwelle eines Bauteils der Vantera Präzisionstechnik GmbH mit der Deckungsbeitragsrechnung, und nach welchem Kriterium entscheiden Sie, welches Produkt Vorrang erhält, wenn eine Maschine zum Engpass wird?
+  - Erwartung: Der Stückdeckungsbeitrag ist der Preis je Stück minus die variablen Kosten je Stück, bei einem Preis von 80 € und variablen Kosten von 50 € also 30 €.
+  - Erwartung: Die Break-even-Menge ist die fixen Kosten geteilt durch den Stückdeckungsbeitrag, bei 120.000 € fixen Kosten also 4.000 Stück, der Break-even-Umsatz beträgt 4.000 · 80 € = 320.000 €.
+  - Erwartung: Bei 5.000 Stück ergibt sich ein Gewinn von 5.000 · 30 € − 120.000 € = 30.000 €, der Abstand zur Gewinnschwelle beträgt 1.000 Stück oder 20 % der Absatzmenge.
+  - Erwartung: Ist eine Maschine der Engpass, entscheidet nicht der Stückdeckungsbeitrag, sondern der Deckungsbeitrag je Engpassstunde.
+  - Erwartung: Produkt A mit 30 € je Stück bei 0,5 Engpassstunden bringt 60 € je Stunde, Produkt B mit 40 € je Stück bei einer Engpassstunde nur 40 € je Stunde, deshalb wird A bevorzugt gefertigt.
+  - Rückfrage: Wie beurteilen Sie einen Zusatzauftrag über 500 Stück zu 62 € bei freier Kapazität, obwohl die Vollkosten je Stück bei 74 € liegen?
+  - Rückfrage: Was gibt die Deckungsbeitragsquote an, und wie hoch ist sie im Beispiel?
+
+### 2.3 Planungsrechnung
+
+- Die Vantera Präzisionstechnik GmbH vergleicht zwei Fräsmaschinen mit den statischen Verfahren. Erläutern Sie, wie Kostenvergleich, Amortisationsrechnung und Rentabilitätsrechnung angewendet werden und wo ihre Grenzen liegen.
+  - Erwartung: Im Kostenvergleich werden die Jahreskosten aus Abschreibung, Zinsen und Betriebskosten gegenübergestellt: Maschine A (240.000 €, 6 Jahre) kommt auf 40.000 € + 6.000 € + 14.000 € = 60.000 €, Maschine B (300.000 €, 8 Jahre) auf 37.500 € + 7.500 € + 9.000 € = 54.000 €.
+  - Erwartung: Bei geplanten 2.000 Stück kostet ein Stück 30,00 € (A) beziehungsweise 27,00 € (B), der Vergleich gilt aber nur bei gleicher Leistung und gleichem Absatz.
+  - Erwartung: Die Amortisationsdauer ist die Anschaffungsauszahlung geteilt durch den jährlichen Rückfluss aus Gewinn plus Abschreibung, bei A also 240.000 € / (20.000 € + 40.000 €) = 4,0 Jahre.
+  - Erwartung: Je kürzer die Amortisationsdauer, desto geringer ist das Kapitalbindungsrisiko, der Rückfluss nach der Amortisation bleibt aber unbeachtet, ein Mangel des Verfahrens.
+  - Erwartung: Die Rentabilität ist (durchschnittlicher Gewinn + kalkulatorische Zinsen) / durchschnittlich gebundenes Kapital, bei A (20.000 € + 6.000 €) / 120.000 € = 21,7 %; die Zinsen werden wieder addiert, weil sonst die Verzinsung doppelt berücksichtigt würde, und das Ergebnis wird mit dem geforderten Mindestzins verglichen.
+  - Rückfrage: Welche Verzinsung ergibt sich bei A über den Kalkulationszinssatz von 5 % hinaus?
+  - Rückfrage: Was passiert mit dem Kostenvergleich, wenn sich die Maschinen in der Ausbringungsmenge unterscheiden?
+- Warum reicht der Kostenvergleich nicht aus, wenn die neue Maschine der Vantera Präzisionstechnik GmbH schneller fertigt, und wie liefert die Gewinnvergleichsrechnung hier eine bessere Entscheidungsgrundlage?
+  - Erwartung: Die Gewinnvergleichsrechnung vergleicht den durchschnittlichen Jahresgewinn aus Erlösen minus Kosten und ist die richtige Wahl, wenn sich die Alternativen auch in Ausbringungsmenge oder Erlösen unterscheiden; gewählt wird die Alternative mit dem höheren Gewinn.
+  - Erwartung: Bei 40 € Verkaufspreis erzielt Maschine A mit 2.000 Stück 80.000 € Erlöse und nach Kosten von 60.000 € einen Gewinn von 20.000 €, Maschine B mit 2.200 Stück 88.000 € Erlöse und nach Kosten von 54.900 € (Betriebskosten 4,50 € je Stück) einen Gewinn von 33.100 €.
+  - Erwartung: Der Gewinnvorsprung von B von 13.100 € setzt sich aus dem Kostenvorteil bei gleicher Menge (26.000 € − 20.000 € = 6.000 €) und dem Deckungsbeitrag der 200 zusätzlichen Stück (200 · (40 € − 4,50 €) = 7.100 €) zusammen.
+  - Erwartung: Der Mengenvorteil gilt nur, wenn die Mehrmenge am Markt zum selben Preis absetzbar ist; ist der Absatz auf 2.000 Stück begrenzt, bleibt B bei einem Gewinn von 26.000 € und damit beim Kostenvorteil.
+  - Erwartung: Die Rentabilität von B beträgt (33.100 € + 7.500 €) / 150.000 € = 27,1 % gegenüber 21,7 % bei A; als statisches Verfahren beachtet die Rechnung den Zeitwert des Geldes nicht, verlässlicher ist die dynamische Sicht über den Kapitalwert.
+  - Rückfrage: Welche Grenze hat die Gewinnvergleichsrechnung bei den unterschiedlichen Nutzungsdauern von 6 und 8 Jahren?
+  - Rückfrage: Um wie viele Prozentpunkte übersteigt die Verzinsung von B den kalkulatorischen Zinssatz von 5 %?
+- Wie ermitteln Sie den Kapitalwert einer Fräsmaschine mit gleichbleibenden Einzahlungsüberschüssen, und weshalb vergleicht die Vantera Präzisionstechnik GmbH bei mehreren Alternativen vorzugsweise die Kapitalwerte statt der internen Zinsfüße?
+  - Erwartung: Der Kapitalwert ist die Summe aller auf den Zeitpunkt 0 abgezinsten Zahlungen: K₀ = −A₀ + Σ e_t / (1 + i)^t, bei gleich hohen Überschüssen genügt der Rentenbarwertfaktor als Summe der Abzinsungsfaktoren.
+  - Erwartung: Bei A₀ = 240.000 €, Überschüssen von 60.000 € über sechs Jahre und 8 % ist der Rentenbarwertfaktor 4,62288, der Barwert der Überschüsse 277.372,78 € und der Kapitalwert 277.372,78 € − 240.000 € = 37.372,78 €.
+  - Erwartung: Der Kapitalwert ist positiv, deshalb ist die Investition bei 8 % vorteilhaft.
+  - Erwartung: Der interne Zinsfuß ist der Zinssatz, bei dem der Kapitalwert null wird, durch Probieren und Interpolieren zwischen 12 % (Kapitalwert +6.684 €) und 14 % (−6.680 €) ergeben sich rund 13,0 %, das liegt über dem Kalkulationszinssatz von 8 %.
+  - Erwartung: Bei mehreren Alternativen vergleicht man vorzugsweise die Kapitalwerte, weil der interne Zinsfuß den absoluten Gewinn nicht zeigt.
+  - Rückfrage: Wie gehen Sie vor, wenn die Einzahlungsüberschüsse nicht in jedem Jahr gleich hoch sind?
+  - Rückfrage: Wie fließt das Planungsrisiko bei der Wahl des Kalkulationszinssatzes in die Rechnung ein?
+- Der Liquiditätsplan der Vantera Präzisionstechnik GmbH weist für ein Quartal 80.000 € Anfangsbestand, 450.000 € Einzahlungen und 520.000 € Auszahlungen aus. Erläutern Sie, wie sich daraus der Endbestand ergibt und was er bedeutet, und wie Sie eine Budgetabweichung bei den Materialkosten der Zerspanungshalle (Budget 400.000 €, Ist 430.000 €) berechnen und deuten.
+  - Erwartung: Der Endbestand ist Anfangsbestand plus Einzahlungen minus Auszahlungen, also 80.000 € + 450.000 € − 520.000 € = 10.000 €, und zugleich der Anfangsbestand der Folgeperiode.
+  - Erwartung: Ein negativer Bestand würde Finanzierungsbedarf bedeuten, positive Überschüsse können angelegt oder zur Tilgung genutzt werden; hier bleibt der Bestand positiv, die Auszahlungen übersteigen die Einzahlungen aber um 70.000 €.
+  - Erwartung: Beim Soll-Ist-Vergleich ist die Abweichung Ist minus Soll, also 430.000 € − 400.000 € = +30.000 €, in Prozent (Ist − Soll) / Soll = 7,5 %.
+  - Erwartung: Bei Kosten ist eine positive Abweichung ungünstig, bei Erlösen wäre dasselbe Vorzeichen günstig.
+  - Erwartung: Die Ursachenanalyse fragt nach Preis, Menge und Ausschuss, also ob mehr Material eingesetzt wurde, ob es teurer eingekauft war oder ob es am Produktmix liegt.
+  - Rückfrage: Welcher Endbestand ergäbe sich, wenn im Folgequartal dieselben Einzahlungen und Auszahlungen anfielen?
+  - Rückfrage: Welche Maßnahmen kommen bei einem Finanzierungsbedarf in Betracht?
