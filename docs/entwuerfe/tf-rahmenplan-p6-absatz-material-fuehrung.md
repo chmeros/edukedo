@@ -1,6 +1,6 @@
 # Entwurf: Paket P6 — Absatz, Material, Logistik und Führung (Technischer Fachwirt, HQ1 und HQ4)
 
-Stand 12.10.2026 · **Entwurf zur Entscheidung, nichts in `content/` eingearbeitet** (neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „weiter mit P6“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 und das Paket P6 aus `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md`: Die Handlungsbereiche Absatz, Material und Logistik (HQ1) und Führung und Zusammenarbeit (HQ4) sind Schwerpunkte der Prüfung; die Präsentation ist Teil der Prüfung. Die Themen 8.1 bis 8.3 und 11.1 bis 11.3 erklären die Inhalte bisher qualitativ; es fehlen Preisbildung, Produktlebenszyklus und Sortiment, Bedarfsermittlung mit Stücklistenauflösung, Bestellmengen- und Bestandsrechnung, Lagerkennzahlen, Entsorgungslogistik sowie Beurteilungs- und Kritikgespräch, Moderationsmethodik und Präsentationstechniken. Die Losgrößenformel wurde in 9.1 eingeführt (Paket P4); der Entwurf verweist darauf.
+Stand 12.10.2026 · **vom Projektleiter angenommen („alle Vorschläge umsetzen, auch alles aus Punkt 6“) und am 12.10.2026 in `content/` eingearbeitet** (siehe Architekturplanung §13; neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „weiter mit P6“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 und das Paket P6 aus `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md`: Die Handlungsbereiche Absatz, Material und Logistik (HQ1) und Führung und Zusammenarbeit (HQ4) sind Schwerpunkte der Prüfung; die Präsentation ist Teil der Prüfung. Die Themen 8.1 bis 8.3 und 11.1 bis 11.3 erklären die Inhalte bisher qualitativ; es fehlen Preisbildung, Produktlebenszyklus und Sortiment, Bedarfsermittlung mit Stücklistenauflösung, Bestellmengen- und Bestandsrechnung, Lagerkennzahlen, Entsorgungslogistik sowie Beurteilungs- und Kritikgespräch, Moderationsmethodik und Präsentationstechniken. Die Losgrößenformel wurde in 9.1 eingeführt (Paket P4); der Entwurf verweist darauf.
 
 ## Was vorliegt
 
@@ -95,6 +95,84 @@ Neun neue Theorieabschnitte (der Vorschlag nannte acht bis zehn). Sie knüpfen a
 > Eine gute **Präsentation** informiert oder überzeugt ein Publikum in begrenzter Zeit. Die **Vorbereitung** klärt Ziel (informieren, überzeugen, entscheiden lassen), **Zielgruppe** (Vorwissen, Interesse), verfügbare **Zeit** und eine **Kernbotschaft**. Der Aufbau folgt **Einleitung** (Begrüßung, Thema, Nutzen, Gliederung), **Hauptteil** (Argumente oder Ergebnisse, logisch gegliedert, mit Beispielen und Zahlen) und **Schluss** (Zusammenfassung, Handlungsaufforderung, Raum für Fragen). Faustregel für die Zeit: etwa 10 % Einleitung, 80 % Hauptteil, 10 % Schluss; für die Menge an Folien rechnet man etwa 2 Minuten je Folie (Richtwert).
 >
 > *Beispiel:* Ein Vortrag von 30 Minuten (zuzüglich 10 Minuten Fragen) gliedert sich in 3 Minuten Einleitung, 24 Minuten Hauptteil und 3 Minuten Schluss; das ergibt etwa 15 Folien. Zur **Visualisierung**: eine Botschaft je Folie, wenig Text, aussagekräftige Diagramme statt Zahlenkolonnen, gut lesbare Schrift, einheitliches Layout. Die Folien unterstützen den Vortrag, sie ersetzen ihn nicht. **Wirkung** entsteht durch Stimme (Lautstärke, Tempo, Pausen), **Körpersprache** (Blickkontakt, aufrechte Haltung, offene Gestik) und Authentizität. Bei der Präsentation von Ergebnissen zählt der Nutzen für die Zuhörenden („Was bedeutet das für uns?“); fachliche Details gehören in den Anhang. **Fragen** werden freundlich aufgenommen, bei Bedarf wiederholt und knapp beantwortet; bei Unsicherheit sagt man, dass man nachliefert. Medien: Beamer, Flipchart, Pinnwand, Handout; vor dem Termin Technik und Raum prüfen.
+
+---
+
+# Ergänzung auf Wunsch des Projektleiters vom 12.10.2026 („auch alles aus 6“): die in Punkt 6 genannten Themen
+
+## 10. HQ1 8.1 — Preisstrategien: Abschöpfung und Marktdurchdringung
+
+**Einfügen:** Neuer Abschnitt `### Preisstrategien: Abschöpfung und Marktdurchdringung` nach „Produktlebenszyklus und Sortiment“.
+
+> Bei der Markteinführung eines neuen Produkts stehen zwei gegensätzliche **Preisstrategien** zur Wahl. Die **Abschöpfungsstrategie** (Skimming) beginnt mit einem **hohen Preis**, den zahlungskräftige oder technisch anspruchsvolle Kunden akzeptieren, und senkt ihn schrittweise, um weitere Käuferschichten zu erreichen. Sie passt zu Produkten mit technischem Vorsprung, hohen Entwicklungskosten und wenig Wettbewerb; sie finanziert die Entwicklung früh, zieht aber Wettbewerber an. Die **Marktdurchdringungsstrategie** (Penetration) beginnt mit einem **niedrigen Preis**, um schnell einen hohen Marktanteil zu gewinnen und Konkurrenz abzuschrecken; sie passt zu Produkten mit hohen Stückzahlvorteilen und preissensiblen Märkten, hat aber niedrige Anfangsgewinne und lässt sich später schwer anheben.
+>
+> *Beispiel:* Ein neues Bauteil hat variable Stückkosten von 50 €. **Abschöpfung:** 500 Stück zu 150 €, später 1.500 Stück zu 120 € und 3.000 Stück zu 95 €; Gesamtmenge 5.000 Stück, Umsatz 75.000 + 180.000 + 285.000 = **540.000 €**, Deckungsbeitrag (150 − 50) · 500 + (120 − 50) · 1.500 + (95 − 50) · 3.000 = 50.000 + 105.000 + 135.000 = **290.000 €**. **Marktdurchdringung:** 8.000 Stück zu 70 €; Umsatz **560.000 €**, Deckungsbeitrag (70 − 50) · 8.000 = **160.000 €**. Die Abschöpfung liefert hier den höheren Deckungsbeitrag, die Durchdringung die größere Menge und den höheren Marktanteil. Welche Strategie sinnvoll ist, hängt von Wettbewerb, Kostenstruktur und Zielen ab.
+
+## 11. HQ1 8.1 — BCG-Matrix im Sortiment
+
+**Einfügen:** Neuer Abschnitt `### BCG-Matrix im Sortiment` nach „Preisstrategien: Abschöpfung und Marktdurchdringung“.
+
+> Die **BCG-Matrix** (siehe WQ4, Portfolio-Analyse) lässt sich auf das Produktprogramm anwenden, um Investitionen zu steuern. Die Achsen sind das **Marktwachstum** (hoch oder niedrig, als Grenze wird häufig 10 % je Jahr als Beispielwert gewählt) und der **relative Marktanteil**: **relativer Marktanteil = eigener Marktanteil / Marktanteil des größten Wettbewerbers**. Ein Wert über 1 bedeutet Marktführerschaft. Daraus folgen vier Felder mit **Normstrategien**: **Stars** (Wachstum hoch, relativer Anteil hoch): investieren, um die Stellung zu halten. **Question Marks** (Wachstum hoch, Anteil niedrig): selektiv investieren oder aufgeben. **Cash Cows** (Wachstum niedrig, Anteil hoch): Gewinne abschöpfen, wenig investieren, die Mittel für Stars und Question Marks nutzen. **Poor Dogs** (Wachstum niedrig, Anteil niedrig): Desinvestition oder Elimination. Die Matrix hängt eng mit dem Produktlebenszyklus zusammen (Question Mark in der Einführung, Star im Wachstum, Cash Cow in der Reife, Poor Dog im Rückgang).
+>
+> *Beispiel:* Ein Produkt der Vantera hat einen Marktanteil von 24 %; der größte Wettbewerber hält 30 %: relativer Marktanteil 24 / 30 = **0,8** (niedrig). Wächst der Markt mit 12 % je Jahr, ist das Produkt ein **Question Mark**. Hält die Vantera dagegen 36 % bei einem größten Wettbewerber von 30 %, beträgt der relative Marktanteil **1,2**; bei einem Marktwachstum von 4 % wäre das eine **Cash Cow**. Kritik: Die Matrix vereinfacht stark (nur zwei Dimensionen), die Grenzen sind willkürlich, und die Einordnung hängt von der Marktabgrenzung ab.
+
+## 12. HQ1 8.1 — Verhandlungsführung im Vertrieb
+
+**Einfügen:** Neuer Abschnitt `### Verhandlungsführung im Vertrieb` nach „Angebots- und Vertragsgestaltung“.
+
+> Eine **Verhandlung** soll zu einem Ergebnis führen, mit dem beide Seiten leben können. Das **Harvard-Konzept** nennt vier Grundsätze: **Menschen und Probleme getrennt behandeln** (hart in der Sache, fair zum Gegenüber), **Interessen statt Positionen** in den Mittelpunkt stellen (Warum will der Kunde einen niedrigeren Preis? Zahlungsziel, Liefermenge, Qualität?), **Optionen zum gegenseitigen Vorteil** entwickeln und **objektive Kriterien** anwenden (Marktpreise, Normen, Gutachten). Zur Vorbereitung gehört die **BATNA** (Best Alternative to a Negotiated Agreement): die beste Alternative, wenn die Verhandlung scheitert. Wer eine gute Alternative hat, kann standhaft verhandeln. Beispielhafte Techniken im Vertrieb: Nutzen vor Preis darstellen, auf Einwände mit Fragen reagieren, Zugeständnisse nur gegen Gegenleistung machen (zum Beispiel einen Mengenrabatt gegen längere Vertragslaufzeit), Ergebnisse schriftlich festhalten.
+>
+> *Beispiel Verhandlungsspielraum:* Ein Kunde würde höchstens 9.000 € zahlen (seine Preisgrenze), die Vantera will mindestens 8.600 € erzielen (ihre Preisgrenze). Der **Einigungsbereich** reicht von 8.600 € bis 9.000 €, der Spielraum beträgt **400 €**; bei gleicher Aufteilung wäre ein Preis von 8.800 € das Ergebnis. Läge die Preisgrenze des Kunden bei 8.200 €, gäbe es keinen Einigungsbereich: Dann hilft nur ein Eingehen auf weitere Interessen (Menge, Zahlungsziel, Lieferzeit) oder das Scheitern der Verhandlung.
+
+## 13. HQ1 8.2 — Just-in-Time und Kanban
+
+**Einfügen:** Neuer Abschnitt `### Just-in-Time und Kanban` nach „Bestellmenge und Bestellpunkt rechnen“.
+
+> Bei **Just-in-Time (JIT)** werden Material und Teile genau zum Bedarfszeitpunkt, in der benötigten Menge und Qualität am Verbrauchsort angeliefert; das senkt Lagerbestände und Kapitalbindung, setzt aber zuverlässige Lieferanten, kurze Lieferzeiten und stabile Prozesse voraus. Eine Steigerung ist **Just-in-Sequence (JIS)**, bei der die Teile zusätzlich in der Reihenfolge der Montage angeliefert werden. **Kanban** ist ein Verfahren der Pull-Steuerung (siehe 9.1): Ein Verbrauchsort meldet seinen Bedarf über eine **Karte** (oder einen leeren Behälter) an den liefernden Bereich zurück; nur wenn eine Karte zurückkommt, wird nachgefertigt oder nachbestellt. Im Umlauf befindet sich eine festgelegte **Anzahl Karten**, die den maximalen Bestand begrenzt.
+>
+> Die Kartenzahl berechnet sich als **N = Tagesbedarf · Wiederbeschaffungszeit · (1 + Sicherheitsfaktor) / Behälterinhalt**, aufgerundet. *Beispiel:* Der Tagesbedarf beträgt 600 Stück, die Wiederbeschaffungszeit 0,5 Tage, der Sicherheitsfaktor 20 %, ein Behälter fasst 50 Stück: N = 600 · 0,5 · 1,2 / 50 = 7,2, aufgerundet **8 Karten**. Der maximale Bestand beträgt damit 8 · 50 = 400 Stück. Vorteile von Kanban sind niedrige Bestände, einfache Steuerung und schnelle Reaktion; Nachteile sind die Eignung nur für gleichmäßigen Verbrauch und die Abhängigkeit von zuverlässigen Lieferzeiten.
+
+## 14. HQ1 8.3 — Kommissionierung
+
+**Einfügen:** Neuer Abschnitt `### Kommissionierung` nach „Lagerlogistik und Lagerorganisation“.
+
+> Die **Kommissionierung** stellt aus dem Lager die Artikel in der geforderten Menge für einen Auftrag zusammen. Nach dem Bewegungsprinzip gibt es **Mann zur Ware** (die Kommissionierkraft geht zum Lagerplatz, statisches Lager) und **Ware zum Mann** (das Lager bringt die Behälter zum festen Arbeitsplatz, dynamisches Lager). Nach der Organisation unterscheidet man die **Einzelkommissionierung** (auftragsweise), die **Serienkommissionierung** (mehrere Aufträge gleichzeitig, danach aufteilen, spart Wege) und die **Zonenkommissionierung** (jeder Bereich liefert seinen Teil des Auftrags). Hilfsmittel sind Pickliste, Handscanner, **Pick-by-Light** (Anzeigen am Regal), **Pick-by-Voice** (Sprachanweisung) und Datenbrille. Der größte Teil der Kommissionierzeit besteht aus **Wegzeit** (Faustregel: etwa die Hälfte), daher zielt die Optimierung auf kurze Wege und häufig gebrauchte Teile in Griffnähe (ABC-Zonen).
+>
+> Kennzahlen sind die **Kommissionierleistung** (Positionen je Stunde) und die **Fehlerquote** (fehlerhafte Positionen / alle Positionen). *Beispiel:* Eine Kommissionierkraft bearbeitet in 8 Stunden 40 Aufträge mit je 12 Positionen = 480 Positionen: Leistung 480 / 8 = **60 Positionen je Stunde**. Bei 6 fehlerhaften Positionen beträgt die Fehlerquote 6 / 480 = **1,25 %**. Bei Vantera werden Kleinteile für die Montage in Behältern kommissioniert und mit Beleg bereitgestellt.
+
+## 15. HQ1 8.3 — Transportkostenvergleich
+
+**Einfügen:** Neuer Abschnitt `### Transportkostenvergleich` nach „Transportlogistik“.
+
+> Ein Transportkostenvergleich entscheidet zwischen **Eigentransport** (eigene Fahrzeuge, **fixe Kosten** für Fahrzeug, Versicherung und Fahrer, dazu **variable Kosten** je Kilometer) und **Fremdvergabe** an einen Spediteur (meist nur kilometer- oder gewichtsabhängige Kosten). Die Rechnung entspricht dem Kostenvergleich mit Fixkosten und variablen Kosten: Eigentransport **K_E = K_f + k_E · s**, Fremdvergabe **K_F = k_F · s** mit der Jahresfahrleistung s. Die **kritische Fahrleistung** ist **s_krit = K_f / (k_F − k_E)**: Darüber ist der Eigentransport günstiger, darunter die Fremdvergabe.
+>
+> *Beispiel:* Fixkosten des Eigentransports 36.000 € im Jahr, variable Kosten 0,90 € je km; der Spediteur berechnet 1,40 € je km. Kritische Fahrleistung = 36.000 / (1,40 − 0,90) = **72.000 km**. Bei 80.000 km im Jahr kostet der Eigentransport 36.000 + 0,90 · 80.000 = **108.000 €**, die Fremdvergabe 1,40 · 80.000 = **112.000 €**: Der Eigentransport spart 4.000 €. Bei 60.000 km wären es 90.000 € gegenüber 84.000 €: Dann ist die Fremdvergabe günstiger. Neben den Kosten zählen Flexibilität, Zuverlässigkeit, Auslastung und Servicegrad.
+
+## 16. HQ1 8.3 — Ladungssicherung rechnen (vereinfachtes Lernmodell)
+
+**Einfügen:** Neuer Abschnitt `### Ladungssicherung rechnen` nach „Verpackung und Ladungssicherung“.
+
+> Ladung muss bei Bremsen, Beschleunigen und Kurvenfahrt gegen Verrutschen gesichert sein. Dabei wirken Trägheitskräfte, die man als Vielfaches der Gewichtskraft ausdrückt: **Beschleunigungsbeiwerte c** (nach der europäischen Norm für Zurrkräfte, DIN EN 12195-1) betragen **0,8 nach vorn** (Bremsen), **0,5 nach hinten** und **0,5 zur Seite**. Die **Reibung** zwischen Ladung und Ladefläche (Reibbeiwert **μ**, Beispielwert 0,3) wirkt dem Rutschen entgegen. Im vereinfachten Modell muss das Sicherungsmittel die **Kraft F = m · g · (c − μ)** aufnehmen, die über die Reibung hinaus noch fehlt (g = 9,81 m/s²). Ein Zurrmittel kann höchstens seine **Zurrkraft** (Beispielwert 5 kN je Gurt) aufnehmen; die **Zahl der Gurte** ist **n = F / Zurrkraft**, aufgerundet. Kraftschluss durch Niederzurren und Formschluss (Sperrbalken, Keile, lückenloses Verstauen) sind die Grundprinzipien.
+>
+> *Beispiel:* Eine Palette mit m = 2.000 kg Ladung. **Nach vorn:** F = 2.000 kg · 9,81 m/s² · (0,8 − 0,3) = **9.810 N**; bei 5 kN je Gurt sind n = 9,81 / 5 = 1,96, aufgerundet **2 Gurte** nötig. **Zur Seite:** F = 2.000 · 9,81 · (0,5 − 0,3) = **3.924 N**, das ergibt 0,78, aufgerundet **1 Gurt**. Ohne Reibung (μ = 0) wären nach vorn 15.696 N nötig. **Wichtig:** Das ist ein vereinfachtes Lernmodell, es ersetzt keine Berechnung nach Norm (Winkel der Zurrmittel, Vorspannkraft, Zurrkraft nach Herstellerangabe, Richtlinien wie VDI 2700) und keine Unterweisung; in der Praxis zählen die Vorgaben von Fahrzeug- und Zurrmittelhersteller.
+
+## 17. HQ4 11.1 — Zielvereinbarung nach SMART
+
+**Einfügen:** Neuer Abschnitt `### Zielvereinbarung nach SMART` nach „Führungsmodelle: Management by Objectives, Delegation und Exception“.
+
+> Damit Ziele überprüfbar sind (vgl. Management by Objectives), werden sie nach dem **SMART-Prinzip** formuliert: **S**pezifisch (eindeutig, konkret), **M**essbar (mit Zahl oder Kriterium), **A**kzeptiert beziehungsweise attraktiv (von den Beteiligten getragen), **R**ealistisch (erreichbar mit den vorhandenen Mitteln) und **T**erminiert (mit Frist). Die Bedeutungen von A und R werden in der Literatur teils unterschiedlich belegt; wichtig ist, dass das Ziel erreichbar und akzeptiert ist. Eine Zielvereinbarung hält das Ziel, die Messgröße, die Frist, die Unterstützung durch die Führungskraft und den Termin der Überprüfung fest. Die Zielerreichung wird im Mitarbeitergespräch besprochen.
+>
+> *Beispiel:* Schlecht: „Der Ausschuss soll besser werden.“ SMART: „Die Ausschussquote der Fertigungslinie 2 wird bis zum 31.12. von 3,0 % auf 2,0 % gesenkt; Zwischenstand und Maßnahmen werden monatlich im Teamgespräch besprochen.“ Das ist spezifisch (Linie 2, Ausschussquote), messbar (3,0 % auf 2,0 %), terminiert (31.12.). Die Absenkung entspricht (3,0 − 2,0) / 3,0 = **33,3 %** der bisherigen Quote. Die Führungskraft sagt zu, Prüfmittel und Schulung bereitzustellen; ob das Ziel realistisch ist, wird mit dem Team abgestimmt.
+
+## 18. HQ4 11.3 — Konfliktgespräch und Mediation
+
+**Einfügen:** Neuer Abschnitt `### Konfliktgespräch und Mediation` nach „Die Führungskraft als Vermittlerin“.
+
+> Ein **Konfliktgespräch** folgt einer Struktur: **Vorbereitung** (Sachverhalt, Ziel, geeigneter Ort), **Eröffnung** (Anlass und Ziel benennen, Spielregeln: ausreden lassen, respektvoll bleiben), **Sichtweisen darstellen** (jede Seite schildert ihre Sicht, die anderen hören zu und fassen sie mit eigenen Worten zusammen, **aktives Zuhören**), **Interessen klären** (hinter den Positionen die Anliegen und Bedürfnisse herausarbeiten), **Lösungen sammeln** (zuerst ohne Bewertung, dann bewerten), **Vereinbarung treffen** (konkret, überprüfbar, von beiden getragen) und **Nachfassen** (Überprüfungstermin). Ziel ist möglichst eine **Win-win-Lösung** (siehe Konfliktlösungsstile). Ich-Botschaften, sachliche Sprache und das Trennen von Person und Sache helfen.
+>
+> Die **Mediation** ist ein strukturiertes Verfahren, bei dem eine **neutrale dritte Person** (Mediatorin oder Mediator) den Streitparteien hilft, selbst eine Lösung zu finden. Die Mediation entscheidet nicht über die Lösung, sie leitet nur den Prozess; die Teilnahme ist freiwillig, die Inhalte sind vertraulich. Typische Phasen: Auftrag und Regeln, Sichtweisen, Interessen, Lösungsoptionen, Vereinbarung. Wird der Konflikt innerbetrieblich nicht gelöst, kann eine externe Mediation sinnvoll sein.
+>
+> *Beispiel Konfliktkosten:* Zwei Mitarbeitende der Vantera sprechen wegen eines Streits nur noch über Dritte; das kostet täglich je 0,5 Stunden Reibungsverlust, also 2 · 0,5 h · 20 Arbeitstage = **20 Stunden** im Monat; bei einem Stundensatz von 40 € sind das **800 € im Monat**. Dazu kommen Fehler und Unmut im Team. Frühes Eingreifen ist daher auch wirtschaftlich sinnvoll.
 
 ---
 

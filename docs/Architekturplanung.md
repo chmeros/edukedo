@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Absatz, Material, Logistik und Führung P6 eingearbeitet, 18 Theorieabschnitte HQ1 und HQ4; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p6-absatz-material-fuehrung.md` am 12.10.2026 mit „alle Vorschläge umsetzen, auch alles aus Punkt 6“ einarbeiten (neun Abschnitte des Vorschlags plus die neun Themen aus der Liste „Nicht enthalten“). Die fachliche Prüfung steht aus.
+
+- **Eingearbeitet (nur Theorie):** `hq1/8.1` „Preisbildung: kosten-, nachfrage- und konkurrenzorientiert“, „Produktlebenszyklus und Sortiment“, „Preisstrategien: Abschöpfung und Marktdurchdringung“, „BCG-Matrix im Sortiment“, „Verhandlungsführung im Vertrieb“; `hq1/8.2` „Bedarfsermittlung und Stücklistenauflösung“, „Bestellmenge und Bestellpunkt rechnen“ (Andler-Formel), „Just-in-Time und Kanban“; `hq1/8.3` „Kommissionierung“, „Transportkostenvergleich“, „Ladungssicherung rechnen“ (ausdrücklich als vereinfachtes Lernmodell, ersetzt keine Berechnung nach Norm), „Lagerkennzahlen rechnen“, „Entsorgungslogistik“; `hq4/11.1` „Zielvereinbarung nach SMART“; `hq4/11.2` „Beurteilungs- und Kritikgespräch“, „Moderationsmethodik“, „Präsentationstechniken“; `hq4/11.3` „Konfliktgespräch und Mediation“. Alle Zahlenbeispiele mit Skript nachgerechnet.
+- **Entscheidungen (Vorschläge übernommen):** alle Abschnitte, auch die Entsorgungslogistik (ohne Abfallrecht); Faustregeln (2 Minuten je Folie, 10/80/10, 360 Tage, Beurteilungsskala 1 bis 5) stehen als Faustregel bzw. Richtwert; Andler-Formel in der Schreibweise mit Lagerhaltungskostensatz h und Preis p (wie die Losgrößenformel aus 9.1); fünf Beurteilungsfehler; Rechtsnahes (Abmahnung, Mitbestimmung bei Beurteilungen, Abfallrecht) bleibt bis zur Rechtsprüfung weg (Paket P8).
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P6 unter `docs/entwuerfe/tf-rahmenplan-p6-items/` (in Arbeit).
+- **Import:** `db:validate-content`: 16.298 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 0 neu, 6 geändert (die Theorie-Items von 8.1, 8.2, 8.3, 11.1, 11.2 und 11.3), 0 deaktiviert; zweiter Trockenlauf 16.298 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 38 Items zu Produktion P4 eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p4-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
