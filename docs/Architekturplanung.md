@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Qualität P5 eingearbeitet, sechs Theorieabschnitte HQ3, unabhängig geprüft; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p5-qualitaet.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Der Entwurf wurde zuvor von einem unabhängigen Prüf-Agenten gegengelesen (Bericht `docs/entwuerfe/pruefung-p5-qualitaet.md`: 23 Befunde, 3 Fehler; alle eingearbeitet). Die fachliche Prüfung durch Fachlehrkräfte steht aus.
+
+- **Eingearbeitet (nur Theorie):** `hq3/10.1` „Pareto-Diagramm und Histogramm rechnen“, „Qualitätsregelkarten und statistische Prozesslenkung“, „Prozessfähigkeit: Cp und Cpk“, „Audit-Arten und Auditablauf“, „8D-Report und Reklamationsbearbeitung“; `hq3/10.2` „Weitere Managementsystemnormen: ISO 45001 und ISO 50001“. Alle Zahlenbeispiele mit Skript nachgerechnet (ein Prozess mit s ≈ 0,012 mm in Histogramm, Regelkarte und Cp/Cpk).
+- **Wichtigste Korrektur aus der Prüfung:** Die Eingriffsgrenzen der x̄-Karte liegen bei ±3 s/√n (= A₂ · R̄), nicht bei ±3 s; sie sind keine Toleranzgrenzen. **Bestand angeglichen (vier Stellen, die „Toleranzgrenzen“ sagten):** Theorieabsatz in „Qualitätswerkzeuge“, K-10.1-15, Q-10.1-04 und eine Erwartung in `hq3/fachgespraech.md`; dazu „Lieferant“ → „Lieferbetrieb“ (Hausregel Gendern).
+- **Entscheidungen (Vorschläge übernommen):** sechs Abschnitte, auch der Überblick über ISO 45001 und ISO 50001 (nur als Managementsystemnormen, ohne Rechtsaussagen, Verweis auf 10.3); Konstanten A₂ = 0,577, D₄ = 2,114, d₂ = 2,326 (n = 5) und Richtwerte Cpk ≥ 1,33 bzw. 1,67 als Tabellen-/Richtwerte gekennzeichnet; 8D-Fristen gestuft und als Kundenvorgabe; Normkürzel „DIN ISO 45001:2018“ und die Begriffe der ISO 50001 stehen aus dem Gedächtnis und gehören in die Zweitlesung (Iteration 22). Rechtliches (Arbeitsschutzrecht, Produkthaftung, Gewährleistung) bleibt in Paket P8.
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P5 (in Arbeit).
+- **Import:** `db:validate-content`: 16.512 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 0 neu, 5 geändert (2 Theorie-Items, K-10.1-15, Q-10.1-04, eine Fachgespräch-Frage), 0 deaktiviert; zweiter Trockenlauf unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 137 Items zu den 31 Ergänzungsabschnitten eingespielt, unabhängig geprüft; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ die Items zu den am selben Tag eingearbeiteten 31 Ergänzungsabschnitten mit „alle Vorschläge umsetzen“ einspielen. Die Entwürfe wurden von fünf Agenten geschrieben, danach von einem unabhängigen Prüf-Agenten gegengelesen (Bericht `docs/entwuerfe/pruefung-ergaenzungs-items.md`: 18 Befunde, 1 Fehler, 2 mehrdeutig; alle Rechnungen stimmten) und korrigiert. Die fachliche Prüfung durch Fachlehrkräfte steht aus.

@@ -36,7 +36,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welchen Zweck erfüllen eine FMEA und eine Qualitätsregelkarte jeweils, und worin unterscheiden sie sich?
   - Erwartung: Die FMEA identifiziert mögliche Fehler eines Produkts oder Prozesses bereits vor der Serienproduktion.
   - Erwartung: Die FMEA bewertet Fehler hinsichtlich Auftretenswahrscheinlichkeit, Bedeutung für den Kunden und Entdeckungswahrscheinlichkeit und leitet vorbeugende Maßnahmen ab.
-  - Erwartung: Die Qualitätsregelkarte (SPC) überwacht fortlaufend, ob ein Fertigungsprozess innerhalb festgelegter Toleranzgrenzen stabil verläuft.
+  - Erwartung: Die Qualitätsregelkarte (SPC) überwacht fortlaufend, ob ein Fertigungsprozess anhand statistisch berechneter Grenzen (Eingriffsgrenzen) stabil und beherrscht verläuft.
   - Erwartung: Die Regelkarte macht Trends sichtbar, bevor Bauteile tatsächlich außerhalb der Toleranz liegen.
   - Rückfrage: Warum ist eine FMEA vor Anlauf der Serienfertigung üblich?
 - Warum ist eine ISO-9001-Zertifizierung für einen Zulieferer der Automobilbranche in der Praxis häufig unverzichtbar?
