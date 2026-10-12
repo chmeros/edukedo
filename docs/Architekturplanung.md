@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 38 Items zu Produktion P4 eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p4-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
+
+- **Eingespielt:** 12 Karteikarten und 26 Quizfragen (15 Rechenaufgaben, dazu Zuordnungen, ein Sortieren, Mehrfachauswahlen) in `hq2/9.1` (K-9.1-21 bis 27, Q-9.1-15 bis 28), `hq2/9.2` (K-9.2-21 bis 23, Q-9.2-16 bis 22) und `hq2/9.3` (K-9.3-21 bis 22, Q-9.3-16 bis 20). Rechenaufgaben und beide Netzpläne (Projektdauer 17 bzw. 10 Tage) vom Agenten und von mir unabhängig nachgerechnet; die Ergebnisse stimmen.
+- **Theorie ergänzt (Vorschläge übernommen):** 9.1: Der Verteilzeitzuschlag bezieht sich auf die Grundzeit (t_v = t_g · Zuschlag); der Lagerhaltungskostensatz geht als Dezimalzahl in die Losgrößenformel ein; bei mehreren Schichten gilt Kapazität = Arbeitstage · Schichten je Tag · Schichtlänge · Nutzungsgrad. 9.2: Bei Vorgängen mit Puffer verschiebt sich der Endtermin nur um den Teil der Verzögerung, der den Gesamtpuffer übersteigt. Damit sind Q-9.1-22, Q-9.1-19, Q-9.1-26, Q-9.2-19 und K-9.2-23 durch die Theorie gedeckt.
+- **Entscheidungen (Vorschläge übernommen):** Der Netzplan steht als Aufzählung im einzeiligen Fragetext (Q-9.2-16 bis 19 wiederholen ihn); der Wortlaut „je Stück“ (ältere Items) gegen „je Jahr“ (neuer Abschnitt) bleibt; keine Kürzungen (Q-9.1-21, K-9.1-25, Q-9.2-20, Q-9.2-22 bleiben); die ID-Lücke Q-9.2-12 im Bestand bleibt, die neuen IDs beginnen bei Q-9.2-16.
+- **Import:** `db:validate-content`: 16.298 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 38 neu, 2 geändert (die Theorie-Items von 9.1 und 9.2), 0 deaktiviert; zweiter Trockenlauf 16.298 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: Produktion P4 eingearbeitet, sieben Theorieabschnitte HQ2; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p4-produktion.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
