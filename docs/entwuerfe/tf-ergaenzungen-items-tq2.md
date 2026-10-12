@@ -23,10 +23,10 @@ Jede Rechenaufgabe wurde in einem eigenen Python-Skript nachgerechnet (inklusive
 
 | Item | Typ | Aufgabe | Rechenweg kurz | Ergebnis |
 |---|---|---|---|---|
-| Q-6.3-29 | KA | Brinell-Härte: D = 10 mm, F = 29.420 N, d = 3,5 mm | √(100 − 12,25) = 9,367; 10 − 9,367 = 0,633; π · 10 · 0,633 = 19,87; 0,102 · 2 · 29.420 = 6.001,7; 6.001,7 / 19,87 | 302 HBW (302,04) |
+| Q-6.3-29 | KA | Brinell-Härte: D = 10 mm, F = 29.420 N, d = 3,5 mm | √(100 − 12,25) = 9,3675; 10 − 9,3675 = 0,6325; π · 10 · 0,6325 = 19,87; 0,102 · 2 · 29.420 = 6.001,7; 6.001,7 / 19,87 | 302 HBW (302,04) |
 | Q-6.3-30 | MC | Rockwell HRC aus e = 0,090 mm | 100 − 0,090 / 0,002 = 100 − 45 | 55 HRC |
 | Q-6.3-31 | MC | Zugfestigkeit aus 190 HBW (Faktor 3,5), Zeugnis 800 N/mm² | 3,5 · 190 = 665; (800 − 665) / 800 = 16,9 % (bezogen auf 665: 20,3 %), beides über 10 % | Rm ≈ 665 N/mm², Nachprüfung |
-| Q-6.3-32 | Z (Lesen) | Prüfaufgaben den Härteverfahren zuordnen | Eigenschaften aus der Verfahrenstabelle | (Zuordnung) |
+| Q-6.3-32 | Z (Lesen) | Prüfaufgaben den Härteverfahren zuordnen (Rockwell über die Eindringtiefe, Brinell über den Eindruckdurchmesser) | Eigenschaften aus der Verfahrenstabelle | (Zuordnung) |
 | Q-6.1-31 | Z (Lesen) | Beschreibungen den Zeichnungsarten zuordnen | Begriffe aus dem Abschnitt | (Zuordnung) |
 | Q-6.1-32 | KA | Stücklistenmenge: 1 Modul = 2 Lenkgelenke, 1 Gelenk = 4 Schrauben, 40 Module | 2 · 40 = 80 Gelenke; 4 · 80 | 320 Schrauben |
 | Q-6.1-33 | MC | Maßstab 1:4, reale Länge 360 mm: Papierlänge und Maßzahl | 360 / 4 = 90 mm; Maßzahl bleibt das reale Maß | 90 mm auf dem Papier, Maßzahl 360 |
@@ -35,7 +35,7 @@ Jede Rechenaufgabe wurde in einem eigenen Python-Skript nachgerechnet (inklusive
 | Q-6.2-29 | MC | Wärmeausdehnung Aluminium (23) gegen Kupfer (17 · 10⁻⁶ 1/K), 250 mm, 60 K | 0,345 mm − 0,255 mm | 0,09 mm |
 | Q-6.2-30 | KA | Restlebensdauer: 8,0 mm neu, nach 5 Jahren 7,6 mm, Mindestwanddicke 6,0 mm | Rate 0,4 / 5 = 0,08 mm je Jahr; (7,6 − 6,0) / 0,08 | 20 Jahre |
 | Q-6.2-31 | MC | Kontaktkorrosion Eisen (−0,44 V) gegen Aluminium (−1,66 V) | Aluminium negativer, also unedler; Differenz 1,66 − 0,44 | Aluminium, 1,22 V |
-| Q-6.2-32 | Z (Lesen) | Korrosionsarten Schadensbild und Gegenmaßnahme zuordnen | Beschreibungen aus der Aufzählung der Korrosionsarten und der Schutzmaßnahmen | (Zuordnung) |
+| Q-6.2-32 | Z (Lesen) | Korrosionsarten ihrem Schadensbild zuordnen (bei drei Arten mit Gegenmaßnahme, bei der Entzinkung ohne) | Beschreibungen aus der Aufzählung der Korrosionsarten und der Schutzmaßnahmen | (Zuordnung) |
 | Q-6.2-33 | MC | Gefüge Rand/Kern: v_krit = 40 K/s, Rand 6 s, Kern 20 s (800 auf 500 °C) | 300 / 6 = 50 K/s (über v_krit); 300 / 20 = 15 K/s (unter v_krit) | Rand Martensit, Kern Bainit und Perlit |
 | Q-6.2-34 | KA | Gehärteter Flächenanteil, Ø 50 mm, Einhärtungstiefe 5 mm | Kern Ø 40 mm; (2.500 − 1.600) / 2.500 | 36 % |
 | Q-6.2-35 | Z (Lesen) | Fertigungsaufgaben den Wärmebehandlungsverfahren zuordnen | Spannungsarmglühen, Einsatzhärten, Nitrieren, Weichglühen | (Zuordnung) |
@@ -56,7 +56,7 @@ Gewählte Distraktoren (typische Fehler, per Skript berechnet; der Fehler steht 
 
 1. **Härteprüfung mit vier Quizfragen.** Q-6.3-29 bis 32 liegen über der Vorgabe von zwei bis drei Fragen je Abschnitt. Die Vickers-Rechnung (HV ≈ 0,1891 · F / d²) steht nur auf K-6.3-27, nicht als Quizfrage, damit der Abschnitt nicht noch größer wird. **Vorschlag:** Q-6.3-32 streichen, wenn vier zu viel sind; wer eine Vickers-Aufgabe möchte, kann sie anstelle von Q-6.3-32 ergänzen (F = 98,07 N, d = 0,30 mm ergäbe 206 HV 10).
 2. **Bezugsgröße der „10 %“ (Q-6.3-31).** Die Theorie nennt „mehr als etwa 10 %“ als Anhalt und sagt nicht, worauf sich die Prozentzahl bezieht (Zeugniswert oder berechneter Wert). Die Aufgabe wählt 190 HBW gegen 800 N/mm², sodass beide Bezüge über 10 % liegen (16,9 % und 20,3 %); die Erklärung nennt beide. Der Faktor 3,5 steht in der Aufgabe als Richtwert.
-3. **Rundung der Brinell-Härte (Q-6.3-29).** Der exakte Wert ist 302,04; die Aufgabe verlangt ganze Zahlen, akzeptiert werden außerdem „302,0“ und die Schreibweisen mit Verfahren. Die Prüfkraft 29.420 N gehört zur Härteangabe 10/3000 (Theorie); die Aufgabe nennt D und F ausdrücklich.
+3. **Rundung der Brinell-Härte (Q-6.3-29).** Der exakte Wert ist 302,04 (Zwischenwerte der Erklärung seit der Prüfung vom 12.10.2026 auf 9,3675 und 0,6325 mm genau genug angegeben); die Aufgabe verlangt ganze Zahlen, akzeptiert werden außerdem „302,0“ und die Schreibweisen mit Verfahren. Die Prüfkraft 29.420 N gehört zur Härteangabe 10/3000 (Theorie); die Aufgabe nennt D und F ausdrücklich.
 4. **Aluminiumbezeichnungen in Q-6.2-27.** Die Theorie nennt nur die Regel (erste Ziffer = Serie) und die Beispiele EN AW-6082 und EN AW-7075. Die Aufgabe nutzt zusätzlich EN AW-1050, EN AW-2024 und EN AW-5083 als Beispielnummern; sie stützt sich nur auf die erste Ziffer, die tatsächliche Zusammensetzung dieser Legierungen ist nicht geprüft und wird nicht behauptet. **Vorschlag:** wenn das nicht gewünscht ist, die Nummern durch EN AW-1xxx, 2xxx, 5xxx und 6xxx ersetzen oder 7075 verwenden.
 5. **Spannungsreihe (Q-6.2-31).** Die Standardpotenziale sind Tabellenwerte der Theorie (Richtwerte, nicht gegen Primärquellen geprüft) und stehen in der Aufgabe. Die Theorie weist selbst darauf hin, dass die Reihenfolge in der Praxis vom Medium und von Passivschichten abhängt (zum Beispiel bei Aluminium); die Aufgabe fragt deshalb nur nach der Regel „negativeres Potenzial = unedler“ und nennt in der Erklärung das Flächenverhältnis als weiteren Einfluss.
 6. **Gleichmäßiger Abtrag (Q-6.2-30).** Die Rechnung gilt nur bei gleichmäßigem Abtrag (steht in der Aufgabe und in der Theorie); bei Lochfraß zählt die tiefste Stelle. Die Mindestwanddicke ist Aufgabenvorgabe.
@@ -82,3 +82,7 @@ Gewählte Distraktoren (typische Fehler, per Skript berechnet; der Fehler steht 
 ## Format-Prüfung
 
 Alle Blöcke entsprechen den Nachbar-Items der Zieldateien: `####`-Überschrift mit ID (bei Quizfragen mit ` · Typ`), Felder `**Frage:**`, `**Antwort:**`, `**Anweisung:**`, `**Akzeptierte Antworten:**`, `**Erklärung:**`, letzte Zeile mit `schwierigkeit` und `bloom` (ohne `tags`, siehe Grenzfall 12), keine Leerzeilen innerhalb eines Blocks, eine Leerzeile zwischen den Blöcken, Dateien mit LF-Zeilenenden in UTF-8 ohne BOM. Ein Prüfskript hat bestätigt: je Multiple Choice vier Optionen mit genau einer richtigen (und keine doppelten Optionen), je Zuordnung vier Paare mit `↔` (links und rechts ohne Doppelungen), je Kurzantwort eine Zeile `**Akzeptierte Antworten:**`, Karten mit genau vier Zeilen, IDs lückenlos an die vorhandenen anschließend (K-6.1-29 bis 30, Q-6.1-31 bis 33; K-6.2-26 bis 32, Q-6.2-27 bis 37; K-6.3-27 bis 28, Q-6.3-29 bis 32) und in den Zieldateien noch nicht vergeben, kein Zahlenwert mit vier Stellen ohne Tausenderpunkt (außerhalb der Listen akzeptierter Antworten und von Normbezeichnungen), kein „%“ und keine Einheit ohne Leerzeichen davor, keine Sie-Form, keine Schrägstrich-Kurzform beim Gendern. Die richtigen Antworten aller Rechenaufgaben stimmen mit dem Ergebnis der Nachrechnung überein. Unter `content/` wurde nichts geändert.
+
+## Bestandsänderungen für die Projektleitung
+
+- **Feuerverzinken, Schichtdicke (6.2 gegen 7.1).** `content/technischer-fachwirt/tq2/6.2-werkstoffkunde-metalle-kunststoffe.md`: „**Feuerverzinken** liefert dicke Schichten (Richtwert etwa 50 bis 150 µm)“; `content/technischer-fachwirt/tq3/7.1-fertigungsverfahren.md`: „dickere Schichten (Richtwert: etwa 45 bis 100 µm, je nach Materialdicke)“. K-7.1-29 im Entwurf folgt 7.1. Vorschlag und Varianten: siehe `docs/entwuerfe/tf-ergaenzungen-items-bestand.md`, Eintrag B1.
