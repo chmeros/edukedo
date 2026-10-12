@@ -65,7 +65,7 @@ jobs:
           if [ "$code" -ne 0 ]; then
             sed -E 's/\x1b\[[0-9;]*m//g' test.log > test.plain.log
             {
-              grep -i -E "failed|timed out|timeout|AssertionError|Unhandled|ERR_|Error:|ELIFECYCLE" test.plain.log | sort -u | head -6
+              grep -E "^ ?FAIL |Test Files|^ +Tests |Hook timed out|Test timed out|AssertionError" test.plain.log | sort -u | head -8
               grep -v '^[[:space:]]*$' test.plain.log | tail -n 4
             } | while IFS= read -r zeile; do
               echo "::error title=Test fehlgeschlagen::${zeile:0:400}"
