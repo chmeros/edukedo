@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Rechnungswesen rechnerisch P1 eingearbeitet, 45 Items zu den FL-TF-16-Abschnitten eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ am 12.10.2026 mit „alle Vorschläge umsetzen“ (1) die zehn Theorieabschnitte aus `docs/entwuerfe/tf-rahmenplan-p1-rechnungswesen.md` (Paket P1) und (2) die 45 Items aus `docs/entwuerfe/tf-rahmenplan-items/` einarbeiten. Die fachliche Prüfung steht aus.
+
+- **Theorie P1 (nur Theorie):** `wq2/2.1` „Buchungssätze und Umsatzsteuer“, „Abschreibung rechnen“, „Bilanzkennzahlen“; `wq2/2.2` „Zuschlagssätze und Bezugskalkulation“, „Zuschlagskalkulation mit Zahlen“ (Skonto und Rabatt „im Hundert“, Differenzkalkulation), „Maschinenstundensatz rechnen“, „Deckungsbeitrag und Break-even rechnen“; `wq2/2.3` „Statische Verfahren rechnen“, „Kapitalwert und interner Zinsfuß rechnen“ (dieselbe Maschine wie bei den statischen Verfahren), „Liquiditätsplan und Soll-Ist-Vergleich rechnen“. Alle Zahlenbeispiele mit Skript nachgerechnet. Vorschläge wie vorgelegt übernommen: alle zehn Abschnitte, Umsatzsteuer mit Satz 19 % und 7 % (Zusatz „Die Steuersätze können sich ändern, maßgeblich ist das jeweils geltende Umsatzsteuergesetz“; Rechtsprüfung in Iteration 22), degressive Abschreibung mit frei gewähltem Satz von 20 % ohne Aussage zur steuerlichen Zulässigkeit, Rundung auf Cent.
+- **Items (45):** 14 Karteikarten und 31 Quizfragen (16 Rechenaufgaben) in `tq1/5.1`, `5.2`, `5.3`, `tq2/6.1`, `6.3`, `tq3/7.2`, `7.4` zu den am selben Tag eingearbeiteten FL-TF-16-Abschnitten. Entscheidung zu den beiden Grenzfällen in `tq2/6.1`: Die Theorie wurde um einen Halbsatz ergänzt (3/2-Wegeventil hat drei Anschlüsse und zwei Schaltstellungen; aus den Schaltstellungen leitet man die Funktion der Anlage ab), damit Q-6.1-19 und Q-6.1-20 durch die Theorie gedeckt sind.
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P1 unter `docs/entwuerfe/tf-rahmenplan-p1-items/` (15 bis 18 Rechenaufgaben); die übrigen Pakete P2 bis P7 liegen als Vorschlag in `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md`.
+- **Import:** `db:validate-content`: 615 Themendateien, 16.135 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 45 neu, 4 geändert (die Theorie-Items von 6.1, 2.1, 2.2 und 2.3), 0 deaktiviert; zweiter Trockenlauf 16.135 unverändert. Tests unter `apps/api/src/db`: 416 grün. Nicht im Browser angesehen (Tabellen in der Theorie werden vom Theorie-Leser über `remark-gfm` dargestellt).
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: fehlende Rahmenplan-Theorie FL-TF-16 eingearbeitet; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Fachlehrer-Review vom 07.10.2026 (FL-TF-16) fand Pflichtinhalte des Rahmenplans (TechFachwPrV § 4 bis 6) ohne Theorie. Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-theorie.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten.

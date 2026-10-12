@@ -1,6 +1,6 @@
 # Entwurf: Karteikarten und Quizfragen zu den neuen Rahmenplan-Abschnitten (Technischer Fachwirt)
 
-Stand 12.10.2026 · **zur Prüfung vorgelegt, nicht in `content/` eingespielt** (neue Inhalte, Rahmenentscheidung R3). Grundlage sind die heute eingearbeiteten Theorieabschnitte (Entwurf: `docs/entwuerfe/tf-rahmenplan-theorie.md`). Alle Items beruhen ausschließlich auf diesen Abschnitten; Schreibweise nach den Hausregeln in `content/README.md` (Anrede „Du“, Gendern mit Doppelpunkt, Tausenderpunkt und Dezimalkomma, Leerzeichen vor Einheiten). Fallfirma ist durchgängig die Vantera Präzisionstechnik GmbH.
+Stand 12.10.2026 · **vom Projektleiter angenommen und am 12.10.2026 in `content/` eingespielt** (neue Inhalte, Rahmenentscheidung R3). Grundlage sind die heute eingearbeiteten Theorieabschnitte (Entwurf: `docs/entwuerfe/tf-rahmenplan-theorie.md`). Alle Items beruhen ausschließlich auf diesen Abschnitten; Schreibweise nach den Hausregeln in `content/README.md` (Anrede „Du“, Gendern mit Doppelpunkt, Tausenderpunkt und Dezimalkomma, Leerzeichen vor Einheiten). Fallfirma ist durchgängig die Vantera Präzisionstechnik GmbH.
 
 ## Dateien
 

@@ -1,6 +1,6 @@
 # Entwurf: Paket P1 — Rechnungswesen rechnerisch (Technischer Fachwirt, WQ2, Themen 2.1 bis 2.3)
 
-Stand 12.10.2026 · **Entwurf zur Entscheidung, nichts in `content/` eingearbeitet** (neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „leg den Entwurf für das Rechnungswesen vor“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 und das Paket P1 aus `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md`: Die 90-Minuten-Klausur Rechnungswesen enthält Rechenaufgaben, der Kurs hat bisher keine einzige. Die Themen 2.1 bis 2.3 erklären die Verfahren nur qualitativ (Zuschlagskalkulation, Deckungsbeitrag, Break-even, Kapitalwert, Abschreibung).
+Stand 12.10.2026 · **vom Projektleiter angenommen („alle Vorschläge umsetzen“) und am 12.10.2026 in `content/` eingearbeitet** (siehe Architekturplanung §13; neue Inhalte, Rahmenentscheidung R3). Auftrag des Projektleiters vom 12.10.2026: „leg den Entwurf für das Rechnungswesen vor“. Grundlage ist der Fachlehrer-Review vom 07.10.2026 und das Paket P1 aus `docs/entwuerfe/tf-rahmenplan-weitere-pakete.md`: Die 90-Minuten-Klausur Rechnungswesen enthält Rechenaufgaben, der Kurs hat bisher keine einzige. Die Themen 2.1 bis 2.3 erklären die Verfahren nur qualitativ (Zuschlagskalkulation, Deckungsbeitrag, Break-even, Kapitalwert, Abschreibung).
 
 ## Was vorliegt
 
