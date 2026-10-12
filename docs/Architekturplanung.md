@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 77 Items zu Absatz, Material, Logistik und Führung P6 eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p6-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
+
+- **Eingespielt:** 28 Karteikarten und 49 Quizfragen (34 Rechenaufgaben, dazu Zuordnungen, Sortieren, Mehrfachauswahlen) in `hq1/8.1` (K-8.1-22 bis 29, Q-8.1-15 bis 26), `hq1/8.2` (K-8.2-21 bis 25, Q-8.2-15 bis 23), `hq1/8.3` (K-8.3-23 bis 28, Q-8.3-15 bis 27 ohne Q-8.3-21), `hq4/11.1` (K-11.1-22 bis 23, Q-11.1-16 bis 19), `hq4/11.2` (K-11.2-22 bis 26, Q-11.2-15 bis 22) und `hq4/11.3` (K-11.3-23 bis 24, Q-11.3-16 bis 19). Rechenaufgaben vom Agenten und von mir unabhängig nachgerechnet; die Ergebnisse stimmen.
+- **Entscheidungen (Vorschläge übernommen):** Q-8.3-21 (Wahr/Falsch zum Lernmodell der Ladungssicherung, nennt VDI 2700) entfällt, weil sicherheitsnah; Q-8.3-20 nutzt bewusst andere Beiwerte als das Theoriebeispiel; die Sortierfragen zu Moderationszyklus und Konfliktgespräch fragen nur die mittleren vier Schritte ab (das Admin-Formular kennt genau vier Elemente); Q-8.1-16 (Elastizität −0,5) akzeptiert Unicode-Minus und Bindestrich als Antwortvarianten. **Theorie ergänzt:** relativer Marktanteil über 1 gilt als hoch, unter 1 als niedrig (8.1); Prozentänderungen wirken multiplikativ (8.1, mit Beispiel 88 %); Verwertungsquote = verwertete Menge / gesamte Abfallmenge (8.3). Die ID-Lücke Q-8.3-04 im Bestand bleibt.
+- **Import:** `db:validate-content`: 16.375 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 77 neu, 2 geändert (die Theorie-Items von 8.1 und 8.3), 0 deaktiviert; zweiter Trockenlauf 16.375 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 31 Ergänzungsabschnitte aus den „Nicht enthalten“-Listen von P1 bis P6 eingearbeitet, unabhängig fachlich geprüft; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter wollte die in den Paketen P1 bis P6 unter „Nicht enthalten“ genannten Themen doch aufnehmen und ließ sie „nochmal per Agent prüfen“. Fünf Entwürfe wurden von je einem Agenten geschrieben, danach von je einem zweiten, unabhängigen Prüf-Agenten fachlich gegengelesen (Berichte `docs/entwuerfe/pruefung-*.md`, zusammen 151 Befunde, davon 15 Fehler), dann wurden die Befunde eingearbeitet (Tabellen „Prüfergebnis eingearbeitet“ in den Entwürfen) und die Zahlen von mir stichprobenartig mit eigenen Skripten nachgerechnet. Die fachliche Prüfung durch Fachlehrkräfte und die Zweitlesung der Normen stehen aus.
