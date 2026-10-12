@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Fertigung und Betrieb P3 eingearbeitet, sieben Theorieabschnitte TQ3; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p3-fertigung-betrieb.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
+
+- **Eingearbeitet (nur Theorie):** `tq3/7.1` „Zerspanungsgrößen: Vorschub, Schnitttiefe und Hauptzeit“, „Standzeit und Werkzeugwerkstoffe“ (Taylor-Beziehung mit Beispielexponent k = 4), „Fügeverfahren im Vergleich“, „Spritzgießen“; `tq3/7.4` „Steuern und Regeln“, „SPS-Programmiersprachen und Verknüpfungslogik“ (IEC 61131-3), „Hydraulik und Pneumatik in der Anlage“. Alle Zahlenbeispiele mit Skript nachgerechnet.
+- **Entscheidungen (Vorschläge übernommen):** alle sieben Abschnitte, auch das Spritzgießen; Taylor-Beziehung als Rechenbeispiel; Richtwerte (Temperaturgrenzen der Schneidstoffe, 0,22 % Kohlenstoff, 450 °C Lötgrenze, Scherfestigkeit des Klebstoffs, Werkzeuginnendruck, Betriebsdrücke) stehen als „Richtwert“ bzw. „Beispielwert“ im Text und werden mit der Zweitlesung der Primärtexte (Iteration 22) geprüft; Sicherheitshinweise zum Schweißen und zu Druckanlagen bleiben bis zur Rechtsprüfung weg (Paket P8, Rechtsnahes). Die Zeitwirtschaft folgt in Paket P4.
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P3 unter `docs/entwuerfe/tf-rahmenplan-p3-items/` (in Arbeit).
+- **Import:** `db:validate-content`: 16.222 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 0 neu, 2 geändert (die Theorie-Items von 7.1 und 7.4), 0 deaktiviert; zweiter Trockenlauf 16.222 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 45 Items zu Zeichnen und Werkstoffe P2 eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p2-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
