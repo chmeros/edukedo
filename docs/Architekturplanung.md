@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: Zeichnen und Werkstoffe P2 eingearbeitet, zehn Theorieabschnitte TQ2; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p2-zeichnen-werkstoffe.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
+
+- **Eingearbeitet (nur Theorie):** `tq2/6.1` „Oberflächenangaben“, „Passungssysteme: Einheitsbohrung und Einheitswelle“ (mit Spielberechnung), „Form- und Lagetoleranzen“, „Allgemeintoleranzen“ (ISO 2768), „Gewinde und Schraubenfestigkeit“; `tq2/6.2` „Werkstoffkurznamen lesen“ (DIN EN 10027-1), „Eisen-Kohlenstoff-Diagramm im Überblick“, „Keramik und Verbundwerkstoffe“; `tq2/6.3` „Biegeversuch“, „Dauerschwingversuch“. Alle Zahlenbeispiele mit Skript nachgerechnet.
+- **Entscheidungen (Vorschläge übernommen):** alle zehn Abschnitte, auch Gewinde und Keramik/Verbundwerkstoffe; die Schraubenfestigkeit (Klasse 8.8) steht in 6.1, das Paket P3 (Fügetechnik) verweist darauf; die Biegespannung wird nur für den Rechteckquerschnitt im Dreipunktversuch gerechnet; Normwerte (Abmaße g6/p6/H7, Allgemeintoleranzen m/f, Regelsteigungen, Legierungsfaktoren, Grenzlastspielzahl) stehen als Beispielwerte mit dem Hinweis „die Norm ist maßgeblich“ im Text und werden mit der Zweitlesung der Primärtexte (Iteration 22) geprüft; **Aufgefallen:** Die Normtexte lagen nicht vor, die Werte stammen aus Fachwissen.
+- **Als Entwurf (R3, nicht eingespielt):** Items zu P2 unter `docs/entwuerfe/tf-rahmenplan-p2-items/` (in Arbeit).
+- **Import:** `db:validate-content`: 16.177 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 0 neu, 3 geändert (die Theorie-Items von 6.1, 6.2 und 6.3), 0 deaktiviert; zweiter Trockenlauf 16.177 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 42 Items zum Rechnungswesen rechnerisch P1 eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p1-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
