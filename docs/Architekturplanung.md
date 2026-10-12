@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 137 Items zu den 31 Ergänzungsabschnitten eingespielt, unabhängig geprüft; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ die Items zu den am selben Tag eingearbeiteten 31 Ergänzungsabschnitten mit „alle Vorschläge umsetzen“ einspielen. Die Entwürfe wurden von fünf Agenten geschrieben, danach von einem unabhängigen Prüf-Agenten gegengelesen (Bericht `docs/entwuerfe/pruefung-ergaenzungs-items.md`: 18 Befunde, 1 Fehler, 2 mehrdeutig; alle Rechnungen stimmten) und korrigiert. Die fachliche Prüfung durch Fachlehrkräfte steht aus.
+
+- **Eingespielt:** 50 Karteikarten und 87 Quizfragen in `wq1/1.1` (K-1.1-19 bis 21, Q-1.1-13 bis 17), `wq2/2.1` (K-2.1-25 bis 32, Q-2.1-25 bis 40), `wq2/2.2` (K-2.2-28, Q-2.2-29 bis 31), `wq2/2.3` (K-2.3-25, Q-2.3-26 bis 28), `tq2/6.1` (K-6.1-29 bis 30, Q-6.1-31 bis 33), `tq2/6.2` (K-6.2-26 bis 32, Q-6.2-27 bis 37), `tq2/6.3` (K-6.3-27 bis 28, Q-6.3-29 bis 32), `tq3/7.1` (K-7.1-29 bis 37, Q-7.1-31 bis 43), `tq3/7.4` (K-7.4-29 bis 36, Q-7.4-29 bis 42), `hq2/9.1` (K-9.1-28 bis 31, Q-9.1-29 bis 34), `hq2/9.2` (K-9.2-24 bis 26, Q-9.2-23 bis 28) und `hq2/9.3` (K-9.3-23 bis 24, Q-9.3-21 bis 23).
+- **Korrekturen aus der Prüfung:** K-2.1-29 (Buchungssatz der aktiven Rechnungsabgrenzung stand verkehrt herum); die Aufgabenkette Q-2.2-29 bis 31 (Stufenleiter) ist jetzt konsistent (Zerspanung 134 %); Q-6.3-32 (Rockwell nicht mehr mit Brinell verwechselbar); Q-6.3-29 bis 31, Q-9.1-29, Q-6.2-32, Q-7.4-39 (volle Euro, Schreibweise 2.087,00) und fehlende Schreibweisen bei Kurzantworten. Abgelehnt: Teilung dichter Karten (hätte neue IDs und mehr Items gebracht).
+- **Bestandsänderungen (Vorschläge übernommen):** Schichtdicke beim Feuerverzinken in `6.2` auf die Fassung von `7.1` angeglichen (etwa 45 bis 100 µm bei der Stückverzinkung, je nach Materialdicke; Richtwert, nicht gegen die Norm geprüft); K-9.2-07 und Q-9.2-03 nennen die Regel der kürzesten Operationszeit nur noch „an einer einzelnen Maschine“ (bei mehreren Maschinen eine Faustregel).
+- **Hinweis zur Antwortprüfung:** Kurzantworten werden exakt verglichen, Leerzeichen und Groß-/Kleinschreibung zählen nicht, Punkt und Komma werden nicht angeglichen; die akzeptierten Schreibweisen stehen deshalb vollständig in den Aufgaben. Der Entwurfsstand der Berichte hängt in `docs/entwuerfe/tf-ergaenzungen-items-*.md`.
+- **Import:** `db:validate-content`: 615 Themendateien, 16.512 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 137 neu, 3 geändert, 0 deaktiviert; zweiter Trockenlauf 16.512 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 77 Items zu Absatz, Material, Logistik und Führung P6 eingespielt; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p6-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
