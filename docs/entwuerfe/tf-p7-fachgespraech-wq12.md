@@ -1,15 +1,15 @@
 # Entwurf: Neue Fachgesprächsfragen Technischer Fachwirt, WQ1 und WQ2 (Paket P7)
 
-Stand 12.10.2026 · **Entwurf zur Entscheidung des Projektleiters**, nichts davon liegt in `content/`. Die Pools `content/technischer-fachwirt/wq1/fachgespraech.md` und `wq2/fachgespraech.md` decken die zuletzt eingearbeiteten Theorieabschnitte noch nicht ab (Buchungssätze und Umsatzsteuer, Skonto und Bezugskosten, Bilanzkennzahlen, Cashflow und Rentabilität, Strukturbilanz, Abschreibung rechnen, Rückstellungen, Rechnungsabgrenzung, Wertpapiere und Fremdwährung, Stufenleiterverfahren, Zuschlagskalkulation mit Zahlen, Maschinenstundensatz, Deckungsbeitrag und Break-even, statische Verfahren, Gewinnvergleich, Kapitalwert und interner Zinsfuß, Liquiditätsplan und Soll-Ist-Vergleich, Geld/Preisindex/Inflation, BIP und Quantitätsgleichung). Format nach F-224 (Erwartungspunkte und Rückfragen, Raster im Trainer) und nach `docs/entwuerfe/fachgespraech-stufe3.md`.
+Stand 12.10.2026 · **Entwurf zur Entscheidung des Projektleiters**, nichts davon liegt in `content/`. **Unabhängig geprüft am 12.10.2026**, Befunde und Korrekturen siehe `docs/entwuerfe/pruefung-p7-wq12.md`; die Fassung unten ist die korrigierte. Die Pools `content/technischer-fachwirt/wq1/fachgespraech.md` und `wq2/fachgespraech.md` decken die zuletzt eingearbeiteten Theorieabschnitte noch nicht ab (Buchungssätze und Umsatzsteuer, Skonto und Bezugskosten, Bilanzkennzahlen, Cashflow und Rentabilität, Strukturbilanz, Abschreibung rechnen, Rückstellungen, Rechnungsabgrenzung, Wertpapiere und Fremdwährung, Stufenleiterverfahren, Zuschlagskalkulation mit Zahlen, Maschinenstundensatz, Deckungsbeitrag und Break-even, statische Verfahren, Gewinnvergleich, Kapitalwert und interner Zinsfuß, Liquiditätsplan und Soll-Ist-Vergleich, Geld/Preisindex/Inflation, BIP und Quantitätsgleichung). Format nach F-224 (Erwartungspunkte und Rückfragen, Raster im Trainer) und nach `docs/entwuerfe/fachgespraech-stufe3.md`.
 
 ## Was vorliegt
 
 | Datei | Inhalt |
 |---|---|
-| `docs/entwuerfe/tf-p7-fachgespraech/wq2.md` | 16 neue Fragen in den Abschnitten `### 2.1 Finanzbuchhaltung und Jahresabschluss` (8), `### 2.2 Kostenrechnung` (4), `### 2.3 Planungsrechnung` (4) |
+| `docs/entwuerfe/tf-p7-fachgespraech/wq2.md` | 17 neue Fragen in den Abschnitten `### 2.1 Finanzbuchhaltung und Jahresabschluss` (8), `### 2.2 Kostenrechnung` (4), `### 2.3 Planungsrechnung` (5) |
 | `docs/entwuerfe/tf-p7-fachgespraech/wq1.md` | 4 neue Fragen im Abschnitt `### 1.1 Grundlagen der Volkswirtschaftslehre` |
 
-Zusammen **20 Fragen** mit **100 Erwartungspunkten** (je Frage 5) und **38 Rückfragen** (WQ2: 80 Erwartungen und 31 Rückfragen, WQ1: 20 Erwartungen und 7 Rückfragen). Die Überschriften der Abschnitte stimmen wörtlich mit den Zieldateien überein, damit ein Skript die Fragen am Ende der jeweiligen Themengruppe anfügen kann. Anrede Sie, Fallfirma Vantera Präzisionstechnik GmbH, Dezimalkomma, Tausenderpunkt, Leerzeichen vor Einheiten. Jede Frage verlangt Begründung und Praxisbezug; Zahlen stehen nur als Beispiel in den Erwartungen.
+Zusammen **21 Fragen** mit **100 Erwartungspunkten** und **39 Rückfragen** (WQ2: 81 Erwartungen und 32 Rückfragen, WQ1: 19 Erwartungen und 7 Rückfragen). Die Überschriften der Abschnitte stimmen wörtlich mit den Zieldateien überein, damit ein Skript die Fragen am Ende der jeweiligen Themengruppe anfügen kann. Anrede Sie, Fallfirma Vantera Präzisionstechnik GmbH, Dezimalkomma, Tausenderpunkt, Leerzeichen vor Einheiten. Jede Frage verlangt Begründung und Praxisbezug; wo eine Frage etwas beurteilen oder berechnen lässt, nennt sie die nötigen Ausgangsdaten selbst (WQ2-3, WQ2-5, WQ2-10, WQ2-17), sonst stehen Zahlen nur als Beispiel in den Erwartungen.
 
 ## Liste der Fragen
 
@@ -17,28 +17,31 @@ Zusammen **20 Fragen** mit **100 Erwartungspunkten** (je Frage 5) und **38 Rück
 |---|---|---|---|
 | WQ2-1 | 2.1 | Umsatzsteuer als durchlaufender Posten: Buchung Eingangs- und Ausgangsrechnung, Zahllast | Buchungssätze und Umsatzsteuer |
 | WQ2-2 | 2.1 | Rabatt, Bezugskosten und Skonto buchen; warum Skonto nutzen (36,7 %) | Skonto, Rabatt und Bezugskosten verbuchen; Zuschlagssätze und Bezugskalkulation (Einstandspreis) |
-| WQ2-3 | 2.1 | Finanzstruktur beurteilen: Anlagendeckungsgrad, Liquiditätsgrade, Strukturbilanz | Bilanzkennzahlen; Bilanzstruktur und Strukturbilanz |
+| WQ2-3 | 2.1 | Finanzstruktur der vereinfachten Bilanz beurteilen: Anlagendeckungsgrad, Liquiditätsgrade, Strukturbilanz | Bilanzkennzahlen; Bilanzstruktur und Strukturbilanz |
 | WQ2-4 | 2.1 | Cashflow: Bedeutung, vereinfachte Ermittlung, Wirkung von Abschreibung und Rückstellungen | Cashflow und Rentabilitätskennzahlen; Rückstellungen |
-| WQ2-5 | 2.1 | Leverage-Effekt an der Investition über 1.000.000 €, Chance und Risiko der Verschuldung | Cashflow und Rentabilitätskennzahlen |
+| WQ2-5 | 2.1 | Leverage-Effekt an der Investition über 1.000.000 € (Gesamtkapitalrentabilität 9 % und 3 %), Chance und Risiko der Verschuldung | Cashflow und Rentabilitätskennzahlen |
 | WQ2-6 | 2.1 | Lineare und degressive Abschreibung der CNC-Fräsmaschine, Abschreibungsgegenwert | Abschreibung rechnen; Bewertung und Abschreibung des Maschinenparks |
 | WQ2-7 | 2.1 | Periodengerechte Abgrenzung: Gewährleistungsrückstellung, aktive Rechnungsabgrenzung, sonstige Verbindlichkeit | Rückstellungen; Rechnungsabgrenzung und sonstige Forderungen und Verbindlichkeiten |
 | WQ2-8 | 2.1 | Bewertung von Wertpapieren des Umlaufvermögens und einer Zloty-Forderung am Stichtag | Wertpapiere und Fremdwährung |
 | WQ2-9 | 2.2 | Stufenleiterverfahren im BAB bis zu den Zuschlagssätzen | Kostenstellenumlage im BAB: Stufenleiterverfahren; Zuschlagssätze und Bezugskalkulation |
-| WQ2-10 | 2.2 | Vorwärtskalkulation bis zum Listenpreis und Differenzkalkulation bei 8.000 € | Zuschlagskalkulation mit Zahlen; Zuschlagskalkulation im Überblick |
-| WQ2-11 | 2.2 | Maschinenstundensatz: Bestandteile, Auslastung 1.500 gegen 1.000 Stunden | Maschinenstundensatz rechnen |
-| WQ2-12 | 2.2 | Gewinnschwelle eines Bauteils und Vorrang bei Engpass (Deckungsbeitrag je Engpassstunde) | Deckungsbeitrag und Break-even rechnen |
+| WQ2-10 | 2.2 | Vorwärtskalkulation bis zum Listenpreis und Differenzkalkulation bei 8.000 € (Zuschläge, Gewinn, Skonto und Rabatt vorgegeben) | Zuschlagskalkulation mit Zahlen; Zuschlagskalkulation im Überblick |
+| WQ2-11 | 2.2 | Maschinenstundensatz bei 1.500 gegen 1.000 Stunden, was nicht eingeht, Folgen der Auslastung | Maschinenstundensatz rechnen |
+| WQ2-12 | 2.2 | Gewinnschwelle eines Bauteils, Gewinn, Sicherheitsabstand und Deckungsbeitragsquote | Deckungsbeitrag und Break-even rechnen |
 | WQ2-13 | 2.3 | Kostenvergleich, Amortisation und Rentabilität zweier Fräsmaschinen, Grenzen | Statische Verfahren rechnen |
 | WQ2-14 | 2.3 | Gewinnvergleich statt Kostenvergleich bei höherer Ausbringung, Mengenvorteil | Gewinnvergleichsrechnung rechnen |
-| WQ2-15 | 2.3 | Kapitalwert, interner Zinsfuß und warum bevorzugt der Kapitalwert verglichen wird | Kapitalwert und interner Zinsfuß rechnen; Risikoaspekte der Investitions- und Finanzplanung |
-| WQ2-16 | 2.3 | Endbestand im Liquiditätsplan und Deutung einer Budgetabweichung | Liquiditätsplan und Soll-Ist-Vergleich rechnen |
+| WQ2-15 | 2.3 | Kapitalwert, interner Zinsfuß und warum bevorzugt der Kapitalwert verglichen wird | Kapitalwert und interner Zinsfuß rechnen |
+| WQ2-16 | 2.3 | Endbestand im Liquiditätsplan und seine Bedeutung für die Finanzierung | Liquiditätsplan und Soll-Ist-Vergleich rechnen; Finanz- und Liquiditätsplanung |
+| WQ2-17 | 2.3 | Budgetabweichung bei den Materialkosten der Zerspanungshalle berechnen und deuten | Liquiditätsplan und Soll-Ist-Vergleich rechnen |
 | WQ1-1 | 1.1 | Geldfunktionen, Inflation und Kaufkraft, Folgen für die Einstandspreise | Geld, Preisindex und Inflation rechnen |
 | WQ1-2 | 1.1 | Preisindex und Inflationsrate, reale Größen am Beispiel einer Gehaltserhöhung | Geld, Preisindex und Inflation rechnen |
 | WQ1-3 | 1.1 | BIP (Verwendungsrechnung), nominal gegen real, Aussagekraft als Konjunktur- und Wohlstandsmaß | BIP und Quantitätsgleichung rechnen; Konjunktur und Außenhandel (Konjunkturindikatoren) |
 | WQ1-4 | 1.1 | Quantitätsgleichung mit Zahlenbeispiel und Grenzen des Modells | BIP und Quantitätsgleichung rechnen |
 
+Gegenüber dem ersten Entwurf wurde die Engpass-Entscheidung aus WQ2-12 gestrichen (steht bereits im Entwurf `tf-p7-fachgespraech/hq2.md`, dort mit denselben Zahlen und tiefer), und die frühere Doppelfrage WQ2-16 (Liquiditätsplan und Soll-Ist-Vergleich in einer Frage) ist in zwei Fragen geteilt (WQ2-16 und WQ2-17).
+
 ## Nachgerechnete Zahlen
 
-Alle Zahlen wurden mit einem eigenen Python-Skript (`Decimal`, Aufruf mit `-I`; Arbeitsbereich des Agenten, nicht im Repository) nachgerechnet: **207 Einzelprüfungen, 0 Abweichungen**. Kaufmännisch gerundet wurde nur dort, wo die Theorie es tut (Zielverkaufspreis, Währungsbeträge). Die Spalte „Theorie“ nennt, wo die Zahl bereits steht oder ob sie abgeleitet ist.
+Alle Zahlen wurden zweimal nachgerechnet: vom Entwurfsagenten und danach in der unabhängigen Prüfung mit einem eigenen Python-Skript (`Decimal`, Aufruf mit `-I`, Arbeitsbereich außerhalb des Repositorys); die Prüfung hat **keine Abweichung** gefunden. Kaufmännisch gerundet wurde nur dort, wo die Theorie es tut (Zielverkaufspreis, Währungsbeträge). Die Spalte „Theorie“ nennt, wo die Zahl bereits steht oder ob sie abgeleitet ist.
 
 | Frage | Rechnung | Ergebnis | Theorie |
 |---|---|---|---|
@@ -53,12 +56,11 @@ Alle Zahlen wurden mit einem eigenen Python-Skript (`Decimal`, Aufruf mit `-I`; 
 | WQ2-2 | 2 / 98 · 360 / 20 | 36,7 % | steht |
 | WQ2-3 | 9 / 12; (9 + 6) / 12 | 75 %; 125 % | steht |
 | WQ2-3 | 15 − 12; 8 − 5 | 3 Mio. €; 3 Mio. € | steht |
-| WQ2-3 | (1 + 3) / 5; 8 / 5 | 80 %; 160 % | steht |
+| WQ2-3 | 1 / 5; (1 + 3) / 5; 8 / 5 | 20 %; 80 %; 160 % | steht |
 | WQ2-3 | 15 − 12 + (5 − 4) | 4 Mio. € = Vorräte | steht |
 | WQ2-3 (Rückfragen) | 9 / 20 | 45 % | steht |
 | WQ2-4 | 1,35 + 1,2 + 0,15 | 2,7 Mio. € | steht |
-| WQ2-4 | (11 − 1) / 2,7 | 3,7 Jahre | steht |
-| WQ2-4 (Rückfragen) | 2,7 / 22,5; 1,35 / 22,5 | 12 %; 6 % | steht |
+| WQ2-4 (Rückfragen) | (11 − 1) / 2,7 | 3,7 Jahre | steht |
 | WQ2-4 (Rückfragen) | 6.000 € − 40.000 € | −34.000 € | steht |
 | WQ2-5 | 9 % · 1.000.000 € − 5 % · 500.000 € | 90.000 € − 25.000 € = 65.000 € | steht |
 | WQ2-5 | 65.000 € / 500.000 € | 13 % (gegen 9 %) | steht |
@@ -92,24 +94,25 @@ Alle Zahlen wurden mit einem eigenen Python-Skript (`Decimal`, Aufruf mit `-I`; 
 | WQ2-11 | 60.000 € / 1.500 h; · 12 h; / 1.000 h | 40,00 €; 480,00 €; 60,00 € | steht |
 | WQ2-12 | 80 € − 50 €; 120.000 € / 30 €; · 80 €; 30 / 80 | 30 €; 4.000 Stück; 320.000 €; 37,5 % | steht |
 | WQ2-12 | 5.000 · 30 € − 120.000 €; 5.000 − 4.000 | 30.000 €; 1.000 Stück (20 %) | steht |
-| WQ2-12 | 30 € / 0,5 h; 40 € / 1 h | 60 € je Stunde; 40 € je Stunde | steht |
-| WQ2-12 (Rückfragen) | 50 € + 120.000 € / 5.000; 500 · (62 € − 50 €) | 74 €; 6.000 € | steht |
+| WQ2-12 (Rückfragen) | 50 € + 120.000 € / 5.000; (80 € − 74 €) · 5.000 | 74 €; 30.000 € (deckt sich mit dem Gewinn bei 5.000 Stück) | steht; Gegenprobe abgeleitet |
 | WQ2-13 | 40.000 + 6.000 + 14.000; 37.500 + 7.500 + 9.000 € | 60.000 €; 54.000 € | steht |
 | WQ2-13 | 60.000 / 2.000; 54.000 / 2.000 | 30,00 €; 27,00 € | steht |
 | WQ2-13 | 240.000 € / (20.000 € + 40.000 €) | 4,0 Jahre | steht |
 | WQ2-13 | (20.000 € + 6.000 €) / 120.000 €; 20.000 / 120.000 | 21,7 %; 16,7 % | steht |
+| WQ2-13 (Rückfragen) | 5 % · 150.000 € (Maschine B) | 7.500 € | steht |
 | WQ2-14 | 2.000 · 40 €; 2.200 · 40 € | 80.000 €; 88.000 € | steht |
 | WQ2-14 | 37.500 + 7.500 + 4,50 € · 2.200 | 54.900 € | steht |
 | WQ2-14 | 80.000 € − 60.000 €; 88.000 € − 54.900 € | 20.000 €; 33.100 € | steht |
 | WQ2-14 | 80.000 € − 54.000 €; 200 · (40 € − 4,50 €); 33.100 € − 20.000 € | 26.000 €; 7.100 €; 13.100 € (= 6.000 € + 7.100 €) | steht |
 | WQ2-14 | (33.100 € + 7.500 €) / 150.000 €; 33.100 / 150.000 | 27,1 %; 22,1 % | steht |
-| WQ2-15 | Σ 1 / 1,08^t, t = 1 bis 6 | 4,62288 | steht |
-| WQ2-15 | 60.000 € · 4,62288; − 240.000 € | 277.372,78 €; 37.372,78 € | steht |
+| WQ2-15 | Σ 1 / 1,08^t, t = 1 bis 6 | 4,62288 (genau 4,6228797) | steht (4,62288) |
+| WQ2-15 | 60.000 € · 4,6228797; − 240.000 € | 277.372,78 €; 37.372,78 € | steht |
 | WQ2-15 | Kapitalwert bei 12 % und 14 %; lineare Interpolation | +6.684 €; −6.680 €; 13,0 % (exakt 12,978 %) | steht |
 | WQ2-16 | 80.000 € + 450.000 € − 520.000 € | 10.000 € | steht |
 | WQ2-16 | 450.000 € − 520.000 € | −70.000 € | abgeleitet |
 | WQ2-16 (Rückfragen) | 10.000 € + 450.000 € − 520.000 € | −60.000 € (Antwort nur in der Rückfrage geprüft) | abgeleitet |
-| WQ2-16 | 430.000 € − 400.000 €; / 400.000 € | +30.000 €; 7,5 % | steht |
+| WQ2-17 | 430.000 € − 400.000 €; / 400.000 € | +30.000 €; 7,5 % | steht |
+| WQ2-17 (Rückfrage) | (380.000 € − 400.000 €) / 400.000 € | −5 % | abgeleitet |
 | WQ1-1 | 100 / 106; 1 − 100 / 106 | 0,943 €; 5,7 % | steht |
 | WQ1-2 | 100 · 5,00 + 40 · 20,00 + 10 · 70,00; aktuell | 2.000 €; 2.060 €; Index 103,0 | steht |
 | WQ1-2 | (106 − 103) / 103 | 2,9 % | steht |
@@ -120,48 +123,51 @@ Alle Zahlen wurden mit einem eigenen Python-Skript (`Decimal`, Aufruf mit `-I`; 
 | WQ1-4 | 3.200 / 800; 800 · 1,1; 880 · 4,0 | V = 4,0; 880 Mrd. €; 3.520 Mrd. € | steht |
 | WQ1-4 | 3.520 / 3.200; 3.200 · 1,03; 3.520 / 3.296 | P = 1,10; 3.296 Mrd. €; 1,068 (+6,8 %) | steht |
 
-Nur ein Wert in den Erwartungen und Rückfragen steht nicht wörtlich in der Theorie: der Auszahlungsüberschuss von 70.000 € in WQ2-16; er folgt aus 450.000 € − 520.000 € und der Formel für den Endbestand. Ein maschineller Abgleich aller Zahlen in den 100 Erwartungen und 38 Rückfragen gegen die Theorieabschnitte und den Fragetext hat nur diese 70.000 € gemeldet. Der Folgequartals-Endbestand von −60.000 € kommt im Text nicht vor, er wurde nur als erwartete Antwort der Rückfrage nachgerechnet.
+Nur drei Werte in den Erwartungen und Rückfragen stehen nicht wörtlich in der Theorie, alle drei folgen aus einer einfachen Rechnung: der Auszahlungsüberschuss von 70.000 € in WQ2-16 (450.000 € − 520.000 €), der Folgequartals-Endbestand von −60.000 € in der Rückfrage zu WQ2-16 und die Abweichung von −5 % in der Rückfrage zu WQ2-17. Der Rentenbarwertfaktor 4,6228797 in WQ2-15 ist der genaue Wert hinter dem in der Theorie genannten 4,62288 (60.000 € · 4,62288 ergäbe 277.372,80 €, mit dem genauen Faktor 277.372,78 €).
 
-## Prüfung durch den Entwurf selbst
+## Prüfung
 
-- **Struktur (Skript):** Je Frage 5 Erwartungen und 0 bis 2 Rückfragen (WQ2 überwiegend 2, WQ1 teils 1), Einrückung `  - Erwartung: ` und `  - Rückfrage: `, Erwartungen stehen vor den Rückfragen, jede Erwartung ist ein vollständiger Satz mit Schlusspunkt, jede Rückfrage endet mit Fragezeichen. Dateien mit LF, UTF-8 ohne BOM, ohne Tabulator und Zeilenendleerzeichen.
-- **Dopplungen (Skript):** Kein Fragetext kommt in einer der beiden Zieldateien vor, keiner doppelt im Entwurf. Auch keine Rückfrage des Entwurfs steht wörtlich im Bestand. Überschriften wörtlich wie in den Zieldateien.
-- **Stil (Skript):** Anrede Sie, kein Duzen, kein „Prozent“ als Zahlwort (nur „Prozentsatz“, „Prozentpunkte“ und „in Prozent“ im Fließtext), Tausenderpunkt ab vier Stellen, Dezimalkomma, Leerzeichen vor „€“, „%“ und Einheiten, keine Schrägstrich-Kurzformen oder Sternchen, kein generisches Maskulinum außerhalb von Zusammensetzungen (Kundschaft, Kundenauftrag). Die Rückfragen und Erwartungen sind sprachlich neutral gehalten.
-- **Inhalt:** Erwartungspunkte stammen aus der Theorie des jeweiligen Themas; Zahlen wurden wie oben nachgerechnet und gegen die Theorie abgeglichen. Eine zeilenweise Belegprüfung aller Aussagen ist nur beim Schreiben durch mich erfolgt, nicht durch eine zweite Person.
+- **Struktur (Skript, nach der Überarbeitung wiederholt):** Je Frage 3 bis 5 Erwartungen und 0 bis 2 Rückfragen, Einrückung `  - Erwartung: ` und `  - Rückfrage: `, Erwartungen stehen vor den Rückfragen, jede Erwartung ist ein vollständiger Satz mit Schlusspunkt, jede Rückfrage endet mit Fragezeichen. Dateien mit LF, UTF-8 ohne BOM, ohne Tabulator und Zeilenendleerzeichen.
+- **Dopplungen (Skript):** Kein Fragetext kommt in einer der beiden Zieldateien vor, keiner doppelt im Entwurf, auch keine Rückfrage steht wörtlich im Bestand. Überschriften wörtlich wie in den Zieldateien. Inhaltliche Nähe zum Bestand und zu den Entwürfen `hq2.md` und `hq1.md` wurde in der unabhängigen Prüfung einzeln beurteilt.
+- **Stil (Skript):** Anrede Sie, kein Duzen, „Prozent“ nur im Fließtext („in Prozent“), Tausenderpunkt ab vier Stellen, Dezimalkomma, Leerzeichen vor „€“, „%“ und Einheiten, keine Schrägstrich-Kurzformen oder Sternchen, kein generisches Maskulinum außerhalb von Zusammensetzungen (Kundschaft, Kundenauftrag).
+- **Inhalt:** Erwartungspunkte stammen aus der Theorie des jeweiligen Themas; die Belegprüfung erfolgte zeilenweise durch eine zweite Person (unabhängige Prüfung vom 12.10.2026).
 
 ## Berührungspunkte mit dem Bestand
 
-Folgende neue Fragen berühren ein Thema, das im Bestand schon als Frage oder Rückfrage vorkommt. Der Fragetext ist jeweils verschieden und die neue Frage verlangt mehr (Zahlen, Begründung, Anwendung); wer sie lieber meiden will, streicht sie.
+Folgende neue Fragen berühren ein Thema, das im Bestand schon als Frage oder Rückfrage vorkommt. Der Fragetext ist jeweils verschieden; die Prüfung hat entschieden, ob genug Neues verlangt wird, und doppelte Rückfragen ersetzt.
 
-| Neue Frage | Berührung im Bestand |
-|---|---|
-| WQ2-11 Maschinenstundensatz | Frage „Wozu dient die Maschinenstundensatzrechnung, …“ (2.2) und Rückfrage nach den Kostenbestandteilen; die neue Frage rechnet den Satz und fragt nach der Auslastung |
-| WQ2-12 Gewinnschwelle und Engpass | Frage zum Zusatzauftrag mit der Rückfrage „Was gibt der Break-even-Punkt an?“; der Zusatzauftrag kommt in der neuen Frage nur als Rückfrage vor |
-| WQ2-15 Kapitalwert und interner Zinsfuß | Frage „Erläutern Sie die Aussagekraft eines positiven Kapitalwerts …“ und Rückfrage zum internen Zinsfuß; die neue Frage rechnet Kapitalwert und Zinsfuß |
-| WQ2-16 Liquiditätsplan, Soll-Ist-Vergleich | Fragen zur Liquiditätsplanung bei einer Hallenplanung und zum Soll-Ist-Vergleich; die neue Frage rechnet den Endbestand und die Abweichung |
-| WQ2-13 und WQ2-14 | Frage zu statischen und dynamischen Verfahren mit der Rückfrage zur Amortisationsrechnung; die neuen Fragen rechnen die statischen Verfahren |
-| WQ2-6 Abschreibung | Frage zur außerplanmäßigen Abschreibung mit der Rückfrage zu linearer und degressiver Abschreibung; die neue Frage rechnet beide Verfahren |
-| WQ2-4 Cashflow, WQ2-7 | Rückfrage „Wofür bildet ein Maschinenbauer wie Vantera typischerweise Rückstellungen?“ im Bestand |
+| Neue Frage | Berührung im Bestand | Entscheidung |
+|---|---|---|
+| WQ2-11 Maschinenstundensatz | Frage „Wozu dient die Maschinenstundensatzrechnung, …“ (2.2) und Rückfrage nach den Kostenbestandteilen | behalten: rechnet den Satz, verlangt Auslastung 1.500 gegen 1.000 Stunden und was nicht eingeht; Rückfragen auf Zinsen und Wiederbeschaffungswerte umgestellt |
+| WQ2-12 Gewinnschwelle | Frage zum Zusatzauftrag mit der Rückfrage „Was gibt der Break-even-Punkt an?“; Engpass-Frage im Entwurf `hq2.md` | behalten, aber Engpass-Teil und Zusatzauftrag-Rückfrage gestrichen; verlangt Rechnung, Sicherheitsabstand und Deckungsbeitragsquote |
+| WQ2-15 Kapitalwert und interner Zinsfuß | Frage „Erläutern Sie die Aussagekraft eines positiven Kapitalwerts …“ und Rückfrage zum internen Zinsfuß | behalten: rechnet Kapitalwert und Zinsfuß und begründet den Vorrang des Kapitalwerts; Rückfrage zum Planungsrisiko ersetzt |
+| WQ2-16 Liquiditätsplan | Frage zur Liquiditätsplanung bei einer Hallenplanung | behalten: rechnet den Endbestand; Rückfragen auf Folgequartal und Auszahlungsarten umgestellt |
+| WQ2-17 Soll-Ist-Vergleich | Frage „Was versteht man unter einem Soll-Ist-Vergleich, …“ mit demselben Beispiel der Zerspanungshalle | grenzwertig, behalten: Bestand fragt nach Begriff und Nutzen, die neue Frage rechnet Abweichung absolut und in Prozent und deutet das Vorzeichen; die Projektleitung kann sie streichen |
+| WQ2-13 und WQ2-14 | Frage zu statischen und dynamischen Verfahren mit der Rückfrage zur Amortisationsrechnung | behalten: rechnen die statischen Verfahren; Rückfrage zu unterschiedlicher Ausbringung (war Frage WQ2-14) ersetzt |
+| WQ2-6 Abschreibung | Frage zur außerplanmäßigen Abschreibung mit der Rückfrage zu linearer und degressiver Abschreibung | behalten: rechnet beide Verfahren und verlangt Wirkung auf Gewinn und Abschreibungsgegenwert |
+| WQ2-4 Cashflow, WQ2-7 | Rückfrage „Wofür bildet ein Maschinenbauer wie Vantera typischerweise Rückstellungen?“ im Bestand | behalten: verlangen Buchung und Cashflow-Wirkung |
+| WQ2-10 Zuschlagskalkulation | Frage „Wie funktioniert die Zuschlagskalkulation …“ mit der Rückfrage zum Angebotspreis | behalten: rechnet bis zum Listenpreis und verlangt die Differenzkalkulation; Rückfrage Herstellkosten gegen Selbstkosten (steht im Bestand als Erwartung) ersetzt |
 
 ## Wo die Theorie knapp war
 
-- **Strukturbilanz (WQ2-3):** Mittelfristiges Kapital kommt im Beispiel nicht vor, die Einordnung der Vorräte als mittelfristig ist eine Setzung der Analyse. Die Frage fragt deshalb nur nach den Summen je Fristigkeit und nach der Folgerung „kein akuter Handlungsbedarf, aber Rückfragen zu Umschlag und Fälligkeit“.
-- **Leverage (WQ2-5):** Die Theorie nennt die Formel und zwei Zahlenbeispiele, aber keine ausdrückliche Schwelle. „Risiko, sobald die Gesamtkapitalrentabilität unter dem Fremdkapitalzinssatz liegt“ folgt aus der Formel (r_GK − i wird negativ), nicht aus einem Satz der Theorie. ROI und Zerlegung stehen nur in den Rückfragen.
+- **Strukturbilanz (WQ2-3):** Mittelfristiges Kapital kommt im Beispiel nicht vor, die Einordnung der Vorräte als mittelfristig ist eine Setzung der Analyse. Die Frage fragt deshalb nur nach den Summen je Fristigkeit und nach der Folgerung „kein akuter Handlungsbedarf, aber Rückfragen zu Umschlag und Fälligkeit“. Die Bilanzzahlen stehen im Fragetext, sonst wäre die Beurteilung nicht zu beantworten.
+- **Leverage (WQ2-5):** Die Theorie nennt die Formel und zwei Zahlenbeispiele, aber keine ausdrückliche Schwelle. „Der Hebel kehrt sich um, sobald die Gesamtkapitalrentabilität unter dem Fremdkapitalzinssatz liegt“ folgt aus der Formel (r_GK − i wird negativ) und dem Beispiel mit 3 %, nicht aus einem Satz der Theorie. ROI und Zerlegung stehen nur in den Rückfragen.
 - **Fremdwährung und Wertpapiere (WQ2-8):** Die Theorie sagt nur, wie bewertet wird, nicht, warum Kursgewinne bei kurzer Restlaufzeit ausgewiesen werden dürfen, bei Wertpapieren aber nicht; die Frage verlangt deshalb den Unterschied, nicht die Begründung des Gesetzgebers. Die Verbindlichkeit in US-Dollar kommt nicht vor, die Absicherung des Währungsrisikos nur als Rückfrage.
 - **Rückstellungen (WQ2-7):** Die Theorie behandelt ausdrücklich nur den Gedanken und die Buchungen; die Frage bleibt dabei (keine Ansatz- und Bewertungsregeln).
 - **Liquiditätsplan (WQ2-16):** Die Theorie nennt keine Kennzahl für einen ausreichenden Liquiditätspuffer. Die Erwartung stellt deshalb nur fest, dass der Bestand positiv bleibt und die Auszahlungen die Einzahlungen übersteigen; die Folgequartal-Rechnung steht nur in der Rückfrage.
 - **Bezugskalkulation (WQ2-2):** Das vollständige Schema (Listeneinkaufspreis bis Einstandspreis) kommt als eigene Frage nicht vor, weil es der Skonto-Frage zu ähnlich wäre; Einstandspreis (4.530 €, ohne Skonto 4.620 €) steht in der Erwartung und der Rückfrage.
 - **Rentabilität (WQ2-13, WQ2-14):** Die Rentabilität folgt der Theorie: (Gewinn + kalkulatorische Zinsen) / durchschnittlich gebundenes Kapital. Der Mindestzins zum Vergleich ist in der Theorie der Kalkulationszinssatz von 5 %.
 - **Gewinnvergleich (WQ2-14):** Die Annahme, dass die Mehrmenge zum selben Preis absetzbar ist, ist in der Theorie gesetzt und wird in der Erwartung als Bedingung genannt.
-- **Geldmenge (WQ1-1):** Die Theorie sagt nur, dass M1, M2 und M3 zusätzlich weniger liquide Anlagen zählen; die Rückfrage verlangt nicht mehr.
+- **Geldmenge (WQ1-1):** Die Theorie sagt, dass M1, M2 und M3 „zusätzlich weniger liquide Anlagen“ zählen; das stimmt für M2 und M3, M1 ist aber die engste Abgrenzung. Die Rückfrage fragt deshalb nur nach dem Unterschied der Abgrenzungen; der Theoriesatz sollte bei Gelegenheit präzisiert werden (siehe Prüfdatei).
 
 ## Was bewusst nicht gefragt wird
 
 - **Rechtliches und Paragrafen:** Aufbewahrungsfristen, Kaufmannseigenschaft und Größenklassen (stehen im Bestand), Rückstellungsansatz und Bewertung im Detail, Pensionsverpflichtungen, steuerliche Zulässigkeit von Abschreibungsverfahren und Sätzen, umsatzsteuerliche Einzelheiten (Einfuhr, Skonto-Berichtigung, Steuersätze außer als Beispielsatz 19 %), Fremdwährungs-Stichtagsregel nur „nach den handelsrechtlichen Grundsätzen“ ohne Normen.
 - **Spiegelbildliche Fälle:** Passive Rechnungsabgrenzung und sonstige Forderung (nur als Gesamtschau in WQ2-7), Zuschreibung bei außerplanmäßiger Abschreibung (Bestand), Wertpapiere des Anlagevermögens.
 - **Reines Rechnen:** Gleichungsverfahren im BAB, Rentenbarwertfaktor aus Tabellen, Nominal- gegen Realzins im Detail. Wo gerechnet wird, steht die Rechnung als Beispiel in der Erwartung, die Frage verlangt Begründung und Praxisbezug.
-- **Nicht eingearbeitete oder besonders prüfbedürftige Theorie:** Die Quelle der Rückstellungs-, Abgrenzungs-, Skonto- und Wertpapierabschnitte trägt den Vermerk „besonders zu prüfen“ (`rechtsstand` von Thema 2.1). Die Fragen WQ2-2, WQ2-4 (Wirkung der Rückstellungen), WQ2-7 und WQ2-8 erben diesen Vorbehalt und sollten erst nach der fachlichen Prüfung der Theorie eingespielt werden; die anderen 16 Fragen tragen ihn nicht.
+- **Engpassentscheidung:** steht im Entwurf `tf-p7-fachgespraech/hq2.md` (Fragen zur Programmplanung bei einem und bei zwei Engpässen) und wird hier nicht doppelt gestellt.
+- **Nicht eingearbeitete oder besonders prüfbedürftige Theorie:** Die Quelle der Rückstellungs-, Abgrenzungs-, Skonto- und Wertpapierabschnitte trägt den Vermerk „besonders zu prüfen“ (`rechtsstand` von Thema 2.1). Die Fragen WQ2-2, WQ2-4 (Wirkung der Rückstellungen, Rückfrage zur Gewährleistungsrückstellung), WQ2-7 und WQ2-8 erben diesen Vorbehalt und sollten erst nach der fachlichen Prüfung der Theorie eingespielt werden; die anderen 17 Fragen tragen ihn nicht.
 
 ## Vorschlag zum Einspielen
 
-Die Fragen am Ende der jeweiligen Gruppe der beiden `fachgespraech.md` anfügen (WQ2 2.1 bis 2.3, WQ1 1.1). Weil der Schlüssel eines Fachgespräch-Items aus dem Fragetext entsteht, entstehen sie beim Import als neue Fragen; an Fachgespräch-Fragen hängen weder Lernfortschritt noch Punkte. Der Eintrag in `docs/Architekturplanung.md` Abschnitt 13 und das Abhaken in Iteration 23 sind nach der Entscheidung nachzutragen, nicht im Entwurf.
+Die Fragen am Ende der jeweiligen Gruppe der beiden `fachgespraech.md` anfügen (WQ2 2.1 bis 2.3, WQ1 1.1); die vier rechtsnahen Fragen (WQ2-2, WQ2-4, WQ2-7, WQ2-8) erst nach der Entscheidung der Projektleitung. Weil der Schlüssel eines Fachgespräch-Items aus dem Fragetext entsteht, entstehen sie beim Import als neue Fragen; an Fachgespräch-Fragen hängen weder Lernfortschritt noch Punkte. Der Eintrag in `docs/Architekturplanung.md` Abschnitt 13 und das Abhaken in Iteration 23 sind nach der Entscheidung nachzutragen, nicht im Entwurf.

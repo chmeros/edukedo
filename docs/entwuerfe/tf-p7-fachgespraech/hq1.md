@@ -1,6 +1,6 @@
 # Entwurf: neue Fachgesprächsfragen HQ1 (Technischer Fachwirt)
 
-16 neue Fragen zu den Themen 8.1 bis 8.3, nur Entwurf. Zum Anfügen zählt der Inhalt ab der ersten `###`-Überschrift; jede Themengruppe wird am Ende der gleichnamigen Gruppe in `content/technischer-fachwirt/hq1/fachgespraech.md` angefügt.
+16 neue Fragen zu den Themen 8.1 bis 8.3, nur Entwurf (nach unabhängiger Prüfung korrigiert, siehe `docs/entwuerfe/pruefung-p7-hq12.md`). Zum Anfügen zählt der Inhalt ab der ersten `###`-Überschrift; jede Themengruppe wird am Ende der gleichnamigen Gruppe in `content/technischer-fachwirt/hq1/fachgespraech.md` angefügt.
 
 ### 8.1 Vertrieb und Absatzplanung
 
@@ -8,38 +8,37 @@
   - Erwartung: Die kostenorientierte Preisbildung geht von den Selbstkosten aus und schlägt einen Gewinn auf, etwa bei Selbstkosten von 120 € je Stück und 10 % Gewinn einen Preis von 120 € · 1,10 = 132 €.
   - Erwartung: Die kurzfristige Preisuntergrenze liegt bei den variablen Stückkosten, denn jeder darüber liegende Preis liefert einen positiven Deckungsbeitrag.
   - Erwartung: Die langfristige Preisuntergrenze liegt bei den Selbstkosten, weil sonst die fixen Kosten nicht gedeckt werden.
-  - Erwartung: Die nachfrageorientierte Preisbildung richtet sich nach der Zahlungsbereitschaft der Kundschaft und der Preis-Absatz-Funktion, die konkurrenzorientierte nach dem Marktpreis oder dem Preisführer.
-  - Erwartung: Die konkurrenzorientierte Preisbildung ist bei vergleichbaren Produkten und hoher Markttransparenz sinnvoll; im B2B-Geschäft werden Preise häufig individuell verhandelt und gestaffelt.
+  - Erwartung: Die nachfrageorientierte Preisbildung richtet sich nach der Zahlungsbereitschaft der Kundschaft und der Preis-Absatz-Funktion: Ein höherer Preis senkt in der Regel die Absatzmenge.
+  - Erwartung: Die konkurrenzorientierte Preisbildung richtet sich nach dem Marktpreis oder dem Preisführer und ist bei vergleichbaren Produkten und hoher Markttransparenz sinnvoll; im B2B-Geschäft werden Preise häufig individuell verhandelt und gestaffelt.
   - Rückfrage: Wie nutzt eine Preisdifferenzierung unterschiedliche Zahlungsbereitschaften?
-- Der Vertrieb schlägt vor, den Preis eines Bauteils der Vantera um 5 % anzuheben. Wie beurteilen Sie mithilfe der Preiselastizität der Nachfrage, ob sich das lohnt?
+- Der Vertrieb schlägt vor, den Preis eines Bauteils der Vantera um 5 % anzuheben. Wie beurteilen Sie mithilfe der Preiselastizität der Nachfrage, ob die Preiserhöhung den Erlös steigert?
   - Erwartung: Die Preiselastizität der Nachfrage ist die prozentuale Mengenänderung geteilt durch die prozentuale Preisänderung.
   - Erwartung: Ist ihr Betrag größer als 1, ist die Nachfrage elastisch und die Menge reagiert überproportional; ist er kleiner als 1, ist sie unelastisch.
   - Erwartung: Bei unelastischer Nachfrage steigt der Erlös bei einer Preiserhöhung, bei elastischer Nachfrage sinkt er.
   - Erwartung: Beispiel: Steigt der Preis von 80 € auf 84 € (+5 %) und sinkt der Absatz von 5.000 auf 4.500 Stück (−10 %), ist ε = −2, und der Erlös fällt von 400.000 € auf 378.000 €.
-  - Rückfrage: Warum dürfen Sie Preis- und Mengenänderung nicht in Prozent addieren, um die Erlösänderung zu bestimmen?
-  - Rückfrage: Welche Erlösänderung ergibt sich, wenn der Preis um 10 % steigt und die Menge um 20 % sinkt?
+  - Rückfrage: Welche Erlösänderung ergibt sich, wenn der Preis um 10 % steigt und die Menge um 20 % sinkt, und warum dürfen Sie die beiden Prozentwerte dafür nicht addieren?
 - Ein Bauteil der Vantera zeigt stagnierenden Umsatz und durch Preisdruck sinkende Gewinne. Ordnen Sie das Produkt dem Produktlebenszyklus zu, nennen Sie die passende Strategie und begründen Sie, warum ein ausgewogenes Sortiment Produkte in verschiedenen Phasen enthalten sollte.
   - Erwartung: Stagnierender Umsatz und sinkender Gewinn durch Konkurrenz und Preisdruck kennzeichnen die Sättigungsphase, die auf die Reife folgt, in der Umsatz und Gewinn ihr Maximum erreichen.
   - Erwartung: In der Sättigung variiert man das Produkt oder erschließt neue Märkte.
   - Erwartung: Gehen Umsatz und Gewinn weiter zurück, verringert man im Rückgang den Aufwand oder stellt das Produkt ein (Produktelimination), gegebenenfalls ersetzt durch ein Nachfolgeprodukt.
-  - Erwartung: Für die Phasen davor gilt eine andere Strategie: In der Einführung baut man Bekanntheit auf (meist mit Verlusten), im Wachstum Marktanteile, in der Reife sichert man den Marktanteil und senkt Kosten.
   - Erwartung: Ein ausgewogenes Sortiment enthält Produkte in verschiedenen Phasen, damit der Rückgang eines Produkts durch ein anderes ausgeglichen wird.
-  - Rückfrage: Was sagen Sortimentsbreite und Sortimentstiefe aus, und wie groß sind beide bei vier Produktlinien mit 3, 5, 2 und 6 Varianten?
-  - Rückfrage: Wann ist eine Sortimentsbereinigung sinnvoll?
+  - Rückfrage: Welche Strategie gilt in der Einführung, im Wachstum und in der Reife?
+  - Rückfrage: Was sagen Sortimentsbreite und Sortimentstiefe aus, und wie groß sind die Breite und die durchschnittliche Tiefe bei vier Produktlinien mit 3, 5, 2 und 6 Varianten?
 - Vantera bringt ein technisch überlegenes Bauteil neu auf den Markt. Vergleichen Sie die Abschöpfungs- mit der Marktdurchdringungsstrategie und erläutern Sie, anhand welcher Kennzahl Sie die beiden Preispfade vergleichen.
   - Erwartung: Die Abschöpfungsstrategie beginnt mit einem hohen Preis und senkt ihn schrittweise; sie passt zu technischem Vorsprung, hohen Entwicklungskosten und wenig Wettbewerb.
   - Erwartung: Sie finanziert die Entwicklung früh, zieht aber Wettbewerb an.
   - Erwartung: Die Marktdurchdringungsstrategie beginnt mit einem niedrigen Preis, um schnell Marktanteil zu gewinnen und Konkurrenz abzuschrecken; sie passt zu Stückzahlvorteilen und preissensiblen Märkten, hat aber niedrige Anfangsgewinne und lässt sich später schwer anheben.
-  - Erwartung: Verglichen wird der Deckungsbeitrag, also (Preis − variable Stückkosten) · Menge, über alle Preisstufen summiert: Bei variablen Stückkosten von 50 € bringt die Abschöpfung (500 Stück zu 150 €, 1.500 zu 120 € und 3.000 zu 95 €) 290.000 €, die Durchdringung (8.000 Stück zu 70 €) 160.000 €.
-  - Erwartung: Die Durchdringung liefert dafür die größere Menge und den höheren Marktanteil (Umsatz 560.000 € gegenüber 540.000 €); welche Strategie sinnvoll ist, hängt von Wettbewerb, Kostenstruktur und Zielen ab.
+  - Erwartung: Verglichen wird der Deckungsbeitrag, also (Preis − variable Stückkosten) · Menge, über alle Preisstufen summiert, nicht der Umsatz: Bei variablen Stückkosten von 50 € bringt die Abschöpfung (500 Stück zu 150 €, 1.500 zu 120 € und 3.000 zu 95 €) 290.000 €, die Durchdringung (8.000 Stück zu 70 €) 160.000 €.
+  - Erwartung: Die Durchdringung liefert dafür die größere Menge und den höheren Marktanteil und hier sogar den höheren Umsatz (560.000 € gegenüber 540.000 €); welche Strategie sinnvoll ist, hängt von Wettbewerb, Kostenstruktur und Zielen ab.
   - Rückfrage: Welches Risiko birgt ein niedriger Einführungspreis für spätere Preisanhebungen?
 - Wie nutzen Sie die BCG-Matrix, um Investitionen in das Produktprogramm der Vantera zu steuern, und wo liegen die Grenzen dieses Instruments?
-  - Erwartung: Die Achsen sind das Marktwachstum und der relative Marktanteil, also der eigene Marktanteil geteilt durch den des größten Konkurrenzunternehmens; ein Wert über 1 bedeutet Marktführerschaft.
+  - Erwartung: Die Achsen sind das Marktwachstum (hoch oder niedrig, als Grenze wird zum Beispiel 10 % je Jahr gewählt) und der relative Marktanteil, also der eigene Marktanteil geteilt durch den des größten Konkurrenzunternehmens; ein Wert über 1 bedeutet Marktführerschaft.
   - Erwartung: Stars (Wachstum hoch, Anteil hoch) erhalten Investitionen, um die Stellung zu halten; Question Marks (Wachstum hoch, Anteil niedrig) werden selektiv gefördert oder aufgegeben.
   - Erwartung: Cash Cows (Wachstum niedrig, Anteil hoch) schöpfen Gewinne ab bei wenig Investition, die Mittel fließen in Stars und Question Marks; Poor Dogs (Wachstum niedrig, Anteil niedrig) führen zu Desinvestition oder Elimination.
-  - Erwartung: Beispiel: Bei 24 % Marktanteil und 30 % beim größten Konkurrenzunternehmen beträgt der relative Marktanteil 0,8, bei 12 % Marktwachstum ist das Produkt ein Question Mark; bei 36 % Marktanteil (relativ 1,2) und 4 % Wachstum wäre es eine Cash Cow.
-  - Erwartung: Die Matrix hängt mit dem Produktlebenszyklus zusammen (Question Mark in der Einführung, Star im Wachstum, Cash Cow in der Reife, Poor Dog im Rückgang); Kritik: Sie vereinfacht stark, die Grenzen sind willkürlich, und die Einordnung hängt von der Marktabgrenzung ab.
-  - Rückfrage: Welche Normstrategie gilt für ein Produkt mit einem relativen Marktanteil von 0,6 bei 3 % Marktwachstum?
+  - Erwartung: Die Matrix hängt mit dem Produktlebenszyklus zusammen: Question Mark in der Einführung, Star im Wachstum, Cash Cow in der Reife, Poor Dog im Rückgang.
+  - Erwartung: Kritik: Die Matrix vereinfacht stark, weil sie nur zwei Dimensionen betrachtet, die Grenzen sind willkürlich, und die Einordnung hängt von der Marktabgrenzung ab.
+  - Rückfrage: Als hohes Marktwachstum gelten mehr als 10 % je Jahr. Welcher relative Marktanteil und welches Feld ergeben sich bei 24 % eigenem Marktanteil, 30 % beim größten Konkurrenzunternehmen und 12 % Marktwachstum?
+  - Rückfrage: Welche Normstrategie gilt bei derselben Grenze für ein Produkt mit einem relativen Marktanteil von 0,6 bei 3 % Marktwachstum?
 - Vantera verhandelt mit einem Abnehmerunternehmen über den Preis einer Spannvorrichtung. Wie bereiten Sie die Verhandlung vor, und wie führen Sie sie nach dem Harvard-Konzept?
   - Erwartung: Das Harvard-Konzept nennt vier Grundsätze: Menschen und Probleme getrennt behandeln, Interessen statt Positionen in den Mittelpunkt stellen, Optionen zum gegenseitigen Vorteil entwickeln und objektive Kriterien wie Marktpreise, Normen oder Gutachten anwenden.
   - Erwartung: Zur Vorbereitung gehört die BATNA, die beste Alternative bei einem Scheitern der Verhandlung; wer eine gute Alternative hat, kann standhaft verhandeln.
@@ -54,66 +53,67 @@
   - Erwartung: Der Primärbedarf umfasst marktgängige Erzeugnisse, die verkauft werden, der Sekundärbedarf die dafür nötigen Baugruppen, Einzelteile und Rohstoffe, der Tertiärbedarf Hilfs- und Betriebsstoffe sowie Verschleißwerkzeuge.
   - Erwartung: Bei der programmgebundenen (deterministischen) Ermittlung wird der Sekundärbedarf aus dem Produktionsprogramm und den Stücklisten errechnet; sie ist typisch für Auftrags- und Serienfertigung.
   - Erwartung: Bei der verbrauchsgebundenen (stochastischen) Ermittlung wird der Bedarf aus Verbrauchswerten der Vergangenheit geschätzt, zum Beispiel über Mittelwert oder Trend.
-  - Erwartung: Für das Stahlhalbzeug der Präzisionswellen in Serienfertigung passt daher die programmgebundene Ermittlung, für C-Teile und Hilfsstoffe die verbrauchsgebundene.
+  - Erwartung: Für das Stahlhalbzeug der Präzisionswellen in Serienfertigung passt daher die programmgebundene Ermittlung, für C-Teile wie Kleinteile und für Hilfsstoffe die verbrauchsgebundene.
   - Rückfrage: Warum genügt für C-Teile ein vereinfachtes Verfahren?
-- Vantera erhält einen Auftrag über 50 Geräte, die aus mehreren Baugruppen bestehen. Wie ermitteln Sie über die Stücklistenauflösung den Brutto- und den Nettobedarf, und warum ziehen Sie dabei den Bestellbestand ab?
+- Vantera erhält einen Auftrag über 50 Geräte. Ein Gerät besteht aus 3 Baugruppen, 1 Gehäuse und 4 Schrauben, eine Baugruppe aus 1 Welle und 2 Lagern. Wie ermitteln Sie über die Stücklistenauflösung den Brutto- und den Nettobedarf, und warum ziehen Sie dabei den Bestellbestand ab?
   - Erwartung: Bei der Stücklistenauflösung wird der Primärbedarf über alle Stufen mit den Mengen je Erzeugnis multipliziert; das Ergebnis ist der Bruttobedarf.
-  - Erwartung: Beispiel: Enthält ein Gerät 3 Baugruppen, 1 Gehäuse und 4 Schrauben und eine Baugruppe 1 Welle und 2 Lager, ergeben 50 Geräte 150 Baugruppen, 50 Gehäuse, 200 Schrauben, 150 Wellen und 300 Lager.
+  - Erwartung: Hier ergeben 50 Geräte 150 Baugruppen, 50 Gehäuse, 200 Schrauben, 150 Wellen und 300 Lager.
   - Erwartung: Der Nettobedarf ergibt sich als Bruttobedarf + Reservierungen + Sicherheitsbestand − Lagerbestand − Bestellbestand.
-  - Erwartung: Beispiel: 300 + 20 + 40 − 120 − 100 = 140 Stück; nur diese Menge muss neu beschafft oder gefertigt werden.
   - Erwartung: Der Bestellbestand sind bereits bestellte, noch nicht gelieferte Mengen; sie werden abgezogen, weil sie ohnehin noch eintreffen und nicht erneut beschafft werden müssen.
+  - Erwartung: Nur der Nettobedarf muss neu beschafft oder gefertigt werden.
+  - Rückfrage: Wie hoch ist der Nettobedarf an Lagern, wenn Reservierungen von 20 Stück, ein Sicherheitsbestand von 40 Stück, ein Lagerbestand von 120 Stück und ein Bestellbestand von 100 Stück vorliegen?
   - Rückfrage: Wie viele Wellen und Lager werden für 20 Geräte benötigt?
 - Wie bestimmt Vantera die kostenoptimale Bestellmenge für ein regelmäßig gebrauchtes Zukaufteil, und warum steigen die Gesamtkosten, wenn von dieser Menge nach oben oder unten abgewichen wird?
   - Erwartung: Die Bestellkosten fallen mit jeder Bestellung unabhängig von der Menge an, die Lagerkosten steigen mit der Bestellmenge, weil der durchschnittliche Lagerbestand wächst; die optimale Bestellmenge minimiert die Summe beider Kostenarten.
   - Erwartung: Die Andler'sche Formel lautet x_opt = √( 2 · M · K_b / (h · p) ) mit dem Jahresbedarf M, den Bestellkosten K_b je Bestellung, dem Einstandspreis p und dem Lagerhaltungskostensatz h als Dezimalzahl.
   - Erwartung: Die Bestellkosten je Jahr sind (M / x) · K_b, die Lagerkosten x / 2 · p · h; im Optimum sind beide gleich groß.
   - Erwartung: Beispiel mit M = 24.000 Stück, K_b = 50 €, p = 3 € und h = 20 %: x_opt = 2.000 Stück, also 12 Bestellungen, 600 € Bestellkosten plus 600 € Lagerkosten = 1.200 €.
-  - Erwartung: Bei 1.000 Stück je Bestellung betragen die Gesamtkosten 1.500 €, bei 3.000 Stück 1.300 €; beide Abweichungen sind teurer als das Optimum.
-  - Rückfrage: Welche vereinfachenden Annahmen stecken in der Formel, und was tun Sie in der Praxis mit dem errechneten Wert?
+  - Erwartung: Nach oben sinken die Bestellkosten, die Lagerkosten steigen stärker, nach unten ist es umgekehrt: Bei 1.000 Stück je Bestellung betragen die Gesamtkosten 1.500 €, bei 3.000 Stück 1.300 €; beide Abweichungen sind teurer als das Optimum.
+  - Rückfrage: In welche Richtung und um welchen Faktor ändert sich die optimale Bestellmenge, wenn der Lagerhaltungskostensatz von 20 % auf 80 % steigt?
 - Vergleichen Sie für ein Zukaufteil der Vantera das Bestellpunktverfahren, die Bestellterminmethode und die Materialbedarfsplanung (MRP) und erläutern Sie, welche Bestandsgrößen beim Bestellpunktverfahren zu berechnen sind.
   - Erwartung: Beim Bestellpunktverfahren wird bestellt, wenn der Lagerbestand den Meldebestand erreicht; Meldebestand = Tagesverbrauch · Wiederbeschaffungszeit + Sicherheitsbestand.
   - Erwartung: Der Höchstbestand ist der Sicherheitsbestand plus die Bestellmenge, der durchschnittliche Lagerbestand der Sicherheitsbestand plus die halbe Bestellmenge.
   - Erwartung: Beispiel: Bei 24.000 Stück Jahresbedarf und 240 Arbeitstagen (100 Stück je Tag), 8 Tagen Wiederbeschaffungszeit, 300 Stück Sicherheitsbestand und 2.000 Stück Bestellmenge ergeben sich ein Meldebestand von 1.100 Stück, ein Höchstbestand von 2.300 Stück und ein durchschnittlicher Lagerbestand von 1.300 Stück.
-  - Erwartung: Bei der Bestellterminmethode wird dagegen in festen Abständen bestellt.
+  - Erwartung: Bei der Bestellterminmethode wird dagegen in festen Abständen bestellt, wobei sich die Menge nach dem aktuellen Bestand richtet.
   - Erwartung: Die MRP automatisiert den Ablauf aus Primärbedarf, Stücklistenauflösung, Nettobedarf, Losgrößenbildung (Bedarf für Bedarf, feste oder optimale Losgröße) und Terminierung rückwärts vom Bedarfstermin mit der Wiederbeschaffungs- oder Fertigungszeit; sie erzeugt Bestellvorschläge.
-  - Rückfrage: Wie viele Tage reicht ein Meldebestand von 1.100 Stück bei einem Tagesverbrauch von 100 Stück, und wie verteilt sich diese Zeit auf Wiederbeschaffungszeit und Sicherheitsbestand?
+  - Rückfrage: Der Meldebestand beträgt 1.100 Stück, der Tagesverbrauch 100 Stück und die Wiederbeschaffungszeit 8 Tage. Wie viele Tage reicht der Meldebestand, und wie viele Tage davon entfallen auf den Sicherheitsbestand?
 - Vantera prüft für Normteile mit gleichmäßigem Verbrauch eine Kanban-Steuerung zwischen Lager und Fertigungshalle. Wie funktioniert die Steuerung, wie bestimmen Sie die Zahl der Karten, und wo liegen Vor- und Nachteile?
   - Erwartung: Kanban ist ein Verfahren der Pull-Steuerung: Der Verbrauchsort meldet seinen Bedarf über eine Karte oder einen leeren Behälter an den liefernden Bereich zurück, und nur dann wird nachgefertigt oder nachbestellt.
   - Erwartung: Die Zahl der im Umlauf befindlichen Karten begrenzt den maximalen Bestand.
   - Erwartung: Die Kartenzahl ist N = Tagesbedarf · Wiederbeschaffungszeit · (1 + Sicherheitsfaktor) / Behälterinhalt, aufgerundet.
   - Erwartung: Beispiel: Bei 600 Stück Tagesbedarf, 0,5 Tagen Wiederbeschaffungszeit, 20 % Sicherheitsfaktor und 50 Stück je Behälter ergibt sich N = 7,2, also 8 Karten und ein maximaler Bestand von 400 Stück.
   - Erwartung: Vorteile sind niedrige Bestände, einfache Steuerung und schnelle Reaktion; Nachteile sind die Eignung nur für gleichmäßigen Verbrauch und die Abhängigkeit von zuverlässigen Lieferzeiten.
-  - Rückfrage: Warum würden im Beispiel 7 Karten nicht ausreichen?
+  - Rückfrage: Der Tagesbedarf beträgt 600 Stück, die Wiederbeschaffungszeit 0,5 Tage, der Sicherheitsfaktor 20 % und ein Behälter fasst 50 Stück. Warum reichen 7 Karten nicht aus?
 
 ### 8.3 Logistikprozesse
 
-- Wie würden Sie die Kommissionierung von Kleinteilen für die Montage bei Vantera organisieren, und anhand welcher Kennzahlen beurteilen Sie, ob sie gut funktioniert?
+- Welche Formen der Kommissionierung kommen für Kleinteile in der Montage der Vantera in Betracht, und anhand welcher Kennzahlen beurteilen Sie, ob die Kommissionierung gut funktioniert?
   - Erwartung: Nach dem Bewegungsprinzip geht bei Mann zur Ware die Kommissionierkraft zum Lagerplatz (statisches Lager), bei Ware zum Mann bringt das Lager die Behälter zum festen Arbeitsplatz (dynamisches Lager).
   - Erwartung: Organisatorisch unterscheidet man die Einzelkommissionierung (auftragsweise), die Serienkommissionierung (mehrere Aufträge gleichzeitig, danach aufteilen, spart Wege) und die Zonenkommissionierung (jeder Bereich liefert seinen Teil des Auftrags).
   - Erwartung: Hilfsmittel sind Pickliste, Handscanner, Pick-by-Light, Pick-by-Voice und Datenbrille.
   - Erwartung: Als Faustregel besteht etwa die Hälfte der Kommissionierzeit aus Wegzeit; deshalb zielt die Optimierung auf kurze Wege und häufig gebrauchte Teile in Griffnähe (ABC-Zonen).
   - Erwartung: Kennzahlen sind die Kommissionierleistung (Positionen je Stunde) und die Fehlerquote (fehlerhafte Positionen geteilt durch alle Positionen): 480 Positionen in 8 Stunden ergeben 60 Positionen je Stunde, 6 fehlerhafte Positionen eine Fehlerquote von 1,25 %.
-  - Rückfrage: Worin unterscheiden sich Serien- und Zonenkommissionierung?
+  - Rückfrage: Wie hoch sind Kommissionierleistung und Fehlerquote, wenn eine Kommissionierkraft in 8 Stunden 600 Positionen bearbeitet und 12 davon fehlerhaft sind?
 - Vantera erwägt, Lieferungen an die Kundschaft statt über eine Spedition mit eigenen Fahrzeugen auszuführen. Wie vergleichen Sie beide Varianten kostenmäßig, und welche weiteren Kriterien beeinflussen die Entscheidung?
   - Erwartung: Beim Eigentransport fallen fixe Kosten für Fahrzeug, Versicherung und Fahrer:innen sowie variable Kosten je Kilometer an; die Fremdvergabe ist meist nur kilometer- oder gewichtsabhängig.
   - Erwartung: Eigentransport K_E = K_f + k_E · s, Fremdvergabe K_F = k_F · s; die kritische Fahrleistung s_krit = K_f / (k_F − k_E) trennt beide Bereiche.
   - Erwartung: Oberhalb der kritischen Fahrleistung ist der Eigentransport günstiger, darunter die Fremdvergabe.
   - Erwartung: Beispiel: Bei 36.000 € Fixkosten, 0,90 € je km und 1,40 € je km bei der Spedition liegt s_krit bei 72.000 km; bei 80.000 km kostet der Eigentransport 108.000 € gegenüber 112.000 € (Ersparnis 4.000 €), bei 60.000 km 90.000 € gegenüber 84.000 €, dann ist die Fremdvergabe günstiger.
   - Erwartung: Neben den Kosten zählen Flexibilität, Zuverlässigkeit, Auslastung und Servicegrad.
-  - Rückfrage: Wie hoch sind die Kosten beider Varianten genau an der kritischen Fahrleistung?
+  - Rückfrage: Die Fixkosten des Eigentransports betragen 36.000 € im Jahr, die variablen Kosten 0,90 € je km, die Spedition berechnet 1,40 € je km. Wie hoch sind die Kosten beider Varianten genau an der kritischen Fahrleistung?
 - Wie hängen durchschnittlicher Lagerbestand, Umschlagshäufigkeit, Lagerdauer und Lagerzinssatz zusammen, und warum darf Vantera den Lagerbestand nicht beliebig senken?
   - Erwartung: Der durchschnittliche Lagerbestand ist näherungsweise (Anfangsbestand + Endbestand) / 2; genauer ist das Mittel aus Jahresanfangsbestand und den zwölf Monatsendbeständen.
-  - Erwartung: Umschlagshäufigkeit = Wareneinsatz / durchschnittlicher Lagerbestand, durchschnittliche Lagerdauer = 360 Tage / Umschlagshäufigkeit und Lagerzinssatz = Jahreszinssatz · Lagerdauer / 360.
+  - Erwartung: Umschlagshäufigkeit = Wareneinsatz / durchschnittlicher Lagerbestand und durchschnittliche Lagerdauer = 360 Tage / Umschlagshäufigkeit.
+  - Erwartung: Der Lagerzinssatz ist Jahreszinssatz · Lagerdauer / 360 und gibt an, wie viel Kapitalkosten das Lager je gelagerter Einheit verursacht.
   - Erwartung: Beispiel: Bei 480.000 € Wareneinsatz und Beständen von 70.000 € und 50.000 € ergeben sich 60.000 € Durchschnittsbestand, 8 Umschläge, 45 Tage Lagerdauer und bei 6 % Jahreszins ein Lagerzinssatz von 0,75 %.
-  - Erwartung: Eine höhere Umschlagshäufigkeit senkt die Kapitalbindung, ein zu niedriger Bestand gefährdet jedoch die Lieferbereitschaft.
-  - Erwartung: Der Lieferbereitschaftsgrad ist der Anteil sofort erfüllter an allen Bestellungen (1.140 von 1.200 = 95 %), die Liefertreue der Anteil termingerecht gelieferter an allen Aufträgen (228 von 240 = 95 %).
-  - Rückfrage: Welche Lagerdauer und welcher Lagerzinssatz ergeben sich bei einer Umschlagshäufigkeit von 10 statt 8?
+  - Erwartung: Eine höhere Umschlagshäufigkeit senkt die Kapitalbindung, ein zu niedriger Bestand gefährdet jedoch die Lieferbereitschaft, die der Lieferbereitschaftsgrad misst (sofort erfüllte Bestellungen geteilt durch alle Bestellungen, zum Beispiel 1.140 von 1.200 = 95 %).
+  - Rückfrage: Der Wareneinsatz beträgt 480.000 €, der Jahreszins 6 %. Welche Lagerdauer, welcher Lagerzinssatz und welcher durchschnittliche Lagerbestand ergeben sich bei einer Umschlagshäufigkeit von 10 statt 8?
 - Welche Aufgaben hat die Entsorgungslogistik bei Vantera, und nach welcher Rangfolge gehen Sie mit Stoffen um, die im Betrieb nicht mehr gebraucht werden?
   - Erwartung: Die Entsorgungslogistik steuert den Rückfluss nicht mehr benötigter Stoffe wie Produktionsabfälle (Späne, Stanzreste), gebrauchte Kühlschmierstoffe und Öle, Verpackungen, defekte Teile und Altgeräte.
   - Erwartung: Die Rangfolge lautet: zuerst vermeiden, soweit möglich wiederverwenden oder verwerten (Recycling) und nur den Rest beseitigen.
   - Erwartung: Die Kosten der Entsorgung steigen in dieser Reihenfolge meist an, die Erlöse sinken.
   - Erwartung: Bei Vantera werden Stahl- und Aluminiumspäne sortenrein gesammelt, weil gemischte Späne an Wert verlieren, und an Verwertungsbetriebe verkauft.
-  - Erwartung: Beispiel: Werden von 100 t Produktionsabfällen 85 t verwertet, beträgt die Verwertungsquote 85 %.
+  - Erwartung: Die Verwertungsquote ist die verwertete Menge geteilt durch die gesamte Abfallmenge; werden von 100 t Produktionsabfällen 85 t verwertet, beträgt sie 85 %.
   - Rückfrage: Was gehört zur Organisation der Entsorgung im Betrieb?
 - Welche Funktionen erfüllt die Verpackung in der Logistik, und warum ist sie für Vantera auch wirtschaftlich von Bedeutung?
   - Erwartung: Die Schutzfunktion schützt die Ware während Transport und Lagerung vor Beschädigung, Feuchtigkeit und Verschmutzung.
