@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 29 Items zu Qualität P5 eingespielt, unabhängig geprüft; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p5-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Der Entwurf wurde zuvor von einem unabhängigen Prüf-Agenten gegengelesen und korrigiert (Bericht `docs/entwuerfe/pruefung-p5-items.md`: 9 Befunde, 2 davon hoch; alle Rechnungen stimmten). Die fachliche Prüfung durch Fachlehrkräfte steht aus.
+
+- **Eingespielt:** 12 Karteikarten und 17 Quizfragen (13 Rechen- oder Leseaufgaben) in `hq3/10.1` (K-10.1-23 bis 32, Q-10.1-20 bis 33) und `hq3/10.2` (K-10.2-21 bis 22, Q-10.2-15 bis 17).
+- **Korrekturen aus der Prüfung:** K-10.1-23 nutzt andere Fehlerarten und Zahlen, damit sie die Lösung von Q-10.1-20 nicht verrät; in Q-10.1-33 heißt die Grundursache „Austauschintervall“ (statt „Prüfintervall“, das mit der Entdeckungsursache verwechselbar war); Q-10.1-21 und Q-10.1-24 präzisiert; Optionslängen in Q-10.1-33 und Q-10.2-17 angeglichen. Abgelehnt: Teilung der langen Karten (hätte neue IDs und mehr Items gebracht).
+- **Bestand (Hausregel Gendern):** In `10.1` stehen „Kundschaft“ und „Lieferbetrieb“ statt generischer Maskulina (zwei Theoriestellen, K-10.1-17, Q-10.1-05, Q-10.1-17, Q-10.1-18).
+- **Import:** `db:validate-content`: 16.541 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 29 neu, 5 geändert, 0 deaktiviert; zweiter Trockenlauf 16.541 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: Qualität P5 eingearbeitet, sechs Theorieabschnitte HQ3, unabhängig geprüft; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p5-qualitaet.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Der Entwurf wurde zuvor von einem unabhängigen Prüf-Agenten gegengelesen (Bericht `docs/entwuerfe/pruefung-p5-qualitaet.md`: 23 Befunde, 3 Fehler; alle eingearbeitet). Die fachliche Prüfung durch Fachlehrkräfte steht aus.
