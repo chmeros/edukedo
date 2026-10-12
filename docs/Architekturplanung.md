@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 38 Items zu Fertigung und Betrieb P3 eingespielt; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p3-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Die fachliche Prüfung steht aus.
+
+- **Eingespielt:** 14 Karteikarten und 24 Quizfragen (17 Rechenaufgaben, dazu Zuordnungen, ein Sortieren, eine Mehrfachauswahl) in `tq3/7.1` (K-7.1-21 bis 28, Q-7.1-18 bis 30) und `tq3/7.4` (K-7.4-23 bis 28, Q-7.4-18 bis 28). Rechenaufgaben vom Agenten und von mir unabhängig nachgerechnet; die Ergebnisse stimmen.
+- **Theorie ergänzt:** In `7.1` die Umstellung der Klebformel nach der Fläche (A = F · S / τ, Beispiel 400 mm²) und der Umrechnungssatz 1 bar = 0,1 N/mm², 1 cm² = 100 mm² (Spritzgießen); in `7.4` der Satz 1 bar = 0,1 N/mm² (Hydraulik und Pneumatik). Damit sind Q-7.1-30 und die Druckaufgaben durch die Theorie gedeckt.
+- **Entscheidungen (Vorschläge übernommen):** Q-7.1-25 rechnet mit k = 3 als Aufgabenvorgabe (Theorie und Karte nutzen k = 4); Q-7.1-26 (Rangfolge der Schneidstoffe) und Q-7.4-22 (Selbsthaltung; die Frage nennt den Ausdruck) bleiben; das Ruhestromprinzip (Stopp als Öffner) wird nicht abgefragt, das Druckbegrenzungsventil nur als Bauteilfunktion; Q-7.1-24 und Q-7.4-26 bleiben im Kurs, K-7.1-28 bleibt eine Karte.
+- **Import:** `db:validate-content`: 16.260 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 38 neu, 2 geändert (die Theorie-Items von 7.1 und 7.4), 0 deaktiviert; zweiter Trockenlauf 16.260 unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: Fertigung und Betrieb P3 eingearbeitet, sieben Theorieabschnitte TQ3; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p3-fertigung-betrieb.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einarbeiten. Die fachliche Prüfung steht aus.
