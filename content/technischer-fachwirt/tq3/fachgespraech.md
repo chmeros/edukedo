@@ -44,6 +44,66 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Flexibilität: Ein Programmwechsel genügt, um ein anderes Bauteil zu fertigen, statt die Maschine mechanisch umzurüsten.
   - Erwartung: Auch komplexe, mehrachsige Konturen lassen sich zuverlässig bearbeiten.
   - Rückfrage: Wie werden Programmierfehler vor dem Serienstart ausgeschlossen?
+- Die Fertigung von Wellen bei Vantera soll schneller werden (Ø 50 mm, 120 mm lang, derzeit v_c = 200 m/min, f = 0,25 mm, a_p = 2 mm, Anlauf und Überlauf je 2 mm, ein Schnitt). Welche Zerspanungsgrößen können Sie dafür verändern, welche Folgen hat jede Änderung für Hauptzeit, Werkzeug und Oberfläche, und wie lang ist die Hauptzeit mit den heutigen Werten?
+  - Erwartung: Neben der Schnittgeschwindigkeit v_c bestimmen der Vorschub f (Weg je Umdrehung) und die Schnitttiefe a_p (Eingriffstiefe) die Zerspanung; die Vorschubgeschwindigkeit folgt aus v_f = f · n.
+  - Erwartung: Die Hauptzeit t_h = L · i / v_f ist die reine Schneidzeit; sie sinkt mit größerem Vorschub und höherer Drehzahl, der Schnittweg L enthält auch Anlauf und Überlauf.
+  - Erwartung: Größere Schnitttiefe und größerer Vorschub verkürzen die Hauptzeit und erhöhen das Zeitspanvolumen Q = a_p · f · v_c, belasten aber Werkzeug und Maschine stärker und verschlechtern die Oberfläche.
+  - Erwartung: Die Schnittgeschwindigkeit wirkt vor allem auf den Verschleiß der Schneide.
+  - Erwartung: Mit den genannten Werten ergeben sich n ≈ 1.273 1/min und v_f ≈ 318 mm/min, bei 124 mm Schnittweg rund 0,39 min (etwa 23 s) Hauptzeit und 100 cm³/min Zeitspanvolumen.
+  - Rückfrage: Wie berechnet man die Vorschubgeschwindigkeit beim Fräsen?
+- Eine Fachkraft will die Schnittgeschwindigkeit beim Drehen von 200 auf 240 m/min (+20 %) erhöhen. Welche Folgen hat das für die Standzeit, und welche Schneidstoffe wählen Sie für Stahl, gehärteten Stahl und Aluminium?
+  - Erwartung: Die Standzeit T ist die Zeit, die eine Schneide bis zu einem festgelegten Verschleißkriterium (zum Beispiel einer Verschleißmarkenbreite) schneiden kann; danach wird sie gewechselt oder nachgeschliffen.
+  - Erwartung: Nach der Taylor-Beziehung T₂ / T₁ = (v₁ / v₂)^k (Beispielwert k = 4) sinkt die Standzeit auf (200 / 240)⁴, also auf etwa 48 %, aus 60 min werden zum Beispiel etwa 29 min; bei doppelter Schnittgeschwindigkeit bliebe ein Sechzehntel.
+  - Erwartung: Die Schnittgeschwindigkeit ist daher ein Kompromiss zwischen kurzer Hauptzeit und geringen Werkzeugkosten und Wechselzeiten.
+  - Erwartung: Hartmetall ist der meistgenutzte Schneidstoff beim Drehen und Fräsen von Stahl; Schnellarbeitsstahl ist zäh und hält Temperaturen bis etwa 600 °C (Richtwert), etwa für Bohrer und Fräser.
+  - Erwartung: Schneidkeramik und kubisches Bornitrid dienen für Guss und gehärteten Stahl, sind aber spröder; Diamant eignet sich für Aluminium und Kunststoffe, nicht für Stahl.
+  - Rückfrage: Warum eignet sich Diamant nicht zum Zerspanen von Stahl?
+  - Rückfrage: Welche beiden Eigenschaften unterscheiden Schneidstoffe in erster Linie?
+- An einer geschliffenen Lagerstelle zeigen sich Anlassfarben und später Risse. Was ist passiert, wie vermeiden Sie das beim Schleifen, und welche Rolle spielt der Härtegrad der Schleifscheibe?
+  - Erwartung: Es handelt sich um Schleifbrand: Die Randschicht wird so heiß, dass sich das Gefüge verändert; sie wird angelassen (Anlassfarben, Härteverlust) oder neu gehärtet und dadurch spröde (Risse, geringere Dauerfestigkeit).
+  - Erwartung: Ursachen sind eine zu harte Scheibe, eine zu starke Zustellung oder zu wenig Kühlung.
+  - Erwartung: Gegenmittel sind eine weichere Scheibe, geringere Zustellung, mehr Kühlschmierstoff und häufigeres Abrichten.
+  - Erwartung: Der Härtegrad beschreibt die Festigkeit, mit der die Bindung das Korn hält, nicht die Kornhärte; nach der Merkregel harter Werkstoff, weiche Scheibe bricht stumpfes Korn aus und neue, scharfe Körner liegen frei (Selbstschärfung).
+  - Rückfrage: Welche Aufgabe hat das Abrichten einer Schleifscheibe?
+  - Rückfrage: Wie muss sich die Drehzahl ändern, wenn eine Scheibe durch Abrichten von 400 auf 360 mm Durchmesser kleiner wird, die Schnittgeschwindigkeit gleich bleiben soll und sie anfangs mit 1.600 1/min lief?
+- Nach welchen Kriterien wählen Sie bei Vantera zwischen Schweißen, Löten, Kleben und Schrauben?
+  - Erwartung: Auswahlkriterien sind Lösbarkeit, Dichtheit und thermische Belastbarkeit; dazu kommt die Art der Kraftübertragung: Schweißen, Löten und Kleben sind stoffschlüssig, Niete, Passstift und Passfeder formschlüssig, Schrauben und Pressverbindungen kraftschlüssig (Reibung).
+  - Erwartung: Schweißen liefert hohe Festigkeit und Dichtheit, bringt aber viel Wärme ein: Verzug, Eigenspannungen und Gefügeveränderung in der Wärmeeinflusszone; Stähle unter etwa 0,22 % Kohlenstoff (Richtwert) gelten als gut schweißbar.
+  - Erwartung: Beim Löten schmilzt nur das Zusatzmetall mit niedrigerem Schmelzpunkt, ein Flussmittel löst Oxide; Weichlöten liegt unter 450 °C, Hartlöten darüber mit höherer Festigkeit, die insgesamt begrenzt bleibt.
+  - Erwartung: Kleben ist wärmefrei und verbindet unterschiedliche Werkstoffe, braucht aber saubere, vorbehandelte Flächen und Aushärtezeit; die erforderliche Klebfläche folgt aus Last, Sicherheit und Scherfestigkeit (A = F · S / τ).
+  - Erwartung: Schrauben sind lösbar und montagefreundlich, die Haltekraft entsteht durch die Vorspannung, und sie müssen gegen Lösen gesichert werden; Nieten sind unlösbar und wärmefrei.
+  - Rückfrage: Welche Beanspruchung ist bei einer Klebung günstig und welche ungünstig?
+  - Rückfrage: Wie groß muss die Klebfläche sein, wenn 3.000 N mit der Sicherheit 2 übertragen werden und der Klebstoff eine Scherfestigkeit von 15 N/mm² hat?
+- Die Kundschaft will 100.000 Kunststoffgehäuse spritzgießen lassen (Werkzeug 60.000 €, Zykluszeit 30 s, zwei Kavitäten, Maschinenstundensatz 48 €). Wie läuft das Verfahren ab, wie beurteilen Sie die Wirtschaftlichkeit, und worauf achten Sie bei der Konstruktion?
+  - Erwartung: Eine Schnecke fördert und plastifiziert das Granulat, die Schmelze wird unter hohem Druck in das gekühlte Werkzeug eingespritzt, der Nachdruck gleicht die Schwindung aus, und nach der Kühlzeit drücken Auswerfer das Teil heraus.
+  - Erwartung: Das Stahlwerkzeug ist teuer, das Verfahren lohnt erst bei großen Stückzahlen, weil sich die Werkzeugkosten verteilen: 60.000 € ergeben bei 100.000 Teilen 0,60 € je Teil.
+  - Erwartung: Hinzu kommen bei 30 s Zykluszeit und zwei Kavitäten 240 Teile je Stunde und bei 48 € Maschinenstundensatz 0,20 € je Teil, jeweils ohne Material; die Kühlzeit ist meist der größte Teil der Zykluszeit.
+  - Erwartung: Bei der Konstruktion sind gleichmäßige Wanddicken (gegen Einfallstellen und Verzug), Entformungsschrägen sowie die Lage von Anguss und Trennebene wichtig.
+  - Rückfrage: Was unterscheidet das Spritzgießen vom Druckguss von Metall?
+  - Rückfrage: Wie groß muss die Schließkraft der Maschine mindestens sein, wenn der Werkzeuginnendruck 400 bar und die projizierte Fläche 100 cm² beträgt?
+- Welches Beschichtungsverfahren wählen Sie für Stahlhalterungen im Außeneinsatz, für Aluminiumteile mit Passung und für Bohrer und Fräser, und was folgt daraus jeweils?
+  - Erwartung: Beschichtungen dienen dem Korrosions- oder Verschleißschutz, einer Funktion oder der Optik; für die Haftung entscheidend ist die Vorbehandlung durch Entfetten, Reinigen, Strahlen oder Beizen.
+  - Erwartung: Stahlhalterungen im Freien verzinkt man: Zink ist unedler als Eisen und schützt auch an kleinen Verletzungen kathodisch; Feuerverzinken (Richtwert etwa 45 bis 100 µm) ist für enge Passflächen und Feingewinde ungeeignet.
+  - Erwartung: Eine Alternative ist das Pulverbeschichten (Richtwert etwa 60 bis 120 µm); das Teil muss dafür leitfähig sein und das Einbrennen vertragen.
+  - Erwartung: Aluminium wird eloxiert: Die harte, korrosionsbeständige Schicht entsteht aus dem Grundwerkstoff und wächst etwa zur Hälfte nach außen (grober Richtwert), das Maß ändert sich also; bei 20 µm Schichtdicke wird zum Beispiel ein Bolzen mit 20 mm Durchmesser um etwa 0,020 mm dicker.
+  - Erwartung: Für Bohrer, Fräser und Schneidplatten nutzt man PVD- und CVD-Hartstoffschichten: PVD ist dünn (Richtwert etwa 1 bis 5 µm) und arbeitet bei niedriger Temperatur, CVD ist dicker und braucht hohe Temperaturen.
+  - Rückfrage: Warum ist beim galvanischen Verzinken hochfester Stähle Vorsicht geboten?
+  - Rückfrage: Warum lässt sich auch Schnellarbeitsstahl mit PVD beschichten?
+- Welche Ofen- und Härteanlagen kennen Sie, und wie wählen Sie Anlage und Abschreckmedium für ein Bauteil aus?
+  - Erwartung: Der Kammerofen ist ein flexibler Chargenofen für kleine bis mittlere Stückzahlen, der Durchlaufofen eignet sich für große Stückzahlen gleichartiger Teile, ist aber unflexibel.
+  - Erwartung: Das Salzbad erwärmt schnell und gleichmäßig ohne Zunder, verlangt aber aufwendige Handhabung der Salze und Reinigung der Teile; der Vakuumofen hält die Teile blank, verzieht wenig und schreckt mit Gas ab, ist aber teuer.
+  - Erwartung: Beim Induktionshärten erwärmen Wirbelströme nur die Randschicht in Sekunden, eine Brause schreckt sofort ab; das ergibt eine harte Randschicht bei zähem Kern, braucht aber eine Spule je Bauteilform und lohnt bei größeren Serien.
+  - Erwartung: Das Abschreckmedium ist ein Kompromiss aus Härte und Maßhaltigkeit: Wasser kühlt sehr schnell mit hoher Verzugs- und Rissgefahr, Öl mittel, Luft langsam; legierte Stähle lassen sich mit milderen Medien härten.
+  - Rückfrage: Wie ordnen Sie die Teile einer Ofencharge an, und was wird dokumentiert?
+  - Rückfrage: Welche Wärmemenge braucht eine Charge von 80 kg einschließlich Gestell, die von 20 °C auf 850 °C erwärmt wird (c = 0,47 kJ/(kg · K)), und warum liegt der reale Bedarf höher?
+- Wie fertigen Sie eine gehärtete, verzahnte Antriebswelle, und wie legen Sie ein Zahnradpaar mit Modul 2,5 mm für einen Achsabstand von 90 mm und eine Übersetzung von 3 aus?
+  - Erwartung: Die typische Folge lautet Rohling drehen, verzahnen (Wälzfräsen), entgraten, Randschicht härten, Zahnflanken schleifen, prüfen; geschliffen wird, weil sich das Rad beim Härten verzieht.
+  - Erwartung: Beim Wälzfräsen laufen Wälzfräser und Rohling in festem Drehzahlverhältnis ab, das Verfahren ist produktiv und ein Fräser passt für alle Zähnezahlen eines Moduls; für Innenverzahnungen eignen sich Wälzstoßen oder Räumen.
+  - Erwartung: Zwei Räder laufen nur bei gleichem Modul zusammen; es gelten d = m · z, a = m · (z₁ + z₂) / 2 und i = z₂ / z₁.
+  - Erwartung: Für m = 2,5 mm, a = 90 mm und i = 3 folgt z₁ + z₂ = 72, also z₁ = 18 und z₂ = 54; z₁ liegt über der Unterschnittgrenze von etwa 17 Zähnen (Richtwert).
+  - Erwartung: Bei i größer als 1 wird ins Langsame übersetzt: Die Drehzahl sinkt, das Drehmoment steigt ohne Verluste um den Faktor i, bei Außenverzahnung kehrt sich die Drehrichtung um.
+  - Rückfrage: Was bedeutet Unterschnitt, und wie begegnet man ihm?
+  - Rückfrage: Worin unterscheidet sich das Gewinderollen vom Gewindeschneiden?
 
 ### 7.2 Betriebsmittel und Instandhaltung
 
@@ -140,4 +200,48 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Herausforderung: ein gewisser Verlust an Flexibilität bei sehr kleinen, individuellen Losgrößen.
   - Erwartung: Herausforderung: steigender Bedarf an qualifiziertem Personal für Planung, Programmierung und Instandhaltung der Anlagen.
   - Rückfrage: Was muss vor einer Investitionsentscheidung für Automatisierungstechnik gegeneinander abgewogen werden?
+- Der Härteofen soll eine Temperatur von 850 °C halten. Worin unterscheiden sich dabei Steuern und Regeln, und welche Begriffe gehören zum Regelkreis?
+  - Erwartung: Bei einer Steuerung ist die Wirkungskette offen, Störungen werden nicht ausgeglichen; bei einer Regelung wird die Ausgangsgröße laufend gemessen und mit dem Sollwert verglichen, der Regelkreis ist geschlossen.
+  - Erwartung: Im Ofen misst das Thermoelement den Istwert x, der Sollwert ist die Führungsgröße w, die Regeldifferenz ist e = w − x; der Regler bildet daraus die Stellgröße y, die über das Stellglied die Heizleistung bestimmt.
+  - Erwartung: Eine Störgröße greift an der Regelstrecke an und wird vom Regler ausgeregelt; beim Härteofen sind das zum Beispiel das Einsetzen einer kalten Charge, das Öffnen der Tür und Netzschwankungen.
+  - Erwartung: Der P-Regler (y = K_P · e) reagiert schnell, hinterlässt aber eine bleibende Regeldifferenz; der I-Regler beseitigt sie, arbeitet aber langsamer, der PI-Regler kombiniert beides, der PID-Regler ergänzt einen vorausschauenden D-Anteil.
+  - Rückfrage: Welche Stellgröße bildet ein P-Regler mit K_P = 5 % je K, wenn der Härteofen bei einem Sollwert von 850 °C erst 810 °C erreicht hat, und was folgt daraus für das Stellglied?
+  - Rückfrage: Was unterscheidet die Festwertregelung von der Zeitplanregelung?
+- In welcher Sprache programmieren Sie die SPS einer neuen Fertigungszelle, und wie funktioniert eine Start-Stopp-Schaltung mit Selbsthaltung?
+  - Erwartung: Die Norm IEC 61131-3 legt fünf Programmiersprachen fest: Kontaktplan, Funktionsbausteinplan, Anweisungsliste, Strukturierten Text und Ablaufsprache.
+  - Erwartung: Der Kontaktplan ähnelt einem Stromlaufplan, Strukturierter Text eignet sich für Berechnungen, die Ablaufsprache für Schrittketten; die Wahl hängt von Aufgabe und Team ab, und die Sprachen lassen sich oft kombinieren.
+  - Erwartung: Die Selbsthaltung lautet M = (Start ODER M) UND NICHT Stopp UND NICHT Störung: Ein kurzer Tastendruck genügt, M fällt erst bei Stopp oder Störung ab.
+  - Erwartung: Die Stopptaste wird als Öffner angeschlossen, damit ein Drahtbruch die Anlage abschaltet (Ruhestromprinzip).
+  - Rückfrage: Wie lang ist die ungünstigste Reaktionszeit der SPS bei einer Zykluszeit von 5 ms?
+  - Rückfrage: Was tun Sie bei sehr schnellen Vorgängen, die schneller als ein SPS-Zyklus sind?
+- Ein Förderband, eine schnelle Zuführachse und eine einfache Dosierachse sollen angetrieben werden. Welche Antriebsart (Asynchron-, Servo-, Schrittmotor) ordnen Sie jeweils zu, und warum?
+  - Erwartung: Das Förderband bekommt einen Asynchronmotor mit Frequenzumrichter: Die Drehzahl folgt der Frequenz (n_s = 60 · f / p) und ist stufenlos einstellbar; ohne Geber taugt er zum Drehzahlstellen, nicht zum genauen Positionieren.
+  - Erwartung: Die schnelle Zuführachse bekommt einen Servoantrieb mit Geber und geschlossenem Regelkreis, der hohe Dynamik und Positioniergenauigkeit liefert, aber höhere Kosten und mehr Aufwand bei Auslegung und Inbetriebnahme bedeutet.
+  - Erwartung: Die Dosierachse bekommt einen Schrittmotor: Er dreht je Impuls um einen festen Winkel, positioniert ohne Rückmeldung, ist preiswert, verliert aber bei zu großem Lastmoment oder zu hoher Beschleunigung unbemerkt Schritte.
+  - Erwartung: Auflösung ist nicht Genauigkeit: Der Mikroschrittbetrieb erhöht die rechnerische Auflösung (zum Beispiel 200 Vollschritte mal 16 Teilschritte gleich 3.200 Schritte je Umdrehung, bei 5 mm Spindelsteigung rund 1,56 µm je Schritt), die Genauigkeit begrenzen aber Spindelspiel, Steigungsfehler und Elastizität der Mechanik.
+  - Rückfrage: Was unterscheidet einen Inkremental- von einem Absolutwertgeber?
+  - Rückfrage: Was versteht man beim Asynchronmotor unter Schlupf, und wie groß ist er bei einem vierpoligen Motor am 50-Hz-Netz mit der Nenndrehzahl 1.440 min⁻¹?
+- Eine neue Fertigungszelle hat 24 Sensoren und Aktoren. Warum würden Sie einen Feldbus statt paralleler Verdrahtung einsetzen, und welche Systeme kennen Sie?
+  - Erwartung: Parallele Verdrahtung führt eine Leitung je Gerät zur Steuerung und bedeutet viel Leitung und Montage; ein Feldbus spart Leitungen und Montagezeit, erleichtert Erweiterungen und liefert Diagnosedaten.
+  - Erwartung: Nachteile des Feldbusses sind der Bedarf an Bus-Know-how und Projektierung sowie das Risiko, dass der Ausfall der Busleitung viele Geräte gleichzeitig betrifft.
+  - Erwartung: PROFIBUS ist ein serieller Feldbus nach dem Master-Slave-Prinzip, PROFINET und EtherCAT bauen auf Ethernet auf, CAN hat keinen festen Master, und AS-Interface überträgt Daten und Energie über zwei Drähte.
+  - Erwartung: Echtzeit heißt vorhersagbar, also Ankunft der Daten in garantierter Zeit, nicht möglichst schnell; die Buszykluszeit geht zusätzlich zur SPS-Zykluszeit in die Reaktionszeit der Anlage ein.
+  - Rückfrage: Welche Topologien kennen Sie, und wie wirkt sich der Ausfall einer Leitung jeweils aus?
+  - Rückfrage: Wie viel Leitung sparen Sie, wenn die 24 Geräte im Mittel 15 m vom Schaltschrank entfernt sind und stattdessen drei dezentrale Module mit 3 m Zuleitung je Gerät und einer Busleitung von 40 m eingesetzt werden?
+- Erläutern Sie an einem Hydraulikzylinder (Kolbenfläche 50 cm², Kolbenstangenfläche 10 cm², Pumpenstrom 30 l/min, Druck 100 bar) mit 4/3-Wegeventil, wie sich die verschiedenen Mittelstellungen auswirken, wie die Ausfahrgeschwindigkeit eingestellt wird und welche Geschwindigkeiten und Kräfte sich beim Ausfahren und Einfahren ergeben.
+  - Erwartung: Beim 4/3-Wegeventil ist P der Druckanschluss, T der Tankanschluss, A und B sind die Arbeitsanschlüsse; Federn zentrieren das Ventil in der Mittelstellung, die festlegt, was Pumpe und Zylinder im Ruhezustand tun.
+  - Erwartung: In der Sperrmittelstellung sind alle Anschlüsse gesperrt, der Zylinder wird gehalten, aber die Pumpe gibt ihren Volumenstrom über das Druckbegrenzungsventil ab (Verlustleistung, Erwärmung des Öls).
+  - Erwartung: In der Umlaufmittelstellung ist P mit T verbunden und die Pumpe fördert fast drucklos zum Tank; in der Schwimmstellung sind A und B mit T verbunden, und der Zylinder lässt sich durch äußere Kräfte bewegen.
+  - Erwartung: Ein Drosselrückschlagventil drosselt in einer Richtung und lässt in der Gegenrichtung frei durch; die Ablaufdrosselung beim Ausfahren hält den Kolben auch bei ziehender Last unter Spannung.
+  - Erwartung: Die Geschwindigkeit folgt aus dem Volumenstrom (v = Q / A), die Kraft aus dem Druck (F = p · A): Bei offener Drossel fährt der Zylinder über die Kolbenfläche von 50 cm² mit 0,1 m/s aus und über die Ringfläche von 40 cm² mit 0,125 m/s ein; bei 100 bar sind es 50 kN beim Ausfahren und 40 kN beim Einfahren.
+  - Rückfrage: Wovon hängen Geschwindigkeit und Kraft eines Zylinders ab?
+  - Rückfrage: Wozu dient die Eilgangschaltung (Differentialschaltung)?
+- Der Druckluftverbrauch und die Energiekosten der Vantera steigen. Wie wird Druckluft aufbereitet, was treibt die Kosten, und wie ermitteln Sie den Verbrauch eines doppeltwirkenden Pneumatikzylinders (Kolben 63 mm, Stange 20 mm, Hub 200 mm, 6 bar Überdruck, 15 Doppelhübe je Minute)?
+  - Erwartung: Beim Verdichten und Abkühlen kondensiert Wasser und verursacht Korrosion, Verschmutzung und im Winter Einfrieren; deshalb folgen auf den Verdichter Nachkühler mit Wasserabscheider, Vorfilter, Trockner und Nachfilter.
+  - Erwartung: Der Drucktaupunkt muss unter der tiefsten Leitungstemperatur liegen; ein Kältetrockner erreicht etwa +3 °C (Richtwert) und genügt meist in der Halle, ein Adsorptionstrockner −40 °C und tiefer (Richtwert) für Leitungen im Freien.
+  - Erwartung: Die Energiekosten sind über die Lebensdauer meist der größte Kostenblock und folgen aus Luftmenge, spezifischem Energiebedarf (bei 6 bar häufig etwa 0,10 bis 0,13 kWh je m³, Richtwert) und Strompreis; ein häufiger Kostentreiber ist die Leckage (in schlecht gewarteten Netzen 20 bis 30 % der Luft, Richtwert), ein niedrigerer Netzdruck senkt den Bedarf.
+  - Erwartung: Der Verbrauch wird als Normvolumen angegeben, V_N = V · (p_ü + p_amb) / p_amb; bei 6 bar Überdruck entspricht 1 Liter Zylinderraum 7 Litern, ein Doppelhub verbraucht die Mengen von Kolbenfläche und Ringfläche.
+  - Erwartung: Für den Beispielzylinder sind es 4,364 l beim Ausfahren und 3,924 l beim Einfahren, also 8,288 l je Doppelhub, bei 15 Doppelhüben je Minute rund 124,3 l/min oder 7,46 m³/h.
+  - Rückfrage: Was kostet die Leckage im Jahr, wenn die Anlage 500.000 m³ Druckluft erzeugt, 10 % davon verloren gehen und der Energiebedarf 0,11 kWh je m³ bei 0,25 € je kWh beträgt?
+  - Rückfrage: Welche Reihenfolge haben die Bauteile der Wartungseinheit?
 

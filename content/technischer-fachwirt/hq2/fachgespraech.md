@@ -43,6 +43,58 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Push eignet sich für hochwertige, planbare Serienbauteile mit Absatzprognose.
   - Erwartung: Pull bzw. Kanban eignet sich für standardisierte Normteile mit gleichmäßigem Verbrauch, um Bestände zu senken.
   - Rückfrage: Wie funktioniert ein Kanban-System?
+- Für ein neues Bauteil muss Vantera die Fertigungsorganisation wählen. Vergleichen Sie Werkstatt-, Fließ- und Gruppen- beziehungsweise Inselfertigung und begründen Sie, wann Sie welche Form empfehlen.
+  - Erwartung: Die Werkstattfertigung (Verrichtungsprinzip) stellt gleichartige Maschinen zusammen und ist flexibel für Einzel- und Kleinserienfertigung mit wechselnden Aufträgen.
+  - Erwartung: Ihre Nachteile sind lange Transportwege, Zwischenlager und lange Durchlaufzeiten, weil Aufträge auf die nächste Maschine warten; bei 10 Arbeitstagen Durchlaufzeit und 1,5 Tagen reiner Bearbeitung beträgt der Bearbeitungsanteil nur 15 %.
+  - Erwartung: Bei der Fließfertigung (Objektprinzip) stehen die Stationen in der Reihenfolge der Arbeitsgänge und die Teile durchlaufen sie im Takt; das ergibt kurze Durchlaufzeiten und niedrige Bestände bei großen Stückzahlen, ist aber unflexibel und anfällig für Störungen einer Station.
+  - Erwartung: Die Gruppenfertigung (Fertigungszelle) fasst Maschinen für eine Teilefamilie zusammen; die Fertigungsinsel ist eine solche Zelle, in der eine teilautonome Gruppe das Teilespektrum weitgehend komplett bearbeitet, planend, steuernd und prüfend.
+  - Erwartung: Beide Zwischenformen verbinden die Flexibilität der Werkstatt mit den kurzen Wegen der Fließfertigung; empfohlen wird nach Stückzahl und Teilevielfalt: Werkstatt bei Einzel- und Kleinserien mit wechselnden Aufträgen, Fließfertigung bei großen Stückzahlen, Gruppe oder Insel für Teilefamilien dazwischen.
+  - Rückfrage: Wann kommt die Baustellenfertigung in Betracht?
+  - Rückfrage: Wie groß sind Taktzeit und Stationenzahl bei 420 min nutzbarer Arbeitszeit, 210 Stück Bedarf und 11 min Arbeitsinhalt je Stück?
+- Die Nachfrage nach einem Pumpenbauteil steigt, und Vantera muss die Montagelinie neu abgleichen. Wie gehen Sie beim Linienabgleich vor, und wo stößt das Rangpositionswertverfahren an Grenzen?
+  - Erwartung: Der Linienabgleich ordnet die Arbeitsgänge den Stationen zu; dabei ist die Reihenfolge einzuhalten, die Stationszeit darf die Taktzeit nicht überschreiten, und kein Arbeitsgang darf länger als die Taktzeit sein, solange er nicht geteilt oder parallel ausgeführt wird.
+  - Erwartung: Taktzeit = nutzbare Arbeitszeit / Bedarfsmenge und Mindeststationenzahl = Arbeitsinhalt Σt / Taktzeit, aufgerundet; im Beispiel ergeben 420 min bei 42 Stück 10 min Takt und bei Σt = 36 min mindestens 4 Stationen.
+  - Erwartung: Der Rangpositionswert eines Arbeitsgangs ist seine eigene Zeit plus die Zeiten aller direkten und indirekten Nachfolger, jeder einmal gezählt; je höher der Wert, desto früher sollte der Arbeitsgang erfolgen.
+  - Erwartung: Man öffnet eine Station, ordnet unter den Arbeitsgängen mit vollständig zugeordneten Vorgängern, die in die verbleibende Taktzeit passen, den mit dem höchsten Wert zu und wiederholt das, bis nichts mehr passt; im Beispiel entstehen 4 Stationen mit einem Wirkungsgrad von 36 / (4 · 10) = 90 % und 4 min Verlustzeit je Takt.
+  - Erwartung: Das Verfahren ist eine Heuristik, die ein gutes, aber nicht immer das beste Ergebnis liefert; seine Grenze zeigt sich auch, wenn der Bedarf auf 60 Stück je Schicht steigt: Der Takt sinkt auf 7 min, und ein Arbeitsgang von 8 min ist länger als der Takt, er muss geteilt, vereinfacht oder auf zwei parallelen Stationen ausgeführt werden.
+  - Rückfrage: Wie groß ist der Rangpositionswert eines Arbeitsgangs B von 8 min, auf den D (7 min), F (2 min), G (7 min) und H (3 min) folgen?
+  - Rückfrage: Wie viele Stationen sind bei 7 min Takt rechnerisch mindestens nötig, wenn der Arbeitsinhalt 36 min beträgt?
+- Wie ermitteln Sie die optimale Losgröße für ein Serienbauteil der Vantera rechnerisch, und welche Grenzen hat das Ergebnis in der Praxis?
+  - Erwartung: Die Formel lautet x_opt = √( 2 · M · K_r / (h · k) ) mit dem Jahresbedarf M, den Rüstkosten K_r je Los, den Herstellkosten k je Stück und dem Lagerhaltungskostensatz h als Dezimalzahl.
+  - Erwartung: Die Rüstkosten je Jahr sind (M / x) · K_r, die Lagerkosten x / 2 · k · h, weil im Durchschnitt das halbe Los auf Lager liegt; im Optimum sind beide gleich groß.
+  - Erwartung: Beispiel mit M = 12.000 Stück, K_r = 300 €, k = 25 € und h = 20 %: x_opt = 1.200 Stück, also 10 Lose je Jahr, je 3.000 € Rüst- und Lagerkosten, zusammen 6.000 €.
+  - Erwartung: Abweichungen kosten mehr: Bei 2.000 Stück je Los (6 Lose) betragen die Kosten 1.800 € + 5.000 € = 6.800 €, bei 600 Stück (20 Lose) 6.000 € + 1.500 € = 7.500 €.
+  - Erwartung: Die Formel nimmt gleichmäßigen Verbrauch, feste Rüstkosten und keine Kapazitätsgrenzen an; in der Praxis rundet man auf sinnvolle Werte wie volle Paletten oder Schichtmengen.
+  - Rückfrage: Warum liegt bei gleichmäßigem Verbrauch im Durchschnitt nur das halbe Los auf Lager?
+- Wie ermittelt Vantera die Vorgabezeit für einen Fertigungsauftrag nach REFA, und welche Verfahren der Zeitermittlung kommen in Betracht?
+  - Erwartung: Die Auftragszeit ist T = t_r + m · t_e mit der Rüstzeit t_r (einmal je Auftrag), der Menge m und der Zeit je Einheit t_e.
+  - Erwartung: Die Zeit je Einheit t_e = t_g + t_v setzt sich aus der Grundzeit (Hauptzeit plus Nebenzeit) und der Verteilzeit zusammen, die als prozentualer Zuschlag auf die Grundzeit berücksichtigt wird.
+  - Erwartung: Beispiel: Hauptzeit 2,4 min und Nebenzeit 0,6 min ergeben t_g = 3,0 min; mit 10 % Verteilzeitzuschlag ist t_e = 3,3 min, und bei 45 min Rüstzeit und 200 Stück folgt T = 705 min = 11,75 h.
+  - Erwartung: Zeiten werden durch Zeitaufnahme (Stoppuhr oder elektronisch), Multimomentaufnahme (Stichprobenbeobachtung), Schätzen und Vergleichen oder Systeme vorbestimmter Zeiten wie MTM ermittelt.
+  - Erwartung: Bei der Zeitaufnahme wird die Ist-Zeit mit dem Leistungsgrad auf die Normalleistung bezogen (Grundzeit = Ist-Zeit · LG); bei 2,8 min und 110 % sind es 3,08 min.
+  - Rückfrage: Warum ist die Grundzeit bei einem Leistungsgrad über 100 % länger als die gemessene Zeit?
+- Für eine CNC-Fräsmaschine der Vantera liegt ein Zusatzauftrag vor. Wie prüfen Sie rechnerisch die Belastung der Maschine, und woran erkennen Sie eine Überlast?
+  - Erwartung: Die verfügbare Kapazität ist Arbeitstage · Schichten je Tag · Schichtlänge · Nutzungsgrad, wobei der Nutzungsgrad Abzüge für Wartung, Störungen und Rüsten außerhalb der Aufträge berücksichtigt.
+  - Erwartung: Der Kapazitätsbedarf ist die Summe der Auftragszeiten, die Belastung ergibt sich als Kapazitätsbedarf / verfügbare Kapazität · 100 %.
+  - Erwartung: Beispiel: Bei 20 Arbeitstagen zu 8 Stunden (160 h) und 148 h Bedarf beträgt die Belastung 92,5 %; ein Zusatzauftrag mit 28 h ergibt 176 h, also 110 % und 16 h Überlast.
+  - Erwartung: Mit einem Nutzungsgrad von 85 % sinkt die verfügbare Kapazität auf 136 h, bei 118 h Bedarf beträgt die Belastung dann 86,8 %.
+  - Erwartung: Liegt die Belastung über 100 %, besteht Überlast (Bedarf minus verfügbare Kapazität), die durch Gegenmaßnahmen wie beim Kapazitätsengpass abgebaut werden muss.
+  - Rückfrage: Die Maschine hat 160 h Kapazität (20 Arbeitstage zu je 8 Stunden) und 118 h Bedarf. Welche Belastung ergäbe sich, wenn der Nutzungsgrad unberücksichtigt bliebe, und warum wäre das irreführend?
+- Die Fräsmaschine der Vantera kann nicht alle absetzbaren Mengen zweier Produkte fertigen. Nach welchem Kriterium entscheiden Sie bei einem Engpass über die Programmplanung, und warum genügt dieses Kriterium bei zwei Engpässen nicht mehr?
+  - Erwartung: Da die fixen Kosten von dieser Entscheidung unberührt bleiben, zählt der Deckungsbeitrag; bei einem Engpass entscheidet der Deckungsbeitrag je Engpasseinheit, zum Beispiel je Maschinenstunde.
+  - Erwartung: Man ordnet die Produkte nach diesem Wert absteigend, fertigt das erste bis zu seiner Absatzgrenze und verteilt die restliche Kapazität auf das nächste.
+  - Erwartung: Beispiel mit 1.000 Fräsmaschinenstunden und Absatzgrenzen von 1.200 Stück A und 800 Stück B: Produkt A bringt 30 € bei 0,5 h (60 € je Stunde), Produkt B 40 € bei 1,0 h (40 € je Stunde); 1.200 Stück A (600 h) und 400 Stück B ergeben 52.000 €, bei umgekehrter Reihenfolge nur 44.000 €.
+  - Erwartung: Ist zusätzlich die Drehmaschine begrenzt (1,0 h je Stück A, 0,5 h je Stück B, 1.100 h), widersprechen sich die Rangfolgen: je Drehmaschinenstunde bringt A 30 €, B 80 €; man löst grafisch mit zulässigem Bereich und Eckpunkten.
+  - Erwartung: Das Optimum liegt bei 800 Stück A und 600 Stück B mit 48.000 € Gesamtdeckungsbeitrag; die Lösung 1.200 und 400 Stück ist unzulässig, weil die Drehmaschine 1.400 h statt 1.100 h bräuchte.
+  - Rückfrage: Warum ist nicht jeder Schnittpunkt zweier Geraden ein Eckpunkt des zulässigen Bereichs?
+  - Rückfrage: Welche Voraussetzungen müssen für die Rechnung mit Deckungsbeiträgen und grafischer Lösung erfüllt sein?
+- Worauf achten Sie bei der Gestaltung eines Montagearbeitsplatzes bei Vantera, und was unterscheidet Belastung von Beanspruchung?
+  - Erwartung: Belastung ist die von außen wirkende Anforderung wie Körperhaltung, Kraft, Lärm oder Zeitdruck, Beanspruchung die individuelle Auswirkung auf die Person.
+  - Erwartung: Gleiche Belastung führt je nach Person, Alter und Übung zu unterschiedlicher Beanspruchung; dauerhaft hohe Beanspruchung führt zu Ermüdung, Fehlern und Krankheit, Erholzeiten und Pausen gleichen sie aus.
+  - Erwartung: Die Gestaltung orientiert sich an einem Bereich der Körpergrößen (etwa 5. bis 95. Perzentil) statt am Durchschnitt; Arbeitshöhe und Greifraum werden passend gewählt, und ein Haltungswechsel zwischen Sitzen und Stehen wird ermöglicht.
+  - Erwartung: Weitere Grundsätze sind gute Beleuchtung und Blendfreiheit, geminderter Lärm und geminderte Schwingungen sowie Hebehilfen für schwere Lasten.
+  - Erwartung: Die Bewegungsökonomie fordert kurze Wege, beidhändiges symmetrisches Arbeiten und ruhige, fließende Bewegungen; bei Vantera liegen die Teile in Greifnähe im Behälter, die Arbeitshöhe ist verstellbar und die Werkzeuge hängen.
+  - Rückfrage: Wie berücksichtigen Sie, dass Beschäftigte unterschiedlicher Körpergröße denselben Montagearbeitsplatz nutzen?
 
 ### 9.2 Produktionssteuerung
 
@@ -74,6 +126,36 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Es unterstützt die Maschinenbelegungsplanung und liefert die Datenbasis für die Fortschrittskontrolle und später für das Produktionscontrolling.
   - Erwartung: Die Werkstattsteuerung erhält dadurch eine deutlich aktuellere Sicht auf den tatsächlichen Fertigungsfortschritt.
   - Rückfrage: Welche Daten liefert ein MES für das Produktionscontrolling?
+- Vantera plant die Einführung eines neuen Bauteils mit diesen Vorgängen: A Rohmaterial beschaffen (2 Tage), B NC-Programm erstellen (3 Tage), C Vorrichtung bauen (4 Tage, nach A), D Erstteil fertigen (2 Tage, nach B und C), E Erstteil prüfen (1 Tag, nach D), F Dokumentation erstellen (2 Tage, nach B) und G Serie fertigen (6 Tage, nach E). Wie ermitteln Sie mit der Netzplantechnik Projektdauer, Puffer und kritischen Weg, und was folgt daraus für Verzögerungen?
+  - Erwartung: Die Vorwärtsrechnung bestimmt den frühesten Anfang FAZ als größten FEZ der Vorgänger und FEZ = FAZ + D; die Projektdauer ist der größte FEZ.
+  - Erwartung: Die Rückwärtsrechnung bestimmt das späteste Ende SEZ als kleinsten SAZ der Nachfolger (am Ende die Projektdauer) und SAZ = SEZ − D.
+  - Erwartung: Der Gesamtpuffer GP = SAZ − FAZ zeigt, um wie viel sich ein Vorgang verschieben darf, ohne den Endtermin zu gefährden; der freie Puffer, ohne den frühesten Beginn der Nachfolger zu verzögern.
+  - Erwartung: Vorgänge mit GP = 0 bilden den kritischen Weg, den längsten Weg durch das Netz; hier beträgt die Projektdauer 15 Tage, der kritische Weg ist A – C – D – E – G.
+  - Erwartung: Eine Verzögerung auf dem kritischen Weg verschiebt den Endtermin, bei Vorgängen mit Puffer nur um den Teil über dem Gesamtpuffer: Das NC-Programm (GP 3 Tage) darf sich um 3 Tage verspäten, eine Verzögerung des Vorrichtungsbaus um 2 Tage verschiebt den Serienstart um 2 Tage.
+  - Rückfrage: Worin unterscheiden sich Gesamtpuffer und freier Puffer?
+  - Rückfrage: Wie viele Tage Gesamtpuffer hat die Dokumentation (F)?
+- Wo stößt ein einfaches Vorgangsknotennetz in der Fertigung an Grenzen, und was leistet die Metra-Potenzial-Methode mit Zeitabständen?
+  - Erwartung: Das einfache Vorgangsknotennetz kennt nur die Beziehung, dass der Nachfolger beginnt, wenn der Vorgänger beendet ist, ohne Wartezeit; in der Fertigung überlappen sich Vorgänge aber oft oder müssen warten, etwa zum Abkühlen, Aushärten oder Trocknen.
+  - Erwartung: Die MPM bildet das über Anordnungsbeziehungen mit Mindest- oder Maximalabständen ab: Normalfolge (Ende–Anfang), Anfangsfolge (Anfang–Anfang), Endfolge (Ende–Ende) und Sprungfolge (Anfang–Ende).
+  - Erwartung: Jede Beziehung wird auf einen Pfeil zwischen den Anfangszeitpunkten mit einem Gewicht zurückgeführt: bei der Normalfolge d_i + z, bei der Anfangsfolge z, bei der Endfolge d_i + z − d_j und bei der Sprungfolge z − d_j.
+  - Erwartung: Ein Mindestabstand auf dem kritischen Weg verlängert die Projektdauer um genau diesen Abstand; im Beispiel einer Wellencharge mit 1 Tag Abkühlen zwischen Härten und Schleifen sind es 14 statt 13 Tage, der kritische Weg ist A – B – D – E – F.
+  - Erwartung: Ein Maximalabstand wird als Pfeil in Gegenrichtung mit negativem Gewicht eingetragen; dadurch entsteht eine Schleife, und ist deren Gewichtssumme positiv, sind die Vorgaben widersprüchlich.
+  - Rückfrage: Welches Gewicht hat eine Normalfolge von einem Vorgang mit 2 Tagen Dauer zu seinem Nachfolger bei einem Mindestabstand von 1 Tag?
+  - Rückfrage: Warum ist das Vorgangsknotennetz ein Sonderfall der MPM?
+- Wofür setzen Sie bei Vantera ein Gantt-Diagramm und wofür einen Netzplan ein, und wie unterscheidet sich ein Belegungsplan von einem Vorgangs-Gantt?
+  - Erwartung: Das Gantt-Diagramm trägt die Zeit waagerecht auf und stellt jeden Vorgang als Balken dar; üblich sind Meilensteine (Dauer 0), Fortschrittsbalken, eine Heute-Linie und Abhängigkeitspfeile.
+  - Erwartung: Ein Vorgangs-Gantt hat je Zeile einen Vorgang, ein Belegungsplan je Zeile eine Maschine oder einen Arbeitsplatz; Lücken zwischen den Balken zeigen Leerzeiten, überlappende Balken Doppelbelegungen.
+  - Erwartung: Das Gantt-Diagramm ist auf einen Blick lesbar und gut für Berichte, zeigt kritischen Weg und Puffer aber nicht von selbst.
+  - Erwartung: Der Netzplan zeigt Abhängigkeiten und rechnet Gesamtdauer, Puffer und kritischen Weg; aus ihm wird das Gantt abgeleitet, indem jeder Vorgang als Balken ab seinem frühesten Anfang gezeichnet wird.
+  - Rückfrage: Ein Vorgang auf dem kritischen Weg dauert 4 Tage und ist von Tag 2 bis Tag 6 geplant; am Tag 4 sind erst 25 % gemeldet. Welchen Rückstand zeigt der Fortschrittsbalken, und was folgt daraus für den Endtermin?
+  - Rückfrage: Wie wird der Gesamtpuffer eines Vorgangs im gezeichneten Gantt-Diagramm sichtbar?
+- Drei Aufträge werden zur Zeit 0 freigegeben und laufen nacheinander auf der Drehmaschine und der Fräsmaschine: Auftrag 1 braucht 4 h und 3 h, Auftrag 2 braucht 2 h und 5 h, Auftrag 3 braucht 3 h und 2 h. Wie erstellen Sie den Belegungsplan nach der Regel der kürzesten Operationszeit, anhand welcher Kennzahlen beurteilen Sie ihn, und wann weichen Sie von der Regel ab?
+  - Erwartung: Die Aufträge werden nach der kürzesten Operationszeit auf der ersten Maschine gereiht; ein Auftrag beginnt auf der zweiten Maschine, sobald er auf der ersten fertig und die zweite frei ist.
+  - Erwartung: Hier lautet die Reihenfolge 2, 3, 1, und die Aufträge sind nach 7, 9 und 12 h fertig.
+  - Erwartung: Die mittlere Durchlaufzeit beträgt (7 + 9 + 12) / 3 = 9,33 h, die Gesamtdauer des Belegungsplans 12 h.
+  - Erwartung: Die Auslastung ist die Belegungszeit geteilt durch die betrachtete Zeit: Drehmaschine 9 / 12 = 75,0 %, Fräsmaschine 10 / 12 = 83,3 %, beide zusammen 19 / 24 = 79,2 %.
+  - Erwartung: Nach Eingang (FIFO) ergäben sich 14 h Gesamtdauer und 11,0 h mittlere Durchlaufzeit; die Regel ist nur für eine einzelne Maschine garantiert, bei mehreren eine Faustregel, und bei drohendem Terminverzug kann der früheste Liefertermin sinnvoller sein.
+  - Rückfrage: Warum hat die Fräsmaschine zu Beginn eine Leerzeit?
 
 ### 9.3 Produktionscontrolling
 
@@ -107,3 +189,33 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Risiken mit geringerer Wahrscheinlichkeit, aber hohem Schaden werden abgesichert, z. B. durch einen Zweitlieferanten oder eine Versicherung gegen Maschinenausfall.
   - Erwartung: Risiken mit hoher Wahrscheinlichkeit und geringem Schaden werden meist beobachtet, Risiken mit geringer Wahrscheinlichkeit und geringem Schaden in der Regel akzeptiert.
   - Rückfrage: Welche typischen produktionsbezogenen Risiken kennen Sie?
+- Nach einer Verbesserung des Arbeitsablaufs meldet eine Fertigungsgruppe der Vantera mehr Teile je Stunde. Wie beurteilen Sie, ob das auch wirtschaftlich ein Erfolg ist?
+  - Erwartung: Produktivität = Ausbringungsmenge / Einsatzmenge, zum Beispiel die Arbeitsproduktivität in Stück je Arbeitsstunde; sie ist rein mengenmäßig und sagt nichts über Preise.
+  - Erwartung: Beispiel: 3.600 Teile in 450 Stunden ergeben 8 Teile je Stunde, 4.200 Teile in 420 Stunden 10 Teile je Stunde, also 25 % mehr Produktivität.
+  - Erwartung: Wirtschaftlichkeit = Leistung / Kosten; ein Wert über 1 bedeutet, dass die Leistung die Kosten übersteigt, bei 180.000 € Leistung und 150.000 € Kosten also 1,2.
+  - Erwartung: Die Produktivität kann steigen, während die Wirtschaftlichkeit sinkt, wenn die Mehrleistung mit überproportional steigenden Kosten erkauft wird, zum Beispiel durch Überstunden mit Zuschlägen.
+  - Erwartung: Die Rentabilität setzt dagegen den Gewinn ins Verhältnis zum eingesetzten Kapital.
+  - Rückfrage: Wie unterscheiden sich Arbeits- und Maschinenproduktivität?
+- Wie bewertet ein Betrieb wie Vantera die Anforderungen einer Arbeit, und worin unterscheiden sich summarische und analytische Verfahren?
+  - Erwartung: Die Arbeitsbewertung ermittelt, wie anspruchsvoll eine Arbeit ist, nicht, wie gut eine Person sie ausführt, und ist Grundlage des Grundlohns.
+  - Erwartung: Summarische Verfahren bewerten die Arbeit als Ganzes: beim Rangfolgeverfahren in einer Rangreihe mit anderen Arbeiten, beim Lohngruppenverfahren durch Zuordnung zu beschriebenen Lohngruppen mit Richtbeispielen.
+  - Erwartung: Analytische Verfahren bewerten nach einzelnen Anforderungsarten: Das Rangreihenverfahren bildet je Anforderungsart eine Rangreihe, das Stufenwertzahlverfahren ordnet je Anforderungsart der zutreffenden Stufe eine Stufenwertzahl zu, deren Summe der Arbeitswert ist.
+  - Erwartung: Das Genfer Schema fasst die Anforderungsarten in vier Hauptgruppen: Können, Verantwortung, Belastung und Umgebungseinflüsse.
+  - Erwartung: Beispiel: Die Stufenwertzahlen 12 + 6 + 4 + 2 + 1 ergeben 25 Punkte; eine Zuordnungstabelle ordnet dem Arbeitswert eine Lohngruppe (hier 21 bis 30 Punkte: Lohngruppe 4) und dieser einen Grundlohn zu.
+  - Rückfrage: Wie berücksichtigt das Stufenwertzahlverfahren, dass Anforderungsarten unterschiedlich bedeutsam sind?
+- Vantera erwägt, eine Montagegruppe im Zeitakkord statt im Zeitlohn zu entlohnen. Wie berechnen Sie den Akkordverdienst, und wie unterscheiden sich Verdienst und Lohn je Stück bei beiden Systemen?
+  - Erwartung: Beim Zeitlohn richtet sich der Lohn nach der Anwesenheitszeit (Stundenlohn · Stunden), ein Leistungsanreiz fehlt; er passt zu Arbeiten mit schwer messbarer Leistung oder wenn Qualität und Sorgfalt vor der Menge stehen.
+  - Erwartung: Beim Zeitakkord gilt Verdienst = Menge · Vorgabezeit je Einheit · Minutenfaktor; der Minutenfaktor ist der Akkordrichtsatz geteilt durch 60, der Akkordrichtsatz besteht aus Grundlohn und Akkordzuschlag.
+  - Erwartung: Beispiel: 18,00 € Grundlohn und 20 % Zuschlag ergeben 21,60 € Akkordrichtsatz, 0,36 € je Minute und bei 3,0 min Vorgabezeit 1,08 € je Stück; bei Normalleistung (160 Stück in 480 min) beträgt der Verdienst 172,80 €.
+  - Erwartung: Bei 176 Stück ist der Zeitgrad 110 % und der Verdienst 190,08 €, bei 144 Stück 90 % und 155,52 €; der Lohn je Stück bleibt im Akkord konstant bei 1,08 €.
+  - Erwartung: Beim Zeitlohn (8 h · 18,00 € = 144,00 €) bleibt der Verdienst gleich, der Lohn je Stück sinkt mit steigender Leistung (0,90 € bei 160 Stück, rund 0,82 € bei 176 Stück).
+  - Rückfrage: Worin unterscheiden sich Zeitgrad und Leistungsgrad?
+  - Rückfrage: Welchen Vorteil hat der Zeitakkord gegenüber dem Geldakkord, wenn sich der Lohn ändert?
+- Welche Anreize und Risiken hat ein Prämienlohn, und wie prüfen Sie, ob er sich für Vantera wirtschaftlich lohnt?
+  - Erwartung: Der Prämienlohn besteht aus einem Grundlohn (meist Zeitlohn) plus einer Prämie für messbare Zusatzleistung, zum Beispiel für Menge, Qualität, Ersparnis von Material, Energie oder Ausschuss, Nutzungsgrad einer Anlage oder Termineinhaltung.
+  - Erwartung: Die Bezugsgröße muss messbar und beeinflussbar sein; einseitige Prämien können Fehlanreize setzen, eine reine Mengenprämie gefährdet die Qualität.
+  - Erwartung: Beispiel Mengenprämie: Bei 160 Stück Basismenge und 0,40 € je Stück darüber beträgt die Prämie bei 170 Stück 4,00 €, und der Tagesverdienst steigt von 144,00 € Grundlohn (8 h · 18,00 €) auf 148,00 €.
+  - Erwartung: Beispiel Ersparnisprämie: Sinkt bei 12.000 Teilen die Ausschussquote von 3 % auf 2 %, sind 120 Teile gespart, bei 25 € Herstellkosten 3.000 €; bei 40 % Auszahlung sind das 1.200 €, bei 5 Personen 240 € je Person.
+  - Erwartung: Ein Entgeltsystem ist wirtschaftlich, wenn die Mehrleistung mehr einbringt, als die Prämie oder der Zuschlag kosten.
+  - Rückfrage: Wie lässt sich der Fehlanreiz einer reinen Mengenprämie mit einer weiteren Bezugsgröße begrenzen?
+

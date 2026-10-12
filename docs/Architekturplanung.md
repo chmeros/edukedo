@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 12.10.2026 (Technischer Fachwirt: 95 neue Fachgesprächsfragen zu den Abschnitten aus P1 bis P6 eingespielt (P7), unabhängig geprüft; Entscheidung des Projektleiters, R3)
+
+Anlass: Der Projektleiter ließ die Fachgespräch-Entwürfe `docs/entwuerfe/tf-p7-fachgespraech/*.md` mit „alle Vorschläge umsetzen“ einspielen. P7 wurde dabei erweitert: Statt nur HQ1 und HQ2 zu vergrößern, decken die Fragen alle Bereiche ab, die in P1 bis P6 neue Abschnitte bekommen haben (HQ1 bis HQ4, TQ2, TQ3, WQ1, WQ2); ein eigenes Paket „Fachgespräch zu P1 bis P6“ entfällt damit. Die Entwürfe wurden von vier Agenten geschrieben und von vier unabhängigen Prüf-Agenten gegengelesen (Berichte `docs/entwuerfe/pruefung-p7-*.md`: zusammen 134 Befunde, alle Rechnungen stimmten; häufigster Mangel waren Fragen, deren nötige Zahlen nur in der Erwartung standen, jetzt in der Frage). Die fachliche Prüfung durch Fachlehrkräfte steht aus.
+
+- **Eingespielt:** 95 Fragen mit 3 bis 5 Erwartungspunkten und höchstens 2 Rückfragen, am Ende der jeweiligen Themengruppe der `fachgespraech.md`: HQ1 16, HQ2 15, HQ3 9, HQ4 10, TQ2 14, TQ3 14, WQ1 4, WQ2 13. Darunter vier Fragen zu Präsentationstechniken (HQ4).
+- **Zurückgehalten:** Vier WQ2-Fragen zu den rechtsnahen Abschnitten (Skonto-Verbuchung, Cashflow mit Rückstellungen, Abgrenzung von Rückstellung/Rechnungsabgrenzung/sonstiger Verbindlichkeit, Wertpapiere und Fremdwährung; Theorie laut `rechtsstand` von 2.1 besonders zu prüfen) bleiben bis zur Freigabe im Entwurf. Gestrichen wegen zu großer Nähe zum Bestand: HQ3 (integriertes Managementsystem), HQ4 (Mediation gegen Entscheidung, Konfliktkosten).
+- **Nicht umgesetzt:** Die Kennzeichnung der TQ-/WQ-Pools als Ergänzungsprüfung (stützt sich auf die Prüfungsverordnung § 6) wartet auf Ihre Prüfung der Verordnung.
+- **Theorie nachgezogen:** 8.3 Wegzeit-Formulierung („Ein großer Teil“); 8.2 Bestellterminmethode (Menge richtet sich nach dem aktuellen Bestand) in Theorie und Karte; 9.1 „Grenze der Taktrechnung“ statt „Grenze des Verfahrens“, Begründungen zum Perzentilbereich und zum halben Los als Durchschnittsbestand (Theorie und Karte); 1.1 M1 bis M3 (M1 engste Abgrenzung); 2.3 Rentenbarwertfaktor genau 4,6228797; 2.2 ein Satz zum Deckungsbeitrag bei freier Kapazität.
+- **Import:** `db:validate-content`: 615 Themendateien, 16.636 Item-Schlüssel, 0 Verstöße. `db:import-content` in der Entwicklungsdatenbank: 95 neu, 8 geändert (6 Theorie-Items, 2 Karten), 0 deaktiviert; zweiter Trockenlauf unverändert. Nicht im Browser angesehen.
+
 ### Entschieden am 12.10.2026 (Technischer Fachwirt: 29 Items zu Qualität P5 eingespielt, unabhängig geprüft; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ den Entwurf `docs/entwuerfe/tf-rahmenplan-p5-items.md` am 12.10.2026 mit „alle Vorschläge umsetzen“ einspielen. Der Entwurf wurde zuvor von einem unabhängigen Prüf-Agenten gegengelesen und korrigiert (Bericht `docs/entwuerfe/pruefung-p5-items.md`: 9 Befunde, 2 davon hoch; alle Rechnungen stimmten). Die fachliche Prüfung durch Fachlehrkräfte steht aus.
