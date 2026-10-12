@@ -1,0 +1,84 @@
+# Entwurf: Karteikarten und Quizfragen zu den sechs Ergänzungsabschnitten in TQ2 (Technischer Fachwirt, Themen 6.1 bis 6.3)
+
+Stand 12.10.2026 · **Entwurf, zur Entscheidung** (neue Inhalte, Rahmenentscheidung R3; nichts davon ist in `content/` eingespielt, nichts committet, keine Tests oder Importe gestartet). Grundlage sind die am 12.10.2026 in TQ2 eingearbeiteten sechs Theorieabschnitte: 6.3 „Härteprüfung rechnen und Härtewerte vergleichen“; 6.2 „Aluminium- und Kupferlegierungen“, „Korrosionsarten und Korrosionsschutz im Detail“, „Wärmebehandlung im Detail: Abkühlgeschwindigkeit, ZTU-Diagramm und Verfahren“ und „Kunststoffarten und Kurzzeichen“; 6.1 „Zeichnungsarten und Zeichnungsableitung“ (Entwurf der Theorie: `docs/entwuerfe/tf-ergaenzungen-tq2.md`). Quelle der Wahrheit für jede Zahl und jede Formel ist die Theorie in den Zieldateien. Schwerpunkt sind Rechen- und Leseaufgaben mit neuen Zahlen nach denselben Formeln und Verfahren wie in der Theorie. Schreibweise nach den Hausregeln in `content/README.md` (Anrede „Du“, Tausenderpunkt und Dezimalkomma, Leerzeichen vor %, Einheiten und °C, akzeptierte Antworten mit `;`). Fallfirma ist durchgängig die Vantera Präzisionstechnik GmbH. Rechtsaussagen (Gefahrstoffe, Arbeitsschutz) kommen nicht vor. Fachgespräch- und Fallaufgaben-Entwürfe sind nicht Teil dieses Auftrags.
+
+## Dateien
+
+Je Thema eine Datei mit den fertigen Blöcken, getrennt nach „Karteikarten“ (vor `## Quiz` einfügen) und „Quiz“ (am Dateiende anhängen) in `docs/entwuerfe/tf-ergaenzungen-items-tq2/`:
+
+| Zieldatei in `content/technischer-fachwirt/tq2/` | Entwurf | Neue Abschnitte | Karteikarten | Quizfragen | Neue IDs |
+|---|---|---|---|---|---|
+| `6.1-technisches-zeichnen-normen.md` | `6.1-items.md` | Zeichnungsarten und Zeichnungsableitung | 2 | 3 | K-6.1-29 bis 30, Q-6.1-31 bis 33 |
+| `6.2-werkstoffkunde-metalle-kunststoffe.md` | `6.2-items.md` | Aluminium- und Kupferlegierungen; Korrosionsarten und Korrosionsschutz im Detail; Wärmebehandlung im Detail; Kunststoffarten und Kurzzeichen | 7 | 11 | K-6.2-26 bis 32, Q-6.2-27 bis 37 |
+| `6.3-werkstoffpruefung.md` | `6.3-items.md` | Härteprüfung rechnen und Härtewerte vergleichen | 2 | 4 | K-6.3-27 bis 28, Q-6.3-29 bis 32 |
+| **Summe** | | 6 Abschnitte | **11** | **18** | |
+
+Insgesamt 29 Items (5, 18 und 6 je Thema). Die IDs schließen an die höchste vorhandene Nummer an (Stand Repository 12.10.2026: K-6.1-28/Q-6.1-30, K-6.2-25/Q-6.2-26, K-6.3-26/Q-6.3-28; per Skript gegen die Zieldateien geprüft) und werden nicht wiederverwendet. Verteilung der Quiz-Fragetypen: Kurzantwort 6, Multiple Choice 6, Zuordnung 6. Es kommen nur Fragetypen vor, die in den drei Zieldateien bereits stehen (nicht verwendet: Mehrfachauswahl, Wahr/Falsch, Sortieren und die übrigen; Sortieren fehlt, weil die neuen Abschnitte kein Verfahren mit eindeutiger Vier-Schritt-Reihenfolge enthalten, die Rechenschritte stehen in den Erklärungen). Von den 18 Quizfragen sind 12 Rechenaufgaben (alle per Skript nachgerechnet), 6 sind Zuordnungen zum Lesen und Einordnen.
+
+Karteikarten je Abschnitt: Zeichnungsarten 2, Härteprüfung 2, Aluminium und Kupfer 2, Korrosion 2, Wärmebehandlung 2, Kunststoffe 1. Quizfragen je Abschnitt: Zeichnungsarten 3, Härteprüfung 4, Aluminium und Kupfer 3, Korrosion 3, Wärmebehandlung 3, Kunststoffe 2. Über der Vorgabe von zwei bis drei Quizfragen liegt nur die Härteprüfung (vier), weil dort vier getrennte Verfahren (Brinell, Rockwell, Zugfestigkeit aus Härte, Verfahren zuordnen) stehen; wenn das zu viel ist, lässt sich Q-6.3-32 streichen. Die Kunststoffe haben nur eine Karte und zwei Fragen, weil der Abschnitt überwiegend Tabellenwissen enthält.
+
+## Rechen- und Leseaufgaben mit Lösung
+
+Jede Rechenaufgabe wurde in einem eigenen Python-Skript nachgerechnet (inklusive der Distraktoren, die in den Erklärungen als typische Fehler benannt werden); ein zweites Skript hat anschließend geprüft, dass die in den Items eingetragenen richtigen Antworten (alle Schreibweisen der Kurzantworten) und die richtigen Multiple-Choice-Optionen mit den berechneten Werten übereinstimmen und keine falsche Option denselben Wert trägt. „KA“ = Kurzantwort, „MC“ = Multiple Choice, „Z“ = Zuordnung. Alle Dichten, Ausdehnungskoeffizienten, Standardpotenziale, Faktoren und Grenzwerte stehen in der Aufgabe selbst; die Formeln stehen in der Theorie und auf den Karten.
+
+| Item | Typ | Aufgabe | Rechenweg kurz | Ergebnis |
+|---|---|---|---|---|
+| Q-6.3-29 | KA | Brinell-Härte: D = 10 mm, F = 29.420 N, d = 3,5 mm | √(100 − 12,25) = 9,367; 10 − 9,367 = 0,633; π · 10 · 0,633 = 19,87; 0,102 · 2 · 29.420 = 6.001,7; 6.001,7 / 19,87 | 302 HBW (302,04) |
+| Q-6.3-30 | MC | Rockwell HRC aus e = 0,090 mm | 100 − 0,090 / 0,002 = 100 − 45 | 55 HRC |
+| Q-6.3-31 | MC | Zugfestigkeit aus 190 HBW (Faktor 3,5), Zeugnis 800 N/mm² | 3,5 · 190 = 665; (800 − 665) / 800 = 16,9 % (bezogen auf 665: 20,3 %), beides über 10 % | Rm ≈ 665 N/mm², Nachprüfung |
+| Q-6.3-32 | Z (Lesen) | Prüfaufgaben den Härteverfahren zuordnen | Eigenschaften aus der Verfahrenstabelle | (Zuordnung) |
+| Q-6.1-31 | Z (Lesen) | Beschreibungen den Zeichnungsarten zuordnen | Begriffe aus dem Abschnitt | (Zuordnung) |
+| Q-6.1-32 | KA | Stücklistenmenge: 1 Modul = 2 Lenkgelenke, 1 Gelenk = 4 Schrauben, 40 Module | 2 · 40 = 80 Gelenke; 4 · 80 | 320 Schrauben |
+| Q-6.1-33 | MC | Maßstab 1:4, reale Länge 360 mm: Papierlänge und Maßzahl | 360 / 4 = 90 mm; Maßzahl bleibt das reale Maß | 90 mm auf dem Papier, Maßzahl 360 |
+| Q-6.2-27 | Z (Lesen) | Aluminiumbezeichnungen (erste Ziffer) dem Hauptlegierungselement zuordnen | 1: Reinaluminium; 2: Kupfer; 5: Magnesium; 6: Magnesium und Silizium | (Zuordnung) |
+| Q-6.2-28 | KA | Gewichtsvergleich 2,4 dm³: Stahl 7,85 gegen Aluminium 2,7 kg/dm³ | 18,84 kg − 6,48 kg | 12,36 kg (rund 66 %) |
+| Q-6.2-29 | MC | Wärmeausdehnung Aluminium (23) gegen Kupfer (17 · 10⁻⁶ 1/K), 250 mm, 60 K | 0,345 mm − 0,255 mm | 0,09 mm |
+| Q-6.2-30 | KA | Restlebensdauer: 8,0 mm neu, nach 5 Jahren 7,6 mm, Mindestwanddicke 6,0 mm | Rate 0,4 / 5 = 0,08 mm je Jahr; (7,6 − 6,0) / 0,08 | 20 Jahre |
+| Q-6.2-31 | MC | Kontaktkorrosion Eisen (−0,44 V) gegen Aluminium (−1,66 V) | Aluminium negativer, also unedler; Differenz 1,66 − 0,44 | Aluminium, 1,22 V |
+| Q-6.2-32 | Z (Lesen) | Korrosionsarten Schadensbild und Gegenmaßnahme zuordnen | Beschreibungen aus der Aufzählung der Korrosionsarten und der Schutzmaßnahmen | (Zuordnung) |
+| Q-6.2-33 | MC | Gefüge Rand/Kern: v_krit = 40 K/s, Rand 6 s, Kern 20 s (800 auf 500 °C) | 300 / 6 = 50 K/s (über v_krit); 300 / 20 = 15 K/s (unter v_krit) | Rand Martensit, Kern Bainit und Perlit |
+| Q-6.2-34 | KA | Gehärteter Flächenanteil, Ø 50 mm, Einhärtungstiefe 5 mm | Kern Ø 40 mm; (2.500 − 1.600) / 2.500 | 36 % |
+| Q-6.2-35 | Z (Lesen) | Fertigungsaufgaben den Wärmebehandlungsverfahren zuordnen | Spannungsarmglühen, Einsatzhärten, Nitrieren, Weichglühen | (Zuordnung) |
+| Q-6.2-36 | Z (Lesen) | Kunststoff-Kurzzeichen PMMA, EP, NBR, PTFE zuordnen | Thermoplast-, Duroplast- und Elastomer-Tabelle | (Zuordnung) |
+| Q-6.2-37 | KA | Dehnung PA-Leiste (80) gegen Stahlnut (12 · 10⁻⁶ 1/K), 500 mm, 25 K | 1,00 mm − 0,15 mm | 0,85 mm |
+
+Gewählte Distraktoren (typische Fehler, per Skript berechnet; der Fehler steht jeweils in der Erklärung):
+
+- **Q-6.3-30:** Formel der Skala HRB statt HRC (85), Tiefenanteil e / 0,002 mm ohne Subtraktion von 100 (45), e nicht durch 0,002 mm geteilt (100).
+- **Q-6.3-31:** Plausibilität falsch beurteilt (665 N/mm², aber „unter 10 %“), Härte durch 3,5 geteilt (54 N/mm²), Härtewert ohne Faktor (190 N/mm²).
+- **Q-6.1-33:** Maßstab in die falsche Richtung angewendet (1.440 mm), Papierwert als Maßzahl eingetragen (zwei Varianten).
+- **Q-6.2-29:** nur die Dehnung des Aluminiums (0,345 mm), nur die des Kupfers (0,255 mm), Dehnungen addiert statt subtrahiert (0,6 mm).
+- **Q-6.2-31:** edleres Metall als gefährdet gelesen (Eisen), Beträge der Potenziale addiert statt Differenz (2,10 V), beides kombiniert.
+- **Q-6.2-33:** nur die Rand-Geschwindigkeit betrachtet (Rand und Kern Martensit), Rand und Kern vertauscht, beide unter v_krit (Rand und Kern Bainit und Perlit).
+- In den Kurzantworten benennen die Erklärungen zusätzlich typische Fehler: Faktor 0,102 vergessen (rund 2.961) oder Kreisfläche statt Kugelkalotte (rund 312) in Q-6.3-29; Gelenkzahl oder Auftragsmenge vergessen (160 bzw. 8) in Q-6.1-32; nur die Aluminiummasse angegeben (6,48 kg) in Q-6.2-28; Gesamtlebensdauer 25 Jahre statt Restlebensdauer, Abtrag als Rate (4 Jahre) in Q-6.2-30; Tiefe durch Radius geteilt (20 %) in Q-6.2-34; nur die Dehnung der PA-Leiste (1,00 mm) oder Summe der Dehnungen (1,15 mm) in Q-6.2-37.
+
+## Grenzfälle und Stellen, an denen die Theorie knapp war (zur Entscheidung)
+
+1. **Härteprüfung mit vier Quizfragen.** Q-6.3-29 bis 32 liegen über der Vorgabe von zwei bis drei Fragen je Abschnitt. Die Vickers-Rechnung (HV ≈ 0,1891 · F / d²) steht nur auf K-6.3-27, nicht als Quizfrage, damit der Abschnitt nicht noch größer wird. **Vorschlag:** Q-6.3-32 streichen, wenn vier zu viel sind; wer eine Vickers-Aufgabe möchte, kann sie anstelle von Q-6.3-32 ergänzen (F = 98,07 N, d = 0,30 mm ergäbe 206 HV 10).
+2. **Bezugsgröße der „10 %“ (Q-6.3-31).** Die Theorie nennt „mehr als etwa 10 %“ als Anhalt und sagt nicht, worauf sich die Prozentzahl bezieht (Zeugniswert oder berechneter Wert). Die Aufgabe wählt 190 HBW gegen 800 N/mm², sodass beide Bezüge über 10 % liegen (16,9 % und 20,3 %); die Erklärung nennt beide. Der Faktor 3,5 steht in der Aufgabe als Richtwert.
+3. **Rundung der Brinell-Härte (Q-6.3-29).** Der exakte Wert ist 302,04; die Aufgabe verlangt ganze Zahlen, akzeptiert werden außerdem „302,0“ und die Schreibweisen mit Verfahren. Die Prüfkraft 29.420 N gehört zur Härteangabe 10/3000 (Theorie); die Aufgabe nennt D und F ausdrücklich.
+4. **Aluminiumbezeichnungen in Q-6.2-27.** Die Theorie nennt nur die Regel (erste Ziffer = Serie) und die Beispiele EN AW-6082 und EN AW-7075. Die Aufgabe nutzt zusätzlich EN AW-1050, EN AW-2024 und EN AW-5083 als Beispielnummern; sie stützt sich nur auf die erste Ziffer, die tatsächliche Zusammensetzung dieser Legierungen ist nicht geprüft und wird nicht behauptet. **Vorschlag:** wenn das nicht gewünscht ist, die Nummern durch EN AW-1xxx, 2xxx, 5xxx und 6xxx ersetzen oder 7075 verwenden.
+5. **Spannungsreihe (Q-6.2-31).** Die Standardpotenziale sind Tabellenwerte der Theorie (Richtwerte, nicht gegen Primärquellen geprüft) und stehen in der Aufgabe. Die Theorie weist selbst darauf hin, dass die Reihenfolge in der Praxis vom Medium und von Passivschichten abhängt (zum Beispiel bei Aluminium); die Aufgabe fragt deshalb nur nach der Regel „negativeres Potenzial = unedler“ und nennt in der Erklärung das Flächenverhältnis als weiteren Einfluss.
+6. **Gleichmäßiger Abtrag (Q-6.2-30).** Die Rechnung gilt nur bei gleichmäßigem Abtrag (steht in der Aufgabe und in der Theorie); bei Lochfraß zählt die tiefste Stelle. Die Mindestwanddicke ist Aufgabenvorgabe.
+7. **Gefüge im Kern (Q-6.2-33).** Die Theorie nennt für einen Kern unter v_krit „Bainit und Perlit“ und gibt keine Grenzgeschwindigkeit zwischen Bainit und Perlit an; die Aufgabe fragt nur, ob Martensit entsteht. v_krit = 40 K/s ist wie in der Theorie ein Beispielwert, die Wirklichkeit hängt vom Stahl ab.
+8. **Gehärteter Flächenanteil (Q-6.2-34).** Die Theorie rechnet den Ring mit der Flächenformel; die Aufgabe verwendet Ø 50 mm und 5 mm Einhärtungstiefe, gibt aber keinen Zusammenhang zur Abkühlgeschwindigkeit vor (die Einhärtungstiefe ist hier eine Angabe). Die „Grenzhärte“ (Gefüge zur Hälfte Martensit) ist nicht Teil der Aufgabe.
+9. **Dehnungskoeffizienten (Q-6.2-29, Q-6.2-37).** Aluminium 23, Kupfer 17, Stahl 12 und PA 80 · 10⁻⁶ 1/K sind Richtwerte beziehungsweise Beispielwerte der Theorie und stehen in der Aufgabe. Die Theorie nennt PA „etwa 80“; für andere Kunststoffe gibt sie keinen Wert.
+10. **Zeichnungsableitung nur als Karte und Stückliste (Q-6.1-32).** Die Ableitungsregeln (Einzelteilzeichnung für selbst gefertigte Teile, Normteile ohne Zeichnung, Index und Zeichnungsnummer) stehen auf K-6.1-30 und in der Erklärung von Q-6.1-32; eine eigene Mehrfachauswahl dazu (welche Positionen brauchen eine Einzelteilzeichnung) wurde zugunsten der übrigen Aufgabentypen zurückgestellt und lässt sich ergänzen. Das Lenkmodul als Beispiel ist neu; die Aufgabe nimmt die Mengenregel (von oben nach unten multiplizieren) aus der Theorie.
+11. **Gleiche Szenarien wie in der Theorie nur im Stil.** Q-6.2-28 (Gewichtsvergleich) ähnelt dem vorhandenen Q-6.2-23 (Stahl gegen CFK), Q-6.2-37 dem Theoriebeispiel der PA-Leiste; Zahlen und Aufgabenstellung sind jeweils neu (andere Volumina, Längen und Temperaturdifferenzen).
+12. **Keine Tags bei den Karteikarten.** Die Karteikarten in den drei TQ2-Dateien haben keine `tags`-Angabe; die Entwürfe folgen den Zieldateien (nur `schwierigkeit` und `bloom`). Wenn Tags gewünscht sind, lassen sie sich ergänzen, z. B. `brinell`, `rockwell`, `aluminium`, `kupfer`, `korrosion`, `waermebehandlung`, `kunststoff`, `stueckliste`.
+13. **Normbezeichnungen ohne Tausenderpunkt.** „HBW 10/3000“ (Kraftkennzahl) und „DIN EN ISO 18265“ stehen wie in der Theorie ohne Punkt, weil sie Teil von Norm- beziehungsweise Prüfbedingungsbezeichnungen sind; die Prüfkraft selbst steht überall als „29.420 N“ und „3.000 kp“.
+14. **Theoriezahlen nicht wiederholt.** Die Beispiele der Theorie (229 HBW mit d = 4,0 mm; 297 HV 10; 50 HRC und 95 HRB; Rm ≈ 800 N/mm² für 229 HBW; 1,5 dm³ mit 11,775/4,05/13,35 kg; 300 mm Aluminium mit 0,345 mm bei 50 K; Stahlbehälter 5,0 mm mit 0,05 mm je Jahr und 14 Jahren; 80 µm Zinkschicht mit 40 Jahren; Welle Ø 40 mm mit 60 und 12 K/s und 51 %; 200 mm PA-Leiste mit 0,80 und 0,68 mm; Achsmodul mit 25 Stück; Welle 450 mm im Maßstab 1:5) werden nicht als Aufgabe wiederverwendet. Q-6.2-29 nutzt zwar dasselbe α von Aluminium wie das Theoriebeispiel, aber andere Länge und Temperaturdifferenz.
+
+## Was bewusst nicht abgefragt wird
+
+- **Härteprüfung:** Umrechnungstabelle Vickers in Rockwell (Richtwerte 300 HV ≈ 30 HRC usw.) als Zahlenaufgabe, weil die Theorie ausdrücklich keine exakte Umrechnung kennt; Beanspruchungsgrad und Kraftkennzahlen im Detail; Vickers-Rechnung und HRB-Rechnung als eigene Quizfrage; Anforderungen an Oberfläche und Probendicke.
+- **Aluminium und Kupfer:** Elastizitätsmodule (70.000 gegen 210.000 N/mm²); Kupfer-Leitfähigkeit als Zahl; Gusslegierungen EN AC; Auslagerungstemperaturen als Zahl; Zusammensetzung konkreter Legierungen (CuZn37, CuSn8, Rotguss) über die Beschreibung auf K-6.2-27 hinaus.
+- **Korrosion:** Schichtdicken von Feuer- und galvanischem Verzinken, Eloxal-Schichtdicke und Zinkabtrag-Rechnung (Verzinkung 40 Jahre) als Aufgabe; Wasserstoffversprödung; Temperaturbereich der interkristallinen Korrosion; Fremdstromschutz im Detail.
+- **Wärmebehandlung:** ZTU-Diagramm lesen (Abbildung nicht möglich); Härtetemperatur aus der GS-Linie ablesen; Anlasstemperaturen und Anlassversprödung; Jominy-Versuch als Aufgabe; Nitrierstähle; Einsatzhärtetiefe mit Grenzhärte 550 HV.
+- **Kunststoffe:** Glasübergangstemperatur und Dauergebrauchstemperaturen als Zahl (PVC 60, PE 80, POM 100, PTFE 260 °C); Elastizitätsmodul und Dichte der Kunststoffe; amorph gegen teilkristallin als eigene Frage (nur auf K-6.2-32); alle elf Thermoplast-Kurzzeichen einzeln.
+- **Zeichnungsarten:** Änderungsindex und Zeichnungsnummer bei Austauschbarkeit als Quizfrage (nur auf K-6.1-30); Montagezeichnung als eigene Zuordnung; 3D-CAD-Ableitung.
+- Fachgespräch-Fragen und Fallaufgaben (eigener Schritt).
+
+## Format-Prüfung
+
+Alle Blöcke entsprechen den Nachbar-Items der Zieldateien: `####`-Überschrift mit ID (bei Quizfragen mit ` · Typ`), Felder `**Frage:**`, `**Antwort:**`, `**Anweisung:**`, `**Akzeptierte Antworten:**`, `**Erklärung:**`, letzte Zeile mit `schwierigkeit` und `bloom` (ohne `tags`, siehe Grenzfall 12), keine Leerzeilen innerhalb eines Blocks, eine Leerzeile zwischen den Blöcken, Dateien mit LF-Zeilenenden in UTF-8 ohne BOM. Ein Prüfskript hat bestätigt: je Multiple Choice vier Optionen mit genau einer richtigen (und keine doppelten Optionen), je Zuordnung vier Paare mit `↔` (links und rechts ohne Doppelungen), je Kurzantwort eine Zeile `**Akzeptierte Antworten:**`, Karten mit genau vier Zeilen, IDs lückenlos an die vorhandenen anschließend (K-6.1-29 bis 30, Q-6.1-31 bis 33; K-6.2-26 bis 32, Q-6.2-27 bis 37; K-6.3-27 bis 28, Q-6.3-29 bis 32) und in den Zieldateien noch nicht vergeben, kein Zahlenwert mit vier Stellen ohne Tausenderpunkt (außerhalb der Listen akzeptierter Antworten und von Normbezeichnungen), kein „%“ und keine Einheit ohne Leerzeichen davor, keine Sie-Form, keine Schrägstrich-Kurzform beim Gendern. Die richtigen Antworten aller Rechenaufgaben stimmen mit dem Ergebnis der Nachrechnung überein. Unter `content/` wurde nichts geändert.
