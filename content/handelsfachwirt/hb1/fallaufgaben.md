@@ -75,3 +75,27 @@ Teilaufgabe 2 sollte für das Lieferkettenrisiko z. B. Risikoverminderung (Aufba
 Teilaufgabe 3 sollte erläutern, dass in der Check-Phase die Wirksamkeit der Maßnahmen laufend geprüft und in der Act-Phase Anpassungen vorgenommen werden, sodass das Risikomanagement nicht nur punktuell auf die aktuelle Situation reagiert.
 Teilaufgabe 4 sollte die zusätzlichen Kosten eines zweiten Lieferanten gegen die reduzierte Abhängigkeit und das geringere Ausfallrisiko abwägen und zu einer begründeten Empfehlung kommen (tendenziell sinnvoll angesichts der Bedeutung von „Loreno Living" und der bereits eingetretenen Unruhe).
 
+---
+
+#### F-HB1-04 · Fallaufgabe
+
+**Themenbezug:** 1.2 (Unternehmensfinanzierung: Leverage-Effekt) + 1.3 (Controllinginstrumente: Break-even-Analyse)
+
+**Ausgangssituation:** Die Loreno Mode & Wohnen GmbH baut ein Fulfillment-Zentrum mit einem Gesamtkapital von 2.000.000 €: 800.000 € Eigenkapital und 1.200.000 € Fremdkapital zu 4,5 % Zinsen. Der Gewinn vor Fremdkapitalzinsen beträgt 160.000 € im Jahr. Für die Marke „Loreno Living“ prüft das Controlling ein Wohnaccessoire-Set: Verkaufspreis 120 € je Stück, variable Kosten 80 € je Stück, Fixkosten 600.000 € im Jahr.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie die jährlichen Fremdkapitalzinsen und den Gewinn nach Zinsen.
+
+**Teilaufgabe 2 (5 Punkte, bloom: analysieren):** Berechnen Sie die Eigenkapitalrentabilität und die Gesamtkapitalrentabilität und beurteilen Sie die Wirkung des Fremdkapitals.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie die Eigenkapitalquote.
+
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Berechnen Sie die Break-even-Menge und den Break-even-Umsatz des Sets.
+
+**Teilaufgabe 5 (3 Punkte, bloom: anwenden):** Berechnen Sie, wie viele Stück für einen Gewinn von 200.000 € abgesetzt werden müssen.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Zinsen = 1.200.000 € × 4,5 % = 54.000 €; Gewinn nach Zinsen = 160.000 € − 54.000 € = 106.000 €.
+Teilaufgabe 2: Eigenkapitalrentabilität = 106.000 € ÷ 800.000 € × 100 = 13,25 %; Gesamtkapitalrentabilität = 160.000 € ÷ 2.000.000 € × 100 = 8 %; da sie über dem Fremdkapitalzins von 4,5 % liegt, wirkt der Leverage-Effekt positiv und hebt die Eigenkapitalrentabilität über die Gesamtkapitalrentabilität.
+Teilaufgabe 3: Eigenkapitalquote = 800.000 € ÷ 2.000.000 € × 100 = 40 %.
+Teilaufgabe 4: Deckungsbeitrag je Stück = 120 € − 80 € = 40 €; Break-even-Menge = 600.000 € ÷ 40 € = 15.000 Stück; Break-even-Umsatz = 15.000 × 120 € = 1.800.000 €.
+Teilaufgabe 5: Menge = (600.000 € + 200.000 €) ÷ 40 € = 20.000 Stück.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

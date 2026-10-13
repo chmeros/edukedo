@@ -54,3 +54,27 @@ Teilaufgabe 2 sollte herausstellen, dass die statische Amortisationsrechnung nur
 Teilaufgabe 3 sollte erläutern, dass ein positiver Kapitalwert bedeutet, dass die Investition mehr erwirtschaftet, als die geforderte Mindestverzinsung (Kalkulationszinssatz) verlangt, und damit als vorteilhaft einzustufen ist.
 Teilaufgabe 4 sollte plausible Risiken nennen und begründet einer Strategie zuordnen, z. B. ein gravierendes, vermeidbares Standortrisiko der Kategorie "Vermeiden", schwankende Baukosten der Kategorie "Absichern" (z. B. durch Festpreisvereinbarungen).
 
+---
+
+#### F-WB2-03 · Fallaufgabe
+
+**Themenbezug:** 6.2 (Vertragskonditionen und Investitionsbewertung: Skonto, Amortisation und Kapitalwert)
+
+**Ausgangssituation:** Für Lagertechnik des geplanten Verteilzentrums erhält Loreno eine Rechnung über 45.000 €: „Zahlbar innerhalb von 40 Tagen netto, bei Zahlung innerhalb von 10 Tagen 3 % Skonto.“ Ein Kontokorrentkredit kostet 12 % Zinsen im Jahr. Für das Verteilzentrum stehen zwei Investitionen zur Wahl: Ein Fördersystem kostet 150.000 € und bringt jährlich 50.000 € Rückfluss. Eine Regalanlage kostet 105.000 € und bringt nach einem, zwei und drei Jahren 44.000 €, 60.500 € und 53.240 € Rückfluss; der Kalkulationszinssatz beträgt 10 %.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Berechnen Sie den Skontobetrag und den Überweisungsbetrag bei Skontonutzung.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie den Skonto-Effektivzins (Jahr mit 360 Tagen, auf eine Nachkommastelle gerundet).
+
+**Teilaufgabe 3 (4 Punkte, bloom: bewerten):** Berechnen Sie die Kreditzinsen für die vorgezogene Zahlung und beurteilen Sie, ob Skontonutzung mit Kredit vorteilhaft ist.
+
+**Teilaufgabe 4 (3 Punkte, bloom: anwenden):** Berechnen Sie die statische Amortisationsdauer des Fördersystems.
+
+**Teilaufgabe 5 (6 Punkte, bloom: bewerten):** Berechnen Sie den Kapitalwert der Regalanlage und beurteilen Sie ihre Vorteilhaftigkeit.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Skontobetrag = 45.000 € × 3 % = 1.350 €; Überweisungsbetrag = 45.000 € − 1.350 € = 43.650 €.
+Teilaufgabe 2: Effektivzins = 3 ÷ 97 × 360 ÷ 30 × 100 = 37,11, also etwa 37,1 % pro Jahr (Zahlungsziel 40 Tage minus Skontofrist 10 Tage = 30 Tage).
+Teilaufgabe 3: Kreditzinsen = 43.650 € × 12 % × 30 ÷ 360 = 436,50 €; der Skontovorteil von 1.350 € übersteigt sie um 913,50 €, Skontonutzung mit Kredit ist vorteilhaft (der Kredit mit 12 % ist deutlich günstiger als der Skonto-Effektivzins von etwa 37,1 %).
+Teilaufgabe 4: Amortisationsdauer = 150.000 € ÷ 50.000 € = 3 Jahre.
+Teilaufgabe 5: Barwerte = 44.000 € ÷ 1,10 = 40.000 €, 60.500 € ÷ 1,10² = 50.000 €, 53.240 € ÷ 1,10³ = 40.000 €; Summe 130.000 €; Kapitalwert = 130.000 € − 105.000 € = 25.000 €; er ist positiv, die Regalanlage erwirtschaftet mehr als die geforderten 10 % und ist vorteilhaft.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

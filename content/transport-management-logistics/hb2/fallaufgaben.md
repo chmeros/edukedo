@@ -75,3 +75,46 @@ Teilaufgabe 2 sollte Gefahrzettel für Klasse 3, Beförderungspapier mit UN-Numm
 Teilaufgabe 3 sollte kritisch hinterfragen, ob EXW angesichts der Komplexität sinnvoll ist, da hier die gesamte Organisation von Transport, Gefahrgut- und Zollabwicklung beim Kunden läge; eine Klausel mit stärkerer Verkäuferverantwortung (z. B. eine C- oder D-Klausel) könnte angesichts der fachlichen Expertise von Fracora sinnvoller sein — beide begründeten Einschätzungen sind anzuerkennen.
 Teilaufgabe 4 sollte die Prüfung der korrekten Klassifizierung, Kennzeichnung und Dokumentation sowie die Beratung der beteiligten Abteilungen und ggf. des Kunden durch den Gefahrgutbeauftragten hervorheben.
 
+---
+
+#### F-HB2-04 · Fallaufgabe
+
+**Themenbezug:** 2.1 (Transportplanung und -durchführung: Kennzahlen und Sparverfahren)
+
+**Ausgangssituation:** Im Monat zeigt die Transportplanung bei Fracora: Ein Lkw mit 24 t Nutzlast fuhr im Schnitt mit 21 t Ladung; von 15.000 gefahrenen Kilometern waren 1.200 Leerkilometer; von 1.500 Sendungen kamen 1.410 pünktlich an. Als angenommene Zielwerte gelten ein Auslastungsgrad von mindestens 85 %, eine Leerkilometerquote von höchstens 10 % und eine Pünktlichkeitsquote von mindestens 97 %. Für eine neue Tour gelten ab Depot 0 die Abstände d(0,A) = 35 km, d(0,B) = 55 km, d(0,C) = 45 km, außerdem d(A,B) = 25 km und d(A,C) = 70 km.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie Auslastungsgrad, Leerkilometerquote und Pünktlichkeitsquote.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie den Einsparwert s(A,B) und vergleichen Sie die Länge der beiden Einzeltouren mit der gemeinsamen Tour Depot–A–B–Depot.
+
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Berechnen Sie den Einsparwert s(A,C) und bestimmen Sie, welches der beiden Paare das Sparverfahren zuerst verbindet.
+
+**Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie die drei Kennzahlen und nennen Sie eine Maßnahme zur Senkung der Leerkilometer.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Auslastungsgrad = 21 t ÷ 24 t × 100 = 87,5 %; Leerkilometerquote = 1.200 km ÷ 15.000 km × 100 = 8 %; Pünktlichkeitsquote = 1.410 ÷ 1.500 × 100 = 94 %.
+Teilaufgabe 2: s(A,B) = 35 + 55 − 25 = 65 km; Einzeltouren = 2 × 35 km + 2 × 55 km = 180 km, gemeinsame Tour = 35 km + 25 km + 55 km = 115 km; Ersparnis = 65 km.
+Teilaufgabe 3: s(A,C) = 35 + 45 − 70 = 10 km; da 65 km größer ist als 10 km, verbindet das Sparverfahren von diesen beiden Paaren zuerst A und B (sofern Kapazität und Zeitfenster passen).
+Teilaufgabe 4 sollte bewerten: Der Auslastungsgrad von 87,5 % und die Leerkilometerquote von 8 % erfüllen die Zielwerte, bei der Pünktlichkeitsquote von 94 % (Ziel 97 %) kommen 90 von 1.500 Sendungen zu spät, die Ursachen sollten untersucht werden (z. B. Zeitfenster und Puffer in der Planung); Leerkilometer senkt Fracora z. B. durch Rückladungen oder Touren-Kopplung.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
+
+---
+
+#### F-HB2-05 · Fallaufgabe
+
+**Themenbezug:** 2.2 (Lagerlogistik und Bestandsmanagement: Bestandskennzahlen) + 2.6 (Qualitäts- und Umweltmanagement: CO2-Bilanzierung)
+
+**Ausgangssituation:** Für einen Kontraktlogistik-Auftraggeber hatte das Fracora-Lager zu Jahresbeginn 240 und zu Jahresende 260 Paletten; der Jahresabgang betrug 2.500 Paletten. Für einen Artikel gelten: Tagesabgang 7 Paletten, Wiederbeschaffungszeit 5 Tage, Sicherheitsbestand 25 Paletten. Eine Sendung von 20 t soll über 900 km transportiert werden. Als angenommene Rechenwerte gelten 60 g CO2 je tkm für den Lkw und 24 g CO2 je tkm für die Bahn. Rechenjahr: 360 Tage.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie den durchschnittlichen Lagerbestand und die Umschlagshäufigkeit.
+
+**Teilaufgabe 2 (6 Punkte, bloom: anwenden):** Berechnen Sie die durchschnittliche Lagerdauer und den Meldebestand des Artikels.
+
+**Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Berechnen Sie die Transportleistung in Tonnenkilometern und die Emissionen bei Lkw- und bei Bahntransport.
+
+**Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Berechnen Sie die Einsparung bei Verlagerung auf die Bahn und beurteilen Sie, was bei der Entscheidung zusätzlich zu beachten ist.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Durchschnittlicher Lagerbestand = (240 + 260) ÷ 2 = 250 Paletten; Umschlagshäufigkeit = 2.500 ÷ 250 = 10.
+Teilaufgabe 2: Lagerdauer = 360 ÷ 10 = 36 Tage; Meldebestand = 7 × 5 + 25 = 60 Paletten.
+Teilaufgabe 3: Tonnenkilometer = 20 t × 900 km = 18.000 tkm; Lkw = 18.000 × 60 g = 1.080.000 g = 1.080 kg CO2; Bahn = 18.000 × 24 g = 432.000 g = 432 kg CO2.
+Teilaufgabe 4: Einsparung = 1.080 kg − 432 kg = 648 kg (60 %); zusätzlich zu beachten sind u. a. Transportzeit, Kosten, Terminvorgaben des Kunden, Vor- und Nachlauf zu den Terminals und die Verfügbarkeit des Bahnverkehrs; die Emissionsfaktoren sind nur Rechenwerte.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

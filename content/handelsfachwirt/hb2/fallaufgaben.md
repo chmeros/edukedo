@@ -75,3 +75,27 @@ Teilaufgabe 2 sollte den PDCA-Zyklus konkret anwenden: Plan (Gefährdungsbeurtei
 Teilaufgabe 3 sollte den möglichen Zusammenhang zwischen körperlicher Belastung/Arbeitsschutzmängeln und krankheitsbedingten Ausfällen herstellen und den Krankenstand als geeignete Kennzahl zur weiteren Beobachtung nennen (ergänzend die Fluktuationsquote, falls Mitarbeitende deswegen kündigen).
 Teilaufgabe 4 sollte eine klar strukturierte, wertschätzende Kommunikation entwerfen, die die neuen Maßnahmen erklärt, den Sinn dahinter transparent macht und das Team aktiv zur Mitwirkung (z. B. Meldung weiterer Gefahrenstellen) einlädt.
 
+---
+
+#### F-HB2-04 · Fallaufgabe
+
+**Themenbezug:** 2.3 (Personalplanung: Personalbedarf und Kennzahlen)
+
+**Ausgangssituation:** Eine Filiale der Loreno Mode & Wohnen GmbH hatte zu Jahresbeginn 58 und zu Jahresende 62 Mitarbeitende. Im Jahr schieden 9 Mitarbeitende aus. Es gab 1.512 krankheitsbedingte Fehltage bei insgesamt 15.120 Solltagen. Für das kommende Jahr wird ein Bruttopersonalbedarf von 70 Stellen geplant. Loreno strebt eine Fluktuationsquote von höchstens 10 % und einen Krankenstand von höchstens 6 % an (angenommene Zielwerte).
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie den durchschnittlichen Personalbestand und die Fluktuationsquote.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie den Krankenstand.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie den Nettopersonalbedarf für das kommende Jahr.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie, wie viele Mitarbeitende die Filiale im Jahr eingestellt hat.
+
+**Teilaufgabe 5 (4 Punkte, bloom: bewerten):** Bewerten Sie Fluktuationsquote und Krankenstand im Vergleich mit den Zielwerten und nennen Sie je eine Maßnahme.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Durchschnittlicher Personalbestand = (58 + 62) ÷ 2 = 60; Fluktuationsquote = 9 ÷ 60 × 100 = 15 %.
+Teilaufgabe 2: Krankenstand = 1.512 ÷ 15.120 × 100 = 10 %.
+Teilaufgabe 3: Nettopersonalbedarf = 70 − 62 = 8 Stellen.
+Teilaufgabe 4: Endbestand = Anfangsbestand + Einstellungen − Austritte, also Einstellungen = 62 − 58 + 9 = 13.
+Teilaufgabe 5 sollte bewerten: Fluktuationsquote 15 % und Krankenstand 10 % verfehlen die Zielwerte von 10 % und 6 % deutlich und deuten auf Führungs-, Arbeitsbedingungs- oder Belastungsprobleme hin (Maßnahmen z. B. Mitarbeitendengespräche und Austrittsgespräche, Gefährdungsbeurteilung und betriebliches Gesundheitsmanagement).
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

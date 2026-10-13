@@ -75,3 +75,24 @@ Teilaufgabe 2 sollte ein Konzept mit gemeinsamen Schnittstellen zwischen TMS, LV
 Teilaufgabe 3 sollte Risiken wie Cyberangriffe auf die neu vernetzten Systeme (absichern), eine wachsende allgemeine IT-Abhängigkeit (beobachten) sowie ggf. geringfügige, tolerierbare Restrisiken einzelner Übertragungsfehler (akzeptieren) benennen und begründet zuordnen.
 Teilaufgabe 4 sollte das Projekt in erster Linie als Marktdurchdringung/Qualitätsverbesserung für Bestandskunden im bestehenden Markt einordnen, gleichzeitig aber anerkennen, dass eine verbesserte Digitalisierung selbst als neues, vermarktbares Leistungsmerkmal (Ansatzpunkt zur Produktentwicklung) für die Kundenakquise genutzt werden kann.
 
+---
+
+#### F-HB1-04 · Fallaufgabe
+
+**Themenbezug:** 1.3 (Vertrieb und Angebotskalkulation: Zuschlagskalkulation, Wettbewerbsangebot und Preisuntergrenze)
+
+**Ausgangssituation:** Fracora soll für ein Industrieunternehmen eine Tour über 450 km anbieten (die 450 km sind die gesamte Fahrt; eine Leerfahrt wird nicht kalkuliert). Als Rechenwerte gelten: Verbrauch 0,32 l je km bei 1,50 € je Liter Diesel, Maut 0,18 € je km, Fahrpersonal 8 Stunden zu 32,50 € je Stunde. Fracora rechnet mit 20 % Gemeinkostenzuschlag auf die Einzelkosten und 10 % Gewinnzuschlag auf die Selbstkosten. Die Konkurrenz bietet die Tour für 700 € netto an. Ein anderer Auftraggeber bietet 600 € für eine zusätzliche Tour, die Fracora sonst nicht fahren würde; dafür fallen dieselben tourbezogenen Kosten an, die alle als variabel gelten (Fahrpersonal wird nach Einsatzstunden bezahlt).
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie die Kraftstoffkosten, die Mautkosten, die Kosten des Fahrpersonals und die Einzelkosten der Tour.
+
+**Teilaufgabe 2 (6 Punkte, bloom: anwenden):** Berechnen Sie die Selbstkosten und den Angebotspreis (netto) bis zum Cent.
+
+**Teilaufgabe 3 (4 Punkte, bloom: bewerten):** Berechnen Sie den Gewinn, den Fracora bei einem Preis von 700 € erzielt, und beurteilen Sie, ob Fracora das Wettbewerbsangebot unterbieten oder angleichen sollte.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie den Deckungsbeitrag der zusätzlichen Tour und nennen Sie die kurzfristige Preisuntergrenze.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Kraftstoff = 450 km × 0,32 l/km × 1,50 € = 144 l × 1,50 € = 216 €; Maut = 450 km × 0,18 € = 81 €; Fahrpersonal = 8 h × 32,50 € = 260 €; Einzelkosten = 216 € + 81 € + 260 € = 557 €.
+Teilaufgabe 2: Gemeinkosten = 557 € × 20 % = 111,40 €, Selbstkosten = 668,40 €; Gewinn = 668,40 € × 10 % = 66,84 €, Angebotspreis netto = 735,24 €.
+Teilaufgabe 3: Gewinn bei 700 € = 700 € − 668,40 € = 31,60 €; der Preis liegt unter dem kalkulierten Angebotspreis, deckt aber alle Kosten und lässt noch einen kleinen Gewinn; Fracora kann angleichen, wenn die Kundschaft strategisch wichtig ist, sollte aber nicht weiter senken, weil unter 668,40 € die Gemeinkosten nicht mehr gedeckt sind.
+Teilaufgabe 4: Deckungsbeitrag der zusätzlichen Tour = 600 € − 557 € = 43 €; die kurzfristige Preisuntergrenze sind die variablen Kosten von 557 €, als Dauerpreis taugt sie nicht.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

@@ -75,3 +75,27 @@ Teilaufgabe 2 sollte rechnen: Umschlagshäufigkeit = Abgang / durchschnittlicher
 Teilaufgabe 3 sollte herausarbeiten, dass Ware-zum-Mann höhere Anfangsinvestitionen erfordert, sich aber bei hohem, gleichbleibendem Auftragsvolumen lohnt, während Mann-zur-Ware bei einem neuen Lager mit zunächst unsicherem Volumen die risikoärmere Startlösung sein kann — beide Richtungen mit nachvollziehbarer Begründung sind anzuerkennen.
 Teilaufgabe 4 sollte z. B. Umschlagshäufigkeit, Lieferzuverlässigkeit/Termintreue an die Filialen, Kommissionierfehlerquote, durchschnittliche Durchlaufzeit vom Wareneingang bis zur Filialbelieferung oder Lagerkosten je Auftrag nennen (drei genannte, sinnvoll begründete Kennzahlen sind ausreichend).
 
+---
+
+#### F-HB4-04 · Fallaufgabe
+
+**Themenbezug:** 4.1 (Bedarfsermittlung: Meldebestand) + 4.3 (Lager- und Transportprozesse: Lagerkennzahlen)
+
+**Ausgangssituation:** Für Frottee-Handtücher gelten bei Loreno: Tagesverbrauch 60 Stück, Wiederbeschaffungszeit 7 Tage, Sicherheitsbestand 150 Stück, aktueller Bestand 1.800 Stück. Das Warenlager hatte zu Jahresbeginn einen Bestand von 150.000 € und zu Jahresende von 210.000 € (zu Einstandspreisen); der Wareneinsatz betrug 1.440.000 €, der Zinssatz 8 %. Rechenjahr: 360 Tage.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie den Meldebestand der Handtücher.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie den durchschnittlichen Lagerbestand und die Umschlagshäufigkeit des Warenlagers.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie die durchschnittliche Lagerdauer und die Reichweite des aktuellen Handtuchbestands.
+
+**Teilaufgabe 4 (3 Punkte, bloom: anwenden):** Berechnen Sie die jährlichen Kapitalbindungskosten des Warenlagers.
+
+**Teilaufgabe 5 (4 Punkte, bloom: bewerten):** Die Umschlagshäufigkeit soll auf 10 steigen. Berechnen Sie den dann nötigen durchschnittlichen Lagerbestand und die Ersparnis bei den Kapitalbindungskosten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Meldebestand = 60 × 7 + 150 = 570 Stück.
+Teilaufgabe 2: Durchschnittlicher Lagerbestand = (150.000 € + 210.000 €) ÷ 2 = 180.000 €; Umschlagshäufigkeit = 1.440.000 € ÷ 180.000 € = 8.
+Teilaufgabe 3: Lagerdauer = 360 ÷ 8 = 45 Tage; Reichweite = 1.800 ÷ 60 = 30 Tage.
+Teilaufgabe 4: Kapitalbindungskosten = 180.000 € × 8 % = 14.400 €.
+Teilaufgabe 5: Bei einer Umschlagshäufigkeit von 10 beträgt der durchschnittliche Lagerbestand 1.440.000 € ÷ 10 = 144.000 €; die Kapitalbindungskosten sinken auf 144.000 € × 8 % = 11.520 €, eine Ersparnis von 2.880 € im Jahr; Voraussetzung ist, dass dabei keine Fehlmengen entstehen.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

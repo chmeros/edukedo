@@ -75,3 +75,46 @@ Teilaufgabe 2 sollte den Naturalrabatt als zusätzliche kostenlose Warenmenge st
 Teilaufgabe 3 sollte herausarbeiten, dass der Naturalrabatt den effektiven Stückpreis senkt (mehr Ware für dasselbe Geld), wodurch sich bei unverändertem Verkaufspreis die tatsächlich realisierte Handelsspanne erhöht.
 Teilaufgabe 4 sollte eine Gesamtabwägung aus höherer effektiver Spanne durch den Naturalrabatt und der einmaligen Einnahme aus der Listungsgebühr gegen das Risiko vornehmen, dass der Lieferant die Gebühr in seine Preise einrechnet oder auf die Aufnahme verzichtet und als fehlende Information z. B. die erwartete Absatzmenge oder Qualität der neuen Artikel nennen, um die Wirtschaftlichkeit vollständig beurteilen zu können.
 
+---
+
+#### F-WB1-04 · Fallaufgabe
+
+**Themenbezug:** 5.3 (Preis- und Konditionenpolitik: Handelskalkulation)
+
+**Ausgangssituation:** Loreno kalkuliert ein Bettwäsche-Set. Der Lieferant nennt einen Listeneinkaufspreis von 150,00 € je Set, gewährt 10 % Lieferantenrabatt und 2 % Lieferantenskonto; die Bezugskosten betragen 0,70 € je Set. Loreno rechnet mit 25 % Handlungskosten und 12 % Gewinn und gewährt der Kundschaft 2 % Kundenskonto und 5 % Kundenrabatt, jeweils im Hundert vom höheren Preis. Die Umsatzsteuer beträgt 19 %.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Ermitteln Sie Zieleinkaufspreis, Bareinkaufspreis und Bezugspreis.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Ermitteln Sie die Selbstkosten und den Barverkaufspreis.
+
+**Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Ermitteln Sie Zielverkaufspreis und Listenverkaufspreis (netto) sowie den Preis inklusive Umsatzsteuer.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Für einen anderen Artikel gelten ein Bezugspreis von 50,00 € und ein Nettoverkaufspreis von 80,00 €. Berechnen Sie Kalkulationszuschlag, Handelsspanne und Kalkulationsfaktor.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Zieleinkaufspreis = 150,00 € − 15,00 € = 135,00 €; Bareinkaufspreis = 135,00 € − 2,70 € = 132,30 €; Bezugspreis = 132,30 € + 0,70 € = 133,00 €.
+Teilaufgabe 2: Handlungskosten = 133,00 € × 25 % = 33,25 €, Selbstkosten = 166,25 €; Gewinn = 166,25 € × 12 % = 19,95 €, Barverkaufspreis = 186,20 €.
+Teilaufgabe 3: Zielverkaufspreis = 186,20 € ÷ 0,98 = 190,00 €; Listenverkaufspreis netto = 190,00 € ÷ 0,95 = 200,00 €; mit Umsatzsteuer 200,00 € × 1,19 = 238,00 €.
+Teilaufgabe 4: Differenz = 30,00 €; Kalkulationszuschlag = 30,00 € ÷ 50,00 € × 100 = 60 %; Handelsspanne = 30,00 € ÷ 80,00 € × 100 = 37,5 %; Kalkulationsfaktor = 80,00 € ÷ 50,00 € = 1,6.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
+
+---
+
+#### F-WB1-05 · Fallaufgabe
+
+**Themenbezug:** 5.2 (Flächenoptimierung: Flächenproduktivität und Flächenrentabilität)
+
+**Ausgangssituation:** Eine Loreno-Filiale hat 1.000 m² Verkaufsfläche, davon 300 m² für Damenoberbekleidung (Umsatz 1.350.000 €, Deckungsbeitragsquote 36 %) und 150 m² für Wohnaccessoires (Umsatz 330.000 €, Deckungsbeitragsquote 42 %). Die Flächenkosten betragen 700 € je m² und Jahr. Die Filialleitung überlegt, 30 m² von den Wohnaccessoires an die Damenoberbekleidung zu übertragen.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie den Umsatz je m² beider Warengruppen.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie den Deckungsbeitrag und den Deckungsbeitrag je m² beider Warengruppen.
+
+**Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Berechnen Sie die Flächenkosten und die Flächenrentabilität der Wohnaccessoires (Deckungsbeitrag im Verhältnis zu den Flächenkosten).
+
+**Teilaufgabe 4 (6 Punkte, bloom: bewerten):** Berechnen Sie die Änderung des Deckungsbeitrags bei der Umwidmung der 30 m² und beurteilen Sie die Annahmen dieser Rechnung.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Damenoberbekleidung 1.350.000 € ÷ 300 m² = 4.500 € je m²; Wohnaccessoires 330.000 € ÷ 150 m² = 2.200 € je m².
+Teilaufgabe 2: Damenoberbekleidung 1.350.000 € × 36 % = 486.000 €, je m² 1.620 €; Wohnaccessoires 330.000 € × 42 % = 138.600 €, je m² 924 €.
+Teilaufgabe 3: Flächenkosten = 150 m² × 700 € = 105.000 €; Flächenrentabilität = 138.600 € ÷ 105.000 € × 100 = 132 %.
+Teilaufgabe 4: Änderung = 30 m² × (1.620 € − 924 €) = 20.880 € mehr Deckungsbeitrag; die Rechnung unterstellt, dass die zusätzlichen 30 m² dieselbe Produktivität je m² erreichen wie die bisherige Fläche der Damenoberbekleidung und dass die Nachfrage dafür reicht; beides ist unsicher, außerdem entfallen Umsatz und Kundenfrequenz der Wohnaccessoires und es entstehen Umbaukosten.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
