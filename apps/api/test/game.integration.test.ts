@@ -81,7 +81,7 @@ describe("F-140/F-141/F-142/F-143: Gaming-Tab-Spiele", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation", "mathematik-9"] });
 
     const [kursRow] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation")).limit(1);
     kursId = kursRow!.id;

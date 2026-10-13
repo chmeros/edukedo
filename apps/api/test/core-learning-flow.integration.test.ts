@@ -43,7 +43,7 @@ describe("End-to-End: Registrierung → Karteikarten-Session → Quiz", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     // Veröffentlichung ist bewusst ein separater Admin-Schritt (siehe admin.ts) — hier
     // direkt in der DB gesetzt, analog zur Live-Verifikation in dieser Session.

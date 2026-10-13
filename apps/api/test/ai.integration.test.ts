@@ -82,7 +82,7 @@ describe("F-70/F-71: KI-Bewertung & Aufgabengenerierung", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db
       .update(schema.kurs)

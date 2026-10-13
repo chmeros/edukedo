@@ -70,7 +70,7 @@ describe("F-61: Duelle", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db
       .update(schema.kurs)

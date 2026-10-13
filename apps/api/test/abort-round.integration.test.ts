@@ -63,7 +63,7 @@ describe("F-125: Lernrunde ohne Wertung abbrechen", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db
       .update(schema.kurs)

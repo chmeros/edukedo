@@ -45,7 +45,7 @@ describe("Integration: offline.syncQueue (F-42 Baustein 5, Code-Review-Fixe)", (
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db
       .update(schema.kurs)

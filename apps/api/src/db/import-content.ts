@@ -296,6 +296,12 @@ export interface ImportOptions {
   dryRun?: boolean;
   /** Hebt die Abbruchschwelle für Entfernungen auf (siehe REMOVAL_THRESHOLD_* in content-sync-plan.ts). */
   allowRemovals?: boolean;
+  /**
+   * Nur diese Kurse (Verzeichnisnamen unter `content/`, gleich dem `kurs_slug`) abgleichen. Gedacht für Integrationstests, die
+   * nur einen Kurs brauchen: Der Voll-Import (16.000+ Items) dauert dort je Testdatei über eine Minute und wächst mit jedem Kurs.
+   * Die Validierung läuft weiterhin über den gesamten Content.
+   */
+  kurse?: string[];
 }
 
 interface ThemaImportResult {
@@ -533,6 +539,7 @@ export async function importAllContent(options: ImportOptions = {}): Promise<Imp
 
   for (const kursDir of kursDirs) {
     if (!kursDir.isDirectory()) continue;
+    if (options.kurse && !options.kurse.includes(kursDir.name)) continue;
     const kursPath = path.join(CONTENT_DIR, kursDir.name);
     const fachgebietDirs = await readdir(kursPath, { withFileTypes: true });
 

@@ -55,7 +55,7 @@ describe("F-129: Instrumenten-Lernpfad — Freischaltung über den Abo-Status", 
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     const [kursRow] = await db
       .select()

@@ -82,7 +82,7 @@ describe("F-91/F-93: Business-Lizenzen — Zugriffskontrolle, Lizenzkontingent, 
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     const appModule = await import("../src/app");
     app = await appModule.buildApp();

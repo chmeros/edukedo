@@ -66,7 +66,7 @@ describe("N-10: Verhalten bei Redis-Ausfall", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     const [kursRow] = await db
       .select()

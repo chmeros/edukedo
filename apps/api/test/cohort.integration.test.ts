@@ -70,7 +70,7 @@ describe("F-07/F-64/F-65: Kohorten-/Dozenten-Funktion", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db
       .update(schema.kurs)

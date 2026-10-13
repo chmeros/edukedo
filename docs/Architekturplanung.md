@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (CI: Integrationstests laden nur ihren Kurs statt des gesamten Contents)
+
+Anlass: Der CI-Schritt „Test“ war seit dem 12.10.2026 wechselweise rot. Das Protokoll (`gh run view --log-failed`) zeigte: `core-learning-flow.integration.test.ts` lief mit „Hook timed out in 120000ms“ in den Timeout, danach folgte der Folgefehler „Connection terminated unexpectedly“ (Container beendet). Ursache: Zwölf Integrationstests importieren im `beforeAll` den **gesamten** Content (16.660 Items, 15 Kurse) in einen frischen Postgres-Container; das dauerte im CI 68 bis 160 s je Datei (vier Container parallel), die zwei Dateien mit 120-s-Limit (`core-learning-flow`, `offline-sync`) lagen an der Grenze und kippten bei langsamem Runner. Mit dem Content-Wachstum vom 12./13.10. wurde es dauerhaft knapp. Kein Testfehler, kein Programmfehler.
+
+- **Entscheidung:** `importAllContent` erhält die Option `kurse` (Liste von Kurs-Verzeichnisnamen). Die Validierung läuft weiter über den gesamten Content, abgeglichen werden nur die genannten Kurse. Die zwölf Tests laden nur `fachwirt-buero-projektorganisation` (`game` zusätzlich `mathematik-9`). Der Voll-Import wird weiterhin im `import-content.integration.test.ts` geprüft (240-s-Limit, zuletzt 159 s; bei weiterem Wachstum dort das Limit anheben oder den Test auf wenige Kurse beschränken).
+- **Ergebnis:** Alle zwölf Dateien bestehen lokal (111 Tests), je Datei 8 bis 17 s statt 70 bis 130 s; die Laufzeit wächst nicht mehr mit jedem neuen Kurs.
+- **Nicht geändert:** Hook-Limits und `maxForks` bleiben; sie würden das Wachstumsproblem nur verschieben.
+
 ### Entschieden am 13.10.2026 (Fallaufgaben: Musterlösungshinweise einheitlich mit einer Zeile je Teilaufgabe; Entscheidung des Projektleiters)
 
 Anlass: Beim Browser-Durchgang waren nur die neuen HQ1- und HQ2-Aufgaben mehrzeilig, alle anderen Musterlösungen ein Absatz von 3.000 bis 5.000 Zeichen. Der Projektleiter ließ die Zeilenumbrüche je Teilaufgabe überall umsetzen.

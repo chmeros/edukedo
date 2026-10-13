@@ -38,7 +38,7 @@ describe("Einstieg in einen Kurs: erstes Thema zuerst", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent();
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
 
     await db.update(schema.kurs).set({ isPublished: true }).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation"));
     const [kursRow] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation")).limit(1);
