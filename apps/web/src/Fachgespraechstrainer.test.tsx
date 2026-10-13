@@ -66,6 +66,31 @@ describe("Fachgespraechstrainer: Antwort prüfen (Entscheidung 11.10.2026)", () 
     expect(text()).not.toContain("Punkten genannt");
   });
 
+  it("zeigt bei einer Frage der Ergänzungsprüfung Titel, Fundstelle und Hinweis (Entscheidung 13.10.2026)", () => {
+    reg.queries["content.fachgespraechFragen"] = [
+      {
+        ...OHNE,
+        pruefungsform: {
+          art: "ergaenzungspruefung",
+          titel: "Mündliche Ergänzungsprüfung",
+          dauerMinuten: 15,
+          quelle: "§ 4 Abs. 6 TechFachwPrV",
+          hinweis: "Sie dauert in der Regel höchstens 15 Minuten.",
+        },
+      },
+    ];
+    render(<Fachgespraechstrainer kursId="k1" />);
+    const hinweis = screen.getByRole("note");
+    expect(hinweis.textContent).toContain("Mündliche Ergänzungsprüfung");
+    expect(hinweis.textContent).toContain("§ 4 Abs. 6 TechFachwPrV");
+    expect(hinweis.textContent).toContain("höchstens 15 Minuten");
+  });
+
+  it("zeigt keinen Hinweis, wenn die Frage keine Prüfungsform hat", () => {
+    render(<Fachgespraechstrainer kursId="k1" />);
+    expect(screen.queryByRole("note")).toBeNull();
+  });
+
   it("kommt auch mit Antworten ohne die neuen Felder zurecht (älterer Serverstand)", () => {
     reg.queries["content.fachgespraechFragen"] = [{ id: "frage-3", frage: "Alte Frage?", themaTitel: "1.3" }];
     render(<Fachgespraechstrainer kursId="k1" />);

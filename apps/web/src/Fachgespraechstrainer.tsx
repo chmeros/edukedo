@@ -87,6 +87,14 @@ export function Fachgespraechstrainer({ kursId }: { kursId: string }) {
       <span className="quiz-progress">
         Frage {index + 1} von {items.length} · {current.themaTitel}
       </span>
+      {current.pruefungsform && (
+        <div className="alert alert-info" role="note">
+          <InfoIcon />
+          <div>
+            <b>{current.pruefungsform.titel}</b> ({current.pruefungsform.quelle}). {current.pruefungsform.hinweis}
+          </div>
+        </div>
+      )}
       <div className="exam-situation">
         <p className="flip-q">{current.frage}</p>
       </div>

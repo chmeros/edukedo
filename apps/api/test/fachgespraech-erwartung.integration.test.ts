@@ -1,5 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
-import { and, eq, ne } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import type { FastifyInstance } from "fastify";
@@ -34,7 +34,7 @@ describe("Fachgesprächsfragen mit Erwartungshorizont", () => {
     await migrate(db, { migrationsFolder: "./drizzle" });
 
     const { importAllContent } = await import("../src/db/import-content");
-    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation"] });
+    await importAllContent({ kurse: ["fachwirt-buero-projektorganisation", "technischer-fachwirt"] });
 
     await db.update(schema.kurs).set({ isPublished: true }).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation"));
     const [kursRow] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "fachwirt-buero-projektorganisation")).limit(1);
@@ -52,7 +52,7 @@ describe("Fachgesprächsfragen mit Erwartungshorizont", () => {
     await db
       .update(schema.contentItem)
       .set({ isActive: false })
-      .where(and(eq(schema.contentItem.type, "fachgespraech_frage"), ne(schema.contentItem.id, fragenIds[0]!), ne(schema.contentItem.id, fragenIds[1]!)));
+      .where(inArray(schema.contentItem.id, fragen.slice(2).map((frage) => frage.id)));
     const erste = fragen[0]!;
     // Die zweite Frage ohne Erwartungshorizont herstellen, unabhängig davon, was die Inhaltsdateien gerade tragen.
     const zweite = fragen[1]!;
@@ -103,5 +103,59 @@ describe("Fachgesprächsfragen mit Erwartungshorizont", () => {
     expect(mit.rueckfragen).toEqual(["Eine Rückfrage?"]);
     expect(ohne.erwartung).toEqual([]);
     expect(ohne.rueckfragen).toEqual([]);
+    // Der Büro-Kurs hat keine Zuordnung der Prüfungsform.
+    expect((mit as { pruefungsform?: unknown }).pruefungsform).toBeNull();
+  }, 60_000);
+
+  it("liefert die Prüfungsform je Fachgebiet: Ergänzungsprüfung für WQ/TQ, Fachgespräch für HQ (Entscheidung 13.10.2026)", async () => {
+    const [tf] = await db.select().from(schema.kurs).where(eq(schema.kurs.slug, "technischer-fachwirt")).limit(1);
+    await db.update(schema.kurs).set({ isPublished: true }).where(eq(schema.kurs.id, tf!.id));
+    // Zweites Konto, weil das erste schon im Büro-Kurs eingeschrieben ist (Kurswechsel-Regel F-102).
+    const register = await app.inject({
+      method: "POST",
+      url: "/api/v1/trpc/auth.register",
+      payload: { email: "pruefungsform-test@example.com", password: "Pruefungsform1234!", birthDate: "1995-01-01" },
+    });
+    expect(register.statusCode).toBe(200);
+    const raw = register.headers["set-cookie"];
+    const tfCookie = (Array.isArray(raw) ? raw[0] : raw)!.split(";")[0]!;
+    const enroll = await app.inject({ method: "POST", url: "/api/v1/trpc/courses.enroll", headers: { cookie: tfCookie }, payload: { kursId: tf!.id } });
+    expect(enroll.statusCode).toBe(200);
+
+    const frage = async (fachgebietCode: string) => {
+      const [zeile] = await db
+        .select({ id: schema.contentItem.id })
+        .from(schema.contentItem)
+        .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+        .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+        .where(and(eq(schema.contentItem.type, "fachgespraech_frage"), eq(schema.fachgebiet.kursId, tf!.id), eq(schema.fachgebiet.code, fachgebietCode)))
+        .limit(1);
+      return zeile!.id;
+    };
+    // Nur je eine Frage aus WQ2, TQ3 und HQ4 aktiv lassen.
+    const aktiv = [await frage("WQ2"), await frage("TQ3"), await frage("HQ4")];
+    const alle = await db
+      .select({ id: schema.contentItem.id })
+      .from(schema.contentItem)
+      .innerJoin(schema.thema, eq(schema.thema.id, schema.contentItem.themaId))
+      .innerJoin(schema.fachgebiet, eq(schema.fachgebiet.id, schema.thema.fachgebietId))
+      .where(and(eq(schema.contentItem.type, "fachgespraech_frage"), eq(schema.fachgebiet.kursId, tf!.id)));
+    await db
+      .update(schema.contentItem)
+      .set({ isActive: false })
+      .where(inArray(schema.contentItem.id, alle.map((zeile) => zeile.id).filter((id) => !aktiv.includes(id))));
+
+    const response = await app.inject({
+      method: "GET",
+      url: `/api/v1/trpc/content.fachgespraechFragen?input=${encodeURIComponent(JSON.stringify({ kursId: tf!.id }))}`,
+      headers: { cookie: tfCookie },
+    });
+    expect(response.statusCode).toBe(200);
+    const fragen = response.json().result.data as { id: string; pruefungsform: { art: string; dauerMinuten: number; quelle: string } | null }[];
+    expect(fragen).toHaveLength(3);
+    const form = (id: string) => fragen.find((eintrag) => eintrag.id === id)!.pruefungsform!;
+    expect(form(aktiv[0]!)).toMatchObject({ art: "ergaenzungspruefung", dauerMinuten: 15, quelle: "§ 4 Abs. 6 TechFachwPrV" });
+    expect(form(aktiv[1]!)).toMatchObject({ art: "ergaenzungspruefung", dauerMinuten: 20, quelle: "§ 5 Abs. 5 TechFachwPrV" });
+    expect(form(aktiv[2]!)).toMatchObject({ art: "fachgespraech", dauerMinuten: 30, quelle: "§ 3 Abs. 6 TechFachwPrV" });
   }, 60_000);
 });

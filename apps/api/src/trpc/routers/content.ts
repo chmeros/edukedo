@@ -2,6 +2,7 @@ import {
   activeKursInputSchema,
   dueCardsInputSchema,
   fachgespraechFragePayloadSchema,
+  fachgespraechPruefungsform,
   GANTT_QUIZ_TYPE,
   HIERARCHIE_QUIZ_TYPE,
   promptFuerAnzeige,
@@ -13,7 +14,7 @@ import {
 } from "@edukedo/shared";
 import { TRPCError } from "@trpc/server";
 import { and, asc, eq, ilike, inArray, isNull, lte, ne, or, sql } from "drizzle-orm";
-import { contentItem, fachgebiet, thema, userCourse, userProgress } from "../../db/schema";
+import { contentItem, fachgebiet, kurs, thema, userCourse, userProgress } from "../../db/schema";
 import { protectedProcedure, router } from "../trpc";
 
 /** ILIKE behandelt "%"/"_" als Wildcards und "\" als Escape-Zeichen — ohne Escaping würde ein
@@ -240,10 +241,17 @@ export const contentRouter = router({
    */
   fachgespraechFragen: protectedProcedure.input(activeKursInputSchema).query(async ({ ctx, input }) => {
     const rows = await ctx.db
-      .select({ id: contentItem.id, prompt: contentItem.prompt, payload: contentItem.payload })
+      .select({
+        id: contentItem.id,
+        prompt: contentItem.prompt,
+        payload: contentItem.payload,
+        fachgebietCode: fachgebiet.code,
+        kursSlug: kurs.slug,
+      })
       .from(contentItem)
       .innerJoin(thema, eq(thema.id, contentItem.themaId))
       .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(kurs, eq(kurs.id, fachgebiet.kursId))
       .innerJoin(
         userCourse,
         and(
@@ -258,7 +266,15 @@ export const contentRouter = router({
 
     return rows.map((row) => {
       const payload = fachgespraechFragePayloadSchema.parse(row.payload);
-      return { id: row.id, frage: row.prompt, themaTitel: payload.themaTitel, erwartung: payload.erwartung, rueckfragen: payload.rueckfragen };
+      return {
+        id: row.id,
+        frage: row.prompt,
+        themaTitel: payload.themaTitel,
+        erwartung: payload.erwartung,
+        rueckfragen: payload.rueckfragen,
+        // Entscheidung 13.10.2026: Ergänzungsprüfung (WQ/TQ) oder reguläres Fachgespräch (HQ), abgeleitet aus der Verordnung.
+        pruefungsform: fachgespraechPruefungsform(row.kursSlug, row.fachgebietCode),
+      };
     });
   }),
 

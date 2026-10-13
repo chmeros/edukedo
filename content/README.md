@@ -528,6 +528,8 @@ Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben 
 
 Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
+**Prüfungsform (Technischer Fachwirt, Entscheidung 13.10.2026):** Beim Kurs „Geprüfter Technischer Fachwirt“ unterscheidet der Trainer die Pools nach der Prüfungsverordnung: `wq1` bis `wq4` und `tq1` bis `tq3` sind die **mündliche Ergänzungsprüfung** (§ 4 Abs. 6 bzw. § 5 Abs. 5 TechFachwPrV, in der Regel höchstens 15 bzw. 20 Minuten), `hq1` bis `hq4` das **reguläre Fachgespräch** (§ 3 Abs. 6, höchstens 30 Minuten, Schwerpunkt Zusammenarbeit, Kommunikation und Mitarbeitergespräche = `hq4`). Die Zuordnung steht im Code (`packages/shared/src/pruefungsform.ts`, nach Fachgebiet-Code), nicht in den Dateien; neue Pools dieses Kurses brauchen nichts weiter, andere Kurse zeigen keinen Hinweis.
+
 Optional dürfen unter einer Frage eingerückte Zeilen stehen (Entscheidung 11.10.2026, FL-IM-55, FL-TL-46, FL-AEVO-29):
 
 ```markdown
