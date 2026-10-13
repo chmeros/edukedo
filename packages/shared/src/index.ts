@@ -69,3 +69,4 @@ export * from "./sql-datenqualitaet";
 export * from "./algorithmen";
 export * from "./sql-beiblatt";
 export * from "./pruefungsform";
+export * from "./geschuetzte-leerzeichen";

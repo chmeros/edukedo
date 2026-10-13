@@ -123,3 +123,24 @@ describe("TheorieProvider: Lesefenster schließt bei Tab-Wechsel (Review UXT-I-0
     expect(screen.queryByRole("complementary")).toBeNull();
   });
 });
+
+describe("Lesefenster: Zahl und Einheit brechen nicht um (Kosmetik 13.10.2026)", () => {
+  it("setzt in Tabellenzellen und Text ein geschütztes Leerzeichen zwischen Zahl und Einheit, der Inhalt bleibt unverändert", () => {
+    bereiteVor();
+    const markdown = "# Kalkulation\n\nDer Zuschlag beträgt 10 % auf 2.000,00 € Material.\n\n| Position | Betrag |\n|---|---|\n| Materialkosten | 2.000,00 € |";
+    reg.queries["content.theorieThema"] = { themaTitle: "1.1 Planung", fachgebietTitle: "Handlungsbereich 1", bodyMarkdown: markdown };
+    render(
+      <TheorieProvider kursId="kurs-1">
+        <TheorieEinstieg kursId="kurs-1" />
+      </TheorieProvider>,
+    );
+    klappeAuf();
+    fireEvent.click(screen.getByRole("button", { name: "1.1 Planung" }));
+
+    const zelle = Array.from(document.querySelectorAll("td")).find((td) => td.textContent?.includes("2.000,00"));
+    expect(zelle?.textContent).toBe("2.000,00\u00a0€");
+    expect(document.querySelector(".theorie-text")?.textContent).toContain("10\u00a0% auf 2.000,00\u00a0€ Material");
+    // Die Daten aus der Abfrage sind nicht verändert worden.
+    expect((reg.queries["content.theorieThema"] as { bodyMarkdown: string }).bodyMarkdown).toBe(markdown);
+  });
+});

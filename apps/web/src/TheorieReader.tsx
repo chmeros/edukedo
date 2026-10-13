@@ -1,4 +1,4 @@
-import { extractTheorieHeadings, headingSlug } from "@edukedo/shared";
+import { extractTheorieHeadings, headingSlug, schuetzeZahlUndEinheit } from "@edukedo/shared";
 import {
   Children,
   createContext,
@@ -54,6 +54,8 @@ function textVon(kinder: ReactNode): string {
 
 function TheorieInhalt({ markdown, abschnitt, bodyRef }: { markdown: string; abschnitt?: string; bodyRef: React.RefObject<HTMLDivElement> }) {
   const ueberschriften = useMemo(() => extractTheorieHeadings(markdown), [markdown]);
+  // Kosmetik: Zahl und Einheit („2.000,00 €“) sollen in schmalen Tabellenspalten nicht umbrechen (geschütztes Leerzeichen, nur in der Anzeige).
+  const angezeigt = useMemo(() => schuetzeZahlUndEinheit(markdown), [markdown]);
 
   // Gewünschten Abschnitt (aus einem Fachbegriff) nach dem Rendern anspringen.
   useEffect(() => {
@@ -117,7 +119,7 @@ function TheorieInhalt({ markdown, abschnitt, bodyRef }: { markdown: string; abs
             img: () => null,
           }}
         >
-          {markdown}
+          {angezeigt}
         </ReactMarkdown>
       </div>
     </>

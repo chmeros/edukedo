@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (Kosmetik: Zahl und Einheit brechen im Lesefenster nicht mehr um)
+
+Anlass: „Ja, die Kosmetik mit den geschützten Leerzeichen angehen.“ In schmalen Theorie-Tabellen brach „2.000,00 €“ am Leerzeichen in zwei Zeilen um. Die Hausregel (`content/README.md`, „Schreibweise“) verlangt das Leerzeichen vor €, % und Einheiten; es soll nur nicht umbrechen.
+
+- **Entscheidung: Anzeige statt Content.** `schuetzeZahlUndEinheit` (`packages/shared/src/geschuetzte-leerzeichen.ts`) ersetzt vor dem Rendern das normale Leerzeichen zwischen Ziffer und Einheit durch U+00A0. Eingebunden ist sie nur im Lesefenster (`apps/web/src/TheorieReader.tsx`, `TheorieInhalt`). Grund: Eine Änderung in den Markdown-Dateien hätte Tausende Items berührt (Import „geändert“, bei Fachgesprächsfragen sogar neue Schlüssel, weil sie der Hash des Fragetextes sind). Die Datenbank bleibt unverändert.
+- **Umfang:** €, %, ‰, °C, °, die in den Kursen vorkommenden Maßeinheiten (mm, kg, bar, kW, N/mm², min⁻¹, dB(A) und weitere) und einige Währungskürzel. Nicht geschützt werden Wörter wie „3 mal“, „10 Minuten“ oder „5 Stück“ (nach der Einheit darf kein Buchstabe, keine Ziffer und keine Hochzahl folgen). Codeblöcke bleiben unverändert.
+- **Anker unverändert:** `headingSlug` macht aus jeder Folge von Nicht-Buchstaben ein „-“, daher bleiben Überschriften-Anker und Inhaltsverzeichnis gleich (Test).
+- **Grenze:** Der Schutz wirkt nur im Lesefenster, nicht bei Karten, Quiz oder Prüfung (dort stehen die Zahlen nicht in schmalen Tabellenspalten). Die Einheitenliste ist begrenzt; eine neue Einheit, die umbricht, wird in `EINHEITEN` ergänzt.
+- **Tests:** fünf Tests in `packages/shared` (Einheiten, Wörter, Codeblöcke, Anker, sonst unverändert) und einer im Web (Tabellenzelle „2.000,00\u00a0€“, Abfragedaten bleiben unverändert); Web 191 Tests, Typprüfung und Lint sauber. In `packages/shared` schlägt lokal nur die Python-Gegenprobe des Schreibtischtests fehl, weil `python` hier der Store-Stub ist (mit der Änderung unabhängig; in der CI ist Python vorhanden).
+- **Damit erledigt:** der kosmetische Punkt „€ bricht in schmalen Theorie-Tabellen um“ aus dem Eintrag zur Zweitlesung.
+
 ### Entschieden am 13.10.2026 (P8: zwei zurückgestellte Theorie-Lücken geschlossen; Auftrag des Projektleiters, rechtsnah R4)
 
 Anlass: „Ja, die Theorie-Lücken aus P8 schließen.“ Die Aufgabenprüfung hatte zwei Lücken gefunden, die ich diesmal am Gesetzestext selbst gegengelesen habe (gesetze-im-internet.de, Stand 13.10.2026). KI-gestützt, förmliche Rechtsprüfung weiter offen.
