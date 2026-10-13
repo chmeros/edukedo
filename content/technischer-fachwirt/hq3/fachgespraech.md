@@ -119,7 +119,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: An oberster Stelle steht die Vermeidung von Abfall, etwa durch optimierte Zuschnittpläne, die weniger Materialverschnitt erzeugen.
   - Erwartung: Es folgen die Vorbereitung zur Wiederverwendung, das Recycling (z. B. Einschmelzen von Metallspänen), die sonstige Verwertung (z. B. energetische Nutzung) und zuletzt, nachrangig, die Beseitigung (Deponierung).
   - Erwartung: Die Vermeidung steht an erster Stelle, weil gar nicht erst entstandener Abfall keinerlei Entsorgungsaufwand und -kosten verursacht.
-  - Rückfrage: Wie sind Kühlschmierstoffe abfallrechtlich in der Regel einzuordnen, und wie dürfen sie entsorgt werden?
+  - Rückfrage: Wie sind Kühlschmierstoffe abfallrechtlich in der Regel einzuordnen, und welche Anforderungen gelten für ihre Entsorgung?
 - Wie unterscheidet sich EMAS von einer Zertifizierung nach ISO 14001?
   - Erwartung: ISO 14001 legt die Anforderungen an ein Umweltmanagementsystem fest, die Zertifizierung erfolgt durch eine unabhängige externe Stelle.
   - Erwartung: EMAS (Eco-Management and Audit Scheme) ist eine strengere, freiwillige Alternative bzw. Ergänzung in Form einer EU-Verordnung, die über ISO 14001 hinausgeht.
