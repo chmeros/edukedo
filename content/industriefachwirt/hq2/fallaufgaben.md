@@ -75,3 +75,26 @@ Teilaufgabe 2 sollte begründen, dass reine Just-in-Time-Beschaffung bei AZ-Teil
 Teilaufgabe 3 sollte Maßnahmen wie Priorisierung der verfügbaren Restbestände auf die dringendsten Kundenaufträge, Rücksprache mit Kunden über mögliche Terminanpassungen sowie kurzfristige Suche nach alternativen Bezugsquellen nennen.
 Teilaufgabe 4 sollte beide Optionen gegeneinander abwägen: höherer Sicherheitsbestand bindet zusätzliches Kapital, schützt aber nicht vor einem dauerhaften Lieferausfall, während ein Zweitlieferant zusätzlichen Aufwand bei Qualifizierung/Qualitätssicherung bedeutet, aber die Abhängigkeit von einer einzigen Bezugsquelle strukturell reduziert — bei einem so kritischen Bauteil erscheint der Aufbau eines Zweitlieferanten langfristig meist die robustere Lösung.
 
+---
+
+#### F-HQ2-04 · Fallaufgabe
+
+**Themenbezug:** 6.1 (Produktionsplanung und -steuerung: Losgröße) + 6.4 (Materialwirtschaft und Logistik: Meldebestand und Lagerkennzahlen)
+
+**Ausgangssituation:** Im Werk Nord fertigt Solvitec Gehäusedeckel in Losen. Der Jahresbedarf beträgt 16.200 Stück, jeder Rüstvorgang kostet 200 €, die Herstellkosten betragen 20 € je Stück, der Lagerkostensatz 10 %. Für das Verdrahtungsmaterial im Werk Süd gelten: Tagesverbrauch 300 Stück, Wiederbeschaffungszeit 8 Tage, Sicherheitsbestand 500 Stück, aktueller Bestand 4.500 Stück. Das Rohstofflager hatte im Jahr einen durchschnittlichen Bestand von 80.000 € bei einem Materialverbrauch von 640.000 €. Rechenjahr: 360 Tage.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie die optimale Losgröße der Gehäusedeckel und die Zahl der Lose pro Jahr.
+
+**Teilaufgabe 2 (3 Punkte, bloom: analysieren):** Weisen Sie nach, dass bei dieser Losgröße die jährlichen Rüstkosten und die jährlichen Lagerkosten gleich hoch sind.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie den Meldebestand des Verdrahtungsmaterials und die Reichweite des aktuellen Bestands.
+
+**Teilaufgabe 4 (3 Punkte, bloom: anwenden):** Berechnen Sie die Umschlagshäufigkeit und die durchschnittliche Lagerdauer des Rohstofflagers.
+
+**Teilaufgabe 5 (5 Punkte, bloom: bewerten):** Durch eine Rüstzeitverkürzung sinken die Rüstkosten auf 50 € je Vorgang. Berechnen Sie die neue optimale Losgröße und bewerten Sie die Folgen für Lagerbestand und Kapitalbindung.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Losgröße = √(200 × 16.200 × 200 ÷ (20 × 10)) = √(648.000.000 ÷ 200) = √3.240.000 = 1.800 Stück; Lose pro Jahr = 16.200 ÷ 1.800 = 9.
+Teilaufgabe 2: Rüstkosten = 9 × 200 € = 1.800 €; Lagerkosten = (1.800 ÷ 2) × 20 € × 10 % = 900 × 20 € × 10 % = 1.800 €; beide sind gleich, zusammen 3.600 € pro Jahr.
+Teilaufgabe 3: Meldebestand = 300 × 8 + 500 = 2.900 Stück; Reichweite = 4.500 ÷ 300 = 15 Tage.
+Teilaufgabe 4: Umschlagshäufigkeit = 640.000 € ÷ 80.000 € = 8; Lagerdauer = 360 ÷ 8 = 45 Tage.
+Teilaufgabe 5: Neue Losgröße = √(200 × 16.200 × 50 ÷ 200) = √810.000 = 900 Stück bei 18 Losen pro Jahr; kleinere Lose halbieren den durchschnittlichen Lagerbestand (450 statt 900 Stück) und die Kapitalbindung (450 × 20 € = 9.000 € statt 18.000 €); die Rüstkosten sinken auf 18 × 50 € = 900 €, die Lagerkosten auf 450 × 20 € × 10 % = 900 €, zusammen 1.800 € statt 3.600 €; Voraussetzung ist, dass das Rüsten tatsächlich entsprechend schneller und billiger geworden ist und die Anlage nicht durch häufigeres Umrüsten unterausgelastet wird.

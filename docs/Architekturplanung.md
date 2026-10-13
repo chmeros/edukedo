@@ -569,6 +569,17 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (Industriefachwirt: Rechenaufgaben eingespielt, Befund FL-IF-15; Freigabe des Projektleiters, R3)
+
+Anlass: Der Fachlehrer-Review vom 07.10.2026 fand im Industriefachwirt-Kurs praktisch keine Rechenaufgaben außerhalb von HQ1, obwohl der Prüfungsteil Rechnungswesen rechenintensiv ist. „Ja, Industriefachwirt-Rechenaufgaben einspielen.“ Entwurf, Prüfung und Befunde: `docs/entwuerfe/industriefachwirt-rechnen/` (`00-pruefprotokoll.md`).
+
+- **Inhalt:** Zehn Rechenthemen in 2.1 (Abschreibung linear und degressiv, Umsatzsteuer/Vorsteuer/Zahllast), 2.2 (Zuschlagssätze aus dem BAB, Zuschlagskalkulation, Maschinenstundensatz, Deckungsbeitrag/Break-even/Zusatzauftrag), 6.1 (Andler-Losgröße, Auslastung, OEE), 6.4 (Meldebestand, Lagerkennzahlen, ABC-Analyse) und 7.1 (Marktanteil, relativer Marktanteil, Sättigungsgrad). Je Thema ein Rechenbeispiel in der Theorie, zusammen 20 Formelkarten und 47 Kurzantworten mit Rechenweg in der Erklärung, dazu fünf Fallaufgaben mit je 20 Punkten (F-WQ2-04 bis -06, F-HQ2-04, F-HQ3-04).
+- **Format:** Rechenaufgaben sind Kurzantworten. Das System vergleicht exakt nach Kleinschreibung und ohne Leerzeichen; „€“, Tausenderpunkt und Dezimalkomma bleiben, deshalb nennen die akzeptierten Antworten die Schreibvarianten ausdrücklich (3.600; 3600; ,00; € und Euro; EUR; bei Stundensätzen auch „€/h“ und „pro Stunde“). Einen Zahlen-Fragetyp mit Toleranz gibt es nicht und wurde nicht gebaut.
+- **Prüfung:** `db:validate-content` 0 Verstöße. Ein unabhängiger Agent hat rund 230 Werte einschließlich aller Zwischenergebnisse aus den Angaben neu gerechnet: keine falsche Zahl, keine falsche Formel. 16 Befunde (Mehrdeutigkeiten, fehlende Antwortvarianten, Selbstverweise) sind eingearbeitet, unter anderem Zinsen auf das durchschnittlich gebundene Kapital als (Anschaffungskosten + Restwert) ÷ 2, Bezugsgröße des Gewinnzuschlags (Selbstkosten) und eigene Zahlen für die BAB-Fallaufgabe.
+- **Import:** Trockenlauf 72 neu (20 Karten, 47 Quizfragen, 5 Fälle), 5 geändert (die fünf Theorietexte), 16869 unverändert; nach dem Import zweiter Trockenlauf ohne Änderung. `src/db`-Tests und `pruefungsbereiche.test.ts` grün.
+- **Bewusst nicht enthalten:** Skonto und Kundenrabatt in der Kalkulation (krumme Zwischenwerte), Rechtsnahes außer dem Regelsteuersatz von 19 % (§ 12 Abs. 1 UStG) und einem als „angenommen“ gekennzeichneten Satz bei der degressiven Abschreibung; beides ist nicht förmlich rechtsgeprüft. Die Vorsteuer-Buchung folgt der Bestandsmethode.
+- **Weiter offen:** Rechenaufgaben für die übrigen Kurse (Handelsfachwirt, Transport, Immobilien, Gesundheit/Soziales, Versicherungen, Büro; Wirtschaftsfachwirt `wbq2`/`wbq3` dünn).
+
 ### Entschieden am 13.10.2026 (Kosmetik: Zahl und Einheit brechen im Lesefenster nicht mehr um)
 
 Anlass: „Ja, die Kosmetik mit den geschützten Leerzeichen angehen.“ In schmalen Theorie-Tabellen brach „2.000,00 €“ am Leerzeichen in zwei Zeilen um. Die Hausregel (`content/README.md`, „Schreibweise“) verlangt das Leerzeichen vor €, % und Einheiten; es soll nur nicht umbrechen.

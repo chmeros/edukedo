@@ -75,3 +75,23 @@ Teilaufgabe 2 sollte das Dokumentenakkreditiv als Instrument nennen und erläute
 Teilaufgabe 3 sollte die Prüfung auf mögliche Dual-Use-Eigenschaft der Sicherheitssteuerungen sowie eine ggf. erforderliche Ausfuhrgenehmigung durch das BAFA (Bundesamt für Wirtschaft und Ausfuhrkontrolle) nennen.
 Teilaufgabe 4 sollte über die reine Vertragsanbahnung hinaus Aspekte wie lokale Marktkenntnis, Überbrückung kultureller Unterschiede, Aufbau persönlicher Vertrauensbasis sowie Unterstützung bei künftiger Kundenbetreuung vor Ort nennen.
 
+---
+
+#### F-HQ3-04 · Fallaufgabe
+
+**Themenbezug:** 7.1 (Marktanalyse: Marktanteil, relativer Marktanteil und Marktsättigung)
+
+**Ausgangssituation:** Solvitec bewertet den Zielmarkt für Sensoren in der Fördertechnik in Südostasien. Beispielwerte für das laufende Jahr: Marktpotenzial 400 Mio. €, Marktvolumen 250 Mio. €, Umsatz von Solvitec 15 Mio. €, Umsatz des stärksten Wettbewerbers 60 Mio. €. Im Vorjahr betrugen das Marktvolumen 200 Mio. € und der Umsatz von Solvitec 14 Mio. €.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie den Marktanteil und den relativen Marktanteil von Solvitec im laufenden Jahr.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie den Marktsättigungsgrad und das noch nicht ausgeschöpfte Marktpotenzial.
+
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Vergleichen Sie Umsatzwachstum und Marktwachstum und berechnen Sie den Marktanteil des Vorjahres.
+
+**Teilaufgabe 4 (6 Punkte, bloom: bewerten):** Bewerten Sie die Marktposition von Solvitec und nennen Sie zwei geeignete Maßnahmen.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Marktanteil = 15 Mio. € ÷ 250 Mio. € × 100 = 6 %; relativer Marktanteil = 15 Mio. € ÷ 60 Mio. € = 0,25.
+Teilaufgabe 2: Sättigungsgrad = 250 Mio. € ÷ 400 Mio. € × 100 = 62,5 %; nicht ausgeschöpftes Potenzial = 400 Mio. € − 250 Mio. € = 150 Mio. €.
+Teilaufgabe 3: Umsatzwachstum = (15 − 14) ÷ 14 ≈ 7,1 %; Marktwachstum = (250 − 200) ÷ 200 = 25 %; Marktanteil im Vorjahr = 14 Mio. € ÷ 200 Mio. € × 100 = 7 %; Solvitec ist also gewachsen, aber langsamer als der Markt und hat Marktanteil verloren (von 7 % auf 6 %).
+Teilaufgabe 4 sollte bewerten: Der relative Marktanteil von 0,25 und der sinkende Marktanteil zeigen eine schwache Position gegenüber dem Marktführer, der Sättigungsgrad von 62,5 % zeigt aber noch erhebliches Wachstumspotenzial; geeignete Maßnahmen sind z. B. der Ausbau des Vertriebs vor Ort (Vertriebspartner), eine gezielte Ansprache wachsender Kundengruppen oder Preis- und Leistungsanpassungen gegenüber dem stärksten Wettbewerber.
