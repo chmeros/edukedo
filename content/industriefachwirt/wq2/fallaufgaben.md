@@ -98,6 +98,7 @@ Teilaufgabe 2: Technische Anlagen und Maschinen 300.000 € und Vorsteuer 57.000
 Teilaufgabe 3: Jahresbetrag = (300.000 € − 20.000 €) ÷ 10 = 28.000 €; Restbuchwert nach 4 Jahren = 300.000 € − 4 × 28.000 € = 188.000 €.
 Teilaufgabe 4: Abschreibungen auf Sachanlagen 28.000 € an Technische Anlagen und Maschinen 28.000 €.
 Teilaufgabe 5 sollte nennen: Die Abschreibung erfasst den Werteverzehr der Maschine; in der Finanzbuchhaltung ist sie Aufwand und mindert den Gewinn, in der Kostenrechnung wird sie (hier vereinfachend in gleicher Höhe) als kalkulatorische Abschreibung in den Maschinenstundensatz und damit in die Herstellkosten der Aufträge übernommen. Sie ist selbst keine Auszahlung, die Liquidität sinkt nur durch die Zahlung der Eingangsrechnung.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -127,6 +128,7 @@ Die Kosten der Instandhaltung werden nach geleisteten Stunden auf die anderen St
 Teilaufgabe 2: Materialgemeinkostenzuschlag = 60.000 € ÷ 500.000 € = 12 %; Fertigungsgemeinkostenzuschlag = 450.000 € ÷ 300.000 € = 150 %; Herstellkosten = 500.000 € + 60.000 € + 300.000 € + 450.000 € = 1.310.000 €, Verwaltungs- und Vertriebszuschlag = 104.800 € ÷ 1.310.000 € = 8 %.
 Teilaufgabe 3: Materialkosten 15.000 € + 1.800 € = 16.800 €; Fertigungskosten 7.000 € + 10.500 € = 17.500 €; Herstellkosten 34.300 €; Verwaltungs- und Vertriebsgemeinkosten 2.744 €; Selbstkosten 37.044 €; Gewinn 5 % = 1.852,20 €; Angebotspreis netto 38.896,20 €.
 Teilaufgabe 4 sollte herausarbeiten: Der Fertigungsgemeinkostenzuschlag von 150 % zeigt, dass die Gemeinkosten (Maschinen, Energie) die Löhne weit übersteigen; Aufträge mit wenigen Lohnstunden, aber langer Maschinenlaufzeit werden dadurch zu niedrig belastet und lohnintensive zu hoch. Sinnvoller ist für die Maschinenbereiche ein Maschinenstundensatz.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -151,3 +153,4 @@ Teilaufgabe 2: 150 h × 34 € = 5.100 €.
 Teilaufgabe 3: Deckungsbeitrag je Stück = 12 € − 7,50 € = 4,50 €; Break-even-Menge = 180.000 € ÷ 4,50 € = 40.000 Stück; Break-even-Umsatz = 40.000 × 12 € = 480.000 €.
 Teilaufgabe 4: Gewinn = 50.000 × 4,50 € − 180.000 € = 225.000 € − 180.000 € = 45.000 €.
 Teilaufgabe 5: Deckungsbeitrag des Zusatzauftrags = 9 € − 7,50 € = 1,50 € je Stück, insgesamt 12.000 × 1,50 € = 18.000 €; die Fixkosten fallen ohnehin an, der Preis liegt über der kurzfristigen Untergrenze von 7,50 € und die Stammpreise bleiben unberührt, daher sollte der Auftrag angenommen werden; der Preis liegt aber unter den Vollkosten je Stück (bei 50.000 Stück 7,50 € + 180.000 € ÷ 50.000 = 11,10 €), deshalb taugt ein solcher Preis nicht als Dauerpreis.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

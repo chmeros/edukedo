@@ -29,6 +29,7 @@ Teilaufgabe 2: Technische Anlagen und Maschinen 300.000 € und Vorsteuer 57.000
 Teilaufgabe 3: Jahresbetrag = (300.000 € − 20.000 €) ÷ 10 = 28.000 €; Restbuchwert nach 4 Jahren = 300.000 € − 4 × 28.000 € = 188.000 €.
 Teilaufgabe 4: Abschreibungen auf Sachanlagen 28.000 € an Technische Anlagen und Maschinen 28.000 €.
 Teilaufgabe 5 sollte nennen: Die Abschreibung erfasst den Werteverzehr der Maschine; in der Finanzbuchhaltung ist sie Aufwand und mindert den Gewinn, in der Kostenrechnung wird sie (hier vereinfachend in gleicher Höhe) als kalkulatorische Abschreibung in den Maschinenstundensatz und damit in die Herstellkosten der Aufträge übernommen. Sie ist selbst keine Auszahlung, die Liquidität sinkt nur durch die Zahlung der Eingangsrechnung.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -58,6 +59,7 @@ Die Kosten der Instandhaltung werden nach geleisteten Stunden auf die anderen St
 Teilaufgabe 2: Materialgemeinkostenzuschlag = 60.000 € ÷ 500.000 € = 12 %; Fertigungsgemeinkostenzuschlag = 450.000 € ÷ 300.000 € = 150 %; Herstellkosten = 500.000 € + 60.000 € + 300.000 € + 450.000 € = 1.310.000 €, Verwaltungs- und Vertriebszuschlag = 104.800 € ÷ 1.310.000 € = 8 %.
 Teilaufgabe 3: Materialkosten 15.000 € + 1.800 € = 16.800 €; Fertigungskosten 7.000 € + 10.500 € = 17.500 €; Herstellkosten 34.300 €; Verwaltungs- und Vertriebsgemeinkosten 2.744 €; Selbstkosten 37.044 €; Gewinn 5 % = 1.852,20 €; Angebotspreis netto 38.896,20 €.
 Teilaufgabe 4 sollte herausarbeiten: Der Fertigungsgemeinkostenzuschlag von 150 % zeigt, dass die Gemeinkosten (Maschinen, Energie) die Löhne weit übersteigen; Aufträge mit wenigen Lohnstunden, aber langer Maschinenlaufzeit werden dadurch zu niedrig belastet und lohnintensive zu hoch. Sinnvoller ist für die Maschinenbereiche ein Maschinenstundensatz.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -82,6 +84,7 @@ Teilaufgabe 2: 150 h × 34 € = 5.100 €.
 Teilaufgabe 3: Deckungsbeitrag je Stück = 12 € − 7,50 € = 4,50 €; Break-even-Menge = 180.000 € ÷ 4,50 € = 40.000 Stück; Break-even-Umsatz = 40.000 × 12 € = 480.000 €.
 Teilaufgabe 4: Gewinn = 50.000 × 4,50 € − 180.000 € = 225.000 € − 180.000 € = 45.000 €.
 Teilaufgabe 5: Deckungsbeitrag des Zusatzauftrags = 9 € − 7,50 € = 1,50 € je Stück, insgesamt 12.000 × 1,50 € = 18.000 €; die Fixkosten fallen ohnehin an, der Preis liegt über der kurzfristigen Untergrenze von 7,50 € und die Stammpreise bleiben unberührt, daher sollte der Auftrag angenommen werden; der Preis liegt aber unter den Vollkosten je Stück (bei 50.000 Stück 7,50 € + 180.000 € ÷ 50.000 = 11,10 €), deshalb taugt ein solcher Preis nicht als Dauerpreis.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -110,6 +113,7 @@ Teilaufgabe 2: Rüstkosten = 9 × 200 € = 1.800 €; Lagerkosten = (1.800 ÷ 2
 Teilaufgabe 3: Meldebestand = 300 × 8 + 500 = 2.900 Stück; Reichweite = 4.500 ÷ 300 = 15 Tage.
 Teilaufgabe 4: Umschlagshäufigkeit = 640.000 € ÷ 80.000 € = 8; Lagerdauer = 360 ÷ 8 = 45 Tage.
 Teilaufgabe 5: Neue Losgröße = √(200 × 16.200 × 50 ÷ 200) = √810.000 = 900 Stück bei 18 Losen pro Jahr; kleinere Lose halbieren den durchschnittlichen Lagerbestand (450 statt 900 Stück) und die Kapitalbindung (450 × 20 € = 9.000 € statt 18.000 €); die Rüstkosten sinken auf 18 × 50 € = 900 €, die Lagerkosten auf 450 × 20 € × 10 % = 900 €, zusammen 1.800 € statt 3.600 €; Voraussetzung ist, dass das Rüsten tatsächlich entsprechend schneller und billiger geworden ist und die Anlage nicht durch häufigeres Umrüsten unterausgelastet wird.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
 
 ---
 
@@ -135,3 +139,4 @@ Teilaufgabe 5: Neue Losgröße = √(200 × 16.200 × 50 ÷ 200) = √810.000 = 
 Teilaufgabe 2: Sättigungsgrad = 250 Mio. € ÷ 400 Mio. € × 100 = 62,5 %; nicht ausgeschöpftes Potenzial = 400 Mio. € − 250 Mio. € = 150 Mio. €.
 Teilaufgabe 3: Umsatzwachstum = (15 − 14) ÷ 14 ≈ 7,1 %; Marktwachstum = (250 − 200) ÷ 200 = 25 %; Marktanteil im Vorjahr = 14 Mio. € ÷ 200 Mio. € × 100 = 7 %; Solvitec ist also gewachsen, aber langsamer als der Markt und hat Marktanteil verloren (von 7 % auf 6 %).
 Teilaufgabe 4 sollte bewerten: Der relative Marktanteil von 0,25 und der sinkende Marktanteil zeigen eine schwache Position gegenüber dem Marktführer, der Sättigungsgrad von 62,5 % zeigt aber noch erhebliches Wachstumspotenzial; geeignete Maßnahmen sind z. B. der Ausbau des Vertriebs vor Ort (Vertriebspartner), eine gezielte Ansprache wachsender Kundengruppen oder Preis- und Leistungsanpassungen gegenüber dem stärksten Wettbewerber.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
