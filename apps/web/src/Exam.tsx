@@ -233,6 +233,7 @@ function ExamFallaufgabeStep({
                 type="number"
                 min={0}
                 max={part.points}
+                step={0.5}
                 value={points[index]}
                 onChange={(event) => {
                   const value = Math.max(0, Math.min(part.points, Number(event.target.value) || 0));
@@ -259,7 +260,10 @@ function ExamFallaufgabeStep({
             <div className="alert alert-info">
               <InfoIcon />
               <div>
-                <b>Musterlösungshinweise:</b> <FachbegriffText text={item.explanation} aktiv />
+                <b>Musterlösungshinweise:</b>{" "}
+                <span className="exam-hints-text">
+                  <FachbegriffText text={item.explanation} aktiv />
+                </span>
               </div>
             </div>
           )}

@@ -2752,6 +2752,11 @@ h4.stat-subheading {
   max-width: 220px;
 }
 
+/* Musterlösungshinweise mit mehrzeiligem Rechenweg: Zeilenumbrüche der Quelle erhalten. */
+.exam-hints-text {
+  white-space: pre-line;
+}
+
 .exam-ai-grading-part {
   padding-top: 8px;
   border-top: 1px solid var(--line);
