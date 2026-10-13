@@ -20,15 +20,16 @@ describe("fachgespraechPruefungsform", () => {
     }
   });
 
-  it("ordnet die Handlungsbereiche dem regulären Fachgespräch zu und nennt bei HQ4 den Schwerpunkt", () => {
+  it("ordnet die Handlungsbereiche dem regulären Fachgespräch zu und nennt bei HQ1 und HQ2 den Schwerpunkt", () => {
     for (const code of ["HQ1", "HQ2", "HQ3", "HQ4"]) {
       const form = fachgespraechPruefungsform("technischer-fachwirt", code);
       expect(form?.art).toBe("fachgespraech");
       expect(form?.dauerMinuten).toBe(30);
       expect(form?.quelle).toContain("§ 3 Abs. 6");
     }
-    expect(fachgespraechPruefungsform("technischer-fachwirt", "HQ4")?.hinweis).toContain("Schwerpunkt");
-    expect(fachgespraechPruefungsform("technischer-fachwirt", "HQ1")?.hinweis).not.toContain("Schwerpunkt");
+    // § 3 Abs. 6 TechFachwPrV: Schwerpunkt auf § 3 Abs. 4 Nr. 1 und 2, also HQ1 und HQ2.
+    for (const code of ["HQ1", "HQ2"]) expect(fachgespraechPruefungsform("technischer-fachwirt", code)?.hinweis).toContain("Schwerpunkt");
+    for (const code of ["HQ3", "HQ4"]) expect(fachgespraechPruefungsform("technischer-fachwirt", code)?.hinweis).not.toContain("Schwerpunkt");
   });
 
   it("liefert für andere Kurse und unbekannte Fachgebiete nichts", () => {

@@ -10,7 +10,7 @@ rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ2. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nach § 3 Abs. 6 TechFachwPrV liegt der Schwerpunkt des mündlichen Fachgesprächs auf diesem Handlungsbereich („Produktionsplanung, -steuerung und -kontrolle"). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ2. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 9.1 Produktionsplanung
 

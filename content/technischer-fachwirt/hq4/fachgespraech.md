@@ -10,7 +10,7 @@ rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der Handlungsbereich „Führung und Zusammenarbeit" trägt laut §3 Abs. 6 TechFachwPrV im mündlichen Fachgespräch besonderes Gewicht, weshalb dieser Fragenpool bewusst umfangreicher ausfällt als bei anderen Fachgebieten. Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ4. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der Handlungsbereich „Führung und Zusammenarbeit" gehört zu den Inhalten des mündlichen Fachgesprächs nach § 3 Abs. 6 TechFachwPrV (Prüfungsinhalte: § 6 Abs. 4). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ4. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 11.1 Führungsmethoden und Mitarbeitermotivation
 

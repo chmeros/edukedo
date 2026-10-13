@@ -95,10 +95,10 @@ content/
     tq1/ … 5.1–5.3 + fallaufgaben.md + fachgespraech.md    ← Naturwissenschaftliche und technische Grundlagen
     tq2/ … 6.1–6.3 + fallaufgaben.md + fachgespraech.md    ← Technische Kommunikation und Werkstofftechnologie
     tq3/ … 7.1–7.4 + fallaufgaben.md + fachgespraech.md    ← Fertigungs- und Betriebstechnik
-    hq1/ … 8.1–8.3 + fallaufgaben.md + fachgespraech.md    ← Absatz-, Materialwirtschaft und Logistik
-    hq2/ … 9.1–9.3 + fallaufgaben.md + fachgespraech.md    ← Produktionsplanung, -steuerung und -kontrolle
+    hq1/ … 8.1–8.3 + fallaufgaben.md + fachgespraech.md    ← Absatz-, Materialwirtschaft und Logistik (Schwerpunkt des Fachgesprächs)
+    hq2/ … 9.1–9.3 + fallaufgaben.md + fachgespraech.md    ← Produktionsplanung, -steuerung und -kontrolle (Schwerpunkt des Fachgesprächs)
     hq3/ … 10.1–10.3 + fallaufgaben.md + fachgespraech.md  ← Qualitäts- und Umweltmanagement sowie Arbeitsschutz
-    hq4/ … 11.1–11.4 + fallaufgaben.md + fachgespraech.md  ← Führung und Zusammenarbeit (Pflichtthema des Fachgesprächs)
+    hq4/ … 11.1–11.4 + fallaufgaben.md + fachgespraech.md  ← Führung und Zusammenarbeit
   industriefachwirt/               ← siebter Kurs, ergänzt 29.09.2026 (siehe Anforderungskatalog Abschnitt 4)
     wq1/ … 1.1–1.4 + fallaufgaben.md + fachgespraech.md    ← Volks- und Betriebswirtschaft
     wq2/ … 2.1–2.3 + fallaufgaben.md + fachgespraech.md    ← Rechnungswesen
@@ -528,7 +528,7 @@ Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben 
 
 Einfache Liste typischer mündlicher Prüfungsfragen (F-25), gruppiert nach Thema, ohne weitere Struktur — dient dem Fachgesprächs-Trainer als Fragen-Pool, nicht dem automatisierten Bulk-Import. Nur beim Fachwirt-Piloten relevant: Ein Fachgesprächs-Trainer passt laut Anforderungskatalog (Abschnitt 4, Architektur-Check) bei einem Schulfach-Kurs wie Mathematik in der Regel nicht, daher gibt es dort keine entsprechende Datei.
 
-**Prüfungsform (Technischer Fachwirt, Entscheidung 13.10.2026):** Beim Kurs „Geprüfter Technischer Fachwirt“ unterscheidet der Trainer die Pools nach der Prüfungsverordnung: `wq1` bis `wq4` und `tq1` bis `tq3` sind die **mündliche Ergänzungsprüfung** (§ 4 Abs. 6 bzw. § 5 Abs. 5 TechFachwPrV, in der Regel höchstens 15 bzw. 20 Minuten), `hq1` bis `hq4` das **reguläre Fachgespräch** (§ 3 Abs. 6, höchstens 30 Minuten, Schwerpunkt Zusammenarbeit, Kommunikation und Mitarbeitergespräche = `hq4`). Die Zuordnung steht im Code (`packages/shared/src/pruefungsform.ts`, nach Fachgebiet-Code), nicht in den Dateien; neue Pools dieses Kurses brauchen nichts weiter, andere Kurse zeigen keinen Hinweis.
+**Prüfungsform (Technischer Fachwirt, Entscheidung 13.10.2026):** Beim Kurs „Geprüfter Technischer Fachwirt“ unterscheidet der Trainer die Pools nach der Prüfungsverordnung: `wq1` bis `wq4` und `tq1` bis `tq3` sind die **mündliche Ergänzungsprüfung** (§ 4 Abs. 6 bzw. § 5 Abs. 5 TechFachwPrV, in der Regel höchstens 15 bzw. 20 Minuten), `hq1` bis `hq4` das **reguläre Fachgespräch** (§ 3 Abs. 6, höchstens 30 Minuten; der Schwerpunkt liegt nach § 3 Abs. 6 auf § 3 Abs. 4 Nr. 1 und 2, also `hq1` und `hq2`). Die Zuordnung steht im Code (`packages/shared/src/pruefungsform.ts`, nach Fachgebiet-Code), nicht in den Dateien; neue Pools dieses Kurses brauchen nichts weiter, andere Kurse zeigen keinen Hinweis.
 
 Optional dürfen unter einer Frage eingerückte Zeilen stehen (Entscheidung 11.10.2026, FL-IM-55, FL-TL-46, FL-AEVO-29):
 

@@ -10,7 +10,7 @@ rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ1. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nach § 3 Abs. 6 TechFachwPrV liegt der Schwerpunkt des mündlichen Fachgesprächs auf diesem Handlungsbereich („Absatz-, Materialwirtschaft und Logistik"). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HQ1. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 8.1 Vertrieb und Absatzplanung
 
