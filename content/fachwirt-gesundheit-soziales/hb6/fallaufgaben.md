@@ -75,3 +75,24 @@ Teilaufgabe 2 erwartet ein terminiertes, messbares Ziel (z. B. "gestützte Bekan
 Teilaufgabe 3 sollte z. B. eine Anzeige/einen Flyer (Werbung) und eine Informationsveranstaltung oder Pressemitteilung (Öffentlichkeitsarbeit) vorschlagen und deren unterschiedliche Eignung für Patient:innen, Angehörige und Zuweiser:innen begründen.
 Teilaufgabe 4 sollte UWG (keine Irreführung/aggressive Werbung), den branchenüblichen HWG-nahen Standard sowie die ethischen Grundsätze aus 6.1 (keine Angsterzeugung, informierte Einwilligung bei personenbezogenen Inhalten) benennen.
 
+---
+
+#### F-HB6-04 · Fallaufgabe
+
+**Themenbezug:** 6.2 (Marktanalyse: Marktanteil, relativer Marktanteil und Marktsättigung)
+
+**Ausgangssituation:** „Morgenlicht“ analysiert sein Einzugsgebiet: Marktpotenzial 5.000 pflegebedürftige Menschen (vereinfacht: alle im Einzugsgebiet), Marktvolumen 2.400 ambulant versorgte Menschen, „Morgenlicht“ versorgt 144, der größte Wettbewerber 480. Im Vorjahr betrugen das Marktvolumen 2.000 und die Klient:innenzahl von „Morgenlicht“ 130.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie den Marktanteil und den relativen Marktanteil von „Morgenlicht“.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie den Marktsättigungsgrad und das noch nicht ausgeschöpfte Marktpotenzial.
+
+**Teilaufgabe 3 (6 Punkte, bloom: analysieren):** Berechnen Sie den Marktanteil des Vorjahres sowie das Wachstum von „Morgenlicht“ und des Marktes und werten Sie den Vergleich aus.
+
+**Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie die Marktposition und nennen Sie zwei geeignete Maßnahmen.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Marktanteil = 144 ÷ 2.400 × 100 = 6 %; relativer Marktanteil = 144 ÷ 480 = 0,3.
+Teilaufgabe 2: Marktsättigungsgrad = 2.400 ÷ 5.000 × 100 = 48 %; nicht ausgeschöpftes Potenzial = 5.000 − 2.400 = 2.600 Menschen.
+Teilaufgabe 3: Marktanteil im Vorjahr = 130 ÷ 2.000 × 100 = 6,5 %; Wachstum von „Morgenlicht“ = (144 − 130) ÷ 130 ≈ 10,8 %, Marktwachstum = (2.400 − 2.000) ÷ 2.000 = 20 %; „Morgenlicht“ ist langsamer gewachsen als der Markt und hat Marktanteil verloren (von 6,5 % auf 6 %).
+Teilaufgabe 4 sollte bewerten: Der relative Marktanteil von 0,3 und der sinkende Marktanteil zeigen eine schwächere Position gegenüber dem größten Wettbewerber, der Sättigungsgrad von 48 % zeigt aber noch erheblichen Wachstumsspielraum; geeignete Maßnahmen sind z. B. Kooperationen mit Hausärzt:innen und Krankenhäusern zur Gewinnung von Klient:innen, ein ausgebautes Angebot für ein weniger besetztes Segment oder eine gezielte Ansprache pflegender Angehöriger.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

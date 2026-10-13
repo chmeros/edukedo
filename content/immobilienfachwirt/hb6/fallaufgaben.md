@@ -75,3 +75,27 @@ Teilaufgabe 2: Die Meldung der Käuferin entspricht der Beschwerdeannahme; in de
 Teilaufgabe 3: Eine strukturierte Objektführung mit offenem Ansprechen bekannter Einschränkungen hätte den Mangel bereits bei der Besichtigung transparent gemacht und das Vertrauen der Käuferin gestärkt.
 Teilaufgabe 4: z. B. verpflichtende schriftliche Mängel-Checkliste vor jeder Objektaufnahme sowie eine interne Freigabeprüfung des Exposé-Textes durch eine zweite Person vor Veröffentlichung.
 
+---
+
+#### F-HB6-04 · Fallaufgabe
+
+**Themenbezug:** 6.3 (Immobilienbewertung: Vergleichs-, Ertrags- und Sachwert)
+
+**Ausgangssituation:** Die Maklerabteilung der Ravelin Immobilien GmbH bewertet drei Objekte (vereinfachte Verfahren, Faktoren und Kennwerte angenommen). Objekt A ist eine Eigentumswohnung mit 70 m² in einer großen Wohnanlage; vergleichbare Verkäufe erzielten 4.200 € je m². Objekt B ist ein vermietetes Mehrfamilienhaus mit 90.000 € Rohertrag, 18.000 € Bewirtschaftungskosten, 400.000 € Bodenwert, 2,5 % Liegenschaftszinssatz und einem Vervielfältiger von 22. Objekt C ist ein selbstgenutztes Einfamilienhaus (ohne ausreichende Vergleichsobjekte) mit 300 m² Bruttogrundfläche, Normalherstellungskosten von 1.500 € je m², 40 Jahren Alter bei 80 Jahren Gesamtnutzungsdauer, 25.000 € Außenanlagen, 250.000 € Bodenwert und einem Sachwertfaktor von 0,9.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Ermitteln Sie den Vergleichswert von Objekt A.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie für Objekt B den Reinertrag, die Bodenwertverzinsung und den Gebäudereinertrag.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie den Ertragswert von Objekt B.
+
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Berechnen Sie den Sachwert von Objekt C.
+
+**Teilaufgabe 5 (3 Punkte, bloom: bewerten):** Begründen Sie, warum für die Objekte A, B und C jeweils das genannte Verfahren gewählt wurde.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Vergleichswert = 70 m² × 4.200 € = 294.000 €.
+Teilaufgabe 2: Reinertrag = 90.000 € − 18.000 € = 72.000 €; Bodenwertverzinsung = 400.000 € × 2,5 % = 10.000 €; Gebäudereinertrag = 72.000 € − 10.000 € = 62.000 €.
+Teilaufgabe 3: Gebäudeertragswert = 62.000 € × 22 = 1.364.000 €; Ertragswert = 1.364.000 € + 400.000 € = 1.764.000 €.
+Teilaufgabe 4: Herstellungswert = 300 m² × 1.500 € = 450.000 €; Alterswertminderung = 40 ÷ 80 = 50 %, Wert nach Abzug 225.000 €; mit den Außenanlagen von 25.000 € Gebäudesachwert 250.000 €; vorläufiger Sachwert = 250.000 € + 250.000 € = 500.000 €; Sachwert = 500.000 € × 0,9 = 450.000 €.
+Teilaufgabe 5 sollte nennen: A ist ein Standardobjekt mit ausreichender Vergleichsbasis (Vergleichswertverfahren), B ist ein vermietetes Renditeobjekt, bei dem der Ertrag im Vordergrund steht (Ertragswertverfahren), C ist ein selbstgenutztes Einfamilienhaus ohne ausreichende Vergleichsbasis und ohne Ertragsziel (Sachwertverfahren).
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

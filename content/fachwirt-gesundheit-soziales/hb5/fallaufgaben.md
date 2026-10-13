@@ -75,3 +75,27 @@ Teilaufgabe 2: Während der Schwangerschaft und bis mindestens vier Monate nach 
 Teilaufgabe 3: strukturiertes, dokumentiertes Feedbackgespräch mit konkreten Zwischenzielen, ggf. zusätzliche fachliche Unterstützung/Anleitung statt sofortiger Trennung.
 Teilaufgabe 4: Eine bestehende Mitarbeitervertretung wäre vor einer Kündigung anzuhören; eine Kündigung ohne diese Anhörung wäre unwirksam, unabhängig davon, ob die Landesbehörde ausnahmsweise eine Zulässigkeitserklärung nach § 17 Abs. 2 MuSchG erteilt.
 
+---
+
+#### F-HB5-04 · Fallaufgabe
+
+**Themenbezug:** 5.1 (Personalplanung: Personalbedarf) + 5.4 (Personalentwicklung: Personalkennziffern)
+
+**Ausgangssituation:** „Morgenlicht“ plant ein neues Versorgungsgebiet mit 80 Klient:innen, die im Mittel 2-mal pro Tag für je 15 Minuten versorgt werden. Für Wegezeiten wird ein Zuschlag von 20 % angesetzt, der Dienst arbeitet an sieben Tagen pro Woche. Eine Vollzeitkraft arbeitet 40 Stunden pro Woche bei einer Ausfallquote von 30 %. Das Team besteht aus 10 Pflegekräften mit je 30 Wochenstunden. Im gesamten Dienst gab es zu Jahresbeginn 23 und zu Jahresende 25 Mitarbeitende, 3 Austritte und 1.050 krankheitsbedingte Fehltage bei 250 Solltagen je Person. Als Zielwerte gelten angenommen: Fluktuationsrate höchstens 10 %, Krankenstand höchstens 8 %.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie den täglichen Pflegeaufwand in Stunden einschließlich Wegezeitzuschlag.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie den Wochenbedarf in Stunden, die Nettoarbeitszeit einer Vollzeitkraft und den Bedarf in Vollzeitäquivalenten.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie die Vollzeitäquivalente des vorhandenen Teams und die Lücke zum Bedarf.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie Fluktuationsrate und Krankenstand (jeweils bezogen auf den durchschnittlichen Bestand des gesamten Dienstes).
+
+**Teilaufgabe 5 (3 Punkte, bloom: bewerten):** Bewerten Sie beide Kennziffern im Vergleich mit den Zielwerten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: 80 × 2 × 15 min = 2.400 min = 40 h; mit Wegezeitzuschlag 40 h × 1,2 = 48 h pro Tag.
+Teilaufgabe 2: Wochenbedarf = 48 h × 7 = 336 h; Nettoarbeitszeit = 40 h × (1 − 0,30) = 28 h; Bedarf = 336 h ÷ 28 h = 12 VZÄ.
+Teilaufgabe 3: Team = 10 × 30 h ÷ 40 h = 7,5 VZÄ; Lücke = 12 − 7,5 = 4,5 VZÄ.
+Teilaufgabe 4: Durchschnittlicher Bestand = (23 + 25) ÷ 2 = 24; Fluktuationsrate = 3 ÷ 24 × 100 = 12,5 %; Solltage = 24 × 250 = 6.000, Krankenstand = 1.050 ÷ 6.000 × 100 = 17,5 %.
+Teilaufgabe 5 sollte bewerten: Die Fluktuationsrate von 12,5 % verfehlt das Ziel von 10 % leicht, der Krankenstand von 17,5 % verfehlt das Ziel von 8 % deutlich und deutet auf hohe Belastung oder Arbeitsschutzprobleme hin (Maßnahmen z. B. Gefährdungsbeurteilung, Dienstplangestaltung, Gesundheitsförderung).
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

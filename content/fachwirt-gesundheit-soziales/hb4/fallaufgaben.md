@@ -75,3 +75,49 @@ Teilaufgabe 2: die Kapitalwertmethode berücksichtigt den Zeitwert des Geldes un
 Teilaufgabe 3: Lizenzkosten sind laufende, in der Regel fixe Sachkosten, die als eigene Kostenart erfasst und in das Budget der entsprechenden Kostenstelle (z. B. Verwaltung/IT) aufgenommen werden sollten.
 Teilaufgabe 4: die Anschaffung sollte in eine Phase ausreichender Liquidität gelegt werden bzw. mit der Liquiditätsplanung abgestimmt werden, um Zahlungsengpässe zu vermeiden.
 
+---
+
+#### F-HB4-04 · Fallaufgabe
+
+**Themenbezug:** 4.1 (Rechnungswesen: Abschreibung) + 4.3 (Kosten- und Leistungsrechnung: Deckungsbeitrag, Break-even und Kalkulation)
+
+**Ausgangssituation:** „Morgenlicht“ beschafft ein Dienstfahrzeug für 45.000 € (Nutzungsdauer 6 Jahre, Restwert 3.000 €, lineare Abschreibung). Ein Pflegeeinsatz bringt im Mittel 30 € Erlös bei 18 € variablen Kosten (Beispielwerte, keine vereinbarten Vergütungssätze); die fixen Kosten der Geschäftsstelle betragen 21.600 € im Monat. Für die Kalkulation eines Einsatzes gelten: Dauer 20 Minuten, Personalkosten 42 € je Stunde, Material 2 €, Gemeinkostenzuschlag 30 % und Gewinn- und Wagniszuschlag 5 % auf die Selbstkosten. Ein zusätzlicher Auftrag bietet 22 € je Einsatz.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Berechnen Sie den jährlichen Abschreibungsbetrag und den Restbuchwert nach drei Jahren.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie den Deckungsbeitrag je Einsatz und die Break-even-Menge pro Monat.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie den Gewinn bei 2.100 Einsätzen im Monat.
+
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Kalkulieren Sie Einzelkosten, kostendeckenden Satz (Selbstkosten) und Angebotssatz eines Einsatzes.
+
+**Teilaufgabe 5 (2 Punkte, bloom: bewerten):** Bewerten Sie den zusätzlichen Auftrag zu 22 € je Einsatz bei freien Kapazitäten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Jahresbetrag = (45.000 € − 3.000 €) ÷ 6 = 7.000 €; Restbuchwert nach 3 Jahren = 45.000 € − 3 × 7.000 € = 24.000 €.
+Teilaufgabe 2: Deckungsbeitrag je Einsatz = 30 € − 18 € = 12 €; Break-even-Menge = 21.600 € ÷ 12 € = 1.800 Einsätze pro Monat.
+Teilaufgabe 3: Gewinn = 2.100 × 12 € − 21.600 € = 25.200 € − 21.600 € = 3.600 €.
+Teilaufgabe 4: Personalkosten = 42 € × 20 ÷ 60 = 14 €, Einzelkosten = 14 € + 2 € = 16 €; Gemeinkosten = 16 € × 30 % = 4,80 €, Selbstkosten = 20,80 € (kostendeckender Satz); Zuschlag 5 % = 1,04 €, Angebotssatz = 21,84 €.
+Teilaufgabe 5: Deckungsbeitrag = 22 € − 18 € = 4 € je Einsatz; er ist positiv und trägt bei freier Kapazität zur Deckung der Fixkosten bei, der Auftrag lohnt sich also kurzfristig; 22 € liegt zudem über dem kostendeckenden Satz von 20,80 €, der Auftrag ist also auch dauerhaft vertretbar.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
+
+---
+
+#### F-HB4-05 · Fallaufgabe
+
+**Themenbezug:** 4.4 (Controlling und Kennzahlen: Betriebliche Kennzahlen, Liquidität und Investitionsplanung)
+
+**Ausgangssituation:** Das Controlling von „Morgenlicht“ meldet für den Monat: 2.000 planbare Einsatzstunden, davon 1.600 erbracht; 40 Pflegekräfte, davon 20 examinierte Pflegefachkräfte; Personalkosten 1.200.000 € bei Erlösen von 1.600.000 € im Jahr. Bilanz: liquide Mittel 50.000 €, kurzfristige Forderungen 130.000 €, kurzfristige Verbindlichkeiten 200.000 €. Als Zielwert gilt (angenommen) eine Liquidität 2. Grades von mindestens 100 %. Zwei Investitionen werden geprüft: eine Fahrzeugausstattung für 36.000 €, die jährlich 9.000 € spart, und eine Dokumentationssoftware für 70.000 €, die nach einem, zwei und drei Jahren 27.500 €, 30.250 € und 33.275 € Rückfluss bringt (Kalkulationszinssatz 10 %).
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie Auslastungsquote, Fachkraftquote und Personalkostenquote (bezogen auf die Erlöse).
+
+**Teilaufgabe 2 (4 Punkte, bloom: bewerten):** Berechnen Sie die Liquidität 2. Grades und bewerten Sie sie im Vergleich mit dem Zielwert.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie die statische Amortisationsdauer der Fahrzeugausstattung.
+
+**Teilaufgabe 4 (7 Punkte, bloom: bewerten):** Berechnen Sie den Kapitalwert der Dokumentationssoftware und beurteilen Sie ihre Vorteilhaftigkeit.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Auslastungsquote = 1.600 ÷ 2.000 × 100 = 80 %; Fachkraftquote = 20 ÷ 40 × 100 = 50 %; Personalkostenquote = 1.200.000 € ÷ 1.600.000 € × 100 = 75 %.
+Teilaufgabe 2: Liquidität 2. Grades = (50.000 € + 130.000 €) ÷ 200.000 € × 100 = 90 %; sie liegt unter dem Zielwert von 100 %, die kurzfristigen Verbindlichkeiten sind nicht vollständig gedeckt (Maßnahmen z. B. Forderungsmanagement, Kontokorrentrahmen).
+Teilaufgabe 3: Amortisationsdauer = 36.000 € ÷ 9.000 € = 4 Jahre.
+Teilaufgabe 4: Barwerte = 27.500 € ÷ 1,10 = 25.000 €, 30.250 € ÷ 1,10² = 25.000 €, 33.275 € ÷ 1,10³ = 25.000 €; Summe 75.000 €; Kapitalwert = 75.000 € − 70.000 € = 5.000 €; er ist positiv, die Software erwirtschaftet mehr als die geforderten 10 % und ist vorteilhaft.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

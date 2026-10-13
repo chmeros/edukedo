@@ -75,3 +75,27 @@ Teilaufgabe 2: Verglichen wurden Kostenberechnung (Entwurfsplanung) und Kostenan
 Teilaufgabe 3: systematische Dokumentation der Mängel, Fristsetzung zur Nacherfüllung gegenüber dem Dachdeckerunternehmen, Nachverfolgung der Mängelbeseitigung, ggf. erneute Prüfung vor endgültiger Abnahme.
 Teilaufgabe 4: z. B. frühzeitigere Einholung indikativer Angebote für kostenintensive Gewerke bereits in der Entwurfsplanung, regelmäßiger Plan-Ist-Abgleich je Kostengruppe während der Planungsphasen, engere Abstimmung mit Fachplaner:innen der technischen Anlagen.
 
+---
+
+#### F-HB5-04 · Fallaufgabe
+
+**Themenbezug:** 5.1 (Projektentwicklung: Projektkalkulation) + 5.3 (Baurecht: GRZ und GFZ) + 5.4 (Kosten- und Terminplanung: Kostengruppen nach DIN 276)
+
+**Ausgangssituation:** Ravelin kalkuliert ein Bauträgerprojekt mit einem erwarteten Verkaufserlös von 3.200.000 €. Die Kostenberechnung nach DIN 276 weist aus: KG 100 450.000 €, KG 200 30.000 €, KG 300 1.200.000 €, KG 400 400.000 €, KG 500 80.000 € und KG 700 288.000 € (KG 600 entfällt). Die Bruttogrundfläche beträgt 1.280 m². Hinzu kommen Vertriebskosten von 3 % des Erlöses und Finanzierungskosten von 112.000 €. Das Grundstück hat 1.800 m², die bebaute Fläche beträgt 540 m², die Summe der Geschossflächen 1.080 m² (zwei Geschosse zu je 540 m²); der Bebauungsplan setzt (angenommen) eine GFZ von 1,0 fest.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie die Summe der Kostengruppen 100 bis 700.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie die Vertriebskosten, die Gesamtkosten und den Projektgewinn.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie die Gewinnmarge bezogen auf den Erlös.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie die Bauwerkskosten je m² Bruttogrundfläche und den Anteil der Baunebenkosten an den Bauwerkskosten.
+
+**Teilaufgabe 5 (4 Punkte, bloom: bewerten):** Berechnen Sie GRZ und GFZ und beurteilen Sie, wie viel Geschossfläche nach dem Bebauungsplan noch möglich wäre.
+
+**Musterlösungshinweise:** Teilaufgabe 1: 450.000 € + 30.000 € + 1.200.000 € + 400.000 € + 80.000 € + 288.000 € = 2.448.000 €.
+Teilaufgabe 2: Vertriebskosten = 3.200.000 € × 3 % = 96.000 €; Gesamtkosten = 2.448.000 € + 96.000 € + 112.000 € = 2.656.000 €; Projektgewinn = 3.200.000 € − 2.656.000 € = 544.000 €.
+Teilaufgabe 3: Gewinnmarge = 544.000 € ÷ 3.200.000 € × 100 = 17 %.
+Teilaufgabe 4: Bauwerkskosten = 1.200.000 € + 400.000 € = 1.600.000 €, je m² BGF = 1.600.000 € ÷ 1.280 m² = 1.250 €; Baunebenkostenanteil = 288.000 € ÷ 1.600.000 € × 100 = 18 %.
+Teilaufgabe 5: GRZ = 540 ÷ 1.800 = 0,3; GFZ = 1.080 ÷ 1.800 = 0,6; zulässige Geschossfläche = 1,0 × 1.800 m² = 1.800 m², es bleiben 1.800 m² − 1.080 m² = 720 m² Reserve (vorbehaltlich Abstandsflächen, Stellplätze und weiterer Vorgaben).
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

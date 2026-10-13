@@ -75,3 +75,27 @@ Teilaufgabe 2: Wasserschaden Tiefgarage → Sofort erledigen (akute Schadensgefa
 Teilaufgabe 3: Vorschlag z. B. Erhebung einer Sonderumlage durch Beschluss der Eigentümerversammlung, da über zusätzliche Zahlungspflichten der Eigentümer nur die Gemeinschaft selbst per Beschluss entscheiden kann — der Verwalter darf die fehlenden Mittel nicht eigenmächtig nachfordern.
 Teilaufgabe 4: Z. B. regelmäßige Aktualisierung des mittelfristigen Instandhaltungsplans anhand tatsächlicher Zustandsdaten (zustandsorientierte Instandhaltung), realistischere Bemessung der Erhaltungsrücklage anhand anerkannter Berechnungsformeln, frühzeitige Information der Eigentümerversammlung über absehbare Großmaßnahmen.
 
+---
+
+#### F-HB4-04 · Fallaufgabe
+
+**Themenbezug:** 4.4 (Betriebskostenabrechnung: Umlage und Heizkostenverteilung)
+
+**Ausgangssituation:** Ravelin erstellt die Abrechnung für ein Haus mit 2.400 m² Wohnfläche. Die umlagefähigen Betriebskosten ohne Heizung und ohne verbrauchsabhängig abgerechnete Kosten betragen 21.600 € und werden nach Wohnfläche umgelegt. Die Heizkosten betragen 36.000 € und werden zu 70 % nach Verbrauch und zu 30 % nach Wohnfläche verteilt; insgesamt wurden 120.000 Verbrauchseinheiten gemessen. Eine Mieterin bewohnt 72 m², hat 6.000 Verbrauchseinheiten und zahlte 50 € Betriebskosten- und 120 € Heizkostenvorauszahlung im Monat.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie den Flächenanteil der Wohnung, ihren Betriebskostenanteil und den Saldo der Betriebskosten.
+
+**Teilaufgabe 2 (3 Punkte, bloom: anwenden):** Berechnen Sie, wie viel der Heizkosten nach Verbrauch und wie viel nach Fläche zu verteilen ist.
+
+**Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Berechnen Sie den Heizkostenanteil der Wohnung nach Verbrauch, nach Fläche und insgesamt.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie den Heizkostensaldo und die gesamte Nachzahlung beziehungsweise das gesamte Guthaben.
+
+**Teilaufgabe 5 (3 Punkte, bloom: anwenden):** Angenommen, Ravelin hätte gegen die Pflicht zur verbrauchsabhängigen Abrechnung verstoßen. Berechnen Sie mit dem Heizkostenanteil aus Teilaufgabe 3 die zulässige Kürzung und den gekürzten Anteil.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Flächenanteil = 72 ÷ 2.400 × 100 = 3 %; Betriebskostenanteil = 21.600 € × 3 % = 648 €; Vorauszahlungen = 12 × 50 € = 600 €; Saldo = 600 € − 648 € = −48 €, also 48 € Nachzahlung.
+Teilaufgabe 2: Nach Verbrauch 36.000 € × 70 % = 25.200 €, nach Fläche 36.000 € × 30 % = 10.800 €.
+Teilaufgabe 3: Nach Verbrauch 6.000 ÷ 120.000 = 5 %, also 25.200 € × 5 % = 1.260 €; nach Fläche 10.800 € × 3 % = 324 €; Heizkostenanteil insgesamt 1.584 €.
+Teilaufgabe 4: Heizkostenvorauszahlungen = 12 × 120 € = 1.440 €; Saldo = 1.440 € − 1.584 € = −144 €, also 144 € Nachzahlung; insgesamt 48 € + 144 € = 192 € Nachzahlung.
+Teilaufgabe 5: Kürzung = 1.584 € × 15 % = 237,60 €; gekürzter Heizkostenanteil = 1.584 € − 237,60 € = 1.346,40 €.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

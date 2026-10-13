@@ -74,3 +74,47 @@ Teilaufgabe 4: z. B. „Anzahl durchgeführter präventiver Objektbegehungen pro
 Teilaufgabe 2: z. B. Vermietungsquote/Leerstandsquote der Einheiten, Verwaltungskostenquote, Instandhaltungsquote sowie ein Soll-Ist-Vergleich zum ersten Wirtschaftsplan.
 Teilaufgabe 3: z. B. rechtliches Risiko (fehlerhafte Übernahme bestehender Beschlüsse/Verträge der WEG) und Marktrisiko (Leerstand bei Erstvermietung einzelner Einheiten); Begegnung durch sorgfältige Mandatsübernahme-Prüfung bzw. durch Beobachtung der lokalen Vermietungssituation.
 Teilaufgabe 4: z. B. Aufnahme der neuen WEG in den bestehenden monatlichen Kennzahlenbericht sowie Festlegung objektspezifischer Schwellenwerte (z. B. für Instandhaltungskosten) im Frühwarnsystem ab dem ersten Wirtschaftsjahr.
+
+---
+
+#### F-HB2-04 · Fallaufgabe
+
+**Themenbezug:** 2.2 (Investitions- und Finanzierungsrechnung: Mietrendite, Leverage, Annuitätendarlehen und Kapitalwert)
+
+**Ausgangssituation:** Eine Kapitalanlegerin erwägt über die Ravelin Immobilien GmbH den Kauf eines Mehrfamilienhauses für 640.000 €. Die Jahresnettokaltmiete beträgt 35.200 €, die nicht umlagefähigen Bewirtschaftungskosten betragen 3.520 € im Jahr. Als Erwerbsnebenkosten werden pauschal 10 % des Kaufpreises angenommen. Sie finanziert die Hälfte der Gesamtinvestition mit einem Annuitätendarlehen (jährliche Zahlung) zu 3 % Zinsen und 2 % anfänglicher Tilgung, die andere Hälfte mit Eigenkapital. Zusätzlich prüft sie eine Modernisierung für 90.000 €, die nach einem, zwei und drei Jahren Rückflüsse von 33.000 €, 42.350 € und 53.240 € bringt (Kalkulationszinssatz 10 %).
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie die Bruttomietrendite (bezogen auf den Kaufpreis), die Gesamtinvestition, den Nettomietertrag und die Nettomietrendite.
+
+**Teilaufgabe 2 (5 Punkte, bloom: analysieren):** Berechnen Sie die Darlehenszinsen im ersten Jahr und die Eigenkapitalrendite und beurteilen Sie die Wirkung der Fremdfinanzierung.
+
+**Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Berechnen Sie für das Darlehen die Annuität, die Tilgung im ersten Jahr und die Restschuld nach dem ersten Jahr.
+
+**Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Berechnen Sie den Kapitalwert der Modernisierung und beurteilen Sie ihre Vorteilhaftigkeit.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Bruttomietrendite = 35.200 € ÷ 640.000 € × 100 = 5,5 %; Gesamtinvestition = 640.000 € + 64.000 € = 704.000 €; Nettomietertrag = 35.200 € − 3.520 € = 31.680 €; Nettomietrendite = 31.680 € ÷ 704.000 € × 100 = 4,5 %.
+Teilaufgabe 2: Darlehen = 704.000 € ÷ 2 = 352.000 €, Zinsen = 352.000 € × 3 % = 10.560 €; Gewinn nach Zinsen = 31.680 € − 10.560 € = 21.120 €; Eigenkapitalrendite = 21.120 € ÷ 352.000 € × 100 = 6 %; sie liegt über der Gesamtkapitalrendite von 4,5 %, weil diese über dem Darlehenszins von 3 % liegt (positiver Leverage-Effekt).
+Teilaufgabe 3: Annuität = (3 % + 2 %) × 352.000 € = 17.600 €; Tilgung im 1. Jahr = 17.600 € − 10.560 € = 7.040 €; Restschuld = 352.000 € − 7.040 € = 344.960 €.
+Teilaufgabe 4: Barwerte = 33.000 € ÷ 1,10 = 30.000 €, 42.350 € ÷ 1,10² = 35.000 €, 53.240 € ÷ 1,10³ = 40.000 €; Summe 105.000 €; Kapitalwert = 105.000 € − 90.000 € = 15.000 €; er ist positiv, die Modernisierung erwirtschaftet mehr als die geforderten 10 % und ist vorteilhaft.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
+
+---
+
+#### F-HB2-05 · Fallaufgabe
+
+**Themenbezug:** 2.3 (Controlling und Kennzahlen: Portfolio- und Bilanzkennzahlen)
+
+**Ausgangssituation:** Für das Bestandsportfolio einer Auftraggeberin meldet das Controlling der Ravelin Immobilien GmbH: 360 Einheiten, davon 27 leerstehend; Mieteinnahmen 2.000.000 €, Verwaltungskosten 130.000 €, Instandhaltungsaufwand 300.000 €. Bilanz: liquide Mittel 150.000 €, kurzfristige Forderungen 90.000 €, Vorräte 60.000 €, kurzfristige Verbindlichkeiten 300.000 €, Eigenkapital 2.800.000 €, Gesamtkapital 8.000.000 €, Gewinn (vor Fremdkapitalzinsen) 480.000 €. Als Zielwerte gelten angenommen: Leerstandsquote höchstens 5 %, Liquidität 2. Grades mindestens 100 %.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie Leerstandsquote, Vermietungsquote, Verwaltungskostenquote und Instandhaltungsquote (jeweils bezogen auf die Mieteinnahmen, soweit es sich um Kostenquoten handelt).
+
+**Teilaufgabe 2 (6 Punkte, bloom: anwenden):** Berechnen Sie die Liquiditätsgrade 1, 2 und 3.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie Eigenkapitalquote und ROI.
+
+**Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie Leerstand und Liquidität im Vergleich mit den Zielwerten und nennen Sie je eine Maßnahme.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Leerstandsquote = 27 ÷ 360 × 100 = 7,5 %; Vermietungsquote = 100 % − 7,5 % = 92,5 %; Verwaltungskostenquote = 130.000 € ÷ 2.000.000 € × 100 = 6,5 %; Instandhaltungsquote = 300.000 € ÷ 2.000.000 € × 100 = 15 %.
+Teilaufgabe 2: Liquidität 1. Grades = 150.000 € ÷ 300.000 € × 100 = 50 %; 2. Grades = (150.000 € + 90.000 €) ÷ 300.000 € × 100 = 80 %; 3. Grades = (150.000 € + 90.000 € + 60.000 €) ÷ 300.000 € × 100 = 100 %.
+Teilaufgabe 3: Eigenkapitalquote = 2.800.000 € ÷ 8.000.000 € × 100 = 35 %; ROI = 480.000 € ÷ 8.000.000 € × 100 = 6 %.
+Teilaufgabe 4 sollte bewerten: Die Leerstandsquote von 7,5 % verfehlt das Ziel von höchstens 5 %, die Liquidität 2. Grades von 80 % liegt unter den geforderten 100 %; Maßnahmen z. B. aktive Vermarktung und Mietanpassung der leerstehenden Einheiten, Forderungsmanagement, Verhandlung von Zahlungszielen oder ein Kontokorrentrahmen.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
