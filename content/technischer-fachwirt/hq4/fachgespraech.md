@@ -5,7 +5,7 @@ fachgebiet_title: "Führung und Zusammenarbeit"
 thema_code: "HQ4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung TechFachwPrV (17.01.2006, BGBl. I S. 66), §6 Abs. 4, Handlungsbereich „Führung und Zusammenarbeit" — frei formulierte Fragen, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "13.10.2026 — P8-Fragen und -Aufgaben eingespielt (Erwartungen und Musterlösungen stützen sich auf die eingespielte, KI-geprüfte Theorie, Prüfblätter 25 und 26 vom Projektleiter kontrolliert); förmliche Rechtsprüfung offen (Iteration 22); Wiedervorlage 21.01.2027 (Maschinenverordnung)"
 ---
 
 ## Fachgesprächsfragen
@@ -215,3 +215,50 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Die Vereinbarung ist konkret, überprüfbar und von beiden getragen; ein Überprüfungstermin sichert das Nachfassen.
   - Rückfrage: Welche Sprache hilft in einem Konfliktgespräch?
 
+### 11.4 Ausbildung planen und durchführen
+
+- Neue Auszubildende der Vantera fragen, was in ihrem Ausbildungsvertrag stehen muss und was nicht vereinbart werden darf. Was antworten Sie?
+  - Erwartung: Ausbildende müssen den wesentlichen Inhalt des Vertrags in Textform abfassen (Vertragsabfassung nach § 11 BBiG), unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung.
+  - Erwartung: Der Mindestinhalt umfasst unter anderem Art, sachliche und zeitliche Gliederung und Ziel der Ausbildung, Beginn und Dauer, Ausbildungsstätte, tägliche Ausbildungszeit, Dauer der Probezeit, Höhe der Vergütung, Vergütung oder Ausgleich von Überstunden, Urlaub und Kündigungsvoraussetzungen.
+  - Erwartung: Hinzu kommen der Hinweis auf anwendbare Tarifverträge und Betriebsvereinbarungen und die Form des Ausbildungsnachweises.
+  - Erwartung: Die Vertragsabfassung ist auszuhändigen oder so elektronisch zu übermitteln, dass sie gespeichert und ausgedruckt werden kann; der Empfang ist nachzuweisen, und sie ist über das Ende des Ausbildungsverhältnisses hinaus aufzubewahren.
+  - Erwartung: Eine Vereinbarung, die zuungunsten Auszubildender vom Berufsbildungsgesetz abweicht, ist nichtig; nichtig sind auch Vertragsstrafen, Entschädigungen für die Ausbildung und pauschale Schadensersatzfestlegungen.
+  - Rückfrage: Welche Vorschriften des Arbeitsvertragsrechts gelten für den Ausbildungsvertrag entsprechend?
+- Auszubildende befinden sich noch in der Probezeit, kommen wiederholt zu spät und führen ihren Ausbildungsnachweis nicht. Nennen Sie die berührten Pflichten und erläutern Sie, welche Möglichkeiten und Grenzen es bei einer Kündigung gibt.
+  - Erwartung: Auszubildende müssen Weisungen und die Ordnung der Ausbildungsstätte beachten, Aufgaben sorgfältig ausführen, an Ausbildungsmaßnahmen teilnehmen und einen Ausbildungsnachweis führen.
+  - Erwartung: Auch Ausbildende haben Pflichten: Sie müssen planmäßig ausbilden, zum Berufsschulbesuch anhalten und den Ausbildungsnachweis regelmäßig durchsehen.
+  - Erwartung: Das Berufsausbildungsverhältnis beginnt mit einer Probezeit, deren Dauer sich in einem gesetzlichen Rahmen bewegt und im Vertrag anzugeben ist; währenddessen ist es jederzeit ohne Frist kündbar.
+  - Erwartung: Danach ist die Kündigung nur noch aus wichtigem Grund ohne Frist möglich oder durch die Auszubildenden mit gesetzlicher Frist, wenn sie die Ausbildung aufgeben oder sich für eine andere Tätigkeit ausbilden lassen wollen.
+  - Erwartung: Die Kündigung muss schriftlich erfolgen, in diesen beiden Fällen mit Angabe der Gründe; die elektronische Form ist ausgeschlossen, und eine Kündigung aus wichtigem Grund ist unwirksam, wenn die Tatsachen dem Kündigenden schon zu lange bekannt sind.
+  - Rückfrage: Wie führen Sie das Gespräch mit den Auszubildenden, bevor eine Kündigung überhaupt in Betracht kommt?
+- Die Geschäftsführung der Vantera möchte allen Auszubildenden über die gesamte Ausbildung dieselbe Vergütung zahlen und argumentiert, das liege über dem Mindestlohn. Beurteilen Sie das.
+  - Erwartung: Das Mindestlohngesetz regelt die Vergütung der zu ihrer Berufsausbildung Beschäftigten nicht; maßgeblich ist das Berufsbildungsgesetz, der Hinweis auf den Mindestlohn trägt deshalb nicht.
+  - Erwartung: Ausbildende müssen eine angemessene Vergütung zahlen, die mit fortschreitender Ausbildung mindestens jährlich steigt; eine gleichbleibende Vergütung über alle Ausbildungsjahre genügt nicht.
+  - Erwartung: Unterschreitet die Vergütung die gesetzliche Mindestvergütung, ist die Angemessenheit ausgeschlossen; die Mindestvergütung des ersten Ausbildungsjahres wird jährlich fortgeschrieben, für spätere Ausbildungsjahre kommen Aufschläge hinzu.
+  - Erwartung: Eine tarifvertragliche Vergütung, die für den Ausbildenden gilt, ist auch unterhalb der Mindestvergütung angemessen; bei einem nicht tarifgebundenen Ausbildenden ist eine Vergütung, die erheblich unter der Tarifvergütung des Geltungsbereichs liegt, in der Regel nicht angemessen.
+  - Erwartung: Mehrarbeit ist besonders zu vergüten oder durch Freizeit auszugleichen, und für Freistellungen, zum Beispiel für die Berufsschule, ist die Vergütung fortzuzahlen.
+  - Rückfrage: Woran orientieren Sie sich bei der Vergütung für das zweite bis vierte Ausbildungsjahr?
+- Vantera bildet erstmals Zerspanungsmechaniker:innen aus. Erläutern Sie, welche Voraussetzungen erfüllt sein müssen, wer einstellen und ausbilden darf und welche Rollen IHK und Betriebsrat haben.
+  - Erwartung: Die Ausbildungsstätte muss nach Art und Einrichtung geeignet sein, und die Zahl der Auszubildenden muss in einem angemessenen Verhältnis zur Zahl der Ausbildungsplätze oder der beschäftigten Fachkräfte stehen; können nicht alle Inhalte vermittelt werden, gilt sie als geeignet, wenn die Inhalte außerhalb vermittelt werden, zum Beispiel in einer überbetrieblichen Einrichtung oder im Ausbildungsverbund.
+  - Erwartung: Einstellen darf, wer persönlich geeignet ist; selbst ausbilden darf, wer persönlich und fachlich geeignet ist; die fachliche Eignung umfasst auch die berufs- und arbeitspädagogischen Fertigkeiten, Kenntnisse und Fähigkeiten, und persönlich nicht geeignet ist insbesondere, wer wiederholt oder schwer gegen das BBiG verstoßen hat.
+  - Erwartung: Wer nicht selbst ausbildet oder fachlich nicht geeignet ist, muss geeignete Ausbilder:innen bestellen, die die Inhalte unmittelbar, verantwortlich und in wesentlichem Umfang vermitteln; Fachkräfte wirken unter deren Verantwortung mit.
+  - Erwartung: Die IHK ist die zuständige Stelle: Sie führt das Verzeichnis der Berufsausbildungsverhältnisse, überwacht Eignung und Durchführung der Ausbildung, berät die Beteiligten und errichtet die Prüfungsausschüsse.
+  - Erwartung: Der Betriebsrat hat bei der Durchführung betrieblicher Berufsbildungsmaßnahmen mitzubestimmen; er kann der Bestellung einer ausbildenden Person widersprechen oder ihre Abberufung verlangen, wenn ihr die persönliche oder fachliche Eignung fehlt oder sie ihre Aufgaben vernachlässigt.
+  - Rückfrage: Wie weisen Ausbilder:innen die berufs- und arbeitspädagogische Eignung nach?
+  - Rückfrage: Welche Rolle hat der Berufsbildungsausschuss bei der IHK?
+- Sie sollen den betrieblichen Ausbildungsplan für vier neue Zerspanungsmechaniker:innen der Vantera aufstellen. Wie gehen Sie vor, und was tun Sie, wenn Vantera einen Inhalt nicht selbst vermitteln kann?
+  - Erwartung: Ich gehe von der Ausbildungsordnung aus, hier der Verordnung über die Berufsausbildung in den industriellen Metallberufen, denn für einen anerkannten Ausbildungsberuf darf nur nach ihr ausgebildet werden; sie legt Berufsbezeichnung, Ausbildungsdauer, Ausbildungsberufsbild (Mindestinhalte), Ausbildungsrahmenplan und Prüfungsanforderungen fest.
+  - Erwartung: Aus dem Ausbildungsrahmenplan, der eine Anleitung zur sachlichen und zeitlichen Gliederung gibt, entsteht der betriebliche Ausbildungsplan: sachlich (welche Berufsbildpositionen in welcher Abteilung) und zeitlich (in welchem Zeitraum).
+  - Erwartung: Für das Jahr rechne ich zuerst die Wochen im Betrieb aus, indem ich Urlaub und Berufsschulblöcke abziehe, und plane eine Reserve für Krankheit, Nacharbeit und Lerntage ein; die Lage der Berufsschulblöcke stimme ich mit der Berufsschule ab.
+  - Erwartung: Der Betrieb muss mindestens ein Einsatzgebiet festlegen; Abweichungen vom Rahmenplan sind insbesondere zulässig, soweit betriebspraktische Besonderheiten sie erfordern, nicht beliebig.
+  - Erwartung: Kann Vantera Inhalte nicht selbst vermitteln, gilt die Ausbildungsstätte als geeignet, wenn sie durch Maßnahmen außerhalb vermittelt werden, und der Plan zeigt, wo das geschieht; die Gliederung gehört auch in die Vertragsabfassung, und der Betriebsrat wird bei der Durchführung der betrieblichen Berufsbildung beteiligt.
+  - Rückfrage: Welche Berufsbildpositionen beginnen nach dem Rahmenplan erst im zweiten Ausbildungsjahr?
+  - Rückfrage: Wann und mit wem passen Sie den Plan im Lauf des Jahres an?
+- Zerspanungsmechaniker:innen legen eine zweiteilige Abschlussprüfung ab. Wie läuft sie ab, wer wird zugelassen, und wie planen Sie die Freistellungen?
+  - Erwartung: Die Abschlussprüfung besteht aus zwei zeitlich auseinanderfallenden Teilen; Teil 1 findet im Verlauf der Ausbildung statt, eine gesonderte Zwischenprüfung entfällt, und beide Teile gehen mit festgelegtem Gewicht in das Gesamtergebnis ein.
+  - Erwartung: Über die Zulassung wird zu jedem Teil gesondert entschieden: Zu Teil 1 wird zugelassen, wer die vorgeschriebene Ausbildungsdauer zurückgelegt, den Ausbildungsnachweis vorgelegt hat und dessen Ausbildungsverhältnis eingetragen ist.
+  - Erwartung: Zu Teil 2 wird zusätzlich zugelassen, wer am ersten Teil teilgenommen hat oder davon aus nicht zu vertretenden Gründen verhindert war.
+  - Erwartung: Deshalb müssen Ausbildende den Ausbildungsnachweis regelmäßig durchsehen und Gelegenheit zum Führen am Arbeitsplatz geben.
+  - Erwartung: Freizustellen sind Auszubildende für den Berufsschulunterricht (bei planmäßigem Blockunterricht für die gesamte Woche), für Prüfungen und außerbetriebliche Ausbildungsmaßnahmen sowie am Arbeitstag vor der schriftlichen Abschlussprüfung; die Zeiten werden auf die Ausbildungszeit angerechnet, und die Vergütung ist fortzuzahlen.
+  - Rückfrage: Was folgt für die Zulassung zu Teil 2, wenn Auszubildende den ersten Teil krankheitsbedingt versäumt haben?
+  - Rückfrage: Wie berücksichtigen Sie den Blockunterricht schon bei der Jahresplanung?

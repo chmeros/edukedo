@@ -5,7 +5,7 @@ fachgebiet_title: "Fertigungs- und Betriebstechnik"
 thema_code: "TQ3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 4 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "13.10.2026 — P8-Fragen und -Aufgaben eingespielt (Erwartungen und Musterlösungen stützen sich auf die eingespielte, KI-geprüfte Theorie, Prüfblätter 25 und 26 vom Projektleiter kontrolliert); förmliche Rechtsprüfung offen (Iteration 22); Wiedervorlage 21.01.2027 (Maschinenverordnung)"
 ---
 
 ## Fachgesprächsfragen
@@ -136,6 +136,37 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Unkritische Teile mit geringer Kritikalität, kurzer Beschaffungszeit und geringem Wert werden häufig erst bei Bedarf bestellt.
   - Erwartung: Ziel ist, dass Ersatzteile im Störungsfall schnell verfügbar sind, ohne unnötig viel Kapital in Lagerbeständen zu binden.
   - Rückfrage: Welche Ersatzteile hält Vantera für die CNC-Maschinenflotte bevorratet?
+- Ein Lieferant bietet Vantera ein Elektrogerät mit GS-Zeichen an, ein anderer eine Maschine mit CE-Kennzeichnung. Was sagen die beiden Zeichen jeweils aus, und was bedeuten in diesem Zusammenhang Bereitstellung und Inverkehrbringen?
+  - Erwartung: Die CE-Kennzeichnung zeigt, dass der Hersteller die Konformität seines Produkts mit den einschlägigen EU-Anforderungen erklärt; bei Maschinen stellt er dazu nach nachgewiesener Konformität eine EU-Konformitätserklärung aus und bringt dann die CE-Kennzeichnung an.
+  - Erwartung: Die CE-Kennzeichnung muss sichtbar, lesbar und dauerhaft auf dem Produkt oder seinem Typenschild angebracht sein, und zwar vor dem Inverkehrbringen.
+  - Erwartung: Ein Produkt darf nicht bereitgestellt werden, wenn die CE-Kennzeichnung fehlt, obwohl eine Rechtsvorschrift sie verlangt, und ebenso wenig, wenn sie angebracht ist, obwohl keine Rechtsvorschrift sie vorsieht.
+  - Erwartung: Das GS-Zeichen („Geprüfte Sicherheit“) ist freiwillig; eine GS-Stelle erkennt es auf Antrag nach Prüfung eines Baumusters und Kontrolle der laufenden Produktion zu, und es ersetzt die CE-Kennzeichnung nicht.
+  - Erwartung: Bereitstellung ist jede Abgabe eines Produkts zum Vertrieb, Verbrauch oder zur Verwendung auf dem Unionsmarkt im Rahmen einer Geschäftstätigkeit, entgeltlich oder unentgeltlich; Inverkehrbringen ist die erstmalige Bereitstellung auf dem Unionsmarkt.
+  - Rückfrage: Reicht bei einer Maschine ein GS-Zeichen anstelle der CE-Kennzeichnung, wenn der Anbieter versichert, das Gerät sei sicher?
+  - Rückfrage: Ein Anbieter überlässt Vantera ein Produkt ohne Entgelt zur Erprobung. Liegt dann eine Bereitstellung vor?
+- Ein Systemhaus liefert Vantera eine Maschine, die es nicht selbst gebaut hat, aber unter seinem eigenen Firmennamen vertreibt. Welche Rolle hat das Systemhaus nach der Maschinenverordnung, wie sind die Pflichten von Hersteller, Einführer und Händler verteilt, und was prüft Vantera bei der Anlieferung?
+  - Erwartung: Der Hersteller konstruiert nach den grundlegenden Anforderungen, erstellt die technischen Unterlagen, führt die Konformitätsbewertung durch, stellt die EU-Konformitätserklärung aus, bringt die CE-Kennzeichnung an und liefert die Betriebsanleitung mit.
+  - Erwartung: Der Einführer bringt nur konforme Maschinen in Verkehr und stellt vorher sicher, dass der Hersteller diese Schritte erfüllt hat; der Händler prüft vor der Bereitstellung, ob CE-Kennzeichnung, Konformitätserklärung und Betriebsanleitung vorhanden sind, und stellt bei Zweifeln nicht bereit.
+  - Erwartung: Einführer und Händler gelten als Hersteller, wenn sie das Produkt unter eigenem Namen oder eigener Marke in Verkehr bringen oder ein bereits in Verkehr gebrachtes Produkt so verändern, dass sich das auf die Konformität auswirken kann; das Systemhaus trägt hier also selbst die Herstellerpflichten.
+  - Erwartung: Vantera prüft bei der Anlieferung, ob CE-Kennzeichnung, Konformitätserklärung und Betriebsanleitung vorliegen, wobei die Betriebsanleitung in Deutschland auf Deutsch vorliegen muss; Herstellerangaben darf der Arbeitgeber als zutreffend ansehen, solange er keine anderen Erkenntnisse hat.
+  - Rückfrage: Was gilt, wenn die Maschine gebraucht aus einem Drittstaat in die EU eingeführt wird?
+  - Rückfrage: Unter welchen Umständen wird Vantera als Verwenderin einer Maschine selbst zum Hersteller?
+- Wie verhalten sich Maschinenrichtlinie, 9. ProdSV, Maschinenverordnung und Maschinenverordnung-Durchführungsgesetz zueinander, und welches Recht gilt für welche Maschine?
+  - Erwartung: Die Maschinenrichtlinie 2006/42/EG ist in Deutschland durch die Neunte Verordnung zum Produktsicherheitsgesetz (9. ProdSV) umgesetzt und gilt für Maschinen, die vor dem Anwendungsbeginn der Maschinenverordnung in Verkehr gebracht werden; die Maschinenverordnung (EU) 2023/1230 hebt die Richtlinie auf.
+  - Erwartung: Eine EU-Verordnung gilt unmittelbar in allen Mitgliedstaaten und muss nicht in nationales Recht umgesetzt werden, während eine Richtlinie ein nationales Umsetzungsrecht wie die 9. ProdSV braucht.
+  - Erwartung: Entscheidend ist der Zeitpunkt des Inverkehrbringens, nicht der Einsatz beim Betreiber; nach der Richtlinie in Verkehr gebrachte Maschinen dürfen weiter bereitgestellt werden.
+  - Erwartung: Das Maschinenverordnung-Durchführungsgesetz (MaschinenDG) regelt ergänzend unter anderem die deutsche Sprache für Anleitungen und Konformitätserklärungen, die Marktüberwachung und Bußgelder.
+  - Erwartung: Die Verordnung erfasst digitale Aspekte ausdrücklich: Software kann ein Sicherheitsbauteil sein, und eine digitale Veränderung kann eine wesentliche Veränderung sein.
+  - Rückfrage: Welches Konformitätsbewertungsverfahren genügt für Maschinen, die nicht in Anhang I aufgeführt sind?
+  - Rückfrage: Warum reicht für die Kategorien in Teil A des Anhangs I die interne Fertigungskontrolle nicht aus?
+- Vantera will eine vorhandene Roboterzelle, eine Presse und ein Förderband zu einer Linie verketten; dafür ist eine zusätzliche Schutzeinrichtung nötig, die an die Sicherheitssteuerung angebunden wird. Welche Fragen klären Sie zur Produktsicherheit und zur Verantwortung im Betrieb, bevor die Linie läuft?
+  - Erwartung: Zu klären ist, ob nach der Maschinenverordnung eine wesentliche Veränderung vorliegt: eine vom Hersteller nicht vorgesehene Veränderung, die die Sicherheit beeinträchtigt, weil eine neue Gefährdung entsteht oder ein Risiko steigt, und dadurch zusätzliche Schutzeinrichtungen nötig macht, deren Einbindung das Sicherheitssteuerungssystem verändern muss; nicht jede Änderung an einer Maschine ist eine wesentliche Veränderung.
+  - Erwartung: Eine Gesamtheit von Maschinen, die so angeordnet ist und betätigt wird, dass sie als Ganzes funktioniert, ist selbst eine Maschine im Sinne der Verordnung; wer sie verkettet, Vantera oder ein beauftragtes Systemhaus, kann ihr Hersteller sein.
+  - Erwartung: Als Hersteller gehören Risikobeurteilung, technische Unterlagen, Konformitätsbewertung, EU-Konformitätserklärung und CE-Kennzeichnung dazu; als Arbeitgeber bleibt die Gefährdungsbeurteilung für die Verwendung (vgl. „Betriebssicherheitsverordnung: Pflichten beim Verwenden von Arbeitsmitteln“ in 10.3), von der auch eine CE-Kennzeichnung nicht befreit.
+  - Erwartung: Verantwortlich sind der Arbeitgeber und bei einer GmbH die Geschäftsführung; zuverlässige und fachkundige Personen, etwa die Instandhaltungsleitung, kann der Arbeitgeber schriftlich beauftragen, sie ersetzen ihn aber nicht.
+  - Erwartung: Die Instandhaltung führen nur fachkundige, beauftragte und unterwiesene Beschäftigte oder geeignete externe Auftragnehmer aus.
+  - Rückfrage: Was gilt, wenn die Veränderung nach der Risikobeurteilung nur eine Maschine innerhalb der Gesamtheit betrifft?
+  - Rückfrage: Kann auch eine Änderung der Steuerungssoftware eine wesentliche Veränderung sein, und woran machen Sie das fest?
 
 ### 7.3 Arbeitsvorbereitung
 
@@ -244,4 +275,28 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Für den Beispielzylinder sind es 4,364 l beim Ausfahren und 3,924 l beim Einfahren, also 8,288 l je Doppelhub, bei 15 Doppelhüben je Minute rund 124,3 l/min oder 7,46 m³/h.
   - Rückfrage: Was kostet die Leckage im Jahr, wenn die Anlage 500.000 m³ Druckluft erzeugt, 10 % davon verloren gehen und der Energiebedarf 0,11 kWh je m³ bei 0,25 € je kWh beträgt?
   - Rückfrage: Welche Reihenfolge haben die Bauteile der Wartungseinheit?
+- Vantera erweitert die Druckluftversorgung um einen zusätzlichen Behälter. Warum kann ein Druckluftbehälter eine überwachungsbedürftige Anlage sein, und wie stellen Sie fest, ob und von wem er geprüft werden muss?
+  - Erwartung: Der Anhang 2 der Betriebssicherheitsverordnung (Abschnitt 4 „Druckanlagen“) zählt Druckbehälteranlagen zu den überwachungsbedürftigen Anlagen, die Druckgeräte nach der Druckgeräterichtlinie 2014/68/EU oder einfache Druckbehälter nach der Richtlinie 2014/29/EU enthalten.
+  - Erwartung: Ausgenommen sind Druckgeräte, die nur die Grenzwerte nach Artikel 4 Absatz 3 der Druckgeräterichtlinie erreichen, und einfache Druckbehälter unterhalb einer Grenze für das Druck-Volumen-Produkt; es ist das Produkt aus dem maximal zulässigen Druck in bar und dem Volumen in Litern.
+  - Erwartung: Druckluft trägt keinen der Gefahrenhinweise, die die Fluidgruppe 1 festlegen (zum Beispiel entzündbar, giftig oder oxidierend), und gehört deshalb zur Fluidgruppe 2.
+  - Erwartung: Ob geprüft werden muss und wer prüft, regeln die Tabellen in Anhang 2 Abschnitt 4 nach Fluidgruppe, Druck, Volumen und Druck-Volumen-Produkt; für bestimmte Bauarten, etwa in Serie gefertigte Behälter, die als Baugruppe in Verkehr gebracht wurden, enthält der Anhang Sonderregeln.
+  - Erwartung: Grundsätzlich prüft eine zugelassene Überwachungsstelle (ZÜS); eine zur Prüfung befähigte Person genügt nur dort, wo die Verordnung es vorsieht, vor allem in den Tabellen des Anhangs 2.
+  - Rückfrage: Welche Angaben brauchen Sie zum neuen Behälter, um die Tabellen anwenden zu können, und woher bekommen Sie sie?
+  - Rückfrage: Gelten für die Schlauchleitungen und Wartungseinheiten an den Verbrauchern dieselben Prüfregeln wie für den Behälter?
+- Wann und was wird bei einem Druckluftbehälter geprüft, und wer legt die Prüffristen fest?
+  - Erwartung: Geprüft wird vor der ersten Inbetriebnahme, nach prüfpflichtigen Änderungen (zum Beispiel einem Umbau oder einer Reparatur, die die Sicherheit berührt) und wiederkehrend.
+  - Erwartung: Vor der Inbetriebnahme wird festgestellt, ob die technischen Unterlagen (etwa die Betriebsanleitung) vorhanden und plausibel sind, ob die Anlage vorschriftsmäßig errichtet und sicher ist und ob die technischen und organisatorischen Schutzmaßnahmen geeignet und funktionsfähig sind.
+  - Erwartung: Bei der wiederkehrenden Prüfung werden je nach Anlagenteil äußere Prüfung, innere Prüfung und Festigkeitsprüfung unterschieden.
+  - Erwartung: Die Prüffristen legt der Arbeitgeber auf Grundlage der Gefährdungsbeurteilung fest, und die prüfende Stelle kontrolliert, ob sie richtig festgelegt sind; die Verordnung setzt Höchstfristen, die nicht überschritten werden dürfen, aber keine Regelfristen, und ergibt die Gefährdungsbeurteilung eine kürzere Frist, gilt diese.
+  - Erwartung: Das Sicherheitsventil begrenzt den Druck im Behälter; seine Eignung und Funktionsfähigkeit gehören zu den Schutzmaßnahmen, die die Prüfungen feststellen, und der Betrieb kontrolliert Schutz- und Sicherheitseinrichtungen zusätzlich regelmäßig auf ihre Funktionsfähigkeit.
+  - Rückfrage: Welche Umstände im Betrieb sprechen dafür, eine kürzere Frist als die Höchstfrist anzusetzen?
+  - Rückfrage: Darf der Behälter weiter betrieben werden, wenn eine vorgeschriebene Prüfung nicht durchgeführt oder nicht dokumentiert ist?
+- Als Instandhaltungsleitung sollen Sie für Vantera die Prüfungen der Druckluftanlage organisieren. Wie weit reicht Ihre Verantwortung, was unterscheidet eine Prüfung durch die ZÜS von der durch eine befähigte Person, und wie dokumentieren Sie?
+  - Erwartung: Verantwortlich bleibt der Arbeitgeber, bei einer GmbH auch die Geschäftsführung; die Instandhaltungsleitung kann als zuverlässige und fachkundige Person schriftlich beauftragt werden, ist dann neben dem Arbeitgeber verantwortlich, ersetzt ihn aber nicht.
+  - Erwartung: Zur Übertragung gehören die nötigen Mittel und Befugnisse, zum Beispiel Budget und Weisungsbefugnis; „Betreiberverantwortung“ ist dabei ein Begriff der Praxis, kein Gesetzesbegriff.
+  - Erwartung: Eine ZÜS ist eine nach Anhang 2 zugelassene Prüfstelle, die zu unparteiischen Prüfungen verpflichtet ist und eine Prüfbescheinigung ausstellt; eine zur Prüfung befähigte Person besitzt durch Berufsausbildung, Berufserfahrung und zeitnahe berufliche Tätigkeit die nötigen Kenntnisse und unterliegt bei der Prüfung keinen fachlichen Weisungen des Arbeitgebers.
+  - Erwartung: Die Prüfergebnisse werden aufgezeichnet; von der ZÜS verlangt der Arbeitgeber eine Prüfbescheinigung, und die Unterlagen liegen am Betriebsort, in der Praxis oft in einem Prüfbuch, der Begriff steht aber nicht in der Verordnung.
+  - Erwartung: Leitungen, Schläuche, Zylinder und Wartungseinheiten sind dagegen gewöhnliche Arbeitsmittel mit Gefährdungsbeurteilung und Kontrolle auf offensichtliche Mängel vor der Verwendung.
+  - Rückfrage: Die Geschäftsführung möchte, dass die befähigte Person ein Prüfergebnis vor der Weitergabe anpasst, weil sonst die Produktion stillstünde. Wie beurteilen Sie das?
+  - Rückfrage: Wer sollte die Instandhaltungsarbeiten am Behälter selbst ausführen?
 

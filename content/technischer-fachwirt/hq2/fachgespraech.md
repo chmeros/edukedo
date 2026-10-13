@@ -5,7 +5,7 @@ fachgebiet_title: "Produktionsplanung, -steuerung und -kontrolle"
 thema_code: "HQ2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 6 Abs. 2, Handlungsbereich „Produktionsplanung, -steuerung und -kontrolle" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "13.10.2026 — P8-Fragen und -Aufgaben eingespielt (Erwartungen und Musterlösungen stützen sich auf die eingespielte, KI-geprüfte Theorie, Prüfblätter 25 und 26 vom Projektleiter kontrolliert); förmliche Rechtsprüfung offen (Iteration 22); Wiedervorlage 21.01.2027 (Maschinenverordnung)"
 ---
 
 ## Fachgesprächsfragen
@@ -218,4 +218,44 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nac
   - Erwartung: Beispiel Ersparnisprämie: Sinkt bei 12.000 Teilen die Ausschussquote von 3 % auf 2 %, sind 120 Teile gespart, bei 25 € Herstellkosten 3.000 €; bei 40 % Auszahlung sind das 1.200 €, bei 5 Personen 240 € je Person.
   - Erwartung: Ein Entgeltsystem ist wirtschaftlich, wenn die Mehrleistung mehr einbringt, als die Prämie oder der Zuschlag kosten.
   - Rückfrage: Wie lässt sich der Fehlanreiz einer reinen Mengenprämie mit einer weiteren Bezugsgröße begrenzen?
+- Die Produktionsleitung der Vantera will in einer Fertigungshalle vom Zeitlohn auf Akkord umstellen. Erläutern Sie, welche Rolle dabei der Betriebsrat spielt und was geschieht, wenn man sich nicht einigt.
+  - Erwartung: Der Betriebsrat hat nach § 87 Abs. 1 BetrVG mitzubestimmen, soweit eine gesetzliche oder tarifliche Regelung nicht besteht (Tarifvorrang); das ist vorab zu prüfen.
+  - Erwartung: Nr. 10 betrifft Fragen der betrieblichen Lohngestaltung, also Entlohnungsgrundsätze und die Einführung neuer Entlohnungsmethoden, zum Beispiel den Wechsel von Zeitlohn auf Akkord.
+  - Erwartung: Nr. 11 betrifft die Festsetzung der Akkord- und Prämiensätze einschließlich der Geldfaktoren, beim Zeitakkord also den Minutenfaktor, der mit der Vorgabezeit den Akkordsatz bestimmt.
+  - Erwartung: Die Produktionsleitung legt dem Betriebsrat vor der Einführung Berechnungsregel, Sätze und Bezugsgröße vor; eine Einigung wird meist in einer schriftlichen, von beiden Seiten unterzeichneten Betriebsvereinbarung festgehalten.
+  - Erwartung: Kommt keine Einigung zustande, entscheidet die Einigungsstelle, und ihr Spruch ersetzt die Einigung; bei einem groben Verstoß gegen die Beteiligung kann der Betriebsrat beim Arbeitsgericht beantragen, dem Arbeitgeber ein Tun, Dulden oder Unterlassen aufzugeben.
+  - Rückfrage: Was ändert sich für die Beteiligung des Betriebsrats, wenn die Prämie an eine Leistungsbeurteilung anknüpft?
+  - Rückfrage: Gilt eine solche Betriebsvereinbarung nach einer Kündigung weiter, und warum?
+- Vantera ist Mitglied im Arbeitgeberverband, und ein Tarifvertrag regelt die Entgeltgruppen. Erläutern Sie, wie dieser Tarifvertrag auf die Arbeitsverhältnisse wirkt und was das für eine Betriebsvereinbarung über Entgelte bedeutet.
+  - Erwartung: Die Rechtsnormen des Tarifvertrags über Inhalt, Abschluss und Beendigung von Arbeitsverhältnissen gelten unmittelbar und zwingend zwischen den beiderseits Tarifgebundenen.
+  - Erwartung: Tarifgebunden sind die Mitglieder der Tarifvertragsparteien (Gewerkschaft, Arbeitgeberverband) und ein Arbeitgeber, der selbst Partei des Tarifvertrags ist, zum Beispiel bei einem Haustarifvertrag; Nicht-Mitglieder können erfasst sein, wenn der Tarifvertrag für allgemeinverbindlich erklärt wird.
+  - Erwartung: Die tariflichen Entgeltregeln bilden für die beiderseits Tarifgebundenen die Untergrenze; abweichende Abmachungen sind nur zulässig, soweit der Tarifvertrag sie gestattet oder sie den Arbeitnehmenden günstiger sind (Günstigkeitsprinzip).
+  - Erwartung: Betriebsvereinbarungen über Arbeitsentgelte, die tariflich geregelt sind oder üblicherweise geregelt werden, sind ausgeschlossen, es sei denn, der Tarifvertrag lässt ergänzende Betriebsvereinbarungen ausdrücklich zu.
+  - Erwartung: Nach Ablauf eines Tarifvertrags gelten seine Rechtsnormen weiter, bis eine andere Abmachung sie ersetzt.
+  - Rückfrage: Für wen bildet der Tarifvertrag die Untergrenze, wenn nur ein Teil der Belegschaft Gewerkschaftsmitglied ist?
+  - Rückfrage: Wer erklärt einen Tarifvertrag für allgemeinverbindlich, und unter welchen Voraussetzungen?
+- Bevor Vantera für Hilfskräfte einen Stückakkord einführt: Welche rechtlichen Punkte prüfen Sie über die reine Lohnrechnung hinaus?
+  - Erwartung: Ein allgemeines Verbot von Akkord oder Prämien in der Industrie kennt das Gesetz nicht; das Betriebsverfassungsgesetz setzt sie sogar voraus, indem es die Mitbestimmung bei Akkord- und Prämiensätzen regelt.
+  - Erwartung: Der Mindestlohn ist als Betrag je Zeitstunde festgelegt; als Folgerung daraus muss ein Leistungslohn so gestaltet oder aufgestockt werden, dass auch bei niedriger Stückzahl für die geleistete Zeit mindestens dieser Stundenbetrag erreicht wird, zum Beispiel durch einen Mindestverdienst je Stunde (das Gesetz sagt zu Akkord nichts ausdrücklich).
+  - Erwartung: Bei Tarifbindung bilden die tariflichen Entgeltregeln die Untergrenze, günstigere Abmachungen bleiben möglich.
+  - Erwartung: Der Betriebsrat hat nach § 87 Abs. 1 Nr. 10 und 11 BetrVG mitzubestimmen, soweit keine tarifliche Regelung besteht.
+  - Erwartung: Für schwangere und stillende Frauen verbietet das Mutterschutzgesetz Akkordarbeit und ähnliche Arbeiten, bei denen ein gesteigertes Arbeitstempo ein höheres Entgelt bringt; deshalb ist zu prüfen, wer an den Arbeitsplätzen eingesetzt wird.
+  - Rückfrage: Welche Folge hat es für Ihre Einsatzplanung, wenn eine Beschäftigte mitteilt, dass sie schwanger ist?
+  - Rückfrage: Welche Fehlanreize kann ein Akkord setzen, und woran messen Sie, ob er sich für Vantera lohnt?
+- Ihnen liegt der Entwurf eines Dreischichtplans für die Zerspanung vor (Frühschicht 6 bis 14 Uhr, Spätschicht 14 bis 22 Uhr, Nachtschicht 22 bis 6 Uhr, jeweils mit 30 Minuten Pause). Wie prüfen Sie ihn auf Zulässigkeit?
+  - Erwartung: Ich gehe das Prüfschema des Arbeitszeitgesetzes durch: tägliche Höchstarbeitszeit, Ruhepausen, Nachtarbeit und Ruhezeit zwischen den Schichten; Arbeitszeit ist dabei die Zeit vom Beginn bis zum Ende der Arbeit ohne Ruhepausen.
+  - Erwartung: Ruhepausen müssen im Voraus feststehen und dürfen in Abschnitte aufgeteilt werden; es genügt also nicht, sie je nach Auftragslage spontan zu gewähren.
+  - Erwartung: Kritisch ist die Ruhezeit beim Wechsel von der Spätschicht auf die Frühschicht des Folgetags, weil nur 8 Stunden zwischen den Diensten liegen, und nach der Nachtschicht, nach der erst am Nachmittag wieder ein Dienst folgen darf; ein freier Tag dazwischen ist einzuplanen.
+  - Erwartung: Abweichungen von Ruhezeit und Ausgleichszeiträumen kann ein Tarifvertrag oder aufgrund eines Tarifvertrags eine Betriebsvereinbarung zulassen; nicht tarifgebundene Betriebe können tarifliche Regelungen unter Voraussetzungen übernehmen, in Bereichen ohne üblichen Tarifvertrag kann die Aufsichtsbehörde Ausnahmen bewilligen.
+  - Erwartung: Beginn und Ende der Schichten, die Pausen und die Verteilung auf die Wochentage unterliegen der Mitbestimmung des Betriebsrats; ein Schichtplan ist deshalb stets mit ihm abzustimmen.
+  - Rückfrage: Was würden Sie tun, wenn die Auftragslage verlangt, den Spätdienst am Montag und den Frühdienst am Dienstag derselben Person beizubehalten?
+  - Rückfrage: Wie stellen Sie sicher, dass die Pausen im Voraus feststehen, obwohl die Auftragslage schwankt?
+- Vantera möchte Auftragsspitzen im Schichtbetrieb über ein Arbeitszeitkonto abfedern. Welche Grenzen müssen Sie beachten, und was gilt für Beschäftigte in der Nachtschicht?
+  - Erwartung: Das Konto ändert die gesetzlichen Grenzen nicht: Mehrarbeit wird später durch Freizeit oder Geld ausgeglichen, der Ausgleichszeitraum des Arbeitszeitgesetzes muss aber trotzdem eingehalten werden.
+  - Erwartung: Für Nachtarbeitnehmer:innen gilt ein kürzerer Ausgleichszeitraum als für andere Beschäftigte.
+  - Erwartung: Für ein schriftlich vereinbartes Arbeitszeitkonto stellt das Mindestlohngesetz zusätzliche Anforderungen: Mehrarbeit ist innerhalb einer gesetzlichen Frist auszugleichen, soweit der Mindestlohnanspruch nicht bereits durch ein verstetigtes Arbeitsentgelt erfüllt ist, und je Monat dürfen nur begrenzt viele Stunden eingestellt werden.
+  - Erwartung: Nachtarbeitnehmer:innen haben Anspruch auf eine arbeitsmedizinische Untersuchung vor Beginn der Beschäftigung und danach in regelmäßigen Abständen sowie auf einen Ausgleich durch bezahlte freie Tage oder einen angemessenen Zuschlag, soweit kein Tarifvertrag etwas regelt; eine Zuschlagshöhe nennt das Gesetz nicht.
+  - Erwartung: Vorübergehende Verlängerungen oder Verkürzungen der Arbeitszeit unterliegen der Mitbestimmung des Betriebsrats.
+  - Rückfrage: Wie unterscheiden sich Nachtzeit, Nachtarbeit und Nachtarbeitnehmer:in?
+  - Rückfrage: Welche Rolle spielt der Tarifvertrag beim Ausgleich für Nachtarbeit?
 
