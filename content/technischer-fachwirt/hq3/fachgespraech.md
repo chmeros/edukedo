@@ -115,7 +115,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Aus den identifizierten Umweltaspekten werden Umweltziele abgeleitet und in einem Umweltprogramm mit Maßnahmen, Verantwortlichkeiten und Terminen konkretisiert.
   - Rückfrage: Welches Umweltziel könnte sich ein Fertigungsbetrieb setzen?
 - Was besagt die Abfallhierarchie, und warum steht die Vermeidung an oberster Stelle?
-  - Erwartung: Das Kreislaufwirtschaftsgesetz gibt mit der Abfallhierarchie eine verbindliche Rangfolge vor.
+  - Erwartung: Das Kreislaufwirtschaftsgesetz gibt mit der Abfallhierarchie eine Rangfolge vor, von der nur abgewichen werden kann, wenn eine andere Maßnahme Mensch und Umwelt besser schützt.
   - Erwartung: An oberster Stelle steht die Vermeidung von Abfall, etwa durch optimierte Zuschnittpläne, die weniger Materialverschnitt erzeugen.
   - Erwartung: Es folgen die Vorbereitung zur Wiederverwendung, das Recycling (z. B. Einschmelzen von Metallspänen), die sonstige Verwertung (z. B. energetische Nutzung) und zuletzt, nachrangig, die Beseitigung (Deponierung).
   - Erwartung: Die Vermeidung steht an erster Stelle, weil gar nicht erst entstandener Abfall keinerlei Entsorgungsaufwand und -kosten verursacht.
