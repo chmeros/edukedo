@@ -50,6 +50,8 @@ Gezählt in den Theorietexten (`content/technischer-fachwirt/*/`, Abschnitt „T
 
 Geplanter Umfang laut Entwurf (`tf-rahmenplan-weitere-pakete.md`): Bundes-Immissionsschutzgesetz, Gefahrstoffe und GHS im Detail, Betriebssicherheitsverordnung, Maschinenrichtlinie und CE-Kennzeichnung, Brandschutz, Erste Hilfe, Unterweisung nach § 12 ArbSchG, Lärm- und Vibrationsschutz, Ausbildungsplanung. Aus den Ergänzungsentwürfen kommen hinzu (bewusst ausgeklammert): Zulässigkeit von Akkordarbeit, Mindestlohn, Tarifverträge und Mitbestimmung bei Entgeltsystemen (HQ2), Gefahrstoffe und Schutzmaßnahmen bei Beizen, Eloxieren, Verzinken und Salzbädern (TQ2), Prüfpflichten für Druckbehälter, Kondensatentsorgung, Arbeitsschutz bei Hydraulik und Druckluft, Maschinensicherheit (TQ3), Berufsbildungsrecht für die Ausbildungsplanung (HQ4, § 6 Abs. 4 Nr. 5).
 
+**Stand 13.10.2026: Die Entwürfe liegen vor.** Vier Teile mit 27 Abschnitten unter `docs/entwuerfe/tf-p8-recht/` (A Umweltrecht, B Gefahrstoffe und Arbeitsschutz, C Betriebs- und Maschinensicherheit, D Entgelt und Ausbildung), je Abschnitt mit Fundstellenblock (Status gelesen, sinngemäß oder ungeprüft, mit Link) und Prüfpunkten. Jeder Teil wurde von einem unabhängigen KI-Prüfer gegen den Primärtext geprüft und korrigiert (zusammen 90 Befunde, 6 davon hoch; Berichte `docs/entwuerfe/pruefung-p8-teil-a.md` bis `-d.md`). Nichts davon liegt in `content/`. **Besonders für die prüfende Person:** CLP-/REACH-Verordnung (nicht im Primärtext lesbar gewesen), DGUV Vorschrift 3 im Original, Gesetzgebungsstand nach Juni 2026, Landesrecht sowie zwei Stellen im **Bestand**, die nach der Prüfung rechtlich nicht tragen (10.2: „gefährliche Abfälle ausschließlich über Entsorgungsfachbetriebe“; 10.3: Präzisierung zur Pflichtenübertragung nach § 13 ArbSchG).
+
 **Vorschlag, damit die Prüfung später nicht bei null beginnt:** Wir schreiben die Entwürfe für P8 **nur als Entwurf** unter `docs/entwuerfe/` (nichts davon in `content/`, nichts für Lernende sichtbar), mit Normfundstellen und Quellen, sodass die prüfende Person die Texte gleich mit der Vorlage prüft. Eingespielt wird erst nach Freigabe. Das kostet keine Freigabe vorab.
 
 ## 6. Öffnung für Minderjährige: Prüfauftrag
@@ -75,4 +77,4 @@ Mögliche Maßnahmen, die die prüfende Person bewerten kann (aus dem Entscheidu
 2. **Was liefern wir?** Je Rechtsgebiet eine Datei mit Stellen, Wortlaut, Normfundstellen und Prüffragen im Format von Prüfblatt 25 (kann ich erzeugen).
 3. **Frist und Form der Rückmeldung:** „frei“ oder „Änderung: …“ je Stelle; wir arbeiten ein und aktualisieren die `rechtsstand`-Felder.
 
-Rückmeldung zu diesem Blatt: Freigabe der Entwürfe für P8 (Abschnitt 5) ☐ ja ☐ nein ☐ später
+Rückmeldung zu diesem Blatt: Freigabe der P8-Entwürfe zur Weitergabe an die prüfende Person ☐ ja ☐ nein ☐ später
