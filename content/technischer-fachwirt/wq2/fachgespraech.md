@@ -5,7 +5,7 @@ fachgebiet_title: "Rechnungswesen"
 thema_code: "WQ2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 4 Abs. 5, Qualifikationsbereich „Rechnungswesen" (Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "13.10.2026 — Fragen zu Rückstellungen, Rechnungsabgrenzung, Skonto und Fremdwährung nach Prüfblatt 25 vom Projektleiter kontrolliert und freigegeben; förmliche Rechtsprüfung offen (Iteration 22)"
 ---
 
 ## Fachgesprächsfragen
@@ -74,6 +74,38 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Restbuchwert beträgt damit nach drei Jahren 122.880 €, abgeschrieben sind 117.120 € statt 90.000 € bei linearer Abschreibung; weil die Abschreibung den Gewinn mindert, sind die Gewinne der ersten Jahre bei degressiver Abschreibung niedriger, über die gesamte Nutzungsdauer wird bei beiden Verfahren höchstens bis zum Restwert abgeschrieben.
   - Erwartung: Die Abschreibung mindert den Gewinn, ist aber keine Auszahlung; über die Preise der Produkte fließt Geld für den Ersatz der Maschine zurück (Abschreibungsgegenwert, Innenfinanzierung).
   - Rückfrage: Wie lautet der Buchungssatz der jährlichen Abschreibung von 30.000 €?
+- Wie werden Rabatt, Bezugskosten und Skonto bei einer Eingangsrechnung der Vantera Präzisionstechnik GmbH gebucht, und warum nutzt das Unternehmen den Skonto in der Regel, selbst wenn dafür kurzfristig Kredit nötig ist?
+  - Erwartung: Ein Rabatt, der sofort auf der Rechnung abgezogen wird, wird nicht gebucht; gebucht wird der Rechnungsbetrag nach Rabatt: Listenpreis 5.000 € abzüglich 10 % ergibt 4.500 € netto, Umsatzsteuer 855 €, Rechnungsbetrag 5.355 €, Buchungssatz Rohstoffe 4.500 € und Vorsteuer 855 € an Verbindlichkeiten aus Lieferungen und Leistungen 5.355 €.
+  - Erwartung: Bezugskosten wie die Eingangsfracht gehören zu den Anschaffungskosten und werden auf dem Materialkonto gebucht (Fracht 120 € netto, Vorsteuer 22,80 €), Ausgangsfrachten sind dagegen Aufwand.
+  - Erwartung: Der Skonto wird erst bei der Zahlung gebucht und mindert die Anschaffungskosten und die Vorsteuer: 2 % von 5.355 € sind 107,10 €, davon 90,00 € Minderung der Rohstoffe und 17,10 € der Vorsteuer, Buchungssatz Verbindlichkeiten aus Lieferungen und Leistungen 5.355 € an Bank 5.247,90 €, Rohstoffe 90,00 € und Vorsteuer 17,10 €.
+  - Erwartung: Die Anschaffungskosten betragen danach 4.500 € + 120 € − 90 € = 4.530 €, das entspricht dem Einstandspreis der Bezugskalkulation.
+  - Erwartung: Wer statt am zehnten Tag erst nach 30 Tagen zahlt, nimmt 20 Tage Kredit in Anspruch und verzichtet auf 2 % Skonto, das entspricht bei einfacher Verzinsung (2 / 98 · 360 / 20) einem Jahreszins von rund 36,7 % und liegt weit über den Kosten einer Kontokorrentlinie.
+  - Rückfrage: Wie wird ein Kundenskonto auf einer Ausgangsrechnung der Vantera gebucht?
+  - Rückfrage: Welchen Einstandspreis hat das Aluminium im Beispiel, wenn Vantera die Skontofrist verpasst?
+- Was zeigt der Cashflow der Vantera Präzisionstechnik GmbH, wie wird er in der vereinfachten Form ermittelt, und warum liegt er über dem Jahresüberschuss?
+  - Erwartung: Der Cashflow zeigt, wie viele Finanzmittel das Unternehmen aus seiner laufenden Tätigkeit selbst erwirtschaftet, und misst damit die Innenfinanzierungskraft; aus ihm können Investitionen, Tilgungen und Gewinnausschüttungen bezahlt werden.
+  - Erwartung: Vereinfacht gilt Cashflow = Jahresüberschuss + Abschreibungen + Zunahme der Rückstellungen, im Beispiel 1,35 Mio. € + 1,2 Mio. € + 0,15 Mio. € = 2,7 Mio. €.
+  - Erwartung: Er liegt über dem Jahresüberschuss, weil Abschreibungen den Gewinn mindern, ohne dass in der Periode eine Auszahlung folgt; im Beispiel stehen 2,7 Mio. € Cashflow 1,35 Mio. € Jahresüberschuss gegenüber.
+  - Erwartung: Die Bildung einer Rückstellung belastet den Gewinn, obwohl noch nichts bezahlt wurde, und wird deshalb im Cashflow wieder addiert; wird die Rückstellung später durch eine Zahlung verbraucht, nimmt der Bestand ab und das mindert den Cashflow dieser Periode.
+  - Erwartung: Die vereinfachte Ermittlung ist eine Näherung: Nicht zahlungswirksame Erträge würden abgezogen, und die Kapitalflussrechnung in der Praxis berücksichtigt weitere Positionen.
+  - Rückfrage: Wie lässt sich aus dem Cashflow eine grobe Entschuldungsdauer ableiten, und wie hoch ist sie bei 11 Mio. € Fremdkapital und 1 Mio. € flüssigen Mitteln?
+  - Rückfrage: Wie schlägt sich der Verbrauch einer Gewährleistungsrückstellung von 40.000 € durch eine Nacharbeit von 34.000 € netto im Cashflow des Folgejahres nieder?
+- Ordnen Sie für den Jahresabschluss der Vantera Präzisionstechnik GmbH eine Gewährleistungsrückstellung, eine im Oktober im Voraus gezahlte Versicherungsprämie und nachträglich zu zahlende Darlehenszinsen ein und erklären Sie, warum diese Posten Aufwand und Ertrag der richtigen Periode zuordnen.
+  - Erwartung: Rückstellungen sind Verpflichtungen gegenüber Dritten, die wirtschaftlich in der Periode verursacht sind, bei denen aber Grund, Höhe oder Fälligkeit noch ungewiss ist und mit einer Inanspruchnahme ernsthaft zu rechnen ist; stehen alle drei fest, liegt eine Verbindlichkeit vor.
+  - Erwartung: Bei einem angenommenen Erfahrungswert von 0,5 % auf 8.000.000 € Umsatz mit Gewährleistung werden 40.000 € gebucht: Aufwendungen für Gewährleistung an Rückstellungen für Gewährleistung, der Aufwand fällt damit in das Jahr der Lieferung.
+  - Erwartung: Eine am 1. Oktober gezahlte Prämie von 12.000 € für zwölf Monate ergibt zum 31. Dezember eine aktive Rechnungsabgrenzung von 9 / 12 = 9.000 €, weil die Zahlung vor dem Stichtag liegt und der Aufwand zu drei Vierteln das neue Jahr betrifft.
+  - Erwartung: Zinsen für ein Darlehen von 200.000 € zu 4 %, die jeweils nachträglich am 1. April für die zwölf Monate davor gezahlt werden, ergeben zum 31. Dezember eine sonstige Verbindlichkeit von 200.000 € · 0,04 · 9 / 12 = 6.000 €, weil die Zahlung erst nach dem Stichtag erfolgt.
+  - Erwartung: Entscheidend ist der Zahlungszeitpunkt: Liegt die Zahlung vor dem Stichtag, spricht man von transitorischen Rechnungsabgrenzungsposten, liegt sie danach, von antizipativen sonstigen Forderungen oder Verbindlichkeiten, bei der Rückstellung ist die Zahlung dagegen ungewiss.
+  - Rückfrage: Wie wird die Rückstellung im Folgejahr gebucht, wenn eine Fremdfirma die Nacharbeit mit 34.000 € netto berechnet?
+  - Rückfrage: Wie wird die Zinsverbindlichkeit bei der Zahlung am 1. April gebucht?
+- Die Vantera Präzisionstechnik GmbH hält kurzfristig angelegte Wertpapiere und eine Forderung in polnischen Zloty. Erläutern Sie, wie beide zum Bilanzstichtag bewertet werden und worin sich die Behandlung von Kursgewinnen unterscheidet.
+  - Erwartung: Wertpapiere, die nur kurzfristig angelegt werden, gehören zum Umlaufvermögen; zu den Anschaffungskosten zählen der Kaufpreis und die Nebenkosten, bei 1.000 Stück zu 42,00 € und 1 % Provision sind das 42.420 €.
+  - Erwartung: Für das Umlaufvermögen gilt das strenge Niederstwertprinzip: Bei einem Stichtagskurs von 38,50 € ist auf 38.500 € abzuschreiben, also um 3.920 €, auch wenn der Rückgang nur vorübergehend sein könnte.
+  - Erwartung: Steigt der Kurs später auf 44,00 €, wird nur bis zu den Anschaffungskosten zugeschrieben (3.920 €), die weiteren 1.580 € bleiben nach dem Realisationsprinzip unberücksichtigt, bis die Wertpapiere verkauft sind.
+  - Erwartung: Eine Forderung über 200.000 PLN wird mit dem Kurs 1 € = 4,00 PLN als 50.000 € gebucht (Euro-Betrag = Fremdwährungsbetrag / Kurs), bei einem Stichtagskurs von 4,20 PLN beträgt sie 47.619,05 €, die Differenz von 2.380,95 € ist Aufwand aus der Währungsumrechnung.
+  - Erwartung: Bei einer Restlaufzeit von höchstens einem Jahr werden nach den handelsrechtlichen Grundsätzen anders als bei den Wertpapieren auch Kursgewinne ausgewiesen (bei 3,80 PLN wären es 52.631,58 € und 2.631,58 € Ertrag), bei längerer Restlaufzeit gilt wie bei den Wertpapieren das Vorsichtsprinzip, und Gewinne über den ursprünglichen Euro-Betrag hinaus werden nicht ausgewiesen.
+  - Rückfrage: Wie kann sich die Vantera gegen das Währungsrisiko aus Fremdwährungsgeschäften absichern?
+  - Rückfrage: Welcher Betrag fließt bei einem Zahlungseingang zu 4,10 PLN je Euro zu, und wie hoch ist der Kursgewinn gegenüber dem Buchwert von 47.619,05 €?
 
 ### 2.2 Kostenrechnung
 

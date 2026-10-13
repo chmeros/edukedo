@@ -98,7 +98,7 @@ content/
     hq1/ … 8.1–8.3 + fallaufgaben.md + fachgespraech.md    ← Absatz-, Materialwirtschaft und Logistik
     hq2/ … 9.1–9.3 + fallaufgaben.md + fachgespraech.md    ← Produktionsplanung, -steuerung und -kontrolle
     hq3/ … 10.1–10.3 + fallaufgaben.md + fachgespraech.md  ← Qualitäts- und Umweltmanagement sowie Arbeitsschutz
-    hq4/ … 11.1–11.3 + fallaufgaben.md + fachgespraech.md  ← Führung und Zusammenarbeit (Pflichtthema des Fachgesprächs)
+    hq4/ … 11.1–11.4 + fallaufgaben.md + fachgespraech.md  ← Führung und Zusammenarbeit (Pflichtthema des Fachgesprächs)
   industriefachwirt/               ← siebter Kurs, ergänzt 29.09.2026 (siehe Anforderungskatalog Abschnitt 4)
     wq1/ … 1.1–1.4 + fallaufgaben.md + fachgespraech.md    ← Volks- und Betriebswirtschaft
     wq2/ … 2.1–2.3 + fallaufgaben.md + fachgespraech.md    ← Rechnungswesen

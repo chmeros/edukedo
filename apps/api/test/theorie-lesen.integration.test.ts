@@ -21,6 +21,7 @@ describe("F-164: Theorie lesen", () => {
   let fremderKursId: string;
   let themaMitTheorie: string;
   let themaOhneTheorie: string;
+  let themaNurTheorie: string;
   let fremdesThema: string;
   let cookie: string;
 
@@ -57,16 +58,18 @@ describe("F-164: Theorie lesen", () => {
         { kursId: fremderKursId, code: "F1", title: "Fremdes Fachgebiet", sortOrder: 1 },
       ])
       .returning();
-    const [mitTheorie, ohneTheorie, fremd] = await db
+    const [mitTheorie, ohneTheorie, nurTheorie, fremd] = await db
       .insert(schema.thema)
       .values([
         { fachgebietId: fachgebietRow!.id, title: "Projektplanung", sortOrder: 1 },
         { fachgebietId: fachgebietRow!.id, title: "Ohne Theorie", sortOrder: 2 },
+        { fachgebietId: fachgebietRow!.id, title: "Nur Theorie", sortOrder: 3 },
         { fachgebietId: fremdesFachgebietRow!.id, title: "Fremdes Thema", sortOrder: 1 },
       ])
       .returning();
     themaMitTheorie = mitTheorie!.id;
     themaOhneTheorie = ohneTheorie!.id;
+    themaNurTheorie = nurTheorie!.id;
     fremdesThema = fremd!.id;
 
     await db.insert(schema.contentItem).values([
@@ -76,6 +79,7 @@ describe("F-164: Theorie lesen", () => {
         prompt: "Theorie Projektplanung",
         payload: { body_markdown: "## Theorie\n\n### Netzplan\n\nDie **Pufferzeit** ist der zeitliche Spielraum eines Vorgangs." },
       },
+      { themaId: themaNurTheorie, type: "theorie", prompt: "Theorie ohne Aufgaben", payload: { body_markdown: "### Nur gelesen\n\nText ohne Karten und Quiz." } },
       { themaId: fremdesThema, type: "theorie", prompt: "Fremde Theorie", payload: { body_markdown: "### Geheim\n\nPufferzeit im fremden Kurs." } },
       { themaId: themaMitTheorie, type: "karteikarte", prompt: "Was ist die Pufferzeit?", explanation: "Spielraum eines Vorgangs." },
       { themaId: themaMitTheorie, type: "quiz_mc", prompt: "Was bedeutet Puffer?", explanation: "Spielraum." },
@@ -112,6 +116,18 @@ describe("F-164: Theorie lesen", () => {
     expect(data.fachgebietTitle).toBe("Fachgebiet Eins");
     expect(data.bodyMarkdown).toContain("**Pufferzeit**");
     expect(data.contentItemId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+  });
+
+  it("führt Themen, die nur einen Theorietext haben, in der Fortschrittsübersicht mit 0 Aufgaben (Lesefenster-Verzeichnis)", async () => {
+    const data = (await get("progress.overview", { kursId })).json().result.data as {
+      themen: { id: string; title: string; total: number; percent: number }[];
+    }[];
+    const themen = data.flatMap((fachgebiet) => fachgebiet.themen);
+    const nurTheorie = themen.find((thema) => thema.id === themaNurTheorie);
+    expect(nurTheorie).toMatchObject({ title: "Nur Theorie", total: 0, percent: 0 });
+    expect(themen.find((thema) => thema.id === themaMitTheorie)?.total).toBe(2);
+    // Ohne Theorie und ohne Aufgaben bleibt ein Thema außen vor.
+    expect(themen.find((thema) => thema.id === themaOhneTheorie)).toBeUndefined();
   });
 
   it("liefert für ein Thema ohne Theorie body null statt eines Fehlers", async () => {

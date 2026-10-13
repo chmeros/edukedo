@@ -756,7 +756,15 @@ export const progressRouter = router({
 
     const fachgebiete = new Map<string, FachgebietAgg>();
 
-    for (const row of rows) {
+    type ThemaRef = {
+      themaId: string;
+      themaTitle: string;
+      themaSortOrder: number;
+      fachgebietId: string;
+      fachgebietTitle: string;
+      fachgebietSortOrder: number;
+    };
+    const ensureThema = (row: ThemaRef) => {
       let fg = fachgebiete.get(row.fachgebietId);
       if (!fg) {
         fg = {
@@ -775,7 +783,11 @@ export const progressRouter = router({
         th = { id: row.themaId, title: row.themaTitle, sortOrder: row.themaSortOrder, total: 0, mastered: 0 };
         fg.themen.set(row.themaId, th);
       }
+      return { fg, th };
+    };
 
+    for (const row of rows) {
+      const { fg, th } = ensureThema(row);
       const isMastered = row.state === "review";
       fg.total += 1;
       th.total += 1;
@@ -784,6 +796,31 @@ export const progressRouter = router({
         th.mastered += 1;
       }
     }
+
+    // Themen, die (noch) nur einen Theorietext haben, gehören trotzdem in die Übersicht: Das Lesefenster (TheorieEinstieg) baut sein
+    // Verzeichnis aus dieser Abfrage, sonst wäre die Theorie eines neuen Themas ohne Karten und Quiz nicht erreichbar. Sie zählen mit 0.
+    const nurTheorie = await ctx.db
+      .select({
+        themaId: thema.id,
+        themaTitle: thema.title,
+        themaSortOrder: thema.sortOrder,
+        fachgebietId: fachgebiet.id,
+        fachgebietTitle: fachgebiet.title,
+        fachgebietSortOrder: fachgebiet.sortOrder,
+      })
+      .from(contentItem)
+      .innerJoin(thema, eq(thema.id, contentItem.themaId))
+      .innerJoin(fachgebiet, eq(fachgebiet.id, thema.fachgebietId))
+      .innerJoin(
+        userCourse,
+        and(
+          eq(userCourse.kursId, fachgebiet.kursId),
+          eq(userCourse.userId, ctx.currentUser.id),
+          eq(userCourse.kursId, input.kursId),
+        ),
+      )
+      .where(and(eq(contentItem.type, "theorie"), eq(contentItem.isActive, true)));
+    for (const row of nurTheorie) ensureThema(row);
 
     const percent = (mastered: number, total: number) => (total === 0 ? 0 : Math.round((mastered / total) * 100));
 
