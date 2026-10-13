@@ -39,6 +39,7 @@ describe("Bereinigung deaktivierter Items und Schutz der Lerndaten", () => {
   beforeAll(async () => {
     container = await new PostgreSqlContainer("postgres:16-alpine").start();
     pool = new Pool({ connectionString: container.getConnectionUri() });
+    pool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     db = drizzle(pool, { schema });
     await migrate(db, { migrationsFolder: "./drizzle" });
 

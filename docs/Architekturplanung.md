@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Ergänzung am 13.10.2026 (Datenbank-Pools: auch im Payment-Service und in den Test-Pools abgefangen)
+
+Anlass: Der CI-Lauf zum Commit 873806c war erneut rot, obwohl alle Tests bestanden: Der unbehandelte Fehler „terminating connection due to administrator command“ (Postgres-Code 57P01) kam diesmal aus dem **Payment-Service** (`apps/payment`, Testdatei `app.integration.test.ts`). Der Pool-Handler vom vorigen Eintrag (08dcb0b) stand nur in `apps/api`; der Payment-Service hat einen eigenen Pool (eigene Datenbank, bewusst getrennt) mit derselben Lücke.
+
+- **Ursache (belegt am Quelltext von pg-pool):** Der Fehler-Listener hängt nur an untätigen Verbindungen und meldet den Abbruch am Pool; ohne `error`-Handler am Pool wird das zur unbehandelten Ausnahme. Beendet der Container im Testlauf die Datenbank, während der Pool noch eine Verbindung abbaut, kippt der Lauf; im Betrieb würde ein Datenbank-Neustart den Prozess beenden.
+- **Entscheidung:** `apps/payment/src/db/client.ts` bekommt denselben `error`-Handler wie `apps/api/src/db/client.ts`; zusätzlich sichern alle 43 test-eigenen Pools (`apps/api/test`, `apps/payment/test`) ihren Pool mit einem leeren `error`-Handler ab (Verbindungsabbruch beim Stoppen des Containers ist dort kein Fehler). Kern und Payment teilen weiterhin keine Verbindung und keinen Code.
+- **Prüfung:** `tsc` und `eslint` sauber, Payment-Tests (16) und mehrere API-Integrationstests (76) lokal grün. Taucht der Fehler trotzdem wieder auf, ist die nächste Verdächtige ein Client, der per `pool.connect()` ausgecheckt und nicht freigegeben wurde (an ausgecheckten Clients hängt der Listener nicht).
+
 ### Korrektur am 13.10.2026 (Schwerpunkt des Fachgesprächs: HQ1 und HQ2, nicht HQ4)
 
 Anlass: Die unabhängige Prüfung der P8-Fachgespräche und Fallaufgaben für HQ2/HQ4 meldete, die Aussage „Schwerpunkt auf Zusammenarbeit und Kommunikation“ sei falsch. Der Gesetzestext bestätigt es: § 3 Abs. 6 TechFachwPrV sagt „der Schwerpunkt soll auf Absatz 4 Nr. 1 und 2 liegen“, und Absatz 4 ist hier **§ 3 Abs. 4** (Handlungsbereiche: 1. Absatz-, Materialwirtschaft und Logistik, 2. Produktionsplanung, -steuerung und -kontrolle), nicht § 6 Abs. 4 (Prüfungsinhalte „Führung und Zusammenarbeit“: Zusammenarbeit, Kommunikation, Kooperation, Mitarbeitergespräche). Ich hatte beide Absätze 4 verwechselt; der Fehler stammte ursprünglich aus dem Anforderungskatalog („besonderes Gewicht auf Führung und Zusammenarbeit“), wurde von mir im Eintrag zur Prüfungsform fortgeschrieben und als „offener Befund“ gegen den Fachlehrer-Review ausgespielt. Der Review hatte recht, und die Vergrößerung der Pools HQ1 und HQ2 in P7 war richtig.

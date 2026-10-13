@@ -69,6 +69,7 @@ describe("Logo-Upload: Unternehmen und Sponsoren", () => {
     process.env.PAYMENT_SERVICE_TOKEN = "test-payment-service-token";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
+    pool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     db = drizzle(pool, { schema });
     await migrate(db, { migrationsFolder: "./drizzle" });
 

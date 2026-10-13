@@ -62,6 +62,7 @@ describe("N-10: Verhalten bei Redis-Ausfall", () => {
     process.env.REDIS_URL = "redis://localhost:19998";
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
+    pool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     db = drizzle(pool, { schema });
     await migrate(db, { migrationsFolder: "./drizzle" });
 

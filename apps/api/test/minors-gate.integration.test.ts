@@ -31,6 +31,7 @@ describe("F-159: Minderjährige ausgeschlossen (Standardverhalten)", () => {
     delete process.env.ALLOW_MINORS;
 
     pool = new Pool({ connectionString: container.getConnectionUri() });
+    pool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     db = drizzle(pool, { schema });
     await migrate(db, { migrationsFolder: "./drizzle" });
 

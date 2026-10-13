@@ -84,10 +84,12 @@ describe("F-81/F-82: Abo-/Kaufverwaltung & Statusübersicht", () => {
     process.env.KERN_SERVICE_TOKEN = SERVICE_TOKEN;
 
     kernPool = new Pool({ connectionString: kernContainer.getConnectionUri() });
+    kernPool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     kernDb = drizzle(kernPool, { schema });
     await migrate(kernDb, { migrationsFolder: "./drizzle" });
 
     paymentPool = new Pool({ connectionString: paymentContainer.getConnectionUri() });
+    paymentPool.on("error", () => {}); // Verbindungsabbruch beim Stoppen des Containers darf den Testlauf nicht kippen
     paymentDb = drizzle(paymentPool, { schema: paymentSchema });
     await migrate(paymentDb, { migrationsFolder: "../payment/drizzle" });
 
