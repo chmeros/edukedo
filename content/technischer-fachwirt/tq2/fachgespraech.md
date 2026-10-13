@@ -111,14 +111,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Fertigbarkeit mit den vorhandenen Fertigungsverfahren sowie Materialkosten und Verfügbarkeit.
   - Rückfrage: Warum ist die Werkstoffauswahl stets ein Kompromiss?
 - Auf Zeichnungen der Vantera stehen die Werkstoffkurznamen S235JR, C45, 42CrMo4 und X5CrNi18-10. Wie lesen Sie diese Namen, und welche Aussage zur Belastbarkeit lässt sich aus einem Kurznamen wie S355 für einen Zugstab mit 100 mm² Querschnitt ableiten?
-  - Erwartung: S235JR gehört zur Gruppe 1: S steht für Stahlbau, 235 für die Mindeststreckgrenze von 235 N/mm², und JR gibt die Prüftemperatur der Kerbschlagarbeit an (27 J bei +20 °C).
+  - Erwartung: S235JR gehört zur Gruppe 1: S steht für Stahlbau, 235 für die Mindeststreckgrenze von 235 N/mm² (für Nenndicken bis 16 mm; bei dickeren Erzeugnissen etwas weniger), und JR gibt die Prüftemperatur der Kerbschlagarbeit an (27 J bei +20 °C).
   - Erwartung: C45 ist ein unlegierter Stahl der Gruppe 2: Der Buchstabe C steht für unlegiert und die Zahl für das Hundertfache des mittleren Kohlenstoffgehalts, hier etwa 0,45 % Kohlenstoff.
   - Erwartung: 42CrMo4 ist niedriglegiert (kein Legierungselement über 5 %) mit etwa 0,42 % Kohlenstoff, Chrom (Kennzahl 4 geteilt durch den Faktor 4, also etwa 1 % Chrom) und Molybdän.
   - Erwartung: Hochlegierte Stähle beginnen mit X und nennen die Gehalte in Prozent ohne Faktor: X5CrNi18-10 hat etwa 0,05 % Kohlenstoff, 18 % Chrom und 10 % Nickel (rostfreier Stahl).
-  - Erwartung: Die Zahl bei S355 ist die Mindeststreckgrenze: Die Kraft an der Streckgrenze beträgt mindestens F = Re · A = 355 N/mm² · 100 mm² = 35,5 kN; bleibt die Last darunter, verformt sich das Bauteil nur elastisch.
+  - Erwartung: Die Zahl bei S355 ist die Mindeststreckgrenze (bei Nenndicken bis 16 mm): Die Kraft an der Streckgrenze beträgt mindestens F = Re · A = 355 N/mm² · 100 mm² = 35,5 kN; bleibt die Last darunter, verformt sich das Bauteil nur elastisch.
   - Rückfrage: Wofür steht die Bezeichnung EN-GJL-200?
 - Was lässt sich aus dem Eisen-Kohlenstoff-Diagramm für die Auswahl und die Wärmebehandlung eines Stahls ablesen, und was bedeutet das für einen C45?
-  - Erwartung: Das Diagramm zeigt das Gefüge bei gegebenem Kohlenstoffgehalt und gegebener Temperatur; wichtige Punkte sind 0,8 % C bei 723 °C (eutektoid), 2,06 % C als Grenze zwischen Stahl und Gusseisen und 4,3 % C bei 1.147 °C (eutektisch).
+  - Erwartung: Das Diagramm zeigt das Gefüge bei gegebenem Kohlenstoffgehalt und gegebener Temperatur; wichtige Punkte sind 0,8 % C bei 723 °C (eutektoid), 2,06 % C als Grenze zwischen Stahl und Gusseisen und 4,3 % C bei 1.147 °C (eutektisch); das sind gerundete Lehrbuchwerte, neuere Datensätze nennen 727 °C, 2,14 % C und 1.148 °C.
   - Erwartung: Ein C45 ist untereutektoid und besteht bei Raumtemperatur aus Ferrit und Perlit, näherungsweise 0,45 / 0,8 = 56 % Perlit und 44 % Ferrit.
   - Erwartung: Mit mehr Perlit, also höherem Kohlenstoffgehalt, steigen Härte und Festigkeit, während Zähigkeit und Schweißbarkeit sinken: Ein C60 mit etwa 75 % Perlit ist fester und härter, aber weniger zäh als ein C45.
   - Erwartung: Zum Härten wird der Stahl ins Austenitgebiet erhitzt und so schnell abgeschreckt, dass Martensit entsteht, ein sehr hartes, sprödes Gefüge; gut härtbar sind Stähle ab etwa 0,3 % Kohlenstoff.
@@ -188,7 +188,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Kreislauf aus Planen, Prüfen, Auswerten und Anpassen trägt langfristig zur Verbesserung der gesamten Prozess- und Lieferantenqualität bei, statt nur einzelne fehlerhafte Teile auszusortieren.
   - Rückfrage: Welches Beispiel für eine wiederkehrende Abweichung kennen Sie aus dem Wareneingang?
 - Im Wareneingang zeigt ein Stab mit dem Zeugniswert Rm = 800 N/mm² eine Härte von 229 HBW 10/3000. Wie beurteilen Sie das, und warum sind Härteskalen nicht exakt umrechenbar?
-  - Erwartung: Die Faustregel Rm ≈ 3,5 · HB (Richtwert für unlegierte und niedriglegierte Stähle) ergibt für 229 HBW rund 800 N/mm²; das deckt sich mit dem Zeugnis, der Wert ist plausibel.
+  - Erwartung: Die Faustregel Rm ≈ 3,5 · HB (Richtwert für unlegierte und niedriglegierte Stähle) ergibt für 229 HBW rund 800 N/mm²; das deckt sich mit dem Zeugnis, der Wert ist plausibel. Der Faktor 3,5 ist gerundet, die Tabellen der DIN EN ISO 18265 liegen mit etwa 3,4 etwas niedriger (rund 775 N/mm²), was die Beurteilung nicht ändert.
   - Erwartung: Weicht die Härte deutlich ab (Anhalt: mehr als etwa 10 %), prüft man nach: Härte an mehreren Stellen wiederholen, Zeugnis und Charge abgleichen und gegebenenfalls einen Zugversuch an einer Probe durchführen.
   - Erwartung: Die Faustregel gilt nur näherungsweise und nicht für alle Werkstoffe; für Aluminium, Kupfer und austenitische Stähle ist der Faktor anders, für Gusseisen gilt sie nicht.
   - Erwartung: Zwischen den Härteskalen gibt es keine exakte Umrechnung, nur Richtwert-Tabellen (für Stahl DIN EN ISO 18265), weil die Verfahren Verschiedenes messen (Eindruckfläche, Diagonale, Tiefe) und andere Prüfkörper und Prüfkräfte nutzen.

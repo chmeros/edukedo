@@ -59,7 +59,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nac
   - Erwartung: Beispiel: Steigt der Preis von 80 € auf 84 € (+5 %) und sinkt der Absatz von 5.000 auf 4.500 Stück (−10 %), ist ε = −2, und der Erlös fällt von 400.000 € auf 378.000 €.
   - Rückfrage: Welche Erlösänderung ergibt sich, wenn der Preis um 10 % steigt und die Menge um 20 % sinkt, und warum dürfen Sie die beiden Prozentwerte dafür nicht addieren?
 - Ein Bauteil der Vantera zeigt stagnierenden Umsatz und durch Preisdruck sinkende Gewinne. Ordnen Sie das Produkt dem Produktlebenszyklus zu, nennen Sie die passende Strategie und begründen Sie, warum ein ausgewogenes Sortiment Produkte in verschiedenen Phasen enthalten sollte.
-  - Erwartung: Stagnierender Umsatz und sinkender Gewinn durch Konkurrenz und Preisdruck kennzeichnen die Sättigungsphase, die auf die Reife folgt, in der Umsatz und Gewinn ihr Maximum erreichen.
+  - Erwartung: Stagnierender Umsatz und sinkender Gewinn durch Konkurrenz und Preisdruck kennzeichnen die Sättigungsphase, die auf die Reife folgt, in der im Kurs Umsatz und Gewinn ihr Maximum erreichen (die Literatur gibt die Lage der Maxima uneinheitlich an).
   - Erwartung: In der Sättigung variiert man das Produkt oder erschließt neue Märkte.
   - Erwartung: Gehen Umsatz und Gewinn weiter zurück, verringert man im Rückgang den Aufwand oder stellt das Produkt ein (Produktelimination), gegebenenfalls ersetzt durch ein Nachfolgeprodukt.
   - Erwartung: Ein ausgewogenes Sortiment enthält Produkte in verschiedenen Phasen, damit der Rückgang eines Produkts durch ein anderes ausgeglichen wird.
@@ -192,7 +192,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nac
   - Erwartung: Nach dem Bewegungsprinzip geht bei Mann zur Ware die Kommissionierkraft zum Lagerplatz (statisches Lager), bei Ware zum Mann bringt das Lager die Behälter zum festen Arbeitsplatz (dynamisches Lager).
   - Erwartung: Organisatorisch unterscheidet man die Einzelkommissionierung (auftragsweise), die Serienkommissionierung (mehrere Aufträge gleichzeitig, danach aufteilen, spart Wege) und die Zonenkommissionierung (jeder Bereich liefert seinen Teil des Auftrags).
   - Erwartung: Hilfsmittel sind Pickliste, Handscanner, Pick-by-Light, Pick-by-Voice und Datenbrille.
-  - Erwartung: Als Faustregel besteht etwa die Hälfte der Kommissionierzeit aus Wegzeit; deshalb zielt die Optimierung auf kurze Wege und häufig gebrauchte Teile in Griffnähe (ABC-Zonen).
+  - Erwartung: Als Faustregel macht die Wegzeit oft 30 bis 50 % der Kommissionierzeit aus und ist meist der größte Zeitanteil; deshalb zielt die Optimierung auf kurze Wege und häufig gebrauchte Teile in Griffnähe (ABC-Zonen).
   - Erwartung: Kennzahlen sind die Kommissionierleistung (Positionen je Stunde) und die Fehlerquote (fehlerhafte Positionen geteilt durch alle Positionen): 480 Positionen in 8 Stunden ergeben 60 Positionen je Stunde, 6 fehlerhafte Positionen eine Fehlerquote von 1,25 %.
   - Rückfrage: Wie hoch sind Kommissionierleistung und Fehlerquote, wenn eine Kommissionierkraft in 8 Stunden 600 Positionen bearbeitet und 12 davon fehlerhaft sind?
 - Vantera erwägt, Lieferungen an die Kundschaft statt über eine Spedition mit eigenen Fahrzeugen auszuführen. Wie vergleichen Sie beide Varianten kostenmäßig, und welche weiteren Kriterien beeinflussen die Entscheidung?

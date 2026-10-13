@@ -85,7 +85,7 @@ Teilaufgabe 4 sollte mindestens drei Kennzahlen wie OEE, Durchlaufzeit und Aussc
 
 Erstens die Losgröße der Welle W-18: Der Jahresbedarf beträgt 10.000 Stück, die Rüstkosten betragen 200 € je Los, die Herstellkosten 16 € je Stück und der Lagerhaltungskostensatz 25 %. Bisher werden Lose von 2.500 Stück gefertigt. Annahme für die Insel: Durch Rüsten im Team und Vorrichtungen verringert sich der Rüstaufwand auf 50 € je Los.
 
-Zweitens die Kapazität des Schleifplatzes der Insel, eines von mehreren Arbeitsplätzen der Insel: Im Monat stehen 20 Arbeitstage mit 2 Schichten zu je 8 Stunden zur Verfügung, der Nutzungsgrad beträgt 85 %. Für den Monat sind zwei Aufträge an diesem Platz eingeplant (alle Zeiten gelten für den Schleifplatz; die Ist-Zeit enthält Haupt- und Nebenzeit, aber keine Verteilzeit; für beide Aufträge beträgt der Verteilzeitzuschlag 10 % auf die Grundzeit):
+Zweitens die Kapazität des Schleifplatzes der Insel, eines von mehreren Arbeitsplätzen der Insel: Im Monat stehen 20 Arbeitstage mit 2 Schichten zu je 8 Stunden zur Verfügung, der Nutzungsgrad beträgt 85 %. Für den Monat sind zwei Aufträge an diesem Platz eingeplant (alle Zeiten gelten für den Schleifplatz; die Ist-Zeit enthält Haupt- und Nebenzeit, aber keine Verteilzeit; für beide Aufträge beträgt der Verteilzeitzuschlag, in dem die Erholzeit enthalten ist, 10 % auf die Grundzeit):
 
 Auftrag | Rüstzeit | Menge       | Zeitangaben
       1 |   60 min | 1.500 Stück | Grundzeit 4,0 min je Stück

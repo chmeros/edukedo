@@ -76,11 +76,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Voraussetzungen müssen für Cp und Cpk erfüllt sein?
   - Rückfrage: Welcher Cpk-Richtwert wird häufig für besonders kritische Merkmale verlangt?
 - Ein Automobilhersteller kündigt ein Audit bei Vantera an, zugleich plant die Qualitätsleitung die Audits für das laufende Jahr. Welche Audit-Arten unterscheiden Sie, und wie ordnen Sie die angekündigte Prüfung nach der durchführenden Stelle ein?
-  - Erwartung: Ein Audit ist ein systematischer, unabhängiger und dokumentierter Prozess, in dem man objektive Nachweise sammelt und bewertet, um festzustellen, inwieweit die Auditkriterien erfüllt sind.
+  - Erwartung: Ein Audit ist ein systematischer, unabhängiger und dokumentierter Prozess, in dem man objektive Nachweise sammelt und bewertet, um festzustellen, inwieweit die Auditkriterien erfüllt sind (so die Definition in ISO 19011:2018; im Mai 2026 ist die Ausgabe 2026 erschienen und hat die Ausgabe 2018 ersetzt).
   - Erwartung: Nach dem Gegenstand unterscheidet man das Systemaudit (das ganze Managementsystem), das Prozessaudit (ein einzelner Prozess, etwa das Härten) und das Produktaudit (ein fertiges Produkt wird wie von der Kundschaft geprüft).
   - Erwartung: Nach der durchführenden Stelle unterscheidet man das interne Audit („erste Seite“), das Lieferantenaudit durch die Kundschaft („zweite Seite“) und das Zertifizierungsaudit durch eine unabhängige Zertifizierungsstelle („dritte Seite“).
   - Erwartung: Die Prüfung durch den Automobilhersteller ist ein Lieferantenaudit, bei dem die Kundschaft ihren Lieferbetrieb prüft.
-  - Erwartung: ISO 9001 verlangt interne Audits in geplanten Abständen; sie sind keine freiwillige Zugabe.
+  - Erwartung: ISO 9001 verlangt interne Audits in geplanten Abständen (Abschnitt 9.2 der Ausgabe 2015); sie sind keine freiwillige Zugabe.
+  - Erwartung: Die Abschnittsnummern beziehen sich auf DIN EN ISO 9001:2015; die Ausgabe ISO 9001:2026 ist am 16.09.2026 erschienen, die Überarbeitung ist evolutionär, und für bestehende Zertifikate gilt eine Übergangsfrist von drei Jahren.
   - Rückfrage: Wie lange gilt ein Zertifikat üblicherweise, und was folgt danach?
 - Die Qualitätsleitung der Vantera Präzisionstechnik GmbH will den Prozess „Härten“ intern auditieren lassen. Beschreiben Sie den Ablauf eines solchen Audits. Bei der Auswertung sind 18 Anforderungen geprüft und 3 davon nicht erfüllt: Wie bewerten Sie dieses Ergebnis?
   - Erwartung: Die Planung legt Auditprogramm und -plan mit Ziel, Umfang und Auditteam fest; bei der Durchführung folgen Eröffnungsgespräch, Prüfung der Dokumente, Befragung der Mitarbeitenden, Beobachtung der Abläufe, Sammeln von Nachweisen und Abschlussgespräch.
@@ -95,7 +96,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Als Sofortmaßnahmen sperrt man den Bestand, liefert gegebenenfalls Ersatz und informiert die Kundschaft.
   - Erwartung: Es folgen Ursachenanalyse, Abstellmaßnahmen, Antwort an die Kundschaft und Wirksamkeitsprüfung; die Antwort erfolgt meist gestuft in den von der Kundschaft festgelegten Fristen.
   - Erwartung: Die Reklamationsquote in ppm ist fehlerhafte Teile geteilt durch gelieferte Teile mal 1.000.000, hier 12 / 80.000 · 1.000.000 = 150 ppm.
-  - Erwartung: ISO 9001 verlangt bei Nichtkonformitäten, auch bei Kundenbeschwerden, Korrekturmaßnahmen und die Prüfung ihrer Wirksamkeit.
+  - Erwartung: ISO 9001 verlangt bei Nichtkonformitäten, auch bei Kundenbeschwerden, Korrekturmaßnahmen und die Prüfung ihrer Wirksamkeit (Abschnitt 10.2 der Ausgabe 2015).
   - Rückfrage: Wann gilt ein 8D-Report als vollständig?
 - Bei Vantera wurden Wellen mit zu kleinem Durchmesser an die Kundschaft geliefert. Wie ist ein 8D-Report aufgebaut, wie kommen Sie darin zur Grundursache, und welche zwei Arten von Ursachen unterscheiden Sie?
   - Erwartung: Die acht Disziplinen sind D1 Team bilden, D2 Problem beschreiben (Was, Wo, Wann, Wie viele?), D3 Sofortmaßnahmen, D4 Ursachen ermitteln, D5 Abstellmaßnahmen planen, D6 Abstellmaßnahmen einführen und ihre Wirksamkeit prüfen, D7 Wiederholung verhindern, D8 Abschluss und Würdigung des Teams.

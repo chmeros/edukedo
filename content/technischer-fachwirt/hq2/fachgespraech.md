@@ -68,7 +68,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Nac
   - Rückfrage: Warum liegt bei gleichmäßigem Verbrauch im Durchschnitt nur das halbe Los auf Lager?
 - Wie ermittelt Vantera die Vorgabezeit für einen Fertigungsauftrag nach REFA, und welche Verfahren der Zeitermittlung kommen in Betracht?
   - Erwartung: Die Auftragszeit ist T = t_r + m · t_e mit der Rüstzeit t_r (einmal je Auftrag), der Menge m und der Zeit je Einheit t_e.
-  - Erwartung: Die Zeit je Einheit t_e = t_g + t_v setzt sich aus der Grundzeit (Hauptzeit plus Nebenzeit) und der Verteilzeit zusammen, die als prozentualer Zuschlag auf die Grundzeit berücksichtigt wird.
+  - Erwartung: Die Zeit je Einheit t_e = t_g + t_v setzt sich aus der Grundzeit (Hauptzeit plus Nebenzeit) und der Verteilzeit zusammen, die als prozentualer Zuschlag auf die Grundzeit berücksichtigt wird; die Erholzeit ist je nach Auslegung Teil der Verteilzeit (in der ausführlicheren Gliederung steht sie als eigener Posten t_er), im Kurs wird mit t_e = t_g + t_v gerechnet.
   - Erwartung: Beispiel: Hauptzeit 2,4 min und Nebenzeit 0,6 min ergeben t_g = 3,0 min; mit 10 % Verteilzeitzuschlag ist t_e = 3,3 min, und bei 45 min Rüstzeit und 200 Stück folgt T = 705 min = 11,75 h.
   - Erwartung: Zeiten werden durch Zeitaufnahme (Stoppuhr oder elektronisch), Multimomentaufnahme (Stichprobenbeobachtung), Schätzen und Vergleichen oder Systeme vorbestimmter Zeiten wie MTM ermittelt.
   - Erwartung: Bei der Zeitaufnahme wird die Ist-Zeit mit dem Leistungsgrad auf die Normalleistung bezogen (Grundzeit = Ist-Zeit · LG); bei 2,8 min und 110 % sind es 3,08 min.

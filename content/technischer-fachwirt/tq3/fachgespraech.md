@@ -85,8 +85,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beschichtungen dienen dem Korrosions- oder Verschleißschutz, einer Funktion oder der Optik; für die Haftung entscheidend ist die Vorbehandlung durch Entfetten, Reinigen, Strahlen oder Beizen.
   - Erwartung: Stahlhalterungen im Freien verzinkt man: Zink ist unedler als Eisen und schützt auch an kleinen Verletzungen kathodisch; Feuerverzinken (Richtwert etwa 45 bis 100 µm) ist für enge Passflächen und Feingewinde ungeeignet.
   - Erwartung: Eine Alternative ist das Pulverbeschichten (Richtwert etwa 60 bis 120 µm); das Teil muss dafür leitfähig sein und das Einbrennen vertragen.
-  - Erwartung: Aluminium wird eloxiert: Die harte, korrosionsbeständige Schicht entsteht aus dem Grundwerkstoff und wächst etwa zur Hälfte nach außen (grober Richtwert), das Maß ändert sich also; bei 20 µm Schichtdicke wird zum Beispiel ein Bolzen mit 20 mm Durchmesser um etwa 0,020 mm dicker.
-  - Erwartung: Für Bohrer, Fräser und Schneidplatten nutzt man PVD- und CVD-Hartstoffschichten: PVD ist dünn (Richtwert etwa 1 bis 5 µm) und arbeitet bei niedriger Temperatur, CVD ist dicker und braucht hohe Temperaturen.
+  - Erwartung: Aluminium wird eloxiert: Die harte, korrosionsbeständige Schicht entsteht aus dem Grundwerkstoff und wächst zu einem Teil nach außen (etwa ein Drittel bis die Hälfte, grober Richtwert je nach Verfahren), das Maß ändert sich also; bei 20 µm Schichtdicke und der Annahme der Hälfte nach außen wird zum Beispiel ein Bolzen mit 20 mm Durchmesser um etwa 0,020 mm dicker (bei einem Drittel um rund 0,013 mm).
+  - Erwartung: Für Bohrer, Fräser und Schneidplatten nutzt man PVD- und CVD-Hartstoffschichten: PVD ist dünn (Richtwert etwa 1 bis 5 µm, bei Sonderverfahren dicker) und arbeitet bei vergleichsweise niedriger Temperatur, CVD ist dicker und braucht hohe Temperaturen.
   - Rückfrage: Warum ist beim galvanischen Verzinken hochfester Stähle Vorsicht geboten?
   - Rückfrage: Warum lässt sich auch Schnellarbeitsstahl mit PVD beschichten?
 - Welche Ofen- und Härteanlagen kennen Sie, und wie wählen Sie Anlage und Abschreckmedium für ein Bauteil aus?
@@ -239,7 +239,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Stellgröße bildet ein P-Regler mit K_P = 5 % je K, wenn der Härteofen bei einem Sollwert von 850 °C erst 810 °C erreicht hat, und was folgt daraus für das Stellglied?
   - Rückfrage: Was unterscheidet die Festwertregelung von der Zeitplanregelung?
 - In welcher Sprache programmieren Sie die SPS einer neuen Fertigungszelle, und wie funktioniert eine Start-Stopp-Schaltung mit Selbsthaltung?
-  - Erwartung: Die Norm IEC 61131-3 legt fünf Programmiersprachen fest: Kontaktplan, Funktionsbausteinplan, Anweisungsliste, Strukturierten Text und Ablaufsprache.
+  - Erwartung: Die Norm IEC 61131-3 beschreibt die Programmiersprachen Kontaktplan, Funktionsbausteinplan, Strukturierten Text und Ablaufsprache; die ältere Anweisungsliste (in der Ausgabe von 2013 noch die fünfte Sprache) gilt als veraltet und wird nach Katalogangaben in der Ausgabe von 2025 nicht mehr als eigene Sprache geführt, ist aber in Bestandsanlagen weiterhin verbreitet.
   - Erwartung: Der Kontaktplan ähnelt einem Stromlaufplan, Strukturierter Text eignet sich für Berechnungen, die Ablaufsprache für Schrittketten; die Wahl hängt von Aufgabe und Team ab, und die Sprachen lassen sich oft kombinieren.
   - Erwartung: Die Selbsthaltung lautet M = (Start ODER M) UND NICHT Stopp UND NICHT Störung: Ein kurzer Tastendruck genügt, M fällt erst bei Stopp oder Störung ab.
   - Erwartung: Die Stopptaste wird als Öffner angeschlossen, damit ein Drahtbruch die Anlage abschaltet (Ruhestromprinzip).
@@ -262,7 +262,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Erläutern Sie an einem Hydraulikzylinder (Kolbenfläche 50 cm², Kolbenstangenfläche 10 cm², Pumpenstrom 30 l/min, Druck 100 bar) mit 4/3-Wegeventil, wie sich die verschiedenen Mittelstellungen auswirken, wie die Ausfahrgeschwindigkeit eingestellt wird und welche Geschwindigkeiten und Kräfte sich beim Ausfahren und Einfahren ergeben.
   - Erwartung: Beim 4/3-Wegeventil ist P der Druckanschluss, T der Tankanschluss, A und B sind die Arbeitsanschlüsse; Federn zentrieren das Ventil in der Mittelstellung, die festlegt, was Pumpe und Zylinder im Ruhezustand tun.
   - Erwartung: In der Sperrmittelstellung sind alle Anschlüsse gesperrt, der Zylinder wird gehalten, aber die Pumpe gibt ihren Volumenstrom über das Druckbegrenzungsventil ab (Verlustleistung, Erwärmung des Öls).
-  - Erwartung: In der Umlaufmittelstellung ist P mit T verbunden und die Pumpe fördert fast drucklos zum Tank; in der Schwimmstellung sind A und B mit T verbunden, und der Zylinder lässt sich durch äußere Kräfte bewegen.
+  - Erwartung: In der Umlaufmittelstellung ist P mit T verbunden und die Pumpe fördert fast drucklos zum Tank; in der Schwimmstellung (herstellerabhängig auch Stuhlmittelstellung genannt) sind A und B mit T verbunden, und der Zylinder lässt sich durch äußere Kräfte bewegen.
   - Erwartung: Ein Drosselrückschlagventil drosselt in einer Richtung und lässt in der Gegenrichtung frei durch; die Ablaufdrosselung beim Ausfahren hält den Kolben auch bei ziehender Last unter Spannung.
   - Erwartung: Die Geschwindigkeit folgt aus dem Volumenstrom (v = Q / A), die Kraft aus dem Druck (F = p · A): Bei offener Drossel fährt der Zylinder über die Kolbenfläche von 50 cm² mit 0,1 m/s aus und über die Ringfläche von 40 cm² mit 0,125 m/s ein; bei 100 bar sind es 50 kN beim Ausfahren und 40 kN beim Einfahren.
   - Rückfrage: Wovon hängen Geschwindigkeit und Kraft eines Zylinders ab?

@@ -144,7 +144,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Die Vorbereitung klärt das Ziel (informieren, überzeugen, entscheiden lassen), die Zielgruppe mit Vorwissen und Interesse, die verfügbare Zeit und eine Kernbotschaft.
   - Erwartung: Der Aufbau besteht aus Einleitung (Begrüßung, Thema, Nutzen, Gliederung), Hauptteil (Argumente oder Ergebnisse, logisch gegliedert, mit Beispielen und Zahlen) und Schluss (Zusammenfassung, Handlungsaufforderung, Raum für Fragen).
   - Erwartung: Als Faustregel für die Zeit gelten etwa 10 % Einleitung, 80 % Hauptteil und 10 % Schluss; bei 30 Minuten sind das 3 Minuten Einleitung, 24 Minuten Hauptteil und 3 Minuten Schluss.
-  - Erwartung: Als Richtwert rechnet man etwa 2 Minuten je Folie, bei 30 Minuten also etwa 15 Folien.
+  - Erwartung: Als Richtwert rechnet man etwa 2 bis 3 Minuten je Folie, bei 30 Minuten also etwa 10 bis 15 Folien (mit 2 Minuten je Folie 15 Folien).
   - Rückfrage: Welche Medien kommen für eine Präsentation in Betracht?
 - Sie stellen bei Vantera die Entwicklung der Ausschussquote mit Folien vor. Welche Regeln beachten Sie bei der Gestaltung der Folien, und wodurch gewinnt Ihr Vortrag an Wirkung?
   - Erwartung: Jede Folie enthält eine Botschaft und wenig Text; aussagekräftige Diagramme ersetzen Zahlenkolonnen.
