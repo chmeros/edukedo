@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (Datenbank-Pool: Fehler auf untätigen Verbindungen abfangen; CI-Absturz im Teardown)
+
+Anlass: Der CI-Lauf zum Commit 6550836 war rot, obwohl alle Tests bestanden: `game-weitere.integration.test.ts` löste beim Stoppen des Testcontainers den unbehandelten Fehler „terminating connection due to administrator command“ aus (Vitest meldet einen unbehandelten Fehler als Fehlschlag). Der vorherige und der nachfolgende Lauf ohne Codeänderung am Test waren grün, es ist also ein zeitabhängiger Absturz, kein Testfehler und kein Zusammenhang mit den P8-Inhalten.
+
+- **Ursache:** Der Pool in `apps/api/src/db/client.ts` hatte keinen `error`-Handler. node-postgres meldet einen Fehler auf einer untätigen Verbindung (Server beendet sie) am Pool; ohne Listener wird daraus eine unbehandelte Ausnahme. Im Betrieb hieße das: Ein Neustart oder Failover der Datenbank könnte den API-Prozess beenden. Welcher Client im Test genau noch untätig offen war, ließ sich aus dem Protokoll nicht klären.
+- **Entscheidung:** Der Pool bekommt einen `error`-Handler, der den Fehler protokolliert (`console.error`); der Pool baut bei der nächsten Abfrage selbst eine neue Verbindung auf. Das ist die von node-postgres dokumentierte Absicherung. `tsc`, `eslint` und die betroffenen Integrationstests (`game-weitere`, `db`, `redis-outage`) grün.
+- **Beobachtung:** Taucht der Fehler trotzdem wieder auf, liegt die Ursache bei einem Test-eigenen Pool (die Tests legen eigene `Pool`-Instanzen an); dann dort ebenfalls einen Handler setzen.
+
 ### Entschieden am 13.10.2026 (Items zu den P8-Abschnitten als Entwurf vorbereitet; Auftrag des Projektleiters, rechtsnah R4, nichts eingespielt)
 
 Anlass: Nach dem Einspielen der P8-Theorie (siehe Eintrag davor) ließ der Projektleiter mit „Ja, Items zu P8 entwerfen“ Karteikarten, Quizfragen und Glossar-Vorschläge zu den 30 neuen Abschnitten schreiben. Vorgabe aus den Entwürfen (Empfehlung, übernommen): Schwerpunkt auf Begriffen und Abgrenzungen, **keine Aufgabe auf Beträge, Fristen, Stichtage, Schwellenwerte, Personenzahlen oder Strafen**, keine Aufgabe zur offenen Rechtsfolge „ersetzt die AEVO-Prüfung“, kein Jugendarbeitsschutz.
