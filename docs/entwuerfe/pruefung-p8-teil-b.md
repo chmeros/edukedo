@@ -57,3 +57,7 @@ Schwere: hoch = Rechtsaussage falsch oder nicht belegbar mit Gefahr einer falsch
 ## Was im Entwurf geändert wurde
 
 Datei: `docs/entwuerfe/tf-p8-recht/teil-b-gefahrstoffe-arbeitsschutz.md`. Geändert: Prüfvermerk zur Gegenprüfung im Kopf; Lerntexte der Abschnitte 1, 2, 3, 4, 5, 6 und 7 (siehe Befunde 1, 4 bis 15, 18); Fundstellenblöcke und Statusangaben der Abschnitte 1 bis 7 nachgeführt; Prüfpunkte der Abschnitte 1, 3, 4, 6 und 7 mit „Gegenprüfung“-Antworten versehen; Rechtsstand und Unsicherheiten ergänzt; „Zu entscheiden“ Nr. 6 präzisiert und neue Nr. 10 angelegt. Bewusst unverändert und offen gelassen: Entscheidungen 1 bis 5, 7 bis 9 (Umfang, CLP-Abschnitt, Zahlen, Normnamen, DGUV-Fassung, Begleitmaterial, Jugendschutz, Beispielwerte) sowie Befund 2 (Bestand) und Befund 3 (CLP/REACH).
+
+## Nachtrag 13.10.2026
+
+Die Bestandsänderungen aus diesem Bericht (Befunde zum Bestand in 10.2, 10.3 beziehungsweise 3.2) wurden auf Auftrag des Projektleiters umgesetzt und importiert, siehe Architekturplanung §13, Eintrag „drei rechtsnahe Bestandsstellen“. Die Formulierungen im Kurs folgen den Vorschlägen dieses Berichts.

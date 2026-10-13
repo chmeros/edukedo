@@ -69,3 +69,7 @@ MiLoG § 1 (13,90 €/14,60 €; Rechtsverordnung auf Vorschlag der Kommission),
 - **Bestandsthema 11.1** (hq4): nur Gliederung und Stichwortsuche; kein inhaltlicher Abgleich nötig, da es die Rechtsgebiete nicht berührt.
 - **Rechtsfolgen und Praxisfragen** (Betriebsrat-Beteiligung bei Prämiensystemen im Einzelfall, Wirksamkeit tariflicher Öffnungsklauseln): nur soweit der Lerntext sie am Wortlaut berührt.
 - Es handelt sich um eine KI-Prüfung; sie ersetzt keine rechtliche Freigabe (R4).
+
+## Nachtrag 13.10.2026
+
+Die Bestandsänderungen aus diesem Bericht (Befunde zum Bestand in 10.2, 10.3 beziehungsweise 3.2) wurden auf Auftrag des Projektleiters umgesetzt und importiert, siehe Architekturplanung §13, Eintrag „drei rechtsnahe Bestandsstellen“. Die Formulierungen im Kurs folgen den Vorschlägen dieses Berichts.

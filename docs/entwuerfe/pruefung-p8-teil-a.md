@@ -77,3 +77,7 @@ Alle Änderungsgesetze, die auf `gesetze-im-internet.de` als „nachgewiesen, ni
 - **Galvanik-Annahme** (Befund 10): beibehalten oder durch belegte Fallfirmen-Anlagen ersetzen.
 - **Abschnitt 5 teilen** (Befund 28) und **Partizipformen** (Befund 26) entscheiden.
 - Unverändert aus dem Entwurf: Freigabeweg (Punkt 1), Zahlen im Lerntext mit Stand 10/2026 (Punkt 4), Landesrecht-Hinweis (Punkt 8).
+
+## Nachtrag 13.10.2026
+
+Die Bestandsänderungen aus diesem Bericht (Befunde zum Bestand in 10.2, 10.3 beziehungsweise 3.2) wurden auf Auftrag des Projektleiters umgesetzt und importiert, siehe Architekturplanung §13, Eintrag „drei rechtsnahe Bestandsstellen“. Die Formulierungen im Kurs folgen den Vorschlägen dieses Berichts.
