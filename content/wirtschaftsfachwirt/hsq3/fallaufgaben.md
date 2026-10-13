@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ3 (3.1–3.3) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: analysieren):** Erläutern Sie, wie sich eine Erhöhung des Sicherheitsbestands auf die berechnete Lagerumschlagshäufigkeit und die Lagerdauer auswirken würde, sofern der Jahresverbrauch gleich bleibt.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Umschlagshäufigkeit = 18.000 ÷ 1.500 = 12; Lagerdauer = 360 ÷ 12 = 30 Tage. Teilaufgabe 2: Vorteil Single Sourcing z. B. enge Partnerschaft/bessere Konditionen, Nachteil hohe Abhängigkeit — bei wiederholten Lieferverzögerungen überwiegt tendenziell das Abhängigkeitsrisiko. Teilaufgabe 3: z. B. Wechsel zu Multiple Sourcing mit einem zweiten, unabhängigen Lieferanten zur Risikostreuung, ggf. ergänzt um einen höheren Sicherheitsbestand als Übergangslösung. Teilaufgabe 4: Ein höherer durchschnittlicher Lagerbestand senkt bei gleichem Verbrauch die Umschlagshäufigkeit und verlängert die Lagerdauer, da mehr Kapital länger gebunden bleibt.
+**Musterlösungshinweise:** Teilaufgabe 1: Umschlagshäufigkeit = 18.000 ÷ 1.500 = 12; Lagerdauer = 360 ÷ 12 = 30 Tage.
+Teilaufgabe 2: Vorteil Single Sourcing z. B. enge Partnerschaft/bessere Konditionen, Nachteil hohe Abhängigkeit — bei wiederholten Lieferverzögerungen überwiegt tendenziell das Abhängigkeitsrisiko.
+Teilaufgabe 3: z. B. Wechsel zu Multiple Sourcing mit einem zweiten, unabhängigen Lieferanten zur Risikostreuung, ggf. ergänzt um einen höheren Sicherheitsbestand als Übergangslösung.
+Teilaufgabe 4: Ein höherer durchschnittlicher Lagerbestand senkt bei gleichem Verbrauch die Umschlagshäufigkeit und verlängert die Lagerdauer, da mehr Kapital länger gebunden bleibt.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ3 (3.1–3.3) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie einen kurzen, dreistufigen Maßnahmenplan, mit dem die NordWert Handels GmbH die Effizienz der Lagerung und Kommissionierung dieser Artikelgruppe verbessern könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Lagerdauer = 360 ÷ 2 = 180 Tage — eine sehr lange Verweildauer, die auf eine unnötig hohe Kapitalbindung bei geringwertigen Artikeln hindeutet. Teilaufgabe 2: Geringer Wertanteil (C-Gut) mit vermutlich regelmäßigem, aber nicht optimal disponiertem Verbrauch (eher X/Y) — die Klassifikation begründet, warum sich aufwendige Einzeldisposition hier nicht lohnt. Teilaufgabe 3: Eine vollautomatisierte Kommissionierung lohnt sich bei geringwertigen C-Artikeln meist nicht (hohe Investition, geringer Wertanteil); sinnvoller sind Prozessoptimierung der Lagerplatzvergabe bzw. Umstellung auf ein chaotisches Lagersystem mit geringerem Investitionsaufwand. Teilaufgabe 4: z. B. (1) Lagerplätze dieser Artikelgruppe näher an die Kommissionierzone verlegen, (2) auf ein chaotisches Lagersystem mit Barcode-Unterstützung umstellen, (3) Bestellmengen anhand der ABC/XYZ-Klassifikation reduzieren, um die Lagerdauer zu verkürzen.
+**Musterlösungshinweise:** Teilaufgabe 1: Lagerdauer = 360 ÷ 2 = 180 Tage — eine sehr lange Verweildauer, die auf eine unnötig hohe Kapitalbindung bei geringwertigen Artikeln hindeutet.
+Teilaufgabe 2: Geringer Wertanteil (C-Gut) mit vermutlich regelmäßigem, aber nicht optimal disponiertem Verbrauch (eher X/Y) — die Klassifikation begründet, warum sich aufwendige Einzeldisposition hier nicht lohnt.
+Teilaufgabe 3: Eine vollautomatisierte Kommissionierung lohnt sich bei geringwertigen C-Artikeln meist nicht (hohe Investition, geringer Wertanteil); sinnvoller sind Prozessoptimierung der Lagerplatzvergabe bzw. Umstellung auf ein chaotisches Lagersystem mit geringerem Investitionsaufwand.
+Teilaufgabe 4: z. B. (1) Lagerplätze dieser Artikelgruppe näher an die Kommissionierzone verlegen, (2) auf ein chaotisches Lagersystem mit Barcode-Unterstützung umstellen, (3) Bestellmengen anhand der ABC/XYZ-Klassifikation reduzieren, um die Lagerdauer zu verkürzen.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ3 (3.1–3.3) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: analysieren):** Ordnen Sie die Belieferung des neuen französischen Großkunden in die Systematik der Wertschöpfungskette nach Porter ein (primäre oder unterstützende Aktivität, welche konkret) und begründen Sie kurz.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Multiple Sourcing — Vorteil: Risikostreuung und größerer Verhandlungsspielraum; Nachteil: höherer Koordinationsaufwand mit mehreren Lieferanten. Teilaufgabe 2: Das CMR-Übereinkommen regelt eine einheitliche Haftungsordnung für den grenzüberschreitenden Straßengütertransport innerhalb Europas. Teilaufgabe 3: Bei EXW trägt NordWert als Käufer bereits ab Abholung beim Lieferanten sämtliche Kosten und Risiken (hoher eigener Organisations- und Risikoaufwand); bei DAP trägt der Lieferant Kosten und Risiko bis zur Ankunft am vereinbarten Ort — für NordWert als beschaffendes Unternehmen ist DAP tendenziell vorteilhafter, da weniger eigenes Risiko und Organisationsaufwand anfällt. Teilaufgabe 4: Die Belieferung des französischen Kunden ist der primären Aktivität „Ausgangslogistik" (ggf. ergänzt um „Marketing und Vertrieb") zuzuordnen, da sie den Warenfluss zum Endkunden unmittelbar betrifft.
+**Musterlösungshinweise:** Teilaufgabe 1: Multiple Sourcing — Vorteil: Risikostreuung und größerer Verhandlungsspielraum; Nachteil: höherer Koordinationsaufwand mit mehreren Lieferanten.
+Teilaufgabe 2: Das CMR-Übereinkommen regelt eine einheitliche Haftungsordnung für den grenzüberschreitenden Straßengütertransport innerhalb Europas.
+Teilaufgabe 3: Bei EXW trägt NordWert als Käufer bereits ab Abholung beim Lieferanten sämtliche Kosten und Risiken (hoher eigener Organisations- und Risikoaufwand); bei DAP trägt der Lieferant Kosten und Risiko bis zur Ankunft am vereinbarten Ort — für NordWert als beschaffendes Unternehmen ist DAP tendenziell vorteilhafter, da weniger eigenes Risiko und Organisationsaufwand anfällt.
+Teilaufgabe 4: Die Belieferung des französischen Kunden ist der primären Aktivität „Ausgangslogistik" (ggf. ergänzt um „Marketing und Vertrieb") zuzuordnen, da sie den Warenfluss zum Endkunden unmittelbar betrifft.

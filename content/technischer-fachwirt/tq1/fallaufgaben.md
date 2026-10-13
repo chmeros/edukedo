@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus TQ1 (5.1–5.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Instandhaltung schlägt vor, durch regelmäßige Wartung (u. a. Austausch der Hydraulikflüssigkeit, Überprüfung der Dichtungen) den Wirkungsgrad der Anlage zu verbessern. Bewerten Sie diesen Vorschlag unter Abwägung von Wartungskosten und möglicher Energieeinsparung.
 
-**Musterlösungshinweise:** Teilaufgabe 1: F = p · A = 16.000.000 Pa · 0,005 m² = 80.000 N (80 kN). Teilaufgabe 2: η = 12,6 kW / 15 kW = 0,84 = 84 %. Teilaufgabe 3 sollte Reibungsverluste im Motor (elektrischer Widerstand, Lagerreibung), Strömungs- und Leckageverluste in der Hydraulikpumpe sowie Reibungsverluste zwischen Kolben und Zylinderwand nennen, die jeweils als Wärme abgeführt werden. Teilaufgabe 4 sollte die möglichen Energie- und Kosteneinsparungen durch einen höheren Wirkungsgrad den Wartungskosten gegenüberstellen und zu einer begründeten Einschätzung kommen, etwa dass sich die Investition bei dauerhaftem Betrieb der Presse in der Regel amortisiert.
+**Musterlösungshinweise:** Teilaufgabe 1: F = p · A = 16.000.000 Pa · 0,005 m² = 80.000 N (80 kN).
+Teilaufgabe 2: η = 12,6 kW / 15 kW = 0,84 = 84 %.
+Teilaufgabe 3 sollte Reibungsverluste im Motor (elektrischer Widerstand, Lagerreibung), Strömungs- und Leckageverluste in der Hydraulikpumpe sowie Reibungsverluste zwischen Kolben und Zylinderwand nennen, die jeweils als Wärme abgeführt werden.
+Teilaufgabe 4 sollte die möglichen Energie- und Kosteneinsparungen durch einen höheren Wirkungsgrad den Wartungskosten gegenüberstellen und zu einer begründeten Einschätzung kommen, etwa dass sich die Investition bei dauerhaftem Betrieb der Presse in der Regel amortisiert.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus TQ1 (5.1–5.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie unter Berücksichtigung von Durchlaufzeit und Energieverbrauch (Anschlussleistung 11 kW je Maschine), ob der zusätzliche Einsatz einer zweiten, kleineren Maschine für die Serie von 20 Wellen sinnvoll ist.
 
-**Musterlösungshinweise:** Teilaufgabe 1: V = π · r² · h = π · (4 cm)² · 30 cm = π · 16 cm² · 30 cm ≈ 1.508 cm³. Teilaufgabe 2: m = ρ · V = 7,85 g/cm³ · 1.508 cm³ ≈ 11.838 g ≈ 11,84 kg. Teilaufgabe 3: Zeit je Stück = 3,5 h / 8 = 0,4375 h; für 20 Stück: 0,4375 h · 20 = 8,75 h. Teilaufgabe 4 sollte herausarbeiten, dass eine zweite Maschine die Durchlaufzeit verkürzen kann (parallele statt sequenzielle Bearbeitung), dafür aber eine höhere Leistungsspitze (weitere 11 kW Anschlussleistung, ggf. zusätzlicher Anlaufstrom) sowie Rüst- und Personalaufwand verursacht. Der Energiebedarf W = P · t bleibt bei gleicher Gesamtarbeit grob gleich, weil die Maschinen kürzer laufen; Mehrkosten entstehen vor allem durch Leerlauf und Grundlast, Rüsten und Personal — eine begründete Abwägung zwischen Zeitersparnis und Mehrkosten ist anzuerkennen, unabhängig vom konkreten Ergebnis.
+**Musterlösungshinweise:** Teilaufgabe 1: V = π · r² · h = π · (4 cm)² · 30 cm = π · 16 cm² · 30 cm ≈ 1.508 cm³.
+Teilaufgabe 2: m = ρ · V = 7,85 g/cm³ · 1.508 cm³ ≈ 11.838 g ≈ 11,84 kg.
+Teilaufgabe 3: Zeit je Stück = 3,5 h / 8 = 0,4375 h; für 20 Stück: 0,4375 h · 20 = 8,75 h.
+Teilaufgabe 4 sollte herausarbeiten, dass eine zweite Maschine die Durchlaufzeit verkürzen kann (parallele statt sequenzielle Bearbeitung), dafür aber eine höhere Leistungsspitze (weitere 11 kW Anschlussleistung, ggf. zusätzlicher Anlaufstrom) sowie Rüst- und Personalaufwand verursacht. Der Energiebedarf W = P · t bleibt bei gleicher Gesamtarbeit grob gleich, weil die Maschinen kürzer laufen; Mehrkosten entstehen vor allem durch Leerlauf und Grundlast, Rüsten und Personal — eine begründete Abwägung zwischen Zeitersparnis und Mehrkosten ist anzuerkennen, unabhängig vom konkreten Ergebnis.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus TQ1 (5.1–5.3) zu einer zusammenh
 
 **Teilaufgabe 4 (6 Punkte, bloom: bewerten):** Bewerten Sie, ob eine feuerverzinkte Ausführung der Stahlprofile gegenüber einer Lackbeschichtung für die geplante Außenlagerung vorzuziehen ist, unter Berücksichtigung von Langlebigkeit, Kosten und Wartungsaufwand.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte die Oxidation von Eisen unter Einwirkung von Sauerstoff und Feuchtigkeit zu Eisenoxid (Rost) beschreiben und als begünstigende Faktoren z. B. Feuchtigkeit/Niederschlag und Temperaturschwankungen bzw. aggressive Umweltstoffe nennen. Teilaufgabe 2: Gesamtfläche = 500 · 1,2 m² = 600 m²; Gesamtkosten = 600 m² · 3,50 Euro = 2.100 Euro. Teilaufgabe 3 sollte Isolierung spannungsführender Teile, Schutzleiter/Erdung, FI-Schutzschalter sowie die Durchführung des Anschlusses ausschließlich durch Elektrofachkräfte unter Beachtung der fünf Sicherheitsregeln nennen. Teilaufgabe 4 sollte herausarbeiten, dass eine Feuerverzinkung höhere Anschaffungskosten, aber durch den zusätzlichen elektrochemischen Opferschutz und die geringere Beschädigungsanfälligkeit eine deutlich höhere Lebensdauer und geringeren Wartungsaufwand bietet als eine Lackbeschichtung, die bei Beschädigung schneller Korrosionsansätze zeigt — eine begründete Empfehlung zugunsten der Feuerverzinkung für die dauerhafte Außenlagerung ist naheliegend, alternative, nachvollziehbar begründete Einschätzungen sind ebenfalls anzuerkennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte die Oxidation von Eisen unter Einwirkung von Sauerstoff und Feuchtigkeit zu Eisenoxid (Rost) beschreiben und als begünstigende Faktoren z. B. Feuchtigkeit/Niederschlag und Temperaturschwankungen bzw. aggressive Umweltstoffe nennen.
+Teilaufgabe 2: Gesamtfläche = 500 · 1,2 m² = 600 m²; Gesamtkosten = 600 m² · 3,50 Euro = 2.100 Euro.
+Teilaufgabe 3 sollte Isolierung spannungsführender Teile, Schutzleiter/Erdung, FI-Schutzschalter sowie die Durchführung des Anschlusses ausschließlich durch Elektrofachkräfte unter Beachtung der fünf Sicherheitsregeln nennen.
+Teilaufgabe 4 sollte herausarbeiten, dass eine Feuerverzinkung höhere Anschaffungskosten, aber durch den zusätzlichen elektrochemischen Opferschutz und die geringere Beschädigungsanfälligkeit eine deutlich höhere Lebensdauer und geringeren Wartungsaufwand bietet als eine Lackbeschichtung, die bei Beschädigung schneller Korrosionsansätze zeigt — eine begründete Empfehlung zugunsten der Feuerverzinkung für die dauerhafte Außenlagerung ist naheliegend, alternative, nachvollziehbar begründete Einschätzungen sind ebenfalls anzuerkennen.
 

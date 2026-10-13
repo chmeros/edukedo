@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob eine Sortimentsdiversifikation (z. B. Aufnahme einer jugendlich-urbanen Modelinie) oder eine Sortimentsspezialisierung (Fokus auf das bewährte Kernsortiment) für die neue Filiale sinnvoller erscheint.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte die Prüfung des Makrostandorts (Kaufkraft, Einwohnerstruktur der Stadt) sowie des Mikrostandorts (konkrete Lage, Passantenfrequenz, Erreichbarkeit, Mietkosten) umfassen. Teilaufgabe 2 sollte die Kaufkraftkennziffer als Sekundärforschung (bereits vorhandene amtliche Daten) und die eigens durchgeführte Passantenfrequenzzählung als Primärforschung (eigens erhobene Daten) einordnen. Teilaufgabe 3 sollte auf ein an die jüngere Zielgruppe angepasstes, ggf. breiteres oder trendorientierteres Randsortiment sowie eine mögliche Anpassung der Sortimentstiefe bei bestimmten Warengruppen eingehen. Teilaufgabe 4 sollte Chancen (Erschließung einer neuen, wachsenden Zielgruppe) gegen Risiken (Verwässerung der Markenidentität, höheres Sortimentsrisiko) abwägen und zu einer begründeten Einschätzung kommen; beide Richtungen sind bei nachvollziehbarer Begründung anzuerkennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte die Prüfung des Makrostandorts (Kaufkraft, Einwohnerstruktur der Stadt) sowie des Mikrostandorts (konkrete Lage, Passantenfrequenz, Erreichbarkeit, Mietkosten) umfassen.
+Teilaufgabe 2 sollte die Kaufkraftkennziffer als Sekundärforschung (bereits vorhandene amtliche Daten) und die eigens durchgeführte Passantenfrequenzzählung als Primärforschung (eigens erhobene Daten) einordnen.
+Teilaufgabe 3 sollte auf ein an die jüngere Zielgruppe angepasstes, ggf. breiteres oder trendorientierteres Randsortiment sowie eine mögliche Anpassung der Sortimentstiefe bei bestimmten Warengruppen eingehen.
+Teilaufgabe 4 sollte Chancen (Erschließung einer neuen, wachsenden Zielgruppe) gegen Risiken (Verwässerung der Markenidentität, höheres Sortimentsrisiko) abwägen und zu einer begründeten Einschätzung kommen; beide Richtungen sind bei nachvollziehbarer Begründung anzuerkennen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob bei dieser Aktion eher eine konsumentengerichtete oder eine außendienstgerichtete Verkaufsförderung im Vordergrund stehen sollte, und begründen Sie, warum ggf. beide sinnvoll kombiniert werden könnten.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte darlegen, dass C-Artikel mit geringem Umsatzanteil kritisch auf Auslistung geprüft werden sollten, um Lagerfläche und Kapital für erfolgreichere Artikel freizusetzen. Teilaufgabe 2 sollte je Phase konkrete Inhalte nennen (z. B. Planung: Zielgruppe/Budget; Konzeption: Rabatthöhe/Werbebotschaft; Umsetzung: Schaltung der Werbemittel; Erfolgskontrolle: Umsatzvergleich). Teilaufgabe 3 sollte plausible Kombinationen nennen, z. B. Flyer (Werbemittel) über die regionale Wochenzeitung (Werbeträger) oder ein Social-Media-Post (Werbemittel) auf Instagram (Werbeträger). Teilaufgabe 4 sollte den Schwerpunkt bei der konsumentengerichteten Verkaufsförderung (Rabatt für Endkundschaft) sehen, aber auch anerkennen, dass eine begleitende Schulung/Motivation des Verkaufspersonals (außendienstgerichtet) den Erfolg der Aktion zusätzlich unterstützen kann.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte darlegen, dass C-Artikel mit geringem Umsatzanteil kritisch auf Auslistung geprüft werden sollten, um Lagerfläche und Kapital für erfolgreichere Artikel freizusetzen.
+Teilaufgabe 2 sollte je Phase konkrete Inhalte nennen (z. B. Planung: Zielgruppe/Budget; Konzeption: Rabatthöhe/Werbebotschaft; Umsetzung: Schaltung der Werbemittel; Erfolgskontrolle: Umsatzvergleich).
+Teilaufgabe 3 sollte plausible Kombinationen nennen, z. B. Flyer (Werbemittel) über die regionale Wochenzeitung (Werbeträger) oder ein Social-Media-Post (Werbemittel) auf Instagram (Werbeträger).
+Teilaufgabe 4 sollte den Schwerpunkt bei der konsumentengerichteten Verkaufsförderung (Rabatt für Endkundschaft) sehen, aber auch anerkennen, dass eine begleitende Schulung/Motivation des Verkaufspersonals (außendienstgerichtet) den Erfolg der Aktion zusätzlich unterstützen kann.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welchen Beitrag SEO im Vergleich zu SEA leisten kann, um langfristig mehr Besucherinnen und Besucher auf den Online-Shop zu lenken, und begründen Sie, ob Loreno beide Instrumente kombinieren sollte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Ursachen wie zu viele Formularfelder, unklare Versandkosten oder ein eingeschränktes Zahlungsartenangebot nennen und diese dem Checkout-Prozess bzw. allgemein der Usability zuordnen. Teilaufgabe 2 sollte den Ablauf skizzieren: Online-Bestellung mit Filialauswahl, Reservierung/Bereitstellung der Ware in der gewählten Filiale, Benachrichtigung der Kundschaft, Abholung und ggf. Anprobe vor Ort. Teilaufgabe 3 sollte ein stimmiges Konzept mit klarem Blickfangpunkt (z. B. zentrale Kollektionsfigur), einem saisonalen roten Faden über alle Filialen sowie einem festen Wechselrhythmus (z. B. je Saisonkollektion) enthalten. Teilaufgabe 4 sollte SEO als langfristig wirkende, kostengünstigere Maßnahme ohne laufende Klickkosten und SEA als schnell wirkende, aber dauerhaft kostenpflichtige Ergänzung darstellen und für eine sinnvolle Kombination beider Instrumente argumentieren (kurzfristige Sichtbarkeit über SEA, langfristiger Aufbau über SEO).
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Ursachen wie zu viele Formularfelder, unklare Versandkosten oder ein eingeschränktes Zahlungsartenangebot nennen und diese dem Checkout-Prozess bzw. allgemein der Usability zuordnen.
+Teilaufgabe 2 sollte den Ablauf skizzieren: Online-Bestellung mit Filialauswahl, Reservierung/Bereitstellung der Ware in der gewählten Filiale, Benachrichtigung der Kundschaft, Abholung und ggf. Anprobe vor Ort.
+Teilaufgabe 3 sollte ein stimmiges Konzept mit klarem Blickfangpunkt (z. B. zentrale Kollektionsfigur), einem saisonalen roten Faden über alle Filialen sowie einem festen Wechselrhythmus (z. B. je Saisonkollektion) enthalten.
+Teilaufgabe 4 sollte SEO als langfristig wirkende, kostengünstigere Maßnahme ohne laufende Klickkosten und SEA als schnell wirkende, aber dauerhaft kostenpflichtige Ergänzung darstellen und für eine sinnvolle Kombination beider Instrumente argumentieren (kurzfristige Sichtbarkeit über SEA, langfristiger Aufbau über SEO).
 

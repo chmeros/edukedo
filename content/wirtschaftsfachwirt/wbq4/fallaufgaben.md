@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ4 (4.1–4.3) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: erschaffen):** Formulieren Sie ein SMART formuliertes operatives Ziel, das die Geschäftsführung für die ersten sechs Monate nach Einführung der neuen Organisationslösung festlegen könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Einliniensystem, Prinzip der Einheit der Auftragserteilung, klare aber ggf. langsame Entscheidungswege. Teilaufgabe 2: Vorteile z. B. schnellere, spezialisierte Entscheidungen im Exportgeschäft; Nachteile z. B. doppelte Unterstellung, erhöhter Abstimmungsbedarf, mögliche Konflikte zwischen den beiden Weisungslinien. Teilaufgabe 3: z. B. interner Faktor „etablierte Speditionsbeziehungen" (Stärke) oder „fehlende Exporterfahrung im Vertriebsteam" (Schwäche); externer Faktor „wachsender EU-Onlinehandel" (Chance) oder „neue Zollvorschriften" (Risiko). Teilaufgabe 4: z. B. „Der EU-Exportumsatz soll innerhalb der ersten sechs Monate nach Einführung der neuen Organisationsstruktur um mindestens 10 % gegenüber dem Vorjahreszeitraum steigen" — spezifisch, messbar, terminiert, realistisch und akzeptiert, sofern mit den Beteiligten abgestimmt.
+**Musterlösungshinweise:** Teilaufgabe 1: Einliniensystem, Prinzip der Einheit der Auftragserteilung, klare aber ggf. langsame Entscheidungswege.
+Teilaufgabe 2: Vorteile z. B. schnellere, spezialisierte Entscheidungen im Exportgeschäft; Nachteile z. B. doppelte Unterstellung, erhöhter Abstimmungsbedarf, mögliche Konflikte zwischen den beiden Weisungslinien.
+Teilaufgabe 3: z. B. interner Faktor „etablierte Speditionsbeziehungen" (Stärke) oder „fehlende Exporterfahrung im Vertriebsteam" (Schwäche); externer Faktor „wachsender EU-Onlinehandel" (Chance) oder „neue Zollvorschriften" (Risiko).
+Teilaufgabe 4: z. B. „Der EU-Exportumsatz soll innerhalb der ersten sechs Monate nach Einführung der neuen Organisationsstruktur um mindestens 10 % gegenüber dem Vorjahreszeitraum steigen" — spezifisch, messbar, terminiert, realistisch und akzeptiert, sofern mit den Beteiligten abgestimmt.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ4 (4.1–4.3) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Schlagen Sie eine geeignete Personalentwicklungsmaßnahme für die neue Teamleitung vor und ordnen Sie diese einer der Grundformen (Into-/On-/Off-the-job) zu.
 
-**Musterlösungshinweise:** Teilaufgabe 1: autoritärer Führungsstil, erkennbar an alleinigen Entscheidungen und fehlenden Rückfragemöglichkeiten. Teilaufgabe 2: sinkende Motivation, insbesondere fehlende Motivatoren (Anerkennung, Mitspracherecht); gestiegene Fluktuation als Folge von Unzufriedenheit durch fehlende Hygienefaktoren (autoritärer Führungsstil, verschlechtertes Betriebsklima) zusammen mit fehlenden Motivatoren. Teilaufgabe 3: Rückblick auf die ersten drei Monate, offenes gegenseitiges Feedback, gemeinsame Ursachenanalyse, Vereinbarung konkreter Verhaltensänderungen und Folgetermin. Teilaufgabe 4: z. B. Off-the-job-Seminar zu kooperativer Mitarbeiterführung oder Coaching; alternativ On-the-job-Begleitung durch eine erfahrene Führungskraft.
+**Musterlösungshinweise:** Teilaufgabe 1: autoritärer Führungsstil, erkennbar an alleinigen Entscheidungen und fehlenden Rückfragemöglichkeiten.
+Teilaufgabe 2: sinkende Motivation, insbesondere fehlende Motivatoren (Anerkennung, Mitspracherecht); gestiegene Fluktuation als Folge von Unzufriedenheit durch fehlende Hygienefaktoren (autoritärer Führungsstil, verschlechtertes Betriebsklima) zusammen mit fehlenden Motivatoren.
+Teilaufgabe 3: Rückblick auf die ersten drei Monate, offenes gegenseitiges Feedback, gemeinsame Ursachenanalyse, Vereinbarung konkreter Verhaltensänderungen und Folgetermin.
+Teilaufgabe 4: z. B. Off-the-job-Seminar zu kooperativer Mitarbeiterführung oder Coaching; alternativ On-the-job-Begleitung durch eine erfahrene Führungskraft.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ4 (4.1–4.3) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Formulieren Sie zwei SMART formulierte strategische Teilziele für den geplanten dreijährigen Zeithorizont, jeweils eines für das Büromaterial- und eines für das Verpackungsmaterialsortiment.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Büromaterial als Cash Cow (geringes Wachstum, hoher Marktanteil), Verpackungsmaterial als Question Mark (hohes Wachstum, geringer Marktanteil). Teilaufgabe 2: Erträge aus der Cash Cow gezielt nutzen, um Investitionen in den Ausbau des Question-Mark-Sortiments zu finanzieren. Teilaufgabe 3: Die Stabsstelle berät die Geschäftsführung fachlich, besitzt aber keine eigene Weisungsbefugnis gegenüber den Fachabteilungen — im Unterschied zu einer Instanz, die Weisungen erteilen darf. Teilaufgabe 4: z. B. „Der Marktanteil im Verpackungsmaterialsegment soll innerhalb von drei Jahren von X % auf mindestens Y % gesteigert werden" und „Der Umsatz im Büromaterialsortiment soll über den Dreijahreszeitraum stabil auf mindestens dem heutigen Niveau gehalten werden" — beide spezifisch, messbar, terminiert.
+**Musterlösungshinweise:** Teilaufgabe 1: Büromaterial als Cash Cow (geringes Wachstum, hoher Marktanteil), Verpackungsmaterial als Question Mark (hohes Wachstum, geringer Marktanteil).
+Teilaufgabe 2: Erträge aus der Cash Cow gezielt nutzen, um Investitionen in den Ausbau des Question-Mark-Sortiments zu finanzieren.
+Teilaufgabe 3: Die Stabsstelle berät die Geschäftsführung fachlich, besitzt aber keine eigene Weisungsbefugnis gegenüber den Fachabteilungen — im Unterschied zu einer Instanz, die Weisungen erteilen darf.
+Teilaufgabe 4: z. B. „Der Marktanteil im Verpackungsmaterialsegment soll innerhalb von drei Jahren von X % auf mindestens Y % gesteigert werden" und „Der Umsatz im Büromaterialsortiment soll über den Dreijahreszeitraum stabil auf mindestens dem heutigen Niveau gehalten werden" — beide spezifisch, messbar, terminiert.

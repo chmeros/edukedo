@@ -569,6 +569,14 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (Fallaufgaben: Musterlösungshinweise einheitlich mit einer Zeile je Teilaufgabe; Entscheidung des Projektleiters)
+
+Anlass: Beim Browser-Durchgang waren nur die neuen HQ1- und HQ2-Aufgaben mehrzeilig, alle anderen Musterlösungen ein Absatz von 3.000 bis 5.000 Zeichen. Der Projektleiter ließ die Zeilenumbrüche je Teilaufgabe überall umsetzen.
+
+- **Umgesetzt:** In allen 112 `fallaufgaben.md` (alle Kurse) sind die 349 einzeiligen Musterlösungshinweise vor jedem `Teilaufgabe 2 …`, `Teilaufgabe 3 …` usw. und vor `Folgefehler …` umbrochen; 6 waren schon mehrzeilig. Rein redaktionell: Das Skript prüfte je Aufgabe, dass der Text nach Ersetzen der Umbrüche durch Leerzeichen byte-gleich mit dem Original ist (kein Wort geändert, auch nicht bei rechtsnahen oder an Minderjährige gerichteten Aufgaben; deren Sperre bleibt unberührt).
+- **Format** in `content/README.md` festgehalten (eine Zeile je Teilaufgabe, zuletzt `Folgefehler:`, keine Leerzeile dazwischen).
+- **Import:** `db:validate-content` 16.660 Item-Schlüssel, 0 Verstöße; `db:import-content`: 349 geändert, 0 neu, 0 deaktiviert, zweiter Trockenlauf unverändert; alle 364 Fallaufgaben haben jetzt Zeilenumbrüche in `explanation`; `src/db`-Tests 416 grün.
+
 ### Entschieden am 13.10.2026 (Browser-Durchgang zu den neuen Technischer-Fachwirt-Inhalten: zwei Anzeigefehler behoben)
 
 Anlass: Der Projektleiter ließ die am 13.10.2026 eingespielten Inhalte (Theorie, Quiz, Fallaufgaben mit Musterlösungen und Halbpunkten) im Browser durchsehen (Wegwerf-Konto auf localhost, danach samt Daten gelöscht).

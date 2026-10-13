@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Formulieren Sie ein SMART formuliertes operatives Ziel für die Einführungsphase der neuen Tagespflege innerhalb der ersten zwölf Monate.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Haftungsbeschränkung, Gemeinnützigkeitsfähigkeit/steuerliche Vorteile der gGmbH sowie die einfachere Aufnahme weiterer Gesellschafter gegenüber dem Einzelunternehmen eingehen und darauf hinweisen, dass bei einer gGmbH keine Gewinnausschüttung an die Gesellschafter:innen möglich ist (§ 55 AO), sodass die Empfehlung davon abhängt, ob die Gründerin und die neuen Gesellschafter:innen auf Gewinnausschüttung verzichten wollen. Teilaufgabe 2: z. B. Landesverbände der Pflegekassen (Versorgungsvertrag), Heimaufsichtsbehörde (ggf. Anzeige bzw. Erlaubnis für die Tagespflege je nach Landesrecht), Finanzamt (Gemeinnützigkeitsstatus). Teilaufgabe 3: Diversifikationsstrategie im Sinne von Thema 1.2, da ein neuer, bisher nicht angebotener Leistungsbereich erschlossen wird (nach Ansoff, Thema 6.3, im bestehenden Einzugsgebiet streng genommen Produktentwicklung; als Hinweis genügt). Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z. B. eine bestimmte Belegungsquote der Tagespflege bis zu einem festen Datum.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Haftungsbeschränkung, Gemeinnützigkeitsfähigkeit/steuerliche Vorteile der gGmbH sowie die einfachere Aufnahme weiterer Gesellschafter gegenüber dem Einzelunternehmen eingehen und darauf hinweisen, dass bei einer gGmbH keine Gewinnausschüttung an die Gesellschafter:innen möglich ist (§ 55 AO), sodass die Empfehlung davon abhängt, ob die Gründerin und die neuen Gesellschafter:innen auf Gewinnausschüttung verzichten wollen.
+Teilaufgabe 2: z. B. Landesverbände der Pflegekassen (Versorgungsvertrag), Heimaufsichtsbehörde (ggf. Anzeige bzw. Erlaubnis für die Tagespflege je nach Landesrecht), Finanzamt (Gemeinnützigkeitsstatus).
+Teilaufgabe 3: Diversifikationsstrategie im Sinne von Thema 1.2, da ein neuer, bisher nicht angebotener Leistungsbereich erschlossen wird (nach Ansoff, Thema 6.3, im bestehenden Einzugsgebiet streng genommen Produktentwicklung; als Hinweis genügt).
+Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z. B. eine bestimmte Belegungsquote der Tagespflege bis zu einem festen Datum.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, worauf sich die anstehende Qualitätsprüfung durch den Medizinischen Dienst typischerweise bezieht, und wie eine klar geregelte Aufbau- und Ablauforganisation dazu beiträgt, die Prüfung erfolgreich zu bestehen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: faktisches Mehrliniensystem ohne klare fachliche/disziplinarische Trennung, dadurch widersprüchliche Weisungen. Teilaufgabe 2: z. B. Stabliniensystem oder klar getrenntes Einliniensystem mit eindeutiger Zuordnung, wer fachlich und wer organisatorisch weisungsbefugt ist. Teilaufgabe 3: Schnittstelle Pflegefachkraft → Verwaltung bei Übergabe der Leistungsnachweise, z. B. feste tägliche Übergabezeiten und ein einheitliches Dokumentationssystem. Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI; klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation.
+**Musterlösungshinweise:** Teilaufgabe 1: faktisches Mehrliniensystem ohne klare fachliche/disziplinarische Trennung, dadurch widersprüchliche Weisungen.
+Teilaufgabe 2: z. B. Stabliniensystem oder klar getrenntes Einliniensystem mit eindeutiger Zuordnung, wer fachlich und wer organisatorisch weisungsbefugt ist.
+Teilaufgabe 3: Schnittstelle Pflegefachkraft → Verwaltung bei Übergabe der Leistungsnachweise, z. B. feste tägliche Übergabezeiten und ein einheitliches Dokumentationssystem.
+Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI; klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Skizzieren Sie ein kurzes Kommunikationskonzept (Zeitpunkte, Kanäle, Verantwortliche) für die verbleibenden Phasen der Softwareeinführung bei „Morgenlicht", das die Stabilisierungsphase absichert.
 
-**Musterlösungshinweise:** Teilaufgabe 1: offene Zweifel = offener Widerstand (z. B. Ursache: Angst vor Überforderung durch neue Technik), heimliche Nutzung der Papierlisten = verdeckter/passiver Widerstand (z. B. Ursache: fehlendes Vertrauen in die neue Software, mangelnde Einbeziehung). Teilaufgabe 2: Ankündigung im Meeting ohne vorherige Einbindung entspricht nicht dem Grundsatz frühzeitiger Beteiligung, da das Team erst mit fertigem Beschluss konfrontiert wurde. Teilaufgabe 3: z. B. Pilotgruppe aus dem Team einbinden, Schulungen anbieten, offenes Feedbackformat einrichten, Bedenken aktiv erfragen. Teilaufgabe 4: sollte gestaffelte Information (vor/während/nach Einführung), Mix aus Teambesprechung und schriftlicher Kurzinfo sowie Tourenleitungen als Multiplikatoren sowie eine Rückmeldeschleife nach Abschluss enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1: offene Zweifel = offener Widerstand (z. B. Ursache: Angst vor Überforderung durch neue Technik), heimliche Nutzung der Papierlisten = verdeckter/passiver Widerstand (z. B. Ursache: fehlendes Vertrauen in die neue Software, mangelnde Einbeziehung).
+Teilaufgabe 2: Ankündigung im Meeting ohne vorherige Einbindung entspricht nicht dem Grundsatz frühzeitiger Beteiligung, da das Team erst mit fertigem Beschluss konfrontiert wurde.
+Teilaufgabe 3: z. B. Pilotgruppe aus dem Team einbinden, Schulungen anbieten, offenes Feedbackformat einrichten, Bedenken aktiv erfragen.
+Teilaufgabe 4: sollte gestaffelte Information (vor/während/nach Einführung), Mix aus Teambesprechung und schriftlicher Kurzinfo sowie Tourenleitungen als Multiplikatoren sowie eine Rückmeldeschleife nach Abschluss enthalten.
 

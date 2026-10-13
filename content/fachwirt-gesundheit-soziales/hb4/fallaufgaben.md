@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie, warum eine sorgfältige, korrekte Buchführung (inkl. korrekter Abschreibung) auch die Aussagekraft der von Ihnen vorgeschlagenen Kennzahlen beeinflusst.
 
-**Musterlösungshinweise:** Teilaufgabe 1 erwartet den Hinweis auf das Anlagevermögen und die Pflicht zur Verteilung der Anschaffungskosten über die Nutzungsdauer (Abschreibung/AfA), nicht Sofortaufwand. Teilaufgabe 2 sollte Bilanz (stichtagsbezogen) und GuV (periodenbezogen) nennen. Teilaufgabe 3 sollte plausible Kennzahlen wie Auslastungsquote, Fachkraftquote, Personalkostenquote oder Liquiditätsgrad mit kurzer Begründung enthalten. Teilaufgabe 4 sollte den Zusammenhang zwischen korrekter Datenbasis (Rechnungswesen) und verlässlicher Kennzahlenaussage herausstellen.
+**Musterlösungshinweise:** Teilaufgabe 1 erwartet den Hinweis auf das Anlagevermögen und die Pflicht zur Verteilung der Anschaffungskosten über die Nutzungsdauer (Abschreibung/AfA), nicht Sofortaufwand.
+Teilaufgabe 2 sollte Bilanz (stichtagsbezogen) und GuV (periodenbezogen) nennen.
+Teilaufgabe 3 sollte plausible Kennzahlen wie Auslastungsquote, Fachkraftquote, Personalkostenquote oder Liquiditätsgrad mit kurzer Begründung enthalten.
+Teilaufgabe 4 sollte den Zusammenhang zwischen korrekter Datenbasis (Rechnungswesen) und verlässlicher Kennzahlenaussage herausstellen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie, unter welcher Bedingung sich die Ausweitung der Tour aus betriebswirtschaftlicher Sicht auch dann lohnen kann, wenn die zusätzlichen Einsätze rechnerisch noch keinen vollen Anteil an den Fixkosten der Zentrale erwirtschaften.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Verhinderungspflege (Pflegeversicherung) für den Ausfall der Tochter; Medikamentengabe als häusliche Krankenpflege über die Krankenversicherung. Teilaufgabe 2: unterschiedliche Leistungsarten (Grundpflege vs. Behandlungspflege) erfordern leistungsgenaue, kostenträgergetrennte Dokumentation. Teilaufgabe 3: variable Kosten der zusätzlichen Einsätze (Personal, Fahrt, Material) den zusätzlichen Erlösen gegenüberstellen. Teilaufgabe 4: solange der Deckungsbeitrag positiv ist, trägt die Ausweitung zur Deckung der ohnehin anfallenden Fixkosten bei, auch ohne diese vollständig zu decken.
+**Musterlösungshinweise:** Teilaufgabe 1: Verhinderungspflege (Pflegeversicherung) für den Ausfall der Tochter; Medikamentengabe als häusliche Krankenpflege über die Krankenversicherung.
+Teilaufgabe 2: unterschiedliche Leistungsarten (Grundpflege vs. Behandlungspflege) erfordern leistungsgenaue, kostenträgergetrennte Dokumentation.
+Teilaufgabe 3: variable Kosten der zusätzlichen Einsätze (Personal, Fahrt, Material) den zusätzlichen Erlösen gegenüberstellen.
+Teilaufgabe 4: solange der Deckungsbeitrag positiv ist, trägt die Ausweitung zur Deckung der ohnehin anfallenden Fixkosten bei, auch ohne diese vollständig zu decken.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie, welche Rolle die Liquiditätsplanung bei der Entscheidung über den Anschaffungszeitpunkt der Software spielen sollte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Amortisationsrechnung — Anschaffungskosten ins Verhältnis zur jährlichen Einsparung abzüglich der laufenden Lizenzkosten setzen (Amortisationsdauer = Anschaffungskosten : (jährliche Einsparung − laufende Kosten)); die eingesparte Personalzeit zählt nur dann als Einsparung, wenn die Personalkosten tatsächlich sinken. Teilaufgabe 2: die Kapitalwertmethode berücksichtigt den Zeitwert des Geldes und alle Zahlungsströme über die gesamte Nutzungsdauer, nicht nur bis zum Amortisationszeitpunkt. Teilaufgabe 3: Lizenzkosten sind laufende, in der Regel fixe Sachkosten, die als eigene Kostenart erfasst und in das Budget der entsprechenden Kostenstelle (z. B. Verwaltung/IT) aufgenommen werden sollten. Teilaufgabe 4: die Anschaffung sollte in eine Phase ausreichender Liquidität gelegt werden bzw. mit der Liquiditätsplanung abgestimmt werden, um Zahlungsengpässe zu vermeiden.
+**Musterlösungshinweise:** Teilaufgabe 1: Amortisationsrechnung — Anschaffungskosten ins Verhältnis zur jährlichen Einsparung abzüglich der laufenden Lizenzkosten setzen (Amortisationsdauer = Anschaffungskosten : (jährliche Einsparung − laufende Kosten)); die eingesparte Personalzeit zählt nur dann als Einsparung, wenn die Personalkosten tatsächlich sinken.
+Teilaufgabe 2: die Kapitalwertmethode berücksichtigt den Zeitwert des Geldes und alle Zahlungsströme über die gesamte Nutzungsdauer, nicht nur bis zum Amortisationszeitpunkt.
+Teilaufgabe 3: Lizenzkosten sind laufende, in der Regel fixe Sachkosten, die als eigene Kostenart erfasst und in das Budget der entsprechenden Kostenstelle (z. B. Verwaltung/IT) aufgenommen werden sollten.
+Teilaufgabe 4: die Anschaffung sollte in eine Phase ausreichender Liquidität gelegt werden bzw. mit der Liquiditätsplanung abgestimmt werden, um Zahlungsengpässe zu vermeiden.
 

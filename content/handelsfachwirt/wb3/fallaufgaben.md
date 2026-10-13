@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WB3 (7.1–7.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Der Einkauf erwägt, mit dem bisherigen alleinigen Lieferanten eine Verhandlung nach dem Harvard-Konzept zu führen, um sowohl die Liefertreue zu verbessern als auch einen Zweitlieferanten aufzubauen. Bewerten Sie, welche der vier Grundprinzipien des Harvard-Konzepts hierbei besonders hilfreich sind.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte die Basic-T-Shirts als AX- oder BX-Artikel einordnen (stabiler, gut planbarer Bedarf) und eine Vorratsbeschaffung ggf. mit Rahmenvertrag empfehlen. Teilaufgabe 2 sollte das Klumpenrisiko des Single Sourcing benennen und Dual Sourcing (Aufbau eines zweiten Lieferanten) als Lösung vorschlagen. Teilaufgabe 3 sollte für den Sonderposten aufgrund der schwer prognostizierbaren, kurzfristigen Nachfrage die Einzelbeschaffung im Bedarfsfall empfehlen, um Kapitalbindung und Abschreibungsrisiko bei Nichtverkauf zu vermeiden. Teilaufgabe 4 sollte insbesondere „Interessen statt Positionen" (Verständnis für die Kapazitätsengpässe des Lieferanten statt reiner Druckausübung) und „Optionen zum beiderseitigen Vorteil" (z. B. längere Vorlaufzeiten gegen verbindlichere Liefertermine) hervorheben.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte die Basic-T-Shirts als AX- oder BX-Artikel einordnen (stabiler, gut planbarer Bedarf) und eine Vorratsbeschaffung ggf. mit Rahmenvertrag empfehlen.
+Teilaufgabe 2 sollte das Klumpenrisiko des Single Sourcing benennen und Dual Sourcing (Aufbau eines zweiten Lieferanten) als Lösung vorschlagen.
+Teilaufgabe 3 sollte für den Sonderposten aufgrund der schwer prognostizierbaren, kurzfristigen Nachfrage die Einzelbeschaffung im Bedarfsfall empfehlen, um Kapitalbindung und Abschreibungsrisiko bei Nichtverkauf zu vermeiden.
+Teilaufgabe 4 sollte insbesondere „Interessen statt Positionen" (Verständnis für die Kapazitätsengpässe des Lieferanten statt reiner Druckausübung) und „Optionen zum beiderseitigen Vorteil" (z. B. längere Vorlaufzeiten gegen verbindlichere Liefertermine) hervorheben.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WB3 (7.1–7.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie unter Abwägung von Preis, Liefersicherheit und Compliance-Risiko, welcher der beiden Anbieter für „Loreno Living" empfehlenswerter erscheint, und begründen Sie Ihre Empfehlung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Kriterien wie Preis, Qualität, Liefertreue/Lieferzeit und Compliance/Sozialstandards mit sinnvollen Gewichtungen enthalten. Teilaufgabe 2 sollte das Risiko unzureichender Arbeitsbedingungen, fehlender Nachweisbarkeit gegenüber dem eigenen Risikomanagement nach LkSG-Grundsätzen und daraus resultierender Reputationsschäden benennen. Teilaufgabe 3 sollte ein Erstaudit durch eine unabhängige Auditierungsfirma, die Einholung von Informationen zu Arbeitsbedingungen und die vertragliche Verpflichtung auf einen Lieferanten-Code-of-Conduct nennen. Teilaufgabe 4 sollte eine begründete Abwägung vornehmen — bei angemessener Argumentation sind sowohl eine Empfehlung für Anbieter A (geringeres Risiko) als auch für ein konditioniertes Vorgehen mit Anbieter B (nur nach erfolgreichem Erstaudit) anzuerkennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Kriterien wie Preis, Qualität, Liefertreue/Lieferzeit und Compliance/Sozialstandards mit sinnvollen Gewichtungen enthalten.
+Teilaufgabe 2 sollte das Risiko unzureichender Arbeitsbedingungen, fehlender Nachweisbarkeit gegenüber dem eigenen Risikomanagement nach LkSG-Grundsätzen und daraus resultierender Reputationsschäden benennen.
+Teilaufgabe 3 sollte ein Erstaudit durch eine unabhängige Auditierungsfirma, die Einholung von Informationen zu Arbeitsbedingungen und die vertragliche Verpflichtung auf einen Lieferanten-Code-of-Conduct nennen.
+Teilaufgabe 4 sollte eine begründete Abwägung vornehmen — bei angemessener Argumentation sind sowohl eine Empfehlung für Anbieter A (geringeres Risiko) als auch für ein konditioniertes Vorgehen mit Anbieter B (nur nach erfolgreichem Erstaudit) anzuerkennen.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus WB3 (7.1–7.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob die Geschäftsführung den Ausbau des Global Sourcing aus Sicht eines verantwortungsvollen Einkaufs an Bedingungen knüpfen sollte, und wenn ja, an welche.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte längere, weniger flexible Lieferzeiten, Wechselkursrisiken, höheren Koordinations- und Kontrollaufwand sowie ein höheres Compliance-/Reputationsrisiko nennen. Teilaufgabe 2 sollte erläutern, dass Zölle abhängig von der zolltariflichen Einreihung sowie Einfuhrumsatzsteuer den tatsächlichen Einstandspreis erhöhen und ein zunächst günstiger Angebotspreis dadurch relativiert werden kann. Teilaufgabe 3 sollte Maßnahmen wie die Einführung eines Lieferanten-Code-of-Conduct, systematische Lieferantenaudits vor Vertragsabschluss, ein internes Risikomanagement nach LkSG-Grundsätzen und einen Beschwerdemechanismus umfassen. Teilaufgabe 4 sollte begründet zu einer Bedingung wie verpflichtenden Vorab-Audits und vertraglicher Verankerung von Sozialstandards tendieren, alternative, ebenfalls schlüssig begründete Einschätzungen sind anzuerkennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte längere, weniger flexible Lieferzeiten, Wechselkursrisiken, höheren Koordinations- und Kontrollaufwand sowie ein höheres Compliance-/Reputationsrisiko nennen.
+Teilaufgabe 2 sollte erläutern, dass Zölle abhängig von der zolltariflichen Einreihung sowie Einfuhrumsatzsteuer den tatsächlichen Einstandspreis erhöhen und ein zunächst günstiger Angebotspreis dadurch relativiert werden kann.
+Teilaufgabe 3 sollte Maßnahmen wie die Einführung eines Lieferanten-Code-of-Conduct, systematische Lieferantenaudits vor Vertragsabschluss, ein internes Risikomanagement nach LkSG-Grundsätzen und einen Beschwerdemechanismus umfassen.
+Teilaufgabe 4 sollte begründet zu einer Bedingung wie verpflichtenden Vorab-Audits und vertraglicher Verankerung von Sozialstandards tendieren, alternative, ebenfalls schlüssig begründete Einschätzungen sind anzuerkennen.

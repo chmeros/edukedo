@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Der Ausbildende bemerkt, dass der Auszubildende den vereinbarten Ausbildungsplan nicht einhält. Skizzieren Sie ein strukturiertes Vorgehen (z. B. anhand der Vier-Stufen-Methode oder eines Rückmeldegesprächs), mit dem der Ausbildende die Ursachen klärt und den Auszubildenden gezielt unterstützt, ohne die Ausbildung zu gefährden.
 
-**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fluktuationsanalyse, Altersstrukturanalyse, Auftrags-/Kapazitätsplanung (intern) sowie Arbeitsmarktdaten, Branchenreports (extern). Teilaufgabe 2 sollte Argumente wie Motivation/Kenntnis der internen Abläufe (intern) versus frisches Know-how/größerer Bewerberpool (extern) enthalten. Teilaufgabe 3 sollte diskriminierungsfreie Formulierung, Pflichtangaben nach Nachweisgesetz und die gestaffelten Fristen (erster Tag der Arbeitsleistung, siebter Kalendertag, ein Monat nach dem vereinbarten Beginn) nennen. Teilaufgabe 4 sollte ein strukturiertes Feedback- bzw. Fördergespräch mit konkreten Zwischenzielen und Dokumentation beschreiben.
+**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fluktuationsanalyse, Altersstrukturanalyse, Auftrags-/Kapazitätsplanung (intern) sowie Arbeitsmarktdaten, Branchenreports (extern).
+Teilaufgabe 2 sollte Argumente wie Motivation/Kenntnis der internen Abläufe (intern) versus frisches Know-how/größerer Bewerberpool (extern) enthalten.
+Teilaufgabe 3 sollte diskriminierungsfreie Formulierung, Pflichtangaben nach Nachweisgesetz und die gestaffelten Fristen (erster Tag der Arbeitsleistung, siebter Kalendertag, ein Monat nach dem vereinbarten Beginn) nennen.
+Teilaufgabe 4 sollte ein strukturiertes Feedback- bzw. Fördergespräch mit konkreten Zwischenzielen und Dokumentation beschreiben.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Welche Rolle spielt die Personalbetreuung (vgl. Thema 3.1) dabei, ähnliche Konflikte im Team künftig frühzeitiger zu erkennen? Nennen Sie zwei präventive Maßnahmen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: sinkende Kommunikationsbereitschaft, Einbeziehung Dritter, spürbare Auswirkung auf Arbeitsergebnisse. Teilaufgabe 2: z. B. Vermeidung versus kooperative Problemlösung, mit Begründung anhand der Eskalationsstufe. Teilaufgabe 3: neutrale Moderation, Perspektivenklärung, gemeinsame Lösungssuche, Vereinbarung, Nachverfolgung. Teilaufgabe 4: regelmäßige Feedbackgespräche, frühzeitige Teamgespräche bei ersten Spannungssignalen.
+**Musterlösungshinweise:** Teilaufgabe 1: sinkende Kommunikationsbereitschaft, Einbeziehung Dritter, spürbare Auswirkung auf Arbeitsergebnisse.
+Teilaufgabe 2: z. B. Vermeidung versus kooperative Problemlösung, mit Begründung anhand der Eskalationsstufe.
+Teilaufgabe 3: neutrale Moderation, Perspektivenklärung, gemeinsame Lösungssuche, Vereinbarung, Nachverfolgung.
+Teilaufgabe 4: regelmäßige Feedbackgespräche, frühzeitige Teamgespräche bei ersten Spannungssignalen.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Skizzieren Sie, wie Sie die Ergebnisse des Workshops (Konzept zur Personalbedarfserkennung und Konfliktprävention) abschließend sichern und evaluieren, damit sie tatsächlich in die betriebliche Praxis überführt werden.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Klärung von Zielen/Ablauf im Vorab-Interview mit Auftraggeber, ggf. Einzelgespräche mit den bekannten Kontrahent:innen, Auswahl geeigneter Methoden und Räumlichkeiten. Teilaufgabe 2: Kartenabfrage/Brainstorming mit Einzelarbeitsphase vor der Plenumsdiskussion, Redezeitregeln, Visualisierung aller Beiträge. Teilaufgabe 3: Prozessverantwortung wahrnehmen statt Ergebnisverantwortung, Meta-Kommunikation ("Ich schlage vor, wir sammeln beide Sichtweisen zunächst getrennt"), Rückführung auf die Sachebene. Teilaufgabe 4: schriftliche Dokumentation, Verantwortlichkeiten und Termine festlegen, Evaluationsbogen/Feedbackrunde, Follow-up-Termin vereinbaren.
+**Musterlösungshinweise:** Teilaufgabe 1: Klärung von Zielen/Ablauf im Vorab-Interview mit Auftraggeber, ggf. Einzelgespräche mit den bekannten Kontrahent:innen, Auswahl geeigneter Methoden und Räumlichkeiten.
+Teilaufgabe 2: Kartenabfrage/Brainstorming mit Einzelarbeitsphase vor der Plenumsdiskussion, Redezeitregeln, Visualisierung aller Beiträge.
+Teilaufgabe 3: Prozessverantwortung wahrnehmen statt Ergebnisverantwortung, Meta-Kommunikation ("Ich schlage vor, wir sammeln beide Sichtweisen zunächst getrennt"), Rückführung auf die Sachebene.
+Teilaufgabe 4: schriftliche Dokumentation, Verantwortlichkeiten und Termine festlegen, Evaluationsbogen/Feedbackrunde, Follow-up-Termin vereinbaren.
 

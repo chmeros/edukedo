@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Geschäftsleitung überlegt, direkt eine vollständige ISO-9001-Zertifizierung anzustreben, statt zunächst nur intern ein QM-System aufzubauen. Bewerten Sie diese Überlegung unter Abwägung von Nutzen und Aufwand.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Kundenorientierung (betreute Menschen und Angehörige), Einbeziehung des Teams und kontinuierliche Verbesserung enthalten; Ziele sollten messbar/terminiert formuliert sein. Teilaufgabe 2 z. B. Strukturqualität: Personalqualifikation, Fahrzeugausstattung; Prozessqualität: Dokumentationsverhalten, Kommunikationsstandards im Einsatz; Ergebnisqualität: Sturzrate, Zufriedenheit. Teilaufgabe 3 z. B. Fachkraftquote, Anteil zeitnah dokumentierter Einsätze, Sturzereignisrate — mit Bezug zu den drei Donabedian-Dimensionen. Teilaufgabe 4 sollte Vorteile (Außenvertrauen, externe Impulse) gegen Aufwand (Zeit, Kosten, Dokumentationspflichten) abwägen und ggf. ein stufenweises Vorgehen empfehlen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Kundenorientierung (betreute Menschen und Angehörige), Einbeziehung des Teams und kontinuierliche Verbesserung enthalten; Ziele sollten messbar/terminiert formuliert sein.
+Teilaufgabe 2 z. B. Strukturqualität: Personalqualifikation, Fahrzeugausstattung; Prozessqualität: Dokumentationsverhalten, Kommunikationsstandards im Einsatz; Ergebnisqualität: Sturzrate, Zufriedenheit.
+Teilaufgabe 3 z. B. Fachkraftquote, Anteil zeitnah dokumentierter Einsätze, Sturzereignisrate — mit Bezug zu den drei Donabedian-Dimensionen.
+Teilaufgabe 4 sollte Vorteile (Außenvertrauen, externe Impulse) gegen Aufwand (Zeit, Kosten, Dokumentationspflichten) abwägen und ggf. ein stufenweises Vorgehen empfehlen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welchen Beitrag ein systematisches Beschwerdemanagement-Controlling langfristig dazu leisten kann, ähnliche Konflikte zu vermeiden.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Beschwerdestimulierung, -annahme, -bearbeitung, -reaktion und -auswertung nennen. Teilaufgabe 2 sollte Auditplanung, Dokumentenprüfung/Begehung, Auditbericht und Nachverfolgung von Maßnahmen umfassen, angewandt auf die Tourenplanung. Teilaufgabe 3 sollte zweistufig prüfen: (1) Einbeziehung: deutlicher Hinweis bei Vertragsschluss und zumutbare Kenntnisnahme (§ 305 Abs. 2 BGB); überraschende Klauseln werden nicht Vertragsbestandteil (§ 305c Abs. 1 BGB); (2) Inhaltskontrolle: unangemessene Benachteiligung entgegen Treu und Glauben, einschließlich Verstoß gegen das Transparenzgebot (§ 307 BGB). Zur Kündigungsfrist im Pflegevertrag ist zusätzlich § 120 Abs. 2 SGB XI zu beachten: Die pflegebedürftige Person kann den ambulanten Pflegevertrag jederzeit ohne Einhaltung einer Frist kündigen; eine Klausel, die ihr eine Kündigungsfrist auferlegt, ist damit grundsätzlich nicht vereinbar und wäre daneben auf unangemessene Benachteiligung (§ 307 BGB) und mangelnde Transparenz zu prüfen. Teilaufgabe 4 sollte auf Kennzahlen wie Bearbeitungsdauer und Wiederholungsrate sowie auf die frühzeitige Erkennung struktureller Ursachen (hier: Tourenplanung) eingehen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Beschwerdestimulierung, -annahme, -bearbeitung, -reaktion und -auswertung nennen.
+Teilaufgabe 2 sollte Auditplanung, Dokumentenprüfung/Begehung, Auditbericht und Nachverfolgung von Maßnahmen umfassen, angewandt auf die Tourenplanung.
+Teilaufgabe 3 sollte zweistufig prüfen: (1) Einbeziehung: deutlicher Hinweis bei Vertragsschluss und zumutbare Kenntnisnahme (§ 305 Abs. 2 BGB); überraschende Klauseln werden nicht Vertragsbestandteil (§ 305c Abs. 1 BGB); (2) Inhaltskontrolle: unangemessene Benachteiligung entgegen Treu und Glauben, einschließlich Verstoß gegen das Transparenzgebot (§ 307 BGB). Zur Kündigungsfrist im Pflegevertrag ist zusätzlich § 120 Abs. 2 SGB XI zu beachten: Die pflegebedürftige Person kann den ambulanten Pflegevertrag jederzeit ohne Einhaltung einer Frist kündigen; eine Klausel, die ihr eine Kündigungsfrist auferlegt, ist damit grundsätzlich nicht vereinbar und wäre daneben auf unangemessene Benachteiligung (§ 307 BGB) und mangelnde Transparenz zu prüfen.
+Teilaufgabe 4 sollte auf Kennzahlen wie Bearbeitungsdauer und Wiederholungsrate sowie auf die frühzeitige Erkennung struktureller Ursachen (hier: Tourenplanung) eingehen.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Beurteilen Sie, welchen Zusammenhang Sie zwischen der aktuellen Arbeitsüberlastung der Pflegedienstleitung, ihrer Work-Life-Balance und dem Risiko weiterer Beinahe-Zwischenfälle sehen, und leiten Sie eine begründete Handlungsempfehlung ab.
 
-**Musterlösungshinweise:** Teilaufgabe 1 z. B. Identifikation (Zeitdruck bei Übergaben als Risikoquelle), Bewertung (hohe Wahrscheinlichkeit, hohes Schadensausmaß), Steuerung (feste Übergabezeiten, Checklisten), Überwachung (Stichprobenkontrolle der Dokumentation). Teilaufgabe 2 sollte je ein Beispiel für sofort/terminieren/delegieren/streichen mit nachvollziehbarer Begründung liefern. Teilaufgabe 3 z. B. ständige Unterbrechungen durch spontane Anrufe, fehlende Pufferzeiten, unklare Vertretungsregelungen bei Personalausfall. Teilaufgabe 4 sollte den Zusammenhang zwischen Überlastung, sinkender Prozessqualität (vgl. 2.1/2.2) und Sicherheitsrisiken herstellen und konkrete Entlastungsmaßnahmen (z. B. Delegation, realistische Zeitplanung mit Pufferzeiten) empfehlen.
+**Musterlösungshinweise:** Teilaufgabe 1 z. B. Identifikation (Zeitdruck bei Übergaben als Risikoquelle), Bewertung (hohe Wahrscheinlichkeit, hohes Schadensausmaß), Steuerung (feste Übergabezeiten, Checklisten), Überwachung (Stichprobenkontrolle der Dokumentation).
+Teilaufgabe 2 sollte je ein Beispiel für sofort/terminieren/delegieren/streichen mit nachvollziehbarer Begründung liefern.
+Teilaufgabe 3 z. B. ständige Unterbrechungen durch spontane Anrufe, fehlende Pufferzeiten, unklare Vertretungsregelungen bei Personalausfall.
+Teilaufgabe 4 sollte den Zusammenhang zwischen Überlastung, sinkender Prozessqualität (vgl. 2.1/2.2) und Sicherheitsrisiken herstellen und konkrete Entlastungsmaßnahmen (z. B. Delegation, realistische Zeitplanung mit Pufferzeiten) empfehlen.
 

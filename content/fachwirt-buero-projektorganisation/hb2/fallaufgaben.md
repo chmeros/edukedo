@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.5) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, in welcher Form (Bericht, Präsentation, Handout) die Ergebnisse der Zielgruppenanalyse am besten der Geschäftsführung des Kunden vorgestellt werden sollten, und begründen Sie Ihre Wahl.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf strukturierte Nachfragen und Dokumentation eingehen. Teilaufgabe 2 könnte Fragebögen unter Mitarbeitenden/Besucher:innen sowie Beobachtung nennen. Teilaufgabe 3 sollte z. B. Bedarfsanalyse, Planung, Umsetzung, Abnahme als Pakete nennen. Teilaufgabe 4 sollte die Zielgruppe (Geschäftsführung) und den Bedarf an verdichteter Darstellung berücksichtigen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf strukturierte Nachfragen und Dokumentation eingehen.
+Teilaufgabe 2 könnte Fragebögen unter Mitarbeitenden/Besucher:innen sowie Beobachtung nennen.
+Teilaufgabe 3 sollte z. B. Bedarfsanalyse, Planung, Umsetzung, Abnahme als Pakete nennen.
+Teilaufgabe 4 sollte die Zielgruppe (Geschäftsführung) und den Bedarf an verdichteter Darstellung berücksichtigen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.5) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erinnern):** Nennen Sie, welche Instrumente nach der Veranstaltung zur Evaluation eingesetzt werden sollten, um für zukünftige Produkteinführungen zu lernen.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf fehlende Abstimmungsprozesse zwischen Abteilungen eingehen (2.3.1). Teilaufgabe 2 sollte einen gemeinsamen, abteilungsübergreifenden Ablaufplan mit klaren Meilensteinen vorschlagen. Teilaufgabe 3 könnte alternative, kurzfristig verfügbare Werbemittel oder ein angepasstes Programm nennen. Teilaufgabe 4 sollte Feedbackbögen, Teilnehmerbefragung und Soll-Ist-Vergleich nennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf fehlende Abstimmungsprozesse zwischen Abteilungen eingehen (2.3.1).
+Teilaufgabe 2 sollte einen gemeinsamen, abteilungsübergreifenden Ablaufplan mit klaren Meilensteinen vorschlagen.
+Teilaufgabe 3 könnte alternative, kurzfristig verfügbare Werbemittel oder ein angepasstes Programm nennen.
+Teilaufgabe 4 sollte Feedbackbögen, Teilnehmerbefragung und Soll-Ist-Vergleich nennen.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.5) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erklären Sie, wie das laufende Projekt zur Einführung des neuen Kundenservice-Tools mit einem Projektstrukturplan sinnvoll organisiert werden könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte die systematische Auswertung von Beschwerdegründen nach Kanal beschreiben. Teilaufgabe 2 sollte DIN-Normen, CI/CB und einheitliche Antwortzeiten als Bausteine nennen. Teilaufgabe 3 sollte Schulungen und Handreichungen vorschlagen. Teilaufgabe 4 sollte typische Arbeitspakete wie Anforderungsanalyse, Auswahl, Einführung, Schulung nennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte die systematische Auswertung von Beschwerdegründen nach Kanal beschreiben.
+Teilaufgabe 2 sollte DIN-Normen, CI/CB und einheitliche Antwortzeiten als Bausteine nennen.
+Teilaufgabe 3 sollte Schulungen und Handreichungen vorschlagen.
+Teilaufgabe 4 sollte typische Arbeitspakete wie Anforderungsanalyse, Auswahl, Einführung, Schulung nennen.

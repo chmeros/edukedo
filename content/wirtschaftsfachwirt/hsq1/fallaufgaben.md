@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob Management by Objectives für die Steuerung der neu berufenen Vertriebsleitung im Baltikum-Geschäft geeignet ist. Gehen Sie dabei auch auf mögliche Risiken (z. B. Zielkonflikte) ein.
 
-**Musterlösungshinweise:** Teilaufgabe 1 erwartet ein konkretes, terminiertes strategisches Ziel (z. B. Umsatzanteil im Baltikum) sowie ein daraus abgeleitetes, kurzfristigeres operatives Ziel, beide SMART formuliert. Teilaufgabe 2 sollte Zielbildung, Analyse (z. B. Markt- und Wettbewerbsanalyse für Litauen), Alternativensuche/Entscheidung und Umsetzung/Kontrolle konkret auf den Fall beziehen. Teilaufgabe 3 sollte Plan (Zielsetzung/Vorgehen für die Testregion), Do (testweise Einführung), Check (Soll-Ist-Vergleich) und Act (Standardisierung oder Anpassung) enthalten. Teilaufgabe 4 sollte die Vorteile (Eigenverantwortung, Motivation) den Risiken (Zielkonflikte, Fokus auf Quantitatives) gegenüberstellen und zu einer begründeten Einschätzung kommen.
+**Musterlösungshinweise:** Teilaufgabe 1 erwartet ein konkretes, terminiertes strategisches Ziel (z. B. Umsatzanteil im Baltikum) sowie ein daraus abgeleitetes, kurzfristigeres operatives Ziel, beide SMART formuliert.
+Teilaufgabe 2 sollte Zielbildung, Analyse (z. B. Markt- und Wettbewerbsanalyse für Litauen), Alternativensuche/Entscheidung und Umsetzung/Kontrolle konkret auf den Fall beziehen.
+Teilaufgabe 3 sollte Plan (Zielsetzung/Vorgehen für die Testregion), Do (testweise Einführung), Check (Soll-Ist-Vergleich) und Act (Standardisierung oder Anpassung) enthalten.
+Teilaufgabe 4 sollte die Vorteile (Eigenverantwortung, Motivation) den Risiken (Zielkonflikte, Fokus auf Quantitatives) gegenüberstellen und zu einer begründeten Einschätzung kommen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welchen zusätzlichen Nutzen ein Managementinformationssystem auf Basis der neuen ERP-Daten künftig für die Geschäftsleitung der NordWert Handels GmbH bieten könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: offene Bedenken in Teambesprechungen entsprechen aktiv-offenem Widerstand, das Meiden von Informationsveranstaltungen entspricht eher passiv-verdecktem Widerstand. Teilaufgabe 2: Auftauen (Dringlichkeit/Nutzen kommunizieren), Verändern (schrittweise Einführung, Schulungen, Partizipation der Lagerleitungen), Einfrieren (neue Prozesse als Standard verankern, Erfolge sichtbar machen). Teilaufgabe 3: Zweckbindung, Datenminimierung, ggf. Auftragsverarbeitungsvertrag mit dem IT-Dienstleister, technisch-organisatorische Maßnahmen, Beachtung der Betroffenenrechte. Teilaufgabe 4: schnellere, verlässlichere Kennzahlen über alle Standorte hinweg (z. B. Lagerbestände, Lieferzeiten), bessere Entscheidungsgrundlage für die Geschäftsleitung, sollte aber auch Grenzen (Datenqualität, Umstellungsaufwand) benennen.
+**Musterlösungshinweise:** Teilaufgabe 1: offene Bedenken in Teambesprechungen entsprechen aktiv-offenem Widerstand, das Meiden von Informationsveranstaltungen entspricht eher passiv-verdecktem Widerstand.
+Teilaufgabe 2: Auftauen (Dringlichkeit/Nutzen kommunizieren), Verändern (schrittweise Einführung, Schulungen, Partizipation der Lagerleitungen), Einfrieren (neue Prozesse als Standard verankern, Erfolge sichtbar machen).
+Teilaufgabe 3: Zweckbindung, Datenminimierung, ggf. Auftragsverarbeitungsvertrag mit dem IT-Dienstleister, technisch-organisatorische Maßnahmen, Beachtung der Betroffenenrechte.
+Teilaufgabe 4: schnellere, verlässlichere Kennzahlen über alle Standorte hinweg (z. B. Lagerbestände, Lieferzeiten), bessere Entscheidungsgrundlage für die Geschäftsleitung, sollte aber auch Grenzen (Datenqualität, Umstellungsaufwand) benennen.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie ein kurzes, konkretes Konzept, wie die Einkaufsleitung ihre Aufgaben künftig priorisiert und organisatorisch entlastet werden könnte, damit strategische Projekte nicht dauerhaft im Tagesgeschäft untergehen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: (a) sofort erledigen, (b) terminieren, (c) delegieren (an Sachbearbeitung), (d) streichen. Teilaufgabe 2: Aufgaben der Woche notieren, realistische Zeitschätzung inkl. fester Blöcke für das Nachhaltigkeitsprojekt, Pufferzeiten für Reklamationen, klare Priorisierung, abschließende Nachkontrolle. Teilaufgabe 3: Ohne freie Zeitkapazitäten bleibt das strategische Projekt dauerhaft unbearbeitet, da operative, dringende Aufgaben es im Tagesgeschäft verdrängen — die Zielhierarchie bricht in der Umsetzung ab. Teilaufgabe 4: z. B. systematische Delegation von Standardaufgaben, feste wöchentliche Zeitblöcke für strategische Projekte, regelmäßige Priorisierung nach Eisenhower-Prinzip, ggf. Unterstützung durch eine zusätzliche Fachkraft.
+**Musterlösungshinweise:** Teilaufgabe 1: (a) sofort erledigen, (b) terminieren, (c) delegieren (an Sachbearbeitung), (d) streichen.
+Teilaufgabe 2: Aufgaben der Woche notieren, realistische Zeitschätzung inkl. fester Blöcke für das Nachhaltigkeitsprojekt, Pufferzeiten für Reklamationen, klare Priorisierung, abschließende Nachkontrolle.
+Teilaufgabe 3: Ohne freie Zeitkapazitäten bleibt das strategische Projekt dauerhaft unbearbeitet, da operative, dringende Aufgaben es im Tagesgeschäft verdrängen — die Zielhierarchie bricht in der Umsetzung ab.
+Teilaufgabe 4: z. B. systematische Delegation von Standardaufgaben, feste wöchentliche Zeitblöcke für strategische Projekte, regelmäßige Priorisierung nach Eisenhower-Prinzip, ggf. Unterstützung durch eine zusätzliche Fachkraft.
 

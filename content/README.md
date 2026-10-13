@@ -512,6 +512,8 @@ Mehrschrittige Aufgaben, die mehrere Themen desselben Fachgebiets kombinieren (`
 **Musterlösungshinweise:** ...
 ```
 
+Die Musterlösungshinweise stehen mehrzeilig direkt unter der Kopfzeile, **eine Zeile je Teilaufgabe** (`Teilaufgabe 1 …`, `Teilaufgabe 2 …`) und zuletzt eine Zeile `Folgefehler: …`; die Anzeige übernimmt die Zeilenumbrüche (`white-space: pre-line`). Die Zeilen folgen ohne Leerzeile aufeinander, eine Leerzeile beendet das Feld.
+
 Bei Fallaufgaben-Teilaufgaben steht das `bloom`-Tag direkt in der Klammer neben der Punktzahl (statt in einer separaten Metadatenzeile), da jede Teilaufgabe einzeln eingestuft wird — Fallaufgaben liegen als mehrschrittige Transferaufgaben meist bei `anwenden` bis `erschaffen`.
 
 ```markdown

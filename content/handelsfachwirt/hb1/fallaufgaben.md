@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Geschäftsführung erwägt, das Fulfillment-Zentrum vollständig über ein Bankdarlehen zu finanzieren, statt einen Teil aus einbehaltenen Gewinnen zu decken. Bewerten Sie diese Überlegung unter Berücksichtigung von Chancen und Risiken der Fremdfinanzierung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte mindestens Geschäftsidee/Zielsetzung, Markt- und Wettbewerbsanalyse, Marketing- und Vertriebskonzept sowie Finanzplan nennen und begründen, warum diese aufeinander aufbauen. Teilaufgabe 2 sollte „Loreno Living" als Produktentwicklung einordnen, da ein neues Produktsegment für eine im Kern bereits bekannte Zielgruppe eingeführt wird. Teilaufgabe 3 sollte Anlagekapitalbedarf (Lagertechnik, IT-Ausstattung, langfristig gebunden) von Umlaufkapitalbedarf (Wareneinkauf, Personal, kurzfristig gebunden bis zu den ersten Umsätzen) unterscheiden. Teilaufgabe 4 sollte den Leverage-Effekt als möglichen Vorteil (Steigerung der Eigenkapitalrendite) gegen das steigende finanzielle Risiko durch feste Zins- und Tilgungsverpflichtungen unabhängig vom Geschäftserfolg abwägen und eine Mischfinanzierung als naheliegende Alternative erwägen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte mindestens Geschäftsidee/Zielsetzung, Markt- und Wettbewerbsanalyse, Marketing- und Vertriebskonzept sowie Finanzplan nennen und begründen, warum diese aufeinander aufbauen.
+Teilaufgabe 2 sollte „Loreno Living" als Produktentwicklung einordnen, da ein neues Produktsegment für eine im Kern bereits bekannte Zielgruppe eingeführt wird.
+Teilaufgabe 3 sollte Anlagekapitalbedarf (Lagertechnik, IT-Ausstattung, langfristig gebunden) von Umlaufkapitalbedarf (Wareneinkauf, Personal, kurzfristig gebunden bis zu den ersten Umsätzen) unterscheiden.
+Teilaufgabe 4 sollte den Leverage-Effekt als möglichen Vorteil (Steigerung der Eigenkapitalrendite) gegen das steigende finanzielle Risiko durch feste Zins- und Tilgungsverpflichtungen unabhängig vom Geschäftserfolg abwägen und eine Mischfinanzierung als naheliegende Alternative erwägen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie auf Basis der geschilderten Zahlen, ob die Geschäftsführung „Loreno Living" fortführen, anpassen oder einstellen sollte, und begründen Sie Ihre Einschätzung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte mögliche Ursachen wie zu hohe Lagerbestände, falsche Sortimentsauswahl oder geringere Nachfrage als erwartet nennen. Teilaufgabe 2 sollte den Vergleich von Plan- und Ist-Werten sowie die Suche nach konkreten Ursachen (z. B. Preisgestaltung, Werbewirkung, Standortwahl der Pilotfilialen) beschreiben, bevor Korrekturmaßnahmen abgeleitet werden. Teilaufgabe 3 sollte z. B. „hohe Kundenzufriedenheit" mit Net-Promoter-Score als Kundenperspektive und „kurze Lieferzeit" mit durchschnittlicher Versanddauer als interne Prozessperspektive nennen. Teilaufgabe 4 sollte eine begründete Abwägung vornehmen — etwa eine Anpassung von Sortiment/Marketing vor einer endgültigen Entscheidung, statt eines vorschnellen Abbruchs nach nur sechs Monaten Testphase, wobei auch eine begründete Gegenposition anzuerkennen ist.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte mögliche Ursachen wie zu hohe Lagerbestände, falsche Sortimentsauswahl oder geringere Nachfrage als erwartet nennen.
+Teilaufgabe 2 sollte den Vergleich von Plan- und Ist-Werten sowie die Suche nach konkreten Ursachen (z. B. Preisgestaltung, Werbewirkung, Standortwahl der Pilotfilialen) beschreiben, bevor Korrekturmaßnahmen abgeleitet werden.
+Teilaufgabe 3 sollte z. B. „hohe Kundenzufriedenheit" mit Net-Promoter-Score als Kundenperspektive und „kurze Lieferzeit" mit durchschnittlicher Versanddauer als interne Prozessperspektive nennen.
+Teilaufgabe 4 sollte eine begründete Abwägung vornehmen — etwa eine Anpassung von Sortiment/Marketing vor einer endgültigen Entscheidung, statt eines vorschnellen Abbruchs nach nur sechs Monaten Testphase, wobei auch eine begründete Gegenposition anzuerkennen ist.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Geschäftsführung erwägt, kurzfristig einen zweiten Lieferanten in einer anderen Region aufzubauen, was zusätzliche Kosten verursacht. Bewerten Sie diese Maßnahme unter Abwägung von Kosten und Risikominderung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte das Lieferkettenrisiko angesichts der akuten politischen Unruhe eher mit hoher Schadenshöhe (da einziger Lieferant) einordnen, das Cyberrisiko mit potenziell sehr hoher Schadenshöhe während der umsatzstärksten Wochen. Teilaufgabe 2 sollte für das Lieferkettenrisiko z. B. Risikoverminderung (Aufbau eines zweiten Lieferanten) und für das Cyberrisiko z. B. Risikoüberwälzung (Cyberversicherung) in Kombination mit Risikoverminderung (zusätzliche IT-Sicherheitsmaßnahmen) vorschlagen. Teilaufgabe 3 sollte erläutern, dass in der Check-Phase die Wirksamkeit der Maßnahmen laufend geprüft und in der Act-Phase Anpassungen vorgenommen werden, sodass das Risikomanagement nicht nur punktuell auf die aktuelle Situation reagiert. Teilaufgabe 4 sollte die zusätzlichen Kosten eines zweiten Lieferanten gegen die reduzierte Abhängigkeit und das geringere Ausfallrisiko abwägen und zu einer begründeten Empfehlung kommen (tendenziell sinnvoll angesichts der Bedeutung von „Loreno Living" und der bereits eingetretenen Unruhe).
+**Musterlösungshinweise:** Teilaufgabe 1 sollte das Lieferkettenrisiko angesichts der akuten politischen Unruhe eher mit hoher Schadenshöhe (da einziger Lieferant) einordnen, das Cyberrisiko mit potenziell sehr hoher Schadenshöhe während der umsatzstärksten Wochen.
+Teilaufgabe 2 sollte für das Lieferkettenrisiko z. B. Risikoverminderung (Aufbau eines zweiten Lieferanten) und für das Cyberrisiko z. B. Risikoüberwälzung (Cyberversicherung) in Kombination mit Risikoverminderung (zusätzliche IT-Sicherheitsmaßnahmen) vorschlagen.
+Teilaufgabe 3 sollte erläutern, dass in der Check-Phase die Wirksamkeit der Maßnahmen laufend geprüft und in der Act-Phase Anpassungen vorgenommen werden, sodass das Risikomanagement nicht nur punktuell auf die aktuelle Situation reagiert.
+Teilaufgabe 4 sollte die zusätzlichen Kosten eines zweiten Lieferanten gegen die reduzierte Abhängigkeit und das geringere Ausfallrisiko abwägen und zu einer begründeten Empfehlung kommen (tendenziell sinnvoll angesichts der Bedeutung von „Loreno Living" und der bereits eingetretenen Unruhe).
 

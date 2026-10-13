@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ4 (4.1–4.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie in Grundzügen einen Marketing-Mix (alle vier Instrumentalbereiche) zur gezielten Ansprache des neuen Kundensegments.
 
-**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fragen zu Bestellvolumen, Verpackungsanforderungen und Lieferfrequenz (Primärforschung: Kundenbefragung bei bestehenden Kontakten; Sekundärforschung: Branchenstatistiken zum E-Commerce-Wachstum). Teilaufgabe 2 sollte Stärken wie das etablierte Vertriebsnetz, Schwächen wie fehlende Erfahrung mit diesem Segment, Chancen wie das Marktwachstum und Risiken wie neue spezialisierte Wettbewerber benennen. Teilaufgabe 3 sollte die Erschließung als Marktentwicklung (neuer Markt, bestehendes Produkt) einordnen und das im Vergleich zur Diversifikation geringere Risiko begründen. Teilaufgabe 4 sollte je einen plausiblen Punkt zu Produkt- (z. B. versandoptimierte Verpackungsgrößen), Preis- (z. B. Staffelpreise nach Bestellvolumen), Distributions- (z. B. Online-Bestellprozess) und Kommunikationspolitik (z. B. gezielte Online-Werbung, Fachforen) enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1 erwartet u. a. Fragen zu Bestellvolumen, Verpackungsanforderungen und Lieferfrequenz (Primärforschung: Kundenbefragung bei bestehenden Kontakten; Sekundärforschung: Branchenstatistiken zum E-Commerce-Wachstum).
+Teilaufgabe 2 sollte Stärken wie das etablierte Vertriebsnetz, Schwächen wie fehlende Erfahrung mit diesem Segment, Chancen wie das Marktwachstum und Risiken wie neue spezialisierte Wettbewerber benennen.
+Teilaufgabe 3 sollte die Erschließung als Marktentwicklung (neuer Markt, bestehendes Produkt) einordnen und das im Vergleich zur Diversifikation geringere Risiko begründen.
+Teilaufgabe 4 sollte je einen plausiblen Punkt zu Produkt- (z. B. versandoptimierte Verpackungsgrößen), Preis- (z. B. Staffelpreise nach Bestellvolumen), Distributions- (z. B. Online-Bestellprozess) und Kommunikationspolitik (z. B. gezielte Online-Werbung, Fachforen) enthalten.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ4 (4.1–4.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Empfehlen Sie eine geeignete Vertriebsorganisation für den Marktaufbau in Polen (z. B. gebiets- oder kundenbezogen) und begründen Sie, welche interkulturellen Aspekte die zuständigen Vertriebsmitarbeitenden bei der Kommunikation mit den polnischen Geschäftspartner:innen berücksichtigen sollten.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte den freien Warenverkehr ohne Zollgrenzen sowie die weiterhin bestehende Intrastat-Meldepflicht und umsatzsteuerliche Besonderheiten nennen. Teilaufgabe 2 sollte herausstellen, dass FCA für NordWert deutlich weniger Kosten- und Risikoübernahme bedeutet als DDP (bei DDP trägt der Verkäufer alle Kosten/Risiken inklusive Einfuhrabgaben bis zur Lieferung). Teilaufgabe 3 sollte die Möglichkeit des CISG-Ausschlusses zugunsten einer klaren Rechtswahl (die bloße Wahl eines nationalen Rechts schließt das CISG nach überwiegender Auffassung nicht aus, ein klarer Ausschluss ist nötig) sowie eine eindeutige Gerichtsstandsklausel thematisieren. Teilaufgabe 4 sollte eine plausible, begründete Organisationsform empfehlen (z. B. zunächst kundenbezogen mit späterer regionaler Erweiterung) und auf interkulturelle Aspekte wie Kommunikationsstil, Beziehungsaufbau vor Vertragsabschluss oder unterschiedliche Verhandlungsgepflogenheiten eingehen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte den freien Warenverkehr ohne Zollgrenzen sowie die weiterhin bestehende Intrastat-Meldepflicht und umsatzsteuerliche Besonderheiten nennen.
+Teilaufgabe 2 sollte herausstellen, dass FCA für NordWert deutlich weniger Kosten- und Risikoübernahme bedeutet als DDP (bei DDP trägt der Verkäufer alle Kosten/Risiken inklusive Einfuhrabgaben bis zur Lieferung).
+Teilaufgabe 3 sollte die Möglichkeit des CISG-Ausschlusses zugunsten einer klaren Rechtswahl (die bloße Wahl eines nationalen Rechts schließt das CISG nach überwiegender Auffassung nicht aus, ein klarer Ausschluss ist nötig) sowie eine eindeutige Gerichtsstandsklausel thematisieren.
+Teilaufgabe 4 sollte eine plausible, begründete Organisationsform empfehlen (z. B. zunächst kundenbezogen mit späterer regionaler Erweiterung) und auf interkulturelle Aspekte wie Kommunikationsstil, Beziehungsaufbau vor Vertragsabschluss oder unterschiedliche Verhandlungsgepflogenheiten eingehen.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ4 (4.1–4.4) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Ordnen Sie den drohenden Verlust dieses Großkunden in eine kurze SWOT-Betrachtung für NordWert ein (mindestens ein Punkt je Feld) und leiten Sie daraus eine Handlungsempfehlung ab.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf verzögertes Beschwerdemanagement und mangelnde individuelle Betreuung (fehlendes Key-Account-Management) eingehen. Teilaufgabe 2 sollte plausible, konkrete Maßnahmen nennen, z. B. persönliche Ansprechpartner:in (Key Account), verbindliche Reaktionszeiten bei Reklamationen, individuelles Bonus-/Rabattangebot, regelmäßige Zufriedenheitsgespräche. Teilaufgabe 3 sollte herausstellen, dass ein CRM-System wiederholte Reklamationen und Kontakthistorie sichtbar gemacht und ein frühzeitiges Eingreifen ermöglicht hätte. Teilaufgabe 4 sollte z. B. Schwäche (lückenhaftes Beschwerdemanagement), Risiko (weitere Kundenabwanderung durch neuen Wettbewerber), Stärke (grundsätzlich etablierte Kundenbeziehung) und Chance (Rückgewinnung durch gezielte Kundenbindungsmaßnahmen) benennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf verzögertes Beschwerdemanagement und mangelnde individuelle Betreuung (fehlendes Key-Account-Management) eingehen.
+Teilaufgabe 2 sollte plausible, konkrete Maßnahmen nennen, z. B. persönliche Ansprechpartner:in (Key Account), verbindliche Reaktionszeiten bei Reklamationen, individuelles Bonus-/Rabattangebot, regelmäßige Zufriedenheitsgespräche.
+Teilaufgabe 3 sollte herausstellen, dass ein CRM-System wiederholte Reklamationen und Kontakthistorie sichtbar gemacht und ein frühzeitiges Eingreifen ermöglicht hätte.
+Teilaufgabe 4 sollte z. B. Schwäche (lückenhaftes Beschwerdemanagement), Risiko (weitere Kundenabwanderung durch neuen Wettbewerber), Stärke (grundsätzlich etablierte Kundenbeziehung) und Chance (Rückgewinnung durch gezielte Kundenbindungsmaßnahmen) benennen.
 

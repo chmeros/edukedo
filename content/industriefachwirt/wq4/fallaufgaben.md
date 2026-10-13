@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WQ4 (4.1–4.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie einen organisatorischen Vorschlag, wie das neue Geschäftsfeld in die bestehende Werks- und Zentralbereichsstruktur von Solvitec eingegliedert werden könnte (z. B. als eigenes Profit-Center, als Teil eines bestehenden Werks oder als werksübergreifende Produktlinie).
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte als Stärke die Leistungselektronik-Kompetenz, als Schwäche die fehlende Endkundenerfahrung, als Chance die wachsende Nachfrage nach Elektromobilität und als Risiko den bestehenden Wettbewerb nennen. Teilaufgabe 2 sollte den Einstieg als Diversifikation einordnen, da sowohl Produkt als auch Zielgruppe (Endkunden statt Industriekunden) neu sind. Teilaufgabe 3 sollte das neue Feld als Question Mark einordnen (hohes Marktwachstum, geringer eigener Marktanteil) und empfehlen, dass die Cash Cow Frequenzumrichter-Geschäft die notwendigen Mittel für den Aufbau bereitstellt. Teilaufgabe 4 sollte eine begründete Organisationsform vorschlagen, z. B. ein eigenes Profit-Center mit Anbindung an die Zentralbereiche für Einkauf und Finanzen, um Standardisierungsvorteile zu nutzen, ohne das neue Geschäftsfeld durch bestehende Werksstrukturen auszubremsen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte als Stärke die Leistungselektronik-Kompetenz, als Schwäche die fehlende Endkundenerfahrung, als Chance die wachsende Nachfrage nach Elektromobilität und als Risiko den bestehenden Wettbewerb nennen.
+Teilaufgabe 2 sollte den Einstieg als Diversifikation einordnen, da sowohl Produkt als auch Zielgruppe (Endkunden statt Industriekunden) neu sind.
+Teilaufgabe 3 sollte das neue Feld als Question Mark einordnen (hohes Marktwachstum, geringer eigener Marktanteil) und empfehlen, dass die Cash Cow Frequenzumrichter-Geschäft die notwendigen Mittel für den Aufbau bereitstellt.
+Teilaufgabe 4 sollte eine begründete Organisationsform vorschlagen, z. B. ein eigenes Profit-Center mit Anbindung an die Zentralbereiche für Einkauf und Finanzen, um Standardisierungsvorteile zu nutzen, ohne das neue Geschäftsfeld durch bestehende Werksstrukturen auszubremsen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WQ4 (4.1–4.3) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welcher Führungsstil sich für die Kommunikation zwischen Zentrale und Werk Zwickau in dieser angespannten Situation eher eignet, und begründen Sie Ihre Einschätzung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte erläutern, dass die Matrixorganisation bewusst zwei Weisungslinien (disziplinarisch Werkleitung, fachlich Produktlinienverantwortliche) parallel bestehen lässt, was bei widersprüchlichen Interessen zwangsläufig zu Abstimmungsproblemen führen kann. Teilaufgabe 2 sollte den Konflikt eher als Sachkonflikt (unterschiedliche Einschätzung zur Kapazitätslage) mit möglicher Beziehungskomponente einordnen und ein moderiertes Klärungsgespräch beider Instanzen vorschlagen. Teilaufgabe 3 sollte Maßnahmen wie regelmäßige strukturierte Videokonferenzen, klare schriftliche Vorgaben oder gelegentliche Vor-Ort-Besuche der Produktlinienverantwortlichen in Zwickau nennen. Teilaufgabe 4 sollte einen kooperativen Führungsstil empfehlen, der die Facharbeitenden in Entscheidungen zur Kapazitätsplanung einbezieht, um das Gefühl mangelnder Einbindung abzubauen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte erläutern, dass die Matrixorganisation bewusst zwei Weisungslinien (disziplinarisch Werkleitung, fachlich Produktlinienverantwortliche) parallel bestehen lässt, was bei widersprüchlichen Interessen zwangsläufig zu Abstimmungsproblemen führen kann.
+Teilaufgabe 2 sollte den Konflikt eher als Sachkonflikt (unterschiedliche Einschätzung zur Kapazitätslage) mit möglicher Beziehungskomponente einordnen und ein moderiertes Klärungsgespräch beider Instanzen vorschlagen.
+Teilaufgabe 3 sollte Maßnahmen wie regelmäßige strukturierte Videokonferenzen, klare schriftliche Vorgaben oder gelegentliche Vor-Ort-Besuche der Produktlinienverantwortlichen in Zwickau nennen.
+Teilaufgabe 4 sollte einen kooperativen Führungsstil empfehlen, der die Facharbeitenden in Entscheidungen zur Kapazitätsplanung einbezieht, um das Gefühl mangelnder Einbindung abzubauen.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus WQ4 (4.1–4.3) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie, ob der PDCA-Zyklus geeignet ist, die neue Fertigungslinie nach dem Produktionsstart kontinuierlich zu verbessern, und begründen Sie Ihre Einschätzung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Arbeitspakete wie Planung, Beschaffung der Fertigungsanlagen, Installation und Testbetrieb den passenden Zeitabschnitten zuordnen. Teilaufgabe 2 sollte ein Risiko wie einen möglichen Lieferverzug bei spezialisierten Fertigungsanlagen nennen und es je nach Eintrittswahrscheinlichkeit und Schadenshöhe begründet einem Feld (z. B. „Absichern" durch vertragliche Vereinbarungen mit dem Anlagenlieferanten) zuordnen. Teilaufgabe 3 sollte eine Off-the-Job-Methode wie einen externen Lehrgang zur Sensorfertigung oder eine On-the-Job-Methode wie eine gezielte Einarbeitung durch erfahrene Kolleginnen und Kollegen vorschlagen und begründen. Teilaufgabe 4 sollte bestätigen, dass der PDCA-Zyklus gut geeignet ist, da er kontinuierliche, schrittweise Verbesserung nach dem Produktionsstart ermöglicht, etwa zur systematischen Reduzierung von Anlaufschwierigkeiten und Ausschuss.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Arbeitspakete wie Planung, Beschaffung der Fertigungsanlagen, Installation und Testbetrieb den passenden Zeitabschnitten zuordnen.
+Teilaufgabe 2 sollte ein Risiko wie einen möglichen Lieferverzug bei spezialisierten Fertigungsanlagen nennen und es je nach Eintrittswahrscheinlichkeit und Schadenshöhe begründet einem Feld (z. B. „Absichern" durch vertragliche Vereinbarungen mit dem Anlagenlieferanten) zuordnen.
+Teilaufgabe 3 sollte eine Off-the-Job-Methode wie einen externen Lehrgang zur Sensorfertigung oder eine On-the-Job-Methode wie eine gezielte Einarbeitung durch erfahrene Kolleginnen und Kollegen vorschlagen und begründen.
+Teilaufgabe 4 sollte bestätigen, dass der PDCA-Zyklus gut geeignet ist, da er kontinuierliche, schrittweise Verbesserung nach dem Produktionsstart ermöglicht, etwa zur systematischen Reduzierung von Anlaufschwierigkeiten und Ausschuss.
 

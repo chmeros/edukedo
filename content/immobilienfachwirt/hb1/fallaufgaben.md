@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Beurteilen Sie unter Berücksichtigung der typischen Wettbewerbsstruktur des Hausverwaltungs- und Maklermarkts, welche Chancen und Risiken der Markteintritt in die neue Region für Ravelin birgt.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Umwandlung in Wohnungseigentum per Teilungserklärung nach WEG; Vorteil höherer Gesamterlös durch Einzelverkauf und bessere Diversifikation des Vermögens, Nachteil höherer Aufwand (Notar, Teilung, ggf. längere Vermarktungsdauer, künftige WEG-Verwaltung nötig). Teilaufgabe 2: z. B. Aufteilung in Sondereigentum/Miteigentumsanteile sowie Abgrenzung des Gemeinschaftseigentums — wichtig für Käufer zur Einschätzung ihrer Rechte und Pflichten. Teilaufgabe 3: Marktentwicklung, da ein bestehendes Leistungsangebot (Bauträgergeschäft) in einer neuen Region angeboten wird. Teilaufgabe 4: Chance: neue Kundengruppe, Diversifikation der Standorte; Risiko: fragmentierter, oft lokal geprägter Markt mit etablierten lokalen Wettbewerbern, Aufbauaufwand ohne bestehende Marktkenntnis vor Ort.
+**Musterlösungshinweise:** Teilaufgabe 1: Umwandlung in Wohnungseigentum per Teilungserklärung nach WEG; Vorteil höherer Gesamterlös durch Einzelverkauf und bessere Diversifikation des Vermögens, Nachteil höherer Aufwand (Notar, Teilung, ggf. längere Vermarktungsdauer, künftige WEG-Verwaltung nötig).
+Teilaufgabe 2: z. B. Aufteilung in Sondereigentum/Miteigentumsanteile sowie Abgrenzung des Gemeinschaftseigentums — wichtig für Käufer zur Einschätzung ihrer Rechte und Pflichten.
+Teilaufgabe 3: Marktentwicklung, da ein bestehendes Leistungsangebot (Bauträgergeschäft) in einer neuen Region angeboten wird.
+Teilaufgabe 4: Chance: neue Kundengruppe, Diversifikation der Standorte; Risiko: fragmentierter, oft lokal geprägter Markt mit etablierten lokalen Wettbewerbern, Aufbauaufwand ohne bestehende Marktkenntnis vor Ort.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie einen kurzen internen Leitsatz (ein bis zwei Sätze) für die Standesregeln von Ravelin, der künftig wahrheitsgemäße Aussagen zur energetischen Qualität von Objekten in der Vermarktung sicherstellen soll.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Information über GEG-Anforderungen und Förderprogramme (KfW/BAFA), Vorbereitung eines Beschlussvorschlags für die Eigentümerversammlung. Teilaufgabe 2: Verstoß gegen Wahrheitspflicht/Standesregeln, ggf. irreführende geschäftliche Handlung mit wettbewerbsrechtlichen und Reputationsrisiken; die Angabe sollte umgehend richtiggestellt werden. Teilaufgabe 3: z. B. verpflichtende Freigabe von Exposé-Texten durch die Teamleitung vor Veröffentlichung — entspricht dem „Check"-Schritt (Kontrolle) mit vorgelagertem Kontrollmechanismus im „Do"-Schritt des PDCA-Zyklus. Teilaufgabe 4: z. B. „Wir treffen zu jedem vermarkteten Objekt nur Aussagen zur energetischen Qualität, die durch aktuelle Unterlagen wie den Energieausweis belegt sind."
+**Musterlösungshinweise:** Teilaufgabe 1: Information über GEG-Anforderungen und Förderprogramme (KfW/BAFA), Vorbereitung eines Beschlussvorschlags für die Eigentümerversammlung.
+Teilaufgabe 2: Verstoß gegen Wahrheitspflicht/Standesregeln, ggf. irreführende geschäftliche Handlung mit wettbewerbsrechtlichen und Reputationsrisiken; die Angabe sollte umgehend richtiggestellt werden.
+Teilaufgabe 3: z. B. verpflichtende Freigabe von Exposé-Texten durch die Teamleitung vor Veröffentlichung — entspricht dem „Check"-Schritt (Kontrolle) mit vorgelagertem Kontrollmechanismus im „Do"-Schritt des PDCA-Zyklus.
+Teilaufgabe 4: z. B. „Wir treffen zu jedem vermarkteten Objekt nur Aussagen zur energetischen Qualität, die durch aktuelle Unterlagen wie den Energieausweis belegt sind."
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwickeln Sie zwei konkrete Vorschläge, wie Ravelin das neue Bauprojekt bereits in der Planungsphase ESG-konformer gestalten könnte (je ein Vorschlag zu „Environmental" und zu „Social").
 
-**Musterlösungshinweise:** Teilaufgabe 1: MaBV regelt gestaffelte Abschlagszahlungen nach Baufortschritt zum Schutz der Erwerber vor Vorleistung. Teilaufgabe 2: Vorteil höhere Vermarktungsattraktivität und ggf. bessere Finanzierungskonditionen; Nachteil zusätzlicher Aufwand und Kosten für den Zertifizierungsprozess. Teilaufgabe 3: ökologische Qualität (Ressourcenschonung/Kreislaufwirtschaft) steht im Vordergrund — ggf. ergänzend Hinweis, dass auch die ökonomische Qualität langfristig berührt ist. Teilaufgabe 4: z. B. Environmental: Einsatz recycelbarer Baustoffe oder eine Photovoltaikanlage; Social: barrierefreie Wohnungen oder ein Anteil geförderter/bezahlbarer Wohnungen im Projekt einplanen.
+**Musterlösungshinweise:** Teilaufgabe 1: MaBV regelt gestaffelte Abschlagszahlungen nach Baufortschritt zum Schutz der Erwerber vor Vorleistung.
+Teilaufgabe 2: Vorteil höhere Vermarktungsattraktivität und ggf. bessere Finanzierungskonditionen; Nachteil zusätzlicher Aufwand und Kosten für den Zertifizierungsprozess.
+Teilaufgabe 3: ökologische Qualität (Ressourcenschonung/Kreislaufwirtschaft) steht im Vordergrund — ggf. ergänzend Hinweis, dass auch die ökonomische Qualität langfristig berührt ist.
+Teilaufgabe 4: z. B. Environmental: Einsatz recycelbarer Baustoffe oder eine Photovoltaikanlage; Social: barrierefreie Wohnungen oder ein Anteil geförderter/bezahlbarer Wohnungen im Projekt einplanen.
 

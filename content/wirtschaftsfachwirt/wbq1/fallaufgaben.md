@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Geschäftsführung erwägt trotz der schwierigen Lage, antizyklisch in ein zusätzliches Lagerzentrum zu investieren, um bei einem künftigen Aufschwung sofort lieferfähig zu sein. Bewerten Sie diese Überlegung unter Abwägung von Chancen und Risiken.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte den Zusammenhang zwischen sinkender Endkundennachfrage, sinkendem Absatz der NordWert-Kunden und daraus resultierendem sinkendem Bestellvolumen bei NordWert selbst über den Güter-/Geldstrom erläutern. Teilaufgabe 2 sollte die Situation als beginnenden Abschwung/Rezession einordnen und dies mit sinkenden Auftragseingängen, steigender Arbeitslosenquote und fallendem Geschäftsklimaindex begründen. Teilaufgabe 3 sollte Maßnahmen wie vorsichtigere Bedarfsermittlung, flexiblere/kleinere Bestellmengen statt starrer Vorratshaltung und engere Abstimmung mit Lieferanten nennen. Teilaufgabe 4 sollte sowohl den Vorteil (Wettbewerbsvorsprung bei Aufschwung, günstigere Investitionsbedingungen in der Krise) als auch das Risiko (Kapitalbindung und Liquiditätsbelastung in ohnehin angespannter Lage) gegeneinander abwägen und zu einer begründeten Einschätzung kommen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte den Zusammenhang zwischen sinkender Endkundennachfrage, sinkendem Absatz der NordWert-Kunden und daraus resultierendem sinkendem Bestellvolumen bei NordWert selbst über den Güter-/Geldstrom erläutern.
+Teilaufgabe 2 sollte die Situation als beginnenden Abschwung/Rezession einordnen und dies mit sinkenden Auftragseingängen, steigender Arbeitslosenquote und fallendem Geschäftsklimaindex begründen.
+Teilaufgabe 3 sollte Maßnahmen wie vorsichtigere Bedarfsermittlung, flexiblere/kleinere Bestellmengen statt starrer Vorratshaltung und engere Abstimmung mit Lieferanten nennen.
+Teilaufgabe 4 sollte sowohl den Vorteil (Wettbewerbsvorsprung bei Aufschwung, günstigere Investitionsbedingungen in der Krise) als auch das Risiko (Kapitalbindung und Liquiditätsbelastung in ohnehin angespannter Lage) gegeneinander abwägen und zu einer begründeten Einschätzung kommen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (4 Punkte, bloom: erschaffen):** Skizzieren Sie die wesentlichen Eckpunkte eines Kurz-Businessplans für „NordWert Digital" (mindestens drei Bestandteile).
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Geschäftsidee/Marktanalyse, Businessplan, Klärung der Finanzierung und formale Anmeldungen (Gewerbeamt, Finanzamt, ggf. Handelsregister, IHK) nennen. Teilaufgabe 2 sollte herausarbeiten, dass die GmbH volle Haftungsbeschränkung mit 25.000 Euro Mindeststammkapital bietet, während bei einer KG mindestens ein Komplementär unbeschränkt haften müsste, was angesichts der externen Beteiligung eher unpassend ist. Teilaufgabe 3 sollte begründet zur GmbH tendieren (Haftungsbeschränkung, seriöse Außenwirkung, einfache Beteiligung eines externen Mitgesellschafters), alternative Argumentationen mit nachvollziehbarer Begründung sind ebenfalls anzuerkennen. Teilaufgabe 4 sollte mindestens Geschäftsidee, Markt-/Zielgruppenanalyse und Finanzplan (Kapitalbedarf) enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Geschäftsidee/Marktanalyse, Businessplan, Klärung der Finanzierung und formale Anmeldungen (Gewerbeamt, Finanzamt, ggf. Handelsregister, IHK) nennen.
+Teilaufgabe 2 sollte herausarbeiten, dass die GmbH volle Haftungsbeschränkung mit 25.000 Euro Mindeststammkapital bietet, während bei einer KG mindestens ein Komplementär unbeschränkt haften müsste, was angesichts der externen Beteiligung eher unpassend ist.
+Teilaufgabe 3 sollte begründet zur GmbH tendieren (Haftungsbeschränkung, seriöse Außenwirkung, einfache Beteiligung eines externen Mitgesellschafters), alternative Argumentationen mit nachvollziehbarer Begründung sind ebenfalls anzuerkennen.
+Teilaufgabe 4 sollte mindestens Geschäftsidee, Markt-/Zielgruppenanalyse und Finanzplan (Kapitalbedarf) enthalten.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus WBQ1 (1.1–1.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche kartellrechtlichen Aspekte die NordWert Handels GmbH vor einer Übernahme der Ostsee Bürobedarf GmbH prüfen sollte und welche Behörde in Deutschland dafür zuständig ist.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte herausstellen, dass bei der Übernahme die Ostsee Bürobedarf GmbH ihre wirtschaftliche Selbständigkeit an NordWert verliert, während bei der Einkaufsgemeinschaft alle beteiligten Unternehmen rechtlich und wirtschaftlich vollständig selbständig bleiben. Teilaufgabe 2 sollte den horizontalen Charakter begründen, da beide Unternehmen auf derselben Wirtschaftsstufe im selben Marktsegment tätig sind. Teilaufgabe 3 sollte bei der Übernahme Argumente wie direkte Marktanteilsgewinne und volle Kontrolle gegen hohen Kapitaleinsatz und Integrationsaufwand abwägen, bei der Einkaufsgemeinschaft geringeren Kapitaleinsatz und Flexibilität gegen begrenzteren Effekt auf die Marktposition. Teilaufgabe 4 sollte die Prüfung möglicher Marktmachtkonzentration (Fusionskontrolle) durch das Bundeskartellamt nennen, insbesondere wenn durch die Übernahme eine marktbeherrschende Stellung entstehen könnte.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte herausstellen, dass bei der Übernahme die Ostsee Bürobedarf GmbH ihre wirtschaftliche Selbständigkeit an NordWert verliert, während bei der Einkaufsgemeinschaft alle beteiligten Unternehmen rechtlich und wirtschaftlich vollständig selbständig bleiben.
+Teilaufgabe 2 sollte den horizontalen Charakter begründen, da beide Unternehmen auf derselben Wirtschaftsstufe im selben Marktsegment tätig sind.
+Teilaufgabe 3 sollte bei der Übernahme Argumente wie direkte Marktanteilsgewinne und volle Kontrolle gegen hohen Kapitaleinsatz und Integrationsaufwand abwägen, bei der Einkaufsgemeinschaft geringeren Kapitaleinsatz und Flexibilität gegen begrenzteren Effekt auf die Marktposition.
+Teilaufgabe 4 sollte die Prüfung möglicher Marktmachtkonzentration (Fusionskontrolle) durch das Bundeskartellamt nennen, insbesondere wenn durch die Übernahme eine marktbeherrschende Stellung entstehen könnte.
 

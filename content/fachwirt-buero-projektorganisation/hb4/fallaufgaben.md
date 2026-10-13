@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob und wie eine Nutzwertanalyse bei der Auswahl künftiger Lieferanten sinnvoll eingesetzt werden könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Kosten- und Einkaufskennzahlen nennen (z. B. Kosten je Bestellvorgang, Lieferzeit, Reklamationsquote). Teilaufgabe 2 sollte Doppelbestellungen und fehlende Mengenrabatte durch Bündelung nennen. Teilaufgabe 3 sollte A-Güter als vorrangig zu steuernde Beschaffungsgüter nennen. Teilaufgabe 4 sollte gewichtete Kriterien wie Preis, Qualität, Nachhaltigkeit vorschlagen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Kosten- und Einkaufskennzahlen nennen (z. B. Kosten je Bestellvorgang, Lieferzeit, Reklamationsquote).
+Teilaufgabe 2 sollte Doppelbestellungen und fehlende Mengenrabatte durch Bündelung nennen.
+Teilaufgabe 3 sollte A-Güter als vorrangig zu steuernde Beschaffungsgüter nennen.
+Teilaufgabe 4 sollte gewichtete Kriterien wie Preis, Qualität, Nachhaltigkeit vorschlagen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welche Datenschutzaspekte bei der Einführung der neuen Software und bei der Dokumentation des Erfahrungswissens zu beachten sind.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte die fehlende Mehrplatzfähigkeit als zentrales Problem benennen. Teilaufgabe 2 sollte Ergonomie, Schnittstellen, Flexibilität, Kosten-Nutzen nennen. Teilaufgabe 3 sollte Story Telling, Wissenszirkel oder eine Wissenslandkarte vorschlagen. Teilaufgabe 4 sollte auf Zugriffsrechte und personenbezogene Daten eingehen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte die fehlende Mehrplatzfähigkeit als zentrales Problem benennen.
+Teilaufgabe 2 sollte Ergonomie, Schnittstellen, Flexibilität, Kosten-Nutzen nennen.
+Teilaufgabe 3 sollte Story Telling, Wissenszirkel oder eine Wissenslandkarte vorschlagen.
+Teilaufgabe 4 sollte auf Zugriffsrechte und personenbezogene Daten eingehen.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, wie sich die Einführung eines systematischen Wissensmanagements langfristig auf die Unternehmensziele auswirken könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Kosten-/Personalkennzahlen mit Wissensbilanz-Elementen kombinieren. Teilaufgabe 2 sollte ein zentrales Portal mit strukturierten Bereichen je Abteilung vorschlagen. Teilaufgabe 3 sollte Datenschutz und Vertraulichkeit gegen Zugänglichkeit abwägen. Teilaufgabe 4 sollte auf Innovationsfähigkeit und Wettbewerbsfähigkeit eingehen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Kosten-/Personalkennzahlen mit Wissensbilanz-Elementen kombinieren.
+Teilaufgabe 2 sollte ein zentrales Portal mit strukturierten Bereichen je Abteilung vorschlagen.
+Teilaufgabe 3 sollte Datenschutz und Vertraulichkeit gegen Zugänglichkeit abwägen.
+Teilaufgabe 4 sollte auf Innovationsfähigkeit und Wettbewerbsfähigkeit eingehen.

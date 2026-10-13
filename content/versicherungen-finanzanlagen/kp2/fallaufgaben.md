@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus KP2 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: erschaffen):** Entwerfen Sie ein kurzes Konzept, wie die Regionaldirektionsleitung mithilfe von Mitarbeitergesprächen und geeigneten Motivationsansätzen (Herzberg) das Team stärker einbinden könnte, um die Kundenzufriedenheit nachhaltig zu verbessern.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Stornoquote und Kundenzufriedenheit (Kundenperspektive der BSC) sowie ggf. die Schadenbearbeitungsdauer (interne Prozessperspektive) eingehen; eine hohe Stornoquote bei unauffälliger Neugeschäftsquote deutet eher auf Service- als auf Vertriebsprobleme hin. Teilaufgabe 2: Ein durchgängig autoritärer Stil passt beim situativen Führen nicht zu einem Team mit hohem Reifegrad — ein kooperativerer Stil wäre angemessener. Teilaufgabe 3: z. B. „Senkung der Stornoquote der Regionaldirektion Nord um X Prozentpunkte auf den Unternehmensdurchschnitt innerhalb der nächsten zwei Quartale." Teilaufgabe 4 sollte auf regelmäßige Feedbackgespräche, Einbindung des Teams in Entscheidungen sowie Motivatoren wie Verantwortung und Anerkennung statt reiner Hygienefaktoren eingehen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf Stornoquote und Kundenzufriedenheit (Kundenperspektive der BSC) sowie ggf. die Schadenbearbeitungsdauer (interne Prozessperspektive) eingehen; eine hohe Stornoquote bei unauffälliger Neugeschäftsquote deutet eher auf Service- als auf Vertriebsprobleme hin.
+Teilaufgabe 2: Ein durchgängig autoritärer Stil passt beim situativen Führen nicht zu einem Team mit hohem Reifegrad — ein kooperativerer Stil wäre angemessener.
+Teilaufgabe 3: z. B. „Senkung der Stornoquote der Regionaldirektion Nord um X Prozentpunkte auf den Unternehmensdurchschnitt innerhalb der nächsten zwei Quartale."
+Teilaufgabe 4 sollte auf regelmäßige Feedbackgespräche, Einbindung des Teams in Entscheidungen sowie Motivatoren wie Verantwortung und Anerkennung statt reiner Hygienefaktoren eingehen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus KP2 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Erläutern Sie, welche Kennzahl aus Thema 4.1 sich am besten eignet, um den Erfolg des neuen Schadenmanagement-Systems nach Projektabschluss zu messen, und begründen Sie Ihre Wahl.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Aufgrund der unternehmensweiten, kritischen Tragweite eignet sich am ehesten die reine Projektorganisation mit klarer, ungeteilter Weisungsbefugnis der Projektleitung; eine Matrix-Organisation birgt bei einem Projekt dieser Größenordnung ein höheres Konfliktrisiko durch doppelte Weisungsbeziehungen. Teilaufgabe 2: Anforderungsanalyse → Initiierung/Planung, Systementwicklung → Durchführung (früh), Pilotbetrieb → Durchführung (Testphase), Rollout → Durchführung (Abschluss)/Übergang zum Projektabschluss. Teilaufgabe 3: z. B. Verzögerung durch den IT-Dienstleister → Absichern (vertragliche Regelungen), Akzeptanzprobleme im Pilotbetrieb → Beobachten, kritischer Datenverlust bei der Migration → Vermeiden. Teilaufgabe 4: z. B. die durchschnittliche Schadenbearbeitungsdauer (interne Prozessperspektive der BSC), da sie das zentrale Projektziel unmittelbar abbildet.
+**Musterlösungshinweise:** Teilaufgabe 1: Aufgrund der unternehmensweiten, kritischen Tragweite eignet sich am ehesten die reine Projektorganisation mit klarer, ungeteilter Weisungsbefugnis der Projektleitung; eine Matrix-Organisation birgt bei einem Projekt dieser Größenordnung ein höheres Konfliktrisiko durch doppelte Weisungsbeziehungen.
+Teilaufgabe 2: Anforderungsanalyse → Initiierung/Planung, Systementwicklung → Durchführung (früh), Pilotbetrieb → Durchführung (Testphase), Rollout → Durchführung (Abschluss)/Übergang zum Projektabschluss.
+Teilaufgabe 3: z. B. Verzögerung durch den IT-Dienstleister → Absichern (vertragliche Regelungen), Akzeptanzprobleme im Pilotbetrieb → Beobachten, kritischer Datenverlust bei der Migration → Vermeiden.
+Teilaufgabe 4: z. B. die durchschnittliche Schadenbearbeitungsdauer (interne Prozessperspektive der BSC), da sie das zentrale Projektziel unmittelbar abbildet.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus KP2 (4.1–4.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwickeln Sie einen kurzen Vorbereitungsplan für die verbleibenden Monate bis zu Teil 1 der gestreckten Abschlussprüfung, der sowohl fachliche Wiederholung als auch die Stärkung der Selbstständigkeit des Auszubildenden berücksichtigt.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Die Unsicherheit deutet auf einen noch nicht ausreichend entwickelten Reifegrad für die eigenständige Fallbearbeitung hin (situatives Führen) sowie auf eine noch unvollständig aufgebaute berufliche Handlungskompetenz in diesem Teilbereich. Teilaufgabe 2: gezielte Wiederholung der Stufen Vormachen/Erklären und engmaschig begleitetes Nachmachen lassen, bevor zum selbstständigen Üben übergegangen wird. Teilaufgabe 3: Ein Fördergespräch ist vorrangig angebracht, da es gezielt Lernschwierigkeiten und individuelle Unterstützungsmaßnahmen behandelt, nicht nur punktuelles Feedback; auch die unregelmäßige Führung des Berichtshefts sollte offen angesprochen werden. Teilaufgabe 4 sollte konkrete Maßnahmen wie Probeklausuren, engmaschigere Betreuung in der Bestandsbearbeitung, regelmäßige kurze Feedback-Termine sowie eine schrittweise Rückführung zu mehr Eigenständigkeit enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Unsicherheit deutet auf einen noch nicht ausreichend entwickelten Reifegrad für die eigenständige Fallbearbeitung hin (situatives Führen) sowie auf eine noch unvollständig aufgebaute berufliche Handlungskompetenz in diesem Teilbereich.
+Teilaufgabe 2: gezielte Wiederholung der Stufen Vormachen/Erklären und engmaschig begleitetes Nachmachen lassen, bevor zum selbstständigen Üben übergegangen wird.
+Teilaufgabe 3: Ein Fördergespräch ist vorrangig angebracht, da es gezielt Lernschwierigkeiten und individuelle Unterstützungsmaßnahmen behandelt, nicht nur punktuelles Feedback; auch die unregelmäßige Führung des Berichtshefts sollte offen angesprochen werden.
+Teilaufgabe 4 sollte konkrete Maßnahmen wie Probeklausuren, engmaschigere Betreuung in der Bestandsbearbeitung, regelmäßige kurze Feedback-Termine sowie eine schrittweise Rückführung zu mehr Eigenständigkeit enthalten.

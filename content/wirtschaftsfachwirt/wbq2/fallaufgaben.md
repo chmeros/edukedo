@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen die Themen des Fachgebiets WBQ2 (Rechnungswesen) zu z
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Hausbank interessiert sich insbesondere für die Ertragslage. Beurteilen Sie, welche Bestandteile des Jahresabschlusses hierfür besonders aussagekräftig sind, und begründen Sie, welche zusätzlichen Pflichten (Prüfung, Offenlegung) sich für die NordWert Handels GmbH je nach Größenklasse ergeben können.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Formkaufmannseigenschaft der GmbH nach § 6 HGB und die auf Einzelkaufleute begrenzte Befreiung nach § 241a HGB eingehen. Teilaufgabe 2 sollte die Inventur als Vorgang, das Inventar als detailliertes Bestandsverzeichnis und die Bilanz als verdichtete, kontenmäßige Gegenüberstellung von Aktiva und Passiva unterscheiden. Teilaufgabe 3 sollte eine außerplanmäßige Abschreibung wegen dauerhafter Wertminderung erläutern, im Gegensatz zur planmäßigen linearen/degressiven Abschreibung über die Nutzungsdauer. Teilaufgabe 4 sollte auf die GuV als Grundlage der Ertragslagebeurteilung verweisen sowie auf die Größenklassen nach § 267 HGB und die damit verbundene Prüfungs- und Offenlegungspflicht.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Formkaufmannseigenschaft der GmbH nach § 6 HGB und die auf Einzelkaufleute begrenzte Befreiung nach § 241a HGB eingehen.
+Teilaufgabe 2 sollte die Inventur als Vorgang, das Inventar als detailliertes Bestandsverzeichnis und die Bilanz als verdichtete, kontenmäßige Gegenüberstellung von Aktiva und Passiva unterscheiden.
+Teilaufgabe 3 sollte eine außerplanmäßige Abschreibung wegen dauerhafter Wertminderung erläutern, im Gegensatz zur planmäßigen linearen/degressiven Abschreibung über die Nutzungsdauer.
+Teilaufgabe 4 sollte auf die GuV als Grundlage der Ertragslagebeurteilung verweisen sowie auf die Größenklassen nach § 267 HGB und die damit verbundene Prüfungs- und Offenlegungspflicht.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen die Themen des Fachgebiets WBQ2 (Rechnungswesen) zu z
 
 **Teilaufgabe 4 (5 Punkte, bloom: verstehen):** Erklären Sie, welche Rolle der Betriebsabrechnungsbogen (BAB) dabei spielt, die anteiligen fixen Kosten von 900 € je Auftrag überhaupt zu ermitteln.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Materialkosten sind dem Auftrag direkt zurechenbare Einzelkosten, Transportkosten variabel, Miete/Verwaltungsgehälter fixe Gemeinkosten. Teilaufgabe 2: Deckungsbeitrag = Erlös (4.000 €) − variable Kosten (2.200 € + 400 € = 2.600 €) = 1.400 €; er zeigt den Beitrag des Auftrags zur Fixkostendeckung und zum Gewinn. Teilaufgabe 3: Der Zusatzauftrag deckt mit 2.900 € die variablen Kosten von 2.600 € und liefert noch 300 € Deckungsbeitrag; bei freien Kapazitäten ist die Annahme trotz Preis unterhalb der Vollkosten (2.600 € + 900 € = 3.500 €) wirtschaftlich sinnvoll, sofern keine Verdrängung besser bezahlter Aufträge droht. Teilaufgabe 4: Der BAB verteilt die Gemeinkosten (u. a. über innerbetriebliche Leistungsverrechnung) auf die Kostenstellen und ermittelt daraus die Zuschlagssätze bzw. anteiligen Fixkosten je Auftrag.
+**Musterlösungshinweise:** Teilaufgabe 1: Materialkosten sind dem Auftrag direkt zurechenbare Einzelkosten, Transportkosten variabel, Miete/Verwaltungsgehälter fixe Gemeinkosten.
+Teilaufgabe 2: Deckungsbeitrag = Erlös (4.000 €) − variable Kosten (2.200 € + 400 € = 2.600 €) = 1.400 €; er zeigt den Beitrag des Auftrags zur Fixkostendeckung und zum Gewinn.
+Teilaufgabe 3: Der Zusatzauftrag deckt mit 2.900 € die variablen Kosten von 2.600 € und liefert noch 300 € Deckungsbeitrag; bei freien Kapazitäten ist die Annahme trotz Preis unterhalb der Vollkosten (2.600 € + 900 € = 3.500 €) wirtschaftlich sinnvoll, sofern keine Verdrängung besser bezahlter Aufträge droht.
+Teilaufgabe 4: Der BAB verteilt die Gemeinkosten (u. a. über innerbetriebliche Leistungsverrechnung) auf die Kostenstellen und ermittelt daraus die Zuschlagssätze bzw. anteiligen Fixkosten je Auftrag.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen die Themen des Fachgebiets WBQ2 (Rechnungswesen) zu z
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie zwei konkrete Maßnahmen, mit denen die NordWert Handels GmbH künftig auf ähnliche marktbedingte Preissteigerungen frühzeitiger reagieren könnte, bevor sie sich in einer größeren Budgetabweichung niederschlagen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Abweichung = 204.000 € − 180.000 € = 24.000 €, das entspricht rund 13,3 % — je nach unternehmensüblicher Toleranzgrenze (oft im niedrigen einstelligen bis niedrigen zweistelligen Prozentbereich) eindeutig kontrollwürdig. Teilaufgabe 2: Da die verbrauchte Menge planmäßig war, aber die Kosten stiegen, handelt es sich um eine Preisabweichung, was durch die gemeldete branchenweite Preissteigerung von rund 13 % (nahe der beobachteten Abweichung) gestützt wird. Teilaufgabe 3: Eine marktweite Preissteigerung ist von der Standortleitung nicht unmittelbar beeinflussbar; eine pauschale Sanktionierung wäre nicht sachgerecht, sinnvoller ist eine Anpassung der Budgetprämissen bzw. eine Prüfung, ob Einkaufskonditionen verbessert werden können. Teilaufgabe 4: Z. B. rollierende Planung mit unterjähriger Anpassung der Preisannahmen, engere Beobachtung von Rohstoffpreisindizes als Frühwarnkennzahl, langfristigere Lieferverträge mit Preisgleitklauseln oder Sammeleinkauf über mehrere Standorte.
+**Musterlösungshinweise:** Teilaufgabe 1: Abweichung = 204.000 € − 180.000 € = 24.000 €, das entspricht rund 13,3 % — je nach unternehmensüblicher Toleranzgrenze (oft im niedrigen einstelligen bis niedrigen zweistelligen Prozentbereich) eindeutig kontrollwürdig.
+Teilaufgabe 2: Da die verbrauchte Menge planmäßig war, aber die Kosten stiegen, handelt es sich um eine Preisabweichung, was durch die gemeldete branchenweite Preissteigerung von rund 13 % (nahe der beobachteten Abweichung) gestützt wird.
+Teilaufgabe 3: Eine marktweite Preissteigerung ist von der Standortleitung nicht unmittelbar beeinflussbar; eine pauschale Sanktionierung wäre nicht sachgerecht, sinnvoller ist eine Anpassung der Budgetprämissen bzw. eine Prüfung, ob Einkaufskonditionen verbessert werden können.
+Teilaufgabe 4: Z. B. rollierende Planung mit unterjähriger Anpassung der Preisannahmen, engere Beobachtung von Rohstoffpreisindizes als Frühwarnkennzahl, langfristigere Lieferverträge mit Preisgleitklauseln oder Sammeleinkauf über mehrere Standorte.

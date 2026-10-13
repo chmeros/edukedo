@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob für die Personalauswahl eher interne oder externe Beschaffungswege sinnvoll sind, wenn Ravelin gleichzeitig den bestehenden Objektbetreuer:innen am Standort Nord Entwicklungsperspektiven bieten möchte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Die Formulierung „jung" und „noch nicht in eingefahrenen Routinen feststeckend" deutet auf eine unzulässige Altersdiskriminierung hin; Risiko sind Entschädigungs-/Schadensersatzansprüche abgelehnter älterer Bewerbender nach dem AGG. Teilaufgabe 2: Sollte eine neutrale, diskriminierungsfreie Formulierung ohne Altersbezug enthalten, z. B. „Makler:in (m/w/d) mit Freude am Kundenkontakt". Teilaufgabe 3: Nach § 99 BetrVG hat der Betriebsrat bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden ein Mitbestimmungsrecht — die Einstellung ist ihm vor Vollzug mitzuteilen, seine Zustimmung ist erforderlich. Teilaufgabe 4: Eine Kombination ist sinnvoll — interne Entwicklung motivierter Objektbetreuer:innen in die Maklertätigkeit deckt einen Teil des Bedarfs und bietet Perspektiven, externe Beschaffung schließt die verbleibende Lücke und bringt zusätzliche Marktkenntnis.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Formulierung „jung" und „noch nicht in eingefahrenen Routinen feststeckend" deutet auf eine unzulässige Altersdiskriminierung hin; Risiko sind Entschädigungs-/Schadensersatzansprüche abgelehnter älterer Bewerbender nach dem AGG.
+Teilaufgabe 2: Sollte eine neutrale, diskriminierungsfreie Formulierung ohne Altersbezug enthalten, z. B. „Makler:in (m/w/d) mit Freude am Kundenkontakt".
+Teilaufgabe 3: Nach § 99 BetrVG hat der Betriebsrat bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden ein Mitbestimmungsrecht — die Einstellung ist ihm vor Vollzug mitzuteilen, seine Zustimmung ist erforderlich.
+Teilaufgabe 4: Eine Kombination ist sinnvoll — interne Entwicklung motivierter Objektbetreuer:innen in die Maklertätigkeit deckt einen Teil des Bedarfs und bietet Perspektiven, externe Beschaffung schließt die verbleibende Lücke und bringt zusätzliche Marktkenntnis.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Beurteilen Sie, wie ein systematisches Zeitmanagement nach der Eisenhower-Matrix den Objektbetreuer:innen helfen kann, langfristig auch wichtige, nicht dringende Aufgaben nicht zu vernachlässigen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Die Schnittstelle liegt beim Übergang eines Objekts von der Projektentwicklung in die Hausverwaltung; Ursache ist das Fehlen eines dokumentierten, verbindlichen Übergabeprozesses. Teilaufgabe 2: Sollte eine standardisierte Übergabecheckliste (Unterlagen, offene Mängel, Ansprechpartner), einen festen Übergabetermin sowie eine klar benannte verantwortliche Person je Seite enthalten. Teilaufgabe 3: Dringende Mängelmeldung → Sofort erledigen; vorausschauende Instandhaltungsplanung → Terminieren. Teilaufgabe 4: Die Matrix hilft, bewusst feste Zeitfenster für „wichtig, nicht dringend"-Aufgaben einzuplanen, statt sie dauerhaft von akuten Fällen verdrängen zu lassen — das verhindert langfristige Folgeprobleme durch unterlassene Instandhaltung.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Schnittstelle liegt beim Übergang eines Objekts von der Projektentwicklung in die Hausverwaltung; Ursache ist das Fehlen eines dokumentierten, verbindlichen Übergabeprozesses.
+Teilaufgabe 2: Sollte eine standardisierte Übergabecheckliste (Unterlagen, offene Mängel, Ansprechpartner), einen festen Übergabetermin sowie eine klar benannte verantwortliche Person je Seite enthalten.
+Teilaufgabe 3: Dringende Mängelmeldung → Sofort erledigen; vorausschauende Instandhaltungsplanung → Terminieren.
+Teilaufgabe 4: Die Matrix hilft, bewusst feste Zeitfenster für „wichtig, nicht dringend"-Aufgaben einzuplanen, statt sie dauerhaft von akuten Fällen verdrängen zu lassen — das verhindert langfristige Folgeprobleme durch unterlassene Instandhaltung.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welchen zusätzlichen Nutzen ein strukturiertes Mentoring-Programm für die neue Auszubildende am Standort Süd haben könnte, über die reine gesetzliche Ausbildungspflicht hinaus.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Fachliche Eignung allein genügt nicht — es fehlt der Nachweis der Ausbildereignung nach der AEVO, den die Ausbilderin vor Ausbildungsbeginn erwerben sollte. Teilaufgabe 2: Nach § 34c Abs. 2a GewO und § 15b MaBV müssen Wohnimmobilienverwalter:innen und die unmittelbar mitwirkenden Beschäftigten sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden; bei über zwei Jahren ohne Weiterbildung droht eine Fristüberschreitung innerhalb des laufenden Dreijahreszeitraums, was rechtliche Konsequenzen für die Erlaubnis nach sich ziehen kann. Teilaufgabe 3: Z. B. zentrale Dokumentation aller Fortbildungsnachweise mit automatischer Erinnerung vor Fristablauf, feste jährliche Fortbildungsbudgets je Mitarbeitendem. Teilaufgabe 4: Ein Mentoring-Programm kann über die reine Wissensvermittlung hinaus Orientierung, Motivation und eine schnellere Integration ins Team fördern und die spätere Übernahmechance sowie Mitarbeiterbindung erhöhen.
+**Musterlösungshinweise:** Teilaufgabe 1: Fachliche Eignung allein genügt nicht — es fehlt der Nachweis der Ausbildereignung nach der AEVO, den die Ausbilderin vor Ausbildungsbeginn erwerben sollte.
+Teilaufgabe 2: Nach § 34c Abs. 2a GewO und § 15b MaBV müssen Wohnimmobilienverwalter:innen und die unmittelbar mitwirkenden Beschäftigten sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden; bei über zwei Jahren ohne Weiterbildung droht eine Fristüberschreitung innerhalb des laufenden Dreijahreszeitraums, was rechtliche Konsequenzen für die Erlaubnis nach sich ziehen kann.
+Teilaufgabe 3: Z. B. zentrale Dokumentation aller Fortbildungsnachweise mit automatischer Erinnerung vor Fristablauf, feste jährliche Fortbildungsbudgets je Mitarbeitendem.
+Teilaufgabe 4: Ein Mentoring-Programm kann über die reine Wissensvermittlung hinaus Orientierung, Motivation und eine schnellere Integration ins Team fördern und die spätere Übernahmechance sowie Mitarbeiterbindung erhöhen.
 

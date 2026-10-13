@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ5 (5.1–5.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Schlagen Sie eine passende Personalentwicklungsmaßnahme vor, mit der der Sachbearbeiter seine schriftliche Kommunikationskompetenz gezielt verbessern kann, und begründen Sie Ihre Wahl im Vergleich zu mindestens einer Alternative.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Vorbereitung mit konkreten Beispiel-E-Mails, wertschätzende Eröffnung, sachliche Schilderung, aktives Zuhören, gemeinsame Lösungssuche und eine dokumentierte Vereinbarung umfassen. Teilaufgabe 2 sollte auf Sachebene (fehlende Information), Selbstoffenbarung (möglicher Zeitdruck des Sachbearbeiters), Beziehungsebene (Kunde könnte Desinteresse vermuten) und Appellebene eingehen. Teilaufgabe 3 sollte konkrete, verhaltensbezogene Formulierungen statt pauschaler Werturteile enthalten. Teilaufgabe 4 sollte z. B. ein gezieltes Schreibtraining (Off-the-job) gegenüber Job Rotation oder reinem Coaching abwägen und die Wahl nachvollziehbar begründen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Vorbereitung mit konkreten Beispiel-E-Mails, wertschätzende Eröffnung, sachliche Schilderung, aktives Zuhören, gemeinsame Lösungssuche und eine dokumentierte Vereinbarung umfassen.
+Teilaufgabe 2 sollte auf Sachebene (fehlende Information), Selbstoffenbarung (möglicher Zeitdruck des Sachbearbeiters), Beziehungsebene (Kunde könnte Desinteresse vermuten) und Appellebene eingehen.
+Teilaufgabe 3 sollte konkrete, verhaltensbezogene Formulierungen statt pauschaler Werturteile enthalten.
+Teilaufgabe 4 sollte z. B. ein gezieltes Schreibtraining (Off-the-job) gegenüber Job Rotation oder reinem Coaching abwägen und die Wahl nachvollziehbar begründen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ5 (5.1–5.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie ein kurzes Konzept für ein moderiertes Klärungsgespräch zwischen Lagerleitung und Vertriebsinnendienst, das sowohl die kurzfristige Sachfrage (Priorisierung von Eilaufträgen) als auch die entstandene Beziehungsspannung adressiert.
 
-**Musterlösungshinweise:** Teilaufgabe 1: primär Sach-/Verteilungskonflikt um Kapazitäten und Priorisierung, mit sich andeutendem Beziehungskonflikt (gegenseitige Vorwürfe). Teilaufgabe 2: fortgeschrittene Stufe, erkennbar an wiederholter kontroverser Diskussion und pauschalisierenden Formulierungen einzelner Mitarbeitender. Teilaufgabe 3: z. B. Durchsetzen durch klare Vorgabe der Geschäftsführung versus kooperative Erarbeitung eines gemeinsamen Priorisierungsverfahrens, mit Abwägung von Geschwindigkeit versus Nachhaltigkeit. Teilaufgabe 4 sollte neutrale Moderation, getrennte Darstellung beider Sichtweisen, Herausarbeiten der zugrunde liegenden Interessen (z. B. Kundenzufriedenheit versus Planungssicherheit) und eine gemeinsam erarbeitete, dokumentierte Vereinbarung enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1: primär Sach-/Verteilungskonflikt um Kapazitäten und Priorisierung, mit sich andeutendem Beziehungskonflikt (gegenseitige Vorwürfe).
+Teilaufgabe 2: fortgeschrittene Stufe, erkennbar an wiederholter kontroverser Diskussion und pauschalisierenden Formulierungen einzelner Mitarbeitender.
+Teilaufgabe 3: z. B. Durchsetzen durch klare Vorgabe der Geschäftsführung versus kooperative Erarbeitung eines gemeinsamen Priorisierungsverfahrens, mit Abwägung von Geschwindigkeit versus Nachhaltigkeit.
+Teilaufgabe 4 sollte neutrale Moderation, getrennte Darstellung beider Sichtweisen, Herausarbeiten der zugrunde liegenden Interessen (z. B. Kundenzufriedenheit versus Planungssicherheit) und eine gemeinsam erarbeitete, dokumentierte Vereinbarung enthalten.
 
 ---
 
@@ -64,5 +70,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HSQ5 (5.1–5.4) zu einer zusammen
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, wie Sie die Mitarbeit der Auszubildenden im Workshop gezielt als Fördermaßnahme nutzen und welches Personalentwicklungsinstrument dabei zum Tragen kommt.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Kartenabfrage vor der Plenumsdiskussion, Redezeitregeln, bewusstes Einbeziehen zurückhaltender Teilnehmender, Visualisierung aller Beiträge. Teilaufgabe 2: Einleitung mit Ausgangslage/Nutzen, Hauptteil mit Vorgehen und priorisierten Anforderungen, Schluss mit Handlungsempfehlung und Überleitung zur Fragerunde. Teilaufgabe 3: Frage aufmerksam zu Ende hören, ggf. Rückfrage zur Klärung, offen benennen, welcher Teil noch nicht abschließend geklärt ist, verbindliche Nachlieferung der fehlenden Information zusagen, statt auszuweichen. Teilaufgabe 4: Projektarbeit als Near-the-job-Maßnahme der Personalentwicklung, verbunden mit konkreten eigenverantwortlichen Teilaufgaben und anschließendem Feedbackgespräch zur Reflexion des Gelernten.
+**Musterlösungshinweise:** Teilaufgabe 1: Kartenabfrage vor der Plenumsdiskussion, Redezeitregeln, bewusstes Einbeziehen zurückhaltender Teilnehmender, Visualisierung aller Beiträge.
+Teilaufgabe 2: Einleitung mit Ausgangslage/Nutzen, Hauptteil mit Vorgehen und priorisierten Anforderungen, Schluss mit Handlungsempfehlung und Überleitung zur Fragerunde.
+Teilaufgabe 3: Frage aufmerksam zu Ende hören, ggf. Rückfrage zur Klärung, offen benennen, welcher Teil noch nicht abschließend geklärt ist, verbindliche Nachlieferung der fehlenden Information zusagen, statt auszuweichen.
+Teilaufgabe 4: Projektarbeit als Near-the-job-Maßnahme der Personalentwicklung, verbunden mit konkreten eigenverantwortlichen Teilaufgaben und anschließendem Feedbackgespräch zur Reflexion des Gelernten.
 

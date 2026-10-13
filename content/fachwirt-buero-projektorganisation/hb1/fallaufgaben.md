@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob in dieser Situation ein eher klassisches oder ein eher agiles Projektvorgehen sinnvoller wäre, und begründen Sie Ihre Einschätzung.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf fehlende Meldewege bzw. unklare Zuständigkeiten zwischen den Abteilungen eingehen. Teilaufgabe 2 könnte feste Statusmeetings, ein gemeinsames Projektmanagement-Tool oder klar benannte Ansprechpersonen je Abteilung nennen. Teilaufgabe 3 sollte den Bezug zur Auftragsklärung (1.3.1) herstellen. Teilaufgabe 4 sollte Kriterien wie Planungssicherheit vs. sich änderende Anforderungen abwägen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf fehlende Meldewege bzw. unklare Zuständigkeiten zwischen den Abteilungen eingehen.
+Teilaufgabe 2 könnte feste Statusmeetings, ein gemeinsames Projektmanagement-Tool oder klar benannte Ansprechpersonen je Abteilung nennen.
+Teilaufgabe 3 sollte den Bezug zur Auftragsklärung (1.3.1) herstellen.
+Teilaufgabe 4 sollte Kriterien wie Planungssicherheit vs. sich änderende Anforderungen abwägen.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Beurteilen Sie, welchen Beitrag ein kontinuierlicher Verbesserungsprozess (KVP) langfristig zur Lösung beider geschilderten Probleme leisten könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Sichtbarmachung von Engpässen/Doppelarbeit im Ablaufplan eingehen. Teilaufgabe 2 sollte die Kategorisierung von Beschwerdegründen nennen. Teilaufgabe 3 sollte "dringend & nicht wichtig → delegieren/feste Zeitfenster" als Lösungsansatz nennen. Teilaufgabe 4 sollte KVP als fortlaufenden, kleinschrittigen statt einmaligen Ansatz einordnen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte auf die Sichtbarmachung von Engpässen/Doppelarbeit im Ablaufplan eingehen.
+Teilaufgabe 2 sollte die Kategorisierung von Beschwerdegründen nennen.
+Teilaufgabe 3 sollte "dringend & nicht wichtig → delegieren/feste Zeitfenster" als Lösungsansatz nennen.
+Teilaufgabe 4 sollte KVP als fortlaufenden, kleinschrittigen statt einmaligen Ansatz einordnen.
 
 ---
 
@@ -64,4 +70,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: erinnern):** Nennen Sie, welche Bestandteile eine vollständige Projektdokumentation für dieses Projekt enthalten sollte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Plan-Ist-Vergleiche/Statusberichte nennen. Teilaufgabe 2 sollte die Unterscheidung zwischen Einzelfall und Muster begründen. Teilaufgabe 3 könnte einen standardisierten Beschaffungsprozess mit festen Freigabeschwellen vorschlagen. Teilaufgabe 4 sollte Präsentationsunterlagen, Entscheidungs- und Änderungsdokumentation nennen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Plan-Ist-Vergleiche/Statusberichte nennen.
+Teilaufgabe 2 sollte die Unterscheidung zwischen Einzelfall und Muster begründen.
+Teilaufgabe 3 könnte einen standardisierten Beschaffungsprozess mit festen Freigabeschwellen vorschlagen.
+Teilaufgabe 4 sollte Präsentationsunterlagen, Entscheidungs- und Änderungsdokumentation nennen.

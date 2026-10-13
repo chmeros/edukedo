@@ -28,7 +28,10 @@ Diese Aufgaben verknüpfen die Themen 8.1 bis 8.3 aus HQ1 zu einer zusammenhäng
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie einen kurzen Maßnahmenplan (mindestens drei Maßnahmen), mit dem Vantera die gestiegene Nachfrage des Automobilherstellers trotz der Lieferengpässe beim Spezialstahl bestmöglich bedienen kann.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Situationsanalyse, Aktualisierung der Absatzprognose unter Einbeziehung der Kundenankündigung sowie Ableitung angepasster Absatzziele und Vertriebsmaßnahmen nennen. Teilaufgabe 2 sollte den Spezialstahl aufgrund seines hohen Wertanteils als A-Teil einordnen und die sorgfältige Einzeldisposition mit der hohen Bedeutung für Versorgungssicherheit und Kosten begründen. Teilaufgabe 3 sollte als Chance die geringere Abhängigkeit und höhere Versorgungssicherheit nennen, als Risiko den höheren Koordinationsaufwand und ggf. schlechtere Einzelkonditionen durch geteilte Abnahmemengen. Teilaufgabe 4 sollte plausible Maßnahmen wie frühzeitige Bedarfsabstimmung mit dem Lieferanten, Prüfung alternativer Lieferanten, Anpassung des Sicherheitsbestands oder gestaffelte Lieferzusagen an den Kunden enthalten.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Situationsanalyse, Aktualisierung der Absatzprognose unter Einbeziehung der Kundenankündigung sowie Ableitung angepasster Absatzziele und Vertriebsmaßnahmen nennen.
+Teilaufgabe 2 sollte den Spezialstahl aufgrund seines hohen Wertanteils als A-Teil einordnen und die sorgfältige Einzeldisposition mit der hohen Bedeutung für Versorgungssicherheit und Kosten begründen.
+Teilaufgabe 3 sollte als Chance die geringere Abhängigkeit und höhere Versorgungssicherheit nennen, als Risiko den höheren Koordinationsaufwand und ggf. schlechtere Einzelkonditionen durch geteilte Abnahmemengen.
+Teilaufgabe 4 sollte plausible Maßnahmen wie frühzeitige Bedarfsabstimmung mit dem Lieferanten, Prüfung alternativer Lieferanten, Anpassung des Sicherheitsbestands oder gestaffelte Lieferzusagen an den Kunden enthalten.
 
 ---
 
@@ -46,7 +49,10 @@ Diese Aufgaben verknüpfen die Themen 8.1 bis 8.3 aus HQ1 zu einer zusammenhäng
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob eine Umstellung auf Just-in-Time-Anlieferung des Aluminiumhalbzeugs die geschilderten Probleme lösen würde, oder ob dies eher zusätzliche Risiken schaffen könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte den Nachteil (feste Plätze reichen bei Mengenspitzen nicht aus bzw. bleiben bei geringem Bedarf ungenutzt) benennen und ein chaotisches Lagersystem mit IT-gestützter Platzverwaltung als Alternative vorschlagen. Teilaufgabe 2 sollte erläutern, dass der Meldebestand die Wiederbeschaffungszeit zuzüglich Sicherheitsbestand abdecken muss, und dass bei schwankenden Lieferzeiten ein höherer Sicherheitsbestand sinnvoll ist. Teilaufgabe 3 sollte den Zusammenhang herstellen, dass verzögerter Wareneingang die gesamte Durchlaufzeit verlängert und dadurch die Einhaltung zugesagter Liefertermine (Liefertreue) gegenüber den Kunden gefährdet. Teilaufgabe 4 sollte kritisch abwägen: Just-in-Time würde die Lagerbestände weiter reduzieren, setzt aber eine noch zuverlässigere Anlieferung voraus — bei den bestehenden Wareneingangsproblemen eher risikoerhöhend, solange diese nicht zuerst behoben sind.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte den Nachteil (feste Plätze reichen bei Mengenspitzen nicht aus bzw. bleiben bei geringem Bedarf ungenutzt) benennen und ein chaotisches Lagersystem mit IT-gestützter Platzverwaltung als Alternative vorschlagen.
+Teilaufgabe 2 sollte erläutern, dass der Meldebestand die Wiederbeschaffungszeit zuzüglich Sicherheitsbestand abdecken muss, und dass bei schwankenden Lieferzeiten ein höherer Sicherheitsbestand sinnvoll ist.
+Teilaufgabe 3 sollte den Zusammenhang herstellen, dass verzögerter Wareneingang die gesamte Durchlaufzeit verlängert und dadurch die Einhaltung zugesagter Liefertermine (Liefertreue) gegenüber den Kunden gefährdet.
+Teilaufgabe 4 sollte kritisch abwägen: Just-in-Time würde die Lagerbestände weiter reduzieren, setzt aber eine noch zuverlässigere Anlieferung voraus — bei den bestehenden Wareneingangsproblemen eher risikoerhöhend, solange diese nicht zuerst behoben sind.
 
 ---
 
@@ -64,7 +70,10 @@ Diese Aufgaben verknüpfen die Themen 8.1 bis 8.3 aus HQ1 zu einer zusammenhäng
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Der Kunde fragt an, ob Vantera künftig auf eine Just-in-Sequence-Anlieferung direkt an seine Montagelinie umstellen könnte. Bewerten Sie, welche Voraussetzungen dafür bei Vantera und in der Zusammenarbeit mit dem Kunden gegeben sein müssten.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte angesichts kurzer Vorlaufzeit, kleiner Mengen und enger zeitlicher Abstimmung mit der Montagelinie den Straßentransport als flexibelsten Verkehrsträger empfehlen. Teilaufgabe 2 sollte erläutern, dass Incoterms den Übergang von Kosten und Transportrisiko zwischen Vantera und dem italienischen Kunden sowie Zuständigkeiten für Transport, Versicherung und Zollformalitäten regeln. Teilaufgabe 3 sollte herausstellen, dass ein Rahmenvertrag Grundkonditionen (Preise, Qualität, Lieferbedingungen) einmalig festlegt und dadurch wiederkehrende Einzelverhandlungen sowie Verwaltungsaufwand bei den kleineren, regelmäßigen Abrufen vermeidet. Teilaufgabe 4 sollte als Voraussetzungen eine sehr zuverlässige Transportlogistik, enge IT-Anbindung zwischen den Auftragssystemen beider Unternehmen und eine hohe Prozessstabilität bei Vantera nennen, da Störungen bei Just-in-Sequence unmittelbar die Montagelinie des Kunden beeinträchtigen würden.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte angesichts kurzer Vorlaufzeit, kleiner Mengen und enger zeitlicher Abstimmung mit der Montagelinie den Straßentransport als flexibelsten Verkehrsträger empfehlen.
+Teilaufgabe 2 sollte erläutern, dass Incoterms den Übergang von Kosten und Transportrisiko zwischen Vantera und dem italienischen Kunden sowie Zuständigkeiten für Transport, Versicherung und Zollformalitäten regeln.
+Teilaufgabe 3 sollte herausstellen, dass ein Rahmenvertrag Grundkonditionen (Preise, Qualität, Lieferbedingungen) einmalig festlegt und dadurch wiederkehrende Einzelverhandlungen sowie Verwaltungsaufwand bei den kleineren, regelmäßigen Abrufen vermeidet.
+Teilaufgabe 4 sollte als Voraussetzungen eine sehr zuverlässige Transportlogistik, enge IT-Anbindung zwischen den Auftragssystemen beider Unternehmen und eine hohe Prozessstabilität bei Vantera nennen, da Störungen bei Just-in-Sequence unmittelbar die Montagelinie des Kunden beeinträchtigen würden.
 
 ---
 
