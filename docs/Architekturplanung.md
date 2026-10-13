@@ -569,6 +569,15 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (P8: zwei zurückgestellte Theorie-Lücken geschlossen; Auftrag des Projektleiters, rechtsnah R4)
+
+Anlass: „Ja, die Theorie-Lücken aus P8 schließen.“ Die Aufgabenprüfung hatte zwei Lücken gefunden, die ich diesmal am Gesetzestext selbst gegengelesen habe (gesetze-im-internet.de, Stand 13.10.2026). KI-gestützt, förmliche Rechtsprüfung weiter offen.
+
+- **11.4 Vertragsabfassung (§ 11 Abs. 1 BBiG):** Die Mindestinhalte sind jetzt vollständig (zwölf Punkte): zusätzlich Name und Anschrift der Beteiligten (bei Minderjährigen der gesetzlichen Vertreter:innen), Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte und die Zusammensetzung der Vergütung bei mehreren Bestandteilen; „Zahlung und Höhe“ statt „Höhe“; Hinweis auf Tarifverträge, Betriebs- und Dienstvereinbarungen „in allgemeiner Form“.
+- **7.4 und 10.3 befähigte Person (§ 15 Abs. 3 BetrSichV):** Neben „wo der Anhang 2 es vorsieht“ steht jetzt, dass eine befähigte Person auch alle Prüfungen nach prüfpflichtigen Änderungen durchführen darf, die weder Bauart noch Betriebsweise beeinflussen, und (außer bei Dampfkesselanlagen) die Prüfungen ortsveränderlicher Anlagen am neuen Standort. Angepasst sind die Theorie in 7.4 und 10.3, K-10.3-42 und Q-10.3-37 (ZÜS-Paar: „soweit die Verordnung nicht eine befähigte Person genügen lässt“). Die Aufgaben und Fallaufgaben zu 7.2 und 7.4 sind bereits mit „wo die Verordnung es vorsieht“ formuliert und bleiben richtig.
+- **Import und Prüfung:** `db:validate-content` 0 Verstöße, Import: 5 geändert (Theorie 11.4, 7.4, 10.3, K-10.3-42, Q-10.3-37), 0 neu, zweiter Trockenlauf unverändert; `src/db`-Tests und die Integrationstests zu Kursinhalt und Fachgespräch grün.
+- **Damit erledigt:** Beide Punkte aus „Offen (aus den Entwürfen)“ im Eintrag zum Einspielen von Fachgespräch und Fallaufgaben. Weiter offen aus P8: Mutterschutz und Mindestlohn bei Akkord (F-HQ2-07), förmliche Rechtsprüfung, Wiedervorlage 21.01.2027.
+
 ### Entschieden am 13.10.2026 (Zweitlesung: mittlere Befunde und niedrige Präzisierungen eingearbeitet; Auftrag des Projektleiters)
 
 Anlass: „Ja, die mittleren Befunde und die niedrigen Präzisierungen einarbeiten.“ Vier Agenten arbeiteten je einen Bericht der Zweitlesung in `content/` ein (Protokolle: `docs/entwuerfe/zweitlesung-umsetzung-rechnungswesen.md`, `-tq1-tq2.md`, `-tq3.md`, `-hq.md`); die Hauptsitzung validierte, importierte und prüfte Stichproben. Karten- und Quiz-IDs sind unverändert.
