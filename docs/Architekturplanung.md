@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 13.10.2026 (Browser-Durchgang zu den neuen Technischer-Fachwirt-Inhalten: zwei Anzeigefehler behoben)
+
+Anlass: Der Projektleiter ließ die am 13.10.2026 eingespielten Inhalte (Theorie, Quiz, Fallaufgaben mit Musterlösungen und Halbpunkten) im Browser durchsehen (Wegwerf-Konto auf localhost, danach samt Daten gelöscht).
+
+- **Geprüft und in Ordnung:** neues Quiz mit Kurzantwort (200.000 wird als richtig gewertet, Erklärung lesbar), Theorie-Seitenpanel (10.1 Regelkarte mit ±3 s/√n, 2.2 mit drei Tabellen), Prüfungsmodus mit elf Fallaufgaben (Zeilenumbrüche je Teilaufgabe in der Musterlösung, Tabellen als scrollbare Festbreitenblöcke, Halbpunkte 0,5 werden angenommen und gespeichert; `exam_answer.points` ist `real`), Handybreite (375 px) und Dark Mode ohne Seiten-Scrollen.
+- **Fehler 1, Theorie-Tabellen:** `.theorie-text` setzt `overflow-wrap: anywhere`; dadurch schrumpfte die Mindestbreite der Tabellenspalten auf ein Zeichen und Beträge brachen mitten in der Zahl um („2.000,/00 €“). Behoben mit `overflow-wrap: break-word` für `.theorie-text table` (`styles.css`); breite Tabellen scrollen im Wrapper `.theorie-tabelle`. Offen (kosmetisch): das „€“ kann im schmalen Panel in die nächste Zeile rutschen.
+- **Fehler 2, Dezimalpunkt:** Die Selbsteinschätzung zeigte „2.5 von 20 Punkten“. `Exam.tsx` formatiert Punkte jetzt mit `formatPoints` (`toLocaleString("de-DE")`, „2,5“) in der Selbsteinschätzung, der KI-Auswertung und dem Prüfungsergebnis (Hausregel Dezimalkomma).
+- **Beobachtung, nicht geändert:** Nur die neuen Fallaufgaben HQ1 und HQ2 haben mehrzeilige Musterlösungen; HQ3, HQ4, TQ, WQ und der Bestand sind jeweils ein Absatz von 3.000 bis 5.000 Zeichen. Lesbar, aber ein langer Textblock; Zeilenumbrüche je Teilaufgabe wären eine mögliche spätere Verbesserung (Inhaltsänderung, daher nur nach Entscheidung des Projektleiters).
+- **Tests:** `tsc` sauber, 188 Web-Tests grün; Import-Trockenlauf unverändert (16.660 Items).
+
 ### Entschieden am 13.10.2026 (Technischer Fachwirt: 24 Fallaufgaben zu den Abschnitten aus P1 bis P6 eingespielt (P7), unabhängig geprüft; Entscheidung des Projektleiters, R3)
 
 Anlass: Der Projektleiter ließ am 13.10.2026 mit „Machen wir weiter“ den am Vortag vorgelegten Plan für die Fallaufgaben umsetzen. Die Entwürfe `docs/entwuerfe/tf-p7-fallaufgaben/*.md` wurden von vier Agenten geschrieben und von vier unabhängigen Prüf-Agenten gegengelesen (Berichte `docs/entwuerfe/pruefung-p7-fall-*.md`: 102 Befunde, alle Rechnungen stimmten; häufigste Mängel waren fehlende Angaben in der Ausgangssituation, widersprüchliche Annahmen und nicht einzeln lösbare Teilaufgaben, die korrigiert wurden). Die geteilte Aufgabe wurde nachgeprüft (17 Befunde, 0 hoch). Die fachliche Prüfung durch Fachlehrkräfte steht aus.

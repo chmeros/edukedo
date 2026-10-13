@@ -76,8 +76,8 @@ function AiGradingRow({ sessionId, contentItemId, aiGradingEnabled }: { sessionI
             {result.data.parts.map((part, index) => (
               <div key={index} className="exam-ai-grading-part">
                 <p className="exam-ai-grading-part-heading">
-                  <b>Teilaufgabe {index + 1}:</b> {part.aiPoints} von {part.maxPoints} Punkten (KI-Vorschlag) · Deine
-                  Selbsteinschätzung: {part.selfAssessedPoints} von {part.maxPoints} Punkten
+                  <b>Teilaufgabe {index + 1}:</b> {formatPoints(part.aiPoints)} von {formatPoints(part.maxPoints)} Punkten (KI-Vorschlag) ·
+                  Deine Selbsteinschätzung: {formatPoints(part.selfAssessedPoints)} von {formatPoints(part.maxPoints)} Punkten
                 </p>
                 <p className="exam-ai-grading-answer">
                   <b>Deine Antwort:</b> {part.answerText || "(keine Antwort eingereicht)"}
@@ -101,6 +101,11 @@ type ExamItem = {
 };
 
 const DURATION_PRESETS_MINUTES = [30, 60, 90, 600];
+
+/** Punkte mit Dezimalkomma („2,5“): die Selbsteinschätzung erlaubt Halbpunkte (step 0,5). */
+function formatPoints(points: number): string {
+  return points.toLocaleString("de-DE");
+}
 
 /** Review UXT-B-10: deutsche Schreibweise mit Komma („1,5 Std.“), nicht „1.5 Std.“. */
 function formatDuration(minutes: number): string {
@@ -268,7 +273,7 @@ function ExamFallaufgabeStep({
             </div>
           )}
           <div className="due-count">
-            Selbst eingeschätzt: <b>{totalPoints}</b> von {maxPoints} Punkten
+            Selbst eingeschätzt: <b>{formatPoints(totalPoints)}</b> von {formatPoints(maxPoints)} Punkten
           </div>
           <button
             type="button"
@@ -441,7 +446,7 @@ export function Exam({ kursId }: { kursId: string }) {
         <div className="alert alert-success">
           <SuccessIcon />
           <div>
-            Prüfung abgeschlossen — Selbsteinschätzung: {result.achievedPoints} von {result.maxPoints} Punkten (
+            Prüfung abgeschlossen — Selbsteinschätzung: {formatPoints(result.achievedPoints)} von {formatPoints(result.maxPoints)} Punkten (
             {result.score} %). Diese Punktzahl beruht auf deiner eigenen Einschätzung je Teilaufgabe, nicht auf einer
             objektiven Korrektur.
           </div>
