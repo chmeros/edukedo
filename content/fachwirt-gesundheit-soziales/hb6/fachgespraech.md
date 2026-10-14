@@ -132,3 +132,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Praxis sollten sich Werbeaussagen strikt auf nachweisbare, sachliche Informationen stützen, sowohl aus rechtlichen als auch aus ethischen Gründen.
   - Rückfrage: Was kann eine Berufsordnung zur Außendarstellung einer Berufsgruppe vorsehen?
 
+### 6.4 Sozialmarketing, Fundraising und Marketing-Controlling
+
+- Worin unterscheidet sich das Marketing eines gemeinnützigen Pflegedienstes vom Marketing eines Wirtschaftsunternehmens?
+  - Erwartung: Im Vordergrund steht das Sachziel, also der soziale Zweck wie die bedarfsgerechte Versorgung; Überschüsse sichern die Einrichtung, sind aber Mittel und nicht Zweck.
+  - Erwartung: Empfangende, Entscheidende und Zahlende sind oft verschiedene Gruppen: Klient:innen, Angehörige, Kostenträger, Spender:innen und Fördermittelgeber.
+  - Erwartung: Die Einrichtung wirbt auf zwei Märkten, auf der Leistungsseite um Klient:innen und auf der Ressourcenseite um Spenden, Fördermittel, Ehrenamtliche und Fachkräfte.
+  - Erwartung: Pflegeleistungen sind Vertrauensgüter; Glaubwürdigkeit, Transparenz und der Nachweis von Wirkungen (Output, Outcome, Impact) sind deshalb besonders wichtig.
+  - Erwartung: Es gelten enge ethische Grenzen, z. B. keine bloßstellenden Bilder und Einwilligung für Fotos und Geschichten betreuter Menschen.
+  - Rückfrage: Was versteht man dagegen unter Social Marketing im engeren Sinn?
+- Wie würden Sie das Fundraising für ein Angebot aufbauen, das die Kostenträger nicht vergüten, etwa einen ehrenamtlichen Besuchsdienst?
+  - Erwartung: Infrage kommen Spenden, Mitgliedsbeiträge, Stiftungsmittel, Sponsoring, öffentliche Zuwendungen (Fördermittel) sowie Nachlässe und Vermächtnisse; sie unterscheiden sich in Gegenleistung, Zweckbindung und Nachweispflichten.
+  - Erwartung: Eine Spende wird ohne Gegenleistung gegeben, Sponsoring gegen eine werbliche Gegenleistung mit Vertrag; eine Zuwendung der öffentlichen Hand verlangt Antrag, Zweckbindung und Verwendungsnachweis.
+  - Erwartung: Der Spendenzyklus umfasst Gewinnen, Danken, Binden und Zurückgewinnen; die Spender:innen-Pyramide reicht von Interessent:innen über Erst- und Dauerspender:innen bis zu Groß- und Testamentsspender:innen.
+  - Erwartung: Zeitnaher, persönlicher Dank, Berichte über die Verwendung und Transparenz über die Kosten binden Spender:innen; zweckgebundene Spenden werden nur für den genannten Zweck verwendet.
+  - Erwartung: Klient:innen werden in der Pflegesituation nicht um Spenden gebeten, und Sponsoren, an die die Einrichtung Klient:innen vermitteln könnte, gefährden die Unabhängigkeit; rechtliche Fragen zu Spenden und Sponsoring werden mit Fachleuten geklärt.
+  - Rückfrage: Warum lohnt es sich erfahrungsgemäß, mehr in die Bindung bestehender Spender:innen zu investieren als in die Neugewinnung?
+- Mit welchen Kennzahlen kontrollieren Sie den Erfolg von Marketing- und Fundraising-Maßnahmen, und wo liegen die Grenzen dieser Kennzahlen?
+  - Erwartung: Für eine Spendenaktion eignen sich Spendenertrag und Nettoertrag, Rücklaufquote (Spenden ÷ Angesprochene × 100), durchschnittliche Spendenhöhe (Ertrag ÷ Zahl der Spenden) und Kosten je Spendeneuro (Kosten ÷ Spendenertrag).
+  - Erwartung: Für die Bindung eignen sich die Spender:innen-Bindungsquote und die Rückgewinnungsquote; für psychografische Ziele der gestützte oder ungestützte Bekanntheitsgrad und die Zufriedenheit aus Befragungen; auf der Leistungsseite z. B. die Auslastungsquote aus dem Controlling.
+  - Erwartung: Im Soll-Ist-Vergleich werden Abweichung (Ist − Soll) und relative Abweichung ((Ist − Soll) ÷ Soll × 100) ermittelt und die Ursachen untersucht; Unterschiede zwischen Quoten werden in Prozentpunkten angegeben.
+  - Erwartung: Grenzen: Erfolge lassen sich oft nicht einer einzelnen Maßnahme zurechnen, manche Wirkungen zeigen sich erst nach Jahren, Kosten je Spendeneuro sind nur bei gleichartigen Aktionen vergleichbar, und Kennzahlen dürfen die ethischen Grenzen nicht verdrängen.
+  - Rückfrage: Die Bekanntheit steigt von 30 % auf 36 %. Wie geben Sie diese Veränderung richtig an?

@@ -45,6 +45,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Dynamische Verfahren berücksichtigen den Zeitpunkt der Zahlungen und damit den Zinseffekt, statische Verfahren nicht.
   - Erwartung: Dynamische Verfahren kommen bei größeren oder mehrjährigen Projekten zum Einsatz.
   - Rückfrage: Was sagt ein positiver Kapitalwert über eine Investition aus?
+- Erläutern Sie das Residualwertverfahren, und beschreiben Sie, wie die Bauträgersparte es bei der Grundstücksakquise einsetzt.
+  - Erwartung: Das Verfahren rechnet rückwärts: Verkaufserlös − Baukosten − Baunebenkosten − Vertriebskosten − Finanzierungskosten − Bauträgergewinn einschließlich Risikozuschlag = Residualwert, also die tragbaren Grundstückskosten einschließlich Erwerbsnebenkosten.
+  - Erwartung: Der tragbare Kaufpreis ergibt sich als Residualwert ÷ (1 + Erwerbsnebenkostensatz), weil die Nebenkosten auf den Kaufpreis berechnet werden.
+  - Erwartung: Der Gewinn ist eine Vorgabe; die Projektkalkulation rechnet dieselbe Beziehung in umgekehrter Richtung und ermittelt den Gewinn bei gegebenem Grundstückspreis.
+  - Erwartung: Das Ergebnis dient in Machbarkeitsstudie und Kaufpreisverhandlung als Preisobergrenze, wird mit dem Bodenrichtwert plausibilisiert und ersetzt kein Wertgutachten.
+  - Rückfrage: Warum teilen Sie den Residualwert durch 1,10, statt 10 % abzuziehen?
+- Warum reagiert der Residualwert empfindlich auf Verkaufspreise und Baukosten, und welche Folgerungen ziehen Sie daraus für den Ankauf eines Grundstücks?
+  - Erwartung: Der Residualwert ist eine Restgröße nach Abzug großer Kosten von einem großen Erlös; wenige Prozent Änderung bei Erlös oder Baukosten verändern ihn prozentual um ein Vielfaches.
+  - Erwartung: Gerechnet wird in Szenarien (vorsichtig, erwartet, günstig), und die Annahmen zu Verkaufspreisen und Baukosten werden aus Marktanalyse und Kostenkennwerten belegt.
+  - Erwartung: Geboten wird mit Abstand unter dem tragbaren Kaufpreis des erwarteten Szenarios, weil der Risikozuschlag Kostenüberschreitungen nur begrenzt auffängt.
+  - Erwartung: Bei offenen Fragen zu Bebaubarkeit oder Kosten sichern ein Optionsvertrag oder ein Ankauf unter aufschiebender Bedingung das Grundstück; ist der Preis nicht tragbar, wird verhandelt, das Nutzungskonzept geprüft oder auf das Grundstück verzichtet.
+  - Rückfrage: Welche Vereinfachungen enthält eine statische Residualwertrechnung?
 
 ### 5.2 Bauplanung und -durchführung
 
@@ -146,4 +158,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ohne verlässliche Dokumentation lässt sich im Streitfall oft nicht rekonstruieren, ob eine Mehrleistung tatsächlich notwendig war.
   - Erwartung: Ohne verlässliche Dokumentation lässt sich oft nicht klären, ob die Mehrleistung nicht bereits vertraglich geschuldet war.
   - Rückfrage: Welche Instrumente dokumentieren den Bauablauf?
-

@@ -149,3 +149,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Statusberichte informieren Auftraggeber und Lenkungsausschuss, der bei größeren Abweichungen eingreift.
   - Rückfrage: Welche Rolle spielen eingeplante Pufferzeiten bei Verzögerungen?
   - Rückfrage: Welche Auswirkungen kann eine Verkürzung des Zeitrahmens im Zieldreieck haben?
+- Wie gehen Sie vor, wenn Sie für ein Vorhaben im Pflegedienst einen Projektstrukturplan erstellen, und woran erkennen Sie, dass er gut ist?
+  - Erwartung: Der Projektstrukturplan gliedert das Projekt hierarchisch und vollständig in Teilprojekte und Arbeitspakete und beantwortet die Frage „Was ist zu tun?“; Reihenfolge und Termine klärt erst die Ablauf- und Terminplanung.
+  - Erwartung: Vorgehen von oben nach unten: Gesamtergebnis aus dem Projektauftrag klären, Gliederungsart wählen (phasen-, objekt- oder funktionsorientiert, häufig gemischt), Teilprojekte in Arbeitspakete zerlegen, ergänzt durch ein Brainstorming mit dem Team.
+  - Erwartung: Geprüft wird nach der 100-%-Regel: Alle Arbeiten sind enthalten, auch Projektmanagement, Schulung und Abschluss, keine steht doppelt, und nichts liegt außerhalb des Projektumfangs.
+  - Erwartung: Jedes Arbeitspaket hat eine dezimale Kodierung und eine Beschreibung mit Ergebnis, einer verantwortlichen Person, Aufwand und Termin; es ist so klein, dass Aufwand und Verantwortung festgelegt werden können, aber nicht kleiner.
+  - Erwartung: Die Arbeitspakete sind Grundlage für die Aufwandsschätzung (Summe von unten nach oben), das Gantt-Diagramm und die Meilensteine, die den Abschluss wichtiger Arbeitspakete markieren.
+  - Rückfrage: Warum ist ein Meilenstein kein Arbeitspaket?
+  - Rückfrage: Warum wird das Projektmanagement häufig als eigenes Teilprojekt in den Projektstrukturplan aufgenommen?
+- Wie gehen Sie in einem Projekt mit Risiken um, und wie verbinden Sie die Risikoliste mit dem Projektcontrolling?
+  - Erwartung: Risiken werden identifiziert, bewertet, gesteuert und überwacht, wie im betrieblichen Risikomanagement; Quellen sind z. B. der Projektstrukturplan Arbeitspaket für Arbeitspaket, ein Brainstorming im Team und die Lessons Learned früherer Projekte.
+  - Erwartung: Bewertet werden Eintrittswahrscheinlichkeit und Schadensausmaß; der Risikoerwartungswert ist Eintrittswahrscheinlichkeit × Schadenshöhe, und eine Gegenmaßnahme lohnt sich rechnerisch, wenn ihre Kosten geringer sind als die Senkung des Erwartungswerts.
+  - Erwartung: Handlungsoptionen sind vermeiden, vermindern, auf Dritte übertragen und bewusst akzeptieren; die Risikomatrix ordnet Risiken den Feldern Vermeiden, Absichern, Beobachten und Akzeptieren zu.
+  - Erwartung: Risiken mit möglicher Gefährdung von Klient:innen werden unabhängig vom Erwartungswert vorrangig behandelt, weil sich ihr Schaden nicht sinnvoll in Euro fassen lässt.
+  - Erwartung: Die Risikoliste wird laufend fortgeschrieben, Maßnahmen mit Arbeitsaufwand werden Arbeitspakete in Projektstrukturplan und Terminplan, die wichtigsten Risiken stehen in jedem Statusbericht, und Pufferzeiten sowie eine Budgetreserve fangen akzeptierte Risiken auf.
+  - Rückfrage: Was geschieht im Projektcontrolling, wenn ein Risiko tatsächlich eintritt?

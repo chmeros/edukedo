@@ -80,6 +80,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Nachteilig wirkt der Hebel, wenn der Fremdkapitalzins die Gesamtkapitalrendite übersteigt.
   - Erwartung: In diesem Fall verstärkt der Hebel Verluste.
   - Rückfrage: Wie lässt sich bei einem erst später fertiggestellten Neubauprojekt der Zinssatz für die Anschlussfinanzierung absichern?
+- Ein Kunde wundert sich, dass sein Annuitätendarlehen über 200.000 € mit 3 % Sollzins und 2 % anfänglicher Tilgung (vereinfacht jährliche Zahlung) nach zehn Jahren erst zu einem kleinen Teil getilgt ist. Wie erklären Sie ihm den Verlauf des Darlehens und die Restschuld am Ende der Zinsbindung?
+  - Erwartung: Die Annuität bleibt gleich und besteht aus einem Zins- und einem Tilgungsanteil; die Zinsen eines Jahres sind Restschuld × Zinssatz, der Rest der Annuität tilgt.
+  - Erwartung: Zu Beginn überwiegt der Zinsanteil (bei 200.000 € im ersten Jahr 6.000 € Zinsen und 4.000 € Tilgung); mit sinkender Restschuld wächst die Tilgung jedes Jahr um die ersparten Zinsen, vollständig getilgt ist das Darlehen erst nach rund 31 Jahren.
+  - Erwartung: Die Restschuld nach n Jahren ist das aufgezinste Darlehen minus der Endwert der gezahlten Annuitäten, Darlehen × (1 + i)^n − Annuität × ((1 + i)^n − 1) ÷ i; im Beispiel sind nach zehn Jahren noch rund 154.144 € offen.
+  - Erwartung: Am Ende der Zinsbindung muss die Restschuld zum dann gültigen Zinssatz anschlussfinanziert werden (Zinsänderungsrisiko); absichern lässt sich das z. B. mit einem Forward-Darlehen.
+  - Erwartung: Die Rechnung mit einer Zahlung pro Jahr ist eine Vereinfachung; bei monatlichen Raten liegt die Restschuld etwas niedriger, maßgeblich ist der Tilgungsplan der Bank.
+  - Rückfrage: Wie wirkt sich eine höhere anfängliche Tilgung auf die Restschuld und auf die jährliche Belastung aus?
+- Erläutern Sie, was der Vervielfältiger im Ertragswertverfahren finanzmathematisch bedeutet und wie er mit der Kapitalwertmethode und mit dem Annuitätendarlehen zusammenhängt.
+  - Erwartung: Der Vervielfältiger ist der Rentenbarwertfaktor ((1 + i)^n − 1) ÷ ((1 + i)^n × i) mit dem Liegenschaftszinssatz i und der Restnutzungsdauer n; er gibt den heutigen Wert von jährlich 1 € über die Restnutzungsdauer an.
+  - Erwartung: Gebäudereinertrag × Vervielfältiger ergibt den Gebäudeertragswert, also die Summe der Barwerte der künftigen Gebäudereinerträge; das entspricht der Abzinsung in der Kapitalwertmethode, bei der der Rentenbarwertfaktor die Summe der Abzinsungsfaktoren ist.
+  - Erwartung: Ein höherer Liegenschaftszinssatz oder eine kürzere Restnutzungsdauer verkleinern den Vervielfältiger und damit den Ertragswert, z. B. rund 20 bei 3 % und 31 Jahren, rund 15,62 bei 4 % und 25 Jahren.
+  - Erwartung: Der Vervielfältiger ist der Kehrwert des Annuitätenfaktors: Ein Darlehen von 200.000 €, das bei 3 % in 31 Jahren getilgt wird, hat eine Annuität von 9.999,79 €, und 200.000 € ÷ 9.999,79 € ≈ 20.
+  - Rückfrage: Wie verändert sich der Ertragswert eines Mehrfamilienhauses, wenn der Liegenschaftszinssatz steigt?
 
 ### 2.3 Controlling und Kennzahlen
 
@@ -116,6 +129,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der regelmäßige Soll-Ist-Vergleich macht Abweichungen von geplanten Werten sichtbar.
   - Erwartung: Die Balanced Scorecard bezieht neben der Finanzperspektive auch Kunden-, Prozess- sowie Lern- und Entwicklungsperspektive ein.
   - Rückfrage: Welche Reports erhalten Eigentümergemeinschaften und externe Kapitalgeber:innen?
+- Wie planen Sie die Liquidität eines Mietverwaltungsobjekts für die nächsten Monate, und wie berücksichtigen Sie Leerstand, Mietausfall und Zahlungsverzug?
+  - Erwartung: Je Monat gilt Endbestand = Anfangsbestand + Einzahlungen − Auszahlungen; der Endbestand ist der Anfangsbestand des Folgemonats, der Plan wird rollierend fortgeschrieben und bei knappem Bestand wochenweise nach Fälligkeiten verfeinert.
+  - Erwartung: Die Einzahlungen gehen von der Sollmiete der vermieteten Einheiten aus, leerstehende Einheiten bringen keine Miete; für Ausfall und Verzug wird ein Abschlag nach Erfahrungswerten abgezogen, Ratenzahlungen werden erst eingeplant, wenn sie vereinbart sind.
+  - Erwartung: Beim Mietausfall fehlt das Geld endgültig, beim Zahlungsverzug kommt es später an; im betroffenen Monat fehlt es in beiden Fällen.
+  - Erwartung: Auszahlungen werden nach Fälligkeit eingeplant (zum Beispiel Grundsteuer, Versicherung, Instandhaltung, Guthaben aus der Betriebskostenabrechnung, Überschussauszahlung); Mietkautionen gehören nicht in den Plan.
+  - Erwartung: Der Endbestand wird mit dem vereinbarten Mindestbestand verglichen; Gegenmaßnahmen werden mit der Eigentümerin oder dem Eigentümer abgestimmt, Fremdgelder anderer Objekte und eigenes Geld der Verwaltung sind kein Ausgleich.
+  - Rückfrage: Warum kann ein Objekt, das über das Jahr einen Überschuss erwirtschaftet, trotzdem in einen Liquiditätsengpass geraten?
+- Ein Verwaltungsbeirat wünscht für seine Eigentümergemeinschaft dieselben Kennzahlen, die die Eigentümer:innen in der Mietverwaltung erhalten. Welche Kennzahlen schlagen Sie vor, und warum unterscheiden sie sich?
+  - Erwartung: In der Mietverwaltung vermietet die Verwaltung im Auftrag der Eigentümer:innen; Leerstands-, Vermietungs- und Mietausfallquote sind dort Steuerungsgrößen.
+  - Erwartung: In der WEG-Verwaltung vermieten die Wohnungseigentümer:innen ihre Wohnungen selbst; Leerstand und Mietausfall einzelner Wohnungen sind keine Steuerungsgrößen der Verwaltung.
+  - Erwartung: Geeignet sind zum Beispiel Hausgeldrückstandsquote, Rücklagenquote (Bestand der Erhaltungsrücklage ÷ geplanter Erhaltungsbedarf × 100) oder Rücklage je m², Instandhaltungskosten je m² am Gemeinschaftseigentum, Bearbeitungszeit von Mängelmeldungen, Beschwerdequote und Umsetzung der Beschlüsse.
+  - Erwartung: Bezugsgröße und Zeitraum jeder Kennzahl werden angegeben, weil die Abgrenzung in der Praxis nicht einheitlich ist.
+  - Erwartung: Jahresabrechnung und Wirtschaftsplan sind Leistungen der Verwaltung gegenüber der Gemeinschaft und kein Controlling-Bericht; der Kennzahlenbericht ergänzt sie.
+  - Rückfrage: Wie berechnen Sie die Rücklagenquote, und was sagt ein Wert von 65 % aus?
 
 ### 2.4 Risikomanagement
 

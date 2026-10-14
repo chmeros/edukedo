@@ -142,4 +142,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine vorausschauende Planung erkennt drohende Engpässe frühzeitig, etwa bevor Gehaltszahlungen fällig werden.
   - Erwartung: Sie ermöglicht rechtzeitiges Gegensteuern, z. B. durch einen kurzfristigen Kontokorrentkredit.
   - Rückfrage: Wie können Verzögerungen bei der Begutachtung eines Pflegegrads die Liquidität eines Pflegedienstes beeinflussen?
-
+- Wie würden Sie für einen ambulanten Pflegedienst eine Balanced Scorecard aufbauen, und wie legen Sie die Perspektiven dabei aus?
+  - Erwartung: Die Balanced Scorecard übersetzt Leitbild und strategische Ziele in vier gleichrangige Perspektiven; je Perspektive werden strategisches Ziel, Kennzahl, Zielwert und Maßnahme mit Verantwortlichen festgelegt.
+  - Erwartung: Branchentypische Auslegung: Finanzen als wirtschaftliche Tragfähigkeit, die Kundenperspektive als Perspektive der Klient:innen (dazu Angehörige und Kostenträger), interne Prozesse als Pflege- und Versorgungsprozesse, Lernen & Entwicklung als Mitarbeitende und Qualifikation; die Namen des Grundmodells bleiben erhalten.
+  - Erwartung: Beispielkennzahlen sind Personalkostenquote und Liquidität 2. Grades, Anteil zufriedener Klient:innen und Beschwerdequote, Dokumentations- und Auslastungsquote sowie Fluktuationsrate und Weiterbildungsquote.
+  - Erwartung: Einrichtungen mit Versorgungsauftrag stellen häufig die Perspektive der Klient:innen an die Spitze; die Finanzperspektive beschreibt dann die wirtschaftliche Voraussetzung für den Auftrag.
+  - Erwartung: Eingeführt wird schrittweise: Strategie klären (z. B. mit einer SWOT-Analyse), Ziele ableiten und in einer Strategiekarte verknüpfen, Kennzahlen und Zielwerte festlegen, Maßnahmen und Verantwortliche bestimmen, auf Touren oder Teams herunterbrechen und regelmäßig im Soll-Ist-Vergleich überprüfen.
+  - Rückfrage: Was verstehen Sie unter Ursache-Wirkungs-Beziehungen, und welches Beispiel aus der Pflege können Sie nennen?
+- Worin unterscheidet sich die Balanced Scorecard von einer SWOT-Analyse und von einem monatlichen Kennzahlenbericht, und wo sehen Sie ihre Grenzen?
+  - Erwartung: Die SWOT-Analyse ist ein Analyseinstrument; sie beschreibt Stärken, Schwächen, Chancen und Risiken und liefert die Grundlage für die Strategie. Die Balanced Scorecard ist ein Steuerungsinstrument, das die gewählte Strategie in Ziele, Kennzahlen, Zielwerte und Maßnahmen umsetzt und überprüft.
+  - Erwartung: Ein Kennzahlenbericht stellt Kennzahlen regelmäßig zusammen, ohne sie zwingend aus der Strategie abzuleiten; die Balanced Scorecard verknüpft ihre Kennzahlen über die Strategie und die Ursache-Wirkungs-Beziehungen und enthält Früh- und Spätindikatoren.
+  - Erwartung: Grenzen sind der Aufwand für Aufbau, Pflege und Datenerhebung, Zielkonflikte zwischen Perspektiven (z. B. hohe Auslastung gegenüber pünktlichen Einsätzen oder niedrige Personalkosten gegenüber der Zufriedenheit der Klient:innen), schwer belegbare Ursache-Wirkungs-Annahmen und Kennzahlen ohne Strategiebezug.
+  - Erwartung: Verdichtete Gesamtwerte sind übersichtlich, können aber schwache Kennzahlen verdecken; deshalb bleiben die einzelnen Kennzahlen mit Ziel- und Istwert im Blick; übererfüllte Werte können für die Gesamtbewertung begrenzt werden (z. B. auf 100 %), damit sie Schwächen anderer Kennzahlen nicht ausgleichen.
+  - Rückfrage: Wie berechnen Sie den Zielerreichungsgrad einer Kennzahl, die möglichst niedrig sein soll, etwa der Fluktuationsrate?
