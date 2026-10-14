@@ -28,7 +28,7 @@ Handlungskompetenz wird üblicherweise in vier **Dimensionen** beschrieben, die 
 
 Die Einteilung unterscheidet sich je nach Quelle: Die Rahmenlehrpläne der Kultusministerkonferenz für die Berufsschule beschreiben Handlungskompetenz in den Dimensionen Fach-, Selbst- und Sozialkompetenz und verstehen Methoden-, Lern- und kommunikative Kompetenz als deren Bestandteile. In der betrieblichen Ausbildungspraxis ist die Einteilung in vier Dimensionen verbreitet; sie gilt in diesem Kurs.
 
-Zu den Lernzielbereichen aus Thema 3.2 besteht eine Verbindung, aber keine Gleichsetzung: Fachkompetenz umfasst vor allem kognitive und psychomotorische Lernziele, Sozial- und Selbstkompetenz berühren stark den affektiven Bereich, also Haltungen und Bereitschaft.
+Zu den Lernzielbereichen aus Thema 3.2 besteht eine Verbindung, aber keine Gleichsetzung: Fachkompetenz umfasst vor allem kognitive und psychomotorische Lernziele, Sozial- und Selbstkompetenz berühren stark den affektiven Bereich, also Haltungen und Bereitschaft. Methodenkompetenz zeigt sich meist in kognitiven Lernzielen (planen, Informationen auswerten).
 
 ### Handlungsorientierung und die vollständige Handlung
 
@@ -49,7 +49,7 @@ Die Phasen werden je nach Quelle unterschiedlich benannt oder zusammengefasst: S
 
 ### Die Leittextmethode: Bausteine, Phasen und Rolle der Ausbilder:innen
 
-Thema 3.2 stellt die **Leittextmethode** als Methode vor, bei der sich Auszubildende anhand von Leitfragen selbstständig Informationen erarbeiten, ihr Vorgehen planen, es ausführen und das Ergebnis auswerten. Sie ist die bekannteste Umsetzung der vollständigen Handlung in der betrieblichen Ausbildung; ihre Phasen entsprechen den sechs Phasen oben.
+Thema 3.2 stellt die **Leittextmethode** als Methode vor, bei der sich Auszubildende anhand von Leitfragen selbstständig Informationen erarbeiten, ihr Vorgehen planen, es ausführen und das Ergebnis auswerten. Sie ist die bekannteste Umsetzung der vollständigen Handlung in der betrieblichen Ausbildung; ihre Phasen entsprechen den sechs Phasen oben. In der Einteilung aus Thema 3.2 zählt die Leittextmethode zu den erarbeitenden Methoden; weil sie die vollständige Handlung umsetzt, gilt sie zugleich als handlungsorientiert.
 
 Ein Leittext ist kein einzelnes Blatt, sondern ein Satz aufeinander abgestimmter Unterlagen. Üblich sind vier **Bausteine**:
 
@@ -64,9 +64,9 @@ In den sechs Phasen teilen sich die Aufgaben so auf:
 
 - **Informieren:** Die Auszubildenden beantworten die Leitfragen schriftlich mithilfe der Leitsätze und weiterer Quellen. Die Ausbilder:innen stellen Leittext und Unterlagen bereit und antworten auf Fragen mit Hinweisen und Gegenfragen statt mit fertigen Lösungen.
 - **Planen:** Die Auszubildenden füllen den Arbeitsplan aus. Die Ausbilder:innen stehen für Rückfragen bereit, geben den Plan aber nicht vor.
-- **Entscheiden:** Im **Fachgespräch** (nicht zu verwechseln mit dem Fachgespräch der Ausbildereignungsprüfung) besprechen Ausbilder:in und Auszubildende die Antworten auf die Leitfragen und den Arbeitsplan. Fehlendes Wissen wird geklärt, der Plan bei Bedarf überarbeitet und erst dann zur Ausführung freigegeben. Bei sicherheitsrelevanten Arbeiten ist diese Freigabe unverzichtbar.
+- **Entscheiden:** Im **Fachgespräch** (nicht zu verwechseln mit dem Fachgespräch der Ausbildereignungsprüfung) besprechen die Ausbilderin oder der Ausbilder und die Auszubildenden die Antworten auf die Leitfragen und den Arbeitsplan. Fehlendes Wissen wird geklärt, der Plan bei Bedarf überarbeitet und erst dann zur Ausführung freigegeben. Bei sicherheitsrelevanten Arbeiten ist diese Freigabe unverzichtbar.
 - **Ausführen:** Die Auszubildenden arbeiten nach ihrem Plan. Die Ausbilder:innen beobachten und greifen bei Gefahr sofort ein; Sicherheit geht vor Selbstständigkeit.
-- **Kontrollieren:** Die Auszubildenden prüfen ihr Ergebnis mit dem Kontrollbogen (Selbstkontrolle); danach beurteilen die Ausbilder:innen es anhand derselben Kriterien (Fremdkontrolle). Die eigenständige Auswertung, die Thema 3.2 beschreibt, findet hier statt.
+- **Kontrollieren:** Die Auszubildenden prüfen ihr Ergebnis mit dem Kontrollbogen (Selbstkontrolle); danach beurteilen die Ausbilder:innen es anhand derselben Kriterien (Fremdkontrolle). Die eigenständige Auswertung aus Thema 3.2 beginnt hier mit der Selbstkontrolle und wird im Bewerten (Auswertungsgespräch) abgeschlossen.
 - **Bewerten:** Im **Auswertungsgespräch** werden Selbst- und Fremdeinschätzung verglichen und Konsequenzen für den nächsten Auftrag vereinbart (siehe letzter Abschnitt).
 
 Damit ändert sich die Rolle der Ausbilder:innen: Sie sind bei der Leittextmethode weniger Vormachende als **Lernbegleitung** (auch Lernberater:in oder Moderator:in). Ihre Hauptarbeit liegt vor und nach der Ausführung: den Leittext erstellen und an den Ausbildungsstand anpassen, das Fachgespräch führen, freigeben, die Kontrolle ergänzen und die Auswertung leiten. Zurückhaltung während der Ausführung bedeutet nicht Abwesenheit.
@@ -125,7 +125,7 @@ Das Gespräch folgt den Regeln konstruktiven Feedbacks aus Thema 3.1: konkret, z
 
 #### K-3.6-05
 **Frage:** Was geschieht in der Phase „Entscheiden“, und warum ist sie bei sicherheitsrelevanten Aufträgen unverzichtbar?
-**Antwort:** Auszubildende und Ausbilder:in besprechen im Fachgespräch die Antworten auf die Leitfragen und den Arbeitsplan, klären Lücken und geben den Plan frei. Erst danach wird ausgeführt, so werden Gefährdungen vorher erkannt.
+**Antwort:** Die Auszubildenden und die Ausbilderin oder der Ausbilder besprechen den Plan (bei der Leittextmethode auch die Antworten auf die Leitfragen), klären Lücken und geben den Plan frei. Erst danach wird ausgeführt, so werden Gefährdungen vorher erkannt.
 `tags: vollstaendige-handlung, leittext` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-3.6-06
@@ -160,7 +160,7 @@ Das Gespräch folgt den Regeln konstruktiven Feedbacks aus Thema 3.1: konkret, z
 
 #### K-3.6-12
 **Frage:** Wie läuft ein Auswertungsgespräch nach einem Leittextauftrag ab?
-**Antwort:** Die Auszubildenden berichten und schätzen sich anhand des Kontrollbogens selbst ein, die Ausbilder:in ergänzt ihre Einschätzung, Abweichungen und Ursachen werden besprochen, Lernzuwachs und nächste Schritte werden vereinbart.
+**Antwort:** Die Auszubildenden berichten und schätzen sich anhand des Kontrollbogens selbst ein, die Ausbilderin oder der Ausbilder ergänzt die eigene Einschätzung, Abweichungen und Ursachen werden besprochen, Lernzuwachs und nächste Schritte werden vereinbart.
 `tags: auswertungsgespraech` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 ## Quiz
@@ -193,15 +193,15 @@ Das Gespräch folgt den Regeln konstruktiven Feedbacks aus Thema 3.1: konkret, z
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.6-04 · Kurzantwort
-**Frage:** Eine Auszubildende hat ihren Arbeitsplan fertig. Im Fachgespräch bespricht der Ausbilder ihn mit ihr, klärt Lücken und gibt ihn zur Ausführung frei. Wie heißt diese Phase der vollständigen Handlung?
-**Akzeptierte Antworten:** Entscheiden; das Entscheiden; Entscheidung; die Entscheidung; Entscheidungsphase; die Entscheidungsphase; Phase Entscheiden; Phase Entscheidung; Phase des Entscheidens
-**Erklärung:** In der Phase Entscheiden wird der Plan im Fachgespräch besprochen und freigegeben. Sie liegt zwischen Planen und Ausführen und ist bei sicherheitsrelevanten Arbeiten unverzichtbar.
+**Frage:** Eine Auszubildende teilt sich bei einem längeren Auftrag ihre Zeit selbst ein, hält Zusagen zuverlässig ein und bittet nach einem Fehler von sich aus um Rückmeldung, um daraus zu lernen. Welche Dimension der Handlungskompetenz zeigt sie damit vor allem?
+**Akzeptierte Antworten:** Selbstkompetenz; die Selbstkompetenz; Selbst-Kompetenz; die Selbst-Kompetenz; Personalkompetenz; die Personalkompetenz; Personal-Kompetenz; die Personal-Kompetenz; Humankompetenz; die Humankompetenz; Human-Kompetenz; die Human-Kompetenz
+**Erklärung:** Sich selbst steuern, zuverlässig arbeiten und lernbereit mit eigenen Fehlern umgehen gehört zur Selbstkompetenz, die auch Personalkompetenz oder Humankompetenz heißt. Typische Verwechslung: Sozialkompetenz betrifft die Zusammenarbeit mit anderen, Methodenkompetenz die Arbeitstechniken.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.6-05 · Kurzantwort
-**Frage:** Wie heißt der Baustein eines Leittexts, mit dem Auszubildende ihr Arbeitsergebnis anhand vorgegebener Kriterien zuerst selbst prüfen und auf dem die Ausbilder:in danach die eigene Beurteilung einträgt?
+**Frage:** Wie heißt der Baustein eines Leittexts, mit dem Auszubildende ihr Arbeitsergebnis anhand vorgegebener Kriterien zuerst selbst prüfen und auf dem die Ausbilderin oder der Ausbilder danach die eigene Beurteilung einträgt?
 **Akzeptierte Antworten:** Kontrollbogen; der Kontrollbogen; Kontroll-Bogen; der Kontroll-Bogen; Kontrollbögen; die Kontrollbögen; Kontrollblatt; das Kontrollblatt
-**Erklärung:** Der Kontrollbogen verbindet Selbst- und Fremdkontrolle: Erst prüfen die Auszubildenden ihr Ergebnis, dann beurteilt die Ausbilder:in es anhand derselben Kriterien. Abweichungen sind Stoff für das Auswertungsgespräch.
+**Erklärung:** Der Kontrollbogen verbindet Selbst- und Fremdkontrolle: Erst prüfen die Auszubildenden ihr Ergebnis, dann beurteilt die Ausbilderin oder der Ausbilder es anhand derselben Kriterien. Abweichungen sind Stoff für das Auswertungsgespräch.
 `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-3.6-06 · Entweder-Oder
@@ -238,16 +238,16 @@ Das Gespräch folgt den Regeln konstruktiven Feedbacks aus Thema 3.1: konkret, z
 
 #### Q-3.6-10 · Lückentext
 **Text:** Bei der Leittextmethode legen die Auszubildenden Arbeitsschritte, Werkzeuge, Material und Zeitbedarf in einem ___Arbeitsplan___ fest.
-**Erklärung:** Der Arbeitsplan ist der Baustein der Phase Planen. Er wird in der Phase Entscheiden im Fachgespräch besprochen und freigegeben.
+**Erklärung:** Der Arbeitsplan ist der Baustein der Phase Planen. Er hält fest, wie der Auftrag umgesetzt wird, und dient beim Ausführen als Leitfaden.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.6-11 · Multiple Choice
 **Frage:** Nach einem Leittextauftrag schätzt ein Auszubildender sein Ergebnis auf dem Kontrollbogen deutlich besser ein als die Ausbilderin. Wie geht sie im Auswertungsgespräch am besten vor?
 - [ ] Sie trägt ihre eigene Bewertung ein und beendet das Gespräch, weil ihr Urteil zählt.
 - [ ] Sie übernimmt seine Einschätzung unverändert, um seine Lernmotivation zu erhalten.
-- [x] Sie lässt ihn begründen, vergleicht beide Einschätzungen anhand der Kriterien.
-- [ ] Sie gibt die Bewertung an einen Kollegen ab, damit kein Streit über Noten entsteht.
-**Erklärung:** Im Auswertungsgespräch werden Selbst- und Fremdeinschätzung an denselben Kriterien verglichen, Ursachen der Abweichung geklärt und nächste Schritte vereinbart. Ein einseitiges Urteil, das bloße Übernehmen der Selbsteinschätzung oder das Abgeben der Bewertung verschenken diese Lerngelegenheit.
+- [x] Sie lässt ihn begründen und vergleicht beide Einschätzungen anhand der Kriterien.
+- [ ] Sie bildet den Mittelwert aus beiden Einschätzungen und trägt ihn ein.
+**Erklärung:** Im Auswertungsgespräch werden Selbst- und Fremdeinschätzung an denselben Kriterien verglichen, Ursachen der Abweichung geklärt und nächste Schritte vereinbart. Ein einseitiges Urteil, das bloße Übernehmen der Selbsteinschätzung oder ein rechnerischer Mittelwert ohne Gespräch verschenken diese Lerngelegenheit.
 `schwierigkeit: schwer` · `bloom: bewerten`
 
 #### Q-3.6-12 · Zuordnung

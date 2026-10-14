@@ -22,8 +22,10 @@ qualifikationsinhalte:
 Wie Informationen ins Gedächtnis gelangen, beschreibt in Grundzügen das verbreitete **Mehrspeichermodell** des Gedächtnisses. Es ist ein vereinfachendes Modell, kein genaues Abbild des Gehirns:
 
 - Das **Ultrakurzzeitgedächtnis** (auch sensorisches Gedächtnis) hält Sinneseindrücke nur für Bruchteile von Sekunden bis etwa zwei Sekunden fest. Nur was beachtet wird, gelangt weiter; alles andere geht sofort verloren.
-- Das **Kurzzeitgedächtnis** (auch Arbeitsgedächtnis) verarbeitet die beachteten Informationen. Es kann nur wenige Informationseinheiten gleichzeitig halten und verliert sie ohne Wiederholung schon nach kurzer Zeit, in der Regel nach Sekunden bis wenigen Minuten.
+- Das **Kurzzeitgedächtnis** (vereinfacht auch Arbeitsgedächtnis) verarbeitet die beachteten Informationen. Es kann nur wenige Informationseinheiten gleichzeitig halten und verliert sie ohne Wiederholung schon nach kurzer Zeit, in der Regel nach Sekunden bis wenigen Minuten.
 - Das **Langzeitgedächtnis** speichert Informationen dauerhaft und hat eine sehr große Kapazität. Dorthin gelangen Informationen vor allem durch **Wiederholung** und durch **Verknüpfung** mit dem, was bereits bekannt ist.
+
+Die Zeitangaben schwanken je nach Quelle erheblich; entscheidend ist die Größenordnung: Sekunden, kurze Zeit, dauerhaft.
 
 Daraus folgen klare Empfehlungen für die Unterweisung: Neues wird in überschaubare Lernschritte gegliedert, die Schlüsselstellen werden betont, und es wird an Vorwissen angeknüpft. Bei der Kelvinar Elektrotechnik GmbH bekommen neue Fachinformatiker:innen Systemintegration die Einrichtung eines Arbeitsplatz-PCs deshalb nicht als Liste von zwanzig Schritten auf einmal erklärt, sondern in drei Abschnitten, die jeweils sofort ausprobiert werden.
 
@@ -31,14 +33,14 @@ Wie schnell ungeübtes Wissen verloren geht, zeigt die **Vergessenskurve** nach 
 
 ### Lernkanäle und Lerntypen
 
-Informationen werden über verschiedene Sinne aufgenommen, die man als **Lernkanäle** bezeichnet: Hören, Sehen, Tasten und Bewegen sowie der Austausch mit anderen. Auf dieser Grundlage hat sich in der Ausbildungspraxis das Modell der **Lerntypen** verbreitet, das unter anderem auf Frederic Vester zurückgeht. In diesem Kurs werden vier Lerntypen unterschieden:
+Informationen werden über verschiedene Sinne und den Austausch mit anderen aufgenommen; diese Wege bezeichnet man als **Lernkanäle**: Hören, Sehen, Tasten und Bewegen sowie Sprechen mit anderen. Auf dieser Grundlage hat sich in der Ausbildungspraxis das Modell der **Lerntypen** verbreitet, das unter anderem auf Frederic Vester zurückgeht. In diesem Kurs werden vier Lerntypen unterschieden:
 
 - **Auditiver Lerntyp:** lernt nach dem Modell vor allem durch Zuhören, etwa bei mündlichen Erklärungen.
 - **Visueller Lerntyp:** lernt vor allem durch Sehen, etwa an Schaubildern, Schaltplänen, Texten oder beim Zuschauen.
 - **Haptischer (motorischer) Lerntyp:** lernt vor allem durch Anfassen und eigenes Ausprobieren.
 - **Kommunikativer Lerntyp:** lernt vor allem im Gespräch, durch Fragen, Diskutieren und das Erklären für andere.
 
-In manchen Quellen wird statt des kommunikativen ein kognitiver (auch intellektueller oder abstrakt-verbaler) Lerntyp genannt, der vor allem über Begriffe, Regeln und Zusammenhänge lernt; in diesem Kurs gilt die Einteilung oben.
+In manchen Quellen wird statt des kommunikativen ein kognitiver (auch intellektueller oder abstrakt-verbaler) Lerntyp genannt, der vor allem über Begriffe, Regeln und Zusammenhänge lernt (bei Vester als vierter Typ der intellektuelle Lerntyp); in diesem Kurs gilt die Einteilung oben.
 
 Das Modell ist als **Orientierung** nützlich, wissenschaftlich aber **umstritten**: Reine Lerntypen gibt es kaum, **Mischformen sind die Regel**, und dass Lernende mehr behalten, wenn eine Unterweisung genau auf „ihren“ Lerntyp zugeschnitten ist, ließ sich in Untersuchungen nicht belegen. Auch die häufig zitierten Behaltensquoten („Wir behalten 10 % von dem, was wir lesen …“) sind nicht belegt. Belastbar ist dagegen die Empfehlung, Inhalte über **mehrere Lernkanäle** anzubieten und mit eigenem Tun zu verbinden; davon profitieren in der Regel alle Auszubildenden. Die **Vier-Stufen-Methode** (im Kurs auch 4-Stufen-Methode, siehe Thema 3.2) tut genau das: Die Auszubildenden sehen beim Vormachen zu, hören die Erklärung, führen den Handgriff selbst aus und erklären ihn dabei in eigenen Worten. In der Ausbildungswerkstatt heißt das zum Beispiel: Schaltplan zeigen, Funktion erklären, selbst verdrahten lassen und die fertige Schaltung anschließend einem Mitauszubildenden erklären lassen.
 
@@ -92,7 +94,7 @@ Dasselbe Verhalten kann ganz unterschiedliche Ursachen haben: Ein Auszubildender
 
 #### K-3.5-02
 **Frage:** Welche drei Speicher unterscheidet das Mehrspeichermodell des Gedächtnisses, und was kennzeichnet sie?
-**Antwort:** Ultrakurzzeitgedächtnis (hält Sinneseindrücke nur Bruchteile von Sekunden bis etwa zwei Sekunden), Kurzzeitgedächtnis (nur wenige Informationseinheiten zugleich, ohne Wiederholung schnell verloren) und Langzeitgedächtnis (dauerhaft, sehr große Kapazität).
+**Antwort:** Ultrakurzzeitgedächtnis (hält Sinneseindrücke nur Bruchteile von Sekunden bis etwa zwei Sekunden), Kurzzeitgedächtnis (nur wenige Informationseinheiten zugleich, ohne Wiederholung schnell verloren) und Langzeitgedächtnis (dauerhaft, sehr große Kapazität). Die Zeitangaben schwanken je nach Quelle erheblich; entscheidend ist die Größenordnung: Sekunden, kurze Zeit, dauerhaft.
 `tags: gedaechtnis` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-3.5-03
@@ -153,7 +155,7 @@ Dasselbe Verhalten kann ganz unterschiedliche Ursachen haben: Ein Auszubildender
 - [ ] Er ist ein visueller Lerntyp und kann mündlich Erklärtes grundsätzlich nicht behalten.
 - [x] Das Kurzzeitgedächtnis fasst nur wenige Einheiten; ohne Gliederung und Wiederholung bleibt wenig.
 - [ ] Das Ultrakurzzeitgedächtnis hat alle Schritte dauerhaft gespeichert, nur der Abruf am Folgetag war gestört.
-**Erklärung:** Das Kurzzeitgedächtnis kann nur wenige Informationseinheiten zugleich halten. 25 Schritte auf einmal überfordern es; ohne Gliederung in Lernschritte und ohne Wiederholung gelangt kaum etwas ins Langzeitgedächtnis, dessen Kapazität sehr groß ist. Das Ultrakurzzeitgedächtnis hält Eindrücke nur für Sekundenbruchteile bis etwa zwei Sekunden, und Lerntypen erklären dieses Vergessen nicht.
+**Erklärung:** Das Kurzzeitgedächtnis kann nur wenige Informationseinheiten zugleich halten. 25 Schritte auf einmal überfordern es; ohne Gliederung in Lernschritte und ohne Wiederholung gelangt kaum etwas ins Langzeitgedächtnis, dessen Kapazität sehr groß ist. Das Ultrakurzzeitgedächtnis hält Eindrücke nur für Sekundenbruchteile bis etwa zwei Sekunden, und Lerntypen erklären dieses Vergessen nicht. Die Zeitangaben schwanken je nach Quelle erheblich; entscheidend ist die Größenordnung: Sekunden, kurze Zeit, dauerhaft.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### Q-3.5-02 · Sortieren
@@ -217,15 +219,15 @@ Dasselbe Verhalten kann ganz unterschiedliche Ursachen haben: Ein Auszubildender
 #### Q-3.5-09 · Multiple Choice
 **Frage:** Die Ausbildungswerkstatt wurde modernisiert und die Ausbildungsvergütung erhöht, trotzdem wirken mehrere Auszubildende lustlos. Welche Maßnahme stärkt nach der Zwei-Faktoren-Theorie am ehesten ihre Motivation?
 - [ ] Die Vergütung ein weiteres Mal spürbar erhöhen
-- [ ] Neue Werkbänke und bessere Beleuchtung anschaffen
+- [ ] Eine einmalige Prämie für fehlerfreie Arbeit ausloben
 - [ ] Den Pausenraum mit neuen Möbeln gemütlicher einrichten lassen
 - [x] Echte Aufträge mit eigener Verantwortung übertragen
-**Erklärung:** Vergütung, Ausstattung und Pausenraum sind Hygienefaktoren: Sie verhindern Unzufriedenheit, erzeugen allein aber keine Motivation. Verantwortung und interessante, echte Aufgaben sind Motivatoren nach Herzberg.
+**Erklärung:** Vergütung und Pausenraum sind Hygienefaktoren: Sie verhindern Unzufriedenheit, erzeugen allein aber keine Motivation. Eine einmalige Prämie ist ein äußerer Anreiz, der allenfalls kurzfristig extrinsisch wirkt. Verantwortung und interessante, echte Aufgaben sind Motivatoren nach Herzberg.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.5-10 · Kurzantwort
-**Frage:** Wie heißt die Überzeugung, eine Aufgabe aus eigener Kraft bewältigen zu können, die vor allem durch eigene Erfolgserlebnisse wächst?
-**Akzeptierte Antworten:** Selbstwirksamkeit; die Selbstwirksamkeit; Selbstwirksamkeitserwartung; die Selbstwirksamkeitserwartung; Selbstwirksamkeitsüberzeugung; die Selbstwirksamkeitsüberzeugung; Selbstwirksamkeitserleben; das Selbstwirksamkeitserleben
+**Frage:** Wie heißt die Überzeugung, eine Aufgabe aus eigener Kraft bewältigen zu können, die vor allem durch eigene Erfolgserlebnisse wächst (Begriff nach Albert Bandura)?
+**Akzeptierte Antworten:** Selbstwirksamkeit; die Selbstwirksamkeit; Selbst-Wirksamkeit; die Selbst-Wirksamkeit; Selbstwirksamkeitserwartung; die Selbstwirksamkeitserwartung; Selbstwirksamkeitsüberzeugung; die Selbstwirksamkeitsüberzeugung; Selbstwirksamkeitserleben; das Selbstwirksamkeitserleben
 **Erklärung:** Selbstwirksamkeit (Begriff nach Albert Bandura) wächst vor allem durch eigene Erfolgserlebnisse, daneben durch Vorbilder und ermutigende Rückmeldung. Wer sich wenig zutraut, weicht Aufgaben eher aus.
 `schwierigkeit: mittel` · `bloom: erinnern`
 

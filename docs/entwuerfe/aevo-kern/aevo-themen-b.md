@@ -12,8 +12,8 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Befund aus der Rahmenplan
 
 Neben der Vier-Stufen-Methode (im Kurs auch 4-Stufen-Methode), der Leittextmethode und der Projektmethode (siehe „Ausbildungsmethoden zielgruppengerecht auswählen“) gibt es weitere Ausbildungsmethoden. Eine verbreitete Einteilung ordnet sie danach, wer im Mittelpunkt steht und wie aktiv die Auszubildenden sind. In manchen Quellen werden die Gruppen anders gebildet oder benannt, etwa als ausbilderzentrierte und lernendenzentrierte Methoden; die Einteilung dient der Orientierung, nicht als feste Regel.
 
-- **Darbietende Methoden:** Die Ausbilderin oder der Ausbilder stellt Inhalte vor, die Auszubildenden nehmen sie auf. Dazu gehören der **Vortrag** (in der Ausbildung meist als Kurzvortrag) und die **Demonstration** (Vormachen), etwa wenn der Ausbilder in der Ausbildungswerkstatt einer Gruppe eine neue Prüfeinrichtung vorführt. Darbietende Methoden vermitteln in kurzer Zeit einen Überblick, lassen die Auszubildenden aber eher passiv; sie eignen sich deshalb vor allem als kurzer Einstieg oder für größere Gruppen.
-- **Entwickelnde oder erarbeitende Methoden:** Die Auszubildenden erarbeiten Inhalte selbst, angeleitet durch Fragen oder Aufträge. Im **Lehrgespräch** führt die Ausbilderin oder der Ausbilder mit gezielten Fragen zu einer Erkenntnis und knüpft dabei an das Vorwissen an, etwa beim Erarbeiten, warum ein Fehlerstrom-Schutzschalter auslöst. In der **Gruppenarbeit** bearbeiten mehrere Auszubildende gemeinsam einen Auftrag, etwa den Vergleich mehrerer Angebote in der Verwaltung; das fördert zugleich die Zusammenarbeit. Auch die **Leittextmethode** gehört in diese Gruppe (ausführlich in Thema 3.6).
+- **Darbietende Methoden:** Die Ausbilderin oder der Ausbilder stellt Inhalte vor, die Auszubildenden nehmen sie auf. Dazu gehören der **Vortrag** (auch Lehrvortrag, in der Ausbildung meist als Kurzvortrag) und die **Demonstration** (Vormachen), etwa wenn der Ausbilder in der Ausbildungswerkstatt einer Gruppe eine neue Prüfeinrichtung vorführt. Darbietende Methoden vermitteln in kurzer Zeit einen Überblick, lassen die Auszubildenden aber eher passiv; sie eignen sich deshalb vor allem als kurzer Einstieg oder für größere Gruppen.
+- **Entwickelnde oder erarbeitende Methoden:** Die Auszubildenden erarbeiten Inhalte selbst, angeleitet durch Fragen oder Aufträge. Im **Lehrgespräch** führt die Ausbilderin oder der Ausbilder mit gezielten Fragen zu einer Erkenntnis und knüpft dabei an das Vorwissen an, etwa beim Erarbeiten, warum ein Fehlerstrom-Schutzschalter auslöst. In der **Gruppenarbeit** bearbeiten mehrere Auszubildende gemeinsam einen Auftrag, etwa den Vergleich mehrerer Angebote in der Verwaltung; das fördert zugleich die Zusammenarbeit. Auch die **Leittextmethode** gehört in dieser Einteilung in diese Gruppe (ausführlich in Thema 3.6). Je nach Quelle wird die Leittextmethode auch den handlungsorientierten Methoden zugerechnet, weil sie der vollständigen Handlung folgt (Thema 3.6).
 - **Erfahrungs- und handlungsbezogene Methoden:** Die Auszubildenden lernen durch eigenes Handeln in realen oder realitätsnahen Situationen. Neben der **Projektmethode** zählen dazu das **Rollenspiel**, in dem Gesprächs- und Verhaltenssituationen gefahrlos geübt werden (etwa ein Telefonat mit verärgerter Kundschaft für Industriekaufleute), die **Fallmethode** (auch Fallstudie), bei der ein realistischer Fall analysiert und eine begründete Entscheidung getroffen wird (etwa ob eine Reklamation anerkannt wird), und das **Lernen am realen Arbeitsplatz**, bei dem Auszubildende echte Aufträge unter Anleitung erledigen, etwa die Bearbeitung von Störungsmeldungen in der IT-Abteilung.
 
 Die Vier-Stufen-Methode lässt sich keiner Gruppe eindeutig zuordnen: Sie verbindet darbietende Anteile (Vormachen und Erklären) mit handelnden Anteilen (Nachmachen und Üben).
@@ -27,17 +27,17 @@ Keine Methode ist an sich die beste. Ausgewählt wird nach mehreren **Auswahlkri
 - **Sicherheit:** Bei gefährlichen Tätigkeiten wird zuerst vorgemacht und eng begleitet, nicht frei ausprobiert; Fehler als Lerngelegenheit werden nur dort zugelassen, wo weder Menschen noch Anlagen gefährdet sind.
 - **Medien und Rahmenbedingungen:** Arbeitsplätze, Material, Räume und Geräte müssen verfügbar sein, etwa genügend Übungsschaltungen in der Ausbildungswerkstatt oder ein Testserver in der IT-Abteilung.
 
-In der Praxis werden Methoden häufig kombiniert, etwa ein kurzes Lehrgespräch zum Vorwissen, bevor ein Handgriff vorgemacht wird. Bei der Planung einer Unterweisung steht in der Regel zuerst das Feinziel fest; danach wird sein Lernzielbereich bestimmt, dann die Methode anhand der Auswahlkriterien gewählt und zuletzt das passende Medium ausgesucht.
+In der Praxis werden Methoden häufig kombiniert, etwa ein kurzes Lehrgespräch zum Vorwissen, bevor ein Handgriff vorgemacht wird. Bei der Planung einer Unterweisung steht nach der Klärung von Thema und Zielgruppe in der Regel das Feinziel fest; danach wird sein Lernzielbereich bestimmt, dann die Methode anhand der Auswahlkriterien gewählt und zuletzt das passende Medium ausgesucht.
 
 ### Grenzen der Vier-Stufen-Methode
 
 Die Vier-Stufen-Methode hat klare Stärken: Sie gibt eine feste Struktur vor, überträgt die Verantwortung schrittweise von der Ausbilderin oder dem Ausbilder auf die Auszubildenden und ist für überschaubare Fertigkeiten mit eindeutigem, oft sicherheitsrelevantem Ablauf gut geeignet. Sie hat aber auch Grenzen:
 
-- **Reines Faktenwissen:** Begriffe, Regeln oder Zusammenhänge lassen sich nicht sinnvoll „vormachen“. Hier passen Lehrgespräch oder Leittextmethode meist besser.
+- **Reines Faktenwissen:** Begriffe, Kennwerte oder Regeln lassen sich nicht sinnvoll „vormachen“. Hier passen meist ein Lehrgespräch, ein Kurzvortrag mit anschließender Anwendung oder ein Selbststudium mit Medien wie einem Erklärvideo besser. Für Zusammenhänge und komplexere, offene Aufgaben eignet sich die Leittextmethode.
 - **Offene Problemlösung:** Gibt es keinen festen Lösungsweg, etwa bei der Suche nach einem unbekannten Fehler in einer Anlage oder einem Netzwerk, kann nur ein möglicher Weg vorgemacht werden. Die Auszubildenden lernen dann eher, diesen Weg zu kopieren, als selbst planvoll vorzugehen. Leittext- oder Projektmethode lassen mehr eigenes Vorgehen zu (Abgrenzung siehe Thema 3.6).
 - **Einstellungen und Haltungen:** Sorgfalt, Sicherheitsbewusstsein oder ein freundlicher Umgang mit Kundschaft entstehen durch Vorbild, Erfahrung im Team, Feedback und gemeinsame Reflexion, nicht durch das Vormachen eines Handgriffs.
 - **Sehr unterschiedliche Vorkenntnisse:** Eine gemeinsame Vorführung ist für die einen zu schnell, für die anderen zu langsam. Abhilfe schaffen das Erfragen der Vorkenntnisse in Stufe 1, kleinere Gruppen oder Einzelunterweisung und ein früherer Übergang zum selbstständigen Üben für Erfahrene.
-- **Bloßes Nachmachen:** Auszubildende ahmen Bewegungen nach, ohne die Gründe zu verstehen, und scheitern, sobald sich die Bedingungen leicht ändern (anderer Leitungsquerschnitt, anderes Gerät). Dagegen helfen ein Vormachen, das zu jedem Teilschritt den Grund nennt (Stufe 2), das Erklären in eigenen Worten beim Nachmachen (Stufe 3), Warum-Fragen und abgewandelte Übungsaufgaben in Stufe 4, die zeigen, ob das Gelernte übertragen werden kann.
+- **Bloßes Nachmachen:** Auszubildende ahmen Bewegungen nach, ohne die Gründe zu verstehen, und scheitern, sobald sich die Bedingungen leicht ändern (anderer Leiterquerschnitt, anderes Gerät). Dagegen helfen ein Vormachen, das zu jedem Teilschritt den Grund nennt (Stufe 2), das Erklären in eigenen Worten beim Nachmachen (Stufe 3), Warum-Fragen und abgewandelte Übungsaufgaben in Stufe 4, die zeigen, ob das Gelernte übertragen werden kann.
 - **Umfang und Selbstständigkeit:** Lange Abläufe überfordern, wenn sie in einem Durchgang vorgemacht werden; sie werden deshalb schon bei der Vorbereitung (Stufe 1) in überschaubare Teilschritte gegliedert. Außerdem ist die Methode stark ausbilderzentriert: Eigenständiges Planen und Entscheiden kommt erst spät, in Stufe 4, und auch dort nur begrenzt vor.
 
 Die Grenzen machen die Methode nicht schlecht, sondern zeigen, wofür sie passt. Für sichere, eindeutige Handgriffe bleibt sie eine bewährte Wahl; reicht sie nicht aus, wird sie mit anderen Methoden kombiniert oder durch sie ersetzt.
@@ -67,8 +67,8 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 ## B. Karteikarten 3.2 (anhängen)
 
 #### K-3.2-17
-**Frage:** Nenne drei Gruppen von Ausbildungsmethoden mit je einem Beispiel.
-**Antwort:** Darbietende Methoden (z. B. Vortrag, Demonstration), entwickelnde oder erarbeitende Methoden (z. B. Lehrgespräch, Gruppenarbeit, Leittextmethode) und erfahrungs- und handlungsbezogene Methoden (z. B. Projektmethode, Rollenspiel, Fallmethode, Lernen am realen Arbeitsplatz).
+**Frage:** Nenne die drei Gruppen von Ausbildungsmethoden nach der im Kurs verwendeten Einteilung, mit je einem Beispiel.
+**Antwort:** Darbietende Methoden (z. B. Vortrag, Demonstration), entwickelnde oder erarbeitende Methoden (z. B. Lehrgespräch, Gruppenarbeit, Leittextmethode) und erfahrungs- und handlungsbezogene Methoden (z. B. Projektmethode, Rollenspiel, Fallmethode, Lernen am realen Arbeitsplatz). Je nach Quelle wird die Leittextmethode auch den handlungsorientierten Methoden zugerechnet.
 `tags: methoden, methodenauswahl` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-3.2-18
@@ -83,7 +83,7 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 
 #### K-3.2-20
 **Frage:** Für welche Lernsituationen ist die Vier-Stufen-Methode wenig geeignet?
-**Antwort:** Für reines Faktenwissen, für offene Problemlösungen ohne festen Lösungsweg, für Einstellungen und Haltungen sowie für Gruppen mit sehr unterschiedlichen Vorkenntnissen.
+**Antwort:** Für reines Faktenwissen (besser z. B. Lehrgespräch, Kurzvortrag oder Erklärvideo), für offene Problemlösungen ohne festen Lösungsweg, für Einstellungen und Haltungen sowie für Gruppen mit sehr unterschiedlichen Vorkenntnissen.
 `tags: methoden, grenzen_vier_stufen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-3.2-21
@@ -121,9 +121,9 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 **Frage:** Auszubildende im ersten Ausbildungsjahr sollen an einer Übungsanlage lernen, eine Anlage vor Arbeitsbeginn freizuschalten und gegen Wiedereinschalten zu sichern. Ein Kollege schlägt vor, sie sollten es zuerst selbst ausprobieren und aus ihren Fehlern lernen. Was spricht am stärksten dagegen?
 - [ ] Ausprobieren dauert erfahrungsgemäß deutlich länger als ein kurzer Vortrag in der Gruppe
 - [x] Fehler könnten hier Menschen gefährden, deshalb wird zuerst vorgemacht und eng begleitet
-- [ ] Auszubildende im ersten Ausbildungsjahr können grundsätzlich noch nicht selbstständig lernen
-- [ ] Für das Freischalten gibt es in der Ausbildungswerkstatt keine geeigneten Ausbildungsmedien
-**Erklärung:** Sicherheit ist ein Auswahlkriterium für Methoden: Fehler als Lerngelegenheit werden nur zugelassen, wo weder Menschen noch Anlagen gefährdet sind. Bei sicherheitsrelevanten Handgriffen wird deshalb zuerst vorgemacht und eng begleitet. Die Zeit ist ein Kriterium, aber hier nicht das entscheidende; die beiden anderen Aussagen treffen nicht zu.
+- [ ] Im ersten Ausbildungsjahr wird grundsätzlich nur mit darbietenden Methoden unterwiesen
+- [ ] Aus Fehlern zu lernen ist in der Ausbildung nie sinnvoll, weil sich Fehler sonst einprägen
+**Erklärung:** Sicherheit ist ein Auswahlkriterium für Methoden: Fehler als Lerngelegenheit werden nur zugelassen, wo weder Menschen noch Anlagen gefährdet sind. Bei sicherheitsrelevanten Handgriffen wird deshalb zuerst vorgemacht und eng begleitet. Die Zeit ist ein Kriterium, aber hier nicht das entscheidende. Eine feste Methode je Ausbildungsjahr gibt es nicht; gewählt wird nach Lernziel, Vorwissen und den übrigen Kriterien. Und dort, wo niemand gefährdet ist, können Fehler durchaus eine Lerngelegenheit sein.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.2-20 · Sortieren
@@ -137,7 +137,7 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 
 #### Q-3.2-21 · Mehrfachauswahl
 **Frage:** Welche Aussagen zu den Grenzen der Vier-Stufen-Methode treffen zu?
-- [x] Für das Erarbeiten von reinem Faktenwissen passen Lehrgespräch oder Leittextmethode meist besser.
+- [x] Für reines Faktenwissen passen Lehrgespräch, Kurzvortrag oder ein Erklärvideo meist besser.
 - [ ] Für die Einführung sicherheitsrelevanter Handgriffe ist sie ungeeignet.
 - [x] Bei einer offenen Fehlersuche ohne festen Lösungsweg stößt sie an Grenzen.
 - [ ] Unterschiedliche Vorkenntnisse spielen keine Rolle, weil alle dieselbe Vorführung sehen.
@@ -147,29 +147,29 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 
 #### Q-3.2-22 · Entweder-Oder
 **Frage:** Ein Auszubildender hat beim ersten Nachmachen eine Leitung fehlerfrei angeklemmt, kann aber nicht sagen, warum er sie vorher auf eine bestimmte Länge abisoliert hat. Wie gehst du vor?
-- [ ] Du gehst direkt zur nächsten Teilaufgabe über, weil der Handgriff schon fehlerfrei gelingt.
+- [ ] Du lässt ihn den Handgriff noch zehnmal wiederholen, weil das Verständnis durch Übung von selbst kommt.
 - [x] Du fragst nach dem Grund, erklärst ihn bei Bedarf und stellst danach eine abgewandelte Übung.
-**Erklärung:** Ein fehlerfreier Handgriff ohne Verständnis zeigt das Risiko des bloßen Nachmachens: Ändern sich die Bedingungen, etwa der Leitungsquerschnitt, scheitert der Auszubildende. Warum-Fragen und abgewandelte Übungen zeigen, ob das Gelernte übertragen werden kann.
+**Erklärung:** Ein fehlerfreier Handgriff ohne Verständnis zeigt das Risiko des bloßen Nachmachens: Ändern sich die Bedingungen, etwa der Leiterquerschnitt, scheitert der Auszubildende. Bloßes Wiederholen festigt den Handgriff, erklärt aber nicht den Grund. Warum-Fragen und abgewandelte Übungen zeigen, ob das Gelernte übertragen werden kann.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.2-23 · Multiple Choice
-**Frage:** Du planst eine Unterweisung für eine Industriekauffrau im ersten Ausbildungsjahr. Welches Feinziel enthält beobachtbares Verhalten, Bedingung und Maßstab?
-- [x] „Die Auszubildende erfasst anhand der Bestellanforderung eine Bestellung im System ohne Fehler.“
+**Frage:** Du planst eine Unterweisung für eine Auszubildende zur Industriekauffrau im ersten Ausbildungsjahr. Welches Feinziel enthält beobachtbares Verhalten, Bedingung und Maßstab?
+- [x] „Die Auszubildende erfasst anhand der Bestellanforderung eine Bestellung im System fehlerfrei.“
 - [ ] „Die Auszubildende erfasst im Warenwirtschaftssystem anhand der Bestellanforderung eine Bestellung.“
 - [ ] „Die Auszubildende kennt alle Arbeitsschritte einer Bestellung im Warenwirtschaftssystem genau.“
 - [ ] „Die Auszubildende lernt, Bestellungen im System vollständig und ohne Fehler zu erfassen.“
-**Erklärung:** Nur das erste Ziel nennt die Handlung (erfasst), die Bedingung (anhand der Bestellanforderung) und den Maßstab (ohne Fehler). Dem zweiten fehlt der Maßstab. „Kennt“ und „lernt“ lassen sich nicht beobachten; „lernt“ beschreibt den Lernvorgang, nicht das erreichte Verhalten.
+**Erklärung:** Nur das erste Ziel nennt die Handlung (erfasst), die Bedingung (anhand der Bestellanforderung) und den Maßstab (fehlerfrei). Dem zweiten fehlt der Maßstab. „Kennt“ und „lernt“ lassen sich nicht beobachten; „lernt“ beschreibt den Lernvorgang, nicht das erreichte Verhalten.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### Q-3.2-24 · Kurzantwort
 **Frage:** Ein präzises Feinziel nennt neben dem beobachtbaren Verhalten auch, womit oder unter welchen Umständen die Handlung ausgeführt wird, etwa „anhand der Checkliste“ oder „ohne Hilfe“. Wie heißt dieser Bestandteil des Feinziels?
-**Akzeptierte Antworten:** Bedingung; Bedingungen; die Bedingung; die Bedingungen; Rahmenbedingung; Rahmenbedingungen; die Rahmenbedingung; die Rahmenbedingungen; Durchführungsbedingung; Durchführungsbedingungen; die Durchführungsbedingung; die Durchführungsbedingungen
+**Akzeptierte Antworten:** Bedingung; Bedingungen; die Bedingung; die Bedingungen; Durchführungsbedingung; Durchführungsbedingungen; die Durchführungsbedingung; die Durchführungsbedingungen
 **Erklärung:** Die Bedingung legt fest, womit oder unter welchen Umständen die Handlung geschieht. Zusammen mit Verhalten und Maßstab macht sie das Feinziel leichter überprüfbar.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.2-25 · Kurzantwort
 **Frage:** Welcher Bestandteil eines Feinziels legt fest, wie gut die Handlung ausgeführt sein muss, damit das Ziel erreicht ist, etwa „höchstens 0,5 mm Abweichung“?
-**Akzeptierte Antworten:** Maßstab; der Maßstab; Massstab; der Massstab; Beurteilungsmaßstab; der Beurteilungsmaßstab; Beurteilungsmassstab; der Beurteilungsmassstab; Bewertungsmaßstab; der Bewertungsmaßstab; Bewertungsmassstab; der Bewertungsmassstab
+**Akzeptierte Antworten:** Maßstab; der Maßstab; Massstab; der Massstab; Maßstäbe; die Maßstäbe; Massstäbe; die Massstäbe; Beurteilungsmaßstab; der Beurteilungsmaßstab; Beurteilungsmassstab; der Beurteilungsmassstab; Bewertungsmaßstab; der Bewertungsmaßstab; Bewertungsmassstab; der Bewertungsmassstab
 **Erklärung:** Der Maßstab (auch Beurteilungsmaßstab) nennt etwa eine Genauigkeit, eine Zeit, eine Anzahl oder „ohne Fehler“. An ihm wird die Leistung bei der Kontrolle am Ende der Unterweisung gemessen.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
@@ -177,20 +177,20 @@ Auch Ziele mit Schwerpunkt im affektiven Bereich lassen sich so fassen, wenn sic
 
 # Teil 2: Thema 3.4
 
-## D. Theorie-Ergänzung 3.4 (einfügen am Ende von „## Theorie“, hinter „Interkulturelle Kompetenzen fördern“)
+## D. Theorie-Ergänzung 3.4 (einfügen in „## Theorie“ hinter „Typische Beurteilungsfehler erkennen und vermeiden“, also vor „Soziale und persönliche Entwicklung fördern, Konflikte erkennen und lösen“; Reihenfolge: zuerst „Pygmalion-Effekt und Kontrastfehler“, dann „Beurteilungsverfahren und Beurteilungsbogen“)
 
 ### Pygmalion-Effekt und Kontrastfehler
 
 Neben den fünf typischen Beurteilungsfehlern (siehe „Typische Beurteilungsfehler erkennen und vermeiden“) werden in der Ausbildungspraxis zwei weitere Verzerrungen oft genannt. Die fünf Fehler bleiben die Grundliste dieses Kurses; Pygmalion-Effekt und Kontrastfehler ergänzen sie. Auch hier unterscheiden sich die Bezeichnungen je nach Quelle, deshalb sind gängige Alternativen mit genannt.
 
-Der **Pygmalion-Effekt** (auch Rosenthal-Effekt) beschreibt eine **selbsterfüllende Prophezeiung**: Die Erwartung der Ausbilder:innen an Auszubildende beeinflusst deren Leistung. Wer von einer Auszubildenden viel erwartet, gibt ihr oft unbewusst anspruchsvollere Aufgaben, mehr Zeit, mehr Erklärungen und ermutigendere Rückmeldungen; wer wenig erwartet, tut häufig das Gegenteil. Die Leistung entwickelt sich dann tatsächlich in Richtung der Erwartung, und die Erwartung scheint bestätigt. Ein Beispiel: Die Berufsschule meldet bei einem Auszubildenden schwache Noten. Sein Ausbilder lässt ihn daraufhin nur noch einfache Hilfstätigkeiten erledigen und erklärt ihm weniger. Nach drei Monaten liegt der Auszubildende hinter den anderen zurück, „wie erwartet“. Anders als die fünf typischen Beurteilungsfehler, die das Urteil über eine gegebene Leistung verzerren, wirkt der Pygmalion-Effekt nach diesem Modell auch auf die Leistung selbst. Wie stark der Effekt ist, wird in der Forschung unterschiedlich eingeschätzt; als Modell erklärt er, warum sich Vorurteile über Auszubildende verfestigen können. Gegenmaßnahmen:
+Der **Pygmalion-Effekt** (auch Rosenthal-Effekt) beschreibt eine **selbsterfüllende Prophezeiung**: Die Erwartung der Ausbilder:innen an Auszubildende beeinflusst deren Leistung. Wer von einer Auszubildenden viel erwartet, gibt ihr oft unbewusst anspruchsvollere Aufgaben, mehr Zeit, mehr Erklärungen und ermutigendere Rückmeldungen; wer wenig erwartet, tut häufig das Gegenteil. Die Leistung entwickelt sich dann tatsächlich in Richtung der Erwartung, und die Erwartung scheint bestätigt. Ein Beispiel: Die Berufsschule meldet bei einem Auszubildenden schwache Noten. Sein Ausbilder lässt ihn daraufhin nur noch einfache Hilfstätigkeiten erledigen und erklärt ihm weniger. Nach drei Monaten liegt der Auszubildende hinter den anderen zurück, „wie erwartet“. Anders als die fünf typischen Beurteilungsfehler, die das Urteil über eine gegebene Leistung verzerren, wirkt der Pygmalion-Effekt nach diesem Modell auch auf die Leistung selbst. Vom **Halo-Effekt** unterscheidet er sich so: Beim Halo-Effekt färbt ein einzelnes Merkmal das Urteil über andere Merkmale; beim Pygmalion-Effekt ändert die Erwartung das Verhalten der Ausbilderin oder des Ausbilders und damit die Leistung. Beide können zusammen auftreten, etwa wenn ein schwaches Testergebnis das Urteil über alle Merkmale färbt und zugleich dazu führt, dass weniger erklärt wird. Wie stark der Effekt ist, wird in der Forschung unterschiedlich eingeschätzt; als Modell erklärt er, warum sich Vorurteile über Auszubildende verfestigen können. Gegenmaßnahmen:
 
 - **Eigene Erwartungen bewusst machen** und prüfen, worauf sie beruhen.
 - **Vorinformationen als Hinweis, nicht als Urteil behandeln**, etwa Schulnoten, Ergebnisse eines Einstellungstests oder Aussagen von Kolleg:innen.
-- **Allen Auszubildenden gleich anspruchsvolle Aufgaben und gleiche Unterstützung geben** und ihnen zutrauen, die Ziele zu erreichen.
+- **Allen Auszubildenden anspruchsvolle, erreichbare Ziele zutrauen und Aufgaben und Unterstützung nach dem beobachteten Lernstand bemessen, nicht nach der Erwartung.** Eine individuelle Gestaltung der Ausbildung (siehe Thema 3.3) bleibt richtig, wenn sie auf Beobachtungen beruht und nicht auf einem Vorurteil.
 - **Fortschritte an festgelegten Kriterien beobachten und notieren**, damit Veränderungen sichtbar werden, auch wenn sie der eigenen Erwartung widersprechen.
 
-Beim **Kontrastfehler** (auch Kontrasteffekt oder Reihenfolgefehler) wird eine Leistung nicht am festgelegten Maßstab gemessen, sondern im Vergleich mit Personen oder Arbeiten, die kurz zuvor beurteilt wurden. Nach einer hervorragenden Arbeitsprobe wirkt eine solide schwächer, als sie ist; nach einer schwachen wirkt sie besser. Beurteilt etwa ein Ausbilder in der Ausbildungswerkstatt nacheinander drei Prüfstücke und ist das erste ausgezeichnet, erhält das zweite leicht eine schlechtere Bewertung, obwohl es alle Kriterien erfüllt. Abzugrenzen ist der Kontrastfehler vom **Recency-Effekt**, bei dem innerhalb des Beurteilungszeitraums einer Person das zuletzt Beobachtete zu stark zählt, und vom **Milde- und Strengefehler**, bei dem jemand alle Beurteilten wegen seines eigenen Maßstabs insgesamt zu gut oder zu schlecht bewertet. In manchen Quellen bezeichnet „Kontrastfehler“ auch, dass Beurteilende andere als Gegensatz zu sich selbst sehen und Eigenschaften, die ihnen selbst fehlen, übertrieben bewerten; in diesem Kurs ist mit Kontrastfehler der Vergleich mit zuvor Beurteilten gemeint. Gegenmaßnahmen:
+Beim **Kontrastfehler** (auch Kontrasteffekt) wird eine Leistung nicht am festgelegten Maßstab gemessen, sondern im Vergleich mit Personen oder Arbeiten, die kurz zuvor beurteilt wurden. Nach einer hervorragenden Arbeitsprobe wirkt eine solide schwächer, als sie ist; nach einer schwachen wirkt sie besser. Beurteilt etwa ein Ausbilder in der Ausbildungswerkstatt nacheinander drei Prüfstücke und ist das erste ausgezeichnet, erhält das zweite leicht eine schlechtere Bewertung, obwohl es alle Kriterien erfüllt. Abzugrenzen ist der Kontrastfehler vom **Recency-Effekt**, bei dem innerhalb des Beurteilungszeitraums einer Person das zuletzt Beobachtete zu stark zählt, und vom **Milde- und Strengefehler**, bei dem jemand alle Beurteilten wegen seines eigenen Maßstabs insgesamt zu gut oder zu schlecht bewertet. In manchen Quellen bezeichnet „Kontrastfehler“ auch, dass Beurteilende andere als Gegensatz zu sich selbst sehen: Eigenschaften, die sie selbst stark ausgeprägt haben, nehmen sie bei anderen als schwach wahr und umgekehrt; in diesem Kurs ist mit Kontrastfehler der Vergleich mit zuvor Beurteilten gemeint. Gegenmaßnahmen:
 
 - **Jede Leistung am vorab festgelegten Maßstab beurteilen**, am besten am Maßstab des Feinziels (siehe Thema 3.2, „Feinziel mit Verhalten, Bedingung und Maßstab“), unterstützt durch ein Musterstück oder eine Checkliste.
 - **Einen Beurteilungsbogen mit beschriebenen Stufen nutzen** (siehe unten).
@@ -199,12 +199,12 @@ Beim **Kontrastfehler** (auch Kontrasteffekt oder Reihenfolgefehler) wird eine L
 
 ### Beurteilungsverfahren und Beurteilungsbogen
 
-Leistungen werden mit verschiedenen **Beurteilungsverfahren** festgestellt, die sich gegenseitig ergänzen:
+Leistungen werden mit verschiedenen **Verfahren und Hilfsmitteln** festgestellt und beurteilt, die sich gegenseitig ergänzen. Zu den Leistungsbeurteilungen Dritter und den Prüfungsergebnissen (siehe „Leistungen feststellen, bewerten und Beurteilungsgespräche führen“) kommen die eigenen Verfahren der Ausbilder:innen hinzu:
 
 - **Beobachtung:** Neben der gelegentlichen Beobachtung im Arbeitsalltag gibt es die **systematische Beobachtung**. Sie ist geplant: Vorab wird festgelegt, welche Kriterien beobachtet werden, wann beobachtet wird und wie das Beobachtete festgehalten wird. Notiert wird zunächst, was zu sehen war; bewertet wird erst danach.
 - **Arbeitsproben:** Die Auszubildenden erledigen eine abgegrenzte Aufgabe unter vergleichbaren Bedingungen, deren Ergebnis sich an Kriterien prüfen lässt, etwa ein Werkstück mit vorgegebenen Maßen, eine geprüfte Eingangsrechnung oder ein nach Vorgabe eingerichteter Testserver.
 - **Schriftliche und mündliche Kontrollen:** Schriftliche Aufgaben und gezielte Fragen im Gespräch zeigen, ob Fachwissen und Zusammenhänge sitzen.
-- **Beurteilungsbogen:** Er hält die Ergebnisse einheitlich fest (siehe unten).
+- **Beurteilungsbogen** als Hilfsmittel: Er hält die Ergebnisse einheitlich fest (siehe unten).
 - **Selbst- und Fremdbild:** Die Auszubildenden schätzen ihre Leistung mit demselben Bogen selbst ein (**Selbstbild**), die Ausbilderin oder der Ausbilder beurteilt sie ebenfalls (**Fremdbild**). Die Selbsteinschätzung wird meist vor der eigenen Rückmeldung erfragt, damit sie unbeeinflusst bleibt. Abweichungen zwischen beiden Bildern sind ein guter Gesprächsanlass und fördern die Selbstreflexion; das entspricht dem zweiseitigen Feedback (siehe Thema 3.1).
 - **Gespräch:** Im Beurteilungsgespräch werden die Ergebnisse mit konkreten Beispielen besprochen und Rückschlüsse für den weiteren Ausbildungsverlauf gezogen (siehe „Leistungen feststellen, bewerten und Beurteilungsgespräche führen“).
 
@@ -212,7 +212,7 @@ Ein aussagekräftiger **Beurteilungsbogen** enthält in der Regel:
 
 - den **Beurteilungszeitraum** und den Anlass, etwa das Ende eines Ausbildungsabschnitts;
 - **Kriterien**, die einzeln bewertet werden, fachliche wie Arbeitsqualität und Fachwissen und überfachliche wie Selbstständigkeit, Sorgfalt und Zusammenarbeit;
-- eine **Skala** (etwa mit vier oder fünf Stufen oder mit Noten), deren Stufen je Kriterium mit beobachtbarem Verhalten beschrieben sind, zum Beispiel für Sorgfalt: „prüft das eigene Ergebnis jedes Mal ohne Aufforderung“ statt nur „sehr gut“; eine gerade Zahl von Stufen erschwert das Ausweichen in die Mitte, bietet dafür aber keine mittlere Stufe;
+- eine **Skala** (etwa mit vier oder fünf Stufen oder mit Noten), deren Stufen je Kriterium mit beobachtbarem Verhalten beschrieben sind, zum Beispiel für Sorgfalt: „prüft das eigene Ergebnis jedes Mal ohne Aufforderung“ statt nur „sehr gut“; eine gerade Zahl von Stufen erschwert das Ausweichen in die Mitte, zwingt aber auch bei wirklich durchschnittlicher Leistung zu einer Tendenz nach oben oder unten;
 - **Platz für konkrete Beobachtungen und Beispiele**, die das Urteil begründen;
 - **Platz für die Selbsteinschätzung und für Vereinbarungen** aus dem Beurteilungsgespräch.
 
@@ -227,7 +227,7 @@ Ein Beurteilungsbogen ist ein Hilfsmittel, kein Schutz an sich: Wird er erst kur
 
 #### K-3.4-18
 **Frage:** Nenne drei Maßnahmen gegen den Pygmalion-Effekt.
-**Antwort:** Z. B. eigene Erwartungen bewusst machen, Vorinformationen wie Schulnoten oder Einstellungstests als Hinweis statt als Urteil behandeln, allen Auszubildenden gleich anspruchsvolle Aufgaben und gleiche Unterstützung geben (auch: Fortschritte an festgelegten Kriterien notieren).
+**Antwort:** Z. B. eigene Erwartungen bewusst machen, Vorinformationen wie Schulnoten oder Einstellungstests als Hinweis statt als Urteil behandeln, allen Auszubildenden anspruchsvolle, erreichbare Ziele zutrauen und Aufgaben und Unterstützung nach dem beobachteten Lernstand bemessen, nicht nach der Erwartung (auch: Fortschritte an festgelegten Kriterien notieren).
 `tags: beurteilungsfehler, pygmalion` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-3.4-19
@@ -260,15 +260,15 @@ Ein Beurteilungsbogen ist ein Hilfsmittel, kein Schutz an sich: Wird er erst kur
 
 #### Q-3.4-16 · Kurzantwort
 **Frage:** Ein Ausbilder traut einer Auszubildenden wenig zu. Er gibt ihr deshalb nur einfache Aufgaben und erklärt ihr weniger als den anderen. Ihre Leistung bleibt zurück, und er sieht seine Erwartung bestätigt. Wie heißt dieser Effekt?
-**Akzeptierte Antworten:** Pygmalion-Effekt; Pygmalioneffekt; der Pygmalion-Effekt; der Pygmalioneffekt; Pygmalion; Rosenthal-Effekt; Rosenthaleffekt; der Rosenthal-Effekt; der Rosenthaleffekt; selbsterfüllende Prophezeiung; die selbsterfüllende Prophezeiung; sich selbst erfüllende Prophezeiung; die sich selbst erfüllende Prophezeiung
-**Erklärung:** Beim Pygmalion-Effekt (auch Rosenthal-Effekt) bestätigt sich eine Erwartung über das Verhalten der Ausbilder:innen selbst. Dagegen helfen bewusst gemachte Erwartungen, gleich anspruchsvolle Aufgaben und gleiche Unterstützung für alle.
+**Akzeptierte Antworten:** Pygmalion-Effekt; Pygmalioneffekt; der Pygmalion-Effekt; der Pygmalioneffekt; Pygmalion; Rosenthal-Effekt; Rosenthaleffekt; der Rosenthal-Effekt; der Rosenthaleffekt; Rosenthal; selbsterfüllende Prophezeiung; die selbsterfüllende Prophezeiung; sich selbst erfüllende Prophezeiung; die sich selbst erfüllende Prophezeiung
+**Erklärung:** Beim Pygmalion-Effekt (auch Rosenthal-Effekt) bestätigt sich eine Erwartung über das Verhalten der Ausbilder:innen selbst. Dagegen helfen bewusst gemachte Erwartungen und ein Zutrauen in anspruchsvolle, erreichbare Ziele; Aufgaben und Unterstützung werden nach dem beobachteten Lernstand bemessen, nicht nach der Erwartung.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.4-17 · Multiple Choice
-**Frage:** Im Beurteilungsbogen der Ausbildungswerkstatt stehen zu jedem Kriterium nur die Zahlen 1 bis 5 ohne Beschreibung. Die Ausbilder:innen kreuzen fast immer die 3 an, und ihre Urteile über dieselbe Leistung weichen stark voneinander ab. Welche Änderung hilft am ehesten?
+**Frage:** Im Beurteilungsbogen der Ausbildungswerkstatt stehen zu jedem Kriterium nur die Zahlen 1 bis 5 ohne Beschreibung. Einige Ausbilder:innen kreuzen fast immer die 3 an, andere bewerten dieselbe Leistung deutlich strenger oder milder. Welche Änderung hilft am ehesten?
 - [ ] Nur noch eine Gesamtnote je Auszubildendem statt einzelner Kriterien vergeben
-- [ ] Den Bogen erst kurz vor dem Gespräch aus der Erinnerung ausfüllen
+- [ ] Jede Ausbilderin und jeden Ausbilder den eigenen Durchschnitt auf 3 festlegen lassen
 - [ ] Die Skala auf die beiden Stufen „gut“ und „schlecht“ verkürzen
 - [x] Jede Stufe je Kriterium mit beobachtbarem Verhalten beschreiben
-**Erklärung:** Beschriebene Stufen geben allen denselben Maßstab und wirken der Tendenz zur Mitte sowie dem Milde- und Strengefehler entgegen. Eine Gesamtnote begünstigt den Halo-Effekt, das Ausfüllen aus der Erinnerung den Recency-Effekt, und zwei Stufen lassen kaum Unterschiede in der Leistung erkennen.
+**Erklärung:** Beschriebene Stufen geben allen denselben Maßstab und wirken der Tendenz zur Mitte sowie dem Milde- und Strengefehler entgegen. Eine Gesamtnote begünstigt den Halo-Effekt. Ein vorgegebener Durchschnitt drängt die Urteile erst recht zur Mitte und sagt nichts über die tatsächliche Leistung. Zwei Stufen verhindern zwar das Ausweichen in die Mitte, sind aber zu grob und beheben die unterschiedlichen Maßstäbe der Beurteilenden nicht.
 `schwierigkeit: mittel` · `bloom: bewerten`

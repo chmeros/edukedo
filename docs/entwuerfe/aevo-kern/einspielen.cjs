@@ -20,7 +20,7 @@ const ERGAENZUNGEN = {
     datei: "aevo-themen-b.md",
     abschnitte: [
       ["A", "B", "C", "hf3/3.2-lernaufgaben-methoden-medien.md"],
-      ["D", "E", "F", "hf3/3.4-leistungsbewertung-konflikte.md"],
+      ["D", "E", "F", "hf3/3.4-leistungsbewertung-konflikte.md", "### Soziale und persönliche Entwicklung fördern, Konflikte erkennen und lösen"],
     ],
   },
 };
@@ -93,7 +93,13 @@ function fgEinfuegen(datei, block) {
       const nach = n < 0 ? "" : "\n\n" + t.slice(ende).replace(/^\n+/, "");
       t = vor + "\n" + fragen + nach;
     } else {
-      t = t + "\n\n" + teil.trim();
+      // neue Themenabschnitte vor dem Sammelblock „Rückfragen zur eigenen Unterweisung“ einordnen, falls vorhanden
+      const iRueck = t.search(/^### Rückfragen zur eigenen Unterweisung/m);
+      if (iRueck >= 0 && nr && /^\d/.test(nr)) {
+        t = t.slice(0, iRueck).replace(/\s+$/, "") + "\n\n" + teil.trim() + "\n\n" + t.slice(iRueck);
+      } else {
+        t = t + "\n\n" + teil.trim();
+      }
     }
     t = t.replace(/\s+$/, "");
   }
@@ -170,4 +176,9 @@ function ersetzeInDatei(datei, paare) {
 }
 ersetzeInDatei(path.join(ziel, "ausbildung-der-ausbilder/hf3/fallaufgaben.md"), [["(3.1–3.4)", "(3.1–3.6)"], ["vier Teilaufgaben mit Punktangaben", "vier bis fünf Teilaufgaben mit Punktangaben"]]);
 ersetzeInDatei(path.join(ziel, "ausbildung-der-ausbilder/hf3/fachgespraech.md"), [["(3.1–3.4)", "(3.1–3.6)"]]);
+// K-3.4-14 an die erweiterte Theorie anpassen (fünf Fehler = Grundliste, Pygmalion und Kontrastfehler ergänzend)
+ersetzeInDatei(path.join(ziel, "ausbildung-der-ausbilder/hf3/3.4-leistungsbewertung-konflikte.md"), [
+  ["**Frage:** Nenne die fünf typischen Beurteilungsfehler, die im Kurs unterschieden werden.", "**Frage:** Nenne die fünf typischen Beurteilungsfehler der Grundliste dieses Kurses."],
+  ["Sympathie und Antipathie sowie Recency-Effekt.\n`tags: beurteilungsfehler`", "Sympathie und Antipathie sowie Recency-Effekt (ergänzend behandelt: Kontrastfehler und Pygmalion-Effekt).\n`tags: beurteilungsfehler`"],
+]);
 console.log("ok");
