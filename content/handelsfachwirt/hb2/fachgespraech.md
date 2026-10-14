@@ -159,3 +159,43 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Im Filialalltag können psychische Belastungen durch anhaltenden Kundenkontakt, Zeitdruck in Stoßzeiten wie dem Vorweihnachtsgeschäft oder den Umgang mit schwierigen Reklamationssituationen entstehen.
   - Rückfrage: An welchem Arbeitsplatz der Filiale ist psychische Belastung durch Kundenkontakt besonders typisch?
 
+### 2.5 Präsentation, Moderation und Gesprächsführung
+
+- Wie bereiten Sie eine Präsentation vor, und wie bauen Sie sie auf?
+  - Erwartung: Zuerst werden Ziel und Zielgruppe geklärt, dazu die verfügbare Zeit, Raum und Technik sowie die passenden Medien.
+  - Erwartung: Im Mittelpunkt steht eine Kernbotschaft, auf die hin die Inhalte ausgewählt werden; der rote Faden führt von der Ausgangslage zu dieser Botschaft.
+  - Erwartung: Die Einleitung weckt Aufmerksamkeit und nennt Thema, Ziel und Ablauf, der Hauptteil entwickelt die Inhalte in logischer Folge, der Schluss fasst zusammen, spricht eine Empfehlung aus und leitet zu Fragen über.
+  - Erwartung: Folien zeigen je eine Kernaussage mit wenigen Stichpunkten, und die Präsentation wird mit Stoppuhr geprobt.
+  - Rückfrage: Was tun Sie gegen Lampenfieber?
+- Sie moderieren eine Teambesprechung in Ihrer Filiale. Welche Rolle haben Sie, und wie gehen Sie vor?
+  - Erwartung: Die Moderation trägt die Prozessverantwortung (Struktur, Zeit, Beteiligung, Visualisierung), die Ergebnisverantwortung liegt bei der Gruppe.
+  - Erwartung: Der Moderationszyklus umfasst Einstieg, Themen sammeln, Thema auswählen, Thema bearbeiten, Maßnahmen planen und Abschluss.
+  - Erwartung: Zum Sammeln eignet sich zum Beispiel die Kartenabfrage, zum Auswählen die Punktabfrage.
+  - Erwartung: Die Ergebnisse werden in einem Maßnahmenplan (was, wer, bis wann) und einem Protokoll gesichert und in der nächsten Besprechung nachgehalten.
+  - Rückfrage: Wie reagieren Sie, wenn ein Teammitglied ständig das Wort ergreift?
+- Wie unterscheiden sich Beurteilungs-, Kritik- und Fördergespräch, und wie führen Sie ein Kritikgespräch?
+  - Erwartung: Das Beurteilungsgespräch blickt zurück und bespricht Leistung und Verhalten eines Zeitraums anhand bekannter Kriterien.
+  - Erwartung: Das Fördergespräch blickt nach vorn, klärt Entwicklungswünsche und plant Qualifizierung; als Zielvereinbarungsgespräch werden Ziele gemeinsam vereinbart.
+  - Erwartung: Das Kritikgespräch wird zeitnah und unter vier Augen geführt: Anlass nennen, Verhalten konkret schildern und Wirkung beschreiben, Stellungnahme anhören und Ursachen klären, Änderung und Folgetermin vereinbaren.
+  - Erwartung: Ich-Botschaften schildern die eigene Wahrnehmung statt die Person zu bewerten; Verallgemeinerungen wie „immer“ oder „nie“ und Kritik vor anderen werden vermieden.
+  - Rückfrage: Welche Beurteilungsfehler kennen Sie, und wie beugen Sie dem Recency-Effekt vor?
+
+### 2.6 Zeit- und Selbstmanagement
+
+- Erläutern Sie die Eisenhower-Matrix an Beispielen aus dem Filialalltag.
+  - Erwartung: Aufgaben werden nach Wichtigkeit und Dringlichkeit in vier Felder eingeordnet: Sofort erledigen, Terminieren, Delegieren und Streichen.
+  - Erwartung: Wichtige und dringende Aufgaben, etwa ein Kassenausfall kurz vor Ladenöffnung, werden sofort selbst erledigt.
+  - Erwartung: Wichtige, nicht dringende Aufgaben, etwa die Vorbereitung einer Präsentation, bekommen einen festen Termin, weil sie sonst verdrängt werden und später selbst dringend werden.
+  - Erwartung: Dringende, weniger wichtige Aufgaben werden delegiert, Aufgaben, die weder wichtig noch dringend sind, werden gestrichen.
+- Wie planen Sie Ihre Arbeitswoche nach der ALPEN-Methode, und warum sind Pufferzeiten im Handel wichtig?
+  - Erwartung: Die Schritte sind Aufgaben notieren, Länge schätzen, Pufferzeiten einplanen, Entscheidungen treffen und Nachkontrolle.
+  - Erwartung: Nach einer verbreiteten Faustregel werden nur etwa 60 % der Arbeitszeit fest verplant, rund 40 % bleiben für Unvorhergesehenes frei.
+  - Erwartung: Im Filialalltag kommen regelmäßig Personalausfälle, Kundenanliegen und Störungen dazwischen; ein voll verplanter Tag ist deshalb schnell überholt.
+  - Erwartung: Bei der Nachkontrolle wird Offenes in den nächsten Plan übernommen.
+  - Rückfrage: Wie viele Stunden einer 40-Stunden-Woche würden Sie nach dieser Faustregel fest verplanen?
+- Welche Zeitdiebe kennen Sie, und wie hilft Delegation gegen Überlastung?
+  - Erwartung: Typische Zeitdiebe sind Unterbrechungen, ständiges Prüfen der E-Mails, Besprechungen ohne Tagesordnung, Suchen von Unterlagen, Aufschieben und Perfektionismus.
+  - Erwartung: Erkannt werden sie durch eine Selbstbeobachtung (Zeitprotokoll); Gegenmaßnahmen sind zum Beispiel feste Zeitfenster für E-Mails und Rückrufe und störungsfreie Zeiten.
+  - Erwartung: Bei der Delegation werden Ergebnis, Person, Befugnisse, Termin und Rückmeldung geklärt.
+  - Erwartung: Die Verantwortung für die Ausführung geht über, die Führungsverantwortung für Auswahl, Information und Kontrolle bleibt bei der Führungskraft.
+  - Rückfrage: Was besagt das Pareto-Prinzip, und was folgt daraus für Ihre Prioritäten?

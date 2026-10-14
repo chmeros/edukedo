@@ -139,3 +139,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: In einem strukturierten Konfliktgespräch verschafft sie beiden Seiten ungestört Gehör und trennt den Sachverhalt von persönlichen Bewertungen.
   - Erwartung: Sie arbeitet gemeinsame Interessen statt nur gegensätzlicher Positionen heraus und wirkt auf eine tragfähige Lösung hin, ohne einseitig Partei zu ergreifen.
   - Erwartung: Gelingt die Klärung nicht, kann eine Mediation durch eine neutrale dritte Person, etwa die Personalabteilung oder eine externe Mediatorin, sinnvoll sein.
+
+### 9.4 Präsentation, Moderation und Mitarbeitergespräche
+
+- Sie sollen in der mündlichen Prüfung in etwa zehn Minuten eine Verbesserung aus Ihrem Betrieb präsentieren. Wie bereiten Sie Aufbau, Zeitplan und Medien vor?
+  - Erwartung: Die Planung klärt Ziel, Zielgruppe (hier die Prüfenden), Zeit, Raum und Medien; genauen Ablauf und zugelassene Medien erfragt man vorab bei der zuständigen Stelle.
+  - Erwartung: Der Aufbau folgt Einleitung, Hauptteil und Schluss mit rotem Faden; der Hauptteil führt zum Beispiel von der Ausgangslage mit Kennzahlen über Ursachen und Lösungsvarianten zur Empfehlung, getragen von einer Kernbotschaft in einem Satz.
+  - Erwartung: Zeitansatz nach der Faustregel etwa 1 Minute Einleitung, 8 Minuten Hauptteil und 1 Minute Schluss; bei zwei bis drei Minuten je Folie reichen für den Hauptteil meist drei bis vier Inhaltsfolien.
+  - Erwartung: Folien zeigen je eine Kernaussage als Überschrift, die passende Diagrammart und beschriftete Achsen; Detaildaten gehören in Anhang oder Handout.
+  - Erwartung: Mehrere Probedurchläufe mit Stoppuhr und ein Kürzungsplan sichern die Zeitvorgabe.
+  - Rückfrage: Wie gehen Sie im anschließenden Fachgespräch mit einer Frage um, die Sie nicht sicher beantworten können?
+- Sie sollen eine Abstimmung zwischen dem Werk Zwickau, das die Sensormodule fertigt, dem Werk Brünn, das sie in der Endmontage verbaut und vorher prüft, und der Qualitätssicherung in Villingen über ein einheitliches Prüfverfahren moderieren; Brünn ist per Video zugeschaltet. Wie gehen Sie vor, und wie reagieren Sie, wenn eine Person die Diskussion dominiert?
+  - Erwartung: Die Moderation trägt die Prozessverantwortung und bleibt inhaltlich neutral; moderieren sollte möglichst jemand, der selbst nicht Partei ist.
+  - Erwartung: Der Ablauf folgt dem Moderationszyklus: Einstieg, Themen sammeln, Thema auswählen, Thema bearbeiten, Maßnahmen planen, Abschluss.
+  - Erwartung: Passende Methoden sind zum Beispiel die Kartenabfrage am digitalen Whiteboard zum Sammeln, die Punktabfrage zum Auswählen und Kleingruppen zum Bearbeiten; die Zugeschalteten werden gezielt einbezogen.
+  - Erwartung: Bei Dominanz reagiert die Moderation über den Ablauf: Redezeit begrenzen, an die Spielregeln erinnern, eine schriftliche Methode wählen und Schweigende gezielt ansprechen; Nebenthemen kommen in den Themenspeicher, bei Konflikten wechselt sie auf die Metaebene.
+  - Erwartung: Die Ergebnisse werden mit einem Maßnahmenplan (was, wer, bis wann) und einem Protokoll an alle Beteiligten gesichert.
+- Worin unterscheiden sich Beurteilungs-, Kritik- und Fördergespräch, und wie führen Sie ein Kritikgespräch mit einem Facharbeiter, der wiederholt eine vorgeschriebene Prüfung ausgelassen hat?
+  - Erwartung: Das Beurteilungsgespräch hat einen festen Turnus, schaut auf den zurückliegenden Zeitraum und bewertet Leistung und Verhalten nach festgelegten Merkmalen; Beurteilungsfehler wie Halo- oder Recency-Effekt sind zu vermeiden.
+  - Erwartung: Das Kritikgespräch hat einen konkreten Anlass, findet bald nach dem Vorfall und ohne Zuhörende statt und soll ein bestimmtes Verhalten künftig ändern; das Fördergespräch schaut nach vorn und legt Lernschritte, Weiterbildungen oder zusätzliche Aufgaben mit Zeitpunkten fest.
+  - Erwartung: Ablauf des Kritikgesprächs: Vorbereitung mit Fakten, beobachtetes Verhalten genau schildern ohne die Person zu bewerten, Sicht des Gegenübers anhören (aktiv zuhören) und Gründe klären, künftige Erwartung sagen und Absprache treffen, Folgen bei Wiederholung und mögliche Unterstützung besprechen, Folgetermin zur Kontrolle.
+  - Erwartung: Die Kritik wird in Ich-Botschaften ohne Verallgemeinerungen formuliert, und die Notizen werden vertraulich behandelt.
+  - Rückfrage: Warum sollte die Kritik nicht bis zum nächsten Beurteilungsgespräch aufgespart werden?

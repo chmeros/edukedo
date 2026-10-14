@@ -165,13 +165,28 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Strategie wird nach Bedeutung des Themas, Dringlichkeit und Beziehung der Parteien gewählt, etwa Kompromiss oder Kooperation.
   - Erwartung: Die Methode, z. B. Mediation, wird nach Konfliktart, Eskalationsgrad und beteiligten Personen gewählt.
 - Welche Rolle spielt eine Führungskraft in einem eskalierten Teamkonflikt?
+  - Erwartung: Die Führungskraft ist häufig die erste Anlaufstelle und leitet ein Konfliktgespräch (Klärungsgespräch) zwischen den Beteiligten.
+  - Erwartung: Sie ist nicht neutral im engeren Sinn, weil sie weisungsbefugt ist und eigene Sachinteressen haben kann; sie bleibt aber allparteilich, bevorzugt keine Seite und gibt keine Lösung vor.
+  - Erwartung: Sie bereitet das Gespräch vor: Informationen sammeln, Konfliktart und Eskalationsphase einschätzen, Ziel festlegen, eigene Rolle klären und den Rahmen planen.
+  - Erwartung: Droht das Gespräch zu kippen, reagiert sie gestuft: Störung ansprechen und an die Gesprächsregeln erinnern, auf die Metaebene wechseln, Pause einlegen, bei Bedarf vertagen.
+  - Erwartung: Ist sie selbst Konfliktpartei oder ist kein sachliches Gespräch mehr möglich, veranlasst sie eine Mediation durch eine neutrale, nicht weisungsbefugte Person.
 - Ab welchem Punkt sollte ein Konflikt an eine neutrale dritte Instanz übergeben werden?
+  - Erwartung: Wenn der Konflikt so weit eskaliert ist, dass die Beteiligten nicht mehr sachlich miteinander sprechen können.
+  - Erwartung: Wenn die Person, die das Gespräch leiten würde, selbst Konfliktpartei ist.
+  - Erwartung: Wenn ein Konfliktgespräch trotz Erinnerung an die Gesprächsregeln, Wechsel auf die Metaebene, Pause und Vertagung nicht weiterkommt oder die Vereinbarung im Folgegespräch nicht eingehalten wurde.
+  - Erwartung: Die neutrale Instanz ist z. B. eine Mediation: Eine allparteiliche, neutrale dritte Person hilft den Parteien, selbst eine einvernehmliche Lösung zu finden, und entscheidet nicht selbst.
+  - Erwartung: Die Wahl der Methode richtet sich nach Konfliktart, Eskalationsgrad und den beteiligten Personen.
 - Welche präventiven Maßnahmen können Konflikte im Team von vornherein verringern?
   - Erwartung: Rollenspiele und Trainings, in denen Führungskräfte und Mitarbeitende Konfliktsituationen sicher üben können.
   - Erwartung: Teamentwicklungsmaßnahmen, die Vertrauen und gegenseitiges Verständnis stärken.
   - Erwartung: Ein klar formuliertes Unternehmensleitbild mit gemeinsamen Werten und Verhaltensregeln als Orientierungsrahmen.
   - Erwartung: Klare Kommunikationsregeln und regelmäßiges, konstruktives Feedback, damit sich Spannungen nicht unbemerkt aufstauen.
 - Beschreiben Sie den typischen Ablauf eines Klärungsgesprächs zwischen zwei Konfliktparteien.
+  - Erwartung: Eröffnung: Anlass, Ziel und Ablauf nennen und Gesprächsregeln vereinbaren.
+  - Erwartung: Sichtweisen klären: Jede Seite schildert ihre Sicht ohne Unterbrechung; die leitende Person hört aktiv zu und fasst zusammen.
+  - Erwartung: Interessen herausarbeiten: Hinter den Positionen die Interessen erfragen und gemeinsame Interessen festhalten.
+  - Erwartung: Lösungen suchen: Ideen zunächst ohne Bewertung sammeln, dann danach bewerten, wie gut sie die Interessen beider Seiten erfüllen.
+  - Erwartung: Vereinbarung treffen und abschließen: Wer tut was bis wann, beide stimmen zu, die Vereinbarung wird schriftlich festgehalten und ein Folgetermin vereinbart.
 - Wie unterscheiden sich sachliche und persönliche Konfliktursachen, und warum ist diese Unterscheidung wichtig?
   - Erwartung: Beim Sach-/Zielkonflikt bestehen unterschiedliche Auffassungen über die richtige Lösung eines Problems.
   - Erwartung: Beim Beziehungskonflikt überlagern persönliche Antipathien die sachliche Auseinandersetzung.
@@ -183,6 +198,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Suche nach gemeinsamen Interessen entspannt den Konflikt.
   - Erwartung: Vorwürfe, Ignorieren oder einseitiges Durchsetzen verschärfen den Konflikt und werden vermieden.
   - Erwartung: Mediator:innen sind allparteilich und neutral, moderierende Personen lenken den Austausch, ohne inhaltlich Partei zu ergreifen.
+- Sie sollen ein Konfliktgespräch zwischen zwei Mitarbeitenden leiten. Wie bereiten Sie es vor, und wie eröffnen Sie es?
+  - Erwartung: Informationen werden gesammelt, also konkrete Beobachtungen und Beispiele statt Gerüchte; Konfliktart und Eskalationsphase werden eingeschätzt.
+  - Erwartung: Das Ziel wird festgelegt, meist eine verbindliche Vereinbarung über die weitere Zusammenarbeit.
+  - Erwartung: Die eigene Rolle wird geklärt: Die leitende Person verhält sich allparteilich; ist sie selbst Konfliktpartei, sollte sie das Gespräch nicht leiten.
+  - Erwartung: Der Rahmen wird geplant: zeitnaher Termin, ungestörter, neutraler Raum, ausreichend Zeit, Einladung beider Seiten mit Nennung des Anlasses.
+  - Erwartung: In der Eröffnung werden Anlass, Ziel und Ablauf genannt und Gesprächsregeln vereinbart, z. B. ausreden lassen, Ich-Botschaften, konkrete Beispiele statt „immer“ oder „nie“, Vertraulichkeit.
+  - Rückfrage: Welche Gesprächsregel halten Sie für unverzichtbar, und warum?
+- Zwei Mitarbeitende beharren im Konfliktgespräch auf ihren Forderungen. Wie kommen Sie trotzdem zu einer Lösung, und wie halten Sie das Ergebnis fest?
+  - Erwartung: Positionen (was jemand fordert) werden von Interessen (warum jemand es fordert) unterschieden; Positionen schließen sich oft aus, Interessen lassen sich häufiger vereinbaren.
+  - Erwartung: Die Interessen werden erfragt, etwa mit „Was ist daran besonders wichtig?“, und gemeinsame Interessen werden ausdrücklich festgehalten.
+  - Erwartung: Lösungsideen werden zunächst ohne Bewertung gesammelt und dann danach bewertet, wie gut sie die Interessen beider Seiten erfüllen; die leitende Person bringt nicht als Erste eine eigene Lösung ein. Lassen sich die Interessen nicht vollständig vereinbaren, wird ein Kompromiss gesucht.
+  - Erwartung: Die Vereinbarung wird schriftlich festgehalten: Datum und Teilnehmende, Anlass neutral ohne Schuldzuweisung, Maßnahmen mit Verantwortlichen und Terminen, Termin des Folgegesprächs; eine wörtliche Mitschrift der Vorwürfe gehört nicht hinein.
+  - Erwartung: Beide Seiten erhalten und bestätigen die Vereinbarung, sie wird vertraulich behandelt, und im Folgegespräch wird geprüft, ob sie eingehalten wurde.
+  - Rückfrage: Nennen Sie ein Beispiel für eine Position und das Interesse, das dahinterstehen kann.
 
 ### 3.4 Moderation von Projektgruppen
 
@@ -241,4 +270,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Gruppe soll selbst zu einem Ergebnis kommen, damit gemeinsam tragfähige Ergebnisse erarbeitet werden.
   - Erwartung: Dabei werden alle Teilnehmenden aktiv einbezogen.
   - Rückfrage: Welche Verantwortung trägt die moderierende Person stattdessen?
-
+- Wie bauen Sie eine Präsentation von höchstens zehn Minuten auf, und wie stellen Sie sicher, dass Sie die Zeit einhalten?
+  - Erwartung: Zur Planung werden Ziel, Zielgruppe, Zeit, Raum und Medien geklärt.
+  - Erwartung: Der Aufbau folgt Einleitung (Aufmerksamkeit, Thema, Ziel, Kernbotschaft, Gliederung), Hauptteil (wenige Hauptpunkte in logischer Reihenfolge) und Schluss (Zusammenfassung, Kernbotschaft, nächster Schritt) ohne neue Inhalte im Schluss.
+  - Erwartung: Ein roter Faden mit angekündigten Übergängen und eine Kernbotschaft (auch Kernaussage), die sich in einem Satz formulieren lässt und am Anfang und am Ende stehen sollte, halten die Präsentation zusammen.
+  - Erwartung: Ein Zeitplan je Teil (z. B. Einleitung etwa eine Minute, Hauptteil etwa sieben Minuten, Schluss etwa eine Minute, Puffer), ein Probelauf mit Uhr und eine Kürzungsreserve sichern die Zeit; gekürzt wird im Hauptteil.
+  - Erwartung: Ein Beispiel aus der eigenen betrieblichen Praxis macht die Präsentation anschaulich; in der Prüfung sollte der Bezug zu Führen, Betreuen, Verwalten und Ausbilden erkennbar sein.
+  - Rückfrage: Wovon hängt ab, welche Medien Sie in der Präsentation einsetzen?
+- Wie gehen Sie mit Einwänden und kritischen Fragen um, bei einer Kundenpräsentation und im Fachgespräch der Prüfung?
+  - Erwartung: Fragen und Einwände werden zu Ende angehört, ernst, aber nicht persönlich genommen, und die präsentierende Person rechtfertigt sich nicht.
+  - Erwartung: Ein Einwand wird in eigenen Worten wiedergegeben, sachlich mit Argumenten oder Fakten beantwortet, und abschließend wird nachgefragt, ob er ausgeräumt ist.
+  - Erwartung: Bei Unklarheit wird nachgefragt; die Antwort kommt zuerst in einem Satz, die Begründung danach, möglichst mit einem Praxisbeispiel.
+  - Erwartung: Wissenslücken werden offen eingeräumt und mit dem verbunden, was sicher bekannt ist; eine erfundene Antwort fällt bei Nachfragen meist auf und kostet Glaubwürdigkeit.
+  - Erwartung: In einer Kundenpräsentation lassen sich Grundsatzdiskussionen oder sehr spezielle Fragen auf dem Flipchart notieren und nach der Präsentation aufgreifen.
+  - Rückfrage: Warum sollten in der Präsentation nur Begriffe vorkommen, die Sie im Fachgespräch erklären können?
