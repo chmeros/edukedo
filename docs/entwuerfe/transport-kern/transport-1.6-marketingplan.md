@@ -48,10 +48,10 @@ Der **Marketing-Mix** bündelt die Instrumente, mit denen die Strategie umgesetz
 
 - **Leistung:** das modulare Kontraktlogistik-Angebot aus Kernleistungen und Zusatzmodulen (Thema 1.2), vereinbarte Servicelevel (SLA), Sendungsverfolgung per Track & Trace (Thema 1.5).
 - **Preis:** Preisbildung aus Selbstkosten, Wettbewerb und Zahlungsbereitschaft (Thema 1.3), Preismodelle wie ein Preis je Palettenstellplatz und Monat oder je Auftragsposition, Rabatte für verbindliche Mengenzusagen.
-- **Distribution bzw. Vertrieb:** die Wege, über die die Leistung verkauft wird, etwa ein Key-Account-Team für große Kundenunternehmen, der Vertriebsinnendienst für Anfragen, ein Anfrageformular auf der Website und die Teilnahme an Ausschreibungen (Thema 2.7).
+- **Distribution bzw. Vertrieb** (hier: Vertriebsweg, nicht physische Verteilung der Ware): die Wege, über die die Leistung verkauft wird, etwa ein Key-Account-Team für große Kundenunternehmen, der Vertriebsinnendienst für Anfragen, ein Anfrageformular auf der Website und die Teilnahme an Ausschreibungen (Thema 2.7).
 - **Kommunikation:** Fachmessen, Fachbeiträge und Referenzberichte, Website und Fachnetzwerke, Kundenveranstaltungen und der persönliche Verkauf.
 
-Weil eine Dienstleistung immateriell ist und nach dem Uno-actu-Prinzip unter Beteiligung der Kundschaft erbracht wird (Thema 1.2), ergänzen viele Quellen den Mix für Dienstleistungen um drei weitere Instrumente (dann „sieben P“): **Personal** (die Menschen, die die Leistung erbringen und sichtbar vertreten, etwa Disponent:innen, Fahrpersonal und Kundenbetreuung), **Prozesse** (wie verlässlich und transparent der Ablauf für die Kundschaft ist, etwa Auftragsannahme, Avisierung und Reklamationsbearbeitung) und **physische Ausstattung** (sichtbare Belege, die eine immaterielle Leistung greifbar machen, etwa gepflegte Fahrzeuge im Firmendesign, ein ordentliches Lager bei der Besichtigung, Zertifikate nach ISO 9001 oder regelmäßige Kennzahlenberichte). Einheitlich sind diese Bezeichnungen nicht: In manchen Quellen und in anderen Kursen wird der Mix nur um „Personal und Ausstattung“ ergänzt, und in Fragen nach dem klassischen Marketing-Mix gehören nur die vier P dazu. In diesem Kurs gilt: Der klassische Marketing-Mix hat vier Instrumente; für Logistikdienstleistungen wird er um Personal, Prozesse und physische Ausstattung ergänzt.
+Weil eine Dienstleistung immateriell ist, nach dem Uno-actu-Prinzip zeitgleich mit der Inanspruchnahme erbracht wird und die Kundschaft bzw. ihre Ware als externen Faktor einbezieht (Thema 1.2), ergänzen viele Quellen den Mix für Dienstleistungen um drei weitere Instrumente (dann „sieben P“): **Personal** (die Menschen, die die Leistung erbringen und sichtbar vertreten, etwa Disponent:innen, Fahrpersonal und Kundenbetreuung), **Prozesse** (wie verlässlich und transparent der Ablauf für die Kundschaft ist, etwa Auftragsannahme, Avisierung und Reklamationsbearbeitung) und **physische Ausstattung und sichtbare Nachweise** (Belege, die eine immaterielle Leistung greifbar machen, etwa gepflegte Fahrzeuge im Firmendesign, ein ordentliches Lager bei der Besichtigung, Zertifikate nach ISO 9001 oder regelmäßige Kennzahlenberichte). Einheitlich sind diese Bezeichnungen nicht: In manchen Quellen wird der Mix nur um „Personal und Ausstattung“ ergänzt, und in Fragen nach dem klassischen Marketing-Mix gehören nur die vier P dazu. In diesem Kurs gilt: Der klassische Marketing-Mix hat vier Instrumente; für Logistikdienstleistungen wird er um Personal, Prozesse sowie physische Ausstattung und sichtbare Nachweise ergänzt.
 
 Wie im klassischen Mix müssen alle Instrumente zueinander passen: Eine Positionierung über Zuverlässigkeit verträgt keinen Kampfpreis, der nur mit knapper Personalbesetzung zu halten ist, und keine Werbung, die eine Erreichbarkeit verspricht, die der Prozess nicht hergibt.
 
@@ -59,7 +59,7 @@ Wie im klassischen Mix müssen alle Instrumente zueinander passen: Eine Position
 
 Die Gewinnung neuer Kundschaft (**Kundenakquise**) folgt in der Logistik meist einer Stufenfolge: Aus Kontakten (etwa auf einer Fachmesse oder über Empfehlungen) werden **Anfragen**, aus geprüften Anfragen **Angebote** und aus Angeboten **Aufträge**. Die Stufen lassen sich mit Kennzahlen verfolgen: Die **Angebotsquote** ist das Verhältnis der abgegebenen Angebote zu den Anfragen, die **Abschlussquote** das Verhältnis der gewonnenen Aufträge zu den abgegebenen Angeboten (jeweils × 100). Viele Anfragen bei niedriger Angebotsquote deuten auf unpassende Kontakte hin, eine niedrige Abschlussquote eher auf Schwächen bei Preis, Lösungskonzept oder Verhandlung. Empfehlungen zufriedener Bestandskunden und Referenzbesuche sind im Logistikgeschäft besonders wirksam, weil die Kundschaft vor einem mehrjährigen Vertrag ein hohes Risiko sieht.
 
-Da Kontraktlogistik-Verträge über mehrere Jahre laufen und ein Wechsel des Dienstleisters für beide Seiten aufwendig ist, ist die **Kundenbindung** oft wirtschaftlich wichtiger als die Neukundengewinnung. Große Kundenunternehmen werden deshalb im **Key-Account-Management** betreut (vgl. das Key-Account-Team in Thema 1.3): Eine feste Key-Account-Manager:in ist zentrale Ansprechperson, koordiniert alle beteiligten Abteilungen von der Disposition bis zur Abrechnung, führt regelmäßige Leistungsgespräche anhand der SLA-Kennzahlen, plant gemeinsam mit der Kundschaft Verbesserungen und erkennt früh zusätzlichen Bedarf, etwa ein weiteres Zusatzmodul oder einen neuen Standort. Bindung entsteht in erster Linie durch zuverlässige Leistung und Zufriedenheit; lange Vertragslaufzeiten oder eine tiefe IT-Anbindung (etwa per EDI, Thema 1.5) erschweren zwar einen Wechsel, ersetzen aber keine gute Leistung. Gemessen wird die Kundenbindung zum Beispiel mit der **Kundenbindungsrate** (Anteil der Kundenunternehmen des Vorjahres, die auch im laufenden Jahr Aufträge erteilen) und mit regelmäßigen Zufriedenheitsbefragungen.
+Da Kontraktlogistik-Verträge über mehrere Jahre laufen und ein Wechsel des Dienstleisters für beide Seiten aufwendig ist, ist die **Kundenbindung** oft wirtschaftlich wichtiger als die Neukundengewinnung. Große Kundenunternehmen werden deshalb im **Key-Account-Management** betreut (vgl. das Key-Account-Team in Thema 1.3): Eine feste Ansprechperson im Key-Account-Management ist zentrale Anlaufstelle, koordiniert alle beteiligten Abteilungen von der Disposition bis zur Abrechnung, führt regelmäßige Leistungsgespräche anhand der SLA-Kennzahlen, plant gemeinsam mit der Kundschaft Verbesserungen und erkennt früh zusätzlichen Bedarf, etwa ein weiteres Zusatzmodul oder einen neuen Standort. Bindung entsteht in erster Linie durch zuverlässige Leistung und Zufriedenheit; lange Vertragslaufzeiten oder eine tiefe IT-Anbindung (etwa per EDI, Thema 1.5) erschweren zwar einen Wechsel, ersetzen aber keine gute Leistung. Gemessen wird die Kundenbindung zum Beispiel mit der **Kundenbindungsrate** (Anteil der Kundenunternehmen des Vorjahres, die auch im laufenden Jahr Aufträge erteilen) und mit regelmäßigen Zufriedenheitsbefragungen.
 
 ### Maßnahmenplan, Budget und Erfolgskontrolle
 
@@ -70,7 +70,7 @@ Für die Höhe des **Marketingbudgets** gibt es mehrere Ansätze. Bei der **Proz
 Die **Erfolgskontrolle** vergleicht unterjährig und am Ende der Periode die erreichten Werte mit den Zielen. Neben Angebots- und Abschlussquote sind zwei Kennzahlen besonders aussagekräftig:
 
 - **Kosten je gewonnenem Neukunden** = Marketingkosten ÷ Zahl der gewonnenen Neukunden.
-- **Marketingrendite** = (Deckungsbeitrag der gewonnenen Aufträge − Marketingkosten) ÷ Marketingkosten × 100. Gerechnet wird mit dem Deckungsbeitrag (Erlös minus variable Kosten, Thema 1.3) und nicht mit dem Umsatz, weil im Umsatz die Kosten der Leistungserbringung noch enthalten sind. Die Marketingrendite ist nicht mit dem ROI (Return on Investment) zu verwechseln, der in anderen Kursen als Rentabilität des eingesetzten Kapitals berechnet wird.
+- **Marketingrendite** = (Deckungsbeitrag der gewonnenen Aufträge − Marketingkosten) ÷ Marketingkosten × 100. Gerechnet wird mit dem Deckungsbeitrag (Erlös minus variable Kosten, Thema 1.3) und nicht mit dem Umsatz, weil im Umsatz die Kosten der Leistungserbringung noch enthalten sind. Die Marketingrendite ist nicht mit dem ROI (Return on Investment) zu verwechseln, der in der Kennzahlenrechnung als Rentabilität des eingesetzten Kapitals berechnet wird.
 
 Beide Kennzahlen haben Grenzen: Nicht jeder Neukunde ist allein durch eine Marketingmaßnahme gewonnen worden, und bei mehrjährigen Kontraktlogistik-Verträgen unterschätzt die Betrachtung des ersten Vertragsjahres den Erfolg.
 
@@ -138,7 +138,7 @@ Schon im ersten Jahr übersteigt der Deckungsbeitrag je Neukunde (15.000 €) di
 
 #### K-1.6-09
 **Frage:** Um welche drei Instrumente wird der Marketing-Mix für Logistikdienstleistungen ergänzt, und warum?
-**Antwort:** Personal, Prozesse und physische Ausstattung. Die Leistung ist immateriell und wird unter Beteiligung der Kundschaft erbracht; diese Instrumente machen ihre Qualität sichtbar.
+**Antwort:** Personal, Prozesse sowie physische Ausstattung und sichtbare Nachweise. Die Leistung ist immateriell, wird nach dem Uno-actu-Prinzip zeitgleich mit der Inanspruchnahme erbracht und bezieht die Kundschaft bzw. ihre Ware als externen Faktor ein; diese Instrumente machen ihre Qualität sichtbar.
 `tags: marketing_mix` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-1.6-10
@@ -193,10 +193,10 @@ Schon im ersten Jahr übersteigt der Deckungsbeitrag je Neukunde (15.000 €) di
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-1.6-05 · Entweder-Oder
-**Frage:** Fracora will den per Befragung gemessenen Bekanntheitsgrad bei Logistikleitungen im Maschinenbau bis zum Jahresende von 20 % auf 35 % steigern. Ist das ein ökonomisches oder ein psychografisches Marketingziel?
+**Frage:** Fracora will die durchschnittliche Zufriedenheit der Kontraktlogistik-Kundschaft in der jährlichen Befragung bis zum Jahresende von 3,8 auf 4,2 von 5 Punkten steigern. Ist das ein ökonomisches oder ein psychografisches Marketingziel?
 - [ ] Ökonomisches Marketingziel
 - [x] Psychografisches Marketingziel
-**Erklärung:** Der Bekanntheitsgrad beschreibt eine Wahrnehmung, keine wirtschaftliche Größe. Dass das Ziel in Prozent gemessen wird, macht es messbar, aber nicht ökonomisch.
+**Erklärung:** Die Kundenzufriedenheit beschreibt eine Wahrnehmung, keine wirtschaftliche Größe. Dass das Ziel in Punkten gemessen wird, macht es messbar, aber nicht ökonomisch.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.6-06 · Was passt nicht dazu
@@ -204,8 +204,8 @@ Schon im ersten Jahr übersteigt der Deckungsbeitrag je Neukunde (15.000 €) di
 - [ ] Personal
 - [x] Preis
 - [ ] Prozesse
-- [ ] Physische Ausstattung
-**Erklärung:** Der Preis gehört zu den vier klassischen Instrumenten. Ergänzt wird der Mix für Dienstleistungen um Personal, Prozesse und physische Ausstattung.
+- [ ] Physische Ausstattung und sichtbare Nachweise
+**Erklärung:** Der Preis gehört zu den vier klassischen Instrumenten. Ergänzt wird der Mix für Dienstleistungen um Personal, Prozesse sowie physische Ausstattung und sichtbare Nachweise.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### Q-1.6-07 · Mehrfachauswahl
@@ -213,8 +213,8 @@ Schon im ersten Jahr übersteigt der Deckungsbeitrag je Neukunde (15.000 €) di
 - [x] Die verantwortliche Person
 - [ ] Die vollständigen Preislisten aller Wettbewerbsunternehmen
 - [x] Den Termin, bis zu dem die Maßnahme erledigt ist
-- [ ] Die Lebensläufe aller Beschäftigten im Vertrieb
-**Erklärung:** Je Maßnahme stehen im Plan Inhalt, Verantwortliche, Termin, Kosten und Erfolgskennzahl. Preislisten der Konkurrenz gehören allenfalls in die Situationsanalyse, Lebensläufe gar nicht in den Marketingplan.
+- [ ] Die SWOT-Analyse des Segments
+**Erklärung:** Je Maßnahme stehen im Plan Inhalt, Verantwortliche, Termin, Kosten und Erfolgskennzahl. SWOT-Analyse und Informationen über die Konkurrenz gehören in die Situationsanalyse, nicht in den Maßnahmenplan.
 `schwierigkeit: leicht` · `bloom: verstehen`
 
 #### Q-1.6-08 · Kurzantwort

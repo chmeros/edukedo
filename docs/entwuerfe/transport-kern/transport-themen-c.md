@@ -1,6 +1,6 @@
 # Entwurf Transport Management and Logistics, Frachtberechnung und Prozessgestaltung: Ergänzungen in den Themen 1.3 und 2.6
 
-Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Teil C des Auftrags P-D (Erhebung TL-9 Frachtberechnung und TL-3 Prozessgestaltung; Review FL-TL-08, FL-TL-09, FL-TL-32). Einzufügen in `content/transport-management-logistics/hb1/1.3-vertrieb-angebotskalkulation.md` (Abschnitt A bis C) und `hb2/2.6-qualitaets-umweltmanagement-logistik.md` (D bis F). Die vorhandenen Abschnitte (Vertrieb, Angebotsprozess, Kostenarten, Zuschlagskalkulation, Preisstrategien, Rechenbeispiel Tour und Preisuntergrenze; ISO 9001 mit PDCA, ISO 14001, CO2-Bilanzierung, nachhaltige Logistik, Qualitätsmanagement im Tagesgeschäft, Rechenbeispiel Tonnenkilometer) werden nicht wiederholt, sondern vorausgesetzt. Alle Zahlen, Umrechnungsfaktoren, Frachtsätze, Zuschläge und Fahrzeugmaße sind frei gewählte Beispielwerte; maßgeblich sind in der Praxis der Vertrag oder der Tarif der Beteiligten. Die Phasen der Auftragsabwicklung folgen Thema 2.1 (Q-2.1-06, Q-2.1-07: Auftragsannahme, Disposition, Durchführung) und werden verfeinert, nicht ersetzt. Der Verweis auf Thema 2.9 in Abschnitt D setzt voraus, dass Teil B eingespielt ist; sonst entfällt der Klammerzusatz. Karten und Quiz duzen, die Theorie spricht niemanden an.
+Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Teil C des Auftrags P-D (Erhebung TL-9 Frachtberechnung und TL-3 Prozessgestaltung; Review FL-TL-08, FL-TL-09, FL-TL-32). Einzufügen in `content/transport-management-logistics/hb1/1.3-vertrieb-angebotskalkulation.md` (Abschnitt A bis C) und `hb2/2.6-qualitaets-umweltmanagement-logistik.md` (D bis F). Die vorhandenen Abschnitte (Vertrieb, Angebotsprozess, Kostenarten, Zuschlagskalkulation, Preisstrategien, Rechenbeispiel Tour und Preisuntergrenze; ISO 9001 mit PDCA, ISO 14001, CO2-Bilanzierung, nachhaltige Logistik, Qualitätsmanagement im Tagesgeschäft, Rechenbeispiel Tonnenkilometer) werden nicht wiederholt, sondern vorausgesetzt. Alle Zahlen, Umrechnungsfaktoren, Frachtsätze, Zuschläge und Fahrzeugmaße sind frei gewählte Beispielwerte; maßgeblich sind in der Praxis der Vertrag oder der Tarif der Beteiligten. Die Phasen der Auftragsabwicklung (Auftragsannahme, Disposition, Durchführung) folgen den Quizfragen Q-2.1-06 und Q-2.1-07 und werden verfeinert, nicht ersetzt; die PDCA-Phasen folgen 1.2, 2.6 und dem Spiel „Prozess-Reihenfolge“ (Do = testweise umsetzen, Act = standardisieren oder nachbessern). Der Verweis auf Thema 2.9 in Abschnitt D setzt voraus, dass Teil B eingespielt ist; sonst entfällt der Klammerzusatz. Karten und Quiz duzen, die Theorie spricht niemanden an.
 
 ---
 
@@ -20,15 +20,15 @@ Die Umrechnungsfaktoren sind nicht einheitlich, sondern richten sich nach dem Ve
 
 Auch Rundungsregeln, etwa auf volle 100 kg oder auf halbe Kilogramm, legt der Tarif fest; in den Rechenbeispielen dieses Kurses wird nicht gerundet. Für die Bedarfsanalyse im Angebotsprozess folgt daraus: Ohne Maße, Gewicht, Anzahl der Packstücke und Angabe zur Stapelbarkeit lässt sich die Fracht nicht verlässlich berechnen.
 
-### Ladungsmeter, Paletten und Container
+### Lademeter, Paletten und Container
 
-Bei Teilladungen und bei nicht stapelbarer Ware wird im Straßenverkehr häufig nach der belegten **Ladefläche** abgerechnet, weil eine solche Sendung auch den Raum über sich blockiert. Maßeinheit ist der **Lademeter** (ldm, auch Ladungsmeter): ein Meter Ladefläche in Längsrichtung über die volle Breite des Fahrzeugs. Bei einer Innenbreite von rund 2,4 m gilt vereinfacht: Lademeter = Länge × Breite der Grundfläche in m ÷ 2,4 m. Eine **Europalette** (1,2 m × 0,8 m) belegt damit 1,2 × 0,8 ÷ 2,4 = 0,4 ldm. Ein Sattelauflieger mit rund 13,6 m Ladelänge bietet rechnerisch 13,6 ÷ 0,4 = 34 **Palettenstellplätze**; je nach Ladeschema (Paletten längs oder quer) sind es in der Praxis 33 oder 34. Um Lademeter in ein frachtpflichtiges Gewicht umzurechnen, nennt der Tarif ein Gewicht je Lademeter; ein häufig genannter Beispielwert ist 1 ldm = 1.850 kg, verbindlich ist auch hier der vereinbarte Tarif. Zehn nicht stapelbare Europaletten mit je 400 kg belegen 10 × 0,4 = 4 ldm; das Lademetergewicht beträgt 4 × 1.850 kg = 7.400 kg und liegt über dem Rohgewicht von 4.000 kg, frachtpflichtig sind also 7.400 kg. Manche Tarife rechnen statt mit Lademetern mit einem festen Gewicht je Palettenstellplatz. Ob nach Volumen, Lademetern oder Stellplätzen abgerechnet wird, hängt vom Tarif ab, häufig von Sendungsgröße und Stapelbarkeit; das Prinzip bleibt gleich: Belegter Raum wird in Gewicht umgerechnet, und das höhere Gewicht zählt.
+Bei Teilladungen ist im Straßenverkehr die belegte **Ladefläche** eine übliche Bezugsgröße für die Fracht; bei nicht stapelbarer Ware gilt das besonders, weil sie zusätzlich den Raum über sich blockiert. Maßeinheit ist der **Lademeter** (ldm, auch Ladungsmeter): ein Meter Ladefläche in Längsrichtung über die volle Breite des Fahrzeugs. Bei einer Innenbreite von rund 2,4 m gilt vereinfacht: Lademeter = Länge × Breite der Grundfläche in m ÷ 2,4 m. Eine **Europalette** (1,2 m × 0,8 m) belegt damit 1,2 × 0,8 ÷ 2,4 = 0,4 ldm. Ein Sattelauflieger mit rund 13,6 m Ladelänge bietet rechnerisch 13,6 ÷ 0,4 = 34 **Palettenstellplätze**; je nach Ladeschema (Paletten längs oder quer) sind es in der Praxis 33 oder 34. Um Lademeter in ein frachtpflichtiges Gewicht umzurechnen, nennt der Tarif ein Gewicht je Lademeter; ein häufig genannter Beispielwert ist 1 ldm = 1.850 kg, andere Tarife setzen andere Werte an, und verbindlich ist auch hier der vereinbarte Tarif. Zehn nicht stapelbare Europaletten mit je 400 kg belegen 10 × 0,4 = 4 ldm; das Lademetergewicht beträgt 4 × 1.850 kg = 7.400 kg und liegt über dem Rohgewicht von 4.000 kg, frachtpflichtig sind also 7.400 kg. Manche Tarife rechnen statt mit Lademetern mit einem festen Gewicht je Palettenstellplatz. Ob nach Volumen, Lademetern oder Stellplätzen abgerechnet wird, hängt vom Tarif ab, häufig von Sendungsgröße und Stapelbarkeit; das Prinzip bleibt gleich: Belegter Raum wird in Gewicht umgerechnet, und das höhere Gewicht zählt.
 
-In der Seefracht und im kombinierten Verkehr (siehe Thema 2.3) ist der **Container** die übliche Ladeeinheit, vor allem in den Größen 20 Fuß und 40 Fuß. Containermengen werden in **TEU** (Twenty-foot Equivalent Unit) gezählt: Ein 20-Fuß-Container entspricht 1 TEU, ein 40-Fuß-Container 2 TEU (auch FEU, Forty-foot Equivalent Unit). Volle Container werden in der Regel mit einem Preis je Container abgerechnet; Schiffsgrößen, Umschlagmengen von Terminals und Mengen in Rahmenverträgen werden häufig in TEU angegeben; 18 Container mit 20 Fuß und 12 Container mit 40 Fuß ergeben 18 + 12 × 2 = 42 TEU. Volumen und zulässige Zuladung hängen von Bauart und Reederei ab; als Richtwerte gelten rund 33 cbm Innenvolumen für den 20-Fuß- und rund 67 cbm für den 40-Fuß-Standardcontainer. Ob ein Container nach Gewicht oder nach Volumen ausgelastet ist, zeigt der Vergleich beider Auslastungsgrade (Auslastungsgrad wie in Thema 2.1: genutzte ÷ verfügbare Kapazität × 100). Werden in einen 20-Fuß-Container mit angenommen 30 cbm nutzbarem Volumen und 24.000 kg zulässiger Zuladung 21 cbm und 9.600 kg geladen, ist er nach Volumen zu 21 ÷ 30 × 100 = 70 % und nach Gewicht zu 9.600 ÷ 24.000 × 100 = 40 % ausgelastet. Engpass ist hier das Volumen: Schwere, kompakte Ware ließe sich noch zuladen, sperrige kaum.
+In der Seefracht und im kombinierten Verkehr (siehe Thema 2.3) ist der **Container** die übliche Ladeeinheit, vor allem in den Größen 20 Fuß und 40 Fuß. Containermengen werden in **TEU** (Twenty-foot Equivalent Unit) gezählt: Ein 20-Fuß-Container entspricht 1 TEU, ein 40-Fuß-Container 2 TEU bzw. 1 FEU (Forty-foot Equivalent Unit). Volle Container werden in der Regel mit einem Preis je Container abgerechnet; Schiffsgrößen, Umschlagmengen von Terminals und Mengen in Rahmenverträgen werden häufig in TEU angegeben; 18 Container mit 20 Fuß und 12 Container mit 40 Fuß ergeben 18 + 12 × 2 = 42 TEU. Volumen und zulässige Zuladung hängen von Bauart und Reederei ab; als Richtwerte gelten rund 33 cbm Innenvolumen für den 20-Fuß- und rund 67 cbm für den 40-Fuß-Standardcontainer. Das nutzbare Volumen liegt wegen Stauverlusten unter dem Innenvolumen; die zulässige Zuladung hängt vom Container und von den Gewichtsgrenzen im Straßenvor- und -nachlauf ab und ist im folgenden Beispiel ein Beispielwert. Ob ein Container nach Gewicht oder nach Volumen ausgelastet ist, zeigt der Vergleich beider Auslastungsgrade (Auslastungsgrad wie in Thema 2.1: genutzte ÷ verfügbare Kapazität × 100). Werden in einen 20-Fuß-Container mit angenommen 30 cbm nutzbarem Volumen und 24.000 kg zulässiger Zuladung 21 cbm und 9.600 kg geladen, ist er nach Volumen zu 21 ÷ 30 × 100 = 70 % und nach Gewicht zu 9.600 ÷ 24.000 × 100 = 40 % ausgelastet. Engpass ist hier das Volumen: Schwere, kompakte Ware ließe sich noch zuladen, sperrige kaum.
 
 ### Rechenbeispiel: Frachtberechnung einer Sammelgutsendung
 
-Ein Industriekunde übergibt Fracora vier Europaletten Sammelgut, je 1,2 m × 0,8 m × 1,25 m groß und 220 kg schwer (Rohgewicht). Der Haustarif enthält für diese Relation folgende angenommene Beispielwerte: Volumenfaktor 300 kg je cbm, Frachtsatz 8,00 € je 100 kg frachtpflichtiges Gewicht, Mindestfracht 35,00 €, Kraftstoffzuschlag 10 % auf die Fracht und eine Avisgebühr (Anmeldung der Zustellung beim Empfänger) von 10,00 € je Sendung.
+Ein Industrieunternehmen übergibt Fracora vier Europaletten Sammelgut, je 1,2 m × 0,8 m × 1,25 m groß und 220 kg schwer (Rohgewicht). Der Haustarif enthält folgende angenommene Beispielwerte: Volumenfaktor 300 kg je cbm, Frachtsatz 8,00 € je 100 kg frachtpflichtiges Gewicht, Mindestfracht 35,00 €, Kraftstoffzuschlag 10 % auf die Fracht und eine Avisgebühr (Anmeldung der Zustellung beim empfangenden Unternehmen) von 10,00 € je Sendung.
 
 | Stufe | Rechnung | Ergebnis |
 |---|---|---|
@@ -43,7 +43,7 @@ Ein Industriekunde übergibt Fracora vier Europaletten Sammelgut, je 1,2 m × 0,
 
 Die **Mindestfracht** deckt den Aufwand für Abholung, Umschlag und Zustellung auch bei sehr kleinen Sendungen. Ein Karton mit 25 kg Rohgewicht und 0,1 cbm (Volumengewicht 0,1 × 300 kg = 30 kg) ergäbe nach Tarif nur 30 kg ÷ 100 × 8,00 € = 2,40 €; berechnet wird die Mindestfracht von 35,00 €. Die Zuschläge kommen auf die Fracht hinzu, die Umsatzsteuer wie in der Zuschlagskalkulation erst auf den Nettobetrag, soweit die Leistung steuerpflichtig ist.
 
-**Einordnung in die Angebotskalkulation:** Im Sammelgutverkehr teilen sich mehrere Sendungen ein Fahrzeug, und jede wird über ihr frachtpflichtiges Gewicht berechnet. Die Frachtsätze eines Tarifs sind deshalb so zu kalkulieren, dass die Erlöse aller Sendungen einer Tour zusammen mindestens deren Selbstkosten decken. Fährt Fracora die Tour aus dem Rechenbeispiel oben (Selbstkosten 897 €, Angebotspreis 986,70 € netto) mit Sammelgut zu einem Frachtsatz von 6,50 € je 100 kg (Beispielwert dieser Relation), braucht sie vereinfacht, also ohne die Kosten für Abholung, Umschlag und Zustellung, mindestens 897 € ÷ 6,50 € × 100 kg = 13.800 kg frachtpflichtiges Gewicht, um die Selbstkosten zu decken, und 986,70 € ÷ 6,50 € × 100 kg = 15.180 kg, um den kalkulierten Angebotspreis zu erreichen. Weil Volumen- und Lademetergewicht in diese Rechnung eingehen, sichert der Umrechnungsfaktor die Erlöse auch dann, wenn leichte, sperrige Sendungen den Laderaum füllen.
+**Einordnung in die Angebotskalkulation:** Im Sammelgutverkehr teilen sich mehrere Sendungen ein Fahrzeug, und jede wird über ihr frachtpflichtiges Gewicht berechnet. Die Frachtsätze eines Tarifs sind deshalb so zu kalkulieren, dass die Erlöse aller Sendungen einer Tour zusammen mindestens deren Selbstkosten decken. Fährt Fracora die Tour aus dem Rechenbeispiel oben (Selbstkosten 897 €, Angebotspreis 986,70 € netto) mit Sammelgut zu einem Frachtsatz von 6,50 € je 100 kg (Beispielwert dieser Relation), braucht sie vereinfacht, also ohne die Kosten für Abholung, Umschlag und Zustellung, mindestens 897 € ÷ 6,50 € × 100 kg = 13.800 kg frachtpflichtiges Gewicht, um die Selbstkosten zu decken, und 986,70 € ÷ 6,50 € × 100 kg = 15.180 kg, um den kalkulierten Angebotspreis zu erreichen. Weil Volumen- und Lademetergewicht in diese Rechnung eingehen, sichert der Umrechnungsfaktor die Erlöse auch dann, wenn leichte, sperrige Sendungen den Laderaum füllen. Belegt eine Teilladung das Fahrzeug fast vollständig, ist sie wirtschaftlich eine Komplettladung; sie wird dann in der Regel als Tour mit der Zuschlagskalkulation angeboten, weil der Tarifpreis nach Lademetern deutlich darüber liegen kann.
 
 ## B. Karteikarten 1.3 (anhängen)
 
@@ -74,7 +74,7 @@ Die **Mindestfracht** deckt den Aufwand für Abholung, Umschlag und Zustellung a
 
 #### K-1.3-29
 **Frage:** Was misst die Einheit TEU, und wie viele TEU sind ein 20-Fuß- und ein 40-Fuß-Container?
-**Antwort:** TEU (Twenty-foot Equivalent Unit) zählt Containermengen in 20-Fuß-Einheiten: 20-Fuß-Container = 1 TEU, 40-Fuß-Container = 2 TEU.
+**Antwort:** TEU (Twenty-foot Equivalent Unit) zählt Containermengen in 20-Fuß-Einheiten: 20-Fuß-Container = 1 TEU, 40-Fuß-Container = 2 TEU bzw. 1 FEU (Forty-foot Equivalent Unit).
 `tags: container` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-1.3-30
@@ -114,7 +114,7 @@ Die **Mindestfracht** deckt den Aufwand für Abholung, Umschlag und Zustellung a
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.3-26 · Kurzantwort
-**Frage:** Ein Industriekunde versendet acht nicht stapelbare Europaletten mit je 400 kg als Teilladung. Der Tarif rechnet nach Lademetern mit 1 ldm = 1.850 kg; eine Europalette belegt 0,4 ldm. Wie hoch ist das frachtpflichtige Gewicht in Kilogramm?
+**Frage:** Ein Industrieunternehmen versendet acht nicht stapelbare Europaletten mit je 400 kg als Teilladung. Der Tarif rechnet nach Lademetern mit 1 ldm = 1.850 kg; eine Europalette belegt 0,4 ldm. Wie hoch ist das frachtpflichtige Gewicht in Kilogramm?
 **Akzeptierte Antworten:** 5.920; 5920; 5.920 kg; 5920 kg; 5.920 Kilogramm; 5920 Kilogramm; 5.920,00; 5920,00; 5.920,00 kg; 5920,00 kg
 **Erklärung:** 8 × 0,4 ldm = 3,2 ldm; Lademetergewicht = 3,2 × 1.850 kg = 5.920 kg. Das Rohgewicht beträgt 8 × 400 kg = 3.200 kg; frachtpflichtig ist der höhere Wert: 5.920 kg.
 `schwierigkeit: mittel` · `bloom: anwenden`
@@ -136,7 +136,7 @@ Die **Mindestfracht** deckt den Aufwand für Abholung, Umschlag und Zustellung a
 
 #### Q-1.3-29 · Kurzantwort
 **Frage:** Eine Sendung hat ein frachtpflichtiges Gewicht von 2.350 kg, der Frachtsatz beträgt 6,40 € je 100 kg. Wie hoch ist die Fracht in Euro (ohne Zuschläge und Umsatzsteuer)?
-**Akzeptierte Antworten:** 150,40; 150,4; 150.40; 150.4; 150,40 €; 150,4 €; 150.40 €; 150.4 €; 150,40 Euro; 150,4 Euro; 150.40 Euro; 150,40 EUR; 150,4 EUR; 150.40 EUR
+**Akzeptierte Antworten:** 150,40; 150,4; 150.40; 150.4; 150,40 €; 150,4 €; 150.40 €; 150.4 €; 150,40 Euro; 150,4 Euro; 150.40 Euro; 150.4 Euro; 150,40 EUR; 150,4 EUR; 150.40 EUR; 150.4 EUR
 **Erklärung:** 2.350 kg ÷ 100 = 23,5; 23,5 × 6,40 € = 150,40 €. Die Mindestfracht spielt bei diesem Betrag in der Regel keine Rolle.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
@@ -166,28 +166,28 @@ Das **Ablaufdiagramm** (auch Flussdiagramm oder Ablaufplan) stellt diese Schritt
 
 Ein einfaches Ablaufdiagramm zeigt nicht, **wer** einen Schritt ausführt. Wird es in Bahnen je Abteilung oder Beteiligten gegliedert (Swimlane-Diagramm), wird jeder Wechsel der Bahn als Übergabe sichtbar, also als Schnittstelle. Ein Prozess, den mehrere Abteilungen nacheinander bearbeiten, braucht außerdem eine Person, die für ihn als Ganzes verantwortlich ist. **Prozessverantwortliche** (auch Prozess-Owner) tragen abteilungsübergreifend die Verantwortung für einen kompletten Ablauf: Sie halten die Prozessbeschreibung aktuell, verfolgen die Kennzahlen des Prozesses, klären Zuständigkeiten an den Schnittstellen und stoßen Verbesserungen an. Die Leitungen der beteiligten Abteilungen ersetzen sie nicht; die einzelnen Schritte führen weiterhin die jeweiligen Fachleute aus.
 
-Verbessert wird ein Prozess in der Regel in vier Schritten: Zuerst wird der **Ist-Prozess** dargestellt, dann werden **Schwachstellen** analysiert (Wartezeiten, Doppelarbeit, unnötige Schleifen, fehlende Informationen), danach wird der **Soll-Prozess** festgelegt und eingeführt, und zuletzt wird seine Wirkung anhand von Kennzahlen **überprüft**. Das entspricht dem PDCA-Zyklus; als fortlaufende Verbesserung in kleinen Schritten heißt dieses Vorgehen **kontinuierlicher Verbesserungsprozess (KVP)**. Hinweise auf Schwachstellen liefern unter anderem das Reklamationsmanagement und Qualitätskennzahlen wie Pünktlichkeits-, Schadens- und Reklamationsquote (siehe „Qualitätsmanagement im operativen Tagesgeschäft“).
+Verbessert wird ein Prozess in der Regel nach dem PDCA-Zyklus. **Plan:** Der **Ist-Prozess** wird dargestellt, **Schwachstellen** werden analysiert (Wartezeiten, Doppelarbeit, unnötige Schleifen, fehlende Informationen), und der **Soll-Prozess** wird festgelegt. **Do:** Der Soll-Prozess wird testweise eingeführt. **Check:** Seine Wirkung wird anhand von Kennzahlen geprüft. **Act:** Ein bewährter Ablauf wird als Standard festgeschrieben, sonst wird nachgebessert. Als fortlaufende Verbesserung in kleinen Schritten heißt dieses Vorgehen **kontinuierlicher Verbesserungsprozess (KVP)**. Hinweise auf Schwachstellen liefern unter anderem das Reklamationsmanagement und Qualitätskennzahlen wie Pünktlichkeits-, Schadens- und Reklamationsquote (siehe „Qualitätsmanagement im operativen Tagesgeschäft“).
 
 ### Schnittstellen und Beispielprozess Auftragsabwicklung
 
-Eine **Schnittstelle** ist ein Übergabepunkt, an dem Ware, Information oder Verantwortung von einer Stelle an eine andere übergeht. Bei Fracora liegen interne Schnittstellen zwischen Kundenservice, Disposition, Lager, Fahrpersonal und Abrechnung, externe Schnittstellen zur Kundschaft, zu Subunternehmern, zum Seefracht-Partner und zum Empfänger. Neben dem Warenfluss laufen über jede Schnittstelle **Informationsflüsse**: Auftragsdaten mit Maßen und Gewichten, Zeitfenster und Avis, Frachtbrief, Statusmeldungen und Abliefernachweis. Typische **Störungen** an Schnittstellen sind unvollständige Auftragsdaten (fehlen Maße oder Stapelbarkeit, stimmt das frachtpflichtige Gewicht nicht, siehe Thema 1.3), **Medienbrüche** durch erneutes Abtippen von Daten, Informationen, die das Fahrpersonal zu spät erreichen (siehe Thema 3.3), Wartezeiten bei der Übergabe und unklare Zuständigkeit bei Abweichungen, etwa wenn Ware bei der Übernahme beschädigt ist. Bewährt haben sich festgelegte Übergabeinformationen (zum Beispiel Pflichtfelder im TMS), digitale Schnittstellen zwischen TMS, Lagerverwaltungssystem und Kundenportal (siehe Thema 1.5), klare Zuständigkeiten und eine Rückmeldung an die übergebende Stelle.
+Eine **Schnittstelle** ist ein Übergabepunkt, an dem Ware, Information oder Verantwortung von einer Stelle an eine andere übergeht. Bei Fracora liegen interne Schnittstellen zwischen Kundenservice (Auftragsannahme), Disposition, Lager, Fahrpersonal und Abrechnung, externe Schnittstellen zur Kundschaft, zu Subunternehmen, zum Seefracht-Partner und zum empfangenden Unternehmen. Neben dem Warenfluss laufen über jede Schnittstelle **Informationsflüsse**: Auftragsdaten mit Maßen und Gewichten, Zeitfenster und Avis, Frachtbrief, Statusmeldungen und Abliefernachweis. Typische **Störungen** an Schnittstellen sind unvollständige Auftragsdaten (fehlen Maße oder Stapelbarkeit, stimmt das frachtpflichtige Gewicht nicht, siehe Thema 1.3), **Medienbrüche** durch erneutes Abtippen von Daten, Informationen, die das Fahrpersonal zu spät erreichen (siehe Thema 3.3), Wartezeiten bei der Übergabe und unklare Zuständigkeit bei Abweichungen, etwa wenn Ware bei der Übernahme beschädigt ist. Bewährt haben sich festgelegte Übergabeinformationen (zum Beispiel Pflichtfelder im TMS), digitale Schnittstellen zwischen TMS, Lagerverwaltungssystem und Kundenportal (siehe Thema 1.5), klare Zuständigkeiten und eine Rückmeldung an die übergebende Stelle.
 
-In Thema 2.1 ist die Auftragsabwicklung in die Hauptphasen Auftragsannahme, Disposition und Durchführung gegliedert. Das folgende Beispiel verfeinert diese Phasen als Ablaufdiagramm in Textform und ergänzt den Abschluss mit Abliefernachweis und Abrechnung (frei gewähltes Beispiel; die ausführende Stelle steht in Klammern):
+Die Auftragsabwicklung lässt sich grob gliedern in Auftragsannahme, Disposition und Durchführung (vgl. die Quizfragen zu Thema 2.1). Das folgende Beispiel verfeinert diese Phasen als Ablaufdiagramm in Textform und ergänzt einen Abschluss mit Abliefernachweis und Abrechnung: Die Schritte 1 bis 3 gehören zur Auftragsannahme, 4 und 5 zur Disposition, 6 bis 10 zur Durchführung, 11 und 12 zu Abschluss und Abrechnung (frei gewähltes Beispiel; die ausführende Stelle steht in Klammern):
 
 1. **Start:** Ein Transportauftrag geht ein (Kundenservice).
 2. Auftrag im TMS erfassen und auf Vollständigkeit prüfen (Kundenservice).
-3. **Entscheidung „Eigene Kapazität frei?“** (Kundenservice nach Abstimmung mit der Disposition): nein → Auftrag an einen geprüften Subunternehmer vergeben oder der Kundschaft einen anderen Termin anbieten; ja → weiter.
+3. **Entscheidung „Eigene Kapazität frei?“** (Kundenservice nach Abstimmung mit der Disposition): ja → weiter mit Schritt 4; nein → entweder Auftrag an ein geprüftes Subunternehmen vergeben, dann weiter mit Schritt 5 (die Beförderung übernimmt das Subunternehmen), oder der Kundschaft einen anderen Termin anbieten, dann zurück zu Schritt 3.
 4. Tour planen sowie Fahrzeug und Fahrpersonal disponieren (Disposition).
-5. Frachtbrief erstellen und Fahrpersonal informieren (Disposition).
-6. Ware übernehmen, Menge und Zustand prüfen (Fahrpersonal oder Lager); wer abholt, wird anhand von Auftrag und Ausweis geprüft (siehe Thema 2.9).
-7. **Entscheidung „Ware einwandfrei?“:** nein → Schaden mit Foto und Vermerk im Frachtbrief dokumentieren und die Kundschaft informieren; ja → weiter.
+5. Frachtbrief und Begleitpapiere vorbereiten und Fahrpersonal informieren (Disposition).
+6. Ware übernehmen, Menge und Zustand prüfen (Fahrpersonal oder Lager). Übergibt das Fracora-Lager Ware an ein Subunternehmen, wird der Abholer anhand von Auftrag und Ausweis geprüft (siehe Thema 2.9).
+7. **Entscheidung „Ware einwandfrei?“:** ja → weiter mit Schritt 8; nein → Schaden mit Foto und Vermerk im Frachtbrief dokumentieren, die Kundschaft informieren und ihre Weisung einholen, danach weiter mit Schritt 8 oder Ende „Auftrag storniert“.
 8. Beladen und Ladung sichern (Lager und Fahrpersonal).
 9. Transport durchführen und Status melden (Fahrpersonal, Telematik).
 10. Abliefern und Abliefernachweis einholen (Fahrpersonal).
 11. Abliefernachweis prüfen und Rechnung erstellen (Abrechnung).
 12. **Ende:** Auftrag abgeschlossen.
 
-Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition oder vom Fahrpersonal zur Abrechnung, ist eine Schnittstelle. Als Prozessverantwortliche für die gesamte Auftragsabwicklung kann Fracora zum Beispiel eine erfahrene Disponentin benennen. Sie verfolgt Kennzahlen wie Pünktlichkeits- und Reklamationsquote und die Zeit vom Auftragseingang bis zur Rechnung. Häufen sich etwa Reklamationen, weil vereinbarte Zeitfenster beim Fahrpersonal nicht ankommen, prüft sie die Schnittstelle zwischen Kundenservice und Disposition und lässt das Zeitfenster als Pflichtfeld im TMS einrichten; im nächsten PDCA-Durchlauf zeigt die Pünktlichkeitsquote, ob die Maßnahme wirkt.
+Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition oder vom Fahrpersonal zur Abrechnung, ist eine Schnittstelle. Als Prozessverantwortliche für die gesamte Auftragsabwicklung kann Fracora zum Beispiel die Leitung der Dispositionszentrale benennen. Sie verfolgt Kennzahlen wie Pünktlichkeits- und Reklamationsquote und die Zeit vom Auftragseingang bis zur Rechnung. Häufen sich etwa Reklamationen, weil vereinbarte Zeitfenster beim Fahrpersonal nicht ankommen, prüft sie die Schnittstellen zwischen Auftragserfassung, Disposition und Fahrpersonal und lässt das Zeitfenster als Pflichtfeld im TMS einrichten; im nächsten PDCA-Durchlauf zeigt die Pünktlichkeitsquote, ob die Maßnahme wirkt.
 
 ## E. Karteikarten 2.6 (anhängen)
 
@@ -198,7 +198,7 @@ Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition o
 
 #### K-2.6-19
 **Frage:** Was ist eine Schnittstelle in einem Prozess?
-**Antwort:** Ein Übergabepunkt, an dem Ware, Information oder Verantwortung von einer Stelle an eine andere übergeht, intern (z. B. Kundenservice an Disposition) oder extern (z. B. an Subunternehmer oder Empfänger).
+**Antwort:** Ein Übergabepunkt, an dem Ware, Information oder Verantwortung von einer Stelle an eine andere übergeht, intern (z. B. Kundenservice an Disposition) oder extern (z. B. an ein Subunternehmen oder das empfangende Unternehmen).
 `tags: prozessgestaltung, schnittstelle` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-2.6-20
@@ -212,8 +212,8 @@ Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition o
 `tags: prozessgestaltung, prozessverantwortung` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.6-22
-**Frage:** In welchen vier Schritten wird ein Prozess verbessert, und wie hängt das mit PDCA und KVP zusammen?
-**Antwort:** Ist-Prozess darstellen, Schwachstellen analysieren, Soll-Prozess festlegen und einführen, Wirkung mit Kennzahlen überprüfen. Das folgt dem PDCA-Zyklus; fortlaufend in kleinen Schritten wiederholt, ist es der kontinuierliche Verbesserungsprozess (KVP).
+**Frage:** Wie verbesserst du einen Prozess nach dem PDCA-Zyklus, und was ist der KVP?
+**Antwort:** Plan: Ist-Prozess darstellen, Schwachstellen analysieren, Soll-Prozess festlegen. Do: Soll-Prozess testweise einführen. Check: Wirkung mit Kennzahlen prüfen. Act: bewährten Ablauf als Standard festschreiben oder nachbessern. Fortlaufend in kleinen Schritten wiederholt, ist das der kontinuierliche Verbesserungsprozess (KVP).
 `tags: prozessgestaltung, pdca` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.6-23
@@ -225,11 +225,11 @@ Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition o
 
 #### Q-2.6-18 · Sortieren
 **Anweisung:** Bringe die Schritte einer Prozessverbesserung in die richtige Reihenfolge.
-1. Ist-Prozess als Ablaufdiagramm darstellen
-2. Schwachstellen wie Wartezeiten und Medienbrüche analysieren
-3. Soll-Prozess festlegen und einführen
-4. Wirkung anhand von Kennzahlen überprüfen
-**Erklärung:** Schwachstellen lassen sich erst erkennen, wenn der Ist-Ablauf sichtbar ist. Der Soll-Prozess baut auf der Analyse auf, und erst nach der Einführung lässt sich seine Wirkung messen. Danach beginnt der Kreislauf wie beim PDCA-Zyklus von vorn.
+1. Ist-Prozess darstellen und Schwachstellen analysieren
+2. Soll-Prozess festlegen und testweise einführen
+3. Wirkung anhand von Kennzahlen überprüfen
+4. Bewährten Ablauf als Standard festschreiben oder nachbessern
+**Erklärung:** Die Schritte folgen dem PDCA-Zyklus: Plan (Ist darstellen, Schwachstellen analysieren, Soll festlegen), Do (testweise einführen), Check (Wirkung prüfen), Act (standardisieren oder nachbessern). Danach beginnt der Kreislauf von vorn.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.6-19 · Zuordnung
@@ -247,16 +247,16 @@ Jeder Wechsel der ausführenden Stelle, etwa vom Kundenservice zur Disposition o
 - [ ] Die Geschäftsführung kontrolliert künftig jeden Auftrag vor der Disposition selbst.
 - [ ] Die Kundschaft wird gebeten, bei der Bestellung möglichst auf Zeitfenster zu verzichten.
 - [x] Das Zeitfenster wird Pflichtfeld im TMS; die Pünktlichkeitsquote zeigt die Wirkung.
-**Erklärung:** Die Information geht an der Schnittstelle zwischen Kundenservice und Disposition verloren. Eine festgelegte Übergabeinformation behebt die Ursache, und die Kennzahl zeigt, ob die Maßnahme wirkt. Rückfragen und Einzelkontrollen erzeugen nur zusätzliche Schnittstellen und Wartezeiten; der Verzicht auf Zeitfenster geht zulasten der Kundschaft.
+**Erklärung:** Die Information geht an einer Schnittstelle zwischen Auftragserfassung und Fahrpersonal verloren. Eine festgelegte Übergabeinformation behebt die Ursache, und die Kennzahl zeigt, ob die Maßnahme wirkt. Rückfragen und Einzelkontrollen erzeugen nur zusätzliche Schnittstellen und Wartezeiten; der Verzicht auf Zeitfenster geht zulasten der Kundschaft.
 `schwierigkeit: mittel` · `bloom: bewerten`
 
 #### Q-2.6-21 · Sortieren
-**Anweisung:** Bringe die letzten Schritte der Auftragsabwicklung bei Fracora in die richtige Reihenfolge.
+**Anweisung:** Bringe die Schritte der Auftragsabwicklung bei Fracora von der Warenübernahme bis zur Rechnung in die richtige Reihenfolge.
 1. Ware übernehmen und Menge und Zustand prüfen
 2. Transport durchführen und Status melden
 3. Abliefern und Abliefernachweis einholen
 4. Abliefernachweis prüfen und Rechnung erstellen
-**Erklärung:** Geprüft wird bei der Übernahme, damit Schäden nicht erst beim Empfänger auffallen. Abgerechnet wird erst, wenn der Abliefernachweis vorliegt; er belegt, dass die Leistung erbracht ist.
+**Erklärung:** Geprüft wird bei der Übernahme, damit Schäden nicht erst beim empfangenden Unternehmen auffallen. Abgerechnet wird erst, wenn der Abliefernachweis vorliegt; er belegt, dass die Leistung erbracht ist.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.6-22 · Wahr/Falsch

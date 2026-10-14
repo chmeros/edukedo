@@ -183,6 +183,6 @@ function ersetzeInDatei(datei, paare) {
 }
 ersetzeInDatei(path.join(ziel, KURS, "hb1/fallaufgaben.md"), [["(1.1–1.5)", "(1.1–1.6)"]]);
 ersetzeInDatei(path.join(ziel, KURS, "hb1/fachgespraech.md"), [["(1.1–1.5)", "(1.1–1.6)"]]);
-ersetzeInDatei(path.join(ziel, KURS, "hb2/fallaufgaben.md"), [["(2.1–2.6)", "(2.1–2.9)"]]);
+ersetzeInDatei(path.join(ziel, KURS, "hb2/fallaufgaben.md"), [["(2.1–2.6)", "(2.1–2.9)"], ["vier Teilaufgaben mit Punktangaben", "vier bis fünf Teilaufgaben mit Punktangaben"]]);
 ersetzeInDatei(path.join(ziel, KURS, "hb2/fachgespraech.md"), [["(2.1–2.6)", "(2.1–2.9)"]]);
 console.log("ok");

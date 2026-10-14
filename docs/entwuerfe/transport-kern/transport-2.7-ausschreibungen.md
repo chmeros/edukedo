@@ -4,7 +4,7 @@ fachgebiet_code: HB2
 fachgebiet_title: "Erstellen von Güterverkehrs- und Logistikdienstleistungen"
 thema_code: "2.7"
 thema_title: "Ausschreibungen in der Logistik"
-quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §5, Handlungsbereich „Erstellen von Güterverkehrs- und Logistikdienstleistungen“ — frei formuliert, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §5, Handlungsbereich „Erstellen von Güterverkehrs- und Logistikdienstleistungen“, ergänzend § 4 Nr. 4 (Analyse und Bewertung von Ausschreibungen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
@@ -16,7 +16,7 @@ rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 Eine **Ausschreibung** ist ein formales Verfahren, in dem ein auftraggebendes Unternehmen mehrere Logistikdienstleister auffordert, ein verbindliches Angebot für ein genau beschriebenes Leistungspaket abzugeben (Begriff wie in Thema 1.3). Industrie- und Handelsunternehmen schreiben vor allem dann aus, wenn ein Auftrag groß ist, über mehrere Jahre läuft oder neu vergeben werden soll, etwa die Transporte auf festen Relationen für ein Jahr (Transportausschreibung) oder die Lagerung, Kommissionierung und Distribution an einem Standort für drei bis fünf Jahre (Kontraktlogistik-Ausschreibung). Dem auftraggebenden Unternehmen verschafft die Ausschreibung Wettbewerb, vergleichbare Angebote und eine nachvollziehbare Entscheidung. Für Logistikdienstleister ist sie eine wichtige Quelle großer Aufträge, aber auch aufwendig und mit offenem Ausgang.
 
-Ausschreibungen können offen sein (alle interessierten Unternehmen dürfen anbieten) oder auf einen ausgewählten Kreis beschränkt werden. Häufig geht eine Vorstufe voraus, in der die Unternehmen nur allgemeine Informationen über sich liefern (englisch Request for Information, RFI); danach werden die geeigneten zur eigentlichen Angebotsabgabe eingeladen (Request for Proposal, RFP, oder Request for Quotation, RFQ, wenn vor allem Preise abgefragt werden). Die **Fracora Spedition & Logistik GmbH** steht dabei auf beiden Seiten: Als **bietendes Unternehmen** beteiligt sie sich an Ausschreibungen von Industriekunden, als **auftraggebendes Unternehmen** schreibt sie selbst Leistungen aus, etwa Verteilerverkehre, die sie an Subunternehmen vergibt (Thema 2.1). **Öffentliche Auftraggeber** wie Behörden und kommunale Unternehmen unterliegen besonderen Vergabevorschriften mit eigenen Verfahrensarten, Formvorgaben und Fristen; diese werden hier nicht behandelt und sind im Einzelfall zu prüfen.
+Ausschreibungen können offen sein (alle interessierten Unternehmen dürfen anbieten) oder auf einen ausgewählten Kreis beschränkt werden. Häufig geht eine Vorstufe voraus, in der die Unternehmen nur allgemeine Informationen über sich liefern (englisch Request for Information, RFI); danach werden die geeigneten zur eigentlichen Angebotsabgabe eingeladen (Request for Proposal, RFP, oder Request for Quotation, RFQ, wenn vor allem Preise abgefragt werden). Die **Fracora Spedition & Logistik GmbH** steht dabei auf beiden Seiten: Als **bietendes Unternehmen** beteiligt sie sich an Ausschreibungen von Industriekunden, als **auftraggebendes Unternehmen** schreibt sie selbst Leistungen aus, etwa Verteilerverkehre, die sie an Subunternehmen vergibt (Thema 2.1). **Öffentliche Auftraggeber** wie Behörden und viele kommunale Unternehmen unterliegen besonderen Vergabevorschriften mit eigenen Verfahrensarten, Formvorgaben und Fristen; diese werden hier nicht behandelt und sind im Einzelfall zu prüfen.
 
 ### Ausschreibungsunterlagen: Leistungsbeschreibung, Mengengerüst und Kriterien
 
@@ -49,12 +49,12 @@ Die Fristen müssen so bemessen sein, dass die bietenden Unternehmen die Unterla
 
 Die Angebote werden meist mit einer **Bewertungsmatrix** verglichen, die nach dem Prinzip der **Nutzwertanalyse** arbeitet:
 
-1. Mindestanforderungen prüfen; wer sie nicht erfüllt, scheidet aus.
-2. Zuschlagskriterien festlegen und **gewichten** (Summe der Gewichte = 100 %).
-3. Jedes Angebot je Kriterium mit **Punkten** bewerten (hier 0 bis 10).
+1. Vor dem Versand der Unterlagen Mindestanforderungen, Zuschlagskriterien und deren **Gewichte** festlegen (Summe der Gewichte = 100 %).
+2. Die eingegangenen Angebote auf die Mindestanforderungen prüfen; wer sie nicht erfüllt, scheidet aus.
+3. Jedes verbliebene Angebot je Kriterium mit **Punkten** bewerten (hier 0 bis 10).
 4. **Teilnutzwert** = Gewicht × Punkte; **Nutzwert** = Summe der Teilnutzwerte. Der höchste Nutzwert kennzeichnet das wirtschaftlichste Angebot.
 
-Der Preis muss dafür in Punkte umgerechnet werden. Ein verbreitetes Verfahren gibt dem niedrigsten Preis die volle Punktzahl und den übrigen Angeboten anteilig weniger: **Preispunkte = niedrigster Angebotspreis ÷ eigener Angebotspreis × 10**. Es gibt auch andere Umrechnungen; welche gilt, legt das auftraggebende Unternehmen vorab in den Unterlagen fest. Ergänzend kann das **Preis-Leistungs-Verhältnis** betrachtet werden: Die Leistungspunkte (Summe der Teilnutzwerte ohne den Preis) werden auf den Preis bezogen, hier als **Leistungspunkte je 100.000 € Jahrespreis**. Je höher der Wert, desto mehr Leistung erhält das auftraggebende Unternehmen für sein Geld. In manchen Ausschreibungen wird umgekehrt der Preis je Leistungspunkt berechnet; dann ist der niedrigere Wert besser. Maßgeblich ist die Methode, die in den Unterlagen genannt ist.
+Der Preis muss dafür in Punkte umgerechnet werden. Ein verbreitetes Verfahren gibt dem niedrigsten Preis die volle Punktzahl und den übrigen Angeboten anteilig weniger: **Preispunkte = niedrigster Preis der gewerteten Angebote ÷ eigener Angebotspreis × 10**. Gewertet werden nur Angebote, die die Mindestanforderungen erfüllen. Es gibt auch andere Umrechnungen; welche gilt, legt das auftraggebende Unternehmen vorab in den Unterlagen fest. Ergänzend kann das **Preis-Leistungs-Verhältnis** betrachtet werden: Die Leistungspunkte (Summe der Teilnutzwerte ohne den Preis) werden auf den Preis bezogen, hier als **Leistungspunkte je 100.000 € Jahrespreis**. Je höher der Wert, desto mehr Leistung erhält das auftraggebende Unternehmen für sein Geld. In manchen Ausschreibungen wird umgekehrt der Preis je Leistungspunkt berechnet; dann ist der niedrigere Wert besser. Maßgeblich ist die Methode, die in den Unterlagen genannt ist.
 
 **Rechenbeispiel** (alle Werte sind frei gewählte Beispielwerte): Fracora vergibt einen regionalen Verteilerverkehr für ein Jahr an ein Subunternehmen. Vier Unternehmen bieten an; Unternehmen D kann den geforderten Versicherungsnachweis nicht vorlegen und scheidet vor der Bewertung aus. Die Angebote A, B und C werden bewertet:
 
@@ -62,12 +62,12 @@ Der Preis muss dafür in Punkte umgerechnet werden. Ein verbreitetes Verfahren g
 |---|---|---|---|---|
 | Jahrespreis | | 400.000 € | 360.000 € | 450.000 € |
 | Preis (Punkte) | 40 % | 9 | 10 | 8 |
-| Qualität (Pünktlichkeit, Schadensquote) | 30 % | 8 | 5 | 9 |
+| Qualität (Qualitätskonzept, zugesagte Servicelevel für Pünktlichkeit und Schadensquote) | 30 % | 8 | 5 | 9 |
 | Umwelt (Fahrzeuge, Emissionen) | 20 % | 6 | 4 | 9 |
 | IT-Anbindung (Track & Trace, Datenaustausch) | 10 % | 8 | 4 | 9 |
 | **Nutzwert** | 100 % | **8,0** | **6,7** | **8,6** |
 
-- Preispunkte: A = 360.000 € ÷ 400.000 € × 10 = 9; B = 10 (niedrigster Preis); C = 360.000 € ÷ 450.000 € × 10 = 8.
+- Preispunkte (das ausgeschiedene Angebot D zählt beim niedrigsten Preis nicht mit): A = 360.000 € ÷ 400.000 € × 10 = 9; B = 10 (niedrigster Preis der gewerteten Angebote); C = 360.000 € ÷ 450.000 € × 10 = 8.
 - Nutzwert A = 0,4 × 9 + 0,3 × 8 + 0,2 × 6 + 0,1 × 8 = 3,6 + 2,4 + 1,2 + 0,8 = 8,0; B = 4,0 + 1,5 + 0,8 + 0,4 = 6,7; C = 3,2 + 2,7 + 1,8 + 0,9 = 8,6.
 - Leistungspunkte ohne Preis: A = 4,4; B = 2,7; C = 5,4. Preis-Leistungs-Verhältnis: A = 4,4 ÷ 4,0 = 1,1; B = 2,7 ÷ 3,6 = 0,75; C = 5,4 ÷ 4,5 = 1,2 Leistungspunkte je 100.000 €.
 
@@ -88,7 +88,7 @@ Viele Unternehmen bewerten diese Punkte mit einer einfachen Punkteliste und lege
 
 Fällt die Entscheidung auf „Go“, werden die **Unterlagen geprüft**: Ist die Leistungsbeschreibung vollständig und widerspruchsfrei? Ist das Mengengerüst plausibel, und enthält es Spitzen und Schwankungen? Welche Fristen und Formvorgaben gelten? Unklarheiten werden als **Bieterfragen** innerhalb der Frist gestellt; wer stattdessen stillschweigend eigene Annahmen trifft, kalkuliert ins Blaue.
 
-Dann wird das **Angebot erstellt**. Die Preise werden mit der Zuschlagskalkulation ermittelt und an der Preisuntergrenze gemessen (Thema 1.3); die Kostenanalyse von Touren, Fahrzeugen und Lager liefert dafür die Grundlage (Thema 2.8). Neben dem vollständig ausgefüllten Preisblatt gehören dazu ein **Lösungskonzept** (Ablauf, Standort, Personal, IT und Implementierungsplan bis zum Leistungsbeginn), **Referenzen** aus vergleichbaren Projekten und eine Liste der **Risiken und Annahmen**, auf denen die Preise beruhen, etwa „Die Preise gelten für das genannte Mengengerüst mit höchstens 10 % Abweichung“ oder eine vorgeschlagene Anpassungsregel für Kraftstoffpreise. Das Angebot wird fristgerecht, vollständig und in der verlangten Form eingereicht, zum Beispiel über ein Ausschreibungsportal.
+Dann wird das **Angebot erstellt**. Die Preise werden mit der Zuschlagskalkulation ermittelt und an der Preisuntergrenze gemessen (Thema 1.3); die Kostenanalyse von Touren, Fahrzeugen und Lager liefert dafür die Grundlage (Thema 2.8). Neben dem vollständig ausgefüllten Preisblatt gehören dazu ein **Lösungskonzept** (Ablauf, Standort, Personal, IT und Implementierungsplan bis zum Leistungsbeginn), **Referenzen** aus vergleichbaren Projekten und eine Liste der **Risiken und Annahmen**, auf denen die Preise beruhen, etwa „Die Preise gelten für das genannte Mengengerüst mit höchstens 10 % Abweichung“ oder eine vorgeschlagene Anpassungsregel für Kraftstoffpreise. Die veröffentlichte Gewichtung zeigt, wo sich Aufwand im Angebot lohnt, etwa ein besonders ausgearbeitetes Lösungskonzept, wenn das Konzept mit 30 % gewichtet ist. Das Angebot wird fristgerecht, vollständig und in der verlangten Form eingereicht, zum Beispiel über ein Ausschreibungsportal.
 
 Kommt Fracora in die engere Auswahl, folgen **Präsentation und Nachverhandlung**. Dabei gilt, was Thema 1.3 für Verhandlungen beschreibt: Die intern dokumentierte Preisuntergrenze wird nicht unterschritten; bei mehrjährigen Verträgen sind das in der Regel die Selbstkosten. Zugeständnisse beim Preis werden möglichst gegen Gegenleistungen getauscht, etwa eine längere Laufzeit oder eine Mindestmengenzusage. Nach dem Zuschlag beginnt die Implementierung; nach einer Absage lohnt es sich, um eine Rückmeldung zur Bewertung zu bitten und die Erkenntnisse für die nächste Ausschreibung festzuhalten.
 
@@ -132,7 +132,7 @@ Auf der Seite der **bietenden Unternehmen** sind typische Fehler: die Teilnahme 
 
 #### K-2.7-07
 **Frage:** Wie wird der Preis nach einem verbreiteten Verfahren in Punkte umgerechnet?
-**Antwort:** Preispunkte = niedrigster Angebotspreis ÷ eigener Angebotspreis × 10. Welche Umrechnung gilt, steht in den Ausschreibungsunterlagen.
+**Antwort:** Preispunkte = niedrigster Preis der gewerteten Angebote ÷ eigener Angebotspreis × 10. Welche Umrechnung gilt, steht in den Ausschreibungsunterlagen.
 `tags: bewertungsmatrix, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-2.7-08
@@ -203,7 +203,7 @@ Auf der Seite der **bietenden Unternehmen** sind typische Fehler: die Teilnahme 
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.7-06 · Kurzantwort
-**Frage:** Die Preispunkte werden nach der Formel niedrigster Angebotspreis ÷ eigener Angebotspreis × 10 vergeben. Der niedrigste Jahrespreis beträgt 360.000 €. Wie viele Preispunkte erhält ein Angebot über 480.000 €?
+**Frage:** Die Preispunkte werden nach der Formel niedrigster Preis der gewerteten Angebote ÷ eigener Angebotspreis × 10 vergeben. Der niedrigste Jahrespreis der gewerteten Angebote beträgt 360.000 €. Wie viele Preispunkte erhält ein Angebot über 480.000 €?
 **Akzeptierte Antworten:** 7,5; 7,50; 7.5; 7.50; 7,5 Punkte; 7,50 Punkte; 7.5 Punkte; 7.50 Punkte; 7,5 Preispunkte; 7.5 Preispunkte
 **Erklärung:** Preispunkte = 360.000 € ÷ 480.000 € × 10 = 0,75 × 10 = 7,5.
 `schwierigkeit: mittel` · `bloom: anwenden`
@@ -226,7 +226,7 @@ Auf der Seite der **bietenden Unternehmen** sind typische Fehler: die Teilnahme 
 - [ ] Go, weil die Kundschaft gut zu den Zielsegmenten passt und sich die fehlenden Lagerkapazitäten nach dem Zuschlag erfahrungsgemäß noch finden lassen.
 - [ ] Go mit einem besonders niedrigen Preis, damit die fehlende Kapazität nicht ins Gewicht fällt.
 - [x] No-Go oder Teilnahme nur nach Klärung eines späteren Leistungsbeginns, weil die Leistung zum geforderten Termin nicht machbar ist.
-- [ ] Die Entscheidung wird erst nach Abgabe des Angebots getroffen.
+- [ ] Go, weil die Kapazität üblicherweise erst in der Implementierungsphase nach dem Zuschlag geplant wird.
 **Erklärung:** Kapazität und Machbarkeit zum Leistungsbeginn sind ein zentraler Prüfpunkt. Ein Angebot ohne gesicherte Kapazität wäre wirtschaftlich riskant und gefährdet die Kundenbeziehung.
 `schwierigkeit: mittel` · `bloom: bewerten`
 
@@ -257,13 +257,13 @@ Auf der Seite der **bietenden Unternehmen** sind typische Fehler: die Teilnahme 
 **Frage:** In der Verhandlungsrunde einer Ausschreibung über drei Jahre verlangt das auftraggebende Unternehmen von Fracora 6 % Preisnachlass. Der neue Preis läge unter den Selbstkosten. Wie reagiert Fracora am sinnvollsten?
 - [x] Den Nachlass nur so weit gewähren, wie die Preisuntergrenze es zulässt, und Gegenleistungen wie eine längere Laufzeit anbieten.
 - [ ] Den Nachlass sofort gewähren, weil ein großer Auftrag auch mit Verlust die Auslastung sichert und sich später leicht nachverhandeln lässt.
-- [ ] Den Nachlass zusagen und die vereinbarte Leistung später unbemerkt verringern.
-- [ ] Die Verhandlung ohne Begründung abbrechen.
-**Erklärung:** Bei einem mehrjährigen Vertrag sind in der Regel die Selbstkosten die Preisuntergrenze (Thema 1.3). Zugeständnisse werden gegen Gegenleistungen getauscht, nicht ohne Gegenwert gewährt.
+- [ ] Den Nachlass voll gewähren, solange der neue Preis noch die variablen Kosten deckt.
+- [ ] Den Nachlass voll gewähren und den Verlust über höhere Preise bei anderer Kundschaft ausgleichen.
+**Erklärung:** Bei einem mehrjährigen Vertrag sind in der Regel die Selbstkosten die Preisuntergrenze (Thema 1.3); die variablen Kosten taugen nur als kurzfristige Untergrenze. Zugeständnisse werden gegen Gegenleistungen getauscht, nicht ohne Gegenwert gewährt.
 `schwierigkeit: mittel` · `bloom: bewerten`
 
 #### Q-2.7-14 · Kurzantwort
 **Frage:** Wie heißt die Entscheidung eines bietenden Unternehmens, ob es an einer Ausschreibung überhaupt teilnimmt?
-**Akzeptierte Antworten:** Go/No-Go-Entscheidung; Go/No-Go; Go-/No-Go-Entscheidung; Go-No-Go-Entscheidung; Go-No-Go; Go/NoGo-Entscheidung; Go/NoGo; Bid/No-Bid-Entscheidung; Bid/No-Bid; Bid-No-Bid-Entscheidung
+**Akzeptierte Antworten:** Go/No-Go-Entscheidung; Go/No-Go Entscheidung; Go/No-Go; Go-/No-Go-Entscheidung; Go-/No-Go; Go-No-Go-Entscheidung; Go-No-Go Entscheidung; Go-No-Go; Go/NoGo-Entscheidung; Go/NoGo; GoNoGo; GoNoGo-Entscheidung; Bid/No-Bid-Entscheidung; Bid/No-Bid Entscheidung; Bid/No-Bid; Bid-No-Bid-Entscheidung; Bid-No-Bid; Bid/NoBid
 **Erklärung:** Die Go/No-Go-Entscheidung (auch Bid/No-Bid-Entscheidung) prüft Passung, Mindestanforderungen, Kapazität, Gewinnchance, Wirtschaftlichkeit, Risiken und Aufwand, bevor Arbeit in das Angebot fließt.
 `schwierigkeit: leicht` · `bloom: erinnern`
