@@ -14,7 +14,7 @@ rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ### Aufgaben der Kosten- und Leistungsrechnung im Handel
 
-Die Finanzbuchhaltung bildet als **externes Rechnungswesen** alle Geschäftsvorfälle nach gesetzlichen Vorgaben ab und richtet sich vor allem an Gläubiger, Finanzamt und Gesellschafter. Die **Kosten- und Leistungsrechnung (KLR)** ist dagegen **internes Rechnungswesen**: Sie ist nicht gesetzlich vorgeschrieben und liefert der Geschäftsführung und dem Controlling der Loreno Mode & Wohnen GmbH Zahlen für Entscheidungen. Typische Fragen sind: Was kostet der Betrieb der Filialen im Monat? Mit welchem Handlungskostenzuschlag soll der Einkauf kalkulieren? Welche Warengruppe trägt wie viel zum Ergebnis bei, und lohnt es sich, eine schwache Warengruppe auszulisten? Die KLR rechnet meist monatlich und läuft in drei Stufen: Die **Kostenartenrechnung** fragt, welche Kosten angefallen sind, die **Kostenstellenrechnung**, wo sie angefallen sind, und die **Kostenträgerrechnung**, wofür sie angefallen sind. Ihre Ergebnisse fließen in die Handelskalkulation (Thema 5.3) und in das Controlling (Thema 1.3) ein. Alle Zahlen in diesem Thema sind frei gewählte, vereinfachte Beispielwerte eines Monats.
+Die Finanzbuchhaltung bildet als **externes Rechnungswesen** alle Geschäftsvorfälle nach gesetzlichen Vorgaben ab und richtet sich vor allem an Gläubiger, Finanzamt und Gesellschafter. Die **Kosten- und Leistungsrechnung (KLR)** ist dagegen **internes Rechnungswesen**: Sie ist nicht gesetzlich vorgeschrieben und liefert der Geschäftsführung und dem Controlling der Loreno Mode & Wohnen GmbH Zahlen für Entscheidungen. Typische Fragen sind: Was kostet der Betrieb der Filialen im Monat? Mit welchem Handlungskostenzuschlag soll der Einkauf kalkulieren? Welche Warengruppe trägt wie viel zum Ergebnis bei, und lohnt es sich, eine schwache Warengruppe auszulisten? Die KLR rechnet meist monatlich und läuft in drei Stufen: Die **Kostenartenrechnung** fragt, welche Kosten angefallen sind, die **Kostenstellenrechnung**, wo sie angefallen sind, und die **Kostenträgerrechnung**, wofür sie angefallen sind. Ihre Ergebnisse fließen in die Handelskalkulation (Thema 5.3 im Wahlpflichtbereich WB1 „Vertriebssteuerung“) und in das Controlling (Thema 1.3) ein. Alle Zahlen in diesem Thema sind frei gewählte, vereinfachte Beispielwerte eines Monats; sie sind nicht mit den Rechenbeispielen anderer Themen abgestimmt.
 
 ### Aufwand und Kosten, Ertrag und Leistung
 
@@ -22,7 +22,7 @@ Die Finanzbuchhaltung bildet als **externes Rechnungswesen** alle Geschäftsvorf
 
 - **Neutraler Aufwand** ist Aufwand, der keine Kosten ist: betriebsfremd (z. B. eine Spende an einen Sportverein oder die Reparatur einer vermieteten Wohnung über einer Filiale), periodenfremd (z. B. eine Nachzahlung für ein Vorjahr) oder außerordentlich (z. B. ein ungewöhnlich hoher Schaden). Er bleibt in der KLR außen vor.
 - **Grundkosten** entsprechen einem Aufwand in gleicher Höhe, etwa der Wareneinsatz, die Gehälter oder die Filialmieten. Sie machen im Handel den weitaus größten Teil der Kosten aus.
-- **Kalkulatorische Kosten** stehen kein oder ein anderer Aufwand in gleicher Höhe gegenüber. **Anderskosten** setzen statt eines Aufwands einen anderen Wert an: die **kalkulatorische Abschreibung** der Ladeneinrichtung auf Basis des Wiederbeschaffungswerts statt der bilanziellen Abschreibung oder die **kalkulatorischen Zinsen** auf das betriebsnotwendige Kapital statt des gezahlten Zinsaufwands. Das **betriebsnotwendige Kapital** ist das im Betriebszweck gebundene Vermögen, etwa Ladeneinrichtung, Lagertechnik und Warenbestand, ohne betriebsfremde Teile wie die vermietete Wohnung. **Zusatzkosten** stehen ganz ohne Aufwand in der Rechnung, etwa eine **kalkulatorische Miete** für eine Filiale im eigenen Gebäude oder ein **kalkulatorischer Unternehmerlohn**. Den Unternehmerlohn setzt man nur an, wenn die Mitarbeit der Inhaber:innen nicht schon als Gehalt in den Personalkosten steckt, etwa bei Einzelunternehmen und Personengesellschaften; die Geschäftsführung der Loreno GmbH erhält ein Gehalt. Handelstypisch ist das **kalkulatorische Wagnis** für Inventurdifferenzen (Diebstahl, Bruch, Verderb): Es verteilt das Risiko gleichmäßig auf die Monate, statt die tatsächlich festgestellte Differenz nur in dem Monat wirken zu lassen, in dem sie bei der Inventur auffällt.
+- **Kalkulatorischen Kosten** steht kein oder ein anderer Aufwand in gleicher Höhe gegenüber. **Anderskosten** setzen statt eines Aufwands einen anderen Wert an: die **kalkulatorische Abschreibung** der Ladeneinrichtung auf Basis des Wiederbeschaffungswerts statt der bilanziellen Abschreibung, die **kalkulatorischen Zinsen** auf das betriebsnotwendige Kapital statt des gezahlten Zinsaufwands und das handelstypische **kalkulatorische Wagnis** für Inventurdifferenzen (Diebstahl, Bruch, Verderb). Das Wagnis verteilt das Risiko gleichmäßig auf die Monate und ersetzt die tatsächlich festgestellten Inventurverluste, die dann nicht zusätzlich als Kosten zählen; sonst würde eine Differenz nur in dem Monat wirken, in dem sie bei der Inventur auffällt. Streng genommen ersetzen die kalkulatorischen Zinsen nur die Fremdkapitalzinsen (Anderskosten); die Verzinsung des Eigenkapitals ist Zusatzkosten. Vereinfacht werden die kalkulatorischen Zinsen hier insgesamt zu den Anderskosten gezählt. Das **betriebsnotwendige Kapital** ist vereinfacht das betriebsnotwendige Vermögen, also das im Betriebszweck gebundene Vermögen wie Ladeneinrichtung, Lagertechnik und Warenbestand, ohne betriebsfremde Teile wie die vermietete Wohnung; genau wird davon noch zinsfrei überlassenes Kapital wie Lieferantenverbindlichkeiten abgezogen. **Zusatzkosten** stehen ganz ohne Aufwand in der Rechnung, etwa eine **kalkulatorische Miete** für eine Filiale im eigenen Gebäude oder ein **kalkulatorischer Unternehmerlohn**. Den Unternehmerlohn setzt man nur an, wenn die Mitarbeit der Inhaber:innen nicht schon als Gehalt in den Personalkosten steckt, etwa bei Einzelunternehmen und Personengesellschaften; die Geschäftsführung der Loreno Mode & Wohnen GmbH erhält ein Gehalt.
 
 Entsprechend unterscheidet man auf der Ertragsseite: **Leistungen** sind die betriebszweckbezogenen Erträge, im Handel vor allem die Umsatzerlöse aus dem Warenverkauf. Die Mieterträge aus der vermieteten Wohnung sind dagegen **neutraler Ertrag**. Das **Betriebsergebnis** ist Leistungen minus Kosten und zeigt den Erfolg des eigentlichen Handelsgeschäfts.
 
@@ -30,7 +30,7 @@ Rechenbeispiel für einen Monat (der kalkulatorische Zinssatz von 8 % pro Jahr i
 
 | Position | Betrag |
 |---|---|
-| Aufwendungen laut GuV | 6.983.000 € |
+| Aufwendungen des Monats laut Finanzbuchhaltung | 6.983.000 € |
 | − neutraler Aufwand (Spende 12.000 €, Reparatur der vermieteten Wohnung 18.000 €) | 30.000 € |
 | − bilanzielle Abschreibungen | 42.000 € |
 | − Zinsaufwand | 21.000 € |
@@ -73,15 +73,15 @@ Der **Betriebsabrechnungsbogen (BAB)** ist die Tabelle der Kostenstellenrechnung
 3. Die Kosten der Hilfskostenstellen werden auf die Hauptkostenstellen umgelegt (**innerbetriebliche Leistungsverrechnung**): **Umlagesatz = Kosten der Hilfskostenstelle ÷ Summe der Schlüsselgröße**. Die Umlage verteilt nur um; die Summe der Gemeinkosten bleibt gleich.
 4. Für jede Hauptkostenstelle wird der **Zuschlagssatz** berechnet (nächster Abschnitt).
 
-Beispiel: Die Raumkosten von 400.000 € werden nach der genutzten Fläche von 20.000 m² verteilt, also mit 20 € je m² (Fuhrpark 500 m², Einkauf 500 m², Lager 4.000 m², Verkauf/Filiale 14.000 m², Verwaltung 1.000 m²). Der Fuhrpark wird nach gefahrenen Kilometern umgelegt: Lager 40.000 km (Retouren- und Umlagerungsfahrten), Verkauf/Filiale 140.000 km (Filialbelieferung), Verwaltung 20.000 km (Dienstfahrten), zusammen 200.000 km; der Einkauf nutzt den Fuhrpark nicht.
+Beispiel: Die Raumkosten von 480.000 € werden nach der genutzten Fläche von 40.000 m² verteilt, also mit 480.000 € ÷ 40.000 m² = 12 € je m² (Fuhrpark 500 m², Einkauf 500 m², Lager 7.000 m², Verkauf/Filiale 30.000 m² in rund 40 Filialen, Verwaltung 2.000 m²). Der Fuhrpark wird nach gefahrenen Kilometern umgelegt: Lager 40.000 km (Retouren- und Umlagerungsfahrten), Verkauf/Filiale 140.000 km (Filialbelieferung), Verwaltung 20.000 km (Dienstfahrten), zusammen 200.000 km; der Einkauf nutzt den Fuhrpark nicht.
 
 | Kostenart | Verteilung | Summe | Fuhrpark (Hilfsstelle) | Einkauf | Lager | Verkauf/Filiale | Verwaltung |
 |---|---|---|---|---|---|---|---|
-| Personalkosten | Lohnliste | 1.120.000 € | 60.000 € | 110.000 € | 150.000 € | 640.000 € | 160.000 € |
-| Raumkosten | 20 € je m² | 400.000 € | 10.000 € | 10.000 € | 80.000 € | 280.000 € | 20.000 € |
+| Personalkosten | Lohnliste | 1.036.000 € | 60.000 € | 114.000 € | 146.000 € | 560.000 € | 156.000 € |
+| Raumkosten | 12 € je m² | 480.000 € | 6.000 € | 6.000 € | 84.000 € | 360.000 € | 24.000 € |
 | Werbekosten | Belege | 180.000 € | – | – | – | 180.000 € | – |
 | Fuhrparkkosten | Belege | 100.000 € | 100.000 € | – | – | – | – |
-| Sonstige Kosten (mit kalkulatorischen Kosten) | Belege | 200.000 € | 10.000 € | 30.000 € | 34.000 € | 74.000 € | 52.000 € |
+| Sonstige Kosten (mit kalkulatorischen Kosten) | Belege | 204.000 € | 14.000 € | 30.000 € | 34.000 € | 74.000 € | 52.000 € |
 | **Primäre Gemeinkosten** | | **2.000.000 €** | **180.000 €** | **150.000 €** | **264.000 €** | **1.174.000 €** | **232.000 €** |
 | Umlage Fuhrpark (0,90 € je km) | | | − 180.000 € | 0 € | + 36.000 € | + 126.000 € | + 18.000 € |
 | **Gemeinkosten nach Umlage** | | **2.000.000 €** | **0 €** | **150.000 €** | **300.000 €** | **1.300.000 €** | **250.000 €** |
@@ -100,15 +100,15 @@ Der Umlagesatz des Fuhrparks ist 180.000 € ÷ 200.000 km = 0,90 € je km. Das
 | Verwaltung | 250.000 € | 250.000 € ÷ 5.000.000 € × 100 | 5 % |
 | **Handlungskosten gesamt** | **2.000.000 €** | 2.000.000 € ÷ 5.000.000 € × 100 | **40 %** |
 
-Weil alle vier Sätze dieselbe Bezugsgröße haben, dürfen sie zum **Handlungskostenzuschlag** von 3 % + 6 % + 26 % + 5 % = 40 % addiert werden. Ein Artikel mit 50,00 € Bezugspreis trägt damit 20,00 € Handlungskosten, seine Selbstkosten betragen 70,00 €; wie daraus der Verkaufspreis entsteht, zeigt die Handelskalkulation in Thema 5.3. Die getrennten Sätze je Kostenstelle dienen der Steuerung im Zeitvergleich: Steigt der Satz des Lagers von 6 % auf 7 %, ist das Lager im Verhältnis zur bewegten Ware teurer geworden. Für die Kalkulation der nächsten Saison nimmt der Einkauf meist einen geplanten Satz, der sich an den Werten der Vormonate orientiert.
+Weil alle vier Sätze dieselbe Bezugsgröße haben, dürfen sie zum **Handlungskostenzuschlag** von 3 % + 6 % + 26 % + 5 % = 40 % addiert werden. Ein Artikel mit 50,00 € Bezugspreis trägt damit 20,00 € Handlungskosten, seine Selbstkosten betragen 70,00 €; wie daraus der Verkaufspreis entsteht, zeigt die Handelskalkulation in Thema 5.3. Die Kalkulationsbeispiele in Thema 5.3 rechnen mit einem frei gewählten Satz von 25 %; maßgeblich ist stets der Satz aus dem BAB des jeweiligen Zeitraums, hier also 40 %. Die getrennten Sätze je Kostenstelle dienen der Steuerung im Zeitvergleich: Steigt der Satz des Lagers von 6 % auf 7 %, ist das Lager im Verhältnis zur bewegten Ware teurer geworden. Für die Kalkulation der nächsten Saison nimmt der Einkauf meist einen geplanten Satz, der sich an den Werten der Vormonate orientiert.
 
-In manchen Lehrbüchern und Betrieben werden die Kosten von Verwaltung und Verkauf auf eine andere Bezugsgröße bezogen, etwa auf den Wareneinsatz zuzüglich der Einkaufs- und Lagerkosten (ähnlich den Herstellkosten in der Industrie) oder auf den Umsatz. Dann dürfen die Sätze nicht einfach addiert werden, sondern werden nacheinander auf ihre jeweilige Bezugsgröße gerechnet. In diesem Kurs gilt wie in Thema 5.3: Alle Handlungskosten beziehen sich auf den Wareneinsatz zu Bezugspreisen.
+In manchen Lehrbüchern und Betrieben werden die Kosten von Verwaltung und Verkauf auf eine andere Bezugsgröße bezogen, etwa auf den Wareneinsatz zuzüglich der Einkaufs- und Lagerkosten (die sogenannten **Kosten der Warenbereitstellung**, ähnlich den Herstellkosten in der Industrie) oder auf den Umsatz. Dann dürfen die Sätze nicht einfach addiert werden, sondern werden nacheinander auf ihre jeweilige Bezugsgröße gerechnet. In diesem Kurs gilt wie in Thema 5.3: Alle Handlungskosten beziehen sich auf den Wareneinsatz zu Bezugspreisen.
 
 ### Kostenträger: Warengruppen in der Vollkostenrechnung
 
 **Kostenträger** sind die Leistungen, denen die Kosten zugerechnet werden. Im Handel sind das die Artikel und, für die Steuerung meist wichtiger, die **Warengruppen**. Die **Kostenträgerstückrechnung** ermittelt die Selbstkosten je Artikel; im Handel ist das die Handelskalkulation (Thema 5.3). Die **Kostenträgerzeitrechnung** (kurzfristige Erfolgsrechnung) stellt je Warengruppe die Umsatzerlöse einer Periode den Kosten gegenüber und zeigt das Ergebnis je Warengruppe.
 
-In der **Vollkostenrechnung** erhält jede Warengruppe ihren Wareneinsatz als Einzelkosten und die Handlungskosten über den Zuschlag von 40 % auf den Wareneinsatz; vereinfacht werden dabei alle Handlungskosten über diesen einen Satz verrechnet.
+Das Beispiel rechnet vereinfacht mit drei Warengruppen: Damenmode, Herrenmode und Wohnaccessoires (die Accessoires, die Loreno ebenfalls führt, sind hier nicht gesondert ausgewiesen). In der **Vollkostenrechnung** erhält jede Warengruppe ihren Wareneinsatz als Einzelkosten und die Handlungskosten über den Zuschlag von 40 % auf den Wareneinsatz; vereinfacht werden dabei alle Handlungskosten über diesen einen Satz verrechnet.
 
 | Warengruppe | Umsatz | Wareneinsatz | Handlungskosten (40 %) | Selbstkosten | Ergebnis |
 |---|---|---|---|---|---|
@@ -117,7 +117,7 @@ In der **Vollkostenrechnung** erhält jede Warengruppe ihren Wareneinsatz als Ei
 | Wohnaccessoires | 1.600.000 € | 1.000.000 € | 400.000 € | 1.400.000 € | + 200.000 € |
 | **Summe** | **7.550.000 €** | **5.000.000 €** | **2.000.000 €** | **7.000.000 €** | **+ 550.000 €** |
 
-Das Betriebsergebnis des Monats beträgt 550.000 €, die Herrenmode scheint einen Verlust von 90.000 € zu bringen. Dabei ist zu beachten: Der Zuschlag verteilt auch die fixen Handlungskosten (Filialmieten, Stammpersonal, Verwaltung) im Verhältnis zum Wareneinsatz auf die Warengruppen, obwohl sie davon kaum abhängen. Fiele die Herrenmode weg, blieben Miete und Verwaltung größtenteils bestehen und müssten von den übrigen Warengruppen getragen werden. Für die Entscheidung über eine Warengruppe ist die Vollkostenrechnung deshalb ungeeignet. Sie zeigt aber, was auf Dauer gedeckt sein muss: Langfristig müssen die Umsätze alle Kosten decken.
+Das Betriebsergebnis des Monats beträgt 550.000 €, die Herrenmode scheint einen Verlust von 90.000 € zu bringen. Dabei ist zu beachten: Der Zuschlag verteilt auch die fixen Handlungskosten (Filialmieten, Stammpersonal, Verwaltung) im Verhältnis zum Wareneinsatz auf die Warengruppen, obwohl sie davon kaum abhängen. Fiele die Herrenmode weg, blieben Miete und Verwaltung größtenteils bestehen und müssten von den übrigen Warengruppen getragen werden. Für die Entscheidung über eine Warengruppe ist die Vollkostenrechnung deshalb ungeeignet. Sie zeigt aber, was auf Dauer gedeckt sein muss: Langfristig müssen die Umsätze alle Kosten decken; die **langfristige Preisuntergrenze** eines Artikels sind daher seine Selbstkosten.
 
 ### Teilkostenrechnung: Deckungsbeitrag je Warengruppe und Sortimentsentscheidung
 
@@ -127,9 +127,9 @@ Die **Teilkostenrechnung** (Deckungsbeitragsrechnung) rechnet jeder Warengruppe 
 
 Zieht man vom Umsatz nur den Wareneinsatz ab, erhält man den **Rohertrag** (Rohgewinn); in Prozent des Umsatzes entspricht er der Handelsspanne der Warengruppe (Thema 5.3). Werden variable Handlungskosten nicht gesondert erfasst, setzt man Deckungsbeitrag und Rohertrag gleich.
 
-Im Beispiel erfasst Loreno die variablen Handlungskosten (Kartenzahlungsgebühren, Verpackung, umsatzabhängige Verkaufsprämien) aus Kassen- und Abrechnungsdaten je Warengruppe: 4 % des Umsatzes bei Damen- und Herrenmode, 6 % bei den Wohnaccessoires wegen der bruchsicheren Verpackung. Zusammen sind das 334.000 €; die übrigen 2.000.000 € − 334.000 € = 1.666.000 € Handlungskosten sind fix.
+Im Beispiel erfasst Loreno die variablen Handlungskosten (Kartenzahlungsgebühren, Verpackung, umsatzabhängige Verkaufsprämien) aus Kassen- und Abrechnungsdaten je Warengruppe: 4 % des Umsatzes bei Damen- und Herrenmode, 6 % bei den Wohnaccessoires wegen der bruchsicheren Verpackung. Zusammen sind das 334.000 €; die übrigen 2.000.000 € − 334.000 € = 1.666.000 € Handlungskosten sind fix. Die **Deckungsbeitragsquote** ist der Deckungsbeitrag in Prozent des Umsatzes (Deckungsbeitrag ÷ Umsatz × 100).
 
-| Warengruppe | Umsatz | − Wareneinsatz | − variable Handlungskosten | = Deckungsbeitrag | Deckungsbeitrag in % des Umsatzes |
+| Warengruppe | Umsatz | − Wareneinsatz | − variable Handlungskosten | = Deckungsbeitrag | Deckungsbeitragsquote |
 |---|---|---|---|---|---|
 | Damenmode | 3.800.000 € | 2.400.000 € | 152.000 € | 1.248.000 € | 32,8 % |
 | Herrenmode | 2.150.000 € | 1.600.000 € | 86.000 € | 464.000 € | 21,6 % |
@@ -140,11 +140,11 @@ Im Beispiel erfasst Loreno die variablen Handlungskosten (Kartenzahlungsgebühre
 
 Das Betriebsergebnis ist dasselbe wie in der Vollkostenrechnung, die Sicht auf die Herrenmode aber eine andere: Sie deckt ihre variablen Kosten und trägt 464.000 € zur Deckung der Fixkosten bei. Würde sie ausgelistet und blieben die Fixkosten gleich, sänke das Betriebsergebnis um 464.000 € auf 86.000 €.
 
-Die **mehrstufige Deckungsbeitragsrechnung** berücksichtigt, dass ein Teil der Fixkosten einer Warengruppe direkt zugeordnet werden kann und mit ihr wegfiele (**Warengruppenfixkosten**, z. B. eigenes Verkaufspersonal oder gemietete Präsentationsmöbel). Für die Herrenmode seien das 300.000 € im Monat. Dann ist der **Deckungsbeitrag II** = Deckungsbeitrag (I) − Warengruppenfixkosten = 464.000 € − 300.000 € = 164.000 €. Solange der Deckungsbeitrag II positiv ist, verschlechtert eine Auslistung das Betriebsergebnis, hier auf 550.000 € − 164.000 € = 386.000 €.
+Die **mehrstufige Deckungsbeitragsrechnung** berücksichtigt, dass ein Teil der Fixkosten einer Warengruppe direkt zugeordnet werden kann und mit ihr wegfiele (**Warengruppenfixkosten**, z. B. eigenes Verkaufspersonal oder gemietete Präsentationsmöbel). Für die Auslistungsentscheidung zählt davon nur der Teil, der tatsächlich abgebaut werden kann; Kündigungsfristen bei Personal und Mietverträgen verzögern den Abbau oft um Monate. Für die Herrenmode seien das 300.000 € im Monat. Dann ist der **Deckungsbeitrag II** = Deckungsbeitrag (I) − Warengruppenfixkosten = 464.000 € − 300.000 € = 164.000 €. Solange der Deckungsbeitrag II positiv ist, verschlechtert eine Auslistung das Betriebsergebnis, hier auf 550.000 € − 164.000 € = 386.000 €.
 
-Für die **Sortimentsentscheidung** folgt daraus: Eine Warengruppe mit positivem Deckungsbeitrag II bleibt kurzfristig im Sortiment, auch wenn die Vollkostenrechnung einen Verlust zeigt. Zusätzlich sind zu prüfen: Verbundwirkungen (Kund:innen kaufen Herrenmode zusammen mit anderen Warengruppen, Thema 3.2), die Rolle der Warengruppe im Sortiment (Thema 5.1), eine bessere Nutzung der frei werdenden Fläche durch eine Warengruppe mit höherem Deckungsbeitrag je m² (Thema 5.2) und Maßnahmen, die den Deckungsbeitrag verbessern, etwa bessere Einkaufskonditionen oder weniger Abschriften. Bleibt der Deckungsbeitrag II dauerhaft negativ und sprechen keine Verbundgründe dagegen, ist die Auslistung zu prüfen.
+Für die **Sortimentsentscheidung** folgt daraus: Eine Warengruppe mit positivem Deckungsbeitrag II bleibt kurzfristig im Sortiment, auch wenn die Vollkostenrechnung einen Verlust zeigt. Zusätzlich sind zu prüfen: Verbundwirkungen (Kund:innen kaufen Herrenmode zusammen mit anderen Warengruppen, Thema 3.2), die Rolle der Warengruppe im Sortiment als Kern-, Rand- oder Nebensortiment (Thema 3.2) und, wo vorhanden, ihre Rolle im Category Management (Thema 5.1 im Wahlpflichtbereich WB1), eine bessere Nutzung der frei werdenden Fläche durch eine Warengruppe mit höherem Deckungsbeitrag je m² (Thema 5.2, ebenfalls WB1) und Maßnahmen, die den Deckungsbeitrag verbessern, etwa bessere Einkaufskonditionen oder weniger **Abschriften** (planmäßige Preisreduzierungen, um den Abverkauf zu beschleunigen). Bleibt der Deckungsbeitrag II dauerhaft negativ und sprechen keine Verbundgründe dagegen, ist die Auslistung zu prüfen.
 
-Auch für Preisentscheidungen hilft die Teilkostensicht: Für Ware, die erst noch eingekauft wird, liegt die **kurzfristige Preisuntergrenze** bei den variablen Kosten (Bezugspreis plus variable Handlungskosten); darunter bringt jeder Verkauf einen negativen Deckungsbeitrag. Für Ware, die schon am Lager liegt, ist der Bezugspreis bereits bezahlt; ein Abverkauf darunter kann deshalb sinnvoll sein, wenn sonst gar kein Erlös mehr entstünde (Abschriften, Thema 5.3). Wie sich aus Deckungsbeitrag und Fixkosten die Gewinnschwelle (Break-even) berechnet, zeigt Thema 1.3.
+Auch für Preisentscheidungen hilft die Teilkostensicht: Während die **langfristige Preisuntergrenze** bei den Selbstkosten liegt (Vollkostenrechnung), liegt für Ware, die erst noch eingekauft wird, die **kurzfristige Preisuntergrenze** bei den variablen Kosten (Bezugspreis plus variable Handlungskosten); darunter bringt jeder Verkauf einen negativen Deckungsbeitrag. Für Ware, die schon am Lager liegt, ist der Bezugspreis bereits bezahlt; ein Abverkauf darunter kann deshalb sinnvoll sein, wenn sonst gar kein Erlös mehr entstünde (Abschriften, Thema 5.3). Wie sich aus Deckungsbeitrag und Fixkosten die Gewinnschwelle (Break-even) berechnet, zeigt Thema 1.3.
 
 ## Karteikarten
 
@@ -165,7 +165,7 @@ Auch für Preisentscheidungen hilft die Teilkostensicht: Für Ware, die erst noc
 
 #### K-1.5-04
 **Frage:** Nenne drei kalkulatorische Kosten, die in einem Filialunternehmen des Handels typisch sind.
-**Antwort:** Kalkulatorische Abschreibung der Ladeneinrichtung auf den Wiederbeschaffungswert, kalkulatorische Zinsen auf das betriebsnotwendige Kapital einschließlich Warenbestand, kalkulatorisches Wagnis für Inventurdifferenzen; außerdem kalkulatorische Miete für eigene Gebäude.
+**Antwort:** Kalkulatorische Abschreibung der Ladeneinrichtung auf den Wiederbeschaffungswert, kalkulatorische Zinsen auf das betriebsnotwendige Kapital einschließlich Warenbestand, kalkulatorisches Wagnis für Inventurdifferenzen (es ersetzt als Anderskosten die tatsächlich festgestellten Inventurverluste); außerdem kalkulatorische Miete für eigene Gebäude (Zusatzkosten).
 `tags: kalkulatorische_kosten` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-1.5-05
@@ -204,8 +204,8 @@ Auch für Preisentscheidungen hilft die Teilkostensicht: Für Ware, die erst noc
 `tags: bab, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-1.5-12
-**Frage:** Wie berechnest du im Handel den Zuschlagssatz einer Kostenstelle, und welche Bezugsgröße gilt?
-**Antwort:** Zuschlagssatz = Gemeinkosten der Kostenstelle nach Umlage ÷ Wareneinsatz zu Bezugspreisen × 100. Weil alle Kostenstellen dieselbe Bezugsgröße haben, ergibt die Summe der Sätze den Handlungskostenzuschlag, der in der Kalkulation auf den Bezugspreis aufgeschlagen wird.
+**Frage:** Wie berechnest du bei Loreno den Zuschlagssatz einer Kostenstelle, und welche Bezugsgröße gilt in diesem Kurs?
+**Antwort:** Zuschlagssatz = Gemeinkosten der Kostenstelle nach Umlage ÷ Wareneinsatz zu Bezugspreisen × 100. Weil alle Kostenstellen dieselbe Bezugsgröße haben, ergibt die Summe der Sätze den Handlungskostenzuschlag des jeweiligen Zeitraums, der in der Kalkulation auf den Bezugspreis aufgeschlagen wird.
 `tags: zuschlagssatz, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-1.5-13
@@ -296,7 +296,7 @@ Auch für Preisentscheidungen hilft die Teilkostensicht: Für Ware, die erst noc
 
 #### Q-1.5-09 · Kurzantwort
 **Frage:** Die Hilfskostenstelle Fuhrpark hat primäre Kosten von 180.000 € und ist insgesamt 200.000 km gefahren. Wie hoch ist der Umlagesatz in Euro je Kilometer (auf zwei Nachkommastellen)?
-**Akzeptierte Antworten:** 0,90; 0,9; 0.90; 0.9; 0,90 €; 0,9 €; 0.90 €; 0.9 €; 0,90 Euro; 0,9 Euro; 0.90 Euro; 0.9 Euro; 0,90 EUR; 0,9 EUR; 0.90 EUR; 0.9 EUR; 0,90 € je km; 0,9 € je km; 0,90 Euro je km; 0,9 Euro je km; 0,90 € pro km; 0,9 € pro km; 0,90 Euro pro km; 0,9 Euro pro km; 0,90 €/km; 0,9 €/km; 0,90 Euro/km; 0,9 Euro/km; 0,90 EUR/km; 0,9 EUR/km
+**Akzeptierte Antworten:** 0,90; 0,90 €; 0,90 € je km; 0,90 € pro km; 0,90 €/km; 0,90 € je Kilometer; 0,90 € pro Kilometer; 0,90 Euro; 0,90 Euro je km; 0,90 Euro pro km; 0,90 Euro/km; 0,90 Euro je Kilometer; 0,90 Euro pro Kilometer; 0,90 EUR; 0,90 EUR je km; 0,90 EUR pro km; 0,90 EUR/km; 0,90 EUR je Kilometer; 0,90 EUR pro Kilometer; 0,9; 0,9 €; 0,9 € je km; 0,9 € pro km; 0,9 €/km; 0,9 € je Kilometer; 0,9 € pro Kilometer; 0,9 Euro; 0,9 Euro je km; 0,9 Euro pro km; 0,9 Euro/km; 0,9 Euro je Kilometer; 0,9 Euro pro Kilometer; 0,9 EUR; 0,9 EUR je km; 0,9 EUR pro km; 0,9 EUR/km; 0,9 EUR je Kilometer; 0,9 EUR pro Kilometer; 0.90; 0.90 €; 0.90 € je km; 0.90 € pro km; 0.90 €/km; 0.90 € je Kilometer; 0.90 € pro Kilometer; 0.90 Euro; 0.90 Euro je km; 0.90 Euro pro km; 0.90 Euro/km; 0.90 Euro je Kilometer; 0.90 Euro pro Kilometer; 0.90 EUR; 0.90 EUR je km; 0.90 EUR pro km; 0.90 EUR/km; 0.90 EUR je Kilometer; 0.90 EUR pro Kilometer; 0.9; 0.9 €; 0.9 € je km; 0.9 € pro km; 0.9 €/km; 0.9 € je Kilometer; 0.9 € pro Kilometer; 0.9 Euro; 0.9 Euro je km; 0.9 Euro pro km; 0.9 Euro/km; 0.9 Euro je Kilometer; 0.9 Euro pro Kilometer; 0.9 EUR; 0.9 EUR je km; 0.9 EUR pro km; 0.9 EUR/km; 0.9 EUR je Kilometer; 0.9 EUR pro Kilometer
 **Erklärung:** Umlagesatz = 180.000 € ÷ 200.000 km = 0,90 € je km.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
@@ -327,7 +327,7 @@ Auch für Preisentscheidungen hilft die Teilkostensicht: Für Ware, die erst noc
 
 #### Q-1.5-14 · Kurzantwort
 **Frage:** Die Warengruppe Herrenmode hat im Monat 2.150.000 € Umsatz und 1.600.000 € Wareneinsatz zu Bezugspreisen. Der Handlungskostenzuschlag beträgt 40 % auf den Wareneinsatz. Wie hoch ist der Verlust der Herrenmode in der Vollkostenrechnung in Euro?
-**Akzeptierte Antworten:** 90.000; 90.000 €; 90.000 Euro; 90.000 EUR; 90.000,00; 90.000,00 €; 90.000,00 Euro; 90.000,00 EUR; 90000; 90000 €; 90000 Euro; 90000 EUR; 90000,00; 90000,00 €; 90000,00 Euro; 90000,00 EUR; -90.000; -90.000 €; -90000; -90000 €; −90.000; −90.000 €; −90000; −90000 €
+**Akzeptierte Antworten:** 90.000; 90.000 €; 90.000 Euro; 90.000 EUR; 90000; 90000 €; 90000 Euro; 90000 EUR; 90.000,00; 90.000,00 €; 90.000,00 Euro; 90.000,00 EUR; 90000,00; 90000,00 €; 90000,00 Euro; 90000,00 EUR; -90.000; -90.000 €; -90.000 Euro; -90.000 EUR; -90000; -90000 €; -90000 Euro; -90000 EUR; -90.000,00; -90.000,00 €; -90.000,00 Euro; -90.000,00 EUR; -90000,00; -90000,00 €; -90000,00 Euro; -90000,00 EUR; −90.000; −90.000 €; −90.000 Euro; −90.000 EUR; −90000; −90000 €; −90000 Euro; −90000 EUR; −90.000,00; −90.000,00 €; −90.000,00 Euro; −90.000,00 EUR; −90000,00; −90000,00 €; −90000,00 Euro; −90000,00 EUR
 **Erklärung:** Handlungskosten = 1.600.000 € × 40 % = 640.000 €; Selbstkosten = 2.240.000 €; Ergebnis = 2.150.000 € − 2.240.000 € = − 90.000 €, also 90.000 € Verlust.
 `schwierigkeit: mittel` · `bloom: anwenden`
 

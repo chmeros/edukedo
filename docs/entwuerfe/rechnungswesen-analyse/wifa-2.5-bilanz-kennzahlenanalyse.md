@@ -14,9 +14,9 @@ rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ### Ziel und Aufbereitung der Bilanz
 
-Mit der **Bilanzanalyse** werden Bilanz und GuV in Kennzahlen übersetzt, um die Vermögens-, Finanz- und Ertragslage zu beurteilen. Die Geschäftsführung der NordWert Handels GmbH nutzt sie zur Steuerung, die Hausbank für ihr Rating, Lieferant:innen vor der Gewährung von Zahlungszielen. Zuerst wird die Bilanz zu einer **Strukturbilanz** verdichtet: Ähnliche Positionen werden zusammengefasst, das Fremdkapital wird nach Fälligkeit in **langfristig** und **kurzfristig** getrennt, und Rückstellungen werden nach ihrer erwarteten Fälligkeit eingeordnet (zum Beispiel Pensionsrückstellungen langfristig, Rückstellungen für die Jahresabschlussprüfung kurzfristig).
+Mit der **Bilanzanalyse** werden Bilanz und GuV in Kennzahlen übersetzt, um die Vermögens-, Finanz- und Ertragslage zu beurteilen. Die Geschäftsführung der NordWert Handels GmbH nutzt sie zur Steuerung, die Hausbank für ihr Rating, Lieferant:innen vor der Gewährung von Zahlungszielen. Zuerst wird die Bilanz zu einer **Strukturbilanz** verdichtet: Ähnliche Positionen werden zusammengefasst, das Vermögen wird nach der Dauer der Kapitalbindung und das Kapital nach der Fälligkeit geordnet; das Fremdkapital wird also in **langfristig** und **kurzfristig** getrennt, und Rückstellungen werden nach ihrer erwarteten Fälligkeit eingeordnet (zum Beispiel Pensionsrückstellungen langfristig, Rückstellungen für die Jahresabschlussprüfung kurzfristig).
 
-Alle Beispiele dieses Themas beruhen auf einer vereinfachten Bilanz der NordWert zum 31.12. (frei gewählte Beispielwerte in Mio. €; die Rückstellungen gelten hier vereinfachend als langfristig):
+Alle Beispiele dieses Themas beruhen auf einer vereinfachten Bilanz der NordWert zum 31.12. (frei gewählte Beispielwerte in Mio. €; die Rückstellungen gelten hier vereinfachend als langfristig). Die Werte sind unabhängig von den Rechenbeispielen in 2.2 und 2.4 gewählt:
 
 | Aktiva | Mio. € | Passiva | Mio. € |
 |---|---|---|---|
@@ -79,10 +79,10 @@ Die **Liquiditätsgrade** setzen schnell verfügbare Vermögensteile ins Verhäl
 |---|---|---|
 | **Liquidität 1. Grades** (Barliquidität) | liquide Mittel ÷ kurzfristige Verbindlichkeiten × 100 | 3 ÷ 20 = **15 %** |
 | **Liquidität 2. Grades** | (liquide Mittel + kurzfristige Forderungen) ÷ kurzfristige Verbindlichkeiten × 100 | (3 + 15) ÷ 20 = **90 %** |
-| **Liquidität 3. Grades** | (liquide Mittel + kurzfristige Forderungen + Vorräte) ÷ kurzfristige Verbindlichkeiten × 100 | 30 ÷ 20 = **150 %** |
+| **Liquidität 3. Grades** (auch Umsatzliquidität) | (liquide Mittel + kurzfristige Forderungen + Vorräte) ÷ kurzfristige Verbindlichkeiten × 100 | 30 ÷ 20 = **150 %** |
 | **Working Capital** | Umlaufvermögen − kurzfristige Verbindlichkeiten | 30 − 20 = **10 Mio. €** |
 
-Als grobe, branchenabhängige Orientierung gilt für die Liquidität 2. Grades ein Wert **um 100 %**: Liquide Mittel und Forderungen sollen die kurzfristigen Schulden etwa decken. NordWert liegt mit 90 % etwas darunter und ist deshalb darauf angewiesen, dass auch die Ware zügig verkauft wird. Für die Liquidität 3. Grades nennen die Quellen unterschiedliche Richtwerte (häufig zwischen 120 % und 200 %). Das **Working Capital** von 10 Mio. € ist der Teil des Umlaufvermögens, der langfristig finanziert ist, und entspricht genau dem Überschuss des langfristigen Kapitals über das Anlagevermögen (20 − 10). Ein negatives Working Capital wäre ein Warnsignal. Alle Werte gelten nur für den Stichtag; wann Rechnungen im Laufe des Jahres fällig werden, zeigt erst die Liquiditätsplanung.
+Als grobe, branchenabhängige Orientierung gilt für die Liquidität 2. Grades ein Wert **um 100 %**: Liquide Mittel und Forderungen sollen die kurzfristigen Schulden etwa decken. NordWert liegt mit 90 % etwas darunter und ist deshalb darauf angewiesen, dass auch die Ware zügig verkauft wird. Für die Liquidität 3. Grades nennen die Quellen unterschiedliche Richtwerte (häufig zwischen 120 % und 200 %). Das **Working Capital** von 10 Mio. € ist der Teil des Umlaufvermögens, der langfristig finanziert ist, und entspricht genau dem Überschuss des langfristigen Kapitals über das Anlagevermögen (20 − 10). Ein negatives Working Capital wäre ein Warnsignal. Alle Werte gelten nur für den Stichtag; wann Rechnungen im Laufe des Jahres fällig werden, zeigt erst die Liquiditätsplanung. Eine niedrige Liquidität 2. Grades lässt sich unter anderem durch schnelleren Forderungseinzug, Bestandsabbau oder eine **Umschuldung** verbessern: Werden kurzfristige Bankkredite durch ein langfristiges Darlehen ersetzt, sinken die kurzfristigen Verbindlichkeiten, und die goldene Bilanzregel wird gestärkt; dafür entstehen meist höhere Zinsen.
 
 ### Analyse der GuV und Erfolgskennzahlen
 
@@ -92,7 +92,7 @@ In der **GuV-Analyse** eines Handelsunternehmens steht der Wareneinsatz im Mitte
 - **Rohgewinnquote** = Rohgewinn ÷ Umsatzerlöse × 100 = 24 ÷ 80 = **30 %**; beide Quoten ergänzen sich zu 100 %.
 - **Personalaufwandsquote** = Personalaufwand ÷ Umsatzerlöse × 100 = 12 ÷ 80 = **15 %**.
 
-Das **Betriebsergebnis** ist hier das Ergebnis der gewöhnlichen Geschäftstätigkeit vor Zinsen und Steuern (4,0 Mio. €). Es ist nicht dasselbe wie das Betriebsergebnis der Kosten- und Leistungsrechnung (Leistungen minus Kosten), das mit Kosten statt Aufwendungen rechnet (zur Abgrenzung siehe Thema 2.2).
+Das **Betriebsergebnis** ist hier das Ergebnis aus der Handelstätigkeit vor Zinsen und Steuern (Rohgewinn minus betriebliche Aufwendungen, vereinfacht EBIT): 24,0 − 12,0 − 1,6 − 6,4 = 4,0 Mio. €. Es ist nicht dasselbe wie das Betriebsergebnis der Kosten- und Leistungsrechnung (Leistungen minus Kosten), das mit Kosten statt Aufwendungen rechnet (zur Abgrenzung siehe Thema 2.2; im Thema 2.3 „Kosten- und Leistungsrechnung vertieft“ des Fachgebiets Investition, Finanzierung, betriebliches Rechnungswesen und Controlling ist dieses Betriebsergebnis am Break-even-Punkt genau null).
 
 | Kennzahl | Formel | NordWert |
 |---|---|---|
@@ -102,9 +102,9 @@ Das **Betriebsergebnis** ist hier das Ergebnis der gewöhnlichen Geschäftstäti
 | **Kapitalumschlag** | Umsatzerlöse ÷ Gesamtkapital | 80 ÷ 40 = **2** |
 | **ROI** | Umsatzrendite vor Zinsen × Kapitalumschlag | 4 % × 2 = **8 %** |
 
-Die **Umsatzrendite vor Zinsen** ist (2,4 + 0,8) ÷ 80 = 4 %; mit dem Kapitalumschlag von 2 ergibt sich ein **ROI** von 8 %, gleich der Gesamtkapitalrentabilität. Im Thema 2.4 „Controlling“ (Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling) wird der ROI im DuPont-Schema vereinfacht als Umsatzrentabilität × Kapitalumschlag mit dem „Gewinn“ dargestellt. **Für die Bilanzanalyse gilt hier der Gewinn vor Fremdkapitalzinsen**, damit der ROI die Verzinsung des gesamten eingesetzten Kapitals misst; hat ein Unternehmen keine Fremdkapitalzinsen, sind beide Rechnungen gleich. Im Beispiel wäre die Umsatzrentabilität (3 %) × Kapitalumschlag (2) = 6 % die Rendite nur nach Zinsen. Maßgeblich ist immer die Definition, die eine Aufgabe vorgibt. Der ROI zeigt zwei Hebel: Marge (bessere Einkaufskonditionen, Preise, Kosten) und Umschlag (weniger Lagerbestand, schnellerer Zahlungseingang).
+Die **Umsatzrendite vor Zinsen** ist (2,4 + 0,8) ÷ 80 = 4 %; mit dem Kapitalumschlag von 2 ergibt sich ein **ROI** von 8 %, gleich der Gesamtkapitalrentabilität. **Für die Bilanzanalyse gilt hier der Gewinn vor Fremdkapitalzinsen** (vgl. Thema 2.4 „Controlling“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling, dort vereinfacht „Gewinn“), damit der ROI die Verzinsung des gesamten eingesetzten Kapitals misst; hat ein Unternehmen keine Fremdkapitalzinsen, sind beide Rechnungen gleich. Mit dem Jahresüberschuss ergäbe sich 3 % × 2 = 6 % (Jahresüberschuss ÷ Gesamtkapital); diese Größe ist weder die Gesamt- noch die Eigenkapitalrentabilität, weil die Zinsen an die Fremdkapitalgeber:innen fehlen. Maßgeblich ist immer die Definition, die eine Aufgabe vorgibt. Der ROI zeigt zwei Hebel: Marge (bessere Einkaufskonditionen, Preise, Kosten) und Umschlag (weniger Lagerbestand, schnellerer Zahlungseingang).
 
-Der **Leverage-Effekt** beschreibt, wie das Fremdkapital die Eigenkapitalrentabilität beeinflusst: Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital. Der durchschnittliche Fremdkapitalzinssatz von NordWert beträgt 0,8 ÷ 28 ≈ 2,86 % (bezogen auf das gesamte Fremdkapital einschließlich zinsloser Lieferantenverbindlichkeiten und Rückstellungen). Damit ist die Eigenkapitalrentabilität 8 % + (8 % − 2,86 %) × 28 ÷ 12 ≈ 8 % + 12 % = **20 %**, wie in der Tabelle. Solange die Gesamtkapitalrentabilität über dem Zinssatz liegt, hebt zusätzliches Fremdkapital die Eigenkapitalrentabilität; fällt sie darunter, senkt es sie. Höhere Verschuldung bedeutet also mehr Chance und mehr Risiko.
+Der **Leverage-Effekt** beschreibt, wie das Fremdkapital die Eigenkapitalrentabilität beeinflusst: Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital. Der durchschnittliche Fremdkapitalzinssatz von NordWert beträgt 0,8 ÷ 28 ≈ 2,86 % (bezogen auf das gesamte Fremdkapital einschließlich zinsloser Lieferantenverbindlichkeiten und Rückstellungen). Damit ist die Eigenkapitalrentabilität 8 % + (8 % − 2,86 %) × 28 ÷ 12 ≈ 8 % + 12 % = **20 %**, wie in der Tabelle. Für die Entscheidung über zusätzliches Fremdkapital ist der Zins dieses zusätzlichen Kapitals maßgeblich, nicht der Durchschnittszins, der zinslose Lieferantenkredite einschließt. Solange die Gesamtkapitalrentabilität über diesem Zinssatz liegt, hebt zusätzliches Fremdkapital die Eigenkapitalrentabilität; fällt sie darunter, senkt es sie. Höhere Verschuldung bedeutet also mehr Chance und mehr Risiko.
 
 ### Cashflow
 
@@ -124,17 +124,17 @@ Die Lagerkennzahlen sind im Thema 3.2 „Materialwirtschaft“ (Fachgebiet Logis
 
 Der **Forderungsumschlag** zeigt, wie schnell die Kund:innen zahlen: Umsatzerlöse ÷ durchschnittlicher Forderungsbestand = 80 ÷ ((17 + 15) ÷ 2) = 80 ÷ 16 = **5**. Das durchschnittliche **Kundenziel** (Debitorenlaufzeit) ist 360 ÷ 5 = **72 Tage**. Da die Forderungen die Umsatzsteuer enthalten, rechnen manche Quellen mit dem Umsatz einschließlich Umsatzsteuer; hier gilt der Nettoumsatz, sofern eine Aufgabe nichts anderes vorgibt.
 
-Ware und Forderungen binden zusammen 27 Mio. € und damit den größten Teil des Kapitals von NordWert. Jede Verkürzung von Lagerdauer oder Kundenziel setzt Geld frei, verbessert die Liquidität und erhöht über den Kapitalumschlag den ROI. Ein höherer Lagerumschlag ist aber nur gut, solange die Lieferfähigkeit nicht leidet.
+Ware und Forderungen binden zusammen 27 Mio. € und damit den größten Teil des Kapitals von NordWert. Jede Verkürzung von Lagerdauer oder Kundenziel setzt Geld frei und verbessert die Liquidität. Den Kapitalumschlag und damit den ROI erhöht sie, wenn die freigesetzten Mittel zur Rückführung der kurzfristigen Bankkredite verwendet werden (das Gesamtkapital sinkt). Ein höherer Lagerumschlag ist aber nur gut, solange die Lieferfähigkeit nicht leidet.
 
 ### Beurteilung: Zeitvergleich, Betriebsvergleich und Grenzen der Kennzahlen
 
 Kennzahlen gewinnen ihre Aussagekraft erst durch den Vergleich:
 
 - **Zeitvergleich** (NordWert über mehrere Jahre): Im Vorjahr betrug der Lagerumschlag 5 (72 Tage Lagerdauer) und das Kundenziel 60 Tage. Ware und Forderungen bleiben jetzt also länger im Unternehmen, was Kapital bindet. Die Umsatzrentabilität stieg dagegen von 2,5 % auf 3 %.
-- **Betriebsvergleich** (Vergleich mit Wettbewerbern oder Branchenwerten, hier frei gewählte Vergleichswerte für den Großhandel): Bei Branchenwerten von 25 % Eigenkapitalquote, 100 % Liquidität 2. Grades, Lagerumschlag 6 und 2 % Umsatzrentabilität steht NordWert bei Kapitalstruktur und Rentabilität gut da, bei Liquidität und Lagerumschlag schwächer. Ansatzpunkte sind also Bestandsabbau (Ladenhüter, Bestellmengen prüfen) und ein strafferes Forderungsmanagement.
+- **Betriebsvergleich** (Vergleich mit Wettbewerbsunternehmen oder Branchenwerten, hier frei gewählte Vergleichswerte für den Großhandel): Bei Branchenwerten von 25 % Eigenkapitalquote, 100 % Liquidität 2. Grades, Lagerumschlag 6 und 2 % Umsatzrentabilität steht NordWert bei Kapitalstruktur und Rentabilität gut da, bei Liquidität und Lagerumschlag schwächer. Ansatzpunkte sind also Bestandsabbau (Ladenhüter, Bestellmengen prüfen) und ein strafferes Forderungsmanagement.
 - **Soll-Ist-Vergleich**: Vergleich mit den eigenen Planwerten (Thema 2.3).
 
-Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab und kann zu diesem Tag gestaltet werden (etwa durch einen kurzfristigen Bestandsabbau vor der Inventur). **Bewertungswahlrechte** und Ermessensspielräume, zum Beispiel bei Abschreibungen, Rückstellungen oder der Bewertung der Ware nach dem Niederstwertprinzip, beeinflussen Gewinn und Eigenkapital. Die Daten sind **vergangenheitsbezogen**, und viele Informationen fehlen ganz, etwa die Fälligkeiten im Laufe des Jahres, die Qualität des Sortiments, Kundenbeziehungen oder stille Reserven in den Lagerhallen. Schließlich zeigt eine Kennzahl nur das Symptom; die Ursache, etwa für ein längeres Kundenziel, muss gesondert ermittelt werden.
+Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab und kann zu diesem Tag gestaltet werden (etwa durch einen kurzfristigen Bestandsabbau vor der Inventur). **Bewertungswahlrechte** (zum Beispiel Verbrauchsfolgeverfahren bei der Ware) und Ermessensspielräume (Abschreibungen, Rückstellungen, Marktwert bei der Niederstwertabschreibung) beeinflussen Gewinn und Eigenkapital. Die Daten sind **vergangenheitsbezogen**, und viele Informationen fehlen ganz, etwa die Fälligkeiten im Laufe des Jahres, die Qualität des Sortiments, Kundenbeziehungen oder stille Reserven in den Lagerhallen. Schließlich zeigt eine Kennzahl nur das Symptom; die Ursache, etwa für ein längeres Kundenziel, muss gesondert ermittelt werden.
 
 ## Karteikarten
 
@@ -200,7 +200,7 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 
 #### K-2.5-13
 **Frage:** Wie wirkt ein höherer Lagerumschlag auf Kapitalbindung, Liquidität und ROI, und wo liegt seine Grenze?
-**Antwort:** Weniger Kapital ist in Ware gebunden, die Liquidität steigt, und über den höheren Kapitalumschlag steigt der ROI. Grenze: Die Lieferfähigkeit darf nicht leiden.
+**Antwort:** Weniger Kapital ist in Ware gebunden, die Liquidität steigt. Werden die freigesetzten Mittel zur Rückführung kurzfristiger Bankkredite verwendet, sinkt das Gesamtkapital, der Kapitalumschlag und damit der ROI steigen. Grenze: Die Lieferfähigkeit darf nicht leiden.
 `tags: lagerumschlag` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-2.5-14
@@ -210,7 +210,7 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 
 #### K-2.5-15
 **Frage:** Was vergleicht der Zeitvergleich, was der Betriebsvergleich?
-**Antwort:** Zeitvergleich: dieselben Kennzahlen desselben Unternehmens über mehrere Jahre. Betriebsvergleich: Kennzahlen im Vergleich mit Wettbewerbern oder Branchenwerten.
+**Antwort:** Zeitvergleich: dieselben Kennzahlen desselben Unternehmens über mehrere Jahre. Betriebsvergleich: Kennzahlen im Vergleich mit Wettbewerbsunternehmen oder Branchenwerten.
 `tags: beurteilung` · `schwierigkeit: leicht` · `bloom: verstehen`
 
 #### K-2.5-16
@@ -230,33 +230,33 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-2.5-02 · Kurzantwort
-**Frage:** NordWert weist ein Eigenkapital von 12 Mio. € bei einer Bilanzsumme von 40 Mio. € aus. Wie hoch ist die Eigenkapitalquote in Prozent?
-**Akzeptierte Antworten:** 30; 30 %; 30 Prozent
-**Erklärung:** Eigenkapitalquote = 12 ÷ 40 × 100 = 30 %.
+**Frage:** Ein Großhändler weist ein Eigenkapital von 7,2 Mio. € bei einer Bilanzsumme von 32 Mio. € aus. Wie hoch ist die Eigenkapitalquote in Prozent (eine Nachkommastelle)?
+**Akzeptierte Antworten:** 22,5; 22,5 %; 22,5 Prozent; 22.5; 22.5 %; 22.5 Prozent
+**Erklärung:** Eigenkapitalquote = 7,2 ÷ 32 × 100 = 22,5 %.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-03 · Kurzantwort
-**Frage:** Eigenkapital 12 Mio. €, Anlagevermögen 10 Mio. €. Wie hoch ist der Anlagendeckungsgrad I in Prozent?
-**Akzeptierte Antworten:** 120; 120 %; 120 Prozent
-**Erklärung:** Anlagendeckungsgrad I = 12 ÷ 10 × 100 = 120 %; schon das Eigenkapital deckt das Anlagevermögen vollständig.
+**Frage:** Eigenkapital 7,2 Mio. €, Anlagevermögen 8 Mio. €. Wie hoch ist der Anlagendeckungsgrad I in Prozent?
+**Akzeptierte Antworten:** 90; 90 %; 90 Prozent
+**Erklärung:** Anlagendeckungsgrad I = 7,2 ÷ 8 × 100 = 90 %; die enge Fassung der goldenen Bilanzregel ist nicht erfüllt, ein Teil des Anlagevermögens muss langfristig fremdfinanziert sein.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-04 · Kurzantwort
-**Frage:** Liquide Mittel 3 Mio. €, kurzfristige Forderungen 15 Mio. €, Warenvorräte 12 Mio. €, kurzfristige Verbindlichkeiten 20 Mio. €. Wie hoch ist die Liquidität 2. Grades in Prozent?
-**Akzeptierte Antworten:** 90; 90 %; 90 Prozent
-**Erklärung:** (3 + 15) ÷ 20 × 100 = 90 %. Die Warenvorräte zählen erst zur Liquidität 3. Grades (30 ÷ 20 × 100 = 150 %).
+**Frage:** Liquide Mittel 1,5 Mio. €, kurzfristige Forderungen 10,5 Mio. €, Warenvorräte 9 Mio. €, kurzfristige Verbindlichkeiten 15 Mio. €. Wie hoch ist die Liquidität 2. Grades in Prozent?
+**Akzeptierte Antworten:** 80; 80 %; 80 Prozent
+**Erklärung:** (1,5 + 10,5) ÷ 15 × 100 = 80 %. Die Warenvorräte zählen erst zur Liquidität 3. Grades (21 ÷ 15 × 100 = 140 %).
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-05 · Kurzantwort
-**Frage:** Umlaufvermögen 30 Mio. €, kurzfristige Verbindlichkeiten 20 Mio. €. Wie hoch ist das Working Capital in Mio. €?
-**Akzeptierte Antworten:** 10; 10 Mio; 10 Mio.; 10 Mio. €; 10 Mio €; 10 Mio. Euro; 10 Mio Euro; 10 Mio. EUR; 10 Mio EUR; 10.000.000; 10000000; 10.000.000,00; 10000000,00; 10.000.000 €; 10000000 €; 10.000.000,00 €; 10000000,00 €; 10.000.000 Euro; 10000000 Euro; 10.000.000,00 Euro; 10000000,00 Euro; 10.000.000 EUR; 10000000 EUR; 10.000.000,00 EUR; 10000000,00 EUR
-**Erklärung:** Working Capital = 30 − 20 = 10 Mio. €; dieser Teil des Umlaufvermögens ist langfristig finanziert.
+**Frage:** Umlaufvermögen 26 Mio. €, kurzfristige Verbindlichkeiten 18,5 Mio. €. Wie hoch ist das Working Capital in Mio. € (eine Nachkommastelle)?
+**Akzeptierte Antworten:** 7,5; 7,5 Mio; 7,5 Mio.; 7,5 Mio. €; 7,5 Mio €; 7,5 Mio. Euro; 7,5 Mio Euro; 7,5 Mio. EUR; 7,5 Mio EUR; 7.5; 7.5 Mio; 7.5 Mio.; 7.5 Mio. €; 7.5 Mio €; 7.5 Mio. Euro; 7.5 Mio Euro; 7.5 Mio. EUR; 7.5 Mio EUR; 7.500.000; 7500000; 7.500.000,00; 7500000,00; 7.500.000 €; 7500000 €; 7.500.000,00 €; 7500000,00 €; 7.500.000 Euro; 7500000 Euro; 7.500.000,00 Euro; 7500000,00 Euro; 7.500.000 EUR; 7500000 EUR; 7.500.000,00 EUR; 7500000,00 EUR; 7,50; 7.50; 7,50 Mio. €
+**Erklärung:** Working Capital = 26 − 18,5 = 7,5 Mio. €; dieser Teil des Umlaufvermögens ist langfristig finanziert.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-06 · Kurzantwort
-**Frage:** Umsatzerlöse 80 Mio. €, Wareneinsatz 56 Mio. €. Wie hoch ist die Wareneinsatzquote in Prozent (bezogen auf die Umsatzerlöse)?
-**Akzeptierte Antworten:** 70; 70 %; 70 Prozent
-**Erklärung:** Wareneinsatzquote = 56 ÷ 80 × 100 = 70 %; die Rohgewinnquote beträgt entsprechend 30 %.
+**Frage:** Ein Großhändler erzielt Umsatzerlöse von 65 Mio. € bei einem Wareneinsatz von 48,1 Mio. €. Wie hoch ist die Wareneinsatzquote in Prozent (bezogen auf die Umsatzerlöse)?
+**Akzeptierte Antworten:** 74; 74 %; 74 Prozent
+**Erklärung:** Wareneinsatzquote = 48,1 ÷ 65 × 100 = 74 %; die Rohgewinnquote beträgt entsprechend 26 %.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-07 · Kurzantwort
@@ -272,9 +272,9 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-09 · Kurzantwort
-**Frage:** Jahresüberschuss 2,4 Mio. €, Abschreibungen 1,6 Mio. €; die Rückstellungen stiegen von 1,6 Mio. € auf 2,0 Mio. €. Wie hoch ist der vereinfachte Cashflow in Mio. € (eine Nachkommastelle)?
-**Akzeptierte Antworten:** 4,4; 4,4 Mio; 4,4 Mio.; 4,4 Mio. €; 4,4 Mio €; 4,4 Mio. Euro; 4,4 Mio Euro; 4,4 Mio. EUR; 4,4 Mio EUR; 4.4; 4.4 Mio; 4.4 Mio.; 4.4 Mio. €; 4.4 Mio €; 4.4 Mio. Euro; 4.4 Mio Euro; 4.4 Mio. EUR; 4.4 Mio EUR; 4.400.000; 4400000; 4.400.000,00; 4400000,00; 4.400.000 €; 4400000 €; 4.400.000,00 €; 4400000,00 €; 4.400.000 Euro; 4400000 Euro; 4.400.000,00 Euro; 4400000,00 Euro; 4.400.000 EUR; 4400000 EUR; 4.400.000,00 EUR; 4400000,00 EUR
-**Erklärung:** Cashflow = 2,4 + 1,6 + (2,0 − 1,6) = 4,4 Mio. €. Angesetzt wird die Zunahme der Rückstellungen, nicht ihr Bestand.
+**Frage:** Jahresüberschuss 1,9 Mio. €, Abschreibungen 1,2 Mio. €; die Rückstellungen stiegen von 1,1 Mio. € auf 1,4 Mio. €. Wie hoch ist der vereinfachte Cashflow in Mio. € (eine Nachkommastelle)?
+**Akzeptierte Antworten:** 3,4; 3,4 Mio; 3,4 Mio.; 3,4 Mio. €; 3,4 Mio €; 3,4 Mio. Euro; 3,4 Mio Euro; 3,4 Mio. EUR; 3,4 Mio EUR; 3.4; 3.4 Mio; 3.4 Mio.; 3.4 Mio. €; 3.4 Mio €; 3.4 Mio. Euro; 3.4 Mio Euro; 3.4 Mio. EUR; 3.4 Mio EUR; 3.400.000; 3400000; 3.400.000,00; 3400000,00; 3.400.000 €; 3400000 €; 3.400.000,00 €; 3400000,00 €; 3.400.000 Euro; 3400000 Euro; 3.400.000,00 Euro; 3400000,00 Euro; 3.400.000 EUR; 3400000 EUR; 3.400.000,00 EUR; 3400000,00 EUR; 3,40; 3.40; 3,40 Mio; 3,40 Mio.; 3,40 Mio. €; 3,40 Mio €; 3,40 Mio. Euro; 3,40 Mio Euro; 3,40 Mio. EUR; 3,40 Mio EUR
+**Erklärung:** Cashflow = 1,9 + 1,2 + (1,4 − 1,1) = 1,9 + 1,2 + 0,3 = 3,4 Mio. €. Angesetzt wird die Zunahme der Rückstellungen, nicht ihr Bestand.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-10 · Kurzantwort
@@ -291,7 +291,7 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 
 #### Q-2.5-12 · Zuordnung
 **Anweisung:** Ordne jeder Kennzahl ihre Aussage zu.
-- Anlagenintensität ↔ Anteil des langfristig gebundenen Vermögens am Gesamtvermögen
+- Anlagenintensität ↔ Anteil des Anlagevermögens am Gesamtvermögen
 - Verschuldungsgrad ↔ Fremdkapital je Euro Eigenkapital
 - Lagerdauer ↔ Durchschnittliche Verweildauer der Ware im Lager
 - Kundenziel ↔ Durchschnittliche Zeit vom Verkauf bis zum Zahlungseingang
@@ -318,7 +318,7 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 - [x] Das Mahnwesen straffen, damit Forderungen schneller eingehen
 - [ ] Ein zusätzliches Sicherheitslager für alle Artikel aufbauen
 - [ ] Kund:innen grundsätzlich längere Zahlungsziele gewähren
-**Erklärung:** Weniger Ware und weniger Forderungen senken das gebundene Kapital bei gleichem Umsatz; Sicherheitslager und längere Zahlungsziele binden zusätzliches Kapital.
+**Erklärung:** Weniger Ware und weniger Forderungen senken das gebundene Kapital bei gleichem Umsatz, wenn die freigesetzten Mittel zur Rückführung der kurzfristigen Bankkredite verwendet werden (das Gesamtkapital sinkt); Sicherheitslager und längere Zahlungsziele binden zusätzliches Kapital.
 `schwierigkeit: mittel` · `bloom: bewerten`
 
 #### Q-2.5-16 · Was passt nicht dazu
@@ -331,12 +331,12 @@ Die Bilanzanalyse hat **Grenzen**: Die Bilanz bildet nur einen **Stichtag** ab u
 `schwierigkeit: leicht` · `bloom: analysieren`
 
 #### Q-2.5-17 · Multiple Choice
-**Frage:** Jahresüberschuss 2,4 Mio. €, Fremdkapitalzinsen 0,8 Mio. €, Umsatzerlöse 80 Mio. €, Gesamtkapital 40 Mio. €. Welche Aussage zum ROI im Sinne der Bilanzanalyse trifft zu?
+**Frage:** Jahresüberschuss 2,4 Mio. €, Fremdkapitalzinsen 0,8 Mio. €, Umsatzerlöse 80 Mio. €, Gesamtkapital 40 Mio. €. Der ROI soll mit dem Gewinn vor Fremdkapitalzinsen gerechnet werden ((Jahresüberschuss + Fremdkapitalzinsen) ÷ Gesamtkapital). Welche Aussage trifft zu?
 - [ ] Der ROI beträgt 6 %, weil Umsatzrentabilität (3 %) × Kapitalumschlag (2) gerechnet wird.
 - [x] Der ROI beträgt 8 %, weil im Zähler der Gewinn vor Fremdkapitalzinsen (3,2 Mio. €) steht.
 - [ ] Der ROI beträgt 20 %, weil er gleich der Eigenkapitalrentabilität ist.
 - [ ] Der ROI beträgt 2 %, weil er gleich dem Kapitalumschlag ist.
-**Erklärung:** Mit dem Gewinn vor Fremdkapitalzinsen ist der ROI 3,2 ÷ 40 × 100 = 8 % (Umsatzrendite vor Zinsen 4 % × Kapitalumschlag 2) und gleich der Gesamtkapitalrentabilität. Die vereinfachte Rechnung mit dem Gewinn nach Zinsen ergäbe 6 %; maßgeblich ist die vorgegebene Definition.
+**Erklärung:** Mit dem Gewinn vor Fremdkapitalzinsen ist der ROI 3,2 ÷ 40 × 100 = 8 % (Umsatzrendite vor Zinsen 4 % × Kapitalumschlag 2) und gleich der Gesamtkapitalrentabilität. Wer mit dem Jahresüberschuss rechnet (3 % × 2 = 6 %), weicht von der vorgegebenen Definition ab.
 `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### Q-2.5-18 · Lückentext (Wortauswahl)

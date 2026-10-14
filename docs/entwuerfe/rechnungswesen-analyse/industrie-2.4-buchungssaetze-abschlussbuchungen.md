@@ -56,46 +56,46 @@ Daneben sind in Buchhaltungsprogrammen die Standardkontenrahmen **SKR 03** (nach
 
 ### Rohstoffeinkauf: Umsatzsteuer, Rabatt, Bezugskosten und Skonto
 
-Solvitec erfasst Rohstoffe **bestandsorientiert**: Der Einkauf erhöht das Aktivkonto Rohstoffe, der Verbrauch wird erst bei der Entnahme für die Fertigung als Aufwand gebucht. Die Vorsteuer ist eine Forderung gegenüber dem Finanzamt (Aktivkonto), die Umsatzsteuer eine Verbindlichkeit (Passivkonto). Der Steuersatz von 19 % ist ein Beispielsatz; maßgeblich ist das jeweils geltende Umsatzsteuergesetz. Für den Einkauf gelten vier Regeln:
+Solvitec erfasst Rohstoffe **bestandsorientiert** (Bestandsmethode, wie in 2.1): Der Einkauf erhöht das Aktivkonto Rohstoffe, der Verbrauch wird erst bei der Entnahme für die Fertigung als Aufwand gebucht. Die Vorsteuer ist eine Forderung gegenüber dem Finanzamt (Aktivkonto), die Umsatzsteuer eine Verbindlichkeit (Passivkonto). Der Steuersatz von 19 % ist ein Beispielsatz; maßgeblich ist das jeweils geltende Umsatzsteuergesetz. Für den Einkauf gelten vier Regeln:
 
 - Ein **Sofortrabatt**, der schon auf der Rechnung abgezogen ist, wird **nicht gebucht**; gebucht wird der Betrag nach Rabatt.
 - **Bezugskosten** (Eingangsfracht, Transportversicherung, Verpackung) gehören zu den **Anschaffungskosten** und werden auf das Rohstoffkonto (oder ein Unterkonto Bezugskosten) gebucht.
 - Der **Skonto** wird erst bei der Zahlung gebucht. Er mindert die Anschaffungskosten und die Vorsteuer, denn die Steuer bemisst sich nach dem tatsächlich gezahlten Entgelt.
 - Der Verbrauch für die Fertigung (laut Materialentnahmeschein) wird gebucht als **Aufwendungen für Rohstoffe an Rohstoffe**.
 
-*Beispiel:* Solvitec bestellt Kupferdraht zum Listenpreis von 12.000 €; der Lieferant gewährt 5 % Rabatt und 2 % Skonto bei Zahlung innerhalb von zehn Tagen. Die Rechnung lautet auf 11.400 € netto zuzüglich 2.166 € Umsatzsteuer, zusammen 13.566 €.
+*Beispiel:* Solvitec bestellt Kupferdraht zum Listenpreis von 12.000 €; das liefernde Unternehmen gewährt 5 % Rabatt und 2 % Skonto bei Zahlung innerhalb von zehn Tagen. Die Rechnung lautet auf 11.400 € netto zuzüglich 2.166 € Umsatzsteuer, zusammen 13.566 €.
 
 - Eingangsrechnung: **Rohstoffe 11.400 € und Vorsteuer 2.166 € an Verbindlichkeiten aus Lieferungen und Leistungen 13.566 €.**
 - Rechnung der Spedition über die Fracht, 300 € netto zuzüglich 57 € Umsatzsteuer: **Rohstoffe (Bezugskosten) 300 € und Vorsteuer 57 € an Verbindlichkeiten aus Lieferungen und Leistungen 357 €.**
-- Zahlung innerhalb der Skontofrist: 2 % von 13.566 € = 271,32 €; davon entfallen 2 % von 11.400 € = 228,00 € auf den Warenwert und 2 % von 2.166 € = 43,32 € auf die Vorsteuer. Überwiesen werden 13.566 € − 271,32 € = 13.294,68 €. Buchung: **Verbindlichkeiten aus Lieferungen und Leistungen 13.566 € an Bank 13.294,68 €, Rohstoffe (Nachlässe) 228,00 € und Vorsteuer 43,32 €.**
+- Zahlung innerhalb der Skontofrist: 2 % von 13.566 € = 271,32 €; davon entfallen 2 % von 11.400 € = 228,00 € auf den Nettoanteil (Minderung der Anschaffungskosten) und 2 % von 2.166 € = 43,32 € auf die Vorsteuer. Überwiesen werden 13.566 € − 271,32 € = 13.294,68 €. Buchung: **Verbindlichkeiten aus Lieferungen und Leistungen 13.566 € an Bank 13.294,68 €, Rohstoffe (Nachlässe) 228,00 € und Vorsteuer 43,32 €.** Der Lieferantenskonto wird hier auf das Unterkonto Nachlässe des Rohstoffkontos gebucht.
 
 Die Anschaffungskosten des Kupferdrahts betragen damit 11.400 € + 300 € − 228 € = **11.472 €**. Statt der bestandsorientierten Erfassung buchen manche Unternehmen den Einkauf sofort als Aufwand (aufwandsorientierte Methode) und erfassen am Jahresende nur die Bestandsveränderung des Lagers; der Gewinn ist bei beiden Methoden gleich.
 
 ### Verkauf von Erzeugnissen: Rabatt, Ausgangsfracht und Kundenskonto
 
-Beim Verkauf gelten die Regeln spiegelbildlich. Ein Sofortrabatt wird ebenfalls nicht gebucht. Ausgangsfrachten, die Solvitec selbst trägt, sind **Aufwand** und keine Erlösminderung. Ein **Kundenskonto** mindert bei Zahlungseingang die Erlöse und die Umsatzsteuer; die Erlösminderung wird meist auf einem Unterkonto **Erlösberichtigungen** gesammelt.
+Beim Verkauf gelten die Regeln spiegelbildlich. Ein Sofortrabatt wird ebenfalls nicht gebucht. Ausgangsfrachten, die Solvitec selbst trägt, sind **Aufwand** und keine Erlösminderung. Ein **Kundenskonto** mindert bei Zahlungseingang die Erlöse und die Umsatzsteuer; die Erlösminderung wird meist auf einem Unterkonto **Erlösberichtigungen** (auch Erlösschmälerungen, hier Kundenskonto) gesammelt. Das Erlöskonto heißt im IKR **Umsatzerlöse für eigene Erzeugnisse** (in 2.1 kurz Umsatzerlöse).
 
 *Beispiel:* Solvitec liefert Frequenzumrichter zum Listenpreis von 30.000 € und gewährt 10 % Rabatt. Die Rechnung lautet auf 27.000 € netto zuzüglich 5.130 € Umsatzsteuer, zusammen 32.130 €.
 
 - Ausgangsrechnung: **Forderungen aus Lieferungen und Leistungen 32.130 € an Umsatzerlöse für eigene Erzeugnisse 27.000 € und Umsatzsteuer 5.130 €.**
-- Der Kunde zahlt unter Abzug von 2 % Skonto: 2 % von 32.130 € = 642,60 €, davon 540,00 € Erlösminderung und 102,60 € Umsatzsteuer. Zahlungseingang 32.130 € − 642,60 € = 31.487,40 €. Buchung: **Bank 31.487,40 €, Erlösberichtigungen 540,00 € und Umsatzsteuer 102,60 € an Forderungen aus Lieferungen und Leistungen 32.130 €.**
+- Die Kundschaft zahlt unter Abzug von 2 % Skonto: 2 % von 32.130 € = 642,60 €, davon 540,00 € Erlösminderung und 102,60 € Umsatzsteuer. Zahlungseingang 32.130 € − 642,60 € = 31.487,40 €. Buchung: **Bank 31.487,40 €, Erlösberichtigungen 540,00 € und Umsatzsteuer 102,60 € an Forderungen aus Lieferungen und Leistungen 32.130 €.**
 
 Die Forderung wird immer in voller Höhe ausgebucht, denn sie ist mit der Zahlung erledigt. Nachträgliche Preisnachlässe wie ein Bonus oder eine Gutschrift wegen Mängeln werden wie der Skonto gebucht.
 
 ### Rechenbeispiel: T-Konto Rohstoffe
 
-Das Konto Rohstoffe für Kupferdraht zeigt zu Jahresbeginn einen Anfangsbestand von 85.000 €. Im Laufe des Jahres kommen der Einkauf aus dem Beispiel oben (11.400 €), die Fracht (300 €) und der Skonto (228 €) hinzu; laut Materialentnahmescheinen wurden Rohstoffe für 60.000 € in der Fertigung verbraucht. Im T-Konto steht bei jeder Buchung das Gegenkonto („Verbindlichkeiten aLL“ steht kurz für Verbindlichkeiten aus Lieferungen und Leistungen).
+Das Konto Rohstoffe für Kupferdraht zeigt zu Jahresbeginn einen Anfangsbestand von 85.000 €. Im Laufe des Jahres werden der Einkauf aus dem Beispiel oben (11.400 €), die Fracht (300 €) und der Skonto (228 €) gebucht; Fracht und Skonto stehen hier vereinfacht direkt auf dem Konto Rohstoffe (nach Abschluss der Unterkonten Bezugskosten und Nachlässe). Laut Materialentnahmescheinen wurden Rohstoffe für 60.000 € in der Fertigung verbraucht. Im T-Konto steht bei jeder Buchung das Gegenkonto („Verbindlichkeiten aLL“ steht kurz für Verbindlichkeiten aus Lieferungen und Leistungen).
 
 ```
 Soll                    Rohstoffe (Kupferdraht)                     Haben
-Anfangsbestand             85.000 €  | Verbindlichkeiten aLL (Skonto)  228 €
+Eröffnungsbilanzkonto (AB) 85.000 €  | Verbindlichkeiten aLL (Skonto)  228 €
 Verbindlichkeiten aLL      11.400 €  | Aufwendungen für Rohstoffe   60.000 €
-Verbindlichkeiten aLL         300 €  | Saldo = Schlussbestand       36.472 €
+Verbindlichkeiten aLL         300 €  | Schlussbilanzkonto (SB)      36.472 €
                            --------  |                              --------
                            96.700 €  |                              96.700 €
 ```
 
-Die Sollseite ergibt 85.000 € + 11.400 € + 300 € = 96.700 €. Der Saldo steht auf der kleineren Haben-Seite: 96.700 € − 228 € − 60.000 € = **36.472 €**. Er ist der **Buchbestand** zum Jahresende und wird mit dem Ergebnis der Inventur verglichen. Weicht der gezählte Bestand ab (Schwund, Fehlbuchungen), gilt der Inventurbestand; die Differenz wird als zusätzlicher Verbrauch oder Ertrag gebucht. Der Abschlussbuchungssatz lautet: **Schlussbilanzkonto an Rohstoffe 36.472 €.**
+Der Anfangsbestand (AB) kommt über das Eröffnungsbilanzkonto, der Saldo (Schlussbestand, SB) geht an das Schlussbilanzkonto. Die Sollseite ergibt 85.000 € + 11.400 € + 300 € = 96.700 €. Der Saldo steht auf der kleineren Haben-Seite: 96.700 € − 228 € − 60.000 € = **36.472 €**. Er ist der **Buchbestand** zum Jahresende und wird mit dem Ergebnis der Inventur verglichen. Weicht der gezählte Bestand ab (Schwund, Fehlbuchungen), gilt der Inventurbestand; die Differenz wird als zusätzlicher Verbrauch oder Ertrag gebucht. Der Abschlussbuchungssatz lautet: **Schlussbilanzkonto an Rohstoffe 36.472 €.**
 
 ### Abschlussbuchungen: Umsatzsteuer, GuV-Konto, Eigenkapital und Schlussbilanzkonto
 
@@ -106,7 +106,7 @@ Zum Jahresende werden alle Konten in einer festen Reihenfolge abgeschlossen:
 3. **GuV-Konto über das Eigenkapitalkonto:** Ein Gewinn (Erträge größer als Aufwendungen) wird mit **GuV-Konto an Eigenkapital** gebucht, ein Verlust mit **Eigenkapital an GuV-Konto**.
 4. **Bestandskonten über das Schlussbilanzkonto (SBK):** Aktivkonten mit **Schlussbilanzkonto an Aktivkonto**, Passivkonten mit **Passivkonto an Schlussbilanzkonto**. Das SBK muss mit der aus dem Inventar abgeleiteten Bilanz übereinstimmen.
 
-*Umsatzsteuer-Verrechnung:* Im Dezember stehen auf dem Konto Umsatzsteuer 95.000 € im Haben und auf dem Konto Vorsteuer 61.750 € im Soll. Die kleinere Vorsteuer wird auf das Umsatzsteuerkonto übertragen: **Umsatzsteuer an Vorsteuer 61.750 €.** Übrig bleibt die **Zahllast** von 95.000 € − 61.750 € = 33.250 €. Wird sie erst im Januar überwiesen, steht sie als Verbindlichkeit im Schlussbilanzkonto: **Umsatzsteuer an Schlussbilanzkonto 33.250 €.** Ist die Vorsteuer ausnahmsweise größer (etwa nach einer großen Investition), entsteht ein Erstattungsanspruch: Dann wird die Umsatzsteuer über die Vorsteuer verrechnet, und der Vorsteuerüberhang erscheint als Forderung auf der Aktivseite.
+*Umsatzsteuer-Verrechnung:* Im Dezember stehen auf dem Konto Umsatzsteuer 95.000 € im Haben und auf dem Konto Vorsteuer 61.750 € im Soll. Die kleinere Vorsteuer wird auf das Umsatzsteuerkonto übertragen: **Umsatzsteuer an Vorsteuer 61.750 €.** Übrig bleibt die **Zahllast** von 95.000 € − 61.750 € = 33.250 €. Wird sie erst im Januar überwiesen, steht sie als Verbindlichkeit im Schlussbilanzkonto: **Umsatzsteuer an Schlussbilanzkonto 33.250 €.** Ist die Vorsteuer ausnahmsweise größer (etwa nach einer großen Investition), entsteht ein Erstattungsanspruch: Dann wird die kleinere Umsatzsteuer auf das Vorsteuerkonto übertragen (**Umsatzsteuer an Vorsteuer** in Höhe der Umsatzsteuer), und der verbleibende **Vorsteuerüberhang** ist eine Forderung gegenüber dem Finanzamt, die auf der Aktivseite erscheint: **Schlussbilanzkonto an Vorsteuer.**
 
 *Abschluss über GuV und Eigenkapital (vereinfachtes Lehrbeispiel mit wenigen Konten):*
 
@@ -196,8 +196,8 @@ Solvitec gliedert die GuV nach dem Gesamtkostenverfahren (Thema 2.1): Alle Aufwe
 `tags: t_konto` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.4-13
-**Frage:** Wie werden Vorsteuer und Umsatzsteuer zum Abschluss verrechnet?
-**Antwort:** Umsatzsteuer an Vorsteuer in Höhe der Vorsteuer; der verbleibende Saldo der Umsatzsteuer ist die Zahllast und wird überwiesen oder als Verbindlichkeit über das Schlussbilanzkonto abgeschlossen.
+**Frage:** Wie werden eine Zahllast und ein Vorsteuerüberhang zum Jahresende über das Schlussbilanzkonto abgeschlossen?
+**Antwort:** Zahllast (Umsatzsteuer größer): nach „Umsatzsteuer an Vorsteuer“ bleibt eine Verbindlichkeit, Abschluss mit „Umsatzsteuer an Schlussbilanzkonto“. Vorsteuerüberhang (Vorsteuer größer): nach „Umsatzsteuer an Vorsteuer“ bleibt eine Forderung an das Finanzamt, Abschluss mit „Schlussbilanzkonto an Vorsteuer“.
 `tags: umsatzsteuer, abschluss` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-2.4-14
@@ -243,14 +243,14 @@ Solvitec gliedert die GuV nach dem Gesamtkostenverfahren (Thema 2.1): Alle Aufwe
 `schwierigkeit: leicht` · `bloom: verstehen`
 
 #### Q-2.4-04 · Wahr/Falsch
-**Aussage:** Ein Sofortrabatt, den der Lieferant schon auf der Rechnung abzieht, wird auf einem eigenen Konto „Rabatte“ gebucht.
+**Aussage:** Ein Sofortrabatt, den das liefernde Unternehmen schon auf der Rechnung abzieht, wird auf einem eigenen Konto „Rabatte“ gebucht.
 - [ ] Wahr
 - [x] Falsch
 **Erklärung:** Der Sofortrabatt wird nicht gebucht; gebucht wird der Rechnungsbetrag nach Abzug des Rabatts. Erst nachträgliche Nachlässe wie Skonto oder Bonus werden gebucht.
 `schwierigkeit: leicht` · `bloom: verstehen`
 
 #### Q-2.4-05 · Kurzantwort
-**Frage:** Solvitec kauft Kunststoffgranulat zum Listenpreis von 8.000 € netto, der Lieferant gewährt 15 % Sofortrabatt; Umsatzsteuer 19 % (Beispielsatz). Wie hoch ist der Rechnungsbetrag brutto in Euro?
+**Frage:** Solvitec kauft Kunststoffgranulat zum Listenpreis von 8.000 € netto, das liefernde Unternehmen gewährt 15 % Sofortrabatt; Umsatzsteuer 19 % (Beispielsatz). Wie hoch ist der Rechnungsbetrag brutto in Euro?
 **Akzeptierte Antworten:** 8.092; 8092; 8.092,00; 8092,00; 8.092 €; 8092 €; 8.092,00 €; 8092,00 €; 8.092 Euro; 8092 Euro; 8.092,00 Euro; 8092,00 Euro; 8.092 EUR; 8092 EUR; 8.092,00 EUR; 8092,00 EUR
 **Erklärung:** Nettobetrag nach Rabatt = 8.000 € × (1 − 0,15) = 6.800 €; Umsatzsteuer = 6.800 € × 0,19 = 1.292 €; brutto = 6.800 € + 1.292 € = 8.092 €.
 `schwierigkeit: mittel` · `bloom: anwenden`
@@ -274,7 +274,7 @@ Solvitec gliedert die GuV nach dem Gesamtkostenverfahren (Thema 2.1): Alle Aufwe
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.4-09 · Multiple Choice
-**Frage:** Ein Kunde begleicht eine Rechnung über 32.130 € (27.000 € netto zuzüglich 5.130 € Umsatzsteuer) unter Abzug von 2 % Skonto. Welcher Buchungssatz ist richtig?
+**Frage:** Ein Kundenunternehmen begleicht eine Rechnung über 32.130 € (27.000 € netto zuzüglich 5.130 € Umsatzsteuer) unter Abzug von 2 % Skonto. Welcher Buchungssatz ist richtig?
 - [x] Bank 31.487,40 €, Erlösberichtigungen 540,00 € und Umsatzsteuer 102,60 € an Forderungen aus Lieferungen und Leistungen 32.130 €
 - [ ] Bank 31.487,40 € und Erlösberichtigungen 642,60 € an Forderungen aus Lieferungen und Leistungen 32.130 €
 - [ ] Forderungen aus Lieferungen und Leistungen 32.130 € an Bank 31.487,40 €, Erlösberichtigungen 540,00 € und Umsatzsteuer 102,60 €
@@ -289,9 +289,9 @@ Solvitec gliedert die GuV nach dem Gesamtkostenverfahren (Thema 2.1): Alle Aufwe
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.4-11 · Kurzantwort
-**Frage:** Zum Jahresende stehen auf dem Konto Umsatzsteuer 48.450 € und auf dem Konto Vorsteuer 29.640 €. Wie hoch ist die Zahllast nach der Verrechnung in Euro?
-**Akzeptierte Antworten:** 18.810; 18810; 18.810,00; 18810,00; 18.810 €; 18810 €; 18.810,00 €; 18810,00 €; 18.810 Euro; 18810 Euro; 18.810,00 Euro; 18810,00 Euro; 18.810 EUR; 18810 EUR; 18.810,00 EUR; 18810,00 EUR
-**Erklärung:** Verrechnung: Umsatzsteuer an Vorsteuer 29.640 €; Zahllast = 48.450 € − 29.640 € = 18.810 €. Wird sie erst im Folgejahr gezahlt: Umsatzsteuer an Schlussbilanzkonto 18.810 €.
+**Frage:** Nach dem Kauf einer neuen Spritzgussmaschine stehen zum Jahresende auf dem Konto Umsatzsteuer 27.550 € und auf dem Konto Vorsteuer 63.270 €. Wie hoch ist der Vorsteuerüberhang (Erstattungsanspruch gegenüber dem Finanzamt) in Euro, der über das Schlussbilanzkonto abgeschlossen wird?
+**Akzeptierte Antworten:** 35.720; 35720; 35.720,00; 35720,00; 35.720 €; 35720 €; 35.720,00 €; 35720,00 €; 35.720 Euro; 35720 Euro; 35.720,00 Euro; 35720,00 Euro; 35.720 EUR; 35720 EUR; 35.720,00 EUR; 35720,00 EUR
+**Erklärung:** Die kleinere Umsatzsteuer wird übertragen: Umsatzsteuer an Vorsteuer 27.550 €. Es bleibt ein Vorsteuerüberhang von 63.270 € − 27.550 € = 35.720 €; er ist eine Forderung an das Finanzamt und wird mit „Schlussbilanzkonto an Vorsteuer 35.720 €“ abgeschlossen.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.4-12 · Sortieren

@@ -18,7 +18,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Einzufügen: die Fallaufg
 
 (3) NordWert zahlt die Rechnung (1) innerhalb der Skontofrist per Banküberweisung.
 
-(4) Ausgangsrechnung an einen Onlinehändler über Verpackungsmaterial: 52.000 € netto zuzüglich Umsatzsteuer. Der Kunde zahlt innerhalb der Skontofrist unter Abzug von 3 % Skonto.
+(4) Ausgangsrechnung an ein Onlinehandelsunternehmen über Verpackungsmaterial: 52.000 € netto zuzüglich Umsatzsteuer. Das Kundenunternehmen zahlt innerhalb der Skontofrist unter Abzug von 3 % Skonto.
 
 (5) Für die Warengruppe Versandkartons am Standort Nord gelten zum Jahresende: Warenbestand zu Jahresbeginn 420.000 €, Zugänge des Jahres (einschließlich Bezugskosten, abzüglich Nachlässen) 3.150.000 €, Schlussbestand laut Inventur 470.000 €, Umsatzerlöse der Warengruppe 4.340.000 €.
 
@@ -26,7 +26,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Einzufügen: die Fallaufg
 
 **Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie für die Zahlung (3) den Skontobetrag, seine Aufteilung auf Warenwert und Vorsteuer sowie den Überweisungsbetrag, bilden Sie den Buchungssatz und ermitteln Sie den Einstandspreis der Kartonlieferung.
 
-**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Bilden Sie zu (4) den Buchungssatz für die Ausgangsrechnung und, nach Berechnung von Skonto und Zahlungseingang, den Buchungssatz für die Zahlung des Kunden.
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Bilden Sie zu (4) den Buchungssatz für die Ausgangsrechnung und, nach Berechnung von Skonto und Zahlungseingang, den Buchungssatz für die Zahlung des Kundenunternehmens.
 
 **Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Ermitteln Sie zu (5) die Bestandsveränderung, bilden Sie den Buchungssatz dafür und berechnen Sie den Wareneinsatz und den Rohgewinn der Warengruppe.
 
@@ -45,7 +45,7 @@ Folgefehler: Ein Fehler beim Nettobetrag oder bei der Vorsteuer in Teilaufgabe 1
 
 **Themenbezug:** 2.5 (Bilanz- und Kennzahlenanalyse: Kapitalstruktur, Anlagendeckung, Liquidität, Lager- und Forderungsumschlag, Rentabilität und ROI, Zeit- und Betriebsvergleich)
 
-**Ausgangssituation:** Im Folgejahr hat die NordWert Handels GmbH ihr Sortiment um Zubehör für Verpackungsmaschinen erweitert und im Wettbewerb um Großkunden die Preise gesenkt. Die Geschäftsführung bittet Sie, den Jahresabschluss für ein Gespräch mit der Hausbank auszuwerten (vereinfacht, Werte in Tausend €). Bilanz zum 31.12.: Anlagevermögen 12.000; Warenvorräte 16.000; Forderungen aus Lieferungen und Leistungen 17.000; liquide Mittel 3.000; Eigenkapital 12.000; Rückstellungen (langfristig) 2.400; langfristige Verbindlichkeiten 9.600; kurzfristige Verbindlichkeiten 24.000. GuV: Umsatzerlöse 96.000; Wareneinsatz 70.000; Personalaufwand 14.400; Abschreibungen 1.800; sonstige betriebliche Aufwendungen 6.840; Zinsaufwendungen 960; Steuern vom Einkommen und vom Ertrag 560; Jahresüberschuss 1.440. Zu Jahresbeginn betrugen der Warenbestand 12.000 und die Forderungen 15.000. Kennzahlen des Vorjahres: Eigenkapitalquote 30 %, Liquidität 2. Grades 90 %, Lagerumschlag 4 (90 Tage), Kundenziel 72 Tage, Wareneinsatzquote 70 %, Umsatzrentabilität 3 %, ROI 8 %. Branchenwerte (frei gewählte Vergleichswerte): Eigenkapitalquote 25 %, Liquidität 2. Grades 100 %, Lagerumschlag 6, Umsatzrentabilität 2 %. Quoten beziehen sich auf die Umsatzerlöse, das Rechenjahr hat 360 Tage, Prozentwerte sind auf eine Nachkommastelle zu runden.
+**Ausgangssituation:** Im Folgejahr hat die NordWert Handels GmbH ihr Sortiment um Zubehör für Verpackungsmaschinen erweitert und im Wettbewerb um Großkunden die Preise gesenkt. Die Geschäftsführung bittet Sie, den Jahresabschluss für ein Gespräch mit der Hausbank auszuwerten (vereinfacht, Werte in Tausend €). Bilanz zum 31.12.: Anlagevermögen 12.000; Warenvorräte 16.000; Forderungen aus Lieferungen und Leistungen 17.000; liquide Mittel 3.000; Eigenkapital 12.000; Rückstellungen (langfristig) 2.400; langfristige Verbindlichkeiten 9.600; kurzfristige Verbindlichkeiten 24.000. GuV: Umsatzerlöse 96.000; Wareneinsatz 70.000; Personalaufwand 14.400; Abschreibungen 1.800; sonstige betriebliche Aufwendungen 6.840; Zinsaufwendungen 960; Steuern vom Einkommen und vom Ertrag 560; Jahresüberschuss 1.440. Zu Jahresbeginn betrugen der Warenbestand 12.000 und die Forderungen 15.000. Kennzahlen des Vorjahres: Eigenkapitalquote 30 %, Liquidität 2. Grades 90 %, Lagerumschlag 4 (90 Tage), Kundenziel 72 Tage, Wareneinsatzquote 70 %, Umsatzrentabilität 3 %, ROI 8 %. Branchenwerte (frei gewählte Vergleichswerte): Eigenkapitalquote 25 %, Liquidität 2. Grades 100 %, Lagerumschlag 6, Umsatzrentabilität 2 %. Wareneinsatzquote und Umsatzrentabilität beziehen sich auf die Umsatzerlöse (netto), das Rechenjahr hat 360 Tage, Prozentwerte sind auf eine Nachkommastelle zu runden.
 
 **Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie Eigenkapitalquote, Verschuldungsgrad, Anlagendeckungsgrad I und Anlagendeckungsgrad II, und prüfen Sie die goldene Bilanzregel.
 
@@ -94,10 +94,10 @@ Folgefehler: Ein Fehler bei Bilanzsumme oder Fremdkapital in Teilaufgabe 1 wird 
   - Erwartung: Im Großhandel ist der größte Teil des Kapitals in Warenvorräten und Forderungen gebunden; die Anlagenintensität ist niedrig.
   - Erwartung: Lagerumschlag = Wareneinsatz ÷ durchschnittlicher Warenbestand, Lagerdauer = 360 ÷ Lagerumschlag; Forderungsumschlag = Umsatzerlöse ÷ durchschnittliche Forderungen, Kundenziel = 360 ÷ Forderungsumschlag.
   - Erwartung: Kürzere Lagerdauer und kürzeres Kundenziel setzen Kapital frei und verbessern die Liquidität.
-  - Erwartung: Weniger gebundenes Kapital erhöht bei gleichem Umsatz den Kapitalumschlag und damit den ROI; die Lieferfähigkeit darf dabei nicht leiden.
-- Die Hausbank hält eine Eigenkapitalquote von 30 % und eine Liquidität 2. Grades von 90 % für zu niedrig. Wie nehmen Sie Stellung?
+  - Erwartung: Weniger gebundenes Kapital erhöht bei gleichem Umsatz den Kapitalumschlag und damit den ROI, wenn die freigesetzten Mittel zur Rückführung der kurzfristigen Bankkredite verwendet werden (das Gesamtkapital sinkt); die Lieferfähigkeit darf dabei nicht leiden.
+- Die Hausbank hält eine Eigenkapitalquote von 30 % und eine Liquidität 2. Grades von 90 % für zu niedrig; die Anlagendeckungsgrade betragen 120 % (I) und 200 % (II). Wie nehmen Sie Stellung?
   - Erwartung: Eigenkapitalquote = Eigenkapital ÷ Gesamtkapital × 100; im Handel sind niedrigere Quoten als in der Industrie üblich, weil Lieferantenkredite einen großen Teil der Ware finanzieren; entscheidend ist der Vergleich mit Vorjahr und Branche.
-  - Erwartung: Die goldene Bilanzregel ist zu prüfen: Mit Anlagendeckungsgraden über 100 % ist das Anlagevermögen fristgerecht finanziert.
+  - Erwartung: Mit Anlagendeckungsgraden von 120 % und 200 % ist die goldene Bilanzregel in enger und weiter Fassung erfüllt; das Anlagevermögen ist fristgerecht finanziert.
   - Erwartung: Eine Liquidität 2. Grades von 90 % liegt etwas unter dem groben Richtwert um 100 %; ergänzend sind Liquidität 3. Grades, Working Capital und vor allem der Liquiditätsplan heranzuziehen.
   - Erwartung: Verbesserungen sind möglich durch schnelleren Forderungseinzug, Bestandsabbau, Gewinnthesaurierung oder Umschuldung kurzfristiger in langfristige Kredite.
 - Erläutern Sie, wie der ROI in der Bilanzanalyse berechnet und zerlegt wird, und warum dabei der Gewinn vor Fremdkapitalzinsen angesetzt wird.

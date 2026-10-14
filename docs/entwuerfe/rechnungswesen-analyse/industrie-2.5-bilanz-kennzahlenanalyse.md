@@ -14,7 +14,7 @@ rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ### Ziel und Aufbereitung der Bilanz
 
-Die **Bilanzanalyse** wertet Bilanz und GuV mit Kennzahlen aus, um die Vermögens-, Finanz- und Ertragslage eines Unternehmens zu beurteilen. Sie wird intern genutzt (Geschäftsführung, Controlling) und extern, etwa von der Hausbank beim Rating oder von Lieferant:innen vor der Einräumung eines Zahlungsziels. Vorher wird die Bilanz zu einer vereinfachten **Strukturbilanz** aufbereitet: Positionen werden zusammengefasst, das Fremdkapital wird nach Fälligkeit in **langfristig** und **kurzfristig** geteilt, Rückstellungen werden nach ihrer erwarteten Fälligkeit zugeordnet (Pensionsrückstellungen langfristig, Steuerrückstellungen eher kurzfristig).
+Die **Bilanzanalyse** wertet Bilanz und GuV mit Kennzahlen aus, um die Vermögens-, Finanz- und Ertragslage eines Unternehmens zu beurteilen. Sie wird intern genutzt (Geschäftsführung, Controlling) und extern, etwa von der Hausbank beim Rating oder von Lieferant:innen vor der Einräumung eines Zahlungsziels. Vorher wird die Bilanz zu einer vereinfachten **Strukturbilanz** aufbereitet: Positionen werden zusammengefasst, das Vermögen wird nach der Dauer der Kapitalbindung und das Kapital nach der Fälligkeit geordnet; das Fremdkapital wird nach Fälligkeit in **langfristig** und **kurzfristig** geteilt, Rückstellungen werden nach ihrer erwarteten Fälligkeit zugeordnet (Pensionsrückstellungen langfristig, Steuerrückstellungen eher kurzfristig).
 
 Alle Beispiele dieses Themas nutzen dieselbe vereinfachte Bilanz der Solvitec Elektrowerke GmbH zum 31.12. (frei gewählte Beispielwerte in Mio. €; die Rückstellungen sind hier vereinfachend vollständig langfristig):
 
@@ -23,7 +23,7 @@ Alle Beispiele dieses Themas nutzen dieselbe vereinfachte Bilanz der Solvitec El
 | Grundstücke und Gebäude | 16,0 | Eigenkapital | 32,0 |
 | Technische Anlagen und Maschinen | 21,0 | Rückstellungen (langfristig) | 8,0 |
 | Betriebs- und Geschäftsausstattung | 3,0 | Langfristige Verbindlichkeiten (Bankdarlehen) | 15,0 |
-| **Anlagevermögen** | **40,0** | Kurzfristige Verbindlichkeiten (Lieferanten 12,0; kurzfristige Bankkredite 9,0; sonstige 4,0) | 25,0 |
+| **Anlagevermögen** | **40,0** | Kurzfristige Verbindlichkeiten (aus Lieferungen und Leistungen 12,0; kurzfristige Bankkredite 9,0; sonstige 4,0) | 25,0 |
 | Rohstoffe | 4,0 | **Fremdkapital** | **48,0** |
 | Unfertige Erzeugnisse | 6,0 | | |
 | Fertige Erzeugnisse | 7,0 | | |
@@ -77,7 +77,7 @@ In der engen Fassung verlangt die goldene Bilanzregel einen Anlagendeckungsgrad 
 
 ### Liquidität: Liquiditätsgrade und Working Capital
 
-Die Liquiditätsgrade und das Working Capital sind im Thema 5.3 „Liquiditäts- und Finanzplanung“ (Fachgebiet Finanzwirtschaft) definiert; hier werden sie auf die Solvitec-Bilanz angewendet. Bezugsgröße sind jeweils die kurzfristigen Verbindlichkeiten (25 Mio. €):
+Die Liquiditätsgrade und das Working Capital sind im Thema 5.3 „Liquiditäts- und Finanzplanung“ (Fachgebiet Finanzwirtschaft im Industrieunternehmen) definiert; hier werden sie auf die Solvitec-Bilanz angewendet. Bezugsgröße sind jeweils die kurzfristigen Verbindlichkeiten (25 Mio. €):
 
 | Kennzahl | Formel | Solvitec |
 |---|---|---|
@@ -86,7 +86,7 @@ Die Liquiditätsgrade und das Working Capital sind im Thema 5.3 „Liquiditäts-
 | **Liquidität 3. Grades** | (liquide Mittel + kurzfristige Forderungen + Vorräte) ÷ kurzfristige Verbindlichkeiten × 100 | 40 ÷ 25 = **160 %** |
 | **Working Capital** | Umlaufvermögen − kurzfristige Verbindlichkeiten | 40 − 25 = **15 Mio. €** |
 
-Für die Liquidität 2. Grades gilt ein Wert **um 100 %** als grobe, branchenabhängige Orientierung (wie in Thema 5.3); Solvitec liegt mit 92 % knapp darunter. Für die Liquidität 3. Grades nennen die Quellen unterschiedliche Richtwerte (häufig zwischen 120 % und 200 %); ein Wert über 100 % zeigt jedenfalls, dass das Umlaufvermögen die kurzfristigen Schulden übersteigt. Das Working Capital von 15 Mio. € ist genau der Betrag, um den das langfristige Kapital das Anlagevermögen übersteigt (55 − 40 = 15): Ein positives Working Capital und ein Anlagendeckungsgrad II über 100 % sind zwei Seiten derselben Bilanzstruktur. Alle Liquiditätsgrade sind Stichtagswerte; über die Zahlungsfähigkeit im Laufe des Jahres gibt erst der Finanzplan Auskunft.
+Für die Liquidität 2. Grades gilt ein Wert **um 100 %** als grobe, branchenabhängige Orientierung (wie in Thema 5.3); Solvitec liegt mit 92 % knapp darunter. Für die Liquidität 3. Grades nennen die Quellen unterschiedliche Richtwerte (häufig zwischen 120 % und 200 %); ein Wert über 100 % zeigt jedenfalls, dass das Umlaufvermögen die kurzfristigen Schulden übersteigt. Das Working Capital von 15 Mio. € ist genau der Betrag, um den das langfristige Kapital das Anlagevermögen übersteigt (55 − 40 = 15), sofern alle Rückstellungen langfristig sind wie hier (sonst gilt die Gleichung für das kurzfristige Fremdkapital einschließlich kurzfristiger Rückstellungen): Ein positives Working Capital und ein Anlagendeckungsgrad II über 100 % sind zwei Seiten derselben Bilanzstruktur. Alle Liquiditätsgrade sind Stichtagswerte; über die Zahlungsfähigkeit im Laufe des Jahres gibt erst der Finanzplan Auskunft.
 
 ### Analyse der GuV und Erfolgskennzahlen
 
@@ -121,10 +121,10 @@ Nicht zahlungswirksame Erträge (etwa die Auflösung von Rückstellungen) würde
 
 ### Umschlagskennzahlen: Vorräte und Forderungen
 
-Umschlagskennzahlen zeigen, wie schnell gebundenes Kapital wieder zu Geld wird. Der **Vorratsumschlag** für Rohstoffe wird wie die Umschlagshäufigkeit im Thema 6.4 „Materialwirtschaft und Logistik“ berechnet, hier aus den Bilanz- und GuV-Werten (der Materialaufwand ist im Beispiel vollständig Rohstoffverbrauch; das Rechenjahr hat 360 Tage):
+Umschlagskennzahlen zeigen, wie schnell gebundenes Kapital wieder zu Geld wird. **Vorratsumschlag** ist der Oberbegriff für die Umschlagskennzahlen der Vorräte. Hier wird die **Umschlagshäufigkeit des Rohstofflagers** (Lagerumschlag) wie im Thema 6.4 „Materialwirtschaft und Logistik“ berechnet, hier aus den Bilanz- und GuV-Werten (der Materialaufwand ist im Beispiel vollständig Rohstoffverbrauch; das Rechenjahr hat 360 Tage):
 
 - Durchschnittlicher Rohstoffbestand = (Anfangsbestand + Schlussbestand) ÷ 2 = (5,0 + 4,0) ÷ 2 = 4,5 Mio. €.
-- **Vorratsumschlag** = Materialaufwand ÷ durchschnittlicher Rohstoffbestand = 54 ÷ 4,5 = **12**.
+- **Umschlagshäufigkeit des Rohstofflagers** = Materialaufwand ÷ durchschnittlicher Rohstoffbestand = 54 ÷ 4,5 = **12**.
 - **Lagerdauer** = 360 Tage ÷ Umschlagshäufigkeit = 360 ÷ 12 = **30 Tage**.
 
 Ergänzend zeigt der **Forderungsumschlag**, wie schnell die Kund:innen zahlen: Umsatzerlöse ÷ durchschnittlicher Forderungsbestand = 120 ÷ ((22 + 18) ÷ 2) = 120 ÷ 20 = **6**; das durchschnittliche **Kundenziel** ist 360 ÷ 6 = **60 Tage**. Weil die Forderungen die Umsatzsteuer enthalten, rechnen manche Quellen mit dem Umsatz einschließlich Umsatzsteuer; hier gilt der Nettoumsatz, sofern eine Aufgabe nichts anderes vorgibt. Höhere Umschlagszahlen senken die Kapitalbindung, verbessern die Liquidität und erhöhen über den Kapitalumschlag den ROI.
@@ -134,7 +134,7 @@ Ergänzend zeigt der **Forderungsumschlag**, wie schnell die Kund:innen zahlen: 
 Eine einzelne Kennzahl sagt wenig; aussagekräftig wird sie erst im Vergleich:
 
 - **Zeitvergleich** (gleiches Unternehmen, mehrere Jahre): Die Eigenkapitalquote von Solvitec stieg von 37,5 % im Vorjahr auf 40 %, die Liquidität 2. Grades von 88 % auf 92 %, die Umsatzrentabilität von 3,2 % auf 4 %. Die Entwicklung ist positiv.
-- **Betriebsvergleich** (Vergleich mit Wettbewerbern oder Branchenwerten, hier frei gewählte Vergleichswerte): Liegt der Branchenwert der Eigenkapitalquote bei 35 %, steht Solvitec besser da. Liegen die Branchenwerte der Umsatzrentabilität bei 5 % und der Materialaufwandsquote bei 42 %, deutet das bei Solvitec auf höhere Materialkosten hin (Einkaufspreise, Ausschuss, Verschnitt), die zu prüfen sind.
+- **Betriebsvergleich** (Vergleich mit Wettbewerbsunternehmen oder Branchenwerten, hier frei gewählte Vergleichswerte): Liegt der Branchenwert der Eigenkapitalquote bei 35 %, steht Solvitec besser da. Liegen die Branchenwerte der Umsatzrentabilität bei 5 % und der Materialaufwandsquote bei 42 %, deutet das bei Solvitec auf höhere Materialkosten hin (Einkaufspreise, Ausschuss, Verschnitt), die zu prüfen sind.
 - **Soll-Ist-Vergleich**: Vergleich mit den eigenen Planwerten (Thema 2.3).
 
 Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz kann zum Stichtag gezielt gestaltet werden (etwa durch das Bezahlen von Lieferantenrechnungen kurz vor dem 31.12., was die Liquiditätsgrade verändert). **Bewertungswahlrechte** und Ermessensspielräume (Abschreibungsmethode, Höhe der Rückstellungen, Bewertung der Vorräte) beeinflussen Jahresüberschuss und Eigenkapital. Die Zahlen sind **vergangenheitsbezogen**, und wichtige Informationen fehlen in der Bilanz: Auftragsbestand, Fälligkeiten innerhalb des Jahres, stille Reserven, Qualität der Produkte und der Mitarbeitenden. Außerdem zeigen Kennzahlen Symptome, nicht Ursachen: Eine sinkende Umsatzrentabilität sagt nicht, ob Preise, Material oder Personal der Grund sind. Deshalb folgt auf die Kennzahlenrechnung immer die Ursachenanalyse.
@@ -143,7 +143,7 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 
 #### K-2.5-01
 **Frage:** Wie wird eine Bilanz für die Kennzahlenanalyse zur Strukturbilanz aufbereitet?
-**Antwort:** Positionen werden zusammengefasst, das Fremdkapital wird nach Fälligkeit in lang- und kurzfristig geteilt, Rückstellungen werden nach ihrer erwarteten Fälligkeit zugeordnet (Pensionsrückstellungen langfristig, Steuerrückstellungen eher kurzfristig).
+**Antwort:** Positionen werden zusammengefasst, das Vermögen wird nach Bindungsdauer und das Kapital nach Fälligkeit geordnet (Fremdkapital lang- und kurzfristig), Rückstellungen werden nach ihrer erwarteten Fälligkeit zugeordnet (Pensionsrückstellungen langfristig, Steuerrückstellungen eher kurzfristig).
 `tags: bilanzanalyse, strukturbilanz` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.5-02
@@ -168,7 +168,7 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 
 #### K-2.5-06
 **Frage:** Wie hängen Anlagendeckungsgrad II und Working Capital zusammen?
-**Antwort:** Das Working Capital (Umlaufvermögen − kurzfristige Verbindlichkeiten) ist gleich dem Betrag, um den das langfristige Kapital das Anlagevermögen übersteigt; ein Anlagendeckungsgrad II über 100 % bedeutet deshalb ein positives Working Capital.
+**Antwort:** Das Working Capital (Umlaufvermögen − kurzfristige Verbindlichkeiten) ist gleich dem Betrag, um den das langfristige Kapital das Anlagevermögen übersteigt, sofern alle Rückstellungen langfristig sind (sonst: kurzfristiges Fremdkapital einschließlich kurzfristiger Rückstellungen); ein Anlagendeckungsgrad II über 100 % bedeutet dann ein positives Working Capital.
 `tags: working_capital, anlagendeckung` · `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### K-2.5-07
@@ -197,8 +197,8 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 `tags: leverage` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.5-12
-**Frage:** Wie ermittelst du den Cashflow vereinfacht, und wofür steht er?
-**Antwort:** Jahresüberschuss + Abschreibungen + Zunahme der Rückstellungen. Er zeigt die Innenfinanzierungskraft, also die selbst erwirtschafteten Mittel für Investitionen, Tilgungen und Ausschüttungen.
+**Frage:** Was zeigen Cashflow-Umsatzrate und Entschuldungsdauer, und wie berechnest du sie?
+**Antwort:** Cashflow-Umsatzrate = Cashflow ÷ Umsatzerlöse × 100: wie viel von jedem Umsatz-Euro als Finanzmittel übrig bleibt. Entschuldungsdauer = (Fremdkapital − liquide Mittel) ÷ Cashflow: in wie vielen Jahren die Schulden aus dem Cashflow getilgt werden könnten (bei Solvitec 10 % und rund 3,6 Jahre).
 `tags: cashflow` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-2.5-13
@@ -233,33 +233,33 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-2.5-02 · Kurzantwort
-**Frage:** Die Solvitec Elektrowerke GmbH weist ein Eigenkapital von 32 Mio. € bei einer Bilanzsumme von 80 Mio. € aus. Wie hoch ist die Eigenkapitalquote in Prozent?
-**Akzeptierte Antworten:** 40; 40 %; 40 Prozent
-**Erklärung:** Eigenkapitalquote = 32 Mio. € ÷ 80 Mio. € × 100 = 40 %.
+**Frage:** Ein Industrieunternehmen weist ein Eigenkapital von 18 Mio. € bei einer Bilanzsumme von 48 Mio. € aus. Wie hoch ist die Eigenkapitalquote in Prozent (eine Nachkommastelle)?
+**Akzeptierte Antworten:** 37,5; 37,5 %; 37,5 Prozent; 37.5; 37.5 %; 37.5 Prozent
+**Erklärung:** Eigenkapitalquote = 18 Mio. € ÷ 48 Mio. € × 100 = 37,5 %.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-03 · Kurzantwort
-**Frage:** Fremdkapital 48 Mio. €, Eigenkapital 32 Mio. €. Wie hoch ist der Verschuldungsgrad in Prozent?
-**Akzeptierte Antworten:** 150; 150 %; 150 Prozent; 1,5; 1.5; 1,50; 1.50
-**Erklärung:** Verschuldungsgrad = 48 ÷ 32 × 100 = 150 %; auf jeden Euro Eigenkapital kommen 1,50 € Fremdkapital.
+**Frage:** Fremdkapital 35 Mio. €, Eigenkapital 25 Mio. €. Wie hoch ist der Verschuldungsgrad in Prozent?
+**Akzeptierte Antworten:** 140; 140 %; 140 Prozent
+**Erklärung:** Verschuldungsgrad = 35 ÷ 25 × 100 = 140 %; auf jeden Euro Eigenkapital kommen 1,40 € Fremdkapital.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-04 · Kurzantwort
-**Frage:** Eigenkapital 32 Mio. €, langfristige Rückstellungen 8 Mio. €, langfristige Verbindlichkeiten 15 Mio. €, Anlagevermögen 40 Mio. €. Wie hoch ist der Anlagendeckungsgrad II in Prozent (eine Nachkommastelle)?
-**Akzeptierte Antworten:** 137,5; 137,5 %; 137,5 Prozent; 137.5; 137.5 %; 137.5 Prozent
-**Erklärung:** Anlagendeckungsgrad II = (32 + 8 + 15) ÷ 40 × 100 = 55 ÷ 40 × 100 = 137,5 %. Die goldene Bilanzregel in weiter Fassung ist erfüllt.
+**Frage:** Eigenkapital 21 Mio. €, langfristige Rückstellungen 4 Mio. €, langfristige Verbindlichkeiten 11 Mio. €, Anlagevermögen 30 Mio. €. Wie hoch ist der Anlagendeckungsgrad II in Prozent?
+**Akzeptierte Antworten:** 120; 120 %; 120 Prozent
+**Erklärung:** Anlagendeckungsgrad II = (21 + 4 + 11) ÷ 30 × 100 = 36 ÷ 30 × 100 = 120 %. Die weite Fassung der goldenen Bilanzregel ist erfüllt, die enge nicht (Anlagendeckungsgrad I = 21 ÷ 30 × 100 = 70 %).
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-05 · Kurzantwort
-**Frage:** Liquide Mittel 5 Mio. €, kurzfristige Forderungen 18 Mio. €, Vorräte 17 Mio. €, kurzfristige Verbindlichkeiten 25 Mio. €. Wie hoch ist die Liquidität 2. Grades in Prozent?
-**Akzeptierte Antworten:** 92; 92 %; 92 Prozent
-**Erklärung:** (5 + 18) ÷ 25 × 100 = 92 %. Die Vorräte gehören erst in die Liquidität 3. Grades (40 ÷ 25 × 100 = 160 %).
+**Frage:** Liquide Mittel 2 Mio. €, kurzfristige Forderungen 9 Mio. €, Vorräte 13 Mio. €, kurzfristige Verbindlichkeiten 16 Mio. €. Wie hoch ist die Liquidität 3. Grades in Prozent?
+**Akzeptierte Antworten:** 150; 150 %; 150 Prozent
+**Erklärung:** (2 + 9 + 13) ÷ 16 × 100 = 24 ÷ 16 × 100 = 150 %. Ohne die Vorräte (Liquidität 2. Grades) wären es nur (2 + 9) ÷ 16 × 100 = 68,75 %; das Unternehmen ist also darauf angewiesen, die Vorräte rasch zu Geld zu machen.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-06 · Kurzantwort
-**Frage:** Ein Unternehmen hat ein Anlagevermögen von 40 Mio. € und ein langfristiges Kapital (Eigenkapital und langfristiges Fremdkapital) von 55 Mio. €; das restliche Kapital ist kurzfristig. Wie hoch ist das Working Capital in Mio. €?
-**Akzeptierte Antworten:** 15; 15 Mio; 15 Mio.; 15 Mio. €; 15 Mio €; 15 Mio. Euro; 15 Mio Euro; 15 Mio. EUR; 15 Mio EUR; 15.000.000; 15000000; 15.000.000,00; 15000000,00; 15.000.000 €; 15000000 €; 15.000.000,00 €; 15000000,00 €; 15.000.000 Euro; 15000000 Euro; 15.000.000,00 Euro; 15000000,00 Euro; 15.000.000 EUR; 15000000 EUR; 15.000.000,00 EUR; 15000000,00 EUR
-**Erklärung:** Das langfristige Kapital übersteigt das Anlagevermögen um 55 − 40 = 15 Mio. €; um genau diesen Betrag ist das Umlaufvermögen größer als die kurzfristigen Verbindlichkeiten. Working Capital = 15 Mio. €.
+**Frage:** Ein Unternehmen hat ein Anlagevermögen von 28 Mio. € und ein langfristiges Kapital (Eigenkapital und langfristiges Fremdkapital) von 34 Mio. €; das restliche Kapital besteht aus kurzfristigen Verbindlichkeiten. Wie hoch ist das Working Capital in Mio. €?
+**Akzeptierte Antworten:** 6; 6 Mio; 6 Mio.; 6 Mio. €; 6 Mio €; 6 Mio. Euro; 6 Mio Euro; 6 Mio. EUR; 6 Mio EUR; 6,0; 6,0 Mio; 6,0 Mio.; 6,0 Mio. €; 6,0 Mio €; 6,0 Mio. Euro; 6,0 Mio Euro; 6,0 Mio. EUR; 6,0 Mio EUR; 6.0; 6.0 Mio; 6.0 Mio.; 6.0 Mio. €; 6.0 Mio €; 6.0 Mio. Euro; 6.0 Mio Euro; 6.0 Mio. EUR; 6.0 Mio EUR; 6.000.000; 6000000; 6.000.000,00; 6000000,00; 6.000.000 €; 6000000 €; 6.000.000,00 €; 6000000,00 €; 6.000.000 Euro; 6000000 Euro; 6.000.000,00 Euro; 6000000,00 Euro; 6.000.000 EUR; 6000000 EUR; 6.000.000,00 EUR; 6000000,00 EUR
+**Erklärung:** Das langfristige Kapital übersteigt das Anlagevermögen um 34 − 28 = 6 Mio. €; weil das übrige Kapital nur aus kurzfristigen Verbindlichkeiten besteht, ist das Umlaufvermögen um genau diesen Betrag größer als die kurzfristigen Verbindlichkeiten. Working Capital = 6 Mio. €.
 `schwierigkeit: schwer` · `bloom: analysieren`
 
 #### Q-2.5-07 · Kurzantwort
@@ -269,21 +269,21 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-08 · Kurzantwort
-**Frage:** Jahresüberschuss 4,8 Mio. €, Abschreibungen 6,0 Mio. €, die Rückstellungen sind von 6,8 Mio. € auf 8,0 Mio. € gestiegen. Wie hoch ist der vereinfachte Cashflow in Mio. €?
-**Akzeptierte Antworten:** 12; 12 Mio; 12 Mio.; 12 Mio. €; 12 Mio €; 12 Mio. Euro; 12 Mio Euro; 12 Mio. EUR; 12 Mio EUR; 12.000.000; 12000000; 12.000.000,00; 12000000,00; 12.000.000 €; 12000000 €; 12.000.000,00 €; 12000000,00 €; 12.000.000 Euro; 12000000 Euro; 12.000.000,00 Euro; 12000000,00 Euro; 12.000.000 EUR; 12000000 EUR; 12.000.000,00 EUR; 12000000,00 EUR
-**Erklärung:** Cashflow = 4,8 + 6,0 + (8,0 − 6,8) = 4,8 + 6,0 + 1,2 = 12,0 Mio. €. Angesetzt wird die Zunahme der Rückstellungen, nicht ihr Bestand.
+**Frage:** Jahresüberschuss 3,1 Mio. €, Abschreibungen 4,5 Mio. €, die Rückstellungen sind von 5,2 Mio. € auf 5,8 Mio. € gestiegen. Wie hoch ist der vereinfachte Cashflow in Mio. € (eine Nachkommastelle)?
+**Akzeptierte Antworten:** 8,2; 8,2 Mio; 8,2 Mio.; 8,2 Mio. €; 8,2 Mio €; 8,2 Mio. Euro; 8,2 Mio Euro; 8,2 Mio. EUR; 8,2 Mio EUR; 8.2; 8.2 Mio; 8.2 Mio.; 8.2 Mio. €; 8.2 Mio €; 8.2 Mio. Euro; 8.2 Mio Euro; 8.2 Mio. EUR; 8.2 Mio EUR; 8.200.000; 8200000; 8.200.000,00; 8200000,00; 8.200.000 €; 8200000 €; 8.200.000,00 €; 8200000,00 €; 8.200.000 Euro; 8200000 Euro; 8.200.000,00 Euro; 8200000,00 Euro; 8.200.000 EUR; 8200000 EUR; 8.200.000,00 EUR; 8200000,00 EUR; 8,20; 8.20; 8,20 Mio; 8,20 Mio.; 8,20 Mio. €; 8,20 Mio €; 8,20 Mio. Euro; 8,20 Mio Euro; 8,20 Mio. EUR; 8,20 Mio EUR
+**Erklärung:** Cashflow = 3,1 + 4,5 + (5,8 − 5,2) = 3,1 + 4,5 + 0,6 = 8,2 Mio. €. Angesetzt wird die Zunahme der Rückstellungen, nicht ihr Bestand.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-09 · Kurzantwort
-**Frage:** Der Materialaufwand (vollständig Rohstoffverbrauch) beträgt 54 Mio. €, der Rohstoffbestand lag zu Jahresbeginn bei 5 Mio. € und zum Jahresende bei 4 Mio. €. Wie hoch ist der Vorratsumschlag (Umschlagshäufigkeit, Durchschnittsbestand aus Anfangs- und Schlussbestand)?
+**Frage:** Der Materialaufwand (vollständig Rohstoffverbrauch) beträgt 54 Mio. €, der Rohstoffbestand lag zu Jahresbeginn bei 5 Mio. € und zum Jahresende bei 4 Mio. €. Wie hoch ist die Umschlagshäufigkeit des Rohstofflagers (Lagerumschlag, Durchschnittsbestand aus Anfangs- und Schlussbestand)?
 **Akzeptierte Antworten:** 12; 12-mal; 12 mal; 12x; 12,0; 12.0
-**Erklärung:** Durchschnittlicher Bestand = (5 + 4) ÷ 2 = 4,5 Mio. €; Vorratsumschlag = 54 ÷ 4,5 = 12; die Lagerdauer beträgt 360 ÷ 12 = 30 Tage.
+**Erklärung:** Durchschnittlicher Bestand = (5 + 4) ÷ 2 = 4,5 Mio. €; Umschlagshäufigkeit = 54 ÷ 4,5 = 12; die Lagerdauer beträgt 360 ÷ 12 = 30 Tage.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.5-10 · Kurzantwort
-**Frage:** Umsatzerlöse 120 Mio. €, Materialaufwand 54 Mio. €. Wie hoch ist die Materialaufwandsquote in Prozent (bezogen auf die Umsatzerlöse)?
-**Akzeptierte Antworten:** 45; 45 %; 45 Prozent
-**Erklärung:** Materialaufwandsquote = 54 ÷ 120 × 100 = 45 %.
+**Frage:** Ein Hersteller erzielt Umsatzerlöse von 85 Mio. € bei einem Materialaufwand von 34 Mio. €. Wie hoch ist die Materialaufwandsquote in Prozent (bezogen auf die Umsatzerlöse)?
+**Akzeptierte Antworten:** 40; 40 %; 40 Prozent
+**Erklärung:** Materialaufwandsquote = 34 ÷ 85 × 100 = 40 %.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.5-11 · Zuordnung
@@ -299,7 +299,7 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 **Aussage:** Liegt der Anlagendeckungsgrad II über 100 %, ist das Anlagevermögen vollständig langfristig finanziert, und ein Teil des Umlaufvermögens ist ebenfalls langfristig finanziert.
 - [x] Wahr
 - [ ] Falsch
-**Erklärung:** Der Überschuss des langfristigen Kapitals über das Anlagevermögen finanziert Umlaufvermögen; er entspricht dem Working Capital.
+**Erklärung:** Der Überschuss des langfristigen Kapitals über das Anlagevermögen finanziert Umlaufvermögen; er entspricht dem Working Capital, sofern alle Rückstellungen langfristig sind (sonst: kurzfristiges Fremdkapital einschließlich kurzfristiger Rückstellungen).
 `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-2.5-13 · Entweder-Oder
@@ -320,7 +320,7 @@ Kennzahlen haben **Grenzen**: Sie beruhen auf einem **Stichtag**, und die Bilanz
 
 #### Q-2.5-15 · Sortieren
 **Anweisung:** Bringe die Schritte einer Bilanzanalyse in die richtige Reihenfolge.
-1. Bilanz und GuV zur Strukturbilanz aufbereiten
+1. Bilanz (Strukturbilanz) und GuV aufbereiten
 2. Kennzahlen berechnen
 3. Kennzahlen mit Vorjahren und Branchenwerten vergleichen
 4. Ursachen analysieren und Maßnahmen ableiten

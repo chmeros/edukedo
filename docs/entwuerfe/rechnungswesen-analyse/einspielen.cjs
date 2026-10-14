@@ -61,4 +61,26 @@ for (const [datei, ordner] of FAELLE) {
   }
   console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", "));
 }
+// Klarstellung im Bestand: ROI-Gewinngröße in hsq2/2.4 (Befund der Prüfung Wirtschaftsfachwirt)
+{
+  const datei = path.join(ziel, "wirtschaftsfachwirt", "hsq2", "2.4-controlling.md");
+  const text = lies(datei);
+  const crlf = text.includes("\r\n");
+  let t = lf(text);
+  const ersetzungen = [
+    [
+      "zwei unterschiedliche Stellhebel, die im Controlling gezielt adressiert werden können.",
+      "zwei unterschiedliche Stellhebel, die im Controlling gezielt adressiert werden können. Mit „Gewinn“ ist hier vereinfacht der Gewinn gemeint; in der Bilanzanalyse (Thema 2.5 im Fachgebiet WBQ2) wird der ROI als Gesamtkapitalrentabilität mit dem Gewinn vor Fremdkapitalzinsen gerechnet. Welche Gewinngröße gilt, gibt die Aufgabe vor.",
+    ],
+    [
+      "**Antwort:** ROI = Umsatzrentabilität × Kapitalumschlag.\n",
+      "**Antwort:** ROI = Umsatzrentabilität × Kapitalumschlag (mit „Gewinn“ vereinfacht; in der Bilanzanalyse WBQ2 2.5 mit dem Gewinn vor Fremdkapitalzinsen; maßgeblich ist die Vorgabe der Aufgabe).\n",
+    ],
+  ];
+  for (const [alt, neu] of ersetzungen) {
+    if (!t.includes(alt)) throw new Error("hsq2/2.4: Stelle fehlt: " + alt.slice(0, 50));
+    t = t.replace(alt, neu);
+  }
+  schreibe(datei, t, crlf);
+}
 console.log("ok");

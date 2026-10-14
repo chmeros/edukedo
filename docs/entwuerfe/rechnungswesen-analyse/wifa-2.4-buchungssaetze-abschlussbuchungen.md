@@ -39,7 +39,7 @@ Ein **zusammengesetzter Buchungssatz** berührt mehr als zwei Konten. NordWert �
 
 ### Kontenrahmen und Kontenplan im Handel
 
-Ein **Kontenrahmen** ist das einheitliche Ordnungsschema einer Branche: Er teilt alle Konten in zehn **Kontenklassen** (0 bis 9) und diese weiter in Gruppen und Einzelkonten. Der **Kontenplan** ist der unternehmensindividuelle Auszug daraus, also die Konten, die NordWert tatsächlich führt. Großhändler verwenden häufig den **Kontenrahmen des Groß- und Außenhandels**, Einzelhändler einen eigenen **Einzelhandelskontenrahmen**. Beide sind nach dem **Prozessgliederungsprinzip** aufgebaut: Die Klassen folgen grob dem Ablauf des Handelsbetriebs, von den Anlage- und Kapitalkonten und den Finanzkonten über den **Wareneinkauf (Klasse 3)** und die Kostenarten bis zum **Warenverkauf (Klasse 8)** und den **Abschlusskonten (Klasse 9)**. In Buchhaltungsprogrammen sind außerdem die Standardkontenrahmen **SKR 03** (ebenfalls nach dem Prozess gegliedert) und **SKR 04** (nach dem Jahresabschluss gegliedert) verbreitet.
+Ein **Kontenrahmen** ist das einheitliche Ordnungsschema einer Branche: Er teilt alle Konten in zehn **Kontenklassen** (0 bis 9) und diese weiter in Gruppen und Einzelkonten. Der **Kontenplan** ist der unternehmensindividuelle Auszug daraus, also die Konten, die NordWert tatsächlich führt. Großhändler wie NordWert verwenden häufig den **Kontenrahmen des Groß- und Außenhandels**. Er ist nach dem **Prozessgliederungsprinzip** aufgebaut: Die Klassen folgen grob dem Ablauf des Handelsbetriebs, von den Anlage- und Kapitalkonten und den Finanzkonten über den **Wareneinkauf (Klasse 3)** und die Kostenarten bis zum **Warenverkauf (Klasse 8)** und den **Abschlusskonten (Klasse 9)**. Der **Einzelhandelskontenrahmen** folgt dagegen wie der Industriekontenrahmen dem **Abschlussgliederungsprinzip**, also der Gliederung von Bilanz und GuV: Die genaue Klasseneinteilung unterscheidet sich vom Groß- und Außenhandel (Waren, Erlöse und Aufwendungen stehen dort in den Klassen der Bilanz und der GuV); maßgeblich ist der verwendete Rahmen. In Buchhaltungsprogrammen sind außerdem die Standardkontenrahmen **SKR 03** (ebenfalls nach dem Prozess gegliedert) und **SKR 04** (nach dem Jahresabschluss gegliedert) verbreitet.
 
 Kontennummern und genaue Bezeichnungen hängen vom verwendeten Rahmen ab; dasselbe Konto Wareneingang trägt in jedem Rahmen eine andere Nummer. **Entscheidend ist deshalb die richtige Seite, nicht die Nummer**: Wer die Kontenart eines Kontos bestimmen kann, bucht in jedem Kontenrahmen richtig. Die Beispiele dieses Themas nennen deshalb nur Kontenbezeichnungen.
 
@@ -49,7 +49,7 @@ NordWert bucht den Wareneinkauf **aufwandsorientiert**: Eingekaufte Ware wird so
 
 - Ein **Sofortrabatt** auf der Rechnung wird **nicht gebucht**; gebucht wird der Betrag nach Rabatt.
 - **Bezugskosten** (Eingangsfracht, Rollgeld, Transportversicherung) erhöhen den Einstandspreis; sie werden auf dem Unterkonto **Bezugskosten** des Wareneingangs gesammelt.
-- **Liefererskonto** und nachträgliche Boni mindern den Einstandspreis und die Vorsteuer; sie werden auf dem Unterkonto **Nachlässe** gesammelt und erst bei Zahlung bzw. Gutschrift gebucht.
+- **Liefererskonto** (auch Lieferantenskonto) und nachträgliche Boni mindern den Einstandspreis und die Vorsteuer; sie werden auf dem Unterkonto **Nachlässe** gesammelt und erst bei Zahlung bzw. Gutschrift gebucht.
 
 *Beispiel:* NordWert bestellt Kopierpapier zum Listenpreis von 25.000 €; der Hersteller gewährt 8 % Rabatt und 2 % Skonto bei Zahlung innerhalb von zehn Tagen. Die Rechnung lautet auf 23.000 € netto zuzüglich 4.370 € Umsatzsteuer, zusammen 27.370 €.
 
@@ -61,12 +61,12 @@ Der **Einstandspreis** (Bezugspreis) dieser Lieferung beträgt 23.000 € + 500 
 
 ### Warenverkauf: Rabatt, Ausgangsfracht und Kundenskonto
 
-Beim Verkauf wird ein Sofortrabatt ebenfalls nicht gebucht. **Ausgangsfrachten**, die NordWert für die Auslieferung an Kund:innen bezahlt, sind **Aufwand** (Vertriebskosten) und erhöhen nicht den Einstandspreis. Zieht eine Kundin Skonto ab, mindert der **Kundenskonto** die Erlöse und die Umsatzsteuer; die Erlösminderung wird auf dem Unterkonto **Erlösberichtigungen** gesammelt.
+Beim Verkauf wird ein Sofortrabatt ebenfalls nicht gebucht. **Ausgangsfrachten**, die NordWert für die Auslieferung an Kund:innen bezahlt, sind **Aufwand** (Vertriebskosten) und erhöhen nicht den Einstandspreis. Zieht eine Kundin Skonto ab, mindert der **Kundenskonto** die Erlöse und die Umsatzsteuer; die Erlösminderung wird auf dem Unterkonto **Erlösberichtigungen** (auch Erlösschmälerungen) gesammelt.
 
 *Beispiel:* NordWert liefert Verpackungsmaterial an einen Versandhändler zum Listenpreis von 40.000 € mit 5 % Rabatt. Die Rechnung lautet auf 38.000 € netto zuzüglich 7.220 € Umsatzsteuer, zusammen 45.220 €.
 
 - Ausgangsrechnung: **Forderungen aus Lieferungen und Leistungen 45.220 € an Umsatzerlöse für Waren 38.000 € und Umsatzsteuer 7.220 €.**
-- Der Kunde zahlt nach acht Tagen unter Abzug von 3 % Skonto: 3 % von 45.220 € = 1.356,60 €, davon 1.140,00 € Erlösminderung und 216,60 € Umsatzsteuer; Zahlungseingang 45.220 € − 1.356,60 € = 43.863,40 €. Buchung: **Bank 43.863,40 €, Erlösberichtigungen 1.140,00 € und Umsatzsteuer 216,60 € an Forderungen aus Lieferungen und Leistungen 45.220 €.**
+- Das Kundenunternehmen zahlt nach acht Tagen unter Abzug von 3 % Skonto: 3 % von 45.220 € = 1.356,60 €, davon 1.140,00 € Erlösminderung und 216,60 € Umsatzsteuer; Zahlungseingang 45.220 € − 1.356,60 € = 43.863,40 €. Buchung: **Bank 43.863,40 €, Erlösberichtigungen 1.140,00 € und Umsatzsteuer 216,60 € an Forderungen aus Lieferungen und Leistungen 45.220 €.**
 
 Die Forderung wird in voller Höhe ausgebucht, weil sie mit der Zahlung erledigt ist. Ohne die Berichtigung der Umsatzsteuer würde NordWert Steuer auf ein Entgelt abführen, das sie gar nicht erhalten hat.
 
@@ -87,14 +87,14 @@ Anfangsbestand       120.000 €  | Wareneingang (Minderung)    20.000 €
                      ---------  |                            ---------
                      120.000 €  |                            120.000 €
 
-Soll                 Wareneingang                          Haben
-Verbindlichkeiten    860.000 €  | GuV-Konto (Wareneinsatz)   880.000 €
-Warenbestand          20.000 €  |
-                     ---------  |                            ---------
-                     880.000 €  |                            880.000 €
+Soll                                     Wareneingang                          Haben
+Zugänge (nach Abschluss der Unterkonten) 860.000 €  | GuV-Konto (Wareneinsatz)   880.000 €
+Warenbestand (Bestandsminderung)          20.000 €  |
+                                         ---------  |                            ---------
+                                         880.000 €  |                            880.000 €
 ```
 
-Der Saldo des Kontos Wareneingang ist der Wareneinsatz: 120.000 € + 860.000 € − 100.000 € = **880.000 €**; er wird mit **GuV-Konto an Wareneingang 880.000 €** abgeschlossen. Haben diese Waren Umsatzerlöse von 1.250.000 € gebracht, beträgt der **Rohgewinn** (Umsatzerlöse − Wareneinsatz) 1.250.000 € − 880.000 € = **370.000 €**. Aus ihm müssen die übrigen Aufwendungen wie Gehälter, Mieten und Fuhrparkkosten gedeckt werden, bevor ein Gewinn bleibt.
+Der Saldo des Kontos Wareneingang ist der Wareneinsatz: 120.000 € + 860.000 € − 100.000 € = **880.000 €**; er wird mit **GuV-Konto an Wareneingang 880.000 €** abgeschlossen. Haben diese Waren Umsatzerlöse von 1.250.000 € gebracht, beträgt der **Rohgewinn** (auch Rohertrag; Umsatzerlöse − Wareneinsatz) 1.250.000 € − 880.000 € = **370.000 €**. Aus ihm müssen die übrigen Aufwendungen wie Gehälter, Mieten und Fuhrparkkosten gedeckt werden, bevor ein Gewinn bleibt.
 
 ### Abschlussbuchungen: Umsatzsteuer, GuV-Konto, Eigenkapital und Schlussbilanzkonto
 
@@ -105,9 +105,9 @@ Der Jahresabschluss auf den Konten folgt einer festen Reihenfolge:
 3. **GuV-Konto über das Eigenkapital:** Gewinn mit **GuV-Konto an Eigenkapital**, Verlust mit **Eigenkapital an GuV-Konto**.
 4. **Bestandskonten über das Schlussbilanzkonto:** **Schlussbilanzkonto an Aktivkonto** und **Passivkonto an Schlussbilanzkonto**; die Werte müssen mit Inventar und Bilanz übereinstimmen.
 
-*Umsatzsteuer-Verrechnung:* Im Dezember stehen auf dem Konto Umsatzsteuer 98.800 € (Haben) und auf dem Konto Vorsteuer 71.250 € (Soll). Die Vorsteuer wird auf das Umsatzsteuerkonto umgebucht: **Umsatzsteuer an Vorsteuer 71.250 €.** Es bleibt die **Zahllast** 98.800 € − 71.250 € = 27.550 €, die im Januar fällig ist und deshalb als Verbindlichkeit in die Schlussbilanz eingeht: **Umsatzsteuer an Schlussbilanzkonto 27.550 €.** Übersteigt die Vorsteuer die Umsatzsteuer, wird umgekehrt die Umsatzsteuer auf die Vorsteuer umgebucht, und der Überhang ist eine Forderung an das Finanzamt.
+*Umsatzsteuer-Verrechnung:* Im Dezember stehen auf dem Konto Umsatzsteuer 98.800 € (Haben) und auf dem Konto Vorsteuer 71.250 € (Soll). Die Vorsteuer wird auf das Umsatzsteuerkonto umgebucht: **Umsatzsteuer an Vorsteuer 71.250 €.** Es bleibt die **Zahllast** 98.800 € − 71.250 € = 27.550 €, die im neuen Jahr fällig ist (Umsatzsteuer-Voranmeldung für Dezember) und deshalb als Verbindlichkeit in die Schlussbilanz eingeht: **Umsatzsteuer an Schlussbilanzkonto 27.550 €.** Übersteigt die Vorsteuer die Umsatzsteuer, wird umgekehrt die Umsatzsteuer auf die Vorsteuer umgebucht, und der Überhang ist eine Forderung an das Finanzamt.
 
-*Abschluss über GuV und Eigenkapital (vereinfachtes Lehrbeispiel mit wenigen Konten):* Den Umsatzerlösen von 1.250.000 € stehen Wareneinsatz 880.000 €, Gehälter 210.000 €, Mieten und sonstige Aufwendungen 60.000 € sowie Abschreibungen 40.000 € gegenüber, zusammen 1.190.000 € Aufwand.
+*Abschluss über GuV und Eigenkapital (Lehrbeispiel mit wenigen Konten, nicht die Gesamtzahlen der NordWert):* Den Umsatzerlösen von 1.250.000 € stehen Wareneinsatz 880.000 €, Gehälter 210.000 €, Mieten und sonstige Aufwendungen 60.000 € sowie Abschreibungen 40.000 € gegenüber, zusammen 1.190.000 € Aufwand.
 
 ```
 Soll                         GuV-Konto                            Haben
@@ -146,7 +146,7 @@ Der Gewinn von 1.250.000 € − 1.190.000 € = 60.000 € wird gebucht mit **G
 
 #### K-2.4-05
 **Frage:** Nach welchem Prinzip ist der Kontenrahmen des Groß- und Außenhandels aufgebaut, und wo stehen Wareneinkauf und Warenverkauf?
-**Antwort:** Nach dem Prozessgliederungsprinzip, also grob nach dem Ablauf des Handelsbetriebs; Wareneinkauf in Klasse 3, Warenverkauf in Klasse 8, Abschlusskonten in Klasse 9.
+**Antwort:** Nach dem Prozessgliederungsprinzip, also grob nach dem Ablauf des Handelsbetriebs; Wareneinkauf in Klasse 3, Warenverkauf in Klasse 8, Abschlusskonten in Klasse 9. Der Einzelhandelskontenrahmen folgt dagegen dem Abschlussgliederungsprinzip.
 `tags: kontenrahmen` · `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### K-2.4-06
@@ -225,15 +225,15 @@ Der Gewinn von 1.250.000 € − 1.190.000 € = 60.000 € wird gebucht mit **G
 `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-2.4-03 · Kurzantwort
-**Frage:** NordWert kauft Ordner zum Listenpreis von 6.000 € netto mit 10 % Sofortrabatt; Umsatzsteuer 19 % (Beispielsatz). Wie hoch ist der Rechnungsbetrag brutto in Euro?
-**Akzeptierte Antworten:** 6.426; 6426; 6.426,00; 6426,00; 6.426 €; 6426 €; 6.426,00 €; 6426,00 €; 6.426 Euro; 6426 Euro; 6.426,00 Euro; 6426,00 Euro; 6.426 EUR; 6426 EUR; 6.426,00 EUR; 6426,00 EUR
-**Erklärung:** Nettobetrag nach Rabatt = 6.000 € × 0,9 = 5.400 €; Umsatzsteuer = 5.400 € × 0,19 = 1.026 €; brutto = 6.426 €.
+**Frage:** NordWert kauft Ordner zum Listenpreis von 7.500 € netto mit 12 % Sofortrabatt; Umsatzsteuer 19 % (Beispielsatz). Wie hoch ist der Rechnungsbetrag brutto in Euro?
+**Akzeptierte Antworten:** 7.854; 7854; 7.854,00; 7854,00; 7.854 €; 7854 €; 7.854,00 €; 7854,00 €; 7.854 Euro; 7854 Euro; 7.854,00 Euro; 7854,00 Euro; 7.854 EUR; 7854 EUR; 7.854,00 EUR; 7854,00 EUR
+**Erklärung:** Nettobetrag nach Rabatt = 7.500 € × 0,88 = 6.600 €; Umsatzsteuer = 6.600 € × 0,19 = 1.254 €; brutto = 6.600 € + 1.254 € = 7.854 €.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.4-04 · Kurzantwort
-**Frage:** Eine Eingangsrechnung über Ware lautet auf 6.426 € brutto (5.400 € netto zuzüglich 1.026 € Umsatzsteuer). NordWert zahlt mit 2 % Skonto. Wie hoch ist der Überweisungsbetrag in Euro (auf den Cent)?
-**Akzeptierte Antworten:** 6.297,48; 6297,48; 6297.48; 6.297,48 €; 6297,48 €; 6297.48 €; 6.297,48 Euro; 6297,48 Euro; 6297.48 Euro; 6.297,48 EUR; 6297,48 EUR; 6297.48 EUR
-**Erklärung:** Skonto = 2 % von 6.426 € = 128,52 € (davon 108,00 € Nachlass und 20,52 € Vorsteuer); Überweisung = 6.426 € − 128,52 € = 6.297,48 €.
+**Frage:** Eine Eingangsrechnung über Ware lautet auf 7.854 € brutto (6.600 € netto zuzüglich 1.254 € Umsatzsteuer). NordWert zahlt mit 2 % Skonto. Wie hoch ist der Überweisungsbetrag in Euro (auf den Cent)?
+**Akzeptierte Antworten:** 7.696,92; 7696,92; 7696.92; 7.696,92 €; 7696,92 €; 7696.92 €; 7.696,92 Euro; 7696,92 Euro; 7696.92 Euro; 7.696,92 EUR; 7696,92 EUR; 7696.92 EUR
+**Erklärung:** Skonto = 2 % von 7.854 € = 157,08 € (davon 132,00 € Nachlass auf die Ware und 25,08 € Vorsteuer); Überweisung = 7.854 € − 157,08 € = 7.696,92 €.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.4-05 · Kurzantwort
@@ -252,7 +252,7 @@ Der Gewinn von 1.250.000 € − 1.190.000 € = 60.000 € wird gebucht mit **G
 `schwierigkeit: schwer` · `bloom: anwenden`
 
 #### Q-2.4-07 · Kurzantwort
-**Frage:** Ein Kunde zahlt eine Rechnung über 45.220 € (38.000 € netto zuzüglich 7.220 € Umsatzsteuer) unter Abzug von 3 % Skonto. Um wie viel Euro wird die Umsatzsteuer berichtigt (auf den Cent)?
+**Frage:** Ein Kundenunternehmen zahlt eine Rechnung über 45.220 € (38.000 € netto zuzüglich 7.220 € Umsatzsteuer) unter Abzug von 3 % Skonto. Um wie viel Euro wird die Umsatzsteuer berichtigt (auf den Cent)?
 **Akzeptierte Antworten:** 216,60; 216.60; 216,6; 216.6; 216,60 €; 216.60 €; 216,6 €; 216.6 €; 216,60 Euro; 216.60 Euro; 216,6 Euro; 216.6 Euro; 216,60 EUR; 216.60 EUR; 216,6 EUR; 216.6 EUR
 **Erklärung:** Umsatzsteuerberichtigung = 3 % von 7.220 € = 216,60 €; die Erlösberichtigung beträgt 3 % von 38.000 € = 1.140 €, der Zahlungseingang 43.863,40 €.
 `schwierigkeit: mittel` · `bloom: anwenden`
@@ -310,10 +310,11 @@ Der Gewinn von 1.250.000 € − 1.190.000 € = 60.000 € wird gebucht mit **G
 #### Q-2.4-15 · Mehrfachauswahl
 **Frage:** Welche Aussagen zu Kontenrahmen im Handel treffen zu?
 - [x] Der Kontenrahmen des Groß- und Außenhandels ist nach dem Prozessgliederungsprinzip aufgebaut.
+- [ ] Auch der Einzelhandelskontenrahmen ist nach dem Prozessgliederungsprinzip aufgebaut.
 - [x] Der Kontenplan enthält die Konten, die ein Unternehmen tatsächlich führt.
 - [ ] Ein Konto trägt in allen Kontenrahmen dieselbe Nummer.
 - [x] Die Seite einer Buchung ergibt sich aus der Kontenart, unabhängig vom Kontenrahmen.
-**Erklärung:** Nummern und Bezeichnungen unterscheiden sich je nach Rahmen (Groß- und Außenhandel, Einzelhandel, SKR 03, SKR 04); die Buchungsregeln gelten überall.
+**Erklärung:** Der Einzelhandelskontenrahmen folgt wie der Industriekontenrahmen dem Abschlussgliederungsprinzip. Nummern und Bezeichnungen unterscheiden sich je nach Rahmen (Groß- und Außenhandel, Einzelhandel, SKR 03, SKR 04); die Buchungsregeln gelten überall.
 `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-2.4-16 · Kurzantwort
@@ -333,6 +334,6 @@ Der Gewinn von 1.250.000 € − 1.190.000 € = 60.000 € wird gebucht mit **G
 
 #### Q-2.4-18 · Lückentext (Wortauswahl)
 **Text:** Die Differenz aus Umsatzerlösen und Wareneinsatz heißt ___Rohgewinn___.
-**Zusätzliche Begriffe:** Zahllast; Deckungsbeitrag; Jahresüberschuss
-**Erklärung:** Aus dem Rohgewinn müssen alle übrigen Aufwendungen gedeckt werden; erst was danach bleibt, ist Gewinn. Der Deckungsbeitrag ist dagegen eine Größe der Teilkostenrechnung (Erlös minus variable Kosten, Thema 2.2).
+**Zusätzliche Begriffe:** Zahllast; Betriebsergebnis; Jahresüberschuss
+**Erklärung:** Der Rohgewinn (auch Rohertrag) ist Umsatzerlöse minus Wareneinsatz. Aus ihm müssen alle übrigen Aufwendungen gedeckt werden; erst was danach bleibt, ist Gewinn.
 `schwierigkeit: leicht` · `bloom: erinnern`
