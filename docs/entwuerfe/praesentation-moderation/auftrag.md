@@ -1,0 +1,54 @@
+# Auftrag P-C „Präsentation, Moderation und Gesprächsführung“ (Erhebung vom 14.10.2026: HF-08, HF-04, IF-10, IF-11, BP-11)
+
+Dieses Dokument ist der gemeinsame Schreibauftrag für die Entwurfsagenten. Es ändert nichts am Content; alle Ergebnisse stehen in diesem Ordner (`docs/entwuerfe/praesentation-moderation/`). Nichts wird eingespielt oder committet.
+
+## Ziel
+
+Schließen der Rahmenplan-Lücken zur mündlichen Prüfung und zur Gesprächsführung (Quelle: `docs/entwuerfe/rahmenplan-luecken-erhebung.md`, Zeilen HF-04, HF-08, IF-10, IF-11, BP-11). In drei Kursen fehlen Theorie, Karten und Quizfragen zu Präsentationstechniken (10-Minuten-Präsentation und Fachgespräch der mündlichen Prüfung), zu Moderation und zu Mitarbeitergesprächen; im Handelsfachwirt fehlt außerdem die Theorie zum Zeit- und Selbstmanagement (die Eisenhower-Matrix wird bereits abgefragt):
+
+- **Handelsfachwirt (`content/handelsfachwirt/hb2/`, Fachgebiet HB2, Firma Loreno Mode & Wohnen):** zwei neue Themen **2.5 „Präsentation, Moderation und Gesprächsführung“** und **2.6 „Zeit- und Selbstmanagement“**.
+- **Industriefachwirt (`content/industriefachwirt/hq5/`, Fachgebiet HQ5, Firma Solvitec Elektrowerke GmbH):** ein neues Thema **9.4 „Präsentation, Moderation und Mitarbeitergespräche“**.
+- **Büro und Projektorganisation (`content/fachwirt-buero-projektorganisation/hb3/`, Fachgebiet HB3, Firma Deko & Büro GmbH):** **keine neuen Themen**, sondern Ergänzungen in den vorhandenen Themen **3.3 Konfliktmanagement** (Konfliktgespräch führen) und **3.4 Moderation** (Präsentation vertiefen: Aufbau, Visualisierung, 10-Minuten-Präsentation, Einwände und Fragen).
+
+## Modelle und Vorlagen
+
+- **Fachliche Modelle im Bestand (lesen, nicht kopieren):** `content/wirtschaftsfachwirt/hsq5/5.1-kommunikation-mitarbeitergespraeche.md` (Kommunikationsgrundlagen, Vier-Seiten-Modell, nonverbale Kommunikation, Arten von Mitarbeitergesprächen, aktives Zuhören) und `5.4-projektmoderation-praesentationstechniken.md` (Bedeutung für die mündliche Prüfung, Moderationstechniken, Aufbau einer Präsentation, Hilfsmittel, Rückfragen); außerdem `content/fachwirt-buero-projektorganisation/hb3/3.3` und `3.4`, `content/industriefachwirt/hq5/9.2-teamarbeit-kommunikation.md` (Besprechungs- und Moderationstechniken, Feedback-Regeln, Vier-Ohren-Modell) und `wq4/4.2-personalfuehrung-entwicklung.md` (Mitarbeitergespräch und Zielvereinbarung), `content/handelsfachwirt/hb2/2.1-fuehrungsmethoden-kommunikation.md` (Kommunikation im Führungsalltag). **Übernimm Methoden und Begriffe, aber schreibe die Texte neu für die jeweilige Firma, mit neuen Beispielen und neuem Wortlaut der Karten und Fragen.**
+- **Format-Vorlagen:** vollständiges neues Thema: `docs/entwuerfe/projekt-instrumente/industrie-8-4-projektmanagement.md`; Fall und Fachgespräch: `docs/entwuerfe/projekt-instrumente/industrie-faelle.md`; Ergänzungen in vorhandenen Themen mit Abschnitten A bis F (Theorie, Karten, Quiz je Thema): `docs/entwuerfe/projekt-instrumente/buero-themen.md` und dazu `buero-faelle.md`; Schreibregeln und Item-Typen: `content/README.md`, `docs/entwuerfe/hausregeln-schreibweise.md`; Beispiel eines früheren Schreibauftrags: `docs/entwuerfe/rechnungswesen-analyse/auftrag.md`.
+- **IDs:** Neue Themen: `K-<Thema>-NN` und `Q-<Thema>-NN` ab 01 je Thema. Ergänzungen: an die höchste vorhandene Nummer anschließen (vorher in der Zieldatei nachsehen). Fallaufgaben fortlaufend nach dem Bestand (Zieldatei `fallaufgaben.md` ansehen): Handel `F-HB2-…`, Industrie `F-HQ5-…`, Büro `F-HB3-…`. Frontmatter neuer Themen aus dem jeweils letzten Thema desselben Fachgebiets kopieren und anpassen; `rechtsstand`: „14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen“.
+
+## Pflicht: Abgleich mit dem Bestand
+
+Frühere Entwürfe scheiterten an Widersprüchen zum bestehenden Kursbestand. Suche **vor dem Schreiben** mit Grep im gesamten `content/` jeden Fachbegriff, den du definierst (Moderationszyklus und seine Phasen, Moderationsmethoden wie Kartenabfrage, Mindmap, Punktabfrage, Zurufabfrage; Vier-Seiten-/Vier-Ohren-Modell, Sender-Empfänger-Modell, aktives Zuhören, Ich-Botschaft, Feedback-Regeln, Gesprächsphasen, Beurteilungs-, Kritik-, Fördergespräch, Zielvereinbarung, SMART, Johari-Fenster, Eisenhower-Matrix, ALPEN-Methode, Pareto-Prinzip, Zeitdiebe, Delegation, Konfliktarten, Glasl, Harvard-Konzept, 10-Minuten-Präsentation, Fachgespräch, Visualisierung, Medien) und lies die bestehenden Definitionen und Reihenfolgen. **Bekannter offener Punkt:** Der Fachlehrer-Befund FL-WF-28 (`docs/reviews/2026-10-07/fachlehrer-wirtschaftsfachwirt.md`) betrifft die Phasen des Moderationszyklus (klassisch: Einstieg, Themen sammeln, Thema auswählen, Thema bearbeiten, Maßnahmen planen, Abschluss); lies ihn und die Phasenfassungen in Büro 3.4, Industrie 9.2 und Wirtschaftsfachwirt hsq5/5.4 und halte dich an die jeweilige Kursfassung oder benenne die Abweichung ausdrücklich im Text („in manchen Quellen …; hier gilt …“). Weicht deine Definition, Phasenfolge oder Schreibweise vom Bestand ab, richte dich nach dem Bestand. Wiederhole keine bestehende Frage; ergänze sie.
+
+## Inhalt
+
+**Präsentation (alle drei Kurse, kursspezifisch geschrieben):** Planung (Ziel, Zielgruppe, Zeit, Raum, Medien), Aufbau (Einleitung, Hauptteil, Schluss; Roter Faden; Kernbotschaft), Visualisierung und Medien (Folien, Flipchart, Pinnwand, Handout; Gestaltungsregeln), Sprechweise und Körpersprache (Stimme, Tempo, Blickkontakt, Lampenfieber), Umgang mit Fragen, Einwänden und schwierigen Teilnehmenden, Zeitmanagement der Präsentation. **10-Minuten-Präsentation und Fachgespräch der mündlichen Prüfung:** Ablauf beschreiben, ohne eine rechtlich verbindliche Prüfungsordnung zu zitieren (die genaue Form regelt die Prüfungsordnung der zuständigen Stelle; Zeiten und Ablauf nur als „üblich“ nennen).
+
+**Moderation (Handel, Industrie; im Büro vorhanden, nur vertiefen falls nötig):** Rolle und Haltung, Moderationszyklus, Methoden der Moderation (Kartenabfrage, Mindmap, Punktabfrage, Zurufabfrage, Kleingruppen), Visualisieren, Umgang mit Störungen, Ergebnissicherung (Maßnahmenplan, Protokoll).
+
+**Gesprächsführung (Handel 2.5, Industrie 9.4):** Gesprächsvorbereitung, Gesprächsphasen, Beurteilungsgespräch, Kritikgespräch, Fördergespräch/Zielvereinbarungsgespräch (Unterschiede, Ziel, Aufbau, typische Fehler), Feedback geben und annehmen, aktives Zuhören, Ich-Botschaften; Datenschutz im Personalgespräch nur als Hinweis (vertrauliche Behandlung), keine Rechtsvorschriften zitieren.
+
+**Konfliktgespräch (Büro 3.3):** Vorbereitung, Phasen (Sichtweisen klären, Interessen herausarbeiten, Lösungen suchen, Vereinbarung treffen), Ich-Botschaften, Gesprächsregeln, Umgang mit Eskalation, Dokumentation der Vereinbarung; Abgrenzung zu vorhandenen Konfliktstrategien in 3.3 (nicht wiederholen).
+
+**Zeit- und Selbstmanagement (Handel 2.6):** Ziele setzen (SMART), Prioritäten (Eisenhower-Matrix mit den vier Feldern, wie im Bestand von Handel hb2/2.1 Q-2.1-10: Sofort erledigen, Terminieren, Delegieren, Streichen), Pareto-Prinzip, ALPEN-Methode, Zeitdiebe, Delegation, Pufferzeiten, Rechenbeispiel Wochenplanung (z. B. Stunden je Aufgabentyp, Anteil in Prozent).
+
+## Umfang
+
+- **Handel:** Thema 2.5 mit 7 bis 9 Theorieabschnitten, 16 bis 18 Karten, 18 bis 20 Quizfragen; Thema 2.6 mit 4 bis 5 Abschnitten, 10 bis 12 Karten, 10 bis 14 Quizfragen; zusammen eine Fallaufgabe (20 Punkte) und je Thema drei Fachgesprächsfragen.
+- **Industrie:** Thema 9.4 mit 8 bis 10 Theorieabschnitten, 18 Karten, 20 Quizfragen; eine Fallaufgabe (20 Punkte); drei Fachgesprächsfragen.
+- **Büro:** je Thema (3.3 und 3.4) 3 bis 4 neue Theorieabschnitte, 6 bis 8 Karten, 6 bis 8 Quizfragen; eine Fallaufgabe (20 Punkte); je Thema zwei Fachgesprächsfragen, falls die Datei `fachgespraech.md` Fragen je Thema führt.
+- Quiztypen mischen: Multiple Choice (genau eine richtige Antwort), Mehrfachauswahl, Zuordnung, Sortieren (genau 4 Elemente), Wahr/Falsch, Entweder-Oder, Was passt nicht dazu, Lückentext (ein Wort je Lücke), Kurzantwort (Begriffsfragen mit eindeutigem Stichwort und allen Schreibweisen; Rechenaufgaben nur bei 2.6). Mindestens ein Drittel der Fragen sind Szenariofragen (Situation beschreiben, richtiges Vorgehen wählen).
+
+## Hausregeln (verbindlich)
+
+- Karten und Quiz **duzen**, Fallaufgaben und Fachgespräch **siezen**, Theorie spricht niemanden an.
+- Gendern mit Doppelpunkt („Mitarbeiter:innen“, „Teilnehmer:innen“); für Geschäftspartner neutrale Formen („das liefernde Unternehmen“, „die Kundschaft“). Tausenderpunkt und Dezimalkomma, normales Leerzeichen vor €, % und Einheiten.
+- Kurzantworten: Der Vergleich ist exakt nach Kleinschreibung und Entfernen aller Leerzeichen; €, Tausenderpunkt und Dezimalkomma werden **nicht** umgewandelt. Liste in „**Akzeptierte Antworten:**“ alle Schreibweisen (mit/ohne Bindestrich, mit/ohne Artikel, Singular/Plural, „ue“/„ü“ nur falls üblich, bei Zahlen mit und ohne Tausenderpunkt, mit €/Euro/EUR). Frage so stellen, dass nur ein Begriff oder eine Zahl gemeint sein kann.
+- Jede Fallaufgabe hat **20 Punkte**, 4 bis 5 Teilaufgaben im Format `**Teilaufgabe n (P Punkte, bloom: x):** …` einzeilig; Musterlösung (`**Musterlösungshinweise:** Teilaufgabe 1: …`) mit einer Zeile je Teilaufgabe und zuletzt einer Zeile „Folgefehler: …“. Fachgesprächsfragen mit 3 bis 5 Erwartungen (`- Erwartung: …`), optional einer Rückfrage; Erwartungen stützen sich nur auf Theorie des Kurses.
+- Jede Frage muss ohne Kontext beantwortbar sein (alle Angaben stehen in der Frage oder in der Theorie desselben Kurses). Distraktoren fair. Keine Wertung nach Geschmack: Aussagen zu Körpersprache oder Rhetorik als Empfehlungen formulieren, nicht als Gesetze („in der Regel“, „empfehlenswert“).
+- Keine Rechtsvorschriften zitieren; Prüfungsablauf nur als „üblich“; alle Zahlen sind frei gewählte Beispielwerte.
+- Rechenaufgaben (Handel 2.6) mit einem kleinen Node-Skript nachrechnen und in der Abschlussmeldung auflisten.
+
+## Dateien
+
+Lege je Kurs ab (alles in diesem Ordner): **Handel:** `handel-2.5-praesentation-moderation-gespraechsfuehrung.md`, `handel-2.6-zeit-selbstmanagement.md` (vollständige neue Themendateien mit Frontmatter, `## Theorie`, `## Karteikarten`, `## Quiz`) und `handel-faelle.md`. **Industrie:** `industrie-9.4-praesentation-moderation-mitarbeitergespraeche.md` und `industrie-faelle.md`. **Büro:** `buero-themen.md` (Abschnitte A bis F nach `buero-themen.md` aus P-A: A/B/C = Theorie/Karten/Quiz für 3.3, D/E/F = 3.4; Überschriften `## A. …` usw. und `# Teil 1/2` als Trenner) und `buero-faelle.md`. Die `*-faelle.md` haben ein Kopfstück, dann `## Fallaufgaben` mit den Blöcken `#### F-… · Fallaufgabe` (Blöcke durch `---` getrennt), dann eine Zeile `---`, dann `## Fachgesprächsfragen` mit `### <Thema> …` je Thema im Format von `industrie-faelle.md` (P-A). Nichts außerhalb dieses Ordners anlegen oder ändern.
