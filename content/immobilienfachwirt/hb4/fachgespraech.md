@@ -153,7 +153,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiele für umlagefähige Kosten sind die Grundsteuer, die Wasserversorgung, Heizung und Warmwasser, der Aufzugsbetrieb, die Gartenpflege und die Beleuchtung.
   - Erwartung: Instandhaltungs- und Instandsetzungskosten zählen ausdrücklich nicht zu den Betriebskosten und verbleiben beim Eigentümer.
   - Erwartung: Auch Verwaltungskosten, z. B. das Honorar der Hausverwaltung selbst, sind nicht umlagefähig.
-  - Rückfrage: Besteht bei vermieteten Objekten eine gesetzliche Pflicht zur Bildung einer Instandhaltungsrücklage?
+  - Rückfrage: Besteht bei vermieteten Objekten außerhalb einer WEG eine gesetzliche Pflicht zur Bildung einer Rücklage für künftige Instandhaltungsmaßnahmen?
 - Welche Vorgaben macht die Heizkostenverordnung zur Verteilung der Heizkosten, und welche Folge hat ein Verstoß dagegen?
   - Erwartung: Die Heizkostenverordnung verpflichtet Vermieter grundsätzlich zu einer verbrauchsabhängigen Abrechnung der Heiz- und Warmwasserkosten.
   - Erwartung: Vorgeschrieben ist ein gemischter Verteilerschlüssel, bei dem 50 bis 70 % der Kosten anhand von Erfassungsgeräten wie Heizkostenverteilern oder Wärmemengenzählern verbrauchsabhängig abgerechnet werden.

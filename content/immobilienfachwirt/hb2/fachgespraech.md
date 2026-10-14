@@ -19,11 +19,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Sie ist damit unabhängig von ihrer tatsächlichen Betriebsgröße zur doppelten Buchführung verpflichtet.
   - Erwartung: Als Kapitalgesellschaft unterliegt sie zusätzlich den ergänzenden Rechnungslegungsvorschriften für Kapitalgesellschaften.
   - Rückfrage: Wovon hängt es ab, ob für die GmbH zusätzlich eine Prüfungs- und Offenlegungspflicht gilt?
-- Was verlangt die Makler- und Bauträgerverordnung im Hinblick auf die Verwaltung fremder Gelder, und warum ist das gerade für eine Hausverwaltung relevant?
+- Warum muss eine Hausverwaltung fremde Gelder getrennt vom eigenen Vermögen führen, und welche Rolle spielt dabei die Makler- und Bauträgerverordnung?
   - Erwartung: Die Hausverwaltungssparte verwaltet in erheblichem Umfang fremdes Geld, z. B. Mieteingänge, Erhaltungsrücklagen der Wohnungseigentümergemeinschaften und Kautionen der Mieter:innen.
-  - Erwartung: Dieses Geld gehört wirtschaftlich den Eigentümer:innen bzw. Mieter:innen und nicht der Verwaltung selbst.
-  - Erwartung: Wer gewerblich fremde Gelder im Zusammenhang mit der Verwaltung von Wohnungseigentum oder als Bauträger entgegennimmt, unterliegt der Makler- und Bauträgerverordnung.
-  - Erwartung: Die Verordnung verlangt die strikte Trennung der Fremdgelder vom eigenen Vermögen auf gesonderten Treuhand-/Fremdgeldkonten sowie eine zeitnahe, nachvollziehbare Verbuchung.
+  - Erwartung: Dieses Geld gehört wirtschaftlich den Eigentümer:innen, den Gemeinschaften bzw. den Mieter:innen und nicht der Verwaltung selbst.
+  - Erwartung: Aus den gesetzlichen und vertraglichen Pflichten der Verwaltung folgt die strikte Trennung der Fremdgelder vom eigenen Vermögen auf gesonderten Treuhand-/Fremdgeldkonten sowie eine zeitnahe, nachvollziehbare Verbuchung; die Konten der Gemeinschaften lauten in der Praxis auf die jeweilige Gemeinschaft.
+  - Erwartung: Die Makler- und Bauträgerverordnung ist nicht die Grundlage dieser Trennung; sie betrifft vor allem die Makler- und Bauträgertätigkeit, z. B. die gestaffelten Abschlagszahlungen der Käufer:innen und deren Absicherung.
   - Rückfrage: Wie erscheinen die Fremdgeldkonten in der Bilanz der Verwaltung?
 - Erläutern Sie den Unterschied zwischen Erhaltungsrücklage und Sonderumlage anhand eines Beispiels.
   - Erwartung: Die Erhaltungsrücklage (bis zur WEG-Reform 2020 „Instandhaltungsrücklage") wird aus den laufenden Hausgeldzahlungen der Wohnungseigentümer:innen angespart.
@@ -115,7 +115,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei deutlicher Abweichung folgt eine Abweichungsanalyse.
   - Erwartung: Die Abweichungsanalyse identifiziert die Ursachen der Abweichung, z. B. gestiegene Baukosten oder einen unerwarteten Mieterwechsel.
   - Erwartung: Sie bildet die Grundlage für Steuerungsmaßnahmen.
-  - Rückfrage: Wie fließt der Vergleich von Plan und Ist in die Abrechnung gegenüber den Eigentümergemeinschaften ein?
+  - Rückfrage: Worin unterscheidet sich ein Soll-Ist-Vergleich zum Wirtschaftsplan einer Eigentümergemeinschaft von ihrer Jahresabrechnung?
 - Erläutern Sie die vier Perspektiven der Balanced Scorecard anhand von Beispielen aus der Immobilienwirtschaft.
   - Erwartung: Die Balanced Scorecard umfasst neben der Finanzperspektive drei weitere Perspektiven, sodass die Steuerung nicht allein auf finanzielle Kennzahlen verengt wird.
   - Erwartung: Die Kundenperspektive umfasst z. B. die Zufriedenheit der verwalteten Eigentümergemeinschaften.
@@ -128,7 +128,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Immobilienspezifische Kennzahlen (z. B. Vermietungsquote, Verwaltungskostenquote) und klassische Kennzahlen (z. B. Liquiditätsgrade, Eigenkapitalquote, ROI) liefern die Datengrundlage.
   - Erwartung: Der regelmäßige Soll-Ist-Vergleich macht Abweichungen von geplanten Werten sichtbar.
   - Erwartung: Die Balanced Scorecard bezieht neben der Finanzperspektive auch Kunden-, Prozess- sowie Lern- und Entwicklungsperspektive ein.
-  - Rückfrage: Welche Reports erhalten Eigentümergemeinschaften und externe Kapitalgeber:innen?
+  - Rückfrage: Welche Berichte erhalten externe Kapitalgeber:innen, und was kann das Controlling den verwalteten Eigentümergemeinschaften ergänzend zu Jahresabrechnung und Wirtschaftsplan berichten?
 - Wie planen Sie die Liquidität eines Mietverwaltungsobjekts für die nächsten Monate, und wie berücksichtigen Sie Leerstand, Mietausfall und Zahlungsverzug?
   - Erwartung: Je Monat gilt Endbestand = Anfangsbestand + Einzahlungen − Auszahlungen; der Endbestand ist der Anfangsbestand des Folgemonats, der Plan wird rollierend fortgeschrieben und bei knappem Bestand wochenweise nach Fälligkeiten verfeinert.
   - Erwartung: Die Einzahlungen gehen von der Sollmiete der vermieteten Einheiten aus, leerstehende Einheiten bringen keine Miete; für Ausfall und Verzug wird ein Abschlag nach Erfahrungswerten abgezogen, Ratenzahlungen werden erst eingeplant, wenn sie vereinbart sind.

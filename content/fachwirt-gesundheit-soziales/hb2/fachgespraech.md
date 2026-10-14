@@ -4,7 +4,7 @@ fachgebiet_code: HB2
 fachgebiet_title: "Steuern von Qualitätsmanagementprozessen"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" (Handlungsbereich 2) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 2) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 

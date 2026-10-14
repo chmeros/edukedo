@@ -110,7 +110,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum ist ein reines Vergleichswertverfahren bei individuell geschnittenen Neubauwohnungen häufig nicht anwendbar?
 - Wie ist der Rohertrag im Ertragswertverfahren definiert, und wie unterscheidet er sich vom Reinertrag?
   - Erwartung: Der Rohertrag ist die nachhaltig erzielbare Jahresmiete.
-  - Erwartung: Davon werden die nicht umlagefähigen Bewirtschaftungskosten abgezogen, u. a. Verwaltungskosten, Instandhaltungsrücklage und Mietausfallwagnis.
+  - Erwartung: Davon werden die nicht umlagefähigen Bewirtschaftungskosten abgezogen, u. a. Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis.
   - Erwartung: Das Ergebnis ist der Reinertrag.
   - Erwartung: Der Bodenwertanteil wird gesondert verzinst und vom Reinertrag abgezogen.
   - Erwartung: Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert.

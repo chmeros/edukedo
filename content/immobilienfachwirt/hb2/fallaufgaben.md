@@ -39,7 +39,7 @@ Teilaufgabe 4: Kapitalwertmethode (oder Methode des internen Zinsfußes) — bei
 
 **Themenbezug:** 2.3 (Controlling und Kennzahlen) + 2.4 (Risikomanagement)
 
-**Ausgangssituation:** Bei der von Ravelin verwalteten Wohnanlage „Amberweg" (120 Einheiten) ist im laufenden Jahr die Vermietungsquote spürbar gesunken. Gleichzeitig verursachte ein witterungsbedingter Wasserschaden am Dach unerwartet hohe Instandhaltungskosten, die im Wirtschaftsplan nicht vorgesehen waren. Die Eigentümerversammlung fordert von Ravelin einen ausführlichen Bericht zu den Ursachen und zu künftigen Vorkehrungen.
+**Ausgangssituation:** Ravelin betreut als Mietverwaltung die Wohnanlage „Amberweg" (Beispiel: 120 Mietwohnungen einer Eigentümerin) und vermietet die Wohnungen in deren Auftrag. Im laufenden Jahr ist die Vermietungsquote spürbar gesunken. Gleichzeitig verursachte ein witterungsbedingter Wasserschaden am Dach unerwartet hohe Instandhaltungskosten, die im mit der Eigentümerin abgestimmten Jahresbudget des Objekts nicht vorgesehen waren. Die Eigentümerin fordert von Ravelin einen ausführlichen Bericht zu den Ursachen und zu künftigen Vorkehrungen.
 
 **Teilaufgabe 1 (5 Punkte, bloom: analysieren):** Analysieren Sie anhand der Fallschilderung, welche Kennzahlen sich für die Wohnanlage Amberweg auffällig verändert haben dürften, und wie diese im Soll-Ist-Vergleich sichtbar würden.
 
@@ -47,12 +47,12 @@ Teilaufgabe 4: Kapitalwertmethode (oder Methode des internen Zinsfußes) — bei
 
 **Teilaufgabe 3 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob ein rechtzeitig eingerichtetes Frühwarnsystem den Wasserschaden hätte verhindern oder zumindest dessen finanzielle Folgen begrenzen können.
 
-**Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie für den Bericht an die Eigentümerversammlung zwei konkrete Balanced-Scorecard-Kennzahlen außerhalb der Finanzperspektive, mit denen Ravelin künftig frühzeitiger auf ähnliche Probleme aufmerksam werden könnte.
+**Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie für den Bericht an die Eigentümerin zwei konkrete Balanced-Scorecard-Kennzahlen außerhalb der Finanzperspektive, mit denen Ravelin künftig frühzeitiger auf ähnliche Probleme aufmerksam werden könnte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Vermietungsquote/Leerstandsquote und Instandhaltungsquote sind auffällig verändert; im Soll-Ist-Vergleich zeigt sich eine deutliche Ist-Überschreitung bei den Instandhaltungskosten gegenüber dem Wirtschaftsplan.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Vermietungsquote ist gesunken und die Leerstandsquote entsprechend gestiegen; Instandhaltungsquote bzw. Instandhaltungskosten je m² sind deutlich gestiegen. Im Soll-Ist-Vergleich zeigen sich eine Ist-Unterschreitung bei den Mieteinnahmen und eine deutliche Ist-Überschreitung bei den Instandhaltungskosten gegenüber dem Jahresbudget. Leerstand ist hier eine Steuerungsgröße der Verwaltung, weil Ravelin die Wohnungen als Mietverwaltung im Auftrag der Eigentümerin vermietet (Thema 2.3).
 Teilaufgabe 2: Ein einzelner Wasserschaden hat eher geringe Eintrittswahrscheinlichkeit, aber potenziell hohen Schaden — Feld „Absichern"; geeignet wäre eine Gebäudeversicherung sowie eine regelmäßige Dachinspektion.
 Teilaufgabe 3: Ein Frühwarnsystem mit turnusmäßigen Zustandskontrollen hätte den Schaden möglicherweise nicht verhindert, aber durch frühzeitige Erkennung kleinerer Mängel dessen Ausmaß und die finanziellen Folgen begrenzen können.
-Teilaufgabe 4: z. B. „Anzahl durchgeführter präventiver Objektbegehungen pro Jahr" (interne Prozesse) und „Reaktionszeit bei gemeldeten Mängeln" (interne Prozesse) oder „Zufriedenheit der Eigentümer:innen mit der Kommunikation bei Schadensfällen" (Kunden).
+Teilaufgabe 4: z. B. „Anzahl durchgeführter präventiver Objektbegehungen pro Jahr" (interne Prozesse) und „Reaktionszeit bei gemeldeten Mängeln" (interne Prozesse) oder „Zufriedenheit der Eigentümerin mit der Kommunikation bei Schadensfällen" bzw. „Anzahl der Kündigungen durch Mieter:innen je Quartal" (Kunden).
 
 ---
 
@@ -62,18 +62,18 @@ Teilaufgabe 4: z. B. „Anzahl durchgeführter präventiver Objektbegehungen pro
 
 **Ausgangssituation:** Ravelin übernimmt zum Jahreswechsel ein neues, großes Hausverwaltungsmandat für eine kürzlich fertiggestellte Neubau-WEG mit 85 Einheiten. Die Geschäftsführung möchte sowohl die korrekte buchhalterische Einbindung der Erhaltungsrücklage sicherstellen als auch ein Reporting- und Risikokonzept für das neue Mandat entwickeln, bevor das erste Wirtschaftsjahr beginnt.
 
-**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Erläutern Sie, wie Ravelin die Erhaltungsrücklage der neuen WEG buchhalterisch korrekt von ihrem eigenen Vermögen trennen muss und welche rechtliche Grundlage dies vorschreibt.
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Erläutern Sie, wie Ravelin die Erhaltungsrücklage der neuen WEG buchhalterisch korrekt von ihrem eigenen Vermögen trennen muss und warum diese Trennung erforderlich ist.
 
-**Teilaufgabe 2 (6 Punkte, bloom: analysieren):** Analysieren Sie, welche Kennzahlen sich eignen, um der Geschäftsführung die Wirtschaftlichkeit des neuen Verwaltungsmandats im ersten Jahr transparent darzustellen.
+**Teilaufgabe 2 (6 Punkte, bloom: analysieren):** Analysieren Sie, welche Kennzahlen sich eignen, um der Geschäftsführung die Wirtschaftlichkeit des neuen Verwaltungsmandats und die finanzielle Lage der Gemeinschaft im ersten Jahr transparent darzustellen.
 
 **Teilaufgabe 3 (5 Punkte, bloom: bewerten):** Bewerten Sie, welche Risiken (mindestens zwei unterschiedliche Risikoarten) mit der Übernahme eines großen neuen Verwaltungsmandats verbunden sein können und wie Ravelin diesen jeweils begegnen sollte.
 
 **Teilaufgabe 4 (4 Punkte, bloom: erschaffen):** Entwickeln Sie einen kurzen Vorschlag, wie die neue WEG in das bestehende Reporting- und Frühwarnsystem von Ravelin eingebunden werden sollte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Die Erhaltungsrücklage ist als Fremdgeld auf einem gesonderten Treuhandkonto zu führen, getrennt vom eigenen Vermögen von Ravelin; rechtliche Grundlage ist die Makler- und Bauträgerverordnung (MaBV).
-Teilaufgabe 2: z. B. Vermietungsquote/Leerstandsquote der Einheiten, Verwaltungskostenquote, Instandhaltungsquote sowie ein Soll-Ist-Vergleich zum ersten Wirtschaftsplan.
-Teilaufgabe 3: z. B. rechtliches Risiko (fehlerhafte Übernahme bestehender Beschlüsse/Verträge der WEG) und Marktrisiko (Leerstand bei Erstvermietung einzelner Einheiten); Begegnung durch sorgfältige Mandatsübernahme-Prüfung bzw. durch Beobachtung der lokalen Vermietungssituation.
-Teilaufgabe 4: z. B. Aufnahme der neuen WEG in den bestehenden monatlichen Kennzahlenbericht sowie Festlegung objektspezifischer Schwellenwerte (z. B. für Instandhaltungskosten) im Frühwarnsystem ab dem ersten Wirtschaftsjahr.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Erhaltungsrücklage gehört der Gemeinschaft und ist für Ravelin Fremdgeld. Sie wird treuhänderisch auf einem gesonderten Konto geführt, das in der Praxis auf die Gemeinschaft lautet, getrennt vom eigenen Vermögen von Ravelin und vom laufenden Hausgeldkonto, und erscheint nicht in der Bilanz von Ravelin. Die Trennung folgt aus den gesetzlichen und vertraglichen Pflichten der Verwaltung (Hinweis, nicht förmlich rechtsgeprüft); sie stellt sicher, dass das Geld der Gemeinschaft nicht mit dem Geld der Verwaltung oder anderer Objekte vermischt wird und nur für Erhaltungsmaßnahmen verwendet wird, über die die Gemeinschaft beschließt. Die Makler- und Bauträgerverordnung ist dafür nicht die Grundlage; sie betrifft vor allem die Makler- und Bauträgertätigkeit.
+Teilaufgabe 2: Für die Lage der Gemeinschaft z. B. Hausgeldrückstandsquote, Rücklagenquote (Bestand der Erhaltungsrücklage im Verhältnis zum Erhaltungsbedarf laut Instandhaltungsplan), Instandhaltungskosten je m² am Gemeinschaftseigentum sowie ein Soll-Ist-Vergleich zum ersten Wirtschaftsplan; für die Wirtschaftlichkeit des Mandats aus Sicht von Ravelin die Verwaltungskosten je Einheit im Vergleich zur Vergütung je Einheit. Vermietungs- und Leerstandsquote sind nicht geeignet, weil die Wohnungseigentümer:innen ihre Wohnungen selbst vermieten; sie sind keine Steuerungsgrößen der WEG-Verwaltung (Thema 2.3).
+Teilaufgabe 3: z. B. rechtliches Risiko (fehlerhafte Übernahme bestehender Beschlüsse/Verträge der WEG), Haftungsrisiko der Verwaltung (z. B. versäumte Fristen, etwa bei der Verfolgung von Mängeln am Gemeinschaftseigentum des Neubaus, oder fehlerhafte Abrechnungen) und Ausfallrisiko durch Hausgeldausfälle einzelner Eigentümer:innen, das die Liquidität der Gemeinschaft belastet; Begegnung durch sorgfältige Mandatsübernahme-Prüfung, Fristenkontrolle und Versicherung des Haftungsrisikos (Thema 2.4) bzw. durch konsequentes Mahnwesen und Beobachtung der Hausgeldrückstände. Leerstand bei der Erstvermietung einzelner Wohnungen trifft die jeweiligen Eigentümer:innen und ist kein Marktrisiko der Verwaltung; für die Gemeinschaft wird er nur relevant, wenn dadurch Hausgeld ausfällt.
+Teilaufgabe 4: z. B. Aufnahme der neuen WEG in den bestehenden monatlichen Kennzahlenbericht sowie Festlegung objektspezifischer Schwellenwerte (z. B. für Hausgeldrückstände und Instandhaltungskosten) im Frühwarnsystem ab dem ersten Wirtschaftsjahr; der Kennzahlenbericht an den Verwaltungsbeirat ergänzt Jahresabrechnung und Wirtschaftsplan, ersetzt sie aber nicht.
 
 ---
 

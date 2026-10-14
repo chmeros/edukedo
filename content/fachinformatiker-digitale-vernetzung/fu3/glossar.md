@@ -54,7 +54,7 @@ rechtsstand: "05.10.2026 — Entwurf, vor Livegang fachlich prüfen"
 **Auch:** Namensauflösung
 **Thema:** 3.1
 **Abschnitt:** Wichtige Protokolle auf Grundlagenniveau
-**Definition:** Ein Protokoll, das Namen wie kunde-beispiel.de in IP-Adressen auflöst.
+**Definition:** Ein Protokoll, das Namen wie kunde.example in IP-Adressen auflöst.
 **Geprüft:** nein
 
 #### VLAN

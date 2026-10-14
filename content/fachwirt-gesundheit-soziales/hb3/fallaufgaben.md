@@ -4,7 +4,7 @@ fachgebiet_code: HB3
 fachgebiet_title: "Gestalten von Schnittstellen und Projekten"
 thema_code: "HB3-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" (Handlungsbereich 3) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 3) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
@@ -70,10 +70,11 @@ Teilaufgabe 4 sollte den Soll-Ist-Vergleich von Terminen und Kosten als Instrume
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwerfen Sie für den Lenkungsausschuss zwei bis drei Meilensteine mit grober zeitlicher Einordnung, anhand derer der Projektfortschritt der Notfallrufbereitschaft kontrolliert werden kann.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte z. B. ein Teilprojekt „Personal/Dienstplan" (Arbeitspakete: Bereitschaftsdienstplan erstellen, Zusatzqualifikation planen) und ein Teilprojekt „Externe Anbindung" (Arbeitspakete: Abstimmung mit Rettungsdienst, Information der Hausärzte) enthalten.
-Teilaufgabe 2 sollte kritische externe Partner wie Rettungsdienst (Alarmierungswege), Hausärzte (medizinische Abstimmung) und Pflegekassen (Abrechnung/Genehmigung) nennen.
-Teilaufgabe 3 sollte präventive Teambuilding-Maßnahmen bereits in der Forming-/Storming-Phase vorschlagen, etwa klare Rollen- und Kommunikationsregeln von Beginn an.
-Teilaufgabe 4 sollte plausible, terminierte Meilensteine enthalten, z. B. „Monat 1: Dienstplankonzept steht", „Monat 3: Technische Rufbereitschaft getestet", „Monat 5: Regelbetrieb gestartet".
+**Musterlösungshinweise:** Teilaufgabe 1 (Punkteraster: zwei Teilprojekte 2 Punkte, je zwei Arbeitspakete 2 Punkte, erkennbares Gliederungsprinzip ohne Überschneidungen 1 Punkt) sollte z. B. ein Teilprojekt „Personal/Dienstplan" (Arbeitspakete: Bereitschaftsdienstplan erstellen, Zusatzqualifikation planen) und ein Teilprojekt „Externe Anbindung" (Arbeitspakete: Abstimmung mit Rettungsdienst, Information der Hausärzte) enthalten.
+Teilaufgabe 2 (Punkteraster: drei kritische Partner 3 Punkte, jeweils abzustimmende Informationen 2 Punkte) sollte kritische externe Partner wie Rettungsdienst (Alarmierungswege), Hausärzte (medizinische Abstimmung) und Pflegekassen (Abrechnung/Genehmigung) nennen.
+Teilaufgabe 3 (Punkteraster: Phasen nach Tuckman richtig wiedergegeben 2 Punkte, präventive Maßnahmen mit Begründung 3 Punkte) sollte präventive Teambuilding-Maßnahmen bereits in der Forming-/Storming-Phase vorschlagen, etwa klare Rollen- und Kommunikationsregeln von Beginn an.
+Teilaufgabe 4 (Punkteraster: zwei bis drei Meilensteine 2 Punkte, terminiert und kontrollierbar 2 Punkte, zeitliche Reihenfolge stimmig 1 Punkt) sollte plausible, terminierte Meilensteine enthalten, z. B. „Monat 1: Dienstplankonzept steht", „Monat 3: Technische Rufbereitschaft getestet", „Monat 5: Regelbetrieb gestartet".
+Folgefehler: Ein Fehler im Projektstrukturplan aus Teilaufgabe 1 (z. B. überschneidende Gliederung) wird in Teilaufgabe 4 nicht erneut bewertet, wenn die Meilensteine dazu stimmig gewählt sind.
 
 ---
 
