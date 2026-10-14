@@ -8,7 +8,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Einzufügen: die Fallaufg
 
 #### F-HQ4-04 · Fallaufgabe
 
-**Themenbezug:** 8.4 (Projektmanagement) + 8.3 (Wissenstransfer und Dokumentation)
+**Themenbezug:** 8.4 (Projektmanagement: Earned Value, Änderungsmanagement, magisches Dreieck)
 
 **Ausgangssituation:** Die Solvitec Elektrowerke GmbH baut im Werk Zwickau ein Prüffeld für Ladeinfrastruktur-Komponenten auf. Das Gesamtbudget beträgt 200.000 €. Zum Stichtag, der Hälfte der geplanten Laufzeit, sieht der Plan angefallene Kosten von 100.000 € vor (Planwert). Tatsächlich sind 45 % der Arbeit erledigt, angefallen sind 112.500 €. Die Fachabteilung Qualitätssicherung beantragt nun zwei zusätzliche Prüfplätze, die laut erster Schätzung 30.000 € kosten und das Projekt um drei Wochen verlängern würden. Im Lenkungsausschuss sitzen die Werksleitung, der Leiter Einkauf und die Leiterin der Entwicklung.
 
@@ -20,7 +20,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Einzufügen: die Fallaufg
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Schlagen Sie zwei Maßnahmen vor, mit denen die Projektleitung Verzug und Kostenüberschreitung begrenzen kann, und beschreiben Sie jeweils die Wirkung auf das magische Dreieck.
 
-**Musterlösungshinweise:** Teilaufgabe 1: EV = 45 % × 200.000 € = 90.000 €; CV = 90.000 € − 112.500 € = − 22.500 €; SV = 90.000 € − 100.000 € = − 10.000 €; CPI = 90.000 € ÷ 112.500 € = 0,8; SPI = 90.000 € ÷ 100.000 € = 0,9.
+**Musterlösungshinweise:** Teilaufgabe 1 (Achtung: Bei CV und SV bedeutet ein negativer Wert Überschreitung bzw. Verzug, SV wird in Euro gemessen): EV = 45 % × 200.000 € = 90.000 €; CV = 90.000 € − 112.500 € = − 22.500 €; SV = 90.000 € − 100.000 € = − 10.000 €; CPI = 90.000 € ÷ 112.500 € = 0,8; SPI = 90.000 € ÷ 100.000 € = 0,9.
 Teilaufgabe 2: Das Projekt ist teurer als geplant (CPI 0,8) und im Verzug (SPI 0,9); Gesamtkosten-Prognose EAC = 200.000 € ÷ 0,8 = 250.000 €, also 50.000 € über dem Budget; die Prognose gilt nur, wenn die bisherige Kosteneffizienz anhält, und sagt nichts über den Endtermin aus (auch die Zusatzprüfplätze sind nicht enthalten).
 Teilaufgabe 3: Der Antrag wird schriftlich als Änderungsantrag mit Begründung gestellt; die Projektleitung bewertet die Auswirkungen auf Leistung (zusätzlicher Nutzen), Termin (+ 3 Wochen), Kosten (+ 30.000 €) und Risiken; wegen der Tragweite und der schon bestehenden Überschreitung entscheidet der Lenkungsausschuss; die Entscheidung wird dokumentiert, Plan und Budget werden angepasst, der Antrag wird nicht nebenbei in das laufende Projekt übernommen.
 Teilaufgabe 4: Genannt werden zwei Maßnahmen mit Wirkung auf das magische Dreieck, zum Beispiel: Zusatzpersonal auf dem kritischen Pfad (Termin besser, Kosten höher), Umfang reduzieren oder auf eine Ausbaustufe verschieben (Kosten und Termin besser, Leistung geringer), Beschaffung beschleunigen oder Zeitpuffer neu verteilen; maßgeblich ist, dass die Wechselwirkung begründet wird.
@@ -40,6 +40,7 @@ Folgefehler: Wird in Teilaufgabe 1 der EV falsch berechnet (zum Beispiel 45 % vo
 - Wie unterscheiden sich Lenkungsausschuss und Projektleitung?
   - Erwartung: Der Lenkungsausschuss ist das Entscheidungsgremium: Er gibt Meilensteine und Budgets frei, entscheidet über Änderungen von größerer Tragweite und löst Konflikte, die die Projektleitung nicht klären kann.
   - Erwartung: Die Projektleitung plant und steuert das Projekt operativ, führt das Team und berichtet an den Lenkungsausschuss.
+  - Erwartung: Der Lenkungsausschuss ist die Eskalationsinstanz, wenn die Projektleitung Konflikte oder Abweichungen nicht selbst lösen kann.
   - Rückfrage: Welche Vor- und Nachteile hat die Matrix-Projektorganisation?
 - Ein Projekt zeigt einen Kostenindex von 0,8 und einen Terminindex von 0,9. Wie interpretieren Sie das, und was unternehmen Sie?
   - Erwartung: Das Projekt ist teurer als geplant (CPI unter 1) und im Verzug (SPI unter 1).

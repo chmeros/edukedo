@@ -5,7 +5,7 @@ fachgebiet_title: "Wissens- und Transfermanagement im Industrieunternehmen"
 thema_code: "8.4"
 thema_title: "Projektmanagement"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung IndFachwirtPrV 2010, §5 (Handlungsbereich „Wissens- und Transfermanagement im Industrieunternehmen“) sowie öffentlich zugänglicher Fachliteratur zum Projektmanagement — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "14.10.2026 — Entwurf, nicht förmlich rechtsgeprüft; Netzplanbegriffe in Anlehnung an DIN 69900, alle Zahlen sind frei gewählte Beispielwerte"
+rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; Netzplanbegriffe in Anlehnung an DIN 69900, alle Zahlen sind frei gewählte Beispielwerte"
 ---
 
 # Thema 8.4 — Projektmanagement
@@ -26,8 +26,8 @@ Für Entscheidungen und Verantwortung braucht ein Projekt klare Rollen. Die **Au
 
 Wie das Team in die Firma eingebunden ist, regelt die **Projektorganisationsform**:
 
-- **Einfluss-Projektorganisation:** Die Mitarbeitenden bleiben vollständig in ihrer Fachabteilung. Die Projektleitung koordiniert wie eine Stabsstelle, hat aber keine Weisungsbefugnis. Das ist schnell eingerichtet, aber die Projektleitung muss mit Überzeugung statt Anweisung arbeiten.
-- **Matrix-Projektorganisation:** Die Mitarbeitenden bleiben in der Linie und arbeiten zugleich im Projekt. Die Weisungsbefugnis wird geteilt: Die Linie entscheidet etwa über Personaleinsatz und Fachliches der Abteilung, die Projektleitung über Aufgaben und Termine im Projekt. Das nutzt Fachwissen gut, führt aber durch die doppelte Unterstellung leicht zu Konflikten um Zeit und Prioritäten.
+- **Einfluss-Projektorganisation (auch Stab-Projektorganisation):** Die Mitarbeitenden bleiben vollständig in ihrer Fachabteilung. Die Projektleitung koordiniert wie eine Stabsstelle, hat aber keine Weisungsbefugnis. Das ist schnell eingerichtet, aber die Projektleitung muss mit Überzeugung statt Anweisung arbeiten.
+- **Matrix-Projektorganisation:** Die Mitarbeitenden bleiben in der Linie und arbeiten zugleich im Projekt. Die Weisungsbefugnis wird geteilt: Die Linie behält die disziplinarische Weisungsbefugnis (etwa Personaleinsatz, Urlaub, Beurteilung), die Projektleitung erhält die projektbezogene (was bis wann im Projekt zu tun ist). Das nutzt Fachwissen gut, führt aber durch die doppelte Unterstellung leicht zu Konflikten um Zeit und Prioritäten.
 - **Reine Projektorganisation:** Das Team wird für die Projektlaufzeit aus der Linie herausgelöst und der Projektleitung voll unterstellt. Das schafft klare Verantwortung und Konzentration, ist aber aufwendig und entzieht den Fachabteilungen Personal.
 
 ### Projektstrukturplan und Arbeitspakete
@@ -54,9 +54,9 @@ D       | 3     | 12  | 15  | 12  | 15  | 0  | 0
 E       | 2     | 15  | 17  | 15  | 17  | 0  | 0
 ```
 
-D beginnt erst in Woche 12, weil der Hallenumbau C erst dann fertig ist (größter FEZ der Vorgänger B und C). Die Projektdauer beträgt 17 Wochen, der kritische Pfad ist A–C–D–E. Die Bestellung B hat zwei Wochen Gesamtpuffer; verzögert sich der Hallenumbau dagegen um eine Woche, verschiebt sich das Projektende um eine Woche.
+D beginnt erst zum Zeitpunkt 12 (nach 12 Wochen), weil der Hallenumbau C erst dann fertig ist (größter FEZ der Vorgänger B und C). Die Projektdauer beträgt 17 Wochen, der kritische Pfad ist A–C–D–E. Die Bestellung B hat zwei Wochen Gesamtpuffer; verzögert sich der Hallenumbau dagegen um eine Woche, verschiebt sich das Projektende um eine Woche.
 
-Das **Gantt-Diagramm** zeigt dieselben Vorgänge als Balken auf einer Zeitachse: links die Vorgänge, oben die Zeit, jeder Balken so lang wie die Dauer, Meilensteine als Raute. Es ist sehr anschaulich für Termine, Überschneidungen und den Stand der Arbeit (der Fortschritt wird im Balken markiert). Die Abhängigkeiten und der kritische Pfad sind in einem Gantt-Diagramm weniger gut zu erkennen als im Netzplan; deshalb werden beide Darstellungen oft ergänzend eingesetzt.
+Das **Gantt-Diagramm** zeigt dieselben Vorgänge als Balken auf einer Zeitachse: links die Vorgänge, oben die Zeit, jeder Balken so lang wie die Dauer, Meilensteine als Raute. Es ist sehr anschaulich für Termine, Überschneidungen und den Stand der Arbeit (der Fortschritt wird im Balken markiert). Abhängigkeiten lassen sich als Pfeile einzeichnen, werden bei vielen Vorgängen aber unübersichtlich; den kritischen Pfad berechnet erst der Netzplan. Deshalb werden beide Darstellungen oft ergänzend eingesetzt.
 
 ### Projektcontrolling: Plan-Ist-Vergleich und Earned Value
 
@@ -69,7 +69,7 @@ Der einfache Vergleich von Plan- und Istkosten reicht nicht aus. Ein Projekt, da
 Daraus ergeben sich vier Kennzahlen:
 
 - **Kostenabweichung (CV)** = EV − AC. Positiv: unter Plan, negativ: Kostenüberschreitung.
-- **Terminabweichung (SV)** = EV − PV. Positiv: vor dem Plan, negativ: Verzug.
+- **Terminabweichung (SV)** = EV − PV. Positiv: vor dem Plan, negativ: Verzug. Die Terminabweichung wird hier in Euro gemessen, nicht in Tagen.
 - **Kostenindex (CPI)** = EV ÷ AC. Größer als 1: kostengünstiger als geplant, kleiner als 1: teurer.
 - **Terminindex (SPI)** = EV ÷ PV. Größer als 1: schneller als geplant, kleiner als 1: im Verzug.
 
@@ -77,15 +77,15 @@ Beispiel: Für einen neuen Prüfstand der Solvitec in Zwickau sind 120.000 € G
 
 ### Änderungsmanagement
 
-Im Projektverlauf kommen laufend Änderungswünsche, etwa neue Anforderungen des Auftraggebers oder technische Erkenntnisse. Ohne Regeln führt das zu schleichender Ausweitung des Umfangs („Scope Creep“) und zu Streit. Das **Änderungsmanagement** (Change Management im Projekt) legt einen festen Ablauf fest: Die Änderung wird als **Änderungsantrag** (Change Request) schriftlich mit Beschreibung und Begründung gestellt; die Projektleitung bewertet ihre **Auswirkungen** auf Leistung, Termin, Kosten und Risiken (das magische Dreieck); ein dafür zuständiges Gremium entscheidet (kleine Änderungen innerhalb eines vereinbarten Spielraums die Projektleitung, größere der Lenkungsausschuss); die Entscheidung wird dokumentiert, und Pläne und Budget werden angepasst. So bleibt nachvollziehbar, warum sich ein Projekt gegenüber dem ursprünglichen Auftrag verändert hat.
+Im Projektverlauf kommen laufend Änderungswünsche, etwa neue Anforderungen der Auftraggeber:in oder technische Erkenntnisse. Ohne Regeln führt das zu schleichender Ausweitung des Umfangs („Scope Creep“) und zu Streit. Das **Änderungsmanagement** (Change Management im Projekt) legt einen festen Ablauf fest: Die Änderung wird als **Änderungsantrag** (Change Request) schriftlich mit Beschreibung und Begründung gestellt; die Projektleitung bewertet ihre **Auswirkungen** auf Leistung, Termin, Kosten und Risiken (das magische Dreieck); ein dafür zuständiges Gremium entscheidet (kleine Änderungen innerhalb eines vereinbarten Spielraums die Projektleitung, größere der Lenkungsausschuss); die Entscheidung wird dokumentiert, und Pläne und Budget werden angepasst. So bleibt nachvollziehbar, warum sich ein Projekt gegenüber dem ursprünglichen Auftrag verändert hat.
 
 ### Risiken im Projekt
 
-Auch im Projekt werden Risiken früh erkannt und bewertet (Risikomatrix, siehe Thema 4.3 „Planungs- und Analysemethoden“). Als Rechengröße dient der **Risikoerwartungswert** = Eintrittswahrscheinlichkeit × Schadenshöhe. Rechnet Solvitec damit, dass sich die Lieferung des Prüfsystems mit 20 % Wahrscheinlichkeit verzögert und dadurch ein Schaden von 50.000 € entstünde, beträgt der Erwartungswert 20 % × 50.000 € = 10.000 €. Je höher er ist, desto eher lohnt sich eine Gegenmaßnahme, etwa ein zweiter Lieferant oder ein Zeitpuffer im Plan; maßgeblich bleibt dabei der Vergleich mit den Kosten der Gegenmaßnahme.
+Auch im Projekt werden Risiken früh erkannt und bewertet (Risikomatrix, siehe Thema 4.3 „Planungs- und Analysemethoden“). Als Rechengröße dient der **Risikoerwartungswert** = Eintrittswahrscheinlichkeit × Schadenshöhe. Rechnet Solvitec damit, dass sich die Lieferung des Prüfsystems mit 20 % Wahrscheinlichkeit verzögert und dadurch ein Schaden von 50.000 € entstünde, beträgt der Erwartungswert 20 % × 50.000 € = 10.000 €. Je höher er ist, desto eher lohnt sich eine Gegenmaßnahme, etwa ein zweiter Lieferant oder ein Zeitpuffer im Plan; eine Gegenmaßnahme lohnt sich, wenn ihre Kosten geringer sind als die Senkung des Erwartungswerts, die sie bewirkt.
 
 ### Projektabschluss und Lessons Learned
 
-Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschlussbericht** vergleicht Ziele, Termine und Kosten mit der Planung, offene Punkte werden übergeben und das Team wird aufgelöst. Besonders wichtig ist die Sammlung der **Lessons Learned** (vgl. Thema 8.3): Was lief gut, was nicht, was sollte künftig anders gemacht werden? Sie wird nicht erst am Ende, sondern schon an den Meilensteinen erhoben, solange die Erinnerungen frisch sind, und gehört mit Verantwortlichen und Terminen in die Wissensdatenbank, sonst bleibt sie folgenlos. So wird aus einem einmaligen Projekt ein Lerngewinn für künftige Vorhaben.
+Zum Abschluss wird das Ergebnis von der Auftraggeber:in **abgenommen**, der **Abschlussbericht** vergleicht Ziele, Termine und Kosten mit der Planung, offene Punkte werden übergeben und das Team wird aufgelöst. Besonders wichtig ist die Sammlung der **Lessons Learned** (vgl. Thema 8.3): Was lief gut, was nicht, was sollte künftig anders gemacht werden? Sie wird nicht erst am Ende, sondern schon an den Meilensteinen erhoben, solange die Erinnerungen frisch sind, die abgeleiteten Maßnahmen erhalten Verantwortliche und Termine, und das Wissen gehört in die Wissensdatenbank, sonst bleibt es folgenlos. So wird aus einem einmaligen Projekt ein Lerngewinn für künftige Vorhaben.
 
 ## Karteikarten
 
@@ -136,7 +136,7 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 
 #### K-8.4-10
 **Frage:** Wo liegt die Stärke, wo die Schwäche des Gantt-Diagramms gegenüber dem Netzplan?
-**Antwort:** Stärke: anschauliche Darstellung von Terminen, Überschneidungen und Fortschritt. Schwäche: Abhängigkeiten und kritischer Pfad sind schlechter erkennbar.
+**Antwort:** Stärke: anschauliche Darstellung von Terminen, Überschneidungen und Fortschritt. Schwäche: Abhängigkeiten werden bei vielen Vorgängen unübersichtlich, den kritischen Pfad berechnet erst der Netzplan.
 `tags: gantt` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-8.4-11
@@ -246,7 +246,7 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-8.4-09 · Kurzantwort
-**Frage:** Wie viele Wochen Gesamtpuffer hat Vorgang C im Netzplan aus der vorigen Frage (A 3 Wochen; B 4 Wochen nach A; C 2 Wochen nach A; D 2 Wochen nach B und C)?
+**Frage:** Wie viele Wochen Gesamtpuffer hat Vorgang C im Netzplan (A 3 Wochen; B 4 Wochen nach A; C 2 Wochen nach A; D 2 Wochen nach B und C)?
 **Akzeptierte Antworten:** 2; 2 Wochen
 **Erklärung:** C hat FAZ 3 und FEZ 5. Der späteste Anfang des Nachfolgers D liegt bei 7, also ist SEZ = 7 und SAZ = 5. GP = SAZ − FAZ = 5 − 3 = 2 Wochen.
 `schwierigkeit: schwer` · `bloom: anwenden`
@@ -262,7 +262,7 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 **Aussage:** Im Gantt-Diagramm sind Abhängigkeiten und kritischer Pfad stets besser zu erkennen als im Netzplan.
 - [ ] Wahr
 - [x] Falsch
-**Erklärung:** Das Gantt-Diagramm ist stark bei Terminen und Fortschritt; Abhängigkeiten und kritischer Pfad zeigt der Netzplan besser.
+**Erklärung:** Das Gantt-Diagramm ist stark bei Terminen und Fortschritt; Abhängigkeiten sind bei vielen Vorgängen schwer überschaubar, und den kritischen Pfad berechnet erst der Netzplan.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### Q-8.4-12 · Kurzantwort
@@ -279,7 +279,7 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 
 #### Q-8.4-14 · Kurzantwort
 **Frage:** Mit den Werten PV = 60.000 €, EV = 48.000 € und AC = 40.000 €: Wie hoch ist die Kostenabweichung CV in Euro?
-**Akzeptierte Antworten:** 8000; 8.000; +8000; +8.000; 8000 €; 8.000 €; +8000 €; +8.000 €; 8000 Euro; 8.000 Euro; +8000 Euro; +8.000 Euro; 8000 EUR; 8.000 EUR; +8000 EUR; +8.000 EUR
+**Akzeptierte Antworten:** 8000; 8.000; +8000; +8.000; 8000 €; 8.000 €; +8000 €; +8.000 €; 8000 Euro; 8.000 Euro; +8000 Euro; +8.000 Euro; 8000 EUR; 8.000 EUR; +8000 EUR; +8.000 EUR; 8000,00; 8.000,00; +8000,00; +8.000,00; 8000,00 €; 8.000,00 €; +8000,00 €; +8.000,00 €; 8000,00 Euro; 8.000,00 Euro; +8000,00 Euro; +8.000,00 Euro; 8000,00 EUR; 8.000,00 EUR; +8000,00 EUR; +8.000,00 EUR
 **Erklärung:** CV = EV − AC = 48.000 € − 40.000 € = + 8.000 €. Positiv bedeutet: Die erbrachte Leistung hat weniger gekostet als ihr Wert.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
@@ -294,7 +294,7 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 
 #### Q-8.4-16 · Kurzantwort
 **Frage:** Das Gesamtbudget beträgt 120.000 €, der Kostenindex liegt bei 1,2. Wie hoch ist die Gesamtkosten-Prognose (EAC) in Euro, wenn die Kosteneffizienz anhält?
-**Akzeptierte Antworten:** 100000; 100.000; 100000 €; 100.000 €; 100000 Euro; 100.000 Euro; 100000 EUR; 100.000 EUR
+**Akzeptierte Antworten:** 100000; 100.000; 100000 €; 100.000 €; 100000 Euro; 100.000 Euro; 100000 EUR; 100.000 EUR; 100000,00; 100.000,00; 100000,00 €; 100.000,00 €; 100000,00 Euro; 100.000,00 Euro; 100000,00 EUR; 100.000,00 EUR
 **Erklärung:** EAC = Gesamtbudget ÷ CPI = 120.000 € ÷ 1,2 = 100.000 €.
 `schwierigkeit: schwer` · `bloom: anwenden`
 
@@ -318,12 +318,12 @@ Zum Abschluss wird das Ergebnis vom Auftraggeber **abgenommen**, der **Abschluss
 
 #### Q-8.4-19 · Kurzantwort
 **Frage:** Ein Lieferverzug tritt mit 20 % Wahrscheinlichkeit ein und würde 50.000 € Schaden verursachen. Wie hoch ist der Risikoerwartungswert in Euro?
-**Akzeptierte Antworten:** 10000; 10.000; 10000 €; 10.000 €; 10000 Euro; 10.000 Euro; 10000 EUR; 10.000 EUR
+**Akzeptierte Antworten:** 10000; 10.000; 10000 €; 10.000 €; 10000 Euro; 10.000 Euro; 10000 EUR; 10.000 EUR; 10000,00; 10.000,00; 10000,00 €; 10.000,00 €; 10000,00 Euro; 10.000,00 Euro; 10000,00 EUR; 10.000,00 EUR
 **Erklärung:** Erwartungswert = Eintrittswahrscheinlichkeit × Schadenshöhe = 20 % × 50.000 € = 10.000 €.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-8.4-20 · Wahr/Falsch
-**Aussage:** Lessons Learned sollten erst nach Projektabschluss gesammelt werden, nicht schon an Meilensteinen.
+**Aussage:** Lessons Learned werden ausschließlich nach dem Projektabschluss gesammelt, nicht schon an Meilensteinen.
 - [ ] Wahr
 - [x] Falsch
 **Erklärung:** Sie werden schon an den Meilensteinen erhoben, solange die Erinnerungen frisch sind, und zum Abschluss ergänzt.

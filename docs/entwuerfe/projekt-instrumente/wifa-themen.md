@@ -10,7 +10,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Befund aus dem Fachlehrer
 
 ### Projektplanung mit dem Gantt-Diagramm
 
-Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystems sind Projekte mit mehreren Phasen und Terminen. Zur übersichtlichen Zeitplanung dient das **Gantt-Diagramm** (Balkenplan): Links stehen die Vorgänge untereinander, oben die Zeitachse, und jeder Vorgang ist ein Balken, der so lang ist wie seine Dauer. **Meilensteine**, an denen über den Fortgang entschieden wird, werden meist als Raute eingetragen; der erreichte Fortschritt kann im Balken markiert werden. Vorgänge, die zeitlich aufeinander folgen müssen, stehen hintereinander, Vorgänge, die parallel laufen können, untereinander im gleichen Zeitraum. Bei NordWert könnten die Phasen Analyse (4 Wochen), Umsetzung (6 Wochen), Testbetrieb (3 Wochen) und Rollout (3 Wochen) nacheinander folgen; das Projekt dauert dann 4 + 6 + 3 + 3 = 16 Wochen, und das Schulen der Mitarbeitenden läuft innerhalb der Umsetzungsphase parallel zur Konfiguration. Die Stärke des Gantt-Diagramms ist die anschauliche Darstellung von Terminen, Überschneidungen und Fortschritt. Abhängigkeiten zwischen den Vorgängen und der kritische Pfad sind dagegen im Netzplan besser zu erkennen; deshalb ergänzen sich beide Darstellungen.
+Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystems sind Projekte mit mehreren Phasen und Terminen. Zur übersichtlichen Zeitplanung dient das **Gantt-Diagramm** (Balkenplan): Links stehen die Vorgänge untereinander, oben die Zeitachse, und jeder Vorgang ist ein Balken, der so lang ist wie seine Dauer. **Meilensteine**, an denen über den Fortgang entschieden wird, werden meist als Raute eingetragen; der erreichte Fortschritt kann im Balken markiert werden. Vorgänge, die zeitlich aufeinander folgen müssen, stehen hintereinander, Vorgänge, die parallel laufen können, untereinander im gleichen Zeitraum. Bei NordWert könnten die Phasen Analyse (4 Wochen), Umsetzung (6 Wochen), Testbetrieb (3 Wochen) und Rollout (3 Wochen) nacheinander folgen; das Projekt dauert dann 4 + 6 + 3 + 3 = 16 Wochen, und das Schulen der Mitarbeitenden läuft innerhalb der Umsetzungsphase parallel zur Konfiguration. Die Stärke des Gantt-Diagramms ist die anschauliche Darstellung von Terminen, Überschneidungen und Fortschritt. Abhängigkeiten lassen sich als Pfeile einzeichnen, werden bei vielen Vorgängen aber unübersichtlich. Dafür gibt es den **Netzplan**: Er stellt die Vorgänge mit ihren Vorgängern dar und macht den **kritischen Pfad** berechenbar, das ist die Kette von Vorgängen ohne Zeitpuffer, deren Verzögerung das Projektende verschiebt. Beide Darstellungen ergänzen sich.
 
 ## B. Karteikarten 3.3 (anhängen)
 
@@ -26,7 +26,7 @@ Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystem
 
 #### K-3.3-23
 **Frage:** Was stellt das Gantt-Diagramm weniger gut dar als der Netzplan?
-**Antwort:** Die Abhängigkeiten zwischen den Vorgängen und den kritischen Pfad.
+**Antwort:** Abhängigkeiten werden bei vielen Vorgängen unübersichtlich; den kritischen Pfad (die Kette von Vorgängen ohne Zeitpuffer) berechnet erst der Netzplan.
 `tags: gantt` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### K-3.3-24
@@ -42,7 +42,7 @@ Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystem
 - [x] Es stellt Vorgänge als Balken auf einer Zeitachse dar.
 - [ ] Es ersetzt den Netzplan vollständig.
 - [ ] Es zeigt nur den kritischen Pfad.
-**Erklärung:** Das Gantt-Diagramm ist ein Balkenplan für die Zeitplanung; der Netzplan zeigt Abhängigkeiten und kritischen Pfad besser.
+**Erklärung:** Das Gantt-Diagramm ist ein Balkenplan für die Zeitplanung; den kritischen Pfad berechnet erst der Netzplan.
 `schwierigkeit: leicht` · `bloom: verstehen`
 
 #### Q-3.3-15 · Kurzantwort
@@ -59,10 +59,10 @@ Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystem
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.3-17 · Entweder-Oder
-**Frage:** Welche Darstellung zeigt Abhängigkeiten und kritischen Pfad besser: Gantt-Diagramm oder Netzplan?
+**Frage:** Mit welcher Darstellung lässt sich der kritische Pfad berechnen: Gantt-Diagramm oder Netzplan?
 - [ ] Gantt-Diagramm
 - [x] Netzplan
-**Erklärung:** Der Netzplan stellt Abhängigkeiten ausdrücklich dar und macht den kritischen Pfad berechenbar; das Gantt-Diagramm ist stark bei Terminen und Fortschritt.
+**Erklärung:** Der Netzplan stellt die Vorgänge mit ihren Vorgängern dar und macht den kritischen Pfad berechenbar; das Gantt-Diagramm ist stark bei Terminen und Fortschritt.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 ---
@@ -73,7 +73,7 @@ Rationalisierungsvorhaben wie die Einführung eines neuen Lagerverwaltungssystem
 
 ### Risiken bewerten: Risikomatrix
 
-Zur Planung gehört, Risiken zu erkennen und zu bewerten. Die **Risikomatrix** ordnet Risiken nach **Eintrittswahrscheinlichkeit** und **Schadenshöhe** vier Feldern zu. Hohe Wahrscheinlichkeit und hoher Schaden: das Risiko wird **vermieden**. Geringe Wahrscheinlichkeit, aber hoher Schaden: das Risiko wird **abgesichert**, etwa durch eine Versicherung oder einen zweiten Lieferanten. Hohe Wahrscheinlichkeit, aber geringer Schaden: das Risiko wird **beobachtet**. Geringe Wahrscheinlichkeit und geringer Schaden: das Risiko wird **akzeptiert**. Ergänzend lässt sich der **Risikoerwartungswert** berechnen: Eintrittswahrscheinlichkeit × Schadenshöhe. Fällt bei NordWert der einzige Lieferant eines Kernartikels mit 5 % Wahrscheinlichkeit aus und würde das 80.000 € Schaden verursachen, beträgt der Erwartungswert 5 % × 80.000 € = 4.000 €. Dieser Wert hilft zu beurteilen, wie viel eine Gegenmaßnahme höchstens kosten darf, ersetzt aber nicht die Betrachtung seltener, sehr hoher Schäden, die für das Unternehmen existenzbedrohend sein können.
+Zur Planung gehört, Risiken zu erkennen und zu bewerten. Die **Risikomatrix** ordnet Risiken nach **Eintrittswahrscheinlichkeit** und **Schadenshöhe** vier Feldern zu. Hohe Wahrscheinlichkeit und hoher Schaden: das Risiko wird **vermieden**. Geringe Wahrscheinlichkeit, aber hoher Schaden: das Risiko wird **abgesichert**, etwa durch eine Versicherung oder einen zweiten Lieferanten. Hohe Wahrscheinlichkeit, aber geringer Schaden: das Risiko wird **beobachtet**. Geringe Wahrscheinlichkeit und geringer Schaden: das Risiko wird **akzeptiert**. Ergänzend lässt sich der **Risikoerwartungswert** berechnen: Eintrittswahrscheinlichkeit × Schadenshöhe. Fällt bei NordWert das zentrale Lagerverwaltungssystem mit 5 % Wahrscheinlichkeit aus und würde das 80.000 € Schaden verursachen, beträgt der Erwartungswert 5 % × 80.000 € = 4.000 €. Eine Gegenmaßnahme lohnt sich, wenn ihre Kosten geringer sind als die Senkung des Erwartungswerts, die sie bewirkt. In der Literatur werden die Strategien häufig auch als Vermeiden, Vermindern, Überwälzen und Akzeptieren bezeichnet; in diesem Kurs gelten die vier Bezeichnungen oben. Der Wert ersetzt aber nicht die Betrachtung seltener, sehr hoher Schäden, die für das Unternehmen existenzbedrohend sein können.
 
 ## E. Karteikarten 4.3 (anhängen)
 
@@ -109,8 +109,8 @@ Zur Planung gehört, Risiken zu erkennen und zu bewerten. Die **Risikomatrix** o
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-4.3-15 · Kurzantwort
-**Frage:** Der einzige Lieferant eines Kernartikels fällt mit 5 % Wahrscheinlichkeit aus; der Schaden würde 80.000 € betragen. Wie hoch ist der Risikoerwartungswert in Euro?
-**Akzeptierte Antworten:** 4000; 4.000; 4000 €; 4.000 €; 4000 Euro; 4.000 Euro; 4000 EUR; 4.000 EUR
+**Frage:** Das zentrale Lagerverwaltungssystem fällt mit 5 % Wahrscheinlichkeit aus; der Schaden würde 80.000 € betragen. Wie hoch ist der Risikoerwartungswert in Euro?
+**Akzeptierte Antworten:** 4000; 4.000; 4000 €; 4.000 €; 4000 Euro; 4.000 Euro; 4000 EUR; 4.000 EUR; 4000,00; 4.000,00; 4000,00 €; 4.000,00 €; 4000,00 Euro; 4.000,00 Euro; 4000,00 EUR; 4.000,00 EUR
 **Erklärung:** Erwartungswert = Eintrittswahrscheinlichkeit × Schadenshöhe = 5 % × 80.000 € = 4.000 €.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
@@ -138,7 +138,7 @@ Zur Planung gehört, Risiken zu erkennen und zu bewerten. Die **Risikomatrix** o
 
 ### Due Diligence bei Übernahmen
 
-Bevor ein Unternehmen ein anderes übernimmt, prüft es das Zielunternehmen sorgfältig: Diese **Due Diligence** (Sorgfaltsprüfung) soll Chancen und Risiken des Kaufs erkennen, den **Kaufpreis** begründen und die Verhandlungen absichern. Üblich sind eine Vertraulichkeitsvereinbarung, damit das Zielunternehmen sensible Unterlagen offenlegt, und ein **Datenraum**, in dem die Unterlagen gesammelt werden. Geprüft werden meist mehrere Bereiche: **finanziell** (Jahresabschlüsse, Verbindlichkeiten, Zahlungsströme), **rechtlich** (Verträge, laufende Rechtsstreitigkeiten, Schutzrechte), **steuerlich**, **wirtschaftlich** (Markt, Kundschaft, Wettbewerb), **technisch bzw. betrieblich** (Anlagen, Prozesse) und **personell** (Beschäftigte, Zusagen). Die Ergebnisse fließen in einen Prüfbericht ein. Er kann zu einem niedrigeren Kaufpreis, zu Auflagen im Kaufvertrag oder zum Abbruch der Verhandlungen führen. Würde NordWert etwa einen kleineren Büromaterialgroßhändler übernehmen, würde die Prüfung unter anderem klären, wie hoch dessen Verbindlichkeiten sind, wie abhängig er von wenigen Großkunden ist und welche Lieferverträge bestehen. Die Due Diligence steht in der Regel zwischen erster Kontaktaufnahme und Abschluss des Kaufvertrags; sie ersetzt keine rechtliche Beratung im Einzelfall.
+Bevor ein Unternehmen ein anderes übernimmt, prüft es das Zielunternehmen sorgfältig: Diese **Due Diligence** (Sorgfaltsprüfung) soll Chancen und Risiken des Kaufs erkennen, den **Kaufpreis** begründen und die Verhandlungen absichern. Üblich sind eine Vertraulichkeitsvereinbarung, damit das Zielunternehmen sensible Unterlagen offenlegt, und ein **Datenraum**, in dem die Unterlagen gesammelt werden. Geprüft werden meist mehrere Bereiche: **finanziell** (Jahresabschlüsse, Verbindlichkeiten, Zahlungsströme), **rechtlich** (Verträge, laufende Rechtsstreitigkeiten, Schutzrechte), **steuerlich**, **wirtschaftlich** (Markt, Kundschaft, Wettbewerb), **technisch bzw. betrieblich** (Anlagen, Prozesse) und **personell** (Beschäftigte, Zusagen). Die Ergebnisse fließen in einen Prüfbericht ein. Er kann zu einem niedrigeren Kaufpreis, zu Garantien, Freistellungen oder Kaufpreisanpassungen im Kaufvertrag oder zum Abbruch der Verhandlungen führen. Würde NordWert etwa einen kleineren Büromaterialgroßhändler übernehmen, würde die Prüfung unter anderem klären, wie hoch dessen Verbindlichkeiten sind, wie abhängig er von wenigen Großkunden ist und welche Lieferverträge bestehen. Die Due Diligence steht in der Regel zwischen erster Kontaktaufnahme und Abschluss des Kaufvertrags; die rechtliche, steuerliche und finanzielle Prüfung übernehmen in der Praxis meist externe Fachleute.
 
 ## H. Karteikarten 1.4 (anhängen)
 
@@ -154,7 +154,7 @@ Bevor ein Unternehmen ein anderes übernimmt, prüft es das Zielunternehmen sorg
 
 #### K-1.4-23
 **Frage:** Welche Folgen kann das Ergebnis einer Due Diligence haben?
-**Antwort:** Ein niedrigerer Kaufpreis, Auflagen im Kaufvertrag oder der Abbruch der Verhandlungen.
+**Antwort:** Ein niedrigerer Kaufpreis, Garantien, Freistellungen oder Kaufpreisanpassungen im Kaufvertrag oder der Abbruch der Verhandlungen.
 `tags: due_diligence` · `schwierigkeit: mittel` · `bloom: analysieren`
 
 ## I. Quiz 1.4 (anhängen)

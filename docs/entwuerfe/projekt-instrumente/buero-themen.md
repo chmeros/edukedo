@@ -10,17 +10,17 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Befund aus dem Fachlehrer
 
 ### Magisches Dreieck und Projektorganisation
 
-Jedes Projekt bewegt sich zwischen drei zusammenhängenden Zielgrößen: **Leistung** (Umfang und Qualität des Ergebnisses), **Termin** und **Kosten**. Das ist das **magische Dreieck** des Projektmanagements: Wird eine Größe verändert, wirkt das meist auf mindestens eine andere. Wünscht ein Kunde der Deko & Büro GmbH bei einer Büroneugestaltung zusätzliche Arbeitsplätze zum gleichen Preis und zum gleichen Termin, ist das Dreieck aus dem Gleichgewicht: Mehr Leistung bedeutet in der Regel mehr Kosten oder mehr Zeit.
+Jedes Projekt bewegt sich zwischen drei zusammenhängenden Zielgrößen: **Leistung** (Umfang und Qualität des Ergebnisses), **Termin** und **Kosten**. Das ist das **magische Dreieck** des Projektmanagements: Wird eine Größe verändert, wirkt das meist auf mindestens eine andere. Wünscht ein Kundenunternehmen der Deko & Büro GmbH bei einer Büroneugestaltung zusätzliche Arbeitsplätze zum gleichen Preis und zum gleichen Termin, ist das Dreieck aus dem Gleichgewicht: Mehr Leistung bedeutet in der Regel mehr Kosten oder mehr Zeit.
 
-Für Entscheidungen braucht ein Projekt klare Rollen. Die **Auftraggeber:in** gibt das Projekt in Auftrag und stellt Budget und Ressourcen bereit. Der **Lenkungsausschuss** (Steuerungskreis) ist das Entscheidungsgremium über der Projektleitung: Er gibt Meilensteine und Budgets frei, entscheidet über Änderungen von größerer Tragweite und löst Konflikte, die die Projektleitung nicht allein klären kann. Die **Projektleitung** plant und steuert das Projekt operativ, führt das **Projektteam** und berichtet an den Lenkungsausschuss. Wie das Team in die Firma eingebunden ist, regelt die Projektorganisation: Bei der **Einfluss-Projektorganisation** bleiben alle in ihrer Abteilung und die Projektleitung koordiniert ohne Weisungsbefugnis; bei der **Matrix-Projektorganisation** teilen sich Linie und Projektleitung die Weisungsbefugnis (mit dem Risiko von Konflikten um Zeit und Prioritäten); bei der **reinen Projektorganisation** ist das Team für die Projektlaufzeit aus der Linie herausgelöst und der Projektleitung voll unterstellt.
+Für Entscheidungen braucht ein Projekt klare Rollen. Die **Auftraggeber:in** gibt das Projekt in Auftrag und stellt Budget und Ressourcen bereit. Der **Lenkungsausschuss** (Steuerungskreis) ist das Entscheidungsgremium über der Projektleitung: Er gibt Meilensteine und Budgets frei, entscheidet über Änderungen von größerer Tragweite und löst Konflikte, die die Projektleitung nicht allein klären kann. Die **Projektleitung** plant und steuert das Projekt operativ, führt das **Projektteam** und berichtet an den Lenkungsausschuss. Wie das Team in die Firma eingebunden ist, regelt die Projektorganisation: Bei der **Einfluss-Projektorganisation** (auch Stab-Projektorganisation) bleiben alle in ihrer Abteilung und die Projektleitung koordiniert ohne Weisungsbefugnis; bei der **Matrix-Projektorganisation** teilen sich Linie und Projektleitung die Weisungsbefugnis (mit dem Risiko von Konflikten um Zeit und Prioritäten); bei der **reinen Projektorganisation** ist das Team für die Projektlaufzeit aus der Linie herausgelöst und der Projektleitung voll unterstellt.
 
 ### Zeitplanung mit dem Gantt-Diagramm
 
-Das **Gantt-Diagramm** (Balkenplan) zeigt die Vorgänge eines Projekts auf einer Zeitachse: links stehen die Vorgänge untereinander, oben die Zeit, und jeder Vorgang ist ein Balken, der so lang ist wie seine Dauer. **Meilensteine** werden meist als Raute eingetragen, der erreichte Fortschritt wird im Balken markiert. So lassen sich Termine, Überschneidungen und der Stand der Arbeit auf einen Blick erfassen. Abhängigkeiten zwischen Vorgängen und der kritische Pfad sind dagegen im Netzplan (Thema 1.2) besser zu erkennen; beide Darstellungen ergänzen sich. Für die Neugestaltung eines Kundenbüros wären typische Balken: „Aufmaß und Planung“, „Möbel bestellen und liefern“, „Aufbau“ und „Abnahme“, der Abschluss der Planung wäre ein Meilenstein.
+Das **Gantt-Diagramm** (Balkenplan) zeigt die Vorgänge eines Projekts auf einer Zeitachse: links stehen die Vorgänge untereinander, oben die Zeit, und jeder Vorgang ist ein Balken, der so lang ist wie seine Dauer. **Meilensteine** werden meist als Raute eingetragen, der erreichte Fortschritt wird im Balken markiert. So lassen sich Termine, Überschneidungen und der Stand der Arbeit auf einen Blick erfassen. Abhängigkeiten lassen sich als Pfeile einzeichnen, werden bei vielen Vorgängen aber unübersichtlich; den kritischen Pfad berechnet erst der Netzplan (Thema 1.2). Beide Darstellungen ergänzen sich. Für die Neugestaltung eines Kundenbüros wären typische Balken: „Aufmaß und Planung“, „Möbel bestellen und liefern“, „Aufbau“ und „Abnahme“, der Abschluss der Planung wäre ein Meilenstein.
 
 ### Risiken bewerten mit der Risikomatrix
 
-Die **Risikomatrix** ordnet Projektrisiken nach **Eintrittswahrscheinlichkeit** und **Schadenshöhe** vier Feldern zu. Hohe Wahrscheinlichkeit und hoher Schaden: das Risiko wird **vermieden**. Geringe Wahrscheinlichkeit, aber hoher Schaden: das Risiko wird **abgesichert** (etwa durch eine Vertretungsregelung oder Versicherung). Hohe Wahrscheinlichkeit, aber geringer Schaden: das Risiko wird **beobachtet**. Geringe Wahrscheinlichkeit und geringer Schaden: das Risiko wird **akzeptiert**. Zusätzlich lässt sich der **Risikoerwartungswert** berechnen: Eintrittswahrscheinlichkeit × Schadenshöhe. Fällt die Projektsoftware mit 10 % Wahrscheinlichkeit aus und würde das 30.000 € Schaden verursachen, beträgt der Erwartungswert 10 % × 30.000 € = 3.000 €. Je höher er ist, desto eher lohnt sich eine Gegenmaßnahme, deren Kosten man mit ihm vergleicht.
+Die **Risikomatrix** ordnet Projektrisiken nach **Eintrittswahrscheinlichkeit** und **Schadenshöhe** vier Feldern zu. Hohe Wahrscheinlichkeit und hoher Schaden: das Risiko wird **vermieden**. Geringe Wahrscheinlichkeit, aber hoher Schaden: das Risiko wird **abgesichert** (etwa durch eine Vertretungsregelung oder Versicherung). Hohe Wahrscheinlichkeit, aber geringer Schaden: das Risiko wird **beobachtet**. Geringe Wahrscheinlichkeit und geringer Schaden: das Risiko wird **akzeptiert**. Zusätzlich lässt sich der **Risikoerwartungswert** berechnen: Eintrittswahrscheinlichkeit × Schadenshöhe. Fällt die Projektsoftware mit 10 % Wahrscheinlichkeit aus und würde das 30.000 € Schaden verursachen, beträgt der Erwartungswert 10 % × 30.000 € = 3.000 €. Eine Gegenmaßnahme lohnt sich, wenn ihre Kosten geringer sind als die Senkung des Erwartungswerts, die sie bewirkt. In der Literatur werden die Strategien häufig auch als Vermeiden, Vermindern, Überwälzen und Akzeptieren bezeichnet; in diesem Kurs gelten die vier Bezeichnungen oben.
 
 ### Verbessern mit dem PDCA-Zyklus
 
@@ -28,7 +28,7 @@ Der **PDCA-Zyklus** (Deming-Kreis) beschreibt Verbesserung in vier Phasen: **Pla
 
 ### Rechenbeispiel: Projektcontrolling mit Earned Value
 
-Die **Earned-Value-Analyse** verknüpft Kosten und Fortschritt, denn der Vergleich von Plan- und Istkosten allein sagt nicht, wie viel Arbeit erledigt ist. Sie arbeitet zu einem Stichtag mit drei Größen: dem **Planwert (PV)**, den laut Plan bis dahin eingeplanten Kosten; dem **Fertigstellungswert (EV)**, also Fertigstellungsgrad × Gesamtbudget; und den **Istkosten (AC)**, den tatsächlich angefallenen Kosten. Daraus folgen die **Kostenabweichung** CV = EV − AC, die **Terminabweichung** SV = EV − PV, der **Kostenindex** CPI = EV ÷ AC und der **Terminindex** SPI = EV ÷ PV. Indizes über 1 sind günstig (kostengünstiger bzw. schneller als geplant), Indizes unter 1 ungünstig (teurer bzw. im Verzug).
+Die **Earned-Value-Analyse** verknüpft Kosten und Fortschritt, denn der Vergleich von Plan- und Istkosten allein sagt nicht, wie viel Arbeit erledigt ist. Sie arbeitet zu einem Stichtag mit drei Größen: dem **Planwert (PV)**, den laut Plan bis dahin eingeplanten Kosten; dem **Fertigstellungswert (EV)**, also Fertigstellungsgrad × Gesamtbudget; und den **Istkosten (AC)**, den tatsächlich angefallenen Kosten. Daraus folgen die **Kostenabweichung** CV = EV − AC, die **Terminabweichung** SV = EV − PV, der **Kostenindex** CPI = EV ÷ AC und der **Terminindex** SPI = EV ÷ PV. Indizes über 1 sind günstig (kostengünstiger bzw. schneller als geplant), Indizes unter 1 ungünstig (teurer bzw. im Verzug). Achtung: Anders als beim Plan-Ist-Vergleich oben (Ist − Plan, positiv = Überschreitung) bedeutet bei CV und SV ein negativer Wert die Überschreitung bzw. den Verzug; die Terminabweichung SV wird dabei in Euro gemessen, nicht in Tagen.
 
 Die Deko & Büro GmbH plant die Neugestaltung eines Kundenbüros mit einem Gesamtbudget von 90.000 €. Zum Stichtag sind laut Plan 45.000 € eingeplant (PV); erledigt sind 40 % der Arbeit, also EV = 40 % × 90.000 € = 36.000 €; angefallen sind AC = 40.000 €. Dann ist CV = 36.000 € − 40.000 € = − 4.000 € und SV = 36.000 € − 45.000 € = − 9.000 €; der Kostenindex ist CPI = 36.000 € ÷ 40.000 € = 0,9, der Terminindex SPI = 36.000 € ÷ 45.000 € = 0,8. Das Projekt ist also teurer als geplant und im Verzug. Hält die bisherige Kosteneffizienz an, ergibt sich die Gesamtkosten-Prognose **EAC** = Gesamtbudget ÷ CPI = 90.000 € ÷ 0,9 = 100.000 €, also 10.000 € über dem Budget. Die Prognose gilt nur bei gleichbleibender Effizienz und sagt nichts über den Endtermin.
 
@@ -38,7 +38,7 @@ Im Projektverlauf kommen laufend Änderungswünsche. Ohne feste Regeln führen s
 
 ### Lessons Learned
 
-Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen: Was lief gut, was nicht, was soll künftig anders gemacht werden? Sie werden nicht erst zum Abschluss, sondern schon an den Meilensteinen gesammelt, solange die Erinnerungen frisch sind. Wirksam werden sie erst, wenn die abgeleiteten Maßnahmen Verantwortliche und Termine haben und das Wissen so abgelegt wird, dass das nächste Projektteam es findet. Damit schließen sie den Kreis zur Prozessoptimierung (1.3.7).
+Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen: Was lief gut, was nicht, was soll künftig anders gemacht werden? Sie werden nicht erst zum Abschluss, sondern schon an den Meilensteinen gesammelt, solange die Erinnerungen frisch sind. Anders als die Projektevaluation (1.3.6), die nach dem Abschluss Ziele, Qualität und Wirtschaftlichkeit bewertet, werden Lessons Learned laufend gesammelt. Wirksam werden sie erst, wenn die abgeleiteten Maßnahmen Verantwortliche und Termine haben und das Wissen so abgelegt wird, dass das nächste Projektteam es findet. Damit schließen sie den Kreis zur Prozessoptimierung (1.3.7).
 
 ## B. Karteikarten 1.3 (anhängen)
 
@@ -59,7 +59,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 
 #### K-1.3-26
 **Frage:** Was zeigt ein Gantt-Diagramm, und was stellt es weniger gut dar?
-**Antwort:** Es zeigt Vorgänge als Balken auf einer Zeitachse (Termine, Überschneidungen, Fortschritt, Meilensteine als Raute). Abhängigkeiten und kritischer Pfad sind im Netzplan besser zu erkennen.
+**Antwort:** Es zeigt Vorgänge als Balken auf einer Zeitachse (Termine, Überschneidungen, Fortschritt, Meilensteine als Raute). Abhängigkeiten werden bei vielen Vorgängen unübersichtlich; den kritischen Pfad berechnet erst der Netzplan.
 `tags: gantt` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-1.3-27
@@ -100,7 +100,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 ## C. Quiz 1.3 (anhängen)
 
 #### Q-1.3-34 · Multiple Choice
-**Frage:** Ein Kunde möchte bei einer laufenden Büroneugestaltung zusätzliche Arbeitsplätze, aber zum gleichen Preis und zum gleichen Termin. Wie beurteilst du das nach dem magischen Dreieck?
+**Frage:** Ein Kundenunternehmen möchte bei einer laufenden Büroneugestaltung zusätzliche Arbeitsplätze, aber zum gleichen Preis und zum gleichen Termin. Wie beurteilst du das nach dem magischen Dreieck?
 - [ ] Das ist ohne Folgen möglich, weil Leistung, Kosten und Termin unabhängig voneinander sind.
 - [x] Mehr Leistung führt in der Regel zu Mehrkosten oder einem späteren Termin; die drei Größen müssen gemeinsam betrachtet werden.
 - [ ] Nur der Termin ist betroffen, die Kosten bleiben immer gleich.
@@ -123,7 +123,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 - [x] Meilensteine werden meist als Raute eingetragen.
 - [ ] Der kritische Pfad ist immer besser zu erkennen als im Netzplan.
 - [x] Der erreichte Fortschritt kann im Balken markiert werden.
-**Erklärung:** Das Gantt-Diagramm ist stark bei Terminen und Fortschritt; Abhängigkeiten und kritischer Pfad zeigt der Netzplan besser.
+**Erklärung:** Das Gantt-Diagramm ist stark bei Terminen und Fortschritt; den kritischen Pfad berechnet erst der Netzplan.
 `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### Q-1.3-37 · Lückentext
@@ -133,7 +133,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 
 #### Q-1.3-38 · Kurzantwort
 **Frage:** Die Projektsoftware fällt mit 10 % Wahrscheinlichkeit aus; der Schaden würde 30.000 € betragen. Wie hoch ist der Risikoerwartungswert in Euro?
-**Akzeptierte Antworten:** 3000; 3.000; 3000 €; 3.000 €; 3000 Euro; 3.000 Euro; 3000 EUR; 3.000 EUR
+**Akzeptierte Antworten:** 3000; 3.000; 3000 €; 3.000 €; 3000 Euro; 3.000 Euro; 3000 EUR; 3.000 EUR; 3000,00; 3.000,00; 3000,00 €; 3.000,00 €; 3000,00 Euro; 3.000,00 Euro; 3000,00 EUR; 3.000,00 EUR
 **Erklärung:** Erwartungswert = Eintrittswahrscheinlichkeit × Schadenshöhe = 10 % × 30.000 € = 3.000 €.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
@@ -160,7 +160,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 
 #### Q-1.3-42 · Kurzantwort
 **Frage:** Das Gesamtbudget beträgt 90.000 €, der Kostenindex liegt bei 0,9. Wie hoch ist die Gesamtkosten-Prognose (EAC) in Euro, wenn die Kosteneffizienz anhält?
-**Akzeptierte Antworten:** 100000; 100.000; 100000 €; 100.000 €; 100000 Euro; 100.000 Euro; 100000 EUR; 100.000 EUR
+**Akzeptierte Antworten:** 100000; 100.000; 100000 €; 100.000 €; 100000 Euro; 100.000 Euro; 100000 EUR; 100.000 EUR; 100000,00; 100.000,00; 100000,00 €; 100.000,00 €; 100000,00 Euro; 100.000,00 Euro; 100000,00 EUR; 100.000,00 EUR
 **Erklärung:** EAC = Gesamtbudget ÷ CPI = 90.000 € ÷ 0,9 = 100.000 €, also 10.000 € über dem Budget.
 `schwierigkeit: schwer` · `bloom: anwenden`
 
@@ -183,7 +183,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.3-45 · Wahr/Falsch
-**Aussage:** Lessons Learned werden erst nach dem Projektabschluss gesammelt, nicht schon an Meilensteinen.
+**Aussage:** Lessons Learned werden ausschließlich nach dem Projektabschluss gesammelt, nicht schon an Meilensteinen.
 - [ ] Wahr
 - [x] Falsch
 **Erklärung:** Sie werden schon an den Meilensteinen erhoben, solange die Erinnerungen frisch sind, und zum Abschluss ergänzt.
@@ -197,7 +197,7 @@ Die **Lessons Learned** sind die strukturierte Auswertung von Projekterfahrungen
 
 ### Marktdaten einordnen: SWOT-Analyse
 
-Die **SWOT-Analyse** ordnet die Ergebnisse einer Marktanalyse strukturiert ein. Sie stellt interne Faktoren, also **Stärken** (Strengths) und **Schwächen** (Weaknesses) des eigenen Unternehmens, den externen Faktoren des Marktumfelds gegenüber, den **Chancen** (Opportunities) und **Risiken** (Threats). Intern sind Faktoren, die das Unternehmen selbst beeinflussen kann (Team, Know-how, Marke); extern sind Entwicklungen, die es nicht steuert (Nachfrage, Wettbewerber, Rahmenbedingungen). Für die Deko & Büro GmbH könnte das erfahrene Beratungsteam eine Stärke sein, die geringe Bekanntheit außerhalb der Region eine Schwäche, die wachsende Nachfrage nach nachhaltiger Büroausstattung eine Chance und ein neuer, finanzstarker Wettbewerber ein Risiko. Aus der Gegenüberstellung leiten sich Strategien ab: Stärken-Chancen-Kombinationen aktiv ausbauen, Schwächen abbauen, wo sie Chancen im Weg stehen, Stärken zur Abwehr von Risiken nutzen und Kombinationen aus Schwächen und Risiken absichern oder meiden.
+Die **SWOT-Analyse** ordnet die Ergebnisse einer Marktanalyse strukturiert ein. Sie stellt interne Faktoren, also **Stärken** (Strengths) und **Schwächen** (Weaknesses) des eigenen Unternehmens, den externen Faktoren des Marktumfelds gegenüber, den **Chancen** (Opportunities) und **Risiken** (Threats). Intern sind Faktoren, die das Unternehmen selbst beeinflussen kann (Team, Know-how, Marke); extern sind Entwicklungen, die es nicht steuert (Nachfrage, Wettbewerber, Rahmenbedingungen). Für die Deko & Büro GmbH könnte das erfahrene Beratungsteam eine Stärke sein, die veraltete Website eine Schwäche, ein Förderprogramm für Homeoffice-Ausstattung eine Chance und steigende Mietpreise für Lagerflächen ein Risiko. Aus der Gegenüberstellung leiten sich Strategien ab: Stärken-Chancen-Kombinationen aktiv ausbauen, Schwächen abbauen, wo sie Chancen im Weg stehen, Stärken zur Abwehr von Risiken nutzen und Kombinationen aus Schwächen und Risiken absichern oder meiden.
 
 ### Wachstumsrichtungen: Ansoff-Matrix
 
@@ -229,11 +229,11 @@ Die **Ansoff-Matrix** (Produkt-Markt-Matrix) ordnet Wachstumsstrategien danach, 
 
 #### Q-2.2-10 · Multiple Choice
 **Frage:** Welche Beobachtung ist in der SWOT-Analyse eine Chance?
-- [ ] Das Vertriebsteam ist besonders erfahren.
-- [x] Die Nachfrage nach nachhaltiger Büroausstattung wächst.
-- [ ] Die Markenbekanntheit ist gering.
-- [ ] Ein neuer Wettbewerber tritt in den Markt ein.
-**Erklärung:** Chancen sind externe, günstige Entwicklungen. Das erfahrene Team ist eine Stärke, die geringe Bekanntheit eine Schwäche, der neue Wettbewerber ein Risiko.
+- [ ] Das Beratungsteam kennt die Branche besonders gut.
+- [x] Ein neues Förderprogramm unterstützt die Ausstattung von Homeoffice-Arbeitsplätzen.
+- [ ] Die Website ist veraltet.
+- [ ] Die Mietpreise für Lagerflächen steigen.
+**Erklärung:** Chancen sind externe, günstige Entwicklungen. Das Branchenwissen des Teams ist eine Stärke, die veraltete Website eine Schwäche, steigende Mietpreise sind ein Risiko.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.2-11 · Wahr/Falsch
@@ -252,7 +252,7 @@ Die **Ansoff-Matrix** (Produkt-Markt-Matrix) ordnet Wachstumsstrategien danach, 
 
 #### Q-2.2-13 · Kurzantwort
 **Frage:** Wie heißt die Wachstumsstrategie der Ansoff-Matrix, bei der ein neues Produkt in einem neuen Markt angeboten wird?
-**Akzeptierte Antworten:** Diversifikation
+**Akzeptierte Antworten:** Diversifikation; Diversifizierung
 **Erklärung:** Neues Produkt und neuer Markt: Diversifikation, die risikoreichste der vier Strategien.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
