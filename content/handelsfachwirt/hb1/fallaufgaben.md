@@ -10,7 +10,7 @@ rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ## Fallaufgaben
 
-Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenhängenden betrieblichen Situation rund um die Loreno Mode & Wohnen GmbH, eine mittelständische Einzelhandelskette für Mode und Wohnaccessoires mit ca. 40 Filialen bundesweit und eigenem Online-Shop, die Ware aus Asien und Europa importiert — wie es in der schriftlichen Prüfung ("Situationsaufgabe") typisch ist. Jede Aufgabe besteht aus einer Ausgangssituation und mehreren Teilaufgaben mit Punktangaben; die Gesamtpunktzahl je Aufgabe beträgt 20 Punkte.
+Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.5) zu einer zusammenhängenden betrieblichen Situation rund um die Loreno Mode & Wohnen GmbH, eine mittelständische Einzelhandelskette für Mode und Wohnaccessoires mit ca. 40 Filialen bundesweit und eigenem Online-Shop, die Ware aus Asien und Europa importiert — wie es in der schriftlichen Prüfung ("Situationsaufgabe") typisch ist. Jede Aufgabe besteht aus einer Ausgangssituation und mehreren Teilaufgaben mit Punktangaben; die Gesamtpunktzahl je Aufgabe beträgt 20 Punkte.
 
 ---
 
@@ -99,3 +99,28 @@ Teilaufgabe 3: Eigenkapitalquote = 800.000 € ÷ 2.000.000 € × 100 = 40 %.
 Teilaufgabe 4: Deckungsbeitrag je Stück = 120 € − 80 € = 40 €; Break-even-Menge = 600.000 € ÷ 40 € = 15.000 Stück; Break-even-Umsatz = 15.000 × 120 € = 1.800.000 €.
 Teilaufgabe 5: Menge = (600.000 € + 200.000 €) ÷ 40 € = 20.000 Stück.
 Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
+
+---
+
+#### F-HB1-05 · Fallaufgabe
+
+**Themenbezug:** 1.5 (Kosten- und Leistungsrechnung im Handel: Betriebsabrechnungsbogen, Zuschlagssätze, Voll- und Teilkostenrechnung, Sortimentsentscheidung)
+
+**Ausgangssituation:** Das Controlling der Loreno Mode & Wohnen GmbH erstellt den Betriebsabrechnungsbogen für den Monat Februar. Die primären Handlungskosten betragen: Einkauf 114.000 €, Lager 190.000 €, Verkauf/Filiale 1.080.000 €, Verwaltung 160.000 € und Hilfskostenstelle IT-Service 96.000 €. Der IT-Service wird nach der Zahl der betreuten Endgeräte (Arbeitsplatzrechner und Kassen) umgelegt: Einkauf 30, Lager 50, Verkauf/Filiale 300, Verwaltung 100 Geräte. Der Wareneinsatz zu Bezugspreisen beträgt 4.000.000 € und ist die Bezugsgröße aller Zuschlagssätze. Vereinfacht werden drei Warengruppen betrachtet (die Accessoires sind hier nicht gesondert ausgewiesen); im Februar gilt: Damenmode 3.200.000 € Umsatz und 2.000.000 € Wareneinsatz, Herrenmode 1.800.000 € Umsatz und 1.200.000 € Wareneinsatz, Wohnaccessoires 1.080.000 € Umsatz und 800.000 € Wareneinsatz. Die variablen Handlungskosten (Kartenzahlungsgebühren, Verpackung, umsatzabhängige Verkaufsprämien) betragen in allen Warengruppen 5 % des Umsatzes, alle übrigen Handlungskosten sind fix. Weil die Wohnaccessoires in der Vollkostenrechnung einen Verlust zeigen, schlägt ein Mitglied der Geschäftsführung vor, sie auszulisten. Dabei fielen fixe Kosten von 90.000 € im Monat weg (Aushilfen und gemietete Präsentationsmöbel nur für Wohnaccessoires); alle anderen fixen Kosten blieben.
+
+**Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Legen Sie die Kosten des IT-Service auf die Hauptkostenstellen um und ermitteln Sie die Handlungskosten je Hauptkostenstelle nach der Umlage.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie die Zuschlagssätze der vier Hauptkostenstellen und den gesamten Handlungskostenzuschlag, und begründen Sie, warum die Sätze addiert werden dürfen.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Ermitteln Sie mit dem Handlungskostenzuschlag aus Teilaufgabe 2 die Selbstkosten und das Ergebnis je Warengruppe sowie das Betriebsergebnis in der Vollkostenrechnung.
+
+**Teilaufgabe 4 (4 Punkte, bloom: analysieren):** Berechnen Sie den Deckungsbeitrag je Warengruppe und das Betriebsergebnis in der Teilkostenrechnung, und erklären Sie, warum die Wohnaccessoires hier anders erscheinen als in Teilaufgabe 3.
+
+**Teilaufgabe 5 (3 Punkte, bloom: bewerten):** Beurteilen Sie den Vorschlag, die Wohnaccessoires auszulisten, rechnerisch und unter zwei weiteren Gesichtspunkten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Umlagesatz = 96.000 € ÷ 480 Geräte = 200 € je Gerät; Umlage Einkauf 30 × 200 € = 6.000 €, Lager 10.000 €, Verkauf/Filiale 60.000 €, Verwaltung 20.000 €; Handlungskosten nach Umlage: Einkauf 120.000 €, Lager 200.000 €, Verkauf/Filiale 1.140.000 €, Verwaltung 180.000 €, zusammen 1.640.000 € (gleich der Summe der primären Kosten, der IT-Service steht danach bei null).
+Teilaufgabe 2: Einkauf 120.000 € ÷ 4.000.000 € × 100 = 3 %; Lager 200.000 € ÷ 4.000.000 € × 100 = 5 %; Verkauf/Filiale 1.140.000 € ÷ 4.000.000 € × 100 = 28,5 %; Verwaltung 180.000 € ÷ 4.000.000 € × 100 = 4,5 %; Handlungskostenzuschlag 3 % + 5 % + 28,5 % + 4,5 % = 41 % (Kontrolle: 1.640.000 € ÷ 4.000.000 € × 100 = 41 %); die Sätze dürfen addiert werden, weil alle denselben Wareneinsatz zu Bezugspreisen als Bezugsgröße haben.
+Teilaufgabe 3: Handlungskosten 41 % des Wareneinsatzes: Damenmode 820.000 €, Selbstkosten 2.820.000 €, Ergebnis + 380.000 €; Herrenmode 492.000 €, Selbstkosten 1.692.000 €, Ergebnis + 108.000 €; Wohnaccessoires 328.000 €, Selbstkosten 1.128.000 €, Ergebnis − 48.000 €; Betriebsergebnis 6.080.000 € − 5.640.000 € = 440.000 €.
+Teilaufgabe 4: Variable Handlungskosten 5 % des Umsatzes: Damenmode 160.000 €, Herrenmode 90.000 €, Wohnaccessoires 54.000 €, zusammen 304.000 €; Deckungsbeitrag Damenmode 3.200.000 € − 2.000.000 € − 160.000 € = 1.040.000 €, Herrenmode 1.800.000 € − 1.200.000 € − 90.000 € = 510.000 €, Wohnaccessoires 1.080.000 € − 800.000 € − 54.000 € = 226.000 €, Summe 1.776.000 €; fixe Handlungskosten 1.640.000 € − 304.000 € = 1.336.000 €; Betriebsergebnis 1.776.000 € − 1.336.000 € = 440.000 € (wie in Teilaufgabe 3); die Vollkostenrechnung belastet die Wohnaccessoires über den Zuschlag mit anteiligen Fixkosten (Filialmieten, Verwaltung), die nicht von ihnen abhängen; tatsächlich decken sie ihre variablen Kosten und tragen 226.000 € zur Deckung der Fixkosten bei.
+Teilaufgabe 5: Deckungsbeitrag II = 226.000 € − 90.000 € = 136.000 €; nach einer Auslistung sänke das Betriebsergebnis auf 440.000 € − 136.000 € = 304.000 €, der Vorschlag ist rechnerisch abzulehnen; weitere Gesichtspunkte, zwei davon begründet, z. B. Verbundkäufe (Wohnaccessoires ergänzen die Mode, Cross-Selling), Rolle der Warengruppe im Sortiment, etwa als Randsortiment, das den Einkauf abrundet (Thema 3.2), nur tatsächlich abbaubare Fixkosten zählen (Kündigungsfristen), andere Nutzung der Fläche nur dann besser, wenn eine andere Warengruppe dort mehr Deckungsbeitrag je m² erzielt, Verbesserung des Deckungsbeitrags über Einkaufskonditionen oder weniger Abschriften.
+Folgefehler: Falsche Handlungskosten aus Teilaufgabe 1 werden in Teilaufgabe 2 und ein falscher Zuschlagssatz aus Teilaufgabe 2 wird in Teilaufgabe 3 nicht erneut abgezogen, wenn mit dem falschen Wert fachlich richtig weitergerechnet wird; ebenso wird ein falscher Deckungsbeitrag oder ein falsches Betriebsergebnis aus Teilaufgabe 4 in Teilaufgabe 5 nicht erneut abgezogen, wenn fachlich richtig weitergerechnet wird; Teilaufgaben 4 und 5 hängen nur von der Summe der Handlungskosten (1.640.000 €) und den Angaben der Ausgangssituation ab, nicht vom Zuschlagssatz.

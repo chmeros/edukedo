@@ -123,3 +123,42 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Planungsrechnung ist ein fortlaufender Regelkreis aus Planung, Durchführung, Kontrolle und Anpassung.
   - Erwartung: Ausgewählte Kennzahlen dienen als Frühwarnsystem, sodass Auffälligkeiten, z. B. in der Lagerreichweite einzelner Standorte, frühzeitig erkannt werden statt erst im jährlichen Soll-Ist-Vergleich.
   - Rückfrage: Nennen Sie drei Kennzahlen, die als Frühwarnsystem dienen können.
+
+### 2.4 Buchungssätze und Abschlussbuchungen
+
+- Erklären Sie den Unterschied zwischen Bestandskonten und Erfolgskonten und beschreiben Sie, wie beide zum Jahresende abgeschlossen werden.
+  - Erwartung: Bestandskonten sind Aktivkonten (Zunahme im Soll) und Passivkonten (Zunahme im Haben); sie zeigen Vermögen und Kapital.
+  - Erwartung: Erfolgskonten sind Aufwands- und Ertragskonten und Unterkonten des Eigenkapitals; Aufwand steht im Soll, Ertrag im Haben.
+  - Erwartung: Erfolgskonten werden über das GuV-Konto abgeschlossen, dessen Saldo als Gewinn oder Verlust auf das Eigenkapital übertragen wird.
+  - Erwartung: Bestandskonten werden über das Schlussbilanzkonto abgeschlossen, das mit Inventar und Bilanz übereinstimmen muss.
+  - Rückfrage: Warum kommt es beim Buchen mehr auf die Kontenart als auf die Kontonummer des Kontenrahmens an?
+- Wie ermitteln Sie bei aufwandsorientierter Buchung den Wareneinsatz, und wie buchen Sie die Bestandsveränderung?
+  - Erwartung: Einkäufe werden laufend auf das Aufwandskonto Wareneingang gebucht, Bezugskosten und Nachlässe auf dessen Unterkonten.
+  - Erwartung: Wareneinsatz = Anfangsbestand + Zugänge zu Einstandspreisen − Schlussbestand laut Inventur.
+  - Erwartung: Eine Bestandsminderung wird mit „Wareneingang an Warenbestand“ gebucht und erhöht den Wareneinsatz; eine Bestandsmehrung mit „Warenbestand an Wareneingang“ und mindert ihn.
+  - Erwartung: Der Saldo des Kontos Wareneingang ist danach der Wareneinsatz und wird über das GuV-Konto abgeschlossen.
+  - Rückfrage: Was ist der Rohgewinn, und was muss er decken?
+- NordWert nutzt beim Einkauf Skonto, und eine Kundin zieht beim Verkauf Skonto ab. Wie buchen Sie beide Vorgänge, und wie wirken sie auf Erfolg und Umsatzsteuer?
+  - Erwartung: Der Liefererskonto wird bei Zahlung gebucht: Verbindlichkeiten an Bank, Nachlässe und Vorsteuer; er mindert den Einstandspreis und damit später den Wareneinsatz.
+  - Erwartung: Der Kundenskonto wird bei Zahlungseingang gebucht: Bank, Erlösberichtigungen und Umsatzsteuer an Forderungen; er mindert die Umsatzerlöse.
+  - Erwartung: In beiden Fällen wird die Steuer berichtigt, weil sie sich nach dem tatsächlich gezahlten Entgelt richtet: beim Einkauf die Vorsteuer, beim Verkauf die Umsatzsteuer.
+  - Erwartung: Forderung bzw. Verbindlichkeit werden jeweils in voller Höhe ausgebucht.
+
+### 2.5 Bilanz- und Kennzahlenanalyse
+
+- Warum sind Lagerumschlag und Kundenziel für einen Großhändler zentrale Kennzahlen, und wie hängen sie mit Liquidität und ROI zusammen?
+  - Erwartung: Im Großhandel ist der größte Teil des Kapitals in Warenvorräten und Forderungen gebunden; die Anlagenintensität ist niedrig.
+  - Erwartung: Lagerumschlag = Wareneinsatz ÷ durchschnittlicher Warenbestand, Lagerdauer = 360 ÷ Lagerumschlag; Forderungsumschlag = Umsatzerlöse ÷ durchschnittliche Forderungen, Kundenziel = 360 ÷ Forderungsumschlag.
+  - Erwartung: Kürzere Lagerdauer und kürzeres Kundenziel setzen Kapital frei und verbessern die Liquidität.
+  - Erwartung: Weniger gebundenes Kapital erhöht bei gleichem Umsatz den Kapitalumschlag und damit den ROI, wenn die freigesetzten Mittel zur Rückführung der kurzfristigen Bankkredite verwendet werden (das Gesamtkapital sinkt); die Lieferfähigkeit darf dabei nicht leiden.
+- Die Hausbank hält eine Eigenkapitalquote von 30 % und eine Liquidität 2. Grades von 90 % für zu niedrig; die Anlagendeckungsgrade betragen 120 % (I) und 200 % (II). Wie nehmen Sie Stellung?
+  - Erwartung: Eigenkapitalquote = Eigenkapital ÷ Gesamtkapital × 100; im Handel sind niedrigere Quoten als in der Industrie üblich, weil Lieferantenkredite einen großen Teil der Ware finanzieren; entscheidend ist der Vergleich mit Vorjahr und Branche.
+  - Erwartung: Mit Anlagendeckungsgraden von 120 % und 200 % ist die goldene Bilanzregel in enger und weiter Fassung erfüllt; das Anlagevermögen ist fristgerecht finanziert.
+  - Erwartung: Eine Liquidität 2. Grades von 90 % liegt etwas unter dem groben Richtwert um 100 %; ergänzend sind Liquidität 3. Grades, Working Capital und vor allem der Liquiditätsplan heranzuziehen.
+  - Erwartung: Verbesserungen sind möglich durch schnelleren Forderungseinzug, Bestandsabbau, Gewinnthesaurierung oder Umschuldung kurzfristiger in langfristige Kredite.
+- Erläutern Sie, wie der ROI in der Bilanzanalyse berechnet und zerlegt wird, und warum dabei der Gewinn vor Fremdkapitalzinsen angesetzt wird.
+  - Erwartung: ROI = (Jahresüberschuss + Fremdkapitalzinsen) ÷ Gesamtkapital × 100; er ist gleich der Gesamtkapitalrentabilität.
+  - Erwartung: Zerlegung: Umsatzrendite vor Zinsen × Kapitalumschlag (Umsatzerlöse ÷ Gesamtkapital).
+  - Erwartung: Die Zinsen werden addiert, weil sie die Vergütung der Fremdkapitalgeber:innen sind; so wird das gesamte Kapital mit seinem gesamten Ertrag verglichen und die Finanzierung verzerrt den Vergleich nicht.
+  - Erwartung: Hebel sind die Marge (Einkaufskonditionen, Preise, Kosten) und der Kapitalumschlag (Bestände, Forderungen).
+  - Rückfrage: Unter welcher Bedingung steigert zusätzliches Fremdkapital die Eigenkapitalrentabilität?

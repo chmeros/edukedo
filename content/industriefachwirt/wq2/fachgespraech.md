@@ -102,3 +102,43 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Erkannte Risiken werden nach Eintrittswahrscheinlichkeit und Schadenshöhe eingeordnet.
   - Erwartung: Danach wird festgelegt, ob ein Risiko vermieden, durch geeignete Maßnahmen abgesichert, lediglich beobachtet oder bewusst akzeptiert werden soll.
   - Erwartung: Die Überlegungen fließen in die Planungsrechnung ein, etwa durch einen vorsichtig gewählten Kalkulationszinssatz bei der Kapitalwertmethode oder durch Sicherheitszuschläge bei der Liquiditätsplanung.
+
+### 2.4 Buchungssätze und Abschlussbuchungen
+
+- Erläutern Sie, warum Aufwendungen im Soll und Erträge im Haben gebucht werden und wie die Erfolgskonten mit dem Eigenkapital zusammenhängen.
+  - Erwartung: Aufwands- und Ertragskonten sind Unterkonten des Eigenkapitalkontos, eines Passivkontos.
+  - Erwartung: Aufwand mindert das Eigenkapital und steht deshalb auf dessen Minderungsseite, dem Soll; Ertrag mehrt es und steht im Haben.
+  - Erwartung: Am Jahresende werden die Erfolgskonten über das GuV-Konto abgeschlossen; dessen Saldo ist der Gewinn oder Verlust.
+  - Erwartung: Der Gewinn wird mit „GuV-Konto an Eigenkapital“ gebucht, ein Verlust mit „Eigenkapital an GuV-Konto“.
+  - Rückfrage: Auf welcher Seite nehmen Aktiv- und Passivkonten zu?
+- Solvitec zahlt eine Rohstoffrechnung unter Abzug von Skonto. Wie buchen Sie die Zahlung, und warum wird dabei auch die Vorsteuer berichtigt?
+  - Erwartung: Der Skonto wird vom Rechnungsbetrag (brutto) berechnet und in einen Nettoanteil und einen Steueranteil aufgeteilt.
+  - Erwartung: Buchungssatz: Verbindlichkeiten aus Lieferungen und Leistungen (voller Rechnungsbetrag) an Bank (Zahlbetrag), Rohstoffe bzw. Nachlässe (Nettoanteil) und Vorsteuer (Steueranteil).
+  - Erwartung: Der Skonto mindert die Anschaffungskosten der Rohstoffe; Bezugskosten erhöhen sie, ein Sofortrabatt wird gar nicht gebucht.
+  - Erwartung: Die Vorsteuer wird berichtigt, weil sich die Steuer nach dem tatsächlich gezahlten Entgelt richtet.
+  - Rückfrage: Wie wird ein Kundenskonto beim Zahlungseingang gebucht?
+- Beschreiben Sie den Ablauf der Abschlussbuchungen zum Jahresende von den vorbereitenden Buchungen bis zum Schlussbilanzkonto.
+  - Erwartung: Zuerst die vorbereitenden Abschlussbuchungen: Abschreibungen, Bestandsveränderungen an Erzeugnissen, Abschluss der Unterkonten und Verrechnung von Vorsteuer und Umsatzsteuer zur Zahllast.
+  - Erwartung: Dann werden Aufwands- und Ertragskonten über das GuV-Konto abgeschlossen.
+  - Erwartung: Der Saldo des GuV-Kontos wird auf das Eigenkapitalkonto übertragen.
+  - Erwartung: Zuletzt werden die Bestandskonten über das Schlussbilanzkonto abgeschlossen (Schlussbilanzkonto an Aktivkonto, Passivkonto an Schlussbilanzkonto); das Schlussbilanzkonto muss mit der Bilanz aus dem Inventar übereinstimmen.
+  - Erwartung: Im neuen Jahr werden die Bestandskonten über das Eröffnungsbilanzkonto spiegelbildlich eröffnet.
+
+### 2.5 Bilanz- und Kennzahlenanalyse
+
+- Die Hausbank fragt, ob der Maschinenpark von Solvitec fristgerecht finanziert ist. Mit welchen Kennzahlen prüfen Sie das, und wie beurteilen Sie einen Anlagendeckungsgrad I von 80 % und einen Anlagendeckungsgrad II von 137,5 %?
+  - Erwartung: Die goldene Bilanzregel verlangt, dass langfristig gebundenes Vermögen langfristig finanziert ist (Fristenkongruenz).
+  - Erwartung: Anlagendeckungsgrad I = Eigenkapital ÷ Anlagevermögen × 100; Anlagendeckungsgrad II = (Eigenkapital + langfristiges Fremdkapital) ÷ Anlagevermögen × 100.
+  - Erwartung: Mit 80 % ist die enge Fassung nicht erfüllt, ein Teil der Anlagen ist langfristig fremdfinanziert; mit 137,5 % ist die übliche weite Fassung deutlich erfüllt.
+  - Erwartung: Der Überschuss des langfristigen Kapitals über das Anlagevermögen finanziert Umlaufvermögen und entspricht dem Working Capital, sofern alle Rückstellungen langfristig sind (sonst: kurzfristiges Fremdkapital einschließlich kurzfristiger Rückstellungen).
+- Erläutern Sie die Zerlegung des ROI und zeigen Sie zwei Ansatzpunkte, mit denen ein Industriehersteller seinen ROI verbessern kann.
+  - Erwartung: ROI = Umsatzrendite vor Zinsen × Kapitalumschlag; er entspricht der Gesamtkapitalrentabilität ((Jahresüberschuss + Fremdkapitalzinsen) ÷ Gesamtkapital).
+  - Erwartung: Der Kapitalumschlag ist Umsatzerlöse ÷ Gesamtkapital.
+  - Erwartung: Ansatzpunkt Marge: Preise durchsetzen, Material- und Personalkosten senken.
+  - Erwartung: Ansatzpunkt Kapitalumschlag: Vorräte und Forderungen abbauen, Maschinen besser auslasten, nicht benötigtes Anlagevermögen verkaufen.
+  - Rückfrage: Unter welcher Bedingung steigert zusätzliches Fremdkapital die Eigenkapitalrentabilität?
+- Welche Grenzen hat die Bilanzanalyse, und wie gehen Sie in der Praxis damit um?
+  - Erwartung: Die Bilanz zeigt einen Stichtag und kann zu diesem Stichtag gestaltet werden; die Liquiditätsgrade sagen nichts über Fälligkeiten im Laufe des Jahres.
+  - Erwartung: Bewertungswahlrechte und Ermessensspielräume (zum Beispiel Abschreibungen, Rückstellungen, Vorräte) beeinflussen Jahresüberschuss und Eigenkapital.
+  - Erwartung: Die Daten sind vergangenheitsbezogen, und wichtige Informationen wie Auftragsbestand oder stille Reserven fehlen.
+  - Erwartung: Deshalb werden Kennzahlen im Zeit- und Betriebsvergleich betrachtet, durch Finanzplan und interne Informationen ergänzt und die Ursachen der Abweichungen analysiert.

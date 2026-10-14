@@ -138,3 +138,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Cyberversicherung gewinnt an Bedeutung, weil auch der Online-Shop ein wichtiger Vertriebskanal ist.
   - Rückfrage: Welche Risikosteuerungsstrategie liegt dem Abschluss einer Versicherung zugrunde?
 
+### 1.5 Kosten- und Leistungsrechnung im Handel
+
+- Warum rechnet die Kosten- und Leistungsrechnung nicht einfach mit den Aufwendungen der Finanzbuchhaltung? Erläutern Sie das an Beispielen aus einem Filialunternehmen.
+  - Erwartung: Kosten sind nur der bewertete, betriebszweckbezogene Güterverzehr; neutraler Aufwand (betriebsfremd, periodenfremd, außerordentlich) wie eine Spende oder die Reparatur einer vermieteten Wohnung bleibt außen vor.
+  - Erwartung: Grundkosten wie Wareneinsatz, Gehälter und Filialmieten werden in gleicher Höhe übernommen.
+  - Erwartung: Kalkulatorische Kosten ersetzen Aufwand als Anderskosten (kalkulatorische Abschreibung auf den Wiederbeschaffungswert, kalkulatorische Zinsen statt des Fremdkapitalzinsaufwands) oder kommen als Zusatzkosten hinzu (kalkulatorische Miete für eigene Gebäude, streng genommen auch die Verzinsung des Eigenkapitals; vereinfacht werden die kalkulatorischen Zinsen insgesamt zu den Anderskosten gezählt).
+  - Erwartung: Ein kalkulatorisches Wagnis verteilt das Risiko von Inventurdifferenzen gleichmäßig auf die Monate und ersetzt die tatsächlich festgestellten Inventurverluste.
+  - Rückfrage: Wann setzt ein Unternehmen einen kalkulatorischen Unternehmerlohn an?
+- Wie ermitteln Sie mit dem Betriebsabrechnungsbogen den Handlungskostenzuschlag, und worauf achten Sie bei der Bezugsgröße?
+  - Erwartung: Die Handlungskosten werden auf die Kostenstellen Einkauf, Lager, Verkauf/Filiale und Verwaltung sowie die Hilfskostenstellen verteilt, direkt nach Belegen oder über Schlüssel wie Quadratmeter.
+  - Erwartung: Hilfskostenstellen wie Fuhrpark oder IT-Service werden mit dem Umlagesatz (Kosten ÷ Summe der Schlüsselgröße) auf die Hauptkostenstellen umgelegt; die Summe der Kosten ändert sich dabei nicht.
+  - Erwartung: Zuschlagssatz = Gemeinkosten der Kostenstelle nach Umlage ÷ Wareneinsatz zu Bezugspreisen × 100.
+  - Erwartung: Nur bei gleicher Bezugsgröße dürfen die Sätze zum Handlungskostenzuschlag addiert werden; dieser wird in der Kalkulation auf den Bezugspreis aufgeschlagen.
+  - Rückfrage: Was sagt es aus, wenn der Zuschlagssatz des Lagers im Zeitvergleich steigt?
+- Eine Warengruppe weist in der Vollkostenrechnung einen Verlust aus. Wie gehen Sie vor, bevor Sie eine Auslistung empfehlen?
+  - Erwartung: Die Vollkostenrechnung verteilt über den Zuschlag auch fixe Kosten, die bei einer Auslistung weitgehend bleiben; für diese Entscheidung ist sie ungeeignet.
+  - Erwartung: Deckungsbeitrag der Warengruppe = Umsatz − Wareneinsatz − variable Handlungskosten; ist er positiv, trägt die Warengruppe zur Deckung der Fixkosten bei.
+  - Erwartung: Die bei einer Auslistung wegfallenden Warengruppenfixkosten werden abgezogen (Deckungsbeitrag II); solange er positiv ist, senkt eine Auslistung das Betriebsergebnis.
+  - Erwartung: Zusätzlich werden Verbundwirkungen, die Rolle der Warengruppe im Sortiment und eine bessere Nutzung der Fläche geprüft.
+  - Rückfrage: Wie unterscheiden sich Rohertrag und Deckungsbeitrag einer Warengruppe?
