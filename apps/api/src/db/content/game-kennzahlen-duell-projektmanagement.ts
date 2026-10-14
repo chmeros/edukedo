@@ -10,8 +10,8 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * Fachgrundlage: ausschließlich die Theorietexte (und die dortigen Erklärungen) der Kursdateien
  * content/fachwirt-buero-projektorganisation/ — Thema 1.3 (Projektmanagement), Thema 1.2 (Netzplan,
  * Terminüberwachung) und Thema 2.1 (Lastenheft, Projektstrukturplan); Rechtsstand dort: 15.09.2026.
- * Bewusst nicht enthalten, weil der Kurs sie nicht behandelt: Lastenheft, Gantt-Diagramm, Abschlussbericht
- * sowie Normen- und Paragrafenangaben. Zahlenwerte stammen nur aus dem Netzplan-Beispiel in Thema 1.2.
+ * Bewusst nicht enthalten, weil der Kurs sie nicht behandelt: Lastenheft, Abschlussbericht (das Gantt-Diagramm
+ * steht seit 14.10.2026 in Thema 1.3, wird im Spiel aber nicht verwendet) sowie Normen- und Paragrafenangaben. Zahlenwerte stammen nur aus dem Netzplan-Beispiel in Thema 1.2.
  */
 export const kennzahlenDuellProjektmanagement: KennzahlenDuellPayload = {
   runden: [

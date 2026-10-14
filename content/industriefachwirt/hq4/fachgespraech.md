@@ -102,3 +102,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Betriebsgeheimnisse sind wirtschaftlich wertvolle, nicht allgemein bekannte Informationen, etwa Fertigungsverfahren, Rezepturen oder Konstruktionsdetails; ihre Vertraulichkeit sichert einen Wettbewerbsvorteil.
   - Erwartung: Betriebsgeheimnisse müssen deshalb angemessen geschützt werden.
 
+### 8.4 Projektmanagement
+
+- Erläutern Sie das magische Dreieck des Projektmanagements an einem Beispiel aus dem Werk Zwickau.
+  - Erwartung: Die drei Zielgrößen sind Leistung (Umfang und Qualität), Termin und Kosten.
+  - Erwartung: Sie hängen zusammen: Eine Änderung wirkt in der Regel auf mindestens eine andere Größe.
+  - Erwartung: Beispiel: Soll die neue Fertigungslinie vier Wochen früher laufen, braucht es Zusatzpersonal oder Überstunden (höhere Kosten) oder weniger Umfang zum Start.
+  - Erwartung: Änderungswünsche werden deshalb immer in allen drei Größen bewertet.
+- Wie unterscheiden sich Lenkungsausschuss und Projektleitung?
+  - Erwartung: Der Lenkungsausschuss ist das Entscheidungsgremium: Er gibt Meilensteine und Budgets frei, entscheidet über Änderungen von größerer Tragweite und löst Konflikte, die die Projektleitung nicht klären kann.
+  - Erwartung: Die Projektleitung plant und steuert das Projekt operativ, führt das Team und berichtet an den Lenkungsausschuss.
+  - Erwartung: Der Lenkungsausschuss ist die Eskalationsinstanz, wenn die Projektleitung Konflikte oder Abweichungen nicht selbst lösen kann.
+  - Rückfrage: Welche Vor- und Nachteile hat die Matrix-Projektorganisation?
+- Ein Projekt zeigt einen Kostenindex von 0,8 und einen Terminindex von 0,9. Wie interpretieren Sie das, und was unternehmen Sie?
+  - Erwartung: Das Projekt ist teurer als geplant (CPI unter 1) und im Verzug (SPI unter 1).
+  - Erwartung: Die Gesamtkosten-Prognose ergibt sich aus Gesamtbudget geteilt durch CPI; sie gilt nur bei gleichbleibender Kosteneffizienz.
+  - Erwartung: Die Ursachen werden analysiert, zum Beispiel Mengen- oder Preisabweichungen, Engpässe auf dem kritischen Pfad oder Umfangsausweitung.
+  - Erwartung: Gegenmaßnahmen werden mit Wirkung auf das magische Dreieck bewertet und dem Lenkungsausschuss vorgelegt, bei Bedarf als Änderungsantrag.

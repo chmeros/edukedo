@@ -10,7 +10,7 @@ rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lern
 
 ## Fallaufgaben
 
-Diese Aufgaben verknüpfen mehrere Themen aus HQ4 (8.1–8.3) zu einer zusammenhängenden betrieblichen Situation rund um die Solvitec Elektrowerke GmbH, einen mittelständischen Industriehersteller für elektrotechnische Komponenten der industriellen Automatisierung mit rund 500 Beschäftigten an mehreren Werken und weltweitem Export — wie es in der schriftlichen Prüfung ("Situationsaufgabe") typisch ist. Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben; die Gesamtpunktzahl je Aufgabe beträgt 20 Punkte.
+Diese Aufgaben verknüpfen mehrere Themen aus HQ4 (8.1–8.4) zu einer zusammenhängenden betrieblichen Situation rund um die Solvitec Elektrowerke GmbH, einen mittelständischen Industriehersteller für elektrotechnische Komponenten der industriellen Automatisierung mit rund 500 Beschäftigten an mehreren Werken und weltweitem Export — wie es in der schriftlichen Prüfung ("Situationsaufgabe") typisch ist. Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben; die Gesamtpunktzahl je Aufgabe beträgt 20 Punkte.
 
 ---
 
@@ -75,3 +75,24 @@ Teilaufgabe 2 sollte den Baustein Wissens(ver)teilung als unzureichend identifiz
 Teilaufgabe 3 sollte konkrete, im Theorieteil behandelte Maßnahmen nennen, z. B. eine abteilungsübergreifende Community of Practice, eine Wissenslandkarte zur Sichtbarmachung vorhandenen Expertenwissens oder systematische Lessons-Learned-Dokumentation nach Projektabschluss.
 Teilaufgabe 4 sollte mindestens drei Bestandteile umfassen, etwa eine durchsuchbare Wissensdatenbank/ein Wiki, regelmäßige abteilungsübergreifende Austauschformate sowie klare Zugriffsrechte und Verantwortlichkeiten für die Pflege der Inhalte.
 
+---
+
+#### F-HQ4-04 · Fallaufgabe
+
+**Themenbezug:** 8.4 (Projektmanagement: Earned Value, Änderungsmanagement, magisches Dreieck)
+
+**Ausgangssituation:** Die Solvitec Elektrowerke GmbH baut im Werk Zwickau ein Prüffeld für Ladeinfrastruktur-Komponenten auf. Das Gesamtbudget beträgt 200.000 €. Zum Stichtag, der Hälfte der geplanten Laufzeit, sieht der Plan angefallene Kosten von 100.000 € vor (Planwert). Tatsächlich sind 45 % der Arbeit erledigt, angefallen sind 112.500 €. Die Fachabteilung Qualitätssicherung beantragt nun zwei zusätzliche Prüfplätze, die laut erster Schätzung 30.000 € kosten und das Projekt um drei Wochen verlängern würden. Im Lenkungsausschuss sitzen die Werksleitung, der Leiter Einkauf und die Leiterin der Entwicklung.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie zum Stichtag den Fertigstellungswert (EV), die Kostenabweichung (CV), die Terminabweichung (SV), den Kostenindex (CPI) und den Terminindex (SPI).
+
+**Teilaufgabe 2 (4 Punkte, bloom: bewerten):** Beurteilen Sie den Projektstand, berechnen Sie die Gesamtkosten-Prognose (EAC) und nennen Sie eine Einschränkung dieser Prognose.
+
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Beschreiben Sie, wie der Antrag auf zwei zusätzliche Prüfplätze im Änderungsmanagement behandelt werden sollte, und nennen Sie mindestens drei Inhalte der Auswirkungsbewertung.
+
+**Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Schlagen Sie zwei Maßnahmen vor, mit denen die Projektleitung Verzug und Kostenüberschreitung begrenzen kann, und beschreiben Sie jeweils die Wirkung auf das magische Dreieck.
+
+**Musterlösungshinweise:** Teilaufgabe 1 (Achtung: Bei CV und SV bedeutet ein negativer Wert Überschreitung bzw. Verzug, SV wird in Euro gemessen): EV = 45 % × 200.000 € = 90.000 €; CV = 90.000 € − 112.500 € = − 22.500 €; SV = 90.000 € − 100.000 € = − 10.000 €; CPI = 90.000 € ÷ 112.500 € = 0,8; SPI = 90.000 € ÷ 100.000 € = 0,9.
+Teilaufgabe 2: Das Projekt ist teurer als geplant (CPI 0,8) und im Verzug (SPI 0,9); Gesamtkosten-Prognose EAC = 200.000 € ÷ 0,8 = 250.000 €, also 50.000 € über dem Budget; die Prognose gilt nur, wenn die bisherige Kosteneffizienz anhält, und sagt nichts über den Endtermin aus (auch die Zusatzprüfplätze sind nicht enthalten).
+Teilaufgabe 3: Der Antrag wird schriftlich als Änderungsantrag mit Begründung gestellt; die Projektleitung bewertet die Auswirkungen auf Leistung (zusätzlicher Nutzen), Termin (+ 3 Wochen), Kosten (+ 30.000 €) und Risiken; wegen der Tragweite und der schon bestehenden Überschreitung entscheidet der Lenkungsausschuss; die Entscheidung wird dokumentiert, Plan und Budget werden angepasst, der Antrag wird nicht nebenbei in das laufende Projekt übernommen.
+Teilaufgabe 4: Genannt werden zwei Maßnahmen mit Wirkung auf das magische Dreieck, zum Beispiel: Zusatzpersonal auf dem kritischen Pfad (Termin besser, Kosten höher), Umfang reduzieren oder auf eine Ausbaustufe verschieben (Kosten und Termin besser, Leistung geringer), Beschaffung beschleunigen oder Zeitpuffer neu verteilen; maßgeblich ist, dass die Wechselwirkung begründet wird.
+Folgefehler: Wird in Teilaufgabe 1 der EV falsch berechnet (zum Beispiel 45 % von 100.000 €), sind die Folgewerte der Teilaufgaben 1 und 2 mit dem falschen EV zu bewerten, wenn die Rechenwege stimmen; Teilaufgaben 3 und 4 sind davon unabhängig.
