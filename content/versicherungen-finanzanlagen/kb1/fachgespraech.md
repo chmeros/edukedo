@@ -193,3 +193,44 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die BU stellt dagegen konkret darauf ab, dass der zuletzt ausgeübte Beruf nicht mehr ausgeübt werden kann.
   - Erwartung: Deshalb kann die Dread-Disease-Versicherung die BU nicht vollwertig ersetzen und wird nur als ergänzender Baustein angeboten.
 
+### 1.6 Finanzanlagen: Grundlagen, Rendite und Zinseszins
+
+- Erläutern Sie das Dreieck der Geldanlage, und ordnen Sie Tagesgeld, Festgeld und einen breit gestreuten Aktienfonds ein.
+  - Erwartung: Die drei Ziele sind Rendite, Sicherheit und Liquidität (Verfügbarkeit); sie stehen in einem Zielkonflikt, keine Anlage erreicht alle drei zugleich in höchstem Maß.
+  - Erwartung: Tagesgeld bietet hohe Liquidität und Sicherheit, aber eine geringe Rendite; Festgeld bietet hohe Sicherheit und einen festen Zins, ist aber während der Laufzeit nicht verfügbar.
+  - Erwartung: Ein breit gestreuter Aktienfonds bietet in der Regel höhere Renditechancen und ist zum aktuellen Kurs verkäuflich, schwankt aber deutlich im Wert und ist damit weniger sicher.
+  - Erwartung: Welches Ziel Vorrang hat, hängt vom Zweck und vom Anlagehorizont ab, zum Beispiel Liquidität und Sicherheit beim Notgroschen, Rendite beim langfristigen Vermögensaufbau.
+  - Rückfrage: Was bedeutet Liquidität im Dreieck der Geldanlage im Unterschied zur Liquidität eines Unternehmens?
+- Wie erklären Sie einer Kundin an einem Sparplan, wie Zinseszins und laufende Kosten über eine lange Laufzeit wirken, und wo liegen die Grenzen einer solchen Rechnung?
+  - Erwartung: Beim Zinseszins werden die Zinsen mitverzinst: Endkapital = Anfangskapital × (1 + i)^n; bei jährlichen Raten am Jahresende gilt Endwert = Rate × ((1 + i)^n − 1) ÷ i.
+  - Erwartung: Der Effekt wächst mit Laufzeit und Zinssatz; bei Einzahlung am Jahresanfang (vorschüssig) ist der Endwert um den Faktor (1 + i) höher.
+  - Erwartung: Laufende Kosten mindern die Rendite in jedem Jahr (vereinfacht Nettorendite ≈ Bruttorendite − laufende Kosten); der Unterschied im Endwert ist größer als Laufzeit × Kostensatz × Anfangsbetrag (zum Beispiel 20 × 1,5 % von 10.000 € = 3.000 € gegenüber 6.635,09 € weniger Endwert), weil die Kosten jedes Jahr vom gewachsenen Vermögen berechnet werden und zusätzlich die Erträge auf die entnommenen Beträge fehlen.
+  - Erwartung: Grenzen: Zinssätze und Renditen sind Annahmen und keine Prognose; gerechnet wird vor Steuern und nominal, also ohne Inflation, sofern diese nicht eingerechnet wird; Monatsraten werden vereinfacht als Jahresrate am Jahresende mit jährlicher Verzinsung gerechnet, das unterschätzt den Endwert leicht.
+  - Rückfrage: Wie ermitteln Sie aus Nominalzins und Inflationsrate den Realzins?
+- Ein Kunde möchte sein gesamtes Erspartes in Aktien seines Arbeitgebers anlegen, weil der Kurs in den letzten Jahren stark gestiegen ist. Wie gehen Sie im Gespräch mit dem Thema Risiko um?
+  - Erwartung: Es entsteht ein Klumpenrisiko, beim eigenen Arbeitgeber sogar doppelt, weil Arbeitsplatz und Ersparnisse am selben Unternehmen hängen.
+  - Erwartung: Eine einzelne Aktie kann stark schwanken (hohe Volatilität) bis zum Totalverlust; frühere Kursgewinne sind keine Gewähr für die Zukunft.
+  - Erwartung: Streuung über Anlageklassen, Länder, Branchen und Kaufzeitpunkte verringert das Risiko einzelner Werte, beseitigt aber nicht das allgemeine Marktrisiko.
+  - Erwartung: Ziel, Anlagehorizont, ein vorhandener Notgroschen sowie Risikobereitschaft und Risikotragfähigkeit des Kunden werden erfragt; Rechnungen und Erläuterungen sind keine Anlageempfehlung, die Entscheidung liegt beim Kunden.
+  - Rückfrage: Was versteht man unter Rebalancing, und wozu dient es?
+
+### 1.7 Nachhaltigkeit in Kapitalanlage und Versicherung
+
+- Warum ist Nachhaltigkeit für einen Versicherer wie die Nordantis Versicherung AG in zweifacher Hinsicht bedeutsam?
+  - Erwartung: Als Risikoträger trägt der Versicherer die Folgen physischer Klimarisiken, etwa zunehmende Schäden durch Starkregen, Überschwemmung, Sturm oder Hagel (Überschwemmung und Rückstau als Elementarschäden), auch als Kumul vieler Schäden aus einem Ereignis.
+  - Erwartung: Als Kapitalanleger legt er große Summen mit langem Anlagehorizont an; Transitionsrisiken wie steigende CO2-Preise können Anlagen in Unternehmen mit hohem CO2-Ausstoß entwerten, physische Risiken können Immobilien im Bestand treffen.
+  - Erwartung: Versicherungstechnisch reagiert er mit risikogerechten Prämien nach Gefährdungszonen, Präventionsanreizen, Rückversicherung von Kumulrisiken und laufender Überprüfung der Kalkulation.
+  - Erwartung: Mit seinen Anlageentscheidungen beeinflusst er zugleich, wohin Kapital fließt (Blickrichtung von innen nach außen).
+  - Rückfrage: Wie unterscheiden sich physische Risiken und Transitionsrisiken?
+- Erläutern Sie Ansätze nachhaltiger Kapitalanlage und grenzen Sie Ausschlusskriterien vom Best-in-Class-Ansatz ab.
+  - Erwartung: Ausschlusskriterien nehmen bestimmte Branchen, Geschäftspraktiken oder Staaten aus dem Portfolio, etwa Kohle, geächtete Waffen oder Tabak, oft ab einer Umsatzschwelle (Negativauswahl).
+  - Erwartung: Best-in-Class wählt in jeder Branche die Unternehmen mit der besten ESG-Bewertung, ohne Branchen auszuschließen; die Streuung bleibt erhalten, aber auch der Beste einer problematischen Branche kann enthalten sein.
+  - Erwartung: Beim Engagement bleiben die Investierenden beteiligt und nehmen über Dialog und Stimmrechte Einfluss; als letzte Stufe kann der Verkauf folgen.
+  - Erwartung: Thematische Anlagen richten sich auf ein Nachhaltigkeitsthema aus, Impact-Anlagen beabsichtigen zusätzlich eine messbare Wirkung, die gemessen und berichtet wird.
+  - Rückfrage: Welcher Ansatz passt zu einer Kundin, die bestimmte Branchen auf keinen Fall in ihrem Vertrag haben möchte?
+- Wie gehen Sie in der Beratung zu einer fondsgebundenen Rentenversicherung mit Nachhaltigkeitswünschen um, und wie schützen Sie Kund:innen vor Greenwashing?
+  - Erwartung: In der Regel werden zunächst Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation (Risikotragfähigkeit) geklärt, danach die Nachhaltigkeitspräferenzen: ob und wie wichtig, welche Themen, welche Ausschlusskriterien (z. B. Kohle, Waffen), welcher Ansatz.
+  - Erwartung: Präferenzen werden weder aufgedrängt noch übergangen; passt kein Fonds, wird das offen gesagt, und Empfehlung und Gründe werden dokumentiert.
+  - Erwartung: Warnzeichen für Greenwashing sind vage oder absolute Begriffe ohne Nachweis, selbst gestaltete Siegel ohne unabhängige Prüfung, hervorgehobene Teilaspekte und ein Widerspruch zwischen Name und Portfolio.
+  - Erwartung: Geprüft werden Anlagebedingungen, größte Positionen, Kennzahlen oder Wirkungsberichte und unabhängige Siegel; Werbeaussagen werden nicht ungeprüft übernommen, und Renditeversprechen sowie die Behauptung, nachhaltige Fonds entwickelten sich besser, gehören nicht in die Beratung.
+  - Rückfrage: Warum werden die Nachhaltigkeitspräferenzen erst nach Anlageziel, Risikobereitschaft, Anlagehorizont und finanzieller Situation erfragt?

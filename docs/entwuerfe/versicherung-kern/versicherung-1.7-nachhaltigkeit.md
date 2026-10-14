@@ -31,10 +31,10 @@ Klimarisiken werden üblicherweise in zwei Gruppen eingeteilt:
 
 In manchen Quellen werden zusätzlich **Haftungsrisiken** genannt (Ansprüche gegen Unternehmen, denen Klimaschäden zugerechnet werden); hier werden sie nicht weiter behandelt.
 
-Als Risikoträger spürt ein Sachversicherer vor allem die physischen Risiken. Elementarschäden durch Überschwemmung, Rückstau oder Starkregen sind nur über einen eigenen Zusatzbaustein versichert (siehe Thema 2.1); nehmen solche Ereignisse zu, steigen Schadenhäufigkeit und Schadenhöhe. Ein einziges Unwetter kann viele Verträge in einer Region gleichzeitig treffen (**Kumulrisiko**). Typische Reaktionen eines Versicherers wie Nordantis sind:
+Als Risikoträger spürt ein Sachversicherer vor allem die physischen Risiken. Elementarschäden durch Überschwemmung (etwa nach Starkregen) oder Rückstau sind in der Regel nur über einen Zusatzbaustein versichert (Thema 2.1; für Wohngebäude Thema 3.2); nehmen solche Ereignisse zu, steigen Schadenhäufigkeit und Schadenhöhe. Ein einziges Unwetter kann viele Verträge in einer Region gleichzeitig treffen (**Kumulrisiko**). Typische Reaktionen eines Versicherers wie Nordantis sind:
 
 - **Risikogerechte Prämien:** Nach dem Äquivalenzprinzip (Thema 3.1) entspricht die Prämie dem übernommenen Risiko. Für den Elementarschutz wird die örtliche Gefährdung über **Gefährdungszonen (Zonierung)** berücksichtigt, etwa die Nähe zu einem Gewässer; in stärker gefährdeten Lagen ist die Prämie höher.
-- **Prävention:** Der Versicherer berät zu Schutzmaßnahmen (z. B. Rückstausicherung, Abdichtung von Kellerfenstern und Lichtschächten) und belohnt sie mit Rabatten oder günstigeren Selbstbehalten. Prävention senkt die Schadenwahrscheinlichkeit oder die Schadenhöhe und hilft, Versicherungsschutz bezahlbar zu halten.
+- **Prävention:** Der Versicherer berät zu Schutzmaßnahmen. Eine funktionsfähige Rückstausicherung ist häufig Obliegenheit (Thema 2.1); weitergehende Maßnahmen wie abgedichtete Kellerfenster und Lichtschächte oder Hochwasserbarrieren können mit Rabatten oder günstigeren Selbstbehalten belohnt werden. Prävention senkt die Schadenwahrscheinlichkeit oder die Schadenhöhe und hilft, Versicherungsschutz bezahlbar zu halten.
 - **Rückversicherung:** Kumulrisiken aus Naturkatastrophen werden teilweise an Rückversicherer abgegeben (Thema 3.1).
 - **Kalkulation überprüfen:** Die Nettoprämie beruht auf Schadenerfahrungen vergangener Perioden (Thema 3.1). Verändern sich die Risiken, können alte Daten künftige Schäden unterschätzen; die Annahmen werden deshalb laufend überprüft.
 
@@ -42,16 +42,16 @@ Werden Schäden in einzelnen Lagen fast sicher, stößt die **Versicherbarkeit**
 
 ### Der Versicherer als Kapitalanleger: Ansätze nachhaltiger Kapitalanlage
 
-Ein Versicherer legt die eingenommenen Beiträge an, bis er sie für Leistungen braucht. Besonders Lebensversicherer verwalten große Kapitalanlagen mit einem langen Anlagehorizont. Dadurch treffen Klimarisiken auch die Kapitalanlage: Transitionsrisiken können Aktien und Anleihen von Unternehmen mit hohem CO2-Ausstoß entwerten (im Extremfall verlieren Anlagen wie Kraftwerke schon vor dem Ende ihrer Nutzungsdauer ihren Wert, man spricht von gestrandeten Vermögenswerten), physische Risiken können Immobilien im eigenen Bestand beschädigen. Umgekehrt beeinflusst ein großer Anleger mit seinen Entscheidungen, wohin Kapital fließt. Für die nachhaltige Kapitalanlage haben sich mehrere Ansätze herausgebildet, die häufig kombiniert werden:
+Ein Versicherer legt die eingenommenen Beiträge an, bis er sie für Leistungen braucht. Besonders Lebensversicherer verwalten große Kapitalanlagen mit einem langen Anlagehorizont. Dadurch treffen Klimarisiken auch die Kapitalanlage: Transitionsrisiken können Aktien und Anleihen von Unternehmen mit hohem CO2-Ausstoß entwerten (im Extremfall verlieren Anlagen wie Kraftwerke schon vor dem Ende ihrer Nutzungsdauer ihren Wert, man spricht von gestrandeten Vermögenswerten), physische Risiken können Immobilien im eigenen Bestand beschädigen. Umgekehrt beeinflussen große Investierende mit ihren Entscheidungen, wohin Kapital fließt. Für die nachhaltige Kapitalanlage haben sich mehrere Ansätze herausgebildet, die häufig kombiniert werden:
 
-- **Ausschlusskriterien (Negativauswahl):** Bestimmte Branchen, Geschäftspraktiken oder Staaten kommen nicht ins Portfolio, z. B. Kohle, geächtete Waffen oder Tabak, oft ab einer bestimmten Umsatzschwelle. Beim **normbasierten** Ausschluss scheiden Unternehmen aus, die schwer gegen international anerkannte Standards zu Menschenrechten, Arbeitsbedingungen oder Korruption verstoßen. Der Grundgedanke ähnelt den KO-Kriterien bei Ausschreibungen: Wer ein Kriterium nicht erfüllt, scheidet aus.
+- **Ausschlusskriterien (Negativauswahl):** Bestimmte Branchen, Geschäftspraktiken oder Staaten kommen nicht ins Portfolio, z. B. Kohle, geächtete Waffen oder Tabak, oft ab einer bestimmten Umsatzschwelle. Beim **normbasierten** Ausschluss scheiden Unternehmen aus, die schwer gegen international anerkannte Standards zu Menschenrechten, Arbeitsbedingungen oder Korruption verstoßen.
 - **Best-in-Class (Positivauswahl):** In jeder Branche werden die Unternehmen mit der besten ESG-Bewertung ausgewählt. Branchen werden dabei nicht ausgeschlossen, sodass auch ein Ölkonzern enthalten sein kann, wenn er im Branchenvergleich vorn liegt. Vorteil: Die Streuung über Branchen bleibt erhalten (siehe Thema 1.6). Kritik: Auch der Beste einer problematischen Branche kann viel CO2 ausstoßen.
 - **ESG-Integration:** ESG-Faktoren werden systematisch in die übliche Finanzanalyse einbezogen, weil sie Risiken und Chancen eines Unternehmens beeinflussen.
-- **Engagement und Stimmrechtsausübung:** Der Anleger bleibt beteiligt, sucht den Dialog mit der Unternehmensleitung und nutzt seine Stimmrechte in der Hauptversammlung, um Verbesserungen durchzusetzen, etwa verbindliche Klimaziele. Bleibt das ohne Erfolg, kann als letzte Stufe der Verkauf folgen.
+- **Engagement und Stimmrechtsausübung:** Der anlegende Versicherer bleibt beteiligt, sucht den Dialog mit der Unternehmensleitung und nutzt seine Stimmrechte in der Hauptversammlung, um Verbesserungen durchzusetzen, etwa verbindliche Klimaziele. Bleibt das ohne Erfolg, kann als letzte Stufe der Verkauf folgen.
 - **Thematische Anlagen:** Angelegt wird in Unternehmen oder Projekte, deren Geschäft einem Nachhaltigkeitsthema dient, etwa erneuerbare Energien, Wasserversorgung oder Bildung.
 - **Impact-Anlagen (wirkungsorientierte Anlagen):** Neben einer finanziellen Rendite wird eine **beabsichtigte, messbare** positive ökologische oder soziale Wirkung angestrebt, die gemessen und berichtet wird, z. B. der erzeugte Ökostrom und die vermiedenen Emissionen eines neuen Solarparks. Der Unterschied zur thematischen Anlage: Dort genügt die Ausrichtung auf ein Thema, bei Impact-Anlagen muss die Wirkung nachgewiesen werden.
 
-**Nachhaltigkeitsfonds** sind Investmentfonds, die einen oder mehrere dieser Ansätze anwenden. Der Begriff ist nicht einheitlich; wie streng ein Fonds vorgeht, zeigen erst seine Anlagebedingungen und sein tatsächliches Portfolio. Ob nachhaltige Anlagen mehr oder weniger Rendite bringen als andere, lässt sich nicht pauschal sagen: Ausschlüsse verkleinern die Auswahl möglicher Anlagen, zugleich können Anlagen mit geringeren Transitionsrisiken von deren Folgen weniger betroffen sein; Untersuchungen kommen zu unterschiedlichen Ergebnissen. Nachhaltigkeit ersetzt nicht die Prüfung von Rendite, Risiko, Streuung und Kosten (siehe Thema 1.6). Nordantis hat für die eigene Kapitalanlage eine Richtlinie mit Ausschlusskriterien, wendet bei Aktien den Best-in-Class-Ansatz an, lässt die beauftragten Fondsgesellschaften Engagement betreiben und beteiligt sich über Impact-Anlagen an Wind- und Solarparks.
+**Nachhaltigkeitsfonds** sind Investmentfonds, die einen oder mehrere dieser Ansätze anwenden. Der Begriff ist nicht einheitlich; wie streng ein Fonds vorgeht, zeigen erst seine Anlagebedingungen und sein tatsächliches Portfolio. Ob nachhaltige Anlagen mehr oder weniger Rendite bringen als andere, lässt sich nicht pauschal sagen: Ausschlusskriterien verkleinern die Auswahl möglicher Anlagen, zugleich können Anlagen mit geringeren Transitionsrisiken von deren Folgen weniger betroffen sein; Untersuchungen kommen zu unterschiedlichen Ergebnissen. Nachhaltigkeit ersetzt nicht die Prüfung von Rendite, Risiko, Streuung und Kosten (siehe Thema 1.6). Nordantis hat für die eigene Kapitalanlage eine Richtlinie mit Ausschlusskriterien, wendet bei Aktien den Best-in-Class-Ansatz an, lässt die beauftragten Fondsgesellschaften Engagement betreiben und beteiligt sich über Impact-Anlagen an Wind- und Solarparks.
 
 ### Greenwashing erkennen
 
@@ -61,19 +61,19 @@ Ein Versicherer legt die eingenommenen Beiträge an, bis er sie für Leistungen 
 - **Ablenkung durch Teilaspekte:** Ein kleiner positiver Bereich wird groß herausgestellt, während das Kerngeschäft unverändert bleibt.
 - **Eigene Siegel ohne unabhängige Prüfung:** Ein vom Anbieter selbst gestaltetes Zeichen ohne offengelegte Kriterien sagt wenig aus.
 - **Widerspruch zwischen Werbung und Inhalt:** Ein „Klimafonds“ hält unter seinen größten Positionen Unternehmen, die zu seinem Namen nicht passen, etwa Kohleförderer.
-- **„Klimaneutral“ allein durch Ausgleich:** Die Aussage beruht nur auf dem Kauf von Ausgleichszertifikaten, ohne dass eigene Emissionen gesenkt werden, und das wird nicht offengelegt.
+- **„Klimaneutral“ allein durch Ausgleich:** Die Aussage beruht nur auf dem Kauf von Ausgleichszertifikaten, ohne dass eigene Emissionen gesenkt werden. Werbeaussagen dieser Art sind gesetzlich stark eingeschränkt; die Einzelheiten werden hier nicht behandelt.
 
-Zur Prüfung eines als nachhaltig beworbenen Fonds werden die Anlagebedingungen und Nachhaltigkeitsinformationen gelesen (welche Ansätze, welche Ausschlüsse ab welcher Umsatzschwelle), die größten Positionen des Portfolios angesehen, Kennzahlen und Berichte geprüft (etwa der CO2-Ausstoß der Unternehmen im Portfolio oder ein Wirkungsbericht) und unabhängige Siegel oder Bewertungen herangezogen, deren Kriterien offengelegt sind und deren Einhaltung von Dritten geprüft wird. Auch ein Siegel ersetzt die eigene Prüfung nicht. Greenwashing kann auch in der Beratung entstehen, wenn ein Produkt im Gespräch nachhaltiger dargestellt wird, als es ist; Werbeaussagen werden deshalb nicht ungeprüft übernommen. Dem Versicherer drohen sonst Vertrauensverlust, Reputationsschäden und rechtliche Folgen; die gesetzlichen Vorgaben zu Werbung und Offenlegung werden hier nicht behandelt.
+Zur Prüfung eines als nachhaltig beworbenen Fonds werden die Anlagebedingungen und Nachhaltigkeitsinformationen gelesen (welche Ansätze, welche Ausschlusskriterien ab welcher Umsatzschwelle), die größten Positionen des Portfolios angesehen, Kennzahlen und Berichte geprüft (etwa der CO2-Ausstoß der Unternehmen im Portfolio oder ein Wirkungsbericht) und unabhängige Siegel oder Bewertungen herangezogen, deren Kriterien offengelegt sind und deren Einhaltung von Dritten geprüft wird. Auch ein Siegel ersetzt die eigene Prüfung nicht. Greenwashing kann auch in der Beratung entstehen, wenn ein Produkt im Gespräch nachhaltiger dargestellt wird, als es ist; Werbeaussagen werden deshalb nicht ungeprüft übernommen. Dem Versicherer drohen sonst Vertrauensverlust, Reputationsschäden und rechtliche Folgen; die gesetzlichen Vorgaben zu Werbung und Offenlegung werden hier nicht behandelt.
 
 ### Nachhaltige Versicherungsprodukte und Beratung
 
 Nachhaltigkeit zeigt sich auch in den Produkten selbst. Beispiele:
 
 - **Sachversicherung:** Rabatte für energieeffiziente Gebäude oder für Präventionsmaßnahmen, die Mitversicherung von Photovoltaikanlagen, Wärmepumpen und Ladestationen sowie in manchen Tarifen die Übernahme von **Mehrkosten für eine ökologisch bessere Wiederherstellung** nach einem Schaden (z. B. eine effizientere Heizung statt eines gleichartigen Ersatzes) bis zu einer vereinbarten Grenze.
-- **Schadenregulierung:** **Reparatur statt Austausch**, wo sie technisch sinnvoll ist, etwa bei Glasschäden, kleinen Lackschäden oder Elektronik. Das schont Ressourcen und ist häufig günstiger; Nordantis prüft in der Regulierung zuerst, ob eine Reparatur möglich ist.
+- **Schadenregulierung (Schadenmanagement, Thema 3.3):** **Reparatur statt Austausch**, wo sie technisch sinnvoll ist, etwa bei Glasschäden, kleinen Lackschäden oder Elektronik. Das schont Ressourcen und ist häufig günstiger; Nordantis prüft in der Regulierung zuerst, ob eine Reparatur möglich ist.
 - **Lebens- und Rentenversicherung:** In fondsgebundenen Renten- und Lebensversicherungen (Schicht 3, siehe Thema 1.4) können Kund:innen aus der angebotenen Fondsauswahl auch Fonds mit Nachhaltigkeitsmerkmalen wählen; bei klassischen Produkten hängt die Nachhaltigkeit von der Kapitalanlage des Versicherers ab.
 
-In der Beratung ist ein Nachhaltigkeitswunsch ein Kundenwunsch wie andere und gehört in die Bedarfsanalyse (Thema 3.2). Bei fondsgebundenen Produkten werden zunächst Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation geklärt; erst danach werden die **Nachhaltigkeitspräferenzen** erfragt, weil Nachhaltigkeit die Auswahl unter den passenden Fonds ergänzt, die Prüfung von Risiko und Anlagehorizont aber nicht ersetzt. Dabei wird geklärt, ob Nachhaltigkeit überhaupt eine Rolle spielt, welche Themen wichtig sind (etwa Klima oder Menschenrechte), welche Ausschlüsse gewünscht sind, welcher Ansatz passt (Ausschluss, Best-in-Class, Impact) und wie stark die Präferenz im Verhältnis zu Auswahl und Kosten gewichtet wird. Präferenzen werden weder aufgedrängt noch übergangen. Passt kein angebotener Fonds zu den Wünschen, wird das offen gesagt. Empfehlung und Gründe werden im Beratungsprotokoll dokumentiert. Aussagen über künftige Renditen oder eine bessere Wertentwicklung nachhaltiger Fonds gehören nicht in die Beratung. Für die Anlageberatung und die Beratung zu Versicherungsanlageprodukten bestehen umfangreiche gesetzliche Vorgaben, auch zur Abfrage von Nachhaltigkeitspräferenzen, die in diesem Thema nicht behandelt werden.
+In der Beratung ist ein Nachhaltigkeitswunsch ein Kundenwunsch wie andere und gehört in die Bedarfsanalyse (Thema 3.2). Bei fondsgebundenen Produkten werden in der Regel zunächst Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation (Risikotragfähigkeit) geklärt; erst danach werden die **Nachhaltigkeitspräferenzen** erfragt, weil Nachhaltigkeit die Auswahl unter den passenden Fonds ergänzt, die Prüfung von Risiko und Anlagehorizont aber nicht ersetzt. Dabei wird geklärt, ob Nachhaltigkeit überhaupt eine Rolle spielt, welche Themen wichtig sind (etwa Klima oder Menschenrechte), welche Ausschlusskriterien gewünscht sind (z. B. Kohle, Waffen), welcher Ansatz passt (Ausschlusskriterien, Best-in-Class, Impact) und wie stark die Präferenz im Verhältnis zu Auswahl und Kosten gewichtet wird. Präferenzen werden weder aufgedrängt noch übergangen. Passt kein angebotener Fonds zu den Wünschen, wird das offen gesagt. Empfehlung und Gründe werden im Beratungsprotokoll dokumentiert. Renditeversprechen und die Behauptung, nachhaltige Fonds entwickelten sich besser, gehören nicht in die Beratung. Für die Anlageberatung und die Beratung zu Versicherungsanlageprodukten bestehen umfangreiche gesetzliche Vorgaben, auch zur Abfrage von Nachhaltigkeitspräferenzen, die in diesem Thema nicht behandelt werden.
 
 ### Nachhaltige Unternehmenssteuerung: CO2-Fußabdruck und Berichterstattung
 
@@ -83,9 +83,9 @@ Auch der eigene Geschäftsbetrieb verursacht Treibhausgase. Der **CO2-Fußabdruc
 - **Scope 2:** indirekte Emissionen aus eingekaufter Energie, etwa Strom für Büros und Rechenzentrum.
 - **Scope 3:** alle übrigen indirekten Emissionen entlang der Wertschöpfungskette, etwa Dienstreisen mit Bahn und Flugzeug, Papier und Druck, der Arbeitsweg der Beschäftigten und die **finanzierten Emissionen** der Kapitalanlagen, also der Anteil am CO2-Ausstoß der Unternehmen, in die investiert wird. Bei Versicherern und Banken sind die finanzierten Emissionen in der Regel deutlich höher als die des eigenen Geschäftsbetriebs.
 
-Gesteuert wird in einem Regelkreis: Emissionen erfassen, Reduktionsziele festlegen, Maßnahmen umsetzen, die Zielerreichung messen und berichten, dann den Kreis erneut durchlaufen. Vermeiden und Senken haben Vorrang vor dem Ausgleich über Zertifikate. Nachhaltigkeitsziele lassen sich in die Unternehmenssteuerung einbinden, etwa als Kennzahlen in der Balanced Scorecard (Thema 4.1); dazu gehören neben CO2-Kennzahlen auch soziale Ziele (z. B. Weiterbildung, Gesundheit der Beschäftigten) und Governance-Ziele (z. B. Compliance-Schulungen).
+Gesteuert wird in einem Regelkreis: Emissionen erfassen, Reduktionsziele festlegen, Maßnahmen umsetzen, die Zielerreichung messen und berichten, dann den Kreis erneut durchlaufen. Vermeiden und Verringern haben Vorrang vor dem Ausgleich über Zertifikate. Nachhaltigkeitsziele lassen sich in die Unternehmenssteuerung einbinden, etwa als Kennzahlen in der Balanced Scorecard (Thema 4.1); dazu gehören neben CO2-Kennzahlen auch soziale Ziele (z. B. Weiterbildung, Gesundheit der Beschäftigten) und Governance-Ziele (z. B. Compliance-Schulungen).
 
-Rechenbeispiel (angenommene Rechenwerte, keine amtlichen Faktoren; reale Werte hängen von Fahrzeug, Fahrweise und Strommix ab): Die Dienstwagen des Nordantis-Außendienstes fahren zusammen 400.000 km im Jahr.
+Rechenbeispiel (angenommene Rechenwerte, keine amtlichen Faktoren; reale Werte hängen von Fahrzeug, Fahrweise und Strommix ab): Die Dienstwagen der angestellten Außendienstmitarbeitenden von Nordantis (z. B. Schadenregulierung, Maklerbetreuung) fahren zusammen 400.000 km im Jahr.
 
 - **Verbrennungsmotor** mit 0,16 kg CO2 je km: 400.000 km × 0,16 kg = 64.000 kg = 64 t CO2 (Scope 1).
 - **Elektroantrieb** mit 0,04 kg CO2 je km für den eingekauften Ladestrom: 400.000 km × 0,04 kg = 16.000 kg = 16 t CO2 (Scope 2).
@@ -119,7 +119,7 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 
 #### K-1.7-05
 **Frage:** Wie kann ein Sachversicherer auf zunehmende Elementarschäden reagieren?
-**Antwort:** Mit risikogerechten Prämien nach Gefährdungszonen (Äquivalenzprinzip), mit Präventionsanreizen (z. B. Rabatt für eine Rückstausicherung), mit Rückversicherung der Kumulrisiken und mit laufender Überprüfung der Kalkulationsgrundlagen.
+**Antwort:** Mit risikogerechten Prämien nach Gefährdungszonen (Äquivalenzprinzip), mit Präventionsanreizen (z. B. Rabatt für abgedichtete Kellerfenster und Lichtschächte oder Hochwasserbarrieren; die Rückstausicherung ist dagegen häufig Obliegenheit), mit Rückversicherung der Kumulrisiken und mit laufender Überprüfung der Kalkulationsgrundlagen.
 `tags: klimarisiko, elementarschaden` · `schwierigkeit: schwer` · `bloom: anwenden`
 
 #### K-1.7-06
@@ -129,7 +129,7 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 
 #### K-1.7-07
 **Frage:** Was bedeutet Engagement in der nachhaltigen Kapitalanlage?
-**Antwort:** Der Anleger bleibt beteiligt, sucht den Dialog mit der Unternehmensleitung und nutzt seine Stimmrechte in der Hauptversammlung, um Verbesserungen durchzusetzen; als letzte Stufe kann er verkaufen.
+**Antwort:** Die Investierenden bleiben beteiligt, suchen den Dialog mit der Unternehmensleitung und nutzen ihre Stimmrechte in der Hauptversammlung, um Verbesserungen durchzusetzen; als letzte Stufe können sie verkaufen.
 `tags: kapitalanlage, ansaetze` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-1.7-08
@@ -144,7 +144,7 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 
 #### K-1.7-10
 **Frage:** Wann fragst du in der Beratung zu einer fondsgebundenen Rentenversicherung nach Nachhaltigkeitspräferenzen, und was klärst du dabei?
-**Antwort:** Nachdem Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation geklärt sind. Du klärst, ob Nachhaltigkeit wichtig ist, welche Themen und Ausschlüsse gewünscht sind, welcher Ansatz passt und wie stark die Präferenz gewichtet wird, und dokumentierst das Ergebnis.
+**Antwort:** In der Regel, nachdem Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation (Risikotragfähigkeit) geklärt sind. Du klärst, ob Nachhaltigkeit wichtig ist, welche Themen und welche Ausschlusskriterien (z. B. Kohle, Waffen) gewünscht sind, welcher Ansatz passt und wie stark die Präferenz gewichtet wird, und dokumentierst das Ergebnis.
 `tags: beratung, nachhaltigkeitspraeferenzen` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-1.7-11
@@ -183,7 +183,7 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 - [ ] Best-in-Class
 - [ ] Thematische Anlage im Bereich Chemie
 - [x] Engagement mit Stimmrechtsausübung
-**Erklärung:** Beim Engagement bleibt der Anleger beteiligt und nutzt Dialog und Stimmrechte, um Verbesserungen durchzusetzen. Ausgeschlossen wird das Unternehmen gerade nicht; ein Verkauf wäre erst die letzte Stufe.
+**Erklärung:** Beim Engagement bleibt der anlegende Versicherer beteiligt und nutzt Dialog und Stimmrechte, um Verbesserungen durchzusetzen. Ausgeschlossen wird das Unternehmen gerade nicht; ein Verkauf wäre erst die letzte Stufe.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.7-04 · Wahr/Falsch
@@ -196,10 +196,10 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 #### Q-1.7-05 · Mehrfachauswahl
 **Frage:** Du prüfst die Unterlagen eines Fonds, der als nachhaltig beworben wird. Welche Angaben sind Warnzeichen für mögliches Greenwashing?
 - [x] Der Fonds wird als „100 % klimafreundlich“ beworben, Kriterien werden nicht genannt.
-- [ ] Die Anlagebedingungen nennen die Ausschlüsse mit Umsatzschwellen, und ein jährlicher Bericht weist Kennzahlen aus.
+- [ ] Die Anlagebedingungen nennen die Ausschlusskriterien mit Umsatzschwellen, und ein jährlicher Bericht weist Kennzahlen aus.
 - [x] Das Siegel auf dem Prospekt hat der Anbieter selbst gestaltet, eine unabhängige Prüfung gibt es nicht.
 - [x] Der Fonds heißt „Klimafonds“, zu seinen größten Positionen zählen aber Kohleförderer.
-**Erklärung:** Unbelegte absolute Aussagen, eigene Siegel ohne unabhängige Prüfung und ein Widerspruch zwischen Name und Portfolio sind typische Warnzeichen. Offengelegte Ausschlüsse und regelmäßige Berichte mit Kennzahlen sprechen dagegen für Transparenz, ersetzen aber nicht den Blick auf das Portfolio.
+**Erklärung:** Unbelegte absolute Aussagen, eigene Siegel ohne unabhängige Prüfung und ein Widerspruch zwischen Name und Portfolio sind typische Warnzeichen. Offengelegte Ausschlusskriterien und regelmäßige Berichte mit Kennzahlen sprechen dagegen für Transparenz, ersetzen aber nicht den Blick auf das Portfolio.
 `schwierigkeit: mittel` · `bloom: analysieren`
 
 #### Q-1.7-06 · Sortieren
@@ -234,36 +234,36 @@ Die **Nachhaltigkeitsberichterstattung** macht Ziele, Kennzahlen, Maßnahmen und
 
 #### Q-1.7-10 · Kurzantwort
 **Frage:** Wie heißt der Ansatz nachhaltiger Kapitalanlage, bei dem neben der finanziellen Rendite eine beabsichtigte, messbare positive ökologische oder soziale Wirkung angestrebt wird, die gemessen und berichtet wird?
-**Akzeptierte Antworten:** Impact-Anlage; Impactanlage; Impact-Anlagen; Impactanlagen; Impact-Investment; Impactinvestment; Impact-Investments; Impactinvestments; Impact-Investing; Impactinvesting; Impact; wirkungsorientierte Anlage; wirkungsorientierte Anlagen; wirkungsorientierte Geldanlage; wirkungsorientierte Geldanlagen; wirkungsorientierte Kapitalanlage; wirkungsorientierte Kapitalanlagen
+**Akzeptierte Antworten:** Impact-Anlage; Impactanlage; Impact-Anlagen; Impactanlagen; Impact-Investment; Impactinvestment; Impact-Investments; Impactinvestments; Impact-Investing; Impactinvesting; Impact; wirkungsorientierte Anlage; wirkungsorientierte Anlagen; wirkungsorientierte Geldanlage; wirkungsorientierte Geldanlagen; wirkungsorientierte Kapitalanlage; wirkungsorientierte Kapitalanlagen; wirkungsorientiertes Investieren; Impact-Investition; Impact-Investitionen; Impactinvestition; Impactinvestitionen
 **Erklärung:** Bei Impact-Anlagen muss die Wirkung nachgewiesen werden, etwa erzeugter Ökostrom oder vermiedene Emissionen eines neuen Solarparks. Bei einer thematischen Anlage genügt dagegen die Ausrichtung auf ein Nachhaltigkeitsthema.
 `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-1.7-11 · Kurzantwort
 **Frage:** Die Dienstwagen eines Versicherers fahren zusammen 400.000 km im Jahr. Als angenommener Rechenwert gelten 0,16 kg CO2 je km. Wie viele Tonnen CO2 verursachen die Fahrten im Jahr?
-**Akzeptierte Antworten:** 64; 64 t; 64 Tonnen; 64 t CO2; 64 Tonnen CO2; 64,0; 64.0; 64,0 t; 64.0 t; 64,0 Tonnen; 64.0 Tonnen; 64,0 t CO2; 64.0 t CO2; 64,0 Tonnen CO2; 64.0 Tonnen CO2
+**Akzeptierte Antworten:** 64; 64 t; 64 Tonnen; 64 t CO2; 64 Tonnen CO2; 64,0; 64.0; 64,0 t; 64.0 t; 64,0 Tonnen; 64.0 Tonnen; 64,0 t CO2; 64.0 t CO2; 64,0 Tonnen CO2; 64.0 Tonnen CO2; 64,00; 64.00; 64,00 t; 64.00 t; 64,00 Tonnen; 64.00 Tonnen; 64 t CO₂; 64 Tonnen CO₂; 64,0 t CO₂; 64,00 t CO₂
 **Erklärung:** 400.000 km × 0,16 kg = 64.000 kg = 64 t CO2. Es handelt sich um direkte Emissionen aus eigenen Quellen (Scope 1).
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-1.7-12 · Kurzantwort
 **Frage:** Die Dienstwagen eines Versicherers fahren zusammen 400.000 km im Jahr. Mit Verbrennungsmotor gelten 0,16 kg CO2 je km, nach der Umstellung auf Elektroantrieb 0,04 kg CO2 je km für den eingekauften Ladestrom (angenommene Rechenwerte). Um wie viel Prozent sinkt der CO2-Ausstoß der Fahrten?
-**Akzeptierte Antworten:** 75; 75 %; 75 Prozent; 75,0; 75.0; 75,0 %; 75.0 %; 75,0 Prozent; 75.0 Prozent
+**Akzeptierte Antworten:** 75; 75 %; 75 Prozent; 75,0; 75.0; 75,0 %; 75.0 %; 75,0 Prozent; 75.0 Prozent; 75,00; 75.00; 75,00 %; 75.00 %; 75,00 Prozent; 75.00 Prozent
 **Erklärung:** Vorher 400.000 km × 0,16 kg = 64 t, nachher 400.000 km × 0,04 kg = 16 t. Die Einsparung beträgt 48 t, das sind 48 ÷ 64 × 100 = 75 %. Die verbleibenden 16 t zählen als eingekaufte Energie zu Scope 2.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.7-13 · Multiple Choice
-**Frage:** Eine Kundin möchte in ihrer fondsgebundenen Rentenversicherung „etwas Grünes“. Anlageziel, Risikobereitschaft und Anlagehorizont sind bereits geklärt. Was ist der passende nächste Schritt?
-- [x] Ihre Nachhaltigkeitspräferenzen konkret erfragen, etwa wichtige Themen und gewünschte Ausschlüsse
+**Frage:** Eine Kundin möchte in ihrer fondsgebundenen Rentenversicherung „etwas Grünes“. Anlageziel, Risikobereitschaft, Anlagehorizont und finanzielle Situation (Risikotragfähigkeit) sind bereits geklärt. Was ist der passende nächste Schritt?
+- [x] Ihre Nachhaltigkeitspräferenzen konkret erfragen, etwa wichtige Themen und gewünschte Ausschlusskriterien
 - [ ] Den Fonds mit dem Wort „Klima“ im Namen auswählen, weil der Name die nachhaltige Ausrichtung ausreichend belegt
 - [ ] Auf Nachhaltigkeit verzichten, weil sie bei fondsgebundenen Produkten keine Rolle spielen kann
 - [ ] Den Fonds mit der höchsten Rendite der letzten zwölf Monate empfehlen und Nachhaltigkeit später klären
-**Erklärung:** Nach Anlageziel, Risikobereitschaft und Anlagehorizont werden die Nachhaltigkeitspräferenzen konkret erfragt und dokumentiert. Ein Fondsname belegt nichts (Greenwashing-Gefahr), und vergangene Renditen sind kein Auswahlkriterium für Nachhaltigkeit.
+**Erklärung:** Nach Anlageziel, Risikobereitschaft, Anlagehorizont und finanzieller Situation (Risikotragfähigkeit) werden die Nachhaltigkeitspräferenzen in der Regel konkret erfragt und dokumentiert. Ein Fondsname belegt nichts (Greenwashing-Gefahr), und vergangene Renditen sind kein Auswahlkriterium für Nachhaltigkeit.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-1.7-14 · Mehrfachauswahl
 **Frage:** In einer Region nehmen Starkregenschäden deutlich zu. Welche Reaktionen eines Sachversicherers passen zum Äquivalenzprinzip und zur Prävention?
 - [x] Die Prämien für den Elementarschutz nach Gefährdungszonen risikogerecht kalkulieren
 - [ ] Die Prämien in allen Regionen gleich hoch festsetzen, unabhängig von der Gefährdung
-- [x] Kund:innen einen Rabatt anbieten, wenn sie eine Rückstausicherung einbauen
+- [x] Rabatte für abgedichtete Kellerfenster, Lichtschächte oder Hochwasserbarrieren gewähren
 - [ ] Die Kalkulation unverändert auf den Schadendaten früherer Jahrzehnte belassen
-**Erklärung:** Nach dem Äquivalenzprinzip entspricht die Prämie dem Risiko, deshalb wird nach Gefährdungszonen unterschieden; Präventionsrabatte senken Schadenwahrscheinlichkeit und Schadenhöhe. Eine Einheitsprämie widerspricht dem Äquivalenzprinzip, und unveränderte alte Daten können künftige Schäden unterschätzen.
+**Erklärung:** Nach dem Äquivalenzprinzip entspricht die Prämie dem Risiko, deshalb wird nach Gefährdungszonen unterschieden; Rabatte für Präventionsmaßnahmen, die über die häufig als Obliegenheit verlangte Rückstausicherung hinausgehen, senken Schadenwahrscheinlichkeit und Schadenhöhe. Eine Einheitsprämie widerspricht dem Äquivalenzprinzip, und unveränderte alte Daten können künftige Schäden unterschätzen.
 `schwierigkeit: mittel` · `bloom: bewerten`
