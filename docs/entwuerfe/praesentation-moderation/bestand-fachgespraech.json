@@ -1,0 +1,25 @@
+{
+  "fachwirt-buero-projektorganisation/hb3/fachgespraech.md": {
+    "Welche Rolle spielt eine Führungskraft in einem eskalierten Teamkonflikt?": [
+      "Die Führungskraft ist häufig die erste Anlaufstelle und leitet ein Konfliktgespräch (Klärungsgespräch) zwischen den Beteiligten.",
+      "Sie ist nicht neutral im engeren Sinn, weil sie weisungsbefugt ist und eigene Sachinteressen haben kann; sie bleibt aber allparteilich, bevorzugt keine Seite und gibt keine Lösung vor.",
+      "Sie bereitet das Gespräch vor: Informationen sammeln, Konfliktart und Eskalationsphase einschätzen, Ziel festlegen, eigene Rolle klären und den Rahmen planen.",
+      "Droht das Gespräch zu kippen, reagiert sie gestuft: Störung ansprechen und an die Gesprächsregeln erinnern, auf die Metaebene wechseln, Pause einlegen, bei Bedarf vertagen.",
+      "Ist sie selbst Konfliktpartei oder ist kein sachliches Gespräch mehr möglich, veranlasst sie eine Mediation durch eine neutrale, nicht weisungsbefugte Person."
+    ],
+    "Ab welchem Punkt sollte ein Konflikt an eine neutrale dritte Instanz übergeben werden?": [
+      "Wenn der Konflikt so weit eskaliert ist, dass die Beteiligten nicht mehr sachlich miteinander sprechen können.",
+      "Wenn die Person, die das Gespräch leiten würde, selbst Konfliktpartei ist.",
+      "Wenn ein Konfliktgespräch trotz Erinnerung an die Gesprächsregeln, Wechsel auf die Metaebene, Pause und Vertagung nicht weiterkommt oder die Vereinbarung im Folgegespräch nicht eingehalten wurde.",
+      "Die neutrale Instanz ist z. B. eine Mediation: Eine allparteiliche, neutrale dritte Person hilft den Parteien, selbst eine einvernehmliche Lösung zu finden, und entscheidet nicht selbst.",
+      "Die Wahl der Methode richtet sich nach Konfliktart, Eskalationsgrad und den beteiligten Personen."
+    ],
+    "Beschreiben Sie den typischen Ablauf eines Klärungsgesprächs zwischen zwei Konfliktparteien.": [
+      "Eröffnung: Anlass, Ziel und Ablauf nennen und Gesprächsregeln vereinbaren.",
+      "Sichtweisen klären: Jede Seite schildert ihre Sicht ohne Unterbrechung; die leitende Person hört aktiv zu und fasst zusammen.",
+      "Interessen herausarbeiten: Hinter den Positionen die Interessen erfragen und gemeinsame Interessen festhalten.",
+      "Lösungen suchen: Ideen zunächst ohne Bewertung sammeln, dann danach bewerten, wie gut sie die Interessen beider Seiten erfüllen.",
+      "Vereinbarung treffen und abschließen: Wer tut was bis wann, beide stimmen zu, die Vereinbarung wird schriftlich festgehalten und ein Folgetermin vereinbart."
+    ]
+  }
+}

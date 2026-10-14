@@ -10,7 +10,7 @@ Stand 14.10.2026, **Entwurf (R3), nicht eingespielt.** Befund aus der Rahmenplan
 
 ### Konfliktgespräch vorbereiten
 
-Das **Konfliktgespräch** ist ein strukturiertes Gespräch, in dem die Konfliktparteien ihren Konflikt direkt miteinander klären. Geleitet wird es meist von einer Person, die den Ablauf steuert, etwa der Teamleitung. Sie verhält sich dabei **allparteilich**: Sie hört beide Seiten gleichermaßen an und ergreift nicht Partei. Das Konfliktgespräch ist der übliche Weg, die Strategien Kompromiss oder Kooperation im Arbeitsalltag umzusetzen. Ist der Konflikt so weit eskaliert, dass die Beteiligten nicht mehr sachlich miteinander sprechen können, oder ist die leitende Person selbst Konfliktpartei, ist eher eine Mediation durch eine neutrale dritte Person angebracht (siehe Konfliktbewältigungsmethoden).
+Das **Konfliktgespräch** ist ein strukturiertes Gespräch, in dem die Konfliktparteien ihren Konflikt direkt miteinander klären. Geleitet wird es meist von einer Person, die den Ablauf steuert, etwa der Teamleitung. Ein solches, von einer dritten Person geleitetes Konfliktgespräch wird auch **Klärungsgespräch** genannt. Anders als Mediator:innen ist die Teamleitung nicht neutral im engeren Sinn, weil sie weisungsbefugt ist und eigene Sachinteressen haben kann; sie bleibt aber **allparteilich**, indem sie beide Seiten gleichermaßen anhört, keine Seite bevorzugt und keine Lösung vorgibt. Das Konfliktgespräch ist der übliche Weg, die Strategien Kompromiss oder Kooperation im Arbeitsalltag umzusetzen. Eine Mediation folgt im Kern denselben Phasen, wird aber von einer neutralen, nicht weisungsbefugten Person geleitet. Sie ist eher angebracht, wenn der Konflikt so weit eskaliert ist, dass die Beteiligten nicht mehr sachlich miteinander sprechen können, oder wenn die leitende Person selbst Konfliktpartei ist (siehe „Konfliktbewältigungsmethoden einsetzen“).
 
 Die Vorbereitung umfasst vier Punkte. Erstens werden **Informationen gesammelt**: Was ist konkret vorgefallen? Gefragt sind Beobachtungen und Beispiele, keine Gerüchte oder Verallgemeinerungen; dazu gehört eine Einschätzung von Konfliktart und Eskalationsphase. Zweitens wird das **Ziel** festgelegt, meist eine verbindliche Vereinbarung über die weitere Zusammenarbeit. Drittens wird die **eigene Rolle** geklärt: Wer leitet das Gespräch, und kann diese Person allparteilich bleiben? Viertens wird der **Rahmen** geplant: ein zeitnaher Termin, ein ungestörter, neutraler Raum (nicht das Büro einer der Parteien), ausreichend Zeit und eine Einladung beider Seiten, die den Anlass nennt. Kurze Einzelgespräche vorab können helfen, die Sichtweisen kennenzulernen. Streiten etwa zwei Projektassistent:innen der Deko & Büro GmbH seit Wochen darüber, wer in der Messesaison Urlaub nehmen darf, sammelt die Teamleitung vorab Urlaubsanträge und Messetermine, ordnet den Streit als Verteilungskonflikt ein und lädt beide in einen Besprechungsraum ein, statt den Streit zwischen Tür und Angel im Großraumbüro zu klären.
 
@@ -27,13 +27,13 @@ Im **Abschluss** fasst die leitende Person das Ergebnis zusammen, vereinbart ein
 
 ### Ich-Botschaften und Gesprächsregeln
 
-Eine **Ich-Botschaft** beschreibt die eigene Wahrnehmung, statt das Gegenüber zu bewerten. Vollständig hat sie drei Teile: die **Beobachtung** (was konkret passiert ist), die **Wirkung** (was das bei der sprechenden Person auslöst, sachlich oder als Gefühl) und den **Wunsch** (was sie sich künftig wünscht). Ein Beispiel: „Mir ist aufgefallen, dass die Messeplanung zweimal ohne meine Rückmeldung an die Kundschaft ging. Das hat mich geärgert, weil ich Rückfragen dann nicht beantworten konnte. Ich wünsche mir, dass wir Änderungen vorher kurz abstimmen.“ Die **Du-Botschaft** („Du übergehst mich ständig“) bewertet dagegen die andere Person, oft mit Verallgemeinerungen; sie löst in der Regel Rechtfertigung oder Gegenangriff aus und verschärft den Konflikt. Nicht jeder Satz, der mit „Ich“ beginnt, ist eine Ich-Botschaft: „Ich finde, du bist unzuverlässig“ ist eine **verdeckte Du-Botschaft**, weil sie ein Urteil über die Person enthält statt einer Beobachtung.
+Eine **Ich-Botschaft** beschreibt die eigene Wahrnehmung, statt das Gegenüber zu bewerten. Vollständig hat sie drei Teile: die **Beobachtung** (was konkret passiert ist), die **Wirkung** (was das bei der sprechenden Person auslöst, sachlich oder als Gefühl) und den **Wunsch** (was sie sich künftig wünscht). In manchen Darstellungen werden Gefühl und Bedürfnis als eigene Teile genannt; in diesem Kurs gehören beide zur Wirkung. Ein Beispiel: „Mir ist aufgefallen, dass die Messeplanung zweimal ohne meine Rückmeldung an die Kundschaft ging. Das hat mich geärgert, weil ich Rückfragen dann nicht beantworten konnte. Ich wünsche mir, dass wir Änderungen vorher kurz abstimmen.“ Die **Du-Botschaft** („Du übergehst mich ständig“) bewertet dagegen die andere Person, oft mit Verallgemeinerungen; sie löst in der Regel Rechtfertigung oder Gegenangriff aus und verschärft den Konflikt. Nicht jeder Satz, der mit „Ich“ beginnt, ist eine Ich-Botschaft: „Ich finde, du bist unzuverlässig“ ist eine **verdeckte Du-Botschaft**, weil sie ein Urteil über die Person enthält statt einer Beobachtung.
 
 Damit das Gespräch sachlich bleibt, werden in der Eröffnung **Gesprächsregeln** vereinbart, typischerweise: einander ausreden lassen und nacheinander sprechen; Ich-Botschaften statt Vorwürfen; konkrete Beispiele statt Verallgemeinerungen wie „immer“ oder „nie“; keine persönlichen Abwertungen; Vertraulichkeit, also Inhalte des Gesprächs nicht im Team weitererzählen. Die leitende Person achtet auf die Einhaltung, sorgt für ausgewogene Redeanteile und erinnert bei Verstößen freundlich, aber bestimmt an die vereinbarten Regeln.
 
 ### Eskalation im Gespräch und Dokumentation der Vereinbarung
 
-Auch ein gut vorbereitetes Gespräch kann kippen: Eine Seite wird laut, greift die andere persönlich an, unterbricht ständig oder zieht sich ins Schweigen zurück. Die leitende Person bleibt dann ruhig, ergreift nicht Partei und reagiert gestuft. Zuerst spricht sie die Störung an und erinnert an die Gesprächsregeln. Hilft das nicht, wechselt sie auf die **Metaebene** (Metakommunikation), spricht also über die Art des Gesprächs statt über den Inhalt, etwa: „Ich merke, dass das Gespräch gerade lauter wird. Ich schlage vor, dass ich noch einmal zusammenfasse, was jede Seite gesagt hat.“ Anschließend führt sie zur Sachebene zurück. Reicht das nicht, wird eine kurze **Pause** eingelegt; lässt sich die Lage auch so nicht beruhigen, wird das Gespräch **vertagt** und durch Einzelgespräche neu vorbereitet. Können die Parteien nicht mehr sachlich miteinander sprechen, ist eine Mediation durch eine neutrale dritte Person der nächste Schritt.
+Auch ein gut vorbereitetes Gespräch kann kippen; gemeint ist hier das Kippen des einzelnen Gesprächs, nicht die Eskalationsphase des Konflikts. Eine Seite wird laut, greift die andere persönlich an, unterbricht ständig oder zieht sich ins Schweigen zurück. Die leitende Person bleibt dann ruhig, ergreift nicht Partei und reagiert gestuft. Zuerst spricht sie die Störung an und erinnert an die Gesprächsregeln. Hilft das nicht, wechselt sie auf die **Metaebene** (Metakommunikation), spricht also über die Art des Gesprächs statt über den Inhalt, etwa: „Ich merke, dass das Gespräch gerade lauter wird. Ich schlage vor, dass ich noch einmal zusammenfasse, was jede Seite gesagt hat.“ Anschließend führt sie zum Inhalt (zur Sachebene) zurück. Reicht das nicht, wird eine kurze **Pause** eingelegt; lässt sich die Lage auch so nicht beruhigen, wird das Gespräch **vertagt** und durch Einzelgespräche neu vorbereitet. Können die Parteien nicht mehr sachlich miteinander sprechen, ist eine Mediation durch eine neutrale dritte Person der nächste Schritt.
 
 Das Ergebnis wird **schriftlich dokumentiert**, damit die Vereinbarung verbindlich und später überprüfbar ist. In die Vereinbarung gehören Datum und Teilnehmende, der Anlass in neutraler Formulierung ohne Schuldzuweisung, die vereinbarten Maßnahmen mit Verantwortlichen und Terminen sowie der Termin für das Folgegespräch. Beide Seiten erhalten die Vereinbarung und bestätigen sie. Eine wörtliche Mitschrift aller Vorwürfe gehört nicht hinein. Die Unterlagen sind vertraulich zu behandeln und nur den Beteiligten zugänglich. Im **Folgegespräch** wird geprüft, ob die Vereinbarung eingehalten wurde; wenn nicht, folgt ein neues Gespräch oder die nächste Stufe der Konfliktbearbeitung.
 
@@ -51,7 +51,7 @@ Das Ergebnis wird **schriftlich dokumentiert**, damit die Vereinbarung verbindli
 
 #### K-3.3-21
 **Frage:** Worin unterscheiden sich Position und Interesse in einem Konflikt?
-**Antwort:** Die Position ist das, was jemand fordert; das Interesse ist der Grund, warum er es fordert. Positionen schließen sich oft gegenseitig aus, Interessen lassen sich häufiger miteinander vereinbaren.
+**Antwort:** Die Position ist das, was jemand fordert; das Interesse ist das, warum jemand es fordert. Positionen schließen sich oft gegenseitig aus, Interessen lassen sich häufiger miteinander vereinbaren.
 `tags: konfliktgespraech, interessen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-3.3-22
@@ -70,9 +70,9 @@ Das Ergebnis wird **schriftlich dokumentiert**, damit die Vereinbarung verbindli
 `tags: gespraechsregeln` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### K-3.3-25
-**Frage:** Wie reagiert die leitende Person, wenn ein Konfliktgespräch eskaliert?
-**Antwort:** Ruhig bleiben, nicht Partei ergreifen und gestuft vorgehen: Störung ansprechen und an die Gesprächsregeln erinnern, auf die Metaebene wechseln und zur Sachebene zurückführen, Pause einlegen, bei Bedarf vertagen; ist kein sachliches Gespräch mehr möglich, folgt eine Mediation.
-`tags: konfliktgespraech, eskalation` · `schwierigkeit: mittel` · `bloom: anwenden`
+**Frage:** Wie reagiert die leitende Person, wenn ein Konfliktgespräch zu kippen droht?
+**Antwort:** Ruhig bleiben, nicht Partei ergreifen und gestuft vorgehen: Störung ansprechen und an die Gesprächsregeln erinnern, auf die Metaebene wechseln und zum Inhalt (zur Sachebene) zurückführen, Pause einlegen, bei Bedarf vertagen; ist kein sachliches Gespräch mehr möglich, folgt eine Mediation.
+`tags: konfliktgespraech, eskalation_gespraech` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-3.3-26
 **Frage:** Was gehört in die schriftliche Vereinbarung nach einem Konfliktgespräch?
@@ -91,7 +91,7 @@ Das Ergebnis wird **schriftlich dokumentiert**, damit die Vereinbarung verbindli
 `schwierigkeit: mittel` · `bloom: erinnern`
 
 #### Q-3.3-14 · Multiple Choice
-**Frage:** Die Lieferliste für die Bestellungen kommt von deiner Kollegin seit Wochen zu spät. Du willst das im Konfliktgespräch ansprechen. Welche Aussage ist eine vollständige Ich-Botschaft?
+**Frage:** Die Lieferliste für die Bestellungen kam von deiner Kollegin in den letzten zwei Wochen zweimal zu spät. Du willst das im Konfliktgespräch ansprechen. Welche Aussage ist eine vollständige Ich-Botschaft?
 - [ ] „Du hältst dich nie an unsere Absprachen.“
 - [ ] „Ich finde, du bist in letzter Zeit ziemlich unzuverlässig.“
 - [x] „Mir ist aufgefallen, dass die Lieferliste zweimal erst nach 16 Uhr kam. Dadurch konnte ich die Bestellung nicht mehr am selben Tag auslösen. Ich wünsche mir, dass wir eine feste Uhrzeit vereinbaren.“
@@ -140,16 +140,17 @@ Das Ergebnis wird **schriftlich dokumentiert**, damit die Vereinbarung verbindli
 **Erklärung:** Position ist, was gefordert wird; Interesse ist, warum es gefordert wird. Lösungen werden über die Interessen gesucht, weil sie sich eher vereinbaren lassen als Positionen.
 `schwierigkeit: mittel` · `bloom: erinnern`
 
-#### Q-3.3-20 · Lückentext
-**Text:** Wer im Konfliktgespräch über die Art des Gesprächs statt über den Inhalt spricht, wechselt auf die ___Metaebene___.
-**Erklärung:** Der Wechsel auf die Metaebene (Metakommunikation) hilft, ein eskalierendes Gespräch zu beruhigen und anschließend zur Sachebene zurückzuführen.
+#### Q-3.3-20 · Kurzantwort
+**Frage:** Ein Konfliktgespräch droht zu kippen. Die leitende Person spricht deshalb über die Art des Gesprächs statt über den Inhalt. Auf welche Ebene wechselt sie damit?
+**Akzeptierte Antworten:** Metaebene; Meta-Ebene; die Metaebene; die Meta-Ebene
+**Erklärung:** Der Wechsel auf die Metaebene (Metakommunikation) hilft, ein kippendes Gespräch zu beruhigen und anschließend zum Inhalt (zur Sachebene) zurückzuführen.
 `schwierigkeit: mittel` · `bloom: erinnern`
 
 ---
 
 # Teil 2: Thema 3.4
 
-## D. Theorie-Ergänzung 3.4 (einfügen am Ende von „## Theorie“, hinter „Evaluation der Moderation durchführen“)
+## D. Theorie-Ergänzung 3.4 (einfügen in „## Theorie“ vor „Evaluation der Moderation durchführen“, also hinter „Kommunikations- und Präsentationstechniken einsetzen“)
 
 ### Präsentation planen und aufbauen
 
@@ -157,9 +158,9 @@ In einer **Präsentation** stellt eine Person einem Publikum Inhalte vor und ver
 
 Die **Planung** beginnt mit fünf Fragen: Welches **Ziel** hat die Präsentation (informieren, überzeugen oder eine Entscheidung herbeiführen)? Wer ist die **Zielgruppe** (Vorwissen, Erwartungen, Entscheidungsbefugnis)? Wie viel **Zeit** steht zur Verfügung? Wie ist der **Raum** beschaffen (Größe, Technik, Sichtverhältnisse)? Welche **Medien** passen zu Ziel, Zielgruppe und Raum?
 
-Der **Aufbau** folgt dem Dreischritt Einleitung, Hauptteil, Schluss. Die **Einleitung** weckt Aufmerksamkeit (etwa mit einer Frage, einer Zahl oder einem Beispiel aus dem Projekt), nennt Thema und Ziel und gibt einen Überblick über die Gliederung. Der **Hauptteil** behandelt wenige Hauptpunkte in logischer Reihenfolge, bei einer Variantenpräsentation etwa Ausgangslage, die beiden Varianten, ihre Bewertung und die Empfehlung. Der **Schluss** fasst zusammen, wiederholt die Kernbotschaft, nennt den nächsten Schritt (etwa die erbetene Entscheidung) und leitet zu den Fragen über; neue Inhalte gehören nicht mehr hinein. Der größte Teil der Zeit entfällt auf den Hauptteil, Einleitung und Schluss sind kurz.
+Der **Aufbau** folgt dem Dreischritt Einleitung, Hauptteil, Schluss. Die **Einleitung** weckt Aufmerksamkeit (etwa mit einer Frage, einer Zahl oder einem Beispiel aus dem Projekt), nennt Thema, Ziel und Kernbotschaft und gibt einen Überblick über die Gliederung. Der **Hauptteil** behandelt wenige Hauptpunkte in logischer Reihenfolge, bei einer Variantenpräsentation etwa Ausgangslage, die beiden Varianten, ihre Bewertung und die Empfehlung. Der **Schluss** fasst zusammen, wiederholt die Kernbotschaft, nennt den nächsten Schritt (etwa die erbetene Entscheidung) und leitet zu den Fragen über; neue Inhalte gehören nicht mehr hinein. Der größte Teil der Zeit entfällt auf den Hauptteil, Einleitung und Schluss sind kurz.
 
-Zwei Prinzipien halten die Präsentation zusammen. Der **rote Faden** ist die erkennbare, logische Linie, bei der jeder Teil auf den vorherigen aufbaut; Übergänge werden angekündigt („Nach der Ausgangslage stelle ich die beiden Varianten vor.“). Die **Kernbotschaft** ist die eine Aussage, die das Publikum am Ende behalten soll. Sie lässt sich in einem Satz formulieren und steht am Anfang und am Ende der Präsentation. Lässt sich die Kernbotschaft nicht in einem Satz sagen, ist die Präsentation meist noch nicht klar genug durchdacht.
+Zwei Prinzipien halten die Präsentation zusammen. Der **rote Faden** ist die erkennbare, logische Linie, bei der jeder Teil auf den vorherigen aufbaut; Übergänge werden angekündigt („Nach der Ausgangslage stelle ich die beiden Varianten vor.“). Die **Kernbotschaft** (auch Kernaussage) ist die eine Aussage, die das Publikum am Ende behalten soll. Sie lässt sich in einem Satz formulieren und sollte am Anfang und am Ende der Präsentation stehen. Lässt sich die Kernbotschaft nicht in einem Satz sagen, ist die Präsentation meist noch nicht klar genug durchdacht.
 
 ### Visualisierung und Medien in der Präsentation
 
@@ -176,15 +177,15 @@ Für Folien gelten bewährte **Gestaltungsregeln**: eine zentrale Aussage je Fol
 
 Für die **Sprechweise** wird in der Regel empfohlen: deutlich und ausreichend laut sprechen, eher ruhiges Tempo, bewusste Pausen vor und nach wichtigen Aussagen, eine lebendige statt monotone Stimme, kurze Sätze und die Erklärung von Fachbegriffen. Bei der **Körpersprache** gelten als empfehlenswert: Blickkontakt mit allen Teilen des Publikums, ein sicherer, offener Stand mit dem Gesicht zum Publikum und Gesten, die das Gesagte unterstützen. Stichwortkarten helfen, frei zu sprechen statt abzulesen. **Lampenfieber** ist normal und kann die Aufmerksamkeit sogar schärfen. Es lässt sich verringern durch gute Vorbereitung, lautes Üben mit Zeitmessung, sicher eingeprägte erste Sätze, ruhiges Atmen und frühes Erscheinen, um Raum und Technik zu prüfen.
 
-Zu Beginn wird angekündigt, ob Zwischenfragen willkommen sind oder Fragen am Ende gesammelt werden. Bei **Fragen** gilt: zu Ende zuhören, bei Unklarheit kurz nachfragen, zuerst die Kernaussage nennen und dann begründen. Wer eine Antwort nicht sicher weiß, sagt das offen, nennt die bekannten Zusammenhänge und bietet an, den Rest zu klären, statt eine Antwort zu erfinden. **Einwände** sind kritische Gegenargumente aus dem Publikum. Sie werden ernst genommen, aber nicht persönlich, und die präsentierende Person rechtfertigt sich nicht. Bewährt hat sich ein Vorgehen in vier Schritten: den Einwand ausreden lassen und zuhören, ihn in eigenen Worten wiedergeben (das zeigt Verständnis und verschafft Zeit), sachlich mit Argumenten oder Fakten antworten und abschließend nachfragen, ob der Einwand damit ausgeräumt ist. Bei **schwierigen Teilnehmenden** hilft es, Vielredende freundlich zu unterbrechen und auf die Zeit hinzuweisen, Störungen sachlich anzusprechen und Grundsatzdiskussionen oder sehr spezielle Fragen auf dem Flipchart zu notieren und nach der Präsentation aufzugreifen.
+Zu Beginn wird angekündigt, ob Zwischenfragen willkommen sind oder Fragen am Ende gesammelt werden. Bei **Fragen** gilt: zu Ende zuhören, bei Unklarheit kurz nachfragen, die Antwort zuerst in einem Satz geben und sie dann begründen. Ist die Antwort unsicher, wird das offen benannt; genannt werden die bekannten Zusammenhänge, verbunden mit dem Angebot, den Rest zu klären; eine erfundene Antwort fällt bei Nachfragen in der Regel auf und kostet Glaubwürdigkeit. **Einwände** sind kritische Gegenargumente aus dem Publikum. Sie werden ernst genommen, aber nicht persönlich, und die präsentierende Person rechtfertigt sich nicht. Bewährt hat sich ein Vorgehen in vier Schritten: den Einwand ausreden lassen und zuhören, ihn in eigenen Worten wiedergeben (das zeigt Verständnis und verschafft Zeit), sachlich mit Argumenten oder Fakten antworten und abschließend nachfragen, ob der Einwand damit ausgeräumt ist. Bei **schwierigen Teilnehmenden** hilft es, Vielredende freundlich zu unterbrechen und auf die Zeit hinzuweisen, Störungen sachlich anzusprechen und Grundsatzdiskussionen oder sehr spezielle Fragen auf dem Flipchart zu notieren und nach der Präsentation aufzugreifen.
 
 ### Präsentation und Fachgespräch in der mündlichen Prüfung
 
-Üblich ist, dass die mündliche Prüfung der Fachwirtprüfung aus einer **Präsentation**, häufig von etwa zehn Minuten, und einem anschließenden **Fachgespräch** mit dem Prüfungsausschuss besteht. Die genaue Form, also Themenstellung, Vorbereitungszeit, Dauer, zugelassene Hilfsmittel und Bewertung, regelt die Prüfungsordnung der zuständigen Stelle; sie sollte rechtzeitig nachgelesen und bei Unklarheiten bei der zuständigen IHK erfragt werden.
+Üblich ist, dass die mündliche Prüfung zum Fachwirt für Büro- und Projektorganisation aus einer **Präsentation** von höchstens zehn Minuten und einem anschließenden, deutlich längeren **Fachgespräch** mit dem Prüfungsausschuss besteht; für das Fachgespräch werden meist rund 30 bis 40 Minuten genannt. Das Präsentationsthema behandelt in der Regel eine betriebliche Problemstellung aus dem Bereich „Führen, Betreuen, Verwalten und Ausbilden“ und aus einem weiteren Handlungsbereich; der Themenvorschlag wird üblicherweise vorab eingereicht. Die genaue Form, also Themenstellung, Fristen, Dauer, zugelassene Hilfsmittel und Bewertung, regelt die Prüfungsordnung der zuständigen Stelle; sie sollte rechtzeitig nachgelesen und bei Unklarheiten bei der zuständigen IHK erfragt werden.
 
-Für die **10-Minuten-Präsentation** gelten alle Regeln oben in verdichteter Form. Ein möglicher Zeitplan (frei gewählte Richtwerte): Einleitung etwa eine Minute, Hauptteil etwa sieben Minuten mit nicht mehr als drei bis vier Hauptpunkten, Schluss etwa eine Minute und etwa eine Minute Puffer. Ein Probelauf mit Uhr zeigt, ob der Umfang passt. Eine **Kürzungsreserve**, also vorab festgelegte Inhalte, die bei Zeitnot entfallen können, verhindert Hektik. Dauert der Probelauf zu lang, wird der Hauptteil gekürzt; schneller zu sprechen oder den Schluss zu streichen hilft nicht. Ein Beispiel aus der eigenen betrieblichen Praxis macht die Präsentation anschaulich. In der Präsentation sollten nur Begriffe und Modelle vorkommen, die sich im Fachgespräch auch erklären lassen.
+Für die **10-Minuten-Präsentation** gelten alle Regeln oben in verdichteter Form. Ein möglicher Zeitplan (frei gewählte Richtwerte): Einleitung etwa eine Minute, Hauptteil etwa sieben Minuten mit nicht mehr als drei bis vier Hauptpunkten, Schluss etwa eine Minute und etwa eine Minute Puffer. Ein Probelauf mit Uhr zeigt, ob der Umfang passt. Eine **Kürzungsreserve**, also vorab festgelegte Inhalte, die bei Zeitnot entfallen können, verhindert Hektik. Dauert der Probelauf zu lang, wird der Hauptteil gekürzt; schneller zu sprechen oder den Schluss zu streichen hilft nicht. Ein Beispiel aus der eigenen betrieblichen Praxis macht die Präsentation anschaulich; der Bezug zu Führung, Betreuung, Verwaltung oder Ausbildung sollte erkennbar sein, weil das Fachgespräch diesen Bereich in der Regel aufgreift. In der Präsentation sollten nur Begriffe und Modelle vorkommen, die sich im Fachgespräch auch erklären lassen.
 
-Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kann auf angrenzende Themen übergehen. Geprüft wird in der Regel, ob Fachwissen sicher angewendet und Entscheidungen begründet werden können. Empfehlenswert ist dasselbe Vorgehen wie bei Fragen in jeder Präsentation: die Frage zu Ende hören, bei Unklarheit nachfragen, zuerst die Kernaussage nennen und dann begründen, möglichst mit einem Praxisbeispiel. Bei Nichtwissen ist Ehrlichkeit überzeugender als eine erfundene Antwort; kritische Fragen werden sachlich und ruhig beantwortet, ohne defensiv zu wirken. Mögliche Rückfragen lassen sich vorab durchdenken, etwa zu jedem Fachbegriff auf den eigenen Folien.
+Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kann auf angrenzende Themen übergehen. Geprüft wird in der Regel, ob Fachwissen sicher angewendet und Entscheidungen begründet werden können. Empfehlenswert ist dasselbe Vorgehen wie bei Fragen in jeder Präsentation: die Frage zu Ende hören, bei Unklarheit nachfragen, die Antwort zuerst in einem Satz geben und dann begründen, möglichst mit einem Praxisbeispiel. Wissenslücken werden offen eingeräumt und mit dem verbunden, was sicher bekannt ist; Raten oder Ausweichen schadet meist mehr als ein ehrliches „Da bin ich nicht sicher“. Auf kritische Nachfragen wird gelassen und mit Gründen geantwortet, ohne sich zu verteidigen oder die Frage abzuwehren. Mögliche Rückfragen lassen sich vorab durchdenken, etwa zu jedem Fachbegriff auf den eigenen Folien.
 
 ## E. Karteikarten 3.4 (anhängen)
 
@@ -199,8 +200,8 @@ Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kan
 `tags: praesentation, moderationsgrundlagen` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-3.4-21
-**Frage:** Was ist die Kernbotschaft einer Präsentation, und wo steht sie?
-**Antwort:** Die eine Aussage, die das Publikum am Ende behalten soll; sie lässt sich in einem Satz formulieren und steht am Anfang und am Ende der Präsentation.
+**Frage:** Was ist die Kernbotschaft einer Präsentation, und wo sollte sie stehen?
+**Antwort:** Die eine Aussage (auch Kernaussage genannt), die das Publikum am Ende behalten soll; sie lässt sich in einem Satz formulieren und sollte am Anfang (in der Einleitung) und am Ende (im Schluss) stehen.
 `tags: praesentation_aufbau` · `schwierigkeit: mittel` · `bloom: verstehen`
 
 #### K-3.4-22
@@ -224,8 +225,8 @@ Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kan
 `tags: einwaende` · `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### K-3.4-26
-**Frage:** Wie läuft die mündliche Prüfung der Fachwirtprüfung üblicherweise ab, und wo ist die genaue Form geregelt?
-**Antwort:** Üblich ist eine Präsentation, häufig von etwa zehn Minuten, mit anschließendem Fachgespräch mit dem Prüfungsausschuss. Die genaue Form regelt die Prüfungsordnung der zuständigen Stelle.
+**Frage:** Wie läuft die mündliche Prüfung zum Fachwirt für Büro- und Projektorganisation üblicherweise ab, und wo ist die genaue Form geregelt?
+**Antwort:** Üblich ist eine Präsentation von höchstens zehn Minuten zu einem Thema aus „Führen, Betreuen, Verwalten und Ausbilden“ und einem weiteren Handlungsbereich, danach ein deutlich längeres Fachgespräch mit dem Prüfungsausschuss. Die genaue Form regelt die Prüfungsordnung der zuständigen Stelle.
 `tags: muendliche_pruefung` · `schwierigkeit: leicht` · `bloom: erinnern`
 
 ## F. Quiz 3.4 (anhängen)
@@ -254,7 +255,7 @@ Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kan
 - [x] Offen sagen, dass du unsicher bist, und die Zusammenhänge nennen, die du kennst
 - [ ] Die Frage als unwichtig für dein Thema zurückweisen
 - [ ] Schnell auf ein anderes Thema wechseln, das du sicher beherrschst
-**Erklärung:** Ehrlichkeit wirkt überzeugender als eine erfundene Antwort, und mit den bekannten Zusammenhängen zeigst du trotzdem Fachwissen. Vorbeugend gehören nur Begriffe in die Präsentation, die du im Fachgespräch erklären kannst.
+**Erklärung:** Eine erfundene Erklärung fällt bei der nächsten Nachfrage meist auf und kostet Glaubwürdigkeit; wer die Lücke einräumt und das sicher Bekannte nennt, zeigt trotzdem Fachwissen. Das Fachgespräch ist in der Regel deutlich länger als die Präsentation und geht über sie hinaus; vorbeugend gehören nur Begriffe auf die Folien, die du erklären kannst.
 `schwierigkeit: mittel` · `bloom: bewerten`
 
 #### Q-3.4-16 · Mehrfachauswahl
@@ -275,21 +276,21 @@ Im **Fachgespräch** fragt der Prüfungsausschuss zur Präsentation nach und kan
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-3.4-18 · Kurzantwort
-**Frage:** Wie nennt man die eine zentrale Aussage einer Präsentation, die das Publikum am Ende behalten soll und die am Anfang und am Ende der Präsentation steht?
+**Frage:** Wie nennt man die eine zentrale Aussage einer Präsentation, die das Publikum am Ende behalten soll und die am Anfang und am Ende der Präsentation stehen sollte?
 **Akzeptierte Antworten:** Kernbotschaft; die Kernbotschaft; Kern-Botschaft; die Kern-Botschaft; Kernaussage; die Kernaussage; Kern-Aussage; die Kern-Aussage
-**Erklärung:** Die Kernbotschaft lässt sich in einem Satz formulieren; steht sie am Anfang und am Ende, bleibt sie dem Publikum im Gedächtnis.
+**Erklärung:** Die Kernbotschaft (auch Kernaussage) lässt sich in einem Satz formulieren; steht sie am Anfang und am Ende, bleibt sie dem Publikum im Gedächtnis.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.4-19 · Zuordnung
 **Anweisung:** Ordne den Teil der Präsentation seinem Inhalt zu.
-- Einleitung ↔ Aufmerksamkeit wecken, Thema, Ziel und Gliederung nennen
+- Einleitung ↔ Aufmerksamkeit wecken, Thema, Ziel, Kernbotschaft und Gliederung nennen
 - Hauptteil ↔ Wenige Hauptpunkte in logischer Reihenfolge behandeln
 - Schluss ↔ Zusammenfassen, Kernbotschaft wiederholen, nächsten Schritt nennen
 **Erklärung:** Der Dreischritt gibt der Präsentation einen roten Faden; im Schluss kommen keine neuen Inhalte mehr hinzu.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-3.4-20 · Multiple Choice
-**Frage:** Für die mündliche Prüfung bereitest du eine Präsentation von etwa zehn Minuten vor. Dein Probelauf mit Uhr dauert 14 Minuten. Was ist am sinnvollsten?
+**Frage:** Für die mündliche Prüfung bereitest du eine Präsentation vor, die höchstens zehn Minuten dauern darf. Dein Probelauf mit Uhr dauert 14 Minuten. Was ist am sinnvollsten?
 - [ ] In der Prüfung schneller sprechen
 - [ ] Den Schluss weglassen, weil er nur wiederholt
 - [x] Den Hauptteil auf weniger Hauptpunkte kürzen und eine Kürzungsreserve festlegen

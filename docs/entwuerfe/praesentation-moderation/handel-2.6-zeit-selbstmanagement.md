@@ -22,7 +22,7 @@ Zum Selbstmanagement gehört auch, die eigene Arbeitsweise zu kennen: zu welchen
 
 ### Prioritäten setzen: Eisenhower-Matrix und Pareto-Prinzip
 
-Die **Eisenhower-Matrix** (auch Eisenhower-Prinzip) ordnet Aufgaben nach zwei Kriterien: **Wichtigkeit** (trägt die Aufgabe zu den eigenen Zielen bei?) und **Dringlichkeit** (drängt die Zeit?). Daraus entstehen vier Felder:
+Die **Eisenhower-Matrix** (auch Eisenhower-Prinzip), die bereits in Thema 2.1 mit einer Zuordnungsaufgabe abgefragt wird, ordnet Aufgaben nach zwei Kriterien: **Wichtigkeit** (trägt die Aufgabe zu den eigenen Zielen bei?) und **Dringlichkeit** (drängt die Zeit?). Daraus entstehen vier Felder:
 
 - **Sofort erledigen:** wichtig und dringend, zum Beispiel ein Kassensystem, das kurz vor Ladenöffnung ausfällt. Solche Aufgaben erledigt die Führungskraft selbst und sofort.
 - **Terminieren:** wichtig, aber nicht dringend, zum Beispiel die Vorbereitung einer Präsentation in der nächsten Woche oder die Planung der Mitarbeitergespräche. Diese Aufgaben werden mit einem festen Termin eingeplant und selbst erledigt. Sie werden besonders leicht verdrängt und werden dann später selbst dringend.
@@ -45,11 +45,11 @@ Für die Pufferzeiten gilt eine verbreitete Faustregel: Nur etwa **60 %** der Ar
 
 ### Zeitdiebe und Delegation
 
-**Zeitdiebe** sind Faktoren, die Arbeitszeit binden, ohne einen angemessenen Beitrag zum Ergebnis zu leisten. Typisch sind häufige Unterbrechungen durch Telefon und spontane Rückfragen, ständiges Prüfen des E-Mail-Postfachs, Besprechungen ohne Tagesordnung, Suchen von Unterlagen, Aufschieben unangenehmer Aufgaben, Perfektionismus und die fehlende Bereitschaft, auch einmal Nein zu sagen. Erkannt werden sie am besten durch eine **Selbstbeobachtung**: Über einige Tage oder eine Woche wird notiert, womit die Zeit tatsächlich verbracht wird (Zeitprotokoll). Gegenmaßnahmen sind zum Beispiel feste Zeitfenster für E-Mails und Rückrufe (gleichartige Aufgaben bündeln), störungsfreie Zeiten für Konzeptarbeit, Tagesordnungen für Besprechungen und eine klare Ablage.
+**Zeitdiebe** (auch Zeitfresser) sind Faktoren, die Arbeitszeit binden, ohne einen angemessenen Beitrag zum Ergebnis zu leisten. Typisch sind häufige Unterbrechungen durch Telefon und spontane Rückfragen, ständiges Prüfen des E-Mail-Postfachs, Besprechungen ohne Tagesordnung, Suchen von Unterlagen, Aufschieben unangenehmer Aufgaben, Perfektionismus und die fehlende Bereitschaft, auch einmal Nein zu sagen. Erkannt werden sie am besten durch eine **Selbstbeobachtung**: Über einige Tage oder eine Woche wird notiert, womit die Zeit tatsächlich verbracht wird (Zeitprotokoll). Gegenmaßnahmen sind zum Beispiel feste Zeitfenster für E-Mails und Rückrufe (gleichartige Aufgaben bündeln), störungsfreie Zeiten für Konzeptarbeit, Tagesordnungen für Besprechungen und eine klare Ablage.
 
 Unterbrechungen kosten mehr Zeit, als es scheint, weil nach jeder Unterbrechung auch die Wiedereinarbeitung Zeit braucht. Rechnet eine Führungskraft je Unterbrechung einschließlich Wiedereinarbeitung mit 5 Minuten und wird sie an jedem ihrer 5 Arbeitstage 12-mal unterbrochen, gehen 12 × 5 Minuten × 5 Tage = 300 Minuten, also 5 Stunden pro Woche verloren.
 
-Ein wirksames Mittel gegen Überlastung ist die **Delegation**: Eine Aufgabe wird mit den dazu nötigen Befugnissen und der Verantwortung für die Ausführung an eine geeignete Person übertragen (vgl. Management by Delegation, Thema 2.1). Gute Delegation klärt, **was** zu tun ist und welches Ergebnis erwartet wird, **wer** die Aufgabe übernimmt (Fähigkeiten, freie Zeit, Entwicklungschance), welche **Befugnisse** und Hilfsmittel dazugehören, **bis wann** sie erledigt sein soll und wann **Rückmeldung** gegeben wird. Die Verantwortung für die Ausführung (Handlungsverantwortung) geht über; die **Führungsverantwortung** für die richtige Auswahl, ausreichende Information und Kontrolle bleibt bei der delegierenden Führungskraft. Wird eine übertragene Aufgabe bei der ersten Schwierigkeit zurückgegeben (Rückdelegation), ist die Entlastung dahin; deshalb wird bei der Übergabe auch geklärt, wie mit Problemen umgegangen wird.
+Ein wirksames Mittel gegen Überlastung ist die **Delegation**: Eine Aufgabe wird mit den dazu nötigen Befugnissen und der Verantwortung für die Ausführung an eine geeignete Person übertragen. Als dauerhaftes Führungsprinzip heißt das Management by Delegation (Thema 2.1); delegiert werden können aber auch einzelne Aufgaben. Gute Delegation klärt, **was** zu tun ist und welches Ergebnis erwartet wird, **wer** die Aufgabe übernimmt (Fähigkeiten, freie Zeit, Entwicklungschance), welche **Befugnisse** und Hilfsmittel dazugehören, **bis wann** sie erledigt sein soll und wann **Rückmeldung** gegeben wird. Die Verantwortung für die Ausführung (Handlungsverantwortung) geht über; die **Führungsverantwortung** für die richtige Auswahl, ausreichende Information und Kontrolle bleibt bei der delegierenden Führungskraft. Wird eine übertragene Aufgabe bei der ersten Schwierigkeit zurückgegeben (Rückdelegation), ist die Entlastung dahin; deshalb wird bei der Übergabe auch geklärt, wie mit Problemen umgegangen wird.
 
 ### Rechenbeispiel: Wochenplanung einer Filialleitung
 
@@ -66,7 +66,7 @@ Konzeptarbeit (neue Fläche „Loreno Living“)      | 2       | 5 %
 Summe                                            | 40      | 100 %
 ```
 
-Zum Beispiel beträgt der Anteil der Warendisposition 6 h ÷ 40 h × 100 = 15 %. Das Protokoll zeigt, dass die wichtige, aber nicht dringende Konzeptarbeit nur 5 % der Zeit erhält, während E-Mails, Telefonate und Unterbrechungen 15 % binden. Die Filialleiterin entscheidet deshalb: 4 der 6 Stunden Warendisposition übernimmt künftig die stellvertretende Filialleitung (Delegation), und E-Mails bearbeitet sie gebündelt in zwei festen Zeitfenstern am Tag, was erfahrungsgemäß 2 Stunden pro Woche spart. Die frei gewordenen 4 h + 2 h = 6 Stunden plant sie als feste Termine für die Konzeptarbeit ein, die dann 2 h + 6 h = 8 Stunden erhält, also 8 h ÷ 40 h × 100 = 20 % der Wochenarbeitszeit. Bei der Planung der nächsten Woche hält sie sich an die 60-%-Faustregel: Sie verplant 24 Stunden fest und lässt 16 Stunden für das Unvorhergesehene im Filialalltag frei.
+Zum Beispiel beträgt der Anteil der Warendisposition 6 h ÷ 40 h × 100 = 15 %. Das Protokoll zeigt, dass die wichtige, aber nicht dringende Konzeptarbeit nur 5 % der Zeit erhält, während E-Mails, Telefonate und Unterbrechungen 15 % binden. Die Filialleiterin entscheidet deshalb: 4 der 6 Stunden Warendisposition übernimmt künftig die stellvertretende Filialleitung (Delegation), und E-Mails bearbeitet sie gebündelt in zwei festen Zeitfenstern am Tag, was nach ihrer Annahme 2 Stunden pro Woche spart. Die frei gewordenen 4 h + 2 h = 6 Stunden plant sie als feste Termine für die Konzeptarbeit ein, die dann 2 h + 6 h = 8 Stunden erhält, also 8 h ÷ 40 h × 100 = 20 % der Wochenarbeitszeit. Für die Planung der nächsten Woche legt sie die 60-%-Faustregel an: Danach dürften nur 24 Stunden fest verplant sein. Verkauf, Personaleinsatz und Gespräche, die verbliebene Warendisposition, Besprechungen und Konzeptarbeit belegen aber schon 14 h + 8 h + 2 h + 4 h + 8 h = 36 Stunden, ohne die 4 Stunden für die E-Mail-Zeitfenster. Die Planung liegt damit 36 h − 24 h = 12 Stunden über der Faustregel. Sie muss deshalb weiter entlasten, etwa ihre Zeit auf der Fläche mit der Personaleinsatzplanung abstimmen und weitere Aufgaben delegieren, oder sie plant bewusst mit einem kleineren Puffer und weiß, dass dann jeder Personalausfall den Plan sprengt.
 
 ## Karteikarten
 
@@ -141,14 +141,14 @@ Zum Beispiel beträgt der Anteil der Warendisposition 6 h ÷ 40 h × 100 = 15 %.
 **Erklärung:** Die Gefahrenstelle ist wichtig und dringend, der Einarbeitungsplan wichtig, aber noch nicht dringend; die Lieferschein-Rückfrage drängt, bindet aber nicht die Filialleitung, und der Prospekt ist weder wichtig noch dringend.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
-#### Q-2.6-02 · Multiple Choice
-**Frage:** Nach welchen beiden Kriterien ordnet die Eisenhower-Matrix Aufgaben?
-- [ ] Aufwand und Kosten
-- [x] Wichtigkeit und Dringlichkeit
-- [ ] Dauer und Schwierigkeit
-- [ ] Häufigkeit und Beliebtheit
-**Erklärung:** Aus Wichtigkeit und Dringlichkeit ergeben sich die vier Felder Sofort erledigen, Terminieren, Delegieren und Streichen.
-`schwierigkeit: leicht` · `bloom: erinnern`
+#### Q-2.6-02 · Eisenhower-Matrix
+**Anweisung:** Eine stellvertretende Filialleiterin der Loreno Mode & Wohnen GmbH sortiert ihre Aufgaben am Dienstagmorgen. Ordne die Aufgaben den passenden Feldern der Eisenhower-Matrix zu.
+- Beim Aufschließen meldet die Alarmanlage eine Störung, der Sicherheitsdienst wartet auf Rückmeldung → Sofort erledigen
+- Ein Schulungskonzept für die neue Kassensoftware erstellen, die in zwei Monaten eingeführt wird → Terminieren
+- Die heute eingetroffene Dekorationsware muss noch heute im Lager eingeräumt werden, was eine Auszubildende übernehmen kann → Delegieren
+- An einer freiwilligen Online-Umfrage eines Messeveranstalters teilnehmen, die für die Filiale keine Rolle spielt → Streichen
+**Erklärung:** Die Alarmstörung ist wichtig und dringend, das Schulungskonzept wichtig, aber noch nicht dringend; das Einräumen drängt, muss aber nicht von der Führungskraft erledigt werden, und die Umfrage ist weder wichtig noch dringend.
+`schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.6-03 · Zuordnung
 **Anweisung:** Ordne die Buchstaben der SMART-Regel ihrer Bedeutung zu.
@@ -180,19 +180,19 @@ Zum Beispiel beträgt der Anteil der Warendisposition 6 h ÷ 40 h × 100 = 15 %.
 
 #### Q-2.6-06 · Kurzantwort
 **Frage:** Eine stellvertretende Filialleiterin hat eine Wochenarbeitszeit von 37,5 Stunden. Wie viele Stunden sollte sie nach der Faustregel der ALPEN-Methode (60 % fest verplanen) fest verplanen?
-**Akzeptierte Antworten:** 22,5; 22,50; 22.5; 22.50; 22,5 h; 22,50 h; 22.5 h; 22,5 Std.; 22,5 Stunden; 22,50 Stunden; 22.5 Stunden
+**Akzeptierte Antworten:** 22,5; 22,5 h; 22,5 Std; 22,5 Std.; 22,5 Stunden; 22,50; 22,50 h; 22,50 Std; 22,50 Std.; 22,50 Stunden; 22.5; 22.5 h; 22.5 Std; 22.5 Std.; 22.5 Stunden; 22.50; 22.50 h; 22.50 Std; 22.50 Std.; 22.50 Stunden
 **Erklärung:** 37,5 h × 60 % = 22,5 Stunden; die übrigen 15 Stunden bleiben als Puffer für Unvorhergesehenes.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
 #### Q-2.6-07 · Kurzantwort
 **Frage:** Eine Filialleiterin arbeitet 40 Stunden pro Woche. Laut Zeitprotokoll verbringt sie davon 5 Stunden in Besprechungen. Wie viel Prozent ihrer Wochenarbeitszeit sind das?
-**Akzeptierte Antworten:** 12,5; 12,50; 12.5; 12.50; 12,5 %; 12,50 %; 12.5 %; 12,5 Prozent; 12,50 Prozent; 12.5 Prozent
+**Akzeptierte Antworten:** 12,5; 12,5 %; 12,5 Prozent; 12,50; 12,50 %; 12,50 Prozent; 12.5; 12.5 %; 12.5 Prozent; 12.50; 12.50 %; 12.50 Prozent
 **Erklärung:** 5 h ÷ 40 h × 100 = 12,5 %.
 `schwierigkeit: leicht` · `bloom: anwenden`
 
 #### Q-2.6-08 · Kurzantwort
 **Frage:** Ein Filialleiter wird an jedem seiner 5 Arbeitstage 8-mal unterbrochen. Jede Unterbrechung kostet einschließlich Wiedereinarbeitung 6 Minuten. Wie viele Stunden gehen dadurch pro Woche verloren?
-**Akzeptierte Antworten:** 4; 4,0; 4 h; 4,0 h; 4 Std.; 4 Stunden; 4,0 Stunden
+**Akzeptierte Antworten:** 4; 4 h; 4 Std; 4 Std.; 4 Stunden; 4,0; 4,0 h; 4,0 Std; 4,0 Std.; 4,0 Stunden; 4.0; 4.0 h; 4.0 Std; 4.0 Std.; 4.0 Stunden; 4,00; 4,00 h; 4,00 Std; 4,00 Std.; 4,00 Stunden; 4.00; 4.00 h; 4.00 Std; 4.00 Std.; 4.00 Stunden; vier; vier h; vier Std; vier Std.; vier Stunden
 **Erklärung:** 8 × 6 Minuten × 5 Tage = 240 Minuten; 240 ÷ 60 = 4 Stunden.
 `schwierigkeit: mittel` · `bloom: anwenden`
 
@@ -228,9 +228,10 @@ Zum Beispiel beträgt der Anteil der Warendisposition 6 h ÷ 40 h × 100 = 15 %.
 **Erklärung:** Übertragen wird die Verantwortung für die Ausführung; die Führungsverantwortung bleibt bei der delegierenden Führungskraft.
 `schwierigkeit: mittel` · `bloom: verstehen`
 
-#### Q-2.6-13 · Lückentext
-**Text:** Faktoren, die Arbeitszeit binden, ohne einen angemessenen Beitrag zum Ergebnis zu leisten, nennt man ___Zeitdiebe___.
-**Erklärung:** Zeitdiebe werden am besten durch eine Selbstbeobachtung (Zeitprotokoll) erkannt.
+#### Q-2.6-13 · Kurzantwort
+**Frage:** Wie nennt man Faktoren, die Arbeitszeit binden, ohne einen angemessenen Beitrag zum Ergebnis zu leisten?
+**Akzeptierte Antworten:** Zeitdiebe; Zeitdieb; die Zeitdiebe; der Zeitdieb; Zeit-Diebe; Zeitfresser; die Zeitfresser; der Zeitfresser; Zeit-Fresser
+**Erklärung:** Zeitdiebe (auch Zeitfresser) werden am besten durch eine Selbstbeobachtung (Zeitprotokoll) erkannt.
 `schwierigkeit: leicht` · `bloom: erinnern`
 
 #### Q-2.6-14 · Multiple Choice

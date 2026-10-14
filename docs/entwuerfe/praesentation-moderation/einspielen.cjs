@@ -21,7 +21,7 @@ const ERGAENZUNGEN = {
     datei: "buero-themen.md",
     abschnitte: [
       ["A", "B", "C", "hb3/3.3-konfliktmanagement.md"],
-      ["D", "E", "F", "hb3/3.4-moderation.md"],
+      ["D", "E", "F", "hb3/3.4-moderation.md", "### Evaluation der Moderation durchführen"],
     ],
   },
 };
@@ -46,17 +46,25 @@ function abschnitte(text) {
   return aus;
 }
 
-function einfuegen(zieldatei, { theorie, karten, quiz }) {
+function einfuegen(zieldatei, { theorie, karten, quiz, anker }) {
   const text = lies(zieldatei);
   const crlf = text.includes("\r\n");
   const t = lf(text);
   const iKarten = t.indexOf("\n## Karteikarten");
   const iQuiz = t.indexOf("\n## Quiz");
   if (iKarten < 0 || iQuiz < 0 || !theorie || !karten || !quiz) throw new Error("Abschnitte fehlen: " + zieldatei);
-  const kopf = t.slice(0, iKarten).replace(/\s+$/, "");
+  let kopf = t.slice(0, iKarten).replace(/\s+$/, "");
   const mitte = t.slice(iKarten, iQuiz).replace(/\s+$/, "");
   const ende = t.slice(iQuiz).replace(/\s+$/, "");
-  schreibe(zieldatei, [kopf, "", theorie, "", mitte, "", karten, "", ende, "", quiz, ""].join("\n"), crlf);
+  if (anker) {
+    // Theorie vor der genannten Überschrift einfügen (statt am Ende der Theorie)
+    const iAnker = kopf.indexOf("\n" + anker);
+    if (iAnker < 0) throw new Error("Anker fehlt: " + anker);
+    kopf = [kopf.slice(0, iAnker).replace(/\s+$/, ""), "", theorie, "", kopf.slice(iAnker + 1)].join("\n");
+  } else {
+    kopf = [kopf, "", theorie].join("\n");
+  }
+  schreibe(zieldatei, [kopf, "", mitte, "", karten, "", ende, "", quiz, ""].join("\n"), crlf);
 }
 
 function haengeAn(zieldatei, block, trenner) {
@@ -64,6 +72,57 @@ function haengeAn(zieldatei, block, trenner) {
   const crlf = text.includes("\r\n");
   const t = lf(text).replace(/\s+$/, "");
   schreibe(zieldatei, t + trenner + block.trim() + "\n", crlf);
+}
+
+// Fachgesprächsabschnitte: gibt es im Ziel schon eine Überschrift mit gleicher Nummer (z. B. "### 3.3"), werden die Fragen am
+// Ende dieses Abschnitts eingefügt, sonst am Dateiende angehängt.
+function fgEinfuegen(datei, block) {
+  const text = lies(datei);
+  const crlf = text.includes("\r\n");
+  let t = lf(text).replace(/\s+$/, "");
+  const teile = block.split(/^(?=### )/m).filter((s) => s.trim());
+  for (const teil of teile) {
+    const kopf = teil.split("\n")[0];
+    const nr = (kopf.match(/^### (\S+)/) || [])[1];
+    const re = nr ? new RegExp("^### " + nr.replace(/[.]/g, "\\.") + "(\\s|$)", "m") : null;
+    const m = re ? re.exec(t) : null;
+    const fragen = teil.split("\n").slice(1).join("\n").trim();
+    if (m) {
+      const start = m.index + m[0].length;
+      const n = t.slice(start).search(/\n### /);
+      const ende = n < 0 ? t.length : start + n;
+      const vor = t.slice(0, ende).replace(/\s+$/, "");
+      const nach = n < 0 ? "" : "\n\n" + t.slice(ende).replace(/^\n+/, "");
+      t = vor + "\n" + fragen + nach;
+    } else {
+      t = t + "\n\n" + teil.trim();
+    }
+    t = t.replace(/\s+$/, "");
+  }
+  schreibe(datei, t + "\n", crlf);
+}
+
+// Ergänzung von Bestandsfragen ohne Erwartungen: Datei bestand-fachgespraech.json
+// { "Datei relativ zur Content-Wurzel": { "Frage ohne führendes '- '": ["Erwartung", ...] } }
+function bestandFg() {
+  const p = path.join(entw, "bestand-fachgespraech.json");
+  if (!fs.existsSync(p)) return;
+  const def = JSON.parse(lies(p));
+  for (const [rel, fragen] of Object.entries(def)) {
+    const datei = path.join(ziel, rel);
+    const text = lies(datei);
+    const crlf = text.includes("\r\n");
+    let t = lf(text);
+    for (const [frage, erwartungen] of Object.entries(fragen)) {
+      const zeile = "- " + frage;
+      const i = t.indexOf("\n" + zeile + "\n");
+      if (i < 0) throw new Error("Bestandsfrage fehlt: " + frage);
+      const nach = i + 1 + zeile.length + 1;
+      if (/^\s+- Erwartung:/.test(t.slice(nach).split("\n")[0])) throw new Error("Bestandsfrage hat schon Erwartungen: " + frage);
+      t = t.slice(0, nach) + erwartungen.map((e) => "  - Erwartung: " + e).join("\n") + "\n" + t.slice(nach);
+    }
+    schreibe(datei, t, crlf);
+  }
 }
 
 for (const [quelle, rel] of NEUE_THEMEN) {
@@ -74,8 +133,8 @@ for (const [quelle, rel] of NEUE_THEMEN) {
 
 for (const [kurs, { datei, abschnitte: karten }] of Object.entries(ERGAENZUNGEN)) {
   const a = abschnitte(lies(path.join(entw, datei)));
-  for (const [th, ka, qu, thema] of karten) {
-    einfuegen(path.join(ziel, kurs, thema), { theorie: a[th], karten: a[ka], quiz: a[qu] });
+  for (const [th, ka, qu, thema, anker] of karten) {
+    einfuegen(path.join(ziel, kurs, thema), { theorie: a[th], karten: a[ka], quiz: a[qu], anker });
   }
 }
 
@@ -92,9 +151,11 @@ for (const [datei, ordner] of FAELLE) {
   const abschn = fgTeil.match(/^### [\s\S]*$/m);
   if (!abschn) throw new Error("keine Fachgesprächsabschnitte: " + datei);
   const fgDatei = path.join(ziel, ordner, "fachgespraech.md");
-  haengeAn(fgDatei, abschn[0].replace(/\n---\s*$/, ""), "\n\n");
+  fgEinfuegen(fgDatei, abschn[0].replace(/\n---\s*$/, ""));
   console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", "));
 }
+bestandFg();
+
 // Einleitungssätze (Themenbereiche) und Korrektur des Vornamens Schulz von Thun (Friedemann, nicht Friedrich) im Bestand
 function ersetzeInDatei(datei, paare) {
   const text = lies(datei);
@@ -111,12 +172,12 @@ function ersetzeInDatei(datei, paare) {
 }
 ersetzeInDatei(path.join(ziel, "industriefachwirt/hq5/fallaufgaben.md"), [["(9.1–9.3)", "(9.1–9.4)"]]);
 ersetzeInDatei(path.join(ziel, "industriefachwirt/hq5/fachgespraech.md"), [["(9.1–9.3)", "(9.1–9.4)"]]);
-ersetzeInDatei(path.join(ziel, "handelsfachwirt/hb2/fallaufgaben.md"), [["(2.1–2.4)", "(2.1–2.6)"]]);
+ersetzeInDatei(path.join(ziel, "handelsfachwirt/hb2/fallaufgaben.md"), [["(2.1–2.4)", "(2.1–2.6)"], ["vier Teilaufgaben mit Punktangaben", "vier bis fünf Teilaufgaben mit Punktangaben"]]);
 ersetzeInDatei(path.join(ziel, "handelsfachwirt/hb2/fachgespraech.md"), [["(2.1–2.4)", "(2.1–2.6)"]]);
 for (const datei of ["industriefachwirt/hq5/9.2-teamarbeit-kommunikation.md", "technischer-fachwirt/hq4/11.2-teamarbeit-kommunikation.md"]) {
   ersetzeInDatei(path.join(ziel, datei), [
     ["Friedrich Schulz von Thun", "Friedemann Schulz von Thun"],
-    ["**Akzeptierte Antworten:** Friedemann Schulz von Thun; Schulz von Thun", "**Akzeptierte Antworten:** Friedemann Schulz von Thun; Friedrich Schulz von Thun; Schulz von Thun"],
+    ["**Akzeptierte Antworten:** Friedemann Schulz von Thun; Schulz von Thun", "**Akzeptierte Antworten:** Friedemann Schulz von Thun; F. Schulz von Thun; Schulz von Thun"],
   ]);
 }
 console.log("ok");
