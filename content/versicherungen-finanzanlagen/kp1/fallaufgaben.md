@@ -75,3 +75,24 @@ Teilaufgabe 2: bei Vorsatz oder grober Fahrlässigkeit kommt ein Rücktritt in B
 Teilaufgabe 3: eine unwahre Angabe im Sinne des § 19 VVG ist zunächst ein zivilrechtlicher Sachverhalt zur Anzeigepflicht; ein strafrechtlich relevanter Betrug nach § 263 StGB setzt zusätzlich eine vorsätzliche Täuschungsabsicht mit Bereicherungsvorsatz voraus, die im geschilderten Fall (z. B. mögliches Missverständnis über die Reichweite der Frage oder unterschiedliche Krankheitsbilder) noch nicht feststeht und sorgfältig zu klären ist.
 Teilaufgabe 4: sollte eine empathische, aber sachliche Erklärung enthalten — Hinweis auf eine notwendige vertiefte Prüfung im Interesse einer korrekten Entscheidung, realistische Zeitangabe, Ansprechbarkeit für Rückfragen, kein vorschnelles Ergebnis oder Schuldvorwurf gegenüber der Kundin.
 
+---
+
+#### F-KP1-04 · Fallaufgabe
+
+**Themenbezug:** 3.1 (Produktmanagement: Tarifierung und Kalkulation)
+
+**Ausgangssituation:** Das Produktmanagement von Nordantis kalkuliert einen neuen Tarif. Die erwartete Schadenhäufigkeit beträgt 2,5 % bei einer durchschnittlichen Schadenhöhe von 3.200 €. Die Zuschläge (bezogen auf die Nettoprämie, angenommen) betragen 12 % für Verwaltungskosten, 18 % für Abschlusskosten und 10 % als Sicherheitszuschlag. Es wird mit 25.000 Verträgen gerechnet. Im ersten Jahr beträgt die tatsächliche Schadenhäufigkeit 3 % bei unveränderter Schadenhöhe.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie die Nettoprämie je Vertrag.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie die Zuschläge in Euro und die Bruttoprämie je Vertrag.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie die erwarteten Schadenaufwendungen und die Beitragseinnahmen des Kollektivs.
+
+**Teilaufgabe 4 (7 Punkte, bloom: bewerten):** Berechnen Sie die tatsächlichen Schadenaufwendungen und das Ergebnis (Beiträge − Schäden − Verwaltungs- und Abschlusskosten wie kalkuliert, also die Zuschläge auf die Nettoprämie) und bewerten Sie es.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Nettoprämie = 0,025 × 3.200 € = 80 €.
+Teilaufgabe 2: Zuschläge = (12 % + 18 % + 10 %) × 80 € = 32 €; Bruttoprämie = 80 € + 32 € = 112 €.
+Teilaufgabe 3: Erwartete Schäden = 25.000 × 80 € = 2.000.000 €; Beitragseinnahmen = 25.000 × 112 € = 2.800.000 €.
+Teilaufgabe 4: Tatsächliche Schäden = 25.000 × 0,03 × 3.200 € = 2.400.000 €; Verwaltungs- und Abschlusskosten = (12 % + 18 %) × 2.000.000 € = 600.000 €; Ergebnis = 2.800.000 € − 2.400.000 € − 600.000 € = −200.000 €; der Sicherheitszuschlag von 200.000 € reicht nicht, die um 0,5 Prozentpunkte höhere Schadenhäufigkeit verursacht 400.000 € Mehrschäden; der Tarif muss neu kalkuliert werden.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

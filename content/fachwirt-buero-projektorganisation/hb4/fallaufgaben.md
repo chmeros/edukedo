@@ -74,3 +74,28 @@ Teilaufgabe 4 sollte auf Zugriffsrechte und personenbezogene Daten eingehen.
 Teilaufgabe 2 sollte ein zentrales Portal mit strukturierten Bereichen je Abteilung vorschlagen.
 Teilaufgabe 3 sollte Datenschutz und Vertraulichkeit gegen Zugänglichkeit abwägen.
 Teilaufgabe 4 sollte auf Innovationsfähigkeit und Wettbewerbsfähigkeit eingehen.
+
+---
+
+#### F-HB4-04 · Fallaufgabe
+
+**Themenbezug:** 4.1 (Kennzahlen und Controlling: Kosten je Vorgang, Amortisation, Nutzwertanalyse) + 4.2 (Einkauf und Beschaffung: Angebotsvergleich und Reklamationsquote)
+
+**Ausgangssituation:** Die Deko & Büro GmbH prüft die Digitalisierung der Eingangsrechnungen. Die Prozesskosten betragen 31.200 € im Jahr bei 3.900 Vorgängen; nach der Digitalisierung sinken die Kosten je Vorgang um 2,50 €. Die Anschaffung kostet 39.000 €. Zwei Lösungen werden mit einer Nutzwertanalyse verglichen (Gewichte: Kosten 50 %, Bedienbarkeit 30 %, Datenschutz 20 %): Lösung X erhält 9, 7 und 6 Punkte, Lösung Y 8, 9 und 8 Punkte. Für die Hardware liegen zwei Angebote vor: Angebot A mit Listenpreis 5.000 €, 8 % Rabatt, 2 % Skonto und 92 € Fracht, Angebot B mit Listenpreis 4.800 €, 4 % Rabatt, 3 % Skonto und 40 € Fracht. Beim bisherigen Lieferanten wurden von 400 Lieferungen 14 reklamiert.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Berechnen Sie die Kosten je Vorgang.
+
+**Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Berechnen Sie die jährliche Einsparung und die Amortisationsdauer.
+
+**Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Berechnen Sie die Nutzwerte beider Lösungen und nennen Sie die bessere.
+
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Berechnen Sie die Bezugspreise beider Angebote und die Differenz.
+
+**Teilaufgabe 5 (2 Punkte, bloom: anwenden):** Berechnen Sie die Reklamationsquote des bisherigen Lieferanten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: 31.200 € ÷ 3.900 = 8 € je Vorgang.
+Teilaufgabe 2: Einsparung = 3.900 × 2,50 € = 9.750 €; Amortisationsdauer = 39.000 € ÷ 9.750 € = 4 Jahre.
+Teilaufgabe 3: Nutzwert X = 0,5 × 9 + 0,3 × 7 + 0,2 × 6 = 4,5 + 2,1 + 1,2 = 7,8; Nutzwert Y = 0,5 × 8 + 0,3 × 9 + 0,2 × 8 = 4,0 + 2,7 + 1,6 = 8,3; Lösung Y ist besser.
+Teilaufgabe 4: Angebot A: 5.000 € × 0,92 = 4.600 €, × 0,98 = 4.508 €, + 92 € = 4.600 €; Angebot B: 4.800 € × 0,96 = 4.608 €, × 0,97 = 4.469,76 €, + 40 € = 4.509,76 €; B ist um 4.600 € − 4.509,76 € = 90,24 € günstiger.
+Teilaufgabe 5: Reklamationsquote = 14 ÷ 400 × 100 = 3,5 %.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

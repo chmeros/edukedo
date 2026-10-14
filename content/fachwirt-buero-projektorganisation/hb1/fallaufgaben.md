@@ -74,3 +74,28 @@ Teilaufgabe 4 sollte KVP als fortlaufenden, kleinschrittigen statt einmaligen An
 Teilaufgabe 2 sollte die Unterscheidung zwischen Einzelfall und Muster begründen.
 Teilaufgabe 3 könnte einen standardisierten Beschaffungsprozess mit festen Freigabeschwellen vorschlagen.
 Teilaufgabe 4 sollte Präsentationsunterlagen, Entscheidungs- und Änderungsdokumentation nennen.
+
+---
+
+#### F-HB1-04 · Fallaufgabe
+
+**Themenbezug:** 1.3 (Projektmanagement: Projektkontrolle mit Plan-Ist-Vergleich)
+
+**Ausgangssituation:** Die Deko & Büro GmbH realisiert den Aufbau eines Messestands für einen Kunden. Geplant waren ein Budget von 50.000 € und eine Dauer von 50 Tagen. Tatsächlich sind Kosten von 56.500 € angefallen, das Projekt dauerte 57 Tage. Zu einem früheren Kontrollzeitpunkt waren 35.000 € des Budgets verbraucht. Als Toleranzgrenze gilt (angenommen) eine relative Abweichung von 10 %, ab der die Projektleitung eingreift.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie die absolute und die relative Kostenabweichung.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie die absolute und die relative Terminabweichung.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie für den früheren Kontrollzeitpunkt das Restbudget und die Budgetverbrauchsquote.
+
+**Teilaufgabe 4 (4 Punkte, bloom: bewerten):** Bewerten Sie die Kosten- und die Terminabweichung im Vergleich mit der Toleranzgrenze.
+
+**Teilaufgabe 5 (4 Punkte, bloom: bewerten):** Erläutern Sie zwei geeignete Maßnahmen der Projektleitung für künftige Projekte.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Absolute Abweichung = 56.500 € − 50.000 € = + 6.500 €; relative Abweichung = 6.500 € ÷ 50.000 € × 100 = + 13 %.
+Teilaufgabe 2: Absolute Abweichung = 57 − 50 = + 7 Tage; relative Abweichung = 7 ÷ 50 × 100 = + 14 %.
+Teilaufgabe 3: Restbudget = 50.000 € − 35.000 € = 15.000 €; Budgetverbrauchsquote = 35.000 € ÷ 50.000 € × 100 = 70 %.
+Teilaufgabe 4 sollte bewerten: Beide Abweichungen (13 % und 14 %) liegen über der Toleranzgrenze von 10 %, ein Eingreifen war erforderlich; Kosten und Termin hängen oft zusammen.
+Teilaufgabe 5 sollte z. B. nennen: engere Meilensteinkontrolle und frühere Plan-Ist-Vergleiche, realistischere Aufwandsschätzung mit Pufferplanung, Änderungsmanagement bei Kundenwünschen.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

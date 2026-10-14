@@ -75,3 +75,24 @@ Teilaufgabe 2: Ein bereits eingetretener Unfall ist nicht mehr versicherbar, wei
 Teilaufgabe 3: Angesichts des Klettersports empfiehlt sich eine Unfallversicherung mit hoher Progression, da bei schweren Verletzungen mit hohem Invaliditätsgrad ein überproportional höheres Kapital benötigt werden kann; ggf. Hinweis auf mögliche Risikoausschlüsse für bestimmte Extremsportarten, die vorab zu klären sind.
 Teilaufgabe 4: sollte den weiteren Aufbau der gesetzlichen Rentenversicherung während der Teilzeitphase, die Prüfung einer Riester-Förderung (für Verträge ab 2027 nach dem neuen Recht, ggf. mit Altersvorsorgedepot) aufgrund der Kinder sowie nach Rückkehr in Vollzeit den ergänzenden Aufbau einer bAV oder privater Schicht-3-Produkte thematisieren.
 
+---
+
+#### F-KB1-04 · Fallaufgabe
+
+**Themenbezug:** 1.3 (Unfallversicherung: Invaliditätsleistung, Gliedertaxe und Mitwirkungsanteil)
+
+**Ausgangssituation:** Ein Kunde von Nordantis hat eine private Unfallversicherung mit einer Grundsumme von 120.000 € (ohne Progression). Nach einem Unfall ist die Funktion seines Fußes zu drei Vierteln beeinträchtigt; der Taxwert des Fußes beträgt in den Bedingungen (angenommen) 40 %. Eine Vorerkrankung hat nach ärztlichem Gutachten zu 40 % zu den Unfallfolgen beigetragen. Der Mindestanteil für die Minderung beträgt laut Bedingungen (Muster) 25 %.
+
+**Teilaufgabe 1 (4 Punkte, bloom: anwenden):** Berechnen Sie den Invaliditätsgrad ohne Berücksichtigung der Vorerkrankung.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie die Invaliditätsleistung ohne Berücksichtigung der Vorerkrankung.
+
+**Teilaufgabe 3 (6 Punkte, bloom: anwenden):** Berechnen Sie den unfallbedingten Invaliditätsgrad und die Invaliditätsleistung unter Berücksichtigung des Mitwirkungsanteils von 40 %.
+
+**Teilaufgabe 4 (6 Punkte, bloom: bewerten):** Die Gutachterin geht nachträglich nur von einem Mitwirkungsanteil von 10 % aus. Berechnen Sie die Leistung neu und begründen Sie das Ergebnis.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Invaliditätsgrad = 40 % × 3/4 = 30 %.
+Teilaufgabe 2: Leistung = 120.000 € × 30 % = 36.000 €.
+Teilaufgabe 3: Unfallbedingter Invaliditätsgrad = 30 % × (1 − 0,4) = 18 %; Leistung = 120.000 € × 18 % = 21.600 €.
+Teilaufgabe 4: Ein Mitwirkungsanteil von 10 % liegt unter dem Mindestanteil von 25 %, daher unterbleibt die Minderung: Der Invaliditätsgrad bleibt 30 %, die Leistung beträgt 36.000 €.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

@@ -74,3 +74,28 @@ Teilaufgabe 4 sollte Feedbackbögen, Teilnehmerbefragung und Soll-Ist-Vergleich 
 Teilaufgabe 2 sollte DIN-Normen, CI/CB und einheitliche Antwortzeiten als Bausteine nennen.
 Teilaufgabe 3 sollte Schulungen und Handreichungen vorschlagen.
 Teilaufgabe 4 sollte typische Arbeitspakete wie Anforderungsanalyse, Auswahl, Einführung, Schulung nennen.
+
+---
+
+#### F-HB2-04 · Fallaufgabe
+
+**Themenbezug:** 2.4 (Veranstaltungsmanagement: Kalkulation und Break-even)
+
+**Ausgangssituation:** Die Deko & Büro GmbH plant einen Kundentag mit Fachvorträgen. Die Teilnahmegebühr beträgt 95 € je Person, die variablen Kosten (Verpflegung, Unterlagen) betragen 38 € je Person, die fixen Kosten (Saal, Referent:innen, Technik) 11.400 €. Erwartet werden 250 Teilnehmende.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Berechnen Sie den Deckungsbeitrag je Teilnehmende:n.
+
+**Teilaufgabe 2 (4 Punkte, bloom: anwenden):** Berechnen Sie die Mindestteilnehmerzahl.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie den Gewinn bei 250 Teilnehmenden.
+
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Berechnen Sie die Gesamtkosten und die Kosten je Teilnehmende:n bei 250 Teilnehmenden.
+
+**Teilaufgabe 5 (4 Punkte, bloom: bewerten):** Beurteilen Sie, was passiert, wenn nur 180 Personen kommen, und nennen Sie eine Maßnahme.
+
+**Musterlösungshinweise:** Teilaufgabe 1: 95 € − 38 € = 57 €.
+Teilaufgabe 2: Mindestteilnehmerzahl = 11.400 € ÷ 57 € = 200 Personen.
+Teilaufgabe 3: Gewinn = 250 × 57 € − 11.400 € = 14.250 € − 11.400 € = 2.850 €.
+Teilaufgabe 4: Gesamtkosten = 11.400 € + 250 × 38 € = 20.900 €; Kosten je Teilnehmende:n = 20.900 € ÷ 250 = 83,60 €.
+Teilaufgabe 5 sollte bewerten: 180 Personen liegen unter der Mindestteilnehmerzahl von 200, es entsteht ein Verlust (180 × 57 € − 11.400 € = − 1.140 €); Maßnahmen z. B. frühzeitige Anmeldefrist mit Nachwerbung, Kostenreduktion bei den Fixkosten oder eine Anpassung der Gebühr.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

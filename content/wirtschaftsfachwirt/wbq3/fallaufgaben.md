@@ -75,3 +75,27 @@ Teilaufgabe 2 sollte erläutern, dass bei mehreren Betriebsstätten in unterschi
 Teilaufgabe 3 sollte herausarbeiten, dass eine Personengesellschaft wie die KG selbst nicht körperschaftsteuerpflichtig ist, sondern die Gewinnanteile bei den Gesellschaftern der Einkommensteuer unterliegen (Transparenzprinzip), während die GmbH als eigenständiges Steuersubjekt der Körperschaftsteuer unterliegt.
 Teilaufgabe 4 sollte die Grundsätze der Firmenwahrheit, Firmenunterscheidbarkeit und Firmenbeständigkeit sowie die Publizitätswirkung der Handelsregistereintragung nach § 15 HGB nennen.
 
+---
+
+#### F-WBQ3-04 · Fallaufgabe
+
+**Themenbezug:** 3.4 (Steuerrecht: Umsatzsteuer und Gewerbesteuer)
+
+**Ausgangssituation:** Die NordWert Handels GmbH kauft im Quartal Ware für 650.000 € netto ein und verkauft Ware für 1.100.000 € netto (Umsatzsteuer jeweils 19 %). Der Gewerbeertrag des Jahres beträgt (angenommen) 560.000 €. Die NordWert hat zwei Betriebsstätten: Auf Standort A entfallen 70 % der Arbeitslöhne (Hebesatz 380 %), auf Standort B 30 % (Hebesatz 420 %). Eine Ausgangsrechnung lautet auf 142.800 € brutto.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie Vorsteuer, Umsatzsteuer und Zahllast des Quartals.
+
+**Teilaufgabe 2 (2 Punkte, bloom: anwenden):** Berechnen Sie den Nettobetrag der Ausgangsrechnung über 142.800 € brutto.
+
+**Teilaufgabe 3 (3 Punkte, bloom: anwenden):** Berechnen Sie den Gewerbesteuermessbetrag.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Zerlegen Sie den Messbetrag nach den Arbeitslöhnen auf die Standorte A und B.
+
+**Teilaufgabe 5 (5 Punkte, bloom: anwenden):** Berechnen Sie die Gewerbesteuer je Standort und insgesamt.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Vorsteuer = 650.000 € × 0,19 = 123.500 €; Umsatzsteuer = 1.100.000 € × 0,19 = 209.000 €; Zahllast = 209.000 € − 123.500 € = 85.500 €.
+Teilaufgabe 2: Nettobetrag = 142.800 € ÷ 1,19 = 120.000 €.
+Teilaufgabe 3: Messbetrag = 560.000 € × 3,5 % = 19.600 €.
+Teilaufgabe 4: Standort A = 19.600 € × 70 % = 13.720 €; Standort B = 19.600 € × 30 % = 5.880 €.
+Teilaufgabe 5: Gewerbesteuer A = 13.720 € × 380 % = 52.136 €; Gewerbesteuer B = 5.880 € × 420 % = 24.696 €; insgesamt 76.832 €.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

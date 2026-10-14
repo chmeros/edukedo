@@ -75,3 +75,30 @@ Teilaufgabe 2: Kartenabfrage/Brainstorming mit Einzelarbeitsphase vor der Plenum
 Teilaufgabe 3: Prozessverantwortung wahrnehmen statt Ergebnisverantwortung, Meta-Kommunikation ("Ich schlage vor, wir sammeln beide Sichtweisen zunächst getrennt"), Rückführung auf die Sachebene.
 Teilaufgabe 4: schriftliche Dokumentation, Verantwortlichkeiten und Termine festlegen, Evaluationsbogen/Feedbackrunde, Follow-up-Termin vereinbaren.
 
+---
+
+#### F-HB3-04 · Fallaufgabe
+
+**Themenbezug:** 3.1 (Personalwirtschaft: Personalbedarf und Personalkennzahlen)
+
+**Ausgangssituation:** Das Personalcontrolling der Deko & Büro GmbH meldet für einen Standort: Der Personalbestand betrug zu Jahresbeginn 78 und zu Jahresende 82 Mitarbeitende, 8 Mitarbeitende schieden aus. Es gibt 230 Solltage je Person und 1.288 krankheitsbedingte Fehltage. Die Personalkosten betragen 3.510.000 € bei einem Umsatz von 6.500.000 €. Der Personalbedarf für das kommende Jahr beträgt 90 Stellen. Als Zielwerte gelten angenommen: Fluktuationsrate höchstens 9 %, Krankenstand höchstens 6 %.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Berechnen Sie den durchschnittlichen Personalbestand.
+
+**Teilaufgabe 2 (3 Punkte, bloom: anwenden):** Berechnen Sie die Fluktuationsrate.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie die Solltage insgesamt (für den durchschnittlichen Personalbestand) und den Krankenstand.
+
+**Teilaufgabe 4 (3 Punkte, bloom: anwenden):** Berechnen Sie den Nettopersonalbedarf für das kommende Jahr (bezogen auf den Personalbestand zum Jahresende).
+
+**Teilaufgabe 5 (3 Punkte, bloom: anwenden):** Berechnen Sie die Personalkostenquote (bezogen auf den Umsatz).
+
+**Teilaufgabe 6 (4 Punkte, bloom: bewerten):** Bewerten Sie Fluktuationsrate und Krankenstand im Vergleich mit den Zielwerten.
+
+**Musterlösungshinweise:** Teilaufgabe 1: (78 + 82) ÷ 2 = 80.
+Teilaufgabe 2: Fluktuationsrate = 8 ÷ 80 × 100 = 10 %.
+Teilaufgabe 3: Solltage = 80 × 230 = 18.400; Krankenstand = 1.288 ÷ 18.400 × 100 = 7 %.
+Teilaufgabe 4: Nettopersonalbedarf = 90 − 82 = 8 Stellen.
+Teilaufgabe 5: Personalkostenquote = 3.510.000 € ÷ 6.500.000 € × 100 = 54 %.
+Teilaufgabe 6 sollte bewerten: Die Fluktuationsrate von 10 % und der Krankenstand von 7 % verfehlen die Zielwerte von 9 % und 6 %; mögliche Ursachen sind Belastung, Führung oder Arbeitsbedingungen, Maßnahmen z. B. Mitarbeitendengespräche, Gesundheitsförderung, Bindungsmaßnahmen.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

@@ -74,3 +74,28 @@ Teilaufgabe 4: Sollte den Unterschied zwischen unechten (aus Personen-/Sachschä
 Teilaufgabe 2: Z. B. Gehälter, Miete und Kreditzinsen (auch: laufende Versicherungsbeiträge).
 Teilaufgabe 3: Angesichts hoher Eintrittswahrscheinlichkeit relevanter Folgen bei Ausfall der einzigen Anlage (keine Redundanz) und hoher potenzieller Schadenhöhe ist das Risiko der Zone „Vermeiden"/„Absichern" zuzuordnen; eine reine Selbsttragung wäre angesichts der möglichen Existenzbedrohung ungeeignet.
 Teilaufgabe 4: Sollte eine Verlängerung der Haftzeit auf mindestens die realistische Wiederbeschaffungszeit von Spezialanlagen (z. B. 18–24 Monate) sowie ggf. eine ergänzende Prüfung von Redundanz-/Ersatzkapazitäten enthalten.
+
+---
+
+#### F-KB2-04 · Fallaufgabe
+
+**Themenbezug:** 2.4 (Betriebsunterbrechungsversicherung) + 2.5 (Risikoanalyse bei Gewerbekunden: Versicherungssumme und Unterversicherung)
+
+**Ausgangssituation:** Nordantis berät einen Gewerbekunden mit einer Werkhalle von 800 m² (angenommener Neubaupreis 2.250 € je m²). Das Inventar hat einen Versicherungswert von 640.000 €, vereinbart sind 576.000 € (ohne Unterversicherungsverzicht). Im Betrieb entsteht ein Schaden am Inventar von 120.000 €. Der Betrieb erzielt einen Jahres-Betriebsgewinn von 240.000 € bei fortlaufenden Kosten von 960.000 € im Jahr. Nach einem Brand fällt er 4 Monate aus; für die Betriebsunterbrechung sind (Haftzeit 12 Monate) 960.000 € Versicherungssumme vereinbart.
+
+**Teilaufgabe 1 (3 Punkte, bloom: anwenden):** Berechnen Sie die Versicherungssumme der Halle nach dem m²-Preis-Verfahren.
+
+**Teilaufgabe 2 (6 Punkte, bloom: anwenden):** Berechnen Sie den Versicherungsgrad (Versicherungssumme ÷ Versicherungswert) in Prozent sowie Entschädigung und Eigenanteil bei dem Inventarschaden.
+
+**Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Berechnen Sie den Jahresrohertrag, den monatlichen Ertragsausfall und den Ertragsausfall für 4 Monate.
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie die Entschädigung aus der Betriebsunterbrechungsversicherung.
+
+**Teilaufgabe 5 (2 Punkte, bloom: bewerten):** Erläutern Sie kurz, welche Beratungsmaßnahme eine Kürzung wegen Unterversicherung künftig vermeiden hilft.
+
+**Musterlösungshinweise:** Teilaufgabe 1: 800 m² × 2.250 € = 1.800.000 €.
+Teilaufgabe 2: Versicherungsgrad = 576.000 € ÷ 640.000 € = 90 %; Entschädigung = 120.000 € × 0,9 = 108.000 €; Eigenanteil = 120.000 € − 108.000 € = 12.000 €.
+Teilaufgabe 3: Jahresrohertrag = 240.000 € + 960.000 € = 1.200.000 €; monatlich 1.200.000 € ÷ 12 = 100.000 €; für 4 Monate 400.000 €.
+Teilaufgabe 4: Verhältnis = 960.000 € ÷ 1.200.000 € = 80 %; Entschädigung = 400.000 € × 0,8 = 320.000 €; der Kunde trägt 80.000 € selbst.
+Teilaufgabe 5 sollte nennen: Versicherungssumme nach einem anerkannten Verfahren ermitteln (m²-Preis-Verfahren, Wertgutachten, Ertragsausfallberechnung mit der Buchhaltung) und regelmäßig anpassen; ggf. Unterversicherungsverzicht vereinbaren.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

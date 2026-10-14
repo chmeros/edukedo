@@ -74,3 +74,28 @@ Teilaufgabe 4: z. B. die durchschnittliche Schadenbearbeitungsdauer (interne Pro
 Teilaufgabe 2: gezielte Wiederholung der Stufen Vormachen/Erklären und engmaschig begleitetes Nachmachen lassen, bevor zum selbstständigen Üben übergegangen wird.
 Teilaufgabe 3: Ein Fördergespräch ist vorrangig angebracht, da es gezielt Lernschwierigkeiten und individuelle Unterstützungsmaßnahmen behandelt, nicht nur punktuelles Feedback; auch die unregelmäßige Führung des Berichtshefts sollte offen angesprochen werden.
 Teilaufgabe 4 sollte konkrete Maßnahmen wie Probeklausuren, engmaschigere Betreuung in der Bestandsbearbeitung, regelmäßige kurze Feedback-Termine sowie eine schrittweise Rückführung zu mehr Eigenständigkeit enthalten.
+
+---
+
+#### F-KP2-04 · Fallaufgabe
+
+**Themenbezug:** 4.1 (Unternehmenssteuerung und Controlling: Versicherungskennzahlen, Break-even und Plan-Ist-Vergleich)
+
+**Ausgangssituation:** Das Controlling von Nordantis wertet die Hausratsparte einer Regionaldirektion aus: verdiente Beiträge 80.000.000 €, Schadenaufwendungen 56.000.000 €, Verwaltungs- und Abschlusskosten 26.400.000 €; Bestand zu Jahresbeginn 200.000 Verträge; im Jahr wurden 7.000 Verträge storniert und 15.000 neu abgeschlossen. Für einen neuen Tarif fallen Einführungskosten von 540.000 € an; je Vertrag gelten Prämie 500 €, erwarteter Schadenaufwand 330 € und variable Kosten 80 €. Geplant waren 12.000 Neuverträge.
+
+**Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Berechnen Sie Schadenquote, Kostenquote und Combined Ratio.
+
+**Teilaufgabe 2 (3 Punkte, bloom: bewerten):** Beurteilen Sie das Ergebnis der Sparte anhand der Combined Ratio.
+
+**Teilaufgabe 3 (4 Punkte, bloom: anwenden):** Berechnen Sie Stornoquote und Neugeschäftsquote (bezogen auf den Bestand zu Jahresbeginn).
+
+**Teilaufgabe 4 (4 Punkte, bloom: anwenden):** Berechnen Sie den Deckungsbeitrag je Vertrag und die Break-even-Menge des neuen Tarifs.
+
+**Teilaufgabe 5 (3 Punkte, bloom: anwenden):** Berechnen Sie die absolute und die relative Abweichung des Neugeschäfts vom Plan.
+
+**Musterlösungshinweise:** Teilaufgabe 1: Schadenquote = 56.000.000 € ÷ 80.000.000 € × 100 = 70 %; Kostenquote = 26.400.000 € ÷ 80.000.000 € × 100 = 33 %; Combined Ratio = 70 % + 33 % = 103 %.
+Teilaufgabe 2: Eine Combined Ratio über 100 % bedeutet einen versicherungstechnischen Verlust; Schäden und Kosten übersteigen die Beiträge, der Ausgleich muss über das Kapitalanlageergebnis erfolgen.
+Teilaufgabe 3: Stornoquote = 7.000 ÷ 200.000 × 100 = 3,5 %; Neugeschäftsquote = 15.000 ÷ 200.000 × 100 = 7,5 %.
+Teilaufgabe 4: Deckungsbeitrag = 500 € − 330 € − 80 € = 90 €; Break-even-Menge = 540.000 € ÷ 90 € = 6.000 Verträge.
+Teilaufgabe 5: Abweichung = 15.000 − 12.000 = + 3.000 Verträge; relativ 3.000 ÷ 12.000 × 100 = + 25 %.
+Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.
