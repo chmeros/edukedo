@@ -120,6 +120,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Praxis werden meist alle drei Ansätze kombiniert.
   - Erwartung: Die Selbstkosten bilden die Preisuntergrenze, der Wettbewerbsvergleich liefert Orientierung, und die Zahlungsbereitschaft des Kunden bestimmt den Spielraum nach oben.
   - Rückfrage: Warum akzeptiert ein Industriekunde mit engen Lieferzeitfenstern tendenziell einen höheren Preis?
+- Erläutern Sie, wie Sie das frachtpflichtige Gewicht einer Sendung ermitteln und warum es neben dem Rohgewicht ein Volumengewicht gibt.
+  - Erwartung: Das Rohgewicht ist das tatsächliche Gewicht der Sendung einschließlich Verpackung und Ladungsträger.
+  - Erwartung: Das Volumen wird mit einem Umrechnungsfaktor in ein Volumengewicht umgerechnet; frachtpflichtig ist der höhere der beiden Werte.
+  - Erwartung: Grund: Leichte, sperrige Güter belegen viel Laderaum bei geringem Gewicht; ohne Volumengewicht wäre dieser Laderaum nicht bezahlt.
+  - Erwartung: Die Faktoren richten sich nach Vertrag oder Tarif, z. B. als Beispielwerte 1 cbm = 300 kg im Sammelgut auf der Straße, Volumen in cm³ ÷ 6.000 in der Luftfracht und 1 t = 1 cbm (W/M) in der Seefracht.
+  - Rückfrage: Was ist ein Lademeter, und wann wird nach Lademetern abgerechnet?
+- Wie fügt sich die Frachtberechnung nach Tarif in die Angebotskalkulation ein?
+  - Erwartung: Eine Komplettladung wird als Tour mit der Zuschlagskalkulation kalkuliert (Einzelkosten, Gemeinkostenzuschlag, Selbstkosten, Gewinnzuschlag).
+  - Erwartung: Sammelgut und Teilladungen werden je Sendung nach frachtpflichtigem Gewicht und Frachtsatz berechnet; die Mindestfracht ist eine Untergrenze, Zuschläge kommen hinzu.
+  - Erwartung: Die Erlöse aller Sendungen einer Tour müssen zusammen mindestens die Selbstkosten der Tour decken; das mindestens nötige frachtpflichtige Gewicht ist Selbstkosten ÷ Frachtsatz je 100 kg × 100 kg.
+  - Erwartung: Belegt eine Sendung das Fahrzeug fast vollständig, wird sie in der Regel als Komplettladung angeboten; die Preisuntergrenze bleiben die Selbstkosten, kurzfristig die variablen Kosten.
+  - Rückfrage: Wozu dient eine Mindestfracht?
 
 ### 1.4 Vertragsgestaltung im Güterverkehr
 
@@ -193,3 +205,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wozu braucht es gemeinsame Schnittstellen zwischen TMS, LVS und Kundenportal?
   - Rückfrage: Wie gelangen Transportaufträge ohne manuelle Neuerfassung vom Kunden in das System des Dienstleisters?
 
+### 1.6 Marketingplan für Logistikdienstleistungen
+
+- Erläutern Sie, wie ein Marketingplan für eine neue Logistikdienstleistung aufgebaut ist.
+  - Erwartung: Ausgangspunkt ist die Situationsanalyse, die die Ergebnisse der Markt- und Wettbewerbsanalyse zusammenfasst, häufig als SWOT-Analyse.
+  - Erwartung: Daraus werden ökonomische und psychografische Marketingziele nach der SMART-Regel abgeleitet.
+  - Erwartung: Es folgen die Auswahl der Zielsegmente, die Positionierung und die Marketingstrategie.
+  - Erwartung: Der Marketing-Mix wird in einen Maßnahmenplan mit Verantwortlichen, Terminen, Kosten und Erfolgskennzahlen übersetzt.
+  - Erwartung: Die Erfolgskontrolle misst die Zielerreichung mit Kennzahlen und führt bei Abweichungen zu Anpassungen.
+  - Rückfrage: Welche Methode zur Bemessung des Marketingbudgets halten Sie für besser begründet, und warum?
+- Warum reicht der klassische Marketing-Mix für Logistikdienstleistungen nicht aus, und wie wird er ergänzt?
+  - Erwartung: Der klassische Marketing-Mix umfasst Leistung, Preis, Distribution bzw. Vertrieb und Kommunikation.
+  - Erwartung: Logistikdienstleistungen sind immateriell, werden nach dem Uno-actu-Prinzip zeitgleich mit der Inanspruchnahme erbracht und beziehen die Kundschaft bzw. ihre Ware als externen Faktor ein.
+  - Erwartung: Deshalb wird der Mix um Personal, Prozesse sowie physische Ausstattung und sichtbare Nachweise ergänzt.
+  - Erwartung: Beispiele sind geschulte Disponent:innen, eine verlässliche Avisierung und Reklamationsbearbeitung, gepflegte Fahrzeuge, Zertifikate oder Kennzahlenberichte.
+  - Erwartung: Alle Instrumente müssen zur Positionierung passen und dürfen sich nicht widersprechen.
+  - Rückfrage: Wie machen Sie die Qualität einer Kontraktlogistik-Leistung für eine Kundschaft sichtbar, die Ihr Lager noch nie gesehen hat?
+- Wie messen Sie, ob sich die Marketingausgaben für ein neues Kundensegment gelohnt haben?
+  - Erwartung: Angebotsquote (Angebote zu Anfragen) und Abschlussquote (Aufträge zu Angeboten) zeigen, auf welcher Stufe der Akquise Probleme liegen.
+  - Erwartung: Kosten je gewonnenem Neukunden = Marketingkosten ÷ Zahl der gewonnenen Neukunden.
+  - Erwartung: Marketingrendite = (Deckungsbeitrag der gewonnenen Aufträge − Marketingkosten) ÷ Marketingkosten × 100; gerechnet wird mit dem Deckungsbeitrag, nicht mit dem Umsatz.
+  - Erwartung: Grenzen: Nicht jeder Neukunde ist allein der Marketingmaßnahme zuzurechnen, und bei mehrjährigen Verträgen unterschätzt das erste Vertragsjahr den Erfolg.
+  - Rückfrage: Warum ist die Kundenbindung in der Kontraktlogistik oft wirtschaftlich wichtiger als die Neukundengewinnung?

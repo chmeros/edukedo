@@ -185,4 +185,80 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Digitale Frachtbriefe und Dokumentation (eCMR) tragen indirekt bei, weil Papierverbrauch und administrative Umwege entfallen.
   - Erwartung: Fahrerschulungen zur spritsparenden Fahrweise (Eco-Training) können eingesetzt werden, deren Wirkung über den Kraftstoffverbrauch je Tour bewertet wird.
   - Rückfrage: Welche Norm bildet die Grundlage für ein Umweltmanagementsystem, das Umweltziele festlegt und deren Erreichung überwacht?
+- Wie würden Sie die Auftragsabwicklung bei Fracora in einem Ablaufdiagramm darstellen?
+  - Erwartung: Das Diagramm beginnt mit dem Auslöser (Auftragseingang) und endet mit dem Ergebnis (Auftrag abgeschlossen); Start und Ende stehen in einem Oval.
+  - Erwartung: Tätigkeiten stehen in Rechtecken, z. B. Auftrag erfassen, Tour disponieren, Frachtbrief erstellen, Ware übernehmen, abliefern, Rechnung erstellen; Pfeile zeigen die Reihenfolge.
+  - Erwartung: Entscheidungen stehen in Rauten mit beschrifteten Ausgängen, z. B. „Eigene Kapazität frei?“ oder „Ware einwandfrei?“.
+  - Erwartung: Bahnen je Abteilung (Swimlanes) zeigen, wer welchen Schritt ausführt, und machen die Schnittstellen sichtbar.
+  - Rückfrage: In welche Hauptphasen lässt sich die Auftragsabwicklung grob gliedern?
+- Was sind Schnittstellen in einem Prozess, welche Störungen treten dort typischerweise auf, und welche Rolle haben Prozessverantwortliche?
+  - Erwartung: Eine Schnittstelle ist ein Übergabepunkt, an dem Ware, Information oder Verantwortung von einer Stelle an eine andere übergeht, intern zwischen Abteilungen oder extern mit Partnern und Kundschaft.
+  - Erwartung: Typische Störungen sind unvollständige Auftragsdaten, Medienbrüche, zu spät weitergegebene Informationen, Wartezeiten und unklare Zuständigkeit bei Abweichungen.
+  - Erwartung: Gegenmaßnahmen sind festgelegte Übergabeinformationen, digitale Schnittstellen zwischen TMS, Lagerverwaltungssystem und Kundenportal, klare Zuständigkeiten und Rückmeldungen.
+  - Erwartung: Prozessverantwortliche tragen abteilungsübergreifend die Verantwortung für den gesamten Ablauf, verfolgen Kennzahlen und stoßen Verbesserungen an, ohne die Abteilungsleitungen zu ersetzen.
+  - Rückfrage: Wie hängen Prozessverbesserung, PDCA-Zyklus und kontinuierlicher Verbesserungsprozess zusammen?
 
+### 2.7 Ausschreibungen in der Logistik
+
+- Erläutern Sie den Unterschied zwischen Eignungs- und Zuschlagskriterien in einer Logistikausschreibung.
+  - Erwartung: Eignungskriterien prüfen, ob das bietende Unternehmen den Auftrag leisten kann, etwa Referenzen, Kapazität, wirtschaftliche Stabilität, Zertifikate oder Versicherungsnachweise.
+  - Erwartung: Sie werden oft als Mindestanforderungen (KO-Kriterien) formuliert; wer sie nicht erfüllt, scheidet vor der Bewertung aus.
+  - Erwartung: Zuschlagskriterien bewerten das Angebot selbst, etwa Preis, Lösungskonzept, Servicelevel, Nachhaltigkeit und IT-Anbindung.
+  - Erwartung: Nach den gewichteten Zuschlagskriterien wird das wirtschaftlichste Angebot ermittelt; ein Merkmal wird in der Regel nur einmal berücksichtigt.
+  - Rückfrage: Welche weiteren Bestandteile gehören in vollständige Ausschreibungsunterlagen?
+- Ihr Unternehmen erhält eine umfangreiche Kontraktlogistik-Ausschreibung. Wie gehen Sie bei der Go/No-Go-Entscheidung vor?
+  - Erwartung: Prüfung der strategischen Passung zu den Zielsegmenten.
+  - Erwartung: Abgleich der Mindestanforderungen mit den eigenen Nachweisen.
+  - Erwartung: Prüfung von Kapazität und Machbarkeit zum geforderten Leistungsbeginn.
+  - Erwartung: Einschätzung von Gewinnchance, Wirtschaftlichkeit, Risiken und Aufwand der Angebotserstellung, häufig mit einer Punkteliste.
+  - Erwartung: Ein begründetes No-Go spart Kapazität für aussichtsreichere Ausschreibungen.
+  - Rückfrage: Wie gehen Sie vor, wenn Sie in den Unterlagen Lücken oder Widersprüche entdecken?
+- Wie funktioniert die Bewertung von Angeboten mit einer Bewertungsmatrix, und wo liegen ihre Grenzen?
+  - Erwartung: Die Zuschlagskriterien werden gewichtet (Summe 100 %), jedes Angebot erhält je Kriterium Punkte; Teilnutzwert = Gewicht × Punkte, Nutzwert = Summe der Teilnutzwerte.
+  - Erwartung: Der Preis wird nach einer vorab festgelegten Formel in Punkte umgerechnet, zum Beispiel niedrigster Preis der gewerteten Angebote ÷ eigener Angebotspreis × 10.
+  - Erwartung: Das günstigste Angebot gewinnt nicht automatisch; Leistung und Preis werden gemeinsam betrachtet, ergänzend über das Preis-Leistungs-Verhältnis.
+  - Erwartung: Die Matrix ist transparent, aber nicht objektiv, weil Gewichte und Punkte Wertungen sind; sie werden vor dem Öffnen der Angebote festgelegt, und bei knappen Ergebnissen wird der Einfluss der Gewichtung geprüft.
+  - Rückfrage: Wie kann ein bietendes Unternehmen eine veröffentlichte Bewertungsmatrix für die eigene Angebotsstrategie nutzen?
+
+### 2.8 Kostenanalyse, Kennzahlen und Budget in der Logistik
+
+- Wie analysieren Sie die Kosten eines Fahrzeugs, und welche Bezugsgrößen verwenden Sie dafür?
+  - Erwartung: Die Fahrzeugkosten werden in Fixkosten (Abschreibung, Versicherung, Kfz-Steuer) und variable Kosten getrennt, die kilometerabhängig (Kraftstoff, Maut, Reifen, Wartung) oder einsatzzeitabhängig (Fahrpersonal bei Bezahlung nach Einsatzstunden) sind.
+  - Erwartung: Die Kosten werden auf Bezugsgrößen bezogen, etwa Kosten je Kilometer, je Lastkilometer, je Stunde, je Tonne, je Tonnenkilometer oder je Sendung.
+  - Erwartung: Die Bezugsgröße richtet sich nach der Leistung, zum Beispiel Kilometer für Komplettladungen, Sendungen für Stückgut, Stunden für Verteilerverkehre mit vielen Stopps.
+  - Erwartung: Verglichen wird nur Gleiches mit Gleichem; Vollkosten des Fahrzeugs je Kilometer sind etwas anderes als die Einzelkosten einer Tour je Kilometer aus der Zuschlagskalkulation.
+  - Rückfrage: Warum sinken die Fixkosten je Kilometer, wenn ein Fahrzeug mehr fährt?
+- Erläutern Sie, wie in einer Spedition ein Budget aufgestellt, aufgeteilt und unterjährig kontrolliert wird.
+  - Erwartung: Das Jahresbudget wird je Kostenstelle aus der Leistungsplanung abgeleitet (Planmenge × Planpreis), top-down, bottom-up oder im Gegenstromverfahren.
+  - Erwartung: Es wird auf Quartale oder Monate aufgeteilt, gleichmäßig oder nach dem erwarteten, oft saisonalen Leistungsverlauf.
+  - Erwartung: Im Soll-Ist-Vergleich werden Gesamtabweichung und relative Abweichung ermittelt; Abweichungen über einer Toleranzgrenze werden analysiert.
+  - Erwartung: Die Hochrechnung addiert die bisherigen Istwerte und die Planwerte der restlichen Perioden und zeigt, ob das Jahresbudget gehalten wird.
+  - Rückfrage: Wann sollte ein Budget während des Jahres angepasst werden?
+- Die Kraftstoffkosten einer Fahrzeuggruppe liegen deutlich über dem Budget. Wie gehen Sie bei der Analyse vor, und welche Maßnahmen kommen in Frage?
+  - Erwartung: Die Gesamtabweichung wird in eine Preisabweichung ((Ist-Preis − Plan-Preis) × Ist-Menge) und eine Mengenabweichung ((Ist-Menge − Plan-Menge) × Plan-Preis) zerlegt.
+  - Erwartung: Die Mengenabweichung wird mit den Leistungskennzahlen erklärt: Mehrkilometer aus bezahlten Zusatzaufträgen sind unbedenklich, Mehrkilometer aus Leerfahrten nicht.
+  - Erwartung: Beeinflussbare Ursachen (Leerkilometer, Verbrauch je Kilometer) werden von externen (Dieselpreis) unterschieden.
+  - Erwartung: Maßnahmen passen zur Ursache (Rückladungen und Tourenkopplung bei Leerkilometern, Eco-Training nur bei höherem Verbrauch je Kilometer, ein vereinbarter Kraftstoffzuschlag beim Dieselpreis) und erhalten eine verantwortliche Person und einen Termin; die Wirkung wird im nächsten Soll-Ist-Vergleich geprüft.
+  - Rückfrage: Was ist eine Auslastungsabweichung, und wie hängt sie mit den Fixkosten zusammen?
+
+### 2.9 Lieferkettensicherheit und Betrugsprävention
+
+- Welche Betrugsmaschen kommen in der Lieferkette einer Spedition vor, und woran erkennen Sie sie?
+  - Erwartung: Phantomfrachtführer und falsche Auftraggeber (Fake-Spedition): Der Phantomfrachtführer ist eine unbekannte, auffallend kurzfristig verfügbare Firma, bei der Abholung weichen Kennzeichen oder Fahrpersonal ab; der falsche Auftraggeber lockt mit Zeitdruck, einem Preis weit über Markt, einer Vorauszahlung vom Frachtführer oder einem Link auf eine unbekannte Anmeldeseite.
+  - Erwartung: Geänderte Bankverbindung: ähnliche Domain, neue IBAN nur in der Mail, knappe Frist, getarnter Anhang.
+  - Erwartung: Unbekannter Abholer: Gratis-Postfach, Wechsel von Fahrzeug und Fahrpersonal ohne Vorankündigung, Übergabe ohne Abholschein, Rückfrage nur per Mail.
+  - Erwartung: Zollgebühr-Falle: keine konkrete Sendung, kleine Gebühr mit Drohung, Zahlungsseite keines bekannten Zustellers.
+  - Erwartung: Die Warnsignale sind Erfahrungsregeln; erst mehrere zusammen machen eine Nachricht hochgradig verdächtig, und auch echte Rechnungen werden inhaltlich geprüft.
+  - Rückfrage: Was versteht man unter Double Brokering?
+- Wie stellen Sie organisatorisch sicher, dass neue Geschäftspartner, Bankdatenänderungen und Abholungen sicher geprüft werden?
+  - Erwartung: Neue Auftraggeber und Frachtführer werden vor der Zusage geprüft: Unternehmensdaten, Referenzen und Rückruf über die öffentlich bekannte Nummer.
+  - Erwartung: Bankdaten werden nur nach Rückruf unter der bekannten Nummer aus den Stammdaten geändert und von einer zweiten Person freigegeben (Vier-Augen-Prinzip bei Zahlungsänderungen).
+  - Erwartung: Abholer erhalten die Ware nur gegen Auftrag und Ausweis; Kennzeichen und Fahrername werden vorab mitgeteilt und an der Rampe abgeglichen.
+  - Erwartung: Die Abläufe gelten auch unter Zeitdruck; Mitarbeitende werden regelmäßig zu aktuellen Maschen geschult.
+  - Rückfrage: Welche Rolle spielen Zugangsdaten zu Frachtenbörsen und Portalen für die Betrugsprävention?
+- Ein Sattelzug mit hochwertiger Ladung ist während einer Pause von einem Parkplatz verschwunden. Wie gehen Sie vor, und was lernen Sie daraus?
+  - Erwartung: Schaden begrenzen: Fahrzeug über Telematik orten, Empfänger, Kundschaft und Beteiligte sofort benachrichtigen.
+  - Erwartung: Dokumentieren: Uhrzeiten, Standort, Kennzeichen, Siegelnummern, Aussagen des Fahrpersonals sichern.
+  - Erwartung: Intern melden, die Kundschaft über den bekannten Weg informieren, Polizei und Versicherung einschalten; Haftungsfragen klären Versicherung und Rechtsberatung.
+  - Erwartung: Auswertung nach dem PDCA-Zyklus: zum Beispiel künftig Pausen auf sicheren Parkplätzen planen, Standzeiten verkürzen, Siegel und Tracking konsequent nutzen, Fahrpersonal schulen.
+  - Rückfrage: Welche vorbeugenden Maßnahmen schützen Ladungen unterwegs?
