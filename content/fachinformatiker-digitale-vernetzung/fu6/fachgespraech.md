@@ -145,3 +145,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Der Kundenbericht enthält ein Management Summary (kurz, ohne Fachjargon), einen Detailteil für die technischen Ansprechpersonen mit Befunden, Schweregrad und Handlungsempfehlung, einen priorisierten Maßnahmenplan sowie Hinweise zu Restrisiken.
   - Erwartung: Der Bericht ist sachlich ohne Schuldzuweisungen, nennt auch, was gut funktioniert, wird nur an den vereinbarten Empfängerkreis übergeben und enthält keine unnötigen personenbezogenen Daten oder Zugangsdaten im Klartext.
   - Rückfrage: Warum ist ein Prüfbericht vertraulich zu behandeln?
+
+### 6.5 Zertifikate und PKI
+
+- Wenn in Ihrem Projekt ein Dienst, eine Schnittstelle oder ein Gerät per Zertifikat abgesichert wird oder würde: Wie sind Sie bei Beantragung und Einrichtung vorgegangen bzw. wie würden Sie vorgehen, und woran erkennen Sie, dass alles korrekt funktioniert?
+  - Erwartung: Das Schlüsselpaar wird auf dem Zielsystem oder in einem geschützten Schlüsselspeicher erzeugt; der private Schlüssel verlässt diesen Ort nicht und ist nur für den Dienst und die zuständige Administration lesbar.
+  - Erwartung: Die Zertifikatsanforderung (CSR) enthält den öffentlichen Schlüssel und alle Namen, unter denen der Dienst, die Schnittstelle oder das Gerät angesprochen wird, als alternative Namen (SAN); sie ist mit dem privaten Schlüssel signiert.
+  - Erwartung: Eine öffentliche Zertifizierungsstelle prüft mindestens die Kontrolle über die Domain (z. B. Datei auf dem Webserver oder TXT-Eintrag im DNS), bei höheren Validierungsstufen auch die Organisation; bei einer internen CA gelten die betrieblichen Freigaberegeln. Danach wird das Zertifikat ausgestellt.
+  - Erwartung: Installiert werden Zertifikat und Zwischenzertifikat; geprüft wird unter allen Namen und nicht nur mit einem Browser, sondern auch mit der tatsächlichen Gegenstelle (vollständige Kette, Name, Gültigkeitszeitraum), und das Zertifikat wird mit Ablaufdatum und Zuständigkeit im Zertifikatsinventar dokumentiert.
+  - Rückfrage: Warum enthält die Zertifikatsanforderung keinen privaten Schlüssel?
+- Welche Art von Zertifikat nutzt Ihre Lösung oder würde sie nutzen (öffentliche Zertifizierungsstelle, interne CA oder selbstsigniert), warum, und welches Restrisiko bleibt?
+  - Erwartung: Zertifikate öffentlicher Zertifizierungsstellen werden von den Vertrauensankern in Betriebssystemen und Browsern ohne weitere Einrichtung anerkannt; sie passen für Dienste, die Kund:innen, Partner oder nicht verwaltete Geräte nutzen, setzen aber eine Domänenprüfung und wegen der kurzen Laufzeiten eine automatisierte Erneuerung voraus.
+  - Erwartung: Eine interne CA eignet sich für interne Namen, Geräte und Client-Zertifikate; ihr Root-Zertifikat muss auf allen beteiligten Geräten als Vertrauensanker verteilt werden, und die CA selbst muss geschützt, überwacht und dokumentiert betrieben werden.
+  - Erwartung: Ein selbstsigniertes Zertifikat hat keine Kette und keine Sperrmöglichkeit; es muss auf jeder Gegenstelle einzeln, nach Vergleich des Fingerabdrucks über einen zweiten Kanal, als vertrauenswürdig hinterlegt werden und eignet sich vor allem für Tests und einzelne Geräte.
+  - Erwartung: Gewöhnen sich Nutzer:innen daran, Zertifikatswarnungen wegzuklicken, bleibt ein Man-in-the-Middle-Angriff unbemerkt; die gewählte oder vorgeschlagene Lösung und das verbleibende Restrisiko werden begründet dokumentiert.
+  - Rückfrage: Was belegt ein gültiges Zertifikat, und was belegt es nicht?
+- Wie stellen Sie im Betrieb Ihrer Lösung sicher, dass Zertifikate nicht unbemerkt ablaufen, und wie gehen Sie vor, wenn ein privater Schlüssel kompromittiert sein könnte?
+  - Erwartung: Alle Zertifikate stehen in einem Inventar mit Dienst, Namen, Aussteller, Ablaufdatum, Ort des privaten Schlüssels und verantwortlicher Person; auch Zwischen- und Root-Zertifikate werden erfasst, weil ein Endzertifikat nur so lange nutzbar ist, wie seine ganze Kette gültig ist.
+  - Erwartung: Eine Überwachung warnt mit Vorwarnzeit (z. B. 30 Tage) vor dem Ablauf; wo möglich werden Zertifikate automatisch erneuert (z. B. über ACME), und der Erfolg der Erneuerung wird ebenfalls überwacht.
+  - Erwartung: Bei Verdacht auf Kompromittierung wird das Zertifikat bei der ausstellenden Zertifizierungsstelle gesperrt, ein neues Schlüsselpaar erzeugt und ein neues Zertifikat eingerichtet; der Vorfall wird nach dem betrieblichen Sicherheitsprozess gemeldet und die Ursache geklärt.
+  - Erwartung: Gesperrte Zertifikate werden über Sperrlisten (CRL) oder OCSP bekannt gemacht; weil Clients Sperrungen nicht immer zuverlässig prüfen, begrenzen kurze Laufzeiten den möglichen Schaden zusätzlich.
+  - Rückfrage: Worin unterscheiden sich CRL und OCSP?
