@@ -1,0 +1,348 @@
+---
+kurs_slug: KURS_SLUG
+fachgebiet_code: FU3
+fachgebiet_title: "Netzwerke und IT-Betrieb"
+thema_code: "3.5"
+thema_title: "Zahlensysteme, Datenmengen und Übertragungszeiten"
+quelle: "Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 8 — frei formuliert, keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7); Schreibweisen und Wertbereiche wie im Zahlensystem-Sprint, Datenmengen und Übertragungszeiten mit Dezimalpräfixen wie im Rechen-Sprint „IT-Rechnen“"
+rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+qualifikationsinhalte:
+  - "Datenaustausch von vernetzten Systemen realisieren (Grundlage: Dual- und Hexadezimalsystem für Adressen, Masken und Kennungen)"
+  - "Datenaustausch von vernetzten Systemen realisieren (Grundlage: Datenmengen, Übertragungsraten und Übertragungszeiten berechnen)"
+---
+
+# Thema 3.5 — Zahlensysteme, Datenmengen und Übertragungszeiten
+
+## Theorie
+
+IP-Adressen, Subnetzmasken, MAC-Adressen, Speicherkapazitäten und Leitungsgeschwindigkeiten begegnen allen IT-Berufen der Brevanta IT-Systemhaus GmbH täglich, ob beim Einrichten eines Arbeitsplatzes, beim Planen einer Datensicherung oder beim Lesen eines Logeintrags. Hinter all diesen Angaben stehen zwei Grundlagen: Zahlensysteme, in denen Rechner Werte darstellen, und Einheiten, in denen Datenmengen und Übertragungsraten angegeben werden. Dieses Thema baut auf der Adressierung aus Thema 3.1 auf und legt die Rechengrundlagen für das Subnetting. Die Umrechnungen lassen sich im **Zahlensystem-Sprint** üben, Datenmengen und Übertragungszeiten im **Rechen-Sprint „IT-Rechnen“**. Vorzeichen, negative Zahlen (Zweierkomplement) und Gleitkommazahlen werden hier nicht behandelt. Alle Geräte, Adressen und Werte in den Beispielen sind frei gewählte Beispielwerte.
+
+### Warum die IT binär rechnet: Bit, Byte und Wort
+
+Digitale Schaltungen unterscheiden zuverlässig zwei Zustände: Spannung liegt an oder nicht, eine Stelle ist magnetisiert oder nicht, Licht ist an oder aus. Diese zwei Zustände werden als 0 und 1 geschrieben. Die kleinste Informationseinheit, die genau einen dieser beiden Werte annehmen kann, heißt **Bit** (binary digit). Mit mehreren Bit lassen sich mehr Werte unterscheiden: Mit **n Bit** gibt es **2^n** verschiedene Kombinationen, der größte darstellbare Wert ist **2^n − 1**, weil die Zählung bei 0 beginnt.
+
+- **Byte:** 8 Bit. Ein Byte kann 2^8 = 256 verschiedene Werte annehmen, also 0 bis 255. Speicherkapazitäten werden in Byte angegeben.
+- **Oktett:** In der Netzwerktechnik heißt eine Gruppe von genau 8 Bit Oktett. Eine IPv4-Adresse besteht aus vier Oktetten (Thema 3.1), deshalb liegt jede der vier Zahlen zwischen 0 und 255.
+- **Halbbyte (Nibble):** 4 Bit, also 16 Werte von 0 bis 15. Ein Halbbyte entspricht genau einer Ziffer im Hexadezimalsystem.
+- **Wort:** die Datenmenge, die ein Prozessor in einem Schritt verarbeitet. Die **Wortbreite** hängt von der Prozessorarchitektur ab (heute meist 64 Bit); der Begriff ist nicht einheitlich festgelegt und wird in manchen Unterlagen auch für 16 Bit verwendet.
+
+Die Zweierpotenzen bis 2^16 kommen in der IT so oft vor, dass es sich lohnt, sie zu kennen:
+
+| n | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|---|
+| 2^n | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 |
+
+| n | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+|---|---|---|---|---|---|---|---|---|
+| 2^n | 512 | 1.024 | 2.048 | 4.096 | 8.192 | 16.384 | 32.768 | 65.536 |
+
+Beispiele: Portnummern haben 16 Bit, es gibt also 2^16 = 65.536 Ports mit den Nummern 0 bis 65535. Ein /24-Netz hat 8 Hostbits und damit 2^8 = 256 Adressen (Thema 3.1). 2^10 = 1.024 ist die Grundlage der Binärpräfixe (KiB, MiB …) weiter unten.
+
+### Stellenwertsysteme: dezimal, dual und hexadezimal
+
+Dezimal-, Dual- und Hexadezimalsystem sind **Stellenwertsysteme**: Jede Ziffer hat je nach Position einen anderen Wert. Das System hat eine **Basis** b und die Ziffern 0 bis b − 1. Die Stellenwerte sind Potenzen der Basis; die Zählung der Positionen beginnt rechts mit 0. Der Wert einer Zahl ist die Summe aus Ziffer mal Stellenwert.
+
+- **Dezimalsystem** (Basis 10, Ziffern 0 bis 9): 254 = 2 × 100 + 5 × 10 + 4 × 1.
+- **Dualsystem** (Binärsystem, Basis 2, Ziffern 0 und 1): Stellenwerte von rechts 1, 2, 4, 8, 16, 32, 64, 128 … Die Dualzahl 1101 hat den Wert 8 + 4 + 0 + 1 = 13.
+- **Hexadezimalsystem** (Basis 16): Es braucht 16 Ziffern; nach 0 bis 9 folgen die Buchstaben **A bis F** für die Werte 10 bis 15. Stellenwerte von rechts 1, 16, 256, 4.096 … Die Hexadezimalzahl 2F hat den Wert 2 × 16 + 15 = 47.
+
+| Dezimal | Dual | Hexadezimal |
+|---|---|---|
+| 0 | 0000 | 0 |
+| 1 | 0001 | 1 |
+| 2 | 0010 | 2 |
+| 3 | 0011 | 3 |
+| 4 | 0100 | 4 |
+| 5 | 0101 | 5 |
+| 6 | 0110 | 6 |
+| 7 | 0111 | 7 |
+| 8 | 1000 | 8 |
+| 9 | 1001 | 9 |
+| 10 | 1010 | A |
+| 11 | 1011 | B |
+| 12 | 1100 | C |
+| 13 | 1101 | D |
+| 14 | 1110 | E |
+| 15 | 1111 | F |
+
+Weil dieselbe Ziffernfolge in verschiedenen Systemen Verschiedenes bedeutet („10“ ist dezimal zehn, dual zwei, hexadezimal sechzehn), wird das System gekennzeichnet: in der Mathematik mit einer tiefgestellten Basis (1101₂, 2F₁₆), in vielen Programmiersprachen mit dem Präfix **0b** für Dualzahlen und **0x** für Hexadezimalzahlen (0b1101, 0x2F), in manchen technischen Unterlagen mit einem nachgestellten h (2Fh). In diesem Kurs werden Dualzahlen wie im Zahlensystem-Sprint **von rechts in Vierergruppen** geschrieben und Werte ab 16 auf 8 Stellen aufgefüllt (1100 1000); Hexadezimalziffern stehen in **Großbuchstaben** (C8). Bei der Eingabe spielt die Groß- und Kleinschreibung keine Rolle, und in IPv6-Adressen sind Kleinbuchstaben üblich (2001:db8::1); beides bedeutet dasselbe.
+
+Hinweis: Das **Oktalsystem** (Basis 8, Ziffern 0 bis 7, je Ziffer 3 Bit) begegnet vor allem bei Dateiberechtigungen unter Linux, etwa 750 für rwx, r-x und keinen Zugriff (7 = 111, 5 = 101, 0 = 000). Es wird hier nicht weiter behandelt.
+
+### Umrechnen zwischen den Zahlensystemen
+
+**Dezimal → dual (Teilen mit Rest):** Die Dezimalzahl wird fortlaufend durch 2 geteilt, bis 0 herauskommt; die Reste ergeben, **von unten nach oben** gelesen, die Dualzahl. Beispiel 200:
+
+| Rechnung | Ergebnis | Rest |
+|---|---|---|
+| 200 : 2 | 100 | 0 |
+| 100 : 2 | 50 | 0 |
+| 50 : 2 | 25 | 0 |
+| 25 : 2 | 12 | 1 |
+| 12 : 2 | 6 | 0 |
+| 6 : 2 | 3 | 0 |
+| 3 : 2 | 1 | 1 |
+| 1 : 2 | 0 | 1 |
+
+Von unten nach oben gelesen: 200 = 1100 1000. Für Werte bis 255 geht es oft schneller mit der **Stellenwerttabelle** 128, 64, 32, 16, 8, 4, 2, 1: Von links wird jeweils geprüft, ob der Stellenwert noch in den Rest passt. 200 = 128 + 64 + 8, also stehen Einsen bei 128, 64 und 8: 1100 1000.
+
+**Dual → dezimal (Stellenwerte addieren):** Jede 1 zählt mit ihrem Stellenwert. 1011 0110 = 128 + 32 + 16 + 4 + 2 = 182.
+
+**Dual ↔ hexadezimal (Vierergruppen):** Weil 16 = 2^4 ist, entspricht jede Hexadezimalziffer genau vier Bit. Die Dualzahl wird **von rechts** in Vierergruppen geteilt, die linke Gruppe wird bei Bedarf mit Nullen aufgefüllt, und jede Gruppe wird einzeln übersetzt: 1011 0110 → B (1011) und 6 (0110) → B6. Umgekehrt wird jede Hexadezimalziffer in vier Bit übersetzt: 3F → 0011 1111; führende Nullen dürfen entfallen (11 1111).
+
+**Dezimal → hexadezimal:** entweder fortlaufend durch 16 teilen und die Reste von unten nach oben lesen (200 : 16 = 12 Rest 8; 12 : 16 = 0 Rest 12 = C; also C8) oder über die Dualzahl (1100 1000 → C8).
+
+**Hexadezimal → dezimal:** Ziffer mal Stellenwert aufsummieren: C8 = 12 × 16 + 8 = 200. Bei vier Stellen: 1A2B = 1 × 4.096 + 10 × 256 + 2 × 16 + 11 × 1 = 6.699.
+
+**Führende Nullen** ändern den Wert nicht: 0000 1010, 1010 und 10 (dual) haben alle den Wert 10 (dezimal). Bei festen Feldbreiten werden sie trotzdem oft mitgeschrieben: Ein Oktett hat immer 8 Bit (0000 0000 bis 1111 1111, hexadezimal 00 bis FF), ein IPv6-Block hat 16 Bit, also vier Hexadezimalziffern (0db8), die führende Null darf dort entfallen (db8).
+
+**Typische Fehler und Probe:** Die Reste werden von oben nach unten statt von unten nach oben gelesen (die Dualzahl steht dann verkehrt herum); die Vierergruppen werden von links statt von rechts gebildet; Ziffern über 9 werden als zweistellige Zahl statt als Buchstabe geschrieben („1510“ statt „F“); die Stellenwerte beginnen rechts mit 2^1 statt mit 2^0. Jede Umrechnung lässt sich durch Zurückrechnen prüfen: 1100 1000 = 128 + 64 + 8 = 200.
+
+### Zahlensysteme in der Praxis: Adressen, Masken und Kennungen
+
+**IPv4-Adressen und Subnetzmasken binär:** Jedes Oktett ist eine 8-Bit-Dualzahl, die in Punktschreibweise dezimal geschrieben wird. Eine Subnetzmaske besteht von links aus lauter Einsen (Netzanteil), danach nur aus Nullen (Hostanteil); die Präfixlänge ist die Zahl der Einsen. In einem Oktett der Maske können deshalb nur die Werte 0, 128, 192, 224, 240, 248, 252, 254 und 255 stehen (0000 0000, 1000 0000, 1100 0000 … 1111 1111). Beispiel: 255.255.255.192 = 1111 1111.1111 1111.1111 1111.1100 0000, das sind 24 + 2 = 26 Einsen, also /26 (Thema 3.1). Die Netzadresse entsteht, indem Adresse und Maske Bit für Bit mit UND verknüpft werden (nur 1 und 1 ergibt 1): Für 192.168.10.77/26 ist das letzte Oktett 77 = 0100 1101, UND 1100 0000 ergibt 0100 0000 = 64, die Netzadresse ist 192.168.10.64. Das vollständige Rechnen mit beliebigen Präfixen ist Gegenstand des Subnettings (Thema 3.6).
+
+**MAC-Adressen hexadezimal:** Eine MAC-Adresse hat 48 Bit, also 6 Byte. Jedes Byte wird mit zwei Hexadezimalziffern geschrieben, die Bytes sind meist durch Doppelpunkte oder Bindestriche getrennt, z. B. 00:00:5E:00:53:01 (Beispieladresse aus einem für Dokumentationen reservierten Bereich). Die ersten drei Byte kennzeichnen in der Regel den Hersteller der Netzwerkschnittstelle. Die Adresse FF:FF:FF:FF:FF:FF (alle 48 Bit auf 1) ist die Broadcastadresse auf Schicht 2.
+
+**IPv6-Adressen hexadezimal:** 128 Bit, acht Blöcke zu je 16 Bit, jeder Block vier Hexadezimalziffern (Thema 3.1). Der Block db8 aus der Beispieladresse 2001:db8::1 steht für 0000 1101 1011 1000 (dezimal 3.512). Die Regeln zum Kürzen von IPv6-Adressen werden mit den IPv6-Adresstypen vertieft (Thema 3.7).
+
+**Weitere Anwendungen:** Farbwerte in Webseiten und Grafikprogrammen werden oft als #RRGGBB angegeben, je ein Byte (00 bis FF) für Rot, Grün und Blau; #FF8000 bedeutet Rot 255, Grün 128, Blau 0 (ein Orangeton). Mit 3 × 8 = 24 Bit lassen sich 2^24 = 16.777.216 Farben unterscheiden. Speicheradressen, Fehlercodes und Prüfsummen erscheinen in Logs und Fehlermeldungen häufig ebenfalls hexadezimal, weil sich Bitmuster so kompakt und eindeutig lesen lassen.
+
+### Datenmengen: Dezimal- und Binärpräfixe
+
+Datenmengen werden in Bit oder Byte angegeben. In Abkürzungen steht ein großes **B** für Byte und ein kleines **b** bzw. „bit“ für Bit; 1 Byte = 8 Bit. Für große Mengen gibt es zwei Arten von Präfixen:
+
+| Dezimalpräfix | Wert | Binärpräfix | Wert |
+|---|---|---|---|
+| Kilobyte (kB) | 10^3 = 1.000 Byte | Kibibyte (KiB) | 2^10 = 1.024 Byte |
+| Megabyte (MB) | 10^6 = 1.000.000 Byte | Mebibyte (MiB) | 2^20 = 1.048.576 Byte |
+| Gigabyte (GB) | 10^9 = 1.000.000.000 Byte | Gibibyte (GiB) | 2^30 = 1.073.741.824 Byte |
+| Terabyte (TB) | 10^12 = 1.000.000.000.000 Byte | Tebibyte (TiB) | 2^40 = 1.099.511.627.776 Byte |
+
+Die **Dezimalpräfixe** (Faktor 1.000) entsprechen den üblichen Einheitenvorsätzen wie bei Kilometer oder Kilogramm. Die **Binärpräfixe** (Faktor 1.024) wurden eingeführt, weil Speicher technisch in Zweierpotenzen organisiert ist. Der Unterschied wächst mit jeder Stufe: Ein KiB ist 2,4 % größer als ein kB, ein MiB rund 4,9 % größer als ein MB, ein GiB rund 7,4 % größer als ein GB und ein TiB fast 10 % größer als ein TB.
+
+Warum eine **„1-TB-Festplatte“ im Betriebssystem kleiner erscheint:** Hersteller von Festplatten und SSDs geben die Kapazität dezimal an: 1 TB = 10^12 Byte. Manche Betriebssysteme rechnen die Anzeige dagegen binär und schreiben dabei teils trotzdem „GB“ oder „TB“. 10^12 Byte sind 10^12 ÷ 2^30 ≈ 931,32 GiB bzw. rund 0,91 TiB. Es fehlt also kein Speicher, die Zahl ist nur in einer anderen Einheit angegeben. Entsprechend erscheinen 4 TB als rund 3,64 TiB. Zusätzlich belegen Dateisystem und Verwaltungsdaten etwas Platz, bei vorinstallierten Geräten teils auch Wiederherstellungspartitionen; diese Anteile sind gerätespezifisch und werden hier nicht gerechnet. **Arbeitsspeicher** wird dagegen in der Regel binär gemeint: Ein Modul mit der Angabe „16 GB“ hat 16 GiB, also 17.179.869.184 Byte.
+
+**Rechenkonvention in diesem Kurs:** Wenn nichts anderes angegeben ist, wird mit **Dezimalpräfixen** gerechnet (1 GB = 1.000 MB, 1 TB = 1.000.000 MB), wie im Rechen-Sprint „IT-Rechnen“ und in den übrigen Rechenaufgaben der Fachinformatiker-Kurse. Binär wird nur gerechnet, wenn ausdrücklich KiB, MiB, GiB oder TiB genannt sind. Beim Umrechnen zwischen beiden Welten wird über Byte gerechnet: Wert in Byte ermitteln, dann durch den Zielfaktor teilen.
+
+### Übertragungsraten und Übertragungszeiten
+
+Die **Übertragungsrate** (Datenrate) gibt an, wie viele Bit pro Sekunde übertragen werden: bit/s, kbit/s, Mbit/s, Gbit/s. Bei Übertragungsraten in Bit pro Sekunde gelten **immer Dezimalpräfixe**: 1 Mbit/s = 1.000.000 Bit/s, 1 Gbit/s = 1.000 Mbit/s. Netzwerkanschlüsse, Internetanschlüsse und WLAN werden in Bit pro Sekunde angegeben, Kopiervorgänge und Datenträger zeigen dagegen meist Byte pro Sekunde (MB/s); solche Anzeigen in Byte pro Sekunde (z. B. in Kopierdialogen) können je nach Programm binär gemeint sein. Im Kurs wird dezimal gerechnet. Zwischen beiden liegt der **Faktor 8**:
+
+- **Mbit/s → MB/s:** durch 8 teilen. 100 Mbit/s entsprechen 12,5 MB/s, 1 Gbit/s entspricht 125 MB/s.
+- **MB/s → Mbit/s:** mal 8 nehmen. 50 MB/s entsprechen 400 Mbit/s.
+
+Die **Bandbreite** (Nennrate) ist das Maximum einer Verbindung, der **Durchsatz** die tatsächlich übertragene Datenmenge je Zeit. Für die Dauer einer Übertragung gilt:
+
+**Übertragungszeit = Datenmenge ÷ Übertragungsrate**
+
+Datenmenge und Rate müssen in **derselben Einheit** stehen: Datenmenge in Mbit und Rate in Mbit/s, oder Datenmenge in MB und Rate in MB/s. Das Ergebnis ist die Zeit in Sekunden; 3.600 s sind eine Stunde. Beispiele mit Dezimalpräfixen und ohne Verluste:
+
+- **Dateikopie im LAN:** 4,5 GB über 1 Gbit/s: 4,5 GB = 4.500 MB = 36.000 Mbit; 36.000 Mbit ÷ 1.000 Mbit/s = 36 s.
+- **Backup über den Internetanschluss:** 120 GB über einen Upload mit 40 Mbit/s: 120.000 MB × 8 = 960.000 Mbit; 960.000 Mbit ÷ 40 Mbit/s = 24.000 s; 24.000 s ÷ 3.600 = 6,67 h, also 6 Stunden 40 Minuten.
+- **Download über eine Datenleitung:** 6 GB über 250 Mbit/s: 48.000 Mbit ÷ 250 Mbit/s = 192 s = 3 Minuten 12 Sekunden.
+
+Die Formel lässt sich umstellen. **Benötigte Rate = Datenmenge ÷ verfügbare Zeit:** Sollen 360 GB in einem Sicherungsfenster von 8 Stunden (28.800 s) übertragen werden, sind 360.000 MB ÷ 28.800 s = 12,5 MB/s nötig, also 100 Mbit/s. **Übertragbare Datenmenge = Rate × Zeit:** 100 Mbit/s × 28.800 s = 2.880.000 Mbit = 360.000 MB = 360 GB.
+
+Ein häufiger Fehler ist das **Mischen der Präfixe**: Wird eine Datei mit 2 GiB über 100 Mbit/s übertragen, sind das 2 × 1.073.741.824 Byte × 8 = 17.179.869.184 Bit und damit rund 171,8 s, nicht 160 s wie bei 2 GB. Der Unterschied von rund 7 % fällt bei großen Datenmengen ins Gewicht.
+
+**Overhead und tatsächlicher Durchsatz:** Die Rechnung mit der Nennrate ergibt die theoretisch kürzeste Zeit. In der Praxis ist der Durchsatz niedriger, denn jedes Paket trägt Protokollköpfe (Overhead) mit, Bestätigungen und Wiederholungen kosten Zeit, Verschlüsselung (z. B. im VPN) und die Leistung der Gegenstelle oder der Datenträger begrenzen die Rate, und andere Nutzer:innen teilen sich die Leitung; bei WLAN ist die angegebene Brutto-Datenrate nie der tatsächliche Durchsatz. Wie groß der Abschlag ist, hängt von Technik und Situation ab. Für Planungen werden deshalb **Messwerte** aus einer Testübertragung verwendet; die Rechnung mit der Nennrate dient als Untergrenze der Dauer.
+
+### Speicherbedarf abschätzen
+
+Mit denselben Einheiten lässt sich abschätzen, wie viel Speicher Daten belegen (Ausblick, ohne Kompression):
+
+- **Unkomprimiertes Bild:** Breite × Höhe in Pixeln × Byte je Pixel. Bei 24 Bit Farbtiefe (3 Byte je Pixel) belegt ein Bild mit 1.920 × 1.080 Pixeln 1.920 × 1.080 × 3 = 6.220.800 Byte, also rund 6,2 MB (rund 5,93 MiB). Komprimierte Bildformate sind meist deutlich kleiner; wie viel kleiner, hängt vom Format und vom Bildinhalt ab.
+- **Textdatei:** Anzahl der Zeichen × Byte je Zeichen. In der Zeichenkodierung UTF-8 belegen die Zeichen des ASCII-Grundbestands (lateinische Buchstaben ohne Umlaute, Ziffern, übliche Satzzeichen) je 1 Byte, Umlaute wie „ä“ sowie das „ß“ je 2 Byte, typografische Anführungszeichen, der Gedankenstrich und das Eurozeichen je 3 Byte, manche andere Zeichen 4 Byte. Ein Text mit 2.000 Zeichen, davon 50 Umlaute, belegt 1.950 × 1 + 50 × 2 = 2.050 Byte.
+- **Datenstrom:** Rate × Dauer. Eine Kamera, die dauerhaft 4 Mbit/s sendet, erzeugt in einer Stunde 4 Mbit/s × 3.600 s = 14.400 Mbit = 1.800 MB = 1,8 GB.
+
+Solche Abschätzungen helfen beim Dimensionieren von Speicher und Leitungen; im Betrieb werden sie durch Messungen und das Monitoring ergänzt.
+
+## Karteikarten
+
+#### K-3.5-01
+**Frage:** Was ist ein Bit, ein Byte, ein Oktett und ein Halbbyte?
+**Antwort:** Ein Bit ist die kleinste Informationseinheit mit den Werten 0 oder 1. Ein Byte besteht aus 8 Bit und kann 256 Werte (0 bis 255) annehmen. Oktett heißt in der Netzwerktechnik eine Gruppe von genau 8 Bit, etwa jede der vier Zahlen einer IPv4-Adresse. Ein Halbbyte (Nibble) hat 4 Bit und entspricht einer Hexadezimalziffer.
+`tags: bit-byte, grundlagen` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-3.5-02
+**Frage:** Wie viele verschiedene Werte lassen sich mit n Bit darstellen, und wie groß ist der größte Wert?
+**Antwort:** 2^n Werte; der größte Wert ist 2^n − 1, weil die Zählung bei 0 beginnt. Mit 8 Bit sind es 256 Werte (0 bis 255), mit 16 Bit 65.536 Werte (0 bis 65535, z. B. die Portnummern).
+`tags: bit-byte, zweierpotenzen` · `schwierigkeit: leicht` · `bloom: verstehen`
+
+#### K-3.5-03
+**Frage:** Was kennzeichnet ein Stellenwertsystem, und welche Basis und Ziffern haben Dual- und Hexadezimalsystem?
+**Antwort:** Jede Ziffer hat je nach Position einen anderen Wert; die Stellenwerte sind Potenzen der Basis, gezählt von rechts ab 0. Das Dualsystem hat die Basis 2 und die Ziffern 0 und 1, das Hexadezimalsystem die Basis 16 und die Ziffern 0 bis 9 sowie A bis F für 10 bis 15.
+`tags: zahlensysteme` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-3.5-04
+**Frage:** Wie rechnest du eine Dezimalzahl durch Teilen mit Rest ins Dualsystem um?
+**Antwort:** Die Zahl fortlaufend durch 2 teilen, bis 0 herauskommt, und die Reste in umgekehrter Reihenfolge lesen. Beispiel: 200 ergibt die Reste 0, 0, 0, 1, 0, 0, 1, 1; die Reste in umgekehrter Reihenfolge (vom letzten zum ersten) gelesen: 1100 1000. Probe: 128 + 64 + 8 = 200.
+`tags: umrechnen, dualsystem` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-05
+**Frage:** Wie rechnest du eine Dualzahl ins Dezimalsystem um?
+**Antwort:** Jede 1 zählt mit ihrem Stellenwert (von rechts 1, 2, 4, 8, 16, 32, 64, 128 …), die Summe ist der Dezimalwert. Beispiel: 1011 0110 = 128 + 32 + 16 + 4 + 2 = 182.
+`tags: umrechnen, dualsystem` · `schwierigkeit: leicht` · `bloom: anwenden`
+
+#### K-3.5-06
+**Frage:** Wie rechnest du zwischen Dual- und Hexadezimalsystem um, und warum geht das so einfach?
+**Antwort:** Weil 16 = 2^4 ist, entspricht jede Hexadezimalziffer genau vier Bit. Die Dualzahl wird von rechts in Vierergruppen geteilt und jede Gruppe einzeln übersetzt: 1011 0110 → B6. Umgekehrt wird jede Hexziffer in vier Bit übersetzt: 3F → 0011 1111.
+`tags: umrechnen, hexadezimalsystem` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-07
+**Frage:** Wie rechnest du zwischen Dezimal- und Hexadezimalsystem um?
+**Antwort:** Dezimal → hexadezimal: fortlaufend durch 16 teilen und die Reste von unten nach oben lesen (200 : 16 = 12 Rest 8, 12 = C, also C8) oder über die Dualzahl. Hexadezimal → dezimal: Ziffer mal Stellenwert (1, 16, 256, 4.096 …) addieren: C8 = 12 × 16 + 8 = 200.
+`tags: umrechnen, hexadezimalsystem` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-08
+**Frage:** Wie liest du eine Subnetzmaske binär, und welche Werte kann ein Oktett einer Maske haben?
+**Antwort:** Die Maske besteht von links aus Einsen (Netzanteil) und danach nur aus Nullen; die Zahl der Einsen ist die Präfixlänge. 255.255.255.192 = 24 Einsen plus 1100 0000, also /26. In einem Oktett der Maske stehen deshalb nur 0, 128, 192, 224, 240, 248, 252, 254 oder 255.
+`tags: anwendung, subnetzmaske` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-09
+**Frage:** Wie sind MAC-Adressen und IPv6-Adressen hexadezimal aufgebaut?
+**Antwort:** Eine MAC-Adresse hat 48 Bit = 6 Byte, je Byte zwei Hexziffern, z. B. die Dokumentations-Beispieladresse 00:00:5E:00:53:01; die ersten drei Byte kennzeichnen in der Regel den Hersteller. Eine IPv6-Adresse hat 128 Bit in acht Blöcken zu 16 Bit, also je vier Hexziffern, z. B. 2001:db8::1.
+`tags: anwendung, mac, ipv6` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-10
+**Frage:** Worin unterscheiden sich Dezimalpräfixe (kB, MB, GB, TB) und Binärpräfixe (KiB, MiB, GiB, TiB)?
+**Antwort:** Dezimalpräfixe stufen mit dem Faktor 1.000 (1 kB = 1.000 Byte, 1 GB = 10^9 Byte), Binärpräfixe mit dem Faktor 1.024 (1 KiB = 1.024 Byte, 1 GiB = 2^30 = 1.073.741.824 Byte). Der Unterschied wächst je Stufe: rund 2,4 % bei Kilo, rund 7,4 % bei Giga, fast 10 % bei Tera.
+`tags: datenmengen, praefixe` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-11
+**Frage:** Warum zeigt ein Betriebssystem eine neue „1-TB-Platte“ mit nur rund 931 GB an?
+**Antwort:** Der Hersteller rechnet dezimal (1 TB = 10^12 Byte), das Betriebssystem rechnet binär und schreibt teils trotzdem „GB“: 10^12 Byte ÷ 2^30 ≈ 931,32 GiB. Es fehlt kein Speicher, nur die Einheit ist eine andere; zusätzlich belegt das Dateisystem etwas Platz.
+`tags: datenmengen, praefixe` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-12
+**Frage:** Wie rechnest du eine Übertragungsrate von Mbit/s in MB/s um?
+**Antwort:** Durch 8 teilen, weil 1 Byte = 8 Bit ist (bei Raten gelten Dezimalpräfixe): 100 Mbit/s entsprechen 12,5 MB/s, 1 Gbit/s entspricht 125 MB/s. Umgekehrt wird mit 8 multipliziert.
+`tags: uebertragungsrate, rechnen` · `schwierigkeit: leicht` · `bloom: anwenden`
+
+#### K-3.5-13
+**Frage:** Wie berechnest du die Übertragungszeit, und warum dauert es in der Praxis länger?
+**Antwort:** Übertragungszeit = Datenmenge ÷ Übertragungsrate, beide in derselben Einheit (z. B. Mbit und Mbit/s). Beispiel: 120 GB = 960.000 Mbit; bei 40 Mbit/s 24.000 s = 6 h 40 min. Real ist der Durchsatz niedriger als die Nennrate (Overhead der Protokolle, Verschlüsselung, Gegenstelle, geteilte Leitung); deshalb wird mit Messwerten geplant.
+`tags: uebertragungszeit, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-14
+**Frage:** Wie schätzt du den Speicherbedarf eines unkomprimierten Bildes ab?
+**Antwort:** Breite × Höhe in Pixeln × Byte je Pixel. Bei 24 Bit Farbtiefe (3 Byte je Pixel) belegt ein Bild mit 1.920 × 1.080 Pixeln 6.220.800 Byte, also rund 6,2 MB. Komprimierte Formate sind meist deutlich kleiner.
+`tags: speicherbedarf, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-3.5-01 · Multiple Choice
+**Frage:** Eine Kollegin trägt an einem Drucker die IPv4-Adresse 192.168.256.10 ein; die Oberfläche lehnt die Eingabe ab. Was ist der Grund?
+- [ ] Der private Bereich 192.168.0.0/16 darf grundsätzlich nicht für Netzwerkdrucker verwendet werden.
+- [x] Ein Oktett hat 8 Bit und reicht nur von 0 bis 255.
+- [ ] Die letzte Zahl 10 ist in jedem Netz für den Router und das Default Gateway reserviert.
+- [ ] In einer IPv4-Adresse sind je Oktett nur Werte bis 254 zulässig, weil 255 immer für den Broadcast reserviert ist.
+**Erklärung:** Mit 8 Bit lassen sich 2^8 = 256 Werte darstellen, also 0 bis 255; 256 bräuchte ein neuntes Bit. Der Wert 255 ist in einem Oktett durchaus möglich, etwa in der Broadcastadresse eines /24-Netzes oder in einer Subnetzmaske.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-02 · Zuordnung
+**Anweisung:** Ordne die Einheit ihrer Größe in Byte zu.
+- kB ↔ 1.000 Byte
+- KiB ↔ 1.024 Byte
+- MB ↔ 1.000.000 Byte
+- MiB ↔ 1.048.576 Byte
+- GiB ↔ 1.073.741.824 Byte
+**Erklärung:** Dezimalpräfixe stufen mit dem Faktor 1.000, Binärpräfixe (mit „i“) mit dem Faktor 1.024: 1 KiB = 2^10, 1 MiB = 2^20, 1 GiB = 2^30 Byte.
+`schwierigkeit: mittel` · `bloom: erinnern`
+
+#### Q-3.5-03 · Sortieren
+**Anweisung:** Bringe die Datenmengen in die Reihenfolge ihrer Größe, beginnend mit der kleinsten.
+1. 7 Mbit
+2. 900 KiB
+3. 1 MB
+4. 1 MiB
+**Erklärung:** In Byte umgerechnet: 7 Mbit = 7.000.000 Bit ÷ 8 = 875.000 Byte; 900 KiB = 900 × 1.024 = 921.600 Byte; 1 MB = 1.000.000 Byte; 1 MiB = 1.048.576 Byte. Wer Bit und Byte verwechselt, hält 7 Mbit für 7 MB und sortiert es fälschlich ans Ende.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-3.5-04 · Wahr/Falsch
+**Aussage:** Über eine Leitung mit 100 Mbit/s lassen sich ohne Verluste 100 MB pro Sekunde übertragen.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Mbit/s gibt Bit pro Sekunde an, MB/s Byte pro Sekunde. 100 Mbit/s ÷ 8 = 12,5 MB/s; 100 MB/s entsprächen 800 Mbit/s.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-3.5-05 · Entweder-Oder
+**Frage:** Eine Kundin meldet dem Servicedesk, ihre neue Festplatte mit „2 TB“ laut Datenblatt werde im Betriebssystem nur mit rund 1,82 „TB“ angezeigt. Welche Erklärung trifft zu?
+- [ ] Die Platte ist fehlerhaft oder mit zu geringer Kapazität geliefert worden und sollte deshalb reklamiert werden.
+- [x] Hersteller rechnen dezimal (TB), das Betriebssystem binär (TiB), zeigt aber „TB“ an.
+**Erklärung:** 2 × 10^12 Byte ÷ 2^40 ≈ 1,82 TiB. Die Speichermenge ist dieselbe, nur die Einheit unterscheidet sich; zusätzlich belegt das Dateisystem etwas Platz. Ein Defekt lässt sich aus dieser Anzeige nicht ableiten.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-3.5-06 · Was passt nicht dazu
+**Frage:** Welche Zuordnung von Dualzahl und Hexadezimalzahl ist falsch?
+- [ ] 1010 1111 = AF
+- [ ] 0111 1110 = 7E
+- [ ] 1100 0011 = C3
+- [x] 1001 1011 = 9D
+**Erklärung:** Jede Vierergruppe ergibt eine Hexziffer: 1001 = 9 und 1011 = B, also 9B. D wäre 1101. Die übrigen Zuordnungen stimmen: 1010 = A, 1111 = F; 0111 = 7, 1110 = E; 1100 = C, 0011 = 3.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-3.5-07 · Lückentext (Wortauswahl)
+**Text:** Eine Gruppe von vier Bit entspricht genau einer Ziffer im ___Hexadezimalsystem___.
+**Zusätzliche Begriffe:** Dualsystem; Dezimalsystem; Oktalsystem
+**Erklärung:** Weil 16 = 2^4 ist, deckt eine Hexadezimalziffer (0 bis F) genau die 16 Werte eines Halbbytes ab. Ein Byte lässt sich deshalb mit höchstens zwei Hexadezimalziffern darstellen (00 bis FF); bei festen Feldbreiten wie in MAC-Adressen werden immer beide Ziffern geschrieben. Eine Oktalziffer umfasst nur 3 Bit, eine Dualziffer 1 Bit.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-3.5-08 · Mehrfachauswahl
+**Frage:** Bei welchen Angaben ist die Hexadezimalschreibweise üblich?
+- [x] MAC-Adresse einer Netzwerkkarte
+- [ ] IPv4-Adresse in Punktschreibweise
+- [x] IPv6-Adresse
+- [ ] Portnummer in einer Firewall-Regel
+- [x] Farbwert einer Webseite im Format #RRGGBB
+**Erklärung:** MAC-Adressen, IPv6-Adressen und Farbwerte werden hexadezimal geschrieben. IPv4-Adressen stehen in Punktschreibweise mit vier Dezimalzahlen, Portnummern werden in Regeln und Konfigurationen üblicherweise dezimal angegeben (z. B. 443).
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-3.5-09 · Kurzantwort
+**Frage:** Wandle die Dezimalzahl 172 ins Dualsystem (binär) um. Gib die Dualzahl mit 8 Stellen an.
+**Akzeptierte Antworten:** 10101100; 1010 1100; 0b10101100; 0b1010 1100
+**Erklärung:** 172 = 128 + 32 + 8 + 4, also Einsen bei den Stellenwerten 128, 32, 8 und 4: 1010 1100. Durch Teilen mit Rest: 172, 86, 43, 21, 10, 5, 2, 1 ergeben die Reste 0, 0, 1, 1, 0, 1, 0, 1; von unten nach oben gelesen 1010 1100.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-10 · Kurzantwort
+**Frage:** Wandle die Dualzahl 1110 0101 ins Dezimalsystem um.
+**Akzeptierte Antworten:** 229
+**Erklärung:** Stellenwerte der Einsen addieren: 128 + 64 + 32 + 4 + 1 = 229.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-11 · Kurzantwort
+**Frage:** Wandle die Dezimalzahl 234 ins Hexadezimalsystem um.
+**Akzeptierte Antworten:** EA; ea; 0xEA; 0xea; EAh; eah
+**Erklärung:** 234 : 16 = 14 Rest 10; 14 = E, 10 = A, also EA. Probe: 14 × 16 + 10 = 234. Über die Dualzahl: 234 = 1110 1010 → E und A.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-12 · Kurzantwort
+**Frage:** In einem Paketmitschnitt ist der Zielport einer Verbindung hexadezimal als 1F90 angegeben. Welche Portnummer ist das im Dezimalsystem?
+**Akzeptierte Antworten:** 8080; 8.080; Port 8080; Port 8.080
+**Erklärung:** 1F90 = 1 × 4.096 + 15 × 256 + 9 × 16 + 0 × 1 = 4.096 + 3.840 + 144 = 8080, also Port 8080. Portnummern haben 16 Bit, also höchstens vier Hexadezimalziffern.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.5-13 · Kurzantwort
+**Frage:** In einer Konfigurationsdatei ist die Subnetzmaske eines Netzes hexadezimal als FFFFFFC0 angegeben. Welche Präfixlänge hat das Netz? Gib die Zahl an.
+**Akzeptierte Antworten:** 26; /26; 26 Bit; 26 Bits
+**Erklärung:** FF FF FF C0 entspricht 255.255.255.192. Jedes FF sind 8 Einsen (24), C0 = 1100 0000 bringt 2 weitere Einsen: zusammen 26, also /26.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.5-14 · Kurzantwort
+**Frage:** Eine Vollsicherung von 90 GB soll über einen Internet-Upload mit 50 Mbit/s in ein Rechenzentrum übertragen werden. Wie viele Stunden dauert das ohne Verluste? Rechne mit Dezimalpräfixen (1 GB = 1.000 MB, 1 Byte = 8 Bit).
+**Akzeptierte Antworten:** 4; 4,0; 4.0; 4 h; 4,0 h; 4.0 h; 4 Stunden; 4,0 Stunden; 4.0 Stunden; 4 Std.; 4 Std
+**Erklärung:** 90 GB = 90.000 MB = 720.000 Mbit; 720.000 Mbit ÷ 50 Mbit/s = 14.400 s; 14.400 s ÷ 3.600 = 4 Stunden. In der Praxis dauert es länger, weil der Durchsatz unter der Nennrate liegt.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-15 · Kurzantwort
+**Frage:** Ein Datenbestand von 450 GB soll in einem Wartungsfenster von 2 Stunden zwischen zwei Standorten kopiert werden. Welche Übertragungsrate in Mbit/s ist ohne Verluste mindestens nötig? Rechne mit Dezimalpräfixen.
+**Akzeptierte Antworten:** 500; 500 Mbit/s; 500 Mbps; 500 Mbit; 500 Mb/s
+**Erklärung:** 2 Stunden = 7.200 s. 450.000 MB ÷ 7.200 s = 62,5 MB/s; 62,5 MB/s × 8 = 500 Mbit/s. Wegen Overhead und tatsächlichem Durchsatz sollte die Leitung in der Praxis deutlich mehr leisten oder das Fenster länger sein.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.5-16 · Kurzantwort
+**Frage:** Eine SSD hat laut Hersteller 1 TB, also 10^12 Byte. Wie viele GiB sind das, auf ganze GiB gerundet? Gib die Zahl an.
+**Akzeptierte Antworten:** 931; 931 GiB; 931 Gibibyte; 931 Gibibytes
+**Erklärung:** 1 GiB = 2^30 = 1.073.741.824 Byte. 1.000.000.000.000 Byte ÷ 1.073.741.824 Byte ≈ 931,32, gerundet 931 GiB. So viel zeigt ein binär rechnendes Betriebssystem an, oft mit der Einheit „GB“.
+`schwierigkeit: mittel` · `bloom: anwenden`

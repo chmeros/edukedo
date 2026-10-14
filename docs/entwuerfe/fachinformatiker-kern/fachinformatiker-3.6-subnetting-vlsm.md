@@ -1,0 +1,360 @@
+---
+kurs_slug: KURS_SLUG
+fachgebiet_code: FU3
+fachgebiet_title: "Netzwerke und IT-Betrieb"
+thema_code: "3.6"
+thema_title: "Subnetting vertieft: Adressplanung und VLSM"
+quelle: "Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 8 — frei formuliert, keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "14.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+qualifikationsinhalte:
+  - "Datenaustausch von vernetzten Systemen realisieren (Vertiefung: IPv4-Subnetze berechnen, Adressarten unterscheiden)"
+  - "Netzwerkkonzepte für unterschiedliche Anwendungsgebiete unterscheiden (Vertiefung: Adressbereiche mit VLSM planen, Netze zusammenfassen und den Adressplan dokumentieren)"
+---
+
+# Thema 3.6 — Subnetting vertieft: Adressplanung und VLSM
+
+## Theorie
+
+Thema 3.1 hat die Grundlagen gelegt: Eine IPv4-Adresse hat 32 Bit, die Subnetzmaske bzw. das Präfix trennt Netzanteil und Hostanteil, ein /24-Netz hat 254 nutzbare Hostadressen, und ein /24 lässt sich in vier /26-Subnetze teilen. Wenn die Brevanta IT-Systemhaus GmbH für Kund:innen Netze plant, reicht das nicht aus: Netze haben unterschiedlich viele Geräte, die Grenze zwischen Netz- und Hostanteil liegt oft mitten in einem Oktett, Standorte sollen sich mit wenigen Routen erreichen, und der Plan muss für Wachstum offen bleiben. Dieses Thema vertieft deshalb das Rechnen mit beliebigen Präfixen von /8 bis /30, die Sonderfälle /31 und /32, die Adressarten, die Teilung in gleich große und in unterschiedlich große Subnetze (VLSM), das Zusammenfassen von Netzen und die Dokumentation im Adressplan. Behandelt wird nur IPv4; IPv6 folgt in Thema 3.7. Das Umrechnen zwischen Dezimal- und Dualsystem steht in Thema 3.5. Alle Rechenwege lassen sich mit dem **Subnetting-Rechner** im Werkzeugkasten nachprüfen (Reiter „Adresse analysieren“, „Netz teilen“ und „Präfix für Hosts“); der **Subnetting-Sprint** übt die fünf Aufgabentypen Netzadresse, Broadcastadresse, Hosts, Maske und Präfix für Präfixe von /8 bis /30. Alle Adressen, Netze und Gerätezahlen sind frei gewählte Beispielwerte. Adresspläne begegnen auch in Anwendungsentwicklung und Datenanalyse, etwa bei Test- und Containernetzen, Firewall-Freigaben für Datenbankserver oder der Fehlersuche an nicht erreichbaren Schnittstellen.
+
+### Subnetzmaske binär lesen: Präfix, Maskenwerte und Blockgröße
+
+Eine Subnetzmaske besteht wie die Adresse aus 32 Bit. Von links stehen so viele Einsen, wie das Präfix angibt, danach folgen nur Nullen. Das Präfix /20 bedeutet 20 Einsen und 12 Nullen:
+
+```
+/20 = 11111111.11111111.11110000.00000000 = 255.255.240.0
+```
+
+Weil die Einsen immer lückenlos von links kommen, kann ein Oktett einer Maske nur neun Werte annehmen: 0 (keine Eins) oder einen der Werte aus der Tabelle.
+
+| Einsen im Oktett | Binär | Maskenwert | Blockgröße (256 − Maskenwert) |
+|---|---|---|---|
+| 1 | 10000000 | 128 | 128 |
+| 2 | 11000000 | 192 | 64 |
+| 3 | 11100000 | 224 | 32 |
+| 4 | 11110000 | 240 | 16 |
+| 5 | 11111000 | 248 | 8 |
+| 6 | 11111100 | 252 | 4 |
+| 7 | 11111110 | 254 | 2 |
+| 8 | 11111111 | 255 | 1 |
+
+**Präfix in Maske umrechnen:** Das Präfix wird durch 8 geteilt. Der ganzzahlige Teil gibt die Zahl der Oktette mit 255 an, der Rest die Zahl der Einsen im nächsten Oktett; alle weiteren Oktette sind 0. Beispiele: /20 = 2 × 8 + 4, also 255.255.240.0; /27 = 3 × 8 + 3, also 255.255.255.224. **Maske in Präfix umrechnen:** Die Einsen werden gezählt; 255.255.248.0 hat 8 + 8 + 5 = 21 Einsen, also /21. Eine Maske wie 255.255.0.255 oder 255.255.250.0 ist ungültig, weil die Einsen nicht lückenlos von links stehen; der Subnetting-Rechner weist solche Eingaben ab.
+
+Das Oktett, in dem die Grenze zwischen Netz- und Hostanteil liegt, ist das erste Oktett der Maske, das nicht 255 ist; es wird oft **interessantes Oktett** genannt (bei /20 das dritte). Die **Blockgröße**, in Lernmaterialien auch „Magic Number“ genannt, ist 256 minus Maskenwert in diesem Oktett, bei /20 also 256 − 240 = 16. Sie gibt an, in welchen Schritten die Netze dieses Präfixes aufeinander folgen: Bei /20 beginnen die Netze im dritten Oktett nur bei 0, 16, 32, 48 und so weiter bis 240. Endet das Präfix genau an einer Oktettgrenze (/8, /16, /24), ist das Oktett nach dem letzten 255 das interessante; sein Maskenwert ist 0 und die Blockgröße 256, das heißt, dieses und alle folgenden Oktette gehören vollständig zum Hostanteil.
+
+Der Subnetting-Rechner zeigt zusätzlich die **Wildcard-Maske**, die umgekehrte Maske (je Oktett 255 minus Maskenwert, bei /20 also 0.0.15.255). Sie markiert den Hostanteil; Wildcard-Masken kommen auch in Filterregeln mancher Netzwerkgeräte vor.
+
+### Netzadresse, Broadcastadresse und Hostbereich bestimmen
+
+**Binär mit der UND-Verknüpfung:** Die **Netzadresse** entsteht, wenn Adresse und Maske Bit für Bit mit UND verknüpft werden: Ein Bit ist nur dann 1, wenn es in der Adresse und in der Maske 1 ist. Im Hostanteil entstehen so lauter Nullen. Die **Broadcastadresse** entsteht, wenn alle Hostbits der Netzadresse auf 1 gesetzt werden (Netzadresse ODER Wildcard-Maske). Beispiel mit der Voreinstellung des Subnetting-Rechners, 192.168.10.77/26:
+
+```
+Adresse     192.168.10.77    11000000.10101000.00001010.01001101
+Maske       255.255.255.192  11111111.11111111.11111111.11000000
+Netzadresse 192.168.10.64    11000000.10101000.00001010.01000000
+Broadcast   192.168.10.127   11000000.10101000.00001010.01111111
+```
+
+Die erste nutzbare Hostadresse ist die Netzadresse plus 1 (192.168.10.65), die letzte die Broadcastadresse minus 1 (192.168.10.126); das Netz hat 2^6 − 2 = 62 nutzbare Hostadressen. Es ist das zweite der vier /26-Subnetze aus Thema 3.1.
+
+**Mit der Blockgröße, ohne Binärrechnung:** Für Prüfungsaufgaben und den Subnetting-Sprint ist dieser Weg meist schneller:
+
+1. Interessantes Oktett und Blockgröße bestimmen.
+2. **Netzadresse:** Im interessanten Oktett das größte Vielfache der Blockgröße nehmen, das nicht größer als der Wert der Adresse ist. Die Oktette links davon bleiben unverändert, alle Oktette rechts davon werden 0.
+3. **Broadcastadresse:** Im interessanten Oktett Netzwert plus Blockgröße minus 1; alle Oktette rechts davon werden 255.
+4. **Hostbereich:** erste nutzbare Adresse = Netzadresse + 1, letzte nutzbare Adresse = Broadcastadresse − 1 (jeweils im letzten Oktett).
+5. **Nutzbare Hosts:** 2^h − 2, wobei h = 32 − Präfix die Zahl der Hostbits ist.
+
+| Adresse | Interessantes Oktett, Blockgröße | Netzadresse | Broadcastadresse | Nutzbarer Bereich | Nutzbare Hosts |
+|---|---|---|---|---|---|
+| 172.16.5.130/29 | viertes, 256 − 248 = 8 | 172.16.5.128 | 172.16.5.135 | 172.16.5.129 bis 172.16.5.134 | 6 |
+| 10.20.30.40/20 | drittes, 256 − 240 = 16 | 10.20.16.0 | 10.20.31.255 | 10.20.16.1 bis 10.20.31.254 | 4.094 |
+| 172.20.9.14/16 | drittes, Maskenwert 0, Blockgröße 256 | 172.20.0.0 | 172.20.255.255 | 172.20.0.1 bis 172.20.255.254 | 65.534 |
+| 10.37.200.9/8 | zweites, Maskenwert 0, Blockgröße 256 | 10.0.0.0 | 10.255.255.255 | 10.0.0.1 bis 10.255.255.254 | 16.777.214 |
+
+Im Beispiel /20 liegt 30 zwischen den Vielfachen 16 und 32, die Netzadresse lautet deshalb 10.20.16.0; die Broadcastadresse ist 16 + 16 − 1 = 31 im dritten Oktett und 255 im vierten, also 10.20.31.255. Ein häufiger Fehler ist die Annahme, eine Hostadresse dürfe nie auf .0 oder .255 enden. Das stimmt nur für die Präfixe /24 bis /30. In einem /20-Netz wie 10.20.16.0/20 sind etwa 10.20.20.0 und 10.20.24.255 gewöhnliche Hostadressen; nicht vergebbar sind nur 10.20.16.0 (Netzadresse) und 10.20.31.255 (Broadcastadresse). Der Subnetting-Rechner meldet ausdrücklich, wenn eine eingegebene Adresse die Netz- oder die Broadcastadresse ist.
+
+Zwei Geräte liegen im selben Subnetz, wenn sich mit derselben Maske dieselbe Netzadresse ergibt; nur dann erreichen sie sich direkt, sonst über das Default Gateway (Thema 3.1). Daraus erklärt sich ein typisches Fehlerbild: Ist auf einem Rechner mit 192.168.10.20 die Maske 255.255.255.240 (/28) statt 255.255.255.0 (/24) eingetragen, hält er nur 192.168.10.16 bis 192.168.10.31 für sein eigenes Netz. Das Gateway 192.168.10.1 liegt aus seiner Sicht in einem fremden Netz und ist deshalb nicht erreichbar.
+
+### Hostbedarf und Präfix, Sonderfälle /31 und /32
+
+Die Zahl der Hostbits ist h = 32 − Präfix. Ein Netz umfasst 2^h Adressen, davon sind 2^h − 2 nutzbar, weil Netz- und Broadcastadresse keinem Gerät zugewiesen werden. Jedes zusätzliche Bit im Präfix halbiert das Netz: **Je länger das Präfix, desto kleiner das Netz.** Die Tabelle zeigt die Werte für Präfixe zwischen /8 und /30:
+
+| Präfix | Subnetzmaske | Adressen | Nutzbare Hosts |
+|---|---|---|---|
+| /30 | 255.255.255.252 | 4 | 2 |
+| /29 | 255.255.255.248 | 8 | 6 |
+| /28 | 255.255.255.240 | 16 | 14 |
+| /27 | 255.255.255.224 | 32 | 30 |
+| /26 | 255.255.255.192 | 64 | 62 |
+| /25 | 255.255.255.128 | 128 | 126 |
+| /24 | 255.255.255.0 | 256 | 254 |
+| /23 | 255.255.254.0 | 512 | 510 |
+| /22 | 255.255.252.0 | 1.024 | 1.022 |
+| /21 | 255.255.248.0 | 2.048 | 2.046 |
+| /20 | 255.255.240.0 | 4.096 | 4.094 |
+| /19 | 255.255.224.0 | 8.192 | 8.190 |
+| /18 | 255.255.192.0 | 16.384 | 16.382 |
+| /17 | 255.255.128.0 | 32.768 | 32.766 |
+| /16 | 255.255.0.0 | 65.536 | 65.534 |
+| /8 | 255.0.0.0 | 16.777.216 | 16.777.214 |
+
+**Vom Hostbedarf zum Präfix:** Gesucht ist das kleinste h, für das 2^h − 2 mindestens so groß ist wie der Bedarf; das Präfix ist dann 32 − h. Zum Bedarf zählen alle Geräte mit eigener Adresse, also Arbeitsplätze, Server, Drucker, Access Points und Kameras, außerdem die Gateway-Adresse der Router- oder Firewall-Schnittstelle und eine **Wachstumsreserve**. Für die Reserve werden häufig 20 bis 25 % auf die heutige Gerätezahl angesetzt; das ist ein Planungswert, der je nach Projekt festgelegt wird. Ergibt die Reserve keine ganze Zahl, wird auf ganze Geräte aufgerundet, zum Beispiel 18 × 1,25 = 22,5, also 23 Geräte. Beispiel: 40 Arbeitsplätze mit 25 % Reserve ergeben 50 Geräte, mit dem Gateway 51 Adressen. 2^5 − 2 = 30 reicht nicht, 2^6 − 2 = 62 reicht, also h = 6 und das Präfix /26. Die Grenzen liegen genau bei den Werten der Tabelle: Für 62 Adressen genügt /26, für 63 ist /25 nötig. Gesucht ist also das längste Präfix, das noch genügt; ein kürzeres Präfix würde ebenfalls genügen, wäre aber größer als nötig. Der Reiter „Präfix für Hosts“ des Subnetting-Rechners rechnet genau so.
+
+**Sonderfälle /31 und /32:** Nach der Formel hätte ein /31 nur 2^1 − 2 = 0 nutzbare Hostadressen und ein /32 sogar keine sinnvolle Zahl. Nach der klassischen Regel ist deshalb /30 das längste Präfix mit nutzbaren Hosts (zwei Adressen), und so wird es in Prüfungsaufgaben meist gerechnet; auch der Subnetting-Sprint und die Reiter „Netz teilen“ und „Präfix für Hosts“ rechnen nur bis /30. Davon gibt es zwei Ausnahmen, die der Subnetting-Rechner beim Analysieren ausdrücklich kennzeichnet:
+
+- **/31 (Punkt-zu-Punkt):** Für eine Verbindung zwischen genau zwei Geräten, typischerweise zwei Routern, erlaubt eine Sonderregel (RFC 3021), beide Adressen zu nutzen. Es gibt dann weder Netz- noch Broadcastadresse. Gegenüber einem /30 spart das die Hälfte der Adressen, setzt aber voraus, dass die beteiligten Geräte und die Vorgaben des Netzes es zulassen.
+- **/32 (Einzeladresse):** Das „Netz“ besteht aus genau einer Adresse. Verwendet wird das zum Beispiel für die Loopback-Schnittstelle eines Routers oder Switches, eine logische Schnittstelle, die unabhängig vom Zustand einzelner Anschlüsse erreichbar bleibt und etwa zur Verwaltung dient, und für Hostrouten, also Routen zu genau einem Gerät. Die Adresse einer solchen Loopback-Schnittstelle stammt aus dem eigenen Adressplan und ist nicht mit dem Loopback-Bereich 127.0.0.0/8 zu verwechseln.
+
+### Adressarten erkennen
+
+Nicht jede IPv4-Adresse ist für jeden Zweck vorgesehen. Der Subnetting-Rechner ordnet jede Adresse einer der folgenden Arten zu:
+
+| Bereich | Art | Bedeutung |
+|---|---|---|
+| 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 | privat | im eigenen Netz frei nutzbar, im Internet nicht geroutet; der Übergang ins Internet geschieht meist per NAT (Thema 3.1) |
+| 127.0.0.0/8 | Loopback | der Rechner selbst, bekannt als 127.0.0.1; Pakete an diese Adressen verlassen das Gerät nicht |
+| 169.254.0.0/16 | Link-Local | Adresse, die sich ein Gerät selbst gibt, wenn es keine Antwort von einem DHCP-Server erhält (unter Windows APIPA genannt, allgemein IPv4-Link-Local-Adresse); nur im eigenen Segment gültig und deshalb meist ein Hinweis auf eine Störung (Thema 3.3) |
+| 100.64.0.0/10 (100.64.0.0 bis 100.127.255.255) | Shared Address Space (Carrier-Grade NAT) | Bereich, den Internetanbieter zwischen ihrem Netz und den Anschlüssen der Kund:innen nutzen, wenn sie öffentliche IPv4-Adressen über Carrier-Grade NAT teilen; weder für das eigene Firmennetz vorgesehen noch aus dem Internet erreichbar |
+| 224.0.0.0/4 (224.0.0.0 bis 239.255.255.255) | Multicast | Gruppenadressen: Ein Sender erreicht alle Empfänger, die sich für die Gruppe angemeldet haben; nie die Adresse eines einzelnen Geräts |
+| 0.0.0.0/8 und 240.0.0.0/4 (240.0.0.0 bis 255.255.255.255) | reserviert | nicht als Hostadresse nutzbar; 0.0.0.0 steht zum Beispiel für ein Gerät, das noch keine Adresse hat, 255.255.255.255 für einen Broadcast in das eigene Segment |
+| alle übrigen | öffentlich | weltweit eindeutig, von Internetanbietern vergeben und im Internet geroutet |
+
+Die Art lässt sich meist schon am ersten Oktett erkennen: 10, 127, 0 und Werte ab 240 sind eindeutig, 224 bis 239 bedeuten Multicast; bei 100, 169, 172 und 192 entscheidet zusätzlich das zweite Oktett (100.64 bis 100.127, 169.254, 172.16 bis 172.31, 192.168). Die Grenzbeispiele 172.32.0.1 und 100.128.0.1 sind also öffentlich. Praktische Bedeutung hat der Shared Address Space bei Internetanschlüssen: Erhält der Router eines Kunden auf seiner Internetseite eine Adresse aus 100.64.0.0/10, ist er aus dem Internet nicht direkt erreichbar, was etwa eine geplante VPN-Einwahl oder Fernwartung verhindern kann. Die Bereiche 192.0.2.0/24, 198.51.100.0/24 und 203.0.113.0/24 sind für Beispiele in Dokumentationen vorgesehen und sollen im Internet nicht vorkommen; der Subnetting-Rechner führt sie nicht gesondert und zeigt sie als öffentliche Adressen an. Unabhängig von der Art gilt: Netz- und Broadcastadresse eines Subnetzes werden keinem Gerät zugewiesen.
+
+### Gleich große Teilung und VLSM
+
+**Gleich große Teilung (Bits borgen):** Wie in Thema 3.1 werden Bits aus dem Hostanteil dem Netzanteil zugeschlagen. Mit n geborgten Bits entstehen 2^n gleich große Subnetze, das Präfix wird um n länger, und mit jedem Bit halbiert sich die Blockgröße. Ist die gewünschte Zahl keine Zweierpotenz, wird aufgerundet: Für mindestens 6 Subnetze reichen 2 Bit (4 Subnetze) nicht, mit 3 Bit entstehen 8. Beispiel: 192.168.40.0/24 wird in mindestens 6 gleich große Subnetze geteilt. Es entstehen 8 Subnetze /27 (Maske 255.255.255.224, Blockgröße 32) mit je 30 nutzbaren Hostadressen; die Netzadressen lauten 192.168.40.0, .32, .64, .96, .128, .160, .192 und .224. Das erste Subnetz umfasst die Hosts .1 bis .30 mit der Broadcastadresse .31, das letzte die Hosts .225 bis .254 mit der Broadcastadresse .255. Die Teilung funktioniert auch über Oktettgrenzen: 10.8.0.0/16 in 16 Subnetze ergibt /20-Netze mit je 4.094 nutzbaren Hostadressen, die im dritten Oktett in Schritten von 16 aufeinander folgen (10.8.0.0, 10.8.16.0, 10.8.32.0 bis 10.8.240.0; die Broadcastadresse des letzten ist 10.8.255.255). Der Reiter „Netz teilen“ des Subnetting-Rechners teilt in bis zu 256 Subnetze, längstens bis /30.
+
+Der Nachteil: Alle Subnetze sind gleich groß, der Bedarf ist es fast nie. Ein Büro mit 100 Arbeitsplätzen und eine Router-Verbindung mit zwei Adressen bekämen dasselbe Netz; entweder passt das große Netz nicht hinein, oder beim kleinen bleiben die meisten Adressen ungenutzt.
+
+**VLSM (Variable Length Subnet Mask):** Ein Adressbereich wird in Subnetze **unterschiedlicher Größe** geteilt, jedes passend zu seinem Bedarf. Das Vorgehen in Schritten:
+
+1. **Bedarf je Netz ermitteln:** Geräte heute plus Wachstumsreserve plus Gateway-Adresse.
+2. **Präfix je Netz bestimmen:** jeweils das kleinste Netz, das den Bedarf deckt (2^h − 2 ≥ Bedarf).
+3. **Nach Größe sortieren:** das Netz mit dem größten Bedarf zuerst.
+4. **Vergeben:** ab dem Anfang des Bereichs; jedes Netz beginnt an der nächsten freien Adresse, die ein Vielfaches seiner Blockgröße ist. Für jedes Netz Netzadresse, Maske, Hostbereich, Broadcastadresse und Gateway festhalten.
+5. **Kontrollieren:** Keine Überschneidungen, alle Netze innerhalb des Bereichs, verbleibende Adressen als Reserve dokumentieren.
+
+**Warum der größte Bedarf zuerst?** Ein Netz kann nur an einem Vielfachen seiner Blockgröße beginnen, ein /25 also nur bei .0 oder .128. Werden die Netze der Größe nach absteigend vergeben, endet jedes Netz genau an einer Grenze, an der das nächste, gleich große oder kleinere Netz beginnen darf; es entstehen keine Lücken. Wer zuerst klein vergibt, etwa ein /30 bei .0, muss das /25 bei .128 beginnen lassen; die Adressen .4 bis .127 (124 Adressen) bleiben als Lücke, die nur noch für kleinere Netze taugt.
+
+Beispiel: Brevanta plant für einen Kunden den Bereich 192.168.64.0/24 mit vier VLANs und einer Router-Verbindung zu einer Außenstelle, also einem eigenen kleinen Netz zwischen zwei Routern (oft **Transfernetz** genannt). Die Wachstumsreserve beträgt 25 % auf die heutige Gerätezahl, das Gateway ist jeweils die erste nutzbare Adresse.
+
+| Netz | Geräte heute | Mit 25 % Reserve | Mit Gateway | Präfix (nutzbare Hosts) |
+|---|---|---|---|---|
+| VLAN 10 Büro | 80 | 100 | 101 | /25 (126) |
+| VLAN 20 Werkstatt | 36 | 45 | 46 | /26 (62) |
+| VLAN 30 Server | 16 | 20 | 21 | /27 (30) |
+| VLAN 40 Drucker und Kameras | 8 | 10 | 11 | /28 (14) |
+| Router-Verbindung | 2 Router-Schnittstellen | – | – | /30 (2) |
+
+Die Vergabe der Größe nach ab 192.168.64.0:
+
+| Netz | Netzadresse | Maske | Nutzbarer Bereich | Broadcastadresse | Gateway |
+|---|---|---|---|---|---|
+| VLAN 10 Büro | 192.168.64.0/25 | 255.255.255.128 | 192.168.64.1 bis 192.168.64.126 | 192.168.64.127 | 192.168.64.1 |
+| VLAN 20 Werkstatt | 192.168.64.128/26 | 255.255.255.192 | 192.168.64.129 bis 192.168.64.190 | 192.168.64.191 | 192.168.64.129 |
+| VLAN 30 Server | 192.168.64.192/27 | 255.255.255.224 | 192.168.64.193 bis 192.168.64.222 | 192.168.64.223 | 192.168.64.193 |
+| VLAN 40 Drucker und Kameras | 192.168.64.224/28 | 255.255.255.240 | 192.168.64.225 bis 192.168.64.238 | 192.168.64.239 | 192.168.64.225 |
+| Router-Verbindung | 192.168.64.240/30 | 255.255.255.252 | 192.168.64.241 bis 192.168.64.242 | 192.168.64.243 | – (je eine Adresse für jeden Router) |
+
+Belegt sind 128 + 64 + 32 + 16 + 4 = 244 von 256 Adressen; 192.168.64.244 bis 192.168.64.255 (12 Adressen) bleiben frei, zum Beispiel für ein weiteres /30 (192.168.64.244/30) und ein /29 (192.168.64.248/29). Mit einer gleich großen Teilung wäre der Plan nicht möglich: Für fünf Netze entstünden aus dem /24 acht /27-Netze mit je 30 nutzbaren Adressen, zu klein für Büro und Werkstatt. Ein typischer Planungsfehler ist die **Überschneidung**: Wer der Werkstatt 192.168.64.64/26 zuweist, legt sie vollständig in das Büro-Netz 192.168.64.0/25 (192.168.64.0 bis 192.168.64.127), obwohl .64 für sich genommen eine gültige /26-Netzadresse ist. Router und Firewalls können solche Netze nicht eindeutig zuordnen. Deshalb wird jede neue Netzadresse doppelt geprüft: Sie muss ein Vielfaches der Blockgröße sein und darf in keinem bereits vergebenen Bereich liegen.
+
+### Netze zusammenfassen: Supernetting und Route Summarization
+
+Das Zusammenfassen ist die Umkehrung des Teilens: Mehrere benachbarte Netze werden zu einem Netz mit kürzerem Präfix zusammengefasst. Allgemein heißt das **Supernetting**; geht es darum, dass ein Router für mehrere Netze nur eine einzige Route speichert oder weitergibt, spricht man von **Route Summarization** (Routenzusammenfassung, Sammelroute). Eine Route nennt dabei ein Zielnetz mit Präfix und den nächsten Router auf dem Weg dorthin (nächster Hop). Der Nutzen: kleinere Routing-Tabellen, weniger Einträge, die gepflegt werden müssen, und Stabilität, denn neue Netze innerhalb der Sammelroute brauchen auf anderen Routern keine neue Route.
+
+Eine Zusammenfassung ohne fremde Netze gelingt nur unter drei Bedingungen: Alle zusammengefassten Netze liegen in einem **Block, der vollständig zum selben Standort gehört** und keine Netze eines anderen Standorts enthält (freie, noch nicht vergebene Bereiche in diesem Block sind erlaubt), die Größe dieses Blocks ist eine **Zweierpotenz**, und seine erste Adresse ist ein **Vielfaches dieser Blockgröße**. Sind die Netze gleich groß und lückenlos belegt, heißt das: 2, 4, 8 … Netze. Rechnerisch werden die Netzadressen im ersten Oktett, in dem sie sich unterscheiden, binär geschrieben und die übereinstimmenden Bits von links gezählt. Beispiel: Ein Standort nutzt 10.60.0.0/24 bis 10.60.3.0/24.
+
+```
+10.60.0.0   drittes Oktett 00000000
+10.60.1.0   drittes Oktett 00000001
+10.60.2.0   drittes Oktett 00000010
+10.60.3.0   drittes Oktett 00000011
+```
+
+Die ersten 6 Bit des dritten Oktetts stimmen überein, das Präfix der Sammelroute ist 16 + 6 = 22: **10.60.0.0/22** (Maske 255.255.252.0) umfasst genau 10.60.0.0 bis 10.60.3.255. Gegenbeispiel: 10.60.1.0/24 bis 10.60.4.0/24 stimmen nur in den ersten 5 Bit überein. Die kleinste gemeinsame Sammelroute wäre 10.60.0.0/21 und umfasste 10.60.0.0 bis 10.60.7.255, also auch Netze, die vielleicht an einem anderen Standort liegen. Ohne solche fremden Netze sind drei Routen nötig: 10.60.1.0/24, 10.60.2.0/23 und 10.60.4.0/24.
+
+Passen mehrere Routen zu einem Ziel, gilt die mit dem **längsten Präfix** (die spezifischste Route). Deshalb darf eine Sammelroute neben genaueren Routen stehen: Ein direkt angeschlossenes /30 innerhalb eines zusammengefassten /22 wird trotzdem direkt erreicht. Für die Planung folgt daraus: Jeder Standort erhält einen zusammenhängenden, an einer Blockgrenze beginnenden Block (zum Beispiel ein /22), und die VLSM-Teilung findet innerhalb dieses Blocks statt; dann genügt für den ganzen Standort eine Route. Die Sammelroute umfasst dann auch die noch freien Blöcke des Standorts; das ist gewollt, solange dort keine Netze eines anderen Standorts liegen. Auch das **Vergrößern** eines Netzes folgt dieser Regel: 10.20.3.0/26 und der freie Nachbarblock 10.20.3.64/26 lassen sich zu 10.20.3.0/25 zusammenfassen; 10.20.3.64/26 und 10.20.3.128/26 dagegen nicht zu einem /25, weil 64 kein Vielfaches von 128 ist.
+
+### Adressplan dokumentieren
+
+Der **Adressplan** gehört zur Systemdokumentation (Thema 3.4) und ist die Grundlage für Konfiguration, Fehlersuche und Erweiterung. Er hält je Netz mindestens fest: Netzadresse mit Präfix, VLAN und Zweck, Subnetzmaske, Gateway, nutzbaren Bereich, fest vergebene Adressen (etwa Gateway, Server, Drucker) und den Bereich, der per DHCP verteilt wird (Einzelheiten zu DHCP in Thema 3.7), außerdem die heutige Belegung und die freien Adressen. Für das Beispiel oben:
+
+| Netz | VLAN / Zweck | Maske | Gateway | Nutzbarer Bereich | Belegt heute (mit Gateway) | Frei |
+|---|---|---|---|---|---|---|
+| 192.168.64.0/25 | 10 Büro | 255.255.255.128 | 192.168.64.1 | .1 bis .126 | 81 | 45 |
+| 192.168.64.128/26 | 20 Werkstatt | 255.255.255.192 | 192.168.64.129 | .129 bis .190 | 37 | 25 |
+| 192.168.64.192/27 | 30 Server | 255.255.255.224 | 192.168.64.193 | .193 bis .222 | 17 | 13 |
+| 192.168.64.224/28 | 40 Drucker und Kameras | 255.255.255.240 | 192.168.64.225 | .225 bis .238 | 9 | 5 |
+| 192.168.64.240/30 | Router-Verbindung Außenstelle | 255.255.255.252 | – | .241 Router Hauptsitz, .242 Router Außenstelle | 2 | 0 |
+| 192.168.64.244 bis .255 | Reserve | – | – | – | – | 12 |
+
+Für den Plan gelten einige Regeln:
+
+- **Wachstumsreserve an zwei Stellen:** im Netz selbst, indem das Präfix mit Reserve bestimmt wird, und im Adressbereich als freie Blöcke, die an Blockgrenzen beginnen. Wächst ein bestimmtes Netz voraussichtlich, wird der benachbarte Block frei gehalten, damit es später vergrößert werden kann, statt ein zweites Netz anlegen und routen zu müssen.
+- **Einheitliche Konventionen:** zum Beispiel das Gateway immer auf der ersten nutzbaren Adresse (oder immer auf der letzten), feste Bereiche für Server und Drucker und ein klar abgegrenzter DHCP-Bereich.
+- **Keine Überschneidungen:** auch nicht mit anderen Standorten, VPN-Gegenstellen oder Netzen von Dienstleistern. Gleiche private Netze an zwei Standorten, etwa zweimal 192.168.1.0/24, lassen sich nicht sauber miteinander verbinden.
+- **Pflege:** Versionsstand, Datum, Verantwortliche und Änderungshistorie führen (Thema 3.4); vor jeder Änderung den Plan prüfen, danach aktualisieren. Neue Einträge lassen sich mit dem Subnetting-Rechner kontrollieren.
+
+## Karteikarten
+
+#### K-3.6-01
+**Frage:** Welche Dezimalwerte kann ein Oktett einer Subnetzmaske annehmen, und warum nur diese?
+**Antwort:** 0, 128, 192, 224, 240, 248, 252, 254 und 255. Die Einsen einer Maske stehen lückenlos von links, deshalb besteht ein Oktett nur aus Nullen, nur aus Einsen oder aus 1 bis 7 Einsen von links mit Nullen dahinter.
+`tags: subnetzmaske, praefix` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-3.6-02
+**Frage:** Wie rechnest du das Präfix /21 in die Subnetzmaske um, und wie gehst du umgekehrt vor?
+**Antwort:** 21 = 2 × 8 + 5: zwei Oktette 255, im dritten Oktett 5 Einsen (11111000 = 248), danach 0, also 255.255.248.0. Umgekehrt zählst du die Einsen der Maske: 8 + 8 + 5 = 21.
+`tags: subnetzmaske, praefix, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.6-03
+**Frage:** Was ist die Blockgröße („Magic Number“), und wozu dient sie?
+**Antwort:** 256 minus Maskenwert im interessanten Oktett, also im ersten Oktett der Maske, das nicht 255 ist; bei /20 ist das 256 − 240 = 16. Netze dieses Präfixes beginnen in diesem Oktett nur bei Vielfachen der Blockgröße (0, 16, 32 …). Damit lassen sich Netz- und Broadcastadresse ohne Binärrechnung bestimmen.
+`tags: blockgroesse, subnetting` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.6-04
+**Frage:** Wie bestimmst du mit der Blockgröße Netzadresse, Broadcastadresse und Hostbereich von 10.20.30.40/20?
+**Antwort:** Blockgröße 256 − 240 = 16 im dritten Oktett. Das größte Vielfache von 16, das nicht größer als 30 ist, ist 16: Netzadresse 10.20.16.0. Broadcastadresse: 16 + 16 − 1 = 31, dahinter 255, also 10.20.31.255. Hostbereich 10.20.16.1 bis 10.20.31.254 mit 4.094 nutzbaren Adressen.
+`tags: netzadresse, broadcast, rechnen` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+#### K-3.6-05
+**Frage:** Wie ermittelst du Netz- und Broadcastadresse binär?
+**Antwort:** Netzadresse = Adresse UND Maske, Bit für Bit: Eine 1 entsteht nur, wo Adresse und Maske beide 1 haben, im Hostanteil entstehen Nullen (z. B. 77 UND 192 = 64). Broadcastadresse = Netzadresse mit allen Hostbits auf 1, also Netzadresse ODER Wildcard-Maske.
+`tags: netzadresse, broadcast, binaer` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.6-06
+**Frage:** Wie bestimmst du aus einem Hostbedarf das passende Präfix?
+**Antwort:** Bedarf einschließlich Gateway-Adresse und Wachstumsreserve ermitteln, dann das kleinste h suchen, für das 2^h − 2 mindestens so groß ist wie der Bedarf; das Präfix ist 32 − h. Beispiel: 51 Adressen, 2^6 − 2 = 62 reicht, 2^5 − 2 = 30 nicht, also /26.
+`tags: hostbedarf, praefix, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.6-07
+**Frage:** Was gilt für die Sonderfälle /31 und /32?
+**Antwort:** Nach der klassischen Formel hat ein /31 keine nutzbaren Hosts, deshalb wird meist nur bis /30 gerechnet. Nach einer Sonderregel (RFC 3021) darf ein /31 für eine Punkt-zu-Punkt-Verbindung zwischen zwei Routern genutzt werden: beide Adressen nutzbar, keine Netz- und Broadcastadresse. Ein /32 ist eine Einzeladresse, etwa für die Loopback-Schnittstelle eines Routers oder für eine Hostroute.
+`tags: sonderfaelle, praefix` · `schwierigkeit: schwer` · `bloom: verstehen`
+
+#### K-3.6-08
+**Frage:** Woran erkennst du Link-Local- und Shared-Address-Space-Adressen, und was bedeuten sie?
+**Antwort:** 169.254.0.0/16 ist Link-Local: Ein Gerät gibt sich eine solche Adresse selbst, wenn kein DHCP-Server antwortet (unter Windows APIPA genannt, allgemein IPv4-Link-Local-Adresse); sie gilt nur im eigenen Segment. 100.64.0.0/10 (100.64.0.0 bis 100.127.255.255) ist der Shared Address Space, den Internetanbieter für Carrier-Grade NAT nutzen; er ist weder für das eigene Firmennetz vorgesehen noch aus dem Internet erreichbar.
+`tags: adressarten` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-3.6-09
+**Frage:** Was passiert bei der gleich großen Teilung, wenn du n Bits borgst, und was gilt, wenn du mindestens 6 Subnetze aus einem /24 brauchst?
+**Antwort:** Es entstehen 2^n gleich große Subnetze, das Präfix wird um n länger, die Blockgröße halbiert sich je Bit. 6 ist keine Zweierpotenz, also 3 Bit und 8 Subnetze: aus /24 werden 8 Netze /27 mit je 30 nutzbaren Hostadressen.
+`tags: teilung, subnetting, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.6-10
+**Frage:** Was ist VLSM, und warum vergibst du dabei den größten Bedarf zuerst?
+**Antwort:** VLSM (Variable Length Subnet Mask) teilt einen Adressbereich in Subnetze unterschiedlicher Größe, jedes passend zu seinem Bedarf. Jedes Netz muss an einem Vielfachen seiner Blockgröße beginnen; werden die Netze der Größe nach absteigend vergeben, schließt jedes folgende Netz lückenlos an, und es entstehen keine unbrauchbaren Lücken.
+`tags: vlsm, adressplanung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.6-11
+**Frage:** Unter welchen Bedingungen lassen sich Netze ohne fremde Netze zu einer Sammelroute zusammenfassen?
+**Antwort:** Alle Netze liegen in einem Block, der vollständig zum selben Standort gehört und keine Netze eines anderen Standorts enthält (freie Bereiche darin sind erlaubt), die Blockgröße ist eine Zweierpotenz, und die erste Adresse des Blocks ist ein Vielfaches dieser Blockgröße. Beispiel: 10.60.0.0/24 bis 10.60.3.0/24 ergeben 10.60.0.0/22. Sonst umfasst die Sammelroute auch fremde Netze oder lässt Netze aus.
+`tags: summarization, routing` · `schwierigkeit: schwer` · `bloom: verstehen`
+
+#### K-3.6-12
+**Frage:** Was gehört in einen Adressplan, und wo planst du die Wachstumsreserve ein?
+**Antwort:** Je Netz: Netzadresse mit Präfix, VLAN und Zweck, Maske, Gateway, nutzbarer Bereich, feste Adressen und DHCP-Bereich, Belegung und freie Adressen; dazu Versionsstand, Datum und Verantwortliche. Die Reserve gehört in jedes Netz (Präfix mit Wachstum bestimmt) und in den Adressbereich (freie Blöcke an Blockgrenzen, möglichst neben Netzen, die wachsen werden).
+`tags: adressplan, dokumentation` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+## Quiz
+
+#### Q-3.6-01 · Kurzantwort
+**Frage:** Wie lautet die Netzadresse des Netzes, in dem die Adresse 172.16.45.200/21 liegt? Gib die Adresse in Punktschreibweise an.
+**Akzeptierte Antworten:** 172.16.40.0; 172.16.40.0/21
+**Erklärung:** /21 = 2 × 8 + 5, die Maske ist 255.255.248.0; interessant ist das dritte Oktett mit der Blockgröße 256 − 248 = 8. Das größte Vielfache von 8, das nicht größer als 45 ist, ist 40; das vierte Oktett wird 0. Netzadresse 172.16.40.0, Broadcastadresse 172.16.47.255.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.6-02 · Kurzantwort
+**Frage:** Wie lautet die Broadcastadresse des Netzes, in dem die Adresse 10.13.77.5/19 liegt? Gib die Adresse in Punktschreibweise an.
+**Akzeptierte Antworten:** 10.13.95.255; 10.13.95.255/19
+**Erklärung:** /19 = 2 × 8 + 3, die Maske ist 255.255.224.0, die Blockgröße im dritten Oktett 256 − 224 = 32. 77 liegt zwischen 64 und 96, die Netzadresse ist 10.13.64.0. Broadcastadresse: 64 + 32 − 1 = 95 im dritten Oktett, 255 im vierten, also 10.13.95.255.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.6-03 · Lückentext
+**Text:** Ein Netz mit dem Präfix /23 hat ___510___ nutzbare Hostadressen.
+**Erklärung:** 32 − 23 = 9 Hostbits ergeben 2^9 = 512 Adressen; ohne Netz- und Broadcastadresse bleiben 510.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.6-04 · Kurzantwort
+**Frage:** Wie lautet die Subnetzmaske zum Präfix /18 in Punktschreibweise?
+**Akzeptierte Antworten:** 255.255.192.0
+**Erklärung:** 18 = 2 × 8 + 2: zwei Oktette 255, im dritten Oktett 2 Einsen (11000000 = 192), danach 0.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.6-05 · Kurzantwort
+**Frage:** Welche Präfixlänge gehört zur Subnetzmaske 255.255.255.248?
+**Akzeptierte Antworten:** 29; /29; 29 Bit
+**Erklärung:** 248 ist binär 11111000 und hat 5 Einsen; zusammen mit den drei vollen Oktetten sind das 8 + 8 + 8 + 5 = 29 Einsen. Ein /29-Netz hat 8 Adressen, davon 6 nutzbare.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.6-06 · Kurzantwort
+**Frage:** Ein neues VLAN soll 200 Geräte aufnehmen, dazu 25 % Wachstumsreserve auf die Gerätezahl und eine Gateway-Adresse. Welches Präfix hat das kleinste Subnetz, das dafür genügt? Gib es in der Form /Zahl an.
+**Akzeptierte Antworten:** /24; 24
+**Erklärung:** 200 × 1,25 = 250 Geräte, mit dem Gateway 251 Adressen. /25 bietet nur 126 nutzbare Adressen, /24 bietet 254 und genügt. Je länger das Präfix, desto kleiner das Netz: /23 würde ebenfalls genügen, wäre aber größer als nötig.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.6-07 · Kurzantwort
+**Frage:** Das Netz 192.168.80.0/24 eines Schulungsanbieters soll in mindestens 10 gleich große Subnetze geteilt werden, die jeweils so groß wie möglich sind. Wie viele nutzbare Hostadressen hat jedes dieser Subnetze?
+**Akzeptierte Antworten:** 14; 14 Hosts; 14 Host; 14 Hostadressen; 14 Host-Adressen; 14 Adressen; 14 nutzbare Hosts; 14 nutzbare Hostadressen; 14 nutzbare Host-Adressen; 14 nutzbare Adressen
+**Erklärung:** 3 geborgte Bits ergäben nur 8 Subnetze, deshalb werden 4 Bit geborgt: 16 Subnetze mit dem Präfix /28. Jedes hat 32 − 28 = 4 Hostbits, also 2^4 − 2 = 14 nutzbare Hostadressen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.6-08 · Kurzantwort
+**Frage:** Aus dem Bereich 10.30.0.0/23 vergibt eine Administratorin nach VLSM ab dem Anfang des Bereichs nacheinander ein /24, ein /25 und ein /27, jeweils an der nächsten passenden Blockgrenze. Wie lautet die Netzadresse des /27?
+**Akzeptierte Antworten:** 10.30.1.128; 10.30.1.128/27
+**Erklärung:** Das /24 belegt 10.30.0.0 bis 10.30.0.255, das /25 beginnt bei 10.30.1.0 und endet bei 10.30.1.127. Die nächste freie Adresse 10.30.1.128 ist ein Vielfaches der /27-Blockgröße 32, das /27 lautet also 10.30.1.128/27 (Broadcastadresse 10.30.1.159).
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.6-09 · Kurzantwort
+**Frage:** Ein Standort nutzt die acht Netze 172.16.8.0/24 bis 172.16.15.0/24. Welche zusammengefasste Route deckt genau diese acht Netze ab? Gib sie in der Form Netzadresse/Präfix an.
+**Akzeptierte Antworten:** 172.16.8.0/21; 172.16.8.0 255.255.248.0; 172.16.8.0/255.255.248.0
+**Erklärung:** Im dritten Oktett reichen die Netze von 8 (00001000) bis 15 (00001111); die ersten 5 Bit stimmen überein. Das Präfix ist 16 + 5 = 21, und 8 ist ein Vielfaches der Blockgröße 8: 172.16.8.0/21 umfasst genau 172.16.8.0 bis 172.16.15.255.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.6-10 · Zuordnung
+**Anweisung:** In den Tickets des Servicedesks tauchen folgende Adressen auf. Ordne jeder Adresse ihre Adressart zu.
+- 169.254.12.7 ↔ Link-Local, selbst vergeben, weil kein DHCP-Server geantwortet hat
+- 100.72.4.1 ↔ Shared Address Space eines Internetanbieters (Carrier-Grade NAT)
+- 127.0.0.1 ↔ Loopback, der Rechner selbst
+- 239.1.1.1 ↔ Multicast, Gruppenadresse für mehrere Empfänger
+- 172.20.1.1 ↔ Private Adresse
+**Erklärung:** 169.254.0.0/16 ist Link-Local, 100.64.0.0/10 (bis 100.127.255.255) der Shared Address Space, 127.0.0.0/8 Loopback, 224.0.0.0 bis 239.255.255.255 Multicast, und 172.20.1.1 liegt im privaten Bereich 172.16.0.0/12 (172.16.0.0 bis 172.31.255.255).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.6-11 · Sortieren
+**Anweisung:** Bringe die Schritte der Adressvergabe nach VLSM in die richtige Reihenfolge.
+1. Bedarf je Netz einschließlich Gateway-Adresse und Wachstumsreserve ermitteln
+2. Für jedes Netz das kleinste passende Präfix bestimmen
+3. Die Netze nach ihrem Präfix ordnen, das kürzeste Präfix (größtes Netz) zuerst
+4. Die Netze nacheinander an der nächsten passenden Blockgrenze vergeben und dokumentieren
+**Erklärung:** Erst wenn der Bedarf feststeht, lässt sich das Präfix bestimmen. Die Netzgröße steht erst fest, wenn das Präfix bestimmt ist; danach wird das größte Netz zuerst vergeben. Diese Reihenfolge sorgt dafür, dass jedes Netz an einer gültigen Blockgrenze beginnt und keine Lücken entstehen; zuletzt werden die Netze vergeben, geprüft und im Adressplan festgehalten.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-3.6-12 · Mehrfachauswahl
+**Frage:** Ein Administrator soll im Netz 10.8.16.0/20 Geräten feste Adressen zuweisen. Welche der folgenden Adressen sind dafür nutzbar?
+- [ ] 10.8.16.0
+- [x] 10.8.20.0
+- [x] 10.8.24.255
+- [ ] 10.8.31.255
+- [ ] 10.8.32.1
+**Erklärung:** Bei /20 ist die Blockgröße im dritten Oktett 16; das Netz reicht von 10.8.16.0 bis 10.8.31.255. Nicht vergebbar sind nur die Netzadresse 10.8.16.0 und die Broadcastadresse 10.8.31.255; 10.8.32.1 liegt bereits im nächsten Netz. 10.8.20.0 und 10.8.24.255 sind gewöhnliche Hostadressen, auch wenn sie auf 0 bzw. 255 enden.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-3.6-13 · Multiple Choice
+**Frage:** Ein Entwurf für einen Adressplan sieht 10.50.0.0/25 für das Büro und 10.50.0.64/26 für die Werkstatt vor. Was trifft zu?
+- [ ] Der Entwurf ist in Ordnung, weil die beiden Netze verschiedene Präfixe haben.
+- [ ] 10.50.0.64 ist keine gültige Netzadresse für ein /26-Netz.
+- [x] Die Netze überschneiden sich, weil 10.50.0.64/26 vollständig in 10.50.0.0/25 liegt.
+- [ ] Die Netze überschneiden sich nur, wenn sie im selben VLAN liegen.
+**Erklärung:** Das Büro-Netz 10.50.0.0/25 reicht von 10.50.0.0 bis 10.50.0.127. 10.50.0.64 ist zwar ein Vielfaches der /26-Blockgröße 64, liegt aber in diesem Bereich. Die Werkstatt braucht ein freies Netz, zum Beispiel 10.50.0.128/26. Überschneidende Netze lassen sich weder sauber routen noch in Firewall-Regeln trennen, unabhängig von der VLAN-Zuordnung.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-3.6-14 · Wahr/Falsch
+**Aussage:** Ein Netz mit dem Präfix /31 kann für eine Punkt-zu-Punkt-Verbindung zwischen zwei Routern genutzt werden, obwohl die Formel 2^h − 2 dafür null nutzbare Hostadressen ergibt.
+- [x] Wahr
+- [ ] Falsch
+**Erklärung:** Nach einer Sonderregel (RFC 3021) sind bei /31 beide Adressen nutzbar; es gibt dann weder Netz- noch Broadcastadresse. In Prüfungsaufgaben wird meist nach der klassischen Regel bis /30 gerechnet, der Subnetting-Rechner kennzeichnet den Sonderfall ausdrücklich.
+`schwierigkeit: mittel` · `bloom: verstehen`
