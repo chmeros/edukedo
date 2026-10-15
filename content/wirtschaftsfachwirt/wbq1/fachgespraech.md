@@ -5,7 +5,7 @@ fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WBQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Volks- und Betriebswirtschaft, Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -127,3 +127,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In Deutschland überwacht das Bundeskartellamt die Einhaltung des Kartellverbots nach dem Gesetz gegen Wettbewerbsbeschränkungen (GWB), auf EU-Ebene ergänzt durch das europäische Wettbewerbsrecht.
   - Rückfrage: Welche typischen Formen von Kartellen kennen Sie?
 
+### 1.5 Wirtschaftspolitik, Geld, Inflation und Wachstum
+
+- Angenommen, die Inflationsrate liegt deutlich über der Zielmarke der EZB. Wie kann die EZB reagieren, und welche Folgen hat das für einen Großhändler wie die NordWert Handels GmbH?
+  - Erwartung: Die EZB verfolgt vorrangig Preisstabilität und strebt mittelfristig eine Inflationsrate von 2 % an; bei zu hoher Inflation betreibt sie restriktive Geldpolitik, indem sie die Leitzinsen (Hauptrefinanzierungssatz, Zinssatz der Einlagefazilität) erhöht und Anleihebestände abbaut.
+  - Erwartung: Die Wirkungskette lautet: höhere Geldmarkt- und Kreditzinsen, weniger Kredite, Investitionen und Konsum, sinkende Nachfrage und nachlassender Preisauftrieb; über den Wechselkurs wertet der Euro tendenziell auf, und Importe werden billiger.
+  - Erwartung: Die Wirkung tritt verzögert ein, oft nach einem Jahr oder mehr; gegen angebotsbedingte Preisschübe wie bei Energie kann die EZB nur über eine Dämpfung der Nachfrage wirken und riskiert einen Abschwung (Zielkonflikt zwischen Preisstabilität und Beschäftigung).
+  - Erwartung: Für NordWert steigen die Kosten für Kredite mit variablem Zins und für die Kapitalbindung im Lager; Bestände und Bestellmengen werden überprüft, und ein höherer Fremdkapitalzins kann den Leverage-Effekt umkehren.
+  - Erwartung: Die Kundschaft investiert und bestellt weniger; ein stärkerer Euro würde dagegen die Einkäufe in US-Dollar verbilligen.
+  - Rückfrage: Warum kann die EZB einen starken Anstieg der Energiepreise kurzfristig kaum verhindern?
+- Wie wird Inflation gemessen, und wer gewinnt und wer verliert, wenn die Preise stärker steigen als erwartet?
+  - Erwartung: Gemessen wird mit einem Preisindex, etwa dem Verbraucherpreisindex, der die Kosten eines gewichteten Warenkorbs typischer Güter und Dienstleistungen der privaten Haushalte mit dem Basisjahr (Indexwert 100) vergleicht.
+  - Erwartung: Die Inflationsrate ist die prozentuale Veränderung des Index gegenüber dem Vorjahr: (Index im Berichtsjahr − Index im Vorjahr) ÷ Index im Vorjahr × 100; Indexpunkte und Prozent sind nicht dasselbe.
+  - Erwartung: Das Realeinkommen ist das Nominaleinkommen ÷ Preisindex × 100; steigen die Löhne langsamer als die Preise, sinkt die Kaufkraft.
+  - Erwartung: Verlierer sind Gläubiger:innen und Sparer:innen, deren Zinsen die Inflation nicht ausgleichen, und Bezieher:innen fester oder spät angepasster Einkommen; Gewinner sind Schuldner:innen mit festem Zins, deren Schuld real an Wert verliert.
+  - Erwartung: Entscheidend ist der Realzins: näherungsweise Nominalzins − Inflationsrate, genauer (1 + Nominalzins) ÷ (1 + Inflationsrate) − 1.
+  - Rückfrage: Was unterscheidet eine Deflation von einer sinkenden Inflationsrate?
+- Angenommen, der Euro wertet gegenüber dem US-Dollar deutlich ab. Welche Folgen hat das für die NordWert Handels GmbH, und wie ordnen Sie das in die Außenwirtschaft ein?
+  - Erwartung: Bei Mengennotierung (1 € = x USD) bedeutet eine Abwertung, dass es für einen Euro weniger US-Dollar gibt; der Euro-Betrag einer Rechnung in US-Dollar ist Fremdwährungsbetrag ÷ Kurs und steigt.
+  - Erwartung: Die Ware aus Asien wird in Euro teurer; geben die Importeure das weiter, entsteht importierte Inflation. Exporte in Länder außerhalb des Euroraums werden für die dortige Kundschaft billiger; Geschäfte in Ländern mit dem Euro sind nicht betroffen.
+  - Erwartung: NordWert kann den Kurs mit einem Devisentermingeschäft absichern, die Abrechnung in Euro verhandeln oder Bezugsquellen im Euroraum prüfen.
+  - Erwartung: Die Zahlungsbilanz erfasst die Transaktionen mit dem Ausland in der Leistungsbilanz (Handelsbilanz, Dienstleistungen, Primär- und Sekundäreinkommen) und der Kapitalbilanz; vereinfacht entspricht ein Leistungsbilanzüberschuss einem Netto-Kapitalexport.
+  - Erwartung: Zölle und nichttarifäre Hemmnisse wie Einfuhrkontingente oder technische Vorschriften würden die Einstandspreise zusätzlich erhöhen; Freihandel ermöglicht Spezialisierung nach komparativen Kostenvorteilen.
+  - Rückfrage: Warum beeinflusst ein höheres Zinsniveau im Euroraum den Wechselkurs des Euro?

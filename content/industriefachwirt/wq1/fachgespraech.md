@@ -5,7 +5,7 @@ fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Industriefachwirt" (IndFachwirtPrV vom 25.06.2010, BGBl. I S. 833, §4, Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fragen, keine 1:1-Übernahme aus Rechtsverordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -144,3 +144,27 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Unternehmen profitiert von der Marktkenntnis und den bestehenden Kundenkontakten des lokalen Partners.
   - Erwartung: Es muss den Markteintritt nicht allein finanzieren und rechtlich absichern.
   - Erwartung: Bei einer Übernahme erwirbt das Unternehmen dagegen meist die Mehrheit der Geschäftsanteile und kontrolliert das übernommene Unternehmen, das seine wirtschaftliche Selbständigkeit verliert.
+
+### 1.5 Wirtschaftspolitik, Geld, Inflation und Wachstum
+
+- Ihre Geschäftsführung fragt, wie es um die Gesamtwirtschaft steht und was der Staat in einem Abschwung tun kann. Welche Ziele verfolgt die Wirtschaftspolitik, woran messen Sie die Lage, und welche Möglichkeiten hat die Fiskalpolitik?
+  - Erwartung: Das magische Viereck umfasst Preisniveaustabilität, hohen Beschäftigungsstand, außenwirtschaftliches Gleichgewicht und stetiges, angemessenes Wachstum; das Sechseck ergänzt Verteilungsgerechtigkeit und Umweltschutz. Zwischen den Zielen bestehen Harmonien (Wachstum und Beschäftigung) und Konflikte (Preisstabilität und Beschäftigung, Wachstum und Umwelt).
+  - Erwartung: Gemessen wird mit der Inflationsrate, der Arbeitslosenquote (Arbeitslose ÷ Erwerbspersonen × 100), dem Leistungsbilanzsaldo in Prozent des BIP und der realen Wachstumsrate des BIP; nur das reale, preisbereinigte BIP zeigt, ob mehr produziert wird, und als Wohlstandsmaß hat das BIP Grenzen.
+  - Erwartung: Antizyklische Fiskalpolitik erhöht im Abschwung Ausgaben und Investitionen oder senkt Steuern und nimmt ein Defizit in Kauf; im Boom spart sie und tilgt Schulden. Automatische Stabilisatoren wie progressive Steuern und Arbeitslosengeld wirken ohne Beschluss.
+  - Erwartung: Der Multiplikator 1 ÷ (1 − marginale Konsumquote) zeigt, dass eine Ausgabe das BIP um ein Mehrfaches erhöhen kann; Sparen, Steuern und Importe verringern die Wirkung, Grenzen sind Wirkungsverzögerung, Mitnahmeeffekte, Verdrängung privater Investitionen und Verschuldung.
+  - Erwartung: Nachfrageorientierte Politik stabilisiert kurzfristig die Nachfrage, angebotsorientierte verbessert langfristig die Produktionsbedingungen; beide haben Vor- und Nachteile und werden in der Praxis gemischt.
+  - Rückfrage: Warum lässt sich hohe Arbeitslosigkeit in einer Region nicht immer mit einem Konjunkturprogramm beseitigen?
+- Die Inflationsrate ist deutlich gestiegen. Wie wird sie gemessen, welche Ursachen kommen in Frage, und wie reagiert die EZB darauf?
+  - Erwartung: Ein Verbraucherpreisindex vergleicht die Kosten eines festen Warenkorbs mit dem Basisjahr (= 100); die Inflationsrate gibt an, um wie viel Prozent der Index gegenüber dem Vorjahr gestiegen ist, das Realeinkommen ergibt sich aus Nominaleinkommen ÷ Preisindex × 100, der Realzins näherungsweise aus Nominalzins minus Inflationsrate.
+  - Erwartung: Ursachen sind Nachfragesog, Kostendruck (Löhne, Energie, Rohstoffe) oder Gewinnaufschläge, importierte Inflation (teurere Einfuhren, Abwertung) und ein zu starkes Geldmengenwachstum (Quantitätsgleichung); Erwartungen und eine Lohn-Preis-Spirale können sie verstärken.
+  - Erwartung: Folgen: Gläubiger:innen, Sparer:innen und Bezieher:innen fester Einkommen verlieren, Schuldner:innen mit festen Zinsen und Sachwertbesitzer:innen gewinnen tendenziell; Planung und Kalkulation werden schwieriger.
+  - Erwartung: Die EZB verfolgt vorrangig Preisstabilität mit einer mittelfristigen Zielmarke von 2 % und erhöht bei zu hoher Inflation die Leitzinsen (restriktive Geldpolitik); weitere Instrumente sind Offenmarktgeschäfte, Mindestreserve und Anleihekäufe bzw. deren Abbau.
+  - Erwartung: Die Wirkung läuft über Kreditzinsen, Investitionen und Konsum, den Wechselkurs und die Erwartungen und tritt mit Verzögerung ein; bei angebotsinduzierter Inflation kann die Geldpolitik nur über eine geringere Nachfrage wirken und riskiert Wachstums- und Beschäftigungsverluste (Stagflation).
+  - Rückfrage: Wie wirken höhere Leitzinsen auf die Investitionsrechnung und die Finanzierung eines Industrieunternehmens?
+- Ein großer Teil Ihres Umsatzes geht in den Export, und Vorprodukte kaufen Sie in US-Dollar ein. Welche außenwirtschaftlichen Entwicklungen beobachten Sie, und wie wirken sie auf Ihr Unternehmen?
+  - Erwartung: Die Zahlungsbilanz besteht aus Leistungsbilanz (Handelsbilanz, Dienstleistungen, Primär- und Sekundäreinkommen), Vermögensänderungsbilanz und Kapitalbilanz (Direktinvestitionen, Wertpapiere, Kredite, Währungsreserven); ein Leistungsbilanzüberschuss geht mit einem Netto-Kapitalexport einher.
+  - Erwartung: Der Wechselkurs wird im Euroraum in Mengennotierung angegeben (1 € = x USD); bei einer Aufwertung des Euro werden Exporte für das Ausland teurer oder bringen bei festem Dollar-Preis weniger Euro, Importe werden billiger; eine Abwertung wirkt umgekehrt und kann Inflation importieren.
+  - Erwartung: Einflussfaktoren auf den Wechselkurs sind Zinsunterschiede, Inflationsunterschiede, Leistungsbilanzsalden und Erwartungen; gegen das Kursrisiko helfen Devisentermingeschäfte, natürliche Absicherung durch Einkauf oder Fertigung in der Fremdwährung und Preisklauseln.
+  - Erwartung: Freihandel nutzt absolute und komparative Kostenvorteile; Protektionismus arbeitet mit Zöllen und nichttarifären Hemmnissen wie Quoten, Normen und Subventionen, schützt heimische Anbieter, verteuert aber Güter, schwächt den Wettbewerb und kann Gegenmaßnahmen auslösen.
+  - Erwartung: Für das Unternehmen wirken Zölle und Handelskonflikte auf Preise, Marktzugang, Einstandspreise und Lieferketten; Reaktionen sind gestreute Lieferquellen und Absatzmärkte, Fertigung im Zielmarkt und Preise, die Wechselkurs- und Zollrisiken berücksichtigen.
+  - Rückfrage: Warum hängt der Nettoeffekt einer Aufwertung davon ab, wie viel ein Unternehmen in derselben Fremdwährung einkauft?
