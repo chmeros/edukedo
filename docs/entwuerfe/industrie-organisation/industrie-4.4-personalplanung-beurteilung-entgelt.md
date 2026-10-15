@@ -1,0 +1,383 @@
+---
+kurs_slug: industriefachwirt
+fachgebiet_code: WQ4
+fachgebiet_title: "Unternehmensführung"
+thema_code: "4.4"
+thema_title: "Personalplanung, Personalbeurteilung und Entgelt"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwPrV vom 2010), §4 (Qualifikationsbereich „Unternehmensführung“) sowie öffentlich zugänglicher Fachliteratur zu Personalplanung, Personalbeurteilung und Entgeltgestaltung — frei formuliert, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+---
+
+# Thema 4.4 — Personalplanung, Personalbeurteilung und Entgelt
+
+## Theorie
+
+Die Solvitec Elektrowerke GmbH braucht in ihren Werken Villingen (Leistungselektronik, Frequenzumrichter, Endmontage der Schaltschränke), Zwickau (Sensorik) und Brünn (Kabelkonfektion) zur richtigen Zeit genügend Beschäftigte mit der passenden Qualifikation, muss ihre Leistung fair beurteilen und angemessen bezahlen. Dieses Thema behandelt Personalplanung, Personalbeurteilung und Entgelt. Es baut auf der Personalwirtschaft und den Personalkennzahlen aus Thema 1.2, der Personalführung und -entwicklung aus Thema 4.2 und den Mitarbeitergesprächen aus Thema 9.4 auf; die arbeitsrechtlichen Grundlagen stehen in Thema 3.2. Alle Zahlen sind frei gewählte Beispielwerte für einzelne Bereiche und unabhängig von den Rechenbeispielen anderer Themen; für das Gesamtunternehmen gelten die Werte des Bestands (rund 500 Beschäftigte wie in Thema 4.1; Umsatzerlöse 120 Mio. €, Personalaufwand 36 Mio. € und Personalaufwandsquote 30 % aus Thema 2.5). Gesetzliche Vorgaben zu Arbeitszeit, Urlaub, Kündigung, Tarifbindung, Gleichbehandlung, Datenschutz, Sozialversicherung und zur Beteiligung des Betriebsrats werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+### Personalplanung: Aufgaben, Dimensionen und Bedarfsarten
+
+Die **Personalplanung** ist Teil der Unternehmensplanung (Thema 4.3). Sie leitet aus Absatz- und Produktionsplan, Investitionen und organisatorischen Veränderungen ab, welches Personal das Unternehmen braucht, und plant, wie es beschafft, eingesetzt, entwickelt und, wenn nötig, abgebaut wird. Ihre Teilpläne sind Personalbedarfs-, Personalbeschaffungs-, Personaleinsatz-, Personalentwicklungs- (Thema 4.2), Personalfreisetzungs- und Personalkostenplanung. Bei Solvitec plant der Zentralbereich Personalwesen in Villingen gemeinsam mit den Werkleitungen; Entscheidungen der strategischen Planung, etwa eine neue Fertigungslinie (Thema 4.3) oder eine Neuordnung der Werke (Organisationsentwicklung, Thema 8.5), verändern den Personalbedarf oft stärker als das laufende Geschäft.
+
+Der **Personalbedarf** hat vier Dimensionen:
+
+- **quantitativ:** wie viele Beschäftigte, meist in **Vollzeitäquivalenten (VZÄ)**; eine Teilzeitkraft zählt mit ihren Wochenstunden ÷ Wochenstunden einer Vollzeitstelle;
+- **qualitativ:** welche Qualifikationen, etwa Prüftechnik für Frequenzumrichter, Kalibrierung von Sensoren oder die Bedienung eines neuen Verdrahtungsautomaten; Grundlage sind Stellenbeschreibung und Anforderungsprofil (Thema 4.1);
+- **zeitlich:** ab wann und wie lange das Personal einsatzbereit sein muss;
+- **örtlich:** in welchem Werk und welcher Abteilung es gebraucht wird.
+
+Nach Rechengröße und Ursache werden unterschieden:
+
+- **Bruttopersonalbedarf:** das gesamte Personal, das zu einem Zeitpunkt für die geplanten Aufgaben nötig ist (Soll).
+- **Nettopersonalbedarf:** Bruttopersonalbedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt; der fortgeschriebene Bestand ist der heutige Bestand − feststehende Abgänge + feststehende Zugänge. Ein positiver Wert ist zu beschaffen (Unterdeckung), ein negativer Wert zeigt eine **Personalüberdeckung**, für die Freisetzungsmaßnahmen zu planen sind.
+- **Ersatzbedarf:** entsteht, wenn Beschäftigte ausscheiden, etwa durch Ruhestand, Kündigung oder das Ende eines befristeten Vertrags, oder längerfristig ausfallen, etwa durch Elternzeit.
+- **Neubedarf** (auch **Mehrbedarf** oder Zusatzbedarf): entsteht durch zusätzliche Aufgaben, etwa höhere Stückzahlen, ein neues Produkt oder kürzere Arbeitszeiten.
+- **Minderbedarf:** Der Bruttobedarf sinkt unter den bisherigen Bedarf, etwa durch Automatisierung, geringeren Absatz oder die Verlagerung einer Fertigung (Thema 6.8).
+
+Ersatz-, Neu- und Minderbedarf sagen, warum sich der Bedarf ändert; der Nettopersonalbedarf sagt, wie viel am Ende zu beschaffen oder abzubauen ist. Eine Zerlegung des Nettobedarfs in Ersatz- und Neubedarf ist nur sinnvoll, wenn der bisherige Bedarf voll besetzt war; sonst steckt im Nettobedarf zusätzlich eine bereits bestehende Lücke. Feststehende Zugänge werden dabei gesondert abgezogen: Nettopersonalbedarf = Ersatzbedarf + Neubedarf − feststehende Zugänge.
+
+Für die Ermittlung des Bruttobedarfs gibt es mehrere **Verfahren**: Beim **Schätzverfahren** schätzen erfahrene Führungskräfte den Bedarf; es ist schnell, aber subjektiv. Die **Kennzahlenmethode** rechnet mit Erfahrungswerten wie der Arbeitsproduktivität (Ausbringungsmenge je Arbeitsstunde, Thema 1.2) oder einer Betreuungsrelation. Die **Stellenplanmethode** geht vom Stellenplan aus, der alle Stellen einer Abteilung mit Zahl der Planstellen und Wertigkeit auflistet (Thema 4.1), und ist vor allem für Verwaltung und Führungsstellen üblich. Für die Fertigung ist das **Zeitbedarfsverfahren** genauer: Arbeitsmenge × Vorgabezeit je Einheit ergibt den Arbeitsbedarf in Stunden, der durch die Nettoarbeitszeit je VZÄ geteilt wird. Die Vorgabezeiten stammen aus Zeitstudien oder Erfahrungswerten.
+
+### Personalbedarfsrechnung, Personaleinsatz und Personalfreisetzung
+
+Ausgangspunkt der Rechnung ist die Zeit, die eine Vollzeitkraft im Jahr tatsächlich arbeiten kann. Die **Bruttoarbeitszeit** ergibt sich aus den Arbeitstagen des Jahres (Kalendertage ohne Wochenenden und Feiertage) und der täglichen Sollarbeitszeit; bei 250 Arbeitstagen sind das bei einer 35-Stunden-Woche 250 × 7 h = 1.750 h, bei 37,5 Stunden 1.875 h. Urlaub, Krankheit, Weiterbildung und sonstige Freistellungen mindern sie als **Ausfallzeiten**. Ihr Anteil an der Bruttoarbeitszeit ist die **Ausfallquote** (Ausfallzeit ÷ Bruttoarbeitszeit × 100); als **Nettoarbeitszeit** bleibt Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl). Teilt man den Arbeitsbedarf durch die Nettoarbeitszeit je VZÄ, erhält man den Bruttopersonalbedarf in VZÄ.
+
+**Rechenbeispiel** (frei gewählte Beispielwerte; welche Wochenarbeitszeit und wie viel Urlaub gelten, bestimmen Vertrag, Tarif und Gesetz, das ist hier nicht Thema): In der Montage der Frequenzumrichter im Werk Villingen sollen im nächsten Jahr 48.000 Geräte montiert werden; die Vorgabezeit beträgt 45 Minuten je Gerät. Eine Vollzeitkraft arbeitet 37,5 Stunden je Woche, also 7,5 Stunden je Tag, an 250 Arbeitstagen.
+
+| Schritt | Rechnung | Ergebnis |
+|---|---|---|
+| Bruttoarbeitszeit je Vollzeitkraft | 250 Tage × 7,5 h | 1.875 h |
+| Ausfallzeit | (30 Tage Urlaub + 14 Tage Krankheit + 4 Tage Weiterbildung + 2 Tage sonstige Freistellung) × 7,5 h | 375 h |
+| Ausfallquote | 375 h ÷ 1.875 h × 100 | 20 % |
+| Nettoarbeitszeit | 1.875 h × (1 − 0,20) | 1.500 h |
+| Arbeitsbedarf | 48.000 Geräte × 45 min = 2.160.000 min ÷ 60 | 36.000 h |
+| Bruttopersonalbedarf | 36.000 h ÷ 1.500 h | 24 VZÄ |
+| Probe über die Menge je VZÄ | 1.500 h × 60 ÷ 45 min = 2.000 Geräte je VZÄ; 48.000 ÷ 2.000 | 24 VZÄ |
+| Fortgeschriebener Personalbestand zum Bedarfszeitpunkt | heute 22 VZÄ − 3 VZÄ feststehende Abgänge (2 Ruhestände, 1 Kündigung durch einen Mitarbeiter) + 1 VZÄ feststehender Zugang (übernommener Auszubildender) | 20 VZÄ |
+| Nettopersonalbedarf | 24 VZÄ − 20 VZÄ | 4 VZÄ |
+
+Der bisherige Bedarf von 22 VZÄ war voll besetzt. Deshalb lässt sich der Nettobedarf zerlegen: 3 VZÄ Ersatzbedarf (die Abgänge) + 2 VZÄ Neubedarf (24 − 22) − 1 VZÄ feststehender Zugang = 4 VZÄ. Bleibt bei der Division ein Rest, rundet die Planung auf ganze Stellen auf oder deckt den Bruchteil über Teilzeit oder Mehrarbeit. Die Rechnung ist ein Modell: Saisonspitzen und Eilaufträge lassen sich mit einem Jahresdurchschnitt nicht abbilden, und eine neue Vorgabezeit, etwa nach einer Verbesserung der Abläufe (PDCA, Thema 6.1), verändert den Bedarf sofort.
+
+Den **zeitlichen Bedarf** plant man rückwärts von dem Tag, an dem die neuen Kräfte voll einsatzbereit sein sollen. Beispiel (Beispielwerte): Von der Ausschreibung bis zur Vertragsunterschrift vergehen 6 Wochen; danach dauert es bis zu 12 Wochen, bis die neue Kraft ihr bisheriges Arbeitsverhältnis beenden kann; die Einarbeitung in Montage und Prüfung braucht weitere 4 Wochen. Die Ausschreibung muss also spätestens 6 + 12 + 4 = 22 Wochen vor dem geplanten Einsatz beginnen.
+
+**Minderbedarf** (Beispielwerte): In der Verdrahtung der Schaltschränke im Werk Villingen übernimmt ein Verdrahtungsautomat einen Teil der Arbeit; der Bruttobedarf sinkt von 30 auf 26 VZÄ. Heute sind 30 VZÄ besetzt, 2 Beschäftigte gehen im Planjahr in den Ruhestand. Der Nettopersonalbedarf beträgt 26 − (30 − 2) = −2 VZÄ, also eine Überdeckung von 2 VZÄ. Weil die Montage der Frequenzumrichter im selben Werk 4 VZÄ braucht, liegt es nahe, zwei Beschäftigte nach einer Qualifizierung dorthin zu versetzen; extern sind dann nur noch 2 VZÄ zu beschaffen.
+
+Die **Personaleinsatzplanung** ordnet die vorhandenen Beschäftigten den Arbeitsplätzen und Schichten zu, quantitativ (Schichtplan, Urlaubsplanung) und qualitativ. Eine **Qualifikationsmatrix** zeigt, wer welchen Arbeitsplatz beherrscht; ist ein Arbeitsplatz nur mit einer Person besetzt, die ihn beherrscht, entsteht bei deren Ausfall ein Engpass und ein Wissensrisiko (Nachfolgeplanung, Thema 8.3). Für Schwankungen gibt es flexible Instrumente: Springer:innen, die mehrere Arbeitsplätze beherrschen, Arbeitszeitkonten, Mehrarbeit und den Einsatz von Zeitarbeitskräften. Ergonomie und Arbeitsschutz gehören zur Einsatzplanung (Thema 3.2).
+
+Die **Personalfreisetzung** baut eine Überdeckung ab. Im Grundsatz haben **interne Maßnahmen ohne Personalabbau** Vorrang, weil sie Wissen halten und das Vertrauen der Belegschaft schützen: Versetzung mit Qualifizierung, Abbau von Mehrarbeit und Zeitguthaben, Arbeitszeitverkürzung oder das Zurückholen fremd vergebener Arbeit. **Externe Maßnahmen mit Personalabbau** sind etwa ein Einstellungsstopp, bei dem Abgänge durch natürliche Fluktuation nicht ersetzt werden, die Nichtverlängerung befristeter Verträge, Aufhebungsverträge, Vorruhestandsregelungen und als letzte Möglichkeit Kündigungen. Je früher die Personalplanung eine Überdeckung erkennt, desto mehr lässt sich über die sanften Wege lösen. Kündigungsschutz, Sozialauswahl und die Beteiligung des Betriebsrats (Thema 3.2) sowie Ausgleichsregelungen bei Betriebsänderungen werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft); wie Veränderungen begleitet werden, zeigt Thema 8.5.
+
+### Personalbeschaffung, Personalauswahl und Einarbeitung
+
+Die **interne Personalbeschaffung** deckt den Bedarf mit eigenen Beschäftigten: innerbetriebliche Stellenausschreibung, Versetzung oder befristeter Werkswechsel (Werksrotation, Thema 4.2), Aufstieg nach einer Fortbildung, Übernahme von Auszubildenden; ohne Personalbewegung wirken auch Mehrarbeit und Qualifizierung am Arbeitsplatz. Vorteile sind die bekannte Eignung, die kürzere Einarbeitung, geringere Kosten und ein sichtbarer Aufstiegsanreiz; Nachteile sind fehlende Impulse von außen, Enttäuschung bei abgelehnten internen Bewerbenden und eine neue Lücke an der bisherigen Stelle. Die **externe Personalbeschaffung** nutzt Karriereseite und Stellenportale, Hochschul- und Schulkontakte, Messen, Personaldienstleister, die Arbeitsvermittlung, Empfehlungen eigener Beschäftigter und die direkte Ansprache geeigneter Personen (**Active Sourcing**). Sie bringt neue Erfahrung und eine größere Auswahl, kostet aber mehr und ist unsicherer in der Eignung. Wie attraktiv Solvitec als Arbeitgeber wirkt (Arbeitgebermarke), entscheidet bei knappen Fachkräften wie Elektroniker:innen und Automatisierungsfachkräften (Thema 1.2) mit über den Erfolg.
+
+Grundlage jeder Besetzung ist das **Anforderungsprofil**. Es leitet aus den Aufgaben der Stellenbeschreibung (Thema 4.1) ab, was eine Person können und mitbringen muss, gegliedert nach Fach-, Methoden-, Sozial- und persönlicher Kompetenz, und unterscheidet **Muss-Kriterien**, ohne die eine Bewerbung nicht weiterverfolgt wird, von **Kann-Kriterien**, die eine Bewerbung stärken, deren Fehlen sich aber nachschulen lässt. Für die Auswahl stehen mehrere **Instrumente** zur Verfügung: die Sichtung der Bewerbungsunterlagen, zuerst auf die Muss-Kriterien hin, das **strukturierte Interview** (ein Gesprächsleitfaden mit festen Fragen für alle Bewerbenden und ein Bewertungsbogen, auf dem jede Antwort einem Kriterium zugeordnet wird), **Arbeitsproben** (etwa die Fehlersuche an einem Frequenzumrichter im Prüffeld), Eignungstests und für Führungs- und Nachwuchsstellen das **Assessment-Center** mit mehreren Übungen und Beobachtenden. Je stärker ein Verfahren standardisiert ist und je näher es an der späteren Tätigkeit liegt, desto besser lassen sich Bewerbende vergleichen und desto zuverlässiger ist die Prognose ihres Erfolgs. Auch hier drohen Beurteilungsfehler (siehe Personalbeurteilung).
+
+Am Ende werden die Ergebnisse mit dem Anforderungsprofil verglichen (**Profilvergleich**), oft mit einer gewichteten Punktbewertung wie bei der Nutzwertanalyse. Beispiel (Beispielwerte) für eine Stelle im Prüffeld: Beide Bewerbenden erfüllen das Muss-Kriterium einer abgeschlossenen Berufsausbildung als Elektroniker:in. Bewertet wird mit 1 bis 5 Punkten:
+
+| Kriterium | Gewicht | Person A | Person B |
+|---|---|---|---|
+| Fachkenntnisse Leistungselektronik | 40 % | 4 → 1,6 | 3 → 1,2 |
+| Erfahrung in Prüf- und Messtechnik | 30 % | 3 → 0,9 | 5 → 1,5 |
+| Zusammenarbeit im Team | 20 % | 5 → 1,0 | 4 → 0,8 |
+| Englisch für technische Dokumentation | 10 % | 2 → 0,2 | 4 → 0,4 |
+| Summe | 100 % | 3,7 | 3,9 |
+
+Person B passt rechnerisch besser. Die Gewichte sind eine Wertung und müssen vor den Gesprächen feststehen; ein knapper Abstand ist ein Anlass, die Begründung genau zu prüfen, nicht ein Beweis.
+
+Wer in den ersten Wochen gut begleitet wird, bleibt eher. Eine geplante **Einarbeitung** (Onboarding) mit vorbereitetem Arbeitsplatz, Einarbeitungsplan, fester Ansprechperson (Pat:in) und Feedbackgesprächen in der Probezeit wirkt deshalb der **Frühfluktuation** entgegen, also Austritten kurz nach dem Eintritt. Scheiden von 18 Neueingestellten eines Jahres 3 in den ersten sechs Monaten wieder aus, beträgt die Frühfluktuationsquote 3 ÷ 18 × 100 ≈ 16,7 % (Beispielwerte). Die **Kosten je Einstellung** = Beschaffungskosten im Zeitraum ÷ Einstellungen im Zeitraum zeigen, wie wirtschaftlich beschafft wird. Beispiel: 21.000 € für Stellenportale und Anzeigen, 9.000 € für Messen und Hochschulkontakte, 18.000 € Vermittlungsgebühren für zwei Stellen über Personaldienstleister und 6.000 € interne Auswahlzeit ergeben 54.000 €; bei 18 Einstellungen sind das 3.000 € je Einstellung. Die Kennzahl bildet nur die Beschaffung ab; was Einarbeitung und die anfangs geringere Leistung kosten, zeigt erst die Rechnung zu den Kosten einer Fluktuation (siehe Personalbindung).
+
+**Hinweis:** Für Ausschreibung und Auswahl gilt der Grundsatz der Gleichbehandlung: Den Ausschlag geben nur Kriterien, die die Tätigkeit tatsächlich verlangt. Welche Fragen erlaubt sind, wie mit Bewerbungsunterlagen umzugehen ist und wie der Betriebsrat bei Einstellungen und Versetzungen mitwirkt, regeln gesetzliche Vorgaben; sie werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+### Personalbeurteilung: Zwecke, Verfahren und Beurteilungsfehler
+
+Die **Personalbeurteilung** bewertet Leistung und Verhalten, bei der Potenzialbeurteilung auch die Entwicklungsmöglichkeiten einer Person, systematisch nach festgelegten Kriterien. Sie dient mehreren **Zwecken**: Rückmeldung und Motivation, Ermittlung des Entwicklungsbedarfs (Thema 4.2), Entscheidungen über Einsatz, Versetzung, Beförderung und Nachfolge (Thema 8.3), Differenzierung des Entgelts (etwa eine Leistungszulage oder ein Zielbonus) und die Kontrolle, ob Auswahl und Einarbeitung erfolgreich waren. Die **Leistungsbeurteilung** schaut auf den zurückliegenden Zeitraum, die **Potenzialbeurteilung** nach vorn. Eine **Regelbeurteilung** erfolgt im festen Turnus, meist jährlich; eine **Anlassbeurteilung** etwa am Ende der Probezeit, vor einer Versetzung oder beim Wechsel der Führungskraft.
+
+Gute **Beurteilungskriterien** sind tätigkeitsbezogen, beobachtbar und für alle Beurteilenden gleich beschrieben, etwa Arbeitsergebnis (Menge, Qualität, Termintreue), Arbeitsweise (Sorgfalt, Selbstständigkeit, Einhaltung der Sicherheitsregeln), Zusammenarbeit und bei Führungskräften das Führungsverhalten. Persönlichkeitsmerkmale ohne Bezug zur Arbeit gehören nicht dazu. Die wichtigsten **Verfahren** im Überblick:
+
+- **Freie Beurteilung:** ein Text ohne festes Schema; individuell, aber schwer vergleichbar und stark von der Ausdrucksfähigkeit der Beurteilenden abhängig.
+- **Einstufungsverfahren:** Jedes Kriterium wird auf einer Skala eingestuft, am besten mit beschriebenen Stufen („übertrifft die Anforderungen deutlich“ bis „entspricht den Anforderungen noch nicht“); Gewichte zeigen, was für die Stelle wichtig ist. Beispiel (Beispielwerte): Fachkenntnisse (Gewicht 3) Stufe 4, Arbeitsqualität (Gewicht 3) Stufe 3, Zusammenarbeit (Gewicht 2) Stufe 5, Verlässlichkeit (Gewicht 2) Stufe 4 ergeben 12 + 9 + 10 + 8 = 39 von 50 möglichen Punkten.
+- **Rangordnungsverfahren:** Die Beschäftigten einer Gruppe werden nach ihrer Leistung in eine Reihenfolge gebracht. Das ist einfach, zeigt aber nicht, wie groß die Abstände sind, und eignet sich nur für kleine Gruppen mit vergleichbaren Aufgaben.
+- **Beurteilung nach Zielerreichung:** Grundlage sind die vereinbarten Ziele (Zielvereinbarung, Thema 4.2; Management by Objectives, Thema 9.1). Beispiel einer Schichtleitung in der Sensorfertigung im Werk Zwickau (Beispielwerte): Ziel 1 Ausschussquote (Gewicht 50 %) zu 90 % erreicht, Ziel 2 Ausbringungsmenge (Gewicht 30 %) zu 110 %, Ziel 3 Qualifizierung von zwei Springer:innen (Gewicht 20 %) zu 100 %. Der gewichtete Zielerreichungsgrad beträgt 0,5 × 90 % + 0,3 × 110 % + 0,2 × 100 % = 98 %; bei einem vereinbarten Zielbonus von 4.000 € und einer Auszahlung proportional zur Zielerreichung ergibt das 3.920 €. Wie Übererfüllung, Untergrenzen und Deckel gewertet werden, muss vorher feststehen.
+- **360-Grad-Feedback:** Eine Führungskraft erhält Rückmeldungen von Vorgesetzten, Kolleg:innen, eigenen Mitarbeitenden und internen Kund:innen und schätzt sich selbst ein. Es dient vor allem der Entwicklung von Führungskräften, wird meist anonym ausgewertet und ist für Entgeltentscheidungen wenig geeignet, weil die Rückmeldenden sonst taktisch antworten.
+
+Jede Beurteilung ist anfällig für **Beurteilungsfehler** (vgl. Thema 9.4): Beim **Halo-Effekt** überstrahlt ein auffälliges Merkmal alle anderen, etwa wenn eine sehr hohe Stückzahl dazu führt, dass auch Sorgfalt und Zusammenarbeit gut bewertet werden. Der **Milde- oder Strengefehler** (Thema 9.4) zeigt sich vor allem im Vergleich: Beurteilt eine Führungskraft ihr ganzes Team auffallend gut oder schlecht, sind Teams verschiedener Führungskräfte nicht vergleichbar. Bei der **Tendenz zur Mitte** werden aus Unsicherheit oder Konfliktscheu nur mittlere Stufen vergeben. Beim **Recency-Effekt** zählen vor allem die letzten Wochen vor dem Gespräch, beim Gegenstück, dem **ersten Eindruck**, ein frühes Erlebnis. Beim **Ähnlichkeitseffekt** werden Personen besser beurteilt, die der beurteilenden Person in Ausbildung, Werdegang oder Ansichten ähneln; er ist eng verwandt mit dem Sympathiefehler aus Thema 9.4. Gegenmaßnahmen sind beschriebene Kriterien und Stufen, laufende Notizen zu beobachtetem Verhalten über den ganzen Zeitraum, die Bewertung Kriterium für Kriterium, Schulungen der Beurteilenden, ein Abgleich der Maßstäbe zwischen Führungskräften (Kalibrierungsrunde) und, wo sinnvoll, mehrere Beurteilende.
+
+Das Ergebnis wird im **Beurteilungsgespräch** besprochen (Ablauf und Gesprächsführung in Thema 9.4): Selbsteinschätzung, Sicht der Führungskraft mit Belegen, Klärung der Unterschiede, Vereinbarung von Zielen und Entwicklungsschritten, schriftliches Festhalten. Eine Beurteilung, die nur im Formular steht und nie besprochen wird, verfehlt ihren Zweck. **Hinweis:** Allgemeine Beurteilungsgrundsätze, Beurteilungsformulare und der Umgang mit den Daten unterliegen gesetzlichen Vorgaben und Beteiligungsrechten des Betriebsrats; sie werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+### Entgeltbestandteile, Entgeltgerechtigkeit und Arbeitsbewertung
+
+Das **Entgelt** ist die Gegenleistung des Unternehmens für die Arbeitsleistung. Es setzt sich bei Solvitec aus mehreren **Bestandteilen** zusammen:
+
+- **Grundentgelt:** Stundenlohn oder Monatsgehalt nach der Entgeltgruppe der Tätigkeit;
+- **Zulagen und Zuschläge:** etwa für Schicht-, Nacht- oder Wochenendarbeit, Erschwernisse oder als Leistungszulage aus der Beurteilung;
+- **Prämien:** für messbare Zusatzleistungen wie Menge, Qualität oder Materialersparnis, auch Einmalprämien für Verbesserungsvorschläge;
+- **Erfolgsbeteiligung:** eine Beteiligung am Unternehmensergebnis, etwa eine Ergebnisprämie, wenn das Jahresziel erreicht ist;
+- **Sonderzahlungen:** etwa Urlaubs- und Weihnachtsgeld;
+- **betriebliche Altersversorgung:** eine vom Unternehmen ganz oder teilweise finanzierte Zusage für das Alter (hier nur als Begriff);
+- **Sachleistungen und Zusatzleistungen:** etwa Jobticket, Kantinenzuschuss, Dienstwagen oder Gesundheitsangebote.
+
+Nach Herzberg sind Bezahlung und Zusatzleistungen vor allem Hygienefaktoren (Thema 4.2): Ein als ungerecht empfundenes Entgelt erzeugt Unzufriedenheit und Fluktuation, ein gutes Entgelt allein motiviert nicht dauerhaft. Umso wichtiger ist die **Entgeltgerechtigkeit**. **Anforderungsgerecht** ist ein Entgelt, das sich nach der Schwierigkeit der Tätigkeit richtet; das leistet die Arbeitsbewertung. **Leistungsgerecht** ist es, wenn unterschiedliche Leistung bei gleicher Tätigkeit unterschiedlich bezahlt wird, über Akkord, Prämie, Leistungszulage oder Zielbonus. Daneben spielen die **Marktgerechtigkeit** (was zahlen andere Unternehmen für knappe Fachkräfte?) und soziale Gesichtspunkte eine Rolle. Zur Gleichbehandlung beim Entgelt, etwa gleichem Entgelt für gleiche und gleichwertige Arbeit unabhängig vom Geschlecht, sowie zu Tarifbindung und Entgelttransparenz bestehen gesetzliche Vorgaben; sie werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft). In tarifgebundenen Unternehmen legt der Tarifvertrag Entgeltgruppen und Verfahren meist fest.
+
+Die **Arbeitsbewertung** bewertet die Anforderungen eines Arbeitsplatzes, nicht die Person, die ihn ausfüllt. Übliche **Anforderungsarten** (nach dem sogenannten Genfer Schema) sind Können (Fachkenntnisse, Geschicklichkeit), Belastung (geistig und körperlich), Verantwortung (für Arbeitsergebnis, Betriebsmittel, Sicherheit anderer) und Arbeitsbedingungen (Umgebungseinflüsse wie Lärm, Hitze, Schutzkleidung). Die Verfahren werden nach zwei Merkmalen unterschieden:
+
+| | Reihung (Arbeitsplätze im Vergleich) | Stufung (Einordnung in vorgegebene Stufen) |
+|---|---|---|
+| **summarisch** (Arbeitsplatz als Ganzes) | Rangfolgeverfahren | Entgeltgruppenverfahren (Katalogverfahren mit Gruppenbeschreibungen und Richtbeispielen) |
+| **analytisch** (je Anforderungsart) | Rangreihenverfahren | Stufenwertzahlverfahren |
+
+**Summarische** Verfahren sind einfach und schnell, aber grob; die Einordnung ist schwer zu begründen. **Analytische** Verfahren bewerten jede Anforderungsart einzeln, sind genauer und nachvollziehbarer, aber aufwendiger. Beispiel eines Stufenwertzahlverfahrens (Beispielwerte) für einen Arbeitsplatz im Prüffeld der Frequenzumrichter: Fachkönnen Stufe 3 × Gewicht 4 = 12 Punkte, geistige Belastung Stufe 3 × 2 = 6, körperliche Belastung Stufe 2 × 1 = 2, Verantwortung Stufe 2 × 3 = 6, Umgebungseinflüsse Stufe 1 × 1 = 1, zusammen 27 Punkte (Arbeitswert). Ordnet die Entgelttabelle 25 bis 29 Punkte der Entgeltgruppe 6 zu, wird der Arbeitsplatz dort eingruppiert. Die Gewichte enthalten eine Wertung; deshalb werden sie vorher vereinbart und für alle Arbeitsplätze gleich angewandt.
+
+### Entgeltformen: Zeitlohn, Akkordlohn, Prämienlohn und Gehalt
+
+Beim **Zeitlohn** wird die Anwesenheitszeit bezahlt: Entgelt = Stundenlohn × bezahlte Stunden. Eine Montagekraft mit 21,00 € je Stunde und 160 bezahlten Stunden im Monat erhält 3.360,00 € brutto (Beispielwerte). Der Lohn je Stück sinkt, wenn die Leistung steigt: Bei 10 Geräten je Stunde sind es 2,10 € je Gerät, bei 12 Geräten 1,75 €. Der Zeitlohn eignet sich, wenn die Leistung schwer messbar ist, die Qualität Vorrang hat, ein hohes Arbeitstempo gefährlich wäre oder der Takt von einer Anlage bestimmt wird, etwa bei Prüf-, Instandhaltungs- und Einrichtarbeiten. Er ist einfach zu berechnen und für Beschäftigte sicher, bietet aber keinen unmittelbaren Leistungsanreiz; das Risiko geringer Leistung trägt das Unternehmen.
+
+Beim **Akkordlohn** (Leistungslohn) hängt der Verdienst von der Menge ab. Akkordfähig ist eine Arbeit, wenn sie sich wiederholt, im Ablauf bekannt und messbar ist und die Menge von der beschäftigten Person beeinflusst werden kann. Die Rechnung baut auf dem **Akkordrichtsatz** auf, dem Stundenverdienst, den eine Person bei Normalleistung erzielt; er setzt sich aus Grundlohn und Akkordzuschlag zusammen. Je Minute Vorgabezeit wird der **Minutenfaktor** (Akkordrichtsatz ÷ 60) vergütet. Beim **Zeitakkord** erhält jede Einheit eine **Vorgabezeit**: Verdienst = Menge × Vorgabezeit je Einheit × Minutenfaktor. Beim **Geldakkord** wird ein fester Betrag je Stück bezahlt, der **Akkordsatz** = Vorgabezeit × Minutenfaktor. Der **Zeitgrad** = vorgegebene Zeit für die geleistete Menge ÷ tatsächlich benötigte Zeit × 100 (gleich Istmenge ÷ Menge bei Normalleistung × 100) zeigt die Leistung im Verhältnis zur Normalleistung.
+
+**Rechenbeispiel Zeitakkord** (Beispielwerte, Bestückung von Sensorgehäusen im Werk Zwickau): Grundlohn 19,50 € je Stunde, Akkordzuschlag 20 %, Vorgabezeit 2,0 Minuten je Gehäuse, bezahlte Schicht 7,5 Stunden = 450 Minuten.
+
+| Größe | Rechnung | Ergebnis |
+|---|---|---|
+| Akkordrichtsatz | 19,50 € × 1,20 | 23,40 € je Stunde |
+| Minutenfaktor | 23,40 € ÷ 60 | 0,39 € je Minute |
+| Akkordsatz (Geldakkord) | 2,0 min × 0,39 € | 0,78 € je Gehäuse |
+| Menge bei Normalleistung | 450 min ÷ 2,0 min | 225 Gehäuse |
+| Verdienst bei 243 Gehäusen | 243 × 2,0 min × 0,39 € = 486 min × 0,39 € | 189,54 € |
+| Zeitgrad | 243 ÷ 225 × 100 | 108 % |
+| Probe | 1,08 × 23,40 € × 7,5 h | 189,54 € |
+
+Bei Normalleistung verdient die Person 23,40 € × 7,5 = 175,50 € je Schicht, bei 108 % Zeitgrad 25,27 € je Stunde. Der Lohn je Stück bleibt im Akkord konstant (0,78 €); das Risiko geringer Leistung trägt hier die beschäftigte Person, weshalb meist ein Mindestverdienst vereinbart ist. Bei einer Tariferhöhung muss Solvitec im Zeitakkord nur den Minutenfaktor neu festsetzen, die Vorgabezeiten bleiben gültig; im Geldakkord wäre jeder Stückbetrag neu zu berechnen. Risiken des Akkords sind Qualitätsmängel, Überlastung und Unfallgefahr durch zu hohes Tempo, Spannungen bei veränderten Vorgabezeiten und Gruppendruck beim **Gruppenakkord**, bei dem der Verdienst einer Gruppe nach einem vereinbarten Schlüssel verteilt wird.
+
+Beim **Prämienlohn** erhält die beschäftigte Person zusätzlich zu einem festen Grundlohn, meist einem Zeitlohn, eine **Prämie**, sobald eine vorher festgelegte, messbare Größe besser ausfällt als vereinbart; Bezugsgrößen sind etwa die Ausbringung, die Fehlerfreiheit, der sparsame Umgang mit Material oder Energie, die Auslastung einer Anlage oder die pünktliche Fertigstellung. Weil sich so auch die Qualität belohnen lässt, passt er besser als der Akkord zu Arbeiten, bei denen Fehler teuer sind. Beispiel (Beispielwerte): In einer Prüflinie gilt ein Grundlohn von 20,00 € je Stunde; je volle 0,1 Prozentpunkte, um die die Ausschussquote einer Schichtgruppe unter der Basis von 2,0 % liegt, zahlt Solvitec 0,30 € je Stunde, höchstens 1,50 € je Stunde. Bei einer Ausschussquote von 1,6 % liegt die Gruppe 4 × 0,1 Prozentpunkte unter der Basis; die Prämie beträgt 4 × 0,30 € = 1,20 € und das Stundenentgelt 21,20 €. Die Höchstprämie ist bei 1,5 % erreicht. Eine Prämie lohnt sich für das Unternehmen, wenn die eingesparten Kosten (weniger Ausschuss und Nacharbeit) größer sind als die Prämienkosten; Basis, Staffel und Obergrenze müssen erreichbar und nachvollziehbar sein, sonst wirkt die Prämie nicht oder setzt Fehlanreize, etwa wenn Fehler nicht mehr gemeldet werden.
+
+Das **Gehalt** ist ein fester Monatsbetrag, typisch für Angestellte in Verwaltung, Entwicklung und Vertrieb, deren Leistung sich nicht in Stückzahlen messen lässt. Leistung wird hier über Leistungszulagen aus der Beurteilung, Zielboni (siehe Personalbeurteilung) oder eine Erfolgsbeteiligung berücksichtigt; für den Außendienst gelten die Vergütungsformen aus Thema 7.6. **Hinweis:** Die Einführung und Ausgestaltung von Entlohnungsgrundsätzen, Akkord- und Prämiensätzen unterliegt Beteiligungsrechten des Betriebsrats, und für bestimmte Beschäftigtengruppen können gesetzliche Einschränkungen beim Akkord bestehen; das wird hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+### Personalkosten, Personalbindung und Personalcontrolling
+
+Die **Personalkosten** sind mehr als das Entgelt auf der Lohnabrechnung. Zum **Entgelt für geleistete Arbeit** kommen die **Personalnebenkosten**: gesetzliche (vor allem die Arbeitgeberanteile zur Sozialversicherung und das Entgelt für bezahlte Ausfallzeiten wie Urlaub, Feiertage und Krankheit), tarifliche oder vertragliche (etwa Sonderzahlungen) und freiwillige (etwa Zuschüsse zur betrieblichen Altersversorgung, Kantine, Jobticket, Weiterbildung). Die tatsächlichen Beitragssätze und Ansprüche sind gesetzlich und tariflich geregelt und werden hier nicht behandelt; die folgenden Sätze sind Beispielwerte.
+
+**Rechenbeispiel** (Beispielwerte) für eine Vollzeitkraft in der Montage der Frequenzumrichter mit den Arbeitszeiten aus der Personalbedarfsrechnung:
+
+| Größe | Rechnung | Ergebnis |
+|---|---|---|
+| Grundentgelt (bezahlte Sollstunden) | 20,00 € × 1.875 h | 37.500 € |
+| Bruttoentgelt mit Sonderzahlungen | 37.500 € + 2.500 € | 40.000 € |
+| Arbeitgeberanteile zur Sozialversicherung (Beispielwert 20 %) | 40.000 € × 0,20 | 8.000 € |
+| Freiwillige Sozialleistungen | | 3.000 € |
+| Personalkosten im Jahr | 40.000 € + 8.000 € + 3.000 € | 51.000 € |
+| Produktive (tatsächlich geleistete) Stunden | 1.875 h − 375 h Ausfallzeit | 1.500 h |
+| Lohnkosten je produktive Stunde | 51.000 € ÷ 1.500 h | 34,00 € |
+| Entgelt für geleistete Arbeit | 20,00 € × 1.500 h | 30.000 € |
+| Personalnebenkosten | 51.000 € − 30.000 € | 21.000 € |
+| Personalnebenkostenquote (bezogen auf das Entgelt für geleistete Arbeit) | 21.000 € ÷ 30.000 € × 100 | 70 % |
+
+Vereinfachend enthält das Beispiel keine bezahlten Feiertage; in der Praxis erhöhen sie die Personalnebenkosten zusätzlich.
+
+Eine Stunde kostet Solvitec also nicht 20,00 €, sondern 34,00 €. Wie die Personalnebenkosten abgegrenzt und worauf sie bezogen werden, ist nicht einheitlich: Manche Darstellungen beziehen sie auf das Bruttoentgelt oder zählen nur die Arbeitgeberanteile; Vergleiche setzen dieselbe Definition voraus. In der Kostenrechnung (Thema 2.2) erscheinen die Löhne für die tatsächlich am Auftrag geleisteten Stunden oft als Fertigungseinzelkosten (Fertigungslöhne), während die Personalnebenkosten über den Zuschlagssatz der Fertigungsgemeinkosten verrechnet werden; alternativ rechnet die Kalkulation mit einem Stundensatz, der die Nebenkosten bereits enthält. Wie Solvitec das abgrenzt, legt die Kostenrechnung fest. Der Durchschnitt aller Beschäftigten liegt mit 36 Mio. € ÷ 500 = 72.000 € je Beschäftigten höher, weil er auch Ingenieur:innen, Führungskräfte und Angestellte enthält (Thema 2.5). Die **Personalkostenplanung** übernimmt die Ergebnisse der Bedarfsplanung: Beim Bruttopersonalbedarf von 24 VZÄ kostet die Montage 24 × 51.000 € = 1.224.000 € im Jahr. Gegenüber heute (22 VZÄ) steigen die Personalkosten nur um den Neubedarf von 2 VZÄ, also um 102.000 €; die Besetzungen für die 3 Abgänge ersetzen bereits eingeplante Kosten.
+
+**Personalbindung** soll erreichen, dass gute Beschäftigte bleiben. Die **Fluktuationsquote** (Thema 1.2) = Austritte im Zeitraum ÷ durchschnittlicher Personalbestand × 100; der Durchschnitt wird hier vereinfacht als (Anfangsbestand + Endbestand) ÷ 2 gebildet, und welche Austritte mitgezählt werden, legt das Unternehmen fest. Beispiel (Beispielwerte): Ein Fertigungsbereich hat zu Jahresbeginn 118 und zu Jahresende 122 Beschäftigte; im Jahr scheiden 9 aus. Der durchschnittliche Bestand ist (118 + 122) ÷ 2 = 120, die Fluktuationsquote 9 ÷ 120 × 100 = 7,5 %. Jeder Austritt verursacht Kosten: Beschaffung (3.000 €), Einarbeitung und anfängliche Minderleistung (7.000 €) sowie Mehrarbeit und Vertretung im Team bis zur Neubesetzung (2.000 €), zusammen 12.000 € je Austritt; dazu kommt verlorenes Erfahrungswissen (Thema 8.3). Die 9 Austritte kosten damit rund 108.000 €. Kostet ein Bindungsprogramm (Patenschaften, planbare Schichtmodelle, Entwicklungsgespräche) 40.000 € im Jahr und verhindert es 4 Austritte, spart es 4 × 12.000 € = 48.000 €; der Nutzen übersteigt die Kosten um 8.000 € (zur Kosten-Nutzen-Betrachtung von Veränderungen vgl. Thema 8.5). Die Wirkung ist eine Prognose und wird im Folgejahr überprüft.
+
+Die **Fehlzeitenquote** (Thema 1.2) setzt Ausfallzeiten ins Verhältnis zur Sollarbeitszeit; welche Ausfallzeiten einbezogen werden, legt das Unternehmen fest. Am häufigsten wird die krankheitsbedingte Fehlzeitenquote, die **Krankenquote**, berechnet: Krankheitstage ÷ Solltage × 100. Als Solltage zählen hier alle vereinbarten Arbeitstage des Jahres (ohne Wochenenden und Feiertage); der Urlaub wird nicht vorher herausgerechnet. Wer ihn abzieht, erhält eine kleinere Basis und damit eine etwas höhere Quote; Vergleiche setzen dieselbe Basis voraus. Beispiel (Beispielwerte): 120 Beschäftigte × 250 Solltage = 30.000 Solltage; bei 1.680 Krankheitstagen beträgt die Krankenquote 1.680 ÷ 30.000 × 100 = 5,6 %. Nicht zu verwechseln ist sie mit der **Ausfallquote** der Personalbedarfsrechnung: Diese zählt jede Ausfallzeit, also auch Urlaub, Weiterbildung und Freistellungen, und bezieht sie auf die Bruttoarbeitszeit. Im Rechenbeispiel zum Personalbedarf ergeben 14 Krankheitstage bei 250 Arbeitstagen eine Krankenquote von 5,6 %, während die Ausfallquote bei 20 % liegt.
+
+Das **Personalcontrolling** steuert die Personalarbeit mit Kennzahlen, Zielwerten und Soll-Ist-Vergleichen wie das Controlling insgesamt (Thema 5.4): Personalaufwandsquote (Thema 2.5), Personalkosten je VZÄ, Kosten je Einstellung, Besetzungsdauer offener Stellen, Fluktuations- und Frühfluktuationsquote, Krankenquote, Weiterbildungsquote (Balanced Scorecard, Thema 4.3) und Ergebnisse von **Mitarbeiterbefragungen** zur Zufriedenheit. Fluktuation und Krankenstand sind zugleich Frühwarnindikatoren (Thema 5.4): Steigen sie in einem Werk oder während einer Reorganisation (Thema 8.5), ist das oft ein frühes Zeichen für Überlastung, Führungsprobleme oder Verunsicherung. Eine auffällige Kennzahl ist ein Anlass zum Nachfragen, keine Erklärung; warum Beschäftigte gehen oder häufig fehlen, zeigen erst Austrittsgespräche, Befragungen und Gespräche im Team. Personenbezogene Auswertungen unterliegen dem Datenschutz und der Beteiligung des Betriebsrats; sie werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+## Karteikarten
+
+#### K-4.4-01
+**Frage:** Welche Teilpläne umfasst die Personalplanung, und welche vier Dimensionen hat der Personalbedarf?
+**Antwort:** Teilpläne: Personalbedarfs-, Personalbeschaffungs-, Personaleinsatz-, Personalentwicklungs-, Personalfreisetzungs- und Personalkostenplanung. Dimensionen: quantitativ (wie viele, meist in VZÄ), qualitativ (welche Qualifikationen), zeitlich (ab wann, wie lange) und örtlich (in welchem Werk und welcher Abteilung).
+`tags: personalplanung` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-4.4-02
+**Frage:** Was unterscheidet Brutto- und Nettopersonalbedarf von Ersatz-, Neu- und Minderbedarf?
+**Antwort:** Brutto- und Nettopersonalbedarf sind Rechengrößen: Der Bruttobedarf ist das gesamte nötige Personal, der Nettobedarf = Bruttobedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt (negativ heißt Überdeckung). Ersatz-, Neu- und Minderbedarf beschreiben Ursachen: Ersatzbedarf durch ausscheidende Beschäftigte, Neubedarf (Mehrbedarf) durch zusätzliche Aufgaben, Minderbedarf durch wegfallende Aufgaben, etwa Automatisierung.
+`tags: personalbedarf, bedarfsarten` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-03
+**Frage:** Wie berechnest du den Bruttopersonalbedarf einer Montage nach dem Zeitbedarfsverfahren?
+**Antwort:** Bruttoarbeitszeit = Arbeitstage × tägliche Sollarbeitszeit; Ausfallquote = Ausfallzeit ÷ Bruttoarbeitszeit × 100; Nettoarbeitszeit = Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl). Arbeitsbedarf = Menge × Vorgabezeit je Einheit. Bruttopersonalbedarf = Arbeitsbedarf ÷ Nettoarbeitszeit je VZÄ. Beispielwerte: 250 × 7,5 h = 1.875 h; bei 20 % Ausfall 1.500 h; 48.000 × 45 min = 36.000 h; 36.000 ÷ 1.500 = 24 VZÄ.
+`tags: personalbedarf, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-4.4-04
+**Frage:** Was ist der fortgeschriebene Personalbestand, und wie hängen Nettopersonalbedarf, Ersatz- und Neubedarf zusammen?
+**Antwort:** Fortgeschriebener Bestand = heutiger Bestand − feststehende Abgänge + feststehende Zugänge; Nettobedarf = Bruttobedarf − fortgeschriebener Bestand. War der bisherige Bedarf voll besetzt, gilt auch: Nettobedarf = Ersatzbedarf + Neubedarf − feststehende Zugänge. Beispielwerte: Bruttobedarf 24, bisher 22 besetzt, 3 Abgänge, 1 Zugang: 24 − 20 = 4 VZÄ; ebenso 3 + 2 − 1 = 4 VZÄ.
+`tags: personalbedarf, rechnen` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+#### K-4.4-05
+**Frage:** Welche Verfahren der Personalbedarfsermittlung kennst du, und wofür eignen sie sich?
+**Antwort:** Schätzverfahren (Erfahrung der Führungskräfte; schnell, subjektiv), Kennzahlenmethode (Erfahrungswerte wie Arbeitsproduktivität oder Betreuungsrelationen), Stellenplanmethode (vom Stellenplan aus; vor allem Verwaltung und Führungsstellen) und Zeitbedarfsverfahren (Menge × Vorgabezeit ÷ Nettoarbeitszeit; genau, vor allem für die Fertigung).
+`tags: personalbedarf, verfahren` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-06
+**Frage:** Wie baust du eine Personalüberdeckung im Grundsatz ab, und warum haben interne Maßnahmen Vorrang?
+**Antwort:** Intern ohne Personalabbau: Versetzung mit Qualifizierung, Abbau von Mehrarbeit und Zeitguthaben, Arbeitszeitverkürzung, Zurückholen fremd vergebener Arbeit. Extern: Einstellungsstopp und natürliche Fluktuation, Nichtverlängerung befristeter Verträge, Aufhebungsverträge, als letzte Möglichkeit Kündigungen (rechtlich hier nicht behandelt). Interne Maßnahmen halten Wissen und Vertrauen; je früher die Überdeckung erkannt wird, desto mehr gelingt ohne Abbau.
+`tags: personalfreisetzung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-07
+**Frage:** Welche Vor- und Nachteile hat die interne gegenüber der externen Personalbeschaffung?
+**Antwort:** Intern: bekannte Eignung, kürzere Einarbeitung, geringere Kosten, Aufstiegsanreiz; aber wenig neue Impulse, Enttäuschung abgelehnter interner Bewerbender und eine neue Lücke an der alten Stelle. Extern: neue Erfahrung und größere Auswahl; aber höhere Kosten, längere Einarbeitung und größere Unsicherheit über die Eignung.
+`tags: personalbeschaffung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-08
+**Frage:** Was enthält ein Anforderungsprofil, und mit welchen Instrumenten wählst du Bewerbende aus?
+**Antwort:** Das Anforderungsprofil leitet aus der Stellenbeschreibung Fach-, Methoden-, Sozial- und persönliche Kompetenz ab und trennt Muss- von Kann-Kriterien. Instrumente: Analyse der Unterlagen nach Muss-Kriterien, strukturiertes Interview mit Bewertungsbogen, Arbeitsprobe, Eignungstests, Assessment-Center für Führungs- und Nachwuchsstellen; am Ende ein Profilvergleich, oft als gewichtete Punktbewertung.
+`tags: personalauswahl` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-09
+**Frage:** Welche Zwecke hat die Personalbeurteilung, und welche Verfahren unterscheidest du?
+**Antwort:** Zwecke: Rückmeldung und Motivation, Entwicklungsbedarf, Entscheidungen über Einsatz, Beförderung und Nachfolge, Entgeltdifferenzierung, Kontrolle von Auswahl und Einarbeitung. Verfahren: freie Beurteilung, Einstufungsverfahren (Skala je Kriterium, gewichtet), Rangordnungsverfahren (Reihenfolge ohne Abstände), Beurteilung nach Zielerreichung (gewichteter Zielerreichungsgrad) und 360-Grad-Feedback (vor allem zur Entwicklung von Führungskräften).
+`tags: personalbeurteilung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.4-10
+**Frage:** Welche Beurteilungsfehler kennst du, und wie wirkst du ihnen entgegen?
+**Antwort:** Halo-Effekt (ein Merkmal überstrahlt alle), Milde- und Strengefehler (durchweg zu gut oder zu schlecht), Tendenz zur Mitte (nur mittlere Stufen), Recency-Effekt (die letzten Wochen zählen) und erster Eindruck, Ähnlichkeitseffekt (wer der beurteilenden Person ähnelt, wird besser bewertet; verwandt mit dem Sympathiefehler). Gegenmittel: beschriebene Kriterien und Stufen, laufende Notizen, Bewertung Kriterium für Kriterium, Schulung, Kalibrierungsrunden, mehrere Beurteilende.
+`tags: beurteilungsfehler` · `schwierigkeit: mittel` · `bloom: analysieren`
+
+#### K-4.4-11
+**Frage:** Was bedeuten anforderungs- und leistungsgerechtes Entgelt, und wie unterscheiden sich summarische und analytische Arbeitsbewertung?
+**Antwort:** Anforderungsgerecht: Das Entgelt folgt der Schwierigkeit der Tätigkeit (Arbeitsbewertung, Entgeltgruppe). Leistungsgerecht: Unterschiedliche Leistung bei gleicher Tätigkeit wird unterschiedlich bezahlt (Akkord, Prämie, Leistungszulage, Zielbonus). Summarisch wird der Arbeitsplatz als Ganzes bewertet (Rangfolge-, Entgeltgruppenverfahren; einfach, grob), analytisch je Anforderungsart wie Können, Belastung, Verantwortung, Arbeitsbedingungen (Rangreihen-, Stufenwertzahlverfahren; genauer, aufwendiger).
+`tags: entgelt, arbeitsbewertung` · `schwierigkeit: schwer` · `bloom: verstehen`
+
+#### K-4.4-12
+**Frage:** Wie rechnest du im Zeitakkord, und worin unterscheidet er sich vom Zeitlohn und vom Prämienlohn?
+**Antwort:** Akkordrichtsatz = Grundlohn + Akkordzuschlag; Minutenfaktor = Akkordrichtsatz ÷ 60; Verdienst = Menge × Vorgabezeit × Minutenfaktor; Zeitgrad = Istmenge ÷ Menge bei Normalleistung × 100. Beispielwerte: 19,50 € + 20 % = 23,40 €, 0,39 € je Minute; 243 Gehäuse × 2,0 min × 0,39 € = 189,54 €. Im Zeitlohn sinkt der Lohn je Stück mit steigender Leistung, im Akkord bleibt er konstant. Der Prämienlohn zahlt Grundlohn plus Prämie für messbare Zusatzleistung, etwa Qualität.
+`tags: entgeltformen, rechnen` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+#### K-4.4-13
+**Frage:** Woraus bestehen die Personalkosten, und wie berechnest du die Lohnkosten je produktive Stunde?
+**Antwort:** Entgelt für geleistete Arbeit plus Personalnebenkosten: gesetzliche (Arbeitgeberanteile zur Sozialversicherung, bezahlte Ausfallzeiten), tarifliche oder vertragliche (Sonderzahlungen) und freiwillige (Altersversorgung, Kantine, Jobticket). Lohnkosten je produktive Stunde = Personalkosten im Jahr ÷ tatsächlich geleistete Stunden; Beispielwerte: 51.000 € ÷ 1.500 h = 34,00 € bei einem Stundenlohn von 20,00 €.
+`tags: personalkosten, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-4.4-14
+**Frage:** Wie misst du Fluktuation und Krankenstand, und was kostet eine Fluktuation?
+**Antwort:** Fluktuationsquote = Austritte ÷ durchschnittlicher Personalbestand × 100, z. B. 9 ÷ 120 × 100 = 7,5 %. Krankenquote = Krankheitstage ÷ Solltage (ohne Abzug von Urlaub) × 100, z. B. 1.680 ÷ 30.000 × 100 = 5,6 %; sie ist nicht die Ausfallquote, die alle Ausfallzeiten auf die Bruttoarbeitszeit bezieht. Ein Austritt kostet Beschaffung, Einarbeitung, Minderleistung und Vertretung, z. B. 12.000 €, dazu verlorenes Wissen (Beispielwerte).
+`tags: personalcontrolling, fluktuation` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-4.4-01 · Multiple Choice
+**Frage:** Im Werk Villingen gehen in der Prüfung der Frequenzumrichter im Planjahr zwei Beschäftigte in den Ruhestand; Stückzahl und Vorgabezeiten bleiben gleich (Beispielwerte). Welche Bedarfsart nach der Ursache entsteht?
+- [ ] Neubedarf, weil neue Personen eingestellt werden
+- [ ] Minderbedarf, weil der Personalbestand sinkt
+- [x] Ersatzbedarf
+- [ ] Nettopersonalbedarf, weil die Stellen extern beschafft werden
+**Erklärung:** Der Bedarf entsteht, weil Beschäftigte ausscheiden, während die Aufgaben gleich bleiben; das ist Ersatzbedarf. Neubedarf entstünde nur durch zusätzliche Aufgaben, Minderbedarf durch wegfallende Aufgaben; ein sinkender Bestand allein ist kein Minderbedarf. Der Nettopersonalbedarf ist eine Rechengröße, keine Bedarfsart nach der Ursache.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-4.4-02 · Multiple Choice
+**Frage:** Eine Vollzeitkraft in der Schaltschrankmontage hat eine Bruttoarbeitszeit von 1.875 Stunden im Jahr; die Ausfallquote für Urlaub, Krankheit, Weiterbildung und sonstige Freistellungen beträgt 16 % (Beispielwerte). Wie hoch ist die Nettoarbeitszeit?
+- [ ] 1.859 Stunden
+- [ ] rund 1.616 Stunden
+- [x] 1.575 Stunden
+- [ ] 300 Stunden
+**Erklärung:** Nettoarbeitszeit = Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl) = 1.875 h × 0,84 = 1.575 h. 1.859 h entstehen, wenn 16 Stunden statt 16 % abgezogen werden; rund 1.616 h, wenn durch 1,16 geteilt wird; 300 h sind nur die Ausfallzeit.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-4.4-03 · Kurzantwort
+**Frage:** In der Sensormontage sollen im Jahr 90.000 Sensoren mit einer Vorgabezeit von 8 Minuten je Sensor gefertigt werden. Eine Vollzeitkraft hat eine Nettoarbeitszeit von 1.500 Stunden im Jahr (Beispielwerte). Wie hoch ist der Bruttopersonalbedarf in Vollzeitäquivalenten (VZÄ)?
+**Akzeptierte Antworten:** 8; 8,0; 8,00; 8.0; 8.00; 8 VZÄ; 8,0 VZÄ; 8,00 VZÄ; 8.0 VZÄ; 8.00 VZÄ; 8 Vollzeitäquivalente; 8,0 Vollzeitäquivalente; 8,00 Vollzeitäquivalente; 8.0 Vollzeitäquivalente; 8.00 Vollzeitäquivalente; 8 Vollzeitäquivalent; 8,0 Vollzeitäquivalent; 8,00 Vollzeitäquivalent; 8.0 Vollzeitäquivalent; 8.00 Vollzeitäquivalent; 8 Vollzeitstellen; 8,0 Vollzeitstellen; 8,00 Vollzeitstellen; 8.0 Vollzeitstellen; 8.00 Vollzeitstellen; 8 Stellen; 8,0 Stellen; 8,00 Stellen; 8.0 Stellen; 8.00 Stellen; 8 Vollzeitkräfte; 8,0 Vollzeitkräfte; 8,00 Vollzeitkräfte; 8.0 Vollzeitkräfte; 8.00 Vollzeitkräfte; acht; acht VZÄ; acht Vollzeitäquivalente; acht Vollzeitäquivalent; acht Vollzeitstellen; acht Stellen; acht Vollzeitkräfte
+**Erklärung:** Arbeitsbedarf = 90.000 × 8 min = 720.000 min ÷ 60 = 12.000 h; Bruttopersonalbedarf = 12.000 h ÷ 1.500 h = 8 VZÄ. Probe: Eine VZÄ schafft 1.500 × 60 ÷ 8 = 11.250 Sensoren; 90.000 ÷ 11.250 = 8.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-04 · Sortieren
+**Anweisung:** Bringe die Rechenschritte für den Akkordverdienst in die richtige Reihenfolge.
+1. Akkordrichtsatz aus Grundlohn und Akkordzuschlag bilden
+2. Minutenfaktor = Akkordrichtsatz ÷ 60
+3. Akkordsatz je Einheit = Vorgabezeit × Minutenfaktor
+4. Akkordverdienst = gefertigte Menge × Akkordsatz
+**Erklärung:** Jeder Schritt braucht das Ergebnis des vorigen: Ohne Akkordrichtsatz gibt es keinen Minutenfaktor, ohne Minutenfaktor keinen Betrag je Einheit, und erst dieser Betrag ergibt mit der gefertigten Menge den Verdienst.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-4.4-05 · Kurzantwort
+**Frage:** Für die Endmontage der Schaltschränke beträgt der Bruttopersonalbedarf ab dem nächsten Jahr 26 VZÄ. Heute sind 25 VZÄ besetzt; bis zum Bedarfszeitpunkt scheiden davon 4 VZÄ sicher aus, und 2 VZÄ kommen sicher hinzu (übernommene Auszubildende). Wie hoch ist der Nettopersonalbedarf in VZÄ (Beispielwerte)?
+**Akzeptierte Antworten:** 3; 3,0; 3,00; 3.0; 3.00; 3 VZÄ; 3,0 VZÄ; 3,00 VZÄ; 3.0 VZÄ; 3.00 VZÄ; 3 Vollzeitäquivalente; 3,0 Vollzeitäquivalente; 3,00 Vollzeitäquivalente; 3.0 Vollzeitäquivalente; 3.00 Vollzeitäquivalente; 3 Vollzeitäquivalent; 3,0 Vollzeitäquivalent; 3,00 Vollzeitäquivalent; 3.0 Vollzeitäquivalent; 3.00 Vollzeitäquivalent; 3 Vollzeitstellen; 3,0 Vollzeitstellen; 3,00 Vollzeitstellen; 3.0 Vollzeitstellen; 3.00 Vollzeitstellen; 3 Stellen; 3,0 Stellen; 3,00 Stellen; 3.0 Stellen; 3.00 Stellen; 3 Vollzeitkräfte; 3,0 Vollzeitkräfte; 3,00 Vollzeitkräfte; 3.0 Vollzeitkräfte; 3.00 Vollzeitkräfte; drei; drei VZÄ; drei Vollzeitäquivalente; drei Vollzeitäquivalent; drei Vollzeitstellen; drei Stellen; drei Vollzeitkräfte
+**Erklärung:** Fortgeschriebener Personalbestand = 25 − 4 + 2 = 23 VZÄ; Nettopersonalbedarf = 26 − 23 = 3 VZÄ. Typischer Fehler: die Zugänge vergessen (26 − 21 = 5) oder nur die Differenz zum heutigen Bestand rechnen (26 − 25 = 1).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-06 · Wahr/Falsch
+**Aussage:** Sinkt der Bruttopersonalbedarf eines Bereichs nach einer Automatisierung auf 18 VZÄ, während heute 21 VZÄ besetzt sind und bis zum Bedarfszeitpunkt 1 VZÄ sicher in den Ruhestand geht (Zugänge gibt es nicht), beträgt die Personalüberdeckung 3 VZÄ (Beispielwerte).
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Fortgeschriebener Bestand = 21 − 1 = 20 VZÄ; Nettopersonalbedarf = 18 − 20 = −2 VZÄ, also 2 VZÄ Überdeckung. 3 VZÄ ergeben sich, wenn der feststehende Abgang übersehen wird.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-07 · Mehrfachauswahl
+**Frage:** Im Werk Villingen besteht in der Schaltschrankverdrahtung eine Überdeckung von 2 VZÄ, während die Montage der Frequenzumrichter im selben Werk Personal sucht. Welche Maßnahmen bauen die Überdeckung ohne Personalabbau ab?
+- [x] Zwei Beschäftigte nach Qualifizierung in die Montage versetzen
+- [ ] Befristete Verträge in der Verdrahtung auslaufen lassen
+- [x] Mehrarbeit und Zeitguthaben in der Verdrahtung abbauen
+- [ ] Zwei Beschäftigten der Verdrahtung Aufhebungsverträge mit einer Abfindung anbieten
+**Erklärung:** Versetzung mit Qualifizierung und der Abbau von Mehrarbeit und Zeitguthaben sind interne Maßnahmen ohne Personalabbau; sie halten Wissen und Vertrauen. Auslaufende befristete Verträge und Aufhebungsverträge verringern dagegen den Personalbestand; sie sind externe Freisetzungsmaßnahmen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-08 · Zuordnung
+**Anweisung:** Ordne die Situationen aus Beurteilungsgesprächen dem passenden Beurteilungsfehler zu.
+- Halo-Effekt ↔ Weil ein Monteur die höchste Stückzahl der Schicht hat, bewertet die Schichtleiterin auch seine Sorgfalt und seine Zusammenarbeit sehr gut.
+- Tendenz zur Mitte ↔ Ein neuer Schichtleiter vergibt bei allen Beschäftigten in allen Kriterien die mittlere Stufe, um keine Diskussionen auszulösen.
+- Recency-Effekt ↔ Ein Fehler in der Woche vor dem Gespräch bestimmt das Urteil über ein ansonsten fehlerfreies Jahr.
+- Ähnlichkeitseffekt ↔ Eine Prüffeldleiterin bewertet eine Mitarbeiterin besser, weil diese dieselbe Fortbildung wie sie selbst gemacht hat und Probleme genauso angeht.
+**Erklärung:** Halo: ein auffälliges Merkmal überstrahlt die anderen. Tendenz zur Mitte: Unsicherheit oder Konfliktscheu führt zu mittleren Stufen. Recency: die letzten Wochen zählen zu viel. Ähnlichkeit: wer der beurteilenden Person ähnelt, wird besser bewertet. Gegenmittel sind beschriebene Kriterien, laufende Notizen und die Bewertung Kriterium für Kriterium.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-4.4-09 · Kurzantwort
+**Frage:** Für eine Schichtleitung sind drei Ziele vereinbart: Ziel 1 mit Gewicht 40 % ist zu 105 % erreicht, Ziel 2 mit Gewicht 40 % zu 90 % und Ziel 3 mit Gewicht 20 % zu 80 % (Beispielwerte). Wie hoch ist der gewichtete Zielerreichungsgrad in Prozent?
+**Akzeptierte Antworten:** 94; 94,0; 94,00; 94.0; 94.00; 94 %; 94,0 %; 94,00 %; 94.0 %; 94.00 %; 94 Prozent; 94,0 Prozent; 94,00 Prozent; 94.0 Prozent; 94.00 Prozent
+**Erklärung:** Gewichteter Zielerreichungsgrad = 0,4 × 105 % + 0,4 × 90 % + 0,2 × 80 % = 42 % + 36 % + 16 % = 94 %. Der einfache Durchschnitt (105 + 90 + 80) ÷ 3 ≈ 91,7 % übersieht die Gewichte.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-10 · Wahr/Falsch
+**Aussage:** Beim Zeitlohn sinkt der Lohn je gefertigtem Stück, wenn eine Montagekraft in derselben Zeit mehr Stück fertigt.
+- [x] Wahr
+- [ ] Falsch
+**Erklärung:** Beim Zeitlohn wird die Zeit bezahlt; mehr Stück in derselben Zeit verteilen denselben Lohn auf mehr Einheiten (bei 21,00 € je Stunde und 12 statt 10 Geräten 1,75 € statt 2,10 € je Gerät). Im Akkord bleibt der Lohn je Stück dagegen konstant, der Verdienst steigt mit der Menge.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-4.4-11 · Entweder-Oder
+**Frage:** Solvitec bewertet den Arbeitsplatz im Prüffeld getrennt nach Fachkönnen, geistiger und körperlicher Belastung, Verantwortung und Umgebungseinflüssen, vergibt je Merkmal Stufenpunkte mit Gewichten und ordnet die Summe einer Entgeltgruppe zu. Welche Art der Arbeitsbewertung ist das?
+- [ ] Summarische Arbeitsbewertung
+- [x] Analytische Arbeitsbewertung
+**Erklärung:** Die Bewertung je Anforderungsart mit Stufen und Gewichten ist ein analytisches Verfahren (Stufenwertzahlverfahren). Summarische Verfahren bewerten den Arbeitsplatz als Ganzes, etwa durch Einordnung in eine beschriebene Entgeltgruppe.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-12 · Lückentext (Wortauswahl)
+**Text:** Im Akkord ist der Stundenverdienst bei Normalleistung der ___Akkordrichtsatz___; er wird durch 60 geteilt und ergibt den ___Minutenfaktor___, der mit den Vorgabeminuten der gefertigten Menge den Verdienst bestimmt.
+**Zusätzliche Begriffe:** Zeitgrad; Prämie; Arbeitswert
+**Erklärung:** Akkordrichtsatz = Grundlohn + Akkordzuschlag; Minutenfaktor = Akkordrichtsatz ÷ 60; Verdienst = Menge × Vorgabezeit × Minutenfaktor. Der Zeitgrad zeigt die Leistung im Verhältnis zur Normalleistung, der Arbeitswert ist das Ergebnis der Arbeitsbewertung.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-4.4-13 · Kurzantwort
+**Frage:** Eine Montagekraft arbeitet im Zeitakkord mit einem Grundlohn von 21,00 € je Stunde, einem Akkordzuschlag von 20 % und einer Vorgabezeit von 3 Minuten je Sensor (Beispielwerte). Wie viele Sensoren muss sie in einer Schicht fertigen, damit ihr Akkordverdienst für diese Schicht 207,90 € beträgt?
+**Akzeptierte Antworten:** 165; 165,0; 165,00; 165.0; 165.00; 165 Sensoren; 165,0 Sensoren; 165,00 Sensoren; 165.0 Sensoren; 165.00 Sensoren; 165 Sensor; 165,0 Sensor; 165,00 Sensor; 165.0 Sensor; 165.00 Sensor; 165 Stück; 165,0 Stück; 165,00 Stück; 165.0 Stück; 165.00 Stück; 165 Stk.; 165,0 Stk.; 165,00 Stk.; 165.0 Stk.; 165.00 Stk.; 165 Stk; 165,0 Stk; 165,00 Stk; 165.0 Stk; 165.00 Stk
+**Erklärung:** Akkordrichtsatz = 21,00 € × 1,20 = 25,20 €; Minutenfaktor = 25,20 € ÷ 60 = 0,42 €. Benötigte Vorgabeminuten = 207,90 € ÷ 0,42 € = 495 min; Menge = 495 min ÷ 3 min = 165 Sensoren. Bei einer Schicht von 7,5 Stunden (450 min) läge die Normalleistung bei 150 Sensoren; 165 Sensoren entsprechen einem Zeitgrad von 110 %. Wer ohne Akkordzuschlag rechnet (0,35 € je Minute), kommt auf 594 min und 198 Sensoren.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-4.4-14 · Kurzantwort
+**Frage:** Eine Prüflinie zahlt einen Grundlohn von 19,00 € je Stunde. Je volle 0,1 Prozentpunkte, um die die Ausschussquote unter der Basis von 2,0 % liegt, gibt es eine Prämie von 0,25 € je Stunde, höchstens 1,50 € je Stunde. Die Ausschussquote beträgt 1,7 % (Beispielwerte). Wie hoch ist das Stundenentgelt einschließlich Prämie in Euro?
+**Akzeptierte Antworten:** 19,75; 19.75; 19,75 €; 19.75 €; 19,75 Euro; 19.75 Euro; 19,75 EUR; 19.75 EUR; 19,75 € je Stunde; 19,75 € pro Stunde; 19,75 €/h; 19,75 €/Std.; 19,75 €/Std; 19,75 €/Stunde; 19,75 € je h; 19,75 € pro h; 19,75 € je Std.; 19,75 € pro Std.; 19,75 Euro je Stunde; 19,75 Euro pro Stunde; 19,75 Euro/h; 19,75 Euro/Std.; 19,75 Euro/Std; 19,75 Euro/Stunde; 19,75 Euro je h; 19,75 Euro pro h; 19,75 Euro je Std.; 19,75 Euro pro Std.; 19,75 EUR je Stunde; 19,75 EUR pro Stunde; 19,75 EUR/h; 19,75 EUR/Std.; 19,75 EUR/Std; 19,75 EUR/Stunde; 19,75 EUR je h; 19,75 EUR pro h; 19,75 EUR je Std.; 19,75 EUR pro Std.; 19.75 € je Stunde; 19.75 € pro Stunde; 19.75 €/h; 19.75 €/Std.; 19.75 €/Std; 19.75 €/Stunde; 19.75 € je h; 19.75 € pro h; 19.75 € je Std.; 19.75 € pro Std.; 19.75 Euro je Stunde; 19.75 Euro pro Stunde; 19.75 Euro/h; 19.75 Euro/Std.; 19.75 Euro/Std; 19.75 Euro/Stunde; 19.75 Euro je h; 19.75 Euro pro h; 19.75 Euro je Std.; 19.75 Euro pro Std.; 19.75 EUR je Stunde; 19.75 EUR pro Stunde; 19.75 EUR/h; 19.75 EUR/Std.; 19.75 EUR/Std; 19.75 EUR/Stunde; 19.75 EUR je h; 19.75 EUR pro h; 19.75 EUR je Std.; 19.75 EUR pro Std.
+**Erklärung:** Die Quote liegt (2,0 − 1,7) ÷ 0,1 = 3 Stufen unter der Basis; Prämie = 3 × 0,25 € = 0,75 € je Stunde, unter der Obergrenze von 1,50 €. Stundenentgelt = 19,00 € + 0,75 € = 19,75 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-15 · Was passt nicht dazu
+**Frage:** Welcher Posten gehört nicht zu den Personalnebenkosten einer Montagekraft (Personalnebenkosten = alle Personalkosten über das Entgelt für geleistete Arbeit hinaus)?
+- [ ] Arbeitgeberanteile zur Sozialversicherung
+- [x] Entgelt für geleistete Arbeitsstunden
+- [ ] Entgelt für bezahlten Urlaub und Feiertage
+- [ ] Zuschuss zur betrieblichen Altersversorgung
+**Erklärung:** Personalnebenkosten sind gesetzliche (Arbeitgeberanteile, bezahlte Ausfallzeiten), tarifliche oder vertragliche (Sonderzahlungen) und freiwillige (etwa Altersversorgung) Kosten. Das Entgelt für die geleisteten Stunden ist die Basis, auf die sie hier bezogen werden.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-4.4-16 · Kurzantwort
+**Frage:** Eine Vollzeitkraft verursacht im Jahr Personalkosten von 54.000 € (Entgelt, Sonderzahlungen, Arbeitgeberanteile und freiwillige Leistungen). Bezahlt werden 1.875 Sollstunden, tatsächlich geleistet werden nach Abzug von Urlaub, Krankheit und Weiterbildung 1.600 Stunden (Beispielwerte). Wie hoch sind die Lohnkosten je produktive Stunde in Euro?
+**Akzeptierte Antworten:** 33,75; 33.75; 33,75 €; 33.75 €; 33,75 Euro; 33.75 Euro; 33,75 EUR; 33.75 EUR; 33,75 € je Stunde; 33,75 € pro Stunde; 33,75 €/h; 33,75 €/Std.; 33,75 €/Std; 33,75 €/Stunde; 33,75 € je h; 33,75 € pro h; 33,75 € je Std.; 33,75 € pro Std.; 33,75 € je produktive Stunde; 33,75 € pro produktive Stunde; 33,75 Euro je Stunde; 33,75 Euro pro Stunde; 33,75 Euro/h; 33,75 Euro/Std.; 33,75 Euro/Std; 33,75 Euro/Stunde; 33,75 Euro je h; 33,75 Euro pro h; 33,75 Euro je Std.; 33,75 Euro pro Std.; 33,75 Euro je produktive Stunde; 33,75 Euro pro produktive Stunde; 33,75 EUR je Stunde; 33,75 EUR pro Stunde; 33,75 EUR/h; 33,75 EUR/Std.; 33,75 EUR/Std; 33,75 EUR/Stunde; 33,75 EUR je h; 33,75 EUR pro h; 33,75 EUR je Std.; 33,75 EUR pro Std.; 33,75 EUR je produktive Stunde; 33,75 EUR pro produktive Stunde; 33.75 € je Stunde; 33.75 € pro Stunde; 33.75 €/h; 33.75 €/Std.; 33.75 €/Std; 33.75 €/Stunde; 33.75 € je h; 33.75 € pro h; 33.75 € je Std.; 33.75 € pro Std.; 33.75 € je produktive Stunde; 33.75 € pro produktive Stunde; 33.75 Euro je Stunde; 33.75 Euro pro Stunde; 33.75 Euro/h; 33.75 Euro/Std.; 33.75 Euro/Std; 33.75 Euro/Stunde; 33.75 Euro je h; 33.75 Euro pro h; 33.75 Euro je Std.; 33.75 Euro pro Std.; 33.75 Euro je produktive Stunde; 33.75 Euro pro produktive Stunde; 33.75 EUR je Stunde; 33.75 EUR pro Stunde; 33.75 EUR/h; 33.75 EUR/Std.; 33.75 EUR/Std; 33.75 EUR/Stunde; 33.75 EUR je h; 33.75 EUR pro h; 33.75 EUR je Std.; 33.75 EUR pro Std.; 33.75 EUR je produktive Stunde; 33.75 EUR pro produktive Stunde
+**Erklärung:** Lohnkosten je produktive Stunde = 54.000 € ÷ 1.600 h = 33,75 €. Wer durch die bezahlten Sollstunden teilt (54.000 € ÷ 1.875 h = 28,80 €), unterschätzt die Kosten einer tatsächlich geleisteten Stunde, weil Urlaub, Krankheit und Weiterbildung bezahlt, aber nicht gearbeitet werden.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.4-17 · Kurzantwort
+**Frage:** Ein Werk hat zu Jahresbeginn 76 und zu Jahresende 84 Beschäftigte; im Jahr scheiden 10 Beschäftigte aus. Wie hoch ist die Fluktuationsquote in Prozent (durchschnittlicher Bestand als Mittel aus Anfangs- und Endbestand; Beispielwerte)?
+**Akzeptierte Antworten:** 12,50; 12,5; 12.50; 12.5; 12,50 %; 12,5 %; 12.50 %; 12.5 %; 12,50 Prozent; 12,5 Prozent; 12.50 Prozent; 12.5 Prozent
+**Erklärung:** Durchschnittlicher Bestand = (76 + 84) ÷ 2 = 80; Fluktuationsquote = 10 ÷ 80 × 100 = 12,5 %. Kostet jeder Austritt etwa 12.000 € für Beschaffung, Einarbeitung und Vertretung, sind das rund 120.000 € im Jahr.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-4.4-18 · Kurzantwort
+**Frage:** Ein Bereich mit 60 Beschäftigten hat je Person 250 Solltage im Jahr (Arbeitstage ohne Wochenenden und Feiertage, ohne Abzug von Urlaub). Insgesamt fallen 900 krankheitsbedingte Fehltage an (Beispielwerte). Wie hoch ist die Krankenquote in Prozent?
+**Akzeptierte Antworten:** 6; 6,0; 6,00; 6.0; 6.00; 6 %; 6,0 %; 6,00 %; 6.0 %; 6.00 %; 6 Prozent; 6,0 Prozent; 6,00 Prozent; 6.0 Prozent; 6.00 Prozent
+**Erklärung:** Solltage = 60 × 250 = 15.000; Krankenquote = 900 ÷ 15.000 × 100 = 6 %. Sie ist nicht die Ausfallquote der Personalbedarfsrechnung, die auch Urlaub, Weiterbildung und sonstige Freistellungen auf die Bruttoarbeitszeit bezieht.
+`schwierigkeit: leicht` · `bloom: anwenden`
