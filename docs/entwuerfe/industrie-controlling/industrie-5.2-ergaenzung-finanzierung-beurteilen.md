@@ -1,0 +1,310 @@
+# Entwurf Industriefachwirt, Finanzierung beurteilen: Ergänzung im Thema 5.2
+
+Stand 15.10.2026, **Entwurf (R3), nicht eingespielt.** Teil C des Auftrags P-M (Erhebung IF-21; Review FL-IF-11, Rahmenplan „Finanzierung beurteilen“). Einzufügen in `content/industriefachwirt/hq1/5.2-finanzierungsarten.md`: Abschnitt A am Ende von „## Theorie“ hinter „Kreditwürdigkeitsprüfung und Rating“, B an die Karteikarten hinter K-5.2-20, C an das Quiz hinter Q-5.2-15. Bestand gezählt: 20 Karteikarten (K-5.2-01 bis -20) und 15 Quizfragen (Q-5.2-01 bis -15); die neuen IDs sind K-5.2-21 bis -30 und Q-5.2-16 bis -27. Beim Einspielen den `rechtsstand` im Frontmatter auf „15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte“ aktualisieren.
+
+Der Bestand von 5.2 beschreibt die Finanzierungsarten (Außen- und Innenfinanzierung, Eigen- und Fremdfinanzierung, Kontokorrentkredit, Darlehen, Lieferanten- und Kundenkredit, Leasing, Factoring, Selbst-, Abschreibungs- und Rückstellungsfinanzierung, Mezzanine-Kapital, Rating). Er wird nicht wiederholt; die Ergänzung zeigt, wie eine Finanzierung **beurteilt** wird: Kreditsicherheiten, Kreditkosten und Effektivzins, Tilgungsarten, Skonto als Finanzierungsentscheidung, Leverage-Effekt und der Vergleich von Finanzierungsalternativen. Die Begriffe folgen dem Bestand: **Rentabilitäten, Verschuldungsgrad, Leverage-Formel, Fristenkongruenz (goldene Bilanzregel)** wie in Thema 2.5 (Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital; Gesamtkapitalrentabilität = (Jahresüberschuss + Fremdkapitalzinsen) ÷ Gesamtkapital × 100); **Skonto-Näherungsformel** Skontosatz × 360 ÷ (Zahlungsziel − Skontofrist) wie in Thema 6.5, dazu die genauere Formel mit dem verminderten Zahlbetrag; **Kostenvergleichsrechnung** mit kalkulatorischen Zinsen auf das durchschnittlich gebundene Kapital wie in Thema 5.1 (nicht zu verwechseln: die **Annuitätenmethode** der Investitionsrechnung in 5.1 und die **Annuitätentilgung** eines Darlehens nutzen denselben Faktor, sind aber verschiedene Dinge); **Nutzwertanalyse** (Gewicht als Dezimalzahl × Punkte, Skala 1 bis 10, Muss-Kriterien vorab) wie in den Themen 6.5 und 6.8; **Cashflow, Finanzplan, Anschlussfinanzierung** wie in Thema 5.3; **Eigentumsvorbehalt** nur als Verweis auf Thema 3.3. Die Solvitec-Kennzahlen aus Thema 2.5 (Eigenkapital 32 Mio. €, Fremdkapital 48 Mio. €, Gesamtkapitalrentabilität 7,5 %, durchschnittlicher Fremdkapitalzinssatz 2,5 %, Eigenkapitalrentabilität 15 %) werden nur im Leverage-Abschnitt aufgegriffen; alle übrigen Rechenbeispiele sind eigene, frei gewählte Beispielwerte und unabhängig von den Rechenbeispielen anderer Themen.
+
+**Rechtsnah und nicht förmlich rechtsgeprüft**, nur als Hinweis „gesetzliche Vorgaben, hier nicht behandelt“, ohne Paragrafen und Gesetzesnamen: Form, Eintragung, Rang und Verwertung von Kreditsicherheiten, Bürgschaftsrecht, Kreditvertragsrecht, Angabe des Effektivzinses, Bilanzierung und steuerliche Behandlung von Leasing, Insolvenzrecht. Querverweis auf die Teile A und B dieses Pakets: Ein Satz im Abschnitt zum Leverage-Effekt verweist auf das Controlling (Thema 5.4, Teil A). Wird Teil C vor Teil A eingespielt, den Klammerzusatz „(Thema 5.4)“ streichen und „im Frühwarnsystem“ durch „in seinen Berichten“ ersetzen. Karten und Quiz duzen, die Theorie spricht niemanden an.
+
+---
+
+# Thema 5.2
+
+## A. Theorie-Ergänzung 5.2 (einfügen am Ende von „## Theorie“, hinter „Kreditwürdigkeitsprüfung und Rating“)
+
+### Kreditsicherheiten im Überblick
+
+Kreditinstitute vergeben Fremdkapital nicht allein im Vertrauen auf die Kreditwürdigkeit, die sie im Rating einschätzen. Für größere und längerfristige Kredite verlangen sie zusätzlich **Kreditsicherheiten**: Rechte, auf die das Kreditinstitut zugreifen kann, wenn das Unternehmen Zins und Tilgung nicht mehr leistet. Ein Kredit ohne Sicherheiten heißt **Blankokredit**; er wird nur bei sehr guter Bonität oder in kleinerem Umfang gewährt, etwa als Teil einer Kontokorrentlinie.
+
+Man unterscheidet zwei Gruppen von Sicherheiten:
+
+- **Personalsicherheiten:** Neben dem Unternehmen haftet eine weitere Person oder ein weiteres Unternehmen mit dem eigenen Vermögen. Wichtigste Form ist die **Bürgschaft**: Die bürgende Person oder das bürgende Unternehmen, zum Beispiel eine Muttergesellschaft oder eine Gesellschafterin, verpflichtet sich gegenüber dem Kreditinstitut, für die Schuld einzustehen, wenn das kreditnehmende Unternehmen nicht zahlt. Kreditinstitute verlangen in der Regel, dass sie die bürgende Seite sofort in Anspruch nehmen können, sobald das Unternehmen nicht zahlt (**selbstschuldnerische Bürgschaft**). Bei der gewöhnlichen Bürgschaft muss das Kreditinstitut dagegen zuerst erfolglos versucht haben, die Forderung beim Unternehmen einzutreiben; bei der **Ausfallbürgschaft** haftet die bürgende Person bzw. das bürgende Unternehmen sogar erst für den Betrag, der nach Verwertung aller übrigen Sicherheiten endgültig ausfällt. Eine Bürgschaft ist nur so viel wert wie die Zahlungsfähigkeit der bürgenden Seite.
+- **Realsicherheiten (Sachsicherheiten):** Das Kreditinstitut erhält ein Recht an einem bestimmten Vermögensgegenstand, den es im Sicherungsfall verwerten kann.
+  - **Grundpfandrechte** lasten auf Grundstücken und Gebäuden und werden im Grundbuch eingetragen. Die **Grundschuld** besteht unabhängig davon, wie hoch der gesicherte Kredit gerade noch ist, und kann nach der Tilgung für neue Kredite weiterverwendet werden; sie ist deshalb in der Praxis die übliche Form. Die **Hypothek** ist dagegen an eine bestimmte Forderung gebunden und verringert sich mit deren Tilgung.
+  - Bei der **Sicherungsübereignung** überträgt das Unternehmen dem Kreditinstitut das Eigentum an einer beweglichen Sache, etwa einer Maschine, einem Fahrzeugpark oder einem Warenlager, bleibt aber Besitzer und nutzt die Sache weiter. Für Industrieunternehmen ist sie die typische Sicherheit bei der Finanzierung von Anlagen, weil die Produktion weiterlaufen kann.
+  - Bei der **Verpfändung** wird die Sache dem Kreditinstitut als Pfand übergeben; das Unternehmen kann sie dann nicht mehr nutzen. Sie eignet sich deshalb vor allem für Wertpapiere und Bankguthaben, nicht für Maschinen, die in der Fertigung gebraucht werden.
+  - Bei der **Sicherungsabtretung (Zession)** tritt das Unternehmen Forderungen gegenüber seiner Kundschaft an das Kreditinstitut ab. Bei der **stillen Zession** erfährt die Kundschaft davon nichts und zahlt weiter an das Unternehmen, bei der **offenen Zession** wird sie benachrichtigt und zahlt an das Kreditinstitut. Werden alle gegenwärtigen und künftigen Forderungen einer festgelegten Gruppe abgetreten, etwa alle Inlandsforderungen, spricht man von einer **Globalzession**; sie passt zu einem Kontokorrentkredit, dessen Inanspruchnahme mit den Forderungen schwankt.
+  - Der **Eigentumsvorbehalt** sichert nicht ein Kreditinstitut, sondern das Lieferunternehmen beim Lieferantenkredit: Es bleibt Eigentümer der gelieferten Ware, bis sie bezahlt ist (Thema 3.3).
+
+Sicherheiten senken das Ausfallrisiko des Kreditinstituts und verbessern damit die Kreditkonditionen: einen niedrigeren Zinssatz, einen höheren Kreditrahmen oder überhaupt erst eine Zusage. Sie ersetzen aber nicht die Kreditwürdigkeit. Das Kreditinstitut prüft zuerst, ob das Unternehmen den **Kapitaldienst**, also Zins und Tilgung, aus dem laufenden Cashflow (Thema 5.3) leisten kann; die Verwertung einer Sicherheit ist für beide Seiten der ungünstigste Fall, weil sie Zeit kostet und oft weniger einbringt als erwartet. Auch für das Unternehmen haben Sicherheiten einen Preis: Eine eingetragene Grundschuld oder eine übereignete Anlage steht für weitere Kredite nicht mehr oder nur noch teilweise zur Verfügung (der **Sicherheitenspielraum** schrumpft), und Bewertung und Eintragung verursachen Kosten.
+
+**Sicherheitenwert und Beleihung:** Kreditinstitute setzen Sicherheiten nicht mit ihrem vollen Wert an, weil der Erlös im Verwertungsfall unsicher ist. Bei Grundstücken wird aus dem Marktwert (Verkehrswert) vorsichtig ein auf Dauer erzielbarer **Beleihungswert** abgeleitet; als Kredit abgesichert wird nur ein Teil davon bis zur **Beleihungsgrenze**, einem Prozentsatz des Beleihungswerts. Bewegliche Sachen und Forderungen werden nur mit einem **Beleihungssatz** angesetzt, einem Prozentsatz ihres Werts (etwa 50 % des Anschaffungswerts einer Maschine); der Sicherheitsabschlag fällt umso höher und der Beleihungssatz umso niedriger aus, je schwerer eine Sache zu verkaufen ist, etwa eine auf Solvitec zugeschnittene Sondermaschine, oder wenn Forderungen schwer einzutreiben sind, etwa Auslandsforderungen. Rechte, die bereits für andere Kredite bestellt sind, werden abgezogen.
+
+**Rechenbeispiel: Sicherheitenwert** (frei gewählte Beispielwerte; die Prozentsätze legt jedes Kreditinstitut nach eigenen Richtlinien fest): Solvitec beantragt für die Erweiterung des Werks Süd einschließlich einer neuen SMD-Bestückungslinie ein Darlehen über 3.500.000 €. Als Sicherheiten bietet sie eine Grundschuld auf das bisher unbelastete Betriebsgrundstück des Werks Süd (Marktwert 6.000.000 €) und die Sicherungsübereignung der neuen Linie (Anschaffungswert 1.500.000 €) an. Die Hausbank setzt den Beleihungswert mit 80 % des Marktwerts an, also 6.000.000 € × 80 % = 4.800.000 €, und beleiht bis zu 60 % davon: 4.800.000 € × 60 % = 2.880.000 €. Die SMD-Linie bewertet sie mit 50 % des Anschaffungswerts: 1.500.000 € × 50 % = 750.000 €. Zusammen sichern die beiden Sicherheiten 2.880.000 € + 750.000 € = 3.630.000 € ab; das reicht für das Darlehen, und es bleibt ein Spielraum von 130.000 €.
+
+Form, Eintragung, Rang und Verwertung von Kreditsicherheiten sowie die Folgen einer Insolvenz sind gesetzlich geregelt und werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+### Kreditkosten, Effektivzins und Tilgungsarten
+
+Die Kosten eines Kredits bestehen nicht nur aus dem vereinbarten Zinssatz. Zu den **Kreditkosten** gehören:
+
+- der **Nominalzins**, der auf den Kreditbetrag bzw. die jeweilige Restschuld berechnet wird;
+- das **Disagio** (Abschlag): Das Kreditinstitut zahlt weniger als den Kreditbetrag aus, zurückgezahlt wird aber der volle Betrag; meist wird dafür ein niedrigerer Nominalzins vereinbart;
+- einmalige **Bearbeitungsgebühren** oder Provisionen;
+- **Bereitstellungszinsen** für zugesagte, aber noch nicht abgerufene Beträge, etwa wenn ein Darlehen für einen Hallenbau in Teilbeträgen nach Baufortschritt ausgezahlt wird;
+- die Kosten der Sicherheiten (Bewertung, Eintragung).
+
+Hinzu kommt die Frage der **Zinsbindung**: Ein fester Zinssatz gibt Planungssicherheit, ein variabler Zinssatz folgt dem Marktzins und kann steigen oder sinken.
+
+Der **Effektivzins** fasst die Kosten in einem Jahreszinssatz zusammen und macht Angebote mit unterschiedlichem Nominalzins, Disagio und Gebühren vergleichbar. Für ein **endfälliges** Darlehen gilt näherungsweise:
+
+**Effektivzins ≈ (Nominalzins in % + Disagio und einmalige Gebühren in % ÷ Laufzeit in Jahren) ÷ Auszahlungskurs in % × 100**
+
+Der Auszahlungskurs ist der ausgezahlte Anteil des Kreditbetrags, hier 100 % abzüglich Disagio und einmaliger Gebühren (wenn die Gebühren von der Auszahlung abgezogen werden).
+
+**Rechenbeispiel: Effektivzins** (frei gewählte Beispielwerte): Für die Werkserweiterung liegen zwei Angebote über je 2.000.000 € mit einer Laufzeit von 5 Jahren und Tilgung am Ende der Laufzeit vor. Angebot 1: Nominalzins 4,5 %, Disagio 2 %, Bearbeitungsgebühr 0,5 %. Angebot 2: Nominalzins 4,9 %, Auszahlung 100 %, keine Gebühr.
+
+- Angebot 1: Ausgezahlt werden 2.000.000 € × 97,5 % = 1.950.000 €, die Zinsen betragen 2.000.000 € × 4,5 % = 90.000 € im Jahr. Effektivzins ≈ (4,5 + 2,5 ÷ 5) ÷ 97,5 × 100 = 5,0 ÷ 97,5 × 100 ≈ 5,13 %. Gesamtkosten in 5 Jahren: 5 × 90.000 € + 50.000 € (Disagio und Gebühr) = 500.000 €.
+- Angebot 2: Effektivzins = Nominalzins = 4,9 %; Gesamtkosten 5 × 98.000 € = 490.000 €.
+
+Angebot 2 ist günstiger, obwohl sein Nominalzins höher ist; außerdem erhält Solvitec den vollen Betrag, während bei Angebot 1 für eine Auszahlung von 2.000.000 € ein höherer Kreditbetrag nötig wäre. Finanzmathematisch genau (als interner Zinsfuß der Zahlungsreihe, vergleichbar mit Thema 5.1) ergibt sich für Angebot 1 ein Effektivzins von rund 5,08 %; die Näherung überschätzt ihn leicht, genügt aber für den Vergleich. Wird während der Laufzeit getilgt, ist das Kapital im Durchschnitt kürzer gebunden; Disagio und Gebühren verteilen sich dann auf weniger Jahre, und der Effektivzins liegt höher, als die Formel mit der Gesamtlaufzeit zeigt. Die genaue Rechnung erfolgt dann mit einer Tabellenkalkulation. Wie Kreditinstitute den Effektivzins berechnen und angeben müssen, ist gesetzlich geregelt und wird hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+Nach der Art der Rückzahlung unterscheidet man drei **Tilgungsarten**:
+
+- **Ratentilgung:** Jedes Jahr wird derselbe Tilgungsbetrag gezahlt; die Zinsen auf die sinkende Restschuld werden kleiner, die Gesamtbelastung sinkt von Jahr zu Jahr.
+- **Annuitätentilgung:** Die jährliche Zahlung (Annuität) aus Zins und Tilgung bleibt gleich; der Zinsanteil sinkt, der Tilgungsanteil steigt. Annuität = Kreditbetrag × Annuitätenfaktor mit Annuitätenfaktor = i × q^n ÷ (q^n − 1), q = 1 + i, Zinssatz i als Dezimalzahl, n = Laufzeit in Jahren (bei 5 % und 4 Jahren: 0,05 × 1,05^4 ÷ (1,05^4 − 1) ≈ 0,28201183). Mit demselben Faktor verteilt die Annuitätenmethode in Thema 5.1 einen Kapitalwert gleichmäßig auf die Nutzungsdauer; dort ist das Verfahren nur in Worten beschrieben.
+- **Endfällige Tilgung:** Während der Laufzeit werden nur Zinsen gezahlt, der ganze Kreditbetrag wird am Ende fällig.
+
+**Rechenbeispiel: Tilgungsarten** (frei gewählte Beispielwerte): Darlehen 600.000 €, Laufzeit 4 Jahre, Zinssatz 5 %, Zahlung jeweils am Jahresende.
+
+Ratentilgung (Tilgung 600.000 € ÷ 4 = 150.000 € im Jahr):
+
+| Jahr | Restschuld zu Jahresbeginn | Zinsen | Tilgung | Zahlung |
+|---|---|---|---|---|
+| 1 | 600.000 € | 30.000 € | 150.000 € | 180.000 € |
+| 2 | 450.000 € | 22.500 € | 150.000 € | 172.500 € |
+| 3 | 300.000 € | 15.000 € | 150.000 € | 165.000 € |
+| 4 | 150.000 € | 7.500 € | 150.000 € | 157.500 € |
+| Summe | | 75.000 € | 600.000 € | 675.000 € |
+
+Annuitätentilgung (Annuitätenfaktor ≈ 0,28201183; Annuität 600.000 € × 0,28201183 ≈ 169.207,10 €):
+
+| Jahr | Restschuld zu Jahresbeginn | Zinsen | Tilgung | Annuität |
+|---|---|---|---|---|
+| 1 | 600.000,00 € | 30.000,00 € | 139.207,10 € | 169.207,10 € |
+| 2 | 460.792,90 € | 23.039,65 € | 146.167,45 € | 169.207,10 € |
+| 3 | 314.625,45 € | 15.731,27 € | 153.475,83 € | 169.207,10 € |
+| 4 | 161.149,62 € | 8.057,48 € | 161.149,62 € | 169.207,10 € |
+| Summe | | 76.828,40 € | 600.000,00 € | 676.828,40 € |
+
+Bei endfälliger Tilgung zahlt Solvitec 4 Jahre lang 30.000 € Zinsen und im vierten Jahr zusätzlich 600.000 € Tilgung; die Zinsen betragen zusammen 120.000 €.
+
+Die Zinssummen unterscheiden sich, obwohl der Zinssatz gleich ist, weil das Kapital unterschiedlich lange gebunden ist: Wer langsamer tilgt, nutzt das Geld länger und zahlt dafür länger Zinsen. Welche Tilgungsart passt, ist deshalb vor allem eine Frage der **Liquidität**: Die Ratentilgung belastet zu Beginn am stärksten, die Annuität ist gleichbleibend und gut planbar, die endfällige Tilgung schont die Liquidität während der Laufzeit, verlangt aber am Ende einen großen Betrag, der angespart, aus den Rückflüssen der Investition gedeckt (Abschreibungsfinanzierung) oder durch eine Anschlussfinanzierung (Thema 5.3) ersetzt werden muss. Nach dem Grundsatz der Fristenkongruenz (Thema 2.5) sollte die Tilgung zur Nutzungsdauer des finanzierten Gegenstands passen.
+
+### Skonto als Finanzierungsentscheidung
+
+Der Lieferantenkredit ist schnell verfügbar und braucht außer dem Eigentumsvorbehalt des Lieferunternehmens keine Sicherheiten. Er ist aber nur dann kostenlos, wenn kein Skonto angeboten wird. Bietet das Lieferunternehmen Skonto an, kostet die Nutzung des Zahlungsziels den entgangenen Skonto: Solvitec zahlt für die Tage zwischen Skontofrist und Zahlungsziel einen Aufpreis, der in einen Jahreszinssatz umgerechnet werden kann (Jahr mit 360 Tagen):
+
+- **Näherungsformel** (wie in Thema 6.5): Jahreszinssatz ≈ Skontosatz × 360 ÷ (Zahlungsziel − Skontofrist).
+- **Genauere Formel** (einfache Verzinsung; in anderen Kursen auch Skonto-Effektivzins): Jahreszinssatz = Skontosatz ÷ (100 − Skontosatz) × 360 ÷ (Zahlungsziel − Skontofrist) × 100. Sie berücksichtigt, dass der Kredit nur über den verminderten Zahlbetrag läuft: Wer den Skonto nicht nutzt, „leiht“ sich den um den Skonto verminderten Betrag und zahlt den Skonto als Zins.
+
+Beispiel (Beispielwerte): 2 % Skonto bei Zahlung innerhalb von 10 Tagen, sonst Zahlung in 30 Tagen. Näherung: 2 × 360 ÷ 20 = 36 %; genau: 2 ÷ 98 × 360 ÷ 20 × 100 ≈ 36,73 %.
+
+Ob sich der Skontoabzug lohnt, zeigt der **Vergleich mit dem Bankkredit**, mit dem die frühere Zahlung finanziert wird. Liegt der Jahreszinssatz des Skontos über dem Zinssatz des Kontokorrentkredits, lohnt es sich, den Skonto zu nutzen und die Zahlung über den Kontokorrentkredit zu finanzieren. **Rechenbeispiel** (frei gewählte Beispielwerte; Umsatzsteuer bleibt unberücksichtigt): Eine Rechnung über 50.000 € ist mit 2 % Skonto innerhalb von 10 Tagen oder ohne Abzug in 30 Tagen zahlbar; der Kontokorrentkredit kostet 9 % im Jahr. Zahlt Solvitec am 10. Tag, überweist sie 50.000 € − 1.000 € = 49.000 € und finanziert diesen Betrag 20 Tage lang über den Kontokorrentkredit: Zinsen = 49.000 € × 9 % × 20 ÷ 360 = 245 €. Der Skonto von 1.000 € übersteigt die Zinsen um 755 €; das ist der **Finanzierungsvorteil** der Skontonutzung.
+
+Voraussetzung ist, dass die Kreditlinie ausreicht. Ist sie weitgehend ausgeschöpft, legt der Finanzplan (Thema 5.3) fest, welche Rechnungen mit Skonto bezahlt werden; dann haben die Rechnungen mit dem höchsten Skontozins Vorrang. Ein eigenmächtiges Überziehen des Zahlungsziels ist keine Finanzierungsquelle: Es belastet die Beziehung zum Lieferunternehmen, und das Zahlungsverhalten fließt in die Bonitätseinschätzung ein.
+
+Dieselbe Rechnung gilt umgekehrt, wenn Solvitec selbst ihrer Kundschaft Skonto gewährt: Ein Kundenskonto von 2 % für eine 20 Tage frühere Zahlung kostet Solvitec näherungsweise 36 % im Jahr. Er beschleunigt die Zahlungseingänge und senkt das Ausfallrisiko, ist aber eine teure Finanzierung; Alternativen sind ein straffes Forderungsmanagement oder Factoring (Abschnitt „Sonderformen der Fremdfinanzierung: Leasing und Factoring“). Wie Skonto gebucht wird, zeigt Thema 2.4.
+
+### Leverage-Effekt: Hebel und Risiko der Verschuldung
+
+Thema 2.5 führt den **Leverage-Effekt** ein: Solange die Gesamtkapitalrentabilität über dem Fremdkapitalzinssatz liegt, steigert zusätzliches Fremdkapital die Eigenkapitalrentabilität:
+
+**Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital**
+
+Das Verhältnis Fremdkapital ÷ Eigenkapital ist der Verschuldungsgrad; Thema 2.5 gibt ihn in Prozent an (Solvitec 150 %), in der Leverage-Formel wird er als Faktor (1,5) eingesetzt. Die Formel zeigt die beiden Stellgrößen des Hebels: den **Abstand** zwischen Gesamtkapitalrentabilität und Fremdkapitalzinssatz und den **Verschuldungsgrad**, mit dem dieser Abstand vervielfacht wird. Für die Solvitec ergibt sich mit den Werten aus Thema 2.5: 7,5 % + (7,5 % − 2,5 %) × 48 ÷ 32 = 7,5 % + 5 % × 1,5 = 15 %.
+
+**Rechenbeispiel: positiver und negativer Hebel** (frei gewählte Beispielwerte; Steuern bleiben unberücksichtigt, der Gewinn vor Zinsen entspricht Jahresüberschuss plus Fremdkapitalzinsen): Ein Erweiterungsvorhaben benötigt 12 Mio. € Kapital, der Fremdkapitalzinssatz beträgt 4 %. Im guten Fall erwirtschaftet das Vorhaben eine Gesamtkapitalrentabilität von 9 % (Gewinn vor Zinsen 1,08 Mio. €), im schlechten Fall nur 2 % (0,24 Mio. €).
+
+| Finanzierung | Eigenkapital | Fremdkapital | Verschuldungsgrad (Faktor) | Eigenkapitalrentabilität bei 9 % | Eigenkapitalrentabilität bei 2 % |
+|---|---|---|---|---|---|
+| nur Eigenkapital | 12 Mio. € | 0 Mio. € | 0 | 9 % | 2 % |
+| je zur Hälfte | 6 Mio. € | 6 Mio. € | 1 | 9 % + 5 % × 1 = 14 % | 2 % − 2 % × 1 = 0 % |
+| überwiegend Fremdkapital | 3 Mio. € | 9 Mio. € | 3 | 9 % + 5 % × 3 = 24 % | 2 % − 2 % × 3 = −4 % |
+
+Zur Kontrolle direkt gerechnet: Bei 3 Mio. € Eigenkapital und 9 Mio. € Fremdkapital betragen die Zinsen 9 Mio. € × 4 % = 0,36 Mio. €; im guten Fall bleiben 1,08 Mio. € − 0,36 Mio. € = 0,72 Mio. €, also 0,72 ÷ 3 × 100 = 24 %, im schlechten Fall 0,24 Mio. € − 0,36 Mio. € = −0,12 Mio. €, also −4 %.
+
+Der Hebel wirkt in **beide Richtungen**: Ohne Fremdkapital schwankt die Eigenkapitalrentabilität zwischen 9 % und 2 %, bei einem Verschuldungsgrad von 3 (300 %) zwischen 24 % und −4 %. Liegt die Gesamtkapitalrentabilität unter dem Fremdkapitalzinssatz (**negativer Leverage-Effekt**), senkt jeder zusätzliche Euro Fremdkapital die Eigenkapitalrentabilität, und bei hoher Verschuldung entstehen Verluste, die am Eigenkapital zehren. Für Solvitec hieße das: Fiele die Gesamtkapitalrentabilität bei gleicher Kapitalstruktur auf 2 %, sänke die Eigenkapitalrentabilität auf 2 % + (2 % − 2,5 %) × 1,5 = 1,25 %.
+
+Daraus ergeben sich die Grenzen der Verschuldung (**Leverage-Risiko**):
+
+- Die Gesamtkapitalrentabilität schwankt mit Auftragslage und Auslastung, die Zinsen fallen unabhängig davon an; Zins und Tilgung müssen auch in schwachen Jahren aus dem Cashflow bezahlt werden.
+- Mit steigendem Verschuldungsgrad sinken Eigenkapitalquote und Rating; neue Kredite werden teurer oder nur gegen zusätzliche Sicherheiten vergeben, und der Abstand zwischen Rentabilität und Zinssatz schrumpft.
+- Bei variablem Zinssatz kann ein steigender Marktzins den Hebel umkehren (Zinsänderungsrisiko).
+- Kreditverträge enthalten oft **Kreditauflagen (Covenants)**, etwa eine Mindest-Eigenkapitalquote; werden sie verletzt, kann das Kreditinstitut die Konditionen anpassen oder weitere Rechte geltend machen (gesetzliche und vertragliche Vorgaben, hier nicht behandelt).
+
+Für eine Finanzierungsentscheidung zählt der Zinssatz des **neuen** Kredits, nicht der Durchschnittszins des bisherigen Fremdkapitals: Der Durchschnittszins der Solvitec von 2,5 % in Thema 2.5 ist so niedrig, weil er auf das gesamte Fremdkapital einschließlich der unverzinslichen Rückstellungen gerechnet ist. Ziel ist deshalb nicht eine möglichst hohe Verschuldung, sondern eine Kapitalstruktur, die Rentabilität, Sicherheit und Unabhängigkeit ausgleicht; Kennzahlen wie Verschuldungsgrad und Eigenkapitalquote überwacht das Controlling laufend, etwa mit Schwellenwerten und Ampeln im Frühwarnsystem (Thema 5.4), damit drohende Verstöße gegen Kreditauflagen früh erkannt werden.
+
+### Finanzierungsalternativen beurteilen
+
+Eine Finanzierung wird nicht allein nach dem Zinssatz ausgewählt. Wichtige **Beurteilungskriterien** sind:
+
+- **Kosten:** Effektivzins einschließlich Disagio und Gebühren; bei Eigenkapital die Renditeerwartung der Kapitalgeber:innen.
+- **Liquiditätswirkung:** Höhe und zeitlicher Verlauf der Zahlungen (Tilgungsart, Leasingraten, Mittelbindung zu Beginn); sie wird im Finanzplan geprüft (Thema 5.3).
+- **Fristigkeit:** Laufzeit und Tilgung passen zur Nutzungsdauer (Fristenkongruenz, Thema 2.5).
+- **Sicherheiten:** Welche Sicherheiten werden verlangt, und welcher Sicherheitenspielraum bleibt für künftige Kredite?
+- **Kapitalstruktur und Rating:** Wirkung auf Eigenkapitalquote und Verschuldungsgrad und damit auf künftige Kreditkonditionen.
+- **Flexibilität:** Sondertilgungen, Abruf nach Bedarf, Anpassung bei geänderten Plänen.
+- **Unabhängigkeit:** Mitsprache- und Kontrollrechte neuer Gesellschafter:innen, Kreditauflagen.
+- **Risiko:** Zinsbindung, Abhängigkeit von einem einzigen Kreditinstitut.
+
+**Leasing oder Kauf:** Leasing (Abschnitt „Sonderformen der Fremdfinanzierung: Leasing und Factoring“) wird mit einem kreditfinanzierten Kauf zunächst über die Kosten verglichen. Für den Kauf werden wie in der Kostenvergleichsrechnung (Thema 5.1) die Abschreibungen und kalkulatorische Zinsen auf das durchschnittlich gebundene Kapital angesetzt, und zwar mit dem Zinssatz der tatsächlichen Finanzierung, also dem Effektivzins des Darlehens. Kosten, die in beiden Fällen gleich anfallen (Wartung, Versicherung, Energie), können weggelassen werden.
+
+**Rechenbeispiel: Leasing oder Kauf** (frei gewählte Beispielwerte): Für eine Prüfanlage in der SMD-Fertigung im Werk Süd (Anschaffungswert 480.000 €, Nutzungsdauer 5 Jahre, kein Restwert) liegt ein Leasingangebot mit einer Grundmietzeit von 5 Jahren und einer monatlichen Rate von 1,95 % des Anschaffungswerts vor; ein Darlehen kostet effektiv 6 %.
+
+- Kauf: Abschreibung 480.000 € ÷ 5 = 96.000 €, kalkulatorische Zinsen 480.000 € ÷ 2 × 6 % = 14.400 €, zusammen 110.400 € im Jahr.
+- Leasing: 480.000 € × 1,95 % = 9.360 € im Monat, also 112.320 € im Jahr.
+
+Das Leasing ist um 1.920 € im Jahr teurer, in 5 Jahren um 9.600 €. Dafür bindet es zu Beginn keine Eigenmittel, braucht meist keine oder weniger zusätzliche Sicherheiten, weil das Leasingobjekt selbst der Leasinggesellschaft als Sicherheit dient, und erlaubt nach der Grundmietzeit einen Wechsel auf neuere Technik. Beim Kauf gehört die Anlage Solvitec, kann über die geplante Nutzungsdauer hinaus genutzt oder verkauft werden, und Solvitec ist bei Änderungen an der Anlage frei. Wie Leasingverträge bilanziert und steuerlich behandelt werden, hängt von der Vertragsgestaltung und von gesetzlichen Vorgaben ab, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft).
+
+**Nutzwertanalyse:** Weil sich Liquidität, Sicherheiten, Flexibilität und Unabhängigkeit nicht in Euro ausdrücken lassen, werden Finanzierungsalternativen mit einer Nutzwertanalyse verglichen (Vorgehen wie bei der Bewertung von Lieferunternehmen und Standorten in den Themen 6.5 und 6.8): zuerst Muss-Kriterien prüfen, etwa dass die Mittel zum Liefertermin verfügbar sind und der Kapitaldienst im Finanzplan tragbar ist; dann die Kriterien gewichten (zusammen 100 %), Punkte von 1 bis 10 vergeben und Gewicht als Dezimalzahl × Punkte zum Nutzwert addieren.
+
+**Rechenbeispiel: Nutzwertanalyse** (frei gewählte Beispielwerte; Punkte von 1 bis 10): Für ein Erweiterungsvorhaben vergleicht Solvitec A ein Bankdarlehen, B Leasing und C die Aufnahme einer neuen Gesellschafterin, etwa einer Beteiligungsgesellschaft (Beteiligungsfinanzierung).
+
+| Kriterium | Gewicht | A Punkte | A Teilnutzwert | B Punkte | B Teilnutzwert | C Punkte | C Teilnutzwert |
+|---|---|---|---|---|---|---|---|
+| Kosten | 30 % | 8 | 2,40 | 6 | 1,80 | 3 | 0,90 |
+| Liquiditätswirkung | 25 % | 5 | 1,25 | 7 | 1,75 | 9 | 2,25 |
+| Sicherheitenbedarf | 20 % | 4 | 0,80 | 8 | 1,60 | 10 | 2,00 |
+| Flexibilität | 15 % | 7 | 1,05 | 4 | 0,60 | 5 | 0,75 |
+| Unabhängigkeit | 10 % | 8 | 0,80 | 8 | 0,80 | 3 | 0,30 |
+| **Gesamtnutzwert** | 100 % | | **6,30** | | **6,55** | | **6,20** |
+
+Das Leasing erreicht knapp den höchsten Nutzwert: Es schont Liquidität und Sicherheitenspielraum, ist aber teurer und weniger flexibel. Die Beteiligung belastet die Liquidität am wenigsten und braucht keine Sicherheiten, ist aber am teuersten, weil die neue Gesellschafterin eine höhere Rendite erwartet, und kostet Unabhängigkeit durch Mitspracherechte. Die Abstände sind klein; eine Sensitivitätsprüfung (Thema 6.8) zeigt, ob die Rangfolge hält, wenn die Gewichte etwas anders gesetzt werden. In der Praxis wird ein größeres Vorhaben oft **kombiniert** finanziert, etwa aus Eigenmitteln der Selbstfinanzierung, einem Darlehen und Leasing für einzelne Anlagen, sodass Kapitalstruktur, Liquidität und Sicherheitenspielraum im Gleichgewicht bleiben.
+
+## B. Karteikarten 5.2 (anhängen)
+
+#### K-5.2-21
+**Frage:** Was unterscheidet Personalsicherheiten von Realsicherheiten? Nenne je ein Beispiel.
+**Antwort:** Bei Personalsicherheiten haftet neben dem Unternehmen eine weitere Person oder ein weiteres Unternehmen mit dem eigenen Vermögen, z. B. bei einer Bürgschaft (etwa durch eine Muttergesellschaft); ihr Wert hängt von der Zahlungsfähigkeit der bürgenden Person oder des bürgenden Unternehmens ab. Bei Realsicherheiten erhält das Kreditinstitut ein Recht an einem bestimmten Vermögensgegenstand, z. B. Grundschuld, Sicherungsübereignung, Verpfändung oder Sicherungsabtretung von Forderungen.
+`tags: finanzierung, kreditsicherheiten` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-5.2-22
+**Frage:** Worin unterscheiden sich Grundschuld und Hypothek sowie Sicherungsübereignung und Verpfändung?
+**Antwort:** Grundschuld und Hypothek sind Grundpfandrechte, die im Grundbuch eingetragen werden. Die Grundschuld besteht unabhängig von der Höhe des Kredits und kann für neue Kredite weiterverwendet werden (übliche Form); die Hypothek ist an eine bestimmte Forderung gebunden und sinkt mit der Tilgung. Bei der Sicherungsübereignung wird das Kreditinstitut Eigentümer einer beweglichen Sache, das Unternehmen nutzt sie weiter (typisch für Maschinen); bei der Verpfändung wird die Sache übergeben und kann nicht mehr genutzt werden (eher für Wertpapiere und Guthaben).
+`tags: finanzierung, kreditsicherheiten` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-23
+**Frage:** Was ist eine Sicherungsabtretung (Zession), und wie unterscheiden sich stille Zession, offene Zession und Globalzession?
+**Antwort:** Das Unternehmen tritt Forderungen gegenüber seiner Kundschaft an das Kreditinstitut ab. Stille Zession: Die Kundschaft erfährt nichts und zahlt weiter an das Unternehmen. Offene Zession: Die Kundschaft wird benachrichtigt und zahlt an das Kreditinstitut. Globalzession: Alle gegenwärtigen und künftigen Forderungen einer festgelegten Gruppe (z. B. alle Inlandsforderungen) werden abgetreten; sie passt zum Kontokorrentkredit. Den Lieferantenkredit sichert dagegen der Eigentumsvorbehalt des Lieferunternehmens.
+`tags: finanzierung, kreditsicherheiten` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-24
+**Frage:** Wie ermittelt ein Kreditinstitut, wie viel Kredit eine Grundschuld absichert, und warum ersetzen Sicherheiten nicht die Kreditwürdigkeit?
+**Antwort:** Aus dem Marktwert wird vorsichtig der Beleihungswert abgeleitet (Abschlag, z. B. 80 % des Marktwerts); abgesichert wird ein Kredit bis zur Beleihungsgrenze (Prozentsatz des Beleihungswerts, z. B. 60 %). Bereits eingetragene Rechte für andere Kredite werden abgezogen. Das Kreditinstitut prüft zuerst, ob der Kapitaldienst (Zins und Tilgung) aus dem Cashflow geleistet werden kann; die Verwertung einer Sicherheit ist langwierig und bringt oft weniger als erwartet.
+`tags: finanzierung, kreditsicherheiten, beleihung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-25
+**Frage:** Woraus bestehen die Kreditkosten, und wie lautet die Näherungsformel für den Effektivzins eines endfälligen Darlehens?
+**Antwort:** Nominalzins, Disagio (Auszahlung unter dem Kreditbetrag, Rückzahlung voll), einmalige Bearbeitungsgebühren, Bereitstellungszinsen für noch nicht abgerufene Beträge, Kosten der Sicherheiten. Effektivzins ≈ (Nominalzins in % + Disagio und einmalige Gebühren in % ÷ Laufzeit in Jahren) ÷ Auszahlungskurs in % × 100. Der Effektivzins macht Angebote vergleichbar; ein niedriger Nominalzins mit Disagio kann teurer sein als ein höherer Nominalzins ohne Disagio.
+`tags: finanzierung, kreditkosten, effektivzins` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-5.2-26
+**Frage:** Welche drei Tilgungsarten gibt es, und wie wirken sie auf die Liquidität?
+**Antwort:** Ratentilgung: gleicher Tilgungsbetrag, sinkende Zinsen, Belastung zu Beginn am höchsten und dann fallend. Annuitätentilgung: gleichbleibende Zahlung aus Zins und Tilgung (Annuität = Kreditbetrag × Annuitätenfaktor), gut planbar, Tilgungsanteil steigt. Endfällige Tilgung: nur Zinsen während der Laufzeit, der ganze Betrag am Ende; schont die Liquidität, verlangt aber Rücklagen, Rückflüsse aus der Investition oder eine Anschlussfinanzierung. Bei gleichem Zinssatz zahlt mehr Zinsen, wer langsamer tilgt.
+`tags: finanzierung, tilgung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-27
+**Frage:** Wie rechnest du den Verzicht auf Skonto in einen Jahreszinssatz um, und wann lohnt sich der Skontoabzug?
+**Antwort:** Näherung: Skontosatz × 360 ÷ (Zahlungsziel − Skontofrist). Genauer: Skontosatz ÷ (100 − Skontosatz) × 360 ÷ (Zahlungsziel − Skontofrist) × 100, weil der Kredit nur über den verminderten Zahlbetrag läuft. Der Skontoabzug lohnt sich, wenn dieser Jahreszinssatz über dem Zinssatz der Kreditalternative (z. B. Kontokorrentkredit) liegt und die Kreditlinie ausreicht; Finanzierungsvorteil = Skontobetrag − Zinsen für den verminderten Zahlbetrag über die gewonnenen Tage.
+`tags: finanzierung, skonto, lieferantenkredit` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-5.2-28
+**Frage:** Wie lautet die Leverage-Formel, und warum erhöht mehr Verschuldung Chance und Risiko zugleich?
+**Antwort:** Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital. Liegt die Gesamtkapitalrentabilität über dem Zins, steigt die Eigenkapitalrentabilität mit dem Verschuldungsgrad (positiver Hebel); liegt sie darunter, sinkt sie umso stärker (negativer Hebel). Zinsen fallen unabhängig vom Erfolg an, das Rating sinkt mit steigender Verschuldung, variable Zinsen können steigen, Kreditauflagen engen ein. Maßgeblich ist der Zinssatz des neuen Kredits.
+`tags: finanzierung, leverage` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-29
+**Frage:** Nach welchen Kriterien beurteilst du Finanzierungsalternativen?
+**Antwort:** Kosten (Effektivzins, Renditeerwartung bei Eigenkapital), Liquiditätswirkung (Zahlungsverlauf, Mittelbindung, Prüfung im Finanzplan), Fristigkeit (Fristenkongruenz), Sicherheiten und verbleibender Sicherheitenspielraum, Kapitalstruktur und Rating, Flexibilität (Sondertilgung, Abruf), Unabhängigkeit (Mitspracherechte, Kreditauflagen), Risiko (Zinsbindung). Was sich nicht in Euro ausdrücken lässt, wird mit einer Nutzwertanalyse bewertet; Muss-Kriterien werden vorab geprüft.
+`tags: finanzierung, entscheidung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-5.2-30
+**Frage:** Wie vergleichst du Leasing mit einem kreditfinanzierten Kauf?
+**Antwort:** Kostenvergleich je Jahr: Kauf = Abschreibung + kalkulatorische Zinsen auf das durchschnittlich gebundene Kapital (Zinssatz der tatsächlichen Finanzierung); Leasing = Leasingraten im Jahr; gleiche Kosten beider Varianten (Wartung, Versicherung) weglassen. Dann qualitativ: Leasing schont zu Beginn die Liquidität, braucht meist weniger zusätzliche Sicherheiten und erleichtert den Technikwechsel, ist aber oft teurer; beim Kauf gehört die Anlage dem Unternehmen und kann länger genutzt oder verkauft werden. Bilanzierung und Steuern sind gesetzlich geregelt (hier nicht behandelt).
+`tags: finanzierung, leasing` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## C. Quiz 5.2 (anhängen)
+
+#### Q-5.2-16 · Zuordnung
+**Anweisung:** Ordne jeder Kreditsicherheit die passende Beschreibung zu.
+- Bürgschaft ↔ Eine weitere Person oder ein weiteres Unternehmen steht mit dem eigenen Vermögen für die Schuld des kreditnehmenden Unternehmens ein
+- Grundschuld ↔ Im Grundbuch eingetragenes Pfandrecht an einem Grundstück, das für neue Kredite weiterverwendet werden kann
+- Sicherungsübereignung ↔ Das Kreditinstitut wird Eigentümer einer Maschine, das Unternehmen nutzt sie weiter
+- Sicherungsabtretung ↔ Forderungen gegenüber der Kundschaft gehen zur Sicherheit auf das Kreditinstitut über
+**Erklärung:** Die Bürgschaft ist eine Personalsicherheit, die übrigen drei sind Realsicherheiten. Die Sicherungsübereignung passt zu Anlagen, die in der Fertigung weiter gebraucht werden; bei einer Verpfändung müsste die Maschine dagegen übergeben werden.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-5.2-17 · Kurzantwort
+**Frage:** Solvitec bietet ihrer Hausbank eine Grundschuld auf ein bisher unbelastetes Betriebsgrundstück mit einem Marktwert von 5.000.000 € an. Die Hausbank setzt den Beleihungswert mit 80 % des Marktwerts an und beleiht bis zu 60 % des Beleihungswerts (Beispielwerte). Bis zu welchem Kreditbetrag in Euro sichert die Grundschuld ab?
+**Akzeptierte Antworten:** 2.400.000; 2400000; 2.400.000 €; 2400000 €; 2.400.000,00; 2400000,00; 2400000.00; 2.400.000,00 €; 2400000,00 €; 2.400.000 Euro; 2400000 Euro; 2.400.000,00 Euro; 2.400.000 EUR; 2400000 EUR; 2.400.000,00 EUR; 2400000,00 Euro; 2400000,00 EUR; 2400000.00 €; 2400000.00 Euro; 2400000.00 EUR; 2,4 Mio. €; 2,4 Mio €; 2,4 Mio.; 2,4 Mio; 2.4 Mio. €; 2.4 Mio; 2,4 Mio. Euro; 2,4 Millionen €; 2,4 Millionen Euro; 2.4 Millionen Euro
+**Erklärung:** Beleihungswert = 5.000.000 € × 80 % = 4.000.000 €; Beleihungsgrenze = 4.000.000 € × 60 % = 2.400.000 €. Typischer Fehler: die 60 % direkt auf den Marktwert rechnen (3.000.000 €).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-18 · Kurzantwort
+**Frage:** Solvitec nimmt ein Darlehen über 800.000 € auf. Die Hausbank behält ein Disagio von 3 % und eine Bearbeitungsgebühr von 0,5 % des Kreditbetrags bei der Auszahlung ein (Beispielwerte). Wie viel Euro werden ausgezahlt?
+**Akzeptierte Antworten:** 772.000; 772000; 772.000 €; 772000 €; 772.000,00; 772000,00; 772000.00; 772.000,00 €; 772000,00 €; 772.000 Euro; 772000 Euro; 772.000,00 Euro; 772.000 EUR; 772000 EUR; 772.000,00 EUR; 772000,00 Euro; 772000,00 EUR; 772000.00 €; 772000.00 Euro; 772000.00 EUR
+**Erklärung:** Abzug 3 % + 0,5 % = 3,5 % von 800.000 € = 28.000 €; Auszahlung 800.000 € − 28.000 € = 772.000 €. Zurückgezahlt werden trotzdem 800.000 €, und die Zinsen werden auf 800.000 € berechnet; deshalb liegt der Effektivzins über dem Nominalzins.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-5.2-19 · Kurzantwort
+**Frage:** Ein endfälliges Darlehen hat eine Laufzeit von 4 Jahren, einen Nominalzins von 4 % und ein Disagio von 2 % (keine weiteren Gebühren; Beispielwerte). Wie hoch ist der Effektivzins nach der Näherungsformel (Nominalzins + Disagio ÷ Laufzeit) ÷ Auszahlungskurs × 100 in Prozent, gerundet auf zwei Nachkommastellen?
+**Akzeptierte Antworten:** 4,59; 4.59; 4,59 %; 4.59 %; 4,59 Prozent; 4.59 Prozent; 4,59 % p. a.; 4.59 % p. a.; 4,59 % pro Jahr; 4.59 % pro Jahr; 4,59 % im Jahr; 4.59 % im Jahr
+**Erklärung:** Das Disagio wird auf die Laufzeit verteilt: 2 ÷ 4 = 0,5 Prozentpunkte im Jahr. Auszahlungskurs 100 % − 2 % = 98 %. Effektivzins ≈ (4 + 0,5) ÷ 98 × 100 = 4,5 ÷ 98 × 100 ≈ 4,59 %. Ohne die Division durch den Auszahlungskurs ergäben sich 4,5 %; das unterschätzt die Kosten, weil nur 98 % des Kreditbetrags zur Verfügung stehen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-20 · Wahr/Falsch
+**Aussage:** Bei gleichem Kreditbetrag, gleichem Zinssatz und gleicher Laufzeit zahlt ein Unternehmen mit Annuitätentilgung insgesamt mehr Zinsen als mit Ratentilgung.
+- [x] Wahr
+- [ ] Falsch
+**Erklärung:** Bei der Annuitätentilgung ist der Tilgungsanteil in den ersten Jahren kleiner als bei der Ratentilgung; die Restschuld sinkt langsamer, und es fallen länger Zinsen an (Beispiel: 600.000 € über 4 Jahre zu 5 % ergeben 76.828,40 € Zinsen gegenüber 75.000 €). Teurer im Sinn eines höheren Zinssatzes ist die Annuität nicht; das Kapital steht nur länger zur Verfügung, und die Belastung ist gleichmäßig.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-5.2-21 · Kurzantwort
+**Frage:** Solvitec tilgt ein Darlehen über 400.000 € in 4 gleichen jährlichen Tilgungsraten (Ratentilgung); der Zinssatz beträgt 6 %, Zins und Tilgung werden jeweils am Jahresende gezahlt (Beispielwerte). Wie hoch ist die Gesamtzahlung aus Zins und Tilgung im zweiten Jahr in Euro?
+**Akzeptierte Antworten:** 118.000; 118000; 118.000 €; 118000 €; 118.000,00; 118000,00; 118000.00; 118.000,00 €; 118000,00 €; 118.000 Euro; 118000 Euro; 118.000,00 Euro; 118.000 EUR; 118000 EUR; 118.000,00 EUR; 118000,00 Euro; 118000,00 EUR; 118000.00 €; 118000.00 Euro; 118000.00 EUR
+**Erklärung:** Tilgung je Jahr 400.000 € ÷ 4 = 100.000 €. Zu Beginn des zweiten Jahres beträgt die Restschuld 300.000 €, die Zinsen also 300.000 € × 6 % = 18.000 €. Zahlung = 100.000 € + 18.000 € = 118.000 € (im ersten Jahr waren es 124.000 €).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-22 · Kurzantwort
+**Frage:** Ein Lieferunternehmen gewährt 3 % Skonto bei Zahlung innerhalb von 10 Tagen, sonst ist die Rechnung in 40 Tagen fällig. Wie hoch ist der Jahreszinssatz des Lieferantenkredits nach der genaueren Formel Skontosatz ÷ (100 − Skontosatz) × 360 ÷ (Zahlungsziel − Skontofrist) × 100 in Prozent, gerundet auf zwei Nachkommastellen (Beispielwerte)?
+**Akzeptierte Antworten:** 37,11; 37.11; 37,11 %; 37.11 %; 37,11 Prozent; 37.11 Prozent; 37,11 % p. a.; 37.11 % p. a.; 37,11 % pro Jahr; 37.11 % pro Jahr; 37,11 % im Jahr; 37.11 % im Jahr
+**Erklärung:** 3 ÷ 97 × 360 ÷ (40 − 10) × 100 = 3 ÷ 97 × 12 × 100 ≈ 37,11 %. Die Näherungsformel ergäbe 3 × 360 ÷ 30 = 36 %; sie rechnet mit dem vollen statt dem verminderten Zahlbetrag. Beide Werte liegen weit über üblichen Zinsen für einen Kontokorrentkredit.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-23 · Kurzantwort
+**Frage:** Eine Rechnung über 60.000 € ist mit 2 % Skonto innerhalb von 10 Tagen oder ohne Abzug in 30 Tagen zahlbar. Solvitec zahlt am 10. Tag mit Skontoabzug und finanziert den Zahlbetrag 20 Tage lang über den Kontokorrentkredit zu 9 % im Jahr (Jahr mit 360 Tagen; Umsatzsteuer bleibt unberücksichtigt; Beispielwerte). Wie hoch ist der Finanzierungsvorteil (Skontobetrag abzüglich Kontokorrentzinsen) in Euro?
+**Akzeptierte Antworten:** 906; 906 €; 906,00; 906.00; 906,00 €; 906.00 €; 906 Euro; 906,00 Euro; 906 EUR; 906,00 EUR; 906.00 Euro; 906.00 EUR
+**Erklärung:** Skonto = 60.000 € × 2 % = 1.200 €; Zahlbetrag 58.800 €; Zinsen = 58.800 € × 9 % × 20 ÷ 360 = 294 €; Vorteil = 1.200 € − 294 € = 906 €. Typischer Fehler: Zinsen auf den vollen Rechnungsbetrag rechnen (300 €, Vorteil 900 €).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-24 · Kurzantwort
+**Frage:** Ein Vorhaben der Solvitec ist mit 2,5 Mio. € Eigenkapital und 7,5 Mio. € Fremdkapital zu 5 % finanziert. In einem schwachen Jahr erreicht die Gesamtkapitalrentabilität nur 3 % (Steuern unberücksichtigt; Beispielwerte). Wie hoch ist die Eigenkapitalrentabilität nach der Leverage-Formel in Prozent?
+**Akzeptierte Antworten:** -3; −3; -3 %; −3 %; -3 Prozent; −3 Prozent; -3,0; −3,0; -3.0; −3.0; -3,0 %; −3,0 %; -3.0 %; −3.0 %; -3,00 %; −3,00 %; -3.00 %; −3.00 %; minus 3; minus 3 %; minus 3 Prozent; minus drei Prozent; -3,00; −3,00; -3.00; −3.00; -3,0 Prozent; −3,0 Prozent; minus 3,0 %
+**Erklärung:** Eigenkapitalrentabilität = 3 % + (3 % − 5 %) × 7,5 ÷ 2,5 = 3 % − 2 % × 3 = −3 %. Direkt gerechnet: Gewinn vor Zinsen 10 Mio. € × 3 % = 0,3 Mio. €, Zinsen 7,5 Mio. € × 5 % = 0,375 Mio. €, Verlust 0,075 Mio. €, bezogen auf 2,5 Mio. € Eigenkapital −3 %. Der negative Hebel verstärkt den Rückgang.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-5.2-25 · Multiple Choice
+**Frage:** Ein Geschäftsbereich der Solvitec erzielt eine Gesamtkapitalrentabilität von 6 % bei einem Verschuldungsgrad von 100 % (Faktor 1,0); das Fremdkapital kostet 7 %. Für eine Erweiterung bietet die Hausbank weiteren Kredit zu ebenfalls 7 % an, danach liegt der Verschuldungsgrad bei 150 % (Faktor 1,5); die Gesamtkapitalrentabilität bleibt bei 6 % (Beispielwerte). Welche Aussage trifft zu?
+- [ ] Die Eigenkapitalrentabilität steigt, weil zusätzliches Fremdkapital den Hebel vergrößert.
+- [ ] Die Eigenkapitalrentabilität bleibt gleich, weil sich die Gesamtkapitalrentabilität nicht verändert.
+- [x] Die Eigenkapitalrentabilität sinkt von 5 % auf 4,5 %, weil die Gesamtkapitalrentabilität unter dem Fremdkapitalzinssatz liegt.
+- [ ] Die Eigenkapitalrentabilität sinkt auf −1 %, weil der Zinssatz die Gesamtkapitalrentabilität um einen Prozentpunkt übersteigt.
+**Erklärung:** Vorher: 6 % + (6 % − 7 %) × 1,0 = 5 %; nachher: 6 % + (6 % − 7 %) × 1,5 = 4,5 %. Liegt die Gesamtkapitalrentabilität unter dem Zinssatz, wirkt der Hebel negativ: Jeder zusätzliche Euro Fremdkapital senkt die Eigenkapitalrentabilität. Der Abstand von −1 Prozentpunkt wird mit dem Verschuldungsgrad multipliziert und zur Gesamtkapitalrentabilität addiert, nicht allein betrachtet.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-5.2-26 · Kurzantwort
+**Frage:** Eine Anlage kostet 360.000 € und wird 4 Jahre genutzt (lineare Abschreibung, kein Restwert). Beim Kauf rechnet Solvitec mit kalkulatorischen Zinsen von 5 % auf das durchschnittlich gebundene Kapital; alternativ kann sie die Anlage für 4 Jahre zu 8.400 € im Monat leasen. Übrige Kosten sind in beiden Fällen gleich (Beispielwerte). Um wie viel Euro im Jahr ist der Kauf günstiger als das Leasing?
+**Akzeptierte Antworten:** 1.800; 1800; 1.800 €; 1800 €; 1.800,00; 1800,00; 1800.00; 1.800,00 €; 1800,00 €; 1.800 Euro; 1800 Euro; 1.800,00 Euro; 1.800 EUR; 1800 EUR; 1.800,00 EUR; 1800,00 Euro; 1800,00 EUR; 1800.00 €; 1800.00 Euro; 1800.00 EUR
+**Erklärung:** Kauf: Abschreibung 360.000 € ÷ 4 = 90.000 €, kalkulatorische Zinsen 360.000 € ÷ 2 × 5 % = 9.000 €, zusammen 99.000 € im Jahr. Leasing: 8.400 € × 12 = 100.800 € im Jahr. Unterschied 100.800 € − 99.000 € = 1.800 €. Ob dennoch geleast wird, hängt von Liquidität, Sicherheiten und Flexibilität ab.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-5.2-27 · Mehrfachauswahl
+**Frage:** Solvitec vergleicht für eine neue Biegemaschine im Werk Ost Leasing mit einem kreditfinanzierten Kauf. Welche Aussagen treffen zu?
+- [x] Leasing schont zu Beginn die Liquidität, weil keine Eigenmittel für den Kaufpreis gebunden werden.
+- [ ] Leasing ist immer günstiger als ein Kauf, weil die Leasingraten als Betriebsausgabe abgesetzt werden können.
+- [x] Beim Kauf gehört die Maschine nach dem Ende der Finanzierung Solvitec und kann weiter genutzt oder verkauft werden.
+- [ ] Beim Kostenvergleich werden nur die Leasingraten mit den Zinsen des Darlehens verglichen; die Abschreibung des Kaufs bleibt außer Ansatz.
+- [x] Die Leasinggesellschaft bleibt Eigentümerin; die Maschine dient ihr selbst als Sicherheit.
+**Erklärung:** Liquiditätsschonung, Sicherheitenbedarf und Eigentum sind typische Unterschiede; weil die Maschine der Leasinggesellschaft als Sicherheit dient, sind zusätzliche Sicherheiten oft nicht oder nur in geringerem Umfang nötig. Leasing ist nicht automatisch günstiger; auch beim Kauf mindern Abschreibungen und Zinsen den Gewinn, und die Leasinggesellschaft kalkuliert eine Marge ein. Verglichen werden die Leasingraten mit Abschreibung und kalkulatorischen Zinsen des Kaufs; ohne die Abschreibung erschiene der Kauf zu billig.
+`schwierigkeit: mittel` · `bloom: bewerten`
