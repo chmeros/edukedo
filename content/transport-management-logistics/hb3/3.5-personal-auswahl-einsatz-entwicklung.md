@@ -1,0 +1,284 @@
+---
+kurs_slug: transport-management-logistics
+fachgebiet_code: HB3
+fachgebiet_title: "Kommunikation, Führung und Zusammenarbeit sicherstellen"
+thema_code: "3.5"
+thema_title: "Personal: Auswahl, Einsatz und Entwicklung"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §6, Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen“ (Personalauswahl, Personaleinsatz, Weiterbildung und Personalentwicklung) sowie öffentlich zugänglicher Fachliteratur zur Personalwirtschaft — frei formuliert, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+qualifikationsinhalte:
+  - "Personalbedarf quantitativ, qualitativ und zeitlich ermitteln, Personal auswählen und einarbeiten"
+  - "Personal in Lager, Disposition und Fuhrpark einsetzen: Dienst- und Schichtplanung, Arbeitszeitkonto, Qualifikationsmatrix, Urlaubs- und Vertretungsplanung"
+  - "Weiterbildung und Personalentwicklung planen, durchführen und auf ihren Erfolg prüfen"
+---
+
+# Thema 3.5 — Personal: Auswahl, Einsatz und Entwicklung
+
+## Theorie
+
+### Personalbedarf: Menge, Qualifikation und Zeitpunkt
+
+Die Personalplanung sorgt dafür, dass zur richtigen Zeit genügend Mitarbeitende mit der richtigen Qualifikation am richtigen Ort arbeiten. Bei der **Fracora Spedition & Logistik GmbH** betrifft das drei sehr unterschiedliche Bereiche: das Lager der Kontraktlogistik mit Schichtbetrieb, die Disposition und den Fuhrpark mit dem Fahrpersonal (zu den Führungsbesonderheiten dieser Gruppen siehe Thema 3.1). Der **Personalbedarf** hat drei Dimensionen. Der **quantitative Bedarf** gibt an, wie viele Mitarbeitende gebraucht werden, meist in **Vollzeitäquivalenten (VZÄ)**: Ein VZÄ entspricht einer Vollzeitstelle, eine Teilzeitkraft zählt mit ihren Wochenstunden ÷ Wochenstunden einer Vollzeitstelle. Der **qualitative Bedarf** beschreibt, welche Qualifikationen und Berechtigungen nötig sind, etwa sichere Arbeit mit dem Transportmanagementsystem (TMS), Fremdsprachen für die internationale Disposition, eine Berechtigung für Flurförderzeuge im Lager oder beim Fahrpersonal Qualifikationen wie der ADR-Schein für Gefahrguttransporte (Thema 2.1). Der **zeitliche Bedarf** legt fest, ab wann das Personal einsatzbereit sein muss. Bei mehreren Standorten kommt die Frage hinzu, an welcher Niederlassung der Bedarf entsteht.
+
+Nach der Ursache wird unterschieden: **Ersatzbedarf** entsteht, wenn Mitarbeitende ausscheiden, etwa durch Kündigung oder Ruhestand; **Neubedarf** entsteht durch zusätzliche Aufgaben, etwa einen neuen Kontraktlogistik-Auftrag. Der **Bruttopersonalbedarf** ist das gesamte Personal, das für die Aufgaben nötig ist. Der **Nettopersonalbedarf** ist Bruttopersonalbedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt (heutiger Bestand − feststehende Abgänge + feststehende Zugänge); ein negativer Wert zeigt einen Personalüberschuss.
+
+Für die Rechnung wird zuerst die Arbeitszeit bestimmt, die eine Vollzeitkraft tatsächlich zur Verfügung steht. Die **Bruttoarbeitszeit** ist die vertraglich vereinbarte Arbeitszeit im Jahr (Arbeitstage ohne Wochenenden und Feiertage × tägliche Sollarbeitszeit). Davon gehen **Ausfallzeiten** ab: Urlaub, Krankheit, Weiterbildung und sonstige Freistellungen. Die **Ausfallquote** ist Ausfallzeit ÷ Bruttoarbeitszeit × 100, die **Nettoarbeitszeit** ist Bruttoarbeitszeit − Ausfallzeit, also Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl). Der Arbeitsbedarf ergibt sich aus Arbeitsmenge ÷ Leistung je Stunde (eine Produktivitätskennzahl wie die Paletten je Lagerstunde in Thema 2.8), der **Bruttopersonalbedarf in VZÄ** aus Arbeitsbedarf ÷ Nettoarbeitszeit je VZÄ.
+
+**Rechenbeispiel** (alle Werte sind frei gewählte Beispielwerte; Urlaubsanspruch und Arbeitszeit richten sich nach Arbeits- und Tarifvertrag sowie gesetzlichen Vorgaben, die hier nicht behandelt werden; der Hinweis ist nicht förmlich rechtsgeprüft): Für ein Kundenunternehmen der Kontraktlogistik fallen im Lager einer Niederlassung im Jahr 200.000 Auftragspositionen an; eine eingearbeitete Lagerkraft schafft im Durchschnitt 12,5 Positionen je Stunde.
+
+| Schritt | Rechnung | Ergebnis |
+|---|---|---|
+| Bruttoarbeitszeit je Vollzeitkraft | 250 Arbeitstage × 8 h | 2.000 h |
+| Ausfallzeit | (30 Tage Urlaub + 15 Tage Krankheit + 5 Tage Weiterbildung) × 8 h | 400 h |
+| Ausfallquote | 400 h ÷ 2.000 h × 100 | 20 % |
+| Nettoarbeitszeit | 2.000 h − 400 h = 2.000 h × (1 − 0,20) | 1.600 h |
+| Arbeitsbedarf | 200.000 Positionen ÷ 12,5 Positionen je Stunde | 16.000 h |
+| Bruttopersonalbedarf | 16.000 h ÷ 1.600 h | 10 VZÄ |
+| Fortgeschriebener Personalbestand zum Bedarfszeitpunkt | heute 8 VZÄ − 1 VZÄ feststehender Abgang + 0 VZÄ Zugang | 7 VZÄ |
+| Nettopersonalbedarf | 10 VZÄ − 7 VZÄ | 3 VZÄ |
+
+Lag der bisherige Bedarf bei 8 VZÄ und war er voll besetzt, setzen sich die 3 VZÄ aus 1 VZÄ Ersatzbedarf und 2 VZÄ Neubedarf zusammen. Ergibt die Rechnung Nachkommastellen, wird auf ganze Stellen aufgerundet oder der Rest über Teilzeit gedeckt. Für den **zeitlichen Bedarf** wird vom Einsatzbeginn rückwärts gerechnet: Brauchen Ausschreibung und Auswahl 6 Wochen, haben die neuen Kräfte eine Wechselzeit von bis zu 8 Wochen (etwa wegen einer Kündigungsfrist im bisherigen Unternehmen) und dauert die Einarbeitung 4 Wochen, muss die Beschaffung 6 + 8 + 4 = 18 Wochen vor dem Einsatzbeginn starten (Beispielwerte).
+
+### Personalbeschaffung: Anforderungsprofil, Beschaffungswege und Stellenausschreibung
+
+Grundlage jeder Besetzung ist das **Anforderungsprofil**. Es leitet aus den Aufgaben der Stelle (Stellenbeschreibung) ab, was eine Person können und mitbringen muss, gegliedert nach **Fachkompetenz** (Wissen und Können, etwa Tourenplanung oder Lagerverwaltungssystem), **Methodenkompetenz** (zum Beispiel Prioritäten setzen, Probleme strukturiert lösen), **Sozialkompetenz** (zum Beispiel klare Kommunikation mit Fahrpersonal und Kundschaft, Thema 3.2) und **persönlicher Kompetenz** (zum Beispiel Belastbarkeit und Sorgfalt). Die Anforderungen werden in **Muss-Kriterien** (Mindestanforderungen; wer sie nicht erfüllt, kommt für die Stelle nicht in Betracht) und **Kann-Kriterien** (erwünscht, aber nicht zwingend; fehlende Kann-Kriterien lassen sich meist in Einarbeitung oder Weiterbildung ausgleichen) getrennt. Beispiel für eine Disponentin bzw. einen Disponenten im Nahverkehr: Muss-Kriterien sind eine Ausbildung als Kauffrau bzw. Kaufmann für Spedition und Logistikdienstleistung (Thema 3.4) oder vergleichbare Berufserfahrung, sichere Arbeit mit einem TMS und Ruhe bei kurzfristigen Störungen; Kann-Kriterien sind gute Englischkenntnisse, Erfahrung mit Gefahrgutsendungen oder eigene Fahrpraxis. Dasselbe Profil dient später als Maßstab bei der Auswahl und als Soll-Profil in der Personalentwicklung.
+
+Die **interne Beschaffung** deckt den Bedarf mit eigenen Mitarbeitenden: interne Ausschreibung, Versetzung zwischen Niederlassungen, Aufstieg (etwa eine erfahrene Lagerkraft zur Schichtleitung oder eine Fahrerin in die Disposition) oder die Übernahme von Auszubildenden nach der Ausbildung (Thema 3.4). Vorteile sind die bekannte Eignung, eine kürzere Einarbeitung und ein sichtbarer Aufstiegsanreiz; Nachteile sind fehlende Impulse von außen und eine neue Lücke an der bisherigen Stelle. Die **externe Beschaffung** sucht außerhalb: Stellenportale und die eigene Karriereseite, die Arbeitsagentur, Empfehlungen von Mitarbeitenden, Personaldienstleistungsunternehmen und Zeitarbeit (vor allem für Lagerspitzen), Kontakte zu Fahrschulen und Berufsschulen. Sie bringt neue Erfahrung und einen größeren Kreis an Bewerbenden, kostet aber mehr Auswahlaufwand und birgt eine höhere Unsicherheit über die Eignung. Weil Fahrpersonal und erfahrene Disponent:innen am Arbeitsmarkt oft knapp sind, zählt für Fracora auch, was Bewerbende anzieht: planbare Dienste, gut ausgestattete Fahrzeuge, faire Bezahlung und Entwicklungsmöglichkeiten.
+
+Eine **Stellenausschreibung** enthält in der Regel eine kurze Vorstellung des Unternehmens, die Aufgaben, die Anforderungen (Muss und Kann erkennbar getrennt), das Angebot (Arbeitszeitmodell, Schichtsystem, Einarbeitung, Entwicklung, Vergütungsrahmen), den Einsatzort sowie Ansprechperson, Bewerbungsweg und Frist. Sie wird so formuliert, dass sie niemanden wegen persönlicher Merkmale ausschließt, die mit der Tätigkeit nichts zu tun haben. **Hinweis:** Diskriminierungsverbote und Datenschutz im Bewerbungsverfahren (etwa welche Fragen zulässig sind, wer Bewerbungsunterlagen sehen darf und wie lange sie aufbewahrt werden) sind gesetzlich geregelt; diese Vorgaben werden hier nicht behandelt, und die Hinweise sind nicht förmlich rechtsgeprüft.
+
+### Personalauswahl: Verfahren, Beurteilungsfehler und Entscheidung
+
+Die Auswahl verläuft meist in Stufen, wobei jede Stufe die Zahl der Bewerbenden verringert und die Prüfung vertieft:
+
+1. **Sichtung der Bewerbungsunterlagen:** Anschreiben, Lebenslauf, Zeugnisse und Nachweise werden mit den Muss-Kriterien abgeglichen; wer sie nicht erfüllt, scheidet aus.
+2. **Vorstellungsgespräch als strukturiertes Interview:** Alle Bewerbenden erhalten dieselben, vorab festgelegten Leitfragen, die Antworten werden je Kriterium auf einem **Bewertungsbogen** mit einer Punkteskala festgehalten. Neben Fragen zum Werdegang eignen sich **situative Fragen** („Ein Fahrer meldet um 7 Uhr eine Panne, die Ware hat ein Zeitfenster um 10 Uhr. Wie gehen Sie vor?“) und Fragen nach früherem Verhalten in ähnlichen Lagen. Strukturierte Interviews sind vergleichbarer und treffen die Eignung erfahrungsgemäß besser als frei geführte Gespräche.
+3. **Probearbeit:** Ein halber Tag Kommissionieren unter Anleitung im Lager oder die Mitarbeit an einem Dispositionstag zeigt praktische Fähigkeiten und gibt den Bewerbenden einen ehrlichen Eindruck von der Arbeit (rechtliche Rahmenbedingungen der Probearbeit, etwa Vergütung und Versicherung, hier nicht behandelt; nicht förmlich rechtsgeprüft).
+4. **Assessment-Elemente** (vor allem für Disposition und Führungsaufgaben wie eine Schichtleitung): eine **Fallübung** (eine Tagesplanung mit kurzfristigen Störungen), eine **Postkorbübung** (viele Aufträge und Nachrichten unter Zeitdruck ordnen und entscheiden) oder ein **Rollenspiel** (Gespräch mit einer verärgerten Kundschaft, Thema 3.2). Ein vollständiges Assessment-Center mit mehreren Beobachtenden lohnt sich nur bei wichtigen Stellen.
+
+Jede Beurteilung von Menschen ist anfällig für **Beurteilungsfehler**. Typisch sind der **Halo-Effekt** (ein auffälliges Merkmal, etwa ein sehr sicheres Auftreten, überstrahlt alle anderen), der **erste Eindruck** (die ersten Minuten prägen das ganze Urteil), der **Ähnlichkeits- bzw. Sympathiefehler** (wer der beurteilenden Person ähnelt oder sympathisch ist, wird besser bewertet), die **Tendenz zur Mitte** (aus Unsicherheit werden nur mittlere Werte vergeben) sowie **Milde- und Strengefehler** (alle werden zu gut oder zu schlecht bewertet). Gegenmaßnahmen sind vorher festgelegte Kriterien aus dem Anforderungsprofil, strukturierte Interviews mit Bewertungsbogen, Notizen zu beobachtetem Verhalten statt zum Gesamteindruck, mindestens zwei Beurteilende (etwa Fachbereich und Personalabteilung) und eine Bewertung je Kriterium erst nach dem Gespräch. Das entspricht dem Grundsatz, der in Thema 3.4 für Feedback an Auszubildende gilt: konkret und verhaltensbezogen statt pauschal.
+
+Am Ende werden die Ergebnisse aller Stufen mit dem Anforderungsprofil verglichen (**Profilvergleich**), die Entscheidung wird begründet und dokumentiert. Die ausgewählte Person erhält eine Zusage; die übrigen Bewerbenden erhalten zeitnah eine kurze, wertschätzende Absage. Lange Wartezeiten kosten gerade bei knappen Berufsgruppen gute Bewerbende, die inzwischen anderswo zugesagt haben.
+
+### Onboarding in Fuhrpark, Disposition und Lager
+
+**Onboarding** (Einarbeitung) umfasst alle Maßnahmen, mit denen neue Mitarbeitende fachlich und sozial im Unternehmen ankommen. Es beginnt vor dem ersten Arbeitstag: Dienstplan der ersten Wochen, Zugänge zu TMS bzw. Lagerverwaltungssystem, Arbeitsplatz und Arbeitskleidung sind vorbereitet. Am ersten Tag stehen Begrüßung, Rundgang, die vorgeschriebenen Unterweisungen (Inhalte hier nicht behandelt) und eine **feste Ansprechperson aus dem Team** (Patenschaft). Ein schriftlicher **Einarbeitungsplan** legt fest, wer was bis wann vermittelt; **Feedbackgespräche**, etwa nach der ersten Woche, nach einem Monat und vor Ende der Probezeit, zeigen, wo Unterstützung nötig ist. Eine gute Einarbeitung senkt die **Frühfluktuation**, also Austritte in den ersten Monaten, und verkürzt die Zeit, bis die volle Leistung erreicht ist.
+
+Die Inhalte unterscheiden sich je Bereich:
+
+- **Fuhrpark:** Einweisung in Fahrzeuge, Telematik und Fahrerkarte, die ersten Touren gemeinsam mit einer erfahrenen Fahrerin oder einem erfahrenen Fahrer, Abläufe bei Übernahme und Ablieferung (Abliefernachweis, Schadensvermerk, Thema 2.6), Ladungssicherung (Thema 2.1) und die festen Meldewege zur Disposition.
+- **Disposition:** TMS, Kundschaft und ihre Zeitfenster, Touren zuerst unter Anleitung mitplanen und dann mit wachsender Verantwortung selbst planen; eine Wochenend-Bereitschaft erst nach ausreichender Erfahrung. Entsprechend dem situativen Führen (Thema 3.1) wird anfangs engmaschig, später delegierend geführt.
+- **Lager:** Lagerverwaltungssystem, Scanner und Kommissionierverfahren, vermittelt etwa mit der Vier-Stufen-Methode (Thema 3.4); Berechtigungen, etwa für Flurförderzeuge, erst nach Einweisung und Eintrag in die Qualifikationsmatrix; Einbindung in das Schichtteam (zur Teamentwicklung siehe Thema 3.3).
+
+### Personaleinsatz: Dienstplan, Schichtmodelle, Arbeitszeitkonto und Vertretung
+
+Die **Personaleinsatzplanung** stellt den Bedarf je Zeitabschnitt (Besetzungsplan) dem verfügbaren Personal gegenüber und verteilt es im **Dienstplan** auf Schichten und Aufgaben, unter Beachtung von Qualifikation, vertraglicher Arbeitszeit, Urlaub und Wünschen der Mitarbeitenden. Im **Lager** arbeitet Fracora meist im **Zweischichtbetrieb** (Früh- und Spätschicht); wo nachts Sammelgut umgeschlagen wird, kommt eine Nachtschicht hinzu (**Dreischichtbetrieb**). In der **Disposition** werden die Dienste so gestaffelt, dass die Erreichbarkeit für Kundschaft und Fahrpersonal gesichert ist und sich die Dienste zur Übergabe kurz überschneiden (zum Übergabeproblem siehe Thema 3.3). Beispiel (Beispielwerte, Pausen und Übergabezeiten vereinfacht nicht gerechnet): Die Disposition einer Niederlassung soll montags bis freitags von 6 bis 22 Uhr mit mindestens zwei Personen besetzt sein. Das sind 16 h × 5 Tage × 2 Personen = 160 Besetzungsstunden je Woche, also 20 Dienste zu 8 Stunden in Früh- und Spätdienst. Bei 40 Wochenstunden und 20 % Ausfallquote steht eine Vollzeitkraft netto 40 h × 0,8 = 32 h je Woche zur Verfügung; nötig sind 160 h ÷ 32 h = 5 VZÄ. Für Störungen außerhalb der Dienstzeit, etwa am Wochenende, wird eine **Bereitschaft** eingerichtet: Eine Person ist erreichbar und greift bei Bedarf ein. Regeln zur Vergütung und Anrechnung von Bereitschaft sind tariflich und gesetzlich geregelt und werden hier nicht behandelt; der Hinweis ist nicht förmlich rechtsgeprüft.
+
+Für **Fahrpersonal** gilt im Grundsatz: Der Einsatz richtet sich nach dem Tourenplan (Thema 2.1) und nach den gesetzlichen Lenk- und Ruhezeiten sowie Arbeitszeitvorgaben; die Disposition berücksichtigt deshalb die verbleibende Lenkzeit jeder Person. Konkrete Zahlenwerte und Vorschriften dazu werden hier nicht behandelt; der Hinweis ist nicht förmlich rechtsgeprüft.
+
+Mengen schwanken in der Logistik stark, etwa vor Feiertagen oder in der Saison einzelner Kundenunternehmen. Ein **Arbeitszeitkonto** erfasst die Abweichung der tatsächlichen von der vertraglichen Arbeitszeit: Mehrarbeit wird als Plusstunden gutgeschrieben, weniger Arbeit als Minusstunden belastet, und der Ausgleich erfolgt später in Freizeit oder Mehrarbeit. **Stundenbilanz:** neuer Saldo = alter Saldo + (Iststunden − Sollstunden). Beispiel (Beispielwerte): Sollarbeitszeit 40 h je Woche, in vier Wochen gearbeitet 44, 46, 38 und 42 Stunden, also 170 h gegenüber 160 h Soll; aus einem Anfangssaldo von −4 h wird −4 h + 10 h = +6 h. Viele Betriebe steuern Arbeitszeitkonten mit einer **Ampelregel**, zum Beispiel grün bis 20 Plus- oder Minusstunden, gelb bis 40 Stunden (Führungskraft und Mitarbeitende vereinbaren den Abbau), rot darüber (sofortige Maßnahmen); die Grenzen sind frei gewählte Beispielwerte und werden betrieblich vereinbart. Weitere Wege zum **Ausgleich von Spitzen** sind Springer:innen, die in mehreren Bereichen eingesetzt werden können, befristete Aushilfen und Zeitarbeit, die vorübergehende Erhöhung von Teilzeitstunden, eine vorausschauende Urlaubsplanung und im Transport die Vergabe an Subunternehmen (Thema 2.8). Bei Dienstplänen, Arbeitszeitkonten und Bereitschaft sind gesetzliche Vorgaben und gegebenenfalls Beteiligungsrechte einer Arbeitnehmervertretung zu beachten; sie werden hier nicht behandelt (Hinweis nicht förmlich rechtsgeprüft).
+
+Eine **Qualifikations- und Berechtigungsmatrix** (kurz Qualifikationsmatrix) zeigt in einer Tabelle, welche Mitarbeitenden welche Tätigkeiten beherrschen und welche Berechtigungen sie besitzen, häufig in Stufen wie „nicht eingewiesen“, „unter Anleitung“, „selbstständig“ und „kann anleiten“, bei befristeten Berechtigungen mit Ablaufdatum. Sie dient drei Zwecken: Der Dienstplan setzt nur Personen ein, die die Tätigkeit beherrschen; Engpässe werden sichtbar, etwa wenn eine Tätigkeit in einer Schicht nur eine Person beherrscht; und Lücken zwischen Soll und Ist zeigen den Schulungsbedarf. Die **Urlaubsplanung** sammelt Wünsche früh im Jahr und gleicht sie mit Spitzenzeiten und Mindestbesetzung ab. Die **Vertretungsplanung** legt fest, wer bei Abwesenheit welche Aufgaben übernimmt; als Faustregel sollten mindestens zwei Personen jede kritische Tätigkeit beherrschen, etwa die Disposition eines großen Kundenunternehmens, und eine aktuelle Übergabedokumentation erleichtert die Vertretung.
+
+### Personalentwicklung: Bedarf, Maßnahmen und Laufbahnen
+
+**Personalentwicklung** umfasst alle Maßnahmen, die die Kompetenzen der Mitarbeitenden für heutige und künftige Aufgaben fördern. Der Entwicklungsbedarf entsteht aus einem **Anforderungs-Ist-Vergleich**: Das Anforderungsprofil der Stelle (Soll) wird mit den vorhandenen Kompetenzen (Ist, etwa aus der Qualifikationsmatrix) verglichen; die Lücke ist der Entwicklungsbedarf. Hinzu kommen betriebliche Anlässe wie die Einführung eines neuen TMS (Thema 1.5), ein neues Kundensegment oder absehbare Ruhestände in Schlüsselfunktionen. Zentrales Instrument ist das **Mitarbeitergespräch** (auch Mitarbeitendengespräch): ein regelmäßig, meist jährlich geführtes, vorbereitetes Gespräch zwischen Führungskraft und Mitarbeitenden mit Rückblick, gegenseitigem Feedback, Zielvereinbarung für die nächste Periode (Management by Objectives, Thema 3.1) sowie Entwicklungswünschen und vereinbarten Maßnahmen, die schriftlich festgehalten werden.
+
+Nach dem Lernort werden Maßnahmen unterschieden: **On-the-job** findet direkt am Arbeitsplatz während der Arbeit statt, etwa Einarbeitung durch erfahrene Kolleg:innen, **Job Rotation** (eine Lagerkraft arbeitet einige Wochen in der Disposition mit) oder **Job Enrichment** (anspruchsvollere Aufgaben, etwa die Einweisung neuer Kolleg:innen). **Near-the-job** findet in Arbeitsplatznähe, aber außerhalb der eigentlichen Tätigkeit statt, etwa ein Qualitätszirkel oder ein Verbesserungsworkshop im Rahmen des KVP (Thema 2.6). **Off-the-job** findet losgelöst vom Arbeitsplatz statt, etwa externe Seminare, Lehrgänge oder eine berufsbegleitende Fortbildung. Manche Quellen ergänzen **Into-the-job** für Maßnahmen, die auf eine neue Aufgabe hinführen, etwa ein Traineeprogramm oder eine Schulung vor dem Wechsel in eine neue Stelle.
+
+**Laufbahnen** machen Entwicklung planbar. In der **Führungslaufbahn** führt der Weg zum Beispiel von der Lagerkraft zur Schichtleitung und Lagerleitung oder von der Disponentin bzw. dem Disponenten zur Leitung Disposition und Niederlassungsleitung (zur Führungsstruktur siehe Thema 3.1). In der **Fachlaufbahn** wächst die fachliche Verantwortung ohne Führungsaufgabe, etwa als Spezialist:in für Gefahrgut, Zoll oder internationale Disposition; eine **Projektlaufbahn** führt über die Leitung von Projekten wie der Einführung eines neuen Lagerverwaltungssystems. Typische Qualifizierungswege bei Fracora sind die Übernahme von Auszubildenden in die Disposition (Thema 3.4), der Wechsel erfahrener Fahrer:innen in die Disposition mit begleitender Schulung (ihre Fahrpraxis ist dort wertvoll) und die berufsbegleitende Fortbildung zum Bachelor Professional in Transport Management and Logistics als Vorbereitung auf Führungsaufgaben; die Zulassungsvoraussetzungen regelt die Prüfungsordnung, sie werden hier nicht behandelt. Ein **Maßnahmenplan** hält für jede Maßnahme fest: Ziel, Teilnehmende, Inhalt und Form, Termin, Kosten, Verantwortliche und woran der Erfolg gemessen wird (wie der Maßnahmenplan im Marketing, Thema 1.6).
+
+### Erfolgskontrolle, Kosten und Bindung
+
+Ob sich eine Weiterbildung gelohnt hat, wird verbreitet auf **vier Ebenen** geprüft (in Anlehnung an das Modell von Donald Kirkpatrick): **Reaktion** (Wie zufrieden waren die Teilnehmenden? Gemessen etwa per Feedbackbogen), **Lernen** (Was können sie danach? Gemessen etwa per Test oder Übungsaufgabe), **Transfer** (Wenden sie das Gelernte am Arbeitsplatz an? Gemessen etwa durch Beobachtung der Führungskraft einige Wochen später) und **Ergebnis** (Hat sich eine betriebliche Kennzahl verbessert? Gemessen etwa an der Kommissionierfehlerquote oder der Pünktlichkeitsquote). Je höher die Ebene, desto aussagekräftiger, aber auch aufwendiger die Messung; eine gute Bewertung auf Ebene Reaktion beweist noch keinen Transfer.
+
+Zu den **Kosten** gehören direkte Kosten (Gebühren, Honorare, Material, Reise) und indirekte Kosten, vor allem die Lohnkosten der Arbeitszeit, in der die Teilnehmenden nicht arbeiten. Eine Vergleichskennzahl ist die **Kosten je Teilnehmertag** = Gesamtkosten ÷ (Teilnehmende × Schulungstage). Beispiel (Beispielwerte): Acht Lagerkräfte werden zwei Tage zu einem neuen Kommissionierverfahren geschult. Honorar 2.000 €, Raum und Material 400 €, Lohnkosten 8 × 16 h × 30 € = 3.840 €, zusammen 6.240 €. Bei 8 × 2 = 16 Teilnehmertagen kostet ein Teilnehmertag 6.240 € ÷ 16 = 390 €, eine teilnehmende Person 780 €. Dem steht der **Nutzen** gegenüber: Sinkt bei 200.000 Auftragspositionen im Jahr die Kommissionierfehlerquote von 0,5 % auf 0,3 %, treten 1.000 − 600 = 400 Fehler weniger auf; bei 25 € Folgekosten je Fehler spart das 10.000 € im Jahr, der Nettonutzen im ersten Jahr beträgt 10.000 € − 6.240 € = 3.760 €. Wie bei der Marketingrendite (Thema 1.6) ist der Nutzen nicht immer allein der Maßnahme zuzurechnen, denn auch andere Einflüsse können die Kennzahl verändern; Wirkungen wie höhere Motivation oder geringere Fluktuation sind zudem schwer in Euro zu fassen.
+
+Personalentwicklung ist auch ein Mittel der **Mitarbeiterbindung**. Ihr Gegenstück, die **Fluktuation**, wird mit der **Fluktuationsquote** gemessen: Austritte im Zeitraum ÷ durchschnittlicher Personalbestand × 100, der durchschnittliche Bestand vereinfacht als (Anfangsbestand + Endbestand) ÷ 2. Beispiel (Beispielwerte): Im Lagerbereich einer Niederlassung arbeiten zu Jahresbeginn 38 und zu Jahresende 42 Mitarbeitende, im Jahr scheiden 6 aus; der Durchschnitt ist 40, die Fluktuationsquote 6 ÷ 40 × 100 = 15 %. Jede Neubesetzung kostet Geld, etwa für Anzeigen, Auswahlzeit, Einarbeitung mit noch geringerer Leistung und Mehrarbeit der übrigen Mitarbeitenden; bei geschätzt 6.000 € je Neubesetzung sind das 6 × 6.000 € = 36.000 € im Jahr, dazu kommt verlorenes Erfahrungswissen. Ursachen zeigen **Austrittsgespräche** und Befragungen; häufige Gründe in der Logistik sind kurzfristig geänderte Dienstpläne, hohe Belastung, eine knappe Einarbeitung und fehlende Perspektiven. Nach der Zwei-Faktoren-Theorie (Thema 3.1) verhindern verlässliche Dienstpläne und faire Bezahlung als Hygienefaktoren vor allem Unzufriedenheit, während Entwicklungsmöglichkeiten, Verantwortung und Anerkennung als Motivatoren binden. Ob Bindungsmaßnahmen wirken, zeigt der Vergleich der Fluktuationsquote und der Frühfluktuation über mehrere Perioden.
+
+## Karteikarten
+
+#### K-3.5-01
+**Frage:** Welche Dimensionen des Personalbedarfs unterscheidet die Personalplanung?
+**Antwort:** Quantitativ (wie viele, meist in Vollzeitäquivalenten), qualitativ (welche Qualifikationen und Berechtigungen, z. B. ADR-Schein oder TMS-Kenntnisse) und zeitlich (ab wann einsatzbereit); bei mehreren Standorten zusätzlich örtlich (an welcher Niederlassung).
+`tags: personalbedarf` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-3.5-02
+**Frage:** Wie berechnest du die Ausfallquote und die Nettoarbeitszeit einer Vollzeitkraft?
+**Antwort:** Ausfallquote = Ausfallzeit (Urlaub, Krankheit, Weiterbildung, sonstige Freistellungen) ÷ Bruttoarbeitszeit × 100. Nettoarbeitszeit = Bruttoarbeitszeit − Ausfallzeit = Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl), z. B. 2.000 h − 400 h = 2.000 h × (1 − 0,20) = 1.600 h bei 20 %.
+`tags: personalbedarf, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-03
+**Frage:** Wie ermittelst du den Bruttopersonalbedarf in Vollzeitäquivalenten und daraus den Nettopersonalbedarf?
+**Antwort:** Arbeitsbedarf = Arbeitsmenge ÷ Leistung je Stunde; Bruttopersonalbedarf = Arbeitsbedarf ÷ Nettoarbeitszeit je VZÄ, z. B. 16.000 h ÷ 1.600 h = 10 VZÄ. Nettopersonalbedarf = Bruttopersonalbedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt (heutiger Bestand − feststehende Abgänge + feststehende Zugänge), z. B. 10 − (8 − 1) = 3 VZÄ; negativ heißt Überschuss.
+`tags: personalbedarf, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-04
+**Frage:** Was unterscheidet ein Muss-Kriterium von einem Kann-Kriterium im Anforderungsprofil?
+**Antwort:** Muss-Kriterien sind Mindestanforderungen; wer sie nicht erfüllt, kommt für die Stelle nicht in Betracht und scheidet bei der Sichtung der Unterlagen aus (z. B. sichere Arbeit mit einem TMS für die Disposition). Kann-Kriterien sind erwünscht, aber nicht zwingend; fehlen sie, lässt sich das meist in Einarbeitung oder Weiterbildung ausgleichen (z. B. Erfahrung mit Gefahrgutsendungen).
+`tags: personalbeschaffung` · `schwierigkeit: leicht` · `bloom: verstehen`
+
+#### K-3.5-05
+**Frage:** Nenne je einen Vor- und Nachteil der internen und der externen Personalbeschaffung.
+**Antwort:** Intern: Vorteil bekannte Eignung und kürzere Einarbeitung (auch Aufstiegsanreiz), Nachteil neue Lücke an der bisherigen Stelle (auch fehlende Impulse von außen). Extern: Vorteil neue Erfahrung und größerer Kreis an Bewerbenden, Nachteil höherer Auswahlaufwand und unsicherere Einschätzung der Eignung.
+`tags: personalbeschaffung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-06
+**Frage:** Nenne drei Beurteilungsfehler in der Personalauswahl und drei Gegenmaßnahmen.
+**Antwort:** Fehler z. B. Halo-Effekt, erster Eindruck, Ähnlichkeits- bzw. Sympathiefehler (auch Tendenz zur Mitte, Milde- und Strengefehler). Gegenmaßnahmen z. B. strukturiertes Interview mit gleichen Leitfragen und Bewertungsbogen, mindestens zwei Beurteilende, Bewertung je Kriterium erst nach dem Gespräch anhand notierten Verhaltens.
+`tags: personalauswahl` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-3.5-07
+**Frage:** Welche Assessment-Elemente eignen sich für die Auswahl von Disponent:innen, und was zeigen sie?
+**Antwort:** Fallübung (Tagesplanung mit kurzfristigen Störungen), Postkorbübung (viele Aufträge und Nachrichten unter Zeitdruck ordnen und entscheiden) und Rollenspiel (Gespräch mit verärgerter Kundschaft). Sie zeigen Verhalten in arbeitsnahen Situationen statt nur Selbstauskünfte.
+`tags: personalauswahl` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-08
+**Frage:** Welche Bausteine gehören zu einem guten Onboarding, und warum lohnt es sich?
+**Antwort:** Vorbereitung vor dem ersten Tag (Dienstplan, Systemzugänge, Arbeitsplatz), Begrüßung und Unterweisungen, feste Ansprechperson (Patenschaft), schriftlicher Einarbeitungsplan und Feedbackgespräche, etwa nach einer Woche, einem Monat und vor Ende der Probezeit. Es senkt die Frühfluktuation und verkürzt die Zeit bis zur vollen Leistung.
+`tags: onboarding` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-09
+**Frage:** Wie unterscheiden sich die Schichtmodelle im Lager und in der Disposition, und wonach richtet sich der Einsatz des Fahrpersonals?
+**Antwort:** Lager: meist Zweischichtbetrieb (Früh- und Spätschicht), bei nächtlichem Umschlag Dreischichtbetrieb. Disposition: gestaffelte Dienste mit kurzer Überschneidung zur Übergabe, außerhalb der Dienstzeit Bereitschaft. Fahrpersonal: nach Tourenplan und gesetzlichen Lenk- und Ruhezeiten (Zahlenwerte hier nicht behandelt).
+`tags: personaleinsatz` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-10
+**Frage:** Wie funktioniert ein Arbeitszeitkonto mit Ampelregel?
+**Antwort:** Es erfasst die Abweichung der Iststunden von den Sollstunden: neuer Saldo = alter Saldo + (Iststunden − Sollstunden). Die Ampel setzt Grenzen, z. B. grün bis 20 Plus- oder Minusstunden, gelb bis 40 (Abbau vereinbaren), rot darüber (sofort handeln); die Grenzen werden betrieblich vereinbart.
+`tags: personaleinsatz, rechnen` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-11
+**Frage:** Wozu dient eine Qualifikations- und Berechtigungsmatrix?
+**Antwort:** Sie zeigt, wer welche Tätigkeiten beherrscht und welche Berechtigungen hat (mit Stufen und Ablaufdaten). Damit setzt der Dienstplan nur geeignete Personen ein, Engpässe und Vertretungslücken werden sichtbar (Faustregel: mindestens zwei Personen je kritischer Tätigkeit), und Soll-Ist-Lücken zeigen den Schulungsbedarf.
+`tags: personaleinsatz, personalentwicklung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.5-12
+**Frage:** Ordne je ein Beispiel aus der Spedition den Maßnahmenarten On-the-job, Near-the-job und Off-the-job zu.
+**Antwort:** On-the-job: Job Rotation einer Lagerkraft in die Disposition oder Einweisung durch erfahrene Kolleg:innen. Near-the-job: Qualitätszirkel oder KVP-Workshop in Arbeitsplatznähe. Off-the-job: externes Seminar, Lehrgang oder berufsbegleitende Fortbildung.
+`tags: personalentwicklung` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.5-13
+**Frage:** Auf welchen vier Ebenen lässt sich der Erfolg einer Weiterbildung prüfen?
+**Antwort:** Reaktion (Zufriedenheit der Teilnehmenden), Lernen (Wissen und Können danach, z. B. Test), Transfer (Anwendung am Arbeitsplatz) und Ergebnis (Verbesserung einer betrieblichen Kennzahl, z. B. Kommissionierfehlerquote). Je höher die Ebene, desto aussagekräftiger und aufwendiger die Messung.
+`tags: personalentwicklung, erfolgskontrolle` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-3.5-14
+**Frage:** Wie berechnest du die Fluktuationsquote, und warum ist eine hohe Fluktuation teuer?
+**Antwort:** Fluktuationsquote = Austritte ÷ durchschnittlicher Personalbestand × 100, Durchschnitt vereinfacht (Anfangsbestand + Endbestand) ÷ 2, z. B. 6 ÷ 40 × 100 = 15 %. Teuer ist sie durch Anzeigen, Auswahlzeit, Einarbeitung mit geringerer Leistung, Mehrarbeit der übrigen Mitarbeitenden und verlorenes Erfahrungswissen.
+`tags: mitarbeiterbindung, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-3.5-01 · Multiple Choice
+**Frage:** Fracora gewinnt ein Kundenunternehmen mit Gefahrgutsendungen. Die Zahl der Touren bleibt gleich, aber zwei Fahrer:innen müssen dafür künftig den ADR-Schein besitzen, den sie bisher nicht haben. Welche Dimension des Personalbedarfs ist vor allem betroffen?
+- [ ] Der quantitative Bedarf, weil zwei zusätzliche Stellen entstehen
+- [x] Der qualitative Bedarf, weil eine bestimmte Qualifikation fehlt
+- [ ] Der Ersatzbedarf, weil zwei Fahrer:innen ausscheiden
+- [ ] Der Nettopersonalbedarf, weil der Bestand den Bruttobedarf übersteigt
+**Erklärung:** Die Zahl der benötigten Personen ändert sich nicht, wohl aber die geforderte Qualifikation; das ist qualitativer Bedarf. Er lässt sich hier durch Weiterbildung der vorhandenen Fahrer:innen decken.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-02 · Kurzantwort
+**Frage:** Eine Vollzeitkraft im Lager hat im Jahr 240 Arbeitstage (Bruttoarbeitszeit). Für Urlaub, Krankheit und Weiterbildung werden zusammen 36 Ausfalltage erwartet. Wie hoch ist die Ausfallquote in Prozent?
+**Akzeptierte Antworten:** 15; 15 %; 15 Prozent; 15,0; 15,0 %; 15,0 Prozent; 15.0; 15.0 %; 15.0 Prozent; 15,00; 15,00 %; 15,00 Prozent; 15.00; 15.00 %; 15.00 Prozent
+**Erklärung:** Ausfallquote = Ausfallzeit ÷ Bruttoarbeitszeit × 100 = 36 ÷ 240 × 100 = 15 %.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-03 · Kurzantwort
+**Frage:** Die Bruttoarbeitszeit einer Vollzeitkraft in der Disposition beträgt 2.000 Stunden im Jahr, die Ausfallquote 15 %. Wie hoch ist die Nettoarbeitszeit in Stunden pro Jahr?
+**Akzeptierte Antworten:** 1700; 1.700; 1700 h; 1.700 h; 1700 Stunden; 1.700 Stunden; 1700 Std.; 1.700 Std.; 1700 Std; 1.700 Std; 1700 Stunden pro Jahr; 1.700 Stunden pro Jahr; 1700 Stunden im Jahr; 1.700 Stunden im Jahr; 1700 h pro Jahr; 1.700 h pro Jahr; 1700 h/Jahr; 1.700 h/Jahr; 1700 Stunden/Jahr; 1.700 Stunden/Jahr; 1700,00; 1.700,00; 1700,00 h; 1.700,00 h; 1700,00 Stunden; 1.700,00 Stunden; 1700.00; 1700.00 h; 1700.00 Stunden
+**Erklärung:** Nettoarbeitszeit = Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl) = 2.000 h × (1 − 0,15) = 2.000 h × 0,85 = 1.700 h; gleichbedeutend 2.000 h − 300 h Ausfallzeit.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-04 · Kurzantwort
+**Frage:** Für einen neuen Kontraktlogistik-Auftrag berechnet Fracora einen Arbeitsbedarf von 13.600 Stunden im Jahr. Eine Vollzeitkraft hat eine Nettoarbeitszeit von 1.700 Stunden im Jahr. Wie hoch ist der Bruttopersonalbedarf in Vollzeitäquivalenten (VZÄ)?
+**Akzeptierte Antworten:** 8; 8 VZÄ; 8 Vollzeitäquivalente; 8 Vollzeitstellen; 8 Stellen; 8 Vollzeitkräfte; 8,0; 8,0 VZÄ; 8.0; 8.0 VZÄ; 8,00; 8,00 VZÄ; 8.00; 8.00 VZÄ; 8,0 Vollzeitäquivalente; 8.0 Vollzeitäquivalente; acht; acht VZÄ; acht Vollzeitäquivalente; acht Vollzeitstellen; acht Stellen; acht Vollzeitkräfte
+**Erklärung:** Bruttopersonalbedarf = Arbeitsbedarf ÷ Nettoarbeitszeit je VZÄ = 13.600 h ÷ 1.700 h = 8 VZÄ.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-05 · Kurzantwort
+**Frage:** Die Disposition einer Niederlassung braucht ab dem nächsten Jahr 12 VZÄ (Bruttopersonalbedarf). Heute sind 10 VZÄ besetzt; bis zu diesem Bedarfszeitpunkt scheiden davon 2 VZÄ aus (Ruhestand und Kündigung), Zugänge stehen noch nicht fest. Wie hoch ist der Nettopersonalbedarf in VZÄ?
+**Akzeptierte Antworten:** 4; 4 VZÄ; 4 Vollzeitäquivalente; 4 Vollzeitstellen; 4 Stellen; 4 Vollzeitkräfte; 4,0; 4,0 VZÄ; 4,0 Vollzeitäquivalente; 4.0; 4.0 VZÄ; 4,00; 4,00 VZÄ; 4.00; 4.00 VZÄ; vier; vier VZÄ; vier Vollzeitäquivalente; vier Vollzeitstellen; vier Stellen; vier Vollzeitkräfte
+**Erklärung:** Fortgeschriebener Personalbestand zum Bedarfszeitpunkt = heute 10 − 2 Abgänge + 0 Zugänge = 8 VZÄ; Nettopersonalbedarf = 12 − 8 = 4 VZÄ. Lag der bisherige Bedarf bei 10 VZÄ und war er voll besetzt, sind das 2 VZÄ Ersatzbedarf und 2 VZÄ Neubedarf.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-06 · Sortieren
+**Anweisung:** Bringe die Schritte der Personalbeschaffung und -auswahl für eine neue Disponentin bzw. einen neuen Disponenten in die richtige Reihenfolge.
+1. Anforderungsprofil mit Muss- und Kann-Kriterien erstellen
+2. Stelle intern und extern ausschreiben
+3. Bewerbungsunterlagen anhand der Muss-Kriterien sichten
+4. Strukturiertes Interview und Fallübung durchführen
+**Erklärung:** Das Anforderungsprofil steht am Anfang, weil Ausschreibung, Vorauswahl und Interview sich daran ausrichten; die aufwendigen Verfahren folgen erst nach der Vorauswahl.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-07 · Was passt nicht dazu
+**Frage:** Welcher Begriff passt nicht zu den übrigen (Beurteilungsfehler in der Personalauswahl)?
+- [ ] Halo-Effekt
+- [ ] Tendenz zur Mitte
+- [x] Strukturiertes Interview
+- [ ] Ähnlichkeitsfehler
+**Erklärung:** Das strukturierte Interview ist eine Gegenmaßnahme; die übrigen Begriffe sind typische Beurteilungsfehler.
+`schwierigkeit: leicht` · `bloom: analysieren`
+
+#### Q-3.5-08 · Mehrfachauswahl
+**Frage:** Eine neue Disponentin beginnt nächste Woche bei Fracora. Welche Maßnahmen sind für ihr Onboarding sinnvoll?
+- [x] Eine erfahrene Kollegin als feste Ansprechperson benennen
+- [x] Touren in den ersten Wochen zunächst unter Anleitung mitplanen lassen
+- [ ] Sie schon am ersten Wochenende allein die Bereitschaft übernehmen lassen, damit sie schnell selbstständig wird
+- [x] Nach den ersten Wochen ein Feedbackgespräch führen
+**Erklärung:** Patenschaft, schrittweise wachsende Verantwortung und frühe Feedbackgespräche gehören zu einem guten Onboarding. Eine allein verantwortete Bereitschaft setzt Erfahrung voraus; anfangs wird nach dem situativen Führen engmaschig geführt.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-09 · Wahr/Falsch
+**Aussage:** Der Dienstplan für das Fahrpersonal kann allein aus dem Tourenplan abgeleitet werden; die verbleibende Lenkzeit der einzelnen Fahrer:innen spielt dafür keine Rolle.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Der Einsatz des Fahrpersonals richtet sich nach dem Tourenplan und nach den gesetzlichen Lenk- und Ruhezeiten; die Disposition berücksichtigt deshalb die verbleibende Lenkzeit jeder Person.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-3.5-10 · Kurzantwort
+**Frage:** Ein Lagermitarbeiter hat eine Sollarbeitszeit von 40 Stunden je Woche und auf seinem Arbeitszeitkonto einen Saldo von +12 Stunden. In den nächsten vier Wochen arbeitet er 45, 43, 36 und 41 Stunden. Wie hoch ist der Saldo danach in Stunden?
+**Akzeptierte Antworten:** 17; +17; 17 h; +17 h; 17 Stunden; +17 Stunden; 17 Std.; +17 Std.; 17 Std; +17 Std; 17 Plusstunden; +17 Plusstunden; 17 Überstunden; +17 Überstunden; 17,0; +17,0; 17,0 h; +17,0 h; 17,0 Stunden; +17,0 Stunden; 17.0; +17.0; 17.0 h; +17.0 h; 17.0 Stunden; +17.0 Stunden; 17,00; +17,00; 17.00; +17.00; 17,00 h; 17.00 h; 17,00 Stunden; 17.00 Stunden; +17,00 h; +17.00 h; +17,00 Stunden; +17.00 Stunden
+**Erklärung:** Iststunden = 45 + 43 + 36 + 41 = 165 h, Sollstunden = 4 × 40 h = 160 h; neuer Saldo = +12 h + (165 h − 160 h) = +17 h.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-11 · Lückentext (Wortauswahl)
+**Text:** Die ___Qualifikationsmatrix___ zeigt, welche Mitarbeitenden welche Tätigkeiten beherrschen und welche Berechtigungen sie besitzen; daraus ergeben sich Einsatzmöglichkeiten, Vertretungslücken und Schulungsbedarf.
+**Zusätzliche Begriffe:** Stellenausschreibung; Arbeitszeitkonto; Fluktuationsquote
+**Erklärung:** Die Qualifikations- und Berechtigungsmatrix verbindet Personaleinsatz und Personalentwicklung: Lücken zwischen Soll und Ist zeigen, wo geschult werden muss.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-3.5-12 · Entweder-Oder
+**Frage:** Eine Lagerkraft arbeitet im Rahmen einer Job Rotation sechs Wochen in der Disposition mit, um später dorthin zu wechseln. Ist das eher eine On-the-job- oder eine Off-the-job-Maßnahme?
+- [x] On-the-job
+- [ ] Off-the-job
+**Erklärung:** Job Rotation findet direkt am Arbeitsplatz während der Arbeit statt. Off-the-job wären etwa ein externes Seminar oder ein Lehrgang außerhalb des Betriebs.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.5-13 · Zuordnung
+**Anweisung:** Ordne die Messungen nach einer Schulung zu einem neuen Kommissionierverfahren der passenden Ebene der Erfolgskontrolle zu.
+- Reaktion ↔ Die Teilnehmenden bewerten die Schulung im Feedbackbogen als praxisnah
+- Lernen ↔ In einer Übungsaufgabe kommissionieren alle Teilnehmenden nach dem neuen Verfahren fehlerfrei
+- Transfer ↔ Die Schichtleitung beobachtet acht Wochen später, dass das Verfahren im Alltag angewendet wird
+- Ergebnis ↔ Die Kommissionierfehlerquote sinkt im folgenden Quartal von 0,5 % auf 0,3 %
+**Erklärung:** Die Ebenen bauen aufeinander auf: Zufriedenheit, Lernerfolg, Anwendung am Arbeitsplatz und betriebliche Wirkung. Eine gute Reaktion beweist noch keinen Transfer.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-14 · Kurzantwort
+**Frage:** Sechs Disponent:innen besuchen eine dreitägige Schulung zum TMS. Honorar 3.000 €, Material 240 €, Lohnkosten für die Schulungszeit 6 × 24 h × 35 € = 5.040 €. Wie hoch sind die Kosten je Teilnehmertag in Euro?
+**Akzeptierte Antworten:** 460; 460 €; 460 Euro; 460 EUR; 460,00; 460,00 €; 460,00 Euro; 460,00 EUR; 460.00; 460.00 €; 460.00 Euro; 460.00 EUR; 460 € je Teilnehmertag; 460 € pro Teilnehmertag; 460 €/Teilnehmertag; 460 Euro je Teilnehmertag; 460 Euro pro Teilnehmertag; 460,00 € je Teilnehmertag; 460,00 € pro Teilnehmertag; 460,00 €/Teilnehmertag; 460 Euro/Teilnehmertag
+**Erklärung:** Gesamtkosten = 3.000 € + 240 € + 5.040 € = 8.280 €; Teilnehmertage = 6 × 3 = 18; Kosten je Teilnehmertag = 8.280 € ÷ 18 = 460 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-15 · Kurzantwort
+**Frage:** In der Disposition einer Niederlassung arbeiten zu Jahresbeginn 22 und zu Jahresende 18 Mitarbeitende; im Jahr scheiden 4 aus. Wie hoch ist die Fluktuationsquote in Prozent (durchschnittlicher Bestand als Mittel aus Anfangs- und Endbestand)?
+**Akzeptierte Antworten:** 20; 20 %; 20 Prozent; 20,0; 20,0 %; 20,0 Prozent; 20.0; 20.0 %; 20.0 Prozent; 20,00; 20,00 %; 20,00 Prozent; 20.00; 20.00 %; 20.00 Prozent
+**Erklärung:** Durchschnittlicher Bestand = (22 + 18) ÷ 2 = 20; Fluktuationsquote = 4 ÷ 20 × 100 = 20 %.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.5-16 · Kurzantwort
+**Frage:** Eine Schulung zur Tourenplanung kostet Fracora 7.500 €. Danach fallen in der betroffenen Fahrzeuggruppe 1.000 Leerkilometer pro Monat weniger an; jeder vermiedene Leerkilometer spart 0,75 € kilometerabhängige Kosten. Wie hoch ist der Nettonutzen (Einsparung minus Schulungskosten) im ersten Jahr in Euro?
+**Akzeptierte Antworten:** 1500; 1.500; +1500; +1.500; 1500 €; 1.500 €; +1500 €; +1.500 €; 1500 Euro; 1.500 Euro; +1500 Euro; +1.500 Euro; 1500 EUR; 1.500 EUR; +1500 EUR; +1.500 EUR; 1500,00; 1.500,00; +1500,00; +1.500,00; 1500,00 €; 1.500,00 €; +1500,00 €; +1.500,00 €; 1500,00 Euro; 1.500,00 Euro; +1500,00 Euro; +1.500,00 Euro; 1500,00 EUR; 1.500,00 EUR; +1500,00 EUR; +1.500,00 EUR; 1500.00; +1500.00; 1500.00 €; +1500.00 €; 1500.00 Euro; +1500.00 Euro; 1500.00 EUR; +1500.00 EUR
+**Erklärung:** Einsparung = 1.000 km × 12 Monate × 0,75 € = 9.000 €; Nettonutzen = 9.000 € − 7.500 € = 1.500 €. Ob die Einsparung allein auf die Schulung zurückgeht, ist gesondert zu prüfen (Kostensatz je Leerkilometer wie in Thema 2.8).
+`schwierigkeit: schwer` · `bloom: anwenden`

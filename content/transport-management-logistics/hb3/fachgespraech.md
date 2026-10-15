@@ -213,3 +213,49 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Ausbildereignungsprüfung prüft berufs- und arbeitspädagogische Kenntnisse.
   - Rückfrage: Nach welchem Plan führen Ausbildende die Ausbildung durch, und wie wird er im Betrieb konkretisiert?
 
+### 3.5 Personal: Auswahl, Einsatz und Entwicklung
+
+- Ihr Unternehmen übernimmt einen neuen Kontraktlogistik-Auftrag. Wie ermitteln Sie den Personalbedarf für das Lager?
+  - Erwartung: Der Personalbedarf hat eine quantitative, eine qualitative und eine zeitliche Dimension; bei mehreren Standorten kommt die örtliche hinzu.
+  - Erwartung: Aus der Bruttoarbeitszeit werden die Ausfallzeiten (Urlaub, Krankheit, Weiterbildung) abgezogen; Nettoarbeitszeit = Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl).
+  - Erwartung: Arbeitsbedarf = Arbeitsmenge ÷ Leistung je Stunde; Bruttopersonalbedarf in VZÄ = Arbeitsbedarf ÷ Nettoarbeitszeit je VZÄ.
+  - Erwartung: Nettopersonalbedarf = Bruttopersonalbedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt (heutiger Bestand − feststehende Abgänge + feststehende Zugänge); ein negativer Wert zeigt einen Überschuss.
+  - Erwartung: Für den zeitlichen Bedarf wird vom Einsatzbeginn rückwärts gerechnet: Ausschreibung und Auswahl, Wechselzeit und Einarbeitung.
+  - Rückfrage: Wie fangen Sie Mengenspitzen auf, ohne dauerhaft mehr Personal einzustellen?
+- Wie gestalten Sie die Auswahl von Disponent:innen so, dass die Entscheidung möglichst wenig von Beurteilungsfehlern beeinflusst wird?
+  - Erwartung: Grundlage ist ein Anforderungsprofil mit Muss- und Kann-Kriterien, gegliedert nach Fach-, Methoden-, Sozial- und persönlicher Kompetenz.
+  - Erwartung: Ein strukturiertes Interview mit gleichen Leitfragen, situativen Fragen und einem Bewertungsbogen je Kriterium macht Bewerbende vergleichbar.
+  - Erwartung: Arbeitsnahe Verfahren wie Probearbeit, Fallübung, Postkorbübung oder Rollenspiel zeigen Verhalten statt Selbstauskünften.
+  - Erwartung: Typische Beurteilungsfehler sind Halo-Effekt, erster Eindruck, Ähnlichkeits- bzw. Sympathiefehler, Tendenz zur Mitte sowie Milde- und Strengefehler; dagegen helfen mehrere Beurteilende und eine Bewertung erst nach dem Gespräch anhand notierten Verhaltens.
+  - Erwartung: Die Entscheidung wird per Profilvergleich begründet und dokumentiert, Absagen erfolgen zeitnah und wertschätzend.
+  - Rückfrage: Wie stellen Sie sicher, dass eine neue Disponentin in den ersten Monaten gut ankommt?
+- Wie planen Sie die Personalentwicklung in Lager und Disposition, und wie prüfen Sie, ob sich eine Weiterbildung gelohnt hat?
+  - Erwartung: Der Entwicklungsbedarf ergibt sich aus dem Anforderungs-Ist-Vergleich, etwa mit der Qualifikationsmatrix, und aus betrieblichen Anlässen wie einer TMS-Einführung; im Mitarbeitergespräch werden Ziele und Maßnahmen vereinbart.
+  - Erwartung: Maßnahmen werden nach dem Lernort unterschieden: On-the-job (z. B. Job Rotation), Near-the-job (z. B. Qualitätszirkel) und Off-the-job (z. B. Seminar oder Lehrgang).
+  - Erwartung: Ein Maßnahmenplan legt Ziel, Teilnehmende, Termin, Kosten, Verantwortliche und Erfolgskriterium fest; Laufbahnen (Führungs-, Fach-, Projektlaufbahn) machen Entwicklung planbar.
+  - Erwartung: Die Erfolgskontrolle prüft vier Ebenen: Reaktion, Lernen, Transfer und Ergebnis.
+  - Erwartung: Den Kosten (direkte Kosten und Lohnkosten der Schulungszeit, etwa als Kosten je Teilnehmertag) wird der Nutzen gegenübergestellt, wobei nicht jede Verbesserung allein der Maßnahme zuzurechnen ist.
+  - Rückfrage: Wie messen Sie die Fluktuation, und was kann Personalentwicklung zur Mitarbeiterbindung beitragen?
+
+### 3.6 Präsentieren, Verhandeln und Kundenberatung
+
+- Ein Industrieunternehmen fragt bei Ihnen eine Kontraktlogistik-Leistung an. Wie führen Sie das Beratungsgespräch, und wie ermitteln Sie den Bedarf?
+  - Erwartung: Das Gespräch folgt Phasen: Vorbereitung, Kontaktphase, Bedarfsermittlung, Nutzenargumentation, Einwandbehandlung, Abschluss und danach Nachfassen bzw. Nachbetreuung.
+  - Erwartung: In der Bedarfsermittlung überwiegen offene Fragen; geschlossene Fragen dienen zum Präzisieren und Bestätigen; Situations-, Problem- und Nutzenfragen erfassen Ist-Zustand, Schwierigkeiten und den Wert einer Lösung.
+  - Erwartung: Erfragt werden unter anderem Mengen und Schwankungen, Sendungsstruktur mit Maßen, Gewicht und Stapelbarkeit, Zeitfenster, Servicelevel, IT-Anbindung sowie der Entscheidungsweg im Buying Center.
+  - Erwartung: Die Nutzenargumentation verbindet Merkmal, Vorteil und Nutzen mit dem genannten Bedarf und belegt ihn mit Kennzahlen, Referenzen oder Zertifikaten, statt nur Leistungen aufzuzählen.
+  - Rückfrage: Wie reagieren Sie, wenn die Einkaufsleitung sagt: „Ihr Angebot ist zu teuer“?
+- Wie bereiten Sie eine Preisverhandlung über die Verlängerung eines Rahmenvertrags vor?
+  - Erwartung: Festgelegt werden Einstiegsangebot, Zielergebnis und Mindestergebnis; die Preisuntergrenze bilden bei Rahmenverträgen in der Regel die Selbstkosten, sie wird vorab intern dokumentiert.
+  - Erwartung: Verhandlungsspielraum = Einstiegsangebot − Preisuntergrenze; der Einigungsbereich reicht von der eigenen Preisuntergrenze bis zum geschätzten Höchstpreis der Kundschaft.
+  - Erwartung: Die BATNA beider Seiten wird eingeschätzt; ein Abschluss lohnt sich nur, wenn er besser ist als die beste eigene Alternative.
+  - Erwartung: Interessen der Gegenseite werden ermittelt und Gegenleistungen mit ihrem Wert in Euro vorbereitet; bei Nachlass gegen Mengenzusage gilt: erforderliche Menge = bisheriger Deckungsbeitrag insgesamt ÷ neuer Deckungsbeitrag je Einheit.
+  - Erwartung: Rollen im Team und Entscheidungsbefugnis werden geklärt; das Ergebnis wird protokolliert, schriftlich bestätigt und in den Vertrag übernommen.
+  - Rückfrage: Welche Taktiken der Gegenseite erwarten Sie, und wie begegnen Sie ihnen?
+- Sie stellen der Prüfungskommission in höchstens zehn Minuten ein Projekt aus Ihrem Betrieb vor. Wie bauen Sie die Präsentation auf, und wie bereiten Sie sich auf die Rückfragen im anschließenden Fachgespräch vor?
+  - Erwartung: Die Planung klärt Ziel, Zielgruppe, Zeit, Raum und Medien; die Kernbotschaft lässt sich in einem Satz sagen und steht am Anfang und am Ende.
+  - Erwartung: Gliederung in Einstieg, Hauptteil und Schluss nach der Faustregel etwa 10 %, 80 % und 10 %, also rund 1, 8 und 1 Minute, mit kleiner Reserve, Probeläufen mit Uhr und einem Kürzungsplan im Hauptteil.
+  - Erwartung: Folien mit einer Kernaussage je Folie und passenden Diagrammen; für den Hauptteil genügen drei bis vier Inhaltsfolien mit etwa zwei Minuten je Folie.
+  - Erwartung: Zur Vorbereitung auf Rückfragen werden zu jeder Folie mögliche Fragen zu Begriffen, Zahlen und Alternativen notiert und Reservefolien bereitgehalten; geantwortet wird mit der Kernaussage zuerst, Begründung und Beispiel, Wissenslücken werden offen eingeräumt.
+  - Erwartung: Die Präsentation dauert höchstens 10 Minuten, das Fachgespräch höchstens 20 Minuten; maßgeblich für Form, Fristen und Medien ist die Prüfungsordnung.
+  - Rückfrage: Ihr Probelauf dauert zwölf Minuten. Was ändern Sie?
