@@ -1,0 +1,350 @@
+---
+kurs_slug: industriefachwirt
+fachgebiet_code: HQ3
+fachgebiet_title: "Marketing und Vertrieb"
+thema_code: "7.6"
+thema_title: "Vertriebsplanung, Absatzprognose und Vergütung im Vertrieb"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin" (IndFachwirtPrV) vom 2010, §5 Handlungsbereich „Marketing und Vertrieb" — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+---
+
+# Thema 7.6 — Vertriebsplanung, Absatzprognose und Vergütung im Vertrieb
+
+## Theorie
+
+### Vertriebsziele und Vertriebsplanung
+
+Die **Vertriebsplanung** legt fest, was der Vertrieb in einer Planperiode erreichen soll und mit welchen Mitteln. Planperiode ist meist das Geschäftsjahr, unterteilt in Quartale oder Monate. Die Vertriebsplanung steht in einer Kette von Zielen: Aus den Unternehmenszielen der Solvitec Elektrowerke GmbH (etwa Wachstum, Rentabilität, Erschließung Südostasiens) leitet das Marketing im Marketingplan Marketingziele, Strategie und Maßnahmen ab (Thema 7.5). Daraus entstehen die **Vertriebsziele**, die auf Regionen, Produktgruppen, Teams und einzelne Außendienstmitarbeitende heruntergebrochen werden. Wie alle Ziele sollen sie messbar und terminiert formuliert sein (SMART-Regel, Thema 7.5), damit sich am Ende der Periode prüfen lässt, ob sie erreicht wurden.
+
+Vertriebsziele sind zum einen **ökonomische Ziele** wie Absatzmenge, Umsatz, Deckungsbeitrag (Thema 2.2), Marktanteil (Thema 7.1) oder Auftragseingang, zum anderen **kunden- und tätigkeitsbezogene Ziele** wie die Zahl neu gewonnener Kundenunternehmen, die Kundenbindungsrate, die Zahl der Besuche oder die Abschlussquote (Vertriebskennzahlen, Thema 7.3). Ein reines Umsatzziel reicht selten aus: Wer nur Umsatz plant, plant den Gewinn nicht mit. Deshalb ergänzt Solvitec das Umsatzziel um ein Deckungsbeitragsziel.
+
+Für das Vorgehen gibt es drei Wege. Beim **Top-down-Verfahren** gibt die Unternehmens- bzw. Vertriebsleitung die Ziele vor und verteilt sie auf die Gebiete; das sichert den Bezug zur Strategie, kann aber an der Lage vor Ort vorbeigehen. Beim **Bottom-up-Verfahren** schätzen die Außendienstmitarbeitenden und Gebietsleitungen aus ihrer Kenntnis der Kundschaft, was möglich ist; die Werte werden zusammengefasst. Das nutzt Marktwissen, verleitet aber zu vorsichtigen Schätzungen, wenn die eigene Vergütung von der Zielerreichung abhängt. Das **Gegenstromverfahren** verbindet beide: Die Leitung gibt einen Rahmen vor, die Gebiete planen im Detail, und die Abweichungen werden abgestimmt, bis ein gemeinsamer Plan steht.
+
+Der Vertriebsplan besteht aus mehreren **Teilplänen**: dem Absatzplan (Mengen), dem Umsatzplan (Werte), dem Kundenplan (welche Kundschaft gehalten und gewonnen werden soll), dem Gebiets- und Außendienstplan (wer welche Kundschaft wie oft besucht) sowie dem Budget der Vertriebskosten (Personal, Reisen, Messen; Budgetierung, Thema 2.3). Grundlage ist eine **Absatzprognose**: Sie zeigt, welcher Absatz zu erwarten ist, wenn sich die Bedingungen nicht wesentlich ändern. Der Plan legt dagegen fest, was erreicht werden soll. Liegt das Ziel über der Prognose, muss die Lücke mit zusätzlichen Maßnahmen geschlossen werden (Marketing-Mix, Thema 7.2); gelingt das nicht glaubwürdig, ist das Ziel unrealistisch.
+
+### Absatz-, Umsatz- und Kundenplan
+
+Der **Absatzplan** legt die geplanten Verkaufsmengen fest, gegliedert nach Produktgruppen, Vertriebsgebieten und Perioden (mengenmäßige Planung in Stück). Er ist der Ausgangspunkt für die Produktionsprogrammplanung und die Kapazitätsplanung (Thema 6.1) sowie für die Materialbedarfsplanung (Thema 6.5). Der **Umsatzplan** bewertet die Mengen mit den geplanten Nettopreisen, also nach Rabatten und anderen Erlösschmälerungen (wertmäßige Planung):
+
+Planumsatz = geplante Absatzmenge × geplanter Nettopreis je Stück
+
+Beispiel (Beispielwerte, Vertriebsgebiet Süddeutschland, Planjahr):
+
+| Produktgruppe | Absatzplan | Nettopreis je Stück | Umsatzplan |
+|---|---|---|---|
+| Sensor S-200 | 6.000 Stück | 48 € | 288.000 € |
+| Frequenzumrichter | 2.500 Stück | 800 € | 2.000.000 € |
+| Sicherheitssteuerungen | 1.200 Stück | 1.500 € | 1.800.000 € |
+| Summe | | | 4.088.000 € |
+
+Weil gleich hohe Umsätze sehr unterschiedliche Beiträge zum Gewinn liefern können, ergänzt Solvitec den Umsatzplan um einen **Deckungsbeitragsplan** (Deckungsbeitrag = Umsatz − variable Kosten, Thema 2.2). Beim Sensor S-200 (Preis und variable Kosten wie in Thema 2.2: 48 € und 30 € je Stück) beträgt der geplante Deckungsbeitrag 6.000 × (48 € − 30 €) = 108.000 €. Die Jahreswerte werden auf Quartale oder Monate verteilt; bei schwankendem Absatz geschieht das mit Saisonindizes (Abschnitt „Quantitative Prognoseverfahren und Prognosefehler“).
+
+Der **Kundenplan** legt fest, mit welcher Kundschaft der Umsatz erzielt werden soll: welche Kundenunternehmen gehalten werden, wie viele neu gewonnen werden müssen und welcher Umsatz je Kundengruppe (etwa nach ABC-Klassen, Thema 7.1) geplant ist. Die **Kundenbindungsrate** ist hier der Anteil der Kundenunternehmen der Vorperiode, die auch in der Planperiode wieder kaufen (in Thema 7.3 als Vertriebskennzahl genannt). Daraus folgt der Bedarf an neuer Kundschaft:
+
+benötigte neue Kundenunternehmen = geplante Zahl der Kundenunternehmen − Kundenunternehmen der Vorperiode × Kundenbindungsrate
+
+Beispiel (Beispielwerte): Das Gebiet hatte im Vorjahr 120 Kundenunternehmen, erwartet wird eine Kundenbindungsrate von 90 %, geplant sind 125 Kundenunternehmen. Es bleiben voraussichtlich 120 × 0,90 = 108; gewonnen werden müssen 125 − 108 = 17 Kundenunternehmen. Der Kundenplan zeigt damit, wie viel Zeit der Außendienst für die Neukundengewinnung braucht, und fließt in die Außendienstplanung ein.
+
+### Gebiets- und Außendienstplanung
+
+Die **Gebietsplanung** teilt den Markt in **Vertriebsgebiete** auf, meist regional (bei Solvitec etwa Norddeutschland, Westdeutschland, Ostdeutschland, Süddeutschland sowie Österreich und Schweiz innerhalb des Regionalvertriebs DACH, Thema 7.3), teils nach Branchen oder Produktgruppen; die umsatzstärksten Kundenunternehmen betreut das Key-Account-Management gebietsübergreifend. Gute Gebiete haben ein vergleichbares Kundenpotenzial und eine vergleichbare Arbeitslast, damit die Ziele fair sind, und sie sind so zugeschnitten, dass die Reisewege kurz bleiben. Die ABC-Klassen werden für die Außendienstplanung je Gebiet gebildet; die wenigen Schlüsselkunden des Key-Account-Managements (Thema 7.3) sind darin nicht enthalten.
+
+Die **Außendienstplanung** leitet aus dem Kundenplan ab, wie viel Besuchszeit gebraucht wird. Grundlage ist die **Besuchsfrequenz** je Kundenklasse: A-Kunden (Thema 7.1) werden häufig besucht, etwa monatlich; B-Kunden zum Beispiel alle zwei Monate; C-Kunden selten, oder sie werden telefonisch, per Videogespräch, vom Vertriebsinnendienst oder über Vertriebspartner betreut. Dem **Besuchsbedarf** steht die **Besuchskapazität** gegenüber:
+
+- Besuchsbedarf = Summe über alle Klassen (Zahl der Kundenunternehmen × Besuche je Jahr)
+- Reise- und Verkaufstage (Besuchstage) = Arbeitstage im Jahr − Tage für Innendienst, Messen, Schulungen und Besprechungen
+- Besuchskapazität je Person = Besuchstage × durchschnittliche Besuche je Besuchstag
+- Außendienstbedarf = Besuchsbedarf ÷ Besuchskapazität je Person, auf ganze Personen aufgerundet
+
+Beispiel (Beispielwerte): Im Vertriebsgebiet Süddeutschland betreut Solvitec 30 A-Kunden mit 12 Besuchen im Jahr, 60 B-Kunden mit 6 Besuchen und 150 C-Kunden mit 2 Besuchen. Der Besuchsbedarf beträgt 30 × 12 + 60 × 6 + 150 × 2 = 360 + 360 + 300 = 1.020 Besuche. Eine Außendienstmitarbeiterin hat 210 Arbeitstage, davon 50 Tage für Innendienst, Messen und Schulungen; es bleiben 160 Besuchstage mit durchschnittlich 3 Besuchen, also 480 Besuche im Jahr. Der Außendienstbedarf beträgt 1.020 ÷ 480 = 2,125, aufgerundet 3 Personen. Mit drei Personen wären die Besuchstage nur zu rund 71 % ausgelastet (1.020 ÷ 1.440); die freie Zeit lässt sich für die Neukundengewinnung aus dem Kundenplan nutzen. Alternativ werden die C-Kunden nur einmal im Jahr besucht und dazwischen vom Innendienst betreut: Dann sinkt der Besuchsbedarf auf 870 Besuche, und 870 ÷ 480 ≈ 1,81, also 2 Personen genügen. Ob eine zusätzliche Stelle sinnvoll ist, entscheidet der Vergleich ihrer Kosten mit dem zusätzlichen Deckungsbeitrag, den sie erwarten lässt.
+
+Zur Außendienstplanung gehört auch die **Tourenplanung**: Besuche werden so gebündelt, dass Fahrzeiten kurz und Besuchstage voll sind. Besuchsberichte und geplante Termine stehen im CRM-System (Thema 7.3), damit Vertriebsleitung und Innendienst den Stand jederzeit sehen.
+
+### Absatzprognose: Verfahren im Überblick
+
+Eine **Absatzprognose** ist eine begründete Vorhersage des künftigen Absatzes. Sie stützt sich auf Daten der Vergangenheit, auf Marktinformationen (Marktanalyse, Thema 7.1) und auf das Wissen der Menschen, die den Markt kennen. Man unterscheidet qualitative und quantitative Verfahren.
+
+**Qualitative Verfahren** beruhen auf Einschätzungen und werden vor allem genutzt, wenn Vergangenheitsdaten fehlen oder wenig aussagen, etwa bei neuen Produkten, neuen Märkten oder Umbrüchen:
+
+- **Schätzung durch Expert:innen (Expertenschätzung):** Fachleute aus Vertrieb, Produktmanagement oder Branchenverbänden schätzen den Absatz. Das geht schnell, ist aber subjektiv und anfällig dafür, dass sich eine dominante Meinung durchsetzt.
+- **Delphi-Methode:** Mehrere Expert:innen schätzen getrennt und anonym, meist mit einem Fragebogen. Die Antworten werden ausgewertet (zum Beispiel mittlerer Wert und Spannweite) und mit Begründungen an alle zurückgemeldet; danach überprüfen alle ihre Schätzung. Nach mehreren Runden nähern sich die Schätzungen meist an. Die Anonymität verringert Gruppendruck und den Einfluss einzelner Personen; das Verfahren ist aber aufwendig und dauert.
+- **Befragung des Außendienstes (Vertriebsmitarbeiterbefragung):** Die Außendienstmitarbeitenden schätzen für ihre Kundschaft, was sie in der Planperiode absetzen werden (bottom-up). Sie kennen Projekte und Bedarfe ihrer Kundschaft genau, schätzen aber eher zu vorsichtig, wenn Ziele und Vergütung daran hängen, oder zu optimistisch, wenn sie neue Projekte überschätzen. Ergänzend kann die Kundschaft selbst nach ihren Bedarfen gefragt werden, etwa nach geplanten Abrufen aus Rahmenverträgen.
+
+**Quantitative Verfahren** schreiben eine **Zeitreihe** fort, also die zeitlich geordneten Absatzwerte der Vergangenheit. In einer Zeitreihe stecken typischerweise ein **Trend** (langfristige Grundrichtung), eine **Saisonschwankung** (regelmäßig wiederkehrend innerhalb eines Jahres, etwa ein starkes drittes Quartal) und **zufällige Schwankungen**; längere Konjunkturzyklen kommen hinzu. Je nachdem, welche Bestandteile eine Reihe zeigt, passt ein anderes Verfahren (Abschnitt „Quantitative Prognoseverfahren und Prognosefehler“).
+
+Für die **Auswahl des Verfahrens** zählen:
+
+- **Datenlage:** Ohne verlässliche Vergangenheitswerte (neues Produkt, neuer Markt) bleiben qualitative Verfahren; bei langen, stabilen Reihen eignen sich quantitative Verfahren.
+- **Verlauf der Reihe:** Ein gleichbleibender Absatz mit Zufallsschwankungen passt zum gleitenden Durchschnitt oder zur exponentiellen Glättung; ein deutlicher Trend erfordert eine Trendfortschreibung; regelmäßige Saisonschwankungen werden mit Saisonindizes berücksichtigt.
+- **Prognosehorizont:** Für die nächsten Monate genügen einfache Verfahren; für mehrere Jahre sind Trendverfahren und qualitative Einschätzungen nötig, und die Unsicherheit wächst.
+- **Aufwand und Genauigkeit:** Ein aufwendigeres Verfahren lohnt nur, wenn es nachweislich kleinere Prognosefehler liefert.
+
+In der Praxis kombiniert Solvitec beide Arten: Ein quantitatives Verfahren liefert einen Basiswert, der Vertrieb korrigiert ihn um bekannte Sonderfaktoren (ein großes Automatisierungsprojekt eines Kundenunternehmens, eine Preiserhöhung, ein neues Wettbewerbsunternehmen).
+
+### Quantitative Prognoseverfahren und Prognosefehler
+
+Beispiel (Beispielwerte): Im Vertriebsgebiet Süddeutschland wurden im ersten Halbjahr folgende Frequenzumrichter abgesetzt (Stück):
+
+| Monat | Jan | Feb | Mär | Apr | Mai | Jun |
+|---|---|---|---|---|---|---|
+| Absatz | 205 | 206 | 204 | 208 | 218 | 225 |
+
+**Gleitender Durchschnitt:** Die Prognose ist der Durchschnitt der letzten n Werte; mit jeder neuen Periode rückt das Fenster um einen Wert weiter. Prognose für Juli bei drei Monaten: (208 + 218 + 225) ÷ 3 = 651 ÷ 3 = 217 Stück. Je mehr Werte einbezogen werden, desto stärker werden Zufallsschwankungen geglättet, desto langsamer reagiert die Prognose aber auch auf Veränderungen. Weil alle Werte gleich gewichtet werden, läuft der gleitende Durchschnitt einem steigenden Trend hinterher: Hier liegt die Prognose mit 217 Stück unter den 225 Stück des Juni. Beim **gewogenen gleitenden Durchschnitt** erhalten die jüngeren Werte höhere Gewichte; er reagiert schneller.
+
+**Exponentielle Glättung (1. Ordnung):** Die neue Prognose korrigiert die alte Prognose um einen Teil des letzten Prognosefehlers:
+
+neue Prognose = alte Prognose + α × (Istwert der Periode − alte Prognose der Periode)
+
+Der **Glättungsfaktor** α liegt zwischen 0 und 1. Ein kleines α ergibt eine ruhige Prognose, die nur langsam reagiert; ein großes α reagiert schnell auf Veränderungen, aber auch auf Zufallsschwankungen. Beispiel: Für Juni waren 215 Stück (mit der exponentiellen Glättung) prognostiziert, abgesetzt wurden 225. Mit α = 0,3 lautet die Prognose für Juli 215 + 0,3 × (225 − 215) = 218 Stück; mit α = 0,6 wären es 221 Stück. Das Verfahren braucht nur die letzte Prognose und den letzten Istwert, gewichtet die Vergangenheit aber indirekt mit, weil jede Prognose auf der vorherigen aufbaut. Auch die exponentielle Glättung 1. Ordnung läuft einem Trend hinterher.
+
+**Lineare Trendfortschreibung (Überblick):** Zeigt die Reihe einen gleichmäßigen Trend, wird eine Trendgerade Absatz = a + b × t bestimmt (t = Nummer der Periode), meist mit der **linearen Regression** (Methode der kleinsten Quadrate) in einer Tabellenkalkulation. Für die Monate Januar (t = 1) bis Juni (t = 6) ergibt sie Absatz = 197 + 4 × t; b = 4 bedeutet einen Zuwachs von 4 Stück je Monat. Prognose für Juli (t = 7): 197 + 4 × 7 = 225 Stück, für August 229 Stück. Die Fortschreibung setzt voraus, dass der Trend anhält; Sättigung (Thema 7.1), Konjunktur oder ein neues Wettbewerbsunternehmen können ihn brechen. Je weiter die Prognose in die Zukunft reicht, desto unsicherer ist sie.
+
+**Saisonindex:** Bei regelmäßig schwankendem Absatz zeigt der Saisonindex, wie stark eine Periode vom Durchschnitt abweicht:
+
+Saisonindex einer Periode = Durchschnitt der Periode über mehrere Jahre ÷ Durchschnitt aller Perioden
+
+Beispiel (Beispielwerte): Sicherheitssteuerungen je Quartal in zwei Jahren: 1. Quartal 230 und 250 Stück, 2. Quartal 290 und 310, 3. Quartal 350 und 370, 4. Quartal 290 und 310. Die Quartalsdurchschnitte sind 240, 300, 360 und 300 Stück, der Durchschnitt aller Quartale 300 Stück. Die Saisonindizes betragen 240 ÷ 300 = 0,8; 1,0; 1,2 und 1,0; bei Quartalen ergeben sie zusammen 4. Für eine Jahresprognose von 1.320 Stück folgt je Quartal im Durchschnitt 1.320 ÷ 4 = 330 Stück und als **Quartalsprognose** 330 × Saisonindex: 264, 330, 396 und 330 Stück, zusammen wieder 1.320. Umgekehrt lässt sich ein Istwert durch den Saisonindex teilen (**saisonbereinigen**), um Quartale vergleichbar zu machen. Das Durchschnittsverfahren ist eine Vereinfachung; zeigt die Reihe einen deutlichen Trend, wird sie vorher um den Trend bereinigt, sonst fallen die Indizes der späteren Quartale zu hoch aus.
+
+**Prognosefehler und Prognosegüte:** Der Prognosefehler einer Periode ist Istwert − Prognosewert. Um zu beurteilen, wie gut ein Verfahren war, wird die **mittlere absolute Abweichung (MAD)** über mehrere Perioden gebildet:
+
+mittlere absolute Abweichung = Summe der Beträge der Prognosefehler ÷ Zahl der Perioden
+
+Die Beträge werden genommen, damit sich positive und negative Fehler nicht gegenseitig aufheben. Beispiel: Der gleitende Durchschnitt über drei Monate hätte für April 205, für Mai 206 und für Juni 210 Stück vorhergesagt; abgesetzt wurden 208, 218 und 225 Stück. Die Fehler betragen 3, 12 und 15 Stück, die mittlere absolute Abweichung (3 + 12 + 15) ÷ 3 = 10 Stück. Alle drei Fehler sind positiv: Haben die Fehler über mehrere Perioden überwiegend dasselbe Vorzeichen, deutet das auf eine **systematische Abweichung** hin (hier eine Unterschätzung, weil das Verfahren nicht zum steigenden Trend passt); das Verfahren wird angepasst oder gewechselt. Werden mehrere Verfahren über dieselben Perioden verglichen, ist das Verfahren mit der kleineren mittleren absoluten Abweichung vorzuziehen. Bei mehreren Produkten mit verschiedenen Mengen wird der Fehler zusätzlich auf den durchschnittlichen Absatz bezogen, damit er vergleichbar wird.
+
+### Vergütung im Vertrieb
+
+Die Vergütung des Außendienstes soll motivieren, das Verhalten auf die Unternehmensziele lenken, fair und nachvollziehbar sein und gute Mitarbeitende halten; für das Unternehmen soll sie planbar bleiben. Sie setzt sich meist aus mehreren Bestandteilen zusammen:
+
+- **Fixum:** festes Gehalt, unabhängig vom Erfolg. Es gibt Sicherheit und vergütet auch Aufgaben, die nicht sofort Umsatz bringen (Beratung, Service, Aufbau neuer Kundschaft).
+- **Provision:** erfolgsabhängige Vergütung als Prozentsatz einer Bemessungsgrundlage, etwa des Umsatzes, des Auftragseingangs oder des Deckungsbeitrags.
+- **Prämie:** einmalige Zahlung für eine bestimmte Leistung, etwa für jedes neu gewonnene Kundenunternehmen oder für die Einführung eines neuen Produkts.
+- **Zielvereinbarung mit Bonus:** Mitarbeitende und Vertriebsleitung vereinbaren messbare Ziele (Führen durch Zielvereinbarung, Thema 9.1; Zielvereinbarung im Mitarbeitergespräch, Thema 4.2); der Bonus hängt vom **Zielerreichungsgrad** ab (Istwert ÷ Zielwert × 100).
+
+Üblich sind **Mischformen** aus Fixum und variablen Bestandteilen. Je länger die Verkaufsprozesse dauern und je mehr Personen am Abschluss beteiligt sind (Buying Center, Thema 7.1; technischer Innendienst, Key-Account-Management), desto weniger lässt sich ein Abschluss einer einzelnen Person zurechnen. Im Industriegütervertrieb ist der variable Anteil deshalb oft kleiner als im Konsumgütervertrieb, und Teamziele ergänzen die persönlichen Ziele.
+
+Jede Bemessungsgrundlage setzt **Anreize**, auch unerwünschte (**Fehlanreize**). Eine reine **Umsatzprovision** belohnt Menge und Preis gleich, nicht aber den Gewinn:
+
+- **Rabattdruck:** Ein Rabatt mindert die Provision nur um den Provisionssatz des Rabattbetrags (bei 2 % Umsatzprovision um 2 % des Rabatts), den Deckungsbeitrag dagegen um den vollen Betrag. Beispiel (Beispielwerte): Ein zusätzlicher Rabatt von 10 % auf einen Auftrag über 100.000 € kostet Solvitec 10.000 € Deckungsbeitrag, die Außendienstmitarbeiterin bei 2 % Umsatzprovision nur 200 €. Bei 6 % Provision auf den Deckungsbeitrag wären es 600 €.
+- **Falsche Produktschwerpunkte:** Leicht verkäufliche Produkte mit niedrigem Deckungsbeitrag werden bevorzugt.
+- **Kurzfristiges Denken:** Abschlüsse werden vor einen Stichtag gezogen, Service, Beratung und der Aufbau neuer Kundschaft werden vernachlässigt, weil sie erst später Umsatz bringen.
+- **Vorsichtige Ziele:** Hängt der Bonus an selbst geschätzten Zielen, werden die Schätzungen niedrig gehalten (Bottom-up-Planung).
+
+Gegenmittel sind eine Provision auf den Deckungsbeitrag, begrenzte Rabattbefugnisse, mehrere Ziele statt eines einzigen (etwa Deckungsbeitrag, neue Kundschaft und Kundenzufriedenheit, vgl. die Balanced Scorecard in Thema 7.3), Teamkomponenten und eine Deckelung. Variable Vergütung wirkt über äußere Anreize (extrinsische Motivation, Thema 9.1); sie ersetzt keine gute Führung.
+
+**Provisionsberechnung** (alle Werte Beispielwerte):
+
+- **Lineare Provision:** fester Satz auf die gesamte Bemessungsgrundlage. Fixum 48.000 € und 2 % auf 1.500.000 € Umsatz: Provision 30.000 €, Jahresvergütung 78.000 €.
+- **Gestaffelte Provision:** Der Satz steigt ab bestimmten Grenzen. In den Beispielen dieses Themas gilt der höhere Satz nur für den Teil oberhalb der Grenze (eine Vereinbarung kann auch vorsehen, dass er dann für den ganzen Umsatz gilt; maßgeblich ist die Vereinbarung). Beispiel: 1,5 % bis 1.000.000 € Umsatz, 2,5 % auf den darüber liegenden Teil; bei 1.500.000 € Umsatz: 1.000.000 € × 1,5 % + 500.000 € × 2,5 % = 15.000 € + 12.500 € = 27.500 €.
+- **Provision auf den Deckungsbeitrag:** Zwei Außendienstmitarbeitende erzielen 1.500.000 € Umsatz mit 450.000 € Deckungsbeitrag (Mitarbeiterin A, viele Rabatte) bzw. 1.300.000 € Umsatz mit 520.000 € Deckungsbeitrag (Mitarbeiter B). Bei 2 % Umsatzprovision erhält A 30.000 € und B 26.000 €; bei 6 % Provision auf den Deckungsbeitrag erhält A 27.000 € und B 31.200 €. Die Provision auf den Deckungsbeitrag belohnt, was zum Gewinn beiträgt; der Außendienst muss dafür die Deckungsbeiträge kennen.
+- **Bonus mit Zielerreichung, Untergrenze und Deckelung:** Zielbonus 10.000 € bei 100 % Zielerreichung, der Bonus wächst im Verhältnis zum Zielerreichungsgrad, entfällt unter 80 % und ist bei 120 % gedeckelt. Ziel 500.000 € Deckungsbeitrag. Bei 560.000 € beträgt der Zielerreichungsgrad 112 % und der Bonus 10.000 € × 1,12 = 11.200 €; bei 650.000 € (130 %) wird mit 120 % gerechnet, Bonus 12.000 €; bei 380.000 € (76 %) gibt es keinen Bonus. Die Untergrenze verhindert Zahlungen für schwache Leistungen, die Deckelung begrenzt die Kosten und Zufallsgewinne, etwa durch einen einzelnen Großauftrag. Deckel und Untergrenze setzen ihrerseits Fehlanreize: Ist der Deckel erreicht oder die Untergrenze außer Reichweite, lohnt es sich, Abschlüsse in die nächste Periode zu verschieben; knapp unter der Untergrenze entsteht Druck, Abschlüsse mit hohen Rabatten noch vor den Stichtag zu ziehen. Die Grenzen werden deshalb nicht zu eng gesetzt, oder der Bonus steigt ab der Untergrenze stufenlos an.
+
+**Angestellter Außendienst oder Handelsvertretung:** Angestellte Außendienstmitarbeitende sind weisungsgebunden, lassen sich eng steuern und binden die Kundschaft an das Unternehmen; ihr Fixum, Fahrzeug und Reisekosten sind aber weitgehend fixe Kosten. Selbstständige Handelsvertreter:innen vermitteln Geschäfte für den Hersteller oder schließen sie in dessen Namen ab (Themen 7.2 und 3.3) und erhalten überwiegend Provision; ihre Kosten sind damit variabel, die Steuerung ist aber schwächer, und eine Handelsvertretung arbeitet oft für mehrere Hersteller. Rein kostenmäßig sind beide Wege beim **kritischen Umsatz** gleich teuer:
+
+kritischer Umsatz = fixe Kosten des angestellten Außendienstes ÷ (Provisionssatz der Handelsvertretung − Provisionssatz des angestellten Außendienstes)
+
+Beispiel (Beispielwerte): Ein angestellter Außendienst kostet 90.000 € fix im Jahr (Fixum, Nebenkosten, Fahrzeug, Reisen) zuzüglich 1 % Umsatzprovision; eine Handelsvertretung verlangt 7 %. Kritischer Umsatz = 90.000 € ÷ (7 % − 1 %) = 1.500.000 €. Darunter ist die Handelsvertretung günstiger (bei 1.200.000 € Umsatz 84.000 € gegenüber 102.000 €), darüber der eigene Außendienst (bei 2.000.000 € Umsatz 110.000 € gegenüber 140.000 €). Für neue oder kleine Gebiete spricht das oft für eine Handelsvertretung, für große Gebiete mit beratungsintensiver Kundschaft für den eigenen Außendienst. Provisionsanspruch, Ausgleichsansprüche nach Vertragsende und die Vertragsgestaltung mit Handelsvertreter:innen sowie arbeitsrechtliche Fragen der variablen Vergütung angestellter Mitarbeitender unterliegen gesetzlichen Vorgaben, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft).
+
+### Controlling der Vertriebsplanung
+
+Das Vertriebscontrolling (Thema 7.3) vergleicht laufend, meist monatlich oder quartalsweise, die Planwerte mit den Istwerten, je Produktgruppe, Gebiet und Person. Dieser **Plan-Ist-Vergleich** entspricht dem Soll-Ist-Vergleich der Budgetierung (Thema 2.3). Die Abweichung wird absolut (Istwert − Planwert) und relativ (Abweichung ÷ Planwert × 100) ausgewiesen, der **Zielerreichungsgrad** als Istwert ÷ Planwert × 100.
+
+Eine **Abweichungsanalyse** fragt nach den Ursachen. Beim Umsatz trennt sie die Wirkung der Menge von der Wirkung des Preises:
+
+- **Mengenabweichung** = (Istmenge − Planmenge) × Planpreis
+- **Preisabweichung** = (Istpreis − Planpreis) × Istmenge
+- Mengenabweichung + Preisabweichung = Umsatzabweichung (Istumsatz − Planumsatz)
+
+Die Aufteilung kann auch anders gewählt werden (etwa Mengenabweichung mit dem Istpreis bewertet); die Summe bleibt gleich.
+
+Beispiel (Beispielwerte): Geplant waren 2.500 Frequenzumrichter zu 800 €, also 2.000.000 €. Abgesetzt wurden 2.300 Stück zu durchschnittlich 820 €, also 1.886.000 €. Die Umsatzabweichung beträgt −114.000 € (−5,7 %), der Zielerreichungsgrad 94,3 %. Die Mengenabweichung beträgt (2.300 − 2.500) × 800 € = −160.000 €, die Preisabweichung (820 € − 800 €) × 2.300 = +46.000 €; zusammen −114.000 €. Der Umsatz fehlt also wegen der Menge, die Preise wurden sogar besser durchgesetzt als geplant. Zu klären ist, ob die höheren Preise Kundschaft gekostet haben oder ob andere Ursachen vorliegen.
+
+Ursachen können intern liegen (zu wenige Besuche, lange Lieferzeiten, Lücken im Sortiment, eine ungünstige Rabattpraxis) oder extern (Konjunktur, Preise der Wettbewerbsunternehmen, verschobene Projekte der Kundschaft). Frühzeitige Hinweise liefern die Vertriebskennzahlen aus Thema 7.3: Sinken Auftragseingang, Angebotsquote oder Abschlussquote, wird der Umsatz einige Wochen oder Monate später fehlen. Die Ergebnisse fließen in Maßnahmen (etwa mehr Besuche bei B-Kunden, Schulung der Nutzenargumentation, geänderte Rabattbefugnisse), die nach dem PDCA-Zyklus (Thema 7.3) erprobt und überprüft werden.
+
+Der Plan bleibt in der Regel als Maßstab für die Periode bestehen; angepasst wird die **Prognose**. Bei einer **Hochrechnung** (Erwartungsrechnung) werden die Istwerte der abgelaufenen Monate mit einer aktualisierten Prognose für die restlichen Monate zur erwarteten Jahreszahl zusammengefasst. Wird die Prognose dabei laufend um weitere Monate über das Geschäftsjahr hinaus fortgeschrieben, spricht man von einer **rollierenden Prognose**. So sehen Vertriebsleitung, Produktion und Einkauf früh, ob Kapazität und Material angepasst werden müssen (Themen 6.1 und 6.5). Am Jahresende wird zusätzlich der Prognosefehler ausgewertet; zeigt er systematische Abweichungen, wird das Prognoseverfahren angepasst. Werden Ziele, an denen Boni hängen, unterjährig geändert, braucht es dafür vorher vereinbarte Regeln, sonst leidet das Vertrauen in die Vergütung.
+
+## Karteikarten
+
+#### K-7.6-01
+**Frage:** Wie werden Vertriebsziele abgeleitet, und welche drei Wege der Planung gibt es?
+**Antwort:** Aus den Unternehmenszielen über den Marketingplan (Marketingziele, Strategie) bis zu Gebieten, Produktgruppen und Personen. Top-down: Leitung gibt vor. Bottom-up: Außendienst und Gebiete schätzen, die Werte werden zusammengefasst. Gegenstromverfahren: Leitung gibt einen Rahmen vor, die Gebiete planen im Detail, Abweichungen werden abgestimmt.
+`tags: vertriebsplanung, vertriebsziele` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-7.6-02
+**Frage:** Aus welchen Teilplänen besteht ein Vertriebsplan, und was unterscheidet Absatzplan und Umsatzplan?
+**Antwort:** Absatzplan, Umsatzplan, Kundenplan, Gebiets- und Außendienstplan, Budget der Vertriebskosten (oft ergänzt um einen Deckungsbeitragsplan). Der Absatzplan plant Mengen (Stück), der Umsatzplan Werte: geplante Absatzmenge × geplanter Nettopreis nach Rabatten.
+`tags: vertriebsplanung, absatzplan` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-7.6-03
+**Frage:** Wie ermittelst du im Kundenplan, wie viele Kundenunternehmen neu gewonnen werden müssen?
+**Antwort:** Benötigte neue Kundenunternehmen = geplante Zahl der Kundenunternehmen − Kundenunternehmen der Vorperiode × Kundenbindungsrate. Die Kundenbindungsrate ist der Anteil der Kundenunternehmen der Vorperiode, die in der Planperiode wieder kaufen.
+`tags: kundenplan, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-7.6-04
+**Frage:** Wie berechnest du den Außendienstbedarf eines Vertriebsgebiets?
+**Antwort:** Besuchsbedarf = Summe (Zahl der Kundenunternehmen je ABC-Klasse × Besuche je Jahr). Besuchskapazität je Person = (Arbeitstage − Tage für Innendienst, Messen, Schulungen) × Besuche je Besuchstag. Außendienstbedarf = Besuchsbedarf ÷ Besuchskapazität, auf ganze Personen aufgerundet.
+`tags: aussendienstplanung, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-7.6-05
+**Frage:** Was unterscheidet eine Absatzprognose vom Absatzplan?
+**Antwort:** Die Prognose zeigt, welcher Absatz bei im Wesentlichen unveränderten Bedingungen zu erwarten ist. Der Plan legt fest, was erreicht werden soll. Eine Lücke zwischen Ziel und Prognose muss mit zusätzlichen Maßnahmen geschlossen werden, sonst ist das Ziel unrealistisch.
+`tags: absatzprognose, vertriebsplanung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-7.6-06
+**Frage:** Nenne drei qualitative Prognoseverfahren und sage, wann sie eingesetzt werden.
+**Antwort:** Expertenschätzung, Delphi-Methode, Befragung des Außendienstes (Vertriebsmitarbeiterbefragung); ergänzend die Befragung der Kundschaft. Eingesetzt werden sie, wenn Vergangenheitsdaten fehlen oder wenig aussagen, etwa bei neuen Produkten, neuen Märkten oder Umbrüchen.
+`tags: absatzprognose, qualitative_verfahren` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-7.6-07
+**Frage:** Wie läuft die Delphi-Methode ab, und welchen Vorteil hat sie?
+**Antwort:** Mehrere Expert:innen schätzen getrennt und anonym; die Antworten werden ausgewertet und mit Begründungen zurückgemeldet; alle überprüfen ihre Schätzung; nach mehreren Runden nähern sich die Schätzungen an. Vorteil: Die Anonymität verringert Gruppendruck und den Einfluss einzelner Personen. Nachteil: aufwendig und langwierig.
+`tags: absatzprognose, delphi` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-7.6-08
+**Frage:** Wie berechnest du eine Prognose mit dem gleitenden Durchschnitt, und welche Schwäche hat er?
+**Antwort:** Prognose = Durchschnitt der letzten n Werte; das Fenster rückt mit jeder Periode weiter. Viele Werte glätten stark, reagieren aber langsam. Weil alle Werte gleich zählen, läuft er einem Trend hinterher; der gewogene gleitende Durchschnitt gewichtet jüngere Werte höher.
+`tags: gleitender_durchschnitt, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-7.6-09
+**Frage:** Wie lautet die Formel der exponentiellen Glättung 1. Ordnung, und was bewirkt der Glättungsfaktor α?
+**Antwort:** Neue Prognose = alte Prognose + α × (Istwert − alte Prognose), mit α zwischen 0 und 1. Kleines α: ruhige, träge Prognose. Großes α: reagiert schnell auf Veränderungen, aber auch auf Zufallsschwankungen. Einem Trend läuft auch dieses Verfahren hinterher.
+`tags: exponentielle_glaettung, rechnen` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-7.6-10
+**Frage:** Wie berechnest du einen Saisonindex, und wie nutzt du ihn für eine Quartalsprognose?
+**Antwort:** Saisonindex = Durchschnitt der Periode über mehrere Jahre ÷ Durchschnitt aller Perioden (bei Quartalen ergeben die Indizes zusammen 4). Quartalsprognose = Jahresprognose ÷ 4 × Saisonindex des Quartals.
+`tags: saisonindex, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-7.6-11
+**Frage:** Wie misst du die Güte einer Prognose, und wonach wählst du ein Prognoseverfahren aus?
+**Antwort:** Prognosefehler = Istwert − Prognosewert; mittlere absolute Abweichung = Summe der Beträge der Fehler ÷ Zahl der Perioden. Haben die Fehler über mehrere Perioden überwiegend dasselbe Vorzeichen, deutet das auf eine systematische Abweichung hin; das Verfahren wird angepasst oder gewechselt. Auswahl nach Datenlage, Verlauf der Reihe (gleichbleibend, Trend, Saison), Prognosehorizont sowie Aufwand und Genauigkeit.
+`tags: prognosefehler, absatzprognose` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-7.6-12
+**Frage:** Aus welchen Bestandteilen kann sich die Vergütung im Außendienst zusammensetzen?
+**Antwort:** Fixum (festes Gehalt), Provision (Prozentsatz von Umsatz, Auftragseingang oder Deckungsbeitrag), Prämie (einmalig für eine bestimmte Leistung, z. B. neue Kundschaft) und Bonus aus einer Zielvereinbarung (abhängig vom Zielerreichungsgrad); üblich sind Mischformen aus Fixum und variablen Bestandteilen.
+`tags: verguetung` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-7.6-13
+**Frage:** Welche Fehlanreize kann eine reine Umsatzprovision setzen, und wie lässt sich gegensteuern?
+**Antwort:** Rabattdruck (ein Rabatt mindert die Provision nur um den Provisionssatz des Rabattbetrags, bei 2 % Umsatzprovision um 2 % des Rabatts, den Deckungsbeitrag dagegen um den vollen Betrag), Bevorzugung margenschwacher Produkte, kurzfristiges Denken (Abschlüsse vorziehen, Service und Neukundenaufbau vernachlässigen), vorsichtige Ziele. Gegensteuern mit Provision auf den Deckungsbeitrag, begrenzten Rabattbefugnissen, mehreren Zielen, Teamkomponenten und Deckelung.
+`tags: verguetung, provision` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+#### K-7.6-14
+**Frage:** Wie vergleichst du die Kosten eines angestellten Außendienstes mit denen einer Handelsvertretung?
+**Antwort:** Kritischer Umsatz = fixe Kosten des angestellten Außendienstes ÷ (Provisionssatz der Handelsvertretung − Provisionssatz des angestellten Außendienstes). Darunter ist die Handelsvertretung günstiger, darüber der eigene Außendienst. Qualitativ zählen Steuerbarkeit, Bindung der Kundschaft an das Unternehmen und Marktkenntnis. Handelsvertreterrecht: gesetzliche Vorgaben, hier nicht behandelt (nicht förmlich rechtsgeprüft).
+`tags: handelsvertretung, rechnen` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-7.6-01 · Zuordnung
+**Anweisung:** Ordne den Teilplan der Vertriebsplanung seinem Inhalt zu.
+- Absatzplan ↔ Geplante Verkaufsmengen je Produktgruppe, Gebiet und Periode
+- Umsatzplan ↔ Geplante Mengen, bewertet mit den geplanten Nettopreisen
+- Kundenplan ↔ Kundenunternehmen, die gehalten oder neu gewonnen werden sollen
+- Außendienstplan ↔ Besuchsfrequenzen, Besuchskapazität und Zahl der Außendienstmitarbeitenden
+**Erklärung:** Der Absatzplan plant Mengen, der Umsatzplan Werte (Menge × Nettopreis). Der Kundenplan zeigt, mit welcher Kundschaft der Umsatz erzielt werden soll; der Außendienstplan leitet daraus den Besuchsbedarf und die nötige Zahl der Außendienstmitarbeitenden ab.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-7.6-02 · Kurzantwort
+**Frage:** Im Vertriebsgebiet Norddeutschland betreut Solvitec 20 A-Kunden mit 12 Besuchen im Jahr, 50 B-Kunden mit 6 Besuchen und 100 C-Kunden mit 4 Besuchen. Eine Person im Außendienst hat 220 Arbeitstage im Jahr, davon 52 Tage für Innendienst, Messen und Schulungen, und schafft durchschnittlich 2,5 Besuche je Besuchstag. Wie viele Außendienstmitarbeitende braucht das Gebiet, auf ganze Personen aufgerundet (Beispielwerte)?
+**Akzeptierte Antworten:** 3; drei; 3 Personen; drei Personen; 3 Außendienstmitarbeitende; drei Außendienstmitarbeitende; 3 Mitarbeitende; drei Mitarbeitende; 3 Außendienstmitarbeiter:innen; drei Außendienstmitarbeiter:innen; 3 Stellen; drei Stellen; 3 Vollzeitkräfte; 3 Personen im Außendienst; drei Personen im Außendienst; 3 Mitarbeiter; drei Mitarbeiter; 3 Außendienstmitarbeiter; 3 Mitarbeiter:innen; 3 Vollzeitstellen; 3 Personen (aufgerundet)
+**Erklärung:** Besuchsbedarf = 20 × 12 + 50 × 6 + 100 × 4 = 240 + 300 + 400 = 940 Besuche. Besuchskapazität je Person = (220 − 52) × 2,5 = 168 × 2,5 = 420 Besuche. Bedarf = 940 ÷ 420 ≈ 2,24, aufgerundet 3 Personen. Wer abrundet, kann die geplanten Besuche nicht leisten; alternativ ließe sich die Besuchsfrequenz der C-Kunden senken.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-03 · Entweder-Oder
+**Frage:** Ein Vertriebsteam hatte im Vorjahr 150 Kundenunternehmen. Erwartet wird eine Kundenbindungsrate von 88 %. Im Planjahr sollen 160 Kundenunternehmen bei Solvitec kaufen. Wie viele Kundenunternehmen muss das Team im Planjahr neu gewinnen (Beispielwerte)?
+- [ ] 10 Kundenunternehmen
+- [x] 28 Kundenunternehmen
+**Erklärung:** Voraussichtlich bleiben 150 × 0,88 = 132 Kundenunternehmen. Neu zu gewinnen: 160 − 132 = 28. Wer nur die Differenz 160 − 150 = 10 rechnet, übersieht die Kundschaft, die abwandert.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-04 · Sortieren
+**Anweisung:** Bringe die Schritte einer Absatzprognose nach der Delphi-Methode in die richtige Reihenfolge.
+1. Expert:innen auswählen und ihre Schätzung getrennt und anonym abgeben lassen
+2. Antworten auswerten und das Gruppenergebnis mit Begründungen an alle zurückmelden
+3. Expert:innen ihre Schätzung in Kenntnis des Gruppenergebnisses überprüfen lassen
+4. Nach mehreren Runden die angenäherten Schätzungen zur Prognose zusammenfassen
+**Erklärung:** Die Delphi-Methode arbeitet in mehreren anonymen Runden mit Rückmeldung. So nähern sich die Schätzungen an, ohne dass einzelne Personen oder Gruppendruck das Ergebnis bestimmen.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-7.6-05 · Was passt nicht dazu
+**Frage:** Welches Verfahren gehört nicht zu den quantitativen Prognoseverfahren?
+- [ ] Gleitender Durchschnitt
+- [x] Delphi-Methode
+- [ ] Exponentielle Glättung
+- [ ] Lineare Trendfortschreibung
+**Erklärung:** Die Delphi-Methode beruht auf Einschätzungen von Expert:innen und ist ein qualitatives Verfahren. Gleitender Durchschnitt, exponentielle Glättung und Trendfortschreibung rechnen mit den Werten einer Zeitreihe.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-7.6-06 · Kurzantwort
+**Frage:** Im Vertriebsgebiet Ostdeutschland wurden von Januar bis Mai 305, 312, 318, 326 und 331 Frequenzumrichter abgesetzt. Wie viele Stück prognostiziert der gleitende Durchschnitt über drei Monate für Juni (Beispielwerte)?
+**Akzeptierte Antworten:** 325; 325 Stück; 325 Stk.; 325 Stk; 325 Frequenzumrichter; 325 Geräte; 325,0; 325.0; 325,00; 325.00; 325,0 Stück; 325.0 Stück
+**Erklärung:** Es zählen die letzten drei Monate: (318 + 326 + 331) ÷ 3 = 975 ÷ 3 = 325 Stück. Der Wert liegt unter dem Mai-Absatz, weil der gleitende Durchschnitt einem steigenden Trend hinterherläuft.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-7.6-07 · Kurzantwort
+**Frage:** Für März wurden 240 Sicherheitssteuerungen prognostiziert, abgesetzt wurden 255. Wie lautet die Prognose für April mit der exponentiellen Glättung 1. Ordnung und dem Glättungsfaktor α = 0,2, in Stück (Beispielwerte)?
+**Akzeptierte Antworten:** 243; 243 Stück; 243 Stk.; 243 Stk; 243 Sicherheitssteuerungen; 243 Steuerungen; 243,0; 243.0; 243,00; 243.00; 243,0 Stück; 243.0 Stück
+**Erklärung:** Neue Prognose = 240 + 0,2 × (255 − 240) = 240 + 3 = 243 Stück. Nur ein Fünftel des Prognosefehlers fließt in die neue Prognose ein; mit einem größeren α würde sie stärker auf den März reagieren.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-08 · Lückentext (Wortauswahl)
+**Text:** Bei der exponentiellen Glättung reagiert die Prognose umso stärker auf den letzten Prognosefehler, je größer der ___Glättungsfaktor___ gewählt wird.
+**Zusätzliche Begriffe:** Saisonindex; Trendwert; Prognosehorizont
+**Erklärung:** Der Glättungsfaktor α (zwischen 0 und 1) bestimmt, welcher Teil des letzten Prognosefehlers in die neue Prognose einfließt. Der Saisonindex beschreibt Saisonschwankungen, der Prognosehorizont die Reichweite der Vorhersage.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-7.6-09 · Kurzantwort
+**Frage:** Der Absatz eines Sensors liegt im vierten Quartal im Durchschnitt mehrerer Jahre bei 255 Stück, der Durchschnitt aller Quartale bei 300 Stück. Für das nächste Jahr werden 1.440 Stück prognostiziert. Wie viele Stück sind mit dem Saisonindex für das vierte Quartal zu planen (Beispielwerte)?
+**Akzeptierte Antworten:** 306; 306 Stück; 306 Stk.; 306 Stk; 306 Sensoren; 306,0; 306.0; 306,00; 306.00; 306,0 Stück; 306.0 Stück
+**Erklärung:** Saisonindex = 255 ÷ 300 = 0,85. Durchschnitt je Quartal = 1.440 ÷ 4 = 360 Stück. Quartalsprognose = 360 × 0,85 = 306 Stück. Ohne Saisonindex würden 360 Stück geplant und zu viel produziert.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-10 · Kurzantwort
+**Frage:** Ein Prognoseverfahren lieferte für vier Monate 400, 405, 415 und 428 Stück; abgesetzt wurden 410, 395, 430 und 420 Stück. Wie hoch ist die mittlere absolute Abweichung in Stück, auf zwei Nachkommastellen (Beispielwerte)?
+**Akzeptierte Antworten:** 10,75; 10.75; 10,75 Stück; 10.75 Stück; 10,75 Stk.; 10.75 Stk.; 10,75 Stk; 10.75 Stk
+**Erklärung:** Fehler (Ist − Prognose): +10, −10, +15, −8; Beträge 10, 10, 15 und 8, Summe 43. Mittlere absolute Abweichung = 43 ÷ 4 = 10,75 Stück. Ohne Beträge würden sich die Fehler fast aufheben (Summe 7) und die Prognose zu gut erscheinen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-11 · Mehrfachauswahl
+**Frage:** Solvitec vergütet den Außendienst mit einem Fixum und einer Provision von 3 % auf den Umsatz. Welche Fehlanreize können dadurch entstehen?
+- [x] Hohe Rabatte werden leichtfertig gewährt.
+- [ ] Aufträge mit hohem Deckungsbeitrag werden bevorzugt, auch wenn ihr Umsatz kleiner ist.
+- [x] Leicht verkäufliche Produkte mit niedrigem Deckungsbeitrag werden bevorzugt.
+- [x] Abschlüsse werden vor den Stichtag gezogen, Projekte bleiben liegen.
+**Erklärung:** Eine Umsatzprovision belohnt Menge und Preis, nicht den Deckungsbeitrag; ein Rabatt kostet den Außendienst nur 3 % des Rabattbetrags. Aufträge mit hohem Deckungsbeitrag trotz kleinerem Umsatz zu bevorzugen, wäre die Wirkung einer Provision auf den Deckungsbeitrag. Gegenmittel sind eine Provision auf den Deckungsbeitrag, begrenzte Rabattbefugnisse und mehrere Ziele.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-7.6-12 · Kurzantwort
+**Frage:** Eine Außendienstmitarbeiterin erhält 2 % Provision auf den Umsatz bis 800.000 € und 3 % auf den Teil des Umsatzes, der 800.000 € übersteigt. Ihr Jahresumsatz beträgt 1.250.000 €. Wie hoch ist ihre Provision für das Jahr in Euro (Beispielwerte)?
+**Akzeptierte Antworten:** 29.500; 29500; 29.500 €; 29500 €; 29.500 Euro; 29500 Euro; 29.500 EUR; 29500 EUR; 29.500,00; 29500,00; 29.500,00 €; 29500,00 €; 29.500,00 Euro; 29500,00 Euro; 29.500,00 EUR; 29500,00 EUR; 29500.00; 29500.00 €; 29500.00 Euro; 29500.00 EUR
+**Erklärung:** 800.000 € × 2 % = 16.000 €; (1.250.000 € − 800.000 €) × 3 % = 450.000 € × 3 % = 13.500 €; zusammen 29.500 €. Gälten die 3 % für den ganzen Umsatz, wären es 37.500 €; deshalb muss die Vereinbarung die Staffel genau regeln.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-7.6-13 · Wahr/Falsch
+**Aussage:** Bei einer Provision auf den Umsatz verliert eine Außendienstmitarbeiterin durch einen zusätzlichen Rabatt genauso viel Geld, wie Solvitec dadurch an Deckungsbeitrag verliert.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Der Rabatt mindert den Deckungsbeitrag um den vollen Betrag, die Provision nur um den Provisionssatz. Beispiel: 10.000 € Rabatt kosten Solvitec 10.000 € Deckungsbeitrag, die Mitarbeiterin bei 2 % Umsatzprovision nur 200 €. Daraus entsteht Rabattdruck.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-7.6-14 · Kurzantwort
+**Frage:** Ein Außendienstmitarbeiter hat einen Zielbonus von 8.000 € bei 100 % Zielerreichung. Der Bonus wächst im Verhältnis zum Zielerreichungsgrad, entfällt unter 80 % und ist bei 120 % gedeckelt. Ziel sind 400.000 € Deckungsbeitrag, erreicht hat er 540.000 €. Wie hoch ist sein Bonus in Euro (Beispielwerte)?
+**Akzeptierte Antworten:** 9.600; 9600; 9.600 €; 9600 €; 9.600 Euro; 9600 Euro; 9.600 EUR; 9600 EUR; 9.600,00; 9600,00; 9.600,00 €; 9600,00 €; 9.600,00 Euro; 9600,00 Euro; 9.600,00 EUR; 9600,00 EUR; 9600.00; 9600.00 €; 9600.00 Euro; 9600.00 EUR
+**Erklärung:** Zielerreichungsgrad = 540.000 € ÷ 400.000 € × 100 = 135 %. Wegen der Deckelung wird mit 120 % gerechnet: 8.000 € × 1,20 = 9.600 €. Ohne Deckel wären es 10.800 €.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-7.6-15 · Multiple Choice
+**Frage:** Für ein neues Vertriebsgebiet würde ein angestellter Außendienst 72.000 € fixe Kosten im Jahr (Fixum, Nebenkosten, Fahrzeug, Reisen) und 2 % Umsatzprovision kosten; eine Handelsvertretung verlangt 8 % Provision. Erwartet werden 1.000.000 € Umsatz im Jahr. Welche Aussage trifft rein kostenmäßig zu (Beispielwerte)?
+- [ ] Der angestellte Außendienst ist günstiger, weil sein Provisionssatz um 6 Prozentpunkte niedriger ist.
+- [ ] Beide Wege kosten gleich viel, weil der kritische Umsatz bei genau 1.000.000 € liegt.
+- [x] Die Handelsvertretung ist günstiger, weil der kritische Umsatz 1.200.000 € beträgt.
+- [ ] Die Handelsvertretung ist günstiger, weil der kritische Umsatz schon bei 900.000 € erreicht ist.
+**Erklärung:** Kritischer Umsatz = 72.000 € ÷ (8 % − 2 %) = 1.200.000 €. Bei 1.000.000 € kostet die Handelsvertretung 80.000 €, der angestellte Außendienst 72.000 € + 20.000 € = 92.000 €. Erst über 1.200.000 € Umsatz wäre der eigene Außendienst günstiger; qualitativ zählen zusätzlich Steuerbarkeit und Bindung der Kundschaft.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-7.6-16 · Kurzantwort
+**Frage:** Geplant war der Absatz von 1.000 Frequenzumrichtern zu je 800 €. Abgesetzt wurden 940 Stück zu durchschnittlich 830 €. Wie hoch ist die Mengenabweichung, bewertet mit dem Planpreis, als Betrag in Euro ohne Vorzeichen (Beispielwerte)?
+**Akzeptierte Antworten:** 48.000; 48000; 48.000 €; 48000 €; 48.000 Euro; 48000 Euro; 48.000 EUR; 48000 EUR; 48.000,00; 48000,00; 48.000,00 €; 48000,00 €; 48.000,00 Euro; 48000,00 Euro; 48.000,00 EUR; 48000,00 EUR; 48000.00; 48000.00 €; 48000.00 Euro; 48000.00 EUR; -48.000; -48000; -48.000 €; -48000 €; -48.000 Euro; -48000 Euro; -48.000 EUR; -48000 EUR; -48.000,00; -48000,00; -48.000,00 €; -48000,00 €; -48.000,00 Euro; -48.000,00 EUR; -48000.00; -48000.00 €; −48.000; −48000; −48.000 €; −48000 €; −48.000 Euro; −48000 Euro; −48.000 EUR; −48000 EUR; −48.000,00; −48000,00; −48.000,00 €; −48000,00 €; −48.000,00 Euro; −48.000,00 EUR; −48000.00; −48000.00 €
+**Erklärung:** Mengenabweichung = (940 − 1.000) × 800 € = −48.000 €, also 48.000 € weniger Umsatz wegen der geringeren Menge. Die Preisabweichung beträgt (830 € − 800 €) × 940 = +28.200 €; zusammen ergibt sich die Umsatzabweichung von 780.200 € − 800.000 € = −19.800 €.
+`schwierigkeit: schwer` · `bloom: analysieren`
