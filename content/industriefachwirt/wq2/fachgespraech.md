@@ -142,3 +142,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bewertungswahlrechte und Ermessensspielräume (zum Beispiel Abschreibungen, Rückstellungen, Vorräte) beeinflussen Jahresüberschuss und Eigenkapital.
   - Erwartung: Die Daten sind vergangenheitsbezogen, und wichtige Informationen wie Auftragsbestand oder stille Reserven fehlen.
   - Erwartung: Deshalb werden Kennzahlen im Zeit- und Betriebsvergleich betrachtet, durch Finanzplan und interne Informationen ergänzt und die Ursachen der Abweichungen analysiert.
+
+### 2.6 Kalkulationsverfahren, Prozesskostenrechnung und Preisuntergrenzen
+
+- Ihr Unternehmen fertigt Kunststoffteile in Massenfertigung, Sensoren in mehreren Baugrößen und kundenspezifische Schaltschränke. Welche Kalkulationsverfahren setzen Sie jeweils ein, und warum?
+  - Erwartung: Für ein einheitliches Erzeugnis in Massenfertigung passt die Divisionskalkulation; einstufig nur ohne Bestandsveränderungen, sonst zweistufig (Herstellkosten ÷ hergestellte Menge + Verwaltungs- und Vertriebskosten ÷ abgesetzte Menge) oder mehrstufig mit Zwischenlagern.
+  - Erwartung: Für Sorten aus gleichem Material und mit gleichem Ablauf passt die Äquivalenzziffernkalkulation: Recheneinheiten = Menge × Äquivalenzziffer, Kosten je Recheneinheit = Gesamtkosten ÷ Recheneinheiten, Stückkosten = Kosten je Recheneinheit × Äquivalenzziffer.
+  - Erwartung: Für unterschiedliche Aufträge in Einzel- und Serienfertigung passt die Zuschlagskalkulation mit Zuschlagssätzen aus dem Betriebsabrechnungsbogen, in maschinenintensiven Stellen mit Maschinenstundensätzen.
+  - Erwartung: Die Verkaufskalkulation führt von den Selbstkosten über Gewinn (vom Hundert) zum Barverkaufspreis und über Skonto und Rabatt (im Hundert) zum Listenverkaufspreis; gibt der Markt den Preis vor, helfen Rückwärts- und Differenzkalkulation.
+  - Rückfrage: Warum werden Skonto und Rabatt in der Verkaufskalkulation im Hundert gerechnet?
+- Ihre Geschäftsführung vermutet, dass variantenreiche Kleinserien zu billig kalkuliert werden. Wie kann Ihnen die Prozesskostenrechnung helfen, und wo liegen ihre Grenzen?
+  - Erwartung: Die Zuschlagskalkulation verteilt die Gemeinkosten indirekter Bereiche wertbasiert, etwa in Prozent des Fertigungsmaterials, obwohl der Aufwand von der Zahl der Vorgänge abhängt.
+  - Erwartung: Die Prozesskostenrechnung bildet Teilprozesse, legt Kostentreiber und Prozessmengen fest und berechnet Prozesskostensätze; leistungsmengenneutrale Kosten werden über einen Umlagesatz auf die leistungsmengeninduzierten Prozesse verteilt.
+  - Erwartung: Sie zeigt den Allokationseffekt, den Komplexitätseffekt (variantenreiche Erzeugnisse werden mit Zuschlägen zu niedrig belastet) und den Degressionseffekt (Prozesskosten je Stück sinken mit der Auftrags- oder Losgröße).
+  - Erwartung: Grenzen sind der Erhebungsaufwand, die Beschränkung auf wiederkehrende Tätigkeiten, die pauschal umgelegten lmn-Kosten und der Vollkostencharakter; weil die Prozesskosten kurzfristig fix sind, gilt für kurzfristige Entscheidungen weiter die Deckungsbeitragsrechnung.
+  - Rückfrage: Welche Folgerungen für Preise und Sortiment ziehen Sie, wenn Kleinaufträge hohe Prozesskosten je Stück tragen?
+- Ein Kundenunternehmen verlangt für einen größeren Auftrag einen Preis unter Ihren Selbstkosten. Wie prüfen Sie, ob Sie den Auftrag annehmen?
+  - Erwartung: Die langfristige Preisuntergrenze sind die Selbstkosten je Stück; auf Dauer müssen alle Kosten gedeckt sein.
+  - Erwartung: Bei freier Kapazität liegt die kurzfristige Preisuntergrenze bei den variablen Stückkosten; jeder höhere Preis liefert einen Deckungsbeitrag zu den ohnehin anfallenden Fixkosten.
+  - Erwartung: Ist die Kapazität ein Engpass, kommt der entgangene Deckungsbeitrag der verdrängten Erzeugnisse hinzu: Preisuntergrenze = variable Stückkosten + Engpassbedarf je Stück × relativer Deckungsbeitrag des verdrängten Erzeugnisses; alternativ wird geprüft, ob eine Kapazitätserweiterung wie eine Zusatzschicht weniger kostet als der zusätzliche Deckungsbeitrag; dabei zählt, wofür die zusätzliche Kapazität sonst genutzt würde.
+  - Erwartung: Qualitativ zählen Folgeaufträge und neue Kundschaft, die Wirkung auf die Preise der Stammkundschaft, die zeitliche Begrenzung solcher Preise und Risiken; rechtliche Grenzen der Preisgestaltung werden gesondert geprüft.
+  - Rückfrage: Warum wird bei einem Engpass nach dem relativen Deckungsbeitrag und nicht nach dem Deckungsbeitrag je Stück entschieden?

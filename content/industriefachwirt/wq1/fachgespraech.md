@@ -68,6 +68,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Qualifizierte Elektrotechnikerinnen und Elektrotechniker sowie Automatisierungsfachkräfte sind auf dem Arbeitsmarkt knapp.
   - Erwartung: Der Fachkräftemangel wirkt sich unmittelbar auf die Fähigkeit aus, Aufträge fristgerecht zu bearbeiten.
   - Erwartung: Solvitec investiert deshalb gezielt in eigene Ausbildung und in Weiterbildungsprogramme für bestehendes Personal.
+- Erläutern Sie den Unterschied zwischen Produktivität, Wirtschaftlichkeit und Rentabilität. Warum bedeutet eine steigende Arbeitsproduktivität nicht automatisch, dass ein Werk wirtschaftlicher arbeitet?
+  - Erwartung: Produktivität ist ein Mengenverhältnis aus Ausbringungsmenge und Einsatzmenge eines Faktors, etwa Gehäuse je Arbeitsstunde (Arbeitsproduktivität), je Maschinenstunde oder je Kilogramm Material; Veränderungen werden in Prozent des Ausgangswerts angegeben.
+  - Erwartung: Wirtschaftlichkeit ist ein Wertverhältnis aus Leistung und Kosten (oder Ertrag und Aufwand); ein Wert über 1 zeigt, dass die Leistung die Kosten übersteigt; sie misst, wie gut das ökonomische Prinzip umgesetzt wird.
+  - Erwartung: Rentabilität setzt den Gewinn ins Verhältnis zum eingesetzten Kapital oder zum Umsatz, etwa Eigenkapitalrentabilität = Jahresüberschuss ÷ Eigenkapital × 100.
+  - Erwartung: Eine höhere Arbeitsproduktivität kann mit zusätzlichen Kosten erkauft sein, etwa Abschreibung und Zinsen eines Roboters oder Werkzeugs, Überstundenzuschlägen oder teurerem Material; weil die Produktivität keine Preise erfasst, kann die Wirtschaftlichkeit gleich bleiben oder sinken.
+  - Erwartung: Teilproduktivitäten können sich unterschiedlich entwickeln; eine Gesamtproduktivität lässt sich mengenmäßig nicht bilden, weil sich Stunden, Maschinenstunden und Kilogramm nicht addieren lassen.
+  - Rückfrage: Warum kann ein Werk wirtschaftlich arbeiten, das Unternehmen aber trotzdem eine zu geringe Rentabilität erzielen?
+- Welche Zielkonflikte können zwischen den betrieblichen Grundfunktionen eines Industrieunternehmens entstehen, und wie lassen sie sich auflösen?
+  - Erwartung: Ziele werden in Formalziele (Gewinn, Rentabilität, Wirtschaftlichkeit, Produktivität, Liquidität) und Sachziele (Leistungs-, Markt-, Finanz-, Personal-, Sozial- und Umweltziele) eingeteilt und bilden eine Zielhierarchie vom Unternehmensziel über Bereichsziele zu Unterzielen mit Zweck-Mittel-Beziehung.
+  - Erwartung: Zwischen Zielen bestehen komplementäre, konkurrierende oder indifferente Beziehungen; die Beziehung kann sich mit dem Ausmaß der Zielerreichung ändern.
+  - Erwartung: Typische Konflikte: Der Vertrieb will kurze Lieferzeiten, viele Varianten und hohe Lieferbereitschaft, die Produktion große Lose und hohe Auslastung, die Beschaffung große Bestellmengen und Versorgungssicherheit, die Finanzierung geringe Kapitalbindung und hohe Liquidität.
+  - Erwartung: Auflösung: das Oberziel als Maßstab mit einer Gesamtrechnung aus Kosten und Nutzen, Prioritäten der Geschäftsführung, Mindestbedingungen für nachrangige Ziele, differenzierte Lösungen etwa nach ABC- und XYZ-Klassen und gemeinsame Planungsrunden.
+  - Erwartung: Ausgewogene Kennzahlen (etwa eine Balanced Scorecard) und Zielvereinbarungen, die neben dem Bereichsziel ein gemeinsames Ziel enthalten, wirken dem Bereichsegoismus entgegen.
+  - Rückfrage: Wie würden Sie entscheiden, ob ein höherer Bestand an fertigen Erzeugnissen sinnvoll ist?
 
 ### 1.3 Existenzgründung und Unternehmensformen
 
@@ -130,4 +144,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Unternehmen profitiert von der Marktkenntnis und den bestehenden Kundenkontakten des lokalen Partners.
   - Erwartung: Es muss den Markteintritt nicht allein finanzieren und rechtlich absichern.
   - Erwartung: Bei einer Übernahme erwirbt das Unternehmen dagegen meist die Mehrheit der Geschäftsanteile und kontrolliert das übernommene Unternehmen, das seine wirtschaftliche Selbständigkeit verliert.
-

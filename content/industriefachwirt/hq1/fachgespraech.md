@@ -69,6 +69,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In das Rating fließen Kennzahlen wie Eigenkapitalquote, Verschuldungsgrad, Liquiditätskennzahlen oder Cashflow ein.
   - Erwartung: Das Rating beeinflusst unmittelbar die Kreditkonditionen: Ein besseres Rating führt tendenziell zu günstigeren Zinssätzen und leichterem Kreditzugang.
   - Erwartung: Für ein exportorientiertes Industrieunternehmen mit regelmäßigem Investitionsbedarf wie Solvitec ist das von erheblicher praktischer Bedeutung.
+- Ihre Hausbank verlangt für ein Investitionsdarlehen Sicherheiten. Welche Kreditsicherheiten kommen für ein Industrieunternehmen infrage, und wie ermittelt die Bank, wie viel Kredit sie damit absichert?
+  - Erwartung: Personalsicherheiten wie die Bürgschaft, bei der eine weitere Person oder ein weiteres Unternehmen mit dem eigenen Vermögen haftet, und Realsicherheiten, bei denen die Bank ein Recht an einem bestimmten Vermögensgegenstand erhält.
+  - Erwartung: Realsicherheiten sind Grundpfandrechte (vor allem die Grundschuld, die für neue Kredite weiterverwendet werden kann), die Sicherungsübereignung von Maschinen, die das Unternehmen weiter nutzt, die Verpfändung (eher für Wertpapiere und Guthaben) und die Sicherungsabtretung von Forderungen, etwa als Globalzession.
+  - Erwartung: Die Bank setzt Sicherheiten nicht mit dem vollen Wert an: Bei Grundstücken wird aus dem Marktwert der Beleihungswert abgeleitet und davon nur ein Teil bis zur Beleihungsgrenze beliehen; bewegliche Sachen und Forderungen erhalten einen Sicherheitsabschlag, bereits bestellte Rechte werden abgezogen.
+  - Erwartung: Sicherheiten verbessern die Konditionen, ersetzen aber nicht die Kreditwürdigkeit; zuerst wird geprüft, ob Zins und Tilgung aus dem Cashflow geleistet werden können.
+  - Erwartung: Sicherheiten verringern den Sicherheitenspielraum für künftige Kredite und verursachen Kosten; ihre rechtliche Ausgestaltung ist gesetzlich geregelt.
+  - Rückfrage: Warum wird eine Maschine, die in der Fertigung gebraucht wird, sicherungsübereignet und nicht verpfändet?
+- Ihr Unternehmen will eine neue Anlage finanzieren. Wie beurteilen Sie, ob ein Bankdarlehen, Leasing oder eine höhere Eigenfinanzierung die bessere Lösung ist?
+  - Erwartung: Darlehensangebote werden über den Effektivzins verglichen, der Nominalzins, Disagio und Gebühren zusammenfasst; ein niedriger Nominalzins mit Disagio kann teurer sein.
+  - Erwartung: Tilgungsart und Laufzeit müssen zur Nutzungsdauer und zur Liquidität passen (Fristenkongruenz, Prüfung im Finanzplan); endfällige Tilgung schont die Liquidität während der Laufzeit, verlangt aber Mittel oder eine Anschlussfinanzierung am Ende.
+  - Erwartung: Mehr Fremdkapital erhöht die Eigenkapitalrentabilität nur, solange die Gesamtkapitalrentabilität über dem Zinssatz des neuen Kredits liegt (Leverage-Effekt); zugleich steigen Risiko und Verschuldungsgrad, und das Rating kann sinken.
+  - Erwartung: Leasing wird über die Kosten mit dem Kauf verglichen (Leasingraten gegenüber Abschreibung und kalkulatorischen Zinsen) und ist oft etwas teurer, schont aber Liquidität und Sicherheitenspielraum; der Kauf bringt Eigentum und Flexibilität.
+  - Erwartung: Kriterien wie Liquidität, Sicherheiten, Flexibilität und Unabhängigkeit werden mit einer Nutzwertanalyse gewichtet; häufig ist eine Kombination der Finanzierungsformen die beste Lösung.
+  - Rückfrage: Würden Sie einen angebotenen Skonto auch dann nutzen, wenn Sie dafür den Kontokorrentkredit in Anspruch nehmen müssen?
 
 ### 5.3 Liquiditäts- und Finanzplanung
 
@@ -95,3 +109,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Sie kann über geeignete Finanzierungsmaßnahmen abgedeckt werden, statt das Unternehmen kurzfristig in Zahlungsschwierigkeiten zu bringen.
   - Erwartung: Übersteigen geplante Auszahlungen die Einzahlungen, entsteht eine Unterdeckung und damit zusätzlicher Finanzierungsbedarf.
 
+### 5.4 Controlling als Steuerungsinstrument: Kennzahlensysteme, Abweichungsanalyse und Frühwarnsystem
+
+- Ihre Geschäftsführung möchte das Controlling neu aufstellen. Welche Aufgaben und Ebenen hat das Controlling in einem Industrieunternehmen, wie grenzen Sie es von Rechnungswesen und interner Revision ab, und wie würden Sie es in einem Unternehmen mit mehreren Werken organisieren?
+  - Erwartung: Controlling unterstützt die Führung bei der Steuerung auf die Ziele hin und verbindet Planung (Budgets, Abstimmung der Teilpläne), Kontrolle (Soll-Ist-Vergleich), Information (Berichtswesen) und Steuerung (Ursachenanalyse, Gegenmaßnahmen) zu einem Regelkreis.
+  - Erwartung: Controller:innen beraten und schaffen Transparenz; Entscheidungen und Ergebnisverantwortung bleiben bei den Führungskräften.
+  - Erwartung: Das Rechnungswesen erfasst und dokumentiert die Geschäftsvorfälle; das Controlling wertet die Zahlen zukunftsgerichtet aus. Die interne Revision prüft nachträglich und unabhängig die Ordnungsmäßigkeit und Wirtschaftlichkeit von Vorgängen.
+  - Erwartung: Das operative Controlling steuert kurzfristig Kosten, Erlöse, Deckungsbeitrag, Gewinn und Liquidität (Budgetierung, Abweichungsanalyse, Deckungsbeitragsrechnung); das strategische Controlling sichert langfristig Erfolgspotenziale (SWOT, Portfolio, Balanced Scorecard, Früherkennung).
+  - Erwartung: In einem Mehrwerksunternehmen werden zentrales Controlling (einheitliche Methoden, Vergleichbarkeit) und dezentrale Werkscontroller:innen (Nähe zu den Abläufen) kombiniert, häufig mit disziplinarischer Unterstellung unter die Werkleitung und fachlicher unter das Zentralcontrolling.
+  - Rückfrage: Warum sollten Controller:innen keine Weisungen an die Fachbereiche erteilen?
+- Die Materialkosten eines Werks liegen im Quartal über dem Budget. Wie gehen Sie bei der Abweichungsanalyse vor, und welche Gegenmaßnahmen leiten Sie ab?
+  - Erwartung: Zuerst wird die Abweichung absolut (Istwert − Planwert) und relativ (Abweichung ÷ Planwert × 100) ermittelt und mit der Toleranzgrenze verglichen; analysiert wird, was die Grenze überschreitet (Ausnahmeprinzip).
+  - Erwartung: Die Istkosten werden mit den Sollkosten verglichen (tatsächliche Menge × Planverbrauch je Stück × Planpreis), weil eine höhere oder niedrigere Ausbringungsmenge die variablen Kosten verändert, ohne etwas über die Wirtschaftlichkeit zu sagen.
+  - Erwartung: Die Abweichung wird in die beschäftigungsbedingte Abweichung (Ausbringungsabweichung, Sollkosten − Plankosten), Verbrauchsabweichung ((Istverbrauch − Sollverbrauch) × Planpreis, Verantwortung des Werks) und Preisabweichung ((Istpreis − Planpreis) × Istverbrauch, Einkauf oder Markt) zerlegt.
+  - Erwartung: Die Ursachen werden als Planungsfehler, Durchführungsfehler, veränderte Umweltbedingungen oder Erfassungsfehler eingeordnet; daraus folgen unterschiedliche Maßnahmen (Planung verbessern, Abläufe ändern, Prognose anpassen, Buchung korrigieren).
+  - Erwartung: Maßnahmen werden mit Verantwortlichen und Terminen vereinbart; der nächste Soll-Ist-Vergleich prüft ihre Wirkung, das Budget bleibt als Maßstab bestehen, angepasst wird die Prognose.
+  - Rückfrage: Warum kann ein Umsatz über dem Plan trotzdem zu einem Ergebnis unter dem Plan führen?
+- Wie bauen Sie für ein Industrieunternehmen ein Kennzahlensystem und ein Frühwarnsystem auf, und wo sehen Sie deren Grenzen?
+  - Erwartung: Gute Kennzahlen sind zweckgerecht, eindeutig und einheitlich definiert, aktuell, wirtschaftlich zu erheben, verständlich und von den Verantwortlichen beeinflussbar; als Verhältniszahlen gibt es Gliederungs-, Beziehungs- und Indexzahlen.
+  - Erwartung: Das DuPont-System ist ein Rechensystem mit der Spitzenkennzahl ROI = Umsatzrendite vor Zinsen × Kapitalumschlag (gleich der Gesamtkapitalrentabilität); es zeigt die Hebel Marge und Kapitalumschlag. Die Balanced Scorecard ist ein Ordnungssystem, das nicht finanzielle Perspektiven ergänzt.
+  - Erwartung: Ein Frühwarnsystem nutzt Kennzahlen mit Hochrechnung (Soll-Wird-Vergleich), vorlaufende Indikatoren wie Anfragen, Auftragseingang, Rohstoffpreise oder Termintreue der Lieferunternehmen und die strategische Früherkennung schwacher Signale.
+  - Erwartung: Jeder Indikator erhält Zielwert und Schwellenwerte, etwa in einem Ampelsystem (grün im Rahmen, gelb beobachten und Ursachen klären, rot sofort Maßnahmen); berichtet wird adressatengerecht, zeitnah und auf das Wesentliche beschränkt, etwa in einem Dashboard.
+  - Erwartung: Grenzen sind Vergangenheitsbezug und Gestaltbarkeit von Kennzahlen, Fehlanreize, wenn eine Kennzahl zum alleinigen Ziel wird, Schwellen, die nicht zu jeder Größe passen, und zu viele Warnungen, die niemand mehr beachtet.
+  - Rückfrage: Warum ist der Jahresüberschuss kein geeigneter Frühwarnindikator?
