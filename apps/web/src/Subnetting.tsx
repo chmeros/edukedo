@@ -80,7 +80,7 @@ function Ergebnisliste({ info }: { info: SubnetzInfo }) {
         <dd>{formatIpv4(info.erster)}</dd>
         <dt>Letzte nutzbare Adresse</dt>
         <dd>{formatIpv4(info.letzter)}</dd>
-        <dt>Broadcast-Adresse</dt>
+        <dt>Broadcastadresse</dt>
         <dd>{info.sonderfall ? "— (kein Broadcast bei diesem Präfix)" : formatIpv4(info.broadcast)}</dd>
         <dt>Nutzbare Hosts</dt>
         <dd>
@@ -94,7 +94,7 @@ function Ergebnisliste({ info }: { info: SubnetzInfo }) {
           <InfoIcon />
           <div>
             Sonderfall /31 nach RFC 3021: Beide Adressen sind für eine Punkt-zu-Punkt-Verbindung nutzbar, es gibt keine
-            Netz- und Broadcast-Adresse. In Prüfungen wird meist nur bis /30 gerechnet (dann: 2² − 2 = 2 nutzbare Hosts bei /30).
+            Netz- und Broadcastadresse. In Prüfungen wird meist nur bis /30 gerechnet (dann: 2² − 2 = 2 nutzbare Hosts bei /30).
           </div>
         </div>
       )}
@@ -113,7 +113,7 @@ function Ergebnisliste({ info }: { info: SubnetzInfo }) {
       {info.adresseIstBroadcast && (
         <div className="alert alert-info">
           <InfoIcon />
-          <div>Die eingegebene Adresse ist die Broadcast-Adresse — sie kann keinem Gerät zugewiesen werden.</div>
+          <div>Die eingegebene Adresse ist die Broadcastadresse — sie kann keinem Gerät zugewiesen werden.</div>
         </div>
       )}
 
@@ -140,7 +140,7 @@ function Ergebnisliste({ info }: { info: SubnetzInfo }) {
           <li>
             {info.sonderfall
               ? `Bei /${info.praefix} gilt die Sonderregel oben (${zahl(info.nutzbareHosts)} nutzbare Adresse${info.nutzbareHosts === 1 ? "" : "n"}).`
-              : `Nutzbare Hosts = 2^${hostBits} − 2 = ${zahl(info.adressenGesamt)} − 2 = ${zahl(info.nutzbareHosts)} (ohne Netz- und Broadcast-Adresse); erste nutzbare Adresse = Netzadresse + 1, letzte = Broadcast − 1.`}
+              : `Nutzbare Hosts = 2^${hostBits} − 2 = ${zahl(info.adressenGesamt)} − 2 = ${zahl(info.nutzbareHosts)} (ohne Netz- und Broadcastadresse); erste nutzbare Adresse = Netzadresse + 1, letzte = Broadcast − 1.`}
           </li>
         </ol>
       </details>

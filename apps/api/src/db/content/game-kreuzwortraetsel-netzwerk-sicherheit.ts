@@ -239,7 +239,7 @@ export const kreuzwortraetselNetzwerkSicherheit: KreuzwortraetselPayload = {
     },
     {
       nummer: 25,
-      hinweis: "Dienst, der Namen wie kunde-beispiel.de in IP-Adressen auflöst.",
+      hinweis: "Dienst, der Namen wie kunde.example in IP-Adressen auflöst.",
       tipp: "Das „Telefonbuch“ des Internets.",
       loesung: "DNS",
       bestaetigung: "Richtig! Der Dienst übersetzt lesbare Namen in IP-Adressen, damit Geräte einander finden.",

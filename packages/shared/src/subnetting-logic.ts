@@ -3,7 +3,7 @@
  * ohne Browser testbar ist; Eingabe und Darstellung stehen in apps/web/src/Subnetting.tsx.
  *
  * Konventionen: Adressen als vorzeichenlose 32-Bit-Zahlen. Nutzbare Hosts je Netz: 2^(32−Präfix) − 2
- * (ohne Netz- und Broadcast-Adresse) für /0 bis /30; Sonderfälle nach RFC 3021 (/31: Punkt-zu-Punkt-
+ * (ohne Netz- und Broadcastadresse) für /0 bis /30; Sonderfälle nach RFC 3021 (/31: Punkt-zu-Punkt-
  * Verbindung mit zwei nutzbaren Adressen, kein Broadcast) und /32 (Einzeladresse). In Prüfungen wird
  * meist nur bis /30 gerechnet — die Sonderfälle werden deshalb ausdrücklich gekennzeichnet.
  */
@@ -162,7 +162,7 @@ export function teileNetz(adresse: number, praefix: number, anzahl: number): Tei
   return { ok: true, neuesPraefix, gewuenscht: anzahl, tatsaechlich, hostsProSubnetz: schritt - 2, subnetze };
 }
 
-/** Kleinste Präfixlänge (längstens /30), deren Netz mindestens `hosts` nutzbare Adressen bietet. */
+/** Längstes Präfix (höchstens /30), dessen Netz noch mindestens `hosts` nutzbare Adressen bietet, also das kleinste passende Netz. */
 export function praefixFuerHosts(hosts: number): { praefix: number; nutzbareHosts: number; adressen: number } | null {
   if (!Number.isInteger(hosts) || hosts < 1 || hosts > 2 ** 32 - 2) return null;
   for (let praefix = 30; praefix >= 0; praefix -= 1) {

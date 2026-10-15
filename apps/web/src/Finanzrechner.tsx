@@ -239,7 +239,7 @@ function Annuitaet() {
     <div className="stack">
       <Feld id="an-darlehen" label="Darlehensbetrag in Euro" wert={darlehen} onChange={setDarlehen} />
       <Feld id="an-zins" label="Sollzinssatz pro Jahr in Prozent" wert={zins} onChange={setZins} hinweis="Beispielwert, keine Prognose und kein Angebot." />
-      <Feld id="an-jahre" label="Laufzeit in Jahren" wert={jahre} onChange={setJahre} hinweis="Zinsen und Tilgung werden einmal pro Jahr am Jahresende gezahlt." />
+      <Feld id="an-jahre" label="Laufzeit in Jahren" wert={jahre} onChange={setJahre} hinweis="Zinsen und Tilgung werden einmal pro Jahr am Jahresende gezahlt. Echte Baufinanzierungen werden meist monatlich bedient und mit einer anfänglichen Tilgung vereinbart; hier ist die Laufzeit vorgegeben, das Ergebnis ist eine Vereinfachung." />
       <Fehlerzeile text={unvollstaendig ? "Bitte alle drei Felder mit Zahlen füllen." : ergebnis && !ergebnis.ok ? ergebnis.fehler : null} />
       {ergebnis?.ok && d !== null && z !== null && n !== null && (
         <>

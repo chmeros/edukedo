@@ -368,9 +368,9 @@ export function subnettingFrage(params: SubnettingParams): { frage: string; hinw
     case "netzadresse":
       return { frage: `Wie lautet die Netzadresse von ${ip}/${params.praefix}?`, hinweis: "Format: vier Zahlen mit Punkten, z. B. 192.168.1.0" };
     case "broadcast":
-      return { frage: `Wie lautet die Broadcast-Adresse von ${ip}/${params.praefix}?`, hinweis: "Format: vier Zahlen mit Punkten, z. B. 192.168.1.255" };
+      return { frage: `Wie lautet die Broadcastadresse von ${ip}/${params.praefix}?`, hinweis: "Format: vier Zahlen mit Punkten, z. B. 192.168.1.255" };
     case "hosts":
-      return { frage: `Wie viele nutzbare Host-Adressen hat ein Netz mit Präfixlänge /${params.praefix}?`, hinweis: "Nur die Zahl, ohne Netz- und Broadcast-Adresse." };
+      return { frage: `Wie viele nutzbare Hostadressen hat ein Netz mit Präfixlänge /${params.praefix}?`, hinweis: "Nur die Zahl, ohne Netz- und Broadcastadresse." };
     case "maske":
       return { frage: `Wie lautet die Subnetzmaske zu /${params.praefix} in Punktschreibweise?`, hinweis: "Format: vier Zahlen mit Punkten, z. B. 255.255.255.0" };
     case "praefix":
@@ -398,12 +398,12 @@ export function subnettingLoesung(params: SubnettingParams): { erwartet: string;
       const broadcast = ((ip & mask) | (~mask >>> 0)) >>> 0;
       return {
         erwartet: intToIp(broadcast),
-        erklaerung: `Maske /${params.praefix} = ${intToIp(mask)}. Alle ${hostBits} Hostbits auf 1 setzen ergibt die Broadcast-Adresse ${intToIp(broadcast)}.`,
+        erklaerung: `Maske /${params.praefix} = ${intToIp(mask)}. Alle ${hostBits} Hostbits auf 1 setzen ergibt die Broadcastadresse ${intToIp(broadcast)}.`,
       };
     }
     case "hosts": {
       const hosts = 2 ** hostBits - 2;
-      return { erwartet: String(hosts), erklaerung: `${hostBits} Hostbits ergeben 2^${hostBits} = ${2 ** hostBits} Adressen, abzüglich Netz- und Broadcast-Adresse = ${hosts} nutzbare Hosts.` };
+      return { erwartet: String(hosts), erklaerung: `${hostBits} Hostbits ergeben 2^${hostBits} = ${2 ** hostBits} Adressen, abzüglich Netz- und Broadcastadresse = ${hosts} nutzbare Hosts.` };
     }
     case "maske":
       return { erwartet: intToIp(mask), erklaerung: `${params.praefix} Einsen von links, danach ${hostBits} Nullen: ${intToIp(mask)}.` };

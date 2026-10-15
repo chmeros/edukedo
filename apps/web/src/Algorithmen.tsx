@@ -31,7 +31,7 @@ const MODI: { id: Modus; label: string }[] = [
   { id: "ueben", label: "Üben" },
 ];
 
-/** Programmtexte aus der Kurstheorie 4.2; für Selectionsort und Insertionsort steht dort nur die Beschreibung. */
+/** Programmtexte aus der Kurstheorie 4.2 (Selectionsort und Insertionsort stehen in der Ergänzung „Sortier- und Suchverfahren mit Ablauftabellen“). */
 const CODE: Partial<Record<AlgoId, string>> = {
   bubble: `def bubblesort(liste):
     n = len(liste)
@@ -39,6 +39,26 @@ const CODE: Partial<Record<AlgoId, string>> = {
         for i in range(n - 1 - durchlauf):
             if liste[i] > liste[i + 1]:
                 liste[i], liste[i + 1] = liste[i + 1], liste[i]
+    return liste`,
+  selection: `def selectionsort(liste):
+    n = len(liste)
+    for i in range(n - 1):
+        minimum = i
+        for j in range(i + 1, n):
+            if liste[j] < liste[minimum]:
+                minimum = j
+        if minimum != i:
+            liste[i], liste[minimum] = liste[minimum], liste[i]
+    return liste`,
+  insertion: `def insertionsort(liste):
+    for i in range(1, len(liste)):
+        j = i
+        while j > 0:
+            if liste[j - 1] > liste[j]:
+                liste[j - 1], liste[j] = liste[j], liste[j - 1]
+                j = j - 1
+            else:
+                break
     return liste`,
   linear: `def lineare_suche(liste, gesucht):
     for index, wert in enumerate(liste):
@@ -250,12 +270,11 @@ function Verfolgen() {
 
       <details className="instrument-more">
         <summary>So sieht das Verfahren als Programm aus</summary>
-        {CODE[algo] ? (
+        {BESCHREIBUNG[algo] && <p>{BESCHREIBUNG[algo]}</p>}
+        {CODE[algo] && (
           <pre className="code-block" style={{ padding: "8px 12px", fontVariantLigatures: "none" }}>
             {CODE[algo]}
           </pre>
-        ) : (
-          <p>{BESCHREIBUNG[algo]}</p>
         )}
       </details>
     </div>

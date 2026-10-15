@@ -71,7 +71,7 @@ export const troubleshootingNetzwerk: TroubleshootingPayload = {
         "Ein Mitarbeiter eines Brevanta-Kunden erreicht das Intranet nicht mehr. Die Internetseiten externer Anbieter und die Netzlaufwerke dagegen funktionieren. Du nimmst dir seinen Rechner vor.",
       symptome: [
         "ping 192.168.10.30 (Intranet-Server) und ping 10.20.0.5 (Server in einem anderen Netz) funktionieren.",
-        "Der Aufruf von https://192.168.10.30 im Browser zeigt die Intranetseite.",
+        "Der Aufruf von https://192.168.10.30 im Browser zeigt nach einer Zertifikatswarnung (die IP-Adresse steht nicht im Zertifikat) die Intranetseite.",
         "ping intranet.kunde.example meldet „Ping-Anforderung konnte Host nicht finden“.",
         "nslookup intranet.kunde.example gegen den eingetragenen DNS-Server 192.168.10.5 endet mit „Zeitüberschreitung der Anforderung“; ping 192.168.10.5 funktioniert.",
         "nslookup intranet.kunde.example 192.168.10.6 liefert sofort 192.168.10.30.",

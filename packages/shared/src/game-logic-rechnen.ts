@@ -227,7 +227,7 @@ function verschiedeneZahlen(rng: Rng, anzahl: number, min: number, max: number):
 
 const SORT_ALGOS: AlgoId[] = ["bubble", "selection", "insertion"];
 const SORT_DEFINITION: Record<AlgoId, string> = {
-  bubble: "(Bubblesort wie im Programmbeispiel der Theorie: n − 1 Durchläufe; im Durchlauf d werden die ersten n − d Positionen paarweise verglichen, auch wenn die Liste schon sortiert ist.)",
+  bubble: "(Bubblesort wie im Programmbeispiel der Theorie: n − 1 Durchläufe; im k-ten Durchlauf (gezählt ab 1) werden n − k benachbarte Paare verglichen, auch wenn die Liste schon sortiert ist.)",
   selection: "(Selectionsort: Im noch unsortierten Rest wird das Minimum gesucht, jedes Restelement wird einmal mit dem bisherigen Minimum verglichen; getauscht wird nur, wenn das Minimum nicht schon an seinem Platz steht.)",
   insertion: "(Insertionsort: Jedes Element rückt durch Vertauschen mit dem linken Nachbarn nach vorn, solange der Nachbar größer ist; ein Vergleich je Nachbar, kein Vergleich links vom ersten Element.)",
   linear: "",

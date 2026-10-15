@@ -171,7 +171,7 @@ describe("teileNetz", () => {
 });
 
 describe("praefixFuerHosts", () => {
-  it("liefert das kleinste Präfix mit genug nutzbaren Hosts", () => {
+  it("liefert das längste Präfix (kleinstes passendes Netz) mit genug nutzbaren Hosts", () => {
     expect(praefixFuerHosts(50)).toEqual({ praefix: 26, nutzbareHosts: 62, adressen: 64 });
     expect(praefixFuerHosts(62)?.praefix).toBe(26);
     expect(praefixFuerHosts(63)?.praefix).toBe(25);
