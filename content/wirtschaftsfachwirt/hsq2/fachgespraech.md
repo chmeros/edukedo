@@ -5,7 +5,7 @@ fachgebiet_title: "Investition, Finanzierung, betriebliches Rechnungswesen und C
 thema_code: "HSQ2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -82,6 +82,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Dienstleistungsfunktion: Der Factor übernimmt häufig Debitorenbuchhaltung und Mahnwesen.
   - Erwartung: Delkrederefunktion: Beim echten Factoring übernimmt der Factor das Ausfallrisiko der verkauften Forderungen.
   - Erwartung: Besonders relevant ist Factoring für Unternehmen mit umfangreichem EU-Exportgeschäft, bei dem Zahlungseingänge oft verzögert erfolgen.
+- Die Hausbank verlangt für einen neuen Kredit der NordWert Handels GmbH Sicherheiten. Welche Sicherheiten kann ein Großhandelsunternehmen anbieten, und worauf achten Sie bei der Auswahl?
+  - Erwartung: Unterschieden werden Personalsicherheiten, bei denen eine dritte Person oder ein anderes Unternehmen verspricht, notfalls aus dem eigenen Vermögen zu zahlen (vor allem die Bürgschaft; Kreditinstitute verlangen meist die selbstschuldnerische Form, bei der sie sich sofort an die Bürgschaftsgebenden wenden können), und Realsicherheiten, bei denen ein bestimmter Gegenstand haftet.
+  - Erwartung: Ein Großhändler kann eine Grundschuld auf Grundstücke und Lagerhallen bestellen, Fuhrpark, Regalanlagen oder ein räumlich abgegrenztes Warenlager zur Sicherheit übereignen und Forderungen gegen die Kundschaft abtreten, still oder offen, dem Umfang nach einzeln oder als Globalzession eines ganzen Forderungskreises; eine Verpfändung passt kaum, weil Ware und Fahrzeuge dann der Hausbank übergeben werden müssten.
+  - Erwartung: Die Hausbank setzt Sicherheiten nur mit Abschlag an: bei Grundstücken bis zur Beleihungsgrenze als Anteil am Beleihungswert, abzüglich vorrangig eingetragener Rechte; bei Ware und Forderungen mit einem Beleihungssatz, der bei Ware wegen Wertverlust und Preisverfall niedrig ausfällt.
+  - Erwartung: Jede bestellte Sicherheit verkleinert den Sicherheitenspielraum für spätere Kredite; Forderungen, die Lieferunternehmen über einen verlängerten Eigentumsvorbehalt zustehen, sind als Sicherheit nur begrenzt brauchbar.
+  - Erwartung: Sicherheiten verbessern Zins, Kreditrahmen oder Zusage, ersetzen aber nicht die Kreditwürdigkeit; zuerst zählt, ob der Kapitaldienst aus dem laufenden Geschäft getragen werden kann.
+  - Rückfrage: Warum wird in der Praxis eher eine Grundschuld als eine Hypothek eingetragen?
+- Die Geschäftsführung möchte eine Erweiterung überwiegend mit Fremdkapital finanzieren, weil das die Eigenkapitalrentabilität erhöhe. Wie beurteilen Sie diese Begründung, und nach welchen Kriterien wählen Sie die Finanzierung aus?
+  - Erwartung: Nach der Leverage-Formel (Eigenkapitalrentabilität = Gesamtkapitalrentabilität + (Gesamtkapitalrentabilität − Fremdkapitalzinssatz) × Fremdkapital ÷ Eigenkapital) wächst die Eigenkapitalrentabilität nur, wenn die Gesamtkapitalrentabilität höher ist als der Zins des neuen Kredits; der Verschuldungsgrad vervielfacht die Spanne.
+  - Erwartung: Die Wirkung kehrt sich um, sobald die Rentabilität unter den Zins fällt; dann sinkt die Eigenkapitalrentabilität umso stärker, je höher die Verschuldung ist, bis hin zu Verlusten. Zinsen fallen unabhängig vom Geschäftsverlauf an, und variable Zinsen wie beim Kontokorrentkredit können steigen.
+  - Erwartung: Mehr Verschuldung schwächt Eigenkapitalquote und Rating, verteuert künftige Kredite oder verlangt mehr Sicherheiten und kann Kreditauflagen (Covenants) wie eine Mindest-Eigenkapitalquote verletzen.
+  - Erwartung: Beurteilt wird nach Kosten (Effektivzins), Liquiditätswirkung, Fristigkeit (goldene Bilanzregel), Sicherheiten, Kapitalstruktur, Flexibilität und Unabhängigkeit; Kriterien ohne Eurobetrag werden nach Prüfung der Muss-Kriterien mit einer Nutzwertanalyse bewertet.
+  - Erwartung: Angestrebt wird ein ausgewogenes Verhältnis von Rentabilität, Sicherheit und Unabhängigkeit; größere Vorhaben werden oft aus mehreren Quellen finanziert, etwa aus Eigenmitteln, einem Darlehen und Leasing.
+  - Rückfrage: Warum taugt der durchschnittliche Fremdkapitalzinssatz der NordWert von rund 2,86 % nicht als Maßstab für diese Entscheidung?
 
 ### 2.3 Kosten- und Leistungsrechnung (vertieft)
 
@@ -113,6 +127,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei der Rückwärtskalkulation wird von einem am Markt bereits vorgegebenen Verkaufspreis ausgegangen.
   - Erwartung: Aus dem vorgegebenen Verkaufspreis wird zurückgerechnet, welcher Einstandspreis bzw. welche Handlungskosten für ein bestimmtes Produkt maximal tragbar sind.
   - Rückfrage: Welche Zuschläge werden bei der Vorwärtskalkulation auf den Einstandspreis aufgeschlagen?
+- Die Vertriebsleitung der NordWert Handels GmbH hält Kleinaufträge gewerblicher Kundschaft für besonders lohnend, weil ihre Rohgewinnquote hoch ist. Wie prüfen Sie diese Einschätzung mit der Prozesskostenrechnung, und welche Grenzen des Verfahrens beachten Sie?
+  - Erwartung: Die Zuschlagskalkulation verteilt die Gemeinkosten von Innendienst und Lager mit einem Prozentsatz auf den Wareneinsatz, also nach dem Warenwert; der Aufwand richtet sich aber nach der Zahl der Aufträge, Positionen, Retouren und Reklamationen.
+  - Erwartung: Vorgehen: Teilprozesse bilden, je Teilprozess Kostentreiber und Prozessmenge festlegen, Prozesskostensatz = Prozesskosten ÷ Prozessmenge; die leistungsmengenneutralen Kosten werden über den Umlagesatz (lmn-Kosten ÷ Summe der lmi-Kosten × 100) verteilt, Gesamtprozesskostensatz = Prozesskostensatz × (1 + Umlagesatz ÷ 100); dann wird jede Kundengruppe nach den ausgelösten Vorgängen belastet und ihr Ergebnis als Rohgewinn abzüglich Prozesskosten ermittelt.
+  - Erwartung: Typisch zeigen sich Allokationseffekt (große Aufträge werden mit dem Zuschlag zu stark belastet), Komplexitätseffekt (Kleinaufträge mit vielen Artikeln und Retouren zu schwach) und Degressionseffekt (die Kosten je Auftrag fallen unabhängig vom Warenwert an); eine hohe Rohgewinnquote kann deshalb trotzdem zu einem schwachen Ergebnis führen.
+  - Erwartung: Grenzen: hoher Erhebungsaufwand, nur für wiederkehrende Tätigkeiten geeignet, pauschal verteilte lmn-Kosten, Vollkostenrechnung; die Prozesskosten sind kurzfristig weitgehend fix, deshalb bleibt für kurzfristige Entscheidungen die Deckungsbeitragsrechnung maßgeblich.
+  - Erwartung: Folgerungen sind vor allem Konditionen und Abläufe, etwa Mindestbestellwert, Bearbeitungspauschale, Rabatte nach Auftragsgröße oder Onlinebestellung mit automatischer Auftragserfassung; in der mehrstufigen Deckungsbeitragsrechnung lassen sich die Prozesskosten als eigene Stufe je Kundengruppe abziehen.
+  - Rückfrage: Warum sinkt das Ergebnis zunächst, wenn NordWert eine Kundengruppe aufgibt, deren Rohgewinn ihre Prozesskosten nicht deckt?
+- Die NordWert Handels GmbH möchte eine Eigenmarke einführen, deren Verkaufspreis der Markt weitgehend vorgibt. Erläutern Sie, wie Sie mit Target Costing vorgehen, und grenzen Sie das Verfahren von der kostenorientierten Preisbildung und der Rückwärtskalkulation ab.
+  - Erwartung: Bei der kostenorientierten Preisbildung stehen die eigenen Kosten am Anfang, der Preis wird aus ihnen abgeleitet; Target Costing beginnt beim Zielpreis, den die Kundschaft für eine Leistung mit bestimmten Funktionen zu zahlen bereit ist, und fragt, was die Leistung höchstens kosten darf.
+  - Erwartung: Zielkosten (Allowable Costs) = Zielpreis − Zielgewinn; sie werden mit den Standardkosten (Drifting Costs) verglichen, die mit heutigen Abläufen und Konditionen entstehen; die Zielkostenlücke muss vor der Einführung geschlossen werden.
+  - Erwartung: Bei einer Eigenmarke ergibt sich die Obergrenze für den Einkauf als Zielkosten − Handlungskosten je Stück; mit dieser Zielvorgabe für den Einstandspreis verhandelt der Einkauf mit dem herstellenden Unternehmen, gestützt auf eine Aufschlüsselung des Angebots.
+  - Erwartung: Die Zielkostenspaltung verteilt bei einem Handelsartikel die Zielvorgabe für den Einstandspreis nach dem Kundennutzen auf Funktionen und Komponenten; die Handlungskosten bleiben außerhalb; Zielkostenindex = Nutzenanteil ÷ Kostenanteil, unter 1 ist eine Komponente im Verhältnis zum Nutzen zu teuer; das Zielkostenkontrolldiagramm zeigt die Komponenten mit einer Zielkostenzone um die Diagonale.
+  - Erwartung: Die Rückwärtskalkulation rechnet für einen gegebenen Artikel vom Marktpreis auf den tragbaren Einstandspreis zurück; Target Costing setzt früher an, arbeitet mit Funktionen und Komponenten und einem Team aus Einkauf, Produktmanagement, Vertrieb und Controlling und wird nach der Einführung im Soll-Ist-Vergleich fortgeführt; auf Dauer muss der Zielpreis mindestens die langfristige Preisuntergrenze decken.
+  - Rückfrage: Was bedeutet ein Zielkostenindex über 1, und wie gehen Sie damit um?
 
 ### 2.4 Controlling
 
@@ -148,3 +176,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Wesentlichkeit: Fokus auf die wirklich steuerungsrelevanten Abweichungen statt auf eine vollständige, aber unübersichtliche Datenflut.
   - Erwartung: Ein gutes Berichtswesen erfüllt zusätzlich eine Frühwarnfunktion, sodass kritische Entwicklungen wie eine sich abzeichnende Liquiditätsenge erkennbar werden, bevor sie zu ernsthaften Problemen führen.
   - Rückfrage: Wozu dient ein Kennzahlen-Cockpit (Dashboard)?
+
+### 2.5 Finanzplanung und Finanzbedarf
+
+- Wie stellen Sie für einen Großhändler wie die NordWert Handels GmbH einen Finanzplan auf, und wie gehen Sie vor, wenn er für einige Monate eine Unterdeckung zeigt?
+  - Erwartung: Der Finanzplan stellt je Periode Einzahlungen und Auszahlungen gegenüber, vollständig, termingenau und nach dem Bruttoprinzip; er rechnet mit Zahlungsgrößen, nicht mit Aufwand und Ertrag.
+  - Erwartung: Anfangsbestand + Einzahlungen − Auszahlungen ergibt den Endbestand; der Vergleich mit dem Mindestbestand zeigt den Finanzierungsbedarf oder den Überschuss der Periode.
+  - Erwartung: Ein Bedarf innerhalb der Kreditlinie wird über den Kontokorrentkredit gedeckt; reicht die Linie nicht, sind rechtzeitig weitere Maßnahmen nötig, etwa Zahlungsziele verhandeln, Bestände abbauen, Investitionen verschieben oder langfristig finanzieren.
+  - Erwartung: Nach der Fristenkongruenz wird vorübergehender Bedarf, etwa für Saisonvorräte, kurzfristig gedeckt und dauerhafter Bedarf (Anlagen, Grundbestand an Ware) langfristig, zum Beispiel mit Eigenkapital, Darlehen oder Leasing.
+  - Rückfrage: Warum kann ein Unternehmen mit einem Gewinn in der Plan-GuV trotzdem eine Unterdeckung im Finanzplan haben?
+- Wie ermitteln Sie den Kapitalbedarf für einen neuen Lagerstandort oder eine Sortimentserweiterung, und mit welchen Hebeln lässt er sich verringern?
+  - Erwartung: Der Kapitalbedarf besteht aus Anlagekapitalbedarf (Umbau, Regale, Fördertechnik, IT), Umlaufkapitalbedarf (Ware, Forderungen, vorfinanzierte Betriebsauszahlungen) und Anlaufkosten, oft zuzüglich einer Reserve für Unvorhergesehenes.
+  - Erwartung: Kapitalbindungsdauer = Lagerdauer + Kundenziel − Lieferantenziel; Umlaufkapitalbedarf = durchschnittliche Auszahlungen je Tag × Kapitalbindungsdauer.
+  - Erwartung: Mit Bilanzwerten ergibt sich das operative Working Capital (Warenbestand + Forderungen − Lieferantenverbindlichkeiten); es ist höher, weil die Forderungen den noch nicht eingegangenen Rohgewinn enthalten.
+  - Erwartung: Hebel sind eine kürzere Lagerdauer, kürzere Kundenziele, längere Lieferantenziele, Streckengeschäft oder Konsignationslager; jeder Hebel hat Grenzen, etwa bei Lieferfähigkeit, Kundenbindung oder Skonto.
+  - Erwartung: Wächst der Umsatz bei gleichen Tagen, steigt das operative Working Capital im gleichen Verhältnis; Wachstum kostet also Liquidität, bevor es Gewinn bringt.
+  - Rückfrage: Warum geraten gerade schnell wachsende Handelsunternehmen oft in Liquiditätsengpässe?
+- Welche Besonderheiten hat die Finanzplanung in einem Großhandelsunternehmen, und wie sichern Sie die Liquidität im Jahresverlauf?
+  - Erwartung: Saisonspitzen erzeugen einen vorübergehenden Finanzbedarf, weil vor der Saison eingekauft wird; Importware wird oft angezahlt und bindet Geld besonders lange.
+  - Erwartung: Der Großhändler steht zwischen kurzen Lieferantenzielen und langen Kundenzielen und finanziert seine Kundschaft teilweise mit; Zahlungsverzögerungen der Kundschaft treffen seine Liquidität. Skonto ist eine Finanzierungsentscheidung zwischen Skontobetrag und den Zinsen der früheren Zahlung.
+  - Erwartung: Eine rollierende Finanzplanung schreibt die Vorschau monatlich fort; im Plan-Ist-Vergleich werden zeitliche und betragsmäßige Abweichungen unterschieden.
+  - Erwartung: Frühwarnindikatoren wie die Ausnutzung der Kreditlinie, das Kundenziel, überfällige Forderungen und die Lagerreichweite werden mit Toleranzgrenzen überwacht und berichtet.
+  - Erwartung: Eine Liquiditätsreserve aus Mindestbestand und ungenutzten Kreditlinien fängt Schwankungen ab; Guthaben verursachen Opportunitätskosten, ungenutzte Linien meist nur eine Provision.
+  - Rückfrage: Wann lohnt es sich, die Zahlung mit Skonto über den Kontokorrentkredit zu finanzieren?
