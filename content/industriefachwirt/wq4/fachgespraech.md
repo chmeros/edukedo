@@ -5,7 +5,7 @@ fachgebiet_title: "Unternehmensführung"
 thema_code: "WQ4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwPrV vom 2010), §4 (Qualifikationsbereich „Unternehmensführung") — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -42,6 +42,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiel: Berichten drei Werkleitungen und fünf Zentralbereichsleitungen direkt an die Geschäftsführung, ergibt sich eine Leitungsspanne von acht.
   - Erwartung: Eine große Leitungsspanne spart Hierarchieebenen, kann die Leitung aber potenziell überlasten.
   - Erwartung: Eine zusätzliche Hierarchieebene verringert die Leitungsspanne, verlängert aber die Hierarchie und kann Entscheidungswege verzögern.
+- Sie sollen für eine neu geschaffene Stelle eine Stellenbeschreibung erstellen. Wie gehen Sie vor, was gehört hinein, und wo sehen Sie die Grenzen dieses Instruments?
+  - Erwartung: Grundlage ist die Aufgabenanalyse (Verrichtung, Objekt, Rang, Phase, Zweckbeziehung) und die Aufgabensynthese, in der Teilaufgaben sachbezogen zu einer Stelle gebündelt werden; der Stellenbedarf ergibt sich aus Arbeitsmenge und Nettoarbeitszeit.
+  - Erwartung: Inhalte sind Stellenbezeichnung und Einordnung, Ziel, Aufgaben, Kompetenzen, Verantwortung, Über- und Unterstellung, Vertretung, Zusammenarbeit und Anforderungsprofil; beschrieben wird die Stelle, nicht die Person.
+  - Erwartung: Aufgabe, Kompetenz und Verantwortung müssen sich decken (Kongruenzprinzip); Verantwortung ohne Befugnisse führt zu Frust und Rückdelegation.
+  - Erwartung: Die Stellenbeschreibung dient der Klarheit der Zuständigkeiten, der Einarbeitung, der Personalauswahl, der Beurteilung und Entwicklung sowie der Bewertung der Stelle.
+  - Erwartung: Grenzen sind Pflegeaufwand, schnelles Veralten bei Veränderungen und ein Denken in Zuständigkeiten; bei Teamarbeit und wechselnden Projektrollen wird sie offener formuliert.
+  - Rückfrage: Was unterscheidet den Stellenplan vom Stellenbesetzungsplan?
+- Ein funktional gegliedertes Industrieunternehmen erhält Beschwerden über lange Durchlaufzeiten in der Auftragsabwicklung. Welche organisatorischen Lösungen schlagen Sie vor, und wie messen Sie deren Erfolg?
+  - Erwartung: Ursache sind meist die Schnittstellen zwischen den Funktionsbereichen; ein Swimlane-Diagramm macht Übergaben und Liegezeiten sichtbar, und häufig wartet ein Vorgang den größten Teil seiner Durchlaufzeit.
+  - Erwartung: Lösung ohne Umbau der Aufbauorganisation ist eine Prozessverantwortliche oder ein Prozessverantwortlicher für den gesamten Ablauf, die oder der mit Befugnissen ausgestattet wird und Schnittstellen regelt; weiter geht eine reine Prozessorganisation.
+  - Erwartung: Eine Spartenorganisation nach Produktgruppen bringt Marktnähe und Ergebnisverantwortung, kostet aber Doppelarbeit, Bündelungsvorteile und Abstimmung über Zentralbereiche und Verrechnungspreise.
+  - Erwartung: Erfolg wird mit Prozesskennzahlen gemessen: Durchlaufzeit, Bearbeitungszeitanteil, Termintreue, Fehler- oder Nacharbeitsquote und Prozesskosten je Vorgang.
+  - Erwartung: Die Änderung wird als Projekt mit Ist-Aufnahme, Ist-Analyse, Soll-Konzept, Einführung und Erfolgskontrolle geplant, und die Betroffenen werden früh beteiligt.
+  - Rückfrage: Welche Konflikte können zwischen Prozessverantwortlichen und Linienvorgesetzten entstehen, und wie lassen sie sich begrenzen?
 
 ### 4.2 Personalführung und -entwicklung
 
@@ -104,3 +118,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiele für Kennzahlen: Umsatzrendite je Werk, Liefertreue, Ausschussquote und werksübergreifende Durchlaufzeit, Weiterbildungsquote und Innovationsrate.
   - Erwartung: Rein finanzielle Kennzahlen je Werk sind vergangenheitsbezogen; die BSC berücksichtigt zusätzlich werksübergreifend vergleichbare, nicht-monetäre Faktoren wie Prozessqualität und Mitarbeiterqualifikation.
 
+### 4.4 Personalplanung, Personalbeurteilung und Entgelt
+
+- Ein Werk soll eine neue Baureihe fertigen. Wie ermitteln Sie den Personalbedarf quantitativ und qualitativ, und wie gehen Sie vor, wenn sich in einem anderen Bereich eine Überdeckung ergibt?
+  - Erwartung: Der Personalbedarf hat eine quantitative (wie viele, in VZÄ), qualitative (welche Qualifikationen, abgeleitet aus Stellenbeschreibung und Anforderungsprofil), zeitliche und örtliche Dimension; Grundlage sind Absatz- und Produktionsplan.
+  - Erwartung: Nach dem Zeitbedarfsverfahren ist der Bruttopersonalbedarf = Menge × Vorgabezeit ÷ Nettoarbeitszeit je VZÄ; die Nettoarbeitszeit ist Bruttoarbeitszeit × (1 − Ausfallquote als Dezimalzahl), die Ausfallquote umfasst Urlaub, Krankheit, Weiterbildung und sonstige Freistellungen.
+  - Erwartung: Nettopersonalbedarf = Bruttopersonalbedarf − fortgeschriebener Personalbestand zum Bedarfszeitpunkt (Bestand − feststehende Abgänge + feststehende Zugänge); nach der Ursache werden Ersatz-, Neu- (Mehr-) und Minderbedarf unterschieden, zerlegt wird nur bei voll besetztem bisherigem Bedarf.
+  - Erwartung: Der zeitliche Vorlauf wird vom Einsatzbeginn rückwärts gerechnet (Auswahl, Wechselzeit, Einarbeitung).
+  - Erwartung: Eine Überdeckung wird im Grundsatz zuerst ohne Personalabbau intern ausgeglichen, etwa durch Versetzung mit Qualifizierung, Abbau von Mehrarbeit und Zeitguthaben oder Arbeitszeitverkürzung; danach folgen sanfte externe Wege wie ein Einstellungsstopp mit natürlicher Fluktuation oder auslaufende Befristungen; Kündigungen sind das letzte Mittel und rechtlich gesondert zu prüfen (hier nicht behandelt).
+  - Rückfrage: Warum ist eine Personalbedarfsrechnung mit Jahresdurchschnitten nur ein Modell?
+- Ihr Unternehmen will die jährliche Personalbeurteilung in der Fertigung neu gestalten. Welche Zwecke und Verfahren kommen infrage, und wie sichern Sie eine faire Beurteilung?
+  - Erwartung: Zwecke sind Rückmeldung und Motivation, Ermittlung des Entwicklungsbedarfs, Entscheidungen über Einsatz, Beförderung und Nachfolge, Differenzierung des Entgelts und die Kontrolle von Auswahl und Einarbeitung.
+  - Erwartung: Verfahren sind die freie Beurteilung, das Einstufungsverfahren mit beschriebenen, gewichteten Kriterien, das Rangordnungsverfahren, die Beurteilung nach Zielerreichung (gewichteter Zielerreichungsgrad) und das 360-Grad-Feedback, das vor allem der Entwicklung von Führungskräften dient.
+  - Erwartung: Kriterien sind tätigkeitsbezogen und beobachtbar, etwa Arbeitsergebnis, Arbeitsweise, Zusammenarbeit und bei Führungskräften das Führungsverhalten.
+  - Erwartung: Beurteilungsfehler wie Halo-Effekt, Milde- und Strengefehler, Tendenz zur Mitte, Recency-Effekt und Ähnlichkeitseffekt werden durch beschriebene Stufen, laufende Notizen, Bewertung Kriterium für Kriterium, Schulung und den Abgleich der Maßstäbe zwischen Führungskräften begrenzt.
+  - Erwartung: Das Ergebnis wird im Beurteilungsgespräch mit Selbsteinschätzung, Belegen und vereinbarten Entwicklungsschritten besprochen; Beurteilungsgrundsätze unterliegen Beteiligungsrechten der Arbeitnehmervertretung (gesetzliche Vorgaben, hier nicht behandelt).
+  - Rückfrage: Warum eignet sich das 360-Grad-Feedback wenig als Grundlage für Entgeltentscheidungen?
+- Wie gestalten Sie ein gerechtes Entgeltsystem für eine Montage, und welche Entgeltform empfehlen Sie, wenn die Qualität besonders wichtig ist?
+  - Erwartung: Das Entgelt setzt sich aus Grundentgelt, Zulagen, Prämien, Erfolgsbeteiligung, Sonderzahlungen, betrieblicher Altersversorgung und Sachleistungen zusammen.
+  - Erwartung: Anforderungsgerechtigkeit entsteht über die Arbeitsbewertung, summarisch (Arbeitsplatz als Ganzes) oder analytisch (je Anforderungsart wie Können, Belastung, Verantwortung und Arbeitsbedingungen, etwa im Stufenwertzahlverfahren); Leistungsgerechtigkeit über Akkord, Prämie, Leistungszulage oder Zielbonus.
+  - Erwartung: Im Zeitlohn sinkt der Lohn je Stück mit steigender Leistung, im Zeitakkord bleibt er konstant (Verdienst = Menge × Vorgabezeit × Minutenfaktor, Minutenfaktor = Akkordrichtsatz ÷ 60); der Akkord setzt wiederholbare, messbare und beeinflussbare Arbeit voraus und birgt Risiken für Qualität und Gesundheit.
+  - Erwartung: Hat die Qualität Vorrang, eignet sich ein Prämienlohn aus Grundlohn und Qualitätsprämie mit erreichbarer Basis, Staffel und Obergrenze; er lohnt sich, wenn die eingesparten Kosten die Prämie übersteigen.
+  - Erwartung: Für die Kosten zählen neben dem Stundenlohn die Personalnebenkosten; die Lohnkosten je produktive Stunde (Personalkosten ÷ geleistete Stunden) liegen deutlich über dem Stundenlohn. Tarifbindung, Gleichbehandlung und Mitbestimmung sind gesetzlich geregelt und werden hier nicht behandelt.
+  - Rückfrage: Welchen Vorteil hat der Zeitakkord gegenüber dem Geldakkord bei einer Lohnerhöhung?

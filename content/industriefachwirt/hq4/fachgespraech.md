@@ -5,7 +5,7 @@ fachgebiet_title: "Wissens- und Transfermanagement im Industrieunternehmen"
 thema_code: "HQ4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung IndFachwirtPrV 2010, §5 (Handlungsbereich „Wissens- und Transfermanagement im Industrieunternehmen") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -119,3 +119,27 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Gesamtkosten-Prognose ergibt sich aus Gesamtbudget geteilt durch CPI; sie gilt nur bei gleichbleibender Kosteneffizienz.
   - Erwartung: Die Ursachen werden analysiert, zum Beispiel Mengen- oder Preisabweichungen, Engpässe auf dem kritischen Pfad oder Umfangsausweitung.
   - Erwartung: Gegenmaßnahmen werden mit Wirkung auf das magische Dreieck bewertet und dem Lenkungsausschuss vorgelegt, bei Bedarf als Änderungsantrag.
+
+### 8.5 Organisationsentwicklung und Change Management
+
+- Ihre Werkleitung möchte ein neues Fertigungssteuerungssystem einführen und fragt Sie, wie sie die Veränderung planen soll. Wie grenzen Sie Organisationsentwicklung, Change Management und Projektmanagement ab, und nach welchem Modell würden Sie vorgehen?
+  - Erwartung: Organisationsentwicklung ist ein geplanter, langfristiger und partizipativer Prozess, der Strukturen, Abläufe und Kultur gemeinsam mit den Beschäftigten weiterentwickelt und Leistungsfähigkeit und Qualität des Arbeitslebens verbindet.
+  - Erwartung: Change Management steuert ein einzelnes, zeitlich begrenztes Vorhaben vom Anlass bis zur Stabilisierung und kümmert sich um Information, Beteiligung, Qualifizierung und Akzeptanz; das Projektmanagement steuert Leistung, Termin und Kosten, und das Änderungsmanagement im Projekt regelt nur Änderungen am Projektumfang.
+  - Erwartung: Nach Lewin wird aufgetaut (Notwendigkeit zeigen, informieren, einbeziehen), verändert (Pilot, Qualifizierung, Unterstützung) und eingefroren bzw. stabilisiert (alte Abläufe abschaffen, Arbeitsanweisungen und Kennzahlen anpassen).
+  - Erwartung: Kotters acht Stufen konkretisieren das: Dringlichkeit, Führungskoalition, Vision, Kommunikation, Hindernisse beseitigen und befähigen, kurzfristige Erfolge, Konsolidieren, kulturelle Verankerung.
+  - Erwartung: Die Veränderungskurve zeigt, dass Betroffene zunächst mit Ablehnung reagieren und Kompetenzgefühl und Leistung vorübergehend sinken; dafür werden Unterstützung und Zeit eingeplant. Die Modelle sind Orientierungshilfen mit Grenzen, etwa weil Veränderungen heute oft aufeinander folgen.
+  - Rückfrage: Warum reicht es nicht, die Einführung allein als Projekt mit Termin- und Kostenplan zu steuern?
+- In einem Veränderungsvorhaben stoßen Sie auf deutlichen Widerstand der Beschäftigten und einer Führungskraft. Wie gehen Sie vor?
+  - Erwartung: Widerstand ist normal und enthält eine Botschaft über Schwachstellen, Ängste oder offene Fragen; er wird ernst genommen, nicht gebrochen.
+  - Erwartung: Zuerst werden Ursachen geklärt: nicht wissen, nicht können, nicht wollen oder nicht dürfen, etwa Angst vor Kontrollverlust, Qualifikationsrisiko, Sorge um den Arbeitsplatz oder Gewohnheit; Formen sind aktiv oder passiv, offen oder verdeckt.
+  - Erwartung: Die Maßnahme folgt der Ursache: informieren, qualifizieren und unterstützen, beteiligen, verhandeln und vereinbaren, Regeln und Ziele anpassen; Zwang nur als letzte Option mit Folgen wie verdecktem Widerstand und Vertrauensverlust.
+  - Erwartung: Eine Stakeholderanalyse nach Betroffenheit und Einfluss zeigt, wer eng einzubinden, zufriedenzustellen, intensiv zu informieren oder zu beobachten ist; Macht-, Fach- und Prozesspromotor:innen treiben die Veränderung voran.
+  - Erwartung: Führungskräfte werden zuerst informiert und für ihre Vermittlerrolle vorbereitet; mit einer widerstrebenden Führungskraft wird ein Einzelgespräch über ihre Rolle geführt. Der Betriebsrat wird frühzeitig einbezogen; seine Beteiligungsrechte sind gesetzlich geregelt und werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+  - Rückfrage: Warum ist verdeckter Widerstand gefährlicher als offener?
+- Woran erkennen Sie, ob eine Veränderung erfolgreich ist, und wie sichern Sie das Ergebnis dauerhaft?
+  - Erwartung: Das Change-Controlling verbindet Projektcontrolling (Meilensteine, Termine, Kosten) mit harten Ergebniskennzahlen wie Durchlaufzeit, Fehlerquote oder Termintreue und weichen Kennzahlen wie Beteiligungs-, Rücklauf- und Akzeptanzquote; Veränderungen von Quoten werden in Prozentpunkten angegeben.
+  - Erwartung: Pulsbefragungen mit wenigen gleichbleibenden Fragen zeigen den Trend; Ergebnisse werden zurückgemeldet und in Maßnahmen übersetzt.
+  - Erwartung: Kosten (Qualifizierung, Begleitung, Parallelbetrieb, Anlaufverluste) werden dem Nutzen gegenübergestellt, etwa mit der statischen Amortisationsrechnung; der Nutzen hängt stark von der Akzeptanz ab.
+  - Erwartung: Zur Stabilisierung werden alte Abläufe abgeschafft, Arbeitsanweisungen, Stellenbeschreibungen und Kennzahlen angepasst, Zuständigkeiten festgelegt und Erfolge gewürdigt; das entspricht dem Act im PDCA-Zyklus.
+  - Erwartung: Wissen wird gesichert, indem vor der Veränderung kritisches Wissen und Nachfolgen geplant, Übergaben über Tandems und Dokumentation organisiert und Lessons Learned in der Wissensdatenbank abgelegt werden; langfristig soll eine lernende Organisation entstehen.
+  - Rückfrage: Warum kann eine hohe Akzeptanzquote allein noch keinen Erfolg belegen?
