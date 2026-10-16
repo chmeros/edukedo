@@ -1,0 +1,399 @@
+---
+kurs_slug: handelsfachwirt
+fachgebiet_code: HB1
+fachgebiet_title: "Unternehmensführung und -steuerung"
+thema_code: "1.7"
+thema_title: "Unternehmensformen und Gründung"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 1, Handlungsbereich „Unternehmensführung und -steuerung“) sowie öffentlich zugänglicher Fachliteratur — frei formuliert, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+---
+
+# Thema 1.7 — Unternehmensformen und Gründung
+
+## Theorie
+
+### Rechtsformwahl als Abwägung: sechs Entscheidungsfragen
+
+Die rechtlichen Aussagen dieses Themas sind nicht förmlich rechtsgeprüft; Zahlen mit Rechtsbezug tragen den Zusatz „Stand Oktober 2026, vor Verwendung prüfen“. Die **Rechtsform** ist der rechtliche Rahmen, in dem ein Unternehmen am Markt auftritt. Sie bestimmt, wer für Schulden einsteht, wer das Unternehmen leitet und nach außen vertritt, wie viel Kapital mindestens aufzubringen ist, wer vom Gewinn wie viel erhält, was öffentlich zugänglich wird und wie aufwendig die Gründung ist. Die Rechtsformen werden hier nicht Form für Form beschrieben, sondern entlang der sechs Entscheidungsfragen, die bei jeder Wahl wiederkehren. Das Thema führt damit den Absatz „Rechtsform- und Standortentscheidungen als Teil der Gründungsplanung“ aus Thema 1.1 „Geschäftsideen und Businessplanung“ im Fachgebiet Unternehmensführung und -steuerung aus, ohne ihn zu wiederholen. Kapitalbedarf, Eigen- und Fremdkapital behandelt Thema 1.2 „Unternehmensfinanzierung“ in demselben Fachgebiet, Kooperationsformen von Handelsunternehmen Thema 1.6 „Unternehmensorganisation und Kooperationen“.
+
+| Entscheidungsfrage | Worum es geht | Beispiel aus dem Modehandel |
+|---|---|---|
+| Haftung | Wer steht für die Schulden des Unternehmens ein, und mit welchem Vermögen? | Mietverpflichtungen für zwei neue Standorte, Lieferverbindlichkeiten für eine Kollektion |
+| Kapital | Wie viel Eigenkapital ist mindestens aufzubringen, und wie leicht lassen sich weitere Kapitalgeber:innen aufnehmen? | Erstausstattung eines Stores, Beteiligung einer Investorin |
+| Leitung | Wer entscheidet über die Geschäfte (Geschäftsführung), und wer darf rechtswirksam für das Unternehmen unterschreiben (Vertretung)? | Eröffnung einer Filiale, Unterschrift unter einem Mietvertrag |
+| Gewinn und Steuern | Wer erhält den Gewinn, und wie wird er im Überblick besteuert? | Ausschüttung oder Einbehalten des Gewinns für neue Standorte |
+| Publizität | Was wird im Handelsregister und im Jahresabschluss öffentlich? | Einsicht durch Lieferunternehmen und Banken |
+| Gründungsaufwand | Welche Formalitäten, Kosten und welche Zeit sind nötig? | Notartermin, Eintragung, laufende Buchführung |
+
+Keine Rechtsform ist in jeder Hinsicht besser. Wer viele Mietverträge und Importgeschäfte abschließt, gewichtet die Haftung höher als eine Gründerin, die allein einen kleinen Store betreibt und den Gründungsaufwand niedrig halten will. Zur groben Einordnung dienen fünf Gruppen:
+
+- **Einzelunternehmen:** Eine natürliche Person ist Inhaberin oder Inhaber; es gibt keine Gesellschaft.
+- **Personengesellschaften** (Gesellschaft bürgerlichen Rechts, offene Handelsgesellschaft, Kommanditgesellschaft): Mehrere Personen verbinden sich durch einen Gesellschaftsvertrag. Sie können Rechte und Pflichten erwerben und verklagt werden, sind aber keine juristischen Personen; bei ihnen steht mindestens eine Person oder Gesellschaft persönlich und unbeschränkt für die Schulden ein.
+- **Kapitalgesellschaften** (Gesellschaft mit beschränkter Haftung, Unternehmergesellschaft (haftungsbeschränkt), Aktiengesellschaft): Sie sind **juristische Personen**, also selbst Trägerinnen von Rechten, Pflichten und Vermögen, getrennt von ihren Gesellschafter:innen.
+- **Genossenschaft:** ebenfalls eine juristische Person, die vor allem ihre Mitglieder fördern soll.
+- **Mischformen**, vor allem die GmbH & Co. KG, die Merkmale von Personen- und Kapitalgesellschaft verbindet.
+
+### Kaufmannseigenschaft, Firma und Handelsregister
+
+Das Handelsgesetzbuch (HGB) richtet sich an **Kaufleute**. **Istkaufleute** betreiben ein Handelsgewerbe, also einen Gewerbebetrieb, der wegen seiner Art und seines Umfangs eine kaufmännische Einrichtung (Buchführung, geordnete Organisation) braucht (§ 1 HGB). Feste Zahlengrenzen nennt das Gesetz nicht; es kommt auf das Gesamtbild an: Umsatz, Zahl der Beschäftigten und der Standorte, Warenlager, Zahl und Art der Geschäfte. Ein Betrieb darunter, etwa ein kleiner Marktstand für Vintage-Mode ohne Angestellte, ist ein **Kleingewerbe**. Dessen Inhaber:innen sind keine Istkaufleute, dürfen sich aber freiwillig ins Handelsregister eintragen lassen und werden dadurch zu **Kannkaufleuten** (§ 2 HGB). **Formkaufleute** sind Gesellschaften, die allein wegen ihrer Rechtsform Kaufleute sind, zum Beispiel GmbH, UG, AG und Genossenschaft (§ 6 HGB zusammen mit den jeweiligen Gesellschaftsgesetzen). Die Kaufmannseigenschaft bringt Pflichten (Buchführung, Führung einer Firma, Anmeldung zum Handelsregister) und handelsrechtliche Sonderregeln, etwa zur Prokura oder zur Untersuchungs- und Rügepflicht beim Handelskauf. Wer ein Gewerbe beginnt, meldet es unabhängig davon beim Gewerbeamt der Gemeinde an (§ 14 Gewerbeordnung), und das Finanzamt erfasst das Unternehmen steuerlich über einen eigenen Fragebogen.
+
+Die **Firma** ist der Name, unter dem Kaufleute ihre Geschäfte betreiben und unterschreiben (§ 17 HGB). Sie ist nicht dasselbe wie das Unternehmen und nicht dasselbe wie eine Marke: „Loreno Living“ ist eine Sortimentsmarke, die Tochtergesellschaft könnte „Loreno Living GmbH“ heißen. Nach dem Bestandteil unterscheidet man vier Arten:
+
+| Art der Firma | Bestandteil | Beispiel (frei erfunden) |
+|---|---|---|
+| Personenfirma | Name der Inhaber:innen oder Gesellschafter:innen | Brandt & Lindner OHG |
+| Sachfirma | Gegenstand des Unternehmens | Textilgroßhandel Nord GmbH |
+| Fantasiefirma | frei erfundener Begriff | Zalvio UG (haftungsbeschränkt) |
+| Gemischte Firma | Kombination der Arten | Velora Modehandel GmbH |
+
+Zur Firma gehört ein **Rechtsformzusatz** (§ 19 HGB): „eingetragene Kauffrau“ oder „eingetragener Kaufmann“ (e. K.), OHG, KG, GmbH, „Unternehmergesellschaft (haftungsbeschränkt)“ oder „UG (haftungsbeschränkt)“, AG, eG. Bei der GmbH & Co. KG muss die Firma die beschränkte Haftung erkennen lassen. Vier Grundsätze prägen die Firmenbildung: **Firmenwahrheit** (sie darf über Art, Umfang oder Verhältnisse des Unternehmens nicht täuschen), **Unterscheidbarkeit** (sie muss sich von anderen Firmen am selben Ort deutlich abheben, § 30 HGB), **Firmenöffentlichkeit** (sie wird im Handelsregister bekannt gemacht) und **Firmenbeständigkeit** (sie darf bei einem Wechsel der Inhaber:innen unter bestimmten Voraussetzungen fortgeführt werden; Übernahmen behandelt Thema 1.8 „Unternehmensübernahme, Nachfolge und Franchising“ im Fachgebiet Unternehmensführung und -steuerung).
+
+Das **Handelsregister** ist ein öffentliches Verzeichnis, das das Amtsgericht als Registergericht elektronisch führt (§ 8 HGB). Abteilung A enthält Einzelkaufleute und Personenhandelsgesellschaften (OHG, KG), Abteilung B die Kapitalgesellschaften (GmbH, UG, AG); Genossenschaften stehen in einem eigenen Genossenschaftsregister. Die Gesellschaft bürgerlichen Rechts kann sich seit 2024 in ein eigenes Gesellschaftsregister eintragen lassen und führt dann den Zusatz eGbR (Stand Oktober 2026, vor Verwendung prüfen). Eingetragen werden unter anderem Firma, Sitz, Gegenstand, Vertretungsbefugnis und bei der KG die Haftsummen der Kommanditist:innen. Die Anmeldung erfolgt elektronisch in öffentlich beglaubigter Form, in der Regel über eine Notarin oder einen Notar. Die Eintragung wirkt auf zwei Arten:
+
+- **Rechtsbekundend** (deklaratorisch) bei Istkaufleuten: Die Kaufmannseigenschaft besteht schon, die Eintragung macht sie nur öffentlich.
+- **Rechtsbegründend** (konstitutiv) bei Kapitalgesellschaften und Kannkaufleuten: Eine GmbH, UG oder AG entsteht als juristische Person erst mit der Eintragung.
+
+Hinzu kommt die **Publizität** (§ 15 HGB). Jede:r darf das Register einsehen, und Dritte dürfen sich grundsätzlich auf seinen Inhalt verlassen. Steht eine Änderung, die eingetragen werden müsste, noch nicht im Register, dürfen sich Dritte auf den alten Stand verlassen, sofern sie die neue Lage nicht kennen (negative Publizität). Scheidet beispielsweise eine Geschäftsführerin aus, ohne dass dies eingetragen wird, kann die GmbH gegenüber einem Lieferunternehmen, das davon nichts wusste, die weiter von ihr abgeschlossenen Verträge nicht mit dem Hinweis auf ihr Ausscheiden zurückweisen.
+
+### Haftung: Wer steht für die Schulden ein?
+
+Vier Begriffe beschreiben die Haftung der Gesellschafter:innen. **Unbeschränkt** heißt: mit dem gesamten Vermögen, auch dem privaten; **beschränkt** heißt: nur bis zu einem bestimmten Betrag oder mit einem bestimmten Vermögen. **Unmittelbar** heißt: Gläubiger:innen dürfen sich direkt an die Haftenden halten, ohne zuerst bei der Gesellschaft zu vollstrecken. **Gesamtschuldnerisch** heißt: Jede:r haftet für die ganze Schuld, und Gläubiger:innen dürfen frei wählen, wen sie in Anspruch nehmen; wer zahlt, hat einen Ausgleichsanspruch gegen die anderen. **Persönlich** heißt: nicht nur die Gesellschaft, sondern die Gesellschafter:innen selbst haften.
+
+| Rechtsform | Wer haftet | Mit welchem Vermögen |
+|---|---|---|
+| Einzelunternehmen | die Inhaberin oder der Inhaber | unbeschränkt, mit Geschäfts- und Privatvermögen |
+| Gesellschaft bürgerlichen Rechts (GbR) | die Gesellschaft und alle Gesellschafter:innen | persönlich, unbeschränkt und gesamtschuldnerisch |
+| Offene Handelsgesellschaft (OHG) | die Gesellschaft und alle Gesellschafter:innen | persönlich, unbeschränkt und gesamtschuldnerisch; eine Haftungsbeschränkung im Gesellschaftsvertrag wirkt nur im Innenverhältnis |
+| Kommanditgesellschaft (KG) | die Gesellschaft, die Komplementär:innen und die Kommanditist:innen | Komplementär:innen unbeschränkt; Kommanditist:innen nur bis zur eingetragenen Haftsumme |
+| GmbH, UG, AG | die Gesellschaft | nur mit dem Gesellschaftsvermögen (für die GmbH § 13 Abs. 2 GmbHG); die Gesellschafter:innen müssen ihre Einlage leisten, mehr nicht |
+| Genossenschaft | die Genossenschaft | mit dem Genossenschaftsvermögen; die Mitglieder mit ihrem Geschäftsanteil und nur dann zusätzlich mit Nachschüssen, wenn die Satzung dies vorsieht |
+
+**Komplementär:innen** sind Vollhafter:innen und führen die Geschäfte, **Kommanditist:innen** sind Teilhafter:innen und haften beschränkt. Die **Haftsumme** (Hafteinlage) ist der im Handelsregister eingetragene Betrag, bis zu dem Kommanditist:innen gegenüber Gläubiger:innen haften; ist die Einlage in dieser Höhe geleistet, entfällt die Haftung (§ 171 HGB). Wurde sie nur zum Teil geleistet, haften sie nach außen noch mit dem offenen Rest.
+
+Beispiel (Beispielwerte): A und B betreiben drei Stores als OHG. Die Schulden betragen 575.000 €, das verwertbare Vermögen der OHG (Ware, Einrichtung, Guthaben) beträgt 351.000 €. Die Differenz von 224.000 € bleibt offen. Weil beide gesamtschuldnerisch haften, kann ein Lieferunternehmen die vollen 224.000 € allein von A verlangen. Zahlt A, hat A im Innenverhältnis einen Ausgleichsanspruch gegen B, bei hälftiger Verlustbeteiligung über 112.000 €, den B aus dem Privatvermögen begleichen muss; ist B nicht zahlungsfähig, bleibt A auf dem Ausfall sitzen. Wäre B nur Kommanditist:in mit einer Haftsumme von 40.000 €, von denen B 25.000 € eingezahlt hat, haftet B nach außen nur noch mit 40.000 € − 25.000 € = 15.000 €; die übrigen 224.000 € − 15.000 € = 209.000 € muss A als Komplementär:in tragen. Wäre das Unternehmen eine GmbH, könnten sich die Gläubiger:innen für die 224.000 € nicht an A und B halten, die Gesellschafter:innen verlören die Einlage. Die Rechnung unterstellt, dass das Gesellschaftsvermögen zuerst verwertet wurde; der Ausfall ist die Summe, für die die Gesellschafter:innen einstehen müssen. Rechtlich dürfen Gläubiger:innen die Gesellschafter:innen schon vorher in Anspruch nehmen (unmittelbare Haftung). Die Haftungsrechnung lautet also für jede Rechtsform: offene Schulden = Schulden − verwertetes Vermögen, dann prüfen, wer zahlen muss.
+
+Die Haftungsbeschränkung der Kapitalgesellschaft hat Grenzen, die man kennen muss:
+
+- **Haftungsdurchgriff:** In engen Ausnahmefällen können Gläubiger:innen doch auf die Gesellschafter:innen zugreifen, etwa bei Vermischung von Privat- und Gesellschaftsvermögen. Wird das Gesellschaftsvermögen bewusst zulasten der Gläubiger:innen ausgehöhlt (Existenzvernichtung), haftet die verursachende Person der Gesellschaft auf Schadenersatz (§ 826 BGB), was den Gläubiger:innen nur mittelbar zugutekommt. Der Durchgriff ist die Ausnahme und kein Weg, jeder Schuld auszuweichen.
+- **Persönliche Haftung der Geschäftsführung** bei bestimmten Pflichtverletzungen, zum Beispiel einem zu späten Insolvenzantrag. Das Insolvenzrecht ist hier nicht behandelt.
+- **Bürgschaft:** Verlangt eine Vermieterin oder eine Bank, dass die Gesellschafter:innen oder die Muttergesellschaft sich für die Gesellschaft verbürgen, haften diese durch einen eigenen Vertrag. Das ist kein Durchgriff, schwächt die Haftungstrennung aber bis zur Höhe der Bürgschaft.
+
+### Kapital und Leitung
+
+**Kapital.** Bei Einzelunternehmen und Personengesellschaften gibt es kein gesetzliches Mindestkapital. Gesellschafter:innen bringen eine **Einlage** ein (Geld, Sachen, Rechte, bei Personengesellschaften auch Leistungen nach Vereinbarung); der Wert der Einlage bildet den **Kapitalanteil**. Neues Eigenkapital ist begrenzt: Mehr Gesellschafter:innen erfordern einen geänderten Gesellschaftsvertrag, und Kredite hängen von Sicherheiten und Bonität ab. Bei Kapitalgesellschaften schreibt das Gesetz ein Mindestkapital vor, das die Gläubiger:innen schützen soll:
+
+- **GmbH:** Das **Stammkapital** ist die Summe der Nennbeträge aller Geschäftsanteile und beträgt mindestens 25.000 € (§ 5 Abs. 1 GmbHG; Stand Oktober 2026, vor Verwendung prüfen). Jede:r Gesellschafter:in übernimmt mindestens einen **Geschäftsanteil** und verpflichtet sich zur Einlage in dieser Höhe.
+- **UG (haftungsbeschränkt):** eine GmbH-Variante für Gründungen mit wenig Kapital. Das Stammkapital beträgt mindestens 1 € und bleibt unter 25.000 €, es sind nur Bareinlagen zulässig, die vor der Anmeldung voll eingezahlt sein müssen. Jedes Jahr ist ein Viertel des Jahresüberschusses (nach Abzug eines Verlustvortrags) in eine gesetzliche Rücklage einzustellen, bis das Stammkapital von 25.000 € erreicht werden kann (§ 5a GmbHG; Stand Oktober 2026, vor Verwendung prüfen).
+- **AG:** Das **Grundkapital** beträgt mindestens 50.000 € (§ 7 AktG; Stand Oktober 2026, vor Verwendung prüfen) und ist in Aktien zerlegt. Aktien sind leicht übertragbar und können an der Börse gehandelt werden, was der AG den Zugang zu großen Kapitalsummen eröffnet.
+
+Das Mindestkapital ist nur eine Untergrenze und kein Maß für den Kapitalbedarf. Wie viel ein Unternehmen tatsächlich braucht, folgt aus der Finanzplanung (Thema 1.2 „Unternehmensfinanzierung“ im Fachgebiet Unternehmensführung und -steuerung). Banken und Vermieterinnen beurteilen eine Gesellschaft mit minimalem Stammkapital entsprechend vorsichtig.
+
+**Leitung.** Zu unterscheiden sind die **Geschäftsführung** (das Innenverhältnis: wer entscheidet) und die **Vertretung** (das Außenverhältnis: wer rechtswirksam für das Unternehmen unterschreibt).
+
+| Rechtsform | Wer leitet und vertritt | Eigentümerorgane und Kontrolle |
+|---|---|---|
+| Einzelunternehmen | die Inhaberin oder der Inhaber | keine |
+| GbR, OHG | grundsätzlich alle Gesellschafter:innen; bei der OHG in der Regel jede:r einzeln vertretungsbefugt, der Gesellschaftsvertrag kann abweichen (Gesamtvertretung, Ausschluss einzelner) | Gesellschafter:innen untereinander; ungewöhnliche Geschäfte erfordern die Zustimmung aller |
+| KG | die Komplementär:innen | Kommanditist:innen sind von der Geschäftsführung ausgeschlossen, können außergewöhnlichen Geschäften widersprechen und haben Kontrollrechte (Einsicht in den Jahresabschluss) |
+| GmbH | die Geschäftsführung (eine oder mehrere Personen, auch Gesellschafter:innen) | Gesellschafterversammlung; ein Aufsichtsrat nur, wenn Gesetz oder Gesellschaftsvertrag ihn verlangen |
+| AG | der Vorstand, in eigener Verantwortung | Aufsichtsrat (bestellt und überwacht den Vorstand) und Hauptversammlung der Aktionär:innen |
+
+Bei der GmbH ist die Vertretungsmacht der Geschäftsführung nach außen nicht beschränkbar (§ 37 Abs. 2 GmbHG); im Innenverhältnis ist sie an die Weisungen und Beschlüsse der **Gesellschafterversammlung** gebunden, die über Bestellung und Abberufung der Geschäftsführung, Feststellung des Jahresabschlusses und Gewinnverwendung entscheidet. Stimmrechte folgen in der Regel den Geschäftsanteilen. Die AG trennt Eigentum und Leitung strenger: Der Vorstand leitet sie eigenverantwortlich (§ 76 AktG), die Aktionär:innen entscheiden in der Hauptversammlung nur über gesetzlich bestimmte Fragen wie Gewinnverwendung, Entlastung und Satzungsänderungen.
+
+### Gewinn, Steuern im Überblick und Publizität
+
+**Gewinn.** Beim Einzelunternehmen gehört der Gewinn der Inhaberin oder dem Inhaber; ein Gehalt für die eigene Arbeit ist kein Aufwand, die Entnahmen gelten als Verwendung des Gewinns. Bei Personengesellschaften regelt der Gesellschaftsvertrag die Verteilung. Üblich sind eine feste Verzinsung der Kapitalanteile, danach eine Verteilung des Rests nach Köpfen oder einem vereinbarten Schlüssel, bei der KG zusätzlich eine feste **Haftungsvergütung** für die Komplementär:in. Die gesetzliche Auffangregel gilt nur, wenn der Vertrag schweigt, und wurde mit der Reform des Personengesellschaftsrechts 2024 neu gefasst; in der Praxis wird die Verteilung deshalb ausdrücklich vereinbart.
+
+Beispiel (Beispielwerte; die Verteilungsregel ist hier als Vereinbarung im Gesellschaftsvertrag angenommen): An einer OHG hält A einen Kapitalanteil von 130.000 € und B einen von 90.000 €. Vereinbart sind 4 % Verzinsung auf den Kapitalanteil, der Rest wird nach Köpfen verteilt. Der Jahresgewinn beträgt 81.000 €.
+
+| Schritt | Rechnung | A | B |
+|---|---|---|---|
+| Verzinsung der Kapitalanteile | 4 % von 130.000 € und von 90.000 € | 5.200 € | 3.600 € |
+| Rest nach Abzug der Verzinsung | 81.000 € − 5.200 € − 3.600 € = 72.200 € | | |
+| Rest nach Köpfen | 72.200 € ÷ 2 | 36.100 € | 36.100 € |
+| Gewinnanteil | Verzinsung + Rest | 41.300 € | 39.700 € |
+
+Die Anteile ergeben zusammen wieder 81.000 €.
+
+Bei Kapitalgesellschaften gehört der Gewinn zunächst der Gesellschaft. Die Gesellschafter:innen erhalten nur, was die Gesellschafterversammlung (GmbH) oder die Hauptversammlung (AG) ausschüttet; was einbehalten wird, bleibt als Rücklage im Unternehmen. Ausschüttungen dürfen das zur Erhaltung des Stammkapitals erforderliche Vermögen nicht mindern (§ 30 GmbHG). Das Gehalt einer Gesellschafter-Geschäftsführerin ist Aufwand der Gesellschaft und für sie Einkommen.
+
+**Steuern im Überblick** (nur Steuerarten und Wirkungsrichtung, keine Sätze und keine Tarifrechnung): Bei Einzelunternehmen und Personengesellschaften ist der Betrieb selbst nicht einkommensteuerpflichtig; die Inhaber:innen oder Gesellschafter:innen versteuern ihren Gewinnanteil persönlich als Einkommensteuer, unabhängig davon, ob sie ihn entnehmen. Auf Ebene des Betriebs fällt die Gewerbesteuer an. Bei Kapitalgesellschaften besteuert das Gesetz den Gewinn in der Gesellschaft mit Körperschaftsteuer und Gewerbesteuer; wird er ausgeschüttet, versteuern die Gesellschafter:innen die Ausschüttung zusätzlich als Kapitalertrag. Ob die Gesamtbelastung bei der einen oder der anderen Form niedriger ausfällt, hängt von der Gewinnhöhe, dem Anteil des Gewinns, der im Unternehmen bleibt, und der persönlichen Situation ab und gehört in die Steuerberatung. Die Umsatzsteuer hängt nicht von der Rechtsform ab.
+
+**Publizität.** Kaufleute müssen grundsätzlich Bücher führen und einen Jahresabschluss erstellen; kleine Einzelkaufleute sind unterhalb gesetzlicher Schwellenwerte davon befreit (Stand Oktober 2026, vor Verwendung prüfen). Kapitalgesellschaften (und die GmbH & Co. KG, bei der keine natürliche Person unbeschränkt haftet) müssen ihren Jahresabschluss zusätzlich offenlegen, das heißt beim Betreiber des Unternehmensregisters einreichen (§ 325 HGB); Umfang und Pflicht zur Prüfung hängen von der Größenklasse ab. Einzelunternehmen und Personengesellschaften mit unbeschränkt haftenden natürlichen Personen müssen ihre Zahlen in der Regel nicht veröffentlichen. Offenlegung schafft Vertrauen bei Lieferunternehmen und Banken, gibt Wettbewerbern aber auch Einblick.
+
+### GmbH & Co. KG, Mischformen und Genossenschaft als Rechtsform
+
+Die **GmbH & Co. KG** ist eine Kommanditgesellschaft, deren einzige Komplementärin eine GmbH ist. Die Kommanditist:innen sind oft zugleich die Gesellschafter:innen der Komplementär-GmbH, die die Geschäfte der KG führt und sie vertritt. Der Grund für die Konstruktion liegt in der Haftung: Die GmbH haftet als Vollhafterin zwar unbeschränkt, aber nur mit ihrem eigenen Gesellschaftsvermögen, und die Kommanditist:innen haften nur bis zur Haftsumme. Keine natürliche Person haftet damit unbeschränkt. Dazu kommen Vorteile aus dem Personengesellschaftsrecht: flexible Gestaltung des Gesellschaftsvertrags und die Besteuerung der Gewinnanteile bei den Gesellschafter:innen. Der Preis dafür ist ein höherer Aufwand: zwei Gesellschaften sind zu gründen, zu führen und zu bilanzieren, und für die KG gilt die Offenlegungspflicht. Als Komplementärin kann auch eine UG (haftungsbeschränkt) dienen („UG & Co. KG“). Im Handel findet man die GmbH & Co. KG häufig bei Familienunternehmen, die die Haftung begrenzen und zugleich die Leitung in der Familie halten wollen. Eine Haftungsfalle bleibt: Verlangen Vermieter:innen oder Banken eine Bürgschaft, haften die Gesellschafter:innen trotzdem persönlich.
+
+Die **eingetragene Genossenschaft (eG)** ist eine juristische Person, die ihre Mitglieder durch einen gemeinschaftlichen Geschäftsbetrieb fördern soll (§ 1 GenG), nicht in erster Linie Gewinne erzielen. Sie braucht mindestens drei Mitglieder (Stand Oktober 2026, vor Verwendung prüfen), eine Satzung und die Eintragung ins Genossenschaftsregister. Ihre Organe sind der Vorstand, der Aufsichtsrat (bei kleinen Genossenschaften unter bestimmten Voraussetzungen entbehrlich) und die Generalversammlung der Mitglieder, in der in der Regel jedes Mitglied unabhängig von der Zahl der Anteile eine Stimme hat. Ein Prüfungsverband prüft die Genossenschaft regelmäßig. Die Satzung bestimmt, ob die Mitglieder über den Geschäftsanteil hinaus Nachschüsse leisten müssen (ausgeschlossen, begrenzt oder unbegrenzt); bei Ausschluss haften sie nur mit dem Geschäftsanteil. Als Kooperationsform von Handelsunternehmen (Einkaufsgenossenschaft) beschreibt Thema 1.6 „Unternehmensorganisation und Kooperationen“ im Fachgebiet Unternehmensführung und -steuerung die Genossenschaft; hier geht es nur um sie als Rechtsform.
+
+### Gründungsablauf bei der GmbH
+
+Die Gründung einer GmbH folgt einer festen Reihenfolge:
+
+1. **Vorbereitung:** Geschäftsidee und Businessplan (Thema 1.1 „Geschäftsideen und Businessplanung“ im Fachgebiet Unternehmensführung und -steuerung), Wahl von Firma, Sitz, Unternehmensgegenstand und Stammkapital, Klärung der Gesellschafter:innen und der Geschäftsführung.
+2. **Gesellschaftsvertrag:** Er wird notariell beurkundet (§ 2 GmbHG) und nennt mindestens die Firma, den Sitz, den Unternehmensgegenstand, das Stammkapital und die Geschäftsanteile mit ihren Nennbeträgen (§ 3 GmbHG). Die Geschäftsführung wird im Vertrag oder durch Beschluss bestellt. Für einfache Gründungen mit bis zu drei Gesellschafter:innen und einer Geschäftsführung gibt es ein gesetzliches Musterprotokoll (Stand Oktober 2026, vor Verwendung prüfen).
+3. **Einzahlung der Einlagen** auf ein Konto der Gesellschaft. Bei Bareinlagen müssen zur Anmeldung auf jeden Geschäftsanteil mindestens ein Viertel und insgesamt mindestens die Hälfte des Mindeststammkapitals, also 12.500 €, eingezahlt sein (§ 7 Abs. 2 GmbHG; Stand Oktober 2026, vor Verwendung prüfen).
+4. **Anmeldung zum Handelsregister** durch die Geschäftsführung, in der Regel elektronisch über die Notarin oder den Notar, mit Gesellschaftsvertrag, Gesellschafterliste und der Versicherung, dass die Einlagen geleistet sind.
+5. **Prüfung und Eintragung** durch das Registergericht. Erst mit der Eintragung ist die GmbH als juristische Person entstanden (§ 11 Abs. 1 GmbHG); das Gericht macht sie bekannt.
+6. **Aufnahme der Geschäfte:** Gewerbeanmeldung spätestens bei Beginn der Geschäftstätigkeit (oft schon vor der Eintragung), steuerliche Erfassung beim Finanzamt und Anmeldung bei der Sozialversicherung, sobald Mitarbeitende beschäftigt werden; die Mitgliedschaft in der Industrie- und Handelskammer entsteht kraft Gesetzes.
+
+Die Zeit zwischen Beurkundung und Eintragung heißt **Vorgesellschaft**. Sie besteht schon, kann Verträge schließen und Konten führen, ist aber noch keine GmbH. Wer in dieser Zeit im Namen der Gesellschaft handelt, haftet persönlich (**Handelndenhaftung**, § 11 Abs. 2 GmbHG). Die Gründer:innen müssen außerdem einen Fehlbetrag ausgleichen, wenn das Vermögen bei der Eintragung geringer ist als das Stammkapital (**Unterbilanzhaftung**). Davor, vor der Beurkundung, besteht allenfalls eine Vorgründungsgesellschaft, die haftungsrechtlich wie eine GbR oder OHG behandelt wird. Die UG wird genauso gegründet, jedoch mit voller Einzahlung des Stammkapitals vor der Anmeldung; bei der AG kommen unter anderem ein Gründungsbericht, eine Gründungsprüfung und die Bestellung von Aufsichtsrat und Vorstand hinzu, was die Gründung aufwendiger macht.
+
+Zu den **Gründungskosten** zählen vor allem Notar- und Gerichtskosten, die Gewerbeanmeldung und Beratung. Sie sind keine Einlage, sondern Aufwand. Sollen sie zulasten der Gesellschaft gehen, muss der Gesellschaftsvertrag sie ausdrücklich als Gründungsaufwand ausweisen; andernfalls tragen die Gründer:innen sie selbst.
+
+Beispiel (Beispielwerte): Die Gründer:innen einer Concept-Store-GmbH zahlen das Mindeststammkapital von 25.000 € voll ein. Es fallen an: Notar 1.150 €, Registergericht 310 €, Gewerbeanmeldung 55 € und Beratung 1.800 €.
+
+| Position | Rechnung | Ergebnis |
+|---|---|---|
+| Gründungskosten insgesamt | 1.150 € + 310 € + 55 € + 1.800 € | 3.315 € |
+| Anteil am Stammkapital | 3.315 € ÷ 25.000 € × 100 | 13,26 %, also rund 13 % |
+| Vermögen der Gesellschaft nach Zahlung der Kosten (wenn die Gesellschaft sie trägt) | 25.000 € − 3.315 € | 21.685 € |
+
+Mehr als ein Achtel des Stammkapitals ist damit schon vor dem ersten Verkauf verbraucht. Der Gründungsaufwand beeinflusst daher den Start: Er senkt das verfügbare Kapital, und die Gesellschaft beginnt mit einem Vermögen unter dem Stammkapital, wenn die Kosten bei ihr liegen. Das ist nur dann unproblematisch, wenn der Gesellschaftsvertrag den Gründungsaufwand ausweist; die Abgrenzung zur Unterbilanzhaftung gehört in die Rechtsberatung.
+
+### Rechtsformwahl im Handelskontext: Beispiel „Loreno Living“
+
+Die folgende Übersicht fasst die Rechtsformen entlang der Entscheidungsfragen zusammen (Beträge Stand Oktober 2026, vor Verwendung prüfen):
+
+| Rechtsform | Haftung | Mindestkapital | Leitung | Eintragung und Publizität |
+|---|---|---|---|---|
+| Einzelunternehmen | Inhaber:in unbeschränkt | keines | Inhaber:in | Handelsregister Abt. A, wenn Handelsgewerbe; keine Offenlegung |
+| OHG | alle unbeschränkt, gesamtschuldnerisch | keines | Gesellschafter:innen | Abt. A; keine Offenlegung |
+| KG | Komplementär:in unbeschränkt, Kommanditist:in bis zur Haftsumme | keines | Komplementär:in | Abt. A mit Haftsummen; keine Offenlegung |
+| GmbH | Gesellschaftsvermögen | 25.000 € | Geschäftsführung, Gesellschafterversammlung | Abt. B; Offenlegung |
+| UG (haftungsbeschränkt) | Gesellschaftsvermögen | ab 1 €, unter 25.000 € | Geschäftsführung | Abt. B; Offenlegung |
+| GmbH & Co. KG | KG-Vermögen und Vermögen der GmbH | 25.000 € für die Komplementär-GmbH | Komplementär-GmbH | Abt. A, Abt. B; Offenlegung |
+| AG | Gesellschaftsvermögen | 50.000 € | Vorstand, Aufsichtsrat, Hauptversammlung | Abt. B; Offenlegung |
+
+Im Handel fallen drei Gesichtspunkte besonders ins Gewicht. Erstens bestehen große Verpflichtungen schon vor dem ersten Umsatz: Mieten über mehrere Jahre, Wareneinkauf und Importverträge. Das erhöht den Wert der Haftungsbeschränkung, aber auch den Druck auf Bürgschaften der Gesellschafter:innen. Zweitens ist der Kapitalbedarf hoch und das Mindestkapital deckt ihn nicht. Drittens wirken Rechtsform und Firma nach außen: Lieferunternehmen, Vermieter:innen und Banken prüfen Eintragung und Jahresabschluss.
+
+Für „Loreno Living“ prüft die Loreno Mode & Wohnen GmbH, das Sortiment auszugliedern (Thema 1.1 „Geschäftsideen und Businessplanung“ im Fachgebiet Unternehmensführung und -steuerung). Als Tochtergesellschaft wäre die „Loreno Living GmbH“ eine eigene juristische Person mit eigenem Gesellschaftsvertrag, eigener Geschäftsführung, eigener Eintragung und eigenem Jahresabschluss. Die Mutter ist Gesellschafterin und steuert über die Gesellschafterversammlung. Das Risiko des neuen Geschäftsfelds trifft sie nur bis zur Einlage, solange sie keine Bürgschaft übernimmt.
+
+Beispiel Kapitalbedarf (Beispielwerte): Die Ausgliederung braucht 160.000 € für die Erstausstattung der Verkaufsflächen, 105.000 € für die Erstausstattung mit Ware und 45.000 € als Reserve für Anlaufverluste, also 160.000 € + 105.000 € + 45.000 € = 310.000 €. Das gesetzliche Mindeststammkapital von 25.000 € deckt nur 25.000 € ÷ 310.000 € × 100 ≈ 8 % des Bedarfs. Die Tochter erhält deshalb ein höheres Eigenkapital von 100.000 € (70.000 € Stammkapital und 30.000 € Kapitalrücklage); die verbleibenden 310.000 € − 100.000 € = 210.000 € müssen als Fremdkapital (Bankdarlehen oder Gesellschafterdarlehen) beschafft werden. Was darüber hinaus geboten ist, ergibt sich aus der Finanzplanung (Thema 1.2 „Unternehmensfinanzierung“ im Fachgebiet Unternehmensführung und -steuerung), nicht aus der Rechtsform.
+
+Wird der Kreis der Gesellschafter:innen erweitert, etwa um eine externe Partnerin, die ihr Know-how einbringt und ihr Privatvermögen nicht gefährden will, bietet sich eine GmbH-Beteiligung oder eine Stellung als Kommanditistin an; eine OHG oder GbR schieden aus, weil dort alle persönlich und unbeschränkt haften. Ein späterer Wechsel der Rechtsform (Umwandlung) ist möglich, aber aufwendig und hier nicht behandelt. Jede Rechtsformwahl endet in einer begründeten Abwägung der Entscheidungsfragen für den konkreten Fall; dieses Thema ersetzt keine Beratung durch Notar:in, Steuerberatung oder Rechtsanwaltschaft.
+
+## Karteikarten
+
+#### K-1.7-01
+**Frage:** Welche sechs Entscheidungsfragen sind bei der Wahl einer Rechtsform zu klären?
+**Antwort:** Haftung (wer steht mit welchem Vermögen für Schulden ein), Kapital (Mindestkapital, Aufnahme weiterer Kapitalgeber:innen), Leitung (Geschäftsführung und Vertretung), Gewinn und Steuern, Publizität (Handelsregister, Offenlegung) und Gründungsaufwand. Keine Rechtsform ist in allen Punkten besser; entschieden wird durch Abwägung für den Einzelfall.
+`tags: rechtsform, entscheidung` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-1.7-02
+**Frage:** Wie unterscheiden sich Istkaufleute, Kannkaufleute und Formkaufleute?
+**Antwort:** Istkaufleute betreiben ein Handelsgewerbe mit kaufmännisch eingerichtetem Geschäftsbetrieb (§ 1 HGB). Kannkaufleute betreiben ein Kleingewerbe, haben sich aber freiwillig eintragen lassen (§ 2 HGB). Formkaufleute sind Kaufleute allein wegen ihrer Rechtsform, zum Beispiel GmbH, UG, AG und Genossenschaft.
+`tags: kaufmann, hgb` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-03
+**Frage:** Aus welchen Teilen kann eine Firma bestehen, und welche Zusätze und Grundsätze gelten?
+**Antwort:** Personen-, Sach-, Fantasie- oder gemischte Firma. Pflicht ist der Rechtsformzusatz (zum Beispiel e. K., OHG, GmbH, UG (haftungsbeschränkt)). Grundsätze: Firmenwahrheit (keine Täuschung), Unterscheidbarkeit von anderen Firmen, Firmenöffentlichkeit und Firmenbeständigkeit (Fortführung bei Inhaberwechsel unter Voraussetzungen). Die Firma ist nicht dasselbe wie eine Marke.
+`tags: firma, hgb` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-04
+**Frage:** Was ist das Handelsregister, und wie wirkt die Eintragung?
+**Antwort:** Ein öffentliches, elektronisch vom Amtsgericht geführtes Verzeichnis: Abteilung A für Einzelkaufleute und Personenhandelsgesellschaften, Abteilung B für Kapitalgesellschaften. Die Eintragung ist bei Istkaufleuten rechtsbekundend, bei Kapitalgesellschaften rechtsbegründend (sie entstehen erst mit ihr). Wer auf einen veralteten Registerstand vertraut und die wahre Lage nicht kennt, wird geschützt (negative Publizität).
+`tags: handelsregister, publizitaet` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-05
+**Frage:** Was bedeuten unbeschränkt, unmittelbar und gesamtschuldnerisch bei der Haftung der Gesellschafter:innen einer OHG?
+**Antwort:** Unbeschränkt: mit dem gesamten Vermögen, auch dem privaten. Unmittelbar: Gläubiger:innen können sich direkt an die Gesellschafter:innen halten. Gesamtschuldnerisch: Jede:r haftet für die ganze Schuld; wer zahlt, hat einen Ausgleichsanspruch gegen die anderen. Beschränkungen im Gesellschaftsvertrag wirken nur im Innenverhältnis.
+`tags: haftung, ohg` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-06
+**Frage:** Wie unterscheiden sich Komplementär:in und Kommanditist:in in der KG hinsichtlich Haftung und Leitung?
+**Antwort:** Komplementär:innen haften unbeschränkt und führen die Geschäfte und vertreten die KG. Kommanditist:innen haften nur bis zur im Handelsregister eingetragenen Haftsumme (nicht mehr, soweit die Einlage geleistet ist), sind von der Geschäftsführung ausgeschlossen, können aber außergewöhnlichen Geschäften widersprechen und haben Kontrollrechte.
+`tags: kg, haftung, leitung` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-1.7-07
+**Frage:** Wodurch unterscheiden sich GbR und OHG?
+**Antwort:** Beide Gesellschaften sind Personengesellschaften mit persönlicher, unbeschränkter und gesamtschuldnerischer Haftung aller Gesellschafter:innen. Die OHG betreibt ein Handelsgewerbe unter gemeinsamer Firma und wird ins Handelsregister eingetragen; die GbR ist die Grundform für jeden gemeinsamen Zweck, etwa Kleingewerbe oder eine Arbeitsgemeinschaft, und kann sich in das Gesellschaftsregister eintragen lassen.
+`tags: gbr, ohg, personengesellschaft` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-08
+**Frage:** An einer OHG halten A 110.000 € und B 65.000 € Kapitalanteil. Vereinbart sind 4 % Verzinsung auf die Kapitalanteile, der Rest geht nach Köpfen. Der Jahresgewinn beträgt 52.000 € (Beispielwerte). Wie hoch sind die Gewinnanteile?
+**Antwort:** Verzinsung: A 4 % von 110.000 € = 4.400 €, B 4 % von 65.000 € = 2.600 €. Rest: 52.000 € − 4.400 € − 2.600 € = 45.000 €, je 22.500 €. Gewinnanteil A: 4.400 € + 22.500 € = 26.900 €, B: 2.600 € + 22.500 € = 25.100 €. Kontrolle: zusammen 52.000 €.
+`tags: gewinnverteilung, ohg, rechnen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-1.7-09
+**Frage:** Welche Merkmale hat die GmbH bei Haftung, Kapital und Organen?
+**Antwort:** Die GmbH ist eine juristische Person und haftet nur mit dem Gesellschaftsvermögen; die Gesellschafter:innen müssen ihre Einlage leisten. Das Stammkapital beträgt mindestens 25.000 € (Stand Oktober 2026, vor Verwendung prüfen). Organe sind die Geschäftsführung (vertritt nach außen) und die Gesellschafterversammlung (entscheidet unter anderem über Gewinnverwendung und Bestellung der Geschäftsführung), ein Aufsichtsrat nur bei Pflicht oder Satzung.
+`tags: gmbh, kapitalgesellschaft` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-10
+**Frage:** Was unterscheidet die UG (haftungsbeschränkt) von der GmbH?
+**Antwort:** Rechtlich gehört sie zur GmbH, mit einem Stammkapital ab 1 € bis unter 25.000 €, nur Bareinlagen und voller Einzahlung vor der Anmeldung. Jährlich ist ein Viertel des Jahresüberschusses in eine gesetzliche Rücklage einzustellen (Stand Oktober 2026, vor Verwendung prüfen). Die Firma muss „Unternehmergesellschaft (haftungsbeschränkt)“ oder „UG (haftungsbeschränkt)“ lauten.
+`tags: ug, kapitalgesellschaft` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-11
+**Frage:** Welche Organe hat die Aktiengesellschaft, und welche Aufgaben haben sie?
+**Antwort:** Der Vorstand leitet die AG in eigener Verantwortung und vertritt sie. Der Aufsichtsrat setzt den Vorstand ein und kontrolliert ihn. Über Gewinnverwendung, Entlastung und Satzungsänderungen entscheiden die Aktionär:innen in der Hauptversammlung. Das Grundkapital beträgt mindestens 50.000 € (Stand Oktober 2026, vor Verwendung prüfen), die Aktien sind leicht übertragbar.
+`tags: ag, organe` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-1.7-12
+**Frage:** Was bedeutet Haftungsdurchgriff, und warum schützt die GmbH nicht in jedem Fall?
+**Antwort:** Beim Durchgriff können Gläubiger:innen in engen Ausnahmefällen doch auf die Gesellschafter:innen zugreifen, zum Beispiel bei Vermischung von Privat- und Gesellschaftsvermögen. Eine bewusste Aushöhlung der Gesellschaft kann Schadenersatzpflichten gegenüber der Gesellschaft auslösen, die den Gläubiger:innen mittelbar helfen. Außerdem haften Gesellschafter:innen, die sich persönlich verbürgt haben, aus dem Bürgschaftsvertrag; das ist kein Durchgriff, mindert aber die Haftungstrennung.
+`tags: haftungsdurchgriff, buergschaft` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+#### K-1.7-13
+**Frage:** Wie werden Gewinne von Personengesellschaften und Kapitalgesellschaften im Überblick besteuert?
+**Antwort:** Einzelunternehmen und Personengesellschaften zahlen auf Betriebsebene Gewerbesteuer; der Gewinnanteil wird bei den Inhaber:innen oder Gesellschafter:innen als Einkommen versteuert. Kapitalgesellschaften zahlen Körperschaftsteuer und Gewerbesteuer; ausgeschüttete Gewinne werden bei den Gesellschafter:innen zusätzlich als Kapitalertrag versteuert. Details und Sätze gehören in die Steuerberatung.
+`tags: steuern, rechtsform` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-14
+**Frage:** Was ist eine GmbH & Co. KG, und warum wählen Unternehmen sie?
+**Antwort:** Eine KG, deren einzige Komplementärin eine GmbH ist; Kommanditist:innen sind oft die Gesellschafter:innen der GmbH. Keine natürliche Person haftet unbeschränkt: Die GmbH haftet mit ihrem Gesellschaftsvermögen, die Kommanditist:innen bis zur Haftsumme. Vorteile sind Haftungsbeschränkung und Gestaltungsspielraum der Personengesellschaft; Nachteile sind zwei Gesellschaften, mehr Aufwand und Offenlegungspflicht. Bürgschaften können die Haftungsbeschränkung wieder aufheben.
+`tags: gmbh_co_kg, mischform` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-15
+**Frage:** In welcher Reihenfolge verläuft die Gründung einer GmbH, und was ist die Vorgesellschaft?
+**Antwort:** Gesellschaftsvertrag notariell beurkunden, Einlagen (mindestens die gesetzlichen Teilbeträge) einzahlen, Anmeldung zum Handelsregister, Prüfung und Eintragung; erst mit der Eintragung entsteht die GmbH. Zwischen Beurkundung und Eintragung besteht die Vorgesellschaft: Wer dann für sie handelt, haftet persönlich (Handelndenhaftung), und die Gründer:innen haften für eine Unterbilanz.
+`tags: gruendung, gmbh, vorgesellschaft` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-1.7-16
+**Frage:** Eine KG mit Komplementär:in A und Kommanditist:in B (Haftsumme 30.000 €, davon 20.000 € eingezahlt) ist zahlungsunfähig: Schulden 455.000 €, verwertbares Vermögen 172.000 € (Beispielwerte). Wie hoch ist die offene Schuld, und wer haftet mit wie viel?
+**Antwort:** Offene Schuld: 455.000 € − 172.000 € = 283.000 €. A haftet als Komplementär:in unbeschränkt für die ganzen 283.000 €. B haftet nach außen nur noch mit dem offenen Rest der Haftsumme, 30.000 € − 20.000 € = 10.000 €; Gläubiger:innen können von B also höchstens 10.000 € verlangen, den Rest von A.
+`tags: haftung, kg, rechnen` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-1.7-01 · Multiple Choice
+**Frage:** Zwei Gründer:innen wollen einen Concept-Store für nachhaltige Mode eröffnen. Sie können zunächst nur 4.000 € als Stammkapital aufbringen, wollen aber nicht mit ihrem Privatvermögen haften. Welche Rechtsform kommt in Betracht?
+- [ ] Offene Handelsgesellschaft, weil sie ohne Mindestkapital gegründet wird und die Haftung der Gesellschafter:innen auf die Einlage beschränkt ist.
+- [ ] GmbH, weil für sie nach dem GmbH-Gesetz kein Mindeststammkapital vorgeschrieben ist.
+- [x] Unternehmergesellschaft (haftungsbeschränkt), die mit weniger als 25.000 € Stammkapital auskommt.
+- [ ] Aktiengesellschaft, weil sie bereits mit einem Grundkapital von 4.000 € gegründet werden kann.
+**Erklärung:** Die UG (haftungsbeschränkt) ist die GmbH-Variante für Gründungen mit wenig Kapital (Stammkapital ab 1 € bis unter 25.000 €, Stand Oktober 2026, vor Verwendung prüfen). Bei der OHG haften alle Gesellschafter:innen unbeschränkt, die GmbH verlangt ein Mindeststammkapital von 25.000 €, und die AG ein Grundkapital von mindestens 50.000 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-02 · Zuordnung
+**Anweisung:** Ordne die Rechtsform oder Betriebsart dem passenden Eintragungsort zu.
+- OHG ↔ Handelsregister, Abteilung A
+- UG (haftungsbeschränkt) ↔ Handelsregister, Abteilung B
+- Eingetragene Genossenschaft ↔ Genossenschaftsregister
+- Kleingewerbe ohne freiwillige Eintragung ↔ nur Gewerbeanmeldung, kein Registereintrag
+**Erklärung:** Personenhandelsgesellschaften und Einzelkaufleute stehen in Abteilung A, Kapitalgesellschaften in Abteilung B des Handelsregisters; Genossenschaften haben ein eigenes Register. Ein Kleingewerbe ist nur beim Gewerbeamt anzumelden und darf sich freiwillig eintragen lassen (§ 2 HGB).
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-1.7-03 · Kurzantwort
+**Frage:** An einer OHG halten A einen Kapitalanteil von 125.000 € und B einen von 75.000 € (Beispielwerte). Laut Gesellschaftsvertrag erhält jede:r vorab 5 % Verzinsung auf den eigenen Kapitalanteil, der verbleibende Gewinn wird zu gleichen Teilen verteilt. Der Jahresgewinn beträgt 74.000 €. Wie hoch ist der gesamte Gewinnanteil von A in Euro?
+**Akzeptierte Antworten:** 38250; 38250 €; 38250 Euro; 38250 EUR; 38250,0; 38250,0 €; 38250,0 Euro; 38250,0 EUR; 38250,00; 38250,00 €; 38250,00 Euro; 38250,00 EUR; 38.250; 38.250 €; 38.250 Euro; 38.250 EUR; 38.250,0; 38.250,0 €; 38.250,0 Euro; 38.250,0 EUR; 38.250,00; 38.250,00 €; 38.250,00 Euro; 38.250,00 EUR; 38250.0; 38250.0 €; 38250.0 Euro; 38250.0 EUR; 38250.00; 38250.00 €; 38250.00 Euro; 38250.00 EUR
+**Erklärung:** Verzinsung: A 5 % von 125.000 € = 6.250 €, B 5 % von 75.000 € = 3.750 €. Rest: 74.000 € − 6.250 € − 3.750 € = 64.000 €, je 32.000 €. Gewinnanteil A: 6.250 € + 32.000 € = 38.250 € (B: 35.750 €). Typischer Fehler: den ganzen Gewinn nach Kapitalanteilen zu verteilen oder die Verzinsung zu vergessen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-04 · Wahr/Falsch
+**Aussage:** Wer ein Kleingewerbe betreibt, muss sich in jedem Fall ins Handelsregister eintragen lassen.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Eintragen lassen müssen sich Istkaufleute, die ein Handelsgewerbe betreiben. Ein Kleingewerbe darf sich freiwillig eintragen lassen und gehört dadurch zu den Kannkaufleuten (§ 2 HGB); eine Pflicht besteht nicht.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-1.7-05 · Mehrfachauswahl
+**Frage:** Welche Aussagen zur Kommanditgesellschaft (KG) treffen zu?
+- [x] Mindestens eine Person, die Komplementär:in, haftet unbeschränkt.
+- [x] Kommanditist:innen können außergewöhnlichen Geschäften widersprechen.
+- [ ] Die Kommanditist:innen führen die Geschäfte der KG und vertreten sie gegenüber Dritten allein nach außen.
+- [x] Die Haftung der Kommanditist:innen ist auf die eingetragene Haftsumme beschränkt.
+- [ ] Die KG ist eine Kapitalgesellschaft und braucht ein gesetzliches Mindestkapital von 25.000 €.
+**Erklärung:** Die KG ist eine Personengesellschaft ohne gesetzliches Mindestkapital (die 25.000 € gelten für die GmbH, Stand Oktober 2026, vor Verwendung prüfen). Geführt und vertreten wird sie von den Komplementär:innen; die Kommanditist:innen sind von der Geschäftsführung ausgeschlossen und haben Kontroll- und Widerspruchsrechte.
+`schwierigkeit: mittel` · `bloom: erinnern`
+
+#### Q-1.7-06 · Sortieren
+**Anweisung:** Bringe die Schritte der GmbH-Gründung in die richtige Reihenfolge.
+1. Gesellschaftsvertrag notariell beurkunden
+2. Einlagen auf das Konto der Gesellschaft einzahlen
+3. Gesellschaft zum Handelsregister anmelden
+4. Eintragung im Handelsregister: Die GmbH entsteht
+**Erklärung:** Der Gesellschaftsvertrag steht am Anfang, danach werden die Einlagen geleistet, weil die Geschäftsführung bei der Anmeldung versichern muss, dass dies geschehen ist. Erst die Eintragung lässt die GmbH als juristische Person entstehen. Zwischen Beurkundung und Eintragung besteht die Vorgesellschaft.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-07 · Kurzantwort
+**Frage:** Die Hanke & Ostrowski OHG ist zahlungsunfähig: Die Schulden betragen 405.000 €, das Gesellschaftsvermögen von 236.000 € ist bereits vollständig verwertet und an die Gläubiger:innen verteilt (Beispielwerte). Eine Gläubigerin hält noch eine Forderung in Höhe des gesamten verbleibenden Ausfalls. Die beiden Gesellschafter:innen tragen Verluste im Innenverhältnis je zur Hälfte. Die Gläubigerin nimmt nur Gesellschafter:in A in Anspruch. Welchen Betrag in Euro kann sie von A höchstens verlangen?
+**Akzeptierte Antworten:** 169000; 169000 €; 169000 Euro; 169000 EUR; 169000,0; 169000,0 €; 169000,0 Euro; 169000,0 EUR; 169000,00; 169000,00 €; 169000,00 Euro; 169000,00 EUR; 169.000; 169.000 €; 169.000 Euro; 169.000 EUR; 169.000,0; 169.000,0 €; 169.000,0 Euro; 169.000,0 EUR; 169.000,00; 169.000,00 €; 169.000,00 Euro; 169.000,00 EUR; 169000.0; 169000.0 €; 169000.0 Euro; 169000.0 EUR; 169000.00; 169000.00 €; 169000.00 Euro; 169000.00 EUR
+**Erklärung:** Offene Schuld: 405.000 € − 236.000 € = 169.000 €. Weil alle Gesellschafter:innen einer OHG gesamtschuldnerisch haften, darf die Gläubigerin die ganzen 169.000 € von A verlangen; die hälftige Verteilung (84.500 €) betrifft nur den Ausgleich zwischen A und B im Innenverhältnis. Typischer Fehler: nur den hälftigen Betrag anzusetzen.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-1.7-08 · Entweder-Oder
+**Frage:** Eine Vermieterin schließt den Mietvertrag für eine neue Filiale mit der Tochter-GmbH „Loreno Living GmbH“ nur ab, wenn die Muttergesellschaft sich selbstschuldnerisch verbürgt. Was folgt daraus?
+- [ ] Die Haftung der Mutter bleibt auf ihre Einlage beschränkt, weil die Tochter eine eigene juristische Person ist.
+- [x] Die Mutter haftet für die Mietschulden zusätzlich aus der Bürgschaft.
+**Erklärung:** Die Haftungsbeschränkung der Kapitalgesellschaft gilt gegenüber den Gläubiger:innen nicht, denen sich die Gesellschafter:innen persönlich verpflichtet haben. Die Bürgschaft ist ein eigener Vertrag, kein Haftungsdurchgriff; sie begrenzt die Haftungstrennung bis zur Höhe der Bürgschaft.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-09 · Was passt nicht dazu
+**Frage:** Welcher Begriff gehört nicht zu den Organen einer GmbH?
+- [x] Hauptversammlung
+- [ ] Geschäftsführung
+- [ ] Gesellschafterversammlung
+- [ ] Aufsichtsrat (nur bei gesetzlicher Pflicht oder nach Gesellschaftsvertrag)
+**Erklärung:** Die Hauptversammlung ist das Versammlungsorgan der Aktionär:innen in der AG. Die GmbH hat die Geschäftsführung und die Gesellschafterversammlung, einen Aufsichtsrat nur, wenn Gesetz oder Gesellschaftsvertrag ihn verlangen.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-1.7-10 · Lückentext (Wortauswahl)
+**Text:** Eine GmbH entsteht als juristische Person erst mit der ___Eintragung___ in das Handelsregister.
+**Zusätzliche Begriffe:** Beurkundung; Anmeldung; Einzahlung
+**Erklärung:** Beurkundung, Einzahlung und Anmeldung gehen der Eintragung voraus; erst die Eintragung ist rechtsbegründend und lässt die Gesellschaft als juristische Person entstehen (§ 11 Abs. 1 GmbHG).
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-1.7-11 · Multiple Choice
+**Frage:** Zwei Gründer:innen haben den Gesellschaftsvertrag einer GmbH beurkunden lassen. Noch vor der Eintragung bestellt eine der beiden im Namen der Gesellschaft Ware für 12.000 € (Beispielwert). Was gilt?
+- [ ] Die Bestellung ist unwirksam, weil es die GmbH noch nicht gibt.
+- [ ] Die GmbH haftet bereits wie nach der Eintragung, niemand haftet persönlich.
+- [ ] Die Bestellung gilt erst, wenn das Amtsgericht sie genehmigt hat.
+- [x] Die handelnde Person haftet persönlich für die Bestellung.
+**Erklärung:** In der Zeit zwischen Beurkundung und Eintragung besteht die Vorgesellschaft. Wer in dieser Zeit im Namen der Gesellschaft handelt, haftet persönlich (Handelndenhaftung, § 11 Abs. 2 GmbHG). Eine gerichtliche Genehmigung einzelner Geschäfte gibt es nicht.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-12 · Kurzantwort
+**Frage:** Zwei Gründer:innen gründen eine GmbH mit 52.000 € Stammkapital (Beispielwert), verteilt auf Geschäftsanteile von 30.000 € und 22.000 €, alles Bareinlagen. Wie viel Euro müssen nach den gesetzlichen Mindestregeln zur Anmeldung beim Handelsregister mindestens eingezahlt sein (mindestens ein Viertel jedes Geschäftsanteils und insgesamt mindestens die Hälfte des Mindeststammkapitals von 25.000 €; Stand Oktober 2026, vor Verwendung prüfen)?
+**Akzeptierte Antworten:** 13000; 13000 €; 13000 Euro; 13000 EUR; 13000,0; 13000,0 €; 13000,0 Euro; 13000,0 EUR; 13000,00; 13000,00 €; 13000,00 Euro; 13000,00 EUR; 13.000; 13.000 €; 13.000 Euro; 13.000 EUR; 13.000,0; 13.000,0 €; 13.000,0 Euro; 13.000,0 EUR; 13.000,00; 13.000,00 €; 13.000,00 Euro; 13.000,00 EUR; 13000.0; 13000.0 €; 13000.0 Euro; 13000.0 EUR; 13000.00; 13000.00 €; 13000.00 Euro; 13000.00 EUR
+**Erklärung:** Ein Viertel von 30.000 € sind 7.500 €, ein Viertel von 22.000 € sind 5.500 €, zusammen 13.000 €. Die zweite Untergrenze (mindestens 12.500 € insgesamt) ist damit erfüllt. Typischer Fehler: nur 12.500 € anzusetzen, obwohl die Viertelregel je Geschäftsanteil mehr verlangt.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-1.7-13 · Zuordnung
+**Anweisung:** Ordne die Art der Firma dem passenden (frei erfundenen) Beispiel zu.
+- Personenfirma ↔ Brandt & Lindner OHG
+- Sachfirma ↔ Textilgroßhandel Nord GmbH
+- Fantasiefirma ↔ Zalvio UG (haftungsbeschränkt)
+- Gemischte Firma ↔ Velora Modehandel GmbH
+**Erklärung:** Die Personenfirma enthält Namen von Gesellschafter:innen, die Sachfirma den Gegenstand des Unternehmens, die Fantasiefirma einen erfundenen Begriff. Die gemischte Firma verbindet Arten, hier einen erfundenen Namen mit einer Sachbezeichnung. Der Rechtsformzusatz zählt nicht zur Art der Firma.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-1.7-14 · Wahr/Falsch
+**Aussage:** Bei einer GmbH & Co. KG ist die Komplementärin eine GmbH, die für die Schulden der KG nur mit ihrem eigenen Gesellschaftsvermögen haftet.
+- [x] Wahr
+- [ ] Falsch
+**Erklärung:** Die GmbH haftet als Komplementärin unbeschränkt, aber nur mit ihrem eigenen Gesellschaftsvermögen. Keine natürliche Person haftet deshalb unbeschränkt, solange nicht zusätzlich Bürgschaften bestehen.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-1.7-15 · Kurzantwort
+**Frage:** Für die Gründung einer GmbH mit 36.000 € Stammkapital (Beispielwert) fallen an: Notar 1.240 €, Registergericht 290 €, Gewerbeanmeldung 60 € und Beratung 1.730 € (Beispielwerte). Wie viel Prozent des Stammkapitals machen die gesamten Gründungskosten aus (auf eine Nachkommastelle gerundet)?
+**Akzeptierte Antworten:** 9,2; 9,2 %; 9,2%; 9,2 Prozent; 9.2; 9.2 %; 9.2%; 9.2 Prozent; 9,20; 9,20 %; 9,20%; 9,20 Prozent; 9.20; 9.20 %; 9.20%; 9.20 Prozent
+**Erklärung:** Gründungskosten: 1.240 € + 290 € + 60 € + 1.730 € = 3.320 €. Anteil: 3.320 € ÷ 36.000 € × 100 = 9,22 %, gerundet 9,2 %. Typischer Fehler: die Kosten mit dem Stammkapital zu verrechnen, obwohl die Einlage kein Aufwand ist.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-1.7-16 · Multiple Choice
+**Frage:** Die Gesellschafter-Geschäftsführerin einer Mode-GmbH bezahlt über Jahre Urlaubsreisen und ein privates Auto vom Geschäftskonto, ohne dies sauber zu buchen. Die GmbH wird zahlungsunfähig. Welche Folge kommt in Betracht?
+- [ ] Die Gesellschafterin haftet nur, wenn sie zugleich die Mehrheit der Geschäftsanteile hält und die GmbH noch im Register steht.
+- [x] Die Haftungsbeschränkung kann ausnahmsweise durchbrochen werden, weil das Vermögen vermischt wurde.
+- [ ] Die Gläubiger:innen können allein verlangen, dass die GmbH in eine OHG umgewandelt wird.
+- [ ] Das Registergericht löscht die GmbH sofort von Amts wegen, damit die Gläubiger:innen geschützt sind und nichts verloren geht.
+**Erklärung:** Bei einer Vermischung von Privat- und Gesellschaftsvermögen kommt ein Haftungsdurchgriff auf die verursachende Person in Betracht, außerdem Rückforderungen und Schadenersatz gegen die Geschäftsführung. Die Haftungsbeschränkung gilt sonst grundsätzlich, sie wird aber nur in engen Ausnahmefällen durchbrochen. Weder eine Umwandlung in eine OHG noch eine Haftung nur bei Stimmenmehrheit ergibt sich daraus.
+`schwierigkeit: schwer` · `bloom: bewerten`
+
+#### Q-1.7-17 · Mehrfachauswahl
+**Frage:** Die Loreno Mode & Wohnen GmbH prüft, „Loreno Living“ in eine neue Tochter-GmbH auszugliedern. Welche Aussagen träfen im Fall der Ausgliederung zu?
+- [x] Die Tochter braucht einen eigenen Gesellschaftsvertrag, eine Geschäftsführung und einen Registereintrag.
+- [ ] Die Mutter haftet gesetzlich immer unbeschränkt und persönlich für sämtliche Schulden der Tochter-GmbH.
+- [x] Das Risiko des neuen Geschäftsfelds trifft die Mutter nur bis zur Einlage, soweit sie nicht bürgt.
+- [ ] Die Tochter bleibt rechtlich unselbstständig und wird wie eine Filiale ohne eigene Rechte in der Bilanz der Mutter geführt.
+- [x] Eine verlangte Bürgschaft der Mutter für den Mietvertrag mindert die Haftungstrennung entsprechend.
+**Erklärung:** Die Tochter-GmbH ist eine eigene juristische Person mit eigener Haftung. Die Mutter haftet als Gesellschafterin grundsätzlich nur mit der Einlage; eigene Verpflichtungen wie eine Bürgschaft sind davon ausgenommen. Eine unselbstständige Filiale wäre keine Tochtergesellschaft.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-1.7-18 · Kurzantwort
+**Frage:** Eine UG (haftungsbeschränkt) erzielt einen Jahresüberschuss von 38.000 € (Beispielwert), ein Verlustvortrag besteht nicht. Wie viel Euro muss sie nach den gesetzlichen Regeln in diesem Jahr in die gesetzliche Rücklage einstellen (ein Viertel des Jahresüberschusses, Stand Oktober 2026, vor Verwendung prüfen)?
+**Akzeptierte Antworten:** 9500; 9500 €; 9500 Euro; 9500 EUR; 9500,0; 9500,0 €; 9500,0 Euro; 9500,0 EUR; 9500,00; 9500,00 €; 9500,00 Euro; 9500,00 EUR; 9.500; 9.500 €; 9.500 Euro; 9.500 EUR; 9.500,0; 9.500,0 €; 9.500,0 Euro; 9.500,0 EUR; 9.500,00; 9.500,00 €; 9.500,00 Euro; 9.500,00 EUR; 9500.0; 9500.0 €; 9500.0 Euro; 9500.0 EUR; 9500.00; 9500.00 €; 9500.00 Euro; 9500.00 EUR
+**Erklärung:** Ein Viertel von 38.000 € sind 9.500 €. Die Rücklage dient dazu, das Stammkapital schrittweise aufzubauen; sie wird so lange gebildet, bis das Stammkapital von 25.000 € erreicht werden kann. Typischer Fehler: die Rücklage auf das Stammkapital statt auf den Jahresüberschuss zu beziehen.
+`schwierigkeit: mittel` · `bloom: anwenden`
