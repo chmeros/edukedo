@@ -1,0 +1,25 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    ["hf-2.7-beurteilung-entgelt.md", "hb2/2.7-beurteilung-entgeltsysteme.md"]
+  ],
+  "ergaenzungen": [
+    { "datei": "hf-2.3-ergaenzung-personalmarketing-auswahl-kosten.md", "abschnitte": [["A", "B", "C", "hb2/2.3-personalplanung.md"]] },
+    { "datei": "hf-2.1-ergaenzung-teamentwicklung.md", "abschnitte": [["A", "B", "C", "hb2/2.1-fuehrungsmethoden-kommunikation.md"]] }
+  ],
+  "faelle": [
+    ["hf-faelle-a.md", "hb2"],
+    ["hf-faelle-b.md", "hb2"],
+    ["hf-faelle-c.md", "hb2"]
+  ],
+  "ersetzungen": [
+    { "datei": "hb2/fallaufgaben.md", "paare": [["HB2 (2.1–2.6)", "HB2 (2.1–2.7)"]] }
+  ],
+  "rechtsstand": [
+    "hb2/2.1-fuehrungsmethoden-kommunikation.md",
+    "hb2/2.3-personalplanung.md",
+    "hb2/fallaufgaben.md",
+    "hb2/fachgespraech.md"
+  ]
+}
