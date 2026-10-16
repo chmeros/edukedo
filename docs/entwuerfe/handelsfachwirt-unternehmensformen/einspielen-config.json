@@ -1,0 +1,49 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    [
+      "hf-1.7-unternehmensformen-gruendung.md",
+      "hb1/1.7-unternehmensformen-gruendung.md"
+    ],
+    [
+      "hf-1.8-uebernahme-nachfolge-franchising.md",
+      "hb1/1.8-uebernahme-nachfolge-franchising.md"
+    ]
+  ],
+  "ergaenzungen": [],
+  "faelle": [
+    [
+      "hf-faelle-a.md",
+      "hb1"
+    ],
+    [
+      "hf-faelle-b.md",
+      "hb1"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb1/fallaufgaben.md",
+      "paare": [
+        [
+          "HB1 (1.1–1.6)",
+          "HB1 (1.1–1.8)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/3.3-werbekonzepte-verkaufsfoerderung.md",
+      "paare": [
+        [
+          "aber relevant gegenüber Franchise-Partnern",
+          "aber relevant gegenüber möglichen Franchise-Partnern"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb1/fallaufgaben.md",
+    "hb1/fachgespraech.md"
+  ]
+}
