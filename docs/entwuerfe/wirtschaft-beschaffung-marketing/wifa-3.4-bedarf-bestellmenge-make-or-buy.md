@@ -1,0 +1,375 @@
+---
+kurs_slug: wirtschaftsfachwirt
+fachgebiet_code: HSQ3
+fachgebiet_title: "Logistik"
+thema_code: "3.4"
+thema_title: "Bedarfsermittlung, Bestellmenge und Make-or-Buy"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt“ (Fachgebiet Logistik, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+---
+
+# Thema 3.4 — Bedarfsermittlung, Bestellmenge und Make-or-Buy
+
+## Theorie
+
+### Bedarfsarten und Verfahren der Bedarfsermittlung
+
+Die **Bedarfsermittlung** stellt fest, welche Artikel in welcher Menge und zu welchem Zeitpunkt gebraucht werden. Sie ist der erste Schritt des Bestellprozesses (Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik) und entscheidet darüber, ob später Kapital unnötig im Lager gebunden ist oder Kundschaft nicht beliefert werden kann. Bei der NordWert Handels GmbH betrifft sie nicht nur die Ware, die unverändert weiterverkauft wird, sondern auch das Material für selbst zusammengestellte Verkaufseinheiten und die Stoffe, die der Betrieb selbst verbraucht. Alle Zahlen in diesem Thema sind frei gewählte Beispielwerte.
+
+Der Bedarf lässt sich im Handel nach seiner **Art** in drei Gruppen gliedern:
+
+- Der **Primärbedarf** ist der Bedarf an Handelsware, die als verkaufsfähiger Artikel an die Kundschaft geht, etwa Kopierpapier, Packband oder ein fertig bestücktes Aktionsdisplay. Er folgt aus der Absatzplanung, aus Kundenaufträgen und aus Rahmenverträgen.
+- Der **Sekundärbedarf** ist der Bedarf an Teilen, die in eine selbst konfektionierte Verkaufseinheit eingehen: die Einzelartikel eines Sets, die Blisterhülle, der bedruckte Aufstellkarton eines Displays, das Etikett mit dem Strichcode. Er wird über die Stückliste aus dem Primärbedarf der Verkaufseinheit abgeleitet.
+- Der **Tertiärbedarf** ist der Bedarf an Hilfs- und Betriebsstoffen, die der Betrieb selbst verbraucht und die nicht in die verkaufte Einheit eingehen: Versandkartons, Füllmaterial, Packband und Stretchfolie für die eigenen Lieferungen, Etiketten für Lagerplätze, Kraftstoff und Ersatzteile für Flurförderzeuge.
+
+Derselbe Artikel kann je nach Verwendung in mehrere Gruppen fallen. Packband, das NordWert an die Kundschaft verkauft, ist Primärbedarf, Packband für den eigenen Versand Tertiärbedarf; ein Kugelschreiber, der einzeln und zugleich in einem Set verkauft wird, löst Primär- und Sekundärbedarf aus. Disponiert wird die Summe. Hinzu kommt ein **Zusatzbedarf** für Verluste durch Schwund, Bruch und fehlerhafte Konfektionierung, der als Zuschlag in Prozent angesetzt wird: Werden für ein Set 5.000 Textmarker gebraucht und rechnet NordWert mit 2 % Zusatzbedarf, sind 5.000 × 1,02 = 5.100 Stück anzusetzen.
+
+Nach dem **Verfahren** unterscheidet man drei Wege der Bedarfsermittlung. Die Begriffe werden in der Literatur nicht ganz einheitlich abgegrenzt; in diesem Kurs gelten programmorientiert und deterministisch sowie verbrauchsorientiert und stochastisch als gleichbedeutend, die Schätzung wird als dritte Form daneben gestellt.
+
+- **Programmorientiert (deterministisch):** Der Bedarf wird aus bekannten Größen errechnet, also aus Absatzplan, Kundenaufträgen, Rahmenverträgen, der Aktionsplanung und den Stücklisten. Das Ergebnis ist so genau wie die Planung; der Aufwand ist hoch, weil die Planung gepflegt und aufgelöst werden muss. Der Sekundärbedarf wird in der Regel so ermittelt, der Primärbedarf dort, wo Aufträge oder Abrufe feststehen.
+- **Verbrauchsorientiert (stochastisch):** Hier wird der Verbrauch früherer Perioden fortgeschrieben, weil der künftige Verbrauch als vom Zufall mitbestimmt gilt. Das geht mit dem arithmetischen Mittel, mit gleitenden Durchschnitten, mit Trend und Saisonindex (Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management) oder mit der **exponentiellen Glättung**: Prognose für die nächste Periode = α × Istwert der letzten Periode + (1 − α) × bisherige Prognose, wobei der Glättungsfaktor α einen Wert zwischen 0 und 1 annimmt. Beispiel: Für Ablageboxen lag die Prognose bei 800 Stück, verkauft wurden 900; mit α = 0,2 lautet die neue Prognose 0,2 × 900 + 0,8 × 800 = 820 Stück. Ein kleines α glättet stark und reagiert langsam auf einen Trend oder eine Saison, ein großes α folgt rasch, aber auch jedem Zufallsausschlag. Verbrauchsorientierte Verfahren sind billig und passen bei gleichmäßigem Verbrauch; sie versagen bei neuen Artikeln ohne Verbrauchsdaten und bei Strukturbrüchen, etwa dem Verlust einer Großkundschaft.
+- **Subjektiv (Schätzung):** Der Bedarf wird aus Erfahrung und Urteil der Beschäftigten geschätzt. Das ist die einzige Möglichkeit, wenn weder Verbrauchsdaten noch feste Aufträge vorliegen: bei Neuartikeln, bei einmaligen Aktionen, bei Sonderanfertigungen. Als Hilfen dienen Vergleichsartikel, Meldungen aus Außendienst und Vertrieb und Rückfragen bei Großkundschaft. Die Gefahr liegt in verzerrten Einschätzungen, etwa zu viel Optimismus; geschätzte Mengen werden deshalb dokumentiert und später mit dem tatsächlichen Verbrauch verglichen.
+
+Der Aufwand der Bedarfsermittlung soll zum Wert und zur Planbarkeit des Artikels passen. Die ABC/XYZ-Matrix (Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik; der Variationskoeffizient als Grundlage der XYZ-Einteilung steht in Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management) gibt dafür eine Orientierung:
+
+| Klasse | Beispiel bei NordWert | geeignetes Vorgehen | Begründung |
+|---|---|---|---|
+| AX | Markenverpackungen mit gleichmäßigem Abruf durch Großkundschaft | programmorientiert aus Abrufen und Absatzplan, kurze Planungsintervalle | hoher Wert rechtfertigt den Aufwand, der Bedarf ist planbar; deshalb bedarfsgenau mit kleinem Sicherheitsbestand |
+| BX, CX | Standard-Kopierpapier, Büroklammern | verbrauchsorientiert, weitgehend automatisch | gleichmäßiger Verbrauch, geringer Planungsaufwand genügt |
+| AY | saisonale Geschenkverpackungen | verbrauchsorientiert mit Saisonindex, ergänzt um Absprachen mit der Großkundschaft und die Einschätzung des Vertriebs | hoher Wert, deshalb wird die Prognose bewusst geprüft |
+| AZ, BZ | Sonderanfertigungen für einzelne Großkundschaft | programmorientiert nach Auftrag oder Angebot, sonst Einzelbeschaffung im Bedarfsfall | der Verbrauch ist nicht vorhersehbar, Vorrat wäre riskant |
+| CZ | seltene Kleinteile für Sonderwünsche | Schätzung, ein reichlicher Sicherheitsbestand statt einer Einzeldisposition | eine genaue Planung lohnt bei geringem Wert nicht |
+
+### Brutto- und Nettobedarf
+
+Der **Bruttobedarf** ist der gesamte Bedarf einer Periode (Woche, Monat) an einem Artikel, bevor Bestände berücksichtigt werden: Primärbedarf, Sekundärbedarf aus der Stücklistenauflösung, Tertiärbedarf und Zusatzbedarf. Beschafft werden muss nur, was nicht aus vorhandenen oder schon bestellten Mengen gedeckt ist. Das ist der **Nettobedarf**:
+
+> **Nettobedarf = Bruttobedarf − (Lagerbestand − Reservierungen) − Bestellbestand + Sicherheitsbestand**
+
+Die Größen im Einzelnen:
+
+- Der **Lagerbestand** ist die im Lager vorhandene Menge (der Bestand laut Lagerverwaltungssystem, bei Abweichungen der durch Inventur festgestellte).
+- **Reservierungen** sind Mengen, die für feste Aufträge oder Aktionen schon zugesagt sind und deren Bedarf nicht im Bruttobedarf der Rechnung steht. Sie sind nicht frei verfügbar und kürzen deshalb den Lagerbestand. Steht der Bedarf eines Auftrags bereits im Bruttobedarf, bleibt der Lagerbestand um seine Reservierung ungekürzt, denn sonst würde dieser Bedarf doppelt berücksichtigt.
+- Der **Bestellbestand** umfasst alle offenen Bestellungen, also Mengen, die das Lieferunternehmen noch nicht geliefert hat. Bei einer Rechnung über mehrere Perioden wird er der Periode zugeordnet, in der die Lieferung erwartet wird.
+- Der **Sicherheitsbestand** (Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik) soll nicht angetastet werden und erhöht deshalb den Nettobedarf.
+
+Ergibt die Rechnung null oder einen negativen Wert, ist der Nettobedarf null; ein Überschuss wird nicht „gutgeschrieben“.
+
+Beispiel (ein Monat): Für Adressetiketten ist ein Bruttobedarf von 3.600 Rollen geplant. Im Lager liegen 1.850 Rollen, davon sind 350 für einen festen Rahmenauftrag reserviert, der nicht im Bruttobedarf steht; 900 Rollen sind bestellt, aber noch nicht geliefert, der Sicherheitsbestand beträgt 450 Rollen. Nettobedarf = 3.600 − (1.850 − 350) − 900 + 450 = 3.600 − 1.500 − 900 + 450 = **1.650 Rollen**.
+
+Bei vielen Perioden wird der Nettobedarf periodenweise fortgeschrieben. Annahme für das folgende Beispiel: Lieferungen treffen zu Beginn einer Woche ein, der Bedarf fällt über die Woche an, und der Bestand am Wochenende soll mindestens dem Sicherheitsbestand entsprechen. Der **Bestand vor Beschaffung** ist Anfangsbestand + Zugang − Bruttobedarf; liegt er unter dem Sicherheitsbestand, ist die Lücke der Nettobedarf der Woche. Beispiel für Packband (Rollen; Anfangsbestand 1.000, Sicherheitsbestand 300, eine Bestellung über 800 Rollen trifft zu Beginn der Woche 2 ein):
+
+| Woche | Anfangsbestand | Zugang | Bruttobedarf | Bestand vor Beschaffung | Nettobedarf | Endbestand |
+|---|---|---|---|---|---|---|
+| 1 | 1.000 | 0 | 400 | 600 | 0 | 600 |
+| 2 | 600 | 800 | 380 | 1.020 | 0 | 1.020 |
+| 3 | 1.020 | 0 | 440 | 580 | 0 | 580 |
+| 4 | 580 | 0 | 360 | 220 | 80 | 300 |
+| 5 | 300 | 0 | 420 | −120 | 420 | 300 |
+| Summe | | 800 | 2.000 | | 500 | |
+
+In Woche 4 fehlen 80 Rollen bis zum Sicherheitsbestand, in Woche 5 wären ohne Beschaffung 120 Rollen zu wenig da, die Lücke zum Sicherheitsbestand beträgt dann 120 + 300 = 420 Rollen. Der Endbestand ist der Bestand vor Beschaffung plus Nettobedarf; die Deckung des Nettobedarfs wird dabei als erfolgt angenommen. Zur Kontrolle gilt über alle fünf Wochen dieselbe Formel wie für eine einzelne Periode, weil der Bestand am Ende der Woche 5 wieder dem Sicherheitsbestand entspricht: 2.000 + 300 − 1.000 − 800 = 500 Rollen. Endet die letzte Woche über dem Sicherheitsbestand, ist die Summe der Nettobedarfe kleiner als dieses Ergebnis.
+
+Der Nettobedarf ist noch keine Bestellung: Ob die 80 Rollen der Woche 4 einzeln bestellt werden können oder auf die Verpackungseinheit (hier ein Karton mit 36 Rollen, also 3 Kartons mit 108 Rollen) aufzurunden sind, und wann die Bestellung ausgelöst wird, folgt aus den beiden nächsten Abschnitten. Der Meldebestand in Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik löst Bestellungen aus, ohne den künftigen Bedarf einzeln zu kennen (verbrauchsgesteuert); die Nettobedarfsrechnung dagegen plant Periode für Periode aus bekanntem Bedarf (bedarfsgesteuert) und passt deshalb zur programmorientierten Ermittlung.
+
+### Stücklisten und Sets im Handel
+
+Ein Handelsunternehmen fertigt nicht, es **konfektioniert**: Es stellt Artikel zu verkaufsfertigen Einheiten zusammen, verpackt, etikettiert und baut Displays auf. Bei NordWert betrifft das **Sets** (etwa ein Büro-Start-Set aus mehreren Artikeln), **Aktionsdisplays** für Einzelhandelskundschaft, das Umpacken von Großgebinden in Kleinpackungen und Eigenmarken-Artikel. Die Konfektionierung unterscheidet sich von der **Kommissionierung**, die Ware nach einem Kundenauftrag aus dem Lager zusammenstellt; konfektioniert wird eine neue, wiederkehrende Verkaufseinheit. Bei Eigenmarken, die ein herstellendes Unternehmen komplett fertigt (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling), entsteht für NordWert nur Primärbedarf; die Stückliste liegt beim herstellenden Unternehmen. Konfektioniert NordWert selbst, gehört die Stückliste zur eigenen Bedarfsplanung.
+
+Die **Stückliste** listet die Teile einer Verkaufseinheit auf und nennt die Menge jedes Teils. Zwei Formen sind für den Handel wichtig:
+
+- Die **Mengenstückliste** (Mengenübersichtsstückliste) führt alle Teile mit der Gesamtmenge je Verkaufseinheit auf, ohne zu zeigen, in welcher Baugruppe sie stecken. Sie genügt, um den Bruttobedarf zu errechnen.
+- Die **Strukturstückliste** bildet den gestuften Aufbau ab: Jedes Teil steht auf seiner Stufe, mit der Menge, die je übergeordnetem Teil eingeht. Sie wird gebraucht, wenn Baugruppen vorgefertigt und bevorratet werden, weil dann der Nettobedarf stufenweise zu ermitteln ist.
+
+Die **Dispositionsstufe** eines Teils ist die tiefste Stufe, auf der es in der Stückliste vorkommt. Das Verkaufserzeugnis steht auf Stufe 0, seine direkten Bestandteile auf Stufe 1, deren Bestandteile auf Stufe 2. Ein Teil, das auf mehreren Stufen vorkommt, wird auf der tiefsten Stufe disponiert: Erst wenn alle übergeordneten Stufen geplant sind, ist sein gesamter Bruttobedarf bekannt, und er wird in einer Rechnung statt in mehreren Teilbestellungen erfasst.
+
+Beispiel: Das Büro-Start-Set (Eigenmarke) besteht aus einem bedruckten Präsentationskarton, 2 Notizblöcken, einem Schreibset und einem Barcode-Etikett. Das Schreibset ist eine Baugruppe, die NordWert selbst konfektioniert: aus 1 Blisterhülle, 4 Kugelschreibern, 2 Textmarkern und ebenfalls einem Barcode-Etikett.
+
+| Stufe | Teil | Menge je übergeordnetem Teil | Dispositionsstufe des Teils |
+|---|---|---|---|
+| 0 | Büro-Start-Set (Verkaufseinheit) | – | 0 |
+| 1 | Präsentationskarton | 1 | 1 |
+| 1 | Notizblock | 2 | 1 |
+| 1 | Schreibset (Baugruppe) | 1 | 1 |
+| 1 | Barcode-Etikett | 1 | 2 |
+| 2 | Blisterhülle | 1 | 2 |
+| 2 | Kugelschreiber | 4 | 2 |
+| 2 | Textmarker | 2 | 2 |
+| 2 | Barcode-Etikett | 1 | 2 |
+
+Die Mengenstückliste je Set lautet daher: 1 Präsentationskarton, 2 Notizblöcke, 1 Schreibset, 1 Blisterhülle, 4 Kugelschreiber, 2 Textmarker und 2 Barcode-Etiketten (eines auf Stufe 1, eines auf Stufe 2). Die **Stücklistenauflösung** multipliziert den Primärbedarf mit den Mengen und rechnet Stufe für Stufe weiter. Der Primärbedarf beträgt 1.500 Sets für eine Aktion. Bruttobedarf der Stufe 1: 1.500 Präsentationskartons, 3.000 Notizblöcke, 1.500 Schreibsets und 1.500 Etiketten. Von den Schreibsets liegen 240 fertig konfektioniert im Lager, ohne Reservierung und ohne Sicherheitsbestand; ihr Nettobedarf beträgt 1.500 − 240 = 1.260, und nur diese 1.260 werden in die Stufe 2 aufgelöst: 1.260 Blisterhüllen, 5.040 Kugelschreiber, 2.520 Textmarker und 1.260 Etiketten. Das Etikett kommt auf zwei Stufen vor, sein Bruttobedarf beträgt zusammen 1.500 + 1.260 = 2.760 Stück. Mit den Beständen ergibt sich für die Kugelschreiber (Lager 1.800, Bestellbestand 1.000, Sicherheitsbestand 300) ein Nettobedarf von 5.040 − 1.800 − 1.000 + 300 = 2.540 Stück und für die Etiketten (Lager 700, Sicherheitsbestand 200) von 2.760 − 700 + 200 = 2.260 Stück.
+
+### Vorlaufzeit und Beschaffungstermine
+
+Die **Wiederbeschaffungszeit** (WBZ) ist die Zeitspanne von der Auslösung einer Bestellung bis zu dem Zeitpunkt, zu dem die Ware verfügbar im Lager steht. Sie umfasst die Bearbeitung der Bestellung im Haus, die Lieferzeit des Lieferunternehmens einschließlich Herstellung oder Bereitstellung, den Transport sowie Wareneingang, Prüfung und Einlagerung. Als Rechengröße geht sie in den Meldebestand ein (Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik); hier geht es um die umgekehrte Frage, wann bestellt werden muss, damit ein bekannter Bedarfstermin eingehalten wird. Bei Teilen, die NordWert selbst konfektioniert, tritt an die Stelle der Wiederbeschaffungszeit die **Durchlaufzeit** der Konfektionierung (Bereitstellen, Konfektionieren, Prüfen). Beide bilden die **Vorlaufzeit** der jeweiligen Stufe.
+
+Bei der **Vorlaufverschiebung** (Terminplanung rückwärts) wird die Vorlaufzeit jeder Stufe nacheinander vom Liefertermin der Verkaufseinheit zurückgerechnet: Die Teile einer Stufe müssen zu dem Zeitpunkt bereitstehen, zu dem die Konfektionierung dieser Stufe beginnt; der Bestelltermin eines Zukaufteils liegt eine Wiederbeschaffungszeit davor. Im Beispiel wird vereinfachend jede Terminangabe als Wochenanfang der genannten Kalenderwoche (KW) verstanden; bestellt wird am Wochenanfang, und die Ware trifft nach vollen Wochen wieder am Wochenanfang ein.
+
+Beispiel: Die 1.500 Büro-Start-Sets sollen zu Beginn der KW 40 versandbereit sein.
+
+| Stufe oder Teil | Vorlaufzeit | Rechnung | Termin |
+|---|---|---|---|
+| Endkonfektionierung der Sets | 1 Woche | KW 40 − 1 | Teile der Stufe 1 bereit zu Beginn KW 39 |
+| Konfektionierung der Schreibsets | 1 Woche | KW 39 − 1 | Teile der Stufe 2 bereit zu Beginn KW 38 |
+| Präsentationskarton (bedruckt) | WBZ 6 Wochen | KW 39 − 6 | Bestellung zu Beginn KW 33 |
+| Notizblock | WBZ 2 Wochen | KW 39 − 2 | Bestellung zu Beginn KW 37 |
+| Blisterhülle | WBZ 4 Wochen | KW 38 − 4 | Bestellung zu Beginn KW 34 |
+| Kugelschreiber | WBZ 3 Wochen | KW 38 − 3 | Bestellung zu Beginn KW 35 |
+| Textmarker | WBZ 2 Wochen | KW 38 − 2 | Bestellung zu Beginn KW 36 |
+| Barcode-Etikett | WBZ 1 Woche | früherer Bedarf KW 38 − 1 | Bestellung zu Beginn KW 37 |
+
+Das Barcode-Etikett wird auf zwei Stufen gebraucht; maßgeblich ist der frühere Termin (Stufe 2, KW 38), und die gesamte Menge wird dafür bestellt. Das Teil mit dem frühesten Bestelltermin bestimmt, wann die Planung spätestens beginnen muss: der Präsentationskarton mit KW 33. Da Vorlaufzeiten nur geplant sind, rechnet der Einkauf häufig mit einer **Pufferzeit**, etwa mit einer zusätzlichen Woche (KW 32); wird eine Wiederbeschaffungszeit länger, muss auch die Bestellung entsprechend früher erfolgen. Das gilt auch für Einzelartikel ohne Stückliste: Wird eine Menge zu Beginn der KW 26 gebraucht und beträgt die Wiederbeschaffungszeit 4 Wochen, muss spätestens zu Beginn der KW 22 bestellt werden.
+
+### Optimale Bestellmenge
+
+Die Höhe der einzelnen Bestellmenge ergibt sich aus der Abwägung zweier gegenläufiger Kostenarten. **Bestellfixe Kosten** fallen mit jeder Bestellung an, gleich wie groß sie ist: Bedarf prüfen, Bestellung auslösen und überwachen, Wareneingang annehmen, prüfen und buchen, Rechnung prüfen und Zahlung veranlassen. Man kann sie aus den Prozesskostensätzen der beteiligten Teilprozesse zusammensetzen (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling; der Kostentreiber ist die Zahl der Bestellungen oder Anlieferungen). Beispiel: Bestellung auslösen 25 €, Wareneingang 38 €, Rechnungsprüfung 12 €, zusammen **75 € je Bestellung**. Mit größeren Bestellmengen sind weniger Bestellungen nötig, die bestellfixen Kosten sinken also im Jahr.
+
+Dem stehen die **Lagerkosten** gegenüber, die mit der Höhe des Bestands wachsen. Sie werden als **Lagerkostensatz** in Prozent des durchschnittlich gelagerten Warenwerts je Jahr ausgedrückt und bestehen aus Zinsen auf das gebundene Kapital, Versicherung sowie Schwund und Wertminderung. Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik nennt als Lagerkosten insgesamt Kapitalbindungskosten, Raumkosten, Versicherung sowie Schwund und Wertminderung; für die Bestellmenge zählt nur der Teil, der mit dem Bestand wächst. Raumkosten gehören nur insoweit hinein, wie sie mit dem Bestand wachsen; stehen die Hallen ohnehin zur Verfügung, ändert die Bestellmenge sie nicht. Welche Kostenarten im Satz stecken, legt das Unternehmen fest und nennt es bei jeder Rechnung. Der durchschnittliche Lagerbestand beträgt bei gleichmäßigem Verbrauch die Hälfte der Bestellmenge, zuzüglich eines konstanten Sicherheitsbestands, der die Optimierung nicht verändert. Das entspricht dem Mittelwert aus Anfangsbestand (Sicherheitsbestand + Bestellmenge direkt nach der Lieferung) und Endbestand (Sicherheitsbestand vor der nächsten Lieferung) aus Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik. Die Lagerkennzahlen dort gelten für die entstehenden Bestände unverändert, werden hier aber nicht neu berechnet.
+
+Die Jahreskosten aus Bestellung und Lagerung betragen **Jahresbedarf ÷ Bestellmenge × bestellfixe Kosten + Bestellmenge ÷ 2 × Einstandspreis × Lagerkostensatz**. Sie sind am kleinsten bei der **optimalen Bestellmenge** (Formel nach Andler):
+
+> **optimale Bestellmenge = √(2 × Jahresbedarf × bestellfixe Kosten ÷ (Einstandspreis × Lagerkostensatz))**
+
+Der Lagerkostensatz wird als Dezimalzahl eingesetzt (10 % = 0,10); wer ihn als Prozentzahl einsetzt, rechnet mit 200 statt 2 im Zähler. Die Formel gilt unter **Annahmen**: gleichmäßiger, bekannter Jahresbedarf; ein gleichbleibender Einstandspreis ohne Mengenrabatt; bestellfixe Kosten und Lagerkostensatz unabhängig von der Menge; die ganze Bestellmenge wird auf einmal und sofort geliefert; keine Fehlmengen; ausreichend Lagerplatz und Kapital. Das Ergebnis wird auf ganze Verkaufs- oder Bestelleinheiten gerundet. Die **Zahl der Bestellungen** im Jahr ist Jahresbedarf ÷ Bestellmenge, der Abstand zwischen zwei Bestellungen im 360-Tage-Jahr 360 ÷ Zahl der Bestellungen.
+
+Beispiel (Kopierpapier): Jahresbedarf 5.000 Kartons, Einstandspreis 20,00 € je Karton, bestellfixe Kosten 75 € je Bestellung, Lagerkostensatz 15 %. Optimale Bestellmenge = √(2 × 5.000 × 75 ÷ (20 × 0,15)) = √(750.000 ÷ 3) = √250.000 = **500 Kartons**. Das sind 5.000 ÷ 500 = 10 Bestellungen im Jahr, eine alle 36 Tage. Bestellkosten 10 × 75 € = 750 €, Lagerkosten 500 ÷ 2 × 20 € × 0,15 = 750 €; beide Kostenarten sind im Optimum gleich hoch.
+
+| Bestellmenge | Bestellungen im Jahr | Bestellkosten | Lagerkosten | Summe |
+|---|---|---|---|---|
+| 250 Kartons | 20 | 1.500 € | 375 € | 1.875 € |
+| 500 Kartons | 10 | 750 € | 750 € | 1.500 € |
+| 1.000 Kartons | 5 | 375 € | 1.500 € | 1.875 € |
+
+Das Kostenminimum ist flach: 400 Kartons kosten 1.537,50 € (2,5 % mehr), 600 Kartons 1.525 € (1,7 % mehr). Deshalb schadet es wenig, auf eine Verpackungseinheit zu runden; bei Paletten zu 40 Kartons kosten 480 Kartons rund 1.501,25 € und 520 Kartons rund 1.501,15 €.
+
+Die Formel hat **Grenzen**, sie liefert einen Richtwert:
+
+- **Mengenrabatte:** Bei gestaffelten Preisen wird der Einkaufspreis mengenabhängig und muss in den Vergleich. Verglichen werden die Gesamtkosten aus Einkaufswert, Bestellkosten und Lagerkosten für die optimale Menge und für die Mindestmenge jeder Rabattstufe. Beispiel: ab 1.000 Kartons 19,70 €, ab 2.500 Kartons 19,40 €. Bei 500 Kartons zu 20,00 € betragen die Gesamtkosten 100.000 € + 750 € + 750 € = 101.500 €; bei 1.000 Kartons 98.500 € + 375 € + 1.477,50 € = 100.352,50 €; bei 2.500 Kartons 97.000 € + 150 € + 3.637,50 € = 100.787,50 €. Am günstigsten ist die Menge von 1.000 Kartons, obwohl sie doppelt so groß wie die optimale Menge ist; das Kapital, der Lagerplatz und das Risiko eines Preisverfalls bleiben davon unberührt und sind zusätzlich zu bewerten.
+- **Mindestbestellmengen und Verpackungseinheiten:** Lieferunternehmen liefern oft nur in Gebinden, Kartons oder Paletten; die Bestellmenge ist auf- oder abzurunden, und beide Mengen werden verglichen.
+- **Schwankender Bedarf:** Bei Y- und Z-Artikeln ist der Verbrauch nicht gleichmäßig; hier wird oft bedarfsgenau bestellt (Bestellmenge gleich Nettobedarf) oder mit einem Sicherheitsbestand gearbeitet.
+- **Weitere Einflüsse:** Haltbarkeit, Lagerplatz, Preisprognosen (Spekulationsfunktion der Lagerhaltung) und die Zahl der Lieferunternehmen verändern das Ergebnis.
+
+### Make-or-Buy: Eigenfertigung oder Fremdbezug
+
+Bei der **Make-or-Buy-Entscheidung** wählt ein Unternehmen, ob es eine Leistung selbst erbringt (**Eigenfertigung**, auch Eigenleistung) oder von einem anderen Unternehmen bezieht (**Fremdbezug**). Im Handel geht es seltener um Fertigung als um Leistungen wie die **Konfektionierung** von Sets und Displays, das Umpacken in Kleinmengen, das Bedrucken und Etikettieren, die Herstellung eines Eigenmarken-Artikels im eigenen Haus statt bei einem herstellenden Unternehmen, die Auslieferung mit eigenem Fuhrpark (nächster Abschnitt) oder den Betrieb eines Lagers. Die Entscheidung hat eine rechenbare und eine nicht rechenbare Seite.
+
+**Quantitativ** werden die Kosten beider Wege verglichen. Die Eigenfertigung verursacht zusätzliche **fixe Kosten** (Abschreibung und Zinsen auf Geräte und Einrichtung, Wartung, Fläche) und **variable Kosten** je Stück; beim Fremdbezug fällt nur der Einstandspreis je Stück an:
+
+> Kosten Eigenfertigung = fixe Kosten + variable Kosten je Stück × Menge
+>
+> Kosten Fremdbezug = Einstandspreis je Stück × Menge
+>
+> **kritische Menge = fixe Kosten der Eigenfertigung ÷ (Einstandspreis je Stück − variable Kosten je Stück der Eigenfertigung)**
+
+Bei der kritischen Menge kosten beide Wege gleich viel. Bei größerem Bedarf lohnt die Eigenfertigung, bei kleinerem der Fremdbezug; liegt der Einstandspreis nicht über den variablen Kosten, ist der Fremdbezug immer günstiger. Die Stückkosten der Eigenfertigung (fixe Kosten ÷ Menge + variable Kosten) sinken mit der Menge, weil sich die Fixkosten verteilen. Der **Auslastungsgrad** (Menge ÷ Kapazität × 100) zeigt, wie weit die Einrichtung genutzt ist; liegt die kritische Menge über der Kapazität, lohnt sich die Eigenfertigung nie.
+
+Beispiel (Umpacken von Büroklammern in Beutel): Eine Abfüllanlage verursacht zusätzliche fixe Kosten von 13.500 € im Jahr. Die variablen Kosten betragen 0,34 € je Beutel (Ware 0,16 €, Beutel 0,04 €, Etikett 0,03 €, Arbeit und Energie 0,11 €); ein Lieferunternehmen bietet fertig abgepackte Beutel für 0,49 € an. Kritische Menge = 13.500 ÷ (0,49 − 0,34) = 13.500 ÷ 0,15 = **90.000 Beutel**. Bei 125.000 Beuteln im Jahr kostet die Eigenfertigung 13.500 € + 125.000 × 0,34 € = 56.000 €, der Fremdbezug 61.250 €; die Eigenfertigung ist um 5.250 € günstiger, bei einer Kapazität von 150.000 Beuteln beträgt der Auslastungsgrad rund 83,3 %. Bei nur 70.000 Beuteln wäre der Fremdbezug mit 34.300 € gegenüber 37.300 € um 3.000 € günstiger.
+
+In den Vergleich gehören nur die Kosten, die durch die Entscheidung tatsächlich entstehen oder entfallen. Sind Anlage und freie Fläche ohnehin vorhanden und lassen sich nicht anders nutzen, fallen ihre Fixkosten auch beim Fremdbezug an; dann zählen kurzfristig nur die variablen Kosten; dasselbe Prinzip liegt der **kurzfristigen Preisuntergrenze** zugrunde (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling). Auf Dauer müssen auch die Fixkosten gedeckt sein, wie bei der langfristigen Preisuntergrenze. Aus Sicht der Eigenleistung ist der Fremdbezugspreis die Obergrenze der tragbaren Kosten. Außerdem gehört der **Deckungsbeitrag** der Alternativnutzung in die Rechnung: Könnte die Fläche oder die Arbeitszeit anderweitig einen Deckungsbeitrag erzielen, sind das **Opportunitätskosten** der Eigenleistung. Im Beispiel würde ein entgangener Deckungsbeitrag von 2.400 € den Vorteil der Eigenfertigung bei 125.000 Beuteln von 5.250 € auf 2.850 € verringern.
+
+**Qualitativ** zählen Gesichtspunkte, die sich kaum in Geld ausdrücken lassen:
+
+- **Qualität und Kontrolle:** Eigenleistung gibt direkten Einfluss auf Qualität und Termin; ein spezialisiertes Lieferunternehmen kann dagegen bessere Qualität bieten.
+- **Flexibilität:** Beim Fremdbezug entfallen die fixen Kosten, es fallen nur mengenabhängige Kosten an; geht der Absatz zurück, sinkt auch die Bezugsmenge. Eigenleistung bindet Kapital und Personal, erlaubt aber schnelle Änderungen von Menge und Ausführung.
+- **Abhängigkeit und Risiko:** Wer zukauft, ist auf Lieferunternehmen, deren Preise und Lieferketten angewiesen (vgl. Single Sourcing, Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik).
+- **Know-how:** Leistungen, die zum Kern des Geschäfts gehören oder Wissen enthalten, das nicht abfließen soll, bleiben eher im Haus; fehlt das Wissen, spricht das für den Zukauf.
+- **Kapazität:** Ist die eigene Konfektionierung ausgelastet, kann Fremdvergabe Spitzen abdecken; freie Kapazität spricht für Eigenleistung.
+
+Solche Kriterien lassen sich mit einer Nutzwertanalyse bewerten (Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik; Verfahren in Thema 1.4 „Managementtechniken“ im Fachgebiet Betriebliches Management). Unverzichtbares, etwa die Einhaltung eines festen Aktionstermins, wird als Muss-Kriterium vorab geprüft. Häufig sind **Zwischenformen** sinnvoll: Ein Teil der Menge wird selbst erbracht, die Spitzen werden zugekauft.
+
+### Make-or-Buy bei Logistikleistungen: Fuhrpark und Zustellung
+
+Dieselbe Rechnung gilt für Logistikleistungen. NordWert kann die Auslieferung an Kundschaft in der Region mit einem eigenen Lkw erbringen oder an einen Paketdienst oder eine Spedition vergeben (Outsourcing logistischer Teilprozesse, Thema 3.3 „Wertschöpfungskette und Rationalisierung“ im Fachgebiet Logistik). Bezugsgröße ist die Zahl der Zustellungen je Monat.
+
+Beispiel (Zustellung im Raum Leipzig, Monatswerte): Der eigene Lkw verursacht fixe Kosten von 6.580 € (Abschreibung, Versicherung, Steuern, Fahrpersonal) und variable Kosten von 4,50 € je Zustellung (Kraftstoff, Verschleiß, Maut). Der Paketdienst berechnet 11,50 € je Zustellung. Kritische Menge = 6.580 ÷ (11,50 − 4,50) = **940 Zustellungen**. Bei 1.150 Zustellungen kostet die Eigenleistung 6.580 € + 1.150 × 4,50 € = 11.755 €, der Fremdbezug 1.150 × 11,50 € = 13.225 €; die Eigenleistung ist um 1.470 € günstiger. Der Lkw schafft höchstens 1.450 Zustellungen im Monat, die Auslastung liegt bei 1.150 ÷ 1.450 ≈ 79,3 %. Steigt der Bedarf auf 1.700 Zustellungen, wäre die Eigenleistung allein nicht möglich; eine **Mischlösung** deckt 1.450 Zustellungen selbst ab (6.580 € + 1.450 × 4,50 € = 13.105 €) und gibt die übrigen 250 an den Paketdienst (250 × 11,50 € = 2.875 €). Das kostet zusammen 15.980 € statt 19.550 € bei vollständiger Vergabe, also 3.570 € weniger.
+
+Die qualitative Seite ist hier besonders sichtbar: Der eigene Fahrdienst sichert Termintreue und den direkten Kundenkontakt, kostet aber Flexibilität, wenn der Absatz schwankt; die Vergabe senkt die Kapitalbindung und die Abhängigkeit von einem Fahrzeug, verringert aber den Einfluss auf die Servicequalität (vgl. die Nachteile des Outsourcings in Thema 3.3 „Wertschöpfungskette und Rationalisierung“ im Fachgebiet Logistik). Die Frage, welche Wertschöpfungsstufen ein Unternehmen insgesamt selbst erbringt, geht über die einzelne Entscheidung hinaus. Gesetzliche Vorgaben zu Lenkzeiten, Fahrzeugen und Haftung beim Transport werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+## Karteikarten
+
+#### K-3.4-01
+**Frage:** Welche drei Bedarfsarten unterscheidest du im Handel, und was gehört jeweils dazu?
+**Antwort:** Primärbedarf: Handelsware, die als verkaufsfähiger Artikel an die Kundschaft geht. Sekundärbedarf: Teile, die in selbst konfektionierte Verkaufseinheiten (Sets, Displays) eingehen und über die Stückliste abgeleitet werden. Tertiärbedarf: Hilfs- und Betriebsstoffe für den eigenen Betrieb, etwa Versandkartons, Füllmaterial, Stretchfolie für die eigenen Lieferungen. Derselbe Artikel kann je nach Verwendung in mehrere Gruppen fallen.
+`tags: bedarfsarten` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-3.4-02
+**Frage:** Wie unterscheiden sich programmorientierte, verbrauchsorientierte und subjektive Bedarfsermittlung?
+**Antwort:** Programmorientiert (deterministisch): Der Bedarf wird aus Absatzplan, Aufträgen und Stücklisten errechnet. Verbrauchsorientiert (stochastisch): Er schreibt den Verbrauch früherer Perioden fort, etwa mit Mittelwert, gleitendem Durchschnitt, Trend und Saisonindex oder exponentieller Glättung. Subjektiv: Er wird aus Erfahrung und Urteil geschätzt, wenn weder Daten noch feste Aufträge vorliegen.
+`tags: bedarfsermittlung, verfahren` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-03
+**Frage:** Wie berechnest du mit der exponentiellen Glättung die nächste Prognose, und wie wirkt die Höhe von α?
+**Antwort:** Neue Prognose = α × Istwert der letzten Periode + (1 − α) × bisherige Prognose. Bei großem α zählt der letzte Istwert stark, die Prognose folgt schnell, aber auch dem Zufall; bei kleinem α überwiegt die alte Prognose, sie ist ruhig, folgt einem Trend aber nur träge.
+`tags: bedarfsermittlung, glaettung` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-04
+**Frage:** Welches Verfahren der Bedarfsermittlung passt zu welchen Artikeln der ABC/XYZ-Matrix?
+**Antwort:** AX-Artikel (wertvoll, planbar): programmorientiert, bedarfsgenau, kleiner Sicherheitsbestand. BX- und CX-Artikel: verbrauchsorientiert und weitgehend automatisch. AY-Artikel: verbrauchsorientiert mit Saisonindex plus Absprachen und Einschätzung des Vertriebs. AZ- und BZ-Artikel: nach Auftrag oder Angebot, sonst Einzelbeschaffung. CZ-Artikel: Schätzung und reichlicher Sicherheitsbestand statt aufwendiger Disposition.
+`tags: bedarfsermittlung, abc-xyz` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+#### K-3.4-05
+**Frage:** Wie berechnest du den Nettobedarf, und was bedeuten die einzelnen Größen?
+**Antwort:** Nettobedarf = Bruttobedarf − (Lagerbestand − Reservierungen) − Bestellbestand + Sicherheitsbestand. Der Bruttobedarf ist der Gesamtbedarf der Periode vor Beständen, Reservierungen sind bereits zugesagte Mengen, der Bestellbestand die offenen Bestellungen; der Sicherheitsbestand soll erhalten bleiben und erhöht den Nettobedarf. Ergebnisse unter null gelten als null.
+`tags: nettobedarf` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-06
+**Frage:** Wie ermittelst du den Nettobedarf über mehrere Wochen?
+**Antwort:** Je Woche: Bestand vor Beschaffung = Anfangsbestand + Zugang − Bruttobedarf. Liegt er unter dem Sicherheitsbestand, ist die Lücke der Nettobedarf der Woche; der Endbestand entspricht dann dem Sicherheitsbestand und ist der Anfangsbestand der nächsten Woche. Endet die letzte Periode beim Sicherheitsbestand, gilt als Kontrolle: Summe der Nettobedarfe = Summe Brutto + Sicherheitsbestand − Anfangsbestand − Zugänge (Bestellbestand).
+`tags: nettobedarf, mehrperiodig` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-07
+**Frage:** Was unterscheidet Mengenstückliste und Strukturstückliste?
+**Antwort:** Die Mengenstückliste nennt alle Teile mit der Gesamtmenge je Verkaufseinheit, ohne den Aufbau zu zeigen; sie genügt für den Bruttobedarf. Die Strukturstückliste bildet den gestuften Aufbau mit den Mengen je übergeordnetem Teil ab; sie wird gebraucht, wenn Baugruppen vorgefertigt und bevorratet werden.
+`tags: stueckliste` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-08
+**Frage:** Was ist die Dispositionsstufe eines Teils, und warum ist sie wichtig?
+**Antwort:** Die tiefste Stufe der Stückliste, auf der das Teil vorkommt. Ein Teil, das auf mehreren Stufen steckt (etwa ein Etikett im Set und in der Baugruppe), wird erst disponiert, wenn alle übergeordneten Stufen geplant sind; sein Bruttobedarf wird dann zusammen erfasst und in einer Bestellung beschafft.
+`tags: stueckliste, dispositionsstufe` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-09
+**Frage:** Was bedeutet Konfektionierung im Handel, und wodurch unterscheidet sie sich von der Kommissionierung?
+**Antwort:** Konfektionierung ist das Zusammenstellen, Verpacken und Etikettieren von Artikeln zu einer neuen, wiederkehrenden Verkaufseinheit (Set, Display, Kleinpackung). Kommissionierung stellt dagegen Ware nach einem Kundenauftrag aus dem Lager zusammen. Konfektionierte Einheiten lösen Sekundärbedarf aus, der über die Stückliste ermittelt wird.
+`tags: konfektionierung, stueckliste` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-10
+**Frage:** Was sind Wiederbeschaffungszeit und Vorlaufverschiebung, und wie bestimmst du daraus einen Bestelltermin?
+**Antwort:** Die Wiederbeschaffungszeit reicht von der Bestellauslösung bis zur Verfügbarkeit im Lager. Bei der Vorlaufverschiebung wird vom Liefertermin rückwärts je Stufe die Vorlaufzeit abgezogen (Durchlaufzeit bei eigener Konfektionierung, Wiederbeschaffungszeit bei Zukauf). Bestelltermin = Termin, zu dem das Teil bereitstehen muss, − Wiederbeschaffungszeit.
+`tags: vorlaufzeit, termine` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-11
+**Frage:** Welche beiden gegenläufigen Kostenarten bestimmen die optimale Bestellmenge?
+**Antwort:** Bestellfixe Kosten fallen je Bestellung an, unabhängig von der Menge; sie sinken im Jahr, je größer die Bestellmenge ist. Lagerkosten (Zinsen auf gebundenes Kapital, Versicherung, Schwund und Wertminderung, soweit sie mit dem Bestand wachsen) nehmen mit der Bestellmenge zu, weil im Schnitt mehr Ware lagert. Raumkosten gehören nur dazu, soweit sie mit dem Bestand wachsen; die Lagerkosten insgesamt sind in Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik weiter gefasst.
+`tags: bestellmenge, kosten` · `schwierigkeit: leicht` · `bloom: verstehen`
+
+#### K-3.4-12
+**Frage:** Wie berechnest du die optimale Bestellmenge, und unter welchen Annahmen gilt die Formel?
+**Antwort:** √(2 × Jahresbedarf × bestellfixe Kosten ÷ (Einstandspreis × Lagerkostensatz als Dezimalzahl)). Annahmen: gleichmäßiger bekannter Bedarf, gleichbleibender Preis ohne Mengenrabatt, konstante Kostensätze, Lieferung der ganzen Menge auf einmal, keine Fehlmengen, ausreichend Platz und Kapital. Im Optimum sind Bestell- und Lagerkosten gleich hoch.
+`tags: bestellmenge, andler` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-13
+**Frage:** Welche Grenzen hat die Formel der optimalen Bestellmenge?
+**Antwort:** Sie liefert nur einen Richtwert. Mengenrabatte erfordern einen Vergleich der Gesamtkosten (Einkaufswert, Bestell- und Lagerkosten) je Rabattstufe; Mindestbestellmengen und Verpackungseinheiten verlangen Auf- oder Abrunden; bei schwankendem Bedarf wird oft bedarfsgenau bestellt; Haltbarkeit, Lagerplatz und Preisprognosen verändern das Ergebnis. Das Kostenminimum ist flach, kleine Abweichungen kosten wenig.
+`tags: bestellmenge, grenzen` · `schwierigkeit: schwer` · `bloom: bewerten`
+
+#### K-3.4-14
+**Frage:** Wie ermittelst du bei Make-or-Buy die kritische Menge, und welche nicht rechenbaren Kriterien kommen hinzu?
+**Antwort:** Kritische Menge = fixe Kosten der Eigenfertigung ÷ (Einstandspreis − variable Kosten je Stück der Eigenfertigung); darüber lohnt die Eigenfertigung, darunter der Zukauf. Berücksichtigt werden nur Kosten, die von der Entscheidung abhängen; entgangene Deckungsbeiträge der Alternativnutzung sind Opportunitätskosten. Qualitativ zählen Qualität, Flexibilität, Abhängigkeit, Know-how und Kapazität.
+`tags: make-or-buy, kritische-menge` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+## Quiz
+
+#### Q-3.4-01 · Multiple Choice
+**Frage:** NordWert nimmt für die Herbstaktion einen neuen Artikel auf, der noch nie im Sortiment war. Es gibt weder Verbrauchswerte noch feste Kundenaufträge. Wie wird der Bedarf in dieser Lage ermittelt?
+- [ ] Verbrauchsorientiert, indem der Verbrauch des umsatzstärksten Sortimentsartikels des Vorjahres unverändert übernommen wird.
+- [x] Durch eine dokumentierte Schätzung mit Vergleichsartikeln und Rückmeldungen aus dem Vertrieb.
+- [ ] Programmorientiert, indem der Absatzplan des Vorjahres für das gesamte Sortiment fortgeschrieben wird.
+- [ ] Mit der Stücklistenauflösung des Artikels, der im Sortiment den höchsten Wertanteil hat.
+**Erklärung:** Ohne Daten und ohne Aufträge bleibt nur die subjektive Bedarfsermittlung. Verfahren, die Verbrauchswerte oder einen Plan fortschreiben, passen nicht auf einen Artikel ohne Vergangenheit; die Übernahme fremder Verbrauchswerte oder eines Gesamtplans ignoriert, dass der Bedarf des neuen Artikels eigenständig ist, und eine Stückliste eines anderen Artikels sagt nichts über seinen Absatz.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-02 · Zuordnung
+**Anweisung:** Ordne jedem Bedarf bei NordWert die passende Bedarfsart zu.
+- Primärbedarf ↔ Kopierpapier, das unverändert an die Kundschaft verkauft wird
+- Sekundärbedarf ↔ Blisterhüllen für ein selbst konfektioniertes Schreibset
+- Tertiärbedarf ↔ Stretchfolie zur Sicherung der eigenen Versandpaletten
+**Erklärung:** Primärbedarf ist verkaufsfähige Handelsware, Sekundärbedarf geht in eine selbst konfektionierte Verkaufseinheit ein und folgt aus der Stückliste, Tertiärbedarf sind Hilfs- und Betriebsstoffe des eigenen Betriebs.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-3.4-03 · Kurzantwort
+**Frage:** Für Schnellhefter-Packungen lag die Prognose bei 1.000 Packungen, verkauft wurden 1.200 (Beispielwerte). Wie lautet die neue Prognose nach der exponentiellen Glättung mit α = 0,3 (neue Prognose = α × Istwert + (1 − α) × bisherige Prognose), in Packungen?
+**Akzeptierte Antworten:** 1060; 1.060; 1060,00; 1.060,00; 1060.00; 1060 Packungen; 1060 Stück; 1060 Stk.; 1.060 Packungen; 1.060 Stück; 1.060 Stk.; 1060,00 Packungen; 1060,00 Stück; 1060,00 Stk.; 1.060,00 Packungen; 1.060,00 Stück; 1.060,00 Stk.; 1060.00 Packungen; 1060.00 Stück; 1060.00 Stk.
+**Erklärung:** 0,3 × 1.200 + 0,7 × 1.000 = 360 + 700 = 1.060 Packungen. Die Prognose steigt nur um 60 Packungen, obwohl der Absatz um 200 über der Prognose lag: Bei α = 0,3 werden 30 % der Abweichung übernommen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-04 · Kurzantwort
+**Frage:** NordWert plant für einen Monat einen Bruttobedarf von 6.400 Packungen Klarsichthüllen (Beispielwerte). Im Lager liegen 2.900 Packungen, davon sind 400 für einen festen Rahmenauftrag reserviert, der nicht im Bruttobedarf steht. Bestellt, aber noch nicht geliefert sind 1.200 Packungen, der Sicherheitsbestand beträgt 700 Packungen. Wie hoch ist der Nettobedarf in Packungen (Nettobedarf = Bruttobedarf − (Lagerbestand − Reservierungen) − Bestellbestand + Sicherheitsbestand)?
+**Akzeptierte Antworten:** 3400; 3.400; 3400,00; 3.400,00; 3400.00; 3400 Packungen; 3400 Stück; 3400 Stk.; 3.400 Packungen; 3.400 Stück; 3.400 Stk.; 3400,00 Packungen; 3400,00 Stück; 3400,00 Stk.; 3.400,00 Packungen; 3.400,00 Stück; 3.400,00 Stk.; 3400.00 Packungen; 3400.00 Stück; 3400.00 Stk.
+**Erklärung:** 6.400 − (2.900 − 400) − 1.200 + 700 = 6.400 − 2.500 − 1.200 + 700 = 3.400 Packungen. Ohne Berücksichtigung der Reservierung ergäben sich 3.000, ohne den Sicherheitsbestand 2.700.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-05 · Wahr/Falsch
+**Aussage:** Bei der Berechnung des Nettobedarfs wird der Sicherheitsbestand vom Bruttobedarf abgezogen, weil er schon im Lager liegt.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Der Sicherheitsbestand soll nicht verbraucht werden und wird deshalb zum Nettobedarf addiert. Abgezogen werden der verfügbare Lagerbestand (nach Abzug der Reservierungen) und der Bestellbestand.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-3.4-06 · Multiple Choice
+**Frage:** Ein Gewerbe-Set von NordWert enthält 2 Ordnungsmappen und 3 Blockpakete. Jede Ordnungsmappe und jedes Blockpaket wird mit je 1 Siegelaufkleber verschlossen (Beispielwerte). Wie viele Siegelaufkleber werden für einen Primärbedarf von 250 Sets benötigt (ohne Zusatzbedarf und ohne Berücksichtigung von Beständen)?
+- [ ] 750 Stück
+- [ ] 500 Stück
+- [x] 1.250 Stück
+- [ ] 1.500 Stück
+**Erklärung:** Je Set werden 2 × 1 + 3 × 1 = 5 Siegelaufkleber gebraucht. Für 250 Sets sind das 250 × 5 = 1.250 Stück. Der Siegelaufkleber steckt in zwei Baugruppen; die Mengen werden addiert. 750 zählt nur die Blockpakete (250 × 3), 500 nur die Ordnungsmappen (250 × 2), 1.500 verdoppelt die Blockpakete.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-07 · Sortieren
+**Anweisung:** Bringe die Rechenschritte der Nettobedarfsrechnung für eine einzelne Woche in die richtige Reihenfolge.
+1. Bestand vor Beschaffung berechnen: Anfangsbestand + Zugang − Bruttobedarf
+2. Diesen Bestand mit dem Sicherheitsbestand vergleichen
+3. Eine Lücke zum Sicherheitsbestand als Nettobedarf der Woche festhalten
+4. Den Endbestand (Bestand vor Beschaffung + Nettobedarf) als Anfangsbestand der Folgewoche übernehmen
+**Erklärung:** Erst der Bestand vor Beschaffung zeigt, ob der Sicherheitsbestand unterschritten wird; der Vergleich liefert die Lücke, und erst mit dem Nettobedarf steht der Endbestand fest, der die nächste Woche eröffnet.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-08 · Kurzantwort
+**Frage:** Ein Aktionsdisplay muss zu Beginn der Kalenderwoche 44 ausgeliefert werden. Sein Aufbau dauert 2 Wochen, die Konfektionierung der dafür nötigen Teilpakete davor 1 Woche, und die Wiederbeschaffungszeit der Banderolen für die Teilpakete beträgt 4 Wochen (Beispielwerte; Termine, Bestellungen und Lieferungen liegen jeweils am Anfang einer Kalenderwoche). In welcher Kalenderwoche muss die Banderole spätestens bestellt werden? Antworte mit der Wochennummer.
+**Akzeptierte Antworten:** 37; KW 37; Woche 37; Kalenderwoche 37; 37. KW; 37. Woche; 37. Kalenderwoche
+**Erklärung:** Die Teilpakete müssen zu Beginn der KW 42 bereitstehen (44 − 2), ihre Teile zu Beginn der KW 41 (42 − 1). Bestellt wird eine Wiederbeschaffungszeit früher: 41 − 4 = KW 37.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-09 · Kurzantwort
+**Frage:** NordWert bezieht Packband (Beispielwerte): Jahresbedarf 20.000 Rollen, Einstandspreis 2,00 € je Rolle, bestellfixe Kosten 54 € je Bestellung, Lagerkostensatz 12 % (als Dezimalzahl 0,12 einsetzen). Wie hoch ist die optimale Bestellmenge in Rollen (√(2 × Jahresbedarf × bestellfixe Kosten ÷ (Einstandspreis × Lagerkostensatz)); gleichmäßiger Verbrauch, kein Mengenrabatt, ganze Rollen)?
+**Akzeptierte Antworten:** 3000; 3.000; 3000,00; 3.000,00; 3000.00; 3000 Rollen; 3000 Stück; 3000 Stk.; 3.000 Rollen; 3.000 Stück; 3.000 Stk.; 3000,00 Rollen; 3000,00 Stück; 3000,00 Stk.; 3.000,00 Rollen; 3.000,00 Stück; 3.000,00 Stk.; 3000.00 Rollen; 3000.00 Stück; 3000.00 Stk.
+**Erklärung:** √(2 × 20.000 × 54 ÷ (2,00 × 0,12)) = √(2.160.000 ÷ 0,24) = √9.000.000 = 3.000 Rollen. Das sind 20.000 ÷ 3.000 ≈ 6,67 Bestellungen im Jahr; Bestellkosten (20.000 ÷ 3.000 × 54 € = 360 €) und Lagerkosten (1.500 × 2,00 € × 0,12 = 360 €) sind gleich hoch.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-10 · Kurzantwort
+**Frage:** Für Faltkartons gelten (Beispielwerte): Jahresbedarf 75.000 Stück, Einstandspreis 0,80 € je Stück, bestellfixe Kosten 45 € je Bestellung, Lagerkostensatz 15 % (als Dezimalzahl 0,15 einsetzen). Wie hoch sind die Bestell- und Lagerkosten zusammen im Jahr bei der optimalen Bestellmenge (Formel nach Andler; gleichmäßiger Verbrauch, kein Mengenrabatt), in Euro?
+**Akzeptierte Antworten:** 900; 900,00; 900.00; 900 €; 900 Euro; 900 EUR; 900,00 €; 900,00 Euro; 900,00 EUR; 900.00 €; 900.00 Euro; 900.00 EUR
+**Erklärung:** Optimale Bestellmenge = √(2 × 75.000 × 45 ÷ (0,80 × 0,15)) = √(6.750.000 ÷ 0,12) = √56.250.000 = 7.500 Stück. Das sind 10 Bestellungen: Bestellkosten 10 × 45 € = 450 €, Lagerkosten 7.500 ÷ 2 × 0,80 € × 0,15 = 450 €, zusammen 900 €.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.4-11 · Mehrfachauswahl
+**Frage:** Welche Annahmen liegen der Formel der optimalen Bestellmenge zugrunde?
+- [x] Der Jahresbedarf ist bekannt und wird gleichmäßig verbraucht.
+- [ ] Die Lieferung trifft in mehreren Teilmengen über das Jahr verteilt ein.
+- [x] Der Einstandspreis bleibt unabhängig von der Bestellmenge gleich.
+- [ ] Fehlmengen sind erlaubt und werden mit eigenen Kosten bewertet.
+- [x] Die bestellfixen Kosten sind für jede Bestellung gleich hoch.
+**Erklärung:** Die Formel setzt gleichmäßigen, bekannten Bedarf, einen mengenunabhängigen Preis und konstante Kostensätze voraus. Die ganze Menge wird auf einmal geliefert, Fehlmengen kommen nicht vor.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-3.4-12 · Kurzantwort
+**Frage:** Für Faltkartons (Jahresbedarf 75.000 Stück, bestellfixe Kosten 45 € je Bestellung, Lagerkostensatz 15 %) bietet ein Lieferunternehmen bei Abnahme von 15.000 Stück je Bestellung einen Preis von 0,784 € statt 0,80 € je Stück (Beispielwerte). Wie hoch sind die Gesamtkosten im Jahr (Einkaufswert + Bestellkosten + Lagerkosten; Lagerkosten = Bestellmenge ÷ 2 × Einstandspreis × Lagerkostensatz) bei dieser Bestellmenge, in Euro?
+**Akzeptierte Antworten:** 59907; 59.907; 59907,00; 59.907,00; 59907.00; 59907 €; 59907 Euro; 59907 EUR; 59.907 €; 59.907 Euro; 59.907 EUR; 59907,00 €; 59907,00 Euro; 59907,00 EUR; 59.907,00 €; 59.907,00 Euro; 59.907,00 EUR; 59907.00 €; 59907.00 Euro; 59907.00 EUR
+**Erklärung:** Einkaufswert 75.000 × 0,784 € = 58.800 €. Bestellungen: 75.000 ÷ 15.000 = 5, Bestellkosten 5 × 45 € = 225 €. Lagerkosten 15.000 ÷ 2 × 0,784 € × 0,15 = 882 €. Summe 58.800 + 225 + 882 = 59.907 €. Bei der optimalen Menge von 7.500 Stück zu 0,80 € betragen die Gesamtkosten 60.000 € + 900 € = 60.900 €; der Rabatt spart also 993 €.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-3.4-13 · Kurzantwort
+**Frage:** NordWert prüft, Werbeartikel für die Eigenmarke selbst zu bedrucken (Beispielwerte). Die Eigenfertigung verursacht zusätzliche fixe Kosten von 6.900 € pro Jahr sowie variable Kosten von 0,85 € je Stück; ein Lieferunternehmen bietet bedruckte Artikel für 1,45 € je Stück an. Ab welcher Jahresmenge lohnt sich die Eigenfertigung, wie hoch ist also die kritische Menge in Stück (fixe Kosten ÷ (Einstandspreis − variable Kosten je Stück))?
+**Akzeptierte Antworten:** 11500; 11.500; 11500,00; 11.500,00; 11500.00; 11500 Stück; 11500 Stk.; 11.500 Stück; 11.500 Stk.; 11500,00 Stück; 11500,00 Stk.; 11.500,00 Stück; 11.500,00 Stk.; 11500.00 Stück; 11500.00 Stk.
+**Erklärung:** 6.900 ÷ (1,45 − 0,85) = 6.900 ÷ 0,60 = 11.500 Stück. Bei 11.500 Stück kosten beide Wege 16.675 €; bei höherem Bedarf gewinnt die Eigenfertigung, bei niedrigerem der Fremdbezug.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-14 · Kurzantwort
+**Frage:** NordWert vergleicht für die Zustellung im Raum Hamburg einen eigenen Lkw mit einem Paketdienst (Beispielwerte, Monatswerte): Der Lkw verursacht fixe Kosten von 5.400 € und variable Kosten von 3,60 € je Zustellung, der Paketdienst berechnet 9,00 € je Zustellung. Um wie viel Euro ist die Eigenleistung bei 1.320 Zustellungen im Monat günstiger als der Fremdbezug?
+**Akzeptierte Antworten:** 1728; 1.728; 1728,00; 1.728,00; 1728.00; 1728 €; 1728 Euro; 1728 EUR; 1.728 €; 1.728 Euro; 1.728 EUR; 1728,00 €; 1728,00 Euro; 1728,00 EUR; 1.728,00 €; 1.728,00 Euro; 1.728,00 EUR; 1728.00 €; 1728.00 Euro; 1728.00 EUR
+**Erklärung:** Eigenleistung: 5.400 € + 1.320 × 3,60 € = 10.152 €. Fremdbezug: 1.320 × 9,00 € = 11.880 €. Differenz 11.880 € − 10.152 € = 1.728 €. Die kritische Menge liegt bei 5.400 ÷ (9,00 − 3,60) = 1.000 Zustellungen; darüber lohnt sich der eigene Lkw.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-15 · Lückentext (Wortauswahl)
+**Text:** Die Menge, bei der Eigenfertigung und Fremdbezug gleich teuer sind, heißt ___kritische___ Menge. Liegt der Bedarf darüber, ist die ___Eigenfertigung___ günstiger.
+**Zusätzliche Begriffe:** Fremdbezug; optimale; Sicherheitsbestand
+**Erklärung:** Die kritische Menge ergibt sich aus den zusätzlichen fixen Kosten der Eigenfertigung geteilt durch den Unterschied zwischen Einstandspreis und variablen Kosten. Mit wachsender Menge verteilen sich die Fixkosten auf mehr Stück, deshalb gewinnt oberhalb der kritischen Menge die Eigenfertigung.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-3.4-16 · Was passt nicht dazu
+**Frage:** Welcher Gesichtspunkt gehört nicht zu den qualitativen Kriterien einer Make-or-Buy-Entscheidung, sondern zur Kostenrechnung?
+- [ ] Schutz des eigenen Know-hows
+- [ ] Abhängigkeit von einem Lieferunternehmen
+- [ ] Flexibilität bei sinkendem Absatz
+- [x] Fixe Kosten einer Abfüllanlage
+**Erklärung:** Fixe Kosten gehen in die rechnerische Gegenüberstellung der Kosten und in die kritische Menge ein. Abhängigkeit, Know-how und Flexibilität lassen sich schwer in Euro fassen und werden zusätzlich bewertet, etwa mit einer Nutzwertanalyse.
+`schwierigkeit: mittel` · `bloom: analysieren`
