@@ -5,7 +5,7 @@ fachgebiet_title: "Betriebliches Management"
 thema_code: "HSQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Betriebliches Management, Teil der Handlungsspezifischen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -71,6 +71,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine Organisationsanpassung erfolgt auf Basis einer systematischen Erfassung des Ist-Zustands durch eine Organisationsanalyse.
   - Erwartung: Typische Reorganisationsformen sind die (De-)Zentralisierung von Entscheidungsbefugnissen, die stärkere Prozessorientierung oder die Einführung einer Matrixorganisation; bei NordWert könnte etwa der bislang standortweise organisierte Einkauf zentral gebündelt werden, um Einkaufskonditionen zu verbessern und Prozesse zu vereinheitlichen.
   - Rückfrage: Welche Instrumente der Organisationsanalyse kennen Sie?
+- Die Geschäftsführung der NordWert Handels GmbH möchte die Zusammenarbeit an einem Standort verbessern und fragt Sie, ob sie eine Beratung mit einem fertigen Organisationskonzept beauftragen oder einen Prozess der Organisationsentwicklung beginnen soll. Wie beraten Sie sie?
+  - Erwartung: Organisationsentwicklung ist ein langfristig angelegter, geplanter Entwicklungsprozess, den die Beschäftigten selbst tragen: Sie entwickeln Strukturen, Abläufe, Zusammenarbeit und Kultur gemeinsam weiter; sie verfolgt wirtschaftliche Leistungsfähigkeit und Arbeitszufriedenheit zugleich und stärkt die Fähigkeit des Unternehmens, sich selbst zu erneuern.
+  - Erwartung: Ein fertiges Konzept von außen entspricht einer Reorganisation im Expertenansatz: Die Soll-Struktur steht vorab fest und wird eingeführt. Change-Management bezeichnet allgemein den geplanten, systematisch gesteuerten Wandel, im engeren Sinn die Steuerung eines einzelnen Vorhabens mit festem Ziel und Ende bis zur Verankerung; von Organisationsentwicklung ist erst die Rede, wenn Beteiligung, Langfristigkeit und Hilfe zur Selbsthilfe hinzukommen. Die Begriffe werden nicht einheitlich verwendet, die Ansätze ergänzen sich.
+  - Erwartung: Merkmale der OE sind Beteiligung (Beschäftigte als Expert:innen ihrer Arbeitssituation), Hilfe zur Selbsthilfe durch Begleiter:innen, die Fragen und Methoden statt Lösungen einbringen, Prozessorientierung, die Verbindung von personalem und strukturalem Ansatz sowie ein wiederholter Kreislauf aus Daten sammeln, zurückmelden, deuten, handeln und prüfen.
+  - Erwartung: Geeignete Instrumente sind die Survey-Feedback-Methode, Workshops und Zukunftswerkstatt, Teamentwicklung, Prozessberatung im Gegensatz zur Expertenberatung und ein Pilotprojekt mit vorher festgelegten Erfolgskriterien.
+  - Erwartung: Die Empfehlung hängt von der Lage ab: Geht es um Zusammenarbeit, Mitsprache und Kultur, passt die OE; bei einer eng umrissenen Sachfrage unter Zeitdruck kann Expertenwissen schneller sein, sollte aber mit Beteiligung der Betroffenen verbunden werden.
+  - Rückfrage: Welche Phasen durchläuft eine Zukunftswerkstatt?
+- Wie sorgen Sie dafür, dass ein Veränderungsvorhaben von den richtigen Personen getragen wird, und woran erkennen Sie, ob es gelingt?
+  - Erwartung: Eine Betroffenenanalyse (Stakeholder-Analyse) sammelt die Gruppen, bewertet sie nach Einfluss und Interesse sowie Einstellung und leitet daraus die Einbindung ab: eng einbinden, zufriedenstellen, informieren und beteiligen oder beobachten; sie wird an den Meilensteinen fortgeschrieben, die Arbeitnehmervertretung wird frühzeitig einbezogen.
+  - Erwartung: Nach dem Promotorenmodell braucht ein Vorhaben Macht-, Fach-, Prozess- und Beziehungspromotor:innen, die die Barrieren des Nicht-Wollens und Nicht-Wissens sowie organisatorische Hürden innerhalb des Unternehmens und fehlende Beziehungen über seine Grenzen hinweg überwinden; sie wirken im Zusammenspiel, und die Einwände von Opponent:innen werden ernst genommen.
+  - Erwartung: Für jede Zielgruppe hält ein Kommunikationsplan Botschaft, Kanal, Zeitpunkt, Absender:in und Rückkanal fest; kommuniziert wird früh, ehrlich, verständlich, wiederholt und zweiseitig, Führungskräfte vor ihren Teams.
+  - Erwartung: Das Change-Controlling arbeitet mit Meilensteinen als Entscheidungspunkten, harten Ergebniskennzahlen und weichen Kennzahlen wie Teilnahme-, Rücklauf- und Akzeptanzquote (zustimmende ÷ gültige Antworten × 100); wie sich eine Quote verändert, wird in Prozentpunkten ausgedrückt.
+  - Erwartung: Nach Projektende werden Anzeichen eines Rückfalls in alte Muster beobachtet, etwa ausfallende Teamrunden, Nebenlisten oder sinkende Kennzahlen, und mit geschlossenen alten Wegen, festgeschriebenen Abläufen, benannten Verantwortlichen und Folgebefragungen beantwortet.
+  - Rückfrage: Worin unterscheiden sich Prozesspromotor:innen von Prozessverantwortlichen (Prozess-Ownern)?
 
 ### 1.3 Informationstechnologie im Management
 
@@ -135,4 +149,64 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Check-Phase des PDCA-Zyklus werden Ergebnisse mit dem geplanten Ziel verglichen, bei Management by Objectives wird am Ende der Periode der Zielerreichungsgrad gemeinsam überprüft.
   - Erwartung: Eisenhower-Prinzip und ALPEN-Methode helfen, die dafür nötige Zeit im Führungsalltag überhaupt freizuschaufeln.
   - Rückfrage: Wofür stehen die Buchstaben der ALPEN-Methode?
+- Die NordWert Handels GmbH möchte in einem Workshop mit Beschäftigten aus mehreren Abteilungen und Bereichen neue Ideen entwickeln, wie Kleinaufträge wirtschaftlicher abgewickelt werden können. Welche Kreativitätstechniken schlagen Sie vor, und wie kommen Sie von den gesammelten Ideen zu einer Entscheidung?
+  - Erwartung: Sammeln und Bewerten werden zeitlich getrennt: zuerst divergierendes Denken (möglichst viele, auch ungewohnte Ideen, keine Kritik), danach konvergierendes Denken (ordnen, prüfen, auswählen).
+  - Erwartung: Intuitiv-assoziative Techniken: Brainstorming mit seinen Regeln (keine Kritik in der Sammelphase, Menge vor Güte, ungewöhnliche Einfälle erwünscht, Ideen anderer aufgreifen), Brainwriting wie die Methode 635 bei hierarchisch gemischten Gruppen oder zurückhaltenden Teilnehmenden, Mindmapping zum Gliedern des Problems.
+  - Erwartung: Systematisch-analytische Techniken: morphologischer Kasten (Problem in Merkmale zerlegen, Ausprägungen kombinieren) oder Osborn-Checkliste (bestehende Lösung mit Leitfragen abwandeln); analogiebasiert Synektik oder Perspektivwechsel mit Denkhüten, wenn die naheliegenden Ideen ausgeschöpft sind.
+  - Erwartung: In der konvergierenden Phase werden Ideen geclustert, Unbrauchbares aussortiert und per Punktabfrage vorausgewählt; Muss-Kriterien werden geprüft, Kriterien und Gewichte vorab festgelegt (etwa per Paarvergleich), die Bewertung erfolgt mit einer Nutzwertanalyse und einer Sensitivitätsprüfung.
+  - Erwartung: Das Ergebnis wird dokumentiert, mit Verantwortlichen und Terminen versehen und bei knappen Abständen zunächst im Kleinen erprobt, etwa im PDCA-Zyklus.
+  - Rückfrage: Warum eignet sich die Methode 635 besonders, wenn Führungskräfte am Workshop teilnehmen?
+- Die Geschäftsführung muss zwischen mehreren Alternativen wählen, deren Ergebnis von der künftigen Marktentwicklung abhängt. Wie gehen Sie vor, wenn sich Wahrscheinlichkeiten schätzen lassen, und wie, wenn das nicht möglich ist?
+  - Erwartung: Unterschieden werden Entscheidungen unter Sicherheit (Ergebnisse stehen fest), unter Risiko (Wahrscheinlichkeiten bekannt oder aus Erfahrungsdaten schätzbar) und unter Unsicherheit (Zustände bekannt, keine belastbaren Wahrscheinlichkeiten).
+  - Erwartung: Unter Risiko wird der Erwartungswert je Alternative gebildet (Summe aus Wahrscheinlichkeit × Ergebnis); bei mehrstufigen Entscheidungen hilft ein Entscheidungsbaum mit Entscheidungs- und Ereignisknoten, der von rechts nach links ausgewertet wird, wobei einmalige Auszahlungen genau einmal abgezogen werden.
+  - Erwartung: Der Erwartungswert ist ein Durchschnitt und verdeckt hohe Verluste; deshalb werden das schlechteste Ergebnis und die Risikotragfähigkeit zusätzlich betrachtet. Vom Risikoerwartungswert der Risikomatrix (Eintrittswahrscheinlichkeit × Schadenshöhe eines einzelnen Schadensereignisses) unterscheidet er sich dadurch, dass er alle Zustände mit Gewinnen und Verlusten zusammenfasst und der Auswahl zwischen Alternativen dient.
+  - Erwartung: Unter Unsicherheit wird eine Ergebnismatrix aus Alternativen und Umweltzuständen aufgestellt und eine Entscheidungsregel angewandt: Maximin (das höchste der schlechtesten Ergebnisse), Maximax (das höchste der besten Ergebnisse), Laplace (gleiche Wahrscheinlichkeiten), Hurwicz (Optimismusparameter gewichtet bestes und schlechtestes Ergebnis), Savage-Niehans (kleinstes größtes Bedauern).
+  - Erwartung: Die Regeln spiegeln Haltungen zum Risiko und werden vorab festgelegt und begründet; führen mehrere Regeln zur selben Alternative, ist die Wahl robust; zusätzliche Informationen wie ein Pilotversuch oder eine Marktforschung lohnen sich, wenn ihr Wert ihre Kosten übersteigt.
+  - Rückfrage: Worin unterscheidet sich die Ergebnismatrix der Entscheidungsregeln von der Entscheidungsmatrix der Nutzwertanalyse?
 
+### 1.5 Betriebsstatistik
+
+- Wie beschreiben Sie den Absatz eines Artikels mit Lage- und Streuungsmaßen, und welche Schlüsse ziehen Sie daraus für die Disposition?
+  - Erwartung: Das arithmetische Mittel fasst die Werte zusammen; haben die Werte unterschiedliches Gewicht, etwa Mengen oder Auftragszahlen, ist das gewogene Mittel zu verwenden.
+  - Erwartung: Der Median ist bei Ausreißern und schiefen Verteilungen robuster als das arithmetische Mittel; für nominale Merkmale gibt es nur den Modus.
+  - Erwartung: Die Streuung beschreiben Spannweite, Varianz (Summe der quadrierten Abweichungen ÷ n bei einer Vollerhebung, ÷ (n − 1) beim Schluss von einer Stichprobe) und Standardabweichung als Wurzel der Varianz in der Einheit der Werte.
+  - Erwartung: Der Variationskoeffizient (Standardabweichung ÷ Mittel × 100) macht Artikel mit unterschiedlichem Absatzniveau vergleichbar und ist eine Grundlage der XYZ-Analyse.
+  - Erwartung: Gleichmäßig abgesetzte Artikel können weitgehend automatisch mit kleinem Sicherheitsbestand disponiert werden; stark schwankende brauchen einen höheren Sicherheitsbestand oder eine Beschaffung im Bedarfsfall.
+  - Rückfrage: Warum ist das einfache Mittel der Reklamationsquoten mehrerer Standorte meist falsch?
+- Wie messen Sie mit Indexzahlen die Preis- und Mengenentwicklung Ihres Sortiments, und worauf achten Sie bei der Auswertung?
+  - Erwartung: Messzahlen vergleichen eine Größe mit einem Basiswert = 100; Indexzahlen fassen mehrere Messzahlen gewichtet zusammen, als Preis-, Mengen- oder Wertindex.
+  - Erwartung: Der Preisindex nach Laspeyres rechnet mit den Mengen der Basisperiode (Σ p₁ × q₀ ÷ Σ p₀ × q₀ × 100), der nach Paasche mit den Mengen der Berichtsperiode; Laspeyres ist einfacher und über die Jahre vergleichbar, Paasche aktueller.
+  - Erwartung: Der Wertindex ergibt sich aus Preis- und Mengenindex (Laspeyres-Preisindex × Paasche-Mengenindex ÷ 100 oder umgekehrt); mit realer Wert = nominaler Wert ÷ Preisindex × 100 wird ein Umsatz in Preisen des Basisjahrs umgerechnet.
+  - Erwartung: Eine Umbasierung teilt alle Werte durch den Wert des neuen Basisjahrs und multipliziert mit 100; eine Verkettung schließt eine neue Reihe über das Verknüpfungsjahr an die alte an. Ein Abstand in Indexpunkten ist nur dann zugleich ein Prozentwert, wenn der Vergleichswert 100 beträgt.
+  - Rückfrage: Warum kann der Paasche-Index niedriger ausfallen als der Laspeyres-Index?
+- Wie nutzen Sie Zeitreihen- und Zusammenhangsanalysen für die Absatzplanung eines Großhändlers, und welche Fehler vermeiden Sie dabei?
+  - Erwartung: Eine Zeitreihe enthält Trend, Konjunktur, Saison und Zufall; im additiven Modell ist der Saisonausschlag gleich groß, im multiplikativen wächst er mit dem Niveau.
+  - Erwartung: Der Trend wird mit einer Geraden ŷ = a + b × t beschrieben (Methode der kleinsten Quadrate, überschlägig durch zwei Punkte oder aus gleitenden Durchschnitten); der Saisonindex ist der Durchschnitt der Verhältnisse Istwert ÷ Trendwert gleichnamiger Perioden, die Prognose Trendwert × Saisonindex.
+  - Erwartung: Der Korrelationskoeffizient zwischen −1 und +1 zeigt Richtung und Stärke eines linearen Zusammenhangs; Korrelation ist keine Ursache, eine dritte Größe wie die Saison kann eine Scheinkorrelation erzeugen.
+  - Erwartung: Irreführend sind zum Beispiel abgeschnittene Achsen, dreidimensionale Diagramme, absolute statt relativer Zahlen und fehlende Angaben zu Basis und Zeitraum.
+  - Erwartung: Voraussetzung ist eine hohe Datenqualität (vollständig, richtig, aktuell, einheitlich, eindeutig) mit einheitlichen Definitionen an allen Standorten, etwa beim Zusammenführen im Data Warehouse.
+  - Rückfrage: Woran erkennen Sie, ob das additive oder das multiplikative Saisonmodell besser passt?
+
+### 1.6 Wissensmanagement
+
+- Ein langjähriger Außendienstmitarbeiter der NordWert Handels GmbH geht in einem Jahr in den Ruhestand. Wie gehen Sie vor, damit sein Wissen dem Unternehmen erhalten bleibt?
+  - Erwartung: Zuerst wird das Wissen erfasst und nach seinem Verlustrisiko bewertet: Wie wichtig ist es für Kundschaft, Umsatz und Abläufe, wie viele Personen beherrschen es, ist es dokumentiert, und wann scheidet die Wissensträger:in aus? Eine Wissenslandkarte macht Wissensinseln sichtbar.
+  - Erwartung: Explizites Wissen wie Verträge, Konditionen und Bestellhistorie wird geordnet und im CRM-System oder in der Wissensdatenbank abgelegt; implizites Wissen wie Gespür für Kundschaft und Verhandlungen lässt sich nur teilweise aufschreiben und wird vor allem durch gemeinsame Arbeit weitergegeben.
+  - Erwartung: Die Nachfolge wird früh bestimmt und in einem Tandem mit Überlappungszeit eingearbeitet, etwa mit gemeinsamen Kundenbesuchen, bei denen die Nachfolge der Kundschaft vorgestellt wird.
+  - Erwartung: Kurz vor dem Ausscheiden halten ein Austrittsgespräch zur Wissenssicherung und ein Übergabeprotokoll offene Vorgänge, Fristen, Ansprechpersonen, Ablageorte und Zugänge fest; Zugänge werden über die IT neu vergeben.
+  - Erwartung: Für personenbezogene Notizen und vertrauliche Konditionen gelten die Datenschutzgrundsätze aus Thema 1.3 und abgestufte Zugriffsrechte; die gesetzlichen Vorgaben werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+  - Rückfrage: Warum lässt sich nicht das gesamte Wissen eines erfahrenen Außendienstmitarbeiters dokumentieren?
+- Erläutern Sie das SECI-Modell an Beispielen aus einem Großhandelsunternehmen, und ordnen Sie den Phasen passende Instrumente zu.
+  - Erwartung: Das SECI-Modell nach Nonaka und Takeuchi beschreibt vier Formen der Wissensumwandlung zwischen implizitem und explizitem Wissen, die sich als Wissensspirale von der Person über das Team zur Organisation wiederholen.
+  - Erwartung: Sozialisation (implizit → implizit): gemeinsames Arbeiten und Erleben, zum Beispiel begleitet eine neue Außendienstmitarbeiterin einen erfahrenen Kollegen zu Kundenterminen; passende Instrumente sind Tandem, Mentoring und Communities of Practice.
+  - Erwartung: Externalisierung (implizit → explizit): Erfahrungswissen wird erstmals aufgeschrieben, zum Beispiel Packregeln eines Schichtleiters als bebilderte Anweisung; passende Instrumente sind Interviews, Lessons Learned und Checklisten.
+  - Erwartung: Kombination (explizit → explizit): vorhandene Unterlagen werden geordnet und verknüpft, zum Beispiel Datenblätter, Packregeln und Schadensauswertungen zu einem Sortimentshandbuch; passende Instrumente sind Wiki, Wissensdatenbank und Handbuch.
+  - Erwartung: Internalisierung (explizit → implizit): Unterlagen werden durch Anwendung verinnerlicht, zum Beispiel arbeitet ein neuer Mitarbeiter im Innendienst mit dem Sortimentshandbuch, bis er Ersatzartikel ohne Nachschlagen empfiehlt; passende Instrumente sind das Arbeiten mit Checklisten und Handbüchern im Tagesgeschäft, die Einarbeitung mit Übungsfällen und das Lernen am Arbeitsplatz.
+  - Rückfrage: Woran unterscheiden Sie Externalisierung und Kombination, obwohl beide Unterlagen erzeugen?
+- Die Geschäftsleitung hat vor zwei Jahren eine Wissensdatenbank eingeführt, die kaum genutzt wird. Welche Ursachen vermuten Sie, und wie würden Sie das Wissensmanagement künftig steuern und messen?
+  - Erwartung: Mögliche Barrieren sind Wissen als Machtmittel, Zeitdruck, Informationsüberflutung durch doppelte oder veraltete Inhalte, fehlende Anreize, Bereichs- und Standortdenken, eine Fehlerkultur, in der Fehler verschwiegen werden, und umständliche Werkzeuge.
+  - Erwartung: Führungskräfte wirken als Vorbild, planen Zeit für Dokumentation ein, nehmen Wissensziele in Zielvereinbarungen auf, erkennen Beiträge an und benennen Verantwortliche, die Inhalte prüfen und aktualisieren.
+  - Erwartung: Nach dem Bausteinmodell nach Probst, Raub und Romhardt werden Wissensziele aus der Zielhierarchie abgeleitet und SMART formuliert; die Wissensbewertung vergleicht das Erreichte mit den Zielen und schließt den Kreislauf.
+  - Erwartung: Kennzahlen sind zum Beispiel Nutzungsquote, Beitragsquote, Aktualitätsquote, Anteil dokumentierter Kernprozesse und Abdeckungsgrad kritischer Wissensgebiete, dazu Wirkungsgrößen wie Such- und Einarbeitungszeiten; ändert sich eine Quote, wird die Differenz in Prozentpunkten angegeben.
+  - Erwartung: Eine Wissensbilanz beschreibt und bewertet das immaterielle Vermögen in Humankapital, Strukturkapital und Beziehungskapital; ihre Einschätzungen sind teilweise subjektiv und nicht in Euro bewertet.
+  - Rückfrage: Was unterscheidet Anpassungslernen von Veränderungslernen?
