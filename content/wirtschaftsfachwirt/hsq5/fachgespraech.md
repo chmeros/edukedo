@@ -5,7 +5,7 @@ fachgebiet_title: "Führung und Zusammenarbeit"
 thema_code: "HSQ5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Führung und Zusammenarbeit, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -168,3 +168,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Kritische oder herausfordernde Rückfragen werden sachlich und ruhig beantwortet, ohne sich zu rechtfertigen oder defensiv zu wirken.
   - Rückfrage: Wie könnte eine kurze Rückfrage zur Klärung formuliert sein?
 
+### 5.5 Teamarbeit und Kommunikationsmodelle
+
+- Ein neues, standortübergreifendes Projektteam beginnt seine Arbeit. Wie entwickelt sich das Team, und wie passen Sie Ihre Führung an die einzelnen Phasen an?
+  - Erwartung: Nach Tuckman durchläuft ein Team die Phasen Forming (Orientierung), Storming (Konfrontation), Norming (Organisation) und Performing (Leistung), bei befristeten Teams folgt Adjourning (Auflösung); es ist ein Idealmodell, die Phasen überlappen und dauern unterschiedlich lang.
+  - Erwartung: Im Forming gibt die Teamleitung Orientierung (Ziel, Auftrag, Rahmen), im Storming lässt sie Konflikte zu und bearbeitet sie strukturiert, im Norming hält sie Teamregeln fest und gibt Verantwortung ab, im Performing lässt sie Freiräume und fördert die Entwicklung.
+  - Erwartung: Die Storming-Phase ist ein normaler Entwicklungsschritt und kein Scheitern des Teams; wer Konflikte unterdrückt, verschiebt sie nur.
+  - Erwartung: Neue Mitglieder, eine neue Leitung oder eine neue Aufgabe können ein Team in eine frühere Phase zurückwerfen; im Adjourning werden Ergebnisse gesichert, Erfahrungen ausgewertet (Lessons Learned) und die Leistung gewürdigt.
+  - Rückfrage: Warum steigt der Abstimmungsaufwand mit der Teamgröße überproportional?
+- Wie setzen Sie ein Team zusammen, und was sagt Ihnen das Teamrollenmodell von Belbin dabei? Wo liegen seine Grenzen?
+  - Erwartung: Formelle Rollen ergeben sich aus Organisation und Auftrag (Teamleitung, Projektleitung, Protokollführung), informelle Rollen entstehen aus dem Verhalten (Meinungsführer:in, Vermittler:in); unklare Rollen führen zu Rollenkonflikten.
+  - Erwartung: Belbin beschreibt neun Teamrollen in drei Gruppen (handlungs-, kommunikations- und wissensorientiert), jede mit typischem Beitrag und typischer Schwäche.
+  - Erwartung: Entscheidend ist Ausgewogenheit statt Vollständigkeit: die für die Aufgabe wichtigen Rollen sind vertreten, mehrere Mitglieder konkurrieren nicht um dieselbe Rolle, Stärken und Schwächen ergänzen sich.
+  - Erwartung: Grenzen sind die Selbsteinschätzung, die begrenzte empirische Absicherung, die Abhängigkeit von der Situation und die Gefahr von Schubladen; das Modell ersetzt nicht die fachliche Eignung.
+  - Rückfrage: Was bedeutet es für ein Team, wenn zwei Mitglieder dieselbe führende Rolle bevorzugen?
+- In Ihrem virtuellen Team bleiben Nachrichten unbeantwortet, und die Besprechungen sind lang und folgenlos. Wie gehen Sie vor, und welche Kommunikationsmodelle helfen Ihnen dabei?
+  - Erwartung: Das Team vereinbart Teamregeln (welcher Kanal für was, Antwortzeiten, wann eine Aufgabe als übernommen gilt, wo Ergebnisse liegen) und hält Ergebnisse schriftlich fest.
+  - Erwartung: Besprechungen werden mit Ziel, Tagesordnung, Dauer und passendem Teilnehmerkreis vorbereitet, moderiert und mit „Wer macht was bis wann?“ abgeschlossen; die Besprechungskosten (Teilnehmende × Dauer × Personalkostensatz) machen den Aufwand sichtbar, erfassen aber nur gebundene Arbeitszeit.
+  - Erwartung: Nach Watzlawick kann man nicht nicht kommunizieren: Auch Nichtantworten wird gedeutet, und die Beteiligten setzen die Ursachen oft unterschiedlich (Interpunktion); man spricht es an, statt zu deuten.
+  - Erwartung: Das Johari-Fenster zeigt, dass Feedback den blinden Fleck verkleinert; gebendes Feedback folgt Beobachtung, Wirkung und Wunsch und wird im Team regelmäßig eingeholt, zum Beispiel als Blitzlicht oder Retrospektive.
+  - Rückfrage: Worin unterscheiden sich Feedback und Kritik?

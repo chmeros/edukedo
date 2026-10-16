@@ -5,7 +5,7 @@ fachgebiet_title: "Unternehmensführung"
 thema_code: "WBQ4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Unternehmensführung, Teil der Wirtschaftsbezogenen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -80,6 +80,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Near-the-job-Maßnahmen finden in unmittelbarer Nähe zum Arbeitsplatz, aber außerhalb der eigentlichen Tätigkeit statt, z. B. ein Qualitätszirkel-Treffen.
   - Erwartung: Ein systematischer Personalentwicklungsprozess beginnt mit einer Bedarfsanalyse, gefolgt von Auswahl und Durchführung der Maßnahmen und einer abschließenden Erfolgskontrolle.
   - Rückfrage: Wovon hängt es ab, welche Personalentwicklungsmaßnahme sinnvoll ist?
+- Wie ordnen Sie Ihr Führungsverhalten mit dem Verhaltensgitter und dem Reifegradmodell ein, und was folgt daraus für Ihre Führung?
+  - Erwartung: Das Verhaltensgitter nach Blake und Mouton ordnet Aufgaben- und Mitarbeiterorientierung unabhängig voneinander auf Skalen von 1 bis 9 ein (erste Zahl Aufgabenorientierung, zweite Zahl Mitarbeiterorientierung); 9.1 ist Aufgabenführung, 1.9 Wohlfühlführung, 1.1 minimale Führung, 5.5 Mittelweg und 9.9 Teamführung als Zielbild; Grenzen sind das lageunabhängige Zielbild und die subjektive Einordnung (Selbst- und Fremdbild weichen ab).
+  - Erwartung: Beim Reifegradmodell nach Hersey und Blanchard wird der Reifegrad (Kompetenz und Bereitschaft) je Aufgabe eingeschätzt: Anweisen bei niedriger Kompetenz und niedriger oder unsicherer Bereitschaft, Überzeugen bei niedriger bis mittlerer Kompetenz und hoher Bereitschaft, Beteiligen bei hoher Kompetenz und schwankender Bereitschaft, Delegieren bei hoher Kompetenz und hoher Bereitschaft.
+  - Erwartung: Fehlpassungen schaden: Delegieren an Beschäftigte mit niedrigem Reifegrad überfordert, Anweisen bei hohem Reifegrad wirkt als Gängelung; Rückschritte (neues System, Teamwechsel) verlangen vorübergehend wieder engere Führung.
+  - Erwartung: Das Gitter nennt ein festes Zielbild, das Reifegradmodell macht die passende Position von Aufgabe und Geführten abhängig; beide gehören zum Verhaltens- bzw. Situationsansatz, der Eigenschaftsansatz allein erklärt den Führungserfolg nicht.
+  - Rückfrage: Warum bezieht sich der Reifegrad auf die Aufgabe und nicht auf die Person insgesamt?
+- Wie sichern Sie eine Leistungsbeurteilung gegen Verzerrungen ab, und wie berechnen Sie Ergebnis und Zielerreichung?
+  - Erwartung: Beurteilt werden Ergebnisse (vereinbarte Ziele) sowie Verhalten und Arbeitsweise (beobachtbare Kriterien aus der Stellenbeschreibung auf beschriebenen Stufen, gewichtet); der Gesamtwert ist die Summe aus Gewicht × Stufe.
+  - Erwartung: Der Zielerreichungsgrad ist bei Steigerungszielen Ist ÷ Ziel × 100 und bei Senkungszielen Ziel ÷ Ist × 100, gewichtet nach den Zielgewichten, mit vorab vereinbarten Grenzen; davon ist der erreichte Anteil der geplanten Verbesserung abzugrenzen, der den Ausgangswert berücksichtigt.
+  - Erwartung: Fehlerquellen nach Ursache sind ein ausstrahlendes Merkmal (Halo-Effekt), der Zeitpunkt (Recency-Effekt), ein verschobener Maßstab (Milde- und Strengefehler, Tendenz zur Mitte) und Nähe (Sympathie und Ähnlichkeit).
+  - Erwartung: Gegenmittel sind beschriebene Stufen, Bewertung Kriterium für Kriterium mit Belegen, laufende Notizen über den ganzen Zeitraum, Schulung der Beurteilenden, Kalibrierungsrunden und eine zweite Beurteilung bei Zweifeln.
+  - Erwartung: Das Ergebnis wird im Beurteilungsgespräch besprochen (Selbsteinschätzung zuerst, Beobachtungen als Beleg, Ziele und Entwicklungsschritte); Beurteilungsgrundsätze, Beteiligung der Arbeitnehmervertretung und Datenschutz unterliegen gesetzlichen Vorgaben, hier nicht behandelt.
+  - Rückfrage: Warum ist ein auffällig hoher Durchschnitt der Beurteilungen einer Teamleitung allein noch kein Beweis für einen Mildefehler?
 
 ### 4.3 Planungs- und Analysemethoden
 

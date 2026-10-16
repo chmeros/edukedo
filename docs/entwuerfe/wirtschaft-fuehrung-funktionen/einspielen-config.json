@@ -1,0 +1,29 @@
+{
+  "kurs": "wirtschaftsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    ["wifa-5.5-teamarbeit-kommunikationsmodelle.md", "hsq5/5.5-teamarbeit-kommunikationsmodelle.md"]
+  ],
+  "ergaenzungen": [
+    { "datei": "wifa-4.2-ergaenzung-fuehrungstheorien-beurteilung.md", "abschnitte": [["A", "B", "C", "wbq4/4.2-personalfuehrung-entwicklung.md"]] },
+    { "datei": "wifa-1.2-ergaenzung-ziele-produktivitaet-standort.md", "abschnitte": [["A", "B", "C", "wbq1/1.2-betriebliche-grundfunktionen.md"]] }
+  ],
+  "faelle": [
+    ["wifa-faelle-a.md", "hsq5"],
+    ["wifa-faelle-b.md", "wbq4"],
+    ["wifa-faelle-c.md", "wbq1"]
+  ],
+  "ersetzungen": [
+    { "datei": "hsq5/fallaufgaben.md", "paare": [["HSQ5 (5.1–5.4)", "HSQ5 (5.1–5.5)"]] }
+  ],
+  "rechtsstand": [
+    "hsq5/fallaufgaben.md",
+    "hsq5/fachgespraech.md",
+    "wbq4/4.2-personalfuehrung-entwicklung.md",
+    "wbq4/fallaufgaben.md",
+    "wbq4/fachgespraech.md",
+    "wbq1/1.2-betriebliche-grundfunktionen.md",
+    "wbq1/fallaufgaben.md",
+    "wbq1/fachgespraech.md"
+  ]
+}

@@ -5,7 +5,7 @@ fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WBQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Volks- und Betriebswirtschaft, Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -67,6 +67,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Außenfinanzierung bezeichnet Mittel, die von außen zufließen, z. B. Bankkredite, Lieferantenkredite oder Kapitaleinlagen der Gesellschafter.
   - Erwartung: Die Finanzierung stellt die notwendigen finanziellen Mittel bereit und ist damit eine Querschnittsfunktion, die Beschaffung, Produktion und Absatz erst ermöglicht.
   - Rückfrage: Worin unterscheiden sich Eigenkapital und Fremdkapital?
+- Wie gehen Sie vor, wenn Sie für ein Großhandelsunternehmen den Standort eines Lagers auswählen sollen, und wann empfehlen Sie ein gemeinsames Zentrallager für alle Standorte statt Lager an den einzelnen Standorten?
+  - Erwartung: Zuerst werden Muss-Kriterien geprüft, zum Beispiel eine höchstzulässige Lieferzeit zur Kundschaft; dann werden die in Euro messbaren Faktoren in einem Kostenvergleich gegenübergestellt (Fixkosten plus variable Kosten je Lieferung × Menge, Gleichstand bei Fixkostendifferenz ÷ Differenz der Kosten je Lieferung), und Nicht-Messbares wird in einer Nutzwertanalyse bewertet.
+  - Erwartung: Harte Standortfaktoren stehen in Rechnungen und Plänen (Miete, Fracht, Entfernung zur Kundschaft, Verkehrsanbindung, Lohnniveau); weiche entscheiden, ob Beschäftigte gern an den Ort kommen (Ruf der Region, Wohnumfeld, Schulen), und wiegen bei Fachkräftemangel schwerer.
+  - Erwartung: Ein gemeinsames Zentrallager für alle Standorte (nicht das Hauptlager eines Standorts) senkt Gesamtbestand und Lagerfixkosten, verlängert aber Wege und Lieferzeit, erhöht die Fracht und bündelt das Ausfallrisiko an einem Ort; Lager der Standorte sind schneller und ausfallsicherer, verlangen aber mehr Bestand und Abstimmung.
+  - Erwartung: Häufig bleiben Schnelldreher (A- und X-Artikel) in den Lagern der Standorte, und seltene, kleine, hochpreisige Artikel liegen zentral; die Entscheidung hängt an geschätzten Mengen und Frachtsätzen und wird deshalb mit einer Gegenrechnung abgesichert.
+  - Rückfrage: Worauf achten Sie, wenn eine Verlagerung oder Schließung eines Standorts die Beschäftigten betrifft?
+- Die Logistikleitung schlägt eine technische Lösung vor, die die Kommissionierleistung je Arbeitsstunde um 20 % erhöhen soll. Wie beurteilen Sie den Vorschlag, und wo können Zielkonflikte mit anderen Bereichen entstehen?
+  - Erwartung: Die Arbeitsproduktivität ist ein Mengenverhältnis (Positionen je Arbeitsstunde); die Personalkosten je Position ergeben sich als Stundensatz ÷ Arbeitsproduktivität und sinken deshalb bei +20 % nur um rund 16,7 %, und auch das nur, wenn die frei gewordenen Stunden tatsächlich entfallen oder anders genutzt werden.
+  - Erwartung: Dem stehen zusätzliche Kosten gegenüber (Abschreibung, Zinsen, Wartung); die Technik rechnet sich erst ab einer Schwellenmenge (zusätzliche Fixkosten ÷ Einsparung je Position, dieselbe Rechnung wie die kritische Menge beim Make-or-Buy), darunter sinkt die Wirtschaftlichkeit trotz höherer Produktivität.
+  - Erwartung: Produktivität, Wirtschaftlichkeit und Rentabilität messen Verschiedenes (Mengen, bewertete Kosten und Leistung, Gewinn im Verhältnis zum Kapital); keiner der drei Maßstäbe sagt etwas über die Zahlungsfähigkeit. Nicht in Euro messbare Gesichtspunkte wie weniger Fehllieferungen kommen neben die Rechnung.
+  - Erwartung: Zielkonflikte entstehen etwa zwischen dem Ziel der Logistik, mehr Positionen je Stunde zu schaffen, und dem Ziel einer niedrigen Fehllieferungsquote (konkurrierend) oder zwischen Logistik und Controlling; aufgelöst werden sie mit einer Gesamtrechnung, einem Hauptziel mit Mindestbedingungen und Absprachen an den Schnittstellen, damit kein Bereichsegoismus entsteht.
+  - Rückfrage: Warum genügt die Produktivität allein nicht als Maßstab für die Entscheidung?
 
 ### 1.3 Existenzgründung und Unternehmensformen
 
