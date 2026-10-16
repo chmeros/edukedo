@@ -9,7 +9,7 @@ Stand 16.10.2026. Zusammengestellt aus dem Bestand von `content/handelsfachwirt/
 | Filialen im Bestand | Bremen-Mitte, Hannover (Beispiele); fünf Pilotfilialen für „Loreno Living“ | `hb2`, `hb1/1.1` |
 | Sortimentslinie | „Loreno Living“ (nachhaltige Wohnaccessoires, jüngere Zielgruppen, Social Media) | `hb1`, `hb3` |
 | Personalzahlen in `hb2/2.3` (nicht wiederverwenden) | Filiale: Bruttopersonalbedarf 48 Stellen bei 42 Mitarbeitenden; 118 → 122 Mitarbeitende mit 13 Einstellungen und 9 Austritten (Fluktuation 7,5 %); 120 Mitarbeitende mit 200 Solltagen; Filiale mit 58 → 62 Mitarbeitenden, 9 Austritten, 1.512 Krankheitstagen | `hb2/2.3` |
-| Filialnamen in Beispielen und Fällen (seit P-U, bitte nicht doppeln) | Göttingen, Kassel (Standort in `hb2/2.5`, `2.6`), Osnabrück, Kiel, Münster, Rostock (P-U); Bamberg, Regensburg, Würzburg, Heidelberg (P-V); im Bestand außerdem Bremen-Mitte, Hannover. Neue Fälle wählen andere Orte | `hb2` (P-U) |
+| Filialnamen in Beispielen und Fällen (seit P-U, bitte nicht doppeln) | Göttingen, Kassel (Standort in `hb2/2.5`, `2.6`), Osnabrück, Kiel, Münster, Rostock (P-U); Bamberg, Regensburg, Würzburg, Heidelberg (P-V); Fulda (P-X, Entwurf; dort auch „Vertriebsregion Nord“ mit 14 Filialen); im Bestand außerdem Bremen-Mitte, Hannover. Neue Fälle wählen andere Orte | `hb2` (P-U) |
 | Teamgrößen in `hb2/2.1`, `2.5`, `2.6` | Filialteam mit neun Mitarbeitenden (alle duzen sich); weitere Beispiele per Suche prüfen | `hb2` |
 | Beispielzahlen „Loreno Living“ | Verkaufspreis 80 € je Stück, variable Kosten 50 €; Set mit 120 € Verkaufspreis und 80 € variablen Kosten | `hb1` |
 

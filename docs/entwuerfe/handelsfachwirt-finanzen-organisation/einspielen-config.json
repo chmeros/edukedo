@@ -1,0 +1,31 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    ["hf-1.6-unternehmensorganisation-kooperationen.md", "hb1/1.6-unternehmensorganisation-kooperationen.md"]
+  ],
+  "ergaenzungen": [
+    { "datei": "hf-1.2-ergaenzung-annuitaet-kreditarten.md", "abschnitte": [["A", "B", "C", "hb1/1.2-unternehmensfinanzierung.md"]] },
+    { "datei": "hf-1.4-ergaenzung-risikokategorien.md", "abschnitte": [["A", "B", "C", "hb1/1.4-risikomanagement.md"]] },
+    { "datei": "hf-8.1-ergaenzung-anbahnung-importperspektive.md", "abschnitte": [["A", "B", "C", "wb4/8.1-import-export.md"]] },
+    { "datei": "hf-8.2-ergaenzung-transportversicherung-zertifizierung.md", "abschnitte": [["A", "B", "C", "wb4/8.2-aussenhandelsrisiken-zollabwicklung.md"]] }
+  ],
+  "faelle": [
+    ["hf-faelle-a.md", "hb1"],
+    ["hf-faelle-b.md", "hb1"],
+    ["hf-faelle-c.md", "wb4"]
+  ],
+  "ersetzungen": [
+    { "datei": "hb1/fallaufgaben.md", "paare": [["HB1 (1.1–1.5)", "HB1 (1.1–1.6)"]] }
+  ],
+  "rechtsstand": [
+    "hb1/1.2-unternehmensfinanzierung.md",
+    "hb1/1.4-risikomanagement.md",
+    "hb1/fallaufgaben.md",
+    "hb1/fachgespraech.md",
+    "wb4/8.1-import-export.md",
+    "wb4/8.2-aussenhandelsrisiken-zollabwicklung.md",
+    "wb4/fallaufgaben.md",
+    "wb4/fachgespraech.md"
+  ]
+}
