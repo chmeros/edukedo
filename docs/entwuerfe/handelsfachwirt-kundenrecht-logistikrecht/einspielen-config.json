@@ -1,0 +1,181 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [
+    {
+      "datei": "hf-3.4-ergaenzung-fernabsatzrecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb3/3.4-visual-merchandising-e-commerce.md"
+        ]
+      ]
+    },
+    {
+      "datei": "hf-4.4-ergaenzung-rechtsrahmen-entsorgung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.4-entsorgung-kreislaufwirtschaft.md"
+        ]
+      ]
+    },
+    {
+      "datei": "hf-6.1-ergaenzung-fracht-haftung-vergaberecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "wb2/6.1-logistikkette-im-handel.md"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "hf-faelle-a.md",
+      "hb3"
+    ],
+    [
+      "hf-faelle-b.md",
+      "hb4"
+    ],
+    [
+      "hf-faelle-c.md",
+      "wb2"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb3/3.4-visual-merchandising-e-commerce.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zum Fernabsatz (Widerruf, Informationspflichten, Preisangaben) sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die gesetzlichen Vorgaben zum Fernabsatz (Widerruf, Informationspflichten, Preisangaben) stehen im Abschnitt „Fernabsatzvertrag im Online-Shop: Begriff, Abgrenzung und Vertragsschluss“ weiter unten in diesem Thema (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Gebühren für Rücksendungen oder Gutschein statt Erstattung senken die Quote",
+          "Gebühren für Rücksendungen (zulässig, wenn vorab darüber informiert wurde) oder ein Gutschein statt Erstattung (nach einem Widerruf nur als freiwillig angenommenes Angebot der Kundschaft) senken die Quote"
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/fachgespraech.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zum Fernabsatz (Widerruf, Informationspflichten) sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Gesetzliche Vorgaben zum Fernabsatz (Widerruf, Informationspflichten) stehen in Thema 3.4 „Visual Merchandising und E-Commerce“ im Fachgebiet Handelsmarketing, Abschnitt „Fernabsatzvertrag im Online-Shop: Begriff, Abgrenzung und Vertragsschluss“ (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/3.5-marketingstrategie-servicepolitik.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zu Rückgabe, Gewährleistung und Widerruf sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Gesetzliche Vorgaben zu Rückgabe, Gewährleistung und Widerruf stehen in Thema 3.4 „Visual Merchandising und E-Commerce“ im Fachgebiet Handelsmarketing, Abschnitt „Abgrenzung: Widerruf, Gewährleistung und Kulanz“ (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/fallaufgaben.md",
+      "paare": [
+        [
+          "Rücksendegebühr oder Gutschein statt Erstattung (sinkende Conversion Rate und Zufriedenheit)",
+          "Rücksendegebühr oder Gutschein statt Erstattung (der Gutschein nach einem Widerruf nur als von der Kundschaft freiwillig angenommenes Angebot; sinkende Conversion Rate und Zufriedenheit)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.4-entsorgung-kreislaufwirtschaft.md",
+      "paare": [
+        [
+          "gesetzlichen Vorgaben, die dieses Thema nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "gesetzlichen Vorgaben, die im Abschnitt „Rechtsrahmen der Abfallwirtschaft im Überblick“ am Ende der Theorie im Überblick dargestellt sind (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "die Einordnung ist hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "die Einordnung steht im Abschnitt „Verpackungsrecht: Systembeteiligung, Registrierung und Meldung“ am Ende der Theorie (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "sind gesetzlich geregelt und werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "sind gesetzlich geregelt; außer dem Pfand stehen sie im Überblick in den Abschnitten „Produktverantwortung und Rücknahme“ und „Verpackungsrecht: Systembeteiligung, Registrierung und Meldung“ am Ende der Theorie (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Die gesetzliche Verankerung der Abfallhierarchie wird hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die gesetzliche Rangfolge steht im Abschnitt „Abfallbegriff und gesetzliche Rangfolge“ am Ende der Theorie (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Die Einstufung und Pflichten im Einzelnen sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Einstufung und Pflichten stehen im Abschnitt „Gefährliche Abfälle, Einstufung und Nachweise“ am Ende der Theorie (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "(hier nicht behandelt, nicht förmlich rechtsgeprüft).",
+          "(siehe Abschnitt „Pflichten der Erzeuger und Besitzer im Handel“ am Ende der Theorie, nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Welche Belege das Gesetz vorschreibt, gehört nicht zu diesem Thema (nicht förmlich rechtsgeprüft).",
+          "Welche Belege das Gesetz für gefährliche Abfälle vorschreibt, steht im Abschnitt „Gefährliche Abfälle, Einstufung und Nachweise“ am Ende der Theorie (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "**Rechtlicher Hinweis:** Rund um Abfall, Wertstoffe, Verpackungen, Rücknahmepflichten, gefährliche Stoffe, Elektro- und Batterieentsorgung sowie Nachweis- und Beauftragtenpflichten gibt es gesetzliche Vorgaben; sie sind hier nicht behandelt (nicht förmlich rechtsgeprüft). Vor der Einführung oder Änderung von Entsorgungs- oder Rücknahmekonzepten sind sie gesondert zu prüfen.",
+          "**Rechtlicher Hinweis:** Die gesetzlichen Vorgaben zu Abfall, Verpackungen, Rücknahmepflichten, gefährlichen Stoffen, Elektro- und Batterieentsorgung sowie Nachweisen stehen im Überblick im Abschnitt „Rechtsrahmen der Abfallwirtschaft im Überblick“ und in den folgenden Abschnitten (nicht förmlich rechtsgeprüft). Vor der Einführung oder Änderung von Entsorgungs- oder Rücknahmekonzepten sind sie im Einzelfall zu prüfen."
+        ],
+        [
+          "kann sich beim Verdichten entzünden. Gesetzliche Vorgaben sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "kann sich beim Verdichten entzünden. Gesetzliche Vorgaben stehen im Abschnitt „Gefährliche Abfälle, Einstufung und Nachweise“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Die gesetzliche Einordnung kann abweichen und ist hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die gesetzliche Einordnung kann abweichen und steht im Abschnitt „Verpackungsrecht: Systembeteiligung, Registrierung und Meldung“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Gesetzliche Pflichten sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Gesetzliche Pflichten stehen im Abschnitt „Pflichten der Erzeuger und Besitzer im Handel“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "nicht die Sammelwege im Backoffice. Gesetzliche Vorgaben sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "nicht die Sammelwege im Backoffice. Gesetzliche Vorgaben stehen im Abschnitt „Gefährliche Abfälle, Einstufung und Nachweise“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Die gesetzliche Einordnung kann abweichen und ist hier nicht behandelt.",
+          "Die gesetzliche Einordnung kann abweichen und steht im Abschnitt „Verpackungsrecht: Systembeteiligung, Registrierung und Meldung“."
+        ]
+      ]
+    },
+    {
+      "datei": "wb2/6.1-logistikkette-im-handel.md",
+      "paare": [
+        [
+          "bestimmen gesetzliche Vorgaben und der Vertrag; das ist hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "bestimmen gesetzliche Vorgaben und der Vertrag; das führen die Abschnitte „Frachtvertrag: Parteien, Pflichten, Verladung und Ablieferung“ bis „Speditionsvertrag, Lagervertrag und Standardbedingungen“ weiter unten in diesem Thema im Überblick aus (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "gesetzliche Vorgaben zum Vergabeverfahren sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "gesetzliche Vorgaben zum Vergabeverfahren für öffentliche Auftraggeber gelten für ein privates Handelsunternehmen nicht; zur Abgrenzung siehe den Abschnitt „Vergaberecht als Abgrenzung: die private Ausschreibung“ weiter unten (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Die rechtliche Ausgestaltung (Haftung, Kündigung, Datenschutz) ist hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die Haftung ist im Abschnitt „Haftung des Frachtführers: Obhut, Befreiung und Höchstbetrag“ weiter unten im Überblick ausgeführt; Kündigung und Datenschutz sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb3/3.4-visual-merchandising-e-commerce.md",
+    "hb3/fallaufgaben.md",
+    "hb3/fachgespraech.md",
+    "hb4/4.4-entsorgung-kreislaufwirtschaft.md",
+    "hb4/fallaufgaben.md",
+    "hb4/fachgespraech.md",
+    "wb2/6.1-logistikkette-im-handel.md",
+    "wb2/fallaufgaben.md",
+    "wb2/fachgespraech.md"
+  ]
+}
