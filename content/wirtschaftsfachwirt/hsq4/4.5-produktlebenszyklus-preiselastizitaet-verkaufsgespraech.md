@@ -1,0 +1,390 @@
+---
+kurs_slug: wirtschaftsfachwirt
+fachgebiet_code: HSQ4
+fachgebiet_title: "Marketing und Vertrieb"
+thema_code: "4.5"
+thema_title: "Produktlebenszyklus, Preiselastizität und Verkaufsgespräch"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt“ (Fachgebiet Marketing und Vertrieb, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+---
+
+# Thema 4.5 — Produktlebenszyklus, Preiselastizität und Verkaufsgespräch
+
+## Theorie
+
+### Produktlebenszyklus
+
+Kein Artikel bleibt für immer im Sortiment. Der **Produktlebenszyklus** ist ein Modell dafür, wie sich Erlöse und Ergebnis eines Artikels vom Markteintritt bis zum Ausscheiden typischerweise entwickeln. Es hilft der NordWert Handels GmbH, Marketing, Einkauf und Sortiment auf die jeweilige Lage eines Artikels auszurichten, und gliedert den Verlauf in fünf Phasen. Verschiedene Darstellungen ziehen die Grenzen zwischen den Phasen unterschiedlich; in diesem Kurs gilt die folgende Einteilung:
+
+| Phase | Umsatzverlauf | Ergebnisverlauf | Typische Maßnahmen bei einem Handelsartikel |
+|---|---|---|---|
+| **Einführung** | klein, wächst zäh, weil der Artikel kaum bekannt ist | negativ, denn Listung, Muster und Bekanntmachung kosten Geld, bevor nennenswerte Erlöse fließen; endet, sobald die Gewinnzone erreicht ist | Außendienst stellt den Artikel vor; Muster und Einführungsaktionen für ausgewählte Bestandskundschaft; Aufnahme in Katalog und B2B-Online-Shop; Einführungspreis nach Penetrations- oder Skimmingstrategie; Bestand vorsichtig aufbauen |
+| **Wachstum** | wächst schnell, die jährlichen Zuwächse werden noch größer | positiv und steigend | Lieferfähigkeit sichern (Bestände, Kapazität des Lieferunternehmens); Bekanntheit in der Breite ausbauen; neue Kundengruppen ansprechen; Varianten wie Größen, Farben oder Gebinde aufnehmen; Preis halten, solange die Nachfrage mitzieht |
+| **Reife** | wächst noch, aber die jährlichen Zuwächse schrumpfen | erreicht den Höchstwert und fällt dann, weil mehr Wettbewerbsunternehmen anbieten und der Preisdruck steigt | Marktanteil verteidigen; Kundenbindung und Rahmenvereinbarungen; Kosten senken (Einkaufskonditionen, Bündelung von Lieferungen); Variation oder Relaunch prüfen |
+| **Sättigung** | erreicht den Höchststand und verharrt dort | fällt weiter | Nachfolgeartikel oder Relaunch vorbereiten; Konditionen gezielt einsetzen; Bestände straffen; schwache Varianten bereinigen |
+| **Rückgang** | geht zurück | klein oder negativ | keine neuen Investitionen; Abverkauf planen; Auslistung vorbereiten; Kundschaft auf den Nachfolgeartikel überführen |
+
+Das **Gewinnmaximum** liegt in der Regel vor dem Umsatzmaximum: Wenn der Preisdruck zunimmt und Werbung, Konditionen und Kundenbindung teurer werden, sinkt der Gewinn schon, während der Umsatz noch steigt oder stagniert. Der **Kostenverlauf** stützt das. In der Einführung ist der Aufwand je Umsatzeuro am höchsten, weil Listung, Muster und Bekanntmachung viel kosten und wenig Umsatz gegenübersteht. Im Wachstum sinken die Kosten je Stück, weil die Einkaufsmengen steigen, bessere Konditionen möglich werden und die Abläufe sich einspielen. In Sättigung und Rückgang steigen die Kosten je verkaufter Einheit wieder, weil Restbestände Lagerplatz und Kapital binden, Sonderaktionen nötig werden und der Aufwand für Pflege und Betreuung bleibt, während der Umsatz sinkt. Die Maßnahmen je Phase lassen sich den vier Instrumenten des Marketing-Mix zuordnen (Thema 4.2 „Marketing-Mix“ im Fachgebiet Marketing und Vertrieb): Einführung und Wachstum sind von Kommunikation und Distribution geprägt (Bekanntmachen, Verfügbarkeit), Reife und Sättigung von Preis- und Konditionenpolitik und Produktpflege, der Rückgang von Entscheidungen über Sortiment und Abverkauf.
+
+Rechenbeispiel (frei gewählte Beispielwerte): NordWert führt einen Schreibblock aus Recyclingpapier als Eigenmarke. Die Tabelle zeigt Umsatz und Artikelergebnis über sieben Jahre in Tsd. €. Das **Artikelergebnis** ist der Deckungsbeitrag des Artikels nach Abzug der ihm direkt zurechenbaren Kosten für Listung, Werbung und einen eigenen Lagerplatz, also der Deckungsbeitrag II aus Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling.
+
+| Jahr | Umsatz | Zuwachs | Veränderungsrate | Artikelergebnis | kumuliertes Artikelergebnis | Phase |
+|---|---|---|---|---|---|---|
+| 1 | 200 | | | −130 | −130 | Einführung |
+| 2 | 400 | +200 | +100 % | −30 | −160 | Einführung |
+| 3 | 640 | +240 | +60 % | 70 | −90 | Wachstum |
+| 4 | 800 | +160 | +25 % | 150 | 60 | Reife |
+| 5 | 880 | +80 | +10 % | 135 | 195 | Reife |
+| 6 | 924 | +44 | +5 % | 100 | 295 | Sättigung |
+| 7 | 693 | −231 | −25 % | 30 | 325 | Rückgang |
+
+Die **Veränderungsrate** eines Jahres setzt den Umsatzzuwachs ins Verhältnis zum Vorjahresumsatz: Jahr 3: 240 ÷ 400 = 60 %, Jahr 4: 160 ÷ 640 = 25 %, Jahr 7: −231 ÷ 924 = −25 %. Der absolute Zuwachs ist im Jahr 3 mit +240 Tsd. € am größten; danach schrumpft er, und der Artikel geht in die Reife über. Das Ergebnismaximum von 150 Tsd. € fällt ins Jahr 4 und damit vor das Umsatzmaximum im Jahr 6. Das kumulierte Artikelergebnis ist erst ab dem Jahr 4 positiv: Bis dahin sind die Anlaufverluste (tiefster Stand −160 Tsd. € im Jahr 2) nicht verdient. Für einen Phasenanteil teilt man den Umsatz der Phase durch den Gesamtumsatz des Zyklus, hier 4.537 Tsd. €: Die Reife (800 + 880 = 1.680 Tsd. €) macht rund 37,0 % aus. Das lässt sich erst im Rückblick berechnen; während des Zyklus kennt NordWert nur die Vergangenheit.
+
+**Lebenszyklus im Handel.** Ein Handelsunternehmen führt Artikel mit sehr unterschiedlichen Verläufen:
+
+- **Sortimentsartikel** (Standardartikel) wie Kugelschreiber, Ordner oder Kopierpapier haben sehr lange Zyklen mit langer Reife. Es gibt viele Vergleichsangebote, der Preisdruck ist hoch, und die Steuerung läuft über Einkaufskonditionen, Kosten und Kundenbindung. Ein Rückgang tritt meist erst durch technische oder organisatorische Veränderungen bei der Kundschaft ein.
+- **Saisonartikel** wie Schulstart-Sets, Kalender oder Geschenkverpackungen zum Jahresende (in der XYZ-Analyse als Y-Güter genannt, Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik) durchlaufen den Zyklus innerhalb weniger Wochen und jedes Jahr neu: Vorbestellung, Hochphase, Abverkauf. Das Risiko liegt in den Restbeständen nach der Saison; die Disposition plant deshalb von der Hochphase aus rückwärts und kalkuliert den Abverkauf ein.
+- **Modeartikel** (Trend- und Designlinien bei Schreibwaren und Geschenkverpackungen) haben einen kurzen, steilen Zyklus mit abruptem Rückgang. Nachbestellungen sind oft nicht mehr möglich, und die Ware ist nach dem Trend kaum noch zu verkaufen; kleine Erstmengen und kurze Reaktionszeiten begrenzen das Risiko.
+- **Eigenmarken** entwickelt NordWert selbst (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“, Target Costing). NordWert steuert Spezifikation, Preis und Zeitpunkt der Einführung und kann den Zyklus durch Relaunch gestalten, trägt aber auch das Risiko von Mindestabnahmemengen beim herstellenden Unternehmen. Eine Eigenmarke wird oft in der Reife eines Marktes als preisgünstige Alternative zu Markenware eingeführt.
+
+Der Produktlebenszyklus betrachtet einen Artikel im **Zeitverlauf**; die BCG-Matrix vergleicht dagegen mehrere Produktgruppen zu einem Zeitpunkt nach Marktwachstum und relativem Marktanteil (Thema 4.3 „Planungs- und Analysemethoden“ im Fachgebiet Unternehmensführung). Beide Modelle ergänzen sich; hier wird die BCG-Matrix nur genannt.
+
+**Grenzen des Modells:** Der Lebenszyklus beschreibt einen typischen Verlauf, kein Naturgesetz. Die aktuelle Phase steht oft erst im Nachhinein fest und lässt sich nur an Indizien erkennen, etwa abnehmenden Zuwächsen oder wachsendem Preisdruck. Es kommt auf die Betrachtungsebene an: Eine Warengruppe kann in der Reife stehen, während einzelne Varianten noch wachsen. Ein Relaunch oder eine neue Anwendung kann den Zyklus verlängern, ein Konjunktureinbruch ihn verkürzen. Zudem droht eine selbsterfüllende Prophezeiung: Wer einen Artikel voreilig abschreibt und Werbung, Verfügbarkeit und Betreuung zurückfährt, verursacht den Rückgang erst. Das Modell ersetzt deshalb keine Rechnung; es gibt die Richtung vor, die Entscheidung stützt sich auf Kennzahlen.
+
+### Sortimentspolitik im Lebenszyklus: Aufnahme, Pflege und Auslistung
+
+Das **Sortiment** ist die Gesamtheit der Artikel, die ein Handelsunternehmen anbietet. Die **Sortimentsbreite** ist die Zahl der Warengruppen (bei NordWert Büromaterial, Verpackungsmaterial und weitere Gruppen), die **Sortimentstiefe** die Zahl der Artikel und Varianten je Warengruppe. Die **Sortimentspolitik** entscheidet, welche Artikel aufgenommen, gepflegt oder ausgelistet werden. Sie folgt dem Lebenszyklus: Neue Artikel kommen in der Einführung ins Sortiment, werden in Wachstum und Reife gepflegt und verlassen es im Rückgang.
+
+**Aufnahme (Listung).** Für einen neuen Artikel sprechen die Nachfrage der Kundschaft (Anfragen, Rückmeldungen des Außendienstes, Marktanalyse nach Thema 4.1 „Marketingplanung“), die Ergänzung zum bestehenden Sortiment (Cross-Selling, Thema 4.3 „Vertriebsmanagement“), ein ausreichender erwarteter Deckungsbeitrag, ein zuverlässiges Lieferunternehmen (Bewertung nach Thema 3.1 „Einkauf und Beschaffung“ im Fachgebiet Logistik) und ein vertretbarer Kapitalbedarf; bei größeren Erweiterungen wie ganzen Warengruppen siehe Thema 2.5 „Finanzplanung und Finanzbedarf“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling. Eine Probelistung, zunächst nur an einem Standort oder im Online-Shop, begrenzt das Risiko. Lager- und Katalogplatz sind knapp; ein neuer Artikel sollte daher möglichst einen schwächeren ersetzen.
+
+**Pflege.** Laufend werden Umsatz, Deckungsbeitrag, Lagerumschlag (Thema 3.2 „Materialwirtschaft“ im Fachgebiet Logistik), Retourenquote und Reklamationen (Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management) je Artikel ausgewertet. Dieselbe Einteilung in A-, B- und C-Artikel, die in Thema 3.1 „Einkauf und Beschaffung“ den Einkauf ordnet, lässt sich auch absatzseitig nach Umsatz oder Deckungsbeitrag bilden.
+
+**Sortimentsbereinigung und Auslistung.** Die **Sortimentsbereinigung** nimmt Artikel aus dem Sortiment, die sich nicht mehr tragen. Die wichtigsten Kennzahlen:
+
+> Umsatzanteil = Umsatz des Artikels ÷ Umsatz der Warengruppe × 100
+
+> Deckungsbeitrag I (DB) des Artikels = Absatzmenge × (Verkaufspreis − variable Kosten je Stück)
+
+> DB-Quote = Deckungsbeitrag ÷ Umsatz × 100; DB-Anteil = Deckungsbeitrag des Artikels ÷ Deckungsbeitrag der Warengruppe × 100
+
+> Deckungsbeitrag II = Deckungsbeitrag I − Artikelfixkosten
+
+**Artikelfixkosten** (in Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling als Produktfixkosten bezeichnet) sind Fixkosten, die sich einem einzelnen Artikel eindeutig zuordnen lassen, etwa seine Listung, Werbung oder ein eigener Lagerplatz; Lagerkosten der ganzen Warengruppe gehören nicht dazu. Der Deckungsbeitrag je Stück und die Fixkostenschichten sind dort erklärt. Ein Artikel mit hohem Umsatzanteil, aber niedrigem DB-Anteil bindet viel Kapital und Arbeit, ohne im gleichen Maß zum Ergebnis beizutragen; ein kleiner Artikel mit hoher DB-Quote kann dagegen lohnend sein.
+
+Rechenbeispiel (frei gewählte Beispielwerte, ein Jahr, Warengruppe Ordnungs- und Ablagematerial):
+
+| Artikel | Absatz (Stück) | Preis | variable Kosten | DB je Stück | Umsatz | Umsatzanteil | DB I | DB-Anteil |
+|---|---|---|---|---|---|---|---|---|
+| Hängemappen | 12.000 | 9,50 € | 7,10 € | 2,40 € | 114.000 € | 33,2 % | 28.800 € | 36,3 % |
+| Archivboxen | 8.000 | 6,40 € | 4,60 € | 1,80 € | 51.200 € | 14,9 % | 14.400 € | 18,1 % |
+| Sichthüllen | 30.000 | 3,20 € | 2,50 € | 0,70 € | 96.000 € | 28,0 % | 21.000 € | 26,5 % |
+| Ringbuchordner | 20.000 | 2,90 € | 2,30 € | 0,60 € | 58.000 € | 16,9 % | 12.000 € | 15,1 % |
+| Trennblätter | 9.000 | 2,10 € | 1,80 € | 0,30 € | 18.900 € | 5,5 % | 2.700 € | 3,4 % |
+| Ordnungsmappen | 3.000 | 1,60 € | 1,45 € | 0,15 € | 4.800 € | 1,4 % | 450 € | 0,6 % |
+| **Warengruppe** | | | | | **342.900 €** | **100 %** | **79.350 €** | **100 %** |
+
+Die Anteile sind gerundet; die Umsatzanteile ergeben deshalb zusammen 99,9 %. Die DB-Quote der Warengruppe beträgt 79.350 ÷ 342.900 × 100 ≈ 23,1 %. Auslistungskandidaten sind Trennblätter und Ordnungsmappen. Die Artikelfixkosten für Lagerplatz, Stammdatenpflege und Listung betragen bei den Trennblättern 3.500 € und bei den Ordnungsmappen 1.200 € im Jahr. Der Deckungsbeitrag II ist damit −800 € bzw. −750 €. Zu prüfen ist, was eine Auslistung tatsächlich bringt: Bei den Ordnungsmappen verbessert sie das Ergebnis um 1.200 € − 450 € = 750 €, sofern die Fixkosten wirklich entfallen. Bei den Trennblättern gibt es einen **Sortimentsverbund**: Rund 5 % der Ringbuchordner, also 1.000 Stück, werden nur zusammen mit Trennblättern gekauft; der entgangene Deckungsbeitrag beträgt 1.000 × 0,60 € = 600 €. Die Auslistung bringt dann nur noch 3.500 € − 2.700 € − 600 € = 200 € und lohnt kaum; näher liegen eine Preisanpassung, eine andere Verpackungseinheit oder ein Bündel mit den Ordnern. Weitere Kriterien sind die Substitution (kauft die Kundschaft einen Ersatzartikel, geht der Umsatz nicht ganz verloren), die Servicefunktion eines Artikels für das Gesamtsortiment, der Lagerumschlag und Abnahmeverpflichtungen gegenüber dem Lieferunternehmen.
+
+**Ablauf einer Auslistung:** Kandidaten anhand der Kennzahlen bestimmen, Verbund, Ersatz und abbaubare Fixkosten prüfen, entscheiden, einen Auslauftermin und, falls nötig, einen Ersatzartikel festlegen, Kundschaft und Lieferunternehmen rechtzeitig informieren, den Restbestand abverkaufen und zuletzt den Artikel sperren. Beim Abverkauf bereits eingekaufter Ware zählt, ob der Erlös die noch vermeidbaren Kosten übersteigt (Lagerung, Kapitalbindung, Entsorgung); der Einstandspreis ist bereits angefallen. Das ist derselbe Gedanke wie bei der kurzfristigen Preisuntergrenze aus Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“, hier auf einen vorhandenen Bestand bezogen.
+
+### Preiselastizität der Nachfrage
+
+Die **Preiselastizität der Nachfrage** gibt an, um wie viel Prozent sich die nachgefragte Menge ändert, wenn sich der Preis um 1 % ändert. Dass die Menge bei steigendem Preis sinkt, besagt das Gesetz der Nachfrage (Thema 1.1 „Grundlagen der Volkswirtschaftslehre“ im Fachgebiet Volks- und Betriebswirtschaft); die Elastizität misst, wie stark:
+
+> ε = relative Mengenänderung ÷ relative Preisänderung = ((M₁ − M₀) ÷ M₀) ÷ ((p₁ − p₀) ÷ p₀)
+
+M ist die nachgefragte Menge, p der Preis; Index 0 steht für die Ausgangslage, Index 1 für die Lage nach der Preisänderung. **Festlegungen in diesem Kurs:** Basis der Prozentänderungen sind die Ausgangswerte M₀ und p₀. Die Elastizität wird **mit Vorzeichen** berechnet; weil Preis und Menge normalerweise gegenläufig reagieren, ist sie negativ. Zur Einordnung zählt der **Betrag |ε|**. Manche Lehrbücher geben nur den Betrag an, Rechenaufgaben nennen die verlangte Schreibweise. Ein Wert von −1,5 bedeutet: 1 % mehr Preis führt zu 1,5 % weniger Menge. Bei größeren Änderungen hängt das Ergebnis davon ab, welcher Wert die Basis bildet; die Bogenelastizität nimmt deshalb den Mittelwert aus altem und neuem Wert als Basis. Hier genügt die Rechnung mit den Ausgangswerten.
+
+| Betrag von ε | Bezeichnung | Reaktion der Menge | Umsatz bei Preiserhöhung |
+|---|---|---|---|
+| größer als 1 | **elastisch** | überproportional | sinkt |
+| gleich 1 | Einheitselastizität | proportional | bleibt gleich |
+| zwischen 0 und 1 | **unelastisch** | unterproportional | steigt |
+| gleich 0 | vollkommen unelastisch (Grenzfall) | keine | steigt im gleichen Maß wie der Preis |
+| unendlich | vollkommen elastisch (Grenzfall) | schon eine kleine Erhöhung lässt die Nachfrage ganz wegbrechen | fällt auf null |
+
+Bei einer Preissenkung kehrt sich die Wirkung um: Bei elastischer Nachfrage steigt der Umsatz, bei unelastischer sinkt er. Der Umsatz ist Preis mal Menge, deshalb entscheidet, welcher Faktor sich stärker ändert.
+
+Beispiel 1 (Beispielwerte): Der Preis eines Standard-Kugelschreibers steigt von 0,50 € auf 0,55 € (+10 %), der Absatz sinkt von 26.000 auf 22.100 Stück (−15 %). Es gilt ε = −15 % ÷ +10 % = **−1,5**: Die Nachfrage ist elastisch, der Umsatz sinkt von 13.000 € auf 12.155 € (−6,5 %). Beispiel 2 (Beispielwerte): Der Preis eines Spezialetiketts für ein bestimmtes Etikettiergerät steigt von 9,00 € auf 9,90 € (+10 %), der Absatz sinkt von 3.500 auf 3.395 Stück (−3 %). Es gilt ε = −3 % ÷ +10 % = **−0,3**: Die Nachfrage ist unelastisch, der Umsatz steigt von 31.500 € auf 33.610,50 € (+6,7 %).
+
+**Umsatz ist nicht Gewinn.** Ob eine Preisänderung lohnt, entscheidet der Gesamtdeckungsbeitrag (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling), denn bei weniger Menge fallen auch die variablen Kosten. Beim Kugelschreiber betragen die variablen Kosten 0,35 € je Stück. Der Deckungsbeitrag steigt trotz des Umsatzrückgangs von 26.000 × 0,15 € = 3.900 € auf 22.100 × 0,20 € = 4.420 €. Wie viel Menge eine Preisänderung höchstens kosten darf, zeigt die **kritische Mengenänderung**:
+
+> kritische Mengenänderung = − Δp ÷ (DB-Quote + Δp)
+
+Δp ist die Preisänderung und DB-Quote der Deckungsbeitrag je Stück ÷ Preis vor der Änderung, beide als Dezimalbrüche, Δp mit Vorzeichen. Herleitung: Nach der Änderung beträgt der Deckungsbeitrag je Stück DB + p × Δp; der Gesamtdeckungsbeitrag bleibt gleich, wenn M₁ × (DB + p × Δp) = M₀ × DB gilt, also M₁ ÷ M₀ = DB-Quote ÷ (DB-Quote + Δp). Beim Kugelschreiber (DB-Quote 0,15 € ÷ 0,50 € = 30 %, Δp = +10 %) ist die kritische Mengenänderung −0,10 ÷ (0,30 + 0,10) = −25 %: Die Menge dürfte bis auf 19.500 Stück fallen; tatsächlich sind es 22.100, der Deckungsbeitrag steigt also. Für eine **Preissenkung** von 5 % bei einer DB-Quote von 25 % ist −(−0,05) ÷ (0,25 − 0,05) = +25 %. Die Menge müsste um 25 % steigen, das entspräche ε = +25 % ÷ −5 % = −5. Eine Preissenkung lohnt sich also nur, wenn die Nachfrage genügend elastisch ist (hier |ε| > 5), und umso weniger, je kleiner die DB-Quote ist. Rückt der Preis an die kurzfristige Preisuntergrenze (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“, Preis gleich variable Kosten) heran, geht die DB-Quote gegen null, und keine Mehrmenge kann den Verlust ausgleichen.
+
+**Einflussfaktoren.** Die Nachfrage reagiert eher **unelastisch**, wenn es wenige Ersatzartikel gibt (Substitute), der Artikel nur einen kleinen Teil der Ausgaben der Kundschaft ausmacht, er dringend gebraucht wird, die Kundschaft durch Kompatibilität, Gewohnheit oder Rahmenverträge gebunden ist (hohe Wechselkosten) und Preise schwer zu vergleichen sind. Sie reagiert eher **elastisch**, wenn Standardware leicht austauschbar ist, die Preise auf Vergleichsportalen transparent sind, der Artikel einen großen Ausgabenposten bildet und die Kundschaft Zeit hat, Alternativen zu suchen. Auf längere Sicht ist die Nachfrage meist elastischer als kurzfristig. Auch die Abgrenzung zählt: Je enger sie gezogen wird (ein einzelner Artikel statt der Warengruppe, ein einzelnes Unternehmen statt des Gesamtmarkts), desto mehr Ersatzmöglichkeiten gibt es und desto elastischer ist die Nachfrage.
+
+**Kreuzpreiselastizität.** Sie misst, wie die Menge eines Gutes x auf die Preisänderung eines anderen Gutes y reagiert:
+
+> ε(x,y) = relative Mengenänderung von x ÷ relative Preisänderung von y
+
+Ein **positiver** Wert zeigt **Substitute** (der Preis von y steigt, die Kundschaft weicht auf x aus), ein **negativer** Wert **Komplemente** (Güter, die zusammen gebraucht werden), ein Wert um null unabhängige Güter. Beispiel (Beispielwerte): Steigt der Preis von Heftgeräten um 10 %, und sinkt der Absatz der passenden Heftklammern um 4 %, ist ε = −4 % ÷ +10 % = **−0,4**: Heftgerät und Heftklammern sind Komplemente. Steigt der Preis einer Markenware, und der Absatz der Eigenmarke wächst, sind beide Substitute. Das ist für die Sortiments- und Preisplanung wichtig: Eine Preissenkung bei der Eigenmarke kann Absatz von der Markenware abziehen.
+
+**Verbindung zu den Preisstrategien.** Die Skimmingstrategie (Thema 4.2 „Marketing-Mix“) setzt Kundschaft mit niedriger Preiselastizität voraus, die auch einen hohen Einführungspreis zahlt, weil der Nutzen groß ist und Alternativen fehlen. Die Penetrationsstrategie setzt eine elastische Nachfrage voraus, bei der ein niedriger Preis schnell viel Menge bringt, und zugleich Kostenvorteile bei größeren Mengen. Im Lebenszyklus nimmt die Elastizität tendenziell zu, weil mit der Reife mehr Alternativen entstehen. Wie weit der Preis sinken darf, begrenzen die Preisuntergrenzen aus Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“.
+
+**Grenzen der Schätzung.** Die Elastizität ist keine feste Größe. Sie lässt sich aus den Verkaufsdaten früherer Preisänderungen schätzen (Regression, Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management), mit Preistests (gleicher Artikel zu zwei Preisen in vergleichbaren Kundengruppen), mit Befragungen zur Zahlungsbereitschaft und aus den Verlustgründen im CRM-System. Fehlerquellen: Gleichzeitig wirken andere Einflüsse wie Saison, Konjunktur, Aktionen und Wettbewerb, die „bei sonst gleichen Bedingungen“ der Theorie fehlen. Die Elastizität ist nicht über alle Preisbereiche konstant, und vor einer angekündigten Preiserhöhung kauft die Kundschaft oft auf Vorrat, was die Mengenreaktion verfälscht. Wettbewerbsunternehmen reagieren, und kleine Stichproben bilden Zufall ab. Ergebnisse gelten daher als Spanne und Orientierung, nicht als genaue Prognose; eine Preisänderung sollte vorsichtig eingeführt und ihre Wirkung gemessen werden. Gesetzliche Vorgaben zu Preisabsprachen und Preisangaben werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+### Preisbildung in der Praxis: Preisdifferenzierung, Rabattstaffel und Preispsychologie
+
+Neben den Einführungsstrategien (Thema 4.2 „Marketing-Mix“) stellt sich im Alltag die Frage, ob alle Kundschaft für denselben Artikel denselben Preis zahlt. Bei der **Preisdifferenzierung** wird dieselbe Leistung zu unterschiedlichen Preisen oder Konditionen angeboten, je nach Menge, Kundengruppe, Zeit oder Vertriebskanal. NordWert unterscheidet **nach Menge** (Rabattstaffel), **nach Kundengruppe** (Handwerksbetriebe, Einzelhandelsunternehmen, Industriekundschaft, öffentliche Verwaltungen, wie in Thema 4.1 „Marketingplanung“ beschrieben, oft mit eigenen Konditionenlisten oder Rahmenverträgen), **nach Zeit** (Frühbestellung vor der Saison, Auslaufpreis) und **nach Kanal** (Außendienst oder B2B-Online-Shop). Auch **Preisbündel** gehören dazu: Ein Starterpaket für neue Büros kostet weniger als die Summe der Einzelpreise und erhöht den Auftragswert.
+
+Preisdifferenzierung funktioniert, wenn drei Voraussetzungen erfüllt sind: Die Teilmärkte lassen sich **trennen** (Kundengruppen sind unterscheidbar, etwa über Kundenkonten); ein **Weiterverkauf** zwischen den Gruppen ist begrenzt, sonst kauft die Kundschaft zum niedrigsten Preis und verkauft weiter; und die Gruppen unterscheiden sich in **Preisbereitschaft** oder Elastizität. Die Unterschiede müssen für die Kundschaft nachvollziehbar sein (andere Menge, andere Leistung, anderes Zahlungsziel), sonst entsteht Misstrauen. Gesetzliche Vorgaben zu Preisen und Rabatten werden hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+**Rabatt, Bonus und Skonto.** Ein **Mengenrabatt** wird sofort auf der Rechnung gewährt, ein **Bonus** nachträglich auf den Jahresumsatz (beides Konditionen der Preispolitik, Thema 4.2 „Marketing-Mix“), ein **Skonto** für schnelle Zahlung (Thema 2.2 „Finanzierungsarten“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling). Bei der **Rabattstaffel** unterscheidet man die **Gesamtmengenstaffel**, bei der der Staffelpreis der erreichten Stufe für **alle** Einheiten der Bestellung gilt, und die **Stufenstaffel**, bei der der günstigere Preis nur für die Einheiten **oberhalb** der Schwelle gilt. Die Gesamtstaffel schafft einen starken Anreiz, kurz vor einer Schwelle aufzustocken, ist für NordWert aber teurer; die Stufenstaffel wirkt gleichmäßiger.
+
+Rechenbeispiel Rabattstaffel (frei gewählte Beispielwerte): Versandetiketten kosten 6,00 € je Rolle, die variablen Kosten betragen 4,20 €; der Deckungsbeitrag je Rolle ist 1,80 €, die DB-Quote 30 %. Die Gesamtstaffel lautet: 1 bis 49 Rollen kein Rabatt, 50 bis 199 Rollen 5 %, ab 200 Rollen 8 %.
+
+| Bestellmenge | Staffelpreis | Umsatz | DB je Rolle | Deckungsbeitrag |
+|---|---|---|---|---|
+| 40 Rollen | 6,00 € | 240,00 € | 1,80 € | 72,00 € |
+| 60 Rollen | 5,70 € | 342,00 € | 1,50 € | 90,00 € |
+| 150 Rollen | 5,70 € | 855,00 € | 1,50 € | 225,00 € |
+| 200 Rollen | 5,52 € | 1.104,00 € | 1,32 € | 264,00 € |
+
+Eine Kundschaft, die bisher 150 Rollen je Auftrag bestellt, bringt 225 € Deckungsbeitrag. Bei 200 Rollen und 8 % sind es 264 €, also 39 € mehr. Der Rabatt lohnt sich nur, wenn die Mehrmenge ihn ausgleicht: 225 € ÷ 1,32 € ≈ 170,5, also mindestens 171 Rollen (rund 14 % mehr). Die Staffelgrenze von 200 Rollen liegt über dieser Mindestmenge von 171: Die Stufe lohnt sich also, sobald sie erreicht ist. Ein Rabatt ohne Mengengrenze würde erst ab 171 Rollen den bisherigen Deckungsbeitrag halten. Hätte die Kundschaft ohnehin 200 Rollen bestellt, wäre der höhere Rabatt verschenkter Deckungsbeitrag. Bei 120 Rollen kostet die Bestellung nach der Gesamtstaffel 120 × 5,70 € = 684,00 €. Nach einer Stufenstaffel (erste 49 Rollen zum Listenpreis, ab der 50. Rolle 5 %) sind es 49 × 6,00 € + 71 × 5,70 € = 294,00 € + 404,70 € = 698,70 €. Mehr Menge je Auftrag senkt zudem die Prozesskosten je Rolle: Ein Auftrag mit einer Position über 40 Rollen verursacht nach den Prozesskostensätzen im Rechenbeispiel des Sortimentsbereichs Büromaterial in Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling etwa 18,00 € + 3,60 € = 21,60 € Prozesskosten; vom Deckungsbeitrag von 72,00 € bleiben 50,40 €. Das begründet Mindestbestellwerte und Staffeln. Die Grenze eines Rabatts ist der Deckungsbeitrag: Kurzfristig darf der Preis nicht unter die variablen Kosten sinken, hier ein Rabatt von höchstens 30 % (= DB-Quote); auf Dauer müssen die Vollkosten gedeckt sein (Preisuntergrenzen, Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“).
+
+**Preispsychologie.** Kundschaft nimmt Preise nicht rein rechnerisch wahr:
+
+- **Preisschwellen:** Preise knapp unter runden Beträgen (9,90 € statt 10,00 €) wirken niedriger; an einer Schwelle reagiert die Nachfrage stärker als zwischen den Schwellen, die Elastizität ist also nicht konstant. Im B2B-Geschäft wirken vor allem **Freigabegrenzen**: Bis zu einem bestimmten Bestellwert darf der Einkauf ohne Zustimmung der Leitung bestellen; Aufträge knapp darunter sind häufig.
+- **Ankereffekt:** Die zuerst genannte Zahl prägt die Beurteilung (siehe Thema 1.4 „Managementtechniken“ im Fachgebiet Betriebliches Management). Der Listenpreis neben dem Staffelpreis zeigt die Ersparnis; ein hochwertiges Premiumset daneben lässt das Standardset günstig wirken.
+- **Preisbündelung:** Sets erhöhen den Auftragswert; sie sind sinnvoll, wenn die Artikel zusammengehören und der Einzelpreis nachvollziehbar bleibt.
+- **Preis als Qualitätssignal:** Ein sehr niedriger Preis kann Zweifel an der Qualität wecken, etwa bei Sicherheitsverschlüssen.
+- **Fairness und Klarheit:** Preise und Konditionen, die die Kundschaft nicht durchschaut, schaden dem Vertrauen; Preiserhöhungen werden begründet angekündigt.
+
+Gesetzliche Vorgaben zur Darstellung von Preisen und zur Werbung mit Preisen werden hier nicht behandelt (nicht förmlich rechtsgeprüft); täuschende Darstellungen gehören nicht zur Preispolitik von NordWert.
+
+### Verkaufsgespräch: Vorbereitung, Bedarfsermittlung und Argumentation
+
+Im Großhandel verkaufen Außendienst, Innendienst und Online-Shop an gewerbliche Kundschaft. Die Aufträge sind größer, die Beziehung ist langfristig, und mehrere Personen sind beteiligt (Einkauf, Fachbereich, Leitung). Ein Verkaufsgespräch, ob als Besuch, Telefonat, Videokonferenz oder Messegespräch, folgt acht Phasen: **Vorbereitung, Kontaktaufnahme, Bedarfsermittlung, Argumentation, Einwandbehandlung, Preisverhandlung, Abschluss und Nachbereitung**. Dieser Abschnitt behandelt die ersten vier Phasen, der nächste die übrigen.
+
+**Vorbereitung.** Das CRM-System (Thema 4.3 „Vertriebsmanagement“) liefert Bestellhistorie, offene Angebote, Reklamationen und Umsatzentwicklung der Kundschaft. Zur Vorbereitung gehören ein Gesprächsziel (ein Mindestziel und ein Wunschziel, SMART nach Thema 4.1 „Marketingplanung“), Wissen über das Kundenunternehmen und die Gesprächspartner:innen, Muster und Unterlagen, ein Gesprächsplan und der **Verhandlungsspielraum**: Rabattstaffel, Konditionen und die Preisuntergrenze werden vorher festgelegt, nicht im Gespräch.
+
+**Kontaktaufnahme.** Begrüßung, Anlass und Ziel des Gesprächs nennen, den Zeitrahmen abstimmen und kurz die persönliche Ebene pflegen. Auch im Verkaufsgespräch wird auf Sach-, Beziehungs-, Selbstoffenbarungs- und Appellebene gesendet und gehört; die Kommunikationsmodelle selbst stehen in Thema 5.1 „Kommunikation und Mitarbeitergespräche“ im Fachgebiet Führung und Zusammenarbeit und werden hier nicht wiederholt.
+
+**Bedarfsermittlung.** Bevor argumentiert wird, steht das Fragen. Offene Fragen laden zum Erzählen ein, geschlossene Fragen klären Einzelheiten (beide in Thema 5.1 „Kommunikation und Mitarbeitergespräche“ beschrieben); zum Zusammenfassen und Prüfen dient das Paraphrasieren. Für den Verkauf bewährt sich eine **Fragefolge** in vier Stufen. **Situationsfragen** erfassen den Ist-Zustand („Wie viele Pakete verlassen Ihr Lager an einem durchschnittlichen Tag?“). **Problemfragen** suchen die Schwachstellen („Welche Arbeitsschritte beim Verpacken kosten Ihr Team die meiste Zeit?“). **Auswirkungsfragen** machen die Folgen spürbar („Was bedeutet das für Ihre Lieferzusagen am Monatsende?“). **Nutzenfragen** bringen die Kundschaft dazu, selbst auszusprechen, was ihr eine Lösung wert wäre („Was wäre gewonnen, wenn jedes Paket 20 Sekunden früher fertig wäre?“). Ergänzend dienen **Alternativfragen** („Soll die Lieferung wöchentlich oder zweiwöchentlich erfolgen?“) und **Kontrollfragen** („Habe ich richtig verstanden, dass …?“). **Suggestivfragen** („Das wollen Sie Ihren Beschäftigten doch nicht zumuten?“) legen die Antwort nahe und wecken Misstrauen.
+
+Zu klären sind Menge, Qualität, Termine, Budget, bisherige Lieferunternehmen, Entscheidungsweg und Kaufmotive. Im B2B-Geschäft entscheidet oft ein **Einkaufsgremium** (Buying Center): Anwender:innen im Lager, Einkauf, Leitung mit Freigaberecht, Beratende aus IT oder Qualität. Die Kaufmotive sind **sachlich** (Gesamtkosten, Lieferzuverlässigkeit, Qualität, Verfügbarkeit, Zahlungsziel) und **persönlich** (Sicherheit, Entlastung im Arbeitsalltag, Ansehen im eigenen Unternehmen; wer vor Reklamationen Ruhe haben will, kauft Verlässlichkeit).
+
+**Argumentation mit Nutzen.** Kundschaft kauft nicht Eigenschaften, sondern Lösungen. Die Nutzenargumentation geht in drei Schritten vor: Das **Merkmal** beschreibt die Eigenschaft („Karton mit Selbstklebeverschluss“), der **Vorteil** die Wirkung („schnelleres Verpacken“), der **Nutzen** den Wert für diese Kundschaft („Ihr Versandteam spart je Paket etwa 20 Sekunden; bei 300 Paketen am Tag sind das 100 Minuten“, Beispielwerte). Ein Argument zählt nur, wenn es zu einem ermittelten Bedarf passt; deshalb folgt die Argumentation der Bedarfsermittlung. Hilfreich sind Beweise: Muster, Testlieferung, Referenzen, Kennzahlen wie die Reklamationsquote, und die **Gesamtkostenbetrachtung** (Einstandspreis, Prozesskosten, Lager, Transportschäden) statt des Stückpreises allein. Wenige, starke Argumente wirken besser als eine lange Liste; Zusagen müssen belastbar sein, denn sie werden zur Grundlage des Auftrags. Beratungs- und Informationspflichten sowie die Grenzen unlauterer Verkaufsmethoden unterliegen gesetzlichen Vorgaben, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft).
+
+### Einwandbehandlung, Preisverhandlung, Abschluss und Nachbereitung
+
+**Einwand und Vorwand.** Ein **Einwand** ist ein ernsthaftes Bedenken, das die Kundschaft gegen Angebot, Preis oder Lieferbedingungen vorbringt; er zeigt Interesse und verweist meist auf fehlende Informationen. Ein **Vorwand** nennt dagegen einen Grund, der nur vorgeschoben ist, während das eigentliche Motiv verborgen bleibt, etwa ein angeblich gestrichenes Budget, hinter dem in Wahrheit Zweifel an der Liefertreue stehen. Verdächtig ist, wenn die Einwände wechseln oder auch nach einer guten Antwort bleiben; dann hilft die Frage, was dem Auftrag tatsächlich im Weg steht. Der Umgang mit einem Einwand: ausreden lassen, Verständnis zeigen, **nachfragen** und klären, was gemeint ist, sachlich mit Nutzen und Fakten antworten und prüfen, ob die Frage beantwortet ist. Hilfreich sind die **Vorwegnahme** (bekannte Einwände vor ihrer Nennung ansprechen), die **Zustimmung mit Ergänzung** („Ja, der Stückpreis ist höher, und dafür …“) statt „Ja, aber“, und der **Verweis auf Referenzen**. Typische Einwände im Großhandel betreffen den Preis, das bewährte Lieferunternehmen, Menge und Lagerplatz, das Zahlungsziel oder die Lieferzeit („Das dauert mir zu lange“).
+
+**Preiseinwand.** Der Satz „Anderswo bekomme ich das günstiger“ ist oft ein Vergleich, ein Verhandlungsversuch oder eine Budgetgrenze. Zuerst wird geklärt, **womit verglichen wird**: gleiche Menge, Qualität, Lieferzeit, Zahlungsziel? Dann folgen Nutzen und Gesamtkosten (Thema 2.3 „Kosten- und Leistungsrechnung (vertieft)“ im Fachgebiet Investition, Finanzierung, betriebliches Rechnungswesen und Controlling: Prozesskosten, Reklamationen und Lagerhaltung kosten Geld). Wer sofort nachgibt und nichts dafür bekommt, lässt den ursprünglichen Preis überhöht wirken und schwächt die eigene Position in der nächsten Runde.
+
+**Preisverhandlung.** Zugeständnisse gibt es nur **gegen Gegenleistungen** („Wenn …, dann …“): Rabatt gegen Mehrmenge oder Rahmenvertrag mit längerer Laufzeit, Skonto gegen schnellere Zahlung, günstigere Konditionen gegen gebündelte Lieferungen (weniger Aufträge, weniger Prozesskosten) oder gegen die Abnahme zusätzlicher Warengruppen. Vorbereitet sind ein Zielpreis, ein Mindestpreis oberhalb der Preisuntergrenze und eine Vorstellung der Alternativen beider Seiten (was geschieht, wenn keine Einigung gelingt?). Zugeständnisse werden in kleiner werdenden Schritten gemacht, benannt und bewertet, damit die Kundschaft sie als Entgegenkommen erkennt. Der Preis wird nicht zu früh genannt: erst Bedarf und Nutzen, dann der Preis. Ziel ist ein Ergebnis, das beide Seiten tragen; wer ein einseitiges Ergebnis erzwingt, gefährdet die Folgeaufträge.
+
+**Abschluss.** **Abschlusssignale** sind Fragen nach Liefertermin und Zahlungsbedingungen, das Wiederholen von Vorteilen oder ausbleibende neue Einwände. Abschlusstechniken: **Zusammenfassen** der vereinbarten Punkte, **Alternativabschluss** („Planen wir die Lieferung für Dienstag oder Donnerstag ein?“), **Probeabschluss** („Wenn die Lieferzeit passt, können wir so starten?“) und das Vereinbaren eines **Folgeschritts** (Probebestellung, Angebot bis zu einem Datum, nächster Termin). Der Abschluss wird nicht erzwungen; Druck gefährdet die Beziehung, und ein vereinbarter nächster Schritt ist manchmal das richtige Ergebnis. Angebot und Auftragsbestätigung sind rechtlich bedeutsam (Thema 3.1 „Bürgerliches Recht und Handelsrecht“ und Thema 3.3 „Vertragsgestaltung“ im Fachgebiet Recht und Steuern).
+
+**Nachbereitung.** Das Gespräch wird mit Ergebnis, Zusagen und Wiedervorlage im CRM-System festgehalten (Thema 4.3 „Vertriebsmanagement“). Es folgen die Auftragsbestätigung, die Weitergabe von Besonderheiten an Disposition und Lager, das Nachfassen bei offenen Angeboten und, nach der ersten Lieferung, die Frage nach der Zufriedenheit; Beschwerden werden nach den Grundsätzen aus Thema 4.3 „Vertriebsmanagement“ bearbeitet. Bei einer Absage wird der Grund erfragt und erfasst, denn Verlustgründe sind die wertvollste Information für künftige Angebote. Zuletzt reflektiert die verkaufende Person: Was hat gewirkt, was nicht?
+
+### Verkaufssteuerung mit Kennzahlen
+
+Die Vertriebsleitung steuert Außen- und Innendienst nicht nur über das Ergebnis, den Umsatz, sondern über Kennzahlen entlang des Verkaufsprozesses. Der Weg von der Anfrage zum Auftrag lässt sich als Trichter lesen: Anfragen werden zu Angeboten, Angebote zu Aufträgen.
+
+| Kennzahl | Berechnung | Aussage |
+|---|---|---|
+| **Angebotsquote** | Zahl der Angebote ÷ Zahl der Anfragen × 100 | wie viele Anfragen bis zum Angebot gebracht werden |
+| **Abschlussquote** | Zahl der Aufträge ÷ Zahl der Angebote × 100 | wie überzeugend und wettbewerbsfähig die Angebote sind |
+| **Auftragsquote** | Zahl der Aufträge ÷ Zahl der Anfragen × 100 (= Angebotsquote × Abschlussquote) | wie viel vom Trichter am Ende ankommt |
+| **durchschnittlicher Auftragswert** | Umsatz ÷ Zahl der Aufträge (Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management) | wie groß die Aufträge sind |
+| **Besuchsfrequenz** | Zahl der Besuche ÷ Zahl der betreuten Kundenunternehmen (oder je Mitarbeiter:in und Zeitraum) | wie intensiv betreut wird |
+| **Umsatz je Besuch** | Umsatz ÷ Zahl der Besuche | Produktivität des Außendienstes |
+| **Besuche je Auftrag** | Zahl der Besuche ÷ Zahl der Aufträge | Aufwand je Auftrag |
+
+Rechenbeispiel (frei gewählte Beispielwerte, ein Monat, vier Mitarbeitende im Außendienst): 200 Besuche, 100 Anfragen, 80 Angebote, 32 Aufträge, Umsatz 144.000 €. Die Angebotsquote beträgt 80 ÷ 100 × 100 = 80 %, die Abschlussquote 32 ÷ 80 × 100 = 40 %, die Auftragsquote 32 ÷ 100 × 100 = 32 % (= 0,80 × 0,40). Der durchschnittliche Auftragswert ist 144.000 € ÷ 32 = 4.500 €, der Umsatz je Besuch 144.000 € ÷ 200 = 720 €, die Zahl der Besuche je Auftrag 200 ÷ 32 = 6,25. Je Mitarbeiter:in sind es 200 ÷ 4 = 50 Besuche im Monat, bei 20 Arbeitstagen 2,5 Besuche am Tag. Der Umsatz ergibt sich als Produkt: 100 Anfragen × 0,80 × 0,40 × 4.500 € = 144.000 €. Daraus folgen vier **Stellschrauben**: mehr Anfragen (Ansprache neuer Kundschaft), eine höhere Angebotsquote, eine höhere Abschlussquote und ein höherer Auftragswert (Cross-Selling, Staffeln, Sets). Steigt die Abschlussquote um fünf Prozentpunkte von 40 % auf 45 %, ergeben sich bei 80 Angeboten 36 Aufträge und ein Umsatz von 36 × 4.500 € = 162.000 €, also 12,5 % mehr. Die Quote steigt dabei um 5 **Prozentpunkte**, aber um 12,5 % relativ (45 ÷ 40 − 1).
+
+**Grenzen und Fallstricke.** Jede Quote braucht Basis und Zeitraum (Thema 1.5 „Betriebsstatistik“). Eine hohe Abschlussquote bei sinkendem Auftragswert kann bedeuten, dass zu viele Rabatte gewährt werden; eine hohe Angebotsquote bei sinkender Abschlussquote kann bedeuten, dass Angebote ohne Bedarfsermittlung verschickt werden. Wer nur nach der Abschlussquote beurteilt wird, gibt nur noch sichere Angebote ab und verschenkt Chancen. Vergleichbar sind nur gleichartige Fälle (Neukundenansprache und Bestandskundschaft haben verschiedene Quoten). Ein Angebot, eine Anfrage und ein Besuch müssen einheitlich definiert und im CRM-System konsequent erfasst werden. Ziele aus den Kennzahlen werden im Zielvereinbarungsgespräch vereinbart (Thema 5.1 „Kommunikation und Mitarbeitergespräche“ im Fachgebiet Führung und Zusammenarbeit) und SMART formuliert (Thema 4.1 „Marketingplanung“); Verkaufsförderung und Kundenbindung (Thema 4.3 „Vertriebsmanagement“) ergänzen die Steuerung.
+
+## Karteikarten
+
+#### K-4.5-01
+**Frage:** Welche fünf Phasen hat der Produktlebenszyklus, und wie entwickeln sich Umsatz und Gewinn?
+**Antwort:** Einführung: Umsatz klein, Ergebnis negativ. Wachstum: Umsatz wächst schnell, die Gewinnzone wird erreicht. Reife: Umsatz wächst noch, aber mit schrumpfenden Zuwächsen; der Gewinn erreicht seinen Höchstwert und fällt dann. Sättigung: Umsatz am Höchststand, Gewinn fällt weiter. Rückgang: Umsatz geht zurück, Ergebnis klein oder negativ. Der Gewinn erreicht seinen Höhepunkt meist früher als der Umsatz.
+`tags: produktlebenszyklus` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-4.5-02
+**Frage:** Nenne je Phase des Produktlebenszyklus eine typische Maßnahme bei einem Handelsartikel.
+**Antwort:** Einführung: Muster und Einführungsaktion für ausgewählte Bestandskundschaft. Wachstum: Lieferfähigkeit sichern, Varianten aufnehmen. Reife: Kundenbindung und Rahmenvereinbarungen, Kosten senken. Sättigung: Nachfolgeartikel oder Relaunch vorbereiten. Rückgang: Abverkauf planen und Auslistung vorbereiten.
+`tags: produktlebenszyklus, marketingmassnahmen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-4.5-03
+**Frage:** Wie unterscheiden sich die Lebenszyklen von Sortiments-, Saison-, Mode- und Eigenmarkenartikeln im Großhandel?
+**Antwort:** Sortimentsartikel haben lange Zyklen mit langer Reife und hohem Preisdruck. Saisonartikel durchlaufen den Zyklus jedes Jahr neu innerhalb weniger Wochen (Risiko: Restbestand). Modeartikel haben einen kurzen, steilen Zyklus mit abruptem Rückgang. Bei Eigenmarken steuert NordWert Spezifikation, Preis und Relaunch, trägt aber das Abnahmerisiko.
+`tags: produktlebenszyklus, handel` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-04
+**Frage:** Welche Grenzen hat das Modell des Produktlebenszyklus?
+**Antwort:** Es beschreibt einen typischen Verlauf, kein Naturgesetz. Die Phase steht oft erst im Nachhinein fest, und es kommt auf die Betrachtungsebene an (Artikel, Warengruppe, Branche). Ein Relaunch kann den Zyklus verlängern; wer einen Artikel voreilig abschreibt und die Unterstützung streicht, verursacht den Rückgang erst. Entscheidungen brauchen Kennzahlen.
+`tags: produktlebenszyklus, grenzen` · `schwierigkeit: schwer` · `bloom: bewerten`
+
+#### K-4.5-05
+**Frage:** Welche Kennzahlen nutzt du für die Sortimentsbereinigung, und was prüfst du vor einer Auslistung?
+**Antwort:** Umsatzanteil = Artikelumsatz ÷ Umsatz der Warengruppe × 100; DB I = Absatz × (Preis − variable Kosten je Stück); DB-Quote = DB ÷ Umsatz × 100; DB II = DB I − Artikelfixkosten. Zu prüfen sind außerdem Sortimentsverbund (Folgeverluste bei anderen Artikeln), Ersatzartikel, abbaubare Fixkosten, Lagerumschlag und Abnahmeverpflichtungen.
+`tags: sortimentspolitik, auslistung` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-4.5-06
+**Frage:** Wie lautet die Formel der Preiselastizität der Nachfrage, welches Vorzeichen hat sie normalerweise, und worauf bezieht sich die Basis der Prozentänderungen?
+**Antwort:** ε = relative Mengenänderung ÷ relative Preisänderung, bezogen auf die Ausgangswerte. Weil Preis und Menge gegenläufig reagieren, ist ε meist negativ. Gerechnet wird mit Vorzeichen, eingeordnet nach dem Betrag |ε|. ε = −1,5 heißt: 1 % mehr Preis, 1,5 % weniger Menge.
+`tags: preiselastizitaet` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-07
+**Frage:** Was bedeuten elastische und unelastische Nachfrage, und wie wirkt eine Preiserhöhung jeweils auf den Umsatz?
+**Antwort:** |ε| > 1 elastisch: Die Menge reagiert überproportional, der Umsatz sinkt bei einer Preiserhöhung. |ε| < 1 unelastisch: Der Umsatz steigt bei einer Preiserhöhung. |ε| = 1: Der Umsatz bleibt gleich. Grenzfälle: ε = 0 vollkommen unelastisch, |ε| unendlich vollkommen elastisch. Bei Preissenkungen kehrt sich die Wirkung um.
+`tags: preiselastizitaet, umsatzwirkung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-08
+**Frage:** Welche Faktoren machen die Nachfrage eher unelastisch, und warum sind Schätzungen der Elastizität unsicher?
+**Antwort:** Wenige Substitute, kleiner Anteil an den Ausgaben der Kundschaft, hohe Dringlichkeit, Bindung durch Kompatibilität oder Rahmenverträge, schwer vergleichbare Preise, kurzer Zeithorizont. Unsicher ist die Schätzung, weil gleichzeitig andere Einflüsse wirken (Saison, Aktionen, Wettbewerb), ε nicht konstant ist, Vorzieheffekte auftreten und Wettbewerbsunternehmen reagieren.
+`tags: preiselastizitaet, einflussfaktoren` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+#### K-4.5-09
+**Frage:** Warum darfst du eine Preisänderung nicht allein am Umsatz beurteilen, und wie lautet die kritische Mengenänderung?
+**Antwort:** Der Umsatz ignoriert die variablen Kosten; entscheidend ist der Gesamtdeckungsbeitrag. Kritische Mengenänderung = −Δp ÷ (DB-Quote + Δp), beide als Dezimalbrüche mit Vorzeichen für Δp. Beispiel: Preissenkung von 5 % bei DB-Quote 25 % verlangt +25 % Menge, also ε = −5.
+`tags: preiselastizitaet, deckungsbeitrag` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+#### K-4.5-10
+**Frage:** Was misst die Kreuzpreiselastizität, und was bedeuten ein positiver, ein negativer und ein Wert nahe null?
+**Antwort:** Sie setzt die relative Mengenänderung eines Gutes x ins Verhältnis zur relativen Preisänderung eines anderen Gutes y. Positiv: Substitute (austauschbare Güter). Negativ: Komplemente (Güter, die zusammen gebraucht werden). Nahe null: weitgehend unabhängige Güter.
+`tags: kreuzpreiselastizitaet` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-11
+**Frage:** Was ist Preisdifferenzierung, welche Voraussetzungen hat sie, und wie unterscheiden sich Gesamtmengenstaffel und Stufenstaffel?
+**Antwort:** Dieselbe Leistung wird zu unterschiedlichen Preisen angeboten (nach Menge, Kundengruppe, Zeit, Kanal). Voraussetzungen: trennbare Teilmärkte, begrenzter Weiterverkauf, unterschiedliche Preisbereitschaft. Gesamtstaffel: Der Staffelpreis gilt für alle Einheiten der Bestellung. Stufenstaffel: Er gilt nur für die Einheiten oberhalb der Schwelle.
+`tags: preisdifferenzierung, rabattstaffel` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-12
+**Frage:** Welche Phasen hat ein Verkaufsgespräch im B2B-Großhandel, und wie argumentierst du mit Nutzen?
+**Antwort:** Vorbereitung, Kontaktaufnahme, Bedarfsermittlung (Fragetechniken), Argumentation, Einwandbehandlung, Preisverhandlung, Abschluss, Nachbereitung. Nutzenargumentation: Merkmal (Eigenschaft) → Vorteil (Wirkung) → Nutzen für diese Kundschaft, passend zum ermittelten Bedarf; Beweise sind Muster, Referenzen und Gesamtkosten.
+`tags: verkaufsgespraech` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-4.5-13
+**Frage:** Wie unterscheiden sich Einwand und Vorwand, und wie gehst du mit einem Preiseinwand um?
+**Antwort:** Ein Einwand ist ein ernsthaftes Bedenken und weist meist auf eine fehlende Information hin; ein Vorwand nennt einen Grund, der nur vorgeschoben ist, während das eigentliche Motiv verborgen bleibt. Preiseinwand: ausreden lassen, klären, womit verglichen wird (Menge, Qualität, Lieferzeit, Zahlungsziel), mit Nutzen und Gesamtkosten antworten, Zugeständnisse nur gegen Gegenleistung.
+`tags: verkaufsgespraech, einwandbehandlung` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-4.5-14
+**Frage:** Wie berechnest du Angebotsquote, Abschlussquote und durchschnittlichen Auftragswert, und was zeigen sie?
+**Antwort:** Angebotsquote = Angebote ÷ Anfragen × 100; Abschlussquote = Aufträge ÷ Angebote × 100; durchschnittlicher Auftragswert = Umsatz ÷ Zahl der Aufträge. Sie zeigen, wie viele Anfragen zu Angeboten werden, wie überzeugend die Angebote sind und wie groß die Aufträge sind. Der Unterschied zweier Quoten wird in Prozentpunkten angegeben.
+`tags: verkaufssteuerung, kennzahlen` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-4.5-01 · Zuordnung
+**Anweisung:** Ordne den fünf Phasen des Produktlebenszyklus das jeweils passende Merkmal zu.
+- Einführung ↔ Umsatz gering, Gewinn negativ wegen Listungs- und Bekanntmachungskosten
+- Wachstum ↔ Umsatz steigt stark, die Gewinnzone wird erreicht
+- Reife ↔ Zuwächse des Umsatzes nehmen ab, der Gewinn erreicht sein Maximum und sinkt dann
+- Sättigung ↔ Umsatz erreicht sein Maximum und stagniert
+- Rückgang ↔ Umsatz sinkt, Abverkauf und Auslistung werden vorbereitet
+**Erklärung:** Die fünf Phasen unterscheiden sich im Verlauf von Umsatz und Gewinn. Das Gewinnmaximum liegt in der Reife und damit meist vor dem Umsatzmaximum, das in der Sättigung erreicht wird.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-4.5-02 · Was passt nicht dazu
+**Frage:** NordWert bringt einen neuen Artikel auf den Markt. Welche Maßnahme passt nicht zur Einführungsphase?
+- [ ] Muster und Einführungsaktionen für ausgewählte Bestandskundschaft.
+- [ ] Aufnahme des Artikels in Katalog und B2B-Online-Shop.
+- [x] Planung des Abverkaufs von Restbeständen und Vorbereitung der Auslistung.
+- [ ] Vorsichtiger Bestandsaufbau, solange die Nachfrage noch nicht sichtbar ist.
+**Erklärung:** Abverkauf und Auslistung gehören zum Rückgang. In der Einführung geht es darum, den Artikel bekannt zu machen und die Lieferfähigkeit bei begrenztem Risiko aufzubauen.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-4.5-03 · Multiple Choice
+**Frage:** NordWert führt Schulstart-Sets, die fast nur in den Wochen vor dem Schuljahresbeginn gekauft werden. Welche Aussage zu ihrem Lebenszyklus trifft zu?
+- [ ] Nach der Hochphase beginnt ein dauerhafter Rückgang, der den Artikel zwingend aus dem Sortiment nimmt.
+- [x] Der Zyklus läuft innerhalb einer Saison ab und wiederholt sich jährlich; der Abverkauf der Restbestände muss geplant werden.
+- [ ] Der Zyklus verläuft über viele Jahre wie bei einem Standardartikel, deshalb ist keine besondere Abverkaufsplanung nötig.
+- [ ] Saisonartikel haben keine Einführungsphase, weil die Kundschaft sie jedes Jahr schon kennt und deshalb ohne Vorlauf bestellt.
+**Erklärung:** Bei Saisonartikeln durchläuft ein Artikel den Zyklus in wenigen Wochen und wiederholt ihn jährlich. Das Risiko liegt in den Restbeständen nach der Saison, deshalb plant die Disposition rückwärts von der Hochphase aus und kalkuliert den Abverkauf ein.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-04 · Kurzantwort
+**Frage:** Ein Artikel von NordWert wird in einem Jahr 14.000-mal zu 3,40 € verkauft. Die variablen Kosten betragen 2,65 € je Stück, die dem Artikel direkt zurechenbaren Fixkosten (Lagerplatz, Pflege) 11.900 € im Jahr (Beispielwerte). Wie hoch ist der Deckungsbeitrag II des Artikels in Euro (Deckungsbeitrag I abzüglich Artikelfixkosten, mit Vorzeichen)?
+**Akzeptierte Antworten:** −1.400; −1.400 €; −1.400 Euro; −1.400 EUR; −1400; −1400 €; −1400 Euro; −1400 EUR; −1.400,0; −1.400,0 €; −1.400,0 Euro; −1.400,0 EUR; −1400,0; −1400,0 €; −1400,0 Euro; −1400,0 EUR; −1400.0; −1400.0 €; −1400.0 Euro; −1400.0 EUR; −1.400,00; −1.400,00 €; −1.400,00 Euro; −1.400,00 EUR; −1400,00; −1400,00 €; −1400,00 Euro; −1400,00 EUR; −1400.00; −1400.00 €; −1400.00 Euro; −1400.00 EUR; -1.400; -1.400 €; -1.400 Euro; -1.400 EUR; -1400; -1400 €; -1400 Euro; -1400 EUR; -1.400,0; -1.400,0 €; -1.400,0 Euro; -1.400,0 EUR; -1400,0; -1400,0 €; -1400,0 Euro; -1400,0 EUR; -1400.0; -1400.0 €; -1400.0 Euro; -1400.0 EUR; -1.400,00; -1.400,00 €; -1.400,00 Euro; -1.400,00 EUR; -1400,00; -1400,00 €; -1400,00 Euro; -1400,00 EUR; -1400.00; -1400.00 €; -1400.00 Euro; -1400.00 EUR
+**Erklärung:** Deckungsbeitrag I = 14.000 × (3,40 € − 2,65 €) = 14.000 × 0,75 € = 10.500 €. Deckungsbeitrag II = 10.500 € − 11.900 € = −1.400 €. Der Artikel deckt seine eigenen Fixkosten nicht; eine Auslistung ist zu prüfen, auch auf Verbundkäufe und die Abbaubarkeit der Fixkosten.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-05 · Kurzantwort
+**Frage:** NordWert erhöht den Preis eines Artikels von 7,50 € auf 7,80 €; der Absatz sinkt von 5.000 auf 4.850 Stück (Beispielwerte). Wie hoch ist die Preiselastizität der Nachfrage (Quotient der prozentualen Änderungen, bezogen auf die Ausgangswerte, mit Vorzeichen, auf zwei Nachkommastellen)?
+**Akzeptierte Antworten:** −0,75; −0.75; -0,75; -0.75
+**Erklärung:** Preisänderung = (7,80 − 7,50) ÷ 7,50 = +4 %. Mengenänderung = (4.850 − 5.000) ÷ 5.000 = −3 %. ε = −3 % ÷ +4 % = −0,75. Mit |ε| < 1 ist die Nachfrage unelastisch; der Umsatz steigt von 37.500 € auf 37.830 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-06 · Multiple Choice
+**Frage:** Für ein Spezialetikett wurde eine Preiselastizität von −0,4 geschätzt (Beispielwert). NordWert erhöht den Preis um 10 %. Welche Aussage zur Wirkung auf Menge und Umsatz trifft zu?
+- [ ] Die Menge sinkt um rund 4 %, der Umsatz sinkt ebenfalls, weil jede Preiserhöhung Kundschaft vertreibt.
+- [ ] Die Menge sinkt um rund 40 %, deshalb geht der Umsatz deutlich zurück.
+- [ ] Die Menge bleibt unverändert, und der Umsatz steigt um 10 %, weil der Betrag von ε kleiner als 1 ist.
+- [x] Die Menge sinkt um rund 4 %, der Umsatz steigt um rund 5,6 %, weil die Nachfrage unelastisch ist.
+**Erklärung:** Mengenänderung = ε × Preisänderung = −0,4 × 10 % = −4 %. Der Umsatz ändert sich mit dem Faktor 1,10 × 0,96 = 1,056, steigt also um 5,6 %. Bei unelastischer Nachfrage (|ε| < 1) steigt der Umsatz bei einer Preiserhöhung, die Menge reagiert aber trotzdem.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-4.5-07 · Kurzantwort
+**Frage:** Ein Artikel kostet 20,00 € bei variablen Kosten von 15,00 € je Stück. NordWert senkt den Preis um 4 % (Beispielwerte). Um wie viel Prozent muss der Absatz mindestens steigen, damit der Gesamtdeckungsbeitrag nicht sinkt (kritische Mengenänderung = −Δp ÷ (DB-Quote + Δp), beide als Dezimalbrüche, Δp mit Vorzeichen; Ergebnis in Prozent auf eine Nachkommastelle)?
+**Akzeptierte Antworten:** 19; 19 %; 19 Prozent; 19,0; 19,0 %; 19,0 Prozent; 19.0; 19.0 %; 19.0 Prozent; 19,00; 19,00 %; 19,00 Prozent; 19.00; 19.00 %; 19.00 Prozent; +19; +19 %; +19 Prozent; +19,0; +19,0 %; +19,0 Prozent; +19.0; +19.0 %; +19.0 Prozent; +19,00; +19,00 %; +19,00 Prozent; +19.00; +19.00 %; +19.00 Prozent
+**Erklärung:** DB-Quote = (20,00 − 15,00) ÷ 20,00 = 0,25. Kritische Mengenänderung = −(−0,04) ÷ (0,25 − 0,04) = 0,04 ÷ 0,21 ≈ 0,1905, also rund +19,0 %. Probe: Der neue Preis ist 19,20 €, der Deckungsbeitrag je Stück 4,20 € statt 5,00 €; 5,00 ÷ 4,20 ≈ 1,1905.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-4.5-08 · Wahr/Falsch
+**Aussage:** Bei elastischer Nachfrage (Betrag der Preiselastizität größer als 1) sinkt der Umsatz, wenn NordWert den Preis erhöht.
+- [x] Wahr
+- [ ] Falsch
+**Erklärung:** Bei elastischer Nachfrage geht die Menge überproportional zurück, sodass der Mengenverlust den höheren Preis mehr als ausgleicht. Bei unelastischer Nachfrage steigt der Umsatz dagegen bei einer Preiserhöhung.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-4.5-09 · Entweder-Oder
+**Frage:** Der Preis für Heftgeräte steigt, und NordWert verkauft danach weniger passende Heftklammern. Welche Beziehung zwischen den beiden Artikeln zeigt die negative Kreuzpreiselastizität?
+- [ ] Substitute, also Artikel, die einander ersetzen können.
+- [x] Komplemente, also Artikel, die zusammen gebraucht werden.
+**Erklärung:** Ein negatives Vorzeichen der Kreuzpreiselastizität bedeutet: Steigt der Preis von y, sinkt die Menge von x. Das ist typisch für Komplemente. Bei Substituten würde die Kundschaft auf den anderen Artikel ausweichen, die Kreuzpreiselastizität wäre positiv.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-4.5-10 · Kurzantwort
+**Frage:** Der Preis einer Markenware steigt um 8 %; der Absatz der Eigenmarke steigt danach von 5.000 auf 5.300 Packungen (Beispielwerte). Wie hoch ist die Kreuzpreiselastizität der Eigenmarke in Bezug auf den Preis der Markenware (relative Mengenänderung ÷ relative Preisänderung, mit Vorzeichen, auf zwei Nachkommastellen)?
+**Akzeptierte Antworten:** 0,75; 0.75; +0,75; +0.75
+**Erklärung:** Mengenänderung der Eigenmarke = (5.300 − 5.000) ÷ 5.000 = +6 %. ε = +6 % ÷ +8 % = +0,75. Das positive Vorzeichen zeigt Substitute: Markenware und Eigenmarke sind füreinander austauschbar.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-11 · Kurzantwort
+**Frage:** Ein Artikel kostet 12,00 € je Stück. Es gilt eine Stufenstaffel: Die ersten 20 Stück einer Bestellung kosten den Listenpreis, ab dem 21. Stück liegt der Preis 6 % unter dem Listenpreis (Beispielwerte). Wie hoch ist der Rechnungsbetrag für 70 Stück in Euro (netto)?
+**Akzeptierte Antworten:** 804; 804 €; 804 Euro; 804 EUR; 804,0; 804,0 €; 804,0 Euro; 804,0 EUR; 804.0; 804.0 €; 804.0 Euro; 804.0 EUR; 804,00; 804,00 €; 804,00 Euro; 804,00 EUR; 804.00; 804.00 €; 804.00 Euro; 804.00 EUR
+**Erklärung:** Die ersten 20 Stück kosten 20 × 12,00 € = 240,00 €. Für die übrigen 50 Stück gilt der Preis 12,00 € × 0,94 = 11,28 €, zusammen 564,00 €. Rechnungsbetrag = 240,00 € + 564,00 € = 804,00 €. Bei einer Gesamtstaffel mit 6 % auf alle 70 Stück wären es 789,60 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-12 · Mehrfachauswahl
+**Frage:** NordWert möchte Handwerksbetrieben, Einzelhandelsunternehmen und Industriekundschaft für denselben Artikel unterschiedliche Preise anbieten. Welche Voraussetzungen sollten erfüllt sein?
+- [x] Die Kundengruppen lassen sich klar unterscheiden, etwa über Kundenkonten und Konditionenlisten.
+- [ ] Die Preise liegen für die günstigste Gruppe unter der kurzfristigen Preisuntergrenze, damit sie sicher kauft.
+- [x] Ein Weiterverkauf zwischen den Gruppen ist begrenzt, sonst entsteht Handel mit dem günstigsten Preis.
+- [x] Die Gruppen unterscheiden sich in Preisbereitschaft oder Menge, sodass die Preisunterschiede nachvollziehbar sind.
+- [ ] Alle Gruppen haben dieselbe Preiselastizität und bestellen dieselbe Menge je Auftrag.
+**Erklärung:** Preisdifferenzierung braucht trennbare Teilmärkte, begrenzten Weiterverkauf und unterschiedliche Preisbereitschaft. Hätten alle Gruppen dieselbe Elastizität, brächte sie nichts; ein Preis unter den variablen Kosten würde den Deckungsbeitrag negativ machen.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-4.5-13 · Sortieren
+**Anweisung:** Eine Außendienstmitarbeiterin von NordWert führt ein Verkaufsgespräch mit der Einkaufsleitung eines Handwerksbetriebs. Bringe die Schritte in die richtige Reihenfolge.
+1. Mit offenen Fragen und einer Fragefolge den Bedarf der Kundschaft ermitteln.
+2. Den Nutzen des passenden Artikels für genau diesen Bedarf darstellen.
+3. Den Preiseinwand klären und mit Nutzen und Gesamtkosten beantworten.
+4. Den Auftrag zusammenfassen und einen Folgetermin vereinbaren.
+**Erklärung:** Die Argumentation folgt der Bedarfsermittlung, weil ein Argument nur wirkt, wenn es zum ermittelten Bedarf passt. Der Einwand kommt meist nach der Argumentation, und erst danach folgt der Abschluss mit der Vereinbarung des nächsten Schritts.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-14 · Lückentext
+**Text:** Ein ernsthaftes Bedenken der Kundschaft gegen Angebot oder Preis, das meist auf eine fehlende Information hinweist, heißt ___Einwand___. Ein Grund, der nur genannt wird, damit das eigentliche Motiv verborgen bleibt, heißt ___Vorwand___.
+**Erklärung:** Einwände werden aufgegriffen und mit Fakten und Nutzen beantwortet. Bei einem Vorwand hilft eine offene Frage nach dem eigentlichen Anliegen.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-4.5-15 · Kurzantwort
+**Frage:** Das Außendienstteam soll im Quartal einen Umsatz von 378.000 € erzielen. Der durchschnittliche Auftragswert beträgt 4.200 €, die Abschlussquote (Aufträge ÷ Angebote) 30 % (Beispielwerte). Wie viele Angebote sind mindestens nötig?
+**Akzeptierte Antworten:** 300; 300 Angebote; 300 Stück; 300,0; 300,0 Angebote; 300,0 Stück; 300.0; 300.0 Angebote; 300.0 Stück; 300,00; 300,00 Angebote; 300,00 Stück; 300.00; 300.00 Angebote; 300.00 Stück
+**Erklärung:** Benötigte Aufträge = 378.000 € ÷ 4.200 € = 90. Bei einer Abschlussquote von 30 % braucht das Team 90 ÷ 0,30 = 300 Angebote. Bei einer Angebotsquote von 75 % wären dafür 400 Anfragen nötig.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-4.5-16 · Kurzantwort
+**Frage:** Im Vorquartal führten 200 Angebote zu 70 Aufträgen, im aktuellen Quartal 220 Angebote zu 88 Aufträgen (Beispielwerte). Um wie viele Prozentpunkte ist die Abschlussquote (Aufträge ÷ Angebote × 100) gestiegen?
+**Akzeptierte Antworten:** 5; 5 %; 5 Prozent; 5 Prozentpunkte; 5 Prozentpunkt; 5 %-Punkte; 5 %-Pkt.; 5,0; 5,0 %; 5,0 Prozent; 5,0 Prozentpunkte; 5,0 Prozentpunkt; 5,0 %-Punkte; 5,0 %-Pkt.; 5.0; 5.0 %; 5.0 Prozent; 5.0 Prozentpunkte; 5.0 Prozentpunkt; 5.0 %-Punkte; 5.0 %-Pkt.; 5,00; 5,00 %; 5,00 Prozent; 5,00 Prozentpunkte; 5,00 Prozentpunkt; 5,00 %-Punkte; 5,00 %-Pkt.; 5.00; 5.00 %; 5.00 Prozent; 5.00 Prozentpunkte; 5.00 Prozentpunkt; 5.00 %-Punkte; 5.00 %-Pkt.; +5; +5 %; +5 Prozent; +5 Prozentpunkte; +5 Prozentpunkt; +5 %-Punkte; +5 %-Pkt.; +5,0; +5,0 %; +5,0 Prozent; +5,0 Prozentpunkte; +5,0 Prozentpunkt; +5,0 %-Punkte; +5,0 %-Pkt.; +5.0; +5.0 %; +5.0 Prozent; +5.0 Prozentpunkte; +5.0 Prozentpunkt; +5.0 %-Punkte; +5.0 %-Pkt.; +5,00; +5,00 %; +5,00 Prozent; +5,00 Prozentpunkte; +5,00 Prozentpunkt; +5,00 %-Punkte; +5,00 %-Pkt.; +5.00; +5.00 %; +5.00 Prozent; +5.00 Prozentpunkte; +5.00 Prozentpunkt; +5.00 %-Punkte; +5.00 %-Pkt.
+**Erklärung:** Vorquartal: 70 ÷ 200 × 100 = 35 %; aktuelles Quartal: 88 ÷ 220 × 100 = 40 %. Die Differenz der beiden Quoten beträgt 5 Prozentpunkte. Würde man die 5 Punkte dagegen auf den Ausgangswert von 35 % beziehen, käme ein relativer Anstieg von rund 14,3 % heraus; gefragt ist hier aber die Differenz in Prozentpunkten.
+`schwierigkeit: mittel` · `bloom: anwenden`

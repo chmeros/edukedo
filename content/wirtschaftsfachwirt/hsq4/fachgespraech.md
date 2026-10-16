@@ -5,7 +5,7 @@ fachgebiet_title: "Marketing und Vertrieb"
 thema_code: "HSQ4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Fachgebiet Marketing und Vertrieb — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -135,4 +135,39 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Vorgaben der Exportkontrolle sind bei Geschäften mit Drittländern oder bestimmten sensiblen Warengruppen im Blick zu behalten.
   - Erwartung: Auch ein bislang überwiegend EU-ausgerichtetes Unternehmen kann sein Geschäftsfeld künftig erweitern, wodurch entsprechende Prüfpflichten entstehen können.
   - Rückfrage: Was bestätigt ein Ursprungszeugnis im Unterschied zu einer Rechnung?
+- Wie gehen Sie bei der Auswahl eines Auslandsmarkts und der Markteintrittsform vor, und wie bewerten Sie die Wirtschaftlichkeit des Einstiegs?
+  - Erwartung: Die Marktauswahl läuft in zwei Stufen: Muss-Kriterien scheiden Länder aus (zum Beispiel Lieferzeit, Bonitätsprüfung), dann vergleicht eine Nutzwertanalyse mit Gewichten von zusammen 100 % und Punkten von 1 bis 10 die übrigen Länder; Kriterien sind etwa Marktpotenzial, Erreichbarkeit, Wettbewerbsintensität, Zahlungsverhalten und Länderrisiko sowie Verständigung.
+  - Erwartung: Wegen der Scheingenauigkeit werden Gewichte vorab festgelegt und die Rangfolge mit anderen Gewichten gegengerechnet.
+  - Erwartung: Als Eintrittsformen kommen indirekter Export (inländischer Mittler), direkter Export (ohne inländischen Mittler, selbst oder über Mittler im Zielland), Handelsvertretung (vermittelt im Namen und für Rechnung des Unternehmens gegen Provision), Vertriebspartnerunternehmen (kauft im eigenen Namen auf eigene Rechnung), Eigenvertrieb (Büro, Niederlassung, Tochtergesellschaft), Kooperation und Joint Venture sowie Lizenz und Franchising in Frage; Handelsvertretung und Vertriebspartnerunternehmen im Zielland zählen im Außenhandel zum direkten Export; die Formen unterscheiden sich in Kapitaleinsatz, Kontrolle und Risiko.
+  - Erwartung: Die Wirtschaftlichkeit folgt aus Erlös in Euro (Preis in Fremdwährung ÷ Kurs bei Mengennotierung), Deckungsbeitrag je Stück, Break-Even-Menge (Fixkosten ÷ Deckungsbeitrag) und der Indifferenzmenge (kritische Menge) zweier Formen; eine Aufwertung des Euro senkt bei unverändertem Preis in Fremdwährung den Erlös und erhöht die Break-Even-Menge, Gegenmittel sind höhere Preise, ein Devisentermingeschäft oder Rechnungen in Euro.
+  - Rückfrage: Warum kann eine moderate Kursänderung die Break-Even-Menge so stark verschieben?
+- Wozu nutzen Sie Kulturmodelle von Hofstede und Hall bei der Vorbereitung von Verhandlungen im Ausland, und wo liegen deren Grenzen?
+  - Erwartung: Kultur ist die Gesamtheit erlernter, in einer Gruppe geteilter Werte, Normen und Verhaltensweisen; Menschen gehören mehreren Ebenen an (Land, Region, Branche, Unternehmen, Team); die Kulturzwiebel unterscheidet Symbole, Helden und Rituale als sichtbare Praktiken und die Werte im Kern.
+  - Erwartung: Hofstede vergleicht Gesellschaften auf sechs Skalen: Machtdistanz, Individualismus, Maskulinität, Unsicherheitsvermeidung, Zeithorizont (lang- oder kurzfristig) und Nachgiebigkeit; die Indexwerte sind relative Gruppendurchschnitte, nur deutliche Unterschiede sind aussagekräftig, und sie dienen als Arbeitshypothese.
+  - Erwartung: Hall unterscheidet High- und Low-Context-Kommunikation als Kontinuum, monochrones und polychrones Zeitverständnis sowie den Umgang mit Raum; Folgen sind unter anderem Zeitpuffer, schriftliche Bestätigung von Zusagen und offene Fragen statt Ja-Nein-Fragen.
+  - Erwartung: Grenzen: Gruppendurchschnitte erlauben keinen sicheren Schluss auf Einzelpersonen, ein Land ist nicht automatisch eine Kultur, Kulturen wandeln sich, das Verhalten hängt von der Situation ab; eine Verallgemeinerung wird zum Stereotyp, wenn sie ohne Prüfung jedem Gruppenmitglied zugeschrieben wird.
+  - Erwartung: Interkulturelle Kompetenz umfasst Wissen, Einstellung und Handeln; bei irritierenden Situationen hilft das Vorgehen beschreiben, deuten, prüfen, bewerten.
+  - Rückfrage: Woran erkennen Sie, dass aus einer Verallgemeinerung ein Stereotyp geworden ist?
 
+### 4.5 Produktlebenszyklus, Preiselastizität und Verkaufsgespräch
+
+- Ein Eigenmarkenartikel der NordWert Handels GmbH verliert nach sechs Jahren erstmals Umsatz. Wie beurteilen Sie die Lage mit Hilfe des Produktlebenszyklus, und wie entscheiden Sie über den Artikel?
+  - Erwartung: Das Modell gliedert den Verlauf in fünf Phasen (Einführung, Wachstum, Reife, Sättigung, Rückgang); das Gewinnmaximum liegt meist vor dem Umsatzmaximum, ein sinkender Umsatz bei noch positivem Gewinn weist auf Sättigung oder beginnenden Rückgang hin.
+  - Erwartung: Die Phase wird an Indizien erkannt (abnehmende Zuwächse, sinkende Veränderungsrate, wachsender Preisdruck), steht oft erst im Nachhinein fest, und die Betrachtungsebene (Artikel, Warengruppe, Branche) ist zu klären.
+  - Erwartung: Maßnahmen sind Nachfolgeartikel oder Relaunch, Konditionen und Kundenbindung, in letzter Konsequenz Abverkauf und Auslistung; wer zu früh die Unterstützung streicht, kann den Rückgang selbst auslösen.
+  - Erwartung: Über die Auslistung entscheiden Umsatzanteil, Deckungsbeitrag I und II, Lagerumschlag, Verbundkäufe, Ersatzartikel und die Abbaubarkeit der Artikelfixkosten; Kundschaft und Lieferunternehmen werden rechtzeitig informiert, der Restbestand wird abverkauft.
+  - Rückfrage: Warum kann ein Artikel mit sehr kleinem Umsatzanteil trotzdem im Sortiment bleiben?
+- Die Vertriebsleitung möchte den Absatz eines Artikels mit einer Preissenkung um 10 % ankurbeln. Wie beurteilen Sie den Vorschlag mit Hilfe der Preiselastizität und des Deckungsbeitrags?
+  - Erwartung: Die Preiselastizität ist die relative Mengenänderung geteilt durch die relative Preisänderung; sie ist meist negativ, und der Betrag entscheidet: Bei |ε| > 1 ist die Nachfrage elastisch und der Umsatz steigt bei einer Preissenkung, bei |ε| < 1 ist sie unelastisch und der Umsatz sinkt.
+  - Erwartung: Der Umsatz allein genügt nicht, entscheidend ist der Gesamtdeckungsbeitrag; die kritische Mengenänderung −Δp ÷ (DB-Quote + Δp) zeigt, wie viel Mehrmenge nötig ist, und sie ist umso größer, je kleiner die DB-Quote ist.
+  - Erwartung: Die Elastizität hängt von Ersatzartikeln, dem Ausgabenanteil der Kundschaft, Dringlichkeit, Bindung, Preistransparenz und Zeithorizont ab.
+  - Erwartung: Die Schätzung ist unsicher, weil andere Einflüsse wirken, die Elastizität nicht konstant ist, Vorzieheffekte auftreten und Wettbewerbsunternehmen reagieren; deshalb wird vorsichtig getestet und die Wirkung gemessen.
+  - Erwartung: Alternativen sind Preisdifferenzierung nach Kundengruppen oder eine Rabattstaffel gegen Mehrmenge.
+  - Rückfrage: Was misst die Kreuzpreiselastizität, und warum ist sie bei Eigenmarke und Markenware wichtig?
+- Die Einkaufsleiterin eines Industriekundenunternehmens sagt im Gespräch, das Angebot von NordWert sei zu teuer. Wie gehen Sie als verkaufende Person vor, und woran messen Sie den Erfolg Ihres Teams?
+  - Erwartung: Ein Einwand ist ein ernsthaftes Bedenken, ein Vorwand dagegen ein nur vorgeschobener Grund; die verkaufende Person lässt ausreden, fragt nach, womit verglichen wird (Menge, Qualität, Lieferzeit, Zahlungsziel), und prüft, ob die Frage beantwortet ist.
+  - Erwartung: Sie argumentiert mit Nutzen statt mit Merkmalen (Merkmal, Vorteil, Nutzen für den ermittelten Bedarf) und mit den Gesamtkosten statt mit dem Stückpreis.
+  - Erwartung: Zugeständnisse gibt es nur gegen Gegenleistungen wie Mehrmenge, Laufzeit, schnellere Zahlung oder gebündelte Lieferungen; der Verhandlungsspielraum (Rabattstaffel, Preisuntergrenze) ist vorab festgelegt.
+  - Erwartung: Abschluss und Nachbereitung sichern das Ergebnis: Zusammenfassung, Folgeschritt, Notiz und Wiedervorlage im CRM-System, Nachfassen.
+  - Erwartung: Die Steuerung nutzt Angebotsquote, Abschlussquote, durchschnittlichen Auftragswert, Besuchsfrequenz und Umsatz je Besuch, jeweils mit Basis und Zeitraum, und achtet auf Fehlanreize.
+  - Rückfrage: Worin unterscheiden sich Prozentpunkte und Prozent, wenn die Abschlussquote steigt?

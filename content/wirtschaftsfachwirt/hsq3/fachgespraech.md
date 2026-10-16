@@ -5,7 +5,7 @@ fachgebiet_title: "Logistik"
 thema_code: "HSQ3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt" (Fachgebiet Logistik, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -129,3 +129,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei DAP (Delivered at Place/geliefert benannter Ort) trägt der Verkäufer Kosten und Risiko bis zur Ankunft am vereinbarten Bestimmungsort.
   - Erwartung: Die korrekte Klauselwahl in Exportverträgen ist wichtig, um Kosten- und Risikoverteilung mit ausländischen Geschäftspartnern eindeutig zu regeln und Streitigkeiten über Transportschäden zu vermeiden.
   - Rückfrage: Bei welcher Klausel trägt der Verkäufer Kosten und Versicherung bis zum Bestimmungshafen, das Risiko geht aber schon bei der Verladung über?
+
+### 3.4 Bedarfsermittlung, Bestellmenge und Make-or-Buy
+
+- Wie gehen Sie vor, um den Bedarf an Handelsware, an Teilen für Sets und Displays und an Verpackungsmaterial zu ermitteln und daraus eine Bestellung abzuleiten?
+  - Erwartung: Der Primärbedarf ist verkaufsfähige Handelsware, der Sekundärbedarf geht in selbst konfektionierte Verkaufseinheiten ein und wird über die Stückliste aus dem Primärbedarf abgeleitet, der Tertiärbedarf umfasst Hilfs- und Betriebsstoffe des eigenen Betriebs.
+  - Erwartung: Zur Wahl stehen programmorientierte Ermittlung (aus Absatzplan, Aufträgen und Stücklisten), verbrauchsorientierte Ermittlung (Mittelwert, Trend und Saison, exponentielle Glättung) und die Schätzung, wenn Daten fehlen; die Wahl richtet sich nach Wert und Planbarkeit der Artikel (ABC/XYZ-Matrix).
+  - Erwartung: Der Bruttobedarf einer Periode wird zum Nettobedarf, indem der verfügbare Lagerbestand (nach Abzug der Reservierungen) und der Bestellbestand abgezogen und der Sicherheitsbestand hinzugerechnet werden.
+  - Erwartung: Die Stückliste wird stufenweise aufgelöst; ein Teil, das auf mehreren Stufen vorkommt, wird auf der tiefsten Dispositionsstufe zusammengefasst und gemeinsam bestellt.
+  - Erwartung: Der Bestelltermin folgt aus der Vorlaufverschiebung: Vom Liefertermin werden rückwärts die Vorlaufzeiten (Durchlaufzeit der Konfektionierung, Wiederbeschaffungszeit der Zukaufteile) abgezogen, das Teil mit der längsten Kette bestimmt den Beginn, ein Zeitpuffer sichert den Termin ab.
+  - Rückfrage: Wodurch unterscheiden sich Mengenstückliste und Strukturstückliste?
+- Wie bestimmen Sie die wirtschaftliche Bestellmenge für einen Standardartikel, und wo stößt diese Rechnung an Grenzen?
+  - Erwartung: Bestellfixe Kosten je Bestellung sinken im Jahr mit wachsender Bestellmenge, Lagerkosten (Zinsen, Versicherung, Schwund; Raumkosten nur, soweit sie vom Bestand abhängen) steigen; die optimale Bestellmenge minimiert die Summe.
+  - Erwartung: Die Formel nach Andler lautet √(2 × Jahresbedarf × bestellfixe Kosten ÷ (Einstandspreis × Lagerkostensatz)); im Optimum sind Bestellkosten und Lagerkosten gleich hoch.
+  - Erwartung: Annahmen sind ein gleichmäßiger, bekannter Bedarf, ein gleichbleibender Preis ohne Mengenrabatt, konstante Kostensätze, Lieferung der ganzen Menge auf einmal und keine Fehlmengen.
+  - Erwartung: Grenzen sind Mengenrabatte (Vergleich der Gesamtkosten aus Einkaufswert, Bestell- und Lagerkosten), Mindestbestellmengen und Verpackungseinheiten, schwankender Bedarf bei Y- und Z-Artikeln, Haltbarkeit und Lagerplatz; das Kostenminimum ist flach, die Formel liefert einen Richtwert.
+  - Rückfrage: Warum sind im Optimum Bestell- und Lagerkosten gleich hoch?
+- Wann würden Sie Leistungen wie die Konfektionierung von Displays oder die Auslieferung selbst erbringen, und wann zukaufen?
+  - Erwartung: Quantitativ werden die Kosten beider Wege verglichen; die kritische Menge ergibt sich aus den zusätzlichen fixen Kosten der Eigenfertigung geteilt durch die Differenz aus Einstandspreis und variablen Kosten je Stück, bei höherem Bedarf lohnt die Eigenfertigung, bei niedrigerem der Fremdbezug.
+  - Erwartung: In den Vergleich gehören nur Kosten, die durch die Entscheidung entstehen oder entfallen; bei vorhandener Kapazität sind kurzfristig nur die variablen Kosten maßgeblich (dasselbe Prinzip wie bei der kurzfristigen Preisuntergrenze), auf Dauer müssen die Fixkosten gedeckt sein; ein entgangener Deckungsbeitrag der Alternativnutzung ist als Opportunitätskosten zu berücksichtigen.
+  - Erwartung: Mit wachsender Menge und Auslastung sinken die Stückkosten der Eigenfertigung, weil sich die Fixkosten verteilen; liegt die kritische Menge über der Kapazität, lohnt sich die Eigenfertigung nicht.
+  - Erwartung: Qualitativ zählen Qualität und Kontrolle, Flexibilität, Abhängigkeit vom Lieferunternehmen, Know-how und Kapazität; sie lassen sich mit einer Nutzwertanalyse bewerten, unverzichtbare Anforderungen als Muss-Kriterium.
+  - Erwartung: Sinnvoll können Mischlösungen sein, etwa die Eigenleistung bis zur Kapazitätsgrenze und die Vergabe der Spitzen; bei Logistikleistungen sind die Nachteile des Outsourcings (Abhängigkeit, geringerer Einfluss auf die Servicequalität) mit zu bedenken.
+  - Rückfrage: Was folgt für die Entscheidung, wenn der Bedarf unter der kritischen Menge liegt?
