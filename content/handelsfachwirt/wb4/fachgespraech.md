@@ -95,6 +95,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Grenzen: Ein Zertifikat gilt zum Prüfzeitpunkt, oft stichprobenartig, Siegel sind unterschiedlich streng; eigene Qualitätskontrolle und Audit (Thema 7.2 „Lieferantenbewertung und Verhandlung“ und Thema 7.3 „Compliance im Einkauf“ im Fachgebiet Einkauf (Wahlpflicht)) bleiben nötig.
   - Erwartung: Der Ursprung im Zollsinn, belegt durch Ursprungszeugnis oder Präferenznachweis, bestimmt Herkunftsland und Zollsatz; die Herkunft des Rohstoffs (Rückverfolgbarkeit der Faser) belegt Nachhaltigkeitsaussagen; beide ersetzen sich nicht.
   - Rückfrage: Warum reicht ein Ursprungszeugnis nicht, um die Aussage „Baumwolle aus kontrolliertem Anbau“ zu belegen?
+- Die Einkaufsleitung der Loreno Mode & Wohnen GmbH hat im TARIC zur Warennummer eines Wohnaccessoires mehrere Einträge gefunden, nicht nur einen Zollsatz. Wie gehen Sie damit um, und was fließt in die Entscheidung für oder gegen das Angebot ein?
+  - Erwartung: Neben dem Zollsatz zeigt der Zolltarif Maßnahmen wie Antidumpingzoll, Ausgleichszoll oder Schutzmaßnahme sowie Verbote, Genehmigungspflichten und Kontingente; maßgeblich ist der Stand zur Einfuhr, weil Maßnahmen befristet sind und sich ändern.
+  - Erwartung: Ein Antidumpingzoll tritt zum Zoll hinzu, wird im Kurs auf den Zollwert gerechnet und kann je Herstellungsunternehmen verschieden ausfallen; der genaue Betrieb gehört deshalb in Auftrag, Rechnung und Anmeldung, und verglichen wird der Bezugspreis, nicht der Rechnungspreis.
+  - Erwartung: Nichttarifäre Hemmnisse schlagen als Zusatzkosten und Wartezeit zu Buche: Produktvorschriften, Kennzeichnung, Prüfberichte, Genehmigungen und Abfertigungsaufwand; die Importeurin verantwortet, dass die Ware die Vorschriften erfüllt.
+  - Erwartung: Eine Verbrauchsteuer kommt nur bei bestimmten Waren hinzu, nach Menge, und ist Kostenbestandteil; die Einfuhrumsatzsteuer bleibt als durchlaufender Posten außen vor.
+  - Rückfrage: Warum kann der Antidumpingzoll bei einem anderen Herstellungsunternehmen desselben Landes niedriger sein, und was heißt das für die Auswahl der Lieferunternehmen?
+- Loreno nimmt ein neues Lieferunternehmen in Übersee auf. Wie stellen Sie sicher, dass keine Sanktionen oder Embargos verletzt werden, und was droht bei einem Verstoß?
+  - Erwartung: Sanktionen und Embargos erfassen Waren, Finanzgeschäfte und gelistete Personen; Länder und Listen wechseln und werden in der aktuellen amtlichen Fassung geprüft, nicht aus dem Gedächtnis.
+  - Erwartung: In der Prüfroutine stehen die Ware mit Herkunft, der Name samt Eigentümerstruktur des Lieferunternehmens, der Listenabgleich sowie Zahlungs- und Transportweg, mit Dokumentation und regelmäßiger Wiederholung.
+  - Erwartung: Ein möglicher Treffer stoppt Zahlung und Lieferung, bis die Identität über die interne Compliance-Stelle geklärt ist; ein ähnlicher Name allein belegt noch nichts.
+  - Erwartung: Folgen reichen von Bußgeld oder Strafverfahren über Einziehung der Ware und angehaltene Zahlungen bis zur Verantwortung der Geschäftsleitung und zu wirtschaftlichen Schäden; Beträge bleiben offen.
+  - Erwartung: Die Sanktionsprüfung gehört als Einhaltung gesetzlicher Verbote zur Compliance im Einkauf; die Lieferkettensorgfaltspflichten betreffen dagegen Menschenrechte und Umwelt in der Lieferkette. Verbote treffen zudem einzelne Personen unabhängig vom Land.
+  - Rückfrage: Warum genügt es nicht, nur das Land des Lieferunternehmens zu prüfen, und wie grenzt sich diese Sanktionsprüfung von den Lieferkettensorgfaltspflichten zu Sozial- und Umweltstandards in Thema 7.3 ab?
 
 ### 8.3 Außenhandelsfinanzierung
 
