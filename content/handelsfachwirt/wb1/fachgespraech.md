@@ -5,7 +5,7 @@ fachgebiet_title: "Vertriebssteuerung (Wahlpflicht)"
 thema_code: "WB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 5, Wahlpflicht-Handlungsbereich „Vertriebssteuerung") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -88,3 +88,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: So werden preissensible und weniger preissensible Kundschaft zu unterschiedlichen Zeitpunkten abgeschöpft.
   - Rückfrage: Was kann Loreno mit Artikeln tun, die trotz mehrfacher Reduzierung nicht verkauft werden?
 
+### 5.4 Kundenzufriedenheit und Kundenbindung
+
+- Eine Filiale meldet hohe Zufriedenheitswerte, trotzdem sinkt die Zahl der Stammkund:innen. Wie erklären Sie sich das, und welche Kennzahlen ziehen Sie heran?
+  - Erwartung: Zufriedenheit ist eine Einstellung, die aus dem Vergleich von Erwartung und Erlebnis entsteht; Bindung ist Verhalten. Zufriedene Kundschaft kann abwandern, zum Beispiel wegen eines attraktiven Wettbewerbsangebots oder eines geänderten Bedarfs (Umzug, neue Lebenssituation); beides ist getrennt zu messen.
+  - Erwartung: Zufriedenheit misst man mit Befragungen (Zufriedenheitsindex mit gewichteten Merkmalen; Net Promoter Score als Anteil der Promotor:innen minus Anteil der Kritiker:innen, die Passiven zählen nur im Nenner), ergänzt um Beschwerden und Rücksendegründe; Bindung misst man mit Wiederkaufquote und Abwanderungsquote.
+  - Erwartung: Grenzen: Eine Befragung nach dem Kauf erreicht Abgewanderte nicht, die Antwortenden sind keine Zufallsauswahl, der NPS zeigt nicht das Warum und braucht eine offene Nachfrage, Kartendaten erfassen nur Käufe mit Karte.
+  - Erwartung: Ursachen findet man über Abwanderungsbefragung und Auswertung von Kaufpausen und Warenkörben; das Kano-Modell hilft bei den Prioritäten: zuerst Basismerkmale sichern (zum Beispiel Größen verfügbar), denn Begeisterungsmerkmale werden mit der Zeit zur Selbstverständlichkeit.
+  - Rückfrage: Zwei Filialen haben denselben NPS. Welche Information fehlt Ihnen, um sie zu vergleichen?
+- Wie bauen Sie in einer Filiale und im Online-Shop ein Beschwerdemanagement auf, und woran messen Sie, ob es wirkt?
+  - Erwartung: Der Ablauf besteht aus Beschwerdestimulierung, -annahme, -bearbeitung, -reaktion sowie Auswertung und Controlling; der direkte Teil betrifft den einzelnen Fall, der indirekte Teil die Auswertung für Verbesserungen.
+  - Erwartung: Bei der Annahme zuhören, nicht rechtfertigen, sich entschuldigen und den Fall vollständig erfassen; ein Handlungsspielraum für kleinere Fälle (zum Beispiel Gutschein bis zu einer festgelegten Grenze) verkürzt die Bearbeitung; Kulanz ist freiwilliges Entgegenkommen über das Verpflichtende hinaus.
+  - Erwartung: Kennzahlen sind die Beschwerdequote (Beschwerden geteilt durch Kaufvorgänge), die mittlere Bearbeitungszeit und die Lösungsquote innerhalb einer Frist oder im Erstkontakt; eine sehr niedrige Beschwerdequote ist nicht automatisch gut, weil der Weg zur Beschwerde zu schwer sein kann, deshalb gemeinsam mit Befragung und Wiederkauf betrachten.
+  - Erwartung: Ausgewertet wird nach Ursache, Warengruppe, Lieferunternehmen und Filiale; Häufungen gehen an Einkauf und Qualitätssicherung; Rücksendegründe sind eine zusätzliche Quelle, die Abwicklung der Retouren im Lager gehört in den Handlungsbereich Beschaffung und Logistik.
+  - Rückfrage: Welche Erkenntnisse liefern die Rücksendegründe im Online-Shop zusätzlich zu den Beschwerden?
+- Ein Bindungsprogramm für Stammkundschaft und eine Rückholaktion für abgewanderte Kundschaft sollen auf ihre Wirtschaftlichkeit geprüft werden. Wie gehen Sie vor?
+  - Erwartung: Grundlage ist der Kundenwert: Deckungsbeitrag je Kund:in (Umsatz minus variable Kosten wie Wareneinsatz, Versand, Rücksendungen, Zahlungsgebühren) abzüglich der Bindungskosten (Bonus, Kartenbetrieb); der Umsatz allein täuscht, zum Beispiel bei Kundschaft mit sehr vielen Rücksendungen.
+  - Erwartung: Kundenlebensdauer ist 1 geteilt durch die Abwanderungsquote; der Kundenlebenszeitwert (vereinfacht) ist der Deckungsbeitrag nach Bindungskosten je Jahr mal Lebensdauer minus Gewinnungskosten, ohne Abzinsung und mit gleichbleibenden Quoten.
+  - Erwartung: Beim Programm gilt die Break-even-Zahl: Programmkosten geteilt durch den Deckungsbeitrag je zusätzlich gehaltene Person; sie wird mit der erwarteten Wirkung verglichen (Veränderung der Abwanderungsquote in Prozentpunkten mal Zahl der aktiven Kund:innen); die Wirkung prüft man am besten mit einer Vergleichsgruppe in einem Pilot.
+  - Erwartung: Bei der Rückgewinnung legt man die Inaktivität fest, ordnet nach früherem Wert, klärt Ursachen und macht ein Angebot; Kosten je Rückkehr sind Ansprachekosten plus eingelöste Anreize geteilt durch Rückkehrende, verglichen mit den Gewinnungskosten einer neuen Person; sie lohnt nicht bei geringem Wert oder unbehobener Ursache.
+  - Erwartung: Rechtliche Fragen zu Kundendaten, Einwilligung und Bonusbedingungen werden gesondert geprüft (nicht Bewertungsgegenstand des Fachgesprächs).
+  - Rückfrage: Welche Annahmen stecken in der vereinfachten Rechnung des Kundenlebenszeitwerts, und wie beurteilen Sie sie?

@@ -5,7 +5,7 @@ fachgebiet_title: "Handelsmarketing"
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 3, Handlungsbereich „Handelsmarketing") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -102,6 +102,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Preisnachlässe dürfen nicht irreführend dargestellt werden.
   - Erwartung: Ein Beispiel für eine irreführende Darstellung sind vorher künstlich erhöhte Ursprungspreise.
   - Rückfrage: Wie stellen Sie bei einer Rabattaktion der Loreno Mode & Wohnen GmbH sicher, dass der Preisnachlass nicht irreführend wirkt?
+- Worin unterscheiden sich Öffentlichkeitsarbeit und Werbung, wie arbeiten Sie mit der Presse zusammen, und wie gehen Sie vor, wenn sich ein Vorwurf gegen eine Ihrer Filialen in sozialen Netzwerken schnell verbreitet?
+  - Erwartung: Werbung wirbt für ein Angebot, der Platz wird bezahlt und das Unternehmen kontrolliert die Botschaft; Öffentlichkeitsarbeit pflegt dauerhaft die Beziehungen zu den Bezugsgruppen (Kundschaft, Beschäftigte, Presse, Nachbarschaft, Lieferfirmen), um Vertrauen und Image aufzubauen, und die Veröffentlichung liegt bei Dritten, zum Beispiel Redaktionen.
+  - Erwartung: Pressearbeit lebt von Nachrichtenwert (Aktualität, Nähe, Neuheit, Bedeutung); die Pressemitteilung hat klare Kernaussage, Zitat, Hintergrund, Bildmaterial und Ansprechperson, einen Anspruch auf Abdruck gibt es nicht.
+  - Erwartung: Krisenkommunikation in Grundzügen: schnell eine erste Rückmeldung geben, Fakten klären, mit einer Stimme sprechen (Ansprechperson, Sprachregelung), ehrlich und sachlich bleiben, Betroffenen zuerst helfen, auf dem Kanal der Kritik antworten und sie nicht löschen (außer Beleidigungen).
+  - Erwartung: Danach Ursache beseitigen, Ergebnis mitteilen und den Ablauf auswerten; vorbereitet ist das Unternehmen mit einem Krisenplan mit Zuständigkeiten.
+  - Rückfrage: Warum wirkt ein Bericht in der Zeitung glaubwürdiger als eine Anzeige, und welchen Preis zahlt das Unternehmen dafür?
+- Ein Verein bittet die Loreno Mode & Wohnen GmbH um ein Sponsoring. Wie entscheiden Sie, ob Sie es annehmen, und wie prüfen Sie hinterher den Erfolg?
+  - Erwartung: Sponsoring ist Förderung gegen eine vertraglich vereinbarte Gegenleistung (Nennung, Logo, Auftritt vor Ort); anders als die Spende ist es ein Geschäft auf Gegenseitigkeit, die steuerliche Behandlung ist hier nicht behandelt.
+  - Erwartung: Auswahl nach Zielen und Kriterien: Passung zu Zielgruppe und Werten, Glaubwürdigkeit, Reichweite und Anteil der Zielgruppe an den Kontakten, Kosten und Laufzeit, Exklusivität, Risiko für das Image und Aktivierungsmöglichkeiten wie Aktionsstand oder Gutscheine.
+  - Erwartung: Erfolgskontrolle auf mehreren Ebenen: Aufwand, Kontakte (Kosten je Kontakt, Tausenderkontaktpreis = Aufwand ÷ Kontakte × 1.000), Wirkung (Befragung zu Bekanntheit und Image) und Ergebnis (zum Beispiel Einlösequote von Gutscheinen, Umsatz, Rohertrag).
+  - Erwartung: Grenzen: Ein Kontakt ist nur die Möglichkeit einer Wahrnehmung; Mehrfachkontakte und unterschiedliche Kontaktqualität werden gleich gezählt; deshalb zählt der Anteil der Zielgruppenkontakte und der Zusammenhang mit Zielen, nicht der TKP allein.
+  - Rückfrage: Wie stimmen Sie Sponsoring, Werbung und Verkaufsförderung aufeinander ab, damit die Botschaft glaubwürdig bleibt?
 
 ### 3.4 Visual Merchandising und E-Commerce
 
@@ -131,4 +143,38 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Mögliche Ursachen sind unklare Versandkosten; entsprechend sollten sie transparent dargestellt werden.
   - Erwartung: Mögliche Ursache ist ein zu eingeschränktes Angebot an Zahlungsarten; entsprechend sollte es erweitert werden.
   - Rückfrage: Welche weiteren Merkmale der Usability sind für den Erfolg des Online-Shops entscheidend?
+- Im Online-Shop sinkt die Conversion Rate, der Umsatz steigt aber. Wie beurteilen Sie das, und welche weiteren Kennzahlen ziehen Sie heran?
+  - Erwartung: Die Conversion Rate ist der Anteil der Besuche, die zu einer Bestellung führen (Bestellungen ÷ Besuche × 100); der Bestellumsatz ist das Produkt aus Besuchen, Conversion Rate und durchschnittlichem Warenkorbwert. Steigen die Besuche stärker als die Bestellungen, sinkt die Quote, obwohl der Umsatz wächst.
+  - Erwartung: Mögliche Gründe sind neue Besuche mit geringerer Kaufabsicht, zum Beispiel nach einer Reichweitenkampagne, oder ein durch Rabatte gesunkener Warenkorbwert; die Conversion Rate allein sagt nichts über die Qualität des Shops.
+  - Erwartung: Weitere Kennzahlen sind der Warenkorbwert, die Warenkorbabbruchquote und der Trichter (wo springen Personen ab?), die Werbekosten-Umsatz-Relation und die Neukundengewinnungskosten, die Retourenquote und der Deckungsbeitrag; Umsatz allein sagt nichts über Kosten und Ertrag.
+  - Erwartung: Kennzahlen werden verglichen (Vormonat, Vorjahresmonat, Kanal, Endgerät) und gemeinsam gelesen; sie zeigen Symptome, nicht Ursachen.
+  - Rückfrage: Warum ist es wichtig, bei diesen Kennzahlen die Basis festzulegen (Besuche oder Besucher:innen, Umsatz ohne Umsatzsteuer, vor oder nach Retouren)?
+- Die Retourenquote im Online-Shop für Mode ist hoch. Welche Kosten entstehen, welche Gegenmaßnahmen schlagen Sie vor, und welchen Zielkonflikt sehen Sie?
+  - Erwartung: Die Retourenquote nach Stück ist zurückgesandte Artikel ÷ versandte Artikel × 100, bezogen auf den Versandmonat; nach Wert wird mit den Warenwerten gerechnet. Die Quote des laufenden Monats ist vorläufig, weil Rücksendungen verzögert eintreffen.
+  - Erwartung: Kosten sind Rücktransport, Prüfung, Aufbereitung, Wiedereinlagerung und gegebenenfalls Wertverlust, dazu der entgangene Umsatz; der Umsatz nach Retouren liegt unter dem Bestellumsatz.
+  - Erwartung: Maßnahmen sind zum Beispiel Größentabelle und Passformhinweise, Kundenbewertungen mit Größenangabe, Größenberatung, Auswertung der Rücksendegründe je Artikel und Lieferbetrieb sowie Rückgabe in der Filiale (Omnichannel) mit Chance auf Umtausch.
+  - Erwartung: Zielkonflikt: Großzügige Rückgabebedingungen erleichtern den Kaufabschluss und erhöhen die Zufriedenheit, kosten aber Geld; Gebühren senken die Quote, können aber die Conversion Rate senken. Eine Maßnahme lohnt sich, wenn ihr Nutzen (eingesparte Retourenkosten und Rohertrag der dann behaltenen Ware) ihre Kosten übersteigt; Umsatz allein ist kein Ertrag.
+  - Erwartung: Gesetzliche Vorgaben zum Fernabsatz (Widerruf, Informationspflichten) sind hier nicht behandelt (nicht förmlich rechtsgeprüft).
+  - Rückfrage: Wie rechnen Sie nach, ob sich eine Größenberatung im Shop lohnt?
 
+### 3.5 Marketingstrategie und Servicepolitik
+
+- Eine Filiale verliert Marktanteil, seit ein preisaggressives Wettbewerbsunternehmen im Einzugsgebiet eröffnet hat. Wie leiten Sie daraus Ziele, Strategie und Maßnahmen ab?
+  - Erwartung: Marketing ist eine Führungskonzeption und folgt dem Marketingprozess: Situationsanalyse (Marktvolumen und Marktanteil, Befragungen der Kundschaft, Wettbewerbsvergleich), Marketingziele, Strategie, Marketing-Mix, Umsetzung und Kontrolle; die Kontrolle fließt in die nächste Analyse ein.
+  - Erwartung: Ziele werden nach der SMART-Regel formuliert, zum Beispiel ein Marktanteil in Prozent im Einzugsgebiet bis zu einem Stichtag; Ziele können sich ergänzen oder konkurrieren (Beratungszeit gegen Personalkostenquote) und werden gewichtet.
+  - Erwartung: Wettbewerbsstrategie: Kostenführerschaft setzt große Mengen und niedrige Kosten voraus, Differenzierung nutzt für die Zielgruppe wichtige Merkmale wie Beratung, Qualität und Service, die Nischenstrategie konzentriert sich auf ein enges Segment; ohne klare Ausrichtung droht die Lage zwischen den Stühlen.
+  - Erwartung: Für das Wachstum zeigt die Gap-Analyse die strategische Lücke; die Ansoff-Felder werden nach Risiko, Kapitalbedarf, Know-how und Zeit gewählt, meist zuerst die Marktdurchdringung im Kerngeschäft.
+  - Erwartung: Die Zentrale gibt den Rahmen vor (Positionierung, Sortimentslinien, Preisniveau), die Filiale setzt ihn im Einzugsgebiet um; alle Instrumente müssen zur Positionierung passen.
+  - Rückfrage: Warum kann der Marktanteil einer Filiale sinken, obwohl ihr Umsatz unverändert bleibt?
+- Eine Filiale möchte einen neuen Service anbieten, etwa Styling-Termine oder einen Änderungsservice. Wie entscheiden Sie, ob er sich lohnt?
+  - Erwartung: Die Servicepolitik umfasst Leistungen vor, beim und nach dem Kauf; das Serviceniveau (auch Servicegrad, nicht Warenverfügbarkeit) folgt aus der Positionierung, und Basisservice wird erwartet, Zusatzservice hebt das Unternehmen vom Wettbewerb ab.
+  - Erwartung: Kosten sind Personalzeit, Material und feste Kosten, abzüglich eventueller Entgelte; als Kennzahl dient die Servicekostenquote (Servicekosten ÷ Umsatz).
+  - Erwartung: Nutzen ist der zusätzliche Rohertrag aus Verkäufen, die ohne den Service nicht zustande kämen; der Saldo und die Mindestzahl zusätzlicher Verkäufe (Nettokosten ÷ Rohertrag je Verkauf) zeigen, ob er sich rechnet.
+  - Erwartung: Grenzen der Rechnung: Die zusätzlichen Verkäufe sind geschätzt, Mitnahmeeffekte werden leicht übersehen, Nutzen wie Zufriedenheit und Bindung fehlen; rechtliche Vorgaben, zum Beispiel zu Rückgabe und Gewährleistung, sind gesondert zu prüfen.
+  - Rückfrage: Wann kann ein Service trotz negativem Saldo sinnvoll sein?
+- Wie stimmen Sie die Instrumente des Marketing-Mix aufeinander ab, und wie verteilen Sie ein begrenztes Marketingbudget?
+  - Erwartung: Der Handels-Mix besteht aus Sortiments-, Preis- und Konditionen-, Kommunikations-, Distributions- und Servicepolitik; der Dienstleistungsmix ergänzt Personal, Ausstattung und Prozesse.
+  - Erwartung: Maßstab der Abstimmung ist die Positionierung; typische Widersprüche sind gehobene Preise mit Dauerrabatten oder ein Beratungsversprechen bei knapper Personalbesetzung; abgestimmt werden außerdem der Zeitpunkt (Werbung, Warenverfügbarkeit, Personal) und die Kanäle (Filiale, Online-Shop).
+  - Erwartung: Das Budget (vor allem für Werbung und Verkaufsförderung als Teile der Kommunikation, für Service und Distribution) kann als Prozentsatz vom Umsatz, nach der Ziel-Aufgaben-Methode, in Orientierung am Wettbewerb oder als Restgröße festgelegt werden; die Restgröße ist für eine Steuerung am wenigsten geeignet. Die Verteilung folgt der Strategie und den Ergebnissen der Erfolgskontrolle.
+  - Erwartung: Kontrolliert wird mit Marktanteil, Marketingkostenquote, ROMI und kundenbezogenen Größen; Wirkungen lassen sich nicht immer eindeutig zuordnen.
+  - Rückfrage: Warum ist die Festlegung des Budgets als Prozentsatz vom Umsatz in einer Umsatzkrise problematisch?
