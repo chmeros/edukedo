@@ -1,0 +1,261 @@
+# Entwurf Handelsfachwirt, E-Commerce-Kennzahlen: Ergänzung im Thema 3.4
+
+Stand 16.10.2026, **Entwurf (R3), nicht eingespielt.** Teil C des Auftrags P-V (Erhebung HF-13; Auswertung `docs/entwuerfe/handelsfachwirt-rest-auswertung.md`). Einzufügen in `content/handelsfachwirt/hb3/3.4-visual-merchandising-e-commerce.md`: Abschnitt A am Ende von „## Theorie“ hinter „Gestaltung des Online-Shops“, B an die Karteikarten hinter K-3.4-16, C an das Quiz hinter Q-3.4-12. Bestand gezählt: 16 Karteikarten (K-3.4-01 bis -16, lückenlos) und 12 Quizfragen (Q-3.4-01 bis -12, lückenlos); `git log -S` findet in `content/handelsfachwirt` keine früher vergebenen und wieder entfernten IDs K-3.4-17 ff., Q-3.4-13 ff. oder F-HB3-06. Die neuen IDs sind K-3.4-17 bis -24 und Q-3.4-13 bis -22. Beim Einspielen den `rechtsstand` im Frontmatter von „29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen“ auf „16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte“ aktualisieren (die Datei gehört nur zu diesem Teil; `einspielen-config.json` setzt den `rechtsstand` genau einmal). Fallaufgabe und Fachgesprächsfragen stehen in `hf-faelle-c.md` (F-HB3-06, Fachgespräch `### 3.4 Visual Merchandising und E-Commerce`).
+
+**Abgleich mit dem Bestand.** Der Bestand von 3.4 behandelt Visual Merchandising, Schaufenster, Ladengestaltung, Multichannel und Omnichannel, die Customer Journey, die Gestaltung des Online-Shops (Usability, Checkout, SEO und SEA) und nennt den **Warenkorbabbruch** (Abschnitt „Gestaltung des Online-Shops“, K-3.4-12, Q-3.4-02 und Q-3.4-09) nur qualitativ: Ursachen im Checkout, ohne Formel und ohne Trichter. Das wird nicht wiederholt: Die Ergänzung verweist darauf und ergänzt die Berechnung und die Auswertung nach Stufen. **Kennzahlen des Online-Handels fehlen im Bestand vollständig** (per Suche im ganzen `content/handelsfachwirt/` geprüft: kein Treffer für Conversion, Warenkorbwert, Traffic, Besuche als Kennzahl, Neukundengewinnungskosten, Kosten je Bestellung, Werbekosten-Umsatz-Relation). **Retouren** kommen im Bestand als Prozess vor (Thema 6.1 „Logistikkette im Handel“ im Fachgebiet Handelslogistik (Wahlpflicht): Reverse-Logistik; Thema 4.3 „Lager- und Transportprozesse“ im Fachgebiet Beschaffung und Logistik: Retourenmanagement, „vergleichsweise hohe Retourenquote“ im Online-Modehandel) und als Bonusziel in Thema 2.7 „Beurteilungs- und Entgeltsysteme“ im Fachgebiet Führung, Personalmanagement, Kommunikation und Kooperation (Zielerreichungsgrad bei „weniger ist besser“). Die Ergänzung ist die Definitionsstelle für die **Retourenquote** (Stück und Wert), die Retourenkosten und die Gegenmaßnahmen im Online-Modehandel und verweist für den Prozess auf 6.1 und 4.3; die Zahlen aus 2.7 (6 %, 5 %, 3,0 %, 4,0 %) werden nicht verwendet. **Rohertrag und Deckungsbeitrag** sind in Thema 1.5 „Kosten- und Leistungsrechnung im Handel“ im Fachgebiet Unternehmensführung und -steuerung definiert; hier werden sie nur angewendet. **Tausenderkontaktpreis, Reichweite und Werbeerfolgskontrolle** stehen in Thema 3.3 „Werbekonzepte und Verkaufsförderung“ (nur Verweis; neu ist die Werbekosten-Umsatz-Relation als Kennzahl für den Umsatz je Werbeeuro). **Eigenständigkeit:** Die Beispielzahlen von Thema 5.2 (800 m², 2.400.000 €, 3.000 € je m²), Thema 1.5 (7.000.000 €) und der Fallaufgabe F-HB1-04 („Loreno Living“) werden nicht wiederverwendet. Zur Retourenquote als Gliederungszahl und zur Verwechslung von Prozent und Prozentpunkten gibt es im Wirtschaftsfachwirt Thema 1.5 „Betriebsstatistik“ im Fachgebiet Betriebliches Management; Aufbau, Beispiele und Zahlen sind hier eigenständig (Online-Modehandel statt Büromaterial, Trichter, Kennzahlenkette, Kosten der Retoure).
+
+**Rechtsnah, nur als Hinweis:** Fernabsatz (Widerruf, Informationspflichten, Preisangaben), Datenschutz und Einwilligung bei der Messung des Nutzerverhaltens und bei Werbe-E-Mails; Hinweis „gesetzliche Vorgaben, hier nicht behandelt (nicht förmlich rechtsgeprüft)“, keine Paragrafen, Gesetzes- oder Behördennamen. **Zahlen:** alle frei gewählte Beispielwerte, unabhängig von den Zahlen der Nachbarteile des Pakets und von F-HB3-06; alle Umsätze ohne Umsatzsteuer. Karten und Quiz duzen, die Theorie spricht niemanden an.
+
+---
+
+# Thema 3.4
+
+## A. Theorie-Ergänzung 3.4 (einfügen am Ende von „## Theorie“, hinter „Gestaltung des Online-Shops“)
+
+### Kennzahlen des Online-Shops: Besuche, Conversion und Warenkorbwert
+
+Ein Online-Shop liefert zu jedem Besuch Daten. Aus ihnen lassen sich Kennzahlen bilden, die zeigen, wie viele Personen den Shop erreichen, wie viele davon bestellen, wie viel sie bestellen und was das kostet. Sie ergänzen die Kennzahlen der Filialen (Flächenproduktivität, Thema 5.2 „Flächenoptimierung“ im Fachgebiet Vertriebssteuerung (Wahlpflicht)) und die Erfolgskontrolle der Werbung (Thema 3.3 „Werbekonzepte und Verkaufsförderung“ im Fachgebiet Handelsmarketing). Damit Zahlen vergleichbar bleiben, gelten im Kurs folgende **Konventionen** (alle Zahlen sind frei gewählte Beispielwerte):
+
+- **Zeitraum:** ein Kalendermonat, sofern nichts anderes dasteht.
+- **Umsatz immer ohne Umsatzsteuer.** Der **Bestellumsatz** ist der Warenwert aller im Zeitraum aufgegebenen Bestellungen ohne Umsatzsteuer und ohne Versandentgelte, vor Abzug der Retouren. Der **Umsatz nach Retouren** ist der Bestellumsatz abzüglich des Warenwerts der zurückgesandten Artikel.
+- **Besuch** (Sitzung) ist ein zusammenhängender Aufenthalt einer Person im Shop. Wer im Monat dreimal kommt, zählt als drei Besuche, aber als eine Besucher:in. Die Kennzahlen unten beziehen sich auf Besuche. Andere Darstellungen beziehen sich auf Besucher:innen und erhalten dadurch höhere Quoten; Vergleiche setzen dieselbe Basis voraus.
+
+Die **Besuche** (auch **Traffic**) sind die Ausgangsgröße. Man wertet sie nach der Herkunft aus: direkter Aufruf, unbezahlte Suche (SEO), bezahlte Suche (SEA, siehe oben), soziale Netzwerke, Newsletter und Verweise anderer Seiten. Die Herkunft zeigt, welcher Kanal Besuche bringt und was sie kosten.
+
+Die **Conversion Rate** (Kaufabschlussquote) gibt an, welcher Anteil der Besuche zu einer Bestellung führt:
+
+**Conversion Rate = Bestellungen ÷ Besuche × 100** (Bestellungen = aufgegebene Bestellungen, nicht Artikel).
+
+Sie liegt im Online-Modehandel typischerweise im niedrigen einstelligen Prozentbereich, weil viele Besuche dem Stöbern, Vergleichen oder der Inspiration dienen und nicht dem sofortigen Kauf. Der **durchschnittliche Warenkorbwert** (durchschnittlicher Bestellwert) ist **Bestellumsatz ÷ Bestellungen**. Die **Artikel je Bestellung** sind versandte Artikel ÷ Bestellungen.
+
+Aus den drei Größen folgt eine Gleichung, die den Umsatz zerlegt: Weil Bestellungen = Besuche × Conversion Rate (als Dezimalzahl) sind, gilt
+
+**Bestellumsatz = Besuche × Conversion Rate × durchschnittlicher Warenkorbwert.**
+
+*Rechenbeispiel Monatsauswertung* (Online-Shop der Loreno Mode & Wohnen GmbH, frei gewählte Beispielwerte): 180.000 Besuche, 4.320 Bestellungen, Bestellumsatz 367.200 € (ohne Umsatzsteuer).
+
+| Größe | Rechnung | Ergebnis |
+|---|---|---|
+| Conversion Rate | 4.320 ÷ 180.000 × 100 | 2,4 % |
+| Durchschnittlicher Warenkorbwert | 367.200 € ÷ 4.320 | 85,00 € |
+| Kontrolle über die Gleichung | 180.000 × 0,024 × 85,00 € | 367.200 € |
+
+Weil die drei Faktoren multiplikativ wirken, bringt eine Steigerung um 10 % bei einem Faktor (alle anderen unverändert) auch 10 % mehr Umsatz: 10 % von 367.200 € sind 36.720 €. Das gilt für 198.000 statt 180.000 Besuche ebenso wie für eine Conversion Rate von 2,64 % statt 2,4 % oder einen Warenkorbwert von 93,50 € statt 85,00 €. Die Wege unterscheiden sich in den Kosten: Mehr Besuche kosten meist Werbegeld (SEA), eine bessere Conversion verlangt Arbeit an Shop und Checkout (Usability, siehe oben), ein höherer Warenkorbwert lässt sich über passende Zusatzartikel und Outfit-Kombinationen (Verbundpolitik, Thema 3.2 „Sortimentsgestaltung“ im Fachgebiet Handelsmarketing; online ähnlich dem Blockprinzip der Filiale, Thema 3.4 oben) oder einen Mindestbestellwert für den kostenfreien Versand anstoßen. **Prozent und Prozentpunkte:** Steigt die Conversion Rate von 2,4 % auf 2,6 %, ist das ein Plus von 0,2 **Prozentpunkten**; relativ sind es 0,2 ÷ 2,4 ≈ 8,3 %.
+
+### Warenkorbabbruch im Trichter
+
+Der Warenkorbabbruch und seine Ursachen im Checkout stehen oben im Abschnitt „Gestaltung des Online-Shops“. Hier kommt die Berechnung hinzu. Die **Warenkorbabbruchquote** gibt an, wie viele der angelegten Warenkörbe nicht zu einer Bestellung führen:
+
+**Warenkorbabbruchquote = (angelegte Warenkörbe − abgeschlossene Bestellungen) ÷ angelegte Warenkörbe × 100.**
+
+Gezählt wird jeder Warenkorb, in dem mindestens ein Artikel liegt, einmal im Monat. Die Quote sagt aber noch nicht, wo die Kaufenden abspringen. Die Auswertung nach Stufen, der **Trichter** (Funnel), zeigt es: Besuch, Warenkorb angelegt, Checkout begonnen (Adresse und Zahlungsart), Bestellung abgeschlossen. Für jede Stufe berechnet man den Anteil der Vorstufe, der weitergeht. Im Kurs zählt als Abbruch jeder angelegte Warenkorb ohne Bestellung; der Abbruch im engeren Sinn des Bestands (Checkout begonnen, nicht abgeschlossen) ist die letzte Stufe des Trichters.
+
+*Rechenbeispiel Trichter* (derselbe Monat wie oben):
+
+| Stufe | Anzahl | Anteil der Vorstufe | Abbruch gegenüber der Vorstufe |
+|---|---|---|---|
+| Besuche | 180.000 | | |
+| Warenkorb angelegt | 13.500 | 7,5 % der Besuche | |
+| Checkout begonnen | 6.750 | 50,0 % der Warenkörbe | 50,0 % |
+| Bestellung abgeschlossen | 4.320 | 64,0 % der begonnenen Checkouts | 36,0 % |
+
+Die Warenkorbabbruchquote beträgt (13.500 − 4.320) ÷ 13.500 × 100 = 68,0 %. Die Hälfte der Warenkörbe (6.750) gelangt gar nicht erst in den Checkout; dort nutzen viele Personen den Warenkorb als Merkzettel oder zum Preisvergleich. 36,0 % der begonnenen Checkouts brechen ab, und dort liegen die klassischen Ursachen (Formularfelder, Versandkosten, Zahlungsarten, siehe oben). Nicht jeder Abbruch ist ein verlorener Kauf; die Stufe mit dem größten Abbruch zeigt aber, wo die Ursachenforschung beginnt. Gelingt es, den Abbruch im Checkout von 36 % auf 32 % zu senken (also um 4 Prozentpunkte), werden aus den 6.750 begonnenen Checkouts 6.750 × 0,68 = 4.590 Bestellungen, 270 mehr. Die Conversion Rate steigt auf 4.590 ÷ 180.000 = 2,55 % (plus 0,15 Prozentpunkte), und der Bestellumsatz bei unverändertem Warenkorbwert auf 4.590 × 85,00 € = 390.150 €, also um 22.950 €.
+
+### Kosten und Wirkung: Bearbeitung, Neukundengewinnung und Werbung
+
+Umsatz allein sagt nicht, was er kostet. Drei Kennzahlen ordnen die Kosten.
+
+**Kosten je Bestellung** (im Kurs: Bearbeitungskosten je Bestellung) = Bearbeitungskosten der Bestellungen im Zeitraum ÷ Bestellungen. Zu den Bearbeitungskosten zählen Kommissionierung, Verpackung, Versand (soweit nicht von der Kundschaft bezahlt), Zahlungsentgelte und Kundenservice; Werbung und Retouren werden getrennt betrachtet. Im Beispielmonat sind es 31.968 € ÷ 4.320 = 7,40 € je Bestellung, das sind 7,40 € ÷ 85,00 € ≈ 8,7 % des Warenkorbwerts. Weil Teile der Kosten je Bestellung unabhängig vom Warenwert anfallen, belasten sie kleine Warenkörbe stärker; das ist ein Grund für einen Mindestbestellwert oder für Zusatzartikel.
+
+**Neukundengewinnungskosten** (Customer Acquisition Cost, CAC) = Kosten der Neukundengewinnung im Zeitraum ÷ Zahl der gewonnenen Neukund:innen. Eine Neukund:in ist im Kurs eine Person, die im Zeitraum ihre erste Bestellung aufgibt (erkennbar am Kundenkonto oder an der E-Mail-Adresse). Zu den Kosten zählen die Werbekosten der Kanäle und gegebenenfalls ein Willkommensrabatt; die Abgrenzung ist nicht einheitlich, Vergleiche setzen dieselbe voraus. Die CAC werden mit dem Ertrag verglichen, den eine Neukund:in bringt: Deckt der Rohertrag der Erstbestellung die CAC nicht, muss sie sich über Folgekäufe lohnen.
+
+**Werbekosten-Umsatz-Relation** (WUR) = Werbekosten ÷ Bestellumsatz aus dieser Werbung × 100. Ihr Kehrwert ist der **ROAS** (Return on Advertising Spend) = Bestellumsatz ÷ Werbekosten; eine WUR von 20 % entspricht einem ROAS von 5,0. Die WUR misst, was ein Euro Umsatz an Werbung kostet; der Tausenderkontaktpreis aus Thema 3.3 „Werbekonzepte und Verkaufsförderung“ im Fachgebiet Handelsmarketing misst dagegen, was tausend Kontakte kosten. Zusätzlich lassen sich **Werbekosten je Bestellung** = Werbekosten ÷ Bestellungen aus dem Kanal bilden (englisch Cost per Order).
+
+*Rechenbeispiel Kanalvergleich* (derselbe Monat, Ausschnitt aus den Kanälen, frei gewählte Beispielwerte):
+
+| Kanal | Werbekosten | Bestellungen | Bestellumsatz | Neukund:innen | WUR | ROAS | Werbekosten je Bestellung | CAC |
+|---|---|---|---|---|---|---|---|---|
+| Suchmaschinenwerbung | 18.000 € | 1.000 | 90.000 € | 450 | 20,0 % | 5,0 | 18,00 € | 40,00 € |
+| Soziale Netzwerke | 14.400 € | 480 | 36.000 € | 320 | 40,0 % | 2,5 | 30,00 € | 45,00 € |
+| Newsletter | 2.700 € | 600 | 54.000 € | 15 | 5,0 % | 20,0 | 4,50 € | 180,00 € |
+
+Nach der WUR liegt der Newsletter (5,0 %) vor der Suchmaschinenwerbung (20,0 %) und den sozialen Netzwerken (40,0 %). Das ist kein Grund, nur den Newsletter zu nutzen: Er erreicht fast ausschließlich vorhandene Kundschaft (15 Neukund:innen), die CAC von 180,00 € sind für ihn deshalb keine sinnvolle Kennzahl. Neukund:innen kommen vor allem über die Suchmaschinenwerbung (450 zu 40,00 €) und die sozialen Netzwerke (320 zu 45,00 €). Ob 40,0 % WUR tragbar sind, zeigt der Vergleich mit dem Ertrag: Bei einer Rohertragsquote von 54 % (Rohertrag in Prozent des Umsatzes, im Handel auch Handelsspanne genannt, Thema 1.5 „Kosten- und Leistungsrechnung im Handel“ im Fachgebiet Unternehmensführung und -steuerung) und einer Retourenquote von 40 % nach Wert (siehe unten) bleiben je 100 € Bestellumsatz 100 € × 0,60 × 0,54 = 32,40 € Rohertrag. Die sozialen Netzwerke kosten dafür 40,00 €: Der Erstkauf deckt die Werbung nicht, und Bearbeitungs- und Retourenkosten kommen noch hinzu; es braucht Folgekäufe oder weniger Retouren. Die Suchmaschinenwerbung kostet 20,00 € und lässt 12,40 € für diese weiteren Kosten übrig.
+
+### Retouren im Modehandel
+
+Eine **Retoure** ist eine Rücksendung bestellter Ware durch die Kundschaft. Der Prozess (Annahme, Prüfung, Wiedereinlagerung oder Zweitverwertung) steht in Thema 6.1 „Logistikkette im Handel“ im Fachgebiet Handelslogistik (Wahlpflicht) und in Thema 4.3 „Lager- und Transportprozesse“ im Fachgebiet Beschaffung und Logistik. Hier geht es um Kennzahlen, Kosten und Gegenmaßnahmen im Online-Modehandel.
+
+**Retourenquote (nach Stück) = zurückgesandte Artikel ÷ versandte Artikel × 100.** **Retourenquote (nach Wert) = Warenwert der zurückgesandten Artikel ÷ Warenwert der versandten Artikel × 100** (jeweils ohne Umsatzsteuer). Beide Quoten gehören zum Versandmonat der Ware, nicht zum Monat, in dem die Rücksendung eintrifft. Das ist wichtig, weil Rücksendungen Tage bis Wochen nach dem Versand ankommen: Die Quote des laufenden Monats ist deshalb vorläufig und meist zu niedrig. Eine dritte Quote zählt Bestellungen mit mindestens einer Rücksendung; auch hier gilt: Vergleiche setzen dieselbe Definition voraus. Die Quoten weichen voneinander ab, wenn zurückgesandte Artikel billiger oder teurer sind als der Durchschnitt.
+
+**Ursachen im Modehandel.** Mode lässt sich im Online-Shop weder anprobieren noch anfassen. Typische Gründe sind Größe und Passform (Schnitte fallen je nach Marke und Lieferbetrieb unterschiedlich aus), die Bestellung mehrerer Größen oder Farben, um zu Hause auszuwählen (Auswahlbestellung), Abweichungen zwischen Bildschirmdarstellung und Farbe, Material und Verarbeitung, die anders wirken als erwartet, Lieferverzögerungen und Fehlkäufe. Bei Wohnaccessoires stehen eher Maße, Farbe und Beschädigungen im Vordergrund. Die Quoten im Modehandel liegen typischerweise deutlich über denen vieler anderer Branchen; die Höhe hängt vom Sortiment ab (Beispielwerte in diesem Kurs: 35 % bis 45 %; Filialen haben wegen der Anprobe deutlich niedrigere Rücksendequoten).
+
+**Kosten einer Retoure.** Je zurückgesandtem Artikel entstehen Rücktransport (sofern das Unternehmen ihn trägt), Prüfung beim Wareneingang, Aufbereitung (Bügeln, Etikettieren, Neuverpacken), Wiedereinlagerung und, wenn die Ware nicht mehr zum regulären Preis verkäuflich ist, ein Wertverlust (Abschrift, etwa am Saisonende). Dazu kommt der entgangene Umsatz, denn zurückgesandte Ware zählt nicht zum Umsatz nach Retouren.
+
+*Rechenbeispiel Retourenkosten* (derselbe Monat, frei gewählte Beispielwerte): Die 4.320 Bestellungen enthalten im Schnitt 2,0 Artikel, also 8.640 versandte Artikel zu durchschnittlich 85,00 € ÷ 2 = 42,50 €. Davon werden 3.456 Artikel zurückgesandt.
+
+| Größe | Rechnung | Ergebnis |
+|---|---|---|
+| Retourenquote nach Stück | 3.456 ÷ 8.640 × 100 | 40,0 % |
+| Warenwert der Retouren | 3.456 × 42,50 € | 146.880 € |
+| Umsatz nach Retouren | 367.200 € − 146.880 € | 220.320 € |
+| Rücktransport, Prüfung, Aufbereitung, Wiedereinlagerung je Artikel | 3,10 € + 1,00 € + 1,50 € + 0,50 € | 6,10 € |
+| Wertverlust je Retoure (20 % der Artikel nicht mehr regulär verkäuflich, Abschrift 40 % des Warenwerts) | 0,20 × 0,40 × 42,50 € | 3,40 € |
+| Kosten je Retoure | 6,10 € + 3,40 € | 9,50 € |
+| Retourenkosten im Monat | 3.456 × 9,50 € | 32.832 € |
+| Anteil am Bestellumsatz | 32.832 € ÷ 367.200 € × 100 | ≈ 8,9 % |
+
+Die Retourenquote nach Wert ist hier mit 146.880 € ÷ 367.200 € = 40,0 % gleich der nach Stück, weil alle Artikel im Beispiel gleich viel kosten.
+
+**Gegenmaßnahmen** setzen an den Ursachen an:
+
+- **Information:** Größentabelle mit Maßen, Hinweise wie „fällt eher klein aus“, mehrere Fotos und Videos, genaue Farb- und Materialangaben, Kundenbewertungen mit Angaben zu Größe und Passform.
+- **Beratung:** Größenberatung im Shop, Beratung durch das Filialteam bei Click & Collect oder bei Rückgabe in der Filiale (Omnichannel, siehe oben).
+- **Auswertung:** Rücksendegründe erfassen und je Artikel, Lieferbetrieb und Warengruppe auswerten; Artikel mit auffällig hoher Quote werden geprüft (Schnitt, Größenangabe, Qualität, Beschreibung), ähnlich der ABC-Auswertung des Sortiments (Thema 3.2 „Sortimentsgestaltung“ im Fachgebiet Handelsmarketing).
+- **Rücksendung in die Filiale:** spart Transportkosten, bietet Gelegenheit zum Umtausch statt Erstattung und zum Zusatzverkauf.
+- **Konditionen:** Gebühren für Rücksendungen oder Gutschein statt Erstattung senken die Quote, können aber die Conversion Rate und die Zufriedenheit senken. **Zielkonflikt:** Ein großzügiger Umgang mit Rücksendungen erleichtert den Kaufabschluss, kostet aber Geld.
+
+*Rechenbeispiel Maßnahme* (derselbe Monat): Eine Größenberatung im Shop kostet 1.800 € im Monat und senkt die Retourenquote nach Stück von 40 % auf 35 % (5 Prozentpunkte). Das sind 8.640 × 0,35 = 3.024 statt 3.456 Retouren, also 432 weniger. Gespart werden 432 × 9,50 € = 4.104 € Retourenkosten; abzüglich der Kosten der Maßnahme bleiben 4.104 € − 1.800 € = 2.304 € im Monat. Zusätzlich bleiben 432 × 42,50 € = 18.360 € Umsatz erhalten. Behält die Kundschaft diese Artikel, kommt der Rohertrag der behaltenen Ware hinzu (bei 54 % etwa 9.914 €); der Umsatz selbst ist kein Gewinn. Die Rechnung gilt nur, wenn die Bestellungen unverändert bleiben; die Beratung kann die Conversion Rate auch beeinflussen. **Hinweis:** Gesetzliche Vorgaben zum Fernabsatz (Widerruf, Informationspflichten, Preisangaben) sind hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+### Kennzahlen lesen: Zusammenhänge, Grenzen und Datenquellen
+
+Eine Kennzahl allein trägt wenig. Aussagekräftig wird sie durch einen **Vergleich** (Vormonat, gleicher Monat des Vorjahres, Ziel, Kanal, Endgerät, Neu- gegen Bestandskundschaft) und durch den **Zusammenhang** mit anderen Kennzahlen. *Beispiel* (frei gewählte Beispielwerte): Nach einer Reichweitenkampagne steigen die Besuche von 180.000 auf 216.000 (plus 20 %) und die Bestellungen von 4.320 auf 4.752 (plus 10 %). Die Conversion Rate sinkt von 2,4 % auf 4.752 ÷ 216.000 = 2,2 % (minus 0,2 Prozentpunkte), obwohl der Bestellumsatz bei gleichem Warenkorbwert um 10 % auf 403.920 € steigt. Der Shop ist nicht schlechter geworden: Die neuen Besuche kommen oft von Personen mit geringerer Kaufabsicht. Wer nur die Conversion Rate beobachtet, zieht den falschen Schluss; wer nur den Umsatz beobachtet, übersieht die Kosten der Kampagne.
+
+**Grenzen von Kennzahlen:**
+
+- Sie zeigen das **Symptom**, nicht die Ursache; die Ursache klären Nachfragen, Tests und Gespräche (zum Beispiel Rücksendegründe, Befragungen, Abbruch je Stufe).
+- **Durchschnitte** verdecken Unterschiede: Ein Warenkorbwert von 85,00 € kann aus vielen kleinen und wenigen sehr großen Bestellungen entstehen.
+- **Kleine Zahlen** sind zufällig: Eine Retourenquote von 50 % bei zehn versandten Artikeln sagt wenig.
+- **Zeitverschiebung:** Retouren und Zahlungseingänge kommen später; vorläufige Quoten werden später korrigiert.
+- **Unterschiedliche Definitionen** (Bestellung aufgegeben, bezahlt oder versendet; Stornos; Besuche oder Besucher:innen) machen Zahlen aus verschiedenen Systemen unvergleichbar.
+- **Messlücken:** Wird das Verhalten nur nach Einwilligung gemessen, fehlen Besuche in der Statistik; die Besuche sind dann zu niedrig und die Conversion Rate zu hoch.
+- **Fehlanreize:** Wird nur eine Kennzahl belohnt (zum Beispiel nur die Conversion Rate), entstehen Rabatte und Retouren; Kennzahlen werden deshalb als Gruppe gesteuert (vgl. Thema 2.7 „Beurteilungs- und Entgeltsysteme“ im Fachgebiet Führung, Personalmanagement, Kommunikation und Kooperation).
+
+**Datenquellen.** Die Kennzahlen stammen aus mehreren Systemen, die zusammengeführt werden müssen:
+
+| Quelle | liefert | Beispiele |
+|---|---|---|
+| Shop-System | Bestellungen, Warenkörbe, Bestellwert, Zahlungsarten, Retourenanmeldungen | Warenkorbwert, Abbruch im Checkout, Retourenquote nach Stück |
+| Web-Analyse | Besuche, Herkunft der Besuche, Seitenaufrufe, Absprungrate, Endgeräte, Trichter | Traffic nach Kanal, Conversion Rate nach Endgerät |
+| Warenwirtschaft und Kostenrechnung | Wareneinsatz, gebuchte Retouren, Bestände, Bearbeitungskosten | Rohertrag, Kosten je Bestellung, Wertverlust |
+| Werbekonten bei Suchmaschinen und sozialen Netzwerken | Anzeigenkosten, Klicks, zugeordnete Bestellungen | WUR, ROAS, Werbekosten je Bestellung |
+| Kundenkonten | Erstbestellung, Wiederkehr, Kontaktkanal | Neukund:innen, CAC |
+
+Die **Absprungrate** ist der Anteil der Besuche, die nach nur einer Seite enden. Für den monatlichen Bericht werden Definitionen, Zeitraum und Kennung (zum Beispiel die Bestellnummer) festgelegt, damit die Quellen zusammenpassen. **Hinweis:** Gesetzliche Vorgaben zur Messung des Nutzerverhaltens, zum Datenschutz und zur Einwilligung in Werbe-E-Mails sind hier nicht behandelt (nicht förmlich rechtsgeprüft).
+
+## B. Karteikarten 3.4 (anhängen)
+
+#### K-3.4-17
+**Frage:** Was misst die Conversion Rate des Online-Shops, und wie berechnest du sie?
+**Antwort:** Den Anteil der Besuche, die zu einer Bestellung führen: Conversion Rate = Bestellungen ÷ Besuche × 100 (Besuch = zusammenhängender Aufenthalt im Shop). Beispiel: 4.320 Bestellungen bei 180.000 Besuchen ergeben 2,4 %.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### K-3.4-18
+**Frage:** Wie hängen Besuche, Conversion Rate, Warenkorbwert und Bestellumsatz zusammen?
+**Antwort:** Bestellumsatz = Besuche × Conversion Rate (als Dezimalzahl) × durchschnittlicher Warenkorbwert, wobei Warenkorbwert = Bestellumsatz ÷ Bestellungen. Die Faktoren wirken multiplikativ: 10 % mehr bei einem Faktor bedeuten bei den übrigen unverändert 10 % mehr Umsatz.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-19
+**Frage:** Wie berechnest du die Warenkorbabbruchquote, und was zeigt dir der Trichter zusätzlich?
+**Antwort:** Warenkorbabbruchquote = (angelegte Warenkörbe − abgeschlossene Bestellungen) ÷ angelegte Warenkörbe × 100. Der Trichter (Besuch, Warenkorb, Checkout begonnen, Bestellung) zeigt je Stufe den Anteil, der weitergeht, und damit, wo die Ursachenforschung beginnt.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-20
+**Frage:** Was sind Kosten je Bestellung (im Kurs) und Neukundengewinnungskosten?
+**Antwort:** Kosten je Bestellung = Bearbeitungskosten (Kommissionierung, Verpackung, Versand, Zahlungsentgelte, Kundenservice) ÷ Bestellungen, ohne Werbung und Retouren. Neukundengewinnungskosten (CAC) = Kosten der Neukundengewinnung ÷ Zahl der Neukund:innen im Zeitraum; eine Neukund:in gibt im Zeitraum die erste Bestellung auf.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-21
+**Frage:** Was zeigt die Werbekosten-Umsatz-Relation (WUR), und was zeigt sie nicht?
+**Antwort:** WUR = Werbekosten ÷ Bestellumsatz aus dieser Werbung × 100; der Kehrwert ist der ROAS (Bestellumsatz ÷ Werbekosten). Sie zeigt, was ein Euro Umsatz an Werbung kostet, aber nicht, ob die Werbung nach Retouren, Wareneinsatz und Bearbeitungskosten Gewinn bringt.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-22
+**Frage:** Wie berechnest du die Retourenquote, und welche Gründe sind im Online-Modehandel typisch?
+**Antwort:** Nach Stück: zurückgesandte Artikel ÷ versandte Artikel × 100; nach Wert entsprechend mit den Warenwerten ohne Umsatzsteuer, jeweils bezogen auf den Versandmonat. Typische Gründe: Größe und Passform, Auswahlbestellungen mehrerer Größen oder Farben, Farb- und Materialabweichung, Fehlkäufe.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-3.4-23
+**Frage:** Welche Kosten verursacht eine Retoure, und welche zwei Maßnahmen können die Quote senken?
+**Antwort:** Rücktransport, Prüfung, Aufbereitung, Wiedereinlagerung und gegebenenfalls Wertverlust (zusätzlich entgangener Umsatz). Maßnahmen, zum Beispiel: Größentabelle und Passformhinweise, Kundenbewertungen mit Größenangabe, Auswertung der Rücksendegründe, Rückgabe in der Filiale.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-3.4-24
+**Frage:** Nenne zwei Datenquellen für Online-Kennzahlen und zwei Grenzen, die du bei der Auswertung beachtest.
+**Antwort:** Quellen, zum Beispiel: Shop-System (Bestellungen, Warenkörbe, Retouren), Web-Analyse (Besuche, Herkunft), Warenwirtschaft (Wareneinsatz, gebuchte Retouren), Werbekonten. Grenzen, zum Beispiel: Kennzahlen zeigen Symptome, nicht Ursachen; Durchschnitte verdecken Streuung; vorläufige Retourenquoten sind zu niedrig; Definitionen weichen zwischen Systemen ab.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+## C. Quiz 3.4 (anhängen)
+
+#### Q-3.4-13 · Multiple Choice
+**Frage:** Die Shopleitung der Loreno Mode & Wohnen GmbH wertet eine Anzeigenkampagne aus: Die Besuche steigen von 100.000 auf 125.000, die Bestellungen von 2.500 auf 2.750 (Beispielwerte). Der durchschnittliche Warenkorbwert bleibt gleich. Was folgt daraus?
+- [ ] Die Conversion Rate ist gestiegen, weil im Monat mehr Bestellungen eingegangen sind als zuvor.
+- [ ] Die Conversion Rate ist unverändert geblieben, weil der Warenkorbwert gleich geblieben ist.
+- [x] Die Conversion Rate ist auf 2,2 % gesunken, der Bestellumsatz aber um 10 % gestiegen.
+- [ ] Die Conversion Rate lässt sich nicht berechnen, weil die Zahl der angelegten Warenkörbe fehlt.
+**Erklärung:** 2.500 ÷ 100.000 = 2,5 %, 2.750 ÷ 125.000 = 2,2 %. Die Bestellungen steigen um 10 % (2.750 ÷ 2.500 = 1,10), bei gleichem Warenkorbwert also auch der Bestellumsatz. Die Besuche stiegen stärker (plus 25 %) als die Bestellungen, deshalb sinkt die Quote; die zusätzlichen Besuche kaufen seltener. Für die Conversion Rate braucht man Bestellungen und Besuche, nicht die Warenkörbe.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-3.4-14 · Kurzantwort
+**Frage:** Der Online-Shop verzeichnet in einem Monat 78.000 Besuche und 2.340 Bestellungen (Beispielwerte). Berechne die Conversion Rate (Bestellungen ÷ Besuche × 100) in Prozent.
+**Akzeptierte Antworten:** 3 %; 3,0 %; 3.0 %; 3,00 %; 3.00 %; 3 Prozent; 3,0 Prozent; 3.0 Prozent; 3,00 Prozent; 3.00 Prozent; 3; 3,0; 3.0; 3,00; 3.00
+**Erklärung:** 2.340 ÷ 78.000 = 0,03, also 3,0 %. Die Conversion Rate bezieht die Bestellungen auf die Besuche, nicht auf die Warenkörbe.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-3.4-15 · Zuordnung
+**Anweisung:** Ordne jeder Kennzahl des Online-Handels ihre Berechnung zu.
+- Conversion Rate ↔ Bestellungen geteilt durch Besuche
+- Durchschnittlicher Warenkorbwert ↔ Bestellumsatz geteilt durch Bestellungen
+- Neukundengewinnungskosten ↔ Kosten der Neukundengewinnung geteilt durch die Zahl der Neukund:innen
+- Retourenquote nach Stück ↔ Zurückgesandte Artikel geteilt durch versandte Artikel
+**Erklärung:** Alle vier Kennzahlen sind Quotienten, unterscheiden sich aber in Zähler und Nenner. Wer die Basis verwechselt (zum Beispiel Warenkörbe statt Besuche), vergleicht Zahlen, die nicht zusammenpassen.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-3.4-16 · Kurzantwort
+**Frage:** Die Shopleitung der Loreno Mode & Wohnen GmbH hat den Checkout vereinfacht und will die Wirkung prüfen. Im Monat nach der Umstellung wurden 8.500 Warenkörbe angelegt, daraus entstanden 2.975 Bestellungen (Beispielwerte). Berechne die Warenkorbabbruchquote (angelegte Warenkörbe minus Bestellungen, geteilt durch angelegte Warenkörbe, mal 100) in Prozent.
+**Akzeptierte Antworten:** 65 %; 65,0 %; 65.0 %; 65,00 %; 65.00 %; 65 Prozent; 65,0 Prozent; 65.0 Prozent; 65,00 Prozent; 65.00 Prozent; 65; 65,0; 65.0; 65,00; 65.00
+**Erklärung:** (8.500 − 2.975) ÷ 8.500 = 5.525 ÷ 8.500 = 0,65, also 65,0 %. Umgekehrt führen 35,0 % der Warenkörbe zur Bestellung.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-17 · Mehrfachauswahl
+**Frage:** Eine Hose der Loreno Mode & Wohnen GmbH hat im Online-Shop eine Retourenquote von 55 %. Fast alle Rücksendegründe lauten „zu klein“ oder „zu eng“. Welche Maßnahmen sind sinnvoll?
+- [x] Auf der Produktseite „fällt eher klein aus“ vermerken und eine Größentabelle zeigen
+- [ ] Die Rücksendung grundsätzlich kostenpflichtig machen, ohne die Wirkung auf die Conversion Rate zu prüfen
+- [x] Kundenbewertungen mit Angaben zu Größe und Passform sichtbar machen
+- [ ] Die Rücksendegründe nicht mehr erfassen, weil sie ohnehin schon bekannt sind
+- [x] Mit dem Lieferbetrieb prüfen, ob Schnitt und Größenangaben der Hose stimmen
+**Erklärung:** Die Gründe weisen auf Passform und Größenangaben hin. Information auf der Produktseite, Bewertungen mit Größenangabe und die Prüfung der Größenangaben setzen an der Ursache an. Die Größentabelle zu entfernen oder die Gründe nicht mehr zu erfassen nimmt Wissen weg, das gebraucht wird, um die Quote zu senken.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-18 · Kurzantwort
+**Frage:** Für den Folgemonat plant die Shopleitung mit 120.000 Besuchen, einer Conversion Rate von 2,5 % und einem durchschnittlichen Warenkorbwert von 90,00 € (Beispielwerte, Umsätze ohne Umsatzsteuer). Berechne den geplanten Bestellumsatz (Besuche × Conversion Rate × Warenkorbwert) in Euro.
+**Akzeptierte Antworten:** 270.000 €; 270000 €; 270.000,0 €; 270000,0 €; 270000.0 €; 270.000,00 €; 270000,00 €; 270000.00 €; 270.000 Euro; 270000 Euro; 270.000,0 Euro; 270000,0 Euro; 270000.0 Euro; 270.000,00 Euro; 270000,00 Euro; 270000.00 Euro; 270.000 EUR; 270000 EUR; 270.000,0 EUR; 270000,0 EUR; 270000.0 EUR; 270.000,00 EUR; 270000,00 EUR; 270000.00 EUR; 270.000; 270000; 270.000,0; 270000,0; 270000.0; 270.000,00; 270000,00; 270000.00
+**Erklärung:** 120.000 × 0,025 = 3.000 Bestellungen; 3.000 × 90,00 € = 270.000 €. Ein höherer Warenkorbwert, mehr Besuche oder eine bessere Conversion Rate würden den Umsatz im gleichen Verhältnis steigern.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-19 · Sortieren
+**Anweisung:** Bringe die Stufen des Kaufprozesses im Online-Shop (Trichter) in die richtige Reihenfolge.
+1. Besuch des Shops (Traffic)
+2. Artikel im Warenkorb angelegt
+3. Checkout begonnen (Adresse und Zahlungsart)
+4. Bestellung abgeschlossen
+**Erklärung:** Von Stufe zu Stufe geht ein Teil der Personen verloren. Der Anteil, der von einer Stufe zur nächsten weitergeht, zeigt, wo im Prozess besonders viele abspringen.
+`schwierigkeit: leicht` · `bloom: verstehen`
+
+#### Q-3.4-20 · Kurzantwort
+**Frage:** Die Marketingleitung der Loreno Mode & Wohnen GmbH prüft eine Kampagne in der Suchmaschinenwerbung: Es fallen Werbekosten von 5.760 € an. Die darüber ausgelösten Bestellungen haben einen Bestellumsatz von 48.000 € (Beispielwerte, ohne Umsatzsteuer, vor Retouren). Berechne die Werbekosten-Umsatz-Relation (Werbekosten ÷ Bestellumsatz × 100) in Prozent.
+**Akzeptierte Antworten:** 12 %; 12,0 %; 12.0 %; 12,00 %; 12.00 %; 12 Prozent; 12,0 Prozent; 12.0 Prozent; 12,00 Prozent; 12.00 Prozent; 12; 12,0; 12.0; 12,00; 12.00
+**Erklärung:** 5.760 € ÷ 48.000 € = 0,12, also 12,0 %. Der ROAS beträgt 48.000 € ÷ 5.760 € ≈ 8,3. Ob die Kampagne Gewinn bringt, zeigt erst der Vergleich mit Retouren, Wareneinsatz und Bearbeitungskosten.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-21 · Kurzantwort
+**Frage:** Die Retourenquote (nach Stück) eines Online-Shops liegt im Vormonat bei 44 % und im aktuellen Monat bei 40 % (Beispielwerte). Um wie viele Prozentpunkte hat sie sich verringert? Gib die Differenz der beiden Quoten als positive Zahl in Prozentpunkten an.
+**Akzeptierte Antworten:** 4 Prozentpunkte; 4,0 Prozentpunkte; 4.0 Prozentpunkte; 4,00 Prozentpunkte; 4.00 Prozentpunkte; 4 Prozentpunkt; 4,0 Prozentpunkt; 4.0 Prozentpunkt; 4,00 Prozentpunkt; 4.00 Prozentpunkt; 4 %-Punkte; 4,0 %-Punkte; 4.0 %-Punkte; 4,00 %-Punkte; 4.00 %-Punkte; 4 %-Pkt.; 4,0 %-Pkt.; 4.0 %-Pkt.; 4,00 %-Pkt.; 4.00 %-Pkt.; 4 %; 4,0 %; 4.0 %; 4,00 %; 4.00 %; 4 Prozent; 4,0 Prozent; 4.0 Prozent; 4,00 Prozent; 4.00 Prozent; 4; 4,0; 4.0; 4,00; 4.00; +4 Prozentpunkte; +4,0 Prozentpunkte; +4.0 Prozentpunkte; +4,00 Prozentpunkte; +4.00 Prozentpunkte; +4 Prozentpunkt; +4,0 Prozentpunkt; +4.0 Prozentpunkt; +4,00 Prozentpunkt; +4.00 Prozentpunkt; +4 %-Punkte; +4,0 %-Punkte; +4.0 %-Punkte; +4,00 %-Punkte; +4.00 %-Punkte; +4 %-Pkt.; +4,0 %-Pkt.; +4.0 %-Pkt.; +4,00 %-Pkt.; +4.00 %-Pkt.; +4 %; +4,0 %; +4.0 %; +4,00 %; +4.00 %; +4 Prozent; +4,0 Prozent; +4.0 Prozent; +4,00 Prozent; +4.00 Prozent; +4; +4,0; +4.0; +4,00; +4.00
+**Erklärung:** 44 − 40 = 4 Prozentpunkte. Relativ ist die Quote um 4 ÷ 44 ≈ 9,1 % gesunken; Prozentpunkte und Prozent sind nicht dasselbe.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-3.4-22 · Wahr/Falsch
+**Aussage:** Die Marketingleitung der Loreno Mode & Wohnen GmbH meldet für eine Kampagne eine Werbekosten-Umsatz-Relation von 20 % und folgert daraus, sie habe nach Retouren, Wareneinsatz und Bearbeitungskosten Gewinn gebracht. Diese Folgerung ist allein aufgrund der Relation richtig.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Die WUR bezieht die Werbekosten auf den Bestellumsatz vor Retouren. Bei einer Retourenquote von 40 % nach Wert und einer Rohertragsquote von 54 % bleiben je 100 € Bestellumsatz nur 100 € × 0,60 × 0,54 = 32,40 € Rohertrag, von denen 20 € an die Werbung gehen; Bearbeitungs- und Retourenkosten kommen noch hinzu.
+`schwierigkeit: schwer` · `bloom: bewerten`

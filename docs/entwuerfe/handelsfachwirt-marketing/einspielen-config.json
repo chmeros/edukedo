@@ -1,0 +1,30 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    ["hf-3.5-marketingstrategie-servicepolitik.md", "hb3/3.5-marketingstrategie-servicepolitik.md"],
+    ["hf-5.4-kundenzufriedenheit-kundenbindung.md", "wb1/5.4-kundenzufriedenheit-kundenbindung.md"]
+  ],
+  "ergaenzungen": [
+    { "datei": "hf-3.3-ergaenzung-oeffentlichkeitsarbeit-sponsoring.md", "abschnitte": [["A", "B", "C", "hb3/3.3-werbekonzepte-verkaufsfoerderung.md"]] },
+    { "datei": "hf-3.4-ergaenzung-e-commerce-kennzahlen.md", "abschnitte": [["A", "B", "C", "hb3/3.4-visual-merchandising-e-commerce.md"]] }
+  ],
+  "faelle": [
+    ["hf-faelle-a.md", "hb3"],
+    ["hf-faelle-b.md", "hb3"],
+    ["hf-faelle-c.md", "hb3"],
+    ["hf-faelle-d.md", "wb1"]
+  ],
+  "ersetzungen": [
+    { "datei": "hb3/fallaufgaben.md", "paare": [["HB3 (3.1–3.4)", "HB3 (3.1–3.5)"]] },
+    { "datei": "wb1/fallaufgaben.md", "paare": [["WB1 (5.1–5.3)", "WB1 (5.1–5.4)"]] }
+  ],
+  "rechtsstand": [
+    "hb3/3.3-werbekonzepte-verkaufsfoerderung.md",
+    "hb3/3.4-visual-merchandising-e-commerce.md",
+    "hb3/fallaufgaben.md",
+    "hb3/fachgespraech.md",
+    "wb1/fallaufgaben.md",
+    "wb1/fachgespraech.md"
+  ]
+}
