@@ -1,0 +1,44 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "hb1/1.7-unternehmensformen-gruendung.md",
+      "paare": [
+        [
+          "können außergewöhnlichen Geschäften widersprechen und haben Kontrollrechte (Einsicht in den Jahresabschluss) |",
+          "wirken bei Geschäften über den gewöhnlichen Betrieb hinaus am Gesellschafterbeschluss mit (Stand Oktober 2026, vor Verwendung prüfen) und haben Informationsrechte (Einsicht in den Jahresabschluss) |"
+        ],
+        [
+          "können aber außergewöhnlichen Geschäften widersprechen und haben Kontrollrechte.",
+          "wirken aber bei Geschäften über den gewöhnlichen Betrieb hinaus am Gesellschafterbeschluss mit und haben Informationsrechte (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "- [x] Kommanditist:innen können außergewöhnlichen Geschäften widersprechen.",
+          "- [x] Bei Geschäften über den gewöhnlichen Betrieb hinaus wirken die Kommanditist:innen am Gesellschafterbeschluss mit."
+        ],
+        [
+          "und haben Kontroll- und Widerspruchsrechte.",
+          "wirken bei Geschäften über den gewöhnlichen Betrieb hinaus am Gesellschafterbeschluss mit und haben Informationsrechte (Stand Oktober 2026, vor Verwendung prüfen)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fallaufgaben.md",
+      "paare": [
+        [
+          "haben aber Widerspruchs- und Kontrollrechte.",
+          "wirken aber bei Geschäften über den gewöhnlichen Betrieb hinaus am Gesellschafterbeschluss mit und haben Informationsrechte."
+        ],
+        [
+          "kann aber außergewöhnlichen Geschäften widersprechen und hat Kontrollrechte (Einsicht in den Jahresabschluss)",
+          "wirkt aber bei Geschäften über den gewöhnlichen Betrieb hinaus am Gesellschafterbeschluss mit und hat Informationsrechte (Einsicht in den Jahresabschluss)"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": []
+}

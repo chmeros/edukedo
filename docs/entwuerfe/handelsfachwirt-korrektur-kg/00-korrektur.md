@@ -1,0 +1,5 @@
+# Korrektur Handelsfachwirt HB1 1.7 und F-HB1-08: Mitwirkung der Kommanditist:innen (16.10.2026)
+
+Anlass: Die unabhängige Prüfung von P-AB Teil A (Wirtschaftsfachwirt `wbq1/1.3`) hat am Gesetzestext festgestellt, dass das frühere Widerspruchsrecht der Kommanditist:innen bei außergewöhnlichen Geschäften seit der Reform des Personengesellschaftsrechts 2024 nicht mehr in § 164 HGB steht: Kommanditist:innen sind von der Geschäftsführung ausgeschlossen; für Geschäfte über den gewöhnlichen Betrieb hinaus verlangt § 116 Abs. 2 HGB einen Beschluss der Gesellschafter. Die in P-Y eingespielten Texte (`hb1/1.7`: Tabelle, K-1.7-06, Q-1.7-05 und Erklärung; `hb1/fallaufgaben.md` F-HB1-08: Rechtsannahme und Musterlösung) nannten noch das Widerspruchsrecht. Die Korrektur ersetzt diese sechs Stellen per Textersetzung (`einspielen-config.json`) und ändert in Q-1.7-05 die richtige Antwort entsprechend.
+
+Nicht förmlich rechtsgeprüft; die Sicherheit steht in `docs/entwuerfe/handelsfachwirt-unternehmensformen/rechtsangaben-zur-pruefung.md` (Zeile zur KG aktualisiert). Test: `pruefe-paket.cjs test` 0 Verstöße (alle sechs Ersetzungen greifen).
