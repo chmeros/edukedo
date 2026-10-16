@@ -1,0 +1,32 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    ["hf-4.4-entsorgung-kreislaufwirtschaft.md", "hb4/4.4-entsorgung-kreislaufwirtschaft.md"]
+  ],
+  "ergaenzungen": [
+    { "datei": "hf-4.1-ergaenzung-e-procurement-warenwirtschaft.md", "abschnitte": [["A", "B", "C", "hb4/4.1-bedarfsermittlung.md"]] },
+    { "datei": "hf-6.1-ergaenzung-logistikdienstleister-controlling.md", "abschnitte": [["A", "B", "C", "wb2/6.1-logistikkette-im-handel.md"]] },
+    { "datei": "hf-7.1-ergaenzung-marken-marktforschung-angebotsvergleich.md", "abschnitte": [["A", "B", "C", "wb3/7.1-einkaufsstrategien.md"]] }
+  ],
+  "faelle": [
+    ["hf-faelle-a.md", "hb4"],
+    ["hf-faelle-b.md", "hb4"],
+    ["hf-faelle-c.md", "wb2"],
+    ["hf-faelle-d.md", "wb3"]
+  ],
+  "ersetzungen": [
+    { "datei": "hb4/fallaufgaben.md", "paare": [["HB4 (4.1–4.3)", "HB4 (4.1–4.4)"]] }
+  ],
+  "rechtsstand": [
+    "hb4/4.1-bedarfsermittlung.md",
+    "hb4/fallaufgaben.md",
+    "hb4/fachgespraech.md",
+    "wb2/6.1-logistikkette-im-handel.md",
+    "wb2/fallaufgaben.md",
+    "wb2/fachgespraech.md",
+    "wb3/7.1-einkaufsstrategien.md",
+    "wb3/fallaufgaben.md",
+    "wb3/fachgespraech.md"
+  ]
+}

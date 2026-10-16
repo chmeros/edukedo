@@ -5,7 +5,7 @@ fachgebiet_title: "Beschaffung und Logistik"
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 4, Handlungsbereich „Beschaffung und Logistik") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -44,6 +44,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Er schützt vor Fehlmengen und spielt in Bestellpunkt- wie Bestellrhythmusverfahren eine zentrale Rolle.
   - Erwartung: Die Höhe richtet sich nach den abzupuffernden Schwankungen: Bei kaum planbarem Bedarf (CZ-Artikel) wird ein großzügigerer Sicherheitsbestand vorgehalten.
   - Erwartung: Der Meldebestand ergibt sich aus dem Sicherheitsbestand zuzüglich des erwarteten Verbrauchs während der Wiederbeschaffungszeit.
+- Loreno nimmt einen völlig neuen Artikel ohne Verkaufsgeschichte ins Sortiment, etwa einen Kurztrend. Wie ermitteln Sie die Menge für die Vororder, und welche Rolle spielen dabei qualitative Verfahren?
+  - Erwartung: Ohne Vergangenheitsdaten ist die Bedarfsermittlung heuristisch; die qualitativen Verfahren beschaffen die Informationen und Urteile, aus denen die Menge geschätzt wird: Trendinformationen (Messen, Beobachtung des Wettbewerbs, soziale Netzwerke, Suchanfragen im Shop), Expertenschätzung in der Orderrunde, Kundenbefragung und Testverkauf.
+  - Erwartung: Die Urteile werden in eine Menge übersetzt, etwa über einen Vergleichsartikel mit Anpassungsfaktor oder über die Hochrechnung eines Testverkaufs (Verkaufsrate je Filiale und Woche × Zahl der Filialen × Wochen × Korrekturfaktor); die Annahmen werden dokumentiert.
+  - Erwartung: In der Orderrunde schätzen die Beteiligten zuerst jede für sich, bevor sie diskutieren, und geben eine Spanne statt einer Einzelzahl an; Verzerrungen entstehen durch Optimismus, die Orientierung an der Vorjahresmenge und einzelne Wortführende.
+  - Erwartung: Grenzen: Befragte überschätzen ihre Kaufabsicht, die Testfilialen stehen nicht stellvertretend für alle Filialen, und der Test ist nur sinnvoll, wenn danach die Vollorder noch rechtzeitig vor Saisonbeginn platziert werden kann (Vororder und Nachorder, Lieferzeiten).
+  - Erwartung: Nach der Saison folgt der Plan-Ist-Vergleich; sobald Verkaufsdaten vorliegen, steuern Warenwirtschaftssystem und stochastische Verfahren, und eine Nachorder kann gezielt ausgelöst werden.
+  - Rückfrage: Warum ist ein Testverkauf in wenigen großen Innenstadtfilialen allein keine sichere Grundlage für die Menge aller Filialen?
+- Die Geschäftsführung fragt, ob Loreno den Betriebsbedarf und die Basisartikel über E-Procurement bestellen und das Warenwirtschaftssystem stärker selbst disponieren lassen soll. Wie bereiten Sie die Entscheidung vor?
+  - Erwartung: Formen des E-Procurement sind elektronische Katalogbestellung, Lieferantenportal, EDI und elektronische Ausschreibung; geeignet ist wiederkehrender Bedarf an Standardware zu vereinbarten Preisen (Betriebsbedarf, NOS-Artikel); die modische Vororder bleibt meist ein persönlicher Termin, in dem Muster, Qualität und Mengen beurteilt und verhandelt werden.
+  - Erwartung: Die Wirtschaftlichkeit zeigt der Vergleich der Prozesskosten je Bestellung vor und nach der Umstellung (Minuten × Personalkostensatz + Sachkosten) zusammen mit dem Break-even (jährliche Systemkosten ÷ Ersparnis je Bestellung); die Zeitersparnis wird nur in dem Anteil zu Euro, in dem Arbeitszeit tatsächlich eingespart oder anders genutzt wird.
+  - Erwartung: Voraussetzung sind saubere Stammdaten (Wiederbeschaffungszeit, Verpackungseinheit, Preise), klare Zuständigkeiten für die Pflege und funktionierende Schnittstellen zu Kasse, Online-Shop, Lager und Lieferunternehmen; sonst entstehen Fehler schneller und in größerer Zahl.
+  - Erwartung: Risiken sind Einführungs- und Schnittstellenkosten, Abhängigkeit vom Lieferunternehmen, Pflegeaufwand und die Sicherheit der Zugänge; Bestellvorschläge des Systems werden bei Neu-, Aktions- und Trendartikeln, bei AZ-Artikeln und nach Ausverkauf geprüft, weil die Verkaufszahlen dann die Nachfrage nicht richtig abbilden.
+  - Rückfrage: Welche Stammdaten beeinflussen den Meldebestand, und was passiert, wenn sie falsch sind?
 
 ### 4.2 Supply Chain Management
 
@@ -109,3 +122,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die Luftfracht ist deutlich teurer, aber sehr schnell und daher richtig bei dringenden Nachorder-Mengen oder zeitkritischer, hochpreisiger Ware.
   - Erwartung: Der kombinierte Verkehr verbindet mehrere Verkehrsträger, z. B. Schiff bis zu einem europäischen Hafen und dann Bahn oder LKW.
 
+### 4.4 Entsorgung und Kreislaufwirtschaft
+
+- Die Geschäftsleitung bittet Sie, für ein Filialunternehmen mit Zentrallager, Regionallagern und Online-Shop ein Entsorgungskonzept aufzubauen. Wie gehen Sie vor?
+  - Erwartung: Ausgangspunkt ist eine Übersicht über Abfallarten und Mengen je Standort (Kartonage, Folien, Kleiderbügel, Retouren-Ausschuss, Elektro- und Ladentechnik, gefährliche Abfälle, gemischter Rest); die Abfallhierarchie gibt die Prüfreihenfolge vor: vermeiden, wiederverwenden, recyceln, sonstige Verwertung, beseitigen.
+  - Erwartung: Entscheidend ist die Filiale beim Auspacken: Was kommt in welchen Behälter, wo steht der Behälter für Akkus im Backoffice, wer leert ihn, und wie wird die Übergabe belegt? Danach folgen Rückfracht ins Regionallager, Pressen und Bereitstellen im Lager, Abholung und die Auswertung der Belege; Behälter werden eindeutig beschriftet, das Team unterwiesen.
+  - Erwartung: Gefährliche Abfälle kommen in eigene, beschriftete Behälter und gehen nur an berechtigte Unternehmen; der gemischte Rest ist je Tonne meist die teuerste Massenabfallart.
+  - Erwartung: Zuständigkeiten richten sich nach der Stelle in der Warenkette (Filialleitung beim Auspacken, Logistik bei Behältern und Rückfracht, Einkauf bei Angeboten, Controlling bei Zahlen); eine Ansprechperson für Abfall hilft bei Unsicherheiten; gesetzliche Vorgaben sind gesondert zu prüfen (nicht förmlich rechtsgeprüft).
+  - Rückfrage: Warum ist es sinnvoll, schon in der Filiale zu trennen und nicht erst im Zentrallager?
+- Aus dem Marketing kommt der Vorschlag, in allen Filialen gebrauchte Textilien zurückzunehmen und den Retouren-Ausschuss im Outlet zu verkaufen. Wie beurteilen Sie den Vorschlag unter Kosten- und Umweltgesichtspunkten?
+  - Erwartung: Einordnung in die Kreislaufwirtschaft: Rücknahme, Wiederverkauf (Second Life), Spende und Textilrecycling; Wiederverwendung tragbarer Stücke hat Vorrang vor dem Recycling; Erfolg beim Ausschuss zeigt die Weiterverwendungsquote.
+  - Erwartung: Wirtschaftlichkeit: Erlöse von Sortierunternehmen und aus dem Outlet stehen den Kosten für Annahme, Aufbereitung, Transport und Gutscheine gegenüber; eine Rücknahmeaktion trägt sich meist erst über Zusatzumsatz und Kundenbindung, und Mitnahmeeffekte sind zu bedenken.
+  - Erwartung: Risiken: Der Outlet-Verkauf kann das Preisgefüge und den Wert der Marke belasten, die Qualität der Rücknahme schwankt, und Mischgewebe begrenzen das Recycling.
+  - Erwartung: Der Ökobilanz-Gedanke fragt nach dem Weg insgesamt, nach Transport, Aufbereitung und Energie; Umweltaussagen gegenüber der Kundschaft müssen belegbar sein (rechtliche Vorgaben nicht behandelt, nicht förmlich rechtsgeprüft).
+  - Rückfrage: Woran erkennen Sie, dass eine Rücknahmeaktion vor allem zusätzliche Neukäufe anstößt?
+- Sie sollen entscheiden, ob Einwegverpackungen durch Mehrweg ersetzt werden und ob die Filialen ihre Kartonage per Rückfracht ins Regionallager bringen, statt sie einzeln abholen zu lassen. Wie rechnen Sie, und was berücksichtigen Sie außer den Zahlen?
+  - Erwartung: Mehrweg: Kosten je Umlauf = Anschaffung ÷ Umläufe + Rückführung und Reinigung, verglichen mit den Kosten je Einwegverpackung; bei Rückgabe durch Kundschaft hängt die Zahl der Umläufe von der Rücklaufquote ab (vereinfacht 1 ÷ (1 − Rücklaufquote)); es gibt eine Rücklaufquote, ab der Mehrweg günstiger ist.
+  - Erwartung: Rückfracht gegen Einzelabholung: Jahresvergleich der Netto-Entsorgungskosten aus Handling, anteiliger Fahrt, Abholung der Ballen und Vergütung gegenüber der losen Abgabe; die Ballenvergütung schwankt, deshalb gehört die Frage nach der Mindestvergütung dazu; Investitionen wie eine Presse werden mit den Verfahren der Investitionsrechnung geprüft.
+  - Erwartung: Qualitativ zählen Platz im Backoffice und an der Rampe, Einweisung des Filialteams, Abstimmung mit der Tourenplanung, Verfügbarkeit eines Abnahmeunternehmens vor Ort, Flexibilität bei schwankenden Mengen und der Ökobilanz-Gedanke (Rückfahrten).
+  - Erwartung: Die Wirkung wird mit Kennzahlen kontrolliert (Netto-Entsorgungskosten je Tonne, Wertstoffquote, Entsorgungskosten je 1.000 € Umsatz); die Wertstoffquote allein reicht nicht, weil sie nichts über die Vermeidung aussagt.
+  - Rückfrage: Warum kann die Wertstoffquote sinken, obwohl insgesamt weniger Abfall entsteht?

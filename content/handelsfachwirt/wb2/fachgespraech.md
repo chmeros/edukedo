@@ -5,7 +5,7 @@ fachgebiet_title: "Handelslogistik (Wahlpflicht)"
 thema_code: "WB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, §4 Abs. 6, Wahlpflicht-Handlungsbereich „Handelslogistik") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -39,6 +39,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Luftfracht kommt nur bei eilbedürftiger Ware oder zum kurzfristigen Ausgleich von Lieferengpässen zum Einsatz, da sie deutlich teurer ist.
   - Erwartung: Die Wahl hängt damit von Menge, Eilbedürftigkeit und Kosten ab.
   - Rückfrage: Welche Rolle spielt der kombinierte Verkehr bei innereuropäischen Langstrecken?
+- Die Geschäftsführung der Loreno Mode & Wohnen GmbH erwägt, den Versand des Online-Shops und die Bearbeitung der Rücksendungen an ein Logistikunternehmen zu vergeben. Wie gehen Sie bei Entscheidung und Auswahl vor?
+  - Erwartung: Die Grundsatzentscheidung ist eine Make-or-Buy-Entscheidung: Verglichen werden die abbaubaren Kosten, Know-how und Kapazität, die strategische Bedeutung (Kundenerlebnis bei Verpackung und Rücksendungen), die Abhängigkeit und die Flexibilität bei schwankenden Mengen; auch eine Teilvergabe ist möglich. Die Ware bleibt Eigentum von Loreno, die Kapitalbindung im Bestand bleibt.
+  - Erwartung: Vor der Ausschreibung steht das Anforderungsprofil mit Leistungsbeschreibung, Mengengerüst einschließlich Spitzen, gewünschten Servicelevel und Anforderungen an Systeme und Daten; alle angefragten Unternehmen erhalten dieselben Unterlagen.
+  - Erwartung: Die Bewertung beginnt mit den Mindestanforderungen (Muss-Leistungen wie Leistungsumfang und Schnittstellen sowie wesentliche Eignungspunkte wie Referenzen, Kapazität, Versicherung); wer sie nicht erfüllt, scheidet aus; danach werden die Gesamtkosten gerechnet (Leistungsumfang angleichen, Preismodell auf das Mengengerüst anwenden, Steuerungs- und Einmalkosten ergänzen) und ein Nutzwert mit vorab festgelegten Gewichten gebildet.
+  - Erwartung: Der Vertrag regelt im Überblick Leistungsumfang, Servicelevel, Preismodell, Laufzeit und Ausstieg; rechtliche Fragen (Haftung, Datenschutz) werden gesondert geprüft.
+  - Rückfrage: Warum können zwei Angebote mit gleichem Preis je Sendung für Loreno unterschiedlich teuer sein?
+- Das Logistikunternehmen arbeitet für Loreno. Wie steuern und kontrollieren Sie es, und was tun Sie, wenn die Zahlen schlechter werden?
+  - Erwartung: Das Servicelevel legt messbare Kennzahlen fest, zum Beispiel Termintreue, Lieferzeit, Schadens-, Reklamations- und Fehlerquote und die Bearbeitungszeit für Rücksendungen, jeweils mit Definition, Messzeitraum, Datenquelle und Ausnahmen.
+  - Erwartung: Bonus und Malus koppeln einen Teil der Vergütung an die Zielerreichung; Grenzen sind Fehlanreize bei nur einer Kennzahl, ein Malus ersetzt weder den Schaden noch die Ursachenarbeit, und zu hohe Abzüge treiben den Preis.
+  - Erwartung: Das Logistikcontrolling rechnet Kosten je Sendung, Logistikkostenquote und den Plan-Ist-Vergleich mit Mengen- und Satzabweichung; Kosten und Leistung werden gemeinsam betrachtet.
+  - Erwartung: Ein monatlicher Bericht mit Ampel, Ursachen und Maßnahmen sowie ein regelmäßiges Gespräch mit dem Logistikunternehmen sichern die Steuerung; bei wiederholter Verfehlung folgt ein Maßnahmenplan mit Fristen, am Ende der Laufzeit die Entscheidung über Verlängerung, Neuausschreibung oder Rückholung.
+  - Rückfrage: Warum können die Gesamtkosten unter dem Plan liegen, obwohl die Kosten je Sendung steigen?
 
 ### 6.2 Vertragskonditionen und Investitionsbewertung
 
@@ -67,4 +79,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Grund: Die Investition erwirtschaftet mehr, als die geforderte Mindestverzinsung verlangt.
   - Rückfrage: Was gibt der interne Zinsfuß an?
 - Welche Risiken würden Sie bei der Investitionsentscheidung für ein neues Verteilzentrum berücksichtigen, und wie würden Sie mit diesen jeweils umgehen?
-

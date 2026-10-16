@@ -5,7 +5,7 @@ fachgebiet_title: "Einkauf (Wahlpflicht)"
 thema_code: "WB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 7, Wahlpflicht-Handlungsbereich „Einkauf") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -41,6 +41,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Voraussetzung sind außerdem kurze, planbare Transportwege.
   - Erwartung: Bei der Loreno Mode & Wohnen GmbH kommt sie deshalb eher für die Belieferung der Filialen aus dem Zentrallager infrage als für den Übersee-Wareneinkauf.
   - Rückfrage: Was versteht man unter Just-in-Sequence-Beschaffung?
+- Ihr Unternehmen möchte ein Basissortiment künftig als Eigenmarke anbieten und zugleich einige bekannte Herstellermarken behalten. Wie entscheiden Sie, welche Marken in welche Beschaffungsvariante gehören?
+  - Erwartung: Eine Herstellermarke gehört einem Herstellerunternehmen, das Produkt und Auftritt steuert und an viele Handelsunternehmen verkauft; eine Handelsmarke (Eigenmarke) gehört dem Handelsunternehmen und wird nur dort verkauft, gefertigt meist von Lieferbetrieben nach den Vorgaben des Handels (Fremdbezug im Sinne von Make-or-Buy).
+  - Erwartung: Die Entscheidung folgt der Sortimentspolitik: Herstellermarken geben dem Kernsortiment Profil, ziehen Kundschaft an und senken das Absatzrisiko, haben aber begrenzte Spannen und vergleichbare Preise; Eigenmarken eignen sich für Basics und Preiseinstiegslagen, bringen höhere Spannen und Differenzierung.
+  - Erwartung: Bei der Eigenmarke fallen Aufgaben des Handels an: Spezifikation, Lieferbetriebe suchen, Muster freigeben, Mindestmenge bestellen, Qualität kontrollieren; dazu kommen Zusatzkosten, Kapitalbindung und Restpostenrisiko.
+  - Erwartung: Verglichen werden nicht nur Spannen, sondern Rohertrag je Stück nach Zusatzkosten, Gesamtergebnis nach Abverkauf und gebundenes Kapital; eine höhere Spanne bedeutet nicht automatisch einen höheren Rohertrag je Stück.
+  - Erwartung: Marken- und Wettbewerbsrecht (Schutz von Marken, Nachahmung, Kennzeichnung und Produktsicherheit eines markenführenden Unternehmens) ist gesondert zu prüfen und gehört nicht zur Rechnung.
+  - Rückfrage: Wie würden Sie das Absatzrisiko einer neuen Eigenmarke begrenzen?
+- Sie sollen für einen neuen Artikel bei mehreren Lieferunternehmen Angebote einholen und vergleichen, darunter ein Angebot aus einem Drittland. Wie gehen Sie vor?
+  - Erwartung: Vorab klärt die Beschaffungsmarktforschung (Primär- und Sekundärquellen, Marktanalyse und Marktbeobachtung), wer liefern kann und wie sich Preise entwickeln; die Anfrage geht mit derselben Spezifikation, Menge, denselben Terminen und Bedingungen an alle, ohne eigene Kalkulation oder fremde Preise zu nennen.
+  - Erwartung: Zuerst werden die Angebote auf Vollständigkeit und Muss-Kriterien geprüft (Spezifikation, Liefertermin, Nachweise wie ein Audit); Angebote, die ein Muss-Kriterium verfehlen, scheiden aus.
+  - Erwartung: Quantitativ verglichen wird der Bezugspreis frei Lager für die tatsächlich benötigte Menge: Rabatt, Skonto, Fracht, beim Import auch Zoll auf den Zollwert, Hafen- und Inlandskosten, Kontrollkosten je Stück; einmalige Kosten wie ein Erstaudit werden dem Preisvorteil gegenübergestellt; Mengenstaffel und Mindestmenge sind zu beachten, die Umsatzsteuer gehört nicht zum Bezugspreis.
+  - Erwartung: Qualitativ werden Lieferzeit, Nachorder, Qualität, Compliance, Währung und Zuverlässigkeit bewertet (Nutzwertanalyse); dokumentiert werden Angebotsspiegel und Begründung, die Auftragsbestätigung wird mit dem Angebot abgeglichen.
+  - Rückfrage: Wann ist der niedrigste Bezugspreis nicht das beste Angebot?
 
 ### 7.2 Lieferantenbewertung und Verhandlung
 
