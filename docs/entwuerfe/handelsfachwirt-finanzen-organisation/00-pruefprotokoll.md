@@ -1,6 +1,6 @@
 # Prüfprotokoll: Paket P-X „Handelsfachwirt: Unternehmensorganisation und Kooperationen, Darlehensarten und Annuität, Risikokategorien, Anbahnung im Außenhandel, Transportversicherung und Zertifizierung“ (Erhebung vom 14.10.2026: HF-03, HF-09, HF-10, HF-19, HF-20, HF-23; Auswertung `docs/entwuerfe/handelsfachwirt-rest-auswertung.md`)
 
-Stand 16.10.2026. **Entwurf (R3), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Rechtsnah nur als Hinweis ohne Paragrafen und Gesetzesnamen: Gesellschafts-, Genossenschafts-, Kartell- und Franchiserecht, Darlehens- und Verbraucherkreditrecht, Versicherungsvertragsrecht, Zoll- und Exportkontrollrecht, Rechtswahl und Gerichtsstand; nicht förmlich rechtsgeprüft.
+Stand 16.10.2026. **Eingespielt am 16.10.2026** nach Freigabe des Projektleiters („Ja, P-X einspielen.“). Rechtsnah nur als Hinweis ohne Paragrafen und Gesetzesnamen: Gesellschafts-, Genossenschafts-, Kartell- und Franchiserecht, Darlehens- und Verbraucherkreditrecht, Versicherungsvertragsrecht, Zoll- und Exportkontrollrecht, Rechtswahl und Gerichtsstand; nicht förmlich rechtsgeprüft.
 
 ## Umfang
 

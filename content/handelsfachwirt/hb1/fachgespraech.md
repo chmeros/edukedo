@@ -5,7 +5,7 @@ fachgebiet_title: "Unternehmensführung und -steuerung"
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handelsfachwirt-Prüfungsverordnung (HdlFachwPrV vom 13.05.2014, BGBl. I S. 527/1708, § 4 Abs. 1, Handlungsbereich „Unternehmensführung und -steuerung") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -74,6 +74,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Leasing wird das Anlagekapital nicht sofort vollständig gebunden.
   - Erwartung: Bei der Kreditfinanzierung wird Kapital aufgenommen, das zurückgezahlt und verzinst werden muss.
   - Erwartung: Ein Bankdarlehen ist meist langfristig und häufig mit Sicherheiten hinterlegt, z. B. einer Grundschuld auf Betriebsimmobilien.
+- Die Loreno Mode & Wohnen GmbH will die Modernisierung einer Filiale über ein Bankdarlehen finanzieren. Das Kreditinstitut bietet ein endfälliges Darlehen, ein Ratentilgungsdarlehen und ein Annuitätendarlehen an. Wie vergleichen Sie die drei Darlehensarten, und wonach entscheiden Sie?
+  - Erwartung: Beim endfälligen Darlehen werden während der Laufzeit nur Zinsen gezahlt und die ganze Summe am Ende zurückgezahlt; die laufende Belastung ist am niedrigsten, die Gesamtzinsen sind am höchsten, und am Ende ist die Rückzahlung oder eine Anschlussfinanzierung nötig.
+  - Erwartung: Beim Ratentilgungsdarlehen ist die Tilgung jedes Jahr gleich, Zinsen und Zahlung sinken; die Gesamtzinsen sind am niedrigsten, die Belastung im ersten Jahr ist am höchsten.
+  - Erwartung: Beim Annuitätendarlehen ist die Zahlung gleichbleibend, der Tilgungsanteil steigt und der Zinsanteil sinkt; die Gesamtzinsen liegen zwischen den beiden anderen Arten, und die Zahlung ist gut planbar.
+  - Erwartung: Die Entscheidung folgt der Liquidität: Der Kapitaldienst (Zinsen plus Tilgung) muss aus dem Cashflow der Filiale gedeckt sein, die Kapitaldienstdeckung muss die vom Kreditinstitut geforderte Mindestdeckung erreichen, und die Laufzeit soll zur Nutzungsdauer der Investition passen.
+  - Rückfrage: Warum kann das Darlehen mit den niedrigsten Gesamtzinsen trotzdem nicht in Frage kommen?
+- Erläutern Sie anhand eines Tilgungsplans, wie sich bei einem Annuitätendarlehen Zinsen, Tilgung und Restschuld entwickeln und wie die Annuität berechnet wird.
+  - Erwartung: Der Tilgungsplan zeigt je Jahr Restschuld zu Jahresbeginn, Zinsen, Tilgung, Zahlung und Restschuld am Jahresende; die Zinsen ergeben sich aus der Restschuld zu Jahresbeginn mal Zinssatz, die Tilgung ist die Annuität minus Zinsen.
+  - Erwartung: Die Zahlung bleibt gleich; weil die Restschuld sinkt, fällt der Zinsanteil, und der Tilgungsanteil steigt.
+  - Erwartung: Die Annuität ist der Darlehensbetrag mal Annuitätenfaktor; der Faktor lautet i × q^n ÷ (q^n − 1) mit q = 1 + i und der Laufzeit n in Jahren.
+  - Erwartung: Zur Kontrolle ergeben die Tilgungen zusammen den Darlehensbetrag, und die Restschuld nach dem letzten Jahr ist null; die Gesamtzinsen sind die Summe der Zinsen aller Jahre.
+  - Rückfrage: Warum ist der Tilgungsanteil im ersten Jahr am kleinsten?
+- Zwei Kreditinstitute bieten Loreno ein Darlehen an: Das eine mit dem niedrigeren Nominalzins, aber mit Disagio und Bearbeitungsgebühr, das andere mit höherem Nominalzins ohne Nebenkosten. Wie vergleichen Sie die Angebote, und was beachten Sie bei der Zinsbindung?
+  - Erwartung: Der Nominalzins allein genügt nicht; Disagio (weniger Auszahlung bei voller Rückzahlung) und Bearbeitungsgebühr erhöhen die Kosten und senken den verfügbaren Betrag, die Tilgung ist dagegen keine Kostenposition.
+  - Erwartung: Verglichen werden die Gesamtkosten in Euro oder der Effektivzins, der alle Kosten und den Zeitpunkt der Zahlungen berücksichtigt, und zwar bei gleichem Darlehensbetrag, gleicher Laufzeit und gleicher Tilgungsart.
+  - Erwartung: Die Zinsbindung ist der Zeitraum mit festem Zins; ist danach noch Restschuld offen, folgt eine Anschlussfinanzierung zu den dann geltenden Konditionen, es besteht ein Zinsänderungsrisiko.
+  - Erwartung: Ein Darlehen eignet sich für Investitionen mit langer Nutzung, der Kontokorrentkredit für kurzfristige Schwankungen und der Lieferantenkredit für den Warenbezug; die Dauer der Finanzierung soll zur Dauer der Kapitalbindung passen.
+  - Rückfrage: Wann würden Sie eine lange und wann eine kurze Zinsbindung wählen?
 
 ### 1.3 Controllinginstrumente
 
@@ -137,6 +155,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Betriebsunterbrechungsversicherung deckt Ertragsausfälle etwa nach einem Brand oder IT-Ausfall ab.
   - Erwartung: Die Cyberversicherung gewinnt an Bedeutung, weil auch der Online-Shop ein wichtiger Vertriebskanal ist.
   - Rückfrage: Welche Risikosteuerungsstrategie liegt dem Abschluss einer Versicherung zugrunde?
+- Die Geschäftsführung bittet Sie, die Risiken der Loreno Mode & Wohnen GmbH übersichtlich zu gliedern. Welche Risikokategorien verwenden Sie, und wie ordnen Sie ein Risiko ein, das mehrere Bereiche betrifft?
+  - Erwartung: Genannt werden die Kategorien strategische Risiken, Markt- und Absatzrisiken, Beschaffungs- und Lieferkettenrisiken, finanzwirtschaftliche Risiken, operative Risiken, Personalrisiken, Rechts- und Compliance-Risiken, Reputationsrisiken und externe Risiken, jeweils mit einem Beispiel aus dem Modehandel.
+  - Erwartung: Ein Risiko wird nach der Ursache einer Hauptkategorie zugeordnet; Folgen in anderen Kategorien werden zusätzlich vermerkt, zum Beispiel beim Ausfall eines Lieferunternehmens die Folgen für Absatz und Liquidität oder beim Cyberangriff die Folgen für Datenschutz und Ruf.
+  - Erwartung: Die Kategorien sind ein Hilfsmittel und lassen sich nicht immer überschneidungsfrei trennen; quer dazu unterscheidet man, ob ein Risiko im Unternehmen entsteht und gestaltbar ist oder von außen kommt und nur in seiner Wirkung begrenzt werden kann.
+  - Rückfrage: In welche Kategorie gehört ein Bericht über schlechte Arbeitsbedingungen bei einem Lieferunternehmen, und welche Folgen kann er haben?
+- Wie bauen Sie bei Loreno einen Risikokatalog auf, und wie verbinden Sie ihn mit den Steuerungsstrategien?
+  - Erwartung: Eine Risikoinventur erfasst zu einem Stichtag alle Risiken in Zentrale, Filialen, Online-Shop, Zentrallager und Einkauf, mit Checklisten, Befragungen und Workshops.
+  - Erwartung: Der Risikokatalog hält je Risiko Nummer, Hauptkategorie, Beschreibung mit Ursache und Folgen, Bewertung nach Eintrittswahrscheinlichkeit und Schadenshöhe, Strategie, Maßnahme, verantwortliche Person und Stand fest.
+  - Erwartung: Die Kategorie gibt einen Hinweis auf mögliche Maßnahmen, die Bewertung entscheidet über die Strategie: ein seltener, aber sehr hoher Schaden (Brand im Zentrallager) wird überwälzt und vermindert, kleine häufige Schäden werden meist akzeptiert.
+  - Erwartung: Der Katalog wird laufend gepflegt und im Risiko-Reporting genutzt; seine Grenzen sind blinde Flecken der Inventur, Veralten ohne Pflege und die Tatsache, dass er die Bewertung nicht ersetzt.
+  - Rückfrage: Was sagt es aus, wenn in einer Kategorie nur sehr wenige Einträge stehen?
 
 ### 1.5 Kosten- und Leistungsrechnung im Handel
 
@@ -158,3 +187,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die bei einer Auslistung wegfallenden Warengruppenfixkosten werden abgezogen (Deckungsbeitrag II); solange er positiv ist, senkt eine Auslistung das Betriebsergebnis.
   - Erwartung: Zusätzlich werden Verbundwirkungen, die Rolle der Warengruppe im Sortiment und eine bessere Nutzung der Fläche geprüft.
   - Rückfrage: Wie unterscheiden sich Rohertrag und Deckungsbeitrag einer Warengruppe?
+
+### 1.6 Unternehmensorganisation und Kooperationen
+
+- In der Vertriebsregion Nord ist die Regionalleitung mit der Führung ihrer Filialleitungen ausgelastet; die Geschäftsführung fragt Sie, wie die Aufbauorganisation angepasst werden könnte. Wie gehen Sie vor?
+  - Erwartung: Die Leitungsspanne ist die Zahl der einer Instanz direkt unterstellten Stellen; ob sie tragbar ist, zeigt der Vergleich von Führungszeit je unterstellter Stelle mit der verfügbaren Führungszeit, und sie hängt von Gleichartigkeit der Aufgaben, Qualifikation, Standardisierung und räumlicher Nähe ab.
+  - Erwartung: Eine Zwischenebene (zum Beispiel Gebietsleitungen) entlastet, bedeutet aber mehr Hierarchieebenen, zusätzliche Personalkosten, einen längeren Dienstweg und die Gefahr von Informationsverlust; Alternativen sind mehr Standardisierung (Kennzahlen-Berichte, Checklisten), eine Stabsstelle als Unterstützung oder eine Neuabgrenzung der Regionen.
+  - Erwartung: Das Leitungssystem im Filialnetz bleibt ein Einliniensystem mit Stabsstellen in der Zentrale; Stabsstellen beraten und bereiten vor, sie weisen nicht an. Eine Matrix wäre nur für abgegrenzte Vorhaben mit festen Entscheidungsregeln sinnvoll.
+  - Erwartung: Stellenbeschreibungen und Zuständigkeiten werden angepasst, damit Aufgabe, Kompetenz und Verantwortung (Kongruenzprinzip) weiterhin übereinstimmen, und die Wirkung der Änderung wird nach einiger Zeit überprüft.
+  - Rückfrage: Welche Nachteile hat jede zusätzliche Hierarchieebene, und wie begrenzen Sie sie?
+- Die Geschäftsführung möchte wissen, welche Entscheidungen Loreno zentral und welche in den Regionen und Filialen treffen sollte. Wie argumentieren Sie?
+  - Erwartung: Zentralisation und Dezentralisation sind eine Frage des Grades je Entscheidungsbereich; Leitfragen sind, wo das Wissen sitzt, wo Bündelungsvorteile entstehen und wie wichtig ein einheitlicher Auftritt ist.
+  - Erwartung: Eher zentral: Einkauf von Importware, Preise des Kernsortiments (Online-Preisvergleich), Rahmen des Sortiments, Entgeltrahmen; die Gründe sind Mengenbündelung, Verhandlungsmacht, Einheitlichkeit und Gleichbehandlung.
+  - Erwartung: Eher dezentral: Einsatzplanung der Verkaufskräfte, Randsortiment, Dekoration und lokale Werbung, weil dort das Wissen über Kundschaft und Wettbewerb liegt und schnell reagiert werden muss.
+  - Erwartung: Zu viel Zentralisation trennt Entscheidung und Wissen und senkt die Motivation von Filialleitungen mit Ergebnisverantwortung ohne Entscheidungsspielraum; zu viel Dezentralisation führt zu uneinheitlichen Preisen und doppelter Arbeit. Die Aufteilung wird regelmäßig überprüft, etwa bei neuen Kanälen oder wachsender Filialzahl.
+  - Rückfrage: Wie stellen Sie sicher, dass eine zentrale Preisänderung rechtzeitig in allen Filialen ankommt?
+- Ein Einkaufsverbund bietet Loreno bessere Konditionen für Betriebsbedarf. Wie bereiten Sie die Entscheidung über einen Beitritt vor?
+  - Erwartung: Der Verbund ist eine Kooperationsform: Loreno bleibt rechtlich selbstständig und arbeitet nur im Einkauf mit anderen zusammen; andere Formen sind etwa Genossenschaft, freiwillige Kette, Franchising, Vertriebs- und Logistikkooperation. Eine Fusion oder ein Konzern gäbe die Selbstständigkeit ganz oder teilweise auf.
+  - Erwartung: Wirtschaftlichkeit: Konditionenvorteil je Stück abzüglich Verbundgebühr ergibt den Netto-Vorteil je Stück; daraus folgen Netto-Vorteil im Jahr nach Abzug des Jahresbeitrags und die Break-even-Menge (Jahresbeitrag ÷ Netto-Vorteil je Stück); geprüft werden auch Szenarien mit geringerem Absatz und die einmaligen Umstellungskosten.
+  - Erwartung: Nicht in Zahlen gefasst werden Qualität der Verbundware, Bezugsbindung, Mindestabnahme, Dauer der Bindung, Austrittskosten und die Abhängigkeit vom Verbund; sie werden vor dem Beitritt geprüft und gewichtet.
+  - Erwartung: Risiken sind Abhängigkeit, Interessenkonflikte zwischen großen und kleinen Mitgliedern, Trittbrettfahren und der Abfluss von Wissen; rechtliche Fragen (wettbewerbsrechtliche Grenzen, Vertragsgestaltung, gegebenenfalls Genossenschaftsrecht) sind gesondert zu prüfen (nicht förmlich rechtsgeprüft).
+  - Rückfrage: In welcher Lage wäre eine Logistikkooperation für Loreno interessanter als ein Einkaufsverbund?

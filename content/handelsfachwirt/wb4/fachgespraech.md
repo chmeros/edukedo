@@ -5,7 +5,7 @@ fachgebiet_title: "Außenhandel (Wahlpflicht)"
 thema_code: "WB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Handlungsspezifischen Prüfungsverordnung „Geprüfter Handelsfachwirt" (HdlFachwPrV, 13.05.2014, BGBl. I S. 527/1708), § 4 Abs. 8, Wahlpflicht-Handlungsbereich „Außenhandel" — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnung, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -38,6 +38,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein Joint Venture ist ein gemeinsam mit einem lokalen Partner gegründetes Unternehmen, bei dem beide Seiten Kapital, Wissen und Marktzugang einbringen; es ist ein tieferer Markteintritt als der Direktexport.
   - Erwartung: Beim Direktexport behält das Unternehmen volle Kontrolle, trägt aber das volle Marktrisiko und den organisatorischen Aufwand allein.
   - Erwartung: Beispiel: Loreno könnte in einem asiatischen Beschaffungsmarkt per Joint Venture eine eigene Qualitätskontrolle vor Ort aufbauen, ohne die gesamte Struktur allein finanzieren zu müssen.
+- Die Loreno Mode & Wohnen GmbH will für eine neue Wohnaccessoires-Linie ein Lieferunternehmen in einem Land finden, mit dem sie bisher keine Geschäfte gemacht hat. Wie gehen Sie von der Marktwahl bis zur Hauptbestellung vor?
+  - Erwartung: Zuerst wird der Beschaffungsmarkt erkundet und das Land anhand von Auslandsfaktoren gewählt, etwa Preisniveau, Fertigungskompetenz, Kapazität, Lieferzeit, Währung, Zoll und Ursprung, politische Lage und Rechtssicherheit sowie soziale und ökologische Standards.
+  - Erwartung: Die Suche läuft über Fachmessen, Handelsvertretungen, eine Einkaufsagentur vor Ort, Handelskammern oder Verbände und gegebenenfalls den Importhandel; die Vorauswahl stützt sich auf Referenzen, Kapazität und Zertifikate.
+  - Erwartung: Die Anfrage nennt Spezifikation, Menge, Termin, Incoterm mit Ort, Währung, Zahlungsbedingung und verlangte Nachweise; das Angebot wird mit Gültigkeitsdauer eingeholt, damit Kurs und Preis zusammenpassen.
+  - Erwartung: Das Vorserienmuster wird geprüft und freigegeben; die Probebestellung in Serienfertigung testet die gesamte Lieferkette von der Qualität bis zur Zollabwicklung; ein Erstaudit klärt vor dem ersten Auftrag, also vor der Probebestellung, Qualität und Sozialstandards.
+  - Erwartung: Der Vertrag enthält neben Preis, Menge und Terminen die Rechtswahl und den Gerichtsstand; sie verringern das Rechtsrisiko, beseitigen es aber nicht.
+  - Rückfrage: Warum bestellen Sie zuerst eine kleine Probemenge und nicht gleich die volle Saisonmenge?
+- Das Angebot eines Lieferunternehmens aus Asien liegt im Einkaufspreis deutlich unter dem eines Lieferunternehmens in der EU. Wie prüfen Sie, ob sich der Import lohnt, und worin unterscheidet sich Ihre Sicht als Importeurin von der Sicht der Exportseite?
+  - Erwartung: Verglichen wird der Bezugspreis: Rechnungsbetrag in Fremdwährung geteilt durch den Kurs, plus Fracht und Versicherung (je nach Incoterm), Zoll auf den Zollwert, Zollabwicklung, Hafen- und Inlandstransport und Kontrollkosten; einmalige Kosten wie ein Erstaudit stehen daneben.
+  - Erwartung: Die Einfuhrumsatzsteuer bleibt außer Ansatz, weil sie über den Vorsteuerabzug zurückfließt; bis zur Erstattung bindet sie nur Liquidität.
+  - Erwartung: Ein Preisvorteil kann durch Kursschwankungen (fallender Eurokurs verteuert die Dollar-Rechnung), längere Lieferzeit mit Kapitalbindung, Mindestmengen und Qualitätsrisiken aufgezehrt werden; das Währungsrisiko lässt sich absichern.
+  - Erwartung: Bei Vorkasse oder Anzahlung leistet die Importseite vor und trägt das Risiko der Nichtlieferung; sie kontrolliert Qualität und Dokumente aus der Ferne und führt die Einfuhr samt Abgaben ab. Die Exportseite trägt bei Lieferung auf Ziel das Risiko des Zahlungsausfalls und erledigt Ausfuhr und Dokumente.
+  - Rückfrage: Warum hilft eine Exportkreditversicherung der Loreno Mode & Wohnen GmbH als Importeurin nicht?
 
 ### 8.2 Außenhandelsrisiken und Zollabwicklung
 
@@ -68,6 +81,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der präferenzielle Ursprung ist enger gefasst und entscheidet, ob eine Ware im Rahmen eines Freihandels- oder Präferenzabkommens von reduzierten oder gänzlich entfallenden Zöllen profitiert.
   - Erwartung: Voraussetzung dafür ist, dass bestimmte Ursprungsregeln, etwa ein Mindestanteil an im Ursprungsland erbrachter Wertschöpfung, nachweislich erfüllt sind.
   - Rückfrage: Wie hängen Ursprung und Zolltarifnummer bei der Bestimmung des Zollsatzes zusammen?
+- Ein Lieferunternehmen verkauft der Loreno Mode & Wohnen GmbH Möbel CIF Hamburg. Ist damit die Transportversicherung erledigt?
+  - Erwartung: Nein. Bei CIF muss die Verkaufsseite eine Versicherung mit Mindestdeckung bis zum Bestimmungshafen abschließen, das Risiko geht aber schon beim Verladen im Abgangshafen auf Loreno über.
+  - Erwartung: Die Mindestdeckung ist eingeschränkt; Loreno prüft, ob volle Deckung (zum Beispiel Bruch und Nässe), ein ausreichender Versicherungswert mit Zuschlag auf den CIF-Wert und der Weitertransport vom Hafen zum Zentrallager gedeckt sind, und versichert gegebenenfalls zusätzlich.
+  - Erwartung: Bei EXW (ab Werk) und FOB (ab Bord) liegt das Risiko früh bei Loreno, das deshalb im eigenen Interesse selbst versichert; bei DAP trägt die Verkaufsseite das Risiko bis zum Bestimmungsort.
+  - Erwartung: Der Versicherungswert ist der CIF-Wert (Rechnungswert plus Fracht) plus Zuschlag; die Prämie ist Versicherungssumme × Prämiensatz; eine Selbstbeteiligung senkt die Prämie.
+  - Erwartung: Liegt die Versicherungssumme unter dem Versicherungswert, ist die Entschädigung anteilig gekürzt (Unterversicherung); im Schadensfall werden Schäden bei der Annahme vermerkt, gesichert, unverzüglich gemeldet und mit Unterlagen belegt.
+  - Rückfrage: Was bedeutet eine Versicherungssumme von 75 % des Versicherungswerts für die Entschädigung eines Teilschadens?
+- Die Einkaufsleitung erwägt, künftig nur noch zertifizierte Wohntextilien zu beziehen. Wie bewerten Sie das?
+  - Erwartung: Eine unabhängige Stelle bestätigt nach Prüfung oder Audit, dass Betrieb, Verfahren oder Produkt vorgegebene Anforderungen erfüllen; Arten sind Qualitäts-, Umwelt- und Sozialzertifikate und die Produktprüfung (Prüfbericht).
+  - Erwartung: Nutzen für Loreno: weniger eigener Prüfaufwand, weniger Beanstandungen, Nachweis gegenüber der Kundschaft und geringeres Reputationsrisiko; Kosten: höherer Einkaufspreis und eigene Prüf- und Lizenzkosten; für das Lieferunternehmen: Marktzugang gegen Gebühren und Umstellungsaufwand.
+  - Erwartung: Wirtschaftlichkeit: Kosten (Mehrpreis × Menge + einmalige Kosten) gegen den Nutzen aus vermiedenen Beanstandungen (Menge × Rückgang der Beanstandungsquote × Kosten je Beanstandung); rechnet sich das nicht, kann ein Preisaufschlag oder ein schwer messbarer Nutzen die Entscheidung tragen.
+  - Erwartung: Grenzen: Ein Zertifikat gilt zum Prüfzeitpunkt, oft stichprobenartig, Siegel sind unterschiedlich streng; eigene Qualitätskontrolle und Audit (Thema 7.2 „Lieferantenbewertung und Verhandlung“ und Thema 7.3 „Compliance im Einkauf“ im Fachgebiet Einkauf (Wahlpflicht)) bleiben nötig.
+  - Erwartung: Der Ursprung im Zollsinn, belegt durch Ursprungszeugnis oder Präferenznachweis, bestimmt Herkunftsland und Zollsatz; die Herkunft des Rohstoffs (Rückverfolgbarkeit der Faser) belegt Nachhaltigkeitsaussagen; beide ersetzen sich nicht.
+  - Rückfrage: Warum reicht ein Ursprungszeugnis nicht, um die Aussage „Baumwolle aus kontrolliertem Anbau“ zu belegen?
 
 ### 8.3 Außenhandelsfinanzierung
 
@@ -94,4 +121,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Exporteur erhält dafür sofort liquide Mittel.
   - Erwartung: Das Ausfallrisiko geht dabei vollständig auf den Forfaiteur über.
   - Rückfrage: Wodurch unterscheidet sich das Exportfactoring von der Forfaitierung?
-
