@@ -1,0 +1,67 @@
+{
+  "kurs": "handelsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [
+    {
+      "datei": "hf-8.2-ergaenzung-handelshemmnisse-verbrauchsteuern.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "wb4/8.2-aussenhandelsrisiken-zollabwicklung.md"
+        ]
+      ]
+    },
+    {
+      "datei": "hf-2.4-ergaenzung-arbeitszeit-jugend-mutterschutz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.4-arbeitsschutz.md"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "hf-faelle-a.md",
+      "wb4"
+    ],
+    [
+      "hf-faelle-b.md",
+      "hb2"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "wb4/8.1-import-export.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zu Einfuhr, Prüfpflichten, Kennzeichnung und Produktsicherheit sind hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Gesetzliche Vorgaben zu Einfuhr, Prüfpflichten, Kennzeichnung und Produktsicherheit sind hier nicht behandelt; Handelshemmnisse, Produktvorschriften und Kennzeichnungs- und Prüfpflichten im Prinzip stehen in Thema 8.2 „Außenhandelsrisiken und Zollabwicklung“ im Fachgebiet Außenhandel (Wahlpflicht) (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.3-personalplanung.md",
+      "paare": [
+        [
+          "Urlaubswünsche und gesetzliche Vorgaben zu Ruhezeiten miteinander in Einklang bringen.",
+          "Urlaubswünsche und gesetzliche Vorgaben zu Ruhezeiten miteinander in Einklang bringen; die gesetzlichen Grenzen von Arbeitszeit, Pausen und Ruhezeit führt Thema 2.4 „Arbeitsschutz“ im Fachgebiet Führung, Personalmanagement, Kommunikation und Kooperation im Abschnitt „Arbeitszeitrecht im Einzelhandel“ im Überblick aus (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "wb4/8.2-aussenhandelsrisiken-zollabwicklung.md",
+    "wb4/fallaufgaben.md",
+    "wb4/fachgespraech.md",
+    "hb2/2.4-arbeitsschutz.md",
+    "hb2/fallaufgaben.md",
+    "hb2/fachgespraech.md"
+  ]
+}
