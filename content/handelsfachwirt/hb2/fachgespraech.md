@@ -5,7 +5,7 @@ fachgebiet_title: "Führung, Personalmanagement, Kommunikation und Kooperation"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Handelsfachwirt/Geprüfte Handelsfachwirtin (HdlFachwPrV, 13.05.2014, BGBl. I S. 527/1708), §4 Abs. 2 (Handlungsbereich „Führung, Personalmanagement, Kommunikation und Kooperation") — frei formulierte Fragen, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -48,6 +48,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Motivatoren (z. B. Anerkennung, Verantwortung, Entwicklungsmöglichkeiten) führen tatsächlich zu Zufriedenheit und höherer Leistungsbereitschaft.
   - Erwartung: Für die Filialleitung gilt: Ein pünktliches, angemessenes Gehalt allein begeistert das Verkaufspersonal nicht; zusätzlich braucht es Anerkennung, Gestaltungsspielraum und Entwicklungsperspektiven, etwa die Verantwortung für eine eigene Warengruppe.
   - Rückfrage: Welche Grundannahme liegt der Bedürfnispyramide nach Maslow zugrunde?
+- Ein bisher eingespieltes Filialteam gerät nach einem Umbau mit neuem Kassensystem und einem Wechsel der Filialleitung in Streit, und kurz darauf kommen Aushilfen für das Weihnachtsgeschäft dazu. Wie erklären Sie sich die Lage, und was unternehmen Sie?
+  - Erwartung: Das Team ist in eine frühere Phase der Teamentwicklung zurückgefallen (Tuckman: Orientierung, Konfrontation, Organisation, Leistung, bei befristeten Teams Auflösung); Zuständigkeiten und Einfluss werden neu ausgehandelt, Verweise auf „früher“ gehören meist dazu.
+  - Erwartung: Die Filialleitung erklärt die Gründe der Veränderungen, beteiligt die Betroffenen, legt Zuständigkeiten verbindlich fest und holt bei eigener Beteiligung am Streit eine unbeteiligte Vermittlung, zum Beispiel aus der Regionalleitung oder der Personalabteilung; Streit zu übergehen verschiebt ihn nur.
+  - Erwartung: Informelle Rollen (zum Beispiel Meinungsführer:innen) werden erkannt und früh einbezogen; formelle Rollen und Zuständigkeiten werden geklärt, damit keine Rollenkonflikte entstehen.
+  - Erwartung: Für die Aushilfen bleibt wenig Zeit zur Entwicklung; Einarbeitungsplan, feste Pat:innen, Zuständigkeitsliste und ein kurzes Briefing ersetzen einen Teil davon, und ein großes Team wird in kleinere Gruppen mit Sprecher:innen gegliedert, weil die Zahl der Verbindungen schneller wächst als die Zahl der Personen.
+  - Rückfrage: Woran erkennen Sie, dass das Team wieder auf dem Weg in die Leistungsphase ist?
+- Wie machen Sie Rückmeldungen im Filialteam zur Gewohnheit, und wie halten Sie Besprechungen schlank?
+  - Erwartung: Feedback beschreibt Beobachtung, Wirkung und Wunsch (entspricht dem Aufbau der Ich-Botschaft aus Thema 2.5 „Präsentation, Moderation und Gesprächsführung“ im Fachgebiet „Führung, Personalmanagement, Kommunikation und Kooperation“) und enthält keine Vermutung über Beweggründe; es unterscheidet sich von Lob und Kritik, und heikle Punkte gehören unter vier Augen.
+  - Erwartung: Feste Formate wie Blitzlicht, Wochenrückblick, Rückblick nach der Spitzenzeit und Aufwärtsfeedback machen Rückmeldungen üblich; die Leitung nimmt selbst Kritik an, die Ergebnisse werden mit Zuständigen und Termin festgehalten und nachgehalten, sonst versiegen die Rückmeldungen.
+  - Erwartung: Besprechungen werden auf Nutzen geprüft (eine bloße Mitteilung geht schriftlich) und mit Ziel, Teilnehmerkreis und Zeitrahmen vorbereitet; die Kosten ergeben sich aus Personenstunden mal Stundensatz und zeigen gebundene Arbeitszeit, nicht den Nutzen.
+  - Erwartung: Bei der Bewertung zählt, ob die Zeit der Verkaufsfläche fehlt: Das Briefing vor Ladenöffnung ist unkritischer als eine Runde in den Öffnungszeiten.
+  - Rückfrage: Wie nutzen Sie das Teamrollenmodell von Belbin dabei, und welche Grenzen sehen Sie?
 
 ### 2.2 Berufsausbildung und Qualifizierung
 
@@ -120,6 +132,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Weitere mildere Mittel sind die natürliche Fluktuation (ausscheidende Mitarbeitende werden nicht ersetzt), die interne Versetzung an einen Standort mit höherem Bedarf und Kurzarbeit.
   - Erwartung: Eine sozialverträgliche Personalfreisetzung, die harte Einschnitte möglichst vermeidet oder abfedert, dient dem Ansehen des Unternehmens und der Motivation der verbleibenden Belegschaft.
   - Rückfrage: Wie sinkt der Personalbestand durch natürliche Fluktuation, ohne dass aktiv gekündigt wird?
+- Eine Filiale findet kaum Bewerbungen für ihre offene Verkaufsstelle. Wie gehen Sie vor, und woran erkennen Sie, ob Ihre Maßnahmen wirken?
+  - Erwartung: Personalmarketing präsentiert das Unternehmen als Arbeitgeber, damit geeignete Personen sich bewerben (extern) und Beschäftigte bleiben (intern); die Arbeitgebermarke hält nur, wenn das Arbeitgeberversprechen (zum Beispiel verlässliche Dienstpläne, Personalrabatt, Entwicklungschancen) zum erlebten Alltag passt.
+  - Erwartung: Geeignete Kanäle für die Stelle wählen, zum Beispiel Aushang, Karriereseite, Stellenportal, soziale Netzwerke und Empfehlungen von Beschäftigten, und eine konkrete, ehrliche Anzeige schreiben (Aufgaben, Anforderungen, Angebot mit Stundenumfang, Bewerbungsweg, Ansprechperson, geschlechtergerechte Sprache, keine tätigkeitsfremden Merkmale).
+  - Erwartung: Kennzahlen: Bewerbungen je Anzeige, Kosten je Bewerbung, besser Kosten je geeigneter Bewerbung, und Time-to-hire (Tage von der Veröffentlichung bis zur Vertragsunterschrift); die Kennzahlen werden über mehrere Besetzungen verglichen.
+  - Erwartung: Ein niedriger Preis je Bewerbung beweist keinen guten Kanal; die Eignung zeigt sich erst im Gespräch, und ein Versprechen, das der Alltag nicht einlöst, führt zu früher Kündigung.
+  - Rückfrage: Warum ist die Zahl der Kosten je Bewerbung allein kein guter Maßstab für die Wahl des Kanals?
+- Sie haben drei Bewerbende zum Gespräch eingeladen und sollen eine Verkaufskraft einstellen. Wie wählen Sie aus, und mit welchen Kosten rechnen Sie?
+  - Erwartung: Grundlage ist das Anforderungsprofil mit Muss- und Kann-Kriterien aus der Tätigkeit; Instrumente sind zum Beispiel strukturiertes Interview mit Leitfaden und Bewertungsbogen, Probearbeiten oder Rollenspiel; die Gütekriterien Objektivität, Zuverlässigkeit und Gültigkeit sollen möglichst erfüllt sein.
+  - Erwartung: Gewichte, Skala und Mindestgrenzen werden vor den Gesprächen festgelegt; die gewichtete Punktbewertung (Gewicht mal Punkte) unterstützt die Entscheidung, ersetzt sie aber nicht, besonders bei knappem Abstand.
+  - Erwartung: Verzerrungen wie Halo-Effekt und Sympathie werden durch einheitliche Fragen, Bewertungsbogen und mehrere Beobachtende gemindert.
+  - Erwartung: Die Kosten einer Einstellung im Planjahr setzen sich aus den anteiligen laufenden Personalkosten (Monate im Planjahr ÷ 12) und den einmaligen Kosten für Anzeige, Auswahlzeit und Einarbeitung zusammen; die laufenden Kosten bestehen aus Bruttoentgelt, Arbeitgeberanteilen und weiteren Nebenkosten und werden bei Teilzeit über das Vollzeitäquivalent berechnet.
+  - Erwartung: Das Ergebnis wird mit dem Personalkostenbudget verglichen; bei Überschreitung kommen zum Beispiel ein späterer Eintritt, eine andere Verteilung der Stunden oder ein Budgetantrag in Betracht, wobei die Kosten der Folgejahre und der Nutzen der Stelle (Umsatz, Entlastung des Teams) mitzudenken sind.
+  - Rückfrage: Welche Maßnahmen gehören zu einer geplanten Einarbeitung, und warum zählt sie auch zum Personalmarketing?
 
 ### 2.4 Arbeitsschutz
 
@@ -199,3 +224,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei der Delegation werden Ergebnis, Person, Befugnisse, Termin und Rückmeldung geklärt.
   - Erwartung: Die Verantwortung für die Ausführung geht über, die Führungsverantwortung für Auswahl, Information und Kontrolle bleibt bei der Führungskraft.
   - Rückfrage: Was besagt das Pareto-Prinzip, und was folgt daraus für Ihre Prioritäten?
+
+### 2.7 Beurteilungs- und Entgeltsysteme
+
+- Ein Verkaufsteam soll künftig teilweise nach Leistung vergütet werden. Welche Entgeltformen kommen für die Filiale in Frage, und worauf achten Sie bei der Gestaltung?
+  - Erwartung: Grundlage bleibt ein Zeitlohn oder Gehalt; dazu kommen variable Bestandteile wie Provision, Umsatzbeteiligung, Prämie oder Bonus; reiner Akkord passt kaum zum Verkauf, weil sich Beratungsleistung nicht in Stückzahlen ausdrücken lässt.
+  - Erwartung: Voraussetzungen leistungsabhängiger Vergütung: Die Leistung lässt sich messen, die Person kann sie beeinflussen, und sie ist ihr eindeutig zuzurechnen.
+  - Erwartung: Ein Fixum sichert das Mindesteinkommen; Bemessungsgrundlage ist der Umsatz nach Abzug der Rückgaben (ohne Umsatzsteuer gerechnet), eine Schwelle vergütet nur Umsatz über der Grundauslastung.
+  - Erwartung: Grenzen sind Einfluss von Lage, Wochentag und Aktionen, Konkurrenz im Team, vernachlässigte unvergütete Aufgaben und Verkaufsdruck; Gegenmittel sind Teamkomponente, Qualitätsziele und Deckelung.
+  - Rückfrage: Wie hoch ist der variable Anteil am Gesamtentgelt bei einem Fixum von 2.160 € und einer Provision von 240 €?
+- Sie vereinbaren mit Filialleitungen einen Jahresbonus nach Zielerreichung. Wie gehen Sie vor, und was kann schiefgehen?
+  - Erwartung: Wenige, beeinflussbare und messbare Ziele mit Gewichten, die zusammen 100 % ergeben, werden im Zielvereinbarungsgespräch gemeinsam festgelegt und nach der SMART-Regel formuliert.
+  - Erwartung: Den Zielerreichungsgrad bildet man als Ist ÷ Ziel × 100, bei Retouren oder Kosten (weniger ist besser) dreht man den Bruch um; der Bonus eines Ziels ergibt sich aus Zielbonus, Gewicht und Grad.
+  - Erwartung: Untergrenze und Deckelung schützen vor Zufallsgewinnen, Sondereffekten und ungeplanten Kosten.
+  - Erwartung: Risiken sind Kurzfristdenken, Manipulation der Messgröße und ein Umsatzziel ohne Gegengewicht; Qualitätsziele wie Kundenzufriedenheit oder Retourenquote gleichen das aus.
+  - Rückfrage: Wie hoch ist der Bonus für ein Ziel bei einem Zielbonus von 2.600 €, einem Gewicht von 50 % und einem Zielerreichungsgrad von 90 %?
+- Wie beurteilen Sie die Leistung der Verkaufskräfte einer Filiale möglichst fair, und welche Fehler müssen Sie vermeiden?
+  - Erwartung: Die Kriterien sind tätigkeitsbezogen, beobachtbar, vorher bekannt und für alle gleich; geeignet sind Skalen mit Ankerbeispielen oder eine Punktbewertung mit vorab festgelegten Gewichten.
+  - Erwartung: Zu nennen sind der Sympathiefehler, der Recency-Effekt, die Tendenz zur Mitte, der Halo-Effekt sowie Milde und Strenge.
+  - Erwartung: Wirksam sind Beobachtungsnotizen während des gesamten Zeitraums, ein Kriterium nach dem anderen für alle Beurteilten, Abgleich zwischen mehreren Beurteilenden und Schulung.
+  - Erwartung: Für die Besprechung des Ergebnisses gilt das Beurteilungsgespräch (Thema 2.5 Präsentation, Moderation und Gesprächsführung im selben Fachgebiet); Beteiligung der Arbeitnehmervertretung, Datenschutz und Gleichbehandlung sind gesondert zu prüfen (nicht förmlich rechtsgeprüft).
+  - Rückfrage: Wann setzen Sie eine Anlassbeurteilung ein, und was trennt sie von der Regelbeurteilung?
