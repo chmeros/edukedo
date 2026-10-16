@@ -5,7 +5,7 @@ fachgebiet_title: "Logistik"
 thema_code: "3.4"
 thema_title: "Bedarfsermittlung, Bestellmenge und Make-or-Buy"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Wirtschaftsfachwirt“ (Fachgebiet Logistik, Teil der Handlungsspezifischen Qualifikationen) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 # Thema 3.4 — Bedarfsermittlung, Bestellmenge und Make-or-Buy

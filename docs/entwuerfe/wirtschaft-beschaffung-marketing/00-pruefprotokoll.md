@@ -1,6 +1,6 @@
 # Prüfprotokoll: Paket P-S „Wirtschaftsfachwirt: Bedarfsermittlung, Bestellmenge und Make-or-Buy, Produktlebenszyklus, Preiselastizität und Verkaufsgespräch, Markterschließung und interkulturelle Modelle“ (Erhebung vom 14.10.2026: WF-11, WF-15, WF-16a; Auswertung `docs/entwuerfe/wirtschaftsfachwirt-rest-auswertung.md`)
 
-Stand 17.10.2026. **Entwurf, nicht eingespielt.** Wartet auf die Freigabe des Projektleiters (R3). Rechtsnah nur als Hinweis ohne Paragrafen und Gesetzesnamen: Außenwirtschafts-, Vertriebs- und Handelsvertretungsrecht, Lizenz und Franchising, Preisabsprachen und Preisangaben, Rabatt- und Werberecht, Geschenke und Einladungen, Lenkzeiten und Haftung bei eigenem Fuhrpark; nicht förmlich rechtsgeprüft.
+Stand 16.10.2026. **Entwurf, nicht eingespielt.** Wartet auf die Freigabe des Projektleiters (R3). Rechtsnah nur als Hinweis ohne Paragrafen und Gesetzesnamen: Außenwirtschafts-, Vertriebs- und Handelsvertretungsrecht, Lizenz und Franchising, Preisabsprachen und Preisangaben, Rabatt- und Werberecht, Geschenke und Einladungen, Lenkzeiten und Haftung bei eigenem Fuhrpark; nicht förmlich rechtsgeprüft.
 
 ## Umfang
 

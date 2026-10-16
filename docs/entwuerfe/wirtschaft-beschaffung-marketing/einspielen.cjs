@@ -167,7 +167,7 @@ function ersetzeInDatei(datei, paare) {
   schreibe(datei, t, crlf);
 }
 const RS_ALT = 'rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"';
-const RS_NEU = 'rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"';
+const RS_NEU = 'rechtsstand: "16.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"';
 const WF = "wirtschaftsfachwirt";
 ersetzeInDatei(path.join(ziel, WF, "hsq3/fallaufgaben.md"), [
   ["HSQ3 (3.1–3.3)", "HSQ3 (3.1–3.4)"],
