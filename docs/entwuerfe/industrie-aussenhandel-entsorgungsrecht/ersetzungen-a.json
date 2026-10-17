@@ -1,0 +1,89 @@
+[
+  {
+    "datei": "hq3/7.4-internationale-geschaeftsbeziehungen.md",
+    "paare": [
+      [
+        "Die Wahl der Incoterm-Klausel beeinflusst maßgeblich, welche Partei welche logistischen und finanziellen Risiken trägt, und sollte daher im Exportvertrag eindeutig festgelegt werden.",
+        "Die Wahl der Incoterm-Klausel beeinflusst maßgeblich, welche Partei welche logistischen und finanziellen Risiken trägt, und sollte daher im Exportvertrag eindeutig festgelegt werden. FOB und CIF sind nach den Incoterms 2020 nur für den Transport per See- und Binnenschiff vorgesehen; für Containerware und Transporte mit mehreren Verkehrsträgern eignen sich FCA und CIP (Abschnitt „Incoterms 2020 richtig wählen: FCA und CIP für Containerware“ weiter unten in diesem Thema)."
+      ],
+      [
+        "Ergänzend kommen **Exportkreditversicherungen** (in Deutschland u. a. über staatlich geförderte Hermesdeckungen) zum Einsatz, die das Ausfallrisiko bei Zahlungsunfähigkeit des ausländischen Kunden absichern.",
+        "Ergänzend kommen **Exportkreditgarantien des Bundes** (im Alltag „Hermesdeckungen“ genannt; rechtlich keine Versicherung im engeren Sinn, sondern Garantien des Bundes) und private Kreditversicherungen zum Einsatz, die das Ausfallrisiko bei Zahlungsunfähigkeit des ausländischen Kunden und politische Risiken im Zielland absichern; die weiteren Zahlungsbedingungen und die staatliche Absicherung stehen in den Abschnitten „Zahlungsbedingungen im Vergleich“ und „Staatliche Absicherung: Exportkreditgarantien des Bundes und private Kreditversicherung“ weiter unten in diesem Thema."
+      ],
+      [
+        "Wozu dient eine Exportkreditversicherung?",
+        "Wozu dienen Exportkreditgarantien des Bundes (im Alltag „Hermesdeckungen“), und was sind sie rechtlich?"
+      ],
+      [
+        "Sie sichert das Zahlungsausfallrisiko bei Zahlungsunfähigkeit des ausländischen Kunden ab (in Deutschland u. a. über Hermesdeckungen).",
+        "Sie sichern politische und wirtschaftliche Zahlungsausfallrisiken gegenüber ausländischer Kundschaft ab; rechtlich sind sie Garantien des Bundes und keine Versicherung im engeren Sinn, und ein Selbstbehalt bleibt beim exportierenden Unternehmen."
+      ],
+      [
+        "Bringe die folgenden Schritte bei der Absicherung eines neuen Exportgeschäfts in eine sinnvolle Reihenfolge.",
+        "Bringe die folgenden Schritte vor dem Abschluss eines neuen Exportvertrags in eine Reihenfolge, die zuerst klärt, was das Geschäft verbieten kann, dann das Zahlungsrisiko einschätzt, dann die Lieferbedingung festlegt und zuletzt die Zahlung absichert."
+      ],
+      [
+        "1. Bonität und Länderrisiko des ausländischen Kunden prüfen",
+        "1. Exportkontrollrechtliche Genehmigungspflicht prüfen (Güter, Embargo, Sanktionslisten)"
+      ],
+      [
+        "2. Passende Incoterm-Klausel im Exportvertrag festlegen",
+        "2. Bonität und Länderrisiko des ausländischen Kunden prüfen"
+      ],
+      [
+        "3. Zahlungsabsicherung (z. B. Dokumentenakkreditiv) vereinbaren",
+        "3. Passende Incoterm-Klausel im Exportvertrag festlegen"
+      ],
+      [
+        "4. Exportkontrollrechtliche Genehmigungspflicht prüfen und ggf. Genehmigung einholen",
+        "4. Zahlungsabsicherung (z. B. Dokumentenakkreditiv) vereinbaren"
+      ],
+      [
+        "Erst nach Klärung von Bonität, Lieferbedingungen und Zahlungsabsicherung sollte die exportkontrollrechtliche Prüfung final abgeschlossen und die Lieferung freigegeben werden.",
+        "Die exportkontrollrechtliche Prüfung kommt zuerst, denn Genehmigungspflicht, Embargo und Sanktionslisten können das Geschäft insgesamt undurchführbar machen; sie gehört vor den Vertragsabschluss (oder verlangt einen Genehmigungsvorbehalt im Vertrag). Danach folgen die Bonität und das Länderrisiko, die Incoterm-Klausel (sie beeinflusst, welche Transportdokumente es gibt) und zuletzt die Zahlungsabsicherung, die auf beidem aufbaut. In der Praxis laufen Bonitäts- und Sanktionslistenprüfung oft parallel; die Reihenfolge ordnet nach dem Gewicht der Folgen."
+      ],
+      [
+        "Warum ist eine Exportkreditversicherung für Solvitec beim Export in neue, wenig bekannte Zielmärkte besonders sinnvoll?",
+        "Warum ist eine Absicherung über Exportkreditgarantien des Bundes oder eine Kreditversicherung für Solvitec beim Export in neue, wenig bekannte Zielmärkte besonders sinnvoll?"
+      ],
+      [
+        "reduziert die Exportkreditversicherung gezielt das Zahlungsausfallrisiko.",
+        "reduziert eine solche Absicherung gezielt das Zahlungsausfallrisiko; sie ersetzt aber nicht die Bonitätsprüfung und lässt einen Selbstbehalt beim exportierenden Unternehmen."
+      ],
+      [
+        "im Bestimmungshafen nach organisiertem Transport samt Versicherung (CIF) oder an der Lieferadresse",
+        "im Bestimmungshafen nach organisiertem Transport samt Versicherung (CIF: die Kosten reichen bis dorthin, die Gefahr geht schon an Bord über) oder an der Lieferadresse"
+      ],
+      [
+        "CIF zusätzlich bis zum organisierten Transport mit Versicherung bis zum Bestimmungshafen, DDP am weitesten",
+        "CIF zusätzlich in den Kosten bis zum organisierten Transport mit Versicherung bis zum Bestimmungshafen (die Gefahr geht wie bei FOB schon an Bord über), DDP am weitesten"
+      ]
+    ]
+  },
+  {
+    "datei": "hq3/fachgespraech.md",
+    "paare": [
+      [
+        "Ergänzend kommen Exportkreditversicherungen zum Einsatz, in Deutschland unter anderem über staatlich geförderte Hermesdeckungen.",
+        "Ergänzend kommen staatliche Exportkreditgarantien des Bundes (im Alltag „Hermesdeckungen“, rechtlich keine Versicherung im engeren Sinn, sondern Garantien des Bundes) und private Kreditversicherungen in Betracht."
+      ]
+    ]
+  },
+  {
+    "datei": "hq3/fallaufgaben.md",
+    "paare": [
+      [
+        "Teilaufgabe 1 sollte eine für den Verkäufer risikoärmere Klausel wie EXW oder FOB vorschlagen und begründen, dass dadurch Transport- und Zollrisiken früh auf den Käufer übergehen; DDP wäre angesichts der unsicheren Bonitätslage aus Solvitec-Sicht riskanter.",
+        "Teilaufgabe 1 sollte eine für den Verkäufer risikoärmere Klausel vorschlagen und begründen, dass dadurch Transport- und Zollrisiken früh auf den Käufer übergehen: FCA (Übergabe der ausfuhrfrei gemachten Ware an den von der Käuferseite benannten Frachtführer; bei Containerware und Transporten mit mehreren Verkehrsträgern statt FOB), bei reinem Schiffstransport auch FOB. EXW ist möglich, birgt aber ein Zusatzrisiko: Die Käuferseite organisiert die Ausfuhr, und die Umsatzsteuerbefreiung der Ausfuhrlieferung hängt am Ausfuhrnachweis, den Solvitec führen muss (Thema 3.4 „Unternehmensrelevantes Steuerrecht“ im Fachgebiet Recht und Steuern); deshalb wird FCA häufig bevorzugt. DDP wäre angesichts der unsicheren Bonitätslage aus Solvitec-Sicht riskanter."
+      ],
+      [
+        "dass die Bank des Käufers die Zahlung bei Vorlage vertraglich festgelegter Dokumente garantiert, unabhängig von der individuellen Bonität des Käufers.",
+        "dass die Bank des Käufers die Zahlung bei Vorlage vertraglich festgelegter Dokumente zusagt, unabhängig von der individuellen Bonität des Käufers; die Bestätigung durch eine Bank im Land der Verkäuferin deckt zusätzlich das Länderrisiko. Anzuerkennen sind begründete Alternativen oder Ergänzungen wie Anzahlung, Bankgarantie, bei einem großen Geschäft eine Exportkreditgarantie des Bundes („Hermesdeckung“, rechtlich keine Versicherung im engeren Sinn) oder eine private Kreditversicherung (siehe Thema 7.4, Abschnitt „Staatliche Absicherung: Exportkreditgarantien des Bundes und private Kreditversicherung“)."
+      ],
+      [
+        "sowie eine ggf. erforderliche Ausfuhrgenehmigung durch das BAFA (Bundesamt für Wirtschaft und Ausfuhrkontrolle) nennen.",
+        "sowie eine ggf. erforderliche Ausfuhrgenehmigung durch das BAFA (Bundesamt für Wirtschaft und Ausfuhrkontrolle) nennen und festhalten, dass die Prüfung vor dem Vertragsabschluss erfolgt (oder der Vertrag unter einem Genehmigungsvorbehalt steht), weil Genehmigungspflicht, Embargo und Sanktionslisten das Geschäft undurchführbar machen können."
+      ]
+    ]
+  }
+]
