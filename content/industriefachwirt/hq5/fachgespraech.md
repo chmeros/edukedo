@@ -5,7 +5,7 @@ fachgebiet_title: "Führung und Zusammenarbeit"
 thema_code: "HQ5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung IndFachwirtPrV (2010), §5, Handlungsbereich „Führung und Zusammenarbeit" — frei formulierte Fragen, keine 1:1-Übernahme aus Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -161,3 +161,47 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Der
   - Erwartung: Ablauf des Kritikgesprächs: Vorbereitung mit Fakten, beobachtetes Verhalten genau schildern ohne die Person zu bewerten, Sicht des Gegenübers anhören (aktiv zuhören) und Gründe klären, künftige Erwartung sagen und Absprache treffen, Folgen bei Wiederholung und mögliche Unterstützung besprechen, Folgetermin zur Kontrolle.
   - Erwartung: Die Kritik wird in Ich-Botschaften ohne Verallgemeinerungen formuliert, und die Notizen werden vertraulich behandelt.
   - Rückfrage: Warum sollte die Kritik nicht bis zum nächsten Beurteilungsgespräch aufgespart werden?
+
+### 9.5 Berufsausbildung: Rechtsrahmen, Ausbildungsvertrag und Pflichten
+
+- Solvitec will in Zwickau für zwei Ausbildungsplätze im Prüffeld einen Teil der Ausbildung bei einem Partnerbetrieb im Verbund vermitteln lassen. Wer ist dabei Ausbildende, und worauf achten Sie rechtlich?
+  - Erwartung: Ausbildende bleibt Solvitec als Vertragspartei; der Partnerbetrieb ist Lernort für eine Maßnahme außerhalb der Ausbildungsstätte, Vergütung und Ausbildungspflichten bleiben bei Solvitec.
+  - Erwartung: Die Ausbildungsstätte bleibt geeignet, wenn fehlende Inhalte im Verbund vermittelt werden; die Zahl der Auszubildenden muss zu Ausbildungsplätzen und Fachkräften passen, und die Verbundphase gehört in den Ausbildungsplan.
+  - Erwartung: Ausbildende und die mitwirkenden Personen müssen persönlich geeignet sein, Ausbilder:innen zusätzlich fachlich einschließlich berufs- und arbeitspädagogisch (AEVO); Fachkräfte in der Spätschicht wirken als Ausbildungsbeauftragte unter deren Verantwortung mit.
+  - Erwartung: Im Vertrag stehen unter anderem Gliederung und Ziel, Dauer, Maßnahmen außerhalb der Ausbildungsstätte, eine Probezeit von einem bis vier Monaten, eine angemessene Vergütung oberhalb der Mindestvergütung, Urlaub und Kündigungsvoraussetzungen; die Eintragung bei der Kammer ist unverzüglich zu beantragen.
+  - Erwartung: Der Betriebsrat wird beteiligt (Beratung zur Berufsbildung, Mitbestimmung bei der Durchführung, Widerspruchsrecht gegen ungeeignete Ausbilder:innen); bei Minderjährigen kommen Zustimmung der gesetzlichen Vertretung und Erstuntersuchung hinzu.
+  - Rückfrage: Wer zahlt die Vergütung, solange die Auszubildenden beim Partnerbetrieb sind?
+- Eine Schichtplanung für 17-jährige Auszubildende in Villingen sieht vor: Spätschicht bis 22:30 Uhr, am nächsten Tag Frühschicht ab 6:00 Uhr, am Berufsschultag Mitarbeit nach dem Unterricht und am Samstag eine Inventur. Was beanstanden Sie, und wer ist verantwortlich?
+  - Erwartung: Zwischen zwei Diensten müssen mindestens 12 Stunden Freizeit liegen; von 22:30 Uhr bis 6:00 Uhr sind es nur 7,5 Stunden (Stand Oktober 2026, vor Verwendung prüfen). Das Dienstende um 22:30 Uhr ist dagegen in einem mehrschichtigen Betrieb für Jugendliche über 16 Jahre zulässig.
+  - Erwartung: Ein Berufsschultag mit mehr als fünf Unterrichtsstunden ist betriebsfrei und zählt mit dem Tagesdurchschnitt der vertraglichen Zeit; Mitarbeit danach ist unzulässig.
+  - Erwartung: Samstag und Sonntag sind grundsätzlich frei, und es dürfen höchstens fünf Tage und 40 Stunden in der Woche belegt sein.
+  - Erwartung: Verantwortlich ist die Arbeitgeberin, vertreten durch die Geschäftsführung; das Personalwesen sorgt für Nachweise und Fristen, wer den Plan aufstellt, trägt im Aufgabenbereich Mitverantwortung; der Betriebsrat bestimmt über die Lage der Arbeitszeit mit.
+  - Erwartung: Vorab sind die Arbeitsbedingungen zu beurteilen und die Jugendlichen zu unterweisen; Erstuntersuchung und Nachuntersuchung sind nachzuweisen.
+  - Rückfrage: Welche Folgen können Verstöße haben?
+- Eine auszubildende Person im letzten Jahr, die Mitglied der JAV ist, soll nach der Prüfung nicht übernommen werden. Welche Rolle spielen Betriebsrat und JAV, und welche Fristen beachten Sie?
+  - Erwartung: Der Betriebsrat berät zur Berufsbildung, bestimmt bei der Durchführung betrieblicher Bildungsmaßnahmen mit und kann der Bestellung ungeeigneter Ausbilder:innen widersprechen; die JAV vertritt die Belange der jungen Beschäftigten, stellt Anträge beim Betriebsrat und überwacht die Einhaltung der Schutzvorschriften.
+  - Erwartung: Die Nichtübernahme eines JAV-Mitglieds muss spätestens drei Monate vor dem Ende der Ausbildung schriftlich mitgeteilt werden (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Verlangt das Mitglied in den letzten drei Monaten schriftlich die Weiterbeschäftigung, entsteht grundsätzlich ein unbefristetes Arbeitsverhältnis, wenn der Betrieb nicht innerhalb von zwei Wochen nach dem Ende beim Arbeitsgericht die Feststellung beantragt, dass keines begründet wird, weil ihm die Weiterbeschäftigung nicht zumutbar ist.
+  - Erwartung: Wer ohne Absprache weiterarbeitet, hat ein unbefristetes Arbeitsverhältnis; die Übernahme gehört deshalb früh geklärt.
+  - Rückfrage: Welche Alternativen zur Verweigerung der Übernahme prüfen Sie vor einem solchen Antrag?
+
+### 9.6 Ausbildung planen und durchführen
+
+- Die Personalleitung der Solvitec fragt, wie viele Ausbildungsplätze Sie in der Leistungselektronik des Stammwerks Villingen für den nächsten Jahrgang vorsehen würden. Wie leiten Sie die Zahl her, und welche Grenzen beachten Sie?
+  - Erwartung: Die Planung beginnt beim Bedarf zum Ausbildungsende, nicht bei der heutigen Lücke, weil die Ausbildung dreieinhalb Jahre dauert; sie baut auf der Personalplanung auf und ergänzt sie um sichere Altersabgänge, erwartete sonstige Abgänge aus Erfahrungswerten und Neubedarf durch neue Anlagen oder Linien.
+  - Erwartung: Daraus folgt der Nachwuchsbedarf an Fachkräften; ein Anteil davon wird als Zielgröße aus eigener Ausbildung gedeckt, abhängig von der Lage am Arbeitsmarkt, von den Kosten und von der Kapazität.
+  - Erwartung: Die Zahl der Plätze ergibt sich aus der Zielzahl der Übernahmen, geteilt durch (1 − Abbruchquote) mal Übernahmequote, aufgerundet; die Quoten kommen aus Erfahrungswerten und sind Erwartungswerte, und die Rechnung nimmt an, dass alle, die nicht abbrechen, die Prüfung bestehen.
+  - Erwartung: Grenzen sind die Aufnahmekapazität der Ausbildungswerkstatt, die Zahl geeigneter Ausbildungsbeauftragter in den Fachabteilungen und die Eignung der Ausbildungsstätte; bei Lücken kommen eine Verbundausbildung, eine höhere externe Besetzung oder ein duales Studium in Betracht.
+  - Rückfrage: Wie verändert sich die Zahl der Plätze, wenn die Abbruchquote von 10 auf 20 Prozent steigt, und was tun Sie dagegen?
+- Sie sollen für einen neuen Jahrgang von Mechatroniker:innen den betrieblichen Ausbildungsplan aufstellen, mit Ausbildungswerkstatt, Fachabteilungen, einem Auslandsabschnitt im Werk Brünn und überbetrieblichen Lehrgängen. Wie gehen Sie vor, und wie stellen Sie sicher, dass die Lernorte zusammenpassen?
+  - Erwartung: Ausgangspunkt ist der Ausbildungsrahmenplan der Ausbildungsordnung; der betriebliche Plan legt sachlich und zeitlich fest, was wo, wann und von wem vermittelt wird, und darf bei betrieblichen Besonderheiten abweichen, solange die Ausbildung im vorgesehenen Zeitrahmen zum Ziel führt.
+  - Erwartung: Eine Ausbildungsmatrix aus Inhalten und Stationen zeigt Lücken; der Versetzungsplan führt von der Grundausbildung in der Werkstatt über Fachabteilungen zum Auslandsabschnitt, der Inhalte des Rahmenplans vermitteln muss; zu berücksichtigen sind die Aufnahmekapazität der Abteilungen, geeignete Ausbildungsbeauftragte und Einsatzgrenzen bei Minderjährigen.
+  - Erwartung: Ein Jahreskalender legt Berufsschulblöcke, Lehrgänge, den Auslandsabschnitt, Prüfungstermine und Urlaubszeiten zusammen, damit sich nichts überschneidet; die Lernortkooperation mit der Berufsschule sorgt dafür, dass der Betrieb anwendet, was die Schule vorbereitet hat.
+  - Erwartung: Die Unterweisung nutzt die Methode, die zum Lernziel passt: Vier-Stufen-Methode für feste Handlungsabläufe mit Sicherheitsrelevanz, Leittext oder Projekt für komplexe Aufgaben, Lernen im Arbeitsprozess mit fester Ansprechperson.
+  - Rückfrage: Wann würden Sie von der Reihenfolge des Rahmenplans abweichen, und wann nicht?
+- Die Werkleitung Villingen möchte im nächsten Jahrgang nur 9 statt 11 Plätze besetzen, weil die zwei Verbundplätze je Fachkraft mehr kosten als eine externe Besetzung. Wie bewerten Sie den Vorschlag?
+  - Erwartung: Zuerst wird die Lücke beziffert: Mit 9 statt 11 Plätzen sinken die erwarteten Übernahmen bei gegebenen Abbruch- und Übernahmequoten um etwa 1,6 Fachkräfte, es fehlt gegenüber der Zielzahl rechnerisch rund eine Fachkraft (Rechnung mit Erwartungswerten).
+  - Erwartung: Verglichen werden die Kosten je zusätzlich gewonnener Fachkraft: Nettokosten plus Verbundentgelt, geteilt durch die erwartete Zahl der Übernahmen je Platz, plus Einarbeitung, gegenüber den Kosten der externen Besetzung; der Verbund lohnt sich rechnerisch nur bei sehr hoher Übernahmequote und niedriger Abbruchquote, und die Abbruchquote wirkt stark auf das Ergebnis.
+  - Erwartung: Außerhalb der Rechnung stehen die Dauer bis zur Verfügbarkeit (Ausbildung dreieinhalb Jahre, externe Besetzung sofort, aber unsicher), die Wissensübergabe vor Altersabgängen, der Abstimmungsaufwand mit dem Partnerbetrieb und die Auslastung der Werkstatt.
+  - Erwartung: Die Entscheidung wird mit Szenarien vorbereitet; beobachtet werden Abbruch- und Übernahmequote, damit rechtzeitig gegengesteuert oder nachbesetzt werden kann.
+  - Rückfrage: Welche Kennzahl würden Sie beobachten, um früh zu sehen, dass die gewählte Lösung teurer wird als geplant?
