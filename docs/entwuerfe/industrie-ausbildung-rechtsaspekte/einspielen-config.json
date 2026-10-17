@@ -1,0 +1,106 @@
+{
+  "kurs": "industriefachwirt",
+  "rsDatum": "17.10.2026",
+  "neueThemen": [
+    [
+      "if-9.5-berufsausbildung-rechtsrahmen-vertrag.md",
+      "hq5/9.5-berufsausbildung-rechtsrahmen-vertrag.md"
+    ],
+    [
+      "if-9.6-ausbildung-planen-durchfuehren.md",
+      "hq5/9.6-ausbildung-planen-durchfuehren.md"
+    ],
+    [
+      "if-7.7-rechtsaspekte-marketing-vertrieb.md",
+      "hq3/7.7-rechtsaspekte-marketing-vertrieb.md"
+    ]
+  ],
+  "ergaenzungen": [],
+  "faelle": [
+    [
+      "if-faelle-a.md",
+      "hq5"
+    ],
+    [
+      "if-faelle-b.md",
+      "hq5"
+    ],
+    [
+      "if-faelle-c.md",
+      "hq3"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "wq3/3.2-arbeitsrecht-grundlagen.md",
+      "paare": [
+        [
+          "und ein grundsätzliches Verbot von Nachtarbeit für unter 18-Jährige.",
+          "und ein grundsätzliches Verbot von Nachtarbeit für unter 18-Jährige. Berufsausbildungsvertrag, Pflichten der Ausbildenden und Auszubildenden und die Regeln des Jugendarbeitsschutzes im Einzelnen stehen in Thema 9.5 „Berufsausbildung: Rechtsrahmen, Ausbildungsvertrag und Pflichten“ im Fachgebiet Führung und Zusammenarbeit."
+        ]
+      ]
+    },
+    {
+      "datei": "wq4/4.4-personalplanung-beurteilung-entgelt.md",
+      "paare": [
+        [
+          "Aufstieg nach einer Fortbildung, Übernahme von Auszubildenden;",
+          "Aufstieg nach einer Fortbildung, Übernahme von Auszubildenden (siehe Thema 9.6 „Ausbildung planen und durchführen“ im Fachgebiet Führung und Zusammenarbeit);"
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/7.5-marketingplanung-produktlebenszyklus-marke.md",
+      "paare": [
+        [
+          "Ebenso gilt für den Schutz von Marken und Namen, auch im Ausland: gesetzliche Vorgaben, hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Der rechtliche Schutz von Marken und Namen (Eintragung, Schutzumfang, Benutzungszwang, Auslandsschutz) steht im Überblick in Thema 7.7 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Gewerblicher Rechtsschutz: Schutzrechte im Überblick“; das Recht einzelner Zielländer ist dort nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/7.6-vertriebsplanung-absatzprognose-verguetung.md",
+      "paare": [
+        [
+          "Provisionsanspruch, Ausgleichsansprüche nach Vertragsende und die Vertragsgestaltung mit Handelsvertreter:innen sowie arbeitsrechtliche Fragen der variablen Vergütung angestellter Mitarbeitender unterliegen gesetzlichen Vorgaben, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft).",
+          "Der Ausgleichsanspruch einer Handelsvertretung nach Vertragsende steht im Überblick in Thema 3.3 „Vertragsgestaltung“ im Fachgebiet Recht und Steuern, die Abgrenzung zum Vertragshändler und die Grenzen von Vertriebsverträgen stehen in Thema 7.7 „Rechtsaspekte von Marketing und Vertrieb“; der Provisionsanspruch im Einzelnen und arbeitsrechtliche Fragen der variablen Vergütung angestellter Mitarbeitender unterliegen gesetzlichen Vorgaben, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Handelsvertreterrecht: gesetzliche Vorgaben, hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Handelsvertreterrecht: Ausgleichsanspruch im Überblick in Thema 3.3 „Vertragsgestaltung“ im Fachgebiet Recht und Steuern, Vertragshändler und Vertriebsverträge in Thema 7.7 „Rechtsaspekte von Marketing und Vertrieb“; weitere Einzelheiten hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hq5/fallaufgaben.md",
+      "paare": [
+        [
+          "aus HQ5 (9.1–9.4) zu",
+          "aus HQ5 (9.1–9.6) zu"
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/fallaufgaben.md",
+      "paare": [
+        [
+          "aus HQ3 (7.1–7.6) zu",
+          "aus HQ3 (7.1–7.7) zu"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hq5/9.5-berufsausbildung-rechtsrahmen-vertrag.md",
+    "hq5/9.6-ausbildung-planen-durchfuehren.md",
+    "hq3/7.7-rechtsaspekte-marketing-vertrieb.md",
+    "hq5/fallaufgaben.md",
+    "hq5/fachgespraech.md",
+    "hq3/fallaufgaben.md",
+    "hq3/fachgespraech.md",
+    "wq3/3.2-arbeitsrecht-grundlagen.md",
+    "wq4/4.4-personalplanung-beurteilung-entgelt.md",
+    "hq3/7.5-marketingplanung-produktlebenszyklus-marke.md",
+    "hq3/7.6-vertriebsplanung-absatzprognose-verguetung.md"
+  ]
+}

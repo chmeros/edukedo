@@ -1,0 +1,47 @@
+# Prüfprotokoll: Paket P-AD samt P-AG „Industriefachwirt: Berufsausbildung (Rechtsrahmen und Vertrag, Planung und Durchführung), Rechtsaspekte von Marketing und Vertrieb“ (Erhebung vom 14.10.2026: IF-09, IF-27 aus der Review FL-IF-35; Auswertung `docs/entwuerfe/industriefachwirt-r4-auswertung.md`)
+
+Stand 17.10.2026. **Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Erstes R4-Paket des Industriefachwirts. Gesetze und Paragrafen stehen als Stützangabe in Theorie und Erklärung, nie als alleiniger Prüfungsstoff und nicht in Karten und Quiz; Rechtszahlen tragen „Stand Oktober 2026, vor Verwendung prüfen“; Beträge und Zahlen sind Beispielwerte. Jugendarbeitsschutz kommt nur als Pflicht der Arbeitgeberseite vor, Minderjährige sind nicht Zielgruppe.
+
+**Besonders zeitkritisch:** Mindestausbildungsvergütung 2027 (Bekanntmachung vom 30.09.2026, vom Prüfer am Text bestätigt), Prüfungsformen und Dauer der Beispielberufe, Telefonwerbung, Eilverfahren (Dringlichkeit), Preisangabenverordnung, Vertikal-Gruppenfreistellung (zwei Zeilen), Technologietransfer-Freistellung, Maschinenverordnung (Geltung ab 20.01.2027, nach Sekundärquellen).
+
+## Umfang
+
+Kurs Industriefachwirt (Solvitec Elektrowerke GmbH, `docs/entwuerfe/werkzeuge/solvitec-register.md`, neu mit diesem Paket). Drei neue Themen, keine Ergänzung:
+
+- **Teil A, neues Thema HQ5 9.5 „Berufsausbildung: Rechtsrahmen, Ausbildungsvertrag und Pflichten“** (7 Abschnitte, 14 Karten, 16 Quizfragen, 4 Rechen-Kurzantworten): duales System, zuständige Stelle, Eignung, Ausbildungsvertrag mit Probezeit und Vergütung (Mindestausbildungsvergütung als Beispielwert), Pflichten, Jugendarbeitsschutz als Arbeitgeberpflicht, Beendigung und Weiterbeschäftigung, Mitbestimmung (Betriebsrat, Jugend- und Auszubildendenvertretung); **F-HQ5-05** und 3 Fachgesprächsfragen.
+- **Teil B, neues Thema HQ5 9.6 „Ausbildung planen und durchführen“** (7 Abschnitte, 14 Karten, 16 Quizfragen, 4 Rechen-Kurzantworten): Bedarf und Plätze, Auswahl, Ausbildungsplan und Versetzung, Unterweisung, Betreuung und Beurteilung, Prüfungsvorbereitung, Wirtschaftlichkeit (Nettokosten, Break-even der Übernahme); **F-HQ5-06** und 3 Fachgesprächsfragen.
+- **Teil C, neues Thema HQ3 7.7 „Rechtsaspekte von Marketing und Vertrieb“** (7 Abschnitte, 14 Karten, 16 Quizfragen, 4 Rechen-Kurzantworten; Theorie rund 3.850 Wörter): UWG im B2B (mit aggressiven Methoden), Rechtsfolgen, gewerblicher Rechtsschutz, Arbeitnehmererfindung, Produktsicherheit und CE, Preislisten, Vertragshändler und Kartellrecht im Überblick; **F-HQ3-08** und 3 Fachgesprächsfragen.
+- Zusammen 42 Karten, 48 Quizfragen (12 Kurzantworten), 3 Fallaufgaben zu je 20 Punkten, 9 Fachgesprächsfragen, 3 Theorien; **105 neue Item-Schlüssel** (20.740 → 20.845).
+- **Änderungen am Bestand durch das Einspielen (7 Textersetzungen in 6 Dateien, in `einspielen-config.json` zusammengeführt, erzeugt mit `gen-config.cjs`):** `wq3/3.2` (Verweis auf Thema 9.5), `wq4/4.4` (Verweis auf Thema 9.6), `hq3/7.5` (Marken- und Namensschutz verweist auf 7.7), `hq3/7.6` (zwei Stellen: Ausgleichsanspruch und K-7.6-14 mit Verweis auf 7.7), Einleitungen der Fallaufgaben HQ5 („9.1–9.4“ → „9.1–9.6“) und HQ3 („7.1–7.6“ → „7.1–7.7“); `rechtsstand` der berührten Dateien.
+- Dateien: `if-9.5-…`, `if-9.6-…`, `if-7.7-…`, `if-faelle-a.md` bis `-c.md`, `rechtsangaben-a.md` bis `-c.md` (zusammen rund 240 Zeilen), `ersetzungen-a.json` bis `-c.json`, `auftrag.md`, `gen-config.cjs`, `einspielen-config.json`, `pruefung-a.md` bis `-c.md`.
+
+## Prüfung
+
+1. **Mechanisch:** gemeinsamer Kopie-Test mit `docs/entwuerfe/werkzeuge/pruefe-paket.cjs test` nach der Überarbeitung: `db:validate-content` 0 Verstöße (685 Themendateien, 20.845 Item-Schlüssel); Parser erkennt alle Karten, Quizfragen und Kurzantworten (0 nicht geparst, 0 ohne Antworten) und alle drei Fälle mit 5 Teilaufgaben, 20 Punkten und Lösungszeilen; alle Textersetzungen greifen (genau ein Treffer je Paar).
+2. **Schreiben:** drei Agenten (Sonnet) nach `auftrag.md` (Rechtsnähe-Regeln aus P-Z bis P-AC), alle Zahlen vom Autor per Skript nachgerechnet.
+3. **Unabhängige Prüfung (drei Erstprüfer, je Teil, ohne Mechanik, mit rechtlichem Faktencheck am Gesetzestext und Klonvergleich):** Teil A rund 50 Werte und 24 Daten, rund 35 Normen am Gesetzestext (BBiG, JArbSchG, BetrVG); Teil B rund 150 Werte, 18 BBiG-Normen; Teil C 53 Werte und 6 Wochentage, rund 30 Normen (UWG, PatG, GebrMG, MarkenG, UrhG, GeschGehG, ArbnErfG, StGB, PAngV). **Kein Rechenfehler.** Befunde der Erstprüfung: A 2 hoch, 9 mittel, 8 niedrig; B 2 hoch, 9 mittel, 8 niedrig; C 0 hoch, 9 mittel, 14 niedrig. Alle hohen und mittleren Befunde sowie die billigen niedrigen sind eingearbeitet. **Die Überarbeitungen hat kein zweiter Prüfer gesehen** (Teil A, B und C jeweils nur vom Autor nachgerechnet und mit `siebenwort` geprüft). Alle Agenten liefen auf Sonnet.
+4. **Grenze der Prüfung:** Rechtsänderungen von Juni bis Oktober 2026 sind nicht belastbar bestätigt; zeitkritische Aussagen stehen als „vermutet“ bzw. „zeitkritisch“ in den Rechtsangaben-Dateien. Nicht am Gesetzestext gelesen: u. a. BBiG §§ 5, 10, 16, 18, 19, 25, 27, 29, 30, 34, 37 Abs. 4 (Prüfungsgebühren), JArbSchG §§ 8, 12, 13, 15, BetrVG §§ 96, 97, 99, 102, Verordnungstext der Vertikal-Gruppenfreistellung, Designgesetz, Dauer der Beispielberufe (42 Monate), Hochschulrecht zum dualen Studium.
+
+## Eingearbeitete Befunde (Auswahl der wesentlichen)
+
+| Teil | Befund | Umsetzung |
+|---|---|---|
+| A | **hoch:** Fristende im Fall (Freitag, 14.04.2028) fiel auf Karfreitag; **hoch:** Teilaufgabe 1 und Fachgesprächsfrage 1 waren ein Strukturklon zum Technischen Fachwirt (F-HQ4-07) | Ausbildungsende auf 30.06.2028 verlegt, Folgedaten neu gerechnet; Szenario auf Verbundausbildung mit Partnerbetrieb umgestellt |
+| A | Akkordverbot falsch (Ausnahme nur für Gruppenarbeit mit akkordarbeitenden Erwachsenen), Luftgrenzwert bei Gefahrstoffen fehlte, „ohne Eintragung keine Zulassung“ überzeichnet, Widerspruch „Zwickau bildet erstmals aus“, Ende des Ausbildungsverhältnisses bei bestandener Prüfung, Nähe zum Wirtschaftsfachwirt 5.3, Prämienfall aus F-HSQ5-05, § 4 Abs. 4 BBiG nur für Jugendliche, Rückzahlung von Ausbildungskosten als Tatsache | korrigiert bzw. umgebaut, Rückzahlung als „vermutet“ |
+| B | **hoch:** Fall-Teilaufgabe 3, Fachgesprächsfrage 3, Absatz „Die Rechnung hat Grenzen“ und Q-9.6-13 waren Klone zu Wirtschaftsfachwirt `hsq5/5.3`; **hoch:** Prüfungsgebühren falsch dargestellt | Entscheidungsrechnung Verbundplatz gegen externe Besetzung, neue Fachgesprächsfrage, Absatz und Quizfrage neu; Gebühren trägt in der Regel der Ausbildungsbetrieb (vermutet) |
+| B | Planungsformel ohne Prüfungserfolg, Widerspruch 10/11 Übernahmen im Fall, Bindungsaussage nur Erstausbildung, falsche Absatz-Zitate, „werksübergreifender Verbund“ (gleiche GmbH), Auslandsabschnitt, Besetzungskosten gegenüber `wq4/4.4`, Größenordnung der Plätze (500 Beschäftigte), Rollen mit Teil A | korrigiert, ein Plan im Fall, Frau Rieger entfällt |
+| C | Haftung für Vertriebspartner und Vertragsstrafe zu pauschal; Auslandsschutz (Priorität heilt keine Vorveröffentlichung, Schonfrist nur in Deutschland); Alleinvertrieb mit Kernbeschränkung nicht „grundsätzlich freigestellt“; Geschäftsgeheimnis unvollständig definiert; Strukturklone zu Wirtschaftsfachwirt `hsq4/4.6` (Q-7.7-03, Kostentabelle, Q-7.7-06, Fall wiederholte Theoriebeispiele) | korrigiert, Fall und Fachgespräch mit neuen Szenarien (Angebotsverfahren, Erfindervergütung, Break-even Eigenprüfung gegen Benannte Stelle, Österreich-Vertrag) |
+| C | Abschnitt „Geschenke und Einladungen“ samt Ersetzung in `hq3/7.4` war nicht beauftragt, paraphrasierte `hsq4/4.6`; Theorie 5.590 Wörter bei Auftrag „UWG-Teil kürzer“ | gestrichen; Theorie auf rund 3.850 Wörter gekürzt, „aggressive Methoden“ ergänzt |
+
+## Offen / Hinweise
+
+- **Förmliche Rechtsprüfung (Iteration 22):** alle Zeilen der drei Rechtsangaben-Dateien, besonders die „vermuteten“ und zeitkritischen (s. o.).
+- **Neue Namen und Firmen, im Bestand unbelegt (Stand der Autorenberichte):** Teil A Stoll, Hasselbach, Pietsch, Winkler, Krämer, Brenner, Kuhlmann; Teil B Merten, Tolksdorf; Teil C Rönnfeldt, Tamm, Wiegand, Altmann, Brennhoff Antriebstechnik GmbH, Nordhain AG, Alpentechnik Vertriebs GmbH (Linz), Baureihen FU-7 und FC-3, „Solvitec Power“.
+- **Mögliche Restnähe:** Die Ausbildungsthemen anderer Kurse (Handelsfachwirt `hb2/2.2`, Wirtschaftsfachwirt `hsq5/5.3`, Technischer Fachwirt, Büro, Gesundheit, Immobilien) behandeln dieselben Rechtsgrundlagen; die Überarbeitungen haben Fälle, Fachgespräche und Rechenbeispiele abgegrenzt, die Rechtsdarstellung selbst bleibt fachlich verwandt. Der Thementitel „Ausbildung planen und durchführen“ ist identisch mit Technischer Fachwirt 11.4 und Gesundheit `hb5/5.2` (Titelgleichheit, kein inhaltlicher Klon laut Prüfer).
+- **Minderjährige:** nicht berührt (Jugendarbeitsschutz nur als Arbeitgeberpflicht).
+- **Bestandsmängel aus der Review, nicht Teil dieses Pakets:** Hermes-Einordnung in `hq3/7.4` (FL-IF-35), CISG/FCA/CIP und F-HQ3-03 (FL-IF-20), B2B-Verzugszins in `wq3/3.3` (FL-IF-21) kommen mit P-AE und P-AF.
+- **Erfahrungswerte, nicht Bestand:** Ausbildungsvergütungen, Kosten, Lizenzsätze, Vertragsstrafen, Gebühren und Prämien; alle als Beispielwerte gekennzeichnet.
+
+## Rechtsstand
+
+Alle Rechtsaussagen sind nicht förmlich rechtsgeprüft (Stand Oktober 2026). Alle Zahlen, Firmen-, Marken- und Ortsangaben sind frei gewählte Beispielwerte.
