@@ -73,7 +73,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | --- | --- |
 | Für eine Bestands-Eigentumswohnung werden Verkaufsfälle aus derselben Wohnanlage und dem direkten Umfeld herangezogen | Vergleichswertverfahren |
 | Für ein Reihenhaus in einem gut erschlossenen Wohngebiet liegen genügend vergleichbare Verkaufsfälle vor | Vergleichswertverfahren |
-| Verwaltungskosten, Instandhaltungsrücklage und Mietausfallwagnis werden als nicht umlagefähige Bewirtschaftungskosten abgezogen | Ertragswertverfahren |
+| Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis werden als nicht umlagefähige Bewirtschaftungskosten abgezogen | Ertragswertverfahren |
 | Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert, der von Restnutzungsdauer und Liegenschaftszinssatz abhängt | Ertragswertverfahren |
 | Eine Kundin, die ein vermietetes Mehrfamilienhaus kaufen will, verhandelt den Kaufpreis anhand der Renditeerwartung | Ertragswertverfahren |
 | Von den Normalherstellungskosten je Quadratmeter Bruttogrundfläche wird eine Alterswertminderung abgezogen | Sachwertverfahren |

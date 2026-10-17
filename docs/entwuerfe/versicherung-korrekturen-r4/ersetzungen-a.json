@@ -1,0 +1,256 @@
+[
+  {
+    "datei": "kb1/1.1-private-krankenversicherung.md",
+    "paare": [
+      [
+        "Bei Hilfebedürftigkeit nach dem SGB II oder dem SGB XII tritt das Ruhen nicht ein.",
+        "Bei Hilfebedürftigkeit nach dem SGB II oder dem SGB XII tritt das Ruhen nicht ein; Hilfebedürftige werden also gerade nicht in den Notlagentarif überführt, und im Basistarif halbiert sich ihr Beitrag (§ 152 Abs. 4 VAG)."
+      ],
+      [
+        "Die Beitragskalkulation unterliegt der Kalkulationsverordnung und wird regelmäßig von unabhängigen Treuhändern geprüft. Verändern sich die Rechnungsgrundlagen dauerhaft und wesentlich (z. B. steigende Behandlungskosten, höhere Lebenserwartung), sind **Beitragsanpassungen** für bestehende Tarife möglich und in der Praxis nicht selten.",
+        "Die Beitragskalkulation unterliegt den aufsichtsrechtlichen Vorgaben (insbesondere der Krankenversicherungsaufsichtsverordnung, KVAV) und der Aufsicht der BaFin. **Beitragsanpassungen** für bestehende Tarife sind in der Praxis nicht selten; sie sind möglich, wenn sich eine für die Beitragskalkulation maßgebliche Rechnungsgrundlage (z. B. Behandlungskosten, Lebenserwartung) nicht nur vorübergehend ändert und ein unabhängiger **Treuhänder** zustimmt (§ 203 Abs. 2 VVG). Der Versicherer muss dafür mindestens jährlich die erforderlichen mit den kalkulierten Versicherungsleistungen und die erforderlichen mit den kalkulierten Sterbewahrscheinlichkeiten vergleichen. Weicht ein Wert um mehr als den **Schwellenwert** ab (gesetzlich 10 % bei den Versicherungsleistungen, 5 % bei den Sterbewahrscheinlichkeiten), muss er die Beiträge des Tarifs überprüfen. Bei den Versicherungsleistungen darf in den Versicherungsbedingungen ein niedrigerer Prozentsatz vorgesehen sein; ist die Abweichung bei den Leistungen nicht nur vorübergehend, passt der Versicherer die Beiträge des Tarifs an, bei den Sterbewahrscheinlichkeiten genügt die Überschreitung der 5 %. Der Treuhänder prüft, ob die Beitragsberechnung den Rechtsvorschriften entspricht; seine Zustimmung ist Voraussetzung dafür, dass die Anpassung in Kraft gesetzt werden darf (§ 155 VAG)."
+      ],
+      [
+        "**Frage:** Wer prüft regelmäßig die Beitragskalkulation eines PKV-Versicherers?",
+        "**Frage:** Wer muss einer Beitragsanpassung in der PKV zustimmen, bevor sie in Kraft gesetzt werden darf?"
+      ],
+      [
+        "**Antwort:** Ein unabhängiger Treuhänder.",
+        "**Antwort:** Ein unabhängiger Treuhänder; er prüft, ob die Beitragsberechnung den Rechtsvorschriften entspricht."
+      ],
+      [
+        "**Antwort:** Wenn sich die Rechnungsgrundlagen (z. B. Behandlungskosten, Lebenserwartung) dauerhaft und wesentlich verändern.",
+        "**Antwort:** Wenn sich eine maßgebliche Rechnungsgrundlage (z. B. Behandlungskosten, Lebenserwartung) nicht nur vorübergehend ändert und ein unabhängiger Treuhänder zustimmt. Ab mehr als 10 % Abweichung bei den Leistungen bzw. 5 % bei den Sterbewahrscheinlichkeiten muss der Versicherer die Beiträge überprüfen."
+      ],
+      [
+        "**Zusätzliche Begriffe:** Notlagentarif; Krankentagegeld; Standardtarif",
+        "**Zusätzliche Begriffe:** Notlagentarif; Krankentagegeld; Zusatztarif"
+      ],
+      [
+        "**Erklärung:** Portabilität beschränkt sich gesetzlich auf den Basistarif-Anteil der Rückstellung.",
+        "**Erklärung:** Der gesetzliche Anspruch besteht für Verträge ab dem 1. Januar 2009 und beschränkt sich auf den Basistarif-Anteil der Rückstellung."
+      ]
+    ]
+  },
+  {
+    "datei": "kb1/fachgespraech.md",
+    "paare": [
+      [
+        "Erwartung: Ziel ist es, starke Beitragssprünge im Alter zu vermeiden.",
+        "Erwartung: Ziel ist es, starke Beitragssprünge im Alter zu vermeiden.\n  - Erwartung: Beitragsanpassungen in bestehenden Tarifen sind möglich, wenn sich eine Rechnungsgrundlage nicht nur vorübergehend ändert und ein unabhängiger Treuhänder zustimmt; ab einer Abweichung von mehr als 10 % bei den Leistungen bzw. 5 % bei den Sterbewahrscheinlichkeiten muss der Versicherer die Beiträge überprüfen; die Aufsicht über die Versicherer führt die BaFin."
+      ],
+      [
+        "Rückfrage: Wer prüft die Beitragskalkulation regelmäßig?",
+        "Rückfrage: Wer muss einer Beitragsanpassung zustimmen, und ab welcher Abweichung wird eine Anpassung geprüft?"
+      ],
+      [
+        "Erwartung: Unterkunft, Verpflegung und Investitionskosten sind bei stationärer Pflege grundsätzlich selbst zu tragen, was regelmäßig zu einem erheblichen Eigenanteil führt.",
+        "Erwartung: Unterkunft, Verpflegung und Investitionskosten sind bei stationärer Pflege grundsätzlich selbst zu tragen, was regelmäßig zu einem erheblichen Eigenanteil führt.\n  - Erwartung: Zur Entlastung zahlt die Pflegeversicherung ab Pflegegrad 2 einen Leistungszuschlag auf den pflegebedingten Eigenanteil, der mit der Dauer der vollstationären Pflege steigt."
+      ],
+      [
+        "Erwartung: Bei Nordantis wird die Pflegetagegeldversicherung wegen ihrer Flexibilität in der Verwendung besonders häufig empfohlen, etwa auch zur Honorierung pflegender Angehöriger.",
+        "Erwartung: Bei Nordantis wird die Pflegetagegeldversicherung wegen ihrer Flexibilität in der Verwendung besonders häufig empfohlen, etwa auch zur Honorierung pflegender Angehöriger.\n  - Erwartung: Förderfähige private Pflege-Zusatzversicherungen (umgangssprachlich „Pflege-Bahr“) werden mit einer staatlichen Zulage unterstützt, wenn ein Mindestbeitrag gezahlt wird; dafür verzichten sie auf Gesundheitsprüfung, Risikozuschläge und Leistungsausschlüsse."
+      ],
+      [
+        "Mit steigendem Pflegegrad steigen die Leistungen; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 insbesondere eine Beratung in der eigenen Häuslichkeit, und stationär",
+        "Mit steigendem Pflegegrad steigen die Leistungen in der Regel; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 stattdessen insbesondere Beratung, Pflegehilfsmittel, Wohnumfeldzuschüsse und den Entlastungsbetrag, und stationär"
+      ],
+      [
+        "Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.",
+        "Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.\n  - Erwartung: Voraussetzung ist ein Unfall im Sinne der Bedingungen: ein plötzlich von außen auf den Körper wirkendes Ereignis, durch das die versicherte Person unfreiwillig eine Gesundheitsschädigung erleidet; die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet."
+      ],
+      [
+        "nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos.",
+        "nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos; ältere Bedingungswerke verlangen teils, dass die Invalidität schon innerhalb eines Jahres eingetreten ist."
+      ],
+      [
+        "für die volle Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr.",
+        "für die Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr; die volle Grundzulage von höchstens 540 € erfordert ab 2027 Beiträge von 1.800 € im Jahr."
+      ],
+      [
+        "Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart.",
+        "Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart."
+      ],
+      [
+        "Rückfrage: In welcher Reihenfolge schöpfen Sie die Schichten in der Beratung grundsätzlich aus?",
+        "Rückfrage: Nach welchen Gesichtspunkten entscheiden Sie in der Beratung, welche Schichten Sie nutzen und in welcher Reihenfolge?"
+      ],
+      [
+        "Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen besonders häufig gewählt?",
+        "Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen häufig eingesetzt?"
+      ],
+      [
+        "Erwartung: Es gilt als zentrales Beratungsprinzip, die geförderten Schichten im Rahmen des individuellen Bedarfs auszuschöpfen, bevor ungeförderte Produkte der Schicht 3 zur weiteren Kapitalbildung ergänzt werden.",
+        "Erwartung: Förderung ist ein wichtiges, aber kein alleiniges Kriterium: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, entscheidet der individuelle Bedarf (Liquiditätsreserve, Kosten, Flexibilität), und ungeförderte Produkte der Schicht 3 können im Einzelfall auch früher oder zusätzlich sinnvoll sein."
+      ]
+    ]
+  },
+  {
+    "datei": "kb1/1.2-pflegeversicherung.md",
+    "paare": [
+      [
+        "Mit steigendem Pflegegrad steigen die Leistungen der Pflegeversicherung.",
+        "Mit steigendem Pflegegrad steigen die Leistungen der Pflegeversicherung in der Regel; nicht jede Leistungsart besteht aber schon ab Pflegegrad 1."
+      ],
+      [
+        "bei Pflegegrad 1 besteht insbesondere Anspruch auf eine regelmäßige Beratung in der eigenen Häuslichkeit.",
+        "bei Pflegegrad 1 gibt es dagegen weder Pflegegeld noch Pflegesachleistungen, sondern insbesondere Pflegeberatung, regelmäßige Beratung in der eigenen Häuslichkeit, Pflegehilfsmittel, Zuschüsse zur Verbesserung des Wohnumfelds und den monatlichen Entlastungsbetrag (§ 28a SGB XI)."
+      ],
+      [
+        "was in der Praxis regelmäßig zu einem erheblichen **Eigenanteil** führt.",
+        "was in der Praxis regelmäßig zu einem erheblichen **Eigenanteil** führt. Zur Entlastung zahlt die Pflegeversicherung ab Pflegegrad 2 zusätzlich einen **Leistungszuschlag** auf den pflegebedingten Eigenanteil, der mit der Dauer der vollstationären Pflege steigt (nach dem Gesetzestext 15 % bis zu zwölf Monate, 30 % ab dem 13. Monat, 50 % ab dem 25. Monat und 75 % ab dem 37. Monat; Stand Oktober 2026, vor Verwendung prüfen); Unterkunft, Verpflegung und Investitionskosten bleiben davon unberührt."
+      ],
+      [
+        "Bei Nordantis wird die Pflegetagegeldversicherung aufgrund ihrer Flexibilität in der Verwendung (z. B. auch zur Honorierung pflegender Angehöriger) besonders häufig empfohlen.",
+        "Bei Nordantis wird die Pflegetagegeldversicherung aufgrund ihrer Flexibilität in der Verwendung (z. B. auch zur Honorierung pflegender Angehöriger) besonders häufig empfohlen. Der Staat fördert förderfähige private Pflege-Zusatzversicherungen (umgangssprachlich „Pflege-Bahr“) mit einer **Pflegevorsorgezulage** von 5 € im Monat, wenn die zulageberechtigte Person (erwachsen und noch ohne Leistungen der Pflegeversicherung) mindestens 10 € im Monat als Beitrag zahlt; förderfähige Tarife verzichten dafür unter anderem auf Gesundheitsprüfung, Risikozuschläge und Leistungsausschlüsse (§ 127 SGB XI; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "In der sozialen Pflegeversicherung zahlen kinderlose Mitglieder ab einem bestimmten Alter einen **Beitragszuschlag**, da Kindererziehung als Beitrag zur Generationengerechtigkeit des Umlageverfahrens gewertet wird.",
+        "In der sozialen Pflegeversicherung zahlen kinderlose Mitglieder ab einem bestimmten Alter einen **Beitragszuschlag**, da Kindererziehung als Beitrag zur Generationengerechtigkeit des Umlageverfahrens gewertet wird. Seit dem Pflegeunterstützungs- und -entlastungsgesetz (PUEG) wird der Beitrag zusätzlich nach der Kinderzahl abgestuft: Eltern zahlen ab dem zweiten Kind für jedes Kind bis zum fünften einen Abschlag auf den Beitragssatz, solange das Kind noch nicht 25 Jahre alt ist (§ 55 SGB XI; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** Pflegegeld ist eine Geldleistung bei Pflege durch Angehörige, Pflegesachleistung eine Sachleistung durch einen ambulanten Pflegedienst.",
+        "**Antwort:** Pflegegeld ist eine Geldleistung bei Pflege durch Angehörige, Pflegesachleistung eine Sachleistung durch einen ambulanten Pflegedienst (beides gibt es erst ab Pflegegrad 2)."
+      ],
+      [
+        "**Antwort:** Pflegegeld und Pflegesachleistungen, auch als Kombinationsleistung möglich.",
+        "**Antwort:** Pflegegeld und Pflegesachleistungen (ab Pflegegrad 2), auch als Kombinationsleistung möglich."
+      ],
+      [
+        "**Erklärung:** Häusliche Pflege kann als Geldleistung, Sachleistung oder als Kombination erfolgen;",
+        "**Erklärung:** Häusliche Pflege kann ab Pflegegrad 2 als Geldleistung, Sachleistung oder als Kombination erfolgen;"
+      ]
+    ]
+  },
+  {
+    "datei": "kb1/1.3-unfallversicherung.md",
+    "paare": [
+      [
+        "Die zentrale Leistung der PUV ist die **Invaliditätsleistung**:",
+        "Voraussetzung jeder Leistung ist ein **Unfall**: Nach dem Gesetz und den Musterbedingungen liegt ein Unfall vor, wenn die versicherte Person durch ein plötzlich von außen auf ihren Körper wirkendes Ereignis unfreiwillig eine Gesundheitsschädigung erleidet; die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet (§ 178 Abs. 2 VVG). Die Bedingungen erweitern den Begriff in Einzelfällen (z. B. Verrenkungen und Zerrungen durch erhöhte Kraftanstrengung) und schließen bestimmte Unfälle aus (z. B. durch Bewusstseinsstörungen, etwa unter Alkoholeinfluss). Die zentrale Leistung der PUV ist die **Invaliditätsleistung**:"
+      ],
+      [
+        "sowie **Übergangsleistung** (bei vorübergehender, aber noch nicht abschließend bewerteter Beeinträchtigung der Arbeits- oder Erwerbsfähigkeit).",
+        "sowie **Übergangsleistung** (bei vorübergehender, aber noch nicht abschließend bewerteter Beeinträchtigung der Arbeits- oder Erwerbsfähigkeit; sie setzt in den Tarifen, die sie anbieten, meist voraus, dass die Beeinträchtigung nach einer bestimmten Zeit, häufig sechs Monaten, noch erheblich ist; das GDV-Muster AUB 2020 enthält sie nicht)."
+      ],
+      [
+        "### Mitwirkungsanteil bei Vorerkrankungen und Progression bei mehreren Ursachen",
+        "### Mitwirkungsanteil bei Vorerkrankungen"
+      ],
+      [
+        "Nach den Musterbedingungen des GDV (AUB 2020) muss die Invalidität innerhalb von 15 Monaten nach dem Unfall eingetreten und von einem Arzt schriftlich festgestellt worden sein, und sie muss innerhalb von 15 Monaten nach dem Unfall beim Versicherer geltend gemacht werden; dazu genügt die formlose Mitteilung, dass man von einer Invalidität ausgeht. Einzelne Tarife können abweichende, teils längere Fristen vorsehen.",
+        "Nach den Musterbedingungen des GDV (AUB 2020, Stand Juni 2025) sind drei Voraussetzungen zu unterscheiden: Die Invalidität muss (1) innerhalb von 15 Monaten nach dem Unfall eingetreten und (2) in dieser Zeit von einem Arzt schriftlich festgestellt worden sein, und sie muss (3) innerhalb von 15 Monaten nach dem Unfall beim Versicherer geltend gemacht werden; dazu genügt die formlose Mitteilung, dass man von einer Invalidität ausgeht. Das sind Tarifbeispiele, keine gesetzlichen Fristen: Ältere Bedingungswerke verlangen teils, dass die Invalidität schon innerhalb eines Jahres eingetreten ist und innerhalb von 15 Monaten festgestellt und geltend gemacht wird, und einzelne Tarife sehen abweichende, teils längere Fristen vor. Unabhängig davon verlangen die Bedingungen, nach einem Unfall, der voraussichtlich zu einer Leistung führt, unverzüglich einen Arzt hinzuzuziehen und den Versicherer zu unterrichten."
+      ],
+      [
+        "Die Fristen sind vertraglich und können je Tarif abweichen.",
+        "Die Fristen sind vertraglich und können je Tarif abweichen (ältere Bedingungen verlangen z. B. den Eintritt der Invalidität schon innerhalb eines Jahres)."
+      ],
+      [
+        "**Erklärung:** Die GUV deckt nur Arbeits-, Wege- und Berufskrankheiten ab, nicht die reine Freizeitunfälle.",
+        "**Erklärung:** Bei Beschäftigten deckt die GUV Arbeitsunfälle, Wegeunfälle und Berufskrankheiten ab (daneben sind unter anderem Kinder in Kitas, Schüler:innen und Studierende kraft Gesetzes versichert), reine Freizeitunfälle dagegen nicht."
+      ],
+      [
+        "2. Ärztliche Feststellung einer dauerhaften Invalidität",
+        "2. Unverzügliche Unterrichtung des Versicherers über den Unfall"
+      ],
+      [
+        "3. Fristgerechte Geltendmachung beim Versicherer",
+        "3. Ärztliche Feststellung der dauerhaften Invalidität und Geltendmachung beim Versicherer innerhalb von 15 Monaten nach dem Unfall"
+      ],
+      [
+        "**Erklärung:** Erst nach ärztlicher Feststellung und fristgerechter Meldung kann der Versicherer die Leistung prüfen und auszahlen.",
+        "**Erklärung:** Der Unfall wird dem Versicherer zuerst unverzüglich gemeldet; danach muss die Invalidität ärztlich festgestellt und geltend gemacht werden; beides ist an eine Frist ab dem Unfall gebunden. Erst dann kann der Versicherer die Leistung prüfen und auszahlen."
+      ]
+    ]
+  },
+  {
+    "datei": "kb1/1.4-altersvorsorge.md",
+    "paare": [
+      [
+        "insbesondere die betriebliche Altersversorgung (bAV) und die Riester-Rente.",
+        "insbesondere die betriebliche Altersversorgung (bAV) und die Riester-Rente (für neue Verträge ab 2027 als geförderter Altersvorsorgevertrag, einschließlich des Altersvorsorgedepots). Anders als die Basisversorgung der Schicht 1 sind diese Formen nicht auf eine ausschließlich lebenslange, nicht kapitalisierbare Rente beschränkt (bei der Riester-Rente ist zu Rentenbeginn z. B. eine teilweise Kapitalentnahme möglich, bei der bAV je nach Zusage ein Kapitalwahlrecht); das Merkmal „staatlich gefördert“ allein trennt die Schichten nicht, denn auch die Basisrente wird steuerlich gefördert."
+      ],
+      [
+        "— bei Nordantis der in der betrieblichen Praxis mit Abstand am häufigsten gewählte Durchführungsweg für kleine und mittlere Unternehmen, da er vergleichsweise einfach einzurichten und zu verwalten ist.",
+        "— bei Nordantis ein in der betrieblichen Praxis kleiner und mittlerer Unternehmen häufig eingesetzter Durchführungsweg, da er vergleichsweise einfach einzurichten und zu verwalten ist."
+      ],
+      [
+        "Ein zentrales Beratungsprinzip ist dabei, die geförderten Schichten 1 und 2 im Rahmen des individuellen Bedarfs auszuschöpfen, bevor ungeförderte Produkte der Schicht 3 zur weiteren Kapitalbildung ergänzt werden.",
+        "Förderung ist dabei ein wichtiges, aber kein alleiniges Kriterium: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, entscheidet aber der individuelle Bedarf (ausreichende Liquiditätsreserve, Kosten, Bindung des Kapitals und Flexibilität; die Basisrente ist vor allem bei hohem Grenzsteuersatz attraktiv). Ungeförderte Produkte der Schicht 3 können deshalb im Einzelfall auch früher oder zusätzlich sinnvoll sein."
+      ],
+      [
+        "Für die volle Zulage ist ein Mindesteigenbeitrag zu leisten.",
+        "Für die Zulagen ist ein Mindesteigenbeitrag zu leisten."
+      ],
+      [
+        "als Zuschuss an den Versorgungsträger weiterleiten, soweit er dadurch tatsächlich Sozialversicherungsbeiträge einspart.",
+        "als Zuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er dadurch tatsächlich Sozialversicherungsbeiträge einspart (für Direktzusage und Unterstützungskasse besteht diese gesetzliche Pflicht nicht)."
+      ],
+      [
+        "**Antwort:** 15 % des umgewandelten Entgelts, soweit der Arbeitgeber durch die Entgeltumwandlung Sozialversicherungsbeiträge einspart (§ 1a Abs. 1a BetrAVG).",
+        "**Antwort:** 15 % des umgewandelten Entgelts, soweit der Arbeitgeber durch die Entgeltumwandlung Sozialversicherungsbeiträge einspart; der Zuschuss geht an Pensionsfonds, Pensionskasse oder Direktversicherung (§ 1a Abs. 1a BetrAVG)."
+      ],
+      [
+        "**Aussage:** Bei Entgeltumwandlung muss der Arbeitgeber unter bestimmten Voraussetzungen einen Zuschuss aus ersparten Sozialversicherungsbeiträgen an die bAV leisten.",
+        "**Aussage:** Bei Entgeltumwandlung muss der Arbeitgeber unter bestimmten Voraussetzungen einen Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart."
+      ],
+      [
+        "und beträgt 15 % des umgewandelten Entgelts.",
+        "und beträgt 15 % des umgewandelten Entgelts; sie gilt für Pensionsfonds, Pensionskasse und Direktversicherung."
+      ],
+      [
+        "**Frage:** Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen besonders häufig gewählt?",
+        "**Frage:** Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen häufig eingesetzt?"
+      ],
+      [
+        "**Frage:** Welches Beratungsprinzip gilt bei Nordantis für die Reihenfolge des Vorsorgeaufbaus?",
+        "**Frage:** Wonach richtet sich bei Nordantis, welche Schichten für den Vorsorgeaufbau genutzt werden?"
+      ],
+      [
+        "**Antwort:** Erst die geförderten Schichten 1 und 2 im Rahmen des individuellen Bedarfs ausschöpfen, bevor ungeförderte Produkte der Schicht 3 ergänzt werden.",
+        "**Antwort:** Nach dem individuellen Bedarf: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, hängt von Liquiditätsreserve, Kosten, Bindung und Flexibilität ab."
+      ],
+      [
+        "**Erklärung:** Der übrige Teil muss als lebenslange Rente ausgezahlt werden.",
+        "**Erklärung:** Der übrige Teil wird in monatlichen Leistungen ausgezahlt (zum Beispiel als lebenslange Rente)."
+      ],
+      [
+        "- Kapitalanlage mit Fondsauswahl ohne feste Zertifizierungspflicht → Fondsgebundene Rentenversicherung",
+        "- Rentenversicherung, bei der die Beiträge in Investmentfonds angelegt werden, ohne staatliche Förderung → Fondsgebundene Rentenversicherung"
+      ],
+      [
+        "**Erklärung:** Erst wird der individuelle Bedarf erhoben, dann werden geförderte Schichten ausgeschöpft, bevor ungeförderte Produkte ergänzt werden.",
+        "**Erklärung:** Erst wird der individuelle Bedarf erhoben, dann werden geförderte Möglichkeiten geprüft und im Rahmen des Bedarfs genutzt (nicht pauschal ausgeschöpft: Liquidität, Kosten und Flexibilität zählen mit), bevor ungeförderte Produkte ergänzt werden."
+      ],
+      [
+        "- Die Form ist staatlich gefördert, aber an bestimmte Auszahlungsbedingungen gebunden → Schicht 2: Zusatzversorgung",
+        "- Die Form ist staatlich gefördert und erlaubt auch Auszahlungen außerhalb einer reinen lebenslangen Rente (z. B. teilweise Kapitalentnahme zu Rentenbeginn) → Schicht 2: Zusatzversorgung"
+      ],
+      [
+        "Schicht 2 durch staatliche Förderung bei gebundenen Auszahlungsbedingungen, Schicht 3 durch freie Verfügbarkeit.",
+        "Schicht 2 durch staatliche Förderung bei Auszahlungsregeln, die auch eine teilweise Kapitalentnahme oder ein Kapitalwahlrecht erlauben, Schicht 3 durch freie Verfügbarkeit."
+      ]
+    ]
+  },
+  {
+    "datei": "kb1/fallaufgaben.md",
+    "paare": [
+      [
+        "Analysieren Sie, warum es für Frau Beckmann sinnvoll sein kann, zunächst das geförderte bAV-Angebot auszuschöpfen, bevor sie über zusätzliche ungeförderte Vorsorgeprodukte der Schicht 3 nachdenkt.",
+        "Analysieren Sie, warum es für Frau Beckmann sinnvoll sein kann, zunächst das geförderte bAV-Angebot zu prüfen und zu nutzen, bevor sie über zusätzliche ungeförderte Vorsorgeprodukte der Schicht 3 nachdenkt, und welche Gesichtspunkte dabei gegen ein vollständiges Ausschöpfen sprechen können."
+      ],
+      [
+        "Teilaufgabe 4: Geförderte Schichten bieten steuerliche bzw. Zuschussvorteile, die bei ungeförderten Produkten der Schicht 3 fehlen — daher zunächst die geförderten Möglichkeiten ausschöpfen.",
+        "Teilaufgabe 4: Geförderte Möglichkeiten bieten steuerliche bzw. Zuschussvorteile (hier vor allem den Arbeitgeberzuschuss), die bei ungeförderten Produkten der Schicht 3 fehlen — daher sind sie häufig zuerst zu prüfen. Ob und wie weit sie genutzt werden, hängt vom Einzelfall ab: Dagegen sprechen können eine fehlende Liquiditätsreserve, die Bindung des Kapitals bis zum Rentenbeginn, Kosten und der Wunsch nach Flexibilität."
+      ],
+      [
+        "welche vertragliche Frist er bei einer künftigen Unfallversicherung im Blick behalten müsste",
+        "welche vertraglichen Fristen er bei einer künftigen Unfallversicherung im Blick behalten müsste"
+      ],
+      [
+        "Bei einer künftigen Unfallversicherung muss die Invalidität innerhalb der vertraglich vereinbarten Frist (üblicherweise ca. 15 Monate) ärztlich festgestellt und geltend gemacht werden;",
+        "Bei einer künftigen Unfallversicherung muss die Invalidität innerhalb der vertraglich vereinbarten Fristen (nach den GDV-Musterbedingungen 15 Monate nach dem Unfall für Eintritt, ärztliche Feststellung und Geltendmachung; ältere Tarife verlangen den Eintritt innerhalb eines Jahres) eingetreten, ärztlich festgestellt und geltend gemacht werden;"
+      ]
+    ]
+  }
+]

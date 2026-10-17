@@ -657,7 +657,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Situation verrät die Klausel über den Punkt, an dem die Verantwortung des Verkäufers endet: am Werksgelände (EXW), an Bord des Schiffes im Verschiffungshafen (FOB), im Bestimmungshafen nach organisiertem Transport samt Versicherung (CIF) oder an der Lieferadresse des Käufers einschließlich Zollformalitäten (DDP). Typische Verwechslung: CIF und DDP — CIF reicht bis zum Bestimmungshafen, DDP bis zur Lieferadresse des Käufers.
+> Die Situation verrät die Klausel über den Punkt, an dem die Verantwortung des Verkäufers endet: am Werksgelände (EXW), an Bord des Schiffes im Verschiffungshafen (FOB), im Bestimmungshafen nach organisiertem Transport samt Versicherung (CIF: die Kosten reichen bis dorthin, die Gefahr geht schon an Bord über) oder an der Lieferadresse des Käufers einschließlich Zollformalitäten (DDP). Typische Verwechslung: CIF und DDP — CIF reicht bis zum Bestimmungshafen, DDP bis zur Lieferadresse des Käufers.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -684,7 +684,7 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die vier Klauseln lassen sich auf einer Skala anordnen: EXW legt die geringste Verantwortung auf den Verkäufer, FOB reicht bis zur Verladung auf das Schiff, CIF zusätzlich bis zum organisierten Transport mit Versicherung bis zum Bestimmungshafen, DDP am weitesten bis zur Lieferadresse samt Zollformalitäten. Typische Verwechslung: FOB mit CIF — beide beziehen sich auf den Schiffstransport, aber nur bei CIF kümmert sich der Verkäufer um Transport und Versicherung bis zum Bestimmungshafen.
+> Die vier Klauseln lassen sich auf einer Skala anordnen: EXW legt die geringste Verantwortung auf den Verkäufer, FOB reicht bis zur Verladung auf das Schiff, CIF zusätzlich in den Kosten bis zum organisierten Transport mit Versicherung bis zum Bestimmungshafen (die Gefahr geht wie bei FOB schon an Bord über), DDP am weitesten bis zur Lieferadresse samt Zollformalitäten. Typische Verwechslung: FOB mit CIF — beide beziehen sich auf den Schiffstransport, aber nur bei CIF kümmert sich der Verkäufer um Transport und Versicherung bis zum Bestimmungshafen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

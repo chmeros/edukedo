@@ -127,8 +127,8 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 ### Drei-Schichten-Modell der Altersvorsorge (4 Fragen) — Zonen: Schicht 1: Basisversorgung · Schicht 2: Zusatzversorgung · Schicht 3: Private Vorsorge
 
 **Besonders prüfen:**
-- ⚠ **Steuer- und Sozialversicherungsrecht, Rechtsstand prüfen:** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“. Das Drei-Schichten-Modell ist die Kursfassung; Reformvorhaben zur privaten Altersvorsorge sind nicht berücksichtigt. In den Begriffen stehen keine Zahlen, Paragrafen oder Produktempfehlungen; die Szenarien enthalten keine Eignungsaussage und ersetzen keine Beratung.
-- ⚠ Q-1.4-14: „Grund- und Kinderzulage“ als Schicht-2-Merkmal ist eine Ableitung (Zulagen stehen im Kurs nur bei Riester); „staatlich gefördert“ trifft auch auf die Basisrente zu, die Erklärung warnt davor. Der Kurs sagt „grundsätzlich“ nicht vererbbar, die Begriffsformulierung ist absoluter (Hinterbliebenenabsicherung als Ausnahme laut Kurs) — rechtlich klären.
+- ⚠ **Steuer- und Sozialversicherungsrecht, Rechtsstand prüfen:** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“. Das Drei-Schichten-Modell ist die Kursfassung; Das Altersvorsorgereformgesetz vom 26.05.2026 (gültig ab 01.01.2027) ist im Kurs berücksichtigt, die Folgeverordnung zum Altersvorsorgedepot nicht (Stand Oktober 2026, vor Verwendung prüfen). In den Begriffen stehen keine Zahlen, Paragrafen oder Produktempfehlungen; die Szenarien enthalten keine Eignungsaussage und ersetzen keine Beratung.
+- ⚠ Q-1.4-14: Das Schicht-2-Merkmal ist positiv gefasst (Auszahlung auch außerhalb einer reinen lebenslangen Rente); „staatlich gefördert“ trifft auch auf die Basisrente zu, die Erklärung grenzt das ab. Der Kurs sagt „grundsätzlich“ nicht vererbbar, die Begriffsformulierung ist absoluter (Hinterbliebenenabsicherung als Ausnahme laut Kurs) — rechtlich klären.
 - ⚠ Q-1.4-15: Direktversicherung in Schicht 2 und die vermietete Eigentumswohnung als „Immobilienvermögen“ in Schicht 3 sind Ableitungen; das Szenario „Fondssparplan, jederzeit frei verfügbar“ unterstellt Verfügbarkeit, die der Kurs nur allgemein für Schicht 3 nennt.
 - ⚠ Q-1.4-16: Pensionsfonds und Direktzusage in Schicht 2 (aus „bAV = Schicht 2“) und „Versorgungswerk gehört nicht zur gesetzlichen Rentenversicherung“ (nicht ausdrücklich im Kurs, nur als Abgrenzung) sind Ableitungen. „Klassische Kapitalversicherung = Schicht 3“ folgt dem Kurs; die steuerliche Behandlung bleibt unberührt.
 
@@ -387,7 +387,7 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 
 **Zum Set — besonders prüfen (Rechtsbezug; Fragen 1, 4, 5, 11, 12, 13 und 16 vor Echtbetrieb gegenlesen):**
 - ⚠ Frage 1 (Äquivalenz- gegen Solidarprinzip, PKV gegen GKV), 4 (Basisrente gegen Riester: „ausschließlich lebenslange Rente, keine Einmalauszahlung“; bei Riester nur „ein Teil darf einmalig entnommen werden“, ohne Prozentwert) und 5 (Berufsunfähigkeitsversicherung gegen Erwerbsminderungsrente: konkrete gegen abstrakte Verweisbarkeit).
-- ⚠ Frage 11 (Dokumentations- gegen Beratungspflicht, VVG-Pflichten ohne Paragrafen), 12 (vorvertragliche Anzeigepflicht gegen Anzeige nach Eintritt des Versicherungsfalls; das Feedback nennt die Folgen „Rücktritt, Anfechtung oder Leistungskürzung je nach Verschulden“ wörtlich aus dem Kurs) und 13 (Regress als gesetzlicher Forderungsübergang gegen Schadenminderung).
+- ⚠ Frage 11 (Dokumentations- gegen Beratungspflicht, VVG-Pflichten ohne Paragrafen), 12 (vorvertragliche Anzeigepflicht gegen Anzeige nach Eintritt des Versicherungsfalls; das Feedback nennt die Folgen „Rücktritt, Kündigung oder rückwirkende Vertragsanpassung je nach Verschulden“ entsprechend dem Kurs nach § 19 VVG; korrigiert im Paket P-AI) und 13 (Regress als gesetzlicher Forderungsübergang gegen Schadenminderung).
 - ⚠ Frage 16 (Unterversicherungsverzicht gegen Unterversicherungsgrundsatz, anteilige Kürzung im Verhältnis von Versicherungssumme zu Versicherungswert; keine Formel, keine Zahlen).
 - Frage 8 (Vermögensschaden- gegen Betriebshaftpflicht): Die Berufshaftpflicht deckt laut Text ebenfalls echte Vermögensschäden, steht aber nicht als Option. Frage 14 (Plan- gegen Do-Phase im Schadenmanagement) ist Kurssystematik (PDCA), keine rechtliche Frage.
 - Weggelassen, weil der Kurs sie nicht unterscheidet: Obliegenheit gegen Anzeigepflicht (nur beiläufig), Haftzeit gegen Karenzzeit (Karenzzeit kommt nicht vor), Versicherungsnehmer gegen versicherte Person, Unter- gegen Überversicherung (Überversicherung nicht behandelt). Aus Platzgründen nicht aufgenommen, aber eindeutig: Basis- gegen Notlagentarif, Pensionskasse gegen Pensionsfonds, Innen- gegen Außenhaftung. Bewusst ausgespart: Betrugs- und Verdachtsthemen, alles mit Zahlen oder Paragrafen.
@@ -435,9 +435,9 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 - **A:** Gesetzliche Unfallversicherung
 - ✔ **B:** Private Unfallversicherung
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Die private Unfallversicherung greift weltweit, rund um die Uhr und in allen Lebensbereichen. Die gesetzliche Unfallversicherung deckt dagegen nur Arbeitsunfälle, Wegeunfälle und Berufskrankheiten (siehe Thema 1.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die private Unfallversicherung greift weltweit, rund um die Uhr und in allen Lebensbereichen. Die gesetzliche Unfallversicherung deckt dagegen vor allem Arbeitsunfälle, Wegeunfälle und Berufskrankheiten sowie einzelne weitere Personenkreise wie Schüler:innen und Kita-Kinder (siehe Thema 1.3).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Die gesetzliche Unfallversicherung ist auf Arbeitsunfälle, Wegeunfälle und Berufskrankheiten beschränkt; Unfälle in Freizeit, Haushalt oder beim Sport sind nicht erfasst. Der Schutz in allen Lebensbereichen ist das Merkmal der privaten Unfallversicherung (siehe Thema 1.3).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Die gesetzliche Unfallversicherung deckt vor allem Arbeitsunfälle, Wegeunfälle und Berufskrankheiten sowie einzelne weitere Personenkreise wie Schüler:innen und Kita-Kinder; Unfälle in Freizeit, Haushalt oder beim Sport sind in der Regel nicht erfasst. Der Schutz in allen Lebensbereichen ist das Merkmal der privaten Unfallversicherung (siehe Thema 1.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -448,14 +448,14 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### versicherung-aehnlich · 4 — Welche Vorsorgeform richtet sich vor allem an Selbstständige und Freiberufler und wird ausschließlich als lebenslange Rente ausgezahlt, ohne Möglichkeit einer teilweisen Einmalauszahlung?
+#### versicherung-aehnlich · 4 — Welche Vorsorgeform wird ausschließlich als lebenslange Rente ausgezahlt, ohne Möglichkeit einer teilweisen Einmalauszahlung?
 
 - ✔ **A:** Basisrente (Rürup-Rente)
 - **B:** Riester-Rente
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Die Basisrente richtet sich vor allem an Selbstständige und Freiberufler und ist nicht kapitalisierbar, sie wird also ausschließlich als lebenslange Rente ausgezahlt. Bei der Riester-Rente darf dagegen zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden (siehe Thema 1.4).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die Basisrente ist nicht kapitalisierbar, sie wird also ausschließlich als lebenslange Rente ausgezahlt; sie ist besonders für Selbstständige und Freiberufler gedacht. Bei der Riester-Rente darf dagegen zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden (siehe Thema 1.4).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Riester-Rente richtet sich vor allem an sozialversicherungspflichtig Beschäftigte und Beamtinnen und Beamte, und zu Rentenbeginn darf ein Teil des Kapitals einmalig entnommen werden. Selbstständige als Zielgruppe und die ausschließliche Auszahlung als lebenslange Rente kennzeichnen die Basisrente (siehe Thema 1.4).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Bei der Riester-Rente darf zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden. Die ausschließliche Auszahlung als lebenslange Rente kennzeichnet die Basisrente, die besonders für Selbstständige und Freiberufler gedacht ist (siehe Thema 1.4).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -601,7 +601,7 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 - **A:** Unverzüglich nach Eintritt des Versicherungsfalls
 - ✔ **B:** Bei Vertragsschluss, als vorvertragliche Anzeigepflicht
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Die vorvertragliche Anzeigepflicht gilt bei Vertragsschluss; eine Verletzung kann je nach Grad des Verschuldens zu Rücktritt, Anfechtung oder Leistungskürzung führen. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist dagegen die Schadenmeldung (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die vorvertragliche Anzeigepflicht gilt bei Vertragsschluss; eine Verletzung kann je nach Grad des Verschuldens zu Rücktritt, Kündigung oder rückwirkender Vertragsanpassung führen. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist dagegen die Schadenmeldung (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).
 
 **Rückmeldung bei falscher Antwort:** Nicht ganz. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist die Schadenmeldung. Die Pflicht, bekannte gefahrerhebliche Umstände wahrheitsgemäß anzuzeigen, nach denen der Versicherer gefragt hat, besteht schon vorvertraglich bei Vertragsschluss (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).
 

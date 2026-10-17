@@ -1,0 +1,251 @@
+[
+  {
+    "datei": "kp1/3.1-produktmanagement-versicherungsprodukte.md",
+    "paare": [
+      [
+        "einen Sicherheitszuschlag (Schwankungsreserve) zum Ausgleich zufälliger Schwankungen im Schadenverlauf.",
+        "einen Sicherheitszuschlag zum Ausgleich zufälliger Schwankungen im Schadenverlauf. Hinweis zur Abgrenzung: In diesem Kurs entspricht die Nettoprämie der reinen Risikoprämie (dem Schadenerwartungswert), und der Sicherheitszuschlag zählt zu den Zuschlägen der Bruttoprämie (Lernmodell, so rechnen die Aufgaben dieses Kurses); in vielen Lehrbüchern gehört er bereits zur Nettoprämie (Risikoprämie plus Sicherheitszuschlag), und die Bruttoprämie entsteht erst durch die Kostenzuschläge. In Prüfungsaufgaben ist deshalb auf die vorgegebene Zuordnung zu achten. In der Sach-, Haftpflicht- und Unfallversicherung kommt zum Beitrag der Kundschaft außerdem die Versicherungsteuer hinzu (in der Lebens- und Krankenversicherung weitgehend nicht)."
+      ],
+      [
+        "die laufende Überwachung der Schadenreserven — Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden.",
+        "die laufende Überwachung der Schadenrückstellungen (umgangssprachlich Schadenreserven) — Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden. Davon zu trennen ist die Schwankungsrückstellung: ein Bilanzposten, mit dem der Versicherer Schwankungen im Schadenverlauf über mehrere Jahre ausgleicht; sie ist kein Bestandteil der Prämie."
+      ],
+      [
+        "**Antwort:** Aus Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einem Sicherheitszuschlag (Schwankungsreserve).",
+        "**Antwort:** Aus Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einem Sicherheitszuschlag zum Ausgleich zufälliger Schwankungen (in vielen Lehrbüchern zählt er schon zur Nettoprämie; im Kurs gehört er zu den Zuschlägen der Bruttoprämie)."
+      ],
+      [
+        "**Antwort:** Die versicherungsmathematische Kalkulation der Tarife sowie die laufende Überwachung der Schadenreserven.",
+        "**Antwort:** Die versicherungsmathematische Kalkulation der Tarife sowie die laufende Überwachung der Schadenrückstellungen."
+      ],
+      [
+        "**Frage:** Was sind Schadenreserven/Rückstellungen?",
+        "**Frage:** Was sind Schadenrückstellungen (umgangssprachlich Schadenreserven)?"
+      ],
+      [
+        "**Antwort:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden.",
+        "**Antwort:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden. Davon zu unterscheiden ist die Schwankungsrückstellung, ein Bilanzposten zum Ausgleich von Schwankungen im Schadenverlauf über mehrere Jahre."
+      ],
+      [
+        "**Text:** Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden werden als ___Schadenreserven___ bezeichnet.",
+        "**Text:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden werden als ___Schadenrückstellungen___ bezeichnet."
+      ],
+      [
+        "**Zusätzliche Begriffe:** Schwankungsreserve; Deckungsstock; Combined Ratio",
+        "**Zusätzliche Begriffe:** Schwankungsrückstellung; Deckungsstock; Combined Ratio"
+      ],
+      [
+        "**Erklärung:** Schadenreserven sind von der Schwankungsreserve (Teil des Sicherheitszuschlags in der Prämie) zu unterscheiden.",
+        "**Erklärung:** Schadenrückstellungen (umgangssprachlich Schadenreserven) betreffen bereits eingetretene Schäden. Die Schwankungsrückstellung ist dagegen ein Bilanzposten zum Ausgleich von Schwankungen im Schadenverlauf und kein Bestandteil der Prämie; der Sicherheitszuschlag ist dagegen ein Prämienbestandteil."
+      ],
+      [
+        "ob ein Produkt lediglich für das Neugeschäft geschlossen wird (der Bestand bleibt für Altkunden unverändert bestehen) oder ob ein vollständiger **Bestandsübertrag/Run-off** erfolgt, etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen.",
+        "ob ein Produkt lediglich für das Neugeschäft geschlossen wird (der Bestand bleibt für Altkunden unverändert beim Versicherer bestehen und läuft bis zum Ende der Verträge aus; man spricht von **Run-off**) oder ob der Bestand ganz oder teilweise auf einen anderen Versicherer übertragen wird (**Bestandsübertragung**, die der Genehmigung der Aufsichtsbehörde bedarf), etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen."
+      ],
+      [
+        "**Antwort:** Der Tarif kann nicht mehr neu abgeschlossen werden, bestehende Verträge von Altkunden laufen jedoch unverändert weiter.",
+        "**Antwort:** Der Tarif kann nicht mehr neu abgeschlossen werden, bestehende Verträge von Altkunden laufen jedoch unverändert weiter. Der Bestand läuft damit aus (Run-off)."
+      ],
+      [
+        "**Frage:** Was versteht man unter einem „Bestandsübertrag/Run-off\"?",
+        "**Frage:** Was versteht man unter einer Bestandsübertragung, und wie unterscheidet sie sich vom Run-off?"
+      ],
+      [
+        "**Antwort:** Die vollständige Übertragung bzw. Abwicklung eines Versicherungsbestands, z. B. wenn ein Tarif durch Verordnungsänderungen wirtschaftlich unattraktiv geworden ist.",
+        "**Antwort:** Die Übertragung des ganzen oder eines Teils des Versicherungsbestands auf einen anderen Versicherer (genehmigungspflichtig). Beim Run-off bleibt dagegen der für das Neugeschäft geschlossene Bestand beim Versicherer und läuft mit den Altverträgen aus."
+      ],
+      [
+        "**Frage:** Bei welcher Maßnahme bleiben Altkunden mit ihrem bisherigen Vertrag unverändert bestehen, während keine Neuverträge mehr möglich sind?",
+        "**Frage:** Bei welcher Maßnahme bleiben Altkunden mit ihrem bisherigen Vertrag unverändert beim Versicherer bestehen und laufen aus, während keine Neuverträge mehr möglich sind?"
+      ],
+      [
+        "- [x] Schließung für Neugeschäft",
+        "- [x] Schließung für das Neugeschäft"
+      ],
+      [
+        "- [ ] Bestandsübertrag/Run-off",
+        "- [ ] Bestandsübertragung auf einen anderen Versicherer"
+      ],
+      [
+        "**Erklärung:** Beim Bestandsübertrag wird der gesamte Bestand übertragen bzw. abgewickelt, bei der Schließung für Neugeschäft laufen bestehende Verträge unverändert weiter.",
+        "**Erklärung:** Bei der Bestandsübertragung wechseln die Verträge zu einem anderen Versicherer; bei der Schließung für Neugeschäft bleiben die bestehenden Verträge unverändert beim Versicherer und laufen bis zu ihrem Ende weiter (Run-off)."
+      ]
+    ]
+  },
+  {
+    "datei": "kp1/3.3-schadenmanagement.md",
+    "paare": [
+      [
+        "- **Quotenteilung**: Trifft den Versicherungsnehmer selbst ein Mitverschulden, mindert sich schon sein Ersatzanspruch gegen den Dritten (§ 254 BGB); entsprechend geringer ist der Anspruch, der auf den Versicherer übergehen kann.",
+        "- **Mitverschulden des Versicherungsnehmers**: Trifft den Versicherungsnehmer selbst ein Mitverschulden, mindert sich schon sein Ersatzanspruch gegen den Dritten (§ 254 BGB); entsprechend geringer ist der Anspruch, der auf den Versicherer übergehen kann."
+      ],
+      [
+        "**Frage:** Was versteht man unter Quotenteilung im Regressmanagement?",
+        "**Frage:** Wie wirkt sich ein Mitverschulden des Versicherungsnehmers auf den Regress aus?"
+      ],
+      [
+        "**Antwort:** Die anteilige Kürzung des übergehenden Anspruchs, weil das Mitverschulden des Versicherungsnehmers schon seinen Ersatzanspruch gegen den Dritten mindert.",
+        "**Antwort:** Das Mitverschulden mindert schon den Ersatzanspruch gegen den Dritten; nur dieser geminderte Anspruch kann auf den Versicherer übergehen."
+      ],
+      [
+        "- Quotenteilung ↔ anteilige Kürzung des Regressanspruchs bei Mitverschulden",
+        "- Quotenvorrecht ↔ ungedeckter Schaden des Versicherungsnehmers wird aus dem Anspruch gegen den Dritten vor dem Versicherer befriedigt"
+      ],
+      [
+        "**Aussage:** Bei einem Mitverschulden des Versicherungsnehmers kann der Regressanspruch quotal gekürzt werden.",
+        "**Aussage:** Trifft den Versicherungsnehmer ein Mitverschulden, kann auch nur ein entsprechend geringerer Anspruch auf den Versicherer übergehen."
+      ],
+      [
+        "**Erklärung:** Diese anteilige Kürzung wird als Quotenteilung bezeichnet; das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers gegen den Dritten (§ 254 BGB).",
+        "**Erklärung:** Das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers gegen den Dritten; nur dieser geminderte Anspruch geht über. Davon zu unterscheiden ist das Quotenvorrecht: Es schützt den Versicherungsnehmer davor, dass der Übergang zu seinem Nachteil geltend gemacht wird."
+      ],
+      [
+        "**Text:** Trifft den Versicherungsnehmer ein Mitverschulden, wird der Regressanspruch entsprechend der ___Quotenteilung___ gekürzt.",
+        "**Text:** Verbleibt dem Versicherungsnehmer nach der Regulierung ein ungedeckter Schaden (z. B. durch eine Selbstbeteiligung), wird er aus dem Anspruch gegen den Dritten zuerst befriedigt; dieser Grundsatz heißt ___Quotenvorrecht___."
+      ],
+      [
+        "**Erklärung:** Die zusätzlichen Begriffe stammen aus anderen Themen des Fachgebiets. Das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers (§ 254 BGB).",
+        "**Erklärung:** Die zusätzlichen Begriffe stammen aus anderen Themen des Fachgebiets. Der Versicherungsnehmer hat den Vorrang, weil der Forderungsübergang nicht zu seinem Nachteil geltend gemacht werden darf."
+      ]
+    ]
+  },
+  {
+    "datei": "kp1/3.4-leistungsmanagement.md",
+    "paare": [
+      [
+        "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; der Versicherer kann den Vertrag mit einer Frist von einem Monat **kündigen** oder anpassen.",
+        "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; der Versicherer kann den Vertrag mit einer Frist von einem Monat **kündigen**, es sei denn, er hätte ihn in Kenntnis des Umstands auch zu anderen Bedingungen geschlossen; dann bleibt nur die **Vertragsanpassung**, die bei einem vom Versicherungsnehmer nicht zu vertretenden Fehler erst ab der laufenden Versicherungsperiode gilt."
+      ],
+      [
+        "sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist).",
+        "sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist). In der Krankenversicherung gelten dazu Sonderregeln, etwa eine kürzere Frist von drei Jahren."
+      ],
+      [
+        "bestimmte Risiken sind im Tarif ausdrücklich ausgeschlossen (z. B. bestimmte Vorerkrankungen bei Vertragsschluss, grob fahrlässig oder vorsätzlich herbeigeführte Ereignisse).",
+        "bestimmte Risiken sind im Tarif ausdrücklich ausgeschlossen, teils ergibt sich die Leistungsfreiheit auch unmittelbar aus dem Gesetz (z. B. bestimmte Vorerkrankungen bei Vertragsschluss, vorsätzlich herbeigeführte Ereignisse, in der Unfallversicherung etwa Bewusstseinsstörungen oder die vorsätzliche Begehung einer Straftat als Risikoausschlüsse der Bedingungen unabhängig vom Verschuldensgrad, in der Lebensversicherung die Selbsttötung innerhalb der gesetzlichen Wartefrist). Grobe Fahrlässigkeit führt in der Personenversicherung grundsätzlich nicht zum Ausschluss; die gesetzliche Kürzung nach der Schwere des Verschuldens gilt in der Sachversicherung (siehe Thema 2.1 im Fachgebiet Gewerbekunden Sach- und Vermögensschutz), in der Haftpflichtversicherung ist nur der vorsätzlich herbeigeführte Schaden ausgeschlossen. Welche Ausschlüsse im Einzelnen gelten, regeln die Bedingungen des jeweiligen Tarifs."
+      ],
+      [
+        "**Antwort:** Z. B. bestimmte bei Vertragsschluss bekannte Vorerkrankungen oder grob fahrlässig/vorsätzlich herbeigeführte Ereignisse.",
+        "**Antwort:** Z. B. bestimmte bei Vertragsschluss bekannte Vorerkrankungen oder vorsätzlich herbeigeführte Ereignisse. Grobe Fahrlässigkeit führt in der Personenversicherung grundsätzlich nicht zum Ausschluss."
+      ],
+      [
+        "Rücktritt bei Vorsatz oder grober Fahrlässigkeit, Kündigung mit Monatsfrist bei einfacher Fahrlässigkeit, Vertragsanpassung",
+        "Rücktritt bei Vorsatz oder grober Fahrlässigkeit, Kündigung mit Monatsfrist bei einfacher Fahrlässigkeit oder fehlendem Verschulden, Vertragsanpassung"
+      ],
+      [
+        "**Zusätzliche Begriffe:** Quotenteilung; Rückversicherung; Combined Ratio",
+        "**Zusätzliche Begriffe:** Quotenvorrecht; Rückversicherung; Combined Ratio"
+      ]
+    ]
+  },
+  {
+    "datei": "kp1/fallaufgaben.md",
+    "paare": [
+      [
+        "Bei einfacher Fahrlässigkeit bleibt die Kündigung mit Monatsfrist oder die Vertragsanpassung.",
+        "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; es bleibt die Kündigung mit Monatsfrist oder die Vertragsanpassung (bei fehlendem Verschulden erst ab der laufenden Versicherungsperiode). Der Versicherer muss seine Rechte innerhalb eines Monats ab Kenntnis geltend machen; sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist), im Fall liegt der Vertragsschluss erst 14 Monate zurück."
+      ]
+    ]
+  },
+  {
+    "datei": "kp1/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert bestehen.",
+        "  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert beim Versicherer bestehen und läuft aus (Run-off)."
+      ],
+      [
+        "  - Erwartung: Eine weitere Option ist ein vollständiger Bestandsübertrag bzw. Run-off, etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen.",
+        "  - Erwartung: Eine weitere Option ist die Übertragung des Bestands auf einen anderen Versicherer (Bestandsübertragung, genehmigungspflichtig), etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen; vom Run-off, dem Auslaufen des geschlossenen Bestands, ist sie zu unterscheiden."
+      ],
+      [
+        "  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag (Schwankungsreserve).",
+        "  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag; in vielen Lehrbüchern zählt der Sicherheitszuschlag schon zur Nettoprämie, im Kurs wird er den Zuschlägen der Bruttoprämie zugerechnet."
+      ],
+      [
+        "  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann (Quotenteilung); der Übergang darf aber nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden (Quotenvorrecht).",
+        "  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann; davon zu unterscheiden ist das Quotenvorrecht: Der Übergang darf nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden."
+      ],
+      [
+        "  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen.",
+        "  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen; bei fehlendem Verschulden gilt die Anpassung erst ab der laufenden Versicherungsperiode."
+      ],
+      [
+        "  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist).",
+        "  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist), in der Krankenversicherung gelten dazu Sonderregeln, etwa eine kürzere Frist von drei Jahren."
+      ]
+    ]
+  },
+  {
+    "datei": "kb2/2.1-betriebliche-sachversicherungen.md",
+    "paare": [
+      [
+        "bei grober Fahrlässigkeit hängt der Umfang der Leistungskürzung von der konkreten vertraglichen Regelung ab.",
+        "bei grober Fahrlässigkeit darf der Versicherer seine Leistung in der Sachversicherung gesetzlich entsprechend der Schwere des Verschuldens kürzen (quotale Kürzung); die Bedingungen können für den Versicherungsnehmer günstiger sein, etwa durch einen Verzicht auf den Einwand der groben Fahrlässigkeit. Diese Regel gilt für die Sachversicherung als Teil der Schadenversicherung; in der Haftpflichtversicherung (Thema 2.2) ist nach dem Gesetz nur der vorsätzlich herbeigeführte Schaden ausgeschlossen, in der Personenversicherung führt grobe Fahrlässigkeit grundsätzlich nicht zum Ausschluss (siehe Thema 3.4 im Fachgebiet Kernprozesse gestalten)."
+      ],
+      [
+        "**Antwort:** Der Versicherer ist in diesem Fall grundsätzlich leistungsfrei.",
+        "**Antwort:** Bei Vorsatz ist der Versicherer grundsätzlich leistungsfrei. Bei grober Fahrlässigkeit darf er in der Sachversicherung seine Leistung nach der Schwere des Verschuldens kürzen; die Bedingungen können für den Versicherungsnehmer günstiger sein."
+      ],
+      [
+        "werden diese nicht eingehalten, drohen im Schadenfall Leistungskürzungen.",
+        "werden diese nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden und die Leistung nicht ursächlich, bleibt er in der Regel leistungspflichtig (nicht bei Arglist)."
+      ],
+      [
+        "**Frage:** Was passiert im Regelfall, wenn ein Schaden vorsätzlich herbeigeführt wurde?",
+        "**Frage:** Was passiert im Regelfall, wenn der Versicherungsnehmer den Schaden vorsätzlich oder grob fahrlässig herbeigeführt hat?"
+      ]
+    ]
+  },
+  {
+    "datei": "kb2/2.2-haftpflichtversicherungen-gewerbekunden.md",
+    "paare": [
+      [
+        "Relevant wird das bei „Katz Fensterbau GmbH\" beispielsweise nach einem geplanten Wechsel der Rechtsform mit mehreren gleichberechtigten Geschäftsführern.",
+        "Relevant ist das bei „Katz Fensterbau GmbH\", weil auch GmbH-Geschäftsführer:innen der Gesellschaft bei Pflichtverletzungen persönlich haften und Dritte sie in Einzelfällen ebenfalls in Anspruch nehmen können. Mehrere Geschäftsführer:innen erhöhen das Risiko nicht automatisch: Sie haften der Gesellschaft grundsätzlich gemeinsam, und auch eine Aufgabenverteilung entbindet nicht von der gegenseitigen Überwachung."
+      ],
+      [
+        "**Frage:** Warum kann die D&O-Versicherung für „Katz Fensterbau GmbH\" nach einem Rechtsformwechsel besonders relevant werden?",
+        "**Frage:** Warum ist die D&O-Versicherung für „Katz Fensterbau GmbH\" relevant?"
+      ],
+      [
+        "**Antwort:** Weil Geschäftsführerinnen und Geschäftsführer als Organ persönlich für Pflichtverletzungen haften und bei mehreren Geschäftsführenden alle gemeinsam für die Geschäftsführung verantwortlich sind.",
+        "**Antwort:** Weil Geschäftsführer:innen einer GmbH als Organ persönlich für Pflichtverletzungen haften, unabhängig von ihrer Zahl; die D&O-Versicherung deckt Innen- und Außenhaftung."
+      ],
+      [
+        "die Neufassung soll nach dem Gesetzentwurf am 9. Dezember 2026 in Kraft treten",
+        "der Bundestag hat das Gesetz am 8. Oktober 2026 beschlossen, die Neufassung soll am 9. Dezember 2026 in Kraft treten"
+      ],
+      [
+        "etwa Geschäftsführer einer GmbH",
+        "etwa Geschäftsführer:innen einer GmbH"
+      ]
+    ]
+  },
+  {
+    "datei": "kb2/2.3-vermoegensschadenversicherungen.md",
+    "paare": [
+      [
+        "die Mindestversicherungssummen regelt die Versicherungsvermittlungsverordnung (VersVermV).",
+        "die Mindestversicherungssummen sind in der Versicherungsvermittlungsverordnung (VersVermV) geregelt und werden europäisch angepasst; Beträge sind hier nicht genannt (Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** Z. B. Rechtsanwälte, Steuerberater und Architekten.",
+        "**Antwort:** Z. B. Rechtsanwälte und Steuerberater; bei Architekten hängt die Pflicht vom Landesrecht ab."
+      ]
+    ]
+  },
+  {
+    "datei": "kb2/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Relevant wird die Police etwa bei der Katz Fensterbau GmbH nach einem geplanten Wechsel der Rechtsform mit mehreren gleichberechtigten Geschäftsführern.",
+        "  - Erwartung: Relevant ist die Police bei der Katz Fensterbau GmbH, weil auch GmbH-Geschäftsführer:innen für Pflichtverletzungen persönlich haften (gegenüber der Gesellschaft, in Einzelfällen auch gegenüber Dritten); mehrere Geschäftsführer:innen erhöhen das Risiko nicht automatisch."
+      ],
+      [
+        "  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, drohen im Schadenfall Leistungskürzungen.",
+        "  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden nicht ursächlich, bleibt er in der Regel leistungspflichtig."
+      ]
+    ]
+  }
+]

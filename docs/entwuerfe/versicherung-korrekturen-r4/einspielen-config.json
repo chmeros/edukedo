@@ -1,0 +1,529 @@
+{
+  "kurs": "versicherungen-finanzanlagen",
+  "rsDatum": "17.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "kb1/1.1-private-krankenversicherung.md",
+      "paare": [
+        [
+          "Bei Hilfebedürftigkeit nach dem SGB II oder dem SGB XII tritt das Ruhen nicht ein.",
+          "Bei Hilfebedürftigkeit nach dem SGB II oder dem SGB XII tritt das Ruhen nicht ein; Hilfebedürftige werden also gerade nicht in den Notlagentarif überführt, und im Basistarif halbiert sich ihr Beitrag (§ 152 Abs. 4 VAG)."
+        ],
+        [
+          "Die Beitragskalkulation unterliegt der Kalkulationsverordnung und wird regelmäßig von unabhängigen Treuhändern geprüft. Verändern sich die Rechnungsgrundlagen dauerhaft und wesentlich (z. B. steigende Behandlungskosten, höhere Lebenserwartung), sind **Beitragsanpassungen** für bestehende Tarife möglich und in der Praxis nicht selten.",
+          "Die Beitragskalkulation unterliegt den aufsichtsrechtlichen Vorgaben (insbesondere der Krankenversicherungsaufsichtsverordnung, KVAV) und der Aufsicht der BaFin. **Beitragsanpassungen** für bestehende Tarife sind in der Praxis nicht selten; sie sind möglich, wenn sich eine für die Beitragskalkulation maßgebliche Rechnungsgrundlage (z. B. Behandlungskosten, Lebenserwartung) nicht nur vorübergehend ändert und ein unabhängiger **Treuhänder** zustimmt (§ 203 Abs. 2 VVG). Der Versicherer muss dafür mindestens jährlich die erforderlichen mit den kalkulierten Versicherungsleistungen und die erforderlichen mit den kalkulierten Sterbewahrscheinlichkeiten vergleichen. Weicht ein Wert um mehr als den **Schwellenwert** ab (gesetzlich 10 % bei den Versicherungsleistungen, 5 % bei den Sterbewahrscheinlichkeiten), muss er die Beiträge des Tarifs überprüfen. Bei den Versicherungsleistungen darf in den Versicherungsbedingungen ein niedrigerer Prozentsatz vorgesehen sein; ist die Abweichung bei den Leistungen nicht nur vorübergehend, passt der Versicherer die Beiträge des Tarifs an, bei den Sterbewahrscheinlichkeiten genügt die Überschreitung der 5 %. Der Treuhänder prüft, ob die Beitragsberechnung den Rechtsvorschriften entspricht; seine Zustimmung ist Voraussetzung dafür, dass die Anpassung in Kraft gesetzt werden darf (§ 155 VAG)."
+        ],
+        [
+          "**Frage:** Wer prüft regelmäßig die Beitragskalkulation eines PKV-Versicherers?",
+          "**Frage:** Wer muss einer Beitragsanpassung in der PKV zustimmen, bevor sie in Kraft gesetzt werden darf?"
+        ],
+        [
+          "**Antwort:** Ein unabhängiger Treuhänder.",
+          "**Antwort:** Ein unabhängiger Treuhänder; er prüft, ob die Beitragsberechnung den Rechtsvorschriften entspricht."
+        ],
+        [
+          "**Antwort:** Wenn sich die Rechnungsgrundlagen (z. B. Behandlungskosten, Lebenserwartung) dauerhaft und wesentlich verändern.",
+          "**Antwort:** Wenn sich eine maßgebliche Rechnungsgrundlage (z. B. Behandlungskosten, Lebenserwartung) nicht nur vorübergehend ändert und ein unabhängiger Treuhänder zustimmt. Ab mehr als 10 % Abweichung bei den Leistungen bzw. 5 % bei den Sterbewahrscheinlichkeiten muss der Versicherer die Beiträge überprüfen."
+        ],
+        [
+          "**Zusätzliche Begriffe:** Notlagentarif; Krankentagegeld; Standardtarif",
+          "**Zusätzliche Begriffe:** Notlagentarif; Krankentagegeld; Zusatztarif"
+        ],
+        [
+          "**Erklärung:** Portabilität beschränkt sich gesetzlich auf den Basistarif-Anteil der Rückstellung.",
+          "**Erklärung:** Der gesetzliche Anspruch besteht für Verträge ab dem 1. Januar 2009 und beschränkt sich auf den Basistarif-Anteil der Rückstellung."
+        ]
+      ]
+    },
+    {
+      "datei": "kb1/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Ziel ist es, starke Beitragssprünge im Alter zu vermeiden.",
+          "Erwartung: Ziel ist es, starke Beitragssprünge im Alter zu vermeiden.\n  - Erwartung: Beitragsanpassungen in bestehenden Tarifen sind möglich, wenn sich eine Rechnungsgrundlage nicht nur vorübergehend ändert und ein unabhängiger Treuhänder zustimmt; ab einer Abweichung von mehr als 10 % bei den Leistungen bzw. 5 % bei den Sterbewahrscheinlichkeiten muss der Versicherer die Beiträge überprüfen; die Aufsicht über die Versicherer führt die BaFin."
+        ],
+        [
+          "Rückfrage: Wer prüft die Beitragskalkulation regelmäßig?",
+          "Rückfrage: Wer muss einer Beitragsanpassung zustimmen, und ab welcher Abweichung wird eine Anpassung geprüft?"
+        ],
+        [
+          "Erwartung: Unterkunft, Verpflegung und Investitionskosten sind bei stationärer Pflege grundsätzlich selbst zu tragen, was regelmäßig zu einem erheblichen Eigenanteil führt.",
+          "Erwartung: Unterkunft, Verpflegung und Investitionskosten sind bei stationärer Pflege grundsätzlich selbst zu tragen, was regelmäßig zu einem erheblichen Eigenanteil führt.\n  - Erwartung: Zur Entlastung zahlt die Pflegeversicherung ab Pflegegrad 2 einen Leistungszuschlag auf den pflegebedingten Eigenanteil, der mit der Dauer der vollstationären Pflege steigt."
+        ],
+        [
+          "Erwartung: Bei Nordantis wird die Pflegetagegeldversicherung wegen ihrer Flexibilität in der Verwendung besonders häufig empfohlen, etwa auch zur Honorierung pflegender Angehöriger.",
+          "Erwartung: Bei Nordantis wird die Pflegetagegeldversicherung wegen ihrer Flexibilität in der Verwendung besonders häufig empfohlen, etwa auch zur Honorierung pflegender Angehöriger.\n  - Erwartung: Förderfähige private Pflege-Zusatzversicherungen (umgangssprachlich „Pflege-Bahr“) werden mit einer staatlichen Zulage unterstützt, wenn ein Mindestbeitrag gezahlt wird; dafür verzichten sie auf Gesundheitsprüfung, Risikozuschläge und Leistungsausschlüsse."
+        ],
+        [
+          "Mit steigendem Pflegegrad steigen die Leistungen; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 insbesondere eine Beratung in der eigenen Häuslichkeit, und stationär",
+          "Mit steigendem Pflegegrad steigen die Leistungen in der Regel; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 stattdessen insbesondere Beratung, Pflegehilfsmittel, Wohnumfeldzuschüsse und den Entlastungsbetrag, und stationär"
+        ],
+        [
+          "Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.",
+          "Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.\n  - Erwartung: Voraussetzung ist ein Unfall im Sinne der Bedingungen: ein plötzlich von außen auf den Körper wirkendes Ereignis, durch das die versicherte Person unfreiwillig eine Gesundheitsschädigung erleidet; die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet."
+        ],
+        [
+          "nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos.",
+          "nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos; ältere Bedingungswerke verlangen teils, dass die Invalidität schon innerhalb eines Jahres eingetreten ist."
+        ],
+        [
+          "für die volle Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr.",
+          "für die Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr; die volle Grundzulage von höchstens 540 € erfordert ab 2027 Beiträge von 1.800 € im Jahr."
+        ],
+        [
+          "Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart.",
+          "Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart."
+        ],
+        [
+          "Rückfrage: In welcher Reihenfolge schöpfen Sie die Schichten in der Beratung grundsätzlich aus?",
+          "Rückfrage: Nach welchen Gesichtspunkten entscheiden Sie in der Beratung, welche Schichten Sie nutzen und in welcher Reihenfolge?"
+        ],
+        [
+          "Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen besonders häufig gewählt?",
+          "Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen häufig eingesetzt?"
+        ],
+        [
+          "Erwartung: Es gilt als zentrales Beratungsprinzip, die geförderten Schichten im Rahmen des individuellen Bedarfs auszuschöpfen, bevor ungeförderte Produkte der Schicht 3 zur weiteren Kapitalbildung ergänzt werden.",
+          "Erwartung: Förderung ist ein wichtiges, aber kein alleiniges Kriterium: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, entscheidet der individuelle Bedarf (Liquiditätsreserve, Kosten, Flexibilität), und ungeförderte Produkte der Schicht 3 können im Einzelfall auch früher oder zusätzlich sinnvoll sein."
+        ]
+      ]
+    },
+    {
+      "datei": "kb1/1.2-pflegeversicherung.md",
+      "paare": [
+        [
+          "Mit steigendem Pflegegrad steigen die Leistungen der Pflegeversicherung.",
+          "Mit steigendem Pflegegrad steigen die Leistungen der Pflegeversicherung in der Regel; nicht jede Leistungsart besteht aber schon ab Pflegegrad 1."
+        ],
+        [
+          "bei Pflegegrad 1 besteht insbesondere Anspruch auf eine regelmäßige Beratung in der eigenen Häuslichkeit.",
+          "bei Pflegegrad 1 gibt es dagegen weder Pflegegeld noch Pflegesachleistungen, sondern insbesondere Pflegeberatung, regelmäßige Beratung in der eigenen Häuslichkeit, Pflegehilfsmittel, Zuschüsse zur Verbesserung des Wohnumfelds und den monatlichen Entlastungsbetrag (§ 28a SGB XI)."
+        ],
+        [
+          "was in der Praxis regelmäßig zu einem erheblichen **Eigenanteil** führt.",
+          "was in der Praxis regelmäßig zu einem erheblichen **Eigenanteil** führt. Zur Entlastung zahlt die Pflegeversicherung ab Pflegegrad 2 zusätzlich einen **Leistungszuschlag** auf den pflegebedingten Eigenanteil, der mit der Dauer der vollstationären Pflege steigt (nach dem Gesetzestext 15 % bis zu zwölf Monate, 30 % ab dem 13. Monat, 50 % ab dem 25. Monat und 75 % ab dem 37. Monat; Stand Oktober 2026, vor Verwendung prüfen); Unterkunft, Verpflegung und Investitionskosten bleiben davon unberührt."
+        ],
+        [
+          "Bei Nordantis wird die Pflegetagegeldversicherung aufgrund ihrer Flexibilität in der Verwendung (z. B. auch zur Honorierung pflegender Angehöriger) besonders häufig empfohlen.",
+          "Bei Nordantis wird die Pflegetagegeldversicherung aufgrund ihrer Flexibilität in der Verwendung (z. B. auch zur Honorierung pflegender Angehöriger) besonders häufig empfohlen. Der Staat fördert förderfähige private Pflege-Zusatzversicherungen (umgangssprachlich „Pflege-Bahr“) mit einer **Pflegevorsorgezulage** von 5 € im Monat, wenn die zulageberechtigte Person (erwachsen und noch ohne Leistungen der Pflegeversicherung) mindestens 10 € im Monat als Beitrag zahlt; förderfähige Tarife verzichten dafür unter anderem auf Gesundheitsprüfung, Risikozuschläge und Leistungsausschlüsse (§ 127 SGB XI; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "In der sozialen Pflegeversicherung zahlen kinderlose Mitglieder ab einem bestimmten Alter einen **Beitragszuschlag**, da Kindererziehung als Beitrag zur Generationengerechtigkeit des Umlageverfahrens gewertet wird.",
+          "In der sozialen Pflegeversicherung zahlen kinderlose Mitglieder ab einem bestimmten Alter einen **Beitragszuschlag**, da Kindererziehung als Beitrag zur Generationengerechtigkeit des Umlageverfahrens gewertet wird. Seit dem Pflegeunterstützungs- und -entlastungsgesetz (PUEG) wird der Beitrag zusätzlich nach der Kinderzahl abgestuft: Eltern zahlen ab dem zweiten Kind für jedes Kind bis zum fünften einen Abschlag auf den Beitragssatz, solange das Kind noch nicht 25 Jahre alt ist (§ 55 SGB XI; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Pflegegeld ist eine Geldleistung bei Pflege durch Angehörige, Pflegesachleistung eine Sachleistung durch einen ambulanten Pflegedienst.",
+          "**Antwort:** Pflegegeld ist eine Geldleistung bei Pflege durch Angehörige, Pflegesachleistung eine Sachleistung durch einen ambulanten Pflegedienst (beides gibt es erst ab Pflegegrad 2)."
+        ],
+        [
+          "**Antwort:** Pflegegeld und Pflegesachleistungen, auch als Kombinationsleistung möglich.",
+          "**Antwort:** Pflegegeld und Pflegesachleistungen (ab Pflegegrad 2), auch als Kombinationsleistung möglich."
+        ],
+        [
+          "**Erklärung:** Häusliche Pflege kann als Geldleistung, Sachleistung oder als Kombination erfolgen;",
+          "**Erklärung:** Häusliche Pflege kann ab Pflegegrad 2 als Geldleistung, Sachleistung oder als Kombination erfolgen;"
+        ]
+      ]
+    },
+    {
+      "datei": "kb1/1.3-unfallversicherung.md",
+      "paare": [
+        [
+          "Die zentrale Leistung der PUV ist die **Invaliditätsleistung**:",
+          "Voraussetzung jeder Leistung ist ein **Unfall**: Nach dem Gesetz und den Musterbedingungen liegt ein Unfall vor, wenn die versicherte Person durch ein plötzlich von außen auf ihren Körper wirkendes Ereignis unfreiwillig eine Gesundheitsschädigung erleidet; die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet (§ 178 Abs. 2 VVG). Die Bedingungen erweitern den Begriff in Einzelfällen (z. B. Verrenkungen und Zerrungen durch erhöhte Kraftanstrengung) und schließen bestimmte Unfälle aus (z. B. durch Bewusstseinsstörungen, etwa unter Alkoholeinfluss). Die zentrale Leistung der PUV ist die **Invaliditätsleistung**:"
+        ],
+        [
+          "sowie **Übergangsleistung** (bei vorübergehender, aber noch nicht abschließend bewerteter Beeinträchtigung der Arbeits- oder Erwerbsfähigkeit).",
+          "sowie **Übergangsleistung** (bei vorübergehender, aber noch nicht abschließend bewerteter Beeinträchtigung der Arbeits- oder Erwerbsfähigkeit; sie setzt in den Tarifen, die sie anbieten, meist voraus, dass die Beeinträchtigung nach einer bestimmten Zeit, häufig sechs Monaten, noch erheblich ist; das GDV-Muster AUB 2020 enthält sie nicht)."
+        ],
+        [
+          "### Mitwirkungsanteil bei Vorerkrankungen und Progression bei mehreren Ursachen",
+          "### Mitwirkungsanteil bei Vorerkrankungen"
+        ],
+        [
+          "Nach den Musterbedingungen des GDV (AUB 2020) muss die Invalidität innerhalb von 15 Monaten nach dem Unfall eingetreten und von einem Arzt schriftlich festgestellt worden sein, und sie muss innerhalb von 15 Monaten nach dem Unfall beim Versicherer geltend gemacht werden; dazu genügt die formlose Mitteilung, dass man von einer Invalidität ausgeht. Einzelne Tarife können abweichende, teils längere Fristen vorsehen.",
+          "Nach den Musterbedingungen des GDV (AUB 2020, Stand Juni 2025) sind drei Voraussetzungen zu unterscheiden: Die Invalidität muss (1) innerhalb von 15 Monaten nach dem Unfall eingetreten und (2) in dieser Zeit von einem Arzt schriftlich festgestellt worden sein, und sie muss (3) innerhalb von 15 Monaten nach dem Unfall beim Versicherer geltend gemacht werden; dazu genügt die formlose Mitteilung, dass man von einer Invalidität ausgeht. Das sind Tarifbeispiele, keine gesetzlichen Fristen: Ältere Bedingungswerke verlangen teils, dass die Invalidität schon innerhalb eines Jahres eingetreten ist und innerhalb von 15 Monaten festgestellt und geltend gemacht wird, und einzelne Tarife sehen abweichende, teils längere Fristen vor. Unabhängig davon verlangen die Bedingungen, nach einem Unfall, der voraussichtlich zu einer Leistung führt, unverzüglich einen Arzt hinzuzuziehen und den Versicherer zu unterrichten."
+        ],
+        [
+          "Die Fristen sind vertraglich und können je Tarif abweichen.",
+          "Die Fristen sind vertraglich und können je Tarif abweichen (ältere Bedingungen verlangen z. B. den Eintritt der Invalidität schon innerhalb eines Jahres)."
+        ],
+        [
+          "**Erklärung:** Die GUV deckt nur Arbeits-, Wege- und Berufskrankheiten ab, nicht die reine Freizeitunfälle.",
+          "**Erklärung:** Bei Beschäftigten deckt die GUV Arbeitsunfälle, Wegeunfälle und Berufskrankheiten ab (daneben sind unter anderem Kinder in Kitas, Schüler:innen und Studierende kraft Gesetzes versichert), reine Freizeitunfälle dagegen nicht."
+        ],
+        [
+          "2. Ärztliche Feststellung einer dauerhaften Invalidität",
+          "2. Unverzügliche Unterrichtung des Versicherers über den Unfall"
+        ],
+        [
+          "3. Fristgerechte Geltendmachung beim Versicherer",
+          "3. Ärztliche Feststellung der dauerhaften Invalidität und Geltendmachung beim Versicherer innerhalb von 15 Monaten nach dem Unfall"
+        ],
+        [
+          "**Erklärung:** Erst nach ärztlicher Feststellung und fristgerechter Meldung kann der Versicherer die Leistung prüfen und auszahlen.",
+          "**Erklärung:** Der Unfall wird dem Versicherer zuerst unverzüglich gemeldet; danach muss die Invalidität ärztlich festgestellt und geltend gemacht werden; beides ist an eine Frist ab dem Unfall gebunden. Erst dann kann der Versicherer die Leistung prüfen und auszahlen."
+        ]
+      ]
+    },
+    {
+      "datei": "kb1/1.4-altersvorsorge.md",
+      "paare": [
+        [
+          "insbesondere die betriebliche Altersversorgung (bAV) und die Riester-Rente.",
+          "insbesondere die betriebliche Altersversorgung (bAV) und die Riester-Rente (für neue Verträge ab 2027 als geförderter Altersvorsorgevertrag, einschließlich des Altersvorsorgedepots). Anders als die Basisversorgung der Schicht 1 sind diese Formen nicht auf eine ausschließlich lebenslange, nicht kapitalisierbare Rente beschränkt (bei der Riester-Rente ist zu Rentenbeginn z. B. eine teilweise Kapitalentnahme möglich, bei der bAV je nach Zusage ein Kapitalwahlrecht); das Merkmal „staatlich gefördert“ allein trennt die Schichten nicht, denn auch die Basisrente wird steuerlich gefördert."
+        ],
+        [
+          "— bei Nordantis der in der betrieblichen Praxis mit Abstand am häufigsten gewählte Durchführungsweg für kleine und mittlere Unternehmen, da er vergleichsweise einfach einzurichten und zu verwalten ist.",
+          "— bei Nordantis ein in der betrieblichen Praxis kleiner und mittlerer Unternehmen häufig eingesetzter Durchführungsweg, da er vergleichsweise einfach einzurichten und zu verwalten ist."
+        ],
+        [
+          "Ein zentrales Beratungsprinzip ist dabei, die geförderten Schichten 1 und 2 im Rahmen des individuellen Bedarfs auszuschöpfen, bevor ungeförderte Produkte der Schicht 3 zur weiteren Kapitalbildung ergänzt werden.",
+          "Förderung ist dabei ein wichtiges, aber kein alleiniges Kriterium: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, entscheidet aber der individuelle Bedarf (ausreichende Liquiditätsreserve, Kosten, Bindung des Kapitals und Flexibilität; die Basisrente ist vor allem bei hohem Grenzsteuersatz attraktiv). Ungeförderte Produkte der Schicht 3 können deshalb im Einzelfall auch früher oder zusätzlich sinnvoll sein."
+        ],
+        [
+          "Für die volle Zulage ist ein Mindesteigenbeitrag zu leisten.",
+          "Für die Zulagen ist ein Mindesteigenbeitrag zu leisten."
+        ],
+        [
+          "als Zuschuss an den Versorgungsträger weiterleiten, soweit er dadurch tatsächlich Sozialversicherungsbeiträge einspart.",
+          "als Zuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er dadurch tatsächlich Sozialversicherungsbeiträge einspart (für Direktzusage und Unterstützungskasse besteht diese gesetzliche Pflicht nicht)."
+        ],
+        [
+          "**Antwort:** 15 % des umgewandelten Entgelts, soweit der Arbeitgeber durch die Entgeltumwandlung Sozialversicherungsbeiträge einspart (§ 1a Abs. 1a BetrAVG).",
+          "**Antwort:** 15 % des umgewandelten Entgelts, soweit der Arbeitgeber durch die Entgeltumwandlung Sozialversicherungsbeiträge einspart; der Zuschuss geht an Pensionsfonds, Pensionskasse oder Direktversicherung (§ 1a Abs. 1a BetrAVG)."
+        ],
+        [
+          "**Aussage:** Bei Entgeltumwandlung muss der Arbeitgeber unter bestimmten Voraussetzungen einen Zuschuss aus ersparten Sozialversicherungsbeiträgen an die bAV leisten.",
+          "**Aussage:** Bei Entgeltumwandlung muss der Arbeitgeber unter bestimmten Voraussetzungen einen Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart."
+        ],
+        [
+          "und beträgt 15 % des umgewandelten Entgelts.",
+          "und beträgt 15 % des umgewandelten Entgelts; sie gilt für Pensionsfonds, Pensionskasse und Direktversicherung."
+        ],
+        [
+          "**Frage:** Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen besonders häufig gewählt?",
+          "**Frage:** Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen häufig eingesetzt?"
+        ],
+        [
+          "**Frage:** Welches Beratungsprinzip gilt bei Nordantis für die Reihenfolge des Vorsorgeaufbaus?",
+          "**Frage:** Wonach richtet sich bei Nordantis, welche Schichten für den Vorsorgeaufbau genutzt werden?"
+        ],
+        [
+          "**Antwort:** Erst die geförderten Schichten 1 und 2 im Rahmen des individuellen Bedarfs ausschöpfen, bevor ungeförderte Produkte der Schicht 3 ergänzt werden.",
+          "**Antwort:** Nach dem individuellen Bedarf: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, hängt von Liquiditätsreserve, Kosten, Bindung und Flexibilität ab."
+        ],
+        [
+          "**Erklärung:** Der übrige Teil muss als lebenslange Rente ausgezahlt werden.",
+          "**Erklärung:** Der übrige Teil wird in monatlichen Leistungen ausgezahlt (zum Beispiel als lebenslange Rente)."
+        ],
+        [
+          "- Kapitalanlage mit Fondsauswahl ohne feste Zertifizierungspflicht → Fondsgebundene Rentenversicherung",
+          "- Rentenversicherung, bei der die Beiträge in Investmentfonds angelegt werden, ohne staatliche Förderung → Fondsgebundene Rentenversicherung"
+        ],
+        [
+          "**Erklärung:** Erst wird der individuelle Bedarf erhoben, dann werden geförderte Schichten ausgeschöpft, bevor ungeförderte Produkte ergänzt werden.",
+          "**Erklärung:** Erst wird der individuelle Bedarf erhoben, dann werden geförderte Möglichkeiten geprüft und im Rahmen des Bedarfs genutzt (nicht pauschal ausgeschöpft: Liquidität, Kosten und Flexibilität zählen mit), bevor ungeförderte Produkte ergänzt werden."
+        ],
+        [
+          "- Die Form ist staatlich gefördert, aber an bestimmte Auszahlungsbedingungen gebunden → Schicht 2: Zusatzversorgung",
+          "- Die Form ist staatlich gefördert und erlaubt auch Auszahlungen außerhalb einer reinen lebenslangen Rente (z. B. teilweise Kapitalentnahme zu Rentenbeginn) → Schicht 2: Zusatzversorgung"
+        ],
+        [
+          "Schicht 2 durch staatliche Förderung bei gebundenen Auszahlungsbedingungen, Schicht 3 durch freie Verfügbarkeit.",
+          "Schicht 2 durch staatliche Förderung bei Auszahlungsregeln, die auch eine teilweise Kapitalentnahme oder ein Kapitalwahlrecht erlauben, Schicht 3 durch freie Verfügbarkeit."
+        ]
+      ]
+    },
+    {
+      "datei": "kb1/fallaufgaben.md",
+      "paare": [
+        [
+          "Analysieren Sie, warum es für Frau Beckmann sinnvoll sein kann, zunächst das geförderte bAV-Angebot auszuschöpfen, bevor sie über zusätzliche ungeförderte Vorsorgeprodukte der Schicht 3 nachdenkt.",
+          "Analysieren Sie, warum es für Frau Beckmann sinnvoll sein kann, zunächst das geförderte bAV-Angebot zu prüfen und zu nutzen, bevor sie über zusätzliche ungeförderte Vorsorgeprodukte der Schicht 3 nachdenkt, und welche Gesichtspunkte dabei gegen ein vollständiges Ausschöpfen sprechen können."
+        ],
+        [
+          "Teilaufgabe 4: Geförderte Schichten bieten steuerliche bzw. Zuschussvorteile, die bei ungeförderten Produkten der Schicht 3 fehlen — daher zunächst die geförderten Möglichkeiten ausschöpfen.",
+          "Teilaufgabe 4: Geförderte Möglichkeiten bieten steuerliche bzw. Zuschussvorteile (hier vor allem den Arbeitgeberzuschuss), die bei ungeförderten Produkten der Schicht 3 fehlen — daher sind sie häufig zuerst zu prüfen. Ob und wie weit sie genutzt werden, hängt vom Einzelfall ab: Dagegen sprechen können eine fehlende Liquiditätsreserve, die Bindung des Kapitals bis zum Rentenbeginn, Kosten und der Wunsch nach Flexibilität."
+        ],
+        [
+          "welche vertragliche Frist er bei einer künftigen Unfallversicherung im Blick behalten müsste",
+          "welche vertraglichen Fristen er bei einer künftigen Unfallversicherung im Blick behalten müsste"
+        ],
+        [
+          "Bei einer künftigen Unfallversicherung muss die Invalidität innerhalb der vertraglich vereinbarten Frist (üblicherweise ca. 15 Monate) ärztlich festgestellt und geltend gemacht werden;",
+          "Bei einer künftigen Unfallversicherung muss die Invalidität innerhalb der vertraglich vereinbarten Fristen (nach den GDV-Musterbedingungen 15 Monate nach dem Unfall für Eintritt, ärztliche Feststellung und Geltendmachung; ältere Tarife verlangen den Eintritt innerhalb eines Jahres) eingetreten, ärztlich festgestellt und geltend gemacht werden;"
+        ]
+      ]
+    },
+    {
+      "datei": "kp1/3.1-produktmanagement-versicherungsprodukte.md",
+      "paare": [
+        [
+          "einen Sicherheitszuschlag (Schwankungsreserve) zum Ausgleich zufälliger Schwankungen im Schadenverlauf.",
+          "einen Sicherheitszuschlag zum Ausgleich zufälliger Schwankungen im Schadenverlauf. Hinweis zur Abgrenzung: In diesem Kurs entspricht die Nettoprämie der reinen Risikoprämie (dem Schadenerwartungswert), und der Sicherheitszuschlag zählt zu den Zuschlägen der Bruttoprämie (Lernmodell, so rechnen die Aufgaben dieses Kurses); in vielen Lehrbüchern gehört er bereits zur Nettoprämie (Risikoprämie plus Sicherheitszuschlag), und die Bruttoprämie entsteht erst durch die Kostenzuschläge. In Prüfungsaufgaben ist deshalb auf die vorgegebene Zuordnung zu achten. In der Sach-, Haftpflicht- und Unfallversicherung kommt zum Beitrag der Kundschaft außerdem die Versicherungsteuer hinzu (in der Lebens- und Krankenversicherung weitgehend nicht)."
+        ],
+        [
+          "die laufende Überwachung der Schadenreserven — Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden.",
+          "die laufende Überwachung der Schadenrückstellungen (umgangssprachlich Schadenreserven) — Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden. Davon zu trennen ist die Schwankungsrückstellung: ein Bilanzposten, mit dem der Versicherer Schwankungen im Schadenverlauf über mehrere Jahre ausgleicht; sie ist kein Bestandteil der Prämie."
+        ],
+        [
+          "**Antwort:** Aus Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einem Sicherheitszuschlag (Schwankungsreserve).",
+          "**Antwort:** Aus Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einem Sicherheitszuschlag zum Ausgleich zufälliger Schwankungen (in vielen Lehrbüchern zählt er schon zur Nettoprämie; im Kurs gehört er zu den Zuschlägen der Bruttoprämie)."
+        ],
+        [
+          "**Antwort:** Die versicherungsmathematische Kalkulation der Tarife sowie die laufende Überwachung der Schadenreserven.",
+          "**Antwort:** Die versicherungsmathematische Kalkulation der Tarife sowie die laufende Überwachung der Schadenrückstellungen."
+        ],
+        [
+          "**Frage:** Was sind Schadenreserven/Rückstellungen?",
+          "**Frage:** Was sind Schadenrückstellungen (umgangssprachlich Schadenreserven)?"
+        ],
+        [
+          "**Antwort:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden.",
+          "**Antwort:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden. Davon zu unterscheiden ist die Schwankungsrückstellung, ein Bilanzposten zum Ausgleich von Schwankungen im Schadenverlauf über mehrere Jahre."
+        ],
+        [
+          "**Text:** Rückstellungen für bereits eingetretene, aber noch nicht abschließend regulierte Schäden werden als ___Schadenreserven___ bezeichnet.",
+          "**Text:** Zurückgestellte Mittel für bereits eingetretene, aber noch nicht abschließend regulierte Schäden werden als ___Schadenrückstellungen___ bezeichnet."
+        ],
+        [
+          "**Zusätzliche Begriffe:** Schwankungsreserve; Deckungsstock; Combined Ratio",
+          "**Zusätzliche Begriffe:** Schwankungsrückstellung; Deckungsstock; Combined Ratio"
+        ],
+        [
+          "**Erklärung:** Schadenreserven sind von der Schwankungsreserve (Teil des Sicherheitszuschlags in der Prämie) zu unterscheiden.",
+          "**Erklärung:** Schadenrückstellungen (umgangssprachlich Schadenreserven) betreffen bereits eingetretene Schäden. Die Schwankungsrückstellung ist dagegen ein Bilanzposten zum Ausgleich von Schwankungen im Schadenverlauf und kein Bestandteil der Prämie; der Sicherheitszuschlag ist dagegen ein Prämienbestandteil."
+        ],
+        [
+          "ob ein Produkt lediglich für das Neugeschäft geschlossen wird (der Bestand bleibt für Altkunden unverändert bestehen) oder ob ein vollständiger **Bestandsübertrag/Run-off** erfolgt, etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen.",
+          "ob ein Produkt lediglich für das Neugeschäft geschlossen wird (der Bestand bleibt für Altkunden unverändert beim Versicherer bestehen und läuft bis zum Ende der Verträge aus; man spricht von **Run-off**) oder ob der Bestand ganz oder teilweise auf einen anderen Versicherer übertragen wird (**Bestandsübertragung**, die der Genehmigung der Aufsichtsbehörde bedarf), etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen."
+        ],
+        [
+          "**Antwort:** Der Tarif kann nicht mehr neu abgeschlossen werden, bestehende Verträge von Altkunden laufen jedoch unverändert weiter.",
+          "**Antwort:** Der Tarif kann nicht mehr neu abgeschlossen werden, bestehende Verträge von Altkunden laufen jedoch unverändert weiter. Der Bestand läuft damit aus (Run-off)."
+        ],
+        [
+          "**Frage:** Was versteht man unter einem „Bestandsübertrag/Run-off\"?",
+          "**Frage:** Was versteht man unter einer Bestandsübertragung, und wie unterscheidet sie sich vom Run-off?"
+        ],
+        [
+          "**Antwort:** Die vollständige Übertragung bzw. Abwicklung eines Versicherungsbestands, z. B. wenn ein Tarif durch Verordnungsänderungen wirtschaftlich unattraktiv geworden ist.",
+          "**Antwort:** Die Übertragung des ganzen oder eines Teils des Versicherungsbestands auf einen anderen Versicherer (genehmigungspflichtig). Beim Run-off bleibt dagegen der für das Neugeschäft geschlossene Bestand beim Versicherer und läuft mit den Altverträgen aus."
+        ],
+        [
+          "**Frage:** Bei welcher Maßnahme bleiben Altkunden mit ihrem bisherigen Vertrag unverändert bestehen, während keine Neuverträge mehr möglich sind?",
+          "**Frage:** Bei welcher Maßnahme bleiben Altkunden mit ihrem bisherigen Vertrag unverändert beim Versicherer bestehen und laufen aus, während keine Neuverträge mehr möglich sind?"
+        ],
+        [
+          "- [x] Schließung für Neugeschäft",
+          "- [x] Schließung für das Neugeschäft"
+        ],
+        [
+          "- [ ] Bestandsübertrag/Run-off",
+          "- [ ] Bestandsübertragung auf einen anderen Versicherer"
+        ],
+        [
+          "**Erklärung:** Beim Bestandsübertrag wird der gesamte Bestand übertragen bzw. abgewickelt, bei der Schließung für Neugeschäft laufen bestehende Verträge unverändert weiter.",
+          "**Erklärung:** Bei der Bestandsübertragung wechseln die Verträge zu einem anderen Versicherer; bei der Schließung für Neugeschäft bleiben die bestehenden Verträge unverändert beim Versicherer und laufen bis zu ihrem Ende weiter (Run-off)."
+        ]
+      ]
+    },
+    {
+      "datei": "kp1/3.3-schadenmanagement.md",
+      "paare": [
+        [
+          "- **Quotenteilung**: Trifft den Versicherungsnehmer selbst ein Mitverschulden, mindert sich schon sein Ersatzanspruch gegen den Dritten (§ 254 BGB); entsprechend geringer ist der Anspruch, der auf den Versicherer übergehen kann.",
+          "- **Mitverschulden des Versicherungsnehmers**: Trifft den Versicherungsnehmer selbst ein Mitverschulden, mindert sich schon sein Ersatzanspruch gegen den Dritten (§ 254 BGB); entsprechend geringer ist der Anspruch, der auf den Versicherer übergehen kann."
+        ],
+        [
+          "**Frage:** Was versteht man unter Quotenteilung im Regressmanagement?",
+          "**Frage:** Wie wirkt sich ein Mitverschulden des Versicherungsnehmers auf den Regress aus?"
+        ],
+        [
+          "**Antwort:** Die anteilige Kürzung des übergehenden Anspruchs, weil das Mitverschulden des Versicherungsnehmers schon seinen Ersatzanspruch gegen den Dritten mindert.",
+          "**Antwort:** Das Mitverschulden mindert schon den Ersatzanspruch gegen den Dritten; nur dieser geminderte Anspruch kann auf den Versicherer übergehen."
+        ],
+        [
+          "- Quotenteilung ↔ anteilige Kürzung des Regressanspruchs bei Mitverschulden",
+          "- Quotenvorrecht ↔ ungedeckter Schaden des Versicherungsnehmers wird aus dem Anspruch gegen den Dritten vor dem Versicherer befriedigt"
+        ],
+        [
+          "**Aussage:** Bei einem Mitverschulden des Versicherungsnehmers kann der Regressanspruch quotal gekürzt werden.",
+          "**Aussage:** Trifft den Versicherungsnehmer ein Mitverschulden, kann auch nur ein entsprechend geringerer Anspruch auf den Versicherer übergehen."
+        ],
+        [
+          "**Erklärung:** Diese anteilige Kürzung wird als Quotenteilung bezeichnet; das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers gegen den Dritten (§ 254 BGB).",
+          "**Erklärung:** Das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers gegen den Dritten; nur dieser geminderte Anspruch geht über. Davon zu unterscheiden ist das Quotenvorrecht: Es schützt den Versicherungsnehmer davor, dass der Übergang zu seinem Nachteil geltend gemacht wird."
+        ],
+        [
+          "**Text:** Trifft den Versicherungsnehmer ein Mitverschulden, wird der Regressanspruch entsprechend der ___Quotenteilung___ gekürzt.",
+          "**Text:** Verbleibt dem Versicherungsnehmer nach der Regulierung ein ungedeckter Schaden (z. B. durch eine Selbstbeteiligung), wird er aus dem Anspruch gegen den Dritten zuerst befriedigt; dieser Grundsatz heißt ___Quotenvorrecht___."
+        ],
+        [
+          "**Erklärung:** Die zusätzlichen Begriffe stammen aus anderen Themen des Fachgebiets. Das Mitverschulden mindert schon den Ersatzanspruch des Versicherungsnehmers (§ 254 BGB).",
+          "**Erklärung:** Die zusätzlichen Begriffe stammen aus anderen Themen des Fachgebiets. Der Versicherungsnehmer hat den Vorrang, weil der Forderungsübergang nicht zu seinem Nachteil geltend gemacht werden darf."
+        ]
+      ]
+    },
+    {
+      "datei": "kp1/3.4-leistungsmanagement.md",
+      "paare": [
+        [
+          "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; der Versicherer kann den Vertrag mit einer Frist von einem Monat **kündigen** oder anpassen.",
+          "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; der Versicherer kann den Vertrag mit einer Frist von einem Monat **kündigen**, es sei denn, er hätte ihn in Kenntnis des Umstands auch zu anderen Bedingungen geschlossen; dann bleibt nur die **Vertragsanpassung**, die bei einem vom Versicherungsnehmer nicht zu vertretenden Fehler erst ab der laufenden Versicherungsperiode gilt."
+        ],
+        [
+          "sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist).",
+          "sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist). In der Krankenversicherung gelten dazu Sonderregeln, etwa eine kürzere Frist von drei Jahren."
+        ],
+        [
+          "bestimmte Risiken sind im Tarif ausdrücklich ausgeschlossen (z. B. bestimmte Vorerkrankungen bei Vertragsschluss, grob fahrlässig oder vorsätzlich herbeigeführte Ereignisse).",
+          "bestimmte Risiken sind im Tarif ausdrücklich ausgeschlossen, teils ergibt sich die Leistungsfreiheit auch unmittelbar aus dem Gesetz (z. B. bestimmte Vorerkrankungen bei Vertragsschluss, vorsätzlich herbeigeführte Ereignisse, in der Unfallversicherung etwa Bewusstseinsstörungen oder die vorsätzliche Begehung einer Straftat als Risikoausschlüsse der Bedingungen unabhängig vom Verschuldensgrad, in der Lebensversicherung die Selbsttötung innerhalb der gesetzlichen Wartefrist). Grobe Fahrlässigkeit führt in der Personenversicherung grundsätzlich nicht zum Ausschluss; die gesetzliche Kürzung nach der Schwere des Verschuldens gilt in der Sachversicherung (siehe Thema 2.1 im Fachgebiet Gewerbekunden Sach- und Vermögensschutz), in der Haftpflichtversicherung ist nur der vorsätzlich herbeigeführte Schaden ausgeschlossen. Welche Ausschlüsse im Einzelnen gelten, regeln die Bedingungen des jeweiligen Tarifs."
+        ],
+        [
+          "**Antwort:** Z. B. bestimmte bei Vertragsschluss bekannte Vorerkrankungen oder grob fahrlässig/vorsätzlich herbeigeführte Ereignisse.",
+          "**Antwort:** Z. B. bestimmte bei Vertragsschluss bekannte Vorerkrankungen oder vorsätzlich herbeigeführte Ereignisse. Grobe Fahrlässigkeit führt in der Personenversicherung grundsätzlich nicht zum Ausschluss."
+        ],
+        [
+          "Rücktritt bei Vorsatz oder grober Fahrlässigkeit, Kündigung mit Monatsfrist bei einfacher Fahrlässigkeit, Vertragsanpassung",
+          "Rücktritt bei Vorsatz oder grober Fahrlässigkeit, Kündigung mit Monatsfrist bei einfacher Fahrlässigkeit oder fehlendem Verschulden, Vertragsanpassung"
+        ],
+        [
+          "**Zusätzliche Begriffe:** Quotenteilung; Rückversicherung; Combined Ratio",
+          "**Zusätzliche Begriffe:** Quotenvorrecht; Rückversicherung; Combined Ratio"
+        ]
+      ]
+    },
+    {
+      "datei": "kp1/fallaufgaben.md",
+      "paare": [
+        [
+          "Bei einfacher Fahrlässigkeit bleibt die Kündigung mit Monatsfrist oder die Vertragsanpassung.",
+          "Bei einfacher Fahrlässigkeit oder fehlendem Verschulden ist der Rücktritt ausgeschlossen; es bleibt die Kündigung mit Monatsfrist oder die Vertragsanpassung (bei fehlendem Verschulden erst ab der laufenden Versicherungsperiode). Der Versicherer muss seine Rechte innerhalb eines Monats ab Kenntnis geltend machen; sie erlöschen fünf Jahre nach Vertragsschluss (zehn Jahre bei Vorsatz oder Arglist), im Fall liegt der Vertragsschluss erst 14 Monate zurück."
+        ]
+      ]
+    },
+    {
+      "datei": "kp1/fachgespraech.md",
+      "paare": [
+        [
+          "  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert bestehen.",
+          "  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert beim Versicherer bestehen und läuft aus (Run-off)."
+        ],
+        [
+          "  - Erwartung: Eine weitere Option ist ein vollständiger Bestandsübertrag bzw. Run-off, etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen.",
+          "  - Erwartung: Eine weitere Option ist die Übertragung des Bestands auf einen anderen Versicherer (Bestandsübertragung, genehmigungspflichtig), etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen; vom Run-off, dem Auslaufen des geschlossenen Bestands, ist sie zu unterscheiden."
+        ],
+        [
+          "  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag (Schwankungsreserve).",
+          "  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag; in vielen Lehrbüchern zählt der Sicherheitszuschlag schon zur Nettoprämie, im Kurs wird er den Zuschlägen der Bruttoprämie zugerechnet."
+        ],
+        [
+          "  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann (Quotenteilung); der Übergang darf aber nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden (Quotenvorrecht).",
+          "  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann; davon zu unterscheiden ist das Quotenvorrecht: Der Übergang darf nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden."
+        ],
+        [
+          "  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen.",
+          "  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen; bei fehlendem Verschulden gilt die Anpassung erst ab der laufenden Versicherungsperiode."
+        ],
+        [
+          "  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist).",
+          "  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist), in der Krankenversicherung gelten dazu Sonderregeln, etwa eine kürzere Frist von drei Jahren."
+        ]
+      ]
+    },
+    {
+      "datei": "kb2/2.1-betriebliche-sachversicherungen.md",
+      "paare": [
+        [
+          "bei grober Fahrlässigkeit hängt der Umfang der Leistungskürzung von der konkreten vertraglichen Regelung ab.",
+          "bei grober Fahrlässigkeit darf der Versicherer seine Leistung in der Sachversicherung gesetzlich entsprechend der Schwere des Verschuldens kürzen (quotale Kürzung); die Bedingungen können für den Versicherungsnehmer günstiger sein, etwa durch einen Verzicht auf den Einwand der groben Fahrlässigkeit. Diese Regel gilt für die Sachversicherung als Teil der Schadenversicherung; in der Haftpflichtversicherung (Thema 2.2) ist nach dem Gesetz nur der vorsätzlich herbeigeführte Schaden ausgeschlossen, in der Personenversicherung führt grobe Fahrlässigkeit grundsätzlich nicht zum Ausschluss (siehe Thema 3.4 im Fachgebiet Kernprozesse gestalten)."
+        ],
+        [
+          "**Antwort:** Der Versicherer ist in diesem Fall grundsätzlich leistungsfrei.",
+          "**Antwort:** Bei Vorsatz ist der Versicherer grundsätzlich leistungsfrei. Bei grober Fahrlässigkeit darf er in der Sachversicherung seine Leistung nach der Schwere des Verschuldens kürzen; die Bedingungen können für den Versicherungsnehmer günstiger sein."
+        ],
+        [
+          "werden diese nicht eingehalten, drohen im Schadenfall Leistungskürzungen.",
+          "werden diese nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden und die Leistung nicht ursächlich, bleibt er in der Regel leistungspflichtig (nicht bei Arglist)."
+        ],
+        [
+          "**Frage:** Was passiert im Regelfall, wenn ein Schaden vorsätzlich herbeigeführt wurde?",
+          "**Frage:** Was passiert im Regelfall, wenn der Versicherungsnehmer den Schaden vorsätzlich oder grob fahrlässig herbeigeführt hat?"
+        ]
+      ]
+    },
+    {
+      "datei": "kb2/2.2-haftpflichtversicherungen-gewerbekunden.md",
+      "paare": [
+        [
+          "Relevant wird das bei „Katz Fensterbau GmbH\" beispielsweise nach einem geplanten Wechsel der Rechtsform mit mehreren gleichberechtigten Geschäftsführern.",
+          "Relevant ist das bei „Katz Fensterbau GmbH\", weil auch GmbH-Geschäftsführer:innen der Gesellschaft bei Pflichtverletzungen persönlich haften und Dritte sie in Einzelfällen ebenfalls in Anspruch nehmen können. Mehrere Geschäftsführer:innen erhöhen das Risiko nicht automatisch: Sie haften der Gesellschaft grundsätzlich gemeinsam, und auch eine Aufgabenverteilung entbindet nicht von der gegenseitigen Überwachung."
+        ],
+        [
+          "**Frage:** Warum kann die D&O-Versicherung für „Katz Fensterbau GmbH\" nach einem Rechtsformwechsel besonders relevant werden?",
+          "**Frage:** Warum ist die D&O-Versicherung für „Katz Fensterbau GmbH\" relevant?"
+        ],
+        [
+          "**Antwort:** Weil Geschäftsführerinnen und Geschäftsführer als Organ persönlich für Pflichtverletzungen haften und bei mehreren Geschäftsführenden alle gemeinsam für die Geschäftsführung verantwortlich sind.",
+          "**Antwort:** Weil Geschäftsführer:innen einer GmbH als Organ persönlich für Pflichtverletzungen haften, unabhängig von ihrer Zahl; die D&O-Versicherung deckt Innen- und Außenhaftung."
+        ],
+        [
+          "die Neufassung soll nach dem Gesetzentwurf am 9. Dezember 2026 in Kraft treten",
+          "der Bundestag hat das Gesetz am 8. Oktober 2026 beschlossen, die Neufassung soll am 9. Dezember 2026 in Kraft treten"
+        ],
+        [
+          "etwa Geschäftsführer einer GmbH",
+          "etwa Geschäftsführer:innen einer GmbH"
+        ]
+      ]
+    },
+    {
+      "datei": "kb2/2.3-vermoegensschadenversicherungen.md",
+      "paare": [
+        [
+          "die Mindestversicherungssummen regelt die Versicherungsvermittlungsverordnung (VersVermV).",
+          "die Mindestversicherungssummen sind in der Versicherungsvermittlungsverordnung (VersVermV) geregelt und werden europäisch angepasst; Beträge sind hier nicht genannt (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Z. B. Rechtsanwälte, Steuerberater und Architekten.",
+          "**Antwort:** Z. B. Rechtsanwälte und Steuerberater; bei Architekten hängt die Pflicht vom Landesrecht ab."
+        ]
+      ]
+    },
+    {
+      "datei": "kb2/fachgespraech.md",
+      "paare": [
+        [
+          "  - Erwartung: Relevant wird die Police etwa bei der Katz Fensterbau GmbH nach einem geplanten Wechsel der Rechtsform mit mehreren gleichberechtigten Geschäftsführern.",
+          "  - Erwartung: Relevant ist die Police bei der Katz Fensterbau GmbH, weil auch GmbH-Geschäftsführer:innen für Pflichtverletzungen persönlich haften (gegenüber der Gesellschaft, in Einzelfällen auch gegenüber Dritten); mehrere Geschäftsführer:innen erhöhen das Risiko nicht automatisch."
+        ],
+        [
+          "  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, drohen im Schadenfall Leistungskürzungen.",
+          "  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden nicht ursächlich, bleibt er in der Regel leistungspflichtig."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "kb1/1.1-private-krankenversicherung.md",
+    "kb1/fachgespraech.md",
+    "kb1/1.2-pflegeversicherung.md",
+    "kb1/1.3-unfallversicherung.md",
+    "kb1/1.4-altersvorsorge.md",
+    "kb1/fallaufgaben.md",
+    "kp1/3.1-produktmanagement-versicherungsprodukte.md",
+    "kp1/3.3-schadenmanagement.md",
+    "kp1/3.4-leistungsmanagement.md",
+    "kp1/fallaufgaben.md",
+    "kp1/fachgespraech.md",
+    "kb2/2.1-betriebliche-sachversicherungen.md",
+    "kb2/2.2-haftpflichtversicherungen-gewerbekunden.md",
+    "kb2/2.3-vermoegensschadenversicherungen.md",
+    "kb2/fachgespraech.md"
+  ]
+}

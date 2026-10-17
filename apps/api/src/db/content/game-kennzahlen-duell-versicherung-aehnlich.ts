@@ -79,21 +79,21 @@ export const kennzahlenDuellVersicherungAehnlich: KennzahlenDuellPayload = {
       antwortB: "Private Unfallversicherung",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Die private Unfallversicherung greift weltweit, rund um die Uhr und in allen Lebensbereichen. Die gesetzliche Unfallversicherung deckt dagegen nur Arbeitsunfälle, Wegeunfälle und Berufskrankheiten (siehe Thema 1.3).",
+        "Richtig! Die private Unfallversicherung greift weltweit, rund um die Uhr und in allen Lebensbereichen. Die gesetzliche Unfallversicherung deckt dagegen vor allem Arbeitsunfälle, Wegeunfälle und Berufskrankheiten sowie einzelne weitere Personenkreise wie Schüler:innen und Kita-Kinder (siehe Thema 1.3).",
       feedbackFalsch:
-        "Nicht ganz. Die gesetzliche Unfallversicherung ist auf Arbeitsunfälle, Wegeunfälle und Berufskrankheiten beschränkt; Unfälle in Freizeit, Haushalt oder beim Sport sind nicht erfasst. Der Schutz in allen Lebensbereichen ist das Merkmal der privaten Unfallversicherung (siehe Thema 1.3).",
+        "Nicht ganz. Die gesetzliche Unfallversicherung deckt vor allem Arbeitsunfälle, Wegeunfälle und Berufskrankheiten sowie einzelne weitere Personenkreise wie Schüler:innen und Kita-Kinder; Unfälle in Freizeit, Haushalt oder beim Sport sind in der Regel nicht erfasst. Der Schutz in allen Lebensbereichen ist das Merkmal der privaten Unfallversicherung (siehe Thema 1.3).",
     },
     {
       nummer: 4,
       runde: 1,
-      frage: "Welche Vorsorgeform richtet sich vor allem an Selbstständige und Freiberufler und wird ausschließlich als lebenslange Rente ausgezahlt, ohne Möglichkeit einer teilweisen Einmalauszahlung?",
+      frage: "Welche Vorsorgeform wird ausschließlich als lebenslange Rente ausgezahlt, ohne Möglichkeit einer teilweisen Einmalauszahlung?",
       antwortA: "Basisrente (Rürup-Rente)",
       antwortB: "Riester-Rente",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Die Basisrente richtet sich vor allem an Selbstständige und Freiberufler und ist nicht kapitalisierbar, sie wird also ausschließlich als lebenslange Rente ausgezahlt. Bei der Riester-Rente darf dagegen zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden (siehe Thema 1.4).",
+        "Richtig! Die Basisrente ist nicht kapitalisierbar, sie wird also ausschließlich als lebenslange Rente ausgezahlt; sie ist besonders für Selbstständige und Freiberufler gedacht. Bei der Riester-Rente darf dagegen zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden (siehe Thema 1.4).",
       feedbackFalsch:
-        "Nicht ganz. Die Riester-Rente richtet sich vor allem an sozialversicherungspflichtig Beschäftigte und Beamtinnen und Beamte, und zu Rentenbeginn darf ein Teil des Kapitals einmalig entnommen werden. Selbstständige als Zielgruppe und die ausschließliche Auszahlung als lebenslange Rente kennzeichnen die Basisrente (siehe Thema 1.4).",
+        "Nicht ganz. Bei der Riester-Rente darf zu Rentenbeginn ein Teil des Kapitals einmalig entnommen werden. Die ausschließliche Auszahlung als lebenslange Rente kennzeichnet die Basisrente, die besonders für Selbstständige und Freiberufler gedacht ist (siehe Thema 1.4).",
     },
     {
       nummer: 5,
@@ -187,7 +187,7 @@ export const kennzahlenDuellVersicherungAehnlich: KennzahlenDuellPayload = {
       antwortB: "Bei Vertragsschluss, als vorvertragliche Anzeigepflicht",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Die vorvertragliche Anzeigepflicht gilt bei Vertragsschluss; eine Verletzung kann je nach Grad des Verschuldens zu Rücktritt, Anfechtung oder Leistungskürzung führen. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist dagegen die Schadenmeldung (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).",
+        "Richtig! Die vorvertragliche Anzeigepflicht gilt bei Vertragsschluss; eine Verletzung kann je nach Grad des Verschuldens zu Rücktritt, Kündigung oder rückwirkender Vertragsanpassung führen. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist dagegen die Schadenmeldung (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).",
       feedbackFalsch:
         "Nicht ganz. Die unverzügliche Anzeige nach Eintritt des Versicherungsfalls ist die Schadenmeldung. Die Pflicht, bekannte gefahrerhebliche Umstände wahrheitsgemäß anzuzeigen, nach denen der Versicherer gefragt hat, besteht schon vorvertraglich bei Vertragsschluss (siehe Thema 3.4; zur Schadenmeldung Thema 3.3).",
     },

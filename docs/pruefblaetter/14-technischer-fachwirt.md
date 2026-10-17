@@ -404,7 +404,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | Eine Bedienperson weicht bewusst von der Vorgabe ab, um Zeit zu sparen | Mensch |
 | Spiel in den Führungsbahnen der Maschine | Maschine |
 | Das Spannfutter spannt Werkstücke ungleichmäßig | Maschine |
-| Aluminiumstangen mit abweichender Werkstoffhärte vom Lieferanten | Material |
+| Aluminiumstangen mit abweichender Werkstoffhärte vom Lieferbetrieb | Material |
 | Kühlschmierstoff mit abweichender Zusammensetzung geliefert | Material |
 | Prüfablauf sieht keine Zwischenprüfung nach dem Schruppen vor | Methode |
 | Erschütterungen durch eine Presse der Nachbarhalle | Mitwelt (Umwelt) |
@@ -434,7 +434,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 | Schwingungen durch eine unwuchtige Spindel | Maschine |
 | Die Kühlmittelpumpe der Anlage fällt zeitweise aus | Maschine |
 | Werkstoffcharge mit Einschlüssen im Gefüge | Material |
-| Rohlinge mit zu großem Aufmaß vom Lieferanten | Material |
+| Rohlinge mit zu großem Aufmaß vom Lieferbetrieb | Material |
 | Die Prüfanweisung legt keine Messstelle für die Oberfläche fest | Methode |
 | Schnittparameter im Arbeitsplan unpassend gewählt | Methode |
 | Hohe Luftfeuchte in der Halle im Sommer | Mitwelt (Umwelt) |
