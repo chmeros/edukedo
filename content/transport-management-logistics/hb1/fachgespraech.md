@@ -5,7 +5,7 @@ fachgebiet_title: "Entwickeln und Vermarkten von Güterverkehrs- und Logistikdie
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Bachelor Professional in Transport Management and Logistics" (GüLogFachwBAProFV vom 21.09.2023, in Kraft seit 28.09.2023, § 4, Handlungsbereich „Entwickeln und Vermarkten von Güterverkehrs- und Logistikdienstleistungen") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -147,16 +147,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Für eine Spedition mit eigenem Fuhrpark ist der Selbsteintritt der Regelfall, weil sie Transporte überwiegend selbst durchführt, statt sie nur zu organisieren.
   - Rückfrage: Was schuldet der Spediteur, wenn er nicht selbst eintritt, sondern ausschließlich den Transport organisiert?
 - Wann greifen die gesetzlichen Haftungshöchstbeträge des Frachtführers nicht, und warum ist das sachgerecht?
-  - Erwartung: Die Haftungshöchstbeträge entfallen, wenn der Frachtführer den Schaden vorsätzlich oder grob fahrlässig verursacht hat.
-  - Erwartung: In diesem Fall haftet der Frachtführer unbeschränkt.
+  - Erwartung: Die Haftungshöchstbeträge entfallen, wenn der Schaden auf eine Handlung oder Unterlassung zurückzuführen ist, die vorsätzlich oder leichtfertig und im Bewusstsein begangen wurde, dass ein Schaden mit Wahrscheinlichkeit eintreten werde; grobe Fahrlässigkeit allein genügt nicht. Nach der CMR gilt Vorsatz oder ein ihm gleichstehendes Verschulden.
+  - Erwartung: In diesem Fall entfallen auch die Haftungsbefreiungen, und der Frachtführer haftet ohne die Höchstbeträge.
   - Erwartung: Die Haftungshöchstbeträge sollen die wirtschaftlichen Risiken für Frachtführer kalkulierbar halten.
-  - Erwartung: Daneben sieht das Gesetz bestimmte Haftungsausschlüsse vor, etwa bei einem Mangel der Verpackung durch den Absender, bei besonderer Natur des Gutes oder bei einer Weisung des Verfügungsberechtigten.
+  - Erwartung: Daneben sieht das Gesetz Haftungsausschlüsse vor: allgemein bei einem unabwendbaren Ereignis, besonders etwa bei ungenügender Verpackung durch den Absender oder bei natürlicher Beschaffenheit des Gutes; nach der CMR zusätzlich bei einer nicht vom Frachtführer verschuldeten Weisung des Verfügungsberechtigten.
   - Rückfrage: Welche Maßnahme hilft einer Spedition, im Schadensfall die eigene Haftung korrekt einzuordnen?
 - Für welche Transporte gilt das CMR-Übereinkommen, und worin unterscheidet es sich grundlegend vom HGB-Frachtrecht?
   - Erwartung: Für den grenzüberschreitenden gewerblichen Gütertransport auf der Straße gilt regelmäßig das CMR-Übereinkommen anstelle des HGB.
-  - Erwartung: Das CMR-Übereinkommen ist ein internationales Abkommen, dem zahlreiche europäische Staaten beigetreten sind.
+  - Erwartung: Das CMR-Übereinkommen ist ein internationales Abkommen, dem zahlreiche europäische und einige außereuropäische Staaten beigetreten sind; es gilt, wenn Übernahme- und Ablieferungsort in verschiedenen Staaten liegen und mindestens einer davon Vertragsstaat ist.
   - Erwartung: Es regelt in weiten Teilen ähnliche Fragen wie das HGB-Frachtrecht, etwa Pflichten von Absender und Frachtführer, Bedeutung des Frachtbriefs und Haftung bei Verlust, Beschädigung und Lieferfristüberschreitung.
-  - Erwartung: Es sieht eigene Haftungshöchstbeträge vor, die in Sonderziehungsrechten des Internationalen Währungsfonds je Kilogramm Rohgewicht ausgedrückt werden.
+  - Erwartung: Es sieht eigene Haftungsregeln vor; der Höchstbetrag wird auch dort in Sonderziehungsrechten des Internationalen Währungsfonds je Kilogramm Rohgewicht ausgedrückt (wie im HGB-Frachtrecht), der Unterschied liegt vor allem im Anwendungsbereich und in Einzelheiten wie Stichtag der Umrechnung und Fristen.
   - Erwartung: Sonderziehungsrechte dienen als international einheitliche, währungsunabhängige Bezugsgröße.
   - Rückfrage: Was muss ein europaweit tätiges Unternehmen bei grenzüberschreitenden Transporten regelmäßig prüfen?
 - Welchen Zweck erfüllt eine zusätzliche Transport- bzw. Warenversicherung neben der gesetzlichen Haftung des Frachtführers?
@@ -166,6 +166,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Transport- bzw. Warenversicherung versichert den tatsächlichen Wert der Güter, unabhängig von der Haftung des Frachtführers.
   - Erwartung: Bei hochwertiger Fracht decken die gesetzlichen Haftungshöchstbeträge häufig nicht den vollen Warenwert ab.
   - Rückfrage: Welchen Kunden empfiehlt eine Spedition den zusätzlichen Abschluss einer eigenen Warenversicherung, und warum?
+- Ein Kundenunternehmen schreibt, Fracora habe einen Diebstahl „grob fahrlässig“ verursacht, deshalb gelte die Haftungsgrenze nicht. Wie reagieren Sie als Disposition, und was prüfen Sie?
+  - Erwartung: Die Haftungsgrenze entfällt im HGB-Frachtrecht nicht schon bei grober Fahrlässigkeit, sondern nur bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt; die CMR verlangt Vorsatz oder ein gleichstehendes Verschulden nach dem Recht des angerufenen Gerichts.
+  - Erwartung: Geprüft werden die Umstände des Einzelfalls: Sicherheitsvorgaben im Auftrag, bekannte Warnungen, Möglichkeiten, die Ware besser zu sichern, Tourenplanung und Lenkzeit, Verhalten des Fahrpersonals; dazu zählen Telematik-, Park- und Planungsdaten als Belege.
+  - Erwartung: Das Handeln von Fahrpersonal und Unterfrachtführern wird Fracora wie eigenes zugerechnet, und mit dem Wegfall der Grenzen entfallen auch die Haftungsbefreiungen; deshalb sind dokumentierte Sicherungskonzepte und Weisungen an das Fahrpersonal wichtig.
+  - Erwartung: Die Antwort an die Kundschaft bleibt sachlich: Fracora prüft den Anspruch, hält die Fristen ein, weist ihn ggf. in Textform begründet zurück und informiert die Verkehrshaftungsversicherung.
+  - Rückfrage: Was ändert sich, wenn nicht das Fahrpersonal von Fracora, sondern ein Unterfrachtführer so gehandelt hat?
+- Zwei Monate nach einem Schaden geht bei Fracora eine Reklamation ein, und später folgt eine zweite zum selben Anspruch. Wie gehen Sie mit der Verjährung um, und wie dokumentieren Sie den Fall?
+  - Erwartung: Die Verjährung tritt grundsätzlich nach einem Jahr ein, bei Vorsatz oder gleichstehendem Verschulden nach drei Jahren, gerechnet ab der Ablieferung des Gutes (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Die Reklamation in Textform (HGB) beziehungsweise schriftlich (CMR) hemmt die Verjährung bis zur Zurückweisung durch Fracora; die Zeit der Hemmung zählt nicht mit, und die zweite Reklamation zum selben Anspruch hemmt nicht erneut.
+  - Erwartung: Fracora erfasst Eingangsdatum und Form der Reklamation, berechnet das Fristende im Fristenkalender (auch mit Hemmung), prüft Obhutszeit, Anzeige, Ausschlussgründe und die Höhe (Höchstbetrag gegen Wertersatz) und antwortet in der gesetzlichen Form.
+  - Erwartung: Die Antwort wird zusammen mit den Belegen (Frachtbrief, Ladeliste, Lieferbeleg mit Vorbehalten, Fotos, Telematikdaten) abgelegt, auch weil bei einer Zurückweisung nach der CMR die Belege zurückzusenden sind.
+  - Rückfrage: Warum lässt sich die Verjährung nicht beliebig durch wiederholte Reklamationen hinauszögern?
 
 ### 1.5 Digitalisierung in der Logistik
 

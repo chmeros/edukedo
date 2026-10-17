@@ -5,7 +5,7 @@ fachgebiet_title: "Erstellen von Güterverkehrs- und Logistikdienstleistungen"
 thema_code: "HB2-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §5, Handlungsbereich „Erstellen von Güterverkehrs- und Logistikdienstleistungen" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fallaufgaben
@@ -70,8 +70,8 @@ Teilaufgabe 4 sollte auf die zunehmende Bedeutung von Umweltzertifizierungen als
 
 **Teilaufgabe 4 (5 Punkte, bloom: analysieren):** Erläutern Sie, welche Rolle der Gefahrgutbeauftragte von Fracora bei der Vorbereitung dieses Transports übernehmen sollte.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte Handelsrechnung (Wertermittlung), Ausfuhrbegleitdokument (Bestätigung der Ausfuhranmeldung durch die Ausgangszollstelle) und ggf. Ursprungszeugnis nennen.
-Teilaufgabe 2 sollte Gefahrzettel für Klasse 3, Beförderungspapier mit UN-Nummer/Verpackungsgruppe sowie einen Fahrzeugführer mit gültiger ADR-Bescheinigung fordern; je nach Menge kann zusätzlich die orangefarbene Warntafel erforderlich sein, sofern die Freimengen der 1000-Punkte-Regel überschritten werden.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte Handelsrechnung (Wertermittlung), Ausfuhranmeldung mit Ausfuhrbegleitdokument (es begleitet die Sendung zur Ausgangszollstelle) und ggf. Ursprungszeugnis nennen; davon zu unterscheiden ist die Ausgangsbestätigung (Ausgangsvermerk) der Ausgangszollstelle, die den Austritt aus dem EU-Zollgebiet belegt und in der Regel als Ausfuhrnachweis dient.
+Teilaufgabe 2 sollte Gefahrzettel für Klasse 3, Beförderungspapier mit UN-Nummer/Verpackungsgruppe sowie einen Fahrzeugführer mit gültiger ADR-Bescheinigung fordern; je nach Menge sind zusätzlich orangefarbene Warntafeln am Fahrzeug erforderlich, sofern die Grenze der 1000-Punkte-Regel überschritten wird (bei Stückgut neutrale Tafeln); Großzettel am Fahrzeug oder Container kommen nur bei bestimmten Beförderungen hinzu (z. B. Tank, Container, loser Schüttung), der Gefahrzettel gehört an die Versandstücke.
 Teilaufgabe 3 sollte kritisch hinterfragen, ob EXW angesichts der Komplexität sinnvoll ist, da hier die gesamte Organisation von Transport, Gefahrgut- und Zollabwicklung beim Kunden läge; eine Klausel mit stärkerer Verkäuferverantwortung (z. B. eine C- oder D-Klausel) könnte angesichts der fachlichen Expertise von Fracora sinnvoller sein — beide begründeten Einschätzungen sind anzuerkennen.
 Teilaufgabe 4 sollte die Prüfung der korrekten Klassifizierung, Kennzeichnung und Dokumentation sowie die Beratung der beteiligten Abteilungen und ggf. des Kunden durch den Gefahrgutbeauftragten hervorheben.
 

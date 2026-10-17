@@ -5,7 +5,7 @@ fachgebiet_title: "Erstellen von Güterverkehrs- und Logistikdienstleistungen"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §5, Handlungsbereich „Erstellen von Güterverkehrs- und Logistikdienstleistungen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -19,7 +19,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Beim Speditionsvertrag organisiert der Spediteur die Versendung des Gutes, führt den Transport aber nicht zwangsläufig selbst durch.
   - Erwartung: Der Spediteur beauftragt gegebenenfalls Frachtführer mit der Durchführung des Transports.
   - Erwartung: Ein Beispiel: Ein Speditionsunternehmen mit eigenem Fuhrpark tritt als Frachtführer auf, wenn es selbst befördert, und als Spediteur, wenn es an Subunternehmer oder Partner, z. B. für Seefracht, vergibt.
-  - Rückfrage: Welches Übereinkommen gilt für grenzüberschreitende Straßentransporte innerhalb Europas?
+  - Rückfrage: Welches Übereinkommen gilt für grenzüberschreitende Straßentransporte, und wann ist es anwendbar?
 - Wie funktioniert das Sparverfahren (Savings-Algorithmus) in der Tourenplanung, und wo liegen seine Grenzen?
   - Erwartung: Das Sparverfahren berechnet für Paare von Kunden die Einsparung, die entsteht, wenn beide auf einer gemeinsamen Tour statt auf getrennten Einzeltouren beliefert werden.
   - Erwartung: Schrittweise werden die einsparungsträchtigsten Verbindungen zu Touren zusammengefügt.
@@ -43,7 +43,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Rückfrage: Für welche Güter eignet sich das Direktzurren besonders?
 - Wer trägt bei der Ladungssicherung welche Verantwortung, und warum ist diese Aufteilung sinnvoll?
   - Erwartung: Die Verantwortung für ordnungsgemäße Ladungssicherung ist geteilt.
-  - Erwartung: Der Verlader haftet für die sachgerechte Verstauung.
+  - Erwartung: Im Frachtvertrag lädt, staut und befestigt der Absender beförderungssicher (Regelfall), der Frachtführer sorgt für die betriebssichere Verladung; öffentlich-rechtlich haftet der Verlader für die sachgerechte Verstauung.
   - Erwartung: Der Fahrzeugführer haftet für die verkehrssichere Sicherung vor Fahrtantritt.
   - Erwartung: Der Halter haftet für die Bereitstellung geeigneter Sicherungsmittel.
   - Erwartung: Die Ladung muss so verstaut und gesichert sein, dass sie auch bei Vollbremsung oder plötzlichem Ausweichen nicht verrutscht.
@@ -122,7 +122,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 - Was ist eine EORI-Nummer, und warum ist sie für den grenzüberschreitenden Warenverkehr notwendig?
   - Erwartung: EORI steht für Economic Operators' Registration and Identification.
   - Erwartung: Die EORI-Nummer ist eine EU-weit eindeutige Kennung, mit der Zollbehörden Wirtschaftsbeteiligte identifizieren.
-  - Erwartung: Sie ist Voraussetzung für jedes Unternehmen, das am grenzüberschreitenden Warenverkehr mit der EU teilnimmt.
+  - Erwartung: Sie wird grundsätzlich für Zollanmeldungen und Zollverfahren benötigt, etwa bei Ein- und Ausfuhren mit Drittländern; im Warenverkehr zwischen EU-Mitgliedstaaten ohne Zollverfahren ist sie nicht erforderlich.
   - Rückfrage: Über welches System werden Zollanmeldungen in Deutschland elektronisch abgewickelt?
 - Welchen Unterschied gibt es zwischen einem Ursprungszeugnis und einem Präferenznachweis?
   - Erwartung: Das Ursprungszeugnis bescheinigt den wirtschaftlichen Ursprung einer Ware, also wo sie hergestellt bzw. wesentlich be- oder verarbeitet wurde.
@@ -142,20 +142,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
 ### 2.5 Gefahrgut- und Sicherheitsvorschriften
 
 - Welche Angaben macht die orangefarbene Warntafel am Fahrzeug, und wozu dienen sie im Gefahrenfall?
-  - Erwartung: Die orangefarbene Warntafel ist für den Straßentransport in loser Schüttung oder größeren Mengen zusätzlich am Fahrzeug vorgeschrieben.
-  - Erwartung: Im oberen Feld zeigt sie die Kemler-Zahl (Gefahrnummer), die die Art der Gefahr beschreibt, z. B. Entzündbarkeit.
-  - Erwartung: Im unteren Feld zeigt sie die vierstellige UN-Nummer, eine eindeutige, weltweit standardisierte Stoffkennung.
+  - Erwartung: Fahrzeuge mit gefährlichen Gütern führen grundsätzlich vorn und hinten orangefarbene Warntafeln, soweit keine Freistellung (z. B. nach der 1000-Punkte-Regel) greift; bei Stückgut sind sie in der Regel neutral, nummerierte Tafeln tragen vor allem Tank- und Schüttgutfahrzeuge.
+  - Erwartung: Im oberen Feld zeigt die nummerierte Tafel die Kemler-Zahl (Gefahrnummer), die die Art der Gefahr beschreibt, z. B. Entzündbarkeit.
+  - Erwartung: Im unteren Feld zeigt die nummerierte Tafel die vierstellige UN-Nummer, eine eindeutige, weltweit standardisierte Stoffkennung.
   - Erwartung: Die Kennzeichnung ermöglicht es Einsatzkräften im Gefahrenfall, den Stoff und seine spezifischen Risiken schnell zu identifizieren, ohne erst Begleitpapiere sichten zu müssen.
-  - Rückfrage: Wodurch wird die Gefahrgutklasse an Versandstück und Fahrzeug kenntlich gemacht?
+  - Rückfrage: Wodurch wird die Gefahrgutklasse am Versandstück und, bei bestimmten Beförderungen, am Fahrzeug kenntlich gemacht?
 - Erläutern Sie, wie die Verantwortlichkeiten beim Gefahrguttransport auf Absender, Verpacker, Beförderer und Fahrzeugführer verteilt sind.
   - Erwartung: Der Absender ist dafür verantwortlich, dass das Gefahrgut korrekt klassifiziert, verpackt und gekennzeichnet sowie mit vollständigen Beförderungspapieren übergeben wird.
   - Erwartung: Der Verpacker haftet für die vorschriftsmäßige Verpackung.
   - Erwartung: Der Beförderer, bei einer Spedition typischerweise der Frachtführer, muss ein geeignetes, zugelassenes Fahrzeug einsetzen und die Vorschriften während der Beförderung einhalten.
   - Erwartung: Der Fahrzeugführer muss über eine gültige ADR-Bescheinigung (ADR-Schein) verfügen, die durch eine spezielle Schulung und Prüfung erworben wird.
+  - Erwartung: Der Beförderer sorgt dafür, dass das Fahrzeug mit den vorgeschriebenen Tafeln und Großzetteln ausgerüstet ist.
+  - Erwartung: Der Verlader darf gefährliche Güter dem Beförderer nur übergeben, wenn die Beförderung zulässig ist, prüft die Versandstücke auf erkennbare Mängel, weist den Fahrzeugführer auf das Gut hin und bringt bei Containern Großzettel und Kennzeichen an; lädt Fracora selbst, ist sie zugleich Verlader.
+  - Erwartung: Der Empfänger darf die Annahme nicht ohne zwingenden Grund verzögern oder verweigern und prüft nach dem Entladen, ob die für ihn geltenden Vorschriften eingehalten wurden.
   - Erwartung: Jeder Gefahrguttransport muss von einem Beförderungspapier begleitet werden, das u. a. UN-Nummer, offizielle Benennung, Gefahrgutklasse, Verpackungsgruppe und Menge des Stoffs enthält.
   - Rückfrage: Was regelt das ADR einheitlich für alle Vertragsstaaten?
 - Welche Aufgaben hat ein Gefahrgutbeauftragter, und wann muss ein Unternehmen einen solchen bestellen?
-  - Erwartung: Unternehmen, die regelmäßig gefährliche Güter befördern, verpacken, verladen oder versenden, müssen nach der Gefahrgutbeauftragtenverordnung einen Gefahrgutbeauftragten bestellen.
+  - Erwartung: Unternehmen, die an der Beförderung gefährlicher Güter beteiligt sind (etwa als Beförderer, Verpacker, Verlader, Befüller, Entlader oder Versender), müssen nach der Gefahrgutbeauftragtenverordnung einen Gefahrgutbeauftragten bestellen, sofern keine Befreiung greift; befreit sind z. B. Unternehmen mit Mengen unterhalb der 1000-Punkte-Grenze oder mit nur freigestellten Beförderungen; auf die bloße Häufigkeit der Beförderungen kommt es nicht an.
   - Erwartung: Zu den Aufgaben gehört die Überwachung der Einhaltung aller gefahrgutrechtlichen Vorschriften im Unternehmen.
   - Erwartung: Zu den Aufgaben gehört die Erstellung eines jährlichen Berichts über die Beförderung gefährlicher Güter.
   - Erwartung: Zu den Aufgaben gehört die Beratung der Geschäftsleitung bei gefahrgutrelevanten Entscheidungen.

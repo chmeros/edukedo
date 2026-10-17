@@ -5,12 +5,12 @@ fachgebiet_title: "Kommunikation, Führung und Zusammenarbeit sicherstellen"
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §6, Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HB3. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten. Da der Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen" laut §6 GüLogFachwBAProFV zwingend Bestandteil der mündlichen Präsentation ist (einer der beiden verknüpften Handlungsbereiche muss immer dieser sein), ist diese Sammlung bewusst etwas umfangreicher gehalten als bei anderen Handlungsbereichen.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HB3. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten. Da der Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen" nach § 9 Abs. 2 in Verbindung mit § 3 Nr. 3 GüLogFachwBAProFV in der mündlichen Präsentation immer mit dem gewählten Thema aus einem der beiden anderen Handlungsbereiche zu verknüpfen ist (er ist also stets Teil der Präsentation), ist diese Sammlung bewusst etwas umfangreicher gehalten als bei anderen Handlungsbereichen.
 
 ### 3.1 Führungsmethoden und Mitarbeitermotivation
 
