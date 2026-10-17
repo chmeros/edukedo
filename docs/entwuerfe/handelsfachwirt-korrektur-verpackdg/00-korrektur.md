@@ -1,0 +1,5 @@
+# Korrektur Handelsfachwirt HB4 4.4 und F-HB4-07: Verpackungsrecht-Durchführungsgesetz (17.10.2026)
+
+Anlass: Die unabhängige Prüfung von P-AC Teil A (Wirtschaftsfachwirt `hsq3/3.5`) hat festgestellt, dass das Verpackungsgesetz seit dem 12.08.2026 durch das Verpackungsrecht-Durchführungsgesetz (VerpackDG) abgelöst ist (neben der unmittelbar geltenden Verordnung (EU) 2025/40). Die eingespielten Texte `hb4/4.4` (Rechtsrahmen-Tabelle, Hersteller-Definition, Abschnitt „Verpackungsrecht“, Mehrwegangebotspflicht, Antwort K-4.4-20) und `hb4/fallaufgaben.md` F-HB4-07 (Rechtsannahme 1) gingen noch vom Verpackungsgesetz aus. Die Korrektur ersetzt diese acht Stellen per Textersetzung (`einspielen-config.json`, erzeugt mit `gen.cjs`); die Darstellung bleibt auf die Grundsystematik beschränkt, Einzelheiten und Fristen bleiben offen.
+
+Nicht förmlich rechtsgeprüft; Quelle: Sekundärquellen und Gesetzestext-Auszüge, Stand Oktober 2026, vermutet, zeitkritisch (Übergangsfristen). Die Sicherheit der VerpackDG-Aussagen steht in `docs/entwuerfe/wirtschaft-logistik-marketing-recht/rechtsangaben-a.md`.
