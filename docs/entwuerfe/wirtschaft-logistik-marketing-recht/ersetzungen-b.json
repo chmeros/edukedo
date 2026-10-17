@@ -1,0 +1,42 @@
+[
+  {
+    "datei": "hsq2/2.2-finanzierungsarten.md",
+    "paare": [
+      [
+        "(Vertragsarten in Thema 3.3 „Vertragsgestaltung“ im Fachgebiet Recht und Steuern)",
+        "(Rechtsfigur, Formen und Wirkung in der Insolvenz in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik)"
+      ],
+      [
+        "wie die Ansprüche von Lieferunternehmen und Hausbank gegeneinander abgegrenzt werden, regeln Gesetz und Rechtsprechung, es wird hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+        "wie die Ansprüche von Lieferunternehmen und Hausbank gegeneinander abgegrenzt werden, steht im Überblick in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik (Abschnitt „Eigentumsvorbehalt bei Verarbeitung, Weiterverkauf und Insolvenz“); Einzelheiten regeln Gesetz und Rechtsprechung und sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+      ]
+    ]
+  },
+  {
+    "datei": "hsq3/3.4-bedarf-bestellmenge-make-or-buy.md",
+    "paare": [
+      [
+        "Gesetzliche Vorgaben zu Lenkzeiten, Fahrzeugen und Haftung beim Transport werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+        "Gesetzliche Vorgaben zu Lenkzeiten und Fahrzeugen werden hier nicht behandelt; die Haftung beim Transport (Frachtvertrag, Haftungshöchstbetrag, Schadensanzeige) steht in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik (nicht förmlich rechtsgeprüft)."
+      ]
+    ]
+  },
+  {
+    "datei": "hsq3/3.3-wertschoepfungskette-rationalisierung.md",
+    "paare": [
+      [
+        "insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts.",
+        "insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts (Obhutshaftung, Haftungshöchstbetrag und Schadensanzeige stehen in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik)."
+      ]
+    ]
+  },
+  {
+    "datei": "wbq3/3.3-vertragsgestaltung.md",
+    "paare": [
+      [
+        "die Voraussetzungen sind hier nicht behandelt.",
+        "die Voraussetzungen, Formen und Grenzen stehen in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik in den Abschnitten „Eigentumsvorbehalt: Zweck, Formen und Wirksamkeit“ und „Eigentumsvorbehalt bei Verarbeitung, Weiterverkauf und Insolvenz“."
+      ]
+    ]
+  }
+]

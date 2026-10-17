@@ -1,0 +1,168 @@
+{
+  "kurs": "wirtschaftsfachwirt",
+  "rsDatum": "16.10.2026",
+  "neueThemen": [
+    [
+      "wf-3.5-entsorgung-recycling.md",
+      "hsq3/3.5-entsorgung-recycling.md"
+    ],
+    [
+      "wf-3.6-rechtsaspekte-logistik.md",
+      "hsq3/3.6-rechtsaspekte-logistik.md"
+    ],
+    [
+      "wf-4.6-rechtsaspekte-marketing-vertrieb.md",
+      "hsq4/4.6-rechtsaspekte-marketing-vertrieb.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "wf-4.4-ergaenzung-zahlungsbedingungen-zollwert.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hsq4/4.4-internationale-geschaeftsbeziehungen.md"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "wf-faelle-a.md",
+      "hsq3"
+    ],
+    [
+      "wf-faelle-b.md",
+      "hsq3"
+    ],
+    [
+      "wf-faelle-c.md",
+      "hsq4"
+    ],
+    [
+      "wf-faelle-d.md",
+      "hsq4"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hsq3/fallaufgaben.md",
+      "paare": [
+        [
+          "HSQ3 (3.1–3.4)",
+          "HSQ3 (3.1–3.6)"
+        ]
+      ]
+    },
+    {
+      "datei": "hsq4/fallaufgaben.md",
+      "paare": [
+        [
+          "HSQ4 (4.1–4.5)",
+          "HSQ4 (4.1–4.6)"
+        ]
+      ]
+    },
+    {
+      "datei": "hsq2/2.2-finanzierungsarten.md",
+      "paare": [
+        [
+          "(Vertragsarten in Thema 3.3 „Vertragsgestaltung“ im Fachgebiet Recht und Steuern)",
+          "(Rechtsfigur, Formen und Wirkung in der Insolvenz in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik)"
+        ],
+        [
+          "wie die Ansprüche von Lieferunternehmen und Hausbank gegeneinander abgegrenzt werden, regeln Gesetz und Rechtsprechung, es wird hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "wie die Ansprüche von Lieferunternehmen und Hausbank gegeneinander abgegrenzt werden, steht im Überblick in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik (Abschnitt „Eigentumsvorbehalt bei Verarbeitung, Weiterverkauf und Insolvenz“); Einzelheiten regeln Gesetz und Rechtsprechung und sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hsq3/3.4-bedarf-bestellmenge-make-or-buy.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zu Lenkzeiten, Fahrzeugen und Haftung beim Transport werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Gesetzliche Vorgaben zu Lenkzeiten und Fahrzeugen werden hier nicht behandelt; die Haftung beim Transport (Frachtvertrag, Haftungshöchstbetrag, Schadensanzeige) steht in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hsq3/3.3-wertschoepfungskette-rationalisierung.md",
+      "paare": [
+        [
+          "insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts.",
+          "insbesondere Haftungsfragen bei Verlust oder Beschädigung des Transportguts (Obhutshaftung, Haftungshöchstbetrag und Schadensanzeige stehen in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik)."
+        ]
+      ]
+    },
+    {
+      "datei": "wbq3/3.3-vertragsgestaltung.md",
+      "paare": [
+        [
+          "die Voraussetzungen sind hier nicht behandelt.",
+          "die Voraussetzungen, Formen und Grenzen stehen in Thema 3.6 „Rechtsaspekte der Logistik“ im Fachgebiet Logistik in den Abschnitten „Eigentumsvorbehalt: Zweck, Formen und Wirksamkeit“ und „Eigentumsvorbehalt bei Verarbeitung, Weiterverkauf und Insolvenz“."
+        ]
+      ]
+    },
+    {
+      "datei": "hsq4/4.5-produktlebenszyklus-preiselastizitaet-verkaufsgespraech.md",
+      "paare": [
+        [
+          "Gesetzliche Vorgaben zu Preisabsprachen und Preisangaben werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Preisabsprachen zwischen Wettbewerbsunternehmen sind Kartellrecht und werden hier nicht behandelt; die gesetzlichen Vorgaben zu Preisangaben im Geschäft zwischen Unternehmen stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Preisangaben, Rabatte und Zugaben im Geschäft zwischen Unternehmen“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Gesetzliche Vorgaben zu Preisen und Rabatten werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die gesetzlichen Vorgaben zu Preisen, Rabatten und Zugaben im Geschäft zwischen Unternehmen stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Preisangaben, Rabatte und Zugaben im Geschäft zwischen Unternehmen“ (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "Gesetzliche Vorgaben zur Darstellung von Preisen und zur Werbung mit Preisen werden hier nicht behandelt (nicht förmlich rechtsgeprüft); täuschende Darstellungen",
+          "Die gesetzlichen Vorgaben zur Darstellung von Preisen und zur Werbung mit Preisen im Geschäft zwischen Unternehmen stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ in den Abschnitten „Irreführung in Prospekten, Katalogen und Angeboten: Verfügbarkeit, Testergebnisse, Siegel und Umweltaussagen“ und „Preisangaben, Rabatte und Zugaben im Geschäft zwischen Unternehmen“ (nicht förmlich rechtsgeprüft); täuschende Darstellungen"
+        ],
+        [
+          "Beratungs- und Informationspflichten sowie die Grenzen unlauterer Verkaufsmethoden unterliegen gesetzlichen Vorgaben, die hier nicht behandelt werden (nicht förmlich rechtsgeprüft).",
+          "Die Grenzen unlauterer und aggressiver Verkaufsmethoden stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Aggressive Verkaufsmethoden, Telefon- und E-Mail-Werbung gegenüber Unternehmen“; Beratungs- und Informationspflichten aus Vertrag und Gesetz sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hsq4/4.4-internationale-geschaeftsbeziehungen.md",
+      "paare": [
+        [
+          "Besondere gesetzliche Vorgaben für diese Vertriebsform werden hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Die gesetzlichen Vorgaben für eine Handelsvertretung im Inland (Pflichten, Provision, Kündigung, Ausgleichsanspruch) stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Handelsvertretung: Rechtsstellung, Provision, Kündigung und Ausgleichsanspruch“; für eine Handelsvertretung im Zielland hängen sie vom anwendbaren Recht ab und sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ],
+        [
+          "und gesetzliche Vorgaben gegen Bestechung und Vorteilsgewährung, hier nicht behandelt (nicht förmlich rechtsgeprüft)",
+          "und gesetzliche Vorgaben gegen Bestechung und Vorteilsgewährung (für das Inland im Überblick in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“ im Abschnitt „Preisangaben, Rabatte und Zugaben im Geschäft zwischen Unternehmen“; im Auslandsgeschäft hier nicht vertieft; nicht förmlich rechtsgeprüft)"
+        ],
+        [
+          "Gesetzliche Vorgaben zur Handelsvertretung werden im Kurs nicht behandelt.",
+          "Die gesetzlichen Vorgaben zur Handelsvertretung im Inland stehen in Thema 4.6 „Rechtsaspekte von Marketing und Vertrieb“; für eine Handelsvertretung im Ausland sind sie hier nicht behandelt."
+        ]
+      ]
+    },
+    {
+      "datei": "hsq4/4.4-internationale-geschaeftsbeziehungen.md",
+      "paare": [
+        [
+          "Zoll- und Steuerfragen, Exportkontrolle und Zulassungsregeln gehören ebenfalls in die Prüfung; gesetzliche Vorgaben, hier nicht behandelt (nicht förmlich rechtsgeprüft).",
+          "Zoll- und Steuerfragen, Exportkontrolle und Zulassungsregeln gehören ebenfalls in die Prüfung; der Zollwert und die Zahlungsbedingungen im Exportgeschäft stehen im Überblick in den Abschnitten „Zahlungsbedingungen im Exportgeschäft: Aufgabe und Risikoverteilung“ und „Zollwert im Überblick“ weiter unten in diesem Thema, weitere gesetzliche Vorgaben sind hier nicht behandelt (nicht förmlich rechtsgeprüft)."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hsq4/4.4-internationale-geschaeftsbeziehungen.md",
+    "hsq3/fallaufgaben.md",
+    "hsq3/fachgespraech.md",
+    "hsq4/fallaufgaben.md",
+    "hsq4/fachgespraech.md",
+    "hsq2/2.2-finanzierungsarten.md",
+    "hsq3/3.3-wertschoepfungskette-rationalisierung.md",
+    "hsq3/3.4-bedarf-bestellmenge-make-or-buy.md",
+    "wbq3/3.3-vertragsgestaltung.md",
+    "hsq4/4.5-produktlebenszyklus-preiselastizitaet-verkaufsgespraech.md"
+  ]
+}
