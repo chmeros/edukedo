@@ -5,7 +5,7 @@ fachgebiet_title: "Lösungen im Kundenbedarfsfeld Vorsorge"
 thema_code: "KB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Wahlbereich „Lösungen im Kundenbedarfsfeld Vorsorge" (BAProVFFPrV § 6) — keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -45,7 +45,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: In jungen Jahren wird dazu ein Teil des Beitrags über die reinen Risikokosten hinaus angespart.
   - Erwartung: Damit sollen die mit steigendem Alter typischerweise zunehmenden Gesundheitskosten abgefedert werden.
   - Erwartung: Ziel ist es, starke Beitragssprünge im Alter zu vermeiden.
-  - Rückfrage: Wer prüft die Beitragskalkulation regelmäßig?
+  - Erwartung: Beitragsanpassungen in bestehenden Tarifen sind möglich, wenn sich eine Rechnungsgrundlage nicht nur vorübergehend ändert und ein unabhängiger Treuhänder zustimmt; ab einer Abweichung von mehr als 10 % bei den Leistungen bzw. 5 % bei den Sterbewahrscheinlichkeiten muss der Versicherer die Beiträge überprüfen; die Aufsicht über die Versicherer führt die BaFin.
+  - Rückfrage: Wer muss einer Beitragsanpassung zustimmen, und ab welcher Abweichung wird eine Anpassung geprüft?
   - Rückfrage: Unter welcher Voraussetzung sind Beitragsanpassungen in bestehenden Tarifen möglich?
 - Welche Rolle spielt der Basistarif im System der privaten Krankenversicherung?
   - Erwartung: Der Basistarif ist ein gesetzlich vorgeschriebener Tarif, dessen Leistungen in Art, Umfang und Höhe mit denen der GKV vergleichbar sind.
@@ -61,6 +62,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die soziale Pflegeversicherung ist ausdrücklich als Teilkaskoversicherung konzipiert: Sie deckt einen wesentlichen, aber nicht den vollständigen finanziellen Aufwand einer Pflegebedürftigkeit.
   - Erwartung: Die Leistungen sind der Höhe nach gedeckelt und reichen insbesondere bei stationärer Pflege häufig nicht aus, um die tatsächlichen Heimkosten zu decken.
   - Erwartung: Unterkunft, Verpflegung und Investitionskosten sind bei stationärer Pflege grundsätzlich selbst zu tragen, was regelmäßig zu einem erheblichen Eigenanteil führt.
+  - Erwartung: Zur Entlastung zahlt die Pflegeversicherung ab Pflegegrad 2 einen Leistungszuschlag auf den pflegebedingten Eigenanteil, der mit der Dauer der vollstationären Pflege steigt.
   - Erwartung: Für die Beratung folgt daraus die Pflegelücke, die durch eine private Pflegezusatzversicherung geschlossen werden kann.
   - Rückfrage: Welche drei Grundformen der privaten Pflegezusatzversicherung unterscheidet man im Wesentlichen?
 - Wie unterscheiden sich Pflegetagegeld-, Pflegekosten- und Pflegerentenversicherung in ihrer Leistungslogik?
@@ -68,6 +70,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die Pflegekostenversicherung erstattet die tatsächlich nachgewiesenen, über die gesetzliche Leistung hinausgehenden Kosten bis zu einer vereinbarten Grenze.
   - Erwartung: Die Pflegerentenversicherung zahlt bei Pflegebedürftigkeit eine monatliche Rente, häufig kombiniert mit einer Kapitalbildung für den Erlebensfall.
   - Erwartung: Bei Nordantis wird die Pflegetagegeldversicherung wegen ihrer Flexibilität in der Verwendung besonders häufig empfohlen, etwa auch zur Honorierung pflegender Angehöriger.
+  - Erwartung: Förderfähige private Pflege-Zusatzversicherungen (umgangssprachlich „Pflege-Bahr“) werden mit einer staatlichen Zulage unterstützt, wenn ein Mindestbeitrag gezahlt wird; dafür verzichten sie auf Gesundheitsprüfung, Risikozuschläge und Leistungsausschlüsse.
   - Rückfrage: Warum ist das Pflegetagegeld in der Verwendung flexibler als die Pflegekostenversicherung?
 - Was verstehen Sie unter der „Pflegelücke“, und welche zwei Größen stellen Sie einer Kundin oder einem Kunden gegenüber, um deren Höhe zu verdeutlichen?
   - Erwartung: Die Pflegelücke ist die Differenz zwischen den tatsächlich anfallenden Pflegekosten und den von der Pflegeversicherung übernommenen Beträgen.
@@ -79,7 +82,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Der Grad der Pflegebedürftigkeit wird in fünf Pflegegraden (1 bis 5) erfasst.
   - Erwartung: Ein Begutachtungsinstrument bewertet die Selbstständigkeit in mehreren Bereichen, etwa Mobilität, kognitive und kommunikative Fähigkeiten, Selbstversorgung und Bewältigung krankheits- oder therapiebedingter Anforderungen.
   - Erwartung: Pflegegrad 1 steht für eine geringe Beeinträchtigung der Selbstständigkeit, Pflegegrad 5 für die schwersten Beeinträchtigungen mit besonderen Anforderungen an die pflegerische Versorgung.
-  - Erwartung: Mit steigendem Pflegegrad steigen die Leistungen; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 insbesondere eine Beratung in der eigenen Häuslichkeit, und stationär zahlt die Pflegeversicherung ab Pflegegrad 2 nach Pflegegrad gestaffelte, gedeckelte Pauschalen (bei Pflegegrad 1 nur einen geringen Zuschuss).
+  - Erwartung: Mit steigendem Pflegegrad steigen die Leistungen in der Regel; Pflegegeld und Pflegesachleistungen bei häuslicher Pflege gibt es erst ab Pflegegrad 2, bei Pflegegrad 1 stattdessen insbesondere Beratung, Pflegehilfsmittel, Wohnumfeldzuschüsse und den Entlastungsbetrag, und stationär zahlt die Pflegeversicherung ab Pflegegrad 2 nach Pflegegrad gestaffelte, gedeckelte Pauschalen (bei Pflegegrad 1 nur einen geringen Zuschuss).
   - Rückfrage: Welche Wahlmöglichkeiten bestehen bei häuslicher Pflege?
 - Warum sind PKV-Vollversicherte verpflichtet, eine private Pflegepflichtversicherung abzuschließen, und wie unterscheidet sich diese von einer freiwilligen Pflegezusatzversicherung?
   - Erwartung: Wer in der GKV versichert ist, ist automatisch auch sozial pflegeversichert; PKV-Vollversicherte schließen entsprechend eine private Pflegepflichtversicherung (PPV) ab.
@@ -95,6 +98,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die gesetzliche Unfallversicherung greift bei Beschäftigten bei Arbeitsunfällen, Wegeunfällen auf dem direkten Weg zur oder von der Arbeit und Berufskrankheiten; kraft Gesetzes versichert sind außerdem unter anderem Kinder in Kindertageseinrichtungen, Schüler:innen und Studierende (§ 2 SGB VII).
   - Erwartung: Unfälle in der Freizeit, im Haushalt, beim Sport oder im Straßenverkehr außerhalb des Arbeitswegs sind von ihr nicht erfasst.
   - Erwartung: Die private Unfallversicherung schließt diese Lücke und gilt weltweit und rund um die Uhr, unabhängig davon, ob sich der Unfall im Beruf, im Haushalt, beim Sport oder in der Freizeit ereignet.
+  - Erwartung: Voraussetzung ist ein Unfall im Sinne der Bedingungen: ein plötzlich von außen auf den Körper wirkendes Ereignis, durch das die versicherte Person unfreiwillig eine Gesundheitsschädigung erleidet; die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet.
   - Erwartung: Ein Beispiel: Ein Sturz beim Freizeitsport ist nur über die private Unfallversicherung abgesichert, ein Unfall auf dem direkten Arbeitsweg fällt dagegen in die gesetzliche Unfallversicherung.
   - Rückfrage: Wer finanziert die gesetzliche Unfallversicherung?
 - Was ist eine Gliedertaxe, und wofür wird sie verwendet?
@@ -110,7 +114,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Rückfrage: Wovon hängt die Höhe der Invaliditätsleistung grundsätzlich ab?
 - Welche Fristen sind für den Leistungsanspruch nach einem Unfall zu beachten, und was passiert bei deren Versäumnis?
   - Erwartung: Für den Leistungsanspruch in der privaten Unfallversicherung sind vertragliche Fristen von großer praktischer Bedeutung.
-  - Erwartung: Die Invalidität muss innerhalb der vertraglich vereinbarten Frist nach dem Unfall eingetreten und von einem Arzt schriftlich festgestellt sein und beim Versicherer geltend gemacht werden; nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos.
+  - Erwartung: Die Invalidität muss innerhalb der vertraglich vereinbarten Frist nach dem Unfall eingetreten und von einem Arzt schriftlich festgestellt sein und beim Versicherer geltend gemacht werden; nach den Musterbedingungen des GDV (AUB 2020) gelten dafür jeweils 15 Monate, und die Geltendmachung ist formlos; ältere Bedingungswerke verlangen teils, dass die Invalidität schon innerhalb eines Jahres eingetreten ist.
   - Erwartung: Die konkreten Fristen ergeben sich aus den Tarifbedingungen.
   - Erwartung: Wird eine Frist versäumt, ist der Anspruch auf die Invaliditätsleistung ausgeschlossen; nur in besonderen Ausnahmefällen lässt sich die Versäumung entschuldigen, und unterbleibt der Fristenhinweis des Versicherers nach § 186 VVG, kann er sich auf die Versäumung nicht berufen.
   - Erwartung: Bei Nordantis wird empfohlen, nach jedem nicht offensichtlich folgenlosen Unfall zeitnah eine ärztliche Untersuchung und Dokumentation vornehmen zu lassen, auch wenn eine dauerhafte Beeinträchtigung zunächst nicht absehbar ist.
@@ -127,12 +131,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Schicht 1 (Basisversorgung) umfasst Vorsorgeformen mit lebenslanger Rente, deren Ansprüche nicht vererbbar, nicht übertragbar, nicht beleihbar und nicht kapitalisierbar sind: gesetzliche Rentenversicherung, berufsständische Versorgungswerke und Basisrente (Rürup-Rente).
   - Erwartung: Schicht 2 (Zusatzversorgung) umfasst staatlich geförderte, aber an bestimmte Auszahlungsbedingungen gebundene Vorsorgeformen, insbesondere die betriebliche Altersversorgung und die Riester-Rente.
   - Erwartung: Schicht 3 (private Vorsorge) umfasst alle sonstigen, frei verfügbaren Vorsorgeformen ohne besondere staatliche Förderung oder mit anderer steuerlicher Behandlung, etwa Kapital- und Rentenversicherungen, Fondssparpläne oder Immobilienvermögen.
-  - Rückfrage: In welcher Reihenfolge schöpfen Sie die Schichten in der Beratung grundsätzlich aus?
+  - Rückfrage: Nach welchen Gesichtspunkten entscheiden Sie in der Beratung, welche Schichten Sie nutzen und in welcher Reihenfolge?
 - Was unterscheidet die Basisrente (Rürup-Rente) von der Riester-Rente hinsichtlich Zielgruppe und Förderung?
   - Erwartung: Die Basisrente richtet sich vor allem an Selbstständige und Freiberufler ohne oder mit nur geringer gesetzlicher Rentenversicherungspflicht, ist aber grundsätzlich für alle unbeschränkt Steuerpflichtigen zugänglich.
   - Erwartung: Die Riester-Rente richtete sich bislang vor allem an Pflichtversicherte der gesetzlichen Rentenversicherung, Beamtinnen und Beamte sowie ihnen gleichgestellte Personengruppen; mit dem Altersvorsorgereformgesetz (ab 2027) können auch bestimmte Selbstständige zulageberechtigt sein.
   - Erwartung: Bei der Basisrente sind die Beiträge bis zu einem jährlichen Höchstbetrag als Sonderausgaben steuerlich absetzbar.
-  - Erwartung: Die Riester-Rente wird durch Grundzulage, Kinderzulage je kindergeldberechtigtem Kind und gegebenenfalls den Sonderausgabenabzug gefördert, wobei die günstigere Alternative gilt; für die volle Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr.
+  - Erwartung: Die Riester-Rente wird durch Grundzulage, Kinderzulage je kindergeldberechtigtem Kind und gegebenenfalls den Sonderausgabenabzug gefördert, wobei die günstigere Alternative gilt; für die Förderung ist ein Mindesteigenbeitrag nötig: bei Bestandsverträgen (bis 2026) 4 % der Vorjahreseinnahmen abzüglich der Zulagen, für Verträge ab 2027 einheitlich 120 € im Jahr; die volle Grundzulage von höchstens 540 € erfordert ab 2027 Beiträge von 1.800 € im Jahr.
   - Erwartung: Beide werden in der Auszahlungsphase nachgelagert versteuert; die Basisrente zahlt ausschließlich eine lebenslange Rente, bei der Riester-Rente dürfen zu Rentenbeginn bis zu 30 % des Kapitals einmalig entnommen werden.
   - Rückfrage: In welche Schicht des Drei-Schichten-Modells ordnen Sie die beiden Vorsorgeformen ein?
 - Nennen und erläutern Sie die fünf Durchführungswege der betrieblichen Altersversorgung.
@@ -141,16 +145,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Die Pensionskasse ist ein externer, rechtlich selbstständiger Versorgungsträger mit eigener Aufsicht und unmittelbarem Rechtsanspruch der Arbeitnehmenden, traditionell konservativer ausgerichtet.
   - Erwartung: Der Pensionsfonds ist ebenfalls ein externer Versorgungsträger mit eigener Aufsicht und unmittelbarem Rechtsanspruch, kann aber chancenorientierter mit höherem Aktienanteil anlegen.
   - Erwartung: Die Direktversicherung ist eine vom Arbeitgeber auf das Leben der Arbeitnehmenden abgeschlossene Lebens- oder Rentenversicherung, bei der die Arbeitnehmenden bezugsberechtigt sind.
-  - Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen besonders häufig gewählt?
+  - Rückfrage: Warum wird die Direktversicherung bei Nordantis für kleine und mittlere Unternehmen häufig eingesetzt?
 - Warum wird in der Beratung häufig empfohlen, zunächst die geförderten Schichten 1 und 2 auszuschöpfen, bevor ungeförderte Produkte ergänzt werden?
   - Erwartung: Die Schichten 1 und 2 sind staatlich gefördert, die Produkte der Schicht 3 sind dagegen ungefördert.
-  - Erwartung: Es gilt als zentrales Beratungsprinzip, die geförderten Schichten im Rahmen des individuellen Bedarfs auszuschöpfen, bevor ungeförderte Produkte der Schicht 3 zur weiteren Kapitalbildung ergänzt werden.
+  - Erwartung: Förderung ist ein wichtiges, aber kein alleiniges Kriterium: Geförderte Möglichkeiten der Schichten 1 und 2 werden häufig zuerst geprüft; ob und wie weit sie genutzt werden, entscheidet der individuelle Bedarf (Liquiditätsreserve, Kosten, Flexibilität), und ungeförderte Produkte der Schicht 3 können im Einzelfall auch früher oder zusätzlich sinnvoll sein.
   - Erwartung: Die Produktwahl hängt außerdem vom Status der Kundin oder des Kunden (angestellt, selbstständig, verbeamtet), vom Absicherungsbedarf in den übrigen Schichten, von der individuellen Steuerbelastung und von der gewünschten Flexibilität bei der Kapitalverfügbarkeit ab.
   - Erwartung: Die geförderten Schichten sind mit Bindungen verbunden: Schicht 1 ist nicht kapitalisierbar, Schicht 2 an bestimmte Auszahlungsbedingungen gebunden, während Schicht 3 frei verfügbar ist.
   - Rückfrage: Welche Rolle spielt die gewünschte Flexibilität hinsichtlich der Kapitalverfügbarkeit vor Rentenbeginn bei dieser Abwägung?
 - Was bedeutet die gesetzliche Arbeitgeberzuschusspflicht bei Entgeltumwandlung, und wie würden Sie diese einer Kundin oder einem Kunden erklären?
   - Erwartung: Arbeitnehmende haben einen gesetzlichen Anspruch auf Entgeltumwandlung von bis zu 4 % der Beitragsbemessungsgrenze der allgemeinen Rentenversicherung; durchgeführt wird sie über einen Pensionsfonds, eine Pensionskasse oder eine Versorgungseinrichtung, sofern der Arbeitgeber dazu bereit ist, andernfalls über eine Direktversicherung (§ 1a BetrAVG).
-  - Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an die bAV weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart.
+  - Erwartung: Bei Entgeltumwandlung muss der Arbeitgeber 15 % des umgewandelten Entgelts als Zuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart.
   - Erwartung: Die Pflicht besteht nur, soweit die Ersparnis tatsächlich entsteht.
   - Erwartung: Kundengerecht erklärt: Weil durch die Entgeltumwandlung Sozialversicherungsbeiträge eingespart werden, kommt diese Ersparnis in Form des Arbeitgeberzuschusses (15 % des umgewandelten Entgelts) der bAV zugute.
   - Rückfrage: Welche fünf Durchführungswege kennt die bAV?

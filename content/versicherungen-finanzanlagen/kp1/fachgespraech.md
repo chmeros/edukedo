@@ -5,7 +5,7 @@ fachgebiet_title: "Kernprozesse gestalten"
 thema_code: "KP1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Pflicht-Handlungsbereich „Kernprozesse gestalten" der Verordnung über die Prüfung zum Geprüften Bachelor Professional/zur Geprüften Bachelor Professional in Versicherungen und Finanzanlagen (BAProVFFPrV, § 8) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -28,7 +28,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Aufgaben gehören zur anschließenden Markteinführung?
 - Erläutern Sie den Unterschied zwischen Netto- und Bruttoprämie anhand eines Beispiels.
   - Erwartung: Die Nettoprämie deckt die erwarteten Versicherungsleistungen (Schadenerwartungswert) und wird unter anderem aus Schadenhäufigkeit und durchschnittlicher Schadenhöhe vergangener Perioden berechnet.
-  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag (Schwankungsreserve).
+  - Erwartung: Die Bruttoprämie ist die Nettoprämie zuzüglich Zuschlägen für Verwaltungskosten, Abschlusskosten (Vertriebsprovisionen) und einen Sicherheitszuschlag; in vielen Lehrbüchern zählt der Sicherheitszuschlag schon zur Nettoprämie, im Kurs wird er den Zuschlägen der Bruttoprämie zugerechnet.
   - Erwartung: Der Sicherheitszuschlag dient dem Ausgleich zufälliger Schwankungen im Schadenverlauf.
   - Erwartung: Grundlage ist das Äquivalenzprinzip: Die Prämie entspricht dem übernommenen Risiko, und die erwarteten Prämieneinnahmen müssen im Kollektiv langfristig die erwarteten Leistungsausgaben zuzüglich der Kosten decken.
   - Rückfrage: Welche Tarifmerkmale spielen in der Sachversicherung eine Rolle?
@@ -39,8 +39,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wofür ist das Aktuariat bei der Kalkulation und der laufenden Überwachung verantwortlich?
 - In welcher Phase des Produktlebenszyklus würden Sie ein zehn Jahre altes, kaum noch nachgefragtes Tarifwerk einordnen, und welche Handlungsoptionen hätte das Produktmanagement?
   - Erwartung: Ein zehn Jahre altes, kaum noch nachgefragtes Tarifwerk gehört in die Phase Rückgang/Ausphasing.
-  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert bestehen.
-  - Erwartung: Eine weitere Option ist ein vollständiger Bestandsübertrag bzw. Run-off, etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen.
+  - Erwartung: Eine Handlungsoption ist, das Produkt nur für das Neugeschäft zu schließen; der Bestand bleibt dann für Altkunden unverändert beim Versicherer bestehen und läuft aus (Run-off).
+  - Erwartung: Eine weitere Option ist die Übertragung des Bestands auf einen anderen Versicherer (Bestandsübertragung, genehmigungspflichtig), etwa bei Verordnungsänderungen, die einen Tarif wirtschaftlich unattraktiv machen; vom Run-off, dem Auslaufen des geschlossenen Bestands, ist sie zu unterscheiden.
   - Rückfrage: Was kennzeichnet dagegen die Phase der Sättigung?
 - In welcher Phase der Produktentwicklung und durch welche Klärungen beugen Sie vor, dass ein neues Produkt mit bestehenden Produkten im Portfolio konkurriert (Kannibalisierung)?
   - Erwartung: Vorgebeugt wird in der Phase Bedarfsanalyse und Konzeption.
@@ -124,7 +124,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Zunächst wird der Versicherungsschutz dem Grunde nach geprüft, also ob Deckung besteht, der Vertrag zum Schadenzeitpunkt gültig ist, ein versicherter Schadenfall vorliegt oder ein Ausschluss greift.
   - Erwartung: In der Bearbeitung werden Belege und Gutachten eingeholt und gegebenenfalls Rücksprache mit dem Versicherungsnehmer gehalten.
   - Erwartung: Bei komplexeren oder strittigen Fällen zieht Nordantis unabhängige Sachverständige hinzu.
-  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann (Quotenteilung); der Übergang darf aber nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden (Quotenvorrecht).
+  - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann; davon zu unterscheiden ist das Quotenvorrecht: Der Übergang darf nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden.
   - Rückfrage: Welche Regulierungsentscheidungen sind am Ende des Prozesses möglich?
 
 ### 3.4 Leistungsmanagement
@@ -144,9 +144,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Wie unterscheiden sich die möglichen Konsequenzen einer Anzeigepflichtverletzung je nach Verschuldensgrad?
   - Erwartung: Bei Vorsatz oder grober Fahrlässigkeit kann der Versicherer vom Vertrag zurücktreten; nach Eintritt des Versicherungsfalls ist er dann grundsätzlich leistungsfrei, es sei denn, der verschwiegene Umstand war nicht ursächlich.
   - Erwartung: Wäre der Vertrag auch in Kenntnis des Umstands, wenn auch zu anderen Bedingungen, geschlossen worden, ist der Rücktritt wegen grober Fahrlässigkeit ausgeschlossen, und die anderen Bedingungen werden rückwirkend Vertragsbestandteil.
-  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen.
+  - Erwartung: Bei einfacher Fahrlässigkeit oder fehlendem Verschulden kann der Versicherer nur mit einer Frist von einem Monat kündigen oder den Vertrag anpassen; bei fehlendem Verschulden gilt die Anpassung erst ab der laufenden Versicherungsperiode.
   - Erwartung: Bei arglistiger Täuschung kann der Versicherer den Vertrag zusätzlich anfechten.
-  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist).
+  - Erwartung: Der Versicherer muss seine Rechte binnen eines Monats ab Kenntnis geltend machen; sie erlöschen nach fünf Jahren (zehn bei Vorsatz oder Arglist), in der Krankenversicherung gelten dazu Sonderregeln, etwa eine kürzere Frist von drei Jahren.
   - Rückfrage: Welche Belehrung muss der Versicherer erteilt haben, damit er sich auf diese Rechte berufen kann?
 - Welche Auffälligkeitsmerkmale können auf Versicherungsbetrug hindeuten, und wie geht Nordantis damit um, ohne ehrliche Kundinnen und Kunden unangemessen zu verunsichern?
   - Erwartung: Auffällig sind zum Beispiel kurz nach Vertragsabschluss gemeldete Großschäden und widersprüchliche Angaben im Leistungsantrag.

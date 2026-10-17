@@ -5,7 +5,7 @@ fachgebiet_title: "Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und V
 thema_code: "KB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Wahlbereich „Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und Vermögensschutz" der Verordnung BAProVFFPrV (§ 7) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -40,7 +40,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Rolle spielt Sicherungstechnik (z. B. VdS-Klassifizierung) bei der Einbruchdiebstahlversicherung eines Gewerbebetriebs?
   - Erwartung: Voraussetzung für Leistungen der Einbruchdiebstahlversicherung sind in der Regel nachweisbare Einbruchspuren, etwa eine aufgebrochene Tür oder ein eingeschlagenes Fenster.
   - Erwartung: Je nach Höhe der Versicherungssumme verlangen Versicherer bestimmte Sicherungsstandards, etwa VdS-klassifizierte Schlösser oder Alarmanlagen.
-  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, drohen im Schadenfall Leistungskürzungen.
+  - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden nicht ursächlich, bleibt er in der Regel leistungspflichtig.
 
 ### 2.2 Haftpflichtversicherungen für Gewerbekunden
 
@@ -65,7 +65,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die D&O-Versicherung schützt Mitglieder der Geschäftsleitung, etwa Geschäftsführer:innen einer GmbH, vor der persönlichen Inanspruchnahme wegen Pflichtverletzungen in Ausübung ihrer Organfunktion.
   - Erwartung: Bei der Innenhaftung nimmt die Gesellschaft selbst ihr Organ wegen einer Pflichtverletzung in Anspruch, zum Beispiel nach einer riskanten Fehlentscheidung mit finanziellem Schaden für das Unternehmen.
   - Erwartung: Bei der Außenhaftung nimmt ein außenstehender Dritter, zum Beispiel ein Gläubiger, das Organ persönlich in Anspruch.
-  - Erwartung: Relevant wird die Police etwa bei der Katz Fensterbau GmbH nach einem geplanten Wechsel der Rechtsform mit mehreren gleichberechtigten Geschäftsführern.
+  - Erwartung: Relevant ist die Police bei der Katz Fensterbau GmbH, weil auch GmbH-Geschäftsführer:innen für Pflichtverletzungen persönlich haften (gegenüber der Gesellschaft, in Einzelfällen auch gegenüber Dritten); mehrere Geschäftsführer:innen erhöhen das Risiko nicht automatisch.
   - Rückfrage: Nach welchem Prinzip arbeiten D&O-Policen typischerweise?
 - Was bedeutet das Claims-made-Prinzip, und welche praktischen Folgen hat es für den Zeitpunkt einer Anspruchserhebung?
   - Erwartung: D&O-Policen arbeiten typischerweise nach dem Claims-made-Prinzip.
