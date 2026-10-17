@@ -110,10 +110,22 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Was unterscheidet einen Komplementär von einem Kommanditisten in einer KG?
   - Erwartung: Der Komplementär haftet unbeschränkt.
   - Erwartung: Der Komplementär ist zur Geschäftsführung berechtigt.
-  - Erwartung: Der Kommanditist haftet nur beschränkt, nämlich bis zur Höhe seiner im Handelsregister eingetragenen Einlage.
+  - Erwartung: Der Kommanditist haftet nur beschränkt, nämlich bis zur Haftsumme, dem im Handelsregister eingetragenen Betrag.
   - Erwartung: Der Kommanditist ist von der Geschäftsführung grundsätzlich ausgeschlossen.
   - Erwartung: Bei der Kommanditgesellschaft haftet mindestens ein Gesellschafter als Komplementär, und mindestens ein weiterer Gesellschafter ist Kommanditist.
   - Rückfrage: Wie haften die Gesellschafter einer OHG?
+- Die NordWert Handels GmbH möchte ihr Exportgeschäft in eine eigene Gesellschaft auslagern und eine Kapitalgeberin beteiligen. Wie erläutern Sie der Geschäftsführung die Unterschiede zwischen einer Beteiligung als Kommanditistin und einer stillen Beteiligung?
+  - Erwartung: Die Kommanditbeteiligung ist eine Gesellschafterstellung in der KG: Name und Haftsumme der Kommanditistin stehen im Handelsregister, sie hat einen Kapitalanteil am Gesellschaftsvermögen und haftet den Gläubiger:innen bis zur Haftsumme, soweit die Einlage nicht geleistet ist.
+  - Erwartung: Die stille Beteiligung ist eine Innengesellschaft: Die Einlage geht in das Vermögen der Inhaberin über, nur diese wird gegenüber Dritten berechtigt und verpflichtet; es gibt keine Registereintragung und keine unmittelbare Haftung gegenüber Gläubiger:innen.
+  - Erwartung: Gewinn- und Verlustanteil bestimmt bei der stillen Gesellschaft der Vertrag; der Verlust wird nur bis zur Einlage getragen, die Verlustbeteiligung kann ausgeschlossen werden, die Gewinnbeteiligung nicht; bei atypischer Gestaltung kommen Anteil an stillen Reserven und Mitwirkungsrechte hinzu.
+  - Erwartung: Entscheidungskriterien sind Diskretion gegenüber Kundschaft und Banken, Mitsprache und Kontrolle, Haftungsrisiko, Aufwand für Gründung und Offenlegung und die Höhe der Gewinnbeteiligung.
+  - Rückfrage: Was ändert sich für die Gläubiger:innen der Exportgesellschaft, wenn die Kapitalgeberin Kommanditistin statt stille Gesellschafterin wird?
+- Warum wählen viele mittelständische Unternehmen die GmbH & Co. KG, und welche Grenzen und Nachteile sehen Sie?
+  - Erwartung: Die Komplementärin ist eine GmbH: Sie haftet unbeschränkt, aber nur mit ihrem Gesellschaftsvermögen, sodass keine natürliche Person mit dem Privatvermögen unbeschränkt haftet; zugleich bleibt die Gestaltungsfreiheit einer Personengesellschaft (Stammkapital bei der Gründung mindestens 25.000 €, Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Nachteile sind der Aufwand für zwei Gesellschaften, die Offenlegung des Jahresabschlusses wie bei einer Kapitalgesellschaft und der Firmenzusatz „GmbH & Co. KG“, der Geschäftspartner:innen auf die Haftungsbeschränkung hinweist.
+  - Erwartung: Haftungsfallen bleiben: persönliche Bürgschaften für Bankkredite, das Wiederaufleben der Haftung der Kommanditist:innen bei Rückzahlung der Einlage oder Entnahmen unter die Haftsumme und ein Geschäftsbeginn vor der Eintragung; die Geschäftsführer:innen haften für eigene Pflichtverletzungen.
+  - Erwartung: Als Lieferunternehmen sieht NordWert die Kehrseite: Der Ausfall bei einer Insolvenz bleibt zum Teil bei den Gläubiger:innen; deshalb prüft NordWert Jahresabschlüsse im Unternehmensregister und verlangt bei schwacher Bonität Sicherheiten oder Vorkasse.
+  - Rückfrage: Worin unterscheidet sich eine eingetragene Genossenschaft von einer GmbH & Co. KG bei Zweck und Stimmrecht?
 
 ### 1.4 Unternehmenszusammenschlüsse und Kooperationsformen
 
