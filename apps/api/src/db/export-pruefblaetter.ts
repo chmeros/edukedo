@@ -1337,7 +1337,7 @@ function logNachspann(teile: string[]): void {
     "",
     "**Zum Set — besonders prüfen:**",
     "- ⚠ Frage 1 und 2 (Speditions- gegen Frachtvertrag, Selbsteintritt): HGB-Bezug, formuliert wie in der Theorie („primär“, „nicht zwingend“).",
-    "- ⚠ Frage 3 (grob fahrlässiger Schaden): Der Satz „Haftungsausschlüsse sind etwas anderes“ ist eine Abgrenzung der Aufbereitung; die Theorie nennt Ausschlüsse nur als Beispiele.",
+    "- ⚠ Frage 3 (nur grob fahrlässiger Schaden): korrigiert im Paket P-AH (FL-TL-01): Die Haftungshöchstbeträge entfallen nach der Theorie erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt, nicht bei grober Fahrlässigkeit allein; bitte rechtlich prüfen.",
     "- ⚠ Frage 4 (CMR statt HGB-Frachtrecht bei grenzüberschreitendem gewerblichem Straßengütertransport): Die Theorie sagt „regelmäßig anstelle des HGB“.",
     "- ⚠ Frage 5 (Verkehrshaftungs- gegen Transport-/Warenversicherung): Der Hinweis auf hochwertige Güter ist eine Empfehlung von Fracora, keine Rechtsregel.",
     "- ⚠ Frage 6 (CMR-Frachtbrief als Beweisurkunde, kein Wertpapier): Theorie wörtlich — bitte auf juristische Richtigkeit achten, nicht nur auf Kurstreue.",

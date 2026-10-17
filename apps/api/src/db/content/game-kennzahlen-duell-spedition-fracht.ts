@@ -70,14 +70,14 @@ export const kennzahlenDuellSpeditionFracht: KennzahlenDuellPayload = {
     {
       nummer: 3,
       runde: 1,
-      frage: "Ein Frachtführer hat einen Schaden grob fahrlässig verursacht. Was gilt für seine Haftung?",
-      antwortA: "Die gesetzlichen Haftungshöchstbeträge begrenzen sie weiterhin",
-      antwortB: "Er haftet unbeschränkt",
+      frage: "Ein Frachtführer hat einen Schaden nur grob fahrlässig verursacht. Was gilt für seine Haftung?",
+      antwortA: "Er haftet unbeschränkt",
+      antwortB: "Die gesetzlichen Haftungshöchstbeträge gelten weiterhin",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Bei vorsätzlicher oder grob fahrlässiger Schadensverursachung entfallen die Haftungshöchstbeträge, der Frachtführer haftet unbeschränkt. Haftungsausschlüsse sind etwas anderes, etwa ein Mangel der Verpackung durch den Absender (siehe Thema 1.4).",
+        "Richtig! Grobe Fahrlässigkeit allein genügt nicht. Die Haftungshöchstbeträge entfallen erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt (siehe Thema 1.4).",
       feedbackFalsch:
-        "Nicht ganz. Die Haftungshöchstbeträge halten die Risiken des Frachtführers kalkulierbar, entfallen aber, wenn er den Schaden vorsätzlich oder grob fahrlässig verursacht hat. Dann haftet er unbeschränkt (siehe Thema 1.4).",
+        "Nicht ganz. Die Haftungshöchstbeträge halten die Risiken des Frachtführers kalkulierbar. Grobe Fahrlässigkeit allein beseitigt sie nicht; sie entfallen erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt (siehe Thema 1.4).",
     },
     {
       nummer: 4,
@@ -87,7 +87,7 @@ export const kennzahlenDuellSpeditionFracht: KennzahlenDuellPayload = {
       antwortB: "HGB-Frachtrecht",
       richtig: "A",
       feedbackRichtig:
-        "Genau! Für grenzüberschreitende gewerbliche Gütertransporte auf der Straße gilt regelmäßig das CMR-Übereinkommen. Es sieht eigene Haftungshöchstbeträge vor, ausgedrückt in Sonderziehungsrechten (siehe Thema 1.4).",
+        "Genau! Für grenzüberschreitende gewerbliche Gütertransporte auf der Straße gilt regelmäßig das CMR-Übereinkommen, wenn Übernahme- und Ablieferungsort in verschiedenen Staaten liegen und mindestens einer davon Vertragsstaat ist. Wie im HGB-Frachtrecht werden die Haftungshöchstbeträge in Sonderziehungsrechten ausgedrückt; der Unterschied liegt vor allem im Anwendungsbereich (siehe Thema 1.4).",
       feedbackFalsch:
         "Das passt nicht. Das HGB-Frachtrecht ist die nationale Grundlage des Frachtvertrags. Für den grenzüberschreitenden Straßengütertransport gilt regelmäßig stattdessen das CMR-Übereinkommen (siehe Thema 1.4).",
     },
@@ -255,7 +255,7 @@ export const kennzahlenDuellSpeditionFracht: KennzahlenDuellPayload = {
       antwortB: "EORI-Nummer",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Die EORI-Nummer ist eine EU-weit eindeutige Kennung und Voraussetzung für Unternehmen, die am grenzüberschreitenden Warenverkehr mit der EU teilnehmen (siehe Thema 2.4).",
+        "Richtig! Die EORI-Nummer ist eine EU-weit eindeutige Kennung und grundsätzlich erforderlich für Zollanmeldungen und Zollverfahren, etwa bei Ein- und Ausfuhren mit Drittländern (siehe Thema 2.4).",
       feedbackFalsch:
         "Das passt nicht. ATLAS ist das Automatisierte Tarif- und Lokale Zoll-Abwicklungssystem, über das Zollanmeldungen in Deutschland elektronisch abgewickelt werden. Die Kennung der Wirtschaftsbeteiligten ist die EORI-Nummer (siehe Thema 2.4).",
     },

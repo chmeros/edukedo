@@ -1,0 +1,164 @@
+[
+  {
+    "datei": "hb2/2.5-gefahrgut-sicherheitsvorschriften.md",
+    "paare": [
+      [
+        "Ziel ist es, die von gefährlichen Gütern ausgehenden Risiken für Mensch und Umwelt während des Transports zu minimieren.",
+        "Ziel ist es, die von gefährlichen Gütern ausgehenden Risiken für Mensch und Umwelt während des Transports zu minimieren. Das ADR wird alle zwei Jahre überarbeitet; maßgeblich ist jeweils die geltende Fassung (zuletzt das ADR 2025, die nächste Ausgabe ist für 2027 vorgesehen; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "Jede Klasse wird durch ein genormtes **Gefahrzettel** (Piktogramm mit Klassensymbol) an Versandstück und Fahrzeug kenntlich gemacht.",
+        "Jede Klasse wird durch einen genormten **Gefahrzettel** (Piktogramm mit Klassensymbol) am Versandstück kenntlich gemacht. Am Fahrzeug stehen keine Gefahrzettel, sondern nur bei bestimmten Beförderungen **Großzettel** (Placards), also vergrößerte Zettel gleicher Art; sie sind unter anderem bei Tankfahrzeugen, Containern und Beförderungen in loser Schüttung sowie bei Gütern der Klassen 1 und 7 vorgeschrieben (Einzelheiten und Ausnahmen regelt das ADR)."
+      ],
+      [
+        "Für den Straßentransport in loser Schüttung oder größeren Mengen ist zusätzlich die **orangefarbene Warntafel** am Fahrzeug vorgeschrieben, die im oberen Feld die **Kemler-Zahl** (Gefahrnummer, beschreibt die Art der Gefahr, z. B. Entzündbarkeit) und im unteren Feld die vierstellige **UN-Nummer** (eindeutige, weltweit standardisierte Stoffkennung) zeigt.",
+        "Fahrzeuge mit gefährlichen Gütern führen grundsätzlich vorn und hinten **orangefarbene Warntafeln**, soweit keine Freistellung greift (siehe unten). Bei Stückgut sind diese Tafeln in der Regel neutral, also ohne Zahlen; **nummerierte Warntafeln** tragen vor allem Tankfahrzeuge und Fahrzeuge mit Gütern in loser Schüttung. Die nummerierte Tafel zeigt im oberen Feld die **Kemler-Zahl** (Gefahrnummer, beschreibt die Art der Gefahr, z. B. Entzündbarkeit) und im unteren Feld die vierstellige **UN-Nummer** (eindeutige, weltweit standardisierte Stoffkennung)."
+      ],
+      [
+        "Der **Beförderer** (bei Fracora typischerweise der Frachtführer) muss ein geeignetes, zugelassenes Fahrzeug einsetzen und die Vorschriften während der Beförderung einhalten.",
+        "Der **Beförderer** (bei Fracora typischerweise der Frachtführer) muss ein geeignetes, zugelassenes Fahrzeug einsetzen, das mit den vorgeschriebenen Tafeln und Großzetteln ausgerüstet ist, und die Vorschriften während der Beförderung einhalten. Der **Verlader** ist, wer die Versandstücke in oder auf das Fahrzeug oder den Container lädt (lädt Fracora selbst, ist sie zugleich Verlader); er darf gefährliche Güter dem Beförderer nur übergeben, wenn die Beförderung zulässig ist, prüft die Versandstücke vorher auf erkennbare Mängel und weist den Fahrzeugführer auf das Gut hin; bei Containern bringt er Großzettel und Kennzeichen am Container an. Der **Empfänger** darf die Annahme des Gutes nicht ohne zwingenden Grund verzögern oder verweigern und prüft nach dem Entladen, ob die für ihn geltenden Vorschriften eingehalten wurden. Absender, Verlader und Empfänger sind also verschiedene Rollen mit eigenen Pflichten."
+      ],
+      [
+        "Unternehmen, die regelmäßig gefährliche Güter befördern, verpacken, verladen oder versenden, müssen nach der Gefahrgutbeauftragtenverordnung (GbV) einen **Gefahrgutbeauftragten** bestellen.",
+        "Unternehmen, deren Tätigkeit die Beförderung gefährlicher Güter umfasst oder die daran beteiligt sind (etwa als Beförderer, Verpacker, Verlader, Befüller, Entlader oder Versender), müssen nach der Gefahrgutbeauftragtenverordnung (GbV) einen **Gefahrgutbeauftragten** bestellen, sofern keine Befreiung greift. Maßgeblich ist also, ob die Tätigkeit des Unternehmens die Beförderung gefährlicher Güter umfasst oder daran beteiligt ist, und nicht eine bestimmte Häufigkeit; auch einmalige Beförderungen sind nicht automatisch ausgenommen. Die GbV nimmt bestimmte Unternehmen aus, zum Beispiel solche, deren Beförderungen die Mengengrenzen der 1000-Punkte-Regel (siehe unten) nicht überschreiten oder nur freigestellte Beförderungen umfassen, solche, denen nur Pflichten als Fahrzeugführer oder Empfänger obliegen, sowie Unternehmen, die höchstens 50 Tonnen netto im Kalenderjahr für den betrieblichen Eigenbedarf befördern (Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** Als genormtes Piktogramm mit Klassensymbol kennzeichnet er Versandstück und Fahrzeug entsprechend der Gefahrgutklasse.",
+        "**Antwort:** Als genormtes Piktogramm mit Klassensymbol kennzeichnet er das Versandstück entsprechend der Gefahrgutklasse; am Fahrzeug stehen bei bestimmten Beförderungen die vergrößerten Großzettel (Placards)."
+      ],
+      [
+        "**Frage:** Was zeigt die orangefarbene Warntafel am Fahrzeug im oberen und unteren Feld?",
+        "**Frage:** Was zeigt die nummerierte orangefarbene Warntafel (z. B. an Tank- und Schüttgutfahrzeugen) im oberen und unteren Feld?"
+      ],
+      [
+        "**Antwort:** Oben die Kemler-Zahl (Gefahrnummer), unten die vierstellige UN-Nummer.",
+        "**Antwort:** Oben die Kemler-Zahl (Gefahrnummer), unten die vierstellige UN-Nummer. Bei Stückgut sind die Tafeln in der Regel neutral, also ohne Zahlen."
+      ],
+      [
+        "**Antwort:** Wenn es regelmäßig gefährliche Güter befördert, verpackt, verlädt oder versendet.",
+        "**Antwort:** Wenn es an der Beförderung gefährlicher Güter beteiligt ist (z. B. als Beförderer, Verpacker, Verlader oder Versender) es sei denn, eine Befreiung greift, etwa bei Mengen bis zur 1000-Punkte-Grenze."
+      ],
+      [
+        "**Text:** Die vierstellige, weltweit standardisierte Stoffkennung im unteren Feld der orangefarbenen Warntafel wird als ___UN-Nummer___ bezeichnet.",
+        "**Text:** Die vierstellige, weltweit standardisierte Stoffkennung im unteren Feld der nummerierten orangefarbenen Warntafel wird als ___UN-Nummer___ bezeichnet."
+      ],
+      [
+        "**Frage:** Wie wird die Zahl im oberen Feld der orangefarbenen Warntafel genannt, die die Art der Gefahr beschreibt?",
+        "**Frage:** Wie wird die Zahl im oberen Feld der nummerierten orangefarbenen Warntafel genannt, die die Art der Gefahr beschreibt?"
+      ],
+      [
+        "**Frage:** Ist für die Bestellung eines Gefahrgutbeauftragten laut Gefahrgutbeauftragtenverordnung eine einmalige oder eine regelmäßige Beförderung gefährlicher Güter maßgeblich?",
+        "**Frage:** Woran knüpft die Gefahrgutbeauftragtenverordnung die Pflicht zur Bestellung eines Gefahrgutbeauftragten im Kern an?"
+      ],
+      [
+        "- [ ] Eine einmalige Beförderung reicht bereits aus.",
+        "- [ ] An die Häufigkeit der Beförderungen: Nur wer regelmäßig Gefahrgut befördert, muss einen Gefahrgutbeauftragten bestellen."
+      ],
+      [
+        "- [x] Eine regelmäßige Beförderung gefährlicher Güter ist maßgeblich.",
+        "- [x] An die Beteiligung an der Beförderung gefährlicher Güter, soweit keine Befreiung greift."
+      ],
+      [
+        "**Erklärung:** Unternehmen, die regelmäßig Gefahrgut befördern, verpacken, verladen oder versenden, müssen einen Gefahrgutbeauftragten bestellen.",
+        "**Erklärung:** Maßgeblich ist die Beteiligung an der Beförderung gefährlicher Güter (etwa als Beförderer, Verpacker, Verlader oder Versender); ein Mindestmaß an Regelmäßigkeit verlangt die Verordnung nicht. Befreit sind bestimmte Unternehmen, zum Beispiel bei Mengen unterhalb der Freistellungsgrenzen."
+      ],
+      [
+        "- Beförderer ↔ Einsatz eines geeigneten, zugelassenen Fahrzeugs",
+        "- Beförderer ↔ Einsatz eines geeigneten, zugelassenen Fahrzeugs mit vorgeschriebener Kennzeichnung\n- Verlader ↔ Prüfung der Versandstücke auf erkennbare Mängel, Übergabe nur bei zulässiger Beförderung\n- Empfänger ↔ Annahme nicht ohne zwingenden Grund verzögern oder verweigern, nach dem Entladen die Einhaltung der Vorschriften prüfen"
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/2.4-zoll-aussenwirtschaft-gueterverkehr.md",
+    "paare": [
+      [
+        "Voraussetzung für jedes Unternehmen, das am grenzüberschreitenden Warenverkehr mit der EU teilnimmt, ist eine **EORI-Nummer** (Economic Operators' Registration and Identification), eine EU-weit eindeutige Kennung, mit der Zollbehörden Wirtschaftsbeteiligte identifizieren.",
+        "Wer Zollanmeldungen oder summarische Anmeldungen abgibt oder an Zollverfahren teilnimmt, etwa bei Ein- und Ausfuhren mit Drittländern, braucht dafür grundsätzlich eine **EORI-Nummer** (Economic Operators' Registration and Identification), eine EU-weit eindeutige Kennung, mit der Zollbehörden Wirtschaftsbeteiligte identifizieren. Im Warenverkehr zwischen EU-Mitgliedstaaten ohne Zollverfahren ist sie nicht erforderlich."
+      ],
+      [
+        "Fracora benötigt für Zollabwicklungen im Kundenauftrag entsprechend registrierte Vollmachten sowie ggf. eine eigene Zollagentur-Zulassung, sofern sie als indirekter Vertreter gegenüber dem Zoll auftritt.",
+        "Für Zollabwicklungen im Kundenauftrag kann Fracora die Kundschaft gegenüber dem Zoll vertreten; das Unionszollrecht unterscheidet dabei zwei Formen. Bei der **direkten Vertretung** handelt Fracora im Namen und für Rechnung der Kundschaft und braucht dafür eine Vollmacht (die Zollbehörde kann einen Nachweis verlangen). Bei der **indirekten Vertretung** handelt Fracora im eigenen Namen, aber für Rechnung der Kundschaft, und wird dadurch selbst Anmelderin mit den Pflichten einer Anmelderin. Eine eigene „Zollagentur-Zulassung“ kennt das Unionszollrecht nicht (einige Mitgliedstaaten regeln den Beruf der Zollvertretung national; in Deutschland ist keine Zulassung nötig); Bewilligungen betreffen Vereinfachungen bei Verfahren, nicht die Vertretungsbefugnis."
+      ],
+      [
+        "Für die Ausfuhr aus der EU ist regelmäßig ein **Ausfuhrbegleitdokument** erforderlich, das die elektronische Ausfuhranmeldung begleitet und beim Verlassen des Zollgebiets der EU von der Ausgangszollstelle bestätigt wird.",
+        "Für die Ausfuhr aus der EU wird nach der elektronischen Ausfuhranmeldung und der Überlassung der Ware ein **Ausfuhrbegleitdokument** (ABD) erstellt, das die Ware zur Ausgangszollstelle begleitet. Davon zu unterscheiden ist die **Ausgangsbestätigung** (der Ausgangsvermerk): Mit ihr bestätigt die Ausgangszollstelle elektronisch, dass die Ware das Zollgebiet der EU tatsächlich verlassen hat; sie dient in der Regel als Ausfuhrnachweis."
+      ],
+      [
+        "**Antwort:** Es begleitet die elektronische Ausfuhranmeldung und wird beim Verlassen des EU-Zollgebiets von der Ausgangszollstelle bestätigt.",
+        "**Antwort:** Es begleitet die Ware nach der elektronischen Ausfuhranmeldung zur Ausgangszollstelle. Davon zu unterscheiden ist die Ausgangsbestätigung (Ausgangsvermerk), die den tatsächlichen Austritt aus dem EU-Zollgebiet belegt."
+      ],
+      [
+        "- Ausfuhrbegleitdokument ↔ Begleitet die elektronische Ausfuhranmeldung",
+        "- Ausfuhrbegleitdokument ↔ Begleitet die Ware zur Ausgangszollstelle"
+      ],
+      [
+        "**Erklärung:** Ohne EORI-Nummer kann kein Unternehmen am grenzüberschreitenden Warenverkehr mit der EU teilnehmen.",
+        "**Erklärung:** Eine EORI-Nummer brauchen Wirtschaftsbeteiligte grundsätzlich für Zollanmeldungen und Zollverfahren, etwa bei Ein- und Ausfuhren mit Drittländern; im Warenverkehr zwischen EU-Mitgliedstaaten ohne Zollverfahren ist sie nicht erforderlich."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/fachgespraech.md",
+    "paare": [
+      [
+        "Erwartung: Sie ist Voraussetzung für jedes Unternehmen, das am grenzüberschreitenden Warenverkehr mit der EU teilnimmt.",
+        "Erwartung: Sie wird grundsätzlich für Zollanmeldungen und Zollverfahren benötigt, etwa bei Ein- und Ausfuhren mit Drittländern; im Warenverkehr zwischen EU-Mitgliedstaaten ohne Zollverfahren ist sie nicht erforderlich."
+      ],
+      [
+        "Erwartung: Die orangefarbene Warntafel ist für den Straßentransport in loser Schüttung oder größeren Mengen zusätzlich am Fahrzeug vorgeschrieben.",
+        "Erwartung: Fahrzeuge mit gefährlichen Gütern führen grundsätzlich vorn und hinten orangefarbene Warntafeln, soweit keine Freistellung (z. B. nach der 1000-Punkte-Regel) greift; bei Stückgut sind sie in der Regel neutral, nummerierte Tafeln tragen vor allem Tank- und Schüttgutfahrzeuge."
+      ],
+      [
+        "Erwartung: Im oberen Feld zeigt sie die Kemler-Zahl",
+        "Erwartung: Im oberen Feld zeigt die nummerierte Tafel die Kemler-Zahl"
+      ],
+      [
+        "Erwartung: Im unteren Feld zeigt sie die vierstellige UN-Nummer",
+        "Erwartung: Im unteren Feld zeigt die nummerierte Tafel die vierstellige UN-Nummer"
+      ],
+      [
+        "Rückfrage: Wodurch wird die Gefahrgutklasse an Versandstück und Fahrzeug kenntlich gemacht?",
+        "Rückfrage: Wodurch wird die Gefahrgutklasse am Versandstück und, bei bestimmten Beförderungen, am Fahrzeug kenntlich gemacht?"
+      ],
+      [
+        "Erwartung: Der Fahrzeugführer muss über eine gültige ADR-Bescheinigung (ADR-Schein) verfügen, die durch eine spezielle Schulung und Prüfung erworben wird.",
+        "Erwartung: Der Fahrzeugführer muss über eine gültige ADR-Bescheinigung (ADR-Schein) verfügen, die durch eine spezielle Schulung und Prüfung erworben wird.\n  - Erwartung: Der Beförderer sorgt dafür, dass das Fahrzeug mit den vorgeschriebenen Tafeln und Großzetteln ausgerüstet ist.\n  - Erwartung: Der Verlader darf gefährliche Güter dem Beförderer nur übergeben, wenn die Beförderung zulässig ist, prüft die Versandstücke auf erkennbare Mängel, weist den Fahrzeugführer auf das Gut hin und bringt bei Containern Großzettel und Kennzeichen an; lädt Fracora selbst, ist sie zugleich Verlader.\n  - Erwartung: Der Empfänger darf die Annahme nicht ohne zwingenden Grund verzögern oder verweigern und prüft nach dem Entladen, ob die für ihn geltenden Vorschriften eingehalten wurden."
+      ],
+      [
+        "Erwartung: Unternehmen, die regelmäßig gefährliche Güter befördern, verpacken, verladen oder versenden, müssen nach der Gefahrgutbeauftragtenverordnung einen Gefahrgutbeauftragten bestellen.",
+        "Erwartung: Unternehmen, die an der Beförderung gefährlicher Güter beteiligt sind (etwa als Beförderer, Verpacker, Verlader, Befüller, Entlader oder Versender), müssen nach der Gefahrgutbeauftragtenverordnung einen Gefahrgutbeauftragten bestellen, sofern keine Befreiung greift; befreit sind z. B. Unternehmen mit Mengen unterhalb der 1000-Punkte-Grenze oder mit nur freigestellten Beförderungen; auf die bloße Häufigkeit der Beförderungen kommt es nicht an."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/fallaufgaben.md",
+    "paare": [
+      [
+        "Teilaufgabe 1 sollte Handelsrechnung (Wertermittlung), Ausfuhrbegleitdokument (Bestätigung der Ausfuhranmeldung durch die Ausgangszollstelle) und ggf. Ursprungszeugnis nennen.",
+        "Teilaufgabe 1 sollte Handelsrechnung (Wertermittlung), Ausfuhranmeldung mit Ausfuhrbegleitdokument (es begleitet die Sendung zur Ausgangszollstelle) und ggf. Ursprungszeugnis nennen; davon zu unterscheiden ist die Ausgangsbestätigung (Ausgangsvermerk) der Ausgangszollstelle, die den Austritt aus dem EU-Zollgebiet belegt und in der Regel als Ausfuhrnachweis dient."
+      ],
+      [
+        "je nach Menge kann zusätzlich die orangefarbene Warntafel erforderlich sein, sofern die Freimengen der 1000-Punkte-Regel überschritten werden.",
+        "je nach Menge sind zusätzlich orangefarbene Warntafeln am Fahrzeug erforderlich, sofern die Grenze der 1000-Punkte-Regel überschritten wird (bei Stückgut neutrale Tafeln); Großzettel am Fahrzeug oder Container kommen nur bei bestimmten Beförderungen hinzu (z. B. Tank, Container, loser Schüttung), der Gefahrzettel gehört an die Versandstücke."
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/3.4-berufsausbildung.md",
+    "paare": [
+      [
+        "die persönliche und fachliche Eignung insgesamt regeln die §§ 28–30 BBiG.",
+        "die persönliche und fachliche Eignung insgesamt regelt das Berufsbildungsgesetz."
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/fachgespraech.md",
+    "paare": [
+      [
+        "laut §6 GüLogFachwBAProFV zwingend Bestandteil der mündlichen Präsentation ist (einer der beiden verknüpften Handlungsbereiche muss immer dieser sein)",
+        "nach § 9 Abs. 2 in Verbindung mit § 3 Nr. 3 GüLogFachwBAProFV in der mündlichen Präsentation immer mit dem gewählten Thema aus einem der beiden anderen Handlungsbereiche zu verknüpfen ist (er ist also stets Teil der Präsentation)"
+      ]
+    ]
+  }
+]

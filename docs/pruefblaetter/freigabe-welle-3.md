@@ -32,7 +32,7 @@ Stand 06.10.2026 · Vorbereitung für die Fachprüfung der **noch gesperrten** E
 | Einheit | Umfang | Was zu prüfen ist |
 | --- | --- | --- |
 | Incoterms (`incoterms`, Industriefachwirt) | 4 Fragen | Nur eigene Worte (ICC-Regelwerk geschützt); FOB-Aussage zum Seetransport; bewusst keine Aussage zum Gefahrenübergang bei CIF |
-| Begriffe-Duell „Spedition und Fracht“ (Transport/Logistik) | 20 Fragen | Fragen 1–3 HGB-Frachtrecht (Speditions- gegen Frachtvertrag, Selbsteintritt, grobe Fahrlässigkeit), 4 und 6 CMR (inkl. „Beweisurkunde, kein Wertpapier“), 5 Haftungsversicherungen, 17–19 Zollrecht (Versandverfahren, EORI/ATLAS, Präferenznachweis gegen Ursprungszeugnis) |
+| Begriffe-Duell „Spedition und Fracht“ (Transport/Logistik) | 20 Fragen | Fragen 1–3 HGB-Frachtrecht (Speditions- gegen Frachtvertrag, Selbsteintritt, Wegfall der Haftungsgrenze bei Vorsatz oder Leichtfertigkeit), 4 und 6 CMR (inkl. „Beweisurkunde, kein Wertpapier“), 5 Haftungsversicherungen, 17–19 Zollrecht (Versandverfahren, EORI/ATLAS, Präferenznachweis gegen Ursprungszeugnis) |
 
 ### D. Miet-, WEG-, Bau- und Maklerrecht (Immobilienfachwirt, Prüfblatt [18](18-immobilienfachwirt.md))
 

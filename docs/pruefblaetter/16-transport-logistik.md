@@ -245,7 +245,7 @@ Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden
 
 **Zum Set — besonders prüfen:**
 - ⚠ Frage 1 und 2 (Speditions- gegen Frachtvertrag, Selbsteintritt): HGB-Bezug, formuliert wie in der Theorie („primär“, „nicht zwingend“).
-- ⚠ Frage 3 (grob fahrlässiger Schaden): Der Satz „Haftungsausschlüsse sind etwas anderes“ ist eine Abgrenzung der Aufbereitung; die Theorie nennt Ausschlüsse nur als Beispiele.
+- ⚠ Frage 3 (nur grob fahrlässiger Schaden): korrigiert im Paket P-AH (FL-TL-01): Die Haftungshöchstbeträge entfallen nach der Theorie erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt, nicht bei grober Fahrlässigkeit allein; bitte rechtlich prüfen.
 - ⚠ Frage 4 (CMR statt HGB-Frachtrecht bei grenzüberschreitendem gewerblichem Straßengütertransport): Die Theorie sagt „regelmäßig anstelle des HGB“.
 - ⚠ Frage 5 (Verkehrshaftungs- gegen Transport-/Warenversicherung): Der Hinweis auf hochwertige Güter ist eine Empfehlung von Fracora, keine Rechtsregel.
 - ⚠ Frage 6 (CMR-Frachtbrief als Beweisurkunde, kein Wertpapier): Theorie wörtlich — bitte auf juristische Richtigkeit achten, nicht nur auf Kurstreue.
@@ -291,14 +291,14 @@ Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### spedition-fracht · 3 — Ein Frachtführer hat einen Schaden grob fahrlässig verursacht. Was gilt für seine Haftung?
+#### spedition-fracht · 3 — Ein Frachtführer hat einen Schaden nur grob fahrlässig verursacht. Was gilt für seine Haftung?
 
-- **A:** Die gesetzlichen Haftungshöchstbeträge begrenzen sie weiterhin
-- ✔ **B:** Er haftet unbeschränkt
+- **A:** Er haftet unbeschränkt
+- ✔ **B:** Die gesetzlichen Haftungshöchstbeträge gelten weiterhin
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Bei vorsätzlicher oder grob fahrlässiger Schadensverursachung entfallen die Haftungshöchstbeträge, der Frachtführer haftet unbeschränkt. Haftungsausschlüsse sind etwas anderes, etwa ein Mangel der Verpackung durch den Absender (siehe Thema 1.4).
+**Rückmeldung bei richtiger Antwort:** Richtig! Grobe Fahrlässigkeit allein genügt nicht. Die Haftungshöchstbeträge entfallen erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt (siehe Thema 1.4).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Haftungshöchstbeträge halten die Risiken des Frachtführers kalkulierbar, entfallen aber, wenn er den Schaden vorsätzlich oder grob fahrlässig verursacht hat. Dann haftet er unbeschränkt (siehe Thema 1.4).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Haftungshöchstbeträge halten die Risiken des Frachtführers kalkulierbar. Grobe Fahrlässigkeit allein beseitigt sie nicht; sie entfallen erst bei Vorsatz oder leichtfertigem Handeln im Bewusstsein, dass ein Schaden mit Wahrscheinlichkeit eintritt (siehe Thema 1.4).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -314,7 +314,7 @@ Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden
 - ✔ **A:** CMR-Übereinkommen
 - **B:** HGB-Frachtrecht
 
-**Rückmeldung bei richtiger Antwort:** Genau! Für grenzüberschreitende gewerbliche Gütertransporte auf der Straße gilt regelmäßig das CMR-Übereinkommen. Es sieht eigene Haftungshöchstbeträge vor, ausgedrückt in Sonderziehungsrechten (siehe Thema 1.4).
+**Rückmeldung bei richtiger Antwort:** Genau! Für grenzüberschreitende gewerbliche Gütertransporte auf der Straße gilt regelmäßig das CMR-Übereinkommen, wenn Übernahme- und Ablieferungsort in verschiedenen Staaten liegen und mindestens einer davon Vertragsstaat ist. Wie im HGB-Frachtrecht werden die Haftungshöchstbeträge in Sonderziehungsrechten ausgedrückt; der Unterschied liegt vor allem im Anwendungsbereich (siehe Thema 1.4).
 
 **Rückmeldung bei falscher Antwort:** Das passt nicht. Das HGB-Frachtrecht ist die nationale Grundlage des Frachtvertrags. Für den grenzüberschreitenden Straßengütertransport gilt regelmäßig stattdessen das CMR-Übereinkommen (siehe Thema 1.4).
 
@@ -572,7 +572,7 @@ Keine: Die Theorie zu den neuen Instrumenten war in den Themen bereits vorhanden
 - **A:** ATLAS
 - ✔ **B:** EORI-Nummer
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Die EORI-Nummer ist eine EU-weit eindeutige Kennung und Voraussetzung für Unternehmen, die am grenzüberschreitenden Warenverkehr mit der EU teilnehmen (siehe Thema 2.4).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die EORI-Nummer ist eine EU-weit eindeutige Kennung und grundsätzlich erforderlich für Zollanmeldungen und Zollverfahren, etwa bei Ein- und Ausfuhren mit Drittländern (siehe Thema 2.4).
 
 **Rückmeldung bei falscher Antwort:** Das passt nicht. ATLAS ist das Automatisierte Tarif- und Lokale Zoll-Abwicklungssystem, über das Zollanmeldungen in Deutschland elektronisch abgewickelt werden. Die Kennung der Wirtschaftsbeteiligten ist die EORI-Nummer (siehe Thema 2.4).
 
