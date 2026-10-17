@@ -5,7 +5,7 @@ fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Industriefachwirt" (IndFachwirtPrV vom 25.06.2010, BGBl. I S. 833, §4, Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fragen, keine 1:1-Übernahme aus Rechtsverordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "15.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -113,6 +113,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Hinzu kommen längere Vorlaufzeiten bis zur Marktreife eines Produkts.
   - Erwartung: Deshalb ist eine realistische, detaillierte Finanzplanung im Businessplan besonders wichtig.
   - Erwartung: Die Finanzplanung muss auch Anlaufverluste in der Startphase berücksichtigen.
+- Ein Lieferunternehmen von Solvitec ist als GmbH & Co. KG organisiert. Was sagt Ihnen diese Rechtsform über Haftung und Bonität, und was prüfen Sie im Einkauf?
+  - Erwartung: Rechtlich ist es eine KG, in der eine GmbH als Komplementärin voll haftet; ihr Haftungsfonds ist das Gesellschaftsvermögen der GmbH, eine natürliche Person mit Privatvermögen steht nicht dahinter.
+  - Erwartung: Die Kommanditist:innen stehen den Gläubiger:innen nur bis zur Haftsumme ein, dem eingetragenen Höchstbetrag, und nicht mehr, soweit die Einlage geleistet ist; zahlen sie Einlagen zurück, kann die Haftung wieder aufleben.
+  - Erwartung: Weil keine natürliche Person voll haftet, ist der Jahresabschluss offenzulegen (kleine Gesellschaften mit Erleichterungen); der Einkauf liest ihn im Unternehmensregister und beurteilt Eigenkapital und Ergebnis.
+  - Erwartung: Haftungsbeschränkung heißt, dass bei einem Ausfall das Vermögen der Gesellschaft die Grenze ist; deshalb Zahlungsbedingungen, Sicherheiten oder Vorkasse bei schwacher Bonität und gegebenenfalls Eigentumsvorbehalt, nicht blindes Vertrauen auf die Rechtsform.
+  - Rückfrage: Was ändert sich, wenn die Komplementärin eine UG (haftungsbeschränkt) statt einer GmbH ist?
+- Die Geschäftsführung fragt, nach welchen Kriterien Sie zwischen GmbH & Co. KG, stiller Gesellschaft, eingetragener Genossenschaft, SE und Partnerschaftsgesellschaft entscheiden würden. Wie gehen Sie vor?
+  - Erwartung: Zuerst wird der Zweck geklärt (Kapital beschaffen, Nachfolge, Einrichtung teilen, europäischer Konzern, freiberufliche Leistung), dann werden Haftung, Kapitalbedarf, Mitwirkung, Steuer und Mitbestimmung geprüft.
+  - Erwartung: Die stille Gesellschaft passt, wenn Kapital ohne Handelsregistereintrag fließen soll (Innengesellschaft, Mezzanine-Kapital; die Einlage bleibt im Jahresabschluss erkennbar), die eG, wenn selbständige Betriebe eine Einrichtung gemeinsam nutzen (Förderzweck, Kopfstimmrecht, Prüfungsverband), die GmbH & Co. KG für Familienunternehmen mit Haftungsbeschränkung und Nachfolge.
+  - Erwartung: Die SE setzt einen Bezug zu mehreren Mitgliedstaaten und mindestens 120.000 € Grundkapital voraus; für Solvitec ist sie derzeit nicht naheliegend: Es fehlt der Bedarf an einer europäischen Konzernspitze, die GmbH selbst lässt sich nicht in eine SE umwandeln, Singapur begründet keinen Unionsbezug, die polnische Tochter aus Thema 1.4 könnte ihn begründen. Die Partnerschaftsgesellschaft steht nur Freien Berufen offen und ist für ein Industrieunternehmen keine Option, aber als Rechtsform von Auftragnehmern relevant.
+  - Erwartung: Die Entscheidung ist mit Rechts- und Steuerberatung zu treffen; Zahlen wie Mindestkapital und Fristen sind vor Verwendung zu prüfen.
+  - Rückfrage: Warum ist es für Solvitec wichtig, bei einem Ingenieurbüro, das als Partnerschaft mbB auftritt, den Versicherungsnachweis zu verlangen?
 
 ### 1.4 Unternehmenszusammenschlüsse
 

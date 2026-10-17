@@ -5,7 +5,7 @@ fachgebiet_title: "Recht und Steuern"
 thema_code: "WQ3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwirtPrV vom 08.11.2010, BGBl. I S. 1503), § 4 (Qualifikationsbereich Recht und Steuern) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -83,6 +83,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Personalabteilung von Solvitec muss diese Schutzvorschriften vor jeder Kündigung sorgfältig prüfen.
   - Erwartung: Die Schwerbehinderung ist zudem eines der Kriterien der Sozialauswahl bei betriebsbedingten Kündigungen.
   - Rückfrage: Welche weiteren Kriterien sind bei der Sozialauswahl zu berücksichtigen?
+- Die Werkleitung möchte sich nach einem Auftragsrückgang von einer Qualitätsingenieurin mit 14 Jahren Betriebszugehörigkeit einvernehmlich trennen und regt einen Aufhebungsvertrag an. Wie gehen Sie vor, und was gilt für das Zeugnis?
+  - Erwartung: Ein Aufhebungsvertrag beendet das Arbeitsverhältnis einvernehmlich zu jedem Termin, ohne Kündigungsfrist und ohne Kündigungsgründe; er braucht die Schriftform mit eigenhändiger Unterschrift beider Seiten, eine E-Mail oder mündliche Absprache genügt nicht.
+  - Erwartung: Für die Beschäftigte ist er riskant, weil sie den Kündigungsschutz verliert und beim Arbeitslosengeld mit einer Sperrzeit von regelmäßig bis zu zwölf Wochen rechnen muss (Stand Oktober 2026, vor Verwendung prüfen); Solvitec sollte auf mögliche Folgen hinweisen, Bedenkzeit lassen und beachten, dass eine Abfindung beim Aufhebungsvertrag gesetzlich nicht geschuldet, sondern Verhandlungssache ist (Ausnahmen sind etwa der Sozialplan, ein Abfindungsangebot bei betriebsbedingter Kündigung und die gerichtliche Auflösung).
+  - Erwartung: Der Vertrag regelt Beendigungstermin, Freistellung, Resturlaub oder Abgeltung, Abfindung, Zeugnis, Rückgabe von Arbeitsmitteln und Verschwiegenheit; eine Kündigung wäre dagegen nur mit sozial gerechtfertigtem Grund und nach Anhörung des Betriebsrats möglich.
+  - Erwartung: Beim Ausscheiden besteht Anspruch auf ein Zeugnis: einfach (Art und Dauer der Tätigkeit) oder auf Verlangen qualifiziert (zusätzlich Leistung und Verhalten); es muss wahr und wohlwollend sein, wobei die Wahrheit vorgeht, und darf keine versteckten Botschaften enthalten.
+  - Rückfrage: Welche gesetzliche Frist müsste Solvitec bei einer ordentlichen Kündigung nach 14 Jahren einhalten (Stand Oktober 2026, vor Verwendung prüfen)?
+- Die Fertigungsleitung will die Wartung von Bestückungsautomaten im Schichtbetrieb an externe Techniker vergeben und fragt, ob Leiharbeit oder ein Werkvertrag besser sei. Worauf kommt es an, und was droht bei einer falschen Konstruktion?
+  - Erwartung: Bei der Leiharbeit stellt ein Verleihunternehmen mit Erlaubnis seine Beschäftigten zur Verfügung; sie arbeiten nach den Weisungen von Solvitec; zu beachten sind die Höchstdauer von 18 Monaten, beim Entgelt grundsätzlich die Gleichstellung vom ersten Tag, von der ein Tarifvertrag nur für die ersten neun Monate abweichen darf (mit Stufenmodell bis zu 15 Monate; Stand Oktober 2026, vor Verwendung prüfen), und die ausdrückliche Bezeichnung des Vertrags.
+  - Erwartung: Beim Werkvertrag schuldet das Fremdunternehmen ein Ergebnis, etwa eine vereinbarte Anlagenverfügbarkeit oder die Wartung nach Wartungsplan mit Abnahme, und organisiert und führt seine Techniker selbst; Solvitec gibt nur das Ziel vor.
+  - Erwartung: Maßgeblich ist die tatsächliche Durchführung: Einteilung und Weisungen an einzelne Personen durch Solvitec, Eingliederung in den Schichtplan, Arbeitsmittel von Solvitec und Abrechnung nach Stunden sprechen für einen Scheinwerkvertrag.
+  - Erwartung: Folgen einer falschen Konstruktion sind ein Arbeitsverhältnis mit Solvitec kraft Gesetzes bei fehlender Erlaubnis oder fehlender ausdrücklicher Bezeichnung als Überlassung, Nachzahlungen zur Sozialversicherung und Bußgelder; praktisch hilft ein Ansprechpartner des Fremdunternehmens, der die Aufgaben verteilt, statt Weisungen an Einzelne, dazu die Beteiligung des Betriebsrats.
+  - Rückfrage: Wann gilt die Gleichstellung beim Entgelt grundsätzlich, und wie lange darf ein Tarifvertrag davon abweichen?
 
 ### 3.3 Vertragsgestaltung
 
@@ -117,6 +129,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Erst wenn die Frist erfolglos verstreicht, kann der Kunde vom Vertrag zurücktreten (§ 323 Abs. 1 BGB); Verzug oder Verschulden setzt der Rücktritt nicht voraus, und die Fristsetzung ist nur ausnahmsweise entbehrlich, etwa bei endgültiger Leistungsverweigerung (§ 323 Abs. 2 BGB).
   - Erwartung: Neben dem Rücktritt kann der Kunde Schadensersatz statt der Leistung verlangen, wenn der Lieferant die Nichtleistung zu vertreten hat (§§ 280, 281 BGB).
   - Rückfrage: Welche Ansprüche kann Solvitec geltend machen, wenn ein Kunde die Kaufpreisrechnung trotz Fälligkeit und Mahnung nicht begleicht?
+- Ein neues Kundenunternehmen aus einem anderen Vertragsstaat des UN-Kaufrechts soll Frequenzumrichter im Rahmenvertrag beziehen; im Entwurf steht: „Es gilt deutsches Recht.“ Wie beurteilen Sie die Klausel, und was empfehlen Sie?
+  - Erwartung: Das UN-Kaufrecht regelt von Gesetzes wegen den Warenkauf zwischen Unternehmen, deren Niederlassungen in verschiedenen Vertragsstaaten liegen, und verdrängt für diese Verträge das Kaufrecht von BGB und HGB; zuerst ist zu klären, ob die Gegenseite in einem Vertragsstaat sitzt (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Die Klausel „Es gilt deutsches Recht“ nimmt das UN-Kaufrecht nicht aus, denn dieses ist Bestandteil des deutschen Rechts; wer es nicht will, muss es ausdrücklich abbedingen, zum Beispiel durch einen Zusatz, dass das Übereinkommen über den internationalen Warenkauf nicht gilt.
+  - Erwartung: Die Wahl hat Folgen: andere Regeln für Vertragsschluss und Rechtsbehelfe, Untersuchung und Anzeige von Mängeln in angemessener Frist statt der unverzüglichen Rüge des Handelsgesetzbuchs, Schadensersatz ohne Verschulden; Zinssatz und Pauschale sind beim UN-Kaufrecht eine Auslegungsfrage, weil das Übereinkommen keinen Satz nennt.
+  - Erwartung: Empfehlung: bewusst entscheiden, entweder ausschließen (vertraute Regeln, Allgemeine Geschäftsbedingungen und Abläufe passen) oder anwenden und Rügefristen, Dokumentation und Allgemeine Geschäftsbedingungen darauf abstimmen; Rechtswahl, Gerichtsstand und Incoterms getrennt regeln.
+  - Rückfrage: Welche Verträge erfasst das UN-Kaufrecht nicht, auch wenn beide Seiten in Vertragsstaaten sitzen?
+- Wie stellen Sie im Vertragsmanagement sicher, dass Zahlungsansprüche von Solvitec nicht verjähren, und welche Rolle spielt das gerichtliche Mahnverfahren dabei?
+  - Erwartung: Die regelmäßige Frist beträgt drei Jahre und beginnt mit dem Schluss des Jahres, in dem der Anspruch fällig wurde; ein Zahlungsziel über den Jahreswechsel verschiebt Beginn und Ende um ein Jahr; deshalb braucht jede Forderung ein Fristendatum im Fristenkalender (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Hemmung (Verhandlungen, Klage, Zustellung eines Mahnbescheids, Anmeldung im Insolvenzverfahren) hält die Frist an; Neubeginn (Anerkenntnis, etwa Teilzahlung, Vollstreckungshandlung) setzt sie zurück; eine einfache Mahnung bewirkt keines von beiden.
+  - Erwartung: Bei unbestrittenen Geldforderungen kommt das Mahnverfahren in Betracht: Das Gericht prüft den Mahnbescheid nur formal, die Gegenseite hat zwei Wochen Widerspruchsfrist (ein späterer Widerspruch bleibt bis zum Erlass des Vollstreckungsbescheids möglich), der Vollstreckungsbescheid muss binnen sechs Monaten nach Zustellung des Mahnbescheids beantragt werden, gegen ihn gilt eine zweiwöchige Einspruchsfrist, und der Titel verjährt erst nach 30 Jahren (Stand Oktober 2026, vor Verwendung prüfen); droht Streit über Grund oder Höhe, ist die Klage der direktere Weg.
+  - Erwartung: Die Entscheidung wird wirtschaftlich begründet (Kostenquote, Erwartungswert, Folge der Untätigkeit) und um nicht rechenbare Faktoren ergänzt (Kundenbeziehung, Beweislage, Frist); vor einer Verhandlung wird geprüft, ob die Frist durch Hemmung gesichert ist.
+  - Rückfrage: Was ändert sich, wenn das Kundenunternehmen vor der Entscheidung insolvent wird?
 
 ### 3.4 Unternehmensrelevantes Steuerrecht
 
@@ -153,3 +177,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei vorsätzlichem Fehlverhalten drohen strafrechtliche Konsequenzen wegen Steuerhinterziehung (§ 370 AO).
   - Erwartung: Bei leichtfertigem Fehlverhalten drohen bußgeldrechtliche Konsequenzen wegen leichtfertiger Steuerverkürzung (§ 378 AO).
   - Rückfrage: Welche Steuererklärungen und Voranmeldungen muss Solvitec regelmäßig abgeben?
+- Solvitec richtet in der Fertigung einen neuen Mehrschichtarbeitsplatz ein. Aus welchen Posten setzen sich die Gesamtkosten zusammen, und welche Zahlungen fließen daraus an welche Stellen?
+  - Erwartung: Vom Bruttoentgelt gehen Lohnsteuer und die Arbeitnehmeranteile zur Kranken-, Pflege-, Renten- und Arbeitslosenversicherung ab; der Rest ist das Nettoentgelt, das an die beschäftigte Person gezahlt wird.
+  - Erwartung: Die Gesamtkosten setzen sich aus Bruttoentgelt, Arbeitgeberanteilen, Unfallversicherung und Umlagen zusammen; die Lohnsteuer erhöht sie nicht, weil Solvitec sie nur aus dem Bruttoentgelt an das Finanzamt weiterleitet.
+  - Erwartung: Die Lohnsteuer geht mit der Anmeldung an das Betriebsstättenfinanzamt (spätestens am zehnten Tag nach Ablauf des Anmeldungszeitraums, bei Wochenende oder Feiertag am nächsten Werktag); die Beiträge zu vier Zweigen gehen gebündelt an die Einzugsstelle (bis zum drittletzten Bankarbeitstag des Monats, den Beitragsnachweis zwei Arbeitstage vorher); die Unfallversicherung zahlt Solvitec an die Berufsgenossenschaft (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Zuschläge für Nacht-, Sonn- und Feiertagsarbeit sind nur für tatsächlich geleistete Arbeit und in Grenzen steuerfrei; für fehlerhafte Abrechnung haftet Solvitec als Arbeitgeberin.
+  - Rückfrage: Warum steigen die Beiträge einer Abteilungsleiterin mit hohem Gehalt nicht im gleichen Verhältnis wie ihr Entgelt?
+- Solvitec bezieht regelmäßig Leiterplatten von einem Lieferunternehmen in einem Drittland. Welche Abgaben fallen an, wie wirken sie auf Kosten und Liquidität, und was gilt bei Lieferungen aus einem anderen EU-Staat?
+  - Erwartung: Bei der Einfuhr aus einem Drittland fallen Zoll (nach Zolltarif auf den Zollwert) und Einfuhrumsatzsteuer an; der Zollwert ist grob der Transaktionswert plus die Beförderungs- und Versicherungskosten bis zum Ort des Verbringens in die EU.
+  - Erwartung: Die Einfuhrumsatzsteuer wird auf Zollwert, Zoll und Beförderungskosten bis zum ersten Bestimmungsort bemessen; Solvitec zieht sie als Vorsteuer ab. Sie ist daher ein durchlaufender Posten, der nur vorübergehend Liquidität bindet, während der Zoll die Anschaffungskosten erhöht.
+  - Erwartung: Die Incoterms regeln, wer Transport, Zoll und Einfuhrabgaben trägt; Solvitec sollte sie bei Preisvergleich und Kalkulation berücksichtigen.
+  - Erwartung: Der Zoll gehört zu den Anschaffungskosten und wird bei Anlagegütern steuerlich über die betriebsgewöhnliche Nutzungsdauer abgeschrieben; die abziehbare Einfuhrumsatzsteuer gehört nicht dazu.
+  - Rückfrage: Warum fällt beim Kauf von einem Unternehmen in einem anderen EU-Staat keine Einfuhrumsatzsteuer an?
