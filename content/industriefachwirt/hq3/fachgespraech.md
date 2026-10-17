@@ -116,7 +116,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Grenzüberschreitende Geschäfte bergen ein höheres Zahlungsausfallrisiko, da Bonität, Rechtssystem und Durchsetzbarkeit von Forderungen im Ausland schwerer einzuschätzen sind.
   - Erwartung: Beim Dokumentenakkreditiv (Letter of Credit) verpflichtet sich die Bank des Käufers, bei Vorlage vertraglich festgelegter Dokumente den Kaufpreis zu zahlen.
   - Erwartung: Das Akkreditiv wirkt unabhängig von der Zahlungsfähigkeit des Käufers selbst.
-  - Erwartung: Ergänzend kommen Exportkreditversicherungen zum Einsatz, in Deutschland unter anderem über staatlich geförderte Hermesdeckungen.
+  - Erwartung: Ergänzend kommen staatliche Exportkreditgarantien des Bundes (im Alltag „Hermesdeckungen“, rechtlich keine Versicherung im engeren Sinn, sondern Garantien des Bundes) und private Kreditversicherungen in Betracht.
 - Was sind Dual-Use-Güter, und welche Konsequenzen hat diese Einstufung für den Export?
   - Erwartung: Dual-Use-Güter sind Güter mit sowohl zivilem als auch potenziell militärischem Verwendungszweck.
   - Erwartung: Sie unterliegen besonderen exportrechtlichen Beschränkungen, geregelt unter anderem im Außenwirtschaftsgesetz (AWG), in der Außenwirtschaftsverordnung (AWV) und auf EU-Ebene in der Dual-Use-Verordnung.
@@ -149,6 +149,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei einem neuen Prozess werden Gründe und Nutzen erklärt, die Führung vor Ort kündigt ihn an, Schlüsselpersonen werden früh eingebunden, Schulungen und Unterlagen gibt es in passender Sprache, ein Pilotteam testet zuerst mit Auswertung im PDCA-Zyklus, und lokale Anpassungen sind möglich, wo sie nötig sind.
   - Erwartung: Interkulturelle Kompetenz wird gezielt entwickelt, etwa durch Trainings, Mentoring, Besuche und Erfahrungsaustausch; sie umfasst Wissen, Einstellung (Offenheit, Ambiguitätstoleranz) und Verhalten.
   - Rückfrage: Warum reicht eine Anweisung per E-Mail mit Stichtag für die Einführung eines CRM-Systems in einer ausländischen Vertriebsgesellschaft meist nicht aus?
+- Für ein neues Kundenunternehmen in einem unsicheren Markt stehen ein bestätigtes Akkreditiv, eine Exportkreditgarantie des Bundes („Hermesdeckung“) und eine private Warenkreditversicherung zur Wahl. Wie entscheiden Sie, und was gehört zur rechtlichen Einordnung der Hermesdeckung?
+  - Erwartung: Exportkreditgarantien des Bundes, im Alltag Hermesdeckungen, sind rechtlich keine Versicherung im engeren Sinn, sondern Garantien des Bundes; Solvitec zahlt ein Entgelt, die Anträge bearbeiten beauftragte Unternehmen (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Sie decken politische und wirtschaftliche Zahlungsausfallrisiken, aber nicht vollständig (Selbstbehalt) und in der Regel nicht, wenn das Kundenunternehmen berechtigt wegen eines Mangels oder Streits über den Liefervertrag nicht zahlt; der Antrag ist spätestens vor Beginn des Risikos zu stellen.
+  - Erwartung: Das Akkreditiv verlagert das Risiko auf eine Bank (bei Bestätigung auch das Länder- und Transferrisiko), verlangt aber passende Dokumente und verursacht Gebühren; die Garantie passt zu großen Einzelgeschäften und langen Zielen, die private Versicherung zu laufendem Geschäft mit vielen Kundenunternehmen.
+  - Erwartung: Entscheidend sind Bonität, Auftragswert im Verhältnis zur Risikotragfähigkeit und das Land; Gebühren, Entgelt und Selbstbehalt gehören in die Kalkulation, und die Kundschaft muss die Form akzeptieren.
+  - Rückfrage: Was ändert sich, wenn Solvitec die Forderung stattdessen im Wege der Forfaitierung verkauft?
+- Ein Vertriebsingenieur fragt, warum die Auftragsabwicklung bei jeder Sendung in ein Drittland Warennummer, Ursprung und Ausfuhrnachweis prüft, obwohl „das Kundenunternehmen den Zoll doch in der Regel selbst zahlt“. Was antworten Sie?
+  - Erwartung: Den Zoll zahlt in der Regel die Importseite (bei DDP trägt Solvitec die Einfuhrabgaben), er bestimmt aber den Preis beim Kundenunternehmen und damit die Wettbewerbsfähigkeit; der Zollsatz folgt aus der Warennummer, der Zollwert im Prinzip aus dem Preis plus Fracht und Versicherung bis zum Einfuhrort (Zielland prüfen).
+  - Erwartung: Eine Zollermäßigung nach einem Präferenzabkommen gibt es nur für Ursprungsware nach den Ursprungsregeln (zum Beispiel Höchstanteil an Vormaterial ohne Ursprung) und mit Ursprungsnachweis; Solvitec muss deshalb ihr Vormaterial und dessen Wertanteil kennen.
+  - Erwartung: Die Ausfuhr wird angemeldet, der Ausgangsvermerk dient als Ausfuhrnachweis für die Umsatzsteuerbefreiung (Thema 3.4 „Unternehmensrelevantes Steuerrecht“ im Fachgebiet Recht und Steuern); bei EXW hängt dieser Nachweis an der Käuferseite, deshalb sind FCA oder CIP meist besser.
+  - Erwartung: Die Klausel richtet sich nach dem Verkehrsträger: FOB und CIF nur für See- und Binnenschiff, für Container, Bahn und Luftfracht FCA, CPT oder CIP.
+  - Rückfrage: Welche Klausel würden Sie für Ersatzteile wählen, die per Luftfracht aus dem Werk Süd gehen, und warum nicht CIF?
 
 ### 7.5 Marketingplanung, Produktlebenszyklus, Portfolio und Markenpolitik
 

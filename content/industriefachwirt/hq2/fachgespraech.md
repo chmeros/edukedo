@@ -5,7 +5,7 @@ fachgebiet_title: "Produktionsprozesse"
 thema_code: "HQ2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Industriefachwirt/Geprüfte Industriefachwirtin (IndFachwirtPrV 2010), § 5, Handlungsbereich „Produktionsprozesse" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -178,9 +178,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Wie organisieren Sie in einem Fertigungswerk den Weg der Abfälle von der Anfallstelle bis zur Verwertung, und wer trägt dabei welche Verantwortung?
   - Erwartung: Der betriebliche Entsorgungsprozess umfasst Anfall, Sammeln, Trennen, Lagern bzw. Bereitstellen, Transportieren, Behandeln oder Verwerten und Dokumentieren.
   - Erwartung: Abfälle werden an der Anfallstelle sortenrein in gekennzeichneten Behältern getrennt, weil vermischte Stoffe an Wert verlieren und die Entsorgung verteuern.
-  - Erwartung: Gefährliche Stoffe wie Öle, Lösemittel und Lackreste werden getrennt von allen anderen Abfällen in dichten, gekennzeichneten Behältern gesammelt, gesichert mit Auffangwanne bereitgestellt und nur an berechtigte Entsorgungsunternehmen übergeben; gesetzliche Vorgaben dazu gelten (hier nicht behandelt).
+  - Erwartung: Gefährliche Stoffe wie Öle, Lösemittel und Lackreste werden getrennt von allen anderen Abfällen in dichten, gekennzeichneten Behältern gesammelt, gesichert mit Auffangwanne bereitgestellt und nur an berechtigte Entsorgungsunternehmen übergeben; gesetzliche Vorgaben dazu gelten (Überblick im Thema 6.7, Abschnitt „Gefährliche Abfälle: Einstufung, Nachweisführung und Vermischung“).
   - Erwartung: Die Geschäftsführung trägt die Gesamtverantwortung; Werkleitung, Mitarbeitende an der Anfallstelle, Logistik, Einkauf und Controlling übernehmen festgelegte Aufgaben (Trennen, Behälter und Transporte, Vergabe und Verträge, Kosten und Erlöse).
-  - Erwartung: Abfallbeauftragte beraten als Funktion, überwachen den Weg der Abfälle und wirken auf abfallarme Verfahren hin, ohne die Verantwortung der Geschäftsführung zu übernehmen.
+  - Erwartung: Die Ansprechperson für Abfall (oft „Abfallbeauftragte“ genannt, vom gesetzlichen Betriebsbeauftragten zu unterscheiden) berät als Funktion, überwacht den Weg der Abfälle und wirkt auf abfallarme Verfahren hin, ohne die Verantwortung der Geschäftsführung zu übernehmen.
   - Rückfrage: Nach welcher Rangfolge wählen Sie Maßnahmen aus, und warum steht das Vermeiden an erster Stelle?
 - Wie beurteilen Sie, ob ein Entsorgungsweg wirtschaftlich und nachhaltig ist, und mit welchen Kennzahlen steuern Sie die Entsorgung?
   - Erwartung: Den Entsorgungskosten (Behälter, Abholung, Behandlung sowie interne Kosten für Personal, Flächen und Anlagen) werden die Erlöse aus Wertstoffen gegenübergestellt; Netto-Entsorgungskosten = Kosten − Erlöse, bezogen auf die Abfallmenge als Kosten je Tonne.
@@ -189,6 +189,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Verwertungs- und Recyclingquote zeigen, welcher Anteil verwertet wird; Abfallquote, Materialausnutzung und spezifische Abfallmenge zeigen, ob Abfall vermieden wird.
   - Erwartung: Die Kennzahlen werden mit Zielwerten im Regelkreis nach dem PDCA-Zyklus gesteuert; Zielkonflikte wie zusätzliche Rücktransporte bei Mehrwegbehältern werden offen abgewogen.
   - Rückfrage: Warum kann eine steigende Verwertungsquote trotzdem in die Irre führen?
+- Ein Fahrzeug eines Entsorgungsunternehmens holt im Werk Fässer mit gebrauchten Lösemitteln ab, ohne dass ein Übergabebeleg erstellt wird. Wie beurteilen Sie den Vorgang, und was veranlassen Sie?
+  - Erwartung: Gebrauchte Lösemittel sind in der Regel gefährliche Abfälle (Sternchen im Abfallschlüssel); die Übergabe muss belegt werden: im vollen Verfahren mit Entsorgungsnachweis vorab und Begleitschein je Übergabe, bei höchstens zwei Tonnen im Jahr insgesamt mit Übernahmeschein; immer kommt ein Register der erzeugenden Seite hinzu, dessen Belege mindestens drei Jahre aufgehoben werden (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Geprüft wird, ob das Unternehmen für gefährliche Abfälle eine Erlaubnis hat oder für die Tätigkeit als Entsorgungsfachbetrieb zertifiziert ist (die Anzeige allein genügt nicht) und wohin die Fässer gehen; Solvitec bleibt verantwortlich, bis die Entsorgung ordnungsgemäß beendet ist.
+  - Erwartung: Sofort wird der Verbleib geklärt und der Beleg nachgeholt, die Menge im Register erfasst und der Vertrag um Abfallschlüssel, Entsorgungsweg und Verbleibserklärung ergänzt; zugleich wird geprüft, ob die Jahresmenge die Grenze von zwei Tonnen überschreitet.
+  - Erwartung: Vorbeugend gehören Zuständigkeiten, Unterweisung, stichprobenhafte Kontrollen und, wenn eine Pflicht besteht oder die Behörde es anordnet, eine Betriebsbeauftragte oder ein Betriebsbeauftragter für Abfall dazu; die Geschäftsführung bleibt für Organisation und Aufsicht verantwortlich (Verstöße können Ordnungswidrigkeit oder im Einzelfall Straftat sein).
+  - Rückfrage: Wer steht in der Verantwortung, wenn das Entsorgungsunternehmen die Fässer später unerlaubt ablagert?
+- Ein Großkunde fragt im Vergabegespräch, ob Solvitec Frequenzumrichter und Steuerungen am Ende der Nutzung zurücknimmt und ob die Geräte rechtskonform in Verkehr gebracht werden. Wie antworten Sie, und was klären Sie intern?
+  - Erwartung: Herstellerunternehmen im Sinne des Elektro- und Elektronikgerätegesetzes ist, wer Geräte erstmals in Deutschland auf den Markt bringt; vorher ist zu prüfen, ob das jeweilige Produkt erfasst ist (Ausnahmen etwa für Bauteile und ortsfeste Großanlagen), bei erfassten Geräten sind Registrierung und Kennzeichnung nachzuweisen, und nicht registrierte Geräte dürfen nicht angeboten werden; die insolvenzsichere Entsorgungsgarantie betrifft Geräte, die in Haushalten genutzt werden können, und entfällt bei rein gewerblich genutzten Geräten, wenn das glaubhaft gemacht wird (zeitkritisch).
+  - Erwartung: Bei Geräten aus gewerblicher Nutzung bietet das Herstellerunternehmen eine Rückgabemöglichkeit an und trägt grundsätzlich die Kosten; abweichende Vereinbarungen mit dem Nutzer über die Kosten sind möglich, und eine Pflicht des Kunden zur Übergabe an Solvitec besteht nicht; deshalb gehören Rücknahme, Kosten und Nachweis der Verwertung in den Vertrag.
+  - Erwartung: Enthält eine Steuerung eine Batterie, gilt Solvitec insoweit als Herstellerunternehmen im Batterierecht (Registrierung, Organisation für Herstellerverantwortung, Kennzeichnung; zeitkritisch); Altbatterien gehören nicht in den gemischten Abfall.
+  - Erwartung: Intern wird die Produktverantwortung mit der Entwicklung verbunden: recyclinggerechte Gestaltung mit trennbaren Werkstoffen und lösbaren Verbindungen, Kalkulation der Rücknahmekosten (Nettokosten je Gerät) und Rücknahmelogistik mit Prüfung, Aufarbeitung, Bauteilnutzung und Recycling.
+  - Rückfrage: Was ändert sich für die Antwort, wenn der Frequenzumrichter fest in eine Großanlage des Kunden eingebaut ist?
 
 ### 6.8 Fertigungsorganisation, Fertigungstiefe, Standort und Instandhaltung
 
