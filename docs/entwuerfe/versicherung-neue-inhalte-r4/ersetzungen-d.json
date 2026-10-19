@@ -1,0 +1,28 @@
+[
+  {
+    "datei": "kp1/3.1-produktmanagement-versicherungsprodukte.md",
+    "paare": [
+      [
+        "ggf. Anzeige- oder Genehmigungspflichten gegenüber der BaFin.",
+        "ggf. Anzeige- oder Genehmigungspflichten gegenüber der BaFin. Das Produktfreigabeverfahren (interne Freigabe, keine Genehmigung der BaFin) mit Zielmarkt, Produktprüfung und Vertriebsstrategie begleitet die Stufen 2 bis 6 (Abschnitt „Produktfreigabe und Zielmarkt“ weiter unten in diesem Thema)."
+      ],
+      [
+        "berechnet u. a. aus Schadenhäufigkeit und durchschnittlicher Schadenhöhe vergangener Perioden.",
+        "berechnet u. a. aus Schadenhäufigkeit und durchschnittlicher Schadenhöhe vergangener Perioden. In der Lebensversicherung entspricht die Nettoprämie vereinfacht dem Barwert der künftigen Leistungen; die Abweichung vom Lernmodell erklärt der Abschnitt „Kalkulation in der Lebensversicherung: Rechnungsgrundlagen und Rechnungszins“ weiter unten in diesem Thema."
+      ],
+      [
+        "an Rückversicherer ab, um die eigene Kapitalbasis zu schonen und Großschadenspitzen abzufedern.",
+        "an Rückversicherer ab, um die eigene Kapitalbasis zu schonen und Großschadenspitzen abzufedern; wie die Kapitalanforderungen der Aufsicht diese Wirkung berücksichtigen, zeigt der Abschnitt „Solvency II im Überblick“ weiter unten in diesem Thema."
+      ]
+    ]
+  },
+  {
+    "datei": "kp1/fallaufgaben.md",
+    "paare": [
+      [
+        "vier Teilaufgaben mit Punktangaben",
+        "vier bis fünf Teilaufgaben mit Punktangaben"
+      ]
+    ]
+  }
+]
