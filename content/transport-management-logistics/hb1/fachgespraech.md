@@ -5,7 +5,7 @@ fachgebiet_title: "Entwickeln und Vermarkten von Güterverkehrs- und Logistikdie
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Bachelor Professional in Transport Management and Logistics" (GüLogFachwBAProFV vom 21.09.2023, in Kraft seit 28.09.2023, § 4, Handlungsbereich „Entwickeln und Vermarkten von Güterverkehrs- und Logistikdienstleistungen") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -178,6 +178,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Fracora erfasst Eingangsdatum und Form der Reklamation, berechnet das Fristende im Fristenkalender (auch mit Hemmung), prüft Obhutszeit, Anzeige, Ausschlussgründe und die Höhe (Höchstbetrag gegen Wertersatz) und antwortet in der gesetzlichen Form.
   - Erwartung: Die Antwort wird zusammen mit den Belegen (Frachtbrief, Ladeliste, Lieferbeleg mit Vorbehalten, Fotos, Telematikdaten) abgelegt, auch weil bei einer Zurückweisung nach der CMR die Belege zurückzusenden sind.
   - Rückfrage: Warum lässt sich die Verjährung nicht beliebig durch wiederholte Reklamationen hinauszögern?
+- Eine Industriekundschaft möchte im Lagerrahmenvertrag mit Fracora die ADSp nicht verwenden und stattdessen die volle Haftung für den Warenwert vereinbaren. Wie gehen Sie als Kundenservice Kontraktlogistik damit um?
+  - Erwartung: Die ADSp sind eine Empfehlung der Verbände und rechtlich vorformulierte Vertragsbedingungen, kein Gesetz; sie gelten nur, wenn sie einbezogen sind, und eine im Einzelnen ausgehandelte Vereinbarung geht ihnen vor. Fracora kann also abweichen, muss es aber bewusst entscheiden.
+  - Erwartung: Das Lagerrecht kennt von sich aus keinen festen Höchstbetrag; die Begrenzungen bei Lagerung (zum Beispiel je Schadenfall und für Inventurdifferenzen je Jahr) stammen aus den ADSp. Bei hochwertiger Ware kann das für die Kundschaft zu wenig sein, bei der Abweichung trüge Fracora das volle Risiko.
+  - Erwartung: Zwischenlösungen sind eine Wertangabe gegen Zuschlag vor der Einlagerung, die Versicherung des Gutes auf Verlangen oder eine ausgehandelte Haftungssumme, die zur Haftungsversicherung von Fracora passt.
+  - Erwartung: Fracora prüft vorab die Deckung der eigenen Haftungsversicherung, rechnet das Risiko in den Preis ein, hält das Verhandlungsergebnis schriftlich fest und holt die Freigabe der Geschäftsführung ein.
+  - Rückfrage: Warum darf sich Fracora auf die Haftungsbestimmungen der ADSp nur berufen, wenn ausreichender Versicherungsschutz besteht?
+- Sie sollen für eine Neukundschaft ein Angebot „Festpreis frei Haus“ kalkulieren, bei dem Fracora Teile der Fahrt an Unterfrachtführer vergibt. Welche rechtlichen Folgen hat der Festpreis, und was berücksichtigen Sie in der Kalkulation?
+  - Erwartung: Ein fester Betrag, der die Beförderungskosten einschließt, macht Fracora zur Fixkostenspediteurin: Hinsichtlich der Beförderung hat sie die Rechte und Pflichten eines Frachtführers und haftet für Güter- und Lieferfristschäden, auch für den Unterfrachtführer.
+  - Erwartung: Das Kostenrisiko liegt bei Fracora: Aufwendungsersatz gibt es nur, soweit er üblich ist, und nach den ADSp sind mit dem Festpreis alle Leistungen abgegolten; im regelmäßigen Verlauf anfallende und bei Angebotsabgabe vorhersehbare Kosten (zum Beispiel Eilzuschläge) lassen sich nicht nachfordern, Kalkulationsfehler gehen zulasten des Kalkulierenden.
+  - Erwartung: In der Kalkulation sind Wagnisse wie Eilzuschläge, Wartezeiten, Zusatzstopps und Mautänderungen zu berücksichtigen (Zuschlagskalkulation, Thema 1.3); sinnvoll sind ausdrückliche Zuschläge oder Gleitklauseln im Angebot und feste Dispositionsfristen.
+  - Erwartung: Bei Einzelabrechnung (reine Besorgung) trüge die Kundschaft das Kostenrisiko und Fracora erhielte eine Speditionsvergütung; die Wahl hängt von Planungswunsch der Kundschaft und Risikobereitschaft von Fracora ab.
+  - Rückfrage: Welche Rolle hat Fracora, wenn sie die Sendung im Hauptlauf bei einem Unterfrachtführer mit Gut anderer Kundschaft in einer Sammelladung auf eigene Rechnung bündelt?
 
 ### 1.5 Digitalisierung in der Logistik
 

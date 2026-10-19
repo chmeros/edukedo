@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AJ „Transport: neue rechtsnahe Inhalte“ (Stand 19.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 19.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, bitte einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung TL-14, TL-13, TL-10, TL-8, TL-7; Auswertung `docs/entwuerfe/versicherung-transport-r4-auswertung.md`). Alle Agenten liefen auf Sonnet.
 

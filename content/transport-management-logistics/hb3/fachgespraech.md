@@ -5,7 +5,7 @@ fachgebiet_title: "Kommunikation, Führung und Zusammenarbeit sicherstellen"
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §6, Handlungsbereich „Kommunikation, Führung und Zusammenarbeit sicherstellen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -259,3 +259,26 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Zur Vorbereitung auf Rückfragen werden zu jeder Folie mögliche Fragen zu Begriffen, Zahlen und Alternativen notiert und Reservefolien bereitgehalten; geantwortet wird mit der Kernaussage zuerst, Begründung und Beispiel, Wissenslücken werden offen eingeräumt.
   - Erwartung: Die Präsentation dauert höchstens 10 Minuten, das Fachgespräch höchstens 20 Minuten; maßgeblich für Form, Fristen und Medien ist die Prüfungsordnung.
   - Rückfrage: Ihr Probelauf dauert zwölf Minuten. Was ändern Sie?
+
+### 3.7 Arbeits- und Gesundheitsschutz in der Logistik
+
+- Fracora will im Lager drei neue Schmalgangstapler einsetzen. Wie gehen Sie als verantwortliche Führungskraft vor, bevor die ersten Fahrten stattfinden?
+  - Erwartung: Die Gefährdungsbeurteilung wird vor der Inbetriebnahme für das neue Arbeitsmittel und den Einsatzbereich erstellt oder angepasst (Fahrwege, Regalgänge, Fußverkehr, Sicht, Lärm); die Fachkraft für Arbeitssicherheit und der Betriebsrat werden beteiligt.
+  - Erwartung: Die wiederkehrenden Prüfungen durch eine zur Prüfung befähigte Person werden nach der Gefährdungsbeurteilung festgelegt (nach der Unfallverhütungsvorschrift längstens jährlich), eine schriftliche Betriebsanweisung liegt vor, und die Fahrer:innen prüfen das Fahrzeug täglich vor Einsatzbeginn auf erkennbare Mängel.
+  - Erwartung: Fahren dürfen nur Personen, die mindestens 18 Jahre alt, geeignet und ausgebildet sind, ihre Befähigung nachgewiesen haben und einen schriftlichen Auftrag erhalten; die Qualifikationsmatrix zeigt, wer das ist.
+  - Erwartung: Vor Aufnahme der Tätigkeit wird unterwiesen, danach mindestens einmal jährlich, dokumentiert; Zeitarbeitskräfte unterweist Fracora als Entleiherin.
+  - Erwartung: Die Wirksamkeit wird durch Begehungen, Beinaheunfall-Meldungen und Unfallkennzahlen geprüft und die Gefährdungsbeurteilung fortgeschrieben.
+  - Rückfrage: Wie gehen Sie mit einer Aushilfe um, die einen Staplerschein aus einem früheren Arbeitsverhältnis mitbringt?
+- Die Niederlassungsleitung möchte im Umschlaglager eine Nachtschicht von 21 bis 7 Uhr einführen. Welche arbeitsschutzrechtlichen Punkte prüfen Sie, bevor Sie zustimmen?
+  - Erwartung: Nachtarbeitnehmer:in ist, wer im Wechsel regelmäßig nachts arbeitet oder an mindestens 48 Tagen im Jahr; zehn Stunden Arbeitszeit sind nur erlaubt, wenn der Durchschnitt eines Kalendermonats oder von vier Wochen bei acht Stunden je Werktag liegt.
+  - Erwartung: Die Pausen (30 Minuten bei mehr als sechs, 45 Minuten bei mehr als neun Stunden Arbeitszeit) stehen im Voraus fest; zwischen zwei Schichten liegt eine Ruhezeit von mindestens elf Stunden, was bei der Rotation der Schichten zu prüfen ist.
+  - Erwartung: Nachtarbeitnehmer:innen haben das Recht auf arbeitsmedizinische Untersuchung, unter Voraussetzungen auf einen Tagesarbeitsplatz und auf bezahlte freie Tage oder einen Zuschlag, soweit kein Tarifvertrag etwas regelt.
+  - Erwartung: Der Betriebsrat bestimmt bei der Lage der Arbeitszeit mit; die Gefährdungsbeurteilung wird für die Nachtschicht ergänzt (Ermüdung, Unfallrisiko, Alleinarbeit, Erste Hilfe und Notfallorganisation in der Nacht).
+  - Erwartung: Schwangere dürfen zwischen 20 und 6 Uhr nicht beschäftigt werden, Jugendliche grundsätzlich auch nicht; der Personaleinsatz muss das berücksichtigen.
+  - Rückfrage: Welche Folgen hätte es, wenn die Schicht auch sonntags laufen soll?
+- Ein Disponent Ihres Teams, der in der Bereitschaft häufig nachts erreichbar sein muss, wirkt erschöpft und war in den letzten Monaten mehrfach krank. Was unternehmen Sie als Führungskraft, und welche Rolle haben Gefährdungsbeurteilung und betriebliches Gesundheitsmanagement?
+  - Erwartung: Sie führen zeitnah ein vertrauliches Gespräch ohne Fragen nach Diagnosen, klären die Belastung (Bereitschaft, Zeitdruck, Übergaben) und zeigen Unterstützung.
+  - Erwartung: War er innerhalb eines Jahres länger als sechs Wochen arbeitsunfähig, ununterbrochen oder wiederholt, ist ihm ein betriebliches Eingliederungsmanagement anzubieten, mit seiner Zustimmung und unter Beteiligung der Interessenvertretung; die Betriebsärzt:in kann hinzugezogen werden.
+  - Erwartung: Die Gefährdungsbeurteilung umfasst psychische Belastungen und die Arbeitszeit; die Maßnahmen setzen an Aufgabe und Organisation an, zum Beispiel Bereitschaftsplan mit Vertretung, Pufferzeiten, klare Übergaben (Thema 3.3) und Ruhezeiten nach nächtlichen Einsätzen.
+  - Erwartung: Betriebliches Gesundheitsmanagement verbindet den Arbeitsschutz als Pflicht, das Eingliederungsmanagement als Pflicht und die freiwillige Gesundheitsförderung; Kennzahlen sind Krankenstand, Unfallquote und Fluktuation.
+  - Rückfrage: Welche Rolle hat der Betriebsrat dabei?

@@ -5,7 +5,7 @@ fachgebiet_title: "Erstellen von Güterverkehrs- und Logistikdienstleistungen"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung GüLogFachwBAProFV (21.09.2023, in Kraft seit 28.09.2023), §5, Handlungsbereich „Erstellen von Güterverkehrs- und Logistikdienstleistungen" — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan, Prüfungsunterlagen oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -29,7 +29,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Rückfrage: Worin unterscheidet sich das Sweep-Verfahren vom Sparverfahren?
 - Welche gesetzlichen Restriktionen muss die Disposition beim Einsatz von Fahrpersonal beachten?
   - Erwartung: Die Disposition muss die gesetzlichen Lenk- und Ruhezeiten des Fahrpersonals nach der entsprechenden EU-Verordnung beachten.
-  - Erwartung: Zu diesen Vorgaben gehören u. a. die maximale tägliche Lenkzeit und vorgeschriebene Ruhepausen.
+  - Erwartung: Zu diesen Vorgaben gehören u. a. die maximale tägliche Lenkzeit (regelmäßig 9 Stunden, zweimal in der Woche 10 Stunden), die Fahrtunterbrechung von 45 Minuten nach 4,5 Stunden Lenkdauer und die tägliche Ruhezeit von regelmäßig mindestens 11 Stunden (Stand Oktober 2026, vor Verwendung prüfen).
   - Erwartung: Eine Tour, die zwar kilometeroptimal wäre, aber die zulässige Lenkzeit überschreiten würde, ist nicht zulässig und muss angepasst werden.
   - Erwartung: Disponent:innen gleichen eingehende Aufträge mit der Verfügbarkeit des Fahrpersonals ab, z. B. mit der verbleibenden Lenkzeit und Qualifikationen wie dem ADR-Schein für Gefahrguttransporte.
   - Erwartung: Telematiksysteme übermitteln u. a. die verbleibende Lenkzeit in Echtzeit an die Dispositionszentrale.
@@ -48,6 +48,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Der Halter haftet für die Bereitstellung geeigneter Sicherungsmittel.
   - Erwartung: Die Ladung muss so verstaut und gesichert sein, dass sie auch bei Vollbremsung oder plötzlichem Ausweichen nicht verrutscht.
   - Rückfrage: Welche zwei Grundprinzipien der Ladungssicherung werden unterschieden?
+- Ein Industriekunde möchte, dass Fahrpersonal von Fracora regelmäßig mehrere Wochen am Stück im Ausland unterwegs ist. Wie planen Sie als Disposition Wochenruhezeit, Unterkunft und Rückkehr, und was beachten Sie bei der Lenkzeit über zwei Wochen?
+  - Erwartung: Die regelmäßige Wochenruhezeit von mindestens 45 Stunden gehört in eine geeignete Unterkunft, nicht ins Fahrzeug, und der Arbeitgeber trägt die Kosten; sie beginnt spätestens nach sechs 24-Stunden-Zeiträumen (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Die Einsätze werden so gelegt, dass jede fahrende Person spätestens alle vier Wochen an der Betriebsstätte oder am Wohnsitz eine regelmäßige Wochenruhezeit verbringen kann; Fracora belegt, wie es das sicherstellt; die frühere Rückkehrpflicht für Fahrzeuge alle acht Wochen gilt nach dem EuGH-Urteil von 2024 nicht mehr.
+  - Erwartung: Verkürzte Wochenruhezeiten (mindestens 24 Stunden) sind bis zum Ende der dritten Woche danach auszugleichen; zwei reduzierte hintereinander sind nur unter engen Bedingungen im grenzüberschreitenden Güterverkehr möglich.
+  - Erwartung: In einer Woche sind höchstens 56 Stunden, in zwei aufeinanderfolgenden Wochen höchstens 90 Stunden Lenkzeit erlaubt; die Disposition führt ein Lenkzeitkonto je Person, plant Puffer ein und berücksichtigt, dass die Höchstarbeitszeit getrennt zu prüfen ist.
+  - Rückfrage: Welche Rolle spielen die Daten des Fahrtenschreibers und die Telematik bei Planung und Kontrolle?
+- Eine neue Kollegin in der Disposition sagt: „Überschreitet eine fahrende Person die Lenkzeit, ist das allein ihr Problem, und Kabotage ist erlaubt, solange wir schon im Land sind.“ Nehmen Sie Stellung, und unterscheiden Sie dabei die Rollen Frachtführer und Spediteur.
+  - Erwartung: Zunächst trägt das Verkehrsunternehmen die Verantwortung: Es richtet Einsatzplanung, Anweisung und Kontrolle des Fahrpersonals so aus, dass die Regeln eingehalten werden, und haftet für deren Verstöße. Als Spedition oder Auftraggeberin muss Fracora außerdem sicherstellen, dass vertraglich vereinbarte Zeitpläne die Regeln nicht verletzen.
+  - Erwartung: Verstöße sind Ordnungswidrigkeiten mit Geldbußen bis 30.000 € für das Unternehmen (auch für Spediteure mit unzulässigem Zeitplan) und bis 5.000 € für die fahrende Person (Stand Oktober 2026, vor Verwendung prüfen); der Fahrtenschreiber belegt Verstöße.
+  - Erwartung: Kabotage ist nur nach einer grenzüberschreitenden Beförderung erlaubt: höchstens drei Beförderungen mit demselben Fahrzeug, die letzte spätestens sieben Tage nach dem Entladen der eingeführten Sendung, danach vier Tage Sperrfrist.
+  - Erwartung: Belege für die grenzüberschreitende Beförderung und jede Kabotage müssen bei der Kontrolle vorliegen; bei Verstößen kann der Aufnahmestaat verwarnen oder Kabotage zeitweise verbieten.
+  - Rückfrage: Wie prüfen Sie vor der Zusage eines Auslandsauftrags, ob er mit den Fristen der Kabotage vereinbar ist?
 
 ### 2.2 Lagerlogistik und Bestandsmanagement
 
@@ -138,6 +150,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Bei den C-Klauseln (u. a. CPT, CIP) organisiert und bezahlt der Verkäufer den Haupttransport (bei CIP zusätzlich die Versicherung), das Risiko geht jedoch bereits bei Übergabe an den ersten Frachtführer über.
   - Erwartung: Bei den D-Klauseln (u. a. DAP, DDP) trägt der Verkäufer die weitestgehende Verantwortung; bei DDP übernimmt er sogar die Einfuhrverzollung und -abgaben im Zielland.
   - Rückfrage: Warum berät ein Logistikdienstleister Industriekunden bei der Wahl der passenden Incoterm-Klausel?
+- Ein langjähriges Kundenunternehmen beauftragt Fracora mit der Ausfuhr hochpräziser Messgeräte in ein Drittland und sagt, es sei „normale Maschinenbauware“, eine Genehmigung brauche es nicht. Wie gehen Sie als Spedition vor?
+  - Erwartung: Die Kundschaft ist in der Regel Ausführerin, also Vertragspartnerin des Empfangsunternehmens im Drittland, die über die Lieferung bestimmt; sie muss das Gut gegen die Güterlisten einstufen (Listennummer oder begründet „nicht gelistet“) und eine nötige Genehmigung beantragen. Die Warennummer des Zolltarifs ersetzt diese Einstufung nicht.
+  - Erwartung: Fracora trägt trotzdem eine eigene Sorgfalt: Plausibilität der Angaben prüfen, Empfangsunternehmen, Endverwender, Zahlende und Zielland gegen Embargos und Sanktionslisten abgleichen, die Genehmigung prüfen und die Nummer in die Ausfuhranmeldung übernehmen.
+  - Erwartung: Bei Zweifeln (unklarer Endverwender, Umwege, ungewöhnliche Zahlung) wird der Auftrag angehalten, die Prüfung dokumentiert und die zuständige Stelle im Haus eingeschaltet; Verbote können auch die Beförderung erfassen, deshalb kann sich auch eine Spedition strafbar oder ordnungswidrig machen.
+  - Erwartung: Auch nicht gelistete Güter können bei bestimmter Endverwendung genehmigungspflichtig sein; die Behörde kann Auskunft geben.
+  - Rückfrage: In welchen Fällen wird Fracora selbst zur Ausführerin, und was ändert das?
+- Eine Industriekundschaft schreibt in einer Rahmenvereinbarung „AEO-Status oder gleichwertige Sicherheitsnachweise“ und sichere Luftfracht aus. Wie bewerten Sie die Anforderung, und wie erklären Sie der Kundschaft den Unterschied zwischen AEO und den Statusarten der Luftfracht?
+  - Erwartung: Der AEO-Status wird vom Zoll bewilligt; es gibt AEO C (zollrechtliche Vereinfachungen) und AEO S (Sicherheit), kombinierbar; Voraussetzungen sind unter anderem keine schwerwiegenden Verstöße, Kontrolle über Tätigkeit und Warenbewegung, Zahlungsfähigkeit und für AEO S angemessene Sicherheitsstandards; Vorteile sind seltenere Kontrollen und ein Verkaufsargument.
+  - Erwartung: Bekannter Versender und reglementierter Beauftragter werden dagegen von der Luftsicherheitsbehörde zugelassen, je Betriebsstandort und für höchstens fünf Jahre; der bekannte Versender sichert eigene Fracht, der reglementierte Beauftragte, auch eine Spedition, kontrolliert Fracht anderer.
+  - Erwartung: AEO ersetzt diese Zulassungen nicht; eine Zollprüfung kann bei der Zulassung berücksichtigt werden. Welche Zulassung Fracora braucht, hängt davon ab, ob Fracora selbst kontrollieren will oder wie bisher mit einem Luftfrachtpartner arbeitet.
+  - Erwartung: Wer bereits gesicherte Luftfracht per Lkw fährt, beachtet Anforderungen an den Transport (Verschluss oder Siegel, überprüftes und geschultes Personal); die Regeln für Transporteure ändern sich zum 1. Januar 2027 und sind aktuell zu prüfen.
+  - Rückfrage: Welche Folgen hat ein schwerwiegender Verstoß gegen die Exportkontrollvorschriften für eine bestehende AEO-Bewilligung?
 
 ### 2.5 Gefahrgut- und Sicherheitsvorschriften
 
