@@ -1,0 +1,24 @@
+[
+  {
+    "datei": "hb2/2.9-lieferkettensicherheit-betrugspraevention.md",
+    "paare": [
+      [
+        "Behördliche Sicherheitsstatus im Warenverkehr (etwa der zugelassene Wirtschaftsbeteiligte, AEO, oder der bekannte Versender in der Luftfracht) werden hier ebenfalls nicht behandelt.",
+        "Behördliche Sicherheitsstatus im Warenverkehr (der zugelassene Wirtschaftsbeteiligte, AEO, sowie der bekannte Versender und der reglementierte Beauftragte in der Luftfracht) stehen in Thema 2.4 „Zoll- und Außenwirtschaft im Güterverkehr“ im Fachgebiet „Erstellen von Güterverkehrs- und Logistikdienstleistungen“ (Abschnitte „AEO: zugelassener Wirtschaftsbeteiligter“ und „Sichere Lieferkette in der Luftfracht“); hier werden sie nicht im Einzelnen behandelt."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/2.4-zoll-aussenwirtschaft-gueterverkehr.md",
+    "paare": [
+      [
+        "zuzüglich bestimmter Kosten wie Transport- und Versicherungskosten bis zur EU-Außengrenze, sofern diese nicht bereits im Kaufpreis enthalten sind.",
+        "zuzüglich bestimmter Kosten wie Transport- und Versicherungskosten bis zum Ort des Verbringens in das Zollgebiet der EU (bei Seefracht der Einfuhrhafen), sofern diese nicht bereits im Kaufpreis enthalten sind; die Berechnung der Einfuhrabgaben zeigt das Rechenbeispiel im Abschnitt „Einfuhrabgaben berechnen: Zollsatz, Zollwert und Einfuhrumsatzsteuer“."
+      ],
+      [
+        "im Regelfall der tatsächlich gezahlte Transaktionspreis zuzüglich bestimmter Transport- und Versicherungskosten bis zur EU-Außengrenze.",
+        "im Regelfall der tatsächlich gezahlte Transaktionspreis zuzüglich bestimmter Transport- und Versicherungskosten bis zum Ort des Verbringens in das Zollgebiet der EU."
+      ]
+    ]
+  }
+]
