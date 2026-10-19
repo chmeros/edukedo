@@ -5,7 +5,7 @@ fachgebiet_title: "Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und V
 thema_code: "KB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Wahlbereich „Lösungen für Gewerbekunden im Kundenbedarfsfeld Sach- und Vermögensschutz" der Verordnung BAProVFFPrV (§ 7) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -41,6 +41,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Voraussetzung für Leistungen der Einbruchdiebstahlversicherung sind in der Regel nachweisbare Einbruchspuren, etwa eine aufgebrochene Tür oder ein eingeschlagenes Fenster.
   - Erwartung: Je nach Höhe der Versicherungssumme verlangen Versicherer bestimmte Sicherungsstandards, etwa VdS-klassifizierte Schlösser oder Alarmanlagen.
   - Erwartung: Diese Standards sind als Obliegenheit zu erfüllen; werden sie nicht eingehalten, ist der Versicherer bei Vorsatz im Schadenfall leistungsfrei und darf bei grober Fahrlässigkeit entsprechend dem Verschulden kürzen; war die Verletzung für den Schaden nicht ursächlich, bleibt er in der Regel leistungspflichtig.
+- Ein Unternehmen mit Betriebsgebäude in einer hohen Gefährdungsklasse möchte den Elementarschutz zurückstellen, weil bald ohnehin eine Pflicht komme. Wie beraten Sie es?
+  - Erwartung: Stand Oktober 2026 gibt es kein Gesetz zur Elementarschadenversicherung; angekündigt sind Eckpunkte, die zunächst eine Deckungserweiterung bei angebotenen Wohngebäudeversicherungen betreffen (Elementargefahren in bestimmtem Umfang einschließen, keine Pflicht zum Abschluss), Elemente der Freiwilligkeit bleiben, ein Opt-out wird geprüft, ein Referentenentwurf ist laut Meldung des Versichererverbands für das erste Quartal 2027 in Aussicht gestellt; für gewerbliche Sachversicherungen ist keine Pflicht genannt (zeitkritisch).
+  - Erwartung: Das Risiko besteht unabhängig von der Gesetzgebung; die Gefährdungsklasse des Zonierungssystems (vier Klassen, Klasse 4 mindestens einmal in 10 Jahren) bestimmt Annahme, Prämie und Selbstbehalt, in hohen Klassen kann der Schutz nur nach Einzelprüfung oder eingeschränkt angeboten werden.
+  - Erwartung: Eine Wartezeit nach Vertragsbeginn und Obliegenheiten wie eine funktionsfähige Rückstausicherung sind zu nennen; wer erst nach einer Unwetterwarnung abschließt, ist nicht geschützt.
+  - Rückfrage: Wie ordnen Sie das Risiko in der Risikomatrix aus Thema 2.5 Risikoanalyse für Gewerbekunden ein?
 
 ### 2.2 Haftpflichtversicherungen für Gewerbekunden
 
@@ -71,6 +76,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: D&O-Policen arbeiten typischerweise nach dem Claims-made-Prinzip.
   - Erwartung: Versicherungsfall ist nicht der Zeitpunkt der (vermeintlichen) Pflichtverletzung, sondern der Zeitpunkt, zu dem der Anspruch erstmals erhoben wird.
   - Erwartung: Der Anspruch muss dafür während der Vertragslaufzeit erstmals erhoben werden.
+- Ein Betrieb mit Lack- und Gefahrstofflager fragt Sie, ob seine Betriebshaftpflicht auch Umweltschäden abdeckt. Wie gehen Sie in der Beratung vor?
+  - Erwartung: Nach den Musterbedingungen sind Haftpflichtansprüche wegen Schäden durch Umwelteinwirkung in der Betriebshaftpflicht ausgeschlossen („Umwelt-Nullstellung“) oder nur eingeschränkt gedeckt; Schutz bieten eigene Umweltbausteine, deren Wortlaut im Tarif zu prüfen ist.
+  - Erwartung: Zwei Arten von Ansprüchen sind zu trennen: privatrechtliche Schadenersatzansprüche Dritter (Umwelthaftpflicht) und die öffentlich-rechtliche Pflicht zur Schadensbegrenzung und Sanierung von Arten, Gewässern und Boden (Umweltschadensversicherung); ein Ereignis kann beide auslösen.
+  - Erwartung: Die umweltrelevanten Anlagen und Tätigkeiten (Lagern, Umfüllen, Mengen) müssen im Vertrag angegeben werden; die Umweltschadensversicherung setzt eine Betriebsstörung voraus (plötzlich, unfallartig), der Normalbetrieb ist nicht gedeckt; eigene Grundstücke und das Grundwasser brauchen Zusatzbausteine.
+  - Erwartung: Versicherungsfall ist die nachprüfbare erste Feststellung des Schadens; bei einem Versichererwechsel sind Nachhaftung und Vorschäden zu klären.
+  - Rückfrage: Warum passt das Schadenereignisprinzip bei Umweltschäden schlecht?
+- Die Geschäftsführung eines Betriebs sagt: „Bei Arbeitsunfällen haften wir wegen der Berufsgenossenschaft ohnehin nicht, eine Arbeitgeberhaftpflicht brauchen wir nicht.“ Wie antworten Sie?
+  - Erwartung: Das Haftungsprivileg schließt die zivilrechtliche Haftung des Unternehmens für Personenschäden von Beschäftigten bei Arbeitsunfällen grundsätzlich aus, weil die gesetzliche Unfallversicherung leistet; es entfällt bei Vorsatz und bei einem versicherten Wegeunfall und erfasst keine Sachschäden.
+  - Erwartung: Der Unfallversicherungsträger kann aber Regress nehmen, wenn das Unternehmen, seine Organe oder Kolleg:innen den Unfall vorsätzlich oder grob fahrlässig verursacht haben, höchstens bis zur Höhe des zivilrechtlichen Ersatzanspruchs; auf Teile kann er nach billigem Ermessen verzichten.
+  - Erwartung: Die Arbeitgeberhaftpflicht wehrt unberechtigte Ansprüche ab und stellt von berechtigten frei, vor allem vom Regress; bei der Herbeiführung des Versicherungsfalls ist der Haftpflichtversicherer gesetzlich nur bei Vorsatz leistungsfrei, grobe Fahrlässigkeit schadet nicht.
+  - Erwartung: Ob der Baustein in der Betriebshaftpflicht enthalten ist, steht in den Bedingungen; die beste Ergänzung ist die Schadenverhütung (Prüfungen, Unterweisungen).
+  - Rückfrage: Wer kann außer dem Unternehmen noch in Regress genommen werden?
 
 ### 2.3 Vermögensschadenversicherungen
 

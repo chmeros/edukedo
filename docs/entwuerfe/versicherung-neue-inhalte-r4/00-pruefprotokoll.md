@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AK „Versicherungen und Finanzanlagen: neue rechtsnahe Inhalte“ (Stand 19.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 19.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AK einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung VF-9, VF-3, VF-15, VF-13, VF-11, VF-19; Auswertung `docs/entwuerfe/versicherung-transport-r4-auswertung.md`). Alle Agenten liefen auf Sonnet.
 

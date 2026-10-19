@@ -5,7 +5,7 @@ fachgebiet_title: "Kernprozesse gestalten"
 thema_code: "KP1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Pflicht-Handlungsbereich „Kernprozesse gestalten" der Verordnung über die Prüfung zum Geprüften Bachelor Professional/zur Geprüften Bachelor Professional in Versicherungen und Finanzanlagen (BAProVFFPrV, § 8) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -47,6 +47,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Dort werden Zielgruppe, Deckungsumfang und Ausschlüsse des neuen Produkts geklärt.
   - Erwartung: Zudem wird das neue Produkt gegenüber den bereits bestehenden Produkten im Portfolio abgegrenzt.
   - Erwartung: Ziel ist es, unerwünschte Kannibalisierungseffekte zu vermeiden.
+- Ein Vorstandsmitglied der Nordantis fragt, warum es zusätzlich zur Pilotphase noch ein Produktfreigabeverfahren mit Zielmarkt braucht. Wie antworten Sie?
+  - Erwartung: Das Produktfreigabeverfahren ist eine aufsichtsrechtliche Pflicht des Herstellers für jedes neue Produkt und jede wesentliche Änderung (ausgenommen sind unter anderem Großrisiken); vor dem Vertrieb muss ein Zielmarkt festgelegt, die Risiken für ihn bewertet und die Vertriebsstrategie darauf abgestimmt sein.
+  - Erwartung: Die Pilotphase liefert Erfahrungswerte zu Nachfrage, Beratungsaufwand und erstem Schadenverlauf; das Freigabeverfahren legt fest, was darüber hinaus nachweisbar sein muss: Zielmarkt (gegebenenfalls negativer Zielmarkt), Produktprüfung mit Szenarioanalysen, Wahl der Vertriebswege und Dokumentation. Beides ergänzt sich.
+  - Erwartung: Nach der Einführung folgen Überwachung und regelmäßige Überprüfung, Informationen an die Vertriebspartner:innen über Merkmale, Risiken, Kosten und Zielmarkt, die Kontrolle, ob an den Zielmarkt verkauft wird, und Abhilfemaßnahmen bei Fehlentwicklungen; Vertreiber melden Auffälligkeiten.
+  - Erwartung: Der Zielmarkt ersetzt nicht die Einzelbewertung im Beratungsgespräch, die klärt, ob das Produkt zu den Wünschen und Bedürfnissen der einzelnen Person passt.
+  - Rückfrage: Was folgt, wenn die Produktprüfung ergibt, dass das Produkt den Bedürfnissen des Zielmarkts nicht entspricht?
+- Ein Mitglied des Aufsichtsrats bittet Sie, ihm Solvency II und die anstehende Überarbeitung kurz zu erklären. Was sagen Sie ihm?
+  - Erwartung: Solvency II ruht auf drei Säulen: quantitative Anforderungen (marktnahe Bewertung, Eigenmittel, Solvabilitätskapitalanforderung und Mindestkapitalanforderung), Geschäftsorganisation mit Risikomanagement und unternehmenseigener Risiko- und Solvabilitätsbeurteilung sowie Berichtspflichten.
+  - Erwartung: Die Solvabilitätskapitalanforderung deckt unerwartete Verluste (Value-at-Risk mit 99,5 % über ein Jahr); die Mindestkapitalanforderung ist die untere Grenze, bei der Versicherte einem unannehmbaren Risiko ausgesetzt wären; bei Unterdeckung drohen Sanierungs- beziehungsweise Finanzierungspläne und Eingriffe der Aufsicht.
+  - Erwartung: Die Überarbeitung gilt in Deutschland ab dem 30. Januar 2027 (Gesetz vom 25. September 2026): Proportionalität für kleine und nicht komplexe Unternehmen, Kapitalkostensatz der Risikomarge 4,75 % statt 6 %, neue Pflichten zu Liquiditätsrisiko, Nachhaltigkeit und Klimaszenarien, überarbeiteter Solvabilitäts- und Finanzbericht. Alle Angaben mit Stand Oktober 2026, vor Verwendung prüfen.
+  - Erwartung: Für das Produktmanagement sind Produktmerkmale wie Garantien kapitalrelevant; Rückversicherung entlastet.
+  - Rückfrage: Woran erkennen Sie, ob das Lebensversicherungsunternehmen der Nordantis-Gruppe als kleines und nicht komplexes Unternehmen eingestuft werden kann?
 
 ### 3.2 Kundenmanagement und Kundenberatung
 
@@ -84,6 +96,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Professioneller Umgang mit Beschwerden stärkt das Vertrauen der Kundinnen und Kunden.
   - Erwartung: Dadurch werden Kündigungen verhindert; dieser Effekt wird als Stornoprävention bezeichnet.
   - Rückfrage: Welche Instrumente der Bestandspflege nennen Sie außer dem Beschwerdemanagement?
+- Eine neue selbstständige Vertreterin soll im nächsten Monat für Nordantis Verträge vermitteln. Was klären Sie vor ihrem Start zu Zulassung, Register und Weiterbildung?
+  - Erwartung: Zuerst wird der Status geklärt: Als gebundene Vertreterin arbeitet sie ohne eigene Erlaubnis unter dem Haftungsdach der Nordantis, die sie im Vermittlerregister meldet; als Vertreterin oder Maklerin mit Erlaubnis bräuchte sie die Erlaubnis der IHK und eine eigene Berufshaftpflichtversicherung.
+  - Erwartung: Nordantis stellt sicher, dass sie zuverlässig ist, in geordneten Vermögensverhältnissen lebt und über die erforderliche Sachkunde verfügt (IHK-Prüfung oder gleichgestellter Abschluss), und dokumentiert das.
+  - Erwartung: Beim ersten Kundenkontakt gibt sie die Erstinformation mit Status, Registereintrag, Art der Vergütung und Schlichtungsstelle, regelmäßig auf Papier.
+  - Erwartung: Sie muss sich im Umfang von 15 Stunden je Kalenderjahr weiterbilden (Stand Oktober 2026, vor Verwendung prüfen); Selbststudium zählt nur mit nachweisbarer Lernerfolgskontrolle, die Belege werden fünf Jahre aufbewahrt, und Nordantis plant und überwacht die Stunden.
+  - Rückfrage: Was gilt, wenn sie stattdessen als Angestellte der Nordantis im Außendienst arbeitet? (Erwartung: keine Erlaubnis und kein Registereintrag; Nordantis muss aber Zuverlässigkeit, geordnete Vermögensverhältnisse, angemessene Qualifikation und regelmäßige Fortbildung sicherstellen und dokumentieren.)
+- Eine Kundin kündigt an, den Versicherungsombudsmann einzuschalten, weil Nordantis einen Anspruch von 8.600 € abgelehnt hat. Wie gehen Sie im Beschwerdemanagement vor, und was bedeutet das Verfahren für Nordantis?
+  - Erwartung: Die Beschwerde wird registriert, der Eingang bestätigt, der Sachverhalt umfassend geprüft und die Kundin unverzüglich verständlich beantwortet; bleibt es bei der Ablehnung, erläutert Nordantis die Gründe und zeigt Wege wie die Schlichtung auf.
+  - Erwartung: Das Verfahren vor dem Versicherungsombudsmann ist für Verbraucher:innen kostenfrei und freiwillig; Voraussetzung ist, dass der Anspruch zuvor bei Nordantis geltend gemacht wurde; Nordantis (Annahme: Mitglied) nimmt teil und gibt in der Regel binnen drei Wochen eine Stellungnahme ab.
+  - Erwartung: Bei einem Beschwerdewert von 8.600 € ergeht eine Entscheidung, die Nordantis als Mitgliedsunternehmen bindet, die Kundin aber nicht; über 10.000 € bis 100.000 € gäbe es nur eine unverbindliche Empfehlung (Stand Oktober 2026, vor Verwendung prüfen). Der Weg zu den Gerichten bleibt der Kundin offen.
+  - Erwartung: Nordantis wertet den Fall aus (Ursache, Bearbeitungszeit, Wiederholung) und gibt Erkenntnisse an Leistungs-, Produkt- und Vertriebsmanagement zurück.
+  - Rückfrage: Welche Unterlagen sind wichtig, wenn die Beschwerde die Beratung betrifft?
 
 ### 3.3 Schadenmanagement
 
@@ -126,6 +150,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei komplexeren oder strittigen Fällen zieht Nordantis unabhängige Sachverständige hinzu.
   - Erwartung: Trifft den Versicherungsnehmer ein Mitverschulden, mindert sich sein Ersatzanspruch gegen den Dritten und damit auch der Anspruch, der auf den Versicherer übergehen kann; davon zu unterscheiden ist das Quotenvorrecht: Der Übergang darf nicht zum Nachteil des Versicherungsnehmers geltend gemacht werden.
   - Rückfrage: Welche Regulierungsentscheidungen sind am Ende des Prozesses möglich?
+- Eine Kundin meldet nach einem Wohnungseinbruch einen Hausratschaden und führt im Schadenverzeichnis einen Gegenstand auf, den sie nach Ihren Unterlagen schon vor Monaten verschenkt hat. Wie prüfen Sie, welche Folgen das für die Leistung hat?
+  - Erwartung: Das Schadenverzeichnis dient der Aufklärung des Schadens; es geht um eine Auskunfts- und Aufklärungsobliegenheit nach dem Versicherungsfall, die der Vertrag mit Leistungsfreiheit verbinden kann. Für den Gegenstand selbst ist ohnehin keine Entschädigung zu zahlen, weil dafür kein Schaden entstanden ist.
+  - Erwartung: Geprüft werden nacheinander die Verletzung, das Verschulden (einfache Fahrlässigkeit: keine Folge; grobe Fahrlässigkeit: Kürzung nach der Schwere; Vorsatz: Leistungsfreiheit; Arglist, wenn die Kundin Nordantis täuschen wollte) und die Ursächlichkeit für die Feststellung und den Umfang der Leistung; den Gegenbeweis fehlender Ursächlichkeit führt die Kundin, bei Arglist ist er ausgeschlossen.
+  - Erwartung: Voraussetzung für Kürzung oder Leistungsfreiheit ist, dass Nordantis die Kundin vorher durch eine gesonderte Mitteilung in Textform auf diese Rechtsfolge hingewiesen hat, etwa durch einen abgesetzten Hinweis im Schadenformular; fehlt sie, bleibt es bei der Leistung für die tatsächlich entstandenen Schäden.
+  - Erwartung: Nordantis fragt zunächst sachlich nach, dokumentiert die Antwort und unterstellt nicht vorschnell Betrug; bei Anhaltspunkten für eine Täuschung wird gestuft weitergeprüft (Thema 3.4 Leistungsmanagement im Fachgebiet Kernprozesse gestalten).
+  - Rückfrage: Wer muss in diesem Fall was beweisen?
+- Eine Kundin ruft acht Wochen nach ihrer Schadenmeldung an und fragt, wann sie ihr Geld bekommt und was sie tun kann, wenn sie mit der von Nordantis festgestellten Schadenhöhe nicht einverstanden ist. Was antworten Sie?
+  - Erwartung: Die Geldleistung wird fällig, wenn die zur Feststellung des Versicherungsfalls und des Umfangs der Leistung notwendigen Erhebungen beendet sind; sind sie einen Monat nach der Anzeige nicht beendet, kann die Kundin einen Abschlag in Höhe des Betrags verlangen, den Nordantis voraussichtlich mindestens zu zahlen hat (Ausnahme: Sie verzögert die Erhebungen schuldhaft selbst).
+  - Erwartung: In der Sachversicherung wird die Entschädigung nach Ablauf eines Monats seit der Anzeige mit 4 % für das Jahr verzinst (Stand Oktober 2026, vor Verwendung prüfen); höhere Zinsen aus anderem Rechtsgrund, etwa Verzug nach einer Mahnung, bleiben möglich.
+  - Erwartung: Bei Streit über Tatsachen, etwa die Schadenhöhe, hilft ein im Vertrag vereinbartes Sachverständigenverfahren: Beide Seiten benennen sachverständige Personen, eine dritte entscheidet bei Abweichungen; die Feststellung ist verbindlich, außer sie weicht offenbar erheblich von der wirklichen Sachlage ab, dann entscheidet das Gericht; die Kosten regeln die Bedingungen.
+  - Erwartung: Ansprüche verjähren in der Regel nach drei Jahren, beginnend mit dem Schluss des Jahres, in dem der Anspruch fällig geworden ist; die Anmeldung beim Versicherer hemmt die Verjährung bis zum Zugang der Entscheidung in Textform, deshalb gehen Entscheidungen in Textform zu und die Fristen stehen im Kalender.
+  - Rückfrage: Warum beginnt die Verjährung nicht schon mit dem Tag des Schadens?
 
 ### 3.4 Leistungsmanagement
 
@@ -160,4 +196,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Gerade im Leistungsfall, etwa bei Krankheit oder Todesfall, ist eine sensible, empathische Kommunikation für die Kundenbindung besonders wichtig.
   - Erwartung: Die Leistungsentscheidung kann eine vollständige Zahlung, eine teilweise Kürzung oder eine begründete Ablehnung sein, und sie muss gegenüber dem Kunden nachvollziehbar begründet werden.
   - Rückfrage: Welche Nachweise reicht der Kunde bei der Lebensversicherung im Todesfall mit dem Leistungsantrag ein?
-

@@ -5,7 +5,7 @@ fachgebiet_title: "Lösungen im Kundenbedarfsfeld Vorsorge"
 thema_code: "KB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Wahlbereich „Lösungen im Kundenbedarfsfeld Vorsorge" (BAProVFFPrV § 6) — keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "17.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "19.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -217,6 +217,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer. Die Fragen
   - Erwartung: Streuung über Anlageklassen, Länder, Branchen und Kaufzeitpunkte verringert das Risiko einzelner Werte, beseitigt aber nicht das allgemeine Marktrisiko.
   - Erwartung: Ziel, Anlagehorizont, ein vorhandener Notgroschen sowie Risikobereitschaft und Risikotragfähigkeit des Kunden werden erfragt; Rechnungen und Erläuterungen sind keine Anlageempfehlung, die Entscheidung liegt beim Kunden.
   - Rückfrage: Was versteht man unter Rebalancing, und wozu dient es?
+- Ein Kunde der Nordantis fragt, warum für seine fondsgebundene Rentenversicherung ähnlich viele Unterlagen nötig sind wie bei einem Fondskauf über die Bank. Wie ordnen Sie die Regeln ein?
+  - Erwartung: Die fondsgebundene Rentenversicherung ist ein Versicherungsanlageprodukt: Ihr Wert hängt vom Kapitalmarkt ab, und das Risiko trägt in der Regel die Kundschaft. Der Vertrieb ist Versicherungsvertrieb und keine Wertpapierdienstleistung.
+  - Erwartung: Wegen der Anlageeigenschaft gelten zusätzliche Anlegerschutzpflichten, die denen der Wertpapierwelt ähneln: Geeignetheitsprüfung bei Beratung (Kenntnisse und Erfahrungen, finanzielle Verhältnisse, Anlageziele), Geeignetheitserklärung, Kosteninformation und Basisinformationsblatt.
+  - Erwartung: Nicht jede Versicherung ist betroffen: Sach-, Haftpflicht-, Risikolebens- und Berufsunfähigkeitsversicherungen sind keine Versicherungsanlageprodukte; bestimmte als Altersvorsorge anerkannte Produkte sind ausgenommen; ob auch klassische Verträge mit Überschussbeteiligung dazugehören (der Marktbezug darf indirekt sein), ist im Einzelfall zu prüfen.
+  - Erwartung: Zu einzelnen Aktien oder Fondsanteilen im Depot darf die Vertretung nur mit der passenden Erlaubnis beraten; sonst verweist sie an ein Institut oder an eine dafür erlaubte Beratung.
+  - Rückfrage: Welche drei Bereiche umfasst die Geeignetheitsprüfung, und was gilt, wenn Angaben fehlen?
+- Eine Kundin meint, Honorarberatung sei immer günstiger als die Beratung durch eine Vertretung, die Provision erhält. Wie antworten Sie?
+  - Erwartung: Beide Modelle sind zulässig. Entscheidend sind die Gesamtkosten in Euro und ihre Wirkung auf die Rendite über die Laufzeit, nicht das Modell allein; ein Honorar ist eine Einmalzahlung, laufende Kosten wirken jedes Jahr.
+  - Erwartung: Vor der Beratung wird offengelegt, wie vergütet wird. Zuwendungen Dritter sind nur zulässig, wenn sie die Qualität nicht beeinträchtigen und offengelegt sind; bei der Honorarberatung trägt allein die Kundschaft die Vergütung, nichtmonetäre Zuwendungen Dritter sind ausgeschlossen, monetäre werden ausgekehrt. Für Versicherungsprodukte entspricht dem die Beratung durch Versicherungsberater:innen (Thema 3.2); die Vertretung der Nordantis vermittelt nur Produkte des Hauses.
+  - Erwartung: Vor dem Abschluss werden die Kosten gebündelt ausgewiesen, mit ihrer kumulierten Renditewirkung; Einzelposten gibt es auf Wunsch, und bei Versicherungsanlageprodukten kommt während der Laufzeit mindestens einmal jährlich eine Mitteilung.
+  - Erwartung: Eine Pauschalaussage „Honorar ist günstiger“ gehört nicht in die Beratung; verglichen werden konkrete Angebote unter gleichen Annahmen, ohne Renditeversprechen.
+  - Rückfrage: Warum wirken laufende Kosten über viele Jahre oft stärker als einmalige, und wer berät bei Versicherungen gegen Honorar?
 
 ### 1.7 Nachhaltigkeit in Kapitalanlage und Versicherung
 
