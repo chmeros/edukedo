@@ -8,7 +8,7 @@ Stand 20.10.2026. Zusammengestellt aus dem Kursbestand `content/immobilienfachwi
 |---|---|---|
 | Geschäft | Drei Sparten: **Hausverwaltung** (rund 3.000 verwaltete Wohn- und Gewerbeeinheiten), **Maklerabteilung**, **Projektentwicklung/Bauträgergeschäft**; mehrere Standorte | `hb3/3.1`, `hb1/glossar.md` |
 | Verwaltung | Mietshäuser und **rund 40 Wohnungseigentümergemeinschaften (WEG)**; Hausgeld, Erhaltungsrücklagen, Kautionen auf Treuhand-/Fremdgeldkonten | `hb2/2.1`, `hb4/4.2` |
-| Maklerabteilung | Vermittlung von Miete und Kauf; Vertriebsteam wird zum Sachkundenachweis nach § 34c GewO fortgebildet (Rechtsangabe im Bestand: Pflichten gelten dem Gewerbetreibenden, nicht der einzelnen angestellten Person, siehe FL-IM-12) | `hb1/1.3`, `hb6/6.1` |
+| Maklerabteilung | Vermittlung von Miete und Kauf; Erlaubnis nach § 34c GewO hat die Gesellschaft als Gewerbetreibende, nicht die einzelne angestellte Person (FL-IM-12); einen gesetzlichen Sachkundenachweis nennt § 34c Abs. 2 GewO nicht (P-AL); Weiterbildungspflicht nach Stand 24.07.2026 nur für Verwalter:innen | `hb1/1.3`, `hb6/6.1` |
 | Bauträgersparte | Neubauprojekte mit Abschlagszahlungen nach Baufortschritt (MaBV-Ratenplan), Verkauf auch über die **eigene Maklerabteilung** (rechtlich Eigenvertrieb, siehe FL-IM-04); Expansion in eine Nachbarregion in einem Fall | `hb2/2.1`, `hb2/2.4`, `hb5` |
 | Verbände | Mitglied im IVD und im VDIV; interne Ehrenkodex-Richtlinien | `hb1/1.3` |
 | Standorte | „mehrere Standorte“; im Bestand nur **Standort Nord** und **Standort Süd** (HB3, Personalfälle); keine Ortsnamen | `hb3` |
