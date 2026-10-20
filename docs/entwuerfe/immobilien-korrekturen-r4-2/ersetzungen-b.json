@@ -1,0 +1,692 @@
+[
+  {
+    "datei": "hb5/5.2-bauplanung-durchfuehrung.md",
+    "paare": [
+      [
+        "(Detailkenntnis der HOAI-Honorarermittlung ist nicht Gegenstand dieses Handlungsbereichs, wohl aber das grobe Ablaufverständnis)",
+        "(Detailkenntnis der HOAI-Honorarermittlung ist nicht Gegenstand dieses Handlungsbereichs, wohl aber das grobe Ablaufverständnis; die Honorare sind seit dem Wegfall der verbindlichen Mindest- und Höchstsätze frei zu vereinbaren, und zwar in Textform, die Honorartafeln der HOAI dienen nur noch als Orientierung, und ohne Vereinbarung gilt der Basishonorarsatz)"
+      ],
+      [
+        "die drei grundlegende Vergabearten unterscheidet: die **öffentliche Ausschreibung** (unbeschränkter Teilnehmerkreis, im öffentlichen Sektor der Regelfall), die **beschränkte Ausschreibung** (ein von vornherein begrenzter Kreis geeigneter Unternehmen wird zur Angebotsabgabe aufgefordert) und die **freihändige Vergabe** (Verhandlung direkt mit einem oder wenigen ausgewählten Unternehmen ohne förmliches Ausschreibungsverfahren).",
+        "die für Bauleistungen unterhalb der EU-Schwellenwerte (Abschnitt 1) drei grundlegende Vergabearten unterscheidet: die **öffentliche Ausschreibung** (unbeschränkter Teilnehmerkreis, im öffentlichen Sektor der Regelfall), die **beschränkte Ausschreibung** (ein von vornherein begrenzter Kreis geeigneter Unternehmen wird zur Angebotsabgabe aufgefordert; sie kann mit oder ohne vorgeschalteten Teilnahmewettbewerb erfolgen) und die **freihändige Vergabe** (Verhandlung direkt mit einem oder wenigen ausgewählten Unternehmen ohne förmliches Ausschreibungsverfahren). Die freihändige Vergabe ist nur zulässig, wenn die öffentliche und die beschränkte Ausschreibung unzweckmäßig sind, etwa bei besonderer Dringlichkeit oder wenn nur ein bestimmtes Unternehmen in Betracht kommt, oder bei geringem Auftragswert (für Bundesaufträge seit dem 01.01.2026 bis 100.000 Euro ohne Umsatzsteuer, die Länder können abweichen; Stand Oktober 2026, vor Verwendung prüfen). Der Begriff „Verhandlungsvergabe“ gehört zu anderen Vergaberegeln (Unterschwellenvergabe von Liefer- und Dienstleistungen; bei EU-weiten Bauaufträgen heißt das entsprechende Verfahren „Verhandlungsverfahren“); im Abschnitt 1 der VOB/A heißt die Vergabeart weiterhin freihändige Vergabe."
+      ],
+      [
+        "**Antwort:** Öffentliche Ausschreibung, beschränkte Ausschreibung und freihändige Vergabe.",
+        "**Antwort:** Öffentliche Ausschreibung, beschränkte Ausschreibung (mit oder ohne Teilnahmewettbewerb) und freihändige Vergabe; in anderen Vergaberegeln heißt die freihändige Vergabe Verhandlungsvergabe oder Verhandlungsverfahren."
+      ],
+      [
+        "**Antwort:** Bei der freihändigen Vergabe wird direkt mit einem oder wenigen ausgewählten Unternehmen verhandelt, ohne förmliches Ausschreibungsverfahren mit unbeschränktem Teilnehmerkreis.",
+        "**Antwort:** Bei der freihändigen Vergabe wird direkt mit einem oder wenigen ausgewählten Unternehmen verhandelt, ohne förmliches Ausschreibungsverfahren mit unbeschränktem Teilnehmerkreis. Sie ist nur zulässig, wenn die anderen Verfahren unzweckmäßig sind (z. B. bei besonderer Dringlichkeit) oder der Auftragswert gering ist."
+      ],
+      [
+        "**Erklärung:** Die freihändige Vergabe ist die am wenigsten formalisierte der drei VOB/A-Vergabearten.",
+        "**Erklärung:** Die freihändige Vergabe ist die am wenigsten formalisierte der drei VOB/A-Vergabearten und nur unter bestimmten Voraussetzungen zulässig (z. B. Dringlichkeit oder geringer Auftragswert). In anderen Vergaberegeln heißt das entsprechende Verfahren Verhandlungsvergabe."
+      ],
+      [
+        "**Erklärung:** Eine der drei Vergabearten nach VOB/A (5.2.3).",
+        "**Erklärung:** Eine der drei Vergabearten nach VOB/A (5.2.3); sie kann mit oder ohne vorgeschalteten Teilnahmewettbewerb erfolgen."
+      ],
+      [
+        "**Akzeptierte Antworten:** Öffentliche Ausschreibung, beschränkte Ausschreibung, freihändige Vergabe; Öffentliche, beschränkte, freihändige Vergabe",
+        "**Akzeptierte Antworten:** Öffentliche Ausschreibung, beschränkte Ausschreibung, freihändige Vergabe; Öffentliche, beschränkte, freihändige Vergabe; Öffentliche Ausschreibung, beschränkte Ausschreibung, Verhandlungsvergabe; Öffentliche, beschränkte, Verhandlungsvergabe; Öffentliche Ausschreibung, beschränkte Ausschreibung, freihändige Vergabe (Verhandlungsvergabe)"
+      ],
+      [
+        "**Erklärung:** Die drei grundlegenden Vergabearten nach VOB/A (5.2.3).",
+        "**Erklärung:** Die drei grundlegenden Vergabearten nach VOB/A (5.2.3). Die beschränkte Ausschreibung gibt es mit und ohne Teilnahmewettbewerb; die freihändige Vergabe heißt in anderen Vergaberegeln Verhandlungsvergabe, nach der VOB/A (Abschnitt 1) heißt die dritte Vergabeart freihändige Vergabe, die Bezeichnung „Verhandlungsvergabe“ wird nachsichtig akzeptiert."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/fallaufgaben.md",
+    "paare": [
+      [
+        "Teilaufgabe 4: Freihändige Vergabe, da es sich um eine kurzfristig notwendige, spezialisierte Zusatzleistung handelt, bei der ein förmliches, zeitaufwendiges Ausschreibungsverfahren dem Zweck der schnellen Verzögerungsminimierung entgegenstünde.",
+        "Teilaufgabe 4: Freihändige Vergabe (in anderen Vergaberegeln Verhandlungsvergabe genannt), da die Zusatzleistung besonders dringlich und spezialisiert ist (nur wenige Unternehmen kommen in Betracht) und ein förmliches, zeitaufwendiges Ausschreibungsverfahren dem Zweck der schnellen Verzögerungsminimierung entgegenstünde. Ravelin ist als privates Bauträgerunternehmen an die VOB/A nicht gebunden und kann die Vergabeart frei wählen; tragend sind die Dringlichkeit und die dokumentierte Begründung, mehrere Vergleichsangebote bei den wenigen geeigneten Unternehmen bleiben sinnvoll."
+      ],
+      [
+        "der rückwärtige Teil liegt im Außenbereich und ist nach §35 BauGB für Wohnbebauung mangels Privilegierung grundsätzlich nicht bzw. nur sehr eingeschränkt bebaubar.",
+        "der rückwärtige Teil liegt im Außenbereich und ist nach §35 BauGB für Wohnbebauung mangels Privilegierung grundsätzlich nicht bzw. nur sehr eingeschränkt bebaubar. Läge ein qualifizierter Bebauungsplan vor, entschieden stattdessen dessen Festsetzungen (§30 BauGB) über die Zulässigkeit."
+      ],
+      [
+        "Teilaufgabe 3: Ein Optionsvertrag ist sinnvoll, da die Bebaubarkeit des rückwärtigen Teils unklar ist und Ravelin sich vor einem endgültigen Kauf zunächst rechtliche Klarheit verschaffen sollte, ohne das Grundstück an einen anderen Interessenten zu verlieren.",
+        "Teilaufgabe 3: Ein Optionsvertrag ist sinnvoll, da die Bebaubarkeit des rückwärtigen Teils unklar ist und Ravelin sich vor einem endgültigen Kauf zunächst rechtliche Klarheit verschaffen sollte, ohne das Grundstück an einen anderen Interessenten zu verlieren. Er bedarf wie der Kaufvertrag der notariellen Beurkundung; ergänzend kommt eine Bauvoranfrage (Vorbescheid) in Betracht, um die Bebaubarkeit verbindlich klären zu lassen."
+      ],
+      [
+        "Teilaufgabe 4: Grundflächenzahl (GRZ) und Geschossflächenzahl (GFZ).",
+        "Teilaufgabe 4: Grundflächenzahl (GRZ) und Geschossflächenzahl (GFZ); beide gehören zum Maß der baulichen Nutzung, die GRZ begrenzt den von baulichen Anlagen überdeckten Anteil des Grundstücks, die GFZ die Gesamtgeschossfläche."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/fachgespraech.md",
+    "paare": [
+      [
+        "- Welche Vergabearten nach VOB/A kennen Sie, und wovon hängt die Wahl der passenden Vergabeart ab?",
+        "- Welche Vergabearten nach VOB/A kennen Sie, und wovon hängt die Wahl der passenden Vergabeart ab?\n  - Erwartung: Für Bauleistungen kennt die VOB/A die öffentliche Ausschreibung, die beschränkte Ausschreibung (mit oder ohne Teilnahmewettbewerb) und die freihändige Vergabe.\n  - Erwartung: Bei der öffentlichen Ausschreibung wird eine unbeschränkte Zahl von Unternehmen zur Angebotsabgabe aufgefordert, bei der beschränkten Ausschreibung nur ein begrenzter Kreis geeigneter Unternehmen.\n  - Erwartung: Die freihändige Vergabe, in anderen Vergaberegeln Verhandlungsvergabe genannt, ist nur zulässig, wenn die anderen Verfahren unzweckmäßig sind, z. B. wegen besonderer Dringlichkeit oder weil nur ein bestimmtes Unternehmen in Betracht kommt, oder bei geringem Auftragswert.\n  - Erwartung: Die Wahl hängt von Auftragswert, Dringlichkeit, Spezialisierung der Leistung und Wettbewerbssituation ab; ein privates Bauträgerunternehmen wie Ravelin ist an die VOB/A nicht gebunden, orientiert sich aber häufig an ihr.\n  - Rückfrage: Warum kann für eine kurzfristig nötige Spezialleistung eine freihändige Vergabe sinnvoll sein?"
+      ],
+      [
+        "  - Erwartung: Die HOAI unterteilt die Objektplanung traditionell in neun Leistungsphasen.",
+        "  - Erwartung: Die HOAI unterteilt die Objektplanung traditionell in neun Leistungsphasen.\n  - Erwartung: Das Honorar ist seit dem Wegfall der verbindlichen Mindest- und Höchstsätze frei in Textform zu vereinbaren; die Honorartafeln der HOAI dienen nur noch als Orientierung."
+      ],
+      [
+        "  - Erwartung: Existiert kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB.",
+        "  - Erwartung: Im Geltungsbereich eines qualifizierten Bebauungsplans ist ein Vorhaben nach § 30 BauGB zulässig, wenn es den Festsetzungen nicht widerspricht und die Erschließung gesichert ist.\n  - Erwartung: Existiert kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB."
+      ],
+      [
+        "  - Erwartung: Die Grundflächenzahl (GRZ) gibt den Anteil der überbaubaren Grundstücksfläche an.",
+        "  - Erwartung: Die Grundflächenzahl (GRZ) gibt an, welcher Anteil des Grundstücks von baulichen Anlagen überdeckt werden darf (zulässige Grundfläche); sie ist nicht dasselbe wie die überbaubare Grundstücksfläche, die der Bebauungsplan durch Baulinien und Baugrenzen festlegt."
+      ],
+      [
+        "  - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand.",
+        "  - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand; Zeitpunkt und Form der Nachbarbeteiligung regelt das Landesrecht."
+      ],
+      [
+        "  - Erwartung: Auf der obersten Ebene unterscheidet die DIN 276 sieben Kostengruppen.",
+        "  - Erwartung: Auf der obersten Ebene unterscheidet die DIN 276 (Fassung 2018) die Kostengruppen 100 bis 700; hinzu kommt als achte Hauptgruppe die KG 800 Finanzierung."
+      ],
+      [
+        "  - Erwartung: KG 500 umfasst Außenanlagen (z. B. Stellplätze, Grünflächen), KG 600",
+        "  - Erwartung: KG 500 umfasst Außenanlagen und Freiflächen (z. B. Stellplätze, Grünflächen), KG 600"
+      ],
+      [
+        "  - Erwartung: Der Kostenanschlag beruht auf den eingegangenen Angeboten nach der Ausschreibung.",
+        "  - Erwartung: Der Kostenanschlag beruht auf den eingegangenen Angeboten nach der Ausschreibung.\n  - Erwartung: Vor der Kostenschätzung kann ein Kostenrahmen stehen, nach Fertigstellung folgt die Kostenfeststellung; zusätzlich kennt die DIN 276:2018 den Kostenvoranschlag vor dem Kostenanschlag."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/5.1-projektentwicklung.md",
+    "paare": [
+      [
+        "— das begrenzt das Risiko eines Fehlkaufs, falls sich die Bebaubarkeit später als ungünstiger herausstellt als erhofft.",
+        "— das begrenzt das Risiko eines Fehlkaufs, falls sich die Bebaubarkeit später als ungünstiger herausstellt als erhofft. Zu beachten ist die Form: Ein Vertrag, durch den sich jemand zur Übertragung oder zum Erwerb eines Grundstücks verpflichtet, bedarf der notariellen Beurkundung (§ 311b Abs. 1 BGB). Das gilt auch für Optionsverträge und bedingte Ankaufsvereinbarungen, weil sie schon an den Grundstückskauf binden; ein ohne Beurkundung geschlossener Vertrag wird erst durch Auflassung und Eintragung im Grundbuch wirksam. Eine bloße unverbindliche Absichtserklärung ohne Bindung zum Kauf löst die Formpflicht in der Regel nicht aus; bei Reservierungsvereinbarungen mit Zahlungspflicht oder Vertragsstrafe ist die Form im Einzelfall zu prüfen."
+      ],
+      [
+        "um das Risiko eines Fehlkaufs zu begrenzen.",
+        "um das Risiko eines Fehlkaufs zu begrenzen. Wie der Kaufvertrag selbst muss er notariell beurkundet werden."
+      ],
+      [
+        "**Erklärung:** Der Optionsvertrag begrenzt das Risiko eines Fehlkaufs, falls sich die Bebaubarkeit später als ungünstig herausstellt.",
+        "**Erklärung:** Der Optionsvertrag begrenzt das Risiko eines Fehlkaufs, falls sich die Bebaubarkeit später als ungünstig herausstellt. Er bedarf wie ein Grundstückskaufvertrag der notariellen Beurkundung."
+      ],
+      [
+        "**Frage:** Welche drei Aspekte werden im Rahmen der Grundbuchprüfung bei der Ankaufsprüfung eines Grundstücks im Kern geklärt?",
+        "**Frage:** Welche zwei Aspekte werden im Rahmen der Grundbuchprüfung bei der Ankaufsprüfung eines Grundstücks im Kern geklärt?"
+      ],
+      [
+        "**Akzeptierte Antworten:** Eigentum und Belastungen; Eigentumsverhältnisse und Belastungen wie Grundschulden oder Wegerechte; Eigentum, Grundschulden, Wegerechte",
+        "**Akzeptierte Antworten:** Eigentum und Belastungen; Eigentumsverhältnisse und Belastungen wie Grundschulden oder Wegerechte; Eigentümer und Belastungen; Eigentum und Lasten; Eigentum, Grundschulden, Wegerechte"
+      ],
+      [
+        "**Erklärung:** Die Grundbuchprüfung klärt, wem das Grundstück gehört und welche Rechte Dritter (z. B. Grundschulden, Wegerechte) darauf lasten.",
+        "**Erklärung:** Die Grundbuchprüfung klärt zwei Dinge: wem das Grundstück gehört (Eigentum) und welche Rechte Dritter (Belastungen, z. B. Grundschulden, Wegerechte) darauf lasten."
+      ],
+      [
+        "1. Grundstücksakquise und Ankaufsprüfung",
+        "1. Geeignetes Grundstück identifizieren (Grundstücksakquise)"
+      ],
+      [
+        "2. Standort- und Marktanalyse",
+        "2. Ankaufsprüfung sowie Standort- und Marktanalyse (laufen parallel)"
+      ],
+      [
+        "**Erklärung:** Erst wird ein Grundstück identifiziert und geprüft, dann Standort/Markt analysiert, anschließend die grobe Machbarkeit und zuletzt die detaillierte Kalkulation erstellt.",
+        "**Erklärung:** Erst wird ein Grundstück gefunden; Ankaufsprüfung sowie Standort- und Marktanalyse laufen anschließend parallel und liefern gemeinsam die Grundlage für die Machbarkeitsstudie, zuletzt folgt die detaillierte Kalkulation."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/5.3-baurecht-grundzuege.md",
+    "paare": [
+      [
+        "insbesondere über die **Grundflächenzahl (GRZ)** — Anteil der überbaubaren Grundstücksfläche — und die **Geschossflächenzahl (GFZ)** — Verhältnis der gesamten Geschossfläche zur Grundstücksfläche.",
+        "insbesondere über die **Grundflächenzahl (GRZ)** — sie gibt an, wie viele Quadratmeter Grundfläche je Quadratmeter Grundstücksfläche zulässig sind, also welcher Anteil des Baugrundstücks von baulichen Anlagen überdeckt werden darf (Garagen, Stellplätze mit Zufahrten und bestimmte Nebenanlagen werden mitgerechnet; die zulässige Grundfläche darf dadurch bis zu 50 % überschritten werden, höchstens bis zu einer GRZ von 0,8, soweit der Bebauungsplan nichts anderes festsetzt) — und die **Geschossflächenzahl (GFZ)** — Verhältnis der gesamten Geschossfläche zur Grundstücksfläche. Davon zu unterscheiden ist die **überbaubare Grundstücksfläche**: Sie legt fest, wo auf dem Grundstück gebaut werden darf, und wird im Bebauungsplan durch Baulinien, Baugrenzen oder Bebauungstiefen bestimmt."
+      ],
+      [
+        "Existiert für ein Grundstück kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB:",
+        "Im Geltungsbereich eines Bebauungsplans, der mindestens Festsetzungen zu Art und Maß der baulichen Nutzung, zu den überbaubaren Grundstücksflächen und zu den örtlichen Verkehrsflächen enthält (qualifizierter Bebauungsplan), ist ein Vorhaben nach **§30 BauGB** zulässig, wenn es diesen Festsetzungen nicht widerspricht und die Erschließung gesichert ist. Enthält der Plan diese Mindestfestsetzungen nicht (einfacher Bebauungsplan), richtet sich die Zulässigkeit im Übrigen nach §34 oder §35 BauGB. Existiert für ein Grundstück gar kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB:"
+      ],
+      [
+        "(z. B. wegen Verschattung oder Grenzabstand), bevor die Genehmigung erteilt wird. Die erteilte Baugenehmigung enthält",
+        "(z. B. wegen Verschattung oder Grenzabstand), bevor die Genehmigung erteilt wird. Wie und wann die Nachbar:innen beteiligt werden, regelt das Landesrecht: In manchen Ländern benachrichtigt die Bauaufsichtsbehörde die Nachbar:innen nach Eingang des Antrags, in anderen holt die Bauherrschaft schon vor der Antragstellung deren Unterschriften auf den Bauvorlagen ein; die Reihenfolge der Schritte ist deshalb nicht bundeseinheitlich. Die erteilte Baugenehmigung enthält"
+      ],
+      [
+        "(bzw. der Anzeige des Baubeginns, je nach Landesrecht) darf tatsächlich mit den Bauarbeiten begonnen werden.",
+        "(bzw. der Anzeige des Baubeginns, je nach Landesrecht) darf tatsächlich mit den Bauarbeiten begonnen werden. Wer vor dem aufwendigen Bauantrag Klarheit über einzelne Fragen braucht (etwa die grundsätzliche bauplanungsrechtliche Zulässigkeit eines Mehrfamilienhauses oder die Zahl möglicher Wohneinheiten), kann nach den Landesbauordnungen einen **Vorbescheid** (Bauvoranfrage) beantragen: eine verbindliche Auskunft der Bauaufsichtsbehörde zu den gestellten Fragen, an die sie im späteren Genehmigungsverfahren für einen begrenzten Zeitraum gebunden ist und die sie ersetzt die Baugenehmigung nicht. Für Ravelin ist der Vorbescheid ein Instrument, das Risiko eines Grundstückskaufs zu begrenzen (siehe auch den Optionsvertrag in Thema 5.1)."
+      ],
+      [
+        "Die **Grundflächenzahl (GRZ)** ist bebaute (bzw. zulässig überbaubare) Grundfläche ÷ Grundstücksfläche = 700 ÷ 2.000 = 0,35.",
+        "Die **Grundflächenzahl (GRZ)** ist bebaute (bzw. zulässige) Grundfläche ÷ Grundstücksfläche = 700 ÷ 2.000 = 0,35."
+      ],
+      [
+        "**Antwort:** Den Anteil der überbaubaren Grundstücksfläche im Verhältnis zur Gesamtgrundstücksfläche.",
+        "**Antwort:** Wie viel Grundfläche je Quadratmeter Grundstücksfläche zulässig ist, also den Anteil des Grundstücks, der von baulichen Anlagen überdeckt werden darf (nicht zu verwechseln mit der überbaubaren Grundstücksfläche, die Baulinien und Baugrenzen festlegen)."
+      ],
+      [
+        "**Antwort:** GRZ = bebaute (bzw. zulässig überbaubare) Grundfläche ÷ Grundstücksfläche. GFZ = Summe der Geschossflächen ÷ Grundstücksfläche.",
+        "**Antwort:** GRZ = bebaute (bzw. zulässige) Grundfläche ÷ Grundstücksfläche. GFZ = Summe der Geschossflächen ÷ Grundstücksfläche."
+      ],
+      [
+        "- Grundflächenzahl ↔ Anteil der überbaubaren Grundstücksfläche",
+        "- Grundflächenzahl ↔ Anteil des Grundstücks, der von baulichen Anlagen überdeckt werden darf"
+      ],
+      [
+        "**Anweisung:** Bringe die folgenden Schritte des Baugenehmigungsverfahrens in die typische Reihenfolge.",
+        "**Anweisung:** Bringe die folgenden Schritte des Baugenehmigungsverfahrens in die typische Reihenfolge (Regelfall: Beteiligung der Nachbar:innen nach Einreichung des Antrags; Zeitpunkt und Form regelt das Landesrecht)."
+      ],
+      [
+        "**Erklärung:** Erst wird der Antrag eingereicht, dann erfolgt gegebenenfalls die Nachbarbeteiligung, danach die Genehmigungserteilung und zuletzt die Freigabe zum tatsächlichen Baubeginn.",
+        "**Erklärung:** Erst wird der Antrag eingereicht, dann erfolgt gegebenenfalls die Nachbarbeteiligung, danach die Genehmigungserteilung und zuletzt die Freigabe zum tatsächlichen Baubeginn. Wann und wie die Nachbar:innen beteiligt werden, ist Landesrecht; in manchen Ländern holt die Bauherrschaft deren Unterschriften schon vor der Antragstellung ein."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/5.4-kosten-terminplanung-bau.md",
+    "paare": [
+      [
+        "Auf der obersten Gliederungsebene unterscheidet die DIN 276 sieben Kostengruppen:",
+        "Auf der obersten Gliederungsebene unterscheidet die DIN 276 (Fassung Dezember 2018; die HOAI verweist für die anrechenbaren Kosten weiterhin auf die Fassung 2008) sieben Kostengruppen:"
+      ],
+      [
+        "**KG 500** Außenanlagen (z. B. Stellplätze, Grünflächen), **KG 600** Ausstattung und Kunstwerke sowie **KG 700** Baunebenkosten (u. a. Planungs- und Genehmigungskosten, Bauleitung).",
+        "**KG 500** Außenanlagen und Freiflächen (z. B. Stellplätze, Grünflächen), **KG 600** Ausstattung und Kunstwerke sowie **KG 700** Baunebenkosten (u. a. Planungs- und Genehmigungskosten, Bauleitung). In der Fassung 2018 kommt als achte Hauptgruppe die **KG 800** Finanzierung hinzu (Finanzierungskosten während der Bauzeit); Ravelin führt sie in der Projektkalkulation (Thema 5.1) getrennt von den Kostengruppen 100 bis 700."
+      ],
+      [
+        "und schließlich als **Kostenanschlag** (auf Basis der eingegangenen Angebote nach der Ausschreibung) — mit jeder Stufe steigt die Genauigkeit der Kostenaussage, weil mehr gesicherte Planungs- bzw. Vertragsinformationen vorliegen.",
+        "und schließlich als **Kostenanschlag** (auf Basis der eingegangenen Angebote nach der Ausschreibung) — mit jeder Stufe steigt die Genauigkeit der Kostenaussage, weil mehr gesicherte Planungs- bzw. Vertragsinformationen vorliegen. Vorgeschaltet kann ein **Kostenrahmen** sein (grobe Orientierung in der Frühphase), nachgeschaltet ist nach Fertigstellung die **Kostenfeststellung** (die tatsächlich entstandenen Kosten). Die Fassung 2018 kennt zusätzlich einen **Kostenvoranschlag** (auf Grundlage der Ausführungsplanung und Vergabevorbereitung, vor dem Kostenanschlag; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Frage:** Nenne die sieben Hauptkostengruppen der DIN 276.",
+        "**Frage:** Nenne die sieben Hauptkostengruppen KG 100 bis KG 700 der DIN 276."
+      ],
+      [
+        "KG 500 Außenanlagen, KG 600 Ausstattung und Kunstwerke, KG 700 Baunebenkosten.",
+        "KG 500 Außenanlagen und Freiflächen, KG 600 Ausstattung und Kunstwerke, KG 700 Baunebenkosten. Die Fassung 2018 kennt zusätzlich die KG 800 Finanzierung."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/2.2-investitions-finanzierungsrechnung.md",
+    "paare": [
+      [
+        "**Frage:** Welches Verfahren eignet sich, wenn die Erträge zweier Investitionsalternativen identisch sind und nur die Kosten verglichen werden sollen?",
+        "**Frage:** Welches Verfahren vergleicht bei zwei Investitionsalternativen mit identischen Erträgen allein die durchschnittlichen Kosten?"
+      ],
+      [
+        "**Erklärung:** Die Kostenvergleichsrechnung setzt identische Erträge voraus und vergleicht nur die durchschnittlichen Kosten.",
+        "**Erklärung:** Die Kostenvergleichsrechnung setzt identische Erträge voraus und vergleicht nur die durchschnittlichen Kosten. Die Gewinnvergleichsrechnung würde bei identischen Erträgen zwar dieselbe Rangfolge liefern, vergleicht aber Gewinne (Erträge minus Kosten) und nicht nur Kosten; Kapitalwertmethode und interner Zinsfuß rechnen dynamisch mit Zahlungsströmen."
+      ],
+      [
+        "- Gewährleistungsbürgschaft gegenüber Käufer:innen → Nachlaufphase",
+        "- Sicherheitseinbehalt für Mängelansprüche gegenüber den ausführenden Bauunternehmen → Nachlaufphase"
+      ],
+      [
+        "Ein **Forward-Darlehen** ermöglicht es Ravelin oder den Käufer:innen, sich einen aktuellen Zinssatz für eine erst in der Zukunft beginnende Anschlussfinanzierung zu sichern — hilfreich, wenn ein Neubauprojekt erst in ein bis zwei Jahren fertiggestellt wird und Zinsänderungsrisiken abgesichert werden sollen.",
+        "Ein **Forward-Darlehen** ermöglicht es, sich einen aktuellen Zinssatz für eine erst in der Zukunft beginnende Finanzierung zu sichern — typisch für die Anschlussfinanzierung eines Darlehens, dessen Zinsbindung später ausläuft. Auch bei einem Neubauprojekt, dessen Darlehen erst in ein bis zwei Jahren benötigt wird, lässt sich damit gegen steigende Zinsen absichern; für die Wartezeit verlangen Banken allerdings meist einen Zinsaufschlag (Forward-Aufschlag)."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/2.4-risikomanagement.md",
+    "paare": [
+      [
+        "Risiken mit geringem Schaden, aber höherer Wahrscheinlichkeit werden **beobachtet**, und Risiken mit geringer Wahrscheinlichkeit und geringem Schaden können in der Regel **akzeptiert** werden.",
+        "Risiken mit geringem Schaden, aber höherer Wahrscheinlichkeit werden **beobachtet** (laufend überwacht und bei Bedarf durch einfache Maßnahmen vermindert, aber nicht eigens versichert), und Risiken mit geringer Wahrscheinlichkeit und geringem Schaden können in der Regel **akzeptiert** werden. Die vier Felder der Matrix sind eine vereinfachte Fassung der Steuerungsstrategien aus dem Risikomanagement-Prozess: „vermeiden“ entspricht dem Vermeiden, „absichern“ dem Überwälzen oder Versichern und „akzeptieren“ dem bewussten Tragen; „beobachten“ ist keine eigene Strategie, sondern das Tragen eines Risikos unter laufender Überwachung, oft verbunden mit Vermindern. Die Matrix gilt für Risiken, die noch nicht eingetreten sind: Ein bereits eingetretenes Risiko, etwa eine Kostensteigerung im laufenden Projekt, lässt sich nicht mehr vermeiden, sondern nur noch vermindern oder auffangen."
+      ],
+      [
+        "**Bürgschaften** — etwa eine Vertragserfüllungsbürgschaft gegenüber Auftraggeber:innen oder eine Gewährleistungsbürgschaft gegenüber Käufer:innen von Bauträgerprojekten — sichern die vertragsgemäße Leistungserbringung ab. Die Makler- und Bauträgerverordnung verlangt zudem bei bestimmten Vertragskonstellationen eine **Absicherung der Käufer:innen** gegen den Verlust ihrer Abschlagszahlungen, etwa durch eine Bürgschaft oder Versicherung des Bauträgers.",
+        "**Bürgschaften** — etwa eine Vertragserfüllungsbürgschaft (sie sichert die vertragsgemäße Ausführung) oder eine Gewährleistungsbürgschaft (sie sichert Mängelansprüche nach der Abnahme), wie sie Ravelin als Auftraggeberin von ausführenden Bauunternehmen verlangen kann — sichern die vertragsgemäße Leistungserbringung ab; mit dem Schutz der Käufer:innen vor dem Verlust ihrer Zahlungen haben sie nichts zu tun. Diesen Schutz schreibt die Makler- und Bauträgerverordnung (MaBV) für Bauträgerunternehmen vor, die Zahlungen vor Fertigstellung entgegennehmen, und sie kennt dafür zwei Wege: Beim **Ratenplan** (§ 3 MaBV) darf das Bauträgerunternehmen bis zu sieben Teilbeträge entsprechend dem Baufortschritt erst entgegennehmen, wenn der Vertrag wirksam ist, eine Auflassungsvormerkung eingetragen ist, die Freistellung von vorrangigen Grundpfandrechten gesichert ist und die Baugenehmigung vorliegt. Alternativ leistet es **Sicherheit nach § 7 MaBV**, nämlich die Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens für alle Ansprüche der Käufer:innen auf Rückgewähr oder Auszahlung ihrer Vermögenswerte; dann ist es vom Ratenplan und seinen Voraussetzungen freigestellt."
+      ],
+      [
+        "**Antwort:** Sie sichert Käufer:innen gegenüber Mängelansprüchen nach Übergabe der Einheiten ab.",
+        "**Antwort:** Sie sichert Mängelansprüche nach der Abnahme ab; üblich ist sie als Sicherheit, die ausführende Bauunternehmen dem Bauträgerunternehmen stellen. Den Schutz der Käufer:innen vor dem Verlust geleisteter Abschlagszahlungen leistet sie nicht; dafür gibt es eine eigene gesetzliche Absicherung."
+      ],
+      [
+        "**Antwort:** Zu einer Absicherung der Käufer:innen gegen den Verlust ihrer Abschlagszahlungen, z. B. durch Bürgschaft oder Versicherung.",
+        "**Antwort:** Zu einer Absicherung der Käufer:innen gegen den Verlust ihrer Zahlungen: Entweder darf das Bauträgerunternehmen nur nach Ratenplan und nur bei erfüllten Voraussetzungen (u. a. Vormerkung, Freistellung von Grundpfandrechten, Baugenehmigung) Abschläge entgegennehmen, oder es stellt stattdessen eine Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens."
+      ],
+      [
+        "**Frage:** Wie heißt das Instrument, mit dem Käufer:innen eines Bauträgerprojekts gegen den Verlust bereits geleisteter Abschlagszahlungen abgesichert werden?",
+        "**Frage:** Welche Sicherheit kann ein Bauträgerunternehmen nach den gesetzlichen Vorgaben anstelle des Ratenplans stellen, um Käufer:innen gegen den Verlust bereits geleisteter Zahlungen abzusichern?"
+      ],
+      [
+        "**Akzeptierte Antworten:** Bürgschaft; Gewährleistungsbürgschaft; Absicherung nach MaBV",
+        "**Akzeptierte Antworten:** Bürgschaft; Bankbürgschaft; Bürgschaft nach MaBV; MaBV-Bürgschaft; Sicherheit nach MaBV; Absicherung nach MaBV"
+      ],
+      [
+        "**Erklärung:** Die MaBV verlangt eine entsprechende Absicherung der Käufer:innen durch den Bauträger.",
+        "**Erklärung:** Statt Abschläge nur nach Ratenplan und bei erfüllten Voraussetzungen (Vormerkung, Freistellung, Baugenehmigung) entgegenzunehmen, kann das Bauträgerunternehmen Sicherheit durch die Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens leisten. Die Gewährleistungsbürgschaft sichert dagegen Mängelansprüche und ist keine Sicherheit für Abschlagszahlungen."
+      ],
+      [
+        "**Anweisung:** Ordne die Risiken der Ravelin Immobilien GmbH dem passenden Feld der Risikomatrix zu.",
+        "**Anweisung:** Ordne die Risiken der Ravelin Immobilien GmbH dem passenden Feld der Risikomatrix zu. Maßgeblich sind Eintrittswahrscheinlichkeit und Schadenshöhe, wie sie in Klammern angegeben sind; es geht um Risiken, die noch nicht eingetreten sind."
+      ],
+      [
+        "- Deutlicher Anstieg der Baukosten bei einem laufenden Großprojekt → Vermeiden",
+        "- Kauf eines Grundstücks mit sehr wahrscheinlich hohen Altlastenkosten (Gutachten liegt vor; hohe Wahrscheinlichkeit, hoher Schaden) → Vermeiden"
+      ],
+      [
+        "- Zinsänderungsrisiko bei einer in drei Jahren auslaufenden Zinsbindung → Absichern",
+        "- Zinsänderungsrisiko bei einer in drei Jahren auslaufenden Zinsbindung (geringe Wahrscheinlichkeit, hoher Schaden) → Absichern"
+      ],
+      [
+        "- Leichte Schwankungen der Leerstandsquote in einem Teilmarkt → Beobachten",
+        "- Leichte Schwankungen der Leerstandsquote in einem Teilmarkt (häufig, geringer Schaden) → Beobachten"
+      ],
+      [
+        "- Geringfügige Verzögerung einer Kleinreparatur → Akzeptieren",
+        "- Geringfügige Verzögerung einer Kleinreparatur (selten, geringer Schaden) → Akzeptieren"
+      ],
+      [
+        "**Erklärung:** „Delegieren\" ist ein Feld der Eisenhower-Matrix, nicht der Risikomatrix.",
+        "**Erklärung:** „Delegieren\" ist ein Feld der Eisenhower-Matrix, nicht der Risikomatrix. „Beobachten\" ist ein Feld dieser vereinfachten Matrix, aber keine eigene Steuerungsstrategie des Prozesses (vermeiden, vermindern, überwälzen/versichern, tragen)."
+      ]
+    ]
+  },
+  {
+    "datei": "hb2/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Geringer Schaden, aber höhere Wahrscheinlichkeit: Das Risiko wird beobachtet.",
+        "  - Erwartung: Geringer Schaden, aber höhere Wahrscheinlichkeit: Das Risiko wird beobachtet, also laufend überwacht und bei Bedarf durch einfache Maßnahmen vermindert."
+      ],
+      [
+        "  - Erwartung: Geringe Wahrscheinlichkeit und geringer Schaden: Das Risiko kann in der Regel akzeptiert werden.",
+        "  - Erwartung: Geringe Wahrscheinlichkeit und geringer Schaden: Das Risiko kann in der Regel akzeptiert werden.\n  - Erwartung: Die vier Felder sind eine vereinfachte Fassung der Strategien vermeiden, vermindern, überwälzen/versichern und tragen; „beobachten“ ist keine eigene Strategie, sondern das Tragen unter laufender Überwachung."
+      ],
+      [
+        "  - Erwartung: Bürgschaften, z. B. Vertragserfüllungs- oder Gewährleistungsbürgschaften, sichern die vertragsgemäße Leistungserbringung ab.",
+        "  - Erwartung: Bürgschaften, z. B. Vertragserfüllungs- oder Gewährleistungsbürgschaften der ausführenden Unternehmen, sichern die vertragsgemäße Leistung und Mängelansprüche ab; der Schutz der Käufer:innen vor dem Verlust von Abschlagszahlungen ist davon getrennt eine Pflicht des Bauträgerunternehmens (Ratenplan mit Voraussetzungen oder Bürgschaft)."
+      ]
+    ]
+  },
+  {
+    "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "paare": [
+      [
+        "**Antwort:** Sie sollen verhindern, dass Erwerber dem Bauträger erheblich in Vorleistung gehen, indem Zahlungen erst nach Erreichen bestimmter, klar definierter Baufortschritte fällig werden.",
+        "**Antwort:** Sie sollen verhindern, dass Erwerber:innen dem Bauträgerunternehmen erheblich in Vorleistung gehen, indem Zahlungen erst nach Erreichen bestimmter, klar definierter Baufortschritte entgegengenommen werden dürfen, und zwar nur bei erfüllten Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung. Alternativ kann das Bauträgerunternehmen stattdessen eine Bürgschaft als Sicherheit leisten."
+      ],
+      [
+        "**Frage:** Welchen Zweck verfolgen die in der MaBV vorgeschriebenen gestaffelten Abschlagszahlungen bei Bauträgerverträgen?",
+        "**Frage:** Welchen Zweck verfolgen gestaffelte Abschlagszahlungen (Ratenplan) bei Bauträgerverträgen?"
+      ]
+    ]
+  },
+  {
+    "datei": "hb1/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Abschlagszahlungen der Erwerber:innen dürfen nur gestaffelt nach erreichtem Baufortschritt fällig werden.",
+        "  - Erwartung: Abschlagszahlungen der Erwerber:innen darf das Bauträgerunternehmen nur gestaffelt nach erreichtem Baufortschritt entgegennehmen, und nur wenn Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung vorliegen; alternativ genügt als Sicherheit die Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens."
+      ],
+      [
+        "  - Erwartung: Die DGNB bewertet ökologische, ökonomische, soziokulturelle/funktionale sowie Prozess- und technische Qualität.",
+        "  - Erwartung: Die DGNB bewertet sechs Themenfelder: ökologische, ökonomische, soziokulturelle und funktionale, technische Qualität, Prozessqualität und Standortqualität."
+      ]
+    ]
+  },
+  {
+    "datei": "hb1/fallaufgaben.md",
+    "paare": [
+      [
+        "Teilaufgabe 1: MaBV regelt gestaffelte Abschlagszahlungen nach Baufortschritt zum Schutz der Erwerber vor Vorleistung.",
+        "Teilaufgabe 1: Die MaBV erlaubt gestaffelte Abschlagszahlungen nach Baufortschritt (Ratenplan) nur, wenn Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung vorliegen; alternativ stellt das Bauträgerunternehmen als Sicherheit eine Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens. Schutzprinzip: Erwerber:innen sollen dem Bauträgerunternehmen nicht erheblich in Vorleistung gehen."
+      ],
+      [
+        "Analysieren Sie, welche der vier DGNB-Qualitätsdimensionen durch die Wahl nachhaltiger, recycelbarer Baustoffe",
+        "Analysieren Sie, welches der sechs DGNB-Themenfelder (Qualitäten) durch die Wahl nachhaltiger, recycelbarer Baustoffe"
+      ]
+    ]
+  },
+  {
+    "datei": "hb1/1.4-nachhaltigkeit-esg.md",
+    "paare": [
+      [
+        "— mit mittelbarer Ausstrahlwirkung auf die Bedingungen der Immobilienfinanzierung.",
+        "— mit mittelbarer Ausstrahlwirkung auf die Bedingungen der Immobilienfinanzierung. Die EU-Richtlinie zur Nachhaltigkeitsberichterstattung von Unternehmen (**CSRD**) verpflichtet große Unternehmen zu einem Nachhaltigkeitsbericht; durch die Änderungsrichtlinie vom Februar 2026 (Omnibus-Paket) ist der Kreis auf Unternehmen mit mehr als 1.000 Beschäftigten und mehr als 450 Millionen Euro Umsatz begrenzt, die Umsetzung ins deutsche Recht war im Frühjahr 2026 noch im Gesetzgebungsverfahren (aktuellen Stand vor Verwendung prüfen). Ob Ravelin selbst berichtspflichtig wäre, hängt von der Unternehmensgröße ab; in jedem Fall fragen Banken, Investoren und Geschäftspartner zunehmend Nachhaltigkeitsdaten ab."
+      ],
+      [
+        "setzen finanzielle Anreize für Eigentümer. Die Hausverwaltung",
+        "setzen finanzielle Anreize für Eigentümer:innen. Förderanträge müssen in der Regel gestellt werden, bevor mit dem Vorhaben begonnen wird; als Vorhabenbeginn gilt meist schon der Abschluss eines Liefer- oder Leistungsvertrags, sofern er nicht unter der aufschiebenden oder auflösenden Bedingung der Förderzusage steht. Die Förderregeln und Fördersätze ändern sich häufig (zuletzt gelten für die Bundesförderung für effiziente Gebäude neue Bedingungen ab dem 21.07.2026), deshalb sind sie vor jeder Antragstellung bei KfW oder BAFA zu prüfen (Stand Oktober 2026). Die Hausverwaltung"
+      ],
+      [
+        "Sie bewertet ökologische Qualität, ökonomische Qualität, soziokulturelle/funktionale Qualität sowie Prozess- und technische Qualität.",
+        "Das System gliedert die Bewertung in sechs Themenfelder: ökologische Qualität, ökonomische Qualität, soziokulturelle und funktionale Qualität, technische Qualität, Prozessqualität und Standortqualität; Gewichtung und Einzelkriterien hängen von der jeweiligen Systemversion ab."
+      ],
+      [
+        "**Frage:** Welche vier Qualitätsdimensionen bewertet das DGNB-Zertifizierungssystem üblicherweise?",
+        "**Frage:** Welche Themenfelder (Qualitäten) bewertet das DGNB-Zertifizierungssystem?"
+      ],
+      [
+        "**Antwort:** Ökologische Qualität, ökonomische Qualität, soziokulturelle/funktionale Qualität sowie Prozess- und technische Qualität.",
+        "**Antwort:** Sechs Themenfelder: ökologische Qualität, ökonomische Qualität, soziokulturelle und funktionale Qualität, technische Qualität, Prozessqualität und Standortqualität."
+      ],
+      [
+        "**Erklärung:** DGNB verfolgt einen ganzheitlichen Ansatz über mehrere Qualitätsdimensionen, nicht nur ein einzelnes Flächenmerkmal.",
+        "**Erklärung:** DGNB verfolgt einen ganzheitlichen Ansatz über sechs Themenfelder (ökologische, ökonomische, soziokulturelle und funktionale, technische, Prozess- und Standortqualität), nicht nur ein einzelnes Flächenmerkmal."
+      ],
+      [
+        "- Einholen von Angeboten für die Dämmung → Planung",
+        "- Einholen von Angeboten für die Dämmung und Stellen des Förderantrags vor Beginn der Arbeiten → Planung"
+      ],
+      [
+        "**Erklärung:** Typischer zeitlicher Ablauf eines Sanierungsprojekts von der Planung bis zum Abschluss.",
+        "**Erklärung:** Typischer zeitlicher Ablauf eines Sanierungsprojekts von der Planung bis zum Abschluss; der Förderantrag wird in der Regel gestellt, bevor mit dem Vorhaben begonnen wird."
+      ],
+      [
+        "- Risiko verschärfter GEG-Anforderungen in den kommenden Jahren → Beobachten",
+        "- Wahrscheinliche, aber in der Höhe begrenzte Mehrkosten durch schrittweise verschärfte Energieanforderungen an Gebäude → Beobachten"
+      ],
+      [
+        "**Anweisung:** Ordne die folgenden ESG-bezogenen Risiken für Ravelin Immobilien der passenden Risikostrategie zu.",
+        "**Anweisung:** Ordne die folgenden ESG-bezogenen Risiken für Ravelin Immobilien nach Eintrittswahrscheinlichkeit und Schadenshöhe der passenden Risikostrategie zu."
+      ]
+    ]
+  },
+  {
+    "datei": "hb6/6.1-maklerrecht-maklertaetigkeit.md",
+    "paare": [
+      [
+        "**Anweisung:** Ordne die folgenden Haftungsrisiken der Ravelin-Maklerabteilung den passenden Feldern der Risikomatrix zu.",
+        "**Anweisung:** Ordne die folgenden Haftungsrisiken der Ravelin-Maklerabteilung nach Eintrittswahrscheinlichkeit und Schadenshöhe den passenden Feldern der Risikomatrix zu."
+      ],
+      [
+        "- Unklare Kommunikation bei Doppeltätigkeit → Absichern",
+        "- Seltene, aber teure Schadensersatzforderungen wegen eines Beratungsfehlers (geringe Wahrscheinlichkeit, hoher Schaden) → Absichern"
+      ],
+      [
+        "- Schwankende regionale Marktpreise → Beobachten",
+        "- Häufige, leichte Schwankungen der regionalen Marktpreise (höhere Wahrscheinlichkeit, geringer Einzelschaden) → Beobachten"
+      ],
+      [
+        "während geringfügige, organisatorisch bereits abgefederte Risiken akzeptiert werden können.",
+        "während geringfügige, organisatorisch bereits abgefederte Risiken akzeptiert werden können. Seltene, aber teure Haftungsfälle werden abgesichert, häufige leichte Schwankungen beobachtet."
+      ],
+      [
+        "- Verschweigen eines bekannten Baumangels → Vermeiden",
+        "- Verschweigen eines bekannten Baumangels (hohe Wahrscheinlichkeit der Haftung, sehr hoher Schaden) → Vermeiden"
+      ],
+      [
+        "- Geringfügige Terminverschiebungen bei einzelnen Besichtigungen nach rechtzeitiger Ankündigung → Akzeptieren",
+        "- Geringfügige Terminverschiebungen bei einzelnen Besichtigungen nach rechtzeitiger Ankündigung (geringe Wahrscheinlichkeit eines Schadens, geringer Schaden) → Akzeptieren"
+      ]
+    ]
+  },
+  {
+    "datei": "hb6/6.3-immobilienbewertung-grundzuege.md",
+    "paare": [
+      [
+        "(diese bleiben öffentlich bestellten und vereidigten Sachverständigen vorbehalten)",
+        "(förmliche Wertgutachten erstellen vor allem die Gutachterausschüsse sowie Sachverständige, etwa öffentlich bestellte und vereidigte oder zertifizierte Sachverständige)"
+      ],
+      [
+        "**Bodenrichtwerte** sowie teils Vergleichsfaktoren für bebaute Grundstücke ableiten.",
+        "**Bodenrichtwerte** (durchschnittliche Lagewerte für den Boden; sie dienen als Grundlage der Bodenwertermittlung, die Ertrags- und Sachwertverfahren brauchen) sowie Vergleichsfaktoren für bebaute Grundstücke ableiten. Für bebaute Grundstücke wird im Vergleichswertverfahren mit Vergleichspreisen oder Vergleichsfaktoren gerechnet."
+      ],
+      [
+        "Ausgangspunkt ist der **Rohertrag** (die nachhaltig erzielbare Jahresmiete), von dem die nicht umlagefähigen **Bewirtschaftungskosten** (u. a. Verwaltungskosten, Instandhaltungskosten, Mietausfallwagnis) abgezogen werden, um den **Reinertrag** zu erhalten.",
+        "Ausgangspunkt ist der **Rohertrag** (die marktüblich und nachhaltig erzielbare Jahresmiete), von dem die nicht durch Umlagen gedeckten **Bewirtschaftungskosten** (Verwaltungskosten, Instandhaltungskosten, Mietausfallwagnis sowie nicht umgelegte Betriebskosten) abgezogen werden, um den **Reinertrag** zu erhalten."
+      ],
+      [
+        "der verbleibende Gebäudereinertrag wird anschließend mithilfe eines **Vervielfältigers** (der u. a. von der Restnutzungsdauer und dem **Liegenschaftszinssatz** abhängt) kapitalisiert.",
+        "der verbleibende Gebäudereinertrag wird anschließend mithilfe eines **Vervielfältigers** (der u. a. von der Restnutzungsdauer und dem **Liegenschaftszinssatz** abhängt) kapitalisiert. Zum so ermittelten Gebäudeertragswert wird der Bodenwert addiert; die Summe ist der Ertragswert. Die **Restnutzungsdauer** ist die Zahl der Jahre, in denen das Gebäude bei ordnungsgemäßer Bewirtschaftung voraussichtlich noch wirtschaftlich genutzt werden kann; sie ergibt sich in der Regel aus Gesamtnutzungsdauer minus Alter und wird an Modernisierungen oder unterlassene Instandhaltung angepasst. Der Vervielfältiger heißt in der ImmoWertV Barwertfaktor (Kapitalisierungsfaktor); seine Formel steht in Thema 2.2."
+      ],
+      [
+        "Der Sachwert setzt sich zusammen aus dem gesondert ermittelten **Bodenwert** (analog zum Vergleichswertverfahren über Bodenrichtwerte) und dem **Sachwert der baulichen Anlagen** (Gebäudesachwert).",
+        "Der Sachwert setzt sich zusammen aus dem gesondert ermittelten **Bodenwert** (analog zum Vergleichswertverfahren über Bodenrichtwerte), dem **Sachwert der baulichen Anlagen** (Gebäudesachwert) und dem gesondert ermittelten **Wert der Außenanlagen** und sonstigen Anlagen."
+      ],
+      [
+        "von denen eine **Alterswertminderung** abhängig vom Gebäudealter und der wirtschaftlichen Gesamtnutzungsdauer abgezogen wird. Zusätzlich fließt der Wert der **Außenanlagen** (z. B. Garage, Terrasse, Gartenanlage) in den Gebäudesachwert ein. Die Summe aus Bodenwert und Gebäudesachwert ergibt den vorläufigen Sachwert,",
+        "von denen eine **Alterswertminderung** abhängig vom Gebäudealter und der wirtschaftlichen Gesamtnutzungsdauer abgezogen wird (die ImmoWertV bildet dafür einen Alterswertminderungsfaktor aus dem Verhältnis von Restnutzungsdauer zu Gesamtnutzungsdauer; die Alterswertminderung ist also ein Abschlag und kein zusätzlicher Wertbestandteil). Der Wert der **Außenanlagen** und sonstigen Anlagen (z. B. Terrasse, Zuwegung, Gartenanlage, soweit wertbeeinflussend) wird gesondert ermittelt und kommt hinzu. Die Summe aus Bodenwert, Gebäudesachwert und Wert der Außenanlagen ergibt den vorläufigen Sachwert,"
+      ],
+      [
+        "insbesondere bei den individuell geschnittenen Neubauwohnungen der Bauträgersparte, wo ein reines Vergleichswertverfahren mangels ausreichender Vergleichsobjekte häufig nicht anwendbar ist.",
+        "insbesondere dort, wo Vergleichspreise fehlen oder wenig aussagekräftig sind, etwa bei den ersten Verkäufen eines neuen Wohnungstyps der Bauträgersparte ohne Referenzverkäufe in der Umgebung; Eigentumswohnungen werden im Übrigen auch im Neubau regelmäßig über Vergleichspreise bewertet."
+      ],
+      [
+        "mit den Außenanlagen von 20.000 € ergibt sich der **Gebäudesachwert** von 300.000 €.",
+        "mit den Außenanlagen von 20.000 € ergibt sich der **Wert von Gebäude und Außenanlagen** von 300.000 €."
+      ],
+      [
+        "**Frage:** Aus welchen zwei Hauptbestandteilen setzt sich der Sachwert zusammen?",
+        "**Frage:** Aus welchen Hauptbestandteilen setzt sich der vorläufige Sachwert zusammen?"
+      ],
+      [
+        "**Antwort:** Aus dem Bodenwert und dem Sachwert der baulichen Anlagen (Gebäudesachwert).",
+        "**Antwort:** Aus dem Bodenwert, dem Sachwert der baulichen Anlagen (Gebäudesachwert) und dem gesondert ermittelten Wert der Außenanlagen."
+      ],
+      [
+        "**Frage:** Wer erstellt in der Regel förmliche Wertgutachten, im Unterschied zur marktorientierten Preisempfehlung eines Maklers?",
+        "**Frage:** Wer erstellt in der Regel förmliche Wertgutachten, im Unterschied zur marktorientierten Preisempfehlung von Makler:innen?"
+      ],
+      [
+        "**Antwort:** Öffentlich bestellte und vereidigte Sachverständige.",
+        "**Antwort:** Sachverständige, z. B. öffentlich bestellte und vereidigte oder zertifizierte Sachverständige; auch die Gutachterausschüsse erstellen Wertgutachten."
+      ],
+      [
+        "**Frage:** Warum wendet die Ravelin-Maklerabteilung bei Neubauwohnungen der Bauträgersparte oft nicht allein das Vergleichswertverfahren an?",
+        "**Frage:** Wann reicht das Vergleichswertverfahren bei Neubauwohnungen der Bauträgersparte allein oft nicht aus?"
+      ],
+      [
+        "**Antwort:** Weil bei individuell geschnittenen Neubauwohnungen häufig keine ausreichende Vergleichsbasis vorliegt.",
+        "**Antwort:** Wenn für den Wohnungstyp noch keine oder zu wenige vergleichbare Verkäufe vorliegen, etwa bei den ersten Verkäufen eines neuen Projekts; dann werden weitere Verfahren und Kalkulationen zur Plausibilisierung herangezogen."
+      ],
+      [
+        "plus Außenanlagen = Gebäudesachwert; + Bodenwert",
+        "plus Außenanlagen = Wert von Gebäude und Außenanlagen; + Bodenwert"
+      ],
+      [
+        "- Bodenrichtwert ↔ Von Gutachterausschüssen veröffentlichter Vergleichswert für unbebaute Flächen",
+        "- Bodenrichtwert ↔ Von Gutachterausschüssen veröffentlichter durchschnittlicher Lagewert des Bodens je Quadratmeter"
+      ],
+      [
+        "- Gebäudesachwert (unter: Wurzel)",
+        "- Gebäudesachwert (unter: Wurzel)\n- Außenanlagen (unter: Wurzel)"
+      ],
+      [
+        "- Wert der Garage und Gartenanlage (Außenanlagen) → Gebäudesachwert",
+        "- Wert von Terrasse und Gartenanlage → Außenanlagen"
+      ],
+      [
+        "**Erklärung:** Der Sachwert gliedert sich in Bodenwert und Gebäudesachwert; Letzterer setzt sich wiederum aus Herstellungskosten, Alterswertminderung und dem Wert der Außenanlagen zusammen.",
+        "**Erklärung:** Der Sachwert gliedert sich in Bodenwert, Gebäudesachwert und den gesondert ermittelten Wert der Außenanlagen; der Gebäudesachwert wird aus den Herstellungskosten (Normalherstellungskosten) unter Abzug der Alterswertminderung gebildet. Die Alterswertminderung ist ein Abschlag und kein zusätzlicher Wertbestandteil."
+      ],
+      [
+        "4. Verbleibenden Gebäudereinertrag mit dem Vervielfältiger kapitalisieren",
+        "4. Gebäudereinertrag mit dem Vervielfältiger kapitalisieren und den Bodenwert hinzurechnen"
+      ],
+      [
+        "**Erklärung:** Erst nach Abzug von Bewirtschaftungskosten und Bodenwertverzinsung wird der verbleibende Gebäudereinertrag kapitalisiert.",
+        "**Erklärung:** Erst nach Abzug von Bewirtschaftungskosten und Bodenwertverzinsung wird der verbleibende Gebäudereinertrag kapitalisiert; zum Ergebnis wird der Bodenwert addiert, die Summe ist der Ertragswert."
+      ],
+      [
+        "- Bodenrichtwerte und Vergleichsfaktoren aus der Kaufpreissammlung der Gutachterausschüsse → Vergleichswertverfahren",
+        "- Kaufpreise und daraus abgeleitete Vergleichsfaktoren je Quadratmeter Wohnfläche aus der Kaufpreissammlung der Gutachterausschüsse → Vergleichswertverfahren"
+      ],
+      [
+        "die Gutachterausschüsse liefern dafür Bodenrichtwerte und teils Vergleichsfaktoren.",
+        "die Gutachterausschüsse liefern dafür Vergleichsfaktoren (Bodenrichtwerte gehören nicht in diese Zuordnung, weil sie als Lagewerte des Bodens für den Bodenwert im Ertrags- und im Sachwertverfahren gebraucht werden)."
+      ],
+      [
+        "Dass Bodenrichtwerte hier beim Vergleichswertverfahren stehen, folgt der Darstellung der Theorie; für den Bodenwert nutzt auch das Sachwertverfahren Bodenrichtwerte (siehe Q-6.3-16).",
+        "Ertrags- und Sachwertverfahren ermitteln den Bodenwert vorrangig über Vergleichspreise oder Bodenrichtwerte (siehe Q-6.3-16)."
+      ],
+      [
+        "- Garage, Terrasse und Gartenanlage fließen als Außenanlagen in den Gebäudesachwert ein → Sachwertverfahren",
+        "- Terrasse und Gartenanlage werden als Außenanlagen gesondert bewertet und zum Wert des Gebäudes hinzugerechnet → Sachwertverfahren"
+      ],
+      [
+        "beim Sachwertverfahren aus Bodenwert und Gebäudesachwert (Normalherstellungskosten, Alterswertminderung, Außenanlagen) mit abschließender Marktanpassung.",
+        "beim Sachwertverfahren aus Bodenwert, Gebäudesachwert (Normalherstellungskosten, Alterswertminderung) und dem gesondert ermittelten Wert der Außenanlagen mit abschließender Marktanpassung."
+      ],
+      [
+        "- Bei individuell geschnittenen Neubauwohnungen der Bauträgersparte scheitert dieses Verfahren allein oft an fehlenden Vergleichsobjekten → Vergleichswertverfahren",
+        "- Fehlen vergleichbare Verkaufsfälle, etwa bei einem erstmals verkauften Wohnungstyp ohne Referenzverkäufe, reicht dieses Verfahren allein nicht aus → Vergleichswertverfahren"
+      ],
+      [
+        "- Der Wert von Außenanlagen wie Garage oder Terrasse wird in den Gebäudesachwert einbezogen → Sachwertverfahren",
+        "- Der Wert von Außenanlagen wie Terrasse oder Gartenanlage wird gesondert ermittelt und dem Wert des Gebäudes hinzugerechnet → Sachwertverfahren"
+      ],
+      [
+        "Die Aussage zu Neubauwohnungen nennt die Theorie ausdrücklich; sie bedeutet nicht, dass das Vergleichswertverfahren dort nie angewendet wird, sondern dass es allein häufig nicht ausreicht und mit anderen Verfahren plausibilisiert wird.",
+        "Die Aussage zu fehlenden Vergleichsfällen bedeutet nicht, dass das Vergleichswertverfahren bei Neubauwohnungen nie angewendet wird: Eigentumswohnungen werden auch im Neubau regelmäßig über Vergleichspreise bewertet; fehlen sie, muss mit weiteren Verfahren plausibilisiert werden."
+      ],
+      [
+        "Wie hoch ist der Gebäudesachwert (einschließlich Außenanlagen) in Euro?",
+        "Wie hoch ist der Wert von Gebäude und Außenanlagen zusammen in Euro?"
+      ],
+      [
+        "zuzüglich Außenanlagen 20.000 € ergibt sich der Gebäudesachwert von 300.000 €.",
+        "zuzüglich Außenanlagen 20.000 € ergibt sich der Wert von Gebäude und Außenanlagen von 300.000 €."
+      ],
+      [
+        "Bodenwert 200.000 €, Gebäudesachwert (einschließlich Außenanlagen) 300.000 €.",
+        "Bodenwert 200.000 €, Wert von Gebäude und Außenanlagen 300.000 €."
+      ],
+      [
+        "**Antwort:** Rohertrag abzüglich der nicht umlagefähigen Bewirtschaftungskosten.",
+        "**Antwort:** Rohertrag abzüglich der nicht durch Umlagen gedeckten Bewirtschaftungskosten."
+      ],
+      [
+        "**Aussage:** Der Reinertrag im Ertragswertverfahren ergibt sich aus dem Rohertrag abzüglich der nicht umlagefähigen Bewirtschaftungskosten.",
+        "**Aussage:** Der Reinertrag im Ertragswertverfahren ergibt sich aus dem Rohertrag abzüglich der nicht durch Umlagen gedeckten Bewirtschaftungskosten."
+      ],
+      [
+        "2. Nicht umlagefähige Bewirtschaftungskosten abziehen, Reinertrag bilden",
+        "2. Nicht durch Umlagen gedeckte Bewirtschaftungskosten abziehen, Reinertrag bilden"
+      ],
+      [
+        "- Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis werden als nicht umlagefähige Bewirtschaftungskosten abgezogen → Ertragswertverfahren",
+        "- Verwaltungskosten, Instandhaltungskosten, Mietausfallwagnis und nicht umgelegte Betriebskosten werden als nicht durch Umlagen gedeckte Bewirtschaftungskosten abgezogen → Ertragswertverfahren"
+      ],
+      [
+        "- Nicht umlagefähige Bewirtschaftungskosten mindern die nachhaltig erzielbare Jahresmiete → Ertragswertverfahren",
+        "- Bewirtschaftungskosten, die nicht durch Umlagen gedeckt sind, werden vom Rohertrag abgezogen → Ertragswertverfahren"
+      ]
+    ]
+  },
+  {
+    "datei": "hb6/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Der Wert der Außenanlagen (z. B. Garage, Terrasse, Gartenanlage) fließt in den Gebäudesachwert ein.",
+        "  - Erwartung: Der Wert der Außenanlagen (z. B. Terrasse, Gartenanlage) wird gesondert ermittelt und zum Wert des Gebäudes hinzugerechnet."
+      ],
+      [
+        "  - Erwartung: Die Summe aus Bodenwert und Gebäudesachwert ergibt den vorläufigen Sachwert, der mit einem marktangepassten Sachwertfaktor an das Marktgeschehen angepasst wird.",
+        "  - Erwartung: Die Summe aus Bodenwert, Gebäudesachwert und Wert der Außenanlagen ergibt den vorläufigen Sachwert, der mit einem marktangepassten Sachwertfaktor an das Marktgeschehen angepasst wird."
+      ],
+      [
+        "  - Erwartung: Davon werden die nicht umlagefähigen Bewirtschaftungskosten abgezogen, u. a. Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis.",
+        "  - Erwartung: Davon werden die nicht durch Umlagen gedeckten Bewirtschaftungskosten abgezogen: Verwaltungskosten, Instandhaltungskosten (kalkulatorisch, keine Rücklage), Mietausfallwagnis und nicht umgelegte Betriebskosten."
+      ],
+      [
+        "  - Erwartung: Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert.",
+        "  - Erwartung: Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert; zum Gebäudeertragswert wird der Bodenwert addiert und man erhält den Ertragswert."
+      ],
+      [
+        "  - Rückfrage: Warum ist ein reines Vergleichswertverfahren bei individuell geschnittenen Neubauwohnungen häufig nicht anwendbar?",
+        "  - Rückfrage: Wann reicht ein reines Vergleichswertverfahren bei Neubauwohnungen allein nicht aus?"
+      ],
+      [
+        "  - Erwartung: Bei individuell geschnittenen Neubauwohnungen ist ein reines Vergleichswertverfahren mangels ausreichender Vergleichsobjekte häufig nicht anwendbar.",
+        "  - Erwartung: Wo Vergleichspreise fehlen oder wenig aussagekräftig sind, etwa bei den ersten Verkäufen eines neuen Wohnungstyps ohne Referenzverkäufe, reicht das Vergleichswertverfahren allein nicht aus; Eigentumswohnungen werden aber auch im Neubau regelmäßig über Vergleichspreise bewertet."
+      ]
+    ]
+  },
+  {
+    "datei": "hb6/fallaufgaben.md",
+    "paare": [
+      [
+        "mit den Außenanlagen von 25.000 € Gebäudesachwert 250.000 €;",
+        "mit den Außenanlagen von 25.000 € Wert von Gebäude und Außenanlagen 250.000 €;"
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/3.1-personalplanung-fuehrung.md",
+    "paare": [
+      [
+        "ein Mitbestimmungsrecht (§ 99 BetrVG) in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.",
+        "ein Mitbestimmungsrecht (§ 99 BetrVG) in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden: Die Arbeitgeberseite muss den Betriebsrat vor der Einstellung unterrichten und seine Zustimmung einholen. Verweigert der Betriebsrat sie, darf er das nur aus den im Gesetz genannten Gründen tun und muss es schriftlich mit Gründen innerhalb einer Woche mitteilen (sonst gilt die Zustimmung als erteilt); der Arbeitgeber kann dann beim Arbeitsgericht beantragen, die Zustimmung zu ersetzen."
+      ],
+      [
+        "**Erklärung:** § 99 BetrVG regelt die Mitbestimmung bei personellen Einzelmaßnahmen.",
+        "**Erklärung:** § 99 BetrVG regelt die Mitbestimmung bei personellen Einzelmaßnahmen (Einstellung, Eingruppierung, Umgruppierung, Versetzung) in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden."
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/3.4-arbeitsrecht-grundlagen.md",
+    "paare": [
+      [
+        "bis hin zu Mitbestimmungsrechten bei personellen Einzelmaßnahmen wie Einstellungen (§ 99 BetrVG).",
+        "bis hin zu Mitbestimmungsrechten bei personellen Einzelmaßnahmen wie Einstellungen (§ 99 BetrVG; gilt in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden; der Betriebsrat darf die Zustimmung nur aus bestimmten gesetzlichen Gründen verweigern, und das Arbeitsgericht kann sie auf Antrag ersetzen)."
+      ],
+      [
+        "Nach dem **Nachweisgesetz (NachwG)** müssen die wesentlichen Vertragsbedingungen (u. a. Beginn, Vergütung, Arbeitszeit, Kündigungsfristen, Tätigkeitsort) schriftlich festgehalten werden.",
+        "Nach dem **Nachweisgesetz (NachwG)** muss der Arbeitgeber die wesentlichen Vertragsbedingungen (u. a. Namen und Anschriften der Vertragsparteien, Beginn, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsverfahren und Kündigungsfristen) schriftlich niederlegen, die Niederschrift unterzeichnen und der Mitarbeiterin oder dem Mitarbeiter aushändigen: Namen und Anschriften, Vergütung und Arbeitszeit spätestens am ersten Arbeitstag, Beginn, Arbeitsort, Tätigkeit und Probezeit spätestens am siebten Kalendertag, die übrigen Angaben (z. B. Urlaub, Kündigungsverfahren) spätestens einen Monat nach dem vereinbarten Beginn. Unter bestimmten Voraussetzungen genügt die Textform (elektronisch übermittelt, wenn das Dokument zugänglich, speicher- und ausdruckbar ist und ein Empfangsnachweis verlangt wird); in bestimmten Branchen, etwa dem Baugewerbe, bleibt es bei der Schriftform. Ein schriftlicher Arbeitsvertrag, der die Angaben enthält, ersetzt die gesonderte Niederschrift. Das Nachweisgesetz regelt damit die Niederschrift der Vertragsbedingungen, nicht den Inhalt oder die Form des Arbeitsvertrags selbst; Verstöße sind Ordnungswidrigkeiten (Bußgeld bis 2.000 Euro)."
+      ],
+      [
+        "**Frage:** Was muss ein Arbeitsvertrag nach dem Nachweisgesetz mindestens schriftlich enthalten?",
+        "**Frage:** Welche Angaben muss der Arbeitgeber nach dem Nachweisgesetz in der Niederschrift der Vertragsbedingungen mindestens aufnehmen?"
+      ],
+      [
+        "**Antwort:** U. a. Beginn des Arbeitsverhältnisses, Vergütung, Arbeitszeit, Kündigungsfristen und Tätigkeitsort.",
+        "**Antwort:** U. a. Namen und Anschriften der Parteien, Beginn des Arbeitsverhältnisses, Arbeitsort, Vergütung, Arbeitszeit, Urlaub und das Kündigungsverfahren mit den Kündigungsfristen. Die Niederschrift ist zu unterzeichnen und auszuhändigen, die Aushändigung ist gestaffelt vom ersten Arbeitstag bis spätestens einen Monat nach dem vereinbarten Beginn fällig."
+      ],
+      [
+        "beim Mitbestimmungsrecht ist seine Zustimmung für eine wirksame Maßnahme erforderlich.",
+        "beim Mitbestimmungsrecht darf der Arbeitgeber die Maßnahme grundsätzlich nicht ohne seine Zustimmung durchführen; verweigert der Betriebsrat sie, entscheidet je nach Angelegenheit die Einigungsstelle oder das Arbeitsgericht (bei Einstellungen ersetzt das Arbeitsgericht die Zustimmung auf Antrag)."
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/fallaufgaben.md",
+    "paare": [
+      [
+        "abgelehnter älterer Bewerbender nach dem AGG.",
+        "abgelehnter älterer Bewerbender nach dem AGG. Auch die männliche Berufsbezeichnung „Verkäufer“ ohne den Zusatz (m/w/d) ist nicht geschlechtsneutral und kann eine Benachteiligung wegen des Geschlechts nahelegen."
+      ],
+      [
+        "— die Einstellung ist ihm vor Vollzug mitzuteilen, seine Zustimmung ist erforderlich.",
+        "— maßgeblich ist die Größe des Unternehmens, nicht des Standorts. Der Betriebsrat ist vor der Einstellung zu unterrichten, und seine Zustimmung ist einzuholen. Verweigert er sie, muss er das innerhalb einer Woche schriftlich mit Gründen tun (sonst gilt sie als erteilt) und darf nur die im Gesetz genannten Gründe anführen; Ravelin kann dann beim Arbeitsgericht beantragen, die Zustimmung zu ersetzen."
+      ]
+    ]
+  },
+  {
+    "datei": "hb3/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.",
+        "  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden; er kann die Zustimmung nur aus gesetzlich bestimmten Gründen verweigern, und das Arbeitsgericht kann sie auf Antrag ersetzen."
+      ],
+      [
+        "  - Erwartung: Nach dem Nachweisgesetz müssen die wesentlichen Vertragsbedingungen schriftlich festgehalten werden.",
+        "  - Erwartung: Nach dem Nachweisgesetz muss der Arbeitgeber die wesentlichen Vertragsbedingungen schriftlich niederlegen, die Niederschrift unterzeichnen und aushändigen (unter Voraussetzungen genügt die Textform); das Gesetz regelt die Niederschrift der Vertragsbedingungen, nicht den Inhalt des Arbeitsvertrags."
+      ],
+      [
+        "  - Erwartung: Dazu zählen u. a. Beginn, Vergütung, Arbeitszeit, Kündigungsfristen und Tätigkeitsort.",
+        "  - Erwartung: Dazu zählen u. a. Namen und Anschriften der Parteien, Beginn, Arbeitsort, Vergütung, Arbeitszeit, Urlaub und das Kündigungsverfahren mit den Kündigungsfristen; die Aushändigung ist gestaffelt vom ersten Arbeitstag bis spätestens einen Monat nach dem vereinbarten Beginn fällig."
+      ],
+      [
+        "  - Rückfrage: In welchen Betrieben besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?",
+        "  - Rückfrage: In welchen Unternehmen besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?"
+      ]
+    ]
+  },
+  {
+    "datei": "hb4/fallaufgaben.md",
+    "paare": [
+      [
+        "Hofbeleuchtung → Delegieren (planbare Routinemaßnahme, an Fachfirma/Hausmeisterservice);",
+        "Hofbeleuchtung → Terminieren (wichtig, aber nicht dringend: die seit Monaten geplante Erneuerung wird mit festem Termin und Budget eingeplant, die Ausführung kann an eine Fachfirma vergeben werden);"
+      ],
+      [
+        "— der Verwalter darf die fehlenden Mittel nicht eigenmächtig nachfordern.",
+        "— der Verwalter darf die fehlenden Mittel nicht eigenmächtig nachfordern. Unabhängig davon darf und muss er die Maßnahmen treffen, die zur Abwendung eines Nachteils erforderlich sind (Notmaßnahme, z. B. eine notdürftige Abdichtung des Dachs gegen weitere Wassereintritte); die endgültige Sanierung und ihre Finanzierung (Sonderumlage oder, wenn vertretbar, ein Darlehen der Gemeinschaft) bedürfen eines Beschlusses."
+      ]
+    ]
+  }
+]
