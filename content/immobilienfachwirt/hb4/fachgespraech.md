@@ -5,7 +5,7 @@ fachgebiet_title: "Immobilienbewirtschaftung"
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Immobilienbewirtschaftung" (§4 ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117) der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -18,14 +18,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der unbefristete Mietvertrag ist der Regelfall, er läuft auf unbestimmte Zeit und kann nur unter den gesetzlichen Voraussetzungen gekündigt werden.
   - Erwartung: Der qualifizierte Zeitmietvertrag kommt in Betracht, wenn der Vermieter bereits bei Vertragsschluss einen der gesetzlich abschließend genannten Gründe angeben kann, etwa beabsichtigten Eigenbedarf.
   - Erwartung: Ohne einen solchen Grund ist eine Befristung bei Wohnraum unwirksam, der Vertrag gilt dann als unbefristet geschlossen.
-  - Erwartung: Staffelmiete und Indexmiete sind besondere Vertragsformen, die der planbaren Mietanpassung dienen.
+  - Erwartung: Staffelmiete und Indexmiete sind besondere Vertragsformen, die die Mietanpassung schon im Vertrag regeln.
   - Erwartung: Bei der Gewerberaummiete gilt weitgehende Vertragsfreiheit, der besondere Kündigungsschutz des Wohnraummietrechts findet keine Anwendung.
-  - Rückfrage: Was gilt, wenn ein Gewerbemietvertrag mit einer Laufzeit von mehr als einem Jahr nicht vollständig schriftlich abgeschlossen wird?
+  - Rückfrage: Was gilt, wenn ein Gewerbemietvertrag mit einer Laufzeit von mehr als einem Jahr nicht in der gesetzlich vorgesehenen Form (Textform) abgeschlossen wird?
 - Worin unterscheiden sich Staffelmiete und Indexmiete, und welche Vor- und Nachteile hat jede Variante aus Sicht eines Vermieters?
-  - Erwartung: Die Staffelmiete legt bereits im Vertrag künftige Mieterhöhungen in konkreten Beträgen und Zeitpunkten fest.
+  - Erwartung: Die Staffelmiete legt bereits im Vertrag künftige Mieterhöhungen in konkreten Beträgen und Zeitpunkten fest und kommt ohne gesonderte Erhöhungserklärung aus.
   - Erwartung: Die Indexmiete koppelt die Miethöhe an die Entwicklung des vom Statistischen Bundesamt ermittelten Verbraucherpreisindex.
-  - Erwartung: Indexmietverträge ermöglichen planbare, inflationsgekoppelte Erträge ohne wiederkehrenden Verwaltungsaufwand für einzelne Mieterhöhungserklärungen.
-  - Erwartung: Bei Staffel- und Indexmietverträgen ist eine zusätzliche Mieterhöhung an die ortsübliche Vergleichsmiete während der Laufzeit grundsätzlich ausgeschlossen, die vereinbarte Automatik tritt an ihre Stelle.
+  - Erwartung: Bei der Indexmiete wird die Erhöhung nur wirksam, wenn der Vermieter sie in Textform erklärt und die Änderung des Preisindexes sowie die neue Miete oder den Erhöhungsbetrag angibt; die Miete muss mindestens ein Jahr unverändert bleiben.
+  - Erwartung: Die Indexmiete folgt der Preisentwicklung, ist für den Mieter also nicht vorhersehbar, und sie spart dem Vermieter nicht den Aufwand, jede Anpassung zu berechnen und zu erklären.
+  - Erwartung: Bei Staffel- und Indexmietverträgen ist eine zusätzliche Mieterhöhung an die ortsübliche Vergleichsmiete während der Laufzeit ausgeschlossen, die vereinbarte Regelung tritt an ihre Stelle; bei der Staffelmiete sind während der Laufzeit auch Modernisierungserhöhungen ausgeschlossen.
   - Rückfrage: Welcher Mindestabstand ist zwischen zwei Staffeln vorgeschrieben?
 - Unter welchen Voraussetzungen darf ein Vermieter wegen Zahlungsverzugs fristlos kündigen, und welche Rolle spielt dabei die Schonfristzahlung?
   - Erwartung: Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist von der ordentlichen Kündigung zu unterscheiden.
@@ -38,12 +39,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei Erfolglosigkeit folgt eine zweite Mahnung mit Fristsetzung und Ankündigung rechtlicher Schritte (Kündigungsandrohung).
   - Erwartung: Eine Ratenvereinbarung zum Abbau des Rückstands ist ein milderes Mittel gegenüber der sofortigen Kündigung.
   - Erwartung: Bei dauerhaftem Ausfall kommen das gerichtliche Mahnverfahren oder ein beauftragtes Inkassounternehmen in Betracht.
+  - Erwartung: Die fristlose Kündigung wegen Zahlungsverzugs hängt vom Stand des Mahnwesens nicht ab; sie ist schon möglich, sobald ihre Voraussetzungen erfüllt sind, und braucht keine Abmahnung.
+  - Erwartung: Vor Vertragsabschluss prüft die Hausverwaltung die Bonität datensparsam und stufenweise: Einkommensnachweise und Bonitätsauskunft verlangt sie erst von der Person, für die sich die Vermieterseite entscheidet; eine Mietschuldenfreiheitsbescheinigung des Vorvermieters kann sie nicht verlangen.
   - Rückfrage: Wie begrenzt die Hausverwaltung Mietausfälle bereits vor Vertragsabschluss?
 - Was ist bei der Mieterhöhung nach der ortsüblichen Vergleichsmiete zu beachten, und wodurch unterscheidet sie sich von der Modernisierungsmieterhöhung?
   - Erwartung: Die Anpassung an die ortsübliche Vergleichsmiete ist die häufigste Form der Mieterhöhung bei bestehenden Verträgen, Grundlage ist meist der örtliche Mietspiegel.
   - Erwartung: Die Erhöhung darf innerhalb von drei Jahren die Kappungsgrenze nicht überschreiten: 20 % in normalen, 15 % in per Verordnung festgelegten Gebieten mit angespannter Wohnungsmarktlage.
-  - Erwartung: Zwischen zwei Mieterhöhungen zur ortsüblichen Vergleichsmiete muss eine Sperrfrist von zwölf Monaten liegen.
-  - Erwartung: Die Modernisierungsmieterhöhung ist eine zweite, eigenständige Grundlage: Nach Durchführung energetischer oder anderer gesetzlich genannter Modernisierungsmaßnahmen darf der Vermieter jährlich bis zu 8 % der aufgewendeten Modernisierungskosten auf die Jahresmiete umlegen.
+  - Erwartung: Das Erhöhungsverlangen kann frühestens ein Jahr nach der letzten Mieterhöhung gestellt werden, und die Miete muss zum Zeitpunkt der Erhöhung seit 15 Monaten unverändert sein; Erhöhungen wegen Modernisierung oder Betriebskosten zählen dabei nicht mit.
+  - Erwartung: Die Modernisierungsmieterhöhung ist eine zweite, eigenständige Grundlage: Nach Durchführung energetischer oder anderer gesetzlich genannter Modernisierungsmaßnahmen darf der Vermieter jährlich bis zu 8 % der aufgewendeten Modernisierungskosten auf die Jahresmiete umlegen; Kosten für ohnehin fällige Erhaltungsmaßnahmen und Zuschüsse Dritter werden vorher abgezogen.
   - Erwartung: Die Modernisierungsmieterhöhung ist durch eine Kappungsgrenze von 3 Euro je Quadratmeter (bzw. 2 Euro bei niedrigen Ausgangsmieten) innerhalb von sechs Jahren begrenzt.
   - Rückfrage: Was gilt für eine zusätzliche Mieterhöhung bei Staffel- und Indexmietverträgen?
 - Welche Schritte stehen der Hausverwaltung offen, wenn Mieter:innen trotz rechtskräftiger Kündigung nicht ausziehen, und in welcher Reihenfolge?
@@ -151,7 +154,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Worin unterscheiden sich umlagefähige Betriebskosten von nicht umlagefähigen Instandhaltungskosten, und welche Beispiele können Sie jeweils nennen?
   - Erwartung: Umlagefähig sind die im abschließenden Katalog der Betriebskostenverordnung genannten Kostenarten, sofern dies vertraglich vereinbart ist.
   - Erwartung: Beispiele für umlagefähige Kosten sind die Grundsteuer, die Wasserversorgung, Heizung und Warmwasser, der Aufzugsbetrieb, die Gartenpflege und die Beleuchtung.
-  - Erwartung: Instandhaltungs- und Instandsetzungskosten zählen ausdrücklich nicht zu den Betriebskosten und verbleiben beim Eigentümer.
+  - Erwartung: Instandhaltungs- und Instandsetzungskosten, also die Beseitigung von Mängeln durch Abnutzung, Alterung oder Witterung, zählen ausdrücklich nicht zu den Betriebskosten und verbleiben beim Eigentümer.
+  - Erwartung: Laufende Wartung, Pflege und Prüfung bestimmter Anlagen (z. B. von Heizung und Aufzug) sind dagegen Betriebskosten und bei Vereinbarung umlagefähig; die Reparatur der Anlage ist es nicht.
   - Erwartung: Auch Verwaltungskosten, z. B. das Honorar der Hausverwaltung selbst, sind nicht umlagefähig.
   - Rückfrage: Besteht bei vermieteten Objekten außerhalb einer WEG eine gesetzliche Pflicht zur Bildung einer Rücklage für künftige Instandhaltungsmaßnahmen?
 - Welche Vorgaben macht die Heizkostenverordnung zur Verteilung der Heizkosten, und welche Folge hat ein Verstoß dagegen?

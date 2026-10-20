@@ -5,7 +5,7 @@ fachgebiet_title: "Rahmenbedingungen der Immobilienwirtschaft"
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 1 der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -92,13 +92,13 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Was unterscheidet Standesregeln von gesetzlichen Pflichten wie der Erlaubnispflicht nach § 34c GewO?
   - Erwartung: Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind Verhaltensstandards, zu denen sich viele Verbandsmitglieder freiwillig verpflichten und die über gesetzliche Pflichten hinausgehen.
   - Erwartung: Beispiele für Standesregeln sind eine Wahrheitspflicht in der Vermarktung, die Offenlegung von Interessenkonflikten und allgemeine Sorgfaltspflichten.
-  - Erwartung: Makler, Bauträger und Verwalter benötigen eine gewerberechtliche Erlaubnis, die u. a. an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist.
+  - Erwartung: Gewerbetreibende, die als Makler:in, Bauträger:in oder Verwalter:in tätig sind, benötigen eine gewerberechtliche Erlaubnis (bei einer GmbH die Gesellschaft, nicht die einzelne angestellte Person), die u. a. an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist.
   - Erwartung: Hinzu kommt bei den gesetzlichen Pflichten für Wohnimmobilienverwalter eine regelmäßige Weiterbildungspflicht.
   - Erwartung: Im Unterschied zu Standesregeln unterliegen die gesetzlichen Pflichten einer unmittelbaren behördlichen Kontrolle mit Sanktionsmöglichkeit.
   - Rückfrage: Welche Aufgaben übernehmen die Verbände neben der Erarbeitung von Berufsgrundsätzen?
 - Wie tragen Verbraucherschutzinstrumente wie das Bestellerprinzip oder die Energieausweispflicht zur Qualitätssicherung bei?
   - Erwartung: Das Bestellerprinzip verhindert, dass Mieter:innen mit Kosten für einen nicht von ihnen beauftragten Makler belastet werden.
-  - Erwartung: Der Energieausweis weist die energetische Qualität eines Gebäudes aus und muss potenziellen Mietern oder Käufern spätestens bei der Besichtigung vorgelegt werden.
+  - Erwartung: Der Energieausweis weist die energetische Qualität eines Gebäudes aus und muss potenziellen Mietern oder Käufern spätestens bei der Besichtigung vorgelegt werden; nach Abschluss des Kauf- oder Mietvertrags ist er unverzüglich zu übergeben.
   - Erwartung: Bei Maklerprovisionen gilt eine Transparenzpflicht: Kund:innen müssen klar und rechtzeitig über Höhe und Verteilung der Provision informiert werden.
   - Erwartung: Die Erlaubnispflicht und, für Wohnimmobilienverwalter, die Weiterbildungspflicht dienen ebenfalls der Qualitätssicherung zugunsten der Verbraucher:innen.
   - Rückfrage: An wen können sich Betroffene bei Konflikten wie überhöhten Nebenkostenabrechnungen oder unzulässigen Maklerforderungen wenden?

@@ -5,7 +5,7 @@ fachgebiet_title: "Personal, Arbeitsorganisation und Qualifizierung"
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich „Personal, Arbeitsorganisation und Qualifizierung" der Verordnung ImmoFachwPrV (25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -18,14 +18,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Hausverwaltung steigt der Bedarf an Objektbetreuer:innen kontinuierlich mit wachsendem Einheitenbestand.
   - Erwartung: Die Maklerabteilung reagiert mit ihrem Personalbedarf eher auf Marktzyklen.
   - Erwartung: Die Projektentwicklung braucht projektbezogen Fachpersonal (z. B. Bauleitung), dessen Bedarf mit dem Projektfortschritt schwankt.
-  - Erwartung: Der quantitative Bedarf (Anzahl benötigter Stellen je Standort/Sparte) wird vom qualitativen Bedarf (erforderliche Qualifikationen, z. B. Sachkundenachweis) unterschieden.
+  - Erwartung: Der quantitative Bedarf (Anzahl benötigter Stellen je Standort/Sparte) wird vom qualitativen Bedarf (erforderliche Qualifikationen, z. B. nachgewiesene Weiterbildung) unterschieden.
   - Erwartung: Grundlage der Bedarfsermittlung ist ein Abgleich von Personalbestand und Personalbedarf.
   - Rückfrage: Welche Möglichkeit besteht an einem Standort mit stagnierender Maklertätigkeit anstelle einer Neueinstellung?
 - Welche Rolle spielt § 34c GewO bei der Personalauswahl für Makler- und Verwalterpositionen?
-  - Erwartung: Wer gewerblich als Makler:in oder Verwalter:in tätig werden soll, benötigt eine Erlaubnis nach § 34c GewO.
-  - Erwartung: Bei der Personalauswahl für diese Positionen wird zusätzlich geprüft, ob Bewerbende die Voraussetzungen für diese Erlaubnis mitbringen bzw. erwerben können.
+  - Erwartung: Wer gewerblich als Makler:in oder Verwalter:in tätig werden will, benötigt eine Erlaubnis nach § 34c GewO; sie erhält der Gewerbetreibende (bei Ravelin die GmbH), nicht die einzelne angestellte Person.
+  - Erwartung: Für die Personalauswahl heißt das: Angestellte brauchen keine eigene Erlaubnis; geprüft wird bei Leitungspositionen die persönliche Zuverlässigkeit, weil sie für die Erlaubnis des Unternehmens mitgeprüft wird, und in der Verwaltung die Weiterbildungspflicht der mitwirkenden Beschäftigten.
   - Erwartung: Für Wohnimmobilienverwalter:innen besteht eine gesetzliche Weiterbildungspflicht; für Makler:innen ist sie zum 24.07.2026 entfallen.
-  - Erwartung: Zum qualitativen Personalbedarf zählen erforderliche Qualifikationen, z. B. der Sachkundenachweis für Makler:innen.
+  - Erwartung: Zum qualitativen Personalbedarf zählen erforderliche Qualifikationen, z. B. der Weiterbildungsnachweis bei Beschäftigten der Wohnimmobilienverwaltung; einen gesetzlichen Sachkundenachweis für Makler:innen gibt es nicht.
   - Rückfrage: Worin unterscheiden sich interne und externe Personalbeschaffung?
 - Welche Mitbestimmungsrechte hat der Betriebsrat bei Personalplanung und Einstellungen, und woraus ergeben sie sich?
   - Erwartung: Existiert an einem Standort ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
@@ -114,6 +114,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Sie müssen sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden.
   - Erwartung: Für Makler:innen galt eine entsprechende Pflicht von 2018 bis zum 23.07.2026; sie ist entfallen.
   - Erwartung: Das Unternehmen dokumentiert die Weiterbildungsnachweise zentral, um die Einhaltung für alle betroffenen Mitarbeitenden sicherzustellen.
+  - Erwartung: Ein Verstoß gegen die Weiterbildungspflicht ist eine Ordnungswidrigkeit; die Erlaubnis erlischt dadurch nicht von selbst.
   - Rückfrage: Welche Instrumente stehen zur Deckung des Qualifizierungsbedarfs zur Verfügung?
 - Welchen Unterschied sehen Sie zwischen Mentoring und Coaching als Personalentwicklungsinstrumente?
   - Erwartung: Beim Mentoring begleiten erfahrene Objektbetreuer:innen neue Kolleg:innen.

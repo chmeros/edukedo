@@ -5,7 +5,7 @@ fachgebiet_title: "Marktorientierung und Vertrieb, Maklertätigkeit"
 thema_code: "HB6-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -16,10 +16,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 - Welche Voraussetzungen müssen für die Erteilung einer Erlaubnis nach § 34c GewO vorliegen?
   - Erwartung: Wer gewerbsmäßig Grundstücke, grundstücksgleiche Rechte oder Wohn- und Gewerberäume vermittelt oder den Abschluss entsprechender Verträge nachweist, benötigt eine Erlaubnis nach § 34c GewO.
-  - Erwartung: Die Erlaubnis wird von der zuständigen Behörde, in der Regel dem Gewerbeamt, erteilt.
+  - Erwartung: Die Erlaubnis wird von der zuständigen Behörde, in der Regel dem Gewerbeamt, erteilt; Inhaber der Erlaubnis ist der Gewerbetreibende (bei Ravelin die GmbH), nicht die einzelne angestellte Person.
   - Erwartung: Sie setzt unter anderem geordnete Vermögensverhältnisse sowie persönliche Zuverlässigkeit voraus.
   - Erwartung: Die Weiterbildungspflicht, die von 2018 bis zum 23.07.2026 auch für Makler:innen galt, ist entfallen; für Wohnimmobilienverwalter:innen besteht sie weiter, mindestens 20 Stunden innerhalb von drei Kalenderjahren.
-  - Erwartung: Verstöße gegen die Berufspflichten können zum Erlöschen der Erlaubnis führen.
+  - Erwartung: Pflichtverstöße führen nicht von selbst zum Erlöschen der Erlaubnis; bei Unzuverlässigkeit ist die Untersagung der Gewerbeausübung möglich und kann die Erlaubnis widerrufen werden (eine Rücknahme kommt nur bei von Anfang an rechtswidriger Erteilung in Betracht), und die Weiterbildungspflicht der Wohnimmobilienverwalter:innen ist bußgeldbewehrt.
   - Rückfrage: Gilt für die Hausverwaltung dieselbe Erlaubnis wie für die Maklertätigkeit?
 - Erläutern Sie den Unterschied zwischen Nachweis- und Vermittlungsmakler anhand eines Beispiels.
   - Erwartung: Der Nachweismakler weist dem Auftraggeber lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden.
@@ -37,13 +37,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Wie ist die Verteilung der Maklerkosten beim Verbraucherkauf von Wohnungen und Einfamilienhäusern gesetzlich geregelt?
   - Erwartung: Die Maklerprovision ist grundsätzlich frei verhandelbar, in der Praxis aber regional unterschiedlich üblich.
   - Erwartung: Bei der Vermittlung von Kaufverträgen über Wohnungen und Einfamilienhäuser an Verbraucher gilt seit Dezember 2020 ein eigenes Gesetz über die Verteilung der Maklerkosten.
+  - Erwartung: Der Maklervertrag über Nachweis oder Vermittlung eines solchen Kaufvertrags braucht die Textform; die Regeln zur Kostenverteilung gelten nur, wenn der Käufer Verbraucher ist, und in der Regel nicht für Mehrfamilienhäuser mit mehreren vermieteten Wohnungen (Kapitalanlage).
   - Erwartung: Beauftragt nur eine Partei den Makler, darf höchstens die Hälfte der vereinbarten Provision auf die andere Partei abgewälzt werden.
   - Erwartung: Die Zahlung der anderen Partei ist nachweispflichtig an die Zahlung der beauftragenden Partei gekoppelt.
-  - Rückfrage: Muss diese Regelung auch beim Verkauf von Neubauwohnungen durch eine Bauträgersparte an Privatkäufer:innen beachtet werden?
+  - Rückfrage: Fällt Maklerlohn an, wenn die Bauträgersparte von Ravelin eigene Neubauwohnungen über die eigene Maklerabteilung an Privatkäufer:innen verkauft?
 - Welche Pflichten hat eine Maklerin bei einer Doppeltätigkeit gegenüber beiden Vertragsparteien, und welche Folgen hat ein Verstoß dagegen?
   - Erwartung: Tritt eine Maklerin für beide Vertragsparteien gleichzeitig auf, muss dies beiden Seiten offengelegt werden.
   - Erwartung: Eine verdeckte Doppeltätigkeit gefährdet den Provisionsanspruch.
   - Erwartung: Eine verdeckte Doppeltätigkeit kann zudem Schadensersatzpflichten auslösen.
+  - Erwartung: Beim Verkauf einer Wohnung oder eines Einfamilienhauses an Verbraucher genügt die Offenlegung nicht: Makler:innen dürfen sich von beiden Seiten nur Provision in gleicher Höhe versprechen lassen.
   - Erwartung: In der Praxis werden beide Parteien schriftlich über die Doppeltätigkeit informiert, bevor der Maklervertrag zustande kommt.
   - Rückfrage: Welche Aufklärungs- und Nachforschungspflichten treffen Makler:innen gegenüber beiden Vertragsparteien?
 - Welche Pflichten treffen einen Makler nach dem Geldwäschegesetz, und warum gelten sie gerade für die Immobilienbranche?
@@ -65,7 +67,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum lohnt sich Kundenbindung trotz des einmaligen Abschlusses?
 - Welche Angaben müssen bereits in einer Immobilienanzeige zum Energieausweis enthalten sein, und warum?
   - Erwartung: Bereits in der Immobilienanzeige, nicht erst im vollständigen Exposé, müssen bestimmte Pflichtangaben zum Energieausweis enthalten sein.
-  - Erwartung: Dazu zählen die Art des Energieausweises, der Endenergiebedarf bzw. -verbrauch, die wesentlichen Energieträger der Heizung sowie bei Wohngebäuden das Baujahr und die Energieeffizienzklasse.
+  - Erwartung: Dazu zählen, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, die Art des Energieausweises, der Endenergiebedarf bzw. -verbrauch, die wesentlichen Energieträger der Heizung sowie bei Wohngebäuden das Baujahr und die Energieeffizienzklasse.
   - Erwartung: Verstöße gegen diese Pflichtangaben können als Wettbewerbsverstoß abgemahnt werden.
   - Rückfrage: Wie lässt sich sicherstellen, dass jede Anzeige die Pflichtangaben enthält?
 - Nennen Sie drei Bestandteile eines überzeugenden Exposés für ein noch nicht fertiggestelltes Neubauprojekt und begründen Sie einen davon.

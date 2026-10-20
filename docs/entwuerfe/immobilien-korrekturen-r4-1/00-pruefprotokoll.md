@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AL „Immobilienfachwirt: rechtsnahe Bestandskorrekturen Maklerrecht und Miete“ (Stand 20.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 20.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AL einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Fachlehrer-Befunde FL-IM-02, 03, 04, 06, 09, 12, 17, 20, 21, 30, 34, 39, 40, 41, 50, 57 aus `docs/reviews/2026-10-07/fachlehrer-immobilienfachwirt.md`; Auswertung `docs/entwuerfe/immobilien-r4-auswertung.md`). Alle Agenten liefen auf Sonnet. Reines Korrekturpaket: keine neuen Items, nur Textersetzungen im Bestand.
 

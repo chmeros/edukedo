@@ -5,7 +5,7 @@ fachgebiet_title: "Personal, Arbeitsorganisation und Qualifizierung"
 thema_code: "HB3-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsbereich „Personal, Arbeitsorganisation und Qualifizierung" der Verordnung ImmoFachwPrV (25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fallaufgaben
@@ -60,7 +60,7 @@ Teilaufgabe 4: Die Matrix hilft, bewusst feste Zeitfenster für „wichtig, nich
 
 **Themenbezug:** 3.3 (Ausbildung und Qualifizierung) + 3.4 (Arbeitsrecht Grundlagen)
 
-**Ausgangssituation:** Ravelin plant, am Standort Süd erstmals eine Immobilienkauffrau/einen Immobilienkaufmann auszubilden. Die vorgesehene Ausbilderin ist fachlich sehr erfahren, hat aber bislang noch nie ausgebildet. Gleichzeitig steht fest, dass zwei bereits bei Ravelin tätige Verwalter:innen der Hausverwaltung (Erlaubnis als Wohnimmobilienverwalter nach § 34c Abs. 1 Satz 1 Nr. 4 GewO) seit über zwei Jahren keine Weiterbildung mehr besucht haben. Die Geschäftsführung bittet Sie um eine Einschätzung, bevor die Ausbildung startet und die Jahresplanung für Fortbildungen erstellt wird.
+**Ausgangssituation:** Ravelin plant, am Standort Süd erstmals eine Immobilienkauffrau/einen Immobilienkaufmann auszubilden. Die vorgesehene Ausbilderin ist fachlich sehr erfahren, hat aber bislang noch nie ausgebildet. Gleichzeitig steht fest, dass zwei bereits bei Ravelin tätige, unmittelbar an der Verwaltung mitwirkende Beschäftigte der Hausverwaltung (Ravelin besitzt als Gewerbetreibende die Erlaubnis als Wohnimmobilienverwalter nach § 34c Abs. 1 Satz 1 Nr. 4 GewO) seit über zwei Jahren keine Weiterbildung mehr besucht haben. Die Geschäftsführung bittet Sie um eine Einschätzung, bevor die Ausbildung startet und die Jahresplanung für Fortbildungen erstellt wird.
 
 **Teilaufgabe 1 (5 Punkte, bloom: analysieren):** Prüfen Sie, ob die vorgesehene Ausbilderin die formalen Voraussetzungen erfüllt, um bei Ravelin auszubilden, und begründen Sie, was ggf. noch fehlt.
 
@@ -71,7 +71,7 @@ Teilaufgabe 4: Die Matrix hilft, bewusst feste Zeitfenster für „wichtig, nich
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, welchen zusätzlichen Nutzen ein strukturiertes Mentoring-Programm für die neue Auszubildende am Standort Süd haben könnte, über die reine gesetzliche Ausbildungspflicht hinaus.
 
 **Musterlösungshinweise:** Teilaufgabe 1: Fachliche Eignung allein genügt nicht — es fehlt der Nachweis der Ausbildereignung nach der AEVO, den die Ausbilderin vor Ausbildungsbeginn erwerben sollte.
-Teilaufgabe 2: Nach § 34c Abs. 2a GewO und § 15b MaBV müssen Wohnimmobilienverwalter:innen und die unmittelbar mitwirkenden Beschäftigten sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden; bei über zwei Jahren ohne Weiterbildung droht eine Fristüberschreitung innerhalb des laufenden Dreijahreszeitraums, was rechtliche Konsequenzen für die Erlaubnis nach sich ziehen kann.
+Teilaufgabe 2: Nach § 34c Abs. 2a GewO und § 15b MaBV müssen Wohnimmobilienverwalter:innen und die unmittelbar mitwirkenden Beschäftigten sich innerhalb von drei Kalenderjahren mindestens 20 Stunden weiterbilden; über zwei Jahre ohne Weiterbildung bedeuten noch keinen Verstoß, solange der laufende Zeitraum von drei Kalenderjahren (er beginnt am 1. Januar des Jahres der Erlaubniserteilung bzw. der Tätigkeitsaufnahme der Beschäftigten) nicht abgelaufen ist; es besteht aber akuter Handlungsdruck, weil die 20 Stunden bis zum Ende des dritten Kalenderjahres, also spätestens bis zum 31. Dezember, erreicht und nachweisbar dokumentiert sein müssen. Wer sich nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig weiterbildet, handelt ordnungswidrig (Geldbuße); die Erlaubnis erlischt dadurch nicht von selbst, wiederholte oder schwere Verstöße können aber die Zuverlässigkeit in Frage stellen.
 Teilaufgabe 3: Z. B. zentrale Dokumentation aller Fortbildungsnachweise mit automatischer Erinnerung vor Fristablauf, feste jährliche Fortbildungsbudgets je Mitarbeitendem.
 Teilaufgabe 4: Ein Mentoring-Programm kann über die reine Wissensvermittlung hinaus Orientierung, Motivation und eine schnellere Integration ins Team fördern und die spätere Übernahmechance sowie Mitarbeiterbindung erhöhen.
 
