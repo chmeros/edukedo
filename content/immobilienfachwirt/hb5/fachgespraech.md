@@ -5,7 +5,7 @@ fachgebiet_title: "Bauprojektmanagement"
 thema_code: "HB5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Bauprojektmanagement" der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -62,6 +62,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 - Erläutern Sie den groben Ablauf der HOAI-Leistungsphasen anhand eines Beispiels aus der Praxis.
   - Erwartung: Die HOAI unterteilt die Objektplanung traditionell in neun Leistungsphasen.
+  - Erwartung: Das Honorar ist seit dem Wegfall der verbindlichen Mindest- und Höchstsätze frei in Textform zu vereinbaren; die Honorartafeln der HOAI dienen nur noch als Orientierung.
   - Erwartung: In der Grundlagenermittlung (LP 1) werden Aufgabenstellung und Rahmenbedingungen geklärt, in der Vorplanung (LP 2) entsteht ein erstes Planungskonzept mit grober Kostenschätzung.
   - Erwartung: Die Entwurfsplanung (LP 3) konkretisiert das Konzept bis zur Genehmigungsreife, die Genehmigungsplanung (LP 4) erstellt die Unterlagen für den Bauantrag.
   - Erwartung: Die Ausführungsplanung (LP 5) detailliert die Entwurfsplanung so weit, dass auf ihrer Grundlage gebaut werden kann.
@@ -74,6 +75,11 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Änderungen erst während der Ausführungsplanung oder der Bauausführung sollen vermieden werden.
   - Rückfrage: Was geschieht in der Entwurfsplanung?
 - Welche Vergabearten nach VOB/A kennen Sie, und wovon hängt die Wahl der passenden Vergabeart ab?
+  - Erwartung: Für Bauleistungen kennt die VOB/A die öffentliche Ausschreibung, die beschränkte Ausschreibung (mit oder ohne Teilnahmewettbewerb) und die freihändige Vergabe.
+  - Erwartung: Bei der öffentlichen Ausschreibung wird eine unbeschränkte Zahl von Unternehmen zur Angebotsabgabe aufgefordert, bei der beschränkten Ausschreibung nur ein begrenzter Kreis geeigneter Unternehmen.
+  - Erwartung: Die freihändige Vergabe, in anderen Vergaberegeln Verhandlungsvergabe genannt, ist nur zulässig, wenn die anderen Verfahren unzweckmäßig sind, z. B. wegen besonderer Dringlichkeit oder weil nur ein bestimmtes Unternehmen in Betracht kommt, oder bei geringem Auftragswert.
+  - Erwartung: Die Wahl hängt von Auftragswert, Dringlichkeit, Spezialisierung der Leistung und Wettbewerbssituation ab; ein privates Bauträgerunternehmen wie Ravelin ist an die VOB/A nicht gebunden, orientiert sich aber häufig an ihr.
+  - Rückfrage: Warum kann für eine kurzfristig nötige Spezialleistung eine freihändige Vergabe sinnvoll sein?
 - Welche Aufgaben übernimmt die Bauüberwachung während der Bauausführung?
   - Erwartung: Die Bauüberwachung (Bauleitung, LP 8) kontrolliert laufend, ob die Ausführung der genehmigten Planung und den anerkannten Regeln der Technik entspricht.
   - Erwartung: Dazu gehören regelmäßige Baustellenbegehungen.
@@ -98,13 +104,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beide Pläne bilden gemeinsam die zweistufige Bauleitplanung der Gemeinden.
   - Rückfrage: Was konkretisiert die Baunutzungsverordnung bei der Art und beim Maß der baulichen Nutzung?
 - Erläutern Sie den Unterschied zwischen §34 und §35 BauGB anhand eines Beispiels.
+  - Erwartung: Im Geltungsbereich eines qualifizierten Bebauungsplans ist ein Vorhaben nach § 30 BauGB zulässig, wenn es den Festsetzungen nicht widerspricht und die Erschließung gesichert ist.
   - Erwartung: Existiert kein rechtsverbindlicher Bebauungsplan, richtet sich die Zulässigkeit eines Vorhabens nach anderen Vorschriften des BauGB.
   - Erwartung: Im im Zusammenhang bebauten Ortsteil (Innenbereich) ist ein Vorhaben nach § 34 BauGB zulässig, wenn es sich nach Art und Maß der Nutzung, Bauweise und Grundstücksfläche in die Eigenart der näheren Umgebung einfügt (Einfügungsgebot).
   - Erwartung: Im Außenbereich ist ein Vorhaben nach § 35 BauGB grundsätzlich nur zulässig, wenn es privilegiert ist, z. B. ein land- oder forstwirtschaftlicher Betrieb oder bestimmte Ver- und Entsorgungsanlagen.
   - Erwartung: Reine Wohnbebauung ist im Außenbereich regelmäßig nicht oder nur sehr eingeschränkt zulässig.
   - Rückfrage: Warum wird die planungsrechtliche Einordnung bereits zu Beginn der Grundstücksakquise mitgeprüft?
 - Was regeln Grundflächenzahl und Geschossflächenzahl, und wofür werden sie in der Projektentwicklung genutzt?
-  - Erwartung: Die Grundflächenzahl (GRZ) gibt den Anteil der überbaubaren Grundstücksfläche an.
+  - Erwartung: Die Grundflächenzahl (GRZ) gibt an, welcher Anteil des Grundstücks von baulichen Anlagen überdeckt werden darf (zulässige Grundfläche); sie ist nicht dasselbe wie die überbaubare Grundstücksfläche, die der Bebauungsplan durch Baulinien und Baugrenzen festlegt.
   - Erwartung: Die Geschossflächenzahl (GFZ) gibt das Verhältnis der gesamten Geschossfläche zur Grundstücksfläche an.
   - Erwartung: Beide Kennzahlen konkretisieren das Maß der baulichen Nutzung.
   - Erwartung: In der Machbarkeitsstudie begrenzen sie das maximal realisierbare Bauvolumen und damit die Anzahl möglicher Wohneinheiten.
@@ -119,23 +126,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Warum ist die Nachbarbeteiligung im Baugenehmigungsverfahren wichtig, und was können Nachbarn einwenden?
   - Erwartung: Bei größeren Mehrfamilienhausprojekten ist regelmäßig eine Nachbarbeteiligung vorgesehen.
   - Erwartung: Angrenzende Grundstückseigentümer:innen erhalten die Möglichkeit, Einwände gegen das Vorhaben vorzubringen, bevor die Genehmigung erteilt wird.
-  - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand.
+  - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand; Zeitpunkt und Form der Nachbarbeteiligung regelt das Landesrecht.
   - Erwartung: Abstandsflächen sind Mindestabstände zu Nachbargrundstücken, u. a. zur Sicherstellung von Belichtung, Belüftung und Brandschutz.
   - Rückfrage: Was regelt das Bauordnungsrecht im Unterschied zum Bauplanungsrecht, und wer ist dafür zuständig?
 
 ### 5.4 Kosten- und Terminplanung im Bau
 
 - Erläutern Sie die Gliederung der DIN 276 in Kostengruppen anhand eines Beispiels.
-  - Erwartung: Auf der obersten Ebene unterscheidet die DIN 276 sieben Kostengruppen.
+  - Erwartung: Auf der obersten Ebene unterscheidet die DIN 276 (Fassung 2018) die Kostengruppen 100 bis 700; hinzu kommt als achte Hauptgruppe die KG 800 Finanzierung.
   - Erwartung: KG 100 ist das Grundstück, KG 200 umfasst vorbereitende Maßnahmen (z. B. Abbruch, Altlastenbeseitigung).
   - Erwartung: KG 300 umfasst Bauwerk – Baukonstruktionen (Rohbau und Ausbau), KG 400 Bauwerk – Technische Anlagen (z. B. Heizung, Sanitär, Elektro).
-  - Erwartung: KG 500 umfasst Außenanlagen (z. B. Stellplätze, Grünflächen), KG 600 Ausstattung und Kunstwerke, KG 700 Baunebenkosten (u. a. Planungs- und Genehmigungskosten, Bauleitung).
+  - Erwartung: KG 500 umfasst Außenanlagen und Freiflächen (z. B. Stellplätze, Grünflächen), KG 600 Ausstattung und Kunstwerke, KG 700 Baunebenkosten (u. a. Planungs- und Genehmigungskosten, Bauleitung).
   - Erwartung: Jede Hauptkostengruppe lässt sich in Untergruppen aufschlüsseln, was eine detaillierte, nachvollziehbare Kostenkontrolle ermöglicht.
   - Rückfrage: Wodurch unterscheidet sich die Kostenplanung nach DIN 276 von der Projektkalkulation der Projektentwicklung?
 - Was unterscheidet Kostenschätzung, Kostenberechnung und Kostenanschlag voneinander?
   - Erwartung: Die Kostenschätzung erfolgt in der Vorplanung.
   - Erwartung: Die Kostenberechnung erfolgt in der Entwurfsplanung.
   - Erwartung: Der Kostenanschlag beruht auf den eingegangenen Angeboten nach der Ausschreibung.
+  - Erwartung: Vor der Kostenschätzung kann ein Kostenrahmen stehen, nach Fertigstellung folgt die Kostenfeststellung; zusätzlich kennt die DIN 276:2018 den Kostenvoranschlag vor dem Kostenanschlag.
   - Erwartung: Mit jeder Stufe steigt die Genauigkeit der Kostenaussage, weil mehr gesicherte Planungs- bzw. Vertragsinformationen vorliegen.
   - Rückfrage: Nach welcher Norm werden die Kosten in diesen Stufen gegliedert?
 - Was verstehen Sie unter dem kritischen Pfad, und warum ist er für die Bausteuerung so wichtig?

@@ -5,7 +5,7 @@ fachgebiet_title: "Immobilienbewirtschaftung"
 thema_code: "HB4-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zum Handlungsbereich „Immobilienbewirtschaftung" (§4 ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117) der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fallaufgaben
@@ -39,18 +39,18 @@ Teilaufgabe 4: Da der Abrechnungszeitraum bereits elf Monate zurückliegt, bleib
 
 **Themenbezug:** 4.2 (WEG-Verwaltung)
 
-**Ausgangssituation:** Die von Ravelin verwaltete WEG „Am Lindenpark" (48 Einheiten) plant in der kommenden Eigentümerversammlung zwei Tagesordnungspunkte: Zum einen möchte ein Eigentümer eine Lademöglichkeit für sein Elektrofahrzeug auf seinem Tiefgaragenstellplatz einrichten lassen, wogegen sich mehrere andere Eigentümer aus optischen Gründen aussprechen. Zum anderen steht die Genehmigung der Jahresabrechnung für das vergangene Wirtschaftsjahr an; ein einzelner Eigentümer kündigt bereits im Vorfeld an, gegen die anschließende Beschlussfassung notfalls vorgehen zu wollen, weil er einzelne Kostenpositionen für überhöht hält.
+**Ausgangssituation:** Die von Ravelin verwaltete WEG „Am Lindenpark" (48 Einheiten) plant in der kommenden Eigentümerversammlung zwei Tagesordnungspunkte: Zum einen möchte ein Eigentümer eine Lademöglichkeit für sein Elektrofahrzeug auf seinem Tiefgaragenstellplatz einrichten lassen, wogegen sich mehrere andere Eigentümer aus optischen Gründen aussprechen. Zum anderen steht die Jahresabrechnung für das vergangene Wirtschaftsjahr auf der Tagesordnung; ein einzelner Eigentümer kündigt bereits im Vorfeld an, gegen die anschließende Beschlussfassung notfalls vorgehen zu wollen, weil er einzelne Kostenpositionen für überhöht hält.
 
 **Teilaufgabe 1 (5 Punkte, bloom: anwenden):** Prüfen Sie, ob die übrigen Eigentümer den Einbau der Lademöglichkeit durch einen Mehrheitsbeschluss verhindern können, und begründen Sie Ihre Einschätzung.
 
 **Teilaufgabe 2 (5 Punkte, bloom: anwenden):** Erläutern Sie, worüber die Eigentümerversammlung bei der Jahresabrechnung nach der WEG-Reform überhaupt noch beschließen muss.
 
-**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Der ankündigende Eigentümer möchte gegen den Beschluss über die Jahresabrechnung vorgehen. Welchen rechtlichen Weg muss er einhalten, und welche Frist ist dabei zu beachten?
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Der ankündigende Eigentümer möchte gegen den Beschluss vorgehen, der auf der Jahresabrechnung beruht. Welchen rechtlichen Weg muss er einhalten, und welche Frist ist dabei zu beachten?
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Die Versammlung findet mit nur zwölf von 48 stimmberechtigten Eigentümern statt. Bewerten Sie, ob die gefassten Beschlüsse dadurch angreifbar sind.
 
 **Musterlösungshinweise:** Teilaufgabe 1: Nein — für das Laden elektrisch betriebener Fahrzeuge besteht seit der WEG-Reform (§ 20 WEG n. F.) ein individueller Anspruch jedes Eigentümers auf angemessene Gestattung; die übrigen Eigentümer können allenfalls die konkrete Ausgestaltung (Art und Umfang der Baumaßnahme) mitbestimmen, den Einbau aber nicht grundsätzlich verhindern.
-Teilaufgabe 2: Die Versammlung beschließt seit der Reform nicht mehr über jede einzelne Position, sondern nur noch über den Vermögensstatus und die sich aus der Abrechnung ergebenden Zahlungspflichten (Abrechnungsspitze) der Eigentümer.
+Teilaufgabe 2: Die Versammlung beschließt seit der Reform nicht mehr über jede einzelne Position, sondern nur noch über die Einforderung von Nachschüssen bzw. die Anpassung der beschlossenen Vorschüsse (Abrechnungsspitze) der Eigentümer:innen; die Jahresabrechnung stellt die Verwaltung auf, und der Vermögensbericht der Verwaltung dient der Information und wird nicht beschlossen.
 Teilaufgabe 3: Der Eigentümer muss binnen eines Monats nach der Beschlussfassung Anfechtungsklage erheben und diese innerhalb von zwei Monaten begründen (§ 45 WEG); ohne fristgerechte Anfechtung bleibt der Beschluss wirksam.
 Teilaufgabe 4: Nein — seit der WEG-Reform 2020 ist eine ordnungsgemäß einberufene Versammlung unabhängig von der Zahl der anwesenden Eigentümer beschlussfähig, ein Mindestquorum entfällt vollständig.
 
@@ -71,8 +71,8 @@ Teilaufgabe 4: Nein — seit der WEG-Reform 2020 ist eine ordnungsgemäß einber
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Skizzieren Sie ein kurzes Vorgehen für Ravelin, um vergleichbare kurzfristige Finanzierungsengpässe bei künftigen Instandhaltungsmaßnahmen frühzeitiger zu erkennen.
 
 **Musterlösungshinweise:** Teilaufgabe 1: Instandsetzung — der ursprüngliche Sollzustand der Dachabdichtung muss nach eingetretenem Mangel wiederhergestellt werden.
-Teilaufgabe 2: Wasserschaden Tiefgarage → Sofort erledigen (akute Schadensgefahr); Dachschäden → Sofort erledigen (dringend und wichtig: Notmaßnahme gegen Folgeschäden, die eigentliche Sanierung wird anschließend terminiert); Hofbeleuchtung → Delegieren (planbare Routinemaßnahme, an Fachfirma/Hausmeisterservice); Wandfarbe eines einzelnen Eigentümers ohne Mängelcharakter → Streichen (keine Instandhaltungsnotwendigkeit).
-Teilaufgabe 3: Vorschlag z. B. Erhebung einer Sonderumlage durch Beschluss der Eigentümerversammlung, da über zusätzliche Zahlungspflichten der Eigentümer nur die Gemeinschaft selbst per Beschluss entscheiden kann — der Verwalter darf die fehlenden Mittel nicht eigenmächtig nachfordern.
+Teilaufgabe 2: Wasserschaden Tiefgarage → Sofort erledigen (akute Schadensgefahr); Dachschäden → Sofort erledigen (dringend und wichtig: Notmaßnahme gegen Folgeschäden, die eigentliche Sanierung wird anschließend terminiert); Hofbeleuchtung → Terminieren (wichtig, aber nicht dringend: die seit Monaten geplante Erneuerung wird mit festem Termin und Budget eingeplant, die Ausführung kann an eine Fachfirma vergeben werden); Wandfarbe eines einzelnen Eigentümers ohne Mängelcharakter → Streichen (keine Instandhaltungsnotwendigkeit).
+Teilaufgabe 3: Vorschlag z. B. Erhebung einer Sonderumlage durch Beschluss der Eigentümerversammlung, da über zusätzliche Zahlungspflichten der Eigentümer nur die Gemeinschaft selbst per Beschluss entscheiden kann — der Verwalter darf die fehlenden Mittel nicht eigenmächtig nachfordern. Unabhängig davon darf und muss er die Maßnahmen treffen, die zur Abwendung eines Nachteils erforderlich sind (Notmaßnahme, z. B. eine notdürftige Abdichtung des Dachs gegen weitere Wassereintritte); die endgültige Sanierung und ihre Finanzierung (Sonderumlage oder, wenn vertretbar, ein Darlehen der Gemeinschaft) bedürfen eines Beschlusses.
 Teilaufgabe 4: Z. B. regelmäßige Aktualisierung des mittelfristigen Instandhaltungsplans anhand tatsächlicher Zustandsdaten (zustandsorientierte Instandhaltung), realistischere Bemessung der Erhaltungsrücklage anhand anerkannter Berechnungsformeln, frühzeitige Information der Eigentümerversammlung über absehbare Großmaßnahmen.
 
 ---

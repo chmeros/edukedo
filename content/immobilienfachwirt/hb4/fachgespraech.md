@@ -60,6 +60,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Aufgaben hat der Verwalter bei der Vorbereitung und Durchführung einer Eigentümerversammlung?
   - Erwartung: Der Verwalter beruft die Eigentümerversammlung ein, mindestens einmal jährlich als ordentliche Versammlung und bei Bedarf zusätzlich außerordentlich.
   - Erwartung: Die Einladung enthält Ort, Zeit und Tagesordnung, damit sich die Eigentümer:innen auf die Themen vorbereiten können.
+  - Erwartung: Die Einberufung erfolgt in Textform; die Ladungsfrist soll mindestens drei Wochen betragen (Sollvorschrift, nur bei besonderer Dringlichkeit darf sie unterschritten werden).
   - Erwartung: Über jede Versammlung ist eine Niederschrift (Protokoll) anzufertigen.
   - Erwartung: Gefasste Beschlüsse werden fortlaufend in der Beschluss-Sammlung dokumentiert, die der Verwalter führt.
   - Erwartung: Der Verwalter führt die Beschlüsse der Eigentümerversammlung aus.
@@ -69,7 +70,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Verwalter hat eine umfassende Vertretungsmacht nach außen, die im Interesse des Rechtsverkehrs grundsätzlich nicht beschränkbar ist.
   - Erwartung: Eine ordnungsgemäß einberufene Eigentümerversammlung ist unabhängig von der Zahl der anwesenden oder vertretenen Eigentümer beschlussfähig, ein Mindestquorum entfällt.
   - Erwartung: Für die meisten Beschlussgegenstände genügt die einfache Mehrheit der abgegebenen Stimmen.
-  - Erwartung: Die Eigentümerversammlung muss nicht mehr jede einzelne Abrechnungsposition genehmigen, sondern beschließt nur noch über den Vermögensstatus und die aus der Abrechnung resultierenden Zahlungspflichten der einzelnen Eigentümer.
+  - Erwartung: Die Eigentümerversammlung muss nicht mehr jede einzelne Abrechnungsposition genehmigen, sondern beschließt nur noch über die Einforderung von Nachschüssen oder die Anpassung der Vorschüsse (Abrechnungsspitze); die Verwaltung erstellt zusätzlich einen Vermögensbericht, über den nicht beschlossen wird.
   - Rückfrage: Was gilt seit der Reform für die Abberufung des Verwalters?
 - Erläutern Sie den Unterschied zwischen einem nichtigen und einem anfechtbaren Beschluss anhand eines Beispiels.
   - Erwartung: Ein Beschluss, der gegen zwingendes Recht verstößt, ist von Anfang an nichtig.
@@ -87,12 +88,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Wirtschaftsplan ist eine vorausschauende Kosten- und Einnahmenplanung für das kommende Wirtschaftsjahr.
   - Erwartung: Der Wirtschaftsplan bildet die Grundlage für die monatlichen Vorschusszahlungen der Eigentümer:innen (Hausgeld).
   - Erwartung: Die Jahresabrechnung stellt die tatsächlich angefallenen Kosten und Einnahmen des abgelaufenen Wirtschaftsjahres dar.
-  - Erwartung: Die Abrechnung stellt die tatsächlichen Beträge den im Wirtschaftsplan veranschlagten gegenüber.
+  - Erwartung: Die Jahresabrechnung weist die tatsächlichen Beträge aus und rechnet sie mit den gezahlten Vorschüssen aus dem Wirtschaftsplan ab; daraus ergibt sich die Abrechnungsspitze (Nachschuss oder Guthaben).
   - Rückfrage: Welche Funktion hat die Erhaltungsrücklage in den WEG-Finanzen?
 - Warum kann ein WEG-Verwalter heute jederzeit ohne wichtigen Grund abberufen werden, und welche Konsequenzen hat das für die Verwalterpraxis?
   - Erwartung: Der Verwalter kann seit der Reform jederzeit ohne wichtigen Grund abberufen werden.
   - Erwartung: Die Bestellung selbst ist auf höchstens fünf Jahre befristet, bei der erstmaligen Bestellung nach Begründung von Wohnungseigentum auf höchstens drei Jahre.
-  - Erwartung: Die Eigentümer haben einen gesetzlichen Anspruch auf die Bestellung eines zertifizierten Verwalters, sofern nicht alle Eigentümer einstimmig darauf verzichten.
+  - Erwartung: Seit dem 01.12.2023 kann jede:r Wohnungseigentümer:in die Bestellung eines zertifizierten Verwalters als Teil ordnungsmäßiger Verwaltung verlangen; ein Beschluss über einen nicht zertifizierten Verwalter ist in der Regel anfechtbar. Ausnahme: kleine Gemeinschaften mit weniger als neun Sondereigentumsrechten (Einheiten), in denen ein:e Wohnungseigentümer:in die Verwaltung führt, wenn weniger als ein Drittel der Eigentümer:innen einen zertifizierten Verwalter verlangt.
   - Erwartung: Zu den zentralen Pflichten des Verwalters gehören die strikte Trennung des WEG-Vermögens vom eigenen Vermögen sowie umfassende Auskunftspflichten gegenüber den Eigentümern.
   - Rückfrage: Welche Vertretungsmacht hat der Verwalter nach außen?
 

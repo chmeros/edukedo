@@ -109,13 +109,13 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Vergleichswertverfahren eignet sich für Standardobjekte mit ausreichender Vergleichsbasis, z. B. Eigentumswohnungen in größeren Wohnanlagen oder Reihenhäuser.
   - Erwartung: Das Ertragswertverfahren eignet sich für vermietete oder zur Vermietung bestimmte Objekte, bei denen der erzielbare Ertrag im Vordergrund steht, z. B. Mehrfamilienhäuser oder Gewerbeimmobilien.
   - Erwartung: Das Sachwertverfahren eignet sich für selbstgenutzte Ein- und Zweifamilienhäuser ohne ausreichende Vergleichsbasis und ohne Ertrag im Vordergrund.
-  - Rückfrage: Warum ist ein reines Vergleichswertverfahren bei individuell geschnittenen Neubauwohnungen häufig nicht anwendbar?
+  - Rückfrage: Wann reicht ein reines Vergleichswertverfahren bei Neubauwohnungen allein nicht aus?
 - Wie ist der Rohertrag im Ertragswertverfahren definiert, und wie unterscheidet er sich vom Reinertrag?
   - Erwartung: Der Rohertrag ist die nachhaltig erzielbare Jahresmiete.
-  - Erwartung: Davon werden die nicht umlagefähigen Bewirtschaftungskosten abgezogen, u. a. Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis.
+  - Erwartung: Davon werden die nicht durch Umlagen gedeckten Bewirtschaftungskosten abgezogen: Verwaltungskosten, Instandhaltungskosten (kalkulatorisch, keine Rücklage), Mietausfallwagnis und nicht umgelegte Betriebskosten.
   - Erwartung: Das Ergebnis ist der Reinertrag.
   - Erwartung: Der Bodenwertanteil wird gesondert verzinst und vom Reinertrag abgezogen.
-  - Erwartung: Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert.
+  - Erwartung: Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert; zum Gebäudeertragswert wird der Bodenwert addiert und man erhält den Ertragswert.
   - Rückfrage: Wovon hängt der Vervielfältiger ab?
 - Was versteht man unter dem Liegenschaftszinssatz, und woher stammen die entsprechenden Werte?
   - Erwartung: Der Liegenschaftszinssatz drückt aus, mit welcher Rendite vergleichbare Objekte am jeweiligen Markt üblicherweise verzinst werden.
@@ -126,12 +126,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Bodenwert wird gesondert ermittelt, analog zum Vergleichswertverfahren über Bodenrichtwerte.
   - Erwartung: Der Gebäudesachwert geht von den Normalherstellungskosten aus, also den durchschnittlichen Baukosten je Quadratmeter Bruttogrundfläche für einen bestimmten Gebäudestandard.
   - Erwartung: Davon wird eine Alterswertminderung abhängig von Gebäudealter und wirtschaftlicher Gesamtnutzungsdauer abgezogen.
-  - Erwartung: Der Wert der Außenanlagen (z. B. Garage, Terrasse, Gartenanlage) fließt in den Gebäudesachwert ein.
-  - Erwartung: Die Summe aus Bodenwert und Gebäudesachwert ergibt den vorläufigen Sachwert, der mit einem marktangepassten Sachwertfaktor an das Marktgeschehen angepasst wird.
+  - Erwartung: Der Wert der Außenanlagen (z. B. Terrasse, Gartenanlage) wird gesondert ermittelt und zum Wert des Gebäudes hinzugerechnet.
+  - Erwartung: Die Summe aus Bodenwert, Gebäudesachwert und Wert der Außenanlagen ergibt den vorläufigen Sachwert, der mit einem marktangepassten Sachwertfaktor an das Marktgeschehen angepasst wird.
   - Rückfrage: Warum eignet sich das Sachwertverfahren für selbstgenutzte Ein- und Zweifamilienhäuser?
 - Warum kann es sinnvoll sein, mehrere Wertermittlungsverfahren parallel zur Plausibilisierung heranzuziehen?
   - Erwartung: Häufig werden mehrere Verfahren zur gegenseitigen Plausibilisierung parallel herangezogen, bevor eine Preisempfehlung ausgesprochen wird.
-  - Erwartung: Bei individuell geschnittenen Neubauwohnungen ist ein reines Vergleichswertverfahren mangels ausreichender Vergleichsobjekte häufig nicht anwendbar.
+  - Erwartung: Wo Vergleichspreise fehlen oder wenig aussagekräftig sind, etwa bei den ersten Verkäufen eines neuen Wohnungstyps ohne Referenzverkäufe, reicht das Vergleichswertverfahren allein nicht aus; Eigentumswohnungen werden aber auch im Neubau regelmäßig über Vergleichspreise bewertet.
   - Erwartung: Die drei Verfahren sind das Vergleichswert-, das Ertragswert- und das Sachwertverfahren.
   - Erwartung: Die Maklerabteilung erstellt eine marktorientierte Preisempfehlung, die sich methodisch an den drei Verfahren orientiert.
   - Rückfrage: Wer erstellt förmliche Wertgutachten?

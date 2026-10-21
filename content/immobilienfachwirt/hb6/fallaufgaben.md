@@ -96,6 +96,6 @@ Teilaufgabe 4: z. B. verpflichtende schriftliche Mängel-Checkliste vor jeder Ob
 **Musterlösungshinweise:** Teilaufgabe 1: Vergleichswert = 70 m² × 4.200 € = 294.000 €.
 Teilaufgabe 2: Reinertrag = 90.000 € − 18.000 € = 72.000 €; Bodenwertverzinsung = 400.000 € × 2,5 % = 10.000 €; Gebäudereinertrag = 72.000 € − 10.000 € = 62.000 €.
 Teilaufgabe 3: Gebäudeertragswert = 62.000 € × 22 = 1.364.000 €; Ertragswert = 1.364.000 € + 400.000 € = 1.764.000 €.
-Teilaufgabe 4: Herstellungswert = 300 m² × 1.500 € = 450.000 €; Alterswertminderung = 40 ÷ 80 = 50 %, Wert nach Abzug 225.000 €; mit den Außenanlagen von 25.000 € Gebäudesachwert 250.000 €; vorläufiger Sachwert = 250.000 € + 250.000 € = 500.000 €; Sachwert = 500.000 € × 0,9 = 450.000 €.
+Teilaufgabe 4: Herstellungswert = 300 m² × 1.500 € = 450.000 €; Alterswertminderung = 40 ÷ 80 = 50 %, Wert nach Abzug 225.000 €; mit den Außenanlagen von 25.000 € Wert von Gebäude und Außenanlagen 250.000 €; vorläufiger Sachwert = 250.000 € + 250.000 € = 500.000 €; Sachwert = 500.000 € × 0,9 = 450.000 €.
 Teilaufgabe 5 sollte nennen: A ist ein Standardobjekt mit ausreichender Vergleichsbasis (Vergleichswertverfahren), B ist ein vermietetes Renditeobjekt, bei dem der Ertrag im Vordergrund steht (Ertragswertverfahren), C ist ein selbstgenutztes Einfamilienhaus ohne ausreichende Vergleichsbasis und ohne Ertragsziel (Sachwertverfahren).
 Folgefehler: Ein Rechenfehler in einer Teilaufgabe wird in den darauf aufbauenden Teilaufgaben nicht erneut bewertet, wenn mit dem fehlerhaften Wert fachlich richtig weitergerechnet wurde.

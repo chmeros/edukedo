@@ -5,7 +5,7 @@ fachgebiet_title: "Bauprojektmanagement"
 thema_code: "HB5-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zum Handlungsbereich „Bauprojektmanagement" der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fallaufgaben
@@ -28,10 +28,10 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB5 (5.1–5.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, welche zwei Kennzahlen aus der BauNVO Ravelin bereits in der Machbarkeitsstudie heranzieht, um das auf dem bebaubaren Grundstücksteil maximal realisierbare Bauvolumen grob abzuschätzen.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Der straßenseitige Teil liegt im unbeplanten Innenbereich und ist nach §34 BauGB zulässig, wenn er sich in die Eigenart der näheren Umgebung einfügt; der rückwärtige Teil liegt im Außenbereich und ist nach §35 BauGB für Wohnbebauung mangels Privilegierung grundsätzlich nicht bzw. nur sehr eingeschränkt bebaubar.
+**Musterlösungshinweise:** Teilaufgabe 1: Der straßenseitige Teil liegt im unbeplanten Innenbereich und ist nach §34 BauGB zulässig, wenn er sich in die Eigenart der näheren Umgebung einfügt; der rückwärtige Teil liegt im Außenbereich und ist nach §35 BauGB für Wohnbebauung mangels Privilegierung grundsätzlich nicht bzw. nur sehr eingeschränkt bebaubar. Läge ein qualifizierter Bebauungsplan vor, entschieden stattdessen dessen Festsetzungen (§30 BauGB) über die Zulässigkeit.
 Teilaufgabe 2: z. B. Grundbuchprüfung, Altlastenabfrage, Prüfung der Erschließungssituation, bauplanungsrechtliche Einordnung.
-Teilaufgabe 3: Ein Optionsvertrag ist sinnvoll, da die Bebaubarkeit des rückwärtigen Teils unklar ist und Ravelin sich vor einem endgültigen Kauf zunächst rechtliche Klarheit verschaffen sollte, ohne das Grundstück an einen anderen Interessenten zu verlieren.
-Teilaufgabe 4: Grundflächenzahl (GRZ) und Geschossflächenzahl (GFZ).
+Teilaufgabe 3: Ein Optionsvertrag ist sinnvoll, da die Bebaubarkeit des rückwärtigen Teils unklar ist und Ravelin sich vor einem endgültigen Kauf zunächst rechtliche Klarheit verschaffen sollte, ohne das Grundstück an einen anderen Interessenten zu verlieren. Er bedarf wie der Kaufvertrag der notariellen Beurkundung; ergänzend kommt eine Bauvoranfrage (Vorbescheid) in Betracht, um die Bebaubarkeit verbindlich klären zu lassen.
+Teilaufgabe 4: Grundflächenzahl (GRZ) und Geschossflächenzahl (GFZ); beide gehören zum Maß der baulichen Nutzung, die GRZ begrenzt den von baulichen Anlagen überdeckten Anteil des Grundstücks, die GFZ die Gesamtgeschossfläche.
 
 ---
 
@@ -52,7 +52,7 @@ Teilaufgabe 4: Grundflächenzahl (GRZ) und Geschossflächenzahl (GFZ).
 **Musterlösungshinweise:** Teilaufgabe 1: Prüfung dem Grund nach (unvorhergesehene Baugrundverhältnisse sind typischerweise nicht von der ursprünglichen Leistungsbeschreibung umfasst und können einen Nachtrag rechtfertigen) und der Höhe nach (Angemessenheit der geforderten zusätzlichen Vergütung, z. B. anhand der ursprünglichen Kalkulationsgrundlagen).
 Teilaufgabe 2: Da die Rohbauarbeiten auf dem kritischen Pfad liegen und dort keine Pufferzeit besteht, verlängert die dreiwöchige Verzögerung den Gesamtfertigstellungstermin unmittelbar um denselben Zeitraum, sofern keine Beschleunigungsmaßnahmen ergriffen werden.
 Teilaufgabe 3: z. B. frühzeitige, transparente Information aller betroffenen Gewerke, Anpassung des Bauzeitenplans, Prüfung von Pufferzeiten bei nachfolgenden, nicht-kritischen Gewerken.
-Teilaufgabe 4: Freihändige Vergabe, da es sich um eine kurzfristig notwendige, spezialisierte Zusatzleistung handelt, bei der ein förmliches, zeitaufwendiges Ausschreibungsverfahren dem Zweck der schnellen Verzögerungsminimierung entgegenstünde.
+Teilaufgabe 4: Freihändige Vergabe (in anderen Vergaberegeln Verhandlungsvergabe genannt), da die Zusatzleistung besonders dringlich und spezialisiert ist (nur wenige Unternehmen kommen in Betracht) und ein förmliches, zeitaufwendiges Ausschreibungsverfahren dem Zweck der schnellen Verzögerungsminimierung entgegenstünde. Ravelin ist als privates Bauträgerunternehmen an die VOB/A nicht gebunden und kann die Vergabeart frei wählen; tragend sind die Dringlichkeit und die dokumentierte Begründung, mehrere Vergleichsangebote bei den wenigen geeigneten Unternehmen bleiben sinnvoll.
 
 ---
 

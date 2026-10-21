@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AM „Immobilienfachwirt: rechtsnahe Bestandskorrekturen WEG, Bau und Vergabe, Bewertung, Finanzen, Personal“ (Stand 20.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 21.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Weiter“ nach der Vorlage vom 20.10.2026).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Fachlehrer-Befunde FL-IM-08, 10, 11, 13, 14, 18, 19, 22, 23, 25 bis 29, 31, 33, 35, 36, 38, 52, 54, 56, 58, 59 sowie nachträglich FL-IM-57 für `hb1`; Auswertung `docs/entwuerfe/immobilien-r4-auswertung.md`). Alle Agenten liefen auf Sonnet. Reines Korrekturpaket: keine neuen Items, nur Textersetzungen im Bestand.
 

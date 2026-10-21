@@ -5,7 +5,7 @@ fachgebiet_title: "Unternehmenssteuerung und Kontrolle"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 2 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -21,8 +21,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wovon hängt es ab, ob für die GmbH zusätzlich eine Prüfungs- und Offenlegungspflicht gilt?
 - Warum muss eine Hausverwaltung fremde Gelder getrennt vom eigenen Vermögen führen, und welche Rolle spielt dabei die Makler- und Bauträgerverordnung?
   - Erwartung: Die Hausverwaltungssparte verwaltet in erheblichem Umfang fremdes Geld, z. B. Mieteingänge, Erhaltungsrücklagen der Wohnungseigentümergemeinschaften und Kautionen der Mieter:innen.
-  - Erwartung: Dieses Geld gehört wirtschaftlich den Eigentümer:innen, den Gemeinschaften bzw. den Mieter:innen und nicht der Verwaltung selbst.
-  - Erwartung: Aus den gesetzlichen und vertraglichen Pflichten der Verwaltung folgt die strikte Trennung der Fremdgelder vom eigenen Vermögen auf gesonderten Treuhand-/Fremdgeldkonten sowie eine zeitnahe, nachvollziehbare Verbuchung; die Konten der Gemeinschaften lauten in der Praxis auf die jeweilige Gemeinschaft.
+  - Erwartung: Dieses Geld gehört nicht der Verwaltung selbst: Die Mieteingänge stehen den Vermieter:innen zu, die Erhaltungsrücklage gehört zum Vermögen der Gemeinschaft, und die Kaution müssen die Vermieter:innen getrennt von ihrem Vermögen anlegen.
+  - Erwartung: Daraus, dass das Geld nicht der Verwaltung gehört, und aus dem Verwaltervertrag (bei der Kaution zusätzlich aus dem Gesetz; Hinweis, nicht förmlich rechtsgeprüft) folgt die strikte Trennung der Fremdgelder vom eigenen Vermögen auf gesonderten Treuhand-/Fremdgeldkonten sowie eine zeitnahe, nachvollziehbare Verbuchung; die Konten der Gemeinschaften lauten in der Praxis auf die jeweilige Gemeinschaft.
   - Erwartung: Die Makler- und Bauträgerverordnung ist nicht die Grundlage dieser Trennung; sie betrifft vor allem die Makler- und Bauträgertätigkeit, z. B. die gestaffelten Abschlagszahlungen der Käufer:innen und deren Absicherung.
   - Rückfrage: Wie erscheinen die Fremdgeldkonten in der Bilanz der Verwaltung?
 - Erläutern Sie den Unterschied zwischen Erhaltungsrücklage und Sonderumlage anhand eines Beispiels.
@@ -31,7 +31,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Sonderumlage ist ein einmaliger zusätzlicher Beitrag der Eigentümer:innen.
   - Erwartung: Eine Sonderumlage kommt in Betracht, wenn die Rücklage für eine konkrete, bereits beschlossene Maßnahme nicht ausreicht.
   - Erwartung: Die Eigentümerversammlung kann die Sonderumlage beschließen.
-  - Rückfrage: Was stellt die Hausgeldabrechnung am Jahresende gegenüber?
+  - Rückfrage: Was weist die Hausgeldabrechnung nach Jahresende aus, und was ist die Abrechnungsspitze?
 - Warum darf Ravelin bei einem Bauträgerprojekt nicht bereits während der Bauphase Gewinne ausweisen, obwohl schon Abschlagszahlungen der Käufer:innen eingegangen sind?
   - Erwartung: Nach dem handelsrechtlichen Realisationsprinzip dürfen Gewinne erst ausgewiesen werden, wenn sie tatsächlich realisiert sind.
   - Erwartung: Die Realisierung erfolgt durch Abnahme bzw. Übergabe der Einheiten an die Käufer:innen, nicht anteilig nach Baufortschritt.
@@ -163,13 +163,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Risikomatrix ordnet jedes Risiko anhand von Eintrittswahrscheinlichkeit und Schadenshöhe einem von vier Feldern zu.
   - Erwartung: Hohe Wahrscheinlichkeit und hoher Schaden: Das Risiko ist zu vermeiden.
   - Erwartung: Geringere Wahrscheinlichkeit, aber hoher Schaden: Das Risiko sollte abgesichert werden, z. B. durch Versicherung.
-  - Erwartung: Geringer Schaden, aber höhere Wahrscheinlichkeit: Das Risiko wird beobachtet.
+  - Erwartung: Geringer Schaden, aber höhere Wahrscheinlichkeit: Das Risiko wird beobachtet, also laufend überwacht und bei Bedarf durch einfache Maßnahmen vermindert.
   - Erwartung: Geringe Wahrscheinlichkeit und geringer Schaden: Das Risiko kann in der Regel akzeptiert werden.
+  - Erwartung: Die vier Felder sind eine vereinfachte Fassung der Strategien vermeiden, vermindern, überwälzen/versichern und tragen; „beobachten“ ist keine eigene Strategie, sondern das Tragen unter laufender Überwachung.
   - Rückfrage: In welchem Schritt des Risikomanagement-Prozesses kommt die Risikomatrix typischerweise zum Einsatz?
 - Welche Instrumente stehen Ravelin zur Steuerung von Risiken zur Verfügung, und wann würden Sie welches einsetzen?
   - Erwartung: Versicherungen wie die Bauleistungsversicherung oder die Gebäudeversicherung übertragen finanzielle Risiken auf einen Versicherer.
   - Erwartung: Die Diversifikation des Bestandsportfolios über mehrere Standorte und Nutzungsarten reduziert das Klumpenrisiko.
-  - Erwartung: Bürgschaften, z. B. Vertragserfüllungs- oder Gewährleistungsbürgschaften, sichern die vertragsgemäße Leistungserbringung ab.
+  - Erwartung: Bürgschaften, z. B. Vertragserfüllungs- oder Gewährleistungsbürgschaften der ausführenden Unternehmen, sichern die vertragsgemäße Leistung und Mängelansprüche ab; der Schutz der Käufer:innen vor dem Verlust von Abschlagszahlungen ist davon getrennt eine Pflicht des Bauträgerunternehmens (Ratenplan mit Voraussetzungen oder Bürgschaft).
   - Erwartung: Mögliche Umgangsweisen mit einem Risiko sind vermeiden, vermindern, überwälzen/versichern oder bewusst tragen.
   - Erwartung: Hohe Schäden bei geringerer Eintrittswahrscheinlichkeit werden laut Risikomatrix abgesichert, z. B. durch Versicherung.
   - Rückfrage: Gegen welche Schäden schützt eine Gebäudeversicherung?

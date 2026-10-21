@@ -17,7 +17,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Eigentumsformen kommen bei Immobilien typischerweise vor, und worin unterscheiden sie sich?
   - Erwartung: Beim Alleineigentum ist eine Person alleinige Eigentümerin des gesamten Grundstücks samt Gebäude.
   - Erwartung: Beim Miteigentum nach Bruchteilen hält jede Person einen ideellen, frei übertragbaren Anteil an der gesamten Sache.
-  - Erwartung: Beim Gesamthandseigentum (z. B. GbR, Erbengemeinschaft) steht das Eigentum der Gemeinschaft insgesamt zu, Verfügungen sind nur gemeinschaftlich möglich.
+  - Erwartung: Beim Gesamthandseigentum (z. B. Erbengemeinschaft) steht das Eigentum der Gemeinschaft insgesamt zu, Verfügungen sind nur gemeinschaftlich möglich; die rechtsfähige GbR ist seit 2024 dagegen selbst Eigentümerin ihres Gesellschaftsvermögens.
   - Erwartung: Wohnungseigentum verbindet Sondereigentum an einer Wohnung mit einem Miteigentumsanteil am Gemeinschaftseigentum.
   - Rückfrage: Welche Eigentumsform liegt bei einer Erbengemeinschaft vor, und was folgt daraus für Verfügungen über das Grundstück?
 - Was ist der Unterschied zwischen Sondereigentum und Gemeinschaftseigentum bei einer Wohnungseigentümergemeinschaft?
@@ -27,7 +27,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wer vertritt die Gemeinschaft der Wohnungseigentümer nach außen?
 - Unter welchen Voraussetzungen darf ein Vermieter ein Wohnraummietverhältnis ordentlich kündigen?
   - Erwartung: Beim Wohnraummietrecht besteht ein besonderer Kündigungsschutz.
-  - Erwartung: Eine ordentliche Kündigung durch den Vermieter ist nur bei einem berechtigten Interesse zulässig, etwa bei Eigenbedarf.
+  - Erwartung: Eine ordentliche Kündigung durch den Vermieter ist in der Regel nur bei einem berechtigten Interesse zulässig, etwa bei Eigenbedarf; Ausnahmen gelten z. B. für die erleichterte Kündigung im selbst bewohnten Haus mit höchstens zwei Wohnungen (mit längerer Frist) und für Wohnheime oder nur vorübergehend vermieteten Wohnraum.
   - Erwartung: Die Kündigungsfristen sind je nach Mietdauer gestaffelt.
   - Rückfrage: Welche Rechte stehen Mieter:innen bei erheblichen Mängeln der Mietsache zu?
 - Welche Bedeutung hat das Bestellerprinzip für die Maklerbranche?
@@ -39,7 +39,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welchen Zweck verfolgt die Makler- und Bauträgerverordnung (MaBV)?
   - Erwartung: Der Bauträgervertrag verbindet einen Grundstückskauf mit einer Bauverpflichtung des Bauträgers.
   - Erwartung: Er unterliegt besonderen Schutzvorschriften der Makler- und Bauträgerverordnung.
-  - Erwartung: Abschlagszahlungen der Erwerber:innen dürfen nur gestaffelt nach erreichtem Baufortschritt fällig werden.
+  - Erwartung: Abschlagszahlungen der Erwerber:innen darf das Bauträgerunternehmen nur gestaffelt nach erreichtem Baufortschritt entgegennehmen, und nur wenn Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung vorliegen; alternativ genügt als Sicherheit die Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens.
   - Erwartung: Die gestaffelten Zahlungen sollen Erwerber:innen vor erheblicher Vorleistung schützen.
   - Rückfrage: Was unterscheidet einen Bauträgervertrag von einem klassischen Grundstückskaufvertrag?
 
@@ -126,7 +126,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Maßnahmen zählen typischerweise zur energetischen Sanierung?
 - Welche Nachhaltigkeitszertifikate für Gebäude kennen Sie, und worin unterscheiden sie sich?
   - Erwartung: Die DGNB (Deutsche Gesellschaft für Nachhaltiges Bauen) betreibt ein bekanntes deutsches Zertifikat mit ganzheitlichem Ansatz.
-  - Erwartung: Die DGNB bewertet ökologische, ökonomische, soziokulturelle/funktionale sowie Prozess- und technische Qualität.
+  - Erwartung: Die DGNB bewertet sechs Themenfelder: ökologische, ökonomische, soziokulturelle und funktionale, technische Qualität, Prozessqualität und Standortqualität.
   - Erwartung: LEED (Leadership in Energy and Environmental Design) hat seinen Ursprung in den USA, BREEAM in Großbritannien.
   - Erwartung: Ein Zertifikat kann die Vermarktung erleichtern und die Attraktivität für Investor:innen erhöhen.
   - Erwartung: Ein Zertifikat kann zu günstigeren Finanzierungskonditionen („grüne Kredite") beitragen.

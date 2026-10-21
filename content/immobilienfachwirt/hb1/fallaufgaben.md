@@ -5,7 +5,7 @@ fachgebiet_title: "Rahmenbedingungen der Immobilienwirtschaft"
 thema_code: "HB1-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsbereich 1 der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fallaufgaben
@@ -66,11 +66,11 @@ Teilaufgabe 4: z. B. „Wir treffen zu jedem vermarkteten Objekt nur Aussagen zu
 
 **Teilaufgabe 2 (5 Punkte, bloom: bewerten):** Bewerten Sie, welche Vor- und Nachteile eine DGNB-Zertifizierung für das neue Wohnbauprojekt aus Sicht von Ravelin haben könnte.
 
-**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Analysieren Sie, welche der vier DGNB-Qualitätsdimensionen durch die Wahl nachhaltiger, recycelbarer Baustoffe für das Projekt am stärksten adressiert wird, und begründen Sie Ihre Einordnung.
+**Teilaufgabe 3 (5 Punkte, bloom: analysieren):** Analysieren Sie, welches der sechs DGNB-Themenfelder (Qualitäten) durch die Wahl nachhaltiger, recycelbarer Baustoffe für das Projekt am stärksten adressiert wird, und begründen Sie Ihre Einordnung.
 
 **Teilaufgabe 4 (5 Punkte, bloom: erschaffen):** Entwickeln Sie zwei konkrete Vorschläge, wie Ravelin das neue Bauprojekt bereits in der Planungsphase ESG-konformer gestalten könnte (je ein Vorschlag zu „Environmental" und zu „Social").
 
-**Musterlösungshinweise:** Teilaufgabe 1: MaBV regelt gestaffelte Abschlagszahlungen nach Baufortschritt zum Schutz der Erwerber vor Vorleistung.
+**Musterlösungshinweise:** Teilaufgabe 1: Die MaBV erlaubt gestaffelte Abschlagszahlungen nach Baufortschritt (Ratenplan) nur, wenn Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung vorliegen; alternativ stellt das Bauträgerunternehmen als Sicherheit eine Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens. Schutzprinzip: Erwerber:innen sollen dem Bauträgerunternehmen nicht erheblich in Vorleistung gehen.
 Teilaufgabe 2: Vorteil höhere Vermarktungsattraktivität und ggf. bessere Finanzierungskonditionen; Nachteil zusätzlicher Aufwand und Kosten für den Zertifizierungsprozess.
 Teilaufgabe 3: ökologische Qualität (Ressourcenschonung/Kreislaufwirtschaft) steht im Vordergrund — ggf. ergänzend Hinweis, dass auch die ökonomische Qualität langfristig berührt ist.
 Teilaufgabe 4: z. B. Environmental: Einsatz recycelbarer Baustoffe oder eine Photovoltaikanlage; Social: barrierefreie Wohnungen oder ein Anteil geförderter/bezahlbarer Wohnungen im Projekt einplanen.

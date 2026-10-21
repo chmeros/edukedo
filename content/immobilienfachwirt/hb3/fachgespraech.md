@@ -30,7 +30,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Welche Mitbestimmungsrechte hat der Betriebsrat bei Personalplanung und Einstellungen, und woraus ergeben sie sich?
   - Erwartung: Existiert an einem Standort ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
   - Erwartung: Zur Personalplanung hat der Betriebsrat Unterrichtungs- und Beratungsrechte.
-  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden.
+  - Erwartung: Bei einzelnen personellen Maßnahmen wie Einstellungen hat er ein Mitbestimmungsrecht, in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden; er kann die Zustimmung nur aus gesetzlich bestimmten Gründen verweigern, und das Arbeitsgericht kann sie auf Antrag ersetzen.
   - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
   - Rückfrage: Welche Mitbestimmungsrechte hat der Betriebsrat bei sozialen Angelegenheiten wie der Arbeitszeitgestaltung?
 - Was kennzeichnet einen situativen Führungsstil, und welche Konsequenz hat das für Tätigkeitsprofile wie Objektbetreuung, Maklertätigkeit und Projektentwicklung?
@@ -140,8 +140,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Mit welcher Frist kann in der Probezeit in der Regel gekündigt werden?
 - Was muss ein Arbeitsvertrag nach dem Nachweisgesetz mindestens schriftlich enthalten?
   - Erwartung: Der Arbeitsvertrag begründet das Arbeitsverhältnis zwischen Unternehmen und Mitarbeitenden.
-  - Erwartung: Nach dem Nachweisgesetz müssen die wesentlichen Vertragsbedingungen schriftlich festgehalten werden.
-  - Erwartung: Dazu zählen u. a. Beginn, Vergütung, Arbeitszeit, Kündigungsfristen und Tätigkeitsort.
+  - Erwartung: Nach dem Nachweisgesetz muss der Arbeitgeber die wesentlichen Vertragsbedingungen schriftlich niederlegen, die Niederschrift unterzeichnen und aushändigen (unter Voraussetzungen genügt die Textform); das Gesetz regelt die Niederschrift der Vertragsbedingungen, nicht den Inhalt des Arbeitsvertrags.
+  - Erwartung: Dazu zählen u. a. Namen und Anschriften der Parteien, Beginn, Arbeitsort, Vergütung, Arbeitszeit, Urlaub und das Kündigungsverfahren mit den Kündigungsfristen; die Aushändigung ist gestaffelt vom ersten Arbeitstag bis spätestens einen Monat nach dem vereinbarten Beginn fällig.
   - Rückfrage: Wie verändert sich die gesetzliche Kündigungsfrist mit zunehmender Betriebszugehörigkeit?
 - Wie unterscheiden sich Informationsrechte und Mitbestimmungsrechte des Betriebsrats nach dem BetrVG?
   - Erwartung: Existiert ein Betriebsrat, regelt das Betriebsverfassungsgesetz dessen Rechte.
@@ -149,7 +149,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Es gibt Mitbestimmungsrechte bei sozialen Angelegenheiten, z. B. der Arbeitszeitgestaltung.
   - Erwartung: Außerdem bestehen Mitbestimmungsrechte bei personellen Einzelmaßnahmen wie Einstellungen.
   - Erwartung: Wichtige Entscheidungen sollen nicht allein durch die Geschäftsführung, sondern unter Einbeziehung der Arbeitnehmervertretung getroffen werden.
-  - Rückfrage: In welchen Betrieben besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?
+  - Rückfrage: In welchen Unternehmen besteht bei Einstellungen ein Mitbestimmungsrecht des Betriebsrats?
 - Welche Merkmale schützt das Allgemeine Gleichbehandlungsgesetz, und wie wirkt sich das auf Stellenausschreibungen aus?
   - Erwartung: Das AGG verbietet Benachteiligungen im Arbeitsverhältnis aus Gründen der Rasse oder wegen der ethnischen Herkunft, des Geschlechts, der Religion oder Weltanschauung, einer Behinderung, des Alters oder der sexuellen Identität (§ 1 AGG).
   - Erwartung: Das Verbot gilt sowohl bei der Stellenausschreibung und Bewerberauswahl als auch während des laufenden Arbeitsverhältnisses, z. B. bei Beförderungen oder Vergütung.

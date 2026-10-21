@@ -28,9 +28,9 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob für die Personalauswahl eher interne oder externe Beschaffungswege sinnvoll sind, wenn Ravelin gleichzeitig den bestehenden Objektbetreuer:innen am Standort Nord Entwicklungsperspektiven bieten möchte.
 
-**Musterlösungshinweise:** Teilaufgabe 1: Die Formulierung „jung" und „noch nicht in eingefahrenen Routinen feststeckend" deutet auf eine unzulässige Altersdiskriminierung hin; Risiko sind Entschädigungs-/Schadensersatzansprüche abgelehnter älterer Bewerbender nach dem AGG.
+**Musterlösungshinweise:** Teilaufgabe 1: Die Formulierung „jung" und „noch nicht in eingefahrenen Routinen feststeckend" deutet auf eine unzulässige Altersdiskriminierung hin; Risiko sind Entschädigungs-/Schadensersatzansprüche abgelehnter älterer Bewerbender nach dem AGG. Auch die männliche Berufsbezeichnung „Verkäufer“ ohne den Zusatz (m/w/d) ist nicht geschlechtsneutral und kann eine Benachteiligung wegen des Geschlechts nahelegen.
 Teilaufgabe 2: Sollte eine neutrale, diskriminierungsfreie Formulierung ohne Altersbezug enthalten, z. B. „Makler:in (m/w/d) mit Freude am Kundenkontakt".
-Teilaufgabe 3: Nach § 99 BetrVG hat der Betriebsrat bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden ein Mitbestimmungsrecht — die Einstellung ist ihm vor Vollzug mitzuteilen, seine Zustimmung ist erforderlich.
+Teilaufgabe 3: Nach § 99 BetrVG hat der Betriebsrat bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden ein Mitbestimmungsrecht — maßgeblich ist die Größe des Unternehmens, nicht des Standorts. Der Betriebsrat ist vor der Einstellung zu unterrichten, und seine Zustimmung ist einzuholen. Verweigert er sie, muss er das innerhalb einer Woche schriftlich mit Gründen tun (sonst gilt sie als erteilt) und darf nur die im Gesetz genannten Gründe anführen; Ravelin kann dann beim Arbeitsgericht beantragen, die Zustimmung zu ersetzen.
 Teilaufgabe 4: Eine Kombination ist sinnvoll — interne Entwicklung motivierter Objektbetreuer:innen in die Maklertätigkeit deckt einen Teil des Bedarfs und bietet Perspektiven, externe Beschaffung schließt die verbleibende Lücke und bringt zusätzliche Marktkenntnis.
 
 ---

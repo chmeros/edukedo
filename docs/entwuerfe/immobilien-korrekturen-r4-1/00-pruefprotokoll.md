@@ -47,7 +47,7 @@ Alle hohen und mittleren und fast alle niedrigen Befunde wurden eingearbeitet (a
 
 - **Duell-Set Immobilien** (`apps/api/src/db/content/game-kennzahlen-duell-immobilien-aehnlich.ts`): Z. 92, 94 (Erlaubnispflicht für Makler, Bauträger und Verwalter ungenau), Z. 135, 140 („stets“ berechtigtes Interesse), Z. 142 („wiederholt unpünktliche Zahlung“ als Anknüpfung der fristlosen Kündigung), Z. 279 bis 286 (Energieausweis: Energieeffizienzklasse und Bedingung „sofern vorliegend“); das Set bleibt gesperrt.
 - **Prüfblatt 18** (`docs/pruefblaetter/18-immobilienfachwirt.md`, wird aus dem Content neu erzeugt): Z. 127 bis 129, 171, 175, 197, 201, 219, 229 (Indexmiete „ohne Verwaltungsaufwand“, Sperrfrist, Automatik), Z. 359 bis 444 (Zonenanweisung Betriebskosten), Z. 623 bis 625, 689 bis 691, 758 bis 765, 978 bis 985.
-- **Im Kurs weiter offen (P-AM):** `hb1/1.1` „nur bei berechtigtem Interesse“ ist in diesem Paket nach FL-IM-57 angepasst, Q-4.2/WEG, F-HB4-03 (Hofbeleuchtung, FL-IM-38), Bau und Vergabe, Bewertung, Finanzen, Personal.
+- **Im Kurs weiter offen (P-AM):** `hb1/1.1` und `hb1/fachgespraech.md` „nur bei berechtigtem Interesse“ (FL-IM-57) hat P-AL nicht erfasst (nur `hb4/4.1`); Berichtigung: erst in P-AM Teil A angepasst (eingespielt 21.10.2026). Weiter offen waren Q-4.2/WEG, F-HB4-03 (Hofbeleuchtung, FL-IM-38), Bau und Vergabe, Bewertung, Finanzen, Personal.
 - Der Zonenlabel-Text „Verbrauchsabhängig (Heizkostenverordnung)“ steht im Code (`packages/shared/src/quiz-logic.ts` Z. 720) und bleibt; nur die Anweisungen wurden verdeutlicht.
 
 ## Offen für die Freigabe
