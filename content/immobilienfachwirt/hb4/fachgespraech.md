@@ -5,7 +5,7 @@ fachgebiet_title: "Immobilienbewirtschaftung"
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Immobilienbewirtschaftung" (§4 ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117) der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -44,7 +44,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie begrenzt die Hausverwaltung Mietausfälle bereits vor Vertragsabschluss?
 - Was ist bei der Mieterhöhung nach der ortsüblichen Vergleichsmiete zu beachten, und wodurch unterscheidet sie sich von der Modernisierungsmieterhöhung?
   - Erwartung: Die Anpassung an die ortsübliche Vergleichsmiete ist die häufigste Form der Mieterhöhung bei bestehenden Verträgen, Grundlage ist meist der örtliche Mietspiegel.
-  - Erwartung: Die Erhöhung darf innerhalb von drei Jahren die Kappungsgrenze nicht überschreiten: 20 % in normalen, 15 % in per Verordnung festgelegten Gebieten mit angespannter Wohnungsmarktlage.
+  - Erwartung: Die Erhöhung darf innerhalb von drei Jahren die Kappungsgrenze nicht überschreiten: 20 % in normalen, 15 % in per Verordnung festgelegten Gebieten mit besonders gefährdeter Versorgung mit Mietwohnungen.
   - Erwartung: Das Erhöhungsverlangen kann frühestens ein Jahr nach der letzten Mieterhöhung gestellt werden, und die Miete muss zum Zeitpunkt der Erhöhung seit 15 Monaten unverändert sein; Erhöhungen wegen Modernisierung oder Betriebskosten zählen dabei nicht mit.
   - Erwartung: Die Modernisierungsmieterhöhung ist eine zweite, eigenständige Grundlage: Nach Durchführung energetischer oder anderer gesetzlich genannter Modernisierungsmaßnahmen darf der Vermieter jährlich bis zu 8 % der aufgewendeten Modernisierungskosten auf die Jahresmiete umlegen; Kosten für ohnehin fällige Erhaltungsmaßnahmen und Zuschüsse Dritter werden vorher abgezogen.
   - Erwartung: Die Modernisierungsmieterhöhung ist durch eine Kappungsgrenze von 3 Euro je Quadratmeter (bzw. 2 Euro bei niedrigen Ausgangsmieten) innerhalb von sechs Jahren begrenzt.
@@ -54,6 +54,21 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei rechtskräftigem Titel und weiterhin verweigerter Räumung folgt die Zwangsräumung durch den Gerichtsvollzieher.
   - Erwartung: Die Zwangsräumung ist das letzte Mittel.
   - Rückfrage: Welche Rolle spielt die Schonfristzahlung im Zusammenhang mit einer Räumungsklage?
+- Eine Eigentümerin in einer Stadt mit Mietpreisbremse möchte frei werdende Wohnungen künftig zum Marktpreis neu vermieten. Wie beraten Sie sie als Hausverwaltung?
+  - Erwartung: Die Mietpreisbremse gilt nur in Gebieten mit angespanntem Wohnungsmarkt, die die Landesregierung durch begründete Verordnung bestimmt hat; nach dem Gesetzestext müssen die Verordnungen spätestens Ende 2029 auslaufen (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Bei Wohnraum darf die Miete zu Mietbeginn die ortsübliche Vergleichsmiete höchstens um 10 % übersteigen; Maßstab ist der Mietspiegel, die Höchstmiete ergibt sich als Vergleichsmiete mal 1,10.
+  - Erwartung: Eine höhere Miete ist nur bei einer Ausnahme zulässig: höhere Vormiete (Mietminderungen sowie im letzten Jahr vor Ende des Mietverhältnisses vereinbarte Erhöhungen bleiben unberücksichtigt), Modernisierung in den letzten drei Jahren, Neubau (erstmals nach dem 1. Oktober 2014 genutzt und vermietet) oder erste Vermietung nach umfassender Modernisierung.
+  - Erwartung: Wer sich auf eine Ausnahme beruft, muss den Interessent:innen vor deren Vertragserklärung unaufgefordert in Textform Auskunft geben, sonst kann sich die Vermieterseite nicht darauf berufen; eine nachgeholte Auskunft wirkt erst nach zwei Jahren.
+  - Erwartung: Eine zu hohe Vereinbarung ist insoweit unwirksam, wie sie die Grenze übersteigt; nach einer Rüge in Textform kann die Mieterschaft die Überzahlung zurückverlangen (bei Rüge innerhalb von 30 Monaten auch für die Zeit davor); die Verwaltung dokumentiert Mietspiegelwert, Berechnung und Auskunft.
+  - Erwartung: Der Regierungsentwurf „Mietrecht II“ (Möblierung, vorübergehende Vermietung, Indexmiete) ist nach dem bekannten Stand nicht beschlossen; die Verwaltung weist darauf hin, berät aber nach geltendem Recht.
+  - Rückfrage: Was sagen Sie der Eigentümerin zum Gesetzentwurf „Mietrecht II“?
+- Eine Eigentümerin ist verärgert, weil Mieter:innen auf Ihr Erhöhungsschreiben nicht reagieren und die alte Miete weiterzahlen. Wie klären Sie sie über das Verfahren auf, und wie gehen Sie weiter vor?
+  - Erwartung: Das Erhöhungsverlangen auf die ortsübliche Vergleichsmiete ist eine Bitte um Zustimmung in Textform, die begründet sein muss, etwa durch Mietspiegel, Mietdatenbank, Sachverständigengutachten oder drei vergleichbare Wohnungen; die Miete steigt nicht durch die Erklärung allein.
+  - Erwartung: Die Mieter:innen können bis zum Ablauf des zweiten Kalendermonats nach Zugang zustimmen; bei Zustimmung schulden sie die erhöhte Miete ab dem dritten Kalendermonat.
+  - Erwartung: Stimmt sie nicht zu, kann die Vermieterseite innerhalb von drei weiteren Monaten auf Zustimmung klagen; Ravelin klärt Kosten und Prozessrisiko vorher mit der Eigentümerin, Formmängel lassen sich im Rechtsstreit beheben, dann läuft die Zustimmungsfrist erneut.
+  - Erwartung: Die Mieter:innen können bis zum Ablauf des zweiten Monats nach Zugang außerordentlich zum Ablauf des übernächsten Monats kündigen, dann tritt die Erhöhung nicht ein; deshalb sind Zugangsnachweis, Fristenkalender und Wiedervorlage wichtig.
+  - Erwartung: Bei der Kappung zählen drei Jahre; das Verlangen ist auf die gekappte Miete zu richten, auch wenn die Vergleichsmiete höher liegt.
+  - Rückfrage: Was ist bei einer Modernisierungsmieterhöhung im Verfahren anders?
 
 ### 4.2 WEG-Verwaltung
 
@@ -172,3 +187,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine spezialisierte Verwaltungssoftware wendet die unterschiedlichen Umlageschlüssel je Kostenart automatisiert an.
   - Erwartung: Die automatisierte Anwendung der Umlageschlüssel reduziert Abrechnungsfehler.
 
+### 4.5 Mietrecht im Bestand
+
+- Eine Mieterin meldet Schimmel an der Außenwand ihres Schlafzimmers und kürzt daraufhin die Miete um 20 %. Wie gehen Sie als verantwortliche Person in der Hausverwaltung vor, bevor Sie mahnen oder gar kündigen?
+  - Erwartung: Eingang und Zeitpunkt der Meldung werden dokumentiert, die Wohnung wird zeitnah besichtigt, Fotos und gegebenenfalls Messungen sichern den Befund; die Ursache (Bausubstanz, Wärmebrücke, Heiz- und Lüftungsverhalten) wird geklärt, notfalls mit einem Sachverständigengutachten.
+  - Erwartung: Ob ein Mangel vorliegt, hängt von vereinbarter Beschaffenheit und Baualter ab; Wärmebrücken bei einem zur Bauzeit normgerechten Gebäude sind nach der Rechtsprechung nicht ohne Weiteres ein Mangel, und welches Heizen und Lüften zumutbar ist, entscheidet der Einzelfall (Stand Oktober 2026).
+  - Erwartung: Liegt ein Mangel vor, tritt die Minderung kraft Gesetzes ein; Bemessungsgrundlage ist die Bruttomiete, die Quote ergibt sich aus dem Einzelfall, eine unerhebliche Beeinträchtigung bleibt außer Betracht.
+  - Erwartung: Ein zusätzliches Zurückbehaltungsrecht ist nach Höhe und Dauer begrenzt; duldet die Mieterin die Beseitigung nicht, entfallen weitere Minderung und Einbehalt grundsätzlich.
+  - Erwartung: Vor einer Mahnung oder Kündigung wegen Zahlungsverzugs ist zu prüfen, ob der Rückstand auf einer berechtigten Minderung oder einem Zurückbehaltungsrecht beruht; die Eigentümerin wird eingebunden und entscheidet über Vergleich, Gutachten oder Rechtsweg.
+  - Rückfrage: Welche Rolle spielt die rechtzeitige Mängelanzeige durch die Mieterin?
+- Ihr Vertragsbestand enthält Mietverträge aus verschiedenen Jahren mit unterschiedlichen Renovierungs- und Kleinreparaturklauseln. Wie gehen Sie damit um, und was empfehlen Sie den Eigentümer:innen für neue Verträge?
+  - Erwartung: Nach dem Gesetz trägt die Vermieterseite die Instandhaltung einschließlich der Schönheitsreparaturen; die Übertragung auf die Mietpartei ist möglich, in Formularverträgen aber nur eingeschränkt.
+  - Erwartung: Unwirksam sind nach der Rechtsprechung insbesondere starre Fristen, die renovierte Rückgabe unabhängig vom Zeitpunkt der letzten Renovierung, die Quotenabgeltung und die Übertragung bei unrenoviert übergebener Wohnung ohne angemessenen Ausgleich (Stand Oktober 2026).
+  - Erwartung: Eine unwirksame Klausel fällt insgesamt weg; die Verwaltung erhebt daraus keine Forderungen, prüft die Verträge nach einer festen Reihenfolge und sichert sich mit Einzugsprotokollen und Fotos ab.
+  - Erwartung: Kleinreparaturklauseln übertragen nur die Kosten, nur für häufig genutzte Gegenstände und nur mit Einzel- und Jahresobergrenze; die Beträge sind Richtwerte der Praxis.
+  - Erwartung: Für neue Verträge empfiehlt sie rechtlich geprüfte Muster ohne starre Fristen, ein Einzugsprotokoll bei jeder Übergabe und die Kalkulation der Renovierungskosten in der Miete.
+  - Rückfrage: Was gilt, wenn die Mietpartei die Wohnung bei Einzug unrenoviert übernommen hat?
+- Sie begleiten die Rückgabe einer Wohnung nach einer Kündigung der Mieterin. Was beachten Sie bei Übergabe, Protokoll und Fristen, und wann beginnt die Verjährung möglicher Ersatzansprüche?
+  - Erwartung: Der Termin wird vorbereitet (Mietvertrag, Einzugsprotokoll, Klauselprüfung); beim Termin werden Raum für Raum der Zustand, neue Schäden getrennt von normaler Abnutzung, Zählerstände, Schlüssel und die neue Anschrift festgehalten, mit Fotos und beiden Unterschriften.
+  - Erwartung: Das Protokoll enthält den Vorbehalt weiterer Ansprüche; Schönheitsreparaturen werden nur gefordert, wenn die Klausel wirksam und die Renovierung fällig ist.
+  - Erwartung: Ersatzansprüche wegen Veränderungen oder Verschlechterungen verjähren in sechs Monaten ab dem Rückerhalt; dazu gehören der Besitz und die Kenntnis der Vermieterseite von der Besitzaufgabe; ein Hauswart, der nicht zur Schlüsselannahme beauftragt ist, löst die Frist nicht aus.
+  - Erwartung: Das Fristende wird berechnet (der Tag des Rückerhalts zählt nicht mit), im Fristenkalender mit Wiedervorlage eingetragen, und die Hemmung (Verhandlungen, Mahnbescheid, Klage, Beweisverfahren) wird rechtzeitig vorbereitet.
+  - Rückfrage: Beginnt die Frist auch, wenn die Mietpartei die Schlüssel schon vor dem Ende des Mietverhältnisses abgibt?

@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AN „Immobilienfachwirt: neue rechtsnahe Inhalte Miete (Mieterhöhungsverfahren und Mietpreisbremse; Mietrecht im Bestand)“ (Stand 21.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 21.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AN einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung IM-1, IM-2; Fachlehrer-Befund FL-IM-16; Auswertung `docs/entwuerfe/immobilien-r4-auswertung.md`). Alle Agenten liefen auf Sonnet.
 
