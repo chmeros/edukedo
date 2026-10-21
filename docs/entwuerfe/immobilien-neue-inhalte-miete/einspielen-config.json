@@ -1,0 +1,118 @@
+{
+  "kurs": "immobilienfachwirt",
+  "rsDatum": "21.10.2026",
+  "neueThemen": [
+    [
+      "im-4.5-mietrecht-im-bestand.md",
+      "hb4/4.5-mietrecht-im-bestand.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "im-4.1-ergaenzung-mieterhoehung-mietpreisbremse.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.1-mietverwaltung.md",
+          "### Kündigung und Räumung (Grundzüge)"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "im-faelle-a.md",
+      "hb4"
+    ],
+    [
+      "im-faelle-b.md",
+      "hb4"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb4/4.1-mietverwaltung.md",
+      "paare": [
+        [
+          "Die Anpassung an die Vergleichsmiete braucht also die Zustimmung des Mieters, die Indexmiete dagegen nicht.",
+          "Die Anpassung an die Vergleichsmiete braucht also die Zustimmung des Mieters, die Indexmiete dagegen nicht. Das Verfahren der Mieterhöhung (Begründungsmittel, Zustimmungsfrist, Klage), die Ankündigung einer Modernisierung und die Mietpreisbremse bei Neuvermietung folgen in den nächsten Abschnitten."
+        ],
+        [
+          "20 % in normalen, 15 % in von den Bundesländern per Verordnung festgelegten Gebieten mit angespannter Wohnungsmarktlage",
+          "20 % in normalen, 15 % in Gebieten mit besonders gefährdeter Versorgung mit Mietwohnungen, die die Bundesländer per Verordnung festgelegt haben (nicht zu verwechseln mit den Gebieten der Mietpreisbremse)"
+        ],
+        [
+          "Wie hoch ist die Kappungsgrenze bei § 558-Mieterhöhungen in einem Gebiet mit angespannter Wohnungsmarktlage?",
+          "Wie hoch ist die Kappungsgrenze bei § 558-Mieterhöhungen in einem Gebiet mit besonders gefährdeter Versorgung mit Mietwohnungen (Landesverordnung)?"
+        ],
+        [
+          "20 %, in angespannten Gebieten 15 % innerhalb von drei Jahren",
+          "20 %, in Gebieten mit besonders gefährdeter Versorgung 15 % innerhalb von drei Jahren"
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fachgespraech.md",
+      "paare": [
+        [
+          "15 % in per Verordnung festgelegten Gebieten mit angespannter Wohnungsmarktlage",
+          "15 % in per Verordnung festgelegten Gebieten mit besonders gefährdeter Versorgung mit Mietwohnungen"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "(regulär 20 %, in angespannten Wohnungsmärkten 15 %)",
+          "(regulär 20 %, in Gebieten mit besonders gefährdeter Versorgung mit Mietwohnungen 15 %)"
+        ],
+        [
+          "und im äußersten Fall ein außerordentliches Kündigungsrecht zu.",
+          "und im äußersten Fall ein außerordentliches Kündigungsrecht zu (Einzelheiten zu Mängeln, Minderung und Mieterwechsel in Thema 4.5 „Mietrecht im Bestand: Mängel, Schönheitsreparaturen, Untervermietung und Mieterwechsel“ im Fachgebiet Immobilienbewirtschaftung)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.3-instandhaltung-facility-management.md",
+      "paare": [
+        [
+          "eine Priorisierungslogik, wie sie sich mit der Eisenhower-Matrix systematisch abbilden lässt.",
+          "eine Priorisierungslogik, wie sie sich mit der Eisenhower-Matrix systematisch abbilden lässt. Welche Rechte die Mietpartei bei einem Mangel hat (Minderung, Mängelanzeige, Zurückbehaltung) und wie Ravelin eine Mangelmeldung bis zur Beseitigung bearbeitet, steht in Thema 4.5 „Mietrecht im Bestand: Mängel, Schönheitsreparaturen, Untervermietung und Mieterwechsel“ im Fachgebiet Immobilienbewirtschaftung."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.4-betriebskostenabrechnung.md",
+      "paare": [
+        [
+          "nach einer Abrechnung kann jede Seite durch Erklärung in Textform eine Anpassung auf eine angemessene Höhe vornehmen.",
+          "nach einer Abrechnung kann jede Seite durch Erklärung in Textform eine Anpassung auf eine angemessene Höhe vornehmen (Voraussetzungen und Rechenbeispiel in Thema 4.5 „Mietrecht im Bestand: Mängel, Schönheitsreparaturen, Untervermietung und Mieterwechsel“ im Fachgebiet Immobilienbewirtschaftung)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fallaufgaben.md",
+      "paare": [
+        [
+          "Themen aus HB4 (4.1–4.4)",
+          "Themen aus HB4 (4.1–4.5)"
+        ],
+        [
+          "vier Teilaufgaben mit Punktangaben",
+          "vier bis fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb4/4.1-mietverwaltung.md",
+    "hb4/fallaufgaben.md",
+    "hb4/fachgespraech.md",
+    "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "hb4/4.3-instandhaltung-facility-management.md",
+    "hb4/4.4-betriebskostenabrechnung.md"
+  ]
+}
