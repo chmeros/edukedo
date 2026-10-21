@@ -5,7 +5,7 @@ fachgebiet_title: "Marktorientierung und Vertrieb, Maklertätigkeit"
 thema_code: "HB6-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -175,4 +175,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Zufriedene Kund:innen empfehlen die Maklerabteilung häufig im eigenen Umfeld weiter.
   - Erwartung: Empfehlungen sind im Immobiliengeschäft eine der wichtigsten Neukundenquellen.
   - Erwartung: Ehemalige Käufer:innen können später erneut zu Verkäufer:innen werden.
-
+- Eine Käuferin fragt Sie nach der Beurkundung: „Wann gehört mir die Wohnung, und wann muss ich zahlen?“ Wie erklären Sie ihr den Ablauf?
+  - Erwartung: Das Eigentum geht weder mit der Beurkundung noch mit der Zahlung über, sondern erst mit der Eintragung im Grundbuch nach der Auflassung.
+  - Erwartung: Bis zur Eintragung sichert die Vormerkung ihren Anspruch gegen spätere Verfügungen der Verkäuferseite; ihre Eintragung ist meist Voraussetzung dafür, dass der Kaufpreis fällig wird.
+  - Erwartung: Der Kaufpreis wird fällig, wenn das Notariat die vereinbarten Voraussetzungen (Vormerkung, Lastenfreistellung, erforderliche Zustimmungen und Genehmigungen) geprüft und mitgeteilt hat; gezahlt wird innerhalb der Frist der Fälligkeitsmitteilung.
+  - Erwartung: Besitz, Nutzungen und Lasten gehen zum vertraglichen Stichtag über, meist nach dem Zahlungseingang und damit in der Regel vor der Eintragung; die Umschreibung beantragt das Notariat nach dem Zahlungsnachweis, und das Grundbuchamt trägt erst nach der Unbedenklichkeitsbescheinigung des Finanzamts ein.
+  - Erwartung: Die Maklerabteilung erklärt Ablauf und Termine, berät aber nicht rechtlich; bei Rechtsfragen verweist sie auf das Notariat oder anwaltliche Beratung.
+  - Rückfrage: Was geschieht, wenn die Bank der Käuferin das Darlehen nicht rechtzeitig auszahlt?
+- Ein Kunde möchte vor dem Notartermin wissen, mit welchen Nebenkosten er beim Kauf einer Eigentumswohnung rechnen muss. Wie gehen Sie vor?
+  - Erwartung: Zu den Kaufnebenkosten zählen Notar (Beurkundung, Vollzug, Betreuung), Grundbuch (Eigentümerwechsel, Vormerkung) und Grunderwerbsteuer, gegebenenfalls ein Provisionsanteil; die Grundschuld löst zusätzlich eigene Kosten aus.
+  - Erwartung: Notar- und Grundbuchkosten richten sich nach dem Kaufpreis und der Gebührentabelle (Stand Oktober 2026, vor Verwendung prüfen); die Käuferseite trägt sie nach der gesetzlichen Regel.
+  - Erwartung: Die Grunderwerbsteuer berechnet sich aus dem Kaufpreis mit dem Satz des Landes, in dem das Grundstück liegt (derzeit zwischen 3,5 % und 6,5 %), und wird auf volle Euro abgerundet; sie ist meist der größte Posten.
+  - Erwartung: Zur Maklerprovision nennt die Maklerabteilung den Posten und verweist für die Verteilung auf das Provisionsrecht.
+  - Erwartung: Die Maklerabteilung rechnet die Summe in Euro und als Anteil am Kaufpreis aus, ergänzt zum Gesamtfinanzierungsbedarf (Kaufpreis plus Nebenkosten) und weist darauf hin, dass verbindliche Beträge das Notariat und das Finanzamt nennen.
+  - Rückfrage: Welche Kosten kommen für die Grundschuld hinzu?

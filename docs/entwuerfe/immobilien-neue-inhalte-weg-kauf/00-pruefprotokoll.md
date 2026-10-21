@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AO „Immobilienfachwirt: neue rechtsnahe Inhalte Wohnungseigentum und Kaufabwicklung“ (Stand 21.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 21.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AO einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung IM-4, IM-10, IM-6; Fachlehrer-Befunde FL-IM-32, FL-IM-42; Auswertung `docs/entwuerfe/immobilien-r4-auswertung.md`). Alle Agenten liefen auf Sonnet.
 

@@ -95,9 +95,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wo werden gefasste Beschlüsse dokumentiert, und wer führt diese Sammlung?
 - Welche Rechte hat ein einzelner Eigentümer seit der Reform im Hinblick auf bauliche Veränderungen wie eine Ladestation für Elektrofahrzeuge?
   - Erwartung: Für die meisten Beschlussgegenstände genügt seit der Reform die einfache Mehrheit der abgegebenen Stimmen, auch für viele Maßnahmen, die früher eine Vereinbarung aller Eigentümer erforderten.
-  - Erwartung: Für bestimmte privilegierte Maßnahmen besteht ein individueller Anspruch jedes Eigentümers auf angemessene Gestattung.
-  - Erwartung: Dazu zählen das Laden elektrisch betriebener Fahrzeuge, der Einbruchsschutz und der barrierefreie Aus- und Umbau.
-  - Erwartung: Der Anspruch besteht auch dann, wenn die Gemeinschaft die Maßnahme nicht mehrheitlich beschließt.
+  - Erwartung: Für bestimmte privilegierte Maßnahmen besteht ein individueller Anspruch jedes Eigentümers auf Beschlussfassung über eine angemessene Gestattung.
+  - Erwartung: Dazu zählen das Laden elektrisch betriebener Fahrzeuge, der Einbruchsschutz, der barrierefreie Aus- und Umbau, der Anschluss an ein Telekommunikationsnetz mit sehr hoher Kapazität und seit dem 17.10.2024 Steckersolargeräte (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Der Anspruch richtet sich auf Beschlussfassung: Die Gemeinschaft muss beschließen und kann nur das „Wie“ regeln; ohne Beschluss darf der Eigentümer nicht bauen.
   - Rückfrage: Wie wirkt sich die Reform auf die Beschlussfähigkeit der Eigentümerversammlung aus?
 - Wie unterscheiden sich Wirtschaftsplan und Jahresabrechnung inhaltlich und in ihrer Funktion?
   - Erwartung: Der Wirtschaftsplan ist eine vorausschauende Kosten- und Einnahmenplanung für das kommende Wirtschaftsjahr.
@@ -111,6 +111,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Seit dem 01.12.2023 kann jede:r Wohnungseigentümer:in die Bestellung eines zertifizierten Verwalters als Teil ordnungsmäßiger Verwaltung verlangen; ein Beschluss über einen nicht zertifizierten Verwalter ist in der Regel anfechtbar. Ausnahme: kleine Gemeinschaften mit weniger als neun Sondereigentumsrechten (Einheiten), in denen ein:e Wohnungseigentümer:in die Verwaltung führt, wenn weniger als ein Drittel der Eigentümer:innen einen zertifizierten Verwalter verlangt.
   - Erwartung: Zu den zentralen Pflichten des Verwalters gehören die strikte Trennung des WEG-Vermögens vom eigenen Vermögen sowie umfassende Auskunftspflichten gegenüber den Eigentümern.
   - Rückfrage: Welche Vertretungsmacht hat der Verwalter nach außen?
+- Die Eigentümerversammlung hat mit knapper Mehrheit eine bauliche Maßnahme für die Gemeinschaft beschlossen. Ein Eigentümer droht mit einer Klage und fragt, ob er die Kosten mittragen muss. Wie beraten Sie ihn und die Gemeinschaft?
+  - Erwartung: Eine bauliche Veränderung kann mit einfacher Mehrheit beschlossen werden, solange sie die Anlage nicht grundlegend umgestaltet und niemanden unbillig benachteiligt; Enthaltungen zählen bei der Mehrheit nicht mit.
+  - Erwartung: Die Kostenfolge hängt von der erreichten Mehrheit ab: Bei mehr als zwei Dritteln der abgegebenen Stimmen und der Hälfte aller Miteigentumsanteile (außer bei unverhältnismäßigen Kosten) oder bei Amortisation tragen alle nach Miteigentumsanteilen, sonst nur die Zustimmenden; wem die Maßnahme gestattet wird, der trägt sie allein.
+  - Erwartung: Die Anfechtungsklage ist binnen eines Monats nach der Beschlussfassung zu erheben und binnen zwei Monaten zu begründen; beide Fristen laufen ab dem Versammlungstag, enden bei Wochenende oder Feiertag am nächsten Werktag und können nicht verlängert werden; Beklagte ist die Gemeinschaft.
+  - Erwartung: Die Verwaltung macht die Klage allen Eigentümer:innen unverzüglich bekannt, vermerkt sie in der Beschluss-Sammlung und trägt Fristen in den Fristenkalender ein; der Beschluss bleibt bis zu einem rechtskräftigen Urteil gültig; ob die Maßnahme vorher ausgeführt wird, entscheidet sie nach verbreiteter Praxis im Einzelfall mit dem Beirat.
+  - Erwartung: Das Protokoll hält fest, welche Mehrheit erreicht wurde, damit die Kostenverteilung nachvollziehbar ist.
+  - Rückfrage: Was gilt, wenn ein Eigentümer eine solche Maßnahme ohne Beschluss einfach selbst ausführt?
+- Ein Handwerksbetrieb verlangt eine offene Rechnung von einzelnen Eigentümer:innen, weil die Gemeinschaft zahlungsunfähig ist; eine Eigentümerin meint, die Verwaltung müsse persönlich haften. Wie klären Sie die Haftungslage?
+  - Erwartung: Vertragspartnerin des Betriebs ist die Gemeinschaft der Wohnungseigentümer; die Verwaltung handelt als ihre Vertreterin, deren Vertretungsmacht Dritten gegenüber nicht beschränkbar ist, und bindet damit die Gemeinschaft, nicht sich selbst.
+  - Erwartung: Neben dem Gemeinschaftsvermögen, zu dem die Erhaltungsrücklage gehört, haftet jede:r Eigentümer:in dem Gläubiger anteilig nach dem Miteigentumsanteil, nicht gesamtschuldnerisch, für Verbindlichkeiten aus der Zeit der Zugehörigkeit; Einwendungen der Gemeinschaft können geltend gemacht werden; ein Insolvenzverfahren über das Gemeinschaftsvermögen gibt es nicht.
+  - Erwartung: Die Verwaltung haftet der Gemeinschaft für Pflichtverletzungen aus dem Verwaltervertrag; einzelne Eigentümer:innen haben vertragliche Ansprüche wegen Verwalterfehlern seit der Reform nur gegen die Gemeinschaft, Ansprüche aus unerlaubter Handlung gegen die Verwaltung bleiben.
+  - Erwartung: Der Verwaltervertrag regelt Leistungsumfang, Vergütung, Haftungsfragen, Laufzeit und Kündigung; er endet spätestens sechs Monate nach einer Abberufung, und gegenüber der Verwaltung vertritt die Gemeinschaft der Beiratsvorsitz oder eine durch Beschluss ermächtigte Person.
+  - Rückfrage: Für welche Rechtsgeschäfte braucht die Verwaltung im Namen der Gemeinschaft einen Beschluss?
 
 ### 4.3 Instandhaltung und Facility Management
 

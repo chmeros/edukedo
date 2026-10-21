@@ -5,7 +5,7 @@ fachgebiet_title: "Rahmenbedingungen der Immobilienwirtschaft"
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 1 der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -42,6 +42,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Abschlagszahlungen der Erwerber:innen darf das Bauträgerunternehmen nur gestaffelt nach erreichtem Baufortschritt entgegennehmen, und nur wenn Sicherungen wie Vormerkung, Freistellung von Grundpfandrechten und Baugenehmigung vorliegen; alternativ genügt als Sicherheit die Bürgschaft eines Kreditinstituts oder Versicherungsunternehmens.
   - Erwartung: Die gestaffelten Zahlungen sollen Erwerber:innen vor erheblicher Vorleistung schützen.
   - Rückfrage: Was unterscheidet einen Bauträgervertrag von einem klassischen Grundstückskaufvertrag?
+- Eine Interessentin für eine Eigentumswohnung im Neubauprojekt der Ravelin fragt Sie, woran sie erkennt, was ihr gehören wird und was nicht, und wie sicher sie bei Stellplatz und Gartennutzung sein kann. Wie antworten Sie?
+  - Erwartung: Sondereigentum sind die Wohnung und die zugehörigen Räume, die im Aufteilungsplan mit derselben Nummer gekennzeichnet sind; mit ihm ist ein Miteigentumsanteil am Gemeinschaftseigentum verbunden. Zum Gemeinschaftseigentum zählen Grundstück, tragende Bauteile, Dach, Fassade, die Außenfenster samt Rahmen und zentrale Anlagen.
+  - Erwartung: Maßgeblich sind Teilungserklärung und Aufteilungsplan; die Bescheinigung der Baubehörde bestätigt nur die Abgeschlossenheit und sagt nichts über Baugenehmigung oder Bauausführung.
+  - Erwartung: Ein Tiefgaragenstellplatz kann Sondereigentum sein (Maßangaben im Plan); Garten oder Terrasse im Freien sind häufig ein Sondernutzungsrecht am Gemeinschaftseigentum, also Nutzungs-, nicht Eigentumsrecht.
+  - Erwartung: Sondernutzungsrechte und Regeln der Gemeinschaftsordnung binden Käufer:innen nur, wenn sie im Grundbuch eingetragen sind; deshalb vor dem Kauf Grundbuchauszug, Teilungserklärung und Kaufvertrag abgleichen.
+  - Erwartung: Die Gemeinschaftsordnung regelt Kostenverteilung, Stimmrecht und Nutzung; sie ist vor dem Kauf zu lesen, besonders zum Stimmrecht, solange die Bauträgerin noch unverkaufte Einheiten hält.
+  - Rückfrage: Warum ist die Stimmregel in der Gemeinschaftsordnung für Käufer:innen eines Neubauprojekts wichtig?
+- Eine Eigentümerin, deren Mehrfamilienhaus Ravelin verwaltet, will die vermieteten Wohnungen aufteilen und einzeln verkaufen. Wie beraten Sie sie zum Ablauf und zum Schutz der Mieter:innen (Stand Oktober 2026, vor Verwendung prüfen)?
+  - Erwartung: Ablauf: Teilungserklärung gegenüber dem Grundbuchamt mit Aufteilungsplan und Abgeschlossenheitsbescheinigung; Wohnungseigentum entsteht erst mit der Anlegung der Wohnungsgrundbücher; dazu gehört eine durchdachte Gemeinschaftsordnung.
+  - Erwartung: In Gebieten mit einer Landesverordnung zum Schutz angespannter Wohnungsmärkte kann die Aufteilung bestehender Gebäude genehmigungspflichtig sein, und das Grundbuchamt trägt ohne Nachweis nicht ein; das ist vor Beginn zu klären.
+  - Erwartung: Beim Verkauf an Dritte haben die Mieter:innen ein Vorkaufsrecht, nicht aber beim Verkauf an Familien- oder Haushaltsangehörige; die Mitteilung des Kaufvertrags ist mit der Unterrichtung über das Recht zu verbinden, die Ausübung ist binnen zwei Monaten schriftlich möglich.
+  - Erwartung: Käufer:innen können sich auf Eigenbedarf oder Verwertung erst nach der Sperrfrist berufen (regulär drei Jahre ab Eintragung, in Gebieten mit Landesverordnung bis zu zehn Jahre); das beeinflusst Preis und Vermarktung.
+  - Erwartung: Die bestehenden Mietverhältnisse gehen auf die Käufer:innen über; die Verwaltung klärt außerdem, dass künftig eine Gemeinschaft der Wohnungseigentümer:innen mit eigenen Pflichten entsteht.
+  - Rückfrage: In welchen Fällen hat eine Mieterin kein Vorkaufsrecht, obwohl ihre Wohnung nach der Umwandlung verkauft wird?
 
 ### 1.2 Marktstrukturen und Akteure der Immobilienwirtschaft
 
@@ -145,4 +159,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Gute Arbeitsbedingungen gehören ebenfalls zur sozialen Dimension.
   - Erwartung: Die ökologische Dimension („E") umfasst dagegen Energieeffizienz, CO2-Bilanz und Ressourcenschonung.
   - Rückfrage: Was umfasst das „G" (Governance)?
-
