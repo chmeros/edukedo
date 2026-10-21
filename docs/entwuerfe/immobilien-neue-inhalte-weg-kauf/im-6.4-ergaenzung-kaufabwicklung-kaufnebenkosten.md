@@ -1,0 +1,224 @@
+# Entwurf Immobilienfachwirt, Kaufabwicklung und Kaufnebenkosten: Ergänzung im Thema 6.4
+
+Stand 21.10.2026, **Entwurf (R4, rechtsnah), nicht eingespielt.** Teil C des Auftrags P-AO (Erhebung vom 14.10.2026: IM-6; Fachlehrer-Befund FL-IM-42). Einzufügen in `content/immobilienfachwirt/hb6/6.4-vertriebsprozess-kundenbetreuung.md`: Abschnitt A **vor der Überschrift „### Kundenbindung und Nachbetreuung“** (Anker; die Theorie steht damit hinter „Abschluss und Übergabe“), B an die Karteikarten hinter K-6.4-17, C an das Quiz hinter Q-6.4-12. Bestand gezählt (Stand nach P-AL vom 20.10.2026): 17 Karteikarten (K-6.4-01 bis -17, lückenlos), 12 Quizfragen (Q-6.4-01 bis -12, lückenlos); `git log -S` auf höhere IDs (K-6.4-18, Q-6.4-13, F-HB6-05) ergibt keine entfernten IDs. Die neuen IDs sind K-6.4-18 bis -29 (12 Karten) und Q-6.4-13 bis -26 (14 Quizfragen). Die Fallaufgabe F-HB6-05 (Bestand F-HB6-01 bis -04) und die zwei Fachgesprächsfragen stehen in `im-faelle-c.md`, die Rechtsangaben in `rechtsangaben-c.md`, die Änderung des Bestands (ein Verweissatz in „Abschluss und Übergabe“ und ein Verweis im Thema 2.2) in `ersetzungen-c.json`. Der `rechtsstand` der berührten Bestandsdateien wird beim Einspielen gesetzt; die Einleitung der HB6-Fallaufgaben („HB6 (6.1–6.4)“, „mehreren Teilaufgaben“) bleibt unverändert richtig.
+
+**Zweck.** Der Bestand nennt Reservierung, notarielle Beurkundung und Übergabe in wenigen Sätzen; Vormerkung, Auflassung und Fälligkeitsmitteilung kommen nur in Stichworten vor, die Kaufnebenkosten nur als Prozentsatz (Thema 2.2) und die Grunderwerbsteuer ohne Rechnung. Die Ergänzung beschreibt aus der Sicht der Maklerabteilung der Ravelin Immobilien GmbH den Weg vom Kaufvertragsentwurf bis zum Besitzübergang, die Pflichten und Grenzen der Beteiligten, die Kaufnebenkosten mit Rechenbeispiel und typische Stolpersteine. Sie wiederholt weder das Provisionsrecht (Thema 6.1) noch Grundbuch und Vormerkung im Grundsatz (Thema 1.1), sondern verweist darauf.
+
+**Rechtsnah (R4).** Paragrafen stehen nur als Stützangabe in der Theorie, nie in Karten, Quiz und Fall. Zeitkritisch (alle mit „Stand Oktober 2026, vor Verwendung prüfen“): die Grunderwerbsteuersätze der Länder (zuletzt geändert: Bremen zum 01.07.2025; die Landesgesetze sind nicht einzeln erhoben), die Gebührentabelle des Gerichts- und Notarkostengesetzes (Fassung seit 01.06.2025 nach dem KostBRÄG 2025, BGBl. 2025 I Nr. 109) und die Rechtsprechung zur Erhaltungsrücklage (BFH, Urteil vom 16.09.2020, II R 49/17; nur der Leitsatz liegt vor). Einzelheiten in `rechtsangaben-c.md`.
+
+---
+
+# Thema 6.4
+
+## A. Theorie-Ergänzung 6.4 (einfügen vor „### Kundenbindung und Nachbetreuung“)
+
+### Der Weg vom Angebot zum Eigentum
+
+Haben sich Verkäufer:in und Käufer:in über den Preis verständigt (bei Ravelin oft nach einer Reservierung, siehe „Abschluss und Übergabe“), beginnt die Kaufabwicklung. Sie hat acht Stationen, die das Notariat steuert: (1) Das Notariat erstellt den **Kaufvertragsentwurf**. (2) Beide Seiten unterschreiben bei der **Beurkundung**. (3) Das Notariat beantragt die **Auflassungsvormerkung** und holt Löschungsunterlagen für alte Belastungen sowie erforderliche Erklärungen und Genehmigungen ein. (4) Die Bank der Käuferseite sichert ihr Darlehen durch eine **Grundschuld**. (5) Sind alle Voraussetzungen erfüllt, versendet das Notariat die **Fälligkeitsmitteilung**. (6) Die Käuferseite leistet die **Kaufpreiszahlung**. (7) Zum vereinbarten Stichtag, meist kurz nach dem Zahlungseingang, erfolgt der **Besitzübergang**. (8) Nach dem Zahlungsnachweis beantragt das Notariat die Eigentumsumschreibung; mit der **Eintragung** im Grundbuch ist die Käuferseite Eigentümer:in, oft erst Wochen nach der Zahlung (die Auflassung wird meist schon im Kaufvertrag erklärt).
+
+Der Kaufvertrag über ein Grundstück oder eine Eigentumswohnung bedarf der notariellen Beurkundung (Stützangabe § 311b Abs. 1 Satz 1 BGB, bei Wohnungseigentum entsprechend nach § 4 Abs. 3 WEG); ein formwidriger Vertrag wird erst durch Auflassung und Eintragung gültig (Satz 2), darauf darf die Planung nicht beruhen. Das Notariat belehrt über die rechtliche Tragweite (§ 17 Abs. 1 BeurkG). Bei Verbraucherverträgen soll der beabsichtigte Text der Verbraucherseite im Regelfall zwei Wochen vor der Beurkundung zur Verfügung stehen; wird die Frist unterschritten, sollen die Gründe in der Niederschrift stehen (§ 17 Abs. 2a BeurkG). Ein Verbrauchervertrag ist ein Vertrag zwischen Unternehmer:in und Verbraucher:in (§ 310 Abs. 3 BGB), etwa der Kauf vom Bauträger oder von einer Wohnungsgesellschaft; beim Verkauf unter Privatpersonen gilt diese Regelfrist des Gesetzes nicht.
+
+Das Eigentum geht weder mit der Beurkundung noch mit der Zahlung über, sondern erst mit Einigung (**Auflassung**) und Eintragung im Grundbuch (§ 873 Abs. 1 BGB). Die Auflassung wird bei gleichzeitiger Anwesenheit beider Seiten vor einer zuständigen Stelle erklärt, in der Praxis meist im Kaufvertrag, und darf nicht unter einer Bedingung stehen (§ 925 BGB). Nach verbreiteter Praxis weisen die Beteiligten das Notariat an, die Umschreibung erst zu beantragen, wenn die Zahlung nachgewiesen ist. Weil bis zur Eintragung Wochen oder Monate vergehen können, sichert die **Vormerkung** den Anspruch der Käuferseite: Spätere Verfügungen sind ihr gegenüber insoweit unwirksam, als sie den Anspruch beeinträchtigen, auch bei Zwangsvollstreckung und Insolvenz, und der Rang richtet sich nach ihrer Eintragung (§ 883 Abs. 2, 3 BGB). Die Grundlagen stehen in Thema 1.1 Rechtliche Rahmenbedingungen im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft.
+
+### Finanzierung, Fälligkeit, Zahlung und Besitzübergang
+
+Die meisten Käufer:innen finanzieren einen Teil des Preises mit einem Darlehen. Die Bank verlangt dafür eine **Grundschuld**: die Belastung des Grundstücks mit einer bestimmten Geldsumme, die nicht an eine Forderung gebunden ist (Stützangabe § 1191 BGB; als Sicherungsgrundschuld sichert sie das Darlehen auf Grund eines Sicherungsvertrags, § 1192 Abs. 1a). Weil die Käuferseite noch nicht Eigentümerin ist, enthält der Kaufvertrag meist eine **Finanzierungsvollmacht**: Sie darf das Grundstück schon vor der Umschreibung belasten, und die Grundschuld sichert nach der üblichen Zweckbestimmung nur Beträge, die tatsächlich auf den Kaufpreis geleistet werden. Die Bank zahlt nach verbreiteter Praxis erst aus, wenn ihre Grundschuld im Grundbuch steht oder die Eintragung gesichert ist.
+
+**Lastenfreistellung:** Belastungen, die die Käuferseite nicht übernimmt, müssen verschwinden, vor allem alte Grundschulden in Abteilung III. Die Gläubigerbank bewilligt die Löschung meist unter der Auflage, dass das Notariat den Ablösebetrag aus dem Kaufpreis überweist (Treuhandauflage). Rechte in Abteilung II wie Wege- oder Wohnungsrechte bleiben bestehen, wenn die Käuferseite sie übernimmt; ältere Rechte haben Vorrang (§ 879 BGB).
+
+**Fälligkeitsmitteilung:** Der Kaufpreis wird erst fällig, wenn das Notariat die vereinbarten Voraussetzungen geprüft und mitgeteilt hat. Üblich sind die Eintragung der Vormerkung, die gesicherte Lastenfreistellung sowie erforderliche Zustimmungen und Genehmigungen. Bei Wohnungseigentum kann die Gemeinschaftsordnung für die Veräußerung die Zustimmung etwa der Verwaltung verlangen; ohne sie ist der Verkauf unwirksam (§ 12 Abs. 1, 3 WEG). Beim Kauf eines Grundstücks oder Hauses kann dagegen die Gemeinde in bestimmten Gebieten ein gesetzliches Vorkaufsrecht haben, das sie binnen drei Monaten nach Mitteilung des Kaufvertrags ausüben kann; das Grundbuchamt darf die Käuferseite nur eintragen, wenn die Nichtausübung oder das Nichtbestehen nachgewiesen ist, meist durch ein Zeugnis der Gemeinde (§§ 24, 28 BauGB). Beim Kauf von Rechten nach dem Wohnungseigentumsgesetz steht der Gemeinde das Vorkaufsrecht nicht zu (§ 24 Abs. 2 BauGB); bei vermieteten, nach der Überlassung umgewandelten Wohnungen haben stattdessen die Mieter:innen ein Vorkaufsrecht (Abschnitt „Umwandlung vermieteter Häuser: Mieterschutz“ in Thema 1.1 Rechtliche Rahmenbedingungen im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft).
+
+**Zahlung und Besitzübergang:** Die Käuferseite zahlt in der mitgeteilten Frist, üblicherweise direkt an die Verkäuferseite und, nach Weisung, an ablösende Gläubiger; über das Notariat läuft Geld nur bei berechtigtem Sicherungsinteresse (§ 57 Abs. 2 BeurkG). Zahlt die Käuferseite nicht fristgerecht, kann sie ohne Mahnung in Verzug geraten, wenn die Frist ab der Mitteilung nach dem Kalender bestimmt ist (§ 286 Abs. 2 Nr. 2 BGB); es folgen Verzugszinsen, wenn ein:e Verbraucher:in beteiligt ist, fünf Prozentpunkte über dem Basiszinssatz (§ 288 Abs. 1, im Vertrag oft abweichend geregelt), und nach erfolgloser Nachfrist der mögliche Rücktritt der Verkäuferseite (§ 323 Abs. 1). Mit der Übergabe gehen Gefahr, Nutzungen und Lasten über (§ 446 BGB); der Vertrag legt den Stichtag fest, etwa den Tag nach Zahlungseingang. Bei vermieteten Wohnungen tritt die Käuferseite erst mit dem Eigentumserwerb in den Mietvertrag ein (§ 566 BGB; Thema 4.1 Mietverwaltung im Fachgebiet Immobilienbewirtschaftung).
+
+### Pflichten der Beteiligten und Grenzen der Maklerabteilung
+
+Das Notariat ist unparteiisch: Es entwirft den Vertrag, belehrt beide Seiten, überwacht die Fälligkeitsvoraussetzungen und reicht die Anträge beim Grundbuchamt ein (§ 53 BeurkG). Die Verkäuferseite stellt Unterlagen und Auskünfte zum Objekt bereit und sorgt für die Lastenfreistellung; die Käuferseite kümmert sich um Finanzierung, Termine und Zahlung. Die Maklerabteilung der Ravelin stimmt Termine ab, stellt dem Notariat Objektunterlagen zusammen (Grundbuchauszug, bei Eigentumswohnungen Teilungserklärung und Wirtschaftsplan, Energieausweis), erklärt den Ablauf, behält die Fristen im Blick und dokumentiert den Stand im CRM-System.
+
+Ihre Grenzen: Sie gestaltet den Vertrag nicht und berät weder rechtlich noch steuerlich. Sie sagt nicht zu, dass eine Bank finanziert oder wie das Finanzamt entscheidet. Kaufpreisgelder fließen üblicherweise direkt zwischen den Beteiligten, nicht über sie. Und sie verschweigt auch in dieser Phase keine ihr bekannten erheblichen Mängel (Aufklärungs- und Sorgfaltspflichten sowie geldwäscherechtliche Identifizierung vor der Beurkundung: Thema 6.1 Maklerrecht und Maklertätigkeit im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit).
+
+### Kaufnebenkosten: Notar, Grundbuch und Grunderwerbsteuer
+
+Kaufnebenkosten fallen neben dem Kaufpreis an. Das Gesetz weist der Käuferseite die Kosten der Beurkundung, der Auflassung und der Eintragung im Grundbuch zu (Stützangabe § 448 Abs. 2 BGB); dem Notariat gegenüber schuldet die Rechnung, wer den Auftrag erteilt hat (§ 29 GNotKG), beim Kaufvertrag in der Regel beide Seiten; die Verteilung im Innenverhältnis regelt der Vertrag. Die **Maklerprovision** ist hier nur ein Posten; wer sie in welcher Höhe trägt, regelt das Provisionsrecht in Thema 6.1 Maklerrecht und Maklertätigkeit.
+
+**Notarkosten** richten sich nach dem Geschäftswert, beim Kauf dem Kaufpreis (bei niedrigerem Preis dem Verkehrswert, § 47 GNotKG), und nach Tabelle B (§ 34 GNotKG; Fassung seit 01.06.2025). Die volle Gebühr (Satz 1,0) ergibt sich aus der Tabelle: Für die Beurkundung des Kaufvertrags fallen 2,0 Gebühren an (Nr. 21100 des Kostenverzeichnisses), für den Vollzug, etwa die Anforderung von Löschungsunterlagen und Zustimmungen, 0,5 (Nr. 22110) und für die Prüfung und Mitteilung der Fälligkeit 0,5 (Nr. 22200). Hinzu kommen eine Pauschale für Post und Telekommunikation von 20 % der Gebühren, höchstens 20 € (Nr. 32005), und 19 % Umsatzsteuer; ein Treuhandauftrag, etwa einer Bank, kann eine weitere Gebühr auslösen. Die **Grundbuchkosten** sind Gerichtsgebühren nach derselben Tabelle: 1,0 für die Eintragung als Eigentümer:in (Nr. 14110) und 0,5 für die Vormerkung (Nr. 14150), jeweils aus dem Wert des Grundstücks, in der Regel dem Kaufpreis. Die Grundschuld löst eigene Notar- und Grundbuchgebühren nach ihrem Nennbetrag aus; sie sind Finanzierungskosten und fehlen im Rechenbeispiel. Stand Oktober 2026, vor Verwendung prüfen.
+
+Die **Grunderwerbsteuer** knüpft an den Kaufvertrag an (§ 1 Abs. 1 Nr. 1 GrEStG). Bemessungsgrundlage ist die Gegenleistung, beim Kauf der Kaufpreis einschließlich übernommener sonstiger Leistungen (§ 8 Abs. 1, § 9 Abs. 1 Nr. 1); die Steuer wird nicht auf sich selbst berechnet (§ 9 Abs. 3) und auf volle Euro abgerundet (§ 11 Abs. 2). Das Bundesgesetz nennt 3,5 % (§ 11 Abs. 1), die Länder bestimmen den Satz aber selbst. Stand Oktober 2026 (vor Verwendung prüfen): Bayern 3,5 %; Baden-Württemberg, Niedersachsen, Rheinland-Pfalz, Sachsen-Anhalt und Thüringen 5,0 %; Bremen (zuletzt, seit 01.07.2025), Hamburg und Sachsen 5,5 %; Berlin, Hessen und Mecklenburg-Vorpommern 6,0 %; Brandenburg, Nordrhein-Westfalen, das Saarland und Schleswig-Holstein 6,5 %. Maßgeblich ist das Land, in dem das Grundstück liegt. Gesetzliche Steuerschuldner sind beide Vertragsparteien (§ 13 Nr. 1); im Vertrag übernimmt meist die Käuferseite die Steuer. Steuerfrei bleiben unter anderem Erwerbe bis 2.500 € (Freigrenze) und Erwerbe unter nahen Angehörigen (§ 3 Nr. 1, 4, 6). Nach der Rechtsprechung des Bundesfinanzhofs (Urteil vom 16.09.2020, II R 49/17, zum Teileigentum; die Finanzverwaltung wendet es auch auf Wohnungseigentum an) mindert der Anteil an der Erhaltungsrücklage den Kaufpreis nicht. Das Notariat zeigt den Vorgang binnen zwei Wochen an (§ 18 Abs. 3); die Steuer wird einen Monat nach Bekanntgabe des Bescheids fällig (§ 15). Erst wenn die **Unbedenklichkeitsbescheinigung** des Finanzamts vorliegt, darf das Grundbuchamt die Käuferseite eintragen (§ 22 Abs. 1).
+
+### Rechenbeispiel: Kaufnebenkosten und Gesamtfinanzierungsbedarf
+
+Alle Werte sind frei gewählte Beispielwerte. Eine Eigentumswohnung kostet 285.000 €; das Land erhebt 5,5 % Grunderwerbsteuer; die Käuferseite trägt einen Provisionsanteil von 3,57 % des Kaufpreises (Annahme; Regeln: Thema 6.1). Die volle Gebühr der Tabelle B beträgt bei diesem Geschäftswert 585 €; der Vollzug umfasst auch die Löschungsunterlagen für eine alte Grundschuld (Annahme).
+
+**Notar:** 3,0 Gebühren (2,0 + 0,5 + 0,5) = 3 × 585 € = 1.755,00 €; mit der Pauschale von 20,00 € sind es 1.775,00 €; Umsatzsteuer 19 % = 337,25 €; zusammen 2.112,25 €. **Grundbuch:** 1,5 × 585 € = 877,50 €. **Grunderwerbsteuer:** 285.000 € × 5,5 % = 15.675 €. **Provision:** 285.000 € × 3,57 % = 10.174,50 €. Die Kaufnebenkosten betragen 2.112,25 € + 877,50 € + 15.675,00 € + 10.174,50 € = 28.839,25 €, das sind 28.839,25 € ÷ 285.000 € = rund 10,12 % des Kaufpreises. Der **Gesamtfinanzierungsbedarf** ist Kaufpreis plus Nebenkosten: 313.839,25 €. Bei 60.000 € Eigenkapital bleiben 253.839,25 € Darlehen; Grundschuldkosten kommen hinzu.
+
+### Stolpersteine in der Kaufabwicklung
+
+**Finanzierung:** Eine Finanzierungsbestätigung der Bank ist keine verbindliche Darlehenszusage. Nach verbreiteter Praxis enthält der Kaufvertrag keinen Finanzierungsvorbehalt; scheitert die Finanzierung, bleibt die Käuferseite zahlungspflichtig und gerät bei Fristablauf in Verzug. **Rücktritt:** Die Verkäuferseite kann nach erfolgloser Nachfrist zurücktreten; die Käuferseite nur, wenn Vertrag oder Gesetz es vorsehen. **Rang:** Ein Wohnungsrecht (§ 1093 BGB) oder eine ältere Grundschuld vor der Bankgrundschuld kann die Finanzierung scheitern lassen; die Bank verlangt Löschung oder Rangrücktritt, deshalb gehört der Grundbuchauszug früh auf den Tisch. **Nebenabreden:** Absprachen über Inventar oder Renovierung gehören in die Urkunde, sonst ist die Form gefährdet. **Fristen und Zustimmungen:** Die Zwei-Wochen-Regelfrist bei Verbraucherverträgen, bei Wohnungseigentum die Zustimmung der Verwaltung, bei Häusern das Vorkaufsrecht der Gemeinde, bei umgewandelten vermieteten Wohnungen das Vorkaufsrecht der Mieter:innen und Termine um den Jahreswechsel bremsen die Abwicklung; die Maklerabteilung trägt sie in den Fristenkalender ein.
+
+## B. Karteikarten 6.4 (anhängen)
+
+#### K-6.4-18
+**Frage:** Nenne die Stationen der Kaufabwicklung in der üblichen Reihenfolge.
+**Antwort:** Kaufvertragsentwurf, Beurkundung, Vormerkung und Lastenfreistellung, Finanzierung (Grundschuld), Fälligkeitsmitteilung, Kaufpreiszahlung, Besitzübergang (meist kurz nach der Zahlung), Eintragung als Eigentümer:in; die Auflassung steht meist schon im Kaufvertrag.
+`tags: kaufabwicklung, ablauf` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.4-19
+**Frage:** Wie früh sollte Verbraucher:innen beim Kauf von einem Unternehmen der Kaufvertragsentwurf vor der Beurkundung vorliegen?
+**Antwort:** Im Regelfall zwei Wochen vorher. Wird die Frist unterschritten, sollen die Gründe in der Niederschrift stehen. Beim Verkauf unter Privatpersonen gilt die gesetzliche Regelfrist nicht.
+`tags: kaufabwicklung, entwurf, beurkundung` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.4-20
+**Frage:** Wann wird eine Käuferin einer Eigentumswohnung Eigentümerin?
+**Antwort:** Erst mit der Eintragung im Grundbuch nach der Auflassung, also weder mit der Beurkundung noch mit der Kaufpreiszahlung. Bis dahin sichert die Vormerkung ihren Anspruch.
+`tags: kaufabwicklung, eigentumserwerb` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.4-21
+**Frage:** Warum ist die Eintragung der Vormerkung meist Voraussetzung dafür, dass der Kaufpreis fällig wird?
+**Antwort:** Die Käuferseite soll erst zahlen, wenn ihr Anspruch auf das Eigentum bis zur Umschreibung gegen spätere Verfügungen der Verkäuferseite gesichert ist; das Notariat prüft das vor der Fälligkeitsmitteilung.
+`tags: kaufabwicklung, vormerkung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.4-22
+**Frage:** Was prüft das Notariat, bevor es die Fälligkeitsmitteilung versendet?
+**Antwort:** Ob die vereinbarten Voraussetzungen vorliegen, etwa Vormerkung eingetragen, Lastenfreistellung gesichert sowie nötige Genehmigungen und Zustimmungen (bei Wohnungseigentum etwa der Verwaltung).
+`tags: kaufabwicklung, faelligkeitsmitteilung` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.4-23
+**Frage:** Wozu dient die Finanzierungsvollmacht im Kaufvertrag?
+**Antwort:** Die Käuferseite darf das Grundstück schon vor der Eigentumsumschreibung mit der Grundschuld ihrer Bank belasten. Die Grundschuld sichert üblicherweise nur Beträge, die tatsächlich auf den Kaufpreis fließen.
+`tags: kaufabwicklung, finanzierung, grundschuld` · `schwierigkeit: schwer` · `bloom: verstehen`
+
+#### K-6.4-24
+**Frage:** Was bedeutet Lastenfreistellung beim Verkauf einer Immobilie?
+**Antwort:** Nicht übernommene Belastungen, vor allem alte Grundschulden, werden gelöscht. Die Gläubigerbank bewilligt das meist gegen Ablösung, die das Notariat aus dem Kaufpreis überweist (Treuhandauflage).
+`tags: kaufabwicklung, lastenfreistellung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.4-25
+**Frage:** Was geht beim Besitz-, Nutzen- und Lastenwechsel auf die Käuferseite über?
+**Antwort:** Besitz, Nutzungen (etwa Mieten), Lasten (laufende Kosten) und die Gefahr zufälliger Verschlechterung. Den Stichtag legt der Vertrag fest, meist im Anschluss an den Zahlungseingang.
+`tags: kaufabwicklung, besitzuebergang` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.4-26
+**Frage:** Was darf die Maklerabteilung in der Kaufabwicklung nicht tun?
+**Antwort:** Den Vertrag gestalten, rechtlich oder steuerlich beraten, Finanzierungs- oder Steuerzusagen machen und erhebliche bekannte Mängel verschweigen. Terminplanung und Unterlagen sind dagegen ihre Aufgabe.
+`tags: kaufabwicklung, grenzen, maklerabteilung` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-6.4-27
+**Frage:** Wer trägt nach der gesetzlichen Regel die Kosten von Beurkundung und Grundbuch beim Kauf?
+**Antwort:** Die Käuferseite; der Kaufvertrag kann die Verteilung anders regeln. Die Notargebühr bemisst sich nach dem Kaufpreis, für den Kaufvertrag fällt eine 2,0-Gebühr an, Vollzug und Betreuung kommen hinzu.
+`tags: kaufnebenkosten, notar, grundbuch` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.4-28
+**Frage:** Was ist beim Kauf die Bemessungsgrundlage der Grunderwerbsteuer?
+**Antwort:** Die Gegenleistung, also der Kaufpreis samt übernommener sonstiger Leistungen. Die Steuer wird auf volle Euro abgerundet; den Satz bestimmt das Land, in dem das Grundstück liegt.
+`tags: kaufnebenkosten, grunderwerbsteuer` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.4-29
+**Frage:** Wozu dient die Unbedenklichkeitsbescheinigung des Finanzamts?
+**Antwort:** Das Grundbuchamt trägt die Käuferseite erst ein, wenn das Finanzamt bescheinigt, dass steuerliche Bedenken nicht entgegenstehen, etwa weil die Grunderwerbsteuer gezahlt, gesichert oder gestundet ist.
+`tags: kaufnebenkosten, grunderwerbsteuer, grundbuch` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+## C. Quiz 6.4 (anhängen)
+
+#### Q-6.4-13 · Multiple Choice
+**Frage:** Eine Käuferin fragt die Maklerabteilung nach der Beurkundung, ob sie den Kaufpreis sofort an die Verkäuferin überweisen soll. Die Vormerkung ist noch nicht eingetragen, eine Fälligkeitsmitteilung liegt nicht vor. Was ist richtig?
+- [ ] Sie überweist sofort an die Verkäuferin, weil das Eigentum bereits mit der Beurkundung übergeht.
+- [ ] Sie überweist an die Maklerabteilung, die den Betrag anschließend an die Verkäuferin weiterleitet.
+- [x] Sie wartet auf die Fälligkeitsmitteilung des Notariats, bevor sie den Kaufpreis überweist.
+- [ ] Sie überweist sofort, weil die Vormerkung für die Fälligkeit des Kaufpreises keine Rolle spielt.
+**Erklärung:** Der Kaufpreis wird erst fällig, wenn das Notariat die vereinbarten Voraussetzungen wie die Eintragung der Vormerkung und die Lastenfreistellung geprüft und mitgeteilt hat. Das Eigentum geht erst mit der Eintragung über, und Kaufpreisgelder fließen üblicherweise direkt zwischen den Beteiligten.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-14 · Mehrfachauswahl
+**Frage:** Welche Voraussetzungen nennt ein Kaufvertrag über eine Eigentumswohnung üblicherweise für die Fälligkeit des Kaufpreises?
+- [x] Die Vormerkung für die Käuferseite ist eingetragen.
+- [x] Die Lastenfreistellung von nicht übernommenen Grundschulden ist gesichert.
+- [x] Erforderliche Zustimmungen und Genehmigungen liegen vor.
+- [ ] Die Käuferseite ist bereits als Eigentümerin eingetragen.
+- [ ] Die Bank der Käuferseite hat das Objekt besichtigt.
+**Erklärung:** Vormerkung, Lastenfreistellung und erforderliche Zustimmungen oder Genehmigungen (bei Wohnungseigentum etwa der Verwaltung) sichern die Käuferseite vor der Zahlung. Die Eintragung als Eigentümerin folgt erst nach der Zahlung, und eine Besichtigung durch die Bank ist keine Fälligkeitsvoraussetzung.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-6.4-15 · Kurzantwort
+**Frage:** Eine Eigentumswohnung kostet 338.500 €; das Land erhebt 6,5 % Grunderwerbsteuer (Beispielwerte). Wie hoch ist die Steuer? Antworte in Euro, auf volle Euro abgerundet.
+**Akzeptierte Antworten:** 22.002; 22002; 22.002 €; 22002 €; 22.002 Euro; 22002 Euro; 22.002 EUR; 22002 EUR; 22.002,00; 22002,00; 22.002,00 €; 22002,00 €; 22.002,00 Euro; 22002,00 Euro; 22.002,00 EUR; 22002,00 EUR
+**Erklärung:** 338.500 € × 6,5 % = 22.002,50 €; die Steuer wird auf volle Euro abgerundet, also 22.002 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-16 · Zuordnung
+**Anweisung:** Ordne den Begriffen der Kaufabwicklung ihre Aufgabe zu.
+- Auflassung ↔ Einigung von Verkäufer:in und Käufer:in über den Eigentumswechsel
+- Vormerkung ↔ Sicherung des Anspruchs auf Eigentumsübertragung bis zur Eintragung
+- Grundschuld ↔ Grundpfandrecht, mit dem die Bank das Darlehen der Käuferseite sichert
+- Fälligkeitsmitteilung ↔ Nachricht des Notariats, dass der Kaufpreis nun zu zahlen ist
+**Erklärung:** Die vier Begriffe bezeichnen unterschiedliche Bausteine der Abwicklung: Die Auflassung ist die dingliche Einigung (meist schon im Kaufvertrag erklärt), die Vormerkung überbrückt bis zur Eintragung, die Grundschuld sichert die Bank, und die Fälligkeitsmitteilung löst die Zahlung aus.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-6.4-17 · Wahr/Falsch
+**Aussage:** Für die Grunderwerbsteuer gilt in ganz Deutschland derselbe Steuersatz.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Die Länder bestimmen den Satz selbst; die Spanne reicht nach dem Stand Oktober 2026 von 3,5 % bis 6,5 %. Maßgeblich ist das Land, in dem das Grundstück liegt.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-6.4-18 · Sortieren
+**Anweisung:** Bringe die Schritte der Kaufabwicklung in die richtige Reihenfolge.
+1. Beurkundung des Kaufvertrags
+2. Eintragung der Vormerkung für die Käuferseite
+3. Fälligkeitsmitteilung des Notariats
+4. Eintragung der Käuferseite als Eigentümerin
+**Erklärung:** Erst nach der Beurkundung kann die Vormerkung eingetragen werden. Mit der Eintragung der Vormerkung und den weiteren Voraussetzungen wird der Kaufpreis fällig, und die Eigentumsumschreibung folgt erst nach der Zahlung.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-19 · Kurzantwort
+**Frage:** Die volle Notargebühr der Tabelle beträgt bei einem Kaufpreis 635 € (Beispielwert). Wie hoch sind die Gebühren für Beurkundung, Vollzug und Betreuung des Kaufvertrags zusammen, ohne Auslagen und Umsatzsteuer? Antworte in Euro.
+**Akzeptierte Antworten:** 1.905; 1905; 1.905 €; 1905 €; 1.905 Euro; 1905 Euro; 1.905 EUR; 1905 EUR; 1.905,00; 1905,00; 1.905,00 €; 1905,00 €; 1.905,00 Euro; 1905,00 Euro; 1.905,00 EUR; 1905,00 EUR
+**Erklärung:** Die Beurkundung kostet 2,0 Gebühren, Vollzug und Betreuung je 0,5, zusammen 3,0 Gebühren: 3 × 635 € = 1.905 €.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-20 · Kurzantwort
+**Frage:** Das Notariat stellt einer Verbraucherin beim Kauf von einem Bauträger den Kaufvertragsentwurf am 02.12.2026 zu. Der Beurkundungstermin soll nach der Regelfrist von zwei Wochen mindestens 14 Tage nach der Zustellung liegen. Ab welchem Datum (TT.MM.JJJJ) ist ein Termin frühestens möglich?
+**Akzeptierte Antworten:** 16.12.2026; 16.12.26; 16. Dezember 2026
+**Erklärung:** Zwei Wochen sind 14 Tage: 02.12.2026 + 14 Tage = 16.12.2026 (ein Mittwoch). Ein früherer Termin unterschreitet die Regelfrist; dann sollen die Gründe in der Niederschrift stehen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-21 · Entweder-Oder
+**Frage:** Ein Käufer will vom Kaufvertrag zurücktreten, weil seine Bank das Darlehen nach der Beurkundung nicht auszahlt. Der Vertrag enthält weder einen Finanzierungsvorbehalt noch ein vertragliches Rücktrittsrecht. Wer trägt das Finanzierungsrisiko?
+- [ ] Die Verkäuferseite, die den Vertrag auf Wunsch des Käufers rückabwickeln muss.
+- [x] Die Käuferseite, die weiter zur Zahlung des Kaufpreises verpflichtet bleibt.
+**Erklärung:** Ohne vereinbarten Vorbehalt oder Rücktrittsrecht bleibt die Käuferseite an den Vertrag gebunden; zahlt sie nicht fristgerecht, gerät sie in Verzug und muss mit Verzugszinsen und einem Rücktritt der Verkäuferseite nach Nachfrist rechnen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-22 · Kurzantwort
+**Frage:** Die Fälligkeitsmitteilung geht der Käuferin am 12.11.2026 zu. Der Vertrag verlangt Zahlung innerhalb von 14 Tagen nach Zugang. Bis zu welchem Datum (TT.MM.JJJJ) muss gezahlt sein?
+**Akzeptierte Antworten:** 26.11.2026; 26.11.26; 26. November 2026
+**Erklärung:** Die Frist endet mit Ablauf des 14. Tages nach dem Zugang: 12.11.2026 + 14 Tage = 26.11.2026 (ein Donnerstag, also kein Wochenende und kein bundesweiter Feiertag).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.4-23 · Lückentext (Wortauswahl)
+**Text:** Das Grundbuchamt trägt die Käuferseite erst als Eigentümerin ein, wenn das Finanzamt die ___Unbedenklichkeitsbescheinigung___ erteilt hat.
+**Zusätzliche Begriffe:** Abgeschlossenheitsbescheinigung; Löschungsbewilligung; Fälligkeitsmitteilung
+**Erklärung:** Die Unbedenklichkeitsbescheinigung bestätigt, dass der Eintragung steuerliche Bedenken nicht entgegenstehen, etwa weil die Grunderwerbsteuer gezahlt, gesichert oder gestundet ist.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-6.4-24 · Was passt nicht dazu
+**Frage:** Welcher Posten gehört nicht zu den Kaufnebenkosten der Käuferseite?
+- [ ] Notargebühren für Beurkundung und Vollzug
+- [ ] Gebühren des Grundbuchamts für die Eintragung
+- [ ] Grunderwerbsteuer auf den Kaufpreis
+- [x] Tilgungsraten des Darlehens der Käuferseite
+**Erklärung:** Notar, Grundbuch und Grunderwerbsteuer (und gegebenenfalls ein Provisionsanteil) sind einmalige Kosten neben dem Kaufpreis. Die Tilgung zahlt das Darlehen zurück und ist keine Nebenkostenposition.
+`schwierigkeit: leicht` · `bloom: analysieren`
+
+#### Q-6.4-25 · Kurzantwort
+**Frage:** Ein Kaufpreis beträgt 236.000 €, die Kaufnebenkosten betragen 27.140 € (Beispielwerte). Wie viel Prozent des Kaufpreises sind das? Antworte in Prozent.
+**Akzeptierte Antworten:** 11,5; 11,5 %; 11,5 Prozent; 11,50; 11,50 %; 11,50 Prozent; 11.5; 11.5 %; 11.5 Prozent; 11.50; 11.50 %; 11.50 Prozent
+**Erklärung:** 27.140 € ÷ 236.000 € = 0,115 = 11,5 %.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-6.4-26 · Multiple Choice
+**Frage:** Eine Interessentin fragt die Maklerabteilung vor der Beurkundung, ob sie eine Haftungsklausel im Kaufvertragsentwurf ändern lassen sollte. Wie reagiert die Maklerabteilung richtig?
+- [ ] Sie rät zum Streichen der Klausel, damit der Beurkundungstermin sicher zustande kommt.
+- [ ] Sie ändert die Klausel im Entwurf selbst und sendet ihn dem Notariat zur Beurkundung zurück.
+- [ ] Sie sagt zu, dass die Klausel rechtlich unbedenklich ist, weil solche Klauseln üblich sind.
+- [x] Sie verweist auf die Belehrung des Notariats und bei Bedarf auf rechtliche Beratung.
+**Erklärung:** Die Maklerabteilung gestaltet den Vertrag nicht und berät nicht rechtlich. Belehrung und Vertragsgestaltung sind Aufgabe des Notariats; die Interessentin kann zusätzlich rechtlichen Rat einholen.
+`schwierigkeit: mittel` · `bloom: anwenden`

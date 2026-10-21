@@ -1,0 +1,152 @@
+{
+  "kurs": "immobilienfachwirt",
+  "rsDatum": "21.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [
+    {
+      "datei": "im-1.1-ergaenzung-begruendung-wohnungseigentum.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb1/1.1-rechtliche-rahmenbedingungen.md",
+          "### Grundbuch und dingliche Rechte"
+        ]
+      ]
+    },
+    {
+      "datei": "im-4.2-ergaenzung-weg-vertiefen.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.2-weg-verwaltung.md",
+          "### Verwalterpflichten nach WEG-Reform"
+        ]
+      ]
+    },
+    {
+      "datei": "im-6.4-ergaenzung-kaufabwicklung-kaufnebenkosten.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+          "### Kundenbindung und Nachbetreuung"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "im-faelle-a.md",
+      "hb1"
+    ],
+    [
+      "im-faelle-b.md",
+      "hb4"
+    ],
+    [
+      "im-faelle-c.md",
+      "hb6"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "Das WEG wurde 2020 durch das Wohnungseigentumsmodernisierungsgesetz (WEMoG) umfassend reformiert.",
+          "Das WEG wurde 2020 durch das Wohnungseigentumsmodernisierungsgesetz (WEMoG) umfassend reformiert. Wie Wohnungseigentum begründet wird (Teilungsvertrag oder Teilung durch die Eigentümerin, Aufteilungsplan, Abgeschlossenheit, Wohnungsgrundbücher) und wie Mieter:innen bei einer Umwandlung geschützt sind, erklären die Abschnitte nach den Grundzügen des Wohnungseigentumsrechts."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.2-weg-verwaltung.md",
+      "paare": [
+        [
+          "besteht seither ein individueller Anspruch jedes Eigentümers auf angemessene Gestattung, auch wenn die Gemeinschaft die Maßnahme nicht mehrheitlich beschließt.",
+          "besteht seither ein individueller Anspruch jedes Eigentümers auf Beschlussfassung über eine angemessene Maßnahme: Die Gemeinschaft entscheidet nur über das „Wie“, das „Ob“ steht nicht zur Wahl (Mehrheiten, Kostentragung und die weiteren privilegierten Maßnahmen stehen im Abschnitt „Bauliche Veränderungen und Kostentragung“ weiter unten)."
+        ],
+        [
+          "die vom Verwalter zu führen ist und jedem Eigentümer sowie potenziellen Käufern Einblick in die rechtlich verbindliche Beschlusslage gibt.",
+          "die vom Verwalter zu führen ist und jedem Eigentümer sowie einem von ihm ermächtigten Dritten (zum Beispiel einer kaufinteressierten Person) Einblick in die rechtlich verbindliche Beschlusslage gibt."
+        ],
+        [
+          "innerhalb von zwei Monaten begründet werden (§ 45 WEG).",
+          "innerhalb von zwei Monaten begründet werden (§ 45 WEG); Klagearten, Fristzählung und die Rolle der Verwaltung stehen im Abschnitt „Anfechtung von Beschlüssen“ weiter unten."
+        ],
+        [
+          "gibt Eigentümern sowie potenziellen Käufern Einblick in die verbindliche Beschlusslage der Gemeinschaft.",
+          "gibt Eigentümern sowie von ihnen ermächtigten Dritten (zum Beispiel Kaufinteressent:innen) Einblick in die verbindliche Beschlusslage der Gemeinschaft."
+        ],
+        [
+          "auf deren angemessene Gestattung Eigentümer seit der WEG-Reform einen individuellen Anspruch haben.",
+          "auf deren Beschlussfassung (Gestattung) Eigentümer seit der WEG-Reform einen individuellen Anspruch haben."
+        ],
+        [
+          "auch Einbruchsschutz und barrierefreier Umbau zählen dazu.",
+          "auch Einbruchsschutz, barrierefreier Umbau, der Anschluss an ein Telekommunikationsnetz mit sehr hoher Kapazität (schnelles Internet) und Steckersolargeräte zählen dazu."
+        ],
+        [
+          "ein individueller Anspruch des einzelnen Eigentümers auf angemessene Gestattung?",
+          "ein individueller Anspruch des einzelnen Eigentümers auf Beschlussfassung über die angemessene Maßnahme (Gestattung)?"
+        ],
+        [
+          "mit individuellem Gestattungsanspruch.",
+          "mit individuellem Anspruch auf Beschlussfassung (Gestattung)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fachgespraech.md",
+      "paare": [
+        [
+          "Für bestimmte privilegierte Maßnahmen besteht ein individueller Anspruch jedes Eigentümers auf angemessene Gestattung.",
+          "Für bestimmte privilegierte Maßnahmen besteht ein individueller Anspruch jedes Eigentümers auf Beschlussfassung über eine angemessene Gestattung."
+        ],
+        [
+          "Dazu zählen das Laden elektrisch betriebener Fahrzeuge, der Einbruchsschutz und der barrierefreie Aus- und Umbau.",
+          "Dazu zählen das Laden elektrisch betriebener Fahrzeuge, der Einbruchsschutz, der barrierefreie Aus- und Umbau, der Anschluss an ein Telekommunikationsnetz mit sehr hoher Kapazität und seit dem 17.10.2024 Steckersolargeräte (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "Der Anspruch besteht auch dann, wenn die Gemeinschaft die Maßnahme nicht mehrheitlich beschließt.",
+          "Der Anspruch richtet sich auf Beschlussfassung: Die Gemeinschaft muss beschließen und kann nur das „Wie“ regeln; ohne Beschluss darf der Eigentümer nicht bauen."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+      "paare": [
+        [
+          "(Wohnungsübergabeprotokoll, Zählerstände, Schlüsselübergabe).",
+          "(Wohnungsübergabeprotokoll, Zählerstände, Schlüsselübergabe). Den Weg vom Notartermin bis zur Eintragung im Grundbuch, die Pflichten der Beteiligten und die Kaufnebenkosten beschreiben die folgenden Abschnitte."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.2-investitions-finanzierungsrechnung.md",
+      "paare": [
+        [
+          "ihre Zusammensetzung und die Steuerregeln sind nicht Gegenstand dieses Themas.",
+          "ihre Zusammensetzung und die Steuerregeln sind nicht Gegenstand dieses Themas (Notar, Grundbuch und Grunderwerbsteuer mit Rechenbeispiel: Thema 6.4 Vertriebsprozess und Kundenbetreuung im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit)."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "hb4/4.2-weg-verwaltung.md",
+    "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+    "hb1/fallaufgaben.md",
+    "hb1/fachgespraech.md",
+    "hb4/fallaufgaben.md",
+    "hb4/fachgespraech.md",
+    "hb6/fallaufgaben.md",
+    "hb6/fachgespraech.md",
+    "hb2/2.2-investitions-finanzierungsrechnung.md"
+  ]
+}
