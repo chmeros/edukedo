@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AS „Ausbildung der Ausbilder: neue rechtsnahe Inhalte Handlungsfeld 1 und 2“ (Stand 22.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 22.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AS einspielen. Auch 1.4.“, damit ist auch das Thema Jugendarbeitsschutz für Minderjährigenschutz-Wissen von Ausbildenden bestätigt).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung G-AEVO-09, -10, -11, -12, -17, R4-Teil von -05; Fachlehrer-Befunde FL-AEVO-42 und Rest von FL-AEVO-08; Auswertung `docs/entwuerfe/aevo-r4-auswertung.md`). Alle Agenten liefen auf Sonnet. Das Paket baut auf den am 22.10.2026 eingespielten Korrekturen P-AR auf (Eignung nach § 27, Zeugnis, Aufbau der AEVO-Prüfung, Verkürzung und Anrechnung).
 

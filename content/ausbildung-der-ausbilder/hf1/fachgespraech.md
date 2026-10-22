@@ -48,6 +48,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Kelvinar stimmt die betriebliche Einsatzplanung mit den Blockzeiten bzw. dem Teilzeitunterricht der zuständigen Berufsschulen ab.
   - Erwartung: Die Abschlussprüfung vor der IHK stellt fest, ob die im Ausbildungsrahmenplan vorgesehenen Fertigkeiten, Kenntnisse und Fähigkeiten erworben wurden.
   - Rückfrage: Worin unterscheiden sich der Ausbildungsrahmenplan und der Rahmenlehrplan der Berufsschule?
+- Sie stellen im Fachgespräch eine Unterweisung vor, die Sie als nebenberufliche Ausbilderin oder nebenberuflicher Ausbilder bei Kelvinar durchführen würden. Der Prüfungsausschuss fragt, auf welchem Weg die berufs- und arbeitspädagogische Eignung bei Ihnen nachgewiesen ist oder nachgewiesen werden könnte und wer darüber entscheidet. Was antworten Sie?
+  - Erwartung: Zuerst ist zu prüfen, ob die Eignung schon kraft Verordnung als nachgewiesen gilt: durch eine Prüfung nach früherem Recht der Ausbildereignung oder durch eine Meisterprüfung beziehungsweise andere Fortbildungsprüfung, mit der diese Eignung nachgewiesen wurde (im Handwerk der Teil IV der Meisterprüfung); dann ist keine weitere Prüfung nötig.
+  - Erwartung: Gilt das nicht, kann bei der zuständigen Stelle, hier der IHK, ein Antrag gestellt werden: auf ganz oder teilweise Befreiung von der Prüfung, wenn eine andere staatliche oder körperschaftlich abgenommene Prüfung den Handlungsfeldern ganz oder teilweise entspricht, oder auf Befreiung vom Nachweis, wenn die Eignung auf andere Weise glaubhaft gemacht ist und die ordnungsgemäße Ausbildung sichergestellt wird.
+  - Erwartung: Die zuständige Stelle entscheidet im Einzelfall; bei der Befreiung von der Prüfung bescheinigt sie die Befreiung, bei der Befreiung vom Nachweis kann sie Auflagen erteilen und stellt auf Antrag eine Bescheinigung aus.
+  - Erwartung: Wer schon vor August 2009 als Ausbilder:in tätig war und dabei nicht beanstandet wurde, ist vom Nachweis befreit.
+  - Erwartung: Auch mit Befreiung bleiben die berufliche Fachkunde im Ausbildungsberuf und die persönliche Eignung nachzuweisen; die Befreiung betrifft nur den pädagogischen Teil.
+  - Rückfrage: Welche Bedeutung hat die Bescheinigung der zuständigen Stelle, wenn eine Befreiung von der Prüfung ausgesprochen wurde?
+- Der Prüfungsausschuss fragt Sie, wie Sie die Ausbildungssituation für Ihre Präsentation ausgewählt und die Prüfung organisatorisch vorbereitet haben. Was gibt die Verordnung dafür vor, und was haben Sie bei Ihrer Kammer geklärt?
+  - Erwartung: Die Verordnung verlangt nur, dass die Teilnehmenden selbst eine berufstypische Ausbildungssituation auswählen und im Fachgespräch Auswahl und Gestaltung erläutern; bestanden ist die Prüfung, wenn jeder Teil mindestens „ausreichend“ ist, und über die bestandene Prüfung wird ein Zeugnis nach den Mustern der Verordnung ausgestellt.
+  - Erwartung: Nicht in der Verordnung stehen Zulassung, Anmeldefristen, Gebühren, Termine, der Punkteschlüssel, ob ein Konzept einzureichen ist, welche Medien bereitstehen, ob für die Durchführung eine Begleitperson mitzubringen ist und wie lange ein bestandener Teil bei einer Wiederholung angerechnet wird; das bestimmt die Kammer, vor allem in ihrer Prüfungsordnung, und es ist von Kammer zu Kammer verschieden, deshalb liest man deren Merkblatt früh.
+  - Erwartung: Die Prüfung nimmt der von der zuständigen Stelle errichtete Prüfungsausschuss ab, in dem grundsätzlich Arbeitgeber- und Arbeitnehmerseite gleich stark vertreten sind und eine Lehrkraft einer berufsbildenden Schule mitwirkt; die zuständige Stelle kann einzelne Prüfungsleistungen auf Prüferdelegationen übertragen.
+  - Erwartung: Eine nicht bestandene Prüfung kann innerhalb eines Verfahrens zweimal wiederholt werden, ein bestandener Teil kann angerechnet werden; Frist und Bedingungen der Anrechnung regelt die Prüfungsordnung.
+  - Erwartung: Das Zeugnis deckt nur die pädagogische Seite ab; ausbilden darf erst, wer auch berufliche Fachkunde, persönliche Eignung und eine geeignete Ausbildungsstätte vorweisen kann.
+  - Rückfrage: Was folgt für Sie, wenn Sie den praktischen Teil im ersten Versuch nicht bestehen?
 
 ### 1.2 Ausbildungsbedarf und Ausbildungsberuf
 
@@ -79,6 +93,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Fachinformatiker:innen Systemintegration werden in der IT-Abteilung ausgebildet, die die interne Systemlandschaft und digitalisierte Fertigungsprozesse betreut.
   - Erwartung: Mehrere Ausbildungsberufe erlauben es, den Fachkräftebedarf über alle wesentlichen Unternehmensbereiche aus eigener Ausbildung zu decken.
   - Rückfrage: Wie gleicht ein Betrieb seine Tätigkeitsfelder mit den Ausbildungsberufen ab?
+- Eine Bewerberin bittet darum, ihre Ausbildung bei Kelvinar in Teilzeit zu absolvieren. Wie gehen Sie vor, und was ändert sich an Dauer und Vergütung?
+  - Erwartung: Die Teilzeit wird im Berufsausbildungsvertrag vereinbart; dafür müssen sich Kelvinar und die Bewerberin einig sein, ein besonderer Grund ist nach dem Gesetzestext nicht nötig.
+  - Erwartung: Die tägliche oder wöchentliche Ausbildungszeit darf um höchstens 50 Prozent gekürzt werden.
+  - Erwartung: Die Dauer der Ausbildung verlängert sich entsprechend, höchstens auf das Eineinhalbfache der Vollzeitdauer, und wird auf ganze Monate abgerundet.
+  - Erwartung: Die Vergütung muss nicht gekürzt werden; sie darf prozentual nicht stärker gekürzt werden als die Arbeitszeit, und für die verlängerte Dauer muss sie nicht weiter steigen.
+  - Erwartung: Der betriebliche Ausbildungsplan wird auf die Teilzeit ausgerichtet und die Einsatzplanung mit der Berufsschule abgestimmt.
+  - Rückfrage: Wie lange dauert eine dreijährige Ausbildung bei 75 Prozent der Vollzeit?
+- Wie begründen Sie gegenüber der Geschäftsführung, ob zusätzliche Ausbildungsplätze wirtschaftlich sinnvoll sind?
+  - Erwartung: Kosten sind die Personalkosten der Auszubildenden und des Ausbildungspersonals, Anlage- und Sachkosten sowie sonstige Kosten wie Kammergebühren und Lehrmaterial; sie ergeben die Bruttokosten.
+  - Erwartung: Zieht man die Erträge aus den produktiven Leistungen der Auszubildenden ab, erhält man die Nettokosten.
+  - Erwartung: Der Nutzen entsteht nach der Ausbildung: eingesparte Personalgewinnungskosten und Vakanzzeiten bei Übernahme, betriebsspezifisches Wissen und Bindung.
+  - Erwartung: Die Erhebung des Bundesinstituts für Berufsbildung für 2022/2023 dient als Orientierung (Nettokosten im Durchschnitt 8.086 € je Auszubildende:n und Jahr, Personalgewinnungskosten im Durchschnitt 13.689 € je Fachkraft, bei der Hälfte der Betriebe unter 5.700 €; Stand Oktober 2026), Kelvinar rechnet aber mit eigenen Zahlen.
+  - Erwartung: Annahmen wie die Übernahmequote werden geprüft; nicht bezifferbare Argumente wie Fachkräftesicherung und Ansehen als Ausbildungsbetrieb ergänzen die Rechnung.
+  - Rückfrage: Was sagt die Übernahmequote aus, ab der sich die Ausbildung rechnerisch trägt?
 
 ### 1.3 Eignung des Betriebs und Kooperationsformen
 
@@ -113,7 +141,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Berufsschule vermittelt den theoretischen Teil der Ausbildung.
   - Erwartung: Bei minderjährigen Auszubildenden werden die Erziehungsberechtigten frühzeitig einbezogen, insbesondere beim Vertragsabschluss.
   - Rückfrage: Welche Rückmeldungen kann die Berufsschule an den Betrieb geben?
-
+- Sie möchten eine erfahrene Fachkraft ohne Nachweis der Ausbildereignung einsetzen, damit sie eine neue Auszubildende am Arbeitsplatz anleitet. Wie ordnen Sie diesen Einsatz rechtlich ein, und was ist Ihre Aufgabe dabei?
+  - Erwartung: Die Fachkraft darf nicht allein als Ausbilder:in auftreten, weil dafür persönliche und fachliche Eignung einschließlich des Nachweises der berufs- und arbeitspädagogischen Eignung nötig ist.
+  - Erwartung: Sie kann unter der Verantwortung einer bestellten Ausbilder:in mitwirken; im Betrieb heißt das oft Ausbildungsbeauftragte (Praxisbegriff, kein Gesetzesbegriff).
+  - Erwartung: Voraussetzungen für die Mitwirkung sind persönliche Eignung und die nötigen beruflichen Fertigkeiten, Kenntnisse und Fähigkeiten; die besonderen Voraussetzungen der fachlichen Eignung muss sie nicht erfüllen.
+  - Erwartung: Die Verantwortung bleibt bei der Ausbilder:in und letztlich bei den Ausbildenden (Kelvinar als Vertragspartner); die Ausbilder:in vermittelt die Inhalte unmittelbar, verantwortlich und in wesentlichem Umfang.
+  - Erwartung: Die Ausbildungsleitung legt Rolle und Aufgaben fest, dokumentiert die Bestellung und beteiligt den Betriebsrat, der bei fehlender Eignung einer Bestellung widersprechen kann.
+  - Rückfrage: Was ändert sich, wenn die Fachkraft später die Prüfung zur Ausbildereignung besteht?
+- Die zuständige Stelle stellt bei einer Überprüfung fest, dass in Ihrer Ausbildungsstätte eine Ausbilderin den Nachweis der Ausbildereignung nicht führen kann. Wie geht es weiter, und welche Folgen drohen Ihrem Betrieb?
+  - Erwartung: Lässt sich der Mangel beheben und droht keine Gefährdung, fordert die zuständige Stelle zur Beseitigung binnen einer Frist auf.
+  - Erwartung: Wird der Mangel nicht beseitigt oder ist er nicht behebbar, teilt sie ihn der nach Landesrecht zuständigen Behörde mit, die das Einstellen und Ausbilden untersagen kann; bei fehlender persönlicher oder fachlicher Eignung muss sie untersagen.
+  - Erwartung: Der Ausbildungsvertrag bleibt wirksam, aber die Eintragung ist abzulehnen oder zu löschen, wenn der Mangel bestehen bleibt.
+  - Erwartung: Einstellen oder Ausbilden ohne die erforderliche persönliche und fachliche Eignung oder ohne bestellte geeignete Ausbilder:in und der Verstoß gegen eine vollziehbare Untersagung sind Ordnungswidrigkeiten mit einer Geldbuße bis zu 5.000 Euro; ein Mangel der Ausbildungsstätte allein ist es noch nicht.
+  - Erwartung: Bis zur Abhilfe sorgt Kelvinar dafür, dass eine geeignete Ausbilder:in die Ausbildung verantwortet, etwa durch Vertretung, Qualifizierung oder Nachweis auf Antrag.
+  - Rückfrage: Wer spricht eine Untersagung aus, und wer überwacht die Eignung laufend?
 
 ### Rückfragen zur eigenen Unterweisung (Handlungsfeld 1)
 
@@ -148,3 +189,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beispiele für Fortbildung sind die Weiterqualifizierung zur Meisterin bzw. zum Meister oder zum Fachwirt.
   - Erwartung: Bei entsprechender Eignung ist ein Übergang in ein duales Studium in Kooperation mit einer Hochschule möglich.
   - Rückfrage: Wie gelangen Jugendliche aus der allgemeinbildenden Schule in die duale Ausbildung?
+
+### 1.4 Jugendarbeitsschutz im Betrieb
+
+- Zum Ausbildungsjahr stellt Kelvinar eine 16-jährige Auszubildende ein. Welche Voraussetzungen und Vorbereitungen verlangt der Jugendarbeitsschutz von Ihnen und den Ausbildenden, bevor sie ihre Arbeit aufnimmt?
+  - Erwartung: Eine ärztliche Erstuntersuchung darf höchstens 14 Monate zurückliegen, und die ärztliche Bescheinigung muss dem Betrieb vorliegen, sonst darf die Auszubildende nicht beschäftigt werden; die Kosten trägt das Land.
+  - Erwartung: Die Gefährdungen werden vor Beginn der Beschäftigung beurteilt, und die Auszubildende wird vor Beginn über Unfall- und Gesundheitsgefahren unterwiesen; die Unterweisung wird mindestens halbjährlich wiederholt.
+  - Erwartung: Der Betrieb führt ein Verzeichnis der Jugendlichen (Name, Geburtsdatum, Wohnanschrift, Beginn der Beschäftigung) und stellt das Gesetz samt Anschrift der Aufsichtsbehörde bereit; ab drei Jugendlichen auch die Information über Arbeitszeit und Pausen.
+  - Erwartung: Bei Arbeiten mit Unfallgefahren gilt das Verbot gefährlicher Arbeiten; sie sind nur im Rahmen des Ausbildungsziels unter Aufsicht einer fachkundigen Person erlaubt.
+  - Rückfrage: Welche Pflichten haben die Ausbildenden nach neun Monaten und nach einem Jahr?
+- Eine Fachabteilungsleitung schlägt vor, Auszubildende unter 18 während einer Inventurphase länger arbeiten zu lassen und die Schulzeit „nicht mitzuzählen“. Wie beraten Sie sie?
+  - Erwartung: Jugendliche dürfen grundsätzlich höchstens 8 Stunden am Tag und 40 Stunden in der Woche arbeiten; 8,5 Stunden am Tag sind nur möglich, wenn die Arbeitszeit an anderen Werktagen derselben Woche unter 8 Stunden liegt.
+  - Erwartung: Berufsschulzeiten werden auf die Arbeitszeit angerechnet; Jugendliche dürfen weder vor einem Unterrichtsbeginn vor 9 Uhr noch an einem Berufsschultag mit mehr als fünf Unterrichtsstunden im Betrieb eingesetzt werden.
+  - Erwartung: Die Mindestpause beträgt 30 Minuten, sobald die Arbeitszeit 4,5 Stunden übersteigt, und 60 Minuten, wenn sie über 6 Stunden liegt; zwischen zwei Arbeitstagen müssen 12 Stunden Freizeit liegen, und beschäftigt werden darf nur zwischen 6 und 20 Uhr.
+  - Erwartung: Ausnahmen (Tarifvertrag, Notfall, bestimmte Bereiche) setzen eine Prüfung im Einzelfall voraus; Verstöße sind Ordnungswidrigkeiten, und die Aufsichtsbehörde teilt schwerwiegende Verstöße der IHK als zuständiger Stelle mit.
+  - Rückfrage: Welche Regel zum Unterrichtsbeginn gilt auch für berufsschulpflichtige Volljährige?
+- Im vierten Monat ihrer Ausbildung wird eine Auszubildende schwanger; in der Ausbildungswerkstatt wird unter anderem mit bleihaltigem Lot gelötet. Wie planen Sie als Ausbildungsleitung ihren weiteren Einsatz?
+  - Erwartung: Die Gefährdungsbeurteilung für die Tätigkeiten muss unabhängig von der Mitteilung bereits vorliegen; nach der Mitteilung legen die Ausbildenden unverzüglich Schutzmaßnahmen fest, bieten ein Gespräch an und benachrichtigen die Aufsichtsbehörde; die Mitteilung bleibt vertraulich.
+  - Erwartung: Tätigkeiten, bei denen Blei aufgenommen werden kann, sowie schweres Heben, Akkord- und Fließarbeit sind unzulässig, soweit eine unverantwortbare Gefährdung nicht ausgeschlossen ist; die Rangfolge lautet Umgestaltung (zum Beispiel anderes Lot oder Absaugung), Wechsel auf einen anderen geeigneten Arbeitsplatz im Ausbildungsplan, erst zuletzt Beschäftigungsverbot.
+  - Erwartung: Mehrarbeit, Nachtarbeit zwischen 20 und 6 Uhr sowie Sonn- und Feiertagsarbeit sind grundsätzlich ausgeschlossen; vor der Entbindung gelten sechs Wochen Schutzfrist (die Auszubildende kann sich ausdrücklich zur Arbeit bereit erklären und das widerrufen), nach der Entbindung acht Wochen.
+  - Erwartung: Eine Kündigung ist während der Schwangerschaft und mindestens bis vier Monate nach der Entbindung grundsätzlich ausgeschlossen, auch in der Probezeit; die Ausbildung wird fortgesetzt, und Folgen für Ausbildungsdauer und Prüfungszulassung klären die Ausbildenden mit der IHK.
+  - Rückfrage: Was gilt zusätzlich, wenn die schwangere Auszubildende noch nicht 18 Jahre alt ist?

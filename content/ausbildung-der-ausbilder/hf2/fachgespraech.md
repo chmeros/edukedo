@@ -122,7 +122,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Dauert der Abschnitt im Ausland länger als acht Wochen, ist ein mit der zuständigen Stelle abgestimmter Plan erforderlich.
   - Erwartung: In der Praxis werden Auslandsabschnitte häufig über Förderprogramme wie Erasmus+ unterstützt.
   - Rückfrage: Wie könnte ein Auslandsabschnitt für Fachinformatiker:innen Systemintegration bei Kelvinar aussehen?
-
+- Sie legen mit der Personalabteilung die Ausbildungsvergütung für neue Auszubildende fest. Worauf achten Sie, und was gilt, wenn eine Auszubildende in der Probezeit längere Zeit ausfällt?
+  - Erwartung: Die Vergütung muss angemessen sein und mit fortschreitender Ausbildung, mindestens jährlich, steigen; die Untergrenze ist die Mindestausbildungsvergütung nach dem Jahr des Ausbildungsbeginns (bei Beginn 2027 764 € im ersten Jahr, im zweiten bis vierten Jahr 18, 35 und 40 Prozent mehr; Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Eine tarifliche Vergütung ist für tarifgebundene Betriebe angemessen; ohne Tarifbindung gilt die Vergütung in der Regel als nicht angemessen, sobald sie einen einschlägigen Tarif um mehr als ein Fünftel unterschreitet.
+  - Erwartung: Mehrarbeit ist besonders zu vergüten oder durch Freizeit auszugleichen; die Monatsvergütung ist spätestens am letzten Arbeitstag des Monats zu zahlen; Zahlung und Höhe gehören in die Vertragsabfassung.
+  - Erwartung: Die Probezeit verlängert sich bei einer Unterbrechung nicht von selbst; es braucht eine klare Vertragsklausel, nach der sich die Probezeit um die Dauer der Unterbrechung verlängert, sobald diese mehr als ein Drittel der Probezeit ausmacht.
+  - Erwartung: Auf die Ursache der Unterbrechung kommt es grundsätzlich nicht an; nach Treu und Glauben kann sich der Betrieb aber nicht auf die Klausel berufen, wenn er die Unterbrechung vertragswidrig selbst herbeigeführt hat.
+  - Rückfrage: Was ändert sich für die Kündigung, wenn sich die Probezeit verlängert? (Erwartung: weiterhin ohne Kündigungsfrist und Gründe, aber schriftlich und noch innerhalb der verlängerten Probezeit zugehend; Thema 3.1.)
+- Eine abgelehnte Bewerberin mit Schwerbehinderung beschwert sich über eine Frage zur Familienplanung im Vorstellungsgespräch und möchte wissen, was mit ihren Unterlagen geschieht. Wie gehen Sie als Ausbildungsleitung vor?
+  - Erwartung: Die Beschwerde ist bei der zuständigen Stelle des Betriebs zu prüfen und ihr Ergebnis mitzuteilen; bei einem Verstoß ergreift der Betrieb geeignete Maßnahmen gegenüber den Beschäftigten (z. B. Abmahnung) und beugt durch Schulung und feste Gesprächsleitfäden vor; Beschwerdestelle und Gesetz sind im Betrieb bekannt zu machen.
+  - Erwartung: Bei Bewerbungen schwerbehinderter Menschen muss der Betrieb prüfen, ob die Stelle mit ihnen besetzt werden kann, die Agentur für Arbeit frühzeitig einbinden und die Schwerbehindertenvertretung und den Betriebsrat unmittelbar nach Eingang unterrichten; Auswahl nur nach Eignung, ohne Benachteiligung wegen der Behinderung.
+  - Erwartung: Eine Frage nach Schwangerschaft oder Familienplanung ist für die Auswahl nicht erforderlich und knüpft an das Geschlecht an beziehungsweise wird in der Praxis als geschlechtsbezogen eingestuft; im Streitfall genügen Indizien, dann muss der Betrieb beweisen, dass kein Verstoß vorlag; deshalb sind sachliche Kriterien und eine Dokumentation wichtig.
+  - Erwartung: Ansprüche sind innerhalb von zwei Monaten nach Zugang der Absage schriftlich geltend zu machen, die Klage innerhalb von drei Monaten danach; bei Nichteinstellung ist die Entschädigung auf höchstens drei Monatsgehälter begrenzt, wenn die Person auch fair nicht eingestellt worden wäre (Stand Oktober 2026; eine Verlängerung der ersten Frist ist geplant, aber nicht beschlossen).
+  - Erwartung: Die Unterlagen werden nur im erforderlichen Umfang verarbeitet und so lange aufbewahrt, wie Ansprüche möglich sind (nach verbreiteter Praxis rund sechs Monate, bei einem Anspruch bis zum Ende des Verfahrens); danach werden sie gelöscht, eine längere Speicherung braucht eine freiwillige, widerrufbare Einwilligung.
+  - Rückfrage: Muss ein privates Unternehmen schwerbehinderte Bewerbende zum Vorstellungsgespräch einladen? (Erwartung: nein, nur öffentliche Arbeitgebende.)
 
 ### Rückfragen zur eigenen Unterweisung (Handlungsfeld 2)
 
