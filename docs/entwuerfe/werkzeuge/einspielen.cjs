@@ -109,13 +109,14 @@ for (const [datei, ordner] of cfg.faelle || []) {
   const fallTeil = f.slice(0, iFg);
   const fgTeil = f.slice(iFg);
   const bloecke = [...fallTeil.matchAll(/^#### (F-[A-Z0-9-]+) · Fallaufgabe[\s\S]*?(?=\n---\s*\n|\s*(?![\s\S]))/gm)].map((m) => m[0].trim());
-  if (bloecke.length === 0) throw new Error("keine Fallaufgaben: " + datei);
+  // Eine Datei nur mit Fachgesprächsfragen ist erlaubt, wenn der Teil vor den Fachgesprächsfragen keine Überschrift "#### F-…" enthält.
+  if (bloecke.length === 0 && /^#### F-/m.test(fallTeil)) throw new Error("keine Fallaufgaben: " + datei);
   const fallDatei = path.join(ziel, KURS, ordner, "fallaufgaben.md");
   for (const b of bloecke) haengeAn(fallDatei, b, "\n\n---\n\n");
   const abschn = fgTeil.match(/^### [\s\S]*$/m);
   if (!abschn) throw new Error("keine Fachgesprächsabschnitte: " + datei);
   fgEinfuegen(path.join(ziel, KURS, ordner, "fachgespraech.md"), abschn[0].replace(/\n---\s*$/, ""));
-  console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", "));
+  console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", ") || "keine");
 }
 
 // Textersetzungen (Einleitungssätze der Fallaufgaben) und rechtsstand. Bricht ab, wenn eine Textstelle fehlt.

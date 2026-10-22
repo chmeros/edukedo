@@ -1,0 +1,187 @@
+{
+  "kurs": "ausbildung-der-ausbilder",
+  "rsDatum": "22.10.2026",
+  "neueThemen": [
+    [
+      "aevo-1.4-jugendarbeitsschutz.md",
+      "hf1/1.4-jugendarbeitsschutz-im-betrieb.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "aevo-1.1-ergaenzung-pruefung-zur-ausbildereignung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md",
+          "### Grundzüge des Jugendarbeitsschutzgesetzes (JArbSchG)"
+        ]
+      ]
+    },
+    {
+      "datei": "aevo-1.2-ergaenzung-teilzeit-zielgruppen-kosten-nutzen.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hf1/1.2-ausbildungsbedarf-ausbildungsberuf.md"
+        ]
+      ]
+    },
+    {
+      "datei": "aevo-1.3-ergaenzung-ausbildende-ausbilder-eignung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hf1/1.3-eignung-betrieb-kooperationsformen.md"
+        ]
+      ]
+    },
+    {
+      "datei": "aevo-2.3-ergaenzung-verguetung-datenschutz-agg.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hf2/2.3-auswahl-ausbildungsvertrag.md"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "aevo-faelle-a.md",
+      "hf1"
+    ],
+    [
+      "aevo-faelle-b.md",
+      "hf1"
+    ],
+    [
+      "aevo-faelle-c.md",
+      "hf1"
+    ],
+    [
+      "aevo-faelle-e.md",
+      "hf1"
+    ],
+    [
+      "aevo-faelle-d.md",
+      "hf2"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hf1/1.3-eignung-betrieb-kooperationsformen.md",
+      "paare": [
+        [
+          "muss geeignete Ausbilder:innen bestellen. Die Eignung muss nicht nur",
+          "muss geeignete Ausbilder:innen bestellen (Näheres im Abschnitt „Wer ausbildet: Ausbildende, Ausbilder:innen und Ausbildungsbeauftragte“ weiter unten). Die Eignung muss nicht nur"
+        ],
+        [
+          "vorbereitende Maßnahmen, Mitwirkende) — frei formuliert",
+          "vorbereitende Maßnahmen, Mitwirkende) sowie Berufsbildungsgesetz (BBiG) §§ 27 bis 36 (Eignung der Ausbildenden und Ausbilder:innen) — frei formuliert"
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md",
+      "paare": [
+        [
+          "deren Nachweis regelt die AEVO. Da alle drei Ausbildungsberufe",
+          "deren Nachweis regelt die AEVO (zu persönlicher und fachlicher Eignung, Ausbildenden, Ausbilder:innen und Ausbildungsbeauftragten siehe Thema 1.3 „Eignung des Betriebs und Kooperationsformen der Ausbildung“ im Handlungsfeld „Ausbildungsvoraussetzungen prüfen und Ausbildung planen“). Da alle drei Ausbildungsberufe"
+        ],
+        [
+          "  - \"1.1.3 Die Ausbilder-Eignungsverordnung (AEVO) selbst: Aufbau und Prüfungsstruktur\"",
+          "  - \"1.1.3 Die Ausbilder-Eignungsverordnung (AEVO) selbst: Aufbau, Prüfungsstruktur, Zulassung und Bewertung, Wiederholung, andere Nachweise\""
+        ],
+        [
+          "hier greift stattdessen das allgemeine Arbeitszeitgesetz.",
+          "hier greift stattdessen das allgemeine Arbeitszeitgesetz. Die Einzelheiten zu Arbeitszeit, Ruhepausen, Nachtruhe, Berufsschule, Urlaub, Untersuchungen und zum Mutterschutz erklärt Thema 1.4 „Jugendarbeitsschutz im Betrieb“ im Handlungsfeld „Ausbildungsvoraussetzungen prüfen und Ausbildung planen“."
+        ],
+        [
+          "§ 2 Nr. 1 und § 3 Abs. 1 (Handlungsfeld 1) — frei formuliert",
+          "§ 2 Nr. 1 und § 3 Abs. 1 (Handlungsfeld 1) sowie §§ 4 bis 7 (Prüfung, Anerkennung, Bestandsschutz) und Berufsbildungsgesetz (BBiG) §§ 39 bis 47 (Prüfungsausschuss, Prüfung) — frei formuliert"
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/2.3-auswahl-ausbildungsvertrag.md",
+      "paare": [
+        [
+          "kann eine diverse Zusammensetzung der Auszubildenden-Jahrgänge zudem die interne Zusammenarbeit zwischen den Fachbereichen fördern.",
+          "kann eine diverse Zusammensetzung der Auszubildenden-Jahrgänge zudem die interne Zusammenarbeit zwischen den Fachbereichen fördern. Datenschutz im Bewerbungsverfahren, die besonderen Regeln für schwerbehinderte Bewerbende sowie Beschwerde, Entschädigung und Fristen nach dem Benachteiligungsverbot folgen in eigenen Abschnitten weiter unten."
+        ],
+        [
+          "Die Probezeit muss nach **§ 20 BBiG** mindestens einen und darf höchstens vier Monate betragen.",
+          "Die Probezeit muss nach **§ 20 BBiG** mindestens einen und darf höchstens vier Monate betragen; zur vertraglichen Verlängerung bei einer Unterbrechung der Ausbildung und zur Ausbildungsvergütung siehe die Abschnitte „Ausbildungsvergütung und Mindestausbildungsvergütung“ und „Probezeit bei Unterbrechung der Ausbildung“ weiter unten."
+        ],
+        [
+          "§§ 2 Abs. 3/11/20/34/36, des Dritten Buches Sozialgesetzbuch (SGB III) §§ 54a und 76 und des Allgemeinen Gleichbehandlungsgesetzes (AGG)",
+          "§§ 2 Abs. 3/11/17/20/34/36, des Dritten Buches Sozialgesetzbuch (SGB III) §§ 54a und 76, des Neunten Buches Sozialgesetzbuch (SGB IX) §§ 164 f. und des Allgemeinen Gleichbehandlungsgesetzes (AGG)"
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+      "paare": [
+        [
+          "(§ 17 MuSchG; Ausnahmen nur mit Zulässigerklärung der zuständigen Landesbehörde). Stand Oktober 2026, vor Verwendung prüfen.",
+          "(§ 17 MuSchG; Ausnahmen nur mit Zulässigerklärung der zuständigen Landesbehörde). Ob und wie sich die Probezeit bei einer längeren Unterbrechung der Ausbildung vertraglich verlängern lässt, steht in Thema 2.3 „Auszubildende auswählen, Berufsausbildungsvertrag vorbereiten und Ausbildung im Ausland“ im Fachgebiet „Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken“. Stand Oktober 2026, vor Verwendung prüfen."
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/1.2-ausbildungsbedarf-ausbildungsberuf.md",
+      "paare": [
+        [
+          "(Employer Branding).",
+          "(Employer Branding); die Kosten, denen dieser Nutzen gegenübersteht, und eine Entscheidungsrechnung stehen im Abschnitt „Kosten und Nutzen der Ausbildung“ weiter unten."
+        ],
+        [
+          "Auswahl von Ausbildungsberufen) — frei formuliert",
+          "Auswahl von Ausbildungsberufen) sowie Berufsbildungsgesetz (BBiG) § 7a (Teilzeitberufsausbildung) — frei formuliert"
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus HF1 (1.1–1.3)",
+          "Diese Aufgaben verknüpfen mehrere Themen aus HF1 (1.1–1.4)"
+        ],
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier oder fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/fallaufgaben.md",
+      "paare": [
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier oder fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hf1/1.3-eignung-betrieb-kooperationsformen.md",
+    "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md",
+    "hf2/2.3-auswahl-ausbildungsvertrag.md",
+    "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+    "hf1/1.2-ausbildungsbedarf-ausbildungsberuf.md",
+    "hf1/fallaufgaben.md",
+    "hf2/fallaufgaben.md",
+    "hf1/fachgespraech.md",
+    "hf2/fachgespraech.md"
+  ]
+}
