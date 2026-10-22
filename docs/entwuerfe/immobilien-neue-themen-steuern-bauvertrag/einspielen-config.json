@@ -1,0 +1,121 @@
+{
+  "kurs": "immobilienfachwirt",
+  "rsDatum": "22.10.2026",
+  "neueThemen": [
+    [
+      "im-2.5-steuern-immobilienwirtschaft.md",
+      "hb2/2.5-steuern-immobilienwirtschaft.md"
+    ],
+    [
+      "im-5.5-bauvertragsrecht.md",
+      "hb5/5.5-bauvertragsrecht.md"
+    ]
+  ],
+  "ergaenzungen": [],
+  "faelle": [
+    [
+      "im-faelle-a.md",
+      "hb2"
+    ],
+    [
+      "im-faelle-b.md",
+      "hb5"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb4/4.4-betriebskostenabrechnung.md",
+      "paare": [
+        [
+          "die laufenden öffentlichen Lasten des Grundstücks (insbesondere die Grundsteuer)",
+          "die laufenden öffentlichen Lasten des Grundstücks (insbesondere die Grundsteuer; ihre Berechnung, die Grundsteuerreform und den Bescheid erklärt Thema 2.5 „Steuern in der Immobilienwirtschaft“ im Fachgebiet Unternehmenssteuerung und Kontrolle)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.1-rechnungswesen-jahresabschluss.md",
+      "paare": [
+        [
+          "aufstehende Gebäude werden dagegen über ihre betriebsgewöhnliche Nutzungsdauer planmäßig abgeschrieben (AfA).",
+          "aufstehende Gebäude werden dagegen über ihre betriebsgewöhnliche Nutzungsdauer planmäßig abgeschrieben (AfA); die steuerliche Abschreibung mit gesetzlichen Sätzen und die Aufteilung des Kaufpreises auf Gebäude und Grund und Boden stehen in Thema 2.5 „Steuern in der Immobilienwirtschaft“ im Fachgebiet Unternehmenssteuerung und Kontrolle."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.2-investitions-finanzierungsrechnung.md",
+      "paare": [
+        [
+          "(Notar, Grundbuch und Grunderwerbsteuer mit Rechenbeispiel: Thema 6.4 Vertriebsprozess und Kundenbetreuung im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit)",
+          "(Notar, Grundbuch und Grunderwerbsteuer mit Rechenbeispiel: Thema 6.4 Vertriebsprozess und Kundenbetreuung im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit; Einkommensteuer, Umsatzsteuer, Grundsteuer und Gewerbesteuer bei Vermietung und Verkauf: Thema 2.5 „Steuern in der Immobilienwirtschaft“ im Fachgebiet Unternehmenssteuerung und Kontrolle)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+      "paare": [
+        [
+          "der Vertrag legt den Stichtag fest, etwa den Tag nach Zahlungseingang. Bei vermieteten Wohnungen",
+          "der Vertrag legt den Stichtag fest, etwa den Tag nach Zahlungseingang; die Grundsteuer schuldet gegenüber der Gemeinde weiter die bisherige Eigentümerseite, bis die Käuferseite zugerechnet wird, den Ausgleich regelt der Vertrag (Thema 2.5 „Steuern in der Immobilienwirtschaft“ im Fachgebiet Unternehmenssteuerung und Kontrolle). Bei vermieteten Wohnungen"
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.2-bauplanung-durchfuehrung.md",
+      "paare": [
+        [
+          "(die konkrete Frist richtet sich nach der vertraglich vereinbarten Grundlage).",
+          "(die konkrete Frist richtet sich nach der vertraglich vereinbarten Grundlage). Die Formen der Abnahme, die Mängelrechte, die Verjährung im Vergleich und die Sicherheiten erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.4-kosten-terminplanung-bau.md",
+      "paare": [
+        [
+          "die Vergütungsanpassung bei Mehr- oder Minderleistungen sowie bei geänderten Leistungen.",
+          "die Vergütungsanpassung bei Mehr- oder Minderleistungen sowie bei geänderten Leistungen; das gesetzliche Anordnungsrecht und die Vergütung der Änderung im Bauvertrag erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "um Erwerber vor erheblicher Vorleistung zu schützen.",
+          "um Erwerber vor erheblicher Vorleistung zu schützen (Werk- und Bauvertrag und der Bauträgervertrag im Überblick stehen in Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/fallaufgaben.md",
+      "paare": [
+        [
+          "HB2 (2.1–2.4)",
+          "HB2 (2.1–2.5)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/fallaufgaben.md",
+      "paare": [
+        [
+          "HB5 (5.1–5.4)",
+          "HB5 (5.1–5.5)"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb2/fallaufgaben.md",
+    "hb2/fachgespraech.md",
+    "hb5/fallaufgaben.md",
+    "hb5/fachgespraech.md",
+    "hb4/4.4-betriebskostenabrechnung.md",
+    "hb2/2.1-rechnungswesen-jahresabschluss.md",
+    "hb2/2.2-investitions-finanzierungsrechnung.md",
+    "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+    "hb5/5.2-bauplanung-durchfuehrung.md",
+    "hb5/5.4-kosten-terminplanung-bau.md",
+    "hb1/1.1-rechtliche-rahmenbedingungen.md"
+  ]
+}
