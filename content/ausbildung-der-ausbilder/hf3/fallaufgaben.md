@@ -5,7 +5,7 @@ fachgebiet_title: "Ausbildung durchführen"
 thema_code: "HF3-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsfeld 3 „Ausbildung durchführen" der Ausbilder-Eignungsverordnung (AEVO) vom 21.01.2009 (BGBl. I S. 88), § 3 Abs. 3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben
@@ -30,8 +30,8 @@ Diese Aufgaben verknüpfen mehrere Themen aus HF3 (3.1–3.6) zu einer zusammenh
 
 **Musterlösungshinweise:** Teilaufgabe 1: Das bisherige Feedback ist unkonkret, floskelhaft und nicht handlungsleitend — es benennt weder das beobachtete Verhalten noch konkrete Verbesserungsschritte und kommt nicht zeitnah zu den einzelnen Prüfaufgaben.
 Teilaufgabe 2: Sollte regelmäßige, zeitnahe Rückmeldung direkt im Anschluss an Prüfaufgaben vorsehen, konkrete Beobachtungen statt pauschaler Aussagen sowie ein kurzes Zwischengespräch vor Ablauf der Probezeit.
-Teilaufgabe 3: Ausbildungsunterstützende Hilfen (abH) der Agentur für Arbeit können ergänzenden Stütz- und Förderunterricht in Fachtheorie bereitstellen.
-Teilaufgabe 4: Eine konkrete Verlängerung wäre zum jetzigen Zeitpunkt verfrüht — zunächst sollten die genannten Unterstützungsmaßnahmen wirken können; eine Verlängerung ist erst relevant, wenn sich trotz Unterstützung abzeichnet, dass das Ausbildungsziel in der regulären Zeit nicht erreichbar ist, und sollte dann rechtzeitig vor Ausbildungsende geprüft werden.
+Teilaufgabe 3 (Punkteraster: 2 Punkte für die Maßnahme, also ausbildungsunterstützende Hilfen bzw. Assistierte Ausbildung, 1 Punkt für die Agentur für Arbeit als zuständige Stelle, 2 Punkte für zwei passende Inhalte oder Merkmale; die Bezeichnung „abH“ gilt als gleichwertig): In Betracht kommen ausbildungsunterstützende Hilfen; als Förderung der Agentur für Arbeit ist das die Assistierte Ausbildung (früher: ausbildungsbegleitende Hilfen, abH), die sozialpädagogische Begleitung sowie Angebote zum Abbau von Bildungsdefiziten und zur Vermittlung fachtheoretischer Kenntnisse umfassen kann. Zuständige Stelle ist die Agentur für Arbeit, die nach Beratung des Auszubildenden die nötigen Elemente festlegt und einen Träger mit der Durchführung beauftragt; die Verantwortung für die Ausbildung bleibt beim Betrieb.
+Teilaufgabe 4 (Punkteraster: 2 Punkte für das Urteil „verfrüht“ mit Begründung, 1 Punkt für Ausnahmefall und Antrag der Auszubildenden, 1 Punkt für die Entscheidung der zuständigen Stelle, 1 Punkt für die rechtzeitige Prüfung vor Ausbildungsende): Eine konkrete Verlängerung wäre zum jetzigen Zeitpunkt verfrüht — zunächst sollten die genannten Unterstützungsmaßnahmen wirken können; eine Verlängerung ist erst relevant, wenn sich trotz Unterstützung abzeichnet, dass das Ausbildungsziel in der regulären Zeit nicht erreichbar ist, und sollte dann rechtzeitig vor Ausbildungsende geprüft werden. Sie ist nur in Ausnahmefällen möglich und setzt einen Antrag des Auszubildenden voraus, über den die zuständige Stelle nach Anhörung der Ausbildenden entscheidet; der Ausbilder kann sie nur anregen und mit dem Auszubildenden besprechen. Eine Verlängerung nach nicht bestandener Abschlussprüfung folgt einer eigenen Regel (auf Verlangen bis zur Wiederholungsprüfung, höchstens um ein Jahr) und ist hier nicht gemeint.
 
 ---
 

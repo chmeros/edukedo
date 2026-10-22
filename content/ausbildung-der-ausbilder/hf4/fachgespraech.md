@@ -5,12 +5,12 @@ fachgebiet_title: "Ausbildung abschließen"
 thema_code: "HF4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsfeld „Ausbildung abschließen" der Ausbilder-Eignungsverordnung (AEVO, 21.01.2009, BGBl. I S. 88), § 2 Nr. 4 i. V. m. § 3 Abs. 4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HF4. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF4. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 4.1 Prüfungsvorbereitung und Anmeldung
 
@@ -27,15 +27,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auf dieser Grundlage kann gezielt nachgesteuert werden.
   - Rückfrage: Welche Maßnahmen leiten Sie ein, wenn der Ausbildungsnachweis Lücken zeigt?
 - Welche Voraussetzungen müssen nach § 43 BBiG erfüllt sein, damit ein:e Auszubildende:r zur Abschlussprüfung zugelassen wird?
-  - Erwartung: Die Ausbildungszeit muss zurückgelegt sein oder darf höchstens zwei Monate vor Ende der Ausbildungszeit enden.
-  - Erwartung: Das Ausbildungsverhältnis muss in einem Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein, bei Kelvinar durch die zuständige IHK.
-  - Erwartung: Die vorgeschriebenen Ausbildungsnachweise müssen geführt worden sein.
-  - Erwartung: Zusätzlich können besonders leistungsstarke Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zugelassen werden.
+  - Erwartung: Die Ausbildungsdauer muss zurückgelegt sein oder darf nicht später als zwei Monate nach dem Prüfungstermin enden.
+  - Erwartung: Das Ausbildungsverhältnis muss in einem Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein, bei Kelvinar durch die zuständige IHK (oder aus einem Grund nicht eingetragen sein, den weder die Auszubildenden noch ihre gesetzlichen Vertreter zu vertreten haben).
+  - Erwartung: Der Ausbildungsnachweis muss geführt und über die Ausbildenden vorgelegt worden sein; an vorgeschriebenen Zwischenprüfungen muss teilgenommen worden sein (bei gestreckter Abschlussprüfung entfällt die Zwischenprüfung).
+  - Erwartung: Zusätzlich können Auszubildende, deren Leistungen dies rechtfertigen, nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zugelassen werden.
   - Rückfrage: Was bedeutet es für die Zulassung, wenn der Ausbildungsnachweis nicht ordnungsgemäß geführt wurde?
 - Unter welchen Bedingungen kann eine vorzeitige Zulassung zur Abschlussprüfung nach § 45 Abs. 1 BBiG infrage kommen, und welche Gesichtspunkte besprechen Sie dazu mit dem/der Auszubildenden?
-  - Erwartung: Besonders leistungsstarke Auszubildende können nach § 45 Abs. 1 BBiG vor Ablauf der regulären Ausbildungszeit zur Abschlussprüfung zugelassen werden.
+  - Erwartung: Auszubildende können nach § 45 Abs. 1 BBiG vor Ablauf der regulären Ausbildungszeit zur Abschlussprüfung zugelassen werden.
   - Erwartung: Voraussetzung ist, dass die Leistungen der bzw. des Auszubildenden dies rechtfertigen, etwa durchgehend sehr gute Berufsschulnoten und Beurteilungen.
-  - Erwartung: Über die vorzeitige Zulassung entscheidet die zuständige IHK.
+  - Erwartung: Über die vorzeitige Zulassung entscheidet die zuständige IHK, nachdem die Ausbildenden und die Berufsschule angehört wurden.
   - Erwartung: Ausbildende prüfen regelmäßig, ob eine vorzeitige Zulassung fachlich sinnvoll und im Interesse der bzw. des Auszubildenden ist, und besprechen dies frühzeitig mit ihr bzw. ihm.
   - Erwartung: Eine verfrühte Zulassung ohne tragfähige fachliche Grundlage erhöht das Prüfungsrisiko unnötig.
   - Rückfrage: Wird die Ausbildungszeit durch eine vorzeitige Zulassung formal verkürzt?
@@ -67,10 +67,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Prüfungszeugnis bescheinigt den erfolgreichen Abschluss der Abschlussprüfung.
   - Rückfrage: Welche Angaben enthält ein einfaches Ausbildungszeugnis?
 - Was ist der Unterschied zwischen einem einfachen und einem qualifizierten Ausbildungszeugnis, und wann besteht Anspruch auf welches?
-  - Erwartung: Am Ende der Berufsausbildung besteht Anspruch auf ein schriftliches Ausbildungszeugnis (§ 16 BBiG).
-  - Erwartung: Ein einfaches Ausbildungszeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung.
-  - Erwartung: Ein qualifiziertes Zeugnis enthält zusätzlich Angaben zu Führung, Leistung sowie besonderen fachlichen Fähigkeiten.
-  - Erwartung: Ein qualifiziertes Zeugnis ist zusätzlich auszustellen, wenn die bzw. der Auszubildende es ausdrücklich verlangt.
+  - Erwartung: Am Ende der Berufsausbildung besteht Anspruch auf ein schriftliches Ausbildungszeugnis (§ 16 BBiG); haben die Ausbildenden nicht selbst ausgebildet, soll auch der Ausbilder bzw. die Ausbilderin unterschreiben.
+  - Erwartung: Jedes Zeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung sowie zu den erworbenen beruflichen Fertigkeiten, Kenntnissen und Fähigkeiten (einfaches Ausbildungszeugnis).
+  - Erwartung: Ein qualifiziertes Zeugnis enthält zusätzlich Angaben zu Verhalten und Leistung.
+  - Erwartung: Angaben zu Verhalten und Leistung werden nur aufgenommen, wenn die bzw. der Auszubildende es verlangt.
   - Rückfrage: Wie unterscheidet sich das Ausbildungszeugnis vom Prüfungszeugnis der IHK?
 - Nennen Sie die Grundsätze, die Sie bei der Formulierung eines Zeugnisses beachten, und zeigen Sie, wie sich eine kritische, aber zutreffende Beobachtung unter diesen Grundsätzen formulieren lässt.
   - Erwartung: Zeugniswahrheit: Die Aussagen müssen inhaltlich zutreffend sein.
@@ -93,10 +93,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Aufgabe haben Ausbildende neben der Zeugniserstellung am Ende der Ausbildung?
 - Welche beruflichen Weiterbildungsmöglichkeiten würden Sie Auszubildenden unterschiedlicher Berufe (z. B. gewerblich-technisch vs. kaufmännisch) typischerweise empfehlen?
   - Erwartung: Für gewerblich-technische Berufe kommen eine Weiterbildung zum/zur Meister:in oder zum/zur staatlich geprüften Techniker:in infrage.
-  - Erwartung: Für kaufmännische und IT-nahe Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt.
-  - Erwartung: Beispiele sind Technischer Fachwirt, Industriefachwirt oder eine spezialisierte kaufmännische Fortbildung.
+  - Erwartung: Für kaufmännische Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt, für Fachinformatiker:innen das IT-Weiterbildungssystem (Berufsspezialist, Bachelor Professional in IT).
+  - Erwartung: Beispiele sind Industriefachwirt, Technischer Fachwirt oder eine spezialisierte kaufmännische Fortbildung; die Fortbildungsstufen sind Geprüfte Berufsspezialist:in, Bachelor Professional und Master Professional.
   - Erwartung: Fachwirt-Fortbildungen bauen in der Regel auf der Erstausbildung und einschlägiger Berufserfahrung auf.
-  - Erwartung: Sie eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung.
+  - Erwartung: Sie eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung; eine Förderung ist z. B. über das Aufstiegs-BAföG möglich.
   - Rückfrage: Wo liegen die Grenzen Ihrer Beratung zu Weiterbildungsmöglichkeiten?
 - Welche Inhalte gehören in ein Perspektivgespräch am Ende der Ausbildung, und woran orientieren Sie Ihre Empfehlungen?
   - Erwartung: Das Gespräch findet rechtzeitig vor Ausbildungsende statt.
@@ -120,8 +120,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Ausbildungsleitung führt die Einzelbeurteilungen zu einem stimmigen Gesamtbild zusammen.
   - Rückfrage: Warum reicht die Beobachtung aus einer einzelnen Station nicht aus?
 - Wo steht Ihre Unterweisung im Verhältnis zu Teil 1 und Teil 2 der Abschlussprüfung, und was folgt daraus für Ihre Planung?
-  - Erwartung: Bei dreieinhalbjährigen Ausbildungen ist die Abschlussprüfung meist als gestreckte Abschlussprüfung organisiert.
-  - Erwartung: Teil 1 findet zur Mitte der Ausbildungszeit statt, bei Elektroniker:innen für Betriebstechnik nach etwa 21 Monaten.
+  - Erwartung: Bei allen drei Ausbildungsberufen ist die Abschlussprüfung als gestreckte Abschlussprüfung organisiert.
+  - Erwartung: Teil 1 findet vor dem Ende der Ausbildungszeit statt: bei Elektroniker:innen für Betriebstechnik (dreieinhalb Jahre) vor dem Ende des zweiten Ausbildungsjahres, bei Industriekaufleuten und Fachinformatiker:innen (drei Jahre) im vierten Ausbildungshalbjahr.
   - Erwartung: Teil 1 fließt mit einem festgelegten Gewichtungsanteil in das Gesamtergebnis ein, Teil 2 folgt am Ende der Ausbildung.
   - Erwartung: Wiederholungsphasen, Lernstandskontrollen und Prüfungssimulationen werden rechtzeitig vor beiden Prüfungsterminen geplant.
   - Rückfrage: Warum reicht es nicht, erst vor Teil 2 gezielt zu üben?
@@ -133,12 +133,12 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Welche Aufgabe haben Ausbildende neben der Zeugniserstellung am Ende der Ausbildung?
 - Welche berufliche Weiterbildung empfehlen Sie der Auszubildenden aus dem Beruf Ihrer Unterweisung, und warum?
   - Erwartung: Für gewerblich-technische Berufe kommen die Weiterbildung zum/zur Meister:in oder zum/zur staatlich geprüften Techniker:in infrage.
-  - Erwartung: Für kaufmännische und IT-nahe Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt.
+  - Erwartung: Für kaufmännische Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt, für Fachinformatiker:innen das IT-Weiterbildungssystem (Berufsspezialist, Bachelor Professional in IT).
   - Erwartung: Fachwirt-Fortbildungen bauen in der Regel auf der Erstausbildung und einschlägiger Berufserfahrung auf.
   - Erwartung: Die Empfehlung passt zu den gezeigten Fähigkeiten und Interessen der Auszubildenden.
   - Rückfrage: Inwieweit ersetzen Ausbildende eine umfassende Berufsberatung?
 - Welche Besonderheiten bei der Durchführung praktischer Prüfungsteile sollten Auszubildende vorab kennen, und wie informieren Sie sie?
-  - Erwartung: Zu den Aufgaben der Ausbildenden gehört es, Auszubildende auf durchführungsrelevante Besonderheiten hinzuweisen.
+  - Erwartung: Zu den Kompetenzen der Ausbilder:innen gehört es, Auszubildende auf durchführungsrelevante Besonderheiten hinzuweisen.
   - Erwartung: Dazu zählen mitzubringende Unterlagen.
   - Erwartung: Dazu zählen zugelassene Hilfsmittel, etwa nicht programmierbare Taschenrechner.
   - Erwartung: Praktische Prüfungsteile haben organisatorische Besonderheiten, z. B. die betriebliche Auftragsarbeit bei Elektroniker:innen für Betriebstechnik.

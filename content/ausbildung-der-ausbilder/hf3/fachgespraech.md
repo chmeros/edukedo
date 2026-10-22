@@ -5,12 +5,12 @@ fachgebiet_title: "Ausbildung durchführen"
 thema_code: "HF3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsfeld 3 „Ausbildung durchführen" der Ausbilder-Eignungsverordnung (AEVO) vom 21.01.2009 (BGBl. I S. 88), § 3 Abs. 3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HF3. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF3. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 3.1 Lernförderliche Gestaltung, Feedback und Probezeit
 
@@ -87,15 +87,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Konkrete Maßnahmen sind zusätzliche Übungsphasen, ein angepasstes Lerntempo oder die Vermittlung geeigneter Lerntechniken.
   - Rückfrage: Was kommt in Betracht, wenn innerbetriebliche Maßnahmen nicht ausreichen?
 - Was verstehen Sie unter ausbildungsunterstützenden Hilfen, und wann würden Sie sie empfehlen?
-  - Erwartung: Ausbildungsunterstützende Hilfen (abH) sind Angebote der Agentur für Arbeit.
-  - Erwartung: Sie bestehen aus ergänzendem Stütz- und Förderunterricht außerhalb der betrieblichen Arbeitszeit.
-  - Erwartung: Sie sollen insbesondere schulische Defizite in Fachtheorie oder Deutsch ausgleichen.
-  - Erwartung: Sie kommen infrage, wenn innerbetriebliche Maßnahmen nicht ausreichen.
+  - Erwartung: Der Begriff „ausbildungsunterstützende Hilfen“ stammt aus der AEVO; als Förderung der Agentur für Arbeit gibt es dafür die Assistierte Ausbildung, in der die früheren ausbildungsbegleitenden Hilfen (abH) aufgegangen sind.
+  - Erwartung: Die Assistierte Ausbildung kann sozialpädagogische Begleitung, Maßnahmen zur Stabilisierung des Ausbildungsverhältnisses und Angebote zur Vermittlung fachtheoretischer Kenntnisse umfassen.
+  - Erwartung: Die Assistierte Ausbildung soll Bildungs- und Sprachdefizite abbauen, etwa in Fachtheorie oder Deutsch, und richtet sich an förderungsberechtigte junge Menschen, die ohne Unterstützung voraussichtlich Schwierigkeiten haben, die Ausbildung abzuschließen.
+  - Erwartung: Die Assistierte Ausbildung kommt infrage, wenn innerbetriebliche Maßnahmen nicht ausreichen; Ansprechpartnerin ist die Agentur für Arbeit, durchgeführt wird die Maßnahme von einem beauftragten Träger, die Verantwortung für die Ausbildung bleibt beim Betrieb.
   - Rückfrage: Welche innerbetrieblichen Maßnahmen setzen Sie vor den ausbildungsunterstützenden Hilfen ein?
 - Worin unterscheiden sich die Verkürzung der Ausbildungsdauer und die vorzeitige Zulassung zur Abschlussprüfung?
-  - Erwartung: Nach § 8 Abs. 1 BBiG kann die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildenden und Ausbildenden gekürzt werden.
-  - Erwartung: Ein typischer Anlass für die Verkürzung sind bereits vorhandene einschlägige Vorkenntnisse, z. B. eine vorangegangene Berufsausbildung oder ein Studienabbruch mit fachlicher Nähe.
-  - Erwartung: Die zuständige IHK kann Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zulassen, wenn deren Leistungen dies rechtfertigen.
+  - Erwartung: Nach § 8 Abs. 1 BBiG kürzt die zuständige Stelle die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildenden und Ausbildenden, wenn zu erwarten ist, dass das Ausbildungsziel in der gekürzten Dauer erreicht wird.
+  - Erwartung: Ein Anlass für die Verkürzung können bereits vorhandene einschlägige Vorkenntnisse sein, z. B. ein Studienabbruch mit fachlicher Nähe, aber auch überdurchschnittliche Leistungen; Vorkenntnisse sind keine Voraussetzung. Davon zu trennen ist die Anrechnung beruflicher Vorbildung auf die Ausbildungsdauer; ob eine Vorbildung angerechnet oder als Verkürzung behandelt wird, entscheidet die zuständige Stelle.
+  - Erwartung: Die zuständige IHK kann Auszubildende nach Anhörung der Ausbildenden und der Berufsschule (§ 45 Abs. 1 BBiG) vorzeitig zur Abschlussprüfung zulassen, wenn deren Leistungen dies rechtfertigen.
   - Erwartung: Bei der vorzeitigen Zulassung wird die Ausbildungszeit selbst nicht formal verkürzt, die Prüfung findet aber vor dem regulären Ende statt.
   - Erwartung: Beide Instrumente erfordern eine sorgfältige, dokumentierte Einschätzung der Ausbilder:innen, da eine verfrühte Zulassung ohne tragfähige fachliche Grundlage das Prüfungsrisiko unnötig erhöht.
   - Rückfrage: Woran machen Sie fest, ob die Leistungen einer Auszubildenden eine vorzeitige Zulassung rechtfertigen?

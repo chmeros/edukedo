@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AR „Ausbildung der Ausbilder: rechtsnahe Bestandskorrekturen (vier Blocker und weitere Fachlehrer-Befunde)“ (Stand 22.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 22.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Auswertung `docs/entwuerfe/aevo-r4-auswertung.md`; Fachlehrer-Bericht `docs/reviews/2026-10-07/fachlehrer-ausbildung-der-ausbilder.md`). Alle Agenten liefen auf Sonnet. Das Paket ändert nur Bestandstext (Theorien, Karten, Quizfragen, Fallaufgaben, Fachgespräche); keine neuen Items, keine neuen Themen.
 

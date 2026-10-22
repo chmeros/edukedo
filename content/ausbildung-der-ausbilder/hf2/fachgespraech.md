@@ -5,12 +5,12 @@ fachgebiet_title: "Ausbildung vorbereiten und bei der Einstellung von Auszubilde
 thema_code: "HF2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsfeld „Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken" der Ausbilder-Eignungsverordnung (AEVO / AusbEignV, 21.01.2009, BGBl. I S. 88), § 2 Nr. 2/§ 3 Abs. 2 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
 
-Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zu vorgelegten Situationsaufgaben oder Präsentationen aus HF2. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
+Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die Fragen sind nach Thema gruppiert und simulieren typische Rückfragen einer Prüfungskommission zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF2. Sie erfordern freies Formulieren statt Multiple-Choice-Antworten.
 
 ### 2.1 Betrieblicher Ausbildungsplan
 
@@ -51,9 +51,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 - Welche Mitwirkungs- und Mitbestimmungsrechte hat der Betriebsrat bei der betrieblichen Berufsbildung?
   - Erwartung: Nach § 96 BetrVG haben Arbeitgeber und Betriebsrat die Berufsbildung gemeinsam zu fördern (allgemeines Beratungsrecht).
-  - Erwartung: Nach § 97 BetrVG kann der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung mitwirken bzw. unter bestimmten Voraussetzungen mitbestimmen.
+  - Erwartung: Nach § 97 BetrVG hat der Arbeitgeber mit dem Betriebsrat über betriebliche Bildungseinrichtungen und die Einführung von Berufsbildungsmaßnahmen zu beraten (Beratungsrecht); mitzubestimmen hat der Betriebsrat nur, wenn sich durch geplante Maßnahmen Tätigkeiten ändern und die vorhandenen Kenntnisse nicht mehr ausreichen.
   - Erwartung: Nach § 98 BetrVG hat der Betriebsrat ein echtes Mitbestimmungsrecht bei der Durchführung betrieblicher Berufsbildungsmaßnahmen (Abs. 1); er kann außerdem der Bestellung einer ungeeigneten Ausbilderperson widersprechen oder ihre Abberufung verlangen (Abs. 2) und Vorschläge für die Teilnahme von Beschäftigten an Bildungsmaßnahmen machen (Abs. 3).
-  - Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen.
+  - Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen; verweigert er sie nicht innerhalb einer Woche schriftlich unter Angabe von Gründen, gilt die Zustimmung als erteilt.
   - Erwartung: Vor einer Kündigung eines Ausbildungsverhältnisses ist der Betriebsrat nach § 102 BetrVG anzuhören; eine Kündigung ohne Anhörung ist unwirksam.
   - Rückfrage: Welches Recht hat der Betriebsrat, wenn eine Facharbeiterin nebenberuflich zur Ausbilderin bestellt werden soll, und wann kann er es ausüben? (Erwartung: Widerspruch gegen die Bestellung bzw. Verlangen der Abberufung, wenn die persönliche oder fachliche, insbesondere berufs- und arbeitspädagogische Eignung fehlt, § 98 Abs. 2 BetrVG.)
   - Rückfrage: Was kann der Arbeitgeber tun, wenn der Betriebsrat einer Einstellung form- und fristgerecht die Zustimmung verweigert?
@@ -101,14 +101,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Unterschiedliche Bildungswege, kulturelle Hintergründe oder eine Behinderung schließen fachliche Eignung nicht aus und können den Ausbildungsbetrieb um wertvolle Perspektiven bereichern.
   - Rückfrage: Welchen Nutzen kann eine diverse Zusammensetzung der Auszubildenden-Jahrgänge bei einem Betrieb mit mehreren Berufsfeldern haben?
 - Welche Mindestinhalte muss ein Berufsausbildungsvertrag nach § 11 BBiG enthalten?
-  - Erwartung: Der Berufsausbildungsvertrag ist schriftlich abzuschließen.
-  - Erwartung: Der Vertrag nennt Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung, unter Bezug auf den beigefügten betrieblichen Ausbildungsplan.
-  - Erwartung: Der Vertrag nennt Beginn und Dauer der Berufsausbildung sowie die Dauer der regelmäßigen täglichen Ausbildungszeit.
-  - Erwartung: Der Vertrag nennt die Dauer der Probezeit sowie Zahlung und Höhe der Ausbildungsvergütung.
-  - Erwartung: Der Vertrag nennt Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer des Urlaubs und die Voraussetzungen, unter denen der Vertrag gekündigt werden kann.
+  - Erwartung: Das BBiG schreibt für den Vertragsschluss selbst keine Form vor; der wesentliche Vertragsinhalt ist aber unverzüglich, spätestens vor Beginn der Ausbildung, in Textform abzufassen und auszuhändigen.
+  - Erwartung: Die Vertragsabfassung nennt Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung, in der Praxis unter Bezug auf den betrieblichen Ausbildungsplan.
+  - Erwartung: Die Vertragsabfassung nennt Beginn und Dauer der Berufsausbildung sowie die Dauer der regelmäßigen täglichen Ausbildungszeit.
+  - Erwartung: Die Vertragsabfassung nennt die Dauer der Probezeit sowie Zahlung und Höhe der Ausbildungsvergütung.
+  - Erwartung: Die Vertragsabfassung nennt Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer des Urlaubs und die Voraussetzungen, unter denen der Vertrag gekündigt werden kann; hinzu kommen u. a. die Vergütung oder der Ausgleich von Überstunden, ein allgemeiner Hinweis auf anzuwendende Tarifverträge und Betriebs- oder Dienstvereinbarungen und die Form des Ausbildungsnachweises.
   - Rückfrage: Wie lang muss die Probezeit mindestens sein, und wie lang darf sie höchstens sein?
 - Wie und bei welcher Stelle wird ein Berufsausbildungsvertrag eingetragen, und wer ist dafür verantwortlich?
-  - Erwartung: Die Ausbildenden sind verpflichtet, den Berufsausbildungsvertrag unverzüglich bei der zuständigen Stelle zur Eintragung anzumelden (§ 34 BBiG).
+  - Erwartung: Die Ausbildenden sind verpflichtet, die Eintragung des Berufsausbildungsvertrags unverzüglich nach Vertragsabschluss bei der zuständigen Stelle zu beantragen (§ 36 BBiG).
   - Erwartung: Zuständige Stelle ist bei kaufmännisch-technischen Ausbildungsberufen wie denen bei Kelvinar in der Regel die zuständige Industrie- und Handelskammer (IHK).
   - Erwartung: Eingetragen wird der Vertrag in das Verzeichnis der Berufsausbildungsverhältnisse.
   - Erwartung: Die zuständige Stelle prüft dabei u. a., ob der Vertrag den gesetzlichen Mindestanforderungen entspricht.
@@ -117,8 +117,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Unter welchen Voraussetzungen können Teile der Ausbildung im Ausland durchgeführt werden?
   - Erwartung: Nach § 2 Abs. 3 BBiG können Teile der Berufsausbildung im Ausland durchgeführt werden, wenn dies dem Ausbildungsziel dient.
   - Erwartung: Dies ist grundsätzlich bis zu einem Viertel der in der Ausbildungsordnung vorgesehenen Ausbildungsdauer möglich.
-  - Erwartung: Voraussetzung ist u. a. die Zustimmung der bzw. des Auszubildenden, bei Minderjährigen zusätzlich der gesetzlichen Vertreter.
+  - Erwartung: Eine Zustimmung der Auszubildenden nennt § 2 Abs. 3 BBiG nicht; sie ergibt sich als Vertragsänderung (Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte sind Vertragsangaben, Änderungen werden in Textform abgefasst), bei Minderjährigen unter Einbeziehung der gesetzlichen Vertreter:innen.
   - Erwartung: Der betriebliche Ausbildungsplan wird entsprechend angepasst, damit der Auslandsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist.
+  - Erwartung: Dauert der Abschnitt im Ausland länger als acht Wochen, ist ein mit der zuständigen Stelle abgestimmter Plan erforderlich.
   - Erwartung: In der Praxis werden Auslandsabschnitte häufig über Förderprogramme wie Erasmus+ unterstützt.
   - Rückfrage: Wie könnte ein Auslandsabschnitt für Fachinformatiker:innen Systemintegration bei Kelvinar aussehen?
 
