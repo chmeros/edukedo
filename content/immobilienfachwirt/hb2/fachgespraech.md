@@ -5,7 +5,7 @@ fachgebiet_title: "Unternehmenssteuerung und Kontrolle"
 thema_code: "HB2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 2 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -181,3 +181,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Über- oder Unterschreiten eines Schwellenwerts löst eine automatische Meldung an das Controlling aus.
   - Erwartung: So können Gegensteuerungsmaßnahmen frühzeitig eingeleitet werden.
   - Rückfrage: Welcher Schritt des Risikomanagement-Prozesses stellt sicher, dass sich bewertete Risiken nicht unbemerkt verändern?
+
+### 2.5 Steuern in der Immobilienwirtschaft
+
+- Eine Eigentümerin, deren Mietshaus Ravelin verwaltet, erhält einen Grundsteuerbescheid der Gemeinde und fragt, wie die Höhe zustande kommt und ob sie etwas dagegen tun kann. Wie gehen Sie als verantwortliche Person in der Hausverwaltung vor?
+  - Erwartung: Die Steuer wird in drei Schritten berechnet: Das Finanzamt stellt den Grundsteuerwert fest und setzt mit der Steuermesszahl den Messbetrag fest, die Gemeinde wendet ihren Hebesatz an.
+  - Erwartung: Die Verwaltung prüft die Bescheide auf Zurechnung, Grundstücksart, Messzahl und Hebesatz; Einwände gegen den Grundsteuerwert richten sich gegen den Bescheid des Finanzamts, nicht gegen den Grundsteuerbescheid der Gemeinde.
+  - Erwartung: Für den Einspruch gilt in der Regel die Frist von einem Monat nach Bekanntgabe; die Verwaltung trägt Fristen und Fälligkeiten (15. Februar, 15. Mai, 15. August, 15. November) in den Fristenkalender ein.
+  - Erwartung: Die Steuer ist für die Eigentümerin Werbungskosten und kann bei entsprechender Vereinbarung als Betriebskosten auf die Mieter:innen umgelegt werden (Thema 4.4); ein Rechtsstreit über die Bewertung bleibt Sache der Eigentümerin und ihrer Beratung (Stand Oktober 2026).
+  - Rückfrage: Wer schuldet die Grundsteuer, wenn das Haus im Lauf des Jahres verkauft wird?
+- Eine Kapitalanleger:in möchte über die Maklerabteilung der Ravelin ein Mehrfamilienhaus kaufen und fragt, wie sich Abschreibung und Werbungskosten steuerlich auswirken. Was sagen Sie ihr, und wo ziehen Sie die Grenze?
+  - Erwartung: Bei der Vermietung entstehen Einkünfte aus Vermietung und Verpachtung als Überschuss der Einnahmen über die Werbungskosten; dazu zählen Schuldzinsen, Grundsteuer, Verwaltungs- und Erhaltungskosten und die Abschreibung, nicht aber die Tilgung.
+  - Erwartung: Abgeschrieben wird nur das Gebäude, nicht der Grund und Boden; der Kaufpreis ist daher aufzuteilen; die lineare AfA beträgt je nach Fertigstellung 2 %, 2,5 % oder 3 %, im Wohnungsbau gibt es unter Voraussetzungen eine degressive AfA und eine Sonderabschreibung (Stand Oktober 2026).
+  - Erwartung: Größere Instandsetzungen in den ersten drei Jahren nach dem Kauf können anschaffungsnahe Herstellungskosten sein, wenn sie ohne Umsatzsteuer 15 % der Gebäude-Anschaffungskosten übersteigen.
+  - Erwartung: Ein Verkauf innerhalb von zehn Jahren ist grundsätzlich steuerpflichtig, bei mehreren Objekten in kurzer Zeit droht gewerblicher Grundstückshandel; die Maklerabteilung gibt keine Zusagen zu steuerlichen Folgen und verweist an die steuerliche Beratung.
+  - Rückfrage: Was ändert sich, wenn die Anleger:in innerhalb weniger Jahre mehrere Wohnungen kauft und weiterverkauft?
+- Ravelin will ein vermietetes Bürohaus aus dem Eigenbestand verkaufen, für das sie die Vorsteuer aus den Baukosten abgezogen hat. Welche umsatzsteuerlichen und ertragsteuerlichen Fragen klären Sie vorab?
+  - Erwartung: Vorab ist zu prüfen, ob eine Geschäftsveräußerung im Ganzen vorliegt, etwa wenn die Käuferseite in die Mietverträge eintritt und die Vermietung fortführt; dann fällt keine Umsatzsteuer an, die Option entfällt, und die Käuferseite tritt in den Berichtigungszeitraum ein.
+  - Erwartung: Liegt keine Geschäftsveräußerung vor, ist der Verkauf grundsätzlich steuerfrei; innerhalb von zehn Jahren nach der erstmaligen Verwendung führt ein steuerfreier Verkauf zur Berichtigung der Vorsteuer mit einem Zehntel je Restjahr.
+  - Erwartung: Die Option macht den Verkauf steuerpflichtig und verhindert die Berichtigung; sie setzt eine unternehmerisch tätige Käuferseite voraus, die für ihr Unternehmen kauft, und muss im notariellen Vertrag erklärt werden; die Käuferseite schuldet dann die Steuer.
+  - Erwartung: Ertragsteuerlich ist der Gewinn bei der GmbH immer steuerpflichtig (Körperschaftsteuer und Gewerbesteuer); die Zehnjahresfrist für Privatpersonen und die erweiterte Kürzung helfen nicht, weil Ravelin auch für Dritte tätig ist.
+  - Rückfrage: Welche Bedeutung haben die Bagatellgrenzen bei der Vorsteuerberichtigung?

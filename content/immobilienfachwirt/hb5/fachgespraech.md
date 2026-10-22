@@ -5,7 +5,7 @@ fachgebiet_title: "Bauprojektmanagement"
 thema_code: "HB5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Bauprojektmanagement" der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "20.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -166,3 +166,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ohne verlässliche Dokumentation lässt sich im Streitfall oft nicht rekonstruieren, ob eine Mehrleistung tatsächlich notwendig war.
   - Erwartung: Ohne verlässliche Dokumentation lässt sich oft nicht klären, ob die Mehrleistung nicht bereits vertraglich geschuldet war.
   - Rückfrage: Welche Instrumente dokumentieren den Bauablauf?
+
+### 5.5 Bauvertragsrecht
+
+- Ein Fassadenunternehmen meldet die Fertigstellung und fordert Ravelin zur Abnahme auf. Bei der Begehung finden Sie mehrere Mängel, darunter eine Feuchtestelle am Dachanschluss, die auf eine Undichtigkeit hindeuten könnte. Wie gehen Sie vor?
+  - Erwartung: Zuerst wird beurteilt, ob die Mängel wesentlich sind; das entscheidet der Einzelfall nach Auswirkung auf Dichtheit, Standsicherheit und Nutzbarkeit sowie nach dem Beseitigungsaufwand. Nur wesentliche Mängel rechtfertigen die Verweigerung der Abnahme.
+  - Erwartung: Wird die Abnahme verweigert, werden die Mängel konkret benannt, innerhalb der vom Unternehmen gesetzten Frist; sonst droht die fiktive Abnahme. Auf Verlangen wirkt Ravelin an einer gemeinsamen Zustandsfeststellung mit.
+  - Erwartung: Wird abgenommen, behält Ravelin alle bekannten Mängel mit Beschreibung und Foto im Protokoll vor; ohne Vorbehalt gehen Nacherfüllung, Selbstvornahme, Rücktritt und Minderung verloren.
+  - Erwartung: Die Abnahme macht die Vergütung fällig, lässt die Gefahr übergehen, setzt die Verjährung in Gang und kehrt die Beweislast für nicht vorbehaltene Mängel um; wegen bekannter Mängel darf Ravelin einen angemessenen Teil der Vergütung zurückhalten, in der Regel das Doppelte der Beseitigungskosten.
+  - Rückfrage: Was gilt, wenn Ravelin auf die Aufforderung des Unternehmens überhaupt nicht reagiert?
+- Sie vergeben für ein Bauträgerprojekt ein Gewerk. Würden Sie die VOB/B vereinbaren, und worauf achten Sie bei der Verjährung der Mängelansprüche?
+  - Erwartung: Die VOB/B ist kein Gesetz, sondern vorformulierte Vertragsbedingungen, die nur bei Vereinbarung gelten; sie kürzt die Verjährung für Bauwerke auf vier Jahre, das Gesetz sieht fünf Jahre vor, jeweils ab der Abnahme (Stand Oktober 2026).
+  - Erwartung: Gegenüber Unternehmen sind Einzelklauseln der VOB/B nur dann der Inhaltskontrolle entzogen, wenn sie ohne inhaltliche Abweichungen insgesamt vereinbart ist; weichen eigene Zusätzliche Vertragsbedingungen der Ravelin inhaltlich von der VOB/B ab, ist die VOB/B nicht mehr als Ganzes vereinbart, und die abweichenden Klauseln werden einzeln geprüft.
+  - Erwartung: Ravelin haftet den Erwerber:innen fünf Jahre ab deren Abnahme des Gemeinschaftseigentums; eine kürzere oder früher beginnende Frist gegenüber dem Gewerk erzeugt eine Verjährungslücke.
+  - Erwartung: Gegenmittel sind abgestimmte Fristen im Bauvertrag, ein Fristenkalender mit Wiedervorlage, rechtzeitige schriftliche Mängelrügen und Hemmungsmaßnahmen.
+  - Rückfrage: Welche Wirkung hat bei der VOB/B die schriftliche Mängelrüge auf das Ende der Verjährung?
+- Ein Bauunternehmen verlangt mitten in der Bauphase Sicherheit für seine offene Vergütung, und Ravelin möchte zugleich eine Änderung der Leistung anordnen. Wie beurteilen Sie beides?
+  - Erwartung: Das Unternehmen kann Sicherheit für die noch nicht gezahlte vereinbarte Vergütung zuzüglich pauschal 10 % Nebenforderungen verlangen; sie kann durch die allgemeinen Sicherungsmittel, in der Praxis eine Bankbürgschaft, oder durch Garantie oder Zahlungsversprechen eines Kreditinstituts oder Kreditversicherers geleistet werden, die Kosten bis höchstens 2 % im Jahr erstattet das Unternehmen.
+  - Erwartung: Stellt Ravelin die Sicherheit nicht innerhalb der gesetzten Frist, darf das Unternehmen die Leistung verweigern oder kündigen; dann stehen ihm die vereinbarte Vergütung abzüglich ersparter Aufwendungen zu, nach der gesetzlichen Vermutung 5 % des nicht erbrachten Teils.
+  - Erwartung: Die Änderung läuft über Änderungsbegehren, Angebot und Einigungsversuch; ohne Einigung binnen 30 Tagen nach Zugang kann Ravelin sie in Textform anordnen. Die Mehrvergütung richtet sich nach den tatsächlich erforderlichen Kosten mit Zuschlägen; vorab dürfen 80 % des Angebots abgerechnet werden.
+  - Erwartung: Gegenüber Verbraucher:innen als Bestellerseite im Verbraucherbau- und im Bauträgervertrag besteht der Anspruch auf Bauhandwerkersicherung nicht; Ravelin als unternehmerische Bestellerin trifft er.
+  - Rückfrage: Warum ist eine Sicherungshypothek des Unternehmens am Baugrundstück für eine Bauträgerin besonders problematisch?

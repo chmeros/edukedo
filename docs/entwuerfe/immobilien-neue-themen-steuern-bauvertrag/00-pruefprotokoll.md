@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AP „Immobilienfachwirt: zwei neue Themen (Steuern in der Immobilienwirtschaft; Bauvertragsrecht)“ (Stand 22.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 22.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, spiele P-AP ein“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung IM-7, IM-13; Fachlehrer-Befunde FL-IM-37, Teile von FL-IM-35 und -36; Auswertung `docs/entwuerfe/immobilien-r4-auswertung.md`). Alle Agenten liefen auf Sonnet.
 
