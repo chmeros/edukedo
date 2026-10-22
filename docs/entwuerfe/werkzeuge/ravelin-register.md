@@ -16,7 +16,7 @@ Stand 20.10.2026. Zusammengestellt aus dem Kursbestand `content/immobilienfachwi
 
 ## Begriffe und Konventionen
 
-- **Kennzahl „3.000“:** 3.000 verwaltete Einheiten (Mietverwaltung) **plus** rund 40 WEG (WEG-Verwaltung zusätzlich); nicht „3.000 Gemeinschaften“ (FL-IM-24, am 09.10.2026 vereinheitlicht).
+- **Kennzahl „3.000“:** rund 3.000 verwaltete Einheiten insgesamt, davon rund 2.000 vermietete Wohn- und Gewerbeeinheiten (Mietverwaltung) und rund 1.000 Einheiten in rund 40 Wohnungseigentümergemeinschaften (WEG-Verwaltung; `hb4/4.1` Z. 17, `hb4/4.2` Z. 17); nicht „3.000 Gemeinschaften“ und nicht „3.000 plus 40 WEG“ (FL-IM-24; berichtigt am 22.10.2026 nach dem Abgleich mit dem Kursbestand).
 - Fallaufgaben **siezen**, Karten und Quiz **duzen**; Ravelin wird mit Funktionsbezeichnungen eingeführt („Sie arbeiten in der Hausverwaltung der Ravelin …“); neue Personennamen sparsam und im Prüfprotokoll nennen.
 - Die Rechtsangaben des Kurses sind R4 und **nicht förmlich rechtsgeprüft**; „sicher“ nur nach Lektüre des Rohtexts (gesetze-im-internet.de, per `curl`); zeitkritisch sind Mietrecht (Mietpreisbremse, Kappung), Gebäudeenergierecht (GEG/Reform), Weiterbildungspflicht der Verwalter, Grundsteuer, Kabelanschluss (seit 01.07.2024 nicht mehr umlagefähig).
 - Am 11.10.2026 korrigiert (nicht zurückdrehen): fristlose Kündigung wegen Zahlungsverzugs (§ 543 Abs. 2 Nr. 3, § 569 Abs. 3 BGB), Provisionsteilung (§§ 656a bis 656d BGB, nicht „mindestens hälftig mit dem Käufer“), Energieausweis (§ 87 GEG), Weiterbildungspflicht (§ 34c Abs. 2a GewO, § 15b MaBV; Stand ab 24.07.2026 nach IHK-Auskunft nur noch Verwalter:innen).
