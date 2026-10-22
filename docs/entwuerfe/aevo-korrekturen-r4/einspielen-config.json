@@ -1,0 +1,1059 @@
+{
+  "kurs": "ausbildung-der-ausbilder",
+  "rsDatum": "22.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md",
+      "paare": [
+        [
+          "den Abschluss und Inhalt des Berufsausbildungsvertrags (§ 10 f. BBiG), die Pflichten von Ausbildenden und Auszubildenden (§§ 14 f. BBiG), die Probezeit, die Führung",
+          "den Abschluss und Inhalt des Berufsausbildungsvertrags (§§ 10 und 11 BBiG), die Pflichten der Auszubildenden (§ 13 BBiG) und der Ausbildenden (§ 14 BBiG), die Freistellung der Auszubildenden (§ 15 BBiG), die Probezeit (§ 20 BBiG), die Führung"
+        ],
+        [
+          "Für Ausbildungsberufe des Handwerks gilt anstelle des BBiG die **Handwerksordnung (HwO)** mit weitgehend inhaltsgleichen Regelungen; zuständige Stelle ist dort die Handwerkskammer statt der IHK. Die **Ausbilder-Eignungsverordnung (AEVO)** selbst gilt einheitlich für beide Rechtskreise: Sowohl § 28 Abs. 1 BBiG als auch § 22 Abs. 1 HwO verlangen von Ausbildenden und Ausbilder:innen die **persönliche und fachliche Eignung**, wobei die fachliche Eignung nach § 30 BBiG/§ 22a HwO ausdrücklich die **berufs- und arbeitspädagogische Eignung** einschließt — deren Nachweis regelt die AEVO. Da alle drei Ausbildungsberufe bei Kelvinar (Elektroniker:in für Betriebstechnik, Industriekaufmann/-frau, Fachinformatiker:in Systemintegration) BBiG-Berufe sind, ist für Kelvinar in erster Linie das BBiG einschlägig; die HwO wäre nur relevant, würde Kelvinar zusätzlich in einem zulassungspflichtigen Handwerksberuf ausbilden.",
+          "Für die Berufsbildung in Berufen der **Handwerksordnung (HwO)** gelten bestimmte Vorschriften des BBiG nicht; insoweit gilt die HwO (§ 3 Abs. 3 BBiG). Das betrifft vor allem die Ausbildungsordnung, die Eignung der Ausbildungsstätte und des Ausbildungspersonals, das Prüfungswesen und die Überwachung durch die zuständige Stelle; zuständige Stelle ist im Handwerk die Handwerkskammer statt der IHK. Das übrige Berufsausbildungsrecht, etwa zu Vertrag, Pflichten, Probezeit, Vergütung, Kündigung und Zeugnis (§§ 10 bis 26 BBiG), gilt dagegen auch im Handwerk. Die **Ausbilder-Eignungsverordnung (AEVO)** ist auf Grundlage des BBiG erlassen und regelt den Nachweis der berufs- und arbeitspädagogischen Eignung; über § 22b HwO findet sie auch im Handwerk Anwendung, wo zudem das Bestehen von Teil IV der Meisterprüfung als Nachweis gilt (§ 22b Abs. 4 HwO). Zum Einstellen von Auszubildenden verlangen sowohl § 28 Abs. 1 BBiG als auch § 22 Abs. 1 HwO die **persönliche Eignung**, zum Ausbilden die **persönliche und fachliche Eignung**; die fachliche Eignung schließt nach § 30 BBiG bzw. § 22b HwO ausdrücklich die **berufs- und arbeitspädagogische Eignung** ein — deren Nachweis regelt die AEVO. Da alle drei Ausbildungsberufe bei Kelvinar (Elektroniker:in für Betriebstechnik, Industriekaufmann/-frau, Fachinformatiker:in Systemintegration) BBiG-Berufe sind, ist für Kelvinar in erster Linie das BBiG einschlägig; die HwO wäre nur relevant, würde Kelvinar zusätzlich in einem zulassungspflichtigen Handwerksberuf ausbilden (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** Welches Gesetz gilt anstelle des BBiG für Ausbildungsberufe des Handwerks?",
+          "**Frage:** Welches Gesetz gilt für Ausbildungsberufe des Handwerks bei Ausbildungsordnung, Eignung, Prüfungen und Kammern statt der entsprechenden Vorschriften des BBiG?"
+        ],
+        [
+          "**Antwort:** Die Handwerksordnung (HwO).",
+          "**Antwort:** Die Handwerksordnung (HwO); Vertrag, Pflichten, Probezeit, Kündigung und Zeugnis richten sich auch im Handwerk nach dem BBiG."
+        ],
+        [
+          "**Frage:** Was verlangen § 28 Abs. 1 BBiG bzw. § 22 Abs. 1 HwO von Ausbildenden und Ausbilder:innen?",
+          "**Frage:** Was verlangen § 28 Abs. 1 BBiG bzw. § 22 Abs. 1 HwO für das Einstellen und für das Ausbilden von Auszubildenden?"
+        ],
+        [
+          "**Antwort:** Die persönliche und fachliche Eignung.",
+          "**Antwort:** Für das Einstellen die persönliche Eignung, für das Ausbilden die persönliche und fachliche Eignung."
+        ],
+        [
+          "- BBiG ↔ Zentrale Rechtsgrundlage der industriellen/kaufmännischen Berufsausbildung",
+          "- BBiG ↔ Zentrale Rechtsgrundlage der betrieblichen Berufsausbildung, u. a. für Vertrag, Pflichten und Probezeit"
+        ],
+        [
+          "- HwO ↔ Regelt die Berufsausbildung im Handwerk",
+          "- HwO ↔ Gilt im Handwerk u. a. für Ausbildungsordnung, Prüfungen, zuständige Kammer und Ausbildungsstätte"
+        ],
+        [
+          "**Erklärung:** Die vier zentralen Rechtsgrundlagen der Berufsausbildung im Überblick.",
+          "**Erklärung:** Die vier zentralen Rechtsgrundlagen der Berufsausbildung im Überblick. Im Handwerk gilt die HwO nur für einen Teil der Ausbildung; Vertrag und Pflichten richten sich auch dort nach dem BBiG."
+        ],
+        [
+          "- Den Berufsausbildungsvertrag schriftlich vorbereiten → HF 2: Ausbildung vorbereiten, Einstellung",
+          "- Den Berufsausbildungsvertrag und seine Vertragsabfassung vorbereiten → HF 2: Ausbildung vorbereiten, Einstellung"
+        ],
+        [
+          "- Ausbilder-Azubi-Schlüssel und AEVO-Qualifikation der Ausbildenden prüfen → HF 1: Voraussetzungen prüfen, Ausbildung planen",
+          "- Das Verhältnis der Auszubildenden zu Ausbildungsplätzen und Fachkräften sowie die AEVO-Qualifikation der Ausbilder:innen prüfen → HF 1: Voraussetzungen prüfen, Ausbildung planen"
+        ],
+        [
+          "(Quote, Schlüssel, Eignung)",
+          "(Bedarf, Fachkräfteverhältnis, Eignung)"
+        ],
+        [
+          "- Auf Antrag kann die Ausbildungsdauer verkürzt oder verlängert werden → Berufsbildungsgesetz (BBiG)",
+          "- Auf gemeinsamen Antrag kann die Ausbildungsdauer verkürzt, in Ausnahmefällen auf Antrag der Auszubildenden verlängert werden → Berufsbildungsgesetz (BBiG)"
+        ],
+        [
+          "- Eine zehnstündige Schicht für einen 17-jährigen Auszubildenden ist mit der Tagesgrenze unvereinbar → Jugendarbeitsschutzgesetz (JArbSchG)",
+          "- Zehn Stunden tatsächliche Arbeitszeit ohne Ruhepausen an einem Tag sind für einen 17-jährigen Auszubildenden mit der Tagesgrenze unvereinbar → Jugendarbeitsschutzgesetz (JArbSchG)"
+        ],
+        [
+          "Das JArbSchG greift, sobald Minderjährige betroffen sind (Tagesarbeitszeit, Wochenende).",
+          "Das JArbSchG greift, sobald Minderjährige betroffen sind (Tagesarbeitszeit, Wochenende); die Tagesgrenze von acht Stunden bezieht sich auf die Arbeitszeit ohne Ruhepausen, die Schichtzeit (Arbeitszeit plus Pausen) ist davon zu unterscheiden."
+        ],
+        [
+          "Die Ausbildereignungsprüfung besteht laut AEVO aus einem **schriftlichen** und einem **praktischen** Prüfungsteil: Im praktischen Teil wird eine reale oder simulierte Ausbildungssituation (Unterweisung) durchgeführt und anschließend ein **Fachgespräch** mit dem Prüfungsausschuss geführt, in dem die Kandidatin/der Kandidat ihre/seine Entscheidungen begründet.",
+          "Die Prüfung zum Nachweis der Eignung ist in **§ 4 AEVO** geregelt (Stand Oktober 2026, vor Verwendung prüfen). Sie besteht aus einem **schriftlichen** und einem **praktischen** Prüfungsteil und ist bestanden, wenn jeder Teil mit mindestens „ausreichend\" bewertet wurde. Im schriftlichen Teil sind fallbezogene Aufgaben aus allen Handlungsfeldern zu bearbeiten; die schriftliche Prüfung soll drei Stunden dauern. Der praktische Teil besteht aus der **Präsentation** einer Ausbildungssituation und einem **Fachgespräch** mit einer Dauer von insgesamt höchstens 30 Minuten, die Präsentation soll 15 Minuten nicht überschreiten. Die Kandidatin bzw. der Kandidat wählt dafür eine berufstypische Ausbildungssituation aus; im Fachgespräch sind Auswahl und Gestaltung dieser Situation gegenüber dem Prüfungsausschuss zu erläutern. Anstelle der Präsentation kann die Ausbildungssituation auch praktisch durchgeführt werden (etwa als Unterweisung). Eine nicht bestandene Prüfung kann innerhalb eines Prüfungsverfahrens zweimal wiederholt werden, ein bestandener Prüfungsteil kann dabei angerechnet werden. Im Bereich der Landwirtschaft und der Hauswirtschaft gilt für den praktischen Teil eine Sonderregel, die für Kelvinar nicht einschlägig ist."
+        ],
+        [
+          "**Antwort:** Einem schriftlichen und einem praktischen Prüfungsteil.",
+          "**Antwort:** Einem schriftlichen Teil (fallbezogene Aufgaben aus allen Handlungsfeldern) und einem praktischen Teil (Präsentation oder praktische Durchführung einer Ausbildungssituation, dazu ein Fachgespräch)."
+        ],
+        [
+          "**Frage:** Was passiert im praktischen Prüfungsteil der AEVO-Prüfung nach der durchgeführten Unterweisung?",
+          "**Frage:** Was gehört zum praktischen Prüfungsteil der AEVO-Prüfung?"
+        ],
+        [
+          "**Antwort:** Ein Fachgespräch mit dem Prüfungsausschuss, in dem die eigenen ausbildungsrelevanten Entscheidungen begründet werden.",
+          "**Antwort:** Eine Präsentation (oder praktische Durchführung) einer berufstypischen Ausbildungssituation und ein Fachgespräch mit dem Prüfungsausschuss, in dem Auswahl und Gestaltung erläutert werden; zusammen höchstens 30 Minuten, die Präsentation soll 15 Minuten nicht überschreiten."
+        ],
+        [
+          "**Frage:** Wie wird der reale oder simulierte Ausbildungsausschnitt im praktischen Teil der AEVO-Prüfung fachsprachlich genannt?",
+          "**Frage:** Wie wird die berufstypische Situation genannt, die im praktischen Teil der AEVO-Prüfung präsentiert oder praktisch durchgeführt wird?"
+        ],
+        [
+          "**Akzeptierte Antworten:** Unterweisung; Ausbildungssituation",
+          "**Akzeptierte Antworten:** Ausbildungssituation; berufstypische Ausbildungssituation; Unterweisung; Unterweisungssituation"
+        ],
+        [
+          "**Erklärung:** Im praktischen Prüfungsteil wird eine Unterweisungssituation durchgeführt und anschließend im Fachgespräch begründet.",
+          "**Erklärung:** Im praktischen Prüfungsteil wird eine berufstypische Ausbildungssituation präsentiert oder, anstelle der Präsentation, praktisch durchgeführt (etwa als Unterweisung) und anschließend im Fachgespräch erläutert."
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/1.2-ausbildungsbedarf-ausbildungsberuf.md",
+      "paare": [
+        [
+          "Auf **rechtlicher Grundlage** sind ggf. gesetzliche oder tarifvertragliche Ausbildungsquoten zu beachten, sofern ein einschlägiger **Tarifvertrag** (z. B. ein Branchentarifvertrag der Metall- und Elektroindustrie) eine Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl vorschreibt. Auf **tarifvertraglicher Grundlage** können zudem Vorgaben zur Ausbildungsvergütung oder zu Übernahmeregelungen nach bestandener Abschlussprüfung bestehen, die die Personalplanung für neue Ausbildungsplätze beeinflussen.",
+          "Auf **rechtlicher Grundlage** ist vor allem zu klären, ob Ausbildungsstätte und Ausbildungspersonal geeignet sind: Die Zahl der Auszubildenden muss in einem angemessenen Verhältnis zur Zahl der Ausbildungsplätze oder der beschäftigten Fachkräfte stehen (§ 27 Abs. 1 BBiG, siehe Thema 1.3 „Eignung des Betriebs und Kooperationsformen der Ausbildung“ in diesem Fachgebiet). Eine allgemeine gesetzliche Ausbildungsquote, die Betrieben eine Mindestzahl an Ausbildungsplätzen vorschreibt, gibt es in Deutschland nicht. Auf **tarifvertraglicher Grundlage** können sich je nach einschlägigem **Tarifvertrag** Vorgaben zur Ausbildungsvergütung, zu Übernahmeregelungen nach bestandener Abschlussprüfung oder in einzelnen Fällen auch zur Zahl der Ausbildungsplätze ergeben; ob und was gilt, steht im jeweiligen Tarifvertrag und ist für Kelvinar im Einzelfall zu prüfen (Stand Oktober 2026, vor Verwendung prüfen). Solche Vorgaben beeinflussen die Personalplanung für neue Ausbildungsplätze."
+        ],
+        [
+          "**Frage:** Was kann ein Tarifvertrag im Hinblick auf Ausbildungsbedarf vorschreiben?",
+          "**Frage:** Gibt es eine allgemeine gesetzliche Ausbildungsquote für Betriebe, und was kann ein einschlägiger Tarifvertrag dazu vorsehen?"
+        ],
+        [
+          "**Antwort:** Eine Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl (Ausbildungsquote).",
+          "**Antwort:** Nein, eine allgemeine gesetzliche Quote gibt es nicht. Eine Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl (Ausbildungsquote) kann sich zum Beispiel aus einem einschlägigen Tarifvertrag ergeben, sofern dieser sie vorsieht."
+        ],
+        [
+          "**Frage:** Wie nennt man die Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl, die ein Tarifvertrag vorschreiben kann?",
+          "**Frage:** Wie nennt man die Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl, die ein einschlägiger Tarifvertrag vorsehen kann (eine allgemeine gesetzliche gibt es nicht)?"
+        ],
+        [
+          "**Akzeptierte Antworten:** Ausbildungsquote",
+          "**Akzeptierte Antworten:** Ausbildungsquote; Ausbildungsquoten; Ausbildungs-Quote"
+        ],
+        [
+          "**Erklärung:** Tarifverträge können eine Mindest-Ausbildungsquote festlegen.",
+          "**Erklärung:** Einzelne Tarifverträge können eine Ausbildungsquote festlegen; eine allgemeine gesetzliche Quote gibt es nicht."
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/1.3-eignung-betrieb-kooperationsformen.md",
+      "paare": [
+        [
+          "Bevor Kelvinar einen neuen Ausbildungsplatz besetzt, prüft die IHK als zuständige Stelle die **Eignung des Ausbildungsbetriebs** nach § 27 BBiG. Unterschieden werden dabei die **sachliche Eignung** — ist die Ausstattung des Betriebs (Maschinen, Werkzeuge, Ausbildungsmittel, bei Kelvinar z. B. die vollständig ausgestattete Ausbildungswerkstatt) geeignet, um sämtliche im Ausbildungsrahmenplan vorgesehenen Inhalte zu vermitteln? — und die **personelle Eignung**: Steht eine ausreichende Zahl geeigneter, nach AEVO qualifizierter Ausbilder:innen im richtigen Verhältnis zur Zahl der Auszubildenden (**Ausbilder-Azubi-Schlüssel**)? Bei Kelvinar sorgt Frau Yildiz als hauptamtliche Ausbildungsleitung gemeinsam mit den nebenberuflichen Ausbilder:innen der Fachabteilungen dafür, dass dieser Schlüssel in allen drei Ausbildungsberufen eingehalten wird, bevor neue Ausbildungsverträge bei der IHK zur Eintragung ins Verzeichnis der Berufsausbildungsverhältnisse eingereicht werden.",
+          "Bevor Kelvinar einen neuen Ausbildungsplatz besetzt, muss die **Eignung** nach dem BBiG gegeben sein. Die Eignung der **Ausbildungsstätte** regelt § 27 BBiG: Sie muss nach Art und Einrichtung für die Berufsausbildung geeignet sein (**sachliche Eignung**: ist die Ausstattung des Betriebs — Maschinen, Werkzeuge, Ausbildungsmittel, bei Kelvinar z. B. die vollständig ausgestattete Ausbildungswerkstatt — geeignet, um sämtliche im Ausbildungsrahmenplan vorgesehenen Inhalte zu vermitteln?), und die Zahl der Auszubildenden muss in einem angemessenen Verhältnis zur Zahl der Ausbildungsplätze oder zur Zahl der beschäftigten Fachkräfte stehen, es sei denn, die Berufsausbildung wird auch anderenfalls nicht gefährdet (§ 27 Abs. 1 BBiG). Eine feste Verhältniszahl nennt das Gesetz nicht; was „angemessen“ ist, beurteilt die zuständige Stelle im Einzelfall (bei Zweifeln lohnt die Rückfrage bei der zuständigen Stelle). Der in der Praxis oft so genannte „Ausbilder-Azubi-Schlüssel“ ist deshalb eine Faustregel zur Betreuungskapazität, keine gesetzliche Vorgabe. Zur **personellen Eignung** gehört außerdem, dass Ausbildende und Ausbilder:innen geeignet sind: Wer Auszubildende ausbildet, muss persönlich und fachlich geeignet sein, und die fachliche Eignung schließt die berufs- und arbeitspädagogische Eignung ein, deren Nachweis die AEVO regelt (§§ 28 bis 30 BBiG); wer selbst nicht fachlich geeignet ist oder nicht selbst ausbildet, muss geeignete Ausbilder:innen bestellen. Die Eignung muss nicht nur bei einem Vertragsschluss, sondern durchgehend vorliegen: Sie ist Voraussetzung für die Eintragung des Ausbildungsvertrags und jeder Änderung seines wesentlichen Inhalts (§ 35 Abs. 1 BBiG), und die zuständige Stelle überwacht sie und fordert bei behebbaren Mängeln zur Beseitigung auf (§ 32 BBiG). Bei Kelvinar sorgt Frau Yildiz als hauptamtliche Ausbildungsleitung gemeinsam mit den nebenberuflichen Ausbilder:innen der Fachabteilungen dafür, dass in allen drei Ausbildungsberufen genügend nach AEVO qualifizierte Ausbilder:innen zur Verfügung stehen und das Verhältnis der Auszubildenden zu den Fachkräften angemessen bleibt, bevor neue Ausbildungsverträge bei der IHK zur Eintragung ins Verzeichnis der Berufsausbildungsverhältnisse eingereicht werden (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "stehen verschiedene Kooperationsformen zur Verfügung:",
+          "gilt der Betrieb nach § 27 Abs. 2 BBiG dennoch als geeignet, wenn die fehlenden Inhalte durch Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte vermittelt werden; dafür stehen verschiedene Kooperationsformen zur Verfügung:"
+        ],
+        [
+          "Ausbildung vollständig bei einem Bildungsträger statt in einem Betrieb, vorgesehen für besondere Zielgruppen (z. B. Jugendliche ohne betrieblichen Ausbildungsplatz trotz Ausbildungsreife)",
+          "Berufsausbildung in einer außerbetrieblichen Einrichtung (bei einem Bildungsträger) statt in einem Betrieb, die die Agentur für Arbeit für förderungsberechtigte junge Menschen fördert (§ 76 SGB III) — etwa lernbeeinträchtigte oder sozial benachteiligte junge Menschen, die auch mit Förderung keine betriebliche Ausbildung aufnehmen können, oder junge Menschen in Regionen mit erheblicher Unterversorgung an Ausbildungsplätzen, bei denen trotz nachgewiesener Bewerbungsbemühungen keine betriebliche Ausbildung zu erwarten ist; betriebliche Ausbildungsphasen gehören in angemessenem Umfang dazu (Stand Oktober 2026, vor Verwendung prüfen)"
+        ],
+        [
+          "**Einstiegsqualifizierung (EQ):** Ein betriebliches Langzeitpraktikum (i. d. R. sechs bis zwölf Monate) für Jugendliche mit noch unsicherer Ausbildungsreife oder ohne passenden Ausbildungsplatz",
+          "**Einstiegsqualifizierung (EQ):** Ein betriebliches Langzeitpraktikum (förderbar für vier bis zwölf Monate, § 54a SGB III) für Ausbildungsuchende, die noch nicht in vollem Maße ausbildungsreif sind, eingeschränkte Vermittlungsperspektiven haben oder lernbeeinträchtigt bzw. sozial benachteiligt sind (Zielgruppen nach Abs. 4); die Agentur für Arbeit kann den Betrieb durch Zuschüsse fördern, der Betrieb bescheinigt die vermittelten Inhalte, und die zuständige Stelle stellt ein Zertifikat aus (Stand Oktober 2026, vor Verwendung prüfen)"
+        ],
+        [
+          "**Antwort:** Die sachliche Eignung (Ausstattung) und die personelle Eignung (Anzahl und Qualifikation der Ausbilder:innen).",
+          "**Antwort:** Die sachliche Eignung (Ausstattung) und die personelle Eignung (persönlich und fachlich geeignete Ausbilder:innen sowie ein angemessenes Verhältnis der Auszubildenden zu den Fachkräften)."
+        ],
+        [
+          "**Frage:** Was versteht man unter dem Ausbilder-Azubi-Schlüssel?",
+          "**Frage:** Was verlangt das Gesetz zum Betreuungsverhältnis im Ausbildungsbetrieb, das in der Praxis „Ausbilder-Azubi-Schlüssel“ genannt wird?"
+        ],
+        [
+          "**Antwort:** Das Verhältnis der Anzahl geeigneter Ausbilder:innen zur Anzahl der Auszubildenden im Betrieb.",
+          "**Antwort:** Ein angemessenes Verhältnis der Zahl der Auszubildenden zur Zahl der Ausbildungsplätze oder der beschäftigten Fachkräfte; eine feste gesetzliche Verhältniszahl gibt es nicht."
+        ],
+        [
+          "**Antwort:** Für besondere Zielgruppen wie Jugendliche ohne betrieblichen Ausbildungsplatz trotz Ausbildungsreife.",
+          "**Antwort:** Für förderungsberechtigte junge Menschen, z. B. lernbeeinträchtigte oder sozial benachteiligte, die auch mit Förderung keine betriebliche Ausbildung aufnehmen können."
+        ],
+        [
+          "**Antwort:** Ein betriebliches Langzeitpraktikum (i. d. R. sechs bis zwölf Monate) für Jugendliche mit noch unsicherer Ausbildungsreife oder ohne passenden Ausbildungsplatz.",
+          "**Antwort:** Ein betriebliches Langzeitpraktikum (förderbar für vier bis zwölf Monate) für Ausbildungsuchende, die noch nicht in vollem Maße ausbildungsreif sind oder deren Vermittlungsperspektiven eingeschränkt sind."
+        ],
+        [
+          "- Außerbetriebliche Ausbildung ↔ Vollständige Ausbildung bei einem Bildungsträger für besondere Zielgruppen",
+          "- Außerbetriebliche Ausbildung ↔ Geförderte Ausbildung in einer außerbetrieblichen Einrichtung für förderungsberechtigte junge Menschen"
+        ],
+        [
+          "**Text:** Das Verhältnis der Anzahl geeigneter Ausbilder:innen zur Anzahl der Auszubildenden im Betrieb wird als ___Ausbilder-Azubi-Schlüssel___ bezeichnet.",
+          "**Text:** Die Zahl der Auszubildenden muss gesetzlich in einem angemessenen ___Verhältnis___ zur Zahl der Ausbildungsplätze oder der beschäftigten Fachkräfte stehen."
+        ],
+        [
+          "**Erklärung:** Dieser Schlüssel ist Teil der von der IHK geprüften personellen Eignung.",
+          "**Erklärung:** Das Gesetz nennt keine feste Zahl; die zuständige Stelle beurteilt, was angemessen ist. Der „Ausbilder-Azubi-Schlüssel“ ist ein gängiger Praxisbegriff dafür, kein Rechtsbegriff."
+        ],
+        [
+          "- [x] Die IHK prüft, ob genügend qualifizierte Ausbilder:innen im Verhältnis zu den Auszubildenden vorhanden sind.",
+          "- [x] Die Zahl der Auszubildenden muss zu den Fachkräften passen."
+        ],
+        [
+          "**Erklärung:** Die Eignungsprüfung erfolgt grundsätzlich bei jedem neuen Ausbildungsverhältnis, nicht nur einmalig für den Betrieb.",
+          "**Erklärung:** Die Eignung muss durchgehend gegeben sein und wird von der zuständigen Stelle überwacht; sie entfällt nicht, nur weil der Betrieb schon einmal ausgebildet hat. Bei Änderungen des wesentlichen Vertragsinhalts ist sie erneut Voraussetzung der Eintragung."
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/fallaufgaben.md",
+      "paare": [
+        [
+          "rechtlich/tarifvertraglich z. B. Prüfung einer einschlägigen Ausbildungsquote sowie der personellen Eignung (Ausbilder-Azubi-Schlüssel) vor Verdopplung der Plätze.",
+          "rechtlich z. B. das angemessene Verhältnis der Zahl der Auszubildenden zu den Ausbildungsplätzen oder beschäftigten Fachkräften und die Eignung des Ausbildungspersonals (§ 27, §§ 28 bis 30 BBiG) vor Verdopplung der Plätze; tarifvertraglich z. B. ob ein einschlägiger Tarifvertrag Vorgaben zur Zahl der Ausbildungsplätze enthält (eine allgemeine gesetzliche Ausbildungsquote gibt es nicht)."
+        ],
+        [
+          "Der bisherige Ausbilder-Azubi-Schlüssel der Werkstatt ist mit den aktuell vier Auszubildenden bereits ausgereizt, ohne dass ein weiterer, formal qualifizierter Ausbilder zur Verfügung steht.",
+          "Die Betreuungskapazität der Werkstatt ist mit den aktuell vier Auszubildenden bereits ausgeschöpft, ohne dass eine weitere nach AEVO qualifizierte Person als Ausbilder:in zur Verfügung steht."
+        ],
+        [
+          "Die personelle Eignung ist aktuell nicht gegeben, da",
+          "Die personelle Eignung ist nach der Ausgangslage aktuell nicht gesichert, da"
+        ],
+        [
+          "da der Ausbilder-Azubi-Schlüssel bereits ausgereizt ist und kein weiterer qualifizierter Ausbilder zur Verfügung steht",
+          "da die Betreuungskapazität bereits ausgeschöpft ist (das angemessene Verhältnis der Zahl der Auszubildenden zu den Ausbildungsplätzen oder Fachkräften nach § 27 Abs. 1 BBiG wäre sonst gefährdet) und keine weitere nach AEVO qualifizierte Person als Ausbilder:in zur Verfügung steht"
+        ],
+        [
+          "Abstimmung mit der IHK zur Eignungsprüfung",
+          "Abstimmung mit der IHK zur Eignung der Ausbildungsstätte"
+        ]
+      ]
+    },
+    {
+      "datei": "hf1/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Für Ausbildungsberufe des Handwerks gilt anstelle des BBiG die Handwerksordnung (HwO).",
+          "Erwartung: Im Handwerk gelten für Ausbildungsordnung, Eignung, Prüfungen und Kammern die Vorschriften der Handwerksordnung (HwO); das übrige Berufsausbildungsrecht, etwa zu Vertrag, Pflichten, Probezeit, Kündigung und Zeugnis, gilt weiter nach dem BBiG."
+        ],
+        [
+          "Erwartung: Nach § 28 Abs. 1 BBiG bzw. § 22 Abs. 1 HwO ist von Ausbildenden und Ausbilder:innen die persönliche und fachliche Eignung verlangt.",
+          "Erwartung: Nach § 28 Abs. 1 BBiG bzw. § 22 Abs. 1 HwO genügt zum Einstellen von Auszubildenden die persönliche Eignung; zum Ausbilden sind persönliche und fachliche Eignung verlangt."
+        ],
+        [
+          "Erwartung: Die AEVO gilt einheitlich für beide Rechtskreise, also für BBiG und HwO.",
+          "Erwartung: Die AEVO ist auf Grundlage des BBiG erlassen; über die HwO findet sie auch im Handwerk Anwendung."
+        ],
+        [
+          "Erwartung: Ein einschlägiger Tarifvertrag kann eine Mindestzahl an Ausbildungsplätzen im Verhältnis zur Beschäftigtenzahl vorschreiben.",
+          "Erwartung: Auf rechtlicher Grundlage sind vor allem die Eignung der Ausbildungsstätte und das angemessene Verhältnis der Auszubildenden zu Ausbildungsplätzen oder Fachkräften zu beachten; eine allgemeine gesetzliche Ausbildungsquote gibt es nicht.\n  - Erwartung: Ein einschlägiger Tarifvertrag kann Vorgaben zur Zahl der Ausbildungsplätze enthalten, sofern er das vorsieht."
+        ],
+        [
+          "Erwartung: Die IHK prüft als zuständige Stelle die sachliche und die personelle Eignung des Ausbildungsbetriebs.",
+          "Erwartung: Die IHK stellt als zuständige Stelle fest und überwacht, ob die sachliche und die personelle Eignung des Ausbildungsbetriebs gegeben sind."
+        ],
+        [
+          "Erwartung: Die personelle Eignung fragt, ob eine ausreichende Zahl geeigneter, nach AEVO qualifizierter Ausbilder:innen vorhanden ist.",
+          "Erwartung: Die personelle Eignung fragt, ob Ausbildende und Ausbilder:innen persönlich und fachlich (einschließlich der AEVO-Qualifikation) geeignet sind und ob die Zahl der Auszubildenden in einem angemessenen Verhältnis zu den Ausbildungsplätzen oder Fachkräften steht."
+        ],
+        [
+          "Erwartung: Der Ausbilder-Azubi-Schlüssel beschreibt das Verhältnis der Zahl qualifizierter Ausbilder:innen zur Zahl der Auszubildenden.",
+          "Erwartung: Der Ausbilder-Azubi-Schlüssel ist ein Praxisbegriff für das Betreuungsverhältnis; das BBiG verlangt ein angemessenes Verhältnis der Zahl der Auszubildenden zu den Ausbildungsplätzen oder zu den beschäftigten Fachkräften und nennt keine feste Zahl."
+        ],
+        [
+          "Erwartung: Er gehört zur personellen Eignung des Ausbildungsbetriebs.",
+          "Erwartung: Er hilft bei der Beurteilung, ob die Betreuungskapazität ausreicht; was angemessen ist, beurteilt die zuständige Stelle im Einzelfall."
+        ],
+        [
+          "Erwartung: Gezählt werden geeignete, nach AEVO qualifizierte Ausbilder:innen.",
+          "Erwartung: Daneben müssen die Ausbilder:innen persönlich und fachlich geeignet sein und die berufs- und arbeitspädagogische Eignung nach der AEVO nachweisen."
+        ],
+        [
+          "Erwartung: Kelvinar stellt den Schlüssel in allen drei Ausbildungsberufen sicher, bevor neue Ausbildungsverträge zur Eintragung eingereicht werden.",
+          "Erwartung: Kelvinar stellt die Betreuungskapazität in allen drei Ausbildungsberufen sicher, bevor neue Ausbildungsverträge zur Eintragung eingereicht werden."
+        ],
+        [
+          "Erwartung: Außerbetriebliche Ausbildung findet vollständig bei einem Bildungsträger und nicht in einem Betrieb statt.",
+          "Erwartung: Außerbetriebliche Ausbildung findet in einer außerbetrieblichen Einrichtung (z. B. bei einem Bildungsträger) statt, mit betrieblichen Ausbildungsphasen in angemessenem Umfang."
+        ],
+        [
+          "Erwartung: Sie ist für besondere Zielgruppen vorgesehen, z. B. Jugendliche ohne betrieblichen Ausbildungsplatz trotz Ausbildungsreife.",
+          "Erwartung: Sie ist für förderungsberechtigte junge Menschen vorgesehen, z. B. lernbeeinträchtigte oder sozial benachteiligte, und wird von der Agentur für Arbeit gefördert."
+        ],
+        [
+          "Erwartung: Die Einstiegsqualifizierung ist ein betriebliches Langzeitpraktikum von in der Regel sechs bis zwölf Monaten.",
+          "Erwartung: Die Einstiegsqualifizierung ist ein betriebliches Langzeitpraktikum, das für vier bis zwölf Monate gefördert werden kann."
+        ],
+        [
+          "Erwartung: Sie kommt bei Jugendlichen mit noch unsicherer Ausbildungsreife oder ohne passenden Ausbildungsplatz infrage.",
+          "Erwartung: Sie kommt bei Ausbildungsuchenden infrage, die noch nicht in vollem Maße ausbildungsreif sind oder deren Vermittlungsperspektiven eingeschränkt sind."
+        ],
+        [
+          "Erwartung: Die personelle Eignung verlangt eine ausreichende Zahl geeigneter, nach AEVO qualifizierter Ausbilder:innen.",
+          "Erwartung: Die personelle Eignung verlangt persönlich und fachlich geeignete, nach AEVO qualifizierte Ausbilder:innen."
+        ],
+        [
+          "Erwartung: Diese Zahl steht im richtigen Verhältnis zur Zahl der Auszubildenden (Ausbilder-Azubi-Schlüssel).",
+          "Erwartung: Außerdem steht die Zahl der Auszubildenden in einem angemessenen Verhältnis zu den Ausbildungsplätzen oder Fachkräften (Betreuungsverhältnis)."
+        ],
+        [
+          "im Anschluss an die im praktischen Prüfungsteil durchgeführte Unterweisung",
+          "im Anschluss an die im praktischen Prüfungsteil präsentierte (oder praktisch durchgeführte) Ausbildungssituation"
+        ],
+        [
+          "  - Erwartung: Das Fachgespräch ist Teil des praktischen Prüfungsteils und folgt auf die durchgeführte Unterweisung.",
+          "  - Erwartung: Das Fachgespräch ist Teil des praktischen Prüfungsteils und schließt an die Präsentation (oder praktische Durchführung) einer Ausbildungssituation an; zusammen dauern beide höchstens 30 Minuten."
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/2.1-betrieblicher-ausbildungsplan.md",
+      "paare": [
+        [
+          "ist gemäß § 11 BBiG der Vertragsniederschrift des Berufsausbildungsvertrags beizufügen und damit fester Bestandteil des Ausbildungsverhältnisses.",
+          "wird in der Praxis der Vertragsabfassung des Berufsausbildungsvertrags als Anlage beigefügt, weil er die nach § 11 BBiG anzugebende sachliche und zeitliche Gliederung der Ausbildung konkretisiert, und ist damit fester Bestandteil des Ausbildungsverhältnisses (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** Muss der betriebliche Ausbildungsplan Bestandteil des Berufsausbildungsvertrags sein?",
+          "**Frage:** Ist der betriebliche Ausbildungsplan gesetzlich Bestandteil des Berufsausbildungsvertrags, und wie wird er in der Praxis behandelt?"
+        ],
+        [
+          "**Antwort:** Ja, er ist nach § 11 BBiG der Vertragsniederschrift beizufügen.",
+          "**Antwort:** Nein, eine Pflicht zum Beifügen nennt das Gesetz nicht; in der Praxis wird er der Vertragsabfassung als Anlage beigefügt, weil er die nach § 11 BBiG anzugebende sachliche und zeitliche Gliederung konkretisiert."
+        ],
+        [
+          "### Ausbildungsnachweis und Vertragsbestandteil",
+          "### Ausbildungsnachweis und Ausbildungsplan im Vertragszusammenhang"
+        ],
+        [
+          "**Aussage:** Der betriebliche Ausbildungsplan muss der Vertragsniederschrift des Berufsausbildungsvertrags beigefügt werden.",
+          "**Aussage:** Der betriebliche Ausbildungsplan wird in der Praxis der Vertragsabfassung des Berufsausbildungsvertrags als Anlage beigefügt."
+        ],
+        [
+          "**Erklärung:** Nach § 11 BBiG ist der betriebliche Ausbildungsplan fester Bestandteil der Vertragsniederschrift.",
+          "**Erklärung:** Der Plan konkretisiert die nach § 11 BBiG anzugebende sachliche und zeitliche Gliederung der Ausbildung und gehört deshalb zum Ausbildungsverhältnis."
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/2.2-interessenvertretung-berufsschule.md",
+      "paare": [
+        [
+          "Nach **§ 97 BetrVG** kann der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung mitwirken bzw. unter bestimmten Voraussetzungen mitbestimmen.",
+          "Nach **§ 97 BetrVG** hat der Arbeitgeber mit dem Betriebsrat über die Errichtung und Ausstattung betrieblicher Bildungseinrichtungen, die Einführung betrieblicher Berufsbildungsmaßnahmen und die Teilnahme an außerbetrieblichen Maßnahmen zu beraten (Beratungsrecht, Abs. 1); mitzubestimmen hat der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung nur, wenn der Arbeitgeber Maßnahmen geplant oder durchgeführt hat, durch die sich die Tätigkeit der betroffenen Arbeitnehmenden ändert und ihre beruflichen Kenntnisse und Fähigkeiten nicht mehr ausreichen (Abs. 2)."
+        ],
+        [
+          "Ergänzend dazu greift bei der **Einstellung** neuer Auszubildender das allgemeine Mitbestimmungsrecht nach **§ 99 BetrVG**:",
+          "Ergänzend dazu greift bei der **Einstellung** neuer Auszubildender das Mitbestimmungsrecht bei personellen Einzelmaßnahmen nach **§ 99 BetrVG**, das nicht zu den Berufsbildungsvorschriften der §§ 96 bis 98 BetrVG gehört:"
+        ],
+        [
+          "verweigert er sie form- und fristgerecht, kann der Arbeitgeber die Zustimmung durch das Arbeitsgericht ersetzen lassen.",
+          "er kann die Zustimmung nur aus den in § 99 Abs. 2 BetrVG genannten Gründen verweigern und muss dies unter Angabe von Gründen innerhalb einer Woche nach der Unterrichtung schriftlich mitteilen, sonst gilt die Zustimmung als erteilt (Zustimmungsfiktion, Abs. 3). Verweigert er die Zustimmung form- und fristgerecht, kann der Arbeitgeber beim Arbeitsgericht beantragen, sie zu ersetzen (Abs. 4; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Das Betriebsverfassungsgesetz (BetrVG), insbesondere die §§ 96–99.",
+          "**Antwort:** Das Betriebsverfassungsgesetz (BetrVG), insbesondere die §§ 96 bis 98 (Berufsbildung) und § 99 (Einstellung als personelle Einzelmaßnahme)."
+        ],
+        [
+          "**Antwort:** Mitwirkungs- bzw. Mitbestimmungsrechte des Betriebsrats bei der Einführung von Maßnahmen der betrieblichen Berufsbildung.",
+          "**Antwort:** Ein Beratungsrecht des Betriebsrats zu betrieblichen Bildungseinrichtungen und Berufsbildungsmaßnahmen; Mitbestimmung nur, wenn sich Tätigkeiten ändern und die vorhandenen Kenntnisse nicht mehr ausreichen."
+        ],
+        [
+          "- § 97 BetrVG ↔ Mitwirkung/Mitbestimmung bei der Einführung von Berufsbildungsmaßnahmen",
+          "- § 97 BetrVG ↔ Beratungsrecht bei Bildungseinrichtungen und Berufsbildungsmaßnahmen; Mitbestimmung nur bei geänderten Tätigkeiten"
+        ],
+        [
+          "**Erklärung:** Die vier Vorschriften decken unterschiedliche Phasen und Aspekte der betrieblichen Berufsbildung ab.",
+          "**Erklärung:** Die vier Vorschriften decken unterschiedliche Phasen und Aspekte der betrieblichen Berufsbildung ab; die Vorschrift zur Einstellung gehört dabei nicht zu den Berufsbildungsvorschriften, sondern regelt personelle Einzelmaßnahmen."
+        ],
+        [
+          "**Erklärung:** § 99 BetrVG gewährt dem Betriebsrat ein echtes Zustimmungsverweigerungsrecht, nicht nur eine unverbindliche Anhörung.",
+          "**Erklärung:** § 99 BetrVG gewährt dem Betriebsrat ein echtes Zustimmungsverweigerungsrecht, nicht nur eine unverbindliche Anhörung; verweigert er die Zustimmung nicht innerhalb einer Woche schriftlich, gilt sie als erteilt."
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/2.3-auswahl-ausbildungsvertrag.md",
+      "paare": [
+        [
+          "Ist die Auswahl getroffen, bereitet die Ausbildungsleitung den **Berufsausbildungsvertrag** vor. § 11 BBiG schreibt vor, dass der Vertrag **schriftlich** abzuschließen ist und mindestens folgende Angaben enthalten muss: Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung (unter Bezug auf den beigefügten betrieblichen Ausbildungsplan), Beginn und Dauer der Berufsausbildung, Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, Dauer der regelmäßigen täglichen Ausbildungszeit, Dauer der **Probezeit**, Zahlung und Höhe der Ausbildungsvergütung, Dauer des Urlaubs sowie Voraussetzungen, unter denen der Vertrag gekündigt werden kann. Die Probezeit muss nach **§ 20 BBiG** mindestens einen und darf höchstens vier Monate betragen.",
+          "Ist die Auswahl getroffen, bereitet die Ausbildungsleitung den **Berufsausbildungsvertrag** vor. Das BBiG schreibt für den Abschluss des Vertrags selbst keine bestimmte Form vor; § 11 BBiG verpflichtet die Ausbildenden aber, den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Berufsausbildung, in **Textform** abzufassen (Vertragsabfassung). Die Vertragsabfassung ist den Auszubildenden und bei Minderjährigen auch ihren gesetzlichen Vertreter:innen auszuhändigen oder, bei elektronischer Abfassung, so zu übermitteln, dass sie gespeichert und ausgedruckt werden kann; der Empfang ist nachzuweisen, und Vertragsabfassung samt Empfangsnachweis sind nach Ablauf des Jahres, in dem das Ausbildungsverhältnis endet, drei Jahre aufzubewahren; bei Änderungen des Vertrags gilt dasselbe (§ 11 Abs. 1 bis 3 BBiG, Stand Oktober 2026, vor Verwendung prüfen). Aufzunehmen sind mindestens: Name und Anschrift der Ausbildenden und der Auszubildenden (bei Minderjährigen auch ihrer gesetzlichen Vertreter:innen), Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung (in der Praxis unter Bezug auf den betrieblichen Ausbildungsplan), Beginn und Dauer der Berufsausbildung, die Ausbildungsstätte und Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer der regelmäßigen täglichen Ausbildungszeit, die Dauer der **Probezeit**, Zahlung und Höhe der Ausbildungsvergütung, die Vergütung oder der Ausgleich von Überstunden, die Dauer des Urlaubs, die Voraussetzungen, unter denen der Vertrag gekündigt werden kann, ein allgemeiner Hinweis auf anzuwendende Tarifverträge sowie Betriebs- oder Dienstvereinbarungen und die Form des Ausbildungsnachweises. Die Probezeit muss nach **§ 20 BBiG** mindestens einen und darf höchstens vier Monate betragen."
+        ],
+        [
+          "anzumelden (§ 34 BBiG).",
+          "anzumelden, also die Eintragung zu beantragen (Antrag nach § 36 Abs. 1 BBiG; das Verzeichnis richtet die zuständige Stelle nach § 34 BBiG ein). Dem Antrag sind Kopien der Vertragsabfassung und des Empfangsnachweises beizufügen."
+        ],
+        [
+          "Voraussetzung ist u. a. die Zustimmung der bzw. des Auszubildenden (bei Minderjährigen zusätzlich der gesetzlichen Vertreter) sowie eine entsprechende Anpassung des betrieblichen Ausbildungsplans, damit der im Ausland vermittelte Ausbildungsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist.",
+          "Das Gesetz nennt als Voraussetzungen nur, dass der Abschnitt dem Ausbildungsziel dient und die Gesamtdauer ein Viertel der in der Ausbildungsordnung festgelegten Ausbildungsdauer nicht überschreiten soll; eine Zustimmung der Auszubildenden oder ihrer gesetzlichen Vertreter:innen nennt § 2 Abs. 3 BBiG nicht. Sie ergibt sich aber aus dem Vertragsrecht: Ausbildungsstätte und Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte sind Angaben der Vertragsabfassung (§ 11 Abs. 1 Satz 2 Nr. 4 BBiG); sieht der Vertrag einen Auslandsabschnitt noch nicht vor, ist er eine Vertragsänderung, die beide Seiten vereinbaren (bei Minderjährigen unter Einbeziehung der gesetzlichen Vertreter:innen) und in Textform abfassen (§ 11 Abs. 3 BBiG). Der Abschnitt wird außerdem im betrieblichen Ausbildungsplan verankert, damit der im Ausland vermittelte Ausbildungsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist. Die zuständige Stelle überwacht und fördert Auslandsaufenthalte; dauert ein Abschnitt im Ausland mehr als acht Wochen, ist dafür ein mit der zuständigen Stelle abgestimmter Plan erforderlich (§ 76 Abs. 3 BBiG; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** In welcher Rechtsvorschrift sind die Mindestinhalte des Berufsausbildungsvertrags geregelt?",
+          "**Frage:** In welcher Rechtsvorschrift sind die Mindestangaben für die Abfassung des Berufsausbildungsvertrags geregelt?"
+        ],
+        [
+          "**Frage:** Nenne drei Mindestinhalte, die der Berufsausbildungsvertrag laut § 11 BBiG enthalten muss.",
+          "**Frage:** Nenne drei Mindestangaben, die die Vertragsabfassung laut § 11 BBiG enthalten muss."
+        ],
+        [
+          "**Frage:** In welcher Form muss der Berufsausbildungsvertrag abgeschlossen werden?",
+          "**Frage:** In welcher Form haben Ausbildende den wesentlichen Inhalt des Berufsausbildungsvertrags abzufassen?"
+        ],
+        [
+          "**Antwort:** Schriftlich (§ 11 Abs. 1 BBiG).",
+          "**Antwort:** In Textform, unverzüglich nach Vertragsschluss und spätestens vor Beginn der Ausbildung (§ 11 Abs. 1 BBiG); der Vertragsschluss selbst ist an keine Form gebunden."
+        ],
+        [
+          "**Frage:** Wessen Zustimmung ist für einen Auslandsaufenthalt während der Ausbildung u. a. erforderlich?",
+          "**Frage:** Was ist bei einem Ausbildungsabschnitt im Ausland erforderlich, der länger als acht Wochen dauert?"
+        ],
+        [
+          "**Antwort:** Die Zustimmung der bzw. des Auszubildenden (bei Minderjährigen zusätzlich der gesetzlichen Vertreter).",
+          "**Antwort:** Ein mit der zuständigen Stelle abgestimmter Plan für den Auslandsabschnitt."
+        ],
+        [
+          "- § 11 BBiG ↔ Regelt die Mindestinhalte des Ausbildungsvertrags",
+          "- § 11 BBiG ↔ Regelt die Vertragsabfassung mit den Mindestangaben des Ausbildungsvertrags"
+        ],
+        [
+          "- § 20 BBiG ↔ Regelt Dauer und Zweck der Probezeit",
+          "- § 20 BBiG ↔ Regelt die Dauer der Probezeit"
+        ],
+        [
+          "- § 34 BBiG ↔ Regelt die Eintragung ins Verzeichnis der Berufsausbildungsverhältnisse",
+          "- § 34 BBiG ↔ Regelt das Verzeichnis der Berufsausbildungsverhältnisse bei der zuständigen Stelle"
+        ],
+        [
+          "**Text:** Der Berufsausbildungsvertrag muss laut § 11 BBiG ___schriftlich___ abgeschlossen werden.",
+          "**Text:** Den wesentlichen Inhalt des Berufsausbildungsvertrags müssen Ausbildende laut § 11 BBiG in ___Textform___ abfassen."
+        ],
+        [
+          "**Erklärung:** Die Schriftform dient der Rechtssicherheit für beide Vertragsparteien.",
+          "**Erklärung:** Die Textform genügt, auch elektronisch; wichtig ist, dass der Inhalt festgehalten, ausgehändigt und der Empfang nachgewiesen wird. Der Vertragsschluss selbst ist an keine Form gebunden."
+        ],
+        [
+          "**Erklärung:** Die Eintragung ist in § 34 BBiG gesetzlich vorgeschrieben und vom Ausbildenden zu veranlassen.",
+          "**Erklärung:** Das Verzeichnis der Berufsausbildungsverhältnisse ist in § 34 BBiG gesetzlich vorgesehen, und die Ausbildenden sind verpflichtet, die Eintragung unverzüglich zu beantragen."
+        ],
+        [
+          "**Frage:** Ein Auszubildender zum Fachinformatiker Systemintegration bei Kelvinar möchte im dritten Ausbildungsjahr für sechs Wochen",
+          "**Frage:** Eine Auszubildende zur Fachinformatikerin Systemintegration bei Kelvinar möchte im dritten Ausbildungsjahr für sechs Wochen"
+        ],
+        [
+          "für sechs Wochen einen Ausbildungsabschnitt bei einem Partnerunternehmen in Frankreich absolvieren. Was gilt hier laut § 2 Abs. 3 BBiG?",
+          "für zehn Wochen einen Ausbildungsabschnitt bei einem Partnerunternehmen in Frankreich absolvieren. Was gilt hier nach dem BBiG?"
+        ],
+        [
+          "- [x] Der Auslandsaufenthalt ist grundsätzlich möglich, wenn er dem Ausbildungsziel dient und ein Viertel der Ausbildungsdauer nicht überschreitet.",
+          "- [x] Er ist grundsätzlich möglich, wenn er dem Ausbildungsziel dient und ein Viertel der Ausbildungsdauer nicht überschreitet; ab mehr als acht Wochen braucht es einen mit der zuständigen Stelle abgestimmten Plan."
+        ],
+        [
+          "- [ ] Auslandsaufenthalte sind während der Berufsausbildung generell unzulässig.",
+          "- [ ] Auslandsaufenthalte sind während der Berufsausbildung generell unzulässig, weil die Ausbildung nach dem Vertrag ausschließlich im Inland und im Ausbildungsbetrieb stattfinden muss und die Kammer sie nicht überwachen darf."
+        ],
+        [
+          "- [ ] Der Auslandsaufenthalt darf beliebig lange dauern, solange die Kosten vom Auszubildenden selbst getragen werden.",
+          "- [ ] Der Auslandsaufenthalt darf beliebig lange dauern und braucht keine Abstimmung mit der zuständigen Stelle, solange der Betrieb zustimmt, die Berufsschule informiert ist und die Kosten von den Auszubildenden selbst getragen werden."
+        ],
+        [
+          "- [ ] Ein Auslandsaufenthalt ist ausschließlich nach bestandener Abschlussprüfung möglich.",
+          "- [ ] Ein Auslandsaufenthalt ist ausschließlich nach bestandener Abschlussprüfung möglich, weil vor der Prüfung alle Ausbildungsinhalte im Inland vermittelt werden müssen und Auslandsabschnitte auf die Ausbildungszeit nicht angerechnet werden."
+        ],
+        [
+          "**Erklärung:** § 2 Abs. 3 BBiG erlaubt Ausbildungsabschnitte im Ausland bis zu einem Viertel der Ausbildungsdauer, wenn dies dem Ausbildungsziel dient und die erforderliche Zustimmung vorliegt.",
+          "**Erklärung:** § 2 Abs. 3 BBiG erlaubt Ausbildungsabschnitte im Ausland, wenn dies dem Ausbildungsziel dient; ihre Gesamtdauer soll ein Viertel der Ausbildungsdauer nicht überschreiten (bei dreijähriger Ausbildung neun Monate). Dauert ein Abschnitt länger als acht Wochen, ist zusätzlich ein mit der zuständigen Stelle abgestimmter Plan erforderlich."
+        ],
+        [
+          "des Berufsbildungsgesetzes (BBiG) §§ 2 Abs. 3/11/20/34 und des Allgemeinen Gleichbehandlungsgesetzes (AGG)",
+          "des Berufsbildungsgesetzes (BBiG) §§ 2 Abs. 3/11/20/34/36, des Dritten Buches Sozialgesetzbuch (SGB III) §§ 54a und 76 und des Allgemeinen Gleichbehandlungsgesetzes (AGG)"
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/fallaufgaben.md",
+      "paare": [
+        [
+          "an einem mehrwöchigen Auslandsaufenthalt im zweiten Ausbildungsjahr signalisiert",
+          "an einem zwölfwöchigen Auslandsaufenthalt im zweiten Ausbildungsjahr signalisiert"
+        ],
+        [
+          "Erläutern Sie, unter welchen Voraussetzungen der gewünschte Auslandsaufenthalt im zweiten Ausbildungsjahr grundsätzlich möglich ist.",
+          "Erläutern Sie, unter welchen Voraussetzungen der gewünschte Auslandsaufenthalt im zweiten Ausbildungsjahr grundsätzlich möglich ist und was wegen seiner Dauer mit der zuständigen Stelle abzustimmen ist."
+        ],
+        [
+          "Nennen Sie die wesentlichen Mindestinhalte, die der Berufsausbildungsvertrag für die drei ausgewählten Bewerbenden enthalten muss",
+          "Nennen Sie die wesentlichen Mindestangaben, die die Vertragsabfassung zum Berufsausbildungsvertrag für die drei ausgewählten Bewerbenden enthalten muss"
+        ],
+        [
+          "Teilaufgabe 3: Der Vertrag muss u. a. Beginn und Dauer der Ausbildung, den beigefügten betrieblichen Ausbildungsplan, Dauer der Probezeit, Höhe der Ausbildungsvergütung und Kündigungsvoraussetzungen enthalten (§ 11 BBiG); die Eintragung erfolgt unverzüglich nach Vertragsabschluss durch den Ausbildenden bei der zuständigen Stelle (IHK) im Verzeichnis der Berufsausbildungsverhältnisse (§ 34 BBiG).",
+          "Teilaufgabe 3: Der wesentliche Vertragsinhalt ist unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abzufassen und auszuhändigen (§ 11 BBiG); die Vertragsabfassung muss u. a. Beginn und Dauer der Ausbildung, Art, sachliche und zeitliche Gliederung (in der Praxis durch den betrieblichen Ausbildungsplan), Dauer der Probezeit, Höhe der Ausbildungsvergütung, Urlaubsdauer und Kündigungsvoraussetzungen enthalten. Den Antrag auf Eintragung in das Verzeichnis der Berufsausbildungsverhältnisse stellen die Ausbildenden unverzüglich nach Vertragsabschluss bei der zuständigen Stelle (IHK; § 36 Abs. 1, § 34 BBiG)."
+        ],
+        [
+          "Teilaufgabe 4: Der Auslandsaufenthalt ist nach § 2 Abs. 3 BBiG möglich, wenn er dem Ausbildungsziel dient, ein Viertel der Ausbildungsdauer nicht überschreitet, der betriebliche Ausbildungsplan entsprechend angepasst wird und die Zustimmung der Auszubildenden (bzw. bei Minderjährigkeit der gesetzlichen Vertreter) vorliegt.",
+          "Teilaufgabe 4: Der Auslandsaufenthalt ist nach § 2 Abs. 3 BBiG möglich, wenn er dem Ausbildungsziel dient und die Gesamtdauer der Auslandsabschnitte ein Viertel der Ausbildungsdauer nicht überschreiten soll (bei dreijähriger Ausbildung neun Monate). Eine Zustimmung nennt § 2 Abs. 3 BBiG nicht; sie ergibt sich als Vertragsänderung (Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte sind Vertragsangaben, Änderungen sind in Textform abzufassen, § 11 BBiG), bei Minderjährigkeit unter Einbeziehung der gesetzlichen Vertreter:innen; außerdem wird der Abschnitt im betrieblichen Ausbildungsplan verankert. Weil die zwölf Wochen länger als acht Wochen dauern, ist nach § 76 Abs. 3 BBiG ein mit der zuständigen Stelle abgestimmter Plan erforderlich."
+        ]
+      ]
+    },
+    {
+      "datei": "hf2/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Nach § 97 BetrVG kann der Betriebsrat bei der Einführung von Maßnahmen der betrieblichen Berufsbildung mitwirken bzw. unter bestimmten Voraussetzungen mitbestimmen.",
+          "Erwartung: Nach § 97 BetrVG hat der Arbeitgeber mit dem Betriebsrat über betriebliche Bildungseinrichtungen und die Einführung von Berufsbildungsmaßnahmen zu beraten (Beratungsrecht); mitzubestimmen hat der Betriebsrat nur, wenn sich durch geplante Maßnahmen Tätigkeiten ändern und die vorhandenen Kenntnisse nicht mehr ausreichen."
+        ],
+        [
+          "Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen.",
+          "Erwartung: Bei der Einstellung ist der Betriebsrat nach § 99 BetrVG in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmenden vorab zu unterrichten und um Zustimmung zu ersuchen; verweigert er sie nicht innerhalb einer Woche schriftlich unter Angabe von Gründen, gilt die Zustimmung als erteilt."
+        ],
+        [
+          "Erwartung: Der Berufsausbildungsvertrag ist schriftlich abzuschließen.",
+          "Erwartung: Das BBiG schreibt für den Vertragsschluss selbst keine Form vor; der wesentliche Vertragsinhalt ist aber unverzüglich, spätestens vor Beginn der Ausbildung, in Textform abzufassen und auszuhändigen."
+        ],
+        [
+          "Erwartung: Der Vertrag nennt Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung, unter Bezug auf den beigefügten betrieblichen Ausbildungsplan.",
+          "Erwartung: Die Vertragsabfassung nennt Art, sachliche und zeitliche Gliederung sowie Ziel der Berufsausbildung, in der Praxis unter Bezug auf den betrieblichen Ausbildungsplan."
+        ],
+        [
+          "Erwartung: Der Vertrag nennt Beginn und Dauer der Berufsausbildung sowie die Dauer der regelmäßigen täglichen Ausbildungszeit.",
+          "Erwartung: Die Vertragsabfassung nennt Beginn und Dauer der Berufsausbildung sowie die Dauer der regelmäßigen täglichen Ausbildungszeit."
+        ],
+        [
+          "Erwartung: Der Vertrag nennt die Dauer der Probezeit sowie Zahlung und Höhe der Ausbildungsvergütung.",
+          "Erwartung: Die Vertragsabfassung nennt die Dauer der Probezeit sowie Zahlung und Höhe der Ausbildungsvergütung."
+        ],
+        [
+          "Erwartung: Der Vertrag nennt Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer des Urlaubs und die Voraussetzungen, unter denen der Vertrag gekündigt werden kann.",
+          "Erwartung: Die Vertragsabfassung nennt Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte, die Dauer des Urlaubs und die Voraussetzungen, unter denen der Vertrag gekündigt werden kann; hinzu kommen u. a. die Vergütung oder der Ausgleich von Überstunden, ein allgemeiner Hinweis auf anzuwendende Tarifverträge und Betriebs- oder Dienstvereinbarungen und die Form des Ausbildungsnachweises."
+        ],
+        [
+          "Erwartung: Die Ausbildenden sind verpflichtet, den Berufsausbildungsvertrag unverzüglich bei der zuständigen Stelle zur Eintragung anzumelden (§ 34 BBiG).",
+          "Erwartung: Die Ausbildenden sind verpflichtet, die Eintragung des Berufsausbildungsvertrags unverzüglich nach Vertragsabschluss bei der zuständigen Stelle zu beantragen (§ 36 BBiG)."
+        ],
+        [
+          "Erwartung: Voraussetzung ist u. a. die Zustimmung der bzw. des Auszubildenden, bei Minderjährigen zusätzlich der gesetzlichen Vertreter.",
+          "Erwartung: Eine Zustimmung der Auszubildenden nennt § 2 Abs. 3 BBiG nicht; sie ergibt sich als Vertragsänderung (Ausbildungsmaßnahmen außerhalb der Ausbildungsstätte sind Vertragsangaben, Änderungen werden in Textform abgefasst), bei Minderjährigen unter Einbeziehung der gesetzlichen Vertreter:innen."
+        ],
+        [
+          "Erwartung: Der betriebliche Ausbildungsplan wird entsprechend angepasst, damit der Auslandsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist.",
+          "Erwartung: Der betriebliche Ausbildungsplan wird entsprechend angepasst, damit der Auslandsabschnitt sinnvoll in den Gesamtverlauf eingebettet ist.\n  - Erwartung: Dauert der Abschnitt im Ausland länger als acht Wochen, ist ein mit der zuständigen Stelle abgestimmter Plan erforderlich."
+        ],
+        [
+          "zu vorgelegten Situationsaufgaben oder Präsentationen aus HF2.",
+          "zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF2."
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+      "paare": [
+        [
+          "Während der Probezeit kann das Ausbildungsverhältnis von beiden Seiten jederzeit ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen gekündigt werden (§ 22 Abs. 1 BBiG).",
+          "Während der Probezeit kann das Ausbildungsverhältnis von beiden Seiten jederzeit ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen gekündigt werden (§ 22 Abs. 1 und 3 BBiG). Das ist nicht mit der „fristlosen“ Kündigung aus wichtigem Grund nach der Probezeit zu verwechseln (§ 22 Abs. 2 Nr. 1 BBiG), die einen wichtigen Grund und die schriftliche Angabe der Kündigungsgründe verlangt. Die Kündigung in der Probezeit muss dagegen schriftlich erfolgen; die elektronische Form ist ausgeschlossen, eine E-Mail genügt also nicht (§ 22 Abs. 3 BBiG). Wirksam wird sie erst mit dem Zugang (§ 130 BGB), bei Minderjährigen mit dem Zugang bei den gesetzlichen Vertreter:innen (§ 131 BGB); sie muss nach allgemeiner Auffassung deshalb noch innerhalb der Probezeit zugehen. Besondere Kündigungsverbote gelten auch in der Probezeit, etwa während einer Schwangerschaft, wenn dem Betrieb die Schwangerschaft bekannt ist oder innerhalb von zwei Wochen nach Zugang der Kündigung mitgeteilt wird (§ 17 MuSchG; Ausnahmen nur mit Zulässigerklärung der zuständigen Landesbehörde). Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "**Antwort:** Jederzeit, ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen (§ 22 Abs. 1 BBiG).",
+          "**Antwort:** Jederzeit, ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen, aber schriftlich (§ 22 Abs. 1 und 3 BBiG)."
+        ],
+        [
+          "- Probezeit ↔ Zeitraum zur gegenseitigen Prüfung, in dem fristlos gekündigt werden kann",
+          "- Probezeit ↔ Zeitraum zur gegenseitigen Prüfung, in dem ohne Kündigungsfrist gekündigt werden kann"
+        ],
+        [
+          "**Text:** Während der Probezeit kann das Ausbildungsverhältnis nach § 22 Abs. 1 BBiG jederzeit ___fristlos___ gekündigt werden, ohne dass Gründe angegeben werden müssen.",
+          "**Text:** Während der Probezeit kann das Ausbildungsverhältnis nach § 22 Abs. 1 BBiG jederzeit ohne Einhalten einer ___Kündigungsfrist___ gekündigt werden, ohne dass Gründe angegeben werden müssen."
+        ],
+        [
+          "**Erklärung:** § 22 Abs. 1 BBiG erlaubt beiden Seiten eine fristlose Kündigung ohne Begründung während der Probezeit.",
+          "**Erklärung:** Das BBiG erlaubt beiden Seiten die Kündigung während der Probezeit ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen; sie muss aber schriftlich erfolgen."
+        ],
+        [
+          "**Aussage:** Eine Kündigung während der Probezeit muss schriftlich begründet werden.",
+          "**Aussage:** Eine Kündigung während der Probezeit braucht einen Kündigungsgrund."
+        ],
+        [
+          "**Erklärung:** Nach § 22 Abs. 1 BBiG ist während der Probezeit weder eine Frist noch eine Begründung erforderlich.",
+          "**Erklärung:** Nach dem BBiG ist während der Probezeit weder eine Kündigungsfrist noch ein Kündigungsgrund erforderlich. Die Schriftform ist dagegen zwingend: Die Kündigung muss schriftlich erfolgen."
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/3.3-foerderung-lernschwierigkeiten.md",
+      "paare": [
+        [
+          "Reichen innerbetriebliche Maßnahmen nicht aus, kommen **ausbildungsunterstützende Hilfen (abH)** der Agentur für Arbeit infrage: ergänzender Stütz- und Förderunterricht außerhalb der betrieblichen Arbeitszeit, der insbesondere schulische Defizite in Fachtheorie oder Deutsch ausgleichen soll. Zeigt sich trotz aller Unterstützung",
+          "Reichen innerbetriebliche Maßnahmen nicht aus, kommen **ausbildungsunterstützende Hilfen** infrage; so nennt die AEVO Hilfen, die die Ausbildung von außen unterstützen. Als Förderinstrument der Agentur für Arbeit gibt es dafür heute die **Assistierte Ausbildung** (§§ 74, 75 SGB III): Die Agentur für Arbeit kann förderungsberechtigte junge Menschen und deren Ausbildungsbetriebe fördern, wenn die jungen Menschen ohne Unterstützung eine Berufsausbildung nicht fortsetzen können oder voraussichtlich Schwierigkeiten haben werden, sie abzuschließen. Die Begleitung während der Ausbildung umfasst unter anderem sozialpädagogische Begleitung, Maßnahmen zur Stabilisierung des Ausbildungsverhältnisses, Angebote zum Abbau von Bildungs- und Sprachdefiziten und Angebote zur Vermittlung fachtheoretischer Kenntnisse; die Agentur für Arbeit entscheidet über die Förderung, legt die nötigen Elemente nach einer Beratung im Einzelfall fest und beauftragt Träger, die die Maßnahme durchführen; sie ist deshalb die erste Ansprechpartnerin für Betrieb und Auszubildende (Antrag und Ablauf bei der örtlichen Agentur erfragen). Die Verantwortung für die Durchführung der Ausbildung bleibt beim Betrieb. Die früheren „ausbildungsbegleitenden Hilfen“ (abH), also ergänzender Stütz- und Förderunterricht, sind durch die Gesetzesänderung von 2020 in der Assistierten Ausbildung aufgegangen (Altmaßnahmen liefen bis 2022 aus); der Name abH ist in der Praxis aber noch gebräuchlich. Stand Oktober 2026, vor Verwendung prüfen.\n\nZeigt sich trotz aller Unterstützung"
+        ],
+        [
+          "kann die Ausbildungsdauer nach § 8 Abs. 2 BBiG auf Antrag verlängert werden — ebenso, wenn die Abschlussprüfung nicht bestanden wurde. Kelvinar prüft eine Verlängerung stets rechtzeitig vor Ablauf der regulären Ausbildungszeit, nicht erst kurz vor der Prüfung.",
+          "kann die zuständige Stelle die Ausbildungsdauer nach § 8 Abs. 2 BBiG verlängern. Das ist nur in Ausnahmefällen und nur auf Antrag der Auszubildenden möglich, und nur, wenn die Verlängerung erforderlich ist, um das Ausbildungsziel zu erreichen; die Ausbildenden sind vor der Entscheidung zu hören. Davon zu unterscheiden ist die nicht bestandene Abschlussprüfung: Dann verlängert sich das Berufsausbildungsverhältnis auf Verlangen der Auszubildenden bis zur nächstmöglichen Wiederholungsprüfung, höchstens um ein Jahr (§ 21 Abs. 3 BBiG). Kelvinar prüft rechtzeitig vor Ablauf der regulären Ausbildungszeit, ob den Auszubildenden ein Antrag auf Verlängerung nahegelegt werden sollte, nicht erst kurz vor der Prüfung; die Entscheidung über den Antrag liegt bei den Auszubildenden und der zuständigen Stelle. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "Dazu zählen **Zusatzqualifikationen** (§ 5 Abs. 2 Nr. 4 BBiG) wie ein Modul zur SPS-Programmierung",
+          "Dazu zählen **Zusatzqualifikationen**: Eine Ausbildungsordnung kann vorsehen, dass über das Ausbildungsberufsbild hinaus zusätzliche berufliche Fertigkeiten, Kenntnisse und Fähigkeiten vermittelt werden (§ 5 Abs. 2 Nr. 6 BBiG); sie werden gesondert geprüft und bescheinigt, das Ergebnis der Abschlussprüfung bleibt davon unberührt (§ 49 BBiG). Ob eine solche Zusatzqualifikation möglich ist, hängt davon ab, ob die jeweilige Ausbildungsordnung sie vorsieht; darüber hinaus kann ein Betrieb freiwillig weitere Angebote machen, etwa ein Modul zur SPS-Programmierung"
+        ],
+        [
+          "Nach § 8 Abs. 1 BBiG kann die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildendem und Ausbildendem gekürzt werden, etwa wenn bereits einschlägige Vorkenntnisse (z. B. eine vorangegangene Berufsausbildung oder ein Studienabbruch mit fachlicher Nähe) vorliegen.",
+          "Nach § 8 Abs. 1 BBiG kürzt die zuständige Stelle die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildendem und Ausbildendem, wenn zu erwarten ist, dass das Ausbildungsziel in der gekürzten Dauer erreicht wird. Ein Anlass können bereits einschlägige Vorkenntnisse sein (z. B. ein Studienabbruch mit fachlicher Nähe), aber auch überdurchschnittliche Leistungen; Vorkenntnisse sind nicht Voraussetzung. Davon zu unterscheiden ist die Anrechnung beruflicher Vorbildung auf die Ausbildungsdauer (etwa eines Bildungsgangs an einer berufsbildenden Schule oder einer Berufsausbildung in einer sonstigen Einrichtung) nach § 7 BBiG; ob die zuständige Stelle eine Vorbildung als Anrechnung oder als Verkürzung behandelt, richtet sich nach der Ausbildungsordnung und der Praxis der Stelle. Die Anrechnung setzt ebenfalls einen gemeinsamen Antrag voraus, und der Anrechnungszeitraum muss in ganzen Monaten durch sechs teilbar sein. Die Vorschriften der §§ 7, 8 und 45 BBiG gelten für Kelvinar als Industriebetrieb im IHK-Bereich; für Berufe der Handwerksordnung gilt insoweit die Handwerksordnung (§ 3 Abs. 3 BBiG)."
+        ],
+        [
+          "Unabhängig davon kann die zuständige IHK Auszubildende nach § 45 Abs. 1 BBiG **vorzeitig zur Abschlussprüfung** zulassen, wenn deren Leistungen dies rechtfertigen",
+          "Unabhängig davon kann die zuständige IHK Auszubildende nach Anhörung der Ausbildenden und der Berufsschule (§ 45 Abs. 1 BBiG) **vorzeitig zur Abschlussprüfung** zulassen, wenn deren Leistungen dies rechtfertigen"
+        ],
+        [
+          "Solche Zusatzangebote steigern die spätere Beschäftigungsfähigkeit und wirken zugleich motivierend.",
+          "Solche Zusatzangebote steigern die spätere Beschäftigungsfähigkeit und wirken zugleich motivierend. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "da eine verfrühte Zulassung ohne tragfähige fachliche Grundlage das Prüfungsrisiko für die Auszubildenden unnötig erhöht.",
+          "da eine verfrühte Zulassung ohne tragfähige fachliche Grundlage das Prüfungsrisiko für die Auszubildenden unnötig erhöht. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "**Frage:** Was sind ausbildungsunterstützende Hilfen (abH)?",
+          "**Frage:** Was versteht man unter ausbildungsunterstützenden Hilfen, und wie heißt die Förderung der Agentur für Arbeit dafür heute?"
+        ],
+        [
+          "**Antwort:** Ergänzender Stütz- und Förderunterricht der Agentur für Arbeit außerhalb der betrieblichen Arbeitszeit, u. a. zum Ausgleich schulischer Defizite.",
+          "**Antwort:** Hilfen, die Auszubildende bei Lernschwierigkeiten von außen unterstützen (Begriff der AEVO). Die Agentur für Arbeit fördert sie heute als Assistierte Ausbildung (früher: ausbildungsbegleitende Hilfen, abH), u. a. mit sozialpädagogischer Begleitung und dem Abbau von Bildungs- und Sprachdefiziten."
+        ],
+        [
+          "**Antwort:** Wenn das Ausbildungsziel in der vorgesehenen Zeit voraussichtlich nicht erreicht wird, oder wenn die Abschlussprüfung nicht bestanden wurde.",
+          "**Antwort:** Nur in Ausnahmefällen, auf Antrag der Auszubildenden und wenn die Verlängerung erforderlich ist, um das Ausbildungsziel zu erreichen (die Ausbildenden werden vorher gehört). Nach einer nicht bestandenen Abschlussprüfung gilt eine eigene Regel: Verlängerung auf Verlangen bis zur Wiederholungsprüfung, höchstens um ein Jahr."
+        ],
+        [
+          "**Frage:** In welchem Paragrafen des BBiG sind Zusatzqualifikationen verankert?",
+          "**Frage:** In welchem Paragrafen des BBiG ist geregelt, dass eine Ausbildungsordnung Zusatzqualifikationen vorsehen kann?"
+        ],
+        [
+          "**Antwort:** § 5 Abs. 2 Nr. 4 BBiG.",
+          "**Antwort:** § 5 Abs. 2 Nr. 6 BBiG."
+        ],
+        [
+          "**Antwort:** Auf gemeinsamen Antrag von Auszubildendem und Ausbildendem.",
+          "**Antwort:** Auf gemeinsamen Antrag von Auszubildendem und Ausbildendem, wenn zu erwarten ist, dass das Ausbildungsziel in der kürzeren Zeit erreicht wird."
+        ],
+        [
+          "**Antwort:** Z. B. bereits vorhandene einschlägige Vorkenntnisse, etwa aus einer vorangegangenen Berufsausbildung.",
+          "**Antwort:** Z. B. bereits vorhandene einschlägige Vorkenntnisse (etwa ein Studienabbruch mit fachlicher Nähe) oder überdurchschnittliche Leistungen; entscheidend ist, dass das Ausbildungsziel in kürzerer Zeit zu erwarten ist."
+        ],
+        [
+          "**Frage:** Wer bietet ausbildungsunterstützende Hilfen (abH) an?",
+          "**Frage:** Welche Stelle fördert die Assistierte Ausbildung (früher: ausbildungsbegleitende Hilfen, abH) für Auszubildende mit Lernschwierigkeiten?"
+        ],
+        [
+          "**Erklärung:** Ausbildungsunterstützende Hilfen sind ein Angebot der Agentur für Arbeit, das ergänzenden Stütz- und Förderunterricht bereitstellt.",
+          "**Erklärung:** Die Assistierte Ausbildung ist ein Förderangebot der Agentur für Arbeit; sie unterstützt Auszubildende und Betriebe, u. a. mit sozialpädagogischer Begleitung und dem Abbau von Bildungs- und Sprachdefiziten."
+        ],
+        [
+          "- Verlängerung der Ausbildungszeit ↔ § 8 Abs. 2 BBiG",
+          "- Verlängerung der Ausbildungszeit im Ausnahmefall auf Antrag der Auszubildenden ↔ § 8 Abs. 2 BBiG"
+        ],
+        [
+          "- Verkürzung der Ausbildungsdauer ↔ § 8 Abs. 1 BBiG",
+          "- Verkürzung der Ausbildungsdauer auf gemeinsamen Antrag ↔ § 8 Abs. 1 BBiG"
+        ],
+        [
+          "- Zusatzqualifikationen ↔ § 5 Abs. 2 Nr. 4 BBiG",
+          "- Zusatzqualifikationen in der Ausbildungsordnung ↔ § 5 Abs. 2 Nr. 6 BBiG"
+        ],
+        [
+          "**Erklärung:** Jedes Instrument der Ausbildungsgestaltung hat eine eigene gesetzliche Grundlage im BBiG.",
+          "**Erklärung:** Jedes Instrument der Ausbildungsgestaltung hat eine eigene gesetzliche Grundlage im BBiG. Nach einer nicht bestandenen Abschlussprüfung gilt eine andere Regel als bei der Verlängerung im Ausnahmefall: Das Ausbildungsverhältnis verlängert sich auf Verlangen der Auszubildenden bis zur Wiederholungsprüfung, höchstens um ein Jahr."
+        ],
+        [
+          "**Text:** Reichen innerbetriebliche Fördermaßnahmen nicht aus, können ___ausbildungsunterstützende Hilfen___ der Agentur für Arbeit in Anspruch genommen werden.",
+          "**Text:** Reichen innerbetriebliche Fördermaßnahmen nicht aus, können ___ausbildungsunterstützende Hilfen___ eingesetzt werden, etwa die Assistierte Ausbildung der Agentur für Arbeit."
+        ],
+        [
+          "**Erklärung:** Ausbildungsunterstützende Hilfen (abH) ergänzen innerbetriebliche Maßnahmen bei anhaltenden Lernschwierigkeiten.",
+          "**Erklärung:** Ausbildungsunterstützende Hilfen (Begriff der AEVO) ergänzen innerbetriebliche Maßnahmen bei anhaltenden Lernschwierigkeiten; als Förderung der Agentur für Arbeit gibt es dafür die Assistierte Ausbildung, in der die früheren ausbildungsbegleitenden Hilfen (abH) aufgegangen sind."
+        ],
+        [
+          "**Erklärung:** Eine Verlängerung ist auch möglich, wenn absehbar ist, dass das Ausbildungsziel in der vorgesehenen Zeit voraussichtlich nicht erreicht wird — nicht nur nach einer nicht bestandenen Prüfung.",
+          "**Erklärung:** Eine Verlängerung kommt auch vor der Prüfung in Betracht: in Ausnahmefällen auf Antrag der Auszubildenden, wenn sie erforderlich ist, um das Ausbildungsziel zu erreichen; die Ausbildenden werden vorher gehört. Nach einer nicht bestandenen Abschlussprüfung verlängert sich das Ausbildungsverhältnis dagegen auf Verlangen der Auszubildenden bis zur Wiederholungsprüfung, höchstens um ein Jahr."
+        ],
+        [
+          "- [x] Eine Verkürzung setzt in der Regel einschlägige Vorkenntnisse voraus.",
+          "- [x] Eine Verkürzung auf gemeinsamen Antrag setzt voraus, dass das Ausbildungsziel in der kürzeren Zeit zu erwarten ist."
+        ],
+        [
+          "**Erklärung:** Zusatzqualifikationen sind ein freiwilliges Zusatzangebot, keine Pflicht; Verkürzung und vorzeitige Zulassung erfordern jeweils eine fundierte, dokumentierte Einschätzung.",
+          "**Erklärung:** Zusatzqualifikationen sind ein freiwilliges Zusatzangebot, keine Pflicht für alle Auszubildenden; eine Verkürzung auf gemeinsamen Antrag setzt die Erwartung voraus, dass das Ausbildungsziel in kürzerer Zeit erreicht wird (Vorkenntnisse sind ein möglicher Anlass, aber keine Bedingung); Verkürzung und vorzeitige Zulassung erfordern jeweils eine fundierte, dokumentierte Einschätzung."
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/fallaufgaben.md",
+      "paare": [
+        [
+          "Teilaufgabe 3: Ausbildungsunterstützende Hilfen (abH) der Agentur für Arbeit können ergänzenden Stütz- und Förderunterricht in Fachtheorie bereitstellen.",
+          "Teilaufgabe 3 (Punkteraster: 2 Punkte für die Maßnahme, also ausbildungsunterstützende Hilfen bzw. Assistierte Ausbildung, 1 Punkt für die Agentur für Arbeit als zuständige Stelle, 2 Punkte für zwei passende Inhalte oder Merkmale; die Bezeichnung „abH“ gilt als gleichwertig): In Betracht kommen ausbildungsunterstützende Hilfen; als Förderung der Agentur für Arbeit ist das die Assistierte Ausbildung (früher: ausbildungsbegleitende Hilfen, abH), die sozialpädagogische Begleitung sowie Angebote zum Abbau von Bildungsdefiziten und zur Vermittlung fachtheoretischer Kenntnisse umfassen kann. Zuständige Stelle ist die Agentur für Arbeit, die nach Beratung des Auszubildenden die nötigen Elemente festlegt und einen Träger mit der Durchführung beauftragt; die Verantwortung für die Ausbildung bleibt beim Betrieb."
+        ],
+        [
+          "Teilaufgabe 4: Eine konkrete Verlängerung wäre zum jetzigen Zeitpunkt verfrüht",
+          "Teilaufgabe 4 (Punkteraster: 2 Punkte für das Urteil „verfrüht“ mit Begründung, 1 Punkt für Ausnahmefall und Antrag der Auszubildenden, 1 Punkt für die Entscheidung der zuständigen Stelle, 1 Punkt für die rechtzeitige Prüfung vor Ausbildungsende): Eine konkrete Verlängerung wäre zum jetzigen Zeitpunkt verfrüht"
+        ],
+        [
+          "eine Verlängerung ist erst relevant, wenn sich trotz Unterstützung abzeichnet, dass das Ausbildungsziel in der regulären Zeit nicht erreichbar ist, und sollte dann rechtzeitig vor Ausbildungsende geprüft werden.",
+          "eine Verlängerung ist erst relevant, wenn sich trotz Unterstützung abzeichnet, dass das Ausbildungsziel in der regulären Zeit nicht erreichbar ist, und sollte dann rechtzeitig vor Ausbildungsende geprüft werden. Sie ist nur in Ausnahmefällen möglich und setzt einen Antrag des Auszubildenden voraus, über den die zuständige Stelle nach Anhörung der Ausbildenden entscheidet; der Ausbilder kann sie nur anregen und mit dem Auszubildenden besprechen. Eine Verlängerung nach nicht bestandener Abschlussprüfung folgt einer eigenen Regel (auf Verlangen bis zur Wiederholungsprüfung, höchstens um ein Jahr) und ist hier nicht gemeint."
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Ausbildungsunterstützende Hilfen (abH) sind Angebote der Agentur für Arbeit.",
+          "Erwartung: Der Begriff „ausbildungsunterstützende Hilfen“ stammt aus der AEVO; als Förderung der Agentur für Arbeit gibt es dafür die Assistierte Ausbildung, in der die früheren ausbildungsbegleitenden Hilfen (abH) aufgegangen sind."
+        ],
+        [
+          "Erwartung: Sie bestehen aus ergänzendem Stütz- und Förderunterricht außerhalb der betrieblichen Arbeitszeit.",
+          "Erwartung: Die Assistierte Ausbildung kann sozialpädagogische Begleitung, Maßnahmen zur Stabilisierung des Ausbildungsverhältnisses und Angebote zur Vermittlung fachtheoretischer Kenntnisse umfassen."
+        ],
+        [
+          "Erwartung: Sie sollen insbesondere schulische Defizite in Fachtheorie oder Deutsch ausgleichen.",
+          "Erwartung: Die Assistierte Ausbildung soll Bildungs- und Sprachdefizite abbauen, etwa in Fachtheorie oder Deutsch, und richtet sich an förderungsberechtigte junge Menschen, die ohne Unterstützung voraussichtlich Schwierigkeiten haben, die Ausbildung abzuschließen."
+        ],
+        [
+          "Erwartung: Sie kommen infrage, wenn innerbetriebliche Maßnahmen nicht ausreichen.",
+          "Erwartung: Die Assistierte Ausbildung kommt infrage, wenn innerbetriebliche Maßnahmen nicht ausreichen; Ansprechpartnerin ist die Agentur für Arbeit, durchgeführt wird die Maßnahme von einem beauftragten Träger, die Verantwortung für die Ausbildung bleibt beim Betrieb."
+        ],
+        [
+          "Erwartung: Nach § 8 Abs. 1 BBiG kann die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildenden und Ausbildenden gekürzt werden.",
+          "Erwartung: Nach § 8 Abs. 1 BBiG kürzt die zuständige Stelle die Ausbildungsdauer auf gemeinsamen Antrag von Auszubildenden und Ausbildenden, wenn zu erwarten ist, dass das Ausbildungsziel in der gekürzten Dauer erreicht wird."
+        ],
+        [
+          "Erwartung: Ein typischer Anlass für die Verkürzung sind bereits vorhandene einschlägige Vorkenntnisse, z. B. eine vorangegangene Berufsausbildung oder ein Studienabbruch mit fachlicher Nähe.",
+          "Erwartung: Ein Anlass für die Verkürzung können bereits vorhandene einschlägige Vorkenntnisse sein, z. B. ein Studienabbruch mit fachlicher Nähe, aber auch überdurchschnittliche Leistungen; Vorkenntnisse sind keine Voraussetzung. Davon zu trennen ist die Anrechnung beruflicher Vorbildung auf die Ausbildungsdauer; ob eine Vorbildung angerechnet oder als Verkürzung behandelt wird, entscheidet die zuständige Stelle."
+        ],
+        [
+          "Erwartung: Die zuständige IHK kann Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zulassen, wenn deren Leistungen dies rechtfertigen.",
+          "Erwartung: Die zuständige IHK kann Auszubildende nach Anhörung der Ausbildenden und der Berufsschule (§ 45 Abs. 1 BBiG) vorzeitig zur Abschlussprüfung zulassen, wenn deren Leistungen dies rechtfertigen."
+        ],
+        [
+          "zu vorgelegten Situationsaufgaben oder Präsentationen aus HF3.",
+          "zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF3."
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/4.1-pruefungsvorbereitung-anmeldung.md",
+      "paare": [
+        [
+          "Bei den dreieinhalbjährigen Ausbildungen, die Kelvinar anbietet, ist die Abschlussprüfung meist als **gestreckte Abschlussprüfung** organisiert: Teil 1 findet bereits zur Mitte der Ausbildungszeit statt (z. B. bei den angehenden Elektroniker:innen für Betriebstechnik nach etwa 21 Monaten) und fließt mit einem festgelegten Gewichtungsanteil in das Gesamtergebnis ein, Teil 2 am Ende der Ausbildung. Die Ausbildenden bei Kelvinar planen deshalb",
+          "Bei Kelvinar ist die Abschlussprüfung in allen drei Ausbildungsberufen als **gestreckte Abschlussprüfung** organisiert (die Ausbildungsordnung kann das vorsehen; Stand Oktober 2026, vor Verwendung prüfen): Teil 1 findet bereits vor dem Ende der Ausbildungszeit statt und fließt mit einem festgelegten Gewichtungsanteil in das Gesamtergebnis ein, Teil 2 folgt am Ende der Ausbildung.\n\nTeil 2 besteht aus mehreren Prüfungsbereichen, darunter schriftliche wie Wirtschafts- und Sozialkunde; praxisnah geprüft wird bei den Elektroniker:innen im Prüfungsbereich Arbeitsauftrag mit einem betrieblichen Auftrag oder einer praktischen Arbeitsaufgabe samt Fachgespräch (der Ausbildungsbetrieb wählt die Variante), bei den Industriekaufleuten in der Fachaufgabe im Einsatzgebiet mit Dokumentation, Präsentation und Fachgespräch und bei den Fachinformatiker:innen in der betrieblichen Projektarbeit mit Dokumentation, Präsentation und Fachgespräch.\n\nDauer und Lage von Teil 1 unterscheiden sich je Beruf: Die angehenden Elektroniker:innen für Betriebstechnik lernen dreieinhalb Jahre, bei ihnen soll Teil 1 vor dem Ende des zweiten Ausbildungsjahres stattfinden; er zählt 40 Prozent (Teil 2: 60 Prozent). Industriekaufleute und Fachinformatiker:innen Systemintegration lernen drei Jahre, bei ihnen findet Teil 1 im vierten Ausbildungshalbjahr statt; er zählt bei den Industriekaufleuten 25 Prozent und bei den Fachinformatiker:innen 20 Prozent des Gesamtergebnisses. Für die Industriekaufleute gilt das nach der seit 01.08.2024 geltenden Ausbildungsordnung; wer früher begonnen hat, kann noch nach der früheren Ordnung geprüft werden.\n\nDie Ausbildenden bei Kelvinar planen deshalb"
+        ],
+        [
+          "Damit ein:e Auszubildende:r überhaupt zur Abschlussprüfung zugelassen wird, müssen nach **§ 43 BBiG** bestimmte Voraussetzungen erfüllt sein: Die Ausbildungszeit muss zurückgelegt (oder darf höchstens zwei Monate vor Ende der Ausbildungszeit enden) sein, die Ausbildung muss in einem Verzeichnis der Berufsausbildungsverhältnisse (bei Kelvinar durch die zuständige IHK) eingetragen sein, und die vorgeschriebenen Ausbildungsnachweise müssen geführt worden sein.",
+          "Damit ein:e Auszubildende:r überhaupt zur Abschlussprüfung zugelassen wird, müssen nach **§ 43 Abs. 1 BBiG** drei Voraussetzungen erfüllt sein (Stand Oktober 2026, vor Verwendung prüfen): Erstens muss die Ausbildungsdauer zurückgelegt sein, oder sie darf nicht später als zwei Monate nach dem Prüfungstermin enden. Zweitens müssen die Auszubildenden an den vorgeschriebenen Zwischenprüfungen teilgenommen und den Ausbildungsnachweis (schriftlich oder elektronisch) über die Ausbildenden vorgelegt haben. Drittens muss das Berufsausbildungsverhältnis in das Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein (bei Kelvinar durch die zuständige IHK) oder aus einem Grund nicht eingetragen sein, den weder die Auszubildenden noch ihre gesetzlichen Vertreter zu vertreten haben. Ist die Abschlussprüfung in zwei zeitlich auseinanderfallenden Teilen angelegt, wie bei allen drei Berufen bei Kelvinar, entfällt die Zwischenprüfung (§ 48 Abs. 2 BBiG); dann wird über die Zulassung zu Teil 1 und zu Teil 2 jeweils gesondert entschieden (§ 44 BBiG): Zu Teil 1 genügt die in der Ausbildungsordnung vorgeschriebene erforderliche Ausbildungsdauer, und zu Teil 2 wird in der Regel zugelassen, wer am ersten Teil teilgenommen hat."
+        ],
+        [
+          "Nach **§ 45 Abs. 1 BBiG** können besonders leistungsstarke Auszubildende — etwa ein Fachinformatik-Azubi bei Kelvinar mit durchgehend sehr guten Berufsschulnoten und Beurteilungen — vorzeitig, also vor Ablauf der regulären Ausbildungszeit, zur Abschlussprüfung zugelassen werden.",
+          "Nach **§ 45 Abs. 1 BBiG** können Auszubildende — etwa ein Fachinformatik-Azubi bei Kelvinar mit durchgehend sehr guten Berufsschulnoten und Beurteilungen — nach Anhörung der Ausbildenden und der Berufsschule vorzeitig, also vor Ablauf der regulären Ausbildungszeit, zur Abschlussprüfung zugelassen werden; über die Zulassung entscheidet die zuständige Stelle (§ 46 Abs. 1 BBiG). Davon zu unterscheiden ist die **Verkürzung der Ausbildungsdauer**: Sie spricht die zuständige Stelle auf gemeinsamen Antrag der Auszubildenden und der Ausbildenden aus, wenn zu erwarten ist, dass das Ausbildungsziel in der kürzeren Dauer erreicht wird (§ 8 Abs. 1 BBiG; das kommt auch bei guten Leistungen in Betracht, nicht nur bei Vorkenntnissen), und sie ändert die Ausbildungsdauer selbst. Bei der vorzeitigen Zulassung bleibt die Ausbildungsdauer dagegen unverändert, nur die Prüfung liegt früher; besteht der oder die Auszubildende, endet das Berufsausbildungsverhältnis mit der Bekanntgabe des Ergebnisses durch den Prüfungsausschuss (§ 21 Abs. 2 BBiG)."
+        ],
+        [
+          "so einheitlich ist die rechtliche Aufgabe der Ausbildenden nach der **Ausbilder-Eignungsverordnung (AEVO)**:",
+          "so einheitlich ist die Kompetenz, die die **Ausbilder-Eignungsverordnung (AEVO)** von den Ausbilder:innen verlangt:"
+        ],
+        [
+          "Die Ausbildenden bei Kelvinar prüfen deshalb regelmäßig, ob eine vorzeitige Zulassung",
+          "Bei guten Leistungen prüfen die Ausbildenden bei Kelvinar regelmäßig, ob eine vorzeitige Zulassung"
+        ],
+        [
+          "Zu den Aufgaben der Ausbildenden gehört es auch,",
+          "Zu den Kompetenzen der Ausbilder:innen gehört es auch,"
+        ],
+        [
+          "**Antwort:** Die vorzeitige Zulassung besonders leistungsstarker Auszubildender zur Abschlussprüfung vor Ablauf der regulären Ausbildungszeit.",
+          "**Antwort:** Die vorzeitige Zulassung von Auszubildenden, deren Leistungen dies rechtfertigen, zur Abschlussprüfung vor Ablauf der regulären Ausbildungszeit (nach Anhörung der Ausbildenden und der Berufsschule)."
+        ],
+        [
+          "**Erklärung:** Für die Anmeldung zur Prüfung bei der zuständigen Stelle zu sorgen, gehört laut AEVO zu den Aufgaben der Ausbildenden bzw. des Betriebs.",
+          "**Erklärung:** Für die Anmeldung zur Prüfung bei der zuständigen Stelle zu sorgen, gehört nach der AEVO zu den Kompetenzen der Ausbilder:innen; die Anmeldung selbst nehmen die Ausbildenden bzw. der Betrieb vor."
+        ],
+        [
+          "- § 45 Abs. 1 BBiG ↔ Ermöglicht die vorzeitige Zulassung bei besonders guten Leistungen",
+          "- § 45 Abs. 1 BBiG ↔ Ermöglicht die vorzeitige Zulassung, wenn die Leistungen dies rechtfertigen"
+        ],
+        [
+          "**Frage:** Wie wird die Möglichkeit genannt, besonders leistungsstarke Auszubildende vor Ablauf der regulären Ausbildungszeit zur Prüfung zuzulassen?",
+          "**Frage:** Wie wird die Möglichkeit genannt, Auszubildende, deren Leistungen es rechtfertigen, vor Ablauf der regulären Ausbildungszeit zur Prüfung zuzulassen?"
+        ],
+        [
+          "**Frage:** Welcher Begriff passt NICHT zu den Aufgaben der Ausbildenden im Handlungsfeld „Ausbildung abschließen\"?",
+          "**Frage:** Welcher Begriff passt NICHT zu den Aufgaben der Ausbilder:innen im Handlungsfeld „Ausbildung abschließen\"?"
+        ],
+        [
+          "**Frage:** Was ist bei Kelvinar die typische Prüfungsstruktur für eine dreieinhalbjährige Ausbildung?",
+          "**Frage:** Wie ist bei Kelvinar die Abschlussprüfung in den drei Ausbildungsberufen aufgebaut?"
+        ],
+        [
+          "**Antwort:** Eine gestreckte Abschlussprüfung mit Teil 1 zur Mitte der Ausbildungszeit und Teil 2 am Ende.",
+          "**Antwort:** Als gestreckte Abschlussprüfung: Teil 1 liegt vor dem Ende der Ausbildungszeit (je nach Beruf vor Ende des zweiten Ausbildungsjahres oder im vierten Ausbildungshalbjahr), Teil 2 am Ende."
+        ],
+        [
+          "**Antwort:** Z. B. zurückgelegte (oder fast beendete) Ausbildungszeit sowie ordnungsgemäß geführte Ausbildungsnachweise (auch: Eintragung des Ausbildungsverhältnisses).",
+          "**Antwort:** Z. B. zurückgelegte Ausbildungsdauer (oder höchstens zwei Monate nach dem Prüfungstermin endend), vorgelegter Ausbildungsnachweis, Eintragung des Ausbildungsverhältnisses (auch: Teilnahme an vorgeschriebenen Zwischenprüfungen)."
+        ],
+        [
+          "- [ ] Teil 1 findet erst nach Teil 2 statt.",
+          "- [ ] Teil 1 findet erst nach Teil 2 statt und wird nur als Zusatzleistung bewertet."
+        ],
+        [
+          "- [x] Teil 1 findet zur Mitte der Ausbildungszeit statt und fließt mit einer festgelegten Gewichtung in das Gesamtergebnis ein.",
+          "- [x] Teil 1 liegt vor dem Ende der Ausbildung und zählt mit festem Gewicht mit."
+        ],
+        [
+          "- [ ] Beide Teile finden am selben Tag statt.",
+          "- [ ] Beide Teile finden am selben Tag statt, direkt am Ende der gesamten Ausbildungszeit."
+        ],
+        [
+          "- [ ] Teil 1 hat keinerlei Einfluss auf das Gesamtergebnis.",
+          "- [ ] Teil 1 hat keinerlei Einfluss auf das Gesamtergebnis, es dient nur der Rückmeldung."
+        ],
+        [
+          "**Erklärung:** Bei der gestreckten Abschlussprüfung liegt Teil 1 zur Mitte der Ausbildungszeit und geht mit festgelegtem Gewicht in das Gesamtergebnis ein.",
+          "**Erklärung:** Bei der gestreckten Abschlussprüfung liegt Teil 1 vor dem Ende der Ausbildungszeit (je nach Beruf vor Ende des zweiten Ausbildungsjahres oder im vierten Ausbildungshalbjahr) und geht mit festgelegtem Gewicht in das Gesamtergebnis ein."
+        ],
+        [
+          "**Erklärung:** § 45 Abs. 1 BBiG erlaubt eine vorzeitige Zulassung bei entsprechend guten Leistungen, unabhängig von betrieblichen Gründen.",
+          "**Erklärung:** Die vorzeitige Zulassung setzt voraus, dass die Leistungen dies rechtfertigen, unabhängig von betrieblichen Gründen; vorher sind die Ausbildenden und die Berufsschule zu hören, und die zuständige Stelle entscheidet. Sie ist nicht mit der Verkürzung der Ausbildungsdauer auf gemeinsamen Antrag zu verwechseln, die die Ausbildungsdauer selbst ändert."
+        ],
+        [
+          "**Anweisung:** Ordne die Kelvinar-Ausbildungsberufe den passenden Prüfungsbestandteilen zu.",
+          "**Anweisung:** Ordne die Kelvinar-Ausbildungsberufe den passenden praxisnahen Prüfungsbereichen in Teil 2 der Abschlussprüfung zu."
+        ],
+        [
+          "- Elektroniker:in für Betriebstechnik ↔ Praktische Auftragsarbeit als Teil der Abschlussprüfung typisch",
+          "- Elektroniker:in für Betriebstechnik ↔ Prüfungsbereich „Arbeitsauftrag\" mit betrieblichem Auftrag oder praktischer Arbeitsaufgabe samt Fachgespräch"
+        ],
+        [
+          "- Industriekaufmann/-frau ↔ Kaufmännische, überwiegend schriftliche Prüfungsteile typisch",
+          "- Industriekaufmann/-frau ↔ Prüfungsbereich „Fachaufgabe im Einsatzgebiet\" mit Dokumentation, Präsentation und Fachgespräch"
+        ],
+        [
+          "- Fachinformatiker:in Systemintegration ↔ Projektarbeit als praktischer Prüfungsbestandteil typisch",
+          "- Fachinformatiker:in Systemintegration ↔ Prüfungsbereich „Planen und Umsetzen eines Projektes der Systemintegration\" (betriebliche Projektarbeit)"
+        ],
+        [
+          "**Erklärung:** Die konkrete Prüfungsform unterscheidet sich je nach Ausbildungsberuf, auch wenn die Grundstruktur der gestreckten Abschlussprüfung ähnlich ist.",
+          "**Erklärung:** Die Prüfungsbereiche und ihre Form legt die Ausbildungsordnung je Beruf fest. Bei den Elektroniker:innen für Betriebstechnik wählt der Ausbildungsbetrieb zwischen betrieblichem Auftrag und praktischer Arbeitsaufgabe. Daneben gibt es in Teil 2 weitere, meist schriftliche Prüfungsbereiche."
+        ],
+        [
+          "**Text:** Nach § 43 BBiG ist unter anderem Voraussetzung für die Zulassung zur Abschlussprüfung, dass die vorgeschriebenen ___Ausbildungsnachweise___ geführt worden sind.",
+          "**Text:** Nach § 43 BBiG ist unter anderem Voraussetzung für die Zulassung zur Abschlussprüfung, dass die geführten ___Ausbildungsnachweise___ vorgelegt worden sind."
+        ],
+        [
+          "**Erklärung:** Das ordnungsgemäße Führen der Ausbildungsnachweise ist eine der Zulassungsvoraussetzungen nach § 43 BBiG.",
+          "**Erklärung:** Der Ausbildungsnachweis muss geführt und vorgelegt worden sein; das ist eine der Zulassungsvoraussetzungen nach § 43 BBiG, neben der zurückgelegten Ausbildungsdauer und der Eintragung des Ausbildungsverhältnisses."
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/4.2-zeugnis-perspektiven.md",
+      "paare": [
+        [
+          "Ein einfaches Ausbildungszeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung. Verlangt die/der Auszubildende es ausdrücklich, ist zusätzlich ein **qualifiziertes Zeugnis** auszustellen, das auch Angaben zu Führung, Leistung sowie besonderen fachlichen Fähigkeiten enthält.",
+          "Das Zeugnis ist schriftlich auszustellen; mit Einwilligung der Auszubildenden kann es in elektronischer Form erteilt werden. Haben die Ausbildenden die Berufsausbildung nicht selbst durchgeführt (bei einer GmbH wie Kelvinar ist das die Regel), soll auch der Ausbilder bzw. die Ausbilderin das Zeugnis unterschreiben. Jedes Zeugnis muss Angaben zu Art, Dauer und Ziel der Berufsausbildung sowie zu den erworbenen beruflichen Fertigkeiten, Kenntnissen und Fähigkeiten enthalten; das nennt man ein einfaches Ausbildungszeugnis. Auf Verlangen der Auszubildenden sind außerdem Angaben zu Verhalten und Leistung aufzunehmen; dann spricht man von einem **qualifizierten Zeugnis** (§ 16 BBiG; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "gehört es zu den Aufgaben der Ausbildenden, Auszubildenden gegen Ende der Ausbildung",
+          "gehört es zu den Aufgaben der Ausbilder:innen, Auszubildenden gegen Ende der Ausbildung"
+        ],
+        [
+          "Für gewerblich-technische Berufe wie die Elektroniker:innen für Betriebstechnik kommen z. B. eine Weiterbildung zum/zur Meister:in oder zum/zur staatlich geprüften Techniker:in infrage. Für kaufmännische und IT-nahe Berufe wie Industriekaufleute oder Fachinformatiker:innen Systemintegration sind IHK-**Fachwirt-Fortbildungen** ein klassischer nächster Schritt — je nach Interessenlage etwa Richtung Technischer Fachwirt, Industriefachwirt oder eine spezialisierte kaufmännische Fortbildung. Diese Fachwirt-Fortbildungen bauen in der Regel auf der jeweiligen Erstausbildung und einschlägiger Berufserfahrung auf und eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung.",
+          "Für gewerblich-technische Berufe wie die Elektroniker:innen für Betriebstechnik kommen z. B. eine Weiterbildung zum/zur Meister:in (in der Industrie etwa als Industriemeister:in) oder zum/zur staatlich geprüften Techniker:in infrage. Für kaufmännische Berufe wie Industriekaufleute sind IHK-**Fachwirt-Fortbildungen** ein klassischer nächster Schritt — je nach Interessenlage etwa Richtung Industriefachwirt, Technischer Fachwirt oder eine spezialisierte kaufmännische Fortbildung. Für Fachinformatiker:innen gibt es ein eigenes IT-Weiterbildungssystem mit Abschlüssen als Geprüfte Berufsspezialist:innen in IT-Profilen (z. B. Systemintegration und Vernetzung) und als Bachelor Professional in IT (Stand Oktober 2026, vor Verwendung prüfen). Diese Fortbildungen bauen auf der jeweiligen Erstausbildung auf; je nach Fortbildung verlangt die Fortbildungsordnung zusätzlich einschlägige Berufserfahrung. Sie eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung.\n\nDas Berufsbildungsgesetz gliedert die höherqualifizierende Berufsbildung in drei **Fortbildungsstufen**: als erste Stufe die Geprüften Berufsspezialist:innen, als zweite Stufe der **Bachelor Professional** und als dritte Stufe der **Master Professional** (§ 53a BBiG). Als Regelzugang zur ersten und zur zweiten Stufe ist der Abschluss in einem anerkannten Ausbildungsberuf vorzusehen; die zweite Stufe zielt auf Fach- und Führungsfunktionen, die dritte auf die verantwortliche Führung von Organisationen oder neue, komplexe Aufgaben (§§ 53b bis 53d BBiG). Viele Fachwirt- und Meisterabschlüsse sind der zweiten Stufe zugeordnet; die genaue Bezeichnung und die Zulassungsvoraussetzungen regelt die jeweilige Fortbildungsordnung. Die Ausbilder:innen bei Kelvinar weisen auch auf Fördermöglichkeiten hin, vor allem auf das **Aufstiegs-BAföG** (Aufstiegsfortbildungsförderungsgesetz): Es unterstützt mit Beiträgen zu den Kosten der Maßnahme (Lehrgangs- und Prüfungsgebühren bis zu einem Höchstbetrag, derzeit 15.000 Euro, zur Hälfte als Zuschuss, im Übrigen als Darlehen) und bei Vollzeitmaßnahmen auch zum Lebensunterhalt. Förderfähig sind Maßnahmen, die gezielt auf Abschlüsse nach dem Berufsbildungsgesetz oder auf gleichwertige Abschlüsse vorbereiten und einen Mindestumfang haben (grundsätzlich 400 Unterrichtsstunden). Eine Änderung der Förderbeträge liegt als Gesetzentwurf der Bundesregierung im Bundestag vor und ist noch nicht beschlossen (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "— eine ausdrückliche Pflichtaufgabe nach dem Handlungsfeld „Ausbildung abschließen\" der AEVO, nicht nur eine freiwillige Zusatzleistung.",
+          "— das gehört zu den Kompetenzen, die Ausbilder:innen nach dem Handlungsfeld „Ausbildung abschließen\" der AEVO mitbringen müssen: Sie sollen Auszubildende über betriebliche Entwicklungswege und berufliche Weiterbildungsmöglichkeiten informieren und beraten können. Eine gesetzliche Pflicht des Betriebs, ein Perspektivgespräch zu führen, folgt daraus nicht (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Angaben zu Art, Dauer und Ziel der Berufsausbildung.",
+          "**Antwort:** Angaben zu Art, Dauer und Ziel der Berufsausbildung sowie zu den erworbenen beruflichen Fertigkeiten, Kenntnissen und Fähigkeiten."
+        ],
+        [
+          "**Frage:** Wann ist zusätzlich ein qualifiziertes Zeugnis auszustellen?",
+          "**Frage:** Wann nimmt der Betrieb zusätzlich Angaben zu Verhalten und Leistung in das Zeugnis auf?"
+        ],
+        [
+          "**Antwort:** Wenn die/der Auszubildende es ausdrücklich verlangt.",
+          "**Antwort:** Wenn die/der Auszubildende es verlangt; das Zeugnis heißt dann qualifiziertes Zeugnis."
+        ],
+        [
+          "**Antwort:** Angaben zu Führung, Leistung sowie besonderen fachlichen Fähigkeiten.",
+          "**Antwort:** Angaben zu Verhalten und Leistung."
+        ],
+        [
+          "**Frage:** Welche Art von Fortbildung kommt für Industriekaufleute oder Fachinformatiker:innen bei Kelvinar typischerweise infrage?",
+          "**Frage:** Welche Art von Fortbildung kommt für Industriekaufleute bei Kelvinar typischerweise infrage, welche für Fachinformatiker:innen?"
+        ],
+        [
+          "**Antwort:** IHK-Fachwirt-Fortbildungen, z. B. Richtung Industriefachwirt oder Technischer Fachwirt.",
+          "**Antwort:** Für Industriekaufleute IHK-Fachwirt-Fortbildungen, z. B. Richtung Industriefachwirt; für Fachinformatiker:innen IT-Weiterbildungsabschlüsse (Berufsspezialist, Bachelor Professional in IT)."
+        ],
+        [
+          "**Frage:** Ist das Aufzeigen beruflicher Perspektiven nach der AEVO eine freiwillige Zusatzleistung oder eine Pflichtaufgabe der Ausbildenden?",
+          "**Frage:** Als was nennt die AEVO das Informieren und Beraten über betriebliche Entwicklungswege und Weiterbildungsmöglichkeiten im Handlungsfeld „Ausbildung abschließen\"?"
+        ],
+        [
+          "**Antwort:** Eine ausdrückliche Pflichtaufgabe im Handlungsfeld „Ausbildung abschließen\".",
+          "**Antwort:** Als eine der Kompetenzen, die Ausbilder:innen mitbringen müssen; eine gesetzliche Pflicht des Betriebs zum Perspektivgespräch ergibt sich daraus nicht."
+        ],
+        [
+          "- [x] Angaben zu Führung, Leistung und besonderen fachlichen Fähigkeiten",
+          "- [x] Angaben über Verhalten und Leistung"
+        ],
+        [
+          "**Erklärung:** Das qualifizierte Zeugnis ergänzt die formalen Angaben um eine inhaltliche Beurteilung von Führung, Leistung und besonderen Fähigkeiten.",
+          "**Erklärung:** Auf Verlangen der Auszubildenden kommen zu den Pflichtangaben des Zeugnisses (Art, Dauer, Ziel, erworbene Fertigkeiten, Kenntnisse und Fähigkeiten) Angaben über Verhalten und Leistung hinzu."
+        ],
+        [
+          "- Qualifiziertes Zeugnis ↔ Enthält zusätzlich Angaben zu Führung und Leistung",
+          "- Qualifiziertes Zeugnis ↔ Enthält auf Verlangen zusätzlich Angaben zu Verhalten und Leistung"
+        ],
+        [
+          "- Fachinformatiker:in Systemintegration ↔ IT-nahe IHK-Fachwirt-Fortbildung bzw. IT-Spezialisierung",
+          "- Fachinformatiker:in Systemintegration ↔ IT-Weiterbildung (Berufsspezialist, Bachelor Professional in IT)"
+        ],
+        [
+          "**Text:** Verlangt eine/ein Auszubildende:r es ausdrücklich, ist zusätzlich ein ___qualifiziertes___ Zeugnis mit Angaben zu Führung, Leistung und besonderen fachlichen Fähigkeiten auszustellen.",
+          "**Text:** Verlangt eine/ein Auszubildende:r es, werden zusätzlich Angaben zu Verhalten und Leistung aufgenommen; ein solches Zeugnis nennt man ein ___qualifiziertes___ Zeugnis."
+        ],
+        [
+          "**Erklärung:** Das qualifizierte Zeugnis wird nur auf ausdrücklichen Wunsch der/des Auszubildenden ausgestellt.",
+          "**Erklärung:** Angaben zu Verhalten und Leistung kommen nur auf Verlangen der/des Auszubildenden in das Zeugnis."
+        ],
+        [
+          "**Frage:** Ist das Aufzeigen betrieblicher Entwicklungswege und Weiterbildungsmöglichkeiten nach der AEVO eine Pflichtaufgabe der Ausbildenden oder eine rein freiwillige Zusatzleistung?",
+          "**Frage:** Wozu zählt das Informieren und Beraten über betriebliche Entwicklungswege und Weiterbildungsmöglichkeiten im Handlungsfeld „Ausbildung abschließen\" der AEVO?"
+        ],
+        [
+          "- [x] Pflichtaufgabe",
+          "- [x] Zu den Kompetenzen, die Ausbilder:innen mitbringen müssen"
+        ],
+        [
+          "- [ ] Rein freiwillige Zusatzleistung",
+          "- [ ] Zu den gesetzlichen Pflichten des Betriebs, jedem Auszubildenden ein Perspektivgespräch anzubieten"
+        ],
+        [
+          "**Erklärung:** Das Handlungsfeld „Ausbildung abschließen\" der AEVO nennt dies ausdrücklich als Teil der berufs- und arbeitspädagogischen Eignung.",
+          "**Erklärung:** Das Handlungsfeld „Ausbildung abschließen\" der AEVO beschreibt, was Ausbilder:innen können müssen; dazu gehört, Auszubildende über betriebliche Entwicklungswege und berufliche Weiterbildungsmöglichkeiten zu informieren und zu beraten. Eine gesetzliche Pflicht des Betriebs zu einem Perspektivgespräch ergibt sich daraus nicht."
+        ],
+        [
+          "Die Ausbildenden bei Kelvinar wirken an der Erstellung dieses Zeugnisses mit",
+          "Die Ausbilder:innen bei Kelvinar wirken an der Erstellung dieses Zeugnisses mit"
+        ],
+        [
+          "informieren und beraten die Ausbildenden bei Kelvinar auch zu",
+          "informieren und beraten die Ausbilder:innen bei Kelvinar auch zu"
+        ],
+        [
+          "Die Ausbildenden bei Kelvinar sehen sich hier nicht als Ersatz",
+          "Die Ausbilder:innen bei Kelvinar sehen sich hier nicht als Ersatz"
+        ],
+        [
+          "**Frage:** Warum sind die Ausbildenden bei Kelvinar eine gute erste Anlaufstelle für Weiterbildungsberatung, auch wenn sie keine umfassende Berufsberatung ersetzen?",
+          "**Frage:** Warum sind die Ausbilder:innen bei Kelvinar eine gute erste Anlaufstelle für Weiterbildungsberatung, auch wenn sie keine umfassende Berufsberatung ersetzen?"
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/fallaufgaben.md",
+      "paare": [
+        [
+          "die endgültige Entscheidung trifft die zuständige Stelle (IHK) auf Antrag.",
+          "vor der Entscheidung der zuständigen Stelle (IHK) sind die Ausbildenden und die Berufsschule anzuhören."
+        ],
+        [
+          "Die Auszubildende hat ausdrücklich ein qualifiziertes Zeugnis beantragt.",
+          "Die Auszubildende verlangt, dass auch Angaben zu Verhalten und Leistung in ihr Zeugnis aufgenommen werden (qualifiziertes Zeugnis)."
+        ],
+        [
+          "ob eine kaufmännische IHK-Fachwirt-Fortbildung angesichts ihrer breiten Erfahrung in Einkauf, Vertrieb und Controlling für die Auszubildende eine sinnvolle nächste Station wäre.",
+          "ob eine kaufmännische IHK-Fachwirt-Fortbildung angesichts ihrer breiten Erfahrung in Einkauf, Vertrieb und Controlling für die Auszubildende eine sinnvolle nächste Station wäre, und nennen Sie, was vor einer Anmeldung zu klären ist."
+        ],
+        [
+          "eine begründete Einschätzung, ob dies passt, sollte zusätzlich die individuellen Interessen und die zurückhaltende Vertriebsbeurteilung berücksichtigen.",
+          "eine begründete Einschätzung, ob dies passt, sollte zusätzlich die individuellen Interessen und die zurückhaltende Vertriebsbeurteilung berücksichtigen. Vor der Anmeldung sind die Zulassungsvoraussetzungen der Fortbildungsordnung zu klären (Regelzugang ist der Abschluss in einem anerkannten Ausbildungsberuf, je nach Fortbildung kommt einschlägige Berufspraxis hinzu) und mögliche Fördermittel, etwa das Aufstiegs-BAföG, zu prüfen."
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/fachgespraech.md",
+      "paare": [
+        [
+          "zu vorgelegten Situationsaufgaben oder Präsentationen aus HF4.",
+          "zur im praktischen Prüfungsteil präsentierten (oder praktisch durchgeführten) Ausbildungssituation mit Bezug zu HF4."
+        ],
+        [
+          "  - Erwartung: Zusätzlich können besonders leistungsstarke Auszubildende nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zugelassen werden.",
+          "  - Erwartung: Zusätzlich können Auszubildende, deren Leistungen dies rechtfertigen, nach § 45 Abs. 1 BBiG vorzeitig zur Abschlussprüfung zugelassen werden."
+        ],
+        [
+          "  - Erwartung: Besonders leistungsstarke Auszubildende können nach § 45 Abs. 1 BBiG vor Ablauf der regulären Ausbildungszeit zur Abschlussprüfung zugelassen werden.",
+          "  - Erwartung: Auszubildende können nach § 45 Abs. 1 BBiG vor Ablauf der regulären Ausbildungszeit zur Abschlussprüfung zugelassen werden."
+        ],
+        [
+          "  - Erwartung: Zu den Aufgaben der Ausbildenden gehört es, Auszubildende auf durchführungsrelevante Besonderheiten hinzuweisen.",
+          "  - Erwartung: Zu den Kompetenzen der Ausbilder:innen gehört es, Auszubildende auf durchführungsrelevante Besonderheiten hinzuweisen."
+        ],
+        [
+          "  - Erwartung: Die Ausbildungszeit muss zurückgelegt sein oder darf höchstens zwei Monate vor Ende der Ausbildungszeit enden.",
+          "  - Erwartung: Die Ausbildungsdauer muss zurückgelegt sein oder darf nicht später als zwei Monate nach dem Prüfungstermin enden."
+        ],
+        [
+          "  - Erwartung: Das Ausbildungsverhältnis muss in einem Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein, bei Kelvinar durch die zuständige IHK.",
+          "  - Erwartung: Das Ausbildungsverhältnis muss in einem Verzeichnis der Berufsausbildungsverhältnisse eingetragen sein, bei Kelvinar durch die zuständige IHK (oder aus einem Grund nicht eingetragen sein, den weder die Auszubildenden noch ihre gesetzlichen Vertreter zu vertreten haben)."
+        ],
+        [
+          "  - Erwartung: Die vorgeschriebenen Ausbildungsnachweise müssen geführt worden sein.",
+          "  - Erwartung: Der Ausbildungsnachweis muss geführt und über die Ausbildenden vorgelegt worden sein; an vorgeschriebenen Zwischenprüfungen muss teilgenommen worden sein (bei gestreckter Abschlussprüfung entfällt die Zwischenprüfung)."
+        ],
+        [
+          "  - Erwartung: Über die vorzeitige Zulassung entscheidet die zuständige IHK.",
+          "  - Erwartung: Über die vorzeitige Zulassung entscheidet die zuständige IHK, nachdem die Ausbildenden und die Berufsschule angehört wurden."
+        ],
+        [
+          "  - Erwartung: Am Ende der Berufsausbildung besteht Anspruch auf ein schriftliches Ausbildungszeugnis (§ 16 BBiG).",
+          "  - Erwartung: Am Ende der Berufsausbildung besteht Anspruch auf ein schriftliches Ausbildungszeugnis (§ 16 BBiG); haben die Ausbildenden nicht selbst ausgebildet, soll auch der Ausbilder bzw. die Ausbilderin unterschreiben."
+        ],
+        [
+          "  - Erwartung: Ein einfaches Ausbildungszeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung.",
+          "  - Erwartung: Jedes Zeugnis enthält Angaben zu Art, Dauer und Ziel der Berufsausbildung sowie zu den erworbenen beruflichen Fertigkeiten, Kenntnissen und Fähigkeiten (einfaches Ausbildungszeugnis)."
+        ],
+        [
+          "  - Erwartung: Ein qualifiziertes Zeugnis enthält zusätzlich Angaben zu Führung, Leistung sowie besonderen fachlichen Fähigkeiten.",
+          "  - Erwartung: Ein qualifiziertes Zeugnis enthält zusätzlich Angaben zu Verhalten und Leistung."
+        ],
+        [
+          "  - Erwartung: Ein qualifiziertes Zeugnis ist zusätzlich auszustellen, wenn die bzw. der Auszubildende es ausdrücklich verlangt.",
+          "  - Erwartung: Angaben zu Verhalten und Leistung werden nur aufgenommen, wenn die bzw. der Auszubildende es verlangt."
+        ],
+        [
+          "  - Erwartung: Für kaufmännische und IT-nahe Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt.",
+          "  - Erwartung: Für kaufmännische Berufe sind IHK-Fachwirt-Fortbildungen ein klassischer nächster Schritt, für Fachinformatiker:innen das IT-Weiterbildungssystem (Berufsspezialist, Bachelor Professional in IT)."
+        ],
+        [
+          "  - Erwartung: Beispiele sind Technischer Fachwirt, Industriefachwirt oder eine spezialisierte kaufmännische Fortbildung.",
+          "  - Erwartung: Beispiele sind Industriefachwirt, Technischer Fachwirt oder eine spezialisierte kaufmännische Fortbildung; die Fortbildungsstufen sind Geprüfte Berufsspezialist:in, Bachelor Professional und Master Professional."
+        ],
+        [
+          "  - Erwartung: Sie eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung.",
+          "  - Erwartung: Sie eröffnen den Weg zu Positionen mit mehr fachlicher und organisatorischer Verantwortung; eine Förderung ist z. B. über das Aufstiegs-BAföG möglich."
+        ],
+        [
+          "  - Erwartung: Bei dreieinhalbjährigen Ausbildungen ist die Abschlussprüfung meist als gestreckte Abschlussprüfung organisiert.",
+          "  - Erwartung: Bei allen drei Ausbildungsberufen ist die Abschlussprüfung als gestreckte Abschlussprüfung organisiert."
+        ],
+        [
+          "  - Erwartung: Teil 1 findet zur Mitte der Ausbildungszeit statt, bei Elektroniker:innen für Betriebstechnik nach etwa 21 Monaten.",
+          "  - Erwartung: Teil 1 findet vor dem Ende der Ausbildungszeit statt: bei Elektroniker:innen für Betriebstechnik (dreieinhalb Jahre) vor dem Ende des zweiten Ausbildungsjahres, bei Industriekaufleuten und Fachinformatiker:innen (drei Jahre) im vierten Ausbildungshalbjahr."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hf1/1.1-rechtliche-grundlagen-berufsausbildung.md",
+    "hf1/1.2-ausbildungsbedarf-ausbildungsberuf.md",
+    "hf1/1.3-eignung-betrieb-kooperationsformen.md",
+    "hf1/fallaufgaben.md",
+    "hf1/fachgespraech.md",
+    "hf2/2.1-betrieblicher-ausbildungsplan.md",
+    "hf2/2.2-interessenvertretung-berufsschule.md",
+    "hf2/2.3-auswahl-ausbildungsvertrag.md",
+    "hf2/fallaufgaben.md",
+    "hf2/fachgespraech.md",
+    "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+    "hf3/3.3-foerderung-lernschwierigkeiten.md",
+    "hf3/fallaufgaben.md",
+    "hf3/fachgespraech.md",
+    "hf4/4.1-pruefungsvorbereitung-anmeldung.md",
+    "hf4/4.2-zeugnis-perspektiven.md",
+    "hf4/fallaufgaben.md",
+    "hf4/fachgespraech.md"
+  ]
+}

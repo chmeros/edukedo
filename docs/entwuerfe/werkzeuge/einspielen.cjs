@@ -120,8 +120,9 @@ for (const [datei, ordner] of cfg.faelle || []) {
 
 // Textersetzungen (Einleitungssätze der Fallaufgaben) und rechtsstand. Bricht ab, wenn eine Textstelle fehlt.
 // Ein vorhandener Klammerzusatz zwischen Datum und "— rechtliche Passagen" (z. B. "11.10.2026 (… gegen die Normtexte geprüft) — …") bleibt erhalten; nur das Datum wird gesetzt.
-const RS = /rechtsstand: "[0-9.]+( \([^)]*\))? — rechtliche Passagen vor Verwendung durch echte Lernende fachlich\/rechtlich prüfen[^"]*"/;
-const RS_NEU = (_m, klammer) => `rechtsstand: "${cfg.rsDatum}${klammer || ""} — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"`;
+const RS = /rechtsstand: "[0-9.]+( \([^)]*\))? — rechtliche Passagen vor Verwendung durch echte Lernende fachlich\/rechtlich prüfen([^"]*)"/;
+// Der Rest der Zeile nach "prüfen" (z. B. "; alle Zahlen … Beispielwerte") bleibt unverändert.
+const RS_NEU = (_m, klammer, rest) => `rechtsstand: "${cfg.rsDatum}${klammer || ""} — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen${rest || ""}"`;
 if (!nur) {
   for (const { datei, paare } of cfg.ersetzungen || []) {
     const p = path.join(ziel, KURS, datei);
