@@ -4,7 +4,7 @@ fachgebiet_code: WQ2
 fachgebiet_title: "Rechnungswesen"
 thema_code: "WQ2-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 4 Abs. 5, Qualifikationsbereich „Rechnungswesen" (Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 4 Abs. 2, Qualifikationsbereich „Rechnungswesen" (Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "13.10.2026 — Fragen zu Rückstellungen, Rechnungsabgrenzung, Skonto und Fremdwährung nach Prüfblatt 25 vom Projektleiter kontrolliert und freigegeben; förmliche Rechtsprüfung offen (Iteration 22)"
 ---
 

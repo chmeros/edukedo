@@ -5,7 +5,7 @@ fachgebiet_title: "Planen und Durchführen von Marketingmaßnahmen"
 thema_code: "HB6-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -121,8 +121,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das Heilmittelwerbegesetz (HWG) beschränkt insbesondere die Werbung für Arzneimittel, Medizinprodukte sowie Verfahren und Behandlungen mit Krankheitsbezug gegenüber der Öffentlichkeit.
   - Erwartung: Es verbietet etwa irreführende Werbung, zum Beispiel mit Erfolgsgarantien (§ 3 HWG), sowie bestimmte missbräuchliche, abstoßende oder irreführende Darstellungen außerhalb der Fachkreise (§ 11 HWG).
   - Erwartung: Das Ausnutzen von Ängsten ist im allgemeinen Wettbewerbsrecht (UWG) als Merkmal aggressiver Handlungen geregelt (§ 4a UWG).
-  - Erwartung: Der branchenübliche Werbestandard im Gesundheits- und Sozialwesen orientiert sich dennoch erkennbar an diesem strengeren Maßstab.
-  - Erwartung: Werbeaussagen stützen sich daher auf nachweisbare, sachliche Informationen wie Leistungsumfang, Erreichbarkeit und Qualifikation des Teams und verzichten auf reißerische, vergleichende oder angstbasierte Formulierungen.
+  - Erwartung: Ob das HWG für einen Pflegedienst gilt, hängt vom Krankheitsbezug der einzelnen Werbeaussage ab und ist im Einzelfall zu prüfen; ein „branchenüblicher Standard“ ist keine Rechtsregel.
+  - Erwartung: Werbeaussagen stützen sich ohnehin auf nachweisbare, sachliche Informationen wie Leistungsumfang, Erreichbarkeit und Qualifikation des Teams und verzichten auf reißerische, vergleichende oder angstbasierte Formulierungen.
   - Rückfrage: Welche Gründe außer den rechtlichen sprechen für diese Zurückhaltung in der Werbung?
 - Welche Rolle spielen Berufsordnungen zusätzlich zum allgemeinen Wettbewerbsrecht bei der Gestaltung von Werbung?
   - Erwartung: Berufsgruppen, die in Kammern organisiert sind, z. B. Ärzt:innen, unterliegen eigenen Berufsordnungen; für Pflegefachpersonen gibt es keine bundesweit einheitliche Berufsordnung, ob berufsrechtliche Werberegeln gelten, hängt vom Landesrecht ab (z. B. davon, ob eine Pflegekammer besteht).

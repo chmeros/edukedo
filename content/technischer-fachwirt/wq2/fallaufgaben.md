@@ -4,8 +4,8 @@ fachgebiet_code: WQ2
 fachgebiet_title: "Rechnungswesen"
 thema_code: "WQ2-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 4 Abs. 5, Qualifikationsbereich „Rechnungswesen" (Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Rechtsverordnung über die Prüfung zum anerkannten Abschluss „Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 4 Abs. 2, Qualifikationsbereich „Rechnungswesen" (Teil der Wirtschaftsbezogenen Qualifikationen) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben

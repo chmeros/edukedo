@@ -5,7 +5,7 @@ fachgebiet_title: "Führen und Entwickeln von Personal"
 thema_code: "HB5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 5) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -141,7 +141,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Im Pflegebereich ist Zeitlohn, also Vergütung nach geleisteter Arbeitszeit, der Regelfall.
   - Erwartung: Die Qualität der Versorgung kann nicht sinnvoll über eine reine Stückzahl-Vergütung gesteuert werden.
   - Erwartung: Akkordlohn liefe dem Versorgungsauftrag zuwider.
-  - Erwartung: Leistungsbezogene Bestandteile sind stattdessen Zulagen und gelegentliche Prämien.
+  - Erwartung: Leistungsbezogene Bestandteile sind stattdessen gelegentliche Prämien; Zulagen (z. B. für Nacht- oder Wechselschichtdienst) gleichen besondere Belastungen aus und sind keine Leistungsvergütung.
   - Rückfrage: Welche Zulagen sind für besonders belastende Einsatzzeiten üblich?
 - Wie hängen ein durchdachtes Entgeltsystem und die Mitarbeiterbindung zusammen?
   - Erwartung: Ein durchdachtes Entgeltsystem wirkt sich unmittelbar auf die Mitarbeiterbindung und damit auf die Personalkennziffern aus.
@@ -171,7 +171,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei Schwangerschaft und Elternzeit kann die zuständige Landesbehörde eine Kündigung nur in besonderen Fällen ausnahmsweise für zulässig erklären.
   - Erwartung: Der allgemeine Kündigungsschutz greift in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (ohne Auszubildende) und nach mehr als sechsmonatigem Bestehen des Arbeitsverhältnisses.
   - Erwartung: Danach ist eine ordentliche Kündigung durch den Arbeitgeber nur aus personen-, verhaltens- oder betriebsbedingten Gründen sozial gerechtfertigt zulässig.
-  - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören; eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.
+  - Erwartung: Existiert ein Betriebsrat, ist er vor jeder Kündigung zu hören; eine ohne Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam (§ 102 Abs. 1 BetrVG). Bei Personalräten und im kirchlichen Mitarbeitervertretungsrecht gelten eigene Regeln.
   - Rückfrage: Welche Arten der Kündigung unterscheidet man?
 - Was ist bei der Beschäftigung schwangerer Mitarbeiterinnen im Pflegedienst arbeitsrechtlich zu beachten?
   - Erwartung: Das Mutterschutzgesetz (MuSchG) schützt schwangere und stillende Mitarbeiterinnen vor gesundheitsgefährdenden Tätigkeiten.
@@ -181,8 +181,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Schwangere Mitarbeiterinnen genießen besonderen Kündigungsschutz: Die Kündigung ist grundsätzlich unzulässig und kann nur in besonderen Fällen ausnahmsweise von der zuständigen Landesbehörde für zulässig erklärt werden (§ 17 MuSchG).
   - Rückfrage: Welche Tätigkeiten in der Pflege kommen für ein Beschäftigungsverbot in Betracht?
 - Welche Mitbestimmungsrechte hat eine Mitarbeitervertretung bei Kündigungen und bei der Dienstplangestaltung?
-  - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören.
-  - Erwartung: Eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.
+  - Erwartung: Die Frage zielt auf die Arbeitnehmervertretung: Existiert ein Betriebsrat, ist er vor jeder Kündigung zu hören; bei Personalräten gelten die Regeln des Personalvertretungsrechts, bei kirchlichen Trägern gilt das kirchliche Mitarbeitervertretungsrecht mit eigenen Regeln.
+  - Erwartung: Eine ohne Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam.
   - Erwartung: Bei sozialen Angelegenheiten wie der Ausgestaltung der Arbeitszeit und der Dienstplangestaltung besteht ein Mitbestimmungsrecht (§ 87 BetrVG).
   - Erwartung: In einem ambulanten Pflegedienst können deshalb etwa die Grundsätze der Tourenplanung und Dienstplangestaltung mitbestimmungspflichtig sein, sofern eine Arbeitnehmervertretung besteht.
   - Erwartung: Bei kirchlichen Trägern gilt stattdessen meist das kirchliche Mitarbeitervertretungsrecht mit vergleichbaren, aber eigenständig geregelten Beteiligungsrechten.

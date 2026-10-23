@@ -5,7 +5,7 @@ fachgebiet_title: "Planen, Steuern und Organisieren betrieblicher Prozesse"
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 1 der IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -46,8 +46,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
   - Rückfrage: Was ist ein Versorgungsvertrag nach § 72 SGB XI?
 - Was ist bei einer drohenden Insolvenz einer Pflegeeinrichtung im Hinblick auf die Versorgung der betreuten Menschen besonders zu beachten?
-  - Erwartung: Insolvenzgründe sind wie im allgemeinen Insolvenzrecht die Zahlungsunfähigkeit und die Überschuldung.
-  - Erwartung: Bei Vorliegen eines dieser Gründe besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche Insolvenzantragspflicht.
+  - Erwartung: Eröffnungsgründe sind wie im allgemeinen Insolvenzrecht die Zahlungsunfähigkeit, bei juristischen Personen auch die Überschuldung und bei einem Eigenantrag der Schuldnerin oder des Schuldners die drohende Zahlungsunfähigkeit.
+  - Erwartung: Bei Zahlungsunfähigkeit oder Überschuldung besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche Insolvenzantragspflicht; die drohende Zahlungsunfähigkeit löst sie nicht aus.
   - Erwartung: Die Besonderheit des Sektors ist die Versorgungsverantwortung: Die Weiterversorgung der betreuten Menschen muss auch bei drohender oder eingetretener Insolvenz sichergestellt bleiben.
   - Erwartung: Die zuständigen Kostenträger und die Aufsichtsbehörde sind frühzeitig einzubeziehen.
   - Erwartung: Im Sozialrecht gibt es Regelungen, die eine geordnete Übergabe an andere Leistungserbringer:innen erleichtern sollen, damit Pflegebedürftige nicht plötzlich ohne Versorgung dastehen.
@@ -120,7 +120,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bausteine der Aufbauorganisation sind Stelle, Instanz (Stelle mit Leitungsbefugnis) und Abteilung.
   - Erwartung: Die Ablauforganisation beschreibt das „Wie“ und die Reihenfolge, also wie Arbeitsprozesse räumlich und zeitlich durch die Organisation fließen.
   - Erwartung: Zentrale Elemente der Ablauforganisation sind Arbeitsabläufe, Prozessketten und Schnittstellen.
-  - Erwartung: Ein Beispiel für einen Ablauf ist der Weg von der Aufnahme einer pflegebedürftigen Person über Erstbegutachtung, Tourenplanung und Leistungserbringung bis zur Abrechnung.
+  - Erwartung: Ein Beispiel für einen Ablauf ist der Weg von der Aufnahme einer pflegebedürftigen Person über Erstbesuch mit Pflegeassessment, Tourenplanung und Leistungserbringung bis zur Abrechnung.
   - Rückfrage: Was versteht man unter einer Schnittstelle?
 - Was ist eine Schnittstelle in der Ablauforganisation, und warum ist es wichtig, die Verantwortlichkeit an jeder Schnittstelle klar zu regeln?
   - Erwartung: Schnittstellen sind die Übergänge zwischen Stellen oder Abteilungen, an denen Informationen oder Zuständigkeiten wechseln.

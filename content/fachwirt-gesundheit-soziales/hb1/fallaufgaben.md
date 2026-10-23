@@ -5,7 +5,7 @@ fachgebiet_title: "Planen, Steuern und Organisieren betrieblicher Prozesse"
 thema_code: "HB1-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsbereich 1 der IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben
@@ -39,7 +39,7 @@ Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z
 
 **Themenbezug:** 1.3 (Aufbau- und Ablauforganisation) + 1.1 (Institutionelle Partner)
 
-**Ausgangssituation:** Bei „Morgenlicht" ist seit einiger Zeit unklar geregelt, wer bei Rückfragen zur Leistungsdokumentation zwischen Pflegeteam und Verwaltung tatsächlich zuständig ist — Pflegefachkräfte erhalten teilweise widersprüchliche Anweisungen von der Pflegedienstleitung und der Verwaltungsleitung gleichzeitig. Zudem steht in den kommenden Wochen eine reguläre Qualitätsprüfung durch den Medizinischen Dienst an. Die Geschäftsführung bittet Sie, die Organisation vor der Prüfung zu durchleuchten und Verbesserungsvorschläge zu erarbeiten.
+**Ausgangssituation:** Bei „Morgenlicht" ist seit einiger Zeit unklar geregelt, wer bei Rückfragen zur Leistungsdokumentation zwischen Pflegeteam und Verwaltung tatsächlich zuständig ist — Pflegefachkräfte erhalten teilweise widersprüchliche Anweisungen von der Pflegedienstleitung und der Verwaltungsleitung gleichzeitig. Zudem liegt die letzte Regelprüfung durch den Medizinischen Dienst fast ein Jahr zurück, sodass die nächste Prüfung jederzeit bevorstehen kann; Prüfungen werden grundsätzlich nur zwei Arbeitstage vorher angekündigt. Die Geschäftsführung bittet Sie, die Organisation jetzt, noch vor einer Ankündigung, zu durchleuchten und Verbesserungsvorschläge zu erarbeiten.
 
 **Teilaufgabe 1 (5 Punkte, bloom: analysieren):** Analysieren Sie anhand der Fallschilderung, welches Leitungssystem bei „Morgenlicht" faktisch vorzuherrschen scheint, und welches konkrete Problem sich daraus für die Pflegefachkräfte ergibt.
 
@@ -47,12 +47,12 @@ Teilaufgabe 4 sollte ein konkretes, messbares und terminiertes Ziel enthalten, z
 
 **Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Beschreiben Sie, an welcher konkreten Schnittstelle in der Ablauforganisation (zwischen Pflegeteam und Verwaltung) die Dokumentationsübergabe eindeutig geregelt werden sollte, und machen Sie einen Vorschlag für eine klare Regelung.
 
-**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, worauf sich die anstehende Qualitätsprüfung durch den Medizinischen Dienst typischerweise bezieht, und wie eine klar geregelte Aufbau- und Ablauforganisation dazu beiträgt, die Prüfung erfolgreich zu bestehen.
+**Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Erläutern Sie, worauf sich eine Qualitätsprüfung durch den Medizinischen Dienst bei einem ambulanten Dienst typischerweise bezieht, und wie eine klar geregelte Aufbau- und Ablauforganisation dazu beiträgt, die Prüfung erfolgreich zu bestehen.
 
 **Musterlösungshinweise:** Teilaufgabe 1: faktisches Mehrliniensystem ohne klare fachliche/disziplinarische Trennung, dadurch widersprüchliche Weisungen.
 Teilaufgabe 2: z. B. Stabliniensystem oder klar getrenntes Einliniensystem mit eindeutiger Zuordnung, wer fachlich und wer organisatorisch weisungsbefugt ist.
 Teilaufgabe 3: Schnittstelle Pflegefachkraft → Verwaltung bei Übergabe der Leistungsnachweise, z. B. feste tägliche Übergabezeiten und ein einheitliches Dokumentationssystem.
-Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI; klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation.
+Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI, bei einem ambulanten Dienst einschließlich der ärztlich verordneten Behandlungspflege und der Abrechnung; Prüfungen sind grundsätzlich zwei Arbeitstage vorher anzukündigen, Anlassprüfungen sollen unangemeldet erfolgen, und in der Wohnung darf die Qualität nur mit Einwilligung der versorgten Person geprüft werden (§ 114a SGB XI; Stand Oktober 2026, vor Verwendung prüfen). Klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation.
 
 ---
 

@@ -4,7 +4,7 @@ fachgebiet_code: TQ3
 fachgebiet_title: "Fertigungs- und Betriebstechnik"
 thema_code: "TQ3-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 4 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 3 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "13.10.2026 — P8-Fragen und -Aufgaben eingespielt (Erwartungen und Musterlösungen stützen sich auf die eingespielte, KI-geprüfte Theorie, Prüfblätter 25 und 26 vom Projektleiter kontrolliert); förmliche Rechtsprüfung offen (Iteration 22); Wiedervorlage 21.01.2027 (Maschinenverordnung)"
 ---
 
@@ -41,7 +41,7 @@ Teilaufgabe 4 sollte für die Prototypenserie (50 Stück) Variante B empfehlen (
 
 **Ausgangssituation:** An einer automatisierten Fertigungszelle der Vantera Präzisionstechnik GmbH, bestehend aus einer CNC-Fräsmaschine mit vorgeschaltetem Knickarmroboter zum Be- und Entladen, häufen sich in den letzten Monaten ungeplante Stillstände. Ursache ist wiederholt ein Ausfall des Spindellagers der Fräsmaschine, der bislang erst nach einem hörbaren Betriebsgeräusch und anschließendem Stillstand bemerkt wird (rein korrektive Instandhaltung). Die Produktionsleitung bittet um ein Konzept, wie derartige Ausfälle künftig frühzeitiger erkannt werden können, und um eine Einschätzung der Auswirkungen auf die Gesamtanlageneffektivität der Zelle.
 
-**Teilaufgabe 1 (4 Punkte, bloom: verstehen):** Erläutern Sie den Unterschied zwischen der bisherigen korrektiven Instandhaltung und einer zustandsorientierten (vorausschauenden) Instandhaltung.
+**Teilaufgabe 1 (4 Punkte, bloom: verstehen):** Erläutern Sie den Unterschied zwischen der bisherigen korrektiven Instandhaltung und einer zustandsorientierten Instandhaltung.
 
 **Teilaufgabe 2 (6 Punkte, bloom: analysieren):** Analysieren Sie, welche der drei OEE-Faktoren (Verfügbarkeit, Leistung, Qualität) durch die wiederholten ungeplanten Stillstände am stärksten beeinträchtigt werden, und begründen Sie Ihre Einschätzung.
 
@@ -49,7 +49,7 @@ Teilaufgabe 4 sollte für die Prototypenserie (50 Stück) Variante B empfehlen (
 
 **Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Bewerten Sie, ob sich die Umstellung auf zustandsorientierte Instandhaltung für diese Fertigungszelle aus wirtschaftlicher Sicht voraussichtlich lohnt, unter Abwägung von Investitionskosten (Sensorik) und vermiedenen Stillstandskosten.
 
-**Musterlösungshinweise:** Teilaufgabe 1 sollte herausstellen, dass korrektive Instandhaltung erst nach dem Ausfall reagiert, während zustandsorientierte Instandhaltung kontinuierlich erfasste Betriebsparameter nutzt, um Maßnahmen bereits vor dem Ausfall auszulösen.
+**Musterlösungshinweise:** Teilaufgabe 1 sollte herausstellen, dass korrektive Instandhaltung erst nach dem Ausfall reagiert, während zustandsorientierte Instandhaltung kontinuierlich erfasste Betriebsparameter nutzt, um Maßnahmen schon vor dem Ausfall auszulösen. Ergänzend kann genannt werden, dass sie nach DIN EN 13306 zur vorbeugenden Instandhaltung zählt und als vorausschauend gilt, wenn sie auf einer Vorhersage aus der Analyse der Verschleißparameter beruht.
 Teilaufgabe 2 sollte die Verfügbarkeit als am stärksten betroffenen Faktor identifizieren, da ungeplante Stillstände direkt die Betriebszeit der Anlage reduzieren.
 Teilaufgabe 3 sollte den Einsatz von Vibrations- oder Temperatursensoren am Spindellager nennen, deren Signale von der SPS ausgewertet werden, um bei Überschreiten definierter Grenzwerte automatisch eine Wartungsmeldung auszulösen, bevor ein tatsächlicher Ausfall eintritt.
 Teilaufgabe 4 sollte die Investitionskosten für Sensorik und Auswertelogik den vermiedenen Kosten ungeplanter Stillstände (Produktionsausfall, Eilaufträge, mögliche Terminverzüge gegenüber Kunden) gegenüberstellen und zu einer begründeten Einschätzung kommen, wobei bei wiederholt auftretenden, kostspieligen Ausfällen eine positive Bewertung naheliegt.

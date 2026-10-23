@@ -5,7 +5,7 @@ fachgebiet_title: "Steuern und Überwachen betriebswirtschaftlicher Prozesse und
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 4) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -120,7 +120,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Strategische Entscheidungen werden operativ vorbereitet und überwacht, und operative Abweichungen können Anlass für strategische Kurskorrekturen sein.
 - Welche Kennzahlen würden Sie der Geschäftsführung eines ambulanten Pflegedienstes zur wirtschaftlichen Steuerung vorschlagen, und warum?
   - Erwartung: Die Auslastungsquote ist das Verhältnis der tatsächlich erbrachten zu den planbaren Einsatzstunden.
-  - Erwartung: Die Fachkraftquote ist der Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal.
+  - Erwartung: Die Fachkraftquote ist der Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal; ob für den Dienst eine Mindestquote gilt, hängt von Einrichtungsart, Landesrecht und Rahmenvertrag ab.
   - Erwartung: Die Personalkostenquote setzt die Personalkosten ins Verhältnis zu den Gesamtkosten oder zum Umsatz und ist bei personalintensiven Dienstleistungen eine zentrale Steuerungsgröße.
   - Erwartung: Der Liquiditätsgrad ist das Verhältnis liquider Mittel bzw. kurzfristig verwertbarer Vermögenswerte zu den kurzfristigen Verbindlichkeiten.
   - Erwartung: Kennzahlen entfalten ihren Nutzen vor allem im Zeitvergleich und im Soll-Ist-Vergleich.

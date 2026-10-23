@@ -5,7 +5,7 @@ fachgebiet_title: "Führen, Betreuen, Verwalten und Ausbilden im büro- und pers
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB3 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "14.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -113,7 +113,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei Lernschwierigkeiten werden gezielte Fördergespräche geführt.
   - Erwartung: Das Berichtsheft dient als Kontrollinstrument.
   - Erwartung: Der Ausbildungsfortschritt wird über Bewertungsstrukturen dokumentiert.
-  - Erwartung: Auf Zwischenprüfung und Abschlussprüfung wird gezielt vorbereitet.
+  - Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung wird gezielt vorbereitet; bei einer gestreckten Abschlussprüfung (z. B. bei Kaufleuten für Büromanagement) entfällt die Zwischenprüfung, und die Vorbereitung gilt dem ersten Teil der Abschlussprüfung.
   - Rückfrage: Welche Ausbildungsmethoden und Medien können die Vermittlung der Inhalte unterstützen?
 - Was ist bei der Beschäftigung von minderjährigen Auszubildenden arbeitsrechtlich besonders zu beachten?
   - Erwartung: Für minderjährige Auszubildende gilt zusätzlich zum Berufsbildungsgesetz das Jugendarbeitsschutzgesetz (JArbSchG).
@@ -122,7 +122,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das JArbSchG enthält Beschäftigungsverbote für bestimmte Tätigkeiten.
   - Rückfrage: Welches Gesetz regelt die betriebliche Berufsausbildung allgemein?
 - Welche Aufgaben hat die ausbildende Person im Vorfeld einer Zwischen- oder Abschlussprüfung?
-  - Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung vor der zuständigen Stelle (IHK) wird gezielt vorbereitet.
+  - Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung vor der zuständigen Stelle (IHK) wird gezielt vorbereitet; bei einer gestreckten Abschlussprüfung entfällt die Zwischenprüfung, und die Vorbereitung gilt dem ersten Teil der Abschlussprüfung.
   - Erwartung: Strukturierte Feedback-Gespräche gehören zur laufenden Qualitätssicherung der Ausbildung.
   - Erwartung: Bei Lernschwierigkeiten werden gezielte Fördergespräche geführt.
   - Erwartung: Das Berichtsheft dient als Kontrollinstrument, und der Ausbildungsfortschritt wird über Bewertungsstrukturen dokumentiert.

@@ -4,8 +4,8 @@ fachgebiet_code: WQ1
 fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WQ1-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
-quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), §4 Abs. 5 (Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), §4 Abs. 1 (Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben

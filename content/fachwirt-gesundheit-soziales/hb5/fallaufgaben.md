@@ -5,7 +5,7 @@ fachgebiet_title: "Führen und Entwickeln von Personal"
 thema_code: "HB5-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 5) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben
@@ -31,7 +31,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB5 (5.1–5.5) zu einer zusammenh
 **Musterlösungshinweise:** Teilaufgabe 1 sollte zwischen dem quantitativen Mehrbedarf durch die Klientenzunahme und dem qualitativen Bedarf durch die altersbedingt ausscheidenden Fachkräfte unterscheiden.
 Teilaufgabe 2 sollte eine Kombination aus beidem vorschlagen: intern (Weiterqualifizierung, Beförderung) für kurzfristige Lücken, extern (Kooperationen, Stellenanzeigen) für den quantitativen Mehrbedarf, mit nachvollziehbarer Begründung.
 Teilaufgabe 3 sollte Aspekte wie ausreichende Praxisanleitungskapazität, Kooperationsverträge mit anderen Einrichtungen für Pflichteinsätze und eine realistische Anzahl neuer Ausbildungsplätze benennen.
-Teilaufgabe 4 sollte diskriminierungsfreie Ausschreibung, schriftliche Mitteilung der Vertragsbedingungen und die Einbindung einer bestehenden Mitarbeitervertretung nennen.
+Teilaufgabe 4 sollte diskriminierungsfreie Ausschreibung, schriftliche Mitteilung der Vertragsbedingungen und die Beteiligung eines bestehenden Betriebsrats nennen (Unterrichtung und Zustimmung bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmer:innen).
 
 ---
 
@@ -68,12 +68,12 @@ Teilaufgabe 4: strukturierte Einarbeitung mit Mentoring-Patenschaft, regelmäßi
 
 **Teilaufgabe 3 (5 Punkte, bloom: anwenden):** Schlagen Sie ein alternatives, personalführungsseitiges Vorgehen vor, mit dem die Tourenleitung die dokumentierten fachlichen Mängel adressieren kann, ohne vorschnell eine rechtlich riskante Kündigung auszusprechen.
 
-**Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Diskutieren Sie, welche Rolle eine bestehende Mitarbeitervertretung in diesem Fall spielen würde, falls "Morgenlicht" dennoch eine Kündigung erwägt.
+**Teilaufgabe 4 (5 Punkte, bloom: bewerten):** Diskutieren Sie, welche Rolle ein bestehender Betriebsrat in diesem Fall spielen würde, falls "Morgenlicht" dennoch eine Kündigung erwägt.
 
 **Musterlösungshinweise:** Teilaufgabe 1: Die kurze Probezeit-Kündigungsfrist von zwei Wochen und der noch nicht greifende allgemeine Kündigungsschutz (unter sechs Monaten) treffen auf den besonderen, von der Probezeit unabhängigen Kündigungsschutz nach dem Mutterschutzgesetz.
 Teilaufgabe 2: Während der Schwangerschaft und bis mindestens vier Monate nach der Entbindung ist eine Kündigung grundsätzlich unzulässig (§ 17 Abs. 1 MuSchG); nur in besonderen Fällen kann die zuständige Landesbehörde sie ausnahmsweise für zulässig erklären (§ 17 Abs. 2 MuSchG). Sie ist daher keinesfalls "ohne Weiteres" zulässig, unabhängig von der Probezeit.
 Teilaufgabe 3: strukturiertes, dokumentiertes Feedbackgespräch mit konkreten Zwischenzielen, ggf. zusätzliche fachliche Unterstützung/Anleitung statt sofortiger Trennung.
-Teilaufgabe 4: Eine bestehende Mitarbeitervertretung wäre vor einer Kündigung anzuhören; eine Kündigung ohne diese Anhörung wäre unwirksam, unabhängig davon, ob die Landesbehörde ausnahmsweise eine Zulässigkeitserklärung nach § 17 Abs. 2 MuSchG erteilt.
+Teilaufgabe 4: Ein bestehender Betriebsrat wäre vor einer Kündigung zu hören, und ihm wären die Gründe mitzuteilen, auch in der Probezeit (§ 102 Abs. 1 BetrVG); eine Kündigung ohne diese Anhörung wäre unwirksam, unabhängig davon, ob die Landesbehörde ausnahmsweise eine Zulässigkeitserklärung nach § 17 Abs. 2 MuSchG erteilt.
 
 ---
 

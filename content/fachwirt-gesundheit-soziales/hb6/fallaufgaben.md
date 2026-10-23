@@ -5,7 +5,7 @@ fachgebiet_title: "Planen und Durchführen von Marketingmaßnahmen"
 thema_code: "HB6-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
 quelle: "Frei formulierte Fallbeispiele, orientiert an typischen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben
@@ -73,7 +73,7 @@ Teilaufgabe 4 sollte erkennen, dass Ansoff primär auf Produkt-/Marktkombination
 **Musterlösungshinweise:** Teilaufgabe 1 sollte z. B. nach Bedarfsart (Grundpflege/Behandlungspflege/Betreuung), Region oder Einbindungsgrad der Angehörigen segmentieren.
 Teilaufgabe 2 erwartet ein terminiertes, messbares Ziel (z. B. "gestützte Bekanntheit im Einzugsgebiet innerhalb von 12 Monaten um X Prozentpunkte steigern").
 Teilaufgabe 3 sollte z. B. eine Anzeige/einen Flyer (Werbung) und eine Informationsveranstaltung oder Pressemitteilung (Öffentlichkeitsarbeit) vorschlagen und deren unterschiedliche Eignung für Patient:innen, Angehörige und Zuweiser:innen begründen.
-Teilaufgabe 4 sollte UWG (keine Irreführung/aggressive Werbung), den branchenüblichen HWG-nahen Standard sowie die ethischen Grundsätze aus 6.1 (keine Angsterzeugung, informierte Einwilligung bei personenbezogenen Inhalten) benennen.
+Teilaufgabe 4 sollte UWG (keine Irreführung/aggressive Werbung), das HWG, soweit die Werbeaussagen einen Krankheitsbezug haben, sowie die ethischen Grundsätze aus 6.1 (keine Angsterzeugung, informierte Einwilligung bei personenbezogenen Inhalten) benennen.
 
 ---
 

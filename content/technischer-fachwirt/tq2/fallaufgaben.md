@@ -4,8 +4,8 @@ fachgebiet_code: TQ2
 fachgebiet_title: "Technische Kommunikation und Werkstofftechnologie"
 thema_code: "TQ2-fallaufgaben"
 thema_title: "Themenübergreifende Situationsaufgaben"
-quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 5 Abs. 4, Qualifikationsbereich „Technische Kommunikation und Werkstofftechnologie" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV, 17.01.2006, BGBl. I S. 66), § 5 Abs. 2, Qualifikationsbereich „Technische Kommunikation und Werkstofftechnologie" — frei formulierte Fallbeispiele, keine 1:1-Übernahme aus Rahmenplan, Lehrbüchern oder Prüfungsunterlagen (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fallaufgaben
@@ -62,7 +62,7 @@ Teilaufgabe 4 sollte für eine Freigabe innerhalb der vereinbarten Toleranz argu
 
 **Ausgangssituation:** Bei der Endkontrolle einer Serie gefertigter Präzisionswellen stellt die Qualitätssicherung von Vantera bei einzelnen Teilen unerwartete Maßabweichungen an einem funktionskritischen Wellenabsatz fest, der laut Zeichnung eine enge Toleranz aufweist. Die zuständige Fachwirt-Anwärterin bzw. der zuständige Fachwirt-Anwärter soll die Ursache eingrenzen und ein angemessenes weiteres Prüfvorgehen vorschlagen, bevor die betroffene Serie an den Kunden ausgeliefert wird.
 
-**Teilaufgabe 1 (5 Punkte, bloom: erinnern):** Nennen Sie die drei Bestandteile einer vollständigen Bemaßung nach DIN 406 und erläutern Sie kurz deren jeweilige Funktion.
+**Teilaufgabe 1 (5 Punkte, bloom: erinnern):** Nennen Sie die drei Grundelemente einer Bemaßung (Maßeintragung nach DIN EN ISO 129-1, früher DIN 406) und erläutern Sie kurz deren jeweilige Funktion.
 
 **Teilaufgabe 2 (5 Punkte, bloom: analysieren):** Analysieren Sie mögliche Ursachen dafür, dass ein einzelner Wellenabsatz außerhalb der in der Zeichnung geforderten Toleranz liegt, obwohl andere Maße derselben Welle in Ordnung sind.
 

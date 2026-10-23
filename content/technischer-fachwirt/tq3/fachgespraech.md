@@ -4,7 +4,7 @@ fachgebiet_code: TQ3
 fachgebiet_title: "Fertigungs- und Betriebstechnik"
 thema_code: "TQ3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 4 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Technischer Fachwirt" (Qualifikationsbereich Fertigungs- und Betriebstechnik gem. § 5 Abs. 3 TechFachwPrV vom 17.01.2006, BGBl. I S. 66) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnung, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
 rechtsstand: "13.10.2026 — P8-Fragen und -Aufgaben eingespielt (Erwartungen und Musterlösungen stützen sich auf die eingespielte, KI-geprüfte Theorie, Prüfblätter 25 und 26 vom Projektleiter kontrolliert); förmliche Rechtsprüfung offen (Iteration 22); Wiedervorlage 21.01.2027 (Maschinenverordnung)"
 ---
 
@@ -115,9 +115,9 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Was unterscheidet die Instandsetzung von der Wartung?
 - Worin unterscheiden sich korrektive, vorbeugende und zustandsorientierte Instandhaltung?
   - Erwartung: Bei der korrektiven (reaktiven) Instandhaltung wird erst nach Eintritt eines Ausfalls gehandelt, Nachteil sind ungeplante Stillstände.
-  - Erwartung: Bei der vorbeugenden (präventiven) Instandhaltung werden Maßnahmen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt, unabhängig vom tatsächlichen Verschleißzustand.
-  - Erwartung: Die vorbeugende Instandhaltung senkt das Ausfallrisiko, kann aber zum vorzeitigen Austausch noch funktionstüchtiger Bauteile und damit zu unnötigen Kosten führen.
-  - Erwartung: Bei der zustandsorientierten (vorausschauenden) Instandhaltung erfassen Sensoren kontinuierlich Betriebsparameter wie Vibration, Temperatur oder Ölzustand, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten.
+  - Erwartung: Bei der vorbeugenden (präventiven) Instandhaltung in der Bedeutung dieses Kurses werden Maßnahmen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt, unabhängig vom tatsächlichen Verschleißzustand; in DIN EN 13306 heißt das vorausbestimmte Instandhaltung und ist neben der zustandsorientierten eine Unterart der vorbeugenden.
+  - Erwartung: Die intervallbasierte vorbeugende Instandhaltung senkt das Ausfallrisiko, kann aber zum vorzeitigen Austausch noch funktionstüchtiger Bauteile und damit zu unnötigen Kosten führen.
+  - Erwartung: Bei der zustandsorientierten Instandhaltung erfassen Sensoren kontinuierlich Betriebsparameter wie Vibration, Temperatur oder Ölzustand, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten; stützt sie sich zusätzlich auf eine Vorhersage aus der Analyse der Verschleißparameter, nennt DIN EN 13306 sie vorausschauend (eine Unterart der zustandsorientierten).
   - Rückfrage: Wo setzt Vantera Vibrationssensoren zur Früherkennung von Schäden ein?
 - Was verstehen Sie unter Total Productive Maintenance, und welche Rolle spielt die autonome Instandhaltung dabei?
   - Erwartung: Total Productive Maintenance (TPM) ist ein ganzheitliches Instandhaltungskonzept, das die Verantwortung für den Zustand der Betriebsmittel nicht allein der Instandhaltungsabteilung überlässt.
@@ -214,7 +214,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Was kennzeichnet einen Industrieroboter allgemein?
 - Was zeichnet einen Cobot im Unterschied zu einem klassischen Industrieroboter aus?
   - Erwartung: Cobots (kollaborative Roboter) ermöglichen die Mensch-Roboter-Kollaboration (MRK).
-  - Erwartung: Sie sind durch Kraft- und Geschwindigkeitsbegrenzung sowie Sensorik zur Kollisionserkennung so abgesichert, dass sie ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können.
+  - Erwartung: Sie sind durch Kraft- und Geschwindigkeitsbegrenzung sowie Sensorik zur Kollisionserkennung so ausgelegt, dass sie je nach Risikobeurteilung der Anwendung ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können.
+  - Erwartung: Ob ein Schutzzaun oder eine andere Schutzeinrichtung doch nötig ist, hängt von der Anwendung ab (Werkzeug, Werkstück, Bewegung); der Arbeitgeber beurteilt die Gefährdungen vor der Verwendung, die CE-Kennzeichnung entbindet nicht davon.
   - Erwartung: Sie eignen sich z. B. für Montagetätigkeiten, die sowohl feinmotorisches menschliches Geschick als auch Ausdauer und Präzision eines Roboters erfordern.
   - Erwartung: Cobots ermöglichen wirtschaftliche Automatisierung dort, wo ein vollständig gekapselter Großroboter aus Platz- oder Flexibilitätsgründen nicht sinnvoll wäre.
   - Rückfrage: Wofür steht die Abkürzung MRK?

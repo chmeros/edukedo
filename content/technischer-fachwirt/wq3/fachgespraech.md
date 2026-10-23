@@ -4,8 +4,8 @@ fachgebiet_code: WQ3
 fachgebiet_title: "Recht und Steuern"
 thema_code: "WQ3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
-quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV vom 17.01.2006, BGBl. I S. 66), § 4 Abs. 5 (Qualifikationsbereich Recht und Steuern, Teil der wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin (TechFachwPrV vom 17.01.2006, BGBl. I S. 66), § 4 Abs. 3 (Qualifikationsbereich Recht und Steuern, Teil der wirtschaftsbezogenen Qualifikationen) — frei formulierte Fragen, keine 1:1-Übernahme aus Verordnungstext, Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -16,15 +16,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 
 - Worin unterscheiden sich Kaufvertrag und Werkvertrag, und warum ist diese Unterscheidung für einen Maschinenbauer wie Vantera besonders relevant?
   - Erwartung: Beim Kaufvertrag verpflichtet sich der Verkäufer, eine bereits existierende oder gattungsmäßig bestimmte Sache zu übergeben und Eigentum zu verschaffen, der Käufer zahlt den Kaufpreis (§ 433 BGB).
-  - Erwartung: Beim Werkvertrag schuldet der Unternehmer die Herstellung eines bestimmten Erfolgs, etwa einer nach Kundenzeichnung individuell gefertigten Präzisionswelle, der Besteller zahlt die vereinbarte Vergütung (§ 631 BGB).
-  - Erwartung: Kaufrecht betrifft bei Vantera etwa den Bezug von Standard-Rohmaterial oder den Verkauf serienmäßig gefertigter Normteile, Werkvertragsrecht die Sonderanfertigung nach Kundenspezifikation.
-  - Erwartung: Stellt Vantera bei einer individuell gefertigten Sache das Material selbst, liegt häufig ein Werklieferungsvertrag (§ 650 BGB) vor, auf den überwiegend Kaufrecht Anwendung findet.
+  - Erwartung: Beim Werkvertrag schuldet der Unternehmer die Herstellung eines bestimmten Erfolgs, etwa der Bearbeitung eines vom Kunden beigestellten Rohlings nach dessen Zeichnung, der Besteller zahlt die vereinbarte Vergütung (§ 631 BGB).
+  - Erwartung: Kaufrecht betrifft bei Vantera etwa den Bezug von Standard-Rohmaterial oder den Verkauf serienmäßig gefertigter Normteile, Werkvertragsrecht etwa die Bearbeitung eines vom Kunden beigestellten Materials nach dessen Zeichnung.
+  - Erwartung: Stellt Vantera bei einer individuell gefertigten Sache das Material selbst, liegt ein Werklieferungsvertrag (§ 650 BGB) vor, auf den Kaufrecht angewendet wird; bei nicht vertretbaren Sachen, wie in der Regel Teilen nach Kundenzeichnung, treten einzelne werkvertragliche Regeln hinzu, und in ihnen ersetzt der nach den §§ 446 und 447 BGB maßgebliche Zeitpunkt die Abnahme.
   - Erwartung: Die Unterscheidung ist relevant, weil sich daraus unterschiedliche Regeln zu Abnahme, Gefahrübergang, Fälligkeit der Vergütung und Verjährung der Mängelrechte ergeben, weshalb Vantera in Lieferverträgen klarstellen sollte, ob ein Kauf oder ein Werkvertrag vorliegt.
   - Rückfrage: Welche Mängelrechte stehen einem Käufer bei einem Sachmangel zu, und in welcher Reihenfolge?
 - Welche Bedeutung hat die Abnahme beim Werkvertrag für Gefahrübergang und Verjährung der Mängelrechte?
-  - Erwartung: Beim Werkvertrag setzt die Fälligkeit der Vergütung grundsätzlich die Abnahme des Werks durch den Besteller voraus (§ 640 BGB).
+  - Erwartung: Beim reinen Werkvertrag, etwa der Bearbeitung eines vom Kunden beigestellten Materials, setzt die Fälligkeit der Vergütung grundsätzlich die Abnahme des Werks durch den Besteller voraus (§§ 640, 641 BGB).
   - Erwartung: Mit der Abnahme geht die Gefahr des zufälligen Untergangs auf den Besteller über.
-  - Erwartung: Mit der Abnahme beginnt zugleich die Verjährung der Mängelansprüche zu laufen.
+  - Erwartung: Mit der Abnahme beginnt zugleich die Verjährung der Mängelansprüche zu laufen (§ 634a BGB).
+  - Erwartung: Beim Werklieferungsvertrag gilt dagegen Kaufrecht: Die Gefahr geht mit der Übergabe über, und die Verjährung der Mängelansprüche beginnt mit der Ablieferung; unter Kaufleuten ist die Rügepflicht nach § 377 HGB zu beachten.
   - Erwartung: Vantera sollte in Lieferverträgen klarstellen, ob eine Bestell- und Fertigungssituation kauf- oder werkvertraglich einzuordnen ist, um Missverständnisse über Abnahme, Gefahrübergang und Verjährungsfristen zu vermeiden.
   - Rückfrage: Welche Rechte hat ein Automobilzulieferer, wenn er nach der Übergabe einer Sonderanfertigung einen Fertigungsfehler rügt?
 - Erläutern Sie den Unterschied zwischen der kaufrechtlichen Gewährleistung und der Produkthaftung nach dem ProdHaftG.

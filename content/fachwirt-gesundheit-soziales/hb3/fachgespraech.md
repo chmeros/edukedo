@@ -5,7 +5,7 @@ fachgebiet_title: "Gestalten von Schnittstellen und Projekten"
 thema_code: "HB3-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Eigene Zusammenstellung anhand öffentlich zugänglicher Informationen zur IHK-Fortbildungsprüfung „Geprüfter Fachwirt für Gesundheits- und Sozialwesen“ (Handlungsbereich 3) — frei formuliert, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -59,14 +59,14 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: In der Adjourning-Phase löst sich das Team nach Abschluss eines befristeten Vorhabens, etwa eines Projektteams, wieder auf.
   - Rückfrage: Wie können Führungskräfte die Storming-Phase konstruktiv gestalten?
 - Welche Aufgaben übernehmen Pflegefachkräfte und welche Pflegehilfskräfte im multiprofessionellen Team, und wodurch unterscheiden sich beide Gruppen?
-  - Erwartung: Pflegefachkräfte übernehmen die fachlich anspruchsvolle Pflege einschließlich Behandlungspflege, z. B. Medikamentengabe und Wundversorgung.
-  - Erwartung: Pflegefachkräfte übernehmen außerdem die Pflegeplanung.
+  - Erwartung: Pflegefachkräfte übernehmen die fachlich anspruchsvolle Pflege, auch die ärztlich verordnete Behandlungspflege, z. B. Medikamentengabe und Wundversorgung.
+  - Erwartung: Pflegefachkräfte übernehmen außerdem die Pflegeplanung; die Erhebung des Pflegebedarfs, die Steuerung des Pflegeprozesses und die Sicherung der Pflegequalität sind Personen mit einer Erlaubnis zum Führen der Berufsbezeichnung nach dem Pflegeberufegesetz vorbehalten.
   - Erwartung: Pflegehilfskräfte unterstützen bei der Grundpflege, z. B. Körperpflege, Mobilisation und hauswirtschaftlicher Unterstützung.
-  - Erwartung: Pflegehilfskräfte arbeiten dabei unter Anleitung einer Pflegefachkraft.
+  - Erwartung: Pflegehilfskräfte arbeiten dabei unter Anleitung einer Pflegefachkraft; ob und welche einzelnen Maßnahmen der Behandlungspflege an qualifizierte Pflegehilfskräfte delegiert werden dürfen, richtet sich nach Verordnung, Richtlinien und Verträgen, und die Pflegefachkraft bleibt für Auswahl, Anleitung und Kontrolle verantwortlich (Stand Oktober 2026, vor Verwendung prüfen).
   - Rückfrage: Welche Aufgaben haben Verwaltung und Pflegedienstleitung im Team?
 - Welche Rolle spielt Ehrenamt in einem professionell organisierten Pflegedienst?
   - Erwartung: Ehrenamtliche unterstützen freiwillig und unentgeltlich, z. B. durch Besuchsdienste, Begleitung zu Arztterminen oder Alltagsbegleitung, soweit die betreuten Menschen dies wünschen.
-  - Erwartung: Ihre Aufgaben sind klar von pflegerischen und insbesondere behandlungspflegerischen Tätigkeiten abzugrenzen, die ausgebildeten Fachkräften vorbehalten bleiben.
+  - Erwartung: Ihre Aufgaben sind klar von pflegerischen und insbesondere behandlungspflegerischen Tätigkeiten abzugrenzen; Behandlungspflege ist ärztlich verordnet und wird von dafür qualifizierten Pflegekräften erbracht.
   - Erwartung: Eine feste Ehrenamtskoordination organisiert Einsatz, Einführung und Schulung der Ehrenamtlichen und klärt Versicherungsfragen.
   - Erwartung: Regelmäßige Wertschätzung und Austausch sind wichtig, denn Anerkennung ist wesentlich dafür, dass sich Ehrenamtliche langfristig binden und motiviert bleiben.
   - Rückfrage: Was zählt zu den behandlungspflegerischen Tätigkeiten?

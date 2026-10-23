@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AU „Rechtsnahe Bestandskorrekturen in den Kursen Gesundheit und Soziales, Büro und Projektorganisation, Technischer Fachwirt und Fachinformatiker“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AU einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Fachlehrer-Befunde vom 07.10.2026; Auswertungen `docs/entwuerfe/gesundheit-r4-auswertung.md`, `buero-r4-auswertung.md`, `technischer-fachwirt-r4-auswertung.md`, `fachinformatiker-r4-auswertung.md`). Reine Textersetzungen, **keine neuen Items, keine geänderten Item-IDs, keine geänderten Fachgesprächs-Fragetexte**. Alle Agenten liefen auf Sonnet. Die Teams arbeiteten wegen des Sitzungslimits teils parallel, teils nacheinander.
 

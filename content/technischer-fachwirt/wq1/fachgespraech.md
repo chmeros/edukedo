@@ -4,8 +4,8 @@ fachgebiet_code: WQ1
 fachgebiet_title: "Volks- und Betriebswirtschaft"
 thema_code: "WQ1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
-quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), §4 Abs. 5 (Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "29.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+quelle: "Eigene Zusammenstellung anhand der frei einsehbaren Rechtsverordnung „Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Technischer Fachwirt/Geprüfte Technische Fachwirtin" (TechFachwPrV, 17.01.2006, BGBl. I S. 66), §4 Abs. 1 (Qualifikationsbereich „Volks- und Betriebswirtschaft") — frei formulierte Fragen, keine 1:1-Übernahme aus Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -122,7 +122,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Wie unterscheidet sich die Haftung bei einer GmbH von der Haftung bei einer Kommanditgesellschaft?
   - Erwartung: Die GmbH ist eine eigenständige juristische Person, bei der das eingebrachte Kapital im Vordergrund steht.
   - Erwartung: Bei der GmbH ist die Haftung der Gesellschafter:innen auf das Gesellschaftsvermögen beschränkt, das Privatvermögen bleibt grundsätzlich unangetastet.
-  - Erwartung: Bei der KG haftet der Komplementär unbeschränkt, der Kommanditist nur beschränkt auf die im Handelsregister eingetragene Einlage.
+  - Erwartung: Bei der KG haftet der Komplementär unbeschränkt, der Kommanditist nur beschränkt bis zur im Handelsregister eingetragenen Haftsumme.
   - Rückfrage: Wie wirkt sich das auf die Haftung aus, wenn die Komplementärin der KG eine GmbH ist?
 - Welche Kriterien würden Sie einer Gründerin bzw. einem Gründer für die Wahl der passenden Rechtsform nennen?
   - Erwartung: Haftung: unbeschränkt mit dem Privatvermögen oder beschränkt auf die Einlage.
@@ -133,7 +133,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum spricht vieles für die Rechtsform GmbH bei der geplanten „Vantera Robotics GmbH“?
 - Was unterscheidet einen Komplementär von einem Kommanditisten in einer KG?
   - Erwartung: Der Komplementär haftet unbeschränkt und führt die Geschäfte.
-  - Erwartung: Der Kommanditist beschränkt seine Haftung auf die im Handelsregister eingetragene Einlage.
+  - Erwartung: Der Kommanditist beschränkt seine Haftung auf die im Handelsregister eingetragene Haftsumme und haftet nicht mehr, solange seine Einlage geleistet und nicht zurückgezahlt ist.
   - Erwartung: Der Kommanditist ist von der Geschäftsführung ausgeschlossen.
   - Erwartung: Die Konstruktion ermöglicht es, zusätzliches Kapital einzuwerben, ohne die Kontrolle über das operative Geschäft abzugeben.
   - Rückfrage: Wer kann bei einer GmbH & Co. KG Komplementärin sein?
