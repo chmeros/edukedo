@@ -8,8 +8,10 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * „Begriffe-Duell", nie bloß „Duell" (Abgrenzung zum F-61-Wissensduell).
  *
  * Rechtsstand: Alle Aussagen, Zahlen und Paragrafen stammen aus den Theorietexten der AEVO-Kursdateien
- * (content/ausbildung-der-ausbilder/, Themen 1.1, 2.1, 2.2, 2.3, 3.1, 4.1, 4.2; Rechtsstand dort:
- * 22./23.10.2026, nach den Paketen P-AR bis P-AT). Frage 3 (Schriftform der Probezeitkündigung) folgt
+ * (content/ausbildung-der-ausbilder/, Themen 1.1, 1.4, 2.1, 2.2, 2.3, 3.1, 4.1, 4.2; Rechtsstand dort:
+ * 22./23.10.2026, nach den Paketen P-AR bis P-AT). Frage 6 (Geltungsbereich des JArbSchG) folgt Thema 1.4 einschließlich
+ * der Ausnahme berufsschulpflichtiger Volljähriger (Unterricht vor 9 Uhr), die Fragen 7 bis 10 stimmen mit Thema 1.4
+ * überein (8 Stunden grundsätzlich, 8,5 Stunden nur mit Ausgleich). Frage 3 (Schriftform der Probezeitkündigung) folgt
  * Thema 3.1, Frage 11 (Textform der Vertragsabfassung, § 11 BBiG) und Frage 12 (Antrag auf Eintragung,
  * § 36 Abs. 1 BBiG) folgen Thema 2.3, Frage 15 (Ausbildungsplan als Anlage) beschreibt wie Thema 2.1 eine
  * Praxis und keine gesetzliche Pflicht, Frage 18 (Nachteilsausgleich, „sollen berücksichtigen“) folgt
@@ -103,13 +105,13 @@ export const kennzahlenDuellRechtBerufsausbildung: KennzahlenDuellPayload = {
       nummer: 6,
       runde: 2,
       frage: "Für welche Auszubildenden gelten die besonderen Schutzvorschriften des Jugendarbeitsschutzgesetzes (JArbSchG)?",
-      antwortA: "Nur für minderjährige Auszubildende",
+      antwortA: "Grundsätzlich nur für minderjährige Auszubildende",
       antwortB: "Für alle Auszubildenden, unabhängig vom Alter",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Das JArbSchG schützt minderjährige Auszubildende. Für volljährige Auszubildende greift stattdessen das allgemeine Arbeitszeitgesetz (siehe Thema 1.1).",
+        "Richtig! Das JArbSchG schützt grundsätzlich nur minderjährige Auszubildende. Für volljährige Auszubildende greift stattdessen das allgemeine Arbeitszeitgesetz. Eine Ausnahme: Das Verbot, vor Berufsschulunterricht zu beschäftigen, der vor 9 Uhr beginnt, gilt auch für noch berufsschulpflichtige Volljährige (siehe Thema 1.1 und Thema 1.4).",
       feedbackFalsch:
-        "Das passt nicht. Die besonderen Jugendschutzvorschriften gelten nur für Minderjährige; für Volljährige greift das allgemeine Arbeitszeitgesetz (siehe Thema 1.1).",
+        "Das passt nicht. Die besonderen Jugendschutzvorschriften gelten grundsätzlich nur für Minderjährige; für Volljährige greift das allgemeine Arbeitszeitgesetz. Ausnahme: Das Verbot, vor Unterricht, der vor 9 Uhr beginnt, zu beschäftigen, gilt auch für noch berufsschulpflichtige Volljährige (siehe Thema 1.1 und Thema 1.4).",
     },
     {
       nummer: 7,

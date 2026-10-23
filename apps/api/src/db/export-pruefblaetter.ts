@@ -1578,7 +1578,7 @@ function arbeitszeitBlatt(): string {
   const teile: string[] = [
     "# Prüfblatt Werkzeug — Arbeitszeit-Prüfer (F-198)",
     "",
-    "Stand 07.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Noch in keinem Kurs sichtbar** (Rahmenentscheidung R4: Recht bleibt bis zur Fachprüfung gesperrt). Freigabe: Werkzeug arbeitszeit in die Werkzeugliste von Gesundheit/Soziales (Erwachsene, ArbZG) und AEVO (Jugendliche, JArbSchG) in kurs-angebot.ts eintragen, dann db:apply-kurs-metadata.",
+    "Stand 23.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Freigegeben am 23.10.2026** in Gesundheit/Soziales (Erwachsene, ArbZG) und AEVO (Jugendliche, JArbSchG) auf Anweisung des Projektleiters; die fachliche Prüfung folgt am fertigen Portal. Das Werkzeug wurde am 23.10.2026 gegen den Gesetzestext abgeglichen (Jugendliche 8 bis 8,5 Stunden als Hinweis, Berufsschultag nach Wortlaut, Pausen unter 15 Minuten, Schichtzeit, Ruhezeit über freie Zeilen, Hinweis nach § 5 Abs. 2 ArbZG); Rest steht als Hinweis „Was dieses Werkzeug nicht prüft“.",
     "",
     "**Was das Werkzeug tut:** Lernende tragen eine Arbeitswoche ein (Beginn, Ende, Pause, bei Jugendlichen den Berufsschultag). Das Werkzeug meldet je Tag **Verstoß** oder **Hinweis** mit Paragraf und prüft die Ruhezeit zwischen zwei aufeinanderfolgenden Arbeitstagen. Es speichert nichts und bewertet nichts. Sichtbarer Hinweis im Werkzeug: Übung zu den Grundregeln, keine Rechtsberatung, Stand der Regelwerte " + REGEL_STAND + ".",
     "",
@@ -1605,7 +1605,7 @@ function arbeitszeitBlatt(): string {
   teile.push(
     "## Bewusst nicht abgebildet",
     "",
-    "Tarifverträge, Branchen- und Pflegeausnahmen (zum Beispiel Verkürzung der Ruhezeit nach § 5 Abs. 2 ArbZG), Rufbereitschaft, Nacht- und Schichtarbeit, Sonn- und Feiertage, Samstagsregeln und Branchenausnahmen für Jugendliche (§§ 14 ff. JArbSchG), Anrechnung der Berufsschulzeit als Arbeitszeit, Mindestlänge der einzelnen Pause und die Lage der Pause. Das Werkzeug weist darauf hin.",
+    "Tarifverträge, Branchen- und Pflegeausnahmen (zum Beispiel Verkürzung der Ruhezeit nach § 5 Abs. 2 ArbZG), Rufbereitschaft, Nacht- und Schichtarbeit, Sonn- und Feiertage, Samstagsregeln und Branchenausnahmen für Jugendliche (§§ 14 ff. JArbSchG), die genaue Anrechnung der Berufsschulzeit als Arbeitszeit (nur Schätzung mit Hinweis), Lage und Aufteilung der Pausen, Fünf-Wochen-Verteilung und mehrere Arbeitgeber. Das Werkzeug weist darauf hin.",
     "",
   );
   return teile.join("\n");

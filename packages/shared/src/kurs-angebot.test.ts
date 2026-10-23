@@ -152,11 +152,11 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
-  it("Rechen-Sprint (F-194): Kalkulation für die fünf Fachwirte, IT-Rechnen für die Fachinformatiker, Betriebskennzahlen noch gesperrt", () => {
+  it("Rechen-Sprint (F-194): Kalkulation für die fünf Fachwirte, IT-Rechnen für die Fachinformatiker, Betriebskennzahlen seit 23.10.2026 freigegeben", () => {
     for (const slug of ["industriefachwirt", "technischer-fachwirt", "wirtschaftsfachwirt", "transport-management-logistics", "handelsfachwirt"]) {
       const angebot = KURS_ANGEBOT[slug];
       expect(angebotSpiel(angebot, "rechensprint", "rechnen"), slug).toBe("kern");
-      expect(angebotSpiel(angebot, "rechensprint", "kennzahlen"), slug).toBeNull();
+      expect(angebotSpiel(angebot, "rechensprint", "kennzahlen"), slug).toBe("kern");
       expect(angebotSpiel(angebot, "rechensprint", "it-rechnen"), slug).toBeNull();
     }
     expect(angebotSpiel(KURS_ANGEBOT["fachinformatiker-anwendungsentwicklung"], "rechensprint", "it-rechnen")).toBe("grundlagen");
@@ -209,8 +209,11 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
     }
   });
 
-  it("Arbeitszeit-Prüfer (F-198): in keinem Kurs freigegeben (Rechtsprüfung)", () => {
-    for (const slug of Object.keys(KURS_ANGEBOT)) expect(angebotWerkzeug(KURS_ANGEBOT[slug], "arbeitszeit"), slug).toBeNull();
+  it("Arbeitszeit-Prüfer (F-198): seit 23.10.2026 in Gesundheit/Soziales und AEVO freigegeben", () => {
+    for (const slug of Object.keys(KURS_ANGEBOT)) {
+      const erwartet = slug === "fachwirt-gesundheit-soziales" || slug === "ausbildung-der-ausbilder" ? "kern" : null;
+      expect(angebotWerkzeug(KURS_ANGEBOT[slug], "arbeitszeit"), slug).toBe(erwartet);
+    }
   });
 
   it("Handelskalkulation-Trainer (F-199): Werkzeug nur im Handelsfachwirt", () => {
@@ -360,7 +363,8 @@ describe("KURS_ENTWURF (ungeprüfte Instrumente, F-186)", () => {
   });
 
   it("istInstrumentEntwurf erkennt Entwürfe", () => {
-    expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(true);
+    // Seit dem 23.10.2026 ist die Entwurfsliste leer (alle Instrumente freigegeben).
+    expect(istInstrumentEntwurf("fachinformatiker-systemintegration", "verzeichnisdienst")).toBe(false);
     expect(istInstrumentEntwurf("fachinformatiker-anwendungsentwicklung", "sql")).toBe(false);
     expect(istInstrumentEntwurf("mathematik-9", "git")).toBe(false);
   });

@@ -55,6 +55,7 @@ describe("kursAngebot (F-176)", () => {
     expect(kursWerkzeuge({ werkzeuge: ["terminal"], angebot })).toEqual(["netzplan"]);
     // Der Industriefachwirt bekommt nur den Finanzrechner (F-197); Kurse ohne Werkzeuge im Angebot liefern eine leere Liste.
     expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["industriefachwirt"] })).toEqual(["finanzrechner"]);
-    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["fachwirt-gesundheit-soziales"] })).toEqual([]);
+    // Gesundheit/Soziales hat seit der Freigabe vom 23.10.2026 den Arbeitszeit-Prüfer.
+    expect(kursWerkzeuge({ angebot: KURS_ANGEBOT["fachwirt-gesundheit-soziales"] })).toEqual(["arbeitszeit"]);
   });
 });

@@ -11,9 +11,9 @@ import { splitFrontmatter } from "./content-parser";
  * echten Content: Keine aktive Frage gehört zu einem Instrumenttyp, den der Kurs nicht anbietet (oder der noch ein Entwurf ist).
  */
 describe("Instrument-Fragen und Kursangebot (B7)", () => {
-  it("sindInstrumentFragenAktiv: Typ im Angebot, Entwurf, fremder Typ, Kurs ohne Angebot", () => {
+  it("sindInstrumentFragenAktiv: Typ im Angebot, fremder Typ, Kurs ohne Angebot (die Entwurfsliste ist seit dem 23.10.2026 leer)", () => {
     expect(sindInstrumentFragenAktiv("fachinformatiker-systemintegration", "swot")).toBe(false); // nicht im Kurs
-    expect(sindInstrumentFragenAktiv("fachinformatiker-systemintegration", "authfaktoren")).toBe(false); // Entwurf
+    expect(sindInstrumentFragenAktiv("fachinformatiker-systemintegration", "authfaktoren")).toBe(true); // freigegeben
     expect(sindInstrumentFragenAktiv("fachinformatiker-systemintegration", "switching")).toBe(true); // angeboten
     expect(sindInstrumentFragenAktiv("fachinformatiker-systemintegration", "quiz_mc")).toBe(true); // kein Instrument
     expect(sindInstrumentFragenAktiv("mathematik-9", "gantt")).toBe(true); // Kurs ohne Angebot

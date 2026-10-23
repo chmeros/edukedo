@@ -147,9 +147,9 @@ export const memoryAevo: MemoryPayload = {
     {
       nummer: 17,
       runde: 2,
-      begriff: "Jugendvertretung (JAV)",
-      bedeutung: "Vertritt die jungen Beschäftigten und Azubis im Betrieb",
-      bestaetigung: "Richtig! Sie ist bei Kelvinar das Sprachrohr der Auszubildenden über die Fachabteilungen hinweg.",
+      begriff: "JAV",
+      bedeutung: "Jugend- und Auszubildendenvertretung im Betrieb",
+      bestaetigung: "Richtig! Sie vertritt jugendliche Beschäftigte und Auszubildende, bei Kelvinar als Sprachrohr über die Fachabteilungen hinweg.",
     },
     {
       nummer: 18,

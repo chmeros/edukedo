@@ -1,8 +1,8 @@
 # Prüfblatt Werkzeug — Arbeitszeit-Prüfer (F-198)
 
-Stand 07.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Noch in keinem Kurs sichtbar** (Rahmenentscheidung R4: Recht bleibt bis zur Fachprüfung gesperrt). Freigabe: Werkzeug arbeitszeit in die Werkzeugliste von Gesundheit/Soziales (Erwachsene, ArbZG) und AEVO (Jugendliche, JArbSchG) in kurs-angebot.ts eintragen, dann db:apply-kurs-metadata.
+Stand 23.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Freigegeben am 23.10.2026** in Gesundheit/Soziales (Erwachsene, ArbZG) und AEVO (Jugendliche, JArbSchG) auf Anweisung des Projektleiters; die fachliche Prüfung folgt am fertigen Portal. Das Werkzeug wurde am 23.10.2026 gegen den Gesetzestext abgeglichen (Jugendliche 8 bis 8,5 Stunden als Hinweis, Berufsschultag nach Wortlaut, Pausen unter 15 Minuten, Schichtzeit, Ruhezeit über freie Zeilen, Hinweis nach § 5 Abs. 2 ArbZG); Rest steht als Hinweis „Was dieses Werkzeug nicht prüft“.
 
-**Was das Werkzeug tut:** Lernende tragen eine Arbeitswoche ein (Beginn, Ende, Pause, bei Jugendlichen den Berufsschultag). Das Werkzeug meldet je Tag **Verstoß** oder **Hinweis** mit Paragraf und prüft die Ruhezeit zwischen zwei aufeinanderfolgenden Arbeitstagen. Es speichert nichts und bewertet nichts. Sichtbarer Hinweis im Werkzeug: Übung zu den Grundregeln, keine Rechtsberatung, Stand der Regelwerte Oktober 2026 (Entwurf, noch nicht gegen den Gesetzestext abgeglichen).
+**Was das Werkzeug tut:** Lernende tragen eine Arbeitswoche ein (Beginn, Ende, Pause, bei Jugendlichen den Berufsschultag). Das Werkzeug meldet je Tag **Verstoß** oder **Hinweis** mit Paragraf und prüft die Ruhezeit zwischen zwei aufeinanderfolgenden Arbeitstagen. Es speichert nichts und bewertet nichts. Sichtbarer Hinweis im Werkzeug: Übung zu den Grundregeln, keine Rechtsberatung, Stand der Regelwerte Oktober 2026 (gegen den Gesetzestext abgeglichen, noch nicht rechtlich geprüft).
 
 **Prüffragen für die Fachperson:** (1) Stimmen die Zahlen und Paragrafen der Tabellen unten mit der geltenden Fassung überein? (2) Sind die Grundregeln als Verstoß richtig eingestuft, vor allem die Grenze 8 bis 10 Stunden bei Erwachsenen (hier nur ein Hinweis) und das Zeitfenster 6 bis 20 Uhr bei Jugendlichen? (3) Ist der Berufsschultag richtig verkürzt wiedergegeben? Rückmeldung genügt als „frei“, „ändern: …“ oder „streichen“.
 
@@ -18,7 +18,7 @@ Stand 07.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Noch in ke
 
 | Regel | Wert im Werkzeug | Paragraf |
 | --- | --- | --- |
-| Arbeitszeit am Tag | Bis 8 Std.; darüber ist ein Verstoß | § 8 JArbSchG |
+| Arbeitszeit am Tag | Bis 8 Std.; darüber bis 8 Std. 30 Min. nur mit Ausgleich (Hinweis); mehr ist ein Verstoß | § 8 JArbSchG |
 | Ruhepausen | 30 Minuten bei mehr als 4 Std. 30 Min. Arbeitszeit (ohne Pausen); 60 Minuten bei mehr als 6 Std. Arbeitszeit (ohne Pausen) | § 11 JArbSchG |
 | Ruhezeit zwischen zwei Arbeitstagen | Mindestens 12 Std. | § 13 JArbSchG |
 | Zeitfenster | Beschäftigung grundsätzlich zwischen 06:00 und 20:00 Uhr (Branchenausnahmen nicht abgebildet) | § 14 JArbSchG |
@@ -27,4 +27,4 @@ Stand 07.10.2026 · erzeugt aus packages/shared/src/arbeitszeit.ts. **Noch in ke
 
 ## Bewusst nicht abgebildet
 
-Tarifverträge, Branchen- und Pflegeausnahmen (zum Beispiel Verkürzung der Ruhezeit nach § 5 Abs. 2 ArbZG), Rufbereitschaft, Nacht- und Schichtarbeit, Sonn- und Feiertage, Samstagsregeln und Branchenausnahmen für Jugendliche (§§ 14 ff. JArbSchG), Anrechnung der Berufsschulzeit als Arbeitszeit, Mindestlänge der einzelnen Pause und die Lage der Pause. Das Werkzeug weist darauf hin.
+Tarifverträge, Branchen- und Pflegeausnahmen (zum Beispiel Verkürzung der Ruhezeit nach § 5 Abs. 2 ArbZG), Rufbereitschaft, Nacht- und Schichtarbeit, Sonn- und Feiertage, Samstagsregeln und Branchenausnahmen für Jugendliche (§§ 14 ff. JArbSchG), die genaue Anrechnung der Berufsschulzeit als Arbeitszeit (nur Schätzung mit Hinweis), Lage und Aufteilung der Pausen, Fünf-Wochen-Verteilung und mehrere Arbeitgeber. Das Werkzeug weist darauf hin.

@@ -223,17 +223,7 @@ const TOPOLOGIE_SI_NETZ = ["inter-vlan-verwaltung", "standortverbund-vpn", "dmz-
  * Die ergänzten Theorieabschnitte und Karteikarten sind davon nicht betroffen und bereits Teil der Themen.
  */
 export const KURS_ENTWURF: Record<string, readonly string[]> = {
-  // F-221: neue gemeinsame Instrumente der Fachinformatiker-Kurse, bis zur Fachprüfung (Prüfblätter 06 bis 09) nicht sichtbar.
-  "fachinformatiker-anwendungsentwicklung": ["authfaktoren", "kryptobausteine", "angriffsarten"],
-  "fachinformatiker-daten-prozessanalyse": ["authfaktoren", "kryptobausteine", "angriffsarten"],
-  "fachinformatiker-digitale-vernetzung": ["authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"],
-  "fachinformatiker-systemintegration": ["verzeichnisdienst", "authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle", "angriffsarten"],
-  "ausbildung-der-ausbilder": ["regelwerke"],
-  "fachwirt-gesundheit-soziales": ["kostentraeger"],
-  industriefachwirt: ["incoterms"],
-  "technischer-fachwirt": ["instandhaltung"],
-  immobilienfachwirt: ["mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"],
-  "versicherungen-finanzanlagen": ["altersvorsorge", "risikopolitik"],
+  // Alle Instrumente sind seit dem 23.10.2026 freigegeben (Nutzer-Entscheidung: das Portal wird nach Fertigstellung des gesamten Inhalts gegengeprüft).
 };
 
 /** Ist dieser Instrumenttyp im Kurs noch ein ungeprüfter Entwurf (Fragen inaktiv)? */
@@ -266,7 +256,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
  * Lagerkennzahlen-Rechner (F-201): Werkzeug "lagerkennzahlen" im Handelsfachwirt freigegeben (Umschlagshäufigkeit, Reichweite, Meldebestand nach der Kurstheorie 4.1 und 4.3; Andler-Formel und Lagerzinssatz stehen nicht in der Theorie und fehlen bewusst).
  * Unterweisungs-Planer (F-200): Werkzeug "unterweisungsplan" im AEVO-Kurs freigegeben (Vier-Stufen-Methode nach F-192, Lernzielbereiche aus 3.2; Prüfungen sind Selbstkontroll-Heuristiken).
  * Handelskalkulation-Trainer (F-199): Werkzeug "kalkulationstrainer" im Handelsfachwirt freigegeben (Schema und Sätze nach der Kurstheorie 5.3, Beispielwerte).
- * Arbeitszeit-Prüfer (F-198): Werkzeug "arbeitszeit" ist angelegt, steht aber noch in keiner Kursliste (Gesundheit/Soziales und AEVO erst nach der Rechtsprüfung der Grundregeln, Prüfblatt 23).
+ * Arbeitszeit-Prüfer (F-198): Werkzeug "arbeitszeit" in Gesundheit/Soziales und AEVO freigegeben am 23.10.2026 (Nutzer-Entscheidung: auch die Jugendarbeitsschutz-Themen, das Portal wird am Ende gegengeprüft; bekannte Abweichungen des Werkzeugs gegen den Gesetzestext stehen im Prüfprotokoll P-AS).
  * Finanzrechner (F-197): Werkzeug "finanzrechner" in Industrie-, Technischem, Wirtschafts-, Handels-, Immobilien- und Versicherungskurs freigegeben (reine Rechenverfahren, Beispielwerte, Hinweis "keine Beratung").
  * Beleg-Detektiv (F-196): Set "belege" (Wareneingang, Rechnungsprüfung) in fünf Kursen, Phishing-Set "fracht-betrug" in Transport/Logistik, beide freigegeben (frei erfundene Fälle ohne Rechtsaussagen).
  * Rechen-Sprint (F-194): Die Sets "rechnen" (Kalkulation) und "it-rechnen" sind freigegeben; das Set "kennzahlen" (Lager, OEE) steht bewusst nicht in den Listen, bis die Rechenkonventionen (360 Tage, Andler-Annahmen, OEE) fachlich geprüft sind.
@@ -275,7 +265,7 @@ export function istInstrumentEntwurf(kursSlug: string, typ: string): boolean {
 export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // ---- Fachinformatiker ----
   "fachinformatiker-anwendungsentwicklung": {
-    instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git", "muster", "klassenbeziehungen", "testverfahren"], ["pdca", "risiko", "osi"]),
+    instrumente: liste(["gantt", "hierarchie", "schutzziele", "sql", "scrum", "uml", "teststufen", "ermodell", "normalisierung", "ablauf", "git", "muster", "klassenbeziehungen", "testverfahren"], ["pdca", "risiko", "osi", "authfaktoren", "kryptobausteine", "angriffsarten"]),
     werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "testfaelle", "verfuegbarkeit", "schreibtischtest", "algorithmen"], ["netzplan", "subnetting", "terminal", "topologie", "flags"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -305,7 +295,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     },
   },
   "fachinformatiker-daten-prozessanalyse": {
-    instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"], ["risiko", "hierarchie", "osi", "scrum"]),
+    instrumente: liste(["gantt", "pdca", "schutzziele", "sql", "ermodell", "normalisierung", "bpmn", "analysewerkzeuge", "datenqualitaet", "skalenniveaus"], ["risiko", "hierarchie", "osi", "scrum", "authfaktoren", "kryptobausteine", "angriffsarten"]),
     werkzeuge: liste(["wirtschaftlichkeit", "sqluebung", "verfuegbarkeit", "statistik", "prozesskennzahlen"], ["netzplan", "subnetting", "terminal", "topologie", "flags", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -321,6 +311,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["rechensprint", "statistik", "kern"],
       ["rechensprint", "algorithmen", "grundlagen"],
       ["prozessreihenfolge", "prozesse", "kern"],
+      ["belegdetektiv", "daten", "kern"],
     ]),
     lernpfade: ["scrum", "osi", "schutzziele", "normalisierung", "ermodell"],
     szenarien: {
@@ -331,7 +322,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     },
   },
   "fachinformatiker-digitale-vernetzung": {
-    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept"], ["pdca", "hierarchie", "scrum"]),
+    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "pyramide", "sensoraktor", "industrieprotokolle", "zonenkonzept", "authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"], ["pdca", "hierarchie", "scrum"]),
     werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "mqttlabor", "skalierung", "energierechner", "verfuegbarkeit"], ["netzplan", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -340,8 +331,8 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "grundlagen"],
       ["memory", "ports", "kern"],
       ["phishing", null, "grundlagen"],
-      // Neues Set (industrie-iot) erst nach der Freigabe des Prüfblatts 08 aufnehmen.
       ["troubleshooting", "standard", "kern"],
+      ["troubleshooting", "industrie-iot", "kern"],
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
       ["rechensprint", "it-rechnen", "kern"],
@@ -356,7 +347,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     },
   },
   "fachinformatiker-systemintegration": {
-    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "sicherungsarten", "switching", "raid", "netzsicherheit"], ["pdca", "hierarchie", "scrum"]),
+    instrumente: liste(["gantt", "risiko", "osi", "schutzziele", "teststufen", "sicherungsarten", "switching", "raid", "netzsicherheit", "verzeichnisdienst", "authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle", "angriffsarten"], ["pdca", "hierarchie", "scrum"]),
     werkzeuge: liste(["wirtschaftlichkeit", "subnetting", "terminal", "topologie", "flags", "verfuegbarkeit"], ["netzplan", "schreibtischtest", "algorithmen"]),
     spiele: spiele([
       ["kreuzwortraetsel", "standard", "grundlagen"],
@@ -365,8 +356,9 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["memory", "standard", "grundlagen"],
       ["memory", "ports", "kern"],
       ["phishing", null, "grundlagen"],
-      // Neue Troubleshooting-Sets (serverdienste, switching-routing) erst nach der Freigabe des Prüfblatts 09 aufnehmen.
       ["troubleshooting", "standard", "kern"],
+      ["troubleshooting", "serverdienste", "kern"],
+      ["troubleshooting", "switching-routing", "kern"],
       ["bughunt", "skripte-konfiguration", "kern"],
       ["subnetting", null, "kern"],
       ["zahlensysteme", null, "kern"],
@@ -386,13 +378,14 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Beschaffung und SECI (Welle 1) sowie PPS, Ishikawa, Zuschlagskalkulation und das Duell "kosten-leistungen" (Welle 2) sind freigegeben.
   // Incoterms (ICC-Regelwerk) erst nach der Freigabe des Prüfblatts 13 aufnehmen.
   industriefachwirt: {
-    instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa6m", "kalkulation"]),
+    instrumente: liste([...OHNE(), "beschaffung", "seci", "pps", "ishikawa6m", "kalkulation", "incoterms"]),
     werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "kosten-leistungen", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["rechensprint", "kennzahlen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
       ["belegdetektiv", "belege", "kern"],
     ]),
@@ -402,13 +395,14 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Fertigungsverfahren, TOP-Prinzip, Ishikawa 6M, Zuschlagskalkulation und das Duell "technische-unterscheidungen" sind freigegeben (Welle 2).
   // Instandhaltung nach DIN 31051 (Normbegriffe) erst nach der Freigabe des Prüfblatts 14 aufnehmen.
   "technischer-fachwirt": {
-    instrumente: liste([...OHNE(), "fertigungsverfahren", "top", "ishikawa6m", "kalkulation"]),
+    instrumente: liste([...OHNE(), "fertigungsverfahren", "top", "ishikawa6m", "kalkulation", "instandhaltung"]),
     werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "technische-unterscheidungen", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["rechensprint", "kennzahlen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
       ["belegdetektiv", "belege", "kern"],
     ]),
@@ -420,10 +414,11 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     instrumente: liste([...OHNE("gantt"), "investition", "vierseiten"]),
     werkzeuge: liste(["finanzrechner"]),
     spiele: spiele([
-      ["kreuzwortraetsel", "standard", "kern"],
+      ["kreuzwortraetsel", "fachbegriffe", "kern"],
       ["kennzahlen_duell", "finanzierung-controlling", "kern"],
-      ["memory", "standard", "kern"],
+      ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["rechensprint", "kennzahlen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
       ["belegdetektiv", "belege", "kern"],
     ]),
@@ -437,9 +432,10 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
     werkzeuge: liste(["sparverfahren"]),
     spiele: spiele([
       ["kreuzwortraetsel", "fachbegriffe", "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
+      ["kennzahlen_duell", "spedition-fracht", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["rechensprint", "kennzahlen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
       ["phishing", "fracht-betrug", "kern"],
     ]),
@@ -456,6 +452,7 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
       ["kennzahlen_duell", "handel-aehnlich", "kern"],
       ["memory", "begriff-paare", "kern"],
       ["rechensprint", "rechnen", "kern"],
+      ["rechensprint", "kennzahlen", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
       ["belegdetektiv", "belege", "kern"],
     ]),
@@ -466,12 +463,12 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Duell-Set "immobilien-aehnlich" erst nach der Rechtsprüfung des Prüfblatts 18 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set
   // "standard" begrenzt.
   immobilienfachwirt: {
-    instrumente: liste([...OHNE(), "wertermittlung"]),
+    instrumente: liste([...OHNE(), "wertermittlung", "mieterhoehung", "wegorgane", "betriebskosten", "kostengruppen"]),
     werkzeuge: liste(["netzplan", "finanzrechner"]),
     spiele: spiele([
-      ["kreuzwortraetsel", "standard", "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
-      ["memory", "standard", "kern"],
+      ["kreuzwortraetsel", "fachbegriffe", "kern"],
+      ["kennzahlen_duell", "immobilien-aehnlich", "kern"],
+      ["memory", "begriff-paare", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -480,12 +477,12 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // "versicherung-aehnlich" erst nach der Rechtsprüfung des Prüfblatts 19 aufnehmen; das Begriffe-Duell ist bis dahin auf das nicht vorhandene Set
   // "standard" begrenzt.
   "versicherungen-finanzanlagen": {
-    instrumente: liste([...OHNE(), "versicherungskennzahlen"]),
+    instrumente: liste([...OHNE(), "versicherungskennzahlen", "altersvorsorge", "risikopolitik"]),
     werkzeuge: liste(["netzplan", "finanzrechner"]),
     spiele: spiele([
-      ["kreuzwortraetsel", "standard", "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
-      ["memory", "standard", "kern"],
+      ["kreuzwortraetsel", "fachbegriffe", "kern"],
+      ["kennzahlen_duell", "versicherung-aehnlich", "kern"],
+      ["memory", "begriff-paare", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -508,12 +505,12 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // PDCA und Donabedian sind freigegeben (Welle 1, 06.10.2026). Kostenträger und das Duell-Set "gesundheit-sozialsystem" erst nach der fachlichen
   // und rechtlichen Freigabe des Prüfblatts 11 aufnehmen; das Duell bleibt bis dahin auf das nicht vorhandene Set "standard" begrenzt.
   "fachwirt-gesundheit-soziales": {
-    instrumente: liste([...OHNE(), "donabedian"]),
-    werkzeuge: [],
+    instrumente: liste([...OHNE(), "donabedian", "kostentraeger"]),
+    werkzeuge: liste(["arbeitszeit"]),
     spiele: spiele([
-      ["kreuzwortraetsel", "standard", "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
-      ["memory", "standard", "kern"],
+      ["kreuzwortraetsel", "fachbegriffe", "kern"],
+      ["kennzahlen_duell", "gesundheit-sozialsystem", "kern"],
+      ["memory", "begriff-paare", "kern"],
     ]),
     lernpfade: [],
     szenarien: {},
@@ -521,12 +518,12 @@ export const KURS_ANGEBOT: Record<string, KursAngebot> = {
   // Handlungsfelder und Lernzielbereiche (Welle 1), Beurteilungsfehler (Welle 2) und die Vier-Stufen-Methode (in der üblichen Fassung, freigegeben am
   // 06.10.2026) sind freigegeben. Regelwerke und das Duell-Set "recht-berufsausbildung" erst nach der Freigabe des Prüfblatts 10 aufnehmen (Rechtsfragen).
   "ausbildung-der-ausbilder": {
-    instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler", "vierstufen"]),
-    werkzeuge: liste(["unterweisungsplan", "lernzielcheck", "ausbildungsplan"]),
+    instrumente: liste(["handlungsfelder", "lernzielbereiche", "beurteilungsfehler", "vierstufen", "regelwerke"]),
+    werkzeuge: liste(["unterweisungsplan", "lernzielcheck", "ausbildungsplan", "arbeitszeit"]),
     spiele: spiele([
-      ["kreuzwortraetsel", "standard", "kern"],
-      ["kennzahlen_duell", "standard", "kern"],
-      ["memory", "standard", "kern"],
+      ["kreuzwortraetsel", "fachbegriffe", "kern"],
+      ["kennzahlen_duell", "recht-berufsausbildung", "kern"],
+      ["memory", "begriff-paare", "kern"],
       ["prozessreihenfolge", "prozesse", "kern"],
     ]),
     lernpfade: [],

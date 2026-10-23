@@ -44,17 +44,14 @@ describe("F-221: gemeinsame Instrumente der Fachinformatiker-Kurse", () => {
     expect(fragen.map((eintrag) => eintrag.item?.difficulty)).toEqual(["leicht", "mittel", "schwer"]);
   });
 
-  it("die vier Instrumente sind im Katalog und bis zur Freigabe nur als Entwurf geführt (nicht im Angebot)", () => {
+  it("die Instrumente sind im Katalog und seit dem 23.10.2026 freigegeben (im Angebot, nicht mehr als Entwurf geführt)", () => {
     const neu = ["authfaktoren", "kryptobausteine", "monitoring", "cloudmodelle", "angriffsarten"];
     for (const typ of neu) expect(KATALOG_INSTRUMENTE as readonly string[]).toContain(typ);
-    for (const [slug, typen] of Object.entries(KURS_ENTWURF)) {
-      for (const typ of typen.filter((eintrag) => neu.includes(eintrag))) {
-        expect(KURS_ANGEBOT[slug]!.instrumente.map((eintrag) => eintrag.schluessel), `${slug}/${typ}`).not.toContain(typ);
-      }
-    }
-    expect(KURS_ENTWURF["fachinformatiker-systemintegration"]).toEqual(expect.arrayContaining(neu));
-    expect(KURS_ENTWURF["fachinformatiker-digitale-vernetzung"]).toEqual(expect.arrayContaining(["authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"]));
-    expect(KURS_ENTWURF["fachinformatiker-anwendungsentwicklung"]).toEqual(["authfaktoren", "kryptobausteine", "angriffsarten"]);
+    const imAngebot = (slug: string) => KURS_ANGEBOT[slug]!.instrumente.map((eintrag) => eintrag.schluessel);
+    expect(imAngebot("fachinformatiker-systemintegration")).toEqual(expect.arrayContaining(neu));
+    expect(imAngebot("fachinformatiker-digitale-vernetzung")).toEqual(expect.arrayContaining(["authfaktoren", "kryptobausteine", "monitoring", "angriffsarten"]));
+    expect(imAngebot("fachinformatiker-anwendungsentwicklung")).toEqual(expect.arrayContaining(["authfaktoren", "kryptobausteine", "angriffsarten"]));
+    for (const typen of Object.values(KURS_ENTWURF)) expect(typen).toEqual([]);
   });
 
   it("keine Aussage der neuen Fragen enthält einen zweiten Pfeil oder eine leere Zone", () => {

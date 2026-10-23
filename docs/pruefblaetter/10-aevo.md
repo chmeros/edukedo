@@ -765,12 +765,12 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 #### recht-berufsausbildung · 6 — Für welche Auszubildenden gelten die besonderen Schutzvorschriften des Jugendarbeitsschutzgesetzes (JArbSchG)?
 
-- ✔ **A:** Nur für minderjährige Auszubildende
+- ✔ **A:** Grundsätzlich nur für minderjährige Auszubildende
 - **B:** Für alle Auszubildenden, unabhängig vom Alter
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Das JArbSchG schützt minderjährige Auszubildende. Für volljährige Auszubildende greift stattdessen das allgemeine Arbeitszeitgesetz (siehe Thema 1.1).
+**Rückmeldung bei richtiger Antwort:** Richtig! Das JArbSchG schützt grundsätzlich nur minderjährige Auszubildende. Für volljährige Auszubildende greift stattdessen das allgemeine Arbeitszeitgesetz. Eine Ausnahme: Das Verbot, vor Berufsschulunterricht zu beschäftigen, der vor 9 Uhr beginnt, gilt auch für noch berufsschulpflichtige Volljährige (siehe Thema 1.1 und Thema 1.4).
 
-**Rückmeldung bei falscher Antwort:** Das passt nicht. Die besonderen Jugendschutzvorschriften gelten nur für Minderjährige; für Volljährige greift das allgemeine Arbeitszeitgesetz (siehe Thema 1.1).
+**Rückmeldung bei falscher Antwort:** Das passt nicht. Die besonderen Jugendschutzvorschriften gelten grundsätzlich nur für Minderjährige; für Volljährige greift das allgemeine Arbeitszeitgesetz. Ausnahme: Das Verbot, vor Unterricht, der vor 9 Uhr beginnt, zu beschäftigen, gilt auch für noch berufsschulpflichtige Volljährige (siehe Thema 1.1 und Thema 1.4).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

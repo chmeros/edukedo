@@ -74,7 +74,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Rahmenlehrplan | Lehrplan der Berufsschule, mit dem Betrieb abgestimmt |
 | Lernortkooperation | Betrieb und Schule stimmen sich miteinander ab |
 | Betriebsrat | Gewählte Vertretung der Beschäftigten im Betrieb |
-| Jugendvertretung (JAV) | Vertritt die jungen Beschäftigten und Azubis im Betrieb |
+| JAV | Jugend- und Auszubildendenvertretung im Betrieb |
 | Einstellungstest | Prüft fachliche Grundlagen der Bewerbenden |
 | Ausbildungsvertrag | Hält Rechte und Pflichten beider Seiten fest |
 | Berichtsheft | Fortlaufender Nachweis der gelernten Inhalte |

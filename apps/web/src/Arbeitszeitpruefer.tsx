@@ -6,7 +6,8 @@ import { handleTabListKeyDown } from "./tabListKeyboardNav";
  * F-198 (Arbeitszeit-Prüfer, siehe Architekturplanung Abschnitt 13): Übung zu den Grundregeln des Arbeitszeitgesetzes
  * (Erwachsene) und des Jugendarbeitsschutzgesetzes (unter 18 Jahren). Rechnet live im Browser
  * (packages/shared/src/arbeitszeit.ts), ohne Server-Aufruf, Speicherung oder Wertung. Die Regelsätze sind getrennt
- * und mit Stand und Paragrafen sichtbar; Ausnahmen sind bewusst nicht abgebildet. Keine Rechtsberatung.
+ * und mit Stand und Paragrafen sichtbar; Ausnahmen sind bewusst nicht abgebildet. Was die Eingaben nicht hergeben oder
+ * nur mit Auslegung zu beurteilen ist, erscheint als "Hinweis ... bitte prüfen" statt als Verstoß. Keine Rechtsberatung.
  */
 const TAGE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"] as const;
 
@@ -63,7 +64,7 @@ export function Arbeitszeitpruefer({ onClose }: { onClose: () => void }) {
   const [zeilen, setZeilen] = useState<Zeile[]>(BEISPIEL.erwachsene);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const regeln = REGELN[gruppe];
-  const auswertung = useMemo(() => pruefeWoche(gruppe, zeilen.map(alsArbeitstag)), [gruppe, zeilen]);
+  const auswertung = useMemo(() => pruefeWoche(gruppe, zeilen.map(alsArbeitstag), { wochenwechsel: true }), [gruppe, zeilen]);
 
   function wechsle(neu: Personengruppe) {
     setGruppe(neu);
@@ -125,21 +126,30 @@ export function Arbeitszeitpruefer({ onClose }: { onClose: () => void }) {
               <li>
                 Ruhezeit: mindestens {formatDauer(regeln.ruhezeitMin)} zwischen zwei Arbeitstagen ({regeln.paragrafen.ruhezeit}).
               </li>
+              {regeln.schichtMaxMin !== null && (
+                <li>
+                  Schichtzeit (Arbeitszeit plus Ruhepausen): höchstens {formatDauer(regeln.schichtMaxMin)} ({regeln.paragrafen.schicht}).
+                </li>
+              )}
               {regeln.fenster && <li>Beschäftigung grundsätzlich nur zwischen 06:00 und 20:00 Uhr ({regeln.paragrafen.fenster}).</li>}
-              {regeln.paragrafen.berufsschule && <li>Berufsschultag mit mehr als fünf Unterrichtsstunden: keine Beschäftigung im Betrieb ({regeln.paragrafen.berufsschule}).</li>}
+              {regeln.paragrafen.berufsschule && (
+                <li>
+                  Berufsschule: an einem Berufsschultag mit mehr als fünf Unterrichtsstunden je Woche keine Beschäftigung im Betrieb; der Tag wird mit der durchschnittlichen täglichen Arbeitszeit angerechnet ({regeln.paragrafen.berufsschule}).
+                </li>
+              )}
             </ul>
           </details>
 
           <div className="netzplan-tabelle-wrap">
             <table className="netzplan-tabelle">
-              <caption className="field-hint">Arbeitswoche (leer lassen = frei). Endet die Schicht nach Mitternacht, steht bei „Ende“ die Uhrzeit des Folgetags.</caption>
+              <caption className="field-hint">Arbeitswoche (leer lassen = frei). Endet die Schicht nach Mitternacht, steht bei „Ende“ die Uhrzeit des Folgetags. Pause: Gesamtdauer, Einzelpausen unter 15 Minuten zählen nicht.{gruppe === "jugendliche" && " Berufsschultag auch ohne Einsatz im Betrieb ankreuzen."}</caption>
               <thead>
                 <tr>
                   <th scope="col">Tag</th>
                   <th scope="col">Beginn</th>
                   <th scope="col">Ende</th>
                   <th scope="col">Pause (Min.)</th>
-                  {gruppe === "jugendliche" && <th scope="col">Berufsschultag</th>}
+                  {gruppe === "jugendliche" && <th scope="col">Berufsschultag (mehr als 5 Std.)</th>}
                 </tr>
               </thead>
               <tbody>
@@ -166,7 +176,7 @@ export function Arbeitszeitpruefer({ onClose }: { onClose: () => void }) {
                       </td>
                       {gruppe === "jugendliche" && (
                         <td>
-                          <input type="checkbox" aria-label={`${name}: Berufsschultag mit mehr als fünf Unterrichtsstunden`} checked={zeile.berufsschule} onChange={(event) => aendere(index, { berufsschule: event.target.checked })} />
+                          <input type="checkbox" aria-label={`${name}: Berufsschultag mit mehr als fünf Unterrichtsstunden (auch ohne Einsatz im Betrieb ankreuzen)`} checked={zeile.berufsschule} onChange={(event) => aendere(index, { berufsschule: event.target.checked })} />
                         </td>
                       )}
                     </tr>
@@ -209,20 +219,31 @@ export function Arbeitszeitpruefer({ onClose }: { onClose: () => void }) {
             {auswertung.arbeitstage > 0 && (
               <div>
                 <p>
-                  <b>Woche:</b> {formatDauer(auswertung.summeMin)} an {auswertung.arbeitstage} Tagen
+                  <b>Woche:</b> {formatDauer(auswertung.summeMin)} im Betrieb an {auswertung.arbeitstage} Tagen
+                  {auswertung.schultagAnrechnungMin !== null && `, mit angerechnetem Berufsschultag (geschätzt) ${formatDauer(auswertung.summeMin + auswertung.schultagAnrechnungMin)}`}
                   {auswertung.hinweise.length === 0 && " – keine Beanstandung."}
                 </p>
                 {auswertung.hinweise.length > 0 && (
                   <ul>
                     {auswertung.hinweise.map((hinweis, position) => (
                       <li key={position}>
-                        <b>Verstoß</b> ({hinweis.regel}): {hinweis.text}
+                        <b>{hinweis.art === "verstoss" ? "Verstoß" : "Hinweis"}</b> ({hinweis.regel}): {hinweis.text}
                       </li>
                     ))}
                   </ul>
                 )}
               </div>
             )}
+            <details>
+              <summary>Was dieses Werkzeug nicht prüft (bitte selbst prüfen)</summary>
+              <ul>
+                {auswertung.nichtGeprueft.map((hinweis, position) => (
+                  <li key={position}>
+                    <b>Hinweis</b> ({hinweis.regel}): {hinweis.text}
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
         </div>
       </div>
