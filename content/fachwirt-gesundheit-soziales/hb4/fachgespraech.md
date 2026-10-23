@@ -18,7 +18,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Das externe Rechnungswesen (Finanzbuchhaltung) dokumentiert alle Geschäftsvorfälle lückenlos und liefert am Jahresende den Jahresabschluss.
   - Erwartung: Der Jahresabschluss richtet sich an gesetzliche Vorgaben und ist primär für Außenstehende bestimmt, etwa Kostenträger, Banken oder das Finanzamt.
   - Erwartung: Das interne Rechnungswesen (Kosten- und Leistungsrechnung, Controlling) dient der Unternehmensleitung zur Planung, Steuerung und Kontrolle.
-  - Erwartung: Das interne Rechnungswesen unterliegt keinen gesetzlichen Formvorschriften.
+  - Erwartung: Das interne Rechnungswesen unterliegt grundsätzlich keinen gesetzlichen Formvorschriften; für zugelassene Pflegeeinrichtungen ist eine Kosten- und Leistungsrechnung mit Mindestanforderungen vorgeschrieben, soweit keine Befreiung besteht.
   - Erwartung: Beispiel Morgenlicht: Die Finanzbuchhaltung liefert die Grundlage für die Bilanz gegenüber der Hausbank, das interne Rechnungswesen zeigt der Geschäftsführung, wie wirtschaftlich die einzelnen Touren laufen.
 - Warum ist das Belegprinzip in der Finanzbuchhaltung so wichtig?
   - Erwartung: Grundlage jeder Buchung ist ein Beleg („keine Buchung ohne Beleg“).
@@ -42,6 +42,22 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Ein Fahrzeug wird im Jahr der Anschaffung nicht in voller Höhe als Aufwand erfasst, sondern über mehrere Jahre „verbraucht“.
   - Erwartung: Die Bewertung erfolgt grundsätzlich zu Anschaffungs- oder Herstellungskosten.
   - Rückfrage: Wie unterscheiden sich lineare und degressive Abschreibung?
+- Der Vorstand eines gemeinnützigen Trägervereins meint, ein kleiner Verein müsse nicht bilanzieren, auch nicht für seinen Pflegedienst. Wie beraten Sie?
+  - Erwartung: Für zugelassene Pflegeeinrichtungen, also Pflegedienste und Pflegeheime mit Versorgungsvertrag, gelten besondere Buchführungsregeln neben dem Handelsrecht, unabhängig von Rechtsform und davon, ob der Träger Kaufmann im handelsrechtlichen Sinn ist.
+  - Erwartung: Verlangt sind doppelte Buchführung mit vorgegebenem Kontenrahmen, ein Jahresabschluss aus Bilanz, GuV und Anhang mit Anlagen- und Fördernachweis binnen sechs Monaten nach Ablauf des Geschäftsjahres sowie, soweit nicht befreit, eine Kosten- und Leistungsrechnung mit Mindestanforderungen.
+  - Erwartung: Kraft Gesetzes befreit sind nur sehr kleine Einrichtungen (Pflegedienste bis sechs Vollzeitkräfte, und nur bis zur gesetzlichen Umsatzgrenze); Teilzeitkräfte werden umgerechnet. Zwischen sieben und zehn Vollzeitkräften kommt eine Befreiung auf Antrag in Betracht; wer befreit ist, führt eine vereinfachte Einnahmen-Ausgaben-Rechnung und braucht auch die Kosten- und Leistungsrechnung nicht.
+  - Rückfrage: Warum reicht auch bei einem Verein die Einnahmen-Ausgaben-Rechnung für den Pflegedienst nicht aus?
+- Ein kommunaler Träger führt seinen Haushalt kameral und beauftragt Sie, seine zugelassene Pflegeeinrichtung zu betreuen. Worin unterscheiden sich Kameralistik und Doppik, und was bedeutet das für die Einrichtung?
+  - Erwartung: Die Kameralistik ist eine Zahlungsrechnung: Der nach Titeln gegliederte Haushaltsplan wird mit den tatsächlichen Einnahmen und Ausgaben des Haushaltsjahres verglichen. Die Doppik arbeitet wie die kaufmännische Buchführung mit Erträgen, Aufwendungen, Vermögen und Schulden; Abschreibungen sind dort Aufwand der Periode.
+  - Erwartung: Für Bund und Länder lässt das Gesetz beide Formen zu; für Kommunen und ihre Betriebe entscheidet das Landesrecht, das je Bundesland unterschiedlich ist.
+  - Erwartung: Nach dem Wortlaut der besonderen Buchführungsregeln bucht die zugelassene Pflegeeinrichtung unabhängig von der Rechtsform doppelt; wie ihre Zahlen in den Haushalt des Trägers eingehen und ob das Landesrecht etwas Besonderes regelt, ist je Land zu prüfen.
+  - Rückfrage: Warum ist die Kameralistik für die Kosten- und Leistungsrechnung einer Pflegeeinrichtung allein nicht ausreichend?
+- Erläutern Sie der Geschäftsführung eines gemeinnützigen Pflegedienstes die vier Sphären, die zeitnahe Mittelverwendung und die Rücklagen.
+  - Erwartung: Ideeller Bereich (Beiträge, Spenden), Vermögensverwaltung (Zinsen, Mieten), Zweckbetrieb (zum Beispiel ein Pflegeheim oder Pflegedienst, wenn mindestens zwei Drittel der Leistungen hilfebedürftigen Menschen zugutekommen) und steuerpflichtiger wirtschaftlicher Geschäftsbetrieb (zum Beispiel eine Cafeteria für Gäste); die Einnahmen werden getrennt erfasst.
+  - Erwartung: Steuerpflichtige Geschäftsbetriebe sind bis zu einer gesetzlichen Einnahmengrenze von der Körperschaft- und Gewerbesteuer ausgenommen; mehrere Betriebe werden zusammengerechnet, und eine Aufteilung nur zur Mehrfachnutzung ist Missbrauch.
+  - Erwartung: Mittel sind grundsätzlich spätestens in den zwei auf den Zufluss folgenden Jahren für die satzungsmäßigen Zwecke zu verwenden; bei sehr kleinen Einnahmen gilt das Gebot nicht.
+  - Erwartung: Rücklagen sind nur in gesetzlich vorgesehenen Formen zulässig; wichtig sind die zweckgebundene Rücklage nach dem Stand der Planung, die Wiederbeschaffungsrücklage in Höhe der regulären Abschreibung und die freie Rücklage mit gesetzlicher Obergrenze (ein Drittel des Überschusses der Vermögensverwaltung zuzüglich 10 % der übrigen zeitnah zu verwendenden Mittel).
+  - Rückfrage: Was kann das Finanzamt tun, wenn ein Verein ohne Berechtigung Mittel ansammelt?
 
 ### 4.2 Finanzierungssysteme im Gesundheits- und Sozialwesen
 
@@ -80,6 +96,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Träger der Sozialhilfe sind in der Regel die Kommunen bzw. überörtliche Sozialhilfeträger.
   - Erwartung: In der Praxis muss ein Pflegedienst wissen, mit welchen Kostenträgern er welche Leistungen abrechnen darf, und seine Liquiditätsplanung auf diese Zahlungsströme abstimmen.
   - Rückfrage: Wann kommt die Hilfe zur Pflege ergänzend in Betracht?
+- Wie kommt die Vergütung eines ambulanten Pflegedienstes zustande, und was geschieht, wenn man sich mit den Kostenträgern nicht einigt?
+  - Erwartung: Die Vergütung legt der Dienst nicht allein fest; sie wird zwischen dem Träger des Dienstes und den Kostenträgern für jeden Dienst gesondert und für alle Pflegebedürftigen nach einheitlichen Grundsätzen vereinbart, ohne Differenzierung nach Kostenträgern.
+  - Erwartung: Sie muss leistungsgerecht sein und bei wirtschaftlicher Betriebsführung ermöglichen, die Aufwendungen zu finanzieren und den Versorgungsauftrag zu erfüllen, einschließlich einer angemessenen Vergütung des Unternehmerrisikos; der Dienst belegt seine Kosten durch Nachweise vor Beginn der Verhandlungen.
+  - Erwartung: Kommt binnen sechs Wochen nach der schriftlichen Aufforderung keine Einigung zustande, setzt die Schiedsstelle des Landes auf Antrag einer Vertragspartei die Vergütung fest, in der Regel binnen drei Monaten; gegen die Festsetzung klagt man vor den Sozialgerichten, ohne Widerspruchsverfahren und ohne dass die Klage die Wirkung hemmt.
+  - Erwartung: Die Vergütung tritt zum bestimmten Zeitpunkt in Kraft und nie rückwirkend; bis dahin gelten die bisherigen Sätze weiter, und bei unvorhersehbaren wesentlichen Veränderungen ist auf Verlangen neu zu verhandeln.
+  - Rückfrage: Welche Kostenträger werden Vertragsparteien der Vergütungsvereinbarung?
+- Wie entsteht bei einer Klientin ein Eigenanteil in der ambulanten Pflege, und wie sorgt Morgenlicht für Transparenz?
+  - Erwartung: Die Pflegekasse zahlt je Monat nur bis zu einem Höchstbetrag nach Pflegegrad; ruft die Klientin mehr Leistungen ab, trägt sie den übersteigenden Betrag als Eigenanteil, und der Dienst darf dafür nicht mehr als die vereinbarte Vergütung berechnen.
+  - Erwartung: Nimmt die Klientin die Sachleistung nur teilweise in Anspruch, wird das Pflegegeld um den Prozentsatz gekürzt, in dem sie Sachleistungen genutzt hat; Beispiel: Wurden 60 Prozent des Höchstbetrags abgerufen, werden 60 Prozent des Pflegegeldes gekürzt.
+  - Erwartung: Der Pflegevertrag nennt Art, Inhalt und Umfang der Leistungen mit der vereinbarten Vergütung je Leistung oder Leistungskomplex; vor Vertragsschluss und bei wesentlicher Veränderung unterrichtet der Dienst in der Regel schriftlich über die voraussichtlichen Kosten.
+  - Erwartung: Die Pflegekasse übermittelt auf Anforderung eine Leistungs- und Preisvergleichsliste, die das Wahlrecht der Pflegebedürftigen unterstützt; reichen eigene Mittel nicht aus, kommt ergänzend die Hilfe zur Pflege in Betracht.
+  - Rückfrage: Nach welchen Arten kann die Vergütung bemessen werden?
+- Was bedeutet die private Pflegepflichtversicherung für die Arbeit von Morgenlicht?
+  - Erwartung: Wer privat krankenversichert ist, muss eine private Pflegeversicherung abschließen; gesetzlich Krankenversicherte sind in der sozialen Pflegeversicherung versichert.
+  - Erwartung: Die Leistungen sind nach Art und Umfang gleichwertig, und die Pflegebedürftigkeit und der Pflegegrad werden nach denselben Maßstäben festgestellt wie in der sozialen Pflegeversicherung, an deren Leistungen sich der Vertrag misst.
+  - Erwartung: An die Stelle der Sachleistung tritt eine gleich hohe Kostenerstattung: Die versicherte Person bekommt die Kosten von ihrem Versicherungsunternehmen erstattet, der gesetzlich geregelte unmittelbare Vergütungsanspruch richtet sich dagegen gegen die Pflegekasse.
+  - Erwartung: Für privat und gesetzlich Versicherte gelten dieselben Vergütungsgrundsätze, berechnet werden dürfen ausschließlich die vereinbarten oder festgesetzten Sätze, ohne Rücksicht darauf, wer zu ihrer Zahlung verpflichtet ist, und die Unterscheidung ist von der privaten Krankenversicherung zu trennen, die die Krankenbehandlung absichert.
+  - Rückfrage: Wie wird die Vergütung der ärztlich verordneten Behandlungspflege geregelt, und wer entscheidet bei Streit?
 
 ### 4.3 Kosten- und Leistungsrechnung
 
@@ -155,3 +189,24 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Grenzen sind der Aufwand für Aufbau, Pflege und Datenerhebung, Zielkonflikte zwischen Perspektiven (z. B. hohe Auslastung gegenüber pünktlichen Einsätzen oder niedrige Personalkosten gegenüber der Zufriedenheit der Klient:innen), schwer belegbare Ursache-Wirkungs-Annahmen und Kennzahlen ohne Strategiebezug.
   - Erwartung: Verdichtete Gesamtwerte sind übersichtlich, können aber schwache Kennzahlen verdecken; deshalb bleiben die einzelnen Kennzahlen mit Ziel- und Istwert im Blick; übererfüllte Werte können für die Gesamtbewertung begrenzt werden (z. B. auf 100 %), damit sie Schwächen anderer Kennzahlen nicht ausgleichen.
   - Rückfrage: Wie berechnen Sie den Zielerreichungsgrad einer Kennzahl, die möglichst niedrig sein soll, etwa der Fluktuationsrate?
+
+### 4.5 Krankenhaus und stationäre Pflege: Finanzierung im Überblick
+
+- Der Beirat von Morgenlicht möchte wissen, wie ein Krankenhaus in Deutschland finanziert wird und was die Krankenhausreform für die Vergütung bedeutet. Wie erklären Sie das?
+  - Erwartung: Die Finanzierung ist dual: Die Länder fördern die Investitionskosten der in den Krankenhausplan aufgenommenen Krankenhäuser (Plankrankenhäuser), den laufenden Betrieb bezahlen vor allem die Krankenkassen mit den Entgelten; zugelassen sind darüber hinaus Hochschulkliniken und Krankenhäuser mit Versorgungsvertrag, die nicht ohne Weiteres gefördert werden.
+  - Erwartung: Eine Fallpauschale vergütet einen Behandlungsfall; ihre Höhe ist die bundeseinheitliche Bewertungsrelation der Fallgruppe mal Landesbasisfallwert, ergänzt um Zusatzentgelte sowie Zu- und Abschläge.
+  - Erwartung: Die Pflegepersonalkosten auf bettenführenden Stationen sind aus den Fallpauschalen ausgegliedert und werden über ein zweckgebundenes, krankenhausindividuell vereinbartes Pflegebudget mit tagesbezogenen Pflegeentgelten finanziert; Mehr- und Mindererlöse werden ausgeglichen.
+  - Erwartung: Die Reform arbeitet mit Leistungsgruppen und Qualitätskriterien und sieht ein Vorhaltebudget vor, das nach dem Gesetzestext (Stand Oktober 2026) ab 2028 gelten soll; Termine und Verfahren sind zeitkritisch und nur mit Stand-Hinweis zu nennen. Für den ambulanten Dienst ist die Reform mittelbar wichtig, weil sich Verweildauer, Zuweisung und Entlassungen verändern können.
+  - Rückfrage: Warum sollten Sie Termine der Krankenhausreform nur mit einem Stand-Hinweis nennen?
+- Die Kooperationsklinik (Annahme) entlässt mehrere Patient:innen, die „Morgenlicht“ übernehmen soll. Was klären Sie mit dem Sozialdienst der Klinik, und wer trägt welche Kosten?
+  - Erwartung: Das Entlassmanagement ist Teil der Krankenhausbehandlung und unterstützt den Übergang in die Versorgung danach, auch mit Leistungen der Pflegeversicherung; Kranken- und Pflegekasse kooperieren.
+  - Erwartung: Es darf nur mit vorheriger Information und schriftlicher oder elektronischer Einwilligung der versicherten Person erfolgen; das gilt auch für die Datenweitergabe an den Pflegedienst.
+  - Erwartung: Die Klinik kann unmittelbar erforderliche Leistungen verordnen, darunter häusliche Krankenpflege für bis zu sieben Tage; die Weiterverordnung für die Folgezeit klärt der Dienst nach verbreiteter Praxis mit der behandelnden ärztlichen Praxis.
+  - Erwartung: Die Krankenkasse trägt Behandlungspflege nach ärztlicher Verordnung und Genehmigung (nicht auf vier Wochen begrenzt, nur soweit keine im Haushalt lebende Person die Pflege übernehmen kann), die Pflegekasse bei festgestelltem Pflegegrad Pflegesachleistung, Pflegegeld oder Kurzzeitpflege; die Abrechnung verlangt eine leistungsgenaue Dokumentation.
+  - Rückfrage: Was ist zu beachten, wenn die Patientin noch keinen Pflegegrad hat?
+- Angehörige fragen Sie, wie sich das Entgelt in einem Pflegeheim zusammensetzt und warum der Eigenanteil so hoch ist; zugleich plant „Morgenlicht“ eine Tagespflege. Wie erklären Sie das?
+  - Erwartung: Das Gesamtheimentgelt besteht aus Pflegesatz, Entgelt für Unterkunft und Verpflegung und gesondert berechenbaren Investitionskosten; die Pflegesätze sind leistungsgerecht, nach Pflegegraden gestaffelt und für alle Bewohner:innen einheitlich; sie werden im Voraus mit den Kostenträgern vereinbart (Verfahren: Thema 4.2).
+  - Erwartung: Die Pflegekasse zahlt nur pauschale Leistungsbeträge je Pflegegrad (Teilleistungssystem); der darüber hinausgehende pflegebedingte Eigenanteil ist in einer Einrichtung für die Pflegegrade 2 bis 5 gleich hoch (einrichtungseinheitlicher Eigenanteil), dazu kommen Unterkunft, Verpflegung und Investitionskosten.
+  - Erwartung: Ein Leistungszuschlag vermindert den pflegebedingten Eigenanteil prozentual und steigt mit der Dauer des Bezugs vollstationärer Leistungen; er gilt nicht für Unterkunft, Verpflegung und Investitionskosten. Reichen die Mittel nicht, kommt nachrangig die Hilfe zur Pflege der Sozialhilfe in Betracht (Stand Oktober 2026, zeitkritisch).
+  - Erwartung: Für die Tagespflege gelten Anspruch bei Pflegegrad 2 bis 5, Nutzung zusätzlich zu ambulanten Leistungen ohne Kürzung, Versorgungsvertrag; Entgelte aus Pflegesatz, Unterkunft und Verpflegung und gesondert berechenbaren Investitionskosten (nach Landesrecht); Belegungsquote und Fixkosten bestimmen die Wirtschaftlichkeit, ein Leistungszuschlag gilt dort nicht.
+  - Rückfrage: Warum müssen die Pflegesätze eines Heims für alle Bewohner:innen einheitlich bemessen werden, und was bedeutet das für die Kalkulation von „Morgenlicht“?

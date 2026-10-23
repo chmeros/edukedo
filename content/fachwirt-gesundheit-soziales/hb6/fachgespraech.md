@@ -131,6 +131,13 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Diese Schranken gelten zusätzlich zum allgemeinen Wettbewerbsrecht (UWG) und zu den branchenspezifischen Sonderregelungen wie dem HWG.
   - Erwartung: In der Praxis sollten sich Werbeaussagen strikt auf nachweisbare, sachliche Informationen stützen, sowohl aus rechtlichen als auch aus ethischen Gründen.
   - Rückfrage: Was kann eine Berufsordnung zur Außendarstellung einer Berufsgruppe vorsehen?
+- Welche rechtlichen Anforderungen muss der Online-Auftritt eines Pflegedienstes erfüllen, bevor die Website online geht?
+  - Erwartung: Die Pflicht zum Impressum trifft Anbieter geschäftsmäßiger, in der Regel entgeltlicher digitaler Dienste; es nennt Name, Anschrift, bei juristischen Personen Rechtsform und Vertretungsberechtigte, E-Mail-Adresse und weiteren Kontaktweg, Register und Registernummer und ist leicht erkennbar, unmittelbar erreichbar und ständig verfügbar. Mängel können mit Bußgeld geahndet und wettbewerbsrechtlich abgemahnt werden.
+  - Erwartung: Eine Datenschutzerklärung in klarer, einfacher Sprache informiert zum Zeitpunkt der Datenerhebung über Verantwortlichen, Zwecke, Rechtsgrundlagen, Empfänger, Speicherdauer und Rechte.
+  - Erwartung: Tracking, Statistik und eingebundene Dienste Dritter, die Informationen auf dem Gerät speichern oder auslesen, brauchen vorher eine wirksame Einwilligung; Weitersurfen oder vorangekreuzte Kästchen genügen nicht, und der Widerruf muss so einfach sein wie die Erteilung. Formulare fragen nur ab, was erforderlich ist; Gesundheitsdaten sind besonders geschützt und brauchen auch in einem freiwilligen Feld eine ausdrückliche Einwilligung.
+  - Erwartung: Bewertungen dürfen nicht gekauft oder gefälscht werden, auch nicht von Mitarbeitenden als Klient:innen; wer sie zeigt, teilt mit, ob und wie die Echtheit geprüft wird. Antworten auf Kritik nennen ohne Einwilligung der Person keine Angaben zur Versorgung; bezahlte Beiträge sind als Werbung zu kennzeichnen.
+  - Erwartung: Werbung per E-Mail oder Telefon ist gegenüber Verbraucher:innen grundsätzlich nur mit vorheriger ausdrücklicher Einwilligung zulässig; für E-Mails gilt eine enge Ausnahme für eigene ähnliche Leistungen gegenüber Kund:innen mit Widerspruchshinweis.
+  - Rückfrage: Reicht es, wenn jemand über das Kontaktformular Infomaterial angefordert hat, um ihm einen Newsletter zu schicken?
 
 ### 6.4 Sozialmarketing, Fundraising und Marketing-Controlling
 
@@ -154,3 +161,15 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Im Soll-Ist-Vergleich werden Abweichung (Ist − Soll) und relative Abweichung ((Ist − Soll) ÷ Soll × 100) ermittelt und die Ursachen untersucht; Unterschiede zwischen Quoten werden in Prozentpunkten angegeben.
   - Erwartung: Grenzen: Erfolge lassen sich oft nicht einer einzelnen Maßnahme zurechnen, manche Wirkungen zeigen sich erst nach Jahren, Kosten je Spendeneuro sind nur bei gleichartigen Aktionen vergleichbar, und Kennzahlen dürfen die ethischen Grenzen nicht verdrängen.
   - Rückfrage: Die Bekanntheit steigt von 30 % auf 36 %. Wie geben Sie diese Veränderung richtig an?
+- Eine Spenderin verlangt für ihre Überweisung von 400 € eine Zuwendungsbestätigung für die Steuererklärung. Was prüfen Sie, bevor Sie sie ausstellen, und was droht bei Fehlern?
+  - Erwartung: Der Empfänger muss eine steuerbefreite Körperschaft sein, also etwa der gemeinnützige Trägerverein; ein Einzelunternehmen oder eine gewerbliche GmbH darf nicht bestätigen.
+  - Erwartung: Der Freistellungsbescheid darf nicht länger als fünf Jahre zurückliegen (taggenau gerechnet); bei Neugründung gilt eine kürzere Frist für die Feststellung der Satzungsmäßigkeit.
+  - Erwartung: Die Bestätigung wird nach dem amtlichen Muster ausgestellt, nur für unentgeltliche Zuwendungen; der Verein zeichnet Eingang und Verwendung auf und bewahrt ein Doppel auf.
+  - Erwartung: Wer vorsätzlich oder grob fahrlässig eine unrichtige Bestätigung ausstellt oder veranlasst, dass Spenden nicht zum bestätigten Zweck verwendet werden, haftet für die entgangene Steuer, pauschal mit 30 Prozent des zugewendeten Betrags; das kann den Verein und die handelnde Person treffen. Spender:innen dürfen grundsätzlich auf die Richtigkeit vertrauen.
+  - Rückfrage: Wann genügt bei einer Spende ein Bankbeleg statt der Bestätigung?
+- Ein Unternehmen bietet Geld gegen die Nennung seines Logos, und ein Ehrenamtlicher will auf sein Kilometergeld verzichten. Wie ordnen Sie beides ein und worauf achten Sie bei der Verwendung der Mittel?
+  - Erwartung: Die Zahlung des Unternehmens ist nach Auffassung der Finanzverwaltung Sponsoring mit werblicher Gegenleistung und keine Spende; dafür gibt es keine Zuwendungsbestätigung. Wie der Verein das steuerlich behandelt, hängt davon ab, ob er nur den Namen nutzen lässt oder aktiv an der Werbung mitwirkt; das wird mit Fachleuten geklärt.
+  - Erwartung: Der Verzicht auf Kilometergeld ist eine Aufwandsspende, wenn der Anspruch vorher durch Vertrag oder Satzung eingeräumt wurde und nicht unter der Bedingung des Verzichts steht; Arbeitszeit und die kostenlose Überlassung von Fahrzeugen sind dagegen keine bestätigungsfähige Zuwendung.
+  - Erwartung: Zweckgebundene Spenden dürfen nur für den genannten Zweck verwendet werden, und der Zweck muss zu den satzungsmäßigen Zwecken passen; zeitnahe Verwendung und Nachweis der Steuerbegünstigung stehen im Rechnungswesen (Thema 4.1 „Rechnungswesen-Grundlagen und Jahresabschluss“ im Fachgebiet „Steuern und Überwachen betriebswirtschaftlicher Prozesse und Ressourcen“).
+  - Erwartung: Bei Spendenaufrufen an Haushalte ist beim ersten Kontakt getrennt auf das Widerspruchsrecht gegen die Werbenutzung der Daten hinzuweisen; für E-Mail und Telefon ist die dokumentierte Einwilligung der sichere Weg.
+  - Rückfrage: Warum bittet der Verein Klient:innen in der Pflegesituation nicht um Spenden?

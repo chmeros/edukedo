@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AX „Fachwirt für Büro- und Projektorganisation: neue rechtsnahe Inhalte (Einkauf und Rechnung, Werbung und Veranstaltung, Arbeitsrecht in der Personalwirtschaft, Ausbildungsrecht, Datenschutz und Geschäftskorrespondenz)“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AW und P-AX einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung BP-06, BP-07, BP-09, BP-10, BP-13, BP-16, BP-17; Auswertung `docs/entwuerfe/buero-r4-auswertung.md`, dort „P-AV“ bis „P-AZ“). Zehn Ergänzungen (Teile a bis j) in sieben bestehenden Themendateien des Büro-Kurses, je mit Theorie, Karteikarten, Quiz, einer Fallaufgabe (Teil j ohne Fall) und Fachgesprächsfragen. Keine neuen Themendateien. Alle Agenten liefen auf Sonnet; Autor:innen und Prüfer:innen arbeiteten parallel in zwei Wellen, das Sitzungslimit unterbrach zwischenzeitlich nicht.
 

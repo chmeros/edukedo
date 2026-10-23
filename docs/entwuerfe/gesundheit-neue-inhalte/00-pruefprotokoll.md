@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AW „Fachwirt im Gesundheits- und Sozialwesen: neue rechtsnahe Inhalte (Sozialrecht und Finanzierung, Personal und Arbeitsrecht, Recht und Qualität in Einrichtungen, Rechnungswesen/Online-Auftritt/Spendenrecht)“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AW und P-AX einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung GS-1 bis GS-16 ohne GS-12; Auswertung `docs/entwuerfe/gesundheit-r4-auswertung.md`, dort „P-AV“ bis „P-AY“). Zehn Teile (vier Teilpakete der Auswertung zusammengefasst): vier neue Themendateien im Gesundheitskurs (`hb1/1.5`, `hb2/2.5`, `hb2/2.6`, `hb4/4.5`) und neun Ergänzungen in bestehenden Themen, je mit Theorie, Karteikarten, Quiz, einer Fallaufgabe und Fachgesprächsfragen. Alle Agenten liefen auf Sonnet; Autor:innen und Prüfer:innen arbeiteten parallel, das Sitzungslimit unterbrach zwischenzeitlich (Fortsetzung per Nachricht).
 

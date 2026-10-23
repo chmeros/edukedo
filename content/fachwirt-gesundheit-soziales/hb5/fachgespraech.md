@@ -49,6 +49,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Zunehmend wichtig sind Active Sourcing über soziale Netzwerke und Mitarbeiterempfehlungsprogramme.
   - Erwartung: Angesichts des Fachkräftemangels in der Pflege gewinnt die internationale Personalgewinnung an Bedeutung, sie erfordert jedoch zusätzliche Anerkennungs- und Sprachnachweisverfahren und hat deutlich längere Vorlaufzeiten.
   - Rückfrage: Welche Vor- und Nachteile hat die interne Besetzung der Stelle?
+- Wie gestalten Sie das Bewerbungsverfahren datenschutzgerecht, und wie lange bewahren Sie die Unterlagen abgelehnter Bewerbender auf?
+  - Erwartung: Verarbeitet werden darf nur, was für die Entscheidung über die konkrete Stelle erforderlich ist; Bewerbende gelten als Beschäftigte im Sinne des Datenschutzes.
+  - Erwartung: Die Bewerbenden werden spätestens bei der Erhebung über Zwecke, Rechtsgrundlage, Speicherdauer und ihre Rechte informiert, und nur am Verfahren Beteiligte haben Zugriff.
+  - Erwartung: Eine feste gesetzliche Löschfrist gibt es nicht; die Unterlagen werden gelöscht, sobald der Zweck entfallen ist, eine begrenzte weitere Speicherung kommt zur Abwehr von Entschädigungsansprüchen in Betracht (zwei Monate zum Geltendmachen, sofern kein Tarifvertrag etwas anderes regelt, danach drei Monate zur Klage).
+  - Erwartung: Für einen Talentpool oder eine Aufbewahrung über den Zweck hinaus braucht man die freiwillige, widerrufliche Einwilligung; bei einem bestehenden Betriebsrat bedürfen Personalfragebogen seiner Zustimmung.
+  - Rückfrage: Wann ist die Einwilligung von Beschäftigten freiwillig?
+- Wie gehen Sie mit Gesundheitsdaten, Impfnachweisen und Führungszeugnissen von Beschäftigten um?
+  - Erwartung: Gesundheitsdaten sind besonders geschützt; erlaubt ist ihre Verarbeitung etwa mit ausdrücklicher Einwilligung oder soweit für Rechte und Pflichten aus dem Arbeits- und Sozialrecht erforderlich. Diagnosen verlangt der Arbeitgeber in der Regel nicht.
+  - Erwartung: Einen Masernnachweis verlangt man nur für die Einrichtungen, für die das Gesetz ihn vorschreibt, und für nach 1970 Geborene; den Impf- und Serostatus darf ein Pflegedienst außerdem verarbeiten, soweit er für die Infektionsschutzpflichten erforderlich ist, und die Hygienepflichten behandelt Thema 2.6; der Nachweis ist vor Tätigkeitsbeginn der Leitung vorzulegen, ob ein Pflegedienst oder ein Pflegeheim erfasst ist, klärt man vorab, etwa mit dem Gesundheitsamt.
+  - Erwartung: Ein Führungszeugnis wird nur verlangt, wenn es für die konkrete Tätigkeit erforderlich ist; ein erweitertes gibt es nur bei gesetzlicher Grundlage oder Tätigkeit mit Minderjährigen, und die Daten dienen allein der Eignungsprüfung.
+  - Erwartung: Zugriff auf die Personalakte haben nur Personen mit Aufgabenbezug; Beschäftigte können Einsicht nehmen, Auskunft, Berichtigung und Löschung verlangen, und bei technischer Leistungs- oder Verhaltenskontrolle bestimmt ein Betriebsrat mit.
+  - Rückfrage: Welche Rolle hat der Betriebsrat bei Personalfragebogen?
 
 ### 5.2 Ausbildung planen und durchführen
 
@@ -149,6 +161,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Eingruppierung erfolgt häufig nach Tätigkeit, Qualifikation und Berufserfahrung, ergänzt um Zulagen und Prämien.
   - Erwartung: Ob Bindungsmaßnahmen wirken, zeigen Kennziffern wie die Fluktuationsrate und die Betriebszugehörigkeitsdauer.
   - Rückfrage: Warum macht eine faire Vergütung allein nach Herzberg noch nicht motiviert?
+- Welche Untergrenzen für das Entgelt Ihrer Pflegekräfte müssen Sie als Pflegedienst beachten, und was gilt für Wegezeiten und Rufbereitschaft?
+  - Erwartung: Es gelten der allgemeine gesetzliche Mindestlohn und das Branchenmindestentgelt der Pflege, das auf einer Rechtsverordnung nach Empfehlung der Pflegekommission beruht; es geht vor, soweit es den allgemeinen Mindestlohn nicht unterschreitet, und ein höheres Entgelt bleibt unberührt.
+  - Erwartung: Das Mindestentgelt ist in drei Stufen nach der Qualifikation gestaffelt (ohne einjährige Ausbildung, mit mindestens einjähriger Ausbildung und entsprechender Tätigkeit, Pflegefachkräfte); Auszubildende und Bereiche wie Verwaltung sind ausgenommen; dort gilt die Verordnung dem Grunde nach doch, wenn Beschäftigte mindestens 25 Prozent der Arbeitszeit mit Pflegebedürftigen betreuend oder pflegend arbeiten (zum Umfang der Geltung lässt der Wortlaut etwas offen).
+  - Erwartung: Wegezeiten zwischen Klient:innen und gegebenenfalls zum Geschäftssitz sind mit dem Mindestentgelt zu vergüten; für den Bereitschaftsdienst gilt ein eigener Mindeststundenwert, die bloße Rufbereitschaft fällt nicht unter die Verordnung, wohl aber die Arbeit nach einem Abruf einschließlich der Wegezeit.
+  - Erwartung: Ansprüche verfallen nach zwölf Monaten ohne Geltendmachung in Textform, ein Verzicht ist nur durch gerichtlichen Vergleich möglich, der Zoll prüft die Einhaltung, und Verstöße sind Ordnungswidrigkeiten.
+  - Rückfrage: Für wen gilt die Verordnung nicht?
+- Wie beeinflusst die Entlohnung Ihrer Beschäftigten die Zulassung und die Verhandlungen mit den Pflegekassen?
+  - Erwartung: Versorgungsverträge gibt es nur mit Einrichtungen, die tarifgebundene oder kirchliche Gehälter zahlen; nicht gebundene Einrichtungen müssen mindestens ein Tarifniveau oder das regional übliche Niveau erreichen, das die Landesverbände der Pflegekassen veröffentlichen.
+  - Erwartung: Bei Bindung kann die Kasse die Bezahlung bis zur Höhe der Bindung nicht als unwirtschaftlich zurückweisen; ohne Bindung gilt das, wenn die Zahlung insgesamt höchstens 10 Prozent über dem regional üblichen Entlohnungsniveau der Region liegt, jeder höhere Betrag verlangt einen sachlichen Grund. Für die Zulassung gilt ein anderer Vergleich, nämlich je Qualifikationsgruppe.
+  - Erwartung: Die der Vereinbarung zugrunde gelegte Bezahlung ist jederzeit einzuhalten und auf Verlangen nachzuweisen; die Einrichtungen haben den Landesverbänden mitzuteilen, an welche Regelung sie gebunden sind.
+  - Erwartung: Pflegetypische Zuschläge (Nacht, Sonntag, Feiertag) und Zulagen gleichen Belastungen aus und zählen zur Entlohnung; bei der Lohngestaltung bestimmt ein bestehender Betriebsrat mit, soweit kein Tarif gilt.
+  - Rückfrage: Worin unterscheiden sich Zulagen und Prämien?
 
 ### 5.5 Grundlagen des Arbeitsrechts
 
@@ -194,4 +218,32 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei echten Mitbestimmungsrechten kann der Arbeitgeber die Maßnahme nicht gegen den Willen des Betriebsrats durchsetzen: Bei Einstellung und Versetzung (§ 99 BetrVG) muss er die Zustimmung einholen und bei Verweigerung die Ersetzung beim Arbeitsgericht beantragen; bei Arbeitszeit und Dienstplangestaltung (§ 87 BetrVG) entscheidet bei Uneinigkeit die Einigungsstelle.
   - Erwartung: Bei kirchlichen Trägern gilt stattdessen meist das kirchliche Mitarbeitervertretungsrecht mit vergleichbaren, aber eigenständig geregelten Beteiligungsrechten.
   - Rückfrage: Nennen Sie ein Beispiel für eine soziale Angelegenheit, bei der der Betriebsrat mitbestimmt.
-
+- Eine Pflegehilfskraft hat wiederholt Dienste ohne Meldung versäumt. Wie gehen Sie als Führungskraft vor, bevor Sie an eine Kündigung denken?
+  - Erwartung: Die Pflichtverletzungen sind zu dokumentieren (Datum, Tour, Folgen für die Klient:innen); als Führungspraxis ist es üblich, die Pflegehilfskraft vor jedem weiteren Schritt anzuhören.
+  - Erwartung: Die Abmahnung rügt das Fehlverhalten konkret, fordert vertragsgemäßes Verhalten und warnt vor arbeitsrechtlichen Folgen bis zur Kündigung; sie ist formfrei, wird aber schriftlich erteilt und zur Personalakte genommen, damit sie beweisbar ist.
+  - Erwartung: Vor einer ordentlichen verhaltensbedingten Kündigung ist bei steuerbarem Verhalten grundsätzlich abzumahnen, und zwar wegen einer gleichartigen Pflichtverletzung; hinzu kommen eine negative Prognose und eine Interessenabwägung im Einzelfall. Bei besonders schweren Verstößen kann die Abmahnung entbehrlich sein.
+  - Erwartung: Besteht ein Betriebsrat, ist er vor der Kündigung zu hören, nicht vor der Abmahnung; die Arbeitgeberseite muss die Tatsachen des Kündigungsgrundes beweisen.
+  - Rückfrage: Wann kann eine Abmahnung ausnahmsweise entbehrlich sein?
+- Welche Anforderungen an Form und Frist müssen Sie bei einer ordentlichen Kündigung beachten, und was gilt für die Klage dagegen?
+  - Erwartung: Die Kündigung ist auf Papier eigenhändig zu unterschreiben; die elektronische Form scheidet aus, auch Mail, Messenger und Scan reichen nicht. Wirksam wird sie mit dem Zugang, den Sie nachweisen sollten.
+  - Erwartung: Die Grundfrist beträgt vier Wochen zum Fünfzehnten oder zum Monatsende; kündigt die Arbeitgeberseite, verlängert sie sich mit der Dauer des Arbeitsverhältnisses von einem bis zu sieben Monaten zum Monatsende. Ein Tarifvertrag kann abweichen.
+  - Erwartung: Wer die Kündigung angreifen will, muss die Klage binnen drei Wochen nach Zugang der schriftlichen Kündigung beim Arbeitsgericht einreichen; wer die Frist versäumt, für den gilt die Kündigung als wirksam, nachträgliche Zulassung gibt es nur bei unverschuldeter Verhinderung.
+  - Rückfrage: Welche gesetzliche Frist gilt für die Kündigung durch eine Pflegekraft, die seit zehn Jahren beschäftigt ist, außerhalb der Probezeit?
+- Eine Pflegefachkraft ist plötzlich arbeitsunfähig. Welche Pflichten und Ansprüche gelten für die Beteiligten?
+  - Erwartung: Sie meldet die Arbeitsunfähigkeit samt Dauer ohne schuldhaftes Zögern, bei Touren in der Regel vor Arbeitsbeginn, damit Einsätze umverteilt werden können.
+  - Erwartung: Dauert die Arbeitsunfähigkeit länger als drei Kalendertage, muss sie am folgenden Arbeitstag ärztlich festgestellt sein; bei gesetzlich Versicherten ruft die Arbeitgeberseite die Daten bei der Krankenkasse ab.
+  - Erwartung: Die Arbeitgeberseite zahlt das Entgelt bis zu sechs Wochen je Krankheit fort, wenn die Arbeitsunfähigkeit unverschuldet ist und das Arbeitsverhältnis seit vier Wochen besteht; bei derselben Krankheit lebt der Anspruch erst nach einem halben Jahr ohne diese Krankheit oder nach einem Jahr seit Beginn der ersten Erkrankung wieder auf.
+  - Erwartung: Eine Kündigung aus Anlass der Krankheit lässt den Anspruch unberührt, endet das Arbeitsverhältnis aus anderen Gründen, endet auch der Anspruch; eine bloß verspätete Meldung kann abgemahnt werden.
+  - Rückfrage: Wann entsteht bei derselben Krankheit ein neuer Anspruch auf sechs Wochen?
+- Eine Pflegekraft bittet kurzfristig um Freistellung, weil ihre Mutter nach einem Sturz pflegebedürftig geworden ist. Welche Möglichkeiten gibt es?
+  - Erwartung: Die kurzzeitige Arbeitsverhinderung erlaubt bis zu zehn Arbeitstage, um in einer akuten Pflegesituation die Versorgung zu organisieren; die Verhinderung ist unverzüglich zu melden, eine Bescheinigung kann verlangt werden.
+  - Erwartung: Entgelt zahlt „Morgenlicht“ nur, soweit Gesetz oder Vereinbarung es vorsehen; sonst gibt es auf Antrag Pflegeunterstützungsgeld der Pflegekasse für bis zu zehn Arbeitstage je Kalenderjahr, regelmäßig 90 Prozent des ausgefallenen Nettoentgelts.
+  - Erwartung: Länger dauernde Pflege ermöglicht Pflegezeit bis zu sechs Monate (Anspruch gegenüber Arbeitgeberseiten mit mehr als 15 Beschäftigten, Ankündigung zehn Arbeitstage vorher in Textform) oder Familienpflegezeit bis zu 24 Monate mit mindestens 15 Wochenstunden (Anspruch bei mehr als 25 Beschäftigten ohne Auszubildende, Ankündigung acht Wochen vorher); zusammen höchstens 24 Monate.
+  - Erwartung: Ab der Ankündigung besteht besonderer Kündigungsschutz; wo kein Anspruch besteht, kann eine Vereinbarung beantragt werden, und die Arbeitgeberseite muss binnen vier Wochen antworten und eine Ablehnung begründen.
+  - Rückfrage: Wie viele Beschäftigte muss ein Pflegedienst für den Anspruch auf Pflegezeit haben, und zählen Auszubildende mit?
+- Wo liegt der Unterschied zwischen Rufbereitschaft und Bereitschaftsdienst, und was bedeutet das für die geplante nächtliche Notfallrufbereitschaft?
+  - Erwartung: Beim Bereitschaftsdienst halten sich Beschäftigte an einer von der Arbeitgeberseite bestimmten Stelle auf, um sofort zu arbeiten; die gesamte Anwesenheit gilt nach der Rechtsprechung als Arbeitszeit und unterliegt den Höchstgrenzen.
+  - Erwartung: Bei der Rufbereitschaft wählen die Beschäftigten ihren Aufenthaltsort selbst und müssen erreichbar sein; als Arbeitszeit zählt nach der Rechtsprechung in der Regel nur der Einsatz, die Bereitschaft selbst ist Ruhezeit.
+  - Erwartung: In Pflegeeinrichtungen dürfen Kürzungen der Ruhezeit durch Einsätze, die nicht mehr als die Hälfte der Ruhezeit betragen, zu anderen Zeiten ausgeglichen werden; der Dienstplan muss diesen Ausgleich vorsehen (ob ein ambulanter Dienst darunter fällt, ist im Einzelfall zu prüfen).
+  - Erwartung: Sehr enge Vorgaben zu Aufenthaltsort und Reaktionszeit können die Rufbereitschaft im Einzelfall zur Arbeitszeit machen; besteht ein Betriebsrat, bestimmt er bei Lage und Verteilung der Arbeitszeit mit.
+  - Rückfrage: Wie weit darf die Ruhezeit von elf Stunden durch Einsätze in der Rufbereitschaft gekürzt und später ausgeglichen werden?

@@ -30,7 +30,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Dafür genießt sie steuerliche Vergünstigungen, sofern die Voraussetzungen der Abgabenordnung erfüllt sind.
   - Rückfrage: Haften die Gesellschafter:innen einer gGmbH mit ihrem Privatvermögen?
 - Welche institutionellen Partner sind für einen ambulanten Pflegedienst besonders relevant, und welche Aufgabe hat jeweils?
-  - Erwartung: Die Kranken- und Pflegekassen sind zentrale Vertragspartner und Kostenträger, schließen Versorgungsverträge und Vergütungsvereinbarungen ab und erstatten die erbrachten Leistungen.
+  - Erwartung: Die Kranken- und Pflegekassen sind zentrale Vertragspartner und Kostenträger, schließen Verträge und Vereinbarungen ab (in der Pflege Versorgungsverträge und Vergütungsvereinbarungen) und vergüten die erbrachten Leistungen; bei privat Versicherten tritt an die Stelle der Sachleistung eine Kostenerstattung.
   - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Landesverbände der Pflegekassen die Qualitätsprüfungen durch und begutachtet im Einzelfall im Auftrag der Pflegekassen die Pflegebedürftigkeit zur Einstufung in einen Pflegegrad.
   - Erwartung: Die Aufsichtsbehörden der Länder (Heimaufsicht) überwachen die Einhaltung der heimrechtlichen Anforderungen und können bei Mängeln Auflagen erteilen oder den Betrieb untersagen.
   - Erwartung: Der Sozialhilfeträger übernimmt bei Pflegebedürftigen ohne ausreichende eigene Mittel ergänzend ungedeckte Kosten.
@@ -38,7 +38,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Wie hieß der Medizinische Dienst vor der Reform 2020?
   - Rückfrage: Welche Aufgabe haben Pflegestützpunkte?
 - Was prüft der Medizinische Dienst bei einer Pflegeeinrichtung, und mit welcher Konsequenz kann das Ergebnis verbunden sein?
-  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Landesverbände der Pflegekassen regelmäßige Qualitätsprüfungen durch (§ 114 SGB XI); die Regelprüfung findet grundsätzlich im Abstand von höchstens einem Jahr statt.
+  - Erwartung: Der Medizinische Dienst (MD) führt im Auftrag der Landesverbände der Pflegekassen regelmäßige Qualitätsprüfungen durch (§ 114 SGB XI); die Regelprüfung findet grundsätzlich im Abstand von höchstens einem Jahr statt; bei ambulanten und teilstationären Einrichtungen mit hohem Qualitätsniveau soll ab 2027 ein Abstand von höchstens zwei Jahren gelten.
   - Erwartung: Die Pflegedokumentation dient als Nachweis erbrachter Leistungen und als Grundlage für solche Prüfungen.
   - Erwartung: Die Heimaufsicht kann nach dem jeweiligen Landesrecht bei Mängeln Auflagen erteilen.
   - Erwartung: Die Landesverbände der Pflegekassen können nach einer Qualitätsprüfung einen Mängelbescheid mit Frist erlassen, die Pflegevergütung kürzen und im äußersten Fall den Versorgungsvertrag kündigen (§ 115 SGB XI).
@@ -187,3 +187,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Auch nach Abschluss der Umsetzung sollte weiter kommuniziert werden, welche Fortschritte erzielt wurden und welche Anpassungen aufgrund von Rückmeldungen vorgenommen wurden.
   - Erwartung: Das signalisiert, dass Feedback ernst genommen wird, und erleichtert die Stabilisierung.
 
+### 1.5 Eingliederungshilfe und Kinder- und Jugendhilfe im Sozialleistungssystem
+
+- Die Geschäftsführung von „Morgenlicht“ überlegt, Menschen mit Behinderungen in ihrem Alltag zu unterstützen, und fragt Sie nach dem rechtlichen Rahmen. Was erläutern Sie ihr?
+  - Erwartung: Es gilt das sozialrechtliche Dreieck: Die leistungsberechtigte Person hat den Anspruch gegen den Träger der Eingliederungshilfe, den die Länder bestimmen; „Morgenlicht“ wäre Leistungserbringer und braucht dafür grundsätzlich eine schriftliche Vereinbarung mit dem Träger am Ort der Leistung.
+  - Erwartung: Die Vereinbarung besteht aus einer Leistungsvereinbarung (Personenkreis, Art, Umfang, Qualität, personelle Ausstattung) und einer Vergütungsvereinbarung mit Pauschalen oder Stundensätzen; sie wird für die Zukunft geschlossen, nachträgliche Ausgleiche gibt es nicht.
+  - Erwartung: Der Träger stellt die Leistungen im Gesamtplanverfahren fest; der Dienst muss den Gesamtplan beachten. Leistungsberechtigte haben ein Wunsch- und Wahlrecht, das bei unverhältnismäßigen Mehrkosten gegenüber einem vergleichbaren vereinbarten Angebot an Grenzen stößt.
+  - Erwartung: Die Eingliederungshilfe finanziert die Fachleistung; Lebensunterhalt und Wohnkosten laufen über die Existenzsicherung, und die Pflege bleibt Sache von Pflege- und Krankenversicherung.
+  - Rückfrage: Was geschieht, wenn Träger und Dienst sich nicht über die Vergütung einigen?
+- Wie grenzen Sie bei einer Klientin mit Pflegebedarf und Behinderung die Leistungen der Pflegeversicherung, der Eingliederungshilfe und der Sozialhilfe voneinander ab?
+  - Erwartung: Gegenüber der Pflegeversicherung ist die Eingliederungshilfe nicht nachrangig; kommen Leistungen beider Systeme zusammen, einigen sich Pflegekasse und Träger mit Einverständnis der Person über Übernahme und Erstattung.
+  - Erwartung: Ärztlich verordnete häusliche Krankenpflege bleibt Leistung der Krankenversicherung und wird durch die Eingliederungshilfe nicht verdrängt.
+  - Erwartung: Wird die Eingliederungshilfe nicht in vollstationären Einrichtungen mit Teilhabezweck oder vergleichbaren Wohn-Räumlichkeiten erbracht, schließt sie grundsätzlich die häusliche Pflege ein, solange die Teilhabeziele erreichbar sind; die Pflegekasse wird im Gesamtplanverfahren beteiligt.
+  - Erwartung: Die Sozialhilfe bleibt nachrangig; die Gesamtplanung stellt fest, welche Leistungen welcher Bereich trägt.
+  - Rückfrage: Welche Rolle spielt der Beitrag, den die Leistungsberechtigten aus ihrem Einkommen zahlen?
+- Das Jugendamt bittet „Morgenlicht“, ambulante Hilfen für Familien zu übernehmen und später eine Tagesgruppe aufzubauen. Welche Anforderungen beachten Sie?
+  - Erwartung: Das Jugendamt zahlt grundsätzlich nur für Hilfen, die es nach dem Hilfeplan entschieden hat; für ambulante Hilfen sind Vereinbarungen über Kosten und Qualität anzustreben, für teilstationäre und stationäre Hilfen gilt die Dreiervereinbarung aus Leistungs-, Entgelt- und Qualitätsentwicklungsvereinbarung.
+  - Erwartung: Für den Betrieb einer Einrichtung, in der Kinder oder Jugendliche außerhalb ihrer Familie betreut werden, braucht der Träger eine Betriebserlaubnis; ambulante Hilfen in der Familie gelten in der Regel nicht als Einrichtung.
+  - Erwartung: Die Vereinbarungen verlangen eine Gefährdungseinschätzung bei gewichtigen Anhaltspunkten unter Hinzuziehung einer insoweit erfahrenen Fachkraft; zur Eignung des Personals sollen unter anderem erweiterte Führungszeugnisse eingesehen werden.
+  - Erwartung: Kommt innerhalb von sechs Wochen nach der Aufforderung zu Verhandlungen keine Vereinbarung zustande, entscheidet die Schiedsstelle auf Antrag; der Rechtsweg führt zu den Verwaltungsgerichten.
+  - Rückfrage: Wie unterscheidet sich das von der Eingliederungshilfe?

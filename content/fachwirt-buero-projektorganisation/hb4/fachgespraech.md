@@ -5,7 +5,7 @@ fachgebiet_title: "Steuern von Geschäftsprozessen im bürowirtschaftlichen Umfe
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu HB4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "15.09.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -63,6 +63,31 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine konsequente Kontrolle deckt Abweichungen frühzeitig auf.
   - Erwartung: Sie schafft die Grundlage für spätere Entscheidungen, z. B. ob ein Lieferant für zukünftige Rahmenvereinbarungen infrage kommt.
   - Rückfrage: Welche Einkaufskennzahlen können die Kontrolle unterstützen?
+- Ihre Abteilung nimmt eine Lieferung an und entdeckt einen Mangel. Wie gehen Sie vor, damit Ihr Unternehmen seine Rechte behält, und welche Rechte hat es?
+  - Erwartung: Bei der Annahme wird der Lieferschein mit der Bestellung abgeglichen; Fehlmengen und sichtbare Schäden werden sofort vermerkt und fotografiert.
+  - Erwartung: Sind beide Seiten Kaufleute, ist die Ware unverzüglich zu untersuchen und ein Mangel unverzüglich und genau bezeichnet anzuzeigen; sonst gilt sie als genehmigt, und die Mängelrechte entfallen. Bei nicht erkennbaren Mängeln läuft die Pflicht ab der Entdeckung, und das rechtzeitige Absenden genügt.
+  - Erwartung: Zuerst steht die Nacherfüllung nach Wahl des Einkaufs, Beseitigung oder Neulieferung, auf Kosten des Lieferunternehmens; nach erfolglos gesetzter angemessener Frist folgen Rücktritt oder Minderung, bei einem unerheblichen Mangel nur die Minderung; Schadensersatz kommt bei Vertretenmüssen hinzu.
+  - Erwartung: Die Mängelansprüche verjähren bei beweglichen Sachen in zwei Jahren ab Ablieferung; die Vorgänge fließen in Reklamationsquote und Lieferantenbewertung ein.
+  - Rückfrage: Wie gehen Sie vor, wenn das Lieferunternehmen auf Ihre Anzeige nicht reagiert?
+- Wie stellen Sie sicher, dass ein Vertrag so zustande kommt, wie Sie ihn wollen, und was tun Sie, wenn das Lieferunternehmen nicht zum vereinbarten Termin liefert?
+  - Erwartung: Ein Angebot ist ein verbindlicher Antrag; die rechtzeitige Bestellung ohne Änderungen nimmt ihn an. Eine Auftragsbestätigung mit Änderungen ist ein neuer Antrag, und Schweigen ist grundsätzlich keine Zustimmung; deshalb werden Bestätigungen abgeglichen und Abweichungen sofort schriftlich zurückgewiesen.
+  - Erwartung: Allgemeine Geschäftsbedingungen gelten nach der Rechtsprechung nur bei Einverständnis; widersprechen sich die Bedingungen beider Seiten, werden nach der Rechtsprechung nur die übereinstimmenden Regelungen Vertragsinhalt.
+  - Erwartung: Verzug setzt eine fällige Lieferung, eine Mahnung (bei Kalendertermin entbehrlich) und Vertretenmüssen voraus; neben der Lieferung kann der Verzögerungsschaden verlangt werden.
+  - Erwartung: Der Einkauf setzt eine angemessene Nachfrist, zweckmäßig mit festem Datum; nach erfolglosem Ablauf kann er zurücktreten und/oder bei Vertretenmüssen Schadensersatz statt der Leistung verlangen, etwa die Mehrkosten eines Deckungskaufs; bei einem vereinbarten Fixgeschäft entfällt die Nachfrist.
+  - Rückfrage: Wann gerät Ihr eigenes Unternehmen mit der Zahlung in Verzug, und was kostet das?
+- Eine Eingangsrechnung liegt Ihnen als PDF-Datei vor: Wie gehen Sie vor, bevor Sie sie zur Zahlung freigeben, und was sagen Sie zur Form der Rechnung?
+  - Erwartung: Formale Prüfung: Die Pflichtangaben sind vorhanden (Namen und Anschriften, Steuernummer oder Umsatzsteuer-Identifikationsnummer, Datum, einmalige Rechnungsnummer, Menge und Art, Leistungszeitpunkt, Entgelt, Steuersatz und Steuerbetrag), und die Rechnung ist keine Dublette.
+  - Erwartung: Sachliche, rechnerische und Konditionenprüfung: Bestellung, Wareneingang und Rechnung stimmen überein, Preise passen zur Vereinbarung, Summen und Steuer sind richtig, Fälligkeit und Skontofrist sind festgehalten; erst danach folgen Freigabe und Zahlung.
+  - Erwartung: Bei fehlenden oder falschen Angaben fordert man beim Lieferunternehmen eine Berichtigung an und ändert die Rechnung nicht selbst; der Vorsteuerabzug setzt eine nach dem Gesetz ausgestellte Rechnung voraus und ist bis zur Berichtigung gefährdet; abziehbar ist nur die geschuldete Steuer.
+  - Erwartung: Eine E-Rechnung besteht aus einem maschinenlesbaren Datensatz (zum Beispiel XRechnung oder ZUGFeRD in normgerechtem Profil), erkennbar am Datensatz und nicht am Aussehen; ein PDF ohne Datensatz ist eine sonstige Rechnung.
+  - Erwartung: Im Übergang sind Papier oder, mit Zustimmung der Empfangsseite, andere elektronische Formate noch zulässig (für Umsätze 2027 nur bei höchstens 800.000 € Gesamtumsatz des Ausstellers im Vorjahr); danach gilt zwischen Inlandsunternehmen die Pflicht zur E-Rechnung, mit Ausnahmen wie Kleinbeträgen (Stand Oktober 2026, vor Verwendung prüfen).
+  - Rückfrage: Woran erkennen Sie, ob eine eingegangene Datei eine E-Rechnung ist?
+- Die Rechnung ist bezahlt: Wie lange und in welcher Form bewahren Sie die Unterlagen des Einkaufs auf, und wie wirkt ein Skontoabzug steuerlich?
+  - Erwartung: Rechnungen und Buchungsbelege acht Jahre, Handelsbriefe sechs Jahre, Bücher und Jahresabschlüsse zehn Jahre; die Frist beginnt mit dem Ende des Kalenderjahres, und steuerrechtlich läuft sie nicht ab, solange die Unterlage für Steuern von Bedeutung ist, deren Festsetzungsfrist noch läuft (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Handelsbriefe sind Schriftstücke, die ein Handelsgeschäft betreffen, nach allgemeiner Auffassung zum Beispiel Angebote, Bestellungen, Auftragsbestätigungen und Mängelrügen; nach Auffassung der Finanzverwaltung zählen auch E-Mails mit diesem Inhalt dazu.
+  - Erwartung: Rechnungen müssen über die ganze Frist echt, unversehrt und lesbar bleiben; eine Wiedergabe auf einem Datenträger ist zulässig, wenn sie dem Original entspricht, verfügbar bleibt und jederzeit lesbar gemacht werden kann; bei einer E-Rechnung bewahrt man nach Darstellung der Finanzverwaltung die Datei im empfangenen Format auf, ein Ausdruck genügt nicht.
+  - Erwartung: Skonto gilt nur, soweit vereinbart (Höhe, Frist, Fristbeginn); der Abzug mindert das Entgelt, das Lieferunternehmen berichtigt seine Umsatzsteuer und die Einkaufsseite ihren Vorsteuerabzug um Steuerbetrag mal Skontosatz.
+  - Rückfrage: Wann beginnt die Aufbewahrungsfrist einer im Mai ausgestellten Rechnung?
 
 ### 4.3 IT- und Datenbankanwendungen
 
@@ -90,6 +115,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der Schutz dieser Daten muss gesetzlich und organisatorisch sichergestellt werden.
   - Erwartung: Datenschutz und Datensicherheit sind insbesondere bei der Vergabe von Zugriffsrechten zu berücksichtigen (Bezug zu Thema 4.4).
   - Rückfrage: Welche weiteren Kriterien ziehen Sie bei der Auswahl einer Anwendung heran?
+- Worauf achten Sie bei der Auswahl einer Kundenverwaltung, die ein Anbieter auf eigenen Servern betreibt, damit die GmbH datenschutzrechtlich sauber arbeiten kann?
+  - Erwartung: Der Anbieter ist in der Regel Auftragsverarbeiter, die GmbH bleibt verantwortlich; sie wählt nur Anbieter, die hinreichende Garantien für geeignete Schutzmaßnahmen bieten.
+  - Erwartung: Es braucht einen schriftlichen Vertrag zur Auftragsverarbeitung mit den Mindestinhalten, etwa Weisungsbindung, Vertraulichkeit, Sicherheitsmaßnahmen, Unterstützung bei Betroffenenrechten, Löschung oder Rückgabe und Kontrollrechte; Unterauftragnehmer nur mit Genehmigung und unter denselben Pflichten.
+  - Erwartung: Die Software sollte technische und organisatorische Maßnahmen bieten, etwa Verschlüsselung, ein Rollen- und Rechtekonzept, einstellbare Löschfristen und datenschutzfreundliche Voreinstellungen, und die Daten einer Person auffindbar, exportierbar, berichtigbar und löschbar machen.
+  - Erwartung: Die Datenschutzbeauftragte wird früh eingebunden; sie berät und überwacht, die Entscheidung trifft die Geschäftsführung.
+  - Erwartung: Wertet die Software Verhalten oder Leistung der Beschäftigten aus, bestimmt der Betriebsrat bei Einführung und Anwendung mit; ohne Einigung entscheidet die Einigungsstelle.
+  - Rückfrage: Was ändert sich, wenn ein Unterauftragnehmer des Anbieters außerhalb der EU sitzt?
+- Wie gehen Sie vor, wenn eine Kund:in Auskunft und Löschung verlangt oder wenn der Anbieter einen unbefugten Zugriff auf Kundendaten meldet?
+  - Erwartung: Anträge sind unverzüglich zu beantworten, spätestens nach einem Monat; zwei weitere Monate sind nur bei Komplexität oder hoher Antragszahl zulässig, und die Verlängerung ist im ersten Monat zu begründen.
+  - Erwartung: Eine Löschung entfällt, soweit eine Aufbewahrungspflicht oder die Verteidigung von Rechtsansprüchen entgegensteht; die Gründe und die Beschwerdemöglichkeit werden genannt.
+  - Erwartung: Eine Datenpanne wird dokumentiert und der Aufsichtsbehörde unverzüglich, möglichst binnen 72 Stunden ab Kenntnis, gemeldet, außer wenn voraussichtlich kein Risiko besteht; bei hohem Risiko werden die Betroffenen benachrichtigt.
+  - Erwartung: Die Geschäftsführung entscheidet als Verantwortliche; die Datenschutzbeauftragte berät, überwacht und ist Ansprechpartnerin der Aufsichtsbehörde.
+  - Rückfrage: Wer informiert wen, wenn nicht die GmbH selbst, sondern der Anbieter die Verletzung bemerkt?
 
 ### 4.4 Wissensmanagement
 
