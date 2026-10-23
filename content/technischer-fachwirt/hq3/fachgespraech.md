@@ -41,7 +41,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Warum ist eine FMEA vor Anlauf der Serienfertigung üblich?
 - Warum ist eine ISO-9001-Zertifizierung für einen Zulieferer der Automobilbranche in der Praxis häufig unverzichtbar?
   - Erwartung: Für einen Zulieferer wie Vantera ist eine gültige ISO-9001-Zertifizierung in der Praxis oft keine rein freiwillige Entscheidung.
-  - Erwartung: Sie ist eine grundlegende Voraussetzung, um überhaupt als Lieferant für Automobilhersteller oder große Maschinenbauunternehmen gelistet zu werden.
+  - Erwartung: Sie ist eine grundlegende Voraussetzung dafür, dass ein Zulieferer von Automobilherstellern oder großen Maschinenbauunternehmen überhaupt gelistet wird; Automobilkunden verlangen nach verbreiteter Darstellung teils zusätzlich eine Zertifizierung nach IATF 16949, die die ISO 9001 ergänzt und nicht ersetzt.
   - Erwartung: Eine unabhängige externe Zertifizierungsstelle bestätigt die Wirksamkeit des QMS und prüft sie regelmäßig erneut.
   - Rückfrage: Welche Norm legt die Anforderungen fest, nach denen sich Unternehmen zertifizieren lassen?
 - An einer Fertigungslinie der Vantera Präzisionstechnik GmbH werden in einer Woche 200 fehlerhafte Teile gezählt: 120 Maßabweichungen, 45 Oberflächenfehler, 25 Gratreste und 10 sonstige. Wie werten Sie diese Fehlerdaten mit einem Pareto-Diagramm aus, und worauf richten Sie Ihre Verbesserungsmaßnahmen zuerst?
@@ -106,6 +106,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Für beide Ursachen leitet man in D5 Abstellmaßnahmen ab, hier eine Standzeitgrenze für das Werkzeug und engere Prüfintervalle.
   - Rückfrage: Was unterscheidet D3 von D5?
   - Rückfrage: Was geschieht in D7?
+- Ein Automobilzulieferer fragt bei Vantera an, ob Vantera nach IATF 16949 zertifiziert ist. Erklären Sie der Geschäftsführung, was die IATF 16949 ist, wie sie sich zur ISO 9001 verhält und wie Vantera feststellt, ob die Zertifizierung nötig ist.
+  - Erwartung: Die IATF 16949 ist eine Norm für Qualitätsmanagementsysteme in der Automobil-Lieferkette; herausgegeben wird sie von der International Automotive Task Force, einem Zusammenschluss von Fahrzeugherstellern und Verbänden, nicht von der ISO.
+  - Erwartung: Nach verbreiteter Darstellung wird sie zusammen mit der ISO 9001 angewendet und ergänzt sie um automobilspezifische Anforderungen; ein ISO-9001-Zertifikat ersetzt sie nicht.
+  - Erwartung: Ein Zertifikat vergeben nur von der IATF anerkannte Zertifizierungsstellen; die Zertifizierung ist keine gesetzliche Pflicht, sondern eine Anforderung der Kundschaft.
+  - Erwartung: Vantera klärt bei der Kundschaft, ob die Zertifizierung zur Listung verlangt wird oder ob ISO 9001 mit Kundenaudits genügt, und beachtet kundenspezifische Anforderungen.
+  - Rückfrage: Entfällt mit einem IATF-Zertifikat automatisch das Lieferantenaudit der Kundschaft?
+- Bei einem Lieferantenaudit durch einen Automobilkunden werden Sie gefragt, wie Vantera vorgeht, wenn ein Lieferbetrieb eine Werkstoffcharge als fehlerhaft meldet, aus der bereits Teile gefertigt und teilweise geliefert wurden. Wie antworten Sie, und wer entscheidet über einen Rückruf?
+  - Erwartung: Vantera informiert die Kundschaft unverzüglich nach den Vorgaben der Qualitätssicherungsvereinbarung und sperrt die eigenen betroffenen Bestände.
+  - Erwartung: Über die Vorwärtsverfolgung von der Werkstoffcharge zu den Fertigungslosen und Lieferungen wird die betroffene Menge eingegrenzt; Voraussetzung sind Chargen- oder Losnummern, die bei jedem Übergang erfasst werden, sowie Rückstellmuster und Prüfaufzeichnungen.
+  - Erwartung: Vantera untersucht die Teile, bewertet mit der Kundschaft die Gefährdung und legt Ursachenanalyse und Maßnahmenplan in den vereinbarten Fristen vor.
+  - Erwartung: Über einen Rückruf von Teilen, die bereits in Fahrzeugen bei Endkundschaft sind, entscheidet in der Regel der Fahrzeughersteller in Abstimmung mit dem Systemhersteller und der zuständigen Behörde (bei Kraftfahrzeugen nach verbreiteter Darstellung das Kraftfahrt-Bundesamt); das ist eine Einzelfallfrage. Vantera liefert Daten und Untersuchungsergebnisse.
+  - Rückfrage: Worin unterscheiden sich Rücknahme vom Markt und Rückruf?
 
 ### 10.2 Umweltmanagement
 
@@ -313,4 +325,3 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Festgestellte Mängel sind unverzüglich zu beheben, besteht bis dahin eine dringende Gefahr, wird die Anlage nicht benutzt; neben der Unfallverhütungsvorschrift gilt die Betriebssicherheitsverordnung, weil elektrische Geräte und Maschinen zugleich Arbeitsmittel sind.
   - Rückfrage: Wer darf ortsveränderliche Betriebsmittel prüfen?
   - Rückfrage: Was folgt für die Prüfabstände, wenn die Prüfungen von Verlängerungsleitungen viele Mängel zeigen?
-

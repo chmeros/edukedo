@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AV „Technischer Fachwirt: neue rechtsnahe Inhalte (Arbeitsrecht und Betriebsänderung, Verzug und Durchsetzung, Lohn- und Sozialversicherung, IATF 16949)“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AV einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung G-TF-03, -04, -05, -06, -08; Auswertung `docs/entwuerfe/technischer-fachwirt-r4-auswertung.md`, dort „P-TF2“ und „P-TF3“). Vier Ergänzungen in den Themen `wq3/3.2`, `wq3/3.3`, `wq3/3.4` und `hq3/10.1` mit je Theorie, Karteikarten, Quiz, einer Fallaufgabe und Fachgesprächsfragen. Alle Agenten liefen auf Sonnet; Autor:innen und Prüfer:innen arbeiteten parallel.
 

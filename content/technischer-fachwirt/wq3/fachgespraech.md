@@ -84,6 +84,25 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Nach dem Gleichstellungsgrundsatz haben Leiharbeitnehmer:innen grundsätzlich ab dem ersten Tag Anspruch auf die wesentlichen Arbeitsbedingungen vergleichbarer Beschäftigter; ein Tarifvertrag kann beim Entgelt für die ersten neun Monate abweichen (§ 8 AÜG).
   - Erwartung: Die Überlassung an denselben Entleiher ist grundsätzlich auf 18 aufeinanderfolgende Monate begrenzt (§ 1 Abs. 1b AÜG); bei Überschreitung kann ein Arbeitsverhältnis zum Entleiher entstehen, wenn die Person nicht am Vertrag mit dem Verleiher festhält (§§ 9, 10 AÜG).
   - Rückfrage: Welche Bedeutung hat die Dauer der Überlassung an denselben Entleiher für die rechtliche Stellung der Leiharbeitnehmer:innen?
+- Eine Abteilungsleitung möchte einer Beschäftigten kurzfristig per E-Mail kündigen und schlägt alternativ vor, man könne sich doch „einvernehmlich trennen“. Wie beraten Sie?
+  - Erwartung: Eine Kündigung braucht Schriftform, also ein von Hand unterschriebenes Schreiben, und muss zugehen; mit E-Mail, Chat-Nachricht oder Scan wäre sie unwirksam. Vor jeder Kündigung ist außerdem der Betriebsrat zu hören.
+  - Erwartung: Die Kündigungsfrist richtet sich nach Vertrag, Tarifvertrag oder Gesetz; bei Kündigung durch den Arbeitgeber wächst sie gesetzlich mit der Dauer der Betriebszugehörigkeit und endet zum Monatsende (nach acht Jahren etwa drei Monate zum Monatsende).
+  - Erwartung: Auch ein Aufhebungsvertrag braucht die Schriftform, unterschrieben von beiden Seiten. Er endet das Arbeitsverhältnis ohne Frist, aber auch ohne Kündigungsschutz; eine Abfindung ist nicht geschuldet.
+  - Erwartung: Vantera sollte auf mögliche Nachteile hinweisen, vor allem eine Sperrzeit oder ein Ruhen beim Arbeitslosengeld und die Pflicht zur frühzeitigen Arbeitsuchendmeldung,.
+  - Rückfrage: Welche Frist gilt, wenn Vantera einer Beschäftigten mit acht Jahren Betriebszugehörigkeit kündigt?
+- Die Geschäftsführung plant, einen Bereich mit einem Fünftel der Belegschaft an einen anderen Standort zu verlagern. Was muss sie gegenüber dem Betriebsrat beachten, und was kann dieser erreichen?
+  - Erwartung: Die Verlegung eines wesentlichen Betriebsteils ist eine Betriebsänderung; der Betriebsrat ist rechtzeitig und umfassend zu unterrichten, die Maßnahme mit ihm zu beraten; bei mehr als 300 Beschäftigten kann er eine sachverständige Beratungsperson hinzuziehen.
+  - Erwartung: Der Interessenausgleich regelt, ob, wann und wie die Maßnahme erfolgt; er ist schriftlich niederzulegen und von beiden Seiten zu unterschreiben, aber nicht erzwingbar.
+  - Erwartung: Der Sozialplan gleicht die wirtschaftlichen Nachteile aus (zum Beispiel durch Abfindungen), wirkt wie eine Betriebsvereinbarung und kann bei Verlegung oder Stilllegung über den Spruch der Einigungsstelle erzwungen werden (bei reinem Personalabbau nur ab bestimmten Schwellen).
+  - Erwartung: Setzt der Arbeitgeber die Maßnahme um, ohne einen Interessenausgleich versucht zu haben, oder weicht er ohne zwingenden Grund davon ab, können entlassene Beschäftigte Abfindungen als Nachteilsausgleich verlangen.
+  - Rückfrage: Warum ist beim Sozialplan, nicht aber beim Interessenausgleich ein Spruch der Einigungsstelle möglich?
+- Ein wichtiger Kunde setzt Abrufe für drei Monate aus, und zugleich sollen Stellen dauerhaft wegfallen. Wann kommt Kurzarbeit in Betracht, und wann müssen Sie an eine Massenentlassung denken?
+  - Erwartung: Kurzarbeit überbrückt einen vorübergehenden, nicht vermeidbaren Arbeitsausfall; Kurzarbeitergeld setzt unter anderem voraus, dass mindestens ein Drittel der Beschäftigten von einem Entgeltausfall von mehr als 10 % betroffen ist und der Ausfall der Agentur für Arbeit angezeigt wird.
+  - Erwartung: Kurzarbeit kann der Arbeitgeber nicht allein anordnen; er braucht eine Rechtsgrundlage, und der Betriebsrat hat mitzubestimmen. Gekündigte Beschäftigte erhalten kein Kurzarbeitergeld; bei dauerhaftem Wegfall der Arbeit kommen Transfermaßnahmen in Betracht.
+  - Erwartung: Eine Massenentlassung ist anzuzeigen, wenn innerhalb von 30 Kalendertagen je nach Betriebsgröße eine gesetzliche Zahl erreicht wird; veranlasste Aufhebungsverträge zählen mit, fristlose Kündigungen nicht.
+  - Erwartung: Vor der Anzeige ist der Betriebsrat zu unterrichten und mit ihm zu beraten; die Anzeige muss vor den Kündigungen vorliegen, und Entlassungen werden vor Ablauf eines Monats nach Eingang der Anzeige nur mit Zustimmung der Agentur wirksam.
+  - Erwartung: Fehlt die Anzeige oder wird sie vor Abschluss der Beratung mit dem Betriebsrat erstattet, sind die Kündigungen nach der neueren Rechtsprechung regelmäßig unwirksam.
+  - Rückfrage: Welche Folgen kann eine fehlende Anzeige für die Kündigungen haben?
 
 ### 3.3 Vertragsgestaltung
 
@@ -119,6 +138,18 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Als Motiv gilt, statt eines weniger vertrauten Regelwerks das vertraute deutsche Recht anzuwenden und so Rechtsunsicherheit zu vermeiden.
   - Erwartung: Ergänzend empfiehlt sich in internationalen Verträgen eine ausdrückliche Rechtswahlklausel sowie eine Gerichtsstandsvereinbarung, um Klarheit über das anwendbare Recht und die zuständigen Gerichte zu schaffen.
   - Rückfrage: Worin unterscheiden sich eine Rechtswahlklausel und eine Gerichtsstandsvereinbarung?
+- Eine Abnehmerin der Vantera zahlt eine Rechnung erst sechs Wochen nach dem vereinbarten Zahlungstermin. Welche Ansprüche hat Vantera, und wie sichern Sie die Forderung, falls sie weiter nicht zahlt?
+  - Erwartung: Verzug setzt eine fällige Forderung, eine Mahnung oder deren Entbehrlichkeit (etwa bei einem kalendermäßig bestimmten Zahlungstermin) und das Vertretenmüssen voraus; bei Entgeltforderungen ist die Schuldnerseite außerdem spätestens 30 Tage nach Fälligkeit und Rechnungszugang ungemahnt im Verzug.
+  - Erwartung: Vantera kann Verzugszinsen von 9 Prozentpunkten über dem Basiszinssatz (Stand 01.07.2026: Basiszinssatz 1,52 %, also 10,52 %), die Pauschale von 40 € und gegebenenfalls weiteren Schaden verlangen.
+  - Erwartung: Die regelmäßige Verjährung dauert drei Jahre ab dem Ende des Jahres der Fälligkeit; sie wird durch Verhandlungen, Klage und die Zustellung eines Mahnbescheids gehemmt, durch ein Anerkenntnis, etwa eine erkennbar anerkennende Teilzahlung, beginnt sie neu, eine bloße Mahnung ändert nichts.
+  - Erwartung: Bei unbestrittener Forderung bietet sich das gerichtliche Mahnverfahren an (zwei Wochen Widerspruchsfrist, dann Vollstreckungsbescheid als Titel); bei bestrittener Forderung führt die Klage oft direkt weiter, bei Streitwerten über 10.000 € vor dem Landgericht mit Anwaltszwang.
+  - Rückfrage: Was passiert, wenn die Abnehmerin dem Mahnbescheid widerspricht?
+- Eine Abnehmerin, der Vantera Lagerhülsen unter Eigentumsvorbehalt geliefert hat, wird zahlungsunfähig, und es wird ein Insolvenzverfahren eröffnet. Wie wahren Sie die Interessen der Vantera?
+  - Erwartung: Mit der Eröffnung geht die Verfügungsbefugnis in der Regel auf die Insolvenzverwaltung über, Einzelvollstreckungen sind unzulässig; Vantera meldet ihre Insolvenzforderungen mit Grund und Betrag innerhalb der vom Gericht gesetzten Frist (mindestens zwei Wochen, höchstens drei Monate) an, was zugleich die Verjährung hemmt.
+  - Erwartung: Noch vorhandene Vorbehaltsware gehört weiter Vantera; die Verwaltung wählt zwischen Erfüllung (Kaufpreis ist dann Masseverbindlichkeit) und Ablehnung (dann kann Vantera die Ware nach verbreiteter Auffassung aussondern, ein Schaden bleibt Insolvenzforderung).
+  - Erwartung: Ist die Ware verarbeitet oder fest eingebaut, kann das Eigentum untergegangen sein; dann bleibt eine Insolvenzforderung, die nur anteilig nach der Quote befriedigt wird, sofern keine wirksame Absicherung wie ein verlängerter Eigentumsvorbehalt trägt.
+  - Erwartung: Zahlungen kurz vor dem Eröffnungsantrag kann die Verwaltung unter Voraussetzungen anfechten (bei einer fälligen Forderung etwa innerhalb von drei Monaten bei Zahlungsunfähigkeit und Kenntnis von Vantera, wobei die Kenntnis zwingender Umstände genügt); daher Zahlungsverhalten und Auskünfte beobachten und den Eigentumsvorbehalt von Anfang an vereinbaren.
+  - Rückfrage: Welche Rolle spielt ein verlängerter Eigentumsvorbehalt, wenn die Abnehmerin die Hülsen weiterverarbeitet?
 
 ### 3.4 Unternehmensrelevantes Steuerrecht
 
@@ -155,4 +186,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei vorsätzlichen oder leichtfertigen Verstößen drohen zusätzlich straf- bzw. bußgeldrechtliche Konsequenzen wegen Steuerhinterziehung oder leichtfertiger Steuerverkürzung.
   - Erwartung: Grundlage der Prüfung sind u. a. die fristgerecht abgegebenen Steuererklärungen und die ordnungsgemäße Buchführung nach handels- und steuerrechtlichen Vorschriften.
   - Rückfrage: Welche steuerlichen Mitwirkungspflichten muss Vantera auch unabhängig von einer Betriebsprüfung erfüllen?
-
+- Eine langjährige beschäftigte Person scheidet bei Vantera durch Aufhebungsvertrag mit einer Abfindung aus und fragt, was davon bei ihr ankommt. Wie erläutern Sie ihr die Behandlung bei Lohnsteuer, Einkommensteuer und Sozialversicherung?
+  - Erwartung: Die Abfindung ist eine Entschädigung für den Verlust des Arbeitsplatzes und steuerpflichtig; eine gesetzliche Steuerbefreiung gibt es nicht. Im Lohnsteuerabzug behandelt Vantera sie als sonstigen Bezug und behält die Lohnsteuer ohne Ermäßigung ein.
+  - Erwartung: Die Fünftelregelung, eine ermäßigte Berechnung der Steuer auf Entschädigungen, wendet Vantera im Lohnsteuerabzug seit 2025 nicht mehr an; sie wirkt erst in der Einkommensteuerveranlagung der beschäftigten Person (Stand Oktober 2026, vor Verwendung prüfen), sodass ein Teil der einbehaltenen Steuer mit dem Steuerbescheid erstattet werden kann.
+  - Erwartung: Nach der Rechtsprechung setzt die Ermäßigung eine Zusammenballung von Einkünften voraus; Einzelheiten sind im Einzelfall zu klären.
+  - Erwartung: Eine reine Abfindung ist nach der Rechtsprechung regelmäßig kein beitragspflichtiges Arbeitsentgelt; was Entgelt für erworbene Ansprüche ist, etwa Urlaubsabgeltung oder nicht gezahlter Lohn, bleibt lohnsteuer- und beitragspflichtig, unabhängig von der Bezeichnung.
+  - Rückfrage: Welche Zahlungen an die beschäftigte Person sind sozialversicherungspflichtig, und wie wirkt sich die Beitragsbemessungsgrenze aus, wenn ihr Gehalt über der Grenze der Krankenversicherung lag?
+- Vantera will für Rechnungen an Kunden im Inland auf die elektronische Rechnung umstellen. Wie erläutern Sie der Geschäftsführung, was eine E-Rechnung ist, für wen die Pflicht gilt und was bei Anzahlungen und der Aufbewahrung zu beachten ist?
+  - Erwartung: Eine E-Rechnung wird in einem strukturierten elektronischen Format ausgestellt, übermittelt und empfangen und lässt sich automatisch verarbeiten; Beispiele sind XRechnung und ZUGFeRD (dort gilt nach den Anwendungsschreiben der Finanzverwaltung der Datensatz). Papier und ein reines PDF sind sonstige Rechnungen.
+  - Erwartung: Die Pflicht gilt für Umsätze zwischen im Inland ansässigen Unternehmen, außer bei bestimmten steuerfreien Umsätzen; Kleinbetragsrechnungen bis 250 €, Rechnungen an Privatpersonen und Rechnungen mit Auslandsbezug folgen ihr nicht (Stand Oktober 2026, vor Verwendung prüfen).
+  - Erwartung: Für Umsätze des Jahres 2027 gilt eine Ausnahme nur noch bei einem Vorjahresumsatz des Ausstellers bis 800.000 €; ab 2028 gilt die Pflicht ohne diese Ausnahme. Nach Auffassung der Finanzverwaltung müssen Unternehmen E-Rechnungen schon seit 2025 empfangen können.
+  - Erwartung: Stellt Vantera über eine Anzahlung eine Rechnung aus, gelten dieselben Regeln sinngemäß; die Endrechnung setzt die Teilentgelte und die darauf entfallenden Steuerbeträge ab, soweit über sie Rechnungen ausgestellt wurden. Der Vorsteuerabzug setzt eine ordnungsgemäße Rechnung voraus; fehlerhafte Angaben sind zu berichtigen.
+  - Erwartung: Rechnungen sind acht Jahre aufzubewahren, die Frist beginnt mit dem Schluss des Kalenderjahres der Ausstellung; nach Darstellung der Finanzverwaltung bleibt bei E-Rechnungen die Originaldatei maßgeblich, ein Ausdruck genügt nicht.
+  - Rückfrage: Welche Folgen hat eine nicht ordnungsgemäße Rechnung für den Vorsteuerabzug des Kunden?
