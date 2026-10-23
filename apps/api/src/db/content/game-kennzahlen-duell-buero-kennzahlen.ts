@@ -9,7 +9,8 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * Projektleiters, Entwurf docs/entwuerfe/buero-kennzahlen-duell.md, E-BUE-2). Fachgrundlage: ausschließlich die Theorietexte der
  * Kursdateien content/fachwirt-buero-projektorganisation/ — Thema 4.1 (Steuerungsinstrumente, Kennzahlenarten, Kosten-Nutzen-Rechnung,
  * Datenaufbereitung), 3.1 (Personalkennzahlen), 4.2 (Vertragserfüllung), 1.2 (Selbst-/Fremdeinschätzung, Benchmarking) und 1.3
- * (Wirtschaftlichkeit); Rechtsstand dort: 15.09.2026. Die Definitionen von Fluktuation, Krankenstand und Lieferzeit (Fragen 16 bis 18)
+ * (Wirtschaftlichkeit); Rechtsstand dort: 15.09.2026, Thema 4.2 um Mängelrechte, Verzug, Rechnung und Skonto ergänzt (23.10.2026, P-AX;
+ * Frage 19 betrifft nur die Kontrolle der Vertragserfüllung und bleibt davon unberührt). Die Definitionen von Fluktuation, Krankenstand und Lieferzeit (Fragen 16 bis 18)
  * sind die allgemein üblichen; die Theorie nennt sie nur als Beispiele.
  */
 export const kennzahlenDuellBueroKennzahlen: KennzahlenDuellPayload = {

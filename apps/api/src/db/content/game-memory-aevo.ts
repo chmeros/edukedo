@@ -63,8 +63,8 @@ export const memoryAevo: MemoryPayload = {
       nummer: 5,
       runde: 1,
       begriff: "Personelle Eignung",
-      bedeutung: "Genug passend qualifizierte Ausbilder:innen vorhanden",
-      bestaetigung: "Richtig! Dazu zählt auch ein passendes Verhältnis von Ausbilder:innen zu Azubis.",
+      bedeutung: "Persönlich und fachlich geeignete Ausbilder:innen sind vorhanden",
+      bestaetigung: "Richtig! Dazu gehört auch die berufs- und arbeitspädagogische Eignung, die die AEVO regelt.",
     },
     {
       nummer: 6,
@@ -163,7 +163,7 @@ export const memoryAevo: MemoryPayload = {
       runde: 2,
       begriff: "Ausbildungsvertrag",
       bedeutung: "Hält Rechte und Pflichten beider Seiten fest",
-      bestaetigung: "Richtig! Der betriebliche Ausbildungsplan wird dem Vertrag beigefügt.",
+      bestaetigung: "Richtig! In der Praxis wird der betriebliche Ausbildungsplan dem Vertrag als Anlage beigefügt.",
     },
     {
       nummer: 20,
@@ -255,7 +255,7 @@ export const memoryAevo: MemoryPayload = {
       nummer: 32,
       runde: 4,
       begriff: "Gestreckte Abschlussprüfung",
-      bedeutung: "Erster Teil zur Halbzeit, zweiter Teil am Ende",
+      bedeutung: "Teil 1 vor dem Ende der Ausbildung, Teil 2 am Ende",
       bestaetigung: "Genau! Deshalb planen Ausbildende Wiederholungsphasen vor beiden Terminen.",
     },
     {
@@ -263,7 +263,7 @@ export const memoryAevo: MemoryPayload = {
       runde: 4,
       begriff: "Zulassung",
       bedeutung: "Erlaubnis, an der Abschlussprüfung teilzunehmen",
-      bestaetigung: "Richtig! Dafür müssen bestimmte Voraussetzungen erfüllt sein, zum Beispiel ein geführtes Berichtsheft.",
+      bestaetigung: "Richtig! Dafür müssen bestimmte Voraussetzungen erfüllt sein, zum Beispiel ein vorgelegter Ausbildungsnachweis (Berichtsheft).",
     },
     {
       nummer: 34,
@@ -290,8 +290,8 @@ export const memoryAevo: MemoryPayload = {
       nummer: 37,
       runde: 4,
       begriff: "Qualifiziertes Zeugnis",
-      bedeutung: "Enthält zusätzlich Führung und Leistung",
-      bestaetigung: "Richtig! Das einfache Zeugnis nennt nur Art, Dauer und Ziel der Ausbildung.",
+      bedeutung: "Enthält zusätzlich Verhalten und Leistung",
+      bestaetigung: "Richtig! Das einfache Zeugnis nennt Art, Dauer und Ziel sowie die erworbenen Fertigkeiten, Kenntnisse und Fähigkeiten. Verhalten und Leistung kommen auf Verlangen hinzu.",
     },
     {
       nummer: 38,
@@ -304,8 +304,8 @@ export const memoryAevo: MemoryPayload = {
       nummer: 39,
       runde: 4,
       begriff: "Übernahme",
-      bedeutung: "Weiterbeschäftigung nach bestandener Prüfung",
-      bestaetigung: "Richtig! Darüber sprechen Ausbildende in einem Perspektivgespräch vor Ausbildungsende.",
+      bedeutung: "Ausdrücklich vereinbarte Beschäftigung nach bestandener Prüfung",
+      bestaetigung: "Richtig! Darüber spricht Kelvinar üblicherweise in einem Perspektivgespräch vor Ausbildungsende.",
     },
     {
       nummer: 40,

@@ -274,13 +274,13 @@ export const kennzahlenDuellKostenLeistungen: KennzahlenDuellPayload = {
       nummer: 20,
       runde: 4,
       frage: "Im Werk Süd ist Maschinenkapazität frei. Ein großvolumiger, niedrig bepreister Sensor-Auftrag liefert einen positiven Deckungsbeitrag. Welche Überlegung entspricht der Deckungsbeitragsrechnung?",
-      antwortA: "Ein niedriger Preis ist immer ein Ablehnungsgrund, auch bei positivem Deckungsbeitrag",
+      antwortA: "Ein niedriger Preis ist ein Ablehnungsgrund, auch bei positivem Deckungsbeitrag",
       antwortB: "Die Annahme kann sinnvoll sein, weil der Auftrag zur Deckung der fixen Kosten beiträgt",
       richtig: "B",
       feedbackRichtig:
-        "Genau! Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme sinnvoll sein, denn der Auftrag trägt zur Deckung der fixen Kosten bei (siehe Thema 2.2).",
+        "Genau! Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme kurzfristig sinnvoll sein, denn der Auftrag trägt zur Deckung der fixen Kosten bei. Auf Dauer müssen die Preise allerdings alle Kosten und einen Gewinn decken (siehe Thema 2.2).",
       feedbackFalsch:
-        "Das stimmt nicht. Ein niedriger Preis allein ist kein Ablehnungsgrund. Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme sinnvoll sein (siehe Thema 2.2).",
+        "Das stimmt nicht. Ein niedriger Preis allein ist kein Ablehnungsgrund. Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme kurzfristig sinnvoll sein; langfristig müssen die Preise alle Kosten decken (siehe Thema 2.2).",
     },
   ],
   abschlussmeldung:

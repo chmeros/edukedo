@@ -1,5 +1,5 @@
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
-import { and, eq } from "drizzle-orm";
+import { and, eq, like } from "drizzle-orm";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 import { Pool } from "pg";
@@ -174,8 +174,15 @@ describe("Bulk-Import — Datenintegrität und Versionierung", () => {
       const anzahl: number[] = [];
       for (const kurs of fi) {
         const eintraege = await db.select().from(schema.glossarEintrag).where(eq(schema.glossarEintrag.kursId, kurs.id));
-        anzahl.push(eintraege.length);
         expect(eintraege.length).toBeGreaterThan(100);
+        // gezählt werden nur die gemeinsamen Fachgebiete FU1–FU7; ae*/dp*/dv*/si* haben kursspezifische Glossare (P-AZ)
+        const gemeinsam = await db
+          .select({ id: schema.glossarEintrag.id })
+          .from(schema.glossarEintrag)
+          .innerJoin(schema.thema, eq(schema.glossarEintrag.themaId, schema.thema.id))
+          .innerJoin(schema.fachgebiet, eq(schema.thema.fachgebietId, schema.fachgebiet.id))
+          .where(and(eq(schema.glossarEintrag.kursId, kurs.id), like(schema.fachgebiet.code, "FU%")));
+        anzahl.push(gemeinsam.length);
         // jeder Eintrag ist mit einem Thema des Kurses verknüpft und hat eine Definition
         expect(eintraege.every((eintrag) => eintrag.themaId !== null && eintrag.definition.length > 20)).toBe(true);
         expect(eintraege.every((eintrag) => Array.isArray(eintrag.aliases))).toBe(true);

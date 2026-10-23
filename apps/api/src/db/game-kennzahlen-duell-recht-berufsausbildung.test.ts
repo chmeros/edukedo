@@ -14,6 +14,8 @@ const ERLAUBTE_PARAGRAFEN = [
   "§ 16 BBiG",
   "§ 20 BBiG",
   "§ 22 Abs. 1 BBiG",
+  "§ 22 Abs. 3 BBiG", // Schriftform der Probezeitkündigung (Thema 3.1)
+  "§ 36 Abs. 1 BBiG", // Antrag auf Eintragung ins Verzeichnis (Thema 2.3)
   "§ 34 BBiG",
   "§ 45 Abs. 1 BBiG",
   "§ 65 Abs. 1 BBiG",

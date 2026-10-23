@@ -235,7 +235,7 @@ export const kreuzwortraetselAevo: KreuzwortraetselPayload = {
       hinweis: "Azubi bleibt nach bestandener Prüfung als Beschäftigte:r im Betrieb.",
       tipp: "Darüber spricht man im Perspektivgespräch.",
       loesung: "UEBERNAHME",
-      bestaetigung: "Richtig! Die Frage der Übernahme gehört zu den Perspektiven, die Ausbildende gegen Ende der Ausbildung aufzeigen.",
+      bestaetigung: "Richtig! Die Frage der Übernahme gehört zu den Perspektiven, die Ausbilder:innen gegen Ende der Ausbildung aufzeigen.",
     },
     {
       nummer: 33,

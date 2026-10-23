@@ -848,12 +848,12 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 #### technische-unterscheidungen · 12 — Eine Maschine läuft bis zum Defekt und wird erst danach instandgesetzt. Wie heißt diese Strategie?
 
-- **A:** Vorbeugende Instandhaltung
+- **A:** Intervallbasierte vorbeugende Instandhaltung
 - ✔ **B:** Korrektive Instandhaltung
 
 **Rückmeldung bei richtiger Antwort:** Richtig! Bei der korrektiven (reaktiven) Instandhaltung wird erst nach dem Ausfall gehandelt, mit dem Nachteil ungeplanter Stillstände (siehe Thema 7.2).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Bei der vorbeugenden Instandhaltung werden Maßnahmen in festen Intervallen vor einem Ausfall durchgeführt. Erst nach dem Ausfall zu handeln ist die korrektive Strategie (siehe Thema 7.2).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Bei der vorbeugenden Instandhaltung im Sinne dieses Kurses werden Maßnahmen in festen Intervallen vor einem Ausfall durchgeführt. Erst nach dem Ausfall zu handeln ist die korrektive Strategie (siehe Thema 7.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -867,11 +867,11 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 #### technische-unterscheidungen · 13 — Sensoren erfassen laufend die Vibration an den Spindellagern, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten. Um welche Strategie handelt es sich?
 
 - ✔ **A:** Zustandsorientierte Instandhaltung
-- **B:** Vorbeugende Instandhaltung in festen Intervallen
+- **B:** Intervallbasierte vorbeugende Instandhaltung
 
-**Rückmeldung bei richtiger Antwort:** Genau! Die zustandsorientierte (vorausschauende) Instandhaltung richtet sich nach gemessenen Betriebsparametern, sodass Bauteile weder zu früh getauscht noch bis zum Ausfall betrieben werden (siehe Thema 7.2).
+**Rückmeldung bei richtiger Antwort:** Genau! Die zustandsorientierte Instandhaltung richtet sich nach gemessenen Betriebsparametern, sodass Bauteile weder zu früh getauscht noch bis zum Ausfall betrieben werden (siehe Thema 7.2).
 
-**Rückmeldung bei falscher Antwort:** Das passt nicht. Die vorbeugende Instandhaltung arbeitet in festen, zeit- oder laufleistungsbasierten Intervallen, unabhängig vom tatsächlichen Verschleißzustand. Sensorgestützt ist die zustandsorientierte Strategie (siehe Thema 7.2).
+**Rückmeldung bei falscher Antwort:** Das passt nicht. Die vorbeugende Instandhaltung in festen Intervallen arbeitet zeit- oder laufleistungsbasiert, unabhängig vom tatsächlichen Verschleißzustand; in der Norm heißt sie vorausbestimmt, und „vorbeugend“ ist dort der Oberbegriff. Sensorgestützt ist die zustandsorientierte Strategie (siehe Thema 7.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -945,7 +945,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 **Rückmeldung bei richtiger Antwort:** Genau! Betriebsärztinnen und Betriebsärzte führen insbesondere arbeitsmedizinische Vorsorgeuntersuchungen durch. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber zu Arbeitssicherheit und technischem Gesundheitsschutz (siehe Thema 10.3).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes. Die Vorsorgeuntersuchungen führt die Betriebsärztin bzw. der Betriebsarzt durch (siehe Thema 10.3).
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes. Die arbeitsmedizinischen Vorsorgeuntersuchungen führt insbesondere die Betriebsärztin bzw. der Betriebsarzt durch; beide Funktionen beraten, die Verantwortung bleibt beim Arbeitgeber (siehe Thema 10.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

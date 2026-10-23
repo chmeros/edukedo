@@ -37,7 +37,7 @@ export const kennzahlenDuellGesundheitSozialsystem: KennzahlenDuellPayload = {
       nummer: 4,
       titel: "Arbeitsrecht im Pflegedienst",
       abschlussmeldung:
-        "Runde 4 geschafft! Du kennst Probezeit und Kündigungsfrist, den Beginn des allgemeinen Kündigungsschutzes, die Befristung mit Sachgrund und die Anhörung der Mitarbeitervertretung.",
+        "Runde 4 geschafft! Du kennst Probezeit und Kündigungsfrist, den Beginn des allgemeinen Kündigungsschutzes, die Befristung mit Sachgrund und die Anhörung des Betriebsrats vor der Kündigung.",
     },
   ],
   fragen: [
@@ -56,26 +56,26 @@ export const kennzahlenDuellGesundheitSozialsystem: KennzahlenDuellPayload = {
     {
       nummer: 2,
       runde: 1,
-      frage: "Welcher Versicherungszweig finanziert die grundpflegerischen und hauswirtschaftlichen Leistungen der Pflegegrade?",
+      frage: "Welcher Versicherungszweig ist für die grundpflegerischen und hauswirtschaftlichen Leistungen der Pflegegrade zuständig?",
       antwortA: "Die Krankenversicherung (SGB V)",
-      antwortB: "Die soziale Pflegeversicherung (SGB XI)",
+      antwortB: "Die Pflegeversicherung (SGB XI)",
       richtig: "B",
       feedbackRichtig:
-        "Genau! Grundpflegerische und hauswirtschaftliche Leistungen der Pflegegrade finanziert die soziale Pflegeversicherung nach SGB XI (siehe Thema 4.2).",
+        "Genau! Grundpflegerische und hauswirtschaftliche Leistungen der Pflegegrade gehören zur Pflegeversicherung nach SGB XI: bei gesetzlich Versicherten zur sozialen Pflegeversicherung, bei privat Krankenversicherten zur privaten Pflegepflichtversicherung mit gleichwertigen Leistungen (siehe Thema 4.2).",
       feedbackFalsch:
-        "Das passt nicht. Die Pflegegrade gehören zur sozialen Pflegeversicherung (SGB XI), die diese Leistungen finanziert (siehe Thema 4.2).",
+        "Das passt nicht. Die Pflegegrade gehören zur Pflegeversicherung (SGB XI), bei gesetzlich Versicherten zur sozialen, bei privat Krankenversicherten zur privaten Pflegepflichtversicherung (siehe Thema 4.2).",
     },
     {
       nummer: 3,
       runde: 1,
-      frage: "Wie heißt die Leistung der Pflegeversicherung für professionelle Pflegeeinsätze, die direkt mit der Pflegekasse abgerechnet werden?",
+      frage: "Wie heißt die Leistung der sozialen Pflegeversicherung für professionelle Pflegeeinsätze zugelassener Pflegedienste, die direkt mit der Pflegekasse abgerechnet werden?",
       antwortA: "Pflegesachleistung",
       antwortB: "Pflegegeld",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Die Pflegesachleistung finanziert professionelle Pflegeeinsätze, die direkt mit der Pflegekasse abgerechnet werden. Das Pflegegeld ist dagegen eine Geldleistung bei überwiegender Pflege durch Angehörige (siehe Thema 4.2).",
+        "Richtig! Die Pflegesachleistung der sozialen Pflegeversicherung finanziert professionelle Pflegeeinsätze, die direkt mit der Pflegekasse abgerechnet werden. Bei privat Versicherten tritt an ihre Stelle eine gleich hohe Kostenerstattung. Das Pflegegeld ist dagegen eine Geldleistung bei überwiegender Pflege durch Angehörige (siehe Thema 4.2).",
       feedbackFalsch:
-        "Das Pflegegeld ist eine Geldleistung, wenn Angehörige überwiegend pflegen. Gesucht ist die Pflegesachleistung (siehe Thema 4.2).",
+        "Das Pflegegeld ist eine Geldleistung, wenn Angehörige überwiegend pflegen. Gesucht ist die Pflegesachleistung; bei privat Versicherten tritt an ihre Stelle eine gleich hohe Kostenerstattung (siehe Thema 4.2).",
     },
     {
       nummer: 4,
@@ -224,36 +224,36 @@ export const kennzahlenDuellGesundheitSozialsystem: KennzahlenDuellPayload = {
     {
       nummer: 16,
       runde: 4,
-      frage: "Wie lang darf eine Probezeit in einem Arbeitsverhältnis nach dem Kurs höchstens dauern?",
+      frage: "Für welchen Zeitraum der vereinbarten Probezeit gilt die verkürzte gesetzliche Kündigungsfrist längstens?",
       antwortA: "Zwölf Monate",
       antwortB: "Sechs Monate",
       richtig: "B",
-      feedbackRichtig: "Richtig! Die Probezeit darf höchstens sechs Monate betragen (siehe Thema 5.5).",
-      feedbackFalsch: "Das stimmt nicht. Im Arbeitsverhältnis darf die Probezeit höchstens sechs Monate dauern (siehe Thema 5.5).",
+      feedbackRichtig: "Richtig! Die verkürzte Kündigungsfrist der Probezeit gilt längstens für die ersten sechs Monate; ein Tarifvertrag kann davon abweichen (siehe Thema 5.5).",
+      feedbackFalsch: "Das stimmt nicht. Die verkürzte Kündigungsfrist gilt längstens für die ersten sechs Monate einer vereinbarten Probezeit; ein Tarifvertrag kann davon abweichen (siehe Thema 5.5).",
     },
     {
       nummer: 17,
       runde: 4,
-      frage: "Welche gesetzliche Kündigungsfrist gilt in der Probezeit, sofern nichts anderes vereinbart ist?",
+      frage: "Welche gesetzliche Kündigungsfrist gilt in einer vereinbarten Probezeit, sofern nichts anderes vereinbart ist?",
       antwortA: "Zwei Wochen",
       antwortB: "Vier Wochen",
       richtig: "A",
       feedbackRichtig:
-        "Genau! In der Probezeit gilt eine verkürzte gesetzliche Kündigungsfrist von zwei Wochen, sofern nichts anderes vereinbart ist (siehe Thema 5.5).",
+        "Genau! In einer vereinbarten Probezeit gilt eine verkürzte gesetzliche Kündigungsfrist von zwei Wochen, sofern nichts anderes vereinbart ist. Vier Wochen sind dagegen die gesetzliche Grundfrist außerhalb der Probezeit (siehe Thema 5.5).",
       feedbackFalsch:
-        "Nicht ganz. Während der Probezeit gilt eine verkürzte Kündigungsfrist von zwei Wochen, sofern nichts anderes vereinbart ist (siehe Thema 5.5).",
+        "Nicht ganz. Vier Wochen sind die gesetzliche Grundfrist außerhalb der Probezeit, etwa wenn Beschäftigte nach der Probezeit selbst kündigen. In einer vereinbarten Probezeit gilt eine verkürzte Frist von zwei Wochen, sofern nichts anderes vereinbart ist (siehe Thema 5.5).",
     },
     {
       nummer: 18,
       runde: 4,
       frage: "Wann greift der allgemeine Kündigungsschutz nach dem Kündigungsschutzgesetz hinsichtlich der Beschäftigungsdauer?",
-      antwortA: "Ab dem ersten Arbeitstag",
-      antwortB: "Nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb",
+      antwortA: "Ab dem ersten Arbeitstag, sobald der Arbeitsvertrag geschlossen ist",
+      antwortB: "Nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb oder Unternehmen",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Der allgemeine Kündigungsschutz setzt nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb ein (siehe Thema 5.5).",
+        "Richtig! Der allgemeine Kündigungsschutz setzt nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb oder Unternehmen ein, und zwar in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (siehe Thema 5.5).",
       feedbackFalsch:
-        "Das stimmt nicht. Der allgemeine Kündigungsschutz greift erst nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb (siehe Thema 5.5).",
+        "Das stimmt nicht. Der allgemeine Kündigungsschutz greift erst nach mehr als sechs Monaten ununterbrochener Beschäftigung im selben Betrieb oder Unternehmen, und zwar in Betrieben mit in der Regel mehr als zehn Arbeitnehmenden (siehe Thema 5.5).",
     },
     {
       nummer: 19,
@@ -270,14 +270,14 @@ export const kennzahlenDuellGesundheitSozialsystem: KennzahlenDuellPayload = {
     {
       nummer: 20,
       runde: 4,
-      frage: "Was gilt vor einer Kündigung, wenn im Betrieb eine Mitarbeitervertretung besteht?",
-      antwortA: "Sie muss nur nachträglich informiert werden",
-      antwortB: "Sie ist vorher anzuhören; ohne Anhörung ist die Kündigung unwirksam",
+      frage: "Was gilt vor einer Kündigung, wenn in einem privatwirtschaftlichen Betrieb ein Betriebsrat besteht?",
+      antwortA: "Er muss erst nach Ausspruch der Kündigung informiert werden",
+      antwortB: "Er ist vorher anzuhören; ohne Anhörung ist die Kündigung unwirksam",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Besteht eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören. Eine Kündigung ohne vorherige Anhörung ist unwirksam (siehe Thema 5.5).",
+        "Richtig! Besteht ein Betriebsrat, ist er vor jeder Kündigung anzuhören, auch in der Probezeit. Eine Kündigung ohne vorherige Anhörung ist unwirksam. Für Personalräte und kirchliche Mitarbeitervertretungen gelten eigene Regeln (siehe Thema 5.5).",
       feedbackFalsch:
-        "Das stimmt nicht. Die Mitarbeitervertretung ist vor der Kündigung anzuhören, sonst ist die Kündigung unwirksam (siehe Thema 5.5).",
+        "Das stimmt nicht. Der Betriebsrat ist vor der Kündigung anzuhören, sonst ist die Kündigung unwirksam. Für Personalräte und kirchliche Mitarbeitervertretungen gelten eigene Regeln (siehe Thema 5.5).",
     },
   ],
   abschlussmeldung:

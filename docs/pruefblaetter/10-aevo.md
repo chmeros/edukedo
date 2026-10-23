@@ -710,11 +710,11 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 #### recht-berufsausbildung · 3 — Was gilt für eine Kündigung des Ausbildungsverhältnisses während der Probezeit (§ 22 Abs. 1 BBiG)?
 
 - **A:** Sie braucht eine Kündigungsfrist und eine Begründung
-- ✔ **B:** Sie ist ohne Kündigungsfrist und ohne Angabe von Gründen möglich
+- ✔ **B:** Ohne Kündigungsfrist und ohne Angabe von Gründen, aber schriftlich
 
-**Rückmeldung bei richtiger Antwort:** Richtig! In der Probezeit kann nach § 22 Abs. 1 BBiG ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen gekündigt werden (siehe Thema 3.1).
+**Rückmeldung bei richtiger Antwort:** Richtig! In der Probezeit kann nach § 22 Abs. 1 BBiG ohne Einhalten einer Kündigungsfrist und ohne Angabe von Gründen gekündigt werden. Die Kündigung muss aber schriftlich erfolgen; eine E-Mail genügt nicht (§ 22 Abs. 3 BBiG, siehe Thema 3.1).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt so nicht. In der Probezeit sind weder eine Kündigungsfrist noch eine Begründung erforderlich (§ 22 Abs. 1 BBiG, siehe Thema 3.1).
+**Rückmeldung bei falscher Antwort:** Das stimmt so nicht. In der Probezeit sind weder eine Kündigungsfrist noch eine Begründung erforderlich (§ 22 Abs. 1 BBiG); die Kündigung muss aber schriftlich erfolgen (§ 22 Abs. 3 BBiG, siehe Thema 3.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -855,14 +855,14 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 ### Runde 3: Ausbildungsvertrag, Ausbildungsplan und Ausbildungsrahmenplan
 
-#### recht-berufsausbildung · 11 — Wie muss ein Berufsausbildungsvertrag nach § 11 BBiG abgeschlossen werden?
+#### recht-berufsausbildung · 11 — Wie ist der wesentliche Inhalt eines Berufsausbildungsvertrags nach § 11 BBiG abzufassen?
 
 - **A:** Mündlich genügt
-- ✔ **B:** Schriftlich
+- ✔ **B:** In Textform
 
-**Rückmeldung bei richtiger Antwort:** Richtig! § 11 BBiG schreibt den schriftlichen Abschluss des Berufsausbildungsvertrags vor (siehe Thema 2.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die Ausbildenden müssen den wesentlichen Inhalt unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen (Vertragsabfassung). Der Vertragsschluss selbst ist an keine Form gebunden (siehe Thema 2.3).
 
-**Rückmeldung bei falscher Antwort:** Das passt nicht. Der Vertrag ist nach § 11 BBiG schriftlich abzuschließen (siehe Thema 2.3).
+**Rückmeldung bei falscher Antwort:** Das passt nicht. Nach § 11 BBiG ist der wesentliche Inhalt in Textform abzufassen und auszuhändigen; der Vertragsschluss selbst ist formfrei (siehe Thema 2.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -873,14 +873,14 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### recht-berufsausbildung · 12 — Wo ist der Ausbildungsvertrag eines Industriebetriebs zur Eintragung in das Verzeichnis der Berufsausbildungsverhältnisse anzumelden (§ 34 BBiG)?
+#### recht-berufsausbildung · 12 — Wo ist der Ausbildungsvertrag eines Industriebetriebs zur Eintragung in das Verzeichnis der Berufsausbildungsverhältnisse anzumelden (§ 36 Abs. 1 BBiG)?
 
 - ✔ **A:** Bei der zuständigen Stelle, hier der IHK
 - **B:** Bei der Agentur für Arbeit
 
-**Rückmeldung bei richtiger Antwort:** Genau! Die Anmeldung erfolgt unverzüglich bei der zuständigen Stelle, bei einem Industriebetrieb in der Regel bei der IHK (siehe Thema 2.3).
+**Rückmeldung bei richtiger Antwort:** Genau! Die Ausbildenden beantragen die Eintragung unverzüglich bei der zuständigen Stelle, bei einem Industriebetrieb in der Regel bei der IHK. Sie führt das Verzeichnis nach § 34 BBiG (siehe Thema 2.3).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Das Verzeichnis führt die zuständige Stelle, bei einem Industriebetrieb in der Regel die IHK (§ 34 BBiG, siehe Thema 2.3).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Eintragung wird bei der zuständigen Stelle beantragt (§ 36 Abs. 1 BBiG), bei einem Industriebetrieb in der Regel bei der IHK; sie führt das Verzeichnis (§ 34 BBiG, siehe Thema 2.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -927,14 +927,14 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### recht-berufsausbildung · 15 — Wie hängt der betriebliche Ausbildungsplan nach § 11 BBiG mit dem Ausbildungsvertrag zusammen?
+#### recht-berufsausbildung · 15 — Wie wird der betriebliche Ausbildungsplan in der Praxis mit dem Ausbildungsvertrag verbunden?
 
-- **A:** Er wird getrennt vom Vertrag verwaltet und ist kein Vertragsbestandteil
-- ✔ **B:** Er ist der Vertragsniederschrift beizufügen und damit fester Bestandteil des Ausbildungsverhältnisses
+- **A:** Er wird getrennt vom Vertrag verwaltet und nie beigefügt
+- ✔ **B:** Er wird der Vertragsabfassung als Anlage beigefügt
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Der betriebliche Ausbildungsplan ist nach § 11 BBiG der Vertragsniederschrift beizufügen (siehe Thema 2.1 und Thema 2.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Der Plan konkretisiert die nach § 11 BBiG anzugebende sachliche und zeitliche Gliederung und wird deshalb in der Praxis der Vertragsabfassung als Anlage beigefügt. Eine gesetzliche Pflicht dazu nennt das Gesetz nicht (siehe Thema 2.1 und Thema 2.3).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Nach § 11 BBiG ist der betriebliche Ausbildungsplan der Vertragsniederschrift beizufügen (siehe Thema 2.1).
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Der betriebliche Ausbildungsplan wird nicht isoliert verwaltet, sondern in der Praxis der Vertragsabfassung als Anlage beigefügt, weil er die nach § 11 BBiG anzugebende Gliederung konkretisiert (siehe Thema 2.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -986,7 +986,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 #### recht-berufsausbildung · 18 — Was gilt nach § 65 Abs. 1 BBiG für Auszubildende mit Behinderung bei der Prüfungsdurchführung?
 
 - **A:** Das Prüfungsniveau wird für sie abgesenkt
-- ✔ **B:** Ihre besonderen Verhältnisse sind angemessen zu berücksichtigen, z. B. durch mehr Zeit
+- ✔ **B:** Ihre besonderen Verhältnisse sollen berücksichtigt werden, z. B. durch mehr Zeit
 
 **Rückmeldung bei richtiger Antwort:** Richtig! Der Nachteilsausgleich berücksichtigt die besonderen Verhältnisse, etwa durch Zeitverlängerung oder Hilfsmittel, ohne das Prüfungsniveau abzusenken. Er ist rechtzeitig bei der IHK zu beantragen (siehe Thema 4.1).
 
@@ -1019,14 +1019,14 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### recht-berufsausbildung · 20 — Wann ist neben dem einfachen Ausbildungszeugnis auch ein qualifiziertes Zeugnis mit Angaben zu Führung und Leistung auszustellen?
+#### recht-berufsausbildung · 20 — Wann nimmt der Betrieb in das Ausbildungszeugnis zusätzlich Angaben zu Verhalten und Leistung auf (qualifiziertes Zeugnis)?
 
 - **A:** Immer automatisch
-- ✔ **B:** Wenn der bzw. die Auszubildende es ausdrücklich verlangt
+- ✔ **B:** Wenn der bzw. die Auszubildende es verlangt
 
-**Rückmeldung bei richtiger Antwort:** Genau! Das einfache Zeugnis nennt Art, Dauer und Ziel der Ausbildung. Ein qualifiziertes Zeugnis folgt, wenn die bzw. der Auszubildende es ausdrücklich verlangt (siehe Thema 4.2).
+**Rückmeldung bei richtiger Antwort:** Genau! Jedes Zeugnis nennt Art, Dauer und Ziel der Ausbildung sowie die erworbenen Fertigkeiten, Kenntnisse und Fähigkeiten (einfaches Zeugnis). Angaben zu Verhalten und Leistung kommen auf Verlangen der bzw. des Auszubildenden hinzu; dann spricht man vom qualifizierten Zeugnis (siehe Thema 4.2).
 
-**Rückmeldung bei falscher Antwort:** Das qualifizierte Zeugnis mit Angaben zu Führung und Leistung wird auf ausdrückliches Verlangen der bzw. des Auszubildenden ausgestellt (siehe Thema 4.2).
+**Rückmeldung bei falscher Antwort:** Angaben zu Verhalten und Leistung nimmt der Betrieb nur auf Verlangen der bzw. des Auszubildenden auf; das Zeugnis heißt dann qualifiziertes Zeugnis. Nicht automatisch (§ 16 BBiG, siehe Thema 4.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

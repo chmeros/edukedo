@@ -1114,12 +1114,12 @@ Stand 06.10.2026 · erzeugt aus `content/industriefachwirt/` (F-184). **Alle Inh
 
 #### kosten-leistungen · 20 — Im Werk Süd ist Maschinenkapazität frei. Ein großvolumiger, niedrig bepreister Sensor-Auftrag liefert einen positiven Deckungsbeitrag. Welche Überlegung entspricht der Deckungsbeitragsrechnung?
 
-- **A:** Ein niedriger Preis ist immer ein Ablehnungsgrund, auch bei positivem Deckungsbeitrag
+- **A:** Ein niedriger Preis ist ein Ablehnungsgrund, auch bei positivem Deckungsbeitrag
 - ✔ **B:** Die Annahme kann sinnvoll sein, weil der Auftrag zur Deckung der fixen Kosten beiträgt
 
-**Rückmeldung bei richtiger Antwort:** Genau! Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme sinnvoll sein, denn der Auftrag trägt zur Deckung der fixen Kosten bei (siehe Thema 2.2).
+**Rückmeldung bei richtiger Antwort:** Genau! Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme kurzfristig sinnvoll sein, denn der Auftrag trägt zur Deckung der fixen Kosten bei. Auf Dauer müssen die Preise allerdings alle Kosten und einen Gewinn decken (siehe Thema 2.2).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Ein niedriger Preis allein ist kein Ablehnungsgrund. Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme sinnvoll sein (siehe Thema 2.2).
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Ein niedriger Preis allein ist kein Ablehnungsgrund. Bei freier Kapazität und positivem Deckungsbeitrag kann die Annahme kurzfristig sinnvoll sein; langfristig müssen die Preise alle Kosten decken (siehe Thema 2.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

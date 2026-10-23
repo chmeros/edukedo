@@ -57,7 +57,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Zuständige Stelle | Kammer, die Verträge einträgt und Prüfungen abnimmt |
 | Ausbildungsrahmenplan | Bundesweite sachliche und zeitliche Gliederung |
 | Sachliche Eignung | Ausstattung des Betriebs reicht für alle Inhalte |
-| Personelle Eignung | Genug passend qualifizierte Ausbilder:innen vorhanden |
+| Personelle Eignung | Persönlich und fachlich geeignete Ausbilder:innen sind vorhanden |
 | Verbundausbildung | Mehrere Betriebe teilen sich die Ausbildung |
 | Überbetriebliche Ausbildung | Ergänzende Lehrgänge außerhalb des eigenen Betriebs |
 | Einstiegsqualifizierung | Betriebliches Langzeitpraktikum zum Kennenlernen |
@@ -99,14 +99,14 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | Begriff | Bedeutung |
 | --- | --- |
 | Abschlussprüfung | Prüfung bei der Kammer am Ende der Ausbildung |
-| Gestreckte Abschlussprüfung | Erster Teil zur Halbzeit, zweiter Teil am Ende |
+| Gestreckte Abschlussprüfung | Teil 1 vor dem Ende der Ausbildung, Teil 2 am Ende |
 | Zulassung | Erlaubnis, an der Abschlussprüfung teilzunehmen |
 | Anmeldung | Meldung zum Prüfungstermin bei der zuständigen Stelle |
 | Nachteilsausgleich | Angepasste Prüfungsbedingungen bei Behinderung |
 | Ausbildungszeugnis | Schriftlicher Nachweis des Betriebs über die Ausbildung |
-| Qualifiziertes Zeugnis | Enthält zusätzlich Führung und Leistung |
+| Qualifiziertes Zeugnis | Enthält zusätzlich Verhalten und Leistung |
 | Zeugniswahrheit | Die Aussagen im Zeugnis müssen zutreffen |
-| Übernahme | Weiterbeschäftigung nach bestandener Prüfung |
+| Übernahme | Ausdrücklich vereinbarte Beschäftigung nach bestandener Prüfung |
 | Fachwirt | Kammer-Fortbildung als Aufstieg nach der Ausbildung |
 
 ## Gesundheit/Soziales
@@ -733,7 +733,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 
 ## Immobilienfachwirt
 
-**Zum Kurs:** **Rechtsbezug:** Grundbuch, Makler, Abnahme, Zuschlag (förmliche Erklärung im Vergaberecht) — nur Grundbegriffe, Miet-, WEG-, Bau- und Maklerrecht ausgelassen.
+**Zum Kurs:** **Rechtsbezug:** Grundbuch, Makler, Abnahme, Zuschlag (förmliche Erklärung im Vergaberecht) — nur Grundbegriffe; Miet-, WEG-, Bau-, Bauvertrags- und Maklerrecht kommen in Wörtern und Paaren nicht im Detail vor, obwohl der Kurs sie inzwischen behandelt (Mietpreisbremse, Wohnungseigentum, Bauvertragsrecht, Auftragsarten). Wartung folgt dem Kurs (Verzögerung des Abnutzungsvorrats).
 
 ### Kreuzworträtsel (34 Wörter im Pool, 10 je Rätsel)
 
@@ -771,7 +771,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | RISIKO | 6 | Mögliche Gefahr, die Erfolg oder Geld eines Projekts bedroht. | Wird nach Wahrscheinlichkeit und Schaden bewertet. |
 | ROHBAU | 6 | Bauphase nach den Erdarbeiten: Wände, Decken und tragende Teile, noch ohne Ausbau. | Danach folgt der Innenausbau. |
 | ROHRBRUCH | 9 | Plötzlicher Schaden an einer Leitung, bei dem Wasser austritt. | Muss sofort bearbeitet werden. |
-| WARTUNG | 7 | Regelmäßige Maßnahme, die den Sollzustand einer Anlage bewahrt. | Zum Beispiel für die Heizung. |
+| WARTUNG | 7 | Regelmäßige Maßnahme, die den Verschleiß einer Anlage verlangsamt. | Zum Beispiel für die Heizung. |
 | ZUSCHLAG | 8 | Zusage an die Firma, die nach der Angebotsprüfung den Auftrag erhält. | Folgt auf Ausschreibung und Prüfung der Angebote. |
 
 ### Memory (40 Paare im Pool, 6 je Runde)
@@ -815,7 +815,7 @@ Stand 06.10.2026 · erzeugt aus `apps/api/src/db/content/game-kreuzwortraetsel-*
 | SMART-Prinzip | Regel für klar formulierte, messbare Ziele |
 | Mentoring | Erfahrene Kolleginnen und Kollegen begleiten Neue |
 | Coaching | Individuelle Begleitung bei besonderen Aufgaben |
-| Wartung | Bewahrt den Sollzustand einer Anlage |
+| Wartung | Verzögert den Abbau des Abnutzungsvorrats einer Anlage |
 | Inspektion | Prüft und beurteilt den Ist-Zustand |
 | Instandsetzung | Stellt den Sollzustand nach einem Mangel wieder her |
 | Vorausschauende Instandhaltung | Maßnahmen richten sich nach erfassten Zustandsdaten |

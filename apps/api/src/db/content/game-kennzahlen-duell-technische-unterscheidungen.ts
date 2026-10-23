@@ -15,6 +15,10 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * Prüfmittel im Sinne von Messmitteln, Formeln (Ohmsches Gesetz, Leistung), Kennwerte und Rechenbeispiele sowie
  * Paragrafenangaben. Als einzige Normangabe taucht der Name „DIN 31051" auf (Grundmaßnahmen der Instandhaltung,
  * ohne Normtext); sonst enthält das Set keine Zahlenwerte.
+ * Instandhaltungsstrategien (Runde 3): Die Fragen folgen der Kursfassung von Thema 7.2 (korrektiv; vorbeugend = feste Intervalle;
+ * zustandsorientiert = sensorgestützt). Die Norm ordnet die Begriffe anders ("vorbeugend" ist Oberbegriff, "vorausbestimmt" die
+ * intervallbasierte Variante, "vorausschauend" eine Unterart der zustandsorientierten); die Antworten nennen daher
+ * "intervallbasierte vorbeugende Instandhaltung", und das Feedback weist auf den Normgebrauch hin, ohne Normnummer.
  */
 export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload = {
   runden: [
@@ -34,7 +38,7 @@ export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload =
       nummer: 3,
       titel: "Instandhaltung und Qualität",
       abschlussmeldung:
-        "Runde 3 geschafft! Du unterscheidest Wartung und Inspektion, korrektive, vorbeugende und zustandsorientierte Instandhaltung, MTBF und MTTR sowie Ishikawa- und Pareto-Diagramm.",
+        "Runde 3 geschafft! Du unterscheidest Wartung und Inspektion, korrektive, intervallbasierte vorbeugende und zustandsorientierte Instandhaltung, MTBF und MTTR sowie Ishikawa- und Pareto-Diagramm.",
     },
     {
       nummer: 4,
@@ -180,25 +184,25 @@ export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload =
       nummer: 12,
       runde: 3,
       frage: "Eine Maschine läuft bis zum Defekt und wird erst danach instandgesetzt. Wie heißt diese Strategie?",
-      antwortA: "Vorbeugende Instandhaltung",
+      antwortA: "Intervallbasierte vorbeugende Instandhaltung",
       antwortB: "Korrektive Instandhaltung",
       richtig: "B",
       feedbackRichtig:
         "Richtig! Bei der korrektiven (reaktiven) Instandhaltung wird erst nach dem Ausfall gehandelt, mit dem Nachteil ungeplanter Stillstände (siehe Thema 7.2).",
       feedbackFalsch:
-        "Nicht ganz. Bei der vorbeugenden Instandhaltung werden Maßnahmen in festen Intervallen vor einem Ausfall durchgeführt. Erst nach dem Ausfall zu handeln ist die korrektive Strategie (siehe Thema 7.2).",
+        "Nicht ganz. Bei der vorbeugenden Instandhaltung im Sinne dieses Kurses werden Maßnahmen in festen Intervallen vor einem Ausfall durchgeführt. Erst nach dem Ausfall zu handeln ist die korrektive Strategie (siehe Thema 7.2).",
     },
     {
       nummer: 13,
       runde: 3,
       frage: "Sensoren erfassen laufend die Vibration an den Spindellagern, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten. Um welche Strategie handelt es sich?",
       antwortA: "Zustandsorientierte Instandhaltung",
-      antwortB: "Vorbeugende Instandhaltung in festen Intervallen",
+      antwortB: "Intervallbasierte vorbeugende Instandhaltung",
       richtig: "A",
       feedbackRichtig:
-        "Genau! Die zustandsorientierte (vorausschauende) Instandhaltung richtet sich nach gemessenen Betriebsparametern, sodass Bauteile weder zu früh getauscht noch bis zum Ausfall betrieben werden (siehe Thema 7.2).",
+        "Genau! Die zustandsorientierte Instandhaltung richtet sich nach gemessenen Betriebsparametern, sodass Bauteile weder zu früh getauscht noch bis zum Ausfall betrieben werden (siehe Thema 7.2).",
       feedbackFalsch:
-        "Das passt nicht. Die vorbeugende Instandhaltung arbeitet in festen, zeit- oder laufleistungsbasierten Intervallen, unabhängig vom tatsächlichen Verschleißzustand. Sensorgestützt ist die zustandsorientierte Strategie (siehe Thema 7.2).",
+        "Das passt nicht. Die vorbeugende Instandhaltung in festen Intervallen arbeitet zeit- oder laufleistungsbasiert, unabhängig vom tatsächlichen Verschleißzustand; in der Norm heißt sie vorausbestimmt, und „vorbeugend“ ist dort der Oberbegriff. Sensorgestützt ist die zustandsorientierte Strategie (siehe Thema 7.2).",
     },
     {
       nummer: 14,
@@ -246,7 +250,7 @@ export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload =
       feedbackRichtig:
         "Genau! Betriebsärztinnen und Betriebsärzte führen insbesondere arbeitsmedizinische Vorsorgeuntersuchungen durch. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber zu Arbeitssicherheit und technischem Gesundheitsschutz (siehe Thema 10.3).",
       feedbackFalsch:
-        "Das stimmt nicht. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes. Die Vorsorgeuntersuchungen führt die Betriebsärztin bzw. der Betriebsarzt durch (siehe Thema 10.3).",
+        "Das stimmt nicht. Die Fachkraft für Arbeitssicherheit berät den Arbeitgeber in Fragen der Arbeitssicherheit und des technischen Gesundheitsschutzes. Die arbeitsmedizinischen Vorsorgeuntersuchungen führt insbesondere die Betriebsärztin bzw. der Betriebsarzt durch; beide Funktionen beraten, die Verantwortung bleibt beim Arbeitgeber (siehe Thema 10.3).",
     },
     {
       nummer: 18,

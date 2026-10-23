@@ -39,7 +39,11 @@ export interface Unterweisungsplan {
   richtziel: string;
   grobziel: string;
   feinziele: Feinziel[];
-  /** Verfügbare Zeit für die Unterweisung in Minuten (Prüfungsvorgabe, Standard 15). */
+  /**
+   * Verfügbare Zeit für die Unterweisung in Minuten (Standard 15). Hintergrund: In der AEVO-Prüfung (§ 4 AEVO, Thema 1.1)
+   * soll die Präsentation 15 Minuten nicht überschreiten; Präsentation und Fachgespräch zusammen dauern höchstens 30 Minuten.
+   * Der Wert ist einstellbar und nur eine Planungsgröße zur Selbstkontrolle.
+   */
   gesamtMinuten: number;
   stufen: Record<StufenId, Stufe>;
   medien: string;

@@ -95,7 +95,7 @@ export const kreuzwortraetselWirtschaft: KreuzwortraetselPayload = {
       hinweis: "Eine fällige Leistung wird in der Regel trotz Mahnung nicht rechtzeitig erbracht.",
       tipp: "Beispiel: Ein Lieferant liefert trotz Mahnung nicht.",
       loesung: "VERZUG",
-      bestaetigung: "Genau! Verzug ist eine Leistungsstörung: Die Leistung ist fällig, kommt aber nicht rechtzeitig.",
+      bestaetigung: "Genau! Verzug ist eine Leistungsstörung: Die Leistung ist fällig, kommt aber nicht rechtzeitig. Er setzt in der Regel eine Mahnung (oder einen festen Kalendertermin) voraus und tritt nicht ein, wenn die Verspätung nicht zu vertreten ist.",
     },
     // WBQ4 — Unternehmensführung
     {

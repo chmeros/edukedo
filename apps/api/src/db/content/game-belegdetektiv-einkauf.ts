@@ -4,7 +4,10 @@ import type { BelegPayload } from "@edukedo/shared";
  * F-196 (Beleg-Detektiv, 07.10.2026, Phase 2 der Kursprofile): Wareneingang und Rechnungsprüfung im Einkauf.
  * Je Beleg stehen Bestellung, Lieferschein, Rechnung und Zahlungsbedingung nebeneinander; die Lernenden markieren
  * Abweichungen und entscheiden "in Ordnung" oder "beanstanden". Alle Firmen, Artikel und Beträge sind frei erfunden,
- * alle Summen sind nachgerechnet. Bewusst ohne Rechtsfragen (Mängelrüge, Fristen, Umsatzsteuersätze).
+ * alle Summen sind nachgerechnet. Die Fälle prüfen die Belege (Menge, Preis, Artikel, Summe, Skonto), nicht die Rechtslage:
+ * Untersuchungs- und Rügepflicht, Mängelrechte und Fristen (Kurs Büro/Projektorganisation, Thema 4.2) sind kein Prüfgegenstand;
+ * die Auflösungen sagen dazu nur, dass Abweichungen dem Lieferunternehmen unverzüglich anzuzeigen sind. Keine Umsatzsteuersätze,
+ * keine Verzugsregeln, keine Paragrafen.
  * Entwurf, Prüfblatt 22.
  */
 export const belegdetektivEinkauf: BelegPayload = {
@@ -72,7 +75,7 @@ export const belegdetektivEinkauf: BelegPayload = {
         { id: "b4", ort: "Rechnung", text: "10 Bildschirme 24 Zoll zu 149,00 € = 1.490,00 € netto", auffaellig: false, erklaerung: "Menge, Preis und Summe passen zur Bestellung (10 × 149,00 € = 1.490,00 €)." },
       ],
       hatFehler: true,
-      aufloesung: "Menge und Preis stimmen, aber ein Gerät ist beschädigt. Der Schaden wird dokumentiert (Fotos, schriftlicher Vermerk) und beim Lieferanten reklamiert.",
+      aufloesung: "Menge und Preis stimmen, aber ein Gerät ist beschädigt. Der Schaden wird dokumentiert (Fotos, schriftlicher Vermerk) und dem Lieferunternehmen unverzüglich angezeigt (Mängelrüge). Dass der Schaden schon bei der Annahme vermerkt werden sollte, gehört zur sauberen Wareneingangskontrolle.",
     },
     {
       nummer: 6,
@@ -85,7 +88,7 @@ export const belegdetektivEinkauf: BelegPayload = {
         { id: "b4", ort: "Zahlungsbedingung", text: "Zahlbar innerhalb von 14 Tagen netto", auffaellig: false, erklaerung: "Kein Widerspruch zur Bestellung." },
       ],
       hatFehler: true,
-      aufloesung: "Geliefert und berechnet wurde Artikel 4712 statt 4711. Es ist zu klären, ob der Ersatzartikel gleichwertig ist und akzeptiert wird; sonst wird die Lieferung reklamiert.",
+      aufloesung: "Geliefert und berechnet wurde Artikel 4712 statt 4711. Es ist zu klären, ob der Ersatzartikel gleichwertig ist und akzeptiert wird; sonst wird die Abweichung dem Lieferunternehmen unverzüglich angezeigt.",
     },
     {
       nummer: 7,

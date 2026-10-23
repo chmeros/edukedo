@@ -131,10 +131,10 @@ export const kreuzwortraetselImmobilien: KreuzwortraetselPayload = {
     },
     {
       nummer: 18,
-      hinweis: "Regelmäßige Maßnahme, die den Sollzustand einer Anlage bewahrt.",
+      hinweis: "Regelmäßige Maßnahme, die den Verschleiß einer Anlage verlangsamt.",
       tipp: "Zum Beispiel für die Heizung.",
       loesung: "WARTUNG",
-      bestaetigung: "Richtig! Wartung bewahrt den Sollzustand, Instandsetzung stellt ihn nach einem Mangel wieder her.",
+      bestaetigung: "Richtig! Wartung verzögert den Abbau des Abnutzungsvorrats, Instandsetzung stellt den Sollzustand nach einem Mangel wieder her.",
     },
     {
       nummer: 19,

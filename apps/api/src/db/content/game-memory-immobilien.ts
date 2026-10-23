@@ -210,8 +210,8 @@ export const memoryImmobilien: MemoryPayload = {
       nummer: 26,
       runde: 3,
       begriff: "Wartung",
-      bedeutung: "Bewahrt den Sollzustand einer Anlage",
-      bestaetigung: "Genau! Wartung ist eine der vier Grundmaßnahmen der Instandhaltung.",
+      bedeutung: "Verzögert den Abbau des Abnutzungsvorrats einer Anlage",
+      bestaetigung: "Genau! Wartung verlangsamt den Verschleiß und ist eine der vier Grundmaßnahmen der Instandhaltung.",
     },
     {
       nummer: 27,

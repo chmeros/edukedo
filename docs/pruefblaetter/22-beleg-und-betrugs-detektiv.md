@@ -69,7 +69,7 @@ Bei der Warenannahme fällt ein Karton auf. Prüfe die Unterlagen und die Warene
 | Wareneingangskontrolle | Der Bildschirm aus Karton 4 hat einen Riss im Display. | ja | Ein Gerät ist beschädigt und nicht verwendbar. |
 | Rechnung | 10 Bildschirme 24 Zoll zu 149,00 € = 1.490,00 € netto | nein | Menge, Preis und Summe passen zur Bestellung (10 × 149,00 € = 1.490,00 €). |
 
-*Auflösung:* Menge und Preis stimmen, aber ein Gerät ist beschädigt. Der Schaden wird dokumentiert (Fotos, schriftlicher Vermerk) und beim Lieferanten reklamiert.
+*Auflösung:* Menge und Preis stimmen, aber ein Gerät ist beschädigt. Der Schaden wird dokumentiert (Fotos, schriftlicher Vermerk) und dem Lieferunternehmen unverzüglich angezeigt (Mängelrüge). Dass der Schaden schon bei der Annahme vermerkt werden sollte, gehört zur sauberen Wareneingangskontrolle.
 
 ### 6. Etiketten (zu beanstanden)
 
@@ -82,7 +82,7 @@ Vergleiche Artikelnummern und Mengen in den drei Belegen.
 | Rechnung | Artikel 4712, 20 Packungen zu 3,10 € = 62,00 € netto | ja | Berechnet ist ebenfalls der abweichende Artikel 4712. |
 | Zahlungsbedingung | Zahlbar innerhalb von 14 Tagen netto | nein | Kein Widerspruch zur Bestellung. |
 
-*Auflösung:* Geliefert und berechnet wurde Artikel 4712 statt 4711. Es ist zu klären, ob der Ersatzartikel gleichwertig ist und akzeptiert wird; sonst wird die Lieferung reklamiert.
+*Auflösung:* Geliefert und berechnet wurde Artikel 4712 statt 4711. Es ist zu klären, ob der Ersatzartikel gleichwertig ist und akzeptiert wird; sonst wird die Abweichung dem Lieferunternehmen unverzüglich angezeigt.
 
 ### 7. Büromöbel (zu beanstanden)
 

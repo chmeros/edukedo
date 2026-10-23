@@ -11,11 +11,16 @@ import type { KennzahlenDuellPayload } from "@edukedo/shared";
  * Rahmenbedingungen), 1.3 (Berufsbild und Standesregeln), 2.2 (Investitions- und Finanzierungsrechnung), 4.1
  * (Mietverwaltung), 4.2 (WEG-Verwaltung), 4.3 (Instandhaltung und Facility Management), 4.4 (Betriebskostenabrechnung),
  * 5.3 (Baurecht Grundzüge), 5.4 (Kosten- und Terminplanung im Bau), 6.1 (Maklerrecht und Maklertätigkeit), 6.2
- * (Marketing für Immobilien) und 6.3 (Immobilienbewertung Grundzüge); Rechtsstand dort: 29.09.2026. Die rechtsgeprägten
+ * (Marketing für Immobilien) und 6.3 (Immobilienbewertung Grundzüge); Rechtsstand dort: Oktober 2026 (je Thema mit dem Vermerk „vor Verwendung prüfen“). Die rechtsgeprägten
  * Unterscheidungen (Eigentumsformen, Grundpfandrechte, Mietrecht, WEG-Beschlüsse, Betriebskosten, Baurecht,
  * Maklerrecht) sind vor Verwendung durch echte Lernende fachlich/rechtlich zu prüfen (Hinweis der Kursdateien).
  * Bewusst nicht enthalten: Zahlenwerte, Formeln, Paragrafen, Fristen, Prozentwerte, Normangaben sowie Unterscheidungen,
  * die die Kurstheorie nicht eindeutig trifft; das Set enthält keine Zahlenwerte.
+ *
+ * Stand 23.10.2026 (P-BA): Die später eingespielten Themen (1.5 Grundstücksrechte, 2.5 Steuern, 4.5 Mietrecht im Bestand,
+ * 5.5 Bauvertragsrecht sowie die Ergänzungen zu Mietpreisbremse, Mieterhöhungsverfahren, WEG und Auftragsarten des Maklers)
+ * werden von diesem Set nicht abgefragt; die Fragen widersprechen ihnen nicht. Eine Erweiterung des Sets um diese Themen
+ * wäre eine eigene Entscheidung (der Test begrenzt die Themenverweise auf die oben genannten Themen).
  */
 export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
   runden: [
@@ -53,7 +58,7 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       antwortB: "Gemeinschaftseigentum",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Zum Gemeinschaftseigentum zählen Grundstück, tragende Bauteile, Dach, Treppenhaus und Ähnliches. Das Sondereigentum bezieht sich dagegen auf die einzelne Wohnung und ist stets mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden (siehe Thema 1.1).",
+        "Richtig! Zum Gemeinschaftseigentum zählen typischerweise Grundstück, tragende Bauteile, Dach, Treppenhaus und Ähnliches. Das Sondereigentum bezieht sich dagegen auf die einzelne Wohnung und ist stets mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden (siehe Thema 1.1).",
       feedbackFalsch:
         "Nicht ganz. Das Sondereigentum bezieht sich auf die einzelne Wohnung (bei nicht zu Wohnzwecken dienenden Räumen auf das Teileigentum) und ist mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden. Grundstück, tragende Bauteile, Dach und Treppenhaus gehören typischerweise zum Gemeinschaftseigentum (siehe Thema 1.1).",
     },
@@ -79,7 +84,7 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       feedbackRichtig:
         "Richtig! Beim Miteigentum nach Bruchteilen gehört jeder Person ein ideeller, frei übertragbarer Anteil an der gesamten Sache. Beim Gesamthandseigentum steht das Eigentum dagegen der Gemeinschaft insgesamt zu (siehe Thema 1.1).",
       feedbackFalsch:
-        "Nicht ganz. Beim Gesamthandseigentum, etwa bei einer GbR oder einer Erbengemeinschaft, steht das Eigentum der Gemeinschaft insgesamt zu, und Verfügungen sind grundsätzlich nur gemeinschaftlich möglich. Frei übertragbare ideelle Anteile gibt es beim Miteigentum nach Bruchteilen (siehe Thema 1.1).",
+        "Nicht ganz. Beim Gesamthandseigentum, etwa bei einer Erbengemeinschaft, steht das Eigentum der Gemeinschaft insgesamt zu, und Verfügungen sind grundsätzlich nur gemeinschaftlich möglich. Frei übertragbare ideelle Anteile gibt es beim Miteigentum nach Bruchteilen (siehe Thema 1.1).",
     },
     {
       nummer: 4,
@@ -91,7 +96,7 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       feedbackRichtig:
         "Richtig! Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind freiwillige Verhaltensstandards, die über gesetzliche Pflichten hinausgehen, etwa die Offenlegung von Interessenkonflikten bei einer Doppeltätigkeit (siehe Thema 1.3).",
       feedbackFalsch:
-        "Das stimmt nicht. Die Erlaubnispflicht für Makler, Bauträger und Verwalter ist eine gesetzliche Pflicht, die an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).",
+        "Das stimmt nicht. Die gewerberechtliche Erlaubnispflicht ist eine gesetzliche Pflicht für Gewerbetreibende, die als Makler, Bauträger oder Verwalter tätig sind (bei einer GmbH also für die Gesellschaft, nicht für einzelne Angestellte), und an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).",
     },
     {
       nummer: 5,
@@ -132,14 +137,14 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 8,
       runde: 2,
-      frage: "Welche Kündigung setzt bei Wohnraum stets ein berechtigtes Interesse des Vermieters voraus, etwa Eigenbedarf?",
+      frage: "Welche Kündigung setzt bei Wohnraum in der Regel ein berechtigtes Interesse des Vermieters voraus, etwa Eigenbedarf?",
       antwortA: "Ordentliche Kündigung",
       antwortB: "Außerordentliche fristlose Kündigung wegen Zahlungsverzugs",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Eine ordentliche Kündigung durch den Vermieter setzt bei Wohnraum stets ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung (siehe Thema 4.1).",
+        "Richtig! Eine ordentliche Kündigung durch den Vermieter setzt bei Wohnraum in der Regel ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung. Ausnahmen gelten etwa für die erleichterte Kündigung im selbst bewohnten kleinen Haus (siehe Thema 4.1).",
       feedbackFalsch:
-        "Nicht ganz. Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist davon zu unterscheiden: Sie knüpft an einen erheblichen Zahlungsrückstand oder wiederholt unpünktliche Zahlung an. Das berechtigte Interesse, etwa Eigenbedarf, verlangt die ordentliche Kündigung (siehe Thema 4.1).",
+        "Nicht ganz. Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist davon zu unterscheiden: Sie knüpft an einen nicht unerheblichen Zahlungsrückstand über mehrere Termine an, ein berechtigtes Interesse wie Eigenbedarf ist dafür nicht nötig. Das berechtigte Interesse, etwa Eigenbedarf, verlangt in der Regel die ordentliche Kündigung (siehe Thema 4.1).",
     },
     {
       nummer: 9,
@@ -173,9 +178,9 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       antwortB: "Wartung",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Die Instandsetzung stellt den Sollzustand nach einem eingetretenen Mangel wieder her, etwa durch den Austausch einer defekten Pumpe. Die Wartung dient dagegen dazu, den Sollzustand zu bewahren (siehe Thema 4.3).",
+        "Richtig! Die Instandsetzung stellt den Sollzustand nach einem eingetretenen Mangel wieder her, etwa durch den Austausch einer defekten Pumpe. Die Wartung dient dagegen dazu, den Abbau des Abnutzungsvorrats zu verzögern, den Verschleiß also zu verlangsamen (siehe Thema 4.3).",
       feedbackFalsch:
-        "Nicht ganz. Die Wartung bewahrt den Sollzustand, etwa durch eine regelmäßige Heizungswartung, und setzt keinen eingetretenen Mangel voraus. Die Wiederherstellung nach einem Mangel ist die Instandsetzung (siehe Thema 4.3).",
+        "Nicht ganz. Die Wartung verzögert den Abbau des Abnutzungsvorrats, etwa durch eine regelmäßige Heizungswartung, und setzt keinen eingetretenen Mangel voraus. Die Wiederherstellung nach einem Mangel ist die Instandsetzung (siehe Thema 4.3).",
     },
     {
       nummer: 12,
@@ -276,14 +281,14 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 20,
       runde: 4,
-      frage: "Wo müssen bestimmte Pflichtangaben zum Energieausweis bereits enthalten sein, nämlich nicht erst im vollständigen Verkaufsdokument?",
+      frage: "Wo müssen bestimmte Pflichtangaben zum Energieausweis, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, bereits enthalten sein, nämlich nicht erst im vollständigen Verkaufsdokument?",
       antwortA: "Im Exposé",
       antwortB: "In der Immobilienanzeige",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Bestimmte Pflichtangaben zum Energieausweis, etwa Art des Ausweises, Energiebedarf bzw. -verbrauch, wesentlicher Energieträger und Baujahr, müssen bereits in der Immobilienanzeige enthalten sein, nicht erst im vollständigen Exposé (siehe Thema 6.2).",
+        "Richtig! Bestimmte Pflichtangaben zum Energieausweis, etwa Art des Ausweises, Energiebedarf bzw. -verbrauch, wesentlicher Energieträger und bei Wohngebäuden Baujahr und Energieeffizienzklasse, müssen bereits in der Immobilienanzeige enthalten sein, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, nicht erst im vollständigen Exposé. Welche Angaben genau verlangt werden, hat sich zuletzt geändert; maßgeblich ist die jeweils aktuelle Fassung (siehe Thema 6.2).",
       feedbackFalsch:
-        "Nicht ganz. Das Exposé ist das zentrale Verkaufsdokument mit allen relevanten Objektinformationen. Die Pflichtangaben zum Energieausweis müssen aber bereits in der Immobilienanzeige stehen, nicht erst im vollständigen Exposé; Verstöße können als Wettbewerbsverstoß abgemahnt werden (siehe Thema 6.2).",
+        "Nicht ganz. Das Exposé ist das zentrale Verkaufsdokument mit allen relevanten Objektinformationen. Die Pflichtangaben zum Energieausweis müssen aber, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, bereits in der Immobilienanzeige stehen, nicht erst im vollständigen Exposé; Verstöße können als Wettbewerbsverstoß abgemahnt werden (siehe Thema 6.2).",
     },
   ],
   abschlussmeldung:

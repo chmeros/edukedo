@@ -124,10 +124,10 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 ### Wege der Mieterhöhung (4 Fragen) — Zonen: Vergleichsmiete · Modernisierungsumlage · Staffelmiete · Indexmiete
 
 **Besonders prüfen:**
-- ⚠ **Mietrecht (BGB), Rechtsstand prüfen:** Der Kurstext nennt Paragrafen und Zahlen (Kappungsgrenzen, Sperrfrist, Modernisierungsumlage und deren Obergrenzen, Staffelabstand) und trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“. In den Zuordnungsbegriffen stehen keine Zahlen und Paragrafen; Zahlen erscheinen nur in den Erklärungen von Q-4.1-14 und -15 mit „laut Kurs“.
+- ⚠ **Mietrecht (BGB), Rechtsstand prüfen:** Der Kurstext nennt Paragrafen und Zahlen (Kappungsgrenzen, Sperrfrist, Modernisierungsumlage und deren Obergrenzen, Staffelabstand) und trägt den Rechtsstand Oktober 2026 mit dem Vermerk „vor Verwendung prüfen“ (nicht förmlich rechtsgeprüft; zeitkritisch: Landesverordnungen zu Kappungsgrenze und Mietpreisbremse, Entwurf „Mietrecht II“). In den Zuordnungsbegriffen stehen keine Zahlen und Paragrafen; Zahlen erscheinen nur in den Erklärungen von Q-4.1-14 und -15 mit „laut Kurs“.
 - ⚠ Q-4.1-14: „an das ortsübliche Niveau angepasst“ ist eine sinngemäße Umschreibung. Q-4.1-15: „prozentual“ (Vergleichsmiete) und „je Quadratmeter“ (Modernisierung) sind Ableitungen aus den Kursangaben; die Begriffe zu Sperrfrist und Staffel-Mindestabstand klingen ähnlich und sind nur über die Wortwahl getrennt.
-- ⚠ Q-4.1-16 und -17: Die Sperrfrist als Hindernis für die nächste Anpassung und „unabhängig von der Preisentwicklung“ bzw. „bevor die Preisentwicklung bekannt ist“ (Staffelmiete) sind Ableitungen. Der Ausschluss der Vergleichsmieterhöhung bei Staffel-/Indexmiete ist nur als Kurswortlaut („grundsätzlich“) wiedergegeben; das Zusammentreffen mit der Modernisierungsumlage und Ausnahmen sind bewusst nicht behandelt.
-- ⚠ Keine Aussagen zu Mietpreisbremse oder landesspezifischen Regelungen.
+- ⚠ Q-4.1-16 und -17: Die Sperrfrist als Hindernis für die nächste Anpassung und „unabhängig von der Preisentwicklung“ bzw. „bevor die Preisentwicklung bekannt ist“ (Staffelmiete) sind Ableitungen. Q-4.1-17 gibt den Ausschluss der Vergleichsmieterhöhung bei Staffel- und Indexmiete als Kursaussage wieder; die eigenen Einschränkungen der Modernisierungsumlage bei Staffel- und Indexmiete stehen in der Theorie, werden in den Zuordnungen aber bewusst nicht abgefragt.
+- ⚠ Mietpreisbremse bei Neuvermietung, das Verfahren der Mieterhöhung auf die Vergleichsmiete, die Gebietsverordnungen der Länder und die Modernisierungsumlage mit Ankündigung und Härte stehen inzwischen in der Theorie von Thema 4.1 (Rechtsstand Oktober 2026). Die Zuordnungen Q-4.1-14 bis -17 fragen nur die vier Wege der Mietanpassung ab (Vergleichsmiete, Modernisierungsumlage, Staffelmiete, Indexmiete); Mietpreisbremse und Landesregelungen sind darin weiterhin nicht Gegenstand.
 
 #### Q-4.1-14 · Wege der Mieterhöhung (Leicht)
 
@@ -241,9 +241,10 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Besonders prüfen:**
 - ⚠ **WEG-Recht, Rechtsstand prüfen (WEG-Reform):** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“.
-- ⚠ **Verwaltungsbeirat (Nutzer-Entscheidung vom 06.10.2026):** Die Theorie von 4.2 enthält jetzt einen Abschnitt „Der Verwaltungsbeirat“ (drei Absätze, K-4.2-18 und -19); die Beirat-Begriffe in Q-4.2-14 bis -17 („unterstützt“, „kontrolliert/überwacht den Verwalter“) sind damit belegt, die Erklärungen verweisen auf den Abschnitt. **Der Absatz ist neu und rechtlich ungeprüft** (Einzelaussagen siehe Theorie-Hinweise oben).
+- ⚠ **Verwaltungsbeirat (Nutzer-Entscheidung vom 06.10.2026):** Die Theorie von 4.2 enthält jetzt einen Abschnitt „Der Verwaltungsbeirat“ (drei Absätze, K-4.2-18 und -19); die Beirat-Begriffe in Q-4.2-14 bis -17 („unterstützt“, „kontrolliert/überwacht den Verwalter“) sind damit belegt, die Erklärungen verweisen auf den Abschnitt. **Der Abschnitt ist nicht förmlich rechtsgeprüft** (Einzelaussagen siehe Theorie-Hinweise oben).
 - ⚠ Q-4.2-14 bis -17: Beschluss-Sammlung und Vermögenstrennung liegen laut Theorie beim Verwalter; die Zuordnung der Einladung und der Auskunft zum Verwalter ist abgeleitet (die Theorie nennt Einberufung und Auskunftspflichten); die Abberufung bei der Versammlung ist abgeleitet („Erleichterung für die Gemeinschaft“) — rechtliche Zuständigkeit prüfen.
-- ⚠ Q-4.2-15: „Muss grundsätzlich zertifiziert sein“ ist verkürzt (rechtlich ein Anspruch der Eigentümer auf Bestellung, keine Verwalterpflicht; die Erklärung nennt das als Verwechslung). Ladungsfristen wurden weggelassen, damit keine Zahlen in den Begriffen stehen.
+- ⚠ Q-4.2-15: Die Zeile zur Zertifizierung lautet „Muss auf Verlangen der Wohnungseigentümer:innen zertifiziert sein (Ausnahme: kleine Gemeinschaften)“ und gibt damit den Anspruch der Eigentümer auf einen zertifizierten Verwalter wieder, nicht eine unbedingte Pflicht. Ladungsfristen werden in den Zuordnungen weiterhin nicht genannt, damit keine Zahlen in den Begriffen stehen.
+- ⚠ **Offen (Code, Instrument „WEG-Organe“):** Das Instrument kennt nur die Zonen Eigentümerversammlung, Verwalter und Verwaltungsbeirat. Die Gemeinschaft der Wohnungseigentümer als Verband (Kursprofil I-IMM-06, Theorie 4.2 und 1.1) ist keine Zone; die Zuordnungen kommen ohne sie aus. Eine vierte Zone wäre eine Änderung am Instrument und an den Items Q-4.2-12 und -14 bis -17.
 
 #### Q-4.2-14 · WEG-Organe (Leicht)
 
@@ -470,7 +471,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 ### DIN-276-Kostengruppen (4 Fragen) — Zonen: KG 100 Grundstück · KG 200 Vorbereitende Maßnahmen · KG 300 Baukonstruktionen · KG 400 Technische Anlagen · KG 500 Außenanlagen · KG 600 Ausstattung und Kunstwerke · KG 700 Baunebenkosten
 
 **Besonders prüfen:**
-- ⚠ **Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen).
+- ⚠ **Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen). Die Theorie nennt zusätzlich die Fassung 2018 mit KG 800 Finanzierung (bei Ravelin getrennt von den Gruppen 100 bis 700 geführt); das Instrument führt KG 800 nicht als Zone, die Zuordnungen fragen sie nicht ab. Die Zonenbeschriftung „KG 500 Außenanlagen“ ist die Kurzform der Theorie („Außenanlagen und Freiflächen“); sie ist zugleich der Content-Schlüssel des Parsers.
 - ⚠ **Erschließung (Nutzer-Entscheidung vom 06.10.2026):** Das Beispiel „Erschließung des Grundstücks“ wurde aus der KG-500-Beschreibung der Theorie 5.4 entfernt (ohne neue Zuordnung zu behaupten); nach der aktuellen DIN 276 gehört die Erschließung nach unserem Wissen zu den vorbereitenden Maßnahmen (KG 200) — die Normprüfung klärt, ob KG 200 ergänzt werden soll. Die Fragen vermeiden das Thema weiterhin.
 - ⚠ Q-5.4-14 bis -17: KG 600 (Ausstattung und Kunstwerke): Das Kunstwerk und das Mobiliar sind aus dem Gruppennamen abgeleitet, die Theorie nennt kein Beispiel; Mobiliar eines Gemeinschaftsraums könnte je nach Fest-/Losteil abweichend eingeordnet werden. Ausbau bei KG 300 steht wörtlich in der Theorie; Planung und Bauleitung gehören zu KG 700.
 
@@ -607,23 +608,24 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 - ☐ Schwierigkeit und Ton passen zur Stufe und zur Zielgruppe (Auszubildende/Umschüler:innen Fachinformatik)?
 
 **Besonders prüfen (Unsicherheiten und Vereinfachungen aus dem Entwurf):**
-- ⚠ Neu (F-192): Gremium aus Wohnungseigentümern, von der Eigentümerversammlung bestellbar, nicht zwingend; unterstützt den Verwalter und überwacht dessen Tätigkeit; keine Verwaltungsaufgaben anstelle des Verwalters; nach außen tritt grundsätzlich der Verwalter auf. Karteikarten K-4.2-18 und -19. **Rechtlich ungeprüft** — bei der Prüfung mit dem aktuellen Gesetzestext abgleichen.
+- ⚠ Neu (F-192): Gremium aus Wohnungseigentümern, von der Eigentümerversammlung bestellbar, nicht zwingend; unterstützt den Verwalter und überwacht dessen Tätigkeit; keine Verwaltungsaufgaben anstelle des Verwalters; nach außen tritt grundsätzlich der Verwalter auf. Karteikarten K-4.2-18 und -19. Der Abschnitt nennt inzwischen die Gesetzesstützen (Vorsitz und Stellvertretung, Aufgaben des Beirats, Vertretung gegenüber der Verwaltung, Einberufungsrecht bei fehlender Verwaltung); **nicht förmlich rechtsgeprüft** (Rechtsstand Oktober 2026) — bei der Prüfung mit dem aktuellen Gesetzestext abgleichen.
 - ⚠ Typische Beispiele (Einsicht in Unterlagen, Prüfung von Wirtschaftsplan und Jahresabrechnung vor dem Beschluss, Begleitung bei Vergaben) sind nur als „typisch“ formuliert; Reichweite und Pflicht hängen von Teilungserklärung bzw. Beschluss ab.
-- ⚠ „Nach außen tritt grundsätzlich der Verwalter für die Gemeinschaft auf“: Die Eigentümer können dem Beiratsvorsitzenden aber eine Ermächtigung erteilen (etwa zum Abschluss des Verwaltervertrags); der Text nennt diese Ausnahme nicht — bei Bedarf Halbsatz ergänzen. „Keine Verwaltungsaufgaben anstelle des Verwalters“ ist vorsichtig formuliert, weil die Eigentümer dem Beirat per Beschluss zusätzliche Aufgaben übertragen können.
+- ⚠ „Nach außen tritt grundsätzlich der Verwalter für die Gemeinschaft auf“: Der Text nennt inzwischen die gesetzlichen Ausnahmen (der Vorsitz des Beirats vertritt die Gemeinschaft gegenüber der Verwaltung und kann die Versammlung einberufen, wenn eine Verwaltung fehlt oder sich pflichtwidrig weigert). Dass die Eigentümer dem Beirat per Beschluss zusätzliche Aufgaben übertragen können, steht nicht im Text; „Keine Verwaltungsaufgaben anstelle des Verwalters“ ist deshalb vorsichtig formuliert.
 - ⚠ Der Bezug zur Wohnanlage „Am Lindenpark“ („in vielen Gemeinschaften, so auch bei Am Lindenpark“) ist didaktisch und setzt einen Beirat dort voraus; kursintern konsistent mit Q-4.2-12.
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
 ## 3. Begriffe-Duell „Immobilien: ähnlich, aber nicht gleich“ (Spiel „Begriffe-Duell“, Kurs Immobilienfachwirt; **mit Miet-, WEG- und Maklerrecht**)
 
-20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Der Kurs trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“ — das Set gehört deshalb wie die rechtlichen Zonen-Instrumente zur Rechtsprüfung (R4). Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen.
+20 Entweder-oder-Fragen in vier Runden à fünf Fragen. **Alle Aussagen stammen aus den Theorietexten des Kurses**; keine Formeln, Zahlenwerte, Paragrafen oder Normangaben. Der Kurs trägt den Rechtsstand Oktober 2026 mit dem Vermerk „vor Verwendung prüfen“ (nicht förmlich rechtsgeprüft) — das Set gehört deshalb wie die rechtlichen Zonen-Instrumente zur Rechtsprüfung (R4). Paare, die die Kurstheorie nicht ausdrücklich unterscheidet, wurden weggelassen.
 
 **Zum Set — besonders prüfen (Rechtsbezug):**
-- ⚠ Fragen 2 und 3 (Grundschuld gegen Hypothek, Bruchteils- gegen Gesamthandseigentum), 4 (Standesregeln gegen Erlaubnispflicht; der Kurstext zur behördlichen Kontrolle ist knapp, die Frage nutzt nur die Seite „freiwillig, über das Gesetz hinaus“) und 5 (nichtig gegen anfechtbar, ohne Fristen und Paragrafen).
-- ⚠ Fragen 7 und 8 (Modernisierungsmieterhöhung gegen Vergleichsmiete; ordentliche Kündigung gegen fristlose Kündigung wegen Zahlungsverzugs — die Antwortoption ist bewusst eng gefasst, gefragt wird nur, welche Kündigung stets ein berechtigtes Interesse verlangt) und 9 (umlagefähig gegen nicht umlagefähig).
-- ⚠ Fragen 13 und 14 (Bebauungsplan gegen Flächennutzungsplan; Bauordnungs- gegen Bauplanungsrecht), 18 (Nachweis- gegen Vermittlungsmakler) und 20 (Pflichtangaben zum Energieausweis in der Immobilienanzeige): Frage 20 lässt die Rechtsgrundlage weg, weil die Theorie dort zwischen Energieeinsparverordnung und Gebäudeenergiegesetz schwankt.
+- ⚠ Fragen 2 und 3 (Grundschuld gegen Hypothek, Bruchteils- gegen Gesamthandseigentum; als Beispiel für Gesamthand nennt die Rückmeldung nur noch die Erbengemeinschaft, weil die rechtsfähige GbR seit der Reform selbst Eigentümerin ist), 4 (Standesregeln gegen Erlaubnispflicht; die Rückmeldung sagt, dass die Erlaubnis der Gewerbetreibende erhält, bei einer GmbH also die Gesellschaft; die Frage nutzt nur die Seite „freiwillig, über das Gesetz hinaus“) und 5 (nichtig gegen anfechtbar, ohne Fristen und Paragrafen; die Theorie schränkt bei der Nichtigkeit später auf „in der Regel“ ein).
+- ⚠ Fragen 7 und 8 (Modernisierungsmieterhöhung gegen Vergleichsmiete; ordentliche Kündigung gegen fristlose Kündigung wegen Zahlungsverzugs — die Antwortoption ist bewusst eng gefasst, gefragt wird nur, welche Kündigung in der Regel ein berechtigtes Interesse verlangt; die Rückmeldung nennt die Ausnahmen der Theorie und beschreibt den Zahlungsverzug als nicht unerheblichen Rückstand über mehrere Termine) und 9 (umlagefähig gegen nicht umlagefähig).
+- ⚠ Fragen 13 und 14 (Bebauungsplan gegen Flächennutzungsplan; Bauordnungs- gegen Bauplanungsrecht), 18 (Nachweis- gegen Vermittlungsmakler) und 20 (Pflichtangaben zum Energieausweis in der Immobilienanzeige): Frage 20 lässt die Rechtsgrundlage weg, weil sich der Gesetzesname geändert hat und die Pflichtangaben für künftig ausgestellte Energieausweise neu gefasst sind; sie nennt die Angaben nach dem Stand der Theorie (Art des Ausweises, Energiebedarf bzw. -verbrauch, wesentlicher Energieträger, bei Wohngebäuden Baujahr und Energieeffizienzklasse) und die Bedingung „sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt“.
 - ⚠ Frage 16 (Beleihungswert gegen Verkehrswert): Die Gleichsetzung Verkehrswert gleich Marktwert stammt aus Thema 6.3, der Beleihungswert aus Thema 2.2.
-- Weggelassen, weil der Kurs sie nicht unterscheidet: Alleinauftrag gegen einfacher Maklerauftrag, Kaltmiete gegen Warmmiete, Instandhaltung gegen Modernisierung als Gegenüberstellung; das Bestellerprinzip nur über Prozentangaben unterscheidbar. Handlungsbereich 3 (Personal) wurde nicht herangezogen.
+- Frage 11 (Wartung gegen Instandsetzung): Wartung wird nach dem Kurs (DIN-31051-Begriffe sinngemäß) als Verzögerung des Abbaus des Abnutzungsvorrats beschrieben, nicht als „Bewahren des Sollzustands“.
+- Nicht abgefragt: Alleinauftrag gegen einfacher Maklerauftrag (Thema 6.1 behandelt die Auftragsarten inzwischen), Erhaltung gegen Modernisierung (Thema 4.1 behandelt den Unterschied bei Duldung und Umlage inzwischen), die später eingespielten Themen 1.5, 2.5, 4.5 und 5.5 sowie Mietpreisbremse; Kaltmiete gegen Warmmiete wird vom Kurs weiterhin nicht unterschieden, das Bestellerprinzip nur über Prozentangaben. Handlungsbereich 3 (Personal) wurde nicht herangezogen.
 
 ### Runde 1: Eigentum, Grundbuch und Recht
 
@@ -632,7 +634,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 - **A:** Sondereigentum
 - ✔ **B:** Gemeinschaftseigentum
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Zum Gemeinschaftseigentum zählen Grundstück, tragende Bauteile, Dach, Treppenhaus und Ähnliches. Das Sondereigentum bezieht sich dagegen auf die einzelne Wohnung und ist stets mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden (siehe Thema 1.1).
+**Rückmeldung bei richtiger Antwort:** Richtig! Zum Gemeinschaftseigentum zählen typischerweise Grundstück, tragende Bauteile, Dach, Treppenhaus und Ähnliches. Das Sondereigentum bezieht sich dagegen auf die einzelne Wohnung und ist stets mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden (siehe Thema 1.1).
 
 **Rückmeldung bei falscher Antwort:** Nicht ganz. Das Sondereigentum bezieht sich auf die einzelne Wohnung (bei nicht zu Wohnzwecken dienenden Räumen auf das Teileigentum) und ist mit einem Miteigentumsanteil am Gemeinschaftseigentum verbunden. Grundstück, tragende Bauteile, Dach und Treppenhaus gehören typischerweise zum Gemeinschaftseigentum (siehe Thema 1.1).
 
@@ -670,7 +672,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Rückmeldung bei richtiger Antwort:** Richtig! Beim Miteigentum nach Bruchteilen gehört jeder Person ein ideeller, frei übertragbarer Anteil an der gesamten Sache. Beim Gesamthandseigentum steht das Eigentum dagegen der Gemeinschaft insgesamt zu (siehe Thema 1.1).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Beim Gesamthandseigentum, etwa bei einer GbR oder einer Erbengemeinschaft, steht das Eigentum der Gemeinschaft insgesamt zu, und Verfügungen sind grundsätzlich nur gemeinschaftlich möglich. Frei übertragbare ideelle Anteile gibt es beim Miteigentum nach Bruchteilen (siehe Thema 1.1).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Beim Gesamthandseigentum, etwa bei einer Erbengemeinschaft, steht das Eigentum der Gemeinschaft insgesamt zu, und Verfügungen sind grundsätzlich nur gemeinschaftlich möglich. Frei übertragbare ideelle Anteile gibt es beim Miteigentum nach Bruchteilen (siehe Thema 1.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -688,7 +690,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Rückmeldung bei richtiger Antwort:** Richtig! Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind freiwillige Verhaltensstandards, die über gesetzliche Pflichten hinausgehen, etwa die Offenlegung von Interessenkonflikten bei einer Doppeltätigkeit (siehe Thema 1.3).
 
-**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Die Erlaubnispflicht für Makler, Bauträger und Verwalter ist eine gesetzliche Pflicht, die an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft ist. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).
+**Rückmeldung bei falscher Antwort:** Das stimmt nicht. Die gewerberechtliche Erlaubnispflicht ist eine gesetzliche Pflicht für Gewerbetreibende, die als Makler, Bauträger oder Verwalter tätig sind (bei einer GmbH also für die Gesellschaft, nicht für einzelne Angestellte), und an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -755,14 +757,14 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### immobilien-aehnlich · 8 — Welche Kündigung setzt bei Wohnraum stets ein berechtigtes Interesse des Vermieters voraus, etwa Eigenbedarf?
+#### immobilien-aehnlich · 8 — Welche Kündigung setzt bei Wohnraum in der Regel ein berechtigtes Interesse des Vermieters voraus, etwa Eigenbedarf?
 
 - ✔ **A:** Ordentliche Kündigung
 - **B:** Außerordentliche fristlose Kündigung wegen Zahlungsverzugs
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Eine ordentliche Kündigung durch den Vermieter setzt bei Wohnraum stets ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung (siehe Thema 4.1).
+**Rückmeldung bei richtiger Antwort:** Richtig! Eine ordentliche Kündigung durch den Vermieter setzt bei Wohnraum in der Regel ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung. Ausnahmen gelten etwa für die erleichterte Kündigung im selbst bewohnten kleinen Haus (siehe Thema 4.1).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist davon zu unterscheiden: Sie knüpft an einen erheblichen Zahlungsrückstand oder wiederholt unpünktliche Zahlung an. Das berechtigte Interesse, etwa Eigenbedarf, verlangt die ordentliche Kündigung (siehe Thema 4.1).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist davon zu unterscheiden: Sie knüpft an einen nicht unerheblichen Zahlungsrückstand über mehrere Termine an, ein berechtigtes Interesse wie Eigenbedarf ist dafür nicht nötig. Das berechtigte Interesse, etwa Eigenbedarf, verlangt in der Regel die ordentliche Kündigung (siehe Thema 4.1).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -816,9 +818,9 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 - ✔ **A:** Instandsetzung
 - **B:** Wartung
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Die Instandsetzung stellt den Sollzustand nach einem eingetretenen Mangel wieder her, etwa durch den Austausch einer defekten Pumpe. Die Wartung dient dagegen dazu, den Sollzustand zu bewahren (siehe Thema 4.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Die Instandsetzung stellt den Sollzustand nach einem eingetretenen Mangel wieder her, etwa durch den Austausch einer defekten Pumpe. Die Wartung dient dagegen dazu, den Abbau des Abnutzungsvorrats zu verzögern, den Verschleiß also zu verlangsamen (siehe Thema 4.3).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Wartung bewahrt den Sollzustand, etwa durch eine regelmäßige Heizungswartung, und setzt keinen eingetretenen Mangel voraus. Die Wiederherstellung nach einem Mangel ist die Instandsetzung (siehe Thema 4.3).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Die Wartung verzögert den Abbau des Abnutzungsvorrats, etwa durch eine regelmäßige Heizungswartung, und setzt keinen eingetretenen Mangel voraus. Die Wiederherstellung nach einem Mangel ist die Instandsetzung (siehe Thema 4.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -975,14 +977,14 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Freigabe:** ☐ in Ordnung  ☐ ändern  ☐ streichen   **Anmerkung:** ______________________________________
 
-#### immobilien-aehnlich · 20 — Wo müssen bestimmte Pflichtangaben zum Energieausweis bereits enthalten sein, nämlich nicht erst im vollständigen Verkaufsdokument?
+#### immobilien-aehnlich · 20 — Wo müssen bestimmte Pflichtangaben zum Energieausweis, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, bereits enthalten sein, nämlich nicht erst im vollständigen Verkaufsdokument?
 
 - **A:** Im Exposé
 - ✔ **B:** In der Immobilienanzeige
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Bestimmte Pflichtangaben zum Energieausweis, etwa Art des Ausweises, Energiebedarf bzw. -verbrauch, wesentlicher Energieträger und Baujahr, müssen bereits in der Immobilienanzeige enthalten sein, nicht erst im vollständigen Exposé (siehe Thema 6.2).
+**Rückmeldung bei richtiger Antwort:** Richtig! Bestimmte Pflichtangaben zum Energieausweis, etwa Art des Ausweises, Energiebedarf bzw. -verbrauch, wesentlicher Energieträger und bei Wohngebäuden Baujahr und Energieeffizienzklasse, müssen bereits in der Immobilienanzeige enthalten sein, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, nicht erst im vollständigen Exposé. Welche Angaben genau verlangt werden, hat sich zuletzt geändert; maßgeblich ist die jeweils aktuelle Fassung (siehe Thema 6.2).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Das Exposé ist das zentrale Verkaufsdokument mit allen relevanten Objektinformationen. Die Pflichtangaben zum Energieausweis müssen aber bereits in der Immobilienanzeige stehen, nicht erst im vollständigen Exposé; Verstöße können als Wettbewerbsverstoß abgemahnt werden (siehe Thema 6.2).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Das Exposé ist das zentrale Verkaufsdokument mit allen relevanten Objektinformationen. Die Pflichtangaben zum Energieausweis müssen aber, sofern bei Aufgabe der Anzeige ein Energieausweis vorliegt, bereits in der Immobilienanzeige stehen, nicht erst im vollständigen Exposé; Verstöße können als Wettbewerbsverstoß abgemahnt werden (siehe Thema 6.2).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
