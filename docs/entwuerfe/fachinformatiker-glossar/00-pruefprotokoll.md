@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AZ „Fachinformatiker: Glossar-Einträge zu den neuen rechtsnahen Inhalten (P-AY)“ (Stand 23.10.2026)
 
-**Entwurf, nicht eingespielt.** Einspielen erst nach ausdrücklicher Freigabe des Projektleiters. Alle Einträge `Geprüft: nein`, nicht förmlich rechtsgeprüft (Stand Oktober 2026).
+**Eingespielt am 23.10.2026 (Freigabe des Projektleiters „Ja, P-AZ einspielen“).** Import: 757 Dateien, Glossare je Kurs importiert; `db:validate-content` 0 Verstöße; 443 Tests grün. Alle Einträge `Geprüft: nein`, nicht förmlich rechtsgeprüft (Stand Oktober 2026).
 
 Auftrag: `auftrag.md`. Ergebnisdateien `glossar-<ziel>.md` (nur die `####`-Blöcke), Berichte der Autoren `bericht-cluster1.md`, `bericht-cluster2.md`, unabhängige Prüfungen `pruefung-cluster1.md`, `pruefung-cluster2.md`, Einspielskript `einspielen-glossar.cjs`.
 
