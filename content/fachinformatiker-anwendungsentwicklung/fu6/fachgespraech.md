@@ -5,7 +5,7 @@ fachgebiet_title: "IT-Sicherheit, Datenschutz und Qualitätssicherung"
 thema_code: "FU6-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen zur Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 5 und 6 (§ 4 Abs. 2 Nr. 5 und 6), orientiert an typischen Rückfragen im Fachgespräch zur betrieblichen Projektarbeit — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -88,6 +88,17 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Die oder der Datenschutzbeauftragte unterrichtet und berät, überwacht die Einhaltung der Vorschriften und arbeitet mit der Aufsichtsbehörde zusammen; sie oder er vollzieht die Verarbeitung nicht selbst und berät unabhängig.
   - Rückfrage: Wie reagieren Sie, wenn Kundschaft von Ihnen die verbindliche Zusage verlangt, dass für ihr Vorhaben keine rechtlichen Risiken bestehen?
   - Rückfrage: Was ist bei einem Vorhaben mit Gesundheitsdaten, etwa einer Plattform für Arztpraxen, besonders zu beachten?
+- Wie haben Sie in Ihrem Projekt geklärt, ob Endgeräte der Nutzer:innen angesprochen werden oder Daten in ein Drittland gelangen, und was haben Sie daraufhin technisch umgesetzt?
+  - Erwartung: Zugriffe auf das Endgerät sind technikneutral zu betrachten, nicht nur Cookies, sondern auch lokaler Speicher, Gerätekennungen oder auslesende Skripte; außer bei Vorgängen, die für einen ausdrücklich gewünschten Dienst unbedingt erforderlich sind, braucht es eine Einwilligung.
+  - Erwartung: Technisch umgesetzt wird sie, indem nicht erforderliche Skripte erst nach der Einwilligung laden, Ablehnen so leicht ist wie Zustimmen, die Entscheidung nachweisbar protokolliert und der Widerruf einfach möglich ist.
+  - Erwartung: Bei Cloud- und SaaS-Diensten werden Speicherort, Zugriffe anderer Stellen (Support, Fernwartung), Unterauftragnehmer und Verschlüsselung geklärt; für Drittländer gilt die Rangfolge Angemessenheitsbeschluss, geeignete Garantien wie Standardvertragsklauseln mit Bewertung der Rechtslage im Zielland, nur im Ausnahmefall eine enge Ausnahme.
+  - Erwartung: Über Zwecke und Mittel entscheidet die Verantwortliche; als Dienstleister schlägt man Lösungen vor, setzt sie auf Weisung um und weist auf Risiken hin; bei Rechtsfragen wird die Datenschutzbeauftragte einbezogen.
+  - Rückfrage: Warum genügt ein Serverstandort in der EU nicht in jedem Fall?
+- Wie gehen Sie in Ihrem Projekt oder Betrieb mit Protokollen und Auswertungen von Beschäftigtendaten um, und wer ist dabei zu beteiligen?
+  - Erwartung: Protokolle und Auswertungen mit Personenbezug brauchen einen festgelegten Zweck und eine Rechtsgrundlage; Protokolle für Sicherheit und Fehleranalyse werden nicht ohne Weiteres zur Leistungsbewertung genutzt, Zugriff und Speicherdauer sind begrenzt, Beschäftigte werden informiert.
+  - Erwartung: Besteht ein Betriebsrat, bestimmt er bei technischen Einrichtungen mit, die Verhalten oder Leistung der Beschäftigten überwachen können; ohne Einigung entscheidet die Einigungsstelle; eine Betriebsvereinbarung darf das Datenschutzrecht nicht aushebeln.
+  - Erwartung: Bei voraussichtlich hohem Risiko für die Betroffenen wird vorab eine Datenschutz-Folgenabschätzung durchgeführt, mit Beschreibung, Bewertung von Notwendigkeit und Risiken sowie Abhilfemaßnahmen und mit Rat der Datenschutzbeauftragten; die Entscheidung trifft die Verantwortliche.
+  - Rückfrage: Wie gehen Sie vor, wenn eine betroffene Person Auskunft über ihre Daten verlangt, die Anfrage aber nicht bei der Verantwortlichen, sondern bei Ihrem Betrieb als Auftragsverarbeiter eingeht?
 
 ### 6.3 Qualitätssicherung und Verbesserungsprozesse
 
@@ -165,3 +176,60 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Bei Verdacht auf Kompromittierung wird das Zertifikat bei der ausstellenden Zertifizierungsstelle gesperrt, ein neues Schlüsselpaar erzeugt und ein neues Zertifikat eingerichtet; der Vorfall wird nach dem betrieblichen Sicherheitsprozess gemeldet und die Ursache geklärt.
   - Erwartung: Gesperrte Zertifikate werden über Sperrlisten (CRL) oder OCSP bekannt gemacht; weil Clients Sperrungen nicht immer zuverlässig prüfen, begrenzen kurze Laufzeiten den möglichen Schaden zusätzlich.
   - Rückfrage: Worin unterscheiden sich CRL und OCSP?
+
+### 6.6 NIS2, KRITIS und Meldepflichten
+
+- Fällt Ihr Ausbildungsbetrieb oder ein Kunde, den Sie in Ihrem Projekt betreuen, unter die europäischen Cybersicherheitsregeln (NIS2) und ihre deutsche Umsetzung? Wie finden Sie das heraus, und wie gehen Sie in einem Kundengespräch mit der Frage um?
+  - Erwartung: Entscheidend sind eine Einrichtungsart aus den gesetzlichen Listen (zum Beispiel digitale Infrastruktur einschließlich Managed Services, Energie, Gesundheit, Lebensmittelproduktion, Maschinenbau), das entgeltliche Angebot an Dritte und die Größe; unterschieden werden besonders wichtige und wichtige Einrichtungen, Betreiber kritischer Anlagen gelten stets als besonders wichtig.
+  - Erwartung: Die Beschäftigtenzahl wird in Jahresarbeitseinheiten gezählt, Auszubildende zählen nicht mit; Umsatz, Bilanzsumme und verbundene Unternehmen sind einzubeziehen. Die Einrichtung muss selbst prüfen, ob sie erfasst ist, und sich beim BSI registrieren.
+  - Erwartung: Sinnvoll ist, dass ein IT-Dienstleister Orientierung gibt (Sektor, Größe, Sonderfälle prüfen, Annahmen dokumentieren, technische Folgen aufzeigen), aber keine verbindliche Rechtsauskunft und keine Garantien erteilt und dafür an die Rechtsberatung verweist.
+  - Erwartung: Reine Softwareentwicklung ohne Betrieb ist keine eigene Einrichtungsart; für Produkte gelten andere Regeln (Cyber Resilience Act), über Verträge können Kundschaft und Lieferkette dennoch Anforderungen weitergeben.
+  - Rückfrage: Werden Auszubildende bei der Größenprüfung mitgezählt?
+- Stellen Sie sich einen Dienst vor, den Sie in Ihrem Projekt entwickelt, betrieben oder mit Daten versorgt haben und der bei einem Angriff länger ausfallen könnte. Welche Meldungen wären nötig, an wen und bis wann, und wie unterscheidet sich das von der Meldung einer Datenpanne?
+  - Erwartung: Ein erheblicher Sicherheitsvorfall (schwerwiegende Betriebsstörung oder finanzielle Verluste, erhebliche Schäden bei anderen) ist bei der gemeinsamen Meldestelle von BSI und BBK zu melden: Frühwarnung binnen 24 Stunden, Meldung mit erster Bewertung binnen 72 Stunden, jeweils ab Kenntnis, Zwischenmeldung auf Ersuchen, Abschlussmeldung einen Monat nach der Meldung (bei andauerndem Vorfall zunächst Fortschrittsmeldung).
+  - Erwartung: Die Fristen laufen ab Kenntnis von einem erheblichen Vorfall; zügig bewerten, nicht erst nach Abschluss der Analyse. Ein Beinahevorfall ist nicht meldepflichtig, kann aber freiwillig gemeldet werden.
+  - Erwartung: Die Datenpanne betrifft personenbezogene Daten, richtet sich an die Datenschutzaufsicht und gilt für jeden Verantwortlichen, möglichst binnen 72 Stunden; beide Pflichten können zugleich auslösen und bestehen nebeneinander.
+  - Erwartung: Wer als Dienstleister Daten im Auftrag verarbeitet, informiert die Verantwortlichen unverzüglich, damit diese ihre Fristen einhalten können; deshalb sind interne Meldewege und eine schnelle Erstbewertung wichtig.
+  - Rückfrage: Wann beginnt die Frist: beim ersten Alarm oder später?
+- Welche Maßnahmen in Ihrem Projekt oder Ihrem Betrieb gehören zu den gesetzlichen Mindestbereichen des Risikomanagements, und wer trägt im Betrieb die Verantwortung?
+  - Erwartung: Zu den Mindestbereichen zählen unter anderem Risikoanalyse und Sicherheitskonzepte, Vorfallbewältigung, Backup und Wiederherstellung, Krisenmanagement, Sicherheit der Lieferkette, Schwachstellenmanagement, Wirksamkeitsprüfung, Schulung, Kryptografie, Zugriffskontrolle und Mehrfaktor-Authentifizierung; die Maßnahmen müssen verhältnismäßig sein, dem Stand der Technik entsprechen und dokumentiert werden.
+  - Erwartung: Die Geschäftsleitung muss die Maßnahmen umsetzen und überwachen und regelmäßig an Schulungen teilnehmen; sie haftet der Einrichtung bei schuldhafter Pflichtverletzung nach den Regeln des Gesellschaftsrechts. Beschäftigte setzen die Vorgaben in ihren Aufgaben um.
+  - Erwartung: Die Maßnahmen aus den Themen IT-Sicherheit, Zertifikate und Wirksamkeitsprüfung lassen sich den Mindestbereichen zuordnen; Lücken werden dokumentiert und mit Prioritäten nachgesteuert.
+  - Erwartung: Betreiber kritischer Anlagen haben zusätzliche Pflichten (Angriffserkennung, Nachweise, Resilienzmaßnahmen nach dem KRITIS-Dachgesetz), die für Industriekundschaft relevant sein können.
+  - Rückfrage: Was ist ein Beinahevorfall, und muss er gemeldet werden?
+
+### 6.7 Cyber Resilience Act
+
+- Ihr Unternehmen bringt ein vernetztes Produkt (Gerät oder Software) auf den Markt. Welche Pflichten aus dem Cyber Resilience Act kommen auf den Hersteller zu, und was gilt davon heute schon?
+  - Erwartung: Der CRA gilt für Produkte mit digitalen Elementen, die im Rahmen einer Geschäftstätigkeit auf dem Markt bereitgestellt werden, einschließlich der zugehörigen Datenfernverarbeitung; Hersteller ist, wer unter eigenem Namen oder eigener Marke vertreibt, auch wenn Komponenten von Dritten stammen.
+  - Erwartung: Die Produkte müssen risikobasiert angemessene Sicherheitsanforderungen erfüllen (zum Beispiel sichere Standardkonfiguration, Updates, Zugriffsschutz); der Hersteller führt eine Risikobewertung durch, hat ein Verfahren zur Behandlung von Schwachstellen (Software-Stückliste, Kontaktstelle, koordinierte Offenlegung, Updates) und legt einen Unterstützungszeitraum von in der Regel mindestens fünf Jahren fest.
+  - Erwartung: Konformität wird meist durch Selbstbewertung nachgewiesen (technische Dokumentation, EU-Konformitätserklärung, CE-Kennzeichnung); für wichtige Produkte, etwa bestimmte Netz- und Sicherheitsprodukte, gelten strengere Verfahren.
+  - Erwartung: Zeitplan: Die Meldepflichten für aktiv ausgenutzte Schwachstellen und schwerwiegende Sicherheitsvorfälle gelten seit dem 11.09.2026, die übrigen Pflichten ab dem 11.12.2027; früher in Verkehr gebrachte Produkte unterliegen den übrigen Pflichten nur nach einer wesentlichen Änderung.
+  - Rückfrage: Gilt die Meldepflicht auch für Produkte, die schon verkauft sind?
+- Eine externe Sicherheitsforscherin meldet Ihnen eine Schwachstelle in einem Produkt Ihres Unternehmens. Wie gehen Sie vor, und wann müssen Sie Behörden einbeziehen?
+  - Erwartung: Der Hinweis wird über die angegebene Kontaktstelle entgegengenommen und nach dem Verfahren zur koordinierten Offenlegung geprüft, bewertet (ausnutzbar? aktiv ausgenutzt?) und dokumentiert; die Software-Stückliste hilft festzustellen, welche Produkte und Komponenten betroffen sind.
+  - Erwartung: Wird die Schwachstelle nicht ausgenutzt, wird sie behandelt, ein Update bereitgestellt und über die behobene Schwachstelle informiert (für nach dem 11.12.2027 in Verkehr gebrachte Produkte Pflicht, für früher in Verkehr gebrachte sachgerecht); eine Meldung ist dann freiwillig möglich.
+  - Erwartung: Liegen verlässliche Nachweise einer aktiven Ausnutzung vor, besteht eine Meldepflicht, auch für ältere Produkte: Frühwarnung spätestens 24 Stunden und Meldung spätestens 72 Stunden nach Kenntnis, Abschlussbericht 14 Tage nach Verfügbarkeit einer Korrektur; die Meldung geht gleichzeitig an das zuständige CSIRT und die ENISA über die einheitliche Meldeplattform, außerdem werden die betroffenen Nutzer:innen informiert.
+  - Erwartung: Daneben ist zu prüfen, ob weitere Meldewege ausgelöst werden (Datenpanne, Pflichten als Einrichtung); sie haben eigene Voraussetzungen, Fristen und Empfänger. Liegt die Ursache in einer fremden Komponente, wird der Hersteller der Komponente informiert.
+  - Rückfrage: Ab wann laufen die Fristen, und wer ist bei einer Schwachstelle in einer Open-Source-Bibliothek verantwortlich?
+
+### 6.8 KI-Verordnung und KI-Einsatz im Projekt
+
+- Haben Sie in Ihrem Projekt KI-Werkzeuge eingesetzt? Wie haben Sie das gegenüber Betrieb, Kundschaft und Prüfungsausschuss offengelegt, und wie haben Sie die Ergebnisse geprüft?
+  - Erwartung: Den zulässigen Umfang bestimmen die Vorgaben von Betrieb, Kundschaft, zuständiger Stelle und Prüfungsausschuss; sie werden vorab geklärt und eingehalten.
+  - Erwartung: Die eingesetzten Werkzeuge und ihr Zweck werden offengelegt, KI-erzeugte Inhalte werden kenntlich gemacht, und die Nutzung wird nachvollziehbar dokumentiert; ohne Kenntlichmachung droht der Vorwurf der Täuschung.
+  - Erwartung: KI-Ergebnisse sind Vorschläge; sie werden wie fremder Code oder fremder Text geprüft (Review, Tests, Gegenprüfung an der Quelle), und die Verantwortung bleibt beim Unternehmen und bei Ihnen.
+  - Erwartung: Übernommene Teile müssen im Fachgespräch erklärt und begründet werden können; die Eigenleistung bleibt erkennbar.
+  - Rückfrage: Was haben Sie getan, damit keine Kundendaten in einen öffentlichen KI-Dienst gelangen?
+- Welche Pflichten und Risiken ergeben sich, wenn Ihre Kundschaft eine KI-Funktion in einem Projektergebnis wünscht? Wenn Ihr Projekt keine KI enthielt: Wie würden Sie vorgehen?
+  - Erwartung: Zuerst wird geklärt, ob es sich um ein KI-System handelt, welche Rolle Ihr Betrieb (zum Beispiel Anbieterin) und die Kundschaft (zum Beispiel Betreiberin) haben und welche Zweckbestimmung vorgesehen ist.
+  - Erwartung: Die Einstufung bestimmt die Pflichten: verbotene Praktiken sind unzulässig, Hochrisiko-Bereiche wie Personalauswahl oder Bildung lösen strenge Anforderungen aus, Chatbots und erzeugte Inhalte unterliegen Transparenzpflichten; die jeweiligen Geltungsbeginne sind zu beachten.
+  - Erwartung: Zweckbestimmung und ausgeschlossene Verwendungen werden in Vertrag und Betriebsanleitung festgehalten, weil eine Zweckänderung die Rolle ändern kann.
+  - Erwartung: Verbindliche Rechtsauskünfte gehören nicht zur technischen Beratung; im Grenzfall wird an die Rechtsabteilung, die Datenschutzbeauftragte oder externe Rechtsberatung verwiesen, und Aussagen nennen Stand und Quelle.
+  - Rückfrage: Was ändert sich, wenn die Kundschaft den Assistenten später für einen anderen Zweck nutzen möchte?
+- Wie ist in Ihrem Betrieb sichergestellt, dass Beschäftigte KI-Werkzeuge sachkundig und regelkonform einsetzen, und wer muss bei der Einführung beteiligt werden?
+  - Erwartung: Anbieter und Betreiber ergreifen Maßnahmen, um die KI-Kompetenz ihres Personals zu entwickeln, passend zu Kenntnissen und Einsatz; ein bestimmtes Niveau muss nicht garantiert werden.
+  - Erwartung: Geeignet sind rollenbezogene Schulungen, schriftliche Leitlinien (Freigabeliste, Datenklassen, Prüfpflicht), feste Ansprechpersonen und eine Dokumentation der Maßnahmen.
+  - Erwartung: Besteht ein Betriebsrat, wird er über die Planung des KI-Einsatzes rechtzeitig unterrichtet und beraten; bei der Beurteilung von KI darf er eine sachverständige Person hinzuziehen, deren Hinzuziehung als erforderlich gilt.
+  - Erwartung: Ob ein Werkzeug Verhalten oder Leistung überwachen kann und deshalb mitbestimmungspflichtig ist, und der Datenschutz für Beschäftigtendaten sind zusätzlich zu prüfen.
+  - Rückfrage: Welche Daten dürfen Sie nach den Regeln Ihres Betriebs in ein freigegebenes KI-Werkzeug eingeben?

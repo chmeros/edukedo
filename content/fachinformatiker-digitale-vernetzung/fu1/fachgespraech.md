@@ -5,7 +5,7 @@ fachgebiet_title: "Projekt- und Auftragsabwicklung"
 thema_code: "FU1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen Rückfragen im Fachgespräch zur betrieblichen Projektarbeit (Fachinformatikerausbildungsverordnung, FIAusbV, 28.02.2020, BGBl. I S. 250, § 12 Abs. 3 für die Fachrichtung Anwendungsentwicklung; Parallelvorschriften der übrigen Fachrichtungen: § 20 Abs. 3, § 28 Abs. 3, § 36 Abs. 3) zu Fertigkeiten aus Abschnitt A lfd. Nr. 1, 2 und 7 des Ausbildungsrahmenplans — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -138,3 +138,16 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Im 
   - Erwartung: Nach dem Echtstart ist eine Anlaufphase mit erhöhter Unterstützung („Hypercare“) eingeplant, und Rückmeldungen werden aufgenommen und weitergegeben.
   - Erwartung: Auszubildende unterstützen die verantwortlichen Kolleg:innen, sie steuern nicht eigenständig das Veränderungsmanagement des Kunden.
   - Rückfrage: Was versteht man unter Hypercare?
+- Auf welcher vertraglichen Grundlage wurde Ihr Projekt oder Ihr Teilprojekt durchgeführt, was war dadurch geschuldet, und welche Folgen hatte das für Abnahme und Mängel?
+  - Erwartung: Beim Werkvertrag wird ein Erfolg geschuldet, etwa die fertige Anwendung nach vereinbarten Anforderungen; beim Dienstvertrag wird die Tätigkeit nach Aufwand geschuldet, etwa Beratung oder Support; maßgeblich ist der Inhalt der Vereinbarung, nicht die Überschrift, und größere Vorhaben haben oft beide Elemente.
+  - Erwartung: Bei einem Werk ist die Abnahme das Schlüsselereignis: Mit ihr wird die Vergütung fällig, geht die Gefahr über und beginnt in der Regel die Verjährung der Mängelansprüche.
+  - Erwartung: Wegen wesentlicher Mängel darf die Abnahme verweigert werden, wegen unwesentlicher nicht; sie werden in einer Mängelliste mit Frist festgehalten.
+  - Erwartung: Nimmt die Auftraggeberseite einen bekannten Mangel ab, behält sie sich ihre Rechte im Protokoll ausdrücklich vor; sonst gehen Nacherfüllung, Selbstvornahme, Rücktritt und Minderung verloren. Abnahmekriterien werden deshalb vorab vereinbart.
+  - Erwartung: Verträge und Rechtsfragen liegen bei den dafür zuständigen Stellen; Projektbeteiligte ohne Befugnis unterschreiben keine Protokolle und geben keine Zusagen zu Rechten oder Fristen.
+  - Rückfrage: Was geschieht, wenn die Auftraggeberseite auf die Aufforderung zur Abnahme nicht reagiert?
+- Welche Zusagen zu Betrieb, Verfügbarkeit oder Haftung gelten in Ihrem Projekt, und wie stellen Sie sicher, dass sie nachweisbar eingehalten werden?
+  - Erwartung: Ein SLA ist eine vertragliche Zusage mit Wert, Messzeitraum, Servicezeiten, Reaktions- und Behebungszeiten und Ausnahmen wie Wartungsfenstern; wird sie verfehlt, gelten die vereinbarten Folgen, meist Gutschriften und ein Sonderkündigungsrecht, bei Vertretenmüssen darüber hinaus Schadensersatz.
+  - Erwartung: Nachweise sind Messdaten aus dem Monitoring, Tickets mit Bearbeitungsverlauf und Änderungsprotokolle; Änderungen am Produktivsystem erfolgen nur nach dem vereinbarten Freigabeprozess, weil das Verschulden von Beschäftigten dem Unternehmen zugerechnet wird.
+  - Erwartung: Haftung kann vertraglich begrenzt werden, aber nicht für Vorsatz, und in vorformulierten Bedingungen gegenüber Unternehmen nach der Rechtsprechung in der Regel auch nicht für grobe Fahrlässigkeit; Haftungszusagen geben Beschäftigte nicht selbst ab.
+  - Erwartung: Software gilt nach der neuen EU-Produkthaftungsrichtlinie ausdrücklich als Produkt; das ist vor allem für Software in Produkten für Verbraucher:innen bedeutsam (Umsetzung in Deutschland bis Dezember 2026, Stand Oktober 2026 vor Verwendung prüfen).
+  - Rückfrage: Warum ist ein Ausschluss der Haftung für grobe Fahrlässigkeit in Geschäftsbedingungen problematisch?

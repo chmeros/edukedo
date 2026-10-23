@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AY „Fachinformatiker (vier Kurse): neue rechtsnahe Inhalte (NIS2/KRITIS, Cyber Resilience Act, KI-Verordnung, Data Act, Verbraucher- und Vertragsrecht, UWG, Urheberrecht, Barrierefreiheit, OT-Recht)“ (Stand 23.10.2026)
 
-**Entwurf, nicht eingespielt (R4, rechtsnah).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen). Einspielen erst nach ausdrücklicher Freigabe des Projektleiters („Ja, P-AY einspielen“).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AY einspielen“).** Import: 752 Dateien, 23.599 Items (972 neu, 38 geändert); `db:validate-content` 0 Verstöße; 434 Tests grün. Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung L-FI-01 bis L-FI-16 ohne L-FI-14; Auswertung `docs/entwuerfe/fachinformatiker-r4-auswertung.md`). Dreizehn Teile (a bis m). Vier neue Themen im Fachgebiet FU6/FU7 (6.6 NIS2, KRITIS und Meldepflichten; 6.7 Cyber Resilience Act; 6.8 KI-Verordnung und KI-Einsatz im Projekt; 7.6 Verbraucherrecht und Kaufvertrag) und neun Ergänzungen in bestehenden Themendateien; Fallaufgaben F-FU6-05 bis -08, F-FU7-04, F-FU1-04, F-FU2-04 (alle Kurse) und je ein kursspezifischer Fall (F-AE2-04, F-DV4-04, F-SI5-04, F-DP2-04). Alle Entwürfe liegen gemeinsam in diesem Ordner; je Kurs eine Config (`cfg-ae`, `cfg-dp`, `cfg-dv`, `cfg-si`, erzeugt von `gen-config.cjs`, `"entwuerfe": ".."`).
 

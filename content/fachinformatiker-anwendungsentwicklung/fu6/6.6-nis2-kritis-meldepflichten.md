@@ -1,0 +1,332 @@
+---
+kurs_slug: fachinformatiker-anwendungsentwicklung
+fachgebiet_code: FU6
+fachgebiet_title: "IT-Sicherheit, Datenschutz und Qualitätssicherung"
+thema_code: "6.6"
+thema_title: "NIS2, KRITIS und Meldepflichten"
+quelle: "Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250), Anlage (Ausbildungsrahmenplan) Abschnitt A lfd. Nr. 6 Buchst. a und b (§ 4 Abs. 2 Nr. 6) — frei formuliert, keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7); Rechtsgrundlagen als Stützangabe: BSI-Gesetz in der Fassung des NIS-2-Umsetzungsgesetzes, KRITIS-Dachgesetz, Richtlinie (EU) 2022/2555, Durchführungsverordnung (EU) 2024/2690, Empfehlung 2003/361/EG, Stand Oktober 2026"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+qualifikationsinhalte:
+  - "Betriebliche Vorgaben zur IT-Sicherheit einhalten"
+  - "Maßnahmen zur IT-Sicherheit ableiten, abstimmen, umsetzen und evaluieren"
+---
+
+# Thema 6.6 — NIS2, KRITIS und Meldepflichten
+
+## Theorie
+
+### Einordnung: Warum Cybersicherheit auch eine Rechtsfrage ist
+
+Thema 6.1 „IT-Sicherheit: Schutzziele, Bedrohungsszenarien und Schutzmaßnahmen“ im selben Fachgebiet beschreibt, welche Maßnahmen Systeme schützen, Thema 6.2 „Datenschutz: Grundlagen, Pflichten und Kundenberatung“ im selben Fachgebiet, was beim Schutz personenbezogener Daten gilt, einschließlich der Meldung einer Datenpanne an die Datenschutzaufsicht. Dieses Thema ergänzt eine dritte Ebene: Für bestimmte Unternehmen legt das Gesetz fest, **welche** Sicherheitsmaßnahmen sie mindestens treffen, **wer** dafür verantwortlich ist und **wann** erhebliche Sicherheitsvorfälle an eine Behörde gemeldet werden. Die Brevanta IT-Systemhaus GmbH begegnet dem in drei Rollen: als selbst betroffenes Unternehmen (sie betreibt Managed Services), als Beraterin, wenn Kundschaft fragt „Sind wir betroffen?“, und als Lieferantin, an die Kundschaft Anforderungen weitergibt. Wer die Produktpflichten für Software und vernetzte Geräte sucht, findet sie in Thema 6.7 „Cyber Resilience Act“ im selben Fachgebiet; hier geht es um die Pflichten der **Einrichtungen**, die IT-Systeme nutzen und betreiben.
+
+Die rechtlichen Aussagen sind nicht förmlich rechtsgeprüft und geben den Stand Oktober 2026 wieder („Stand Oktober 2026, vor Verwendung prüfen“). Paragrafen und Artikel sind Stützangaben. „BSIG“ ist das BSI-Gesetz in der seit dem 06.12.2025 geltenden Neufassung, „NIS2“ die Richtlinie (EU) 2022/2555, „KRITISDachG“ das KRITIS-Dachgesetz, „BSI“ das Bundesamt für Sicherheit in der Informationstechnik, „BBK“ das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe. Das Thema gibt einen **Überblick** für Ausbildung, Projektarbeit und ein erstes Kundengespräch; es ist keine Rechtsberatung. Alle Zahlenbeispiele sind frei gewählte Beispielwerte; gesetzliche Schwellen und Fristen sind als solche kenntlich gemacht.
+
+### Rechtsrahmen im Überblick: Richtlinie, Gesetz und Behörden
+
+Eine **Richtlinie** der Europäischen Union richtet sich an die Mitgliedstaaten und muss in nationales Recht umgesetzt werden. Die NIS2-Richtlinie verlangt ein hohes gemeinsames Cybersicherheitsniveau in der Union. Die Pflichten für Unternehmen in Deutschland ergeben sich aus dem deutschen Umsetzungsgesetz: Das neu gefasste BSIG wurde als Artikel 1 des Gesetzes vom 02.12.2025 (BGBl. 2025 I Nr. 301) verkündet und ist am 06.12.2025 in Kraft getreten. Der Text wurde seither bereits geändert; maßgeblich ist stets die aktuelle Fassung. Bei der Auslegung des Gesetzes ist die Richtlinie heranzuziehen.
+
+Das **BSI** ist Aufsichtsbehörde für die betroffenen Einrichtungen sowie nationale Verbindungsstelle und zentrale Melde- und Anlaufstelle (Stützangabe §§ 40, 59 BSIG). Meldungen erheblicher Sicherheitsvorfälle gehen an eine **gemeinsame Meldestelle** von BSI und BBK (Stützangabe § 32 Abs. 1 BSIG). Zu unterscheiden ist davon das **KRITIS-Dachgesetz**, das am 17.03.2026 in Kraft getreten ist und die Richtlinie (EU) 2022/2557 über die Resilienz kritischer Einrichtungen umsetzt: Das BSIG regelt die **Cybersicherheit** der Informationstechnik, das KRITISDachG die **Resilienz kritischer Anlagen insgesamt**, also auch Objektschutz, Notfallvorsorge und Wiederherstellung (siehe unten). Die Datenpannen-Meldung nach der Datenschutz-Grundverordnung (Thema 6.2) ist ein dritter, eigener Weg und wird weiter unten abgegrenzt. Stand Oktober 2026, vor Verwendung prüfen.
+
+### Wer ist betroffen? Einrichtungsarten und Größe
+
+Das BSIG kennt zwei Klassen: **besonders wichtige Einrichtungen** und **wichtige Einrichtungen** (Stützangabe § 28 BSIG). Beide müssen im Wesentlichen dieselben Grundpflichten erfüllen; Unterschiede liegen vor allem in der Aufsicht (bei besonders wichtigen Einrichtungen intensiver) und im Bußgeldrahmen. Im Regelfall muss eine Einrichtung drei Merkmale erfüllen: Sie bietet **entgeltlich** anderen Personen Waren oder Dienstleistungen an, sie lässt sich einer **Einrichtungsart** aus den Anlagen zum Gesetz zuordnen, und sie erreicht eine bestimmte **Größe**. Rein interne IT eines Unternehmens ohne solche Leistungen an Dritte begründet keine Betroffenheit. Geschäftstätigkeiten, die im Verhältnis zur gesamten Tätigkeit vernachlässigbar sind, bleiben bei der Zuordnung zu einer Einrichtungsart außer Betracht (Stützangabe § 28 Abs. 1 bis 3 BSIG).
+
+**Einrichtungsarten (Überblick, nicht abschließend).** Die erste Liste (Anlage 1) umfasst Energie, Transport und Verkehr, Finanzwesen, Gesundheit, Wasser, **digitale Infrastruktur** und Weltraum. Zur digitalen Infrastruktur gehören unter anderem Cloud-Computing-Dienste, Rechenzentrumsdienste, DNS-Diensteanbieter, Vertrauensdiensteanbieter, Telekommunikation sowie **Managed Service Provider** und **Managed Security Service Provider**. Ein Managed Service Provider (MSP) ist ein Anbieter von Diensten im Zusammenhang mit der Installation, Verwaltung, dem Betrieb oder der Wartung von IKT-Produkten, -Netzen, -Infrastruktur oder -Anwendungen durch Unterstützung oder aktive Verwaltung in den Räumlichkeiten der Kundschaft oder aus der Ferne; ein MSSP unterstützt zusätzlich beim Cybersicherheits-Risikomanagement (Stützangabe § 2 Nr. 25, 26 und Anlage 1 Nr. 6.1.10, 6.1.11 BSIG). Betrieb von Systemen, Fernwartung und Hosting für Kundschaft, wie Brevanta es als Managed Service anbietet, fallen darunter. Die zweite Liste (Anlage 2) nennt unter anderem Post- und Kurierdienste, Abfallbewirtschaftung, Chemie, Lebensmittelproduktion und -großhandel, Teile des verarbeitenden Gewerbes (etwa Elektronik, Maschinenbau, Fahrzeugbau), digitale Anbieter und Forschung. Reine **Softwareentwicklung** für Kundschaft steht nicht als eigene Einrichtungsart in den Listen; wer Software nur entwickelt und nichts betreibt, ist deshalb nicht allein dadurch erfasst. Für Produkte gelten eigene Pflichten (Thema 6.7 „Cyber Resilience Act“ im selben Fachgebiet).
+
+**Größe.** Für die erste Liste gilt: **Besonders wichtig** ist eine Einrichtung mit mindestens 250 Beschäftigten (im Gesetz „Mitarbeiter“) oder mit einem Jahresumsatz über 50 Millionen Euro **und** einer Jahresbilanzsumme über 43 Millionen Euro. **Wichtig** ist eine Einrichtung der ersten oder zweiten Liste mit mindestens 50 Beschäftigten oder mit einem Jahresumsatz **und** einer Jahresbilanzsumme von jeweils über 10 Millionen Euro, soweit sie nicht schon besonders wichtig ist. Einrichtungen der **zweiten Liste** sind damit höchstens wichtige Einrichtungen, auch wenn sie groß sind, es sei denn, sie betreiben zusätzlich eine kritische Anlage. Unabhängig von der Größe sind einzelne Arten erfasst: **Betreiber kritischer Anlagen**, qualifizierte Vertrauensdiensteanbieter, Namensregister der obersten Ebene und DNS-Diensteanbieter gelten als besonders wichtig, sonstige Vertrauensdiensteanbieter als wichtig (Stützangabe § 28 Abs. 1, 2 BSIG). Für Anbieter öffentlicher Telekommunikation gelten abweichende, niedrigere Größenschwellen. Für Telekommunikation, Energienetze, Finanzunternehmen unter einer eigenen EU-Regelung und einige weitere Bereiche gehen Spezialvorschriften zu einzelnen Pflichten vor (Stützangabe § 28 Abs. 1 bis 3, 5, 6 BSIG).
+
+**Zählweise.** Beschäftigtenzahl, Umsatz und Bilanzsumme werden nach der EU-Empfehlung 2003/361/EG ermittelt, jedoch ohne die Sonderregel für öffentliche Beteiligungen. Maßgeblich sind die Angaben des letzten Rechnungsabschlusses, auf Jahresbasis berechnet; ein Über- oder Unterschreiten der Schwellen wirkt nach der Empfehlung erst, wenn es in zwei aufeinanderfolgenden Geschäftsjahren vorliegt (Stützangabe Art. 4 des Anhangs der Empfehlung). Die Beschäftigtenzahl entspricht den **Jahresarbeitseinheiten**: Vollzeitkräfte zählen voll, Teilzeitkräfte, nicht ganzjährig Tätige und Saisonkräfte anteilig; mitgezählt werden auch gleichgestellte Personen im Unterordnungsverhältnis, mitarbeitende Eigentümer und Teilhaber. **Auszubildende mit Ausbildungsvertrag werden nicht mitgezählt**, ebenso wenig die Dauer eines Mutterschafts- oder Elternurlaubs (Stützangabe Art. 5 des Anhangs der Empfehlung). Die Daten von Partner- und verbundenen Unternehmen sind grundsätzlich einzubeziehen; sie werden nur dann nicht hinzugerechnet, wenn das Unternehmen bei Beschaffenheit und Betrieb seiner informationstechnischen Systeme unabhängig von ihnen ist (Stützangabe § 28 Abs. 4 BSIG). Das BSIG sieht für besonders wichtige und wichtige Einrichtungen keine behördliche Feststellung der Betroffenheit vor (nur einen Ausnahmebescheid für Sonderfälle, Stützangabe § 37 BSIG): Die Einrichtung muss **selbst prüfen**, ob sie erfasst ist. Stand Oktober 2026, vor Verwendung prüfen.
+
+**Beispiel Brevanta.** Die Brevanta IT-Systemhaus GmbH beschäftigt rund 220 Personen und betreibt Managed Services, ist also eine Einrichtung der digitalen Infrastruktur. Für dieses Thema wird als Annahme gesetzt, dass Umsatz und Bilanzsumme unter den Schwellen für besonders wichtige Einrichtungen liegen; dann ist Brevanta eine **wichtige Einrichtung**. Zugleich ist Brevanta **Hersteller** von Software und Gateways, wofür andere Regeln gelten (Thema 6.7); ob die Herstellung von Gateways zusätzlich einer Einrichtungsart der zweiten Liste zuzuordnen ist, hängt von der Tätigkeit ab, an der Einstufung ändert das hier nichts.
+
+### Registrierung beim BSI
+
+Besonders wichtige und wichtige Einrichtungen müssen dem BSI **spätestens drei Monate**, nachdem sie erstmals oder erneut als solche Einrichtung gelten, bestimmte Angaben über eine gemeinsam von BSI und BBK eingerichtete Registrierungsmöglichkeit übermitteln: Name samt Rechtsform und gegebenenfalls Handelsregisternummer, Anschrift und Kontaktdaten einschließlich E-Mail-Adresse, öffentlicher IP-Adressbereiche und Telefonnummern, den Sektor und die Branche, die Mitgliedstaaten der Europäischen Union, in denen sie Dienste erbringt, und die zuständigen Aufsichtsbehörden (Stützangabe § 33 Abs. 1 BSIG). Das BSI kann die Registrierung bei Pflichtverletzung selbst vornehmen und bei Zweifeln Unterlagen und Auskünfte verlangen (Stützangabe § 33 Abs. 3, 4 BSIG). Änderungen der Angaben sind dem BSI kurzfristig mitzuteilen; die genaue Frist ist vor Verwendung am aktuellen Gesetzestext zu prüfen, weil dazu eine Übergangsregelung besteht (Stützangabe § 33 Abs. 5, § 66 BSIG). Wer die Angaben vorsätzlich oder fahrlässig nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig übermittelt, handelt ordnungswidrig (Stützangabe § 65 Abs. 2 Nr. 6 BSIG). Betreiber kritischer Anlagen werden zusätzlich nach dem KRITISDachG registriert (siehe unten). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Risikomanagementmaßnahmen und Pflichten der Geschäftsleitung
+
+Besonders wichtige und wichtige Einrichtungen müssen **geeignete, verhältnismäßige und wirksame technische und organisatorische Maßnahmen** ergreifen, um Störungen der Verfügbarkeit, Integrität und Vertraulichkeit ihrer informationstechnischen Systeme, Komponenten und Prozesse zu vermeiden und die Auswirkungen von Sicherheitsvorfällen möglichst gering zu halten. Verhältnismäßig heißt: Risikoexposition, Größe, Umsetzungskosten sowie Wahrscheinlichkeit und Schwere von Vorfällen einschließlich ihrer gesellschaftlichen und wirtschaftlichen Auswirkungen sind abzuwägen. Die Maßnahmen sollen den **Stand der Technik** einhalten, einschlägige europäische und internationale Normen berücksichtigen, beruhen auf einem **gefahrenübergreifenden Ansatz** und sind zu **dokumentieren** (Stützangabe § 30 Abs. 1, 2 BSIG). Es ist das Prinzip aus Thema 6.1 (Schutzziele, Defense in Depth) und Thema 6.4 „Wirksamkeit und Effizienz von Sicherheits- und Datenschutzmaßnahmen prüfen“ im selben Fachgebiet, nun mit gesetzlichem Mindestkatalog. Er umfasst **zumindest**:
+
+- Konzepte zur Risikoanalyse und zur Sicherheit in der Informationstechnik;
+- Bewältigung von Sicherheitsvorfällen;
+- Aufrechterhaltung des Betriebs, etwa Backup-Management, Wiederherstellung nach einem Notfall und Krisenmanagement;
+- Sicherheit der **Lieferkette**, einschließlich der Beziehungen zu unmittelbaren Anbietern und Diensteanbietern;
+- Sicherheitsmaßnahmen bei Erwerb, Entwicklung und Wartung von Systemen, einschließlich Management und Offenlegung von **Schwachstellen**;
+- Konzepte und Verfahren zur Bewertung der Wirksamkeit der Maßnahmen;
+- grundlegende Schulungen und Sensibilisierung;
+- Konzepte für den Einsatz kryptografischer Verfahren (vgl. Thema 6.5 „Zertifikate und PKI“ im selben Fachgebiet);
+- Sicherheit des Personals, Zugriffskontrolle und Verwaltung der IKT-Systeme;
+- Lösungen zur **Mehrfaktor-Authentifizierung** oder kontinuierlichen Authentifizierung, gesicherte Sprach-, Video- und Textkommunikation und gegebenenfalls gesicherte Notfallkommunikation.
+
+Für bestimmte Einrichtungsarten, darunter Managed Service Provider, Cloud- und Rechenzentrumsdienste, legt eine EU-Durchführungsverordnung die technischen und methodischen Anforderungen genauer fest; sie hat Vorrang (Stützangabe § 30 Abs. 3 BSIG, Durchführungsverordnung (EU) 2024/2690).
+
+Die **Geschäftsleitung** (die nach Gesetz, Satzung oder Gesellschaftsvertrag zur Führung der Geschäfte und Vertretung berufenen natürlichen Personen) muss die Risikomanagementmaßnahmen **umsetzen und ihre Umsetzung überwachen**. Verletzt sie diese Pflicht, haftet sie ihrer Einrichtung für einen schuldhaft verursachten Schaden nach den Regeln des Gesellschaftsrechts; das Gesetz selbst begründet die Haftung nur, wenn das Gesellschaftsrecht keine Haftungsregelung enthält. Geschäftsleitungen müssen außerdem **regelmäßig an Schulungen teilnehmen**, um Risiken und Risikomanagementpraktiken bewerten zu können (Stützangabe §§ 2 Nr. 13, 38 BSIG). Bei besonders wichtigen Einrichtungen kann die zuständige Aufsichtsbehörde als letztes Mittel, wenn Anordnungen des BSI trotz Fristsetzung nicht befolgt werden, unzuverlässigen Geschäftsleitungen die Tätigkeit vorübergehend untersagen, solange die Anordnungen nicht befolgt sind (Stützangabe § 61 Abs. 9 BSIG). Die Risikomanagementpflicht trifft die Einrichtung, die Umsetzungs-, Überwachungs- und Schulungspflicht die Geschäftsleitung persönlich; Beschäftigte setzen die Vorgaben in ihren Aufgaben um. Stand Oktober 2026, vor Verwendung prüfen.
+
+### Die Meldekette bei erheblichen Sicherheitsvorfällen
+
+**Wann ist ein Vorfall meldepflichtig?** Ein **Sicherheitsvorfall** ist ein Ereignis, das die Verfügbarkeit, Integrität oder Vertraulichkeit von Daten oder Diensten beeinträchtigt. Meldepflichtig ist nur ein **erheblicher Sicherheitsvorfall**. Das ist ein Vorfall, der schwerwiegende Betriebsstörungen der Dienste oder finanzielle Verluste für die Einrichtung verursacht hat oder verursachen kann, oder der andere Personen durch erhebliche materielle oder immaterielle Schäden beeinträchtigt hat oder beeinträchtigen kann; das gilt vorbehaltlich einer konkretisierenden Rechtsverordnung (Stand Oktober 2026 nicht festgestellt; Stützangabe § 2 Nr. 11, 40 BSIG). Für Managed Service Provider und einige andere Einrichtungsarten konkretisiert die genannte EU-Durchführungsverordnung die Erheblichkeit; erheblich ist danach unter anderem, wenn ein verwalteter Dienst mehr als 30 Minuten lang vollständig nicht verfügbar ist oder wenn Integrität, Vertraulichkeit oder Authentizität der verarbeiteten Daten infolge einer mutmaßlich böswilligen Handlung beeinträchtigt sind. Planmäßige Wartung ist kein erheblicher Vorfall (Stützangabe Art. 3, 10 der Durchführungsverordnung (EU) 2024/2690). Ein **Beinahevorfall**, dessen Eintritt verhindert wurde, ist nicht meldepflichtig; er kann freiwillig gemeldet werden (Stützangabe §§ 2 Nr. 1, 5 BSIG).
+
+**Die Stufen.** Die Meldung an die gemeinsame Meldestelle erfolgt in Stufen (Stützangabe § 32 Abs. 1, 2 BSIG):
+
+1. **Frühwarnung** (im Gesetz „frühe Erstmeldung“) unverzüglich, spätestens innerhalb von **24 Stunden** nach Kenntniserlangung. Sie gibt an, ob der Verdacht besteht, dass der Vorfall auf rechtswidrige oder böswillige Handlungen zurückgeht oder grenzüberschreitende Auswirkungen haben könnte.
+2. **Meldung** unverzüglich, spätestens innerhalb von **72 Stunden** nach Kenntniserlangung. Sie bestätigt oder aktualisiert die Angaben der Frühwarnung und enthält eine erste Bewertung mit Schweregrad, Auswirkungen und gegebenenfalls Kompromittierungsindikatoren.
+3. **Zwischenmeldung** über relevante Statusaktualisierungen, aber nur auf Ersuchen des BSI.
+4. **Abschlussmeldung** spätestens **einen Monat nach Übermittlung der Meldung** nach Nummer 2: ausführliche Beschreibung, Art der Bedrohung oder Ursache, getroffene und laufende Abhilfemaßnahmen, gegebenenfalls grenzüberschreitende Auswirkungen. Dauert der Vorfall zu diesem Zeitpunkt noch an, ist stattdessen eine **Fortschrittsmeldung** vorzulegen; die Abschlussmeldung folgt nach abschließender Bearbeitung.
+
+Das BSI legt die Einzelheiten des Meldeverfahrens fest; die Pflicht gilt frühestens ab Einrichtung des Meldewegs (Stützangabe § 32 Abs. 1 Satz 2, Abs. 4 BSIG). Die bloße Meldung begründet nach der Richtlinie keine höhere Haftung der meldenden Einrichtung (Stützangabe Art. 23 Abs. 1 NIS2).
+
+**Wann läuft die Frist?** Die Fristen laufen ab **Kenntniserlangung**. Ein Alarm im Monitoring ist noch keine Kenntnis von einem erheblichen Vorfall. Nach der Begründung der Durchführungsverordnung gilt die Kenntnis als erlangt, sobald die Einrichtung nach einer zeitnahen ersten Bewertung mit hinreichender Gewissheit feststellt, dass ein erheblicher Sicherheitsvorfall vorliegt; das ist eine Auslegungshilfe für die dort genannten Einrichtungsarten, die sich auf andere Einrichtungen übertragen lässt, aber kein Gesetzestext ist. Zu bewerten ist also zügig, nicht erst nach Abschluss der Analyse. Für die Beispiele und Aufgaben dieses Themas gilt eine feste Zählweise: **Stundenfristen laufen ab dem Zeitpunkt der Kenntnis ohne Unterbrechung, Wochenenden und Feiertage zählen mit; Monatsfristen enden an dem Tag des Folgemonats, der dieselbe Zahl trägt wie der Tag der Übermittlung.** Die Frist der Abschlussmeldung beginnt anders als die beiden ersten Stufen nicht mit der Kenntnis, sondern mit der Übermittlung der 72-Stunden-Meldung.
+
+**Weitere Informationspflichten.** Das BSI kann anordnen, dass eine Einrichtung die Empfänger ihrer Dienste über einen erheblichen Vorfall unterrichtet (Stützangabe § 35 Abs. 1 BSIG). Einrichtungen unter anderem der digitalen Infrastruktur müssen Empfänger, die von einer erheblichen Cyberbedrohung betroffen sein könnten, über Schutzmaßnahmen informieren, wenn in der Abwägung deren Interessen überwiegen (Stützangabe § 35 Abs. 2 BSIG). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Aufsicht, Nachweise und Folgen
+
+Das BSI überwacht die Einhaltung. Bei **besonders wichtigen Einrichtungen** kann es auch ohne konkreten Anlass Audits, Prüfungen oder Zertifizierungen anordnen, Nachweise verlangen, Räume betreten und Anordnungen erlassen; die allgemeine Anforderung von Nachweisen ist bei besonders wichtigen Einrichtungen frühestens drei Jahre nach Inkrafttreten des Gesetzes möglich. Bei **wichtigen Einrichtungen** wird das BSI im Regelfall nur tätig, wenn Tatsachen die Annahme rechtfertigen, dass sie Pflichten nicht oder nicht richtig erfüllen (Stützangabe §§ 61, 62 BSIG). Das BSI kann zudem Mängelbeseitigungspläne verlangen und Verstöße auch öffentlich bekannt machen lassen. Vorsätzliche oder fahrlässige Verstöße gegen Risikomanagement-, Dokumentations- und Meldepflichten sind **Ordnungswidrigkeiten**; der Bußgeldrahmen liegt bei besonders wichtigen Einrichtungen höher als bei wichtigen Einrichtungen und kann bei sehr großen Unternehmen als Prozentsatz des weltweiten Gesamtumsatzes bestimmt werden (Stützangabe § 65 Abs. 2, 5 bis 8 BSIG). Hat eine Datenschutzaufsicht für dasselbe Verhalten bereits ein Bußgeld verhängt, darf dafür kein weiteres Bußgeld nach dem BSIG verhängt werden (Stützangabe § 65 Abs. 11 BSIG). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Betreiber kritischer Anlagen und das KRITIS-Dachgesetz
+
+Das KRITISDachG gilt für **Betreiber kritischer Anlagen** in zehn Sektoren: Energie, Transport und Verkehr, Finanzwesen, Sozialversicherung und Grundsicherung für Arbeitsuchende, Gesundheitswesen, Wasser, Ernährung, Informationstechnik und Telekommunikation, Weltraum und Siedlungsabfallentsorgung. Eine **kritische Anlage** ist eine Anlage, die für die Erbringung einer **kritischen Dienstleistung** erheblich ist, also einer Dienstleistung zur Versorgung der Allgemeinheit, deren Ausfall zu erheblichen Versorgungsengpässen oder Gefährdungen der öffentlichen Sicherheit führen würde. „Anlage“ umfasst Betriebsstätten, Maschinen, Geräte sowie Software und IT-Dienste; für Software und IT-Dienste, die nicht unmittelbar der Steuerung, Überwachung oder Unterstützung physischer Prozesse dienen, gilt allein das BSIG (Stützangabe §§ 2, 4 KRITISDachG). Als Regelwert für die Erheblichkeit nennt das Gesetz grundsätzlich 500.000 zu versorgende Einwohner; Einzelheiten bestimmt eine Rechtsverordnung (Stützangabe § 5 Abs. 1, 2 KRITISDachG).
+
+**Stand der Anwendung.** Welche Anlagen kritisch sind, bestimmt eine Rechtsverordnung des Bundesinnenministeriums nach dem KRITISDachG. Eine solche Verordnung war nach dem Textstand Oktober 2026 noch nicht in Kraft; ob das inzwischen geschehen ist, ist vor Verwendung zu prüfen. Bis dahin gilt für die Bestimmung weiterhin die bisherige BSI-Kritisverordnung (Stützangabe § 66 BSIG, § 12 BSI-Kritisverordnung). Die Pflichten nach dem KRITISDachG setzen die Registrierung voraus: Betreiber müssen sich **spätestens drei Monate**, nachdem eine Anlage als kritisch gilt, beim BBK registrieren; die Risikoanalyse folgt erstmals neun Monate, die Resilienzmaßnahmen samt Resilienzplan, die Vorfallmeldung und die Pflicht der Geschäftsleitung zehn Monate nach der Registrierung (Stützangabe § 8 Abs. 1, 7 KRITISDachG).
+
+**Inhalte.** Betreiber müssen verhältnismäßige Maßnahmen treffen, um Vorfälle zu verhindern, einen angemessenen physischen Schutz der Liegenschaften und Anlagen zu gewährleisten, auf Vorfälle zu reagieren und die Dienstleistung danach zügig wiederherzustellen. Beispiele sind Objektschutz und Zugangskontrollen, Notfallvorsorge, Krisenprotokolle, Notstromversorgung, alternative Lieferketten und Schulung des Personals; sie werden in einem **Resilienzplan** dargestellt (Stützangabe § 13 KRITISDachG). **Vorfälle** werden dem BBK über dieselbe gemeinsame Meldestelle gemeldet, unverzüglich und spätestens 24 Stunden nach Kenntnis; ein ausführlicher Bericht folgt spätestens einen Monat **nach Kenntnis des Vorfalls** (Stützangabe § 18 KRITISDachG). Damit unterscheidet sich die Monatsfrist von der des BSIG, die an die Übermittlung der Meldung anknüpft. Ein „Vorfall“ im Sinn des KRITISDachG beeinträchtigt die kritische Dienstleistung und ist von reinen Cybersicherheitsvorfällen zu unterscheiden, die das BSIG erfasst (Stützangabe § 2 Nr. 9 KRITISDachG). Für einzelne Sektoren, darunter Informationstechnik und Telekommunikation sowie Finanzwesen, entfallen wesentliche Resilienzpflichten, weil dort andere Regeln vorgehen (Stützangabe § 4 Abs. 2 KRITISDachG).
+
+**Zusammenspiel mit dem BSIG.** Betreiber kritischer Anlagen gelten nach dem BSIG stets als **besonders wichtige Einrichtungen**. Für die Systeme, die für die Funktionsfähigkeit der kritischen Anlage maßgeblich sind, müssen sie zusätzlich Systeme zur Angriffserkennung einsetzen und die Umsetzung ihrer Maßnahmen in regelmäßigen Abständen von drei Jahren durch Audits, Prüfungen oder Zertifizierungen nachweisen (Stützangabe §§ 28 Abs. 1 Nr. 1, 31 Abs. 2, 39 BSIG). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Abgrenzung zur Datenpanne
+
+Die Meldung eines erheblichen Sicherheitsvorfalls und die Meldung einer Datenpanne nach Thema 6.2 „Datenschutz: Grundlagen, Pflichten und Kundenberatung“ im selben Fachgebiet sind **zwei getrennte Pflichten mit unterschiedlichen Auslösern, Empfängern und Fristen**:
+
+| | Erheblicher Sicherheitsvorfall (BSIG) | Datenpanne (Thema 6.2) |
+|---|---|---|
+| Auslöser | erheblicher Vorfall für Verfügbarkeit, Integrität oder Vertraulichkeit von Daten oder Diensten; Personenbezug nicht nötig | Verletzung des Schutzes personenbezogener Daten mit voraussichtlichem Risiko für die Betroffenen |
+| Pflichtig | besonders wichtige und wichtige Einrichtungen | jeder Verantwortliche, unabhängig von Größe und Branche |
+| Empfänger | gemeinsame Meldestelle von BSI und BBK | Datenschutzaufsichtsbehörde |
+| Fristen | 24 Stunden, 72 Stunden, Abschlussmeldung nach einem Monat, jeweils ab Kenntnis (letzte Stufe ab Übermittlung der 72-Stunden-Meldung) | unverzüglich, möglichst binnen 72 Stunden nach Bekanntwerden |
+
+Ein Ransomware-Angriff mit Datenabfluss kann beide Pflichten auslösen. Nach dem Wortlaut ist keine der Meldungen als Ersatz der anderen vorgesehen; beide Wege laufen nebeneinander. Das BSI unterrichtet die Datenschutzaufsicht, wenn es bei der Aufsicht Hinweise auf eine meldepflichtige Datenpanne erhält (Stützangabe § 61 Abs. 11 BSIG). Bei der Auftragsverarbeitung gilt weiter, was in Thema 6.2 steht: Die Auftragsverarbeiterin informiert den Verantwortlichen unverzüglich, der Verantwortliche meldet gegenüber der Datenschutzaufsicht. Betrifft ein Vorfall dagegen die Systeme einer Dienstleisterin, die selbst Einrichtung im Sinn des BSIG ist, meldet **sie** den erheblichen Sicherheitsvorfall für ihre eigenen Dienste; ob und wann die Kundschaft zusätzlich eigene Meldungen abgeben muss, hängt von deren Betroffenheit ab. Stand Oktober 2026, vor Verwendung prüfen.
+
+### Lieferkette: Brevanta als Dienstleister und als Auftraggeber
+
+Zu den Mindestinhalten des Risikomanagements gehört die **Sicherheit der Lieferkette**. Betroffene Einrichtungen müssen deshalb auch die Sicherheitslage ihrer unmittelbaren Anbieter und Dienstleister berücksichtigen; die Richtlinie nennt dafür die spezifischen Schwachstellen der Anbieter, die Gesamtqualität der Produkte und die Cybersicherheitspraxis einschließlich der Sicherheit der Entwicklungsprozesse (Stützangabe § 30 Abs. 2 Nr. 4 BSIG, Art. 21 Abs. 3 NIS2). Für einen IT-Dienstleister folgt daraus Zweifaches. Erstens kann er **selbst Einrichtung** sein, wie Brevanta bei Managed Services. Zweitens kann er **mittelbar betroffen** sein, weil seine Kundschaft als Einrichtung ihre Anforderungen weitergibt. Das Gesetz verpflichtet den Dienstleister dann nicht allein wegen der Kundenbeziehung, wohl aber kann die Kundschaft **vertraglich** Nachweise, Meldewege, Reaktionszeiten und Mitwirkung bei Audits verlangen. Was im Vertrag steht, ist Vertragssache und nicht gesetzliche Pflicht. Üblich sind ein benannter Ansprechpartner für Sicherheitsvorfälle und eine Frist, in der der Dienstleister die Kundschaft informiert, damit diese ihre eigenen Meldefristen einhalten kann; deshalb ist die schnelle interne Meldung beim Dienstleister entscheidend.
+
+### Kundenberatung: „Sind wir betroffen?“ und Grenzen der Rechtsauskunft
+
+Fragt Kundschaft, ob die NIS2-Regeln für sie gelten, ist ein strukturiertes Vorgehen hilfreich, das **Orientierung** gibt und keine verbindliche Rechtsauskunft ersetzt:
+
+1. **Leistung und Sektor klären:** Bietet die Kundschaft entgeltlich Leistungen an Dritte an? Gehört ihre Tätigkeit zu einer Einrichtungsart der beiden Listen, auch wenn sie nur ein Teil des Geschäfts ist?
+2. **Größe ermitteln:** Beschäftigte in Jahresarbeitseinheiten (ohne Auszubildende), Jahresumsatz und Bilanzsumme, Beteiligungen und verbundene Unternehmen.
+3. **Sonderfälle prüfen:** Betreibt die Kundschaft eine kritische Anlage? Ist sie bereits durch eine Spezialregelung erfasst?
+4. **Ergebnis dokumentieren:** Annahmen, Datenquellen und Datum festhalten; auf die Registrierungspflicht, die Mindestmaßnahmen und die Meldewege hinweisen.
+5. **Technische Folgen ableiten:** Welche vorhandenen Maßnahmen (Backup, Zugriffskontrolle, Mehrfaktor-Authentifizierung, Zertifikatsverwaltung, Schulung) decken welchen Mindestinhalt, wo gibt es Lücken (Thema 6.1, 6.4, 6.5)?
+
+Brevanta berät zu Technik und Prozessen und zeigt Optionen auf. Die **verbindliche Beurteilung**, ob eine Einrichtung erfasst ist und welche Pflichten im Einzelfall bestehen, sowie die Registrierung gehören zur Kundschaft und zu deren Rechtsberatung; Hilfen und Mitteilungen des BSI sind keine Rechtsnorm. Zusagen wie „Sie sind garantiert nicht betroffen“ sind zu vermeiden. Die Registrierung bleibt Sache der Kundschaft; Brevanta kann sie technisch unterstützen, etwa mit einer Liste der öffentlichen IP-Bereiche. Stand Oktober 2026, vor Verwendung prüfen.
+
+### Rechenbeispiele
+
+Alle Werte sind frei gewählte Beispielwerte; gesetzliche Schwellen und Fristen sind als solche gekennzeichnet; die rechtlichen Annahmen entsprechen dem Stand Oktober 2026, vor Verwendung prüfen.
+
+**(1) Beschäftigtenzahl und Einstufung.** Ein Hersteller aus der zweiten Liste (Maschinenbau, keine kritische Anlage) hat 120 Vollzeitkräfte, 20 Teilzeitkräfte mit jeweils der halben Arbeitszeit, 6 Saisonkräfte mit jeweils 4 Monaten Beschäftigung im Jahr und 12 Auszubildende. Jahresarbeitseinheiten: 120 + 20 × 0,5 + 6 × (4 ÷ 12) = 120 + 10 + 2 = 132; die Auszubildenden zählen nicht mit. 132 liegt über 50 und unter 250. Umsatz (38 Millionen Euro) und Bilanzsumme (31 Millionen Euro) spielen für die Einstufung als wichtig keine Rolle, und als besonders wichtig kann ein Hersteller der zweiten Liste ohnehin nicht eingestuft werden. Ergebnis: **wichtige Einrichtung**.
+
+**(2) Meldefristen.** Eine Einrichtung stellt am Montag, 08.02.2027, um 14:20 Uhr nach erster Bewertung fest, dass ein erheblicher Sicherheitsvorfall vorliegt (Kenntnis). Zählweise: Die Stunden laufen ohne Unterbrechung. Die Frühwarnung muss spätestens 24 Stunden später, also am Dienstag, 09.02.2027, um 14:20 Uhr, vorliegen, die Meldung nach 72 Stunden am Donnerstag, 11.02.2027, um 14:20 Uhr. Wird die Meldung bereits am Dienstag, 09.02.2027, um 16:00 Uhr übermittelt, ist die Abschlussmeldung spätestens einen Monat später fällig, also am Dienstag, 09.03.2027; dauert der Vorfall an diesem Tag noch an, ist stattdessen eine Fortschrittsmeldung vorzulegen.
+
+**(3) Registrierung.** Eine Einrichtung gilt ab Dienstag, 04.05.2027, als wichtige Einrichtung. Zählweise: Die Dreimonatsfrist endet an dem Tag des dritten Folgemonats, der dieselbe Zahl trägt. Die Registrierung muss spätestens am Mittwoch, 04.08.2027, erfolgt sein.
+
+## Karteikarten
+
+#### K-6.6-01
+**Frage:** Warum gilt die europäische Cybersicherheitsrichtlinie NIS2 nicht unmittelbar für Unternehmen, und woraus ergeben sich deren Pflichten?
+**Antwort:** Eine Richtlinie richtet sich an die Mitgliedstaaten und muss in nationales Recht umgesetzt werden. Die Pflichten der Unternehmen ergeben sich aus dem deutschen Umsetzungsgesetz, das seit dem 06.12.2025 in Kraft ist.
+`tags: nis2, umsetzung, rechtsrahmen` · `schwierigkeit: leicht` · `bloom: verstehen`
+
+#### K-6.6-02
+**Frage:** Welche zwei Klassen von Einrichtungen unterscheidet das deutsche Umsetzungsgesetz, und wovon hängt die Einstufung ab?
+**Antwort:** Besonders wichtige und wichtige Einrichtungen. Es kommt auf die Einrichtungsart (Sektor), auf die Größe und darauf an, dass entgeltlich Leistungen an Dritte angeboten werden; einzelne Arten sind unabhängig von der Größe erfasst.
+`tags: nis2, betroffenheit, einrichtungen` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.6-03
+**Frage:** Welche Größenschwellen gelten grundsätzlich für wichtige und für besonders wichtige Einrichtungen?
+**Antwort:** Wichtig: mindestens 50 Beschäftigte oder Umsatz und Bilanzsumme jeweils über 10 Millionen Euro. Besonders wichtig (nur erste Sektorenliste): mindestens 250 Beschäftigte oder Umsatz über 50 Millionen und Bilanzsumme über 43 Millionen Euro.
+`tags: nis2, betroffenheit, schwellen` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.6-04
+**Frage:** Wie werden die Beschäftigten bei der Größenprüfung gezählt, und was gilt für Auszubildende?
+**Antwort:** In Jahresarbeitseinheiten: Vollzeit zählt voll, Teilzeit und Saisonarbeit anteilig. Auszubildende mit Ausbildungsvertrag werden nicht mitgezählt; Daten verbundener Unternehmen sind grundsätzlich einzubeziehen.
+`tags: nis2, betroffenheit, jahresarbeitseinheiten` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-6.6-05
+**Frage:** Warum kann ein IT-Dienstleister wie Brevanta selbst betroffen sein, und was ist ein Managed Service Provider?
+**Antwort:** Anbieter von Betrieb, Verwaltung, Wartung oder Fernwartung von IT-Systemen für Kundschaft (Managed Service Provider) gehören zur digitalen Infrastruktur. Reine Softwareentwicklung ohne Betrieb steht dagegen nicht als Einrichtungsart in den Listen.
+`tags: nis2, msp, betroffenheit` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.6-06
+**Frage:** Was muss eine betroffene Einrichtung gegenüber dem BSI tun, und bis wann?
+**Antwort:** Sich spätestens drei Monate, nachdem sie als besonders wichtige oder wichtige Einrichtung gilt, über die gemeinsame Registrierungsmöglichkeit registrieren. Die Einrichtung muss selbst prüfen, ob sie erfasst ist.
+`tags: nis2, registrierung` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.6-07
+**Frage:** Nenne fünf Bereiche, die die Risikomanagementmaßnahmen betroffener Einrichtungen mindestens abdecken müssen.
+**Antwort:** Z. B. Risikoanalyse, Vorfallbewältigung, Backup und Krisenmanagement, Sicherheit der Lieferkette, Schwachstellenmanagement, Wirksamkeitsprüfung, Schulung, Kryptografie, Zugriffskontrolle, Mehrfaktor-Authentifizierung. Die Maßnahmen sind zu dokumentieren.
+`tags: nis2, risikomanagement` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.6-08
+**Frage:** Welche Pflichten hat die Geschäftsleitung einer betroffenen Einrichtung?
+**Antwort:** Sie muss die Risikomanagementmaßnahmen umsetzen und ihre Umsetzung überwachen und regelmäßig an Schulungen teilnehmen. Bei Pflichtverletzung haftet sie der Einrichtung für schuldhaft verursachte Schäden nach den Regeln des Gesellschaftsrechts.
+`tags: nis2, geschaeftsleitung, haftung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.6-09
+**Frage:** Wie sieht die Meldekette bei einem erheblichen Sicherheitsvorfall aus?
+**Antwort:** Frühwarnung binnen 24 Stunden, Meldung mit erster Bewertung binnen 72 Stunden (jeweils nach Kenntnis), Zwischenmeldung nur auf Ersuchen, Abschlussmeldung einen Monat nach der 72-Stunden-Meldung; dauert der Vorfall an, zunächst eine Fortschrittsmeldung.
+`tags: nis2, meldekette, fristen` · `schwierigkeit: mittel` · `bloom: erinnern`
+
+#### K-6.6-10
+**Frage:** Wann ist ein Sicherheitsvorfall erheblich, und wann beginnen die Meldefristen?
+**Antwort:** Erheblich ist er bei schwerwiegenden Betriebsstörungen oder finanziellen Verlusten der Einrichtung oder erheblichen Schäden bei anderen, auch wenn sie nur möglich sind. Die Fristen laufen ab der Kenntnis von dem erheblichen Vorfall.
+`tags: nis2, erheblicher-vorfall, kenntnis` · `schwierigkeit: schwer` · `bloom: verstehen`
+
+#### K-6.6-11
+**Frage:** Wohin gehen die Meldungen, und wie behandelt das Gesetz einen Beinahevorfall?
+**Antwort:** An eine gemeinsame Meldestelle von BSI und BBK. Ein Beinahevorfall, dessen Eintritt verhindert wurde, ist nicht meldepflichtig, kann aber freiwillig gemeldet werden.
+`tags: nis2, meldestelle, beinahevorfall` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.6-12
+**Frage:** Worin unterscheidet sich die Meldung eines erheblichen Sicherheitsvorfalls von der Meldung einer Datenpanne?
+**Antwort:** Sicherheitsvorfall: nur betroffene Einrichtungen, Meldestelle von BSI und BBK, Stufen 24 und 72 Stunden. Datenpanne: jeder Verantwortliche, Datenschutzaufsicht, möglichst binnen 72 Stunden. Beide Pflichten bestehen nebeneinander.
+`tags: nis2, datenpanne, abgrenzung` · `schwierigkeit: schwer` · `bloom: analysieren`
+
+#### K-6.6-13
+**Frage:** Welche Pflichten kommen für Betreiber kritischer Anlagen zu den Cybersicherheitspflichten hinzu, und wer bestimmt, welche Anlagen kritisch sind?
+**Antwort:** Resilienzpflichten wie Objektschutz, Notfallvorsorge, Resilienzplan und Vorfallmeldung, geregelt in einem eigenen Gesetz für zehn Sektoren. Welche Anlagen kritisch sind, legt im Kern eine Rechtsverordnung des Bundes fest (Stand Oktober 2026 noch nicht in Kraft).
+`tags: kritis, resilienz, kritische-anlage` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-6.6-14
+**Frage:** Wie gehst du vor, wenn Kundschaft fragt, ob sie betroffen ist, und wo liegt die Grenze deiner Auskunft?
+**Antwort:** Leistung und Sektor, Größe und Sonderfälle prüfen, Annahmen dokumentieren und technische Folgen aufzeigen. Eine verbindliche Rechtsauskunft gibst du nicht; dafür verweist du an Rechtsberatung oder die Fachstellen.
+`tags: nis2, beratung, rechtsauskunft` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+## Quiz
+
+#### Q-6.6-01 · Multiple Choice
+**Frage:** Ein Hersteller von Industriemaschinen beschäftigt 400 Personen (Jahresarbeitseinheiten), erwirtschaftet hohe Umsätze und betreibt keine kritische Anlage. Welche Einstufung trifft zu?
+- [ ] Besonders wichtige Einrichtung, weil ab 250 Beschäftigten jede Einrichtung dazugehört
+- [x] Wichtige Einrichtung, weil Maschinenbau nur in der zweiten Sektorenliste steht
+- [ ] Nicht betroffen, weil nur Betreiber kritischer Anlagen überhaupt erfasst sind
+- [ ] Wichtige Einrichtung nur, wenn er eigene Software für Kundschaft entwickelt
+**Erklärung:** Maschinenbau steht nur in der zweiten Liste; solche Einrichtungen sind höchstens wichtige Einrichtungen, auch wenn sie groß sind. Besonders wichtig wäre er nur als Betreiber einer kritischen Anlage.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-6.6-02 · Zuordnung
+**Anweisung:** Ordne jedem Unternehmen die zutreffende Aussage zu.
+- IT-Dienstleister mit Managed Services, 120 Beschäftigten und 20 Millionen Euro Umsatz ↔ Erfasst als wichtige Einrichtung (digitale Infrastruktur)
+- Betreiber einer kritischen Anlage, auch mit wenigen Beschäftigten ↔ Gilt stets als besonders wichtige Einrichtung
+- Softwarehaus mit 300 Beschäftigten, das nur Individualsoftware entwickelt und nichts betreibt ↔ Nicht schon wegen seiner Tätigkeit als Einrichtungsart erfasst
+- Lebensmittelhersteller mit 20 Jahresarbeitseinheiten, 6 Millionen Euro Umsatz und 4 Millionen Euro Bilanzsumme ↔ Unter den Größenschwellen und daher nicht erfasst
+**Erklärung:** Maßgeblich sind Einrichtungsart und Größe; Betreiber kritischer Anlagen sind unabhängig von der Größe besonders wichtig. Reine Softwareentwicklung ist keine eigene Einrichtungsart, und ein sehr kleines Unternehmen bleibt unter den Schwellen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.6-03 · Sortieren
+**Anweisung:** Bringe die Schritte der Meldekette bei einem erheblichen Sicherheitsvorfall in die richtige Reihenfolge.
+1. Nach erster Bewertung feststellen, dass ein erheblicher Vorfall vorliegt (Kenntnis)
+2. Frühwarnung innerhalb von 24 Stunden abgeben
+3. Meldung mit erster Bewertung innerhalb von 72 Stunden abgeben
+4. Abschlussmeldung einen Monat nach der 72-Stunden-Meldung vorlegen
+**Erklärung:** Die Fristen laufen ab Kenntnis; die Abschlussmeldung knüpft an die Übermittlung der 72-Stunden-Meldung an. Dauert der Vorfall dann noch an, ist zunächst eine Fortschrittsmeldung vorzulegen.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-6.6-04 · Kurzantwort
+**Frage:** Ein Dienstleister stellt am Mittwoch, 06.10.2027, um 10:20 Uhr nach erster Bewertung fest, dass ein erheblicher Sicherheitsvorfall vorliegt. Stundenfristen laufen ohne Unterbrechung, auch am Wochenende. An welchem Datum muss die Meldung mit erster Bewertung (72 Stunden) spätestens vorliegen (Format TT.MM.JJJJ)?
+**Akzeptierte Antworten:** 09.10.2027; 09.10.2027.; 09.10.27; 09.10.27.; 9.10.2027; 9.10.27; 09. 10. 2027; 9. Oktober 2027; 09. Oktober 2027; 09 Oktober 2027
+**Erklärung:** 72 Stunden sind drei mal 24 Stunden: Mittwoch, 06.10.2027, 10:20 Uhr plus 72 Stunden ergibt Samstag, 09.10.2027, 10:20 Uhr. Die Frist läuft über das Wochenende weiter.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.6-05 · Wahr/Falsch
+**Aussage:** Die Meldefristen bei einem erheblichen Sicherheitsvorfall beginnen schon mit dem ersten Alarm des Monitorings, auch wenn noch unklar ist, ob der Vorfall erheblich ist.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Die Fristen laufen ab Kenntnis von einem erheblichen Vorfall, nicht ab dem ersten Alarm. Nach der Begründung einer EU-Durchführungsverordnung (Auslegungshilfe, kein Gesetzestext) gilt die Kenntnis als erlangt, sobald die Einrichtung nach zeitnaher erster Bewertung mit hinreichender Gewissheit feststellt, dass ein erheblicher Vorfall vorliegt. Die Bewertung muss zügig erfolgen.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-6.6-06 · Kurzantwort
+**Frage:** Ein Unternehmen hat 80 Vollzeitkräfte, 30 Teilzeitkräfte mit jeweils der halben Arbeitszeit und 8 Auszubildende mit Ausbildungsvertrag. Wie viele Jahresarbeitseinheiten ergibt das (Zahl)?
+**Akzeptierte Antworten:** 95; 95,0; 95.0; 95 JAE; 95 Jahresarbeitseinheiten; 95 Beschäftigte
+**Erklärung:** 80 + 30 × 0,5 = 95; die 8 Auszubildenden zählen nicht mit. Mit 95 liegt das Unternehmen über 50 und unter 250 Beschäftigten.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.6-07 · Multiple Choice
+**Frage:** Ein Industriekunde ist selbst eine wichtige Einrichtung und lässt seine Server von einer kleinen IT-Firma betreuen, die 30 Beschäftigte hat und mit Umsatz und Bilanzsumme unter den Schwellen für wichtige Einrichtungen liegt. Was trifft zu?
+- [ ] Die IT-Firma ist allein wegen der Kundenbeziehung gesetzlich als Einrichtung zur Registrierung und Meldung verpflichtet.
+- [x] Der Kunde muss die Lieferkettensicherheit berücksichtigen und kann Nachweise und Meldewege vertraglich verlangen.
+- [ ] Der Kunde ist von allen Pflichten befreit, sobald er den Betrieb seiner Server an einen Dienstleister ausgelagert hat.
+- [ ] Die IT-Firma registriert den Kunden automatisch beim BSI und übernimmt dessen Meldepflichten vollständig.
+**Erklärung:** Die IT-Firma ist nur wegen ihrer Größe nicht erfasst; allein die Kundenbeziehung macht sie nicht zur Einrichtung. Die Lieferkettensicherheit ist Teil der Mindestmaßnahmen des Kunden, und was die Firma im Einzelnen leisten muss, ergibt sich aus dem Vertrag. Die Pflichten des Kunden bleiben bestehen.
+`schwierigkeit: schwer` · `bloom: bewerten`
+
+#### Q-6.6-08 · Lückentext
+**Text:** Erhebliche Sicherheitsvorfälle werden einer gemeinsamen Meldestelle des BSI und des Bundesamts für ___Bevölkerungsschutz___ und Katastrophenhilfe gemeldet.
+**Erklärung:** Die Meldestelle wird gemeinsam vom BSI und vom BBK betrieben; das BSI ist zugleich die Aufsichtsbehörde.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-6.6-09 · Mehrfachauswahl
+**Frage:** Welche Aussagen zur Geschäftsleitung einer betroffenen Einrichtung stimmen?
+- [x] Sie muss die Risikomanagementmaßnahmen umsetzen und deren Umsetzung überwachen.
+- [x] Sie muss regelmäßig an Schulungen zur Informationssicherheit teilnehmen.
+- [x] Bei schuldhafter Pflichtverletzung haftet sie der Einrichtung nach Gesellschaftsrecht.
+- [ ] Sie darf die Verantwortung vollständig an die Auszubildenden des IT-Bereichs übertragen.
+- [ ] Sie ist von den Pflichten befreit, sobald ein externer Dienstleister die IT betreibt.
+**Erklärung:** Umsetzung, Überwachung und Schulung sind Pflichten der Geschäftsleitung. Eine Auslagerung des IT-Betriebs ändert daran nichts (Folgerung aus dem Gesetzesaufbau).
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-6.6-10 · Entweder-Oder
+**Frage:** Ein Managed-Service-Anbieter wird Opfer eines Ransomware-Angriffs; dabei werden auch Personaldaten eines Kunden abgegriffen. Genügt die Meldung des erheblichen Sicherheitsvorfalls an die zentrale Meldestelle auch für die Datenpannen-Meldung?
+- [ ] Ja, eine Meldung an die zentrale Meldestelle ersetzt die Datenpannen-Meldung
+- [x] Nein, beide Meldewege bestehen nebeneinander
+**Erklärung:** Die Meldung des Sicherheitsvorfalls geht an die Meldestelle von BSI und BBK, die Datenpannen-Meldung an die Datenschutzaufsicht. Nach dem Wortlaut ersetzt keine Meldung die andere; es gelten unterschiedliche Fristen.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-6.6-11 · Was passt nicht dazu
+**Frage:** Was gehört NICHT zu den gesetzlichen Mindestbereichen der Risikomanagementmaßnahmen betroffener Einrichtungen?
+- [ ] Konzepte zur Risikoanalyse und zur Sicherheit der Informationstechnik
+- [ ] Backup-Management und Krisenmanagement
+- [ ] Sicherheit der Lieferkette
+- [x] Abschluss einer Cyberversicherung
+**Erklärung:** Eine Versicherung kann Risiken übertragen (Thema 6.1), ist aber kein gesetzlich genannter Mindestbereich. Risikoanalyse, Betriebsaufrechterhaltung und Lieferkettensicherheit gehören dazu.
+`schwierigkeit: mittel` · `bloom: analysieren`
+
+#### Q-6.6-12 · Zuordnung
+**Anweisung:** Ordne jede Stelle ihrer Aufgabe zu.
+- BSI ↔ Aufsicht über die betroffenen Einrichtungen und nationale Verbindungsstelle
+- BBK ↔ Betreibt gemeinsam mit dem BSI die Meldestelle und nimmt die Registrierung kritischer Anlagen entgegen
+- Geschäftsleitung ↔ Setzt die Risikomanagementmaßnahmen um und überwacht ihre Umsetzung
+- Datenschutzaufsichtsbehörde ↔ Empfängt die Meldung einer Datenpanne
+**Erklärung:** Die Stellen haben getrennte Aufgaben: Cybersicherheitsaufsicht beim BSI, Resilienz kritischer Anlagen beim BBK, Datenschutz bei der Datenschutzaufsicht.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-6.6-13 · Kurzantwort
+**Frage:** Eine Einrichtung gilt ab Dienstag, 04.05.2027, als wichtige Einrichtung. Die Registrierung ist spätestens drei Monate danach vorzunehmen; ein Monat endet an dem Tag, der dieselbe Zahl trägt. An welchem Datum läuft die Frist ab (Format TT.MM.JJJJ)?
+**Akzeptierte Antworten:** 04.08.2027; 04.08.2027.; 04.08.27; 04.08.27.; 4.8.2027; 4.8.27; 04. August 2027; 4. August 2027; 04 August 2027
+**Erklärung:** Drei Monate nach dem 04.05.2027 ist der 04.08.2027 (ein Mittwoch). Gezählt wird nach Kalendertagen im Folgemonat, nicht nach 90 Tagen.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.6-14 · Multiple Choice
+**Frage:** Ein Kunde bittet dich, schriftlich zu bestätigen, dass er „garantiert nicht unter die neuen Cybersicherheitspflichten fällt“. Wie reagierst du?
+- [ ] Du bestätigst es schriftlich, weil das Unternehmen nach deiner Einschätzung zu klein ist, und beendest das Thema.
+- [x] Du ordnest vorläufig ein, hältst die Annahmen fest und verweist für die verbindliche Klärung an die Rechtsberatung.
+- [ ] Du lehnst jedes Gespräch dazu ab, weil Rechtsfragen Brevanta grundsätzlich nichts angehen und Beratung unzulässig ist.
+- [ ] Du rätst zur sofortigen Registrierung, ohne vorher Sektor und Größe zu prüfen, damit sicher nichts passiert.
+**Erklärung:** Brevanta gibt Orientierung und zeigt technische Folgen auf, erteilt aber keine verbindliche Rechtsauskunft und keine Garantien. Eine Registrierung ohne Prüfung ersetzt die eigene Einschätzung nicht.
+`schwierigkeit: mittel` · `bloom: bewerten`
+
+#### Q-6.6-15 · Kurzantwort
+**Frage:** Eine Einrichtung übermittelt ihre Meldung nach 72 Stunden am Dienstag, 09.11.2027. Der Vorfall ist bis dahin abgeschlossen. Die Abschlussmeldung ist spätestens einen Monat nach Übermittlung fällig; ein Monat endet an dem Tag, der dieselbe Zahl trägt. An welchem Datum läuft die Frist ab (Format TT.MM.JJJJ)?
+**Akzeptierte Antworten:** 09.12.2027; 09.12.2027.; 09.12.27; 09.12.27.; 9.12.2027; 9.12.27; 09. Dezember 2027; 9. Dezember 2027; 09 Dezember 2027
+**Erklärung:** Die Abschlussmeldung knüpft an die Übermittlung der 72-Stunden-Meldung an: 09.11.2027 plus ein Monat ergibt Donnerstag, 09.12.2027. Eine Fortschrittsmeldung wäre nur nötig, wenn der Vorfall noch andauerte.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-6.6-16 · Multiple Choice
+**Frage:** Ein Wasserversorger betreibt eine kritische Anlage. Was kommt für ihn zusätzlich zu den Cybersicherheitspflichten hinzu?
+- [ ] Die Pflicht, den Impfstatus und die Vorerkrankungen aller Beschäftigten zu prüfen und zu melden
+- [ ] Die Zulassung neuer Produkte mit digitalen Elementen für den Markt
+- [x] Resilienzmaßnahmen wie Objektschutz und Notfallvorsorge samt Resilienzplan
+- [ ] Die Preisgestaltung kritischer Dienstleistungen gegenüber allen Kundinnen und Kunden
+**Erklärung:** Die zusätzlichen Resilienzpflichten stärken die physische und organisatorische Resilienz kritischer Anlagen. Produktzulassungen, Preise und Gesundheitsdaten der Beschäftigten gehören nicht dazu.
+`schwierigkeit: mittel` · `bloom: anwenden`

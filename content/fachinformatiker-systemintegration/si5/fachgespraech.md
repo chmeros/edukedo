@@ -5,7 +5,7 @@ fachgebiet_title: "Planen und Umsetzen eines Projektes der Systemintegration"
 thema_code: "SI5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen Rückfragen im Fachgespräch zur betrieblichen Projektarbeit nach § 20 Abs. 3 der Fachinformatikerausbildungsverordnung (FIAusbV, 28.02.2020, BGBl. I S. 250) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "04.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen"
 ---
 
 ## Fachgesprächsfragen
@@ -130,6 +130,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei der Übergabe werden Zugangsdaten und Berechtigungen auf sicherem Weg übergeben, und Standard- und Projektkonten werden entfernt oder geändert.
   - Rückfrage: Was prüft der Negativtest beim Berechtigungstest?
   - Rückfrage: Welche technischen Schutzmaßnahmen kennen Sie für Administrationszugänge und die Datenübertragung?
+- Ihr Ausbildungsbetrieb betreibt Systeme oder Fernwartungszugänge für Kundschaft. Welche rechtlichen Anforderungen ergeben sich daraus für den Betrieb selbst, und wie wirken sie sich auf Ihr Projekt aus?
+  - Erwartung: Ein Dienstleister, der Betrieb, Wartung oder Fernwartung für Kundschaft erbringt (Managed Service Provider), kann selbst eine wichtige oder besonders wichtige Einrichtung sein; das hängt von der Größe ab und davon, ob Managed Services mehr als eine vernachlässigbare Nebentätigkeit sind. Die Einrichtung prüft und registriert sich selbst. Zugleich ist der Dienstleister Glied der Lieferkette seiner Kundschaft und selbst Auftraggeber seiner Zulieferer.
+  - Erwartung: Hat der Dienstleister seine Hauptniederlassung (Ort der Entscheidungen zum Risikomanagement) in Deutschland, ist das BSI für ihn in der gesamten Union zuständig; für diese Einrichtungsarten gibt es zusätzlich eine besondere Registrierung.
+  - Erwartung: Für solche Dienstleister gelten Anforderungen, die Verwaltungszugänge unmittelbar betreffen: eigene Verwaltungskonten, starke Authentifizierung, eingeschränkte Rechte, geschützte und getrennte Verwaltungssysteme und Protokollierung privilegierter Zugriffe, jeweils soweit angemessen.
+  - Erwartung: Im Projekt zeigt sich das in den Anforderungen und im Konzept (Konten, Rechte, Authentifizierung, Protokollierung), in Tests einschließlich des Negativfalls und in der Dokumentation, in der Kundendaten anonymisiert und sicherheitsrelevante Angaben geschwärzt werden; rechtlich bindend ist das für den Dienstleister und seine eigenen Verwaltungssysteme, für ein Kundenprojekt eine Orientierung.
+  - Erwartung: Der Dienstleister gibt Orientierung, erteilt aber keine verbindliche Rechtsauskunft; die verbindliche Klärung liegt bei Rechtsberatung und Geschäftsleitung. Anforderungen der Kundschaft ergeben sich teils aus dem Gesetz, im Übrigen aus dem Vertrag.
+  - Rückfrage: Welche Behörde beaufsichtigt einen solchen Dienstleister, wenn er Kundschaft in mehreren EU-Staaten hat?
+- Angenommen, ein Fernwartungskonto wird missbraucht und es werden Kundendaten kopiert, obwohl kein Dienst ausfällt. Wie läuft die Reaktion ab, wer wird wann informiert, und was wird dokumentiert?
+  - Erwartung: Das Ereignis wird gemeldet, nach festgelegten Kriterien bewertet und eingedämmt (etwa Konto sperren); die Bewertung wird bei neuen Informationen angepasst. Bei einem Dienstleister kann der Vorfall auch ohne Ausfall erheblich sein, wenn die Vertraulichkeit der Daten infolge einer mutmaßlich böswilligen Handlung beeinträchtigt ist; die Meldestufen entsprechen Thema 6.6 „NIS2, KRITIS und Meldepflichten“ im Fachgebiet „IT-Sicherheit, Datenschutz und Qualitätssicherung“.
+  - Erwartung: Die Kundschaft wird informiert: Betrifft es personenbezogene Daten im Auftrag, wird der Verantwortliche unverzüglich informiert; diese gesetzliche Pflicht gilt immer, eine vertraglich vereinbarte Frist (etwa sechs Stunden in Textform) kommt hinzu und verlängert sie nicht. Die Kundschaft bewertet danach selbst und prüft ihre eigenen Meldepflichten; die Meldung des Dienstleisters ersetzt die der Kundschaft nicht.
+  - Erwartung: Die Information enthält, was die Kundschaft für ihre Bewertung braucht: was geschehen ist und wann, betroffene Systeme und Daten, ungefähre Zahl der Betroffenen, Maßnahmen, mögliche Folgen und eine Ansprechperson.
+  - Erwartung: Dokumentiert werden eine Zeitleiste, die Begründung der Einstufung und des Kenntniszeitpunkts, Entscheidungen, Maßnahmen, Nachweise und Meldungen; danach folgt eine Nachbetrachtung mit Ursache und Lehren.
+  - Rückfrage: Welche Rolle spielt die vertraglich vereinbarte Frist neben der gesetzlichen Pflicht, den Verantwortlichen unverzüglich zu informieren?
 
 ### 12.3 Soll-Ist-Vergleich, Reflexion und Präsentation
 
