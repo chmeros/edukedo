@@ -101,7 +101,8 @@ for (const { datei, abschnitte: karten } of cfg.ergaenzungen || []) {
   }
 }
 
-for (const [datei, ordner] of cfg.faelle || []) {
+// Optionaler dritter Eintrag [datei, fallOrdner, fachgespraechOrdner]: Fachgesprächsabschnitt in einen anderen Ordner als die Fälle.
+for (const [datei, ordner, fgOrdner] of cfg.faelle || []) {
   if (!gewaehlt(datei)) continue;
   const f = lf(lies(path.join(entw, datei)));
   const iFg = f.search(/^## Fachgesprächsfragen/m);
@@ -115,7 +116,7 @@ for (const [datei, ordner] of cfg.faelle || []) {
   for (const b of bloecke) haengeAn(fallDatei, b, "\n\n---\n\n");
   const abschn = fgTeil.match(/^### [\s\S]*$/m);
   if (!abschn) throw new Error("keine Fachgesprächsabschnitte: " + datei);
-  fgEinfuegen(path.join(ziel, KURS, ordner, "fachgespraech.md"), abschn[0].replace(/\n---\s*$/, ""));
+  fgEinfuegen(path.join(ziel, KURS, fgOrdner || ordner, "fachgespraech.md"), abschn[0].replace(/\n---\s*$/, ""));
   console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", ") || "keine");
 }
 

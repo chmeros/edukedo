@@ -1,0 +1,466 @@
+{
+  "kurs": "immobilienfachwirt",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [
+    [
+      "im-1.5-grundstuecksrechte.md",
+      "hb1/1.5-grundstuecksrechte.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "im-6.2-ergaenzung-recht-im-vertrieb.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb6/6.2-marketing-fuer-immobilien.md",
+          "### Zielgruppenansprache und Marketingmix"
+        ]
+      ]
+    },
+    {
+      "datei": "im-6.1-ergaenzung-maklervertrag-praxis.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb6/6.1-maklerrecht-maklertaetigkeit.md",
+          "### Aufklärungs- und Sorgfaltspflichten des Maklers"
+        ]
+      ]
+    },
+    {
+      "datei": "im-5.3-ergaenzung-baulast-brandschutz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb5/5.3-baurecht-grundzuege.md"
+        ]
+      ]
+    },
+    {
+      "datei": "im-5.2-ergaenzung-vergabe-baustelle.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb5/5.2-bauplanung-durchfuehrung.md",
+          "### Bauüberwachung"
+        ]
+      ]
+    },
+    {
+      "datei": "im-1.4-ergaenzung-gebaeudeenergierecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb1/1.4-nachhaltigkeit-esg.md",
+          "### ESG-Kriterien in der Immobilienbewirtschaftung und -entwicklung"
+        ]
+      ]
+    },
+    {
+      "datei": "im-4.1-ergaenzung-gewerberaummiete.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.1-mietverwaltung.md",
+          "### Kündigung und Räumung (Grundzüge)"
+        ]
+      ]
+    },
+    {
+      "datei": "im-2.3-ergaenzung-liquiditaetsgrade-faustwerte.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.3-controlling-kennzahlen.md",
+          "### Liquiditätsplanung in der Hausverwaltung: Ziel und Aufbau"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "im-faelle-a.md",
+      "hb6"
+    ],
+    [
+      "im-faelle-b.md",
+      "hb6"
+    ],
+    [
+      "im-faelle-c.md",
+      "hb1"
+    ],
+    [
+      "im-faelle-d.md",
+      "hb5"
+    ],
+    [
+      "im-faelle-e.md",
+      "hb5"
+    ],
+    [
+      "im-faelle-f.md",
+      "hb4",
+      "hb1"
+    ],
+    [
+      "im-faelle-g.md",
+      "hb4"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb6/6.2-marketing-fuer-immobilien.md",
+      "paare": [
+        [
+          "E-Mail-Newsletter mit neuen Objektangeboten sind ein klassisches Instrument, um bestehende Interessent:innen aus dem CRM erneut zu aktivieren.",
+          "E-Mail-Newsletter mit neuen Objektangeboten sind ein klassisches Instrument, um Interessent:innen aus dem CRM erneut anzusprechen, setzen aber deren vorherige ausdrückliche Einwilligung voraus; Registrierung oder Anfrage genügen nicht (die Regeln zu Einwilligung, Telefon- und Briefwerbung stehen im Abschnitt „Werbung per E-Mail, Telefon und Post“; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** Welches Instrument reaktiviert bestehende Interessent:innen aus dem CRM-System gezielt?",
+          "**Frage:** Unter welcher Voraussetzung darf Ravelin Interessent:innen aus dem CRM-System per Newsletter über neue Objekte informieren?"
+        ],
+        [
+          "**Antwort:** E-Mail-Newsletter mit neuen Objektangeboten.",
+          "**Antwort:** Nur mit ihrer vorherigen ausdrücklichen Einwilligung, die Ravelin nachweisen kann (z. B. per Double-Opt-in). Eine bloße Registrierung oder Anfrage genügt nicht; die Ausnahme für Kund:innen gilt nur unter engen Voraussetzungen."
+        ],
+        [
+          "**Frage:** Ravelin möchte bestehende, bereits registrierte Interessent:innen gezielt über ein neu eingestelltes Objekt informieren. Ist ein Immobilienportal oder ein CRM-gestützter Newsletter das passendere Instrument?",
+          "**Frage:** Ravelin möchte bestehende Interessent:innen, die ausdrücklich in den Newsletter-Versand eingewilligt haben, gezielt über ein neu eingestelltes Objekt informieren. Ist ein Immobilienportal oder ein CRM-gestützter Newsletter das passendere Instrument?"
+        ],
+        [
+          "Für die gezielte Ansprache bereits bekannter Interessent:innen ist das CRM-System mit Newsletter-Funktion das passende Instrument, während Portale eher neue, noch unbekannte Suchende erreichen.",
+          "Für die gezielte Ansprache bereits bekannter Interessent:innen, die eingewilligt haben, ist das CRM-System mit Newsletter-Funktion das passende Instrument, während Portale eher neue, noch unbekannte Suchende erreichen. Ohne vorherige ausdrückliche Einwilligung wäre der Versand unzulässige Werbung."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: E-Mail-Newsletter mit neuen Objektangeboten aktivieren bestehende Interessent:innen aus dem CRM erneut.",
+          "Erwartung: E-Mail-Newsletter mit neuen Objektangeboten sprechen Interessent:innen aus dem CRM gezielt an, sind aber nur mit deren vorheriger ausdrücklicher Einwilligung zulässig (Nachweis, Widerrufsmöglichkeit)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.1-maklerrecht-maklertaetigkeit.md",
+      "paare": [
+        [
+          "entfällt der Provisionsanspruch mangels Kausalität.",
+          "entfällt der Provisionsanspruch mangels Kausalität (zu Vorkenntnis, Verflechtung und Aufwendungsersatz siehe den Abschnitt „Provisionsanspruch im Detail: Ursächlichkeit, Vorkenntnis, Verflechtung und Aufwendungsersatz“ weiter unten)."
+        ],
+        [
+          "um spätere Provisionsstreitigkeiten zu vermeiden.",
+          "um spätere Provisionsstreitigkeiten (Näheres zu Auftragsarten, Reservierung und Widerrufsrecht von Verbraucher:innen in den Abschnitten „Auftragsarten: einfacher Auftrag, Alleinauftrag und qualifizierter Alleinauftrag“ bis „Widerruf des Maklervertrags bei Fernabsatz und Vertragsschluss außerhalb von Geschäftsräumen“ weiter unten) zu vermeiden."
+        ],
+        [
+          "was die Gerichte nur in engen Grenzen annehmen.",
+          "was die Gerichte nur in engen Grenzen annehmen (Voraussetzungen im Abschnitt „Verwirkung und Verjährung des Provisionsanspruchs“ weiter oben)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+      "paare": [
+        [
+          "bevor der eigentliche **notarielle Kaufvertrag** vorbereitet wird",
+          "bevor der eigentliche **notarielle Kaufvertrag** (zu den Grenzen von Reservierungsgebühren siehe Thema 6.1 Maklerrecht und Maklertätigkeit im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit) vorbereitet wird"
+        ],
+        [
+          "ältere Rechte haben Vorrang (§ 879 BGB).",
+          "ältere Rechte haben Vorrang (§ 879 BGB; zu den Rechten und zu ihrem Schicksal in einer Zwangsversteigerung siehe Thema 1.5 „Grundstücksrechte: Erbbaurecht, Dienstbarkeiten, Vorkaufsrechte und Zwangsversteigerung“ im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.3-berufsbild-standesregeln.md",
+      "paare": [
+        [
+          "(es kann erlöschen, wenn die Maklerleistung nach ausdrücklicher Zustimmung der Kundschaft vollständig erbracht ist)",
+          "(es erlischt vorzeitig nur unter engen Voraussetzungen, insbesondere nach ordnungsgemäßer Belehrung samt Muster-Formular sowie vollständiger Leistung bei ausdrücklicher Zustimmung und bestätigter Kenntnis der Kundschaft; ohne ordnungsgemäße Belehrung beginnt die 14-tägige Frist nicht; Einzelheiten im Thema 6.1 Maklerrecht und Maklertätigkeit im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit)"
+        ],
+        [
+          "Typische Tätigkeitsfelder sind Hausverwaltung",
+          "Zur Prüfung wird nach der Prüfungsverordnung zugelassen, wer eine Abschlussprüfung in einem dreijährigen Ausbildungsberuf der Immobilienwirtschaft und danach mindestens ein Jahr Berufspraxis nachweist; bei einem anderen anerkannten kaufmännischen oder verwaltenden dreijährigen Ausbildungsberuf sind es mindestens zwei Jahre, bei einem anderen Ausbildungsberuf mindestens drei Jahre und ohne Berufsausbildung mindestens fünf Jahre Berufspraxis. Die Berufspraxis muss wesentliche Bezüge zu den Aufgaben des Berufsbilds haben, und die zuständige Stelle kann auch zulassen, wer seine berufliche Handlungsfähigkeit auf andere Weise glaubhaft macht (§ 2 ImmoFachwPrV, Stand Oktober 2026, vor Verwendung prüfen). Die typischen Tätigkeitsfelder des Berufsbilds sind Hausverwaltung"
+        ],
+        [
+          "Die Fortbildungsprüfung selbst gliedert sich in mehrere Handlungsbereiche; § 4 der ImmoFachwPrV behandelt dabei den Handlungsbereich „Rahmenbedingungen der Immobilienwirtschaft\", während weitere Handlungsbereiche u. a. Immobilienvermarktung, -verwaltung und -finanzierung betreffen.",
+          "Die Fortbildungsprüfung gliedert sich nach der Prüfungsverordnung in sechs Handlungsbereiche: Rahmenbedingungen der Immobilienwirtschaft (dazu gehört dieses Fachgebiet), Unternehmenssteuerung und Kontrolle, Personal, Arbeitsorganisation und Qualifizierung, Immobilienbewirtschaftung, Bauprojektmanagement sowie Marktorientierung und Vertrieb, Maklertätigkeit (§ 3 Abs. 1 und § 4 ImmoFachwPrV). Schriftlich sind anwendungsbezogene Aufgaben zu bearbeiten, in der Regel 60 Minuten im ersten, 90 Minuten im zweiten und je 120 Minuten in den übrigen Handlungsbereichen; die Gesamtprüfungszeit soll zwischen 600 und 660 Minuten liegen. Mündlich folgen eine Präsentation zu einem selbst gewählten Thema (höchstens zehn Minuten) und ein Fachgespräch (in der Regel höchstens 20 Minuten), das doppelt gewichtet wird; dieser Teil findet nur statt, wenn die schriftlichen Leistungen mindestens ausreichend sind. Wer die Prüfung besteht, erlangt den Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin; das Berufsbildungsgesetz sieht für Abschlüsse der zweiten beruflichen Fortbildungsstufe die Bezeichnung „Bachelor Professional in“ vor, und wie sie beim Immobilienfachwirt geführt wird, richtet sich nach der für die Prüfung maßgeblichen Fortbildungsregelung (Verordnung oder Prüfungsordnung der zuständigen Stelle; Stand Oktober 2026, vor Verwendung prüfen)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/fallaufgaben.md",
+      "paare": [
+        [
+          "bei vorsätzlichem oder grob fahrlässigem Verschweigen",
+          "bei vorsätzlichem oder grob leichtfertigem Verschweigen"
+        ],
+        [
+          "(ein Vorkaufsrecht der Gemeinde besteht beim Kauf von Wohnungseigentum nicht)",
+          "(ein gemeindliches Vorkaufsrecht besteht beim Kauf von Wohnungseigentum nicht; Thema 5.3 Baurecht Grundzüge im Fachgebiet Bauprojektmanagement)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "Bevor die Maklerabteilung von Ravelin ein Objekt vermarktet, prüft sie den aktuellen Grundbuchauszug auf bestehende Belastungen.",
+          "Bevor die Maklerabteilung von Ravelin ein Objekt vermarktet, prüft sie den aktuellen Grundbuchauszug auf bestehende Belastungen (zu Erbbaurecht, Dienstbarkeiten, Wohnungsrecht, Nießbrauch, Reallast, Vorkaufsrechten und zur Zwangsversteigerung siehe Thema 1.5 „Grundstücksrechte: Erbbaurecht, Dienstbarkeiten, Vorkaufsrechte und Zwangsversteigerung“ im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.1-projektentwicklung.md",
+      "paare": [
+        [
+          "beim zuständigen Altlastenkataster, Klärung der",
+          "beim zuständigen Altlastenkataster, Auskunft aus dem Baulastenverzeichnis der Bauaufsichtsbehörde, soweit das Landesrecht Baulasten kennt (Thema 5.3 Baurecht Grundzüge im Fachgebiet Bauprojektmanagement), Klärung der"
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.2-bauplanung-durchfuehrung.md",
+      "paare": [
+        [
+          "nicht an das strenge öffentliche Vergaberecht gebunden, orientiert sich aber",
+          "nicht an das strenge öffentliche Vergaberecht gebunden (wann es gilt und welche Wertgrenzen die VOB/A nennt, zeigen die folgenden Abschnitte), orientiert sich aber"
+        ],
+        [
+          "bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde. Mit der Abnahme beginnt regelmäßig",
+          "bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde. Die Erklärung gibt Ravelin als Bestellerin ab; die externe Bauleitung erklärt die Abnahme nur mit Vollmacht, die Ravelin vorab ausdrücklich regeln sollte (nach verbreiteter Praxis wird sie nicht ohne Weiteres angenommen). Mit der Abnahme beginnt regelmäßig"
+        ],
+        [
+          "Die Formen der Abnahme, die Mängelrechte, die Verjährung im Vergleich und die Sicherheiten erklärt Thema 5.5",
+          "Die Formen der Abnahme, die Verweigerung wegen wesentlicher Mängel, den Vorbehalt bekannter Mängel, die Mängelrechte, die Verjährung im Vergleich und die Sicherheiten erklärt Thema 5.5"
+        ],
+        [
+          "**Antwort:** Der Auftraggeber bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.",
+          "**Antwort:** Der Auftraggeber bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde; Verweigerung, Vorbehalt bekannter Mängel und weitere Folgen erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+        ],
+        [
+          "**Antwort:** Die Gewährleistungsfrist (Verjährungsfrist für Mängelansprüche).",
+          "**Antwort:** Die Gewährleistungsfrist (Verjährungsfrist für Mängelansprüche); weitere Folgen der Abnahme erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+        ],
+        [
+          "**Erklärung:** Mit der Abnahme beginnt die Verjährungsfrist für Mängelansprüche zu laufen.",
+          "**Erklärung:** Mit der Abnahme beginnt die Verjährungsfrist für Mängelansprüche zu laufen; weitere Folgen (Fälligkeit der Vergütung, Gefahrübergang, Beweislast) und die Rolle des Vorbehalts bekannter Mängel erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.",
+          "Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde; er erklärt sie selbst oder durch eine bevollmächtigte Person, und er darf sie wegen unwesentlicher Mängel nicht, wegen wesentlicher Mängel aber verweigern."
+        ],
+        [
+          "Erwartung: Werden bei der Abnahme oder danach Mängel festgestellt, werden diese systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt.",
+          "Erwartung: Bekannte Mängel behält sich der Auftraggeber bei der Abnahme vor, am besten im Protokoll (Einzelheiten: Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement); festgestellte Mängel werden systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/fallaufgaben.md",
+      "paare": [
+        [
+          "Analysieren Sie anhand der beiden im Nachtragsmanagement üblichen Prüfdimensionen, ob die geforderte Nachtragsvergütung des Rohbauunternehmens grundsätzlich gerechtfertigt sein könnte.",
+          "Prüfen Sie anhand der beiden im Nachtragsmanagement üblichen Prüfdimensionen, ob die geforderte Nachtragsvergütung des Rohbauunternehmens grundsätzlich gerechtfertigt sein könnte, und erläutern Sie, was das Unternehmen tun muss, damit die verlangte Verlängerung der Rohbauzeit um drei Wochen berücksichtigt wird, wie sich die Frist dann verlängert und was für die zusätzlich nötigen Leistungen und mögliche Ersatzansprüche gilt (Sachverhaltsvereinfachung: Die VOB/B ist vereinbart; die Bodenverhältnisse fallen nach der Leistungsbeschreibung in den Risikobereich von Ravelin)."
+        ],
+        [
+          "Teilaufgabe 1: Prüfung dem Grund nach (unvorhergesehene Baugrundverhältnisse sind typischerweise nicht von der ursprünglichen Leistungsbeschreibung umfasst und können einen Nachtrag rechtfertigen) und der Höhe nach (Angemessenheit der geforderten zusätzlichen Vergütung, z. B. anhand der ursprünglichen Kalkulationsgrundlagen).",
+          "Teilaufgabe 1 (Punkteraster: Grund 1 Punkt, Höhe 1 Punkt, Behinderungsanzeige 1 Punkt, Fristverlängerung 1 Punkt, Ankündigung und Ersatzansprüche 1 Punkt; Stand Oktober 2026, vor Verwendung prüfen): Dem Grunde nach sind unvorhergesehene Baugrundverhältnisse typischerweise nicht von der ursprünglichen Leistungsbeschreibung umfasst und können einen Nachtrag rechtfertigen; der Höhe nach ist die Angemessenheit der geforderten zusätzlichen Vergütung zu prüfen, z. B. anhand der ursprünglichen Kalkulationsgrundlagen. Bei vereinbarter VOB/B muss das Unternehmen die Behinderung unverzüglich schriftlich anzeigen; unterlässt es das, werden die hindernden Umstände nur berücksichtigt, wenn Ravelin Tatsache und hindernde Wirkung offenkundig bekannt waren. Die Ausführungsfrist verlängert sich, soweit die Behinderung aus dem Risikobereich von Ravelin stammt, nach der Dauer der Behinderung zuzüglich eines Zuschlags für die Wiederaufnahme der Arbeiten und eine mögliche Verschiebung in eine ungünstigere Jahreszeit; die verlangten drei Wochen sind deshalb zu prüfen (Bautagebuch, Bauzeitenplan, kritischer Pfad) und nicht ohne Weiteres zu gewähren. Für nicht vorgesehene Leistungen muss das Unternehmen den Anspruch auf besondere Vergütung vor der Ausführung ankündigen. Schadensersatz setzt voraus, dass eine Seite die hindernden Umstände zu vertreten hat; eine Entschädigung wegen unterlassener Mitwirkung bleibt nur bei Anzeige oder Offenkundigkeit erhalten. Ohne VOB/B kennt das Gesetz keine förmliche Behinderungsanzeige; die schriftliche Anzeige bleibt zur Beweissicherung zu empfehlen."
+        ],
+        [
+          "Beschreiben Sie das Vorgehen, das Ravelin nach Feststellung der Dachmängel bei der Abnahme im Rahmen des Mängelmanagements einleiten sollte.",
+          "Beschreiben Sie das Vorgehen, das Ravelin nach der Feststellung der Dachmängel bei der Abnahmebegehung einleiten sollte, und gehen Sie darauf ein, wer über die Abnahme entscheidet, ob Ravelin sie verweigern darf und wie Ravelin ihre Rechte wegen der Mängel wahrt (Sachverhaltsvereinfachung: Die undichten Stellen sind wesentliche Mängel, die Dachdeckerarbeiten sind im Übrigen fertiggestellt, die VOB/B ist nicht vereinbart)."
+        ],
+        [
+          "bei der Abnahme der Dachdeckerarbeiten durch die externe Bauleitung mehrere undichte Stellen",
+          "bei der Abnahmebegehung der Dachdeckerarbeiten, die die externe Bauleitung für Ravelin durchführt, mehrere undichte Stellen"
+        ],
+        [
+          "Teilaufgabe 3: systematische Dokumentation der Mängel, Fristsetzung zur Nacherfüllung gegenüber dem Dachdeckerunternehmen, Nachverfolgung der Mängelbeseitigung, ggf. erneute Prüfung vor endgültiger Abnahme.",
+          "Teilaufgabe 3 (Punkteraster: Abnahme erklärt Ravelin, Bauleitung nur mit Vollmacht 1 Punkt, Verweigerung wegen wesentlicher Mängel unter Angabe der Mängel 1 Punkt, Dokumentation und Zustandsfeststellung 1 Punkt, Frist zur Beseitigung und Nachverfolgung 1 Punkt, Vorbehalt bei der Abnahme trotz bekannter Mängel 1 Punkt; Stand Oktober 2026, vor Verwendung prüfen): Die Abnahme erklärt Ravelin als Bestellerin; die externe Bauleitung bereitet die Begehung vor und dokumentiert, erklärt die Abnahme aber nur mit Vollmacht, die Ravelin vorab ausdrücklich und schriftlich regeln sollte (nach verbreiteter Praxis wird sie nicht ohne Weiteres angenommen). Wegen wesentlicher Mängel darf Ravelin die Abnahme verweigern, wegen unwesentlicher nicht; sie verweigert unter Angabe der Mängel (sonst droht nach einer Fristsetzung des Unternehmens die Abnahmefiktion) und wirkt auf Verlangen an einer gemeinsamen Zustandsfeststellung mit. Die Mängel werden mit Beschreibung, Ort und Fotos im Protokoll dokumentiert und dem Dachdeckerunternehmen mit einer angemessenen Frist zur Beseitigung gemeldet; die Nachverfolgung und eine erneute Begehung vor der Abnahme folgen. Bis zur Abnahme ist die Vergütung nicht fällig, Abschläge darf Ravelin um einen angemessenen Teil kürzen (in der Regel das Doppelte der Beseitigungskosten). Nimmt Ravelin trotz bekannter Mängel ab, muss sie sich ihre Rechte bei der Abnahme vorbehalten, am besten im Protokoll; ohne Vorbehalt gingen Nacherfüllung, Selbstvornahme, Rücktritt und Minderung verloren. Nach der Abnahme gelten die Mängelrechte: Nacherfüllung, nach erfolglosem Fristablauf Selbstvornahme mit Vorschuss, Rücktritt oder Minderung (Einzelheiten: Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.4-nachhaltigkeit-esg.md",
+      "paare": [
+        [
+          "etwa Vorgaben zu erneuerbaren Energien bei neuen Heizungsanlagen",
+          "etwa Dämmpflichten im Bestand, Regeln für den Heizungstausch und Energieausweise (Einzelheiten im Abschnitt „Gebäudemodernisierungsgesetz: Aufbau, Pflichten im Bestand und Bußgelder“ weiter unten)"
+        ],
+        [
+          "Gebäudeenergiegesetz — die zentrale deutsche Rechtsgrundlage für energetische Anforderungen an Gebäude.",
+          "Gebäudeenergiegesetz — die zentrale deutsche Rechtsgrundlage für energetische Anforderungen an Gebäude (seit Juli 2026 amtlich Gebäudemodernisierungsgesetz, GModG)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.4-betriebskostenabrechnung.md",
+      "paare": [
+        [
+          "ist in Wohngebäuden außerdem der CO2-Kostenanteil nach dem Kohlendioxidkostenaufteilungsgesetz nach einem Stufenmodell zwischen Vermieter und Mieter aufzuteilen und in der Abrechnung auszuweisen; fehlt die Angabe, gilt ebenfalls ein Kürzungsrecht von 3 %.",
+          "ist in Wohngebäuden außerdem der CO2-Kostenanteil nach einem Stufenmodell zwischen Vermieter und Mieter aufzuteilen und in der Abrechnung auszuweisen; fehlt die Angabe, gilt ebenfalls ein Kürzungsrecht von 3 % (Stufen, Nichtwohngebäude, Entlastungen, die Sonderregel für neue Gas-, Öl- und Flüssiggasheizungen (hälftige Teilung ab 2028) und den Rechenweg erklärt Thema 1.4 „Nachhaltigkeit und ESG in der Immobilienwirtschaft“ im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft)."
+        ],
+        [
+          "bei Mietobjekten gilt, wenn der Mietvertrag nichts anderes vorsieht, die Wohnfläche als gesetzlicher Standardmaßstab.",
+          "bei Wohnraummietverhältnissen gilt, wenn der Mietvertrag nichts anderes vorsieht, die Wohnfläche als gesetzlicher Standardmaßstab; maßgeblich ist im Allgemeinen die tatsächliche Wohnfläche, nicht die im Vertrag angegebene (Berechnung und Rechtsprechung stehen im Abschnitt „Wohnfläche und ihre Berechnung“ von Thema 4.1 „Mietverwaltung“), und bei Geschäftsräumen gilt der gesetzliche Standardmaßstab nicht: Die Umlage von Betriebskosten ist zu vereinbaren, und der Maßstab richtet sich nach der Vereinbarung."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fachgespraech.md",
+      "paare": [
+        [
+          "Dazu gehören etwa Vorgaben zu erneuerbaren Energien bei neuen Heizungsanlagen.",
+          "Dazu gehören etwa Dämmpflichten im Bestand, die Regeln beim Heizungstausch (bei neuen Gas-, Öl- oder Flüssiggasheizungen ein steigender Anteil klimaneutraler Brennstoffe) und der Energieausweis."
+        ],
+        [
+          "Die Fortbildungsprüfung gliedert sich in mehrere Handlungsbereiche, u. a. Immobilienvermarktung, -verwaltung und -finanzierung.",
+          "Die Prüfung umfasst nach der Prüfungsverordnung sechs Handlungsbereiche, darunter Rahmenbedingungen der Immobilienwirtschaft, Unternehmenssteuerung und Kontrolle, Immobilienbewirtschaftung, Bauprojektmanagement sowie Marktorientierung und Vertrieb, Maklertätigkeit."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.1-mietverwaltung.md",
+      "paare": [
+        [
+          "bei Gewerbeobjekten häufig geprüftes Detail.",
+          "bei Gewerbeobjekten häufig geprüftes Detail; weitere Besonderheiten der Gewerberaummiete (Kündigungsfristen, Konkurrenzschutz, Wertsicherung, Betriebskosten, Schönheitsreparaturen) stehen im Abschnitt „Gewerberaummiete im Überblick: Gesetzesrahmen, Formularverträge und Beendigung“, die Wohnflächenberechnung im Abschnitt „Wohnfläche und ihre Berechnung“ weiter unten."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Bei der Gewerberaummiete gilt weitgehende Vertragsfreiheit, der besondere Kündigungsschutz des Wohnraummietrechts findet keine Anwendung.",
+          "Erwartung: Bei der Gewerberaummiete gilt weitgehende Vertragsfreiheit, der besondere Kündigungsschutz des Wohnraummietrechts findet keine Anwendung; es gelten die gesetzlichen Kündigungsfristen für Geschäftsräume nach Kalendervierteljahren, und vom Vermieter gestellte Formularklauseln bleiben der Inhaltskontrolle unterworfen (Näheres im Abschnitt „Gewerberaummiete im Überblick“ von Thema 4.1)."
+        ],
+        [
+          "Erwartung: Wartung bewahrt den Sollzustand, z. B. durch regelmäßige Heizungswartung.",
+          "Erwartung: Wartung verzögert den Abbau des Abnutzungsvorrats, also den Verschleiß, z. B. durch regelmäßige Heizungswartung."
+        ],
+        [
+          "Rückfrage: Wie wird die angemessene Höhe der Erhaltungsrücklage in der Praxis häufig geschätzt, und was berücksichtigt die Peters'sche Formel?",
+          "Erwartung: Die angemessene Höhe der Rücklage lässt sich in der Praxis grob nach Faustregeln wie der Peters'schen Formel schätzen, die von den Herstellungskosten des Gebäudes ausgeht (1,5-Faches über rund 80 Jahre, davon der Anteil des Gemeinschaftseigentums).\n  - Rückfrage: Wie lässt sich die angemessene Höhe der Erhaltungsrücklage in der Praxis grob schätzen, und von welchen Größen geht die Peters'sche Formel aus?"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fallaufgaben.md",
+      "paare": [
+        [
+          "sein Vermögen so besser verteilen. Zeitgleich erwägt",
+          "sein Vermögen so besser verteilen. Die Wohnungen sind seit Jahren an Privathaushalte vermietet; Ravelin verwaltet das Haus für ihn. Zeitgleich erwägt"
+        ],
+        [
+          "**Teilaufgabe 1 (6 Punkte, bloom: bewerten):** Erläutern Sie, welcher rechtliche Schritt notwendig ist, damit der Eigentümer die Wohnungen einzeln verkaufen kann, und bewerten Sie, welche Vor- und Nachteile diese Umwandlung für ihn gegenüber dem bisherigen Alleineigentum mit sich bringt.",
+          "**Rechtsannahmen des Falls (Stand Oktober 2026, vor Verwendung prüfen).** *Sachverhaltsvereinfachung:* Die acht Wohnungen sind unbefristet vermietet und den Mieter:innen längst überlassen. Der Eigentümer teilt das Haus auf und verkauft danach jede Wohnung an eine andere Käufer:in, die weder zu seiner Familie noch zu seinem Haushalt gehört und nicht gemeinsam mit anderen erwirbt. Das Haus liegt in keinem Gebiet, für das die Landesregierung einen Genehmigungsvorbehalt für die Aufteilung oder eine verlängerte Kündigungssperrfrist bestimmt hat. Das Wohnungseigentum gilt für den Fall als begründet, sobald das Grundbuchamt die Wohnungsgrundbücher angelegt hat (verbreitete Auffassung, Thema 1.1). Alle Angaben sind Beispielwerte.\n\n**Teilaufgabe 1 (6 Punkte, bloom: bewerten):** Erläutern Sie in zwei bis drei Sätzen, wie der Eigentümer Wohnungseigentum begründet, damit er die Wohnungen einzeln verkaufen kann; bewerten Sie, welche Vor- und Nachteile diese Umwandlung für ihn gegenüber dem bisherigen Alleineigentum mit sich bringt, und beurteilen Sie, welche Rechte die Mieter:innen beim Einzelverkauf haben."
+        ],
+        [
+          "Nennen Sie zwei Angaben, die in der für die Umwandlung erforderlichen Teilungserklärung bzw. im Grundbuch festgehalten werden müssen, und erläutern Sie deren Bedeutung für künftige Käufer.",
+          "Nennen Sie zwei Angaben, die in der für die Umwandlung erforderlichen Teilungserklärung bzw. im Grundbuch festgehalten werden müssen, und erläutern Sie deren Bedeutung für künftige Käufer:innen; nennen Sie außerdem die beiden Unterlagen der Baubehörde, die dem Grundbuchamt vorliegen müssen, sowie den Inhalt der Bescheinigung, und beschreiben Sie, wie das Grundbuch nach der Aufteilung geführt wird."
+        ],
+        [
+          "Teilaufgabe 1: Umwandlung in Wohnungseigentum per Teilungserklärung nach WEG; Vorteil höherer Gesamterlös durch Einzelverkauf und bessere Diversifikation des Vermögens, Nachteil höherer Aufwand (Notar, Teilung, ggf. längere Vermarktungsdauer, künftige WEG-Verwaltung nötig).",
+          "Teilaufgabe 1 (Punkteraster: Weg 1 Punkt, Vorteil 1 Punkt, Nachteil 1 Punkt, Vorkaufsrecht 2 Punkte, Kündigungssperrfrist 1 Punkt): Der Eigentümer ist allein Eigentümer und erklärt deshalb gegenüber dem Grundbuchamt, das Grundstück in Miteigentumsanteile aufzuteilen, die je mit dem Sondereigentum an einer Wohnung verbunden sind (Teilung durch den Eigentümer, Teilungserklärung nach WEG); ein Teilungsvertrag, der mehrere Miteigentümer:innen voraussetzt, entfällt. Das Wohnungseigentum besteht nach der Festlegung des Falls mit der Anlegung der Wohnungsgrundbücher (verbreitete Auffassung, so auch die ältere BGH-Rechtsprechung, Thema 1.1). Vorteil: höherer Gesamterlös durch Einzelverkauf und bessere Diversifikation des Vermögens; Nachteil: höherer Aufwand (Notar, Aufteilungsplan und Abgeschlossenheitsbescheinigung, gegebenenfalls längere Vermarktungsdauer, künftige WEG-Verwaltung nötig); der Mieterschutz wird gesondert gewertet. Vorkaufsrecht (2 Punkte: Voraussetzung und Ausnahme 1 Punkt, Ausübung und Wirkung 1 Punkt): Die Wohnungen sind vermietet und überlassen, danach wird aufgeteilt und verkauft. Verkauft der Eigentümer eine Wohnung an Dritte, haben die Mieter:innen ein Vorkaufsrecht; das gilt nicht beim Verkauf an Familien- oder Haushaltsangehörige des Vermieters. Die Mieter:innen erklären die Ausübung schriftlich binnen zwei Monaten nach der Mitteilung über den Vertragsinhalt, die zugleich über das Vorkaufsrecht unterrichten muss; der Kaufvertrag kommt dann zwischen Mieter:in und Eigentümer zu den mit den Dritten vereinbarten Bedingungen zustande. Kündigungssperrfrist (1 Punkt): Auf Eigenbedarf oder Verwertung dürfen sich die Käufer:innen erst drei Jahre nach der Veräußerung stützen (nach Thema 1.1 beginnt die Frist mit der Eintragung im Grundbuch); für Gebiete mit besonders gefährdeter Wohnungsversorgung dürfen die Landesregierungen bis zu zehn Jahre festlegen, was nach den Annahmen des Falls nicht gilt. Kündigungen aus anderen Gründen, etwa wegen schwerer Vertragsverletzungen, bleiben möglich. Theorie: Thema 1.1 „Rechtliche Rahmenbedingungen“ im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft, Abschnitte „Wege zur Begründung von Wohnungseigentum“ und „Umwandlung vermieteter Häuser: Mieterschutz“."
+        ],
+        [
+          "Teilaufgabe 2: z. B. Aufteilung in Sondereigentum/Miteigentumsanteile sowie Abgrenzung des Gemeinschaftseigentums — wichtig für Käufer zur Einschätzung ihrer Rechte und Pflichten.",
+          "Teilaufgabe 2 (Punkteraster: Angaben 1 Punkt, Bedeutung für Käufer:innen 1 Punkt, beide Unterlagen 1 Punkt, Inhalt der Bescheinigung 1 Punkt, Wohnungsgrundbuch 1 Punkt): Angaben sind z. B. die Aufteilung in Miteigentumsanteile (meist in Tausendsteln) mit dem jeweils verbundenen Sondereigentum und die Abgrenzung des Gemeinschaftseigentums. Bedeutung: Käufer:innen erkennen, was ihnen allein gehört und was gemeinschaftlich ist, und können ihre Rechte und Pflichten einschätzen; nach der gesetzlichen Grundregel tragen sie die Kosten der Gemeinschaft nach ihrem Miteigentumsanteil, soweit nichts anderes vereinbart oder beschlossen ist. Dem Grundbuchamt müssen der Aufteilungsplan und die Abgeschlossenheitsbescheinigung der Baubehörde vorliegen; die Bescheinigung bestätigt, dass jede Wohnung baulich in sich abgeschlossen ist, also einen eigenen abschließbaren Zugang hat (Einzelheiten und Beispiele: Fallaufgabe F-HB1-04 und Thema 1.1 „Rechtliche Rahmenbedingungen“ im Fachgebiet Rahmenbedingungen der Immobilienwirtschaft, Abschnitt „Wege zur Begründung von Wohnungseigentum“). Das Grundbuchamt legt von Amts wegen für jeden Miteigentumsanteil ein eigenes Blatt an (Wohnungsgrundbuch) und schließt das Grundstücksblatt."
+        ],
+        [
+          "Aufbauaufwand ohne bestehende Marktkenntnis vor Ort.",
+          "Aufbauaufwand, weil die Marktkenntnis vor Ort fehlt.\nFolgefehler: Die Teilaufgaben 1 bis 4 sind voneinander unabhängig; ein Fehler in einer Teilaufgabe wird in den anderen nicht erneut bewertet."
+        ],
+        [
+          "Beurteilen Sie das Verhalten des neuen Mitarbeiters im Hinblick auf berufsständische Standesregeln und mögliche Konsequenzen einer irreführenden Vermarktungsaussage.",
+          "Beurteilen Sie das Verhalten des neuen Mitarbeiters im Hinblick auf berufsständische Standesregeln und auf das Wettbewerbsrecht (Annahme: Die Interessent:innen sind Verbraucher:innen) und nennen Sie zwei mögliche rechtliche Folgen für Ravelin."
+        ],
+        [
+          "Teilaufgabe 2: Verstoß gegen Wahrheitspflicht/Standesregeln, ggf. irreführende geschäftliche Handlung mit wettbewerbsrechtlichen und Reputationsrisiken; die Angabe sollte umgehend richtiggestellt werden.",
+          "Teilaufgabe 2 (Punkteraster: Standesverstoß 1 Punkt, unwahre Angabe über ein wesentliches Merkmal 1 Punkt, Eignung zur Beeinflussung der Entscheidung 1 Punkt, zwei Folgen je 1 Punkt): Der Mitarbeiter verstößt gegen die Wahrheitspflicht der Standesregeln; sie binden Ravelin als Verbandsmitglied über den Ehrenkodex, nicht als Gesetz. Nach dem Gesetz gegen den unlauteren Wettbewerb (UWG) ist eine geschäftliche Handlung unlauter, wenn sie irreführend ist: Sie enthält unwahre Angaben über wesentliche Merkmale der Ware (als Waren gelten auch Grundstücke), etwa über ihre Beschaffenheit, und ist geeignet, Verbraucher:innen zu einer geschäftlichen Entscheidung zu veranlassen, die sie sonst nicht getroffen hätten, zum Beispiel zu einer Besichtigung, einer Reservierung oder zum Kauf. Beides ist hier gegeben: Nur die Fenster sind erneuert, die Aussage lautet aber „vollständig energetisch saniert“, und der energetische Zustand ist für Besichtigungs- und Kaufentscheidungen wesentlich. Mögliche Folgen für Ravelin (zwei genügen): Mitbewerbende und qualifizierte Verbände, auch Verbraucherverbände, können Beseitigung und bei Wiederholungsgefahr Unterlassung verlangen, und zwar auch gegen Ravelin als Unternehmensinhaberin, weil der Mitarbeiter in ihrem Unternehmen gehandelt hat; vorher mahnen sie in der Regel ab und verlangen eine strafbewehrte Unterlassungserklärung, gegebenenfalls mit Ersatz der Abmahnkosten; hinzu kommt der Reputationsschaden. Daneben können bei Vorsatz oder Fahrlässigkeit Schadensersatzansprüche von Mitbewerbenden und von Verbraucher:innen bestehen, die wegen der Angabe eine Entscheidung getroffen haben; sie richten sich zunächst gegen die handelnde Person, und ob Ravelin dafür einzustehen hat, folgt aus den allgemeinen Haftungsregeln. Die Angabe sollte umgehend gegenüber den Interessent:innen richtiggestellt und in den Vermarktungsunterlagen korrigiert werden. Vertiefung: Thema 6.2 „Marketing für Immobilien“ im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit, Abschnitte „Irreführende Anzeigen und Exposés“ und „Abmahnung, Unterlassung und Folgen“ (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4)",
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.5)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.3-instandhaltung-facility-management.md",
+      "paare": [
+        [
+          "Die Norm **DIN 31051** unterscheidet vier Grundmaßnahmen der Instandhaltung: **Wartung** (Maßnahmen zur Bewahrung des Sollzustands, z. B. regelmäßige Heizungswartung)",
+          "Die Norm **DIN 31051** (Begriffe sinngemäß nach der Fachliteratur wiedergegeben; Stand Oktober 2026, vor Verwendung prüfen) unterscheidet vier Grundmaßnahmen der Instandhaltung: **Wartung** (Maßnahmen zur Verzögerung des Abbaus des Abnutzungsvorrats, also zur Verlangsamung des Verschleißes, z. B. regelmäßige Heizungswartung)"
+        ],
+        [
+          "geschätzt, die Baujahr, Herstellungskosten und Nutzungsdauer des Gebäudes berücksichtigt; sie gehört",
+          "geschätzt. Die **Peters'sche Formel** geht von den Herstellungskosten des Gebäudes ohne Grundstück aus: Über eine Nutzungsdauer von rund 80 Jahren sollen die Instandhaltungskosten das 1,5-Fache der Herstellungskosten betragen, davon je nach Ausstattung rund 65 bis 70 % am Gemeinschaftseigentum. Der jährliche Rücklagenbedarf je m² Wohnfläche ist dann Herstellungskosten je m² Wohnfläche × 1,5 ÷ 80 × Anteil des Gemeinschaftseigentums; bei frei gewählten 2.000 € je m² Wohnfläche und 70 % sind das 2.000 € × 1,5 ÷ 80 × 0,70 = 26,25 € je m² und Jahr. Die Formel ist eine Faustregel aus der Fachliteratur der Verwalterpraxis ohne gesetzliche Grundlage; sie kennt weder den tatsächlichen Zustand des Gebäudes noch bereits ausgeführte Sanierungen, die Herstellungskosten sind der Verwaltung oft nicht bekannt, und sie ersetzt den Instandhaltungsplan nicht (Stand Oktober 2026, vor Verwendung prüfen). Die Erhaltungsrücklage gehört"
+        ],
+        [
+          "Maßnahmen zur Bewahrung des Sollzustands einer Anlage, z. B. die regelmäßige Heizungswartung.",
+          "Maßnahmen zur Verzögerung des Abbaus des Abnutzungsvorrats einer Anlage, also zur Verlangsamung des Verschleißes, z. B. die regelmäßige Heizungswartung."
+        ],
+        [
+          "- Wartung ↔ Bewahrung des Sollzustands",
+          "- Wartung ↔ Verzögerung des Abbaus des Abnutzungsvorrats (Verschleiß verlangsamen)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.3-controlling-kennzahlen.md",
+      "paare": [
+        [
+          "(siehe „Liquiditätsplanung in der Hausverwaltung“). Die **Eigenkapitalquote**",
+          "(siehe „Liquiditätsplanung in der Hausverwaltung“). Ab welchen Werten ein Liquiditätsgrad als ausreichend gilt, nennt der Abschnitt „Orientierungswerte für die Liquiditätsgrade“ nach dem Rechenbeispiel. Die **Eigenkapitalquote**"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb6/6.2-marketing-fuer-immobilien.md",
+    "hb6/fachgespraech.md",
+    "hb6/6.1-maklerrecht-maklertaetigkeit.md",
+    "hb6/6.4-vertriebsprozess-kundenbetreuung.md",
+    "hb1/1.3-berufsbild-standesregeln.md",
+    "hb6/fallaufgaben.md",
+    "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "hb5/5.1-projektentwicklung.md",
+    "hb5/5.2-bauplanung-durchfuehrung.md",
+    "hb5/fachgespraech.md",
+    "hb5/fallaufgaben.md",
+    "hb1/1.4-nachhaltigkeit-esg.md",
+    "hb4/4.4-betriebskostenabrechnung.md",
+    "hb1/fachgespraech.md",
+    "hb4/4.1-mietverwaltung.md",
+    "hb4/fachgespraech.md",
+    "hb1/fallaufgaben.md",
+    "hb4/4.3-instandhaltung-facility-management.md",
+    "hb2/2.3-controlling-kennzahlen.md",
+    "hb4/fallaufgaben.md",
+    "hb5/5.3-baurecht-grundzuege.md"
+  ]
+}

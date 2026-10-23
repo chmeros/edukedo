@@ -1,0 +1,36 @@
+[
+  {
+    "datei": "hb6/6.2-marketing-fuer-immobilien.md",
+    "paare": [
+      [
+        "E-Mail-Newsletter mit neuen Objektangeboten sind ein klassisches Instrument, um bestehende Interessent:innen aus dem CRM erneut zu aktivieren.",
+        "E-Mail-Newsletter mit neuen Objektangeboten sind ein klassisches Instrument, um Interessent:innen aus dem CRM erneut anzusprechen, setzen aber deren vorherige ausdrückliche Einwilligung voraus; Registrierung oder Anfrage genügen nicht (die Regeln zu Einwilligung, Telefon- und Briefwerbung stehen im Abschnitt „Werbung per E-Mail, Telefon und Post“; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Frage:** Welches Instrument reaktiviert bestehende Interessent:innen aus dem CRM-System gezielt?",
+        "**Frage:** Unter welcher Voraussetzung darf Ravelin Interessent:innen aus dem CRM-System per Newsletter über neue Objekte informieren?"
+      ],
+      [
+        "**Antwort:** E-Mail-Newsletter mit neuen Objektangeboten.",
+        "**Antwort:** Nur mit ihrer vorherigen ausdrücklichen Einwilligung, die Ravelin nachweisen kann (z. B. per Double-Opt-in). Eine bloße Registrierung oder Anfrage genügt nicht; die Ausnahme für Kund:innen gilt nur unter engen Voraussetzungen."
+      ],
+      [
+        "**Frage:** Ravelin möchte bestehende, bereits registrierte Interessent:innen gezielt über ein neu eingestelltes Objekt informieren. Ist ein Immobilienportal oder ein CRM-gestützter Newsletter das passendere Instrument?",
+        "**Frage:** Ravelin möchte bestehende Interessent:innen, die ausdrücklich in den Newsletter-Versand eingewilligt haben, gezielt über ein neu eingestelltes Objekt informieren. Ist ein Immobilienportal oder ein CRM-gestützter Newsletter das passendere Instrument?"
+      ],
+      [
+        "Für die gezielte Ansprache bereits bekannter Interessent:innen ist das CRM-System mit Newsletter-Funktion das passende Instrument, während Portale eher neue, noch unbekannte Suchende erreichen.",
+        "Für die gezielte Ansprache bereits bekannter Interessent:innen, die eingewilligt haben, ist das CRM-System mit Newsletter-Funktion das passende Instrument, während Portale eher neue, noch unbekannte Suchende erreichen. Ohne vorherige ausdrückliche Einwilligung wäre der Versand unzulässige Werbung."
+      ]
+    ]
+  },
+  {
+    "datei": "hb6/fachgespraech.md",
+    "paare": [
+      [
+        "Erwartung: E-Mail-Newsletter mit neuen Objektangeboten aktivieren bestehende Interessent:innen aus dem CRM erneut.",
+        "Erwartung: E-Mail-Newsletter mit neuen Objektangeboten sprechen Interessent:innen aus dem CRM gezielt an, sind aber nur mit deren vorheriger ausdrücklicher Einwilligung zulässig (Nachweis, Widerrufsmöglichkeit)."
+      ]
+    ]
+  }
+]

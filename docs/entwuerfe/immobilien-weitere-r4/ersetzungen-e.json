@@ -1,0 +1,69 @@
+[
+  {
+    "datei": "hb5/5.2-bauplanung-durchfuehrung.md",
+    "paare": [
+      [
+        "nicht an das strenge öffentliche Vergaberecht gebunden, orientiert sich aber",
+        "nicht an das strenge öffentliche Vergaberecht gebunden (wann es gilt und welche Wertgrenzen die VOB/A nennt, zeigen die folgenden Abschnitte), orientiert sich aber"
+      ],
+      [
+        "bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde. Mit der Abnahme beginnt regelmäßig",
+        "bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde. Die Erklärung gibt Ravelin als Bestellerin ab; die externe Bauleitung erklärt die Abnahme nur mit Vollmacht, die Ravelin vorab ausdrücklich regeln sollte (nach verbreiteter Praxis wird sie nicht ohne Weiteres angenommen). Mit der Abnahme beginnt regelmäßig"
+      ],
+      [
+        "Die Formen der Abnahme, die Mängelrechte, die Verjährung im Vergleich und die Sicherheiten erklärt Thema 5.5",
+        "Die Formen der Abnahme, die Verweigerung wegen wesentlicher Mängel, den Vorbehalt bekannter Mängel, die Mängelrechte, die Verjährung im Vergleich und die Sicherheiten erklärt Thema 5.5"
+      ],
+      [
+        "**Antwort:** Der Auftraggeber bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.",
+        "**Antwort:** Der Auftraggeber bestätigt gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde; Verweigerung, Vorbehalt bekannter Mängel und weitere Folgen erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+      ],
+      [
+        "**Antwort:** Die Gewährleistungsfrist (Verjährungsfrist für Mängelansprüche).",
+        "**Antwort:** Die Gewährleistungsfrist (Verjährungsfrist für Mängelansprüche); weitere Folgen der Abnahme erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+      ],
+      [
+        "**Erklärung:** Mit der Abnahme beginnt die Verjährungsfrist für Mängelansprüche zu laufen.",
+        "**Erklärung:** Mit der Abnahme beginnt die Verjährungsfrist für Mängelansprüche zu laufen; weitere Folgen (Fälligkeit der Vergütung, Gefahrübergang, Beweislast) und die Rolle des Vorbehalts bekannter Mängel erklärt Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/fachgespraech.md",
+    "paare": [
+      [
+        "Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.",
+        "Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde; er erklärt sie selbst oder durch eine bevollmächtigte Person, und er darf sie wegen unwesentlicher Mängel nicht, wegen wesentlicher Mängel aber verweigern."
+      ],
+      [
+        "Erwartung: Werden bei der Abnahme oder danach Mängel festgestellt, werden diese systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt.",
+        "Erwartung: Bekannte Mängel behält sich der Auftraggeber bei der Abnahme vor, am besten im Protokoll (Einzelheiten: Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement); festgestellte Mängel werden systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt."
+      ]
+    ]
+  },
+  {
+    "datei": "hb5/fallaufgaben.md",
+    "paare": [
+      [
+        "Analysieren Sie anhand der beiden im Nachtragsmanagement üblichen Prüfdimensionen, ob die geforderte Nachtragsvergütung des Rohbauunternehmens grundsätzlich gerechtfertigt sein könnte.",
+        "Prüfen Sie anhand der beiden im Nachtragsmanagement üblichen Prüfdimensionen, ob die geforderte Nachtragsvergütung des Rohbauunternehmens grundsätzlich gerechtfertigt sein könnte, und erläutern Sie, was das Unternehmen tun muss, damit die verlangte Verlängerung der Rohbauzeit um drei Wochen berücksichtigt wird, wie sich die Frist dann verlängert und was für die zusätzlich nötigen Leistungen und mögliche Ersatzansprüche gilt (Sachverhaltsvereinfachung: Die VOB/B ist vereinbart; die Bodenverhältnisse fallen nach der Leistungsbeschreibung in den Risikobereich von Ravelin)."
+      ],
+      [
+        "Teilaufgabe 1: Prüfung dem Grund nach (unvorhergesehene Baugrundverhältnisse sind typischerweise nicht von der ursprünglichen Leistungsbeschreibung umfasst und können einen Nachtrag rechtfertigen) und der Höhe nach (Angemessenheit der geforderten zusätzlichen Vergütung, z. B. anhand der ursprünglichen Kalkulationsgrundlagen).",
+        "Teilaufgabe 1 (Punkteraster: Grund 1 Punkt, Höhe 1 Punkt, Behinderungsanzeige 1 Punkt, Fristverlängerung 1 Punkt, Ankündigung und Ersatzansprüche 1 Punkt; Stand Oktober 2026, vor Verwendung prüfen): Dem Grunde nach sind unvorhergesehene Baugrundverhältnisse typischerweise nicht von der ursprünglichen Leistungsbeschreibung umfasst und können einen Nachtrag rechtfertigen; der Höhe nach ist die Angemessenheit der geforderten zusätzlichen Vergütung zu prüfen, z. B. anhand der ursprünglichen Kalkulationsgrundlagen. Bei vereinbarter VOB/B muss das Unternehmen die Behinderung unverzüglich schriftlich anzeigen; unterlässt es das, werden die hindernden Umstände nur berücksichtigt, wenn Ravelin Tatsache und hindernde Wirkung offenkundig bekannt waren. Die Ausführungsfrist verlängert sich, soweit die Behinderung aus dem Risikobereich von Ravelin stammt, nach der Dauer der Behinderung zuzüglich eines Zuschlags für die Wiederaufnahme der Arbeiten und eine mögliche Verschiebung in eine ungünstigere Jahreszeit; die verlangten drei Wochen sind deshalb zu prüfen (Bautagebuch, Bauzeitenplan, kritischer Pfad) und nicht ohne Weiteres zu gewähren. Für nicht vorgesehene Leistungen muss das Unternehmen den Anspruch auf besondere Vergütung vor der Ausführung ankündigen. Schadensersatz setzt voraus, dass eine Seite die hindernden Umstände zu vertreten hat; eine Entschädigung wegen unterlassener Mitwirkung bleibt nur bei Anzeige oder Offenkundigkeit erhalten. Ohne VOB/B kennt das Gesetz keine förmliche Behinderungsanzeige; die schriftliche Anzeige bleibt zur Beweissicherung zu empfehlen."
+      ],
+      [
+        "Beschreiben Sie das Vorgehen, das Ravelin nach Feststellung der Dachmängel bei der Abnahme im Rahmen des Mängelmanagements einleiten sollte.",
+        "Beschreiben Sie das Vorgehen, das Ravelin nach der Feststellung der Dachmängel bei der Abnahmebegehung einleiten sollte, und gehen Sie darauf ein, wer über die Abnahme entscheidet, ob Ravelin sie verweigern darf und wie Ravelin ihre Rechte wegen der Mängel wahrt (Sachverhaltsvereinfachung: Die undichten Stellen sind wesentliche Mängel, die Dachdeckerarbeiten sind im Übrigen fertiggestellt, die VOB/B ist nicht vereinbart)."
+      ],
+      [
+        "bei der Abnahme der Dachdeckerarbeiten durch die externe Bauleitung mehrere undichte Stellen",
+        "bei der Abnahmebegehung der Dachdeckerarbeiten, die die externe Bauleitung für Ravelin durchführt, mehrere undichte Stellen"
+      ],
+      [
+        "Teilaufgabe 3: systematische Dokumentation der Mängel, Fristsetzung zur Nacherfüllung gegenüber dem Dachdeckerunternehmen, Nachverfolgung der Mängelbeseitigung, ggf. erneute Prüfung vor endgültiger Abnahme.",
+        "Teilaufgabe 3 (Punkteraster: Abnahme erklärt Ravelin, Bauleitung nur mit Vollmacht 1 Punkt, Verweigerung wegen wesentlicher Mängel unter Angabe der Mängel 1 Punkt, Dokumentation und Zustandsfeststellung 1 Punkt, Frist zur Beseitigung und Nachverfolgung 1 Punkt, Vorbehalt bei der Abnahme trotz bekannter Mängel 1 Punkt; Stand Oktober 2026, vor Verwendung prüfen): Die Abnahme erklärt Ravelin als Bestellerin; die externe Bauleitung bereitet die Begehung vor und dokumentiert, erklärt die Abnahme aber nur mit Vollmacht, die Ravelin vorab ausdrücklich und schriftlich regeln sollte (nach verbreiteter Praxis wird sie nicht ohne Weiteres angenommen). Wegen wesentlicher Mängel darf Ravelin die Abnahme verweigern, wegen unwesentlicher nicht; sie verweigert unter Angabe der Mängel (sonst droht nach einer Fristsetzung des Unternehmens die Abnahmefiktion) und wirkt auf Verlangen an einer gemeinsamen Zustandsfeststellung mit. Die Mängel werden mit Beschreibung, Ort und Fotos im Protokoll dokumentiert und dem Dachdeckerunternehmen mit einer angemessenen Frist zur Beseitigung gemeldet; die Nachverfolgung und eine erneute Begehung vor der Abnahme folgen. Bis zur Abnahme ist die Vergütung nicht fällig, Abschläge darf Ravelin um einen angemessenen Teil kürzen (in der Regel das Doppelte der Beseitigungskosten). Nimmt Ravelin trotz bekannter Mängel ab, muss sie sich ihre Rechte bei der Abnahme vorbehalten, am besten im Protokoll; ohne Vorbehalt gingen Nacherfüllung, Selbstvornahme, Rücktritt und Minderung verloren. Nach der Abnahme gelten die Mängelrechte: Nacherfüllung, nach erfolglosem Fristablauf Selbstvornahme mit Vorschuss, Rücktritt oder Minderung (Einzelheiten: Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement)."
+      ]
+    ]
+  }
+]
