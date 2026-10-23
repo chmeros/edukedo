@@ -44,3 +44,6 @@ node docs/entwuerfe/werkzeuge/einspielen.cjs <Paketordner> <Content-Wurzel>     
 - `rechtsstand`: jede Datei wird genau einmal auf `rsDatum` gesetzt (egal welches Datum vorher drin stand); fehlt die Zeile, bricht das Skript ab. Jede Datei nur einmal aufführen (auch wenn mehrere Teile sie berühren).
 - `ersetzungen`: feste Textstellen (Einleitungssätze); fehlt eine Stelle, bricht das Skript ab.
 - Fachgesprächsabschnitte mit vorhandener Nummer (z. B. `### 4.2`) werden am Ende dieses Abschnitts eingefügt, neue Nummern am Dateiende angehängt.
+- `entwuerfe` (optional): Ordner mit den Entwurfsdateien relativ zum Paketordner, wenn mehrere Configs (z. B. je Kurs der vier Fachinformatiker-Kurse) denselben Entwurfsordner nutzen (`"entwuerfe": ".."`).
+- Neue Themen (`neueThemen`): die Zeile `kurs_slug: …` im Frontmatter wird auf den Kurs der Config gesetzt (gemeinsame Themen für mehrere Kurse).
+- Fall-Entwürfe (`faelle`) dürfen ohne Abschnitt `## Fachgesprächsfragen` sein (Fachgebiete ohne `fachgespraech.md`); sie müssen dann mindestens einen Fall `#### F-…` enthalten.

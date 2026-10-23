@@ -11,6 +11,8 @@ const nurArg = process.argv.find((a) => a.startsWith("--nur="));
 const nur = nurArg ? nurArg.slice(6).split(",").filter(Boolean) : null;
 const cfg = JSON.parse(fs.readFileSync(path.join(entw, "einspielen-config.json"), "utf8"));
 const KURS = cfg.kurs;
+// Optional "entwuerfe": Ordner mit den Entwurfsdateien relativ zum Paketordner (mehrere Configs, z. B. je Kurs, teilen sich einen Entwurfsordner).
+const quelle = cfg.entwuerfe ? path.resolve(entw, cfg.entwuerfe) : entw;
 const gewaehlt = (name) => !nur || nur.some((n) => name.includes(n));
 
 const lies = (p) => fs.readFileSync(p, "utf8");
@@ -86,16 +88,17 @@ function fgEinfuegen(datei, block) {
   schreibe(datei, t + "\n", crlf);
 }
 
-for (const [quelle, rel] of cfg.neueThemen || []) {
-  if (!gewaehlt(quelle)) continue;
+for (const [quelleDatei, rel] of cfg.neueThemen || []) {
+  if (!gewaehlt(quelleDatei)) continue;
   const zielDatei = path.join(ziel, KURS, rel);
   if (fs.existsSync(zielDatei)) throw new Error("existiert bereits: " + rel);
-  fs.writeFileSync(zielDatei, lf(lies(path.join(entw, quelle))).replace(/\s+$/, "") + "\n");
+  // Der Platzhalter im Frontmatter (kurs_slug: …) wird auf den Kurs der Config gesetzt (gemeinsame Themen für mehrere Kurse).
+  fs.writeFileSync(zielDatei, lf(lies(path.join(quelle, quelleDatei))).replace(/\s+$/, "").replace(/^kurs_slug: .*$/m, "kurs_slug: " + KURS) + "\n");
 }
 
 for (const { datei, abschnitte: karten } of cfg.ergaenzungen || []) {
   if (!gewaehlt(datei)) continue;
-  const a = abschnitte(lies(path.join(entw, datei)));
+  const a = abschnitte(lies(path.join(quelle, datei)));
   for (const [th, ka, qu, thema, anker] of karten) {
     einfuegen(path.join(ziel, KURS, thema), { theorie: a[th], karten: a[ka], quiz: a[qu], anker });
   }
@@ -104,19 +107,23 @@ for (const { datei, abschnitte: karten } of cfg.ergaenzungen || []) {
 // Optionaler dritter Eintrag [datei, fallOrdner, fachgespraechOrdner]: Fachgesprächsabschnitt in einen anderen Ordner als die Fälle.
 for (const [datei, ordner, fgOrdner] of cfg.faelle || []) {
   if (!gewaehlt(datei)) continue;
-  const f = lf(lies(path.join(entw, datei)));
+  const f = lf(lies(path.join(quelle, datei)));
   const iFg = f.search(/^## Fachgesprächsfragen/m);
-  if (iFg < 0) throw new Error("Fachgesprächsfragen fehlen: " + datei);
-  const fallTeil = f.slice(0, iFg);
-  const fgTeil = f.slice(iFg);
+  // Ein Fall-Entwurf ohne Fachgesprächsteil ist erlaubt (Fachgebiete ohne fachgespraech.md); er braucht dann mindestens einen Fall.
+  const fallTeil = iFg < 0 ? f : f.slice(0, iFg);
+  const fgTeil = iFg < 0 ? "" : f.slice(iFg);
   const bloecke = [...fallTeil.matchAll(/^#### (F-[A-Z0-9-]+) · Fallaufgabe[\s\S]*?(?=\n---\s*\n|\s*(?![\s\S]))/gm)].map((m) => m[0].trim());
   // Eine Datei nur mit Fachgesprächsfragen ist erlaubt, wenn der Teil vor den Fachgesprächsfragen keine Überschrift "#### F-…" enthält.
   if (bloecke.length === 0 && /^#### F-/m.test(fallTeil)) throw new Error("keine Fallaufgaben: " + datei);
   const fallDatei = path.join(ziel, KURS, ordner, "fallaufgaben.md");
   for (const b of bloecke) haengeAn(fallDatei, b, "\n\n---\n\n");
-  const abschn = fgTeil.match(/^### [\s\S]*$/m);
-  if (!abschn) throw new Error("keine Fachgesprächsabschnitte: " + datei);
-  fgEinfuegen(path.join(ziel, KURS, fgOrdner || ordner, "fachgespraech.md"), abschn[0].replace(/\n---\s*$/, ""));
+  if (iFg < 0) {
+    if (bloecke.length === 0) throw new Error("keine Fallaufgaben: " + datei);
+  } else {
+    const abschn = fgTeil.match(/^### [\s\S]*$/m);
+    if (!abschn) throw new Error("keine Fachgesprächsabschnitte: " + datei);
+    fgEinfuegen(path.join(ziel, KURS, fgOrdner || ordner, "fachgespraech.md"), abschn[0].replace(/\n---\s*$/, ""));
+  }
   console.log(ordner, "Fälle:", bloecke.map((b) => b.match(/^#### (F-[A-Z0-9-]+)/)[1]).join(", ") || "keine");
 }
 
