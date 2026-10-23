@@ -1,0 +1,24 @@
+[
+  {
+    "datei": "dp2/9.2-nutzungsberechtigung-verknuepfung.md",
+    "paare": [
+      [
+        "- **besondere Zugangsregeln** zu Daten vernetzter Produkte (Stichwort Data Act), die im Einzelfall rechtlich zu prüfen sind.",
+        "- **besondere Zugangsregeln** zu Daten vernetzter Produkte (Data Act, Näheres im folgenden Abschnitt „Daten vernetzter Produkte: Data Act im Überblick“), die im Einzelfall rechtlich zu prüfen sind."
+      ],
+      [
+        "- **Urheber- und Datenbankrecht** (Datenbanken können unter Umständen als Datenbank geschützt sein, vgl. §§ 87a ff. UrhG),",
+        "- **Urheber- und Datenbankrecht** (Datenbanken können unter Umständen als Datenbank geschützt sein, vgl. §§ 87a ff. UrhG; bei Daten, die mit einem vom Data Act erfassten vernetzten Produkt erzeugt wurden, findet dieses Schutzrecht nach dem Data Act keine Anwendung),"
+      ]
+    ]
+  },
+  {
+    "datei": "dp2/fallaufgaben.md",
+    "paare": [
+      [
+        "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben;",
+        "Jede Aufgabe besteht aus einer Ausgangssituation und vier bis fünf Teilaufgaben mit Punktangaben;"
+      ]
+    ]
+  }
+]

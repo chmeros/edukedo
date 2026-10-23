@@ -1,0 +1,245 @@
+{
+  "kurs": "fachinformatiker-digitale-vernetzung",
+  "entwuerfe": "..",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [
+    [
+      "fi-6.6-nis2-kritis-meldepflichten.md",
+      "fu6/6.6-nis2-kritis-meldepflichten.md"
+    ],
+    [
+      "fi-6.7-cyber-resilience-act.md",
+      "fu6/6.7-cyber-resilience-act.md"
+    ],
+    [
+      "fi-6.8-ki-verordnung-ki-einsatz.md",
+      "fu6/6.8-ki-verordnung-ki-einsatz.md"
+    ],
+    [
+      "fi-7.6-verbraucherrecht-kaufvertrag.md",
+      "fu7/7.6-verbraucherrecht-kaufvertrag.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "fi-6.2-ergaenzung-datenschutz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "fu6/6.2-datenschutz.md",
+          "### Datenschutzbeauftragte und Datenpannen"
+        ]
+      ]
+    },
+    {
+      "datei": "fi-1.3-ergaenzung-it-vertraege.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "fu1/1.3-leistungserbringung-dokumentation-auftragsabschluss.md",
+          "### Kosten erfassen und im Soll-Ist-Vergleich bewerten"
+        ]
+      ]
+    },
+    {
+      "datei": "fi-1.2-ergaenzung-uwg.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "fu1/1.2-kundenberatung-bedarfsermittlung-marketing.md",
+          "### Marktbeobachtung und Wettbewerbsvergleich"
+        ]
+      ]
+    },
+    {
+      "datei": "fi-2.2-ergaenzung-urheberrecht-lizenzen.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "fu2/2.2-betriebssysteme-software-lizenzen.md",
+          "### Virtualisierung als Grundkonzept"
+        ]
+      ]
+    },
+    {
+      "datei": "fi-11.3-ergaenzung-ot-recht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "dv4/11.3-systemressourcen-kennzahlen-betriebssicherheit.md",
+          "### Bereichsspezifische Sicherheitslösungen im Betrieb"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "fi-faelle-a.md",
+      "fu6"
+    ],
+    [
+      "fi-faelle-b.md",
+      "fu6"
+    ],
+    [
+      "fi-faelle-f.md",
+      "fu6"
+    ],
+    [
+      "fi-faelle-g.md",
+      "fu6"
+    ],
+    [
+      "fi-faelle-i.md",
+      "fu7"
+    ],
+    [
+      "fi-faelle-j.md",
+      "fu1"
+    ],
+    [
+      "fi-faelle-k.md",
+      "fu2"
+    ],
+    [
+      "fi-faelle-d.md",
+      "dv4"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "fu6/6.2-datenschutz.md",
+      "paare": [
+        [
+          "ist. Die Folgen von Verstößen können erhebliche Bußgelder sein",
+          "ist. Daneben gilt für erhebliche Sicherheitsvorfälle bestimmter Einrichtungen ein eigener Meldeweg an eine andere Stelle (siehe Thema 6.6 „NIS2, KRITIS und Meldepflichten“ im selben Fachgebiet). Die Folgen von Verstößen können erhebliche Bußgelder sein"
+        ]
+      ]
+    },
+    {
+      "datei": "dv3/10.4-angriffsszenarien-anomalien-schutzmassnahmen.md",
+      "paare": [
+        [
+          "ob vertragliche oder gesetzliche Melde- und Informationspflichten bestehen (rechtlich/organisatorisch prüfen)",
+          "ob vertragliche oder gesetzliche Melde- und Informationspflichten bestehen (rechtlich/organisatorisch prüfen; zum Überblick siehe Thema 11.3 „Systemressourcen und Kennzahlen: Betriebssicherheit, Aktualisierung und Optimierung“ im Fachgebiet „Betrieb und Erweiterung vernetzter Systeme“ und Thema 6.6 „NIS2, KRITIS und Meldepflichten“ im Fachgebiet „IT-Sicherheit, Datenschutz und Qualitätssicherung“)"
+        ]
+      ]
+    },
+    {
+      "datei": "fu7/7.5-digitale-zusammenarbeit-ethik-vielfalt.md",
+      "paare": [
+        [
+          "auch die europäische Regulierung von KI-Systemen verfolgt einen risikobasierten Ansatz mit Transparenzpflichten.",
+          "auch die europäische Regulierung von KI-Systemen verfolgt einen risikobasierten Ansatz mit Transparenzpflichten (Näheres in Thema 6.8 „KI-Verordnung und KI-Einsatz im Projekt“ im Fachgebiet „IT-Sicherheit, Datenschutz und Qualitätssicherung“)."
+        ]
+      ]
+    },
+    {
+      "datei": "fu2/2.3-beschaffung-angebotsvergleich-wirtschaftlichkeit.md",
+      "paare": [
+        [
+          "erfordern aber Kontrolle der Ergebnisse und klare Regeln für den Umgang mit Daten.",
+          "erfordern aber Kontrolle der Ergebnisse und klare Regeln für den Umgang mit Daten (zu den rechtlichen Regeln siehe Thema 6.8 „KI-Verordnung und KI-Einsatz im Projekt“ im Fachgebiet „IT-Sicherheit, Datenschutz und Qualitätssicherung“)."
+        ]
+      ]
+    },
+    {
+      "datei": "fu7/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus FU7 (7.1–7.5) zu einer",
+          "Diese Aufgaben verknüpfen mehrere Themen aus FU7 (7.1–7.6) zu einer"
+        ]
+      ]
+    },
+    {
+      "datei": "fu1/1.3-leistungserbringung-dokumentation-auftragsabschluss.md",
+      "paare": [
+        [
+          "wie damit weiter verfahren wird (Nachbesserung, Wiederholung der Prüfung), klären Projektleitung und Kunde.",
+          "wie damit weiter verfahren wird (Nachbesserung, Wiederholung der Prüfung), klären Projektleitung und Kunde; die rechtlichen Folgen (wesentliche und unwesentliche Mängel, Vorbehalt, Mängelrechte, Verjährung) erläutern die unmittelbar folgenden Abschnitte dieses Themas."
+        ]
+      ]
+    },
+    {
+      "datei": "fu2/2.2-betriebssysteme-software-lizenzen.md",
+      "paare": [
+        [
+          "Die Urheberin bzw. der Hersteller entscheidet grundsätzlich,",
+          "Die Urheber:in bzw. die Rechtsinhaber:in (häufig der Hersteller) entscheidet grundsätzlich,"
+        ],
+        [
+          "Das Urheberrecht bleibt beim Hersteller; man erwirbt ein Nutzungsrecht im Rahmen der Lizenzbedingungen.",
+          "Das Urheberrecht bleibt bei den Urheber:innen, die Verwertungsrechte liegen meist beim Hersteller; man erwirbt ein Nutzungsrecht im Rahmen der Lizenzbedingungen."
+        ]
+      ]
+    },
+    {
+      "datei": "fu2/fallaufgaben.md",
+      "paare": [
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben;",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier bis fünf Teilaufgaben mit Punktangaben;"
+        ]
+      ]
+    },
+    {
+      "datei": "fu1/1.2-kundenberatung-bedarfsermittlung-marketing.md",
+      "paare": [
+        [
+          "Sie sind grundsätzlich nur mit vorheriger Einwilligung zulässig; Ausnahmen sind eng gefasst und werden im Zweifel von Datenschutz bzw. Recht geklärt.",
+          "Sie sind grundsätzlich nur mit vorheriger Einwilligung zulässig; Ausnahmen sind eng gefasst (etwa für Bestandskundschaft unter vier strengen Voraussetzungen) und werden im Zweifel von Datenschutz bzw. Recht geklärt."
+        ]
+      ]
+    },
+    {
+      "datei": "fu6/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus FU6 (6.1–6.5) zu",
+          "Diese Aufgaben verknüpfen mehrere Themen aus FU6 (6.1–6.8) zu"
+        ],
+        [
+          "Ausgangssituation und vier Teilaufgaben mit Punktangaben;",
+          "Ausgangssituation und vier bis fünf Teilaufgaben mit Punktangaben;"
+        ]
+      ]
+    },
+    {
+      "datei": "dv4/fallaufgaben.md",
+      "paare": [
+        [
+          "Ausgangssituation und vier Teilaufgaben mit Punktangaben;",
+          "Ausgangssituation und vier bis fünf Teilaufgaben mit Punktangaben;"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "fu6/6.2-datenschutz.md",
+    "dv3/10.4-angriffsszenarien-anomalien-schutzmassnahmen.md",
+    "fu7/7.5-digitale-zusammenarbeit-ethik-vielfalt.md",
+    "fu2/2.3-beschaffung-angebotsvergleich-wirtschaftlichkeit.md",
+    "fu7/fallaufgaben.md",
+    "fu1/1.3-leistungserbringung-dokumentation-auftragsabschluss.md",
+    "fu2/2.2-betriebssysteme-software-lizenzen.md",
+    "fu2/fallaufgaben.md",
+    "fu1/1.2-kundenberatung-bedarfsermittlung-marketing.md",
+    "fu6/fallaufgaben.md",
+    "dv4/fallaufgaben.md",
+    "dv4/11.3-systemressourcen-kennzahlen-betriebssicherheit.md",
+    "fu6/fachgespraech.md",
+    "fu1/fallaufgaben.md",
+    "fu1/fachgespraech.md"
+  ]
+}
