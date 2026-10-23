@@ -569,6 +569,13 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 23.10.2026 (Prüfblätter nach den Paketen P-AU bis P-AZ neu exportiert; Auftrag des Projektleiters)
+
+Anlass: Offener Punkt aus P-AU bis P-AZ („Prüfblätter neu exportieren“). Vorgehen: `npx tsx src/db/export-pruefblaetter.ts` in `apps/api` (liest `content/` und die Spiel-Inhalte im Code, schreibt `docs/pruefblaetter/`).
+
+- **Ergebnis:** Sieben Blätter geändert: `05-glossar.md` (158 auf 252 Einträge; FU1, FU2, FU6, FU7 sowie die neuen Fachgebietsglossare), `00-uebersicht.md` (Zählung), `10-aevo.md`, `12-buero-projektorganisation.md`, `14-technischer-fachwirt.md`, `18-immobilienfachwirt.md`, `19-versicherungen-finanzanlagen.md` (Korrekturen aus P-AL bis P-AU). Die Blätter 06 bis 09 (Fachinformatiker) und 11 (Gesundheit) sind unverändert, weil sie nur Instrumente, Spiele und die Glossar-Zählung abbilden, nicht die Theorie-, Karten- und Quizinhalte der neuen Themen.
+- **Offen:** Die in früheren Einträgen genannten Stellen im Spielcode (Duell Gesundheit Fragen 2, 3, 17; Beleg-Detektiv-Kommentar Z. 7; Instrument „Kostenträger“; Duell-Set Immobilien) sind Code-Änderungen und weiter Sache des Projektleiters; die Blätter folgen ihnen beim nächsten Export.
+
 ### Entschieden am 23.10.2026 (Paket P-AZ „Fachinformatiker: Glossar-Einträge zu den neuen Inhalten“ eingespielt; Freigabe des Projektleiters, nicht förmlich rechtsgeprüft)
 
 Anlass: Offener Punkt aus P-AY (Glossareinträge zu den neuen Fachinformatiker-Begriffen); Wunsch des Projektleiters: „Weiter mit den Glossareinträgen“, „Ja, P-AZ einspielen“. Entwurf, Prüfung und Befunde: `docs/entwuerfe/fachinformatiker-glossar/` (`00-pruefprotokoll.md`, `auftrag.md`, `einspielen-glossar.cjs`, je Ziel `glossar-*.md`, `bericht-cluster*.md`, `pruefung-cluster*.md`).

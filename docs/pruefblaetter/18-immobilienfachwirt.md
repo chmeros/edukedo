@@ -19,7 +19,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Kaufpreise vergleichbarer Objekte in vergleichbarer Lage | Vergleichswertverfahren |
-| Bodenrichtwerte und Vergleichsfaktoren aus der Kaufpreissammlung der Gutachterausschüsse | Vergleichswertverfahren |
+| Kaufpreise und daraus abgeleitete Vergleichsfaktoren je Quadratmeter Wohnfläche aus der Kaufpreissammlung der Gutachterausschüsse | Vergleichswertverfahren |
 | Rohertrag (nachhaltig erzielbare Jahresmiete) | Ertragswertverfahren |
 | Liegenschaftszinssatz | Ertragswertverfahren |
 | Normalherstellungskosten | Sachwertverfahren |
@@ -27,7 +27,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Das Vergleichswertverfahren stützt sich auf tatsächlich erzielte Kaufpreise, die Gutachterausschüsse liefern dafür Bodenrichtwerte und teils Vergleichsfaktoren. Das Ertragswertverfahren geht vom Rohertrag aus und nutzt den Liegenschaftszinssatz, das Sachwertverfahren von den Normalherstellungskosten abzüglich der Alterswertminderung. Typische Verwechslung: Auch Liegenschaftszinssatz und Sachwertfaktor werden von den Gutachterausschüssen abgeleitet; die Zuordnung richtet sich danach, in welchem Verfahren die Größe verwendet wird. Dass Bodenrichtwerte hier beim Vergleichswertverfahren stehen, folgt der Darstellung der Theorie; für den Bodenwert nutzt auch das Sachwertverfahren Bodenrichtwerte (siehe Q-6.3-16).
+> Das Vergleichswertverfahren stützt sich auf tatsächlich erzielte Kaufpreise, die Gutachterausschüsse liefern dafür Vergleichsfaktoren (Bodenrichtwerte gehören nicht in diese Zuordnung, weil sie als Lagewerte des Bodens für den Bodenwert im Ertrags- und im Sachwertverfahren gebraucht werden). Das Ertragswertverfahren geht vom Rohertrag aus und nutzt den Liegenschaftszinssatz, das Sachwertverfahren von den Normalherstellungskosten abzüglich der Alterswertminderung. Typische Verwechslung: Auch Liegenschaftszinssatz und Sachwertfaktor werden von den Gutachterausschüssen abgeleitet; die Zuordnung richtet sich danach, in welchem Verfahren die Größe verwendet wird. Ertrags- und Sachwertverfahren ermitteln den Bodenwert vorrangig über Vergleichspreise oder Bodenrichtwerte (siehe Q-6.3-16).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -73,16 +73,16 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | --- | --- |
 | Für eine Bestands-Eigentumswohnung werden Verkaufsfälle aus derselben Wohnanlage und dem direkten Umfeld herangezogen | Vergleichswertverfahren |
 | Für ein Reihenhaus in einem gut erschlossenen Wohngebiet liegen genügend vergleichbare Verkaufsfälle vor | Vergleichswertverfahren |
-| Verwaltungskosten, Instandhaltungskosten und Mietausfallwagnis werden als nicht umlagefähige Bewirtschaftungskosten abgezogen | Ertragswertverfahren |
+| Verwaltungskosten, Instandhaltungskosten, Mietausfallwagnis und nicht umgelegte Betriebskosten werden als nicht durch Umlagen gedeckte Bewirtschaftungskosten abgezogen | Ertragswertverfahren |
 | Der verbleibende Gebäudereinertrag wird mithilfe eines Vervielfältigers kapitalisiert, der von Restnutzungsdauer und Liegenschaftszinssatz abhängt | Ertragswertverfahren |
 | Eine Kundin, die ein vermietetes Mehrfamilienhaus kaufen will, verhandelt den Kaufpreis anhand der Renditeerwartung | Ertragswertverfahren |
 | Von den Normalherstellungskosten je Quadratmeter Bruttogrundfläche wird eine Alterswertminderung abgezogen | Sachwertverfahren |
-| Garage, Terrasse und Gartenanlage fließen als Außenanlagen in den Gebäudesachwert ein | Sachwertverfahren |
+| Terrasse und Gartenanlage werden als Außenanlagen gesondert bewertet und zum Wert des Gebäudes hinzugerechnet | Sachwertverfahren |
 | Der vorläufige Sachwert wird abschließend mit einem Sachwertfaktor an das Marktgeschehen angepasst | Sachwertverfahren |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Schritte gehören jeweils zur Rechenlogik eines Verfahrens: Beim Ertragswertverfahren wird vom Rohertrag über die Bewirtschaftungskosten zum Reinertrag und weiter zum kapitalisierten Gebäudereinertrag gerechnet; beim Sachwertverfahren aus Bodenwert und Gebäudesachwert (Normalherstellungskosten, Alterswertminderung, Außenanlagen) mit abschließender Marktanpassung. Typische Verwechslung: Die Kapitalisierung mit dem Vervielfältiger gehört nur zum Ertragswertverfahren, die Marktanpassung über den Sachwertfaktor nur zum Sachwertverfahren; beide Faktoren stammen aber von den Gutachterausschüssen. Dass die Kaufpreisverhandlung von Kapitalanleger:innen sich an der Renditeerwartung orientiert, nennt die Theorie ausdrücklich als Rolle des Ertragswerts.
+> Die Schritte gehören jeweils zur Rechenlogik eines Verfahrens: Beim Ertragswertverfahren wird vom Rohertrag über die Bewirtschaftungskosten zum Reinertrag und weiter zum kapitalisierten Gebäudereinertrag gerechnet; beim Sachwertverfahren aus Bodenwert, Gebäudesachwert (Normalherstellungskosten, Alterswertminderung) und dem gesondert ermittelten Wert der Außenanlagen mit abschließender Marktanpassung. Typische Verwechslung: Die Kapitalisierung mit dem Vervielfältiger gehört nur zum Ertragswertverfahren, die Marktanpassung über den Sachwertfaktor nur zum Sachwertverfahren; beide Faktoren stammen aber von den Gutachterausschüssen. Dass die Kaufpreisverhandlung von Kapitalanleger:innen sich an der Renditeerwartung orientiert, nennt die Theorie ausdrücklich als Rolle des Ertragswerts.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -100,17 +100,17 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Die benötigte Datengrundlage liefern tatsächlich erzielte Kaufpreise aus der Kaufpreissammlung der Gutachterausschüsse | Vergleichswertverfahren |
-| Bei individuell geschnittenen Neubauwohnungen der Bauträgersparte scheitert dieses Verfahren allein oft an fehlenden Vergleichsobjekten | Vergleichswertverfahren |
+| Fehlen vergleichbare Verkaufsfälle, etwa bei einem erstmals verkauften Wohnungstyp ohne Referenzverkäufe, reicht dieses Verfahren allein nicht aus | Vergleichswertverfahren |
 | Die vom Gutachterausschuss veröffentlichte übliche Verzinsung vergleichbarer Objekte wird für die Kapitalisierung benötigt | Ertragswertverfahren |
 | Der Bodenwertanteil wird gesondert verzinst und vom Reinertrag abgezogen, bevor kapitalisiert wird | Ertragswertverfahren |
-| Nicht umlagefähige Bewirtschaftungskosten mindern die nachhaltig erzielbare Jahresmiete | Ertragswertverfahren |
+| Bewirtschaftungskosten, die nicht durch Umlagen gedeckt sind, werden vom Rohertrag abgezogen | Ertragswertverfahren |
 | Der Bodenwert wird als eigener Bestandteil zum Gebäudesachwert addiert | Sachwertverfahren |
-| Der Wert von Außenanlagen wie Garage oder Terrasse wird in den Gebäudesachwert einbezogen | Sachwertverfahren |
+| Der Wert von Außenanlagen wie Terrasse oder Gartenanlage wird gesondert ermittelt und dem Wert des Gebäudes hinzugerechnet | Sachwertverfahren |
 | Der vom Gutachterausschuss abgeleitete Marktanpassungsfaktor wird auf den vorläufigen Sachwert angewendet | Sachwertverfahren |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Gutachterausschüsse liefern Daten für alle Verfahren (Kaufpreise bzw. Bodenrichtwerte und Vergleichsfaktoren, Liegenschaftszinssatz, Sachwertfaktor); maßgeblich ist, wofür die Größe im Verfahren verwendet wird. Der Bodenwert kommt zweimal vor: im Ertragswertverfahren als gesondert verzinster Anteil, der vom Reinertrag abgezogen wird, im Sachwertverfahren als Summand neben dem Gebäudesachwert. Typische Verwechslung: Der Bodenwert gehört nicht ausschließlich zu einem Verfahren, und die Datenlieferung durch den Gutachterausschuss sagt nichts über das Verfahren aus. Die Aussage zu Neubauwohnungen nennt die Theorie ausdrücklich; sie bedeutet nicht, dass das Vergleichswertverfahren dort nie angewendet wird, sondern dass es allein häufig nicht ausreicht und mit anderen Verfahren plausibilisiert wird.
+> Die Gutachterausschüsse liefern Daten für alle Verfahren (Kaufpreise bzw. Bodenrichtwerte und Vergleichsfaktoren, Liegenschaftszinssatz, Sachwertfaktor); maßgeblich ist, wofür die Größe im Verfahren verwendet wird. Der Bodenwert kommt zweimal vor: im Ertragswertverfahren als gesondert verzinster Anteil, der vom Reinertrag abgezogen wird, im Sachwertverfahren als Summand neben dem Gebäudesachwert. Typische Verwechslung: Der Bodenwert gehört nicht ausschließlich zu einem Verfahren, und die Datenlieferung durch den Gutachterausschuss sagt nichts über das Verfahren aus. Die Aussage zu fehlenden Vergleichsfällen bedeutet nicht, dass das Vergleichswertverfahren bei Neubauwohnungen nie angewendet wird: Eigentumswohnungen werden auch im Neubau regelmäßig über Vergleichspreise bewertet; fehlen sie, muss mit weiteren Verfahren plausibilisiert werden.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -144,7 +144,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Vergleichsmiete orientiert sich am örtlichen Mietniveau (Mietspiegel), die Modernisierungsumlage an den Kosten einer durchgeführten Modernisierung, die Staffelmiete an vertraglich vorab festgelegten Beträgen und Zeitpunkten und die Indexmiete am Verbraucherpreisindex. Laut Kurs dürfen bei der Modernisierung jährlich bis zu 8 % der aufgewendeten Kosten auf die Jahresmiete umgelegt werden. Typische Verwechslung: Die Staffelmiete wird mit der Indexmiete vertauscht, weil beide planbare Erhöhungen versprechen. Bei der Staffelmiete steht der Betrag im Vertrag fest, bei der Indexmiete ergibt er sich erst aus der Preisentwicklung. Die Formulierung „an das ortsübliche Niveau angepasst“ ist eine sinngemäße Umschreibung der ortsüblichen Vergleichsmiete.
+> Die Vergleichsmiete orientiert sich am örtlichen Mietniveau (Mietspiegel), die Modernisierungsumlage an den Kosten einer durchgeführten Modernisierung, die Staffelmiete an vertraglich vorab festgelegten Beträgen und Zeitpunkten und die Indexmiete am Verbraucherpreisindex. Laut Kurs dürfen bei der Modernisierung jährlich bis zu 8 % der aufgewendeten Kosten auf die Jahresmiete umgelegt werden. Typische Verwechslung: Die Staffelmiete wird mit der Indexmiete vertauscht, weil beide im Mietvertrag vorab vereinbart werden. Bei der Staffelmiete steht der Betrag im Vertrag fest und tritt ohne weitere Erklärung ein, bei der Indexmiete ergibt er sich erst aus der Preisentwicklung und muss vom Vermieter in Textform erklärt werden. Die Formulierung „an das ortsübliche Niveau angepasst“ ist eine sinngemäße Umschreibung der ortsüblichen Vergleichsmiete.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -162,17 +162,17 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Eine prozentuale Kappungsgrenze begrenzt die Steigerung innerhalb mehrerer Jahre | Vergleichsmiete |
-| Nach einer Erhöhung muss erst eine Sperrfrist verstreichen, bevor erneut auf dieser Grundlage erhöht werden darf | Vergleichsmiete |
+| Nach einer Erhöhung muss erst eine Sperrfrist verstreichen und die Miete zum Erhöhungszeitpunkt seit 15 Monaten unverändert sein, bevor erneut auf dieser Grundlage erhöht werden darf | Vergleichsmiete |
 | Voraussetzung ist eine durchgeführte Modernisierungsmaßnahme | Modernisierungsumlage |
 | Zusätzlich zur prozentualen Umlage begrenzt ein Höchstbetrag je Quadratmeter die Erhöhung | Modernisierungsumlage |
-| Zwischen zwei Stufen muss ein gesetzlich vorgeschriebener Mindestabstand liegen | Staffelmiete |
+| Zwischen zwei Mietstaffeln muss ein gesetzlich vorgeschriebener Mindestabstand liegen | Staffelmiete |
 | Jede einzelne Erhöhung steht bereits bei Vertragsschluss nach Betrag und Zeitpunkt fest | Staffelmiete |
 | Die Anpassung folgt der allgemeinen Preisentwicklung statt einem vorab genannten Betrag | Indexmiete |
-| Es entstehen planbare, inflationsgekoppelte Erträge ohne wiederkehrenden Verwaltungsaufwand für einzelne Mieterhöhungserklärungen | Indexmiete |
+| Die Erhöhung wird nur wirksam, wenn der Vermieter die Änderung des Preisindexes und die neue Miete in seiner Erklärung angibt | Indexmiete |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Beide Wege der Bestandsmieterhöhung kennen eine Kappungsgrenze, aber in unterschiedlicher Form: Bei der Vergleichsmiete begrenzt sie die prozentuale Steigerung (laut Kurs 20 %, in angespannten Gebieten 15 % innerhalb von drei Jahren) und wird durch eine Sperrfrist ergänzt (laut Kurs zwölf Monate zwischen zwei Erhöhungen). Bei der Modernisierungsumlage gilt zusätzlich ein Höchstbetrag je Quadratmeter (laut Kurs 3 Euro, bei niedrigen Ausgangsmieten 2 Euro, innerhalb von sechs Jahren). Bei der Staffelmiete ist der Mindestabstand zwischen zwei Staffeln vorgeschrieben (laut Kurs mindestens ein Jahr). Typische Verwechslung: Sperrfrist (Vergleichsmiete) und Mindestabstand zwischen Staffeln (Staffelmiete) klingen ähnlich, gehören aber zu verschiedenen Wegen; ebenso die beiden Kappungsgrenzen. Dass die Kappungsgrenze der Vergleichsmiete prozentual und die der Modernisierung je Quadratmeter bemessen ist, ergibt sich aus den Kursangaben, wird dort aber nicht so formuliert. Maßgeblich sind jeweils die aktuell geltenden gesetzlichen Regeln.
+> Beide Wege der Bestandsmieterhöhung kennen eine Kappungsgrenze, aber in unterschiedlicher Form: Bei der Vergleichsmiete begrenzt sie die prozentuale Steigerung (laut Kurs 20 %, in Gebieten mit besonders gefährdeter Versorgung 15 % innerhalb von drei Jahren) und wird durch Fristen ergänzt (laut Kurs: Verlangen frühestens ein Jahr nach der letzten Erhöhung, Miete zum Erhöhungszeitpunkt seit 15 Monaten unverändert). Bei der Modernisierungsumlage gilt zusätzlich ein Höchstbetrag je Quadratmeter (laut Kurs 3 Euro, bei niedrigen Ausgangsmieten 2 Euro, innerhalb von sechs Jahren). Bei der Staffelmiete ist der Mindestabstand zwischen zwei Staffeln vorgeschrieben (laut Kurs mindestens ein Jahr). Typische Verwechslung: Sperrfrist (Vergleichsmiete) und Mindestabstand zwischen Staffeln (Staffelmiete) klingen ähnlich, gehören aber zu verschiedenen Wegen; ebenso die beiden Kappungsgrenzen. Dass die Kappungsgrenze der Vergleichsmiete prozentual und die der Modernisierung je Quadratmeter bemessen ist, ergibt sich aus den Kursangaben, wird dort aber nicht so formuliert. Maßgeblich sind jeweils die aktuell geltenden gesetzlichen Regeln.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -194,7 +194,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Fassade und Fenster eines Hauses wurden energetisch saniert, und die Verwaltung will einen Teil der Kosten auf die Mieter umlegen | Modernisierungsumlage |
 | Die Verwaltung rechnet aus, wie viel der aufgewendeten Kosten jährlich auf die Jahresmiete umgelegt werden dürfen, und prüft dabei die Höchstgrenze je Quadratmeter | Modernisierungsumlage |
 | Ein neu abgeschlossener Mietvertrag nennt bereits die Mieten der kommenden Jahre mit Betrag und Datum | Staffelmiete |
-| Bei einem neu vermieteten Objekt wünscht Ravelin inflationsgekoppelte Erträge ohne wiederkehrenden Verwaltungsaufwand für einzelne Erhöhungen | Indexmiete |
+| Bei einem neu vermieteten Objekt soll die Miete der allgemeinen Preisentwicklung folgen, und jede Anpassung wird dem Mieter mit Angabe der Indexänderung in Textform erklärt | Indexmiete |
 
 **Erklärung (so sehen Lernende sie):**
 
@@ -216,7 +216,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Der Erhöhungsspielraum ergibt sich aus dem Abstand zum örtlichen Mietniveau und wird durch die Kappungsgrenze begrenzt | Vergleichsmiete |
-| Der Vermieter belegt die Forderung mit einem Verweis auf das örtliche Mietniveau, ohne dass eine Erhöhungsautomatik im Vertrag vereinbart ist | Vergleichsmiete |
+| Der Vermieter belegt die Forderung mit einem Verweis auf das örtliche Mietniveau, ohne dass im Vertrag Staffelbeträge oder eine Indexkopplung vereinbart sind | Vergleichsmiete |
 | Die Erhöhung ist ein Anteil der tatsächlich aufgewendeten Kosten und nicht an das Marktniveau angelehnt | Modernisierungsumlage |
 | Anlass ist eine abgeschlossene Baumaßnahme und nicht der Zeitablauf | Modernisierungsumlage |
 | Die Erhöhung tritt zu einem im Vertrag genannten Datum ein, unabhängig von der Preisentwicklung | Staffelmiete |
@@ -226,7 +226,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Alle vier Wege führen zu einer höheren Miete, beruhen aber auf unterschiedlichen Bezugsgrößen: Mietniveau (Vergleichsmiete), aufgewendete Kosten (Modernisierungsumlage), im Vertrag festgelegte Beträge und Zeitpunkte (Staffelmiete) und Verbraucherpreisindex (Indexmiete). Laut Kurs ist bei Staffel- und Indexmietverträgen eine zusätzliche Erhöhung auf die ortsübliche Vergleichsmiete während der Laufzeit grundsätzlich ausgeschlossen, die vereinbarte Automatik tritt an ihre Stelle. Typische Verwechslung: Staffelmiete und Indexmiete werden beide als vereinbarte Automatik gesehen und vertauscht; der Unterschied liegt darin, ob der Betrag vorab feststeht (Staffelmiete) oder sich aus der Preisentwicklung ergibt (Indexmiete). Ein weiterer Irrtum ist, bei einer Staffel- oder Indexmiete zusätzlich auf den Mietspiegel zurückzugreifen. Die Formulierungen „unabhängig von der Preisentwicklung“ und „bevor die Preisentwicklung bekannt ist“ sind Ableitungen aus der Kursangabe zu festen Beträgen im Vertrag. Die Ausnahmen zum grundsätzlichen Ausschluss sind nicht Gegenstand dieser Aufgabe und im Einzelfall rechtlich zu prüfen.
+> Alle vier Wege führen zu einer höheren Miete, beruhen aber auf unterschiedlichen Bezugsgrößen: Mietniveau (Vergleichsmiete), aufgewendete Kosten (Modernisierungsumlage), im Vertrag festgelegte Beträge und Zeitpunkte (Staffelmiete) und Verbraucherpreisindex (Indexmiete). Laut Kurs ist bei Staffel- und Indexmietverträgen eine zusätzliche Erhöhung auf die ortsübliche Vergleichsmiete während der Laufzeit ausgeschlossen, die vereinbarte Regelung tritt an ihre Stelle. Typische Verwechslung: Staffelmiete und Indexmiete werden beide als im Vertrag vereinbarter Anpassungsmechanismus gesehen und vertauscht; der Unterschied liegt darin, ob der Betrag vorab feststeht (Staffelmiete) oder sich aus der Preisentwicklung ergibt und vom Vermieter in Textform erklärt werden muss (Indexmiete). Ein weiterer Irrtum ist, bei einer Staffel- oder Indexmiete zusätzlich auf den Mietspiegel zurückzugreifen. Die Formulierungen „unabhängig von der Preisentwicklung“ und „bevor die Preisentwicklung bekannt ist“ sind Ableitungen aus der Kursangabe zu festen Beträgen im Vertrag. Der Ausschluss betrifft die Erhöhung auf die ortsübliche Vergleichsmiete; für Modernisierungserhöhungen gelten bei Staffel- und Indexmiete eigene Einschränkungen (siehe Theorie), die nicht Gegenstand dieser Aufgabe sind.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -256,7 +256,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Beruft die Versammlung mindestens einmal jährlich ein | Verwalter |
 | Führt die Beschluss-Sammlung | Verwalter |
 | Hält das Vermögen der Gemeinschaft getrennt von seinem eigenen Vermögen | Verwalter |
-| Unterstützt und kontrolliert den Verwalter | Verwaltungsbeirat |
+| Unterstützt den Verwalter und überwacht laufend seine Tätigkeit, ohne selbst zu beschließen | Verwaltungsbeirat |
 
 **Erklärung (so sehen Lernende sie):**
 
@@ -278,16 +278,16 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Beschließt für die meisten Gegenstände mit der einfachen Mehrheit der abgegebenen Stimmen | Eigentümerversammlung |
-| Beschließt bei der Jahresabrechnung über den Vermögensstatus und die Zahlungspflichten der einzelnen Eigentümer, nicht über jede Abrechnungsposition | Eigentümerversammlung |
+| Beschließt nach der Jahresabrechnung über Nachschüsse und die Anpassung der Vorschüsse (Abrechnungsspitze), nicht über jede Abrechnungsposition | Eigentümerversammlung |
 | Hat nach außen eine umfassende Vertretungsmacht, die grundsätzlich nicht beschränkbar ist | Verwalter |
 | Hat gegenüber den Eigentümern umfassende Auskunftspflichten | Verwalter |
-| Muss grundsätzlich ein zertifizierter Verwalter sein, wenn die Eigentümer nicht einstimmig darauf verzichten | Verwalter |
+| Muss auf Verlangen der Wohnungseigentümer:innen zertifiziert sein (Ausnahme: kleine Gemeinschaften) | Verwalter |
 | Unterstützt den Verwalter | Verwaltungsbeirat |
-| Kontrolliert die Arbeit des Verwalters | Verwaltungsbeirat |
+| Prüft Wirtschaftsplan und Jahresabrechnung vor den Beschlüssen und nimmt dazu Stellung | Verwaltungsbeirat |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über den Vermögensstatus und die Abrechnungsspitze. Die umfassende Vertretungsmacht, die Auskunftspflichten und die Zertifizierung betreffen den Verwalter. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
+> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über die Abrechnungsspitze (Nachschüsse und Anpassung der Vorschüsse); der Vermögensbericht der Verwaltung dient der Information und wird nicht beschlossen. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung und nimmt dazu Stellung. Die umfassende Vertretungsmacht, die Auskunftspflichten und die Zertifizierung betreffen den Verwalter. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -305,15 +305,15 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Es kommen nur wenige Eigentümer zur ordnungsgemäß einberufenen Versammlung, die Beschlüsse sind dennoch gültig | Eigentümerversammlung |
-| Die Gemeinschaft stimmt per Mehrheitsbeschluss über Wirtschaftsplan und Jahresabrechnung ab | Eigentümerversammlung |
-| Die Einladung mit Ort, Zeit und Tagesordnung geht an alle Eigentümer | Verwalter |
-| Ein Eigentümer möchte wissen, wie das Hausgeld verwendet wurde, und erhält Auskunft | Verwalter |
+| Die Wohnungseigentümer:innen beschließen in der Versammlung mit Mehrheit über die Vorschüsse auf Grundlage des Wirtschaftsplans und über die Nachschüsse aus der Jahresabrechnung | Eigentümerversammlung |
+| Beruft die jährliche Versammlung mit Ort, Zeit und Tagesordnung in Textform ein, solange er bestellt ist und seine Pflicht erfüllt | Verwalter |
+| Eine Eigentümerin möchte wissen, wie das Hausgeld verwendet wurde; Auskunft und Einsicht in die Unterlagen erhält sie über die laufende Verwaltung | Verwalter |
 | Ein Handwerksbetrieb schließt mit Ravelin im Namen der Gemeinschaft einen Vertrag, der nach außen wirksam ist | Verwalter |
-| Ravelin als Verwalter wird unterstützt und in seiner Arbeit kontrolliert | Verwaltungsbeirat |
+| Ravelin als Verwalterin wird bei der Durchführung ihrer Aufgaben unterstützt und laufend überwacht, der Wirtschaftsplan wird vor der Beschlussfassung geprüft | Verwaltungsbeirat |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über Wirtschaftsplan und Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Vermögensstatus und Zahlungspflichten. Ableitungen sind außerdem die Zuordnung der Einladung (der Verwalter beruft ein) und der Auskunft (Auskunftspflichten des Verwalters); die Aussage zum Beirat steht im Abschnitt „Der Verwaltungsbeirat“. Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
+> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über die Vorschüsse auf Grundlage des Wirtschaftsplans und über die Nachschüsse aus der Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Nachschüsse und die Anpassung der Vorschüsse. Ableitungen sind außerdem die Zuordnung der Einladung (solange ein Verwalter bestellt ist, beruft er ein; nur wenn er fehlt oder sich pflichtwidrig weigert, kann der Beiratsvorsitz einberufen) und der Auskunft (der Verwalter führt die Unterlagen und erteilt die Auskünfte; das Einsichtsrecht richtet sich rechtlich gegen die Gemeinschaft); die Aussage zum Beirat steht im Abschnitt „Der Verwaltungsbeirat“. Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -331,17 +331,17 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Begriff | Zone |
 | --- | --- |
 | Kann den Verwalter seit der Reform jederzeit auch ohne wichtigen Grund abberufen | Eigentümerversammlung |
-| Muss bei der Abrechnung nicht mehr jede einzelne Position genehmigen | Eigentümerversammlung |
+| Muss die Jahresabrechnung nicht mehr Position für Position genehmigen, sondern beschließt über die Abrechnungsspitze | Eigentümerversammlung |
 | Entscheidet auch über Maßnahmen mit einfacher Mehrheit, die früher die Vereinbarung aller Eigentümer erforderten | Eigentümerversammlung |
 | Dokumentiert die gefassten Beschlüsse fortlaufend in der Beschluss-Sammlung | Verwalter |
 | Hält das Gemeinschaftsvermögen strikt getrennt vom eigenen | Verwalter |
 | Hat eine im Interesse des Rechtsverkehrs grundsätzlich unbeschränkbare Vertretungsmacht | Verwalter |
 | Unterstützt den Verwalter bei dessen Arbeit | Verwaltungsbeirat |
-| Kontrolliert den Verwalter | Verwaltungsbeirat |
+| Prüft Wirtschaftsplan und Jahresabrechnung vor den Beschlüssen und nimmt dazu Stellung | Verwaltungsbeirat |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnung und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet sind die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft) ; die Aussagen zum Verwaltungsbeirat (Unterstützung und Überwachung des Verwalters) stehen im Abschnitt „Der Verwaltungsbeirat“. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
+> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnungsspitze und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet sind die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft) ; die Aussagen zum Verwaltungsbeirat (Unterstützung und Überwachung des Verwalters) stehen im Abschnitt „Der Verwaltungsbeirat“. Auch die Versammlung kontrolliert den Verwalter, nämlich durch ihre Beschlüsse und die Abberufung; die laufende Überwachung und die Stellungnahme zu Plan und Abrechnung sind Sache des Beirats. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -361,7 +361,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-14 · Betriebskosten (Leicht)
 
-*Die Ravelin Immobilien GmbH erstellt Betriebskostenabrechnungen für vermietete Einheiten. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist, und ordne jede Kostenart zu. Heiz- und Warmwasserkosten gehören hier in die dritte Zone, auch wenn sie ebenfalls im BetrKV-Katalog stehen.*
+*Die Ravelin Immobilien GmbH erstellt Betriebskostenabrechnungen für vermietete Einheiten. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist, und ordne jede Kostenart zu. Die dritte Zone steht für Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden; sie sind zwar ebenfalls umlagefähig, gehören hier aber in die dritte Zone.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -387,7 +387,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-15 · Betriebskosten (Mittel)
 
-*Ordne die Kostenarten den Zonen zu. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist. Heiz- und Warmwasserkosten gehören hier in die dritte Zone, auch wenn sie ebenfalls im BetrKV-Katalog stehen.*
+*Ordne die Kostenarten den Zonen zu. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist. Die dritte Zone steht für Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden; sie sind zwar ebenfalls umlagefähig, gehören hier aber in die dritte Zone.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -414,7 +414,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-16 · Betriebskosten (Mittel)
 
-*Ein Mieter ruft bei Ravelin an und fragt nach einzelnen Positionen seiner Betriebskostenabrechnung. Ordne jede Position der Zone zu, in die sie gehört. Die Umlage ist im Mietvertrag vereinbart, Heiz- und Warmwasserkosten zählen hier zur dritten Zone.*
+*Ein Mieter ruft bei Ravelin an und fragt nach einzelnen Positionen seiner Betriebskostenabrechnung. Ordne jede Position der Zone zu, in die sie gehört. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier zur dritten Zone.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -441,7 +441,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-17 · Betriebskosten (Schwer)
 
-*Die folgenden Kostenarten klingen ähnlich, gehören aber in unterschiedliche Zonen. Ordne sie zu. Die Umlage ist im Mietvertrag vereinbart; Heiz- und Warmwasserkosten zählen hier zur dritten Zone.*
+*Die folgenden Kostenarten klingen ähnlich, gehören aber in unterschiedliche Zonen. Ordne sie zu. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier zur dritten Zone.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -594,11 +594,11 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 > ### Der Verwaltungsbeirat
 >
-> Neben Eigentümerversammlung und Verwalter gibt es in vielen Gemeinschaften, so auch bei „Am Lindenpark", einen **Verwaltungsbeirat**. Er ist ein Gremium aus Wohnungseigentümern der Gemeinschaft, das die Eigentümerversammlung bestellen kann. Ob ein Beirat eingerichtet wird und wie er im Einzelnen ausgestaltet ist, entscheiden die Eigentümer selbst; zwingend vorgeschrieben ist er nicht.
+> Neben Eigentümerversammlung und Verwalter gibt es in vielen Gemeinschaften, so auch bei „Am Lindenpark", einen **Verwaltungsbeirat**. Er ist ein Gremium aus Wohnungseigentümern der Gemeinschaft, das die Eigentümerversammlung durch Beschluss bestellen kann; hat er mehrere Mitglieder, sind ein Vorsitz und eine Stellvertretung zu bestimmen (§ 29 Abs. 1 WEG). Ob ein Beirat eingerichtet wird und wie er im Einzelnen ausgestaltet ist, entscheiden die Eigentümer selbst; zwingend vorgeschrieben ist er nicht.
 >
-> Der Beirat **unterstützt den Verwalter und überwacht dessen Tätigkeit**. Typische Beispiele sind die Einsicht in Unterlagen des Verwalters, die Prüfung von Wirtschaftsplan und Jahresabrechnung, bevor die Eigentümerversammlung darüber beschließt, und die Begleitung bei der Vergabe von Aufträgen an Handwerksbetriebe. Wie weit seine Befugnisse im Einzelnen reichen, richtet sich je nach Teilungserklärung bzw. Beschluss nach den Regelungen der jeweiligen Gemeinschaft. Der Beirat übernimmt jedoch keine Verwaltungsaufgaben anstelle des Verwalters und ersetzt ihn nicht: Die laufende Geschäftsführung bleibt beim Verwalter, und nach außen tritt grundsätzlich er für die Gemeinschaft auf.
+> Der Beirat **unterstützt den Verwalter und überwacht dessen Tätigkeit**. Typische Beispiele sind die Einsicht in Unterlagen des Verwalters, die Prüfung von Wirtschaftsplan und Jahresabrechnung, bevor die Eigentümerversammlung darüber beschließt, und die Begleitung bei der Vergabe von Aufträgen an Handwerksbetriebe. Wie weit seine Befugnisse im Einzelnen reichen, richtet sich je nach Teilungserklärung bzw. Beschluss nach den Regelungen der jeweiligen Gemeinschaft. Der Beirat übernimmt jedoch keine Verwaltungsaufgaben anstelle des Verwalters und ersetzt ihn nicht: Die laufende Geschäftsführung bleibt beim Verwalter, und nach außen tritt grundsätzlich er für die Gemeinschaft auf. Der Vorsitz des Beirats vertritt die Gemeinschaft allerdings gegenüber der Verwaltung (§ 9b Abs. 2 WEG) und kann die Eigentümerversammlung einberufen, wenn eine Verwaltung fehlt oder sich pflichtwidrig weigert (§ 24 Abs. 3 WEG).
 >
-> Zusammengefasst ergänzen sich die drei Organe: Die **Eigentümerversammlung beschließt** über die Angelegenheiten der Gemeinschaft, der **Verwalter führt diese Beschlüsse aus und vertritt die Gemeinschaft**, und der **Verwaltungsbeirat unterstützt und kontrolliert** den Verwalter, ohne an dessen Stelle zu entscheiden oder zu handeln.
+> Zusammengefasst ergänzen sich die drei Organe: Die **Eigentümerversammlung beschließt** über die Angelegenheiten der Gemeinschaft, der **Verwalter führt diese Beschlüsse aus und vertritt die Gemeinschaft**, und der **Verwaltungsbeirat unterstützt und kontrolliert** den Verwalter, ohne an dessen Stelle zu entscheiden oder zu handeln. Auch die Eigentümerversammlung kontrolliert den Verwalter, nämlich durch ihre Beschlüsse und die Möglichkeit, ihn jederzeit abzuberufen; die laufende Überwachung und die Stellungnahme zu Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung sind dagegen Sache des Beirats (§ 29 Abs. 2 WEG).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

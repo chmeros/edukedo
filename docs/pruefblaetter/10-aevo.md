@@ -19,7 +19,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 | Prüfen, ob die Ausbildungswerkstatt alle Inhalte des Rahmenplans vermitteln kann | HF 1: Voraussetzungen prüfen, Ausbildung planen |
 | Den Ausbildungsbedarf anhand von Verrentungen und Wachstumsplänen ermitteln | HF 1: Voraussetzungen prüfen, Ausbildung planen |
 | Bewerbungsunterlagen sichten und Vorstellungsgespräche führen | HF 2: Ausbildung vorbereiten, Einstellung |
-| Den Berufsausbildungsvertrag schriftlich vorbereiten | HF 2: Ausbildung vorbereiten, Einstellung |
+| Den Berufsausbildungsvertrag und seine Vertragsabfassung vorbereiten | HF 2: Ausbildung vorbereiten, Einstellung |
 | Einem Auszubildenden einen neuen Handgriff vormachen und erklären | HF 3: Ausbildung durchführen |
 | In der Probezeit Zwischengespräche führen und dokumentieren | HF 3: Ausbildung durchführen |
 | Die Auszubildende bei der IHK zur Abschlussprüfung anmelden | HF 4: Ausbildung abschließen |
@@ -45,7 +45,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 | Begriff | Zone |
 | --- | --- |
 | Tarifvertragliche Vorgaben zur Zahl der Ausbildungsplätze beachten | HF 1: Voraussetzungen prüfen, Ausbildung planen |
-| Ausbilder-Azubi-Schlüssel und AEVO-Qualifikation der Ausbildenden prüfen | HF 1: Voraussetzungen prüfen, Ausbildung planen |
+| Das Verhältnis der Auszubildenden zu Ausbildungsplätzen und Fachkräften sowie die AEVO-Qualifikation der Ausbilder:innen prüfen | HF 1: Voraussetzungen prüfen, Ausbildung planen |
 | Den Betriebsrat vor der Bestellung einer nebenberuflichen Ausbilderin beteiligen | HF 2: Ausbildung vorbereiten, Einstellung |
 | Den abgeschlossenen Ausbildungsvertrag zur Eintragung bei der IHK anmelden | HF 2: Ausbildung vorbereiten, Einstellung |
 | Eine Auszubildende mit schwachen Berufsschulnoten durch zusätzliche Übungsphasen fördern | HF 3: Ausbildung durchführen |
@@ -55,7 +55,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Erklärung (so sehen Lernende sie):**
 
-> HF 1 klärt die Rahmenbedingungen (Quote, Schlüssel, Eignung), HF 2 betrifft die konkrete Einstellung einschließlich der Beteiligung des Betriebsrats und der Eintragung des Vertrags, HF 3 die Förderung im laufenden Ausbildungsalltag und HF 4 alles, was auf Prüfung und Zeit nach der Ausbildung zielt. Typische Verwechslung: Betriebsrat und Eintragung bei der IHK klingen nach „Planung“, sind aber Schritte der Einstellung (HF 2). Der Nachteilsausgleich ist ein prüfungsbezogener Hinweis (HF 4), keine Fördermaßnahme im Ausbildungsalltag (HF 3).
+> HF 1 klärt die Rahmenbedingungen (Bedarf, Fachkräfteverhältnis, Eignung), HF 2 betrifft die konkrete Einstellung einschließlich der Beteiligung des Betriebsrats und der Eintragung des Vertrags, HF 3 die Förderung im laufenden Ausbildungsalltag und HF 4 alles, was auf Prüfung und Zeit nach der Ausbildung zielt. Typische Verwechslung: Betriebsrat und Eintragung bei der IHK klingen nach „Planung“, sind aber Schritte der Einstellung (HF 2). Der Nachteilsausgleich ist ein prüfungsbezogener Hinweis (HF 4), keine Fördermaßnahme im Ausbildungsalltag (HF 3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -222,10 +222,10 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 | Begriff | Zone |
 | --- | --- |
-| Auf Antrag kann die Ausbildungsdauer verkürzt oder verlängert werden | Berufsbildungsgesetz (BBiG) |
+| Auf gemeinsamen Antrag kann die Ausbildungsdauer verkürzt, in Ausnahmefällen auf Antrag der Auszubildenden verlängert werden | Berufsbildungsgesetz (BBiG) |
 | Persönliche und fachliche Eignung von Ausbildenden und Ausbilder:innen | Berufsbildungsgesetz (BBiG) |
 | Aufgaben der zuständigen Stelle, zum Beispiel der IHK | Berufsbildungsgesetz (BBiG) |
-| Eine zehnstündige Schicht für einen 17-jährigen Auszubildenden ist mit der Tagesgrenze unvereinbar | Jugendarbeitsschutzgesetz (JArbSchG) |
+| Zehn Stunden tatsächliche Arbeitszeit ohne Ruhepausen an einem Tag sind für einen 17-jährigen Auszubildenden mit der Tagesgrenze unvereinbar | Jugendarbeitsschutzgesetz (JArbSchG) |
 | Der Einsatz einer 17-Jährigen am Wochenende ist grundsätzlich nur in Ausnahmebereichen möglich | Jugendarbeitsschutzgesetz (JArbSchG) |
 | Prüfungsanforderungen des Ausbildungsberufs | Ausbildungsordnung und Ausbildungsrahmenplan |
 | Vorgabe, an der ein Betrieb prüft, ob seine Ausstattung alle Inhalte des Berufs abdeckt | Ausbildungsordnung und Ausbildungsrahmenplan |
@@ -234,7 +234,7 @@ Stand 06.10.2026 · erzeugt aus `content/ausbildung-der-ausbilder/` (F-181). **A
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Regeldauer eines Berufs legt die Ausbildungsordnung fest; Abweichungen nach unten oder oben auf Antrag regelt das BBiG. Dasselbe Gesetz regelt Eignung der Ausbildenden und Aufgaben der zuständigen Stelle. Das JArbSchG greift, sobald Minderjährige betroffen sind (Tagesarbeitszeit, Wochenende). Die Ausbildungsordnung bestimmt Prüfungsanforderungen und den Ausbildungsrahmenplan, an dem die sachliche Eignung des Betriebs gemessen wird. Der Rahmenlehrplan steht auf einer anderen Ebene: Er stammt von der Kultusministerkonferenz und gilt nur für den Unterricht an der Berufsschule. Typische Verwechslung: Weil Ordnung und Rahmenlehrplan abgestimmt sind, werden sie oft in einen Topf geworfen – sie haben aber unterschiedliche Urheber und Lernorte.
+> Die Regeldauer eines Berufs legt die Ausbildungsordnung fest; Abweichungen nach unten oder oben auf Antrag regelt das BBiG. Dasselbe Gesetz regelt Eignung der Ausbildenden und Aufgaben der zuständigen Stelle. Das JArbSchG greift, sobald Minderjährige betroffen sind (Tagesarbeitszeit, Wochenende); die Tagesgrenze von acht Stunden bezieht sich auf die Arbeitszeit ohne Ruhepausen, die Schichtzeit (Arbeitszeit plus Pausen) ist davon zu unterscheiden. Die Ausbildungsordnung bestimmt Prüfungsanforderungen und den Ausbildungsrahmenplan, an dem die sachliche Eignung des Betriebs gemessen wird. Der Rahmenlehrplan steht auf einer anderen Ebene: Er stammt von der Kultusministerkonferenz und gilt nur für den Unterricht an der Berufsschule. Typische Verwechslung: Weil Ordnung und Rahmenlehrplan abgestimmt sind, werden sie oft in einen Topf geworfen – sie haben aber unterschiedliche Urheber und Lernorte.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

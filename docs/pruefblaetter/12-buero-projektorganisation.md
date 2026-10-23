@@ -144,7 +144,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 | --- | --- |
 | Geschäftsführung, entscheidet über das Budget und verfolgt das Projekt aktiv | Eng einbinden |
 | Vertriebsleiter, will das Projekt unbedingt, setzt Prioritäten und kann Mitarbeitende freistellen | Eng einbinden |
-| Datenschutzbeauftragte, kann die Freigabe verweigern, interessiert sich kaum für Details | Zufriedenstellen |
+| IT-Sicherheitsverantwortliche, muss nach interner Richtlinie jede neue Software freigeben, interessiert sich kaum für Details | Zufriedenstellen |
 | Leiterin Finanzen, muss das Budget freigeben, kümmert sich sonst wenig um das Projekt | Zufriedenstellen |
 | Kundenservice-Team, arbeitet später täglich mit der Software, ohne Entscheidungsbefugnis, sehr gespannt | Informieren |
 | Auszubildende im Vertrieb, verfolgen das Projekt neugierig, ohne Einfluss | Informieren |
@@ -200,7 +200,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 | --- | --- |
 | IT-Leiter, entscheidet über die technische Machbarkeit und stimmt jede Schnittstelle selbst ab | Eng einbinden |
 | Großkunde, dessen Daten übernommen werden: kann kündigen, liest jede Projektmitteilung | Eng einbinden |
-| Revision, kann den Einsatz der Software untersagen, meldet sich nur bei Problemen | Zufriedenstellen |
+| Leiterin Betriebsorganisation, muss nach interner Richtlinie den Produktivstart freigeben, meldet sich nur bei Problemen | Zufriedenstellen |
 | Vorstand, genehmigt einmal jährlich das Gesamtbudget, nimmt das Einzelprojekt kaum wahr | Zufriedenstellen |
 | Vertriebsmitarbeitende, arbeiten täglich mit der Software, gespannt, ohne Mitspracherecht | Informieren |
 | Empfang, gibt gelegentlich Auskünfte zur Software, will über Änderungen Bescheid wissen | Informieren |
@@ -210,7 +210,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die zwei Achsen ergeben vier Felder: Einfluss hoch und Interesse hoch heißt eng einbinden, Einfluss hoch und Interesse gering heißt zufriedenstellen, Einfluss gering und Interesse hoch heißt informieren, beides gering heißt beobachten. Der Großkunde und der IT-Leiter haben beides und gehören in „Eng einbinden“. Revision und Vorstand haben Macht, aber wenig Interesse am Detail. Typische Verwechslung: Ein „Beobachten“-Stakeholder wird nicht ignoriert, sondern mit geringem Aufwand im Blick behalten, weil sich seine Einordnung ändern kann.
+> Die zwei Achsen ergeben vier Felder: Einfluss hoch und Interesse hoch heißt eng einbinden, Einfluss hoch und Interesse gering heißt zufriedenstellen, Einfluss gering und Interesse hoch heißt informieren, beides gering heißt beobachten. Der Großkunde und der IT-Leiter haben beides und gehören in „Eng einbinden“. Die Leiterin Betriebsorganisation und der Vorstand haben Macht, aber wenig Interesse am Detail. Typische Verwechslung: Ein „Beobachten“-Stakeholder wird nicht ignoriert, sondern mit geringem Aufwand im Blick behalten, weil sich seine Einordnung ändern kann.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -231,7 +231,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 | Projektsponsorin im Vorstand, gibt Mittel frei und lässt sich wöchentlich berichten | Eng einbinden |
 | Fachbereichsleiter Vertrieb, setzt Prioritäten für sein Team und drängt auf frühe Ergebnisse | Eng einbinden |
 | Einkaufsleiterin, kann Personal abstellen, hat das Projekt zuletzt kaum beachtet | Zufriedenstellen |
-| Revisionsabteilung, darf den Softwarebetrieb später prüfen und meldet sich bis dahin nicht | Zufriedenstellen |
+| Rechtsabteilung, muss den Vertrag mit dem Softwarelieferanten vor der Unterschrift freigeben und meldet sich bis dahin nicht | Zufriedenstellen |
 | Früherer Projektleiter, inzwischen in anderer Abteilung, fragt nur aus Neugier nach | Informieren |
 | Mitarbeitende der Buchhaltung, erhalten später Auswertungen, fragen täglich nach, ohne Mitsprache | Informieren |
 | Außendienst-Mitarbeitende, wünschen laufende Informationen, haben keine Mitsprache | Informieren |

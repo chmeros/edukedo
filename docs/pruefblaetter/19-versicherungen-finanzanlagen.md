@@ -166,14 +166,14 @@ Stand 06.10.2026 · erzeugt aus `content/versicherungen-finanzanlagen/` (F-191, 
 | --- | --- |
 | Die Ansprüche sind nicht vererbbar, nicht übertragbar, nicht beleihbar und nicht kapitalisierbar | Schicht 1: Basisversorgung |
 | Vorgesehen ist ausschließlich eine lebenslange Rente | Schicht 1: Basisversorgung |
-| Die Form ist staatlich gefördert, aber an bestimmte Auszahlungsbedingungen gebunden | Schicht 2: Zusatzversorgung |
+| Die Form ist staatlich gefördert und erlaubt auch Auszahlungen außerhalb einer reinen lebenslangen Rente (z. B. teilweise Kapitalentnahme zu Rentenbeginn) | Schicht 2: Zusatzversorgung |
 | Die Förderung besteht unter anderem aus Grund- und Kinderzulage | Schicht 2: Zusatzversorgung |
 | Die Form ist frei verfügbar | Schicht 3: Private Vorsorge |
 | Es gibt keine besondere staatliche Förderung oder eine andere steuerliche Behandlung | Schicht 3: Private Vorsorge |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Schichten unterscheiden sich nach Verfügbarkeit und Förderung: Schicht 1 ist durch die Einschränkungen bei Vererbung, Übertragung, Beleihung und Kapitalisierung sowie die lebenslange Rente gekennzeichnet, Schicht 2 durch staatliche Förderung bei gebundenen Auszahlungsbedingungen, Schicht 3 durch freie Verfügbarkeit. Typische Verwechslung: „Staatlich gefördert“ weist nicht automatisch auf Schicht 2 hin, denn auch die Basisrente der Schicht 1 wird steuerlich gefördert; das Unterscheidungsmerkmal sind die Auszahlungsbedingungen. Dass Grund- und Kinderzulage der Schicht 2 zuzuordnen sind, ist eine Ableitung: Der Kurs nennt diese Zulagen bei der Riester-Rente, und diese gehört laut Kurs zur Schicht 2.
+> Die Schichten unterscheiden sich nach Verfügbarkeit und Förderung: Schicht 1 ist durch die Einschränkungen bei Vererbung, Übertragung, Beleihung und Kapitalisierung sowie die lebenslange Rente gekennzeichnet, Schicht 2 durch staatliche Förderung bei Auszahlungsregeln, die auch eine teilweise Kapitalentnahme oder ein Kapitalwahlrecht erlauben, Schicht 3 durch freie Verfügbarkeit. Typische Verwechslung: „Staatlich gefördert“ weist nicht automatisch auf Schicht 2 hin, denn auch die Basisrente der Schicht 1 wird steuerlich gefördert; das Unterscheidungsmerkmal sind die Auszahlungsbedingungen. Dass Grund- und Kinderzulage der Schicht 2 zuzuordnen sind, ist eine Ableitung: Der Kurs nennt diese Zulagen bei der Riester-Rente, und diese gehört laut Kurs zur Schicht 2.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
