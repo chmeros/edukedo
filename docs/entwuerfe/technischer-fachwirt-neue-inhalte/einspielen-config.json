@@ -1,0 +1,165 @@
+{
+  "kurs": "technischer-fachwirt",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [
+    {
+      "datei": "tf-wq3-3.2-ergaenzung-arbeitsrecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "wq3/3.2-arbeitsrecht-grundlagen.md",
+          "### Betriebsverfassung und Mitbestimmung"
+        ],
+        [
+          "D",
+          "E",
+          "F",
+          "wq3/3.2-arbeitsrecht-grundlagen.md",
+          "### Arbeitszeit, Arbeitsschutz und flexible Beschäftigungsformen in der Fertigung"
+        ]
+      ]
+    },
+    {
+      "datei": "tf-wq3-3.3-ergaenzung-verzug-durchsetzung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "wq3/3.3-vertragsgestaltung.md",
+          "### Internationale Lieferverträge"
+        ]
+      ]
+    },
+    {
+      "datei": "tf-wq3-3.4-ergaenzung-lohn-sozialversicherung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "wq3/3.4-steuerrecht.md",
+          "### Grundsteuer und weitere betriebliche Aspekte"
+        ]
+      ]
+    },
+    {
+      "datei": "tf-hq3-10.1-ergaenzung-iatf-16949.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hq3/10.1-qualitaetsmanagement.md",
+          "### Audit-Arten und Auditablauf"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "tf-faelle-a.md",
+      "wq3"
+    ],
+    [
+      "tf-faelle-b.md",
+      "wq3"
+    ],
+    [
+      "tf-faelle-c.md",
+      "wq3"
+    ],
+    [
+      "tf-faelle-d.md",
+      "hq3"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "wq3/3.2-arbeitsrecht-grundlagen.md",
+      "paare": [
+        [
+          "In anderen Fällen wird sie nur tätig, wenn beide Seiten es wollen",
+          "Bei Betriebsänderungen kann jede Seite sie anrufen (beim Sozialplan ersetzt ihr Spruch die Einigung, siehe den Abschnitt „Betriebsänderung, Interessenausgleich und Sozialplan“); in sonstigen Fällen wird sie nur tätig, wenn beide Seiten es wollen"
+        ]
+      ]
+    },
+    {
+      "datei": "wq3/3.3-vertragsgestaltung.md",
+      "paare": [
+        [
+          "Lieferverzug, Qualitätsmängel oder Zahlungsausfälle verteilt werden.",
+          "Lieferverzug, Qualitätsmängel oder Zahlungsausfälle verteilt werden; die Voraussetzungen und Rechte bei Verzug, Zinsen und Pauschale, die Verjährung der eigenen Forderung, das Mahnverfahren und die Insolvenz einer Abnehmerin stehen in den Abschnitten ab „Verzug im Lieferverhältnis: Voraussetzungen, Mahnung und Rechte“ weiter unten."
+        ],
+        [
+          "sämtlicher Forderungen aus der Geschäftsbeziehung knüpft (Kontokorrentvorbehalt).",
+          "sämtlicher Forderungen aus der Geschäftsbeziehung knüpft (Kontokorrentvorbehalt); was der Eigentumsvorbehalt bei Zahlungsverzug und in der Insolvenz der Abnehmerin bewirkt, steht in den Abschnitten „Verzug im Lieferverhältnis: Voraussetzungen, Mahnung und Rechte“ und „Insolvenz einer Abnehmerin im Überblick: Aussonderung, Anmeldung und Anfechtung“ weiter unten."
+        ]
+      ]
+    },
+    {
+      "datei": "wq3/3.4-steuerrecht.md",
+      "paare": [
+        [
+          "für die Vantera lediglich als Abzugsverpflichteter fungiert, nicht selbst Steuerschuldner ist",
+          "für die Vantera lediglich als Abzugsverpflichtete fungiert (Näheres im Abschnitt „Lohnsteuerabzug und Einkommensteuer im Überblick“ in diesem Thema) und nicht selbst Steuerschuldner ist"
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/10.1-qualitaetsmanagement.md",
+      "paare": [
+        [
+          "sondern eine grundlegende Voraussetzung, um überhaupt als Lieferbetrieb für Automobilhersteller oder große Maschinenbauunternehmen gelistet zu werden.",
+          "sondern eine grundlegende Voraussetzung dafür, dass ein Lieferbetrieb von Automobilherstellern oder großen Maschinenbauunternehmen überhaupt gelistet wird; Automobilkunden verlangen nach verbreiteter Darstellung teils zusätzlich eine Zertifizierung nach IATF 16949, die die ISO 9001 ergänzt und nicht ersetzt (siehe den Abschnitt „IATF 16949: Aufbau, Zweck und Zertifizierung“)."
+        ],
+        [
+          "Weil große Abnehmer aus der Automobil- und Maschinenbaubranche ein zertifiziertes Qualitätsmanagementsystem häufig als Voraussetzung für eine Lieferantenbeziehung verlangen.",
+          "Weil große Abnehmer aus der Automobil- und Maschinenbaubranche ein zertifiziertes Qualitätsmanagementsystem häufig zur Bedingung einer Lieferantenbeziehung machen; Automobilkunden verlangen teils zusätzlich ein Zertifikat nach IATF 16949."
+        ],
+        [
+          "die Nummern 9.2 (internes Audit) und 10.2 (Nichtkonformität und Korrekturmaßnahme) bleiben nach den bisherigen Veröffentlichungen erhalten, was am Normtext der Neufassung zu prüfen ist.",
+          "die Nummern 9.2 (internes Audit) und 10.2 (Nichtkonformität und Korrekturmaßnahme) beziehen sich auf die Ausgabe 2015; ob sie in der Neufassung unverändert gelten, ist am Normtext der Neufassung zu prüfen."
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Sie ist eine grundlegende Voraussetzung, um überhaupt als Lieferant für Automobilhersteller oder große Maschinenbauunternehmen gelistet zu werden.",
+          "Erwartung: Sie ist eine grundlegende Voraussetzung dafür, dass ein Zulieferer von Automobilherstellern oder großen Maschinenbauunternehmen überhaupt gelistet wird; Automobilkunden verlangen nach verbreiteter Darstellung teils zusätzlich eine Zertifizierung nach IATF 16949, die die ISO 9001 ergänzt und nicht ersetzt."
+        ]
+      ]
+    },
+    {
+      "datei": "wq3/fallaufgaben.md",
+      "paare": [
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier oder fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    },
+    {
+      "datei": "hq3/fallaufgaben.md",
+      "paare": [
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier oder fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "wq3/3.2-arbeitsrecht-grundlagen.md",
+    "wq3/3.3-vertragsgestaltung.md",
+    "wq3/3.4-steuerrecht.md",
+    "hq3/10.1-qualitaetsmanagement.md",
+    "wq3/fallaufgaben.md",
+    "wq3/fachgespraech.md"
+  ]
+}
