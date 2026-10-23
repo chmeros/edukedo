@@ -372,26 +372,26 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 
 #### Q-4.2-33 · Kostenträger im Gesundheits- und Sozialwesen (Mittel)
 
-*Ordne die Merkmale dem passenden Kostenträger zu.*
+*Ordne die Leistungs- und Verfahrensmerkmale dem passenden Kostenträger zu.*
 
 | Begriff | Zone |
 | --- | --- |
-| Krankenbehandlung, Vorsorge und Krankengeld für Versicherte | Gesetzliche Krankenversicherung (SGB V) |
-| Die Leistung wird in der Regel als Sachleistung ohne Vorleistung der Versicherten erbracht | Gesetzliche Krankenversicherung (SGB V) |
-| Leistungen richten sich nach dem Pflegegrad | Soziale Pflegeversicherung (SGB XI) |
-| Pflegegeld, wenn Angehörige die Pflege selbst sicherstellen | Soziale Pflegeversicherung (SGB XI) |
-| Hilfe zur Pflege, wenn Pflegeversicherung und eigene Mittel nicht reichen | Sozialhilfe (SGB XII) |
-| Träger sind die Kommunen bzw. überörtliche Sozialhilfeträger | Sozialhilfe (SGB XII) |
-| Die Versicherten reichen Rechnungen ein und erhalten die Kosten erstattet | Private Krankenversicherung |
-| Der Beitrag richtet sich nach dem individuellen Risiko | Private Krankenversicherung |
-| Die Leistungen werden in einem Gesamtplanverfahren festgestellt | Eingliederungshilfe (SGB IX) |
-| Assistenz zur selbstbestimmten Bewältigung des Alltags für Menschen mit Behinderungen | Eingliederungshilfe (SGB IX) |
-| Hilfe zur Erziehung auf Antrag der Personensorgeberechtigten | Kinder- und Jugendhilfe (SGB VIII) |
-| Das Jugendamt ist als Träger der öffentlichen Jugendhilfe verpflichtet | Kinder- und Jugendhilfe (SGB VIII) |
+| Bei Krankheit sorgt dieser Zweig für ärztliche Behandlung, Arzneimittel und Krankenhausbehandlung der gesetzlich Versicherten | Gesetzliche Krankenversicherung (SGB V) |
+| Die Kasse rechnet Behandlung, Arzneimittel und Krankenhaus unmittelbar mit den Leistungserbringern ab, Versicherte müssen nicht in Vorleistung treten | Gesetzliche Krankenversicherung (SGB V) |
+| Die Pflegekasse zahlt nach dem Pflegegrad Pflegegeld, wenn Angehörige die Pflege selbst sicherstellen | Soziale Pflegeversicherung (SGB XI) |
+| Fällt die private Pflegeperson aus, erstattet die Pflegekasse die Kosten einer Ersatzpflege | Soziale Pflegeversicherung (SGB XI) |
+| Hilfe zur Pflege gibt es erst, nachdem die Person eigenes Einkommen und Vermögen eingesetzt hat | Sozialhilfe (SGB XII) |
+| Als Fürsorgesystem im SGB XII hängt der Anspruch nicht von gezahlten Beiträgen ab, sondern vom ungedeckten Bedarf | Sozialhilfe (SGB XII) |
+| Wer einen größeren Leistungsumfang wählt oder ein höheres Risiko mitbringt, zahlt einen höheren Beitrag | Private Krankenversicherung |
+| Bei Arzt- und Klinikrechnungen treten die Versicherten zunächst in Vorleistung und bekommen die Kosten anschließend ersetzt | Private Krankenversicherung |
+| Die Leistungen werden in einem Gesamtplanverfahren festgestellt, an dem die leistungsberechtigte Person beteiligt ist | Eingliederungshilfe (SGB IX) |
+| Die Leistungen gliedern sich in medizinische Rehabilitation, Teilhabe am Arbeitsleben, Teilhabe an Bildung und Soziale Teilhabe | Eingliederungshilfe (SGB IX) |
+| Den Anspruch auf Hilfe zur Erziehung haben die Personensorgeberechtigten | Kinder- und Jugendhilfe (SGB VIII) |
+| Die Leistungsverpflichtung richtet sich an die Träger der öffentlichen Jugendhilfe, das Jugendamt setzt sie um | Kinder- und Jugendhilfe (SGB VIII) |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung. Ob und in welcher Höhe im Einzelfall Leistungen zustehen, klären Beratungsstellen und die Kostenträger selbst. Die Eingliederungshilfe finanziert Fachleistungen zur Teilhabe von Menschen mit Behinderungen und stellt sie im Gesamtplanverfahren fest. Die Kinder- und Jugendhilfe ist im SGB VIII geregelt; leistungsverpflichtet sind die Träger der öffentlichen Jugendhilfe, also das Jugendamt, und die Hilfe zur Erziehung steht den Personensorgeberechtigten zu. Kranken- und Pflegeversicherung, Sozialhilfe und private Krankenversicherung unterscheiden sich wie in den vorangehenden Aufgaben nach Leistungsanlass und Abrechnungsprinzip. Wer im Einzelfall Träger ist, bestimmt das Landesrecht (Stand Oktober 2026).
+> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung; Ansprüche im Einzelfall klären Beratungsstellen und die Kostenträger selbst. Kranken- und Pflegeversicherung leisten nach Anlass (Krankheit, Pflegebedürftigkeit), die private Krankenversicherung nach Vertrag und mit Kostenerstattung, die Sozialhilfe ist nachrangige Fürsorge. Die Eingliederungshilfe arbeitet mit dem Gesamtplan, die Jugendhilfe mit dem Hilfeplan: Das ist die typische Verwechslung. Wer im Einzelfall Träger ist, bestimmt das Landesrecht (Stand Oktober 2026).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -404,26 +404,26 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 
 #### Q-4.2-34 · Kostenträger im Gesundheits- und Sozialwesen (Mittel)
 
-*Ordne die Situationen aus der Zusammenarbeit von „Morgenlicht“ mit Kostenträgern dem Kostenträger zu, um den es jeweils geht.*
+*Ordne die Situationen aus der Arbeit eines Pflege- und Assistenzdienstes wie „Morgenlicht“ dem Kostenträger zu, um den es jeweils geht.*
 
 | Begriff | Zone |
 | --- | --- |
-| Der Dienst rechnet eine ärztlich verordnete Wundversorgung mit der Krankenkasse ab | Gesetzliche Krankenversicherung (SGB V) |
-| Die Krankenkasse rechnet unmittelbar mit dem Dienst ab, die Versicherten treten nicht in Vorleistung | Gesetzliche Krankenversicherung (SGB V) |
-| Der Dienst erbringt Pflegesachleistungen für eine Kundin mit Pflegegrad 3 | Soziale Pflegeversicherung (SGB XI) |
-| Die Leistungen decken den Bedarf nur bis zu festen Höchstbeträgen, den Rest zahlt die Kundin als Eigenanteil | Soziale Pflegeversicherung (SGB XI) |
-| Die Kundin kann den Eigenanteil nicht tragen, die Kommune prüft einen Antrag | Sozialhilfe (SGB XII) |
-| Als Träger kommt eine Kommune bzw. ein überörtlicher Sozialhilfeträger in Betracht | Sozialhilfe (SGB XII) |
-| Ein Kunde zahlt die Rechnung des Dienstes zunächst selbst und reicht sie zur Erstattung ein | Private Krankenversicherung |
-| Der Vertragstarif der Kundin bestimmt, welche Leistungen erstattet werden | Private Krankenversicherung |
-| Der Dienst übernimmt für einen Menschen mit Behinderung die Begleitung im Alltag und benötigt dafür eine Vereinbarung mit dem Träger am Ort | Eingliederungshilfe (SGB IX) |
-| Die bewilligte Leistung folgt dem Gesamtplan, den der Träger gemeinsam mit der leistungsberechtigten Person erstellt | Eingliederungshilfe (SGB IX) |
-| Für eine Wohngruppe, in der Kinder außerhalb ihrer Familie betreut werden, braucht der Träger eine Betriebserlaubnis | Kinder- und Jugendhilfe (SGB VIII) |
-| Die Hilfe wird anhand eines Hilfeplans vom Jugendamt gesteuert und regelmäßig überprüft | Kinder- und Jugendhilfe (SGB VIII) |
+| Der Dienst rechnet die verordnete Behandlungspflege einer gesetzlich Versicherten unmittelbar mit deren Krankenkasse ab, sie selbst legt nichts vor | Gesetzliche Krankenversicherung (SGB V) |
+| Nach der Entlassung aus dem Krankenhaus verordnet die Hausärztin einer gesetzlich versicherten Klient:in den Verbandwechsel zu Hause | Gesetzliche Krankenversicherung (SGB V) |
+| Der Medizinische Dienst beurteilt die Selbstständigkeit einer Klient:in in mehreren Lebensbereichen, daraus ergibt sich ihr Pflegegrad | Soziale Pflegeversicherung (SGB XI) |
+| Der Dienst erbringt die Pflegesachleistung und rechnet sie unmittelbar mit der Pflegekasse der Klient:in ab | Soziale Pflegeversicherung (SGB XI) |
+| Die Klient:in kann den Eigenanteil nicht aus eigenen Mitteln tragen, geprüft wird, ob ergänzend Hilfe zur Pflege in Betracht kommt | Sozialhilfe (SGB XII) |
+| Für eine Klient:in, deren eigene Mittel erschöpft sind, rechnet der Dienst die bewilligte Hilfe zur Pflege mit dem Sozialhilfeträger ab | Sozialhilfe (SGB XII) |
+| Eine Klient:in zahlt die Rechnung des Dienstes zunächst selbst und reicht sie bei ihrer privaten Krankenversicherung zur Erstattung ein | Private Krankenversicherung |
+| Welche Leistungen die Klient:in erstattet bekommt, richtet sich nach dem individuell vereinbarten Leistungsumfang ihres privaten Versicherungsvertrags | Private Krankenversicherung |
+| Der Dienst begleitet einen erwachsenen Menschen mit Behinderung bei der Gestaltung sozialer Kontakte und der Freizeit und rechnet nach der Bewilligung des Trägers ab | Eingliederungshilfe (SGB IX) |
+| Vor der Bewilligung wird der Bedarf der Klient:in mit einem an der ICF orientierten Instrument ermittelt | Eingliederungshilfe (SGB IX) |
+| Der Dienst möchte eine Wohngruppe für Kinder außerhalb ihrer Familie betreiben und braucht dafür in der Regel eine Betriebserlaubnis | Kinder- und Jugendhilfe (SGB VIII) |
+| Der Dienst arbeitet bei einer Hilfe zur Erziehung nach dem Hilfeplan des Jugendamts, der regelmäßig auf Eignung und Notwendigkeit geprüft wird | Kinder- und Jugendhilfe (SGB VIII) |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung. Ob und in welcher Höhe im Einzelfall Leistungen zustehen, klären Beratungsstellen und die Kostenträger selbst. Bei „Morgenlicht“ können je nach Leistung ganz verschiedene Kostenträger zuständig sein. Ärztlich verordnete Behandlungspflege läuft über die Krankenversicherung, Grundpflege über die Pflegeversicherung; reicht das nicht, kann die nachrangige Sozialhilfe einspringen. Erbringt der Dienst Assistenz für Menschen mit Behinderungen, arbeitet er nach Bewilligung und Vereinbarung mit dem Träger der Eingliederungshilfe und folgt dem Gesamtplan. Für Hilfen für Kinder und Jugendliche ist das Jugendamt Leistungsträger; stationäre Angebote setzen eine Betriebserlaubnis voraus. Die Annahme, dass Morgenlicht solche Angebote erwägt, ist eine Erweiterung des Modellunternehmens (Thema 1.5).
+> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung; Ansprüche im Einzelfall klären Beratungsstellen und die Kostenträger selbst. Bei „Morgenlicht“ sind je nach Leistung verschiedene Kostenträger zuständig: verordnete Behandlungspflege die Krankenversicherung, Pflegegrad und Pflegesachleistung die Pflegeversicherung, ein ungedeckter Eigenanteil gegebenenfalls die Sozialhilfe. Assistenz für Menschen mit Behinderungen erbringt der Dienst nach Bewilligung und Vereinbarung mit dem Träger der Eingliederungshilfe. Hilfen für Kinder steuert das Jugendamt; eine Wohngruppe wäre eine Erweiterung des Modellunternehmens (Thema 1.5).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -436,26 +436,26 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-gesundheit-soziales/` (F-182).
 
 #### Q-4.2-35 · Kostenträger im Gesundheits- und Sozialwesen (Schwer)
 
-*Ordne die Aussagen dem passenden Kostenträger zu. Achte auf die Systematik hinter den Aussagen.*
+*Ordne die Systemaussagen dem passenden Kostenträger zu. Achte auf die Systematik hinter den Aussagen.*
 
 | Begriff | Zone |
 | --- | --- |
-| Folgt dem Solidaritätsprinzip: Beiträge hängen vom Einkommen ab, nicht vom persönlichen Risiko | Gesetzliche Krankenversicherung (SGB V) |
-| Rechtsgrundlage der Krankenbehandlung und des Anspruchs auf Krankengeld | Gesetzliche Krankenversicherung (SGB V) |
-| Teilleistungsprinzip: Über feste Höchstbeträge hinaus fällt ein Eigenanteil an | Soziale Pflegeversicherung (SGB XI) |
-| Gegenüber diesem Träger ist die Eingliederungshilfe nicht nachrangig | Soziale Pflegeversicherung (SGB XI) |
-| Sie trägt Lebensunterhalt und Wohnkosten, wenn Menschen sie nicht selbst decken können, und ist als Existenzsicherung ausgestaltet | Sozialhilfe (SGB XII) |
-| Hilfe zur Pflege, wenn Leistungen der Pflegeversicherung und eigene Mittel nicht ausreichen | Sozialhilfe (SGB XII) |
-| Beitrag und Leistungsumfang stehen im Verhältnis von Leistung und Gegenleistung (Äquivalenzprinzip) | Private Krankenversicherung |
-| Die Abrechnung folgt häufig dem Kostenerstattungsprinzip | Private Krankenversicherung |
-| Sie finanziert die Fachleistung zur Teilhabe, der Lebensunterhalt läuft getrennt über die Existenzsicherung | Eingliederungshilfe (SGB IX) |
-| Die Vergütung wird vor dem Vereinbarungszeitraum für die Zukunft vereinbart, nachträgliche Ausgleiche sind nicht zulässig | Eingliederungshilfe (SGB IX) |
+| Im SGB V verankert: Die Beiträge hängen vom Einkommen ab, nicht vom persönlichen Krankheitsrisiko | Gesetzliche Krankenversicherung (SGB V) |
+| Die Krankenbehandlung umfasst auch die häusliche Krankenpflege, wenn eine Ärztin sie verordnet | Gesetzliche Krankenversicherung (SGB V) |
+| Als Teilleistungssystem angelegt: Je Pflegegrad wird nur bis zu einer Obergrenze gezahlt, den Rest tragen die Pflegebedürftigen selbst | Soziale Pflegeversicherung (SGB XI) |
+| Die Pflegekasse vereinbart mit dem Träger der Eingliederungshilfe, wer welche Leistung übernimmt und wie erstattet wird, wenn beide Leistungen zusammentreffen | Soziale Pflegeversicherung (SGB XI) |
+| Fürsorge statt Versicherung: Nicht Beiträge, sondern der im Einzelfall ungedeckte Bedarf löst die Leistung aus, und sie steht hinter Kranken- und Pflegeversicherung zurück | Sozialhilfe (SGB XII) |
+| Ein Pflegegrad allein genügt nicht: Die Hilfe zur Pflege setzt zusätzlich voraus, dass die eigenen Mittel nicht ausreichen | Sozialhilfe (SGB XII) |
+| Der Beitrag bildet das übernommene Risiko und den vereinbarten Leistungsumfang ab, ein Ausgleich nach Einkommen findet nicht statt | Private Krankenversicherung |
+| Statt der Direktabrechnung zwischen Kasse und Leistungserbringer gilt das Kostenerstattungsprinzip | Private Krankenversicherung |
+| Sie finanziert die Fachleistung zur Teilhabe, das Entgelt für die Assistenz und die Kosten für Miete und Verpflegung haben getrennte Zahlungswege | Eingliederungshilfe (SGB IX) |
+| Leistungserbringer müssen die Inhalte des Gesamtplans beachten, auf dessen Grundlage der Bescheid ergeht | Eingliederungshilfe (SGB IX) |
 | Bei seelischer Behinderung junger Menschen ist in der Regel das Jugendamt zuständig | Kinder- und Jugendhilfe (SGB VIII) |
-| Das Entgelt für eine Einrichtung wird übernommen, wenn Leistungs-, Entgelt- und Qualitätsentwicklungsvereinbarung bestehen | Kinder- und Jugendhilfe (SGB VIII) |
+| Für Einrichtungen werden drei Vereinbarungen geschlossen (Leistung, Entgelt, Qualitätsentwicklung), fehlt eine, wird das Entgelt nur im Einzelfall nach der Hilfeplanung übernommen | Kinder- und Jugendhilfe (SGB VIII) |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung. Ob und in welcher Höhe im Einzelfall Leistungen zustehen, klären Beratungsstellen und die Kostenträger selbst. Die sechs Kostenträger lassen sich über ihre Grundprinzipien ordnen. Die Eingliederungshilfe ist gegenüber der Pflegeversicherung nicht nachrangig, finanziert aber nur die Fachleistung; Lebensunterhalt und Wohnkosten laufen über die Existenzsicherung, etwa die Sozialhilfe. In der Kinder- und Jugendhilfe ist das Jugendamt für Hilfen zur Erziehung zuständig und nimmt bei Einrichtungen drei Vereinbarungen in den Blick; bei Behinderungen gilt für junge Menschen nach geltendem Recht in der Regel: Jugendamt bei seelischer, Träger der Eingliederungshilfe bei körperlicher oder geistiger Behinderung (Stand Oktober 2026, eine Bündelung beim Jugendamt ist gesetzlich angelegt).
+> Hinweis: Diese Aufgabe ist eine Übung zur Systematik der Kostenträger und keine Sozialberatung; Ansprüche im Einzelfall klären Beratungsstellen und die Kostenträger selbst. Die Eingliederungshilfe finanziert im Kern die Fachleistung; Miete und Verpflegung laufen in der Regel über die Existenzsicherung. Sie ist anderen Leistungen gegenüber nachrangig, gegenüber der Pflegeversicherung aber nicht. Bei Behinderungen junger Menschen ist nach geltendem Recht in der Regel das Jugendamt für seelische, der Träger der Eingliederungshilfe für körperliche und geistige Behinderungen zuständig (Stand Oktober 2026, eine Bündelung beim Jugendamt ist gesetzlich angelegt).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

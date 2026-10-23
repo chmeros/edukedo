@@ -578,19 +578,19 @@ const INSTRUMENT_CATALOG = [
   {
     type: "wegorgane",
     label: "WEG-Organe",
-    description: "Aufgaben der Eigentümerversammlung, des Verwalters und des Verwaltungsbeirats unterscheiden.",
+    description: "Aufgaben der Eigentümerversammlung, des Verwalters und des Verwaltungsbeirats sowie die Rolle der Gemeinschaft der Wohnungseigentümer als Verband unterscheiden.",
     Illustration: WegOrganeIllustration,
   },
   {
     type: "betriebskosten",
     label: "Betriebskosten",
-    description: "Kostenpositionen als umlagefähig, nicht umlagefähig oder verbrauchsabhängig abrechnen.",
+    description: "Kostenpositionen als umlagefähig, nicht umlagefähig oder als Heiz- und Warmwasserkosten nach der Heizkostenverordnung einordnen.",
     Illustration: BetriebskostenIllustration,
   },
   {
     type: "kostengruppen",
     label: "DIN-276-Kostengruppen",
-    description: "Kostenpositionen eines Bauprojekts den sieben Kostengruppen von 100 bis 700 zuordnen.",
+    description: "Kostenpositionen eines Bauprojekts den acht Kostengruppen von 100 bis 800 zuordnen.",
     Illustration: KostengruppenIllustration,
   },
   // F-191 (Kursprofile Phase 1, Versicherungen/Finanzanlagen): zwei Zonen-Instrumente für Altersvorsorge und Versicherungstechnik.

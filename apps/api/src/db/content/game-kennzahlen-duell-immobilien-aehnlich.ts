@@ -44,9 +44,9 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     },
     {
       nummer: 4,
-      titel: "Bewertung, Makler und Vermarktung",
+      titel: "Bewertung, Makler:innen und Vermarktung",
       abschlussmeldung:
-        "Runde 4 geschafft! Du kennst den Unterschied zwischen Beleihungswert und Verkehrswert, Vergleichs- und Ertragswertverfahren, Nachweis- und Vermittlungsmakler, Brutto- und Nettomietrendite sowie Immobilienanzeige und Exposé.",
+        "Runde 4 geschafft! Du kennst den Unterschied zwischen Beleihungswert und Verkehrswert, Vergleichs- und Ertragswertverfahren, Nachweis- und Vermittlungsmakler:innen, Brutto- und Nettomietrendite sowie Immobilienanzeige und Exposé.",
     },
   ],
   fragen: [
@@ -96,7 +96,7 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       feedbackRichtig:
         "Richtig! Standesregeln (auch Berufsgrundsätze oder Ehrenkodex) sind freiwillige Verhaltensstandards, die über gesetzliche Pflichten hinausgehen, etwa die Offenlegung von Interessenkonflikten bei einer Doppeltätigkeit (siehe Thema 1.3).",
       feedbackFalsch:
-        "Das stimmt nicht. Die gewerberechtliche Erlaubnispflicht ist eine gesetzliche Pflicht für Gewerbetreibende, die als Makler, Bauträger oder Verwalter tätig sind (bei einer GmbH also für die Gesellschaft, nicht für einzelne Angestellte), und an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).",
+        "Das stimmt nicht. Die gewerberechtliche Erlaubnispflicht ist eine gesetzliche Pflicht für Gewerbetreibende, die als Makler:in, Bauträger:in oder Verwalter:in tätig sind (bei einer GmbH also für die Gesellschaft, nicht für einzelne Angestellte), und an Zuverlässigkeit und geordnete Vermögensverhältnisse geknüpft. Freiwillige Verhaltensstandards über das Gesetz hinaus sind dagegen die Standesregeln (siehe Thema 1.3).",
     },
     {
       nummer: 5,
@@ -125,7 +125,7 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 7,
       runde: 2,
-      frage: "Welche Mieterhöhung setzt voraus, dass der Vermieter energetische oder andere bauliche Modernisierungsmaßnahmen durchgeführt hat?",
+      frage: "Welche Mieterhöhung setzt voraus, dass die Vermieter:in energetische oder andere bauliche Modernisierungsmaßnahmen durchgeführt hat?",
       antwortA: "Anpassung an die ortsübliche Vergleichsmiete",
       antwortB: "Modernisierungsmieterhöhung",
       richtig: "B",
@@ -137,12 +137,12 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 8,
       runde: 2,
-      frage: "Welche Kündigung setzt bei Wohnraum in der Regel ein berechtigtes Interesse des Vermieters voraus, etwa Eigenbedarf?",
+      frage: "Welche Kündigung setzt bei Wohnraum in der Regel ein berechtigtes Interesse der Vermieter:in voraus, etwa Eigenbedarf?",
       antwortA: "Ordentliche Kündigung",
       antwortB: "Außerordentliche fristlose Kündigung wegen Zahlungsverzugs",
       richtig: "A",
       feedbackRichtig:
-        "Richtig! Eine ordentliche Kündigung durch den Vermieter setzt bei Wohnraum in der Regel ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung. Ausnahmen gelten etwa für die erleichterte Kündigung im selbst bewohnten kleinen Haus (siehe Thema 4.1).",
+        "Richtig! Eine ordentliche Kündigung durch die Vermieter:in setzt bei Wohnraum in der Regel ein berechtigtes Interesse voraus, typischerweise Eigenbedarf, eine erhebliche schuldhafte Vertragsverletzung oder eine wirtschaftliche Verwertungshinderung. Ausnahmen gelten etwa für die erleichterte Kündigung im selbst bewohnten kleinen Haus (siehe Thema 4.1).",
       feedbackFalsch:
         "Nicht ganz. Die außerordentliche fristlose Kündigung wegen Zahlungsverzugs ist davon zu unterscheiden: Sie knüpft an einen nicht unerheblichen Zahlungsrückstand über mehrere Termine an, ein berechtigtes Interesse wie Eigenbedarf ist dafür nicht nötig. Das berechtigte Interesse, etwa Eigenbedarf, verlangt in der Regel die ordentliche Kündigung (siehe Thema 4.1).",
     },
@@ -150,11 +150,11 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
       nummer: 9,
       runde: 2,
       frage: "Das Honorar der Hausverwaltung sowie Instandhaltungs- und Instandsetzungskosten: Wie sind sie in der Betriebskostenabrechnung einzuordnen?",
-      antwortA: "Umlagefähig auf den Mieter",
-      antwortB: "Nicht umlagefähig, sie verbleiben beim Eigentümer",
+      antwortA: "Umlagefähig auf die Mieter:innen",
+      antwortB: "Nicht umlagefähig, sie verbleiben bei den Eigentümer:innen",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Verwaltungskosten sowie Instandhaltungs- und Instandsetzungskosten zählen ausdrücklich nicht zu den Betriebskosten und verbleiben beim Eigentümer (siehe Thema 4.4).",
+        "Richtig! Verwaltungskosten sowie Instandhaltungs- und Instandsetzungskosten zählen ausdrücklich nicht zu den Betriebskosten und verbleiben bei den Eigentümer:innen (siehe Thema 4.4).",
       feedbackFalsch:
         "Das stimmt nicht. Umlagefähig sind nur die Kostenarten des abschließenden Katalogs der Betriebskostenverordnung, sofern dies vertraglich vereinbart ist. Verwaltungskosten sowie Instandhaltungs- und Instandsetzungskosten gehören ausdrücklich nicht dazu (siehe Thema 4.4).",
     },
@@ -257,14 +257,14 @@ export const kennzahlenDuellImmobilienAehnlich: KennzahlenDuellPayload = {
     {
       nummer: 18,
       runde: 4,
-      frage: "Welcher Maklertyp weist dem Auftraggeber lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden?",
-      antwortA: "Vermittlungsmakler",
-      antwortB: "Nachweismakler",
+      frage: "Welcher Maklertyp weist der Auftraggeber:in lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden?",
+      antwortA: "Vermittlungsmakler:in",
+      antwortB: "Nachweismakler:in",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Der Nachweismakler weist lediglich die Gelegenheit zum Vertragsabschluss nach, etwa durch Adresse und Kontaktdaten eines Verkaufsinteressenten. Der Vermittlungsmakler wird darüber hinaus aktiv, um den Abschluss herbeizuführen (siehe Thema 6.1).",
+        "Richtig! Die Nachweismakler:in weist lediglich die Gelegenheit zum Vertragsabschluss nach, etwa durch Adresse und Kontaktdaten einer Verkaufsinteressent:in. Die Vermittlungsmakler:in wird darüber hinaus aktiv, um den Abschluss herbeizuführen (siehe Thema 6.1).",
       feedbackFalsch:
-        "Nicht ganz. Der Vermittlungsmakler wird über den bloßen Nachweis hinaus aktiv tätig, etwa durch Verhandlungsführung zwischen den Parteien, um den Vertragsabschluss selbst herbeizuführen. Der reine Nachweis der Gelegenheit kennzeichnet den Nachweismakler (siehe Thema 6.1).",
+        "Nicht ganz. Die Vermittlungsmakler:in wird über den bloßen Nachweis hinaus aktiv tätig, etwa durch Verhandlungsführung zwischen den Parteien, um den Vertragsabschluss selbst herbeizuführen. Der reine Nachweis der Gelegenheit kennzeichnet die Nachweismakler:in (siehe Thema 6.1).",
     },
     {
       nummer: 19,

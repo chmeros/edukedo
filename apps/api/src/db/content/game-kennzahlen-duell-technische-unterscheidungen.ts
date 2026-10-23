@@ -280,13 +280,13 @@ export const kennzahlenDuellTechnischeUnterscheidungen: KennzahlenDuellPayload =
       nummer: 20,
       runde: 4,
       frage: "Welche Einrichtung schaltet den Stromkreis bei einem gefährlichen Fehlerstrom automatisch ab?",
-      antwortA: "Der Not-Aus-Schalter",
+      antwortA: "Der Not-Halt-Schalter",
       antwortB: "Der FI-Schutzschalter",
       richtig: "B",
       feedbackRichtig:
-        "Richtig! Der FI-Schutzschalter (Fehlerstrom-Schutzschalter) schaltet bei gefährlichem Fehlerstrom automatisch ab. Der Not-Aus-Schalter trennt eine Anlage im Gefahrfall von der Energiezufuhr (siehe Thema 5.3).",
+        "Richtig! Der FI-Schutzschalter (Fehlerstrom-Schutzschalter) schaltet bei gefährlichem Fehlerstrom automatisch ab. Der Not-Halt-Schalter setzt eine Anlage im Gefahrfall sofort still, je nach Ausführung wird dabei die Energiezufuhr getrennt (siehe Thema 5.3).",
       feedbackFalsch:
-        "Nicht ganz. Der Not-Aus-Schalter trennt eine Anlage im Gefahrfall sofort von der Energiezufuhr. Automatisch bei gefährlichem Fehlerstrom schaltet der FI-Schutzschalter ab (siehe Thema 5.3).",
+        "Nicht ganz. Der Not-Halt-Schalter setzt eine Anlage im Gefahrfall sofort still, je nach Ausführung wird dabei die Energiezufuhr getrennt. Automatisch bei gefährlichem Fehlerstrom schaltet der FI-Schutzschalter ab (siehe Thema 5.3).",
     },
   ],
   abschlussmeldung:

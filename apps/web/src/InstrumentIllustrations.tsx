@@ -2400,9 +2400,9 @@ export function WegOrganeIllustration() {
   ];
   return (
     <Frame background="var(--sprout-tint)">
-      <rect x="40" y="14" width="240" height="30" rx="6" fill="var(--card)" stroke="var(--ink)" strokeWidth="2" />
-      <text x="160" y="34" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
-        Wohnungseigentümer
+      <rect x="30" y="14" width="260" height="30" rx="6" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" />
+      <text x="160" y="34" fontSize="10.5" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+        Gemeinschaft der Wohnungseigentümer
       </text>
       <path d="M68 44v22M164 44v22M260 44v22" stroke="var(--ink-soft)" strokeWidth="2" strokeLinecap="round" />
       {organe.map((organ) => (
@@ -2421,7 +2421,7 @@ export function BetriebskostenIllustration() {
   const spalten = [
     { x: 16, f: "var(--sprout)", s: "var(--sprout-deep)", t: "umlagefähig" },
     { x: 114, f: "var(--coral)", s: "var(--coral-deep)", t: "nicht umlagefähig" },
-    { x: 212, f: "var(--info)", s: "var(--info-deep)", t: "Verbrauch" },
+    { x: 212, f: "var(--info)", s: "var(--info-deep)", t: "Heizkosten" },
   ];
   return (
     <Frame background="var(--danger-tint)">
@@ -2447,13 +2447,14 @@ export function KostengruppenIllustration() {
     { f: "var(--sprout)", t: "500" },
     { f: "var(--sun)", t: "600" },
     { f: "var(--coral)", t: "700" },
+    { f: "var(--info)", t: "800" },
   ];
   return (
     <Frame background="var(--sun-tint)">
       {gruppen.map((gruppe, i) => (
         <g key={gruppe.t}>
-          <rect x={14 + i * 43} y={100 - (i % 4) * 8 - 40} width="38" height={40 + (i % 4) * 8} rx="5" fill={gruppe.f} stroke="var(--ink-soft)" strokeWidth="2" />
-          <text x={33 + i * 43} y="116" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+          <rect x={12 + i * 37} y={100 - (i % 4) * 8 - 40} width="33" height={40 + (i % 4) * 8} rx="5" fill={gruppe.f} stroke="var(--ink-soft)" strokeWidth="2" />
+          <text x={28.5 + i * 37} y="116" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="middle">
             {gruppe.t}
           </text>
         </g>

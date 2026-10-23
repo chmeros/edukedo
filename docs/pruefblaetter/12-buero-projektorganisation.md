@@ -134,20 +134,20 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 **Besonders prüfen:**
 - ⚠ Q-1.3-25 (Betriebsfeier als Veranstaltungsprojekt) und Q-1.3-27 (Compliance-Beauftragte nach einem Vorfall: Momentaufnahme-Logik, Einordnung kann sich ändern) — Grenzfälle absichtlich als Lernfälle angelegt.
-- ⚠ Betrieb der Beispiele: die Bemus AG mit dem Projekt „Kundenverwaltungssoftware“ (aus hb1/fallaufgaben.md).
+- ⚠ Betrieb der Beispiele: die Deko & Büro GmbH mit dem Projekt „Kundenverwaltungssoftware“ (aus hb1/fallaufgaben.md).
 
 #### Q-1.3-24 · Stakeholder-Matrix (Leicht)
 
-*Ordne die Beteiligten des Projekts „Neue Kundenverwaltungssoftware“ der Bemus AG der passenden Zone zu.*
+*Ordne die Beteiligten des Projekts „Neue Kundenverwaltungssoftware“ der Deko & Büro GmbH der passenden Zone zu.*
 
 | Begriff | Zone |
 | --- | --- |
 | Geschäftsführung, entscheidet über das Budget und verfolgt das Projekt aktiv | Eng einbinden |
-| Vertriebsleiter, will das Projekt unbedingt, setzt Prioritäten und kann Mitarbeitende freistellen | Eng einbinden |
+| Leiter des Beratungsteams, will das Projekt unbedingt, setzt Prioritäten und kann Mitarbeitende freistellen | Eng einbinden |
 | IT-Sicherheitsverantwortliche, muss nach interner Richtlinie jede neue Software freigeben, interessiert sich kaum für Details | Zufriedenstellen |
 | Leiterin Finanzen, muss das Budget freigeben, kümmert sich sonst wenig um das Projekt | Zufriedenstellen |
-| Kundenservice-Team, arbeitet später täglich mit der Software, ohne Entscheidungsbefugnis, sehr gespannt | Informieren |
-| Auszubildende im Vertrieb, verfolgen das Projekt neugierig, ohne Einfluss | Informieren |
+| Projektassistenz, arbeitet später täglich mit der Software, ohne Entscheidungsbefugnis, sehr gespannt | Informieren |
+| Auszubildende im Beratungsteam, verfolgen das Projekt neugierig, ohne Einfluss | Informieren |
 | Mitarbeitende einer unbeteiligten Niederlassung, nicht betroffen, ohne Mitsprache | Beobachten |
 | Lieferant für Büromaterial, vom Projekt nicht berührt, ohne Mitsprache | Beobachten |
 
@@ -166,14 +166,14 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 #### Q-1.3-25 · Stakeholder-Matrix (Mittel)
 
-*Ordne die Beteiligten einer Betriebsfeier der Bemus AG (Veranstaltungsprojekt) der passenden Zone zu.*
+*Ordne die Beteiligten einer Betriebsfeier der Deko & Büro GmbH (Veranstaltungsprojekt) der passenden Zone zu.*
 
 | Begriff | Zone |
 | --- | --- |
 | Vermieterin der Festhalle, kann den Termin absagen, bekommt das Projekt sonst kaum mit | Zufriedenstellen |
 | Ordnungsamt, erteilt die Genehmigung und interessiert sich nur für die Auflagen | Zufriedenstellen |
 | Organisationsteam, entscheidet über Ablauf und Budget und arbeitet täglich am Projekt | Eng einbinden |
-| Abteilungsleitung Vertrieb, gibt Mitarbeitende frei und begleitet die Planung engagiert | Eng einbinden |
+| Teamleitung des Beratungsteams, gibt Mitarbeitende frei und begleitet die Planung engagiert | Eng einbinden |
 | Eingeladene Mitarbeitende, wünschen sich Infos zu Programm und Ablauf, ohne Mitsprache | Informieren |
 | Ehemalige Kolleg:innen, wollen gern dabei sein und fragen nach, ohne Mitspracherecht | Informieren |
 | Nachbarunternehmen im Gewerbepark, kaum berührt, ohne Einfluss | Beobachten |
@@ -181,7 +181,7 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 **Erklärung (so sehen Lernende sie):**
 
-> Bei einem Veranstaltungsprojekt sind extern Beteiligte wie Vermieter:in oder Behörde oft stark im Einfluss, aber wenig am Programm interessiert — sie werden „zufriedengestellt“, also rechtzeitig und knapp informiert. Wer viel Interesse, aber keine Entscheidungsmacht hat (Eingeladene), wird informiert. Das Organisationsteam und die freigebende Abteilungsleitung haben beides und werden eng eingebunden. Typische Verwechslung: Hohes Engagement bedeutet nicht automatisch hohen Einfluss.
+> Bei einem Veranstaltungsprojekt sind extern Beteiligte wie Vermieter:in oder Behörde oft stark im Einfluss, aber wenig am Programm interessiert — sie werden „zufriedengestellt“, also rechtzeitig und knapp informiert. Wer viel Interesse, aber keine Entscheidungsmacht hat (Eingeladene), wird informiert. Das Organisationsteam und die freigebende Teamleitung haben beides und werden eng eingebunden. Typische Verwechslung: Hohes Engagement bedeutet nicht automatisch hohen Einfluss.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -194,15 +194,15 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 #### Q-1.3-26 · Stakeholder-Matrix (Mittel)
 
-*Ordne die Beteiligten der Softwareeinführung der Bemus AG anhand ihres Einflusses und Interesses zu.*
+*Ordne die Beteiligten der Softwareeinführung der Deko & Büro GmbH anhand ihres Einflusses und Interesses zu.*
 
 | Begriff | Zone |
 | --- | --- |
 | IT-Leiter, entscheidet über die technische Machbarkeit und stimmt jede Schnittstelle selbst ab | Eng einbinden |
 | Großkunde, dessen Daten übernommen werden: kann kündigen, liest jede Projektmitteilung | Eng einbinden |
 | Leiterin Betriebsorganisation, muss nach interner Richtlinie den Produktivstart freigeben, meldet sich nur bei Problemen | Zufriedenstellen |
-| Vorstand, genehmigt einmal jährlich das Gesamtbudget, nimmt das Einzelprojekt kaum wahr | Zufriedenstellen |
-| Vertriebsmitarbeitende, arbeiten täglich mit der Software, gespannt, ohne Mitspracherecht | Informieren |
+| Geschäftsführung, genehmigt einmal jährlich das Gesamtbudget, nimmt das Einzelprojekt kaum wahr | Zufriedenstellen |
+| Mitarbeitende im Beratungsteam, arbeiten täglich mit der Software, gespannt, ohne Mitspracherecht | Informieren |
 | Empfang, gibt gelegentlich Auskünfte zur Software, will über Änderungen Bescheid wissen | Informieren |
 | Praktikant:in im Projektbüro, will viel mitbekommen, ohne Entscheidungsbefugnis | Informieren |
 | Haustechnik, vom Projekt kaum berührt, ohne Einfluss | Beobachten |
@@ -223,20 +223,20 @@ Stand 06.10.2026 · erzeugt aus `content/fachwirt-buero-projektorganisation/` (F
 
 #### Q-1.3-27 · Stakeholder-Matrix (Schwer)
 
-*Ordne die Beteiligten der Softwareeinführung der Bemus AG der passenden Zone zu. Die Einordnung gilt für den heutigen Projektstand.*
+*Ordne die Beteiligten der Softwareeinführung der Deko & Büro GmbH der passenden Zone zu. Die Einordnung gilt für den heutigen Projektstand.*
 
 | Begriff | Zone |
 | --- | --- |
 | Compliance-Beauftragte, prüft seit einem Vorfall jede Projektänderung und kann Freigaben stoppen | Eng einbinden |
-| Projektsponsorin im Vorstand, gibt Mittel frei und lässt sich wöchentlich berichten | Eng einbinden |
-| Fachbereichsleiter Vertrieb, setzt Prioritäten für sein Team und drängt auf frühe Ergebnisse | Eng einbinden |
+| Projektsponsorin in der Geschäftsführung, gibt Mittel frei und lässt sich wöchentlich berichten | Eng einbinden |
+| Leiter des Beratungsteams, setzt Prioritäten für sein Team und drängt auf frühe Ergebnisse | Eng einbinden |
 | Einkaufsleiterin, kann Personal abstellen, hat das Projekt zuletzt kaum beachtet | Zufriedenstellen |
 | Rechtsabteilung, muss den Vertrag mit dem Softwarelieferanten vor der Unterschrift freigeben und meldet sich bis dahin nicht | Zufriedenstellen |
 | Früherer Projektleiter, inzwischen in anderer Abteilung, fragt nur aus Neugier nach | Informieren |
 | Mitarbeitende der Buchhaltung, erhalten später Auswertungen, fragen täglich nach, ohne Mitsprache | Informieren |
 | Außendienst-Mitarbeitende, wünschen laufende Informationen, haben keine Mitsprache | Informieren |
 | Externer Berater, Auftrag beendet, ohne Einfluss, meldet sich nicht mehr | Beobachten |
-| Mitarbeitende der Produktion, nicht betroffen, ohne Mitsprache | Beobachten |
+| Mitarbeitende im Lager, nicht betroffen, ohne Mitsprache | Beobachten |
 
 **Erklärung (so sehen Lernende sie):**
 

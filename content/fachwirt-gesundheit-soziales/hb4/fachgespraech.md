@@ -69,7 +69,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Beim Kostenerstattungsprinzip zahlen Versicherte Rechnungen häufig zunächst selbst und reichen sie zur Erstattung ein.
   - Rückfrage: Warum ist diese Unterscheidung für einen ambulanten Pflegedienst relevant?
 - Wie unterscheiden sich Pflegesachleistung, Pflegegeld und Kombinationsleistung?
-  - Erwartung: Die Pflegesachleistung umfasst professionelle Pflegeeinsätze zugelassener Pflegedienste (Pflegegrade 2 bis 5), die direkt mit der Pflegekasse abgerechnet werden.
+  - Erwartung: Die Pflegesachleistung umfasst professionelle Pflegeeinsätze zugelassener Pflegedienste (Pflegegrade 2 bis 5), die bei gesetzlich Versicherten direkt mit der Pflegekasse abgerechnet werden; bei privat Pflegepflichtversicherten tritt an die Stelle der Sachleistung eine gleich hohe Kostenerstattung.
   - Erwartung: Das Pflegegeld ist eine Geldleistung für die Pflegegrade 2 bis 5, die gezahlt wird, wenn die pflegebedürftige Person die Pflege selbst sicherstellt, z. B. durch Angehörige.
   - Erwartung: Die Kombinationsleistung ist eine anteilige Kombination aus Pflegesachleistung und Pflegegeld; wird die Sachleistung nur teilweise genutzt, wird das Pflegegeld entsprechend gekürzt (§ 38 SGB XI).
   - Erwartung: Welche Leistungsarten in der ambulanten Versorgung zur Verfügung stehen, hängt vom Pflegegrad ab.

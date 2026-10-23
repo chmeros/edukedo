@@ -93,7 +93,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Isolierung schützt vor dem Berühren spannungsführender Teile.
   - Erwartung: Der Schutzleiter bzw. die Erdung leitet im Fehlerfall Strom kontrolliert ab.
   - Erwartung: Der FI-Schutzschalter (Fehlerstrom-Schutzschalter, RCD) schaltet den Stromkreis bei einem gefährlichen Fehlerstrom automatisch ab.
-  - Erwartung: Not-Aus-Schalter trennen eine Anlage im Gefahrfall sofort von der Energiezufuhr.
+  - Erwartung: Not-Halt-Schalter setzen eine Anlage im Gefahrfall sofort still (je nach Ausführung wird dabei die Energiezufuhr getrennt).
   - Rückfrage: Welche Folgen können ein Stromschlag und ein Kurzschluss haben?
 - Warum dürfen Arbeiten an aktiven elektrischen Anlagen nur von Elektrofachkräften durchgeführt werden?
   - Erwartung: Ein Stromschlag kann zu schweren Verletzungen führen.

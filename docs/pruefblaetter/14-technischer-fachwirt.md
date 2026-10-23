@@ -639,7 +639,7 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 - ⚠ **Abweichungen vom Vorschlag:** „Eisen- oder NE-Metall“ ist nicht als eigene Frage enthalten und „Übermaßpassung“ kommt im Kurs nicht vor (deshalb „Presspassung“); „Prüfmittel“ und „Wirk- oder Blindleistung“ kommen im Kurs nicht vor und fehlen im Set. Statt dessen Qualitätswerkzeuge (Ishikawa/Pareto), Strategien der Instandhaltung und Elektro-Grundbegriffe.
 - ⚠ Fragen 5 und 6: Die Theorietexte sind didaktisch vereinfacht; Frage 6 lässt „Werkzeugverschleiß“ als Nachteil der spanenden Verfahren stehen, wie im Kurs.
 - ⚠ Frage 17: Die Zuordnung Betriebsarzt (arbeitsmedizinische Vorsorge) gegen Fachkraft für Arbeitssicherheit folgt dem Kurs („insbesondere“); in der Praxis gibt es Überschneidungen.
-- ⚠ Frage 20: „automatisch“ grenzt den FI-Schutzschalter vom Not-Aus-Schalter ab; der Kurs sagt zum Not-Aus nur „im Gefahrfall sofort trennen“, nicht, ob manuell ausgelöst.
+- ⚠ Frage 20: „automatisch“ grenzt den FI-Schutzschalter vom Not-Halt-Schalter ab; der Kurs sagt zum Not-Halt nur „im Gefahrfall sofort stillsetzen“, nicht, ob manuell ausgelöst.
 - ⚠ Thema 7.2 trägt den Rechtsstand 29.09.2026 mit dem Vermerk „fachlich/rechtlich prüfen“; das gilt entsprechend für die DIN-31051-Bezeichnungen.
 
 ### Runde 1: Werkstoffe und Werkstoffprüfung
@@ -994,12 +994,12 @@ Stand 06.10.2026 · erzeugt aus `content/technischer-fachwirt/` (F-185). **Alle 
 
 #### technische-unterscheidungen · 20 — Welche Einrichtung schaltet den Stromkreis bei einem gefährlichen Fehlerstrom automatisch ab?
 
-- **A:** Der Not-Aus-Schalter
+- **A:** Der Not-Halt-Schalter
 - ✔ **B:** Der FI-Schutzschalter
 
-**Rückmeldung bei richtiger Antwort:** Richtig! Der FI-Schutzschalter (Fehlerstrom-Schutzschalter) schaltet bei gefährlichem Fehlerstrom automatisch ab. Der Not-Aus-Schalter trennt eine Anlage im Gefahrfall von der Energiezufuhr (siehe Thema 5.3).
+**Rückmeldung bei richtiger Antwort:** Richtig! Der FI-Schutzschalter (Fehlerstrom-Schutzschalter) schaltet bei gefährlichem Fehlerstrom automatisch ab. Der Not-Halt-Schalter setzt eine Anlage im Gefahrfall sofort still, je nach Ausführung wird dabei die Energiezufuhr getrennt (siehe Thema 5.3).
 
-**Rückmeldung bei falscher Antwort:** Nicht ganz. Der Not-Aus-Schalter trennt eine Anlage im Gefahrfall sofort von der Energiezufuhr. Automatisch bei gefährlichem Fehlerstrom schaltet der FI-Schutzschalter ab (siehe Thema 5.3).
+**Rückmeldung bei falscher Antwort:** Nicht ganz. Der Not-Halt-Schalter setzt eine Anlage im Gefahrfall sofort still, je nach Ausführung wird dabei die Energiezufuhr getrennt. Automatisch bei gefährlichem Fehlerstrom schaltet der FI-Schutzschalter ab (siehe Thema 5.3).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

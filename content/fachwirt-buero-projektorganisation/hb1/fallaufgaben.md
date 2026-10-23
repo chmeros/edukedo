@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4) zu einer zusammenh
 
 **Themenbezug:** 1.1 (Informationsmanagement) + 1.3 (Projektmanagement)
 
-**Ausgangssituation:** Die Bemus AG plant die Einführung einer neuen Kundenverwaltungssoftware. Das Projekt betrifft mehrere Abteilungen (Vertrieb, Kundenservice, IT), die bislang jeweils eigene, nicht miteinander verbundene Listen und Dateien führen. Die Projektleitung stellt in den ersten Wochen fest, dass wichtige Informationen zum aktuellen Stand einzelner Abteilungen die Projektgruppe teils gar nicht oder erst mit großer Verzögerung erreichen.
+**Ausgangssituation:** Die Deko & Büro GmbH plant die Einführung einer neuen Kundenverwaltungssoftware. Das Projekt betrifft mehrere Abteilungen (Beratungsteam, Projektassistenz, Einkauf), die bislang jeweils eigene, nicht miteinander verbundene Listen und Dateien führen. Die Projektleitung stellt in den ersten Wochen fest, dass wichtige Informationen zum aktuellen Stand einzelner Abteilungen die Projektgruppe teils gar nicht oder erst mit großer Verzögerung erreichen.
 
 **Teilaufgabe 1 (5 Punkte, bloom: analysieren):** Analysieren Sie, an welchen Stellen des Informationsflusses (Eingang, Weiterleitung, Beschaffung, Ausgang) die geschilderte Verzögerung ihre Ursache haben könnte.
 

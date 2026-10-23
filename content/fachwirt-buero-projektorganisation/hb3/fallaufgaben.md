@@ -18,7 +18,7 @@ Diese Aufgaben verknüpfen mehrere Themen aus HB3 (3.1–3.4) zu einer zusammenh
 
 **Themenbezug:** 3.1 (Personalplanung/-beschaffung) + 3.2 (Ausbildung)
 
-**Ausgangssituation:** Die Mustermann GmbH, ein mittelständisches Büroorganisationsunternehmen mit 60 Beschäftigten, verzeichnet einen deutlichen Anstieg des Auftragsvolumens im Bereich Projektassistenz. Die Personalabteilung stellt fest, dass in den kommenden 18 Monaten zusätzlicher Personalbedarf entsteht, gleichzeitig läuft die Probezeit einer oder eines neu eingestellten Auszubildenden im ersten Ausbildungsjahr, die oder der zunehmend Schwierigkeiten hat, die vereinbarten Ausbildungsinhalte im vorgesehenen Tempo zu bewältigen. Die Geschäftsführung bittet Sie als Fachwirt:in, beide Themen aufzubereiten.
+**Ausgangssituation:** Die Deko & Büro GmbH, die an einem Standort rund 80 Beschäftigte hat und (Annahme) Kaufleute für Büromanagement ausbildet, verzeichnet einen deutlichen Anstieg des Auftragsvolumens im Bereich Projektassistenz. Die Personalabteilung stellt fest, dass in den kommenden 18 Monaten zusätzlicher Personalbedarf entsteht, gleichzeitig läuft die Probezeit einer oder eines neu eingestellten Auszubildenden im ersten Ausbildungsjahr, die oder der zunehmend Schwierigkeiten hat, die vereinbarten Ausbildungsinhalte im vorgesehenen Tempo zu bewältigen. Die Geschäftsführung bittet Sie als Fachwirt:in, beide Themen aufzubereiten.
 
 **Teilaufgabe 1 (6 Punkte, bloom: anwenden):** Erläutern Sie, mit welchen Instrumenten die Personalabteilung den quantitativen und qualitativen Personalbedarf für die nächsten 18 Monate systematisch ermitteln kann. Gehen Sie dabei auf mindestens zwei interne und zwei externe Informationsquellen ein.
 
@@ -39,13 +39,13 @@ Teilaufgabe 4 sollte ein strukturiertes Feedback- bzw. Fördergespräch mit konk
 
 **Themenbezug:** 3.1 (Personalbetreuung) + 3.3 (Konfliktmanagement)
 
-**Ausgangssituation:** In der Abteilung Projektorganisation der Mustermann GmbH kommt es seit einigen Wochen zu wiederholten Spannungen zwischen zwei Teammitgliedern, die gemeinsam für die Terminkoordination eines Großprojekts zuständig sind. Die Zusammenarbeit ist inzwischen so belastet, dass Abstimmungen verzögert werden und weitere Kolleginnen und Kollegen den Konflikt bereits im Teammeeting ansprechen. Die Abteilungsleitung bittet Sie um eine Einschätzung und um Vorschläge zum weiteren Vorgehen.
+**Ausgangssituation:** In der Projektassistenz der Deko & Büro GmbH kommt es seit einigen Wochen zu wiederholten Spannungen zwischen zwei Teammitgliedern, die gemeinsam für die Terminkoordination eines Großprojekts zuständig sind. Die Zusammenarbeit ist inzwischen so belastet, dass Abstimmungen verzögert werden und weitere Kolleginnen und Kollegen den Konflikt bereits im Teammeeting ansprechen. Die Teamleitung bittet Sie um eine Einschätzung und um Vorschläge zum weiteren Vorgehen.
 
 **Teilaufgabe 1 (4 Punkte, bloom: analysieren):** Anhand welcher Anzeichen lässt sich erkennen, dass sich der Konflikt bereits in einer fortgeschritteneren Eskalationsstufe befindet und nicht mehr allein von den Beteiligten gelöst werden kann? Nennen Sie mindestens drei Indizien aus der Fallschilderung.
 
-**Teilaufgabe 2 (5 Punkte, bloom: bewerten):** Stellen Sie zwei unterschiedliche Konfliktbearbeitungsstrategien gegenüber, die die Abteilungsleitung in dieser Situation grundsätzlich verfolgen könnte, und bewerten Sie deren Eignung für den geschilderten Fall.
+**Teilaufgabe 2 (5 Punkte, bloom: bewerten):** Stellen Sie zwei unterschiedliche Konfliktbearbeitungsstrategien gegenüber, die die Teamleitung in dieser Situation grundsätzlich verfolgen könnte, und bewerten Sie deren Eignung für den geschilderten Fall.
 
-**Teilaufgabe 3 (6 Punkte, bloom: bewerten):** Begründen Sie, warum in diesem Fall der Einsatz eines von der Abteilungsleitung geleiteten Klärungsgesprächs einer rein disziplinarischen Anweisung vorzuziehen sein könnte. Skizzieren Sie den groben Ablauf eines solchen Klärungsgesprächs in vier bis fünf Schritten.
+**Teilaufgabe 3 (6 Punkte, bloom: bewerten):** Begründen Sie, warum in diesem Fall der Einsatz eines von der Teamleitung geleiteten Klärungsgesprächs einer rein disziplinarischen Anweisung vorzuziehen sein könnte. Skizzieren Sie den groben Ablauf eines solchen Klärungsgesprächs in vier bis fünf Schritten.
 
 **Teilaufgabe 4 (5 Punkte, bloom: anwenden):** Welche Rolle spielt die Personalbetreuung (vgl. Thema 3.1) dabei, ähnliche Konflikte im Team künftig frühzeitiger zu erkennen? Nennen Sie zwei präventive Maßnahmen.
 

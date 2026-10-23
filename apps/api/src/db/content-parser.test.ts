@@ -699,17 +699,17 @@ describe("parseQuizBlock", () => {
     expect(miete?.type).toBe("mieterhoehung");
     if (miete?.type === "mieterhoehung") expect(miete.terms.map((term) => term.zoneKey)).toEqual(["vergleichsmiete", "modernisierung", "staffel", "index"]);
 
-    const weg = parse("WEG-Organe", ["- beschließt den Wirtschaftsplan → Eigentümerversammlung", "- führt die Beschlüsse aus → Verwalter", "- unterstützt und kontrolliert → Verwaltungsbeirat"]);
+    const weg = parse("WEG-Organe", ["- beschließt den Wirtschaftsplan → Eigentümerversammlung", "- führt die Beschlüsse aus → Verwalter", "- unterstützt und kontrolliert → Verwaltungsbeirat", "- ist Vertragspartnerin der Handwerksbetriebe → Gemeinschaft der Wohnungseigentümer"]);
     expect(weg?.type).toBe("wegorgane");
-    if (weg?.type === "wegorgane") expect(weg.terms.map((term) => term.zoneKey)).toEqual(["versammlung", "verwalter", "beirat"]);
+    if (weg?.type === "wegorgane") expect(weg.terms.map((term) => term.zoneKey)).toEqual(["versammlung", "verwalter", "beirat", "gdwe"]);
 
-    const kosten = parse("Betriebskosten", ["- Grundsteuer → Umlagefähig", "- Verwalterhonorar → Nicht umlagefähig", "- Heizkosten nach Verbrauch → Verbrauchsabhängig (Heizkostenverordnung)"]);
+    const kosten = parse("Betriebskosten", ["- Grundsteuer → Umlagefähig (ohne Heizung und Warmwasser)", "- Verwalterhonorar → Nicht umlagefähig", "- Heizkosten nach Verbrauch → Heiz- und Warmwasserkosten (Heizkostenverordnung)"]);
     expect(kosten?.type).toBe("betriebskosten");
     if (kosten?.type === "betriebskosten") expect(kosten.terms.map((term) => term.zoneKey)).toEqual(["umlagefaehig", "nichtumlagefaehig", "verbrauch"]);
 
-    const kg = parse("DIN-276-Kostengruppen", ["- Kaufpreis des Grundstücks → KG 100 Grundstück", "- Heizungsanlage → KG 400 Technische Anlagen", "- Genehmigungskosten → KG 700 Baunebenkosten"]);
+    const kg = parse("DIN-276-Kostengruppen", ["- Kaufpreis des Grundstücks → KG 100 Grundstück", "- Heizungsanlage → KG 400 Technische Anlagen", "- Stellplätze → KG 500 Außenanlagen und Freiflächen", "- Genehmigungskosten → KG 700 Baunebenkosten", "- Finanzierungskosten während der Bauzeit → KG 800 Finanzierung"]);
     expect(kg?.type).toBe("kostengruppen");
-    if (kg?.type === "kostengruppen") expect(kg.terms.map((term) => term.zoneKey)).toEqual(["kg100", "kg400", "kg700"]);
+    if (kg?.type === "kostengruppen") expect(kg.terms.map((term) => term.zoneKey)).toEqual(["kg100", "kg400", "kg500", "kg700", "kg800"]);
   });
 
   it("parst die Modelle aus F-191 (Altersvorsorge, Versicherungskennzahlen)", () => {

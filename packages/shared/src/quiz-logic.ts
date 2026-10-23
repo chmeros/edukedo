@@ -713,14 +713,15 @@ export const QUADRANT_MODELS = {
       { key: "versammlung", label: "Eigentümerversammlung" },
       { key: "verwalter", label: "Verwalter" },
       { key: "beirat", label: "Verwaltungsbeirat" },
+      { key: "gdwe", label: "Gemeinschaft der Wohnungseigentümer" },
     ],
   },
   betriebskosten: {
     label: "Betriebskosten",
     zones: [
-      { key: "umlagefaehig", label: "Umlagefähig" },
+      { key: "umlagefaehig", label: "Umlagefähig (ohne Heizung und Warmwasser)" },
       { key: "nichtumlagefaehig", label: "Nicht umlagefähig" },
-      { key: "verbrauch", label: "Verbrauchsabhängig (Heizkostenverordnung)" },
+      { key: "verbrauch", label: "Heiz- und Warmwasserkosten (Heizkostenverordnung)" },
     ],
   },
   kostengruppen: {
@@ -730,9 +731,10 @@ export const QUADRANT_MODELS = {
       { key: "kg200", label: "KG 200 Vorbereitende Maßnahmen" },
       { key: "kg300", label: "KG 300 Baukonstruktionen" },
       { key: "kg400", label: "KG 400 Technische Anlagen" },
-      { key: "kg500", label: "KG 500 Außenanlagen" },
+      { key: "kg500", label: "KG 500 Außenanlagen und Freiflächen" },
       { key: "kg600", label: "KG 600 Ausstattung und Kunstwerke" },
       { key: "kg700", label: "KG 700 Baunebenkosten" },
+      { key: "kg800", label: "KG 800 Finanzierung" },
     ],
   },
   // F-191 (Kursprofile Phase 1, Versicherungen/Finanzanlagen): zwei Modelle in der Gliederung der Kurstheorie (Themen 1.4 und 4.1).

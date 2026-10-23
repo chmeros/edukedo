@@ -437,9 +437,9 @@ Alle vier Typen tragen seit HB1/HB2/HB4 zusätzlich das `bloom`-Tag (siehe oben)
   - `kraljic` (**Kraljic-Matrix**, F-189, 4 Zonen): Hebelprodukte, Strategische Produkte, Standardprodukte, Engpassprodukte
   - `wertermittlung` (**Wertermittlungsverfahren**, F-190, 3 Zonen): Vergleichswertverfahren, Ertragswertverfahren, Sachwertverfahren
   - `mieterhoehung` (**Wege der Mieterhöhung**, F-190, 4 Zonen): Vergleichsmiete, Modernisierungsumlage, Staffelmiete, Indexmiete
-  - `wegorgane` (**WEG-Organe**, F-190, 3 Zonen): Eigentümerversammlung, Verwalter, Verwaltungsbeirat
-  - `betriebskosten` (**Betriebskosten**, F-190, 3 Zonen): Umlagefähig, Nicht umlagefähig, Verbrauchsabhängig (Heizkostenverordnung)
-  - `kostengruppen` (**DIN-276-Kostengruppen**, F-190, 7 Zonen): KG 100 bis KG 700
+  - `wegorgane` (**WEG-Organe**, F-190, 4 Zonen): Eigentümerversammlung, Verwalter, Verwaltungsbeirat, Gemeinschaft der Wohnungseigentümer
+  - `betriebskosten` (**Betriebskosten**, F-190, 3 Zonen): Umlagefähig (ohne Heizung und Warmwasser), Nicht umlagefähig, Heiz- und Warmwasserkosten (Heizkostenverordnung)
+  - `kostengruppen` (**DIN-276-Kostengruppen**, F-190, 8 Zonen): KG 100 bis KG 800 (KG 500 heißt „KG 500 Außenanlagen und Freiflächen“, KG 800 „KG 800 Finanzierung“)
   - `altersvorsorge` (**Drei-Schichten-Modell der Altersvorsorge**, F-191, 3 Zonen): Schicht 1 Basisversorgung, Schicht 2 Zusatzversorgung, Schicht 3 Private Vorsorge
   - `versicherungskennzahlen` (**Kennzahlen der Versicherungstechnik**, F-191, 3 Zonen): Schadenquote, Kostenquote, Combined Ratio
   - `risikopolitik` (**Risikopolitik**, F-192, 4 Zonen): Vermeiden, Vermindern, Überwälzen, Selbst tragen
