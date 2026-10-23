@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AQ „Immobilienfachwirt: weitere rechtsnahe Inhalte (Recht im Vertrieb, Maklerverträge, Grundstücksrechte, Baurecht vertieft, Vergabe, Gebäudeenergierecht, Gewerberaummiete, Bestandskorrekturen)“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AT und P-AQ einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung IM-3, 5, 11, 12, 15, 16, 17, 19, 22; Fachlehrer-Befunde FL-IM-xx; Auswertung `docs/entwuerfe/immobilien-p-aq-auswertung.md`). Alle Agenten liefen auf Sonnet. P-AQ schließt die Immobilien-R4-Reihe (P-AL bis P-AQ) ab und umfasst nach Entscheidung des Projektleiters den Kern (A, D, E, F, H) und die Erweiterung (B, C, G); Option I (Arbeitsrecht `hb3/3.4`) und Wohnraumförderung sind nicht Teil.
 

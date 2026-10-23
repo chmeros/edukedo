@@ -5,7 +5,7 @@ fachgebiet_title: "Marktorientierung und Vertrieb, Maklertätigkeit"
 thema_code: "HB6-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 6 der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" (ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117, § 4) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -55,6 +55,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei Gesellschaften ist der wirtschaftlich Berechtigte zu prüfen.
   - Erwartung: Bei auffälligen Sachverhalten besteht eine Meldepflicht an die Zentralstelle für Finanztransaktionsuntersuchungen (FIU).
   - Rückfrage: Wann sollten interne Prüfroutinen zur Geldwäscheprävention durchlaufen werden?
+- Ein Eigentümer möchte der Maklerabteilung einen Alleinauftrag erteilen und fragt, wie lange er gebunden ist, ob er selbst verkaufen darf und was geschieht, wenn er doch eine zweite Makler:in einschaltet. Wie beraten Sie ihn?
+  - Erwartung: Beim Alleinauftrag verzichtet die Auftraggeber:in auf weitere Makler:innen, und die Makler:in verpflichtet sich zum Tätigwerden; das ist auch in vorformulierten Bedingungen grundsätzlich zulässig.
+  - Erwartung: Sechs Monate Bindung gelten bei Immobilien regelmäßig als angemessen; auch eine stillschweigende Verlängerung kann zulässig sein, sofern die Kündigungsregel Vertragsbestandteil geworden ist; eine unbegrenzte Bindung ist unwirksam.
+  - Erwartung: Ohne Maklerleistung entsteht kein Lohn; verlangt das Formular für den Eigenverkauf eine Pauschale oder Provision unabhängig vom Erfolg, ist diese Klausel unwirksam.
+  - Erwartung: Schaltet er trotz Alleinauftrag eine zweite Makler:in ein und verkauft mit ihr, schuldet er Schadensersatz; ein entgangener Gewinn setzt den Beleg voraus, dass die erste Makler:in in der Bindungszeit eine abschlusswillige Interessent:in gefunden hätte.
+  - Erwartung: Aufwendungen sind nur zu ersetzen, wenn das vereinbart ist; der Provisionsanspruch verjährt nach drei Jahren, beginnend mit dem Schluss des Jahres der Entstehung und der Kenntnis.
+  - Rückfrage: Darf die Maklerabteilung von einer Kaufinteressent:in eine Reservierungsgebühr verlangen, die in keinem Fall erstattet wird?
+- Eine Verbraucherin widerruft vier Wochen nach der Unterschrift in ihrer Wohnung den Maklervertrag; Ravelin hat ihr bei der Unterschrift nur mündlich von ihrem Widerrufsrecht erzählt. Wie prüfen Sie den Widerruf?
+  - Erwartung: Der Vertrag wurde außerhalb von Geschäftsräumen geschlossen, die Auftraggeberin ist Verbraucherin: Es besteht ein Widerrufsrecht mit einer Frist von 14 Tagen ab Vertragsschluss.
+  - Erwartung: Die Frist beginnt erst, wenn die Widerrufsinformation und das Muster-Widerrufsformular auf Papier oder, bei Zustimmung, auf einem anderen dauerhaften Datenträger zur Verfügung gestellt wurden; bloße mündliche Information genügt nicht, und die Unternehmer:in trägt die Beweislast.
+  - Erwartung: Weil die Frist nicht angelaufen ist, ist der Widerruf nach vier Wochen wirksam; er ist bis spätestens zwölf Monate und 14 Tage nach Vertragsschluss möglich, und Provision und Wertersatz stehen Ravelin nicht zu.
+  - Erwartung: Ein vorzeitiges Erlöschen setzt zusätzlich ordnungsgemäße Belehrung samt Muster-Widerrufsformular, vollständige Leistung, ausdrückliche Zustimmung und bestätigte Kenntnis voraus; Wertersatz setzt ein ausdrückliches Verlangen auf Leistungsbeginn vor Fristablauf und ordnungsgemäße Information voraus.
+  - Rückfrage: Was ändert sich, wenn der Vertrag über ein Online-Formular und per E-Mail geschlossen wurde?
 
 ### 6.2 Marketing für Immobilien
 
@@ -82,7 +95,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die eigene Unternehmenswebsite mit Objektdatenbank erreicht Bestandskund:innen und organischen Suchverkehr.
   - Erwartung: Social-Media-Kanäle schaffen Reichweite bei passiv suchenden Zielgruppen und dienen der Markenbildung.
   - Erwartung: Ein CRM-System verknüpft Anfragen mit passenden Objekten und informiert Interessent:innen gezielt über Objekte, die zu ihrem Suchprofil passen (Matching).
-  - Erwartung: E-Mail-Newsletter mit neuen Objektangeboten aktivieren bestehende Interessent:innen aus dem CRM erneut.
+  - Erwartung: E-Mail-Newsletter mit neuen Objektangeboten sprechen Interessent:innen aus dem CRM gezielt an, sind aber nur mit deren vorheriger ausdrücklicher Einwilligung zulässig (Nachweis, Widerrufsmöglichkeit).
 - Erläutern Sie, wie sich der klassische Marketingmix auf die Immobilienvermarktung übertragen lässt.
   - Erwartung: Die Produktpolitik betrifft z. B. die Objektaufbereitung (Home Staging).
   - Erwartung: Die Preispolitik betrifft die realistische Angebotspreisfindung.
@@ -94,6 +107,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Bei einer familiengerechten Bestandsimmobilie stehen Schulnähe, Gartenfläche und Kinderzimmeraufteilung im Vordergrund.
   - Erwartung: Bei einer Neubau-Eigentumswohnung für Kapitalanleger:innen stehen Renditeerwartung, Vermietbarkeit und Lagequalität für Mieter:innen im Vordergrund.
   - Rückfrage: Wie hilft ein CRM-System beim Abgleich von Suchprofil und Objekt?
+- Das Marketing möchte das Kontaktformular für Objektanfragen auf der Website so gestalten, dass das Feld „Newsletter bestellen“ bereits angekreuzt ist; wer anfragt, soll automatisch den Newsletter erhalten. Wie beraten Sie?
+  - Erwartung: E-Mail-Werbung braucht die vorherige ausdrückliche Einwilligung; sie setzt eine eindeutige bestätigende Handlung voraus, ein vorangekreuztes Kästchen oder bloße Untätigkeit genügt nicht.
+  - Erwartung: Die Einwilligung muss freiwillig sein: Die Antwort auf die Anfrage darf nicht davon abhängen, dass der Newsletter bestellt wird; das Feld ist getrennt, unangekreuzt und mit Information über Zweck und Widerrufsmöglichkeit zu gestalten.
+  - Erwartung: Ravelin muss die Einwilligung nachweisen können, üblich ist das Double-Opt-in mit gespeichertem Zeitpunkt; der Widerruf ist jederzeit möglich und muss so einfach sein wie die Erteilung, und wer widerspricht, erhält keine weitere Werbung dieser Art.
+  - Erwartung: Die Daten der Anfrage dienen der Beantwortung und dürfen nicht ohne weitere Grundlage für Werbung genutzt werden; bei der Erhebung werden die Betroffenen über Zwecke, Rechtsgrundlage, Speicherdauer und Rechte informiert.
+  - Erwartung: Die Ausnahme für Bestandskund:innen gilt nur bei einem Verkauf, eigenen ähnlichen Leistungen, fehlendem Widerspruch und deutlichem Widerspruchshinweis beim Erheben und bei jedem Einsatz; Werbeanrufe bei Privatpersonen sind ohne dokumentierte Einwilligung unzulässig (Bußgeld bis 300.000 Euro).
+  - Rückfrage: Wie gehen Sie mit älteren Adressen um, bei denen keine Einwilligung dokumentiert ist?
+- Ein konkurrierendes Maklerunternehmen mahnt eine Anzeige der Maklerabteilung ab. Wie gehen Sie vor, und wie stellen Sie künftig rechtssichere Anzeigen sicher?
+  - Erwartung: Die Abmahnung wird sofort geprüft: Anspruchsberechtigung des abmahnenden Unternehmens, tatsächlicher Verstoß (z. B. irreführende Angabe, fehlende Pflichtangabe, fehlender Gesamtpreis) und Vollständigkeit der geforderten Angaben; Rechtsrat wird eingeholt.
+  - Erwartung: Die beanstandete Anzeige wird sofort korrigiert; die vorformulierte Unterlassungserklärung wird nicht blind unterschrieben, weil eine Vertragsstrafe droht.
+  - Erwartung: Kostenersatz entfällt für Mitbewerbende nur bei Verstößen gegen gesetzliche Informations- und Kennzeichnungspflichten im Netz (z. B. Impressum) und bei sonstigen Datenschutzverstößen kleinerer Unternehmen; bei irreführenden Angaben bleibt er möglich, wenn die Abmahnung berechtigt und formgerecht ist. Verbände sind vom Ausschluss nicht erfasst.
+  - Erwartung: Anzeigen und Exposés werden vor Veröffentlichung nach einer Checkliste geprüft: wahre Angaben zu Zustand und Preis, Gesamtpreis (Provision nach verbreiteter Praxis einschließlich Umsatzsteuer), Energieausweis-Pflichtangaben, Impressum, Bildrechte; Visualisierungen sind als solche erkennbar.
+  - Erwartung: Der Unterlassungsanspruch verjährt in sechs Monaten ab Kenntnis; Ravelin haftet auch für Handlungen von Mitarbeitenden und Beauftragten.
+  - Rückfrage: Was gilt bei Fotos, die ein externes Fotostudio erstellt hat?
 
 ### 6.3 Immobilienbewertung Grundzüge
 

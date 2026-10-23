@@ -5,7 +5,7 @@ fachgebiet_title: "Immobilienbewirtschaftung"
 thema_code: "HB4-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Immobilienbewirtschaftung" (§4 ImmoFachwPrV vom 25.01.2008, BGBl. I S. 117) der IHK-Fortbildungsprüfung „Geprüfter Immobilienfachwirt" — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -19,7 +19,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Der qualifizierte Zeitmietvertrag kommt in Betracht, wenn der Vermieter bereits bei Vertragsschluss einen der gesetzlich abschließend genannten Gründe angeben kann, etwa beabsichtigten Eigenbedarf.
   - Erwartung: Ohne einen solchen Grund ist eine Befristung bei Wohnraum unwirksam, der Vertrag gilt dann als unbefristet geschlossen.
   - Erwartung: Staffelmiete und Indexmiete sind besondere Vertragsformen, die die Mietanpassung schon im Vertrag regeln.
-  - Erwartung: Bei der Gewerberaummiete gilt weitgehende Vertragsfreiheit, der besondere Kündigungsschutz des Wohnraummietrechts findet keine Anwendung.
+  - Erwartung: Bei der Gewerberaummiete gilt weitgehende Vertragsfreiheit, der besondere Kündigungsschutz des Wohnraummietrechts findet keine Anwendung; es gelten die gesetzlichen Kündigungsfristen für Geschäftsräume nach Kalendervierteljahren, und vom Vermieter gestellte Formularklauseln bleiben der Inhaltskontrolle unterworfen (Näheres im Abschnitt „Gewerberaummiete im Überblick“ von Thema 4.1).
   - Rückfrage: Was gilt, wenn ein Gewerbemietvertrag mit einer Laufzeit von mehr als einem Jahr nicht in der gesetzlich vorgesehenen Form (Textform) abgeschlossen wird?
 - Worin unterscheiden sich Staffelmiete und Indexmiete, und welche Vor- und Nachteile hat jede Variante aus Sicht eines Vermieters?
   - Erwartung: Die Staffelmiete legt bereits im Vertrag künftige Mieterhöhungen in konkreten Beträgen und Zeitpunkten fest und kommt ohne gesonderte Erhöhungserklärung aus.
@@ -69,6 +69,19 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Mieter:innen können bis zum Ablauf des zweiten Monats nach Zugang außerordentlich zum Ablauf des übernächsten Monats kündigen, dann tritt die Erhöhung nicht ein; deshalb sind Zugangsnachweis, Fristenkalender und Wiedervorlage wichtig.
   - Erwartung: Bei der Kappung zählen drei Jahre; das Verlangen ist auf die gekappte Miete zu richten, auch wenn die Vergleichsmiete höher liegt.
   - Rückfrage: Was ist bei einer Modernisierungsmieterhöhung im Verfahren anders?
+- Die Mieterseite eines Ladenlokals meldet, dass die Eigentümerin das Nachbarlokal im selben Haus an ein Konkurrenzunternehmen vermieten will; im Mietvertrag steht dazu nichts. Wie beraten Sie die Eigentümerin?
+  - Erwartung: Auch ohne Klausel schuldet die Vermieterseite bei Geschäftsräumen grundsätzlich vertragsimmanenten Konkurrenzschutz: Weder im selben Haus noch in der unmittelbaren Nachbarschaft darf sie an Konkurrenzunternehmen vermieten oder selbst konkurrieren.
+  - Erwartung: Der Schutz ist nicht grenzenlos; es kommt auf den Einzelfall an, etwa auf Nähe, Angebot, Art und Größe des Hauses und die berechtigte Verkehrserwartung. Nicht jeder Wettbewerb ist fernzuhalten.
+  - Erwartung: Eine Verletzung macht die Mietsache mangelhaft (Minderung); denkbar sind außerdem Unterlassung oder Beseitigung, Schadensersatz und, wenn der Mangel bleibt, die fristlose Kündigung.
+  - Erwartung: Ravelin dokumentiert Branche, Angebot und Lage und regelt den Konkurrenzschutz in künftigen Verträgen ausdrücklich; ein Formularausschluss unterliegt der Inhaltskontrolle und ist in einem Einkaufszentrum zusammen mit Betriebspflicht und Sortimentsbindung unwirksam.
+  - Rückfrage: Wann ist ein Formularausschluss des Konkurrenzschutzes unwirksam?
+- Eine Eigentümerin plant ein Bürohaus und möchte in den Mietverträgen eine Wertsicherung und die Schönheitsreparaturen auf die Mieterseite übertragen. Was empfehlen Sie, und worauf achten Sie?
+  - Erwartung: Eine Indexklausel ist eine Preisklausel, die grundsätzlich verboten und nur ausnahmsweise zulässig ist: bei einem amtlichen Preisindex, bei mindestens zehn Jahren Laufzeit, Kündigungsverzicht der Vermieterseite oder Verlängerungsoption der Mieterseite, und wenn die Klausel bestimmt ist und keine Seite einseitig benachteiligt.
+  - Erwartung: Alternativen sind die Staffelmiete mit festen Beträgen, ein Leistungsvorbehalt nach Billigkeit oder eine Spannungsklausel mit vergleichbaren Gütern.
+  - Erwartung: Eine unzulässige Indexklausel wird erst mit dem rechtskräftig festgestellten Verstoß unwirksam, ihre bisherigen Wirkungen bleiben bestehen.
+  - Erwartung: Schönheitsreparaturen schuldet gesetzlich die Vermieterseite; die Übertragung im Formular ist möglich, aber nicht nach starren Fristen unabhängig vom Zustand der Räume, sonst entfällt die gesamte Klausel, und die Pflicht liegt wieder bei der Vermieterseite.
+  - Erwartung: Außerdem: Textform bei Verträgen über mehr als ein Jahr und gesetzliche Kündigung bis zum dritten Werktag eines Kalendervierteljahres zum Ablauf des nächsten, wenn nichts anderes vereinbart ist.
+  - Rückfrage: Was gilt für die Indexklausel, wenn der Vertrag nur fünf Jahre läuft und keine Verlängerungsoption enthält?
 
 ### 4.2 WEG-Verwaltung
 
@@ -128,7 +141,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 ### 4.3 Instandhaltung und Facility Management
 
 - Erläutern Sie die vier Grundmaßnahmen der Instandhaltung nach DIN 31051 anhand eines Beispiels aus Ihrer Praxis.
-  - Erwartung: Wartung bewahrt den Sollzustand, z. B. durch regelmäßige Heizungswartung.
+  - Erwartung: Wartung verzögert den Abbau des Abnutzungsvorrats, also den Verschleiß, z. B. durch regelmäßige Heizungswartung.
   - Erwartung: Inspektion stellt den Ist-Zustand fest und beurteilt ihn, z. B. durch eine Dach- oder Fassadenbegehung.
   - Erwartung: Instandsetzung stellt den Sollzustand nach einem eingetretenen Mangel wieder her, z. B. durch den Austausch einer defekten Pumpe.
   - Erwartung: Verbesserung steigert die Funktionssicherheit ohne Änderung der geforderten Funktion, z. B. durch Austausch gegen ein technisch höherwertiges Bauteil.
@@ -143,7 +156,8 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Reicht die Rücklage für eine beschlossene Maßnahme nicht aus, kann die Eigentümerversammlung eine Sonderumlage beschließen.
   - Erwartung: Die Sonderumlage ist ein einmaliger zusätzlicher Beitrag der Eigentümer:innen.
   - Erwartung: Ein mittelfristiger Instandhaltungsplan (häufig über zehn Jahre) erfasst erwartete Maßnahmen, Zeitpunkte und Kosten und bildet die Grundlage der Budgetplanung.
-  - Rückfrage: Wie wird die angemessene Höhe der Erhaltungsrücklage in der Praxis häufig geschätzt, und was berücksichtigt die Peters'sche Formel?
+  - Erwartung: Die angemessene Höhe der Rücklage lässt sich in der Praxis grob nach Faustregeln wie der Peters'schen Formel schätzen, die von den Herstellungskosten des Gebäudes ausgeht (1,5-Faches über rund 80 Jahre, davon der Anteil des Gemeinschaftseigentums).
+  - Rückfrage: Wie lässt sich die angemessene Höhe der Erhaltungsrücklage in der Praxis grob schätzen, und von welchen Größen geht die Peters'sche Formel aus?
 - Welche gesetzlich vorgeschriebenen Prüfungen an technischen Anlagen müssen Sie als Hausverwaltung im Blick behalten?
   - Erwartung: Zur Technischen Gebäudeausrüstung gehören Heizungs-, Lüftungs- und Sanitäranlagen, Aufzüge sowie Brandschutzanlagen.
   - Erwartung: Für viele dieser Anlagen bestehen Wartungsverträge mit spezialisierten Fachfirmen sowie gesetzlich vorgeschriebene Prüfungen.

@@ -5,7 +5,7 @@ fachgebiet_title: "Bauprojektmanagement"
 thema_code: "HB5-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zum Handlungsbereich „Bauprojektmanagement" der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117), §4 — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "22.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -88,11 +88,23 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Eine laufende Dokumentation (Bautagebuch, Fotodokumentation) dient im Streitfall als Nachweis.
   - Rückfrage: Wer übernimmt bei der Ravelin-Bauträgersparte die technische Überwachung vor Ort?
 - Was passiert rechtlich mit der Abnahme einer Bauleistung, und warum ist der Zeitpunkt der Abnahme so wichtig?
-  - Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde.
+  - Erwartung: Bei der Abnahme bestätigt der Auftraggeber gegenüber dem ausführenden Unternehmen, dass die Leistung im Wesentlichen vertragsgerecht erbracht wurde; er erklärt sie selbst oder durch eine bevollmächtigte Person, und er darf sie wegen unwesentlicher Mängel nicht, wegen wesentlicher Mängel aber verweigern.
   - Erwartung: Mit der Abnahme beginnt regelmäßig die Gewährleistungsfrist, also die Verjährungsfrist für Mängelansprüche, zu laufen.
   - Erwartung: Die konkrete Frist richtet sich nach der vertraglich vereinbarten Grundlage: bei Bauleistungen nach VOB/B in der Regel vier Jahre, nach BGB regelmäßig fünf Jahre für Bauwerke.
-  - Erwartung: Werden bei der Abnahme oder danach Mängel festgestellt, werden diese systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt.
+  - Erwartung: Bekannte Mängel behält sich der Auftraggeber bei der Abnahme vor, am besten im Protokoll (Einzelheiten: Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement); festgestellte Mängel werden systematisch dokumentiert und dem ausführenden Unternehmen wird eine angemessene Frist zur Nacherfüllung gesetzt.
   - Rückfrage: Warum ist ein funktionierendes Mängelmanagement gerade im Bauträgergeschäft besonders wichtig?
+- Die Geschäftsführung fragt, ob Ravelin die Gewerke eines geförderten Mehrfamilienhauses ausschreiben muss und wie Sie die Vergabe sinnvoll gestalten. Was antworten Sie?
+  - Erwartung: Als private Bauträgerin ist Ravelin keine öffentliche Auftraggeberin und nicht an das förmliche Vergaberecht gebunden; die Ausnahme für bestimmte subventionierte Bauten erfasst Wohnungsbau nicht.
+  - Erwartung: Der Zuwendungsbescheid und das Landesrecht sind auf Vergabevorgaben zu prüfen.
+  - Erwartung: Freiwillig orientiert sich Ravelin an der VOB/A und ihren Wertgrenzen: für Bundesaufträge seit 2026 Direktauftrag bis 50.000 €, freihändige Vergabe bis 100.000 € und beschränkte Ausschreibung ohne Teilnahmewettbewerb bis 150.000 € netto; Länder und Kommunen können abweichen.
+  - Erwartung: Eignung, Zuschlagskriterien und Fristen (Angebotsfrist mindestens zehn Kalendertage, Bindefrist so kurz wie möglich) werden vorab festgelegt, die Entscheidung wird dokumentiert.
+  - Rückfrage: Ab welchem geschätzten Auftragswert gilt für öffentliche Auftraggeber:innen bei Bauleistungen das EU-Vergaberecht, und wie wird dieser Wert geschätzt?
+- Auf einer Baustelle sind mehrere Unternehmen mit zeitweise mehr als 20 Beschäftigten tätig, und das Rohbauunternehmen meldet Verzögerungen, weil die Bestellerseite die Ausführungspläne spät freigegeben hat. Welche Pflichten hat Ravelin als Bauherrin, und wie gehen Sie mit der Meldung um?
+  - Erwartung: Die Bauherrschaft übermittelt der zuständigen Behörde spätestens zwei Wochen vor Einrichtung der Baustelle eine Vorankündigung, wenn die Arbeiten länger als 30 Arbeitstage dauern und mehr als 20 Beschäftigte gleichzeitig arbeiten oder der Umfang 500 Personentage übersteigt; die Vorankündigung hängt aus.
+  - Erwartung: Bei Beschäftigten mehrerer Arbeitgeber ist eine Koordinatorin oder ein Koordinator zu bestellen; diese Person erarbeitet den Sicherheits- und Gesundheitsschutzplan und die Unterlage für spätere Arbeiten; die Beauftragung einer Person für diese Aufgabe nimmt der Bauherrschaft die Verantwortung für die Maßnahmen nicht ab.
+  - Erwartung: Bei vereinbarter VOB/B muss das Unternehmen die Behinderung unverzüglich schriftlich anzeigen; ohne Anzeige zählen die Umstände nur, wenn sie offenkundig bekannt waren.
+  - Erwartung: Ravelin prüft, ob der Umstand in ihren Risikobereich fällt, und bemisst die Fristverlängerung nach der Dauer der Behinderung zuzüglich des Zuschlags; Bautagebuch und Fotos sichern den Nachweis; die Vergütung regelt das Bauvertragsrecht (Thema 5.5 „Bauvertragsrecht“ im Fachgebiet Bauprojektmanagement).
+  - Rückfrage: Wer erklärt die Abnahme, wenn eine externe Bauleitung eingesetzt ist, und was gilt bei wesentlichen Mängeln?
 
 ### 5.3 Baurecht Grundzüge
 
@@ -129,6 +141,20 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Mögliche Einwände betreffen z. B. Verschattung oder Grenzabstand; Zeitpunkt und Form der Nachbarbeteiligung regelt das Landesrecht.
   - Erwartung: Abstandsflächen sind Mindestabstände zu Nachbargrundstücken, u. a. zur Sicherstellung von Belichtung, Belüftung und Brandschutz.
   - Rückfrage: Was regelt das Bauordnungsrecht im Unterschied zum Bauplanungsrecht, und wer ist dafür zuständig?
+- Ravelin will ein unbebautes Baugrundstück kaufen. Was prüfen Sie über das Grundbuch und die planungsrechtliche Einordnung hinaus, bevor Sie die Kaufentscheidung empfehlen?
+  - Erwartung: Ob dem Grundstück eine Baulast zugeordnet ist, klärt eine Auskunft aus dem Baulastenverzeichnis der Bauaufsichtsbehörde; das Grundbuch zeigt sie nicht, und manche Länder kennen die Baulast gar nicht, dann ist das Landesrecht maßgeblich.
+  - Erwartung: Ob die Gemeinde ein gesetzliches Vorkaufsrecht haben kann (zum Beispiel bei unbebauten Flächen im Wohngebiet, in Umlegungs-, Sanierungs- oder Erhaltungssatzungsgebieten), und dass die Käufer:in die Eintragung nur mit dem Nachweis der Nichtausübung, meist einem Zeugnis der Gemeinde, erhält; die Ausübungsfrist beträgt drei Monate ab Mitteilung des Vertrags.
+  - Erwartung: Ob eine Veränderungssperre, eine Zurückstellung oder eine Erhaltungssatzung gilt oder beschlossen werden soll, und ob das Objekt unter Denkmalschutz steht (Landesrecht).
+  - Erwartung: Ob für die Straße noch ein Erschließungsbeitrag zu erwarten ist und wer ihn im Kaufvertrag trägt; beitragspflichtig ist, wer bei Bekanntgabe des Bescheids Eigentümer:in ist.
+  - Erwartung: Die Fälligkeit des Kaufpreises hängt in der Praxis davon ab, dass das Zeugnis oder die Nichtausübung vorliegt (Thema 6.4 Vertriebsprozess und Kundenbetreuung im Fachgebiet Marktorientierung und Vertrieb, Maklertätigkeit).
+  - Rückfrage: Was ändert sich, wenn Ravelin statt eines Grundstücks eine Eigentumswohnung kauft?
+- Ein Vorstandsmitglied fragt, welche Verfahrensart für ein neues Mehrfamilienhaus mit sechs Wohnungen im Geltungsbereich eines Bebauungsplans in Betracht kommt und welche Brandschutzfragen früh geklärt werden müssen. Wie antworten Sie?
+  - Erwartung: Nach der Musterbauordnung kommt eine Genehmigungsfreistellung in Betracht, wenn das Vorhaben im Geltungsbereich eines qualifizierten Bebauungsplans liegt, ihm nicht widerspricht, die Erschließung gesichert ist, es kein Sonderbau ist und die Gemeinde nicht innerhalb der Frist von einem Monat ein Verfahren verlangt; sonst vereinfachtes Verfahren oder reguläres Baugenehmigungsverfahren. Ob und wie das am Standort gilt, entscheidet die Landesbauordnung.
+  - Erwartung: Die Gebäudeklasse folgt aus der Höhe und der Größe der Nutzungseinheiten; sie bestimmt Brandschutznachweis, Anforderungen an Bauteile und Nachweise (Gebäudeklasse 4 bis 13 m, Gebäudeklasse 5 darüber oder bei größeren Einheiten).
+  - Erwartung: Jede Wohnung braucht zwei voneinander unabhängige Rettungswege; der zweite über die Feuerwehr nur, wenn deren Geräte die Anleiterhöhe erreichen, über 8 m nur, wenn die Feuerwehr die erforderlichen Rettungsgeräte, etwa Hubrettungsfahrzeuge, hat; sonst zweite Treppe oder Sicherheitstreppenraum.
+  - Erwartung: Rauchwarnmelder in Schlafräumen, Kinderzimmern und Fluren; Pflichten im Bestand und Fristen regeln die Länder unterschiedlich.
+  - Erwartung: Abweichungen vom Bauordnungsrecht oder Befreiungen vom Bebauungsplan müssen gesondert beantragt und begründet werden und sind ein Risiko für Zeitplan und Kosten.
+  - Rückfrage: Was ändert sich am Verfahren, wenn das Gebäude als Sonderbau eingestuft wird?
 
 ### 5.4 Kosten- und Terminplanung im Bau
 

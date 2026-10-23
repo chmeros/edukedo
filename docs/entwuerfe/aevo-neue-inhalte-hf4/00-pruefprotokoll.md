@@ -1,6 +1,6 @@
 # Prüfprotokoll Paket P-AT „Ausbildung der Ausbilder: neue rechtsnahe Inhalte Handlungsfeld 4“ (Stand 23.10.2026)
 
-**Entwurf (R4, rechtsnah), nicht eingespielt; wartet auf die Freigabe des Projektleiters.** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
+**Eingespielt am 23.10.2026 (R4, rechtsnah; Freigabe des Projektleiters „Ja, P-AT und P-AQ einspielen“).** Nicht förmlich rechtsgeprüft (Stand Oktober 2026, vor Verwendung prüfen).
 
 Auftrag: `auftrag.md` (Erhebung G-AEVO-14, -15, -16; Auswertung `docs/entwuerfe/aevo-r4-auswertung.md`). Alle Agenten liefen auf Sonnet. Das Paket baut auf P-AR und P-AS (22.10.2026) auf und schließt die AEVO-R4-Reihe ab.
 

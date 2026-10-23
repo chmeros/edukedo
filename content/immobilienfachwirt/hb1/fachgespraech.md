@@ -5,7 +5,7 @@ fachgebiet_title: "Rahmenbedingungen der Immobilienwirtschaft"
 thema_code: "HB1-fachgespraech"
 thema_title: "Fachgesprächsfragen-Sammlung"
 quelle: "Frei formulierte Fragen, orientiert an typischen mündlichen Prüfungssituationen zu Handlungsbereich 1 der Verordnung über die Prüfung zum anerkannten Abschluss Geprüfter Immobilienfachwirt/Geprüfte Immobilienfachwirtin (ImmoFachwPrV, 25.01.2008, BGBl. I S. 117) — keine 1:1-Übernahme (siehe Anforderungskatalog Abschnitt 7)"
-rechtsstand: "21.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
+rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen; alle Zahlen und Firmenangaben sind frei gewählte Beispielwerte"
 ---
 
 ## Fachgesprächsfragen
@@ -95,7 +95,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
 - Worauf baut die Fortbildung zum Immobilienfachwirt typischerweise auf?
   - Erwartung: Die Fortbildung baut meist auf einer abgeschlossenen kaufmännischen Erstausbildung auf, häufig zum/zur Immobilienkaufmann/-frau.
   - Erwartung: Alternativ genügt einschlägige Berufserfahrung in der Immobilienwirtschaft.
-  - Erwartung: Die Fortbildungsprüfung gliedert sich in mehrere Handlungsbereiche, u. a. Immobilienvermarktung, -verwaltung und -finanzierung.
+  - Erwartung: Die Prüfung umfasst nach der Prüfungsverordnung sechs Handlungsbereiche, darunter Rahmenbedingungen der Immobilienwirtschaft, Unternehmenssteuerung und Kontrolle, Immobilienbewirtschaftung, Bauprojektmanagement sowie Marktorientierung und Vertrieb, Maklertätigkeit.
   - Rückfrage: Welche Tätigkeitsfelder stehen Absolvent:innen typischerweise offen?
 - Welche berufsständischen Verbände kennen Sie, und welchen Schwerpunkt hat jeweils?
   - Erwartung: Der IVD (Immobilienverband Deutschland) ist der größte Maklerverband und vertritt vor allem Maklerunternehmen.
@@ -134,7 +134,7 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Rückfrage: Was versteht man im Bauträgergeschäft unter Kreislaufwirtschaft?
 - Welche Rolle spielt das Gebäudeenergiegesetz für Eigentümer und Verwalter?
   - Erwartung: Das Gebäudeenergiegesetz bildet die zentrale deutsche Rechtsgrundlage für energetische Anforderungen an Gebäude, sowohl im Neubau als auch im Bestand.
-  - Erwartung: Dazu gehören etwa Vorgaben zu erneuerbaren Energien bei neuen Heizungsanlagen.
+  - Erwartung: Dazu gehören etwa Dämmpflichten im Bestand, die Regeln beim Heizungstausch (bei neuen Gas-, Öl- oder Flüssiggasheizungen ein steigender Anteil klimaneutraler Brennstoffe) und der Energieausweis.
   - Erwartung: Förderprogramme der KfW und des BAFA setzen finanzielle Anreize für Eigentümer:innen.
   - Erwartung: Die Hausverwaltung informiert bei WEGs die Eigentümergemeinschaft über gesetzliche Anforderungen und Fördermöglichkeiten und bereitet die entsprechenden Beschlüsse für die Eigentümerversammlung vor.
   - Rückfrage: Welche Maßnahmen zählen typischerweise zur energetischen Sanierung?
@@ -159,3 +159,38 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Gute Arbeitsbedingungen gehören ebenfalls zur sozialen Dimension.
   - Erwartung: Die ökologische Dimension („E") umfasst dagegen Energieeffizienz, CO2-Bilanz und Ressourcenschonung.
   - Rückfrage: Was umfasst das „G" (Governance)?
+- Eine Eigentümerin eines Mehrfamilienhauses will ihren alten Gaskessel durch eine neue Gasheizung ersetzen und fragt, was das rechtlich bedeutet und welche Alternativen es gibt. Wie beraten Sie sie?
+  - Erwartung: Beim Austausch hat er die Wahl zwischen mehreren Optionen, etwa Wärmepumpe, Solarthermie, Biomasse, Hybridheizung, Wärmenetzanschluss oder wieder einer Gas-, Öl- oder Flüssiggasheizung; eine feste Mindestquote an erneuerbarer Energie für jede neue Heizung gibt es seit dem Gesetz vom Juli 2026 nicht mehr.
+  - Erwartung: Wird eine Gas-, Öl- oder Flüssiggasheizung nach dem 29.07.2026 in ein bestehendes Gebäude eingebaut, muss ein steigender Anteil der Wärme klimaneutral erzeugt werden, in Stufen von 10 % (ab 2029) über 15 % (ab 2030) und 30 % (ab 2035) bis 60 % (ab 2040); verantwortlich ist die Eigentümer:in.
+  - Erwartung: Zunächst (2029 bis 2034) erfüllen auch Solarthermie ab einer Mindestfläche oder eine Lüftungsanlage mit Wärmerückgewinnung die Pflicht, danach zählt der nachgewiesene Anteil; eine geeignete Wärmepumpen-Hybridheizung gilt als Erfüllung; Verstöße können ein Bußgeld nach sich ziehen.
+  - Erwartung: Für vermietete Wohnungen werden die CO2-Kosten bei einer solchen Heizung ab 2028 hälftig geteilt (statt nach dem Stufenmodell); Stand Oktober 2026, vor Verwendung prüfen.
+  - Erwartung: Ein kommunaler Wärmeplan begründet keine unmittelbare Pflicht; die Verwaltung fragt bei der Gemeinde nach dem Stand und bereitet bei WEGs den Beschluss vor.
+  - Rückfrage: Welche Prüfpflichten gelten für Heizungsanlagen in Gebäuden mit mindestens sechs Wohnungen?
+- Eine Mieterin fragt, warum in ihrer Heizkostenabrechnung ein Anteil CO2-Kosten steht, und eine andere, warum er fehlt. Wie klären Sie die Aufteilung?
+  - Erwartung: Bei vermieteten Wohngebäuden teilen Vermieterseite und Mieterschaft die CO2-Kosten nach einem Stufenmodell; maßgeblich ist der CO2-Ausstoß des Gebäudes in kg je m² Wohnfläche und Jahr, auf eine Nachkommastelle gerundet.
+  - Erwartung: Je höher der Ausstoß, desto größer der Anteil der Vermieterseite; die Spanne reicht von vollem Mieteranteil bei sehr niedrigem bis 95 % Vermieteranteil bei sehr hohem Ausstoß.
+  - Erwartung: Die Abrechnung hat Mieteranteil, Einstufung und Berechnungsgrundlagen zu nennen; sonst steht der Mieterschaft ein Kürzungsrecht von 3 % zu.
+  - Erwartung: Im Nichtwohngebäude liegt die Grenze bei 50 % für die Mieterschaft; bei Selbstversorgung erstattet die Vermieterseite ihren Anteil, wenn die Mieterschaft das innerhalb von zwölf Monaten nach der Lieferantenabrechnung in Textform verlangt.
+  - Erwartung: Stehen Denkmalschutz oder ähnliche Vorgaben einer wesentlichen energetischen Verbesserung entgegen, wird der Vermieteranteil halbiert, wenn die Vermieterseite das nachweist.
+  - Rückfrage: Wie wirkt sich eine Dämmung des Hauses auf die Aufteilung aus?
+
+### 1.5 Grundstücksrechte: Erbbaurecht, Dienstbarkeiten, Vorkaufsrechte und Zwangsversteigerung
+
+- Kapitalanleger:innen möchten ein Mehrfamilienhaus bauen und fragen Sie, ob sie das Grundstück kaufen oder im Erbbaurecht übernehmen sollen. Wie beraten Sie sie zu den Grundlagen?
+  - Erwartung: Beim Erbbaurecht bleibt der Boden bei der Eigentümer:in; das Bauwerk gehört rechtlich zum Erbbaurecht, das veräußerlich und vererblich ist und im Erbbaugrundbuch an erster Rangstelle steht. Es entfällt der Kaufpreis für den Boden, dafür zahlen sie laufend den Erbbauzins.
+  - Erwartung: Der Erbbauzins ist als Reallast gesichert und enthält häufig eine Anpassungsklausel; bei Wohnbebauung ist eine Erhöhung nur zulässig, soweit sie nicht unbillig ist, regelmäßig nicht über die Änderung der allgemeinen wirtschaftlichen Verhältnisse hinaus, und frühestens im Abstand von drei Jahren.
+  - Erwartung: Für Verkauf und Beleihung des Erbbaurechts kann ein Zustimmungsvorbehalt der Eigentümer:in vereinbart sein; die finanzierende Bank prüft nach verbreiteter Praxis Restlaufzeit und Behandlung des Erbbauzinses.
+  - Erwartung: Ein Heimfall wegen Zahlungsverzugs setzt einen Rückstand von mindestens zwei Jahresbeträgen voraus; beim Ablauf wird das Bauwerk Bestandteil des Grundstücks, und die Eigentümer:in muss eine vereinbarte oder gesetzliche Entschädigung leisten.
+  - Rückfrage: Was geschieht, wenn die berechtigte Person das Erbbaurecht verkaufen will, die Eigentümer:in des Grundstücks die Zustimmung aber verweigert?
+- Die Maklerabteilung soll ein Mehrfamilienhaus anbieten. Der Grundbuchauszug zeigt in Abteilung II ein Wegerecht, ein Wohnungsrecht und ein dingliches Vorkaufsrecht. Wie gehen Sie vor?
+  - Erwartung: Das Wegerecht ist eine Grunddienstbarkeit zugunsten der jeweiligen Eigentümer:in des Nachbargrundstücks; das Wohnungsrecht ist eine beschränkte persönliche Dienstbarkeit einer bestimmten Person und ein dingliches Recht, kein Mietverhältnis. Beide werden vom Eigentümerwechsel nicht berührt.
+  - Erwartung: Der Rang entscheidet, ob sie einer Versteigerung aus einer Grundschuld standhalten; ein früher eingetragenes Recht bleibt bestehen, ein nachrangiges erlischt.
+  - Erwartung: Das dingliche Vorkaufsrecht wirkt gegenüber der Käuferseite wie eine Vormerkung; die berechtigte Person kann es nach Mitteilung des Kaufvertrags innerhalb von zwei Monaten ausüben und tritt dann zu den vereinbarten Bedingungen in den Kauf ein. Die Frist beginnt erst mit der Mitteilung des geschlossenen Kaufvertrags; die Maklerabteilung weist die Verkäuferseite darauf hin, das Vorkaufsrecht vor dem Vertragsschluss zu klären (nach verbreiteter Praxis durch eine Verzichtserklärung).
+  - Erwartung: Die Rechte gehören ins Exposé; gelöscht werden sie in der Regel mit Bewilligung der berechtigten Person und Eintragung (Ausnahme: Erlöschen kraft Gesetzes), das Notariat bereitet das vor.
+  - Rückfrage: Gilt das Vorkaufsrecht auch, wenn das Haus später zwangsversteigert wird?
+- Eine Eigentümer:in, die die Hausverwaltung betreut, erhält den Beschluss, mit dem die Zwangsversteigerung ihres Mietshauses angeordnet wird. Was bedeutet das für sie, für die Mieter:innen und für Ihre Arbeit?
+  - Erwartung: Der Beschluss gilt als Beschlagnahme mit der Wirkung eines Veräußerungsverbots; die Eigentümer:in darf nur noch im Rahmen ordnungsmäßiger Wirtschaft verwalten. Das Gericht setzt den Verkehrswert fest und bestimmt den Termin.
+  - Erwartung: Im Termin wird das geringste Gebot festgestellt: Vorrangige Rechte bleiben bestehen, nachrangige erlöschen; die Ersteher:in wird mit dem Zuschlag Eigentümer:in. Wertgrenzen (Hälfte und sieben Zehntel des Verkehrswerts) können den Zuschlag verhindern.
+  - Erwartung: Mietverträge bestehen fort; die Ersteher:in tritt ein und darf mit der gesetzlichen Frist kündigen, aber nur zum ersten zulässigen Termin. Die Mietsicherheit geht auf sie über.
+  - Erwartung: Die Hausverwaltung stellt Mietverträge, Sicherheiten und Mieterlisten bereit und hält Rückstände aktuell; bei Wohnungseigentum meldet die Gemeinschaft Hausgeld an, das in der zweiten Rangklasse bis zu 5 % des Verkehrswerts bevorrechtigt ist.
+  - Rückfrage: Was ändert sich für die Hausverwaltung, wenn zusätzlich eine Zwangsverwaltung angeordnet wird?
