@@ -1,0 +1,368 @@
+{
+  "kurs": "fachwirt-gesundheit-soziales",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [
+    [
+      "gs-4.5-krankenhaus-stationaere-pflege.md",
+      "hb4/4.5-krankenhaus-stationaere-pflege-finanzierung.md"
+    ],
+    [
+      "gs-1.5-eingliederungshilfe-jugendhilfe.md",
+      "hb1/1.5-eingliederungshilfe-kinder-jugendhilfe.md"
+    ],
+    [
+      "gs-2.5-datenschutz-schweigepflicht.md",
+      "hb2/2.5-datenschutz-schweigepflicht.md"
+    ],
+    [
+      "gs-2.6-hygiene-infektionsschutz.md",
+      "hb2/2.6-hygiene-infektionsschutz.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "gs-4.2-ergaenzung-verguetung-ppv.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.2-finanzierungssysteme.md",
+          "### Bedeutung für die betriebliche Steuerung ambulanter Pflegedienste"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-5.5-ergaenzung-arbeitsrecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb5/5.5-arbeitsrecht.md",
+          "### Mutterschutz und Jugendarbeitsschutz (Grundzüge)"
+        ],
+        [
+          "D",
+          "E",
+          "F",
+          "hb5/5.5-arbeitsrecht.md",
+          "### Kündigung und Kündigungsschutz"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-5.4-ergaenzung-entgelt.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb5/5.4-personalentwicklung.md",
+          "### Rechenbeispiel: Personalkennziffern"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-5.1-ergaenzung-beschaeftigtendatenschutz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb5/5.1-personalplanung-auswahl.md",
+          "### Rechenbeispiel: Personalbedarf nach der Kennzahlenmethode"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-2.2-ergaenzung-qualitaetspruefung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.2-prozessdaten-bewerten.md",
+          "### Zertifizierung"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-2.3-ergaenzung-behandlungsvertrag-haftung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.3-vertragsrecht-risikomanagement.md",
+          "### Grundbegriffe des Risikomanagements"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-4.1-ergaenzung-pflegebuchfuehrung-gemeinnuetzigkeit.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.1-rechnungswesen-jahresabschluss.md",
+          "### Abschreibungen"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-6.3-ergaenzung-online-auftritt.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb6/6.3-marketingkonzepte-wettbewerbsrecht.md",
+          "### Heilmittelwerbegesetz und berufsrechtliche Werbe-Schranken"
+        ]
+      ]
+    },
+    {
+      "datei": "gs-6.4-ergaenzung-spendenrecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb6/6.4-sozialmarketing-fundraising-marketing-controlling.md",
+          "### Spender:innen-Pyramide und Spendenzyklus"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "gs-faelle-av-a.md",
+      "hb4"
+    ],
+    [
+      "gs-faelle-av-b.md",
+      "hb4"
+    ],
+    [
+      "gs-faelle-ay-a.md",
+      "hb4"
+    ],
+    [
+      "gs-faelle-av-c.md",
+      "hb1"
+    ],
+    [
+      "gs-faelle-aw-a.md",
+      "hb5"
+    ],
+    [
+      "gs-faelle-aw-b.md",
+      "hb5"
+    ],
+    [
+      "gs-faelle-ax-a.md",
+      "hb2"
+    ],
+    [
+      "gs-faelle-ax-b.md",
+      "hb2"
+    ],
+    [
+      "gs-faelle-ax-c.md",
+      "hb2"
+    ],
+    [
+      "gs-faelle-ay-b.md",
+      "hb6"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb4/4.2-finanzierungssysteme.md",
+      "paare": [
+        [
+          "über umlagefinanzierte Beiträge. Der Grad der Pflegebedürftigkeit wird in fünf",
+          "über umlagefinanzierte Beiträge (gesetzlich Krankenversicherte sind dort versichert; wer privat krankenversichert ist, muss stattdessen eine private Pflegepflichtversicherung mit gleichwertigen Leistungen abschließen, siehe den Abschnitt „Private Pflegepflichtversicherung“ weiter unten; Stand Oktober 2026, vor Verwendung prüfen). Der Grad der Pflegebedürftigkeit wird in fünf"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "Sie schließen Versorgungsverträge und Vergütungsvereinbarungen ab und erstatten die erbrachten Leistungen gegenüber den Versicherten.",
+          "Sie schließen Verträge und Vereinbarungen ab und vergüten die erbrachten Leistungen: In der Pflege schließen die Landesverbände der Pflegekassen im Einvernehmen mit den überörtlichen Trägern der Sozialhilfe (je nach Landesrecht mit dem örtlichen Träger) die Versorgungsverträge ab, Pflegekassen und Sozialhilfeträger vereinbaren mit dem Träger die Vergütung, soweit auf sie ein bestimmter Mindestanteil der versorgten Pflegebedürftigen entfällt, und die Pflegekassen vergüten die als Sachleistung erbrachten Leistungen; bei privat Versicherten tritt an die Stelle der Sachleistung eine Kostenerstattung. Für die häusliche Krankenpflege schließen die Krankenkassen eigene Verträge (Näheres im Abschnitt „Vergütung ambulanter Pflege“ von Thema 4.2 „Finanzierungssysteme im Gesundheits- und Sozialwesen“ im Fachgebiet „Steuern und Überwachen betriebswirtschaftlicher Prozesse und Ressourcen“; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "hinzu, der ergänzend zur Pflegeversicherung ungedeckte Kosten übernehmen kann.",
+          "hinzu; er kann ergänzend zur Pflegeversicherung ungedeckte Kosten übernehmen. Bei Menschen mit Behinderungen sind außerdem der Träger der Eingliederungshilfe und bei Leistungen für Kinder und Jugendliche das Jugendamt Leistungsträger (siehe Thema 1.5 „Eingliederungshilfe und Kinder- und Jugendhilfe im Sozialleistungssystem“ im Fachgebiet „Planen, Steuern und Organisieren betrieblicher Prozesse“)."
+        ],
+        [
+          "wobei bei guter Qualität längere Abstände vorgesehen sein können",
+          "wobei für ambulante und teilstationäre Einrichtungen ab dem 01.01.2027 bei hohem Qualitätsniveau ein Abstand von höchstens zwei Jahren vorgesehen sein soll (für vollstationäre Einrichtungen gilt das schon seit 2023; Stand Oktober 2026, vor Verwendung prüfen; Näheres in Thema 2.2 „Bewerten von Prozessdaten und Qualitätsindikatoren“ im Fachgebiet „Steuern von Qualitätsmanagementprozessen“)"
+        ],
+        [
+          "können bei Nichtbeseitigung den Versorgungsvertrag kündigen und die Pflegevergütung kürzen (§ 115 SGB XI)",
+          "können bei Nichtbeseitigung unter den gesetzlichen Voraussetzungen den Versorgungsvertrag kündigen; unabhängig davon ist die Pflegevergütung für die Dauer jeder Pflichtverletzung zu kürzen (§ 115 SGB XI)"
+        ],
+        [
+          "Regelprüfung höchstens im Abstand von einem Jahr)",
+          "Regelprüfung höchstens im Abstand von einem Jahr, bei ambulanten und teilstationären Einrichtungen mit hohem Qualitätsniveau ab 2027 höchstens zwei Jahre)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fachgespraech.md",
+      "paare": [
+        [
+          "schließen Versorgungsverträge und Vergütungsvereinbarungen ab und erstatten die erbrachten Leistungen.",
+          "schließen Verträge und Vereinbarungen ab (in der Pflege Versorgungsverträge und Vergütungsvereinbarungen) und vergüten die erbrachten Leistungen; bei privat Versicherten tritt an die Stelle der Sachleistung eine Kostenerstattung."
+        ],
+        [
+          "die Regelprüfung findet grundsätzlich im Abstand von höchstens einem Jahr statt.",
+          "die Regelprüfung findet grundsätzlich im Abstand von höchstens einem Jahr statt; bei ambulanten und teilstationären Einrichtungen mit hohem Qualitätsniveau soll ab 2027 ein Abstand von höchstens zwei Jahren gelten."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.5-arbeitsrecht.md",
+      "paare": [
+        [
+          "Die gesetzlichen Kündigungsfristen nach § 622 BGB verlängern sich mit zunehmender Beschäftigungsdauer.",
+          "Kündigt die Arbeitgeberseite, verlängern sich die Fristen nach § 622 BGB mit zunehmender Beschäftigungsdauer; Beschäftigte kündigen außerhalb der Probezeit mit der Grundfrist (Näheres im Abschnitt „Form und Frist der Kündigung, Kündigungsschutzklage“ weiter unten)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.4-personalentwicklung.md",
+      "paare": [
+        [
+          "(z. B. TVöD, AVR), die eine Eingruppierung",
+          "(z. B. TVöD, AVR; zur gesetzlichen Untergrenze und zu den Vorgaben der Pflegeversicherung siehe die folgenden Abschnitte ab „Mindestlohn und Pflegemindestlohn“), die eine Eingruppierung"
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.1-personalplanung-auswahl.md",
+      "paare": [
+        [
+          "Am Ende des Auswahlverfahrens steht der **Arbeitsvertrag**.",
+          "Am Ende des Auswahlverfahrens steht der **Arbeitsvertrag** (zum Umgang mit Bewerbungs- und Personaldaten siehe den Abschnitt „Beschäftigtendatenschutz: Rechtsgrundlagen“ weiter unten)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.3-vertragsrecht-risikomanagement.md",
+      "paare": [
+        [
+          "Sturzrisiken bei Klient:innen, Personalausfall, Datenschutzverstöße)",
+          "Sturzrisiken bei Klient:innen, Personalausfall, Datenschutzverstöße; zum Datenschutz siehe Thema 2.5 „Datenschutz und Schweigepflicht in Einrichtungen“ im selben Fachgebiet)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.1-qualitaetsmanagement-grundlagen.md",
+      "paare": [
+        [
+          "sterbenden Menschen, sowie Infektionsrisiken.",
+          "sterbenden Menschen, sowie Infektionsrisiken (zu Hygiene und Infektionsschutz siehe Thema 2.6 „Hygiene und Infektionsschutz“ im selben Fachgebiet)."
+        ],
+        [
+          "etwa verbindliche fachliche Standards für bestimmte Pflegesituationen (sogenannte Expertenstandards)",
+          "etwa fachliche Standards für bestimmte Pflegesituationen (sogenannte Expertenstandards; ihre frühere gesetzliche Verbindlichkeit ist seit dem 01.07.2023 entfallen, Stand Oktober 2026, vor Verwendung prüfen, siehe Thema 2.2 „Bewerten von Prozessdaten und Qualitätsindikatoren“ im selben Fachgebiet)"
+        ],
+        [
+          "**Antwort:** Verbindliche, evidenzbasierte fachliche Vorgaben für die Prozessqualität in bestimmten Pflegesituationen, eingebettet in das übergeordnete QM-System.",
+          "**Antwort:** Evidenzbasierte fachliche Vorgaben für die Prozessqualität in bestimmten Pflegesituationen, eingebettet in das übergeordnete QM-System; eine wichtige fachliche Orientierung, aber nicht kraft Bundesgesetz bindend."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.1-rechnungswesen-jahresabschluss.md",
+      "paare": [
+        [
+          "dient dagegen der Unternehmensleitung selbst zur Planung, Steuerung und Kontrolle und unterliegt keinen gesetzlichen Formvorschriften.",
+          "dient dagegen der Unternehmensleitung selbst zur Planung, Steuerung und Kontrolle und unterliegt grundsätzlich keinen gesetzlichen Formvorschriften; für zugelassene Pflegeeinrichtungen ist allerdings, soweit sie nicht von der Verordnung befreit sind, eine Kosten- und Leistungsrechnung mit Mindestanforderungen vorgeschrieben (siehe den Abschnitt „Pflege-Buchführung für zugelassene Pflegeeinrichtungen“ weiter unten; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Das externe Rechnungswesen (Finanzbuchhaltung/Jahresabschluss) richtet sich an außenstehende Adressat:innen und unterliegt gesetzlichen Vorgaben; das interne Rechnungswesen dient der Unternehmensleitung selbst zur Steuerung und ist formfrei.",
+          "**Antwort:** Das externe Rechnungswesen (Jahresabschluss) richtet sich an außenstehende Adressat:innen und unterliegt gesetzlichen Vorgaben; das interne dient der Leitung zur Steuerung und ist grundsätzlich formfrei (Ausnahme: Kosten- und Leistungsrechnung nicht befreiter Pflegeeinrichtungen)."
+        ],
+        [
+          "ist formfrei und dient der internen Steuerung, im Unterschied zum externen Rechnungswesen.",
+          "ist grundsätzlich formfrei (Ausnahme: nicht befreite zugelassene Pflegeeinrichtungen müssen eine Kosten- und Leistungsrechnung führen) und dient der internen Steuerung, im Unterschied zum externen Rechnungswesen."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Das interne Rechnungswesen unterliegt keinen gesetzlichen Formvorschriften.",
+          "Erwartung: Das interne Rechnungswesen unterliegt grundsätzlich keinen gesetzlichen Formvorschriften; für zugelassene Pflegeeinrichtungen ist eine Kosten- und Leistungsrechnung mit Mindestanforderungen vorgeschrieben, soweit keine Befreiung besteht."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.4-sozialmarketing-fundraising-marketing-controlling.md",
+      "paare": [
+        [
+          "Diese Fragen sind nicht Gegenstand dieses Themas und werden im Einzelfall mit Fachleuten geklärt.",
+          "Die Grundzüge zu Bestätigung, Abzug, Haftung und Mittelverwendung stehen in den folgenden Abschnitten ab „Spendenrecht: Bestätigung, Abzug und Nachweis“, die Regeln zur Ansprache per E-Mail und Telefon in Thema 6.3; Einzelfragen werden mit Fachleuten geklärt."
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.4)",
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB1 (1.1–1.5)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.4)",
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB2 (2.1–2.6)"
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.4)",
+          "Diese Aufgaben verknüpfen mehrere Themen aus HB4 (4.1–4.5)"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb4/4.2-finanzierungssysteme.md",
+    "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "hb1/fachgespraech.md",
+    "hb5/5.5-arbeitsrecht.md",
+    "hb5/5.4-personalentwicklung.md",
+    "hb5/5.1-personalplanung-auswahl.md",
+    "hb2/2.3-vertragsrecht-risikomanagement.md",
+    "hb2/2.1-qualitaetsmanagement-grundlagen.md",
+    "hb4/4.1-rechnungswesen-jahresabschluss.md",
+    "hb4/fachgespraech.md",
+    "hb6/6.4-sozialmarketing-fundraising-marketing-controlling.md",
+    "hb1/fallaufgaben.md",
+    "hb2/fallaufgaben.md",
+    "hb4/fallaufgaben.md",
+    "hb2/2.2-prozessdaten-bewerten.md",
+    "hb6/6.3-marketingkonzepte-wettbewerbsrecht.md",
+    "hb5/fallaufgaben.md",
+    "hb5/fachgespraech.md",
+    "hb2/fachgespraech.md",
+    "hb6/fallaufgaben.md",
+    "hb6/fachgespraech.md"
+  ]
+}

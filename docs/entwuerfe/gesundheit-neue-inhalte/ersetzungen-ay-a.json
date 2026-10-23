@@ -1,0 +1,28 @@
+[
+  {
+    "datei": "hb4/4.1-rechnungswesen-jahresabschluss.md",
+    "paare": [
+      [
+        "dient dagegen der Unternehmensleitung selbst zur Planung, Steuerung und Kontrolle und unterliegt keinen gesetzlichen Formvorschriften.",
+        "dient dagegen der Unternehmensleitung selbst zur Planung, Steuerung und Kontrolle und unterliegt grundsätzlich keinen gesetzlichen Formvorschriften; für zugelassene Pflegeeinrichtungen ist allerdings, soweit sie nicht von der Verordnung befreit sind, eine Kosten- und Leistungsrechnung mit Mindestanforderungen vorgeschrieben (siehe den Abschnitt „Pflege-Buchführung für zugelassene Pflegeeinrichtungen“ weiter unten; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** Das externe Rechnungswesen (Finanzbuchhaltung/Jahresabschluss) richtet sich an außenstehende Adressat:innen und unterliegt gesetzlichen Vorgaben; das interne Rechnungswesen dient der Unternehmensleitung selbst zur Steuerung und ist formfrei.",
+        "**Antwort:** Das externe Rechnungswesen (Jahresabschluss) richtet sich an außenstehende Adressat:innen und unterliegt gesetzlichen Vorgaben; das interne dient der Leitung zur Steuerung und ist grundsätzlich formfrei (Ausnahme: Kosten- und Leistungsrechnung nicht befreiter Pflegeeinrichtungen)."
+      ],
+      [
+        "ist formfrei und dient der internen Steuerung, im Unterschied zum externen Rechnungswesen.",
+        "ist grundsätzlich formfrei (Ausnahme: nicht befreite zugelassene Pflegeeinrichtungen müssen eine Kosten- und Leistungsrechnung führen) und dient der internen Steuerung, im Unterschied zum externen Rechnungswesen."
+      ]
+    ]
+  },
+  {
+    "datei": "hb4/fachgespraech.md",
+    "paare": [
+      [
+        "Erwartung: Das interne Rechnungswesen unterliegt keinen gesetzlichen Formvorschriften.",
+        "Erwartung: Das interne Rechnungswesen unterliegt grundsätzlich keinen gesetzlichen Formvorschriften; für zugelassene Pflegeeinrichtungen ist eine Kosten- und Leistungsrechnung mit Mindestanforderungen vorgeschrieben, soweit keine Befreiung besteht."
+      ]
+    ]
+  }
+]
