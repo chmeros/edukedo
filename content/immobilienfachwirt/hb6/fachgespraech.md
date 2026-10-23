@@ -21,10 +21,10 @@ Diese Sammlung dient als Fragen-Pool für den Fachgesprächs-Trainer (F-25). Die
   - Erwartung: Die Weiterbildungspflicht, die von 2018 bis zum 23.07.2026 auch für Makler:innen galt, ist entfallen; für Wohnimmobilienverwalter:innen besteht sie weiter, mindestens 20 Stunden innerhalb von drei Kalenderjahren.
   - Erwartung: Pflichtverstöße führen nicht von selbst zum Erlöschen der Erlaubnis; bei Unzuverlässigkeit ist die Untersagung der Gewerbeausübung möglich und kann die Erlaubnis widerrufen werden (eine Rücknahme kommt nur bei von Anfang an rechtswidriger Erteilung in Betracht), und die Weiterbildungspflicht der Wohnimmobilienverwalter:innen ist bußgeldbewehrt.
   - Rückfrage: Gilt für die Hausverwaltung dieselbe Erlaubnis wie für die Maklertätigkeit?
-- Erläutern Sie den Unterschied zwischen Nachweis- und Vermittlungsmakler anhand eines Beispiels.
-  - Erwartung: Der Nachweismakler weist dem Auftraggeber lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden.
-  - Erwartung: Ein Beispiel für den Nachweis sind Adresse und Kontaktdaten eines Verkaufsinteressenten.
-  - Erwartung: Der Vermittlungsmakler wird darüber hinaus aktiv tätig, um den Vertragsabschluss selbst herbeizuführen.
+- Erläutern Sie den Unterschied zwischen Nachweis- und Vermittlungsmakler:innen anhand eines Beispiels.
+  - Erwartung: Die Nachweismakler:in weist dem Auftraggeber lediglich die Gelegenheit zum Vertragsabschluss nach, ohne selbst weiter tätig zu werden.
+  - Erwartung: Ein Beispiel für den Nachweis sind Adresse und Kontaktdaten einer Verkaufsinteressent:in.
+  - Erwartung: Die Vermittlungsmakler:in wird darüber hinaus aktiv tätig, um den Vertragsabschluss selbst herbeizuführen.
   - Erwartung: Ein Beispiel für die Vermittlung ist die Verhandlungsführung zwischen den Parteien.
   - Erwartung: In der Praxis übt eine Maklerin oder ein Makler häufig beide Rollen gleichzeitig aus, was rechtlich unproblematisch ist, solange die Provisionsvoraussetzungen erfüllt sind.
   - Rückfrage: Welcher Zusammenhang muss zwischen der Maklerleistung und dem späteren Vertragsabschluss bestehen, damit ein Provisionsanspruch entsteht?

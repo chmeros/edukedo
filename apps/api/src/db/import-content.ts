@@ -108,6 +108,108 @@ function fachinformatikMetadata(
   };
 }
 
+/**
+ * Stichpunkte für die Hilfeseite "Gelassen bleiben" (Prüfungsablauf) der Fortbildungs- und Eignungskurse,
+ * Stand 23.10.2026, abgeleitet aus den jeweiligen Prüfungsverordnungen auf gesetze-im-internet.de
+ * (FachkBüroPrV, GesWFachwPrV, WFachwPrV, HdlFachwPrV, TechFachwPrV, IndFachwirtPrV 2010, ImmoFachwPrV,
+ * BAProVFFPrV, GüLogFachwBAProFV, AusbEignV). Aussagen, die je Kammer abweichen können (Tagesaufteilung,
+ * Vorbereitungszeit, Hilfsmittel, Termine), sind im Text ausdrücklich als "je nach Kammer" gekennzeichnet.
+ * Rechtsnah: vor Verwendung prüfen (Stand Oktober 2026), siehe docs/entwuerfe/spielcode-korrekturen/bericht-I.md.
+ */
+const PRUEFUNGSABLAUF_HILFSMITTEL =
+  "Erlaubte Hilfsmittel (in der Regel ein nicht netzwerkfähiger Taschenrechner und unkommentierte Gesetzestexte) legt die Kammer fest — je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen. Stand Oktober 2026, ohne Gewähr: Verbindlich sind die Prüfungsverordnung und die Einladung deiner IHK.";
+const PRUEFUNGSABLAUF_WIEDERHOLUNG =
+  "Eine nicht bestandene Prüfung kannst du zweimal wiederholen; wenn du dich innerhalb von zwei Jahren wieder anmeldest, kannst du auf Antrag von Leistungen befreit werden, die du früher mindestens mit „ausreichend“ geschafft hast.";
+const PRUEFUNGSABLAUF_TEIL1_WIRTSCHAFT =
+  "Teil 1 prüft schriftlich Volks- und Betriebswirtschaft, Rechnungswesen, Recht und Steuern sowie Unternehmensführung — nach der Verordnung insgesamt höchstens 330 Minuten; die Aufteilung auf die Bereiche je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen.";
+
+const PRUEFUNGSABLAUF: Record<string, string[]> = {
+  "fachwirt-buero-projektorganisation": [
+    "Die Prüfung hat einen schriftlichen und einen mündlichen Teil. Die mündliche Prüfung findet erst statt, wenn du die schriftliche bestanden hast.",
+    "Schriftlich bearbeitest du zu einer betrieblichen Situation zwei gleichgewichtige Aufgabenstellungen aus allen vier Handlungsbereichen — nach der Verordnung insgesamt 600 Minuten, in der Regel auf zwei Tage verteilt (je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen).",
+    "Mündlich folgen eine Präsentation von höchstens 10 Minuten und ein Fachgespräch von in der Regel etwa 40 Minuten. Das Thema wählst du selbst; es verbindet „Führen, Betreuen, Verwalten und Ausbilden“ mit einem weiteren Handlungsbereich und wird bei der schriftlichen Prüfung eingereicht.",
+    "Bestanden hast du mit mindestens 50 Punkten im schriftlichen und im mündlichen Teil; beide zählen zu gleichen Teilen.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  "fachwirt-gesundheit-soziales": [
+    "Die Prüfung hat einen schriftlichen und einen mündlichen Teil. Zur mündlichen Prüfung wirst du zugelassen, wenn deine schriftlichen Leistungen mindestens „ausreichend“ sind.",
+    "Schriftlich bearbeitest du zu einer betrieblichen Situation zwei aufeinander abgestimmte, gleichgewichtige Aufgabenstellungen aus allen sechs Handlungsbereichen — nach der Verordnung mindestens 600 und höchstens 630 Minuten; die Aufteilung auf Tage legt die Kammer fest.",
+    "Mündlich folgen eine Präsentation von etwa 10 Minuten (zählt ein Drittel) und ein Fachgespräch von höchstens 20 Minuten. Das Thema wählst du selbst; es verbindet „Führen und Entwickeln von Personal“ mit einem weiteren frei wählbaren Handlungsbereich und wird mit der ersten schriftlichen Prüfungsleistung eingereicht.",
+    "Bestanden hast du mit mindestens 50 Punkten im schriftlichen und im mündlichen Teil.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  wirtschaftsfachwirt: [
+    "Die Prüfung hat zwei Teile: Teil 1 (Wirtschaftsbezogene Qualifikationen) schriftlich, Teil 2 (Handlungsspezifische Qualifikationen) schriftlich und mündlich. Teil 2 folgt erst nach Teil 1, die mündliche Prüfung erst nach den schriftlichen Teilen.",
+    PRUEFUNGSABLAUF_TEIL1_WIRTSCHAFT,
+    "Teil 2 schriftlich: zu einer betrieblichen Situation zwei gleichgewichtige Aufgabenstellungen aus fünf Handlungsbereichen (u. a. Logistik, Marketing und Vertrieb, Führung und Zusammenarbeit), insgesamt 480 bis 510 Minuten.",
+    "Mündlich: Fachgespräch mit Präsentation, zusammen höchstens 30 Minuten, davor höchstens 30 Minuten Vorbereitung; Schwerpunkt ist der Handlungsbereich „Führung und Zusammenarbeit“.",
+    "Bestanden hast du mit mindestens 50 Punkten in jedem Bereich von Teil 1, in der schriftlichen Aufgabe und in der mündlichen Prüfung. Gesamtnote: 25 % Teil 1, 50 % schriftlich Teil 2, 25 % mündlich. Bei einem mangelhaften Bereich in Teil 1 gibt es unter Umständen eine kurze mündliche Ergänzungsprüfung.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  handelsfachwirt: [
+    "Die Prüfung hat zwei schriftliche Teilprüfungen und eine mündliche. Die mündliche folgt nach den schriftlichen, innerhalb eines Jahres.",
+    "Schriftlich 1 (240 Minuten): „Unternehmensführung und -steuerung“ sowie „Führung, Personalmanagement, Kommunikation und Kooperation“.",
+    "Schriftlich 2 (300 Minuten): die Pflichtbereiche „Handelsmarketing“ sowie „Beschaffung und Logistik“ und ein Wahlbereich (Vertriebssteuerung, Handelslogistik, Einkauf oder Außenhandel), den du bei der Anmeldung angibst. Die Aufteilung auf Tage legt die Kammer fest.",
+    "Mündlich hältst du eine Präsentation von etwa 15 Minuten zu einem selbst gewählten Thema aus einem Handlungsbereich (Kurzbeschreibung am Tag der zweiten schriftlichen Prüfung). Im Fachgespräch von höchstens 20 Minuten, das zwei Drittel der mündlichen Note ausmacht, geht es ausgehend von der Präsentation um betriebliche Probleme.",
+    "Bestanden hast du mit mindestens 50 Punkten in jeder schriftlichen Teilprüfung und in der mündlichen Prüfung.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  "technischer-fachwirt": [
+    "Die Prüfung hat drei Teile: Wirtschaftsbezogene, Technische und Handlungsspezifische Qualifikationen. Zum dritten Teil wirst du zugelassen, wenn du die beiden anderen abgelegt hast; die mündliche Prüfung folgt erst nach den erfolgreichen schriftlichen Leistungen.",
+    "Wirtschaftsbezogen schriftlich: Volks- und Betriebswirtschaft, Rechnungswesen, Recht und Steuern, Unternehmensführung — insgesamt höchstens 330 Minuten. Technisch schriftlich: naturwissenschaftliche und technische Grundlagen, technische Kommunikation und Werkstofftechnologie, Fertigungs- und Betriebstechnik — ebenfalls höchstens 330 Minuten.",
+    "Handlungsspezifisch schriftlich: eine Situationsaufgabe von 240 bis 300 Minuten, die vier Handlungsbereiche verbindet (Absatz, Material und Logistik; Produktion; Qualität, Umwelt und Arbeitsschutz; Führung und Zusammenarbeit).",
+    "Mündlich: situationsbezogenes Fachgespräch mit Präsentation, höchstens 30 Minuten, davor höchstens 30 Minuten Vorbereitung; Schwerpunkt Absatz, Materialwirtschaft und Logistik sowie Produktionsplanung. Die Präsentation zählt ein Drittel, das Fachgespräch zwei Drittel; wie sich die Zeit aufteilt, je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen.",
+    "Bestanden hast du mit mindestens 50 Punkten in jedem Bereich der ersten beiden Teile, in der Situationsaufgabe und in der mündlichen Prüfung. Gesamtnote: 15 % wirtschaftsbezogen, 15 % technisch, 45 % Situationsaufgabe, 25 % mündlich. Bei einem mangelhaften Bereich in den ersten beiden Teilen gibt es unter Umständen eine kurze mündliche Ergänzungsprüfung.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  industriefachwirt: [
+    "Die Prüfung hat zwei Teile: Teil 1 (Wirtschaftsbezogene Qualifikationen) schriftlich, Teil 2 (Handlungsspezifische Qualifikationen) schriftlich und mündlich. Teil 2 folgt erst nach bestandenem Teil 1; die mündliche Prüfung findet nur statt, wenn deine schriftlichen Leistungen mindestens „ausreichend“ sind.",
+    PRUEFUNGSABLAUF_TEIL1_WIRTSCHAFT,
+    "Teil 2 schriftlich: zu einer betrieblichen Situation zwei aufeinander abgestimmte, gleichgewichtige Aufgabenstellungen aus fünf Handlungsbereichen (u. a. Produktionsprozesse, Marketing und Vertrieb, Führung und Zusammenarbeit), insgesamt 480 bis 510 Minuten.",
+    "Mündlich: eine Präsentation von höchstens 10 Minuten (ein Drittel) zu einem selbst gewählten Thema aus mindestens zwei Handlungsbereichen, Kurzbeschreibung und Gliederung bei der ersten schriftlichen Leistung; danach ein Fachgespräch von in der Regel höchstens 20 Minuten (zwei Drittel). Eine Vorbereitungszeit legt die Kammer fest.",
+    "Bestanden hast du mit mindestens 50 Punkten in jedem Bereich von Teil 1, in der schriftlichen Aufgabe und in der mündlichen Prüfung. Gesamtnote: 25 % Teil 1, 50 % schriftlich Teil 2, 25 % mündlich. Bei einem mangelhaften Bereich in Teil 1 gibt es unter Umständen eine kurze mündliche Ergänzungsprüfung.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  immobilienfachwirt: [
+    "Die Prüfung hat einen schriftlichen und einen mündlichen Teil. Zur mündlichen Prüfung wirst du zugelassen, wenn deine schriftlichen Leistungen mindestens „ausreichend“ sind.",
+    "Schriftlich werden sechs Handlungsbereiche geprüft (u. a. Immobilienbewirtschaftung, Bauprojektmanagement, Marktorientierung und Vertrieb, Maklertätigkeit) — nach der Verordnung insgesamt 600 bis 660 Minuten. Verteilung auf Tage und Reihenfolge je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen.",
+    "Mündlich hältst du eine Präsentation von höchstens etwa 10 Minuten zu einem selbst gewählten Thema (in der Regel mit der ersten schriftlichen Leistung einzureichen, je nach Kammer). Im Fachgespräch von in der Regel höchstens 20 Minuten können alle Handlungsbereiche vorkommen; es zählt doppelt so viel wie die Präsentation.",
+    "Bestanden hast du mit mindestens 50 Punkten in jeder schriftlichen Teilprüfung und in der mündlichen Prüfung. Bei mangelhaften schriftlichen Leistungen gibt es unter Umständen kurze mündliche Ergänzungsprüfungen.",
+    PRUEFUNGSABLAUF_WIEDERHOLUNG,
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  "versicherungen-finanzanlagen": [
+    "Die Prüfung hat zwei Teile: „Kundenbedarfsfelder“ (Teil 1, schriftlich) und „Kernprozesse, Steuerung und Zusammenarbeit“ (Teil 2, schriftlich und praxisbezogen). Reihenfolge und Termine legt die Kammer fest (je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen).",
+    "Teil 1 ist fallbezogen und dauert 270 Minuten. Du wählst einen Bereich: Vorsorge oder Lösungen für Gewerbekunden im Sach- und Vermögensschutz.",
+    "Teil 2 schriftlich: drei komplexe betriebliche Situationen zu „Kernprozesse gestalten“ sowie „Steuerung, Zusammenarbeit und Leadership“, 300 Minuten.",
+    "Praxisbezogen in Teil 2: eine Praxistransferarbeit (4 bis 6 Textseiten zu einem selbst gewählten betrieblichen Thema, spätestens am Tag der letzten schriftlichen Prüfungsleistung abzugeben), eine Präsentation von höchstens 20 Minuten und direkt danach ein Fachgespräch von höchstens 30 Minuten.",
+    "Bestanden hast du mit mindestens 50 Punkten in allen Prüfungsleistungen — ein Ausgleich zwischen ihnen ist nicht möglich. Teil 1 zählt 30 % der Gesamtnote, Teil 2 70 %.",
+    "Schriftliche Prüfungen kannst du je zweimal wiederholen. Bei der praxisbezogenen Prüfung wiederholst du alle drei Leistungen, mit neuem Thema für die Praxistransferarbeit. Zur Wiederholung musst du dich innerhalb von zwei Jahren anmelden.",
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  "transport-management-logistics": [
+    "Die Prüfung hat einen schriftlichen und einen mündlichen Teil; die mündliche Prüfung darf erst nach der schriftlichen abgelegt werden. Das gesamte Verfahren muss innerhalb von zwei Jahren ab der ersten Prüfungsleistung abgeschlossen sein.",
+    "Schriftlich bearbeitest du zwei aufeinander abgestimmte Aufgabenstellungen zu einer betrieblichen Situation, je 300 Minuten, aus allen drei Prüfungsbereichen (Entwickeln und Vermarkten, Erstellen, Kommunikation/Führung/Zusammenarbeit). Die Verteilung auf Tage legt die Kammer fest.",
+    "Mündlich hältst du eine Präsentation von höchstens 10 Minuten zu einem selbst gewählten Thema aus Bereich 1 oder 2, verknüpft mit Bereich 3 (Kurzbeschreibung und Gliederung zum Termin der zweiten schriftlichen Prüfung). Das Fachgespräch dauert höchstens 20 Minuten und zählt zwei Drittel der mündlichen Note.",
+    "Bestanden hast du mit mindestens 50 Punkten im schriftlichen und im mündlichen Teil; beide zählen gleich viel.",
+    "Jeden nicht bestandenen Teil kannst du zweimal wiederholen. Wenn du dich innerhalb von zwei Jahren wieder anmeldest, entfällt der schriftliche Teil, falls du dort mindestens 50 Punkte erreicht hattest.",
+    PRUEFUNGSABLAUF_HILFSMITTEL,
+  ],
+  "ausbildung-der-ausbilder": [
+    "Die Prüfung hat einen schriftlichen und einen praktischen Teil. Reihenfolge und Termine legt die Kammer fest (je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen).",
+    "Schriftlich bearbeitest du fallbezogene Aufgaben aus allen vier Handlungsfeldern (Voraussetzungen prüfen und planen, vorbereiten, durchführen, abschließen); die Dauer soll nach der Verordnung drei Stunden betragen.",
+    "Praktisch präsentierst du eine selbst gewählte, berufstypische Ausbildungssituation (höchstens 15 Minuten) und erläuterst im Fachgespräch, warum du sie so ausgewählt und gestaltet hast; zusammen höchstens 30 Minuten. Statt der Präsentation ist auch eine praktische Durchführung vorgesehen — ob und wie, regelt die Kammer (je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen).",
+    "Bestanden hast du, wenn jeder Teil mindestens mit „ausreichend“ bewertet wird. Eine nicht bestandene Prüfung kannst du zweimal wiederholen; ein bestandener Teil kann angerechnet werden.",
+    "Erlaubte Hilfsmittel legt die Kammer fest — je nach Kammer, bitte bei der Prüfungsanmeldung nachlesen. Stand Oktober 2026, ohne Gewähr: Verbindlich sind die Prüfungsverordnung und die Einladung deiner IHK.",
+  ],
+};
+
 export const KURS_META: Record<string, KursMeta> = {
   "fachwirt-buero-projektorganisation": {
     title: "Geprüfter Fachwirt für Büro- und Projektorganisation (IHK)",
@@ -287,6 +389,14 @@ for (const [slug, minuten] of Object.entries(PRAESENTATION_MINUTEN)) {
   meta.metadata = { ...(meta.metadata as Record<string, unknown>), presentationMinutes: minuten };
 }
 
+// Prüfungsablauf-Stichpunkte der Fortbildungs- und Eignungskurse (Hilfeseite "Gelassen bleiben"); die
+// Fachinformatiker-Kurse bringen ihre Stichpunkte über fachinformatikMetadata() mit.
+for (const [slug, ablauf] of Object.entries(PRUEFUNGSABLAUF)) {
+  const meta = KURS_META[slug];
+  if (!meta) throw new Error(`PRUEFUNGSABLAUF verweist auf unbekannten Kurs "${slug}".`);
+  meta.metadata = { ...(meta.metadata as Record<string, unknown>), pruefungsablauf: ablauf };
+}
+
 function kursMetaFor(slug: string): KursMeta {
   return KURS_META[slug] ?? { title: slug, type: slug, isPublished: false, metadata: {} };
 }
@@ -344,7 +454,7 @@ async function importThemaFile(filePath: string, fachgebietSortOrder: number, so
 
   const themaTitle = `${frontmatter.thema_code} — ${frontmatter.thema_title}`;
   const label = `${frontmatter.kurs_slug}/${frontmatter.fachgebiet_code}/${frontmatter.thema_code}`;
-  const desired = buildDesiredItems({ kursSlug: frontmatter.kurs_slug!, themaTitle: frontmatter.thema_title!, body });
+  const desired = buildDesiredItems({ kursSlug: frontmatter.kurs_slug!, themaTitle: frontmatter.thema_title!, body, rechtsstand: frontmatter.rechtsstand });
   if (options.dryRun) return planThemaDryRun(frontmatter, desired, themaTitle, label);
 
   const meta = kursMetaFor(frontmatter.kurs_slug!);

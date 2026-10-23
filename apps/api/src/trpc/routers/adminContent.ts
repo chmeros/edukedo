@@ -585,6 +585,11 @@ export const adminContentRouter = router({
           });
         }
         const nextVersion = existing.currentVersion + 1;
+        // UXT-B-13: Der Rechtsstand stammt aus dem Frontmatter, nicht aus dem Editor-Formular — beim Speichern erhalten.
+        if (input.type === "theorie") {
+          const bisher = theoriePayloadSchema.safeParse(existing.payload);
+          if (bisher.success && bisher.data.rechtsstand) prepared.payload = { ...prepared.payload, rechtsstand: bisher.data.rechtsstand };
+        }
 
         await tx
           .update(contentItem)

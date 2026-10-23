@@ -178,7 +178,7 @@ export async function runBackfill(options: { apply: boolean; kursFilter?: string
     seenThemaIds.add(themaRow.id);
     const themaLabel = `${frontmatter.kurs_slug}/${frontmatter.fachgebiet_code}/${frontmatter.thema_code}`;
 
-    const desired = buildDesiredItems({ kursSlug: frontmatter.kurs_slug, themaTitle: frontmatter.thema_title!, body });
+    const desired = buildDesiredItems({ kursSlug: frontmatter.kurs_slug, themaTitle: frontmatter.thema_title!, body, rechtsstand: frontmatter.rechtsstand });
     const itemRows = await db.select().from(contentItem).where(eq(contentItem.themaId, themaRow.id)).orderBy(asc(contentItem.createdAt), asc(contentItem.id));
     const ids = itemRows.map((row) => row.id);
     const optionRows = ids.length ? await db.select().from(answerOption).where(inArray(answerOption.contentItemId, ids)) : [];

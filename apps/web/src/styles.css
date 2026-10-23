@@ -3451,6 +3451,14 @@ h4.stat-subheading {
   letter-spacing: 0.04em;
 }
 
+/* UXT-B-13: Rechtsstand-Hinweis über dem Theorietext — dezente Hinweiszeile mit Randlinie, Farben aus den vorhandenen Tokens (Hell/Dunkel). */
+.theorie-rechtsstand {
+  margin: 0 0 12px;
+  padding: 2px 0 2px 10px;
+  border-left: 3px solid var(--line-strong);
+  line-height: 1.45;
+}
+
 .theorie-panel-body {
   flex: 1;
   overflow-y: auto;

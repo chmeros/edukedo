@@ -180,6 +180,8 @@ export type ContentItemBloom = z.infer<typeof contentItemBloomSchema>;
 export const theoriePayloadSchema = z.object({
   body_markdown: z.string(),
   images: z.array(z.string()).default([]),
+  /** Frontmatter-Feld `rechtsstand` der Themendatei (UXT-B-13); fehlt bei Themen ohne Angabe. */
+  rechtsstand: z.string().optional(),
 });
 
 export const lueckenBlankSchema = z.object({

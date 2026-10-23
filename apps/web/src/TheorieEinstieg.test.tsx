@@ -79,6 +79,38 @@ describe("TheorieEinstieg (Review UXT-B-04, UXT-I-16)", () => {
     expect(screen.queryByRole("button", { name: "Fehler melden" })).toBeNull();
   });
 
+  it("zeigt im Lesefenster den Rechtsstand-Hinweis nur, wenn das Thema einen Rechtsstand hat (UXT-B-13)", () => {
+    bereiteVor();
+    reg.queries["content.theorieThema"] = {
+      ...(reg.queries["content.theorieThema"] as object),
+      rechtsstand: "23.10.2026 — rechtliche Passagen vor Verwendung durch echte Lernende fachlich/rechtlich prüfen",
+    };
+    const { unmount } = render(
+      <TheorieProvider kursId="kurs-1">
+        <NachlesenButton themaId="t11" themaTitle="1.1 Planung" />
+      </TheorieProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Im Thema nachlesen/ }));
+    const hinweis = screen.getByRole("note");
+    expect(hinweis.textContent).toBe("Rechtlicher Stand: 23.10.2026. Ohne Gewähr, keine Rechtsberatung; rechtliche Passagen vor Verwendung prüfen.");
+    // Der interne Prüfvermerk hinter dem Gedankenstrich gehört nicht zur Anzeige.
+    expect(document.body.textContent).not.toContain("durch echte Lernende");
+    unmount();
+
+    for (const ohne of [{}, { rechtsstand: null }, { rechtsstand: "" }]) {
+      reg.queries["content.theorieThema"] = { themaTitle: "1.1 Planung", fachgebietTitle: "Handlungsbereich 1", bodyMarkdown: "# Planung\n\nText.", ...ohne };
+      const { unmount: weg } = render(
+        <TheorieProvider kursId="kurs-1">
+          <NachlesenButton themaId="t11" themaTitle="1.1 Planung" />
+        </TheorieProvider>,
+      );
+      fireEvent.click(screen.getByRole("button", { name: /Im Thema nachlesen/ }));
+      expect(screen.getByRole("complementary")).toBeTruthy();
+      expect(screen.queryByRole("note")).toBeNull();
+      weg();
+    }
+  });
+
   it("erscheint offline nicht, weil die Theorie nicht offline vorgehalten wird", () => {
     bereiteVor();
     testState.online = false;

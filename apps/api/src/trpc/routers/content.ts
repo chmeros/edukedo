@@ -230,6 +230,8 @@ export const contentRouter = router({
       // Review UXL-13: Das Lesefenster bietet „Fehler melden“ für den Theorietext; die Meldung braucht die ID des Inhalts.
       contentItemId: row.payload ? row.itemId : null,
       bodyMarkdown: row.payload ? theoriePayloadSchema.parse(row.payload).body_markdown : null,
+      // UXT-B-13: Rechtsstand aus dem Frontmatter der Themendatei (steht im Payload des Theorie-Items); null ohne Angabe.
+      rechtsstand: row.payload ? (theoriePayloadSchema.parse(row.payload).rechtsstand ?? null) : null,
     };
   }),
 

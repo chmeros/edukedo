@@ -1,4 +1,4 @@
-import { extractTheorieHeadings, headingSlug, schuetzeZahlUndEinheit } from "@edukedo/shared";
+import { extractTheorieHeadings, headingSlug, rechtsstandHinweis, schuetzeZahlUndEinheit } from "@edukedo/shared";
 import {
   Children,
   createContext,
@@ -50,6 +50,20 @@ function textVon(kinder: ReactNode): string {
       return "";
     })
     .join("");
+}
+
+/**
+ * UXT-B-13: einheitlicher Hinweis „Rechtlicher Stand … Ohne Gewähr“ über dem Theorietext. Erscheint nur, wenn das Thema einen
+ * `rechtsstand` hat (Frontmatter der Themendatei); dezent als Hinweiszeile (`field-hint`), kein Alert, damit er das Lesen nicht stört.
+ */
+export function RechtsstandHinweis({ rechtsstand }: { rechtsstand: string | null | undefined }) {
+  const text = rechtsstandHinweis(rechtsstand);
+  if (!text) return null;
+  return (
+    <p className="field-hint theorie-rechtsstand" role="note">
+      {text}
+    </p>
+  );
 }
 
 function TheorieInhalt({ markdown, abschnitt, bodyRef }: { markdown: string; abschnitt?: string; bodyRef: React.RefObject<HTMLDivElement> }) {
@@ -173,6 +187,7 @@ function TheorieSeitenleiste({ kursId, ziel, onClose }: { kursId: string; ziel: 
         {daten.data && daten.data.bodyMarkdown === null && (
           <p className="field-hint">Zu diesem Thema gibt es noch keine Theorie — übe es über Karteikarten und Quiz.</p>
         )}
+        {daten.data?.bodyMarkdown && <RechtsstandHinweis rechtsstand={daten.data.rechtsstand} />}
         {daten.data?.bodyMarkdown && <TheorieInhalt markdown={daten.data.bodyMarkdown} abschnitt={ziel.abschnitt} bodyRef={bodyRef} />}
         {/* Review UXL-13: Fehler im Theorietext lassen sich direkt aus dem Lesefenster melden. */}
         {daten.data?.contentItemId && (

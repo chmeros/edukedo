@@ -70,3 +70,4 @@ export * from "./algorithmen";
 export * from "./sql-beiblatt";
 export * from "./pruefungsform";
 export * from "./geschuetzte-leerzeichen";
+export * from "./rechtsstand";

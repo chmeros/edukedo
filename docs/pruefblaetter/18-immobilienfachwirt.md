@@ -244,25 +244,26 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 - ⚠ **Verwaltungsbeirat (Nutzer-Entscheidung vom 06.10.2026):** Die Theorie von 4.2 enthält jetzt einen Abschnitt „Der Verwaltungsbeirat“ (drei Absätze, K-4.2-18 und -19); die Beirat-Begriffe in Q-4.2-14 bis -17 („unterstützt“, „kontrolliert/überwacht den Verwalter“) sind damit belegt, die Erklärungen verweisen auf den Abschnitt. **Der Abschnitt ist nicht förmlich rechtsgeprüft** (Einzelaussagen siehe Theorie-Hinweise oben).
 - ⚠ Q-4.2-14 bis -17: Beschluss-Sammlung und Vermögenstrennung liegen laut Theorie beim Verwalter; die Zuordnung der Einladung und der Auskunft zum Verwalter ist abgeleitet (die Theorie nennt Einberufung und Auskunftspflichten); die Abberufung bei der Versammlung ist abgeleitet („Erleichterung für die Gemeinschaft“) — rechtliche Zuständigkeit prüfen.
 - ⚠ Q-4.2-15: Die Zeile zur Zertifizierung lautet „Muss auf Verlangen der Wohnungseigentümer:innen zertifiziert sein (Ausnahme: kleine Gemeinschaften)“ und gibt damit den Anspruch der Eigentümer auf einen zertifizierten Verwalter wieder, nicht eine unbedingte Pflicht. Ladungsfristen werden in den Zuordnungen weiterhin nicht genannt, damit keine Zahlen in den Begriffen stehen.
-- ⚠ **Vierte Zone (P-BE, 23.10.2026):** Das Instrument „WEG-Organe“ hat jetzt eine vierte Zone „Gemeinschaft der Wohnungseigentümer“ (Kursprofil I-IMM-06): Sie ist kein Organ, sondern der Verband, der Rechte erwerben, Verbindlichkeiten eingehen, klagen und verklagt werden kann (Theorie 1.1), Vertragspartnerin der Handwerksbetriebe, Versorger und Versicherer, Haftungsträgerin mit dem Gemeinschaftsvermögen (Erhaltungsrücklage) und Beklagte der Anfechtungsklage (Theorie 4.2, Abschnitte „Haftung im Außenverhältnis“ und „Anfechtung von Beschlüssen“). Q-4.2-14 bis -17 haben je eine Zeile für die Gemeinschaft bekommen; neu sind Q-4.2-32 bis -34 mit allen vier Zonen. Die Gemeinschaft wird in der Oberfläche als „Verband“ benannt (Anweisung: „dem Organ oder dem Verband“), weil der Instrumentname „WEG-Organe“ als Content-Schlüssel bleibt. Die Zuordnung der Vergabebegleitung zum Beirat (Q-4.2-33) ist als „typisch“ formuliert und hängt von Teilungserklärung und Beschluss ab. **Rechtlich mitprüfen** (WEG-Reform, Rechtsstand Oktober 2026).
+- ⚠ **Vierte Zone (P-BE, 23.10.2026):** Das Instrument „WEG-Organe“ hat jetzt eine vierte Zone „Gemeinschaft der Wohnungseigentümer“ (Kursprofil I-IMM-06): Sie ist kein Organ, sondern der Verband, der Rechte erwerben, Verbindlichkeiten eingehen, klagen und verklagt werden kann (Theorie 1.1), Vertragspartnerin der Handwerksbetriebe, Versorger und Versicherer, Haftungsträgerin mit dem Gemeinschaftsvermögen (Erhaltungsrücklage) und Beklagte der Anfechtungsklage (Theorie 4.2, Abschnitte „Haftung im Außenverhältnis“ und „Anfechtung von Beschlüssen“). Q-4.2-14 bis -17 haben je eine Zeile für die Gemeinschaft bekommen; neu sind Q-4.2-32 bis -34 mit allen vier Zonen (nach der unabhängigen Prüfung: jede Aufgabe besetzt die Gemeinschaft mit mindestens zwei Zeilen; Q-4.2-33 spielt an einer Dachsanierung als Erhaltungsmaßnahme, deren Kosten alle tragen; „Die Gemeinschaft entscheidet/muss beschließen“ in Theorie, K-4.2-28 und Q-4.2-27 heißt jetzt „Versammlung“, damit Beschließen eindeutig zur Eigentümerversammlung gehört; in Q-4.2-15 geht das Einsichtsrecht an die Gemeinschaft, der Verwalter führt die Unterlagen und erteilt die Auskünfte). Die Gemeinschaft wird in der Oberfläche als „Verband“ benannt (Anweisung: „dem Organ oder dem Verband“), weil der Instrumentname „WEG-Organe“ als Content-Schlüssel bleibt. Die Zuordnung der Vergabebegleitung zum Beirat (Q-4.2-33) ist als „typisch“ formuliert und hängt von Teilungserklärung und Beschluss ab. **Rechtlich mitprüfen** (WEG-Reform, Rechtsstand Oktober 2026).
 
 #### Q-4.2-14 · WEG-Organe (Leicht)
 
-*In der Wohnanlage Am Lindenpark wirken Eigentümerversammlung, Verwalter und Verwaltungsbeirat zusammen; sie handeln für die Gemeinschaft der Wohnungseigentümer, die als Verband selbst eine eigene Zone bildet. Ordne jede Aufgabe oder Eigenschaft der passenden Zone zu.*
+*In der Wohnanlage Am Lindenpark wirken Eigentümerversammlung, Verwalter und Verwaltungsbeirat in der Verwaltung zusammen; die Gemeinschaft der Wohnungseigentümer ist als Verband selbst eine eigene Zone. Ordne jede Aufgabe oder Eigenschaft der passenden Zone zu.*
 
 | Begriff | Zone |
 | --- | --- |
 | Ist das zentrale Beschlussorgan der Gemeinschaft | Eigentümerversammlung |
 | Ist bei ordnungsgemäßer Einberufung ohne Mindestquorum beschlussfähig | Eigentümerversammlung |
-| Beruft die Versammlung mindestens einmal jährlich ein | Verwalter |
+| Beruft die Versammlung in Textform ein | Verwalter |
 | Führt die Beschluss-Sammlung | Verwalter |
 | Hält das Vermögen der Gemeinschaft getrennt von seinem eigenen Vermögen | Verwalter |
-| Ist Vertragspartnerin von Handwerksbetrieben, Versorgern und Versicherern | Gemeinschaft der Wohnungseigentümer |
+| Ist Inhaberin des Gemeinschaftsvermögens, zu dem auch die Erhaltungsrücklage gehört | Gemeinschaft der Wohnungseigentümer |
+| Kann Rechte erwerben und Verbindlichkeiten eingehen | Gemeinschaft der Wohnungseigentümer |
 | Unterstützt den Verwalter und überwacht laufend seine Tätigkeit, ohne selbst zu beschließen | Verwaltungsbeirat |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Eigentümerversammlung ist das zentrale Beschlussorgan und seit der Reform unabhängig von der Zahl der Anwesenden beschlussfähig. Der Verwalter beruft sie ein, führt die Beschluss-Sammlung und muss das Gemeinschaftsvermögen vom eigenen Vermögen trennen. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Vertragspartnerin von Handwerksbetrieben, Versorgern und Versicherern ist die Gemeinschaft der Wohnungseigentümer; sie handelt durch die Verwaltung (Abschnitt „Haftung im Außenverhältnis“). Typische Verwechslung: Wer die Versammlung einberuft und die Beschluss-Sammlung führt, entscheidet damit nicht selbst; beschlossen wird in der Versammlung, nicht durch den Verwalter oder den Beirat.
+> Die Eigentümerversammlung ist das zentrale Beschlussorgan und seit der Reform unabhängig von der Zahl der Anwesenden beschlussfähig. Der Verwalter beruft sie ein, führt die Beschluss-Sammlung und muss das Gemeinschaftsvermögen vom eigenen Vermögen trennen. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Das Gemeinschaftsvermögen einschließlich der Erhaltungsrücklage gehört der Gemeinschaft der Wohnungseigentümer, die als Verband Rechte erwerben und Verbindlichkeiten eingehen kann (Thema 1.1 und Abschnitt „Haftung im Außenverhältnis“); die Verwaltung hält es nur getrennt von ihrem eigenen Vermögen. Typische Verwechslung: Wer die Versammlung einberuft und die Beschluss-Sammlung führt, entscheidet damit nicht selbst; beschlossen wird in der Versammlung, nicht durch den Verwalter oder den Beirat.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -282,15 +283,16 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Beschließt für die meisten Gegenstände mit der einfachen Mehrheit der abgegebenen Stimmen | Eigentümerversammlung |
 | Beschließt nach der Jahresabrechnung über Nachschüsse und die Anpassung der Vorschüsse (Abrechnungsspitze), nicht über jede Abrechnungsposition | Eigentümerversammlung |
 | Hat nach außen eine umfassende Vertretungsmacht, die grundsätzlich nicht beschränkbar ist | Verwalter |
-| Hat gegenüber den Eigentümern umfassende Auskunftspflichten | Verwalter |
+| Führt die Verwaltungsunterlagen und erteilt den Eigentümer:innen im Alltag die Auskünfte | Verwalter |
 | Muss auf Verlangen der Wohnungseigentümer:innen zertifiziert sein (Ausnahme: kleine Gemeinschaften) | Verwalter |
 | Unterstützt den Verwalter | Verwaltungsbeirat |
 | Prüft Wirtschaftsplan und Jahresabrechnung vor den Beschlüssen und nimmt dazu Stellung | Verwaltungsbeirat |
-| Haftet für ihre Verbindlichkeiten mit dem Gemeinschaftsvermögen, zu dem die Erhaltungsrücklage gehört | Gemeinschaft der Wohnungseigentümer |
+| Haftet für ihre Verbindlichkeiten mit dem Gemeinschaftsvermögen | Gemeinschaft der Wohnungseigentümer |
+| Ihr gegenüber richtet sich das Recht jeder Eigentümerin auf Einsicht in die Verwaltungsunterlagen | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über die Abrechnungsspitze (Nachschüsse und Anpassung der Vorschüsse); der Vermögensbericht der Verwaltung dient der Information und wird nicht beschlossen. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung und nimmt dazu Stellung. Die umfassende Vertretungsmacht, die Auskunftspflichten und die Zertifizierung betreffen den Verwalter. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Für Verbindlichkeiten haftet das Gemeinschaftsvermögen einschließlich der Erhaltungsrücklage; Schuldnerin ist die Gemeinschaft der Wohnungseigentümer, nicht die Versammlung, der Verwalter oder der Beirat. Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
+> Nach der Reform genügt für die meisten Beschlussgegenstände die einfache Mehrheit, und die Versammlung beschließt bei der Abrechnung nur noch über die Abrechnungsspitze (Nachschüsse und Anpassung der Vorschüsse); der Vermögensbericht der Verwaltung dient der Information und wird nicht beschlossen. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung und nimmt dazu Stellung. Die umfassende Vertretungsmacht, die Führung der Unterlagen samt Auskünften im Alltag und die Zertifizierung betreffen den Verwalter; das Einsichtsrecht selbst besteht rechtlich gegenüber der Gemeinschaft. Der Verwaltungsbeirat unterstützt und überwacht den Verwalter (siehe Abschnitt „Der Verwaltungsbeirat“). Für Verbindlichkeiten haftet das Gemeinschaftsvermögen einschließlich der Erhaltungsrücklage; Schuldnerin ist die Gemeinschaft der Wohnungseigentümer, nicht die Versammlung, der Verwalter oder der Beirat. Typische Verwechslung: Die Vertretungsmacht gegenüber Dritten liegt beim Verwalter, nicht bei der Versammlung oder dem Beirat; die Zertifizierung ist eine Anforderung an den Verwalter, kein Merkmal der Gemeinschaft.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -307,17 +309,18 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 | Begriff | Zone |
 | --- | --- |
-| Es kommen nur wenige Eigentümer zur ordnungsgemäß einberufenen Versammlung, die Beschlüsse sind dennoch gültig | Eigentümerversammlung |
+| Es kommen nur wenige Eigentümer:innen zur ordnungsgemäß einberufenen Versammlung, die Beschlüsse sind dennoch gültig | Eigentümerversammlung |
 | Die Wohnungseigentümer:innen beschließen in der Versammlung mit Mehrheit über die Vorschüsse auf Grundlage des Wirtschaftsplans und über die Nachschüsse aus der Jahresabrechnung | Eigentümerversammlung |
-| Beruft die jährliche Versammlung mit Ort, Zeit und Tagesordnung in Textform ein, solange er bestellt ist und seine Pflicht erfüllt | Verwalter |
+| Beruft die ordentliche Versammlung mit Ort, Zeit und Tagesordnung in Textform ein, solange er bestellt ist und seine Pflicht erfüllt | Verwalter |
 | Eine Eigentümerin möchte wissen, wie das Hausgeld verwendet wurde; Auskunft und Einsicht in die Unterlagen erhält sie über die laufende Verwaltung | Verwalter |
-| Ein Handwerksbetrieb schließt mit Ravelin im Namen der Gemeinschaft einen Vertrag, der nach außen wirksam ist | Verwalter |
+| Beim Vertragsschluss mit dem Handwerksbetrieb tritt Ravelin für die Gemeinschaft auf; ihre Vertretungsmacht gegenüber Dritten ist nicht beschränkbar | Verwalter |
 | Ravelin als Verwalterin wird bei der Durchführung ihrer Aufgaben unterstützt und laufend überwacht, der Wirtschaftsplan wird vor der Beschlussfassung geprüft | Verwaltungsbeirat |
-| Die Rechnung des Handwerksbetriebs für diesen Vertrag ist eine Verbindlichkeit der Vertragspartnerin, für die das Gemeinschaftsvermögen haftet | Gemeinschaft der Wohnungseigentümer |
+| Die Rechnung des Handwerksbetriebs für diesen Vertrag ist eine Verbindlichkeit der Vertragspartnerin | Gemeinschaft der Wohnungseigentümer |
+| Über ihr Vermögen findet kein Insolvenzverfahren statt | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über die Vorschüsse auf Grundlage des Wirtschaftsplans und über die Nachschüsse aus der Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Nachschüsse und die Anpassung der Vorschüsse. Ableitungen sind außerdem die Zuordnung der Einladung (solange ein Verwalter bestellt ist, beruft er ein; nur wenn er fehlt oder sich pflichtwidrig weigert, kann der Beiratsvorsitz einberufen) und der Auskunft (der Verwalter führt die Unterlagen und erteilt die Auskünfte; das Einsichtsrecht richtet sich rechtlich gegen die Gemeinschaft); die Aussage zum Beirat steht im Abschnitt „Der Verwaltungsbeirat“. Die Rechnung des Handwerksbetriebs ist eine Verbindlichkeit der Vertragspartnerin, also der Gemeinschaft der Wohnungseigentümer; für sie haftet das Gemeinschaftsvermögen, während der Verwalter nur in ihrem Namen handelt. Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
+> Beschlüsse fasst die Versammlung (ohne Mindestquorum), Einladung, Auskunft und Vertretung nach außen gehören zum Verwalter. Dass der Beschluss über die Vorschüsse auf Grundlage des Wirtschaftsplans und über die Nachschüsse aus der Jahresabrechnung bei der Versammlung liegt, ist im Organigramm von Q-4.2-12 so angelegt; laut Kurs beschließt sie bei der Abrechnung nur noch über Nachschüsse und die Anpassung der Vorschüsse. Ableitungen sind außerdem die Zuordnung der Einladung (solange ein Verwalter bestellt ist, beruft er ein; nur wenn er fehlt oder sich pflichtwidrig weigert, kann der Beiratsvorsitz einberufen) und der Auskunft (der Verwalter führt die Unterlagen und erteilt die Auskünfte; das Einsichtsrecht richtet sich rechtlich gegen die Gemeinschaft); die Aussage zum Beirat steht im Abschnitt „Der Verwaltungsbeirat“. Beim Vertragsschluss handelt der Verwalter mit unbeschränkbarer Vertretungsmacht für die Gemeinschaft; Vertragspartnerin und damit Schuldnerin der Rechnung ist aber die Gemeinschaft der Wohnungseigentümer, über deren Vermögen kein Insolvenzverfahren stattfindet (Abschnitt „Haftung im Außenverhältnis“). Typische Verwechslung: Weil der Verwalter einlädt und Auskunft gibt, wird ihm oft auch die Beschlussfassung zugeschrieben; sie liegt aber bei der Versammlung.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -336,17 +339,18 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | --- | --- |
 | Kann den Verwalter seit der Reform jederzeit auch ohne wichtigen Grund abberufen | Eigentümerversammlung |
 | Muss die Jahresabrechnung nicht mehr Position für Position genehmigen, sondern beschließt über die Abrechnungsspitze | Eigentümerversammlung |
-| Entscheidet auch über Maßnahmen mit einfacher Mehrheit, die früher die Vereinbarung aller Eigentümer erforderten | Eigentümerversammlung |
+| Entscheidet auch über Maßnahmen mit einfacher Mehrheit, die früher die Vereinbarung aller Eigentümer:innen erforderten | Eigentümerversammlung |
 | Dokumentiert die gefassten Beschlüsse fortlaufend in der Beschluss-Sammlung | Verwalter |
 | Hält das Gemeinschaftsvermögen strikt getrennt vom eigenen | Verwalter |
 | Hat eine im Interesse des Rechtsverkehrs grundsätzlich unbeschränkbare Vertretungsmacht | Verwalter |
 | Unterstützt den Verwalter bei dessen Arbeit | Verwaltungsbeirat |
 | Prüft Wirtschaftsplan und Jahresabrechnung vor den Beschlüssen und nimmt dazu Stellung | Verwaltungsbeirat |
 | Ist die Anspruchsgegnerin, wenn einzelne Eigentümer:innen wegen Pflichtverletzungen der Verwaltung vertragliche Ansprüche geltend machen | Gemeinschaft der Wohnungseigentümer |
+| Muss sich das Verhalten ihrer Verwaltung zurechnen lassen und kann bei der Verwaltung Regress nehmen | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnungsspitze und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet sind die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft) ; die Aussagen zum Verwaltungsbeirat (Unterstützung und Überwachung des Verwalters) stehen im Abschnitt „Der Verwaltungsbeirat“. Auch die Versammlung kontrolliert den Verwalter, nämlich durch ihre Beschlüsse und die Abberufung; die laufende Überwachung und die Stellungnahme zu Plan und Abrechnung sind Sache des Beirats. Einzelne Eigentümer:innen haben vertragliche Ansprüche wegen Pflichtverletzungen der Verwaltung nur gegen die Gemeinschaft der Wohnungseigentümer, nicht gegen die Verwaltung selbst. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
+> Die Versammlung entscheidet über die Abberufung (laut Kurs jederzeit ohne wichtigen Grund möglich) und über die Abrechnungsspitze und fasst für die meisten Gegenstände Beschlüsse mit einfacher Mehrheit, auch für Maßnahmen, die früher die Vereinbarung aller Eigentümer:innen erforderten. Beschluss-Sammlung, Vermögenstrennung und unbeschränkbare Vertretungsmacht sind Sache des Verwalters. Abgeleitet ist die Zuordnung der Abberufung zur Versammlung (die Theorie nennt die Abberufungsmöglichkeit als Erleichterung für die Gemeinschaft); die Aussagen zum Verwaltungsbeirat (Unterstützung und Überwachung des Verwalters) stehen im Abschnitt „Der Verwaltungsbeirat“. Auch die Versammlung kontrolliert den Verwalter, nämlich durch ihre Beschlüsse und die Abberufung; die laufende Überwachung und die Stellungnahme zu Plan und Abrechnung sind Sache des Beirats. Einzelne Eigentümer:innen haben vertragliche Ansprüche wegen Pflichtverletzungen der Verwaltung nur gegen die Gemeinschaft der Wohnungseigentümer, nicht gegen die Verwaltung selbst; sie muss sich das Verhalten ihrer Verwaltung zurechnen lassen und kann Regress nehmen. Typische Verwechslung: Die Vertretungsmacht des Verwalters wird dem Beirat zugeschrieben, weil er den Verwalter begleitet; sie liegt allein beim Verwalter.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -369,7 +373,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Stellt den Wirtschaftsplan und die Jahresabrechnung auf | Verwalter |
 | Unterstützt den Verwalter und überwacht dessen Tätigkeit, ohne an seiner Stelle zu entscheiden | Verwaltungsbeirat |
 | Ist nicht zwingend vorgeschrieben; die Eigentümer:innen entscheiden selbst, ob es ihn gibt | Verwaltungsbeirat |
-| Ist der Verband, der Rechte erwerben und Verbindlichkeiten eingehen kann und der klagen und verklagt werden kann | Gemeinschaft der Wohnungseigentümer |
+| Ist der Verband, der klagen und verklagt werden kann | Gemeinschaft der Wohnungseigentümer |
 | Ist Vertragspartnerin von Handwerksbetrieben, Versorgern und Versicherern | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
@@ -387,22 +391,22 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.2-33 · WEG-Organe (Mittel)
 
-*In der Wohnanlage Am Lindenpark soll eine Fahrradabstellanlage gebaut werden. Ordne die Vorgänge der Zone zu, die jeweils handelt, zuständig oder verpflichtet ist.*
+*In der Wohnanlage Am Lindenpark soll die Dacheindeckung des Gemeinschaftseigentums erneuert werden. Ordne die Vorgänge der Zone zu, die jeweils handelt, zuständig oder verpflichtet ist.*
 
 | Begriff | Zone |
 | --- | --- |
-| Die Wohnungseigentümer:innen stimmen mit der Mehrheit der abgegebenen Stimmen darüber ab, ob die Anlage gebaut wird | Eigentümerversammlung |
+| In der Versammlung wird mit der Mehrheit der abgegebenen Stimmen darüber abgestimmt, ob das Dach erneuert wird | Eigentümerversammlung |
 | Die ordnungsgemäß einberufene Versammlung ist auch bei wenigen Anwesenden beschlussfähig | Eigentümerversammlung |
 | Die Einladung mit Ort, Zeit und Tagesordnung wird in Textform verschickt | Verwalter |
 | Der gefasste Beschluss wird in die Beschluss-Sammlung eingetragen | Verwalter |
-| Der Wirtschaftsplan wird vor der Abstimmung geprüft, und es wird dazu Stellung genommen | Verwaltungsbeirat |
-| Die Vergabe des Auftrags an die Baufirma wird auf Wunsch begleitet | Verwaltungsbeirat |
-| Die Baufirma schließt den Vertrag mit der Vertragspartnerin, die durch die Verwaltung handelt | Gemeinschaft der Wohnungseigentümer |
-| Die Rechnung der Baufirma ist eine Verbindlichkeit, für die das Gemeinschaftsvermögen haftet | Gemeinschaft der Wohnungseigentümer |
+| Prüft den Wirtschaftsplan, in dem die Kosten berücksichtigt werden, und nimmt vor dem Beschluss dazu Stellung | Verwaltungsbeirat |
+| Unterstützt den Verwalter, zum Beispiel durch die Begleitung bei der Vergabe des Auftrags an den Dachdeckerbetrieb | Verwaltungsbeirat |
+| Ist die Vertragspartnerin des Dachdeckerbetriebs, für die der Vertrag durch die Verwaltung geschlossen wird | Gemeinschaft der Wohnungseigentümer |
+| Die Rechnung des Dachdeckerbetriebs ist eine Verbindlichkeit, für die das Gemeinschaftsvermögen haftet | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Versammlung beschließt mit der Mehrheit der abgegebenen Stimmen und ist bei ordnungsgemäßer Einberufung unabhängig von der Zahl der Anwesenden beschlussfähig. Einladung in Textform mit Ort, Zeit und Tagesordnung und die Beschluss-Sammlung sind Sache des Verwalters. Der Beirat prüft den Wirtschaftsplan vor dem Beschluss und kann nach dem Abschnitt „Der Verwaltungsbeirat“ typischerweise die Vergabe von Aufträgen begleiten; die Zuordnung der Vergabebegleitung ist als „typisch“ formuliert und hängt von Teilungserklärung und Beschluss ab. Vertragspartnerin der Baufirma ist die Gemeinschaft der Wohnungseigentümer; für ihre Verbindlichkeiten haftet das Gemeinschaftsvermögen. Typische Verwechslung: Weil der Verwalter den Vertrag unterschreibt, wird er für die Vertragspartei gehalten; er handelt aber im Namen der Gemeinschaft, die berechtigt und verpflichtet wird.
+> Die Versammlung beschließt mit der Mehrheit der abgegebenen Stimmen und ist bei ordnungsgemäßer Einberufung unabhängig von der Zahl der Anwesenden beschlussfähig. Einladung in Textform mit Ort, Zeit und Tagesordnung und die Beschluss-Sammlung sind Sache des Verwalters. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung (die Zuordnung zu den Kosten der Dachsanierung ist abgeleitet) und kann nach dem Abschnitt „Der Verwaltungsbeirat“ typischerweise die Vergabe von Aufträgen begleiten; das ist als „typisch“ formuliert und hängt von Teilungserklärung und Beschluss ab, die Vergabe selbst bleibt beim Verwalter. Vertragspartnerin des Dachdeckerbetriebs ist die Gemeinschaft der Wohnungseigentümer; für ihre Verbindlichkeiten haftet das Gemeinschaftsvermögen. Typische Verwechslung: Weil der Verwalter den Vertrag unterschreibt, wird er für die Vertragspartei gehalten; er handelt aber mit unbeschränkbarer Vertretungsmacht für die Gemeinschaft, die berechtigt und verpflichtet wird.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -426,11 +430,11 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Prüft Wirtschaftsplan und Jahresabrechnung, bevor die Versammlung darüber beschließt | Verwaltungsbeirat |
 | Kann über seinen Vorsitz die Versammlung einberufen, wenn eine Verwaltung fehlt oder sich pflichtwidrig weigert | Verwaltungsbeirat |
 | Ist bei einer Anfechtungsklage gegen einen Beschluss die Beklagte, nicht die Mehrheit der Eigentümer:innen | Gemeinschaft der Wohnungseigentümer |
-| Ist Anspruchsgegnerin, wenn einzelne Eigentümer:innen wegen Pflichtverletzungen der Verwaltung vertragliche Ansprüche geltend machen | Gemeinschaft der Wohnungseigentümer |
+| Ist die Vertragspartei des Verwaltervertrags mit der Verwaltung | Gemeinschaft der Wohnungseigentümer |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Über Bestellung und Abberufung beschließen die Eigentümer:innen; bauliche Veränderungen kann die Versammlung mit einfacher Mehrheit beschließen oder gestatten. Bei der Anfechtung vertritt die Verwaltung die beklagte Gemeinschaft: Sie beauftragt, soweit zur Fristwahrung erforderlich, eine anwaltliche Vertretung, macht die Klage bekannt und vermerkt sie in der Beschluss-Sammlung. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung; sein Vorsitz kann einberufen, wenn eine Verwaltung fehlt oder sich pflichtwidrig weigert. Beklagte der Anfechtungsklage ist die Gemeinschaft der Wohnungseigentümer, nicht die Mehrheit, und vertragliche Ansprüche wegen Pflichtverletzungen der Verwaltung richten sich nur gegen die Gemeinschaft (Abschnitte „Anfechtung von Beschlüssen“ und „Haftung im Außenverhältnis“). Typische Verwechslung: Wer die Klage führt und wer beklagt ist, wird verwechselt; die Verwaltung handelt, die Gemeinschaft ist die Partei.
+> Über Bestellung und Abberufung beschließen die Eigentümer:innen; bauliche Veränderungen kann die Versammlung mit einfacher Mehrheit beschließen oder gestatten. Bei der Anfechtung vertritt die Verwaltung die beklagte Gemeinschaft: Sie beauftragt, soweit zur Fristwahrung erforderlich, eine anwaltliche Vertretung (aus § 27 Abs. 1 Nr. 2 WEG abgeleitet; die Eigentümer:innen können die Befugnis durch Beschluss einschränken oder erweitern), macht die Klage bekannt und vermerkt sie in der Beschluss-Sammlung. Der Beirat prüft Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung; sein Vorsitz kann einberufen, wenn eine Verwaltung fehlt oder sich pflichtwidrig weigert. Beklagte der Anfechtungsklage ist die Gemeinschaft der Wohnungseigentümer, nicht die Mehrheit, und den Verwaltervertrag schließt die Gemeinschaft mit der Verwaltung (Abschnitte „Anfechtung von Beschlüssen“ und „Verwaltervertrag, Bestellung und Abberufung“). Typische Verwechslung: Wer die Klage führt und wer beklagt ist, wird verwechselt; die Verwaltung handelt, die Gemeinschaft ist die Partei.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -445,12 +449,12 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Besonders prüfen:**
 - ⚠ **Mietrecht (BetrKV, Heizkostenverordnung), Rechtsstand prüfen:** Der Kurs trägt den Vermerk „fachlich/rechtlich prüfen“. Zahlen (Anzahl der Kostenarten, Spanne der verbrauchsabhängigen Abrechnung) stehen nur in Erklärungen als „laut Kurs“.
-- ⚠ **Zonen trennscharf (P-BE, 23.10.2026):** Heiz- und Warmwasserkosten stehen auch im BetrKV-Katalog (umlagefähig); früher hieß die dritte Zone „Verbrauchsabhängig (Heizkostenverordnung)“ und überschnitt sich mit „Umlagefähig“. Jetzt heißen die Zonen „Umlagefähig (ohne Heizung und Warmwasser)“, „Nicht umlagefähig“ und „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; alle Zeilen von Q-4.4-14 bis -17 und die Anweisungen sind angepasst (Schlüssel `umlagefaehig`, `nichtumlagefaehig`, `verbrauch` unverändert). Kosten der Wasserversorgung (Kaltwasser) gehören damit zur ersten Zone; fachlich prüfen, ob die Dreiteilung so sinnvoll ist.
+- ⚠ **Zonen trennscharf (P-BE, 23.10.2026):** Heiz- und Warmwasserkosten stehen auch im BetrKV-Katalog (umlagefähig); früher hieß die dritte Zone „Verbrauchsabhängig (Heizkostenverordnung)“ und überschnitt sich mit „Umlagefähig“. Jetzt heißen die Zonen „Umlagefähig (ohne Heizung und Warmwasser)“, „Nicht umlagefähig“ und „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; alle Zeilen von Q-4.4-14 bis -17 und die Anweisungen sind angepasst (Schlüssel `umlagefaehig`, `nichtumlagefaehig`, `verbrauch` unverändert). Kosten der Wasserversorgung (Kaltwasser) gehören damit zur ersten Zone; die Schornsteinreinigung wurde aus Q-4.4-16 durch die Beleuchtung ersetzt, weil sie in der Praxis oft schon in der Heizkostenabrechnung steht (zweite Zone möglich); fachlich prüfen, ob die Dreiteilung so sinnvoll ist.
 - ⚠ Q-4.4-14: Das Beispiel „Reparatur Treppengeländer“ steht nicht im Kurstext, nur der allgemeine Satz zu Instandsetzung. Q-4.4-16: Die Fallkonstellation ist aus Q-4.4-09 und dem Theoriehinweis zu fälschlich aufgenommenen Reparaturen abgeleitet; der Mietvertrag wird als vereinbart vorausgesetzt. Q-4.4-17: „Reparatur des Aufzugs“ und die Gegenüberstellung von laufendem Betrieb und Reparatur sind Ableitungen; das Kürzungsrecht ist ohne Zahl erwähnt.
 
 #### Q-4.4-14 · Betriebskosten (Leicht)
 
-*Die Ravelin Immobilien GmbH erstellt Betriebskostenabrechnungen für vermietete Einheiten. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist, und ordne jede Kostenart zu. Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden, sind zwar ebenfalls umlagefähig, gehören hier aber nur in die dritte Zone; die erste Zone gilt für die übrigen umlagefähigen Kosten.*
+*Die Ravelin Immobilien GmbH erstellt Betriebskostenabrechnungen für vermietete Einheiten. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist, und ordne jede Kostenart zu. Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden, sind zwar ebenfalls umlagefähig, gehören hier aber nur zur Zone „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; die Zone „Umlagefähig (ohne Heizung und Warmwasser)“ gilt für die übrigen umlagefähigen Kosten.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -463,7 +467,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Grundsteuer sowie Straßenreinigung und Müllbeseitigung stehen laut Kurs im abschließenden BetrKV-Katalog (17 Kostenarten) und sind bei Vereinbarung umlagefähig. Verwaltungskosten wie das Honorar der Hausverwaltung und Instandhaltungs- und Instandsetzungskosten wie eine Reparatur sind ausdrücklich nicht umlagefähig. Heiz- und Warmwasserkosten werden nach der Heizkostenverordnung verbrauchsabhängig abgerechnet; obwohl sie im BetrKV-Katalog stehen, zählen sie hier nur zur dritten Zone, damit sich die Zonen nicht überschneiden. Alle übrigen Kosten des Katalogs, auch die Kosten der Wasserversorgung, gehören zur ersten Zone. Das Treppengeländer ist ein Beispiel für Instandsetzung, es steht nicht im Kurstext. Typische Verwechslung: Weil eine Reparatur im Haus anfällt, wird sie fälschlich in die Abrechnung aufgenommen; Betriebskosten sind laufende Kosten des Betriebs, keine Reparaturen.
+> Grundsteuer sowie Straßenreinigung und Müllbeseitigung stehen laut Kurs im abschließenden BetrKV-Katalog (17 Kostenarten) und sind bei Vereinbarung umlagefähig. Verwaltungskosten wie das Honorar der Hausverwaltung und Instandhaltungs- und Instandsetzungskosten wie eine Reparatur sind ausdrücklich nicht umlagefähig. Heiz- und Warmwasserkosten werden nach der Heizkostenverordnung verbrauchsabhängig abgerechnet; obwohl sie im BetrKV-Katalog stehen, zählen sie hier nur zur Zone „Heiz- und Warmwasserkosten (Heizkostenverordnung)“, damit sich die Zonen nicht überschneiden. Alle übrigen Kosten des Katalogs, auch die Kosten der Wasserversorgung, gehören zur Zone „Umlagefähig (ohne Heizung und Warmwasser)“. Das Treppengeländer ist ein Beispiel für Instandsetzung, es steht nicht im Kurstext. Typische Verwechslung: Weil eine Reparatur im Haus anfällt, wird sie fälschlich in die Abrechnung aufgenommen; Betriebskosten sind laufende Kosten des Betriebs, keine Reparaturen.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -476,7 +480,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-15 · Betriebskosten (Mittel)
 
-*Ordne die Kostenarten den Zonen zu. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist. Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden, sind zwar ebenfalls umlagefähig, gehören hier aber nur in die dritte Zone; die erste Zone gilt für die übrigen umlagefähigen Kosten.*
+*Ordne die Kostenarten den Zonen zu. Gehe davon aus, dass die Umlage im Mietvertrag vereinbart ist. Heiz- und Warmwasserkosten, die nach erfasstem Verbrauch verteilt werden, sind zwar ebenfalls umlagefähig, gehören hier aber nur zur Zone „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; die Zone „Umlagefähig (ohne Heizung und Warmwasser)“ gilt für die übrigen umlagefähigen Kosten.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -484,13 +488,13 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Aufzugsbetrieb | Umlagefähig (ohne Heizung und Warmwasser) |
 | Sach- und Haftpflichtversicherung des Gebäudes | Umlagefähig (ohne Heizung und Warmwasser) |
 | Verwaltungskosten der Hausverwaltung | Nicht umlagefähig |
-| Instandhaltungskosten, die beim Eigentümer verbleiben | Nicht umlagefähig |
-| Wärmeverbrauch einer Wohnung, der über einen Wärmemengenzähler erfasst wird | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
-| Anteil der Heizkosten, den der Mieter nach seinem erfassten Verbrauch trägt | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
+| Instandhaltungskosten, die bei den Eigentümer:innen verbleiben | Nicht umlagefähig |
+| Warmwasserkosten, die über Warmwasserzähler erfasst und nach Verbrauch verteilt werden | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
+| Anteil der Heizkosten, den ein:e Mieter:in nach dem erfassten Verbrauch trägt | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Gartenpflege, Aufzugsbetrieb und die Sach- und Haftpflichtversicherung sind Positionen des BetrKV-Katalogs. Verwaltungs- sowie Instandhaltungskosten gehören laut Kurs nicht zu den Betriebskosten und verbleiben beim Eigentümer. Laut Kurs verlangt die Heizkostenverordnung die verbrauchsabhängige Abrechnung mit Erfassungsgeräten wie Heizkostenverteilern und Wärmemengenzählern; ein Teil der Heizkosten (laut Kurs 50 bis 70 %) wird so verteilt, der Rest nach Fläche. Typische Verwechslung: Ein Eintrag in der Abrechnung ist nicht schon deshalb umlagefähig, weil er regelmäßig anfällt oder vom Mieter genutzt wird; maßgeblich ist, ob die Kostenart im Katalog steht und vereinbart ist.
+> Gartenpflege, Aufzugsbetrieb und die Sach- und Haftpflichtversicherung sind Positionen des BetrKV-Katalogs. Verwaltungs- sowie Instandhaltungskosten gehören laut Kurs nicht zu den Betriebskosten und verbleiben bei den Eigentümer:innen. Laut Kurs verlangt die Heizkostenverordnung die verbrauchsabhängige Abrechnung mit Erfassungsgeräten wie Heizkostenverteilern und Wärmemengenzählern; ein Teil der Heizkosten (laut Kurs 50 bis 70 %) wird so verteilt, der Rest nach Fläche. Typische Verwechslung: Ein Eintrag in der Abrechnung ist nicht schon deshalb umlagefähig, weil er regelmäßig anfällt oder von den Mieter:innen genutzt wird; maßgeblich ist, ob die Kostenart im Katalog steht und vereinbart ist.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -503,21 +507,21 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-16 · Betriebskosten (Mittel)
 
-*Ein Mieter ruft bei Ravelin an und fragt nach einzelnen Positionen seiner Betriebskostenabrechnung. Ordne jede Position der Zone zu, in die sie gehört. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier nur zur dritten Zone; die erste Zone gilt für die übrigen umlagefähigen Kosten.*
+*Eine Mieterin ruft bei Ravelin an und fragt nach einzelnen Positionen ihrer Betriebskostenabrechnung. Ordne jede Position der Zone zu, in die sie gehört. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier nur zur Zone „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; die Zone „Umlagefähig (ohne Heizung und Warmwasser)“ gilt für die übrigen umlagefähigen Kosten.*
 
 | Begriff | Zone |
 | --- | --- |
 | Kosten der Ungezieferbekämpfung im Treppenhaus | Umlagefähig (ohne Heizung und Warmwasser) |
-| Kosten der Schornsteinreinigung | Umlagefähig (ohne Heizung und Warmwasser) |
+| Kosten der Beleuchtung des Treppenhauses | Umlagefähig (ohne Heizung und Warmwasser) |
 | Kosten für einen Hauswart | Umlagefähig (ohne Heizung und Warmwasser) |
 | Rechnung für die Reparatur der Heizungsanlage, die fälschlich in der Abrechnung steht | Nicht umlagefähig |
 | Honorar der Ravelin Immobilien GmbH als Hausverwaltung | Nicht umlagefähig |
-| Heizkosten, die über Erfassungsgeräte dem einzelnen Mieter zugerechnet werden | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
-| Warmwasserkosten, die nach Verbrauch auf die Mieter verteilt werden | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
+| Heizkosten, die über Erfassungsgeräte der einzelnen Mietpartei zugerechnet werden | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
+| Warmwasserkosten, die nach Verbrauch auf die Mieter:innen verteilt werden | Heiz- und Warmwasserkosten (Heizkostenverordnung) |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Ungezieferbekämpfung, Schornsteinreinigung und Hauswart stehen im abschließenden BetrKV-Katalog (laut Kurs 17 Kostenarten). Die Reparatur der Heizungsanlage ist Instandsetzung und das Verwalterhonorar ein Verwaltungskosten-Beispiel, beides ist nicht umlagefähig und verbleibt beim Eigentümer. Verbrauchsabhängig sind nach der Heizkostenverordnung die Heiz- und Warmwasserkosten, die mit Erfassungsgeräten ermittelt werden. Typische Verwechslung: Heizungskosten werden mit der Reparatur der Heizungsanlage gleichgesetzt; der laufende Verbrauch wird umgelegt, die Instandsetzung der Anlage nicht.
+> Ungezieferbekämpfung, Beleuchtung und Hauswart stehen im abschließenden BetrKV-Katalog (laut Kurs 17 Kostenarten). Die Reparatur der Heizungsanlage ist Instandsetzung und das Verwalterhonorar ein Verwaltungskosten-Beispiel, beides ist nicht umlagefähig und verbleibt bei den Eigentümer:innen. Verbrauchsabhängig sind nach der Heizkostenverordnung die Heiz- und Warmwasserkosten, die mit Erfassungsgeräten ermittelt werden. Typische Verwechslung: Heizungskosten werden mit der Reparatur der Heizungsanlage gleichgesetzt; der laufende Verbrauch wird umgelegt, die Instandsetzung der Anlage nicht.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -530,7 +534,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-4.4-17 · Betriebskosten (Schwer)
 
-*Die folgenden Kostenarten klingen ähnlich, gehören aber in unterschiedliche Zonen. Ordne sie zu. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier nur zur dritten Zone; die erste Zone gilt für die übrigen umlagefähigen Kosten.*
+*Die folgenden Kostenarten klingen ähnlich, gehören aber in unterschiedliche Zonen. Ordne sie zu. Die Umlage ist im Mietvertrag vereinbart. Heiz- und Warmwasserkosten sind zwar umlagefähig, werden aber nach erfasstem Verbrauch verteilt und zählen hier nur zur Zone „Heiz- und Warmwasserkosten (Heizkostenverordnung)“; die Zone „Umlagefähig (ohne Heizung und Warmwasser)“ gilt für die übrigen umlagefähigen Kosten.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -545,7 +549,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 **Erklärung (so sehen Lernende sie):**
 
-> Laut Kurs sind der Aufzugsbetrieb, Hauswartleistungen und die Gebäudereinigung umlagefähig, die Reparatur des Aufzugs oder der Heizungsanlage dagegen Instandsetzung und damit nicht umlagefähig. Das Verwalterhonorar ist ein Verwaltungskosten-Beispiel und nicht mit Hauswartleistungen zu verwechseln. Die Heiz- und Warmwasserkosten werden verbrauchsabhängig abgerechnet; fehlt die Verbrauchserfassung, hat der Mieter laut Kurs ein Kürzungsrecht. Die Gegenüberstellung von laufendem Betrieb und Reparatur ist eine Ableitung aus der Abgrenzung im Kurs, die Reparatur des Aufzugs steht dort nicht ausdrücklich. Typische Verwechslung: Der Betrieb einer Anlage und ihre Reparatur werden gleich behandelt; umlagefähig sind die laufenden Betriebskosten, nicht die Instandsetzung. Ebenso wird die Verwaltung oft mit der Tätigkeit eines Hauswarts verwechselt, obwohl nur Letztere im Katalog steht.
+> Laut Kurs sind der Aufzugsbetrieb, Hauswartleistungen und die Gebäudereinigung umlagefähig, die Reparatur des Aufzugs oder der Heizungsanlage dagegen Instandsetzung und damit nicht umlagefähig. Das Verwalterhonorar ist ein Verwaltungskosten-Beispiel und nicht mit Hauswartleistungen zu verwechseln. Die Heiz- und Warmwasserkosten werden verbrauchsabhängig abgerechnet; fehlt die Verbrauchserfassung, haben die Mieter:innen laut Kurs ein Kürzungsrecht. Die Gegenüberstellung von laufendem Betrieb und Reparatur ist eine Ableitung aus der Abgrenzung im Kurs, die Reparatur des Aufzugs steht dort nicht ausdrücklich. Typische Verwechslung: Der Betrieb einer Anlage und ihre Reparatur werden gleich behandelt; umlagefähig sind die laufenden Betriebskosten, nicht die Instandsetzung. Ebenso wird die Verwaltung oft mit der Tätigkeit eines Hauswarts verwechselt, obwohl nur Letztere im Katalog steht.
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?
@@ -559,13 +563,13 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 ### DIN-276-Kostengruppen (4 Fragen) — Zonen: KG 100 Grundstück · KG 200 Vorbereitende Maßnahmen · KG 300 Baukonstruktionen · KG 400 Technische Anlagen · KG 500 Außenanlagen und Freiflächen · KG 600 Ausstattung und Kunstwerke · KG 700 Baunebenkosten · KG 800 Finanzierung
 
 **Besonders prüfen:**
-- ⚠ **Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen, dazu in der Fassung 2018 KG 800 Finanzierung). **P-BE (23.10.2026):** Das Instrument führt jetzt acht Zonen; KG 800 „Finanzierung“ (Finanzierungskosten während der Bauzeit; bei Ravelin in der Projektkalkulation getrennt von den Gruppen 100 bis 700 geführt) ist neu, und KG 500 heißt jetzt „KG 500 Außenanlagen und Freiflächen“ (Wortlaut der Theorie). Q-5.4-14 bis -17 haben je eine Zeile zu KG 800; die Abgrenzung „Finanzierungskosten sind keine Baunebenkosten“ (Q-5.4-17) ist aus der Theorie abgeleitet. Die Zonenbeschriftungen sind zugleich die Content-Schlüssel des Parsers.
+- ⚠ **Norm (DIN 276), nur eigene Worte:** Gruppennummern und -namen, keine Untergruppen oder Normwortlaute. Die Gruppeneinteilung folgt der Kurstheorie (sieben Kostengruppen, dazu in der Fassung 2018 KG 800 Finanzierung). **P-BE (23.10.2026):** Das Instrument führt jetzt acht Zonen; KG 800 „Finanzierung“ (Finanzierungskosten während der Bauzeit; bei Ravelin in der Projektkalkulation getrennt von den Gruppen 100 bis 700 geführt) ist neu, und KG 500 heißt jetzt „KG 500 Außenanlagen und Freiflächen“ (Wortlaut der Theorie). Q-5.4-14 bis -17 haben je eine Zeile zu KG 800; die Abgrenzung „Finanzierungskosten sind keine Baunebenkosten“ (Q-5.4-17) ist aus der Theorie abgeleitet und gilt nur für die Fassung 2018, die die Anweisungen von Q-5.4-14 bis -17 jetzt nennen (nach der Fassung 2008, auf die die HOAI verweist, gehört die Finanzierung zu den Baunebenkosten; Fachwissen, nicht Kurstext). Die Zonenbeschriftungen sind zugleich die Content-Schlüssel des Parsers.
 - ⚠ **Erschließung (Nutzer-Entscheidung vom 06.10.2026):** Das Beispiel „Erschließung des Grundstücks“ wurde aus der KG-500-Beschreibung der Theorie 5.4 entfernt (ohne neue Zuordnung zu behaupten); nach der aktuellen DIN 276 gehört die Erschließung nach unserem Wissen zu den vorbereitenden Maßnahmen (KG 200) — die Normprüfung klärt, ob KG 200 ergänzt werden soll. Die Fragen vermeiden das Thema weiterhin.
 - ⚠ Q-5.4-14 bis -17: KG 600 (Ausstattung und Kunstwerke): Das Kunstwerk und das Mobiliar sind aus dem Gruppennamen abgeleitet, die Theorie nennt kein Beispiel; Mobiliar eines Gemeinschaftsraums könnte je nach Fest-/Losteil abweichend eingeordnet werden. Ausbau bei KG 300 steht wörtlich in der Theorie; Planung und Bauleitung gehören zu KG 700.
 
 #### Q-5.4-14 · DIN-276-Kostengruppen (Leicht)
 
-*Die Ravelin Immobilien GmbH plant die Baukosten eines Mehrfamilienhauses. Ordne jede Kostenposition der passenden Kostengruppe der DIN 276 zu.*
+*Die Ravelin Immobilien GmbH plant die Baukosten eines Mehrfamilienhauses. Ordne jede Kostenposition der passenden Kostengruppe der DIN 276 (Fassung 2018) zu.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -593,7 +597,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-5.4-15 · DIN-276-Kostengruppen (Mittel)
 
-*Für ein Neubauprojekt der Ravelin Immobilien GmbH liegen verschiedene Kostenpositionen vor. Ordne sie den Kostengruppen der DIN 276 zu.*
+*Für ein Neubauprojekt der Ravelin Immobilien GmbH liegen verschiedene Kostenpositionen vor. Ordne sie den Kostengruppen der DIN 276 (Fassung 2018) zu.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -623,7 +627,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-5.4-16 · DIN-276-Kostengruppen (Mittel)
 
-*Das Controlling der Ravelin Immobilien GmbH ordnet Kostenpositionen eines Bauträgerprojekts. Ordne jede Situation der passenden Kostengruppe der DIN 276 zu.*
+*Das Controlling der Ravelin Immobilien GmbH ordnet Kostenpositionen eines Bauträgerprojekts. Ordne jede Situation der passenden Kostengruppe der DIN 276 (Fassung 2018) zu.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -653,7 +657,7 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 
 #### Q-5.4-17 · DIN-276-Kostengruppen (Schwer)
 
-*Die folgenden Positionen eines Ravelin-Bauträgerprojekts lassen sich leicht verwechseln, weil mehrere zum Gebäude selbst oder zu seiner Vorbereitung gehören. Ordne jede Position der passenden Kostengruppe der DIN 276 zu.*
+*Die folgenden Positionen eines Ravelin-Bauträgerprojekts lassen sich leicht verwechseln, weil mehrere zum Gebäude selbst oder zu seiner Vorbereitung gehören. Ordne jede Position der passenden Kostengruppe der DIN 276 (Fassung 2018) zu.*
 
 | Begriff | Zone |
 | --- | --- |
@@ -665,12 +669,12 @@ Stand 06.10.2026 · erzeugt aus `content/immobilienfachwirt/` (F-190). **Alle In
 | Die Stellplätze und Grünflächen rund um das Gebäude werden angelegt | KG 500 Außenanlagen und Freiflächen |
 | Ein Kunstwerk wird im Eingangsbereich aufgestellt | KG 600 Ausstattung und Kunstwerke |
 | Die Honorare für die Planung des Gebäudes fallen an | KG 700 Baunebenkosten |
-| Die Bauleitung überwacht die Ausführung auf der Baustelle | KG 700 Baunebenkosten |
+| Die Kosten der Bauleitung fallen an | KG 700 Baunebenkosten |
 | Die Finanzierungskosten während der Bauzeit werden dem Projekt zugerechnet | KG 800 Finanzierung |
 
 **Erklärung (so sehen Lernende sie):**
 
-> Die Abgrenzungen folgen der Theorie: Das Grundstück ist eigene Kostengruppe (KG 100), Abbruch und Altlastenbeseitigung sind vorbereitende Maßnahmen (KG 200) und nicht Teil des Bauwerks, Rohbau und Ausbau bilden die Baukonstruktionen (KG 300), Heizung und Elektro die technischen Anlagen (KG 400), Stellplätze und Grünflächen die Außenanlagen (KG 500), Planungs- und Genehmigungskosten sowie Bauleitung die Baunebenkosten (KG 700). Das Kunstwerk für KG 600 ist eine Ableitung aus dem Namen der Kostengruppe. Finanzierungskosten während der Bauzeit bilden in der Fassung 2018 eine eigene Hauptgruppe (KG 800) und sind keine Baunebenkosten (KG 700); die Abgrenzung ist aus der Theorie abgeleitet, die KG 800 getrennt von den Gruppen 100 bis 700 nennt. Typische Verwechslung: Planung und Bauleitung beziehen sich zwar auf das Gebäude, sind aber keine Baukonstruktion (KG 300), sondern Baunebenkosten (KG 700); ebenso ist der Abbruch keine Baukonstruktion, sondern eine vorbereitende Maßnahme (KG 200).
+> Die Abgrenzungen folgen der Theorie: Das Grundstück ist eigene Kostengruppe (KG 100), Abbruch und Altlastenbeseitigung sind vorbereitende Maßnahmen (KG 200) und nicht Teil des Bauwerks, Rohbau und Ausbau bilden die Baukonstruktionen (KG 300), Heizung und Elektro die technischen Anlagen (KG 400), Stellplätze und Grünflächen die Außenanlagen (KG 500), Planungs- und Genehmigungskosten sowie Bauleitung die Baunebenkosten (KG 700). Das Kunstwerk für KG 600 ist eine Ableitung aus dem Namen der Kostengruppe. Finanzierungskosten während der Bauzeit bilden in der Fassung 2018 eine eigene Hauptgruppe (KG 800) und sind in dieser Fassung keine Baunebenkosten (KG 700); die Abgrenzung ist aus der Theorie abgeleitet, die KG 800 getrennt von den Gruppen 100 bis 700 nennt, und gilt nur für die Fassung 2018 (die Fassung 2008, auf die die HOAI verweist, gliedert die Finanzierung anders; Fachwissen, nicht Kurstext). Typische Verwechslung: Planung und Bauleitung beziehen sich zwar auf das Gebäude, sind aber keine Baukonstruktion (KG 300), sondern Baunebenkosten (KG 700); ebenso ist der Abbruch keine Baukonstruktion, sondern eine vorbereitende Maßnahme (KG 200).
 
 **Prüffragen:**
 - ☐ Fachlich korrekt (Begriffe, Befehle, Werte, Aussagen)?

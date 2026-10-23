@@ -29,9 +29,11 @@ export interface ThemaBuildInput {
   /** `thema_title` aus dem Frontmatter (Prompt des Theorie-Items). */
   themaTitle: string;
   body: string;
+  /** Frontmatter-Feld `rechtsstand` (UXT-B-13); landet im Payload des Theorie-Items, fehlt es, bleibt der Payload unverändert. */
+  rechtsstand?: string | undefined;
 }
 
-export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInput): DesiredItem[] {
+export function buildDesiredItems({ kursSlug, themaTitle, body, rechtsstand }: ThemaBuildInput): DesiredItem[] {
   const items: DesiredItem[] = [];
   const base = { explanation: null, difficulty: "mittel", bloom: null, payload: {}, options: [] as SyncOption[], tags: [] as string[], isActive: true };
 
@@ -42,7 +44,7 @@ export function buildDesiredItems({ kursSlug, themaTitle, body }: ThemaBuildInpu
       key: THEORIE_SOURCE_KEY,
       type: "theorie",
       prompt: themaTitle,
-      payload: { body_markdown: theorieBody, images: [] },
+      payload: { body_markdown: theorieBody, images: [], ...(rechtsstand?.trim() ? { rechtsstand: rechtsstand.trim() } : {}) },
     });
   }
 

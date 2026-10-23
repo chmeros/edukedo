@@ -80,7 +80,7 @@ describe("F-164: Theorie lesen", () => {
         prompt: "Theorie Projektplanung",
         payload: { body_markdown: "## Theorie\n\n### Netzplan\n\nDie **Pufferzeit** ist der zeitliche Spielraum eines Vorgangs." },
       },
-      { themaId: themaNurTheorie, type: "theorie", prompt: "Theorie ohne Aufgaben", payload: { body_markdown: "### Nur gelesen\n\nText ohne Karten und Quiz." } },
+      { themaId: themaNurTheorie, type: "theorie", prompt: "Theorie ohne Aufgaben", payload: { body_markdown: "### Nur gelesen\n\nText ohne Karten und Quiz.", rechtsstand: "23.10.2026 — rechtliche Passagen prüfen" } },
       { themaId: fremdesThema, type: "theorie", prompt: "Fremde Theorie", payload: { body_markdown: "### Geheim\n\nPufferzeit im fremden Kurs." } },
       { themaId: themaMitTheorie, type: "karteikarte", prompt: "Was ist die Pufferzeit?", explanation: "Spielraum eines Vorgangs." },
       { themaId: themaMitTheorie, type: "quiz_mc", prompt: "Was bedeutet Puffer?", explanation: "Spielraum." },
@@ -117,6 +117,15 @@ describe("F-164: Theorie lesen", () => {
     expect(data.fachgebietTitle).toBe("Fachgebiet Eins");
     expect(data.bodyMarkdown).toContain("**Pufferzeit**");
     expect(data.contentItemId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+  });
+
+  it("liefert den Rechtsstand (UXT-B-13) nur, wenn das Theorie-Item einen trägt", async () => {
+    const mit = (await get("content.theorieThema", { kursId, themaId: themaNurTheorie })).json().result.data;
+    expect(mit.rechtsstand).toBe("23.10.2026 — rechtliche Passagen prüfen");
+    const ohne = (await get("content.theorieThema", { kursId, themaId: themaMitTheorie })).json().result.data;
+    expect(ohne.rechtsstand).toBeNull();
+    const leer = (await get("content.theorieThema", { kursId, themaId: themaOhneTheorie })).json().result.data;
+    expect(leer.rechtsstand).toBeNull();
   });
 
   it("führt Themen, die nur einen Theorietext haben, in der Fortschrittsübersicht mit 0 Aufgaben (Lesefenster-Verzeichnis)", async () => {

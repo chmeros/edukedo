@@ -37,3 +37,23 @@ describe("buildDesiredItems: Fachgesprächsfragen", () => {
     expect(items[0]!.key).not.toBe(items[1]!.key);
   });
 });
+
+/**
+ * UXT-B-13: Das Frontmatter-Feld `rechtsstand` landet im Payload des Theorie-Items (für das Lesefenster); ohne Angabe bleibt der
+ * Payload wie bisher, damit der Abgleich bestehende Themen nicht grundlos als geändert meldet.
+ */
+describe("buildDesiredItems: Rechtsstand im Theorie-Payload", () => {
+  const body = ["## Theorie", "", "### Grundlagen", "", "Text.", ""].join("\n");
+  const theorie = (rechtsstand?: string) =>
+    buildDesiredItems({ kursSlug: "test-kurs", themaTitle: "Thema", body, rechtsstand }).find((item) => item.type === "theorie")!;
+
+  it("übernimmt den getrimmten Rechtsstand", () => {
+    expect(theorie("  23.10.2026 — Vermerk ").payload).toEqual({ body_markdown: "### Grundlagen\n\nText.", images: [], rechtsstand: "23.10.2026 — Vermerk" });
+  });
+
+  it("lässt den Payload ohne Angabe unverändert", () => {
+    for (const leer of [undefined, "", "   "]) {
+      expect(theorie(leer).payload).toEqual({ body_markdown: "### Grundlagen\n\nText.", images: [] });
+    }
+  });
+});

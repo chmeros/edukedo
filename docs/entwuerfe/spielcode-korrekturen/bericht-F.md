@@ -62,3 +62,24 @@ Hinweise zu `wegorgane` (vierte Zone statt „Offen (Code)“), `betriebskosten`
 - `docs/entwuerfe/spielcode-korrekturen/bericht-F.md` (dieser Bericht)
 
 **Offen für den Projektleiter:** Architekturplanung Abschnitt 13 und Entwicklungsplan nicht ergänzt (nicht Teil des Auftrags); Neuexport der Prüfblätter; `db:import` der drei neuen und acht geänderten Items (nicht ausgeführt); Rechtsprüfung der WEG-Items bleibt Teil der Immobilien-Freigabe.
+
+## Nach Prüfung (`pruefung-immobilien.md`, 23.10.2026)
+
+Alle Befunde eingearbeitet, soweit sie die Immobilien-Dateien betreffen. Neue IDs kamen nicht hinzu (Q-4.2-32 bis -34 bleiben die einzigen).
+
+**Hoch / mittel**
+- **H1** Q-4.2-16: Vertragsschluss-Zeile jetzt „Beim Vertragsschluss … tritt Ravelin für die Gemeinschaft auf; ihre Vertretungsmacht gegenüber Dritten ist nicht beschränkbar → Verwalter“; Erklärung angepasst.
+- **M1, M2, M5** Q-4.2-33: Szenario auf die Erneuerung der Dacheindeckung (Erhaltungsmaßnahme) umgestellt; Zeile 5 „Prüft den Wirtschaftsplan, in dem die Kosten berücksichtigt werden …“ (in der Erklärung als abgeleitet gekennzeichnet), Zeile 6 „Unterstützt den Verwalter, zum Beispiel durch die Begleitung bei der Vergabe …“, Zeile 7 ohne Tautologie („Ist die Vertragspartnerin des Dachdeckerbetriebs, für die der Vertrag durch die Verwaltung geschlossen wird“).
+- **M3** Q-4.2-15: Auskunftszeile jetzt „Führt die Verwaltungsunterlagen und erteilt … im Alltag die Auskünfte → Verwalter“; neue Gemeinschaft-Zeile zum Einsichtsrecht.
+- **M4** „Die Gemeinschaft entscheidet/muss beschließen“ → „Versammlung“ in Theorie 4.2 (zwei Stellen), K-4.2-28 (Frage und Antwort) und der Erklärung von Q-4.2-27; Q-4.2-33 Zeile 1 „In der Versammlung wird … abgestimmt“.
+- **M6** Q-4.4-16: Schornsteinreinigung durch „Kosten der Beleuchtung des Treppenhauses“ ersetzt (Zeile und Erklärung).
+- **M7** Gemeinschaft-Zone jetzt in jeder Aufgabe mit mindestens zwei Zeilen besetzt und ohne wortgleiche Doppelzeilen (Q-4.2-14: Inhaberin des Gemeinschaftsvermögens, Rechte/Verbindlichkeiten; -15: Haftung, Einsichtsrecht; -16: Rechnung als Verbindlichkeit, kein Insolvenzverfahren; -17: Anspruchsgegnerin, Zurechnung/Regress; -32: Vertragspartnerin, Verband mit Klage- und Passivlegitimation; -33: Vertragspartnerin, Haftung; -34: Beklagte der Anfechtungsklage, Vertragspartei des Verwaltervertrags). Die Anspruchsgegnerin-Zeile in Q-4.2-34 wurde dafür durch den Verwaltervertrag ersetzt.
+- **M8** Anweisungen Q-5.4-14 bis -17 „… DIN 276 (Fassung 2018) zu.“; Erklärung Q-5.4-17 auf „in dieser Fassung keine Baunebenkosten“ mit Fachwissen-Hinweis zur Fassung 2008.
+- **M9** Q-5.4-04: „Vier der Hauptkostengruppen“ und „KG 500 ↔ Außenanlagen und Freiflächen“.
+
+**Niedrig**
+- **L1** Gendern in Q-4.2-16/-17 (Eigentümer:innen), Q-4.4-15 bis -17 (Mieter:in, Mieterin, Mietpartei, Mieter:innen) und die verbleibenden „beim Eigentümer“ in Q-4.4-14 bis -17. Die Theorie 4.4 (generisches Maskulinum) bleibt, wie vom Prüfer vorgeschlagen, ein eigener Schritt.
+- **L2** Tippfehler Q-4.2-17 behoben. **L3** Frequenzangaben („mindestens einmal jährlich“, „jährliche“) entfernt (Q-4.2-14: „Beruft die Versammlung in Textform ein“; -16: „ordentliche Versammlung“). **L4** Anweisung Q-4.2-14 neu formuliert. **L5** Q-4.2-34: § 27-Hinweis als abgeleitet und mit Beschlussvorbehalt. **L6** Q-4.4-15: Warmwasserzeile statt „Wärmeverbrauch“. **L7** Anweisungen Q-4.4-14 bis -17 und Erklärung Q-4.4-14 nennen die Zonennamen statt „dritte/erste Zone“. **L8** Q-5.4-17: „Die Kosten der Bauleitung fallen an“. **L9** Theorie 5.4: „acht Hauptgruppen, von denen die ersten sieben so heißen … Neu seit der Fassung 2018 ist als achte Hauptgruppe die KG 800“; Rechenbeispiel „KG 500 Außenanlagen und Freiflächen“ (die Behauptung zur Fassung 2008 aus dem Ersatzvorschlag habe ich im Kurstext weggelassen, da Fachwissen ohne Quelle; sie steht nur in der Erklärung von Q-5.4-17 und im Prüfblatt-Hinweis als Fachwissen).
+- **L10** (Architekturplanung Abschnitt 13, älterer Eintrag zur Zonenobergrenze 7) bewusst nicht bearbeitet: liegt außerhalb der Immobilien-Dateien, nur Kennzeichnung „überholt“ nötig; Sache des Projektleiters.
+
+Prüfblatt-Hinweise in `export-pruefblaetter.ts` (nur Immobilien) um die Änderungen ergänzt. Prüfung wiederholt: Dry-run fehlerfrei, `db:validate-content` 0 Verstöße, `tsc --noEmit` in api/web/shared sauber, Tests `content-parser quiz immobilien` (66) und shared `quiz` (30) grün; Parser liest alle 15 Aufgaben, jede Zone je Aufgabe besetzt (WEG je 2 bis 3 Zeilen je Zone, KG 100 bis 800 mindestens einmal).

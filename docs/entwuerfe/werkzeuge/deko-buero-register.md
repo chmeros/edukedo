@@ -7,7 +7,7 @@ Stand 22.10.2026. Zusammengestellt aus dem Kursbestand `content/fachwirt-buero-p
 | Angabe | Wert | Quelle |
 |---|---|---|
 | Geschäft | Gestaltung und Ausstattung von Kundenbüros und Empfangsbereichen (Büroneugestaltung, Möbel, **Dekorationspakete**, Dekoartikel), Messestände, Kundenseminare und Kundentage; projektförmig für Bestands- und Neukunden (Steuerberatungskanzlei, Arztpraxen als erwogener neuer Markt) | `hb1/1.3`, `hb1/fallaufgaben.md`, `hb2/2.2`, `hb2/fallaufgaben.md`, `hb3/fallaufgaben.md` |
-| Rechtsform | GmbH; Geschäftsführung wird nicht namentlich genannt („die Geschäftsführung“ ohne Namen ist im Bestand die der Kundenunternehmen oder der Mustermann GmbH, nicht der Deko & Büro GmbH) | `hb3/3.4` |
+| Rechtsform | GmbH; Geschäftsführung wird nicht namentlich genannt („die Geschäftsführung“ ohne Namen ist im Bestand die der Kundenunternehmen, nicht der Deko & Büro GmbH) | `hb3/3.4` |
 | Größe | **Ein Standort mit 78 Beschäftigten zu Jahresbeginn und 82 zu Jahresende** (Personalcontrolling „für einen Standort“, also mindestens zwei Standorte; Gesamtzahl nicht genannt); Personalkosten 3.510.000 € bei 6.500.000 € Umsatz an diesem Standort; Personalbedarf im Folgejahr 90 Stellen; 230 Solltage je Person | `hb3/fallaufgaben.md` (F-HB3-04) |
 | Organisation | Projektleitung (weiblich, im Fall F-HB1-05 „Projektleiterin“), **Projektassistenz** (Termin- und Kundenkoordination), **Einkauf**, Teamleitung, erfahrenes **Beratungsteam**, Lager (Lagerflächen, steigende Mieten als Risiko in der SWOT-Analyse) | `hb1/fallaufgaben.md`, `hb2/2.2`, `hb3/3.3`, `hb3/fallaufgaben.md` |
 | Personen | **Herr Brandt** (Einkauf) und **Frau Yilmaz** (Projektassistenz, Termin- und Kundenkoordination) im Fall F-HB3-05; sonst keine Namen. Neue Personennamen sparsam und im Prüfprotokoll nennen | `hb3/fallaufgaben.md` |
@@ -17,10 +17,9 @@ Stand 22.10.2026. Zusammengestellt aus dem Kursbestand `content/fachwirt-buero-p
 | Marketing | Website veraltet (Schwäche), Förderprogramm für Homeoffice-Ausstattung (Chance), Pflanzenpflege-Abonnement als denkbares neues Produkt | `hb2/2.2` |
 | Ausbildung, Betriebsrat, Datenschutzbeauftragte | **Im Bestand nicht genannt.** Neue Rechts-Teile müssen dazu eine Annahme setzen (z. B. „Die Deko & Büro GmbH bildet Kaufleute für Büromanagement aus“, „es gibt einen Betriebsrat“) und diese im Prüfprotokoll als Annahme nennen; die Annahme muss zur Größe passen (mindestens 80 Beschäftigte an einem Standort) | – |
 
-## Platzhalterfirmen im Bestand (nicht für neue Texte verwenden)
+## Platzhalterfirmen (erledigt am 23.10.2026)
 
-- **Mustermann GmbH** („mittelständisches Büroorganisationsunternehmen mit 60 Beschäftigten“) in `hb3/fallaufgaben.md` F-HB3-01 und F-HB3-02. Widerspricht in der Größe der Deko & Büro GmbH (ein Standort mit rund 80). Ob die beiden Fälle auf die Deko & Büro GmbH umgestellt werden, ist offen (Entscheidung des Projektleiters; in der Auswertung `buero-r4-auswertung.md` als Beifang genannt).
-- **Bemus AG** (Softwareeinführung, Betriebsfeier) in `hb1/1.3` (Stakeholder-Zonenfragen Q-1.3-24 bis -27) und `hb1/fallaufgaben.md` F-HB1-01.
+Die früheren Platzhalterfirmen **Mustermann GmbH** und **Bemus AG** sind seit 23.10.2026 im Kursbestand durch die Deko & Büro GmbH ersetzt (Bericht: `docs/entwuerfe/spielcode-korrekturen/bericht-G.md`). Betroffene Stellen: `hb1/1.3` (Stakeholder-Zonenfragen Q-1.3-24 bis -27), `hb1/fallaufgaben.md` F-HB1-01, `hb3/fallaufgaben.md` F-HB3-01 und F-HB3-02 (dort mit der Annahme, dass die Deko & Büro GmbH Kaufleute für Büromanagement ausbildet, rund 80 Beschäftigte an einem Standort). Die Rollen wurden an die Organisation der Deko & Büro GmbH angepasst (Beratungsteam, Projektassistenz, Einkauf, Teamleitung). Beide Platzhalternamen nicht mehr verwenden.
 - Viele Fälle und Quizfragen nennen kein Unternehmen („Ein Unternehmen …“); das ist erlaubt, solange der Fall nicht auf Daten der Firma angewiesen ist.
 
 ## Begriffe und Konventionen
