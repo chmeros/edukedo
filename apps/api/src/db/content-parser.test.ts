@@ -566,9 +566,9 @@ describe("parseQuizBlock", () => {
     expect(donabedian?.type).toBe("donabedian");
     if (donabedian?.type === "donabedian") expect(donabedian.terms.map((term) => term.zoneKey)).toEqual(["struktur", "prozess", "ergebnis"]);
 
-    const traeger = parse("Kostenträger im Gesundheits- und Sozialwesen", ["- ärztlich verordnete Leistung → Gesetzliche Krankenversicherung (SGB V)", "- Leistungen bei Pflegebedürftigkeit → Soziale Pflegeversicherung (SGB XI)", "- Hilfe bei Bedürftigkeit → Sozialhilfe (SGB XII)", "- Vertragstarif → Private Krankenversicherung"]);
+    const traeger = parse("Kostenträger im Gesundheits- und Sozialwesen", ["- ärztlich verordnete Leistung → Gesetzliche Krankenversicherung (SGB V)", "- Leistungen bei Pflegebedürftigkeit → Soziale Pflegeversicherung (SGB XI)", "- Hilfe bei Bedürftigkeit → Sozialhilfe (SGB XII)", "- Vertragstarif → Private Krankenversicherung", "- Assistenz im Alltag nach Gesamtplan → Eingliederungshilfe (SGB IX)", "- Hilfe zur Erziehung auf Antrag der Personensorgeberechtigten → Kinder- und Jugendhilfe (SGB VIII)"]);
     expect(traeger?.type).toBe("kostentraeger");
-    if (traeger?.type === "kostentraeger") expect(traeger.terms.map((term) => term.zoneKey)).toEqual(["gkv", "pflegeversicherung", "sozialhilfe", "pkv"]);
+    if (traeger?.type === "kostentraeger") expect(traeger.terms.map((term) => term.zoneKey)).toEqual(["gkv", "pflegeversicherung", "sozialhilfe", "pkv", "eingliederungshilfe", "jugendhilfe"]);
   });
 
   it("parst die Modelle aus F-183 (Projektphasen, Stakeholder-Matrix, ABC-Analyse)", () => {

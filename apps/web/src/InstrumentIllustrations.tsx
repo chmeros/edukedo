@@ -1140,27 +1140,63 @@ export function DonabedianIllustration() {
 }
 
 export function KostentraegerIllustration() {
-  const kachel = (index: number) => 12 + index * 77;
+  // Sechs Kacheln (SGB V, XI, XII, PKV, SGB IX, SGB VIII): jede Kachel in 68×100-Koordinaten gezeichnet und verkleinert platziert.
+  const s = 0.68;
+  const x = (index: number) => 8 + index * 51;
+  const ty = 20 * (1 - s) + 16;
+  const kachel = (index: number, children: ReactNode) => (
+    <g key={index} transform={`translate(${x(index)} ${ty}) scale(${s})`}>
+      <rect x="0" y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2.5" />
+      {children}
+    </g>
+  );
+  const beschriftungen = ["SGB V", "SGB XI", "SGB XII", "PKV", "SGB IX", "SGB VIII"];
   return (
     <Frame background="var(--info-tint)">
-      {[0, 1, 2, 3].map((index) => (
-        <rect key={index} x={kachel(index)} y="20" width="68" height="100" rx="8" fill="var(--card)" stroke="var(--info-deep)" strokeWidth="2" />
-      ))}
       {/* GKV: Kreuz */}
-      <path d={`M${kachel(0) + 28} 40h12v12h12v12H${kachel(0) + 40}v12H${kachel(0) + 28}V64H${kachel(0) + 16}V52h12Z`} fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2" strokeLinejoin="round" />
+      {kachel(0, <path d="M28 40h12v12h12v12H40v12H28V64H16V52h12Z" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" strokeLinejoin="round" />)}
       {/* Pflegeversicherung: Haus */}
-      <path d={`M${kachel(1) + 14} 62 ${kachel(1) + 34} 40 ${kachel(1) + 54} 62`} fill="none" stroke="var(--sprout-deep)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
-      <rect x={kachel(1) + 18} y="62" width="32" height="24" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2" />
-      {/* Sozialhilfe: Hände/Münze */}
-      <circle cx={kachel(2) + 34} cy="56" r="16" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2.5" />
-      <text x={kachel(2) + 34} y="62" fontSize="16" fontWeight="700" fill="var(--ink)" textAnchor="middle">
-        €
-      </text>
-      <path d={`M${kachel(2) + 12} 86c12 6 32 6 44 0`} fill="none" stroke="var(--ink-soft)" strokeWidth="2.5" strokeLinecap="round" />
+      {kachel(
+        1,
+        <>
+          <path d="M14 62 34 40 54 62" fill="none" stroke="var(--sprout-deep)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" />
+          <rect x="18" y="62" width="32" height="24" rx="2" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2.5" />
+        </>,
+      )}
+      {/* Sozialhilfe: Münze */}
+      {kachel(
+        2,
+        <>
+          <circle cx="34" cy="56" r="16" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="3" />
+          <text x="34" y="63" fontSize="20" fontWeight="700" fill="var(--ink)" textAnchor="middle">
+            €
+          </text>
+          <path d="M12 86c12 6 32 6 44 0" fill="none" stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+        </>,
+      )}
       {/* PKV: Schild */}
-      <path d={`M${kachel(3) + 34} 38 ${kachel(3) + 54} 46v16c0 12-9 20-20 24-11-4-20-12-20-24V46Z`} fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinejoin="round" />
-      {["SGB V", "SGB XI", "SGB XII", "PKV"].map((text, index) => (
-        <text key={text} x={kachel(index) + 34} y="108" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
+      {kachel(3, <path d="M34 38 54 46v16c0 12-9 20-20 24-11-4-20-12-20-24V46Z" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="3" strokeLinejoin="round" />)}
+      {/* Eingliederungshilfe: Person mit Stütze */}
+      {kachel(
+        4,
+        <>
+          <circle cx="34" cy="48" r="9" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+          <path d="M18 84c0-12 7-20 16-20s16 8 16 20Z" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M14 90h40" fill="none" stroke="var(--ink-soft)" strokeWidth="3" strokeLinecap="round" />
+        </>,
+      )}
+      {/* Kinder- und Jugendhilfe: Erwachsene und Kind */}
+      {kachel(
+        5,
+        <>
+          <circle cx="24" cy="48" r="8" fill="var(--sun)" stroke="var(--ink-soft)" strokeWidth="2.5" />
+          <path d="M10 84c0-11 6-18 14-18s14 7 14 18Z" fill="var(--info)" stroke="var(--info-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+          <circle cx="47" cy="60" r="5.5" fill="var(--coral)" stroke="var(--coral-deep)" strokeWidth="2.5" />
+          <path d="M38 84c0-8 4-13 9-13s9 5 9 13Z" fill="var(--sprout)" stroke="var(--sprout-deep)" strokeWidth="2.5" strokeLinejoin="round" />
+        </>,
+      )}
+      {beschriftungen.map((text, index) => (
+        <text key={text} x={x(index) + 34 * s} y="100" fontSize="9" fontWeight="700" fill="var(--ink-soft)" textAnchor="middle">
           {text}
         </text>
       ))}

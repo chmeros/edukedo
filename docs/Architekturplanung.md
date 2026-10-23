@@ -569,6 +569,16 @@ Hinweise dazu: **Aggregierte Statistik (F-93)** wird bewusst **nicht** als eigen
 
 ## 13. Architekturentscheidungen (für spätere ADRs)
 
+### Entschieden am 23.10.2026 (Instrument „Kostenträger“ um Eingliederungshilfe und Kinder- und Jugendhilfe erweitert, Paket P-BB; Auftrag des Projektleiters „Weiter mit dem Instrument Kostenträger“)
+
+Anlass: Offener Punkt aus P-AW und P-BA (Bericht A): Das Instrument kannte nur die Zonen GKV, soziale Pflegeversicherung, Sozialhilfe und PKV; das neue Thema `hb1/1.5` behandelt Eingliederungshilfe (SGB IX) und Kinder- und Jugendhilfe (SGB VIII).
+
+- **Umsetzung:** `QUADRANT_MODELS.kostentraeger` (`packages/shared/src/quiz-logic.ts`) hat sechs Zonen (neu: `eingliederungshilfe` „Eingliederungshilfe (SGB IX)“, `jugendhilfe` „Kinder- und Jugendhilfe (SGB VIII)“; Beschriftung und Schlüssel sind Content-Schlüssel des Parsers); `KostentraegerIllustration` zeichnet sechs Kacheln (zwei neue Symbole), Beschreibung in `Instrumente.tsx`, Parser-Test (`content-parser.test.ts`) mit sechs Schlüsseln, Hinweise im Prüfblatt-Export. Die bestehenden Aufgaben Q-4.2-13 bis -16 bleiben unverändert (vier Zonen).
+- **Content:** drei neue Zuordnungsaufgaben `Q-4.2-33` bis `-35` in `hb4/4.2` mit allen sechs Zonen (je zwei Begriffe je Zone; leicht/verstehen, mittel/anwenden mit Morgenlicht-Situationen, schwer/analysieren zu Grundprinzipien), belegt durch Thema 1.5 (Gesamtplanverfahren, Fachleistung gegen Existenzsicherung, Eingliederungshilfe nicht nachrangig gegenüber der Pflegeversicherung, Hilfe zur Erziehung, Betriebserlaubnis, Leistungs-, Entgelt- und Qualitätsentwicklungsvereinbarung, Zuständigkeit bei seelischer Behinderung). Mehrdeutige Merkmale („nachrangig“, „Vereinbarung“) wurden vermieden. Hinweis „Übung zur Systematik, keine Sozialberatung“ in jeder Erklärung. Nur von mir (ohne unabhängige Prüfung) geschrieben und gegen die Theorie von 1.5 gelesen.
+- **Prüfung:** `db:validate-content` 0 Verstöße; Import 3 neu (23.602 Items); `tsc` api und web; `src/db`-Tests, `pruefungsbereiche`, `import-content` (445) und `quiz-logic` (30) grün; Illustration als statisches SVG im Browser geprüft. Prüfblatt 11 neu exportiert.
+- **Freigabe:** Das Instrument bleibt in `KURS_ENTWURF` (nicht freigegeben); eine Freigabe braucht `kurs-angebot.ts` und `db:freigeben` nach der fachlichen Prüfung durch den Projektleiter.
+- **Offen:** Fachliche Prüfung der drei neuen Aufgaben, Freigabe des Instruments; die Illustration im laufenden Frontend bei freigeschaltetem Instrument ansehen.
+
 ### Entschieden am 23.10.2026 (Paket P-BA „Spielcode an die eingespielten Inhalte angleichen“ umgesetzt; Auftrag des Projektleiters „Weiter mit den offenen Punkten im Spielcode“)
 
 Anlass: Die „Offen“-Zeilen der Pakete P-AL bis P-AZ (Duelle, Memory, Kreuzworträtsel, Beleg-Detektiv, Beschriftungen und Prüfblatt-Texte widersprachen teils den neuen Inhalten). Vorgehen: vier Sonnet-Agenten nach Bereichen (Gesundheit, Immobilien, AEVO/Berufsausbildung, Büro/Technischer Fachwirt/Industrie/Wirtschaft), je mit Abgleich gegen den jetzt eingespielten Content; Auftrag und Berichte: `docs/entwuerfe/spielcode-korrekturen/` (`auftrag.md`, `bericht-A.md` bis `bericht-D.md`). Textkorrekturen, keine Strukturänderungen; nichts freigeschaltet, gesperrte Sets bleiben gesperrt.

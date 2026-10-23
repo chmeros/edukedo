@@ -444,7 +444,7 @@ const INSTRUMENT_CATALOG = [
   {
     type: "kostentraeger",
     label: "Kostenträger im Gesundheits- und Sozialwesen",
-    description: "Wer zahlt was? Leistungen den Kostenträgern zuordnen — eine Übung zur Systematik, keine Sozialberatung.",
+    description: "Wer zahlt was? Leistungen den sechs Kostenträgern zuordnen: Kranken- und Pflegeversicherung, Sozialhilfe, private Krankenversicherung, Eingliederungshilfe und Jugendhilfe — eine Übung zur Systematik, keine Sozialberatung.",
     Illustration: KostentraegerIllustration,
   },
   // F-183 (Kursprofile Phase 1, Büro-/Projektorganisation): drei Zonen-Instrumente für Projektmanagement und Beschaffung.

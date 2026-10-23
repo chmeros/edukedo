@@ -509,6 +509,9 @@ export const QUADRANT_MODELS = {
       { key: "pflegeversicherung", label: "Soziale Pflegeversicherung (SGB XI)" },
       { key: "sozialhilfe", label: "Sozialhilfe (SGB XII)" },
       { key: "pkv", label: "Private Krankenversicherung" },
+      // P-BB: Eingliederungshilfe und Kinder- und Jugendhilfe (Thema 1.5), Schlüssel und Beschriftung sind Content-Schlüssel des Parsers.
+      { key: "eingliederungshilfe", label: "Eingliederungshilfe (SGB IX)" },
+      { key: "jugendhilfe", label: "Kinder- und Jugendhilfe (SGB VIII)" },
     ],
   },
   // F-183 (Kursprofile Phase 1, Büro-/Projektorganisation): drei weitere Modelle mit festen Zonen.
