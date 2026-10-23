@@ -19,7 +19,7 @@ Auftrag: `auftrag.md`. Ergebnisdateien `glossar-<ziel>.md` (nur die `####`-Blöc
 | `dp2` (neu) | Daten- und Prozessanalyse | 12 | 9.2 |
 | Summe | | **126** | |
 
-Je Kurs neu: AE 99, DP 98, DV 94, SI 94 Einträge (zusammen mit dem Bestand bleibt jeder Begriff und Alias im Kurs eindeutig). Fünf neue `glossar.md` (ae1, ae2, dv4, si5, dp2) mit Frontmatter nach dem Muster der bestehenden Glossare.
+Je Kurs neu: AE 108, DP 103, DV 94, SI 94 Einträge (zusammen mit dem Bestand bleibt jeder Begriff und Alias im Kurs eindeutig). Fünf neue `glossar.md` (ae1, ae2, dv4, si5, dp2) mit Frontmatter nach dem Muster der bestehenden Glossare.
 
 ## Prüfung
 

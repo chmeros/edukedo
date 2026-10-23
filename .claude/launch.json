@@ -3,9 +3,21 @@
   "configurations": [
     {
       "name": "web",
-      "runtimeExecutable": "pnpm",
+      "runtimeExecutable": "C:\\Users\\AI Rambazamba\\AppData\\Roaming\\npm\\pnpm.cmd",
       "runtimeArgs": ["--filter", "@edukedo/web", "dev"],
       "port": 5173
+    },
+    {
+      "name": "api",
+      "runtimeExecutable": "C:\\Users\\AI Rambazamba\\AppData\\Roaming\\npm\\pnpm.cmd",
+      "runtimeArgs": ["--filter", "@edukedo/api", "dev"],
+      "port": 3001
+    },
+    {
+      "name": "payment",
+      "runtimeExecutable": "C:\\Users\\AI Rambazamba\\AppData\\Roaming\\npm\\pnpm.cmd",
+      "runtimeArgs": ["--filter", "@edukedo/payment", "dev"],
+      "port": 3002
     }
   ]
 }
