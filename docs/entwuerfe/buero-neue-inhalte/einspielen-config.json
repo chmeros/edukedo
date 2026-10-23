@@ -1,0 +1,213 @@
+{
+  "kurs": "fachwirt-buero-projektorganisation",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [
+    {
+      "datei": "bp-4.2-ergaenzung-vertrag-wareneingang-maengel.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.2-einkauf-beschaffung.md",
+          "### Rechenbeispiel: Angebotsvergleich, Einkaufskennzahlen und ABC-Analyse"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-4.2-ergaenzung-rechnung-aufbewahrung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.2-einkauf-beschaffung.md",
+          "### Rechenbeispiel: Angebotsvergleich, Einkaufskennzahlen und ABC-Analyse"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-2.3-ergaenzung-werberecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.3-werbemittel.md",
+          "### Ergebnisse zielgruppengerecht darstellen"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-2.4-ergaenzung-veranstaltungsrecht.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.4-veranstaltungsmanagement.md",
+          "### Veranstaltungsablaufplan erarbeiten"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-3.1-ergaenzung-arbeitszeit-urlaub-entgelt.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb3/3.1-personalwirtschaft.md",
+          "### Personalentwicklung"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-3.1-ergaenzung-beendigung-zeugnis.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb3/3.1-personalwirtschaft.md",
+          "### Personalentwicklung"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-3.2-ergaenzung-ausbildungsvertrag.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb3/3.2-ausbildung.md",
+          "### Ausbildung zielgruppengerecht durchführen"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-3.2-ergaenzung-pruefung-beendigung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb3/3.2-ausbildung.md",
+          "### Berufseinstieg gestalten"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-4.3-ergaenzung-datenschutz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb4/4.3-it-anwendungen.md",
+          "### Anforderungen und Leistungen vergleichen"
+        ]
+      ]
+    },
+    {
+      "datei": "bp-2.5-ergaenzung-korrespondenz.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hb2/2.5-kundenkommunikation-beschwerdemanagement.md",
+          "### Kommunikationsstandards vermitteln"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "bp-faelle-a.md",
+      "hb4"
+    ],
+    [
+      "bp-faelle-b.md",
+      "hb4"
+    ],
+    [
+      "bp-faelle-i.md",
+      "hb4"
+    ],
+    [
+      "bp-faelle-c.md",
+      "hb2"
+    ],
+    [
+      "bp-faelle-d.md",
+      "hb2"
+    ],
+    [
+      "bp-faelle-j.md",
+      "hb2"
+    ],
+    [
+      "bp-faelle-e.md",
+      "hb3"
+    ],
+    [
+      "bp-faelle-f.md",
+      "hb3"
+    ],
+    [
+      "bp-faelle-g.md",
+      "hb3"
+    ],
+    [
+      "bp-faelle-h.md",
+      "hb3"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hb4/4.2-einkauf-beschaffung.md",
+      "paare": [
+        [
+          "etwa ob ein Lieferant für zukünftige Rahmenvereinbarungen infrage kommt.",
+          "etwa ob ein Lieferant für künftige Rahmenvereinbarungen weiter infrage kommt. Wie ein Vertrag zustande kommt, welche Rechte bei Mängeln und bei verspäteter Lieferung bestehen und was bei Rechnung, Aufbewahrung und Skonto gilt, behandeln die folgenden Abschnitte dieses Themas."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.3-werbemittel.md",
+      "paare": [
+        [
+          "- [ ] Eine gesetzliche Kennzeichnungspflicht für Werbemittel.",
+          "- [ ] Der Terminplan, in dem festgelegt ist, wann eine Kampagne anläuft und wie lange sie läuft."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fallaufgaben.md",
+      "paare": [
+        [
+          "Teilaufgabe 4 sollte auf Zugriffsrechte und personenbezogene Daten eingehen.",
+          "Teilaufgabe 4 sollte auf Zugriffsrechte und personenbezogene Daten eingehen und die Rechtsgrundlage der Verarbeitung, bei einem Betrieb durch einen Anbieter den Vertrag zur Auftragsverarbeitung und das Ziel der Datenminimierung (Thema 4.3) nennen."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb4/4.2-einkauf-beschaffung.md",
+    "hb2/2.3-werbemittel.md",
+    "hb4/fallaufgaben.md",
+    "hb2/2.4-veranstaltungsmanagement.md",
+    "hb3/3.1-personalwirtschaft.md",
+    "hb3/3.2-ausbildung.md",
+    "hb4/4.3-it-anwendungen.md",
+    "hb2/2.5-kundenkommunikation-beschwerdemanagement.md",
+    "hb2/fallaufgaben.md",
+    "hb2/fachgespraech.md",
+    "hb3/fallaufgaben.md",
+    "hb3/fachgespraech.md",
+    "hb4/fachgespraech.md"
+  ]
+}

@@ -1,0 +1,197 @@
+# Entwurf Fachwirt für Büro- und Projektorganisation, Rechtsrahmen der Werbung (Wettbewerbsrecht, Direktwerbung, Urheberrecht und Bildrechte, Pflichtangaben und Preise): Ergänzung im Thema 2.3
+
+Stand 23.10.2026 (nach Prüfung `pruefung-c.md` überarbeitet), **Entwurf (R4, rechtsnah), nicht eingespielt.** Teil c des Pakets P-AX (Auftrag `docs/entwuerfe/buero-neue-inhalte/auftrag.md`; Auswertung `docs/entwuerfe/buero-r4-auswertung.md`, Lücke BP-06). Einzufügen in `content/fachwirt-buero-projektorganisation/hb2/2.3-werbemittel.md`: Abschnitt A **vor der Überschrift „### Ergebnisse zielgruppengerecht darstellen“** (Anker; die Theorie steht damit hinter „Einsatz der Werbemittel gewährleisten“), B an die Karteikarten hinter K-2.3-08, C an das Quiz hinter Q-2.3-06. Bestand gezählt (Stand 23.10.2026): 8 Karteikarten (K-2.3-01 bis -08, lückenlos), 6 Quizfragen (Q-2.3-01 bis -06, lückenlos); `git log -S` auf K-2.3-09, Q-2.3-07 und F-HB2-05 ergibt im Kurs keine entfernten IDs. Die neuen IDs sind K-2.3-09 bis -18 (10 Karten) und Q-2.3-07 bis -18 (12 Quizfragen, davon 2 Kurzantworten). Die Fallaufgabe F-HB2-05 (Bestand F-HB2-01 bis -04; F-HB2-06 und -07 vergeben die Teile d und j) und zwei Fachgesprächsfragen stehen in `bp-faelle-c.md`, die Rechtsangaben in `rechtsangaben-c.md`, die eine Ersetzung im Bestand (Q-2.3-02) in `ersetzungen-c.json`. Der `rechtsstand` der berührten Dateien wird beim Einspielen gesetzt.
+
+**Zweck.** Der Bestand behandelt Auswahl, Einsatz und Auswertung von Werbemitteln und erwähnt „rechtliche Rahmenbedingungen“ nur als Stichwort und für den Vertrag mit Werbedienstleistern (Kauf, Werk, Dienst). Unlautere und irreführende Werbung, Kennzeichnung von Werbung, die Zulässigkeit von Newsletter, E-Mail und Telefonwerbung, Nutzungsrechte an Bildern, Texten und Entwürfen, das Recht am eigenen Bild, Impressum, Preisangaben und Werbegeschenke fehlen; die Begriffe Werbemittel und Werbeträger werden nirgends definiert (R3-Anteil, hier als Kurzdefinition in zwei Sätzen). Die Ergänzung stellt die Regeln aus der Sicht der Projektassistenz der Deko & Büro GmbH dar, deren Kundschaft überwiegend aus Unternehmen besteht; sie sagt deshalb jeweils, ob eine Regel auch gegenüber Unternehmen oder nur gegenüber Verbraucher:innen gilt. **Abgrenzung:** Datenschutz-Grundlagen (Rechtsgrundlagen, Betroffenenrechte, Auftragsverarbeitung) stehen im Teil i in Thema 4.3 „Beurteilen von Datenbanksystemen und anderen bürowirtschaftlichen Anwendungen für den zielorientierten Einsatz“ im Fachgebiet „Steuern von Geschäftsprozessen im bürowirtschaftlichen Umfeld“; die Pflichtangaben auf Geschäftsbriefen und Geschäfts-E-Mails stehen im Teil j in Thema 2.5 „Kundenkontakte und -kommunikation unter Berücksichtigung des betrieblichen Beschwerdemanagements und von Verhaltensregeln gestalten“ im selben Fachgebiet wie dieses Thema, die Aufbewahrung der Handelsbriefe im Teil b in Thema 4.2 „Koordinieren von Aufgaben des Einkaufs und der Beschaffung“ im Fachgebiet „Steuern von Geschäftsprozessen im bürowirtschaftlichen Umfeld“. Der Verweis in der Theorie auf Thema 2.5 trifft nur zu, wenn Teil j mit eingespielt wird; sonst vor dem Einspielen streichen. Hier steht die Einwilligung nur, soweit sie Werbung betrifft. Veranstaltungsrecht (Musik, Fotos bei Veranstaltungen, Anmeldelisten) gehört in Teil d. Die Ergänzung wiederholt nichts aus dem Bestand von Thema 2.3 (Zusammenarbeit, Corporate Design, Auswahl, Einsatz, Ergebnisdarstellung) und übernimmt weder Gliederung noch Beispiele der Werberechts-Abschnitte anderer Kurse.
+
+**Rechtsnah (R4).** Paragrafen stehen nur als Stützangabe in der Theorie, nie in Karten, Quiz, Fall und Fachgespräch (auch keine Gesetzesnamen dort). Rechtsgrundlagen am Rohtext von gesetze-im-internet.de gelesen (UWG, DDG, TDDDG, UrhG, KUG, PAngV, EStG § 4); DSGVO im Amtsblattwortlaut über `publications.europa.eu`; Einzelheiten und Stufe der Sicherheit in `rechtsangaben-c.md`. Rechtsprechung ist nicht ausgewertet. Zeitkritisch (mit „Stand Oktober 2026, vor Verwendung prüfen“): die neueren Regeln des UWG zu Umweltaussagen (Umsetzung der Richtlinie (EU) 2024/825; der Lerntext nennt kein Datum, das Inkrafttreten stammt aus Sekundärquellen und steht nur als „vermutet“ in den Rechtsangaben), die Auslegung der „mutmaßlichen“ Einwilligung bei Telefonwerbung gegenüber Unternehmen, die Reichweite der Impressumspflicht für soziale Netzwerke, das Verhältnis des Rechts am eigenen Bild zur Datenschutz-Grundverordnung, die Höhe der Grenze für Werbegeschenke (Betrag steht im Gesetz, nicht im Lerntext) und die Änderungen der PAngV und des UWG durch das Gesetz vom 12.05.2026 (Verbraucherkredite; für dieses Thema nicht einschlägig).
+
+---
+
+# Thema 2.3
+
+## A. Theorie-Ergänzung 2.3 (einfügen vor „### Ergebnisse zielgruppengerecht darstellen“)
+
+### Rechtsrahmen der Werbung: Werbemittel, Werbeträger und wahre Aussagen
+
+Das **Werbemittel** ist die gestaltete Werbebotschaft, etwa ein Flyer, eine Anzeige oder ein Newsletter; der **Werbeträger** ist das Medium, das sie zur Zielgruppe bringt, etwa eine Fachzeitschrift, die Website oder eine Messe. Rechtlich ist Werbung eine „geschäftliche Handlung“, und unlautere geschäftliche Handlungen sind unzulässig (Stützangabe § 2 Abs. 1 Nr. 2, § 3 Abs. 1 UWG, Gesetz gegen den unlauteren Wettbewerb; Stand Oktober 2026, vor Verwendung prüfen). Geschützt sind auch konkurrierende Unternehmen und Unternehmen als Kundschaft. Für die Deko & Büro GmbH, die überwiegend Unternehmen beliefert, heißt das: Die Grundverbote gelten auch im Geschäft mit Unternehmen; die Liste der „stets unzulässigen“ Handlungen im Anhang des Gesetzes, die besonderen Informationspflichten bei Angeboten und die Preisangabenverordnung (PAngV) gelten nur gegenüber Verbraucher:innen (Stützangabe § 3 Abs. 3, § 5b Abs. 1 UWG; § 1 Abs. 1 PAngV).
+
+**Wahr und erkennbar.** Irreführend ist Werbung mit unwahren oder täuschenden Angaben über wesentliche Umstände wie Verfügbarkeit, Menge, Herkunft, Preis oder Auszeichnungen, wenn sie zu einer Entscheidung veranlassen kann, die sonst nicht getroffen worden wäre; auch das Verschweigen wesentlicher Informationen kann täuschen (Stützangabe § 5 Abs. 1, 2, § 5a Abs. 1, 2 UWG). Der kommerzielle Zweck muss kenntlich sein, wenn er sich nicht aus den Umständen ergibt und das Verschweigen eine Entscheidung beeinflussen kann; bei einer Handlung zugunsten eines fremden Unternehmens wird vermutet, dass dafür ein Entgelt oder eine ähnliche Gegenleistung gezahlt oder versprochen wurde, solange die Handelnden nicht das Gegenteil glaubhaft machen (§ 5a Abs. 4). Ein bezahlter Fachbeitrag wird deshalb als Anzeige gekennzeichnet (Anwendung). Für digitale Dienste verlangt das Digitale-Dienste-Gesetz (DDG) zusätzlich, dass Werbung klar als solche erkennbar und das auftraggebende Unternehmen identifizierbar ist (Stützangabe § 6 Abs. 1 DDG). Aggressive Werbung ist ebenfalls unlauter (§ 4a Abs. 1 UWG).
+
+**Umweltaussagen.** Für Werbung mit der Umwelt gelten neuere ausdrückliche Regeln (Stand Oktober 2026, vor Verwendung prüfen). Gegenüber Verbraucher:innen sind stets unzulässig: allgemeine Aussagen wie „umweltfreundlich“ ohne nachweisbare anerkannte Umweltleistung, „klimaneutral“ allein wegen einer Kompensation von Treibhausgasen und Nachhaltigkeitssiegel ohne Zertifizierungssystem oder staatliche Festsetzung (Stützangabe Anhang Nr. 2a, 4a, 4c UWG). Gegenüber Unternehmen gilt diese Liste nicht, wohl aber das Irreführungsverbot: Angaben über ökologische Merkmale müssen stimmen (§ 5 Abs. 2 Nr. 1).
+
+### Direktwerbung: Newsletter, E-Mail und Telefon
+
+**E-Mail und Newsletter.** E-Mail-Werbung gilt grundsätzlich als unzumutbare Belästigung, wenn die Adressat:innen nicht vorher ausdrücklich eingewilligt haben; das gilt auch gegenüber Unternehmen (Stützangabe § 7 Abs. 2 Nr. 2 UWG; Stand Oktober 2026, vor Verwendung prüfen). Eine Einwilligung ist eine freiwillige, informierte und eindeutig bestätigende Erklärung für den bestimmten Fall; Stillschweigen oder vorangekreuzte Kästchen genügen nicht (Stützangabe Art. 4 Nr. 11, Erwägungsgrund 32 DSGVO). Die GmbH muss sie nachweisen können (Art. 7 Abs. 1). Üblich ist das Double-Opt-in: Auf die Anmeldung folgt eine Mail mit Bestätigungslink, erst nach dem Klick wird der Versand freigegeben, und die GmbH hält fest, wann das geschah; vorgeschrieben ist der Nachweis, nicht das Verfahren. Wer eingewilligt hat, kann das jederzeit widerrufen; der Widerruf darf nicht umständlicher sein als die Erteilung (Art. 7 Abs. 3).
+
+**Ausnahme für Kund:innen.** Ohne Einwilligung darf die GmbH Kund:innen per E-Mail nur bewerben, wenn vier Bedingungen zugleich erfüllt sind: Die Adresse stammt aus dem Verkauf einer Ware oder Dienstleistung an diese Kund:innen, beworben wird Ähnliches aus dem eigenen Angebot, es liegt kein Widerspruch vor, und beim Erfassen der Adresse wie bei jedem Einsatz wird klar auf das jederzeitige Widerspruchsrecht hingewiesen, für das nur Übermittlungskosten nach den Basistarifen anfallen (Stützangabe § 7 Abs. 3 UWG). Wer nur ein Angebot angefragt oder eine Visitenkarte abgegeben hat, ohne dass es zum Verkauf kam, fällt nach dem Wortlaut nicht darunter (Auslegung).
+
+**Gestaltung der Werbemail, Widerspruch und Tracking.** Unzumutbar ist Werbung per Nachricht auch, wenn der Absender verschleiert wird oder keine gültige Adresse vorhanden ist, an die die Aufforderung gerichtet werden kann, die Werbung einzustellen (Stützangabe § 7 Abs. 2 Nr. 3 UWG). In Kopf- und Betreffzeile darf der kommerzielle Charakter nicht verschleiert werden; absichtliches Verschleiern ist eine Ordnungswidrigkeit (§ 6 Abs. 2, § 33 Abs. 1 DDG). Datenschutzrechtlich kann Direktwerbung auf Einwilligung oder berechtigtem Interesse beruhen (Stützangabe Art. 6 Abs. 1 Buchst. a und f, Erwägungsgrund 47 DSGVO; Abwägung im Einzelfall); das ändert nichts daran, dass E-Mail- und Telefonwerbung wettbewerbsrechtlich die Einwilligung oder die Ausnahme für Kund:innen braucht, das berechtigte Interesse spielt eher bei der Briefwerbung eine Rolle (Auslegung). Wer der Direktwerbung widerspricht, dessen Daten werden dafür nicht mehr verarbeitet; darauf ist spätestens bei der ersten Kommunikation ausdrücklich und getrennt von anderen Informationen hinzuweisen (Art. 21 Abs. 2 bis 4). Das Speichern von Informationen im Endgerät oder der Zugriff darauf, etwa durch Zählpixel in Newslettern, braucht grundsätzlich eine Einwilligung, außer es ist für einen ausdrücklich gewünschten Dienst unbedingt erforderlich (Stützangabe § 25 Abs. 1, 2 TDDDG; Anwendung auf Newsletter: Auslegung). Die übrigen Grundlagen des Datenschutzes stehen in Thema 4.3 „Beurteilen von Datenbanksystemen und anderen bürowirtschaftlichen Anwendungen für den zielorientierten Einsatz“ im Fachgebiet „Steuern von Geschäftsprozessen im bürowirtschaftlichen Umfeld“.
+
+**Telefon und Brief.** Ein Werbeanruf gegenüber Verbraucher:innen verlangt deren vorherige ausdrückliche Einwilligung, gegenüber Unternehmen genügt die zumindest mutmaßliche Einwilligung, die vom Einzelfall abhängt (Stützangabe § 7 Abs. 2 Nr. 1 UWG; Auslegung). Gegenüber Verbraucher:innen ist die Einwilligung bei Erteilung zu dokumentieren und der Nachweis fünf Jahre aufzubewahren, ab Erteilung und erneut ab jeder Verwendung (§ 7a). Briefwerbung ist unzulässig, wenn erkennbar ist, dass die Angesprochenen sie nicht wünschen (§ 7 Abs. 1 Satz 2). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Gestaltung und Bildmaterial: Nutzungsrechte und Recht am eigenen Bild
+
+**Nutzungsrechte.** Geschützt sind persönliche geistige Schöpfungen, etwa Texte, Grafiken, Layouts, Logos und Fotos, soweit sie eine eigene Schöpfung darstellen (im Einzelfall zu klären); einfache Lichtbilder schützt das Gesetz entsprechend (Stützangabe § 2 Abs. 1, 2, § 72 UrhG, Urheberrechtsgesetz; Stand Oktober 2026, vor Verwendung prüfen). Urheber:in ist nur, wer das Werk geschaffen hat, also eine natürliche Person wie die Fotograf:in, nicht die Agentur als Unternehmen. Das Urheberrecht ist nicht übertragbar; eingeräumt werden Nutzungsrechte, einfach oder ausschließlich sowie räumlich, zeitlich und inhaltlich beschränkt (§ 7, § 29, § 31 Abs. 1 bis 3). Sind die Nutzungsarten nicht einzeln bezeichnet, bestimmt der Vertragszweck, wie weit das Recht reicht (§ 31 Abs. 5). Wer einen Flyer beauftragt und die gelieferten Fotos später auch online oder im Newsletter zeigen will, lässt sich diese Nutzung deshalb von der Agentur ausdrücklich einräumen; die bezahlte Rechnung ersetzt das nicht. Ein im Internet auffindbares Foto ist nicht frei nutzbar. Wer ohne Nutzungsrecht nutzt, kann auf Beseitigung und Unterlassung in Anspruch genommen werden und schuldet bei Vorsatz oder Fahrlässigkeit Schadensersatz, auch nach der angemessenen Lizenzgebühr berechnet (§ 97 Abs. 1, 2).
+
+**Recht am eigenen Bild.** Bildnisse dürfen nur mit Einwilligung der Abgebildeten verbreitet oder öffentlich zur Schau gestellt werden, also nicht auf einem Flyer, einer Website oder einer Messewand ohne Zustimmung (Stützangabe § 22 KUG, Kunsturhebergesetz). Ohne Einwilligung zulässig sind unter anderem Bildnisse aus dem Bereich der Zeitgeschichte, Bilder, auf denen Personen nur Beiwerk neben einer Örtlichkeit sind, und Bilder von Versammlungen, an denen die Abgebildeten teilgenommen haben; die Befugnis endet, wo ein berechtigtes Interesse der Abgebildeten verletzt wird (§ 23 Abs. 1, 2). Ob ein Messefoto, das ein einzelnes Gesicht im Gespräch in den Mittelpunkt rückt, noch darunter fällt, ist Einzelfallfrage (Auslegung). Ein Foto erkennbarer Personen enthält zugleich personenbezogene Daten; ob die Ausnahmen des Kunsturhebergesetzes daneben noch greifen und ob die Einwilligung datenschutzrechtlich widerrufen werden kann, ist umstritten (Auslegung). Sicher ist eine dokumentierte Einwilligung, die Zweck und Medium nennt (Praxis). Wer ein Bildnis vorsätzlich ohne Einwilligung verbreitet, kann auf Antrag mit Freiheitsstrafe bis zu einem Jahr oder Geldstrafe bestraft werden (§ 33 KUG). Stand Oktober 2026, vor Verwendung prüfen.
+
+### Pflichtangaben, Preise, Geschenke und Folgen eines Verstoßes
+
+**Impressum.** Wer geschäftsmäßig digitale Dienste anbietet, die in der Regel gegen Entgelt erbracht werden, muss bestimmte Angaben leicht erkennbar, unmittelbar erreichbar und ständig verfügbar halten; das betrifft die Website und den Online-Shop der GmbH, nach verbreiteter Auffassung auch Profile in sozialen Netzwerken (Stützangabe § 5 Abs. 1 DDG; Auslegung; Stand Oktober 2026, vor Verwendung prüfen). Für die GmbH sind das unter anderem Firma und Anschrift, Rechtsform, die Geschäftsführung als Vertretungsberechtigte, die E-Mail-Adresse für eine schnelle Kontaktaufnahme, das Handelsregister mit Registernummer und, soweit vorhanden, die Umsatzsteuer- oder Wirtschafts-Identifikationsnummer. Die Pflichtangaben auf Geschäftsbriefen stehen in Thema 2.5 „Kundenkontakte und -kommunikation unter Berücksichtigung des betrieblichen Beschwerdemanagements und von Verhaltensregeln gestalten“ im selben Fachgebiet.
+
+**Preisangaben.** Wer Verbraucher:innen Waren oder Leistungen anbietet oder mit Preisen wirbt, nennt den **Gesamtpreis**: den Betrag, der inklusive Umsatzsteuer und aller sonstigen Preisbestandteile zu zahlen ist (Stützangabe § 2 Nr. 3, § 3 Abs. 1 PAngV; Stand Oktober 2026, vor Verwendung prüfen). Ein Messeflyer mit Nettopreisen, der sich erkennbar nur an Unternehmen wendet, wird von der Verordnung nach ihrem Wortlaut nicht erfasst (Auslegung). Wird eine Preisermäßigung für eine Ware bekannt gemacht, nennt das Unternehmen gegenüber Verbraucher:innen den niedrigsten Gesamtpreis, den es in den 30 Tagen vor dem Beginn der Ermäßigung verlangt hat; ausgenommen sind unter anderem individuelle Preisnachlässe (§ 11 Abs. 1, 4). Gezählt wird hier so, dass der Tag der Anwendung nicht mitzählt (Auslegung): Bei erstmaliger Anwendung am 10.12.2026 reicht der Zeitraum vom 10.11.2026 bis zum 09.12.2026. Es wird vermutet, dass die Werbung mit einer Preisherabsetzung irreführt, wenn der frühere Preis nur für eine unangemessen kurze Zeit gefordert wurde (§ 5 Abs. 5 UWG).
+
+**Werbegeschenke.** Aufwendungen für Geschenke an Personen, die keine Arbeitnehmer:innen des Unternehmens sind, dürfen den Gewinn nicht mindern; das gilt nicht, wenn die Anschaffungs- oder Herstellungskosten der Gegenstände, die einer Person im Wirtschaftsjahr zugewendet werden, insgesamt eine im Einkommensteuergesetz genannte Grenze nicht übersteigen (Stützangabe § 4 Abs. 5 Satz 1 Nr. 1 EStG; Stand Oktober 2026, vor Verwendung prüfen). Maßgeblich ist die Summe der Anschaffungs- oder Herstellungskosten je Empfänger:in und Wirtschaftsjahr, nicht jedes einzelne Geschenk; wird die Grenze überschritten, mindert der gesamte Aufwand den Gewinn nicht, nicht nur der Mehrbetrag. Geschenke werden einzeln und getrennt aufgezeichnet (§ 4 Abs. 7). Die Höhe der Grenze steht im Gesetz und kann sich ändern.
+
+**Folgen eines Verstoßes.** Wer unzulässig wirbt, kann auf Beseitigung und bei Wiederholungsgefahr oder drohendem Erstverstoß auf Unterlassung in Anspruch genommen werden; das gilt auch für Verstöße von Mitarbeitenden oder Beauftragten, wozu nach üblicher Auslegung eine Werbeagentur zählen kann (Stützangabe § 8 Abs. 1, 2 UWG). Anspruchsberechtigt sind unter anderem Mitbewerbende, qualifizierte Verbände und die Industrie- und Handelskammern (Abs. 3). Vor einer Klage soll abgemahnt werden (§ 13 Abs. 1). Mitbewerbende können bei Vorsatz oder Fahrlässigkeit Schadensersatz verlangen (§ 9 Abs. 1); die Ansprüche verjähren nach sechs Monaten (§ 11 Abs. 1, 2). Eine Abmahnung leitet die Projektassistenz sofort an die Geschäftsführung weiter; eine Unterlassungserklärung wird nicht auf eigene Faust unterschrieben (Praxis). Stand Oktober 2026, vor Verwendung prüfen.
+
+## B. Karteikarten 2.3 (anhängen)
+
+#### K-2.3-09
+**Frage:** Worin unterscheiden sich Werbemittel und Werbeträger?
+**Antwort:** Das Werbemittel ist die gestaltete Botschaft (Flyer, Anzeige, Newsletter). Der Werbeträger ist das Medium, das sie zur Zielgruppe bringt (Fachzeitschrift, Website, Messe).
+`tags: werbemittel, werbetraeger, begriffe` · `schwierigkeit: leicht` · `bloom: erinnern`
+
+#### K-2.3-10
+**Frage:** Ein Dekoset wird als „sofort lieferbar“ beworben, ist aber erst in drei Wochen verfügbar. Warum ist das ein wettbewerbsrechtliches Problem?
+**Antwort:** Die Angabe zur Verfügbarkeit ist unwahr und kann eine Kaufentscheidung beeinflussen, die sonst nicht getroffen würde: Irreführung. Das gilt auch gegenüber Unternehmen, nicht nur gegenüber Verbraucher:innen.
+`tags: wettbewerbsrecht, irrefuehrung, werbeaussage` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-2.3-11
+**Frage:** Wie muss ein bezahlter Beitrag in einer Fachzeitschrift oder auf einer Website gekennzeichnet sein?
+**Antwort:** Der Werbezweck muss erkennbar sein, wenn er sich nicht aus den Umständen ergibt: Ein bezahlter Beitrag, der wie redaktioneller Inhalt wirkt, wird deutlich als Anzeige oder Werbung gekennzeichnet. Bei digitalen Angeboten muss zusätzlich das auftraggebende Unternehmen erkennbar sein.
+`tags: werbung, kennzeichnung, anzeige` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-2.3-12
+**Frage:** Muss ein Unternehmen für seinen Newsletter ein Double-Opt-in-Verfahren nutzen?
+**Antwort:** Nein. Vorgeschrieben ist der Nachweis der Einwilligung, nicht das Verfahren; das Double-Opt-in ist ein übliches Mittel dafür. Die Einwilligung muss freiwillig und aktiv erklärt werden und darf nicht umständlicher zu widerrufen sein als zu erteilen.
+`tags: newsletter, einwilligung, nachweis` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+#### K-2.3-13
+**Frage:** Eine Kundin hat vor einem Jahr ein Dekopaket gekauft und ihre E-Mail-Adresse angegeben. Darf die GmbH ihr ohne Einwilligung einen Newsletter für weitere Dekopakete senden?
+**Antwort:** Nur ausnahmsweise: wenn die Kundin nicht widersprochen hat und bei der Adresserfassung wie in jeder Mail klar auf das Widerspruchsrecht hingewiesen wurde. Beworben werden darf nur Ähnliches aus dem eigenen Angebot.
+`tags: werbe-email, bestandskunden, ausnahme` · `schwierigkeit: schwer` · `bloom: anwenden`
+
+#### K-2.3-14
+**Frage:** Worin unterscheidet sich ein Werbeanruf bei einer Privatperson von einem bei einem Unternehmen?
+**Antwort:** Privatpersonen müssen vorher ausdrücklich eingewilligt haben, und das werbende Unternehmen muss die Einwilligung dokumentieren. Bei Unternehmen genügt eine zumindest mutmaßliche Einwilligung, die vom Einzelfall abhängt.
+`tags: telefonwerbung, einwilligung, b2b` · `schwierigkeit: mittel` · `bloom: analysieren`
+
+#### K-2.3-15
+**Frage:** Was darf ein Unternehmen mit Fotos und Texten tun, die eine Agentur geliefert hat?
+**Antwort:** Es darf sie so nutzen, wie ihm Nutzungsrechte eingeräumt wurden. Fehlen Angaben, entscheidet der Vertragszweck, z. B. nur Flyer. Weitere Nutzung (Website, Newsletter) muss ausdrücklich vereinbart werden, auch wenn die Rechnung bezahlt ist.
+`tags: urheberrecht, nutzungsrechte, agentur` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-2.3-16
+**Frage:** Wann braucht ein Unternehmen für ein Foto mit erkennbaren Personen deren Einwilligung?
+**Antwort:** Grundsätzlich immer, wenn es das Bildnis verbreiten oder öffentlich zeigen will (Flyer, Website, Messewand). Ausnahmen wie Beiwerk oder Versammlungen werden eng ausgelegt und enden bei berechtigten Interessen der Abgebildeten. Ohne Einwilligung kann auf Antrag eine Strafe drohen.
+`tags: recht-am-eigenen-bild, einwilligung, fotos` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-2.3-17
+**Frage:** Auf der Website einer GmbH stehen nur Firma und E-Mail-Adresse. Welche Pflichtangaben fehlen?
+**Antwort:** Unter anderem Anschrift, Rechtsform, die Geschäftsführung als Vertretungsberechtigte und das Handelsregister mit Registernummer; soweit vorhanden die Umsatzsteuer-Identifikationsnummer. Die Angaben müssen leicht erkennbar und ständig verfügbar sein.
+`tags: impressum, pflichtangaben, website` · `schwierigkeit: mittel` · `bloom: anwenden`
+
+#### K-2.3-18
+**Frage:** Was muss ein Online-Shop bei der Bekanntgabe einer Preisermäßigung für eine Ware angeben?
+**Antwort:** Gegenüber Verbraucher:innen den niedrigsten Gesamtpreis der letzten 30 Tage; ausgenommen sind unter anderem individuelle Nachlässe. Genannt wird immer der Gesamtpreis einschließlich Umsatzsteuer. Für Angebote nur an Unternehmen gilt das nicht.
+`tags: preisangaben, gesamtpreis, preisermaessigung` · `schwierigkeit: mittel` · `bloom: verstehen`
+
+## C. Quiz 2.3 (anhängen)
+
+#### Q-2.3-07 · Multiple Choice
+**Frage:** Die Deko & Büro GmbH schaltet in einer Fachzeitschrift eine Anzeige. Welche Rolle hat die Zeitschrift in dieser Werbemaßnahme?
+- [ ] Das Werbemittel selbst
+- [x] Der Werbeträger
+- [ ] Das Werbebudget der Kampagne
+- [ ] Das Werbeziel der Anzeige
+**Erklärung:** Die Anzeige ist das Werbemittel, also die gestaltete Botschaft. Die Zeitschrift bringt sie als Medium zur Zielgruppe und ist damit der Werbeträger.
+`schwierigkeit: leicht` · `bloom: anwenden`
+
+#### Q-2.3-08 · Wahr/Falsch
+**Aussage:** Eine Werbe-E-Mail an ein Unternehmen, das noch nie bei der GmbH gekauft hat, ist auch ohne dessen vorherige ausdrückliche Einwilligung zulässig, weil das Verbot nur Verbraucher:innen schützt.
+- [ ] Wahr
+- [x] Falsch
+**Erklärung:** Das Verbot unzumutbarer Belästigung durch E-Mail-Werbung schützt alle Adressat:innen, auch Unternehmen. Ohne vorherige ausdrückliche Einwilligung ist die Werbung grundsätzlich unzulässig; die enge Ausnahme für Kund:innen setzt einen Verkauf voraus.
+`schwierigkeit: mittel` · `bloom: verstehen`
+
+#### Q-2.3-09 · Multiple Choice
+**Frage:** Besucher:innen einer Messe, die bisher nichts bei der GmbH gekauft haben, haben ihre Visitenkarte in eine Box zur Verlosung geworfen. Darf die GmbH ihnen danach ihren Werbe-Newsletter schicken?
+- [ ] Ja, denn mit dem Einwurf der Visitenkarte haben sie ihre Adresse freiwillig überlassen.
+- [ ] Nein, denn Werbe-E-Mails an Unternehmen sind generell verboten.
+- [x] Nein, sie braucht dafür eine ausdrückliche Einwilligung in den Newsletter.
+- [ ] Ja, solange jede Ausgabe einen Abmeldelink enthält.
+**Erklärung:** Die Adresse zu überlassen ist keine ausdrückliche Einwilligung in Werbung. Ein Abmeldelink macht die fehlende Einwilligung nicht wett, und die Ausnahme für Kund:innen verlangt einen Verkauf, den es hier nicht gab; ein generelles Verbot gibt es dagegen nicht.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-2.3-10 · Mehrfachauswahl
+**Frage:** Welche Voraussetzungen müssen zusammen vorliegen, damit E-Mail-Werbung an Kund:innen ohne Einwilligung zulässig ist?
+- [x] Die Adresse wurde im Zusammenhang mit dem Verkauf erhalten.
+- [ ] Es gab innerhalb eines Jahres mindestens zwei Bestellungen der Kundschaft.
+- [x] Beworben werden eigene ähnliche Waren oder Dienstleistungen.
+- [x] Die Kundschaft hat der Verwendung nicht widersprochen.
+- [x] Auf das Widerspruchsrecht wird bei Erhebung und Verwendung hingewiesen.
+- [ ] Die Werbung geht nur an Verbraucher:innen.
+**Erklärung:** Das Gesetz verlangt vier Voraussetzungen gemeinsam. Ein Mindestbestellvolumen oder die Beschränkung auf Verbraucher:innen gehört nicht dazu.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-2.3-11 · Lückentext
+**Text:** Wer in Newsletter-Werbung eingewilligt hat, kann diese Einwilligung jederzeit ___widerrufen___.
+**Erklärung:** Der Widerruf darf nicht umständlicher sein als die Erteilung; ein Abmeldelink in jeder Ausgabe ist deshalb üblich.
+`schwierigkeit: leicht` · `bloom: erinnern`
+
+#### Q-2.3-12 · Kurzantwort
+**Frage:** Eine Kundin erhält im Wirtschaftsjahr drei Werbegeschenke, deren Anschaffungskosten 14,50 €, 19,90 € und 21,00 € betragen (Beispielwerte, Umsatzsteuer bleibt außer Betracht). Welche Summe ist mit der gesetzlichen Grenze für Geschenke zu vergleichen? Antworte in Euro, auf Cent genau.
+**Akzeptierte Antworten:** 55,40; 55,40 €; 55,40 Euro; 55,40 EUR; 55,4; 55,4 €; 55,4 Euro; 55,4 EUR; 55.40; 55.40 €; 55.40 Euro; 55.40 EUR; 55.4; 55.4 €; 55.4 Euro; 55.4 EUR; 55,40€; 55.40€
+**Erklärung:** Maßgeblich ist die Summe der Anschaffungs- oder Herstellungskosten aller Geschenke an dieselbe Person im Wirtschaftsjahr: 14,50 € + 19,90 € + 21,00 € = 55,40 €, nicht jedes einzelne Geschenk.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-2.3-13 · Zuordnung
+**Anweisung:** Ordne der Werbemaßnahme die zutreffende rechtliche Einschätzung zu.
+- Ein Dekoset wird gegenüber Privatkundschaft allein wegen einer Kompensation als „klimaneutral“ beworben ↔ Unzulässige Umweltwerbung
+- Ein bezahlter Fachbeitrag erscheint ohne Hinweis wie ein redaktioneller Text ↔ Werbezweck nicht kenntlich gemacht
+- Ein Flyer zeigt eine Kundin im Beratungsgespräch ohne ihre Zustimmung ↔ Verstoß gegen das Recht am eigenen Bild
+- Eine Anzeige nennt eine Auszeichnung, die das Unternehmen nie erhalten hat ↔ Irreführende Angabe über das Unternehmen
+**Erklärung:** Jede Maßnahme verletzt eine andere Regel: die Regeln zur Umweltwerbung, die Kennzeichnung von Werbung, die Bildrechte und das Verbot unwahrer Angaben.
+`schwierigkeit: schwer` · `bloom: analysieren`
+
+#### Q-2.3-14 · Multiple Choice
+**Frage:** Eine Agentur hat für einen gedruckten Messeflyer Fotos geliefert und bezahlt bekommen. Im Vertrag steht nichts zur Online-Nutzung. Die GmbH will die Fotos auch auf ihrer Website zeigen. Was ist richtig?
+- [ ] Die Fotos gehören jetzt der GmbH, weil sie die Rechnung der Agentur bezahlt hat.
+- [x] Der Vertragszweck deckt nur den Flyer; für die Website braucht die GmbH weitere Nutzungsrechte.
+- [ ] Fotos dürfen auf einer Website immer genutzt werden, sobald die Agentur als Urheberin genannt wird.
+- [ ] Die Website-Nutzung ist erlaubt, wenn die GmbH die Fotos vorher digital bearbeitet und verändert hat.
+**Erklärung:** Das Urheberrecht bleibt bei den Urheber:innen; übertragen werden nur Nutzungsrechte. Fehlt die ausdrückliche Einräumung, bestimmt der Vertragszweck die Reichweite, hier den Flyer.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-2.3-15 · Sortieren
+**Anweisung:** Bringe die Schritte in die richtige Reihenfolge, wenn ein Foto mit einer erkennbaren Kundin auf einem Flyer erscheinen soll.
+1. Klären, ob die Kundin auf dem Foto erkennbar ist und das Foto verbreitet werden soll
+2. Die Kundin um ihre Einwilligung bitten und dabei Zweck und Medium nennen
+3. Die erteilte Einwilligung dokumentieren
+4. Das Foto erst nach der dokumentierten Einwilligung drucken und verteilen
+**Erklärung:** Erst wird geklärt, ob eine Einwilligung nötig ist, dann wird sie eingeholt und festgehalten. Gedruckt und verteilt wird erst danach, weil schon die Verbreitung ohne Einwilligung rechtswidrig ist.
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-2.3-16 · Entweder-Oder
+**Frage:** Ein Vertriebsmitarbeiter möchte eine Steuerberatungskanzlei, die noch nie bestellt hat, wegen eines neuen Dekopakets anrufen. Die Kanzlei hat nicht eingewilligt. Was gilt?
+- [x] Nur zulässig, wenn zumindest eine mutmaßliche Einwilligung der Kanzlei vorliegt.
+- [ ] Nur zulässig mit vorheriger ausdrücklicher Einwilligung der Kanzlei, genau wie bei Privatpersonen.
+**Erklärung:** Gegenüber Unternehmen genügt eine zumindest mutmaßliche Einwilligung, die vom Einzelfall abhängt; Branche oder allgemeiner Bedarf genügen dafür nicht (Auslegung). Verbraucher:innen müssen vorher ausdrücklich eingewilligt haben.
+`schwierigkeit: schwer` · `bloom: anwenden`
+
+#### Q-2.3-17 · Kurzantwort
+**Frage:** Eine Preisermäßigung für eine Ware wird im Online-Shop gegenüber Privatkundschaft erstmals am Donnerstag, 03.12.2026, angewendet. Ab welchem Datum (TT.MM.JJJJ) beginnt der Zeitraum von 30 Tagen, in dem der niedrigste Preis zu ermitteln ist? Der Tag der Anwendung zählt nicht mit.
+**Akzeptierte Antworten:** 03.11.2026; 03.11.26; 3.11.2026; 03. November 2026; 3. November 2026
+**Erklärung:** Der Zeitraum umfasst die 30 Tage vor dem 03.12.2026, also den 03.11.2026 bis zum 02.12.2026: 28 Tage im November (03. bis 30.11.) plus 2 Tage im Dezember (01. und 02.12.).
+`schwierigkeit: mittel` · `bloom: anwenden`
+
+#### Q-2.3-18 · Was passt nicht dazu
+**Frage:** Welche Angabe gehört nicht zu den Pflichtangaben im Impressum der Website einer GmbH?
+- [ ] Die Geschäftsführung als Vertretungsberechtigte
+- [ ] Die E-Mail-Adresse
+- [x] Die Bankverbindung für Zahlungen
+- [ ] Das Handelsregister mit Registernummer
+**Erklärung:** Das Impressum nennt Anbieter, Vertretung, Kontakt und Registerdaten. Eine Bankverbindung ist keine Pflichtangabe.
+`schwierigkeit: leicht` · `bloom: erinnern`
