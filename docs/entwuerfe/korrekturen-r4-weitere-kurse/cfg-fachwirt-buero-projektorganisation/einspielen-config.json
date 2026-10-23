@@ -1,0 +1,127 @@
+{
+  "kurs": "fachwirt-buero-projektorganisation",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "hb1/1.3-projektmanagement.md",
+      "paare": [
+        [
+          "(z. B. eine Datenschutzbeauftragte mit Freigaberecht)?",
+          "(z. B. eine IT-Sicherheitsverantwortliche, die nach interner Richtlinie jede neue Software freigeben muss)?"
+        ],
+        [
+          "- Datenschutzbeauftragte, kann die Freigabe verweigern, interessiert sich kaum für Details → Zufriedenstellen",
+          "- IT-Sicherheitsverantwortliche, muss nach interner Richtlinie jede neue Software freigeben, interessiert sich kaum für Details → Zufriedenstellen"
+        ],
+        [
+          "- Revision, kann den Einsatz der Software untersagen, meldet sich nur bei Problemen → Zufriedenstellen",
+          "- Leiterin Betriebsorganisation, muss nach interner Richtlinie den Produktivstart freigeben, meldet sich nur bei Problemen → Zufriedenstellen"
+        ],
+        [
+          "Revision und Vorstand haben Macht, aber wenig Interesse am Detail.",
+          "Die Leiterin Betriebsorganisation und der Vorstand haben Macht, aber wenig Interesse am Detail."
+        ],
+        [
+          "- Revisionsabteilung, darf den Softwarebetrieb später prüfen und meldet sich bis dahin nicht → Zufriedenstellen",
+          "- Rechtsabteilung, muss den Vertrag mit dem Softwarelieferanten vor der Unterschrift freigeben und meldet sich bis dahin nicht → Zufriedenstellen"
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.3-werbemittel.md",
+      "paare": [
+        [
+          "die im späteren **Kaufvertrag** mit einem Werbedienstleister münden.",
+          "die in den späteren Vertrag mit einem Werbedienstleister münden. Je nach Leistung ist das ein Kaufvertrag (z. B. fertige Werbeartikel), ein Werkvertrag (z. B. ein vereinbarter Entwurf) oder ein Dienstvertrag (z. B. laufende Beratung); auf die Lieferung individuell hergestellter Druckerzeugnisse sind überwiegend die Kaufregeln anzuwenden. Die Einordnung hängt vom Einzelfall ab (Stützangabe: §§ 433, 611, 631, 650 BGB; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Mit dem Abschluss eines Kaufvertrags bzw. Dienstleistungsvertrags mit dem gewählten Anbieter.",
+          "**Antwort:** Mit dem Abschluss eines Vertrags mit dem gewählten Anbieter. Je nach Leistung ist das ein Kaufvertrag (z. B. fertige Werbeartikel), ein Werkvertrag (z. B. ein vereinbarter Entwurf) oder ein Dienstvertrag (z. B. laufende Beratung)."
+        ]
+      ]
+    },
+    {
+      "datei": "hb2/2.5-kundenkommunikation-beschwerdemanagement.md",
+      "paare": [
+        [
+          "**Antwort:** DIN 5008 (Regeln für Schreib- und Gestaltungstechnik im Text- und Datenverarbeitungsbereich).",
+          "**Antwort:** DIN 5008 (Schreib- und Gestaltungsregeln für die Text- und Informationsverarbeitung). Die Norm ist keine gesetzliche Vorgabe; ihre Anwendung ist grundsätzlich freiwillig und wird zum Beispiel im Betrieb festgelegt."
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/3.1-personalwirtschaft.md",
+      "paare": [
+        [
+          "und unterliegt bei vorhandenem Betriebsrat Mitbestimmungsrechten.",
+          "und unterliegt bei vorhandenem Betriebsrat Unterrichtungs- und Beratungsrechten; Mitbestimmung gibt es dagegen vor allem bei einzelnen personellen Maßnahmen wie einer Einstellung."
+        ],
+        [
+          "- [ ] Personalplanung ist gesetzlich nicht geregelt und unterliegt keiner Mitbestimmung.",
+          "- [ ] Personalplanung ist gesetzlich nicht geregelt, und ein Betriebsrat hat dabei keinerlei Unterrichtungs- oder Beratungsrechte."
+        ],
+        [
+          "**Frage:** Welches Gesetz verpflichtet Arbeitgeber, wesentliche Vertragsbedingungen schriftlich mitzuteilen?",
+          "**Frage:** Welches Gesetz verpflichtet Arbeitgebende, die wesentlichen Vertragsbedingungen in einer unterzeichneten Niederschrift auszuhändigen?"
+        ],
+        [
+          "**Antwort:** Das Nachweisgesetz (NachwG).",
+          "**Antwort:** Das Nachweisgesetz (NachwG); die Fristen sind gestaffelt, und unter bestimmten Voraussetzungen kann die Niederschrift statt unterzeichnet auf Papier elektronisch in Textform übermittelt werden."
+        ],
+        [
+          "**Frage:** Wie nennt man das Gesetz, das Arbeitgeber verpflichtet, wesentliche Vertragsbedingungen schriftlich mitzuteilen?",
+          "**Frage:** Wie nennt man das Gesetz, das Arbeitgebende verpflichtet, die wesentlichen Vertragsbedingungen in einer unterzeichneten Niederschrift auszuhändigen?"
+        ],
+        [
+          "**Akzeptierte Antworten:** Nachweisgesetz; NachwG",
+          "**Akzeptierte Antworten:** Nachweisgesetz; Nachweisgesetz (NachwG); Nachweis-Gesetz; das Nachweisgesetz; NachwG"
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Auf Zwischenprüfung und Abschlussprüfung wird gezielt vorbereitet.",
+          "Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung wird gezielt vorbereitet; bei einer gestreckten Abschlussprüfung (z. B. bei Kaufleuten für Büromanagement) entfällt die Zwischenprüfung, und die Vorbereitung gilt dem ersten Teil der Abschlussprüfung."
+        ],
+        [
+          "Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung vor der zuständigen Stelle (IHK) wird gezielt vorbereitet.",
+          "Erwartung: Auf die Zwischenprüfung und die Abschlussprüfung vor der zuständigen Stelle (IHK) wird gezielt vorbereitet; bei einer gestreckten Abschlussprüfung entfällt die Zwischenprüfung, und die Vorbereitung gilt dem ersten Teil der Abschlussprüfung."
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/fallaufgaben.md",
+      "paare": [
+        [
+          "gleichzeitig läuft die Probezeit eines neu eingestellten Auszubildenden im ersten Ausbildungsjahr, der zunehmend Schwierigkeiten hat,",
+          "gleichzeitig läuft die Probezeit einer oder eines neu eingestellten Auszubildenden im ersten Ausbildungsjahr, die oder der zunehmend Schwierigkeiten hat,"
+        ],
+        [
+          "Der Ausbildende bemerkt, dass der Auszubildende den vereinbarten Ausbildungsplan nicht einhält. Skizzieren Sie ein strukturiertes Vorgehen (z. B. anhand der Vier-Stufen-Methode oder eines Rückmeldegesprächs), mit dem der Ausbildende die Ursachen klärt und den Auszubildenden gezielt unterstützt, ohne die Ausbildung zu gefährden.",
+          "Die ausbildende Person bemerkt, dass der oder die Auszubildende den vereinbarten Ausbildungsplan nicht einhält. Skizzieren Sie ein strukturiertes Vorgehen (z. B. anhand eines Feedback- und Fördergesprächs), mit dem die ausbildende Person die Ursachen klärt und den oder die Auszubildende gezielt unterstützt, ohne die Ausbildung zu gefährden."
+        ],
+        [
+          "einer moderierten Konfliktklärung (Mediation) einer rein disziplinarischen Anweisung vorzuziehen sein könnte.",
+          "eines von der Abteilungsleitung geleiteten Klärungsgesprächs einer rein disziplinarischen Anweisung vorzuziehen sein könnte."
+        ],
+        [
+          "Teilaufgabe 3: neutrale Moderation, Perspektivenklärung,",
+          "Teilaufgabe 3: allparteiliche Gesprächsleitung (keine Mediation im engeren Sinn), Perspektivenklärung,"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb1/1.3-projektmanagement.md",
+    "hb2/2.3-werbemittel.md",
+    "hb2/2.5-kundenkommunikation-beschwerdemanagement.md",
+    "hb3/3.1-personalwirtschaft.md",
+    "hb3/fachgespraech.md",
+    "hb3/fallaufgaben.md"
+  ]
+}

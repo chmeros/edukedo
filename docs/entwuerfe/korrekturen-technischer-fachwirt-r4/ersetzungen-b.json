@@ -1,0 +1,200 @@
+[
+  {
+    "datei": "tq2/6.1-technisches-zeichnen-normen.md",
+    "paare": [
+      [
+        "Nach DIN 406 besteht eine vollständige Bemaßung aus drei Elementen:",
+        "Die Eintragung von Maßen regelt die Norm DIN EN ISO 129-1 (Technische Produktdokumentation, Angabe von Maßen und Toleranzen, Teil 1: Grundlagen); sie hat die frühere DIN 406 abgelöst (Stand Oktober 2026: Ausgabe 2022-02, vor Verwendung prüfen). Üblicherweise unterscheidet man bei der Bemaßung drei Grundelemente:"
+      ],
+      [
+        "**Frage:** Aus welchen drei Elementen besteht eine vollständige Bemaßung nach DIN 406?",
+        "**Frage:** Welche drei Grundelemente trägt man bei der Bemaßung einer technischen Zeichnung ein?"
+      ],
+      [
+        "**Frage:** Welcher Begriff passt nicht zu den übrigen (Bestandteile einer Bemaßung nach DIN 406)?",
+        "**Frage:** Welcher Begriff passt nicht zu den übrigen (Grundelemente der Bemaßung)?"
+      ],
+      [
+        "sind die drei Bestandteile einer Bemaßung; das Schriftfeld ist ein eigenständiges Element",
+        "sind die drei Grundelemente der Bemaßung; das Schriftfeld ist ein eigenständiges Element"
+      ],
+      [
+        "**Frage:** Wie wird die Norm bezeichnet, die die Bemaßung technischer Zeichnungen regelt?",
+        "**Frage:** Wie wird die heute geltende Norm bezeichnet, die die Bemaßung technischer Zeichnungen regelt und die frühere DIN 406 abgelöst hat?"
+      ],
+      [
+        "**Akzeptierte Antworten:** DIN 406",
+        "**Akzeptierte Antworten:** DIN EN ISO 129-1; DIN EN ISO 129; EN ISO 129-1; ISO 129-1; ISO 129; DIN ISO 129-1; DIN ISO 129; DIN EN ISO 129-1:2022; DIN EN ISO 129-1:2022-02; ISO 129-1:2018; EN ISO 129-1:2019"
+      ],
+      [
+        "**Erklärung:** DIN 406 legt Grundregeln für die Bemaßung in technischen Zeichnungen fest.",
+        "**Erklärung:** DIN EN ISO 129-1 legt die Grundregeln für die Eintragung von Maßen und Toleranzen in technischen Zeichnungen fest. Sie hat die frühere DIN 406 abgelöst, die zurückgezogen ist (Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "datei": "tq2/fallaufgaben.md",
+    "paare": [
+      [
+        "Nennen Sie die drei Bestandteile einer vollständigen Bemaßung nach DIN 406 und erläutern Sie kurz deren jeweilige Funktion.",
+        "Nennen Sie die drei Grundelemente einer Bemaßung (Maßeintragung nach DIN EN ISO 129-1, früher DIN 406) und erläutern Sie kurz deren jeweilige Funktion."
+      ]
+    ]
+  },
+  {
+    "datei": "tq3/7.2-betriebsmittel-instandhaltung.md",
+    "paare": [
+      [
+        "Bei der **vorbeugenden (präventiven) Instandhaltung** werden Wartungs- und Austauschmaßnahmen dagegen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt",
+        "Bei der **vorbeugenden (präventiven) Instandhaltung** in der Bedeutung, die dieser Kurs verwendet (Abgrenzung zur Norm DIN EN 13306 weiter unten) werden Wartungs- und Austauschmaßnahmen dagegen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt"
+      ],
+      [
+        "Eine Weiterentwicklung ist die **zustandsorientierte (vorausschauende) Instandhaltung**, bei der Sensoren",
+        "Eine Weiterentwicklung ist die **zustandsorientierte Instandhaltung** (im Sprachgebrauch oft ungenau „vorausschauend“ genannt, siehe die Einordnung unten), bei der Sensoren"
+      ],
+      [
+        "ein Ansatz, der die Vorteile beider klassischen Strategien verbindet: Bauteile werden weder unnötig früh getauscht noch bis zum ungeplanten Ausfall betrieben.",
+        "ein Ansatz, der die Vorteile beider klassischen Strategien dieses Kurses (korrektiv und intervallbasiert vorbeugend) verbindet: Bauteile werden weder unnötig früh getauscht noch bis zum ungeplanten Ausfall betrieben.\n\n**Einordnung nach DIN EN 13306:** Die Norm DIN EN 13306 (Instandhaltung, Begriffe der Instandhaltung; Stand Oktober 2026: Ausgabe 2018-02, vor Verwendung prüfen) ordnet die Begriffe anders als dieser Kurs. Dort ist die **vorbeugende Instandhaltung** der Oberbegriff für Maßnahmen, die vor einem Ausfall die Ausfallwahrscheinlichkeit verringern sollen, mit zwei Unterarten: Die **vorausbestimmte** Instandhaltung folgt festen Zeit- oder Nutzungsintervallen ohne vorherige Zustandsprüfung (sie entspricht der „vorbeugenden Instandhaltung“ dieses Kurses), die **zustandsorientierte** Instandhaltung beruht auf Überwachung, Inspektion oder Prüfung und den daraus folgenden Maßnahmen. Die **vorausschauende** Instandhaltung ist in der Norm eine zustandsorientierte Instandhaltung, die zusätzlich auf einer Vorhersage aus der Analyse der Verschleißparameter beruht; sie ist also eine Unterart der zustandsorientierten und kein Synonym. Die **korrektive** Instandhaltung erfolgt nach der Fehlererkennung. DIN 31051 gliedert die Instandhaltung in die vier Grundmaßnahmen und nutzt dafür die Begriffe der DIN EN 13306. Weil die Strategiebegriffe im Sprachgebrauch nicht einheitlich verwendet werden, empfiehlt es sich, in einer Antwort die Begriffsfassung zu nennen (Kurs oder Norm)."
+      ],
+      [
+        "**Frage:** Was kennzeichnet die vorbeugende (präventive) Instandhaltung?",
+        "**Frage:** Was kennzeichnet die vorbeugende (präventive) Instandhaltung in diesem Kurs?"
+      ],
+      [
+        "**Antwort:** Wartungs-/Austauschmaßnahmen erfolgen in festen zeit- oder laufleistungsbasierten Intervallen, unabhängig vom tatsächlichen Verschleißzustand.",
+        "**Antwort:** Maßnahmen erfolgen in festen zeit- oder laufleistungsbasierten Intervallen, unabhängig vom tatsächlichen Verschleißzustand. In DIN EN 13306 heißt diese Variante vorausbestimmte Instandhaltung; „vorbeugend“ ist dort der Oberbegriff, der auch die zustandsorientierte Instandhaltung umfasst."
+      ],
+      [
+        "**Frage:** Was ist ein möglicher Nachteil der vorbeugenden Instandhaltung?",
+        "**Frage:** Was ist ein möglicher Nachteil der intervallbasierten vorbeugenden Instandhaltung?"
+      ],
+      [
+        "**Frage:** Was ist das Grundprinzip der zustandsorientierten (vorausschauenden) Instandhaltung?",
+        "**Frage:** Was ist das Grundprinzip der zustandsorientierten Instandhaltung?"
+      ],
+      [
+        "**Antwort:** Sensoren erfassen kontinuierlich Betriebsparameter (z. B. Vibration, Temperatur); Instandhaltung wird erst bei Anzeichen eines bevorstehenden Ausfalls ausgelöst.",
+        "**Antwort:** Sensoren erfassen kontinuierlich Betriebsparameter (z. B. Vibration, Temperatur); Maßnahmen werden erst bei Anzeichen eines bevorstehenden Ausfalls ausgelöst. Stützt sie sich zusätzlich auf eine Vorhersage aus der Analyse der Verschleißparameter, heißt sie nach DIN EN 13306 vorausschauend (eine Unterart der zustandsorientierten Instandhaltung)."
+      ],
+      [
+        "**Frage:** Welchen Vorteil vereint die zustandsorientierte Instandhaltung gegenüber rein präventiver und rein korrektiver Instandhaltung?",
+        "**Frage:** Welchen Vorteil vereint die zustandsorientierte Instandhaltung gegenüber rein intervallbasierter vorbeugender und rein korrektiver Instandhaltung?"
+      ],
+      [
+        "- Vorbeugende Instandhaltung ↔ Feste zeit- oder laufleistungsbasierte Wartungsintervalle",
+        "- Intervallbasierte vorbeugende Instandhaltung ↔ Maßnahmen nach festen Zeit- oder Laufleistungsabständen"
+      ],
+      [
+        "**Erklärung:** Die vier Ansätze unterscheiden sich vor allem im Auslöser der Instandhaltungsmaßnahme und im Grad der Einbindung der Bediener:innen.",
+        "**Erklärung:** Die vier Ansätze dieses Kurses unterscheiden sich vor allem im Auslöser der Instandhaltungsmaßnahme und im Grad der Einbindung der Bediener:innen. Nach DIN EN 13306 ist „vorbeugend“ der Oberbegriff, zu dem neben der intervallbasierten (vorausbestimmten) auch die zustandsorientierte Instandhaltung zählt; der Kurs verwendet hier die engere Bedeutung."
+      ],
+      [
+        "**Aussage:** Bei der vorbeugenden (präventiven) Instandhaltung werden Bauteile unabhängig von ihrem tatsächlichen Verschleißzustand nach festen Intervallen ausgetauscht.",
+        "**Aussage:** Bei der intervallbasierten vorbeugenden Instandhaltung (in der Norm: vorausbestimmte Instandhaltung) werden Bauteile unabhängig von ihrem tatsächlichen Verschleißzustand nach festen Intervallen ausgetauscht."
+      ],
+      [
+        "**Erklärung:** Genau das ist der Kernunterschied zur zustandsorientierten Instandhaltung, bei der der tatsächliche Zustand über Sensoren erfasst wird.",
+        "**Erklärung:** Genau das ist der Kernunterschied zur zustandsorientierten Instandhaltung, bei der Sensoren den tatsächlichen Zustand erfassen. In DIN EN 13306 ist die zustandsorientierte Instandhaltung eine Unterart der vorbeugenden, die intervallbasierte heißt dort vorausbestimmt."
+      ],
+      [
+        "**Erklärung:** Korrektive (reaktive) Instandhaltung wird erst nach Eintritt eines Ausfalls durchgeführt — im Gegensatz zur vorbeugenden Instandhaltung.",
+        "**Erklärung:** Korrektive (reaktive) Instandhaltung wird erst nach dem Ausfall durchgeführt (nach DIN EN 13306 nach der Fehlererkennung) — im Gegensatz zu jeder Form der vorbeugenden Instandhaltung, die vor dem Ausfall ansetzt."
+      ],
+      [
+        "- [ ] Weil zeitbasierte Wartung grundsätzlich verboten ist.",
+        "- [ ] Weil zeitbasierte Wartung bei CNC-Maschinen grundsätzlich unzulässig ist und nicht angewendet werden darf."
+      ],
+      [
+        "- [x] Weil dabei auch noch funktionstüchtige Bauteile vorzeitig ausgetauscht werden können, was unnötige Kosten verursacht.",
+        "- [x] Weil dabei noch funktionstüchtige Bauteile vorzeitig ausgetauscht werden und Kosten verursachen."
+      ],
+      [
+        "- [ ] Weil dadurch automatisch mehr ungeplante Stillstände entstehen.",
+        "- [ ] Weil dadurch automatisch mehr ungeplante Stillstände entstehen als bei jeder anderen Strategie."
+      ],
+      [
+        "- [ ] Weil dies die Gesamtanlageneffektivität rechnerisch verringert.",
+        "- [ ] Weil dies die Gesamtanlageneffektivität rechnerisch verringert und die Verfügbarkeit senkt."
+      ],
+      [
+        "**Erklärung:** Der Nachteil rein präventiver Instandhaltung liegt im möglichen vorzeitigen Austausch noch funktionsfähiger Bauteile.",
+        "**Erklärung:** Der Nachteil einer rein intervallbasierten (vorausbestimmten) vorbeugenden Instandhaltung liegt im möglichen vorzeitigen Austausch noch funktionsfähiger Bauteile; die zustandsorientierte Variante vermeidet ihn."
+      ],
+      [
+        "Hinweis: Instandhaltungsstrategien wie vorbeugend, korrektiv oder zustandsorientiert sind keine Zonen dieser Zuordnung, sie legen fest",
+        "Hinweis: Instandhaltungsstrategien (korrektiv und vorbeugend, Letztere mit den Unterarten vorausbestimmt und zustandsorientiert) sind keine Zonen dieser Zuordnung, sie legen fest"
+      ]
+    ]
+  },
+  {
+    "datei": "tq3/fachgespraech.md",
+    "paare": [
+      [
+        "  - Erwartung: Bei der vorbeugenden (präventiven) Instandhaltung werden Maßnahmen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt, unabhängig vom tatsächlichen Verschleißzustand.",
+        "  - Erwartung: Bei der vorbeugenden (präventiven) Instandhaltung in der Bedeutung dieses Kurses werden Maßnahmen in festen, meist zeit- oder laufleistungsbasierten Intervallen durchgeführt, unabhängig vom tatsächlichen Verschleißzustand; in DIN EN 13306 heißt das vorausbestimmte Instandhaltung und ist neben der zustandsorientierten eine Unterart der vorbeugenden."
+      ],
+      [
+        "  - Erwartung: Die vorbeugende Instandhaltung senkt das Ausfallrisiko, kann aber",
+        "  - Erwartung: Die intervallbasierte vorbeugende Instandhaltung senkt das Ausfallrisiko, kann aber"
+      ],
+      [
+        "  - Erwartung: Bei der zustandsorientierten (vorausschauenden) Instandhaltung erfassen Sensoren kontinuierlich Betriebsparameter wie Vibration, Temperatur oder Ölzustand, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten.",
+        "  - Erwartung: Bei der zustandsorientierten Instandhaltung erfassen Sensoren kontinuierlich Betriebsparameter wie Vibration, Temperatur oder Ölzustand, Maßnahmen werden erst ausgelöst, wenn die Werte auf einen bevorstehenden Ausfall hindeuten; stützt sie sich zusätzlich auf eine Vorhersage aus der Analyse der Verschleißparameter, nennt DIN EN 13306 sie vorausschauend (eine Unterart der zustandsorientierten)."
+      ],
+      [
+        "  - Erwartung: Sie sind durch Kraft- und Geschwindigkeitsbegrenzung sowie Sensorik zur Kollisionserkennung so abgesichert, dass sie ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können.",
+        "  - Erwartung: Sie sind durch Kraft- und Geschwindigkeitsbegrenzung sowie Sensorik zur Kollisionserkennung so ausgelegt, dass sie je nach Risikobeurteilung der Anwendung ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können.\n  - Erwartung: Ob ein Schutzzaun oder eine andere Schutzeinrichtung doch nötig ist, hängt von der Anwendung ab (Werkzeug, Werkstück, Bewegung); der Arbeitgeber beurteilt die Gefährdungen vor der Verwendung, die CE-Kennzeichnung entbindet nicht davon."
+      ]
+    ]
+  },
+  {
+    "datei": "tq3/fallaufgaben.md",
+    "paare": [
+      [
+        "Erläutern Sie den Unterschied zwischen der bisherigen korrektiven Instandhaltung und einer zustandsorientierten (vorausschauenden) Instandhaltung.",
+        "Erläutern Sie den Unterschied zwischen der bisherigen korrektiven Instandhaltung und einer zustandsorientierten Instandhaltung."
+      ],
+      [
+        "während zustandsorientierte Instandhaltung kontinuierlich erfasste Betriebsparameter nutzt, um Maßnahmen bereits vor dem Ausfall auszulösen.",
+        "während zustandsorientierte Instandhaltung kontinuierlich erfasste Betriebsparameter nutzt, um Maßnahmen schon vor dem Ausfall auszulösen. Ergänzend kann genannt werden, dass sie nach DIN EN 13306 zur vorbeugenden Instandhaltung zählt und als vorausschauend gilt, wenn sie auf einer Vorhersage aus der Analyse der Verschleißparameter beruht."
+      ]
+    ]
+  },
+  {
+    "datei": "tq3/7.4-automatisierungstechnik.md",
+    "paare": [
+      [
+        "dass sie ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können — etwa bei Montagetätigkeiten",
+        "dass sie je nach Risikobeurteilung der Anwendung ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten können — etwa bei Montagetätigkeiten"
+      ],
+      [
+        "Für Vantera Präzisionstechnik bietet der Einsatz von Cobots an einzelnen Montagearbeitsplätzen die Möglichkeit",
+        "Ob bei einer Cobot-Anwendung tatsächlich auf trennende Schutzeinrichtungen wie einen Schutzzaun verzichtet werden kann, entscheidet die Risikobeurteilung der konkreten Anwendung und nicht die Bezeichnung „Cobot“: Je nach Werkzeug, Werkstück und Bewegung kann ein Zaun, eine Lichtschranke oder eine andere Schutzeinrichtung nötig bleiben. Die Maschinenverordnung (EU) 2023/1230 (Anwendung ab 20.01.2027; bis dahin gilt für neu in Verkehr gebrachte Maschinen noch die Maschinenrichtlinie, siehe Thema 7.2 „Betriebsmittel und Instandhaltung“ im Fachgebiet Fertigungs- und Betriebstechnik) verlangt vom Hersteller eine Risikobeurteilung, nennt trennende und nichttrennende Schutzeinrichtungen als Schutzmaßnahmen bei beweglichen Teilen und verlangt, bei Kontaktrisiken die Koexistenz von Mensch und Maschine in einem gemeinsamen Raum ohne direkte Zusammenarbeit sowie die Mensch-Maschine-Interaktion zu berücksichtigen (Anhang III; Stand Oktober 2026, vor Verwendung prüfen). Der Arbeitgeber, der einen Cobot verwendet, muss zusätzlich vor der Verwendung die Gefährdungen beurteilen; die CE-Kennzeichnung entbindet nicht davon (§ 3 Betriebssicherheitsverordnung). Für Vantera Präzisionstechnik eröffnet der Einsatz von Cobots an einzelnen Montagearbeitsplätzen die Möglichkeit"
+      ],
+      [
+        "**Antwort:** Ein kollaborativer Roboter, der ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten kann.",
+        "**Antwort:** Ein kollaborativer Roboter, der je nach Risikobeurteilung der Anwendung ohne trennenden Schutzzaun direkt mit Beschäftigten im selben Arbeitsraum zusammenarbeiten kann."
+      ],
+      [
+        "**Antwort:** Weil Cobots ohne trennenden Schutzzaun auf begrenztem Raum flexibel neben Beschäftigten eingesetzt werden können.",
+        "**Antwort:** Weil Cobots, wenn die Risikobeurteilung der Anwendung es zulässt, ohne trennenden Schutzzaun auf begrenztem Raum flexibel neben Beschäftigten eingesetzt werden können."
+      ],
+      [
+        "- Cobot ↔ Sichere Zusammenarbeit mit Beschäftigten ohne Schutzzaun",
+        "- Cobot ↔ Zusammenarbeit mit Beschäftigten, je nach Risikobeurteilung ohne Schutzzaun"
+      ],
+      [
+        "**Frage:** Durch welche technischen Merkmale wird die sichere Mensch-Roboter-Kollaboration eines Cobots ermöglicht?",
+        "**Frage:** Durch welche technischen Merkmale wird die Mensch-Roboter-Kollaboration eines Cobots abgesichert?"
+      ],
+      [
+        "**Frage:** Wie werden Roboter bezeichnet, die aufgrund von Kraft- und Geschwindigkeitsbegrenzung ohne trennenden Schutzzaun direkt mit Beschäftigten zusammenarbeiten können?",
+        "**Frage:** Wie werden Roboter bezeichnet, die aufgrund von Kraft- und Geschwindigkeitsbegrenzung und je nach Risikobeurteilung der Anwendung ohne trennenden Schutzzaun direkt mit Beschäftigten zusammenarbeiten können?"
+      ],
+      [
+        "**Erklärung:** Cobots ermöglichen die Mensch-Roboter-Kollaboration (MRK) im selben Arbeitsraum.",
+        "**Erklärung:** Cobots ermöglichen die Mensch-Roboter-Kollaboration (MRK) im selben Arbeitsraum; ob dabei ein Schutzzaun entfällt, entscheidet die Risikobeurteilung der konkreten Anwendung."
+      ]
+    ]
+  }
+]

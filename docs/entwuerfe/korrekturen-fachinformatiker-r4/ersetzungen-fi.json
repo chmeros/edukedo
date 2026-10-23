@@ -1,0 +1,334 @@
+[
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "ae1/8.3-benutzerschnittstellen-ergonomie.md",
+    "paare": [
+      [
+        "In der klassischen, in der Ausbildung weit verbreiteten Fassung sind es sieben; neuere Fassungen der Norm benennen und gruppieren einzelne Grundsätze teilweise anders, die Grundideen bleiben aber gleich.",
+        "Die folgenden sieben Grundsätze stammen aus der Fassung DIN EN ISO 9241-110:2006 (Titel „Grundsätze der Dialoggestaltung\"). Die Fassung von 2020 trägt den Titel „Interaktionsprinzipien\" und ist überarbeitet; ihre Prinzipien können von dieser Liste abweichen. Welche Fassung gilt, ist vor Verwendung zu prüfen (Stand Oktober 2026)."
+      ],
+      [
+        "nach ISO 9241-110 (klassische Fassung).",
+        "nach ISO 9241-110 (Fassung von 2006)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+    "paare": [
+      [
+        "Wartung kann nach dem Auslöser unterschieden werden:",
+        "Im Betrieb ist „Wartung\" als Sammelbegriff üblich, und der Ausbildungsrahmenplan spricht von „präventiver Wartung\". In der Normung (DIN 31051, DIN EN 13306) ist dagegen **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung, und das Eingreifen nach einem Fehler entspricht dort der Instandsetzung bzw. der korrektiven Instandhaltung. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026). Hier wird „Wartung\" als Sammelbegriff gebraucht und nach dem Auslöser unterschieden:"
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "fu6/6.2-datenschutz.md",
+    "paare": [
+      [
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden.",
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden (die Schwelle von 20 Personen steht im geltenden Gesetz; eine Aufhebung der Benennungspflicht ist angekündigt, aber nicht beschlossen; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+    "paare": [
+      [
+        "Der wesentliche Inhalt muss schriftlich niedergelegt werden. Dazu gehören unter anderem",
+        "Der Vertragsschluss selbst ist an keine Form gebunden; die Ausbildenden müssen aber den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen, den Auszubildenden aushändigen (bei elektronischer Abfassung so übermitteln, dass sie die Vertragsabfassung speichern und ausdrucken können) und sich den Empfang nachweisen lassen (§ 11 BBiG; Stand Oktober 2026, vor Verwendung prüfen). Zum wesentlichen Inhalt gehören unter anderem"
+      ],
+      [
+        "Bei minderjährigen Auszubildenden unterschreiben auch die gesetzlichen Vertreter.",
+        "Bei minderjährigen Auszubildenden müssen die gesetzlichen Vertreter:innen dem Vertrag zustimmen; auch ihnen ist die Vertragsabfassung auszuhändigen."
+      ],
+      [
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz schriftlich festgehalten werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen.",
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz in einer Niederschrift festgehalten und ausgehändigt werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen. Die Niederschrift ist grundsätzlich schriftlich zu erstellen und zu unterzeichnen, darf aber in Textform abgefasst und elektronisch übermittelt werden, wenn das Dokument für die Beschäftigten zugänglich ist, gespeichert und ausgedruckt werden kann und der Arbeitgeber zur Empfangsbestätigung auffordert; in den Wirtschaftsbereichen nach § 2a SchwarzArbG bleibt es bei der Schriftform. Je nach Angabe ist die Niederschrift spätestens am ersten Tag der Arbeitsleistung, am siebten Kalendertag oder einen Monat nach dem vereinbarten Beginn auszuhändigen (§ 2 NachwG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+    "paare": [
+      [
+        "In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind grundsätzlich alle Beschäftigten ab 16 Jahren, wählbar sind sie ab 18 Jahren.",
+        "In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind, kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind alle Beschäftigten ab 16 Jahren; wählbar sind Wahlberechtigte ab 18 Jahren, die dem Betrieb in der Regel seit sechs Monaten angehören (§§ 1, 7 und 8 BetrVG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern; er wird alle vier Jahre gewählt.",
+        "**Antwort:** In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind; er wird alle vier Jahre gewählt."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-anwendungsentwicklung",
+    "datei": "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md",
+    "paare": [
+      [
+        "Die Arbeitsunfähigkeit ist dem Arbeitgeber unverzüglich zu melden, und dauert sie länger als drei Kalendertage, ist ärztlich nachzuweisen; der Arbeitgeber kann den Nachweis auch früher verlangen.",
+        "Die Arbeitsunfähigkeit und ihre voraussichtliche Dauer sind dem Arbeitgeber unverzüglich mitzuteilen. Dauert sie länger als drei Kalendertage, ist sie ärztlich nachzuweisen, grundsätzlich spätestens an dem Arbeitstag, der auf den dritten Kalendertag folgt; der Arbeitgeber darf den Nachweis auch früher verlangen. Bei Versicherten einer gesetzlichen Krankenkasse wird die ärztlich festgestellte Arbeitsunfähigkeit elektronisch an die Krankenkasse übermittelt, und der Arbeitgeber ruft die Meldung dort ab (eAU); in der Regel müssen diese Beschäftigten dann keine Papierbescheinigung vorlegen, sie müssen die Arbeitsunfähigkeit aber weiterhin ärztlich feststellen lassen (Ausnahmen gibt es zum Beispiel bei Minijobs in Privathaushalten und bei einer Feststellung außerhalb der vertragsärztlichen Versorgung). Wer nicht gesetzlich versichert ist, legt die Bescheinigung weiterhin selbst vor (§ 5 EntgFG, § 109 SGB IV; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-daten-prozessanalyse",
+    "datei": "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+    "paare": [
+      [
+        "Wartung kann nach dem Auslöser unterschieden werden:",
+        "Im Betrieb ist „Wartung\" als Sammelbegriff üblich, und der Ausbildungsrahmenplan spricht von „präventiver Wartung\". In der Normung (DIN 31051, DIN EN 13306) ist dagegen **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung, und das Eingreifen nach einem Fehler entspricht dort der Instandsetzung bzw. der korrektiven Instandhaltung. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026). Hier wird „Wartung\" als Sammelbegriff gebraucht und nach dem Auslöser unterschieden:"
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-daten-prozessanalyse",
+    "datei": "fu6/6.2-datenschutz.md",
+    "paare": [
+      [
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden.",
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden (die Schwelle von 20 Personen steht im geltenden Gesetz; eine Aufhebung der Benennungspflicht ist angekündigt, aber nicht beschlossen; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-daten-prozessanalyse",
+    "datei": "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+    "paare": [
+      [
+        "Der wesentliche Inhalt muss schriftlich niedergelegt werden. Dazu gehören unter anderem",
+        "Der Vertragsschluss selbst ist an keine Form gebunden; die Ausbildenden müssen aber den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen, den Auszubildenden aushändigen (bei elektronischer Abfassung so übermitteln, dass sie die Vertragsabfassung speichern und ausdrucken können) und sich den Empfang nachweisen lassen (§ 11 BBiG; Stand Oktober 2026, vor Verwendung prüfen). Zum wesentlichen Inhalt gehören unter anderem"
+      ],
+      [
+        "Bei minderjährigen Auszubildenden unterschreiben auch die gesetzlichen Vertreter.",
+        "Bei minderjährigen Auszubildenden müssen die gesetzlichen Vertreter:innen dem Vertrag zustimmen; auch ihnen ist die Vertragsabfassung auszuhändigen."
+      ],
+      [
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz schriftlich festgehalten werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen.",
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz in einer Niederschrift festgehalten und ausgehändigt werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen. Die Niederschrift ist grundsätzlich schriftlich zu erstellen und zu unterzeichnen, darf aber in Textform abgefasst und elektronisch übermittelt werden, wenn das Dokument für die Beschäftigten zugänglich ist, gespeichert und ausgedruckt werden kann und der Arbeitgeber zur Empfangsbestätigung auffordert; in den Wirtschaftsbereichen nach § 2a SchwarzArbG bleibt es bei der Schriftform. Je nach Angabe ist die Niederschrift spätestens am ersten Tag der Arbeitsleistung, am siebten Kalendertag oder einen Monat nach dem vereinbarten Beginn auszuhändigen (§ 2 NachwG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-daten-prozessanalyse",
+    "datei": "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+    "paare": [
+      [
+        "In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind grundsätzlich alle Beschäftigten ab 16 Jahren, wählbar sind sie ab 18 Jahren.",
+        "In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind, kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind alle Beschäftigten ab 16 Jahren; wählbar sind Wahlberechtigte ab 18 Jahren, die dem Betrieb in der Regel seit sechs Monaten angehören (§§ 1, 7 und 8 BetrVG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern; er wird alle vier Jahre gewählt.",
+        "**Antwort:** In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind; er wird alle vier Jahre gewählt."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-daten-prozessanalyse",
+    "datei": "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md",
+    "paare": [
+      [
+        "Die Arbeitsunfähigkeit ist dem Arbeitgeber unverzüglich zu melden, und dauert sie länger als drei Kalendertage, ist ärztlich nachzuweisen; der Arbeitgeber kann den Nachweis auch früher verlangen.",
+        "Die Arbeitsunfähigkeit und ihre voraussichtliche Dauer sind dem Arbeitgeber unverzüglich mitzuteilen. Dauert sie länger als drei Kalendertage, ist sie ärztlich nachzuweisen, grundsätzlich spätestens an dem Arbeitstag, der auf den dritten Kalendertag folgt; der Arbeitgeber darf den Nachweis auch früher verlangen. Bei Versicherten einer gesetzlichen Krankenkasse wird die ärztlich festgestellte Arbeitsunfähigkeit elektronisch an die Krankenkasse übermittelt, und der Arbeitgeber ruft die Meldung dort ab (eAU); in der Regel müssen diese Beschäftigten dann keine Papierbescheinigung vorlegen, sie müssen die Arbeitsunfähigkeit aber weiterhin ärztlich feststellen lassen (Ausnahmen gibt es zum Beispiel bei Minijobs in Privathaushalten und bei einer Feststellung außerhalb der vertragsärztlichen Versorgung). Wer nicht gesetzlich versichert ist, legt die Bescheinigung weiterhin selbst vor (§ 5 EntgFG, § 109 SGB IV; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "dv2/9.4-tests-inbetriebnahme-uebergabe.md",
+    "paare": [
+      [
+        "Wesentliche Mängel verhindern die Abnahme; geringfügige können mit einer dokumentierten **Mängelliste** und Fristen zur Beseitigung vermerkt werden. Im Werkvertragsrecht hat die Abnahme rechtliche Folgen (etwa für Vergütung und Gewährleistung); die Einzelheiten richten sich nach dem Vertrag und sind hier nur als Orientierung genannt.",
+        "Bei wesentlichen Mängeln darf der Auftraggeber die Abnahme verweigern, wegen unwesentlicher Mängel nicht (§ 640 Abs. 1 BGB). Unwesentliche Mängel werden in einer dokumentierten **Mängelliste** mit Fristen zur Beseitigung vermerkt. Im Werkvertragsrecht hat die Abnahme rechtliche Folgen (etwa für die Fälligkeit der Vergütung und, je nach Werk, für den Beginn der Verjährung der Mängelansprüche). Nimmt der Auftraggeber ein mangelhaftes Werk ab, obwohl er den Mangel kennt, stehen ihm Nacherfüllung, Selbstvornahme, Rücktritt und Minderung nur zu, wenn er sich diese Rechte bei der Abnahme vorbehält (§ 640 Abs. 3 BGB); Schadensersatzansprüche bleiben davon unberührt. Der Vorbehalt sollte deshalb im Abnahmeprotokoll vermerkt werden. Die Einzelheiten richten sich nach dem Vertrag und sind hier nur als Orientierung genannt (Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "- [ ] Die Mängel nicht erwähnen, um die Abnahme nicht zu gefährden",
+        "- [ ] Die Mängel nicht erwähnen, damit die Abnahme nicht gefährdet wird, und sie später still beheben lassen"
+      ],
+      [
+        "- [x] Die Mängel in einer Mängelliste mit Verantwortlichen und Fristen dokumentieren und die Abnahme unter Vorbehalt dieser Restpunkte durchführen",
+        "- [x] Mängelliste mit Fristen führen; der Kunde behält sich im Protokoll seine Rechte vor"
+      ],
+      [
+        "- [ ] Die gesamte Übergabe ablehnen",
+        "- [ ] Die Übergabe insgesamt ablehnen, weil schon geringfügige Mängel jede Abnahme ausschließen"
+      ],
+      [
+        "- [ ] Die Mängel nach der Übergabe stillschweigend beheben",
+        "- [ ] Die Mängel nach der Übergabe still beheben lassen und im Abnahmeprotokoll nichts vermerken"
+      ],
+      [
+        "**Erklärung:** Offene Restpunkte werden transparent dokumentiert; geringfügige Mängel verhindern die Abnahme in der Regel nicht. Die Einzelheiten richten sich nach dem Vertrag.",
+        "**Erklärung:** Offene Restpunkte werden transparent dokumentiert. Wegen geringfügiger Mängel darf der Auftraggeber die Abnahme nicht verweigern; kennt er einen Mangel und nimmt trotzdem ab, ohne sich seine Rechte vorzubehalten, kann er wichtige Mängelrechte wie Nacherfüllung oder Minderung verlieren. Die Einzelheiten richten sich nach dem Vertrag."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "dv3/10.3-diagnose-prozessdaten-wartung.md",
+    "paare": [
+      [
+        "Die **Grundidee der vorausschauenden Wartung** ist die Auswertung von Zustandsdaten (z. B.",
+        "Hinweis zur Fachsprache: In der Normung (DIN 31051, DIN EN 13306) ist **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung. Die oben genannten „Wartungsstrategien\" heißen dort Instandhaltungsstrategien, und die „reaktive Wartung\" entspricht der Instandsetzung bzw. der korrektiven Instandhaltung nach einem Ausfall. Im Betrieb und im Ausbildungsrahmenplan (dort „präventive Wartung\") ist „Wartung\" als Sammelbegriff üblich; in Prüfungsaufgaben ist auf die Wortwahl der Aufgabe zu achten. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026).\n\nZur **Grundidee der vorausschauenden Wartung** gehört die Auswertung von Zustandsdaten (z. B."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "dv5/12.2-umsetzung-integration-informationssicherheit-dokumentation.md",
+    "paare": [
+      [
+        "Der Abnahme geht die Übergabe mit Einweisung der Anwender voraus (siehe FU1).",
+        "Zur Übergabe gehören die Einweisung der Anwender:innen, die Dokumentation und die Abnahme (siehe Thema 9.4 „Testkonzepte, Inbetriebnahme und Übergabe vernetzter Systeme\" im Fachgebiet DV2 „Errichten, Ändern und Prüfen von vernetzten Systemen\" und Thema 1.3 „Leistungserbringung, Dokumentation und Auftragsabschluss\" im Fachgebiet FU1 „Projekt- und Auftragsabwicklung\")."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+    "paare": [
+      [
+        "Wartung kann nach dem Auslöser unterschieden werden:",
+        "Im Betrieb ist „Wartung\" als Sammelbegriff üblich, und der Ausbildungsrahmenplan spricht von „präventiver Wartung\". In der Normung (DIN 31051, DIN EN 13306) ist dagegen **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung, und das Eingreifen nach einem Fehler entspricht dort der Instandsetzung bzw. der korrektiven Instandhaltung. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026). Hier wird „Wartung\" als Sammelbegriff gebraucht und nach dem Auslöser unterschieden:"
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "fu6/6.2-datenschutz.md",
+    "paare": [
+      [
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden.",
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden (die Schwelle von 20 Personen steht im geltenden Gesetz; eine Aufhebung der Benennungspflicht ist angekündigt, aber nicht beschlossen; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+    "paare": [
+      [
+        "Der wesentliche Inhalt muss schriftlich niedergelegt werden. Dazu gehören unter anderem",
+        "Der Vertragsschluss selbst ist an keine Form gebunden; die Ausbildenden müssen aber den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen, den Auszubildenden aushändigen (bei elektronischer Abfassung so übermitteln, dass sie die Vertragsabfassung speichern und ausdrucken können) und sich den Empfang nachweisen lassen (§ 11 BBiG; Stand Oktober 2026, vor Verwendung prüfen). Zum wesentlichen Inhalt gehören unter anderem"
+      ],
+      [
+        "Bei minderjährigen Auszubildenden unterschreiben auch die gesetzlichen Vertreter.",
+        "Bei minderjährigen Auszubildenden müssen die gesetzlichen Vertreter:innen dem Vertrag zustimmen; auch ihnen ist die Vertragsabfassung auszuhändigen."
+      ],
+      [
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz schriftlich festgehalten werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen.",
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz in einer Niederschrift festgehalten und ausgehändigt werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen. Die Niederschrift ist grundsätzlich schriftlich zu erstellen und zu unterzeichnen, darf aber in Textform abgefasst und elektronisch übermittelt werden, wenn das Dokument für die Beschäftigten zugänglich ist, gespeichert und ausgedruckt werden kann und der Arbeitgeber zur Empfangsbestätigung auffordert; in den Wirtschaftsbereichen nach § 2a SchwarzArbG bleibt es bei der Schriftform. Je nach Angabe ist die Niederschrift spätestens am ersten Tag der Arbeitsleistung, am siebten Kalendertag oder einen Monat nach dem vereinbarten Beginn auszuhändigen (§ 2 NachwG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+    "paare": [
+      [
+        "In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind grundsätzlich alle Beschäftigten ab 16 Jahren, wählbar sind sie ab 18 Jahren.",
+        "In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind, kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind alle Beschäftigten ab 16 Jahren; wählbar sind Wahlberechtigte ab 18 Jahren, die dem Betrieb in der Regel seit sechs Monaten angehören (§§ 1, 7 und 8 BetrVG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern; er wird alle vier Jahre gewählt.",
+        "**Antwort:** In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind; er wird alle vier Jahre gewählt."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-digitale-vernetzung",
+    "datei": "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md",
+    "paare": [
+      [
+        "Die Arbeitsunfähigkeit ist dem Arbeitgeber unverzüglich zu melden, und dauert sie länger als drei Kalendertage, ist ärztlich nachzuweisen; der Arbeitgeber kann den Nachweis auch früher verlangen.",
+        "Die Arbeitsunfähigkeit und ihre voraussichtliche Dauer sind dem Arbeitgeber unverzüglich mitzuteilen. Dauert sie länger als drei Kalendertage, ist sie ärztlich nachzuweisen, grundsätzlich spätestens an dem Arbeitstag, der auf den dritten Kalendertag folgt; der Arbeitgeber darf den Nachweis auch früher verlangen. Bei Versicherten einer gesetzlichen Krankenkasse wird die ärztlich festgestellte Arbeitsunfähigkeit elektronisch an die Krankenkasse übermittelt, und der Arbeitgeber ruft die Meldung dort ab (eAU); in der Regel müssen diese Beschäftigten dann keine Papierbescheinigung vorlegen, sie müssen die Arbeitsunfähigkeit aber weiterhin ärztlich feststellen lassen (Ausnahmen gibt es zum Beispiel bei Minijobs in Privathaushalten und bei einer Feststellung außerhalb der vertragsärztlichen Versorgung). Wer nicht gesetzlich versichert ist, legt die Bescheinigung weiterhin selbst vor (§ 5 EntgFG, § 109 SGB IV; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+    "paare": [
+      [
+        "Wartung kann nach dem Auslöser unterschieden werden:",
+        "Im Betrieb ist „Wartung\" als Sammelbegriff üblich, und der Ausbildungsrahmenplan spricht von „präventiver Wartung\". In der Normung (DIN 31051, DIN EN 13306) ist dagegen **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung, und das Eingreifen nach einem Fehler entspricht dort der Instandsetzung bzw. der korrektiven Instandhaltung. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026). Hier wird „Wartung\" als Sammelbegriff gebraucht und nach dem Auslöser unterschieden:"
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "fu6/6.2-datenschutz.md",
+    "paare": [
+      [
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden.",
+        "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden (die Schwelle von 20 Personen steht im geltenden Gesetz; eine Aufhebung der Benennungspflicht ist angekündigt, aber nicht beschlossen; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+    "paare": [
+      [
+        "Der wesentliche Inhalt muss schriftlich niedergelegt werden. Dazu gehören unter anderem",
+        "Der Vertragsschluss selbst ist an keine Form gebunden; die Ausbildenden müssen aber den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen, den Auszubildenden aushändigen (bei elektronischer Abfassung so übermitteln, dass sie die Vertragsabfassung speichern und ausdrucken können) und sich den Empfang nachweisen lassen (§ 11 BBiG; Stand Oktober 2026, vor Verwendung prüfen). Zum wesentlichen Inhalt gehören unter anderem"
+      ],
+      [
+        "Bei minderjährigen Auszubildenden unterschreiben auch die gesetzlichen Vertreter.",
+        "Bei minderjährigen Auszubildenden müssen die gesetzlichen Vertreter:innen dem Vertrag zustimmen; auch ihnen ist die Vertragsabfassung auszuhändigen."
+      ],
+      [
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz schriftlich festgehalten werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen.",
+        "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz in einer Niederschrift festgehalten und ausgehändigt werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen. Die Niederschrift ist grundsätzlich schriftlich zu erstellen und zu unterzeichnen, darf aber in Textform abgefasst und elektronisch übermittelt werden, wenn das Dokument für die Beschäftigten zugänglich ist, gespeichert und ausgedruckt werden kann und der Arbeitgeber zur Empfangsbestätigung auffordert; in den Wirtschaftsbereichen nach § 2a SchwarzArbG bleibt es bei der Schriftform. Je nach Angabe ist die Niederschrift spätestens am ersten Tag der Arbeitsleistung, am siebten Kalendertag oder einen Monat nach dem vereinbarten Beginn auszuhändigen (§ 2 NachwG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+    "paare": [
+      [
+        "In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind grundsätzlich alle Beschäftigten ab 16 Jahren, wählbar sind sie ab 18 Jahren.",
+        "In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind, kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind alle Beschäftigten ab 16 Jahren; wählbar sind Wahlberechtigte ab 18 Jahren, die dem Betrieb in der Regel seit sechs Monaten angehören (§§ 1, 7 und 8 BetrVG; Stand Oktober 2026, vor Verwendung prüfen)."
+      ],
+      [
+        "**Antwort:** In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern; er wird alle vier Jahre gewählt.",
+        "**Antwort:** In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind; er wird alle vier Jahre gewählt."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md",
+    "paare": [
+      [
+        "Die Arbeitsunfähigkeit ist dem Arbeitgeber unverzüglich zu melden, und dauert sie länger als drei Kalendertage, ist ärztlich nachzuweisen; der Arbeitgeber kann den Nachweis auch früher verlangen.",
+        "Die Arbeitsunfähigkeit und ihre voraussichtliche Dauer sind dem Arbeitgeber unverzüglich mitzuteilen. Dauert sie länger als drei Kalendertage, ist sie ärztlich nachzuweisen, grundsätzlich spätestens an dem Arbeitstag, der auf den dritten Kalendertag folgt; der Arbeitgeber darf den Nachweis auch früher verlangen. Bei Versicherten einer gesetzlichen Krankenkasse wird die ärztlich festgestellte Arbeitsunfähigkeit elektronisch an die Krankenkasse übermittelt, und der Arbeitgeber ruft die Meldung dort ab (eAU); in der Regel müssen diese Beschäftigten dann keine Papierbescheinigung vorlegen, sie müssen die Arbeitsunfähigkeit aber weiterhin ärztlich feststellen lassen (Ausnahmen gibt es zum Beispiel bei Minijobs in Privathaushalten und bei einer Feststellung außerhalb der vertragsärztlichen Versorgung). Wer nicht gesetzlich versichert ist, legt die Bescheinigung weiterhin selbst vor (§ 5 EntgFG, § 109 SGB IV; Stand Oktober 2026, vor Verwendung prüfen)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "si3/10.1-richtlinien-berechtigungen-verzeichnisdienste.md",
+    "paare": [
+      [
+        "Wer in diesem Bereich unter „ausreichend\" bleibt, kann eine mündliche Ergänzungsprüfung beantragen (§ 25 FIAusbV).",
+        "Wird dieser Bereich schlechter als „ausreichend\" bewertet, ist einem Antrag auf mündliche Ergänzungsprüfung stattzugeben, wenn sie für das Bestehen der Abschlussprüfung den Ausschlag geben kann; sie darf nur in einem einzigen Prüfungsbereich durchgeführt werden, und das bisherige Ergebnis und das der Ergänzungsprüfung werden im Verhältnis 2:1 gewichtet (§ 25 FIAusbV)."
+      ]
+    ]
+  },
+  {
+    "kurs": "fachinformatiker-systemintegration",
+    "datei": "si5/12.3-praesentation-fachgespraech.md",
+    "paare": [
+      [
+        "ist nach § 25 Absatz 2 FIAusbV nur in den Bereichen „Konzeption und Administration von IT-Systemen\", „Analyse und Entwicklung von Netzwerken\" und „Wirtschafts- und Sozialkunde\" möglich — **nicht im Projektbereich**.",
+        "ist nach § 25 Absatz 2 FIAusbV nur in den Bereichen „Konzeption und Administration von IT-Systemen\", „Analyse und Entwicklung von Netzwerken\" und „Wirtschafts- und Sozialkunde\" möglich, und dort nur, wenn der Bereich schlechter als „ausreichend\" bewertet wurde und die Ergänzungsprüfung für das Bestehen den Ausschlag geben kann; sie darf nur in einem einzigen Prüfungsbereich durchgeführt werden. **Im Projektbereich ist sie ausgeschlossen.**"
+      ]
+    ]
+  }
+]

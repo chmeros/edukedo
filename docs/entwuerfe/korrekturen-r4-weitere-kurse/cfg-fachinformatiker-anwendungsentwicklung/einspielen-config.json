@@ -1,0 +1,87 @@
+{
+  "kurs": "fachinformatiker-anwendungsentwicklung",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "ae1/8.3-benutzerschnittstellen-ergonomie.md",
+      "paare": [
+        [
+          "In der klassischen, in der Ausbildung weit verbreiteten Fassung sind es sieben; neuere Fassungen der Norm benennen und gruppieren einzelne Grundsätze teilweise anders, die Grundideen bleiben aber gleich.",
+          "Die folgenden sieben Grundsätze stammen aus der Fassung DIN EN ISO 9241-110:2006 (Titel „Grundsätze der Dialoggestaltung\"). Die Fassung von 2020 trägt den Titel „Interaktionsprinzipien\" und ist überarbeitet; ihre Prinzipien können von dieser Liste abweichen. Welche Fassung gilt, ist vor Verwendung zu prüfen (Stand Oktober 2026)."
+        ],
+        [
+          "nach ISO 9241-110 (klassische Fassung).",
+          "nach ISO 9241-110 (Fassung von 2006)."
+        ]
+      ]
+    },
+    {
+      "datei": "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+      "paare": [
+        [
+          "Wartung kann nach dem Auslöser unterschieden werden:",
+          "Im Betrieb ist „Wartung\" als Sammelbegriff üblich, und der Ausbildungsrahmenplan spricht von „präventiver Wartung\". In der Normung (DIN 31051, DIN EN 13306) ist dagegen **Instandhaltung** der Oberbegriff für Wartung, Inspektion, Instandsetzung und Verbesserung, und das Eingreifen nach einem Fehler entspricht dort der Instandsetzung bzw. der korrektiven Instandhaltung. Normen sind keine Rechtsvorschriften; die Fassung ist vor Verwendung zu prüfen (Stand Oktober 2026). Hier wird „Wartung\" als Sammelbegriff gebraucht und nach dem Auslöser unterschieden:"
+        ]
+      ]
+    },
+    {
+      "datei": "fu6/6.2-datenschutz.md",
+      "paare": [
+        [
+          "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden.",
+          "oder wenn Daten geschäftsmäßig zur Übermittlung oder für Markt- und Meinungsforschung verarbeitet werden (die Schwelle von 20 Personen steht im geltenden Gesetz; eine Aufhebung der Benennungspflicht ist angekündigt, aber nicht beschlossen; Stand Oktober 2026, vor Verwendung prüfen)."
+        ]
+      ]
+    },
+    {
+      "datei": "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+      "paare": [
+        [
+          "Der wesentliche Inhalt muss schriftlich niedergelegt werden. Dazu gehören unter anderem",
+          "Der Vertragsschluss selbst ist an keine Form gebunden; die Ausbildenden müssen aber den wesentlichen Inhalt des Vertrags unverzüglich nach Vertragsschluss, spätestens vor Beginn der Ausbildung, in Textform abfassen, den Auszubildenden aushändigen (bei elektronischer Abfassung so übermitteln, dass sie die Vertragsabfassung speichern und ausdrucken können) und sich den Empfang nachweisen lassen (§ 11 BBiG; Stand Oktober 2026, vor Verwendung prüfen). Zum wesentlichen Inhalt gehören unter anderem"
+        ],
+        [
+          "Bei minderjährigen Auszubildenden unterschreiben auch die gesetzlichen Vertreter.",
+          "Bei minderjährigen Auszubildenden müssen die gesetzlichen Vertreter:innen dem Vertrag zustimmen; auch ihnen ist die Vertragsabfassung auszuhändigen."
+        ],
+        [
+          "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz schriftlich festgehalten werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen.",
+          "aber die wesentlichen Vertragsbedingungen müssen nach dem Nachweisgesetz in einer Niederschrift festgehalten und ausgehändigt werden: Beteiligte, Beginn, Tätigkeit, Arbeitsort, Vergütung, Arbeitszeit, Urlaub, Kündigungsfristen und ein Hinweis auf anwendbare Tarifverträge oder Betriebsvereinbarungen. Die Niederschrift ist grundsätzlich schriftlich zu erstellen und zu unterzeichnen, darf aber in Textform abgefasst und elektronisch übermittelt werden, wenn das Dokument für die Beschäftigten zugänglich ist, gespeichert und ausgedruckt werden kann und der Arbeitgeber zur Empfangsbestätigung auffordert; in den Wirtschaftsbereichen nach § 2a SchwarzArbG bleibt es bei der Schriftform. Je nach Angabe ist die Niederschrift spätestens am ersten Tag der Arbeitsleistung, am siebten Kalendertag oder einen Monat nach dem vereinbarten Beginn auszuhändigen (§ 2 NachwG; Stand Oktober 2026, vor Verwendung prüfen)."
+        ]
+      ]
+    },
+    {
+      "datei": "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+      "paare": [
+        [
+          "In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind grundsätzlich alle Beschäftigten ab 16 Jahren, wählbar sind sie ab 18 Jahren.",
+          "In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind, kann ein **Betriebsrat** gewählt werden; er wird alle vier Jahre von den Beschäftigten neu gewählt. Wahlberechtigt sind alle Beschäftigten ab 16 Jahren; wählbar sind Wahlberechtigte ab 18 Jahren, die dem Betrieb in der Regel seit sechs Monaten angehören (§§ 1, 7 und 8 BetrVG; Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** In Betrieben mit mindestens fünf ständig wahlberechtigten Arbeitnehmern; er wird alle vier Jahre gewählt.",
+          "**Antwort:** In Betrieben mit in der Regel mindestens fünf ständig wahlberechtigten Arbeitnehmer:innen, von denen drei wählbar sind; er wird alle vier Jahre gewählt."
+        ]
+      ]
+    },
+    {
+      "datei": "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md",
+      "paare": [
+        [
+          "Die Arbeitsunfähigkeit ist dem Arbeitgeber unverzüglich zu melden, und dauert sie länger als drei Kalendertage, ist ärztlich nachzuweisen; der Arbeitgeber kann den Nachweis auch früher verlangen.",
+          "Die Arbeitsunfähigkeit und ihre voraussichtliche Dauer sind dem Arbeitgeber unverzüglich mitzuteilen. Dauert sie länger als drei Kalendertage, ist sie ärztlich nachzuweisen, grundsätzlich spätestens an dem Arbeitstag, der auf den dritten Kalendertag folgt; der Arbeitgeber darf den Nachweis auch früher verlangen. Bei Versicherten einer gesetzlichen Krankenkasse wird die ärztlich festgestellte Arbeitsunfähigkeit elektronisch an die Krankenkasse übermittelt, und der Arbeitgeber ruft die Meldung dort ab (eAU); in der Regel müssen diese Beschäftigten dann keine Papierbescheinigung vorlegen, sie müssen die Arbeitsunfähigkeit aber weiterhin ärztlich feststellen lassen (Ausnahmen gibt es zum Beispiel bei Minijobs in Privathaushalten und bei einer Feststellung außerhalb der vertragsärztlichen Versorgung). Wer nicht gesetzlich versichert ist, legt die Bescheinigung weiterhin selbst vor (§ 5 EntgFG, § 109 SGB IV; Stand Oktober 2026, vor Verwendung prüfen)."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "ae1/8.3-benutzerschnittstellen-ergonomie.md",
+    "fu3/3.3-verfuegbarkeit-wartung-stoerungsbeseitigung.md",
+    "fu6/6.2-datenschutz.md",
+    "fu7/7.1-berufsbildung-ausbildungsvertrag-arbeitsrecht.md",
+    "fu7/7.2-betrieb-mitbestimmung-wirtschaftsorganisationen.md",
+    "fu7/7.4-soziale-sicherung-entgeltabrechnung-lernen.md"
+  ]
+}

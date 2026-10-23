@@ -1,0 +1,521 @@
+{
+  "kurs": "fachwirt-gesundheit-soziales",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [],
+  "ergaenzungen": [],
+  "faelle": [],
+  "ersetzungen": [
+    {
+      "datei": "hb1/1.1-rechtliche-rahmenbedingungen.md",
+      "paare": [
+        [
+          "sowie der **Datenschutz** nach der Datenschutz-Grundverordnung (DSGVO) in Verbindung mit den bereichsspezifischen Regelungen zum Sozialdatenschutz (§§ 67 ff. SGB X), da Gesundheitsdaten als besondere Kategorie personenbezogener Daten einem erhöhten Schutzniveau unterliegen.",
+          "sowie der **Datenschutz** nach der Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG); kirchliche Träger haben teils eigene Datenschutzregeln. Gesundheitsdaten sind eine besondere Kategorie personenbezogener Daten und unterliegen einem erhöhten Schutzniveau; die Schweigepflicht von Pflegefachpersonen ist zusätzlich strafrechtlich abgesichert (§ 203 StGB). Die besonderen Regeln zum Sozialdatenschutz (§ 35 SGB I, §§ 67 ff. SGB X) binden vor allem die Leistungsträger wie die Pflegekassen, nicht ohne Weiteres einen privaten Pflegedienst; Daten, die dieser an die Pflegekasse übermittelt, sind dort Sozialdaten (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Antwort:** Weil sie nach der DSGVO als besondere Kategorie personenbezogener Daten gelten; zusätzlich gelten bereichsspezifische Regelungen zum Sozialdatenschutz (§§ 67 ff. SGB X).",
+          "**Antwort:** Weil sie nach der DSGVO als besondere Kategorie personenbezogener Daten gelten; für Pflegefachpersonen kommt die strafrechtlich abgesicherte Schweigepflicht hinzu, und bei den Leistungsträgern wie den Pflegekassen gilt zusätzlich der Sozialdatenschutz."
+        ],
+        [
+          "Hinzu kommt die gesetzliche Verpflichtung zu einem funktionierenden **internen Qualitätsmanagement** (§ 113 SGB XI für die Pflege), das die fachgerechte, an anerkannten Standards ausgerichtete Leistungserbringung sicherstellen soll.",
+          "Hinzu kommt die gesetzliche Verpflichtung zugelassener Pflegeeinrichtungen, Maßnahmen der Qualitätssicherung und ein funktionierendes **internes Qualitätsmanagement** durchzuführen (§ 112 Abs. 2 SGB XI); die Verantwortung für die Qualität ihrer Leistungen bleibt beim Träger der Einrichtung (§ 112 Abs. 1 SGB XI). Die Maßstäbe und Grundsätze für Qualität, Qualitätssicherung und einrichtungsinternes Qualitätsmanagement vereinbaren die Vertragsparteien auf Bundesebene (§ 113 SGB XI). Das Qualitätsmanagement soll die fachgerechte, an anerkannten Standards ausgerichtete Leistungserbringung sicherstellen (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** Was verlangt § 113 SGB XI von Pflegeeinrichtungen?",
+          "**Frage:** Was verlangt das Pflegeversicherungsrecht von zugelassenen Pflegeeinrichtungen in Bezug auf die Qualität?"
+        ],
+        [
+          "**Antwort:** Ein funktionierendes internes Qualitätsmanagement, das eine fachgerechte, an anerkannten Standards ausgerichtete Leistungserbringung sicherstellt.",
+          "**Antwort:** Maßnahmen der Qualitätssicherung und ein funktionierendes internes Qualitätsmanagement, das eine fachgerechte, an anerkannten Standards ausgerichtete Leistungserbringung sicherstellt; die Verantwortung dafür bleibt beim Träger, die genauen Maßstäbe vereinbaren die Vertragsparteien auf Bundesebene."
+        ],
+        [
+          "bis zur Reform 2020 als",
+          "bis zur Reform (Gesetz von 2019, seit 2020 in Kraft, bis 2022 schrittweise umgesetzt; seither eigenständige Körperschaften des öffentlichen Rechts in den Ländern) als"
+        ],
+        [
+          "**Frage:** Wie hieß der Medizinische Dienst vor der Reform 2020?",
+          "**Frage:** Wie hieß der Medizinische Dienst vor der Reform, die ab 2020 galt und bis 2022 schrittweise umgesetzt wurde?"
+        ],
+        [
+          "**Aussage:** Der Medizinische Dienst (MD) hieß vor der Reform 2020",
+          "**Aussage:** Der Medizinische Dienst (MD) hieß vor der Reform ab 2020 (bis 2022 schrittweise umgesetzt)"
+        ],
+        [
+          "**Erklärung:** Die Umbenennung erfolgte im Rahmen der MDK-Reform 2020.",
+          "**Erklärung:** Die Umbenennung erfolgte im Rahmen der MDK-Reform, deren Gesetz seit 2020 gilt: Die Landesdienste wurden bis Mitte 2021 zu eigenständigen Körperschaften des öffentlichen Rechts mit dem Namen Medizinischer Dienst; die Umstellung insgesamt war 2022 abgeschlossen."
+        ],
+        [
+          "Insolvenzgründe sind wie im allgemeinen Insolvenzrecht die **Zahlungsunfähigkeit** und die **Überschuldung**; bei juristischen Personen wie der gGmbH besteht bei Vorliegen eines dieser Gründe eine gesetzliche **Insolvenzantragspflicht** der Geschäftsführung.",
+          "Eröffnungsgründe sind wie im allgemeinen Insolvenzrecht die **Zahlungsunfähigkeit**, bei juristischen Personen wie der gGmbH auch die **Überschuldung** und, nur bei einem Eigenantrag der Schuldnerin oder des Schuldners, die **drohende Zahlungsunfähigkeit** (§§ 17 bis 19 InsO). Bei Zahlungsunfähigkeit oder Überschuldung besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche **Insolvenzantragspflicht** (§ 15a InsO: Antrag ohne schuldhaftes Zögern, spätestens drei Wochen nach Eintritt der Zahlungsunfähigkeit und sechs Wochen nach Eintritt der Überschuldung); die drohende Zahlungsunfähigkeit löst keine Antragspflicht aus; für Vereine und Stiftungen gilt eine eigene Regel im Bürgerlichen Gesetzbuch (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "**Frage:** Welche zwei Insolvenzgründe kennt das allgemeine Insolvenzrecht?",
+          "**Frage:** Welche Eröffnungsgründe kennt das allgemeine Insolvenzrecht?"
+        ],
+        [
+          "**Antwort:** Zahlungsunfähigkeit und Überschuldung.",
+          "**Antwort:** Zahlungsunfähigkeit, bei juristischen Personen auch Überschuldung und bei einem Eigenantrag (Antrag der Schuldnerin bzw. des Schuldners selbst) die drohende Zahlungsunfähigkeit."
+        ],
+        [
+          "während die Insolvenz durch Zahlungsunfähigkeit/Überschuldung ausgelöst wird.",
+          "während die Insolvenz durch einen Eröffnungsgrund ausgelöst wird (Zahlungsunfähigkeit, Überschuldung oder bei einem Eigenantrag die drohende Zahlungsunfähigkeit)."
+        ],
+        [
+          "**Erklärung:** Beides sind eigenständige Insolvenzgründe; bereits einer davon löst die Antragspflicht aus.",
+          "**Erklärung:** Beides sind eigenständige Gründe; bereits einer davon löst die Antragspflicht aus. Die drohende Zahlungsunfähigkeit ist nur bei einem Eigenantrag ein Eröffnungsgrund und löst keine Antragspflicht aus."
+        ],
+        [
+          "Außerdem begutachtet der MD im Einzelfall im Auftrag der Pflegekassen die Pflegebedürftigkeit von Antragstellenden zur Einstufung in einen Pflegegrad (§ 18 SGB XI).",
+          "Außerdem begutachtet der MD im Einzelfall im Auftrag der Pflegekassen die Pflegebedürftigkeit von Antragstellenden zur Einstufung in einen Pflegegrad (§ 18 SGB XI); die Pflegekassen können dafür auch andere unabhängige Gutachter:innen beauftragen."
+        ],
+        [
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)\"",
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7); Rechtsgrundlagen als Stützangabe: SGB XI, SGB I, SGB X, InsO, StGB, BDSG, DSGVO\""
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/1.3-aufbau-ablauforganisation.md",
+      "paare": [
+        [
+          "über die Erstbegutachtung, die Tourenplanung",
+          "über den Erstbesuch mit Pflegeassessment (die Begutachtung der Pflegebedürftigkeit zum Pflegegrad veranlasst die Pflegekasse beim Medizinischen Dienst oder bei anderen unabhängigen Gutachter:innen), die Tourenplanung"
+        ],
+        [
+          "2. Erstbegutachtung und Erstellung der Pflegeplanung",
+          "2. Erstbesuch mit Pflegeassessment und Erstellung der Pflegeplanung"
+        ],
+        [
+          "dann fachlich begutachtet und geplant",
+          "dann beim Erstbesuch fachlich eingeschätzt (Pflegeassessment) und geplant"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fachgespraech.md",
+      "paare": [
+        [
+          "Insolvenzgründe sind wie im allgemeinen Insolvenzrecht die Zahlungsunfähigkeit und die Überschuldung.",
+          "Eröffnungsgründe sind wie im allgemeinen Insolvenzrecht die Zahlungsunfähigkeit, bei juristischen Personen auch die Überschuldung und bei einem Eigenantrag der Schuldnerin oder des Schuldners die drohende Zahlungsunfähigkeit."
+        ],
+        [
+          "Bei Vorliegen eines dieser Gründe besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche Insolvenzantragspflicht.",
+          "Bei Zahlungsunfähigkeit oder Überschuldung besteht für die Geschäftsführung einer juristischen Person wie der gGmbH eine gesetzliche Insolvenzantragspflicht; die drohende Zahlungsunfähigkeit löst sie nicht aus."
+        ],
+        [
+          "über Erstbegutachtung, Tourenplanung",
+          "über Erstbesuch mit Pflegeassessment, Tourenplanung"
+        ]
+      ]
+    },
+    {
+      "datei": "hb1/fallaufgaben.md",
+      "paare": [
+        [
+          "Zudem steht in den kommenden Wochen eine reguläre Qualitätsprüfung durch den Medizinischen Dienst an. Die Geschäftsführung bittet Sie, die Organisation vor der Prüfung zu durchleuchten und Verbesserungsvorschläge zu erarbeiten.",
+          "Zudem liegt die letzte Regelprüfung durch den Medizinischen Dienst fast ein Jahr zurück, sodass die nächste Prüfung jederzeit bevorstehen kann; Prüfungen werden grundsätzlich nur zwei Arbeitstage vorher angekündigt. Die Geschäftsführung bittet Sie, die Organisation jetzt, noch vor einer Ankündigung, zu durchleuchten und Verbesserungsvorschläge zu erarbeiten."
+        ],
+        [
+          "Erläutern Sie, worauf sich die anstehende Qualitätsprüfung durch den Medizinischen Dienst typischerweise bezieht",
+          "Erläutern Sie, worauf sich eine Qualitätsprüfung durch den Medizinischen Dienst bei einem ambulanten Dienst typischerweise bezieht"
+        ],
+        [
+          "Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI; klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation.",
+          "Teilaufgabe 4: Prüfung bezieht sich u. a. auf Pflegequalität und Dokumentation nach § 114 SGB XI, bei einem ambulanten Dienst einschließlich der ärztlich verordneten Behandlungspflege und der Abrechnung; Prüfungen sind grundsätzlich zwei Arbeitstage vorher anzukündigen, Anlassprüfungen sollen unangemeldet erfolgen, und in der Wohnung darf die Qualität nur mit Einwilligung der versorgten Person geprüft werden (§ 114a SGB XI; Stand Oktober 2026, vor Verwendung prüfen). Klare Zuständigkeiten und Abläufe erleichtern lückenlose, nachvollziehbare Dokumentation."
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/3.2-teamarbeit.md",
+      "paare": [
+        [
+          "**Pflegefachkräfte** übernehmen die fachlich anspruchsvolle Pflege einschließlich Behandlungspflege (z. B. Medikamentengabe, Wundversorgung) und die Pflegeplanung. **Pflegehilfskräfte** unterstützen bei der Grundpflege — etwa Körperpflege, Mobilisation, hauswirtschaftliche Unterstützung — unter Anleitung einer Pflegefachkraft.",
+          "**Pflegefachkräfte** übernehmen die fachlich anspruchsvolle Pflege und die Pflegeplanung; die Erhebung des individuellen Pflegebedarfs, die Planung, Organisation und Steuerung des Pflegeprozesses und die Sicherung der Pflegequalität sind Personen mit einer Erlaubnis zum Führen der Berufsbezeichnung nach dem Pflegeberufegesetz vorbehalten (§ 4 PflBG). Zur **Behandlungspflege** (z. B. Medikamentengabe, Wundversorgung) gehören ärztlich verordnete Maßnahmen, die in der häuslichen Krankenpflege durch geeignete Pflegekräfte erbracht werden (§ 37 SGB V). Welche einzelnen Maßnahmen der Behandlungspflege an entsprechend qualifizierte Pflegehilfskräfte delegiert werden dürfen, richtet sich nach der ärztlichen Verordnung, den Richtlinien und den Verträgen vor Ort (je nach Land unterschiedlich); die Pflegefachkraft bleibt für Auswahl, Anleitung und Kontrolle verantwortlich (Stand Oktober 2026, vor Verwendung prüfen). **Pflegehilfskräfte** unterstützen bei der Grundpflege — etwa Körperpflege, Mobilisation, hauswirtschaftliche Unterstützung — unter Anleitung einer Pflegefachkraft und übernehmen delegierte Maßnahmen nur mit entsprechender Qualifikation."
+        ],
+        [
+          "Ihre Aufgaben sind klar von pflegerischen und insbesondere von behandlungspflegerischen Tätigkeiten abzugrenzen, die ausgebildeten Fachkräften vorbehalten bleiben.",
+          "Ihre Aufgaben sind klar von pflegerischen und insbesondere von behandlungspflegerischen Tätigkeiten abzugrenzen: Behandlungspflege ist ärztlich verordnet und wird von dafür qualifizierten Pflegekräften erbracht, nicht von Ehrenamtlichen."
+        ],
+        [
+          "**Antwort:** Von Behandlungspflege und anderen fachpflegerischen Tätigkeiten, die ausgebildeten Fachkräften vorbehalten sind.",
+          "**Antwort:** Von Behandlungspflege und anderen pflegerischen Tätigkeiten, die qualifizierte Pflegekräfte übernehmen; Behandlungspflege ist ärztlich verordnet."
+        ],
+        [
+          "- Pflegefachkraft ↔ Behandlungspflege und Pflegeplanung",
+          "- Pflegefachkraft ↔ Pflegeplanung und Verantwortung für die Behandlungspflege"
+        ],
+        [
+          "**Erklärung:** Behandlungspflege ist ausgebildeten Fachkräften vorbehalten; Ehrenamtliche übernehmen begleitende, nicht-pflegerische Aufgaben.",
+          "**Erklärung:** Behandlungspflege ist ärztlich verordnet und wird von dafür qualifizierten Pflegekräften erbracht; Ehrenamtliche übernehmen begleitende, nicht-pflegerische Aufgaben."
+        ],
+        [
+          "**Frage:** Welche Aufgabe gehört NICHT zum typischen Aufgabenbereich der Pflegefachkraft?",
+          "**Frage:** Welche Aufgabe gehört NICHT zum typischen Aufgabenbereich der Pflegefachkraft in der pflegerischen Versorgung?"
+        ],
+        [
+          "- [ ] Pflegeplanung erstellen",
+          "- [ ] Pflegebedarf erheben und Pflegeplanung erstellen"
+        ],
+        [
+          "- [ ] Pflegevisite durchführen",
+          "- [ ] Pflegehilfskräfte bei delegierten Aufgaben anleiten"
+        ],
+        [
+          "**Erklärung:** Tourenplanung und Dienstplangestaltung gehören zu den Aufgaben von Verwaltung/Pflegedienstleitung, nicht der Pflegefachkraft.",
+          "**Erklärung:** Tourenplanung und Dienstplangestaltung sind Organisationsaufgaben von Verwaltung und Pflegedienstleitung, nicht Teil der pflegerischen Versorgung durch die Pflegefachkraft; Behandlungspflege, Pflegebedarfserhebung, Pflegeplanung und die Anleitung der Pflegehilfskräfte gehören dagegen dazu."
+        ],
+        [
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)\"",
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7); Rechtsgrundlagen als Stützangabe: PflBG, SGB V\""
+        ]
+      ]
+    },
+    {
+      "datei": "hb3/fachgespraech.md",
+      "paare": [
+        [
+          "Erwartung: Pflegefachkräfte übernehmen die fachlich anspruchsvolle Pflege einschließlich Behandlungspflege, z. B. Medikamentengabe und Wundversorgung.",
+          "Erwartung: Pflegefachkräfte übernehmen die fachlich anspruchsvolle Pflege, auch die ärztlich verordnete Behandlungspflege, z. B. Medikamentengabe und Wundversorgung."
+        ],
+        [
+          "Pflegefachkräfte übernehmen außerdem die Pflegeplanung.",
+          "Pflegefachkräfte übernehmen außerdem die Pflegeplanung; die Erhebung des Pflegebedarfs, die Steuerung des Pflegeprozesses und die Sicherung der Pflegequalität sind Personen mit einer Erlaubnis zum Führen der Berufsbezeichnung nach dem Pflegeberufegesetz vorbehalten."
+        ],
+        [
+          "Pflegehilfskräfte arbeiten dabei unter Anleitung einer Pflegefachkraft.",
+          "Pflegehilfskräfte arbeiten dabei unter Anleitung einer Pflegefachkraft; ob und welche einzelnen Maßnahmen der Behandlungspflege an qualifizierte Pflegehilfskräfte delegiert werden dürfen, richtet sich nach Verordnung, Richtlinien und Verträgen, und die Pflegefachkraft bleibt für Auswahl, Anleitung und Kontrolle verantwortlich (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "Ihre Aufgaben sind klar von pflegerischen und insbesondere behandlungspflegerischen Tätigkeiten abzugrenzen, die ausgebildeten Fachkräften vorbehalten bleiben.",
+          "Ihre Aufgaben sind klar von pflegerischen und insbesondere behandlungspflegerischen Tätigkeiten abzugrenzen; Behandlungspflege ist ärztlich verordnet und wird von dafür qualifizierten Pflegekräften erbracht."
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/6.3-marketingkonzepte-wettbewerbsrecht.md",
+      "paare": [
+        [
+          "Auch wenn das HWG primär auf Arzneimittel und krankheitsbezogene Behandlungen zielt und ein Pflegedienst wie \"Morgenlicht\" nicht in jedem Fall direkt davon betroffen ist, orientiert sich der branchenübliche Werbestandard im Gesundheits- und Sozialwesen erkennbar an diesem strengeren Maßstab.",
+          "Ob das HWG für die Werbung eines Pflegedienstes wie „Morgenlicht“ gilt, hängt davon ab, ob sich die einzelne Werbeaussage auf die in § 1 HWG genannten Gegenstände bezieht und einen Krankheitsbezug hat (etwa bei Heilungs- oder Linderungsversprechen); das ist im Einzelfall zu prüfen, ein Pflegedienst ist nicht in jedem Fall direkt betroffen. Ein „branchenüblicher Standard“ ist keine Rechtsregel; bei Aussagen mit Krankheitsbezug ist trotzdem besondere Vorsicht geboten (Stand Oktober 2026, vor Verwendung prüfen)."
+        ],
+        [
+          "Sowohl aus rechtlichen Gründen (UWG, branchenüblicher Standard nahe am HWG, Berufsordnungen) als auch aus ethischen Gründen",
+          "Sowohl aus rechtlichen Gründen (UWG; je nach Aussage das HWG; Berufsordnungen, soweit sie gelten) als auch aus ethischen Gründen"
+        ],
+        [
+          "**Frage:** Warum ist ein Pflegedienst nicht in jedem Fall direkt vom HWG betroffen, orientiert sich aber trotzdem häufig an dessen Maßstäben?",
+          "**Frage:** Wann ist ein Pflegedienst mit seiner Werbung vom HWG betroffen und wann nicht?"
+        ],
+        [
+          "**Antwort:** Das HWG zielt primär auf Arzneimittel, Medizinprodukte und krankheitsbezogene Behandlungen, doch der branchenübliche Werbestandard im Gesundheits-/Sozialwesen orientiert sich erkennbar an diesem strengeren Maßstab.",
+          "**Antwort:** Das HWG erfasst nur Werbung für Arzneimittel, Medizinprodukte und andere Mittel, Verfahren und Behandlungen mit Krankheitsbezug; ob eine Aussage eines Pflegedienstes darunter fällt, ist im Einzelfall zu prüfen. Ohne diesen Bezug gilt das allgemeine Wettbewerbsrecht (UWG); ein „branchenüblicher Standard“ ist keine Rechtsregel."
+        ],
+        [
+          "**Antwort:** Sie bilden gemeinsam ein mehrstufiges System branchenspezifischer und allgemeiner Werbe-Schranken, das die zulässige Marketingkommunikation eng eingrenzt.",
+          "**Antwort:** Es sind unterschiedliche Regelwerke mit unterschiedlichem Geltungsbereich: Das UWG gilt für alle, das HWG nur bei Werbeaussagen mit Krankheitsbezug, Berufsordnungen nur für Berufsgruppen, für die sie bestehen; zusammen können sie die zulässige Marketingkommunikation eingrenzen."
+        ],
+        [
+          "verstößt gegen UWG- und HWG-nahe Grundsätze (Irreführung, § 5 UWG und § 3 HWG; nicht belegbare Spitzenstellungsbehauptung).",
+          "verstößt gegen das Irreführungsverbot des UWG (§ 5 UWG; nicht belegbare Spitzenstellungsbehauptung) und kann wegen des Krankheitsbezugs („schnellere Genesung“) zusätzlich unter das HWG fallen (§ 3 HWG)."
+        ],
+        [
+          "- [x] Heilmittelwerbegesetz (als branchenüblicher Orientierungsmaßstab).",
+          "- [x] Heilmittelwerbegesetz (bei Werbeaussagen mit Krankheitsbezug)."
+        ],
+        [
+          "**Erklärung:** UWG, HWG-naher Standard und berufsständische Werbe-Schranken bilden gemeinsam den rechtlichen Rahmen für Werbung im Gesundheits-/Sozialwesen.",
+          "**Erklärung:** Das UWG gilt für alle; das HWG greift nur bei Werbeaussagen mit Krankheitsbezug; berufsständische Werbe-Schranken gelten nur für Berufsgruppen mit Berufsordnung. Das Baugesetzbuch regelt nicht, was Werbeaussagen über Pflegeleistungen enthalten dürfen."
+        ],
+        [
+          "- [ ] Das Baugesetzbuch.",
+          "- [ ] Das Baugesetzbuch mit seinen Regeln zur Bauleitplanung."
+        ],
+        [
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7)\"",
+          "Rahmenplan oder Lehrbüchern (siehe Anforderungskatalog Abschnitt 7); Rechtsgrundlagen als Stützangabe: UWG, HWG\""
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/fallaufgaben.md",
+      "paare": [
+        [
+          "den branchenüblichen HWG-nahen Standard",
+          "das HWG, soweit die Werbeaussagen einen Krankheitsbezug haben,"
+        ]
+      ]
+    },
+    {
+      "datei": "hb6/fachgespraech.md",
+      "paare": [
+        [
+          "Der branchenübliche Werbestandard im Gesundheits- und Sozialwesen orientiert sich dennoch erkennbar an diesem strengeren Maßstab.",
+          "Ob das HWG für einen Pflegedienst gilt, hängt vom Krankheitsbezug der einzelnen Werbeaussage ab und ist im Einzelfall zu prüfen; ein „branchenüblicher Standard“ ist keine Rechtsregel."
+        ],
+        [
+          "Werbeaussagen stützen sich daher auf nachweisbare, sachliche Informationen wie Leistungsumfang",
+          "Werbeaussagen stützen sich ohnehin auf nachweisbare, sachliche Informationen wie Leistungsumfang"
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.1-rechnungswesen-jahresabschluss.md",
+      "paare": [
+        [
+          "erkennbare Wertminderungen oder ungewisse Verpflichtungen (z. B. drohende Prozesskosten) werden über **Rückstellungen** abgebildet.",
+          "eine voraussichtlich dauernde Wertminderung eines Gegenstands des Anlagevermögens führt zu einer **außerplanmäßigen Abschreibung** auf den niedrigeren Wert, der dem Gegenstand am Abschlussstichtag beizulegen ist; bei Gegenständen des Umlaufvermögens ist auf den niedrigeren Börsen- oder Marktpreis bzw. beizulegenden Wert abzuschreiben (§ 253 Abs. 3 und 4 HGB). Ungewisse Verbindlichkeiten (z. B. drohende Prozesskosten) und drohende Verluste aus schwebenden Geschäften werden dagegen über **Rückstellungen** abgebildet (§ 249 Abs. 1 HGB); Rückstellungen betreffen also Schulden, nicht den Wert von Vermögensgegenständen. Stand Oktober 2026, vor Verwendung prüfen."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/4.4-controlling-kennzahlen.md",
+      "paare": [
+        [
+          "(Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal, häufig durch aufsichtsrechtliche Vorgaben mit einer Mindesthöhe versehen)",
+          "(Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal; eine Mindestquote kann sich je nach Einrichtungsart aus Landesrecht und Rahmenverträgen ergeben)"
+        ],
+        [
+          "(Entwicklung über mehrere Monate) und im Soll-Ist-Vergleich.",
+          "(Entwicklung über mehrere Monate) sowie im Soll-Ist-Vergleich. Ob für einen Pflegedienst eine Mindestquote an Fachkräften gilt und wie hoch sie ist, hängt von der Einrichtungsart, vom Landesrecht und von den Rahmenverträgen ab. Ein ambulanter Pflegedienst im Sinne des SGB XI setzt voraus, dass er unter der ständigen Verantwortung einer ausgebildeten Pflegefachperson steht (§ 71 Abs. 1 SGB XI). Soweit die Rahmenverträge Personalrichtwerte vorsehen, umfassen diese bei teil- und vollstationärer Pflege auch den Anteil der ausgebildeten Fachkräfte (§ 75 Abs. 3 SGB XI; für die vollstationäre Pflege ergänzend § 113c Abs. 5 SGB XI). Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "**Frage:** Nenne eine Kennzahl, mit der ein Pflegedienst prüfen kann, ob er die aufsichtsrechtlich geforderte Mindesthöhe an examiniertem Pflegepersonal einhält.",
+          "**Frage:** Nenne die Kennzahl, die den Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal eines Pflegedienstes angibt."
+        ],
+        [
+          "**Akzeptierte Antworten:** Fachkraftquote",
+          "**Akzeptierte Antworten:** Fachkräftequote; Fachkraftquote; Fachkraft-Quote; Pflegefachkraftquote; Fachkraftquote in Prozent"
+        ],
+        [
+          "**Erklärung:** Die Fachkraftquote gibt den Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal an.",
+          "**Erklärung:** Die Fachkraftquote ist der Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal. Ob für einen Pflegedienst eine Mindestquote gilt und wie hoch sie ist, hängt von Einrichtungsart, Landesrecht und Rahmenvertrag ab; die Kennzahl selbst ist eine Steuerungsgröße."
+        ]
+      ]
+    },
+    {
+      "datei": "hb4/fachgespraech.md",
+      "paare": [
+        [
+          "  - Erwartung: Die Fachkraftquote ist der Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal.",
+          "  - Erwartung: Die Fachkraftquote ist der Anteil examinierter Pflegefachkräfte am gesamten Pflegepersonal; ob für den Dienst eine Mindestquote gilt, hängt von Einrichtungsart, Landesrecht und Rahmenvertrag ab."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.1-personalplanung-auswahl.md",
+      "paare": [
+        [
+          "Bei stationären Einrichtungen kommt häufig zusätzlich ein **Personalbemessungsinstrument** zum Einsatz, das den Pflegeaufwand nach Pflegegraden gewichtet.",
+          "Für vollstationäre Pflegeeinrichtungen gibt es zusätzlich ein gesetzliches **Personalbemessungsverfahren**: Es legt Personalanhaltswerte (Vollzeitäquivalente je pflegebedürftiger Person) je Pflegegrad fest und trennt sie nach drei Qualifikationsniveaus (Hilfskraftpersonal ohne Ausbildung, Hilfskraftpersonal mit mindestens einjähriger landesrechtlich geregelter Helfer- oder Assistenzausbildung, Fachkraftpersonal). In den Pflegesatzvereinbarungen kann dann grundsätzlich höchstens die sich daraus ergebende Personalausstattung vereinbart werden, mit gesetzlich geregelten Ausnahmen (§ 113c SGB XI). Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "Existiert eine Mitarbeitervertretung (Betriebs- oder Personalrat bzw. bei kirchlichen Trägern die Mitarbeitervertretung nach MVG), hat diese nach dem Betriebsverfassungsgesetz (BetrVG) bzw. dem jeweils einschlägigen Mitbestimmungsrecht sowohl Unterrichtungsrechte zur Personalplanung als auch ein echtes Mitbestimmungsrecht bei einzelnen personellen Maßnahmen wie Einstellungen.",
+          "Existiert eine Arbeitnehmervertretung, richten sich ihre Rechte nach dem jeweils geltenden Beteiligungsrecht: beim Betriebsrat nach dem Betriebsverfassungsgesetz (BetrVG), im öffentlichen Dienst nach dem Personalvertretungsrecht (Personalrat), bei kirchlichen Trägern nach dem kirchlichen Mitarbeitervertretungsrecht. Nach dem BetrVG hat der Betriebsrat Unterrichtungs- und Beratungsrechte bei der Personalplanung (§ 92 BetrVG) und bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmer:innen ein Zustimmungsverweigerungsrecht (§ 99 BetrVG); die anderen Regelwerke sind eigenständig ausgestaltet. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "Auch bei der Einstellung selbst hat eine bestehende Mitarbeitervertretung in der Regel ein Mitbestimmungsrecht, sodass \"Morgenlicht\" die geplante Einstellung rechtzeitig und umfassend vorlegen muss.",
+          "Auch bei der Einstellung selbst ist ein bestehender Betriebsrat zu beteiligen: In Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmer:innen muss der Arbeitgeber ihn vor jeder Einstellung unterrichten und seine Zustimmung einholen (§ 99 BetrVG), sodass „Morgenlicht“ die geplante Einstellung rechtzeitig und umfassend vorlegen muss; im öffentlichen Dienst und bei kirchlichen Trägern gelten eigene Regeln. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "**Frage:** Welche Mitwirkungsrechte hat eine Mitarbeitervertretung typischerweise bei Einstellungen?",
+          "**Frage:** Welche Mitwirkungsrechte hat ein Betriebsrat typischerweise bei Einstellungen?"
+        ],
+        [
+          "**Antwort:** Unterrichtungsrechte zur Personalplanung sowie ein echtes Mitbestimmungsrecht bei der einzelnen personellen Maßnahme \"Einstellung\".",
+          "**Antwort:** Unterrichtungs- und Beratungsrechte bei der Personalplanung sowie bei der einzelnen Einstellung ein Mitbestimmungsrecht in Form der Zustimmung, in der Regel erst in Unternehmen ab einer bestimmten Größe; im öffentlichen Dienst und bei kirchlichen Trägern gelten eigene Regeln."
+        ],
+        [
+          "**Antwort:** Ein Instrument, das den Pflegeaufwand nach Pflegegraden gewichtet und daraus den erforderlichen Personalschlüssel ableitet.",
+          "**Antwort:** Ein Verfahren, das den Personalbedarf aus der Zahl der Bewohner:innen je Pflegegrad ableitet und nach Qualifikationsniveaus aufteilt (Hilfskraft ohne Ausbildung, Hilfskraft mit Assistenzausbildung, Fachkraft); für die vollstationäre Pflege gibt es dazu gesetzliche Personalanhaltswerte."
+        ],
+        [
+          "- [x] Eine bestehende Mitarbeitervertretung hat bei Einstellungen in der Regel ein Mitbestimmungsrecht.",
+          "- [x] Ein bestehender Betriebsrat darf bei Einstellungen in der Regel mitbestimmen."
+        ],
+        [
+          "- [ ] Mitbestimmung gilt nur bei Kündigungen, nicht bei Einstellungen.",
+          "- [ ] Mitbestimmung gilt nur bei Kündigungen, nicht bei Einstellungen oder Versetzungen."
+        ],
+        [
+          "- [ ] Eine Mitarbeitervertretung darf über Personalplanung generell nicht informiert werden.",
+          "- [ ] Ein Betriebsrat darf über die Personalplanung generell nicht informiert werden."
+        ],
+        [
+          "- [ ] Mitbestimmungsrechte bestehen ausschließlich bei stationären Einrichtungen.",
+          "- [ ] Mitbestimmungsrechte bestehen ausschließlich bei stationären Einrichtungen und Kliniken."
+        ],
+        [
+          "**Erklärung:** Die Mitarbeitervertretung hat sowohl Unterrichtungsrechte zur Planung als auch ein Mitbestimmungsrecht bei der einzelnen Einstellung.",
+          "**Erklärung:** Der Betriebsrat hat sowohl Unterrichtungs- und Beratungsrechte bei der Planung als auch bei der einzelnen Einstellung ein Mitbestimmungsrecht; es greift in der Regel erst ab einer bestimmten Unternehmensgröße. Im öffentlichen Dienst und bei kirchlichen Trägern gelten eigene Regeln."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.4-personalentwicklung.md",
+      "paare": [
+        [
+          "von leistungsbezogenen Bestandteilen wie **Zulagen** (z. B. Wechselschicht-, Nacht- oder Erschwerniszulagen für besonders belastende Einsatzzeiten) und gelegentlichen **Prämien** für besondere Leistungen.",
+          "von **Zulagen**, die besondere Belastungen oder ungünstige Arbeitszeiten ausgleichen (z. B. Wechselschicht-, Nacht- oder Erschwerniszulagen für besonders belastende Einsatzzeiten; sie vergüten die Belastung und sind keine Leistungsvergütung), und von leistungsbezogenen Bestandteilen wie gelegentlichen **Prämien** für besondere Leistungen. Für Nachtarbeit sieht das Arbeitszeitgesetz, soweit kein Tarifvertrag einen Ausgleich regelt, bezahlte freie Tage oder einen angemessenen Zuschlag vor (§ 6 Abs. 5 ArbZG). Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "- [x] Zulagen wie Wechselschicht- oder Nachtzulage vergüten besonders belastende Einsatzzeiten zusätzlich zum Grundgehalt.",
+          "- [x] Wechselschicht- und Nachtzulagen gleichen besonders belastende Einsatzzeiten aus."
+        ],
+        [
+          "- [ ] Zulagen ersetzen grundsätzlich den Zeitlohn.",
+          "- [ ] Zulagen ersetzen im Pflegebereich grundsätzlich den Zeitlohn als Grundvergütung."
+        ],
+        [
+          "- [ ] Zulagen sind im Pflegebereich gesetzlich verboten.",
+          "- [ ] Zulagen sind im Pflegebereich gesetzlich verboten, weil sie die Versorgung gefährden könnten."
+        ],
+        [
+          "- [ ] Zulagen werden ausschließlich leistungsunabhängig nach Betriebszugehörigkeit gezahlt.",
+          "- [ ] Zulagen werden ausschließlich nach der Dauer der Betriebszugehörigkeit gezahlt, nicht nach Einsatzzeit."
+        ],
+        [
+          "**Erklärung:** Zulagen ergänzen den Zeitlohn und honorieren besonders belastende Arbeitszeiten wie Nacht- oder Wechselschichtdienste.",
+          "**Erklärung:** Zulagen ergänzen den Zeitlohn und gleichen besonders belastende Arbeitszeiten wie Nacht- oder Wechselschichtdienste aus. Sie sind keine Leistungsvergütung; leistungsbezogen sind z. B. Prämien."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/5.5-arbeitsrecht.md",
+      "paare": [
+        [
+          "Existiert eine Mitarbeitervertretung, ist diese vor jeder Kündigung anzuhören; eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.",
+          "Existiert ein Betriebsrat, ist er vor jeder Kündigung zu hören, und der Arbeitgeber hat ihm die Gründe der Kündigung mitzuteilen; eine ohne Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam (§ 102 Abs. 1 BetrVG). Das gilt auch für eine Kündigung in der Probezeit. Im öffentlichen Dienst gelten die Beteiligungsregeln des jeweiligen Personalvertretungsrechts (für Dienststellen des Bundes etwa Mitwirkung bei der ordentlichen und Anhörung bei der außerordentlichen Kündigung, §§ 85 und 86 BPersVG), bei kirchlichen Trägern das kirchliche Mitarbeitervertretungsrecht mit eigenen Regeln; es ist nicht mit dem Betriebsrat gleichzusetzen. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "schützt minderjährige Auszubildende, etwa durch begrenzte tägliche und wöchentliche Höchstarbeitszeiten, ein grundsätzliches Verbot von Nachtarbeit (mit engen branchenspezifischen Ausnahmen, z. B. im Rahmen bestimmter Ausbildungsberufe unter besonderen Voraussetzungen) sowie zusätzliche Ruhepausen- und Urlaubsansprüche.",
+          "gilt für die Beschäftigung von Personen unter 18 Jahren, nicht nur für Auszubildende, sondern auch etwa als Arbeitnehmer:innen (§ 1 Abs. 1 JArbSchG). Es schützt sie unter anderem durch begrenzte Arbeitszeiten (grundsätzlich höchstens acht Stunden täglich und 40 Stunden wöchentlich, § 8 JArbSchG), vorgeschriebene Ruhepausen (§ 11 JArbSchG), zusätzliche Urlaubsansprüche (§ 19 JArbSchG) und die Nachtruhe: Jugendliche dürfen grundsätzlich nur zwischen 6 und 20 Uhr beschäftigt werden (§ 14 Abs. 1 JArbSchG). Die Ausnahmen sind im Gesetz einzeln aufgezählt, etwa für Jugendliche über 16 Jahre in mehrschichtigen Betrieben bis 23 Uhr (§ 14 Abs. 2 Nr. 2 JArbSchG) und für unaufschiebbare Arbeiten in Notfällen, wenn erwachsene Beschäftigte nicht zur Verfügung stehen (§ 21 JArbSchG). Eine eigene Ausnahme für die Pflege enthält die Vorschrift zur Nachtruhe nicht; ein Einsatz im Spät- oder Nachtdienst ist deshalb im Einzelfall am Gesetz zu prüfen. Stand Oktober 2026, vor Verwendung prüfen."
+        ],
+        [
+          "**Frage:** Was passiert, wenn eine Kündigung ohne vorherige Anhörung der Mitarbeitervertretung ausgesprochen wird?",
+          "**Frage:** Was passiert, wenn eine Kündigung ohne vorherige Anhörung des Betriebsrats ausgesprochen wird?"
+        ],
+        [
+          "**Antwort:** Die Kündigung ist unwirksam.",
+          "**Antwort:** Die Kündigung ist unwirksam, wenn ein Betriebsrat besteht, denn er ist vor jeder Kündigung zu hören. Für Personalräte und kirchliche Mitarbeitervertretungen gelten eigene Regeln."
+        ],
+        [
+          "**Antwort:** Den Schutz minderjähriger Auszubildender, u. a. durch begrenzte Höchstarbeitszeiten, ein grundsätzliches Nachtarbeitsverbot sowie zusätzliche Ruhepausen- und Urlaubsansprüche.",
+          "**Antwort:** Den Schutz von Personen unter 18 Jahren in Ausbildung und Beschäftigung, u. a. durch begrenzte Höchstarbeitszeiten, die Nachtruhe (Jugendliche von 15 bis 17 Jahren grundsätzlich nur zwischen 6 und 20 Uhr beschäftigt) sowie Ruhepausen- und Urlaubsansprüche."
+        ],
+        [
+          "**Aussage:** Eine Kündigung, die ohne vorherige Anhörung einer bestehenden Mitarbeitervertretung ausgesprochen wird, ist wirksam.",
+          "**Aussage:** Eine Kündigung, die ohne vorherige Anhörung eines bestehenden Betriebsrats ausgesprochen wird, ist wirksam."
+        ],
+        [
+          "**Erklärung:** Eine solche Kündigung ist unwirksam, da die Anhörung der Mitarbeitervertretung zwingend vorgeschrieben ist.",
+          "**Erklärung:** Eine solche Kündigung ist unwirksam, denn der Betriebsrat ist vor jeder Kündigung zu hören. Für Personalräte und kirchliche Mitarbeitervertretungen gelten eigene Regeln."
+        ],
+        [
+          "- Jugendarbeitsschutzgesetz ↔ Schutz minderjähriger Auszubildender",
+          "- Jugendarbeitsschutzgesetz ↔ Schutz beschäftigter Personen unter 18 Jahren"
+        ],
+        [
+          "**Anweisung:** Bringe die folgenden Phasen eines Arbeitsverhältnisses in die zeitlich richtige Reihenfolge.",
+          "**Anweisung:** Bringe die folgenden arbeitsrechtlichen Zeiträume in aufsteigende Länge, vom kürzesten zum längsten."
+        ],
+        [
+          "1. Abschluss des Arbeitsvertrags",
+          "1. Ruhezeit zwischen zwei Arbeitstagen (grundsätzlich mindestens elf Stunden)"
+        ],
+        [
+          "2. Probezeit",
+          "2. Kündigungsfrist in einer vereinbarten Probezeit (zwei Wochen)"
+        ],
+        [
+          "3. Eintritt des allgemeinen Kündigungsschutzes",
+          "3. Höchstdauer der Probezeit mit verkürzter Kündigungsfrist (sechs Monate)"
+        ],
+        [
+          "4. Ordentliche oder außerordentliche Kündigung",
+          "4. Höchstdauer einer sachgrundlosen Befristung (grundsätzlich zwei Jahre)"
+        ],
+        [
+          "**Erklärung:** Nach Vertragsschluss folgt meist eine Probezeit, danach greift ab sechs Monaten der Kündigungsschutz, eine Kündigung kann grundsätzlich zu jedem späteren Zeitpunkt erfolgen.",
+          "**Erklärung:** Elf Stunden Ruhezeit sind kürzer als die Kündigungsfrist von zwei Wochen, diese kürzer als die Probezeit von höchstens sechs Monaten und diese kürzer als die sachgrundlose Befristung von grundsätzlich höchstens zwei Jahren."
+        ],
+        [
+          "- [x] Es begrenzt u. a. die tägliche und wöchentliche Höchstarbeitszeit minderjähriger Auszubildender.",
+          "- [x] Es begrenzt u. a. die Höchstarbeitszeit beschäftigter Personen unter 18 Jahren."
+        ],
+        [
+          "- [ ] Es gilt ausschließlich für volljährige Auszubildende.",
+          "- [ ] Es gilt ausschließlich für volljährige Auszubildende und nicht für Minderjährige."
+        ],
+        [
+          "- [ ] Es untersagt jede Form von Ausbildung im Schichtdienst ausnahmslos.",
+          "- [ ] Es untersagt jede Form von Ausbildung im Schichtdienst ausnahmslos, auch in Notfällen."
+        ],
+        [
+          "- [ ] Es ersetzt das Bundesurlaubsgesetz für alle Auszubildenden.",
+          "- [ ] Es ersetzt das Bundesurlaubsgesetz für alle Auszubildenden in der Pflege vollständig."
+        ],
+        [
+          "**Erklärung:** Das JArbSchG schützt minderjährige Auszubildende u. a. durch begrenzte Arbeitszeiten, ein grundsätzliches Nachtarbeitsverbot und zusätzliche Urlaubsansprüche.",
+          "**Erklärung:** Das JArbSchG gilt für Personen unter 18 Jahren in Berufsausbildung und Beschäftigung und schützt sie u. a. durch begrenzte Arbeitszeiten, die Nachtruhe und zusätzliche Urlaubsansprüche."
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/fallaufgaben.md",
+      "paare": [
+        [
+          "Teilaufgabe 4 sollte diskriminierungsfreie Ausschreibung, schriftliche Mitteilung der Vertragsbedingungen und die Einbindung einer bestehenden Mitarbeitervertretung nennen.",
+          "Teilaufgabe 4 sollte diskriminierungsfreie Ausschreibung, schriftliche Mitteilung der Vertragsbedingungen und die Beteiligung eines bestehenden Betriebsrats nennen (Unterrichtung und Zustimmung bei Einstellungen in Unternehmen mit in der Regel mehr als 20 wahlberechtigten Arbeitnehmer:innen)."
+        ],
+        [
+          "Diskutieren Sie, welche Rolle eine bestehende Mitarbeitervertretung in diesem Fall spielen würde,",
+          "Diskutieren Sie, welche Rolle ein bestehender Betriebsrat in diesem Fall spielen würde,"
+        ],
+        [
+          "Teilaufgabe 4: Eine bestehende Mitarbeitervertretung wäre vor einer Kündigung anzuhören; eine Kündigung ohne diese Anhörung wäre unwirksam, unabhängig davon,",
+          "Teilaufgabe 4: Ein bestehender Betriebsrat wäre vor einer Kündigung zu hören, und ihm wären die Gründe mitzuteilen, auch in der Probezeit (§ 102 Abs. 1 BetrVG); eine Kündigung ohne diese Anhörung wäre unwirksam, unabhängig davon,"
+        ]
+      ]
+    },
+    {
+      "datei": "hb5/fachgespraech.md",
+      "paare": [
+        [
+          "  - Erwartung: Leistungsbezogene Bestandteile sind stattdessen Zulagen und gelegentliche Prämien.",
+          "  - Erwartung: Leistungsbezogene Bestandteile sind stattdessen gelegentliche Prämien; Zulagen (z. B. für Nacht- oder Wechselschichtdienst) gleichen besondere Belastungen aus und sind keine Leistungsvergütung."
+        ],
+        [
+          "  - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören; eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.",
+          "  - Erwartung: Existiert ein Betriebsrat, ist er vor jeder Kündigung zu hören; eine ohne Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam (§ 102 Abs. 1 BetrVG). Bei Personalräten und im kirchlichen Mitarbeitervertretungsrecht gelten eigene Regeln."
+        ],
+        [
+          "  - Erwartung: Existiert eine Mitarbeitervertretung, ist sie vor jeder Kündigung anzuhören.",
+          "  - Erwartung: Die Frage zielt auf die Arbeitnehmervertretung: Existiert ein Betriebsrat, ist er vor jeder Kündigung zu hören; bei Personalräten gelten die Regeln des Personalvertretungsrechts, bei kirchlichen Trägern gilt das kirchliche Mitarbeitervertretungsrecht mit eigenen Regeln."
+        ],
+        [
+          "  - Erwartung: Eine ohne vorherige Anhörung ausgesprochene Kündigung ist unwirksam.",
+          "  - Erwartung: Eine ohne Anhörung des Betriebsrats ausgesprochene Kündigung ist unwirksam."
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hb1/1.1-rechtliche-rahmenbedingungen.md",
+    "hb1/1.3-aufbau-ablauforganisation.md",
+    "hb1/fachgespraech.md",
+    "hb1/fallaufgaben.md",
+    "hb3/3.2-teamarbeit.md",
+    "hb3/fachgespraech.md",
+    "hb6/6.3-marketingkonzepte-wettbewerbsrecht.md",
+    "hb6/fallaufgaben.md",
+    "hb6/fachgespraech.md",
+    "hb4/4.1-rechnungswesen-jahresabschluss.md",
+    "hb4/4.4-controlling-kennzahlen.md",
+    "hb4/fachgespraech.md",
+    "hb5/5.1-personalplanung-auswahl.md",
+    "hb5/5.4-personalentwicklung.md",
+    "hb5/5.5-arbeitsrecht.md",
+    "hb5/fallaufgaben.md",
+    "hb5/fachgespraech.md"
+  ]
+}
