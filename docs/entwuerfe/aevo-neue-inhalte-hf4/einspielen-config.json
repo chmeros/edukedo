@@ -1,0 +1,105 @@
+{
+  "kurs": "ausbildung-der-ausbilder",
+  "rsDatum": "23.10.2026",
+  "neueThemen": [
+    [
+      "aevo-4.3-beendigung-ausbildungsverhaeltnis.md",
+      "hf4/4.3-beendigung-ausbildungsverhaeltnis.md"
+    ]
+  ],
+  "ergaenzungen": [
+    {
+      "datei": "aevo-4.1-ergaenzung-abschlusspruefung-wiederholung.md",
+      "abschnitte": [
+        [
+          "A",
+          "B",
+          "C",
+          "hf4/4.1-pruefungsvorbereitung-anmeldung.md"
+        ]
+      ]
+    }
+  ],
+  "faelle": [
+    [
+      "aevo-faelle-a.md",
+      "hf4"
+    ],
+    [
+      "aevo-faelle-b.md",
+      "hf4"
+    ]
+  ],
+  "ersetzungen": [
+    {
+      "datei": "hf4/4.1-pruefungsvorbereitung-anmeldung.md",
+      "paare": [
+        [
+          "§ 3 Abs. 4 Nr. 1–2 Handlungsfeld",
+          "§ 3 Abs. 4 Nr. 1–2 sowie Berufsbildungsgesetz (BBiG) §§ 14, 15, 19, 21, 36 bis 48, 65, 101, § 10 JArbSchG, § 10 OWiG und die Ausbildungsordnungen der Kelvinar-Berufe (FIAusbV, IndKflAusbV, IndElAusbV), Handlungsfeld"
+        ],
+        [
+          "sind die besonderen Verhältnisse behinderter Menschen bei der Prüfungsdurchführung angemessen zu berücksichtigen — etwa durch Zeitverlängerung",
+          "sollen die Regelungen der zuständigen Stelle, vor allem die Prüfungsordnung, die besonderen Verhältnisse behinderter Menschen bei der Prüfungsdurchführung berücksichtigen — etwa durch Zeitverlängerung"
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/fachgespraech.md",
+      "paare": [
+        [
+          "Beim Nachteilsausgleich sind die besonderen Verhältnisse behinderter Menschen bei der Prüfungsdurchführung angemessen zu berücksichtigen",
+          "Beim Nachteilsausgleich sollen die Regelungen der zuständigen Stelle, vor allem die Prüfungsordnung, die besonderen Verhältnisse behinderter Menschen bei der Prüfungsdurchführung berücksichtigen"
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/4.2-zeugnis-perspektiven.md",
+      "paare": [
+        [
+          "Ein zentraler Baustein ist dabei die Frage der **Übernahme** in ein reguläres Arbeitsverhältnis nach bestandener Abschlussprüfung.",
+          "Ein zentraler Baustein ist dabei die Frage der **Übernahme** in ein reguläres Arbeitsverhältnis nach bestandener Abschlussprüfung. Wie eine Übernahme rechtswirksam vereinbart wird und was gilt, wenn Auszubildende nach dem Ende ohne Vereinbarung weiterarbeiten, erklärt Thema 4.3 „Beendigung des Ausbildungsverhältnisses“ im selben Handlungsfeld."
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/3.3-foerderung-lernschwierigkeiten.md",
+      "paare": [
+        [
+          "(§ 21 Abs. 3 BBiG). Kelvinar prüft rechtzeitig",
+          "(§ 21 Abs. 3 BBiG; Ende des Ausbildungsverhältnisses, Kündigung und Weiterarbeit erklärt Thema 4.3 „Beendigung des Ausbildungsverhältnisses“ im Handlungsfeld „Ausbildung abschließen“). Kelvinar prüft rechtzeitig"
+        ]
+      ]
+    },
+    {
+      "datei": "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+      "paare": [
+        [
+          "die einen wichtigen Grund und die schriftliche Angabe der Kündigungsgründe verlangt.",
+          "die einen wichtigen Grund und die schriftliche Angabe der Kündigungsgründe verlangt. Frist, Zugang und Beteiligte bei einer solchen Kündigung erklärt Thema 4.3 „Beendigung des Ausbildungsverhältnisses“ im Handlungsfeld „Ausbildung abschließen“."
+        ]
+      ]
+    },
+    {
+      "datei": "hf4/fallaufgaben.md",
+      "paare": [
+        [
+          "Diese Aufgaben verknüpfen die beiden Themen aus HF4 (4.1 und 4.2)",
+          "Diese Aufgaben verknüpfen die Themen aus HF4 (4.1 bis 4.3)"
+        ],
+        [
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier Teilaufgaben mit Punktangaben",
+          "Jede Aufgabe besteht aus einer Ausgangssituation und vier oder fünf Teilaufgaben mit Punktangaben"
+        ]
+      ]
+    }
+  ],
+  "rechtsstand": [
+    "hf4/4.1-pruefungsvorbereitung-anmeldung.md",
+    "hf4/fachgespraech.md",
+    "hf4/4.2-zeugnis-perspektiven.md",
+    "hf3/3.3-foerderung-lernschwierigkeiten.md",
+    "hf3/3.1-lernfoerderliche-gestaltung-probezeit.md",
+    "hf4/fallaufgaben.md"
+  ]
+}
